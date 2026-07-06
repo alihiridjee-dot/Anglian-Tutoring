@@ -1,0 +1,4 @@
+project_id = "hqgocfupxalwkjdhonar"
+
+[auth.security]
+hibp_enabled = true
