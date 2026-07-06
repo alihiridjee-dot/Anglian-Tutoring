@@ -13,9 +13,19 @@ export interface EnrolmentsState {
 
 /** Reads the current user's profile row (role + enrolled subjects). */
 export function useEnrolments(): EnrolmentsState {
+  const isDemo =
+    typeof window !== "undefined" && localStorage.getItem("studyhub:is-demo") === "true";
+
   const { data, isLoading } = useQuery({
     queryKey: ["user-enrolments-and-profile"],
     queryFn: async () => {
+      if (isDemo) {
+        return {
+          role: "parent" as ProfileRole,
+          enrolledCourses: ["biology", "chemistry", "physics"],
+          inviteCode: "DEMO123",
+        };
+      }
       const { data: u } = await supabase.auth.getUser();
       const uid = u.user?.id;
       if (!uid) {
@@ -40,6 +50,15 @@ export function useEnrolments(): EnrolmentsState {
     staleTime: 1000 * 60 * 10, // 10 minutes cache
     gcTime: 1000 * 60 * 30, // 30 minutes garbage collection
   });
+
+  if (isDemo) {
+    return {
+      loading: false,
+      role: "parent" as ProfileRole,
+      enrolledCourses: ["biology", "chemistry", "physics"],
+      inviteCode: "DEMO123",
+    };
+  }
 
   return {
     loading: isLoading,

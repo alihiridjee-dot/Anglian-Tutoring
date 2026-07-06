@@ -54,6 +54,23 @@ function AuthPage() {
     });
   }, [navigate]);
 
+  const handleBypass = async () => {
+    setLoading(true);
+    try {
+      const ok = await ensureDemoTutorSession();
+      if (ok) {
+        toast.success("Bypassed to Dashboard (Demo Principal Tutor)");
+        navigate({ to: "/dashboard" });
+      } else {
+        toast.error("Bypass failed. Please check network or try standard sign-up.");
+      }
+    } catch (err) {
+      toast.error("Bypass failed.");
+    } finally {
+      setLoading(false);
+    }
+  };
+
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     setLoading(true);
@@ -276,6 +293,23 @@ function AuthPage() {
                   Payment for your plan is set up on the next screen.
                 </p>
               )}
+
+              <div className="relative flex py-4 items-center">
+                <div className="flex-grow border-t border-border"></div>
+                <span className="flex-shrink mx-4 text-xs text-muted-foreground font-semibold uppercase tracking-wider">
+                  Sandbox Mode
+                </span>
+                <div className="flex-grow border-t border-border"></div>
+              </div>
+
+              <button
+                type="button"
+                onClick={handleBypass}
+                disabled={loading}
+                className="w-full h-11 rounded-xl bg-primary/10 hover:bg-primary/15 text-primary font-semibold text-sm transition flex items-center justify-center gap-2 cursor-pointer shadow-xs disabled:opacity-50"
+              >
+                <span>✨ Bypass straight to Dashboard</span>
+              </button>
             </>
           )}
         </div>

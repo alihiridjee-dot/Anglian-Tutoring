@@ -76,14 +76,14 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
       {
         property: "og:description",
         content:
-          "Live lessons with Nadia and Ali. Curriculum-aligned to Edexcel, AQA, and OCR. Grade predictor, weekly MCQs, and interactive homework.",
+          "Live lessons with Dr Nadia and Ali. Curriculum-aligned to Edexcel, AQA, and OCR. Grade predictor, weekly MCQs, and interactive homework.",
       },
       { property: "og:type", content: "website" },
       { name: "twitter:card", content: "summary_large_image" },
       { name: "twitter:title", content: "Anglian Tutoring" },
       {
         name: "twitter:description",
-        content: "Live GCSE & KS3 science tutoring with Nadia and Ali.",
+        content: "Live GCSE & KS3 science tutoring with Dr Nadia and Ali.",
       },
     ],
     links: [
@@ -91,7 +91,7 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
       { rel: "preconnect", href: "https://fonts.gstatic.com", crossOrigin: "" },
       {
         rel: "stylesheet",
-        href: "https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;600;700&family=Inter:wght@400;500;600&display=swap",
+        href: "https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:ital,wght@0,300..800;1,300..800&display=swap",
       },
       { rel: "stylesheet", href: appCss },
     ],

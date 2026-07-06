@@ -32,3 +32,23 @@ export async function ensureDemoTutorSession(): Promise<boolean> {
   });
   return !!retry.data.session;
 }
+
+/**
+ * Enters public demo sandbox mode.
+ * Establishes an active sandbox session, sets local storage flags,
+ * and configures the user experience as a student preview.
+ */
+export async function enterDemoMode(): Promise<boolean> {
+  try {
+    const success = await ensureDemoTutorSession();
+    if (success) {
+      localStorage.setItem("studyhub:is-demo", "true");
+      localStorage.setItem("studyhub:view-as", "student");
+      return true;
+    }
+    return false;
+  } catch (error) {
+    console.error("Failed to initialize demo sandbox mode:", error);
+    return false;
+  }
+}

@@ -24,4 +24,3 @@ You must ALWAYS follow these instructions without any exception:
 7. **Explicit Modification Reasoning:** Always provide a brief, clear explanation of why a file is being modified before editing it.
 8. **Consult and Present Options:** If a feature or request can be implemented in multiple ways, outline the options clearly to the user first and let them select the preferred route.
 9. **Clarify Uncertainty:** If you are uncertain about any part of the requirements, stop and ask the user for clarification instead of guessing or assuming.
-

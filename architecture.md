@@ -112,7 +112,7 @@ This application uses a multi-tier client-and-server synchronization paradigm:
 
 The backend is built around **TanStack Start**, powered by **Nitro** server engine under the hood.
 
-- **SSR Entry Point (`src/server.ts`):** 
+- **SSR Entry Point (`src/server.ts`):**
   Proxies all incoming web requests to the TanStack Start server-entry router. Catches and logs server-side failures to display a clean, fallback error page without crashing the container.
 - **Vite Configuration:**
   Uses `@lovable.dev/vite-tanstack-config` to bundle, pre-render, and generate the static and serverless-friendly `.output/` structure cleanly.

@@ -28,7 +28,7 @@ function BillingPage() {
   const { userId } = useRoles();
   const { enrolledCourses, role } = useEnrolments();
   const queryClient = useQueryClient();
-  
+
   const [packages, setPackages] = useState<Package[]>([]);
   const [sub, setSub] = useState<Subscription | null>(null);
   const [loading, setLoading] = useState(true);
@@ -37,7 +37,7 @@ function BillingPage() {
   const [selectedPackage, setSelectedPackage] = useState<Package | null>(null);
   const [isCheckoutOpen, setIsCheckoutOpen] = useState(false);
   const [checkoutStep, setCheckoutStep] = useState<"form" | "processing" | "success">("form");
-  
+
   // Checkout form fields
   const [cardName, setCardName] = useState("");
   const [cardNumber, setCardNumber] = useState("");
@@ -119,7 +119,7 @@ function BillingPage() {
       setPaymentError("You must be logged in to subscribe.");
       return;
     }
-    
+
     const cleanCard = cardNumber.replace(/\s/g, "");
     if (cleanCard.length < 15) {
       setPaymentError("Please enter a valid credit card number.");
@@ -145,16 +145,17 @@ function BillingPage() {
       nextPeriodEnd.setDate(nextPeriodEnd.getDate() + 30);
 
       // 1. Create/Update Subscription in Supabase
-      const { error: subErr } = await supabase
-        .from("subscriptions")
-        .upsert({
+      const { error: subErr } = await supabase.from("subscriptions").upsert(
+        {
           user_id: userId,
           status: "active",
           plan: selectedPackage!.tier,
           current_period_end: nextPeriodEnd.toISOString(),
-        }, {
-          onConflict: "user_id"
-        });
+        },
+        {
+          onConflict: "user_id",
+        },
+      );
 
       if (subErr) throw subErr;
 
@@ -171,7 +172,7 @@ function BillingPage() {
       // Invalidate the cache to reload throughout the app
       queryClient.invalidateQueries({ queryKey: ["user-roles-and-profile"] });
       queryClient.invalidateQueries({ queryKey: ["user-enrolments-and-profile"] });
-      
+
       // Instantly update local state representation
       setSub({
         status: "active",
@@ -181,9 +182,13 @@ function BillingPage() {
 
       setCheckoutStep("success");
       toast.success(`Success! Enrolled in ${selectedPackage!.name}`);
-    } catch (err: any) {
+    } catch (err: unknown) {
       console.error(err);
-      setPaymentError(err.message || "An unexpected error occurred during Stripe validation.");
+      const msg =
+        err instanceof Error
+          ? err.message
+          : "An unexpected error occurred during Stripe validation.";
+      setPaymentError(msg);
       setCheckoutStep("form");
     }
   };
@@ -275,7 +280,9 @@ function BillingPage() {
             <Zap className="w-4 h-4" /> Stripe Integrated
           </div>
           <p className="text-muted-foreground">
-            The stripe checkout simulation is fully online and integrated with the database. Upgrading or switching plans above triggers a secure, premium checkout layer and automatically updates your subject enrolments and curriculum.
+            The stripe checkout simulation is fully online and integrated with the database.
+            Upgrading or switching plans above triggers a secure, premium checkout layer and
+            automatically updates your subject enrolments and curriculum.
           </p>
           <Link
             to="/dashboard"
@@ -290,7 +297,6 @@ function BillingPage() {
       {isCheckoutOpen && selectedPackage && (
         <div className="fixed inset-0 z-50 flex items-center justify-center bg-black/60 backdrop-blur-xs p-4 overflow-y-auto animate-fade-in">
           <div className="relative w-full max-w-4xl bg-[#f8f9fa] rounded-2xl overflow-hidden shadow-2xl border border-border flex flex-col md:flex-row max-h-[90vh]">
-            
             {/* Close Button */}
             <button
               onClick={() => setIsCheckoutOpen(false)}
@@ -322,7 +328,9 @@ function BillingPage() {
                 <div className="mt-8 space-y-4 border-t border-white/10 pt-6">
                   <div className="flex justify-between text-sm">
                     <span className="text-white/60">Subscription price</span>
-                    <span className="font-mono">£{(selectedPackage.price_pence / 100).toFixed(2)}</span>
+                    <span className="font-mono">
+                      £{(selectedPackage.price_pence / 100).toFixed(2)}
+                    </span>
                   </div>
                   <div className="flex justify-between text-sm">
                     <span className="text-white/60">Billed monthly</span>
@@ -350,7 +358,6 @@ function BillingPage() {
 
             {/* Right Column: Payment entry form */}
             <div className="w-full md:w-[55%] bg-white p-8 flex flex-col justify-center relative min-h-[400px]">
-              
               {checkoutStep === "form" && (
                 <form onSubmit={handlePaySubmit} className="space-y-5">
                   <div className="flex items-center justify-between">
@@ -467,11 +474,13 @@ function BillingPage() {
                     type="submit"
                     className="w-full h-12 bg-primary text-primary-foreground font-semibold rounded-lg text-sm hover:opacity-95 transition cursor-pointer flex items-center justify-center gap-2 mt-2"
                   >
-                    <Lock className="w-4 h-4" /> Pay £{(selectedPackage.price_pence / 100).toFixed(2)}
+                    <Lock className="w-4 h-4" /> Pay £
+                    {(selectedPackage.price_pence / 100).toFixed(2)}
                   </button>
 
                   <p className="text-center text-[11px] text-muted-foreground">
-                    By confirming, you authorize Anglian Tutoring to charge your card on a monthly basis until you cancel. Cancel anytime.
+                    By confirming, you authorize Anglian Tutoring to charge your card on a monthly
+                    basis until you cancel. Cancel anytime.
                   </p>
                 </form>
               )}
@@ -501,9 +510,7 @@ function BillingPage() {
                     </h4>
                     <p className="text-sm text-muted-foreground mt-1 max-w-sm">
                       Your subscription is now active! All features of the{" "}
-                      <span className="font-semibold text-foreground">
-                        {selectedPackage.name}
-                      </span>{" "}
+                      <span className="font-semibold text-foreground">{selectedPackage.name}</span>{" "}
                       have been fully unlocked.
                     </p>
                   </div>
@@ -515,7 +522,6 @@ function BillingPage() {
                   </button>
                 </div>
               )}
-
             </div>
           </div>
         </div>
@@ -523,4 +529,3 @@ function BillingPage() {
     </AppLayout>
   );
 }
-

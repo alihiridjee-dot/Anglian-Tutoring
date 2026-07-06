@@ -12,11 +12,88 @@ export const Route = createFileRoute("/_authenticated/live")({
   component: Live,
 });
 
+interface LiveSession {
+  id: string;
+  kind: string;
+  title: string;
+  description: string | null;
+  starts_at: string | null;
+  join_url: string | null;
+  subject: string;
+  level: string;
+  board: string | null;
+}
+
 function Live() {
   const [filters, setFilters] = useState<Filters>({});
   const { data, isLoading } = useQuery({
     queryKey: ["live", filters],
     queryFn: async () => {
+      const isDemo =
+        typeof window !== "undefined" && localStorage.getItem("studyhub:is-demo") === "true";
+      if (isDemo) {
+        // High fidelity GCSE Biology mock live sessions
+        const nowTime = Date.now();
+        const demoSessions = [
+          {
+            id: "live-photosynthesis",
+            kind: "live_session",
+            title: "Mastering Photosynthesis: Limiting Factors & Light Intensity",
+            description:
+              "We will demystify the light-dependent stage, trace how carbon dioxide concentration and temperature restrict reaction rates, and practice answering high-yield 6-mark exam questions.",
+            starts_at: new Date(nowTime + 4 * 3600 * 1000).toISOString(), // 4 hours from now
+            join_url: "https://teams.microsoft.com/l/meetup-join/demo",
+            subject: "biology",
+            level: "gcse",
+            board: "AQA",
+          },
+          {
+            id: "live-cell-membranes",
+            kind: "live_session",
+            title: "Active Transport vs Osmosis: Crucial Cellular Transport Mechanics",
+            description:
+              "Compare passive diffusion, osmosis, and active transport with visual cell membrane models. Perfect for mastering GCSE paper 1.",
+            starts_at: new Date(nowTime + 28 * 3600 * 1000).toISOString(), // Tomorrow
+            join_url: "https://teams.microsoft.com/l/meetup-join/demo",
+            subject: "biology",
+            level: "gcse",
+            board: "Edexcel",
+          },
+          {
+            id: "live-monoclonal",
+            kind: "live_session",
+            title: "Monoclonal Antibodies & GCSE Disease Defense Pathways",
+            description:
+              "Step-by-step breakdown of how hybridoma cells are created, how antibodies target specific antigens, and how they are used in diagnostic tests.",
+            starts_at: new Date(nowTime - 24 * 3600 * 1000).toISOString(), // Yesterday
+            join_url: "https://teams.microsoft.com/l/meetup-join/demo",
+            subject: "biology",
+            level: "gcse",
+            board: "AQA",
+          },
+          {
+            id: "live-cram",
+            kind: "live_session",
+            title: "GCSE Biology Paper 1: Live Syllabus-Wide Revision",
+            description:
+              "Comprehensive rapid-fire review of Cell Biology, Infection & Response, and Bioenergetics with active chat Q&A.",
+            starts_at: new Date(nowTime - 72 * 3600 * 1000).toISOString(), // 3 days ago
+            join_url: "https://teams.microsoft.com/l/meetup-join/demo",
+            subject: "biology",
+            level: "gcse",
+            board: "OCR Gateway",
+          },
+        ];
+
+        // Apply filters in memory
+        return demoSessions.filter((s) => {
+          if (filters.subject && s.subject !== filters.subject) return false;
+          if (filters.level && s.level !== filters.level) return false;
+          if (filters.board && s.board !== filters.board) return false;
+          return true;
+        });
+      }
+
       let q = supabase
         .from("resources")
         .select("*")
@@ -32,7 +109,7 @@ function Live() {
   });
 
   // WhatsApp Alert Modal state
-  const [selectedSession, setSelectedSession] = useState<any | null>(null);
+  const [selectedSession, setSelectedSession] = useState<LiveSession | null>(null);
   const [isReminderOpen, setIsReminderOpen] = useState(false);
   const [phonePrefix, setPhonePrefix] = useState("+44");
   const [phoneNumber, setPhoneNumber] = useState("");
@@ -40,12 +117,14 @@ function Live() {
   const [isSubscribed, setIsSubscribed] = useState(false);
 
   const now = Date.now();
-  const upcoming = (data ?? []).filter(
+  const upcoming = ((data as LiveSession[]) ?? []).filter(
     (s) => s.starts_at && new Date(s.starts_at).getTime() >= now,
   );
-  const past = (data ?? []).filter((s) => s.starts_at && new Date(s.starts_at).getTime() < now);
+  const past = ((data as LiveSession[]) ?? []).filter(
+    (s) => s.starts_at && new Date(s.starts_at).getTime() < now,
+  );
 
-  const openWhatsAppModal = (session: any) => {
+  const openWhatsAppModal = (session: LiveSession) => {
     setSelectedSession(session);
     setIsReminderOpen(true);
     setPhoneNumber("");
@@ -53,15 +132,15 @@ function Live() {
     setIsSubscribing(false);
   };
 
-  const getWhatsAppShareLink = (s: any) => {
-    const timeStr = new Date(s.starts_at).toLocaleString();
+  const getWhatsAppShareLink = (s: LiveSession) => {
+    const timeStr = s.starts_at ? new Date(s.starts_at).toLocaleString() : "";
     const text = `📚 *StudyHub Live Session Reminder* 📚\n\nI have an upcoming live session scheduled:\n\n🔹 *Session:* ${s.title}\n🔹 *Subject:* ${s.subject.toUpperCase()} (${s.level.toUpperCase()})\n🔹 *Time:* ${timeStr}\n\n👉 *Join link:* ${s.join_url || "Link pending"}\n\nSee you there!`;
     const cleanPhone = `${phonePrefix.replace("+", "")}${phoneNumber.replace(/[^0-9]/g, "")}`;
     return `https://wa.me/${cleanPhone}?text=${encodeURIComponent(text)}`;
   };
 
-  const getWhatsAppGroupShareLink = (s: any) => {
-    const timeStr = new Date(s.starts_at).toLocaleString();
+  const getWhatsAppGroupShareLink = (s: LiveSession) => {
+    const timeStr = s.starts_at ? new Date(s.starts_at).toLocaleString() : "";
     const text = `📚 *StudyHub Live Session Invite* 📚\n\nHey everyone! Join the live tutoring session:\n\n🔹 *Session:* ${s.title}\n🔹 *Subject:* ${s.subject.toUpperCase()} (${s.level.toUpperCase()})\n🔹 *Time:* ${timeStr}\n\n👉 *Join here:* ${s.join_url || "Link pending"}`;
     return `https://wa.me/?text=${encodeURIComponent(text)}`;
   };
@@ -187,7 +266,6 @@ function Live() {
       {isReminderOpen && selectedSession && (
         <div className="fixed inset-0 z-50 flex items-center justify-center bg-black/60 backdrop-blur-xs p-4 animate-fade-in">
           <div className="relative w-full max-w-lg bg-white rounded-2xl overflow-hidden shadow-2xl border border-border flex flex-col">
-            
             {/* Header banner */}
             <div className="bg-[#25D366] text-white p-6 relative">
               <button
@@ -204,9 +282,7 @@ function Live() {
                   <h3 className="font-display font-bold text-lg leading-tight">
                     WhatsApp Live Session Alerts
                   </h3>
-                  <p className="text-white/85 text-xs mt-0.5">
-                    For "{selectedSession.title}"
-                  </p>
+                  <p className="text-white/85 text-xs mt-0.5">For "{selectedSession.title}"</p>
                 </div>
               </div>
             </div>
@@ -216,7 +292,8 @@ function Live() {
               {!isSubscribed ? (
                 <>
                   <p className="text-sm text-muted-foreground">
-                    Get an instant schedule summary or register to receive automated reminders before this session goes live.
+                    Get an instant schedule summary or register to receive automated reminders
+                    before this session goes live.
                   </p>
 
                   <form onSubmit={handleSubscribeAlerts} className="space-y-4">
@@ -303,7 +380,8 @@ function Live() {
                       Alert Activated!
                     </h4>
                     <p className="text-xs text-muted-foreground mt-1 max-w-xs mx-auto">
-                      Automated broadcasts have been enabled for **{phonePrefix} {phoneNumber}**. We will ping you 15 minutes before the session starts.
+                      Automated broadcasts have been enabled for **{phonePrefix} {phoneNumber}**. We
+                      will ping you 15 minutes before the session starts.
                     </p>
                   </div>
                   <div className="flex gap-2 w-full pt-2">
@@ -329,7 +407,10 @@ function Live() {
 
             <div className="bg-[#f8f9fa] border-t border-border p-4 text-[11px] text-muted-foreground flex gap-2">
               <Info className="w-4 h-4 shrink-0 text-muted-foreground" />
-              <span>We value your privacy. Your number is only used to send session updates and will never be shared with third parties. UK mobile formats are supported.</span>
+              <span>
+                We value your privacy. Your number is only used to send session updates and will
+                never be shared with third parties. UK mobile formats are supported.
+              </span>
             </div>
           </div>
         </div>
@@ -337,4 +418,3 @@ function Live() {
     </AppLayout>
   );
 }
-

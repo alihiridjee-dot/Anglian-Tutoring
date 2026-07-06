@@ -16,7 +16,7 @@ export const Route = createFileRoute("/")({
       {
         name: "description",
         content:
-          "Live online Biology, Chemistry and Physics tutoring with Nadia and Ali. Weekly quizzes, homework marking, and a real grade predictor. Book a place today.",
+          "Live online Biology, Chemistry and Physics tutoring with Dr Nadia and Ali. Weekly quizzes, homework marking, and a real grade predictor. Book a place today.",
       },
     ],
   }),

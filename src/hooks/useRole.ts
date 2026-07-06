@@ -55,17 +55,21 @@ export function useRoles() {
   const userId = data?.userId ?? null;
   const email = data?.email ?? null;
 
-  const actualIsTutor = !!roles && (roles.includes("tutor") || roles.includes("admin"));
+  const isDemoMode =
+    typeof window !== "undefined" && localStorage.getItem("studyhub:is-demo") === "true";
+
+  const actualIsTutor =
+    !isDemoMode && !!roles && (roles.includes("tutor") || roles.includes("admin"));
   // Preview toggle: tutors can "view as student"
-  const isTutor = actualIsTutor && viewAs === "tutor";
+  const isTutor = !isDemoMode && actualIsTutor && viewAs === "tutor";
 
   return {
-    roles,
+    roles: isDemoMode ? ["student" as AppRole] : roles,
     isTutor,
     actualIsTutor,
-    userId,
-    email,
-    loading: isLoading,
-    viewAs,
+    userId: isDemoMode ? "demo-student-id" : userId,
+    email: isDemoMode ? "demo.parent@example.com" : email,
+    loading: isDemoMode ? false : isLoading,
+    viewAs: isDemoMode ? "student" : viewAs,
   };
 }

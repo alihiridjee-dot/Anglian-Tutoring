@@ -13,8 +13,9 @@ import {
   ArrowLeft,
   ArrowRight,
   Users,
+  Sparkles,
 } from "lucide-react";
-import type { ReactNode } from "react";
+import { type ReactNode, useState, useEffect } from "react";
 import { useQueryClient } from "@tanstack/react-query";
 import { supabase } from "@/integrations/supabase/client";
 import { useRoles, setViewAs } from "@/hooks/useRole";
@@ -40,6 +41,21 @@ export function AppLayout({ title, children }: { title: string; children: ReactN
   const navigate = useNavigate();
   const router = useRouter();
   const qc = useQueryClient();
+
+  const [isDemo, setIsDemo] = useState(false);
+  useEffect(() => {
+    setIsDemo(localStorage.getItem("studyhub:is-demo") === "true");
+  }, []);
+
+  const handleExitDemo = async () => {
+    localStorage.removeItem("studyhub:is-demo");
+    localStorage.removeItem("studyhub:view-as");
+    await qc.cancelQueries();
+    qc.clear();
+    await supabase.auth.signOut();
+    toast.success("Exited demo sandbox");
+    navigate({ to: "/" });
+  };
 
   const nav = isTutor ? [...studentNav, ...tutorExtra] : studentNav;
 
@@ -93,6 +109,37 @@ export function AppLayout({ title, children }: { title: string; children: ReactN
       </aside>
 
       <main className="flex-1 min-w-0 flex flex-col">
+        {isDemo && (
+          <div className="bg-slate-900 text-white px-6 py-2.5 flex flex-col sm:flex-row gap-3 items-center justify-between text-xs font-semibold border-b border-slate-800 shrink-0 select-none shadow-md z-40 bg-gradient-to-r from-slate-900 via-primary-deep to-slate-900">
+            <div className="flex flex-wrap items-center gap-2.5 justify-center sm:justify-start">
+              <span className="inline-flex items-center gap-1 bg-amber-500 text-slate-950 px-2.5 py-0.5 rounded-full text-[10px] font-bold uppercase tracking-wider animate-pulse shrink-0">
+                <Sparkles className="w-3 h-3 fill-slate-950" /> PARENT DEMO MODE
+              </span>
+              <span className="text-slate-200 text-center sm:text-left leading-relaxed">
+                Exploring the GCSE Science Student Hub. Click around to preview live classes,
+                grades, worksheets, and syllabus views!
+              </span>
+            </div>
+            <div className="flex items-center gap-2.5 shrink-0">
+              <Link
+                to="/"
+                onClick={() => {
+                  localStorage.removeItem("studyhub:is-demo");
+                  localStorage.removeItem("studyhub:view-as");
+                }}
+                className="bg-emerald-600 hover:bg-emerald-500 text-white px-3.5 py-1.5 rounded-lg font-bold text-xs shadow-xs transition shrink-0"
+              >
+                Join Now
+              </Link>
+              <button
+                onClick={handleExitDemo}
+                className="bg-white/10 hover:bg-white/20 text-white border border-white/15 px-3 py-1.5 rounded-lg font-bold text-xs transition cursor-pointer shrink-0"
+              >
+                Exit Sandbox
+              </button>
+            </div>
+          </div>
+        )}
         <header className="flex items-center justify-between px-6 lg:px-10 py-4 border-b border-border bg-card">
           <div className="flex items-center gap-3">
             <div className="flex items-center gap-1">

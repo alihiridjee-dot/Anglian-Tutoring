@@ -96,37 +96,6 @@ function Dashboard() {
         </div>
       </div>
 
-      {/* Predicted grades */}
-      {!isTutor && displaySubjects.length > 0 && (
-        <div className="mb-6">
-          <div className="flex items-center gap-2 mb-3">
-            <TrendingUp className="w-4 h-4 text-primary" />
-            <h3 className="font-display font-semibold">Predicted grades</h3>
-          </div>
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
-            {analytics.map((a) => (
-              <div key={a.subject} className="rounded-2xl bg-card border border-border p-5">
-                <div
-                  className={`w-full h-1.5 rounded-full bg-gradient-to-r ${subjectColor[a.subject] ?? "from-primary to-accent"} mb-4`}
-                />
-                <p className="text-xs uppercase tracking-widest text-muted-foreground font-semibold">
-                  {subjectLabel[a.subject] ?? a.subject}
-                </p>
-                <p className="font-display text-4xl font-bold mt-1">Grade {a.predictedGrade}</p>
-                <p className="text-xs text-muted-foreground mt-2">
-                  MCQ avg <span className="font-semibold text-foreground">{a.mcqAverage}%</span> ·
-                  Homework avg <span className="font-semibold text-foreground">{a.hwAverage}%</span>
-                </p>
-                <p className="text-[10px] text-muted-foreground mt-1">
-                  Based on {a.mcqAttempts} quiz{a.mcqAttempts === 1 ? "" : "zes"} + {a.hwGraded}{" "}
-                  marked homework{a.hwGraded === 1 ? "" : "s"}
-                </p>
-              </div>
-            ))}
-          </div>
-        </div>
-      )}
-
       {/* Quick tiles */}
       <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 gap-4">
         {tiles.map((t) => (

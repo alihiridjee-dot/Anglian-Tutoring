@@ -30,7 +30,10 @@ export function LiveForm({ userId, taxonomy }: LiveFormProps) {
 
   const generateTeamsLink = (e: React.MouseEvent) => {
     e.preventDefault();
-    const randomMeetingId = Math.random().toString(36).substring(2, 10) + "-" + Math.random().toString(36).substring(2, 6);
+    const randomMeetingId =
+      Math.random().toString(36).substring(2, 10) +
+      "-" +
+      Math.random().toString(36).substring(2, 6);
     const mockTeamsUrl = `https://teams.microsoft.com/l/meetup-join/19%3ameeting_${randomMeetingId}%40thread.v2/0?context=%7b%22Tid%22%3a%225f6b864d-ef0a-4720-bc4f-9e73d31fc30c%22%2c%22Oid%22%3a%22378dbff3-a61f-4efd-b3ef-ff074f76269b%22%7d`;
     setJoinUrl(mockTeamsUrl);
     toast.success("Microsoft Teams meeting link generated!");
@@ -39,9 +42,9 @@ export function LiveForm({ userId, taxonomy }: LiveFormProps) {
   const submit = async (e: React.FormEvent) => {
     e.preventDefault();
     setLoading(true);
-    
+
     const formattedStartsAt = new Date(startsAt).toISOString();
-    
+
     const { error } = await supabase.from("resources").insert({
       kind: "live_session",
       title,
@@ -53,23 +56,24 @@ export function LiveForm({ userId, taxonomy }: LiveFormProps) {
       level: taxonomy.level,
       created_by: userId,
     });
-    
+
     setLoading(false);
     if (error) return toast.error(error.message);
 
     if (broadcastWhatsApp) {
       const timeStr = new Date(startsAt).toLocaleString();
       const inviteText = `📚 *New StudyHub Live Session Scheduled!* 📚\n\n🔹 *Session:* ${title}\n🔹 *Subject:* ${taxonomy.subject.toUpperCase()} (${taxonomy.level.toUpperCase()})\n🔹 *Time:* ${timeStr}\n\n👉 *Join here:* ${joinUrl || "Link pending"}`;
-      
+
       try {
         await navigator.clipboard.writeText(inviteText);
         toast.success("Scheduled & WhatsApp invite copied!", {
-          description: "We saved the lesson and copied the pre-formatted WhatsApp invite text to your clipboard. Paste it directly in your WhatsApp group chat!",
-          duration: 6000
+          description:
+            "We saved the lesson and copied the pre-formatted WhatsApp invite text to your clipboard. Paste it directly in your WhatsApp group chat!",
+          duration: 6000,
         });
       } catch {
         toast.success("Live session scheduled!", {
-          description: "WhatsApp invite template is ready to copy."
+          description: "WhatsApp invite template is ready to copy.",
         });
       }
     } else {
@@ -94,7 +98,7 @@ export function LiveForm({ userId, taxonomy }: LiveFormProps) {
           placeholder="e.g. Masterclass in Algebraic Equations"
         />
       </Field>
-      
+
       <div className="grid grid-cols-1 md:grid-cols-2 gap-3">
         <Field label="Starts at">
           <input
@@ -135,14 +139,16 @@ export function LiveForm({ userId, taxonomy }: LiveFormProps) {
           placeholder="Brief summary of what will be covered in this session..."
         />
       </Field>
-      
+
       <TaxonomyFields {...taxonomy} />
 
       {/* Broadcast Toggle Options */}
       <div className="p-3 bg-secondary/50 rounded-lg border border-border space-y-2">
         <div className="flex items-center gap-2">
           <Smartphone className="w-4 h-4 text-[#25D366]" />
-          <span className="text-xs font-bold uppercase tracking-wider text-muted-foreground">Broadcast Notifications</span>
+          <span className="text-xs font-bold uppercase tracking-wider text-muted-foreground">
+            Broadcast Notifications
+          </span>
         </div>
         <label className="flex items-center gap-2 cursor-pointer text-sm">
           <input
@@ -161,4 +167,3 @@ export function LiveForm({ userId, taxonomy }: LiveFormProps) {
     </form>
   );
 }
-
