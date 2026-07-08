@@ -36,13 +36,14 @@ export async function ensureDemoTutorSession(): Promise<boolean> {
 /**
  * Enters public demo sandbox mode.
  * Establishes an active sandbox session, sets local storage flags,
- * and configures the user experience as a student preview.
+ * and configures the user experience as a student or parent preview.
  */
-export async function enterDemoMode(): Promise<boolean> {
+export async function enterDemoMode(role: "student" | "parent" = "student"): Promise<boolean> {
   try {
     const success = await ensureDemoTutorSession();
     if (success) {
       localStorage.setItem("studyhub:is-demo", "true");
+      localStorage.setItem("studyhub:demo-role", role);
       localStorage.setItem("studyhub:view-as", "student");
       return true;
     }

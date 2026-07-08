@@ -11,8 +11,8 @@ type SearchParams = { mode?: "signin" | "signup"; tier?: string; demo?: string; 
 export const Route = createFileRoute("/auth")({
   head: () => ({
     meta: [
-      { title: "Sign in | Anglian Tutoring" },
-      { name: "description", content: "Log in or create your Anglian Tutoring account." },
+      { title: "Sign in | Anglian Learning" },
+      { name: "description", content: "Log in or create your Anglian Learning account." },
     ],
   }),
   validateSearch: (search: Record<string, unknown>): SearchParams => ({
@@ -124,7 +124,7 @@ function AuthPage() {
             <GraduationCap className="w-5 h-5 text-primary-foreground" />
           </div>
           <span className="font-display text-xl font-semibold tracking-tight">
-            Anglian Tutoring
+            Anglian Learning
           </span>
         </div>
 
@@ -145,7 +145,7 @@ function AuthPage() {
               <div className="bg-muted p-4 rounded-xl text-xs text-left text-muted-foreground mb-6 leading-relaxed space-y-1.5">
                 <p className="font-bold text-foreground">Next steps:</p>
                 <p>1. Open your email client inbox.</p>
-                <p>2. Find the confirmation email from Anglian Tutoring.</p>
+                <p>2. Find the confirmation email from Anglian Learning.</p>
                 <p>3. Click the link to activate your account and access your dashboard.</p>
               </div>
               <button

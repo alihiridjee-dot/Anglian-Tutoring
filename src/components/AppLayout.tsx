@@ -6,7 +6,6 @@ import {
   LogOut,
   Wrench,
   BookMarked,
-  CreditCard,
   Eye,
   ListChecks,
   Video,
@@ -19,36 +18,55 @@ import { type ReactNode, useState, useEffect } from "react";
 import { useQueryClient } from "@tanstack/react-query";
 import { supabase } from "@/integrations/supabase/client";
 import { useRoles, setViewAs } from "@/hooks/useRole";
+import { useEnrolments } from "@/hooks/data/useEnrolments";
 import { toast } from "sonner";
 
-const studentNav = [
+interface NavItem {
+  to:
+    | "/dashboard"
+    | "/curriculum"
+    | "/homework"
+    | "/live"
+    | "/mcqs"
+    | "/tutor"
+    | "/students"
+    | "/student-dashboard"
+    | "/parent-dashboard";
+  label: string;
+  icon: React.ComponentType<{ className?: string }>;
+}
+
+const studentNav: NavItem[] = [
   { to: "/dashboard", label: "Dashboard", icon: LayoutDashboard },
   { to: "/curriculum", label: "Curriculum", icon: BookMarked },
   { to: "/homework", label: "Homework & Grades", icon: ClipboardList },
   { to: "/live", label: "Live Sessions", icon: Video },
   { to: "/mcqs", label: "MCQs", icon: ListChecks },
-  { to: "/billing", label: "Billing", icon: CreditCard },
-] as const;
+];
 
-const tutorExtra = [
+const tutorExtra: NavItem[] = [
   { to: "/tutor", label: "Tutor Studio", icon: Wrench },
   { to: "/students", label: "Students", icon: Users },
-] as const;
+];
 
 export function AppLayout({ title, children }: { title: string; children: ReactNode }) {
   const pathname = useRouterState({ select: (s) => s.location.pathname });
   const { isTutor, actualIsTutor, email, viewAs } = useRoles();
+  const { role: userRole } = useEnrolments();
   const navigate = useNavigate();
   const router = useRouter();
   const qc = useQueryClient();
 
   const [isDemo, setIsDemo] = useState(false);
+  const [demoRole, setDemoRole] = useState<string | null>(null);
   useEffect(() => {
     setIsDemo(localStorage.getItem("studyhub:is-demo") === "true");
+    setDemoRole(localStorage.getItem("studyhub:demo-role"));
   }, []);
 
   const handleExitDemo = async () => {
     localStorage.removeItem("studyhub:is-demo");
+    localStorage.removeItem("studyhub:demo-role");
     localStorage.removeItem("studyhub:view-as");
     await qc.cancelQueries();
     qc.clear();
@@ -57,7 +75,19 @@ export function AppLayout({ title, children }: { title: string; children: ReactN
     navigate({ to: "/" });
   };
 
-  const nav = isTutor ? [...studentNav, ...tutorExtra] : studentNav;
+  const nav = isTutor
+    ? [...studentNav, ...tutorExtra]
+    : studentNav.map((item) => {
+        if (item.to === "/dashboard") {
+          const activeRole = isDemo ? demoRole : userRole;
+          if (activeRole === "student") {
+            return { ...item, to: "/student-dashboard" as const };
+          } else {
+            return { ...item, to: "/parent-dashboard" as const };
+          }
+        }
+        return item;
+      });
 
   const signOut = async () => {
     await qc.cancelQueries();
@@ -77,7 +107,7 @@ export function AppLayout({ title, children }: { title: string; children: ReactN
             <GraduationCap className="w-5 h-5 text-primary-foreground" />
           </div>
           <span className="hidden lg:inline font-display font-semibold tracking-tight text-foreground">
-            Anglian
+            Anglian Learning
           </span>
         </Link>
         {nav.map(({ to, label, icon: Icon }) => {
@@ -113,11 +143,13 @@ export function AppLayout({ title, children }: { title: string; children: ReactN
           <div className="bg-slate-900 text-white px-6 py-2.5 flex flex-col sm:flex-row gap-3 items-center justify-between text-xs font-semibold border-b border-slate-800 shrink-0 select-none shadow-md z-40 bg-gradient-to-r from-slate-900 via-primary-deep to-slate-900">
             <div className="flex flex-wrap items-center gap-2.5 justify-center sm:justify-start">
               <span className="inline-flex items-center gap-1 bg-amber-500 text-slate-950 px-2.5 py-0.5 rounded-full text-[10px] font-bold uppercase tracking-wider animate-pulse shrink-0">
-                <Sparkles className="w-3 h-3 fill-slate-950" /> PARENT DEMO MODE
+                <Sparkles className="w-3 h-3 fill-slate-950" />{" "}
+                {demoRole === "student" ? "STUDENT" : "PARENT"} DEMO MODE
               </span>
               <span className="text-slate-200 text-center sm:text-left leading-relaxed">
-                Exploring the GCSE Science Student Hub. Click around to preview live classes,
-                grades, worksheets, and syllabus views!
+                {demoRole === "student"
+                  ? "Exploring the GCSE Science Student Hub as a student. Check out curriculum, live classes, quizzes, and homework!"
+                  : "Exploring the GCSE Science Student Hub. Click around to preview live classes, grades, worksheets, and syllabus views!"}
               </span>
             </div>
             <div className="flex items-center gap-2.5 shrink-0">
@@ -125,6 +157,7 @@ export function AppLayout({ title, children }: { title: string; children: ReactN
                 to="/"
                 onClick={() => {
                   localStorage.removeItem("studyhub:is-demo");
+                  localStorage.removeItem("studyhub:demo-role");
                   localStorage.removeItem("studyhub:view-as");
                 }}
                 className="bg-emerald-600 hover:bg-emerald-500 text-white px-3.5 py-1.5 rounded-lg font-bold text-xs shadow-xs transition shrink-0"

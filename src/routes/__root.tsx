@@ -66,13 +66,13 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
     meta: [
       { charSet: "utf-8" },
       { name: "viewport", content: "width=device-width, initial-scale=1" },
-      { title: "Anglian Tutoring — GCSE & KS3 Science Tutoring" },
+      { title: "Anglian Learning — GCSE & KS3 Science Tutoring" },
       {
         name: "description",
         content:
           "Expert-led online Biology, Chemistry and Physics tutoring for KS3 and GCSE. Live lessons, weekly quizzes, homework marking and grade tracking.",
       },
-      { property: "og:title", content: "Anglian Tutoring — GCSE & KS3 Science Tutoring" },
+      { property: "og:title", content: "Anglian Learning — GCSE & KS3 Science Tutoring" },
       {
         property: "og:description",
         content:
@@ -80,7 +80,7 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
       },
       { property: "og:type", content: "website" },
       { name: "twitter:card", content: "summary_large_image" },
-      { name: "twitter:title", content: "Anglian Tutoring" },
+      { name: "twitter:title", content: "Anglian Learning" },
       {
         name: "twitter:description",
         content: "Live GCSE & KS3 science tutoring with Dr Nadia and Ali.",

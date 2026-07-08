@@ -57,6 +57,8 @@ export function useRoles() {
 
   const isDemoMode =
     typeof window !== "undefined" && localStorage.getItem("studyhub:is-demo") === "true";
+  const demoRole =
+    typeof window !== "undefined" ? localStorage.getItem("studyhub:demo-role") : null;
 
   const actualIsTutor =
     !isDemoMode && !!roles && (roles.includes("tutor") || roles.includes("admin"));
@@ -68,7 +70,11 @@ export function useRoles() {
     isTutor,
     actualIsTutor,
     userId: isDemoMode ? "demo-student-id" : userId,
-    email: isDemoMode ? "demo.parent@example.com" : email,
+    email: isDemoMode
+      ? demoRole === "student"
+        ? "demo.student@example.com"
+        : "demo.parent@example.com"
+      : email,
     loading: isDemoMode ? false : isLoading,
     viewAs: isDemoMode ? "student" : viewAs,
   };

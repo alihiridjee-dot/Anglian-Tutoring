@@ -30,7 +30,7 @@ const TUTORS = [
     accent: "text-sky-600 bg-sky-50 border-sky-100",
     themeColor: "sky",
     image:
-      "https://images.unsplash.com/photo-1539571696357-5a69c17a67c6?auto=format&fit=crop&q=80&w=400&h=400",
+      "https://images.unsplash.com/photo-1618015358954-115ef1ed151b?auto=format&fit=crop&q=80&w=400&h=400",
   },
 ];
 

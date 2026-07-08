@@ -15,15 +15,19 @@ export interface EnrolmentsState {
 export function useEnrolments(): EnrolmentsState {
   const isDemo =
     typeof window !== "undefined" && localStorage.getItem("studyhub:is-demo") === "true";
+  const demoRole =
+    typeof window !== "undefined"
+      ? (localStorage.getItem("studyhub:demo-role") as ProfileRole | null)
+      : null;
 
   const { data, isLoading } = useQuery({
     queryKey: ["user-enrolments-and-profile"],
     queryFn: async () => {
       if (isDemo) {
         return {
-          role: "parent" as ProfileRole,
+          role: (demoRole === "student" ? "student" : "parent") as ProfileRole,
           enrolledCourses: ["biology", "chemistry", "physics"],
-          inviteCode: "DEMO123",
+          inviteCode: demoRole === "student" ? null : "DEMO123",
         };
       }
       const { data: u } = await supabase.auth.getUser();
@@ -54,9 +58,9 @@ export function useEnrolments(): EnrolmentsState {
   if (isDemo) {
     return {
       loading: false,
-      role: "parent" as ProfileRole,
+      role: (demoRole === "student" ? "student" : "parent") as ProfileRole,
       enrolledCourses: ["biology", "chemistry", "physics"],
-      inviteCode: "DEMO123",
+      inviteCode: demoRole === "student" ? null : "DEMO123",
     };
   }
 

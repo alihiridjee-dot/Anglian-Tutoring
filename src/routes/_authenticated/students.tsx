@@ -6,7 +6,7 @@ import { supabase } from "@/integrations/supabase/client";
 import { Users } from "lucide-react";
 
 export const Route = createFileRoute("/_authenticated/students")({
-  head: () => ({ meta: [{ title: "Students | Anglian Tutoring" }] }),
+  head: () => ({ meta: [{ title: "Students | Anglian Learning" }] }),
   component: Students,
 });
 

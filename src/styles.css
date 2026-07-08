@@ -39,7 +39,7 @@
   --color-sidebar-border: var(--sidebar-border);
 }
 
-/* Anglian Tutoring — Light theme only.
+/* Anglian Learning — Light theme only.
    See README.md for the RGB token map. */
 :root {
   --radius: 1.25rem; /* 20px Apple-style rounded corners */

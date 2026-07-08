@@ -5,7 +5,7 @@ import { supabase } from "@/integrations/supabase/client";
 import { ListChecks, Sparkles, ChevronRight, BookOpen } from "lucide-react";
 
 export const Route = createFileRoute("/_authenticated/mcqs")({
-  head: () => ({ meta: [{ title: "MCQs | Anglian Tutoring" }] }),
+  head: () => ({ meta: [{ title: "MCQs | Anglian Learning" }] }),
   component: MCQs,
 });
 

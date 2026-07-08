@@ -8,10 +8,10 @@ export function Footer() {
           <div className="w-9 h-9 rounded-xl bg-white/10 flex items-center justify-center">
             <GraduationCap className="w-5 h-5 text-white" />
           </div>
-          <span className="font-display font-bold tracking-tight">Anglian Tutoring</span>
+          <span className="font-display font-bold tracking-tight">Anglian Learning</span>
         </div>
         <p className="text-xs text-slate-500">
-          © {new Date().getFullYear()} Anglian Tutoring. All rights reserved. Registered UK learning
+          © {new Date().getFullYear()} Anglian Learning. All rights reserved. Registered UK learning
           provider.
         </p>
       </div>

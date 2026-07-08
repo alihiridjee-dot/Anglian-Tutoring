@@ -18,7 +18,7 @@ import { toast } from "sonner";
 import { useAnalytics } from "@/hooks/data/useAnalytics";
 
 export const Route = createFileRoute("/_authenticated/homework")({
-  head: () => ({ meta: [{ title: "Homework & Grades | Anglian Tutoring" }] }),
+  head: () => ({ meta: [{ title: "Homework & Grades | Anglian Learning" }] }),
   component: HomeworkPage,
 });
 

@@ -1,26 +1,7 @@
-import { Link, useNavigate } from "@tanstack/react-router";
-import { Sparkles, ArrowRight, Check, Loader2 } from "lucide-react";
-import { useState } from "react";
-import { enterDemoMode } from "@/lib/demoAuth";
-import { toast } from "sonner";
+import { Link } from "@tanstack/react-router";
+import { Sparkles, ArrowRight, Check } from "lucide-react";
 
 export function Hero() {
-  const navigate = useNavigate();
-  const [isDemoLoading, setIsDemoLoading] = useState(false);
-
-  const handleDemoClick = async () => {
-    setIsDemoLoading(true);
-    toast.loading("Opening interactive demo platform...", { id: "demo-loading" });
-    const success = await enterDemoMode();
-    if (success) {
-      toast.success("Welcome to the Sandbox Demo! Previewing as Student.", { id: "demo-loading" });
-      navigate({ to: "/dashboard" });
-    } else {
-      toast.error("Failed to start demo. Please try standard sign up.", { id: "demo-loading" });
-    }
-    setIsDemoLoading(false);
-  };
-
   return (
     <section
       id="top"
@@ -73,18 +54,13 @@ export function Hero() {
           >
             Get started <ArrowRight className="w-4 h-4" />
           </Link>
-          <button
-            onClick={handleDemoClick}
-            disabled={isDemoLoading}
+          <Link
+            to="/demo"
             className="inline-flex items-center gap-2 px-7 py-3.5 rounded-xl border border-primary/20 bg-primary/5 font-semibold text-primary hover:bg-primary/10 shadow-sm transition cursor-pointer"
           >
-            {isDemoLoading ? (
-              <Loader2 className="w-4 h-4 animate-spin" />
-            ) : (
-              <Sparkles className="w-4 h-4 text-amber-500" />
-            )}
+            <Sparkles className="w-4 h-4 text-amber-500" />
             Try Demo Platform
-          </button>
+          </Link>
         </div>
 
         <div className="mt-10 flex flex-wrap justify-center items-center gap-6 text-sm text-slate-500">

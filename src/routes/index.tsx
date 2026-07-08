@@ -12,7 +12,7 @@ import { FloatingWhatsApp } from "@/components/landing/FloatingWhatsApp";
 export const Route = createFileRoute("/")({
   head: () => ({
     meta: [
-      { title: "Anglian Tutoring — Live Science Tutoring" },
+      { title: "Anglian Learning — Live Science Tutoring" },
       {
         name: "description",
         content:

@@ -9,7 +9,7 @@ import { CreditCard, Check, Zap, X, Lock, Loader2, CheckCircle2 } from "lucide-r
 import { toast } from "sonner";
 
 export const Route = createFileRoute("/_authenticated/billing")({
-  head: () => ({ meta: [{ title: "Billing | Anglian Tutoring" }] }),
+  head: () => ({ meta: [{ title: "Billing | Anglian Learning" }] }),
   component: BillingPage,
 });
 
@@ -313,7 +313,7 @@ function BillingPage() {
                     A
                   </div>
                   <span className="font-display font-semibold text-lg tracking-tight">
-                    Anglian Tutoring
+                    Anglian Learning
                   </span>
                 </div>
 
@@ -479,7 +479,7 @@ function BillingPage() {
                   </button>
 
                   <p className="text-center text-[11px] text-muted-foreground">
-                    By confirming, you authorize Anglian Tutoring to charge your card on a monthly
+                    By confirming, you authorize Anglian Learning to charge your card on a monthly
                     basis until you cancel. Cancel anytime.
                   </p>
                 </form>
