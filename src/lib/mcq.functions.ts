@@ -21,8 +21,8 @@ export const generateMcqSet = createServerFn({ method: "POST" })
   })
   .handler(async ({ data, context }) => {
     const { supabase, userId } = context;
-    const apiKey = process.env.LOVABLE_API_KEY;
-    if (!apiKey) throw new Error("LOVABLE_API_KEY not configured");
+    const apiKey = process.env.GEMINI_API_KEY;
+    if (!apiKey) throw new Error("GEMINI_API_KEY not configured");
 
     // Verify tutor role
     const { data: role } = await supabase.from("user_roles").select("role").eq("user_id", userId);
@@ -39,21 +39,24 @@ Return ONLY JSON matching this shape:
 
     const user = `Spec point: ${data.title}\n\nDetails / context:\n${data.context || "(no additional context provided — infer from the title)"}`;
 
-    const aiRes = await fetch("https://ai.gateway.lovable.dev/v1/chat/completions", {
-      method: "POST",
-      headers: {
-        "content-type": "application/json",
-        authorization: `Bearer ${apiKey}`,
+    const aiRes = await fetch(
+      "https://generativelanguage.googleapis.com/v1beta/openai/chat/completions",
+      {
+        method: "POST",
+        headers: {
+          "content-type": "application/json",
+          authorization: `Bearer ${apiKey}`,
+        },
+        body: JSON.stringify({
+          model: "gemini-2.5-flash",
+          messages: [
+            { role: "system", content: system },
+            { role: "user", content: user },
+          ],
+          response_format: { type: "json_object" },
+        }),
       },
-      body: JSON.stringify({
-        model: "google/gemini-2.5-flash",
-        messages: [
-          { role: "system", content: system },
-          { role: "user", content: user },
-        ],
-        response_format: { type: "json_object" },
-      }),
-    });
+    );
     if (!aiRes.ok) {
       const text = await aiRes.text();
       if (aiRes.status === 429) throw new Error("AI rate limit — try again in a moment");

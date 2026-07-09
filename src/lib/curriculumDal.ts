@@ -1,6 +1,7 @@
 import { supabase } from "@/integrations/supabase/client";
 import { BLUEPRINTS } from "./curriculumBlueprints";
 import { type LevelV, type BoardV, type SubjectV } from "./taxonomy";
+import { resolveEducationalVideo } from "./videoMapper";
 
 export type Topic = {
   id: string;
@@ -204,13 +205,14 @@ export class CurriculumDAL {
     subject: SubjectV,
   ): Promise<{ resources: Resource[]; mcqSets: McqSet[] }> {
     if (this.isDemoMode()) {
+      const resolvedVideo = resolveEducationalVideo(board, subject, level, point.code, point.title);
       const rList: Resource[] = [
         {
           id: `res-video-${point.id}`,
           kind: "video",
-          title: `Comprehensive Video Guide: ${point.code} ${point.title}`,
-          description: `Full syllabus walkthrough of ${point.title} including core concepts, exam mark-scheme guidelines, and common mistakes.`,
-          video_url: "https://www.youtube.com/watch?v=dQw4w9WgXcQ",
+          title: resolvedVideo.title,
+          description: resolvedVideo.description,
+          video_url: resolvedVideo.video_url,
           file_path: null,
           file_name: null,
           starts_at: null,
@@ -283,8 +285,25 @@ export class CurriculumDAL {
         .order("created_at", { ascending: false }),
     ]);
 
+    const resourcesList = (r.data ?? []).map((resource) => {
+      if (
+        resource.kind === "video" &&
+        (resource.video_url === "https://www.youtube.com/watch?v=dQw4w9WgXcQ" ||
+          !resource.video_url)
+      ) {
+        const resolved = resolveEducationalVideo(board, subject, level, point.code, point.title);
+        return {
+          ...resource,
+          video_url: resolved.video_url,
+          title: resolved.title,
+          description: resolved.description,
+        };
+      }
+      return resource;
+    });
+
     return {
-      resources: r.data ?? [],
+      resources: resourcesList,
       mcqSets: m.data ?? [],
     };
   }

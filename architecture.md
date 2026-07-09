@@ -56,7 +56,6 @@ This document tracks the file tree, state management paradigm, core API/backend 
     │   ├── demoAuth.ts        # Fast-login profiles for local development
     │   ├── error-capture.ts   # Catastrophic SSR error reporting bounds
     │   ├── error-page.ts      # Fail-safe SSR error layout page
-    │   ├── lovable-error-reporting.ts
     │   ├── mcq.functions.ts   # Multiple-Choice Quiz grading & evaluation helper
     │   ├── taxonomy.ts        # Core school year levels, subjects, and boards lists
     │   └── utils.ts           # Classnames merging utility

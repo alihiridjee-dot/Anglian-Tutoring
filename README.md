@@ -1,6 +1,6 @@
 # Anglian Tutoring
 
-A production tutoring platform for GCSE and KS3 science (Biology, Chemistry, Physics) across Edexcel, AQA, and OCR. Built with React, TanStack Start, Tailwind v4, and Lovable Cloud (Supabase).
+A production tutoring platform for GCSE and KS3 science (Biology, Chemistry, Physics) across Edexcel, AQA, and OCR. Built with React, TanStack Start, Tailwind v4, and Supabase.
 
 ## Theme tokens
 
@@ -49,7 +49,7 @@ Loaded via Google Fonts in `src/routes/__root.tsx`.
 ## Tech
 
 - React 19, TanStack Start v1, Tailwind CSS v4, TypeScript strict
-- Lovable Cloud (Supabase) — Auth, Postgres with RLS, Storage
-- Lovable AI Gateway (`google/gemini-2.5-flash`) — MCQ generation
-- Stripe (built-in Lovable Payments) — monthly subscriptions
-- Microsoft Teams (via Lovable connector) — live session scheduling
+- Supabase — Auth, Postgres with RLS, Storage
+- Gemini API (`gemini-2.5-flash`) — MCQ generation
+- Stripe — monthly subscriptions
+- Microsoft Teams — live session scheduling
