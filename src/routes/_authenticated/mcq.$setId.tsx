@@ -31,118 +31,6 @@ function TakeMcq() {
   const [score, setScore] = useState<number | null>(null);
 
   useEffect(() => {
-    const isDemo =
-      typeof window !== "undefined" && localStorage.getItem("studyhub:is-demo") === "true";
-    if (isDemo) {
-      if (setId === "mcq-photosynthesis-chloroplasts") {
-        setSet({
-          id: "mcq-photosynthesis-chloroplasts",
-          title: "GCSE Biology: Photosynthesis & Chloroplasts",
-          description:
-            "AQA GCSE Science specification point 4.4.1 - Cover chemical formulas, limiting factor rate graphs, and cellular transport structures.",
-          published: true,
-        });
-        setQuestions([
-          {
-            id: "q1",
-            position: 1,
-            question:
-              "Which of the following is the correct balanced chemical equation for photosynthesis?",
-            options: [
-              "6CO₂ + 6H₂O → C₆H₁₂O₆ + 6O₂",
-              "C₆H₁₂O₆ + 6O₂ → 6CO₂ + 6H₂O",
-              "CO₂ + H₂O → CH₂O + O₂",
-              "6CO₂ + 6O₂ → C₆H₁₂O₆ + 6H₂O",
-            ],
-            correct_index: 0,
-            explanation:
-              "Photosynthesis takes carbon dioxide (CO₂) and water (H₂O) in the presence of light and chlorophyll to produce glucose (C₆H₁₂O₆) and oxygen (O₂) as a byproduct.",
-          },
-          {
-            id: "q2",
-            position: 2,
-            question:
-              "What is the principal limiting factor of photosynthesis on a warm, bright, sunny summer afternoon?",
-            options: [
-              "Light intensity",
-              "Temperature",
-              "Carbon dioxide concentration",
-              "Water availability",
-            ],
-            correct_index: 2,
-            explanation:
-              "On a warm, bright summer afternoon, both temperature and light intensity are high and abundant. Therefore, the atmospheric concentration of carbon dioxide (about 0.04%) becomes the limiting factor restricting further rate increase.",
-          },
-          {
-            id: "q3",
-            position: 3,
-            question:
-              "Where do the light-dependent reactions of photosynthesis take place within the chloroplast?",
-            options: [
-              "In the stroma",
-              "Within the thylakoid membrane (grana)",
-              "On the outer chloroplast membrane",
-              "Inside the mitochondria",
-            ],
-            correct_index: 1,
-            explanation:
-              "Chlorophyll molecules are embedded within the thylakoid membranes (stacked to form grana), where light absorption and water splitting occur during the light-dependent stage. The stroma is where the light-independent (Calvin cycle) reactions occur.",
-          },
-        ]);
-      } else if (setId === "mcq-chemistry-electrolysis") {
-        setSet({
-          id: "mcq-chemistry-electrolysis",
-          title: "GCSE Chemistry: Electrolysis and Ionic Equations",
-          description:
-            "Edexcel Topic 4 - Covering extraction pathways, inert electrodes, molten salts, and half-equations at the cathode and anode.",
-          published: true,
-        });
-        setQuestions([
-          {
-            id: "q_c1",
-            position: 1,
-            question:
-              "During the electrolysis of aqueous sodium chloride, what gas is discharged at the anode?",
-            options: [
-              "Sodium metal vapor",
-              "Hydrogen gas (H₂)",
-              "Oxygen gas (O₂)",
-              "Chlorine gas (Cl₂)",
-            ],
-            correct_index: 3,
-            explanation:
-              "At the anode (positive electrode), negative ions are attracted. Since chloride ions are present in high concentration, they are oxidised to chlorine gas (2Cl⁻ → Cl₂ + 2e⁻).",
-          },
-        ]);
-      } else {
-        setSet({
-          id: "mcq-physics-nuclear",
-          title: "GCSE Physics: Nuclear Fission, Fusion and Decay",
-          description:
-            "OCR P6 - Half-lives, alpha/beta/gamma decay, nuclear stability, and star combustion cycles.",
-          published: true,
-        });
-        setQuestions([
-          {
-            id: "q_p1",
-            position: 1,
-            question:
-              "What type of radiation consists of high-energy electromagnetic waves with the greatest penetrating power?",
-            options: [
-              "Alpha particles (α)",
-              "Beta minus particles (β⁻)",
-              "Gamma rays (γ)",
-              "Neutron emissions",
-            ],
-            correct_index: 2,
-            explanation:
-              "Gamma rays are high-frequency electromagnetic waves. They have no charge or mass, allowing them to easily pass through body tissues and requiring thick lead or several meters of concrete to stop.",
-          },
-        ]);
-      }
-      return;
-    }
-
     (async () => {
       const { data: s } = await supabase
         .from("mcq_sets")
@@ -160,17 +48,10 @@ function TakeMcq() {
   }, [setId]);
 
   const submit = async () => {
-    const isDemo =
-      typeof window !== "undefined" && localStorage.getItem("studyhub:is-demo") === "true";
     let correct = 0;
     for (const q of questions) if (answers[q.id] === q.correct_index) correct += 1;
     setScore(correct);
     setSubmitted(true);
-
-    if (isDemo) {
-      toast.success(`Scored ${correct}/${questions.length} on Demo Quiz!`);
-      return;
-    }
 
     if (!userId || questions.length === 0) return;
     const { error } = await supabase.from("mcq_attempts").insert({

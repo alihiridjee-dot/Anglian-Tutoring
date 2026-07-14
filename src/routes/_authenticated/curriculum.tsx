@@ -8,7 +8,13 @@ import { useRoles } from "@/hooks/useRole";
 import { SUBJECTS, BOARDS, LEVELS, type SubjectV, type BoardV, type LevelV } from "@/lib/taxonomy";
 import { generateMcqSet } from "@/lib/mcq.functions";
 import { toast } from "sonner";
-import { CurriculumDAL } from "@/lib/curriculumDal";
+import {
+  CurriculumDAL,
+  type Topic,
+  type SpecPoint,
+  type Resource,
+  type McqSet,
+} from "@/lib/curriculumDal";
 import { CurriculumSyncPanel } from "@/components/CurriculumSyncPanel";
 import {
   Plus,
@@ -33,41 +39,8 @@ export const Route = createFileRoute("/_authenticated/curriculum")({
   component: Curriculum,
 });
 
-type Topic = {
-  id: string;
-  code: string | null;
-  title: string;
-  description: string | null;
-  sort_order: number;
-};
-
-type SpecPoint = {
-  id: string;
-  topic_id: string;
-  code: string;
-  title: string;
-  description: string | null;
-};
-
-type Resource = {
-  id: string;
-  kind: string;
-  title: string;
-  description: string | null;
-  video_url: string | null;
-  file_path: string | null;
-  file_name: string | null;
-  starts_at: string | null;
-  join_url: string | null;
-  due_at: string | null;
-};
-
-type McqSet = { id: string; title: string; published: boolean };
-
 const inputCls =
   "w-full h-9 rounded-md bg-secondary border border-border px-2.5 text-sm focus:outline-none focus:ring-2 focus:ring-primary/40";
-
-// Comprehensive blueprints and mock curriculum generation are decoupled into @/lib/curriculumDal.ts and @/lib/curriculumBlueprints.ts
 
 function Curriculum() {
   const { isTutor } = useRoles();
@@ -138,14 +111,7 @@ function Curriculum() {
           </div>
 
           <div className="mt-8">
-            <SpecPointDetail
-              point={selectedSpecPoint}
-              isTutor={isTutor}
-              onChanged={loadTopics}
-              level={level}
-              subject={subject}
-              board={board}
-            />
+            <SpecPointDetail point={selectedSpecPoint} isTutor={isTutor} onChanged={loadTopics} />
           </div>
         </div>
       </AppLayout>
@@ -368,7 +334,7 @@ function TopicCard({
   useEffect(() => {
     const loadPoints = async () => {
       try {
-        const data = await CurriculumDAL.getSpecPoints(topic.id, level, board, subject);
+        const data = await CurriculumDAL.getSpecPoints(topic.id);
         setPoints(data);
       } catch (e) {
         console.error(e);
@@ -382,7 +348,7 @@ function TopicCard({
 
   const reload = async () => {
     try {
-      const data = await CurriculumDAL.getSpecPoints(topic.id, level, board, subject);
+      const data = await CurriculumDAL.getSpecPoints(topic.id);
       setPoints(data);
     } catch (e) {
       console.error(e);
@@ -559,16 +525,10 @@ function SpecPointDetail({
   point,
   isTutor,
   onChanged,
-  level,
-  subject,
-  board,
 }: {
   point: SpecPoint;
   isTutor: boolean;
   onChanged: () => void;
-  level: LevelV;
-  subject: SubjectV;
-  board: BoardV;
 }) {
   const [resources, setResources] = useState<Resource[]>([]);
   const [mcqSets, setMcqSets] = useState<McqSet[]>([]);
@@ -577,12 +537,8 @@ function SpecPointDetail({
 
   const reload = async () => {
     try {
-      const { resources: resList, mcqSets: mList } = await CurriculumDAL.getResourcesAndMcqSets(
-        point,
-        level,
-        subject,
-        board,
-      );
+      const { resources: resList, mcqSets: mList } =
+        await CurriculumDAL.getResourcesAndMcqSets(point);
       setResources(resList);
       setMcqSets(mList);
     } catch (e) {
@@ -592,7 +548,7 @@ function SpecPointDetail({
 
   useEffect(() => {
     reload(); /* eslint-disable-next-line */
-  }, [point.id, level, subject, board]);
+  }, [point.id]);
 
   const generate = async () => {
     setGenLoading(true);
@@ -925,12 +881,6 @@ function DownloadRow({
 }) {
   const [url, setUrl] = useState<string | null>(null);
   useEffect(() => {
-    const isDemo =
-      typeof window !== "undefined" && localStorage.getItem("studyhub:is-demo") === "true";
-    if (isDemo) {
-      setUrl("https://www.orpington-tutoring.co.uk/gcse-science-limiting-factors-cheatsheet.pdf");
-      return;
-    }
     if (!file_path) return;
     supabase.storage
       .from("resources")

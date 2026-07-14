@@ -26,48 +26,6 @@ function MCQs() {
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
-    const isDemo =
-      typeof window !== "undefined" && localStorage.getItem("studyhub:is-demo") === "true";
-    if (isDemo) {
-      setSets([
-        {
-          id: "mcq-photosynthesis-chloroplasts",
-          title: "Photosynthesis & Chloroplasts Mastery",
-          published: true,
-          created_at: "2026-07-02T10:00:00Z",
-          board: "aqa",
-          level: "gcse",
-          subject: "biology",
-          topic: "Bioenergetics",
-          specPoint: "4.4.1.1 Photosynthesis & Limiting Factors",
-        },
-        {
-          id: "mcq-chemistry-electrolysis",
-          title: "Electrolysis and Ionic Equations Assessment",
-          published: true,
-          created_at: "2026-07-01T12:00:00Z",
-          board: "edexcel",
-          level: "gcse",
-          subject: "chemistry",
-          topic: "Electrolysis & Aqueous Solutions",
-          specPoint: "C4.1 Half-Equations & Electrode Reactions",
-        },
-        {
-          id: "mcq-physics-nuclear",
-          title: "Nuclear Fission, Fusion & Radioactive Decay Test",
-          published: true,
-          created_at: "2026-06-29T14:00:00Z",
-          board: "ocr",
-          level: "gcse",
-          subject: "physics",
-          topic: "Nuclear Physics & Radioactivity",
-          specPoint: "P6.1 Radioactive Decay Modes",
-        },
-      ]);
-      setLoading(false);
-      return;
-    }
-
     (async () => {
       const { data } = await supabase
         .from("mcq_sets")

@@ -63,55 +63,6 @@ function HomeworkPage() {
 
   const reload = async () => {
     setLoading(true);
-    const isDemo =
-      typeof window !== "undefined" && localStorage.getItem("studyhub:is-demo") === "true";
-    if (isDemo) {
-      const nowTime = Date.now();
-      const mockHw: Homework[] = [
-        {
-          id: "hw-photosynthesis-factors",
-          title: "Photosynthesis Practical & Limiting Factors Analysis",
-          instructions:
-            "Review the required practical on pondweed bubble counting. Draw the graph demonstrating how light intensity, carbon dioxide, and temperature limit rates, and write a 6-mark comparative response outlining the inverse square law.",
-          subject: "biology",
-          due_at: new Date(nowTime - 2 * 24 * 3600 * 1000).toISOString(),
-          created_at: new Date(nowTime - 5 * 24 * 3600 * 1000).toISOString(),
-        },
-        {
-          id: "hw-aerobic-respiration",
-          title: "Aerobic and Anaerobic Respiration Comparison Flowcharts",
-          instructions:
-            "Prepare comparison schemas showing mechanical cells, ATP yields, and yeast lactic acid equations. Aligns directly with paper 1 bioenergetics.",
-          subject: "biology",
-          due_at: new Date(nowTime + 4 * 24 * 3600 * 1000).toISOString(),
-          created_at: new Date(nowTime - 1 * 24 * 3600 * 1000).toISOString(),
-        },
-      ];
-      setHomework(mockHw);
-
-      const mockSubs: Record<string, SubmissionRow> = {
-        "hw-photosynthesis-factors": {
-          id: "sub-photosynthesis-factors",
-          resource_id: "hw-photosynthesis-factors",
-          student_id: "demo-student-id",
-          files: [
-            { path: "pondweed_practical_answers.pdf", name: "pondweed_practical_answers.pdf" },
-          ],
-          notes: "Attached is my full pondweed write-up and the graph equations.",
-          submitted_at: new Date(nowTime - 3 * 24 * 3600 * 1000).toISOString(),
-          grade: "Grade 8",
-          score_pct: 82,
-          feedback:
-            "Superb graph drawings! You mastered the inverse-square calculation flawlessly (1/d²). On the 6-mark description, remember to explicitly declare that light stops being the limiting factor when the CO₂ plateau begins, as temperature or CO₂ concentration becomes the ceiling instead.",
-          graded_at: new Date(nowTime - 2 * 24 * 3600 * 1000).toISOString(),
-        },
-      };
-      setSubmissions(mockSubs);
-      setLoading(false);
-      return;
-    }
-
-    setLoading(true);
     let q = supabase
       .from("resources")
       .select("id, title, instructions, subject, due_at, created_at")
