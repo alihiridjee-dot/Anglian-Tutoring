@@ -58,9 +58,19 @@ export function AppLayout({ title, children }: { title: string; children: ReactN
   const [isDemo, setIsDemo] = useState(false);
   const [demoRole, setDemoRole] = useState<DemoRole | null>(null);
   useEffect(() => {
+    // A genuine tutor/admin account is never a demo persona. If a stale demo
+    // flag survives in localStorage (e.g. the user entered the sandbox, then
+    // signed in for real without clicking "Exit Sandbox"), clear it so the demo
+    // banner can never leak into a real session.
+    if (actualIsTutor && isDemoMode()) {
+      clearDemoSession();
+      setIsDemo(false);
+      setDemoRole(null);
+      return;
+    }
     setIsDemo(isDemoMode());
     setDemoRole(getDemoRole());
-  }, []);
+  }, [actualIsTutor]);
 
   const handleExitDemo = async () => {
     clearDemoSession();
