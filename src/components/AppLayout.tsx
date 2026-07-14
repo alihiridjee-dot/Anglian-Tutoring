@@ -18,6 +18,7 @@ import { type ReactNode, useState, useEffect } from "react";
 import { useQueryClient } from "@tanstack/react-query";
 import { supabase } from "@/integrations/supabase/client";
 import { useRoles, setViewAs } from "@/hooks/useRole";
+import { isDemoMode, getDemoRole, clearDemoSession, type DemoRole } from "@/lib/auth/session";
 import { useEnrolments } from "@/hooks/data/useEnrolments";
 import { toast } from "sonner";
 
@@ -58,16 +59,14 @@ export function AppLayout({ title, children }: { title: string; children: ReactN
   const qc = useQueryClient();
 
   const [isDemo, setIsDemo] = useState(false);
-  const [demoRole, setDemoRole] = useState<string | null>(null);
+  const [demoRole, setDemoRole] = useState<DemoRole | null>(null);
   useEffect(() => {
-    setIsDemo(localStorage.getItem("studyhub:is-demo") === "true");
-    setDemoRole(localStorage.getItem("studyhub:demo-role"));
+    setIsDemo(isDemoMode());
+    setDemoRole(getDemoRole());
   }, []);
 
   const handleExitDemo = async () => {
-    localStorage.removeItem("studyhub:is-demo");
-    localStorage.removeItem("studyhub:demo-role");
-    localStorage.removeItem("studyhub:view-as");
+    clearDemoSession();
     await qc.cancelQueries();
     qc.clear();
     await supabase.auth.signOut();
@@ -155,11 +154,7 @@ export function AppLayout({ title, children }: { title: string; children: ReactN
             <div className="flex items-center gap-2.5 shrink-0">
               <Link
                 to="/"
-                onClick={() => {
-                  localStorage.removeItem("studyhub:is-demo");
-                  localStorage.removeItem("studyhub:demo-role");
-                  localStorage.removeItem("studyhub:view-as");
-                }}
+                onClick={clearDemoSession}
                 className="bg-emerald-600 hover:bg-emerald-500 text-white px-3.5 py-1.5 rounded-lg font-bold text-xs shadow-xs transition shrink-0"
               >
                 Join Now

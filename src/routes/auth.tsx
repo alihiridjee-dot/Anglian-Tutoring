@@ -3,10 +3,14 @@ import { useEffect, useState } from "react";
 import { GraduationCap, ArrowLeft, User, Users, BookOpen } from "lucide-react";
 import { supabase } from "@/integrations/supabase/client";
 import { toast } from "sonner";
-import { ensureDemoTutorSession } from "@/lib/demoAuth";
 import { Link } from "@tanstack/react-router";
 
-type SearchParams = { mode?: "signin" | "signup"; tier?: string; demo?: string; redirect?: string };
+type SearchParams = {
+  mode?: "signin" | "signup";
+  tier?: string;
+  level?: string;
+  redirect?: string;
+};
 
 export const Route = createFileRoute("/auth")({
   head: () => ({
@@ -18,7 +22,7 @@ export const Route = createFileRoute("/auth")({
   validateSearch: (search: Record<string, unknown>): SearchParams => ({
     mode: search.mode === "signup" ? "signup" : "signin",
     tier: typeof search.tier === "string" ? search.tier : undefined,
-    demo: typeof search.demo === "string" ? search.demo : undefined,
+    level: typeof search.level === "string" ? search.level : undefined,
     redirect: typeof search.redirect === "string" ? search.redirect : undefined,
   }),
   component: AuthPage,
@@ -38,38 +42,18 @@ function AuthPage() {
   const [loading, setLoading] = useState(false);
   const [emailSentTo, setEmailSentTo] = useState<string | null>(null);
 
-  // Hidden demo bypass — only via ?demo=1
-  useEffect(() => {
-    if (search.demo === "1") {
-      (async () => {
-        const ok = await ensureDemoTutorSession();
-        if (ok) navigate({ to: "/dashboard" });
-      })();
-    }
-  }, [search.demo, navigate]);
+  // Honor the guard's ?redirect= deep link, but only for safe in-app paths
+  // (must start with "/" and not "//") to avoid open-redirects.
+  const dest =
+    search.redirect && search.redirect.startsWith("/") && !search.redirect.startsWith("//")
+      ? search.redirect
+      : "/dashboard";
 
   useEffect(() => {
     supabase.auth.getUser().then(({ data }) => {
-      if (data.user) navigate({ to: "/dashboard" });
+      if (data.user) navigate({ to: dest as never });
     });
-  }, [navigate]);
-
-  const handleBypass = async () => {
-    setLoading(true);
-    try {
-      const ok = await ensureDemoTutorSession();
-      if (ok) {
-        toast.success("Bypassed to Dashboard (Demo Principal Tutor)");
-        navigate({ to: "/dashboard" });
-      } else {
-        toast.error("Bypass failed. Please check network or try standard sign-up.");
-      }
-    } catch (err) {
-      toast.error("Bypass failed.");
-    } finally {
-      setLoading(false);
-    }
-  };
+  }, [navigate, dest]);
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
@@ -85,6 +69,7 @@ function AuthPage() {
               display_name: name || email.split("@")[0],
               role,
               signup_tier: search.tier ?? null,
+              signup_level: search.level ?? null,
               parent_invite_code: role === "parent" ? inviteCode || null : null,
             },
           },
@@ -92,7 +77,7 @@ function AuthPage() {
         if (error) throw error;
         if (data.session) {
           toast.success("Account created");
-          navigate({ to: "/dashboard" });
+          navigate({ to: dest as never });
         } else {
           toast.success("Check your email to confirm your account.");
           setEmailSentTo(email);
@@ -101,7 +86,7 @@ function AuthPage() {
         const { error } = await supabase.auth.signInWithPassword({ email, password });
         if (error) throw error;
         toast.success("Signed in");
-        navigate({ to: "/dashboard" });
+        navigate({ to: dest as never });
       }
     } catch (err) {
       toast.error(err instanceof Error ? err.message : "Something went wrong");
@@ -293,23 +278,6 @@ function AuthPage() {
                   Payment for your plan is set up on the next screen.
                 </p>
               )}
-
-              <div className="relative flex py-4 items-center">
-                <div className="flex-grow border-t border-border"></div>
-                <span className="flex-shrink mx-4 text-xs text-muted-foreground font-semibold uppercase tracking-wider">
-                  Sandbox Mode
-                </span>
-                <div className="flex-grow border-t border-border"></div>
-              </div>
-
-              <button
-                type="button"
-                onClick={handleBypass}
-                disabled={loading}
-                className="w-full h-11 rounded-xl bg-primary/10 hover:bg-primary/15 text-primary font-semibold text-sm transition flex items-center justify-center gap-2 cursor-pointer shadow-xs disabled:opacity-50"
-              >
-                <span>✨ Bypass straight to Dashboard</span>
-              </button>
             </>
           )}
         </div>

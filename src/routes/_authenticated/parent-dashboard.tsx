@@ -4,6 +4,7 @@ import { useRoles } from "@/hooks/useRole";
 import { useEnrolments } from "@/hooks/data/useEnrolments";
 import { useAnalytics } from "@/hooks/data/useAnalytics";
 import { AuthService } from "@/lib/authService";
+import { isDemoMode } from "@/lib/auth/session";
 import { UserRole } from "@/types/user";
 import { useState, useEffect } from "react";
 import {
@@ -92,7 +93,38 @@ function ParentDashboard() {
     });
   }, []);
 
-  const { rows: analytics } = useAnalytics(effectiveStudentId, enrolledCourses);
+  const { rows: realAnalytics } = useAnalytics(effectiveStudentId, enrolledCourses);
+
+  // The public parent demo shows a curated, illustrative progress profile rather
+  // than the (deliberately restricted) demo student's real data.
+  const isDemo = isDemoMode();
+  const demoAnalytics = [
+    {
+      subject: "biology",
+      mcqAttempts: 12,
+      mcqAverage: 88,
+      hwGraded: 6,
+      hwAverage: 84,
+      predictedGrade: 8,
+    },
+    {
+      subject: "chemistry",
+      mcqAttempts: 10,
+      mcqAverage: 79,
+      hwGraded: 5,
+      hwAverage: 76,
+      predictedGrade: 7,
+    },
+    {
+      subject: "physics",
+      mcqAttempts: 8,
+      mcqAverage: 82,
+      hwGraded: 4,
+      hwAverage: 80,
+      predictedGrade: 7,
+    },
+  ];
+  const analytics = isDemo ? demoAnalytics : realAnalytics;
 
   const displaySubjects =
     actualIsTutor && isTutor ? ["biology", "chemistry", "physics"] : enrolledCourses;
