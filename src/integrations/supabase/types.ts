@@ -171,6 +171,7 @@ export type Database = {
         Row: {
           created_at: string;
           created_by: string;
+          demo_visible: boolean;
           description: string | null;
           id: string;
           published: boolean;
@@ -183,6 +184,7 @@ export type Database = {
         Insert: {
           created_at?: string;
           created_by: string;
+          demo_visible?: boolean;
           description?: string | null;
           id?: string;
           published?: boolean;
@@ -195,6 +197,7 @@ export type Database = {
         Update: {
           created_at?: string;
           created_by?: string;
+          demo_visible?: boolean;
           description?: string | null;
           id?: string;
           published?: boolean;
@@ -283,6 +286,7 @@ export type Database = {
           display_name: string | null;
           enrolled_courses: string[];
           id: string;
+          is_demo: boolean;
           phone: string | null;
           role: Database["public"]["Enums"]["profile_role"];
           student_invite_code: string | null;
@@ -292,6 +296,7 @@ export type Database = {
           display_name?: string | null;
           enrolled_courses?: string[];
           id: string;
+          is_demo?: boolean;
           phone?: string | null;
           role?: Database["public"]["Enums"]["profile_role"];
           student_invite_code?: string | null;
@@ -301,6 +306,7 @@ export type Database = {
           display_name?: string | null;
           enrolled_courses?: string[];
           id?: string;
+          is_demo?: boolean;
           phone?: string | null;
           role?: Database["public"]["Enums"]["profile_role"];
           student_invite_code?: string | null;
@@ -312,6 +318,7 @@ export type Database = {
           board: Database["public"]["Enums"]["board"];
           created_at: string;
           created_by: string;
+          demo_visible: boolean;
           description: string | null;
           due_at: string | null;
           duration_seconds: number | null;
@@ -336,6 +343,7 @@ export type Database = {
           board: Database["public"]["Enums"]["board"];
           created_at?: string;
           created_by: string;
+          demo_visible?: boolean;
           description?: string | null;
           due_at?: string | null;
           duration_seconds?: number | null;
@@ -360,6 +368,7 @@ export type Database = {
           board?: Database["public"]["Enums"]["board"];
           created_at?: string;
           created_by?: string;
+          demo_visible?: boolean;
           description?: string | null;
           due_at?: string | null;
           duration_seconds?: number | null;

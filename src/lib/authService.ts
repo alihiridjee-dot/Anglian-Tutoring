@@ -15,34 +15,9 @@ export class AuthService {
   }
 
   /**
-   * Checks if demo sandbox mode is currently active
-   */
-  static isDemoMode(): boolean {
-    if (typeof window === "undefined") return false;
-    return localStorage.getItem("studyhub:is-demo") === "true";
-  }
-
-  /**
-   * Retrieves the active demo role
-   */
-  static getDemoRole(): UserRole | null {
-    if (!this.isDemoMode()) return null;
-    const role = localStorage.getItem("studyhub:demo-role");
-    if (role === "student") return UserRole.STUDENT;
-    if (role === "parent") return UserRole.PARENT;
-    return null;
-  }
-
-  /**
-   * Retrieves the unified user role.
-   * If in demo mode, returns the current active preview role.
-   * Otherwise, queries the database profiles table.
+   * Retrieves the unified user role by querying the database.
    */
   static async getUserRole(): Promise<UserRole | null> {
-    if (this.isDemoMode()) {
-      return this.getDemoRole();
-    }
-
     const user = await this.getCurrentUser();
     if (!user) return null;
 
@@ -76,16 +51,11 @@ export class AuthService {
 
   /**
    * Resolves the single source of truth Student ID for fetching dashboard data.
-   * - In demo mode, returns "demo-student-id".
    * - If the user is a STUDENT, returns their own user ID.
    * - If the user is a PARENT, queries parent_student_links to fetch their linked child's ID.
    * This maintains data integrity by referencing the same student database record.
    */
   static async getEffectiveStudentId(): Promise<string | null> {
-    if (this.isDemoMode()) {
-      return "demo-student-id";
-    }
-
     const user = await this.getCurrentUser();
     if (!user) return null;
 

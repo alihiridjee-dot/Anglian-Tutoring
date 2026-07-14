@@ -32,39 +32,6 @@ export function useAnalytics(userId: string | null, subjects: string[]) {
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
-    const isDemo =
-      typeof window !== "undefined" && localStorage.getItem("studyhub:is-demo") === "true";
-    if (isDemo) {
-      setRows([
-        {
-          subject: "biology",
-          mcqAttempts: 5,
-          mcqAverage: 88,
-          hwGraded: 3,
-          hwAverage: 82,
-          predictedGrade: 8,
-        },
-        {
-          subject: "chemistry",
-          mcqAttempts: 3,
-          mcqAverage: 78,
-          hwGraded: 2,
-          hwAverage: 75,
-          predictedGrade: 7,
-        },
-        {
-          subject: "physics",
-          mcqAttempts: 2,
-          mcqAverage: 65,
-          hwGraded: 1,
-          hwAverage: 60,
-          predictedGrade: 6,
-        },
-      ]);
-      setLoading(false);
-      return;
-    }
-
     if (!userId || subjects.length === 0) {
       setRows([]);
       setLoading(false);

@@ -1,6 +1,5 @@
 import { supabase } from "@/integrations/supabase/client";
 import { type LevelV, type BoardV, type SubjectV } from "./taxonomy";
-import { type Topic, type SpecPoint } from "./curriculumDal";
 
 export interface ParsedCurriculum {
   subject: SubjectV;
@@ -113,26 +112,15 @@ export class CurriculumSyncService {
   }
 
   /**
-   * Dual-Environment Sync pushes parsed curriculum to both Production and Demo platforms
-   * with absolute environmental isolation.
+   * Inserts parsed curriculum (topics, spec points, and a default MCQ set per
+   * point) into the shared database. Demo and real accounts read the same rows;
+   * demo access is limited only by RLS on MCQs/homework/live sessions.
    */
-  static async uploadCurriculum(
+  private static async insertCurriculum(
     data: ParsedCurriculum,
-  ): Promise<{ production: SyncResult; demo: SyncResult }> {
-    const results: { production: SyncResult; demo: SyncResult } = {
-      production: { success: false },
-      demo: { success: false },
-    };
-
-    // --- 1. Production Sync ---
+    userId: string,
+  ): Promise<SyncResult> {
     try {
-      // Determine user ID
-      const {
-        data: { user },
-      } = await supabase.auth.getUser();
-      const userId = user?.id || "00000000-0000-0000-0000-000000000000";
-
-      // Insert Topic
       const { data: topicRow, error: topicErr } = await supabase
         .from("topics")
         .insert({
@@ -148,106 +136,59 @@ export class CurriculumSyncService {
         .select("id")
         .single();
 
-      if (topicErr) {
-        results.production = { success: false, error: topicErr.message };
-      } else {
-        const topicId = topicRow.id;
-        let pointsCount = 0;
+      if (topicErr) return { success: false, error: topicErr.message };
 
-        // Insert Spec Points & MCQ sets
-        for (const pt of data.specPoints) {
-          const { data: ptRow, error: ptErr } = await supabase
-            .from("spec_points")
-            .insert({
-              topic_id: topicId,
-              code: pt.code,
-              title: pt.title,
-              description: pt.description || null,
-            })
-            .select("id")
-            .single();
+      const topicId = topicRow.id;
+      let pointsCount = 0;
 
-          if (!ptErr && ptRow) {
-            pointsCount++;
+      for (const pt of data.specPoints) {
+        const { data: ptRow, error: ptErr } = await supabase
+          .from("spec_points")
+          .insert({
+            topic_id: topicId,
+            code: pt.code,
+            title: pt.title,
+            description: pt.description || null,
+            created_by: userId,
+          })
+          .select("id")
+          .single();
 
-            // Create connected default MCQ set for click readiness
-            await supabase.from("mcq_sets").insert({
-              spec_point_id: ptRow.id,
-              title: `${data.topicTitle}: ${pt.title} MCQ Set`,
-              description: `Practice assessment for ${pt.title}`,
-              published: true,
-              subject: data.subject,
-              created_by: userId,
-            });
-          }
+        if (!ptErr && ptRow) {
+          pointsCount++;
+
+          // Create connected default MCQ set for click readiness
+          await supabase.from("mcq_sets").insert({
+            spec_point_id: ptRow.id,
+            title: `${data.topicTitle}: ${pt.title} MCQ Set`,
+            description: `Practice assessment for ${pt.title}`,
+            published: true,
+            subject: data.subject,
+            created_by: userId,
+          });
         }
-
-        results.production = {
-          success: true,
-          insertedTopicId: topicId,
-          insertedPointsCount: pointsCount,
-        };
       }
+
+      return { success: true, insertedTopicId: topicId, insertedPointsCount: pointsCount };
     } catch (e: unknown) {
-      results.production = {
-        success: false,
-        error: e instanceof Error ? e.message : String(e),
-      };
+      return { success: false, error: e instanceof Error ? e.message : String(e) };
     }
+  }
 
-    // --- 2. Demo Sync ---
-    // Strict Isolation: Test data never leaks into Production.
-    // Pushes to a localized mock registry stored in client-side localStorage.
-    try {
-      if (typeof window !== "undefined") {
-        const stored = localStorage.getItem("studyhub:demo-curriculum") || "[]";
-        const currentDemoCurriculum = JSON.parse(stored) as Array<{
-          topic: Topic & { level: string; board: string; subject: string };
-          points: SpecPoint[];
-        }>;
+  /**
+   * Writes the parsed curriculum to the shared database. Content becomes visible
+   * to real (enrolled) students and, per the demo access rules, to demo students
+   * too. The result is reported to both status slots the panel renders.
+   */
+  static async uploadCurriculum(
+    data: ParsedCurriculum,
+  ): Promise<{ production: SyncResult; demo: SyncResult }> {
+    const {
+      data: { user },
+    } = await supabase.auth.getUser();
+    const userId = user?.id || "00000000-0000-0000-0000-000000000000";
 
-        const demoTopicId = `demo-topic-${Date.now()}`;
-        const demoTopic = {
-          id: demoTopicId,
-          code: data.topicCode,
-          title: data.topicTitle,
-          description: data.topicDescription || null,
-          sort_order: 200,
-          level: data.level,
-          board: data.board,
-          subject: data.subject,
-        };
-
-        const demoPoints: SpecPoint[] = data.specPoints.map((pt, idx) => ({
-          id: `demo-point-${demoTopicId}-${idx}`,
-          topic_id: demoTopicId,
-          code: pt.code,
-          title: pt.title,
-          description: pt.description || null,
-        }));
-
-        currentDemoCurriculum.push({
-          topic: demoTopic,
-          points: demoPoints,
-        });
-
-        localStorage.setItem("studyhub:demo-curriculum", JSON.stringify(currentDemoCurriculum));
-
-        results.demo = {
-          success: true,
-          insertedTopicId: demoTopicId,
-          insertedPointsCount: demoPoints.length,
-        };
-      } else {
-        results.demo = { success: false, error: "Not running in browser window context" };
-      }
-    } catch (e: unknown) {
-      results.demo = {
-        success: false,
-        error: e instanceof Error ? e.message : String(e),
-      };
-    }
-
-    return results;
+    const result = await this.insertCurriculum(data, userId);
+    return { production: result, demo: result };
   }
 }

@@ -1,53 +1,34 @@
 import { supabase } from "@/integrations/supabase/client";
+import { markDemoSession, type DemoRole } from "@/lib/auth/session";
 
-export const DEMO_EMAIL = "asa180@live.co.uk";
-export const DEMO_PASSWORD = "1234abcd";
-
-/**
- * Sign in as the seeded principal tutor. If the account doesn't exist yet,
- * create it (auto-confirm is enabled, so a session is returned immediately).
- * Idempotent — safe to call multiple times.
- */
-export async function ensureDemoTutorSession(): Promise<boolean> {
-  const { data: existing } = await supabase.auth.getUser();
-  if (existing.user) return true;
-
-  const signIn = await supabase.auth.signInWithPassword({
-    email: DEMO_EMAIL,
-    password: DEMO_PASSWORD,
-  });
-  if (signIn.data.session) return true;
-
-  const signUp = await supabase.auth.signUp({
-    email: DEMO_EMAIL,
-    password: DEMO_PASSWORD,
-    options: { data: { display_name: "Principal Tutor" } },
-  });
-  if (signUp.data.session) return true;
-
-  // Signup may have created the user but no session (rare). Retry sign-in.
-  const retry = await supabase.auth.signInWithPassword({
-    email: DEMO_EMAIL,
-    password: DEMO_PASSWORD,
-  });
-  return !!retry.data.session;
-}
+// Seeded public demo accounts. These are shared sandbox logins. The demo student
+// reads the same curriculum as real students, but row-level security limits it to
+// one MCQ set, one homework, and no live sessions. The password is intentionally
+// shipped client-side.
+export const DEMO_STUDENT_EMAIL = "demo.student@angliantutoring.app";
+export const DEMO_PARENT_EMAIL = "demo.parent@angliantutoring.app";
+export const DEMO_PASSWORD = "AnglianDemo2026";
 
 /**
- * Enters public demo sandbox mode.
- * Establishes an active sandbox session, sets local storage flags,
- * and configures the user experience as a student or parent preview.
+ * Enters the public demo sandbox by signing in as the seeded demo student or
+ * parent. All demo data is read from the same database as production, scoped by
+ * RLS via the account's is_demo flag. Sets local flags used purely for UI
+ * affordances (the demo banner / exit button).
  */
-export async function enterDemoMode(role: "student" | "parent" = "student"): Promise<boolean> {
+export async function enterDemoMode(role: DemoRole = "student"): Promise<boolean> {
   try {
-    const success = await ensureDemoTutorSession();
-    if (success) {
-      localStorage.setItem("studyhub:is-demo", "true");
-      localStorage.setItem("studyhub:demo-role", role);
-      localStorage.setItem("studyhub:view-as", "student");
-      return true;
+    const email = role === "parent" ? DEMO_PARENT_EMAIL : DEMO_STUDENT_EMAIL;
+    await supabase.auth.signOut();
+    const { data, error } = await supabase.auth.signInWithPassword({
+      email,
+      password: DEMO_PASSWORD,
+    });
+    if (error || !data.session) {
+      console.error("Failed to enter demo mode:", error);
+      return false;
     }
-    return false;
+    markDemoSession(role);
+    return true;
   } catch (error) {
     console.error("Failed to initialize demo sandbox mode:", error);
     return false;

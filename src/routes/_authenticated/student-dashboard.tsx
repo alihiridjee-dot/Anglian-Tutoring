@@ -44,11 +44,7 @@ function StudentDashboard() {
   const [displayName, setDisplayName] = useState("Ali");
 
   useEffect(() => {
-    const isDemo = localStorage.getItem("studyhub:is-demo") === "true";
-    const demoRole = localStorage.getItem("studyhub:demo-role");
-    if (isDemo && demoRole === "student") {
-      setDisplayName("Ali");
-    } else if (email) {
+    if (email) {
       const parts = email.split("@")[0];
       const name = parts.charAt(0).toUpperCase() + parts.slice(1);
       setDisplayName(name);

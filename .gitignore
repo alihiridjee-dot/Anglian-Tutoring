@@ -16,6 +16,14 @@ dist-ssr
 .nitro
 *.local
 
+# Environment variables (never commit real secrets)
+.env
+.env.*
+!.env.example
+
+# Local bun lockfile — npm (package-lock.json) is the canonical lockfile
+bun.lock
+
 # Wrangler / Cloudflare
 .wrangler/
 .dev.vars

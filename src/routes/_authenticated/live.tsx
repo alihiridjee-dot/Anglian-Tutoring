@@ -4,7 +4,17 @@ import { useQuery } from "@tanstack/react-query";
 import { AppLayout } from "@/components/AppLayout";
 import { FilterBar, type Filters } from "@/components/FilterBar";
 import { supabase } from "@/integrations/supabase/client";
-import { Video, Calendar, Smartphone, X, Send, CheckCircle2, Share2, Info } from "lucide-react";
+import {
+  Video,
+  Calendar,
+  Smartphone,
+  X,
+  Send,
+  CheckCircle2,
+  Share2,
+  Info,
+  Loader2,
+} from "lucide-react";
 import { toast } from "sonner";
 
 export const Route = createFileRoute("/_authenticated/live")({
@@ -29,71 +39,6 @@ function Live() {
   const { data, isLoading } = useQuery({
     queryKey: ["live", filters],
     queryFn: async () => {
-      const isDemo =
-        typeof window !== "undefined" && localStorage.getItem("studyhub:is-demo") === "true";
-      if (isDemo) {
-        // High fidelity GCSE Biology mock live sessions
-        const nowTime = Date.now();
-        const demoSessions = [
-          {
-            id: "live-photosynthesis",
-            kind: "live_session",
-            title: "Mastering Photosynthesis: Limiting Factors & Light Intensity",
-            description:
-              "We will demystify the light-dependent stage, trace how carbon dioxide concentration and temperature restrict reaction rates, and practice answering high-yield 6-mark exam questions.",
-            starts_at: new Date(nowTime + 4 * 3600 * 1000).toISOString(), // 4 hours from now
-            join_url: "https://teams.microsoft.com/l/meetup-join/demo",
-            subject: "biology",
-            level: "gcse",
-            board: "AQA",
-          },
-          {
-            id: "live-cell-membranes",
-            kind: "live_session",
-            title: "Active Transport vs Osmosis: Crucial Cellular Transport Mechanics",
-            description:
-              "Compare passive diffusion, osmosis, and active transport with visual cell membrane models. Perfect for mastering GCSE paper 1.",
-            starts_at: new Date(nowTime + 28 * 3600 * 1000).toISOString(), // Tomorrow
-            join_url: "https://teams.microsoft.com/l/meetup-join/demo",
-            subject: "biology",
-            level: "gcse",
-            board: "Edexcel",
-          },
-          {
-            id: "live-monoclonal",
-            kind: "live_session",
-            title: "Monoclonal Antibodies & GCSE Disease Defense Pathways",
-            description:
-              "Step-by-step breakdown of how hybridoma cells are created, how antibodies target specific antigens, and how they are used in diagnostic tests.",
-            starts_at: new Date(nowTime - 24 * 3600 * 1000).toISOString(), // Yesterday
-            join_url: "https://teams.microsoft.com/l/meetup-join/demo",
-            subject: "biology",
-            level: "gcse",
-            board: "AQA",
-          },
-          {
-            id: "live-cram",
-            kind: "live_session",
-            title: "GCSE Biology Paper 1: Live Syllabus-Wide Revision",
-            description:
-              "Comprehensive rapid-fire review of Cell Biology, Infection & Response, and Bioenergetics with active chat Q&A.",
-            starts_at: new Date(nowTime - 72 * 3600 * 1000).toISOString(), // 3 days ago
-            join_url: "https://teams.microsoft.com/l/meetup-join/demo",
-            subject: "biology",
-            level: "gcse",
-            board: "OCR Gateway",
-          },
-        ];
-
-        // Apply filters in memory
-        return demoSessions.filter((s) => {
-          if (filters.subject && s.subject !== filters.subject) return false;
-          if (filters.level && s.level !== filters.level) return false;
-          if (filters.board && s.board !== filters.board) return false;
-          return true;
-        });
-      }
-
       let q = supabase
         .from("resources")
         .select("*")
