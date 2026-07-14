@@ -6,15 +6,14 @@ export const Route = createFileRoute("/_authenticated/dashboard")({
   beforeLoad: async () => {
     const role = await AuthService.getUserRole();
 
-    if (role === UserRole.STUDENT) {
-      throw redirect({ to: "/student-dashboard" });
+    if (role === UserRole.TUTOR || role === UserRole.ADMIN) {
+      // Tutor home is the Tutor Studio (resource management). Tutors must never
+      // land on the Parent Portal — that surface is PARENT-only.
+      throw redirect({ to: "/tutor" });
     } else if (role === UserRole.PARENT) {
       throw redirect({ to: "/parent-dashboard" });
-    } else if (role === UserRole.TUTOR || role === UserRole.ADMIN) {
-      // Tutors or admins default to parent view dashboard or tutor portal
-      throw redirect({ to: "/parent-dashboard" });
     } else {
-      // Fallback
+      // Students and the safe fallback both resolve to the student dashboard.
       throw redirect({ to: "/student-dashboard" });
     }
   },

@@ -4,18 +4,11 @@ import { AppLayout } from "@/components/AppLayout";
 import { supabase } from "@/integrations/supabase/client";
 import { useRoles } from "@/hooks/useRole";
 import { useEnrolments } from "@/hooks/data/useEnrolments";
-import {
-  ClipboardList,
-  Upload,
-  FileText,
-  X,
-  CheckCircle2,
-  Clock,
-  Info,
-  TrendingUp,
-} from "lucide-react";
+import { ClipboardList, Upload, FileText, X, CheckCircle2, Clock, Info, TrendingUp } from "lucide-react";
 import { toast } from "sonner";
 import { useAnalytics } from "@/hooks/data/useAnalytics";
+import { SignedFileLink } from "@/components/SignedFileLink";
+import { isDemoStudent, DEMO_HOMEWORK, DEMO_SUBMISSIONS } from "@/lib/demo/studentDemo";
 
 export const Route = createFileRoute("/_authenticated/homework")({
   head: () => ({ meta: [{ title: "Homework & Grades | Anglian Learning" }] }),
@@ -56,6 +49,7 @@ type SubmissionRow = {
 
 function HomeworkPage() {
   const { isTutor, userId } = useRoles();
+  const demo = isDemoStudent();
   const { enrolledCourses } = useEnrolments();
   const [homework, setHomework] = useState<Homework[]>([]);
   const [submissions, setSubmissions] = useState<Record<string, SubmissionRow>>({});
@@ -63,6 +57,13 @@ function HomeworkPage() {
 
   const reload = async () => {
     setLoading(true);
+    // Demo student: render the self-contained fixture set, never real content.
+    if (isDemoStudent()) {
+      setHomework(DEMO_HOMEWORK);
+      setSubmissions(DEMO_SUBMISSIONS);
+      setLoading(false);
+      return;
+    }
     let q = supabase
       .from("resources")
       .select("id, title, instructions, subject, due_at, created_at")
@@ -158,7 +159,7 @@ function HomeworkPage() {
               submission={submissions[h.id]}
               userId={userId}
               onChanged={reload}
-              readonly={isTutor}
+              readonly={isTutor || demo}
             />
           ))}
         </div>
@@ -353,8 +354,8 @@ function HomeworkCard({
             </p>
             <ul className="space-y-1">
               {submission.files.map((f) => (
-                <li key={f.path} className="text-sm flex items-center gap-2">
-                  <FileText className="w-3.5 h-3.5 text-muted-foreground" /> {f.name}
+                <li key={f.path}>
+                  <SignedFileLink file={f} />
                 </li>
               ))}
             </ul>

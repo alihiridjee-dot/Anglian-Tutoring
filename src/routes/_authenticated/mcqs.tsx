@@ -3,6 +3,7 @@ import { useEffect, useMemo, useState } from "react";
 import { AppLayout } from "@/components/AppLayout";
 import { supabase } from "@/integrations/supabase/client";
 import { ListChecks, Sparkles, ChevronRight, BookOpen } from "lucide-react";
+import { isDemoStudent, DEMO_MCQ_SETS } from "@/lib/demo/studentDemo";
 
 export const Route = createFileRoute("/_authenticated/mcqs")({
   head: () => ({ meta: [{ title: "MCQs | Anglian Learning" }] }),
@@ -27,6 +28,11 @@ function MCQs() {
 
   useEffect(() => {
     (async () => {
+      if (isDemoStudent()) {
+        setSets(DEMO_MCQ_SETS);
+        setLoading(false);
+        return;
+      }
       const { data } = await supabase
         .from("mcq_sets")
         .select("id, title, published, created_at")

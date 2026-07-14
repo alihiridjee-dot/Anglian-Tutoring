@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react";
 import { supabase } from "@/integrations/supabase/client";
+import { isDemoStudent, DEMO_ANALYTICS } from "@/lib/demo/studentDemo";
 
 export interface SubjectAnalytics {
   subject: string;
@@ -32,6 +33,12 @@ export function useAnalytics(userId: string | null, subjects: string[]) {
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
+    // Demo student: serve the fixed showcase profile, never real analytics.
+    if (isDemoStudent()) {
+      setRows(DEMO_ANALYTICS.filter((r) => subjects.length === 0 || subjects.includes(r.subject)));
+      setLoading(false);
+      return;
+    }
     if (!userId || subjects.length === 0) {
       setRows([]);
       setLoading(false);

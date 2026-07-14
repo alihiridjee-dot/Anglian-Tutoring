@@ -5,6 +5,8 @@ import { AppLayout } from "@/components/AppLayout";
 import { FilterBar, type Filters } from "@/components/FilterBar";
 import { supabase } from "@/integrations/supabase/client";
 import { FileText, Download as DownloadIcon } from "lucide-react";
+import { toast } from "sonner";
+import { isDemoStudent, DEMO_DOWNLOADS, DEMO_FILE_PREFIX } from "@/lib/demo/studentDemo";
 
 export const Route = createFileRoute("/_authenticated/downloads")({
   head: () => ({ meta: [{ title: "Downloads | StudyHub" }] }),
@@ -23,6 +25,14 @@ function Downloads() {
   const { data, isLoading } = useQuery({
     queryKey: ["downloads", filters],
     queryFn: async () => {
+      if (isDemoStudent()) {
+        return DEMO_DOWNLOADS.filter(
+          (d) =>
+            (!filters.subject || d.subject === filters.subject) &&
+            (!filters.board || d.board === filters.board) &&
+            (!filters.level || d.level === filters.level),
+        );
+      }
       let q = supabase
         .from("resources")
         .select("*")
@@ -38,6 +48,11 @@ function Downloads() {
   });
 
   const open = async (path: string) => {
+    // Demo fixtures carry a sentinel path — never hit real Storage.
+    if (path.startsWith(DEMO_FILE_PREFIX)) {
+      toast.info("Downloads are disabled in the demo sandbox.");
+      return;
+    }
     const { data } = await supabase.storage.from("resources").createSignedUrl(path, 3600);
     if (data?.signedUrl) window.open(data.signedUrl, "_blank");
   };

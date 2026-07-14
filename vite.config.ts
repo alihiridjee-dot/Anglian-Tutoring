@@ -12,4 +12,11 @@ export default defineConfig({
     // nitro/vite builds from this
     server: { entry: "server" },
   },
+  vite: {
+    server: {
+      // Honor the port assigned by the preview harness via PORT; fall back to 8080.
+      port: process.env.PORT ? Number(process.env.PORT) : 8080,
+      strictPort: false,
+    },
+  },
 });

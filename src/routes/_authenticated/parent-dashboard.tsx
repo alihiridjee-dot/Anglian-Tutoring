@@ -10,7 +10,6 @@ import { useState, useEffect } from "react";
 import {
   CalendarClock,
   ClipboardList,
-  Wrench,
   BookMarked,
   ListChecks,
   CreditCard,
@@ -33,13 +32,13 @@ import {
 
 export const Route = createFileRoute("/_authenticated/parent-dashboard")({
   beforeLoad: async () => {
-    const hasAccess = await AuthService.verifyRoleAccess([
-      UserRole.PARENT,
-      UserRole.TUTOR,
-      UserRole.ADMIN,
-    ]);
+    // PARENT-only surface. Tutors/admins/students are routed away so the Parent
+    // Portal can never render inside a tutor or student session. Parent
+    // development is deferred and this module stays isolated from the
+    // tutor/student flow.
+    const hasAccess = await AuthService.verifyRoleAccess([UserRole.PARENT]);
     if (!hasAccess) {
-      throw redirect({ to: "/student-dashboard" });
+      throw redirect({ to: "/dashboard" });
     }
   },
   head: () => ({ meta: [{ title: "Parent Portal | Anglian Learning" }] }),
@@ -83,7 +82,7 @@ const chartConfig = {
 } satisfies ChartConfig;
 
 function ParentDashboard() {
-  const { isTutor, actualIsTutor, email } = useRoles();
+  const { email } = useRoles();
   const { enrolledCourses } = useEnrolments();
   const [effectiveStudentId, setEffectiveStudentId] = useState<string | null>(null);
 
@@ -125,9 +124,6 @@ function ParentDashboard() {
     },
   ];
   const analytics = isDemo ? demoAnalytics : realAnalytics;
-
-  const displaySubjects =
-    actualIsTutor && isTutor ? ["biology", "chemistry", "physics"] : enrolledCourses;
 
   const displayEmailName = email
     ? email.startsWith("demo")
@@ -178,14 +174,6 @@ function ParentDashboard() {
           >
             <Download className="w-4 h-4" /> Download Progress Report
           </button>
-          {isTutor && (
-            <Link
-              to="/tutor"
-              className="inline-flex items-center gap-2 bg-white/10 hover:bg-white/20 text-white px-4 py-2 rounded-xl text-xs font-semibold border border-white/20 transition cursor-pointer"
-            >
-              <Wrench className="w-4 h-4" /> Open Tutor Studio
-            </Link>
-          )}
         </div>
       </div>
 

@@ -6,6 +6,7 @@ import { FilterBar, type Filters } from "@/components/FilterBar";
 import { supabase } from "@/integrations/supabase/client";
 import { PlayCircle, ExternalLink } from "lucide-react";
 import { SUBJECTS, BOARDS, LEVELS } from "@/lib/taxonomy";
+import { isDemoStudent, DEMO_VIDEOS } from "@/lib/demo/studentDemo";
 
 export const Route = createFileRoute("/_authenticated/videos")({
   head: () => ({ meta: [{ title: "Videos | StudyHub" }] }),
@@ -22,6 +23,14 @@ function Videos() {
   const { data, isLoading } = useQuery({
     queryKey: ["videos", filters],
     queryFn: async () => {
+      if (isDemoStudent()) {
+        return DEMO_VIDEOS.filter(
+          (v) =>
+            (!filters.subject || v.subject === filters.subject) &&
+            (!filters.board || v.board === filters.board) &&
+            (!filters.level || v.level === filters.level),
+        );
+      }
       let q = supabase
         .from("resources")
         .select("*")

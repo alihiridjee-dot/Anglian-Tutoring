@@ -5,6 +5,7 @@ import { supabase } from "@/integrations/supabase/client";
 import { useRoles } from "@/hooks/useRole";
 import { toast } from "sonner";
 import { CheckCircle2, XCircle } from "lucide-react";
+import { isDemoStudent, DEMO_MCQ } from "@/lib/demo/studentDemo";
 
 export const Route = createFileRoute("/_authenticated/mcq/$setId")({
   head: () => ({ meta: [{ title: "MCQ | StudyHub" }] }),
@@ -32,6 +33,17 @@ function TakeMcq() {
 
   useEffect(() => {
     (async () => {
+      // Demo student: render a self-contained fixture quiz, never real content.
+      if (isDemoStudent()) {
+        const demo = DEMO_MCQ[setId];
+        if (demo) {
+          setSet(demo.set);
+          setQuestions(demo.questions);
+        } else {
+          setSet(null);
+        }
+        return;
+      }
       const { data: s } = await supabase
         .from("mcq_sets")
         .select("id, title, description, published")
@@ -52,6 +64,12 @@ function TakeMcq() {
     for (const q of questions) if (answers[q.id] === q.correct_index) correct += 1;
     setScore(correct);
     setSubmitted(true);
+
+    // Demo student: score locally, never write an attempt to the DB.
+    if (isDemoStudent()) {
+      toast.success(`Scored ${correct}/${questions.length}`);
+      return;
+    }
 
     if (!userId || questions.length === 0) return;
     const { error } = await supabase.from("mcq_attempts").insert({

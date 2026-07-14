@@ -1,5 +1,12 @@
 import { supabase } from "@/integrations/supabase/client";
 import { type LevelV, type BoardV, type SubjectV } from "./taxonomy";
+import {
+  isDemoStudent,
+  DEMO_CURRICULUM_TOPICS,
+  DEMO_CURRICULUM_SPEC_POINTS,
+  DEMO_CURRICULUM_CONTENT,
+  DEMO_CURRICULUM_FALLBACK,
+} from "./demo/studentDemo";
 
 export type Topic = {
   id: string;

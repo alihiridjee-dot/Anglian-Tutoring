@@ -16,6 +16,7 @@ import {
   Loader2,
 } from "lucide-react";
 import { toast } from "sonner";
+import { isDemoStudent, DEMO_LIVE } from "@/lib/demo/studentDemo";
 
 export const Route = createFileRoute("/_authenticated/live")({
   head: () => ({ meta: [{ title: "Live Sessions | StudyHub" }] }),
@@ -39,6 +40,14 @@ function Live() {
   const { data, isLoading } = useQuery({
     queryKey: ["live", filters],
     queryFn: async () => {
+      if (isDemoStudent()) {
+        return DEMO_LIVE.filter(
+          (s) =>
+            (!filters.subject || s.subject === filters.subject) &&
+            (!filters.board || s.board === filters.board) &&
+            (!filters.level || s.level === filters.level),
+        );
+      }
       let q = supabase
         .from("resources")
         .select("*")

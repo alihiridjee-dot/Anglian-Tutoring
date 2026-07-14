@@ -365,31 +365,29 @@ function TopicCard({
 
   return (
     <div className="rounded-2xl bg-card border border-border overflow-hidden">
-      <button
-        onClick={onToggle}
-        className="w-full flex items-center justify-between px-5 py-4 text-left hover:bg-secondary/40"
-      >
-        <div className="flex items-center gap-3">
-          <ChevronRight className={`w-4 h-4 transition ${open ? "rotate-90" : ""}`} />
+      <div className="flex items-center hover:bg-secondary/40">
+        <button
+          onClick={onToggle}
+          className="flex-1 min-w-0 flex items-center gap-3 px-5 py-4 text-left"
+        >
+          <ChevronRight className={`w-4 h-4 shrink-0 transition ${open ? "rotate-90" : ""}`} />
           {topic.code && (
             <span className="text-xs font-mono px-2 py-0.5 rounded bg-primary/15 text-primary">
               {topic.code}
             </span>
           )}
-          <span className="font-display font-semibold">{topic.title}</span>
-        </div>
+          <span className="font-display font-semibold truncate">{topic.title}</span>
+        </button>
         {isTutor && (
           <button
-            onClick={(e) => {
-              e.stopPropagation();
-              del();
-            }}
-            className="text-muted-foreground hover:text-destructive p-1"
+            onClick={del}
+            className="text-muted-foreground hover:text-destructive p-1 mr-4 shrink-0"
+            aria-label={`Delete topic ${topic.title}`}
           >
             <Trash2 className="w-4 h-4" />
           </button>
         )}
-      </button>
+      </div>
       {open && (
         <div className="border-t border-border p-5 space-y-4">
           {isTutor && <SpecPointCreate topicId={topic.id} onCreated={reload} />}

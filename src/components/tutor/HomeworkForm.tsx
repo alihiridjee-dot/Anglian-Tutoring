@@ -4,6 +4,7 @@ import { supabase } from "@/integrations/supabase/client";
 import { toast } from "sonner";
 import { Field, inputCls, submitBtn } from "./Field";
 import { TaxonomyFields } from "./TaxonomyFields";
+import { SpecPointSelect } from "./SpecPointSelect";
 import { type SubjectV, type BoardV, type LevelV } from "@/lib/taxonomy";
 
 interface HomeworkFormProps {
@@ -30,6 +31,7 @@ export function HomeworkForm({ userId, taxonomy }: HomeworkFormProps) {
   const [title, setTitle] = useState("");
   const [instructions, setInstructions] = useState("");
   const [dueAt, setDueAt] = useState("");
+  const [specPointId, setSpecPointId] = useState<string | null>(null);
   const [taskFile, setTaskFile] = useState<File | null>(null);
   const [msFile, setMsFile] = useState<File | null>(null);
   const [loading, setLoading] = useState(false);
@@ -56,6 +58,7 @@ export function HomeworkForm({ userId, taxonomy }: HomeworkFormProps) {
         subject: taxonomy.subject,
         board: taxonomy.board,
         level: taxonomy.level,
+        spec_point_id: specPointId,
         created_by: userId,
       });
       if (error) throw error;
@@ -64,6 +67,7 @@ export function HomeworkForm({ userId, taxonomy }: HomeworkFormProps) {
       setTitle("");
       setInstructions("");
       setDueAt("");
+      setSpecPointId(null);
       setTaskFile(null);
       setMsFile(null);
     } catch (err) {
@@ -115,6 +119,13 @@ export function HomeworkForm({ userId, taxonomy }: HomeworkFormProps) {
         </Field>
       </div>
       <TaxonomyFields {...taxonomy} />
+      <SpecPointSelect
+        subject={taxonomy.subject}
+        board={taxonomy.board}
+        level={taxonomy.level}
+        value={specPointId}
+        onChange={setSpecPointId}
+      />
       <button disabled={loading} className={submitBtn}>
         {loading ? "Uploading…" : "Set homework"}
       </button>

@@ -45,10 +45,7 @@ const studentNav: NavItem[] = [
   { to: "/mcqs", label: "MCQs", icon: ListChecks },
 ];
 
-const tutorExtra: NavItem[] = [
-  { to: "/tutor", label: "Tutor Studio", icon: Wrench },
-  { to: "/students", label: "Students", icon: Users },
-];
+const tutorExtra: NavItem[] = [{ to: "/students", label: "Students", icon: Users }];
 
 export function AppLayout({ title, children }: { title: string; children: ReactNode }) {
   const pathname = useRouterState({ select: (s) => s.location.pathname });
@@ -75,15 +72,22 @@ export function AppLayout({ title, children }: { title: string; children: ReactN
   };
 
   const nav = isTutor
-    ? [...studentNav, ...tutorExtra]
+    ? // Tutor home is the Tutor Studio; the shared content pages stay available.
+      [
+        ...studentNav.map((item) =>
+          item.to === "/dashboard" ? { ...item, to: "/tutor" as const } : item,
+        ),
+        ...tutorExtra,
+      ]
     : studentNav.map((item) => {
         if (item.to === "/dashboard") {
+          // Only a genuine PARENT persona maps to the Parent Portal. Everyone
+          // else — students, and tutors previewing as a student — resolves to
+          // the student dashboard, so the Parent Portal can never leak into a
+          // non-parent session's navigation.
           const activeRole = isDemo ? demoRole : userRole;
-          if (activeRole === "student") {
-            return { ...item, to: "/student-dashboard" as const };
-          } else {
-            return { ...item, to: "/parent-dashboard" as const };
-          }
+          const home = activeRole === "parent" ? "/parent-dashboard" : "/student-dashboard";
+          return { ...item, to: home as const };
         }
         return item;
       });
