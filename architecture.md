@@ -2,6 +2,8 @@
 
 This document tracks the file tree, state management paradigm, core API/backend structures, and key architectural flows for Anglian Tutoring.
 
+For authentication & the live/demo session model, see [docs/AUTHENTICATION.md](docs/AUTHENTICATION.md).
+
 ---
 
 ## 📂 File Tree
@@ -10,6 +12,11 @@ This document tracks the file tree, state management paradigm, core API/backend 
 .
 ├── AGENTS.md                  # Custom agent instructions & safety guardrails
 ├── README.md                  # Developer instructions and project overview
+├── docs/
+│   └── AUTHENTICATION.md      # Live vs demo session model, guard, sign-up flow
+├── supabase/
+│   ├── config.toml            # Supabase project link (project_id)
+│   └── migrations/            # Canonical schema — applied in order via db push
 ├── components.json            # Configuration for UI components (Shadcn UI)
 ├── eslint.config.js           # Linting configuration
 ├── package.json               # Dependencies, build, and start scripts
@@ -18,104 +25,89 @@ This document tracks the file tree, state management paradigm, core API/backend 
 └── src/
     ├── components/            # UI Components
     │   ├── AppLayout.tsx      # Main wrapper template for authenticated pages
+    │   ├── CurriculumSyncPanel.tsx # Tutor-only curriculum text/PDF importer
     │   ├── FilterBar.tsx      # Subject/Board/Level interactive filters
     │   ├── landing/           # Landing page component modules
-    │   │   ├── ContactSection.tsx
-    │   │   ├── FloatingWhatsApp.tsx
-    │   │   ├── Footer.tsx
-    │   │   ├── Hero.tsx
-    │   │   ├── Nav.tsx
-    │   │   ├── OfferSection.tsx
-    │   │   ├── PricingSection.tsx
-    │   │   └── TutorsSection.tsx
-    │   ├── tutor/             # Tutor management Forms
-    │   │   ├── DownloadForm.tsx
-    │   │   ├── Field.tsx
-    │   │   ├── HomeworkForm.tsx
-    │   │   ├── LiveForm.tsx
-    │   │   ├── TaxonomyFields.tsx
-    │   │   └── VideoForm.tsx
-    │   └── ui/                # Base design-system primitives (Radix + Tailwind)
+    │   ├── tutor/             # Tutor management forms
+    │   └── ui/
+    │       └── chart.tsx      # Recharts wrapper (only design-system primitive in use)
     │
     ├── hooks/                 # Custom React hooks
     │   ├── data/              # Query-bound data hooks
     │   │   ├── useAnalytics.ts
     │   │   └── useEnrolments.ts
-    │   ├── use-mobile.tsx     # Window dimension responsiveness helper
-    │   └── useRole.ts         # Authentication role state cache
+    │   └── useRole.ts         # Authentication role state cache + view-as toggle
     │
-    ├── integrations/          # External integrations
-    │   └── supabase/          # Supabase Client, Auth Attachers & Middlewares
-    │       ├── auth-attacher.ts
-    │       ├── auth-middleware.ts
-    │       ├── client.server.ts
-    │       ├── client.ts
-    │       └── types.ts
+    ├── integrations/
+    │   └── supabase/          # Supabase client, auth attacher & middleware
+    │       ├── auth-attacher.ts    # Attaches bearer token to serverFn RPCs
+    │       ├── auth-middleware.ts  # requireSupabaseAuth for server functions
+    │       ├── client.server.ts    # Service-role admin client (currently unused)
+    │       ├── client.ts           # Browser/SSR client (publishable key)
+    │       └── types.ts            # Generated DB types (supabase gen types)
     │
-    ├── lib/                   # Utility libraries & Shared Helpers
-    │   ├── demoAuth.ts        # Fast-login profiles for local development
+    ├── lib/
+    │   ├── auth/session.ts    # Typed AuthSession — single source of truth for live/demo
+    │   ├── authService.ts     # Role resolution + effective student id
+    │   ├── curriculumDal.ts   # Data access layer — ALL curriculum reads (DB only)
+    │   ├── curriculumSyncService.ts # Parses spec text → inserts topics/points/MCQ sets
+    │   ├── demoAuth.ts        # enterDemoMode — signs into the seeded demo accounts
     │   ├── error-capture.ts   # Catastrophic SSR error reporting bounds
     │   ├── error-page.ts      # Fail-safe SSR error layout page
-    │   ├── mcq.functions.ts   # Multiple-Choice Quiz grading & evaluation helper
-    │   ├── taxonomy.ts        # Core school year levels, subjects, and boards lists
+    │   ├── mcq.functions.ts   # Server fn: AI MCQ generation (tutor-only)
+    │   ├── taxonomy.ts        # Subjects, boards, levels
     │   └── utils.ts           # Classnames merging utility
     │
-    ├── routes/                # File-based routing (TanStack Router / TanStack Start)
-    │   ├── __root.tsx         # Global base wrapper (meta tags, router context)
-    │   ├── auth.tsx           # Authentication login/register page
-    │   ├── index.tsx          # Public Landing Page route
-    │   ├── reset-password.tsx # Reset Password form page
-    │   └── _authenticated/    # Group of routes locked behind authentication
-    │       ├── route.tsx      # Layout route checking auth cookies & redirects
-    │       ├── billing.tsx    # Plan information and invoices page
-    │       ├── curriculum.tsx # Science curriculum spec points tracker
-    │       ├── dashboard.tsx  # Student / parent primary progress center
-    │       ├── downloads.tsx  # Downloadable resources and worksheets list
-    │       ├── homework.tsx   # Assigned homework tasks and marking submissions
-    │       ├── live.tsx       # Live online classes links & calendar schedules
-    │       ├── mcqs.tsx       # Mini multi-choice science assessments hub
-    │       ├── mcq.$setId.tsx # Active multi-choice interactive testing terminal
-    │       ├── notes.tsx      # Scientific summaries and revision notes
-    │       ├── settings.tsx   # Account updates, credentials, password settings
-    │       ├── students.tsx   # Tutor studio view of registered students
-    │       ├── tutor.tsx      # Tutor studio publication terminal
-    │       └── videos.tsx     # Video lesson archives player
+    ├── routes/                # File-based routing (TanStack Start)
+    │   ├── __root.tsx         # Global base wrapper (meta tags, Toaster)
+    │   ├── auth.tsx           # Login/signup (honours ?redirect= deep link)
+    │   ├── demo.tsx           # Public demo entry (student/parent sandbox)
+    │   ├── index.tsx          # Public landing page
+    │   ├── reset-password.tsx
+    │   └── _authenticated/    # Guarded routes (valid session required)
+    │       ├── route.tsx      # AuthGuard — validates session, exposes AuthSession
+    │       ├── billing.tsx · curriculum.tsx · dashboard.tsx · downloads.tsx
+    │       ├── homework.tsx · live.tsx · mcqs.tsx · mcq.$setId.tsx · notes.tsx
+    │       ├── parent-dashboard.tsx · settings.tsx · student-dashboard.tsx
+    │       └── students.tsx · tutor.tsx · videos.tsx
     │
-    ├── routeTree.gen.ts       # Autogenerated routing map file
-    ├── router.tsx             # Shared TanStack Router client configuration
-    ├── server.ts              # Production SSR custom server handler (Nitro)
-    ├── start.ts               # Production boot module
-    └── styles.css             # Root Tailwind CSS custom stylesheet
+    ├── routeTree.gen.ts       # Autogenerated routing map
+    ├── router.tsx             # TanStack Router configuration
+    ├── server.ts              # Production SSR handler (Nitro)
+    ├── start.ts               # Boot module (registers auth attacher middleware)
+    ├── styles.css             # Tailwind v4 stylesheet
+    └── types/user.ts          # UserRole enum
 ```
 
 ---
 
 ## ⚙️ State Management Paradigm
 
-This application uses a multi-tier client-and-server synchronization paradigm:
+1. **Server State (Supabase + React Query)** — all data fetches are query caches;
+   mutations invalidate keys for seamless refetches. No curriculum, resource, MCQ,
+   or homework content exists in code — **the database is the single source of
+   truth** and everything is fetched at runtime through `CurriculumDAL` or
+   direct scoped queries.
+2. **Routing State (TanStack Router)** — transitions, query-string state
+   (login modes, pricing plans), and auth-guard redirects.
+3. **Local UI/Form State (React state)** — ephemeral UI properties.
 
-1. **Server State (Supabase + React Query `@tanstack/react-query`)**
-   - **Primary Store:** All data fetches (e.g., user profiles, enrolments, live sessions, homework tasks, curriculum records) are managed as query caches under React Query.
-   - **Invalidations:** Direct mutations on Supabase (e.g., adding resources or submitting homeworks) trigger explicit key invalidations (e.g., `["videos"]`, `["live"]`, `["homework"]`) via `useQueryClient` to perform seamless, non-blocking refetches.
-   - **Caches & Garbage Collection:** State fetching hooks like `useRoles` and `useEnrolments` enforce standard caching parameters (`staleTime: 10 mins`, `gcTime: 30 mins`) to prevent duplicate HTTP requests and database load during rapid route transitions.
+## 🔐 Data access model (summary)
 
-2. **Routing State (TanStack Router)**
-   - Used for transitions, layout hierarchies, query-string states (e.g., login modes, pricing plans, student year selections), and auth guard redirects.
-
-3. **Local UI/Form State (React State / React Hook Form)**
-   - Ephemeral UI properties (e.g., selected form values, uploading states, dialog toggles) are kept inside standard functional hooks.
-
----
+- Live and demo users both hold **real Supabase sessions**; demo is a dedicated
+  seeded account pair (`demo.student` / `demo.parent`).
+- **Row-Level Security** is the enforcement layer: enrolment scopes real
+  students; demo accounts get the full curriculum + videos but exactly one
+  pinned MCQ set (`mcq_sets.demo_visible`), one pinned homework
+  (`resources.demo_visible`), and no live sessions.
+- Sign-up records the chosen plan and enrols the student via the
+  `handle_new_user` trigger (see `supabase/migrations/`).
 
 ## 🌐 Core API & Backend Integration
 
-The backend is built around **TanStack Start**, powered by **Nitro** server engine under the hood.
-
-- **SSR Entry Point (`src/server.ts`):**
-  Proxies all incoming web requests to the TanStack Start server-entry router. Catches and logs server-side failures to display a clean, fallback error page without crashing the container.
-- **Vite Configuration:**
-  Uses `@lovable.dev/vite-tanstack-config` to bundle, pre-render, and generate the static and serverless-friendly `.output/` structure cleanly.
-- **Supabase Real-time & Backend Services:**
-  - **Auth:** Client-side credentials and OAuth integration. An auth-attacher assigns JWTs securely.
-  - **Database:** Full row-level-secured Postgres database.
-  - **Storage:** Secure file buckets (`resources` bucket) handling homework uploads and downloads safely via generated storage paths.
+- **SSR entry (`src/server.ts`)** — proxies requests to TanStack Start, catches
+  server-side failures with a clean fallback error page.
+- **Server functions** — protected by `requireSupabaseAuth` (bearer-token
+  validation); the client attaches tokens via `attachSupabaseAuth` in `start.ts`.
+- **Supabase** — Auth (email/password), RLS-secured Postgres, and a private
+  `resources` storage bucket for homework uploads and downloads.
