@@ -52,22 +52,33 @@ export function MarkingQueue() {
       setLoading(false);
       return;
     }
-    const rows = (data ?? []).map((r) => ({
+    const allRows = (data ?? []).map((r) => ({
       ...r,
       files: (r.files as unknown as SubmissionFile[]) ?? [],
     })) as Submission[];
-    setSubs(rows);
 
-    const ids = [...new Set(rows.map((r) => r.student_id))];
+    // Resolve the author profiles so we can (a) show real names and (b) drop any
+    // submission belonging to a public demo/sandbox account. The "demo platform"
+    // is a separate, self-contained showcase — its accounts (is_demo = true) must
+    // never surface work in the tutor's real marking queue. Genuine students,
+    // including test students like Bob, are is_demo = false and always shown.
+    const ids = [...new Set(allRows.map((r) => r.student_id))];
+    const map: Record<string, string> = {};
+    const demoStudentIds = new Set<string>();
     if (ids.length > 0) {
       const { data: profs } = await supabase
         .from("profiles")
-        .select("id, display_name")
+        .select("id, display_name, is_demo")
         .in("id", ids);
-      const map: Record<string, string> = {};
-      for (const p of profs ?? []) map[p.id] = p.display_name ?? "";
-      setNames(map);
+      for (const p of profs ?? []) {
+        map[p.id] = p.display_name ?? "";
+        if (p.is_demo) demoStudentIds.add(p.id);
+      }
     }
+
+    const rows = allRows.filter((r) => !demoStudentIds.has(r.student_id));
+    setSubs(rows);
+    setNames(map);
     setLoading(false);
   }, []);
 
