@@ -7,10 +7,15 @@
 -- column GRANT can separate "may edit my own submission" from "may grade it".
 -- A trigger is the only place that distinction can be enforced.
 
+-- SECURITY DEFINER is required, not incidental: `authenticated` has no USAGE on
+-- schema private, so an invoker-rights trigger dies with "permission denied for
+-- schema private" on every student submission. RLS policies get away with
+-- calling private.has_role because policy expressions run as the table owner;
+-- a trigger does not.
 create or replace function public.enforce_grading_privileges()
 returns trigger
 language plpgsql
-security invoker
+security definer
 set search_path = ''
 as $$
 declare
