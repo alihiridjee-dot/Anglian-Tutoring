@@ -4,18 +4,21 @@ import { useRoles } from "@/hooks/useRole";
 import { useEnrolments } from "@/hooks/data/useEnrolments";
 import { useAnalytics } from "@/hooks/data/useAnalytics";
 import { useState, useEffect } from "react";
-import { CalendarClock, ClipboardList, Wrench, BookMarked, ListChecks } from "lucide-react";
+import { CalendarClock, ClipboardList, BookMarked, ListChecks } from "lucide-react";
 import { AuthService } from "@/lib/authService";
 import { UserRole } from "@/types/user";
 
 export const Route = createFileRoute("/_authenticated/student-dashboard")({
   beforeLoad: async () => {
-    const hasAccess = await AuthService.verifyRoleAccess([
-      UserRole.STUDENT,
-      UserRole.TUTOR,
-      UserRole.ADMIN,
-    ]);
-    if (!hasAccess) {
+    // Student surface. Tutors/admins own the Studio and parents own the Portal;
+    // each is routed to their own home rather than rendering a student page in
+    // their session. An unresolved role falls through to the student view, which
+    // matches the safe fallback in dashboard.tsx and avoids a redirect loop.
+    const role = await AuthService.getUserRole();
+    if (role === UserRole.TUTOR || role === UserRole.ADMIN) {
+      throw redirect({ to: "/tutor" });
+    }
+    if (role === UserRole.PARENT) {
       throw redirect({ to: "/parent-dashboard" });
     }
   },
@@ -30,7 +33,7 @@ const subjectLabel: Record<string, string> = {
 };
 
 function StudentDashboard() {
-  const { isTutor, actualIsTutor, email } = useRoles();
+  const { email } = useRoles();
   const { enrolledCourses } = useEnrolments();
   const [effectiveStudentId, setEffectiveStudentId] = useState<string | null>(null);
 
@@ -53,8 +56,7 @@ function StudentDashboard() {
     }
   }, [email]);
 
-  const displaySubjects =
-    actualIsTutor && isTutor ? ["biology", "chemistry", "physics"] : enrolledCourses;
+  const displaySubjects = enrolledCourses;
 
   return (
     <AppLayout title="Student Dashboard">
@@ -79,16 +81,6 @@ function StudentDashboard() {
               : `You're enrolled in ${displaySubjects.map((s) => subjectLabel[s] ?? s).join(", ")}.`}
           </p>
         </div>
-        {isTutor && (
-          <div className="mt-5 flex flex-wrap gap-2 relative">
-            <Link
-              to="/tutor"
-              className="inline-flex items-center gap-2 bg-white text-slate-950 hover:bg-slate-100 px-4 py-2 rounded-lg text-sm font-semibold cursor-pointer transition-colors"
-            >
-              <Wrench className="w-4 h-4" /> Open Tutor Studio
-            </Link>
-          </div>
-        )}
       </div>
 
       {/* Quick tiles */}

@@ -13,7 +13,7 @@ export const Route = createFileRoute("/_authenticated/students")({
 type StudentRow = { id: string; display_name: string | null };
 
 function Students() {
-  const { actualIsTutor, loading: rolesLoading } = useRoles();
+  const { isTutor, loading: rolesLoading } = useRoles();
   const [rows, setRows] = useState<StudentRow[]>([]);
   const [loading, setLoading] = useState(true);
 
@@ -26,7 +26,7 @@ function Students() {
   }, []);
 
   if (rolesLoading) return <AppLayout title="Students">Loading…</AppLayout>;
-  if (!actualIsTutor) {
+  if (!isTutor) {
     return (
       <AppLayout title="Students">
         <p className="text-muted-foreground">Tutor access required.</p>

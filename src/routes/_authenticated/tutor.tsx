@@ -3,7 +3,14 @@ import { useEffect, useState } from "react";
 import { AppLayout } from "@/components/AppLayout";
 import { useRoles } from "@/hooks/useRole";
 import { toast } from "sonner";
-import { PlayCircle, CalendarClock, ClipboardList, Upload, Wrench, ClipboardCheck } from "lucide-react";
+import {
+  PlayCircle,
+  CalendarClock,
+  ClipboardList,
+  Upload,
+  Wrench,
+  ClipboardCheck,
+} from "lucide-react";
 
 import { VideoForm } from "@/components/tutor/VideoForm";
 import { LiveForm } from "@/components/tutor/LiveForm";
@@ -28,23 +35,20 @@ function useTaxonomy() {
 }
 
 function Tutor() {
-  const { actualIsTutor, loading, userId, email } = useRoles();
+  const { isTutor, loading, userId, email } = useRoles();
   const navigate = useNavigate();
   const [tab, setTab] = useState<Tab>("marking");
   const taxonomy = useTaxonomy();
 
-  // Access is a tutor/admin privilege and is independent of the "view as
-  // student" preview toggle — a tutor previewing student pages still owns the
-  // studio. Gating on the raw tutor role (not the view toggle) also avoids a
-  // redirect loop, since /dashboard now sends tutors back here.
+  // Access is a tutor/admin privilege.
   useEffect(() => {
-    if (!loading && !actualIsTutor) {
+    if (!loading && !isTutor) {
       toast.error("Tutor access required");
       navigate({ to: "/dashboard" });
     }
-  }, [loading, actualIsTutor, navigate]);
+  }, [loading, isTutor, navigate]);
 
-  if (!actualIsTutor) return <AppLayout title="Tutor Studio">Loading…</AppLayout>;
+  if (!isTutor) return <AppLayout title="Tutor Studio">Loading…</AppLayout>;
 
   const tutorName = email ? email.split("@")[0] : "Tutor";
 
@@ -78,8 +82,7 @@ function Tutor() {
           </h2>
           <p className="text-sm md:text-base text-slate-300 max-w-2xl mt-1">
             Mark student submissions and manage teaching resources — set homework, upload files and
-            videos, and schedule live sessions. Use the toggle in the header to preview the platform
-            as a student.
+            videos, and schedule live sessions.
           </p>
         </div>
       </div>

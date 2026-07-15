@@ -36,7 +36,6 @@ export interface AuthSession {
 
 const DEMO_FLAG_KEY = "studyhub:is-demo";
 const DEMO_ROLE_KEY = "studyhub:demo-role";
-const VIEW_AS_KEY = "studyhub:view-as";
 
 function readDemoFlag(): boolean {
   return typeof window !== "undefined" && localStorage.getItem(DEMO_FLAG_KEY) === "true";
@@ -63,7 +62,6 @@ export function markDemoSession(role: DemoRole): void {
   if (typeof window === "undefined") return;
   localStorage.setItem(DEMO_FLAG_KEY, "true");
   localStorage.setItem(DEMO_ROLE_KEY, role);
-  localStorage.setItem(VIEW_AS_KEY, "student");
 }
 
 /** Clears all demo markers (does not sign out — callers do that separately). */
@@ -71,7 +69,6 @@ export function clearDemoSession(): void {
   if (typeof window === "undefined") return;
   localStorage.removeItem(DEMO_FLAG_KEY);
   localStorage.removeItem(DEMO_ROLE_KEY);
-  localStorage.removeItem(VIEW_AS_KEY);
 }
 
 /**
