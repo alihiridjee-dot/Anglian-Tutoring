@@ -4,7 +4,16 @@ import { AppLayout } from "@/components/AppLayout";
 import { supabase } from "@/integrations/supabase/client";
 import { useRoles } from "@/hooks/useRole";
 import { useEnrolments } from "@/hooks/data/useEnrolments";
-import { ClipboardList, Upload, FileText, X, CheckCircle2, Clock, Info, TrendingUp } from "lucide-react";
+import {
+  ClipboardList,
+  Upload,
+  FileText,
+  X,
+  CheckCircle2,
+  Clock,
+  Info,
+  TrendingUp,
+} from "lucide-react";
 import { toast } from "sonner";
 import { useAnalytics } from "@/hooks/data/useAnalytics";
 import { SignedFileLink } from "@/components/SignedFileLink";
@@ -199,17 +208,24 @@ function HomeworkCard({
         if (error) throw error;
         uploaded.push({ path, name: f.name });
       }
-      const { error } = await supabase.from("homework_submissions").upsert(
-        {
-          resource_id: hw.id,
-          student_id: userId,
-          files: uploaded,
-          notes: notes || null,
-          submitted_at: new Date().toISOString(),
-        },
-        { onConflict: "resource_id,student_id" },
-      );
-      if (error) throw error;
+      // A submission is final — insert, never upsert. RLS grants students
+      // INSERT only, and UNIQUE (resource_id, student_id) rejects a second
+      // attempt, so a stale tab cannot overwrite submitted (or graded) work.
+      const { error } = await supabase.from("homework_submissions").insert({
+        resource_id: hw.id,
+        student_id: userId,
+        files: uploaded,
+        notes: notes || null,
+        submitted_at: new Date().toISOString(),
+      });
+      if (error) {
+        if (error.code === "23505") {
+          toast.error("You've already submitted this homework — submissions are final.");
+          onChanged();
+          return;
+        }
+        throw error;
+      }
       toast.success("Homework submitted");
       setFiles([]);
       setNotes("");
@@ -404,6 +420,10 @@ function HomeworkCard({
             placeholder="Notes for your tutor (optional)"
             className="w-full min-h-16 rounded-lg bg-card border border-border px-3 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-primary/40"
           />
+          <p className="text-[11px] text-muted-foreground leading-relaxed">
+            Submissions are final — once you submit, you can't change or remove your work. Check
+            your files before submitting.
+          </p>
           <button
             disabled={uploading}
             className="w-full h-10 rounded-lg bg-primary text-primary-foreground text-sm font-semibold hover:opacity-90 disabled:opacity-60"

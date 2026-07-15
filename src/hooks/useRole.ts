@@ -1,35 +1,9 @@
-import { useSyncExternalStore } from "react";
 import { useQuery } from "@tanstack/react-query";
 import { supabase } from "@/integrations/supabase/client";
 
 export type AppRole = "student" | "tutor" | "admin";
 
-const VIEW_KEY = "studyhub:view-as"; // "student" | "tutor"
-
-const listeners = new Set<() => void>();
-function emit() {
-  listeners.forEach((l) => l());
-}
-function subscribe(l: () => void) {
-  listeners.add(l);
-  return () => listeners.delete(l);
-}
-function getSnap() {
-  if (typeof window === "undefined") return "tutor";
-  return localStorage.getItem(VIEW_KEY) ?? "tutor";
-}
-
-export function setViewAs(v: "student" | "tutor") {
-  localStorage.setItem(VIEW_KEY, v);
-  emit();
-}
-export function useViewAs(): "student" | "tutor" {
-  return useSyncExternalStore(subscribe, getSnap, () => "tutor") as "student" | "tutor";
-}
-
 export function useRoles() {
-  const viewAs = useViewAs();
-
   const { data, isLoading } = useQuery({
     queryKey: ["user-roles-and-profile"],
     queryFn: async () => {
@@ -52,20 +26,12 @@ export function useRoles() {
   });
 
   const roles = data?.roles ?? null;
-  const userId = data?.userId ?? null;
-  const email = data?.email ?? null;
-
-  const actualIsTutor = !!roles && (roles.includes("tutor") || roles.includes("admin"));
-  // Preview toggle: tutors can "view as student"
-  const isTutor = actualIsTutor && viewAs === "tutor";
 
   return {
     roles,
-    isTutor,
-    actualIsTutor,
-    userId,
-    email,
+    isTutor: !!roles && (roles.includes("tutor") || roles.includes("admin")),
+    userId: data?.userId ?? null,
+    email: data?.email ?? null,
     loading: isLoading,
-    viewAs,
   };
 }

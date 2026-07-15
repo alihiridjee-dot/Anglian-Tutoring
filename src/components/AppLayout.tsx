@@ -4,9 +4,7 @@ import {
   ClipboardList,
   GraduationCap,
   LogOut,
-  Wrench,
   BookMarked,
-  Eye,
   ListChecks,
   Video,
   ArrowLeft,
@@ -17,7 +15,7 @@ import {
 import { type ReactNode, useState, useEffect } from "react";
 import { useQueryClient } from "@tanstack/react-query";
 import { supabase } from "@/integrations/supabase/client";
-import { useRoles, setViewAs } from "@/hooks/useRole";
+import { useRoles } from "@/hooks/useRole";
 import { isDemoMode, getDemoRole, clearDemoSession, type DemoRole } from "@/lib/auth/session";
 import { useEnrolments } from "@/hooks/data/useEnrolments";
 import { toast } from "sonner";
@@ -49,7 +47,7 @@ const tutorExtra: NavItem[] = [{ to: "/students", label: "Students", icon: Users
 
 export function AppLayout({ title, children }: { title: string; children: ReactNode }) {
   const pathname = useRouterState({ select: (s) => s.location.pathname });
-  const { isTutor, actualIsTutor, email, viewAs } = useRoles();
+  const { isTutor, email } = useRoles();
   const { role: userRole } = useEnrolments();
   const navigate = useNavigate();
   const router = useRouter();
@@ -62,7 +60,7 @@ export function AppLayout({ title, children }: { title: string; children: ReactN
     // flag survives in localStorage (e.g. the user entered the sandbox, then
     // signed in for real without clicking "Exit Sandbox"), clear it so the demo
     // banner can never leak into a real session.
-    if (actualIsTutor && isDemoMode()) {
+    if (isTutor && isDemoMode()) {
       clearDemoSession();
       setIsDemo(false);
       setDemoRole(null);
@@ -70,7 +68,7 @@ export function AppLayout({ title, children }: { title: string; children: ReactN
     }
     setIsDemo(isDemoMode());
     setDemoRole(getDemoRole());
-  }, [actualIsTutor]);
+  }, [isTutor]);
 
   const handleExitDemo = async () => {
     clearDemoSession();
@@ -91,13 +89,15 @@ export function AppLayout({ title, children }: { title: string; children: ReactN
       ]
     : studentNav.map((item) => {
         if (item.to === "/dashboard") {
-          // Only a genuine PARENT persona maps to the Parent Portal. Everyone
-          // else — students, and tutors previewing as a student — resolves to
-          // the student dashboard, so the Parent Portal can never leak into a
-          // non-parent session's navigation.
+          // Only a genuine PARENT persona maps to the Parent Portal; everyone
+          // else resolves to the student dashboard, so the Parent Portal can
+          // never leak into a non-parent session's navigation.
           const activeRole = isDemo ? demoRole : userRole;
-          const home = activeRole === "parent" ? "/parent-dashboard" : "/student-dashboard";
-          return { ...item, to: home as const };
+          const home =
+            activeRole === "parent"
+              ? ("/parent-dashboard" as const)
+              : ("/student-dashboard" as const);
+          return { ...item, to: home };
         }
         return item;
       });
@@ -204,30 +204,9 @@ export function AppLayout({ title, children }: { title: string; children: ReactN
               <h1 className="text-xl lg:text-2xl font-display font-semibold tracking-tight">
                 {title}
               </h1>
-              {actualIsTutor && !isTutor && (
-                <span className="text-[10px] uppercase tracking-widest text-accent font-semibold">
-                  Previewing as student
-                </span>
-              )}
             </div>
           </div>
           <div className="flex items-center gap-3">
-            {actualIsTutor && (
-              <div className="flex items-center gap-1 p-1 bg-muted rounded-lg border border-border">
-                <button
-                  onClick={() => setViewAs("tutor")}
-                  className={`px-2.5 py-1 rounded-md text-xs font-semibold ${viewAs === "tutor" ? "bg-primary text-primary-foreground" : "text-muted-foreground"}`}
-                >
-                  <Wrench className="w-3 h-3 inline mr-1" /> Tutor
-                </button>
-                <button
-                  onClick={() => setViewAs("student")}
-                  className={`px-2.5 py-1 rounded-md text-xs font-semibold ${viewAs === "student" ? "bg-primary text-primary-foreground" : "text-muted-foreground"}`}
-                >
-                  <Eye className="w-3 h-3 inline mr-1" /> Preview as student
-                </button>
-              </div>
-            )}
             <div className="w-9 h-9 rounded-full bg-gradient-to-br from-primary to-accent flex items-center justify-center text-xs font-semibold text-primary-foreground">
               {initials}
             </div>
