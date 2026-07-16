@@ -22,7 +22,7 @@ type Q = {
 };
 type SetRow = { id: string; title: string; description: string | null; published: boolean };
 
-function TakeMcq() {
+export function TakeMcq() {
   const { setId } = useParams({ from: "/_authenticated/mcq/$setId" });
   const { userId } = useRoles();
   const [set, setSet] = useState<SetRow | null>(null);

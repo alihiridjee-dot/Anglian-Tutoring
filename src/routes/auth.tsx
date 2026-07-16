@@ -2,7 +2,6 @@ import { createFileRoute, useNavigate } from "@tanstack/react-router";
 import { useEffect, useState } from "react";
 import { GraduationCap, ArrowLeft, User, Users, BookOpen } from "lucide-react";
 import { supabase } from "@/integrations/supabase/client";
-import { clearDemoSession } from "@/lib/auth/session";
 import { toast } from "sonner";
 import { Link } from "@tanstack/react-router";
 
@@ -86,9 +85,6 @@ function AuthPage() {
       } else {
         const { error } = await supabase.auth.signInWithPassword({ email, password });
         if (error) throw error;
-        // A real sign-in is never the demo sandbox — drop any stale demo markers
-        // so the demo banner / persona cannot leak into a live session.
-        clearDemoSession();
         toast.success("Signed in");
         navigate({ to: dest as never });
       }

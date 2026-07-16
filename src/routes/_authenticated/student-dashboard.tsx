@@ -3,8 +3,12 @@ import { AppLayout } from "@/components/AppLayout";
 import { useRoles } from "@/hooks/useRole";
 import { useEnrolments } from "@/hooks/data/useEnrolments";
 import { useAnalytics } from "@/hooks/data/useAnalytics";
+import { isDemoStudent, DEMO_STUDENT_NAME } from "@/lib/demo/studentDemo";
+import { resolveDisplayName } from "@/lib/displayName";
 import { useState, useEffect } from "react";
 import { CalendarClock, ClipboardList, BookMarked, ListChecks } from "lucide-react";
+import { NextSessionCountdown } from "@/components/live/NextSessionCountdown";
+import { WeeklyFocusCard } from "@/components/weekly/WeeklyFocusCard";
 import { AuthService } from "@/lib/authService";
 import { UserRole } from "@/types/user";
 
@@ -32,9 +36,9 @@ const subjectLabel: Record<string, string> = {
   physics: "Physics",
 };
 
-function StudentDashboard() {
+export function StudentDashboard() {
   const { email } = useRoles();
-  const { enrolledCourses } = useEnrolments();
+  const { enrolledCourses, displayName: profileName } = useEnrolments();
   const [effectiveStudentId, setEffectiveStudentId] = useState<string | null>(null);
 
   useEffect(() => {
@@ -44,17 +48,10 @@ function StudentDashboard() {
   }, []);
 
   const { rows: analytics } = useAnalytics(effectiveStudentId, enrolledCourses);
-  const [displayName, setDisplayName] = useState("Ali");
 
-  useEffect(() => {
-    if (email) {
-      const parts = email.split("@")[0];
-      const name = parts.charAt(0).toUpperCase() + parts.slice(1);
-      setDisplayName(name);
-    } else {
-      setDisplayName("Ali");
-    }
-  }, [email]);
+  // The showcase greets its fixture persona; a real session uses the name from
+  // the profile, falling back to the email only when none has been set.
+  const displayName = isDemoStudent() ? DEMO_STUDENT_NAME : resolveDisplayName(profileName, email);
 
   const displaySubjects = enrolledCourses;
 
@@ -83,12 +80,17 @@ function StudentDashboard() {
         </div>
       </div>
 
+      {/* Countdown to the next scheduled live session (hidden when none). */}
+      <NextSessionCountdown />
+
       {/* Quick tiles */}
       <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
         {tiles.map((t) => (
           <Link
             key={t.to}
-            to={t.to}
+            // Inside the showcase these must stay under /demo/*, or the click
+            // lands on a guarded route and bounces to /auth.
+            to={isDemoStudent() ? `/demo/student${t.to}` : t.to}
             className="rounded-2xl bg-card border border-border p-5 hover:border-primary/50 hover:shadow-lg transition cursor-pointer"
           >
             <div className="w-11 h-11 rounded-xl bg-primary/10 border border-primary/20 flex items-center justify-center mb-4">
@@ -99,6 +101,10 @@ function StudentDashboard() {
           </Link>
         ))}
       </div>
+
+      {/* "This Week" hub — the curriculum focus the tutor set for the current
+          Mon–Sun week, plus links to homework, MCQs and live sessions. */}
+      <WeeklyFocusCard subjects={displaySubjects} />
     </AppLayout>
   );
 }

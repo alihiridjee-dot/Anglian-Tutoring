@@ -1,23 +1,38 @@
 import { createFileRoute } from "@tanstack/react-router";
-import { useEffect, useMemo, useState } from "react";
+import { useState } from "react";
 import { AppLayout } from "@/components/AppLayout";
 import { supabase } from "@/integrations/supabase/client";
 import { useRoles } from "@/hooks/useRole";
 import { useEnrolments } from "@/hooks/data/useEnrolments";
+import {
+  useHomework,
+  useHomeworkSubmissions,
+  useInvalidateHomework,
+  type Homework,
+  type SubmissionRow,
+} from "@/hooks/data/useHomework";
 import {
   ClipboardList,
   Upload,
   FileText,
   X,
   CheckCircle2,
+  ChevronDown,
   Clock,
   Info,
   TrendingUp,
+  Plus,
+  Trash2,
 } from "lucide-react";
 import { toast } from "sonner";
 import { useAnalytics } from "@/hooks/data/useAnalytics";
 import { SignedFileLink } from "@/components/SignedFileLink";
-import { isDemoStudent, DEMO_HOMEWORK, DEMO_SUBMISSIONS } from "@/lib/demo/studentDemo";
+import { MarkingQueue } from "@/components/tutor/MarkingQueue";
+import { HomeworkForm } from "@/components/tutor/HomeworkForm";
+import { prepareUpload, formatBytes, MAX_UPLOAD_BYTES } from "@/lib/uploadLimits";
+import { acknowledgeSubmission, deleteHomework } from "@/lib/homework.functions";
+import { isDemoStudent } from "@/lib/demo/studentDemo";
+import { type SubjectV, type BoardV, type LevelV } from "@/lib/taxonomy";
 
 export const Route = createFileRoute("/_authenticated/homework")({
   head: () => ({ meta: [{ title: "Homework & Grades | Anglian Learning" }] }),
@@ -35,83 +50,113 @@ const subjectColor: Record<string, string> = {
   physics: "from-primary-deep to-primary",
 };
 
-type Homework = {
-  id: string;
-  title: string;
-  instructions: string | null;
-  subject: string;
-  due_at: string | null;
-  created_at: string;
-};
-type SubmissionRow = {
-  id: string;
-  resource_id: string;
-  student_id: string;
-  files: Array<{ path: string; name: string }>;
-  notes: string | null;
-  submitted_at: string;
-  grade: string | null;
-  score_pct: number | null;
-  feedback: string | null;
-  graded_at: string | null;
-};
+/**
+ * Closes the feedback loop: the student confirms they've read the mark, which
+ * notifies the tutor and drops the uploaded files from storage.
+ *
+ * The deletion is spelled out up front — it's irreversible, and a student who
+ * wants to keep their work needs to download it before clicking.
+ */
+function AcknowledgeFeedback({
+  submission,
+  onChanged,
+}: {
+  submission: SubmissionRow;
+  onChanged: () => void;
+}) {
+  const [saving, setSaving] = useState(false);
 
-function HomeworkPage() {
-  const { isTutor, userId } = useRoles();
-  const demo = isDemoStudent();
-  const { enrolledCourses } = useEnrolments();
-  const [homework, setHomework] = useState<Homework[]>([]);
-  const [submissions, setSubmissions] = useState<Record<string, SubmissionRow>>({});
-  const [loading, setLoading] = useState(true);
+  if (submission.acknowledged_at) {
+    return (
+      <div className="mt-3 pt-3 border-t border-accent/15 flex items-center gap-2 text-xs text-muted-foreground">
+        <CheckCircle2 className="w-3.5 h-3.5 text-emerald-500 shrink-0" />
+        You acknowledged this feedback on{" "}
+        {new Date(submission.acknowledged_at).toLocaleDateString()}
+      </div>
+    );
+  }
 
-  const reload = async () => {
-    setLoading(true);
-    // Demo student: render the self-contained fixture set, never real content.
-    if (isDemoStudent()) {
-      setHomework(DEMO_HOMEWORK);
-      setSubmissions(DEMO_SUBMISSIONS);
-      setLoading(false);
-      return;
+  const acknowledge = async () => {
+    setSaving(true);
+    try {
+      await acknowledgeSubmission({ data: { submissionId: submission.id } });
+      toast.success("Feedback acknowledged — your tutor has been notified");
+      onChanged();
+    } catch (err) {
+      toast.error(err instanceof Error ? err.message : "Could not acknowledge feedback");
+    } finally {
+      setSaving(false);
     }
-    let q = supabase
-      .from("resources")
-      .select("id, title, instructions, subject, due_at, created_at")
-      .eq("kind", "homework")
-      .order("due_at", { ascending: true });
-    if (!isTutor && enrolledCourses.length > 0)
-      q = q.in("subject", enrolledCourses as ("biology" | "chemistry" | "physics")[]);
-    const { data: hw } = await q;
-    setHomework((hw ?? []) as Homework[]);
-
-    if (userId) {
-      const { data: subs } = await supabase
-        .from("homework_submissions")
-        .select("*")
-        .eq("student_id", userId);
-      const map: Record<string, SubmissionRow> = {};
-      for (const s of subs ?? []) {
-        map[s.resource_id] = {
-          ...s,
-          files: (s.files as unknown as Array<{ path: string; name: string }>) ?? [],
-        };
-      }
-      setSubmissions(map);
-    }
-    setLoading(false);
   };
 
-  useEffect(() => {
-    reload(); /* eslint-disable-next-line */
-  }, [isTutor, enrolledCourses.join(","), userId]);
+  return (
+    <div className="mt-3 pt-3 border-t border-accent/15 flex flex-wrap items-center justify-between gap-3">
+      <p className="text-xs text-muted-foreground max-w-md">
+        Let your tutor know you've read this. Your uploaded files will be removed to save space —
+        download them first if you want to keep them. Your grade and feedback stay.
+      </p>
+      <button
+        onClick={acknowledge}
+        disabled={saving}
+        className="inline-flex items-center gap-2 h-9 px-4 rounded-lg bg-primary text-primary-foreground text-sm font-semibold hover:opacity-90 disabled:opacity-60 shrink-0"
+      >
+        <CheckCircle2 className="w-4 h-4" />
+        {saving ? "Acknowledging…" : "Acknowledge"}
+      </button>
+    </div>
+  );
+}
+
+export function HomeworkPage() {
+  const { isTutor, userId, loading: rolesLoading } = useRoles();
+  const demo = isDemoStudent();
+  const { enrolledCourses, loading: enrolmentsLoading } = useEnrolments();
+
+  // Both queries key off role and enrolled subjects, so hold them until those
+  // have settled — querying with a half-known identity would filter wrongly.
+  const identityReady = demo || (!rolesLoading && !enrolmentsLoading);
+
+  const { data: homework = [], isPending: homeworkPending } = useHomework({
+    isTutor,
+    subjects: enrolledCourses,
+    enabled: identityReady,
+  });
+  // Only a student has submissions to fetch, and only the demo one has them
+  // without a userId.
+  const wantsSubmissions = !isTutor && (demo || !!userId);
+  const { data: submissions = {}, isPending: submissionsPending } = useHomeworkSubmissions({
+    userId,
+    enabled: identityReady && wantsSubmissions,
+  });
+  const reload = useInvalidateHomework();
+
+  // A disabled query stays pending forever, so only wait on one that will run.
+  const loading = !identityReady || homeworkPending || (wantsSubmissions && submissionsPending);
 
   const { rows: analytics } = useAnalytics(userId, enrolledCourses);
+
+  // Homework & Grades is the dedicated marking section: for a tutor the page is
+  // the marking queue itself, not a read-only list of briefs. The briefs they've
+  // set stay available below as secondary context.
+  if (isTutor) {
+    return (
+      <AppLayout title="Homework & Grades">
+        <p className="text-muted-foreground mb-6 max-w-2xl">
+          Set new homework, then mark student submissions — segmented by status, filtered by
+          subject, board and level.
+        </p>
+        {userId && <SetHomeworkPanel userId={userId} />}
+        <MarkingQueue />
+        <TutorBriefs homework={homework} loading={loading} onDeleted={reload} />
+      </AppLayout>
+    );
+  }
 
   return (
     <AppLayout title="Homework & Grades">
       <p className="text-muted-foreground mb-6 max-w-2xl">
-        {isTutor
-          ? "Set homework in Tutor Studio and mark student submissions inline."
-          : "Read each brief, upload your work, and see your grades and feedback as soon as your tutor marks them."}
+        Read each brief, upload your work, and see your grades and feedback as soon as your tutor
+        marks them.
       </p>
 
       {/* Predicted grades live in homework section now */}
@@ -157,7 +202,7 @@ function HomeworkPage() {
       ) : homework.length === 0 ? (
         <div className="rounded-2xl border border-dashed border-border p-10 text-center text-muted-foreground">
           <ClipboardList className="w-8 h-8 mx-auto mb-3 opacity-50" />
-          {isTutor ? "No homework set yet." : "No homework for your subjects yet."}
+          No homework for your subjects yet.
         </div>
       ) : (
         <div className="space-y-4">
@@ -168,12 +213,175 @@ function HomeworkPage() {
               submission={submissions[h.id]}
               userId={userId}
               onChanged={reload}
-              readonly={isTutor || demo}
+              readonly={demo}
             />
           ))}
         </div>
       )}
     </AppLayout>
+  );
+}
+
+/**
+ * Set homework straight from the Homework & Grades tab, so a tutor doesn't have
+ * to detour through Tutor Studio to post a brief. Reuses the same form and
+ * insert path; taxonomy state is local to the panel.
+ */
+function SetHomeworkPanel({ userId }: { userId: string }) {
+  const [open, setOpen] = useState(false);
+  const [subject, setSubject] = useState<SubjectV>("biology");
+  const [board, setBoard] = useState<BoardV>("edexcel");
+  const [level, setLevel] = useState<LevelV>("gcse");
+
+  return (
+    <div className="mb-8 rounded-2xl border border-border bg-card overflow-hidden">
+      <button
+        onClick={() => setOpen((o) => !o)}
+        className="w-full flex items-center justify-between gap-3 px-5 py-4 text-left hover:bg-muted/40"
+      >
+        <span className="inline-flex items-center gap-2 text-sm font-semibold">
+          <Plus className="w-4 h-4 text-primary" />
+          Set new homework
+        </span>
+        <ChevronDown
+          className={`w-4 h-4 text-muted-foreground transition-transform ${open ? "rotate-180" : ""}`}
+        />
+      </button>
+
+      {open && (
+        <div className="border-t border-border p-5">
+          <HomeworkForm
+            userId={userId}
+            taxonomy={{ subject, setSubject, board, setBoard, level, setLevel }}
+          />
+        </div>
+      )}
+    </div>
+  );
+}
+
+/**
+ * The briefs a tutor has set, kept collapsed beneath the marking queue. It's
+ * reference material rather than something needing action, so it stays out of
+ * the way until asked for — plus a delete escape hatch for briefs posted in
+ * error.
+ */
+function TutorBriefs({
+  homework,
+  loading,
+  onDeleted,
+}: {
+  homework: Homework[];
+  loading: boolean;
+  onDeleted: () => void;
+}) {
+  const [open, setOpen] = useState(false);
+
+  return (
+    <div className="mt-8 rounded-2xl border border-border bg-card overflow-hidden">
+      <button
+        onClick={() => setOpen((o) => !o)}
+        className="w-full flex items-center justify-between gap-3 px-5 py-4 text-left hover:bg-muted/40"
+      >
+        <span className="inline-flex items-center gap-2 text-sm font-semibold">
+          <ClipboardList className="w-4 h-4 text-muted-foreground" />
+          Homework you've set
+          <span className="inline-flex items-center justify-center min-w-5 h-5 px-1.5 rounded-full bg-secondary text-[11px] text-muted-foreground">
+            {loading ? "…" : homework.length}
+          </span>
+        </span>
+        <ChevronDown
+          className={`w-4 h-4 text-muted-foreground transition-transform ${open ? "rotate-180" : ""}`}
+        />
+      </button>
+
+      {open && (
+        <div className="border-t border-border p-5">
+          {loading ? (
+            <p className="text-sm text-muted-foreground">Loading…</p>
+          ) : homework.length === 0 ? (
+            <p className="text-sm text-muted-foreground">No homework set yet — set one above.</p>
+          ) : (
+            <ul className="divide-y divide-border">
+              {homework.map((h) => (
+                <TutorBriefRow key={h.id} hw={h} onDeleted={onDeleted} />
+              ))}
+            </ul>
+          )}
+        </div>
+      )}
+    </div>
+  );
+}
+
+/**
+ * A single set-homework row with a delete control. Deletion is destructive and
+ * system-wide — it removes the brief and every student's submission for it — so
+ * it's gated behind an inline confirm rather than a one-click button.
+ */
+function TutorBriefRow({ hw, onDeleted }: { hw: Homework; onDeleted: () => void }) {
+  const [confirming, setConfirming] = useState(false);
+  const [deleting, setDeleting] = useState(false);
+
+  const remove = async () => {
+    setDeleting(true);
+    try {
+      await deleteHomework({ data: { homeworkId: hw.id } });
+      toast.success("Homework deleted for everyone");
+      onDeleted();
+    } catch (err) {
+      toast.error(err instanceof Error ? err.message : "Could not delete homework");
+      setDeleting(false);
+      setConfirming(false);
+    }
+  };
+
+  return (
+    <li className="py-3 first:pt-0 last:pb-0">
+      <div className="flex flex-wrap items-center gap-2">
+        <span className="text-[10px] px-2 py-0.5 rounded uppercase tracking-widest font-semibold bg-primary/10 text-primary">
+          {hw.subject}
+        </span>
+        <span className="text-sm font-medium">{hw.title}</span>
+        {hw.due_at && (
+          <span className="text-xs text-muted-foreground inline-flex items-center gap-1">
+            <Clock className="w-3 h-3" /> Due {new Date(hw.due_at).toLocaleDateString()}
+          </span>
+        )}
+
+        {confirming ? (
+          <span className="ml-auto inline-flex items-center gap-2">
+            <span className="text-xs text-muted-foreground">Delete for all students?</span>
+            <button
+              type="button"
+              onClick={remove}
+              disabled={deleting}
+              className="inline-flex items-center gap-1 h-7 px-2.5 rounded-md bg-destructive text-white text-xs font-semibold hover:opacity-90 disabled:opacity-60"
+            >
+              <Trash2 className="w-3 h-3" />
+              {deleting ? "Deleting…" : "Delete"}
+            </button>
+            <button
+              type="button"
+              onClick={() => setConfirming(false)}
+              disabled={deleting}
+              className="h-7 px-2.5 rounded-md border border-border text-xs font-medium hover:bg-muted/50 disabled:opacity-60"
+            >
+              Cancel
+            </button>
+          </span>
+        ) : (
+          <button
+            type="button"
+            onClick={() => setConfirming(true)}
+            className="ml-auto inline-flex items-center gap-1 text-xs text-muted-foreground hover:text-destructive"
+          >
+            <Trash2 className="w-3.5 h-3.5" />
+            Delete
+          </button>
+        )}
+      </div>
+    </li>
   );
 }
 
@@ -199,8 +407,27 @@ function HomeworkCard({
     if (!userId || files.length === 0) return toast.error("Choose at least one file");
     setUploading(true);
     try {
-      const uploaded: Array<{ path: string; name: string }> = [];
+      // Photos come off a phone at several MB; shrink them to fit the 1 MB cap
+      // before anything is uploaded, and fail the whole submission if one can't
+      // be made to fit — a partial upload would leave orphaned files behind.
+      const prepared: File[] = [];
+      let shrunk = 0;
       for (const f of files) {
+        const result = await prepareUpload(f);
+        if (!result.ok) {
+          toast.error(result.reason);
+          setUploading(false);
+          return;
+        }
+        if (result.compressed) shrunk++;
+        prepared.push(result.file);
+      }
+      if (shrunk > 0) {
+        toast.info(`Compressed ${shrunk} image${shrunk === 1 ? "" : "s"} to fit the 1 MB limit`);
+      }
+
+      const uploaded: Array<{ path: string; name: string }> = [];
+      for (const f of prepared) {
         const path = `submissions/${userId}/${hw.id}/${crypto.randomUUID()}-${f.name}`;
         const { error } = await supabase.storage
           .from("resources")
@@ -360,6 +587,7 @@ function HomeworkCard({
                 </div>
               </div>
             )}
+            {!readonly && <AcknowledgeFeedback submission={submission} onChanged={onChanged} />}
           </div>
         )}
 
@@ -369,12 +597,32 @@ function HomeworkCard({
               Your submission
             </p>
             <ul className="space-y-1">
-              {submission.files.map((f) => (
-                <li key={f.path}>
-                  <SignedFileLink file={f} />
-                </li>
-              ))}
+              {submission.files.map((f) =>
+                // Once the bytes are gone the path no longer resolves, so show
+                // what was handed in rather than a link that would 404.
+                submission.files_deleted_at ? (
+                  <li
+                    key={f.path}
+                    className="text-sm inline-flex items-center gap-2 text-muted-foreground"
+                  >
+                    <FileText className="w-3.5 h-3.5 shrink-0" />
+                    <span className="line-through">{f.name}</span>
+                    <span className="text-[10px] uppercase tracking-widest font-semibold px-1.5 py-0.5 rounded bg-muted text-muted-foreground">
+                      Removed
+                    </span>
+                  </li>
+                ) : (
+                  <li key={f.path}>
+                    <SignedFileLink file={f} />
+                  </li>
+                ),
+              )}
             </ul>
+            {submission.files_deleted_at && (
+              <p className="mt-2 text-xs text-muted-foreground">
+                Your files were removed to save space. Your grade and feedback are kept.
+              </p>
+            )}
           </div>
         )}
       </div>
@@ -387,6 +635,9 @@ function HomeworkCard({
           <label className="flex flex-col items-center justify-center gap-2 border-2 border-dashed border-border rounded-xl p-6 cursor-pointer hover:border-primary/50 transition bg-card">
             <Upload className="w-6 h-6 text-primary" />
             <span className="text-sm">Click to choose files (PDF, DOCX, PNG, JPG)</span>
+            <span className="text-[11px] text-muted-foreground">
+              Max {formatBytes(MAX_UPLOAD_BYTES)} per file — photos are compressed automatically
+            </span>
             <input
               type="file"
               multiple
@@ -397,21 +648,47 @@ function HomeworkCard({
           </label>
           {files.length > 0 && (
             <ul className="space-y-1">
-              {files.map((f, i) => (
-                <li
-                  key={i}
-                  className="text-xs flex items-center gap-2 bg-card border border-border rounded-lg px-3 py-1.5"
-                >
-                  <FileText className="w-3 h-3 text-muted-foreground" /> {f.name}
-                  <button
-                    type="button"
-                    onClick={() => setFiles(files.filter((_, j) => j !== i))}
-                    className="ml-auto text-muted-foreground hover:text-destructive"
+              {files.map((f, i) => {
+                // Images over the cap get shrunk on submit, so flag them as
+                // "will compress" rather than as a problem.
+                const over = f.size > MAX_UPLOAD_BYTES;
+                const fixable = over && f.type.startsWith("image/");
+                return (
+                  <li
+                    key={i}
+                    className="text-xs flex items-center gap-2 bg-card border border-border rounded-lg px-3 py-1.5"
                   >
-                    <X className="w-3 h-3" />
-                  </button>
-                </li>
-              ))}
+                    <FileText className="w-3 h-3 text-muted-foreground shrink-0" />
+                    <span className="truncate">{f.name}</span>
+                    <span
+                      className={
+                        over && !fixable
+                          ? "text-destructive shrink-0"
+                          : "text-muted-foreground shrink-0"
+                      }
+                    >
+                      {formatBytes(f.size)}
+                    </span>
+                    {fixable && (
+                      <span className="text-[10px] uppercase tracking-wider font-semibold px-1.5 py-0.5 rounded bg-primary/10 text-primary shrink-0">
+                        Will compress
+                      </span>
+                    )}
+                    {over && !fixable && (
+                      <span className="text-[10px] uppercase tracking-wider font-semibold px-1.5 py-0.5 rounded bg-destructive/10 text-destructive shrink-0">
+                        Too large
+                      </span>
+                    )}
+                    <button
+                      type="button"
+                      onClick={() => setFiles(files.filter((_, j) => j !== i))}
+                      className="ml-auto text-muted-foreground hover:text-destructive shrink-0"
+                    >
+                      <X className="w-3 h-3" />
+                    </button>
+                  </li>
+                );
+              })}
             </ul>
           )}
           <textarea

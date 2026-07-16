@@ -31,7 +31,7 @@ export function HomeworkForm({ userId, taxonomy }: HomeworkFormProps) {
   const [title, setTitle] = useState("");
   const [instructions, setInstructions] = useState("");
   const [dueAt, setDueAt] = useState("");
-  const [specPointId, setSpecPointId] = useState<string | null>(null);
+  const [specPointIds, setSpecPointIds] = useState<string[]>([]);
   const [taskFile, setTaskFile] = useState<File | null>(null);
   const [msFile, setMsFile] = useState<File | null>(null);
   const [loading, setLoading] = useState(false);
@@ -44,30 +44,50 @@ export function HomeworkForm({ userId, taxonomy }: HomeworkFormProps) {
       let ms: { path: string; name: string; mime: string; size: number } | null = null;
       if (taskFile) task = await uploadFile(taskFile, "homework");
       if (msFile) ms = await uploadFile(msFile, "mark-schemes");
-      const { error } = await supabase.from("resources").insert({
-        kind: "homework",
-        title,
-        instructions,
-        due_at: dueAt ? new Date(dueAt).toISOString() : null,
-        file_path: task?.path,
-        file_name: task?.name,
-        file_mime: task?.mime,
-        file_size: task?.size,
-        mark_scheme_path: ms?.path,
-        mark_scheme_name: ms?.name,
-        subject: taxonomy.subject,
-        board: taxonomy.board,
-        level: taxonomy.level,
-        spec_point_id: specPointId,
-        created_by: userId,
-      });
+      const { data: created, error } = await supabase
+        .from("resources")
+        .insert({
+          kind: "homework",
+          title,
+          instructions,
+          due_at: dueAt ? new Date(dueAt).toISOString() : null,
+          file_path: task?.path,
+          file_name: task?.name,
+          file_mime: task?.mime,
+          file_size: task?.size,
+          mark_scheme_path: ms?.path,
+          mark_scheme_name: ms?.name,
+          subject: taxonomy.subject,
+          board: taxonomy.board,
+          level: taxonomy.level,
+          created_by: userId,
+        })
+        .select("id")
+        .single();
       if (error) throw error;
-      toast.success("Homework set");
+
+      // Curriculum links live in resource_spec_points, not resources.spec_point_id
+      // (deprecated) — homework can hang off several points, and students find it
+      // by browsing any of them.
+      if (specPointIds.length > 0) {
+        const { error: linkError } = await supabase
+          .from("resource_spec_points")
+          .insert(
+            specPointIds.map((spec_point_id) => ({ resource_id: created.id, spec_point_id })),
+          );
+        if (linkError) throw linkError;
+      }
+
+      toast.success(
+        specPointIds.length > 0
+          ? `Homework set and linked to ${specPointIds.length} spec point${specPointIds.length === 1 ? "" : "s"}`
+          : "Homework set",
+      );
       qc.invalidateQueries({ queryKey: ["homework"] });
       setTitle("");
       setInstructions("");
       setDueAt("");
-      setSpecPointId(null);
+      setSpecPointIds([]);
       setTaskFile(null);
       setMsFile(null);
     } catch (err) {
@@ -123,8 +143,8 @@ export function HomeworkForm({ userId, taxonomy }: HomeworkFormProps) {
         subject={taxonomy.subject}
         board={taxonomy.board}
         level={taxonomy.level}
-        value={specPointId}
-        onChange={setSpecPointId}
+        value={specPointIds}
+        onChange={setSpecPointIds}
       />
       <button disabled={loading} className={submitBtn}>
         {loading ? "Uploading…" : "Set homework"}
