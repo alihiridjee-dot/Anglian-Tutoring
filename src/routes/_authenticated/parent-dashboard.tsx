@@ -5,6 +5,8 @@ import { useEnrolments } from "@/hooks/data/useEnrolments";
 import { useAnalytics } from "@/hooks/data/useAnalytics";
 import { AuthService } from "@/lib/authService";
 import { isDemoMode } from "@/lib/auth/session";
+import { DEMO_PARENT_NAME } from "@/lib/demo/studentDemo";
+import { resolveDisplayName } from "@/lib/displayName";
 import { UserRole } from "@/types/user";
 import { useState, useEffect } from "react";
 import {
@@ -81,9 +83,9 @@ const chartConfig = {
   },
 } satisfies ChartConfig;
 
-function ParentDashboard() {
+export function ParentDashboard() {
   const { email } = useRoles();
-  const { enrolledCourses } = useEnrolments();
+  const { enrolledCourses, displayName: profileName } = useEnrolments();
   const [effectiveStudentId, setEffectiveStudentId] = useState<string | null>(null);
 
   useEffect(() => {
@@ -125,11 +127,10 @@ function ParentDashboard() {
   ];
   const analytics = isDemo ? demoAnalytics : realAnalytics;
 
-  const displayEmailName = email
-    ? email.startsWith("demo")
-      ? "Sarah (Parent)"
-      : email.split("@")[0]
-    : "Parent";
+  // The showcase has no account behind it, so the name is a fixture like
+  // everything else on the page. A real session prefers the profile name, so
+  // editing it in Profile lands here too.
+  const displayEmailName = isDemo ? DEMO_PARENT_NAME : resolveDisplayName(profileName, email);
 
   const handleDownloadReport = () => {
     toast.success("Preparing monthly progress report PDF for Alex...", {
@@ -418,7 +419,11 @@ function ParentDashboard() {
           {tiles.map((t) => (
             <Link
               key={t.to}
-              to={t.to}
+              // The content pages are the same for both personas and only the
+              // student showcase mounts them, so the parent's links cross over
+              // to /demo/student/*. Staying on /demo/parent/* would hit the auth
+              // guard; a bare /curriculum would too.
+              to={isDemo ? `/demo/student${t.to}` : t.to}
               className="rounded-2xl bg-card border border-border p-5 hover:border-primary/50 hover:shadow-lg transition cursor-pointer"
             >
               <div className="w-11 h-11 rounded-xl bg-primary/10 border border-primary/20 flex items-center justify-center mb-4">

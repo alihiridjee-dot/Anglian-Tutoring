@@ -12,13 +12,15 @@ import {
   Users,
   Sparkles,
 } from "lucide-react";
-import { type ReactNode, useState, useEffect } from "react";
-import { useQueryClient } from "@tanstack/react-query";
-import { supabase } from "@/integrations/supabase/client";
+import { type ReactNode } from "react";
 import { useRoles } from "@/hooks/useRole";
-import { isDemoMode, getDemoRole, clearDemoSession, type DemoRole } from "@/lib/auth/session";
+import { useSignOut } from "@/hooks/useSignOut";
+import { isDemoMode, getDemoRole } from "@/lib/auth/session";
+import { DEMO_STUDENT_NAME, DEMO_PARENT_NAME } from "@/lib/demo/studentDemo";
 import { useEnrolments } from "@/hooks/data/useEnrolments";
-import { toast } from "sonner";
+import { NotificationBell } from "@/components/NotificationBell";
+import { UserMenu } from "@/components/UserMenu";
+import { resolveInitials } from "@/lib/displayName";
 
 interface NavItem {
   to:
@@ -29,8 +31,15 @@ interface NavItem {
     | "/mcqs"
     | "/tutor"
     | "/students"
+    | "/parents"
     | "/student-dashboard"
-    | "/parent-dashboard";
+    | "/parent-dashboard"
+    | "/demo/student/dashboard"
+    | "/demo/student/curriculum"
+    | "/demo/student/homework"
+    | "/demo/student/live"
+    | "/demo/student/mcqs"
+    | "/demo/parent/dashboard";
   label: string;
   icon: React.ComponentType<{ className?: string }>;
 }
@@ -45,72 +54,73 @@ const studentNav: NavItem[] = [
 
 const tutorExtra: NavItem[] = [{ to: "/students", label: "Students", icon: Users }];
 
+/**
+ * Shown to students and parents, never tutors — it manages the caller's own
+ * family links, which a tutor doesn't have. Tutors link families from Students.
+ * Mirrors the "Linked Parents" item in the header menu, same destination.
+ */
+const linkedParentsNav: NavItem = { to: "/parents", label: "Linked Parents", icon: Users };
+
 export function AppLayout({ title, children }: { title: string; children: ReactNode }) {
   const pathname = useRouterState({ select: (s) => s.location.pathname });
   const { isTutor, email } = useRoles();
-  const { role: userRole } = useEnrolments();
+  const { role: userRole, displayName: profileName } = useEnrolments();
   const navigate = useNavigate();
   const router = useRouter();
-  const qc = useQueryClient();
+  const signOut = useSignOut();
 
-  const [isDemo, setIsDemo] = useState(false);
-  const [demoRole, setDemoRole] = useState<DemoRole | null>(null);
-  useEffect(() => {
-    // A genuine tutor/admin account is never a demo persona. If a stale demo
-    // flag survives in localStorage (e.g. the user entered the sandbox, then
-    // signed in for real without clicking "Exit Sandbox"), clear it so the demo
-    // banner can never leak into a real session.
-    if (isTutor && isDemoMode()) {
-      clearDemoSession();
-      setIsDemo(false);
-      setDemoRole(null);
-      return;
-    }
-    setIsDemo(isDemoMode());
-    setDemoRole(getDemoRole());
-  }, [isTutor]);
+  // Derived from the pathname, so it tracks navigation with no state to go
+  // stale and nothing to clear on the way out.
+  const isDemo = isDemoMode();
+  const demoRole = getDemoRole();
 
-  const handleExitDemo = async () => {
-    clearDemoSession();
-    await qc.cancelQueries();
-    qc.clear();
-    await supabase.auth.signOut();
-    toast.success("Exited demo sandbox");
+  const handleExitDemo = () => {
+    // Nothing to tear down: the showcase holds no session and no cached rows.
     navigate({ to: "/" });
   };
 
-  const nav = isTutor
-    ? // Tutor home is the Tutor Studio; the shared content pages stay available.
-      [
-        ...studentNav.map((item) =>
-          item.to === "/dashboard" ? { ...item, to: "/tutor" as const } : item,
-        ),
-        ...tutorExtra,
-      ]
-    : studentNav.map((item) => {
-        if (item.to === "/dashboard") {
-          // Only a genuine PARENT persona maps to the Parent Portal; everyone
-          // else resolves to the student dashboard, so the Parent Portal can
-          // never leak into a non-parent session's navigation.
-          const activeRole = isDemo ? demoRole : userRole;
-          const home =
-            activeRole === "parent"
-              ? ("/parent-dashboard" as const)
-              : ("/student-dashboard" as const);
-          return { ...item, to: home };
-        }
-        return item;
-      });
+  const nav = isDemo
+    ? // Showcase nav must stay inside /demo/*, or a click lands on a guarded
+      // route and bounces the visitor to /auth.
+      demoRole === "parent"
+      ? [{ to: "/demo/parent/dashboard", label: "Parent Portal", icon: LayoutDashboard }]
+      : [
+          { to: "/demo/student/dashboard", label: "Dashboard", icon: LayoutDashboard },
+          { to: "/demo/student/curriculum", label: "Curriculum", icon: BookMarked },
+          { to: "/demo/student/homework", label: "Homework & Grades", icon: ClipboardList },
+          { to: "/demo/student/live", label: "Live Sessions", icon: Video },
+          { to: "/demo/student/mcqs", label: "MCQs", icon: ListChecks },
+        ]
+    : isTutor
+      ? // Tutor home is the Tutor Studio; the shared content pages stay available.
+        [
+          ...studentNav.map((item) =>
+            item.to === "/dashboard" ? { ...item, to: "/tutor" as const } : item,
+          ),
+          ...tutorExtra,
+        ]
+      : [
+          ...studentNav.map((item) => {
+            if (item.to === "/dashboard") {
+              // Only a genuine PARENT persona maps to the Parent Portal; everyone
+              // else resolves to the student dashboard, so the Parent Portal can
+              // never leak into a non-parent session's navigation.
+              const home =
+                userRole === "parent"
+                  ? ("/parent-dashboard" as const)
+                  : ("/student-dashboard" as const);
+              return { ...item, to: home };
+            }
+            return item;
+          }),
+          linkedParentsNav,
+        ];
 
-  const signOut = async () => {
-    await qc.cancelQueries();
-    qc.clear();
-    await supabase.auth.signOut();
-    toast.success("Signed out");
-    navigate({ to: "/", replace: true });
-  };
-
-  const initials = (email ?? "?").slice(0, 2).toUpperCase();
+  // The showcase has no account, so its avatar comes from the fixture persona
+  // rather than a signed-in profile.
+  const initials = isDemo
+    ? (demoRole === "parent" ? DEMO_PARENT_NAME : DEMO_STUDENT_NAME).slice(0, 2).toUpperCase()
+    : resolveInitials(profileName, email);
 
   return (
     <div className="min-h-screen flex bg-background text-foreground">
@@ -168,7 +178,6 @@ export function AppLayout({ title, children }: { title: string; children: ReactN
             <div className="flex items-center gap-2.5 shrink-0">
               <Link
                 to="/"
-                onClick={clearDemoSession}
                 className="bg-emerald-600 hover:bg-emerald-500 text-white px-3.5 py-1.5 rounded-lg font-bold text-xs shadow-xs transition shrink-0"
               >
                 Join Now
@@ -207,9 +216,15 @@ export function AppLayout({ title, children }: { title: string; children: ReactN
             </div>
           </div>
           <div className="flex items-center gap-3">
-            <div className="w-9 h-9 rounded-full bg-gradient-to-br from-primary to-accent flex items-center justify-center text-xs font-semibold text-primary-foreground">
-              {initials}
-            </div>
+            <NotificationBell />
+            <UserMenu
+              initials={initials}
+              email={email}
+              // Tutors manage families from /students; the item would point a
+              // tutor at a page about their own parents, which they don't have.
+              showLinkedParents={!isTutor}
+              isDemo={isDemo}
+            />
           </div>
         </header>
         <div className="flex-1 p-6 lg:p-10 overflow-auto">{children}</div>

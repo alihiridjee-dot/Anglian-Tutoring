@@ -2,11 +2,21 @@ import { useCallback, useEffect, useMemo, useState } from "react";
 import { supabase } from "@/integrations/supabase/client";
 import { useRoles } from "@/hooks/useRole";
 import { SignedFileLink } from "@/components/SignedFileLink";
+import { FilterBar, type Filters } from "@/components/FilterBar";
+import { downloadEntriesAsZip, downloadSingleFile, type ZipEntry } from "@/lib/homeworkDownload";
 import { toast } from "sonner";
-import { ClipboardCheck, Clock, FileText, Inbox, Loader2, MessageSquare } from "lucide-react";
+import { ClipboardCheck, Clock, Download, Inbox, Loader2, MessageSquare } from "lucide-react";
+import type { SubjectV, BoardV, LevelV } from "@/lib/taxonomy";
 
 /** Derived lifecycle status for a submission. */
 type SubmissionStatus = "PENDING_REVIEW" | "GRADED";
+
+/**
+ * How long a tutor has left submitted work unmarked. This is the queue's
+ * urgency axis — it's about the tutor's backlog, not the student's deadline
+ * (that's `isLate`).
+ */
+type Urgency = "urgent" | "soon" | "fresh";
 
 type SubmissionFile = { path: string; name: string };
 
@@ -22,7 +32,14 @@ type Submission = {
   feedback: string | null;
   graded_by: string | null;
   graded_at: string | null;
-  resource: { id: string; title: string; subject: string; due_at: string | null } | null;
+  resource: {
+    id: string;
+    title: string;
+    subject: SubjectV | null;
+    board: BoardV | null;
+    level: LevelV | null;
+    due_at: string | null;
+  } | null;
 };
 
 const subjectLabel: Record<string, string> = {
@@ -31,8 +48,32 @@ const subjectLabel: Record<string, string> = {
   physics: "Physics",
 };
 
+const DAY_MS = 86_400_000;
+
 function statusOf(s: Submission): SubmissionStatus {
   return s.graded_at ? "GRADED" : "PENDING_REVIEW";
+}
+
+function daysWaiting(s: Submission): number {
+  return Math.floor((Date.now() - new Date(s.submitted_at).getTime()) / DAY_MS);
+}
+
+function urgencyOf(s: Submission): Urgency {
+  const d = daysWaiting(s);
+  if (d >= 5) return "urgent";
+  if (d >= 2) return "soon";
+  return "fresh";
+}
+
+/** Student handed it in after the due date. */
+function isLate(s: Submission): boolean {
+  const due = s.resource?.due_at;
+  return !!due && new Date(s.submitted_at).getTime() > new Date(due).getTime();
+}
+
+/** Folder name for this submission inside a bulk zip. */
+function zipFolder(s: Submission, studentName: string): string {
+  return `${studentName} - ${s.resource?.title ?? "Untitled homework"}`;
 }
 
 export function MarkingQueue() {
@@ -40,12 +81,17 @@ export function MarkingQueue() {
   const [subs, setSubs] = useState<Submission[]>([]);
   const [names, setNames] = useState<Record<string, string>>({});
   const [loading, setLoading] = useState(true);
+  const [segment, setSegment] = useState<SubmissionStatus>("PENDING_REVIEW");
+  const [filters, setFilters] = useState<Filters>({});
+  const [selected, setSelected] = useState<Set<string>>(new Set());
+  const [zipping, setZipping] = useState(false);
+  const [zipProgress, setZipProgress] = useState({ done: 0, total: 0 });
 
   const reload = useCallback(async () => {
     setLoading(true);
     const { data, error } = await supabase
       .from("homework_submissions")
-      .select("*, resource:resources(id, title, subject, due_at)")
+      .select("*, resource:resources(id, title, subject, board, level, due_at)")
       .order("submitted_at", { ascending: true });
     if (error) {
       toast.error(error.message);
@@ -57,27 +103,22 @@ export function MarkingQueue() {
       files: (r.files as unknown as SubmissionFile[]) ?? [],
     })) as Submission[];
 
-    // Resolve the author profiles so we can (a) show real names and (b) drop any
-    // submission belonging to a public demo/sandbox account. The "demo platform"
-    // is a separate, self-contained showcase — its accounts (is_demo = true) must
-    // never surface work in the tutor's real marking queue. Genuine students,
-    // including test students like Bob, are is_demo = false and always shown.
+    // Resolve the author profiles so we can show real names. Every submission
+    // here is genuine: the public demo is a session-less showcase that cannot
+    // sign in or submit anything, so there is no sandbox work to filter out.
     const ids = [...new Set(allRows.map((r) => r.student_id))];
     const map: Record<string, string> = {};
-    const demoStudentIds = new Set<string>();
     if (ids.length > 0) {
       const { data: profs } = await supabase
         .from("profiles")
-        .select("id, display_name, is_demo")
+        .select("id, display_name")
         .in("id", ids);
       for (const p of profs ?? []) {
         map[p.id] = p.display_name ?? "";
-        if (p.is_demo) demoStudentIds.add(p.id);
       }
     }
 
-    const rows = allRows.filter((r) => !demoStudentIds.has(r.student_id));
-    setSubs(rows);
+    setSubs(allRows);
     setNames(map);
     setLoading(false);
   }, []);
@@ -86,21 +127,91 @@ export function MarkingQueue() {
     reload();
   }, [reload]);
 
-  // Outstanding (ungraded) submissions come first — oldest submitted at the top
-  // so the longest-waiting student is prioritized. Graded work sinks below,
-  // most-recently-marked first.
-  const ordered = useMemo(() => {
-    return [...subs].sort((a, b) => {
-      const aPending = statusOf(a) === "PENDING_REVIEW";
-      const bPending = statusOf(b) === "PENDING_REVIEW";
-      if (aPending !== bPending) return aPending ? -1 : 1;
-      if (aPending) return a.submitted_at.localeCompare(b.submitted_at);
-      return (b.graded_at ?? "").localeCompare(a.graded_at ?? "");
-    });
-  }, [subs]);
+  const nameOf = useCallback((id: string) => names[id] || `Student ${id.slice(0, 8)}`, [names]);
 
-  const outstanding = ordered.filter((s) => statusOf(s) === "PENDING_REVIEW").length;
-  const graded = ordered.length - outstanding;
+  // Site-wide subject/board/level filters, applied before segmenting so the
+  // segment counts always describe what the tutor is actually looking at.
+  const visible = useMemo(() => {
+    return subs.filter((s) => {
+      if (filters.subject && s.resource?.subject !== filters.subject) return false;
+      if (filters.board && s.resource?.board !== filters.board) return false;
+      if (filters.level && s.resource?.level !== filters.level) return false;
+      return true;
+    });
+  }, [subs, filters]);
+
+  const pending = useMemo(
+    () =>
+      visible
+        .filter((s) => statusOf(s) === "PENDING_REVIEW")
+        // Longest-waiting first — the queue's whole job is surfacing these.
+        .sort((a, b) => a.submitted_at.localeCompare(b.submitted_at)),
+    [visible],
+  );
+
+  const graded = useMemo(
+    () =>
+      visible
+        .filter((s) => statusOf(s) === "GRADED")
+        .sort((a, b) => (b.graded_at ?? "").localeCompare(a.graded_at ?? "")),
+    [visible],
+  );
+
+  const shown = segment === "PENDING_REVIEW" ? pending : graded;
+  const urgentCount = pending.filter((s) => urgencyOf(s) === "urgent").length;
+
+  // A submission stays selectable only while it's visible; drop stale ids so the
+  // bulk bar can never act on something off-screen.
+  const shownIds = useMemo(() => new Set(shown.map((s) => s.id)), [shown]);
+  const activeSelection = useMemo(() => shown.filter((s) => selected.has(s.id)), [shown, selected]);
+  useEffect(() => {
+    setSelected((prev) => {
+      const next = new Set([...prev].filter((id) => shownIds.has(id)));
+      return next.size === prev.size ? prev : next;
+    });
+  }, [shownIds]);
+
+  const toggle = (id: string) =>
+    setSelected((prev) => {
+      const next = new Set(prev);
+      if (next.has(id)) next.delete(id);
+      else next.add(id);
+      return next;
+    });
+
+  const allShownSelected = shown.length > 0 && activeSelection.length === shown.length;
+  const toggleAll = () =>
+    setSelected(allShownSelected ? new Set() : new Set(shown.map((s) => s.id)));
+
+  const bulkDownload = async () => {
+    const entries: ZipEntry[] = activeSelection.flatMap((s) =>
+      s.files.map((file) => ({ folder: zipFolder(s, nameOf(s.student_id)), file })),
+    );
+    if (entries.length === 0) {
+      return toast.error("The selected submissions have no files attached");
+    }
+    setZipping(true);
+    setZipProgress({ done: 0, total: entries.length });
+    try {
+      const stamp = new Date().toISOString().slice(0, 10);
+      const { zipped, failed } = await downloadEntriesAsZip(
+        entries,
+        `homework-${stamp}.zip`,
+        (done, total) => setZipProgress({ done, total }),
+      );
+      if (failed.length > 0) {
+        toast.warning(
+          `Downloaded ${zipped} file${zipped === 1 ? "" : "s"} — ${failed.length} failed`,
+        );
+      } else {
+        toast.success(`Downloaded ${zipped} file${zipped === 1 ? "" : "s"}`);
+      }
+    } catch (err) {
+      toast.error(err instanceof Error ? err.message : "Download failed");
+    } finally {
+      setZipping(false);
+    }
+  };
 
   if (loading) {
     return (
@@ -110,52 +221,151 @@ export function MarkingQueue() {
     );
   }
 
-  if (ordered.length === 0) {
+  if (subs.length === 0) {
     return (
       <div className="rounded-2xl border border-dashed border-border p-10 text-center text-muted-foreground">
         <Inbox className="w-8 h-8 mx-auto mb-3 opacity-50" />
-        No homework submissions yet. Once students upload their work it will appear here for marking.
+        No homework submissions yet. Once students upload their work it will appear here for
+        marking.
       </div>
     );
   }
 
   return (
     <div className="space-y-5">
-      <div className="flex flex-wrap gap-3">
-        <div className="flex items-center gap-2.5 rounded-xl bg-amber-500/10 border border-amber-500/20 px-4 py-2.5">
-          <ClipboardCheck className="w-4 h-4 text-amber-600 dark:text-amber-400" />
-          <span className="text-sm font-semibold text-amber-700 dark:text-amber-300">
-            {outstanding} outstanding
-          </span>
-        </div>
-        <div className="flex items-center gap-2.5 rounded-xl bg-emerald-500/10 border border-emerald-500/20 px-4 py-2.5">
-          <CheckIcon />
-          <span className="text-sm font-semibold text-emerald-700 dark:text-emerald-300">
-            {graded} graded
-          </span>
-        </div>
+      {/* Status segments — the primary axis. Only one status is on screen at a
+          time, so "what needs attention" is never mixed in with finished work. */}
+      <div className="flex flex-wrap gap-2">
+        <SegmentTab
+          active={segment === "PENDING_REVIEW"}
+          onClick={() => setSegment("PENDING_REVIEW")}
+          label="Needs marking"
+          count={pending.length}
+          tone="amber"
+          badge={urgentCount > 0 ? `${urgentCount} urgent` : undefined}
+        />
+        <SegmentTab
+          active={segment === "GRADED"}
+          onClick={() => setSegment("GRADED")}
+          label="Marked"
+          count={graded.length}
+          tone="emerald"
+        />
       </div>
 
-      <div className="space-y-4">
-        {ordered.map((s) => (
-          <MarkSubmissionCard
-            key={s.id}
-            sub={s}
-            studentName={names[s.student_id] || `Student ${s.student_id.slice(0, 8)}`}
-            graderId={userId}
-            onSaved={reload}
-          />
-        ))}
-      </div>
+      <FilterBar value={filters} onChange={setFilters} />
+
+      {shown.length > 0 && (
+        <div className="flex flex-wrap items-center gap-3 rounded-xl border border-border bg-card px-4 py-3">
+          <label className="inline-flex items-center gap-2 text-sm cursor-pointer select-none">
+            <input
+              type="checkbox"
+              checked={allShownSelected}
+              onChange={toggleAll}
+              className="w-4 h-4 rounded border-border accent-primary"
+            />
+            <span className="text-muted-foreground">
+              {activeSelection.length > 0
+                ? `${activeSelection.length} selected`
+                : `Select all ${shown.length}`}
+            </span>
+          </label>
+
+          {activeSelection.length > 0 && (
+            <>
+              <button
+                onClick={bulkDownload}
+                disabled={zipping}
+                className="ml-auto inline-flex items-center gap-2 h-9 px-4 rounded-lg bg-primary text-primary-foreground text-sm font-semibold hover:opacity-90 disabled:opacity-60"
+              >
+                {zipping ? (
+                  <Loader2 className="w-4 h-4 animate-spin" />
+                ) : (
+                  <Download className="w-4 h-4" />
+                )}
+                {zipping ? `Zipping ${zipProgress.done}/${zipProgress.total}…` : "Download as ZIP"}
+              </button>
+              <button
+                onClick={() => setSelected(new Set())}
+                disabled={zipping}
+                className="text-xs text-muted-foreground hover:text-foreground disabled:opacity-60"
+              >
+                Clear
+              </button>
+            </>
+          )}
+        </div>
+      )}
+
+      {shown.length === 0 ? (
+        <div className="rounded-2xl border border-dashed border-border p-10 text-center text-muted-foreground">
+          <Inbox className="w-8 h-8 mx-auto mb-3 opacity-50" />
+          {segment === "PENDING_REVIEW"
+            ? "Nothing waiting to be marked here."
+            : "No marked submissions here yet."}
+          {(filters.subject || filters.board || filters.level) && " Try clearing the filters."}
+        </div>
+      ) : (
+        <div className="space-y-4">
+          {shown.map((s) => (
+            <MarkSubmissionCard
+              key={s.id}
+              sub={s}
+              studentName={nameOf(s.student_id)}
+              graderId={userId}
+              selected={selected.has(s.id)}
+              onToggleSelect={() => toggle(s.id)}
+              onSaved={reload}
+            />
+          ))}
+        </div>
+      )}
     </div>
   );
 }
 
-function CheckIcon() {
+function SegmentTab({
+  active,
+  onClick,
+  label,
+  count,
+  tone,
+  badge,
+}: {
+  active: boolean;
+  onClick: () => void;
+  label: string;
+  count: number;
+  tone: "amber" | "emerald";
+  badge?: string;
+}) {
+  const activeCls =
+    tone === "amber"
+      ? "bg-amber-500/15 border-amber-500/50 text-amber-700 dark:text-amber-300"
+      : "bg-emerald-500/15 border-emerald-500/50 text-emerald-700 dark:text-emerald-300";
   return (
-    <span className="w-4 h-4 rounded-full bg-emerald-500/20 flex items-center justify-center">
-      <span className="w-1.5 h-1.5 rounded-full bg-emerald-500" />
-    </span>
+    <button
+      onClick={onClick}
+      className={`inline-flex items-center gap-2.5 rounded-xl border px-4 py-2.5 text-sm font-semibold transition ${
+        active
+          ? activeCls
+          : "bg-secondary border-border text-muted-foreground hover:text-foreground"
+      }`}
+    >
+      {label}
+      <span
+        className={`inline-flex items-center justify-center min-w-5 h-5 px-1.5 rounded-full text-[11px] ${
+          active ? "bg-background/60" : "bg-background/60 text-muted-foreground"
+        }`}
+      >
+        {count}
+      </span>
+      {badge && (
+        <span className="inline-flex items-center px-2 py-0.5 rounded-full text-[10px] font-bold uppercase tracking-wider bg-red-500/15 text-red-600 dark:text-red-400 border border-red-500/30">
+          {badge}
+        </span>
+      )}
+    </button>
   );
 }
 
@@ -163,19 +373,26 @@ function MarkSubmissionCard({
   sub,
   studentName,
   graderId,
+  selected,
+  onToggleSelect,
   onSaved,
 }: {
   sub: Submission;
   studentName: string;
   graderId: string | null;
+  selected: boolean;
+  onToggleSelect: () => void;
   onSaved: () => void;
 }) {
   const status = statusOf(sub);
-  const [open, setOpen] = useState(status === "PENDING_REVIEW");
+  const [open, setOpen] = useState(false);
   const [grade, setGrade] = useState(sub.grade ?? "");
-  const [scorePct, setScorePct] = useState<string>(sub.score_pct != null ? String(sub.score_pct) : "");
+  const [scorePct, setScorePct] = useState<string>(
+    sub.score_pct != null ? String(sub.score_pct) : "",
+  );
   const [feedback, setFeedback] = useState(sub.feedback ?? "");
   const [saving, setSaving] = useState(false);
+  const [downloading, setDownloading] = useState(false);
 
   const save = async () => {
     if (!graderId) return toast.error("Not signed in");
@@ -205,48 +422,99 @@ function MarkSubmissionCard({
     }
   };
 
+  const downloadAll = async () => {
+    setDownloading(true);
+    try {
+      if (sub.files.length === 1) {
+        await downloadSingleFile(sub.files[0]);
+      } else {
+        const folder = zipFolder(sub, studentName);
+        await downloadEntriesAsZip(
+          sub.files.map((file) => ({ folder, file })),
+          `${folder}.zip`,
+        );
+      }
+    } catch (err) {
+      toast.error(err instanceof Error ? err.message : "Download failed");
+    } finally {
+      setDownloading(false);
+    }
+  };
+
   const subject = sub.resource?.subject ?? "";
   const isPending = status === "PENDING_REVIEW";
 
   return (
     <div
       className={`rounded-2xl bg-card border-2 overflow-hidden shadow-xs transition ${
-        isPending
-          ? "border-amber-500/40 dark:border-amber-500/30"
-          : "border-emerald-500/30 dark:border-emerald-500/25"
+        selected
+          ? "border-primary"
+          : isPending
+            ? "border-amber-500/40 dark:border-amber-500/30"
+            : "border-emerald-500/30 dark:border-emerald-500/25"
       }`}
     >
-      <button
-        onClick={() => setOpen((o) => !o)}
-        className="w-full flex items-center justify-between gap-4 px-6 py-4 text-left hover:bg-muted/40"
-      >
-        <div className="min-w-0">
-          <div className="flex items-center gap-2 mb-1">
-            {subject && (
-              <span className="text-[10px] px-2 py-0.5 rounded uppercase tracking-widest font-semibold bg-primary/10 text-primary">
-                {subjectLabel[subject] ?? subject}
-              </span>
-            )}
-            <StatusBadge status={status} />
+      <div className="flex items-center gap-3 pl-5 pr-2">
+        <input
+          type="checkbox"
+          checked={selected}
+          onChange={onToggleSelect}
+          aria-label={`Select ${studentName}'s submission`}
+          className="w-4 h-4 shrink-0 rounded border-border accent-primary"
+        />
+        <button
+          onClick={() => setOpen((o) => !o)}
+          className="flex-1 min-w-0 flex items-center justify-between gap-4 py-4 pr-4 text-left"
+        >
+          <div className="min-w-0">
+            <div className="flex flex-wrap items-center gap-1.5 mb-1">
+              {subject && (
+                <span className="text-[10px] px-2 py-0.5 rounded uppercase tracking-widest font-semibold bg-primary/10 text-primary">
+                  {subjectLabel[subject] ?? subject}
+                </span>
+              )}
+              {isPending ? <UrgencyBadge sub={sub} /> : <GradedBadge />}
+              {isLate(sub) && (
+                <span className="text-[10px] px-2 py-0.5 rounded uppercase tracking-widest font-semibold bg-red-500/10 text-red-600 dark:text-red-400 border border-red-500/20">
+                  Late
+                </span>
+              )}
+            </div>
+            <p className="font-display font-semibold truncate">
+              {sub.resource?.title ?? "Untitled homework"}
+            </p>
+            <p className="text-xs text-muted-foreground mt-0.5">
+              {studentName} · submitted {new Date(sub.submitted_at).toLocaleDateString()}
+              {sub.grade ? ` · grade ${sub.grade}` : ""}
+            </p>
           </div>
-          <p className="font-display font-semibold truncate">
-            {sub.resource?.title ?? "Untitled homework"}
-          </p>
-          <p className="text-xs text-muted-foreground mt-0.5">
-            {studentName} · submitted {new Date(sub.submitted_at).toLocaleDateString()}
-            {sub.grade ? ` · grade ${sub.grade}` : ""}
-          </p>
-        </div>
-        <span className="text-xs text-muted-foreground shrink-0">{open ? "Hide" : "Mark"}</span>
-      </button>
+          <span className="text-xs text-muted-foreground shrink-0">{open ? "Hide" : "Mark"}</span>
+        </button>
+      </div>
 
       {open && (
         <div className="border-t border-border p-6 space-y-5 bg-muted/20">
           {/* Submitted work */}
           <div>
-            <p className="text-[10px] font-extrabold uppercase tracking-widest text-muted-foreground mb-2">
-              Submitted work
-            </p>
+            <div className="flex items-center justify-between gap-3 mb-2">
+              <p className="text-[10px] font-extrabold uppercase tracking-widest text-muted-foreground">
+                Submitted work
+              </p>
+              {sub.files.length > 0 && (
+                <button
+                  onClick={downloadAll}
+                  disabled={downloading}
+                  className="inline-flex items-center gap-1.5 text-xs text-muted-foreground hover:text-foreground disabled:opacity-60"
+                >
+                  {downloading ? (
+                    <Loader2 className="w-3.5 h-3.5 animate-spin" />
+                  ) : (
+                    <Download className="w-3.5 h-3.5" />
+                  )}
+                  Download {sub.files.length > 1 ? `all ${sub.files.length}` : "file"}
+                </button>
+              )}
+            </div>
             {sub.files.length === 0 ? (
               <p className="text-sm text-muted-foreground">No files attached.</p>
             ) : (
@@ -266,7 +534,8 @@ function MarkSubmissionCard({
             )}
             {sub.resource?.due_at && (
               <p className="mt-2 text-xs text-muted-foreground inline-flex items-center gap-1">
-                <Clock className="w-3 h-3" /> Due {new Date(sub.resource.due_at).toLocaleDateString()}
+                <Clock className="w-3 h-3" /> Due{" "}
+                {new Date(sub.resource.due_at).toLocaleDateString()}
               </p>
             )}
           </div>
@@ -337,17 +606,32 @@ function MarkSubmissionCard({
   );
 }
 
-function StatusBadge({ status }: { status: SubmissionStatus }) {
-  if (status === "GRADED") {
-    return (
-      <span className="inline-flex items-center gap-1 text-[10px] px-2 py-0.5 rounded uppercase tracking-widest font-semibold bg-emerald-500/10 text-emerald-600 dark:text-emerald-400 border border-emerald-500/20">
-        <FileText className="w-2.5 h-2.5" /> Graded
-      </span>
-    );
-  }
+/**
+ * Colour-coded by how long the work has sat unmarked: red once it's been
+ * ignored for most of a week, amber after a couple of days, green while fresh.
+ */
+function UrgencyBadge({ sub }: { sub: Submission }) {
+  const urgency = urgencyOf(sub);
+  const days = daysWaiting(sub);
+  const cls: Record<Urgency, string> = {
+    urgent: "bg-red-500/10 text-red-600 dark:text-red-400 border-red-500/20",
+    soon: "bg-amber-500/10 text-amber-600 dark:text-amber-400 border-amber-500/20",
+    fresh: "bg-emerald-500/10 text-emerald-600 dark:text-emerald-400 border-emerald-500/20",
+  };
+  const text = days < 1 ? "Today" : days === 1 ? "Waiting 1 day" : `Waiting ${days} days`;
   return (
-    <span className="inline-flex items-center gap-1 text-[10px] px-2 py-0.5 rounded uppercase tracking-widest font-semibold bg-amber-500/10 text-amber-600 dark:text-amber-400 border border-amber-500/20">
-      <Clock className="w-2.5 h-2.5" /> Pending review
+    <span
+      className={`inline-flex items-center gap-1 text-[10px] px-2 py-0.5 rounded uppercase tracking-widest font-semibold border ${cls[urgency]}`}
+    >
+      <Clock className="w-2.5 h-2.5" /> {text}
+    </span>
+  );
+}
+
+function GradedBadge() {
+  return (
+    <span className="inline-flex items-center gap-1 text-[10px] px-2 py-0.5 rounded uppercase tracking-widest font-semibold bg-emerald-500/10 text-emerald-600 dark:text-emerald-400 border border-emerald-500/20">
+      <ClipboardCheck className="w-2.5 h-2.5" /> Graded
     </span>
   );
 }

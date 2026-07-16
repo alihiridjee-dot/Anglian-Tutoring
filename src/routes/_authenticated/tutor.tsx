@@ -2,20 +2,24 @@ import { createFileRoute, useNavigate } from "@tanstack/react-router";
 import { useEffect, useState } from "react";
 import { AppLayout } from "@/components/AppLayout";
 import { useRoles } from "@/hooks/useRole";
+import { useEnrolments } from "@/hooks/data/useEnrolments";
+import { resolveDisplayName } from "@/lib/displayName";
 import { toast } from "sonner";
 import {
   PlayCircle,
-  CalendarClock,
   ClipboardList,
   Upload,
   Wrench,
   ClipboardCheck,
+  ListChecks,
+  CalendarRange,
 } from "lucide-react";
 
+import { ThisWeekPanel } from "@/components/tutor/ThisWeekPanel";
 import { VideoForm } from "@/components/tutor/VideoForm";
-import { LiveForm } from "@/components/tutor/LiveForm";
 import { HomeworkForm } from "@/components/tutor/HomeworkForm";
 import { DownloadForm } from "@/components/tutor/DownloadForm";
+import { WeeklyMcqForm } from "@/components/tutor/WeeklyMcqForm";
 import { MarkingQueue } from "@/components/tutor/MarkingQueue";
 import { type SubjectV, type BoardV, type LevelV } from "@/lib/taxonomy";
 
@@ -24,8 +28,8 @@ export const Route = createFileRoute("/_authenticated/tutor")({
   component: Tutor,
 });
 
-type Kind = "video" | "live_session" | "homework" | "download";
-type Tab = "marking" | Kind;
+type Kind = "video" | "homework" | "download";
+type Tab = "this_week" | "marking" | "weekly_mcq" | Kind;
 
 function useTaxonomy() {
   const [subject, setSubject] = useState<SubjectV>("biology");
@@ -36,8 +40,9 @@ function useTaxonomy() {
 
 function Tutor() {
   const { isTutor, loading, userId, email } = useRoles();
+  const { displayName: profileName } = useEnrolments();
   const navigate = useNavigate();
-  const [tab, setTab] = useState<Tab>("marking");
+  const [tab, setTab] = useState<Tab>("this_week");
   const taxonomy = useTaxonomy();
 
   // Access is a tutor/admin privilege.
@@ -50,12 +55,14 @@ function Tutor() {
 
   if (!isTutor) return <AppLayout title="Tutor Studio">Loading…</AppLayout>;
 
-  const tutorName = email ? email.split("@")[0] : "Tutor";
+  // Prefers the name set on the profile, so editing it there lands here too.
+  const tutorName = resolveDisplayName(profileName, email);
 
   const tabs: { k: Tab; label: string; icon: typeof PlayCircle }[] = [
+    { k: "this_week", label: "This Week", icon: CalendarRange },
     { k: "marking", label: "Marking Queue", icon: ClipboardCheck },
     { k: "video", label: "Add Video", icon: PlayCircle },
-    { k: "live_session", label: "Schedule Live", icon: CalendarClock },
+    { k: "weekly_mcq", label: "Weekly MCQ", icon: ListChecks },
     { k: "homework", label: "Set Homework", icon: ClipboardList },
     { k: "download", label: "Upload File", icon: Upload },
   ];
@@ -104,12 +111,14 @@ function Tutor() {
         ))}
       </div>
 
-      {tab === "marking" ? (
+      {tab === "this_week" ? (
+        <ThisWeekPanel userId={userId!} taxonomy={taxonomy} />
+      ) : tab === "marking" ? (
         <MarkingQueue />
       ) : (
         <div className="max-w-2xl rounded-2xl bg-card border border-border p-6">
           {tab === "video" && <VideoForm userId={userId!} taxonomy={taxonomy} />}
-          {tab === "live_session" && <LiveForm userId={userId!} taxonomy={taxonomy} />}
+          {tab === "weekly_mcq" && <WeeklyMcqForm userId={userId!} taxonomy={taxonomy} />}
           {tab === "homework" && <HomeworkForm userId={userId!} taxonomy={taxonomy} />}
           {tab === "download" && <DownloadForm userId={userId!} taxonomy={taxonomy} />}
         </div>

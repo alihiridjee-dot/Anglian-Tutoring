@@ -22,11 +22,7 @@ export function SignedFileLink({
   // them as a static, non-interactive file chip.
   if (file.path.startsWith(DEMO_FILE_PREFIX)) {
     return (
-      <span
-        className={
-          className ?? "text-sm inline-flex items-center gap-2 text-muted-foreground"
-        }
-      >
+      <span className={className ?? "text-sm inline-flex items-center gap-2 text-muted-foreground"}>
         <FileText className="w-3.5 h-3.5" />
         {file.name}
       </span>
@@ -34,11 +30,21 @@ export function SignedFileLink({
   }
 
   const open = async () => {
+    // The tab must be opened synchronously, while the click's user activation is
+    // still live. Awaiting the signed URL first and calling window.open after
+    // spends that activation, and the popup blocker then drops the tab silently
+    // — no error, no file, work that looks lost.
+    const tab = window.open("", "_blank");
+    if (tab) tab.opener = null;
     setLoading(true);
     try {
       const { url } = await createResourceSignedUrl({ data: { path: file.path } });
-      window.open(url, "_blank", "noopener,noreferrer");
+      if (tab) tab.location.replace(url);
+      // Popups blocked outright: fall back to the current tab rather than
+      // failing silently.
+      else window.location.href = url;
     } catch (err) {
+      tab?.close();
       toast.error(err instanceof Error ? err.message : "Could not open file");
     } finally {
       setLoading(false);

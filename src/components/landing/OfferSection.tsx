@@ -4,7 +4,7 @@ const OFFERS = [
   {
     id: "live",
     title: "Live weekly lessons",
-    desc: "Interactive sessions on Microsoft Teams. Recorded so you never miss one.",
+    desc: "Interactive sessions on Zoom. Recorded so you never miss one.",
     icon: Video,
   },
   {

@@ -10,8 +10,10 @@ export type Database = {
     Tables: {
       homework_submissions: {
         Row: {
+          acknowledged_at: string | null;
           feedback: string | null;
           files: Json;
+          files_deleted_at: string | null;
           grade: string | null;
           graded_at: string | null;
           graded_by: string | null;
@@ -23,8 +25,10 @@ export type Database = {
           submitted_at: string;
         };
         Insert: {
+          acknowledged_at?: string | null;
           feedback?: string | null;
           files?: Json;
+          files_deleted_at?: string | null;
           grade?: string | null;
           graded_at?: string | null;
           graded_by?: string | null;
@@ -36,8 +40,10 @@ export type Database = {
           submitted_at?: string;
         };
         Update: {
+          acknowledged_at?: string | null;
           feedback?: string | null;
           files?: Json;
+          files_deleted_at?: string | null;
           grade?: string | null;
           graded_at?: string | null;
           graded_by?: string | null;
@@ -136,6 +142,7 @@ export type Database = {
           position: number;
           question: string;
           set_id: string;
+          spec_point_id: string | null;
         };
         Insert: {
           correct_index: number;
@@ -146,6 +153,7 @@ export type Database = {
           position?: number;
           question: string;
           set_id: string;
+          spec_point_id?: string | null;
         };
         Update: {
           correct_index?: number;
@@ -156,6 +164,7 @@ export type Database = {
           position?: number;
           question?: string;
           set_id?: string;
+          spec_point_id?: string | null;
         };
         Relationships: [
           {
@@ -165,16 +174,23 @@ export type Database = {
             referencedRelation: "mcq_sets";
             referencedColumns: ["id"];
           },
+          {
+            foreignKeyName: "mcq_questions_spec_point_id_fkey";
+            columns: ["spec_point_id"];
+            isOneToOne: false;
+            referencedRelation: "spec_points";
+            referencedColumns: ["id"];
+          },
         ];
       };
       mcq_sets: {
         Row: {
           created_at: string;
           created_by: string;
-          demo_visible: boolean;
           description: string | null;
           id: string;
           published: boolean;
+          resource_id: string | null;
           spec_point_id: string | null;
           subject: Database["public"]["Enums"]["subject"] | null;
           title: string;
@@ -184,10 +200,10 @@ export type Database = {
         Insert: {
           created_at?: string;
           created_by: string;
-          demo_visible?: boolean;
           description?: string | null;
           id?: string;
           published?: boolean;
+          resource_id?: string | null;
           spec_point_id?: string | null;
           subject?: Database["public"]["Enums"]["subject"] | null;
           title: string;
@@ -197,10 +213,10 @@ export type Database = {
         Update: {
           created_at?: string;
           created_by?: string;
-          demo_visible?: boolean;
           description?: string | null;
           id?: string;
           published?: boolean;
+          resource_id?: string | null;
           spec_point_id?: string | null;
           subject?: Database["public"]["Enums"]["subject"] | null;
           title?: string;
@@ -208,6 +224,13 @@ export type Database = {
           week_number?: number | null;
         };
         Relationships: [
+          {
+            foreignKeyName: "mcq_sets_resource_id_fkey";
+            columns: ["resource_id"];
+            isOneToOne: false;
+            referencedRelation: "resources";
+            referencedColumns: ["id"];
+          },
           {
             foreignKeyName: "mcq_sets_spec_point_id_fkey";
             columns: ["spec_point_id"];
@@ -259,6 +282,39 @@ export type Database = {
         };
         Relationships: [];
       };
+      parent_link_invites: {
+        Row: {
+          created_at: string;
+          expires_at: string;
+          id: string;
+          parent_email: string;
+          responded_at: string | null;
+          responded_by: string | null;
+          status: string;
+          student_id: string;
+        };
+        Insert: {
+          created_at?: string;
+          expires_at?: string;
+          id?: string;
+          parent_email: string;
+          responded_at?: string | null;
+          responded_by?: string | null;
+          status?: string;
+          student_id: string;
+        };
+        Update: {
+          created_at?: string;
+          expires_at?: string;
+          id?: string;
+          parent_email?: string;
+          responded_at?: string | null;
+          responded_by?: string | null;
+          status?: string;
+          student_id?: string;
+        };
+        Relationships: [];
+      };
       parent_student_links: {
         Row: {
           created_at: string;
@@ -280,13 +336,89 @@ export type Database = {
         };
         Relationships: [];
       };
+      notifications: {
+        Row: {
+          body: string | null;
+          created_at: string;
+          id: string;
+          link: string | null;
+          read_at: string | null;
+          submission_id: string | null;
+          title: string;
+          type: string;
+          user_id: string;
+        };
+        Insert: {
+          body?: string | null;
+          created_at?: string;
+          id?: string;
+          link?: string | null;
+          read_at?: string | null;
+          submission_id?: string | null;
+          title: string;
+          type: string;
+          user_id: string;
+        };
+        Update: {
+          body?: string | null;
+          created_at?: string;
+          id?: string;
+          link?: string | null;
+          read_at?: string | null;
+          submission_id?: string | null;
+          title?: string;
+          type?: string;
+          user_id?: string;
+        };
+        Relationships: [
+          {
+            foreignKeyName: "notifications_submission_id_fkey";
+            columns: ["submission_id"];
+            isOneToOne: false;
+            referencedRelation: "homework_submissions";
+            referencedColumns: ["id"];
+          },
+        ];
+      };
+      resource_spec_points: {
+        Row: {
+          created_at: string;
+          resource_id: string;
+          spec_point_id: string;
+        };
+        Insert: {
+          created_at?: string;
+          resource_id: string;
+          spec_point_id: string;
+        };
+        Update: {
+          created_at?: string;
+          resource_id?: string;
+          spec_point_id?: string;
+        };
+        Relationships: [
+          {
+            foreignKeyName: "resource_spec_points_resource_id_fkey";
+            columns: ["resource_id"];
+            isOneToOne: false;
+            referencedRelation: "resources";
+            referencedColumns: ["id"];
+          },
+          {
+            foreignKeyName: "resource_spec_points_spec_point_id_fkey";
+            columns: ["spec_point_id"];
+            isOneToOne: false;
+            referencedRelation: "spec_points";
+            referencedColumns: ["id"];
+          },
+        ];
+      };
       profiles: {
         Row: {
           created_at: string;
           display_name: string | null;
           enrolled_courses: string[];
           id: string;
-          is_demo: boolean;
           phone: string | null;
           role: Database["public"]["Enums"]["profile_role"];
           student_invite_code: string | null;
@@ -296,7 +428,6 @@ export type Database = {
           display_name?: string | null;
           enrolled_courses?: string[];
           id: string;
-          is_demo?: boolean;
           phone?: string | null;
           role?: Database["public"]["Enums"]["profile_role"];
           student_invite_code?: string | null;
@@ -306,7 +437,6 @@ export type Database = {
           display_name?: string | null;
           enrolled_courses?: string[];
           id?: string;
-          is_demo?: boolean;
           phone?: string | null;
           role?: Database["public"]["Enums"]["profile_role"];
           student_invite_code?: string | null;
@@ -318,7 +448,6 @@ export type Database = {
           board: Database["public"]["Enums"]["board"];
           created_at: string;
           created_by: string;
-          demo_visible: boolean;
           description: string | null;
           due_at: string | null;
           duration_seconds: number | null;
@@ -343,7 +472,6 @@ export type Database = {
           board: Database["public"]["Enums"]["board"];
           created_at?: string;
           created_by: string;
-          demo_visible?: boolean;
           description?: string | null;
           due_at?: string | null;
           duration_seconds?: number | null;
@@ -368,7 +496,6 @@ export type Database = {
           board?: Database["public"]["Enums"]["board"];
           created_at?: string;
           created_by?: string;
-          demo_visible?: boolean;
           description?: string | null;
           due_at?: string | null;
           duration_seconds?: number | null;
@@ -571,17 +698,134 @@ export type Database = {
         };
         Relationships: [];
       };
+      weekly_focus: {
+        Row: {
+          board: Database["public"]["Enums"]["board"];
+          created_at: string;
+          created_by: string;
+          id: string;
+          level: Database["public"]["Enums"]["level"];
+          note: string | null;
+          subject: Database["public"]["Enums"]["subject"];
+          updated_at: string;
+          week_start: string;
+        };
+        Insert: {
+          board: Database["public"]["Enums"]["board"];
+          created_at?: string;
+          created_by: string;
+          id?: string;
+          level: Database["public"]["Enums"]["level"];
+          note?: string | null;
+          subject: Database["public"]["Enums"]["subject"];
+          updated_at?: string;
+          week_start: string;
+        };
+        Update: {
+          board?: Database["public"]["Enums"]["board"];
+          created_at?: string;
+          created_by?: string;
+          id?: string;
+          level?: Database["public"]["Enums"]["level"];
+          note?: string | null;
+          subject?: Database["public"]["Enums"]["subject"];
+          updated_at?: string;
+          week_start?: string;
+        };
+        Relationships: [];
+      };
+      weekly_focus_points: {
+        Row: {
+          created_at: string;
+          focus_id: string;
+          spec_point_id: string;
+        };
+        Insert: {
+          created_at?: string;
+          focus_id: string;
+          spec_point_id: string;
+        };
+        Update: {
+          created_at?: string;
+          focus_id?: string;
+          spec_point_id?: string;
+        };
+        Relationships: [
+          {
+            foreignKeyName: "weekly_focus_points_focus_id_fkey";
+            columns: ["focus_id"];
+            isOneToOne: false;
+            referencedRelation: "weekly_focus";
+            referencedColumns: ["id"];
+          },
+          {
+            foreignKeyName: "weekly_focus_points_spec_point_id_fkey";
+            columns: ["spec_point_id"];
+            isOneToOne: false;
+            referencedRelation: "spec_points";
+            referencedColumns: ["id"];
+          },
+        ];
+      };
     };
     Views: {
       [_ in never]: never;
     };
     Functions: {
+      acknowledge_submission: {
+        Args: { _submission_id: string };
+        Returns: undefined;
+      };
+      mark_submission_files_deleted: {
+        Args: { _submission_id: string };
+        Returns: undefined;
+      };
       is_enrolled_in: {
         Args: {
           _subject: Database["public"]["Enums"]["subject"];
           _user_id: string;
         };
         Returns: boolean;
+      };
+      rotate_student_invite_code: {
+        Args: Record<PropertyKey, never>;
+        Returns: string;
+      };
+      invite_parent_by_email: {
+        Args: { _email: string };
+        Returns: Json;
+      };
+      respond_to_parent_invite: {
+        Args: { _invite_id: string; _accept: boolean };
+        Returns: Json;
+      };
+      revoke_parent_invite: {
+        Args: { _invite_id: string };
+        Returns: undefined;
+      };
+      unlink_parent: {
+        Args: { _link_id: string };
+        Returns: undefined;
+      };
+      list_my_parent_links: {
+        Args: Record<PropertyKey, never>;
+        Returns: {
+          link_id: string;
+          parent_id: string;
+          display_name: string | null;
+          email: string;
+          linked_at: string;
+        }[];
+      };
+      list_my_child_links: {
+        Args: Record<PropertyKey, never>;
+        Returns: {
+          link_id: string;
+          student_id: string;
+          display_name: string | null;
+          email: string;
+          linked_at: string;
+        }[];
       };
     };
     Enums: {

@@ -4,9 +4,10 @@ import { useQuery } from "@tanstack/react-query";
 import { AppLayout } from "@/components/AppLayout";
 import { FilterBar, type Filters } from "@/components/FilterBar";
 import { supabase } from "@/integrations/supabase/client";
-import { PlayCircle, ExternalLink } from "lucide-react";
 import { SUBJECTS, BOARDS, LEVELS } from "@/lib/taxonomy";
 import { isDemoStudent, DEMO_VIDEOS } from "@/lib/demo/studentDemo";
+import { parseVideoUrl } from "@/lib/videoEmbed";
+import { VideoThumbnail, VideoModal } from "@/components/VideoPlayer";
 
 export const Route = createFileRoute("/_authenticated/videos")({
   head: () => ({ meta: [{ title: "Videos | StudyHub" }] }),
@@ -18,8 +19,11 @@ function tagLabel(kind: "subject" | "board" | "level", v: string) {
   return src.find((x) => x.value === v)?.label ?? v;
 }
 
-function Videos() {
+type PlayingVideo = { title: string; description: string | null; url: string | null };
+
+export function Videos() {
   const [filters, setFilters] = useState<Filters>({});
+  const [playing, setPlaying] = useState<PlayingVideo | null>(null);
   const { data, isLoading } = useQuery({
     queryKey: ["videos", filters],
     queryFn: async () => {
@@ -55,25 +59,19 @@ function Videos() {
       ) : (
         <div className="grid gap-4 md:grid-cols-2 lg:grid-cols-3">
           {data.map((v) => {
-            const videoUrl = v.video_url;
-            const displayTitle = v.title;
-            const displayDesc = v.description;
-
+            const embed = parseVideoUrl(v.video_url);
             return (
-              <a
+              <button
                 key={v.id}
-                href={videoUrl ?? "#"}
-                target="_blank"
-                rel="noreferrer"
-                className="group rounded-2xl bg-card border border-border overflow-hidden hover:border-primary/40"
+                type="button"
+                onClick={() => setPlaying({ title: v.title, description: v.description, url: v.video_url })}
+                className="group text-left rounded-2xl bg-card border border-border overflow-hidden hover:border-primary/40 transition"
               >
-                <div className="aspect-video bg-secondary flex items-center justify-center">
-                  <PlayCircle className="w-12 h-12 text-primary/60 group-hover:text-primary" />
-                </div>
+                <VideoThumbnail embed={embed} />
                 <div className="p-4">
-                  <p className="font-semibold">{displayTitle}</p>
-                  {displayDesc && (
-                    <p className="text-xs text-muted-foreground mt-1 line-clamp-2">{displayDesc}</p>
+                  <p className="font-semibold">{v.title}</p>
+                  {v.description && (
+                    <p className="text-xs text-muted-foreground mt-1 line-clamp-2">{v.description}</p>
                   )}
                   <div className="mt-3 flex flex-wrap gap-1.5 text-[10px]">
                     <span className="px-2 py-0.5 rounded-full bg-primary/15 text-primary uppercase tracking-wider font-semibold">
@@ -85,16 +83,30 @@ function Videos() {
                     <span className="px-2 py-0.5 rounded-full bg-secondary text-muted-foreground uppercase tracking-wider font-semibold">
                       {tagLabel("level", v.level)}
                     </span>
-                    <span className="ml-auto inline-flex items-center gap-1 text-muted-foreground">
-                      <ExternalLink className="w-3 h-3" />
+                    <span className="ml-auto inline-flex items-center gap-1 text-primary font-semibold">
                       Watch
                     </span>
                   </div>
                 </div>
-              </a>
+              </button>
             );
           })}
         </div>
+      )}
+
+      {playing && (
+        <VideoModal
+          embed={parseVideoUrl(playing.url) ?? {
+            provider: "other",
+            embedUrl: null,
+            fileUrl: null,
+            thumbnailUrl: null,
+            originalUrl: playing.url ?? "",
+          }}
+          title={playing.title}
+          description={playing.description}
+          onClose={() => setPlaying(null)}
+        />
       )}
     </AppLayout>
   );

@@ -2,87 +2,58 @@ import type { User } from "@supabase/supabase-js";
 import { supabase } from "@/integrations/supabase/client";
 
 /**
- * Single source of truth for authentication state and the live/demo distinction.
+ * Single source of truth for authentication state and the live/showcase split.
  *
- * There are exactly two ways to be "signed in", and BOTH use a real, valid
- * Supabase session — there is no client-side bypass:
+ * These two are completely disjoint, and that is the whole point:
  *
- *   • "live"  — a normal authenticated user (student / parent / tutor).
- *   • "demo"  — the public sandbox. This is still a real Supabase session, but
- *               for a dedicated demo account (demo.student / demo.parent). Data
- *               isolation is enforced server-side by row-level security, NOT by
- *               the client flag below. The flag is only a UI hint (banners etc).
+ *   • "live"     — a normal authenticated user (student / parent / tutor),
+ *                  holding a real, server-validated Supabase session. Every
+ *                  /_authenticated/* route requires one.
+ *   • "showcase" — the public marketing demo under /demo/*. There is NO account
+ *                  and NO session behind it; it renders hardcoded fixtures only.
+ *                  It lives outside the auth guard entirely.
  *
- * Because demo mode is a real session, the route guard (which requires a valid
- * session) protects live and demo routes identically. A stale demo flag with no
- * session can never reach a protected page — the guard redirects to /auth.
+ * Showcase mode is derived from the URL, not from storage or a login. That means
+ * it cannot be "left on" by a stale flag, cannot bleed into a real session, and
+ * cannot be entered by anything other than navigating to /demo/*. There is no
+ * demo account to seed, restrict, or accidentally sign into.
  */
 
 export type DemoRole = "student" | "parent";
 
 /** Mutually-exclusive auth environments. */
-export type AuthMode = "live" | "demo" | "anonymous";
+export type AuthMode = "live" | "anonymous";
 
 export interface AuthSession {
   /** Which environment the current session belongs to. */
   mode: AuthMode;
-  /** The underlying Supabase user (present for both "live" and "demo"). */
+  /** The underlying Supabase user, when signed in. */
   user: User | null;
-  /** True only inside the public demo sandbox. */
-  isDemo: boolean;
-  /** The demo persona being previewed, when `isDemo` is true. */
-  demoRole: DemoRole | null;
-}
-
-const DEMO_FLAG_KEY = "studyhub:is-demo";
-const DEMO_ROLE_KEY = "studyhub:demo-role";
-
-function readDemoFlag(): boolean {
-  return typeof window !== "undefined" && localStorage.getItem(DEMO_FLAG_KEY) === "true";
-}
-
-function readDemoRole(): DemoRole | null {
-  if (typeof window === "undefined") return null;
-  const r = localStorage.getItem(DEMO_ROLE_KEY);
-  return r === "student" || r === "parent" ? r : null;
-}
-
-/** True when the local session is flagged as the demo sandbox (UI hint only). */
-export function isDemoMode(): boolean {
-  return readDemoFlag();
-}
-
-/** The demo persona currently being previewed, or null when not in demo mode. */
-export function getDemoRole(): DemoRole | null {
-  return readDemoFlag() ? readDemoRole() : null;
-}
-
-/** Flags the current session as the demo sandbox. Call after a demo sign-in. */
-export function markDemoSession(role: DemoRole): void {
-  if (typeof window === "undefined") return;
-  localStorage.setItem(DEMO_FLAG_KEY, "true");
-  localStorage.setItem(DEMO_ROLE_KEY, role);
-}
-
-/** Clears all demo markers (does not sign out — callers do that separately). */
-export function clearDemoSession(): void {
-  if (typeof window === "undefined") return;
-  localStorage.removeItem(DEMO_FLAG_KEY);
-  localStorage.removeItem(DEMO_ROLE_KEY);
 }
 
 /**
- * Resolves the full, typed auth state by validating the Supabase session with
- * the server (getUser hits the auth API — it does not trust local storage alone).
+ * True while rendering the public showcase.
+ *
+ * Read from the pathname so it is synchronous (query functions call it before
+ * fetching), reload-safe, and self-clearing the moment you navigate away.
+ */
+export function isDemoMode(): boolean {
+  if (typeof window === "undefined") return false;
+  return window.location.pathname.startsWith("/demo");
+}
+
+/** The persona the showcase is previewing, or null outside the showcase. */
+export function getDemoRole(): DemoRole | null {
+  if (!isDemoMode()) return null;
+  return window.location.pathname.startsWith("/demo/parent") ? "parent" : "student";
+}
+
+/**
+ * Resolves the auth state by validating the session with the server (getUser
+ * hits the auth API — it does not trust local storage alone).
  */
 export async function getAuthSession(): Promise<AuthSession> {
   const { data } = await supabase.auth.getUser();
   const user = data.user ?? null;
-  const isDemo = !!user && readDemoFlag();
-  return {
-    mode: !user ? "anonymous" : isDemo ? "demo" : "live",
-    user,
-    isDemo,
-    demoRole: isDemo ? readDemoRole() : null,
-  };
+  return { mode: user ? "live" : "anonymous", user };
 }

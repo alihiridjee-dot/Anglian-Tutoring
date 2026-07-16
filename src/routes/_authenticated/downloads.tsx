@@ -20,7 +20,7 @@ function fmtSize(n: number | null) {
   return `${(n / 1024 / 1024).toFixed(1)} MB`;
 }
 
-function Downloads() {
+export function Downloads() {
   const [filters, setFilters] = useState<Filters>({});
   const { data, isLoading } = useQuery({
     queryKey: ["downloads", filters],

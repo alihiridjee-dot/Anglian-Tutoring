@@ -42,7 +42,7 @@ export const Route = createFileRoute("/_authenticated/curriculum")({
 const inputCls =
   "w-full h-9 rounded-md bg-secondary border border-border px-2.5 text-sm focus:outline-none focus:ring-2 focus:ring-primary/40";
 
-function Curriculum() {
+export function Curriculum() {
   const { isTutor } = useRoles();
   const [subject, setSubject] = useState<SubjectV>("biology");
   const [board, setBoard] = useState<BoardV>("edexcel");
