@@ -16,6 +16,8 @@ export interface WeeklyFocusPlan {
   board: BoardV;
   level: LevelV;
   note: string | null;
+  /** AI-generated student focus summary, produced once when the tutor saves. */
+  summary: string | null;
   points: WeeklyFocusPoint[];
 }
 
@@ -26,6 +28,7 @@ type RawRow = {
   board: BoardV;
   level: LevelV;
   note: string | null;
+  ai_summary: string | null;
   weekly_focus_points: Array<{
     spec_points: {
       id: string;
@@ -43,10 +46,7 @@ function shape(rows: RawRow[]): WeeklyFocusPlan[] {
       const points = (r.weekly_focus_points ?? [])
         .map((wp) => wp.spec_points)
         .filter((sp): sp is NonNullable<typeof sp> => !!sp)
-        .sort(
-          (a, b) =>
-            (a.sort_order ?? 0) - (b.sort_order ?? 0) || a.code.localeCompare(b.code),
-        )
+        .sort((a, b) => (a.sort_order ?? 0) - (b.sort_order ?? 0) || a.code.localeCompare(b.code))
         .map((sp) => ({
           id: sp.id,
           code: sp.code,
@@ -63,6 +63,7 @@ function shape(rows: RawRow[]): WeeklyFocusPlan[] {
         board: r.board,
         level: r.level,
         note: r.note,
+        summary: r.ai_summary,
         points,
       };
     })
@@ -78,8 +79,15 @@ const DEMO_PLANS: WeeklyFocusPlan[] = [
     board: "edexcel",
     level: "gcse",
     note: "Focus on exchange surfaces before Thursday's live session.",
+    summary:
+      "This week you'll get to grips with how substances move in and out of cells — diffusion, osmosis and active transport — and why a cell's surface area matters so much. It's the groundwork for understanding how your body absorbs what it needs, so nailing it now will pay off across the whole topic.",
     points: [
-      { id: "d1", code: "4.1", title: "Diffusion, osmosis and active transport", topicLabel: "4 · Transport" },
+      {
+        id: "d1",
+        code: "4.1",
+        title: "Diffusion, osmosis and active transport",
+        topicLabel: "4 · Transport",
+      },
       { id: "d2", code: "4.3", title: "Surface area to volume ratio", topicLabel: "4 · Transport" },
     ],
   },
@@ -89,9 +97,9 @@ const DEMO_PLANS: WeeklyFocusPlan[] = [
     board: "edexcel",
     level: "gcse",
     note: null,
-    points: [
-      { id: "d3", code: "2.2", title: "Ionic bonding", topicLabel: "2 · Bonding" },
-    ],
+    summary:
+      "This week is all about ionic bonding — how metals and non-metals swap electrons to form charged ions that stick together in giant lattices. Once it clicks, you'll be able to explain why salts like sodium chloride behave the way they do.",
+    points: [{ id: "d3", code: "2.2", title: "Ionic bonding", topicLabel: "2 · Bonding" }],
   },
 ];
 
@@ -120,7 +128,7 @@ export function useWeeklyFocus(
       let q = supabase
         .from("weekly_focus")
         .select(
-          "id, subject, board, level, note, weekly_focus_points(spec_points(id, code, title, sort_order, topics(code, title, sort_order)))",
+          "id, subject, board, level, note, ai_summary, weekly_focus_points(spec_points(id, code, title, sort_order, topics(code, title, sort_order)))",
         )
         .eq("week_start", weekKey);
       if (enabledSubjects) q = q.in("subject", enabledSubjects as SubjectV[]);
@@ -189,7 +197,9 @@ export function useWeeklyFocusVideos(pointIds: string[]) {
 
       const { data, error } = await supabase
         .from("resources")
-        .select("id, title, description, video_url, subject, resource_spec_points!inner(spec_point_id)")
+        .select(
+          "id, title, description, video_url, subject, resource_spec_points!inner(spec_point_id)",
+        )
         .eq("kind", "video")
         .in("resource_spec_points.spec_point_id", ids);
       if (error) throw error;
@@ -228,7 +238,7 @@ export async function saveWeeklyFocus(input: {
   note: string | null;
   specPointIds: string[];
   userId: string;
-}): Promise<void> {
+}): Promise<string | null> {
   const { weekKey, subject, board, level, note, specPointIds, userId } = input;
 
   // Clearing: drop the plan row; ON DELETE CASCADE removes its points.
@@ -241,7 +251,7 @@ export async function saveWeeklyFocus(input: {
       .eq("board", board)
       .eq("level", level);
     if (error) throw error;
-    return;
+    return null;
   }
 
   const { data: upserted, error: upsertErr } = await supabase
@@ -275,4 +285,6 @@ export async function saveWeeklyFocus(input: {
     .from("weekly_focus_points")
     .insert(specPointIds.map((spec_point_id) => ({ focus_id: focusId, spec_point_id })));
   if (insErr) throw insErr;
+
+  return focusId;
 }

@@ -5,6 +5,7 @@ import { toast } from "sonner";
 import { Field, inputCls, submitBtn } from "./Field";
 import { TaxonomyFields } from "./TaxonomyFields";
 import { SpecPointSelect } from "./SpecPointSelect";
+import { UseWeeklyFocusButton } from "./UseWeeklyFocusButton";
 import { type SubjectV, type BoardV, type LevelV } from "@/lib/taxonomy";
 import { generateCurriculumQuiz } from "@/lib/mcq.functions";
 import { Sparkles, ListChecks } from "lucide-react";
@@ -102,6 +103,14 @@ export function WeeklyMcqForm({ userId: _userId, taxonomy }: WeeklyMcqFormProps)
       </Field>
 
       <TaxonomyFields {...taxonomy} />
+
+      <UseWeeklyFocusButton
+        subject={taxonomy.subject}
+        board={taxonomy.board}
+        level={taxonomy.level}
+        value={specPointIds}
+        onApply={setSpecPointIds}
+      />
 
       <SpecPointSelect
         subject={taxonomy.subject}

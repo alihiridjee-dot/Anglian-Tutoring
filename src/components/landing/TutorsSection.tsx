@@ -7,30 +7,32 @@ const TUTORS = [
     id: "nadia",
     name: "Dr Nadia",
     role: "Head of Biology & Chemistry",
-    degrees:
-      "PhD in Molecular Cell Biology (Imperial) • BSc (First Class Hons) in Biochemistry (UCL)",
-    bio: "10+ years teaching GCSE science, formerly Head of Science at a top UK independent school. Specialises in Biology and Chemistry.",
+    degrees: ["BSc (Hons) Biomedical Sciences, ARU", "MBBS, Anglia Ruskin University"],
+    bio: "Practising NHS Doctor and science tutor of 5+ years, having taught students across the region to excellent GCSE results. Specialises in Biology and Chemistry.",
     fullBio:
-      "Dr Nadia is a highly respected educator who has guided hundreds of students to GCSE Grade 9s. She focuses on teaching structured exam-board mark schemes, demystifying complex metabolic pathways, and building long-term memory retrieval systems that make science second nature.",
+      "Dr Nadia brings real clinical experience straight from the NHS into the classroom, turning abstract biology and chemistry into the science she uses every day at work. Over 5+ years of tutoring, she has helped students across the region achieve excellent results, focusing on structured exam-board mark schemes, demystifying complex metabolic pathways, and building long-term memory retrieval systems that make science second nature.",
+    badge: "GCSE Expert",
     color: "from-emerald-500/10 to-teal-500/20",
     accent: "text-emerald-600 bg-emerald-50 border-emerald-100",
     themeColor: "emerald",
-    image:
-      "https://images.unsplash.com/photo-1534528741775-53994a69daeb?auto=format&fit=crop&q=80&w=400&h=400",
+    image: "/tutors/nadia.jpg",
   },
   {
     id: "ali",
     name: "Ali",
     role: "Head of Physics & Maths",
-    degrees: "MSci (First Class Hons) in Physics (Imperial College London)",
-    bio: "Physics graduate, Cambridge. Passionate about making Physics accessible and building strong problem-solving foundations.",
+    degrees: [
+      "BSc (Merit) Synthetic Organic Chemistry & Biomedical Sciences, UCL",
+      "MBChB, Anglia Ruskin University",
+    ],
+    bio: "UCL graduate now training as a doctor, and an expert across KS3, GCSE and A Level. Passionate about making science accessible and building strong problem-solving foundations.",
     fullBio:
-      "Ali is known for his highly dynamic visual teaching style, breaking down mechanics and electricity into bite-sized mental models. Having completed over 1,500 hours of 1-to-1 and small group online GCSE instruction, he specializes in building robust problem-solving frameworks.",
+      "Ali graduated from UCL with a Merit in Synthetic Organic Chemistry & Biomedical Sciences and is now studying medicine on the MBChB programme at Anglia Ruskin University. Known for his highly dynamic, visual teaching style, he covers KS3, GCSE and A Level with equal depth, breaking down mechanics, electricity and chemistry into bite-sized mental models. Having completed over 1,500 hours of 1-to-1 and small group online instruction, he specialises in building robust problem-solving frameworks.",
+    badge: "KS3 · GCSE · A Level",
     color: "from-sky-500/10 to-indigo-500/20",
     accent: "text-sky-600 bg-sky-50 border-sky-100",
     themeColor: "sky",
-    image:
-      "https://images.unsplash.com/photo-1618015358954-115ef1ed151b?auto=format&fit=crop&q=80&w=400&h=400",
+    image: "/tutors/ali.jpg",
   },
 ];
 
@@ -90,7 +92,7 @@ export function TutorsSection() {
                         <span
                           className={`inline-flex items-center px-2 py-0.5 text-[10px] font-bold uppercase tracking-wider rounded-full border ${t.accent}`}
                         >
-                          GCSE Expert
+                          {t.badge}
                         </span>
                       </h3>
                       <p className="text-sm text-primary font-semibold mt-1">{t.role}</p>
@@ -121,9 +123,19 @@ export function TutorsSection() {
                               <h4 className="text-[10px] font-extrabold uppercase tracking-widest text-slate-400">
                                 Verified Academic Degrees
                               </h4>
-                              <p className="text-sm font-bold text-slate-900 mt-1 leading-relaxed">
-                                {t.degrees}
-                              </p>
+                              <ul className="mt-1.5 space-y-1.5">
+                                {t.degrees.map((degree) => (
+                                  <li
+                                    key={degree}
+                                    className="flex items-center gap-1.5 text-sm font-bold text-slate-900"
+                                  >
+                                    <span aria-hidden className="text-xs">
+                                      🎓
+                                    </span>
+                                    {degree}
+                                  </li>
+                                ))}
+                              </ul>
                             </div>
                           </div>
 

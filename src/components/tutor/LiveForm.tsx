@@ -8,10 +8,11 @@ import { TaxonomyFields } from "./TaxonomyFields";
 import { SpecPointSelect } from "./SpecPointSelect";
 import { type SubjectV, type BoardV, type LevelV } from "@/lib/taxonomy";
 import { createZoomMeeting } from "@/lib/zoom.functions";
-import { generateWeeklyQuiz } from "@/lib/mcq.functions";
+import { generateSessionBlurb } from "@/lib/sessionBlurb.functions";
+import { suggestSpecPoints } from "@/lib/suggestSpecPoints.functions";
 import { useWeeklyFocus } from "@/hooks/data/useWeeklyFocus";
 import { mondayOf, toDateKey, weekRangeLabel } from "@/lib/week";
-import { Video, Smartphone, Loader2, CalendarRange, Link2 } from "lucide-react";
+import { Video, Smartphone, Loader2, CalendarRange, Link2, Sparkles, Wand2 } from "lucide-react";
 
 interface LiveFormProps {
   userId: string;
@@ -42,8 +43,11 @@ export function LiveForm({ userId, taxonomy, linkToWeek = false }: LiveFormProps
   const [specPointIds, setSpecPointIds] = useState<string[]>([]);
   const [loading, setLoading] = useState(false);
   const [generatingLink, setGeneratingLink] = useState(false);
+  const [generatingBlurb, setGeneratingBlurb] = useState(false);
+  const [suggesting, setSuggesting] = useState(false);
   const [broadcastWhatsApp, setBroadcastWhatsApp] = useState(true);
-  const genQuiz = useServerFn(generateWeeklyQuiz);
+  const genBlurb = useServerFn(generateSessionBlurb);
+  const suggestPoints = useServerFn(suggestSpecPoints);
 
   // Week-linking (dashboard mode). The chosen start date decides which Mon–Sun
   // week the session belongs to; we then look up the tutor's "This Week" focus
@@ -56,11 +60,11 @@ export function LiveForm({ userId, taxonomy, linkToWeek = false }: LiveFormProps
   const { plans: weekPlans, loading: weekLoading } = useWeeklyFocus(weekKey, undefined, {
     enabled: linkToWeek && weekKey.length > 0,
   });
+  // Sessions are board-agnostic, so match the week's focus by subject + level
+  // only. weekly_focus is still board-scoped; the first matching board's focus
+  // for that subject+level is used to seed points (the tutor can add more).
   const weekFocus = weekPlans.find(
-    (p) =>
-      p.subject === taxonomy.subject &&
-      p.board === taxonomy.board &&
-      p.level === taxonomy.level,
+    (p) => p.subject === taxonomy.subject && p.level === taxonomy.level,
   );
 
   // Seed the session's spec points from the week's focus once per (week, taxonomy)
@@ -74,7 +78,7 @@ export function LiveForm({ userId, taxonomy, linkToWeek = false }: LiveFormProps
     seededFor.current = sig;
     const focusIds = weekFocus?.points.map((p) => p.id) ?? [];
     if (focusIds.length > 0) setSpecPointIds(focusIds);
-  }, [linkToWeek, weekKey, weekLoading, weekFocus, taxonomy.subject, taxonomy.board, taxonomy.level]);
+  }, [linkToWeek, weekKey, weekLoading, weekFocus, taxonomy.subject, taxonomy.level]);
 
   // Provisions a real Zoom meeting via the zoom-meeting edge function and drops
   // the returned join URL into the form. Needs a title and start time so the
@@ -100,8 +104,72 @@ export function LiveForm({ userId, taxonomy, linkToWeek = false }: LiveFormProps
     }
   };
 
+  // Draft the "in this session we'll cover…" description with AI from the title
+  // and tagged spec points. Fills the (still editable) description field; the
+  // tutor can tweak it before scheduling, and it's what the student sees.
+  const generateDescription = async (e: React.MouseEvent) => {
+    e.preventDefault();
+    setGeneratingBlurb(true);
+    try {
+      const { blurb } = await genBlurb({
+        data: {
+          subject: taxonomy.subject,
+          level: taxonomy.level,
+          board: taxonomy.board,
+          title,
+          specPointIds,
+        },
+      });
+      setDescription(blurb);
+    } catch (err) {
+      toast.error(err instanceof Error ? err.message : "Could not draft a description.");
+    } finally {
+      setGeneratingBlurb(false);
+    }
+  };
+
+  // Ask the AI which spec points the session's title + description cover, then
+  // merge its picks into the current selection (union — never drops points the
+  // tutor added by hand). Candidates span all boards, so a broad theme gets its
+  // equivalent point under each board.
+  const suggestFromDescription = async (e: React.MouseEvent) => {
+    e.preventDefault();
+    if (!title.trim() && !description.trim()) {
+      toast.error("Add a title or description first, then let AI suggest spec points.");
+      return;
+    }
+    setSuggesting(true);
+    try {
+      const { specPointIds: suggested, count } = await suggestPoints({
+        data: {
+          subject: taxonomy.subject,
+          level: taxonomy.level,
+          title,
+          description,
+        },
+      });
+      if (count === 0) {
+        toast.info("No matching spec points found — try adding more detail to the description.");
+        return;
+      }
+      setSpecPointIds((prev) => [...new Set([...prev, ...suggested])]);
+      toast.success(`AI suggested ${count} spec point${count === 1 ? "" : "s"} — review below`);
+    } catch (err) {
+      toast.error(err instanceof Error ? err.message : "Could not suggest spec points.");
+    } finally {
+      setSuggesting(false);
+    }
+  };
+
   const submit = async (e: React.FormEvent) => {
     e.preventDefault();
+
+    // A live session must be tied to the curriculum it covers — spec points are
+    // required, not optional.
+    if (specPointIds.length === 0) {
+      return toast.error("Tag at least one spec point — a live session must cover some curriculum.");
+    }
+
     setLoading(true);
 
     const formattedStartsAt = new Date(startsAt).toISOString();
@@ -115,7 +183,8 @@ export function LiveForm({ userId, taxonomy, linkToWeek = false }: LiveFormProps
         starts_at: formattedStartsAt,
         join_url: joinUrl || null,
         subject: taxonomy.subject,
-        board: taxonomy.board,
+        // Live sessions are broad, board-agnostic themes (per subject + level).
+        board: null,
         level: taxonomy.level,
         created_by: userId,
       })
@@ -138,24 +207,6 @@ export function LiveForm({ userId, taxonomy, linkToWeek = false }: LiveFormProps
         setLoading(false);
         return toast.error(linkError.message);
       }
-
-      // Auto-generate this week's quiz from the tagged spec points. Fire-and-
-      // report so the Zoom/WhatsApp scheduling flow below isn't held up by the
-      // (slower) AI generation.
-      const quizToast = toast.loading("Generating this week's MCQ quiz…");
-      genQuiz({ data: { resourceId: created.id } })
-        .then((res) => {
-          toast.success(`Weekly quiz published — ${res.count} questions`, {
-            id: quizToast,
-          });
-          qc.invalidateQueries({ queryKey: ["mcqs"] });
-        })
-        .catch((err) => {
-          toast.error(
-            err instanceof Error ? err.message : "Quiz generation failed",
-            { id: quizToast },
-          );
-        });
     }
 
     setLoading(false);
@@ -239,15 +290,30 @@ export function LiveForm({ userId, taxonomy, linkToWeek = false }: LiveFormProps
       </div>
 
       <Field label="Description">
-        <textarea
-          className={`${inputCls} h-24 py-2`}
-          value={description}
-          onChange={(e) => setDescription(e.target.value)}
-          placeholder="Brief summary of what will be covered in this session..."
-        />
+        <div className="relative">
+          <textarea
+            className={`${inputCls} h-24 py-2`}
+            value={description}
+            onChange={(e) => setDescription(e.target.value)}
+            placeholder="Brief summary of what will be covered in this session..."
+          />
+          <button
+            onClick={generateDescription}
+            disabled={generatingBlurb}
+            className="absolute right-1.5 top-1.5 px-2.5 py-1 rounded bg-primary/10 hover:bg-primary/15 text-primary text-xs font-semibold inline-flex items-center gap-1 transition-colors cursor-pointer disabled:opacity-70"
+            title="Draft a description with AI from the title & spec points"
+          >
+            {generatingBlurb ? (
+              <Loader2 className="w-3.5 h-3.5 animate-spin" />
+            ) : (
+              <Sparkles className="w-3.5 h-3.5" />
+            )}
+            {generatingBlurb ? "Drafting…" : "AI draft"}
+          </button>
+        </div>
       </Field>
 
-      <TaxonomyFields {...taxonomy} />
+      <TaxonomyFields {...taxonomy} hideBoard />
 
       {/* Week link banner — only in dashboard mode, once a date is picked. */}
       {linkToWeek && validStart && (
@@ -270,21 +336,42 @@ export function LiveForm({ userId, taxonomy, linkToWeek = false }: LiveFormProps
               </p>
             ) : (
               <p className="text-muted-foreground">
-                No focus set for the week of <span className="font-medium text-foreground">{weekLabel}</span>{" "}
-                yet. Set it in <span className="font-medium text-foreground">This Week</span> above and it
-                will link here automatically, or pick points below.
+                No focus set for the week of{" "}
+                <span className="font-medium text-foreground">{weekLabel}</span> yet. Set it in{" "}
+                <span className="font-medium text-foreground">This Week</span> above and it will
+                link here automatically, or pick points below.
               </p>
             )}
           </div>
         </div>
       )}
 
+      <div className="flex items-center justify-between gap-2 -mb-1">
+        <p className="text-xs text-muted-foreground">
+          Tag the curriculum this session covers, or let AI suggest it from the description.
+        </p>
+        <button
+          type="button"
+          onClick={suggestFromDescription}
+          disabled={suggesting}
+          className="shrink-0 px-2.5 py-1 rounded bg-primary/10 hover:bg-primary/15 text-primary text-xs font-semibold inline-flex items-center gap-1 transition-colors cursor-pointer disabled:opacity-70"
+          title="Suggest spec points with AI from the title & description"
+        >
+          {suggesting ? (
+            <Loader2 className="w-3.5 h-3.5 animate-spin" />
+          ) : (
+            <Wand2 className="w-3.5 h-3.5" />
+          )}
+          {suggesting ? "Suggesting…" : "AI suggest"}
+        </button>
+      </div>
+
       <SpecPointSelect
         subject={taxonomy.subject}
-        board={taxonomy.board}
         level={taxonomy.level}
         value={specPointIds}
         onChange={setSpecPointIds}
+        required
       />
 
       {/* Broadcast Toggle Options */}

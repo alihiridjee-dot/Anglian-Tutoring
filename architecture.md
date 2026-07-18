@@ -13,9 +13,15 @@ For authentication & the live/demo session model, see [docs/AUTHENTICATION.md](d
 ├── AGENTS.md                  # Custom agent instructions & safety guardrails
 ├── README.md                  # Developer instructions and project overview
 ├── docs/
-│   └── AUTHENTICATION.md      # Live vs demo session model, guard, sign-up flow
+│   ├── AUTHENTICATION.md      # Session model, guard, sign-up → setup → paywall
+│   └── STRIPE_SETUP.md        # Seeding products, deploying the webhook, going live
+├── scripts/
+│   └── stripe-seed.ts         # Creates Stripe products/prices → packages.stripe_price_id
 ├── supabase/
 │   ├── config.toml            # Supabase project link (project_id)
+│   ├── functions/
+│   │   ├── stripe-checkout/   # Checkout + billing-portal sessions (price read server-side)
+│   │   └── stripe-webhook/    # THE only writer of subscriptions — grants/revokes access
 │   └── migrations/            # Canonical schema — applied in order via db push
 ├── components.json            # Configuration for UI components (Shadcn UI)
 ├── eslint.config.js           # Linting configuration
@@ -64,10 +70,14 @@ For authentication & the live/demo session model, see [docs/AUTHENTICATION.md](d
     │
     ├── routes/                # File-based routing (TanStack Start)
     │   ├── __root.tsx         # Global base wrapper (meta tags, Toaster)
-    │   ├── auth.tsx           # Login/signup (honours ?redirect= deep link)
+    │   ├── auth.tsx           # Login/signup — identity only (honours ?redirect=)
     │   ├── demo.tsx           # Public demo entry (student/parent sandbox)
     │   ├── index.tsx          # Public landing page
     │   ├── reset-password.tsx
+    │   ├── onboarding/        # Profile setup + paywall — OUTSIDE _authenticated
+    │   │   ├── route.tsx      # Guard: session required, access NOT required
+    │   │   ├── board.tsx · subjects.tsx · learning.tsx
+    │   │   └── school.tsx · plan.tsx
     │   └── _authenticated/    # Guarded routes (valid session required)
     │       ├── route.tsx      # AuthGuard — validates session, exposes AuthSession
     │       ├── billing.tsx · curriculum.tsx · dashboard.tsx · downloads.tsx
@@ -105,8 +115,9 @@ For authentication & the live/demo session model, see [docs/AUTHENTICATION.md](d
   students; demo accounts get the full curriculum + videos but exactly one
   pinned MCQ set (`mcq_sets.demo_visible`), one pinned homework
   (`resources.demo_visible`), and no live sessions.
-- Sign-up records the chosen plan and enrols the student via the
-  `handle_new_user` trigger (see `supabase/migrations/`).
+- Sign-up grants **nothing** — no enrolment, no subscription. Board, subjects
+  and payment are captured in `/onboarding/*`, and `/_authenticated` gates
+  students on `my_access_state()`. See [docs/STRIPE_SETUP.md](docs/STRIPE_SETUP.md).
 
 ## 👪 Parent linking
 

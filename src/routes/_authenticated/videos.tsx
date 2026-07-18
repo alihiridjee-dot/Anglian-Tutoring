@@ -64,22 +64,28 @@ export function Videos() {
               <button
                 key={v.id}
                 type="button"
-                onClick={() => setPlaying({ title: v.title, description: v.description, url: v.video_url })}
+                onClick={() =>
+                  setPlaying({ title: v.title, description: v.description, url: v.video_url })
+                }
                 className="group text-left rounded-2xl bg-card border border-border overflow-hidden hover:border-primary/40 transition"
               >
                 <VideoThumbnail embed={embed} />
                 <div className="p-4">
                   <p className="font-semibold">{v.title}</p>
                   {v.description && (
-                    <p className="text-xs text-muted-foreground mt-1 line-clamp-2">{v.description}</p>
+                    <p className="text-xs text-muted-foreground mt-1 line-clamp-2">
+                      {v.description}
+                    </p>
                   )}
                   <div className="mt-3 flex flex-wrap gap-1.5 text-[10px]">
                     <span className="px-2 py-0.5 rounded-full bg-primary/15 text-primary uppercase tracking-wider font-semibold">
                       {tagLabel("subject", v.subject)}
                     </span>
-                    <span className="px-2 py-0.5 rounded-full bg-secondary text-muted-foreground uppercase tracking-wider font-semibold">
-                      {tagLabel("board", v.board)}
-                    </span>
+                    {v.board && (
+                      <span className="px-2 py-0.5 rounded-full bg-secondary text-muted-foreground uppercase tracking-wider font-semibold">
+                        {tagLabel("board", v.board)}
+                      </span>
+                    )}
                     <span className="px-2 py-0.5 rounded-full bg-secondary text-muted-foreground uppercase tracking-wider font-semibold">
                       {tagLabel("level", v.level)}
                     </span>
@@ -96,13 +102,15 @@ export function Videos() {
 
       {playing && (
         <VideoModal
-          embed={parseVideoUrl(playing.url) ?? {
-            provider: "other",
-            embedUrl: null,
-            fileUrl: null,
-            thumbnailUrl: null,
-            originalUrl: playing.url ?? "",
-          }}
+          embed={
+            parseVideoUrl(playing.url) ?? {
+              provider: "other",
+              embedUrl: null,
+              fileUrl: null,
+              thumbnailUrl: null,
+              originalUrl: playing.url ?? "",
+            }
+          }
           title={playing.title}
           description={playing.description}
           onClose={() => setPlaying(null)}

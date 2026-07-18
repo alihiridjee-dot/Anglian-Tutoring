@@ -3,7 +3,7 @@
   "configurations": [
     {
       "name": "anglian-dev",
-      "runtimeExecutable": "npm",
+      "runtimeExecutable": "bun",
       "runtimeArgs": ["run", "dev"],
       "port": 8080
     }

@@ -8,13 +8,16 @@ interface PricingSectionProps {
 }
 
 export function PricingSection({ selectedLevel, setSelectedLevel }: PricingSectionProps) {
+  // Session maths throughout assumes 2 live sessions per week, i.e. 8 per month
+  // (2 × 4 weeks) and 24 per tri-monthly term (8 × 3 months).
   const tiers = [
     {
       id: "weekly",
       name: "Weekly Plan",
       price: "£19.99",
       billing: "/ week",
-      perSession: "£6.66 per session",
+      // 2 sessions → 19.99 / 2 = £10.00
+      perSession: "£10.00 per session",
       highlight: false,
       badge: "Ideal flexibility",
     },
@@ -23,16 +26,18 @@ export function PricingSection({ selectedLevel, setSelectedLevel }: PricingSecti
       name: "Monthly Saver",
       price: "£49.99",
       billing: "/ month",
-      perSession: "£4.16 per session",
+      // 8 sessions → 49.99 / 8 = £6.25
+      perSession: "£6.25 per session",
       highlight: true,
       badge: "Best Value Plan",
     },
     {
-      id: "try_monthly",
-      name: "Try Monthly",
+      id: "tri_monthly",
+      name: "Tri-monthly",
       price: "£139.99",
-      billing: "/ month",
-      perSession: "£11.66 per session",
+      billing: "/ 3 months",
+      // 24 sessions → 139.99 / 24 = £5.83
+      perSession: "£5.83 per session",
       highlight: false,
       badge: "Premium Onboarding",
     },
@@ -67,7 +72,7 @@ export function PricingSection({ selectedLevel, setSelectedLevel }: PricingSecti
                     `Platform adjusted for ${e.target.value.replace("_", " ").toUpperCase()}!`,
                   );
                 }}
-                className="w-full bg-white border border-slate-200 rounded-xl px-4 py-2.5 text-sm font-semibold text-slate-800 shadow-sm focus:outline-none focus:ring-2 focus:ring-slate-900 appearance-none cursor-pointer"
+                className="w-full bg-white border border-slate-200 rounded-xl px-4 py-2.5 text-sm font-semibold text-slate-800 shadow-sm focus:outline-none focus:ring-2 focus:ring-primary appearance-none cursor-pointer"
               >
                 <option value="ks3">KS3 Science (Years 7, 8 & 9)</option>
                 <option value="gcse_combined">GCSE Combined Trilogy Science</option>
@@ -89,15 +94,15 @@ export function PricingSection({ selectedLevel, setSelectedLevel }: PricingSecti
               key={tier.id}
               className={`relative rounded-2xl p-6.5 border flex flex-col justify-between transition-all duration-300 ${
                 tier.highlight
-                  ? "bg-slate-900 text-white border-slate-900 shadow-xl scale-[1.03]"
-                  : "bg-white text-slate-900 border-slate-100 hover:border-slate-300 shadow-sm"
+                  ? "bg-gradient-to-br from-primary to-[var(--primary-deep)] text-primary-foreground border-primary shadow-xl shadow-primary/25 scale-[1.03]"
+                  : "bg-white text-slate-900 border-slate-100 hover:border-primary/40 shadow-sm"
               }`}
             >
               {tier.badge && (
                 <span
                   className={`absolute -top-3 left-1/2 -translate-x-1/2 px-3 py-1 rounded-full text-[10px] font-bold uppercase tracking-wider ${
                     tier.highlight
-                      ? "bg-amber-400 text-slate-950"
+                      ? "bg-primary-foreground text-primary shadow-sm"
                       : "bg-slate-100 text-slate-700 border border-slate-200"
                   }`}
                 >
@@ -113,7 +118,7 @@ export function PricingSection({ selectedLevel, setSelectedLevel }: PricingSecti
                     {tier.price}
                   </span>
                   <span
-                    className={`text-xs ${tier.highlight ? "text-slate-300" : "text-slate-500"}`}
+                    className={`text-xs ${tier.highlight ? "text-white/75" : "text-slate-500"}`}
                   >
                     {tier.billing}
                   </span>
@@ -122,7 +127,9 @@ export function PricingSection({ selectedLevel, setSelectedLevel }: PricingSecti
                 {/* Per Session Breakdown Box */}
                 <div
                   className={`mt-3 py-1.5 px-3 rounded-lg text-xs font-semibold inline-block ${
-                    tier.highlight ? "bg-white/10 text-amber-300" : "bg-emerald-50 text-emerald-700"
+                    tier.highlight
+                      ? "bg-white/15 text-white"
+                      : "bg-[var(--accent-soft)] text-[var(--primary-deep)]"
                   }`}
                 >
                   Equivalent to <span className="underline font-bold">{tier.perSession}</span>
@@ -130,7 +137,7 @@ export function PricingSection({ selectedLevel, setSelectedLevel }: PricingSecti
 
                 <div className="mt-6 border-t border-slate-100 pt-5 space-y-3.5 text-sm">
                   <p
-                    className={`text-xs font-bold uppercase tracking-wider ${tier.highlight ? "text-slate-400" : "text-slate-500"}`}
+                    className={`text-xs font-bold uppercase tracking-wider ${tier.highlight ? "text-white/70" : "text-slate-500"}`}
                   >
                     What's included (Customized for {selectedLevel.replace("_", " ").toUpperCase()}
                     ):
@@ -139,25 +146,25 @@ export function PricingSection({ selectedLevel, setSelectedLevel }: PricingSecti
                   <ul className="space-y-2.5">
                     <li className="flex items-start gap-2.5">
                       <Check
-                        className={`w-4 h-4 mt-0.5 shrink-0 ${tier.highlight ? "text-amber-400" : "text-emerald-600"}`}
+                        className={`w-4 h-4 mt-0.5 shrink-0 ${tier.highlight ? "text-[var(--accent-soft)]" : "text-accent"}`}
                       />
-                      <span>3 Weekly Live Science Lessons</span>
+                      <span>2 Weekly Live Science Lessons</span>
                     </li>
                     <li className="flex items-start gap-2.5">
                       <Check
-                        className={`w-4 h-4 mt-0.5 shrink-0 ${tier.highlight ? "text-amber-400" : "text-emerald-600"}`}
+                        className={`w-4 h-4 mt-0.5 shrink-0 ${tier.highlight ? "text-[var(--accent-soft)]" : "text-accent"}`}
                       />
                       <span>Weekly Spec-Aligned Homework Marking</span>
                     </li>
                     <li className="flex items-start gap-2.5">
                       <Check
-                        className={`w-4 h-4 mt-0.5 shrink-0 ${tier.highlight ? "text-amber-400" : "text-emerald-600"}`}
+                        className={`w-4 h-4 mt-0.5 shrink-0 ${tier.highlight ? "text-[var(--accent-soft)]" : "text-accent"}`}
                       />
                       <span>Weekly MCQ Quizzes & Tracker</span>
                     </li>
                     <li className="flex items-start gap-2.5">
                       <Check
-                        className={`w-4 h-4 mt-0.5 shrink-0 ${tier.highlight ? "text-amber-400" : "text-emerald-600"}`}
+                        className={`w-4 h-4 mt-0.5 shrink-0 ${tier.highlight ? "text-[var(--accent-soft)]" : "text-accent"}`}
                       />
                       <span>Grade Predictor & Parent Portal Access</span>
                     </li>
@@ -171,8 +178,8 @@ export function PricingSection({ selectedLevel, setSelectedLevel }: PricingSecti
                   search={{ mode: "signup", tier: tier.id, level: selectedLevel } as never}
                   className={`block text-center w-full py-3 rounded-xl text-sm font-bold shadow-sm transition-all duration-200 ${
                     tier.highlight
-                      ? "bg-amber-400 text-slate-950 hover:bg-amber-300"
-                      : "bg-slate-900 text-white hover:bg-slate-800"
+                      ? "bg-primary-foreground text-primary hover:bg-white/90"
+                      : "bg-primary text-primary-foreground hover:bg-[var(--primary-deep)]"
                   }`}
                 >
                   Enrol student

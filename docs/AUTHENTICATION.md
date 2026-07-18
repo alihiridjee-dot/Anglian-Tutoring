@@ -74,18 +74,55 @@ Server functions are separately protected by `requireSupabaseAuth`
 (`src/integrations/supabase/auth-middleware.ts`), which validates the Bearer
 token via `getClaims` before running privileged server logic.
 
-## Sign-up → plan enrolment
+## Sign-up → profile setup → payment
 
-`/auth` sign-up passes `signup_tier` and `signup_level` in the user metadata.
-The `handle_new_user` trigger
-(`supabase/migrations/20260709110000_signup_enrolment.sql`) then:
+Sign-up is only "who are you". `handle_new_user` creates the profile, the role
+and the invite code — and grants **nothing** else. It used to enrol the student
+and write a `trialing` subscription straight from sign-up metadata, which handed
+out access before anyone paid; that is exactly what the paywall exists to stop.
 
-- creates the profile + `student` role + invite code,
-- enrols the student in the plan's subjects (`enrolled_courses`), and
-- records the chosen plan on a `subscriptions` row (`status = 'trialing'`).
+What you study, and whether you've paid for it, is settled after the email is
+verified, in `/onboarding/*`:
 
-> Payment is not yet integrated — enrolment is granted on sign-up. When Stripe is
-> added, gate enrolment on `subscriptions.status` rather than on sign-up.
+1. `board` — level + exam board
+2. `subjects` — subjects, with a per-subject board override; **writes the
+   enrolments**
+3. `learning` — pedagogy sliders (optional)
+4. `school` — school + per-subject grades (optional); **marks setup complete**
+5. `plan` — Stripe Checkout, or invite a parent to pay
+
+These routes sit **outside** `/_authenticated` on purpose: that guard redirects
+unpaid students *to* them, so nesting them under it would loop.
+
+## The paywall
+
+`/_authenticated` asks three questions in order — session, then (students only)
+setup complete, then access:
+
+```ts
+if (profile?.role === "student") {
+  const { data: access } = await supabase.rpc("my_access_state").single();
+  if (!access?.onboarding_complete) throw redirect({ to: "/onboarding/board" });
+  if (!access?.has_access) throw redirect({ to: "/onboarding/plan" });
+}
+```
+
+Setup and access are asked of **students only**. Parents and tutors have nothing
+to buy for themselves and `my_access_state()` answers `false` for them, so
+applying it to everyone would lock every tutor out of their own app.
+
+Access itself is `private.student_has_access(student_id)`: a subscription
+covering *that student*, `active` or `trialing`, still inside its period. A
+subscription names the student it covers (`student_id`) separately from who pays
+for it (`user_id`), so a parent can fund a child without either of them being
+mistaken for the other.
+
+> **This is a UI gate, not a hard paywall.** It stops an unpaid student reaching
+> the dashboard, but a determined user with their own JWT could still query the
+> curriculum tables directly. Closing that means putting
+> `private.student_has_access()` into the RLS policies on the content tables.
+
+See [STRIPE_SETUP.md](STRIPE_SETUP.md) for the Stripe half.
 
 ## Environment configuration
 

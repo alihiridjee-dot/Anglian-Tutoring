@@ -3,41 +3,32 @@ import { AppLayout } from "@/components/AppLayout";
 import { useRoles } from "@/hooks/useRole";
 import { useEnrolments } from "@/hooks/data/useEnrolments";
 import { useAnalytics } from "@/hooks/data/useAnalytics";
+import { useChildLinks } from "@/hooks/data/useParentLinks";
+import {
+  useChildSubjects,
+  useChildTrends,
+  useChildEngagement,
+  useChildFeedback,
+  type WeeklyTrendPoint,
+} from "@/hooks/data/useChildProgress";
 import { AuthService } from "@/lib/authService";
+import { supabase } from "@/integrations/supabase/client";
+import { ParentBillingSection } from "@/components/billing/ParentBillingSection";
+import { GradePredictorCard } from "@/components/parent/GradePredictorCard";
+import { TrendsChart } from "@/components/parent/TrendsChart";
+import { EngagementStats } from "@/components/parent/EngagementStats";
+import { FeedbackList } from "@/components/parent/FeedbackList";
 import { isDemoMode } from "@/lib/auth/session";
 import { DEMO_PARENT_NAME } from "@/lib/demo/studentDemo";
 import { resolveDisplayName } from "@/lib/displayName";
 import { UserRole } from "@/types/user";
 import { useState, useEffect } from "react";
-import {
-  CalendarClock,
-  ClipboardList,
-  BookMarked,
-  ListChecks,
-  CreditCard,
-  Download,
-  Users,
-  CheckCircle2,
-  MessageSquare,
-  Award,
-  Clock,
-  Sparkles,
-} from "lucide-react";
-import { toast } from "sonner";
-import { LineChart, Line, XAxis, YAxis, CartesianGrid, ResponsiveContainer } from "recharts";
-import {
-  ChartContainer,
-  ChartTooltip,
-  ChartTooltipContent,
-  type ChartConfig,
-} from "@/components/ui/chart";
+import { CalendarClock, ClipboardList, BookMarked, ListChecks, Users } from "lucide-react";
 
 export const Route = createFileRoute("/_authenticated/parent-dashboard")({
   beforeLoad: async () => {
-    // PARENT-only surface. Tutors/admins/students are routed away so the Parent
-    // Portal can never render inside a tutor or student session. Parent
-    // development is deferred and this module stays isolated from the
-    // tutor/student flow.
+    // PARENT-only surface. Tutors/students are routed away so the Parent
+    // Portal can never render inside a tutor or student session.
     const hasAccess = await AuthService.verifyRoleAccess([UserRole.PARENT]);
     if (!hasAccess) {
       throw redirect({ to: "/dashboard" });
@@ -47,102 +38,118 @@ export const Route = createFileRoute("/_authenticated/parent-dashboard")({
   component: ParentDashboard,
 });
 
-const subjectLabel: Record<string, string> = {
-  biology: "Biology",
-  chemistry: "Chemistry",
-  physics: "Physics",
-};
+/* ---------- Demo fixtures: only the session-less /demo/* showcase sees these.
+   A real parent session below this block renders live data exclusively. ---- */
 
-const subjectColor: Record<string, string> = {
-  biology: "text-rose-600 bg-rose-50 border-rose-100",
-  chemistry: "text-emerald-600 bg-emerald-50 border-emerald-100",
-  physics: "text-blue-600 bg-blue-50 border-blue-100",
-};
-
-const trendData = [
-  { week: "Wk 1", Biology: 72, Chemistry: 68, Physics: 60 },
-  { week: "Wk 2", Biology: 78, Chemistry: 70, Physics: 62 },
-  { week: "Wk 3", Biology: 80, Chemistry: 72, Physics: 58 },
-  { week: "Wk 4", Biology: 85, Chemistry: 74, Physics: 60 },
-  { week: "Wk 5", Biology: 84, Chemistry: 76, Physics: 62 },
-  { week: "Wk 6", Biology: 88, Chemistry: 78, Physics: 65 },
+const DEMO_ANALYTICS_ROWS = [
+  {
+    subject: "biology",
+    mcqAttempts: 12,
+    mcqAverage: 88,
+    hwGraded: 6,
+    hwAverage: 84,
+    predictedGrade: 8,
+  },
+  {
+    subject: "chemistry",
+    mcqAttempts: 10,
+    mcqAverage: 79,
+    hwGraded: 5,
+    hwAverage: 76,
+    predictedGrade: 7,
+  },
+  {
+    subject: "physics",
+    mcqAttempts: 8,
+    mcqAverage: 82,
+    hwGraded: 4,
+    hwAverage: 80,
+    predictedGrade: 7,
+  },
 ];
 
-const chartConfig = {
-  Biology: {
-    label: "Biology",
-    color: "var(--color-biology, #e11d48)",
+const DEMO_TRENDS: WeeklyTrendPoint[] = [
+  { biology: 72, chemistry: 68, physics: 60 },
+  { biology: 78, chemistry: 70, physics: 62 },
+  { biology: 80, chemistry: 72, physics: 58 },
+  { biology: 85, chemistry: 74, physics: 60 },
+  { biology: 84, chemistry: 76, physics: 62 },
+  { biology: 88, chemistry: 78, physics: 65 },
+].map((averages, i) => ({
+  weekStart: `demo-${i}`,
+  label: `Wk ${i + 1}`,
+  averages,
+}));
+
+const DEMO_ENGAGEMENT = {
+  sessionsHeld: 16,
+  sessionsAttended: 15,
+  homeworkSet: 6,
+  homeworkSubmitted: 6,
+};
+
+const DEMO_FEEDBACK = [
+  {
+    id: "demo-1",
+    subject: "biology",
+    homeworkTitle: "Respiration structures",
+    feedback:
+      "Alex did brilliantly with human respiration structures. Perfect recall on the circulatory cycles and metabolic calculations.",
+    grade: "A",
+    scorePct: 92,
+    gradedAt: new Date(Date.now() - 4 * 86_400_000).toISOString(),
   },
-  Chemistry: {
-    label: "Chemistry",
-    color: "var(--color-chemistry, #059669)",
+  {
+    id: "demo-2",
+    subject: "physics",
+    homeworkTitle: "Electromagnetism quiz",
+    feedback:
+      "Electromagnetism showed high understanding (92%). Reacting extremely well to mock paper practice guides. Keep it up!",
+    grade: "A",
+    scorePct: 92,
+    gradedAt: new Date(Date.now() - 7 * 86_400_000).toISOString(),
   },
-  Physics: {
-    label: "Physics",
-    color: "var(--color-physics, #2563eb)",
-  },
-} satisfies ChartConfig;
+];
 
 export function ParentDashboard() {
   const { email } = useRoles();
-  const { enrolledCourses, displayName: profileName } = useEnrolments();
-  const [effectiveStudentId, setEffectiveStudentId] = useState<string | null>(null);
-
-  useEffect(() => {
-    AuthService.getEffectiveStudentId().then((id) => {
-      setEffectiveStudentId(id);
-    });
-  }, []);
-
-  const { rows: realAnalytics } = useAnalytics(effectiveStudentId, enrolledCourses);
-
-  // The public parent demo shows a curated, illustrative progress profile rather
-  // than the (deliberately restricted) demo student's real data.
+  const { displayName: profileName } = useEnrolments();
   const isDemo = isDemoMode();
-  const demoAnalytics = [
-    {
-      subject: "biology",
-      mcqAttempts: 12,
-      mcqAverage: 88,
-      hwGraded: 6,
-      hwAverage: 84,
-      predictedGrade: 8,
-    },
-    {
-      subject: "chemistry",
-      mcqAttempts: 10,
-      mcqAverage: 79,
-      hwGraded: 5,
-      hwAverage: 76,
-      predictedGrade: 7,
-    },
-    {
-      subject: "physics",
-      mcqAttempts: 8,
-      mcqAverage: 82,
-      hwGraded: 4,
-      hwAverage: 80,
-      predictedGrade: 7,
-    },
-  ];
-  const analytics = isDemo ? demoAnalytics : realAnalytics;
 
-  // The showcase has no account behind it, so the name is a fixture like
-  // everything else on the page. A real session prefers the profile name, so
-  // editing it in Profile lands here too.
+  const [parentId, setParentId] = useState<string | null>(null);
+  useEffect(() => {
+    if (isDemo) return;
+    supabase.auth.getUser().then(({ data }) => setParentId(data.user?.id ?? null));
+  }, [isDemo]);
+
+  // Which child is being viewed. Defaults to the first linked child; a parent
+  // with several children gets a switcher.
+  const { data: children = [], isLoading: childrenLoading } = useChildLinks(!isDemo);
+  const [selectedChildId, setSelectedChildId] = useState<string | null>(null);
+  const childId = isDemo ? null : (selectedChildId ?? children[0]?.student_id ?? null);
+  const selectedChild = children.find((c) => c.student_id === childId) ?? null;
+  const childName = isDemo
+    ? "Alex"
+    : selectedChild
+      ? resolveDisplayName(selectedChild.display_name, selectedChild.email)
+      : "your child";
+
+  // Real data, all keyed by the selected child. Every hook no-ops in demo mode
+  // (childId stays null there).
+  const { data: childSubjects = [] } = useChildSubjects(childId);
+  const { rows: realAnalytics } = useAnalytics(childId, childSubjects);
+  const { data: realTrends = [] } = useChildTrends(childId);
+  const { data: realEngagement } = useChildEngagement(childId, childSubjects);
+  const { data: realFeedback = [] } = useChildFeedback(childId);
+
+  const analytics = isDemo ? DEMO_ANALYTICS_ROWS : realAnalytics;
+  const trends = isDemo ? DEMO_TRENDS : realTrends;
+  const trendSubjects = isDemo ? ["biology", "chemistry", "physics"] : childSubjects;
+  const engagement = isDemo ? DEMO_ENGAGEMENT : realEngagement;
+  const feedback = isDemo ? DEMO_FEEDBACK : realFeedback;
+
   const displayEmailName = isDemo ? DEMO_PARENT_NAME : resolveDisplayName(profileName, email);
-
-  const handleDownloadReport = () => {
-    toast.success("Preparing monthly progress report PDF for Alex...", {
-      description: "Download will begin in a few seconds.",
-    });
-  };
-
-  const handleContactTutor = (subject: string) => {
-    toast.success(`Opening messenger query to ${subjectLabel[subject] || subject} tutor...`, {
-      description: "A secure chat session has been requested.",
-    });
-  };
+  const hasChild = isDemo || !!childId;
 
   return (
     <AppLayout title="Parent Portal">
@@ -165,250 +172,63 @@ export function ParentDashboard() {
           Welcome back, {displayEmailName}
         </h2>
         <p className="mt-2 text-primary-foreground/90 max-w-2xl relative">
-          Keep track of your child’s science progress, predicted grades, attendance logs, and
-          personalized tutor feedback all in one place.
+          {hasChild
+            ? `Track ${childName}'s science progress, predicted grades, attendance, and tutor feedback all in one place.`
+            : "Link to your child's account to see their progress, grades and tutor feedback here."}
         </p>
-        <div className="mt-5 flex flex-wrap gap-2.5 relative">
-          <button
-            onClick={handleDownloadReport}
-            className="inline-flex items-center gap-2 bg-primary-foreground text-primary hover:bg-white px-4 py-2 rounded-xl text-xs font-semibold shadow-xs transition cursor-pointer"
+
+        {/* Child switcher — only when there's a choice to make. */}
+        {!isDemo && children.length > 1 && (
+          <div className="mt-5 flex flex-wrap gap-2 relative">
+            {children.map((c) => (
+              <button
+                key={c.student_id}
+                onClick={() => setSelectedChildId(c.student_id)}
+                className={`px-3.5 py-1.5 rounded-xl text-xs font-semibold transition ${
+                  c.student_id === childId
+                    ? "bg-primary-foreground text-primary"
+                    : "bg-white/10 text-primary-foreground border border-white/20 hover:bg-white/20"
+                }`}
+              >
+                {resolveDisplayName(c.display_name, c.email)}
+              </button>
+            ))}
+          </div>
+        )}
+      </div>
+
+      {!hasChild && !childrenLoading ? (
+        <div className="rounded-2xl bg-card border border-border p-8 text-center">
+          <Users className="w-8 h-8 text-muted-foreground mx-auto mb-3" />
+          <p className="font-display font-semibold mb-1">No linked children yet</p>
+          <p className="text-sm text-muted-foreground max-w-md mx-auto">
+            Ask your child to invite you from their{" "}
+            <span className="font-semibold">Linked Parents</span> page (or accept their pending
+            invite on yours). Their progress appears here the moment you're linked.
+          </p>
+          <Link
+            to="/parents"
+            className="inline-block mt-4 h-10 leading-10 px-5 rounded-lg bg-primary text-primary-foreground text-sm font-semibold hover:opacity-90"
           >
-            <Download className="w-4 h-4" /> Download Progress Report
-          </button>
+            Open Linked Parents
+          </Link>
         </div>
-      </div>
-
-      <div className="grid grid-cols-1 lg:grid-cols-3 gap-8">
-        {/* Left Column: Grade Predictor Cards */}
-        <div className="lg:col-span-2 space-y-8">
-          <div className="bg-card border border-border rounded-2xl p-6">
-            <div className="flex items-center justify-between mb-6">
-              <div>
-                <h3 className="font-display text-lg font-bold text-slate-900">
-                  GCSE Science Grade Predictor
-                </h3>
-                <p className="text-xs text-muted-foreground mt-0.5">
-                  Grades (1-9) predicted from combined live quiz results and completed homework
-                  sets.
-                </p>
-              </div>
-              <span className="inline-flex items-center gap-1.5 px-2.5 py-1 bg-emerald-50 text-emerald-700 border border-emerald-100 rounded-full text-xs font-medium">
-                <Sparkles className="w-3.5 h-3.5 text-emerald-500" /> Fully Updated
-              </span>
-            </div>
-
-            <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
-              {analytics.map((subjectRow) => {
-                const colors =
-                  subjectColor[subjectRow.subject] ?? "text-slate-600 bg-slate-50 border-slate-100";
-                return (
-                  <div
-                    key={subjectRow.subject}
-                    className="border border-border/60 rounded-xl p-5 hover:border-primary/20 transition bg-linear-to-b from-white to-slate-50/50"
-                  >
-                    <div className="flex items-center justify-between mb-4">
-                      <span
-                        className={`text-xs font-bold uppercase px-2 py-0.5 rounded-md border ${colors}`}
-                      >
-                        {subjectLabel[subjectRow.subject] ?? subjectRow.subject}
-                      </span>
-                    </div>
-
-                    <div className="flex items-baseline gap-2 mb-2">
-                      <span className="text-4xl font-display font-extrabold text-slate-900">
-                        Grade {subjectRow.predictedGrade}
-                      </span>
-                    </div>
-
-                    <p className="text-[11px] text-muted-foreground leading-relaxed mb-4">
-                      Calculated from {subjectRow.mcqAttempts + subjectRow.hwGraded} completed
-                      grading markers with high reliability.
-                    </p>
-
-                    <div className="space-y-2 text-xs border-t border-slate-100 pt-3">
-                      <div className="flex justify-between">
-                        <span className="text-muted-foreground">Quiz Average:</span>
-                        <span className="font-semibold text-slate-800">
-                          {subjectRow.mcqAverage}%
-                        </span>
-                      </div>
-                      <div className="flex justify-between">
-                        <span className="text-muted-foreground">Homework Average:</span>
-                        <span className="font-semibold text-slate-800">
-                          {subjectRow.hwAverage}%
-                        </span>
-                      </div>
-                    </div>
-                  </div>
-                );
-              })}
-            </div>
+      ) : (
+        <div className="grid grid-cols-1 lg:grid-cols-3 gap-8">
+          <div className="lg:col-span-2 space-y-8">
+            <GradePredictorCard analytics={analytics} />
+            <TrendsChart points={trends} subjects={trendSubjects} />
           </div>
-
-          {/* Interactive Performance Charts */}
-          <div className="bg-card border border-border rounded-2xl p-6">
-            <div className="flex items-center justify-between mb-6">
-              <div>
-                <h3 className="font-display text-lg font-bold text-slate-900">
-                  Performance Trends
-                </h3>
-                <p className="text-xs text-muted-foreground mt-0.5">
-                  Track student quiz averages over the past six teaching units.
-                </p>
-              </div>
-              <div className="flex gap-4 text-xs font-semibold">
-                <span className="inline-flex items-center gap-1.5 text-rose-600">
-                  <span className="w-2.5 h-2.5 rounded-full bg-rose-500" /> Biology
-                </span>
-                <span className="inline-flex items-center gap-1.5 text-emerald-600">
-                  <span className="w-2.5 h-2.5 rounded-full bg-emerald-500" /> Chemistry
-                </span>
-                <span className="inline-flex items-center gap-1.5 text-blue-600">
-                  <span className="w-2.5 h-2.5 rounded-full bg-blue-500" /> Physics
-                </span>
-              </div>
-            </div>
-
-            <div className="h-64">
-              <ChartContainer config={chartConfig}>
-                <ResponsiveContainer width="100%" height="100%">
-                  <LineChart data={trendData} margin={{ top: 10, right: 10, left: -20, bottom: 0 }}>
-                    <CartesianGrid strokeDasharray="3 3" vertical={false} stroke="#f1f5f9" />
-                    <XAxis
-                      dataKey="week"
-                      tickLine={false}
-                      axisLine={false}
-                      dy={10}
-                      style={{ fontSize: "11px", fill: "#64748b" }}
-                    />
-                    <YAxis
-                      domain={[50, 100]}
-                      tickLine={false}
-                      axisLine={false}
-                      dx={-5}
-                      style={{ fontSize: "11px", fill: "#64748b" }}
-                    />
-                    <ChartTooltip content={<ChartTooltipContent />} />
-                    <Line
-                      type="monotone"
-                      dataKey="Biology"
-                      stroke="#f43f5e"
-                      strokeWidth={2.5}
-                      dot={{ r: 4, strokeWidth: 0, fill: "#f43f5e" }}
-                      activeDot={{ r: 6 }}
-                    />
-                    <Line
-                      type="monotone"
-                      dataKey="Chemistry"
-                      stroke="#10b981"
-                      strokeWidth={2.5}
-                      dot={{ r: 4, strokeWidth: 0, fill: "#10b981" }}
-                      activeDot={{ r: 6 }}
-                    />
-                    <Line
-                      type="monotone"
-                      dataKey="Physics"
-                      stroke="#3b82f6"
-                      strokeWidth={2.5}
-                      dot={{ r: 4, strokeWidth: 0, fill: "#3b82f6" }}
-                      activeDot={{ r: 6 }}
-                    />
-                  </LineChart>
-                </ResponsiveContainer>
-              </ChartContainer>
-            </div>
+          <div className="space-y-8">
+            {engagement && <EngagementStats engagement={engagement} childName={childName} />}
+            <FeedbackList items={feedback} />
           </div>
         </div>
+      )}
 
-        {/* Right Column: Attendance & Tutor Remarks */}
-        <div className="space-y-8">
-          {/* Attendance logs */}
-          <div className="bg-card border border-border rounded-2xl p-6">
-            <h3 className="font-display text-lg font-bold text-slate-900 mb-5">Engagement Stats</h3>
-            <div className="space-y-5">
-              <div>
-                <div className="flex justify-between items-center text-xs font-semibold mb-2">
-                  <span className="text-slate-600 flex items-center gap-1.5">
-                    <Clock className="w-4 h-4 text-slate-400" /> Live Class Attendance
-                  </span>
-                  <span className="text-slate-900">94%</span>
-                </div>
-                <div className="w-full bg-slate-100 h-2 rounded-full overflow-hidden">
-                  <div className="bg-primary h-full rounded-full" style={{ width: "94%" }} />
-                </div>
-                <p className="text-[10px] text-muted-foreground mt-1.5">
-                  Alex attended 15 of 16 live interactive lecture classes.
-                </p>
-              </div>
-
-              <div>
-                <div className="flex justify-between items-center text-xs font-semibold mb-2">
-                  <span className="text-slate-600 flex items-center gap-1.5">
-                    <CheckCircle2 className="w-4 h-4 text-emerald-500" /> Homework Completed
-                  </span>
-                  <span className="text-emerald-600">100%</span>
-                </div>
-                <div className="w-full bg-slate-100 h-2 rounded-full overflow-hidden">
-                  <div className="bg-emerald-500 h-full rounded-full" style={{ width: "100%" }} />
-                </div>
-                <p className="text-[10px] text-muted-foreground mt-1.5">
-                  All 6 assigned homework challenges submitted and marked.
-                </p>
-              </div>
-            </div>
-          </div>
-
-          {/* Tutor feedback and remarks */}
-          <div className="bg-card border border-border rounded-2xl p-6">
-            <div className="flex items-center justify-between mb-5">
-              <h3 className="font-display text-lg font-bold text-slate-900">Tutor Feedback</h3>
-              <Award className="w-5 h-5 text-amber-500" />
-            </div>
-
-            <div className="space-y-4">
-              <div className="bg-slate-50 border border-slate-100 rounded-xl p-4">
-                <div className="flex items-center justify-between mb-2">
-                  <span className="text-xs font-bold text-rose-600">Biology Review</span>
-                  <span className="text-[10px] text-slate-400">4 days ago</span>
-                </div>
-                <p className="text-xs text-slate-600 leading-relaxed italic">
-                  "Alex did brilliantly with human respiration structures. He has perfect recall on
-                  the circulatory cycles and metabolic calculations."
-                </p>
-                <div className="mt-3 flex justify-between items-center border-t border-slate-100 pt-3">
-                  <span className="text-[10px] text-slate-500">Tutor: Chris M.</span>
-                  <button
-                    onClick={() => handleContactTutor("biology")}
-                    className="text-[10px] text-primary hover:underline font-semibold flex items-center gap-1 cursor-pointer"
-                  >
-                    <MessageSquare className="w-3 h-3" /> Reply
-                  </button>
-                </div>
-              </div>
-
-              <div className="bg-slate-50 border border-slate-100 rounded-xl p-4">
-                <div className="flex items-center justify-between mb-2">
-                  <span className="text-xs font-bold text-blue-600">Physics Review</span>
-                  <span className="text-[10px] text-slate-400">1 week ago</span>
-                </div>
-                <p className="text-xs text-slate-600 leading-relaxed italic">
-                  "Physics electromagnetism quiz showed high understanding (92%). He is reacting
-                  extremely well to mock paper practice guides. Keep it up!"
-                </p>
-                <div className="mt-3 flex justify-between items-center border-t border-slate-100 pt-3">
-                  <span className="text-[10px] text-slate-500">Tutor: Chris M.</span>
-                  <button
-                    onClick={() => handleContactTutor("physics")}
-                    className="text-[10px] text-primary hover:underline font-semibold flex items-center gap-1 cursor-pointer"
-                  >
-                    <MessageSquare className="w-3 h-3" /> Reply
-                  </button>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
+      {/* Billing: pay for and manage each linked child's plan. Fixture-free,
+          so the session-less demo skips it. */}
+      {!isDemo && parentId && <ParentBillingSection parentId={parentId} />}
 
       {/* Portal Shortcut Tiles */}
       <div className="mt-12">

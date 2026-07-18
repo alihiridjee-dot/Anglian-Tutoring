@@ -11,15 +11,24 @@
 import { Route as rootRouteImport } from './routes/__root'
 import { Route as ResetPasswordRouteImport } from './routes/reset-password'
 import { Route as AuthRouteImport } from './routes/auth'
+import { Route as OnboardingRouteRouteImport } from './routes/onboarding/route'
 import { Route as AuthenticatedRouteRouteImport } from './routes/_authenticated/route'
 import { Route as IndexRouteImport } from './routes/index'
+import { Route as OnboardingIndexRouteImport } from './routes/onboarding/index'
 import { Route as DemoIndexRouteImport } from './routes/demo/index'
+import { Route as OnboardingSubjectsRouteImport } from './routes/onboarding/subjects'
+import { Route as OnboardingSchoolRouteImport } from './routes/onboarding/school'
+import { Route as OnboardingPlanRouteImport } from './routes/onboarding/plan'
+import { Route as OnboardingLearningRouteImport } from './routes/onboarding/learning'
+import { Route as OnboardingConfidenceRouteImport } from './routes/onboarding/confidence'
+import { Route as OnboardingBoardRouteImport } from './routes/onboarding/board'
 import { Route as AuthenticatedVideosRouteImport } from './routes/_authenticated/videos'
 import { Route as AuthenticatedTutorRouteImport } from './routes/_authenticated/tutor'
 import { Route as AuthenticatedStudentsRouteImport } from './routes/_authenticated/students'
 import { Route as AuthenticatedStudentDashboardRouteImport } from './routes/_authenticated/student-dashboard'
 import { Route as AuthenticatedSettingsRouteImport } from './routes/_authenticated/settings'
 import { Route as AuthenticatedProfileRouteImport } from './routes/_authenticated/profile'
+import { Route as AuthenticatedPlannerRouteImport } from './routes/_authenticated/planner'
 import { Route as AuthenticatedParentsRouteImport } from './routes/_authenticated/parents'
 import { Route as AuthenticatedParentDashboardRouteImport } from './routes/_authenticated/parent-dashboard'
 import { Route as AuthenticatedNotesRouteImport } from './routes/_authenticated/notes'
@@ -51,6 +60,11 @@ const AuthRoute = AuthRouteImport.update({
   path: '/auth',
   getParentRoute: () => rootRouteImport,
 } as any)
+const OnboardingRouteRoute = OnboardingRouteRouteImport.update({
+  id: '/onboarding',
+  path: '/onboarding',
+  getParentRoute: () => rootRouteImport,
+} as any)
 const AuthenticatedRouteRoute = AuthenticatedRouteRouteImport.update({
   id: '/_authenticated',
   getParentRoute: () => rootRouteImport,
@@ -60,10 +74,45 @@ const IndexRoute = IndexRouteImport.update({
   path: '/',
   getParentRoute: () => rootRouteImport,
 } as any)
+const OnboardingIndexRoute = OnboardingIndexRouteImport.update({
+  id: '/',
+  path: '/',
+  getParentRoute: () => OnboardingRouteRoute,
+} as any)
 const DemoIndexRoute = DemoIndexRouteImport.update({
   id: '/demo/',
   path: '/demo/',
   getParentRoute: () => rootRouteImport,
+} as any)
+const OnboardingSubjectsRoute = OnboardingSubjectsRouteImport.update({
+  id: '/subjects',
+  path: '/subjects',
+  getParentRoute: () => OnboardingRouteRoute,
+} as any)
+const OnboardingSchoolRoute = OnboardingSchoolRouteImport.update({
+  id: '/school',
+  path: '/school',
+  getParentRoute: () => OnboardingRouteRoute,
+} as any)
+const OnboardingPlanRoute = OnboardingPlanRouteImport.update({
+  id: '/plan',
+  path: '/plan',
+  getParentRoute: () => OnboardingRouteRoute,
+} as any)
+const OnboardingLearningRoute = OnboardingLearningRouteImport.update({
+  id: '/learning',
+  path: '/learning',
+  getParentRoute: () => OnboardingRouteRoute,
+} as any)
+const OnboardingConfidenceRoute = OnboardingConfidenceRouteImport.update({
+  id: '/confidence',
+  path: '/confidence',
+  getParentRoute: () => OnboardingRouteRoute,
+} as any)
+const OnboardingBoardRoute = OnboardingBoardRouteImport.update({
+  id: '/board',
+  path: '/board',
+  getParentRoute: () => OnboardingRouteRoute,
 } as any)
 const AuthenticatedVideosRoute = AuthenticatedVideosRouteImport.update({
   id: '/videos',
@@ -94,6 +143,11 @@ const AuthenticatedSettingsRoute = AuthenticatedSettingsRouteImport.update({
 const AuthenticatedProfileRoute = AuthenticatedProfileRouteImport.update({
   id: '/profile',
   path: '/profile',
+  getParentRoute: () => AuthenticatedRouteRoute,
+} as any)
+const AuthenticatedPlannerRoute = AuthenticatedPlannerRouteImport.update({
+  id: '/planner',
+  path: '/planner',
   getParentRoute: () => AuthenticatedRouteRoute,
 } as any)
 const AuthenticatedParentsRoute = AuthenticatedParentsRouteImport.update({
@@ -200,6 +254,7 @@ const DemoStudentMcqSetIdRoute = DemoStudentMcqSetIdRouteImport.update({
 
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
+  '/onboarding': typeof OnboardingRouteRouteWithChildren
   '/auth': typeof AuthRoute
   '/reset-password': typeof ResetPasswordRoute
   '/billing': typeof AuthenticatedBillingRoute
@@ -212,13 +267,21 @@ export interface FileRoutesByFullPath {
   '/notes': typeof AuthenticatedNotesRoute
   '/parent-dashboard': typeof AuthenticatedParentDashboardRoute
   '/parents': typeof AuthenticatedParentsRoute
+  '/planner': typeof AuthenticatedPlannerRoute
   '/profile': typeof AuthenticatedProfileRoute
   '/settings': typeof AuthenticatedSettingsRoute
   '/student-dashboard': typeof AuthenticatedStudentDashboardRoute
   '/students': typeof AuthenticatedStudentsRoute
   '/tutor': typeof AuthenticatedTutorRoute
   '/videos': typeof AuthenticatedVideosRoute
+  '/onboarding/board': typeof OnboardingBoardRoute
+  '/onboarding/confidence': typeof OnboardingConfidenceRoute
+  '/onboarding/learning': typeof OnboardingLearningRoute
+  '/onboarding/plan': typeof OnboardingPlanRoute
+  '/onboarding/school': typeof OnboardingSchoolRoute
+  '/onboarding/subjects': typeof OnboardingSubjectsRoute
   '/demo/': typeof DemoIndexRoute
+  '/onboarding/': typeof OnboardingIndexRoute
   '/mcq/$setId': typeof AuthenticatedMcqSetIdRoute
   '/demo/parent/dashboard': typeof DemoParentDashboardRoute
   '/demo/student/curriculum': typeof DemoStudentCurriculumRoute
@@ -244,13 +307,21 @@ export interface FileRoutesByTo {
   '/notes': typeof AuthenticatedNotesRoute
   '/parent-dashboard': typeof AuthenticatedParentDashboardRoute
   '/parents': typeof AuthenticatedParentsRoute
+  '/planner': typeof AuthenticatedPlannerRoute
   '/profile': typeof AuthenticatedProfileRoute
   '/settings': typeof AuthenticatedSettingsRoute
   '/student-dashboard': typeof AuthenticatedStudentDashboardRoute
   '/students': typeof AuthenticatedStudentsRoute
   '/tutor': typeof AuthenticatedTutorRoute
   '/videos': typeof AuthenticatedVideosRoute
+  '/onboarding/board': typeof OnboardingBoardRoute
+  '/onboarding/confidence': typeof OnboardingConfidenceRoute
+  '/onboarding/learning': typeof OnboardingLearningRoute
+  '/onboarding/plan': typeof OnboardingPlanRoute
+  '/onboarding/school': typeof OnboardingSchoolRoute
+  '/onboarding/subjects': typeof OnboardingSubjectsRoute
   '/demo': typeof DemoIndexRoute
+  '/onboarding': typeof OnboardingIndexRoute
   '/mcq/$setId': typeof AuthenticatedMcqSetIdRoute
   '/demo/parent/dashboard': typeof DemoParentDashboardRoute
   '/demo/student/curriculum': typeof DemoStudentCurriculumRoute
@@ -266,6 +337,7 @@ export interface FileRoutesById {
   __root__: typeof rootRouteImport
   '/': typeof IndexRoute
   '/_authenticated': typeof AuthenticatedRouteRouteWithChildren
+  '/onboarding': typeof OnboardingRouteRouteWithChildren
   '/auth': typeof AuthRoute
   '/reset-password': typeof ResetPasswordRoute
   '/_authenticated/billing': typeof AuthenticatedBillingRoute
@@ -278,13 +350,21 @@ export interface FileRoutesById {
   '/_authenticated/notes': typeof AuthenticatedNotesRoute
   '/_authenticated/parent-dashboard': typeof AuthenticatedParentDashboardRoute
   '/_authenticated/parents': typeof AuthenticatedParentsRoute
+  '/_authenticated/planner': typeof AuthenticatedPlannerRoute
   '/_authenticated/profile': typeof AuthenticatedProfileRoute
   '/_authenticated/settings': typeof AuthenticatedSettingsRoute
   '/_authenticated/student-dashboard': typeof AuthenticatedStudentDashboardRoute
   '/_authenticated/students': typeof AuthenticatedStudentsRoute
   '/_authenticated/tutor': typeof AuthenticatedTutorRoute
   '/_authenticated/videos': typeof AuthenticatedVideosRoute
+  '/onboarding/board': typeof OnboardingBoardRoute
+  '/onboarding/confidence': typeof OnboardingConfidenceRoute
+  '/onboarding/learning': typeof OnboardingLearningRoute
+  '/onboarding/plan': typeof OnboardingPlanRoute
+  '/onboarding/school': typeof OnboardingSchoolRoute
+  '/onboarding/subjects': typeof OnboardingSubjectsRoute
   '/demo/': typeof DemoIndexRoute
+  '/onboarding/': typeof OnboardingIndexRoute
   '/_authenticated/mcq/$setId': typeof AuthenticatedMcqSetIdRoute
   '/demo/parent/dashboard': typeof DemoParentDashboardRoute
   '/demo/student/curriculum': typeof DemoStudentCurriculumRoute
@@ -300,6 +380,7 @@ export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
   fullPaths:
     | '/'
+    | '/onboarding'
     | '/auth'
     | '/reset-password'
     | '/billing'
@@ -312,13 +393,21 @@ export interface FileRouteTypes {
     | '/notes'
     | '/parent-dashboard'
     | '/parents'
+    | '/planner'
     | '/profile'
     | '/settings'
     | '/student-dashboard'
     | '/students'
     | '/tutor'
     | '/videos'
+    | '/onboarding/board'
+    | '/onboarding/confidence'
+    | '/onboarding/learning'
+    | '/onboarding/plan'
+    | '/onboarding/school'
+    | '/onboarding/subjects'
     | '/demo/'
+    | '/onboarding/'
     | '/mcq/$setId'
     | '/demo/parent/dashboard'
     | '/demo/student/curriculum'
@@ -344,13 +433,21 @@ export interface FileRouteTypes {
     | '/notes'
     | '/parent-dashboard'
     | '/parents'
+    | '/planner'
     | '/profile'
     | '/settings'
     | '/student-dashboard'
     | '/students'
     | '/tutor'
     | '/videos'
+    | '/onboarding/board'
+    | '/onboarding/confidence'
+    | '/onboarding/learning'
+    | '/onboarding/plan'
+    | '/onboarding/school'
+    | '/onboarding/subjects'
     | '/demo'
+    | '/onboarding'
     | '/mcq/$setId'
     | '/demo/parent/dashboard'
     | '/demo/student/curriculum'
@@ -365,6 +462,7 @@ export interface FileRouteTypes {
     | '__root__'
     | '/'
     | '/_authenticated'
+    | '/onboarding'
     | '/auth'
     | '/reset-password'
     | '/_authenticated/billing'
@@ -377,13 +475,21 @@ export interface FileRouteTypes {
     | '/_authenticated/notes'
     | '/_authenticated/parent-dashboard'
     | '/_authenticated/parents'
+    | '/_authenticated/planner'
     | '/_authenticated/profile'
     | '/_authenticated/settings'
     | '/_authenticated/student-dashboard'
     | '/_authenticated/students'
     | '/_authenticated/tutor'
     | '/_authenticated/videos'
+    | '/onboarding/board'
+    | '/onboarding/confidence'
+    | '/onboarding/learning'
+    | '/onboarding/plan'
+    | '/onboarding/school'
+    | '/onboarding/subjects'
     | '/demo/'
+    | '/onboarding/'
     | '/_authenticated/mcq/$setId'
     | '/demo/parent/dashboard'
     | '/demo/student/curriculum'
@@ -399,6 +505,7 @@ export interface FileRouteTypes {
 export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
   AuthenticatedRouteRoute: typeof AuthenticatedRouteRouteWithChildren
+  OnboardingRouteRoute: typeof OnboardingRouteRouteWithChildren
   AuthRoute: typeof AuthRoute
   ResetPasswordRoute: typeof ResetPasswordRoute
   DemoIndexRoute: typeof DemoIndexRoute
@@ -429,6 +536,13 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof AuthRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/onboarding': {
+      id: '/onboarding'
+      path: '/onboarding'
+      fullPath: '/onboarding'
+      preLoaderRoute: typeof OnboardingRouteRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/_authenticated': {
       id: '/_authenticated'
       path: ''
@@ -443,12 +557,61 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof IndexRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/onboarding/': {
+      id: '/onboarding/'
+      path: '/'
+      fullPath: '/onboarding/'
+      preLoaderRoute: typeof OnboardingIndexRouteImport
+      parentRoute: typeof OnboardingRouteRoute
+    }
     '/demo/': {
       id: '/demo/'
       path: '/demo'
       fullPath: '/demo/'
       preLoaderRoute: typeof DemoIndexRouteImport
       parentRoute: typeof rootRouteImport
+    }
+    '/onboarding/subjects': {
+      id: '/onboarding/subjects'
+      path: '/subjects'
+      fullPath: '/onboarding/subjects'
+      preLoaderRoute: typeof OnboardingSubjectsRouteImport
+      parentRoute: typeof OnboardingRouteRoute
+    }
+    '/onboarding/school': {
+      id: '/onboarding/school'
+      path: '/school'
+      fullPath: '/onboarding/school'
+      preLoaderRoute: typeof OnboardingSchoolRouteImport
+      parentRoute: typeof OnboardingRouteRoute
+    }
+    '/onboarding/plan': {
+      id: '/onboarding/plan'
+      path: '/plan'
+      fullPath: '/onboarding/plan'
+      preLoaderRoute: typeof OnboardingPlanRouteImport
+      parentRoute: typeof OnboardingRouteRoute
+    }
+    '/onboarding/learning': {
+      id: '/onboarding/learning'
+      path: '/learning'
+      fullPath: '/onboarding/learning'
+      preLoaderRoute: typeof OnboardingLearningRouteImport
+      parentRoute: typeof OnboardingRouteRoute
+    }
+    '/onboarding/confidence': {
+      id: '/onboarding/confidence'
+      path: '/confidence'
+      fullPath: '/onboarding/confidence'
+      preLoaderRoute: typeof OnboardingConfidenceRouteImport
+      parentRoute: typeof OnboardingRouteRoute
+    }
+    '/onboarding/board': {
+      id: '/onboarding/board'
+      path: '/board'
+      fullPath: '/onboarding/board'
+      preLoaderRoute: typeof OnboardingBoardRouteImport
+      parentRoute: typeof OnboardingRouteRoute
     }
     '/_authenticated/videos': {
       id: '/_authenticated/videos'
@@ -490,6 +653,13 @@ declare module '@tanstack/react-router' {
       path: '/profile'
       fullPath: '/profile'
       preLoaderRoute: typeof AuthenticatedProfileRouteImport
+      parentRoute: typeof AuthenticatedRouteRoute
+    }
+    '/_authenticated/planner': {
+      id: '/_authenticated/planner'
+      path: '/planner'
+      fullPath: '/planner'
+      preLoaderRoute: typeof AuthenticatedPlannerRouteImport
       parentRoute: typeof AuthenticatedRouteRoute
     }
     '/_authenticated/parents': {
@@ -646,6 +816,7 @@ interface AuthenticatedRouteRouteChildren {
   AuthenticatedNotesRoute: typeof AuthenticatedNotesRoute
   AuthenticatedParentDashboardRoute: typeof AuthenticatedParentDashboardRoute
   AuthenticatedParentsRoute: typeof AuthenticatedParentsRoute
+  AuthenticatedPlannerRoute: typeof AuthenticatedPlannerRoute
   AuthenticatedProfileRoute: typeof AuthenticatedProfileRoute
   AuthenticatedSettingsRoute: typeof AuthenticatedSettingsRoute
   AuthenticatedStudentDashboardRoute: typeof AuthenticatedStudentDashboardRoute
@@ -666,6 +837,7 @@ const AuthenticatedRouteRouteChildren: AuthenticatedRouteRouteChildren = {
   AuthenticatedNotesRoute: AuthenticatedNotesRoute,
   AuthenticatedParentDashboardRoute: AuthenticatedParentDashboardRoute,
   AuthenticatedParentsRoute: AuthenticatedParentsRoute,
+  AuthenticatedPlannerRoute: AuthenticatedPlannerRoute,
   AuthenticatedProfileRoute: AuthenticatedProfileRoute,
   AuthenticatedSettingsRoute: AuthenticatedSettingsRoute,
   AuthenticatedStudentDashboardRoute: AuthenticatedStudentDashboardRoute,
@@ -678,9 +850,34 @@ const AuthenticatedRouteRouteChildren: AuthenticatedRouteRouteChildren = {
 const AuthenticatedRouteRouteWithChildren =
   AuthenticatedRouteRoute._addFileChildren(AuthenticatedRouteRouteChildren)
 
+interface OnboardingRouteRouteChildren {
+  OnboardingBoardRoute: typeof OnboardingBoardRoute
+  OnboardingConfidenceRoute: typeof OnboardingConfidenceRoute
+  OnboardingLearningRoute: typeof OnboardingLearningRoute
+  OnboardingPlanRoute: typeof OnboardingPlanRoute
+  OnboardingSchoolRoute: typeof OnboardingSchoolRoute
+  OnboardingSubjectsRoute: typeof OnboardingSubjectsRoute
+  OnboardingIndexRoute: typeof OnboardingIndexRoute
+}
+
+const OnboardingRouteRouteChildren: OnboardingRouteRouteChildren = {
+  OnboardingBoardRoute: OnboardingBoardRoute,
+  OnboardingConfidenceRoute: OnboardingConfidenceRoute,
+  OnboardingLearningRoute: OnboardingLearningRoute,
+  OnboardingPlanRoute: OnboardingPlanRoute,
+  OnboardingSchoolRoute: OnboardingSchoolRoute,
+  OnboardingSubjectsRoute: OnboardingSubjectsRoute,
+  OnboardingIndexRoute: OnboardingIndexRoute,
+}
+
+const OnboardingRouteRouteWithChildren = OnboardingRouteRoute._addFileChildren(
+  OnboardingRouteRouteChildren,
+)
+
 const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
   AuthenticatedRouteRoute: AuthenticatedRouteRouteWithChildren,
+  OnboardingRouteRoute: OnboardingRouteRouteWithChildren,
   AuthRoute: AuthRoute,
   ResetPasswordRoute: ResetPasswordRoute,
   DemoIndexRoute: DemoIndexRoute,

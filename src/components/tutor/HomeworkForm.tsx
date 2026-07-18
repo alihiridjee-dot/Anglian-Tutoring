@@ -5,6 +5,7 @@ import { toast } from "sonner";
 import { Field, inputCls, submitBtn } from "./Field";
 import { TaxonomyFields } from "./TaxonomyFields";
 import { SpecPointSelect } from "./SpecPointSelect";
+import { UseWeeklyFocusButton } from "./UseWeeklyFocusButton";
 import { type SubjectV, type BoardV, type LevelV } from "@/lib/taxonomy";
 
 interface HomeworkFormProps {
@@ -139,6 +140,13 @@ export function HomeworkForm({ userId, taxonomy }: HomeworkFormProps) {
         </Field>
       </div>
       <TaxonomyFields {...taxonomy} />
+      <UseWeeklyFocusButton
+        subject={taxonomy.subject}
+        board={taxonomy.board}
+        level={taxonomy.level}
+        value={specPointIds}
+        onApply={setSpecPointIds}
+      />
       <SpecPointSelect
         subject={taxonomy.subject}
         board={taxonomy.board}

@@ -1,7 +1,8 @@
 import { useEffect, useMemo, useState } from "react";
 import { useQuery } from "@tanstack/react-query";
-import { Video, CalendarClock, Radio, BookOpen } from "lucide-react";
+import { Video, CalendarClock, Radio } from "lucide-react";
 import { fetchLiveSessions, type LiveSession } from "@/lib/liveSessions";
+import { SessionIdentity, WhatsCovered } from "@/components/live/SessionMeta";
 
 const MINUTE = 60_000;
 const DAY_MS = 24 * 60 * MINUTE;
@@ -28,7 +29,9 @@ function Segment({ value, label }: { value: string; label: string }) {
   return (
     <div className="flex flex-col items-center">
       <span className="font-mono text-2xl font-bold tabular-nums leading-none">{value}</span>
-      <span className="text-[9px] uppercase tracking-widest text-muted-foreground mt-1">{label}</span>
+      <span className="text-[9px] uppercase tracking-widest text-muted-foreground mt-1">
+        {label}
+      </span>
     </div>
   );
 }
@@ -50,11 +53,12 @@ export function NextSessionCountdown({ className = "" }: { className?: string })
   const now = useNow();
 
   const next = useMemo<LiveSession | null>(() => {
-    return (data ?? [])
-      .filter((s) => s.starts_at && new Date(s.starts_at).getTime() + LIVE_TAIL_MS > now)
-      .sort(
-        (a, b) => new Date(a.starts_at!).getTime() - new Date(b.starts_at!).getTime(),
-      )[0] ?? null;
+    return (
+      (data ?? [])
+        .filter((s) => s.starts_at && new Date(s.starts_at).getTime() + LIVE_TAIL_MS > now)
+        .sort((a, b) => new Date(a.starts_at!).getTime() - new Date(b.starts_at!).getTime())[0] ??
+      null
+    );
   }, [data, now]);
 
   if (!next) return null;
@@ -81,8 +85,8 @@ export function NextSessionCountdown({ className = "" }: { className?: string })
             : "border-border bg-card"
       } ${className}`}
     >
-      <div className="flex flex-col sm:flex-row sm:items-center gap-4">
-        <div className="flex items-start gap-3 flex-1 min-w-0">
+      <div className="flex flex-col lg:flex-row lg:items-center gap-4">
+        <div className="flex items-start gap-3 lg:w-72 shrink-0">
           <div
             className={`w-11 h-11 rounded-xl flex items-center justify-center shrink-0 ${
               isLive ? "bg-emerald-500/15 text-emerald-600" : "bg-[#2D8CFF]/10 text-[#2D8CFF]"
@@ -94,39 +98,17 @@ export function NextSessionCountdown({ className = "" }: { className?: string })
               <CalendarClock className="w-5 h-5" />
             )}
           </div>
-          <div className="min-w-0">
-            <p
-              className={`text-[10px] font-bold uppercase tracking-widest ${
-                isLive ? "text-emerald-600" : "text-[#2D8CFF]"
-              }`}
-            >
-              {isLive ? "● Live now" : withinDay ? "Starting soon" : "Next live session"}
-            </p>
-            <p className="font-display font-semibold truncate mt-0.5">{next.title}</p>
-            <p className="text-xs text-muted-foreground capitalize">
-              {next.subject} · {next.level}
-              {!isLive && ` · ${new Date(start).toLocaleString()}`}
-            </p>
-            {next.specPoints.length > 0 && (
-              <div className="flex items-center flex-wrap gap-1.5 mt-2">
-                <BookOpen className="w-3 h-3 text-muted-foreground shrink-0" />
-                {next.specPoints.slice(0, 4).map((p) => (
-                  <span
-                    key={p.id}
-                    title={p.title}
-                    className="text-[10px] font-mono px-1.5 py-0.5 rounded bg-secondary text-muted-foreground"
-                  >
-                    {p.code}
-                  </span>
-                ))}
-                {next.specPoints.length > 4 && (
-                  <span className="text-[10px] text-muted-foreground">
-                    +{next.specPoints.length - 4}
-                  </span>
-                )}
-              </div>
-            )}
-          </div>
+          <SessionIdentity
+            session={next}
+            eyebrow={isLive ? "● Live now" : withinDay ? "Starting soon" : "Next live session"}
+            tone={isLive ? "emerald" : "blue"}
+            showWhen={!isLive}
+          />
+        </div>
+
+        {/* Spec points fill the middle, matching the session rows below. */}
+        <div className="flex-1 min-w-0">
+          <WhatsCovered points={next.specPoints} />
         </div>
 
         <div className="flex items-center gap-4 shrink-0">

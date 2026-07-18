@@ -53,8 +53,18 @@ export function Downloads() {
       toast.info("Downloads are disabled in the demo sandbox.");
       return;
     }
-    const { data } = await supabase.storage.from("resources").createSignedUrl(path, 3600);
-    if (data?.signedUrl) window.open(data.signedUrl, "_blank");
+    // Open the tab BEFORE awaiting the signed URL — awaiting first spends the
+    // click's user activation and the popup blocker silently drops the tab.
+    const tab = window.open("", "_blank");
+    if (tab) tab.opener = null;
+    const { data, error } = await supabase.storage.from("resources").createSignedUrl(path, 3600);
+    if (data?.signedUrl) {
+      if (tab) tab.location.replace(data.signedUrl);
+      else window.location.href = data.signedUrl;
+    } else {
+      tab?.close();
+      toast.error(error?.message ?? "Could not open that file.");
+    }
   };
 
   return (
@@ -77,7 +87,8 @@ export function Downloads() {
               <div className="flex-1 min-w-0">
                 <p className="font-medium truncate">{d.title}</p>
                 <p className="text-xs text-muted-foreground truncate">
-                  <span className="capitalize">{d.subject}</span> · {d.board.toUpperCase()} ·{" "}
+                  <span className="capitalize">{d.subject}</span>
+                  {d.board ? ` · ${d.board.toUpperCase()}` : ""} ·{" "}
                   {d.level === "gcse" ? "GCSE" : "A-Level"}
                   {d.file_size ? ` · ${fmtSize(d.file_size)}` : ""}
                 </p>

@@ -79,21 +79,20 @@ export const deleteHomework = createServerFn({ method: "POST" })
     // Delete the row first — this is the authoritative, RLS-checked step that
     // fans out across every student. If it fails (e.g. not a tutor), nothing is
     // touched and no orphaned files are left behind.
-    const { error: delError } = await supabase
-      .from("resources")
-      .delete()
-      .eq("id", data.homeworkId);
+    const { error: delError } = await supabase.from("resources").delete().eq("id", data.homeworkId);
     if (delError) throw new Error(delError.message);
 
     // Bytes are now unreferenced; sweep them best-effort. A failure here leaves
     // orphaned files but the brief is already gone everywhere, so don't surface
     // it as "delete failed" and invite a retry against a missing row.
     if (paths.size > 0) {
-      const { error: removeError } = await supabase.storage
-        .from(BUCKET)
-        .remove([...paths]);
+      const { error: removeError } = await supabase.storage.from(BUCKET).remove([...paths]);
       if (removeError) {
-        console.error("[homework] file cleanup after delete failed", data.homeworkId, removeError.message);
+        console.error(
+          "[homework] file cleanup after delete failed",
+          data.homeworkId,
+          removeError.message,
+        );
         return { deleted: true, filesRemoved: 0 };
       }
     }
