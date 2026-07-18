@@ -42,6 +42,10 @@ function AuthPage() {
   const [loading, setLoading] = useState(false);
   const [emailSentTo, setEmailSentTo] = useState<string | null>(null);
 
+  // Level, exam board and subjects are captured in /onboarding now, not here.
+  // Sign-up is only "who are you"; what you study — and whether you've paid for
+  // it — is settled after the email is verified.
+
   // Honor the guard's ?redirect= deep link, but only for safe in-app paths
   // (must start with "/" and not "//") to avoid open-redirects.
   const dest =
@@ -64,12 +68,13 @@ function AuthPage() {
           email,
           password,
           options: {
-            emailRedirectTo: `${window.location.origin}/dashboard`,
+            // Verifying the email lands on setup, not the dashboard. The guard
+            // would bounce them here anyway; sending them straight there just
+            // saves a redirect.
+            emailRedirectTo: `${window.location.origin}/onboarding/board`,
             data: {
               display_name: name || email.split("@")[0],
               role,
-              signup_tier: search.tier ?? null,
-              signup_level: search.level ?? null,
               parent_invite_code: role === "parent" ? inviteCode || null : null,
             },
           },
@@ -131,7 +136,7 @@ function AuthPage() {
                 <p className="font-bold text-foreground">Next steps:</p>
                 <p>1. Open your email client inbox.</p>
                 <p>2. Find the confirmation email from Anglian Learning.</p>
-                <p>3. Click the link to activate your account and access your dashboard.</p>
+                <p>3. Click the link to activate your account and set up your profile.</p>
               </div>
               <button
                 type="button"
@@ -275,7 +280,7 @@ function AuthPage() {
               {mode === "signup" && (
                 <p className="mt-4 text-xs text-muted-foreground text-center">
                   <BookOpen className="w-3 h-3 inline mr-1" />
-                  Payment for your plan is set up on the next screen.
+                  Next you'll set up your profile and choose a plan.
                 </p>
               )}
             </>

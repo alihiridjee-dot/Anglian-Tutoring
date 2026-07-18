@@ -11,6 +11,8 @@ import {
   saveWeeklyFocus,
 } from "@/hooks/data/useWeeklyFocus";
 import { currentWeekKey, mondayOf, weekRangeLabel } from "@/lib/week";
+import { useServerFn } from "@tanstack/react-start";
+import { refreshWeeklySummary } from "@/lib/weeklySummary.functions";
 
 const subjectLabel: Record<string, string> = {
   biology: "Biology",
@@ -41,15 +43,14 @@ export function WeeklyFocusManager({ userId, taxonomy }: Props) {
   const weekKey = currentWeekKey();
   const rangeLabel = weekRangeLabel(mondayOf());
   const invalidate = useInvalidateWeeklyFocus();
+  const refreshSummary = useServerFn(refreshWeeklySummary);
 
   // Everything set for this week (all subjects) drives the summary strip.
   const { plans: allPlans, loading: allLoading } = useWeeklyFocus(weekKey);
   // The plan being edited, matched by the current taxonomy.
   const existing = allPlans.find(
     (p) =>
-      p.subject === taxonomy.subject &&
-      p.board === taxonomy.board &&
-      p.level === taxonomy.level,
+      p.subject === taxonomy.subject && p.board === taxonomy.board && p.level === taxonomy.level,
   );
 
   const [note, setNote] = useState("");
@@ -76,7 +77,7 @@ export function WeeklyFocusManager({ userId, taxonomy }: Props) {
     setSaving(true);
     const t = toast.loading("Saving this week's focus…");
     try {
-      await saveWeeklyFocus({
+      const focusId = await saveWeeklyFocus({
         weekKey,
         subject: taxonomy.subject,
         board: taxonomy.board,
@@ -85,6 +86,16 @@ export function WeeklyFocusManager({ userId, taxonomy }: Props) {
         specPointIds,
         userId,
       });
+      // Regenerate the student focus summary from the saved points. Best-effort:
+      // a failure here (e.g. AI hiccup) must not fail the save — the student card
+      // falls back to the spec-point list until the next successful save.
+      if (focusId) {
+        try {
+          await refreshSummary({ data: { focusId } });
+        } catch (e) {
+          console.warn("Weekly summary generation failed", e);
+        }
+      }
       invalidate();
       toast.success(
         `Saved — ${subjectLabel[taxonomy.subject] ?? taxonomy.subject}, ${specPointIds.length} point${
@@ -145,8 +156,8 @@ export function WeeklyFocusManager({ userId, taxonomy }: Props) {
           <Info className="w-3.5 h-3.5 shrink-0 mt-0.5" />
           <p>
             Choose the curriculum points students should focus on this week. The plan resets every
-            Monday — last week's selections clear automatically, so set the new focus at the start of
-            each week. You can set a different focus per subject.
+            Monday — last week's selections clear automatically, so set the new focus at the start
+            of each week. You can set a different focus per subject.
           </p>
         </div>
       </div>

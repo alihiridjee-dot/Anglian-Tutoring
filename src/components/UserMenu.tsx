@@ -1,9 +1,9 @@
 import { useEffect, useRef, useState } from "react";
 import { Link } from "@tanstack/react-router";
-import { LayoutDashboard, LogOut, User, Users } from "lucide-react";
+import { CreditCard, LayoutDashboard, LogOut, User, Users } from "lucide-react";
 import { useSignOut } from "@/hooks/useSignOut";
 
-type MenuTarget = "/profile" | "/dashboard" | "/parents";
+type MenuTarget = "/profile" | "/dashboard" | "/parents" | "/billing";
 
 interface UserMenuProps {
   /** Initials rendered in the avatar. */
@@ -69,7 +69,12 @@ export function UserMenu({ initials, email, showLinkedParents, isDemo }: UserMen
     { to: "/profile", label: "View Profile", icon: User },
     { to: "/dashboard", label: "Main Dashboard", icon: LayoutDashboard },
     ...(showLinkedParents
-      ? [{ to: "/parents" as const, label: "Linked Parents", icon: Users }]
+      ? [
+          { to: "/parents" as const, label: "Linked Parents", icon: Users },
+          // Billing lives with the family menu items: tutors have nothing to
+          // pay for, so it follows the same visibility rule.
+          { to: "/billing" as const, label: "Billing & Plan", icon: CreditCard },
+        ]
       : []),
   ];
 

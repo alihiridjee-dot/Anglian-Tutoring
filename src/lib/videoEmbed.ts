@@ -77,7 +77,13 @@ export function parseVideoUrl(raw: string | null | undefined): VideoEmbed | null
   }
 
   if (/\.(mp4|webm|ogg)($|\?)/i.test(u.pathname)) {
-    return { provider: "file", embedUrl: null, fileUrl: originalUrl, thumbnailUrl: null, originalUrl };
+    return {
+      provider: "file",
+      embedUrl: null,
+      fileUrl: originalUrl,
+      thumbnailUrl: null,
+      originalUrl,
+    };
   }
 
   return { provider: "other", embedUrl: null, fileUrl: null, thumbnailUrl: null, originalUrl };

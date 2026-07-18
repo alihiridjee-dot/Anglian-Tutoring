@@ -12,6 +12,8 @@ import {
   ChevronDown,
 } from "lucide-react";
 import { isDemoStudent, DEMO_MCQ_SETS } from "@/lib/demo/studentDemo";
+import { useRoles } from "@/hooks/useRole";
+import { McqManager } from "@/components/tutor/McqManager";
 
 export const Route = createFileRoute("/_authenticated/mcqs")({
   head: () => ({ meta: [{ title: "MCQs | Anglian Learning" }] }),
@@ -36,6 +38,29 @@ type SetRow = {
 const WEEK_MS = 7 * 24 * 60 * 60 * 1000;
 
 export function MCQs() {
+  const { isTutor, loading: rolesLoading } = useRoles();
+
+  // Same route, different view: a tutor gets a management console (publish,
+  // preview, delete), a student gets the take-a-quiz experience below. Mirrors
+  // how Homework & Grades branches its page on role.
+  if (rolesLoading) {
+    return (
+      <AppLayout title="Weekly MCQs">
+        <p className="text-sm text-muted-foreground">Loading…</p>
+      </AppLayout>
+    );
+  }
+  if (isTutor) {
+    return (
+      <AppLayout title="Weekly MCQs">
+        <McqManager />
+      </AppLayout>
+    );
+  }
+  return <StudentMCQs />;
+}
+
+function StudentMCQs() {
   const [sets, setSets] = useState<SetRow[]>([]);
   const [completedIds, setCompletedIds] = useState<Set<string>>(new Set());
   const [loading, setLoading] = useState(true);
@@ -86,9 +111,7 @@ export function MCQs() {
       }
     }
     // Soonest due first in the banner; most-recently due first in the archive.
-    activeWeekly.sort(
-      (a, b) => new Date(a.due_at!).getTime() - new Date(b.due_at!).getTime(),
-    );
+    activeWeekly.sort((a, b) => new Date(a.due_at!).getTime() - new Date(b.due_at!).getTime());
     pastWeekly.sort((a, b) => new Date(b.due_at!).getTime() - new Date(a.due_at!).getTime());
     return { activeWeekly, pastWeekly, topical };
   }, [sets]);
@@ -148,9 +171,7 @@ export function MCQs() {
               <p className="text-[10px] font-bold text-primary uppercase tracking-widest">
                 {s.topic}
               </p>
-              <p className="text-[10px] text-muted-foreground line-clamp-1">
-                Spec: {s.specPoint}
-              </p>
+              <p className="text-[10px] text-muted-foreground line-clamp-1">Spec: {s.specPoint}</p>
             </div>
           )}
 

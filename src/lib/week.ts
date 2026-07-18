@@ -21,6 +21,13 @@ export function sundayOf(monday: Date): Date {
   return d;
 }
 
+/** The Monday `n` weeks from `monday` (negative goes back). */
+export function addWeeks(monday: Date, n: number): Date {
+  const d = new Date(monday);
+  d.setDate(d.getDate() + n * 7);
+  return d;
+}
+
 /** `YYYY-MM-DD` in local time — the storage key for a week (`weekly_focus.week_start`). */
 export function toDateKey(d: Date): string {
   const y = d.getFullYear();

@@ -16,6 +16,8 @@ import {
   type McqSet,
 } from "@/lib/curriculumDal";
 import { CurriculumSyncPanel } from "@/components/CurriculumSyncPanel";
+import { VideoModal, VideoThumbnail } from "@/components/VideoPlayer";
+import { parseVideoUrl, type VideoEmbed } from "@/lib/videoEmbed";
 import {
   Plus,
   Trash2,
@@ -531,6 +533,9 @@ function SpecPointDetail({
   const [resources, setResources] = useState<Resource[]>([]);
   const [mcqSets, setMcqSets] = useState<McqSet[]>([]);
   const [genLoading, setGenLoading] = useState(false);
+  const [activeVideo, setActiveVideo] = useState<
+    { embed: VideoEmbed; title: string; description?: string | null } | null
+  >(null);
   const genFn = useServerFn(generateMcqSet);
 
   const reload = async () => {
@@ -668,25 +673,32 @@ function SpecPointDetail({
         <CollapsibleResourceGroup
           label="Syllabus Videos"
           icon={PlayCircle}
+          cards
           items={resources.filter((r) => r.kind === "video")}
-          render={(r) => (
-            <a
-              href={r.video_url ?? "#"}
-              target="_blank"
-              rel="noreferrer"
-              className="text-sm font-semibold text-foreground hover:text-primary flex items-start gap-2.5 leading-snug w-full"
-            >
-              <PlayCircle className="w-4 h-4 text-primary shrink-0 mt-0.5" />
-              <div>
-                <span>{r.title}</span>
-                {r.description && (
-                  <p className="text-xs font-normal text-muted-foreground mt-0.5 leading-normal">
-                    {r.description}
-                  </p>
-                )}
-              </div>
-            </a>
-          )}
+          render={(r) => {
+            const embed = parseVideoUrl(r.video_url);
+            return (
+              <button
+                type="button"
+                disabled={!embed}
+                onClick={() =>
+                  embed &&
+                  setActiveVideo({ embed, title: r.title, description: r.description })
+                }
+                className="group text-left rounded-xl bg-card border border-border overflow-hidden hover:border-primary/40 transition w-full disabled:opacity-60 disabled:cursor-default"
+              >
+                <VideoThumbnail embed={embed} />
+                <div className="p-3">
+                  <p className="text-sm font-semibold text-foreground leading-snug">{r.title}</p>
+                  {r.description && (
+                    <p className="text-xs font-normal text-muted-foreground mt-0.5 leading-normal line-clamp-2">
+                      {r.description}
+                    </p>
+                  )}
+                </div>
+              </button>
+            );
+          }}
         />
 
         {/* Live Sessions Section */}
@@ -768,6 +780,15 @@ function SpecPointDetail({
           )}
         />
       </div>
+
+      {activeVideo && (
+        <VideoModal
+          embed={activeVideo.embed}
+          title={activeVideo.title}
+          description={activeVideo.description}
+          onClose={() => setActiveVideo(null)}
+        />
+      )}
     </div>
   );
 }
@@ -831,11 +852,14 @@ function CollapsibleResourceGroup<T extends { id: string }>({
   icon,
   items,
   render,
+  cards = false,
 }: {
   label: string;
   icon: React.ComponentType<{ className?: string }>;
   items: T[];
   render: (r: T) => React.ReactNode;
+  /** Render items as bare cards in a grid instead of padded list rows. */
+  cards?: boolean;
 }) {
   return (
     <CollapsibleSection
@@ -846,6 +870,12 @@ function CollapsibleResourceGroup<T extends { id: string }>({
     >
       {items.length === 0 ? (
         <Empty label={`No ${label.toLowerCase()} yet.`} />
+      ) : cards ? (
+        <ul className="grid gap-3 sm:grid-cols-2">
+          {items.map((r) => (
+            <li key={r.id}>{render(r)}</li>
+          ))}
+        </ul>
       ) : (
         <ul className="space-y-2.5">
           {items.map((r) => (

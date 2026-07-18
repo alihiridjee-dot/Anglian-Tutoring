@@ -100,7 +100,12 @@ export function useAnalytics(userId: string | null, subjects: string[]) {
         const h = hwTotals[subj] ?? { sum: 0, count: 0 };
         const mcqAvg = m.count > 0 ? m.sum / m.count : 0;
         const hwAvg = h.count > 0 ? h.sum / h.count : 0;
-        const composite = m.count + h.count === 0 ? 0 : 0.7 * mcqAvg + 0.3 * hwAvg;
+        // Weight only the components that exist: a student with quizzes but no
+        // marked homework yet shouldn't have a phantom 0% dragging their grade
+        // down (70/30 split applies once both are present).
+        const mcqW = m.count > 0 ? 0.7 : 0;
+        const hwW = h.count > 0 ? 0.3 : 0;
+        const composite = mcqW + hwW > 0 ? (mcqW * mcqAvg + hwW * hwAvg) / (mcqW + hwW) : 0;
         bySubject[subj] = {
           subject: subj,
           mcqAttempts: m.count,

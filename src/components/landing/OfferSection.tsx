@@ -16,7 +16,7 @@ const OFFERS = [
   {
     id: "mcq",
     title: "Weekly MCQ quizzes",
-    desc: "AI-crafted, tutor-approved multiple choice questions. Instant feedback and explanations.",
+    desc: "Tutor-approved multiple choice questions. Instant feedback and explanations.",
     icon: BookOpen,
   },
   {

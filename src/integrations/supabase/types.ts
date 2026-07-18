@@ -188,6 +188,7 @@ export type Database = {
           created_at: string;
           created_by: string;
           description: string | null;
+          due_at: string | null;
           id: string;
           published: boolean;
           resource_id: string | null;
@@ -201,6 +202,7 @@ export type Database = {
           created_at?: string;
           created_by: string;
           description?: string | null;
+          due_at?: string | null;
           id?: string;
           published?: boolean;
           resource_id?: string | null;
@@ -214,6 +216,7 @@ export type Database = {
           created_at?: string;
           created_by?: string;
           description?: string | null;
+          due_at?: string | null;
           id?: string;
           published?: boolean;
           resource_id?: string | null;
@@ -243,6 +246,7 @@ export type Database = {
       packages: {
         Row: {
           active: boolean;
+          billing_interval: string | null;
           created_at: string;
           description: string | null;
           id: string;
@@ -256,6 +260,7 @@ export type Database = {
         };
         Insert: {
           active?: boolean;
+          billing_interval?: string | null;
           created_at?: string;
           description?: string | null;
           id?: string;
@@ -269,6 +274,7 @@ export type Database = {
         };
         Update: {
           active?: boolean;
+          billing_interval?: string | null;
           created_at?: string;
           description?: string | null;
           id?: string;
@@ -419,8 +425,11 @@ export type Database = {
           display_name: string | null;
           enrolled_courses: string[];
           id: string;
+          level: Database["public"]["Enums"]["level"] | null;
+          onboarding_completed_at: string | null;
           phone: string | null;
           role: Database["public"]["Enums"]["profile_role"];
+          school: string | null;
           student_invite_code: string | null;
         };
         Insert: {
@@ -428,8 +437,11 @@ export type Database = {
           display_name?: string | null;
           enrolled_courses?: string[];
           id: string;
+          level?: Database["public"]["Enums"]["level"] | null;
+          onboarding_completed_at?: string | null;
           phone?: string | null;
           role?: Database["public"]["Enums"]["profile_role"];
+          school?: string | null;
           student_invite_code?: string | null;
         };
         Update: {
@@ -437,15 +449,18 @@ export type Database = {
           display_name?: string | null;
           enrolled_courses?: string[];
           id?: string;
+          level?: Database["public"]["Enums"]["level"] | null;
+          onboarding_completed_at?: string | null;
           phone?: string | null;
           role?: Database["public"]["Enums"]["profile_role"];
+          school?: string | null;
           student_invite_code?: string | null;
         };
         Relationships: [];
       };
       resources: {
         Row: {
-          board: Database["public"]["Enums"]["board"];
+          board: Database["public"]["Enums"]["board"] | null;
           created_at: string;
           created_by: string;
           description: string | null;
@@ -469,7 +484,7 @@ export type Database = {
           video_url: string | null;
         };
         Insert: {
-          board: Database["public"]["Enums"]["board"];
+          board?: Database["public"]["Enums"]["board"] | null;
           created_at?: string;
           created_by: string;
           description?: string | null;
@@ -493,7 +508,7 @@ export type Database = {
           video_url?: string | null;
         };
         Update: {
-          board?: Database["public"]["Enums"]["board"];
+          board?: Database["public"]["Enums"]["board"] | null;
           created_at?: string;
           created_by?: string;
           description?: string | null;
@@ -599,8 +614,462 @@ export type Database = {
           },
         ];
       };
+      stripe_customers: {
+        Row: {
+          created_at: string;
+          stripe_customer_id: string;
+          user_id: string;
+        };
+        Insert: {
+          created_at?: string;
+          stripe_customer_id: string;
+          user_id: string;
+        };
+        Update: {
+          created_at?: string;
+          stripe_customer_id?: string;
+          user_id?: string;
+        };
+        Relationships: [
+          {
+            foreignKeyName: "stripe_customers_user_id_fkey";
+            columns: ["user_id"];
+            isOneToOne: true;
+            referencedRelation: "profiles";
+            referencedColumns: ["id"];
+          },
+        ];
+      };
+      student_enrolments: {
+        Row: {
+          board: Database["public"]["Enums"]["board"];
+          created_at: string;
+          current_grade: string | null;
+          id: string;
+          previous_grade: string | null;
+          student_id: string;
+          subject: Database["public"]["Enums"]["subject"];
+          target_grade: string | null;
+        };
+        Insert: {
+          board: Database["public"]["Enums"]["board"];
+          created_at?: string;
+          current_grade?: string | null;
+          id?: string;
+          previous_grade?: string | null;
+          student_id: string;
+          subject: Database["public"]["Enums"]["subject"];
+          target_grade?: string | null;
+        };
+        Update: {
+          board?: Database["public"]["Enums"]["board"];
+          created_at?: string;
+          current_grade?: string | null;
+          id?: string;
+          previous_grade?: string | null;
+          student_id?: string;
+          subject?: Database["public"]["Enums"]["subject"];
+          target_grade?: string | null;
+        };
+        Relationships: [];
+      };
+      student_learning_profile: {
+        Row: {
+          responses: Json;
+          student_id: string;
+          updated_at: string;
+        };
+        Insert: {
+          responses?: Json;
+          student_id: string;
+          updated_at?: string;
+        };
+        Update: {
+          responses?: Json;
+          student_id?: string;
+          updated_at?: string;
+        };
+        Relationships: [
+          {
+            foreignKeyName: "student_learning_profile_student_id_fkey";
+            columns: ["student_id"];
+            isOneToOne: true;
+            referencedRelation: "profiles";
+            referencedColumns: ["id"];
+          },
+        ];
+      };
+      student_program_plan: {
+        Row: {
+          acknowledged_at: string;
+          exam_date: string;
+          pacing: Json;
+          program_start: string;
+          student_id: string;
+          subject: Database["public"]["Enums"]["subject"];
+          updated_at: string;
+        };
+        Insert: {
+          acknowledged_at?: string;
+          exam_date: string;
+          pacing: Json;
+          program_start: string;
+          student_id: string;
+          subject: Database["public"]["Enums"]["subject"];
+          updated_at?: string;
+        };
+        Update: {
+          acknowledged_at?: string;
+          exam_date?: string;
+          pacing?: Json;
+          program_start?: string;
+          student_id?: string;
+          subject?: Database["public"]["Enums"]["subject"];
+          updated_at?: string;
+        };
+        Relationships: [];
+      };
+      student_spec_point_confidence: {
+        Row: {
+          confidence: number;
+          spec_point_id: string;
+          student_id: string;
+          updated_at: string;
+        };
+        Insert: {
+          confidence?: number;
+          spec_point_id: string;
+          student_id: string;
+          updated_at?: string;
+        };
+        Update: {
+          confidence?: number;
+          spec_point_id?: string;
+          student_id?: string;
+          updated_at?: string;
+        };
+        Relationships: [
+          {
+            foreignKeyName: "student_spec_point_confidence_spec_point_id_fkey";
+            columns: ["spec_point_id"];
+            isOneToOne: false;
+            referencedRelation: "spec_points";
+            referencedColumns: ["id"];
+          },
+        ];
+      };
+      student_spec_point_reviews: {
+        Row: {
+          id: string;
+          rating: number;
+          reviewed_at: string;
+          score_pct: number | null;
+          source: string;
+          source_id: string | null;
+          spec_point_id: string;
+          student_id: string;
+        };
+        Insert: {
+          id?: string;
+          rating: number;
+          reviewed_at?: string;
+          score_pct?: number | null;
+          source: string;
+          source_id?: string | null;
+          spec_point_id: string;
+          student_id: string;
+        };
+        Update: {
+          id?: string;
+          rating?: number;
+          reviewed_at?: string;
+          score_pct?: number | null;
+          source?: string;
+          source_id?: string | null;
+          spec_point_id?: string;
+          student_id?: string;
+        };
+        Relationships: [
+          {
+            foreignKeyName: "student_spec_point_reviews_spec_point_id_fkey";
+            columns: ["spec_point_id"];
+            isOneToOne: false;
+            referencedRelation: "spec_points";
+            referencedColumns: ["id"];
+          },
+        ];
+      };
+      student_spec_point_schedule: {
+        Row: {
+          card: Json;
+          due: string;
+          last_review: string | null;
+          spec_point_id: string;
+          student_id: string;
+          updated_at: string;
+        };
+        Insert: {
+          card: Json;
+          due: string;
+          last_review?: string | null;
+          spec_point_id: string;
+          student_id: string;
+          updated_at?: string;
+        };
+        Update: {
+          card?: Json;
+          due?: string;
+          last_review?: string | null;
+          spec_point_id?: string;
+          student_id?: string;
+          updated_at?: string;
+        };
+        Relationships: [
+          {
+            foreignKeyName: "student_spec_point_schedule_spec_point_id_fkey";
+            columns: ["spec_point_id"];
+            isOneToOne: false;
+            referencedRelation: "spec_points";
+            referencedColumns: ["id"];
+          },
+        ];
+      };
+      student_term_plans: {
+        Row: {
+          board: Database["public"]["Enums"]["board"];
+          created_at: string;
+          ends_on: string;
+          id: string;
+          label: string | null;
+          level: Database["public"]["Enums"]["level"];
+          starts_on: string;
+          student_id: string;
+          subject: Database["public"]["Enums"]["subject"];
+          updated_at: string;
+        };
+        Insert: {
+          board: Database["public"]["Enums"]["board"];
+          created_at?: string;
+          ends_on: string;
+          id?: string;
+          label?: string | null;
+          level: Database["public"]["Enums"]["level"];
+          starts_on: string;
+          student_id: string;
+          subject: Database["public"]["Enums"]["subject"];
+          updated_at?: string;
+        };
+        Update: {
+          board?: Database["public"]["Enums"]["board"];
+          created_at?: string;
+          ends_on?: string;
+          id?: string;
+          label?: string | null;
+          level?: Database["public"]["Enums"]["level"];
+          starts_on?: string;
+          student_id?: string;
+          subject?: Database["public"]["Enums"]["subject"];
+          updated_at?: string;
+        };
+        Relationships: [];
+      };
+      student_topic_confidence: {
+        Row: {
+          confidence: number;
+          sort_index: number;
+          student_id: string;
+          topic_id: string;
+          updated_at: string;
+        };
+        Insert: {
+          confidence?: number;
+          sort_index?: number;
+          student_id: string;
+          topic_id: string;
+          updated_at?: string;
+        };
+        Update: {
+          confidence?: number;
+          sort_index?: number;
+          student_id?: string;
+          topic_id?: string;
+          updated_at?: string;
+        };
+        Relationships: [
+          {
+            foreignKeyName: "student_topic_confidence_topic_id_fkey";
+            columns: ["topic_id"];
+            isOneToOne: false;
+            referencedRelation: "topics";
+            referencedColumns: ["id"];
+          },
+        ];
+      };
+      student_weekly_checkins: {
+        Row: {
+          coverage: Json;
+          covered_ok: boolean | null;
+          created_at: string;
+          id: string;
+          plan_id: string;
+          reflection: string | null;
+          student_id: string;
+        };
+        Insert: {
+          coverage?: Json;
+          covered_ok?: boolean | null;
+          created_at?: string;
+          id?: string;
+          plan_id: string;
+          reflection?: string | null;
+          student_id: string;
+        };
+        Update: {
+          coverage?: Json;
+          covered_ok?: boolean | null;
+          created_at?: string;
+          id?: string;
+          plan_id?: string;
+          reflection?: string | null;
+          student_id?: string;
+        };
+        Relationships: [
+          {
+            foreignKeyName: "student_weekly_checkins_plan_id_fkey";
+            columns: ["plan_id"];
+            isOneToOne: true;
+            referencedRelation: "student_weekly_plans";
+            referencedColumns: ["id"];
+          },
+        ];
+      };
+      student_weekly_plan_points: {
+        Row: {
+          created_at: string;
+          origin: Database["public"]["Enums"]["plan_point_origin"];
+          plan_id: string;
+          spec_point_id: string;
+        };
+        Insert: {
+          created_at?: string;
+          origin?: Database["public"]["Enums"]["plan_point_origin"];
+          plan_id: string;
+          spec_point_id: string;
+        };
+        Update: {
+          created_at?: string;
+          origin?: Database["public"]["Enums"]["plan_point_origin"];
+          plan_id?: string;
+          spec_point_id?: string;
+        };
+        Relationships: [
+          {
+            foreignKeyName: "student_weekly_plan_points_plan_id_fkey";
+            columns: ["plan_id"];
+            isOneToOne: false;
+            referencedRelation: "student_weekly_plans";
+            referencedColumns: ["id"];
+          },
+          {
+            foreignKeyName: "student_weekly_plan_points_spec_point_id_fkey";
+            columns: ["spec_point_id"];
+            isOneToOne: false;
+            referencedRelation: "spec_points";
+            referencedColumns: ["id"];
+          },
+        ];
+      };
+      student_weekly_plans: {
+        Row: {
+          ai_rationale: string | null;
+          board: Database["public"]["Enums"]["board"];
+          created_at: string;
+          id: string;
+          level: Database["public"]["Enums"]["level"];
+          note: string | null;
+          source: Database["public"]["Enums"]["plan_source"];
+          student_id: string;
+          subject: Database["public"]["Enums"]["subject"];
+          term_plan_id: string | null;
+          updated_at: string;
+          week_start: string;
+        };
+        Insert: {
+          ai_rationale?: string | null;
+          board: Database["public"]["Enums"]["board"];
+          created_at?: string;
+          id?: string;
+          level: Database["public"]["Enums"]["level"];
+          note?: string | null;
+          source?: Database["public"]["Enums"]["plan_source"];
+          student_id: string;
+          subject: Database["public"]["Enums"]["subject"];
+          term_plan_id?: string | null;
+          updated_at?: string;
+          week_start: string;
+        };
+        Update: {
+          ai_rationale?: string | null;
+          board?: Database["public"]["Enums"]["board"];
+          created_at?: string;
+          id?: string;
+          level?: Database["public"]["Enums"]["level"];
+          note?: string | null;
+          source?: Database["public"]["Enums"]["plan_source"];
+          student_id?: string;
+          subject?: Database["public"]["Enums"]["subject"];
+          term_plan_id?: string | null;
+          updated_at?: string;
+          week_start?: string;
+        };
+        Relationships: [
+          {
+            foreignKeyName: "student_weekly_plans_term_plan_id_fkey";
+            columns: ["term_plan_id"];
+            isOneToOne: false;
+            referencedRelation: "student_term_plans";
+            referencedColumns: ["id"];
+          },
+        ];
+      };
+      student_weekly_tutor_notes: {
+        Row: {
+          author_id: string;
+          next_points: string[];
+          note: string | null;
+          plan_id: string;
+          student_id: string;
+          updated_at: string;
+        };
+        Insert: {
+          author_id: string;
+          next_points?: string[];
+          note?: string | null;
+          plan_id: string;
+          student_id: string;
+          updated_at?: string;
+        };
+        Update: {
+          author_id?: string;
+          next_points?: string[];
+          note?: string | null;
+          plan_id?: string;
+          student_id?: string;
+          updated_at?: string;
+        };
+        Relationships: [
+          {
+            foreignKeyName: "student_weekly_tutor_notes_plan_id_fkey";
+            columns: ["plan_id"];
+            isOneToOne: true;
+            referencedRelation: "student_weekly_plans";
+            referencedColumns: ["id"];
+          },
+        ];
+      };
       subscriptions: {
         Row: {
+          cancel_at_period_end: boolean;
           created_at: string;
           current_period_end: string | null;
           id: string;
@@ -608,10 +1077,12 @@ export type Database = {
           status: string;
           stripe_customer_id: string | null;
           stripe_subscription_id: string | null;
+          student_id: string;
           updated_at: string;
           user_id: string;
         };
         Insert: {
+          cancel_at_period_end?: boolean;
           created_at?: string;
           current_period_end?: string | null;
           id?: string;
@@ -619,10 +1090,12 @@ export type Database = {
           status?: string;
           stripe_customer_id?: string | null;
           stripe_subscription_id?: string | null;
+          student_id: string;
           updated_at?: string;
           user_id: string;
         };
         Update: {
+          cancel_at_period_end?: boolean;
           created_at?: string;
           current_period_end?: string | null;
           id?: string;
@@ -630,10 +1103,19 @@ export type Database = {
           status?: string;
           stripe_customer_id?: string | null;
           stripe_subscription_id?: string | null;
+          student_id?: string;
           updated_at?: string;
           user_id?: string;
         };
-        Relationships: [];
+        Relationships: [
+          {
+            foreignKeyName: "subscriptions_student_id_fkey";
+            columns: ["student_id"];
+            isOneToOne: false;
+            referencedRelation: "profiles";
+            referencedColumns: ["id"];
+          },
+        ];
       };
       topics: {
         Row: {
@@ -700,6 +1182,7 @@ export type Database = {
       };
       weekly_focus: {
         Row: {
+          ai_summary: string | null;
           board: Database["public"]["Enums"]["board"];
           created_at: string;
           created_by: string;
@@ -711,6 +1194,7 @@ export type Database = {
           week_start: string;
         };
         Insert: {
+          ai_summary?: string | null;
           board: Database["public"]["Enums"]["board"];
           created_at?: string;
           created_by: string;
@@ -722,6 +1206,7 @@ export type Database = {
           week_start: string;
         };
         Update: {
+          ai_summary?: string | null;
           board?: Database["public"]["Enums"]["board"];
           created_at?: string;
           created_by?: string;
@@ -775,6 +1260,13 @@ export type Database = {
       acknowledge_submission: {
         Args: { _submission_id: string };
         Returns: undefined;
+      };
+      my_access_state: {
+        Args: never;
+        Returns: {
+          has_access: boolean;
+          onboarding_complete: boolean;
+        }[];
       };
       mark_submission_files_deleted: {
         Args: { _submission_id: string };
@@ -832,6 +1324,8 @@ export type Database = {
       app_role: "student" | "tutor" | "admin";
       board: "edexcel" | "aqa" | "ocr";
       level: "gcse" | "alevel";
+      plan_point_origin: "ai" | "student" | "tutor" | "carried_over";
+      plan_source: "ai" | "student" | "tutor";
       profile_role: "student" | "parent" | "tutor";
       resource_kind: "video" | "download" | "live_session" | "homework";
       subject: "biology" | "chemistry" | "physics";
@@ -959,6 +1453,8 @@ export const Constants = {
       app_role: ["student", "tutor", "admin"],
       board: ["edexcel", "aqa", "ocr"],
       level: ["gcse", "alevel"],
+      plan_point_origin: ["ai", "student", "tutor", "carried_over"],
+      plan_source: ["ai", "student", "tutor"],
       profile_role: ["student", "parent", "tutor"],
       resource_kind: ["video", "download", "live_session", "homework"],
       subject: ["biology", "chemistry", "physics"],

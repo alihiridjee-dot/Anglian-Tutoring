@@ -7,7 +7,13 @@ import { type VideoEmbed } from "@/lib/videoEmbed";
  * one; otherwise a branded gradient. Renders just the visual — callers wrap it
  * in whatever clickable element opens the player.
  */
-export function VideoThumbnail({ embed, className = "" }: { embed: VideoEmbed | null; className?: string }) {
+export function VideoThumbnail({
+  embed,
+  className = "",
+}: {
+  embed: VideoEmbed | null;
+  className?: string;
+}) {
   const [imgOk, setImgOk] = useState(true);
   const showImg = embed?.thumbnailUrl && imgOk;
   return (

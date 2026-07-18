@@ -532,49 +532,9 @@ function HomeworkCard({
                 </span>
               )}
               {submission.score_pct != null && (
-                <div className="relative group/pct inline-flex items-center gap-1.5 cursor-help">
-                  <span className="inline-flex items-center text-xs bg-accent/10 text-accent font-semibold px-2.5 py-1 rounded-full border border-accent/20">
-                    Score: {Number(submission.score_pct)}%
-                  </span>
-                  <Info className="w-3.5 h-3.5 text-accent shrink-0" />
-
-                  {/* Hover diagnostic bubble */}
-                  <div className="absolute left-0 top-full mt-2 w-72 p-4 bg-white dark:bg-slate-900 rounded-xl border border-slate-200 dark:border-slate-800 shadow-xl opacity-0 scale-95 pointer-events-none group-hover/pct:opacity-100 group-hover/pct:scale-100 transition duration-200 z-50 text-foreground font-sans normal-case text-xs leading-relaxed">
-                    <p className="font-extrabold uppercase tracking-wider text-[10px] text-muted-foreground mb-2">
-                      Syllabus Diagnostics (Parent Insight)
-                    </p>
-                    {hw.id === "hw-photosynthesis-factors" ? (
-                      <div className="space-y-2 text-foreground">
-                        <div className="flex justify-between items-center pb-1 border-b border-border">
-                          <span className="font-medium text-muted-foreground text-[11px]">
-                            Light Intensity & Inverse Square
-                          </span>
-                          <span className="font-bold text-emerald-500">95% (Mastered)</span>
-                        </div>
-                        <div className="flex justify-between items-center pb-1 border-b border-border">
-                          <span className="font-medium text-muted-foreground text-[11px]">
-                            Stomata & Gas Exchanges
-                          </span>
-                          <span className="font-bold text-emerald-500">86% (Strong)</span>
-                        </div>
-                        <div className="flex justify-between items-center bg-amber-500/10 p-2 rounded border border-amber-500/20">
-                          <span className="font-semibold text-amber-500 text-[11px]">
-                            Limiting Factors Graph Analysis
-                          </span>
-                          <span className="font-bold text-amber-500">55% (Struggling)</span>
-                        </div>
-                        <p className="text-[10px] text-muted-foreground mt-1 leading-normal italic">
-                          💡 Focus area: Practice explaining how rates plateau when CO₂
-                          concentration is saturated and other limiting constraints take over.
-                        </p>
-                      </div>
-                    ) : (
-                      <p className="text-muted-foreground">
-                        Diagnostics will compute automatically upon grading submission.
-                      </p>
-                    )}
-                  </div>
-                </div>
+                <span className="inline-flex items-center text-xs bg-accent/10 text-accent font-semibold px-2.5 py-1 rounded-full border border-accent/20">
+                  Score: {Number(submission.score_pct)}%
+                </span>
               )}
             </div>
             {submission.feedback && (

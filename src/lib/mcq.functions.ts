@@ -1,6 +1,9 @@
 import { createServerFn } from "@tanstack/react-start";
 import Anthropic from "@anthropic-ai/sdk";
 import { requireSupabaseAuth } from "@/integrations/supabase/auth-middleware";
+import { SUBJECTS } from "@/lib/taxonomy";
+import type { SupabaseClient } from "@supabase/supabase-js";
+import type { Database } from "@/integrations/supabase/types";
 
 // MCQ generation runs through Anthropic Claude (structured JSON), replacing the
 // earlier Gemini call. Two entry points share the same generator:
@@ -71,8 +74,7 @@ Return ONLY JSON matching this exact shape — no prose, no markdown fences:
   } catch (e) {
     const status = (e as { status?: number })?.status;
     if (status === 429) throw new Error("AI rate limit — try again in a moment");
-    if (status === 402)
-      throw new Error("AI credits exhausted — top up in workspace billing");
+    if (status === 402) throw new Error("AI credits exhausted — top up in workspace billing");
     throw new Error(`AI error: ${e instanceof Error ? e.message : String(e)}`);
   }
 
@@ -111,17 +113,11 @@ function toRows(
   }));
 }
 
-// Supabase server client from the auth middleware. Typed loosely here to avoid
-// coupling this file to the generated Database type surface.
-type SupabaseServer = {
-  from: (table: string) => any;
-};
+// Supabase server client from the auth middleware.
+type SupabaseServer = SupabaseClient<Database>;
 
 async function requireTutor(supabase: SupabaseServer, userId: string) {
-  const { data: role } = await supabase
-    .from("user_roles")
-    .select("role")
-    .eq("user_id", userId);
+  const { data: role } = await supabase.from("user_roles").select("role").eq("user_id", userId);
   const roles = ((role ?? []) as Array<{ role: string }>).map((r) => r.role);
   if (!roles.includes("tutor") && !roles.includes("admin")) {
     throw new Error("Tutor access required");
@@ -215,9 +211,10 @@ export const generateCurriculumQuiz = createServerFn({ method: "POST" })
       : [];
     if (ids.length === 0) throw new Error("Select at least one spec point");
     if (!input?.dueAt) throw new Error("Due date required");
-    if (!input?.subject) throw new Error("subject required");
+    const subject = SUBJECTS.find((s) => s.value === input?.subject)?.value;
+    if (!subject) throw new Error("subject required");
     return {
-      subject: String(input.subject),
+      subject,
       specPointIds: ids,
       title: String(input.title || "Weekly MCQs"),
       dueAt: String(input.dueAt),
@@ -233,11 +230,13 @@ export const generateCurriculumQuiz = createServerFn({ method: "POST" })
       .in("id", data.specPointIds);
     if (pointErr) throw pointErr;
 
-    const points = ((pointRows ?? []) as Array<{
-      id: string;
-      title: string;
-      description: string | null;
-    }>).filter((p) => !!p?.id);
+    const points = (
+      (pointRows ?? []) as Array<{
+        id: string;
+        title: string;
+        description: string | null;
+      }>
+    ).filter((p) => !!p?.id);
     if (points.length === 0) throw new Error("No matching spec points found");
 
     const counts = distributeCounts(points.length);
@@ -315,13 +314,14 @@ export const generateWeeklyQuiz = createServerFn({ method: "POST" })
       .eq("resource_id", data.resourceId);
     if (linkErr) throw linkErr;
 
-    const points = ((links ?? []) as Array<{
-      spec_points: { id: string; title: string; description: string | null } | null;
-    }>)
+    const points = (
+      (links ?? []) as Array<{
+        spec_points: { id: string; title: string; description: string | null } | null;
+      }>
+    )
       .map((l) => l.spec_points)
       .filter((p): p is { id: string; title: string; description: string | null } => !!p);
-    if (points.length === 0)
-      throw new Error("Tag at least one spec point on this session first");
+    if (points.length === 0) throw new Error("Tag at least one spec point on this session first");
 
     const counts = distributeCounts(points.length);
 

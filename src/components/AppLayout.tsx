@@ -11,6 +11,7 @@ import {
   ArrowRight,
   Users,
   Sparkles,
+  Compass,
 } from "lucide-react";
 import { type ReactNode } from "react";
 import { useRoles } from "@/hooks/useRole";
@@ -20,11 +21,13 @@ import { DEMO_STUDENT_NAME, DEMO_PARENT_NAME } from "@/lib/demo/studentDemo";
 import { useEnrolments } from "@/hooks/data/useEnrolments";
 import { NotificationBell } from "@/components/NotificationBell";
 import { UserMenu } from "@/components/UserMenu";
+import { HeaderLiveButton } from "@/components/live/HeaderLiveButton";
 import { resolveInitials } from "@/lib/displayName";
 
 interface NavItem {
   to:
     | "/dashboard"
+    | "/planner"
     | "/curriculum"
     | "/homework"
     | "/live"
@@ -46,6 +49,7 @@ interface NavItem {
 
 const studentNav: NavItem[] = [
   { to: "/dashboard", label: "Dashboard", icon: LayoutDashboard },
+  { to: "/planner", label: "Planner", icon: Compass },
   { to: "/curriculum", label: "Curriculum", icon: BookMarked },
   { to: "/homework", label: "Homework & Grades", icon: ClipboardList },
   { to: "/live", label: "Live Sessions", icon: Video },
@@ -121,6 +125,10 @@ export function AppLayout({ title, children }: { title: string; children: ReactN
   const initials = isDemo
     ? (demoRole === "parent" ? DEMO_PARENT_NAME : DEMO_STUDENT_NAME).slice(0, 2).toUpperCase()
     : resolveInitials(profileName, email);
+
+  // The live "Join" pill in the ribbon is a student affordance — tutors run
+  // sessions and parents don't attend, so it only shows in a student context.
+  const isStudentContext = isDemo ? demoRole === "student" : !isTutor && userRole !== "parent";
 
   return (
     <div className="min-h-screen flex bg-background text-foreground">
@@ -216,6 +224,9 @@ export function AppLayout({ title, children }: { title: string; children: ReactN
             </div>
           </div>
           <div className="flex items-center gap-3">
+            {isStudentContext && (
+              <HeaderLiveButton liveHref={isDemo ? "/demo/student/live" : "/live"} />
+            )}
             <NotificationBell />
             <UserMenu
               initials={initials}

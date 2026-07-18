@@ -23,6 +23,20 @@ export const DEMO_STUDENT_NAME = "Alex";
 export const DEMO_PARENT_NAME = "Sarah (Parent)";
 export const DEMO_SUBJECTS = ["biology", "chemistry", "physics"] as const;
 
+/** The showcase student's shared exam level. */
+export const DEMO_LEVEL = "gcse" as const;
+
+/**
+ * Per-subject enrolment for the showcase — deliberately mixes boards so the
+ * demo shows off that a student can sit each subject with a different exam
+ * board at the same level.
+ */
+export const DEMO_ENROLMENTS = [
+  { subject: "biology", board: "edexcel" },
+  { subject: "chemistry", board: "aqa" },
+  { subject: "physics", board: "ocr" },
+] as const;
+
 /** Sentinel prefix marking a fixture file that must not hit real Storage. */
 export const DEMO_FILE_PREFIX = "demo:";
 

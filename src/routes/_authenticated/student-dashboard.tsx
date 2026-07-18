@@ -1,4 +1,4 @@
-import { createFileRoute, Link, redirect } from "@tanstack/react-router";
+import { createFileRoute, redirect } from "@tanstack/react-router";
 import { AppLayout } from "@/components/AppLayout";
 import { useRoles } from "@/hooks/useRole";
 import { useEnrolments } from "@/hooks/data/useEnrolments";
@@ -6,9 +6,9 @@ import { useAnalytics } from "@/hooks/data/useAnalytics";
 import { isDemoStudent, DEMO_STUDENT_NAME } from "@/lib/demo/studentDemo";
 import { resolveDisplayName } from "@/lib/displayName";
 import { useState, useEffect } from "react";
-import { CalendarClock, ClipboardList, BookMarked, ListChecks } from "lucide-react";
-import { NextSessionCountdown } from "@/components/live/NextSessionCountdown";
 import { WeeklyFocusCard } from "@/components/weekly/WeeklyFocusCard";
+import { LiveSessionsBanner } from "@/components/live/LiveSessionsBanner";
+import { WeeklyPlanPanel } from "@/components/planner/WeeklyPlanPanel";
 import { AuthService } from "@/lib/authService";
 import { UserRole } from "@/types/user";
 
@@ -36,9 +36,20 @@ const subjectLabel: Record<string, string> = {
   physics: "Physics",
 };
 
+const boardLabel: Record<string, string> = {
+  edexcel: "Edexcel",
+  aqa: "AQA",
+  ocr: "OCR",
+};
+
+const levelLabel: Record<string, string> = {
+  gcse: "GCSE",
+  alevel: "A-Level",
+};
+
 export function StudentDashboard() {
   const { email } = useRoles();
-  const { enrolledCourses, displayName: profileName } = useEnrolments();
+  const { enrolledCourses, enrolments, level, displayName: profileName } = useEnrolments();
   const [effectiveStudentId, setEffectiveStudentId] = useState<string | null>(null);
 
   useEffect(() => {
@@ -47,17 +58,18 @@ export function StudentDashboard() {
     });
   }, []);
 
-  const { rows: analytics } = useAnalytics(effectiveStudentId, enrolledCourses);
+  // Warms the analytics cache for the pages that render it.
+  useAnalytics(effectiveStudentId, enrolledCourses);
 
   // The showcase greets its fixture persona; a real session uses the name from
   // the profile, falling back to the email only when none has been set.
   const displayName = isDemoStudent() ? DEMO_STUDENT_NAME : resolveDisplayName(profileName, email);
 
-  const displaySubjects = enrolledCourses;
-
   return (
     <AppLayout title="Student Dashboard">
-      <div className="rounded-2xl bg-gradient-to-br from-slate-900 to-slate-800 text-white p-8 mb-6 relative overflow-hidden border border-slate-800 shadow-sm">
+      {/* Slim welcome ribbon — name on the left, the student's actual level and
+          per-subject exam boards on the right. */}
+      <div className="rounded-2xl bg-gradient-to-br from-slate-900 to-slate-800 text-white px-5 py-4 sm:px-6 sm:py-5 mb-6 relative overflow-hidden border border-slate-800 shadow-sm">
         <div
           className="absolute inset-0 opacity-10"
           style={{
@@ -65,53 +77,76 @@ export function StudentDashboard() {
             backgroundSize: "24px 24px",
           }}
         />
-        <div className="relative flex flex-col gap-1.5">
+        <div className="relative flex flex-col gap-3 sm:flex-row sm:items-center sm:justify-between">
           <div className="flex items-center gap-2.5">
-            <span className="w-2.5 h-2.5 rounded-full bg-emerald-400 animate-pulse shrink-0" />
-            <h2 className="font-display text-3xl font-bold tracking-tight text-white">
-              Welcome back, <span className="font-extrabold text-white">{displayName}</span>!
+            <span className="w-2 h-2 rounded-full bg-emerald-400 animate-pulse shrink-0" />
+            <h2 className="font-display text-lg sm:text-xl font-bold tracking-tight text-white">
+              Welcome back, {displayName}
             </h2>
           </div>
-          <p className="text-sm md:text-base text-slate-300 max-w-2xl mt-1">
-            {displaySubjects.length === 0
-              ? "You're not enrolled in any subjects yet — please contact your administrator or tutor to get enrolled."
-              : `You're enrolled in ${displaySubjects.map((s) => subjectLabel[s] ?? s).join(", ")}.`}
-          </p>
+          <EnrolmentSummary enrolments={enrolments} level={level} />
         </div>
       </div>
 
-      {/* Countdown to the next scheduled live session (hidden when none). */}
-      <NextSessionCountdown />
+      {/* Live sessions — hoisted out of the "This Week" hub into its own banner so
+          it stands apart from the study plan below. */}
+      <LiveSessionsBanner />
 
-      {/* Quick tiles */}
-      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
-        {tiles.map((t) => (
-          <Link
-            key={t.to}
-            // Inside the showcase these must stay under /demo/*, or the click
-            // lands on a guarded route and bounces to /auth.
-            to={isDemoStudent() ? `/demo/student${t.to}` : t.to}
-            className="rounded-2xl bg-card border border-border p-5 hover:border-primary/50 hover:shadow-lg transition cursor-pointer"
-          >
-            <div className="w-11 h-11 rounded-xl bg-primary/10 border border-primary/20 flex items-center justify-center mb-4">
-              <t.icon className="w-5 h-5 text-primary" />
-            </div>
-            <p className="font-display font-semibold">{t.label}</p>
-            <p className="text-xs text-muted-foreground mt-1">{t.desc}</p>
-          </Link>
-        ))}
-      </div>
+      {/* The student's personalised weekly plan — the spaced-repetition-driven
+          "this week" the platform builds from their confidence + results, with the
+          end-of-week review and the tutor's take. The forward-looking programme and
+          termly confidence board live on the Planner tab. */}
+      {effectiveStudentId && level && (
+        <div className="mt-6">
+          <WeeklyPlanPanel studentId={effectiveStudentId} enrolments={enrolments} level={level} />
+        </div>
+      )}
 
       {/* "This Week" hub — the curriculum focus the tutor set for the current
-          Mon–Sun week, plus links to homework, MCQs and live sessions. */}
-      <WeeklyFocusCard subjects={displaySubjects} />
+          Mon–Sun week, plus curated videos and links to homework, MCQs and live
+          sessions. Live strip suppressed here since it now has its own banner. */}
+      <WeeklyFocusCard subjects={enrolledCourses} showLive={false} />
     </AppLayout>
   );
 }
 
-const tiles = [
-  { to: "/curriculum", label: "Curriculum", desc: "Topics & spec points", icon: BookMarked },
-  { to: "/homework", label: "Homework & Grades", desc: "Submit & track", icon: ClipboardList },
-  { to: "/live", label: "Live Sessions", desc: "Upcoming lessons", icon: CalendarClock },
-  { to: "/mcqs", label: "MCQs", desc: "Weekly quizzes", icon: ListChecks },
-] as const;
+/**
+ * Compact enrolment readout for the welcome ribbon: a shared level chip plus one
+ * pill per subject showing its exam board. Boards can differ per subject, so
+ * they're always shown alongside the subject rather than collapsed.
+ */
+function EnrolmentSummary({
+  enrolments,
+  level,
+}: {
+  enrolments: { subject: string; board: string }[];
+  level: string | null;
+}) {
+  if (enrolments.length === 0) {
+    return (
+      <p className="text-xs sm:text-sm text-slate-300">
+        You're not enrolled in any subjects yet — contact your tutor to get set up.
+      </p>
+    );
+  }
+
+  return (
+    <div className="flex flex-wrap items-center gap-1.5">
+      {level && (
+        <span className="text-[11px] font-bold uppercase tracking-wide px-2 py-1 rounded-md bg-emerald-400/15 text-emerald-300 border border-emerald-400/20">
+          {levelLabel[level] ?? level}
+        </span>
+      )}
+      {enrolments.map((e) => (
+        <span
+          key={e.subject}
+          className="inline-flex items-center gap-1.5 text-[11px] sm:text-xs font-medium px-2.5 py-1 rounded-md bg-white/10 border border-white/10 text-slate-100"
+        >
+          {subjectLabel[e.subject] ?? e.subject}
+          <span className="text-slate-400">·</span>
+          <span className="text-slate-300">{boardLabel[e.board] ?? e.board}</span>
+        </span>
+      ))}
+    </div>
+  );
+}
