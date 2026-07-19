@@ -6,7 +6,7 @@ import { type Enrolment } from "@/hooks/data/useEnrolments";
 import { type SubjectV, type BoardV, type LevelV } from "@/lib/taxonomy";
 import { BANDS, bandOf, type BandKey } from "@/lib/planner/bands";
 import { TopicCard } from "./TopicCard";
-import { SpecPointSlidersModal } from "./SpecPointSlidersModal";
+import { SpecPointSwipeModal } from "./SpecPointSwipeModal";
 
 const subjectLabel: Record<string, string> = {
   biology: "Biology",
@@ -23,10 +23,16 @@ export function PlannerBoard({
   studentId,
   enrolments,
   level,
+  subject,
+  onChanged,
 }: {
   studentId: string;
   enrolments: Enrolment[];
   level: LevelV;
+  /** When set, the subject is controlled by the parent and the tabs are hidden. */
+  subject?: string;
+  /** Fires after a confidence write lands, so siblings (the roadmap) can reload. */
+  onChanged?: () => void;
 }) {
   // Biology first, then whatever else the student takes.
   const ordered = useMemo(() => {
@@ -35,7 +41,8 @@ export function PlannerBoard({
     return [...bio, ...rest];
   }, [enrolments]);
 
-  const [activeSubject, setActiveSubject] = useState<string>(ordered[0]?.subject ?? "biology");
+  const [pickedSubject, setPickedSubject] = useState<string>(ordered[0]?.subject ?? "biology");
+  const activeSubject = subject ?? pickedSubject;
   const active = ordered.find((e) => e.subject === activeSubject) ?? ordered[0];
 
   const [topics, setTopics] = useState<TopicWithConfidence[]>([]);
@@ -78,7 +85,10 @@ export function PlannerBoard({
 
     setTopics((prev) => prev.map((t) => (t.id === id ? { ...t, confidence: midpoint } : t)));
     try {
-      await PlannerDAL.setTopicConfidence(id, midpoint);
+      // Dragging a whole topic re-rates every spec point beneath it, so the
+      // FSRS cards (and the programme roadmap) move with the board.
+      await PlannerDAL.setTopicConfidence(id, midpoint, undefined, true);
+      onChanged?.();
     } catch (e) {
       console.error("set topic confidence", e);
     }
@@ -89,6 +99,7 @@ export function PlannerBoard({
     setTopics((prev) => prev.map((t) => (t.id === topicId ? { ...t, confidence: mean } : t)));
     try {
       await PlannerDAL.setTopicConfidence(topicId, mean);
+      onChanged?.();
     } catch (e) {
       console.error("apply aggregate", e);
     }
@@ -106,23 +117,24 @@ export function PlannerBoard({
 
   return (
     <div>
-      {/* Subject tabs + progress */}
+      {/* Subject tabs (hidden when the parent controls the subject) + progress */}
       <div className="flex flex-wrap items-center justify-between gap-3 mb-4">
         <div className="flex items-center gap-1.5">
-          {ordered.map((e) => (
-            <button
-              key={e.subject}
-              type="button"
-              onClick={() => setActiveSubject(e.subject)}
-              className={`h-8 px-3 rounded-lg text-sm font-medium transition ${
-                e.subject === activeSubject
-                  ? "bg-primary text-primary-foreground"
-                  : "bg-muted text-muted-foreground hover:text-foreground"
-              }`}
-            >
-              {subjectLabel[e.subject] ?? e.subject}
-            </button>
-          ))}
+          {subject == null &&
+            ordered.map((e) => (
+              <button
+                key={e.subject}
+                type="button"
+                onClick={() => setPickedSubject(e.subject)}
+                className={`h-8 px-3 rounded-lg text-sm font-medium transition ${
+                  e.subject === activeSubject
+                    ? "bg-primary text-primary-foreground"
+                    : "bg-muted text-muted-foreground hover:text-foreground"
+                }`}
+              >
+                {subjectLabel[e.subject] ?? e.subject}
+              </button>
+            ))}
         </div>
         {!loading && topics.length > 0 && (
           <span className="text-xs text-muted-foreground">
@@ -237,11 +249,12 @@ export function PlannerBoard({
 
       <AnimatePresence>
         {modalTopic && (
-          <SpecPointSlidersModal
+          <SpecPointSwipeModal
             studentId={studentId}
             topicId={modalTopic.id}
             topicTitle={modalTopic.title}
             topicCode={modalTopic.code}
+            columnConfidence={modalTopic.confidence}
             onClose={() => setModalTopic(null)}
             onAggregate={(mean) => applyAggregate(modalTopic.id, mean)}
           />

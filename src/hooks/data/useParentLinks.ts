@@ -45,8 +45,8 @@ export interface PendingInvite {
 export type InviteOutcome = "invited" | "no_account" | "not_a_parent" | "already_linked";
 
 async function currentUser() {
-  const { data } = await supabase.auth.getUser();
-  return data.user ?? null;
+  const { data } = await supabase.auth.getSession();
+  return data.session?.user ?? null;
 }
 
 /** Parents currently linked to the signed-in student. */

@@ -29,18 +29,13 @@ import {
 export { State, Rating };
 export type { Card, Grade };
 
-/** Where a review came from — for the review-log ledger. */
-export type ReviewSource = "homework" | "mcq" | "confidence" | "self_report" | "manual";
+/** Where a review came from — for the review-log ledger (DB-enforced list). */
+export type ReviewSource = "homework" | "mcq" | "confidence";
 
 // Deterministic scheduling: fuzz off so the same history always yields the same
 // due-date (important for previews/tests), and cap intervals at a year so a
 // GCSE course never schedules a review past the exam horizon.
 const scheduler = fsrs(generatorParameters({ enable_fuzz: false, maximum_interval: 365 }));
-
-/** A blank card, due immediately — a spec point the student has never touched. */
-export function newCard(now: Date = new Date()): Card {
-  return createEmptyCard(now);
-}
 
 /**
  * Rehydrate a card read back from jsonb, where `due`/`last_review` are ISO
@@ -113,6 +108,16 @@ export function priority(
   return 50 + Math.min(overdueDays, 30) * 2 + weakness + c.lapses * 5;
 }
 
+/**
+ * FSRS retrievability: the probability (0–1) the student could recall this
+ * point right now. Null for never-practised points — "no data" is different
+ * from "will forget", and the dashboard renders them separately.
+ */
+export function retrievability(card: Card | null, now: Date = new Date()): number | null {
+  if (!card || card.state === State.New) return null;
+  return scheduler.get_retrievability(card, now, false);
+}
+
 /** Is this point eligible to appear in a plan for a week ending `when`? */
 export function isDueBy(card: Card | null, when: Date): boolean {
   if (!card || card.state === State.New) return true; // never practised → always eligible
@@ -164,7 +169,12 @@ export function pointMastery(
   const penalty = (card.lapses ?? 0) * 5;
   switch (pointStatus(card, now)) {
     case "due":
-      return clampScore(30 - penalty);
+      // Due means "needs another look", not "back to zero". Early-stage FSRS
+      // intervals are short (minutes–days), so at our weekly cadence a card the
+      // student only just rated is due again almost immediately — blend their
+      // stated confidence so a confident-but-due point reads mid-40s (one
+      // revisit) while a needs-work or lapsing one stays low (keeps recurring).
+      return clampScore(25 + (confidence ?? 0) * 0.25 - penalty);
     case "learning":
       return clampScore(50 - penalty);
     default: // strong

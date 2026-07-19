@@ -9,12 +9,17 @@ import {
   type Schedulable,
   SETTLED_THRESHOLD,
   applyReview,
+  confidenceToRating,
   pointMastery,
   pointStatus,
+  isDueBy,
+  retrievability,
   reviveCard,
   scoreToRating,
   selectForWeek,
 } from "./planner/scheduler";
+import { mapAttemptSources } from "./planner/attemptSources";
+import { getSessionUserId } from "@/lib/auth/session";
 
 /** One covered spec point, with how it went, for the "covered so far" ledger. */
 export interface CoveredPoint {
@@ -54,6 +59,24 @@ export interface TopicProgress {
   settled: boolean;
   /** How many of its points have real homework/MCQ practice behind them. */
   practisedCount: number;
+}
+
+/** One course's memory snapshot for the planner dashboard. */
+export interface MemoryStats {
+  /** Spec points in the course. */
+  total: number;
+  /** Never practised — no card yet. */
+  newCount: number;
+  /** Practised and due right now. */
+  dueNow: number;
+  /** Practised, due within the next 7 days. */
+  dueThisWeek: number;
+  /** Practised, not due for over a week — holding. */
+  stable: number;
+  /** Mean FSRS retrievability across practised points (0–1), null if none. */
+  avgRetention: number | null;
+  /** The three practised points closest to being forgotten. */
+  weakest: { code: string; title: string; retention: number }[];
 }
 
 /** One review event before it's applied — used to replay history in time order. */
@@ -124,15 +147,19 @@ export class ScheduleDAL {
     sourceId?: string | null;
     reviewedAt?: Date;
   }): Promise<boolean> {
-    const { data: u } = await supabase.auth.getUser();
-    const uid = u.user?.id;
+    const uid = await getSessionUserId();
     if (!uid) throw new Error("Not signed in");
     const studentId = params.studentId ?? uid;
     const reviewedAt = params.reviewedAt ?? new Date();
 
-    const { data: inserted, error } = await supabase
-      .from("student_spec_point_reviews")
-      .upsert(
+    const existing = await this.getSchedule(studentId, [params.specPointId]);
+    const next = applyReview(existing.get(params.specPointId) ?? null, params.rating, reviewedAt);
+
+    // Ledger insert + card upsert happen inside one DB transaction, so an
+    // interruption can't strand a ledger row whose card never advanced (the
+    // dedupe key would then skip that attempt forever).
+    const { data: applied, error } = await supabase.rpc("record_reviews_atomic", {
+      _reviews: [
         {
           student_id: studentId,
           spec_point_id: params.specPointId,
@@ -141,28 +168,50 @@ export class ScheduleDAL {
           score_pct: params.scorePct ?? null,
           source_id: params.sourceId ?? null,
           reviewed_at: reviewedAt.toISOString(),
+          card: next as unknown as Json,
+          due: next.due.toISOString(),
         },
-        { onConflict: "student_id,spec_point_id,source,source_id", ignoreDuplicates: true },
-      )
-      .select("id");
+      ] as unknown as Json,
+    });
     if (error) throw error;
-    if (!inserted || inserted.length === 0) return false; // already applied
+    return ((applied as unknown as string[]) ?? []).length > 0;
+  }
 
-    const existing = await this.getSchedule(studentId, [params.specPointId]);
-    const next = applyReview(existing.get(params.specPointId) ?? null, params.rating, reviewedAt);
-    const { error: upErr } = await supabase.from("student_spec_point_schedule").upsert(
-      {
-        student_id: studentId,
-        spec_point_id: params.specPointId,
-        card: next as unknown as Json,
-        due: next.due.toISOString(),
-        last_review: reviewedAt.toISOString(),
-        updated_at: new Date().toISOString(),
-      },
-      { onConflict: "student_id,spec_point_id" },
-    );
-    if (upErr) throw upErr;
-    return true;
+  /**
+   * Record one confidence self-rating across a whole set of spec points in three
+   * round-trips (ledger insert, card read, card upsert) rather than three per
+   * point. Used when the termly board's topic drag re-rates every point under a
+   * topic at once. Confidence reviews carry no source_id, so they always insert.
+   */
+  static async recordConfidenceReviews(specPointIds: string[], confidence: number): Promise<void> {
+    if (specPointIds.length === 0) return;
+    const uid = await getSessionUserId();
+    if (!uid) throw new Error("Not signed in");
+    const rating = confidenceToRating(confidence);
+    const now = new Date();
+    const nowIso = now.toISOString();
+
+    const cards = await this.getSchedule(uid, specPointIds);
+    // One transactional RPC for the whole batch: every ledger row and card
+    // upsert commits together or not at all (confidence rows have no source_id,
+    // so they always insert — same semantics as before).
+    const { error } = await supabase.rpc("record_reviews_atomic", {
+      _reviews: specPointIds.map((id) => {
+        const next = applyReview(cards.get(id) ?? null, rating, now);
+        return {
+          student_id: uid,
+          spec_point_id: id,
+          rating,
+          source: "confidence",
+          score_pct: null,
+          source_id: null,
+          reviewed_at: nowIso,
+          card: next as unknown as Json,
+          due: next.due.toISOString(),
+        };
+      }) as unknown as Json,
+    });
+    if (error) throw error;
   }
 
   /**
@@ -175,55 +224,7 @@ export class ScheduleDAL {
   static async syncReviewsFromAttempts(studentId: string, specPointIds: string[]): Promise<number> {
     if (specPointIds.length === 0) return 0;
 
-    const [rsp, directRes, setsDirect, qTagged] = await Promise.all([
-      supabase
-        .from("resource_spec_points")
-        .select("resource_id, spec_point_id, resources!inner(kind)")
-        .in("spec_point_id", specPointIds),
-      supabase
-        .from("resources")
-        .select("id, spec_point_id, kind")
-        .in("spec_point_id", specPointIds),
-      supabase.from("mcq_sets").select("id, spec_point_id").in("spec_point_id", specPointIds),
-      supabase
-        .from("mcq_questions")
-        .select("set_id, spec_point_id")
-        .in("spec_point_id", specPointIds),
-    ]);
-
-    const push = (m: Map<string, Set<string>>, key: string, point: string) => {
-      const s = m.get(key) ?? new Set<string>();
-      s.add(point);
-      m.set(key, s);
-    };
-    const resourceToPoints = new Map<string, Set<string>>();
-    for (const r of (rsp.data ?? []) as unknown as Array<{
-      resource_id: string;
-      spec_point_id: string;
-      resources: { kind: string } | null;
-    }>) {
-      if (r.resources?.kind === "homework") push(resourceToPoints, r.resource_id, r.spec_point_id);
-    }
-    for (const r of (directRes.data ?? []) as Array<{
-      id: string;
-      spec_point_id: string | null;
-      kind: string;
-    }>) {
-      if (r.kind === "homework" && r.spec_point_id) push(resourceToPoints, r.id, r.spec_point_id);
-    }
-    const setToPoints = new Map<string, Set<string>>();
-    for (const r of (setsDirect.data ?? []) as Array<{
-      id: string;
-      spec_point_id: string | null;
-    }>) {
-      if (r.spec_point_id) push(setToPoints, r.id, r.spec_point_id);
-    }
-    for (const r of (qTagged.data ?? []) as Array<{
-      set_id: string;
-      spec_point_id: string | null;
-    }>) {
-      if (r.spec_point_id) push(setToPoints, r.set_id, r.spec_point_id);
-    }
+    const { resourceToPoints, setToPoints } = await mapAttemptSources(specPointIds);
 
     const resourceIds = [...resourceToPoints.keys()];
     const setIds = [...setToPoints.keys()];
@@ -500,6 +501,77 @@ export class ScheduleDAL {
       .map(({ _sort, ...t }) => t);
   }
 
+  /**
+   * The planner dashboard's memory snapshot for one course: how many spec
+   * points sit in each scheduling bucket, and how well the practised ones are
+   * held right now (mean FSRS retrievability). One pass over the same cards the
+   * scheduler plans from, so the panel can never disagree with the plan.
+   */
+  static async getMemoryStats(params: {
+    studentId: string;
+    subject: SubjectV;
+    board: BoardV;
+    level: LevelV;
+    now?: Date;
+  }): Promise<MemoryStats> {
+    const now = params.now ?? new Date();
+    const empty: MemoryStats = {
+      total: 0,
+      newCount: 0,
+      dueNow: 0,
+      dueThisWeek: 0,
+      stable: 0,
+      avgRetention: null,
+      weakest: [],
+    };
+    const { data: topics } = await supabase
+      .from("topics")
+      .select("id")
+      .eq("subject", params.subject)
+      .eq("board", params.board)
+      .eq("level", params.level);
+    const topicIds = (topics ?? []).map((t) => t.id);
+    if (topicIds.length === 0) return empty;
+
+    const { data: pts } = await supabase
+      .from("spec_points")
+      .select("id, code, title")
+      .in("topic_id", topicIds);
+    if (!pts || pts.length === 0) return empty;
+
+    const cards = await this.getSchedule(
+      params.studentId,
+      pts.map((p) => p.id),
+    );
+    const weekEnd = new Date(now.getTime() + 7 * 86_400_000);
+    const stats = { ...empty, total: pts.length };
+    const retained: number[] = [];
+    const held: { code: string; title: string; retention: number }[] = [];
+    for (const p of pts) {
+      const card = cards.get(p.id) ?? null;
+      const r = retrievability(card, now);
+      if (r === null) {
+        stats.newCount++;
+        continue;
+      }
+      retained.push(r);
+      held.push({ code: p.code, title: p.title, retention: r });
+      if (isDueBy(card, now)) stats.dueNow++;
+      else if (isDueBy(card, weekEnd)) stats.dueThisWeek++;
+      else stats.stable++;
+    }
+    if (retained.length > 0) {
+      stats.avgRetention = retained.reduce((s, r) => s + r, 0) / retained.length;
+      // Only points actually decaying belong here — a just-reviewed card sits at
+      // ~100% and "closest to slipping: 100%" is noise, not a warning.
+      stats.weakest = held
+        .filter((h) => h.retention < 0.9)
+        .sort((a, b) => a.retention - b.retention)
+        .slice(0, 3);
+    }
+    return stats;
+  }
+
   /** Best homework/quiz mark per spec point from the review ledger. */
   private static async getMarks(
     studentId: string,
@@ -538,8 +610,7 @@ export class ScheduleDAL {
     level: LevelV;
     weekStart: string;
   }): Promise<number> {
-    const { data: u } = await supabase.auth.getUser();
-    const uid = u.user?.id;
+    const uid = await getSessionUserId();
     if (!uid) throw new Error("Not signed in");
     const studentId = params.studentId ?? uid;
 
@@ -572,18 +643,18 @@ export class ScheduleDAL {
     // again. New (never-practised) points are already due, so only touch cards.
     const cards = await this.getSchedule(studentId, ids);
     const nowIso = new Date().toISOString();
-    for (const [specPointId, card] of cards) {
-      const due = { ...card, due: new Date() };
-      await supabase.from("student_spec_point_schedule").upsert(
-        {
+    if (cards.size > 0) {
+      const { error: dueErr } = await supabase.from("student_spec_point_schedule").upsert(
+        [...cards.entries()].map(([specPointId, card]) => ({
           student_id: studentId,
           spec_point_id: specPointId,
-          card: due as unknown as Json,
+          card: { ...card, due: new Date() } as unknown as Json,
           due: nowIso,
           updated_at: nowIso,
-        },
+        })),
         { onConflict: "student_id,spec_point_id" },
       );
+      if (dueErr) throw dueErr;
     }
     return ids.length;
   }

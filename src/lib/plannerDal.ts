@@ -4,6 +4,7 @@ import { CurriculumDAL, type Topic, type SpecPoint } from "./curriculumDal";
 import { isDemoStudent } from "./demo/studentDemo";
 import { ScheduleDAL } from "./scheduleDal";
 import { confidenceToRating } from "./planner/scheduler";
+import { getSessionUserId } from "@/lib/auth/session";
 
 export type TopicWithConfidence = Topic & {
   /** 0-100, or null when the student has not rated this topic group yet. */
@@ -92,14 +93,23 @@ export class PlannerDAL {
     return points.map((p) => ({ ...p, confidence: byPoint.get(p.id) ?? null }));
   }
 
-  /** Upsert one topic-group confidence (and optional manual order). */
+  /**
+   * Upsert one topic-group confidence (and optional manual order).
+   *
+   * With `propagateToPoints` (the board's drag-between-bands), the rating also
+   * cascades to every spec point under the topic — overwriting their sliders and
+   * feeding the FSRS engine as a batch of confidence reviews — so the programme
+   * roadmap re-flows from the same signal. Without it (the sliders' aggregate
+   * writing back up), only the topic row moves: the points already carry their
+   * own ratings and reviews.
+   */
   static async setTopicConfidence(
     topicId: string,
     confidence: number,
     sortIndex?: number,
+    propagateToPoints = false,
   ): Promise<void> {
-    const { data: u } = await supabase.auth.getUser();
-    const uid = u.user?.id;
+    const uid = await getSessionUserId();
     if (!uid) throw new Error("Not signed in");
 
     const row: {
@@ -120,12 +130,36 @@ export class PlannerDAL {
       .from("student_topic_confidence")
       .upsert(row, { onConflict: "student_id,topic_id" });
     if (error) throw error;
+
+    if (!propagateToPoints) return;
+    const points = await CurriculumDAL.getSpecPoints(topicId);
+    if (points.length === 0) return;
+    const conf = clamp(confidence);
+    const nowIso = new Date().toISOString();
+    const { error: pErr } = await supabase.from("student_spec_point_confidence").upsert(
+      points.map((p) => ({
+        student_id: uid,
+        spec_point_id: p.id,
+        confidence: conf,
+        updated_at: nowIso,
+      })),
+      { onConflict: "student_id,spec_point_id" },
+    );
+    if (pErr) throw pErr;
+    // Best-effort FSRS feed, mirroring setSpecPointConfidence.
+    try {
+      await ScheduleDAL.recordConfidenceReviews(
+        points.map((p) => p.id),
+        conf,
+      );
+    } catch (e) {
+      console.error("SR topic confidence reviews failed:", e);
+    }
   }
 
   /** Upsert one spec-point slider value; also nudges the topic aggregate. */
   static async setSpecPointConfidence(specPointId: string, confidence: number): Promise<void> {
-    const { data: u } = await supabase.auth.getUser();
-    const uid = u.user?.id;
+    const uid = await getSessionUserId();
     if (!uid) throw new Error("Not signed in");
 
     const conf = clamp(confidence);

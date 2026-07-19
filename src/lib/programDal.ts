@@ -10,7 +10,10 @@ import {
   computeLivePacing,
   diffPacing,
   examMondayFor,
+  injectFocusBands,
+  isTeachBand,
 } from "./planner/pacing";
+import { SETTLED_THRESHOLD } from "./planner/scheduler";
 
 export interface RoadmapResult {
   /** The live curriculum bands (past/current/future), most-recent first order. */
@@ -71,6 +74,7 @@ export class ProgramDAL {
     // "Covered" now means the FSRS engine reads the topic as settled — which folds
     // in confidence, homework and MCQ alike, so the termly board feeds the roadmap.
     const coveredTopicIds = new Set(progress.filter((t) => t.settled).map((t) => t.topicId));
+    const masteryByTopic = new Map(progress.map((t) => [t.topicId, t.masteryPct]));
 
     const { data: baseline } = await supabase
       .from("student_program_plan")
@@ -104,7 +108,14 @@ export class ProgramDAL {
         { onConflict: "student_id,subject" },
       );
       return {
-        bands: live,
+        bands: injectFocusBands({
+          spine: live,
+          masteryByTopic,
+          coveredTopicIds,
+          currentMonday: thisMonday,
+          examMonday,
+          settledThreshold: SETTLED_THRESHOLD,
+        }),
         changes: [],
         needsAck: false,
         programStart,
@@ -123,7 +134,14 @@ export class ProgramDAL {
     });
     const changes = diffPacing(baseline.pacing as unknown as PacingBand[], live);
     return {
-      bands: live,
+      bands: injectFocusBands({
+        spine: live,
+        masteryByTopic,
+        coveredTopicIds,
+        currentMonday: thisMonday,
+        examMonday: weekKeyToDate(baseline.exam_date),
+        settledThreshold: SETTLED_THRESHOLD,
+      }),
       changes,
       needsAck: changes.length > 0,
       programStart: baseline.program_start,
@@ -133,7 +151,10 @@ export class ProgramDAL {
     };
   }
 
-  /** Accept the current live pacing as the new acknowledged baseline. */
+  /**
+   * Accept the current live pacing as the new acknowledged baseline. Only the
+   * spine persists — the focus lane is recomputed from live mastery every load.
+   */
   static async acknowledge(params: {
     studentId: string;
     subject: SubjectV;
@@ -147,7 +168,7 @@ export class ProgramDAL {
         subject: params.subject,
         program_start: params.programStart,
         exam_date: params.examDate,
-        pacing: params.bands as unknown as Json,
+        pacing: params.bands.filter(isTeachBand) as unknown as Json,
         acknowledged_at: new Date().toISOString(),
         updated_at: new Date().toISOString(),
       },

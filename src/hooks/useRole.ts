@@ -7,11 +7,11 @@ export function useRoles() {
   const { data, isLoading } = useQuery({
     queryKey: ["user-roles-and-profile"],
     queryFn: async () => {
-      const { data: uData, error: uError } = await supabase.auth.getUser();
-      if (uError || !uData.user) {
+      const { data: sData } = await supabase.auth.getSession();
+      const user = sData.session?.user;
+      if (!user) {
         return null;
       }
-      const user = uData.user;
 
       const { data: r } = await supabase.from("user_roles").select("role").eq("user_id", user.id);
 

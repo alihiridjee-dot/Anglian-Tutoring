@@ -1261,6 +1261,10 @@ export type Database = {
         Args: { _submission_id: string };
         Returns: undefined;
       };
+      record_reviews_atomic: {
+        Args: { _reviews: Json };
+        Returns: string[];
+      };
       my_access_state: {
         Args: never;
         Returns: {
