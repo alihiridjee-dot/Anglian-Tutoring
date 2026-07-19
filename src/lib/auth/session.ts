@@ -49,6 +49,18 @@ export function getDemoRole(): DemoRole | null {
 }
 
 /**
+ * The signed-in user's id from the locally cached session — no network call.
+ *
+ * Safe for data fetching: the id is only used to scope queries, and RLS
+ * re-checks the JWT server-side on every request anyway. Use getAuthSession
+ * instead when you need the session *validated* (route guards, auth flows).
+ */
+export async function getSessionUserId(): Promise<string | null> {
+  const { data } = await supabase.auth.getSession();
+  return data.session?.user.id ?? null;
+}
+
+/**
  * Resolves the auth state by validating the session with the server (getUser
  * hits the auth API — it does not trust local storage alone).
  */

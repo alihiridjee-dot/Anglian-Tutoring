@@ -8,16 +8,21 @@ import {
   AlertTriangle,
   ArrowRight,
   ChevronDown,
+  CalendarDays,
   ClipboardList,
   ListChecks,
+  Repeat,
+  Sparkles,
+  Target,
 } from "lucide-react";
+import { isTeachBand, FOCUS_RED_BELOW, type PacingBand } from "@/lib/planner/pacing";
 import { ProgramDAL, type RoadmapResult } from "@/lib/programDal";
 import { type ProgressPoint, type TopicProgress } from "@/lib/scheduleDal";
 import { type PointStatus } from "@/lib/planner/scheduler";
 import { bandOf } from "@/lib/planner/bands";
 import { type Enrolment } from "@/hooks/data/useEnrolments";
 import { type SubjectV, type BoardV, type LevelV } from "@/lib/taxonomy";
-import { currentWeekKey, weekKeyToDate, sundayOf } from "@/lib/week";
+import { currentWeekKey, weekKeyToDate, sundayOf, addWeeks, toDateKey } from "@/lib/week";
 
 const subjectLabel: Record<string, string> = {
   biology: "Biology",
@@ -46,10 +51,13 @@ export function RoadmapPanel({
   studentId,
   enrolments,
   level,
+  refreshToken,
 }: {
   studentId: string;
   enrolments: Enrolment[];
   level: LevelV;
+  /** Bump to force a reload (e.g. after the confidence board changes). */
+  refreshToken?: number;
 }) {
   const ordered = useMemo(
     () => [
@@ -85,6 +93,10 @@ export function RoadmapPanel({
     () => new Map<string, TopicProgress>((data?.progress ?? []).map((t) => [t.topicId, t])),
     [data],
   );
+  const masteryByTopic = useMemo(
+    () => new Map<string, number>((data?.progress ?? []).map((t) => [t.topicId, t.masteryPct])),
+    [data],
+  );
 
   const load = async () => {
     if (!active) return;
@@ -103,7 +115,7 @@ export function RoadmapPanel({
   useEffect(() => {
     load();
     // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [studentId, active?.subject, active?.board, level]);
+  }, [studentId, active?.subject, active?.board, level, refreshToken]);
 
   const acknowledge = async () => {
     if (!data || !active) return;
@@ -127,10 +139,10 @@ export function RoadmapPanel({
 
   if (!active) return null;
 
-  const nowKey = currentWeekKey();
   const covered = new Set(data?.coveredTopicIds ?? []);
-  const total = data?.bands.length ?? 0;
-  const doneCount = data?.bands.filter((b) => covered.has(b.topicId)).length ?? 0;
+  const spine = data?.bands.filter(isTeachBand) ?? [];
+  const total = spine.length;
+  const doneCount = spine.filter((b) => covered.has(b.topicId)).length;
 
   return (
     <div className="rounded-2xl bg-card border border-border p-4 sm:p-5 shadow-sm mt-6">
@@ -226,98 +238,233 @@ export function RoadmapPanel({
             </div>
           )}
 
-          {/* Timeline — each topic expands to its spec-point breakdown. */}
-          <ol className="relative border-l border-border ml-2 space-y-1">
-            {data.bands.map((b) => {
-              const isCovered = covered.has(b.topicId);
-              const isCurrent = b.startWeek <= nowKey && nowKey <= b.endWeek;
-              const isPast = b.endWeek < nowKey;
-              const behind = isPast && !isCovered;
-              const tp = progressByTopic.get(b.topicId);
-              const isOpen = expanded.has(b.topicId);
-              const hasDetail = (tp?.points.length ?? 0) > 0;
-              return (
-                <li key={b.topicId} className="ml-4">
-                  <span
-                    className={`absolute -left-[7px] mt-2 flex items-center justify-center w-3.5 h-3.5 rounded-full ring-2 ring-card ${
-                      isCovered
-                        ? "bg-emerald-500"
-                        : isCurrent
-                          ? "bg-primary"
-                          : behind
-                            ? "bg-amber-500"
-                            : "bg-muted-foreground/30"
-                    }`}
-                  />
-                  <button
-                    type="button"
-                    onClick={() => hasDetail && toggle(b.topicId)}
-                    className={`w-full flex items-center justify-between gap-3 py-1.5 text-left rounded-lg ${
-                      hasDetail ? "hover:bg-muted/40 px-1.5 -mx-1.5" : "cursor-default"
-                    }`}
-                    aria-expanded={isOpen}
-                  >
-                    <div className="min-w-0">
-                      <div className="flex items-center gap-1.5 flex-wrap">
-                        <span
-                          className={`text-sm ${isCurrent ? "font-semibold" : "font-medium"} ${
-                            isPast && !isCovered ? "text-muted-foreground" : ""
-                          }`}
-                        >
-                          {b.title}
-                        </span>
-                        {isCovered && (
-                          <span className="inline-flex items-center gap-0.5 text-[10px] font-semibold text-emerald-600 dark:text-emerald-400">
-                            <CheckCircle2 className="w-3 h-3" /> Covered
-                          </span>
-                        )}
-                        {isCurrent && !isCovered && (
-                          <span className="inline-flex items-center gap-0.5 text-[10px] font-semibold text-primary">
-                            <CircleDot className="w-3 h-3" /> Now
-                          </span>
-                        )}
-                        {behind && (
-                          <span className="text-[10px] font-semibold text-amber-600 dark:text-amber-400">
-                            Needs catch-up
-                          </span>
-                        )}
-                      </div>
-                      <p className="text-[11px] text-muted-foreground">
-                        {fmtRange(b.startWeek, b.endWeek)} · {b.weeks}{" "}
-                        {b.weeks === 1 ? "week" : "weeks"}
-                        {tp && tp.points.length > 0 && (
-                          <>
-                            {" · "}
-                            <span className="font-medium">{tp.masteryPct}% mastery</span>
-                          </>
-                        )}
-                      </p>
-                    </div>
-                    {hasDetail && (
-                      <ChevronDown
-                        className={`w-4 h-4 text-muted-foreground shrink-0 transition-transform ${
-                          isOpen ? "rotate-180" : ""
-                        }`}
-                      />
-                    )}
-                  </button>
-                  {isOpen && tp && (
-                    <ul className="mb-2 mt-0.5 space-y-1 border-l-2 border-dashed border-border/70 pl-3">
-                      {tp.points.map((p) => (
-                        <PointRow key={p.id} point={p} />
-                      ))}
-                    </ul>
-                  )}
-                </li>
-              );
-            })}
-          </ol>
+          {/* How the plan works — plain-language reassurance for the student. */}
+          <div className="mb-4 flex items-start gap-2 rounded-xl bg-muted/40 px-3 py-2.5">
+            <Target className="w-4 h-4 text-primary mt-0.5 shrink-0" />
+            <p className="text-[12px] text-muted-foreground leading-relaxed">
+              <span className="font-semibold text-foreground">This plan is built around you.</span>{" "}
+              Week by week, <span className="font-medium text-foreground">core topics</span> are what
+              the class is working through, and{" "}
+              <span className="font-medium text-foreground">focused topics</span> are the ones we keep
+              bringing back until they stick.
+            </p>
+          </div>
+
+          <WeekTable
+            spine={spine}
+            focusBands={data.bands.filter((b) => !isTeachBand(b))}
+            examDate={data.examDate}
+            covered={covered}
+            progressByTopic={progressByTopic}
+            masteryByTopic={masteryByTopic}
+            expanded={expanded}
+            onToggle={toggle}
+          />
+
           <p className="mt-4 text-[11px] text-muted-foreground">
             Mastery blends how you've rated each topic with your homework and quiz results. Expand a
-            topic to see which spec points are sticking and which need another look.
+            core topic to see which spec points are sticking and which need another look.
           </p>
         </>
       )}
+    </div>
+  );
+}
+
+/** Colour + label a focused-topic chip by why it's back this week. */
+function focusTone(b: PacingBand, mastery: number) {
+  if (b.kind !== "revisit") {
+    return {
+      label: "Quick refresh",
+      icon: Sparkles,
+      badge: "bg-emerald-500/10 border-emerald-500/30 text-emerald-700 dark:text-emerald-300",
+    };
+  }
+  if (mastery < FOCUS_RED_BELOW) {
+    return {
+      label: "Needs work",
+      icon: Repeat,
+      badge: "bg-rose-500/15 border-rose-500/40 text-rose-700 dark:text-rose-300",
+    };
+  }
+  return {
+    label: "Revisit",
+    icon: Repeat,
+    badge: "bg-amber-500/[0.08] border-amber-500/25 text-amber-700/90 dark:text-amber-300/80",
+  };
+}
+
+/** Every Monday date-key from `startKey` to `endKey` inclusive. */
+function weekKeysBetween(startKey: string, endKey: string): string[] {
+  const out: string[] = [];
+  let d = weekKeyToDate(startKey);
+  const end = weekKeyToDate(endKey);
+  while (d <= end) {
+    out.push(toDateKey(d));
+    d = addWeeks(d, 1);
+  }
+  return out;
+}
+
+/**
+ * The programme as a week-by-week table. The date leads each row; alongside it
+ * sit that week's core topic (the class's chronological spine) and any focused
+ * topics (the FSRS-driven revisits that resurface until they stick). It runs the
+ * whole year from this week to the exams, and scrolls. Core topics stay
+ * expandable to their spec-point breakdown.
+ */
+function WeekTable({
+  spine,
+  focusBands,
+  examDate,
+  covered,
+  progressByTopic,
+  masteryByTopic,
+  expanded,
+  onToggle,
+}: {
+  spine: PacingBand[];
+  focusBands: PacingBand[];
+  examDate: string;
+  covered: Set<string>;
+  progressByTopic: Map<string, TopicProgress>;
+  masteryByTopic: Map<string, number>;
+  expanded: Set<string>;
+  onToggle: (topicId: string) => void;
+}) {
+  const nowKey = currentWeekKey();
+  // Run from this week through to the exams.
+  const weeks = weekKeysBetween(nowKey, examDate);
+
+  const inBand = (b: PacingBand, wk: string) => b.startWeek <= wk && wk <= b.endWeek;
+
+  return (
+    <div className="rounded-xl border border-border overflow-hidden">
+      {/* Header */}
+      <div className="grid grid-cols-[7.5rem_1fr_1fr] bg-muted/50 border-b border-border text-[11px] font-semibold uppercase tracking-wide text-muted-foreground">
+        <div className="flex items-center gap-1.5 px-3 py-2">
+          <CalendarDays className="w-3.5 h-3.5" /> Week
+        </div>
+        <div className="flex items-center gap-1.5 px-3 py-2 border-l border-border">
+          <CircleDot className="w-3.5 h-3.5 text-primary" /> Core topics
+        </div>
+        <div className="flex items-center gap-1.5 px-3 py-2 border-l border-border">
+          <Repeat className="w-3.5 h-3.5 text-rose-500" /> Focused topics
+        </div>
+      </div>
+
+      <div className="max-h-[32rem] overflow-y-auto divide-y divide-border">
+        {weeks.map((wk) => {
+          const isNow = wk === nowKey;
+          const core = spine.find((b) => inBand(b, wk));
+          const focused = focusBands.filter((b) => inBand(b, wk));
+          const tp = core ? progressByTopic.get(core.topicId) : undefined;
+          const isOpen = core ? expanded.has(core.topicId) : false;
+          const hasDetail = (tp?.points.length ?? 0) > 0;
+          const isCovered = core ? covered.has(core.topicId) : false;
+          return (
+            <div key={wk}>
+              <div
+                className={`grid grid-cols-[7.5rem_1fr_1fr] items-stretch ${
+                  isNow ? "bg-primary/[0.04]" : ""
+                }`}
+              >
+                {/* Week */}
+                <div className="px-3 py-2.5 flex flex-col justify-center">
+                  {isNow && (
+                    <span className="inline-flex w-fit items-center gap-1 text-[10px] font-bold uppercase tracking-wide text-primary mb-0.5">
+                      <CircleDot className="w-3 h-3" /> This week
+                    </span>
+                  )}
+                  <span className="text-[13px] font-medium tabular-nums">
+                    {fmtDate(weekKeyToDate(wk))}
+                  </span>
+                </div>
+
+                {/* Core */}
+                <div className="px-3 py-2.5 border-l border-border min-w-0">
+                  {core ? (
+                    <button
+                      type="button"
+                      onClick={() => hasDetail && onToggle(core.topicId)}
+                      className={`w-full text-left rounded-md -mx-1 px-1 ${
+                        hasDetail ? "hover:bg-muted/50" : "cursor-default"
+                      }`}
+                      aria-expanded={isOpen}
+                    >
+                      <div className="flex items-start justify-between gap-2">
+                        <span className="text-[13px] font-medium leading-snug">{core.title}</span>
+                        <div className="flex items-center gap-1 shrink-0">
+                          {isCovered && (
+                            <CheckCircle2 className="w-3.5 h-3.5 text-emerald-600 dark:text-emerald-400" />
+                          )}
+                          {hasDetail && (
+                            <ChevronDown
+                              className={`w-3.5 h-3.5 text-muted-foreground transition-transform ${
+                                isOpen ? "rotate-180" : ""
+                              }`}
+                            />
+                          )}
+                        </div>
+                      </div>
+                      {tp && tp.points.length > 0 && (
+                        <div className="mt-1.5 flex items-center gap-2">
+                          <div className="h-1.5 flex-1 rounded-full bg-muted overflow-hidden">
+                            <div
+                              className="h-full rounded-full bg-primary"
+                              style={{ width: `${Math.max(2, tp.masteryPct)}%` }}
+                            />
+                          </div>
+                          <span className="text-[10px] font-semibold tabular-nums text-muted-foreground">
+                            {tp.masteryPct}%
+                          </span>
+                        </div>
+                      )}
+                    </button>
+                  ) : (
+                    <span className="text-[12px] text-muted-foreground/60">—</span>
+                  )}
+                </div>
+
+                {/* Focused */}
+                <div className="px-3 py-2.5 border-l border-border min-w-0 space-y-1.5">
+                  {focused.length > 0 ? (
+                    focused.map((b) => {
+                      const tone = focusTone(b, masteryByTopic.get(b.topicId) ?? 0);
+                      const Icon = tone.icon;
+                      return (
+                        <div
+                          key={`${b.topicId}-${b.kind}-${b.startWeek}`}
+                          className="flex items-center gap-1.5 min-w-0"
+                        >
+                          <span
+                            className={`inline-flex items-center gap-1 h-5 px-1.5 rounded-md border text-[10px] font-semibold shrink-0 ${tone.badge}`}
+                          >
+                            <Icon className="w-2.5 h-2.5" />
+                            {tone.label}
+                          </span>
+                          <span className="text-[12px] truncate">{b.title}</span>
+                        </div>
+                      );
+                    })
+                  ) : (
+                    <span className="text-[12px] text-muted-foreground/60">—</span>
+                  )}
+                </div>
+              </div>
+
+              {/* Expanded spec-point breakdown for the core topic */}
+              {isOpen && tp && (
+                <ul className="bg-muted/20 px-4 py-2.5 space-y-1 border-t border-border">
+                  {tp.points.map((p) => (
+                    <PointRow key={p.id} point={p} />
+                  ))}
+                </ul>
+              )}
+            </div>
+          );
+        })}
+      </div>
     </div>
   );
 }

@@ -2,6 +2,8 @@ import { supabase } from "@/integrations/supabase/client";
 import { type SubjectV, type BoardV, type LevelV } from "./taxonomy";
 import { type Database, type Json } from "@/integrations/supabase/types";
 import { type PointCoverage } from "./planner/coverage";
+import { mapAttemptSources } from "./planner/attemptSources";
+import { getSessionUserId } from "@/lib/auth/session";
 
 /** A stored end-of-week check-in row. */
 export interface WeeklyCheckin {
@@ -139,8 +141,7 @@ export class WeeklyPlanDAL {
     /** Whose plan — omit for the signed-in student; a tutor passes the target. */
     studentId?: string;
   }): Promise<string> {
-    const { data: u } = await supabase.auth.getUser();
-    const uid = u.user?.id;
+    const uid = await getSessionUserId();
     if (!uid) throw new Error("Not signed in");
     const studentId = params.studentId ?? uid;
 
@@ -277,56 +278,7 @@ export class WeeklyPlanDAL {
     if (specPointIds.length === 0) return out;
 
     // spec point → homework resource ids, and → mcq set ids.
-    const [rsp, directRes, setsDirect, qTagged] = await Promise.all([
-      supabase
-        .from("resource_spec_points")
-        .select("resource_id, spec_point_id, resources!inner(kind)")
-        .in("spec_point_id", specPointIds),
-      supabase
-        .from("resources")
-        .select("id, spec_point_id, kind")
-        .in("spec_point_id", specPointIds),
-      supabase.from("mcq_sets").select("id, spec_point_id").in("spec_point_id", specPointIds),
-      supabase
-        .from("mcq_questions")
-        .select("set_id, spec_point_id")
-        .in("spec_point_id", specPointIds),
-    ]);
-
-    const push = (m: Map<string, Set<string>>, key: string, point: string) => {
-      const s = m.get(key) ?? new Set<string>();
-      s.add(point);
-      m.set(key, s);
-    };
-    const resourceToPoints = new Map<string, Set<string>>();
-    for (const r of (rsp.data ?? []) as unknown as Array<{
-      resource_id: string;
-      spec_point_id: string;
-      resources: { kind: string } | null;
-    }>) {
-      if (r.resources?.kind === "homework") push(resourceToPoints, r.resource_id, r.spec_point_id);
-    }
-    for (const r of (directRes.data ?? []) as Array<{
-      id: string;
-      spec_point_id: string | null;
-      kind: string;
-    }>) {
-      if (r.kind === "homework" && r.spec_point_id) push(resourceToPoints, r.id, r.spec_point_id);
-    }
-
-    const setToPoints = new Map<string, Set<string>>();
-    for (const r of (setsDirect.data ?? []) as Array<{
-      id: string;
-      spec_point_id: string | null;
-    }>) {
-      if (r.spec_point_id) push(setToPoints, r.id, r.spec_point_id);
-    }
-    for (const r of (qTagged.data ?? []) as Array<{
-      set_id: string;
-      spec_point_id: string | null;
-    }>) {
-      if (r.spec_point_id) push(setToPoints, r.set_id, r.spec_point_id);
-    }
+    const { resourceToPoints, setToPoints } = await mapAttemptSources(specPointIds);
 
     const resourceIds = [...resourceToPoints.keys()];
     const setIds = [...setToPoints.keys()];
@@ -403,8 +355,7 @@ export class WeeklyPlanDAL {
     coverage?: Record<string, unknown>;
     studentId?: string;
   }): Promise<void> {
-    const { data: u } = await supabase.auth.getUser();
-    const uid = u.user?.id;
+    const uid = await getSessionUserId();
     if (!uid) throw new Error("Not signed in");
     const { error } = await supabase.from("student_weekly_checkins").upsert(
       {
@@ -441,8 +392,7 @@ export class WeeklyPlanDAL {
     note: string | null;
     nextPoints: string[];
   }): Promise<void> {
-    const { data: u } = await supabase.auth.getUser();
-    const uid = u.user?.id;
+    const uid = await getSessionUserId();
     if (!uid) throw new Error("Not signed in");
     const { error } = await supabase.from("student_weekly_tutor_notes").upsert(
       {
@@ -465,13 +415,15 @@ export class WeeklyPlanDAL {
       .from("spec_points")
       .select("id, code, title, sort_order, topics!inner(sort_order)")
       .in("id", specPointIds);
-    return ((data ?? []) as unknown as Array<{
-      id: string;
-      code: string;
-      title: string;
-      sort_order: number | null;
-      topics: { sort_order: number | null } | null;
-    }>)
+    return (
+      (data ?? []) as unknown as Array<{
+        id: string;
+        code: string;
+        title: string;
+        sort_order: number | null;
+        topics: { sort_order: number | null } | null;
+      }>
+    )
       .map((p) => ({
         id: p.id,
         code: p.code,

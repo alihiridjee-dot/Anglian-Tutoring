@@ -5,9 +5,7 @@ import { AppLayout } from "@/components/AppLayout";
 import { useEnrolments } from "@/hooks/data/useEnrolments";
 import { useRoles } from "@/hooks/useRole";
 import { AuthService } from "@/lib/authService";
-import { PlannerBoard } from "@/components/planner/PlannerBoard";
-import { RoadmapPanel } from "@/components/planner/RoadmapPanel";
-import { CoveredLedger } from "@/components/planner/CoveredLedger";
+import { StudentPlanner } from "@/components/planner/StudentPlanner";
 import { TutorPlannerPanel } from "@/components/planner/TutorPlannerPanel";
 
 export const Route = createFileRoute("/_authenticated/planner")({
@@ -20,8 +18,7 @@ function PlannerPage() {
 
   return (
     <AppLayout title={isTutor ? "Student Planner" : "My Planner"}>
-      {/* Intro ribbon — the planner explains itself rather than assuming the
-          reader knows what the columns are for. */}
+      {/* Intro ribbon — one sentence on what this page is for. */}
       <div className="rounded-2xl bg-gradient-to-br from-indigo-600 to-violet-700 text-white px-5 py-4 sm:px-6 sm:py-5 mb-6 relative overflow-hidden border border-indigo-700/50 shadow-sm">
         <div
           className="absolute inset-0 opacity-10"
@@ -36,12 +33,12 @@ function PlannerPage() {
           </div>
           <div>
             <h2 className="font-display text-lg sm:text-xl font-bold tracking-tight">
-              {isTutor ? "Student weekly plans" : "Your termly plan"}
+              {isTutor ? "Student weekly plans" : "Your plan to the exams"}
             </h2>
             <p className="text-xs sm:text-sm text-indigo-100">
               {isTutor
                 ? "Pick a student to review how their week went and adjust their focus."
-                : "Sort each topic by how confident you feel. Expand a topic to rate its specific points."}
+                : "What to work on this week, the road ahead, and where to rate your topics."}
             </p>
           </div>
         </div>
@@ -54,13 +51,13 @@ function PlannerPage() {
       ) : isTutor ? (
         <TutorPlannerPanel />
       ) : (
-        <StudentPlanner />
+        <StudentPlannerGate />
       )}
     </AppLayout>
   );
 }
 
-function StudentPlanner() {
+function StudentPlannerGate() {
   const { enrolments, level, loading } = useEnrolments();
   const [studentId, setStudentId] = useState<string | null>(null);
 
@@ -85,21 +82,5 @@ function StudentPlanner() {
     );
   }
 
-  return (
-    <>
-      <RoadmapPanel studentId={studentId} enrolments={enrolments} level={level} />
-      <div className="rounded-2xl bg-card border border-border p-4 sm:p-5 shadow-sm">
-        <div className="mb-4">
-          <h2 className="font-display text-base font-semibold tracking-tight">
-            Your termly confidence
-          </h2>
-          <p className="text-xs text-muted-foreground">
-            Keep this up to date — it's what your weekly plan is built from.
-          </p>
-        </div>
-        <PlannerBoard studentId={studentId} enrolments={enrolments} level={level} />
-      </div>
-      <CoveredLedger studentId={studentId} enrolments={enrolments} level={level} />
-    </>
-  );
+  return <StudentPlanner studentId={studentId} enrolments={enrolments} level={level} />;
 }

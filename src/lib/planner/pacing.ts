@@ -19,6 +19,17 @@ export interface PacingInput {
   pointCount: number;
 }
 
+/**
+ * What a band on the roadmap is for:
+ *  • `teach`   — the chronological spine: first full pass through the topic.
+ *  • `revisit` — an FSRS-driven focus week for a weak topic; recurs on an
+ *                expanding interval until mastery clears the settled threshold.
+ *  • `review`  — a light pre-exam pass for a topic that's already sticking.
+ * Bands persisted before this field existed are spine bands (treat missing as
+ * `teach`).
+ */
+export type BandKind = "teach" | "revisit" | "review";
+
 export interface PacingBand {
   topicId: string;
   title: string;
@@ -26,6 +37,12 @@ export interface PacingBand {
   startWeek: string;
   endWeek: string;
   weeks: number;
+  kind?: BandKind;
+}
+
+/** A spine band (legacy stored bands carry no kind). */
+export function isTeachBand(b: PacingBand): boolean {
+  return (b.kind ?? "teach") === "teach";
 }
 
 /** Whole weeks between two Mondays (b - a), rounded. */
@@ -149,12 +166,114 @@ export function computeLivePacing(params: {
   return [...settled, ...reflowed].sort((a, b) => a.startWeek.localeCompare(b.startWeek));
 }
 
-/** A stable fingerprint of a pacing (topic → its start week). */
-export function signatureOf(bands: PacingBand[]): string {
-  return bands
-    .map((b) => `${b.topicId}:${b.startWeek}`)
-    .sort()
-    .join("|");
+/** Below this mastery a topic is "needs work" — it gets recurring revisits. */
+export const FOCUS_RED_BELOW = 34;
+
+/**
+ * Expanding revisit offsets for a needs-work topic, scaled to the runway left
+ * before the revision window: ~2.5%, 7.5%, 17.5% and 37.5% of the remaining
+ * teaching weeks (each at least a week after the last). A full school year
+ * (~44 wks) gives ≈ [1, 3, 8, 17]; a 12-week sprint compresses to [1, 2, 3, 5];
+ * with only a couple of weeks left there's a single revisit next week. Same
+ * spaced-repetition shape at every horizon — often at first, stretching out.
+ */
+export function revisitOffsets(runwayWeeks: number): number[] {
+  const out: number[] = [];
+  let prev = 0;
+  for (const frac of [0.025, 0.075, 0.175, 0.375]) {
+    const w = Math.max(prev + 1, Math.round(runwayWeeks * frac));
+    if (w >= runwayWeeks) break;
+    out.push(w);
+    prev = w;
+  }
+  if (out.length === 0 && runwayWeeks > 1) out.push(1);
+  return out;
+}
+
+/** An amber topic's single revisit lands ~10% of the runway after its teach
+ *  pass (clamped to 2–6 weeks), so short courses re-check sooner. */
+export function amberRevisitGap(runwayWeeks: number): number {
+  return Math.min(6, Math.max(2, Math.round(runwayWeeks * 0.1)));
+}
+
+/**
+ * The focus lane: overlay short FSRS-driven bands on the chronological spine.
+ *
+ *  • Needs-work topics (mastery < {@link FOCUS_RED_BELOW}) get 1-week revisit
+ *    bands at expanding intervals starting next week — they keep resurfacing
+ *    until mastery clears the settled threshold, at which point the topic reads
+ *    as covered and the revisits disappear on the next re-flow.
+ *  • Getting-there topics (below settled) get a single revisit ~a month after
+ *    their teach pass ends (or soon, if that pass is already behind them).
+ *  • Covered topics get one light review band in the pre-exam revision window.
+ *
+ * Revisits are derived live from mastery on every load — never persisted — so
+ * the lane always reflects the cards as they stand today. Bands may overlap the
+ * spine: a revisit week is homework/quiz focus alongside whatever topic is
+ * being taught, which is exactly how the weekly plan interleaves due points.
+ */
+export function injectFocusBands(params: {
+  spine: PacingBand[];
+  /** Per-topic FSRS mastery (0–100), from getTopicProgress. */
+  masteryByTopic: Map<string, number>;
+  /** Topics already settled — get a review slot, never revisits. */
+  coveredTopicIds: Set<string>;
+  currentMonday: Date;
+  examMonday: Date;
+  settledThreshold: number;
+  revisionWeeks?: number;
+}): PacingBand[] {
+  const { spine, masteryByTopic, coveredTopicIds, examMonday, settledThreshold } = params;
+  const currentMonday = mondayOf(params.currentMonday);
+  const revisionWeeks = params.revisionWeeks ?? 3;
+  const revisionStart = addWeeks(mondayOf(examMonday), -revisionWeeks);
+  // The runway drives all spacing: a year stretches revisits out, a short
+  // sprint to the exam compresses the same pattern.
+  const runway = Math.max(0, weeksBetween(currentMonday, revisionStart));
+  const redOffsets = revisitOffsets(runway);
+  const amberGap = amberRevisitGap(runway);
+
+  const focus: PacingBand[] = [];
+  const oneWeek = (t: PacingBand, start: Date, kind: BandKind): PacingBand => ({
+    topicId: t.topicId,
+    title: t.title,
+    startWeek: toDateKey(start),
+    endWeek: toDateKey(start),
+    weeks: 1,
+    kind,
+  });
+  const insideOwnTeach = (t: PacingBand, start: Date) => {
+    const key = toDateKey(start);
+    return t.startWeek <= key && key <= t.endWeek;
+  };
+
+  for (const t of spine) {
+    if (coveredTopicIds.has(t.topicId)) {
+      if (revisionStart > currentMonday) focus.push(oneWeek(t, revisionStart, "review"));
+      continue;
+    }
+    const mastery = masteryByTopic.get(t.topicId) ?? 0;
+    if (mastery < FOCUS_RED_BELOW) {
+      for (const off of redOffsets) {
+        const start = addWeeks(currentMonday, off);
+        if (start >= revisionStart) break;
+        if (!insideOwnTeach(t, start)) focus.push(oneWeek(t, start, "revisit"));
+      }
+    } else if (mastery < settledThreshold) {
+      const teachEnd = weekKeyToDate(t.endWeek);
+      const afterTeach = addWeeks(teachEnd, amberGap);
+      const soon = addWeeks(currentMonday, 2);
+      const start = afterTeach > soon ? afterTeach : soon;
+      if (start < revisionStart && !insideOwnTeach(t, start)) {
+        focus.push(oneWeek(t, start, "revisit"));
+      }
+    }
+  }
+
+  return [...spine, ...focus].sort(
+    (a, b) =>
+      a.startWeek.localeCompare(b.startWeek) || Number(isTeachBand(b)) - Number(isTeachBand(a)),
+  );
 }
 
 export interface PacingChange {
@@ -164,11 +283,15 @@ export interface PacingChange {
   to: string;
 }
 
-/** Topics whose start week moved between the acknowledged plan and the live one. */
+/**
+ * Topics whose start week moved between the acknowledged plan and the live one.
+ * Only spine (teach) bands count: the focus lane is recomputed live from
+ * mastery, so its churn must never trigger an "accept the new plan" prompt.
+ */
 export function diffPacing(prev: PacingBand[], cur: PacingBand[]): PacingChange[] {
-  const prevByTopic = new Map(prev.map((b) => [b.topicId, b]));
+  const prevByTopic = new Map(prev.filter(isTeachBand).map((b) => [b.topicId, b]));
   const out: PacingChange[] = [];
-  for (const b of cur) {
+  for (const b of cur.filter(isTeachBand)) {
     const p = prevByTopic.get(b.topicId);
     if (!p || p.startWeek !== b.startWeek) {
       out.push({ topicId: b.topicId, title: b.title, from: p?.startWeek ?? null, to: b.startWeek });

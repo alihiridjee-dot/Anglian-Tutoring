@@ -9,6 +9,7 @@ import {
   DEMO_LEVEL,
 } from "@/lib/demo/studentDemo";
 import type { Database } from "@/integrations/supabase/types";
+import { getSessionUserId } from "@/lib/auth/session";
 
 export type ProfileRole = Database["public"]["Enums"]["profile_role"];
 export type BoardV = Database["public"]["Enums"]["board"];
@@ -58,8 +59,7 @@ export function useEnrolments(): EnrolmentsState {
         };
       }
 
-      const { data: u } = await supabase.auth.getUser();
-      const uid = u.user?.id;
+      const uid = await getSessionUserId();
       if (!uid) {
         return {
           role: null,

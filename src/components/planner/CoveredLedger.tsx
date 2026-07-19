@@ -24,10 +24,13 @@ export function CoveredLedger({
   studentId,
   enrolments,
   level,
+  subject,
 }: {
   studentId: string;
   enrolments: Enrolment[];
   level: LevelV;
+  /** When set, the subject is controlled by the parent and the tabs are hidden. */
+  subject?: string;
 }) {
   const ordered = useMemo(
     () => [
@@ -36,14 +39,15 @@ export function CoveredLedger({
     ],
     [enrolments],
   );
-  const [activeSubject, setActiveSubject] = useState(ordered[0]?.subject ?? "biology");
+  const [pickedSubject, setPickedSubject] = useState(ordered[0]?.subject ?? "biology");
+  const activeSubject = subject ?? pickedSubject;
   const active = ordered.find((e) => e.subject === activeSubject) ?? ordered[0];
 
   // Reset to the first subject when the student changes — the tutor's planner
   // reuses this component across students, so a prior pick must not carry over
   // (otherwise it queries the wrong subject and looks empty).
   useEffect(() => {
-    setActiveSubject(ordered[0]?.subject ?? "biology");
+    setPickedSubject(ordered[0]?.subject ?? "biology");
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [studentId]);
 
@@ -125,13 +129,13 @@ export function CoveredLedger({
             </p>
           </div>
         </div>
-        {ordered.length > 1 && (
+        {subject == null && ordered.length > 1 && (
           <div className="flex items-center gap-1.5">
             {ordered.map((e) => (
               <button
                 key={e.subject}
                 type="button"
-                onClick={() => setActiveSubject(e.subject)}
+                onClick={() => setPickedSubject(e.subject)}
                 className={`h-8 px-3 rounded-lg text-sm font-medium transition ${
                   e.subject === activeSubject
                     ? "bg-primary text-primary-foreground"
