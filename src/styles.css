@@ -149,6 +149,102 @@
   transform-origin: center;
 }
 
+/* Curriculum showcase: the auto-cycling "moving screens" section. Each screen
+   swaps in with a soft rise, and the visuals inside animate on entry — spec-point
+   cells pop into coverage, confidence bars grow, and the spaced-repetition
+   forgetting curve draws itself with review spikes. Keyed remounts (see
+   CurriculumShowcase.tsx) replay these each time a screen becomes active. */
+@keyframes screen-in {
+  from {
+    opacity: 0;
+    transform: translateY(14px) scale(0.985);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+
+@keyframes cell-pop {
+  0% {
+    opacity: 0;
+    transform: scale(0.4);
+  }
+  60% {
+    transform: scale(1.12);
+  }
+  100% {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+@keyframes bar-grow {
+  from {
+    transform: scaleX(0);
+  }
+  to {
+    transform: scaleX(1);
+  }
+}
+
+@keyframes curve-draw {
+  from {
+    stroke-dashoffset: var(--curve-len, 1000);
+  }
+  to {
+    stroke-dashoffset: 0;
+  }
+}
+
+@keyframes spike-in {
+  0% {
+    opacity: 0;
+    transform: translateY(8px) scale(0.5);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+
+@keyframes float-y {
+  0%,
+  100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-6px);
+  }
+}
+
+.screen-in {
+  animation: screen-in 0.6s cubic-bezier(0.22, 1, 0.36, 1) both;
+}
+.cell-pop {
+  animation: cell-pop 0.5s cubic-bezier(0.22, 1, 0.36, 1) both;
+  animation-delay: var(--pop-delay, 0s);
+}
+.bar-grow {
+  transform-origin: left center;
+  animation: bar-grow 0.9s cubic-bezier(0.22, 1, 0.36, 1) both;
+  animation-delay: var(--grow-delay, 0s);
+}
+.curve-draw {
+  stroke-dasharray: var(--curve-len, 1000);
+  animation: curve-draw 2s cubic-bezier(0.4, 0, 0.2, 1) both;
+  animation-delay: var(--curve-delay, 0.2s);
+}
+.spike-in {
+  animation: spike-in 0.5s cubic-bezier(0.22, 1, 0.36, 1) both;
+  animation-delay: var(--spike-delay, 0s);
+  transform-box: fill-box;
+  transform-origin: bottom center;
+}
+.float-y {
+  animation: float-y 4s ease-in-out infinite;
+}
+
 @media (prefers-reduced-motion: reduce) {
   .ribbon-path,
   .ribbon-group,
@@ -157,6 +253,20 @@
   }
   .ribbon-path {
     stroke-dashoffset: 0;
+  }
+  .screen-in,
+  .cell-pop,
+  .bar-grow,
+  .curve-draw,
+  .spike-in,
+  .float-y {
+    animation: none;
+  }
+  .curve-draw {
+    stroke-dashoffset: 0;
+  }
+  .bar-grow {
+    transform: scaleX(1);
   }
 }
 

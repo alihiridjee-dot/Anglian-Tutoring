@@ -4,6 +4,7 @@ import { Nav } from "@/components/landing/Nav";
 import { Hero } from "@/components/landing/Hero";
 import { TutorsSection } from "@/components/landing/TutorsSection";
 import { OfferSection } from "@/components/landing/OfferSection";
+import { CurriculumShowcase } from "@/components/landing/CurriculumShowcase";
 import { PricingSection } from "@/components/landing/PricingSection";
 import { ContactSection } from "@/components/landing/ContactSection";
 import { Footer } from "@/components/landing/Footer";
@@ -31,6 +32,7 @@ function Landing() {
       <Nav />
       <Hero />
       <TutorsSection />
+      <CurriculumShowcase />
       <OfferSection />
       <PricingSection selectedLevel={selectedLevel} setSelectedLevel={setSelectedLevel} />
       <ContactSection />
