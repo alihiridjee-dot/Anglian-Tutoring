@@ -11,13 +11,14 @@ import { resolveDisplayName } from "@/lib/displayName";
 
 /**
  * The parent's Billing tab: one card per linked child showing their plan (with
- * pause / cancel / resume / delete if this parent pays for it) or the plan
- * picker if they have none, plus the parent's own payment history.
+ * pause / cancel / resume / delete) or the plan picker if they have none, plus
+ * the parent's own payment history.
  *
  * Lifted out of the Parent Portal dashboard into its own /billing tab — the
- * dashboard is progress-only now. A child can also pay for themselves, in which
- * case the parent sees status but not the controls, and the server enforces the
- * same rule.
+ * dashboard is progress-only now. Control is link-based: a linked parent manages
+ * the child's plan even one the child paid for themselves (the server enforces
+ * the same rule). The billing portal is the one payer-only control, since it is
+ * tied to whoever's card the plan sits on.
  */
 export function ParentBillingSection({ parentId }: { parentId: string }) {
   const { data: children = [], isLoading: childrenLoading } = useChildLinks();
@@ -68,8 +69,10 @@ export function ParentBillingSection({ parentId }: { parentId: string }) {
                   <SubscriptionPanel
                     sub={sub}
                     planName={planName}
+                    // A linked parent manages the plan regardless of who paid —
+                    // including a plan the child originally paid for themselves.
+                    canManage
                     isPayer={sub.user_id === parentId}
-                    isParent
                     returnTo="billing"
                     ownerLabel={childName}
                   />

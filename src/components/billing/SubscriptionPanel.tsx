@@ -12,14 +12,20 @@ interface SubscriptionPanelProps {
   sub: SubscriptionRow;
   /** Human name of the plan (falls back to the raw tier). */
   planName: string;
-  /** Whether the signed-in user is the payer. Non-payers get status only. */
-  isPayer: boolean;
   /**
-   * Whether the signed-in user is a parent. Pausing and deleting are
-   * parent-only, so a self-paying student (isPayer but not isParent) can still
-   * cancel/resume/open the portal but never pause or delete.
+   * Whether the signed-in user may manage the plan's lifecycle (pause, resume,
+   * cancel, delete). Link-based, not payer-based: the linked parent manages it,
+   * or the student themselves while no parent is linked. A student with a linked
+   * parent gets `false` and sees status only, even if they paid originally.
    */
-  isParent: boolean;
+  canManage: boolean;
+  /**
+   * Whether the signed-in user is the payer, i.e. the plan sits on their own
+   * Stripe customer. Only the payer is offered the Stripe billing portal (cards,
+   * VAT, invoices) — a managing parent who didn't pay can still pause/cancel but
+   * has no portal for someone else's card.
+   */
+  isPayer: boolean;
   /** Where Stripe should send the browser back to after the portal. */
   returnTo: BillingReturnTo;
   /** Whose plan it is (e.g. a child's name), for the delete dialog copy. */
@@ -54,8 +60,8 @@ function statusBadgeClass(status: string) {
 export function SubscriptionPanel({
   sub,
   planName,
+  canManage,
   isPayer,
-  isParent,
   returnTo,
   ownerLabel,
 }: SubscriptionPanelProps) {
@@ -69,10 +75,11 @@ export function SubscriptionPanel({
   const paused = sub.status === "paused";
   const endsAt = sub.current_period_end ? new Date(sub.current_period_end) : null;
   // Controls only make sense against a real Stripe subscription: a row without
-  // one has nothing to pause, cancel, or open a portal for.
-  const manageable = isPayer && !!sub.stripe_subscription_id;
-  // Pause and delete are parent-only, on top of being payer-only.
-  const canPauseOrDelete = manageable && isParent;
+  // one has nothing to pause, cancel, or delete. Lifecycle control is link-based
+  // (canManage). Within that, the Stripe portal — which itself allows self-serve
+  // cancellation — is only shown to the payer, so a non-paying manager never
+  // reaches someone else's card and a linked student never gets a back door.
+  const manageable = canManage && !!sub.stripe_subscription_id;
 
   const run = (action: "cancel" | "pause" | "resume") => {
     setConfirming(null);
@@ -94,7 +101,7 @@ export function SubscriptionPanel({
     );
   };
 
-  // Record why the family is pausing (parent-only, enforced by RLS), then pause.
+  // Record why the family is pausing (manager-only, enforced by RLS), then pause.
   const confirmPause = (category: string, comment: string) => {
     void recordBillingFeedback({ studentId: sub.student_id, action: "pause", category, comment });
     run("pause");
@@ -148,7 +155,7 @@ export function SubscriptionPanel({
             </button>
           )}
 
-          {live && !sub.cancel_at_period_end && canPauseOrDelete && (
+          {live && !sub.cancel_at_period_end && (
             <button
               onClick={() => setShowPause(true)}
               disabled={manage.isPending}
@@ -168,14 +175,16 @@ export function SubscriptionPanel({
             </button>
           )}
 
-          <button
-            onClick={portal}
-            disabled={portalBusy}
-            className="inline-flex items-center gap-1.5 h-9 px-3.5 rounded-lg border border-border text-sm font-semibold hover:bg-muted disabled:opacity-50"
-          >
-            {portalBusy ? <Loader2 className="w-4 h-4 animate-spin" /> : null}
-            Billing portal <ExternalLink className="w-3.5 h-3.5" />
-          </button>
+          {isPayer && (
+            <button
+              onClick={portal}
+              disabled={portalBusy}
+              className="inline-flex items-center gap-1.5 h-9 px-3.5 rounded-lg border border-border text-sm font-semibold hover:bg-muted disabled:opacity-50"
+            >
+              {portalBusy ? <Loader2 className="w-4 h-4 animate-spin" /> : null}
+              Billing portal <ExternalLink className="w-3.5 h-3.5" />
+            </button>
+          )}
         </div>
       )}
 
@@ -207,7 +216,7 @@ export function SubscriptionPanel({
       {/* Danger zone: permanent deletion, kept visually and behaviourally
           apart from the everyday cancel/pause controls above. The heavy
           consent flow lives in the dialog. */}
-      {canPauseOrDelete && (
+      {manageable && (
         <div className="mt-5 border-t border-border pt-4">
           <button
             onClick={() => setShowDelete(true)}

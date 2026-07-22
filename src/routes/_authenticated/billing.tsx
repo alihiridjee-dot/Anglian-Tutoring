@@ -3,6 +3,7 @@ import { useEffect, useState } from "react";
 import { AppLayout } from "@/components/AppLayout";
 import { supabase } from "@/integrations/supabase/client";
 import { useEnrolments } from "@/hooks/data/useEnrolments";
+import { useParentLinks } from "@/hooks/data/useParentLinks";
 import { usePackages, useSubscriptions } from "@/hooks/data/useBilling";
 import { startCheckout, isSubscriptionLive, planLabel } from "@/lib/billing";
 import { PlanPicker } from "@/components/billing/PlanPicker";
@@ -61,6 +62,9 @@ function BillingPage() {
 
   const { data: packages = [], isLoading: packagesLoading } = usePackages();
   const { data: subs = [], isLoading: subsLoading } = useSubscriptions(userId ? [userId] : []);
+  // A student's linked parents (empty for the parent view). Once linked, the
+  // parent owns billing control — the student's own controls disappear.
+  const { data: linkedParents = [], isLoading: parentsLoading } = useParentLinks(role !== "parent");
   const sub = subs[0] ?? null;
   const loading = packagesLoading || subsLoading || userId === null;
 
@@ -93,10 +97,13 @@ function BillingPage() {
 
   const hasUsablePlan = !!sub && (isSubscriptionLive(sub.status) || sub.status === "paused");
   const activeTier = hasUsablePlan ? sub.plan : null;
-  // Someone else is footing the bill — don't offer this student controls that
-  // aren't theirs, or a plan switch that would charge the wrong card.
   const isPayer = !!sub && !!userId && sub.user_id === userId;
-  const paidByParent = !!sub && !isPayer;
+  // Control is link-based: once a parent is linked, they manage billing and the
+  // student can't interfere — even with a plan the student paid for themselves.
+  // Only an unlinked student keeps controls (and the plan switcher) on their own
+  // platform. Wait for the links query so controls don't flicker in then vanish.
+  const hasLinkedParent = linkedParents.length > 0;
+  const managedByParent = hasLinkedParent && !parentsLoading;
   const planName = planLabel(sub?.plan, packages);
 
   return (
@@ -115,17 +122,17 @@ function BillingPage() {
               <SubscriptionPanel
                 sub={sub}
                 planName={planName}
-                isPayer={isPayer}
-                isParent={false}
+                canManage={!managedByParent}
+                isPayer={isPayer && !managedByParent}
                 returnTo="billing"
               />
               <p className="text-sm text-muted-foreground mt-3">
                 Enrolled subjects: {enrolledCourses.length ? enrolledCourses.join(", ") : "—"}
               </p>
-              {paidByParent && (
+              {managedByParent && (
                 <p className="text-sm text-muted-foreground mt-3">
-                  This plan is paid for by your linked parent — they can pause, change or cancel it
-                  from their own account.
+                  Billing for this plan is managed by your linked parent from their account —
+                  including pausing, changing or cancelling it.
                 </p>
               )}
             </div>
@@ -137,7 +144,7 @@ function BillingPage() {
           )}
         </div>
 
-        {!paidByParent && (
+        {!managedByParent && (
           <>
             <h3 className="font-display text-lg font-semibold mb-4">
               {activeTier ? "Switch plan" : "Choose a plan"}

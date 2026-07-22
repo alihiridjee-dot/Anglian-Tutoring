@@ -139,20 +139,44 @@ async function requireUser(req: Request) {
 }
 
 /**
- * Guards the parent-only lifecycle actions (pause, delete). Even a student who
- * pays for their own plan may not pause or delete it — only a parent can. The
- * check reads profiles.role from the data, mirroring the billing_feedback RLS
- * insert policy, so the rule lives in one shape on both sides.
+ * Who may manage (pause / resume / cancel / delete) a student's subscription.
+ *
+ * Management is link-based, not payer-based: once a student is linked to a
+ * parent, the PARENT controls the plan — even for a plan the student originally
+ * paid for themselves. A student may only manage their own plan while NO parent
+ * is linked; the moment one links, control moves to the parent and the student
+ * can no longer interfere.
+ *
+ *   • caller is a linked parent of the student            → allowed
+ *   • caller IS the student AND has no linked parent       → allowed
+ *   • anyone else (incl. a self-paying but linked student) → 403
+ *
+ * This mirrors the billing_feedback RLS insert policy, so the same rule holds on
+ * both sides.
  */
-async function requireParent(userId: string) {
-  const { data: profile } = await admin()
-    .from("profiles")
-    .select("role")
-    .eq("id", userId)
+async function assertCanManage(callerId: string, studentId: string) {
+  const db = admin();
+
+  const { data: link } = await db
+    .from("parent_student_links")
+    .select("parent_id")
+    .eq("parent_id", callerId)
+    .eq("student_id", studentId)
     .maybeSingle();
-  if (profile?.role !== "parent") {
-    throw new HttpError(403, "Only a parent can pause or delete a plan.");
+  if (link) return; // the linked parent
+
+  if (callerId === studentId) {
+    const { data: anyParent } = await db
+      .from("parent_student_links")
+      .select("parent_id")
+      .eq("student_id", studentId)
+      .limit(1)
+      .maybeSingle();
+    if (!anyParent) return; // an unlinked student managing their own plan
+    throw new HttpError(403, "Your linked parent manages this plan.");
   }
+
+  throw new HttpError(403, "You aren't allowed to manage this plan.");
 }
 
 /**
@@ -289,10 +313,12 @@ async function handlePortal(req: Request, payload: PortalPayload) {
 }
 
 /**
- * Pause / resume / cancel-at-period-end for a subscription the caller pays for.
+ * Pause / resume / cancel-at-period-end for a student's subscription.
  *
- * The DB row is the ownership check: only the payer (user_id) may manage a
- * subscription, even though the student it covers can *see* it.
+ * Authority is link-based (assertCanManage): the linked parent manages it, or
+ * the student themselves while no parent is linked. The subscription is acted on
+ * by its Stripe id, so a parent can manage a plan the student originally paid
+ * for — the payer is no longer the gate.
  */
 async function handleManage(req: Request, payload: ManagePayload) {
   const user = await requireUser(req);
@@ -307,11 +333,7 @@ async function handleManage(req: Request, payload: ManagePayload) {
     .eq("student_id", payload.student_id)
     .maybeSingle();
   if (!row?.stripe_subscription_id) throw new HttpError(404, "No subscription found.");
-  if (row.user_id !== user.id) {
-    throw new HttpError(403, "Only the account that pays for this plan can manage it.");
-  }
-  // Pausing is a parent-only action; cancel/resume stay open to the payer.
-  if (payload.action === "pause") await requireParent(user.id);
+  await assertCanManage(user.id, payload.student_id);
 
   const id = row.stripe_subscription_id;
   let sub: Stripe.Subscription;
@@ -358,11 +380,11 @@ async function handleManage(req: Request, payload: ManagePayload) {
 }
 
 /**
- * Immediate, permanent termination of a subscription the caller pays for — the
+ * Immediate, permanent termination of a subscription the caller manages — the
  * "delete" path behind the client's GDPR-erasure consent flow.
  *
- * Same payer-only ownership check as handleManage. Two hard guards protect the
- * things that must not be destroyed here:
+ * Same link-based authority as handleManage (assertCanManage). Two hard guards
+ * protect the things that must not be destroyed here:
  *   • No stripe_subscription_id → nothing to cancel: there is no Stripe object,
  *     so the request 404s and the local row is left untouched.
  *   • Invoices/customer are left in place — retained for statutory tax record
@@ -384,11 +406,8 @@ async function handleDelete(req: Request, payload: DeletePayload) {
     // No Stripe subscription exists, so there is nothing to delete.
     throw new HttpError(404, "No Stripe subscription to delete.");
   }
-  if (row.user_id !== user.id) {
-    throw new HttpError(403, "Only the account that pays for this plan can delete it.");
-  }
-  // Deletion is parent-only, same rule as pause.
-  await requireParent(user.id);
+  // Same link-based authority as pause/cancel.
+  await assertCanManage(user.id, payload.student_id);
 
   // Cancel now, not at period end — deletion is immediate by definition. Stripe
   // records the reason for the audit trail; the customer and its invoices remain
