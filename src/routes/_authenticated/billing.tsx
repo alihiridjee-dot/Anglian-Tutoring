@@ -9,6 +9,7 @@ import { startCheckout, isSubscriptionLive, planLabel } from "@/lib/billing";
 import { PlanPicker } from "@/components/billing/PlanPicker";
 import { SubscriptionPanel } from "@/components/billing/SubscriptionPanel";
 import { InvoiceHistoryCard } from "@/components/billing/InvoiceHistory";
+import { AddSubjectCard } from "@/components/billing/AddSubjectCard";
 import { ParentBillingSection } from "@/components/billing/ParentBillingSection";
 import { CreditCard } from "lucide-react";
 import { toast } from "sonner";
@@ -52,7 +53,7 @@ function StripeFooter() {
  *     but no controls.
  */
 function BillingPage() {
-  const { enrolledCourses, role } = useEnrolments();
+  const { enrolledCourses, enrolments, role } = useEnrolments();
   const [userId, setUserId] = useState<string | null>(null);
   const [busyTier, setBusyTier] = useState<string | null>(null);
 
@@ -143,6 +144,20 @@ function BillingPage() {
             </p>
           )}
         </div>
+
+        {/* Frictionless upgrade: any student can add a subject to their own live
+            plan — even when a parent holds the pause/cancel controls. Adding is
+            additive growth, so it isn't gated the way the lifecycle actions are. */}
+        {userId && hasUsablePlan && sub?.plan && (
+          <div className="mb-8">
+            <AddSubjectCard
+              studentId={userId}
+              currentTier={sub.plan}
+              enrolledSubjects={enrolledCourses}
+              defaultBoard={enrolments[0]?.board}
+            />
+          </div>
+        )}
 
         {!managedByParent && (
           <>

@@ -77,11 +77,40 @@ interface ManagePayload {
   student_id: string;
 }
 
+interface AddSubjectsPayload {
+  /**
+   * Add one or more subjects to an existing live subscription, moving it up the
+   * `${cadence}_${count}` matrix (same cadence, higher count) and enrolling the
+   * student in the new subjects. The price difference is prorated and invoiced
+   * immediately. Caller must manage the plan (assertCanManage).
+   */
+  action: "add_subjects";
+  /** subscriptions.student_id — whose plan to grow. */
+  student_id: string;
+  /** The subjects to add, each with the board the student will sit it with. */
+  subjects: { subject: string; board: string }[];
+}
+
 interface InvoicesPayload {
   action: "invoices";
 }
 
-type Payload = CheckoutPayload | PortalPayload | ManagePayload | InvoicesPayload;
+type Payload =
+  | CheckoutPayload
+  | PortalPayload
+  | ManagePayload
+  | AddSubjectsPayload
+  | InvoicesPayload;
+
+const VALID_SUBJECTS = ["biology", "chemistry", "physics"];
+const VALID_BOARDS = ["edexcel", "aqa", "ocr"];
+const MAX_SUBJECTS = 3;
+
+/** Billing cadence of a tier, or null if it isn't one of ours. */
+function tierCadence(tier: string | null | undefined): string | null {
+  const head = String(tier ?? "").split("_")[0];
+  return ["weekly", "monthly", "termly"].includes(head) ? head : null;
+}
 
 function admin() {
   return createClient(
@@ -154,6 +183,25 @@ async function assertCanManage(callerId: string, studentId: string) {
   }
 
   throw new HttpError(403, "You aren't allowed to manage this plan.");
+}
+
+/**
+ * Who may UPGRADE (add subjects to) a student's plan. Deliberately looser than
+ * assertCanManage: adding a subject is additive growth, so the student may do it
+ * for their own plan even when a parent holds the pause/cancel controls, and a
+ * linked parent may do it for their child. Only the destructive lifecycle
+ * actions stay locked to the billing controller.
+ */
+async function assertCanUpgrade(callerId: string, studentId: string) {
+  if (callerId === studentId) return; // the student growing their own plan
+  const { data: link } = await admin()
+    .from("parent_student_links")
+    .select("parent_id")
+    .eq("parent_id", callerId)
+    .eq("student_id", studentId)
+    .maybeSingle();
+  if (link) return; // the linked parent
+  throw new HttpError(403, "You aren't allowed to change this plan.");
 }
 
 /**
@@ -357,6 +405,109 @@ async function handleManage(req: Request, payload: ManagePayload) {
 }
 
 /**
+ * Add subject(s) to a live subscription — the frictionless upgrade. Moves the
+ * plan up its cadence's subject-count ladder, swaps the Stripe price with an
+ * immediate prorated invoice, and enrols the student in the new subjects
+ * (keeping enrolled_courses — the RLS grant — in lockstep with what's paid for).
+ *
+ * Authorised by assertCanUpgrade — looser than the lifecycle actions: the
+ * student may grow their own plan even when a parent holds the cancel controls.
+ */
+async function handleAddSubjects(req: Request, payload: AddSubjectsPayload) {
+  const user = await requireUser(req);
+  const db = admin();
+  const stripe = stripeClient();
+
+  if (!payload.student_id) throw new HttpError(400, "student_id is required.");
+  const requested = Array.isArray(payload.subjects) ? payload.subjects : [];
+  if (requested.length === 0) throw new HttpError(400, "Pick at least one subject to add.");
+  for (const r of requested) {
+    if (!VALID_SUBJECTS.includes(r.subject) || !VALID_BOARDS.includes(r.board)) {
+      throw new HttpError(400, "That subject or exam board isn't one we offer.");
+    }
+  }
+
+  await assertCanUpgrade(user.id, payload.student_id);
+
+  const { data: row } = await db
+    .from("subscriptions")
+    .select("stripe_subscription_id, status, plan, cancel_at_period_end")
+    .eq("student_id", payload.student_id)
+    .maybeSingle();
+  if (!row?.stripe_subscription_id) throw new HttpError(404, "No active plan to add to.");
+  const live = row.status === "active" || row.status === "trialing";
+  if (!live || row.cancel_at_period_end) {
+    throw new HttpError(409, "Resume the plan before adding subjects to it.");
+  }
+
+  const cadence = tierCadence(row.plan);
+  if (!cadence) throw new HttpError(409, "This plan can't be upgraded automatically — contact us.");
+
+  // Only genuinely new subjects count. Dedupe against what they already study so
+  // a double-submit can't double-charge or push the count past the max.
+  const { data: existingRows } = await db
+    .from("student_enrolments")
+    .select("subject")
+    .eq("student_id", payload.student_id);
+  const existing = new Set((existingRows ?? []).map((r) => r.subject));
+  const toAdd = requested.filter((r) => !existing.has(r.subject));
+  if (toAdd.length === 0) throw new HttpError(409, "Those subjects are already on the plan.");
+
+  const newCount = existing.size + toAdd.length;
+  if (newCount > MAX_SUBJECTS) {
+    throw new HttpError(409, `A plan covers at most ${MAX_SUBJECTS} subjects.`);
+  }
+
+  const newTier = `${cadence}_${newCount}`;
+  const { data: pkg } = await db
+    .from("packages")
+    .select("stripe_price_id")
+    .eq("tier", newTier)
+    .eq("active", true)
+    .maybeSingle();
+  if (!pkg?.stripe_price_id) {
+    throw new HttpError(500, `The ${newTier} plan has no Stripe price attached yet.`);
+  }
+
+  // Swap the single subscription item to the higher-count price and invoice the
+  // prorated difference now. metadata.tier is updated so the webhook (which reads
+  // it) writes the same plan we mirror below.
+  const stripeSub = await stripe.subscriptions.retrieve(row.stripe_subscription_id);
+  const itemId = stripeSub.items.data[0]?.id;
+  if (!itemId) throw new HttpError(500, "Couldn't find the subscription item to upgrade.");
+
+  const updated = await stripe.subscriptions.update(row.stripe_subscription_id, {
+    items: [{ id: itemId, price: pkg.stripe_price_id }],
+    proration_behavior: "always_invoice",
+    metadata: { ...stripeSub.metadata, tier: newTier },
+  });
+
+  // Enrol the student in the new subjects and grow the RLS grant. Do the grant
+  // last: an enrolment row without matching enrolled_courses is harmless (no
+  // access), the reverse would hand out access to a subject with no board set.
+  const { error: enrErr } = await db.from("student_enrolments").upsert(
+    toAdd.map((r) => ({ student_id: payload.student_id, subject: r.subject, board: r.board })),
+    { onConflict: "student_id,subject" },
+  );
+  if (enrErr) throw new HttpError(500, `Couldn't record the new enrolment: ${enrErr.message}`);
+
+  const nextCourses = [...existing, ...toAdd.map((r) => r.subject)];
+  const { error: profErr } = await db
+    .from("profiles")
+    .update({ enrolled_courses: nextCourses })
+    .eq("id", payload.student_id);
+  if (profErr) throw new HttpError(500, `Couldn't update access: ${profErr.message}`);
+
+  // Mirror plan immediately so the UI reflects the upgrade before the webhook.
+  await db
+    .from("subscriptions")
+    .update({ plan: newTier, updated_at: new Date().toISOString() })
+    .eq("stripe_subscription_id", row.stripe_subscription_id);
+
+  return { ok: true, plan: newTier, added: toAdd.map((r) => r.subject), status: updated.status };
+}
+
+/**
  * The billing household's payment history, newest first — the parent's and the
  * linked student's invoices merged into one shared list (see
  * householdCustomerIds). Each customer's invoices are fetched, combined, sorted
@@ -411,6 +562,9 @@ Deno.serve(async (req) => {
       case "pause":
       case "resume":
         result = await handleManage(req, payload);
+        break;
+      case "add_subjects":
+        result = await handleAddSubjects(req, payload);
         break;
       case "invoices":
         result = await handleInvoices(req);

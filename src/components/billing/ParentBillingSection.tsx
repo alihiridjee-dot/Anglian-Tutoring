@@ -1,13 +1,61 @@
 import { useMemo, useState } from "react";
+import { useQuery } from "@tanstack/react-query";
 import { CreditCard } from "lucide-react";
 import { toast } from "sonner";
+import { supabase } from "@/integrations/supabase/client";
 import { useChildLinks } from "@/hooks/data/useParentLinks";
 import { usePackages, useSubscriptions } from "@/hooks/data/useBilling";
-import { startCheckout, isSubscriptionLive, planLabel } from "@/lib/billing";
+import { startCheckout, isSubscriptionLive, planLabel, type SubscriptionRow } from "@/lib/billing";
 import { PlanPicker } from "@/components/billing/PlanPicker";
 import { SubscriptionPanel } from "@/components/billing/SubscriptionPanel";
+import { AddSubjectCard } from "@/components/billing/AddSubjectCard";
 import { InvoiceHistoryCard } from "@/components/billing/InvoiceHistory";
 import { resolveDisplayName } from "@/lib/displayName";
+import type { BoardV } from "@/lib/taxonomy";
+
+/**
+ * The add-subject upgrade for one linked child. Fetches the child's current
+ * enrolment (parents may read student_enrolments for a linked child) so the card
+ * offers only the subjects they don't yet have, then defers to AddSubjectCard —
+ * which renders nothing when there's nothing left to add.
+ */
+function ChildUpgrade({
+  studentId,
+  sub,
+  childName,
+}: {
+  studentId: string;
+  sub: SubscriptionRow;
+  childName: string;
+}) {
+  const { data: enrolments = [] } = useQuery({
+    queryKey: ["child-progress", "enrolments", studentId],
+    queryFn: async () => {
+      const { data, error } = await supabase
+        .from("student_enrolments")
+        .select("subject, board")
+        .eq("student_id", studentId)
+        .order("subject");
+      if (error) throw new Error(error.message);
+      return (data ?? []) as { subject: string; board: BoardV }[];
+    },
+  });
+
+  // Only a live plan can be upgraded (the server rejects paused/cancelling).
+  if (!sub.plan || !isSubscriptionLive(sub.status)) return null;
+
+  return (
+    <div className="mt-5">
+      <AddSubjectCard
+        studentId={studentId}
+        currentTier={sub.plan}
+        enrolledSubjects={enrolments.map((e) => e.subject)}
+        defaultBoard={enrolments[0]?.board}
+        ownerLabel={childName}
+      />
+    </div>
+  );
+}
 
 /**
  * The parent's Billing tab: one card per linked child showing their plan (with
@@ -66,16 +114,19 @@ export function ParentBillingSection({ parentId }: { parentId: string }) {
                 </p>
 
                 {hasUsablePlan && sub ? (
-                  <SubscriptionPanel
-                    sub={sub}
-                    planName={planName}
-                    // A linked parent manages the plan regardless of who paid —
-                    // including a plan the child originally paid for themselves.
-                    canManage
-                    isPayer={sub.user_id === parentId}
-                    returnTo="billing"
-                    ownerLabel={childName}
-                  />
+                  <>
+                    <SubscriptionPanel
+                      sub={sub}
+                      planName={planName}
+                      // A linked parent manages the plan regardless of who paid —
+                      // including a plan the child originally paid for themselves.
+                      canManage
+                      isPayer={sub.user_id === parentId}
+                      returnTo="billing"
+                      ownerLabel={childName}
+                    />
+                    <ChildUpgrade studentId={child.student_id} sub={sub} childName={childName} />
+                  </>
                 ) : (
                   <>
                     <p className="text-sm text-muted-foreground mb-4">

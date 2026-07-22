@@ -6,6 +6,8 @@ import { motion, AnimatePresence } from "motion/react";
 import { AppLayout } from "@/components/AppLayout";
 import { supabase } from "@/integrations/supabase/client";
 import { useRoles } from "@/hooks/useRole";
+import { useEntitlements, type Entitlements } from "@/lib/entitlements";
+import { useEnrolments } from "@/hooks/data/useEnrolments";
 import { SUBJECTS, BOARDS, LEVELS, type SubjectV, type BoardV, type LevelV } from "@/lib/taxonomy";
 import { generateMcqSet } from "@/lib/mcq.functions";
 import { toast } from "sonner";
@@ -35,6 +37,7 @@ import {
   GraduationCap,
   Award,
   BookOpen,
+  Lock,
 } from "lucide-react";
 
 export const Route = createFileRoute("/_authenticated/curriculum")({
@@ -48,12 +51,35 @@ const inputCls =
 
 export function Curriculum() {
   const { isTutor } = useRoles();
+  // Students are scoped to the subjects (and board/level) their subscription
+  // covers; tutors author freely across everything. This is the client half of
+  // the guardrail — topics/spec_points RLS enforces the same thing server-side.
+  const ent = useEntitlements();
+  const { level: profileLevel } = useEnrolments();
   const [subject, setSubject] = useState<SubjectV>("biology");
   const [board, setBoard] = useState<BoardV>("edexcel");
   const [level, setLevel] = useState<LevelV>("gcse");
   const [topics, setTopics] = useState<Topic[]>([]);
   const [openTopicId, setOpenTopicId] = useState<string | null>(null);
   const [loading, setLoading] = useState(true);
+
+  // Snap a student's filters onto their entitlement: the first subject they're
+  // enrolled in, at their board and level. Guards against the "biology/edexcel"
+  // defaults exposing a subject they don't pay for.
+  useEffect(() => {
+    if (isTutor || ent.loading) return;
+    if (ent.entitledSubjects.length && !ent.entitledSubjects.includes(subject)) {
+      setSubject(ent.entitledSubjects[0]);
+    }
+    if (profileLevel) setLevel(profileLevel);
+  }, [isTutor, ent.loading, ent.entitledSubjects, profileLevel, subject]);
+
+  // A student's board is fixed to the one they sit the selected subject with.
+  useEffect(() => {
+    if (isTutor) return;
+    const b = ent.boardBySubject[subject];
+    if (b && b !== board) setBoard(b);
+  }, [isTutor, subject, ent.boardBySubject, board]);
 
   // Selected specification point state to handle full sub-page navigation
   const [selectedSpecPoint, setSelectedSpecPoint] = useState<SpecPoint | null>(null);
@@ -130,26 +156,36 @@ export function Curriculum() {
       </p>
 
       <div className="rounded-2xl bg-card border border-border p-5 mb-6">
-        <div className="grid grid-cols-3 gap-3">
-          <Filter
-            label="Subject"
-            value={subject}
-            onChange={(v) => setSubject(v as SubjectV)}
-            opts={SUBJECTS}
+        {isTutor ? (
+          <div className="grid grid-cols-3 gap-3">
+            <Filter
+              label="Subject"
+              value={subject}
+              onChange={(v) => setSubject(v as SubjectV)}
+              opts={SUBJECTS}
+            />
+            <Filter
+              label="Board"
+              value={board}
+              onChange={(v) => setBoard(v as BoardV)}
+              opts={BOARDS}
+            />
+            <Filter
+              label="Level"
+              value={level}
+              onChange={(v) => setLevel(v as LevelV)}
+              opts={LEVELS}
+            />
+          </div>
+        ) : (
+          <StudentSubjectPicker
+            subject={subject}
+            onSelect={setSubject}
+            board={board}
+            level={level}
+            entitlements={ent}
           />
-          <Filter
-            label="Board"
-            value={board}
-            onChange={(v) => setBoard(v as BoardV)}
-            opts={BOARDS}
-          />
-          <Filter
-            label="Level"
-            value={level}
-            onChange={(v) => setLevel(v as LevelV)}
-            opts={LEVELS}
-          />
-        </div>
+        )}
       </div>
 
       {isTutor && (
@@ -187,6 +223,86 @@ export function Curriculum() {
         </div>
       )}
     </AppLayout>
+  );
+}
+
+const labelOf = (list: readonly { value: string; label: string }[], v: string) =>
+  list.find((x) => x.value === v)?.label ?? v;
+
+/**
+ * The student's subject switcher: entitled subjects are selectable chips; the
+ * rest are shown locked and greyed, so a student sees exactly what their plan
+ * covers and a clear, low-pressure nudge to add the others. Board and level are
+ * fixed to their enrolment (read-only labels) — they don't get to browse other
+ * boards. Tutors use the free three-dropdown Filter row instead.
+ */
+function StudentSubjectPicker({
+  subject,
+  onSelect,
+  board,
+  level,
+  entitlements,
+}: {
+  subject: SubjectV;
+  onSelect: (s: SubjectV) => void;
+  board: BoardV;
+  level: LevelV;
+  entitlements: Entitlements;
+}) {
+  const { isEntitled, lockedSubjects } = entitlements;
+  return (
+    <div>
+      <div className="flex items-center justify-between mb-3 gap-3 flex-wrap">
+        <label className="text-[10px] uppercase tracking-widest text-muted-foreground font-semibold">
+          Your subjects
+        </label>
+        <span className="inline-flex items-center gap-1.5 text-[11px] font-medium text-muted-foreground">
+          <GraduationCap className="w-3.5 h-3.5" />
+          {labelOf(LEVELS, level)} · {labelOf(BOARDS, board)}
+        </span>
+      </div>
+
+      <div className="flex flex-wrap gap-2">
+        {SUBJECTS.map((s) => {
+          const entitled = isEntitled(s.value);
+          const active = s.value === subject;
+          if (!entitled) {
+            return (
+              <span
+                key={s.value}
+                title="Not included in your plan — add it from Billing."
+                className="inline-flex items-center gap-1.5 h-9 px-3.5 rounded-lg border border-dashed border-border bg-muted/40 text-sm font-semibold text-muted-foreground/70 cursor-not-allowed select-none"
+              >
+                <Lock className="w-3.5 h-3.5" /> {s.label}
+              </span>
+            );
+          }
+          return (
+            <button
+              key={s.value}
+              onClick={() => onSelect(s.value)}
+              className={`inline-flex items-center gap-1.5 h-9 px-3.5 rounded-lg border text-sm font-semibold transition ${
+                active
+                  ? "border-primary bg-primary/10 text-primary ring-2 ring-primary/20"
+                  : "border-border hover:bg-muted"
+              }`}
+            >
+              {s.label}
+            </button>
+          );
+        })}
+      </div>
+
+      {lockedSubjects.length > 0 && (
+        <Link
+          to="/billing"
+          className="mt-3 inline-flex items-center gap-1.5 text-xs font-semibold text-primary hover:underline"
+        >
+          <Sparkles className="w-3.5 h-3.5" />
+          Add {lockedSubjects.map((s) => labelOf(SUBJECTS, s)).join(" & ")} to your plan
+        </Link>
+      )}
+    </div>
   );
 }
 
@@ -535,9 +651,11 @@ function SpecPointDetail({
   const [resources, setResources] = useState<Resource[]>([]);
   const [mcqSets, setMcqSets] = useState<McqSet[]>([]);
   const [genLoading, setGenLoading] = useState(false);
-  const [activeVideo, setActiveVideo] = useState<
-    { embed: VideoEmbed; title: string; description?: string | null } | null
-  >(null);
+  const [activeVideo, setActiveVideo] = useState<{
+    embed: VideoEmbed;
+    title: string;
+    description?: string | null;
+  } | null>(null);
   const genFn = useServerFn(generateMcqSet);
 
   const reload = async () => {
@@ -684,8 +802,7 @@ function SpecPointDetail({
                 type="button"
                 disabled={!embed}
                 onClick={() =>
-                  embed &&
-                  setActiveVideo({ embed, title: r.title, description: r.description })
+                  embed && setActiveVideo({ embed, title: r.title, description: r.description })
                 }
                 className="group text-left rounded-xl bg-card border border-border overflow-hidden hover:border-primary/40 transition w-full disabled:opacity-60 disabled:cursor-default"
               >

@@ -124,6 +124,22 @@ export async function manageSubscription(action: "cancel" | "pause" | "resume", 
   return invokeBilling<{ ok: boolean; status: string }>({ action, student_id: studentId });
 }
 
+/**
+ * Add subject(s) to a live subscription — the in-app upgrade. Bumps the plan up
+ * its cadence's subject-count ladder and enrols the student, with the prorated
+ * difference charged immediately. Caller must manage the plan.
+ */
+export async function addSubjects(
+  studentId: string,
+  subjects: { subject: string; board: string }[],
+) {
+  return invokeBilling<{ ok: boolean; plan: string; added: string[] }>({
+    action: "add_subjects",
+    student_id: studentId,
+    subjects,
+  });
+}
+
 /** The caller's Stripe payment history (empty if they've never paid). */
 export async function fetchInvoices(): Promise<Invoice[]> {
   const { invoices } = await invokeBilling<{ invoices: Invoice[] }>({ action: "invoices" });

@@ -4,6 +4,7 @@ import { isDemoMode } from "@/lib/auth/session";
 import {
   fetchInvoices,
   manageSubscription,
+  addSubjects,
   type Invoice,
   type PackageRow,
   type SubscriptionRow,
@@ -75,6 +76,29 @@ export function useManageSubscription() {
     }) => manageSubscription(action, studentId),
     onSuccess: () => {
       qc.invalidateQueries({ queryKey: BILLING_KEY });
+    },
+  });
+}
+
+/**
+ * Add subject(s) to a live plan. On success both billing (plan/invoices) and the
+ * user's enrolment change, so refresh both caches — the curriculum unlocks the
+ * new subject the moment enrolment reloads.
+ */
+export function useAddSubjects() {
+  const qc = useQueryClient();
+  return useMutation({
+    mutationFn: ({
+      studentId,
+      subjects,
+    }: {
+      studentId: string;
+      subjects: { subject: string; board: string }[];
+    }) => addSubjects(studentId, subjects),
+    onSuccess: () => {
+      qc.invalidateQueries({ queryKey: BILLING_KEY });
+      qc.invalidateQueries({ queryKey: ["user-enrolments-and-profile"] });
+      qc.invalidateQueries({ queryKey: ["parent-links"] });
     },
   });
 }
