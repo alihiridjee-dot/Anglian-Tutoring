@@ -77,34 +77,11 @@ interface ManagePayload {
   student_id: string;
 }
 
-interface DeletePayload {
-  /**
-   * The heavy path, distinct from `cancel`. Terminates the Stripe subscription
-   * *immediately* (no run-out of the paid period) as part of a GDPR Art. 17
-   * erasure. The lighter, EU-mandated easy cancellation is `cancel` above; this
-   * is only reached after the client's explicit multi-step consent.
-   *
-   * Note: invoices and payment records are deliberately NOT erased — UK/EU tax
-   * and accounting law (a GDPR Art. 17(3)(b) legal-obligation exemption)
-   * requires them to be retained, so this cancels access, not the audit trail.
-   */
-  action: "delete";
-  /** subscriptions.student_id — which subscription of the caller's to delete. */
-  student_id: string;
-  /** Optional free-text reason, forwarded to Stripe's cancellation details. */
-  reason?: string;
-}
-
 interface InvoicesPayload {
   action: "invoices";
 }
 
-type Payload =
-  | CheckoutPayload
-  | PortalPayload
-  | ManagePayload
-  | DeletePayload
-  | InvoicesPayload;
+type Payload = CheckoutPayload | PortalPayload | ManagePayload | InvoicesPayload;
 
 function admin() {
   return createClient(
@@ -139,7 +116,7 @@ async function requireUser(req: Request) {
 }
 
 /**
- * Who may manage (pause / resume / cancel / delete) a student's subscription.
+ * Who may manage (pause / resume / cancel) a student's subscription.
  *
  * Management is link-based, not payer-based: once a student is linked to a
  * parent, the PARENT controls the plan — even for a plan the student originally
@@ -380,58 +357,6 @@ async function handleManage(req: Request, payload: ManagePayload) {
 }
 
 /**
- * Immediate, permanent termination of a subscription the caller manages — the
- * "delete" path behind the client's GDPR-erasure consent flow.
- *
- * Same link-based authority as handleManage (assertCanManage). Two hard guards
- * protect the things that must not be destroyed here:
- *   • No stripe_subscription_id → nothing to cancel: there is no Stripe object,
- *     so the request 404s and the local row is left untouched.
- *   • Invoices/customer are left in place — retained for statutory tax record
- *     keeping, per the Art. 17(3)(b) exemption noted on DeletePayload.
- */
-async function handleDelete(req: Request, payload: DeletePayload) {
-  const user = await requireUser(req);
-  const db = admin();
-  const stripe = stripeClient();
-
-  if (!payload.student_id) throw new HttpError(400, "student_id is required.");
-
-  const { data: row } = await db
-    .from("subscriptions")
-    .select("user_id, stripe_subscription_id, status")
-    .eq("student_id", payload.student_id)
-    .maybeSingle();
-  if (!row?.stripe_subscription_id) {
-    // No Stripe subscription exists, so there is nothing to delete.
-    throw new HttpError(404, "No Stripe subscription to delete.");
-  }
-  // Same link-based authority as pause/cancel.
-  await assertCanManage(user.id, payload.student_id);
-
-  // Cancel now, not at period end — deletion is immediate by definition. Stripe
-  // records the reason for the audit trail; the customer and its invoices remain
-  // for statutory retention.
-  const reason = payload.reason?.slice(0, 500);
-  const sub = await stripe.subscriptions.cancel(row.stripe_subscription_id, {
-    ...(reason ? { cancellation_details: { comment: reason } } : {}),
-  });
-
-  // Mirror the terminal state immediately; the customer.subscription.deleted
-  // webhook will write the same canceled status shortly after.
-  await db
-    .from("subscriptions")
-    .update({
-      status: sub.status, // "canceled"
-      cancel_at_period_end: false,
-      updated_at: new Date().toISOString(),
-    })
-    .eq("stripe_subscription_id", row.stripe_subscription_id);
-
-  return { ok: true, status: sub.status };
-}
-
-/**
  * The billing household's payment history, newest first — the parent's and the
  * linked student's invoices merged into one shared list (see
  * householdCustomerIds). Each customer's invoices are fetched, combined, sorted
@@ -486,9 +411,6 @@ Deno.serve(async (req) => {
       case "pause":
       case "resume":
         result = await handleManage(req, payload);
-        break;
-      case "delete":
-        result = await handleDelete(req, payload);
         break;
       case "invoices":
         result = await handleInvoices(req);

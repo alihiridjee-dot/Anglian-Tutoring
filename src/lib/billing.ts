@@ -115,24 +115,13 @@ export async function openBillingPortal(returnTo: BillingReturnTo = "billing") {
   window.location.href = url;
 }
 
-/** Pause, resume, or cancel-at-period-end. Caller must be the payer. */
+/**
+ * Pause, resume, or cancel-at-period-end. Caller must manage the plan (the
+ * linked parent, or an unlinked student). Cancelling is the only way to end a
+ * plan — there is no immediate delete.
+ */
 export async function manageSubscription(action: "cancel" | "pause" | "resume", studentId: string) {
   return invokeBilling<{ ok: boolean; status: string }>({ action, student_id: studentId });
-}
-
-/**
- * Permanently delete (immediately terminate) a subscription. The heavy path
- * behind the GDPR-erasure consent flow — distinct from `manageSubscription`'s
- * easy `cancel`. Caller must be the payer, and there must be a real Stripe
- * subscription (a row without one is rejected server-side). Invoices are
- * retained for statutory record-keeping.
- */
-export async function deleteSubscription(studentId: string, reason?: string) {
-  return invokeBilling<{ ok: boolean; status: string }>({
-    action: "delete",
-    student_id: studentId,
-    reason,
-  });
 }
 
 /** The caller's Stripe payment history (empty if they've never paid). */

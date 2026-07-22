@@ -1,15 +1,17 @@
 import { supabase } from "@/integrations/supabase/client";
 
 /**
- * Feedback captured when a parent pauses or deletes a plan.
+ * Feedback captured when a manager pauses or cancels a plan.
  *
- * Pausing and deleting are both gated behind a short form now — the client won't
- * fire the Stripe action until a reason is chosen. The row lands in
- * public.billing_feedback (a linked parent only, enforced by RLS) so the reason
- * survives even for pause, which has nowhere to live in Stripe.
+ * Pausing and cancelling are both gated behind a short form — the client won't
+ * fire the Stripe action until a reason is chosen. That friction is the point:
+ * cancelling is the only way to end a plan (deletion was removed), so we always
+ * capture why. The row lands in public.billing_feedback (manager-only, enforced
+ * by RLS) so the reason survives even for pause, which has nowhere to live in
+ * Stripe.
  */
 
-export type BillingFeedbackAction = "pause" | "delete";
+export type BillingFeedbackAction = "pause" | "cancel";
 
 /** The fixed reason buckets offered in the form, shared by pause and delete. */
 export const BILLING_FEEDBACK_REASONS: { value: string; label: string }[] = [

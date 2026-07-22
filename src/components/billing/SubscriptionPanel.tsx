@@ -1,11 +1,10 @@
 import { useState } from "react";
-import { ExternalLink, Loader2, PauseCircle, PlayCircle, Trash2, XCircle } from "lucide-react";
+import { ExternalLink, Loader2, PauseCircle, PlayCircle, XCircle } from "lucide-react";
 import { toast } from "sonner";
 import { isSubscriptionLive, openBillingPortal, type BillingReturnTo } from "@/lib/billing";
 import { useManageSubscription } from "@/hooks/data/useBilling";
-import { DeleteSubscriptionDialog } from "@/components/billing/DeleteSubscriptionDialog";
 import { PlanFeedbackDialog } from "@/components/billing/PlanFeedbackDialog";
-import { recordBillingFeedback } from "@/lib/billingFeedback";
+import { recordBillingFeedback, type BillingFeedbackAction } from "@/lib/billingFeedback";
 import type { SubscriptionRow } from "@/lib/billing";
 
 interface SubscriptionPanelProps {
@@ -14,9 +13,9 @@ interface SubscriptionPanelProps {
   planName: string;
   /**
    * Whether the signed-in user may manage the plan's lifecycle (pause, resume,
-   * cancel, delete). Link-based, not payer-based: the linked parent manages it,
-   * or the student themselves while no parent is linked. A student with a linked
-   * parent gets `false` and sees status only, even if they paid originally.
+   * cancel). Link-based, not payer-based: the linked parent manages it, or the
+   * student themselves while no parent is linked. A student with a linked parent
+   * gets `false` and sees status only, even if they paid originally.
    */
   canManage: boolean;
   /**
@@ -28,7 +27,7 @@ interface SubscriptionPanelProps {
   isPayer: boolean;
   /** Where Stripe should send the browser back to after the portal. */
   returnTo: BillingReturnTo;
-  /** Whose plan it is (e.g. a child's name), for the delete dialog copy. */
+  /** Whose plan it is (e.g. a child's name), for the feedback dialog copy. */
   ownerLabel?: string;
 }
 
@@ -50,12 +49,15 @@ function statusBadgeClass(status: string) {
 
 /**
  * Status + controls for one subscription: pause, resume, cancel at period end,
- * and a jump into the Stripe billing portal for everything else (card changes,
- * VAT details, immediate cancellation).
+ * and a jump into the Stripe billing portal for card/VAT changes.
+ *
+ * Cancelling is the only way to end a plan — there is no delete — and both
+ * pausing and cancelling are gated behind a feedback form (PlanFeedbackDialog)
+ * so neither is a one-click action.
  *
  * Rendered on the student billing page (own plan) and on the parent dashboard
- * (one per funded child). The payer check is enforced server-side too — this
- * component hiding buttons is UX, not security.
+ * (one per funded child). The link-based authority is enforced server-side too
+ * — this component hiding buttons is UX, not security.
  */
 export function SubscriptionPanel({
   sub,
@@ -66,28 +68,26 @@ export function SubscriptionPanel({
   ownerLabel,
 }: SubscriptionPanelProps) {
   const manage = useManageSubscription();
-  const [confirming, setConfirming] = useState<"cancel" | null>(null);
+  // Which lifecycle action's feedback gate is open (pause or cancel), if any.
+  const [feedbackFor, setFeedbackFor] = useState<BillingFeedbackAction | null>(null);
   const [portalBusy, setPortalBusy] = useState(false);
-  const [showDelete, setShowDelete] = useState(false);
-  const [showPause, setShowPause] = useState(false);
 
   const live = isSubscriptionLive(sub.status);
   const paused = sub.status === "paused";
   const endsAt = sub.current_period_end ? new Date(sub.current_period_end) : null;
   // Controls only make sense against a real Stripe subscription: a row without
-  // one has nothing to pause, cancel, or delete. Lifecycle control is link-based
+  // one has nothing to pause or cancel. Lifecycle control is link-based
   // (canManage). Within that, the Stripe portal — which itself allows self-serve
   // cancellation — is only shown to the payer, so a non-paying manager never
   // reaches someone else's card and a linked student never gets a back door.
   const manageable = canManage && !!sub.stripe_subscription_id;
 
   const run = (action: "cancel" | "pause" | "resume") => {
-    setConfirming(null);
     manage.mutate(
       { action, studentId: sub.student_id },
       {
         onSuccess: () => {
-          setShowPause(false);
+          setFeedbackFor(null);
           toast.success(
             action === "cancel"
               ? "Plan will end at the current period — no further charges."
@@ -101,10 +101,17 @@ export function SubscriptionPanel({
     );
   };
 
-  // Record why the family is pausing (manager-only, enforced by RLS), then pause.
-  const confirmPause = (category: string, comment: string) => {
-    void recordBillingFeedback({ studentId: sub.student_id, action: "pause", category, comment });
-    run("pause");
+  // Record why the family is pausing/cancelling (manager-only, enforced by RLS),
+  // then run it. This is the friction gate on both actions.
+  const confirmFeedback = (category: string, comment: string) => {
+    if (!feedbackFor) return;
+    void recordBillingFeedback({
+      studentId: sub.student_id,
+      action: feedbackFor,
+      category,
+      comment,
+    });
+    run(feedbackFor);
   };
 
   const portal = async () => {
@@ -157,7 +164,7 @@ export function SubscriptionPanel({
 
           {live && !sub.cancel_at_period_end && (
             <button
-              onClick={() => setShowPause(true)}
+              onClick={() => setFeedbackFor("pause")}
               disabled={manage.isPending}
               className="inline-flex items-center gap-1.5 h-9 px-3.5 rounded-lg border border-border text-sm font-semibold hover:bg-muted disabled:opacity-50"
             >
@@ -167,7 +174,7 @@ export function SubscriptionPanel({
 
           {(live || paused) && !sub.cancel_at_period_end && (
             <button
-              onClick={() => setConfirming("cancel")}
+              onClick={() => setFeedbackFor("cancel")}
               disabled={manage.isPending}
               className="inline-flex items-center gap-1.5 h-9 px-3.5 rounded-lg border border-rose-200 text-rose-600 text-sm font-semibold hover:bg-rose-50 disabled:opacity-50"
             >
@@ -188,70 +195,15 @@ export function SubscriptionPanel({
         </div>
       )}
 
-      {confirming === "cancel" && (
-        <div className="mt-3 rounded-xl border border-border bg-muted/50 p-4 text-sm">
-          <p className="font-semibold mb-1">Cancel this plan?</p>
-          <p className="text-muted-foreground">
-            Access continues until{" "}
-            {endsAt ? endsAt.toLocaleDateString() : "the end of the current period"}, then stops.
-            You can resume any time before then.
-          </p>
-          <div className="mt-3 flex gap-2">
-            <button
-              onClick={() => run("cancel")}
-              className="h-9 px-3.5 rounded-lg bg-rose-600 text-white text-sm font-semibold hover:opacity-90"
-            >
-              Yes, cancel
-            </button>
-            <button
-              onClick={() => setConfirming(null)}
-              className="h-9 px-3.5 rounded-lg border border-border text-sm font-semibold hover:bg-muted"
-            >
-              Keep plan
-            </button>
-          </div>
-        </div>
-      )}
-
-      {/* Danger zone: permanent deletion, kept visually and behaviourally
-          apart from the everyday cancel/pause controls above. The heavy
-          consent flow lives in the dialog. */}
-      {manageable && (
-        <div className="mt-5 border-t border-border pt-4">
-          <button
-            onClick={() => setShowDelete(true)}
-            disabled={manage.isPending}
-            className="inline-flex items-center gap-1.5 text-xs font-semibold text-rose-600 hover:underline disabled:opacity-50"
-          >
-            <Trash2 className="w-3.5 h-3.5" /> Delete subscription
-          </button>
-          <p className="text-[11px] text-muted-foreground mt-1 max-w-md">
-            Permanently ends this plan immediately (GDPR erasure request). Cancelling keeps access
-            until the period ends and is usually the better option.
-          </p>
-        </div>
-      )}
-
-      {showPause && (
+      {feedbackFor && (
         <PlanFeedbackDialog
+          action={feedbackFor}
           planName={planName}
           ownerLabel={ownerLabel}
+          endsAtLabel={endsAt?.toLocaleDateString()}
           pending={manage.isPending}
-          onConfirm={confirmPause}
-          onClose={() => setShowPause(false)}
-        />
-      )}
-
-      {showDelete && (
-        <DeleteSubscriptionDialog
-          studentId={sub.student_id}
-          planName={planName}
-          ownerLabel={ownerLabel}
-          onCancelInstead={() => {
-            setShowDelete(false);
-            run("cancel");
-          }}
-          onClose={() => setShowDelete(false)}
+          onConfirm={confirmFeedback}
+          onClose={() => setFeedbackFor(null)}
         />
       )}
     </div>
