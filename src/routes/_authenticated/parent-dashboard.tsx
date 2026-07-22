@@ -12,8 +12,6 @@ import {
   type WeeklyTrendPoint,
 } from "@/hooks/data/useChildProgress";
 import { AuthService } from "@/lib/authService";
-import { supabase } from "@/integrations/supabase/client";
-import { ParentBillingSection } from "@/components/billing/ParentBillingSection";
 import { GradePredictorCard } from "@/components/parent/GradePredictorCard";
 import { TrendsChart } from "@/components/parent/TrendsChart";
 import { EngagementStats } from "@/components/parent/EngagementStats";
@@ -22,8 +20,8 @@ import { isDemoMode } from "@/lib/auth/session";
 import { DEMO_PARENT_NAME } from "@/lib/demo/studentDemo";
 import { resolveDisplayName } from "@/lib/displayName";
 import { UserRole } from "@/types/user";
-import { useState, useEffect } from "react";
-import { CalendarClock, ClipboardList, BookMarked, ListChecks, Users } from "lucide-react";
+import { useState } from "react";
+import { Users } from "lucide-react";
 
 export const Route = createFileRoute("/_authenticated/parent-dashboard")({
   beforeLoad: async () => {
@@ -116,12 +114,6 @@ export function ParentDashboard() {
   const { displayName: profileName } = useEnrolments();
   const isDemo = isDemoMode();
 
-  const [parentId, setParentId] = useState<string | null>(null);
-  useEffect(() => {
-    if (isDemo) return;
-    supabase.auth.getUser().then(({ data }) => setParentId(data.user?.id ?? null));
-  }, [isDemo]);
-
   // Which child is being viewed. Defaults to the first linked child; a parent
   // with several children gets a switcher.
   const { data: children = [], isLoading: childrenLoading } = useChildLinks(!isDemo);
@@ -202,15 +194,16 @@ export function ParentDashboard() {
           <Users className="w-8 h-8 text-muted-foreground mx-auto mb-3" />
           <p className="font-display font-semibold mb-1">No linked children yet</p>
           <p className="text-sm text-muted-foreground max-w-md mx-auto">
-            Ask your child to invite you from their{" "}
-            <span className="font-semibold">Linked Parents</span> page (or accept their pending
-            invite on yours). Their progress appears here the moment you're linked.
+            Enter your child's invite code on the{" "}
+            <span className="font-semibold">Linked Students</span> page to link straight away — or
+            ask them to invite you and accept it there. Their progress appears here the moment
+            you're linked.
           </p>
           <Link
             to="/parents"
             className="inline-block mt-4 h-10 leading-10 px-5 rounded-lg bg-primary text-primary-foreground text-sm font-semibold hover:opacity-90"
           >
-            Open Linked Parents
+            Link a student
           </Link>
         </div>
       ) : (
@@ -225,43 +218,6 @@ export function ParentDashboard() {
           </div>
         </div>
       )}
-
-      {/* Billing: pay for and manage each linked child's plan. Fixture-free,
-          so the session-less demo skips it. */}
-      {!isDemo && parentId && <ParentBillingSection parentId={parentId} />}
-
-      {/* Portal Shortcut Tiles */}
-      <div className="mt-12">
-        <h3 className="font-display text-lg font-bold text-slate-900 mb-5">
-          Quick Access Portal Links
-        </h3>
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
-          {tiles.map((t) => (
-            <Link
-              key={t.to}
-              // The content pages are the same for both personas and only the
-              // student showcase mounts them, so the parent's links cross over
-              // to /demo/student/*. Staying on /demo/parent/* would hit the auth
-              // guard; a bare /curriculum would too.
-              to={isDemo ? `/demo/student${t.to}` : t.to}
-              className="rounded-2xl bg-card border border-border p-5 hover:border-primary/50 hover:shadow-lg transition cursor-pointer"
-            >
-              <div className="w-11 h-11 rounded-xl bg-primary/10 border border-primary/20 flex items-center justify-center mb-4">
-                <t.icon className="w-5 h-5 text-primary" />
-              </div>
-              <p className="font-display font-semibold text-sm">{t.label}</p>
-              <p className="text-xs text-muted-foreground mt-1">{t.desc}</p>
-            </Link>
-          ))}
-        </div>
-      </div>
     </AppLayout>
   );
 }
-
-const tiles = [
-  { to: "/curriculum", label: "Curriculum", desc: "Topics & spec points", icon: BookMarked },
-  { to: "/homework", label: "Homework & Grades", desc: "Submit & track", icon: ClipboardList },
-  { to: "/live", label: "Live Sessions", desc: "Upcoming lessons", icon: CalendarClock },
-  { to: "/mcqs", label: "MCQs", desc: "Weekly quizzes", icon: ListChecks },
-] as const;

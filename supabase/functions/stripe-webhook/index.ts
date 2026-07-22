@@ -131,7 +131,7 @@ Deno.serve(async (req) => {
       case "customer.subscription.deleted": {
         // 'deleted' still upserts: the row's status becomes 'canceled', which
         // fails the access check. Removing the row would lose the billing
-        // history and let a stale grandfathered row take its place.
+        // history, so we keep it and let status gate access instead.
         await upsertSubscription(event.data.object as Stripe.Subscription);
         break;
       }

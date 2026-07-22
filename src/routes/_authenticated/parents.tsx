@@ -9,6 +9,7 @@ import {
   useChildLinks,
   useIncomingInvites,
   useInviteParent,
+  useLinkChildByCode,
   useOutgoingInvites,
   useParentLinks,
   useRespondToInvite,
@@ -16,6 +17,7 @@ import {
   useRotateInviteCode,
   useUnlinkParent,
   type InviteOutcome,
+  type LinkChildOutcome,
 } from "@/hooks/data/useParentLinks";
 import { validateEmail } from "@/lib/validation";
 
@@ -35,8 +37,13 @@ export const Route = createFileRoute("/_authenticated/parents")({
 function ParentsPage() {
   const { role, loading } = useEnrolments();
 
+  // Same route, two seats: a parent follows their linked *students*, so the
+  // heading names them — matching the "Linked Students" sidebar item. A student
+  // manages their linked *parents*.
+  const title = role === "parent" ? "Linked Students" : "Linked Parents";
+
   return (
-    <AppLayout title="Linked Parents">
+    <AppLayout title={title}>
       <div className="max-w-2xl space-y-6">
         {loading ? (
           <p className="text-sm text-muted-foreground">Loading…</p>
@@ -320,11 +327,21 @@ function StudentView() {
   );
 }
 
+/** How each non-raising outcome of link_child_by_code reads to the parent. */
+const LINK_CHILD_MESSAGE: Record<Exclude<LinkChildOutcome, "linked">, string> = {
+  already_linked: "You're already linked to that student.",
+  not_found: "No student matches that invite code. Check it and try again.",
+  not_a_parent: "Only a parent/guardian account can link to a student.",
+};
+
 function ParentView() {
   const incoming = useIncomingInvites();
   const children = useChildLinks();
   const respond = useRespondToInvite();
   const unlink = useUnlinkParent();
+  const linkByCode = useLinkChildByCode();
+
+  const [code, setCode] = useState("");
 
   const answer = async (inviteId: string, accept: boolean) => {
     try {
@@ -335,8 +352,61 @@ function ParentView() {
     }
   };
 
+  const submitCode = async (e: React.FormEvent) => {
+    e.preventDefault();
+    if (!code.trim()) return;
+    try {
+      const result = await linkByCode.mutateAsync(code);
+      if (result.status === "linked") {
+        toast.success(
+          result.student_name ? `Linked to ${result.student_name}.` : "Linked to your student.",
+        );
+        setCode("");
+      } else {
+        // Not a failure — a "we can't link this" the parent can act on.
+        toast.info(LINK_CHILD_MESSAGE[result.status]);
+      }
+    } catch (err) {
+      toast.error(err instanceof Error ? err.message : "Could not link with that code");
+    }
+  };
+
   return (
     <>
+      <Panel
+        title="Link a student by invite code"
+        description="Ask your child for their invite code, then enter it here to follow their progress."
+        icon={Link2}
+      >
+        <form onSubmit={submitCode} className="flex flex-wrap items-end gap-2">
+          <div className="flex-1 min-w-48">
+            <Field label="Invite code">
+              <input
+                type="text"
+                value={code}
+                onChange={(e) => setCode(e.target.value)}
+                placeholder="ANG-XXXXXXXX"
+                autoCapitalize="characters"
+                autoCorrect="off"
+                spellCheck={false}
+                className={`${inputCls} font-mono tracking-widest uppercase`}
+              />
+            </Field>
+          </div>
+          <button
+            type="submit"
+            disabled={linkByCode.isPending || !code.trim()}
+            className={submitBtn}
+          >
+            {linkByCode.isPending ? "Linking…" : "Link"}
+          </button>
+        </form>
+        <p className="text-xs text-muted-foreground mt-3">
+          Linking with a code takes effect straight away — no acceptance needed. Your child can
+          unlink you or reset their code at any time.
+        </p>
+      </Panel>
+
       <Panel
         title="Invitations"
         description="Students who have asked you to follow their progress."

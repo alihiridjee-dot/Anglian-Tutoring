@@ -1,4 +1,5 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
+import { guardStudentSection } from "@/lib/routeGuards";
 import { useEffect, useMemo, useState } from "react";
 import { useServerFn } from "@tanstack/react-start";
 import { motion, AnimatePresence } from "motion/react";
@@ -37,6 +38,7 @@ import {
 } from "lucide-react";
 
 export const Route = createFileRoute("/_authenticated/curriculum")({
+  beforeLoad: guardStudentSection,
   head: () => ({ meta: [{ title: "Curriculum | Anglian Learning" }] }),
   component: Curriculum,
 });

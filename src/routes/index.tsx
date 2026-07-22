@@ -1,5 +1,4 @@
 import { createFileRoute } from "@tanstack/react-router";
-import { useState } from "react";
 import { Nav } from "@/components/landing/Nav";
 import { Hero } from "@/components/landing/Hero";
 import { TutorsSection } from "@/components/landing/TutorsSection";
@@ -25,8 +24,6 @@ export const Route = createFileRoute("/")({
 });
 
 function Landing() {
-  const [selectedLevel, setSelectedLevel] = useState("gcse_triple");
-
   return (
     <div className="min-h-screen bg-slate-50/40 text-slate-900 font-sans antialiased">
       <Nav />
@@ -34,7 +31,7 @@ function Landing() {
       <TutorsSection />
       <CurriculumShowcase />
       <OfferSection />
-      <PricingSection selectedLevel={selectedLevel} setSelectedLevel={setSelectedLevel} />
+      <PricingSection />
       <ContactSection />
       <Footer />
       <FloatingWhatsApp />

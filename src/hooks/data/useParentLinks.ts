@@ -44,6 +44,15 @@ export interface PendingInvite {
 /** The outcomes `invite_parent_by_email` reports without raising. */
 export type InviteOutcome = "invited" | "no_account" | "not_a_parent" | "already_linked";
 
+/** The outcomes `link_child_by_code` reports without raising. */
+export type LinkChildOutcome = "linked" | "already_linked" | "not_found" | "not_a_parent";
+
+export interface LinkChildResult {
+  status: LinkChildOutcome;
+  student_id?: string;
+  student_name?: string;
+}
+
 async function currentUser() {
   const { data } = await supabase.auth.getSession();
   return data.session?.user ?? null;
@@ -145,6 +154,25 @@ export function useInviteParent() {
       const { data, error } = await supabase.rpc("invite_parent_by_email", { _email: email });
       if (error) throw new Error(error.message);
       return (data as { status: InviteOutcome }).status;
+    },
+    onSuccess: invalidate,
+  });
+}
+
+/**
+ * Links the signed-in parent to a student by that student's invite code.
+ *
+ * Same trust model as the sign-up path: holding the code is the authorisation,
+ * so no student acceptance step follows. Non-raising outcomes come back as a
+ * status the caller can explain (bad code, not-a-parent, already linked).
+ */
+export function useLinkChildByCode() {
+  const invalidate = useInvalidateLinks();
+  return useMutation({
+    mutationFn: async (code: string): Promise<LinkChildResult> => {
+      const { data, error } = await supabase.rpc("link_child_by_code", { _code: code });
+      if (error) throw new Error(error.message);
+      return data as unknown as LinkChildResult;
     },
     onSuccess: invalidate,
   });

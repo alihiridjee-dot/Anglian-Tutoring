@@ -1,6 +1,6 @@
 import { useCallback, useEffect, useRef, useState } from "react";
 import { Link } from "@tanstack/react-router";
-import { Sparkles, ArrowRight, Check } from "lucide-react";
+import { Sparkles, ArrowRight, Check, Stethoscope } from "lucide-react";
 
 // Deterministic glitter field. Positions are hand-fixed (not Math.random) so the
 // server and client render the exact same dots — otherwise React throws a
@@ -303,6 +303,9 @@ export function Hero() {
 
         {/* Social proof + trust ticks. */}
         <div className="mt-10 flex flex-wrap justify-center items-center gap-x-6 gap-y-3 text-sm text-slate-600">
+          <div className="inline-flex items-center gap-2 rounded-full border border-[#005EB8]/20 bg-[#005EB8]/5 px-3.5 py-1.5 font-semibold text-[#005EB8]">
+            <Stethoscope className="w-4 h-4 shrink-0" /> Taught by practising NHS doctors
+          </div>
           <div className="flex items-center gap-2">
             <Check className="w-4 h-4 text-emerald-500 shrink-0" /> Loved by hundreds of students
           </div>

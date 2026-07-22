@@ -8,6 +8,36 @@ export type Database = {
   };
   public: {
     Tables: {
+      billing_feedback: {
+        Row: {
+          action: string;
+          created_at: string;
+          id: string;
+          reason: string | null;
+          reason_category: string | null;
+          student_id: string;
+          user_id: string;
+        };
+        Insert: {
+          action: string;
+          created_at?: string;
+          id?: string;
+          reason?: string | null;
+          reason_category?: string | null;
+          student_id: string;
+          user_id?: string;
+        };
+        Update: {
+          action?: string;
+          created_at?: string;
+          id?: string;
+          reason?: string | null;
+          reason_category?: string | null;
+          student_id?: string;
+          user_id?: string;
+        };
+        Relationships: [];
+      };
       homework_submissions: {
         Row: {
           acknowledged_at: string | null;
@@ -1289,6 +1319,10 @@ export type Database = {
       };
       invite_parent_by_email: {
         Args: { _email: string };
+        Returns: Json;
+      };
+      link_child_by_code: {
+        Args: { _code: string };
         Returns: Json;
       };
       respond_to_parent_invite: {

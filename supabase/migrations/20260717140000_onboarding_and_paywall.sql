@@ -216,23 +216,3 @@ begin
   return NEW;
 end;
 $$;
-
--- --- Grandfather everyone who signed up under the old flow ------------------
-
--- Students already using the app keep access and skip setup. Their real Stripe
--- subscription gets attached by hand later; until then plan='grandfathered'
--- marks them so they are easy to find and are never mistaken for a Stripe row.
-update public.profiles
-set onboarding_completed_at = now()
-where role = 'student' and onboarding_completed_at is null;
-
-update public.subscriptions
-set status = 'active', updated_at = now()
-where status = 'trialing';
-
-insert into public.subscriptions (user_id, student_id, status, plan)
-select p.id, p.id, 'active', 'grandfathered'
-from public.profiles p
-where p.role = 'student'
-  and not exists (select 1 from public.subscriptions s where s.student_id = p.id)
-on conflict do nothing;

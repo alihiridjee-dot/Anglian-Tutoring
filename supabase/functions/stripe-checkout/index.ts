@@ -77,11 +77,34 @@ interface ManagePayload {
   student_id: string;
 }
 
+interface DeletePayload {
+  /**
+   * The heavy path, distinct from `cancel`. Terminates the Stripe subscription
+   * *immediately* (no run-out of the paid period) as part of a GDPR Art. 17
+   * erasure. The lighter, EU-mandated easy cancellation is `cancel` above; this
+   * is only reached after the client's explicit multi-step consent.
+   *
+   * Note: invoices and payment records are deliberately NOT erased — UK/EU tax
+   * and accounting law (a GDPR Art. 17(3)(b) legal-obligation exemption)
+   * requires them to be retained, so this cancels access, not the audit trail.
+   */
+  action: "delete";
+  /** subscriptions.student_id — which subscription of the caller's to delete. */
+  student_id: string;
+  /** Optional free-text reason, forwarded to Stripe's cancellation details. */
+  reason?: string;
+}
+
 interface InvoicesPayload {
   action: "invoices";
 }
 
-type Payload = CheckoutPayload | PortalPayload | ManagePayload | InvoicesPayload;
+type Payload =
+  | CheckoutPayload
+  | PortalPayload
+  | ManagePayload
+  | DeletePayload
+  | InvoicesPayload;
 
 function admin() {
   return createClient(
@@ -113,6 +136,56 @@ async function requireUser(req: Request) {
   const { data, error } = await admin().auth.getUser(token);
   if (error || !data.user) throw new HttpError(401, "Invalid session.");
   return data.user;
+}
+
+/**
+ * Guards the parent-only lifecycle actions (pause, delete). Even a student who
+ * pays for their own plan may not pause or delete it — only a parent can. The
+ * check reads profiles.role from the data, mirroring the billing_feedback RLS
+ * insert policy, so the rule lives in one shape on both sides.
+ */
+async function requireParent(userId: string) {
+  const { data: profile } = await admin()
+    .from("profiles")
+    .select("role")
+    .eq("id", userId)
+    .maybeSingle();
+  if (profile?.role !== "parent") {
+    throw new HttpError(403, "Only a parent can pause or delete a plan.");
+  }
+}
+
+/**
+ * Every Stripe customer in the caller's billing household, so payment history is
+ * shared across a linked parent and student. Parents and students share the one
+ * account: a student sees invoices billed to their parent's card, and a parent
+ * sees any the student paid themselves. Built from parent_student_links in both
+ * directions plus the caller, mapped to stripe_customers.
+ */
+async function householdCustomerIds(userId: string): Promise<string[]> {
+  const db = admin();
+  const userIds = new Set<string>([userId]);
+
+  // Children this user pays for (caller is a parent).
+  const { data: children } = await db
+    .from("parent_student_links")
+    .select("student_id")
+    .eq("parent_id", userId);
+  for (const row of children ?? []) userIds.add(row.student_id);
+
+  // Parents linked to this user (caller is a student).
+  const { data: parents } = await db
+    .from("parent_student_links")
+    .select("parent_id")
+    .eq("student_id", userId);
+  for (const row of parents ?? []) userIds.add(row.parent_id);
+
+  const { data: customers } = await db
+    .from("stripe_customers")
+    .select("stripe_customer_id")
+    .in("user_id", [...userIds]);
+
+  return [...new Set((customers ?? []).map((c) => c.stripe_customer_id))];
 }
 
 /**
@@ -237,6 +310,8 @@ async function handleManage(req: Request, payload: ManagePayload) {
   if (row.user_id !== user.id) {
     throw new HttpError(403, "Only the account that pays for this plan can manage it.");
   }
+  // Pausing is a parent-only action; cancel/resume stay open to the payer.
+  if (payload.action === "pause") await requireParent(user.id);
 
   const id = row.stripe_subscription_id;
   let sub: Stripe.Subscription;
@@ -282,26 +357,84 @@ async function handleManage(req: Request, payload: ManagePayload) {
   return { ok: true, status: sub.pause_collection ? "paused" : sub.status };
 }
 
-/** The caller's payment history, newest first. Payer-scoped by construction. */
-async function handleInvoices(req: Request) {
+/**
+ * Immediate, permanent termination of a subscription the caller pays for — the
+ * "delete" path behind the client's GDPR-erasure consent flow.
+ *
+ * Same payer-only ownership check as handleManage. Two hard guards protect the
+ * things that must not be destroyed here:
+ *   • No stripe_subscription_id → nothing to cancel: there is no Stripe object,
+ *     so the request 404s and the local row is left untouched.
+ *   • Invoices/customer are left in place — retained for statutory tax record
+ *     keeping, per the Art. 17(3)(b) exemption noted on DeletePayload.
+ */
+async function handleDelete(req: Request, payload: DeletePayload) {
   const user = await requireUser(req);
   const db = admin();
   const stripe = stripeClient();
 
-  const { data: customer } = await db
-    .from("stripe_customers")
-    .select("stripe_customer_id")
-    .eq("user_id", user.id)
-    .maybeSingle();
-  if (!customer?.stripe_customer_id) return { invoices: [] };
+  if (!payload.student_id) throw new HttpError(400, "student_id is required.");
 
-  const list = await stripe.invoices.list({
-    customer: customer.stripe_customer_id,
-    limit: 24,
+  const { data: row } = await db
+    .from("subscriptions")
+    .select("user_id, stripe_subscription_id, status")
+    .eq("student_id", payload.student_id)
+    .maybeSingle();
+  if (!row?.stripe_subscription_id) {
+    // No Stripe subscription exists, so there is nothing to delete.
+    throw new HttpError(404, "No Stripe subscription to delete.");
+  }
+  if (row.user_id !== user.id) {
+    throw new HttpError(403, "Only the account that pays for this plan can delete it.");
+  }
+  // Deletion is parent-only, same rule as pause.
+  await requireParent(user.id);
+
+  // Cancel now, not at period end — deletion is immediate by definition. Stripe
+  // records the reason for the audit trail; the customer and its invoices remain
+  // for statutory retention.
+  const reason = payload.reason?.slice(0, 500);
+  const sub = await stripe.subscriptions.cancel(row.stripe_subscription_id, {
+    ...(reason ? { cancellation_details: { comment: reason } } : {}),
   });
 
-  return {
-    invoices: list.data.map((inv) => ({
+  // Mirror the terminal state immediately; the customer.subscription.deleted
+  // webhook will write the same canceled status shortly after.
+  await db
+    .from("subscriptions")
+    .update({
+      status: sub.status, // "canceled"
+      cancel_at_period_end: false,
+      updated_at: new Date().toISOString(),
+    })
+    .eq("stripe_subscription_id", row.stripe_subscription_id);
+
+  return { ok: true, status: sub.status };
+}
+
+/**
+ * The billing household's payment history, newest first — the parent's and the
+ * linked student's invoices merged into one shared list (see
+ * householdCustomerIds). Each customer's invoices are fetched, combined, sorted
+ * by date and capped, so both personas see the same history for the plans that
+ * connect them.
+ */
+async function handleInvoices(req: Request) {
+  const user = await requireUser(req);
+  const stripe = stripeClient();
+
+  const customerIds = await householdCustomerIds(user.id);
+  if (customerIds.length === 0) return { invoices: [] };
+
+  const lists = await Promise.all(
+    customerIds.map((customer) => stripe.invoices.list({ customer, limit: 24 })),
+  );
+
+  const invoices = lists
+    .flatMap((list) => list.data)
+    .sort((a, b) => b.created - a.created)
+    .slice(0, 24)
+    .map((inv) => ({
       id: inv.id,
       number: inv.number,
       created: inv.created,
@@ -312,8 +445,9 @@ async function handleInvoices(req: Request) {
       description: inv.lines?.data?.[0]?.description ?? null,
       hosted_invoice_url: inv.hosted_invoice_url ?? null,
       invoice_pdf: inv.invoice_pdf ?? null,
-    })),
-  };
+    }));
+
+  return { invoices };
 }
 
 Deno.serve(async (req) => {
@@ -333,6 +467,9 @@ Deno.serve(async (req) => {
       case "pause":
       case "resume":
         result = await handleManage(req, payload);
+        break;
+      case "delete":
+        result = await handleDelete(req, payload);
         break;
       case "invoices":
         result = await handleInvoices(req);

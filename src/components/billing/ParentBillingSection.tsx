@@ -10,12 +10,14 @@ import { InvoiceHistoryCard } from "@/components/billing/InvoiceHistory";
 import { resolveDisplayName } from "@/lib/displayName";
 
 /**
- * Billing on the parent dashboard: one card per linked child showing their
- * plan (with pause/cancel/resume if this parent pays for it) or the plan
+ * The parent's Billing tab: one card per linked child showing their plan (with
+ * pause / cancel / resume / delete if this parent pays for it) or the plan
  * picker if they have none, plus the parent's own payment history.
  *
- * A child can also pay for themselves — in that case the parent sees the
- * status but not the controls, and the server enforces the same rule.
+ * Lifted out of the Parent Portal dashboard into its own /billing tab — the
+ * dashboard is progress-only now. A child can also pay for themselves, in which
+ * case the parent sees status but not the controls, and the server enforces the
+ * same rule.
  */
 export function ParentBillingSection({ parentId }: { parentId: string }) {
   const { data: children = [], isLoading: childrenLoading } = useChildLinks();
@@ -27,7 +29,7 @@ export function ParentBillingSection({ parentId }: { parentId: string }) {
   const choosePlan = async (studentId: string, tier: string) => {
     setBusy(`${studentId}:${tier}`);
     try {
-      await startCheckout({ tier, studentId, returnTo: "parent" });
+      await startCheckout({ tier, studentId, returnTo: "billing" });
     } catch (err) {
       toast.error(err instanceof Error ? err.message : "Couldn't open checkout — try again.");
       setBusy(null);
@@ -37,10 +39,10 @@ export function ParentBillingSection({ parentId }: { parentId: string }) {
   if (childrenLoading) return null;
 
   return (
-    <div className="mt-12">
+    <div>
       <div className="flex items-center gap-3 mb-5">
         <CreditCard className="w-5 h-5 text-primary" />
-        <h3 className="font-display text-lg font-bold text-slate-900">Billing & plans</h3>
+        <h2 className="font-display text-xl font-semibold text-slate-900">Billing &amp; plans</h2>
       </div>
 
       {children.length === 0 ? (
@@ -67,7 +69,9 @@ export function ParentBillingSection({ parentId }: { parentId: string }) {
                     sub={sub}
                     planName={planName}
                     isPayer={sub.user_id === parentId}
-                    returnTo="parent"
+                    isParent
+                    returnTo="billing"
+                    ownerLabel={childName}
                   />
                 ) : (
                   <>

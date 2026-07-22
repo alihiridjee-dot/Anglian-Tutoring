@@ -1,4 +1,5 @@
 import { createFileRoute } from "@tanstack/react-router";
+import { guardStudentSection } from "@/lib/routeGuards";
 import { useState } from "react";
 import { AppLayout } from "@/components/AppLayout";
 import { supabase } from "@/integrations/supabase/client";
@@ -35,6 +36,7 @@ import { isDemoStudent } from "@/lib/demo/studentDemo";
 import { type SubjectV, type BoardV, type LevelV } from "@/lib/taxonomy";
 
 export const Route = createFileRoute("/_authenticated/homework")({
+  beforeLoad: guardStudentSection,
   head: () => ({ meta: [{ title: "Homework & Grades | Anglian Learning" }] }),
   component: HomeworkPage,
 });

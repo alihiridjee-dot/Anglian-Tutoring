@@ -4,6 +4,7 @@ import { isDemoMode } from "@/lib/auth/session";
 import {
   fetchInvoices,
   manageSubscription,
+  deleteSubscription,
   type Invoice,
   type PackageRow,
   type SubscriptionRow,
@@ -73,6 +74,22 @@ export function useManageSubscription() {
       action: "cancel" | "pause" | "resume";
       studentId: string;
     }) => manageSubscription(action, studentId),
+    onSuccess: () => {
+      qc.invalidateQueries({ queryKey: BILLING_KEY });
+    },
+  });
+}
+
+/**
+ * Permanently delete a subscription the caller pays for (immediate termination
+ * as part of the GDPR-erasure flow). Only ever reached after the multi-step
+ * consent in DeleteSubscriptionDialog.
+ */
+export function useDeleteSubscription() {
+  const qc = useQueryClient();
+  return useMutation({
+    mutationFn: ({ studentId, reason }: { studentId: string; reason?: string }) =>
+      deleteSubscription(studentId, reason),
     onSuccess: () => {
       qc.invalidateQueries({ queryKey: BILLING_KEY });
     },

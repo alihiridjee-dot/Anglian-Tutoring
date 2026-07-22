@@ -16,8 +16,9 @@ export interface SubscriptionRow {
   current_period_end: string | null;
   cancel_at_period_end: boolean;
   /**
-   * Null for manually-granted rows (e.g. grandfathered access) — there is no
-   * Stripe subscription to pause or cancel, so no controls should render.
+   * Every plan is a real Stripe subscription, so this is populated in practice.
+   * Kept nullable defensively: a row momentarily without one has no Stripe
+   * object to pause or cancel, so no controls should render.
    */
   stripe_subscription_id: string | null;
 }
@@ -64,8 +65,6 @@ export function planLabel(plan: string | null | undefined, packages: PackageRow[
   if (!plan) return "Subscription";
   const pkg = packages.find((p) => p.tier === plan);
   if (pkg) return pkg.name;
-  // Manually-granted access has no package row behind it.
-  if (plan === "grandfathered") return "Complimentary access";
   return plan;
 }
 
@@ -119,6 +118,21 @@ export async function openBillingPortal(returnTo: BillingReturnTo = "billing") {
 /** Pause, resume, or cancel-at-period-end. Caller must be the payer. */
 export async function manageSubscription(action: "cancel" | "pause" | "resume", studentId: string) {
   return invokeBilling<{ ok: boolean; status: string }>({ action, student_id: studentId });
+}
+
+/**
+ * Permanently delete (immediately terminate) a subscription. The heavy path
+ * behind the GDPR-erasure consent flow — distinct from `manageSubscription`'s
+ * easy `cancel`. Caller must be the payer, and there must be a real Stripe
+ * subscription (a row without one is rejected server-side). Invoices are
+ * retained for statutory record-keeping.
+ */
+export async function deleteSubscription(studentId: string, reason?: string) {
+  return invokeBilling<{ ok: boolean; status: string }>({
+    action: "delete",
+    student_id: studentId,
+    reason,
+  });
 }
 
 /** The caller's Stripe payment history (empty if they've never paid). */

@@ -22,32 +22,42 @@
 import Stripe from "stripe";
 import { createClient } from "@supabase/supabase-js";
 
-const PLANS = [
-  {
-    tier: "weekly",
-    name: "Anglian Learning — Weekly Plan",
-    description: "Two live sessions a week. Cancel anytime.",
-    amount: 1999,
-    interval: "week" as const,
-    intervalCount: 1,
-  },
-  {
-    tier: "monthly",
-    name: "Anglian Learning — Monthly Saver",
-    description: "Eight live sessions a month. Best value.",
-    amount: 4999,
-    interval: "month" as const,
-    intervalCount: 1,
-  },
-  {
-    tier: "tri_monthly",
-    name: "Anglian Learning — Tri-monthly",
-    description: "Twenty-four live sessions a term, plus premium onboarding.",
-    amount: 13999,
-    interval: "month" as const,
-    intervalCount: 3,
-  },
-];
+// The landing page sells a cadence × subject-count matrix. Each combination is
+// its own immutable Stripe price with tier `${cadence}_${count}`, matching the
+// tier the checkout function looks up. Prices (pence) and per-cycle session
+// counts must stay in lockstep with PRICE_PENCE/SESSIONS in
+// src/components/landing/PricingSection.tsx.
+const CADENCES = [
+  { cadence: "weekly", label: "Weekly Plan", interval: "week" as const, intervalCount: 1 },
+  { cadence: "monthly", label: "Monthly Saver", interval: "month" as const, intervalCount: 1 },
+  { cadence: "termly", label: "Termly", interval: "month" as const, intervalCount: 3 },
+] as const;
+
+const PRICE_PENCE: Record<string, Record<number, number>> = {
+  weekly: { 1: 1999, 2: 2239, 3: 2399 },
+  monthly: { 1: 4999, 2: 5599, 3: 5999 },
+  termly: { 1: 13999, 2: 15699, 3: 16799 },
+};
+
+// Live sessions per billing cycle, at 2 per subject per week.
+const CYCLE_SESSIONS: Record<string, number> = { weekly: 2, monthly: 8, termly: 24 };
+
+const PLANS = CADENCES.flatMap(({ cadence, label, interval, intervalCount }) =>
+  [1, 2, 3].map((count) => {
+    const sessions = CYCLE_SESSIONS[cadence] * count;
+    const subjectWord = count === 1 ? "1 subject" : `${count} subjects`;
+    return {
+      tier: `${cadence}_${count}`,
+      name: `Anglian Learning — ${label} (${subjectWord})`,
+      description: `${sessions} live sessions per ${
+        cadence === "termly" ? "term" : interval
+      }. ${subjectWord}.`,
+      amount: PRICE_PENCE[cadence][count],
+      interval,
+      intervalCount,
+    };
+  }),
+);
 
 const stripeKey = process.env.STRIPE_SECRET_KEY;
 const supabaseUrl = process.env.SUPABASE_URL;

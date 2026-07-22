@@ -1,17 +1,15 @@
 import { Link, useNavigate, useRouter, useRouterState } from "@tanstack/react-router";
 import {
   LayoutDashboard,
-  ClipboardList,
   GraduationCap,
   LogOut,
   BookMarked,
   ListChecks,
   Video,
+  ClipboardList,
   ArrowLeft,
   ArrowRight,
-  Users,
   Sparkles,
-  Compass,
 } from "lucide-react";
 import { type ReactNode } from "react";
 import { useRoles } from "@/hooks/useRole";
@@ -23,47 +21,26 @@ import { NotificationBell } from "@/components/NotificationBell";
 import { UserMenu } from "@/components/UserMenu";
 import { HeaderLiveButton } from "@/components/live/HeaderLiveButton";
 import { resolveInitials } from "@/lib/displayName";
-
-interface NavItem {
-  to:
-    | "/dashboard"
-    | "/planner"
-    | "/curriculum"
-    | "/homework"
-    | "/live"
-    | "/mcqs"
-    | "/tutor"
-    | "/students"
-    | "/parents"
-    | "/student-dashboard"
-    | "/parent-dashboard"
-    | "/demo/student/dashboard"
-    | "/demo/student/curriculum"
-    | "/demo/student/homework"
-    | "/demo/student/live"
-    | "/demo/student/mcqs"
-    | "/demo/parent/dashboard";
-  label: string;
-  icon: React.ComponentType<{ className?: string }>;
-}
-
-const studentNav: NavItem[] = [
-  { to: "/dashboard", label: "Dashboard", icon: LayoutDashboard },
-  { to: "/planner", label: "Planner", icon: Compass },
-  { to: "/curriculum", label: "Curriculum", icon: BookMarked },
-  { to: "/homework", label: "Homework & Grades", icon: ClipboardList },
-  { to: "/live", label: "Live Sessions", icon: Video },
-  { to: "/mcqs", label: "MCQs", icon: ListChecks },
-];
-
-const tutorExtra: NavItem[] = [{ to: "/students", label: "Students", icon: Users }];
+import { buildAuthedNav } from "@/lib/nav";
 
 /**
- * Shown to students and parents, never tutors — it manages the caller's own
- * family links, which a tutor doesn't have. Tutors link families from Students.
- * Mirrors the "Linked Parents" item in the header menu, same destination.
+ * The showcase sidebar. It must stay inside `/demo/*`, or a click lands on a
+ * guarded route and bounces the visitor to `/auth`, so these entries carry the
+ * demo paths and are kept separate from the real authenticated nav in
+ * `@/lib/nav`. The parent showcase mirrors the live Parent Portal: Portal only,
+ * none of the student learning sections.
  */
-const linkedParentsNav: NavItem = { to: "/parents", label: "Linked Parents", icon: Users };
+const demoStudentNav = [
+  { to: "/demo/student/dashboard", label: "Dashboard", icon: LayoutDashboard },
+  { to: "/demo/student/curriculum", label: "Curriculum", icon: BookMarked },
+  { to: "/demo/student/homework", label: "Homework & Grades", icon: ClipboardList },
+  { to: "/demo/student/live", label: "Live Sessions", icon: Video },
+  { to: "/demo/student/mcqs", label: "MCQs", icon: ListChecks },
+] as const;
+
+const demoParentNav = [
+  { to: "/demo/parent/dashboard", label: "Parent Portal", icon: LayoutDashboard },
+] as const;
 
 export function AppLayout({ title, children }: { title: string; children: ReactNode }) {
   const pathname = useRouterState({ select: (s) => s.location.pathname });
@@ -83,42 +60,14 @@ export function AppLayout({ title, children }: { title: string; children: ReactN
     navigate({ to: "/" });
   };
 
+  // Real sessions derive their nav per persona from the single source of truth
+  // in @/lib/nav, where a parent's sidebar is *typed* to exclude the student
+  // learning sections. The demo showcase keeps its own /demo/* entries.
   const nav = isDemo
-    ? // Showcase nav must stay inside /demo/*, or a click lands on a guarded
-      // route and bounces the visitor to /auth.
-      demoRole === "parent"
-      ? [{ to: "/demo/parent/dashboard", label: "Parent Portal", icon: LayoutDashboard }]
-      : [
-          { to: "/demo/student/dashboard", label: "Dashboard", icon: LayoutDashboard },
-          { to: "/demo/student/curriculum", label: "Curriculum", icon: BookMarked },
-          { to: "/demo/student/homework", label: "Homework & Grades", icon: ClipboardList },
-          { to: "/demo/student/live", label: "Live Sessions", icon: Video },
-          { to: "/demo/student/mcqs", label: "MCQs", icon: ListChecks },
-        ]
-    : isTutor
-      ? // Tutor home is the Tutor Studio; the shared content pages stay available.
-        [
-          ...studentNav.map((item) =>
-            item.to === "/dashboard" ? { ...item, to: "/tutor" as const } : item,
-          ),
-          ...tutorExtra,
-        ]
-      : [
-          ...studentNav.map((item) => {
-            if (item.to === "/dashboard") {
-              // Only a genuine PARENT persona maps to the Parent Portal; everyone
-              // else resolves to the student dashboard, so the Parent Portal can
-              // never leak into a non-parent session's navigation.
-              const home =
-                userRole === "parent"
-                  ? ("/parent-dashboard" as const)
-                  : ("/student-dashboard" as const);
-              return { ...item, to: home };
-            }
-            return item;
-          }),
-          linkedParentsNav,
-        ];
+    ? demoRole === "parent"
+      ? demoParentNav
+      : demoStudentNav
+    : buildAuthedNav({ isTutor, role: userRole });
 
   // The showcase has no account, so its avatar comes from the fixture persona
   // rather than a signed-in profile.

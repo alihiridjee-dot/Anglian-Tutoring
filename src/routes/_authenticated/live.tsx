@@ -1,4 +1,5 @@
 import { createFileRoute } from "@tanstack/react-router";
+import { guardStudentSection } from "@/lib/routeGuards";
 import { useState } from "react";
 import { useQuery, useQueryClient } from "@tanstack/react-query";
 import { AppLayout } from "@/components/AppLayout";
@@ -26,6 +27,7 @@ import {
 import { toast } from "sonner";
 
 export const Route = createFileRoute("/_authenticated/live")({
+  beforeLoad: guardStudentSection,
   head: () => ({ meta: [{ title: "Live Sessions | StudyHub" }] }),
   component: Live,
 });

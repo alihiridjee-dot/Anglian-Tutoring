@@ -36,7 +36,12 @@ function BoardStep() {
         supabase.from("student_enrolments").select("board").eq("student_id", u.user.id).limit(1),
       ]);
       if (profile?.level) setLevel(profile.level as LevelV);
+      // Seed the board from what they picked on the pricing page, but let
+      // anything they've already saved win — and they can still change it here.
+      const intendedBoard = u.user.user_metadata?.intended_board as string | undefined;
       if (enrolments?.[0]?.board) setBoard(enrolments[0].board as BoardV);
+      else if (intendedBoard && BOARDS.some((b) => b.value === intendedBoard))
+        setBoard(intendedBoard as BoardV);
     })();
   }, []);
 

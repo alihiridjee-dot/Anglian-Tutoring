@@ -38,7 +38,9 @@ function SubjectsStep() {
   );
   const [saving, setSaving] = useState(false);
 
-  // Prefill from existing enrolments if they're revisiting the step.
+  // Prefill from existing enrolments if they're revisiting the step; otherwise
+  // fall back to whatever they picked on the pricing page (stashed in auth
+  // metadata at signup). Either way every choice stays editable below.
   useEffect(() => {
     (async () => {
       const { data: u } = await supabase.auth.getUser();
@@ -47,15 +49,26 @@ function SubjectsStep() {
         .from("student_enrolments")
         .select("subject, board")
         .eq("student_id", u.user.id);
-      if (!data?.length) return;
-      setChosen((prev) => ({
-        ...prev,
-        ...Object.fromEntries(data.map((r) => [r.subject, true])),
-      }));
-      setBoards((prev) => ({
-        ...prev,
-        ...Object.fromEntries(data.map((r) => [r.subject, r.board as BoardV])),
-      }));
+      if (data?.length) {
+        setChosen((prev) => ({
+          ...prev,
+          ...Object.fromEntries(data.map((r) => [r.subject, true])),
+        }));
+        setBoards((prev) => ({
+          ...prev,
+          ...Object.fromEntries(data.map((r) => [r.subject, r.board as BoardV])),
+        }));
+        return;
+      }
+
+      const intended = u.user.user_metadata?.intended_subjects as string | undefined;
+      const picked = (intended ?? "")
+        .split(",")
+        .map((s) => s.trim())
+        .filter((s) => SUBJECTS.some((sub) => sub.value === s));
+      if (picked.length) {
+        setChosen((prev) => ({ ...prev, ...Object.fromEntries(picked.map((s) => [s, true])) }));
+      }
     })();
   }, []);
 
