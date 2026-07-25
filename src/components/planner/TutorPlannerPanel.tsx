@@ -79,6 +79,10 @@ export function TutorPlannerPanel() {
   const [picking, setPicking] = useState(false);
   const [toAdd, setToAdd] = useState<string[]>([]);
   const [adding, setAdding] = useState(false);
+  // Bumped after any plan mutation so the roadmap below re-derives from the DB —
+  // keeping the curriculum view in sync with edits in real time.
+  const [refreshToken, setRefreshToken] = useState(0);
+  const bumpRefresh = () => setRefreshToken((n) => n + 1);
 
   const reload = async () => {
     if (!student || !active) {
@@ -116,6 +120,7 @@ export function TutorPlannerPanel() {
     setPoints((prev) => prev.filter((p) => p.spec_point_id !== specPointId));
     try {
       await WeeklyPlanDAL.removePoint(plan.id, specPointId);
+      bumpRefresh();
     } catch {
       await reload();
     }
@@ -144,6 +149,7 @@ export function TutorPlannerPanel() {
       setToAdd([]);
       setPicking(false);
       await reload();
+      bumpRefresh();
     } catch (e) {
       toast.error(e instanceof Error ? e.message : "Couldn't add those — try again.");
     } finally {
@@ -269,9 +275,19 @@ export function TutorPlannerPanel() {
           </div>
         ) : (
           <div className="space-y-4">
+            {/* Editing boundary — make it unmistakable which week these points belong to */}
+            <div className="flex items-center gap-2 rounded-lg bg-muted/40 px-3 py-2">
+              <CalendarRange className="w-3.5 h-3.5 text-muted-foreground shrink-0" />
+              <p className="text-[11px] text-muted-foreground">
+                Editing the plan for{" "}
+                <span className="font-semibold text-foreground">{weekLabel}</span>
+                {isCurrent ? " (this week)" : weekOffset < 0 ? " (past week)" : " (upcoming week)"} ·
+                changes apply to this week only.
+              </p>
+            </div>
             {points.length === 0 ? (
               <p className="rounded-xl border border-dashed border-border p-6 text-center text-sm text-muted-foreground">
-                No plan for this week yet — add spec points below to build one.
+                No plan for {weekLabel} yet — add spec points below to build one.
               </p>
             ) : (
               groups.map((g) => (
@@ -369,7 +385,7 @@ export function TutorPlannerPanel() {
                 onClick={() => setPicking(true)}
                 className="inline-flex items-center gap-1.5 h-9 px-3 rounded-lg border border-border text-sm font-medium hover:bg-muted"
               >
-                <Plus className="w-4 h-4" /> Add spec points
+                <Plus className="w-4 h-4" /> Add spec points to {weekLabel}
               </button>
             )}
 
@@ -383,7 +399,10 @@ export function TutorPlannerPanel() {
                 board={active.board as BoardV}
                 level={student.level ?? "gcse"}
                 weekStart={weekStart}
-                onChanged={reload}
+                onChanged={() => {
+                  reload();
+                  bumpRefresh();
+                }}
                 readOnly
               />
             )}
@@ -396,6 +415,9 @@ export function TutorPlannerPanel() {
             studentId={student.id}
             enrolments={student.enrolments}
             level={student.level}
+            asTutor
+            studentName={student.name}
+            refreshToken={refreshToken}
           />
           <CoveredLedger
             studentId={student.id}

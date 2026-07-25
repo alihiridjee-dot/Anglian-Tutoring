@@ -110,39 +110,63 @@ function BillingPage() {
   return (
     <AppLayout title="Billing">
       <div className="max-w-4xl">
-        <div className="rounded-2xl bg-card border border-border p-6 mb-8">
-          <div className="flex items-center gap-3 mb-2">
-            <CreditCard className="w-5 h-5 text-primary" />
-            <h2 className="font-display text-xl font-semibold">Current plan</h2>
-          </div>
+        <div className="relative overflow-hidden rounded-2xl border border-primary/30 bg-gradient-to-br from-primary/5 via-card to-card p-6 mb-8 shadow-sm">
+          {/* soft glow accent */}
+          <div className="pointer-events-none absolute -top-16 -right-16 h-40 w-40 rounded-full bg-primary/10 blur-3xl" />
 
-          {loading ? (
-            <p className="text-sm text-muted-foreground">Loading…</p>
-          ) : hasUsablePlan && sub ? (
-            <div>
-              <SubscriptionPanel
-                sub={sub}
-                planName={planName}
-                canManage={!managedByParent}
-                isPayer={isPayer && !managedByParent}
-                returnTo="billing"
-              />
-              <p className="text-sm text-muted-foreground mt-3">
-                Enrolled subjects: {enrolledCourses.length ? enrolledCourses.join(", ") : "—"}
-              </p>
-              {managedByParent && (
-                <p className="text-sm text-muted-foreground mt-3">
-                  Billing for this plan is managed by your linked parent from their account —
-                  including pausing, changing or cancelling it.
-                </p>
-              )}
+          <div className="relative">
+            <div className="flex items-center gap-2 mb-3">
+              <div className="w-8 h-8 rounded-lg bg-primary/15 flex items-center justify-center">
+                <CreditCard className="w-4 h-4 text-primary" />
+              </div>
+              <h2 className="font-display text-xl font-semibold">Current plan</h2>
             </div>
-          ) : (
-            <p className="text-muted-foreground">
-              You don't have an active plan yet. Pick one below to unlock lessons, quizzes, and
-              homework marking.
-            </p>
-          )}
+
+            {loading ? (
+              <p className="text-sm text-muted-foreground">Loading…</p>
+            ) : hasUsablePlan && sub ? (
+              <div>
+                <SubscriptionPanel
+                  sub={sub}
+                  planName={planName}
+                  canManage={!managedByParent}
+                  isPayer={isPayer && !managedByParent}
+                  returnTo="billing"
+                />
+                <div className="mt-4">
+                  <div className="text-xs font-semibold uppercase tracking-wider text-muted-foreground mb-2">
+                    Enrolled subjects
+                  </div>
+                  {enrolledCourses.length ? (
+                    <div className="flex flex-wrap gap-2">
+                      {enrolledCourses.map((course) => (
+                        <span
+                          key={course}
+                          className="inline-flex items-center gap-1.5 rounded-full border border-primary/20 bg-primary/5 px-3 py-1 text-sm font-medium capitalize text-foreground"
+                        >
+                          <span className="h-1.5 w-1.5 rounded-full bg-primary" />
+                          {course}
+                        </span>
+                      ))}
+                    </div>
+                  ) : (
+                    <span className="text-sm text-muted-foreground">—</span>
+                  )}
+                </div>
+                {managedByParent && (
+                  <p className="text-sm text-muted-foreground mt-4 rounded-xl border border-border bg-muted/40 p-3">
+                    Billing for this plan is managed by your linked parent from their account —
+                    including pausing, changing or cancelling it.
+                  </p>
+                )}
+              </div>
+            ) : (
+              <p className="text-muted-foreground">
+                You don't have an active plan yet. Pick one below to unlock lessons, quizzes, and
+                homework marking.
+              </p>
+            )}
+          </div>
         </div>
 
         {/* Frictionless upgrade: any student can add a subject to their own live

@@ -108,12 +108,19 @@ export function ParentBillingSection({ parentId }: { parentId: string }) {
             const planName = planLabel(sub?.plan, packages);
 
             return (
-              <div key={child.link_id} className="rounded-2xl bg-card border border-border p-6">
-                <p className="text-xs uppercase tracking-widest text-muted-foreground font-semibold mb-3">
-                  {childName}'s plan
-                </p>
+              <div
+                key={child.link_id}
+                className="relative overflow-hidden rounded-2xl border border-primary/30 bg-gradient-to-br from-primary/5 via-card to-card p-6 shadow-sm"
+              >
+                {/* soft glow accent (matches Add-subject card) */}
+                <div className="pointer-events-none absolute -top-16 -right-16 h-40 w-40 rounded-full bg-primary/10 blur-3xl" />
 
-                {hasUsablePlan && sub ? (
+                <div className="relative">
+                  <p className="text-xs uppercase tracking-widest text-muted-foreground font-semibold mb-3">
+                    {childName}'s plan
+                  </p>
+
+                  {hasUsablePlan && sub ? (
                   <>
                     <SubscriptionPanel
                       sub={sub}
@@ -144,8 +151,9 @@ export function ParentBillingSection({ parentId }: { parentId: string }) {
                       }
                       onChoose={(tier) => choosePlan(child.student_id, tier)}
                     />
-                  </>
-                )}
+                    </>
+                  )}
+                </div>
               </div>
             );
           })}

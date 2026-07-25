@@ -88,12 +88,19 @@ export function InvoiceHistory() {
 /** Card wrapper used by both the billing page and the parent dashboard. */
 export function InvoiceHistoryCard() {
   return (
-    <div className="rounded-2xl bg-card border border-border p-6">
-      <div className="flex items-center gap-3 mb-4">
-        <Receipt className="w-5 h-5 text-primary" />
-        <h2 className="font-display text-xl font-semibold">Payment history</h2>
+    <div className="relative overflow-hidden rounded-2xl border border-primary/30 bg-gradient-to-br from-primary/5 via-card to-card p-6 shadow-sm">
+      {/* soft glow accent */}
+      <div className="pointer-events-none absolute -top-16 -right-16 h-40 w-40 rounded-full bg-primary/10 blur-3xl" />
+
+      <div className="relative">
+        <div className="flex items-center gap-2 mb-4">
+          <div className="w-8 h-8 rounded-lg bg-primary/15 flex items-center justify-center">
+            <Receipt className="w-4 h-4 text-primary" />
+          </div>
+          <h2 className="font-display text-xl font-semibold">Payment history</h2>
+        </div>
+        <InvoiceHistory />
       </div>
-      <InvoiceHistory />
     </div>
   );
 }

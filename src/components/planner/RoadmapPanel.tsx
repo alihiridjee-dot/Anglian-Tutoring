@@ -12,10 +12,16 @@ import {
   ClipboardList,
   ListChecks,
   Repeat,
+  RefreshCw,
   Sparkles,
   Target,
 } from "lucide-react";
-import { isTeachBand, FOCUS_RED_BELOW, type PacingBand } from "@/lib/planner/pacing";
+import {
+  isTeachBand,
+  FOCUS_RED_BELOW,
+  type PacingBand,
+  type PacingChange,
+} from "@/lib/planner/pacing";
 import { ProgramDAL, type RoadmapResult } from "@/lib/programDal";
 import { type ProgressPoint, type TopicProgress } from "@/lib/scheduleDal";
 import { type PointStatus } from "@/lib/planner/scheduler";
@@ -52,12 +58,19 @@ export function RoadmapPanel({
   enrolments,
   level,
   refreshToken,
+  asTutor = false,
+  studentName,
 }: {
   studentId: string;
   enrolments: Enrolment[];
   level: LevelV;
   /** Bump to force a reload (e.g. after the confidence board changes). */
   refreshToken?: number;
+  /** Tutor review mode: neutral copy, and the plan-shift is informational only
+   *  (the acknowledgement is the student's own gesture — a tutor never consumes it). */
+  asTutor?: boolean;
+  /** The student whose road this is, for tutor-voiced copy. */
+  studentName?: string | null;
 }) {
   const ordered = useMemo(
     () => [
@@ -80,6 +93,7 @@ export function RoadmapPanel({
   const [loading, setLoading] = useState(true);
   const [acking, setAcking] = useState(false);
   const [expanded, setExpanded] = useState<Set<string>>(new Set());
+  const [showAllChanges, setShowAllChanges] = useState(false);
 
   const toggle = (topicId: string) =>
     setExpanded((prev) => {
@@ -95,6 +109,12 @@ export function RoadmapPanel({
   );
   const masteryByTopic = useMemo(
     () => new Map<string, number>((data?.progress ?? []).map((t) => [t.topicId, t.masteryPct])),
+    [data],
+  );
+  // Which topics were rescheduled, keyed by topic, so the table can flag them
+  // inline (badge at the topic's new start week) instead of a separate list.
+  const changeByTopic = useMemo(
+    () => new Map((data?.changes ?? []).map((c) => [c.topicId, c])),
     [data],
   );
 
@@ -153,7 +173,9 @@ export function RoadmapPanel({
           </div>
           <div>
             <h2 className="font-display text-base font-semibold tracking-tight">
-              Your programme to the exams
+              {asTutor
+                ? `${studentName ? `${studentName}'s` : "Student"} programme to the exams`
+                : "Your programme to the exams"}
             </h2>
             <p className="text-xs text-muted-foreground">
               {data
@@ -194,61 +216,90 @@ export function RoadmapPanel({
         </p>
       ) : (
         <>
-          {/* Acknowledge banner — the plan shifted, accept the new road */}
+          {/* Plan-shift banner — a compact summary; the moved topics are flagged
+              inline in the table below, so we don't repeat the full list here. */}
           {data.needsAck && (
             <div className="mb-4 rounded-xl border border-amber-500/30 bg-amber-500/[0.06] p-3.5">
               <div className="flex items-start gap-2.5">
                 <AlertTriangle className="w-5 h-5 text-amber-600 dark:text-amber-400 mt-0.5 shrink-0" />
                 <div className="flex-1 min-w-0">
                   <p className="text-sm font-semibold text-amber-700 dark:text-amber-300">
-                    Your plan has shifted
+                    {asTutor ? "This student's plan has shifted" : "Your plan has shifted"}
                   </p>
                   <p className="text-xs text-muted-foreground mt-0.5">
-                    Based on how things are going, {data.changes.length}{" "}
-                    {data.changes.length === 1 ? "topic has" : "topics have"} moved. Here's the new
-                    plan:
+                    {data.changes.length} {data.changes.length === 1 ? "topic" : "topics"}{" "}
+                    rescheduled to stay on track for the exams —{" "}
+                    <span className="text-amber-700 dark:text-amber-300 font-medium">
+                      flagged in the plan below
+                    </span>
+                    .{" "}
+                    {asTutor && "The student will be asked to confirm the new dates."}
                   </p>
-                  <ul className="mt-2 space-y-1">
-                    {data.changes.slice(0, 6).map((c) => (
-                      <li key={c.topicId} className="text-xs flex items-center gap-1.5">
-                        <span className="font-medium">{c.title}</span>
-                        <ArrowRight className="w-3 h-3 text-muted-foreground shrink-0" />
-                        <span className="text-muted-foreground">
-                          wk of {fmtDate(weekKeyToDate(c.to))}
-                        </span>
-                      </li>
-                    ))}
-                    {data.changes.length > 6 && (
-                      <li className="text-xs text-muted-foreground">
-                        +{data.changes.length - 6} more
-                      </li>
-                    )}
-                  </ul>
+
                   <button
                     type="button"
-                    onClick={acknowledge}
-                    disabled={acking}
-                    className="mt-2.5 inline-flex items-center gap-1.5 h-8 px-3 rounded-lg bg-amber-600 text-white text-xs font-semibold hover:opacity-90 disabled:opacity-50"
+                    onClick={() => setShowAllChanges((v) => !v)}
+                    className="mt-1.5 inline-flex items-center gap-1 text-xs font-semibold text-amber-700 dark:text-amber-300 hover:underline"
+                    aria-expanded={showAllChanges}
                   >
-                    {acking ? <Loader2 className="w-3.5 h-3.5 animate-spin" /> : null}
-                    Got it, update my plan
+                    {showAllChanges ? "Hide the dates" : "See what moved"}
+                    <ChevronDown
+                      className={`w-3.5 h-3.5 transition-transform ${showAllChanges ? "rotate-180" : ""}`}
+                    />
                   </button>
+                  {showAllChanges && (
+                    <ul className="mt-2 space-y-1">
+                      {data.changes.map((c) => (
+                        <li key={c.topicId} className="text-xs flex items-center flex-wrap gap-1.5">
+                          <span className="font-medium">{c.title}</span>
+                          {c.from ? (
+                            <span className="text-muted-foreground">
+                              wk of {fmtDate(weekKeyToDate(c.from))}
+                            </span>
+                          ) : (
+                            <span className="text-muted-foreground">newly added</span>
+                          )}
+                          <ArrowRight className="w-3 h-3 text-muted-foreground shrink-0" />
+                          <span className="font-medium text-amber-700 dark:text-amber-300">
+                            wk of {fmtDate(weekKeyToDate(c.to))}
+                          </span>
+                        </li>
+                      ))}
+                    </ul>
+                  )}
+
+                  {!asTutor && (
+                    <button
+                      type="button"
+                      onClick={acknowledge}
+                      disabled={acking}
+                      className="mt-2.5 inline-flex items-center gap-1.5 h-8 px-3 rounded-lg bg-amber-600 text-white text-xs font-semibold hover:opacity-90 disabled:opacity-50"
+                    >
+                      {acking ? <Loader2 className="w-3.5 h-3.5 animate-spin" /> : null}
+                      Got it, update my plan
+                    </button>
+                  )}
                 </div>
               </div>
             </div>
           )}
 
-          {/* How the plan works — plain-language reassurance for the student. */}
-          <div className="mb-4 flex items-start gap-2 rounded-xl bg-muted/40 px-3 py-2.5">
-            <Target className="w-4 h-4 text-primary mt-0.5 shrink-0" />
-            <p className="text-[12px] text-muted-foreground leading-relaxed">
-              <span className="font-semibold text-foreground">This plan is built around you.</span>{" "}
-              Week by week, <span className="font-medium text-foreground">core topics</span> are what
-              the class is working through, and{" "}
-              <span className="font-medium text-foreground">focused topics</span> are the ones we keep
-              bringing back until they stick.
-            </p>
-          </div>
+          {/* How the plan works — plain-language reassurance, for the student only.
+              A tutor knows core vs focused; the table headers say it, so we omit it. */}
+          {!asTutor && (
+            <div className="mb-4 flex items-start gap-2 rounded-xl bg-muted/40 px-3 py-2.5">
+              <Target className="w-4 h-4 text-primary mt-0.5 shrink-0" />
+              <p className="text-[12px] text-muted-foreground leading-relaxed">
+                <span className="font-semibold text-foreground">
+                  This plan is built around you.
+                </span>{" "}
+                Week by week, <span className="font-medium text-foreground">core topics</span> are
+                what the class is working through, and{" "}
+                <span className="font-medium text-foreground">focused topics</span> are the ones we
+                keep bringing back until they stick.
+              </p>
+            </div>
+          )}
 
           <WeekTable
             spine={spine}
@@ -257,13 +308,16 @@ export function RoadmapPanel({
             covered={covered}
             progressByTopic={progressByTopic}
             masteryByTopic={masteryByTopic}
+            changeByTopic={changeByTopic}
             expanded={expanded}
             onToggle={toggle}
           />
 
           <p className="mt-4 text-[11px] text-muted-foreground">
-            Mastery blends how you've rated each topic with your homework and quiz results. Expand a
-            core topic to see which spec points are sticking and which need another look.
+            <span className="font-medium text-foreground">Core</span> topics move only as they're
+            covered; <span className="font-medium text-foreground">focused</span> topics are chosen
+            live by the spaced-repetition engine from ratings, homework and quizzes — a weaker topic
+            resurfaces more often. Expand a core topic to see its spec points.
           </p>
         </>
       )}
@@ -271,13 +325,15 @@ export function RoadmapPanel({
   );
 }
 
-/** Colour + label a focused-topic chip by why it's back this week. */
+/** Colour + label a focused-topic chip by why the spaced-repetition engine put
+ *  it back this week. `why` is the plain-English driver (shown on hover). */
 function focusTone(b: PacingBand, mastery: number) {
   if (b.kind !== "revisit") {
     return {
       label: "Quick refresh",
       icon: Sparkles,
       badge: "bg-emerald-500/10 border-emerald-500/30 text-emerald-700 dark:text-emerald-300",
+      why: "Already covered — a light review before the exams.",
     };
   }
   if (mastery < FOCUS_RED_BELOW) {
@@ -285,12 +341,14 @@ function focusTone(b: PacingBand, mastery: number) {
       label: "Needs work",
       icon: Repeat,
       badge: "bg-rose-500/15 border-rose-500/40 text-rose-700 dark:text-rose-300",
+      why: `Low mastery (${Math.round(mastery)}%) — the engine resurfaces this often until it sticks.`,
     };
   }
   return {
     label: "Revisit",
     icon: Repeat,
     badge: "bg-amber-500/[0.08] border-amber-500/25 text-amber-700/90 dark:text-amber-300/80",
+    why: `Getting there (${Math.round(mastery)}%) — due a spaced review so it doesn't slip.`,
   };
 }
 
@@ -320,6 +378,7 @@ function WeekTable({
   covered,
   progressByTopic,
   masteryByTopic,
+  changeByTopic,
   expanded,
   onToggle,
 }: {
@@ -329,6 +388,8 @@ function WeekTable({
   covered: Set<string>;
   progressByTopic: Map<string, TopicProgress>;
   masteryByTopic: Map<string, number>;
+  /** Topic id → its reschedule, so moved topics are flagged at their start week. */
+  changeByTopic: Map<string, PacingChange>;
   expanded: Set<string>;
   onToggle: (topicId: string) => void;
 }) {
@@ -362,11 +423,18 @@ function WeekTable({
           const isOpen = core ? expanded.has(core.topicId) : false;
           const hasDetail = (tp?.points.length ?? 0) > 0;
           const isCovered = core ? covered.has(core.topicId) : false;
+          // Flag a reschedule only at the topic's new start week, so the badge
+          // shows once per moved topic rather than on every week it spans.
+          const change = core && wk === core.startWeek ? changeByTopic.get(core.topicId) : undefined;
           return (
             <div key={wk}>
               <div
                 className={`grid grid-cols-[7.5rem_1fr_1fr] items-stretch ${
-                  isNow ? "bg-primary/[0.04]" : ""
+                  change
+                    ? "bg-amber-500/[0.06] border-l-2 border-l-amber-500"
+                    : isNow
+                      ? "bg-primary/[0.04]"
+                      : ""
                 }`}
               >
                 {/* Week */}
@@ -407,6 +475,23 @@ function WeekTable({
                           )}
                         </div>
                       </div>
+                      {change && (
+                        <span
+                          className="mt-1.5 inline-flex items-center gap-1 h-5 px-1.5 rounded-md border border-amber-500/40 bg-amber-500/10 text-[10px] font-semibold text-amber-700 dark:text-amber-300"
+                          title={
+                            change.from
+                              ? `Rescheduled from the week of ${fmtDate(weekKeyToDate(change.from))}`
+                              : "Newly added to the plan"
+                          }
+                        >
+                          <RefreshCw className="w-2.5 h-2.5" />
+                          {change.from ? (
+                            <>Moved from {fmtDate(weekKeyToDate(change.from))}</>
+                          ) : (
+                            <>New in plan</>
+                          )}
+                        </span>
+                      )}
                       {tp && tp.points.length > 0 && (
                         <div className="mt-1.5 flex items-center gap-2">
                           <div className="h-1.5 flex-1 rounded-full bg-muted overflow-hidden">
@@ -435,15 +520,23 @@ function WeekTable({
                       return (
                         <div
                           key={`${b.topicId}-${b.kind}-${b.startWeek}`}
-                          className="flex items-center gap-1.5 min-w-0"
+                          className="min-w-0"
+                          title={tone.why}
                         >
-                          <span
-                            className={`inline-flex items-center gap-1 h-5 px-1.5 rounded-md border text-[10px] font-semibold shrink-0 ${tone.badge}`}
-                          >
-                            <Icon className="w-2.5 h-2.5" />
-                            {tone.label}
-                          </span>
-                          <span className="text-[12px] truncate">{b.title}</span>
+                          <div className="flex items-center gap-1.5 min-w-0">
+                            <span
+                              className={`inline-flex items-center gap-1 h-5 px-1.5 rounded-md border text-[10px] font-semibold shrink-0 ${tone.badge}`}
+                            >
+                              <Icon className="w-2.5 h-2.5" />
+                              {tone.label}
+                            </span>
+                            <span className="text-[12px] font-medium truncate">{b.title}</span>
+                          </div>
+                          {b.points && b.points.length > 0 && (
+                            <div className="mt-0.5 pl-[3.75rem] text-[11px] text-muted-foreground truncate">
+                              {b.points.map((p) => p.code).join(", ")}
+                            </div>
+                          )}
                         </div>
                       );
                     })

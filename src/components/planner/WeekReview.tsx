@@ -55,6 +55,36 @@ export function WeekReview({
   );
   const copy = verdictCopy(summary.verdict, summary);
 
+  // The tutor sees the same objective coverage, but framed neutrally — this is
+  // the student's real homework/MCQ performance, not a self-report to reassure.
+  const tutorHeadline =
+    summary.verdict === "move_on"
+      ? "On track — all planned points covered"
+      : summary.verdict === "almost"
+        ? "Mostly covered — a few points to revisit"
+        : "Needs work — points still shaky or not done";
+  const headline = readOnly ? tutorHeadline : copy.headline;
+  const sub = readOnly
+    ? "Based on this week's homework and quiz marks on the planned spec points."
+    : copy.sub;
+
+  // Per-point performance, fed to the tutor's "Draft with AI" feedback.
+  const metrics = useMemo(
+    () =>
+      points.map((p) => {
+        const c = coverage.get(p.spec_point_id);
+        return {
+          code: p.code,
+          title: p.title,
+          topic: p.topic_title,
+          status: statusOf(c),
+          homeworkScore: c?.homeworkScore ?? null,
+          quizScore: c?.quizScore ?? null,
+        };
+      }),
+    [points, coverage],
+  );
+
   const [coveredOk, setCoveredOk] = useState<boolean | null>(null);
   const [reflection, setReflection] = useState("");
   const [loaded, setLoaded] = useState(false);
@@ -142,7 +172,9 @@ export function WeekReview({
     <div className="mt-4 rounded-2xl border border-border bg-muted/20 p-4 sm:p-5">
       <div className="flex items-center gap-2 mb-3">
         <Target className="w-4 h-4 text-muted-foreground" />
-        <h3 className="text-sm font-semibold">How this week went</h3>
+        <h3 className="text-sm font-semibold">
+          {readOnly ? "This week's performance" : "How this week went"}
+        </h3>
       </div>
 
       {/* Verdict banner */}
@@ -154,8 +186,8 @@ export function WeekReview({
             <RotateCcw className={`w-5 h-5 mt-0.5 shrink-0 ${copy.accent}`} />
           )}
           <div>
-            <p className={`text-sm font-semibold ${copy.accent}`}>{copy.headline}</p>
-            <p className="text-xs text-muted-foreground mt-0.5">{copy.sub}</p>
+            <p className={`text-sm font-semibold ${copy.accent}`}>{headline}</p>
+            <p className="text-xs text-muted-foreground mt-0.5">{sub}</p>
           </div>
         </div>
         {/* Coverage tally */}
@@ -169,8 +201,9 @@ export function WeekReview({
 
       {!anyActivity && (
         <p className="mt-3 text-xs text-muted-foreground">
-          No homework or quizzes logged for these points yet — do some practice and check back, or
-          tell us how you feel below.
+          {readOnly
+            ? "No homework or quizzes logged for these points yet."
+            : "No homework or quizzes logged for these points yet — do some practice and check back, or tell us how you feel below."}
         </p>
       )}
 
@@ -240,21 +273,9 @@ export function WeekReview({
           />
         </div>
       ) : (
-        loaded && (
-          <div className="mt-4 rounded-xl border border-border bg-card p-3">
-            <p className="text-[11px] font-semibold text-muted-foreground mb-1">Student check-in</p>
-            {coveredOk == null ? (
-              <p className="text-sm text-muted-foreground">Not completed yet.</p>
-            ) : (
-              <p className="text-sm">
-                {coveredOk ? "✅ Felt confident to move on" : "🎯 Wanted more practice"}
-                {reflection && (
-                  <span className="block text-muted-foreground mt-1">“{reflection}”</span>
-                )}
-              </p>
-            )}
-          </div>
-        )
+        // Tutor view: the student's check-in is surfaced in context inside the
+        // feedback editor below ("The student said"), so we don't repeat it here.
+        null
       )}
 
       {/* Ali's take — the personalized-tutoring voice on the week + next week */}
@@ -267,6 +288,9 @@ export function WeekReview({
         weekStart={weekStart}
         isTutor={readOnly}
         onChanged={onChanged}
+        metrics={metrics}
+        studentReflection={reflection.trim() || null}
+        studentFeltReady={coveredOk}
       />
 
       {/* Carry forward */}
