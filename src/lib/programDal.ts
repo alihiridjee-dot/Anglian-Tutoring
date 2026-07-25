@@ -4,16 +4,50 @@ import { type Json } from "@/integrations/supabase/types";
 import { mondayOf, toDateKey, weekKeyToDate } from "./week";
 import { ScheduleDAL, type TopicProgress } from "./scheduleDal";
 import {
+  type FocusCandidate,
   type PacingBand,
   type PacingChange,
   type PacingInput,
   computeLivePacing,
   diffPacing,
   examMondayFor,
-  injectFocusBands,
   isTeachBand,
+  mergeFocus,
+  scheduleFocusPoints,
 } from "./planner/pacing";
 import { SETTLED_THRESHOLD } from "./planner/scheduler";
+
+/**
+ * The weak spec points (mastery below settled) of not-yet-settled topics, and
+ * the settled topics that get a light review pass — the two inputs the focus
+ * scheduler needs. Built from the same per-point progress the roadmap shows.
+ */
+function focusInputs(progress: TopicProgress[]): {
+  candidates: FocusCandidate[];
+  coveredTopics: { topicId: string; title: string }[];
+} {
+  const candidates: FocusCandidate[] = [];
+  const coveredTopics: { topicId: string; title: string }[] = [];
+  for (const t of progress) {
+    if (t.settled) {
+      coveredTopics.push({ topicId: t.topicId, title: t.title });
+      continue;
+    }
+    for (const p of t.points) {
+      if (p.mastery < SETTLED_THRESHOLD) {
+        candidates.push({
+          specPointId: p.id,
+          topicId: t.topicId,
+          topicTitle: t.title,
+          code: p.code,
+          pointTitle: p.title,
+          mastery: p.mastery,
+        });
+      }
+    }
+  }
+  return { candidates, coveredTopics };
+}
 
 export interface RoadmapResult {
   /** The live curriculum bands (past/current/future), most-recent first order. */
@@ -74,7 +108,7 @@ export class ProgramDAL {
     // "Covered" now means the FSRS engine reads the topic as settled — which folds
     // in confidence, homework and MCQ alike, so the termly board feeds the roadmap.
     const coveredTopicIds = new Set(progress.filter((t) => t.settled).map((t) => t.topicId));
-    const masteryByTopic = new Map(progress.map((t) => [t.topicId, t.masteryPct]));
+    const focus = focusInputs(progress);
 
     const { data: baseline } = await supabase
       .from("student_program_plan")
@@ -108,14 +142,10 @@ export class ProgramDAL {
         { onConflict: "student_id,subject" },
       );
       return {
-        bands: injectFocusBands({
-          spine: live,
-          masteryByTopic,
-          coveredTopicIds,
-          currentMonday: thisMonday,
-          examMonday,
-          settledThreshold: SETTLED_THRESHOLD,
-        }),
+        bands: mergeFocus(
+          live,
+          scheduleFocusPoints({ ...focus, currentMonday: thisMonday, examMonday }),
+        ),
         changes: [],
         needsAck: false,
         programStart,
@@ -134,14 +164,14 @@ export class ProgramDAL {
     });
     const changes = diffPacing(baseline.pacing as unknown as PacingBand[], live);
     return {
-      bands: injectFocusBands({
-        spine: live,
-        masteryByTopic,
-        coveredTopicIds,
-        currentMonday: thisMonday,
-        examMonday: weekKeyToDate(baseline.exam_date),
-        settledThreshold: SETTLED_THRESHOLD,
-      }),
+      bands: mergeFocus(
+        live,
+        scheduleFocusPoints({
+          ...focus,
+          currentMonday: thisMonday,
+          examMonday: weekKeyToDate(baseline.exam_date),
+        }),
+      ),
       changes,
       needsAck: changes.length > 0,
       programStart: baseline.program_start,
@@ -149,6 +179,26 @@ export class ProgramDAL {
       coveredTopicIds: [...coveredTopicIds],
       progress,
     };
+  }
+
+  /**
+   * Set a real exam date for one course. Stored verbatim (any weekday) — the
+   * pacing math monday-ises internally, so this just moves the horizon the plan
+   * flows toward; the next `loadRoadmap` re-flows the spine against it and
+   * surfaces the resulting shift for the student to accept. The programme row is
+   * seeded by the first `loadRoadmap`, so this is an update, not an upsert.
+   */
+  static async setExamDate(params: {
+    studentId: string;
+    subject: SubjectV;
+    examDate: string;
+  }): Promise<void> {
+    const { error } = await supabase
+      .from("student_program_plan")
+      .update({ exam_date: params.examDate, updated_at: new Date().toISOString() })
+      .eq("student_id", params.studentId)
+      .eq("subject", params.subject);
+    if (error) throw error;
   }
 
   /**

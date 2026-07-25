@@ -1,4 +1,4 @@
-import { useEffect, useMemo, useState } from "react";
+import { useEffect, useMemo, useRef, useState } from "react";
 import { toast } from "sonner";
 import {
   AlertTriangle,
@@ -44,6 +44,11 @@ function fmtRange(startKey: string, endKey: string): string {
   return `${fmtDate(start)} – ${fmtDate(end)}${y}`;
 }
 
+/** Stable identity for one focus-lane band — topic + kind + week it lands on. */
+function focusKey(b: PacingBand): string {
+  return `${b.topicId}|${b.kind}|${b.startWeek}`;
+}
+
 type TabKey = "week" | "plan" | "topics";
 
 const TABS: { key: TabKey; label: string; icon: typeof CalendarDays }[] = [
@@ -85,6 +90,12 @@ export function StudentPlanner({
   const [loading, setLoading] = useState(true);
   // Bumped when the confidence board writes, so the plan re-flows live.
   const [boardRev, setBoardRev] = useState(0);
+  // Focus-lane bands added/moved since the last load of *this same course* — so
+  // when a student re-rates topics we can point at exactly what their revision
+  // schedule now does differently ("your new schedule"). Session-only, never
+  // persisted: the diff is between the plan as it was and as it is right now.
+  const prevFocus = useRef<{ course: string; keys: Set<string> } | null>(null);
+  const [newFocusKeys, setNewFocusKeys] = useState<Set<string>>(new Set());
 
   useEffect(() => {
     if (!active) return;
@@ -104,6 +115,16 @@ export function StudentPlanner({
         if (!alive) return;
         setData(road);
         setMemory(mem);
+        // Diff the focus lane against the previous load of the same course.
+        const course = `${active.subject}|${active.board}`;
+        const keys = new Set((road?.bands ?? []).filter((b) => !isTeachBand(b)).map(focusKey));
+        const prev = prevFocus.current;
+        setNewFocusKeys(
+          prev && prev.course === course
+            ? new Set([...keys].filter((k) => !prev.keys.has(k)))
+            : new Set(),
+        );
+        prevFocus.current = { course, keys };
       })
       .finally(() => alive && setLoading(false));
     return () => {
@@ -192,7 +213,13 @@ export function StudentPlanner({
             onRateTopics={() => setTab("topics")}
           />
         ) : (
-          <FullPlanTab data={data} />
+          <FullPlanTab
+            data={data}
+            studentId={studentId}
+            subject={active.subject as SubjectV}
+            newFocusKeys={newFocusKeys}
+            onChanged={() => setBoardRev((r) => r + 1)}
+          />
         )}
       </div>
     </div>
@@ -460,9 +487,37 @@ function ThisWeekTab({
 /* Tab 2 — Full plan                                                   */
 /* ------------------------------------------------------------------ */
 
-function FullPlanTab({ data }: { data: RoadmapResult }) {
+function FullPlanTab({
+  data,
+  studentId,
+  subject,
+  newFocusKeys,
+  onChanged,
+}: {
+  data: RoadmapResult;
+  studentId: string;
+  subject: SubjectV;
+  /** Focus-lane band keys that are new/moved since the last re-rate. */
+  newFocusKeys: Set<string>;
+  onChanged: () => void;
+}) {
   const { nowKey, covered, spine, focus, progressByTopic } = useRoadmapView(data);
   const [expanded, setExpanded] = useState<Set<string>>(new Set());
+  const [savingDate, setSavingDate] = useState(false);
+
+  const saveExamDate = async (value: string) => {
+    if (!value || value === data.examDate) return;
+    setSavingDate(true);
+    try {
+      await ProgramDAL.setExamDate({ studentId, subject, examDate: value });
+      toast.success("Exam date updated — re-flowing your plan.");
+      onChanged();
+    } catch (e) {
+      toast.error(e instanceof Error ? e.message : "Couldn't update the exam date — try again.");
+    } finally {
+      setSavingDate(false);
+    }
+  };
   const toggle = (id: string) =>
     setExpanded((prev) => {
       const next = new Set(prev);
@@ -477,19 +532,46 @@ function FullPlanTab({ data }: { data: RoadmapResult }) {
 
   return (
     <div>
-      <div className="flex items-start gap-2 rounded-xl bg-muted/40 px-3 py-2.5 mb-4">
-        <Target className="w-4 h-4 text-primary mt-0.5 shrink-0" />
-        <p className="text-[12px] text-muted-foreground leading-relaxed">
-          Week by week: <span className="font-medium text-foreground">core topics</span> are what the
-          class is working through, and{" "}
-          <span className="font-medium text-foreground">focused topics</span> are the ones we bring
-          back until they stick.{" "}
-          <span className="font-semibold text-foreground tabular-nums">
-            {doneCount} of {spine.length}
-          </span>{" "}
-          topics covered · exams from {fmtDate(weekKeyToDate(data.examDate))}{" "}
-          {weekKeyToDate(data.examDate).getFullYear()}.
+      {/* Your new schedule — what the latest ratings changed in the focus lane. */}
+      {newFocusKeys.size > 0 && (
+        <div className="flex items-start gap-2 rounded-xl border border-rose-500/30 bg-rose-500/[0.06] px-3 py-2.5 mb-3">
+          <Repeat className="w-4 h-4 text-rose-600 dark:text-rose-400 mt-0.5 shrink-0" />
+          <p className="text-[12px] leading-relaxed">
+            <span className="font-semibold">Your revision schedule updated.</span>{" "}
+            <span className="text-muted-foreground">
+              {newFocusKeys.size} focus {newFocusKeys.size === 1 ? "slot" : "slots"} moved or added —
+              flagged <span className="font-semibold text-rose-600 dark:text-rose-400">New</span> in
+              the Focused column below.
+            </span>
+          </p>
+        </div>
+      )}
+
+      <div className="flex flex-wrap items-center justify-between gap-2 rounded-xl bg-muted/40 px-3 py-2.5 mb-4">
+        <p className="flex items-start gap-2 text-[12px] text-muted-foreground leading-relaxed min-w-[220px] flex-1">
+          <Target className="w-4 h-4 text-primary mt-0.5 shrink-0" />
+          <span>
+            Week by week: <span className="font-medium text-foreground">core topics</span> are what
+            the class is working through, and{" "}
+            <span className="font-medium text-foreground">focused topics</span> are the ones we bring
+            back until they stick.{" "}
+            <span className="font-semibold text-foreground tabular-nums">
+              {doneCount} of {spine.length}
+            </span>{" "}
+            topics covered.
+          </span>
         </p>
+        <label className="inline-flex items-center gap-1.5 text-[12px] text-muted-foreground shrink-0">
+          <CalendarDays className="w-3.5 h-3.5" />
+          <span>Exam date</span>
+          <input
+            type="date"
+            defaultValue={data.examDate}
+            disabled={savingDate}
+            onChange={(e) => saveExamDate(e.target.value)}
+            className="h-8 rounded-lg bg-card border border-border px-2 text-[12px] text-foreground focus:outline-none focus:ring-2 focus:ring-primary/40 disabled:opacity-50"
+          />
+        </label>
       </div>
 
       <div className="rounded-xl border border-border overflow-hidden">
@@ -585,18 +667,28 @@ function FullPlanTab({ data }: { data: RoadmapResult }) {
                       focused.map((b) => {
                         const tone = focusTone(b, progressByTopic.get(b.topicId)?.masteryPct ?? 0);
                         const Icon = tone.icon;
+                        const isNew = newFocusKeys.has(focusKey(b));
                         return (
-                          <div
-                            key={`${b.topicId}-${b.kind}-${b.startWeek}`}
-                            className="flex items-center gap-1.5 min-w-0"
-                          >
-                            <span
-                              className={`inline-flex items-center gap-1 h-5 px-1.5 rounded-md border text-[10px] font-semibold shrink-0 ${tone.badge}`}
-                            >
-                              <Icon className="w-2.5 h-2.5" />
-                              {tone.label}
-                            </span>
-                            <span className="text-[12px] truncate">{b.title}</span>
+                          <div key={`${b.topicId}-${b.kind}-${b.startWeek}`} className="min-w-0">
+                            <div className="flex items-center gap-1.5 min-w-0">
+                              <span
+                                className={`inline-flex items-center gap-1 h-5 px-1.5 rounded-md border text-[10px] font-semibold shrink-0 ${tone.badge}`}
+                              >
+                                <Icon className="w-2.5 h-2.5" />
+                                {tone.label}
+                              </span>
+                              <span className="text-[12px] font-medium truncate">{b.title}</span>
+                              {isNew && (
+                                <span className="inline-flex items-center h-4 px-1 rounded bg-rose-500/15 text-rose-600 dark:text-rose-400 text-[9px] font-bold uppercase tracking-wide shrink-0">
+                                  New
+                                </span>
+                              )}
+                            </div>
+                            {b.points && b.points.length > 0 && (
+                              <div className="mt-0.5 pl-[3.75rem] text-[11px] text-muted-foreground truncate">
+                                {b.points.map((p) => p.code).join(", ")}
+                              </div>
+                            )}
                           </div>
                         );
                       })
@@ -713,17 +805,24 @@ function FocusRow({ b, mastery }: { b: PacingBand; mastery: number }) {
   const nowKey = currentWeekKey();
   const isCurrent = b.startWeek <= nowKey && nowKey <= b.endWeek;
   return (
-    <li className="flex items-center gap-2 rounded-lg border border-border bg-card px-2.5 py-2 min-w-0">
-      <span
-        className={`inline-flex items-center gap-1 h-5 px-1.5 rounded-md border text-[10px] font-semibold shrink-0 ${tone.badge}`}
-      >
-        <Icon className="w-2.5 h-2.5" />
-        {tone.label}
-      </span>
-      <span className="flex-1 text-[13px] truncate">{b.title}</span>
-      <span className="text-[11px] text-muted-foreground shrink-0">
-        {isCurrent ? "This week" : `wk of ${fmtDate(weekKeyToDate(b.startWeek))}`}
-      </span>
+    <li className="rounded-lg border border-border bg-card px-2.5 py-2 min-w-0">
+      <div className="flex items-center gap-2 min-w-0">
+        <span
+          className={`inline-flex items-center gap-1 h-5 px-1.5 rounded-md border text-[10px] font-semibold shrink-0 ${tone.badge}`}
+        >
+          <Icon className="w-2.5 h-2.5" />
+          {tone.label}
+        </span>
+        <span className="flex-1 text-[13px] font-medium truncate">{b.title}</span>
+        <span className="text-[11px] text-muted-foreground shrink-0">
+          {isCurrent ? "This week" : `wk of ${fmtDate(weekKeyToDate(b.startWeek))}`}
+        </span>
+      </div>
+      {b.points && b.points.length > 0 && (
+        <p className="mt-1 text-[11px] text-muted-foreground truncate">
+          {b.points.map((p) => `${p.code} ${p.title}`).join(" · ")}
+        </p>
+      )}
     </li>
   );
 }

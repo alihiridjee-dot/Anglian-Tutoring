@@ -1,4 +1,5 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
+import { guardStudentSection } from "@/lib/routeGuards";
 import { useEffect, useMemo, useState } from "react";
 import { AppLayout } from "@/components/AppLayout";
 import { supabase } from "@/integrations/supabase/client";
@@ -16,6 +17,7 @@ import { useRoles } from "@/hooks/useRole";
 import { McqManager } from "@/components/tutor/McqManager";
 
 export const Route = createFileRoute("/_authenticated/mcqs")({
+  beforeLoad: guardStudentSection,
   head: () => ({ meta: [{ title: "MCQs | Anglian Learning" }] }),
   component: MCQs,
 });

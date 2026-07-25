@@ -1,27 +1,29 @@
-import { useEffect, useMemo, useState } from "react";
+import { useEffect, useState } from "react";
 import { AnimatePresence, motion, useMotionValue, useTransform } from "motion/react";
-import { X, Loader2, Check, ThumbsDown, ThumbsUp, Undo2, AlertTriangle } from "lucide-react";
+import { X, Loader2, Check, Undo2 } from "lucide-react";
 import { PlannerDAL, type SpecPointWithConfidence } from "@/lib/plannerDal";
-import { bandOf, type Band } from "@/lib/planner/bands";
+import { bandByKey, type BandKey } from "@/lib/planner/bands";
 
 /**
- * The "expand a topic group" view, reimagined as a Tinder-style swipe deck: one
- * card per spec point, swiped right for "Confident" or left for "Needs work".
+ * The "expand a topic group" view: rate each spec point on the same red/amber/
+ * green scale as the confidence columns (Needs work / Getting there / Confident).
  *
- * Each swipe is a binary self-report scored on the shared 0-100 confidence scale
- * (a soft split — see SWIPE_SCORE). When the deck is done we:
- *  • average each point's swipe with the score of the column the topic sits in
- *    and persist that per point — this is what feeds the FSRS engine;
- *  • hand the parent the mean so the card can settle into the matching band;
- *  • if the swipes as a whole disagree with the column the student dragged the
- *    topic into, ask whether they've filed it in the right place.
+ * The column the topic sits in sets the topic's broad mastery; these per-point
+ * ratings are a *finer* signal layered on top — each one is persisted at its raw
+ * band value (never averaged with the column) and fed to the FSRS engine as a
+ * confidence review, so a single weak point inside an otherwise-confident topic
+ * still gets promoted and resurfaces on its own. Rating points never moves the
+ * topic between columns; the only time we seed the column here is when the topic
+ * hasn't been sorted at all yet, so it lands somewhere sensible.
  */
 
-// A deliberately soft split: a single deck should nudge, not slam, the schedule.
-const SWIPE_SCORE = { confident: 75, shaky: 30 } as const;
+// The three bands' midpoints — the value each rating persists at (see bands.ts).
+const RAG_SCORE: Record<BandKey, number> = {
+  confident: bandByKey("confident").midpoint,
+  getting: bandByKey("getting").midpoint,
+  shaky: bandByKey("shaky").midpoint,
+};
 const SWIPE_THRESHOLD = 110; // px of horizontal drag to commit a decision
-
-type Choice = "confident" | "shaky";
 
 export function SpecPointSwipeModal({
   studentId,
@@ -39,17 +41,14 @@ export function SpecPointSwipeModal({
   /** The confidence of the column the topic currently sits in (null if unsorted). */
   columnConfidence: number | null;
   onClose: () => void;
-  /** New topic-level confidence to settle the card into, or null if nothing rated. */
+  /** New topic-level confidence to settle the card into, or null to leave the column as-is. */
   onAggregate: (mean: number | null) => void;
 }) {
   const [points, setPoints] = useState<SpecPointWithConfidence[]>([]);
   const [loading, setLoading] = useState(true);
   const [index, setIndex] = useState(0);
-  const [choices, setChoices] = useState<Record<string, Choice>>({});
+  const [choices, setChoices] = useState<Record<string, BandKey>>({});
   const [saving, setSaving] = useState(false);
-  const [conflict, setConflict] = useState<{ swipeBand: Band; columnBand: Band; mean: number } | null>(
-    null,
-  );
 
   useEffect(() => {
     let alive = true;
@@ -67,43 +66,26 @@ export function SpecPointSwipeModal({
   const decidedCount = Object.keys(choices).length;
   const done = total > 0 && decidedCount >= total;
 
-  const columnBand = columnConfidence != null ? bandOf(columnConfidence) : null;
-
-  // Persist every swipe as an averaged-with-column confidence (the FSRS feed),
-  // then surface either the conflict prompt or hand the mean straight back.
-  const finish = async (finalChoices: Record<string, Choice>) => {
+  // Persist every rating at its raw band value — this is the per-point FSRS feed.
+  // The topic column is authoritative: we only seed it from these ratings when
+  // the topic has never been sorted (columnConfidence == null); otherwise it
+  // stays put and these ratings just refine the schedule underneath it.
+  const finish = async (finalChoices: Record<string, BandKey>) => {
     setSaving(true);
-    const swipeScores = points.map((p) => SWIPE_SCORE[finalChoices[p.id] ?? "shaky"]);
-    // Per point: the average of the swipe and the column it's filed under. With
-    // no column yet, the swipe stands on its own.
-    const persisted = points.map((p, i) =>
-      columnConfidence == null
-        ? swipeScores[i]
-        : Math.round((swipeScores[i] + columnConfidence) / 2),
-    );
+    const scores = points.map((p) => RAG_SCORE[finalChoices[p.id] ?? "getting"]);
     try {
       await Promise.all(
-        points.map((p, i) => PlannerDAL.setSpecPointConfidence(p.id, persisted[i]).catch(() => {})),
+        points.map((p, i) => PlannerDAL.setSpecPointConfidence(p.id, scores[i]).catch(() => {})),
       );
     } finally {
       setSaving(false);
     }
-
-    const swipeMean = Math.round(swipeScores.reduce((s, n) => s + n, 0) / swipeScores.length);
-    const persistedMean = Math.round(persisted.reduce((s, n) => s + n, 0) / persisted.length);
-    const swipeBand = bandOf(swipeMean);
-
-    // The swipes disagree with the column the student dragged the topic into —
-    // check they've filed it in the right place before settling the card.
-    if (columnBand && swipeBand.key !== columnBand.key) {
-      setConflict({ swipeBand, columnBand, mean: swipeMean });
-      return;
-    }
-    onAggregate(persistedMean);
+    const mean = Math.round(scores.reduce((s, n) => s + n, 0) / scores.length);
+    onAggregate(columnConfidence == null ? mean : null);
     onClose();
   };
 
-  const choose = (choice: Choice) => {
+  const choose = (choice: BandKey) => {
     const p = points[index];
     if (!p) return;
     const next = { ...choices, [p.id]: choice };
@@ -112,9 +94,9 @@ export function SpecPointSwipeModal({
     else setIndex((i) => i + 1);
   };
 
-  // Arrow keys drive the deck: ← needs work, → confident (only while swiping).
+  // Arrow keys drive the deck: ← needs work, ↓ getting there, → confident.
   useEffect(() => {
-    if (loading || done || conflict) return;
+    if (loading || done) return;
     const onKey = (e: KeyboardEvent) => {
       if (e.key === "ArrowRight") {
         e.preventDefault();
@@ -122,12 +104,15 @@ export function SpecPointSwipeModal({
       } else if (e.key === "ArrowLeft") {
         e.preventDefault();
         choose("shaky");
+      } else if (e.key === "ArrowDown") {
+        e.preventDefault();
+        choose("getting");
       }
     };
     window.addEventListener("keydown", onKey);
     return () => window.removeEventListener("keydown", onKey);
     // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [loading, done, conflict, index, points]);
+  }, [loading, done, index, points]);
 
   const undo = () => {
     if (index === 0) return;
@@ -138,17 +123,6 @@ export function SpecPointSwipeModal({
       return n;
     });
     setIndex((i) => i - 1);
-  };
-
-  // Resolve the conflict: move the card to what the swipes say, or keep it where
-  // the student filed it (FSRS already has the averaged per-point scores either way).
-  const resolveMove = () => {
-    if (conflict) onAggregate(conflict.mean);
-    onClose();
-  };
-  const resolveKeep = () => {
-    onAggregate(columnConfidence);
-    onClose();
   };
 
   return (
@@ -172,7 +146,7 @@ export function SpecPointSwipeModal({
               {topicTitle}
             </h2>
             <p className="text-xs text-muted-foreground mt-0.5">
-              Swipe right if you're confident, left if it needs work.
+              Rate each point: needs work, getting there, or confident.
             </p>
           </div>
           <button
@@ -194,13 +168,6 @@ export function SpecPointSwipeModal({
             <p className="text-sm text-muted-foreground py-10 text-center">
               No specification points for this topic yet.
             </p>
-          ) : conflict ? (
-            <ConflictPrompt
-              swipeBand={conflict.swipeBand}
-              columnBand={conflict.columnBand}
-              onMove={resolveMove}
-              onKeep={resolveKeep}
-            />
           ) : done ? (
             <div className="py-12 text-center">
               {saving ? (
@@ -218,15 +185,11 @@ export function SpecPointSwipeModal({
               )}
             </div>
           ) : (
-            <SwipeDeck
-              points={points}
-              index={index}
-              onChoose={choose}
-            />
+            <SwipeDeck points={points} index={index} onChoose={choose} />
           )}
         </div>
 
-        {!loading && !conflict && !done && points.length > 0 && (
+        {!loading && !done && points.length > 0 && (
           <div className="flex items-center justify-between gap-3 p-4 border-t border-border">
             <button
               type="button"
@@ -239,26 +202,36 @@ export function SpecPointSwipeModal({
             <span className="text-xs text-muted-foreground tabular-nums">
               {Math.min(index + 1, total)} of {total}
             </span>
-            <div className="flex items-center gap-2">
-              <button
-                type="button"
-                onClick={() => choose("shaky")}
-                className="inline-flex items-center gap-1.5 h-9 px-3 rounded-lg border border-rose-500/40 text-rose-600 dark:text-rose-400 text-sm font-semibold hover:bg-rose-500/10"
-              >
-                <ThumbsDown className="w-4 h-4" /> Needs work
-              </button>
-              <button
-                type="button"
-                onClick={() => choose("confident")}
-                className="inline-flex items-center gap-1.5 h-9 px-3 rounded-lg border border-emerald-500/40 text-emerald-600 dark:text-emerald-400 text-sm font-semibold hover:bg-emerald-500/10"
-              >
-                <ThumbsUp className="w-4 h-4" /> Confident
-              </button>
+            <div className="flex items-center gap-1.5">
+              <RatingButton band="shaky" onClick={() => choose("shaky")} />
+              <RatingButton band="getting" onClick={() => choose("getting")} />
+              <RatingButton band="confident" onClick={() => choose("confident")} />
             </div>
           </div>
         )}
       </motion.div>
     </div>
+  );
+}
+
+/** One RAG choice button, coloured from its band. */
+function RatingButton({ band, onClick }: { band: BandKey; onClick: () => void }) {
+  const b = bandByKey(band);
+  const tone =
+    band === "confident"
+      ? "border-emerald-500/40 text-emerald-600 dark:text-emerald-400 hover:bg-emerald-500/10"
+      : band === "getting"
+        ? "border-amber-500/40 text-amber-600 dark:text-amber-400 hover:bg-amber-500/10"
+        : "border-rose-500/40 text-rose-600 dark:text-rose-400 hover:bg-rose-500/10";
+  return (
+    <button
+      type="button"
+      onClick={onClick}
+      className={`inline-flex items-center gap-1.5 h-9 px-2.5 rounded-lg border text-[13px] font-semibold ${tone}`}
+    >
+      <span className={`w-2 h-2 rounded-full ${b.dot}`} />
+      {b.label}
+    </button>
   );
 }
 
@@ -270,24 +243,21 @@ function SwipeDeck({
 }: {
   points: SpecPointWithConfidence[];
   index: number;
-  onChoose: (choice: Choice) => void;
+  onChoose: (choice: BandKey) => void;
 }) {
   return (
     <div className="relative h-56">
       <AnimatePresence initial={false}>
-        {points.slice(index, index + 2).reverse().map((p, revI, arr) => {
-          const isTop = revI === arr.length - 1;
-          const depth = arr.length - 1 - revI; // 0 for top card, 1 for the one behind
-          return (
-            <SwipeCard
-              key={p.id}
-              point={p}
-              isTop={isTop}
-              depth={depth}
-              onChoose={onChoose}
-            />
-          );
-        })}
+        {points
+          .slice(index, index + 2)
+          .reverse()
+          .map((p, revI, arr) => {
+            const isTop = revI === arr.length - 1;
+            const depth = arr.length - 1 - revI; // 0 for top card, 1 for the one behind
+            return (
+              <SwipeCard key={p.id} point={p} isTop={isTop} depth={depth} onChoose={onChoose} />
+            );
+          })}
       </AnimatePresence>
     </div>
   );
@@ -302,7 +272,7 @@ function SwipeCard({
   point: SpecPointWithConfidence;
   isTop: boolean;
   depth: number;
-  onChoose: (choice: Choice) => void;
+  onChoose: (choice: BandKey) => void;
 }) {
   const x = useMotionValue(0);
   const rotate = useTransform(x, [-200, 200], [-12, 12]);
@@ -320,6 +290,7 @@ function SwipeCard({
       dragConstraints={{ left: 0, right: 0 }}
       dragElastic={0.6}
       onDragEnd={(_, info) => {
+        // Drag is a shortcut for the two extremes; the middle button covers amber.
         if (info.offset.x > SWIPE_THRESHOLD) onChoose("confident");
         else if (info.offset.x < -SWIPE_THRESHOLD) onChoose("shaky");
       }}
@@ -333,7 +304,9 @@ function SwipeCard({
           {point.title}
         </p>
         {isTop && (
-          <p className="text-[11px] text-muted-foreground">Drag or use the buttons below.</p>
+          <p className="text-[11px] text-muted-foreground">
+            Drag left/right, or use the buttons below.
+          </p>
         )}
       </div>
 
@@ -354,47 +327,5 @@ function SwipeCard({
         </>
       )}
     </motion.div>
-  );
-}
-
-function ConflictPrompt({
-  swipeBand,
-  columnBand,
-  onMove,
-  onKeep,
-}: {
-  swipeBand: Band;
-  columnBand: Band;
-  onMove: () => void;
-  onKeep: () => void;
-}) {
-  return (
-    <div className="py-4 text-center">
-      <div className="w-12 h-12 rounded-full bg-amber-500/10 text-amber-600 dark:text-amber-400 flex items-center justify-center mx-auto">
-        <AlertTriangle className="w-6 h-6" />
-      </div>
-      <p className="mt-3 font-display text-base font-semibold">Are you sure about the column?</p>
-      <p className="text-sm text-muted-foreground mt-1.5 px-2">
-        Your answers look more like{" "}
-        <span className={`font-semibold ${swipeBand.accent}`}>{swipeBand.label}</span>, but you filed
-        this under <span className={`font-semibold ${columnBand.accent}`}>{columnBand.label}</span>.
-      </p>
-      <div className="mt-5 flex flex-col gap-2">
-        <button
-          type="button"
-          onClick={onMove}
-          className="h-10 rounded-lg bg-primary text-primary-foreground text-sm font-semibold hover:opacity-90"
-        >
-          Move to {swipeBand.label}
-        </button>
-        <button
-          type="button"
-          onClick={onKeep}
-          className="h-10 rounded-lg border border-border text-sm font-medium hover:bg-muted"
-        >
-          Keep in {columnBand.label}
-        </button>
-      </div>
-    </div>
   );
 }

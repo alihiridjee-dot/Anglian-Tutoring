@@ -16,8 +16,9 @@ export interface SubscriptionRow {
   current_period_end: string | null;
   cancel_at_period_end: boolean;
   /**
-   * Null for manually-granted rows (e.g. grandfathered access) — there is no
-   * Stripe subscription to pause or cancel, so no controls should render.
+   * Every plan is a real Stripe subscription, so this is populated in practice.
+   * Kept nullable defensively: a row momentarily without one has no Stripe
+   * object to pause or cancel, so no controls should render.
    */
   stripe_subscription_id: string | null;
 }
@@ -64,8 +65,6 @@ export function planLabel(plan: string | null | undefined, packages: PackageRow[
   if (!plan) return "Subscription";
   const pkg = packages.find((p) => p.tier === plan);
   if (pkg) return pkg.name;
-  // Manually-granted access has no package row behind it.
-  if (plan === "grandfathered") return "Complimentary access";
   return plan;
 }
 
@@ -116,9 +115,29 @@ export async function openBillingPortal(returnTo: BillingReturnTo = "billing") {
   window.location.href = url;
 }
 
-/** Pause, resume, or cancel-at-period-end. Caller must be the payer. */
+/**
+ * Pause, resume, or cancel-at-period-end. Caller must manage the plan (the
+ * linked parent, or an unlinked student). Cancelling is the only way to end a
+ * plan — there is no immediate delete.
+ */
 export async function manageSubscription(action: "cancel" | "pause" | "resume", studentId: string) {
   return invokeBilling<{ ok: boolean; status: string }>({ action, student_id: studentId });
+}
+
+/**
+ * Add subject(s) to a live subscription — the in-app upgrade. Bumps the plan up
+ * its cadence's subject-count ladder and enrols the student, with the prorated
+ * difference charged immediately. Caller must manage the plan.
+ */
+export async function addSubjects(
+  studentId: string,
+  subjects: { subject: string; board: string }[],
+) {
+  return invokeBilling<{ ok: boolean; plan: string; added: string[] }>({
+    action: "add_subjects",
+    student_id: studentId,
+    subjects,
+  });
 }
 
 /** The caller's Stripe payment history (empty if they've never paid). */

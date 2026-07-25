@@ -1,4 +1,5 @@
 import { createFileRoute } from "@tanstack/react-router";
+import { guardStudentSection } from "@/lib/routeGuards";
 import { useEffect, useState } from "react";
 import { Compass, Loader2 } from "lucide-react";
 import { AppLayout } from "@/components/AppLayout";
@@ -9,6 +10,7 @@ import { StudentPlanner } from "@/components/planner/StudentPlanner";
 import { TutorPlannerPanel } from "@/components/planner/TutorPlannerPanel";
 
 export const Route = createFileRoute("/_authenticated/planner")({
+  beforeLoad: guardStudentSection,
   head: () => ({ meta: [{ title: "My Planner | Anglian Learning" }] }),
   component: PlannerPage,
 });

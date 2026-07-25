@@ -1,21 +1,72 @@
 import { useMemo, useState } from "react";
+import { useQuery } from "@tanstack/react-query";
 import { CreditCard } from "lucide-react";
 import { toast } from "sonner";
+import { supabase } from "@/integrations/supabase/client";
 import { useChildLinks } from "@/hooks/data/useParentLinks";
 import { usePackages, useSubscriptions } from "@/hooks/data/useBilling";
-import { startCheckout, isSubscriptionLive, planLabel } from "@/lib/billing";
+import { startCheckout, isSubscriptionLive, planLabel, type SubscriptionRow } from "@/lib/billing";
 import { PlanPicker } from "@/components/billing/PlanPicker";
 import { SubscriptionPanel } from "@/components/billing/SubscriptionPanel";
+import { AddSubjectCard } from "@/components/billing/AddSubjectCard";
 import { InvoiceHistoryCard } from "@/components/billing/InvoiceHistory";
 import { resolveDisplayName } from "@/lib/displayName";
+import type { BoardV } from "@/lib/taxonomy";
 
 /**
- * Billing on the parent dashboard: one card per linked child showing their
- * plan (with pause/cancel/resume if this parent pays for it) or the plan
- * picker if they have none, plus the parent's own payment history.
+ * The add-subject upgrade for one linked child. Fetches the child's current
+ * enrolment (parents may read student_enrolments for a linked child) so the card
+ * offers only the subjects they don't yet have, then defers to AddSubjectCard —
+ * which renders nothing when there's nothing left to add.
+ */
+function ChildUpgrade({
+  studentId,
+  sub,
+  childName,
+}: {
+  studentId: string;
+  sub: SubscriptionRow;
+  childName: string;
+}) {
+  const { data: enrolments = [] } = useQuery({
+    queryKey: ["child-progress", "enrolments", studentId],
+    queryFn: async () => {
+      const { data, error } = await supabase
+        .from("student_enrolments")
+        .select("subject, board")
+        .eq("student_id", studentId)
+        .order("subject");
+      if (error) throw new Error(error.message);
+      return (data ?? []) as { subject: string; board: BoardV }[];
+    },
+  });
+
+  // Only a live plan can be upgraded (the server rejects paused/cancelling).
+  if (!sub.plan || !isSubscriptionLive(sub.status)) return null;
+
+  return (
+    <div className="mt-5">
+      <AddSubjectCard
+        studentId={studentId}
+        currentTier={sub.plan}
+        enrolledSubjects={enrolments.map((e) => e.subject)}
+        defaultBoard={enrolments[0]?.board}
+        ownerLabel={childName}
+      />
+    </div>
+  );
+}
+
+/**
+ * The parent's Billing tab: one card per linked child showing their plan (with
+ * pause / cancel / resume / delete) or the plan picker if they have none, plus
+ * the parent's own payment history.
  *
- * A child can also pay for themselves — in that case the parent sees the
- * status but not the controls, and the server enforces the same rule.
+ * Lifted out of the Parent Portal dashboard into its own /billing tab — the
+ * dashboard is progress-only now. Control is link-based: a linked parent manages
+ * the child's plan even one the child paid for themselves (the server enforces
+ * the same rule). The billing portal is the one payer-only control, since it is
+ * tied to whoever's card the plan sits on.
  */
 export function ParentBillingSection({ parentId }: { parentId: string }) {
   const { data: children = [], isLoading: childrenLoading } = useChildLinks();
@@ -27,7 +78,7 @@ export function ParentBillingSection({ parentId }: { parentId: string }) {
   const choosePlan = async (studentId: string, tier: string) => {
     setBusy(`${studentId}:${tier}`);
     try {
-      await startCheckout({ tier, studentId, returnTo: "parent" });
+      await startCheckout({ tier, studentId, returnTo: "billing" });
     } catch (err) {
       toast.error(err instanceof Error ? err.message : "Couldn't open checkout — try again.");
       setBusy(null);
@@ -37,10 +88,10 @@ export function ParentBillingSection({ parentId }: { parentId: string }) {
   if (childrenLoading) return null;
 
   return (
-    <div className="mt-12">
+    <div>
       <div className="flex items-center gap-3 mb-5">
         <CreditCard className="w-5 h-5 text-primary" />
-        <h3 className="font-display text-lg font-bold text-slate-900">Billing & plans</h3>
+        <h2 className="font-display text-xl font-semibold text-slate-900">Billing &amp; plans</h2>
       </div>
 
       {children.length === 0 ? (
@@ -57,18 +108,32 @@ export function ParentBillingSection({ parentId }: { parentId: string }) {
             const planName = planLabel(sub?.plan, packages);
 
             return (
-              <div key={child.link_id} className="rounded-2xl bg-card border border-border p-6">
-                <p className="text-xs uppercase tracking-widest text-muted-foreground font-semibold mb-3">
-                  {childName}'s plan
-                </p>
+              <div
+                key={child.link_id}
+                className="relative overflow-hidden rounded-2xl border border-primary/30 bg-gradient-to-br from-primary/5 via-card to-card p-6 shadow-sm"
+              >
+                {/* soft glow accent (matches Add-subject card) */}
+                <div className="pointer-events-none absolute -top-16 -right-16 h-40 w-40 rounded-full bg-primary/10 blur-3xl" />
 
-                {hasUsablePlan && sub ? (
-                  <SubscriptionPanel
-                    sub={sub}
-                    planName={planName}
-                    isPayer={sub.user_id === parentId}
-                    returnTo="parent"
-                  />
+                <div className="relative">
+                  <p className="text-xs uppercase tracking-widest text-muted-foreground font-semibold mb-3">
+                    {childName}'s plan
+                  </p>
+
+                  {hasUsablePlan && sub ? (
+                  <>
+                    <SubscriptionPanel
+                      sub={sub}
+                      planName={planName}
+                      // A linked parent manages the plan regardless of who paid —
+                      // including a plan the child originally paid for themselves.
+                      canManage
+                      isPayer={sub.user_id === parentId}
+                      returnTo="billing"
+                      ownerLabel={childName}
+                    />
+                    <ChildUpgrade studentId={child.student_id} sub={sub} childName={childName} />
+                  </>
                 ) : (
                   <>
                     <p className="text-sm text-muted-foreground mb-4">
@@ -86,8 +151,9 @@ export function ParentBillingSection({ parentId }: { parentId: string }) {
                       }
                       onChoose={(tier) => choosePlan(child.student_id, tier)}
                     />
-                  </>
-                )}
+                    </>
+                  )}
+                </div>
               </div>
             );
           })}

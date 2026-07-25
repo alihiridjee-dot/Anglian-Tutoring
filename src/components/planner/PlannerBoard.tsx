@@ -16,8 +16,11 @@ const subjectLabel: Record<string, string> = {
 
 /**
  * The termly planner's confidence board. The student sorts each topic group into
- * a confidence band (drag between columns), and can expand any group to rate its
- * individual spec points — which then averages back into the card's band.
+ * a confidence band (drag between columns) — that band sets the topic's broad
+ * mastery. Expanding a group lets them rate its individual spec points on the
+ * same red/amber/green scale; those ratings are a finer FSRS signal layered
+ * underneath and don't move the topic between columns (they only seed the column
+ * when the topic hasn't been sorted at all yet).
  */
 export function PlannerBoard({
   studentId,
@@ -95,14 +98,19 @@ export function PlannerBoard({
   };
 
   const applyAggregate = async (topicId: string, mean: number | null) => {
-    if (mean == null) return;
-    setTopics((prev) => prev.map((t) => (t.id === topicId ? { ...t, confidence: mean } : t)));
-    try {
-      await PlannerDAL.setTopicConfidence(topicId, mean);
-      onChanged?.();
-    } catch (e) {
-      console.error("apply aggregate", e);
+    // `mean` is non-null only when the topic was unsorted and these point ratings
+    // seed its column; when it already has a column we leave it put. Either way
+    // the per-point ratings just advanced FSRS cards, so the plan must re-flow —
+    // always signal `onChanged`, even when the column itself didn't move.
+    if (mean != null) {
+      setTopics((prev) => prev.map((t) => (t.id === topicId ? { ...t, confidence: mean } : t)));
+      try {
+        await PlannerDAL.setTopicConfidence(topicId, mean);
+      } catch (e) {
+        console.error("apply aggregate", e);
+      }
     }
+    onChanged?.();
   };
 
   const ratedCount = topics.filter((t) => t.confidence != null).length;

@@ -30,6 +30,13 @@ export interface PacingInput {
  */
 export type BandKind = "teach" | "revisit" | "review";
 
+/** One weak spec point riding inside a focus band (revisit), for display. */
+export interface FocusPointRef {
+  specPointId: string;
+  code: string;
+  title: string;
+}
+
 export interface PacingBand {
   topicId: string;
   title: string;
@@ -38,6 +45,9 @@ export interface PacingBand {
   endWeek: string;
   weeks: number;
   kind?: BandKind;
+  /** For focus (revisit) bands: the specific weak spec points scheduled that
+   *  week under this topic. Absent on teach/review bands. */
+  points?: FocusPointRef[];
 }
 
 /** A spine band (legacy stored bands carry no kind). */
@@ -169,107 +179,139 @@ export function computeLivePacing(params: {
 /** Below this mastery a topic is "needs work" — it gets recurring revisits. */
 export const FOCUS_RED_BELOW = 34;
 
-/**
- * Expanding revisit offsets for a needs-work topic, scaled to the runway left
- * before the revision window: ~2.5%, 7.5%, 17.5% and 37.5% of the remaining
- * teaching weeks (each at least a week after the last). A full school year
- * (~44 wks) gives ≈ [1, 3, 8, 17]; a 12-week sprint compresses to [1, 2, 3, 5];
- * with only a couple of weeks left there's a single revisit next week. Same
- * spaced-repetition shape at every horizon — often at first, stretching out.
- */
-export function revisitOffsets(runwayWeeks: number): number[] {
-  const out: number[] = [];
-  let prev = 0;
-  for (const frac of [0.025, 0.075, 0.175, 0.375]) {
-    const w = Math.max(prev + 1, Math.round(runwayWeeks * frac));
-    if (w >= runwayWeeks) break;
-    out.push(w);
-    prev = w;
-  }
-  if (out.length === 0 && runwayWeeks > 1) out.push(1);
-  return out;
+/** How many times a weak point resurfaces before the revision window, by band. */
+function revisitCount(mastery: number): number {
+  return mastery < FOCUS_RED_BELOW ? 3 : 1; // red keeps recurring; amber a single look
 }
 
-/** An amber topic's single revisit lands ~10% of the runway after its teach
- *  pass (clamped to 2–6 weeks), so short courses re-check sooner. */
-export function amberRevisitGap(runwayWeeks: number): number {
-  return Math.min(6, Math.max(2, Math.round(runwayWeeks * 0.1)));
+/** One weak spec point competing for a focus slot. */
+export interface FocusCandidate {
+  specPointId: string;
+  topicId: string;
+  topicTitle: string;
+  code: string;
+  pointTitle: string;
+  /** 0–100 FSRS mastery — lower is weaker, and weaker wins the slot. */
+  mastery: number;
 }
 
 /**
- * The focus lane: overlay short FSRS-driven bands on the chronological spine.
+ * The focus lane as a **capacity-limited revision queue** rather than a flood.
  *
- *  • Needs-work topics (mastery < {@link FOCUS_RED_BELOW}) get 1-week revisit
- *    bands at expanding intervals starting next week — they keep resurfacing
- *    until mastery clears the settled threshold, at which point the topic reads
- *    as covered and the revisits disappear on the next re-flow.
- *  • Getting-there topics (below settled) get a single revisit ~a month after
- *    their teach pass ends (or soon, if that pass is already behind them).
- *  • Covered topics get one light review band in the pre-exam revision window.
+ * The problem it solves: FSRS resurfaces everything the instant it's rated, so a
+ * student who rates nine topics badly would otherwise get nine revisits dumped
+ * into next week. Instead we give each week a fixed budget of focus spec points
+ * ({@link DEFAULT_FOCUS_BUDGET}) and spread the backlog across the weeks to the
+ * exam, weakest-first.
  *
- * Revisits are derived live from mastery on every load — never persisted — so
- * the lane always reflects the cards as they stand today. Bands may overlap the
- * spine: a revisit week is homework/quiz focus alongside whatever topic is
- * being taught, which is exactly how the weekly plan interleaves due points.
+ * Week-by-week simulation: each weak point wants {@link revisitCount} revisits at
+ * expanding intervals; every week we place the weakest available points up to the
+ * budget and push the rest to the next week (cascade). A placed point's next
+ * revisit is scheduled a widening gap later, so it competes again later — not
+ * every week. Points that never fit before revision simply don't get scheduled
+ * (an over-rated backlog can't all fit, and pretending otherwise is the bug).
+ * Covered topics get one light review band in the pre-exam window, budget-exempt.
+ *
+ * Placed points are grouped by (week, topic) into revisit bands carrying their
+ * specific spec points, so the roadmap shows "Topic 5 · 5.1, 5.4" — the real unit
+ * of work — and never more than the budget in any week. Pure/deterministic, never
+ * persisted: recomputed live from mastery every load.
  */
-export function injectFocusBands(params: {
-  spine: PacingBand[];
-  /** Per-topic FSRS mastery (0–100), from getTopicProgress. */
-  masteryByTopic: Map<string, number>;
-  /** Topics already settled — get a review slot, never revisits. */
-  coveredTopicIds: Set<string>;
+export const DEFAULT_FOCUS_BUDGET = 6;
+
+export function scheduleFocusPoints(params: {
+  candidates: FocusCandidate[];
+  /** Settled topics — one review slot each, no revisits. */
+  coveredTopics: { topicId: string; title: string }[];
   currentMonday: Date;
   examMonday: Date;
-  settledThreshold: number;
+  /** Focus spec points allowed per week (excludes the pre-exam review pass). */
+  weeklyBudget?: number;
   revisionWeeks?: number;
 }): PacingBand[] {
-  const { spine, masteryByTopic, coveredTopicIds, examMonday, settledThreshold } = params;
+  const { candidates, coveredTopics, examMonday } = params;
   const currentMonday = mondayOf(params.currentMonday);
+  const budget = Math.max(1, params.weeklyBudget ?? DEFAULT_FOCUS_BUDGET);
   const revisionWeeks = params.revisionWeeks ?? 3;
   const revisionStart = addWeeks(mondayOf(examMonday), -revisionWeeks);
-  // The runway drives all spacing: a year stretches revisits out, a short
-  // sprint to the exam compresses the same pattern.
   const runway = Math.max(0, weeksBetween(currentMonday, revisionStart));
-  const redOffsets = revisitOffsets(runway);
-  const amberGap = amberRevisitGap(runway);
 
-  const focus: PacingBand[] = [];
-  const oneWeek = (t: PacingBand, start: Date, kind: BandKind): PacingBand => ({
-    topicId: t.topicId,
-    title: t.title,
-    startWeek: toDateKey(start),
-    endWeek: toDateKey(start),
-    weeks: 1,
-    kind,
-  });
-  const insideOwnTeach = (t: PacingBand, start: Date) => {
-    const key = toDateKey(start);
-    return t.startWeek <= key && key <= t.endWeek;
-  };
+  const out: PacingBand[] = [];
 
-  for (const t of spine) {
-    if (coveredTopicIds.has(t.topicId)) {
-      if (revisionStart > currentMonday) focus.push(oneWeek(t, revisionStart, "review"));
-      continue;
-    }
-    const mastery = masteryByTopic.get(t.topicId) ?? 0;
-    if (mastery < FOCUS_RED_BELOW) {
-      for (const off of redOffsets) {
-        const start = addWeeks(currentMonday, off);
-        if (start >= revisionStart) break;
-        if (!insideOwnTeach(t, start)) focus.push(oneWeek(t, start, "revisit"));
-      }
-    } else if (mastery < settledThreshold) {
-      const teachEnd = weekKeyToDate(t.endWeek);
-      const afterTeach = addWeeks(teachEnd, amberGap);
-      const soon = addWeeks(currentMonday, 2);
-      const start = afterTeach > soon ? afterTeach : soon;
-      if (start < revisionStart && !insideOwnTeach(t, start)) {
-        focus.push(oneWeek(t, start, "revisit"));
-      }
+  // A light review pass for settled topics, in the revision window (budget-exempt).
+  if (revisionStart > currentMonday) {
+    for (const t of coveredTopics) {
+      out.push({
+        topicId: t.topicId,
+        title: t.title,
+        startWeek: toDateKey(revisionStart),
+        endWeek: toDateKey(revisionStart),
+        weeks: 1,
+        kind: "review",
+      });
     }
   }
 
+  if (runway <= 1 || candidates.length === 0) return out;
+
+  // Widening gaps between a point's successive revisits, scaled to the runway.
+  const gaps = [Math.max(2, Math.round(runway * 0.08)), Math.max(4, Math.round(runway * 0.2))];
+  const gapAfter = (placed: number) => gaps[Math.min(placed, gaps.length - 1)];
+
+  type Ticket = { c: FocusCandidate; remaining: number; placed: number; nextIdx: number };
+  const tickets: Ticket[] = candidates.map((c) => ({
+    c,
+    remaining: revisitCount(c.mastery),
+    placed: 0,
+    nextIdx: 1, // everything wants next week; the budget is what spreads it
+  }));
+
+  const placedByWeek = new Map<number, FocusCandidate[]>();
+  for (let wk = 1; wk < runway; wk++) {
+    const avail = tickets
+      .filter((t) => t.remaining > 0 && t.nextIdx <= wk)
+      .sort((a, b) => a.c.mastery - b.c.mastery || a.nextIdx - b.nextIdx);
+    let cap = budget;
+    for (const t of avail) {
+      if (cap <= 0) break;
+      const list = placedByWeek.get(wk) ?? [];
+      list.push(t.c);
+      placedByWeek.set(wk, list);
+      cap--;
+      t.remaining--;
+      t.nextIdx = wk + gapAfter(t.placed); // next look, a widening gap later
+      t.placed++;
+    }
+    // Tickets that didn't fit keep nextIdx ≤ wk, so they're first in line next week.
+  }
+
+  // Group each week's placed points by topic into revisit bands.
+  for (const [wk, cands] of placedByWeek) {
+    const start = toDateKey(addWeeks(currentMonday, wk));
+    const byTopic = new Map<string, FocusCandidate[]>();
+    for (const c of cands) {
+      const l = byTopic.get(c.topicId) ?? [];
+      l.push(c);
+      byTopic.set(c.topicId, l);
+    }
+    for (const [topicId, pts] of byTopic) {
+      out.push({
+        topicId,
+        title: pts[0].topicTitle,
+        startWeek: start,
+        endWeek: start,
+        weeks: 1,
+        kind: "revisit",
+        points: pts.map((p) => ({ specPointId: p.specPointId, code: p.code, title: p.pointTitle })),
+      });
+    }
+  }
+
+  return out.sort((a, b) => a.startWeek.localeCompare(b.startWeek));
+}
+
+/** Merge focus bands onto the teach spine in roadmap render order. */
+export function mergeFocus(spine: PacingBand[], focus: PacingBand[]): PacingBand[] {
   return [...spine, ...focus].sort(
     (a, b) =>
       a.startWeek.localeCompare(b.startWeek) || Number(isTeachBand(b)) - Number(isTeachBand(a)),

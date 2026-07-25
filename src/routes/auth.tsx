@@ -9,6 +9,8 @@ type SearchParams = {
   mode?: "signin" | "signup";
   tier?: string;
   level?: string;
+  subjects?: string;
+  board?: string;
   redirect?: string;
 };
 
@@ -23,6 +25,8 @@ export const Route = createFileRoute("/auth")({
     mode: search.mode === "signup" ? "signup" : "signin",
     tier: typeof search.tier === "string" ? search.tier : undefined,
     level: typeof search.level === "string" ? search.level : undefined,
+    subjects: typeof search.subjects === "string" ? search.subjects : undefined,
+    board: typeof search.board === "string" ? search.board : undefined,
     redirect: typeof search.redirect === "string" ? search.redirect : undefined,
   }),
   component: AuthPage,
@@ -76,6 +80,14 @@ function AuthPage() {
               display_name: name || email.split("@")[0],
               role,
               parent_invite_code: role === "parent" ? inviteCode || null : null,
+              // The plan the student picked on the pricing page. Stashed here so
+              // it survives the email-verification round-trip (which lands on a
+              // fresh /onboarding/board URL with no search params) and can seed
+              // the onboarding steps. Every one of these stays editable there.
+              intended_tier: search.tier ?? null,
+              intended_level: search.level ?? null,
+              intended_subjects: search.subjects ?? null,
+              intended_board: search.board ?? null,
             },
           },
         });

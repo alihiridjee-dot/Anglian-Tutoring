@@ -176,7 +176,12 @@ export function pointMastery(
       // revisit) while a needs-work or lapsing one stays low (keeps recurring).
       return clampScore(25 + (confidence ?? 0) * 0.25 - penalty);
     case "learning":
-      return clampScore(50 - penalty);
+      // Mid-learning (reviewed, not yet overdue). Reflect the rating the same way
+      // as "due" — a flat mid-score here would erase a fresh "needs work" the
+      // moment it's given (FSRS learning steps are minutes long, so a just-rated
+      // point sits here for a beat before it comes due) — just a touch higher,
+      // since it isn't overdue yet. So a needs-work point reads red immediately.
+      return clampScore(28 + (confidence ?? 0) * 0.25 - penalty);
     default: // strong
       return clampScore(70 + Math.min(30, card.stability / 2) - penalty);
   }
