@@ -135,7 +135,7 @@ function SubjectConfidence({
           return (
             <div
               key={t.id}
-              className="rounded-xl border border-border bg-muted/30 p-3 flex flex-col sm:flex-row sm:items-center gap-2.5"
+              className="rounded-2xl border border-border bg-secondary/50 p-3 flex flex-col sm:flex-row sm:items-center gap-2.5"
             >
               <div className="flex-1 min-w-0 text-sm font-medium">{t.title}</div>
               <div className="flex gap-1.5 shrink-0">

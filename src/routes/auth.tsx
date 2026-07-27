@@ -1,9 +1,14 @@
 import { createFileRoute, useNavigate } from "@tanstack/react-router";
 import { useEffect, useState } from "react";
-import { GraduationCap, ArrowLeft, User, Users, BookOpen } from "lucide-react";
+import { User, Users, BookOpen, MailCheck } from "lucide-react";
 import { supabase } from "@/integrations/supabase/client";
 import { toast } from "sonner";
-import { Link } from "@tanstack/react-router";
+import { OtpInput } from "@/components/OtpInput";
+import { AuthShell, BrandPanel } from "@/components/auth/AuthShell";
+
+// Supabase's Email OTP Length is a project setting (6–10); this project is set
+// to 8, and the digit boxes have to match it exactly.
+const OTP_LENGTH = 8;
 
 type SearchParams = {
   mode?: "signin" | "signup";
@@ -45,6 +50,8 @@ function AuthPage() {
   const [inviteCode, setInviteCode] = useState("");
   const [loading, setLoading] = useState(false);
   const [emailSentTo, setEmailSentTo] = useState<string | null>(null);
+  const [otp, setOtp] = useState("");
+  const [resendIn, setResendIn] = useState(0);
 
   // Level, exam board and subjects are captured in /onboarding now, not here.
   // Sign-up is only "who are you"; what you study — and whether you've paid for
@@ -63,6 +70,15 @@ function AuthPage() {
     });
   }, [navigate, dest]);
 
+  // Cooldown between "resend code" presses. GoTrue rate-limits these server
+  // side anyway; this just stops people hammering the button and eating the
+  // limit before the first email has even landed.
+  useEffect(() => {
+    if (resendIn <= 0) return;
+    const t = setTimeout(() => setResendIn((s) => s - 1), 1000);
+    return () => clearTimeout(t);
+  }, [resendIn]);
+
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     setLoading(true);
@@ -72,18 +88,13 @@ function AuthPage() {
           email,
           password,
           options: {
-            // Verifying the email lands on setup, not the dashboard. The guard
-            // would bounce them here anyway; sending them straight there just
-            // saves a redirect.
-            emailRedirectTo: `${window.location.origin}/onboarding/board`,
             data: {
               display_name: name || email.split("@")[0],
               role,
               parent_invite_code: role === "parent" ? inviteCode || null : null,
               // The plan the student picked on the pricing page. Stashed here so
-              // it survives the email-verification round-trip (which lands on a
-              // fresh /onboarding/board URL with no search params) and can seed
-              // the onboarding steps. Every one of these stays editable there.
+              // it survives the email-verification round-trip and can seed the
+              // onboarding steps. Every one of these stays editable there.
               intended_tier: search.tier ?? null,
               intended_level: search.level ?? null,
               intended_subjects: search.subjects ?? null,
@@ -92,12 +103,23 @@ function AuthPage() {
           },
         });
         if (error) throw error;
-        if (data.session) {
+        // Signing up with an address that already has a confirmed account is a
+        // silent no-op server side — GoTrue won't confirm or deny that the email
+        // is registered, so it returns a success-shaped user with no session and
+        // sends nothing. The empty identities array is the only tell. Without
+        // this branch the user waits on a code screen for a code that will never
+        // arrive.
+        if (data.user && data.user.identities?.length === 0) {
+          toast.error("That email already has an account. Try logging in.");
+          setMode("signin");
+          setPassword("");
+        } else if (data.session) {
           toast.success("Account created");
           navigate({ to: dest as never });
         } else {
-          toast.success("Check your email to confirm your account.");
+          toast.success("We've emailed you a verification code.");
           setEmailSentTo(email);
+          setResendIn(60);
         }
       } else {
         const { error } = await supabase.auth.signInWithPassword({ email, password });
@@ -112,65 +134,117 @@ function AuthPage() {
     }
   };
 
-  return (
-    <div className="min-h-screen flex items-center justify-center bg-muted/40 px-4 py-10">
-      <div className="w-full max-w-md">
-        <Link
-          to="/"
-          className="inline-flex items-center gap-2 text-sm text-muted-foreground hover:text-foreground mb-6"
-        >
-          <ArrowLeft className="w-4 h-4" /> Back to home
-        </Link>
-        <div className="flex items-center justify-center gap-2 mb-8">
-          <div className="w-11 h-11 rounded-xl bg-primary flex items-center justify-center">
-            <GraduationCap className="w-5 h-5 text-primary-foreground" />
-          </div>
-          <span className="font-display text-xl font-semibold tracking-tight">
-            Anglian Learning
-          </span>
-        </div>
+  // Codes rather than magic links: school and university mail systems run link
+  // scanners (Microsoft Safe Links and friends) that fetch every URL in an
+  // inbound message, which burns a single-use confirmation link before the
+  // student ever sees it. A code can't be consumed by a scanner.
+  const handleVerify = async (e?: React.FormEvent) => {
+    e?.preventDefault();
+    if (!emailSentTo || loading || otp.length < OTP_LENGTH) return;
+    setLoading(true);
+    try {
+      const { error } = await supabase.auth.verifyOtp({
+        email: emailSentTo,
+        token: otp.trim(),
+        type: "signup",
+      });
+      if (error) throw error;
+      toast.success("Email verified");
+      // verifyOtp returns a session, so the onboarding guard will let them in.
+      navigate({ to: "/onboarding/board" as never });
+    } catch (err) {
+      toast.error(err instanceof Error ? err.message : "That code didn't work");
+      setOtp("");
+    } finally {
+      setLoading(false);
+    }
+  };
 
-        <div className="rounded-2xl bg-card border border-border p-6 shadow-lg">
+  // Submit as soon as the last box is filled — typing or pasting a full code
+  // and then reaching for a button is the bit that feels clunky.
+  useEffect(() => {
+    if (emailSentTo && otp.length === OTP_LENGTH && !loading) void handleVerify();
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [otp, emailSentTo]);
+
+  const handleResend = async () => {
+    if (!emailSentTo || resendIn > 0) return;
+    const { error } = await supabase.auth.resend({ type: "signup", email: emailSentTo });
+    if (error) return toast.error(error.message);
+    toast.success("New code sent");
+    setOtp("");
+    setResendIn(60);
+  };
+
+  return (
+    <AuthShell>
+      <div className="grid lg:grid-cols-[1.05fr_1fr] gap-8 items-stretch">
+        <BrandPanel />
+        <div className="premium-card rounded-3xl p-6 sm:p-8 rise-in [--rise-delay:80ms] self-center w-full">
           {emailSentTo ? (
-            <div className="text-center py-4">
-              <div className="w-16 h-16 bg-primary/10 rounded-full flex items-center justify-center mx-auto mb-6 text-primary">
-                <BookOpen className="w-8 h-8" />
+            <div className="text-center py-2">
+              <div className="w-14 h-14 bg-primary/10 rounded-2xl flex items-center justify-center mx-auto mb-5 text-primary">
+                <MailCheck className="w-7 h-7" />
               </div>
-              <h1 className="font-display text-2xl font-semibold tracking-tight mb-3">
-                Verify your email
+              <h1 className="font-display text-2xl font-semibold tracking-tight mb-2">
+                Enter your code
               </h1>
-              <p className="text-sm text-muted-foreground mb-6 leading-relaxed">
-                We've sent an email verification link to{" "}
-                <strong className="text-foreground">{emailSentTo}</strong>. Please check your inbox
-                and click the link to confirm your account.
+              <p className="text-sm text-muted-foreground mb-7 leading-relaxed">
+                We've sent an {OTP_LENGTH}-digit code to{" "}
+                <strong className="text-foreground">{emailSentTo}</strong>.
+                <br />
+                It expires in 1 hour.
               </p>
-              <div className="bg-muted p-4 rounded-xl text-xs text-left text-muted-foreground mb-6 leading-relaxed space-y-1.5">
-                <p className="font-bold text-foreground">Next steps:</p>
-                <p>1. Open your email client inbox.</p>
-                <p>2. Find the confirmation email from Anglian Learning.</p>
-                <p>3. Click the link to activate your account and set up your profile.</p>
+
+              <form onSubmit={handleVerify} className="space-y-5">
+                <OtpInput
+                  autoFocus
+                  length={OTP_LENGTH}
+                  value={otp}
+                  onChange={setOtp}
+                  disabled={loading}
+                />
+                <button
+                  type="submit"
+                  disabled={loading || otp.length < OTP_LENGTH}
+                  className="btn-premium w-full h-12 rounded-xl font-semibold text-sm"
+                >
+                  {loading ? "Verifying…" : "Verify email"}
+                </button>
+              </form>
+
+              <div className="mt-6 pt-5 border-t border-border/70 space-y-2">
+                <button
+                  type="button"
+                  onClick={handleResend}
+                  disabled={resendIn > 0}
+                  className="w-full text-xs text-muted-foreground hover:text-primary disabled:hover:text-muted-foreground"
+                >
+                  {resendIn > 0 ? `Resend code in ${resendIn}s` : "Didn't get it? Resend code"}
+                </button>
+                <button
+                  type="button"
+                  onClick={() => {
+                    setEmailSentTo(null);
+                    setOtp("");
+                    setMode("signin");
+                  }}
+                  className="w-full text-xs text-muted-foreground hover:text-foreground"
+                >
+                  Back to log in
+                </button>
               </div>
-              <button
-                type="button"
-                onClick={() => {
-                  setEmailSentTo(null);
-                  setMode("signin");
-                }}
-                className="w-full h-11 rounded-xl bg-primary text-primary-foreground font-semibold hover:opacity-90 transition text-sm shadow-sm"
-              >
-                Back to Log In
-              </button>
             </div>
           ) : (
             <>
-              <div className="grid grid-cols-2 gap-1 p-1 bg-muted rounded-lg mb-6">
+              <div className="grid grid-cols-2 gap-1 p-1 bg-secondary/70 border border-border/70 rounded-xl mb-7">
                 {(["signin", "signup"] as const).map((m) => (
                   <button
                     key={m}
                     onClick={() => setMode(m)}
-                    className={`py-2 rounded-md text-sm font-semibold transition ${
+                    className={`py-2.5 rounded-lg text-sm font-semibold transition ${
                       mode === m
-                        ? "bg-card text-foreground shadow-sm"
+                        ? "bg-card text-foreground shadow-sm ring-1 ring-border"
                         : "text-muted-foreground hover:text-foreground"
                     }`}
                   >
@@ -179,10 +253,18 @@ function AuthPage() {
                 ))}
               </div>
 
-              <h1 className="font-display text-2xl font-semibold tracking-tight mb-1">
-                {mode === "signin" ? "Welcome back" : "Create your account"}
+              <h1 className="font-display text-[1.75rem] leading-tight font-bold tracking-tight mb-1.5">
+                {mode === "signin" ? (
+                  <>
+                    Welcome <span className="text-gradient">back</span>
+                  </>
+                ) : (
+                  <>
+                    Create your <span className="text-gradient">account</span>
+                  </>
+                )}
               </h1>
-              <p className="text-sm text-muted-foreground mb-6">
+              <p className="text-sm text-muted-foreground mb-6 leading-relaxed">
                 {mode === "signin"
                   ? "Log in to see your lessons, quizzes, and homework."
                   : search.tier
@@ -191,16 +273,16 @@ function AuthPage() {
               </p>
 
               {mode === "signup" && (
-                <div className="grid grid-cols-2 gap-2 mb-4">
+                <div className="grid grid-cols-2 gap-2.5 mb-5">
                   {(["student", "parent"] as const).map((r) => (
                     <button
                       key={r}
                       type="button"
                       onClick={() => setRole(r)}
-                      className={`flex items-center justify-center gap-2 h-10 rounded-lg border text-sm font-semibold ${
+                      className={`flex items-center justify-center gap-2 h-12 rounded-xl border text-sm font-semibold transition ${
                         role === r
-                          ? "bg-primary/10 border-primary text-primary"
-                          : "border-border text-muted-foreground hover:text-foreground"
+                          ? "bg-primary/[0.07] border-primary text-primary ring-2 ring-primary/15"
+                          : "border-border text-muted-foreground hover:border-primary/40 hover:text-foreground"
                       }`}
                     >
                       {r === "student" ? (
@@ -266,7 +348,7 @@ function AuthPage() {
                 <button
                   type="submit"
                   disabled={loading}
-                  className="w-full h-11 rounded-xl bg-primary text-primary-foreground font-semibold hover:opacity-90 disabled:opacity-60 text-sm shadow-sm"
+                  className="btn-premium w-full h-12 rounded-xl font-semibold text-sm"
                 >
                   {loading ? "Please wait…" : mode === "signin" ? "Log in" : "Create account"}
                 </button>
@@ -299,7 +381,7 @@ function AuthPage() {
           )}
         </div>
       </div>
-    </div>
+    </AuthShell>
   );
 }
 
@@ -315,4 +397,5 @@ function Field({ label, children }: { label: string; children: React.ReactNode }
 }
 
 const inputCls =
-  "w-full h-10 rounded-lg bg-muted border border-border px-3 text-sm focus:outline-none focus:ring-2 focus:ring-primary/40";
+  "w-full h-11 rounded-xl bg-background border border-border px-3.5 text-sm placeholder:text-muted-foreground/70 " +
+  "transition focus:outline-none focus:border-primary focus:ring-4 focus:ring-primary/15";

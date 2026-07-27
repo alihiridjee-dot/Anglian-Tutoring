@@ -170,7 +170,7 @@ function PlanStep() {
 
   if (search.checkout === "success") {
     return (
-      <div className="rounded-2xl bg-card border border-border p-10 shadow-lg text-center">
+      <div className="premium-card rounded-3xl p-10 text-center rise-in">
         <Loader2 className="w-8 h-8 animate-spin mx-auto text-primary mb-4" />
         <h1 className="font-display text-2xl font-semibold tracking-tight mb-2">
           Confirming your payment…
@@ -185,7 +185,7 @@ function PlanStep() {
   return (
     <div className="space-y-4">
       {pausedPlan && (
-        <div className="rounded-2xl bg-amber-50 border border-amber-200 p-5 text-sm">
+        <div className="rounded-2xl bg-warning/10 border border-warning/30 p-5 text-sm">
           <p className="font-semibold text-amber-900 mb-1">You already have a plan on hold</p>
           <p className="text-amber-800">
             It's paused or set to end — resume it from{" "}
@@ -201,7 +201,7 @@ function PlanStep() {
         </div>
       )}
 
-      <div className="rounded-2xl bg-card border border-border p-6 shadow-lg">
+      <div className="premium-card rounded-3xl p-6 sm:p-8 rise-in">
         <h1 className="font-display text-2xl font-semibold tracking-tight mb-1">
           Your plan
         </h1>
@@ -217,7 +217,7 @@ function PlanStep() {
         ) : (
           <>
             {/* Summary — what they're buying, read from their enrolments. */}
-            <div className="rounded-xl border border-border bg-muted/40 p-4">
+            <div className="rounded-2xl border border-border bg-secondary/50 p-4">
               <div className="flex items-center justify-between gap-2 mb-3">
                 <div className="inline-flex items-center gap-1.5 text-xs font-semibold text-muted-foreground">
                   <GraduationCap className="w-3.5 h-3.5" />
@@ -257,8 +257,8 @@ function PlanStep() {
                     onClick={() => setCadence(c.key)}
                     className={`relative rounded-xl border p-3 text-center transition ${
                       on
-                        ? "border-primary bg-primary/10 ring-2 ring-primary/30"
-                        : "border-border bg-muted/40 hover:border-primary/50"
+                        ? "border-primary bg-primary/[0.07] ring-2 ring-primary/15 shadow-sm"
+                        : "border-border bg-background hover:border-primary/50 hover:-translate-y-0.5 hover:shadow-sm"
                     }`}
                   >
                     {c.note && (
@@ -277,7 +277,7 @@ function PlanStep() {
             </div>
 
             {/* The compiled price. */}
-            <div className="mt-4 flex items-end justify-between rounded-xl border border-border p-4">
+            <div className="mt-4 flex items-end justify-between rounded-2xl border border-primary/20 bg-primary/[0.04] p-4">
               <div>
                 <div className="text-xs text-muted-foreground">Total</div>
                 <div className="font-display text-2xl font-bold">
@@ -303,7 +303,7 @@ function PlanStep() {
               type="button"
               onClick={payNow}
               disabled={!selectedPkg || redirecting}
-              className="mt-4 w-full h-11 rounded-xl bg-primary text-primary-foreground font-semibold hover:opacity-90 disabled:opacity-50 text-sm shadow-sm inline-flex items-center justify-center gap-2"
+              className="btn-premium mt-5 w-full h-12 rounded-xl font-semibold text-sm inline-flex items-center justify-center gap-2"
             >
               {redirecting ? (
                 <>
@@ -323,7 +323,7 @@ function PlanStep() {
         )}
       </div>
 
-      <div className="rounded-2xl bg-card border border-border p-6 shadow-lg">
+      <div className="premium-card rounded-3xl p-6 sm:p-8 rise-in">
         <div className="flex items-center gap-2 mb-1">
           <Mail className="w-4 h-4 text-muted-foreground" />
           <h2 className="font-display text-base font-semibold">Not your card to use?</h2>
@@ -352,13 +352,13 @@ function PlanStep() {
               value={parentEmail}
               onChange={(e) => setParentEmail(e.target.value)}
               placeholder="parent@example.com"
-              className="flex-1 h-10 rounded-lg bg-muted border border-border px-3 text-sm focus:outline-none focus:ring-2 focus:ring-primary/40"
+              className="flex-1 h-11 rounded-xl bg-background border border-border px-3.5 text-sm transition focus:outline-none focus:border-primary focus:ring-4 focus:ring-primary/15"
             />
             <button
               type="button"
               onClick={inviteParent}
               disabled={inviting}
-              className="h-10 px-4 rounded-lg border border-border text-sm font-semibold hover:bg-muted disabled:opacity-50 shrink-0"
+              className="h-11 px-4 rounded-xl border border-border text-sm font-semibold hover:border-primary/40 hover:text-primary transition disabled:opacity-50 shrink-0"
             >
               {inviting ? "Sending…" : "Send invite"}
             </button>

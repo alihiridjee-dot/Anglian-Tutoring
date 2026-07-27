@@ -129,7 +129,7 @@ function SchoolStep() {
           value={school}
           onChange={(e) => setSchool(e.target.value)}
           placeholder="e.g. Cambridge Academy"
-          className="mt-1 w-full h-10 rounded-lg bg-muted border border-border px-3 text-sm focus:outline-none focus:ring-2 focus:ring-primary/40"
+          className="mt-1 w-full h-11 rounded-xl bg-background border border-border px-3.5 text-sm transition focus:outline-none focus:border-primary focus:ring-4 focus:ring-primary/15"
         />
       </div>
 
@@ -143,7 +143,7 @@ function SchoolStep() {
           </p>
           <div className="space-y-3">
             {subjects.map((subject) => (
-              <div key={subject} className="rounded-xl border border-border bg-muted/40 p-3">
+              <div key={subject} className="rounded-2xl border border-border bg-secondary/50 p-3">
                 <div className="text-sm font-semibold mb-2">{label[subject] ?? subject}</div>
                 <div className="grid grid-cols-3 gap-2">
                   {(
@@ -163,7 +163,7 @@ function SchoolStep() {
                             [subject]: { ...(prev[subject] ?? EMPTY), [key]: e.target.value },
                           }))
                         }
-                        className="mt-0.5 w-full h-9 rounded-lg bg-card border border-border px-2 text-sm focus:outline-none focus:ring-2 focus:ring-primary/40"
+                        className="mt-0.5 w-full h-9 rounded-lg bg-card border border-border px-2 text-sm transition focus:outline-none focus:border-primary focus:ring-4 focus:ring-primary/15"
                       >
                         <option value="">—</option>
                         {options.map((g) => (

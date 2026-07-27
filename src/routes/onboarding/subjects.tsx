@@ -134,7 +134,7 @@ function SubjectsStep() {
             <div
               key={s.value}
               className={`rounded-xl border p-4 transition ${
-                on ? "border-primary bg-primary/10" : "border-border bg-muted/40"
+                on ? "border-primary bg-primary/[0.07] ring-2 ring-primary/15" : "border-border bg-background hover:border-primary/40"
               }`}
             >
               <label className="flex items-center gap-3 cursor-pointer select-none">
@@ -155,7 +155,7 @@ function SubjectsStep() {
                     onChange={(e) =>
                       setBoards((prev) => ({ ...prev, [s.value]: e.target.value as BoardV }))
                     }
-                    className="h-8 rounded-lg bg-card border border-border px-2 text-xs focus:outline-none focus:ring-2 focus:ring-primary/40"
+                    className="h-8 rounded-lg bg-card border border-border px-2 text-xs transition focus:outline-none focus:border-primary focus:ring-4 focus:ring-primary/15"
                   >
                     {BOARDS.map((b) => (
                       <option key={b.value} value={b.value}>
