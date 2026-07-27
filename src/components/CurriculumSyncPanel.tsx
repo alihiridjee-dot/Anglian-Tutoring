@@ -81,7 +81,7 @@ export function CurriculumSyncPanel({ subject, board, level, onSynced }: Curricu
   };
 
   return (
-    <div className="rounded-2xl border border-border bg-card p-6 mb-6">
+    <div className="rounded-2xl premium-card p-6 mb-6">
       <div className="flex items-center justify-between">
         <div className="flex items-center gap-3">
           <div className="p-2 rounded-xl bg-violet-500/10 text-violet-500">
@@ -134,7 +134,7 @@ export function CurriculumSyncPanel({ subject, board, level, onSynced }: Curricu
                 </h4>
                 {parsedData ? (
                   <div className="space-y-3">
-                    <div className="p-2.5 rounded-lg bg-card border border-border">
+                    <div className="p-2.5 rounded-lg premium-card">
                       <div className="text-xs font-mono text-primary font-bold">
                         {parsedData.topicCode}
                       </div>
@@ -202,7 +202,7 @@ export function CurriculumSyncPanel({ subject, board, level, onSynced }: Curricu
               </div>
               <div className="grid sm:grid-cols-2 gap-3 text-xs">
                 {/* Production */}
-                <div className="p-3 rounded-lg bg-card border border-border flex items-center justify-between">
+                <div className="p-3 rounded-lg premium-card flex items-center justify-between">
                   <div>
                     <div className="font-medium text-foreground">Production Database Space</div>
                     <div className="text-[10px] text-muted-foreground">Secure Live Schema</div>
@@ -229,7 +229,7 @@ export function CurriculumSyncPanel({ subject, board, level, onSynced }: Curricu
                 </div>
 
                 {/* Demo */}
-                <div className="p-3 rounded-lg bg-card border border-border flex items-center justify-between">
+                <div className="p-3 rounded-lg premium-card flex items-center justify-between">
                   <div>
                     <div className="font-medium text-foreground">Demo Isolated Space</div>
                     <div className="text-[10px] text-muted-foreground">Separated sandbox</div>

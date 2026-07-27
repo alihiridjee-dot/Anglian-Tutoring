@@ -235,7 +235,7 @@ export function SpecPointSelect({
 
   return (
     <Field label={label}>
-      <div className="rounded-lg border border-border bg-card overflow-hidden">
+      <div className="rounded-lg premium-card overflow-hidden">
         <div className="flex items-center gap-2 px-3 py-2 border-b border-border">
           <Search className="w-3.5 h-3.5 text-muted-foreground shrink-0" />
           <input

@@ -4,11 +4,11 @@ import { GraduationCap, Users, ArrowLeft, Check, ArrowRight } from "lucide-react
 export const Route = createFileRoute("/demo/")({
   head: () => ({
     meta: [
-      { title: "Choose Demo | Anglian Learning" },
+      { title: "Choose Demo | Anglia Educate" },
       {
         name: "description",
         content:
-          "Explore the Anglian Learning platform with our interactive student and parent demos.",
+          "Explore the Anglia Educate platform with our interactive student and parent demos.",
       },
     ],
   }),
@@ -24,18 +24,18 @@ export const Route = createFileRoute("/demo/")({
  */
 function DemoPage() {
   return (
-    <div className="min-h-screen bg-white relative flex flex-col">
+    <div className="page-aurora min-h-screen relative flex flex-col">
       <div className="absolute top-6 left-6 z-10">
         <Link
           to="/"
-          className="inline-flex items-center gap-2 text-sm font-semibold text-slate-500 hover:text-slate-900 transition px-3 py-1.5 rounded-lg hover:bg-slate-50"
+          className="inline-flex items-center gap-2 text-sm font-semibold text-muted-foreground hover:text-foreground transition px-3 py-1.5 rounded-lg hover:bg-secondary"
         >
           <ArrowLeft className="w-4 h-4" /> Back to home
         </Link>
       </div>
 
       <div className="flex-1 grid grid-cols-1 md:grid-cols-2 min-h-screen">
-        <div className="flex items-center justify-center p-6 sm:p-12 md:p-16 border-b md:border-b-0 md:border-r border-slate-100">
+        <div className="flex items-center justify-center p-6 sm:p-12 md:p-16 border-b md:border-b-0 md:border-r border-border">
           <DemoCard
             to="/demo/student/dashboard"
             tone="student"
@@ -92,7 +92,7 @@ function DemoCard({
   return (
     <Link
       to={to}
-      className={`group max-w-md w-full bg-slate-50/50 hover:bg-slate-50/80 border border-slate-100 rounded-3xl p-8 sm:p-10 shadow-xs hover:shadow-lg transition-all duration-300 flex flex-col justify-between min-h-[460px] ${
+      className={`group max-w-md w-full bg-secondary/50 hover:bg-secondary/80 border border-border rounded-3xl p-8 sm:p-10 shadow-xs hover:shadow-lg transition-all duration-300 flex flex-col justify-between min-h-[460px] ${
         isStudent ? "hover:border-emerald-200/60" : "hover:border-primary/20"
       }`}
     >
@@ -104,12 +104,12 @@ function DemoCard({
         >
           {icon}
         </div>
-        <h2 className="font-display text-2xl sm:text-3xl font-extrabold text-slate-900 tracking-tight mb-3">
+        <h2 className="font-display text-2xl sm:text-3xl font-extrabold text-foreground tracking-tight mb-3">
           {title}
         </h2>
-        <p className="text-slate-500 text-sm sm:text-base leading-relaxed mb-8">{blurb}</p>
+        <p className="text-muted-foreground text-sm sm:text-base leading-relaxed mb-8">{blurb}</p>
 
-        <ul className="space-y-3.5 mb-8 text-sm text-slate-600">
+        <ul className="space-y-3.5 mb-8 text-sm text-muted-foreground">
           {points.map((p) => (
             <li key={p} className="flex items-start gap-3">
               <span
@@ -128,7 +128,7 @@ function DemoCard({
       <span
         className={`w-full py-4 rounded-xl font-semibold shadow-md group-hover:shadow-lg transition-all duration-200 flex items-center justify-center gap-2 ${
           isStudent
-            ? "bg-slate-900 text-white group-hover:bg-slate-800"
+            ? "btn-solid group-"
             : "bg-primary text-primary-foreground group-hover:opacity-90"
         }`}
       >

@@ -1,6 +1,6 @@
 #!/usr/bin/env node
 /**
- * Anglian Tutoring — Zoom MCP server.
+ * Anglia Educate — Zoom MCP server.
  *
  * Exposes two tools to MCP clients (Claude Desktop, Claude Code, etc.) so an
  * agent can create and inspect Zoom live sessions:

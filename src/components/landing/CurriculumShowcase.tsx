@@ -69,8 +69,8 @@ function CoreScreen({ runId }: { runId: number }) {
     <div key={runId} className="screen-in flex flex-col gap-5">
       <div className="flex items-center justify-between">
         <div>
-          <p className="text-xs font-semibold text-slate-400">Curriculum coverage</p>
-          <p className="font-display text-lg font-bold text-slate-800">GCSE Triple Science</p>
+          <p className="text-xs font-semibold text-muted-foreground/70">Curriculum coverage</p>
+          <p className="font-display text-lg font-bold text-foreground">GCSE Triple Science</p>
         </div>
         <span className="inline-flex items-center gap-1.5 rounded-full bg-emerald-50 px-3 py-1 text-xs font-bold text-emerald-600">
           <Check className="h-3.5 w-3.5" /> 100% mapped
@@ -106,15 +106,15 @@ function CoreScreen({ runId }: { runId: number }) {
         ))}
       </div>
 
-      <div className="mt-1 grid grid-cols-3 gap-3 border-t border-slate-100 pt-4">
+      <div className="mt-1 grid grid-cols-3 gap-3 border-t border-border pt-4">
         {[
           { n: "395", l: "Spec points tagged" },
           { n: "3", l: "Exam boards aligned" },
           { n: "0", l: "Gaps left uncovered" },
         ].map((stat) => (
           <div key={stat.l} className="text-center">
-            <p className="font-display text-xl font-bold text-slate-800">{stat.n}</p>
-            <p className="text-[11px] leading-tight text-slate-400">{stat.l}</p>
+            <p className="font-display text-xl font-bold text-foreground">{stat.n}</p>
+            <p className="text-[11px] leading-tight text-muted-foreground/70">{stat.l}</p>
           </div>
         ))}
       </div>
@@ -137,8 +137,8 @@ function FocusScreen({ runId }: { runId: number }) {
     <div key={runId} className="screen-in flex flex-col gap-5">
       <div className="flex items-center justify-between">
         <div>
-          <p className="text-xs font-semibold text-slate-400">Sorted by confidence</p>
-          <p className="font-display text-lg font-bold text-slate-800">Your week ahead</p>
+          <p className="text-xs font-semibold text-muted-foreground/70">Sorted by confidence</p>
+          <p className="font-display text-lg font-bold text-foreground">Your week ahead</p>
         </div>
         <span className="inline-flex items-center gap-1.5 rounded-full bg-primary/10 px-3 py-1 text-xs font-bold text-primary">
           <Brain className="h-3.5 w-3.5" /> AI planned
@@ -148,10 +148,10 @@ function FocusScreen({ runId }: { runId: number }) {
       <div className="flex flex-col gap-2.5">
         {topics.map((t, i) => (
           <div key={t.name} className="flex items-center gap-3">
-            <span className="w-32 shrink-0 truncate text-xs font-medium text-slate-600">
+            <span className="w-32 shrink-0 truncate text-xs font-medium text-muted-foreground">
               {t.name}
             </span>
-            <div className="relative h-6 flex-1 overflow-hidden rounded-md bg-slate-100">
+            <div className="relative h-6 flex-1 overflow-hidden rounded-md bg-secondary">
               <div
                 className="bar-grow h-full rounded-md"
                 style={
@@ -164,7 +164,7 @@ function FocusScreen({ runId }: { runId: number }) {
                   } as React.CSSProperties
                 }
               />
-              <span className="absolute right-2 top-1/2 -translate-y-1/2 text-[10px] font-bold text-slate-500">
+              <span className="absolute right-2 top-1/2 -translate-y-1/2 text-[10px] font-bold text-muted-foreground">
                 {t.conf}%
               </span>
             </div>
@@ -181,7 +181,7 @@ function FocusScreen({ runId }: { runId: number }) {
         <p className="flex items-center gap-1.5 text-xs font-bold text-primary">
           <Target className="h-3.5 w-3.5" /> This week's focus
         </p>
-        <p className="mt-1 text-[13px] leading-relaxed text-slate-600">
+        <p className="mt-1 text-[13px] leading-relaxed text-muted-foreground">
           We'll prioritise required practicals and electrolysis — your lowest-confidence topics — then
           check in to confirm they've clicked.
         </p>
@@ -220,15 +220,15 @@ function RepetitionScreen({ runId }: { runId: number }) {
     <div key={runId} className="screen-in flex flex-col gap-4">
       <div className="flex items-center justify-between">
         <div>
-          <p className="text-xs font-semibold text-slate-400">Memory strength over time</p>
-          <p className="font-display text-lg font-bold text-slate-800">The forgetting curve, beaten</p>
+          <p className="text-xs font-semibold text-muted-foreground/70">Memory strength over time</p>
+          <p className="font-display text-lg font-bold text-foreground">The forgetting curve, beaten</p>
         </div>
         <span className="inline-flex items-center gap-1.5 rounded-full bg-primary/10 px-3 py-1 text-xs font-bold text-primary">
           <RefreshCw className="h-3.5 w-3.5" /> Auto-scheduled
         </span>
       </div>
 
-      <div className="rounded-xl border border-slate-100 bg-slate-50/60 p-4">
+      <div className="rounded-xl border border-border bg-secondary/60 p-4">
         <svg viewBox={`0 0 ${W} ${H + 20}`} className="w-full" fill="none">
           <defs>
             <linearGradient id="mem-fill" x1="0" y1="0" x2="0" y2="1">
@@ -265,7 +265,7 @@ function RepetitionScreen({ runId }: { runId: number }) {
             >
               <line x1={rx} y1="20" x2={rx} y2={H} stroke="#2D8CFF" strokeWidth="1.5" strokeDasharray="3 3" opacity="0.4" />
               <circle cx={rx} cy="20" r="5" fill="#2D8CFF" />
-              <text x={rx} y={H + 16} textAnchor="middle" className="fill-slate-400 text-[9px] font-semibold">
+              <text x={rx} y={H + 16} textAnchor="middle" className="fill-[var(--muted-foreground)] text-[9px] font-semibold">
                 Review {i + 1}
               </text>
             </g>
@@ -274,15 +274,15 @@ function RepetitionScreen({ runId }: { runId: number }) {
       </div>
 
       <div className="grid grid-cols-2 gap-3">
-        <div className="rounded-xl border border-slate-100 bg-white p-3.5">
-          <p className="font-display text-lg font-bold text-slate-800">4×</p>
-          <p className="text-[11px] leading-tight text-slate-400">
+        <div className="surface-soft rounded-xl p-3.5">
+          <p className="font-display text-lg font-bold text-foreground">4×</p>
+          <p className="text-[11px] leading-tight text-muted-foreground/70">
             longer retention vs cramming once
           </p>
         </div>
-        <div className="rounded-xl border border-slate-100 bg-white p-3.5">
-          <p className="font-display text-lg font-bold text-slate-800">Right before</p>
-          <p className="text-[11px] leading-tight text-slate-400">
+        <div className="surface-soft rounded-xl p-3.5">
+          <p className="font-display text-lg font-bold text-foreground">Right before</p>
+          <p className="text-[11px] leading-tight text-muted-foreground/70">
             you'd forget — that's when it resurfaces
           </p>
         </div>
@@ -321,7 +321,7 @@ export function CurriculumShowcase() {
     <section
       id="curriculum"
       ref={sectionRef}
-      className="relative overflow-hidden border-t border-slate-100 bg-white py-20 lg:py-28"
+      className="relative overflow-hidden border-t border-border bg-card py-20 lg:py-28"
     >
       {/* soft ambient blobs */}
       <div aria-hidden className="pointer-events-none absolute inset-0 -z-10">
@@ -331,13 +331,13 @@ export function CurriculumShowcase() {
 
       <div className="mx-auto max-w-7xl px-6">
         <div className="mx-auto mb-14 max-w-2xl text-center">
-          <span className="text-xs font-bold uppercase tracking-widest text-slate-500">
+          <span className="eyebrow">
             HOW THE LEARNING WORKS
           </span>
-          <h2 className="mt-3 font-display text-3xl font-bold tracking-tight text-slate-900 sm:text-4xl">
+          <h2 className="mt-3 font-display text-3xl font-bold tracking-tight text-foreground sm:text-4xl">
             Cover everything. Focus on what's hard. Never forget it.
           </h2>
-          <p className="mt-4 text-slate-500">
+          <p className="mt-4 text-muted-foreground">
             See the platform in motion — from full spec coverage, to a plan built around you, to
             spaced reviews that make it stick.
           </p>
@@ -346,14 +346,14 @@ export function CurriculumShowcase() {
         <div className="grid items-center gap-10 lg:grid-cols-2">
           {/* Left: the moving screen inside a browser frame */}
           <div className="order-2 lg:order-1">
-            <div className="float-y overflow-hidden rounded-2xl border border-slate-200 bg-white shadow-elegant">
+            <div className="premium-card float-y overflow-hidden rounded-2xl">
               {/* faux browser chrome */}
-              <div className="flex items-center gap-2 border-b border-slate-100 bg-slate-50/80 px-4 py-3">
+              <div className="flex items-center gap-2 border-b border-border bg-secondary/80 px-4 py-3">
                 <span className="h-2.5 w-2.5 rounded-full bg-red-300" />
                 <span className="h-2.5 w-2.5 rounded-full bg-amber-300" />
                 <span className="h-2.5 w-2.5 rounded-full bg-emerald-300" />
-                <span className="ml-3 rounded-md bg-white px-3 py-1 text-[11px] font-medium text-slate-400 ring-1 ring-slate-100">
-                  app.anglianlearning.co.uk
+                <span className="ml-3 rounded-md bg-card px-3 py-1 text-[11px] font-medium text-muted-foreground/70 ring-1 ring-border">
+                  app.angliaeducate.co.uk
                 </span>
               </div>
               <div className="min-h-[360px] p-6">
@@ -371,7 +371,7 @@ export function CurriculumShowcase() {
                   onClick={() => setActive(s.id)}
                   aria-label={`Show ${s.tab}`}
                   className={`h-1.5 rounded-full transition-all ${
-                    active === s.id ? "w-8 bg-primary" : "w-2.5 bg-slate-200 hover:bg-slate-300"
+                    active === s.id ? "w-8 bg-primary" : "w-2.5 bg-border hover:bg-primary/40"
                   }`}
                 />
               ))}
@@ -390,12 +390,12 @@ export function CurriculumShowcase() {
                   className={`group flex items-start gap-4 rounded-2xl border p-5 text-left transition-all duration-300 ${
                     isActive
                       ? "border-primary/30 bg-primary/[0.04] shadow-sm"
-                      : "border-slate-100 bg-white hover:border-slate-200"
+                      : "border-border bg-card hover:border-primary/40"
                   }`}
                 >
                   <span
                     className={`flex h-11 w-11 shrink-0 items-center justify-center rounded-xl transition-colors ${
-                      isActive ? "bg-primary text-white" : "bg-slate-50 text-slate-500"
+                      isActive ? "bg-primary text-white" : "bg-secondary text-muted-foreground"
                     }`}
                   >
                     <Icon className="h-5 w-5" />
@@ -404,17 +404,17 @@ export function CurriculumShowcase() {
                     <span className="flex items-center gap-2">
                       <span
                         className={`text-[11px] font-bold uppercase tracking-wide ${
-                          isActive ? "text-primary" : "text-slate-400"
+                          isActive ? "text-primary" : "text-muted-foreground/70"
                         }`}
                       >
                         {s.eyebrow}
                       </span>
                     </span>
-                    <span className="mt-0.5 block font-display text-base font-bold text-slate-800">
+                    <span className="mt-0.5 block font-display text-base font-bold text-foreground">
                       {s.title}
                     </span>
                     <span
-                      className={`mt-1.5 block text-sm leading-relaxed text-slate-500 transition-all ${
+                      className={`mt-1.5 block text-sm leading-relaxed text-muted-foreground transition-all ${
                         isActive ? "max-h-40 opacity-100" : "max-h-0 overflow-hidden opacity-0 lg:max-h-40 lg:opacity-100"
                       }`}
                     >

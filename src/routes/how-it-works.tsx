@@ -24,7 +24,7 @@ import { RevisitSimulator } from "@/components/how-it-works/RevisitSimulator";
 export const Route = createFileRoute("/how-it-works")({
   head: () => ({
     meta: [
-      { title: "How it works — Anglian Learning" },
+      { title: "How it works — Anglia Educate" },
       {
         name: "description",
         content:
@@ -133,11 +133,11 @@ const fadeUp = {
 
 function HowItWorks() {
   return (
-    <div className="min-h-screen bg-slate-50/40 text-slate-900 font-sans antialiased">
+    <div className="min-h-screen bg-secondary/40 text-foreground font-sans antialiased">
       <Nav />
 
       {/* ---------------- Hero ---------------- */}
-      <section className="relative overflow-hidden border-b border-slate-100 bg-white">
+      <section className="page-aurora relative overflow-hidden border-b border-border">
         <div
           aria-hidden
           className="pointer-events-none absolute inset-0 bg-[radial-gradient(ellipse_at_top,_var(--accent-soft)_0%,transparent_60%)] opacity-70"
@@ -145,7 +145,7 @@ function HowItWorks() {
         <div className="relative mx-auto max-w-4xl px-6 py-20 text-center lg:py-28">
           <motion.span
             {...fadeUp}
-            className="inline-flex items-center gap-1.5 rounded-full border border-slate-200 bg-white/70 px-3 py-1 text-[11px] font-semibold uppercase tracking-wider text-[var(--primary-deep)] backdrop-blur"
+            className="inline-flex items-center gap-1.5 rounded-full border border-border bg-white/70 px-3 py-1 text-[11px] font-semibold uppercase tracking-wider text-[var(--primary-deep)] backdrop-blur"
           >
             <Brain className="h-3.5 w-3.5" /> How it works
           </motion.span>
@@ -153,7 +153,7 @@ function HowItWorks() {
           <motion.h1
             {...fadeUp}
             transition={{ ...fadeUp.transition, delay: 0.08 }}
-            className="mt-6 font-display text-4xl font-bold tracking-tight text-slate-900 sm:text-5xl lg:text-6xl"
+            className="mt-6 font-display text-4xl font-bold tracking-tight text-foreground sm:text-5xl lg:text-6xl"
           >
             Your child isn't lazy.
             <br />
@@ -163,7 +163,7 @@ function HowItWorks() {
           <motion.p
             {...fadeUp}
             transition={{ ...fadeUp.transition, delay: 0.16 }}
-            className="mx-auto mt-6 max-w-2xl text-lg leading-relaxed text-slate-500"
+            className="mx-auto mt-6 max-w-2xl text-lg leading-relaxed text-muted-foreground"
           >
             Every parent has watched it happen. They revise a topic in October, swear they know it,
             and by the mock in February it's gone. That isn't a discipline problem — it's how memory
@@ -178,7 +178,7 @@ function HowItWorks() {
             <Link
               to="/auth"
               search={{ mode: "signup" } as never}
-              className="inline-flex items-center gap-2 rounded-xl bg-slate-900 px-6 py-3 text-sm font-bold text-white shadow-sm transition hover:bg-slate-800"
+              className="inline-flex items-center gap-2 rounded-xl bg-primary px-6 py-3 text-sm font-bold text-white shadow-sm transition "
             >
               Book your child's place <ArrowRight className="h-4 w-4" />
             </Link>
@@ -193,16 +193,16 @@ function HowItWorks() {
       </section>
 
       {/* ---------------- The forgetting curve ---------------- */}
-      <section className="border-b border-slate-100 bg-slate-50/60 py-20 lg:py-24">
+      <section className="border-b border-border bg-secondary/60 py-20 lg:py-24">
         <div className="mx-auto max-w-5xl px-6">
           <motion.div {...fadeUp} className="mx-auto mb-12 max-w-2xl text-center">
-            <span className="text-xs font-bold uppercase tracking-widest text-slate-500">
+            <span className="eyebrow">
               The problem with normal revision
             </span>
-            <h2 className="mt-3 font-display text-3xl font-bold tracking-tight text-slate-900 sm:text-4xl">
+            <h2 className="mt-3 font-display text-3xl font-bold tracking-tight text-foreground sm:text-4xl">
               Most of a lesson is gone within a month
             </h2>
-            <p className="mt-4 text-base leading-relaxed text-slate-500">
+            <p className="mt-4 text-base leading-relaxed text-muted-foreground">
               Memory fades on a predictable curve — and because it's predictable, it can be beaten.
               Bring a topic back just before it slips, and each time it sticks for longer. This is
               the same principle medical students use to hold thousands of facts through finals.
@@ -216,16 +216,16 @@ function HowItWorks() {
       </section>
 
       {/* ---------------- The loop ---------------- */}
-      <section className="border-b border-slate-100 bg-white py-20 lg:py-24">
+      <section className="border-b border-border bg-card py-20 lg:py-24">
         <div className="mx-auto max-w-7xl px-6">
           <motion.div {...fadeUp} className="mx-auto mb-14 max-w-2xl text-center">
-            <span className="text-xs font-bold uppercase tracking-widest text-slate-500">
+            <span className="eyebrow">
               What we actually do
             </span>
-            <h2 className="mt-3 font-display text-3xl font-bold tracking-tight text-slate-900 sm:text-4xl">
+            <h2 className="mt-3 font-display text-3xl font-bold tracking-tight text-foreground sm:text-4xl">
               A loop that closes itself
             </h2>
-            <p className="mt-4 text-base leading-relaxed text-slate-500">
+            <p className="mt-4 text-base leading-relaxed text-muted-foreground">
               Most tutoring stops when the lesson ends. Ours keeps working all week.
             </p>
           </motion.div>
@@ -238,14 +238,14 @@ function HowItWorks() {
                   key={s.step}
                   {...fadeUp}
                   transition={{ ...fadeUp.transition, delay: i * 0.1 }}
-                  className="relative rounded-3xl border border-slate-200/80 bg-white p-7 shadow-[0_20px_60px_-40px_rgba(15,23,42,0.4)] transition hover:border-primary/30"
+                  className="premium-card premium-card-interactive relative rounded-3xl p-7"
                 >
-                  <span className="font-display text-5xl font-bold text-slate-100">{s.step}</span>
-                  <div className="mt-3 flex h-12 w-12 items-center justify-center rounded-2xl border border-slate-100 bg-[var(--accent-soft)]/60">
+                  <span className="font-display text-5xl font-bold text-primary/15">{s.step}</span>
+                  <div className="mt-3 flex h-12 w-12 items-center justify-center rounded-2xl border border-border bg-[var(--accent-soft)]/60">
                     <Icon className="h-5 w-5 text-[var(--primary-deep)]" />
                   </div>
-                  <h3 className="mt-5 font-display text-lg font-bold text-slate-900">{s.title}</h3>
-                  <p className="mt-2.5 text-sm leading-relaxed text-slate-500">{s.desc}</p>
+                  <h3 className="mt-5 font-display text-lg font-bold text-foreground">{s.title}</h3>
+                  <p className="mt-2.5 text-sm leading-relaxed text-muted-foreground">{s.desc}</p>
                 </motion.div>
               );
             })}
@@ -254,16 +254,16 @@ function HowItWorks() {
       </section>
 
       {/* ---------------- Try it ---------------- */}
-      <section className="border-b border-slate-100 bg-slate-50/60 py-20 lg:py-24">
+      <section className="border-b border-border bg-secondary/60 py-20 lg:py-24">
         <div className="mx-auto max-w-6xl px-6">
           <motion.div {...fadeUp} className="mx-auto mb-12 max-w-2xl text-center">
-            <span className="text-xs font-bold uppercase tracking-widest text-slate-500">
+            <span className="eyebrow">
               See it for yourself
             </span>
-            <h2 className="mt-3 font-display text-3xl font-bold tracking-tight text-slate-900 sm:text-4xl">
+            <h2 className="mt-3 font-display text-3xl font-bold tracking-tight text-foreground sm:text-4xl">
               Try the scheduler
             </h2>
-            <p className="mt-4 text-base leading-relaxed text-slate-500">
+            <p className="mt-4 text-base leading-relaxed text-muted-foreground">
               Play the part of your child for a moment. Answer a quiz, and watch the plan react in
               real time — this is the live engine, not an animation.
             </p>
@@ -276,9 +276,9 @@ function HowItWorks() {
           <motion.p
             {...fadeUp}
             transition={{ ...fadeUp.transition, delay: 0.2 }}
-            className="mx-auto mt-8 max-w-3xl text-center text-sm leading-relaxed text-slate-400"
+            className="mx-auto mt-8 max-w-3xl text-center text-sm leading-relaxed text-muted-foreground/70"
           >
-            Under the bonnet this is <strong className="font-semibold text-slate-500">FSRS</strong>{" "}
+            Under the bonnet this is <strong className="font-semibold text-muted-foreground">FSRS</strong>{" "}
             — a free, open, peer-reviewed scheduling algorithm built on decades of memory research
             and trained on well over a billion real study reviews. We didn't invent it. We did the
             harder part: wiring it to real marked homework, real quizzes and a real tutor, so it
@@ -288,16 +288,16 @@ function HowItWorks() {
       </section>
 
       {/* ---------------- Accountability ---------------- */}
-      <section className="border-b border-slate-100 bg-white py-20 lg:py-24">
+      <section className="border-b border-border bg-card py-20 lg:py-24">
         <div className="mx-auto max-w-7xl px-6">
           <motion.div {...fadeUp} className="mx-auto mb-14 max-w-2xl text-center">
-            <span className="text-xs font-bold uppercase tracking-widest text-slate-500">
+            <span className="eyebrow">
               For parents
             </span>
-            <h2 className="mt-3 font-display text-3xl font-bold tracking-tight text-slate-900 sm:text-4xl">
+            <h2 className="mt-3 font-display text-3xl font-bold tracking-tight text-foreground sm:text-4xl">
               The end of "I've done my revision"
             </h2>
-            <p className="mt-4 text-base leading-relaxed text-slate-500">
+            <p className="mt-4 text-base leading-relaxed text-muted-foreground">
               The hardest part of supporting a GCSE student is not knowing whether the work is
               actually happening — or whether it's the work that matters. This is built to answer
               both, without you having to nag.
@@ -312,14 +312,14 @@ function HowItWorks() {
                   key={a.title}
                   {...fadeUp}
                   transition={{ ...fadeUp.transition, delay: (i % 2) * 0.08 }}
-                  className="flex gap-5 rounded-3xl border border-slate-200/80 bg-white p-7 shadow-[0_20px_60px_-45px_rgba(15,23,42,0.4)] transition hover:border-primary/30"
+                  className="premium-card premium-card-interactive flex gap-5 rounded-3xl p-7"
                 >
-                  <div className="flex h-12 w-12 shrink-0 items-center justify-center rounded-2xl border border-slate-100 bg-[var(--accent-soft)]/60">
+                  <div className="flex h-12 w-12 shrink-0 items-center justify-center rounded-2xl border border-border bg-[var(--accent-soft)]/60">
                     <Icon className="h-5 w-5 text-[var(--primary-deep)]" />
                   </div>
                   <div>
-                    <h3 className="font-display text-lg font-bold text-slate-900">{a.title}</h3>
-                    <p className="mt-2 text-sm leading-relaxed text-slate-500">{a.desc}</p>
+                    <h3 className="font-display text-lg font-bold text-foreground">{a.title}</h3>
+                    <p className="mt-2 text-sm leading-relaxed text-muted-foreground">{a.desc}</p>
                   </div>
                 </motion.div>
               );
@@ -329,16 +329,16 @@ function HowItWorks() {
       </section>
 
       {/* ---------------- What's included ---------------- */}
-      <section className="border-b border-slate-100 bg-slate-50/60 py-20 lg:py-24">
+      <section className="border-b border-border bg-secondary/60 py-20 lg:py-24">
         <div className="mx-auto max-w-7xl px-6">
           <motion.div {...fadeUp} className="mx-auto mb-14 max-w-2xl text-center">
-            <span className="text-xs font-bold uppercase tracking-widest text-slate-500">
+            <span className="eyebrow">
               What's included
             </span>
-            <h2 className="mt-3 font-display text-3xl font-bold tracking-tight text-slate-900 sm:text-4xl">
+            <h2 className="mt-3 font-display text-3xl font-bold tracking-tight text-foreground sm:text-4xl">
               It all comes in the one place
             </h2>
-            <p className="mt-4 text-base leading-relaxed text-slate-500">
+            <p className="mt-4 text-base leading-relaxed text-muted-foreground">
               One membership. No add-ons, no premium tier, no paying extra for the bits that matter.
             </p>
           </motion.div>
@@ -351,15 +351,15 @@ function HowItWorks() {
                   key={f.title}
                   {...fadeUp}
                   transition={{ ...fadeUp.transition, delay: (i % 4) * 0.07 }}
-                  className="rounded-2xl border border-slate-200/80 bg-white p-6 shadow-sm transition duration-300 hover:border-primary/40 hover:-translate-y-0.5"
+                  className="premium-card premium-card-interactive rounded-2xl p-6"
                 >
-                  <div className="mb-5 flex h-11 w-11 items-center justify-center rounded-xl border border-slate-100 bg-slate-50">
-                    <Icon className="h-5 w-5 text-slate-800" />
+                  <div className="mb-5 flex h-11 w-11 items-center justify-center rounded-xl border border-border bg-secondary">
+                    <Icon className="h-5 w-5 text-foreground" />
                   </div>
-                  <h3 className="font-display text-[15px] font-bold leading-snug text-slate-900">
+                  <h3 className="font-display text-[15px] font-bold leading-snug text-foreground">
                     {f.title}
                   </h3>
-                  <p className="mt-2.5 text-sm leading-relaxed text-slate-500">{f.desc}</p>
+                  <p className="mt-2.5 text-sm leading-relaxed text-muted-foreground">{f.desc}</p>
                 </motion.div>
               );
             })}
@@ -368,7 +368,7 @@ function HowItWorks() {
       </section>
 
       {/* ---------------- Closing CTA ---------------- */}
-      <section className="bg-white py-20 lg:py-24">
+      <section className="bg-card py-20 lg:py-24">
         <div className="mx-auto max-w-5xl px-6">
           <motion.div
             {...fadeUp}

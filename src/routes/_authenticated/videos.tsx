@@ -67,7 +67,7 @@ export function Videos() {
                 onClick={() =>
                   setPlaying({ title: v.title, description: v.description, url: v.video_url })
                 }
-                className="group text-left rounded-2xl bg-card border border-border overflow-hidden hover:border-primary/40 transition"
+                className="group text-left rounded-2xl premium-card overflow-hidden hover:border-primary/40 transition"
               >
                 <VideoThumbnail embed={embed} />
                 <div className="p-4">

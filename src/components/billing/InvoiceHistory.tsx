@@ -51,7 +51,7 @@ export function InvoiceHistory() {
                       ? "bg-emerald-50 text-emerald-700 border-emerald-200"
                       : inv.status === "open"
                         ? "bg-amber-50 text-amber-700 border-amber-200"
-                        : "bg-slate-50 text-slate-600 border-slate-200"
+                        : "bg-secondary text-muted-foreground border-border"
                   }`}
                 >
                   {inv.status ?? "—"}

@@ -15,7 +15,7 @@ import { StepCard, ChoiceTile } from "@/components/onboarding/StepCard";
  * the URL also means a refresh mid-flow doesn't lose the answer.
  */
 export const Route = createFileRoute("/onboarding/board")({
-  head: () => ({ meta: [{ title: "Your exam board | Anglian Learning" }] }),
+  head: () => ({ meta: [{ title: "Your exam board | Anglia Educate" }] }),
   component: BoardStep,
 });
 

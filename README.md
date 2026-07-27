@@ -1,4 +1,4 @@
-# Anglian Tutoring
+# Anglia Educate
 
 A production tutoring platform for GCSE and KS3 science (Biology, Chemistry, Physics) across Edexcel, AQA, and OCR. Built with React, TanStack Start, Tailwind v4, and Supabase.
 

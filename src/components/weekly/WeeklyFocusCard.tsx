@@ -94,7 +94,7 @@ export function WeeklyFocusCard({
   const [playing, setPlaying] = useState<RelatedVideo | null>(null);
 
   return (
-    <section className="mt-6 rounded-2xl bg-card border border-border overflow-hidden">
+    <section className="mt-6 rounded-2xl premium-card overflow-hidden">
       <header className="flex flex-wrap items-center gap-4 px-6 py-5 border-b border-border bg-muted/30">
         <div className="w-11 h-11 rounded-xl bg-primary/10 border border-primary/20 flex items-center justify-center shrink-0">
           <CalendarRange className="w-6 h-6 text-primary" />
@@ -158,7 +158,7 @@ export function WeeklyFocusCard({
 
                   {/* Spec points — kept, but tucked into a neat dropdown since a
                     single week can cover many. */}
-                  <details className="group mt-4 rounded-xl border border-border bg-card">
+                  <details className="group mt-4 rounded-xl premium-card">
                     <summary className="flex items-center gap-2 px-4 py-3 cursor-pointer list-none select-none">
                       <BookMarked className="w-4 h-4 text-primary shrink-0" />
                       <span className="text-sm font-semibold">
@@ -201,7 +201,7 @@ export function WeeklyFocusCard({
                             key={v.id}
                             type="button"
                             onClick={() => setPlaying(v)}
-                            className="group text-left rounded-lg border border-border bg-card overflow-hidden hover:border-primary/40 transition"
+                            className="group text-left rounded-lg premium-card overflow-hidden hover:border-primary/40 transition"
                           >
                             <VideoThumbnail embed={parseVideoUrl(v.videoUrl)} />
                             <p className="text-sm font-medium p-2 line-clamp-2 leading-snug">
@@ -225,7 +225,7 @@ export function WeeklyFocusCard({
             <Link
               key={q.to}
               to={linkTo(q.to)}
-              className="flex items-center gap-2.5 rounded-xl border border-border bg-card px-3.5 py-3 hover:border-primary/50 hover:shadow-sm transition group"
+              className="flex items-center gap-2.5 rounded-xl premium-card px-3.5 py-3 hover:border-primary/50 hover:shadow-sm transition group"
             >
               <span className="w-8 h-8 rounded-lg bg-primary/10 border border-primary/20 flex items-center justify-center shrink-0">
                 <q.icon className="w-4 h-4 text-primary" />

@@ -20,7 +20,7 @@ function Settings() {
   const { email, roles } = useRoles();
   return (
     <AppLayout title="Settings">
-      <div className="max-w-2xl rounded-2xl bg-card border border-border p-6">
+      <div className="max-w-2xl rounded-2xl premium-card p-6">
         <h2 className="font-display text-lg font-semibold tracking-tight">Account</h2>
         <Row label="Email" value={email ?? "—"} />
         <Row label="Roles" value={(roles ?? []).join(", ") || "—"} />

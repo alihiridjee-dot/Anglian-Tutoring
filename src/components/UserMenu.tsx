@@ -93,7 +93,7 @@ export function UserMenu({ initials, email, showLinkedParents, isDemo }: UserMen
       {open && (
         <div
           role="menu"
-          className="absolute right-0 top-11 w-56 rounded-xl border border-border bg-card shadow-xl z-50 p-1.5"
+          className="absolute right-0 top-11 w-56 rounded-xl premium-card shadow-xl z-50 p-1.5"
         >
           {email && (
             <div className="px-3 py-2 border-b border-border mb-1">

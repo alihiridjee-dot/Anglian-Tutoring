@@ -93,7 +93,7 @@ export function TakeMcq() {
           {questions.map((q, idx) => {
             const chosen = answers[q.id];
             return (
-              <li key={q.id} className="rounded-2xl bg-card border border-border p-5">
+              <li key={q.id} className="rounded-2xl premium-card p-5">
                 <p className="text-xs uppercase tracking-widest text-primary font-semibold">
                   Question {idx + 1}
                 </p>
@@ -147,7 +147,7 @@ export function TakeMcq() {
             Submit answers
           </button>
         ) : (
-          <div className="mt-6 rounded-2xl bg-card border border-border p-6 text-center">
+          <div className="mt-6 rounded-2xl premium-card p-6 text-center">
             <p className="text-xs uppercase tracking-widest text-primary font-semibold">
               Your score
             </p>

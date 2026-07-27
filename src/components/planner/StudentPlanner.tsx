@@ -134,7 +134,7 @@ export function StudentPlanner({
 
   if (!active) {
     return (
-      <div className="rounded-2xl bg-card border border-border p-5 shadow-sm">
+      <div className="rounded-2xl premium-card p-5 shadow-sm">
         <p className="text-sm text-muted-foreground">
           You're not enrolled in any subjects yet — contact your tutor to get set up.
         </p>
@@ -143,7 +143,7 @@ export function StudentPlanner({
   }
 
   return (
-    <div className="rounded-2xl bg-card border border-border shadow-sm overflow-hidden">
+    <div className="rounded-2xl premium-card shadow-sm overflow-hidden">
       {/* One header: subject picked once, tabs underneath. */}
       <div className="px-4 sm:px-5 pt-4 border-b border-border">
         {ordered.length > 1 && (
@@ -397,7 +397,7 @@ function ThisWeekTab({
           </div>
 
           {/* Focused topics — personal, from spaced repetition. */}
-          <div className="h-full flex flex-col rounded-xl border border-border bg-card p-4">
+          <div className="h-full flex flex-col rounded-xl premium-card p-4">
             <div className="flex items-center gap-1.5 mb-2">
               <Repeat className="w-3.5 h-3.5 text-rose-500" />
               <span className="text-[10px] font-bold uppercase tracking-wide text-rose-600 dark:text-rose-400">
@@ -569,7 +569,7 @@ function FullPlanTab({
             defaultValue={data.examDate}
             disabled={savingDate}
             onChange={(e) => saveExamDate(e.target.value)}
-            className="h-8 rounded-lg bg-card border border-border px-2 text-[12px] text-foreground focus:outline-none focus:ring-2 focus:ring-primary/40 disabled:opacity-50"
+            className="h-8 rounded-lg premium-card px-2 text-[12px] text-foreground focus:outline-none focus:ring-2 focus:ring-primary/40 disabled:opacity-50"
           />
         </label>
       </div>
@@ -805,7 +805,7 @@ function FocusRow({ b, mastery }: { b: PacingBand; mastery: number }) {
   const nowKey = currentWeekKey();
   const isCurrent = b.startWeek <= nowKey && nowKey <= b.endWeek;
   return (
-    <li className="rounded-lg border border-border bg-card px-2.5 py-2 min-w-0">
+    <li className="rounded-lg premium-card px-2.5 py-2 min-w-0">
       <div className="flex items-center gap-2 min-w-0">
         <span
           className={`inline-flex items-center gap-1 h-5 px-1.5 rounded-md border text-[10px] font-semibold shrink-0 ${tone.badge}`}

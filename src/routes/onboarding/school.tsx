@@ -21,7 +21,7 @@ const EMPTY: Grades = { previous_grade: "", current_grade: "", target_grade: "" 
  * abandoned mid-flow bypass the rest.
  */
 export const Route = createFileRoute("/onboarding/school")({
-  head: () => ({ meta: [{ title: "School & grades | Anglian Learning" }] }),
+  head: () => ({ meta: [{ title: "School & grades | Anglia Educate" }] }),
   component: SchoolStep,
 });
 
@@ -163,7 +163,7 @@ function SchoolStep() {
                             [subject]: { ...(prev[subject] ?? EMPTY), [key]: e.target.value },
                           }))
                         }
-                        className="mt-0.5 w-full h-9 rounded-lg bg-card border border-border px-2 text-sm transition focus:outline-none focus:border-primary focus:ring-4 focus:ring-primary/15"
+                        className="mt-0.5 w-full h-9 rounded-lg premium-input px-2 text-sm"
                       >
                         <option value="">—</option>
                         {options.map((g) => (

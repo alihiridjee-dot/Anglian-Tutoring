@@ -105,7 +105,7 @@ export function McqManager() {
   const Row = (s: ManagedSet) => (
     <div
       key={s.id}
-      className="rounded-2xl bg-card border border-border p-5 flex flex-col sm:flex-row sm:items-center gap-4"
+      className="rounded-2xl premium-card p-5 flex flex-col sm:flex-row sm:items-center gap-4"
     >
       <div className="w-9 h-9 rounded-xl bg-primary/10 border border-primary/20 flex items-center justify-center shrink-0">
         <Sparkles className="w-3.5 h-3.5 text-primary" />

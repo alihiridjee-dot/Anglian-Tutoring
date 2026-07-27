@@ -22,8 +22,8 @@ type SearchParams = {
 export const Route = createFileRoute("/auth")({
   head: () => ({
     meta: [
-      { title: "Sign in | Anglian Learning" },
-      { name: "description", content: "Log in or create your Anglian Learning account." },
+      { title: "Sign in | Anglia Educate" },
+      { name: "description", content: "Log in or create your Anglia Educate account." },
     ],
   }),
   validateSearch: (search: Record<string, unknown>): SearchParams => ({

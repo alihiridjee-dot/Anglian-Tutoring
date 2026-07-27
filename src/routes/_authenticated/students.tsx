@@ -6,7 +6,7 @@ import { supabase } from "@/integrations/supabase/client";
 import { Users } from "lucide-react";
 
 export const Route = createFileRoute("/_authenticated/students")({
-  head: () => ({ meta: [{ title: "Students | Anglian Learning" }] }),
+  head: () => ({ meta: [{ title: "Students | Anglia Educate" }] }),
   component: Students,
 });
 
@@ -43,7 +43,7 @@ function Students() {
       {loading ? (
         <p className="text-sm text-muted-foreground">Loading…</p>
       ) : (
-        <div className="rounded-2xl bg-card border border-border overflow-hidden">
+        <div className="rounded-2xl premium-card overflow-hidden">
           <table className="w-full text-sm">
             <thead className="bg-muted/60 text-xs uppercase tracking-widest text-muted-foreground">
               <tr>

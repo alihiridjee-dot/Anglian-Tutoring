@@ -114,7 +114,7 @@ export function CoveredLedger({
   const total = data.reduce((n, t) => n + t.points.length, 0);
 
   return (
-    <div className="rounded-2xl bg-card border border-border p-4 sm:p-5 shadow-sm mt-6">
+    <div className="rounded-2xl premium-card p-4 sm:p-5 shadow-sm mt-6">
       <div className="flex flex-wrap items-center justify-between gap-3 mb-4">
         <div className="flex items-center gap-2.5">
           <div className="w-9 h-9 rounded-xl bg-emerald-500/10 text-emerald-600 dark:text-emerald-400 flex items-center justify-center shrink-0">
@@ -195,7 +195,7 @@ export function CoveredLedger({
                     {t.points.map((p) => (
                       <div
                         key={p.id}
-                        className="flex items-center gap-3 rounded-lg border border-border bg-card p-2.5"
+                        className="flex items-center gap-3 rounded-lg premium-card p-2.5"
                       >
                         <div className="flex-1 min-w-0">
                           <span className="text-[11px] font-semibold text-muted-foreground mr-1.5">

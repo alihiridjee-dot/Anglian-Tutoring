@@ -90,7 +90,7 @@ const DRAW = { duration: 2.1, ease: [0.22, 1, 0.36, 1] as const };
 
 export function ForgettingCurve() {
   return (
-    <figure className="relative rounded-3xl border border-slate-200/80 bg-white/90 backdrop-blur-xl p-5 sm:p-8 shadow-[0_30px_80px_-40px_rgba(15,23,42,0.45)]">
+    <figure className="relative rounded-3xl border border-border/80 bg-white/90 backdrop-blur-xl p-5 sm:p-8 shadow-[0_30px_80px_-40px_rgba(15,23,42,0.45)]">
       {/* Legend */}
       <figcaption className="mb-6 flex flex-col gap-3 sm:flex-row sm:items-center sm:justify-between">
         <div className="flex flex-wrap items-center gap-x-6 gap-y-2 text-sm">
@@ -98,12 +98,12 @@ export function ForgettingCurve() {
             <span className="h-2.5 w-5 rounded-full bg-primary" />
             With our revisit schedule
           </span>
-          <span className="inline-flex items-center gap-2 font-semibold text-slate-400">
-            <span className="h-2.5 w-5 rounded-full bg-slate-300" />
+          <span className="inline-flex items-center gap-2 font-semibold text-muted-foreground/70">
+            <span className="h-2.5 w-5 rounded-full bg-border" />
             Revised once, never revisited
           </span>
         </div>
-        <span className="text-[11px] font-medium uppercase tracking-wider text-slate-400">
+        <span className="text-[11px] font-medium uppercase tracking-wider text-muted-foreground/70">
           How much they'd still recall
         </span>
       </figcaption>
@@ -133,7 +133,7 @@ export function ForgettingCurve() {
                 y1={py(t)}
                 y2={py(t)}
                 stroke="currentColor"
-                className="text-slate-200"
+                className="text-primary-foreground/80"
                 strokeWidth="1"
                 strokeDasharray={t === 1 ? undefined : "3 6"}
               />
@@ -141,7 +141,7 @@ export function ForgettingCurve() {
                 x={PAD.l - 14}
                 y={py(t) + 4}
                 textAnchor="end"
-                className="fill-slate-400 text-[13px] font-medium tabular-nums"
+                className="fill-[var(--muted-foreground)] text-[13px] font-medium tabular-nums"
               >
                 {Math.round(t * 100)}%
               </text>
@@ -155,7 +155,7 @@ export function ForgettingCurve() {
               x={px(t.d)}
               y={H - PAD.b + 26}
               textAnchor={t.d === 0 ? "start" : t.d === HORIZON ? "end" : "middle"}
-              className="fill-slate-400 text-[13px] font-medium"
+              className="fill-[var(--muted-foreground)] text-[13px] font-medium"
             >
               {t.label}
             </text>
@@ -201,7 +201,7 @@ export function ForgettingCurve() {
             d={NEGLECTED_LINE}
             fill="none"
             stroke="currentColor"
-            className="text-slate-300"
+            className="text-muted-foreground/50"
             strokeWidth="3.5"
             strokeLinecap="round"
             /* No strokeDasharray here — motion drives pathLength via
@@ -276,7 +276,7 @@ export function ForgettingCurve() {
               x={px(HORIZON) - 4}
               y={py(SERIES.neglected[HORIZON]) + 30}
               textAnchor="end"
-              className="fill-slate-400 font-display text-[22px] font-bold tabular-nums"
+              className="fill-[var(--muted-foreground)] font-display text-[22px] font-bold tabular-nums"
             >
               {END_NEGLECTED}%
             </text>
@@ -284,7 +284,7 @@ export function ForgettingCurve() {
         </svg>
       </div>
 
-      <p className="mt-5 text-sm leading-relaxed text-slate-500">
+      <p className="mt-5 text-sm leading-relaxed text-muted-foreground">
         Same lesson, same student — the only difference is whether anything brought the topic back.
         By exam term one has held{" "}
         <strong className="font-semibold text-[var(--primary-deep)]">

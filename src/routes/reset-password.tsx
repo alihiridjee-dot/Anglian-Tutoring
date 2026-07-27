@@ -65,7 +65,7 @@ function ResetPasswordPage() {
           <span className="font-display text-xl font-semibold tracking-tight">StudyHub</span>
         </div>
 
-        <div className="rounded-2xl bg-card border border-border p-6 shadow-lg">
+        <div className="rounded-2xl premium-card p-6 shadow-lg">
           <h1 className="font-display text-2xl font-semibold tracking-tight mb-1">
             Set a new password
           </h1>

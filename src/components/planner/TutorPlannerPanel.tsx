@@ -169,7 +169,7 @@ export function TutorPlannerPanel() {
 
   if (students === null) {
     return (
-      <div className="rounded-2xl bg-card border border-border p-16 text-center shadow-sm">
+      <div className="rounded-2xl premium-card p-16 text-center shadow-sm">
         <Loader2 className="w-6 h-6 animate-spin mx-auto text-muted-foreground" />
       </div>
     );
@@ -177,7 +177,7 @@ export function TutorPlannerPanel() {
 
   return (
     <>
-      <div className="rounded-2xl bg-card border border-border p-4 sm:p-5 shadow-sm">
+      <div className="rounded-2xl premium-card p-4 sm:p-5 shadow-sm">
         {/* Student picker + week nav */}
         <div className="flex flex-wrap items-center justify-between gap-3 mb-4">
           <div className="flex items-center gap-2.5">
@@ -191,7 +191,7 @@ export function TutorPlannerPanel() {
               <select
                 value={studentId}
                 onChange={(e) => setStudentId(e.target.value)}
-                className="block mt-0.5 h-8 rounded-lg border border-border bg-card px-2 text-sm font-medium focus:outline-none focus:ring-2 focus:ring-primary/40"
+                className="block mt-0.5 h-8 rounded-lg premium-card px-2 text-sm font-medium focus:outline-none focus:ring-2 focus:ring-primary/40"
               >
                 {students.length === 0 && <option value="">No students</option>}
                 {students.map((s) => (

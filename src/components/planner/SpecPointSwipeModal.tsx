@@ -133,7 +133,7 @@ export function SpecPointSwipeModal({
         animate={{ opacity: 1, y: 0, scale: 1 }}
         exit={{ opacity: 0, y: 24, scale: 0.98 }}
         transition={{ type: "spring", stiffness: 320, damping: 30 }}
-        className="relative w-full sm:max-w-md flex flex-col rounded-t-2xl sm:rounded-2xl bg-card border border-border shadow-2xl"
+        className="relative w-full sm:max-w-md flex flex-col rounded-t-2xl sm:rounded-2xl premium-card shadow-2xl"
       >
         <div className="flex items-start justify-between gap-3 p-5 border-b border-border">
           <div className="min-w-0">
@@ -296,7 +296,7 @@ function SwipeCard({
       }}
       whileTap={isTop ? { cursor: "grabbing" } : undefined}
     >
-      <div className="h-full w-full rounded-2xl border border-border bg-card shadow-md p-5 flex flex-col select-none cursor-grab active:cursor-grabbing">
+      <div className="h-full w-full rounded-2xl premium-card shadow-md p-5 flex flex-col select-none cursor-grab active:cursor-grabbing">
         <span className="text-[11px] font-bold uppercase tracking-wide text-muted-foreground">
           {point.code}
         </span>

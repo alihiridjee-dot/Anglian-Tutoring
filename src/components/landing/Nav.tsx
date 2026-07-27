@@ -3,59 +3,62 @@ import { GraduationCap, Sparkles } from "lucide-react";
 
 export function Nav() {
   return (
-    <header className="sticky top-0 z-40 bg-white/95 backdrop-blur-md border-b border-slate-100 shadow-sm">
+    <header className="glass-bar sticky top-0 z-40">
       <div className="max-w-7xl mx-auto px-6 h-16 flex items-center justify-between">
-        <Link to="/" hash="top" className="flex items-center gap-2.5">
-          <div className="w-10 h-10 rounded-xl bg-gradient-to-tr from-slate-900 to-slate-800 flex items-center justify-center shadow-sm">
-            <GraduationCap className="w-5.5 h-5.5 text-white" />
+        <Link to="/" hash="top" className="flex items-center gap-2.5 group">
+          <div
+            className="w-10 h-10 rounded-xl flex items-center justify-center shadow-[0_8px_16px_-8px_var(--primary)] transition-transform group-hover:scale-105"
+            style={{ background: "var(--gradient-hero)" }}
+          >
+            <GraduationCap className="w-5.5 h-5.5 text-primary-foreground" />
           </div>
-          <span className="font-display font-bold text-lg tracking-tight text-slate-900">
-            Anglian Learning
+          <span className="font-display font-bold text-lg tracking-tight text-foreground">
+            Anglia Educate
           </span>
         </Link>
         {/* Section links route back to the landing page by path + hash, so they
             work from standalone pages (e.g. /how-it-works) as well as from "/". */}
-        <nav className="hidden md:flex items-center gap-7 text-sm font-medium text-slate-500">
-          <Link to="/" hash="tutors" className="hover:text-slate-900 transition">
+        <nav className="hidden md:flex items-center gap-7 text-sm font-medium text-muted-foreground">
+          <Link to="/" hash="tutors" className="hover:text-primary transition">
             Our Tutors
           </Link>
           <Link
             to="/how-it-works"
-            className="hover:text-slate-900 transition"
-            activeProps={{ className: "text-slate-900" }}
+            className="hover:text-primary transition"
+            activeProps={{ className: "text-primary" }}
           >
             How it works
           </Link>
-          <Link to="/" hash="offer" className="hover:text-slate-900 transition">
+          <Link to="/" hash="offer" className="hover:text-primary transition">
             What we offer
           </Link>
-          <Link to="/" hash="pricing" className="hover:text-slate-900 transition">
+          <Link to="/" hash="pricing" className="hover:text-primary transition">
             Pricing
           </Link>
-          <Link to="/" hash="contact" className="hover:text-slate-900 transition">
+          <Link to="/" hash="contact" className="hover:text-primary transition">
             Contact
           </Link>
         </nav>
         <div className="flex items-center gap-2.5">
           <Link
             to="/demo"
-            className="inline-flex items-center gap-1.5 px-3.5 py-2 rounded-xl text-sm font-semibold border border-primary/20 bg-primary/5 text-primary hover:bg-primary/10 cursor-pointer transition"
+            className="btn-soft inline-flex items-center gap-1.5 px-3.5 py-2 rounded-xl text-sm font-semibold cursor-pointer"
           >
-            <Sparkles className="w-3.5 h-3.5 text-amber-500" />
+            <Sparkles className="w-3.5 h-3.5 text-warning" />
             <span className="hidden sm:inline">Demo Platform</span>
             <span className="sm:hidden">Demo</span>
           </Link>
           <Link
             to="/auth"
             search={{ mode: "signin" } as never}
-            className="px-3 py-2 rounded-xl text-sm font-semibold text-slate-600 hover:text-slate-900 hover:bg-slate-50 transition"
+            className="px-3 py-2 rounded-xl text-sm font-semibold text-muted-foreground hover:text-foreground hover:bg-secondary transition"
           >
             Login
           </Link>
           <Link
             to="/auth"
             search={{ mode: "signup" } as never}
-            className="px-4 py-2 rounded-xl text-sm font-semibold bg-slate-900 text-white hover:bg-slate-800 shadow-sm transition"
+            className="btn-premium px-4 py-2 rounded-xl text-sm font-semibold"
           >
             Sign up
           </Link>

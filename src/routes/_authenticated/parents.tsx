@@ -77,7 +77,7 @@ function Panel({
   children: React.ReactNode;
 }) {
   return (
-    <section className="rounded-2xl bg-card border border-border p-6">
+    <section className="rounded-2xl premium-card p-6">
       <div className="flex items-start gap-3 mb-5">
         <div className="w-9 h-9 rounded-lg bg-primary/10 border border-primary/20 flex items-center justify-center shrink-0">
           <Icon className="w-4 h-4 text-primary" />

@@ -22,12 +22,12 @@ function Bar({
   return (
     <div>
       <div className="flex justify-between items-center text-xs font-semibold mb-2">
-        <span className="text-slate-600 flex items-center gap-1.5">
+        <span className="text-muted-foreground flex items-center gap-1.5">
           {icon} {label}
         </span>
         <span className={valueClass}>{total > 0 ? `${pct}%` : "—"}</span>
       </div>
-      <div className="w-full bg-slate-100 h-2 rounded-full overflow-hidden">
+      <div className="w-full bg-secondary h-2 rounded-full overflow-hidden">
         <div className={`${barClass} h-full rounded-full`} style={{ width: `${pct}%` }} />
       </div>
       <p className="text-[10px] text-muted-foreground mt-1.5">{caption}</p>
@@ -45,16 +45,16 @@ export function EngagementStats({
 }) {
   const { sessionsHeld, sessionsAttended, homeworkSet, homeworkSubmitted } = engagement;
   return (
-    <div className="bg-card border border-border rounded-2xl p-6">
-      <h3 className="font-display text-lg font-bold text-slate-900 mb-5">Engagement Stats</h3>
+    <div className="premium-card rounded-2xl p-6">
+      <h3 className="font-display text-lg font-bold text-foreground mb-5">Engagement Stats</h3>
       <div className="space-y-5">
         <Bar
           label="Live Class Attendance"
-          icon={<Clock className="w-4 h-4 text-slate-400" />}
+          icon={<Clock className="w-4 h-4 text-muted-foreground/70" />}
           done={sessionsAttended}
           total={sessionsHeld}
           barClass="bg-primary"
-          valueClass="text-slate-900"
+          valueClass="text-foreground"
           caption={
             sessionsHeld > 0
               ? `${childName} joined ${sessionsAttended} of ${sessionsHeld} live sessions.`

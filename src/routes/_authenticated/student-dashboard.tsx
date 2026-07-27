@@ -26,7 +26,7 @@ export const Route = createFileRoute("/_authenticated/student-dashboard")({
       throw redirect({ to: "/parent-dashboard" });
     }
   },
-  head: () => ({ meta: [{ title: "Student Dashboard | Anglian Learning" }] }),
+  head: () => ({ meta: [{ title: "Student Dashboard | Anglia Educate" }] }),
   component: StudentDashboard,
 });
 
@@ -69,7 +69,7 @@ export function StudentDashboard() {
     <AppLayout title="Student Dashboard">
       {/* Slim welcome ribbon — name on the left, the student's actual level and
           per-subject exam boards on the right. */}
-      <div className="rounded-2xl bg-gradient-to-br from-slate-900 to-slate-800 text-white px-5 py-4 sm:px-6 sm:py-5 mb-6 relative overflow-hidden border border-slate-800 shadow-sm">
+      <div className="rounded-2xl bg-gradient-to-br from-[var(--primary-deep)] to-[var(--primary)] text-primary-foreground px-5 py-4 sm:px-6 sm:py-5 mb-6 relative overflow-hidden border border-white/10 shadow-elegant">
         <div
           className="absolute inset-0 opacity-10"
           style={{
@@ -79,7 +79,7 @@ export function StudentDashboard() {
         />
         <div className="relative flex flex-col gap-3 sm:flex-row sm:items-center sm:justify-between">
           <div className="flex items-center gap-2.5">
-            <span className="w-2 h-2 rounded-full bg-emerald-400 animate-pulse shrink-0" />
+            <span className="w-2 h-2 rounded-full bg-accent animate-pulse shrink-0" />
             <h2 className="font-display text-lg sm:text-xl font-bold tracking-tight text-white">
               Welcome back, {displayName}
             </h2>
@@ -124,7 +124,7 @@ function EnrolmentSummary({
 }) {
   if (enrolments.length === 0) {
     return (
-      <p className="text-xs sm:text-sm text-slate-300">
+      <p className="text-xs sm:text-sm text-primary-foreground/70">
         You're not enrolled in any subjects yet — contact your tutor to get set up.
       </p>
     );
@@ -133,18 +133,18 @@ function EnrolmentSummary({
   return (
     <div className="flex flex-wrap items-center gap-1.5">
       {level && (
-        <span className="text-[11px] font-bold uppercase tracking-wide px-2 py-1 rounded-md bg-emerald-400/15 text-emerald-300 border border-emerald-400/20">
+        <span className="text-[11px] font-bold uppercase tracking-wide px-2 py-1 rounded-md bg-accent/25 text-primary-foreground border border-accent/30">
           {levelLabel[level] ?? level}
         </span>
       )}
       {enrolments.map((e) => (
         <span
           key={e.subject}
-          className="inline-flex items-center gap-1.5 text-[11px] sm:text-xs font-medium px-2.5 py-1 rounded-md bg-white/10 border border-white/10 text-slate-100"
+          className="inline-flex items-center gap-1.5 text-[11px] sm:text-xs font-medium px-2.5 py-1 rounded-md bg-white/10 border border-white/10 text-primary-foreground/90"
         >
           {subjectLabel[e.subject] ?? e.subject}
-          <span className="text-slate-400">·</span>
-          <span className="text-slate-300">{boardLabel[e.board] ?? e.board}</span>
+          <span className="text-primary-foreground/50">·</span>
+          <span className="text-primary-foreground/70">{boardLabel[e.board] ?? e.board}</span>
         </span>
       ))}
     </div>

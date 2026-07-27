@@ -162,7 +162,7 @@ export function AddSubjectCard({
                       onChange={(e) =>
                         setBoards((prev) => ({ ...prev, [s.value]: e.target.value as BoardV }))
                       }
-                      className="h-8 rounded-lg bg-card border border-border px-2 text-xs focus:outline-none focus:ring-2 focus:ring-primary/40"
+                      className="h-8 rounded-lg premium-card px-2 text-xs focus:outline-none focus:ring-2 focus:ring-primary/40"
                     >
                       {BOARDS.map((b) => (
                         <option key={b.value} value={b.value}>

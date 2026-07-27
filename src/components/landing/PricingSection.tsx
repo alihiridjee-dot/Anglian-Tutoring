@@ -99,7 +99,7 @@ export function PricingSection() {
         .join(", ");
 
   return (
-    <section id="pricing" className="relative py-24 lg:py-28 overflow-hidden bg-slate-50">
+    <section id="pricing" className="relative py-24 lg:py-28 overflow-hidden bg-secondary">
       {/* Ambient premium backdrop */}
       <div
         aria-hidden
@@ -107,13 +107,13 @@ export function PricingSection() {
       />
       <div className="relative max-w-7xl mx-auto px-6">
         <div className="text-center max-w-2xl mx-auto mb-14">
-          <span className="inline-flex items-center gap-1.5 rounded-full border border-slate-200 bg-white/70 backdrop-blur px-3 py-1 text-[11px] font-semibold uppercase tracking-wider text-[var(--primary-deep)]">
+          <span className="inline-flex items-center gap-1.5 rounded-full border border-border bg-white/70 backdrop-blur px-3 py-1 text-[11px] font-semibold uppercase tracking-wider text-[var(--primary-deep)]">
             <Sparkles className="w-3.5 h-3.5" /> Build your plan
           </span>
-          <h2 className="mt-5 font-display text-4xl sm:text-5xl font-bold tracking-tight text-slate-900">
+          <h2 className="mt-5 font-display text-4xl sm:text-5xl font-bold tracking-tight text-foreground">
             A plan that fits your child
           </h2>
-          <p className="mt-4 text-base text-slate-500 leading-relaxed">
+          <p className="mt-4 text-base text-muted-foreground leading-relaxed">
             Choose what suits them and watch the price update as you go. Cancel anytime.
           </p>
         </div>
@@ -121,7 +121,7 @@ export function PricingSection() {
         {/* ---- Banner: builder and live pricing side by side ---- */}
         <div className="grid gap-8 lg:grid-cols-[minmax(0,1fr)_minmax(0,1.35fr)] lg:gap-10 items-stretch">
           {/* Plan builder: a guided, collapsing three-step card */}
-          <div className="rounded-3xl border border-slate-200/80 bg-white/80 backdrop-blur-xl shadow-[0_20px_60px_-25px_rgba(15,23,42,0.35)] divide-y divide-slate-100 overflow-hidden lg:sticky lg:top-24">
+          <div className="premium-card rounded-3xl backdrop-blur-xl divide-y divide-border overflow-hidden lg:sticky lg:top-24">
             <Step
               index={1}
               title="What level?"
@@ -147,7 +147,7 @@ export function PricingSection() {
               />
               {level === "gcse" && (
                 <div className="mt-4">
-                  <p className="text-xs font-semibold uppercase tracking-wider text-slate-400 mb-2">
+                  <p className="text-xs font-semibold uppercase tracking-wider text-muted-foreground/70 mb-2">
                     How they study
                   </p>
                   <Slider
@@ -161,7 +161,7 @@ export function PricingSection() {
                   <button
                     type="button"
                     onClick={() => window.setTimeout(() => setOpenStep(1), 40)}
-                    className="mt-4 w-full rounded-xl bg-slate-900 py-2.5 text-sm font-semibold text-white transition-colors hover:bg-slate-800"
+                    className="mt-4 w-full rounded-xl bg-primary py-2.5 text-sm font-semibold text-white transition-colors "
                   >
                     Continue
                   </button>
@@ -188,20 +188,20 @@ export function PricingSection() {
                       onClick={() => toggleSubject(s.id)}
                       className={`group relative flex flex-col items-center justify-center gap-1.5 rounded-2xl border px-3 py-4 text-sm font-semibold transition-all duration-200 ${
                         soon
-                          ? "border-slate-200 bg-slate-50 text-slate-400 cursor-not-allowed"
+                          ? "border-border bg-secondary text-muted-foreground/70 cursor-not-allowed"
                           : on
                             ? "border-primary bg-primary/[0.06] text-[var(--primary-deep)] shadow-sm cursor-pointer"
-                            : "border-slate-200 bg-white text-slate-600 hover:border-primary/40 hover:-translate-y-0.5 cursor-pointer"
+                            : "border-border bg-card text-muted-foreground hover:border-primary/40 hover:-translate-y-0.5 cursor-pointer"
                       } ${isTrilogy && !soon ? "opacity-60 cursor-not-allowed" : ""}`}
                     >
                       {soon && (
-                        <span className="absolute right-2 top-2 rounded-full bg-slate-200 px-1.5 py-0.5 text-[9px] font-bold uppercase tracking-wide text-slate-500">
+                        <span className="absolute right-2 top-2 rounded-full bg-secondary px-1.5 py-0.5 text-[9px] font-bold uppercase tracking-wide text-muted-foreground">
                           Soon
                         </span>
                       )}
                       <span
                         className={`flex h-5 w-5 items-center justify-center rounded-full border transition-colors ${
-                          on ? "border-primary bg-primary text-white" : "border-slate-300 text-transparent"
+                          on ? "border-primary bg-primary text-white" : "border-border text-transparent"
                         }`}
                       >
                         <Check className="h-3 w-3" />
@@ -211,7 +211,7 @@ export function PricingSection() {
                   );
                 })}
               </div>
-              <p className="mt-3 text-xs text-slate-400">
+              <p className="mt-3 text-xs text-muted-foreground/70">
                 {isTrilogy
                   ? "Combined Trilogy covers all three sciences in one course."
                   : "Choose one or more — price adjusts automatically."}
@@ -222,7 +222,7 @@ export function PricingSection() {
               <button
                 type="button"
                 onClick={() => setOpenStep(2)}
-                className="mt-4 w-full rounded-xl bg-slate-900 py-2.5 text-sm font-semibold text-white transition-colors hover:bg-slate-800"
+                className="mt-4 w-full rounded-xl bg-primary py-2.5 text-sm font-semibold text-white transition-colors "
               >
                 Continue
               </button>
@@ -241,7 +241,7 @@ export function PricingSection() {
                 value={board}
                 onChange={setBoard}
               />
-              <p className="mt-3 text-xs text-slate-400">The board never changes your price.</p>
+              <p className="mt-3 text-xs text-muted-foreground/70">The board never changes your price.</p>
             </Step>
           </div>
 
@@ -288,7 +288,7 @@ function PricingTiers({
             className={`relative flex h-full flex-col overflow-hidden rounded-3xl p-5 transition-transform duration-300 ${
               dark
                 ? "bg-gradient-to-br from-[var(--primary-deep)] to-primary text-white shadow-[0_30px_70px_-30px_rgba(6,78,90,0.85)] ring-2 ring-[var(--primary-deep)]/20"
-                : "bg-white text-slate-900 border border-slate-200/70 shadow-[0_18px_50px_-30px_rgba(15,23,42,0.4)] hover:-translate-y-1"
+                : "premium-card premium-card-interactive text-foreground"
             }`}
           >
             {/* Soft premium sheen */}
@@ -331,14 +331,14 @@ function PricingTiers({
               </div>
               <span
                 className={`mt-1 block text-[11px] font-medium ${
-                  dark ? "text-white/70" : "text-slate-500"
+                  dark ? "text-white/70" : "text-muted-foreground"
                 }`}
               >
                 per live session
               </span>
             </div>
 
-            <p className={`relative mt-3 text-xs ${dark ? "text-white/75" : "text-slate-500"}`}>
+            <p className={`relative mt-3 text-xs ${dark ? "text-white/75" : "text-muted-foreground"}`}>
               {weeklyLessons} live lessons a week
             </p>
 
@@ -354,7 +354,7 @@ function PricingTiers({
                     >
                       <Check className="h-2.5 w-2.5" />
                     </span>
-                    <span className={dark ? "text-white/85" : "text-slate-600"}>{f}</span>
+                    <span className={dark ? "text-white/85" : "text-muted-foreground"}>{f}</span>
                   </li>
                 ),
               )}
@@ -362,12 +362,12 @@ function PricingTiers({
 
             {/* Billed price + CTA pinned to the bottom */}
             <div
-              className={`relative mt-auto border-t pt-4 ${dark ? "border-white/15" : "border-slate-100"}`}
+              className={`relative mt-auto border-t pt-4 ${dark ? "border-white/15" : "border-border"}`}
             >
               <span className="font-display text-xl font-bold tracking-tight tabular-nums">
                 {gbp(pence)}
               </span>
-              <span className={`block text-[11px] ${dark ? "text-white/70" : "text-slate-500"}`}>
+              <span className={`block text-[11px] ${dark ? "text-white/70" : "text-muted-foreground"}`}>
                 {tier.billing}
               </span>
               <Link
@@ -425,19 +425,19 @@ function Step({
       >
         <span
           className={`flex h-8 w-8 shrink-0 items-center justify-center rounded-full text-sm font-bold transition-colors ${
-            open ? "bg-primary text-white" : "bg-slate-100 text-slate-500"
+            open ? "bg-primary text-white" : "bg-secondary text-muted-foreground"
           }`}
         >
           {index}
         </span>
         <span className="flex-1 min-w-0">
-          <span className="block text-sm font-bold text-slate-900">{title}</span>
+          <span className="block text-sm font-bold text-foreground">{title}</span>
           {!open && summary && (
-            <span className="block truncate text-xs text-slate-500 mt-0.5">{summary}</span>
+            <span className="block truncate text-xs text-muted-foreground mt-0.5">{summary}</span>
           )}
         </span>
         <ChevronDown
-          className={`h-4 w-4 shrink-0 text-slate-400 transition-transform duration-300 ${
+          className={`h-4 w-4 shrink-0 text-muted-foreground/70 transition-transform duration-300 ${
             open ? "rotate-180" : ""
           }`}
         />
@@ -471,10 +471,10 @@ function Slider({
     options.findIndex((o) => o.value === value),
   );
   return (
-    <div className="relative flex rounded-full bg-slate-100 p-1">
+    <div className="relative flex rounded-full bg-secondary p-1">
       <span
         aria-hidden
-        className="absolute top-1 bottom-1 rounded-full bg-white shadow-sm ring-1 ring-slate-200 transition-transform duration-300 ease-out"
+        className="absolute top-1 bottom-1 rounded-full bg-card shadow-sm ring-1 ring-border transition-transform duration-300 ease-out"
         style={{
           width: `calc((100% - 0.5rem) / ${options.length})`,
           transform: `translateX(${idx * 100}%)`,
@@ -486,7 +486,7 @@ function Slider({
           type="button"
           onClick={() => onChange(o.value)}
           className={`relative z-10 flex-1 rounded-full px-3 py-2 text-sm font-semibold transition-colors duration-200 ${
-            value === o.value ? "text-[var(--primary-deep)]" : "text-slate-500 hover:text-slate-700"
+            value === o.value ? "text-[var(--primary-deep)]" : "text-muted-foreground hover:text-foreground"
           }`}
         >
           {o.label}

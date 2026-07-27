@@ -5,6 +5,6 @@ import { MCQs } from "@/routes/_authenticated/mcqs";
 // isDemoMode() keys off the /demo/* pathname, so every query inside short-circuits
 // to fixtures and no session is ever needed.
 export const Route = createFileRoute("/demo/student/mcqs")({
-  head: () => ({ meta: [{ title: "Quizzes | Anglian Learning" }] }),
+  head: () => ({ meta: [{ title: "Quizzes | Anglia Educate" }] }),
   component: MCQs,
 });

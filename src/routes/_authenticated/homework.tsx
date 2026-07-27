@@ -37,7 +37,7 @@ import { type SubjectV, type BoardV, type LevelV } from "@/lib/taxonomy";
 
 export const Route = createFileRoute("/_authenticated/homework")({
   beforeLoad: guardStudentSection,
-  head: () => ({ meta: [{ title: "Homework & Grades | Anglian Learning" }] }),
+  head: () => ({ meta: [{ title: "Homework & Grades | Anglia Educate" }] }),
   component: HomeworkPage,
 });
 
@@ -174,7 +174,7 @@ export function HomeworkPage() {
             {analytics.map((a) => (
               <div
                 key={a.subject}
-                className="rounded-2xl bg-card border border-border p-5 relative overflow-hidden shadow-xs"
+                className="rounded-2xl premium-card p-5 relative overflow-hidden shadow-xs"
               >
                 <div
                   className={`absolute top-0 left-0 right-0 h-1 bg-gradient-to-r ${subjectColor[a.subject] ?? "from-primary to-accent"}`}
@@ -236,7 +236,7 @@ function SetHomeworkPanel({ userId }: { userId: string }) {
   const [level, setLevel] = useState<LevelV>("gcse");
 
   return (
-    <div className="mb-8 rounded-2xl border border-border bg-card overflow-hidden">
+    <div className="mb-8 rounded-2xl premium-card overflow-hidden">
       <button
         onClick={() => setOpen((o) => !o)}
         className="w-full flex items-center justify-between gap-3 px-5 py-4 text-left hover:bg-muted/40"
@@ -280,7 +280,7 @@ function TutorBriefs({
   const [open, setOpen] = useState(false);
 
   return (
-    <div className="mt-8 rounded-2xl border border-border bg-card overflow-hidden">
+    <div className="mt-8 rounded-2xl premium-card overflow-hidden">
       <button
         onClick={() => setOpen((o) => !o)}
         className="w-full flex items-center justify-between gap-3 px-5 py-4 text-left hover:bg-muted/40"
@@ -544,7 +544,7 @@ function HomeworkCard({
                 <p className="text-[10px] font-extrabold uppercase tracking-widest text-accent mb-2">
                   Tutor Feedback
                 </p>
-                <div className="p-3.5 bg-card border border-border rounded-xl text-foreground text-sm whitespace-pre-wrap leading-relaxed shadow-inner">
+                <div className="p-3.5 premium-card rounded-xl text-foreground text-sm whitespace-pre-wrap leading-relaxed shadow-inner">
                   {submission.feedback}
                 </div>
               </div>
@@ -618,7 +618,7 @@ function HomeworkCard({
                 return (
                   <li
                     key={i}
-                    className="text-xs flex items-center gap-2 bg-card border border-border rounded-lg px-3 py-1.5"
+                    className="text-xs flex items-center gap-2 premium-card rounded-lg px-3 py-1.5"
                   >
                     <FileText className="w-3 h-3 text-muted-foreground shrink-0" />
                     <span className="truncate">{f.name}</span>
@@ -657,7 +657,7 @@ function HomeworkCard({
             value={notes}
             onChange={(e) => setNotes(e.target.value)}
             placeholder="Notes for your tutor (optional)"
-            className="w-full min-h-16 rounded-lg bg-card border border-border px-3 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-primary/40"
+            className="w-full min-h-16 rounded-lg premium-input px-3 py-2 text-sm"
           />
           <p className="text-[11px] text-muted-foreground leading-relaxed">
             Submissions are final — once you submit, you can't change or remove your work. Check

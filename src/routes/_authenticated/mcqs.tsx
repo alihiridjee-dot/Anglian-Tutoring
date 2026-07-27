@@ -18,7 +18,7 @@ import { McqManager } from "@/components/tutor/McqManager";
 
 export const Route = createFileRoute("/_authenticated/mcqs")({
   beforeLoad: guardStudentSection,
-  head: () => ({ meta: [{ title: "MCQs | Anglian Learning" }] }),
+  head: () => ({ meta: [{ title: "MCQs | Anglia Educate" }] }),
   component: MCQs,
 });
 
@@ -148,7 +148,7 @@ function StudentMCQs() {
         key={s.id}
         to="/mcq/$setId"
         params={{ setId: s.id }}
-        className="rounded-2xl bg-card border border-border p-6 hover:border-primary/50 transition group flex flex-col justify-between relative overflow-hidden"
+        className="rounded-2xl premium-card p-6 hover:border-primary/50 transition group flex flex-col justify-between relative overflow-hidden"
       >
         <div>
           <div className="flex items-center justify-between gap-2 mb-4">
@@ -260,7 +260,7 @@ function StudentMCQs() {
           {/* Completed / past weekly MCQs — collapsed to keep the page tidy. Still
               reachable any time by browsing the covered spec points on Curriculum. */}
           {pastWeekly.length > 0 && (
-            <details className="group rounded-2xl border border-border bg-card/50">
+            <details className="group rounded-2xl premium-card/50">
               <summary className="flex items-center gap-3 px-5 py-4 cursor-pointer list-none select-none">
                 <ChevronDown className="w-4 h-4 text-muted-foreground transition-transform group-open:rotate-180" />
                 <span className="font-display font-bold text-sm tracking-wide uppercase text-muted-foreground">
