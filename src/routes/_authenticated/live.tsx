@@ -120,7 +120,7 @@ export function Live() {
   return (
     <AppLayout title="Live Sessions">
       {isTutor && userId && (
-        <div className="max-w-2xl rounded-2xl bg-card border border-border p-6 mb-8">
+        <div className="max-w-2xl rounded-2xl premium-card p-6 mb-8">
           <h3 className="font-display text-lg font-semibold mb-4">Schedule a Live Session</h3>
           <LiveForm
             userId={userId}
@@ -166,7 +166,7 @@ export function Live() {
               return (
                 <div
                   key={s.id}
-                  className="rounded-xl bg-card border border-border p-5 flex flex-col lg:flex-row lg:items-center gap-4"
+                  className="rounded-xl premium-card p-5 flex flex-col lg:flex-row lg:items-center gap-4"
                 >
                   <div className="flex items-start gap-3 lg:w-72 shrink-0">
                     <div className="w-11 h-11 rounded-xl bg-[#2D8CFF]/10 text-[#2D8CFF] flex items-center justify-center shrink-0">
@@ -248,7 +248,7 @@ export function Live() {
             past.map((s) => (
               <div
                 key={s.id}
-                className="rounded-xl bg-card border border-border p-5 flex flex-col sm:flex-row sm:items-start gap-3"
+                className="rounded-xl premium-card p-5 flex flex-col sm:flex-row sm:items-start gap-3"
               >
                 <div className="flex items-start gap-3 lg:w-72 shrink-0">
                   <div className="w-11 h-11 rounded-xl bg-secondary text-muted-foreground flex items-center justify-center shrink-0">

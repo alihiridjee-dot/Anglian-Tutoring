@@ -5,6 +5,6 @@ import { Downloads } from "@/routes/_authenticated/downloads";
 // isDemoMode() keys off the /demo/* pathname, so every query inside short-circuits
 // to fixtures and no session is ever needed.
 export const Route = createFileRoute("/demo/student/downloads")({
-  head: () => ({ meta: [{ title: "Downloads | Anglian Learning" }] }),
+  head: () => ({ meta: [{ title: "Downloads | Anglia Educate" }] }),
   component: Downloads,
 });

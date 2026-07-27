@@ -5,6 +5,6 @@ import { ParentDashboard } from "@/routes/_authenticated/parent-dashboard";
 // isDemoMode() keys off the /demo/* pathname, so every query inside short-circuits
 // to fixtures and no session is ever needed.
 export const Route = createFileRoute("/demo/parent/dashboard")({
-  head: () => ({ meta: [{ title: "Parent Portal | Anglian Learning" }] }),
+  head: () => ({ meta: [{ title: "Parent Portal | Anglia Educate" }] }),
   component: ParentDashboard,
 });

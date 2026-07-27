@@ -178,7 +178,7 @@ export function WeeklyFocusManager({ userId, taxonomy }: Props) {
             {allPlans.map((p) => (
               <span
                 key={p.id}
-                className="inline-flex items-center gap-1.5 rounded-full border border-border bg-card px-3 py-1 text-xs"
+                className="inline-flex items-center gap-1.5 rounded-full premium-card px-3 py-1 text-xs"
               >
                 <span className="font-semibold">{subjectLabel[p.subject] ?? p.subject}</span>
                 <span className="text-muted-foreground">
@@ -194,7 +194,7 @@ export function WeeklyFocusManager({ userId, taxonomy }: Props) {
       </div>
 
       {/* Editor. */}
-      <div className="max-w-2xl rounded-2xl bg-card border border-border p-6 space-y-4">
+      <div className="max-w-2xl rounded-2xl premium-card p-6 space-y-4">
         <TaxonomyFields {...taxonomy} />
 
         <Field label="Note for students (optional)">

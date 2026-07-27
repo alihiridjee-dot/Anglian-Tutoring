@@ -1,4 +1,4 @@
-# Anglian Tutoring — Zoom MCP server
+# Anglia Educate — Zoom MCP server
 
 An [MCP](https://modelcontextprotocol.io) server that lets an agent create and
 inspect Zoom live sessions. It is a **thin proxy** over the `zoom-meeting`

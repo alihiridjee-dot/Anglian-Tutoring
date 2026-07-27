@@ -3,7 +3,7 @@
   "version": "0.1.0",
   "private": true,
   "type": "module",
-  "description": "MCP server exposing Zoom live-session tools for Anglian Tutoring, backed by the zoom-meeting Supabase Edge Function.",
+  "description": "MCP server exposing Zoom live-session tools for Anglia Educate, backed by the zoom-meeting Supabase Edge Function.",
   "bin": {
     "anglian-zoom-mcp": "dist/index.js"
   },

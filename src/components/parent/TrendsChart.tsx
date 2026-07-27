@@ -31,10 +31,10 @@ export function TrendsChart({
   ) satisfies ChartConfig;
 
   return (
-    <div className="bg-card border border-border rounded-2xl p-6">
+    <div className="premium-card rounded-2xl p-6">
       <div className="flex items-center justify-between mb-6">
         <div>
-          <h3 className="font-display text-lg font-bold text-slate-900">Performance Trends</h3>
+          <h3 className="font-display text-lg font-bold text-foreground">Performance Trends</h3>
           <p className="text-xs text-muted-foreground mt-0.5">
             Weekly quiz averages over the past six weeks.
           </p>
@@ -43,7 +43,7 @@ export function TrendsChart({
           {subjects.map((s) => (
             <span
               key={s}
-              className={`inline-flex items-center gap-1.5 ${SUBJECT_TEXT[s] ?? "text-slate-600"}`}
+              className={`inline-flex items-center gap-1.5 ${SUBJECT_TEXT[s] ?? "text-muted-foreground"}`}
             >
               <span
                 className="w-2.5 h-2.5 rounded-full"

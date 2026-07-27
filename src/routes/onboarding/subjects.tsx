@@ -17,7 +17,7 @@ type SearchParams = { board?: BoardV };
  * what RLS scopes curriculum by — so at least one subject is required.
  */
 export const Route = createFileRoute("/onboarding/subjects")({
-  head: () => ({ meta: [{ title: "Your subjects | Anglian Learning" }] }),
+  head: () => ({ meta: [{ title: "Your subjects | Anglia Educate" }] }),
   validateSearch: (search: Record<string, unknown>): SearchParams => ({
     board: BOARDS.some((b) => b.value === search.board) ? (search.board as BoardV) : undefined,
   }),
@@ -155,7 +155,7 @@ function SubjectsStep() {
                     onChange={(e) =>
                       setBoards((prev) => ({ ...prev, [s.value]: e.target.value as BoardV }))
                     }
-                    className="h-8 rounded-lg bg-card border border-border px-2 text-xs transition focus:outline-none focus:border-primary focus:ring-4 focus:ring-primary/15"
+                    className="h-8 rounded-lg premium-card px-2 text-xs transition focus:outline-none focus:border-primary focus:ring-4 focus:ring-primary/15"
                   >
                     {BOARDS.map((b) => (
                       <option key={b.value} value={b.value}>

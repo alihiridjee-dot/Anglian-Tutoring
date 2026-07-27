@@ -12,7 +12,7 @@ export function BrandMark({ className = "" }: { className?: string }) {
         <GraduationCap className="w-5 h-5" />
       </span>
       <span className="font-display text-lg font-semibold tracking-tight group-hover:opacity-80 transition">
-        Anglian Learning
+        Anglia Educate
       </span>
     </Link>
   );

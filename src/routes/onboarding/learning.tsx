@@ -17,7 +17,7 @@ import { StepCard } from "@/components/onboarding/StepCard";
  * page, so they are a starting hypothesis rather than a diagnosis.
  */
 export const Route = createFileRoute("/onboarding/learning")({
-  head: () => ({ meta: [{ title: "How you learn | Anglian Learning" }] }),
+  head: () => ({ meta: [{ title: "How you learn | Anglia Educate" }] }),
   component: LearningStep,
 });
 

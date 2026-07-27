@@ -48,7 +48,7 @@ const PLANS = CADENCES.flatMap(({ cadence, label, interval, intervalCount }) =>
     const subjectWord = count === 1 ? "1 subject" : `${count} subjects`;
     return {
       tier: `${cadence}_${count}`,
-      name: `Anglian Learning — ${label} (${subjectWord})`,
+      name: `Anglia Educate — ${label} (${subjectWord})`,
       description: `${sessions} live sessions per ${
         cadence === "termly" ? "term" : interval
       }. ${subjectWord}.`,

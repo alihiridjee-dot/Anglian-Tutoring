@@ -269,7 +269,7 @@ export function WeekReview({
             }}
             rows={2}
             placeholder="Anything you want to note about this week? (optional)"
-            className="mt-2.5 w-full rounded-lg bg-card border border-border px-3 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-primary/40 resize-none"
+            className="mt-2.5 w-full rounded-lg premium-input px-3 py-2 text-sm resize-none"
           />
         </div>
       ) : (

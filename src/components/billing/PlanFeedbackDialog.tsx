@@ -64,12 +64,12 @@ export function PlanFeedbackDialog({
 
   return (
     <div
-      className="fixed inset-0 z-50 flex items-center justify-center bg-slate-950/50 p-4"
+      className="fixed inset-0 z-50 flex items-center justify-center bg-primary-deep/50 p-4"
       role="dialog"
       aria-modal="true"
       aria-labelledby="plan-feedback-title"
     >
-      <div className="w-full max-w-lg rounded-2xl bg-card border border-border shadow-xl max-h-[90vh] overflow-y-auto">
+      <div className="w-full max-w-lg rounded-2xl premium-card shadow-xl max-h-[90vh] overflow-y-auto">
         <div className="flex items-start justify-between gap-3 p-6 border-b border-border">
           <div className="flex items-center gap-3">
             <div

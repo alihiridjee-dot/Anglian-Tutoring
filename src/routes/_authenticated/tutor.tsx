@@ -69,7 +69,7 @@ function Tutor() {
 
   return (
     <AppLayout title="Tutor Studio">
-      <div className="rounded-2xl bg-gradient-to-br from-slate-900 to-slate-800 text-white p-8 mb-6 relative overflow-hidden border border-slate-800 shadow-sm">
+      <div className="rounded-2xl bg-gradient-to-br from-[var(--primary-deep)] to-[var(--primary)] text-primary-foreground p-8 mb-6 relative overflow-hidden border border-white/10 shadow-elegant">
         <div
           className="absolute inset-0 opacity-10"
           style={{
@@ -79,15 +79,15 @@ function Tutor() {
         />
         <div className="relative flex flex-col gap-1.5">
           <div className="flex items-center gap-2.5">
-            <Wrench className="w-5 h-5 text-emerald-400 shrink-0" />
-            <span className="text-xs uppercase tracking-widest text-slate-300 font-semibold">
+            <Wrench className="w-5 h-5 text-accent shrink-0" />
+            <span className="text-xs uppercase tracking-widest text-primary-foreground/70 font-semibold">
               Tutor Workspace
             </span>
           </div>
           <h2 className="font-display text-3xl font-bold tracking-tight text-white capitalize">
             Welcome, {tutorName}
           </h2>
-          <p className="text-sm md:text-base text-slate-300 max-w-2xl mt-1">
+          <p className="text-sm md:text-base text-primary-foreground/75 max-w-2xl mt-1">
             Mark student submissions and manage teaching resources — set homework, upload files and
             videos, and schedule live sessions.
           </p>
@@ -116,7 +116,7 @@ function Tutor() {
       ) : tab === "marking" ? (
         <MarkingQueue />
       ) : (
-        <div className="max-w-2xl rounded-2xl bg-card border border-border p-6">
+        <div className="max-w-2xl rounded-2xl premium-card p-6">
           {tab === "video" && <VideoForm userId={userId!} taxonomy={taxonomy} />}
           {tab === "weekly_mcq" && <WeeklyMcqForm userId={userId!} taxonomy={taxonomy} />}
           {tab === "homework" && <HomeworkForm userId={userId!} taxonomy={taxonomy} />}

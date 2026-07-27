@@ -82,12 +82,15 @@ export function AppLayout({ title, children }: { title: string; children: ReactN
   return (
     <div className="min-h-screen flex bg-background text-foreground">
       <aside className="w-20 lg:w-60 bg-sidebar border-r border-sidebar-border flex flex-col py-5 px-3 gap-1 shrink-0">
-        <Link to="/" className="flex items-center gap-2 px-2 mb-6">
-          <div className="w-10 h-10 rounded-xl bg-primary flex items-center justify-center">
+        <Link to="/" className="group flex items-center gap-2 px-2 mb-6">
+          <div
+            className="w-10 h-10 rounded-xl flex items-center justify-center shadow-[0_8px_16px_-8px_var(--primary)] transition-transform group-hover:scale-105"
+            style={{ background: "var(--gradient-hero)" }}
+          >
             <GraduationCap className="w-5 h-5 text-primary-foreground" />
           </div>
           <span className="hidden lg:inline font-display font-semibold tracking-tight text-foreground">
-            Anglian Learning
+            Anglia Educate
           </span>
         </Link>
         {nav.map(({ to, label, icon: Icon }) => {
@@ -96,9 +99,9 @@ export function AppLayout({ title, children }: { title: string; children: ReactN
             <Link
               key={to}
               to={to}
-              className={`flex items-center gap-3 px-3 py-2.5 rounded-lg text-sm font-medium transition ${
+              className={`flex items-center gap-3 px-3 py-2.5 rounded-xl text-sm font-medium transition ${
                 active
-                  ? "bg-primary text-primary-foreground"
+                  ? "btn-premium"
                   : "text-sidebar-foreground/80 hover:bg-sidebar-accent hover:text-foreground"
               }`}
             >
@@ -120,13 +123,19 @@ export function AppLayout({ title, children }: { title: string; children: ReactN
 
       <main className="flex-1 min-w-0 flex flex-col">
         {isDemo && (
-          <div className="bg-slate-900 text-white px-6 py-2.5 flex flex-col sm:flex-row gap-3 items-center justify-between text-xs font-semibold border-b border-slate-800 shrink-0 select-none shadow-md z-40 bg-gradient-to-r from-slate-900 via-primary-deep to-slate-900">
+          <div
+            className="text-primary-foreground px-6 py-2.5 flex flex-col sm:flex-row gap-3 items-center justify-between text-xs font-semibold shrink-0 select-none shadow-md z-40"
+            style={{
+              background:
+                "linear-gradient(90deg, var(--primary-deep), color-mix(in oklab, var(--accent) 35%, var(--primary-deep)), var(--primary-deep))",
+            }}
+          >
             <div className="flex flex-wrap items-center gap-2.5 justify-center sm:justify-start">
-              <span className="inline-flex items-center gap-1 bg-amber-500 text-slate-950 px-2.5 py-0.5 rounded-full text-[10px] font-bold uppercase tracking-wider animate-pulse shrink-0">
-                <Sparkles className="w-3 h-3 fill-slate-950" />{" "}
+              <span className="inline-flex items-center gap-1 bg-warning text-warning-foreground px-2.5 py-0.5 rounded-full text-[10px] font-bold uppercase tracking-wider animate-pulse shrink-0">
+                <Sparkles className="w-3 h-3 fill-current" />{" "}
                 {demoRole === "student" ? "STUDENT" : "PARENT"} DEMO MODE
               </span>
-              <span className="text-slate-200 text-center sm:text-left leading-relaxed">
+              <span className="text-primary-foreground/80 text-center sm:text-left leading-relaxed">
                 {demoRole === "student"
                   ? "Exploring the GCSE Science Student Hub as a student. Check out curriculum, live classes, quizzes, and homework!"
                   : "Exploring the GCSE Science Student Hub. Click around to preview live classes, grades, worksheets, and syllabus views!"}
@@ -135,33 +144,33 @@ export function AppLayout({ title, children }: { title: string; children: ReactN
             <div className="flex items-center gap-2.5 shrink-0">
               <Link
                 to="/"
-                className="bg-emerald-600 hover:bg-emerald-500 text-white px-3.5 py-1.5 rounded-lg font-bold text-xs shadow-xs transition shrink-0"
+                className="bg-card text-primary hover:bg-card/90 px-3.5 py-1.5 rounded-lg font-bold text-xs shadow-sm transition shrink-0"
               >
                 Join Now
               </Link>
               <button
                 onClick={handleExitDemo}
-                className="bg-white/10 hover:bg-white/20 text-white border border-white/15 px-3 py-1.5 rounded-lg font-bold text-xs transition cursor-pointer shrink-0"
+                className="bg-white/10 hover:bg-white/20 text-primary-foreground border border-white/20 px-3 py-1.5 rounded-lg font-bold text-xs transition cursor-pointer shrink-0"
               >
                 Exit Sandbox
               </button>
             </div>
           </div>
         )}
-        <header className="flex items-center justify-between px-6 lg:px-10 py-4 border-b border-border bg-card">
+        <header className="glass-bar sticky top-0 z-30 flex items-center justify-between px-6 lg:px-10 py-4 shrink-0">
           <div className="flex items-center gap-3">
             <div className="flex items-center gap-1">
               <button
                 onClick={() => router.history.back()}
                 title="Back"
-                className="w-9 h-9 rounded-lg border border-border hover:bg-muted flex items-center justify-center"
+                className="btn-soft w-9 h-9 rounded-xl flex items-center justify-center cursor-pointer"
               >
                 <ArrowLeft className="w-4 h-4" />
               </button>
               <button
                 onClick={() => router.history.forward()}
                 title="Forward"
-                className="w-9 h-9 rounded-lg border border-border hover:bg-muted flex items-center justify-center"
+                className="btn-soft w-9 h-9 rounded-xl flex items-center justify-center cursor-pointer"
               >
                 <ArrowRight className="w-4 h-4" />
               </button>
@@ -187,7 +196,7 @@ export function AppLayout({ title, children }: { title: string; children: ReactN
             />
           </div>
         </header>
-        <div className="flex-1 p-6 lg:p-10 overflow-auto">{children}</div>
+        <div className="page-aurora flex-1 p-6 lg:p-10 overflow-auto">{children}</div>
       </main>
     </div>
   );

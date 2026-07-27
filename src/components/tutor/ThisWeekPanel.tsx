@@ -28,7 +28,7 @@ export function ThisWeekPanel({ userId, taxonomy }: Props) {
     <div className="space-y-8">
       <WeeklyFocusManager userId={userId} taxonomy={taxonomy} />
 
-      <div className="max-w-2xl rounded-2xl bg-card border border-border p-6">
+      <div className="max-w-2xl rounded-2xl premium-card p-6">
         <div className="flex items-center gap-2">
           <CalendarClock className="w-5 h-5 text-primary shrink-0" />
           <h3 className="font-display text-lg font-semibold">Schedule this week's live session</h3>

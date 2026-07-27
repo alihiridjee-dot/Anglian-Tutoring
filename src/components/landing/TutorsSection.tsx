@@ -55,14 +55,14 @@ export function TutorsSection() {
   return (
     <section
       id="tutors"
-      className="py-20 lg:py-24 bg-white border-t border-slate-100 relative overflow-visible"
+      className="py-20 lg:py-24 bg-card border-t border-border relative overflow-visible"
     >
       <div className="max-w-7xl mx-auto px-6 relative z-10">
         <div className="text-center max-w-2xl mx-auto mb-16">
-          <h2 className="font-display text-3xl sm:text-4xl font-bold tracking-tight text-slate-900">
+          <h2 className="font-display text-3xl sm:text-4xl font-bold tracking-tight text-foreground">
             Meet your expert tutors
           </h2>
-          <p className="mt-4 text-base text-slate-500 leading-relaxed">
+          <p className="mt-4 text-base text-muted-foreground leading-relaxed">
             Small team. Big results. Every lesson is taught personally by Dr Nadia or Ali — no
             rotating agency tutors. Tap a tutor to say hello and ask a question!
           </p>
@@ -104,9 +104,9 @@ export function TutorsSection() {
                       <motion.div
                         animate={{ scale: isHovered ? 1.04 : 1 }}
                         transition={{ type: "spring", stiffness: 300, damping: 22 }}
-                        className="relative w-36 h-36 rounded-full p-1 bg-gradient-to-br from-white to-slate-100 shadow-lg ring-1 ring-white/80"
+                        className="relative w-36 h-36 rounded-full p-1 bg-gradient-to-br from-card to-secondary shadow-lg ring-1 ring-white/80"
                       >
-                        <div className="w-full h-full rounded-full overflow-hidden bg-slate-100 flex items-center justify-center text-primary font-display text-5xl font-extrabold">
+                        <div className="w-full h-full rounded-full overflow-hidden bg-secondary flex items-center justify-center text-primary font-display text-5xl font-extrabold">
                           {t.image ? (
                             <img
                               src={t.image}
@@ -130,9 +130,9 @@ export function TutorsSection() {
                     </div>
 
                     <div className="w-full">
-                      <h3 className="font-display text-2xl font-bold text-slate-900">{t.name}</h3>
+                      <h3 className="font-display text-2xl font-bold text-foreground">{t.name}</h3>
                       <p className="text-sm text-primary font-semibold mt-1">{t.role}</p>
-                      <p className="mt-4 text-sm text-slate-600 leading-relaxed font-medium">
+                      <p className="mt-4 text-sm text-muted-foreground leading-relaxed font-medium">
                         {t.bio}
                       </p>
 
@@ -154,7 +154,7 @@ export function TutorsSection() {
                           animate={{ height: "auto", opacity: 1, marginTop: 24 }}
                           exit={{ height: 0, opacity: 0, marginTop: 0 }}
                           transition={{ type: "spring", stiffness: 300, damping: 26 }}
-                          className="border-t border-slate-200/60 pt-5 space-y-4 text-left pointer-events-none"
+                          className="border-t border-border/60 pt-5 space-y-4 text-left pointer-events-none"
                         >
                           <div className="flex items-start gap-3.5">
                             <div
@@ -163,14 +163,14 @@ export function TutorsSection() {
                               <GraduationCap className="w-5 h-5" />
                             </div>
                             <div>
-                              <h4 className="text-[10px] font-extrabold uppercase tracking-widest text-slate-400">
+                              <h4 className="text-[10px] font-extrabold uppercase tracking-widest text-muted-foreground/70">
                                 Verified Academic Degrees
                               </h4>
                               <ul className="mt-1.5 space-y-1.5">
                                 {t.degrees.map((degree) => (
                                   <li
                                     key={degree}
-                                    className="flex items-center gap-1.5 text-sm font-bold text-slate-900"
+                                    className="flex items-center gap-1.5 text-sm font-bold text-foreground"
                                   >
                                     <span aria-hidden className="text-xs">
                                       🎓
@@ -189,14 +189,14 @@ export function TutorsSection() {
                               <Award className="w-5 h-5" />
                             </div>
                             <div>
-                              <h4 className="text-[10px] font-extrabold uppercase tracking-widest text-slate-400">
+                              <h4 className="text-[10px] font-extrabold uppercase tracking-widest text-muted-foreground/70">
                                 Teaching Strategy & Specialism
                               </h4>
                               <div className="mt-2 space-y-2.5">
                                 {t.fullBio.map((para) => (
                                   <p
                                     key={para}
-                                    className="text-xs text-slate-600 leading-relaxed font-semibold"
+                                    className="text-xs text-muted-foreground leading-relaxed font-semibold"
                                   >
                                     {para}
                                   </p>
@@ -205,13 +205,13 @@ export function TutorsSection() {
                             </div>
                           </div>
 
-                          <div className="pt-3 flex items-center gap-1 text-[10px] font-bold text-slate-400 border-t border-slate-100">
+                          <div className="pt-3 flex items-center gap-1 text-[10px] font-bold text-muted-foreground/70 border-t border-border">
                             <Star className="w-3 h-3 fill-amber-400 text-amber-400" />
                             <Star className="w-3 h-3 fill-amber-400 text-amber-400" />
                             <Star className="w-3 h-3 fill-amber-400 text-amber-400" />
                             <Star className="w-3 h-3 fill-amber-400 text-amber-400" />
                             <Star className="w-3 h-3 fill-amber-400 text-amber-400" />
-                            <span className="ml-1 text-slate-500">
+                            <span className="ml-1 text-muted-foreground">
                               Syllabus-obsessed & Parent-approved
                             </span>
                           </div>
@@ -243,7 +243,7 @@ function TutorChatModal({ tutor, onClose }: { tutor: Tutor; onClose: () => void 
   const firstName = tutor.name.replace("Dr ", "");
   const sendToWhatsApp = () => {
     const text =
-      `Hi ${firstName}! I saw your profile on the Anglian Learning site.` +
+      `Hi ${firstName}! I saw your profile on the Anglia Educate site.` +
       (message.trim() ? `\n\n${message.trim()}` : "");
     const url = `https://wa.me/${WA_NUMBER}?text=${encodeURIComponent(text)}`;
     window.open(url, "_blank", "noopener,noreferrer");
@@ -256,7 +256,7 @@ function TutorChatModal({ tutor, onClose }: { tutor: Tutor; onClose: () => void 
       animate={{ opacity: 1 }}
       exit={{ opacity: 0 }}
       onClick={onClose}
-      className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-slate-900/60 backdrop-blur-sm"
+      className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-primary/60 backdrop-blur-sm"
     >
       <motion.div
         initial={{ opacity: 0, scale: 0.94, y: 16 }}
@@ -264,18 +264,18 @@ function TutorChatModal({ tutor, onClose }: { tutor: Tutor; onClose: () => void 
         exit={{ opacity: 0, scale: 0.96, y: 8 }}
         transition={{ type: "spring", stiffness: 300, damping: 28 }}
         onClick={(e) => e.stopPropagation()}
-        className="relative w-full max-w-3xl bg-white rounded-3xl overflow-hidden shadow-2xl flex flex-col sm:flex-row max-h-[90vh]"
+        className="premium-card relative w-full max-w-3xl rounded-3xl overflow-hidden flex flex-col sm:flex-row max-h-[90vh]"
       >
         <button
           onClick={onClose}
           aria-label="Close"
-          className="absolute top-4 right-4 z-10 p-2 rounded-full bg-white/80 backdrop-blur text-slate-500 hover:text-slate-900 hover:bg-white transition shadow-sm"
+          className="absolute top-4 right-4 z-10 p-2 rounded-full bg-white/80 backdrop-blur text-muted-foreground hover:text-foreground hover:bg-white transition shadow-sm"
         >
           <X className="w-5 h-5" />
         </button>
 
         {/* Full-resolution photo */}
-        <div className="sm:w-1/2 shrink-0 bg-slate-100 relative">
+        <div className="sm:w-1/2 shrink-0 bg-secondary relative">
           <div
             aria-hidden
             className={`absolute inset-0 bg-gradient-to-br ${tutor.color} opacity-60`}
@@ -291,7 +291,7 @@ function TutorChatModal({ tutor, onClose }: { tutor: Tutor; onClose: () => void 
         {/* Chat side */}
         <div className="sm:w-1/2 p-6 sm:p-8 flex flex-col overflow-y-auto">
           <div className="flex items-center gap-2">
-            <h3 className="font-display text-xl font-bold text-slate-900">{tutor.name}</h3>
+            <h3 className="font-display text-xl font-bold text-foreground">{tutor.name}</h3>
             <span
               className={`inline-flex items-center px-2 py-0.5 text-[10px] font-bold uppercase tracking-wider rounded-full border ${tutor.accent}`}
             >
@@ -305,7 +305,7 @@ function TutorChatModal({ tutor, onClose }: { tutor: Tutor; onClose: () => void 
             initial={{ opacity: 0, y: 8 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.15 }}
-            className="mt-5 self-start max-w-[90%] rounded-2xl rounded-tl-sm bg-slate-100 px-4 py-3 text-sm text-slate-700 font-medium leading-relaxed"
+            className="mt-5 self-start max-w-[90%] rounded-2xl rounded-tl-sm bg-secondary px-4 py-3 text-sm text-foreground font-medium leading-relaxed"
           >
             Hi! Nice to meet you 👋 I'm {firstName}. Do you have any questions about tutoring? Ask
             away and I'll get straight back to you on WhatsApp.
@@ -321,7 +321,7 @@ function TutorChatModal({ tutor, onClose }: { tutor: Tutor; onClose: () => void 
               autoFocus
               rows={4}
               placeholder={`Type your question for ${firstName}…`}
-              className="w-full resize-none rounded-2xl border border-slate-200 bg-slate-50 px-4 py-3 text-sm text-slate-800 placeholder:text-slate-400 focus:outline-none focus:ring-2 focus:ring-primary/30 focus:border-primary/30 transition"
+              className="w-full resize-none rounded-2xl border border-border bg-secondary px-4 py-3 text-sm text-foreground placeholder:text-muted-foreground/70 focus:outline-none focus:ring-2 focus:ring-primary/30 focus:border-primary/30 transition"
             />
 
             <button
@@ -331,7 +331,7 @@ function TutorChatModal({ tutor, onClose }: { tutor: Tutor; onClose: () => void 
               <Send className="w-4 h-4" />
               Send on WhatsApp
             </button>
-            <p className="mt-2.5 text-center text-[11px] text-slate-400 font-medium">
+            <p className="mt-2.5 text-center text-[11px] text-muted-foreground/70 font-medium">
               Opens WhatsApp with your message ready to send — no app? It works on web too.
             </p>
           </div>

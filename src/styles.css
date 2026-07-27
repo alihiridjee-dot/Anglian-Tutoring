@@ -39,7 +39,7 @@
   --color-sidebar-border: var(--sidebar-border);
 }
 
-/* Anglian Learning — Light theme only.
+/* Anglia Educate — Light theme only.
    See README.md for the RGB token map. */
 :root {
   --radius: 1.25rem; /* 20px Apple-style rounded corners */
@@ -270,10 +270,17 @@
   }
 }
 
-/* ── Sign-up / login / onboarding shell ─────────────────────────────────────
-   These screens sit outside the app chrome, so they carry their own backdrop:
-   two soft brand-coloured washes over the canvas, plus a faint grid that keeps
-   the empty space from reading as blank white. Purely decorative. */
+/* ── Premium surface vocabulary ─────────────────────────────────────────────
+   The look first built for sign-up/onboarding, generalised so the rest of the
+   site can reach for the same handful of classes instead of re-deriving a card
+   treatment per file. Everything below is plain CSS, so it sits outside
+   Tailwind's layers and wins against the `bg-card` / `border-border` utilities
+   it replaces — apply it instead of those, not alongside them. */
+
+/* Page backdrop: two soft brand-coloured washes over the canvas plus a faint
+   grid, so large empty areas don't read as blank white. Purely decorative.
+   `.auth-aurora` is the original name, kept so the auth screens keep working. */
+.page-aurora,
 .auth-aurora {
   position: relative;
   isolation: isolate;
@@ -291,6 +298,7 @@
     var(--background);
 }
 
+.page-aurora::before,
 .auth-aurora::before {
   content: "";
   position: absolute;
@@ -354,6 +362,128 @@
   box-shadow: none;
 }
 
+/* Quieter primary: brand fill, no gradient. For dense screens (tables, panels)
+   where a gradient on every button would be noise. */
+.btn-solid {
+  background: var(--primary);
+  color: var(--primary-foreground);
+  box-shadow: 0 6px 14px -8px color-mix(in oklab, var(--primary) 60%, transparent);
+  transition:
+    background 0.2s ease,
+    box-shadow 0.2s ease;
+}
+.btn-solid:hover:not(:disabled) {
+  background: color-mix(in oklab, var(--primary-deep) 65%, var(--primary));
+}
+.btn-solid:disabled {
+  opacity: 0.55;
+  box-shadow: none;
+}
+
+/* Secondary action: reads as a surface, not a filled control. */
+.btn-soft {
+  background: color-mix(in oklab, var(--primary) 7%, var(--card));
+  color: var(--primary-deep);
+  border: 1px solid color-mix(in oklab, var(--primary) 16%, transparent);
+  transition:
+    background 0.2s ease,
+    border-color 0.2s ease;
+}
+.btn-soft:hover:not(:disabled) {
+  background: color-mix(in oklab, var(--primary) 12%, var(--card));
+  border-color: color-mix(in oklab, var(--primary) 28%, transparent);
+}
+
+/* Nested panel inside a premium card — flat, tinted, no shadow, so cards don't
+   nest shadows into mush. */
+.surface-soft {
+  background: color-mix(in oklab, var(--primary) 4%, var(--card));
+  border: 1px solid color-mix(in oklab, var(--primary) 9%, var(--border));
+}
+
+/* Cards that are also links/buttons. Pair with .premium-card. */
+.premium-card-interactive {
+  transition:
+    transform 0.2s cubic-bezier(0.22, 1, 0.36, 1),
+    box-shadow 0.25s ease,
+    border-color 0.2s ease;
+}
+.premium-card-interactive:hover {
+  transform: translateY(-2px);
+  border-color: color-mix(in oklab, var(--primary) 26%, var(--border));
+  box-shadow:
+    0 1px 2px color-mix(in oklab, var(--foreground) 5%, transparent),
+    0 18px 32px -14px color-mix(in oklab, var(--primary) 26%, transparent),
+    0 52px 76px -34px color-mix(in oklab, var(--primary) 28%, transparent);
+}
+
+/* Sticky headers/navs that sit over scrolling content. */
+.glass-bar {
+  background: color-mix(in oklab, var(--background) 72%, transparent);
+  backdrop-filter: saturate(1.6) blur(14px);
+  -webkit-backdrop-filter: saturate(1.6) blur(14px);
+  border-bottom: 1px solid color-mix(in oklab, var(--primary) 10%, var(--border));
+}
+
+/* The small uppercase label above a section heading. */
+.eyebrow {
+  font-size: 0.6875rem;
+  font-weight: 700;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: color-mix(in oklab, var(--primary) 72%, var(--muted-foreground));
+}
+
+/* Pill badge, tinted to the brand. */
+.chip {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.375rem;
+  border-radius: 999px;
+  padding: 0.25rem 0.75rem;
+  font-size: 0.75rem;
+  font-weight: 600;
+  background: color-mix(in oklab, var(--primary) 9%, var(--card));
+  color: var(--primary-deep);
+  border: 1px solid color-mix(in oklab, var(--primary) 16%, transparent);
+}
+
+/* The small rounded square an icon sits in at the top of a feature card. */
+.icon-tile {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  background: linear-gradient(
+    135deg,
+    color-mix(in oklab, var(--primary) 12%, var(--card)),
+    color-mix(in oklab, var(--accent) 10%, var(--card))
+  );
+  border: 1px solid color-mix(in oklab, var(--primary) 15%, transparent);
+  color: var(--primary);
+}
+
+/* Text fields. Sunken until focused, then the surface lifts to card white and
+   the brand ring comes up — same feel as the OTP boxes. */
+.premium-input {
+  background: color-mix(in oklab, var(--primary) 4%, var(--card));
+  border: 1px solid color-mix(in oklab, var(--primary) 12%, var(--border));
+  color: var(--foreground);
+  transition:
+    background 0.2s ease,
+    border-color 0.2s ease,
+    box-shadow 0.2s ease;
+}
+.premium-input:focus,
+.premium-input:focus-visible {
+  outline: none;
+  background: var(--card);
+  border-color: color-mix(in oklab, var(--primary) 45%, transparent);
+  box-shadow: 0 0 0 3px color-mix(in oklab, var(--primary) 15%, transparent);
+}
+.premium-input::placeholder {
+  color: color-mix(in oklab, var(--muted-foreground) 75%, transparent);
+}
+
 .text-gradient {
   background: var(--gradient-hero);
   -webkit-background-clip: text;
@@ -381,6 +511,9 @@
     animation: none;
   }
   .btn-premium:hover:not(:disabled) {
+    transform: none;
+  }
+  .premium-card-interactive:hover {
     transform: none;
   }
 }

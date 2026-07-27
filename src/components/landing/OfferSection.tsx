@@ -41,13 +41,11 @@ const OFFERS = [
 
 export function OfferSection() {
   return (
-    <section id="offer" className="py-20 lg:py-24 bg-slate-50/50 border-t border-slate-100">
+    <section id="offer" className="py-20 lg:py-24 bg-secondary/50 border-t border-border">
       <div className="max-w-7xl mx-auto px-6">
         <div className="text-center max-w-2xl mx-auto mb-16">
-          <span className="text-xs uppercase tracking-widest text-slate-500 font-bold">
-            OUR COMPREHENSIVE PLATFORM
-          </span>
-          <h2 className="mt-3 font-display text-3xl sm:text-4xl font-bold tracking-tight text-slate-900">
+          <span className="eyebrow">Our comprehensive platform</span>
+          <h2 className="mt-3 font-display text-3xl sm:text-4xl font-bold tracking-tight text-foreground">
             Everything you need to get top grades
           </h2>
         </div>
@@ -58,13 +56,13 @@ export function OfferSection() {
             return (
               <div
                 key={o.id}
-                className="rounded-2xl bg-white border border-slate-100 p-6 hover:border-slate-300 transition shadow-sm duration-300"
+                className="premium-card premium-card-interactive rounded-2xl p-6"
               >
-                <div className="w-12 h-12 rounded-xl bg-slate-50 border border-slate-100 flex items-center justify-center mb-5">
-                  <Icon className="w-5.5 h-5.5 text-slate-800" />
+                <div className="icon-tile w-12 h-12 rounded-xl mb-5">
+                  <Icon className="w-5.5 h-5.5" />
                 </div>
-                <h3 className="font-display text-lg font-bold text-slate-900">{o.title}</h3>
-                <p className="mt-2.5 text-sm text-slate-500 leading-relaxed">{o.desc}</p>
+                <h3 className="font-display text-lg font-bold text-foreground">{o.title}</h3>
+                <p className="mt-2.5 text-sm text-muted-foreground leading-relaxed">{o.desc}</p>
               </div>
             );
           })}

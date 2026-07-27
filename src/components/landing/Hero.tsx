@@ -102,8 +102,8 @@ function GradCapRibbons({ runId }: { runId: number }) {
       >
         <defs>
           <radialGradient id="glint" cx="50%" cy="50%" r="50%">
-            <stop offset="0%" stopColor="#7cc0ff" stopOpacity="0.9" />
-            <stop offset="100%" stopColor="#2D8CFF" stopOpacity="0" />
+            <stop offset="0%" stopColor="var(--accent)" stopOpacity="0.9" />
+            <stop offset="100%" stopColor="var(--primary)" stopOpacity="0" />
           </radialGradient>
         </defs>
         {GLITTER.map((g, i) => (
@@ -143,11 +143,11 @@ function GradCapRibbons({ runId }: { runId: number }) {
             y2="0"
             gradientUnits="userSpaceOnUse"
           >
-            <stop offset="0%" stopColor="#2D8CFF" stopOpacity="0" />
-            <stop offset="25%" stopColor="#4aa3ff" stopOpacity="0.9" />
-            <stop offset="50%" stopColor="#7cc0ff" stopOpacity="1" />
-            <stop offset="75%" stopColor="#4aa3ff" stopOpacity="0.9" />
-            <stop offset="100%" stopColor="#2D8CFF" stopOpacity="0" />
+            <stop offset="0%" stopColor="var(--primary)" stopOpacity="0" />
+            <stop offset="25%" stopColor="var(--primary)" stopOpacity="0.9" />
+            <stop offset="50%" stopColor="var(--accent)" stopOpacity="1" />
+            <stop offset="75%" stopColor="var(--primary)" stopOpacity="0.9" />
+            <stop offset="100%" stopColor="var(--primary)" stopOpacity="0" />
           </linearGradient>
           <radialGradient id="fadeCentre" cx="50%" cy="45%" r="55%">
             <stop offset="0%" stopColor="white" stopOpacity="0" />
@@ -190,7 +190,7 @@ function GradCapRibbons({ runId }: { runId: number }) {
             cx="0"
             cy="-10"
             r="6"
-            fill="#7cc0ff"
+            fill="var(--accent)"
             stroke="none"
             opacity="0.9"
             className="glitter-dot"
@@ -201,7 +201,7 @@ function GradCapRibbons({ runId }: { runId: number }) {
             cx="130"
             cy="96"
             r="8"
-            fill="#4aa3ff"
+            fill="var(--primary)"
             stroke="none"
             opacity="0.85"
             className="glitter-dot"
@@ -239,12 +239,14 @@ export function Hero() {
     <section
       id="top"
       ref={sectionRef}
-      className="relative overflow-hidden py-20 lg:py-32 bg-gradient-to-b from-white to-slate-50/60"
+      className="page-aurora relative overflow-hidden py-20 lg:py-32"
     >
       {/* Background with faded science images reflecting the specialities */}
       <div className="absolute inset-0 -z-10 overflow-hidden">
-        {/* Radial gradient overlay for smooth edges and text contrast */}
-        <div className="absolute inset-0 bg-[radial-gradient(45rem_50rem_at_top,theme(colors.slate.100),white)] opacity-90 z-10" />
+        {/* Radial wash for smooth edges and text contrast. Mostly opaque canvas
+            — the photo layer below is atmosphere, not subject matter, and the
+            headline has to stay crisp over it. */}
+        <div className="absolute inset-0 z-10 bg-[radial-gradient(45rem_50rem_at_top,color-mix(in_oklab,var(--primary)_8%,var(--background)),var(--background))] opacity-90" />
 
         {/* Subtle, beautiful faded background images reflecting lab / physics / astronomy */}
         <div className="absolute inset-0 opacity-[0.09] z-0">
@@ -270,15 +272,16 @@ export function Hero() {
       <GradCapRibbons runId={runId} />
 
       <div className="max-w-4xl mx-auto px-6 text-center relative z-20">
-        <span className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full text-xs font-semibold bg-slate-100/90 text-slate-800 border border-slate-200 backdrop-blur-xs">
-          <Sparkles className="w-3.5 h-3.5 text-[#2D8CFF]" /> Modern Science Platform for KS3 & GCSE
+        <span className="chip backdrop-blur-xs">
+          <Sparkles className="w-3.5 h-3.5 text-accent" /> Modern Science Platform for KS3 & GCSE
         </span>
 
-        <h1 className="mt-8 font-display text-4xl sm:text-5xl lg:text-6xl font-bold tracking-tight text-slate-900 leading-[1.15] max-w-3xl mx-auto">
-          Better grades in science, taught by teachers who care.
+        <h1 className="mt-8 font-display text-4xl sm:text-5xl lg:text-6xl font-bold tracking-tight text-foreground leading-[1.15] max-w-3xl mx-auto">
+          Better grades in <span className="text-gradient">science</span>, taught by teachers who
+          care.
         </h1>
 
-        <p className="mt-6 text-lg text-slate-600 leading-relaxed max-w-2xl mx-auto">
+        <p className="mt-6 text-lg text-muted-foreground leading-relaxed max-w-2xl mx-auto">
           Weekly live lessons in Biology, Chemistry, and Physics, aligned to Edexcel, AQA, and OCR.
           Interactive quizzes, marked homework, and a grade predictor that actually reflects your
           progress.
@@ -288,33 +291,34 @@ export function Hero() {
           <Link
             to="/auth"
             search={{ mode: "signup" } as never}
-            className="inline-flex items-center gap-2 px-7 py-3.5 rounded-xl bg-slate-900 text-white font-semibold shadow-md hover:bg-slate-800 transition cursor-pointer"
+            className="btn-premium group inline-flex items-center gap-2 px-7 py-3.5 rounded-xl font-semibold cursor-pointer"
           >
-            Get started <ArrowRight className="w-4 h-4" />
+            Get started{" "}
+            <ArrowRight className="w-4 h-4 transition-transform group-hover:translate-x-0.5" />
           </Link>
           <Link
             to="/demo"
-            className="inline-flex items-center gap-2 px-7 py-3.5 rounded-xl border border-primary/20 bg-primary/5 font-semibold text-primary hover:bg-primary/10 shadow-sm transition cursor-pointer"
+            className="btn-soft inline-flex items-center gap-2 px-7 py-3.5 rounded-xl font-semibold cursor-pointer"
           >
-            <Sparkles className="w-4 h-4 text-[#2D8CFF]" />
+            <Sparkles className="w-4 h-4 text-accent" />
             Try Demo Platform
           </Link>
         </div>
 
         {/* Social proof + trust ticks. */}
-        <div className="mt-10 flex flex-wrap justify-center items-center gap-x-6 gap-y-3 text-sm text-slate-600">
+        <div className="mt-10 flex flex-wrap justify-center items-center gap-x-6 gap-y-3 text-sm text-muted-foreground">
           <div className="inline-flex items-center gap-2 rounded-full border border-[#005EB8]/20 bg-[#005EB8]/5 px-3.5 py-1.5 font-semibold text-[#005EB8]">
             <Stethoscope className="w-4 h-4 shrink-0" /> Taught by practising NHS doctors
           </div>
           <div className="flex items-center gap-2">
-            <Check className="w-4 h-4 text-emerald-500 shrink-0" /> Loved by hundreds of students
+            <Check className="w-4 h-4 text-accent shrink-0" /> Loved by hundreds of students
           </div>
           <div className="flex items-center gap-2">
-            <Check className="w-4 h-4 text-emerald-500 shrink-0" /> Led by experienced qualified
+            <Check className="w-4 h-4 text-accent shrink-0" /> Led by experienced qualified
             tutors
           </div>
           <div className="flex items-center gap-2">
-            <Check className="w-4 h-4 text-emerald-500 shrink-0" /> 15+ years combined teaching
+            <Check className="w-4 h-4 text-accent shrink-0" /> 15+ years combined teaching
             experience
           </div>
         </div>

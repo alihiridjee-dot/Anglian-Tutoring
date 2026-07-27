@@ -32,7 +32,7 @@ export const Route = createFileRoute("/_authenticated/parent-dashboard")({
       throw redirect({ to: "/dashboard" });
     }
   },
-  head: () => ({ meta: [{ title: "Parent Portal | Anglian Learning" }] }),
+  head: () => ({ meta: [{ title: "Parent Portal | Anglia Educate" }] }),
   component: ParentDashboard,
 });
 
@@ -190,7 +190,7 @@ export function ParentDashboard() {
       </div>
 
       {!hasChild && !childrenLoading ? (
-        <div className="rounded-2xl bg-card border border-border p-8 text-center">
+        <div className="rounded-2xl premium-card p-8 text-center">
           <Users className="w-8 h-8 text-muted-foreground mx-auto mb-3" />
           <p className="font-display font-semibold mb-1">No linked children yet</p>
           <p className="text-sm text-muted-foreground max-w-md mx-auto">

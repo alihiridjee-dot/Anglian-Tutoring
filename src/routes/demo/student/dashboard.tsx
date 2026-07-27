@@ -5,6 +5,6 @@ import { StudentDashboard } from "@/routes/_authenticated/student-dashboard";
 // isDemoMode() keys off the /demo/* pathname, so every query inside short-circuits
 // to fixtures and no session is ever needed.
 export const Route = createFileRoute("/demo/student/dashboard")({
-  head: () => ({ meta: [{ title: "Student Demo | Anglian Learning" }] }),
+  head: () => ({ meta: [{ title: "Student Demo | Anglia Educate" }] }),
   component: StudentDashboard,
 });

@@ -165,7 +165,7 @@ export function RoadmapPanel({
   const doneCount = spine.filter((b) => covered.has(b.topicId)).length;
 
   return (
-    <div className="rounded-2xl bg-card border border-border p-4 sm:p-5 shadow-sm mt-6">
+    <div className="rounded-2xl premium-card p-4 sm:p-5 shadow-sm mt-6">
       <div className="flex flex-wrap items-center justify-between gap-3 mb-4">
         <div className="flex items-center gap-2.5">
           <div className="w-9 h-9 rounded-xl bg-indigo-500/10 text-indigo-600 dark:text-indigo-400 flex items-center justify-center shrink-0">

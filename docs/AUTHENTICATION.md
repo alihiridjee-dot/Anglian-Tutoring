@@ -19,7 +19,7 @@ from **Demo Mode**, and how protected routes are guarded.
 |                                          | Authenticated Live User     | Demo Mode                                                              |
 | ---------------------------------------- | --------------------------- | ---------------------------------------------------------------------- |
 | Session                                  | Real Supabase session       | Real Supabase session (dedicated demo account)                         |
-| Account                                  | The user's own account      | `demo.student@angliantutoring.app` / `demo.parent@angliantutoring.app` |
+| Account                                  | The user's own account      | `demo.student@angliaeducate.app` / `demo.parent@angliaeducate.app` |
 | How you enter                            | `/auth` sign in / sign up   | `/demo` → "Explore …" (calls `enterDemoMode`)                          |
 | Curriculum (topics, spec points, videos) | Full, for enrolled subjects | Full (all subjects)                                                    |
 | MCQs                                     | All published               | Exactly one pinned set (`mcq_sets.demo_visible`)                       |

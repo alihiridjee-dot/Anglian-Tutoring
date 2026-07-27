@@ -263,7 +263,7 @@ export function TutorTake({
               {existingNext.map((p) => (
                 <span
                   key={p.id}
-                  className="inline-flex items-center gap-1 h-6 px-2 rounded-md bg-card border border-border text-[11px]"
+                  className="inline-flex items-center gap-1 h-6 px-2 rounded-md premium-card text-[11px]"
                 >
                   <span className="font-semibold text-muted-foreground">{p.code}</span>
                   <span className="truncate max-w-[10rem]">{p.title}</span>
@@ -294,7 +294,7 @@ export function TutorTake({
 
         {/* The student's own check-in, quoted, so the tutor can reply to it */}
         {hasCheckin && (
-          <div className="mb-3 rounded-xl border border-border bg-card p-3">
+          <div className="mb-3 rounded-xl premium-card p-3">
             <p className="text-[11px] font-semibold text-muted-foreground mb-1">
               The student said
             </p>
@@ -314,7 +314,7 @@ export function TutorTake({
         {/* Dual mode: reply to the student's check-in, or write independently */}
         {hasCheckin && (
           <div className="mb-3">
-            <div className="inline-flex rounded-lg border border-border bg-card p-0.5">
+            <div className="inline-flex rounded-lg premium-card p-0.5">
               {(["reply", "general"] as const).map((m) => (
                 <button
                   key={m}
@@ -362,7 +362,7 @@ export function TutorTake({
           onChange={(e) => setNote(e.target.value)}
           rows={4}
           placeholder="e.g. Really strong on limiting factors — 100% on the quiz. Xylem vs phloem is still shaky, so let's give transport another week before moving on."
-          className="w-full rounded-lg bg-card border border-border px-3 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-primary/40 resize-none"
+          className="w-full rounded-lg premium-input px-3 py-2 text-sm resize-none"
         />
 
         <div className="mt-3">
@@ -383,7 +383,7 @@ export function TutorTake({
       </div>
 
       {/* ── Section 2 · Assign spec points to an upcoming week ─────────────── */}
-      <div className="rounded-2xl border border-border bg-card p-4 sm:p-5">
+      <div className="rounded-2xl premium-card p-4 sm:p-5">
         <div className="flex items-center gap-2 mb-1">
           <CalendarRange className="w-4 h-4 text-muted-foreground" />
           <h3 className="text-sm font-semibold">Assign to {nextLabel}</h3>

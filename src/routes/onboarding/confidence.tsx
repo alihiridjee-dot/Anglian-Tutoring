@@ -18,7 +18,7 @@ import { type SubjectV, type BoardV } from "@/lib/taxonomy";
  * has a level, board and subjects, so the curriculum tree is available.
  */
 export const Route = createFileRoute("/onboarding/confidence")({
-  head: () => ({ meta: [{ title: "Your topics | Anglian Learning" }] }),
+  head: () => ({ meta: [{ title: "Your topics | Anglia Educate" }] }),
   component: ConfidenceStep,
 });
 

@@ -40,7 +40,7 @@ const labelFor = (list: readonly { value: string; label: string }[], value: stri
  *   • ask a parent — emails an invite. The parent signs up, links, and pays.
  */
 export const Route = createFileRoute("/onboarding/plan")({
-  head: () => ({ meta: [{ title: "Choose a plan | Anglian Learning" }] }),
+  head: () => ({ meta: [{ title: "Choose a plan | Anglia Educate" }] }),
   validateSearch: (search: Record<string, unknown>): SearchParams => ({
     checkout:
       search.checkout === "success" || search.checkout === "cancelled"
@@ -119,7 +119,7 @@ function PlanStep() {
       const { data } = await supabase.rpc("my_access_state").single();
       if (cancelled) return;
       if (data?.has_access) {
-        toast.success("You're all set — welcome to Anglian Learning.");
+        toast.success("You're all set — welcome to Anglia Educate.");
         navigate({ to: "/dashboard" });
         return;
       }

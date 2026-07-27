@@ -15,7 +15,7 @@ import { CreditCard } from "lucide-react";
 import { toast } from "sonner";
 
 export const Route = createFileRoute("/_authenticated/billing")({
-  head: () => ({ meta: [{ title: "Billing | Anglian Learning" }] }),
+  head: () => ({ meta: [{ title: "Billing | Anglia Educate" }] }),
   component: BillingPage,
 });
 
@@ -25,7 +25,7 @@ function StripeFooter() {
     <div className="mt-8 rounded-2xl bg-primary/5 border border-primary/20 p-6 text-sm">
       <p className="text-muted-foreground">
         Payments are handled by Stripe. Your card details go straight to them and are never seen or
-        stored by Anglian Learning.
+        stored by Anglia Educate.
       </p>
       <Link
         to="/dashboard"

@@ -256,7 +256,7 @@ export function MarkingQueue() {
       <FilterBar value={filters} onChange={setFilters} />
 
       {shown.length > 0 && (
-        <div className="flex flex-wrap items-center gap-3 rounded-xl border border-border bg-card px-4 py-3">
+        <div className="flex flex-wrap items-center gap-3 rounded-xl premium-card px-4 py-3">
           <label className="inline-flex items-center gap-2 text-sm cursor-pointer select-none">
             <input
               type="checkbox"
@@ -550,7 +550,7 @@ function MarkSubmissionCard({
                 value={grade}
                 onChange={(e) => setGrade(e.target.value)}
                 placeholder="e.g. A, 7, 18/20"
-                className="mt-1 w-full h-10 rounded-lg bg-card border border-border px-3 text-sm focus:outline-none focus:ring-2 focus:ring-primary/40"
+                className="mt-1 w-full h-10 rounded-lg premium-input px-3 text-sm"
               />
             </label>
             <label className="block">
@@ -564,7 +564,7 @@ function MarkSubmissionCard({
                 value={scorePct}
                 onChange={(e) => setScorePct(e.target.value)}
                 placeholder="0–100"
-                className="mt-1 w-full h-10 rounded-lg bg-card border border-border px-3 text-sm focus:outline-none focus:ring-2 focus:ring-primary/40"
+                className="mt-1 w-full h-10 rounded-lg premium-input px-3 text-sm"
               />
             </label>
           </div>
@@ -577,7 +577,7 @@ function MarkSubmissionCard({
               value={feedback}
               onChange={(e) => setFeedback(e.target.value)}
               placeholder="Feedback the student will see on their dashboard…"
-              className="mt-1 w-full min-h-28 rounded-lg bg-card border border-border px-3 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-primary/40"
+              className="mt-1 w-full min-h-28 rounded-lg premium-input px-3 py-2 text-sm"
             />
           </label>
 

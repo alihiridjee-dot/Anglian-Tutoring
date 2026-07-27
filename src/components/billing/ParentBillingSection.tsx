@@ -91,11 +91,11 @@ export function ParentBillingSection({ parentId }: { parentId: string }) {
     <div>
       <div className="flex items-center gap-3 mb-5">
         <CreditCard className="w-5 h-5 text-primary" />
-        <h2 className="font-display text-xl font-semibold text-slate-900">Billing &amp; plans</h2>
+        <h2 className="font-display text-xl font-semibold text-foreground">Billing &amp; plans</h2>
       </div>
 
       {children.length === 0 ? (
-        <div className="rounded-2xl bg-card border border-border p-6 text-sm text-muted-foreground">
+        <div className="rounded-2xl premium-card p-6 text-sm text-muted-foreground">
           Link to your child from their Settings page to pay for and manage their plan here.
         </div>
       ) : (

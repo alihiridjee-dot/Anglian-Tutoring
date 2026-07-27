@@ -45,7 +45,7 @@ export function FilterBar({ value, onChange }: { value: Filters; onChange: (f: F
   );
 
   return (
-    <div className="rounded-2xl bg-card border border-border p-5 mb-6 space-y-4">
+    <div className="rounded-2xl premium-card p-5 mb-6 space-y-4">
       <Group
         label="Subject"
         options={SUBJECTS}

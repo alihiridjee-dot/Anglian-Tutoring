@@ -42,7 +42,7 @@ import {
 
 export const Route = createFileRoute("/_authenticated/curriculum")({
   beforeLoad: guardStudentSection,
-  head: () => ({ meta: [{ title: "Curriculum | Anglian Learning" }] }),
+  head: () => ({ meta: [{ title: "Curriculum | Anglia Educate" }] }),
   component: Curriculum,
 });
 
@@ -112,7 +112,7 @@ export function Curriculum() {
             <ChevronLeft className="w-4 h-4" /> Back to Curriculum
           </button>
 
-          <div className="rounded-2xl border border-border bg-card p-6 relative overflow-hidden shadow-xs">
+          <div className="rounded-2xl premium-card p-6 relative overflow-hidden shadow-xs">
             <div className="absolute top-0 left-0 right-0 h-1.5 bg-gradient-to-r from-primary to-accent" />
 
             <div className="flex flex-wrap items-center gap-2 mb-3">
@@ -155,7 +155,7 @@ export function Curriculum() {
         level, exam board, and subject to begin.
       </p>
 
-      <div className="rounded-2xl bg-card border border-border p-5 mb-6">
+      <div className="rounded-2xl premium-card p-5 mb-6">
         {isTutor ? (
           <div className="grid grid-cols-3 gap-3">
             <Filter
@@ -484,7 +484,7 @@ function TopicCard({
   };
 
   return (
-    <div className="rounded-2xl bg-card border border-border overflow-hidden">
+    <div className="rounded-2xl premium-card overflow-hidden">
       <div className="flex items-center hover:bg-secondary/40">
         <button
           onClick={onToggle}
@@ -804,7 +804,7 @@ function SpecPointDetail({
                 onClick={() =>
                   embed && setActiveVideo({ embed, title: r.title, description: r.description })
                 }
-                className="group text-left rounded-xl bg-card border border-border overflow-hidden hover:border-primary/40 transition w-full disabled:opacity-60 disabled:cursor-default"
+                className="group text-left rounded-xl premium-card overflow-hidden hover:border-primary/40 transition w-full disabled:opacity-60 disabled:cursor-default"
               >
                 <VideoThumbnail embed={embed} />
                 <div className="p-3">
@@ -928,7 +928,7 @@ function CollapsibleSection({
   const [isOpen, setIsOpen] = useState(defaultOpen);
 
   return (
-    <div className="rounded-2xl bg-card border border-border overflow-hidden transition-all duration-200">
+    <div className="rounded-2xl premium-card overflow-hidden transition-all duration-200">
       <button
         onClick={() => setIsOpen(!isOpen)}
         className="w-full flex items-center justify-between p-4 text-left hover:bg-secondary/40 transition-colors"

@@ -1,6 +1,6 @@
 # Application Architecture
 
-This document tracks the file tree, state management paradigm, core API/backend structures, and key architectural flows for Anglian Tutoring.
+This document tracks the file tree, state management paradigm, core API/backend structures, and key architectural flows for Anglia Educate.
 
 For authentication & the live/demo session model, see [docs/AUTHENTICATION.md](docs/AUTHENTICATION.md).
 

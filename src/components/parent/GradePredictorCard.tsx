@@ -9,10 +9,10 @@ import { SUBJECT_BADGE, subjectLabel } from "@/components/parent/subjectTheme";
  */
 export function GradePredictorCard({ analytics }: { analytics: SubjectAnalytics[] }) {
   return (
-    <div className="bg-card border border-border rounded-2xl p-6">
+    <div className="premium-card rounded-2xl p-6">
       <div className="flex items-center justify-between mb-6">
         <div>
-          <h3 className="font-display text-lg font-bold text-slate-900">
+          <h3 className="font-display text-lg font-bold text-foreground">
             GCSE Science Grade Predictor
           </h3>
           <p className="text-xs text-muted-foreground mt-0.5">
@@ -33,12 +33,12 @@ export function GradePredictorCard({ analytics }: { analytics: SubjectAnalytics[
         <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
           {analytics.map((row) => {
             const colors =
-              SUBJECT_BADGE[row.subject] ?? "text-slate-600 bg-slate-50 border-slate-100";
+              SUBJECT_BADGE[row.subject] ?? "text-muted-foreground bg-secondary border-border";
             const hasData = row.mcqAttempts + row.hwGraded > 0;
             return (
               <div
                 key={row.subject}
-                className="border border-border/60 rounded-xl p-5 hover:border-primary/20 transition bg-linear-to-b from-white to-slate-50/50"
+                className="border border-border/60 rounded-xl p-5 hover:border-primary/20 transition bg-linear-to-b from-card to-secondary/50"
               >
                 <div className="flex items-center justify-between mb-4">
                   <span
@@ -51,7 +51,7 @@ export function GradePredictorCard({ analytics }: { analytics: SubjectAnalytics[
                 {hasData ? (
                   <>
                     <div className="flex items-baseline gap-2 mb-2">
-                      <span className="text-4xl font-display font-extrabold text-slate-900">
+                      <span className="text-4xl font-display font-extrabold text-foreground">
                         Grade {row.predictedGrade}
                       </span>
                     </div>
@@ -59,16 +59,16 @@ export function GradePredictorCard({ analytics }: { analytics: SubjectAnalytics[
                       Based on {row.mcqAttempts} quiz attempt{row.mcqAttempts === 1 ? "" : "s"} and{" "}
                       {row.hwGraded} marked homework{row.hwGraded === 1 ? "" : "s"}.
                     </p>
-                    <div className="space-y-2 text-xs border-t border-slate-100 pt-3">
+                    <div className="space-y-2 text-xs border-t border-border pt-3">
                       <div className="flex justify-between">
                         <span className="text-muted-foreground">Quiz Average:</span>
-                        <span className="font-semibold text-slate-800">
+                        <span className="font-semibold text-foreground">
                           {row.mcqAttempts > 0 ? `${row.mcqAverage}%` : "—"}
                         </span>
                       </div>
                       <div className="flex justify-between">
                         <span className="text-muted-foreground">Homework Average:</span>
-                        <span className="font-semibold text-slate-800">
+                        <span className="font-semibold text-foreground">
                           {row.hwGraded > 0 ? `${row.hwAverage}%` : "—"}
                         </span>
                       </div>

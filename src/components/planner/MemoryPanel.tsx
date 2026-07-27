@@ -79,12 +79,12 @@ export function MemoryPanel({
         { key: "dueNow", label: "Due now", count: stats.dueNow, cls: "bg-rose-500" },
         { key: "dueWeek", label: "Due this week", count: stats.dueThisWeek, cls: "bg-amber-400" },
         { key: "stable", label: "Holding", count: stats.stable, cls: "bg-emerald-500" },
-        { key: "new", label: "Not started", count: stats.newCount, cls: "bg-slate-300" },
+        { key: "new", label: "Not started", count: stats.newCount, cls: "bg-border" },
       ] as const)
     : [];
 
   return (
-    <div className="rounded-2xl bg-card border border-border p-4 sm:p-5 shadow-sm mb-6">
+    <div className="rounded-2xl premium-card p-4 sm:p-5 shadow-sm mb-6">
       <div className="flex flex-wrap items-center justify-between gap-3 mb-4">
         <div className="flex items-center gap-2.5">
           <div className="w-8 h-8 rounded-lg bg-violet-100 text-violet-700 flex items-center justify-center shrink-0">

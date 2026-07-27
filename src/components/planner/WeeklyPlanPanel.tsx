@@ -243,7 +243,7 @@ export function WeeklyPlanPanel({
   if (!active) return null;
 
   return (
-    <div className="rounded-2xl bg-card border border-border p-4 sm:p-5 shadow-sm mb-6">
+    <div className="rounded-2xl premium-card p-4 sm:p-5 shadow-sm mb-6">
       <div className="flex flex-wrap items-center justify-between gap-3 mb-4">
         <div className="flex items-center gap-2.5">
           <div className="w-9 h-9 rounded-xl bg-primary/10 text-primary flex items-center justify-center shrink-0">
@@ -410,7 +410,7 @@ export function WeeklyPlanPanel({
                           <button
                             type="button"
                             onClick={() => focusAgain(p)}
-                            className="inline-flex items-center gap-1 h-6 px-2 rounded-md bg-card border border-border text-[11px] font-medium text-muted-foreground hover:text-primary hover:border-primary/40"
+                            className="inline-flex items-center gap-1 h-6 px-2 rounded-md premium-card text-[11px] font-medium text-muted-foreground hover:text-primary hover:border-primary/40"
                             title="Focus on this again this week"
                           >
                             <RotateCcw className="w-3 h-3" /> Focus again
@@ -546,7 +546,7 @@ function WeaknessInput({
         onChange={(e) => onChange(e.target.value)}
         rows={2}
         placeholder="e.g. I don't really get respiration, and enzymes confuse me"
-        className="mt-1.5 w-full rounded-lg bg-card border border-border px-3 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-primary/40 resize-none"
+        className="mt-1.5 w-full rounded-lg premium-input px-3 py-2 text-sm resize-none"
       />
       <div className="mt-2 flex justify-end">
         <button

@@ -11,7 +11,7 @@ import { TutorPlannerPanel } from "@/components/planner/TutorPlannerPanel";
 
 export const Route = createFileRoute("/_authenticated/planner")({
   beforeLoad: guardStudentSection,
-  head: () => ({ meta: [{ title: "My Planner | Anglian Learning" }] }),
+  head: () => ({ meta: [{ title: "My Planner | Anglia Educate" }] }),
   component: PlannerPage,
 });
 
@@ -47,7 +47,7 @@ function PlannerPage() {
       </div>
 
       {rolesLoading ? (
-        <div className="rounded-2xl bg-card border border-border p-16 text-center shadow-sm">
+        <div className="rounded-2xl premium-card p-16 text-center shadow-sm">
           <Loader2 className="w-6 h-6 animate-spin mx-auto text-muted-foreground" />
         </div>
       ) : isTutor ? (
@@ -69,14 +69,14 @@ function StudentPlannerGate() {
 
   if (loading || !studentId) {
     return (
-      <div className="rounded-2xl bg-card border border-border p-16 text-center shadow-sm">
+      <div className="rounded-2xl premium-card p-16 text-center shadow-sm">
         <Loader2 className="w-6 h-6 animate-spin mx-auto text-muted-foreground" />
       </div>
     );
   }
   if (!level) {
     return (
-      <div className="rounded-2xl bg-card border border-border p-5 shadow-sm">
+      <div className="rounded-2xl premium-card p-5 shadow-sm">
         <p className="text-sm text-muted-foreground">
           Set your exam level in your profile to start planning.
         </p>
