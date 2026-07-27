@@ -1,3 +1,4 @@
+import { Link } from "@tanstack/react-router";
 import { GraduationCap } from "lucide-react";
 
 export function Footer() {
@@ -10,6 +11,19 @@ export function Footer() {
           </div>
           <span className="font-display font-bold tracking-tight">Anglian Learning</span>
         </div>
+        {/* The nav bar's section links are desktop-only, so the footer carries
+            the standalone pages for mobile visitors. */}
+        <nav className="flex items-center gap-6 text-sm font-medium">
+          <Link to="/how-it-works" className="hover:text-white transition">
+            How it works
+          </Link>
+          <Link to="/" hash="pricing" className="hover:text-white transition">
+            Pricing
+          </Link>
+          <Link to="/" hash="contact" className="hover:text-white transition">
+            Contact
+          </Link>
+        </nav>
         <p className="text-xs text-slate-500">
           © {new Date().getFullYear()} Anglian Learning. All rights reserved. Registered UK learning
           provider.

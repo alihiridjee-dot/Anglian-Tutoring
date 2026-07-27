@@ -5,27 +5,36 @@ export function Nav() {
   return (
     <header className="sticky top-0 z-40 bg-white/95 backdrop-blur-md border-b border-slate-100 shadow-sm">
       <div className="max-w-7xl mx-auto px-6 h-16 flex items-center justify-between">
-        <a href="#top" className="flex items-center gap-2.5">
+        <Link to="/" hash="top" className="flex items-center gap-2.5">
           <div className="w-10 h-10 rounded-xl bg-gradient-to-tr from-slate-900 to-slate-800 flex items-center justify-center shadow-sm">
             <GraduationCap className="w-5.5 h-5.5 text-white" />
           </div>
           <span className="font-display font-bold text-lg tracking-tight text-slate-900">
             Anglian Learning
           </span>
-        </a>
-        <nav className="hidden md:flex items-center gap-8 text-sm font-medium text-slate-500">
-          <a href="#tutors" className="hover:text-slate-900 transition">
+        </Link>
+        {/* Section links route back to the landing page by path + hash, so they
+            work from standalone pages (e.g. /how-it-works) as well as from "/". */}
+        <nav className="hidden md:flex items-center gap-7 text-sm font-medium text-slate-500">
+          <Link to="/" hash="tutors" className="hover:text-slate-900 transition">
             Our Tutors
-          </a>
-          <a href="#offer" className="hover:text-slate-900 transition">
+          </Link>
+          <Link
+            to="/how-it-works"
+            className="hover:text-slate-900 transition"
+            activeProps={{ className: "text-slate-900" }}
+          >
+            How it works
+          </Link>
+          <Link to="/" hash="offer" className="hover:text-slate-900 transition">
             What we offer
-          </a>
-          <a href="#pricing" className="hover:text-slate-900 transition">
+          </Link>
+          <Link to="/" hash="pricing" className="hover:text-slate-900 transition">
             Pricing
-          </a>
-          <a href="#contact" className="hover:text-slate-900 transition">
+          </Link>
+          <Link to="/" hash="contact" className="hover:text-slate-900 transition">
             Contact
-          </a>
+          </Link>
         </nav>
         <div className="flex items-center gap-2.5">
           <Link
