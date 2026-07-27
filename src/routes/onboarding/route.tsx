@@ -1,5 +1,6 @@
 import { createFileRoute, Outlet, redirect, useRouterState } from "@tanstack/react-router";
-import { GraduationCap, Check } from "lucide-react";
+import { Check } from "lucide-react";
+import { BrandMark } from "@/components/auth/AuthShell";
 import { getAuthSession } from "@/lib/auth/session";
 import { supabase } from "@/integrations/supabase/client";
 import { ONBOARDING_STEPS, stepIndex } from "@/lib/onboarding";
@@ -49,51 +50,58 @@ function OnboardingLayout() {
   const pathname = useRouterState({ select: (s) => s.location.pathname });
   const current = stepIndex(pathname);
 
+  const total = ONBOARDING_STEPS.length;
+  const pct = Math.round(((current + 1) / total) * 100);
+
   return (
-    <div className="min-h-screen bg-muted/40 px-4 py-10">
+    <div className="auth-aurora min-h-screen px-4 py-8 sm:py-12">
       <div className="w-full max-w-2xl mx-auto">
-        <div className="flex items-center justify-center gap-2 mb-8">
-          <div className="w-11 h-11 rounded-xl bg-primary flex items-center justify-center">
-            <GraduationCap className="w-5 h-5 text-primary-foreground" />
-          </div>
-          <span className="font-display text-xl font-semibold tracking-tight">
-            Anglian Learning
+        <div className="flex items-center justify-between mb-8">
+          <BrandMark />
+          <span className="text-xs font-semibold text-muted-foreground tabular-nums">
+            Step {Math.min(current + 1, total)} of {total}
           </span>
         </div>
 
-        <ol className="flex items-center gap-2 mb-8">
-          {ONBOARDING_STEPS.map((step, i) => {
-            const done = i < current;
-            const active = i === current;
-            return (
-              <li key={step.path} className="flex-1">
-                <div
-                  className={`h-1.5 rounded-full transition-colors ${
-                    done || active ? "bg-primary" : "bg-border"
-                  }`}
-                />
-                <div className="mt-2 flex items-center gap-1.5">
+        {/* One continuous track with a gradient fill, rather than one bar per
+            step — it reads as progress through a single flow instead of six
+            unrelated segments. Labels sit under their own slice. */}
+        <div className="mb-8 rise-in">
+          <div className="h-2 rounded-full bg-secondary overflow-hidden border border-border/60">
+            <div
+              className="h-full rounded-full transition-[width] duration-500 ease-out"
+              style={{ width: `${pct}%`, background: "var(--gradient-hero)" }}
+            />
+          </div>
+          <ol className="mt-3 flex items-start gap-2">
+            {ONBOARDING_STEPS.map((step, i) => {
+              const done = i < current;
+              const active = i === current;
+              return (
+                <li key={step.path} className="flex-1 flex items-center gap-1.5 min-w-0">
                   {done ? (
-                    <Check className="w-3 h-3 text-primary shrink-0" />
+                    <span className="w-4 h-4 rounded-full bg-primary text-primary-foreground flex items-center justify-center shrink-0">
+                      <Check className="w-2.5 h-2.5" strokeWidth={3} />
+                    </span>
                   ) : (
                     <span
-                      className={`w-3 h-3 rounded-full shrink-0 border ${
+                      className={`w-4 h-4 rounded-full shrink-0 border-2 ${
                         active ? "border-primary bg-primary/20" : "border-border"
                       }`}
                     />
                   )}
                   <span
-                    className={`text-[11px] font-medium truncate ${
-                      active ? "text-foreground" : "text-muted-foreground"
+                    className={`text-[11px] truncate ${
+                      active ? "font-semibold text-foreground" : "text-muted-foreground"
                     }`}
                   >
                     {step.label}
                   </span>
-                </div>
-              </li>
-            );
-          })}
-        </ol>
+                </li>
+              );
+            })}
+          </ol>
+        </div>
 
         <Outlet />
       </div>

@@ -1,4 +1,4 @@
-import { ArrowLeft, ArrowRight, Loader2 } from "lucide-react";
+import { ArrowLeft, ArrowRight, Check, Loader2 } from "lucide-react";
 
 /**
  * The frame every setup step shares: title, body, and a footer whose back /
@@ -26,18 +26,20 @@ export function StepCard({
   saving?: boolean;
 }) {
   return (
-    <div className="rounded-2xl bg-card border border-border p-6 shadow-lg">
-      <h1 className="font-display text-2xl font-semibold tracking-tight mb-1">{title}</h1>
-      {subtitle && <p className="text-sm text-muted-foreground mb-6">{subtitle}</p>}
+    <div className="premium-card rounded-3xl p-6 sm:p-8 rise-in">
+      <h1 className="font-display text-2xl sm:text-[1.75rem] leading-tight font-bold tracking-tight mb-1.5">
+        {title}
+      </h1>
+      {subtitle && <p className="text-sm text-muted-foreground mb-7 leading-relaxed">{subtitle}</p>}
 
-      <div className="space-y-4">{children}</div>
+      <div className="space-y-5">{children}</div>
 
-      <div className="mt-8 flex items-center gap-3">
+      <div className="mt-9 pt-6 border-t border-border/70 flex items-center gap-3">
         {onBack && (
           <button
             type="button"
             onClick={onBack}
-            className="inline-flex items-center gap-1.5 h-11 px-4 rounded-xl border border-border text-sm font-semibold text-muted-foreground hover:text-foreground"
+            className="inline-flex items-center gap-1.5 h-11 px-4 rounded-xl border border-border text-sm font-semibold text-muted-foreground hover:text-foreground hover:border-primary/40 transition"
           >
             <ArrowLeft className="w-4 h-4" /> Back
           </button>
@@ -56,7 +58,7 @@ export function StepCard({
           type="button"
           onClick={onContinue}
           disabled={continueDisabled || saving}
-          className="inline-flex items-center gap-1.5 h-11 px-6 rounded-xl bg-primary text-primary-foreground font-semibold hover:opacity-90 disabled:opacity-50 text-sm shadow-sm"
+          className="btn-premium inline-flex items-center gap-1.5 h-11 px-6 rounded-xl font-semibold text-sm"
         >
           {saving ? (
             <>
@@ -89,14 +91,27 @@ export function ChoiceTile({
     <button
       type="button"
       onClick={onClick}
-      className={`w-full text-left rounded-xl border p-4 transition ${
+      aria-pressed={selected}
+      className={`group relative w-full text-left rounded-2xl border p-4 pr-10 transition duration-200 ${
         selected
-          ? "border-primary bg-primary/10 ring-2 ring-primary/30"
-          : "border-border bg-muted/40 hover:border-primary/50"
+          ? "border-primary bg-primary/[0.07] ring-2 ring-primary/15 shadow-sm"
+          : "border-border bg-background hover:border-primary/50 hover:shadow-sm hover:-translate-y-0.5"
       }`}
     >
-      <div className="font-semibold text-sm">{title}</div>
-      {description && <div className="text-xs text-muted-foreground mt-0.5">{description}</div>}
+      <div className={`font-semibold text-sm ${selected ? "text-primary" : ""}`}>{title}</div>
+      {description && (
+        <div className="text-xs text-muted-foreground mt-1 leading-relaxed">{description}</div>
+      )}
+      <span
+        aria-hidden
+        className={`absolute top-4 right-4 w-5 h-5 rounded-full flex items-center justify-center transition ${
+          selected
+            ? "bg-primary text-primary-foreground scale-100"
+            : "border border-border scale-90 opacity-0 group-hover:opacity-100"
+        }`}
+      >
+        <Check className="w-3 h-3" strokeWidth={3} />
+      </span>
     </button>
   );
 }

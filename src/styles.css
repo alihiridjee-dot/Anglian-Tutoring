@@ -270,6 +270,121 @@
   }
 }
 
+/* ── Sign-up / login / onboarding shell ─────────────────────────────────────
+   These screens sit outside the app chrome, so they carry their own backdrop:
+   two soft brand-coloured washes over the canvas, plus a faint grid that keeps
+   the empty space from reading as blank white. Purely decorative. */
+.auth-aurora {
+  position: relative;
+  isolation: isolate;
+  background:
+    radial-gradient(
+      40rem 28rem at 12% -8%,
+      color-mix(in oklab, var(--primary) 16%, transparent),
+      transparent 70%
+    ),
+    radial-gradient(
+      36rem 26rem at 100% 8%,
+      color-mix(in oklab, var(--accent) 14%, transparent),
+      transparent 68%
+    ),
+    var(--background);
+}
+
+.auth-aurora::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: -1;
+  pointer-events: none;
+  background-image:
+    linear-gradient(to right, color-mix(in oklab, var(--primary) 7%, transparent) 1px, transparent 1px),
+    linear-gradient(to bottom, color-mix(in oklab, var(--primary) 7%, transparent) 1px, transparent 1px);
+  background-size: 3.5rem 3.5rem;
+  mask-image: radial-gradient(60rem 40rem at 50% 0%, black, transparent 75%);
+}
+
+/* Card treatment shared by the auth card and every onboarding step: a hairline
+   light border, a layered brand-tinted shadow instead of a flat grey one, and a
+   gradient sheen along the top edge. */
+.premium-card {
+  position: relative;
+  background: linear-gradient(180deg, color-mix(in oklab, var(--primary) 3%, var(--card)), var(--card));
+  border: 1px solid color-mix(in oklab, var(--primary) 10%, var(--border));
+  box-shadow:
+    0 1px 2px color-mix(in oklab, var(--foreground) 4%, transparent),
+    0 12px 24px -12px color-mix(in oklab, var(--primary) 18%, transparent),
+    0 40px 64px -32px color-mix(in oklab, var(--primary) 22%, transparent);
+}
+
+.premium-card::before {
+  content: "";
+  position: absolute;
+  inset-inline: 1.5rem;
+  top: 0;
+  height: 1px;
+  background: linear-gradient(
+    to right,
+    transparent,
+    color-mix(in oklab, var(--primary) 45%, transparent),
+    transparent
+  );
+}
+
+/* Primary action shared across these screens. */
+.btn-premium {
+  background: var(--gradient-hero);
+  color: var(--primary-foreground);
+  box-shadow: 0 10px 20px -10px color-mix(in oklab, var(--primary) 65%, transparent);
+  transition:
+    transform 0.15s cubic-bezier(0.22, 1, 0.36, 1),
+    box-shadow 0.2s ease,
+    filter 0.2s ease;
+}
+.btn-premium:hover:not(:disabled) {
+  filter: brightness(1.06);
+  box-shadow: 0 14px 26px -10px color-mix(in oklab, var(--primary) 70%, transparent);
+  transform: translateY(-1px);
+}
+.btn-premium:active:not(:disabled) {
+  transform: translateY(0);
+}
+.btn-premium:disabled {
+  background: color-mix(in oklab, var(--primary) 40%, var(--muted));
+  box-shadow: none;
+}
+
+.text-gradient {
+  background: var(--gradient-hero);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+
+@keyframes rise-in {
+  from {
+    opacity: 0;
+    transform: translateY(12px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+.rise-in {
+  animation: rise-in 0.5s cubic-bezier(0.22, 1, 0.36, 1) both;
+  animation-delay: var(--rise-delay, 0s);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .rise-in {
+    animation: none;
+  }
+  .btn-premium:hover:not(:disabled) {
+    transform: none;
+  }
+}
+
 html,
 body {
   background: var(--background);
