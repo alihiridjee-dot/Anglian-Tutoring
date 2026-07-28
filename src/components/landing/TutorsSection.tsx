@@ -11,7 +11,10 @@ const TUTORS = [
     id: "nadia",
     name: "Dr Nadia",
     role: "Head of Biology & Chemistry",
-    degrees: ["BSc (Hons) Biomedical Sciences, ARU", "MBBS, Anglia Ruskin University"],
+    degrees: [
+      "BSc (Hons) Biomedical Sciences, Queen Mary University of London",
+      "MBBS, Anglia Ruskin University",
+    ],
     bio: "Practising NHS Doctor and science tutor of 5+ years, having taught students across the region to excellent GCSE results. Specialises in Biology and Chemistry.",
     fullBio: [
       "Dr Nadia brings real clinical experience straight from the NHS into the classroom, turning abstract biology and chemistry into the science she uses every day at work.",
@@ -227,9 +230,7 @@ export function TutorsSection() {
       </div>
 
       <AnimatePresence>
-        {activeTutor && (
-          <TutorChatModal tutor={activeTutor} onClose={() => setActiveId(null)} />
-        )}
+        {activeTutor && <TutorChatModal tutor={activeTutor} onClose={() => setActiveId(null)} />}
       </AnimatePresence>
     </section>
   );
