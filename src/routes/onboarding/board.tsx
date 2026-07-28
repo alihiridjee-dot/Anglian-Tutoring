@@ -4,6 +4,7 @@ import { toast } from "sonner";
 import { supabase } from "@/integrations/supabase/client";
 import { LEVELS, BOARDS, type LevelV, type BoardV } from "@/lib/taxonomy";
 import { StepCard, ChoiceTile } from "@/components/onboarding/StepCard";
+import { useCurriculumCoverage } from "@/hooks/data/useCurriculumCoverage";
 
 /**
  * Step 1 — level and exam board.
@@ -24,6 +25,23 @@ function BoardStep() {
   const [level, setLevel] = useState<LevelV>("gcse");
   const [board, setBoard] = useState<BoardV>("edexcel");
   const [saving, setSaving] = useState(false);
+  const { coverage, isPending: coverageLoading } = useCurriculumCoverage();
+
+  const teachableLevels = coverage.levels();
+  const teachableBoards = coverage.boardsFor(level);
+
+  // Coverage arrives after the first paint, and the student may have saved a
+  // combination that has since lost its curriculum. Once we know what is
+  // teachable, move any stranded selection onto something that is — silently,
+  // because they have not chosen anything yet at this point.
+  useEffect(() => {
+    if (coverageLoading || coverage.isEmpty) return;
+    if (!teachableLevels.includes(level) && teachableLevels.length) {
+      setLevel(teachableLevels[0]);
+      return;
+    }
+    if (!teachableBoards.includes(board) && teachableBoards.length) setBoard(teachableBoards[0]);
+  }, [coverageLoading, coverage, level, board, teachableLevels, teachableBoards]);
 
   // Prefill from whatever the student already told us, so coming back to this
   // step shows their answer rather than silently resetting it to the default.
@@ -54,7 +72,7 @@ function BoardStep() {
       const { error } = await supabase.from("profiles").update({ level }).eq("id", u.user.id);
       if (error) throw error;
 
-      navigate({ to: "/onboarding/subjects", search: { board } as never });
+      navigate({ to: "/onboarding/subjects", search: { board, level } as never });
     } catch (err) {
       toast.error(err instanceof Error ? err.message : "Couldn't save that — try again.");
     } finally {
@@ -67,6 +85,7 @@ function BoardStep() {
       title="Which exam are you sitting?"
       subtitle="This scopes everything you'll see — your spec, your videos, your quizzes."
       onContinue={handleContinue}
+      continueDisabled={coverageLoading || !teachableBoards.includes(board)}
       saving={saving}
     >
       <div>
@@ -74,14 +93,19 @@ function BoardStep() {
           Level
         </label>
         <div className="mt-2 grid grid-cols-2 gap-2">
-          {LEVELS.map((l) => (
-            <ChoiceTile
-              key={l.value}
-              title={l.label}
-              selected={level === l.value}
-              onClick={() => setLevel(l.value)}
-            />
-          ))}
+          {LEVELS.map((l) => {
+            const available = coverageLoading || teachableLevels.includes(l.value);
+            return (
+              <ChoiceTile
+                key={l.value}
+                title={l.label}
+                description={available ? undefined : "Not available yet"}
+                disabled={!available}
+                selected={level === l.value}
+                onClick={() => setLevel(l.value)}
+              />
+            );
+          })}
         </div>
       </div>
 
@@ -93,14 +117,19 @@ function BoardStep() {
           Not sure? It's on the front of your exam papers. You can change this later.
         </p>
         <div className="mt-2 grid grid-cols-3 gap-2">
-          {BOARDS.map((b) => (
-            <ChoiceTile
-              key={b.value}
-              title={b.label}
-              selected={board === b.value}
-              onClick={() => setBoard(b.value)}
-            />
-          ))}
+          {BOARDS.map((b) => {
+            const available = coverageLoading || teachableBoards.includes(b.value);
+            return (
+              <ChoiceTile
+                key={b.value}
+                title={b.label}
+                description={available ? undefined : "Not at this level yet"}
+                disabled={!available}
+                selected={board === b.value}
+                onClick={() => setBoard(b.value)}
+              />
+            );
+          })}
         </div>
       </div>
     </StepCard>

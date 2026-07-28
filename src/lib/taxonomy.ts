@@ -14,6 +14,7 @@ export const BOARDS = [
 export const LEVELS = [
   { value: "gcse", label: "GCSE" },
   { value: "gcse_trilogy", label: "GCSE Combined Science (Trilogy)" },
+  { value: "igcse", label: "iGCSE" },
   { value: "alevel", label: "A-Level" },
 ] as const;
 

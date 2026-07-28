@@ -1291,6 +1291,16 @@ export type Database = {
         Args: { _submission_id: string };
         Returns: undefined;
       };
+      curriculum_coverage: {
+        Args: Record<PropertyKey, never>;
+        Returns: {
+          level: Database["public"]["Enums"]["level"];
+          board: Database["public"]["Enums"]["board"];
+          subject: Database["public"]["Enums"]["subject"];
+          topic_count: number;
+          spec_point_count: number;
+        }[];
+      };
       record_reviews_atomic: {
         Args: { _reviews: Json };
         Returns: string[];
@@ -1361,7 +1371,7 @@ export type Database = {
     Enums: {
       app_role: "student" | "tutor" | "admin";
       board: "edexcel" | "aqa" | "ocr" | "edexcel_intl";
-      level: "gcse" | "alevel" | "gcse_trilogy";
+      level: "gcse" | "alevel" | "gcse_trilogy" | "igcse";
       plan_point_origin: "ai" | "student" | "tutor" | "carried_over";
       plan_source: "ai" | "student" | "tutor";
       profile_role: "student" | "parent" | "tutor";
@@ -1490,7 +1500,7 @@ export const Constants = {
     Enums: {
       app_role: ["student", "tutor", "admin"],
       board: ["edexcel", "aqa", "ocr", "edexcel_intl"],
-      level: ["gcse", "alevel", "gcse_trilogy"],
+      level: ["gcse", "alevel", "gcse_trilogy", "igcse"],
       plan_point_origin: ["ai", "student", "tutor", "carried_over"],
       plan_source: ["ai", "student", "tutor"],
       profile_role: ["student", "parent", "tutor"],
