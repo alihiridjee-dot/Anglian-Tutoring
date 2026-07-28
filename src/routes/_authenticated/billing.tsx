@@ -53,7 +53,7 @@ function StripeFooter() {
  *     but no controls.
  */
 function BillingPage() {
-  const { enrolledCourses, enrolments, role } = useEnrolments();
+  const { enrolledCourses, enrolments, role, level } = useEnrolments();
   const [userId, setUserId] = useState<string | null>(null);
   const [busyTier, setBusyTier] = useState<string | null>(null);
 
@@ -61,7 +61,7 @@ function BillingPage() {
     supabase.auth.getUser().then(({ data }) => setUserId(data.user?.id ?? null));
   }, []);
 
-  const { data: packages = [], isLoading: packagesLoading } = usePackages();
+  const { data: packages = [], isLoading: packagesLoading } = usePackages(level);
   const { data: subs = [], isLoading: subsLoading } = useSubscriptions(userId ? [userId] : []);
   // A student's linked parents (empty for the parent view). Once linked, the
   // parent owns billing control — the student's own controls disappear.
@@ -179,6 +179,7 @@ function BillingPage() {
               currentTier={sub.plan}
               enrolledSubjects={enrolledCourses}
               defaultBoard={enrolments[0]?.board}
+              level={level}
             />
           </div>
         )}

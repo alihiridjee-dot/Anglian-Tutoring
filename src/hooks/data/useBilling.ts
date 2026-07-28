@@ -5,6 +5,7 @@ import {
   fetchInvoices,
   manageSubscription,
   addSubjects,
+  resolvePackagesForLevel,
   type Invoice,
   type PackageRow,
   type SubscriptionRow,
@@ -13,18 +14,62 @@ import {
 /** All billing reads sit under this prefix, so one invalidate refreshes it. */
 export const BILLING_KEY = ["billing"] as const;
 
-/** Active, purchasable plans in display order. */
-export function usePackages() {
+/**
+ * Active, purchasable plans in display order, narrowed to one student's level.
+ *
+ * A tier may carry a level-specific price alongside the general one, so the
+ * raw table can hold two rows per tier. Pass the level of the student being
+ * shopped for and they see exactly one card per tier; omit it and only the
+ * general ladder is offered, which is the right default when the level isn't
+ * known yet.
+ */
+export function usePackages(level?: string | null) {
+  const raw = useRawPackages();
+  return {
+    ...raw,
+    data: raw.data ? resolvePackagesForLevel(raw.data, level) : raw.data,
+  };
+}
+
+/**
+ * Every active row, including both the general and level-specific prices for a
+ * tier — so it can hold two rows per tier and is not safe to render directly.
+ *
+ * Only for callers that price for several students at once (the parent billing
+ * tab, where each child may sit a different level); resolve per student with
+ * resolvePackagesForLevel before display.
+ */
+export function useRawPackages() {
   return useQuery({
     queryKey: [...BILLING_KEY, "packages"],
     queryFn: async (): Promise<PackageRow[]> => {
       const { data, error } = await supabase
         .from("packages")
-        .select("id, tier, name, description, price_pence, billing_interval")
+        .select("id, tier, name, description, price_pence, billing_interval, level")
         .eq("active", true)
         .order("sort_order");
       if (error) throw new Error(error.message);
       return (data ?? []) as PackageRow[];
+    },
+    staleTime: 1000 * 60 * 10,
+  });
+}
+
+/**
+ * Exam level per student id, for pricing a group of children at once. Anything
+ * RLS hides simply comes back absent, which resolves to the general ladder.
+ */
+export function useStudentLevels(studentIds: string[]) {
+  return useQuery({
+    enabled: studentIds.length > 0,
+    queryKey: [...BILLING_KEY, "student-levels", [...studentIds].sort()],
+    queryFn: async (): Promise<Record<string, string | null>> => {
+      const { data, error } = await supabase
+        .from("profiles")
+        .select("id, level")
+        .in("id", studentIds);
+      if (error) throw new Error(error.message);
+      return Object.fromEntries((data ?? []).map((r) => [r.id, r.level]));
     },
     staleTime: 1000 * 60 * 10,
   });

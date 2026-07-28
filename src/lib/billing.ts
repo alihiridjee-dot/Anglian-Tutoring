@@ -43,6 +43,37 @@ export interface PackageRow {
   description: string | null;
   price_pence: number;
   billing_interval: string | null;
+  /**
+   * The exam level this price is for, or null when it applies to everyone.
+   *
+   * Plain text rather than the level enum: a price list outlives any one
+   * taxonomy value, and a row for a level that no longer exists should go
+   * unused rather than break the column.
+   */
+  level: string | null;
+}
+
+/**
+ * Narrows the price list to what one student should actually be offered.
+ *
+ * Packages are keyed by tier (cadence + subject count). A tier may carry a
+ * level-specific override row alongside the general one; the override wins for
+ * a student at that level, and everyone else falls back to the general row.
+ * This is what lets iGCSE be priced apart from GCSE without forking the tier
+ * vocabulary that the upgrade ladder depends on.
+ *
+ * Input order is preserved, so the caller's sort_order still drives display.
+ */
+export function resolvePackagesForLevel(
+  packages: PackageRow[],
+  level: string | null | undefined,
+): PackageRow[] {
+  const overriddenTiers = new Set(
+    level ? packages.filter((p) => p.level === level).map((p) => p.tier) : [],
+  );
+  return packages.filter((p) =>
+    p.level === null ? !overriddenTiers.has(p.tier) : p.level === level,
+  );
 }
 
 /** Pages Stripe may send the browser back to (validated server-side). */

@@ -55,8 +55,8 @@ function PlanStep() {
   const search = Route.useSearch();
   const signOut = useSignOut();
 
-  const { data: packages = [], isLoading: loadingPackages } = usePackages();
   const { enrolments, level, loading: loadingEnrolments } = useEnrolments();
+  const { data: packages = [], isLoading: loadingPackages } = usePackages(level);
   const loading = loadingPackages || loadingEnrolments;
 
   // The plan size is the student's actual number of enrolled subjects, clamped
@@ -202,9 +202,7 @@ function PlanStep() {
       )}
 
       <div className="premium-card rounded-3xl p-6 sm:p-8 rise-in">
-        <h1 className="font-display text-2xl font-semibold tracking-tight mb-1">
-          Your plan
-        </h1>
+        <h1 className="font-display text-2xl font-semibold tracking-tight mb-1">Your plan</h1>
         <p className="text-sm text-muted-foreground mb-6">
           Built from the subjects you're studying with us. Choose how often you'd like to pay — your
           dashboard unlocks straight away, and you can cancel anytime.
@@ -311,8 +309,8 @@ function PlanStep() {
                 </>
               ) : (
                 <>
-                  <CreditCard className="w-4 h-4" /> Pay {selectedPkg ? formatPence(selectedPkg.price_pence) : ""}{" "}
-                  {selectedUnit}
+                  <CreditCard className="w-4 h-4" /> Pay{" "}
+                  {selectedPkg ? formatPence(selectedPkg.price_pence) : ""} {selectedUnit}
                 </>
               )}
             </button>
