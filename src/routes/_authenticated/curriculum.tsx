@@ -21,8 +21,10 @@ import {
 import { CurriculumSyncPanel } from "@/components/CurriculumSyncPanel";
 import { VideoModal, VideoThumbnail } from "@/components/VideoPlayer";
 import { parseVideoUrl, type VideoEmbed } from "@/lib/videoEmbed";
+import { SpecPointVideoEditor, type EditableVideo } from "@/components/tutor/SpecPointVideoEditor";
 import {
   Plus,
+  Pencil,
   Trash2,
   Sparkles,
   ChevronRight,
@@ -141,7 +143,12 @@ export function Curriculum() {
           </div>
 
           <div className="mt-8">
-            <SpecPointDetail point={selectedSpecPoint} isTutor={isTutor} onChanged={loadTopics} />
+            <SpecPointDetail
+              point={selectedSpecPoint}
+              isTutor={isTutor}
+              onChanged={loadTopics}
+              taxonomy={{ subject, board, level }}
+            />
           </div>
         </div>
       </AppLayout>
@@ -643,14 +650,19 @@ function SpecPointDetail({
   point,
   isTutor,
   onChanged,
+  taxonomy,
 }: {
   point: SpecPoint;
   isTutor: boolean;
   onChanged: () => void;
+  taxonomy: { subject: SubjectV; board: BoardV; level: LevelV };
 }) {
+  const { userId } = useRoles();
   const [resources, setResources] = useState<Resource[]>([]);
   const [mcqSets, setMcqSets] = useState<McqSet[]>([]);
   const [genLoading, setGenLoading] = useState(false);
+  // `null` inside the object means "creating"; the outer null means closed.
+  const [editingVideo, setEditingVideo] = useState<{ video: EditableVideo | null } | null>(null);
   const [activeVideo, setActiveVideo] = useState<{
     embed: VideoEmbed;
     title: string;
@@ -719,6 +731,12 @@ function SpecPointDetail({
             className="inline-flex items-center gap-2 px-3 py-1.5 rounded-md bg-accent/20 border border-accent/40 text-accent-foreground text-xs font-semibold hover:bg-accent/30 disabled:opacity-60"
           >
             <Sparkles className="w-3.5 h-3.5" /> {genLoading ? "Generating…" : "AI generate MCQs"}
+          </button>
+          <button
+            onClick={() => setEditingVideo({ video: null })}
+            className="inline-flex items-center gap-2 px-3 py-1.5 rounded-md border border-border text-xs text-foreground font-semibold hover:bg-secondary/40 transition"
+          >
+            <PlayCircle className="w-3.5 h-3.5" /> Add video to this point
           </button>
           <Link
             to="/tutor"
@@ -798,24 +816,44 @@ function SpecPointDetail({
           render={(r) => {
             const embed = parseVideoUrl(r.video_url);
             return (
-              <button
-                type="button"
-                disabled={!embed}
-                onClick={() =>
-                  embed && setActiveVideo({ embed, title: r.title, description: r.description })
-                }
-                className="group text-left rounded-xl premium-card overflow-hidden hover:border-primary/40 transition w-full disabled:opacity-60 disabled:cursor-default"
-              >
-                <VideoThumbnail embed={embed} />
-                <div className="p-3">
-                  <p className="text-sm font-semibold text-foreground leading-snug">{r.title}</p>
-                  {r.description && (
-                    <p className="text-xs font-normal text-muted-foreground mt-0.5 leading-normal line-clamp-2">
-                      {r.description}
-                    </p>
-                  )}
-                </div>
-              </button>
+              <div className="relative w-full">
+                <button
+                  type="button"
+                  disabled={!embed}
+                  onClick={() =>
+                    embed && setActiveVideo({ embed, title: r.title, description: r.description })
+                  }
+                  className="group text-left rounded-xl premium-card overflow-hidden hover:border-primary/40 transition w-full disabled:opacity-60 disabled:cursor-default"
+                >
+                  <VideoThumbnail embed={embed} />
+                  <div className="p-3">
+                    <p className="text-sm font-semibold text-foreground leading-snug">{r.title}</p>
+                    {r.description && (
+                      <p className="text-xs font-normal text-muted-foreground mt-0.5 leading-normal line-clamp-2">
+                        {r.description}
+                      </p>
+                    )}
+                  </div>
+                </button>
+                {isTutor && (
+                  <button
+                    type="button"
+                    onClick={() =>
+                      setEditingVideo({
+                        video: {
+                          id: r.id,
+                          title: r.title,
+                          description: r.description,
+                          video_url: r.video_url,
+                        },
+                      })
+                    }
+                    className="absolute top-2 right-2 inline-flex items-center gap-1 px-2 py-1 rounded-md bg-background/90 border border-border text-[10px] font-bold uppercase tracking-wider text-foreground hover:border-primary/50 shadow-xs transition"
+                  >
+                    <Pencil className="w-3 h-3" /> Edit
+                  </button>
+                )}
+              </div>
             );
           }}
         />
@@ -906,6 +944,17 @@ function SpecPointDetail({
           title={activeVideo.title}
           description={activeVideo.description}
           onClose={() => setActiveVideo(null)}
+        />
+      )}
+
+      {editingVideo && userId && (
+        <SpecPointVideoEditor
+          video={editingVideo.video}
+          specPointId={point.id}
+          taxonomy={taxonomy}
+          userId={userId}
+          onClose={() => setEditingVideo(null)}
+          onSaved={reload}
         />
       )}
     </div>
