@@ -42,21 +42,39 @@ const PRICE_PENCE: Record<string, Record<number, number>> = {
 // Live sessions per billing cycle, at 2 per subject per week.
 const CYCLE_SESSIONS: Record<string, number> = { weekly: 2, monthly: 8, termly: 24 };
 
-const PLANS = CADENCES.flatMap(({ cadence, label, interval, intervalCount }) =>
-  [1, 2, 3].map((count) => {
-    const sessions = CYCLE_SESSIONS[cadence] * count;
-    const subjectWord = count === 1 ? "1 subject" : `${count} subjects`;
-    return {
-      tier: `${cadence}_${count}`,
-      name: `Anglia Educate — ${label} (${subjectWord})`,
-      description: `${sessions} live sessions per ${
-        cadence === "termly" ? "term" : interval
-      }. ${subjectWord}.`,
-      amount: PRICE_PENCE[cadence][count],
-      interval,
-      intervalCount,
-    };
-  }),
+// Price lists we maintain. `level: null` is the general ladder everyone falls
+// back to; a level entry is an override that only students at that level are
+// offered (see resolvePackagesForLevel and the packages table's (tier, level)
+// key). iGCSE deliberately starts at the same amounts as the general ladder —
+// separate Stripe objects exist so its price can move on its own later without
+// disturbing what GCSE and A-Level students pay.
+const PRICE_LISTS = [
+  { level: null, suffix: "", nameSuffix: "" },
+  { level: "igcse", suffix: "igcse_", nameSuffix: " · iGCSE" },
+] as const;
+
+const PLANS = PRICE_LISTS.flatMap(({ level, suffix, nameSuffix }) =>
+  CADENCES.flatMap(({ cadence, label, interval, intervalCount }) =>
+    [1, 2, 3].map((count) => {
+      const sessions = CYCLE_SESSIONS[cadence] * count;
+      const subjectWord = count === 1 ? "1 subject" : `${count} subjects`;
+      return {
+        tier: `${cadence}_${count}`,
+        level,
+        // The lookup key is what makes this re-runnable, so it has to separate
+        // the two ladders — otherwise the iGCSE pass would find the general
+        // price and silently reuse it.
+        lookupKey: `anglian_${suffix}${cadence}_${count}`,
+        name: `Anglia Educate — ${label} (${subjectWord})${nameSuffix}`,
+        description: `${sessions} live sessions per ${
+          cadence === "termly" ? "term" : interval
+        }. ${subjectWord}.`,
+        amount: PRICE_PENCE[cadence][count],
+        interval,
+        intervalCount,
+      };
+    }),
+  ),
 );
 
 const stripeKey = process.env.STRIPE_SECRET_KEY;
@@ -82,43 +100,46 @@ if (live) {
   console.log("⚠️  This is your live key — these products will take real money.\n");
 }
 
-const created: { tier: string; priceId: string }[] = [];
+const created: { tier: string; level: string | null; priceId: string }[] = [];
 
 for (const plan of PLANS) {
-  const lookupKey = `anglian_${plan.tier}`;
+  const label = `${plan.tier}${plan.level ? ` (${plan.level})` : ""}`;
 
   // Reuse the price if this has been run before. lookup_key is the stable
   // handle; product ids are not, and searching by name would match loosely.
-  const existing = await stripe.prices.list({ lookup_keys: [lookupKey], expand: ["data.product"] });
+  const existing = await stripe.prices.list({
+    lookup_keys: [plan.lookupKey],
+    expand: ["data.product"],
+  });
   let price = existing.data[0];
 
   if (price) {
-    console.log(`• ${plan.tier}: reusing existing price ${price.id}`);
+    console.log(`• ${label}: reusing existing price ${price.id}`);
   } else {
     const product = await stripe.products.create({
       name: plan.name,
       description: plan.description,
-      metadata: { tier: plan.tier },
+      metadata: { tier: plan.tier, level: plan.level ?? "" },
     });
     price = await stripe.prices.create({
       product: product.id,
       currency: "gbp",
       unit_amount: plan.amount,
       recurring: { interval: plan.interval, interval_count: plan.intervalCount },
-      lookup_key: lookupKey,
-      metadata: { tier: plan.tier },
+      lookup_key: plan.lookupKey,
+      metadata: { tier: plan.tier, level: plan.level ?? "" },
     });
-    console.log(`• ${plan.tier}: created product ${product.id} + price ${price.id}`);
+    console.log(`• ${label}: created product ${product.id} + price ${price.id}`);
   }
 
-  created.push({ tier: plan.tier, priceId: price.id });
+  created.push({ tier: plan.tier, level: plan.level, priceId: price.id });
 
   if (db) {
-    const { error } = await db
-      .from("packages")
-      .update({ stripe_price_id: price.id })
-      .eq("tier", plan.tier);
-    if (error) throw new Error(`Couldn't attach ${plan.tier} to packages: ${error.message}`);
+    // Scope by level as well as tier: a tier now names two rows, and updating
+    // on tier alone would point the level override at the general price.
+    const query = db.from("packages").update({ stripe_price_id: price.id }).eq("tier", plan.tier);
+    const { error } = await (plan.level ? query.eq("level", plan.level) : query.is("level", null));
+    if (error) throw new Error(`Couldn't attach ${label} to packages: ${error.message}`);
   }
 }
 
@@ -128,9 +149,10 @@ if (db) {
   console.log("\nProducts and prices are created in Stripe.");
   console.log("SUPABASE_SERVICE_ROLE_KEY wasn't set, so nothing was written to the database.");
   console.log("Run this SQL to attach them (price ids are not secret):\n");
-  for (const { tier, priceId } of created) {
+  for (const { tier, level, priceId } of created) {
+    const levelClause = level ? `level = '${level}'` : "level is null";
     console.log(
-      `update public.packages set stripe_price_id = '${priceId}' where tier = '${tier}';`,
+      `update public.packages set stripe_price_id = '${priceId}' where tier = '${tier}' and ${levelClause};`,
     );
   }
 }
