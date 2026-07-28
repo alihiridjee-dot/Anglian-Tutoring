@@ -1,4 +1,5 @@
-import { motion } from "motion/react";
+import { useRef } from "react";
+import { motion, useInView } from "motion/react";
 import { fsrs, generatorParameters, createEmptyCard, Rating, type Card } from "ts-fsrs";
 
 /**
@@ -89,8 +90,18 @@ const X_TICKS: { d: number; label: string }[] = [
 const DRAW = { duration: 2.1, ease: [0.22, 1, 0.36, 1] as const };
 
 export function ForgettingCurve() {
+  /* Chrome's IntersectionObserver does not reliably track elements *inside* an
+     <svg>, so per-element `whileInView` on the paths/dots never fires and the
+     chart sits frozen at its initial state. Observe the figure (a real HTML
+     box) once, and drive every child from that one flag instead. */
+  const ref = useRef<HTMLElement>(null);
+  const inView = useInView(ref, { once: true, amount: 0.3 });
+  const show = inView ? "shown" : "hidden";
+
   return (
-    <figure className="relative rounded-3xl border border-border/80 bg-white/90 backdrop-blur-xl p-5 sm:p-8 shadow-[0_30px_80px_-40px_rgba(15,23,42,0.45)]">
+    <figure
+      ref={ref}
+      className="relative rounded-3xl border border-border/80 bg-white/90 backdrop-blur-xl p-5 sm:p-8 shadow-[0_30px_80px_-40px_rgba(15,23,42,0.45)]">
       {/* Legend */}
       <figcaption className="mb-6 flex flex-col gap-3 sm:flex-row sm:items-center sm:justify-between">
         <div className="flex flex-wrap items-center gap-x-6 gap-y-2 text-sm">
@@ -133,7 +144,7 @@ export function ForgettingCurve() {
                 y1={py(t)}
                 y2={py(t)}
                 stroke="currentColor"
-                className="text-primary-foreground/80"
+                className="text-border"
                 strokeWidth="1"
                 strokeDasharray={t === 1 ? undefined : "3 6"}
               />
@@ -165,9 +176,9 @@ export function ForgettingCurve() {
           {SERIES.revisits.map((d, i) => (
             <motion.g
               key={d}
-              initial={{ opacity: 0 }}
-              whileInView={{ opacity: 1 }}
-              viewport={{ once: true, amount: 0.4 }}
+              initial="hidden"
+              animate={show}
+              variants={{ hidden: { opacity: 0 }, shown: { opacity: 1 } }}
               transition={{ delay: 0.35 + (d / HORIZON) * DRAW.duration, duration: 0.4 }}
             >
               <line
@@ -206,9 +217,9 @@ export function ForgettingCurve() {
             strokeLinecap="round"
             /* No strokeDasharray here — motion drives pathLength via
                stroke-dasharray, so a dashed style would be overwritten. */
-            initial={{ pathLength: 0 }}
-            whileInView={{ pathLength: 1 }}
-            viewport={{ once: true, amount: 0.4 }}
+            initial="hidden"
+            animate={show}
+            variants={{ hidden: { pathLength: 0 }, shown: { pathLength: 1 } }}
             transition={DRAW}
           />
 
@@ -217,9 +228,9 @@ export function ForgettingCurve() {
             d={REVISITED_AREA}
             fill="url(#fc-fill)"
             stroke="none"
-            initial={{ opacity: 0 }}
-            whileInView={{ opacity: 1 }}
-            viewport={{ once: true, amount: 0.4 }}
+            initial="hidden"
+            animate={show}
+            variants={{ hidden: { opacity: 0 }, shown: { opacity: 1 } }}
             transition={{ delay: DRAW.duration * 0.55, duration: 0.9 }}
           />
           <motion.path
@@ -229,9 +240,9 @@ export function ForgettingCurve() {
             strokeWidth="4"
             strokeLinecap="round"
             strokeLinejoin="round"
-            initial={{ pathLength: 0 }}
-            whileInView={{ pathLength: 1 }}
-            viewport={{ once: true, amount: 0.4 }}
+            initial="hidden"
+            animate={show}
+            variants={{ hidden: { pathLength: 0 }, shown: { pathLength: 1 } }}
             transition={DRAW}
           />
 
@@ -245,9 +256,12 @@ export function ForgettingCurve() {
               fill="white"
               stroke="var(--primary)"
               strokeWidth="3.5"
-              initial={{ scale: 0, opacity: 0 }}
-              whileInView={{ scale: 1, opacity: 1 }}
-              viewport={{ once: true, amount: 0.4 }}
+              initial="hidden"
+              animate={show}
+              variants={{
+                hidden: { scale: 0, opacity: 0 },
+                shown: { scale: 1, opacity: 1 },
+              }}
               transition={{
                 delay: 0.35 + (d / HORIZON) * DRAW.duration,
                 type: "spring",
@@ -259,9 +273,12 @@ export function ForgettingCurve() {
 
           {/* End-point callouts */}
           <motion.g
-            initial={{ opacity: 0, x: -8 }}
-            whileInView={{ opacity: 1, x: 0 }}
-            viewport={{ once: true, amount: 0.4 }}
+            initial="hidden"
+            animate={show}
+            variants={{
+              hidden: { opacity: 0, x: -8 },
+              shown: { opacity: 1, x: 0 },
+            }}
             transition={{ delay: DRAW.duration + 0.15, duration: 0.5 }}
           >
             <text
