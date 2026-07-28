@@ -23,6 +23,9 @@ interface AddSubjectCardProps {
   defaultBoard?: BoardV;
   /** Whose plan it is ("Alex"), for the parent view. Omit for own plan. */
   ownerLabel?: string;
+  /** Exam level of the student being upgraded, so the price delta shown
+   *  matches the ladder they will actually be charged on. */
+  level?: string | null;
 }
 
 /**
@@ -40,8 +43,9 @@ export function AddSubjectCard({
   enrolledSubjects,
   defaultBoard = "edexcel",
   ownerLabel,
+  level,
 }: AddSubjectCardProps) {
-  const { data: packages = [] } = usePackages();
+  const { data: packages = [] } = usePackages(level);
   const add = useAddSubjects();
 
   const cadence = planCadence(currentTier);

@@ -103,13 +103,48 @@ type Payload =
   | InvoicesPayload;
 
 const VALID_SUBJECTS = ["biology", "chemistry", "physics"];
-const VALID_BOARDS = ["edexcel", "aqa", "ocr"];
+const VALID_BOARDS = ["edexcel", "aqa", "ocr", "edexcel_intl"];
 const MAX_SUBJECTS = 3;
 
 /** Billing cadence of a tier, or null if it isn't one of ours. */
 function tierCadence(tier: string | null | undefined): string | null {
   const head = String(tier ?? "").split("_")[0];
   return ["weekly", "monthly", "termly"].includes(head) ? head : null;
+}
+
+/** The exam level we price a student at, or null if they have none set. */
+async function studentLevel(
+  db: ReturnType<typeof admin>,
+  studentId: string,
+): Promise<string | null> {
+  const { data } = await db.from("profiles").select("level").eq("id", studentId).maybeSingle();
+  return data?.level ?? null;
+}
+
+/**
+ * The package a given student buys at a given tier.
+ *
+ * A tier can hold two rows: a level-specific price and the general one. The
+ * student's level wins, and everyone else falls back to the general row — the
+ * same rule the client applies in resolvePackagesForLevel, kept here because
+ * the price charged must never be decided by the browser.
+ *
+ * Selecting the set and narrowing in code (rather than .maybeSingle()) is
+ * deliberate: two rows share a tier by design, so a single-row query would
+ * error the moment any level-specific price exists.
+ */
+async function resolvePackage(
+  db: ReturnType<typeof admin>,
+  tier: string,
+  level: string | null,
+): Promise<{ tier: string; name: string; stripe_price_id: string | null } | null> {
+  const { data } = await db
+    .from("packages")
+    .select("tier, name, stripe_price_id, level")
+    .eq("tier", tier)
+    .eq("active", true);
+  const rows = data ?? [];
+  return rows.find((r) => r.level === level) ?? rows.find((r) => r.level === null) ?? null;
 }
 
 function admin() {
@@ -281,12 +316,7 @@ async function handleCheckout(req: Request, payload: CheckoutPayload) {
     if (!link) throw new HttpError(403, "You aren't linked to that student.");
   }
 
-  const { data: pkg } = await db
-    .from("packages")
-    .select("tier, name, stripe_price_id")
-    .eq("tier", payload.tier)
-    .eq("active", true)
-    .maybeSingle();
+  const pkg = await resolvePackage(db, payload.tier, await studentLevel(db, beneficiary));
   if (!pkg) throw new HttpError(404, `No active plan called "${payload.tier}".`);
   if (!pkg.stripe_price_id) {
     throw new HttpError(
@@ -458,13 +488,11 @@ async function handleAddSubjects(req: Request, payload: AddSubjectsPayload) {
     throw new HttpError(409, `A plan covers at most ${MAX_SUBJECTS} subjects.`);
   }
 
+  // Ladder up within the student's own price list: the tier vocabulary is
+  // shared across levels, so the level has to be reapplied here or an upgrade
+  // would silently move them onto general pricing.
   const newTier = `${cadence}_${newCount}`;
-  const { data: pkg } = await db
-    .from("packages")
-    .select("stripe_price_id")
-    .eq("tier", newTier)
-    .eq("active", true)
-    .maybeSingle();
+  const pkg = await resolvePackage(db, newTier, await studentLevel(db, payload.student_id));
   if (!pkg?.stripe_price_id) {
     throw new HttpError(500, `The ${newTier} plan has no Stripe price attached yet.`);
   }

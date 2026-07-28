@@ -75,43 +75,59 @@ export function StepCard({
   );
 }
 
-/** A large, obviously-clickable choice tile. */
+/**
+ * A large, obviously-clickable choice tile.
+ *
+ * `disabled` is for options we can't teach yet rather than options that don't
+ * exist. They stay visible so a student whose board is missing learns that
+ * we know about it, instead of scanning a list and quietly concluding the app
+ * is broken — hence the `description` doubling as the reason why.
+ */
 export function ChoiceTile({
   selected,
   onClick,
   title,
   description,
+  disabled,
 }: {
   selected: boolean;
   onClick: () => void;
   title: string;
   description?: string;
+  disabled?: boolean;
 }) {
   return (
     <button
       type="button"
       onClick={onClick}
+      disabled={disabled}
       aria-pressed={selected}
       className={`group relative w-full text-left rounded-2xl border p-4 pr-10 transition duration-200 ${
-        selected
-          ? "border-primary bg-primary/[0.07] ring-2 ring-primary/15 shadow-sm"
-          : "border-border bg-background hover:border-primary/50 hover:shadow-sm hover:-translate-y-0.5"
+        disabled
+          ? "border-border bg-secondary/30 opacity-55 cursor-not-allowed"
+          : selected
+            ? "border-primary bg-primary/[0.07] ring-2 ring-primary/15 shadow-sm"
+            : "border-border bg-background hover:border-primary/50 hover:shadow-sm hover:-translate-y-0.5"
       }`}
     >
-      <div className={`font-semibold text-sm ${selected ? "text-primary" : ""}`}>{title}</div>
+      <div className={`font-semibold text-sm ${selected && !disabled ? "text-primary" : ""}`}>
+        {title}
+      </div>
       {description && (
         <div className="text-xs text-muted-foreground mt-1 leading-relaxed">{description}</div>
       )}
-      <span
-        aria-hidden
-        className={`absolute top-4 right-4 w-5 h-5 rounded-full flex items-center justify-center transition ${
-          selected
-            ? "bg-primary text-primary-foreground scale-100"
-            : "border border-border scale-90 opacity-0 group-hover:opacity-100"
-        }`}
-      >
-        <Check className="w-3 h-3" strokeWidth={3} />
-      </span>
+      {!disabled && (
+        <span
+          aria-hidden
+          className={`absolute top-4 right-4 w-5 h-5 rounded-full flex items-center justify-center transition ${
+            selected
+              ? "bg-primary text-primary-foreground scale-100"
+              : "border border-border scale-90 opacity-0 group-hover:opacity-100"
+          }`}
+        >
+          <Check className="w-3 h-3" strokeWidth={3} />
+        </span>
+      )}
     </button>
   );
 }

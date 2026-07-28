@@ -4,8 +4,14 @@ import { CreditCard } from "lucide-react";
 import { toast } from "sonner";
 import { supabase } from "@/integrations/supabase/client";
 import { useChildLinks } from "@/hooks/data/useParentLinks";
-import { usePackages, useSubscriptions } from "@/hooks/data/useBilling";
-import { startCheckout, isSubscriptionLive, planLabel, type SubscriptionRow } from "@/lib/billing";
+import { useRawPackages, useStudentLevels, useSubscriptions } from "@/hooks/data/useBilling";
+import {
+  startCheckout,
+  isSubscriptionLive,
+  planLabel,
+  resolvePackagesForLevel,
+  type SubscriptionRow,
+} from "@/lib/billing";
 import { PlanPicker } from "@/components/billing/PlanPicker";
 import { SubscriptionPanel } from "@/components/billing/SubscriptionPanel";
 import { AddSubjectCard } from "@/components/billing/AddSubjectCard";
@@ -23,10 +29,12 @@ function ChildUpgrade({
   studentId,
   sub,
   childName,
+  level,
 }: {
   studentId: string;
   sub: SubscriptionRow;
   childName: string;
+  level: string | null | undefined;
 }) {
   const { data: enrolments = [] } = useQuery({
     queryKey: ["child-progress", "enrolments", studentId],
@@ -52,6 +60,7 @@ function ChildUpgrade({
         enrolledSubjects={enrolments.map((e) => e.subject)}
         defaultBoard={enrolments[0]?.board}
         ownerLabel={childName}
+        level={level}
       />
     </div>
   );
@@ -72,7 +81,10 @@ export function ParentBillingSection({ parentId }: { parentId: string }) {
   const { data: children = [], isLoading: childrenLoading } = useChildLinks();
   const studentIds = useMemo(() => children.map((c) => c.student_id), [children]);
   const { data: subs = [] } = useSubscriptions(studentIds);
-  const { data: packages = [] } = usePackages();
+  // Children may sit different levels, so prices resolve per child rather than
+  // once for the whole tab.
+  const { data: allPackages = [] } = useRawPackages();
+  const { data: levels = {} } = useStudentLevels(studentIds);
   const [busy, setBusy] = useState<string | null>(null); // `${studentId}:${tier}`
 
   const choosePlan = async (studentId: string, tier: string) => {
@@ -105,6 +117,7 @@ export function ParentBillingSection({ parentId }: { parentId: string }) {
             const hasUsablePlan =
               !!sub && (isSubscriptionLive(sub.status) || sub.status === "paused");
             const childName = resolveDisplayName(child.display_name, child.email);
+            const packages = resolvePackagesForLevel(allPackages, levels[child.student_id]);
             const planName = planLabel(sub?.plan, packages);
 
             return (
@@ -121,36 +134,41 @@ export function ParentBillingSection({ parentId }: { parentId: string }) {
                   </p>
 
                   {hasUsablePlan && sub ? (
-                  <>
-                    <SubscriptionPanel
-                      sub={sub}
-                      planName={planName}
-                      // A linked parent manages the plan regardless of who paid —
-                      // including a plan the child originally paid for themselves.
-                      canManage
-                      isPayer={sub.user_id === parentId}
-                      returnTo="billing"
-                      ownerLabel={childName}
-                    />
-                    <ChildUpgrade studentId={child.student_id} sub={sub} childName={childName} />
-                  </>
-                ) : (
-                  <>
-                    <p className="text-sm text-muted-foreground mb-4">
-                      {sub
-                        ? "Their previous plan has ended. Pick a plan to restart their access."
-                        : `${childName} doesn't have an active plan. Choose one below — you'll pay with your own card and can manage it here.`}
-                    </p>
-                    <PlanPicker
-                      packages={packages}
-                      activeTier={null}
-                      busyTier={
-                        busy?.startsWith(`${child.student_id}:`)
-                          ? busy.slice(child.student_id.length + 1)
-                          : null
-                      }
-                      onChoose={(tier) => choosePlan(child.student_id, tier)}
-                    />
+                    <>
+                      <SubscriptionPanel
+                        sub={sub}
+                        planName={planName}
+                        // A linked parent manages the plan regardless of who paid —
+                        // including a plan the child originally paid for themselves.
+                        canManage
+                        isPayer={sub.user_id === parentId}
+                        returnTo="billing"
+                        ownerLabel={childName}
+                      />
+                      <ChildUpgrade
+                        studentId={child.student_id}
+                        sub={sub}
+                        childName={childName}
+                        level={levels[child.student_id]}
+                      />
+                    </>
+                  ) : (
+                    <>
+                      <p className="text-sm text-muted-foreground mb-4">
+                        {sub
+                          ? "Their previous plan has ended. Pick a plan to restart their access."
+                          : `${childName} doesn't have an active plan. Choose one below — you'll pay with your own card and can manage it here.`}
+                      </p>
+                      <PlanPicker
+                        packages={packages}
+                        activeTier={null}
+                        busyTier={
+                          busy?.startsWith(`${child.student_id}:`)
+                            ? busy.slice(child.student_id.length + 1)
+                            : null
+                        }
+                        onChoose={(tier) => choosePlan(child.student_id, tier)}
+                      />
                     </>
                   )}
                 </div>
