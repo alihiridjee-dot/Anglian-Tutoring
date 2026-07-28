@@ -1,4 +1,5 @@
 import { supabase } from "@/integrations/supabase/client";
+import { type LevelV } from "@/lib/taxonomy";
 
 /**
  * Profile setup — the steps between verifying an email and reaching payment.
@@ -85,9 +86,10 @@ export const DEFAULT_LEARNING_RESPONSES: LearningResponses = Object.fromEntries(
   LEARNING_QUESTIONS.map((q) => [q.id, 3]),
 );
 
-/** GCSE sits 9–1; A-Level sits A*–E. Grades are free of a "not sure" option
- *  because every grade field in setup is already optional. */
-export function gradeOptions(level: "gcse" | "alevel" | null): string[] {
+/** A-Level sits A*–E; every GCSE level, Trilogy included, sits 9–1. Grades are
+ *  free of a "not sure" option because every grade field in setup is already
+ *  optional. */
+export function gradeOptions(level: LevelV | null): string[] {
   return level === "alevel"
     ? ["A*", "A", "B", "C", "D", "E", "U"]
     : ["9", "8", "7", "6", "5", "4", "3", "2", "1", "U"];

@@ -6,7 +6,7 @@ import { StepCard } from "@/components/onboarding/StepCard";
 import { useEnrolments } from "@/hooks/data/useEnrolments";
 import { PlannerDAL, type TopicWithConfidence } from "@/lib/plannerDal";
 import { BANDS, bandOf, type BandKey } from "@/lib/planner/bands";
-import { type SubjectV, type BoardV } from "@/lib/taxonomy";
+import { type SubjectV, type BoardV, type LevelV } from "@/lib/taxonomy";
 
 /**
  * Step 4 — a light first pass at the planner.
@@ -88,7 +88,7 @@ function SubjectConfidence({
   studentId: string;
   subject: SubjectV;
   board: BoardV;
-  level: "gcse" | "alevel";
+  level: LevelV;
   showHeader: boolean;
 }) {
   const [topics, setTopics] = useState<TopicWithConfidence[]>([]);

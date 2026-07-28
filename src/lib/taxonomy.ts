@@ -8,10 +8,12 @@ export const BOARDS = [
   { value: "edexcel", label: "Edexcel" },
   { value: "aqa", label: "AQA" },
   { value: "ocr", label: "OCR" },
+  { value: "edexcel_intl", label: "Edexcel International" },
 ] as const;
 
 export const LEVELS = [
   { value: "gcse", label: "GCSE" },
+  { value: "gcse_trilogy", label: "GCSE Combined Science (Trilogy)" },
   { value: "alevel", label: "A-Level" },
 ] as const;
 

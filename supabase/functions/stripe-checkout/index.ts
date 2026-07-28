@@ -103,7 +103,7 @@ type Payload =
   | InvoicesPayload;
 
 const VALID_SUBJECTS = ["biology", "chemistry", "physics"];
-const VALID_BOARDS = ["edexcel", "aqa", "ocr"];
+const VALID_BOARDS = ["edexcel", "aqa", "ocr", "edexcel_intl"];
 const MAX_SUBJECTS = 3;
 
 /** Billing cadence of a tier, or null if it isn't one of ours. */
