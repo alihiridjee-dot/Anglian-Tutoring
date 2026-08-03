@@ -11,7 +11,7 @@ import {
   ArrowRight,
   Sparkles,
 } from "lucide-react";
-import { type ReactNode } from "react";
+import { useEffect, useState, type ReactNode } from "react";
 import { useRoles } from "@/hooks/useRole";
 import { useSignOut } from "@/hooks/useSignOut";
 import { isDemoMode, getDemoRole } from "@/lib/auth/session";
@@ -20,8 +20,11 @@ import { useEnrolments } from "@/hooks/data/useEnrolments";
 import { NotificationBell } from "@/components/NotificationBell";
 import { UserMenu } from "@/components/UserMenu";
 import { HeaderLiveButton } from "@/components/live/HeaderLiveButton";
+import { GlobalSearchDialog } from "@/components/search/GlobalSearchDialog";
+import { SidebarSearchButton } from "@/components/search/SidebarSearchButton";
 import { resolveInitials } from "@/lib/displayName";
 import { buildAuthedNav } from "@/lib/nav";
+import { SIDEBAR_LABEL_CLASS as labelClass } from "@/components/sidebarLabel";
 
 /**
  * The showcase sidebar. It must stay inside `/demo/*`, or a click lands on a
@@ -49,6 +52,21 @@ export function AppLayout({ title, children }: { title: string; children: ReactN
   const navigate = useNavigate();
   const router = useRouter();
   const signOut = useSignOut();
+  const [searchOpen, setSearchOpen] = useState(false);
+
+  // ⌘K / Ctrl+K opens search from anywhere in the app. Bound on the window
+  // rather than the sidebar button so it works while focus is in a page form,
+  // and the default (Chrome's address-bar search) is suppressed.
+  useEffect(() => {
+    const onKeyDown = (e: KeyboardEvent) => {
+      if (e.key.toLowerCase() === "k" && (e.metaKey || e.ctrlKey)) {
+        e.preventDefault();
+        setSearchOpen(true);
+      }
+    };
+    window.addEventListener("keydown", onKeyDown);
+    return () => window.removeEventListener("keydown", onKeyDown);
+  }, []);
 
   // Derived from the pathname, so it tracks navigation with no state to go
   // stale and nothing to clear on the way out.
@@ -81,45 +99,59 @@ export function AppLayout({ title, children }: { title: string; children: ReactN
 
   return (
     <div className="min-h-screen flex bg-background text-foreground">
-      <aside className="w-20 lg:w-60 bg-sidebar border-r border-sidebar-border flex flex-col py-5 px-3 gap-1 shrink-0">
-        <Link to="/" className="group flex items-center gap-2 px-2 mb-6">
-          <div
-            className="w-10 h-10 rounded-xl flex items-center justify-center shadow-[0_8px_16px_-8px_var(--primary)] transition-transform group-hover:scale-105"
-            style={{ background: "var(--gradient-hero)" }}
-          >
-            <GraduationCap className="w-5 h-5 text-primary-foreground" />
-          </div>
-          <span className="hidden lg:inline font-display font-semibold tracking-tight text-foreground">
-            Anglia Educate
-          </span>
-        </Link>
-        {nav.map(({ to, label, icon: Icon }) => {
-          const active = pathname === to || pathname.startsWith(to + "/");
-          return (
-            <Link
-              key={to}
-              to={to}
-              className={`flex items-center gap-3 px-3 py-2.5 rounded-xl text-sm font-medium transition ${
-                active
-                  ? "btn-premium"
-                  : "text-sidebar-foreground/80 hover:bg-sidebar-accent hover:text-foreground"
-              }`}
+      {/*
+       * The sidebar rests as an icon rail and expands on hover to reveal the
+       * labels. Only this placeholder occupies layout width — the rail itself is
+       * absolutely positioned and *overlays* the page as it widens, so hovering
+       * never reflows the content beside it. Tailwind's `hover:` variant is
+       * gated on `@media (hover: hover)`, so touch devices simply keep the rail.
+       */}
+      <div className="relative w-20 shrink-0">
+        {/* Above the demo ribbon (z-40) and the sticky header (z-30), both of
+            which the expanded rail passes in front of. */}
+        <aside className="group/sidebar absolute inset-y-0 left-0 z-50 w-20 hover:w-60 overflow-hidden bg-sidebar border-r border-sidebar-border flex flex-col py-5 px-3 gap-1 transition-[width,box-shadow] duration-200 ease-out motion-reduce:transition-none hover:shadow-2xl">
+          <Link to="/" className="group flex items-center gap-2 px-2 mb-6">
+            <div
+              className="w-10 h-10 rounded-xl flex items-center justify-center shrink-0 shadow-[0_8px_16px_-8px_var(--primary)] transition-transform group-hover:scale-105"
+              style={{ background: "var(--gradient-hero)" }}
             >
-              <Icon className="w-5 h-5 shrink-0" />
-              <span className="hidden lg:inline">{label}</span>
-            </Link>
-          );
-        })}
-        <div className="mt-auto">
-          <button
-            onClick={signOut}
-            className="w-full flex items-center gap-3 px-3 py-2.5 rounded-lg text-sm text-sidebar-foreground/70 hover:text-destructive hover:bg-destructive/10"
-          >
-            <LogOut className="w-5 h-5" />
-            <span className="hidden lg:inline">Sign out</span>
-          </button>
-        </div>
-      </aside>
+              <GraduationCap className="w-5 h-5 text-primary-foreground" />
+            </div>
+            <span className={`${labelClass} font-display font-semibold tracking-tight text-foreground`}>
+              Anglia Educate
+            </span>
+          </Link>
+          <SidebarSearchButton onOpen={() => setSearchOpen(true)} />
+          {nav.map(({ to, label, icon: Icon }) => {
+            const active = pathname === to || pathname.startsWith(to + "/");
+            return (
+              <Link
+                key={to}
+                to={to}
+                title={label}
+                className={`flex items-center gap-3 px-3 py-2.5 rounded-xl text-sm font-medium transition ${
+                  active
+                    ? "btn-premium"
+                    : "text-sidebar-foreground/80 hover:bg-sidebar-accent hover:text-foreground"
+                }`}
+              >
+                <Icon className="w-5 h-5 shrink-0" />
+                <span className={labelClass}>{label}</span>
+              </Link>
+            );
+          })}
+          <div className="mt-auto">
+            <button
+              onClick={signOut}
+              title="Sign out"
+              className="w-full flex items-center gap-3 px-3 py-2.5 rounded-lg text-sm text-sidebar-foreground/70 hover:text-destructive hover:bg-destructive/10"
+            >
+              <LogOut className="w-5 h-5 shrink-0" />
+              <span className={labelClass}>Sign out</span>
+            </button>
+          </div>
+        </aside>
+      </div>
 
       <main className="flex-1 min-w-0 flex flex-col">
         {isDemo && (
@@ -198,6 +230,8 @@ export function AppLayout({ title, children }: { title: string; children: ReactN
         </header>
         <div className="page-aurora flex-1 p-6 lg:p-10 overflow-auto">{children}</div>
       </main>
+
+      <GlobalSearchDialog open={searchOpen} onClose={() => setSearchOpen(false)} />
     </div>
   );
 }

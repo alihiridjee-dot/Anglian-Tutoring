@@ -281,8 +281,12 @@ export function TutorPlannerPanel() {
               <p className="text-[11px] text-muted-foreground">
                 Editing the plan for{" "}
                 <span className="font-semibold text-foreground">{weekLabel}</span>
-                {isCurrent ? " (this week)" : weekOffset < 0 ? " (past week)" : " (upcoming week)"} ·
-                changes apply to this week only.
+                {isCurrent
+                  ? " (this week)"
+                  : weekOffset < 0
+                    ? " (past week)"
+                    : " (upcoming week)"}{" "}
+                · changes apply to this week only.
               </p>
             </div>
             {points.length === 0 ? (

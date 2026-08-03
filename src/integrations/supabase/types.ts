@@ -611,6 +611,7 @@ export type Database = {
           title: string;
           topic_id: string;
           updated_at: string;
+          weight: number;
         };
         Insert: {
           code: string;
@@ -622,6 +623,7 @@ export type Database = {
           title: string;
           topic_id: string;
           updated_at?: string;
+          weight?: number;
         };
         Update: {
           code?: string;
@@ -633,6 +635,7 @@ export type Database = {
           title?: string;
           topic_id?: string;
           updated_at?: string;
+          weight?: number;
         };
         Relationships: [
           {
@@ -1370,9 +1373,9 @@ export type Database = {
     };
     Enums: {
       app_role: "student" | "tutor" | "admin";
-      board: "edexcel" | "aqa" | "ocr" | "edexcel_intl";
+      board: "edexcel" | "aqa" | "ocr";
       level: "gcse" | "alevel" | "gcse_trilogy" | "igcse";
-      plan_point_origin: "ai" | "student" | "tutor" | "carried_over";
+      plan_point_origin: "ai" | "student" | "tutor" | "carried_over" | "core" | "focus";
       plan_source: "ai" | "student" | "tutor";
       profile_role: "student" | "parent" | "tutor";
       resource_kind: "video" | "download" | "live_session" | "homework";
@@ -1499,9 +1502,9 @@ export const Constants = {
   public: {
     Enums: {
       app_role: ["student", "tutor", "admin"],
-      board: ["edexcel", "aqa", "ocr", "edexcel_intl"],
+      board: ["edexcel", "aqa", "ocr"],
       level: ["gcse", "alevel", "gcse_trilogy", "igcse"],
-      plan_point_origin: ["ai", "student", "tutor", "carried_over"],
+      plan_point_origin: ["ai", "student", "tutor", "carried_over", "core", "focus"],
       plan_source: ["ai", "student", "tutor"],
       profile_role: ["student", "parent", "tutor"],
       resource_kind: ["video", "download", "live_session", "homework"],

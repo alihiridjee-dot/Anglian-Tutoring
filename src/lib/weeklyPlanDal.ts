@@ -138,6 +138,11 @@ export class WeeklyPlanDAL {
     source: PlanSource;
     rationale?: string | null;
     origin?: PlanPointOrigin;
+    /**
+     * Per-point override of `origin`, keyed by spec-point id — how a generated
+     * week records which lane each point came from (`core` vs `focus`).
+     */
+    origins?: Record<string, PlanPointOrigin>;
     /** Whose plan — omit for the signed-in student; a tutor passes the target. */
     studentId?: string;
   }): Promise<string> {
@@ -173,7 +178,7 @@ export class WeeklyPlanDAL {
         params.specPointIds.map((spec_point_id) => ({
           plan_id: planId,
           spec_point_id,
-          origin: params.origin ?? "ai",
+          origin: params.origins?.[spec_point_id] ?? params.origin ?? "ai",
         })),
       );
       if (insErr) throw insErr;

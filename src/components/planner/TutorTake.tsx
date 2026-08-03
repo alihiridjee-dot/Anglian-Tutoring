@@ -295,9 +295,7 @@ export function TutorTake({
         {/* The student's own check-in, quoted, so the tutor can reply to it */}
         {hasCheckin && (
           <div className="mb-3 rounded-xl premium-card p-3">
-            <p className="text-[11px] font-semibold text-muted-foreground mb-1">
-              The student said
-            </p>
+            <p className="text-[11px] font-semibold text-muted-foreground mb-1">The student said</p>
             <p className="text-sm">
               {studentFeltReady == null
                 ? "—"

@@ -11,8 +11,8 @@ const row = (
 
 /**
  * Mirrors what curriculum_coverage() actually returns in production, gaps and
- * all: iGCSE has no physics, and Trilogy exists only under AQA. Those gaps are
- * the reason the gating exists, so they are the fixture.
+ * all: International GCSE has no physics yet, and Trilogy exists only under AQA.
+ * Those gaps are the reason the gating exists, so they are the fixture.
  */
 const LIVE: CoverageRow[] = [
   row("gcse", "edexcel", "biology", 165),
@@ -24,8 +24,8 @@ const LIVE: CoverageRow[] = [
   row("gcse", "ocr", "biology", 138),
   row("gcse", "ocr", "chemistry", 147),
   row("gcse", "ocr", "physics", 182),
-  row("igcse", "edexcel_intl", "biology", 176),
-  row("igcse", "edexcel_intl", "chemistry", 182),
+  row("igcse", "edexcel", "biology", 176),
+  row("igcse", "edexcel", "chemistry", 182),
   row("alevel", "aqa", "biology", 10),
   row("alevel", "aqa", "chemistry", 5),
   row("alevel", "aqa", "physics", 6),
@@ -41,13 +41,17 @@ describe("Coverage", () => {
     expect(c.levels().sort()).toEqual(["alevel", "gcse", "gcse_trilogy", "igcse"]);
   });
 
-  test("iGCSE is a level of its own, carrying only the international board", () => {
-    expect(c.boardsFor("igcse")).toEqual(["edexcel_intl"]);
-    expect(c.has("igcse", "edexcel_intl", "biology")).toBe(true);
-    // The international board moved off GCSE wholesale — it must not linger
-    // there, or a student would see it under both levels.
+  test("International GCSE is a level of its own, not a board", () => {
+    // Every board runs an International GCSE; we currently hold Edexcel's, so
+    // that is the only board offered at this level today.
+    expect(c.boardsFor("igcse")).toEqual(["edexcel"]);
+    expect(c.has("igcse", "edexcel", "biology")).toBe(true);
+    // Same board, different qualification: the domestic GCSE has its own rows,
+    // and the two must never be treated as one another.
     expect(c.boardsFor("gcse")).toEqual(["edexcel", "aqa", "ocr"]);
-    expect(c.has("gcse", "edexcel_intl", "biology")).toBe(false);
+    expect(c.has("gcse", "edexcel", "biology")).toBe(true);
+    expect(c.has("igcse", "edexcel", "physics")).toBe(false);
+    expect(c.has("gcse", "edexcel", "physics")).toBe(true);
   });
 
   test("Trilogy is AQA-only", () => {
@@ -58,8 +62,8 @@ describe("Coverage", () => {
   });
 
   test("iGCSE offers biology and chemistry but not physics", () => {
-    expect(c.subjectsFor("igcse", "edexcel_intl")).toEqual(["biology", "chemistry"]);
-    expect(c.has("igcse", "edexcel_intl", "physics")).toBe(false);
+    expect(c.subjectsFor("igcse", "edexcel")).toEqual(["biology", "chemistry"]);
+    expect(c.has("igcse", "edexcel", "physics")).toBe(false);
     expect(c.boardsForSubject("igcse", "physics")).toEqual([]);
   });
 

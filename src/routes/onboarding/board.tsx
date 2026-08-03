@@ -53,7 +53,12 @@ function BoardStep() {
         supabase.from("profiles").select("level").eq("id", u.user.id).maybeSingle(),
         supabase.from("student_enrolments").select("board").eq("student_id", u.user.id).limit(1),
       ]);
+      // The pricing page sends a level key; only the ones that are real levels
+      // here can seed the answer (it also emits "gcse_separate" and "ks3").
+      const intendedLevel = u.user.user_metadata?.intended_level as string | undefined;
       if (profile?.level) setLevel(profile.level as LevelV);
+      else if (intendedLevel && LEVELS.some((l) => l.value === intendedLevel))
+        setLevel(intendedLevel as LevelV);
       // Seed the board from what they picked on the pricing page, but let
       // anything they've already saved win — and they can still change it here.
       const intendedBoard = u.user.user_metadata?.intended_board as string | undefined;

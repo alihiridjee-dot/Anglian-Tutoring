@@ -5,6 +5,8 @@ import {
   fetchInvoices,
   manageSubscription,
   addSubjects,
+  removeSubjects,
+  changeCadence,
   resolvePackagesForLevel,
   type Invoice,
   type PackageRow,
@@ -144,6 +146,58 @@ export function useAddSubjects() {
       qc.invalidateQueries({ queryKey: BILLING_KEY });
       qc.invalidateQueries({ queryKey: ["user-enrolments-and-profile"] });
       qc.invalidateQueries({ queryKey: ["parent-links"] });
+      // The parent tab reads a child's enrolment under this key; without it the
+      // card would keep offering a subject that was just added.
+      qc.invalidateQueries({ queryKey: ["child-progress"] });
+    },
+  });
+}
+
+/**
+ * Live price for switching to a cadence, straight from Stripe's upcoming
+ * invoice. A query rather than a mutation because it mutates nothing — but with
+ * no caching, since the amount depends on how far into the period they are.
+ */
+export function useCadenceQuote(studentId: string | null, cadence: string | null) {
+  return useQuery({
+    enabled: !!studentId && !!cadence && !isDemoMode(),
+    queryKey: [...BILLING_KEY, "cadence-quote", studentId, cadence],
+    queryFn: () => changeCadence(studentId!, cadence!, { preview: true }),
+    staleTime: 0,
+    gcTime: 0,
+    retry: false,
+  });
+}
+
+/** Apply a cadence switch to the existing subscription (prorated by Stripe). */
+export function useChangeCadence() {
+  const qc = useQueryClient();
+  return useMutation({
+    mutationFn: ({ studentId, cadence }: { studentId: string; cadence: string }) =>
+      changeCadence(studentId, cadence),
+    onSuccess: () => {
+      qc.invalidateQueries({ queryKey: BILLING_KEY });
+      qc.invalidateQueries({ queryKey: ["user-enrolments-and-profile"] });
+    },
+  });
+}
+
+/**
+ * Drop subject(s) from a live plan. Invalidates the same caches as adding —
+ * the plan tier, the enrolment, and the parent's child list all move — plus the
+ * child-progress enrolments the parent billing tab reads, so a removal doesn't
+ * leave a stale subject offered back on the card that just removed it.
+ */
+export function useRemoveSubjects() {
+  const qc = useQueryClient();
+  return useMutation({
+    mutationFn: ({ studentId, subjects }: { studentId: string; subjects: string[] }) =>
+      removeSubjects(studentId, subjects),
+    onSuccess: () => {
+      qc.invalidateQueries({ queryKey: BILLING_KEY });
+      qc.invalidateQueries({ queryKey: ["user-enrolments-and-profile"] });
+      qc.invalidateQueries({ queryKey: ["parent-links"] });
+      qc.invalidateQueries({ queryKey: ["child-progress"] });
     },
   });
 }

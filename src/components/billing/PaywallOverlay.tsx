@@ -29,16 +29,12 @@ export function PaywallOverlay() {
           <Lock className="h-6 w-6" />
         </div>
 
-        <h1
-          id="paywall-title"
-          className="font-display text-2xl font-semibold tracking-tight mb-2"
-        >
+        <h1 id="paywall-title" className="font-display text-2xl font-semibold tracking-tight mb-2">
           Please resubscribe
         </h1>
         <p className="text-sm text-muted-foreground mb-6 leading-relaxed">
-          Your subscription isn't active, so your dashboard is locked. Resubscribe
-          to pick up right where you left off — your progress and history are all
-          still here.
+          Your subscription isn't active, so your dashboard is locked. Resubscribe to pick up right
+          where you left off — your progress and history are all still here.
         </p>
 
         <button

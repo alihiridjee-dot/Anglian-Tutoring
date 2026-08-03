@@ -1,0 +1,665 @@
+{
+ "AQA 1.1": {
+  "title": "Eukaryotes and Prokaryotes",
+  "sections": [
+   "4.1.1.1"
+  ],
+  "weight": 1.73
+ },
+ "AQA 1.2": {
+  "title": "Animal and Plant Cell Structure",
+  "sections": [
+   "4.1.1.2"
+  ],
+  "weight": 7.01
+ },
+ "AQA 1.3": {
+  "title": "Cell Specialisation and Differentiation",
+  "sections": [
+   "4.1.1.3",
+   "4.1.1.4"
+  ],
+  "weight": 3.88
+ },
+ "AQA 1.4": {
+  "title": "Microscopy and Magnification",
+  "sections": [
+   "4.1.1.5"
+  ],
+  "weight": 2.7
+ },
+ "AQA 1.5": {
+  "title": "Culturing Microorganisms (biology only)",
+  "sections": [
+   "4.1.1.6"
+  ],
+  "weight": 8.51
+ },
+ "AQA 1.6": {
+  "title": "Chromosomes",
+  "sections": [
+   "4.1.2.1"
+  ],
+  "weight": 1.3
+ },
+ "AQA 1.7": {
+  "title": "Mitosis and the Cell Cycle",
+  "sections": [
+   "4.1.2.2"
+  ],
+  "weight": 2.1
+ },
+ "AQA 1.8": {
+  "title": "Stem Cells",
+  "sections": [
+   "4.1.2.3 (1/2)"
+  ],
+  "weight": 1.5
+ },
+ "AQA 1.9": {
+  "title": "Stem Cells in Medicine and Plants",
+  "sections": [
+   "4.1.2.3 (1/2)"
+  ],
+  "weight": 1.5
+ },
+ "AQA 1.10": {
+  "title": "Diffusion",
+  "sections": [
+   "4.1.3.1"
+  ],
+  "weight": 6.24
+ },
+ "AQA 1.11": {
+  "title": "Osmosis",
+  "sections": [
+   "4.1.3.2"
+  ],
+  "weight": 5.23
+ },
+ "AQA 1.12": {
+  "title": "Active Transport",
+  "sections": [
+   "4.1.3.3 (1/2)"
+  ],
+  "weight": 1.44
+ },
+ "AQA 1.13": {
+  "title": "Exchange Surfaces and Surface Area to Volume Ratio",
+  "sections": [
+   "4.1.3.3 (1/2)"
+  ],
+  "weight": 1.44
+ },
+ "AQA 2.1": {
+  "title": "Principles of Organisation",
+  "sections": [
+   "4.2.1"
+  ],
+  "weight": 1.75
+ },
+ "AQA 2.2": {
+  "title": "The Human Digestive System",
+  "sections": [
+   "4.2.2.1 (1/4)"
+  ],
+  "weight": 1.94
+ },
+ "AQA 2.3": {
+  "title": "Enzymes and the Lock-and-Key Model",
+  "sections": [
+   "4.2.2.1 (1/4)"
+  ],
+  "weight": 1.94
+ },
+ "AQA 2.4": {
+  "title": "Enzymes in Digestion",
+  "sections": [
+   "4.2.2.1 (1/4)"
+  ],
+  "weight": 1.94
+ },
+ "AQA 2.5": {
+  "title": "Factors Affecting Enzyme Action",
+  "sections": [
+   "4.2.2.1 (1/4)"
+  ],
+  "weight": 1.94
+ },
+ "AQA 2.6": {
+  "title": "The Heart and Blood Vessels",
+  "sections": [
+   "4.2.2.2"
+  ],
+  "weight": 3.76
+ },
+ "AQA 2.7": {
+  "title": "Blood",
+  "sections": [
+   "4.2.2.3"
+  ],
+  "weight": 1.25
+ },
+ "AQA 2.8": {
+  "title": "Coronary Heart Disease and Treatments",
+  "sections": [
+   "4.2.2.4"
+  ],
+  "weight": 2.78
+ },
+ "AQA 2.9": {
+  "title": "Health and Disease Risk Factors",
+  "sections": [
+   "4.2.2.5",
+   "4.2.2.6"
+  ],
+  "weight": 10.82
+ },
+ "AQA 2.10": {
+  "title": "Cancer",
+  "sections": [
+   "4.2.2.7"
+  ],
+  "weight": 1.3
+ },
+ "AQA 2.11": {
+  "title": "Plant Tissues",
+  "sections": [
+   "4.2.3.1"
+  ],
+  "weight": 2.95
+ },
+ "AQA 2.12": {
+  "title": "Plant Organ System and Transpiration",
+  "sections": [
+   "4.2.3.2 (1/2)"
+  ],
+  "weight": 3.03
+ },
+ "AQA 2.13": {
+  "title": "Translocation",
+  "sections": [
+   "4.2.3.2 (1/2)"
+  ],
+  "weight": 3.03
+ },
+ "AQA 3.1": {
+  "title": "Communicable Disease and Pathogens",
+  "sections": [
+   "4.3.1.1"
+  ],
+  "weight": 2.07
+ },
+ "AQA 3.2": {
+  "title": "Viral, Bacterial, Fungal and Protist Diseases",
+  "sections": [
+   "4.3.1.2",
+   "4.3.1.3",
+   "4.3.1.4",
+   "4.3.1.5"
+  ],
+  "weight": 5.73
+ },
+ "AQA 3.3": {
+  "title": "Human Defence Systems",
+  "sections": [
+   "4.3.1.6"
+  ],
+  "weight": 3.59
+ },
+ "AQA 3.4": {
+  "title": "Vaccination",
+  "sections": [
+   "4.3.1.7"
+  ],
+  "weight": 1.73
+ },
+ "AQA 3.5": {
+  "title": "Antibiotics and Painkillers",
+  "sections": [
+   "4.3.1.8"
+  ],
+  "weight": 1.93
+ },
+ "AQA 3.6": {
+  "title": "Discovery and Development of Drugs",
+  "sections": [
+   "4.3.1.9"
+  ],
+  "weight": 3.38
+ },
+ "AQA 3.7": {
+  "title": "Monoclonal Antibodies (biology only, HT)",
+  "sections": [
+   "4.3.2.1",
+   "4.3.2.2 (1/2)"
+  ],
+  "weight": 2.83
+ },
+ "AQA 3.8": {
+  "title": "Uses of Monoclonal Antibodies (biology only, HT)",
+  "sections": [
+   "4.3.2.2 (1/2)"
+  ],
+  "weight": 1.41
+ },
+ "AQA 3.9": {
+  "title": "Detection and Identification of Plant Diseases (biology only)",
+  "sections": [
+   "4.3.3.1"
+  ],
+  "weight": 4.92
+ },
+ "AQA 3.10": {
+  "title": "Plant Defence Responses (biology only)",
+  "sections": [
+   "4.3.3.2"
+  ],
+  "weight": 3.81
+ },
+ "AQA 4.1": {
+  "title": "Photosynthesis Reaction and Endothermic Nature",
+  "sections": [
+   "4.4.1.1"
+  ],
+  "weight": 1.3
+ },
+ "AQA 4.2": {
+  "title": "Rate of Photosynthesis and Limiting Factors",
+  "sections": [
+   "4.4.1.2"
+  ],
+  "weight": 7.31
+ },
+ "AQA 4.3": {
+  "title": "Inverse Square Law and Limiting Factors (HT)",
+  "sections": [
+   "4.4.1.3 (1/2)"
+  ],
+  "weight": 1.27
+ },
+ "AQA 4.4": {
+  "title": "Uses of Glucose from Photosynthesis",
+  "sections": [
+   "4.4.1.3 (1/2)"
+  ],
+  "weight": 1.27
+ },
+ "AQA 4.5": {
+  "title": "Aerobic Respiration",
+  "sections": [
+   "4.4.2.1 (1/2)"
+  ],
+  "weight": 1.74
+ },
+ "AQA 4.6": {
+  "title": "Anaerobic Respiration and Fermentation",
+  "sections": [
+   "4.4.2.1 (1/2)"
+  ],
+  "weight": 1.74
+ },
+ "AQA 4.7": {
+  "title": "Response to Exercise",
+  "sections": [
+   "4.4.2.2"
+  ],
+  "weight": 2.0
+ },
+ "AQA 4.8": {
+  "title": "Metabolism",
+  "sections": [
+   "4.4.2.3"
+  ],
+  "weight": 4.23
+ },
+ "AQA 5.1": {
+  "title": "Principles of Homeostasis",
+  "sections": [
+   "4.5.1"
+  ],
+  "weight": 3.15
+ },
+ "AQA 5.2": {
+  "title": "Structure and Function of the Nervous System",
+  "sections": [
+   "4.5.2.1 (1/2)"
+  ],
+  "weight": 3.24
+ },
+ "AQA 5.3": {
+  "title": "Reflex Actions",
+  "sections": [
+   "4.5.2.1 (1/2)"
+  ],
+  "weight": 3.24
+ },
+ "AQA 5.4": {
+  "title": "The Brain (biology only, HT)",
+  "sections": [
+   "4.5.2.2"
+  ],
+  "weight": 2.62
+ },
+ "AQA 5.5": {
+  "title": "The Eye (biology only)",
+  "sections": [
+   "4.5.2.3"
+  ],
+  "weight": 7.35
+ },
+ "AQA 5.6": {
+  "title": "Control of Body Temperature (biology only)",
+  "sections": [
+   "4.5.2.4"
+  ],
+  "weight": 2.09
+ },
+ "AQA 5.7": {
+  "title": "Human Endocrine System",
+  "sections": [
+   "4.5.3.1"
+  ],
+  "weight": 3.23
+ },
+ "AQA 5.8": {
+  "title": "Control of Blood Glucose Concentration",
+  "sections": [
+   "4.5.3.2"
+  ],
+  "weight": 4.65
+ },
+ "AQA 5.9": {
+  "title": "Diabetes",
+  "sections": [
+   "4.5.3.3 (1/3)"
+  ],
+  "weight": 1.78
+ },
+ "AQA 5.10": {
+  "title": "Maintaining Water and Nitrogen Balance (biology only)",
+  "sections": [
+   "4.5.3.3 (1/3)"
+  ],
+  "weight": 1.78
+ },
+ "AQA 5.11": {
+  "title": "The Kidney and Dialysis (biology only)",
+  "sections": [
+   "4.5.3.3 (1/3)"
+  ],
+  "weight": 1.78
+ },
+ "AQA 5.12": {
+  "title": "Hormones in Human Reproduction",
+  "sections": [
+   "4.5.3.4"
+  ],
+  "weight": 4.09
+ },
+ "AQA 5.13": {
+  "title": "Contraception and Fertility Treatment",
+  "sections": [
+   "4.5.3.5",
+   "4.5.3.6"
+  ],
+  "weight": 8.46
+ },
+ "AQA 5.14": {
+  "title": "Negative Feedback (biology only, HT)",
+  "sections": [
+   "4.5.3.7"
+  ],
+  "weight": 2.25
+ },
+ "AQA 5.15": {
+  "title": "Plant Hormones and Tropisms (biology only)",
+  "sections": [
+   "4.5.4.1",
+   "4.5.4.2 (1/2)"
+  ],
+  "weight": 6.21
+ },
+ "AQA 5.16": {
+  "title": "Uses of Plant Hormones (biology only, HT)",
+  "sections": [
+   "4.5.4.2 (1/2)"
+  ],
+  "weight": 2.21
+ },
+ "AQA 6.1": {
+  "title": "Sexual and Asexual Reproduction",
+  "sections": [
+   "4.6.1.1"
+  ],
+  "weight": 1.81
+ },
+ "AQA 6.2": {
+  "title": "Meiosis",
+  "sections": [
+   "4.6.1.2"
+  ],
+  "weight": 2.48
+ },
+ "AQA 6.3": {
+  "title": "Advantages of Sexual and Asexual Reproduction (biology only)",
+  "sections": [
+   "4.6.1.3"
+  ],
+  "weight": 4.33
+ },
+ "AQA 6.4": {
+  "title": "DNA and the Genome",
+  "sections": [
+   "4.6.1.4"
+  ],
+  "weight": 3.35
+ },
+ "AQA 6.5": {
+  "title": "DNA Structure and Protein Synthesis (biology only, HT)",
+  "sections": [
+   "4.6.1.5"
+  ],
+  "weight": 4.61
+ },
+ "AQA 6.6": {
+  "title": "Genetic Inheritance and Terminology",
+  "sections": [
+   "4.6.1.6"
+  ],
+  "weight": 7.55
+ },
+ "AQA 6.7": {
+  "title": "Inherited Disorders and Genetic Crosses",
+  "sections": [
+   "4.6.1.7"
+  ],
+  "weight": 1.74
+ },
+ "AQA 6.8": {
+  "title": "Sex Determination",
+  "sections": [
+   "4.6.1.8"
+  ],
+  "weight": 2.19
+ },
+ "AQA 6.9": {
+  "title": "Variation",
+  "sections": [
+   "4.6.2.1"
+  ],
+  "weight": 2.83
+ },
+ "AQA 6.10": {
+  "title": "Evolution by Natural Selection",
+  "sections": [
+   "4.6.2.2"
+  ],
+  "weight": 2.25
+ },
+ "AQA 6.11": {
+  "title": "Selective Breeding",
+  "sections": [
+   "4.6.2.3"
+  ],
+  "weight": 3.1
+ },
+ "AQA 6.12": {
+  "title": "Genetic Engineering",
+  "sections": [
+   "4.6.2.4"
+  ],
+  "weight": 4.96
+ },
+ "AQA 6.13": {
+  "title": "Cloning (biology only)",
+  "sections": [
+   "4.6.2.5"
+  ],
+  "weight": 3.15
+ },
+ "AQA 6.14": {
+  "title": "Theory of Evolution and Speciation (biology only)",
+  "sections": [
+   "4.6.3.1",
+   "4.6.3.2"
+  ],
+  "weight": 5.86
+ },
+ "AQA 6.15": {
+  "title": "Evidence for Evolution and Fossils",
+  "sections": [
+   "4.6.3.3",
+   "4.6.3.4",
+   "4.6.3.5"
+  ],
+  "weight": 6.7
+ },
+ "AQA 6.16": {
+  "title": "Extinction and Antibiotic-Resistant Bacteria",
+  "sections": [
+   "4.6.3.6",
+   "4.6.3.7"
+  ],
+  "weight": 3.66
+ },
+ "AQA 6.17": {
+  "title": "Classification of Living Organisms",
+  "sections": [
+   "4.6.4"
+  ],
+  "weight": 4.11
+ },
+ "AQA 7.1": {
+  "title": "Communities and Interdependence",
+  "sections": [
+   "4.7.1.1"
+  ],
+  "weight": 4.13
+ },
+ "AQA 7.2": {
+  "title": "Abiotic and Biotic Factors",
+  "sections": [
+   "4.7.1.2",
+   "4.7.1.3"
+  ],
+  "weight": 7.04
+ },
+ "AQA 7.3": {
+  "title": "Adaptations",
+  "sections": [
+   "4.7.1.4"
+  ],
+  "weight": 1.7
+ },
+ "AQA 7.4": {
+  "title": "Levels of Organisation and Sampling",
+  "sections": [
+   "4.7.2.1"
+  ],
+  "weight": 6.08
+ },
+ "AQA 7.5": {
+  "title": "How Materials are Cycled (Carbon and Water Cycles)",
+  "sections": [
+   "4.7.2.2"
+  ],
+  "weight": 2.62
+ },
+ "AQA 7.6": {
+  "title": "Decomposition and Rate (biology only)",
+  "sections": [
+   "4.7.2.3"
+  ],
+  "weight": 5.25
+ },
+ "AQA 7.7": {
+  "title": "Impact of Environmental Change (biology only, HT)",
+  "sections": [
+   "4.7.2.4"
+  ],
+  "weight": 3.06
+ },
+ "AQA 7.8": {
+  "title": "Biodiversity and Human Impact",
+  "sections": [
+   "4.7.3.1",
+   "4.7.3.2"
+  ],
+  "weight": 3.26
+ },
+ "AQA 7.9": {
+  "title": "Global Warming",
+  "sections": [
+   "4.7.3.3",
+   "4.7.3.4",
+   "4.7.3.5"
+  ],
+  "weight": 4.52
+ },
+ "AQA 7.10": {
+  "title": "Maintaining Biodiversity",
+  "sections": [
+   "4.7.3.6"
+  ],
+  "weight": 2.61
+ },
+ "AQA 7.11": {
+  "title": "Trophic Levels and Pyramids of Biomass (biology only)",
+  "sections": [
+   "4.7.4.1",
+   "4.7.4.2 (1/2)"
+  ],
+  "weight": 2.34
+ },
+ "AQA 7.12": {
+  "title": "Transfer of Biomass (biology only)",
+  "sections": [
+   "4.7.4.2 (1/2)",
+   "4.7.4.3"
+  ],
+  "weight": 4.6
+ },
+ "AQA 7.13": {
+  "title": "Food Security (biology only)",
+  "sections": [
+   "4.7.5.1"
+  ],
+  "weight": 2.9
+ },
+ "AQA 7.14": {
+  "title": "Farming Techniques and Sustainable Fisheries (biology only)",
+  "sections": [
+   "4.7.5.2",
+   "4.7.5.3"
+  ],
+  "weight": 2.6
+ },
+ "AQA 7.15": {
+  "title": "Role of Biotechnology (biology only)",
+  "sections": [
+   "4.7.5.4"
+  ],
+  "weight": 1.41
+ }
+}

@@ -35,7 +35,53 @@ export type ReviewSource = "homework" | "mcq" | "confidence";
 // Deterministic scheduling: fuzz off so the same history always yields the same
 // due-date (important for previews/tests), and cap intervals at a year so a
 // GCSE course never schedules a review past the exam horizon.
-const scheduler = fsrs(generatorParameters({ enable_fuzz: false, maximum_interval: 365 }));
+//
+// `enable_short_term: false` is what makes this a weekly engine rather than a
+// flashcard one. FSRS ships with learning steps of 1 and 10 MINUTES: out of the
+// box, a student who rates a point "confident" gets it back the same afternoon.
+// That is right for someone drilling cards all day and wrong for us — nobody
+// opens their planner twice in an hour. With short-term off there are no
+// sub-day steps at all; a card goes straight into review with an interval
+// measured in days.
+const scheduler = fsrs(
+  generatorParameters({ enable_fuzz: false, maximum_interval: 365, enable_short_term: false }),
+);
+
+/**
+ * Nothing is due sooner than the student's next visit.
+ *
+ * Even without the minute-level steps, FSRS thinks in days: a shaky point wants
+ * to come back in one or two. That is correct memory science and useless to us —
+ * the planner is a weekly grid and the student sees it once a week, so a card
+ * due on Wednesday is simply "overdue" by the time anyone looks, and everything
+ * piles into the focus lane at once. Flooring the due date at a week aligns the
+ * engine's cadence with the product's. It only ever pushes a due date later, so
+ * a mature card's long interval is untouched, and stability/difficulty are not
+ * altered — FSRS still computes those from the real elapsed time at the next
+ * review.
+ */
+const MIN_INTERVAL_DAYS = 7;
+
+/**
+ * How long a card must hold before it reads as genuinely strong.
+ *
+ * This exists because of the floor above. Once every card is pushed at least a
+ * week out, "not due yet" stops meaning anything — a point the student has just
+ * dragged into *Needs work* is no more due than one they've aced four times, so
+ * a status derived from the due date alone called both of them strong. It scored
+ * a just-flagged weak point 70/100, over the settled line, which kept it out of
+ * the focus lane and out of the year plan entirely: the student's clearest
+ * signal about themselves was read as its opposite.
+ *
+ * Stability is the honest measure — it's how many days FSRS thinks the memory
+ * survives, and it's untouched by our flooring. Two weeks is the bar: one full
+ * cycle beyond the weekly cadence we schedule on, so a card only counts as
+ * strong once its own interval clears our floor with room to spare. Below it the
+ * card is still bedding in, whatever its due date says — including a mature
+ * point that has just lapsed, which collapses to ~14 days and belongs back in
+ * the lane rather than sitting out until it comes due.
+ */
+export const STRONG_STABILITY_DAYS = 2 * MIN_INTERVAL_DAYS;
 
 /**
  * Rehydrate a card read back from jsonb, where `due`/`last_review` are ISO
@@ -77,10 +123,29 @@ export function confidenceToRating(conf: number): Grade {
   return Rating.Easy;
 }
 
-/** Apply one review to a card (or a fresh one) and return the updated card. */
-export function applyReview(card: Card | null, grade: Grade, now: Date = new Date()): Card {
+/**
+ * Apply one review to a card (or a fresh one) and return the updated card, with
+ * its due date floored to {@link MIN_INTERVAL_DAYS} (see the note there).
+ *
+ * `countsAsLapse: false` keeps the card's lapse counter where it was. A lapse is
+ * meant to mean "knew it, then got it wrong" — evidence from a mark. A student
+ * dragging a topic into "Not confident" is telling us something useful, and it
+ * still shortens the interval exactly as before (FSRS's scheduling reads
+ * stability, difficulty and retrievability — never the lapse count, which is
+ * bookkeeping). Recording it as a failure on top of that punishes them for being
+ * honest, and the penalty it feeds is permanent.
+ */
+export function applyReview(
+  card: Card | null,
+  grade: Grade,
+  now: Date = new Date(),
+  { countsAsLapse = true }: { countsAsLapse?: boolean } = {},
+): Card {
   const base: Card = card ?? createEmptyCard<Card>(now);
-  return scheduler.next(base, now, grade).card;
+  const next = scheduler.next(base, now, grade).card;
+  const floor = now.getTime() + MIN_INTERVAL_DAYS * 86_400_000;
+  const due = dueMs(next) >= floor ? next.due : new Date(floor);
+  return { ...next, due, lapses: countsAsLapse ? next.lapses : base.lapses };
 }
 
 /**
@@ -132,15 +197,22 @@ export function isDueBy(card: Card | null, when: Date): boolean {
  *
  *  • `new`      — never touched (no card yet).
  *  • `due`      — practised, but now due/overdue for another look (a flop lands here).
- *  • `learning` — mid-way through bedding in (learning / relearning steps).
- *  • `strong`   — in long-term review and not due for a while — it's sticking.
+ *  • `learning` — bedding in: the memory doesn't hold for {@link STRONG_STABILITY_DAYS}
+ *                 yet, so a freshly rated point sits here whatever its due date.
+ *  • `strong`   — holds for a fortnight or more and isn't due — it's sticking.
  */
 export type PointStatus = "new" | "due" | "learning" | "strong";
 
 export function pointStatus(card: Card | null, now: Date = new Date()): PointStatus {
   if (!card || card.state === State.New) return "new";
   if (dueMs(card) <= now.getTime()) return "due"; // overdue trumps the raw state
-  if (card.state === State.Learning || card.state === State.Relearning) return "learning";
+  // Strength is what the card holds, not when we happen to have scheduled it.
+  if (
+    card.state === State.Learning ||
+    card.state === State.Relearning ||
+    card.stability < STRONG_STABILITY_DAYS
+  )
+    return "learning";
   return "strong";
 }
 
@@ -152,13 +224,50 @@ function clampScore(n: number): number {
 }
 
 /**
+ * How much a due point loses per week it sits unreviewed, and the most it can
+ * lose that way. Being due is a prompt to look again, not evidence of ignorance —
+ * so a point that came due yesterday is barely marked down, while one ignored for
+ * a month and a half slides a full band.
+ */
+export const DUE_STALENESS_PER_WEEK = 5;
+export const DUE_STALENESS_MAX = 25;
+
+/**
+ * What a lapse costs, and the most lapses can cost in total.
+ *
+ * Capped, and deliberately absent from the `strong` branch: a lapse has already
+ * collapsed the card's stability, and that branch is *made of* stability, so
+ * charging again there would price the same mistake twice. Leaving it out is
+ * also the way back — a point re-learned until it reads strong sheds the penalty
+ * entirely, which an uncapped permanent tax never allowed.
+ */
+export const LAPSE_PENALTY = 5;
+export const LAPSE_PENALTY_MAX = 15;
+
+function lapsePenalty(card: Card): number {
+  return Math.min(LAPSE_PENALTY_MAX, (card.lapses ?? 0) * LAPSE_PENALTY);
+}
+
+/**
  * A 0–100 "mastery" for one spec point, derived from its FSRS card so the
  * programme reflects the same engine that drives the weekly plan. A never-touched
  * point scores its confidence rating (so the termly board feeds the programme
  * before any homework exists); once practised, the card's state and stability
- * take over — a flop drops it back to "due", lapses chip away, a stable review
- * point scores high. Averaged across a topic's points this is what decides
- * whether the topic reads as settled on the roadmap.
+ * take over — a stale point drifts down, real lapses chip away (capped, and only
+ * while the point is still shaky), and a stable review point scores high. Averaged across a topic's points this is what decides whether the
+ * topic reads as settled on the roadmap.
+ *
+ * What the student said is the anchor, not a garnish. The old formula scored a
+ * due point `25 + confidence × 0.25`, which topped out at 50 — below the 67
+ * settled line — so ANY point that came due was condemned to the focus lane no
+ * matter how well the student knew it. They could drag every topic into
+ * "Confident" and watch the plan disagree with them forever. Confidence now sets
+ * the level and the card's state adjusts it, so the board and the plan tell the
+ * same story.
+ *
+ * With no self-rating at all (a point only ever touched by homework or a quiz) we
+ * start from neutral rather than zero — the marks have already moved the card,
+ * and scoring silence as ignorance would bury it.
  */
 export function pointMastery(
   card: Card | null,
@@ -166,24 +275,23 @@ export function pointMastery(
   now: Date = new Date(),
 ): number {
   if (!card || card.state === State.New) return clampScore(confidence ?? 0);
-  const penalty = (card.lapses ?? 0) * 5;
+  const penalty = lapsePenalty(card);
+  const stated = confidence ?? 50;
   switch (pointStatus(card, now)) {
-    case "due":
-      // Due means "needs another look", not "back to zero". Early-stage FSRS
-      // intervals are short (minutes–days), so at our weekly cadence a card the
-      // student only just rated is due again almost immediately — blend their
-      // stated confidence so a confident-but-due point reads mid-40s (one
-      // revisit) while a needs-work or lapsing one stays low (keeps recurring).
-      return clampScore(25 + (confidence ?? 0) * 0.25 - penalty);
+    case "due": {
+      // Due, marked down by how long it has been sitting there unlooked-at.
+      const weeksOverdue = Math.max(0, (now.getTime() - dueMs(card)) / (7 * 86_400_000));
+      const staleness = Math.min(DUE_STALENESS_MAX, weeksOverdue * DUE_STALENESS_PER_WEEK);
+      return clampScore(stated - 5 - staleness - penalty);
+    }
     case "learning":
-      // Mid-learning (reviewed, not yet overdue). Reflect the rating the same way
-      // as "due" — a flat mid-score here would erase a fresh "needs work" the
-      // moment it's given (FSRS learning steps are minutes long, so a just-rated
-      // point sits here for a beat before it comes due) — just a touch higher,
-      // since it isn't overdue yet. So a needs-work point reads red immediately.
-      return clampScore(28 + (confidence ?? 0) * 0.25 - penalty);
+      // Bedding in: not due, but not holding either. What the student says about
+      // it is the best evidence there is, so a point they've just called shaky
+      // scores shaky — the case that used to land in `strong` and read 70.
+      return clampScore(stated - 3 - penalty);
     default: // strong
-      return clampScore(70 + Math.min(30, card.stability / 2) - penalty);
+      // No lapse penalty here on purpose: stability already carries it.
+      return clampScore(70 + Math.min(30, card.stability / 2));
   }
 }
 

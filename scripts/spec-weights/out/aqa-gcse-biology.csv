@@ -1,0 +1,93 @@
+code,title,weight,aqa_sections
+AQA 1.1,Eukaryotes and Prokaryotes,1.73,4.1.1.1
+AQA 1.2,Animal and Plant Cell Structure,7.01,4.1.1.2
+AQA 1.3,Cell Specialisation and Differentiation,3.88,4.1.1.3; 4.1.1.4
+AQA 1.4,Microscopy and Magnification,2.7,4.1.1.5
+AQA 1.5,Culturing Microorganisms (biology only),8.51,4.1.1.6
+AQA 1.6,Chromosomes,1.3,4.1.2.1
+AQA 1.7,Mitosis and the Cell Cycle,2.1,4.1.2.2
+AQA 1.8,Stem Cells,1.5,4.1.2.3 (1/2)
+AQA 1.9,Stem Cells in Medicine and Plants,1.5,4.1.2.3 (1/2)
+AQA 1.10,Diffusion,6.24,4.1.3.1
+AQA 1.11,Osmosis,5.23,4.1.3.2
+AQA 1.12,Active Transport,1.44,4.1.3.3 (1/2)
+AQA 1.13,Exchange Surfaces and Surface Area to Volume Ratio,1.44,4.1.3.3 (1/2)
+AQA 2.1,Principles of Organisation,1.75,4.2.1
+AQA 2.2,The Human Digestive System,1.94,4.2.2.1 (1/4)
+AQA 2.3,Enzymes and the Lock-and-Key Model,1.94,4.2.2.1 (1/4)
+AQA 2.4,Enzymes in Digestion,1.94,4.2.2.1 (1/4)
+AQA 2.5,Factors Affecting Enzyme Action,1.94,4.2.2.1 (1/4)
+AQA 2.6,The Heart and Blood Vessels,3.76,4.2.2.2
+AQA 2.7,Blood,1.25,4.2.2.3
+AQA 2.8,Coronary Heart Disease and Treatments,2.78,4.2.2.4
+AQA 2.9,Health and Disease Risk Factors,10.82,4.2.2.5; 4.2.2.6
+AQA 2.10,Cancer,1.3,4.2.2.7
+AQA 2.11,Plant Tissues,2.95,4.2.3.1
+AQA 2.12,Plant Organ System and Transpiration,3.03,4.2.3.2 (1/2)
+AQA 2.13,Translocation,3.03,4.2.3.2 (1/2)
+AQA 3.1,Communicable Disease and Pathogens,2.07,4.3.1.1
+AQA 3.2,"Viral, Bacterial, Fungal and Protist Diseases",5.73,4.3.1.2; 4.3.1.3; 4.3.1.4; 4.3.1.5
+AQA 3.3,Human Defence Systems,3.59,4.3.1.6
+AQA 3.4,Vaccination,1.73,4.3.1.7
+AQA 3.5,Antibiotics and Painkillers,1.93,4.3.1.8
+AQA 3.6,Discovery and Development of Drugs,3.38,4.3.1.9
+AQA 3.7,"Monoclonal Antibodies (biology only, HT)",2.83,4.3.2.1; 4.3.2.2 (1/2)
+AQA 3.8,"Uses of Monoclonal Antibodies (biology only, HT)",1.41,4.3.2.2 (1/2)
+AQA 3.9,Detection and Identification of Plant Diseases (biology only),4.92,4.3.3.1
+AQA 3.10,Plant Defence Responses (biology only),3.81,4.3.3.2
+AQA 4.1,Photosynthesis Reaction and Endothermic Nature,1.3,4.4.1.1
+AQA 4.2,Rate of Photosynthesis and Limiting Factors,7.31,4.4.1.2
+AQA 4.3,Inverse Square Law and Limiting Factors (HT),1.27,4.4.1.3 (1/2)
+AQA 4.4,Uses of Glucose from Photosynthesis,1.27,4.4.1.3 (1/2)
+AQA 4.5,Aerobic Respiration,1.74,4.4.2.1 (1/2)
+AQA 4.6,Anaerobic Respiration and Fermentation,1.74,4.4.2.1 (1/2)
+AQA 4.7,Response to Exercise,2.0,4.4.2.2
+AQA 4.8,Metabolism,4.23,4.4.2.3
+AQA 5.1,Principles of Homeostasis,3.15,4.5.1
+AQA 5.2,Structure and Function of the Nervous System,3.24,4.5.2.1 (1/2)
+AQA 5.3,Reflex Actions,3.24,4.5.2.1 (1/2)
+AQA 5.4,"The Brain (biology only, HT)",2.62,4.5.2.2
+AQA 5.5,The Eye (biology only),7.35,4.5.2.3
+AQA 5.6,Control of Body Temperature (biology only),2.09,4.5.2.4
+AQA 5.7,Human Endocrine System,3.23,4.5.3.1
+AQA 5.8,Control of Blood Glucose Concentration,4.65,4.5.3.2
+AQA 5.9,Diabetes,1.78,4.5.3.3 (1/3)
+AQA 5.10,Maintaining Water and Nitrogen Balance (biology only),1.78,4.5.3.3 (1/3)
+AQA 5.11,The Kidney and Dialysis (biology only),1.78,4.5.3.3 (1/3)
+AQA 5.12,Hormones in Human Reproduction,4.09,4.5.3.4
+AQA 5.13,Contraception and Fertility Treatment,8.46,4.5.3.5; 4.5.3.6
+AQA 5.14,"Negative Feedback (biology only, HT)",2.25,4.5.3.7
+AQA 5.15,Plant Hormones and Tropisms (biology only),6.21,4.5.4.1; 4.5.4.2 (1/2)
+AQA 5.16,"Uses of Plant Hormones (biology only, HT)",2.21,4.5.4.2 (1/2)
+AQA 6.1,Sexual and Asexual Reproduction,1.81,4.6.1.1
+AQA 6.2,Meiosis,2.48,4.6.1.2
+AQA 6.3,Advantages of Sexual and Asexual Reproduction (biology only),4.33,4.6.1.3
+AQA 6.4,DNA and the Genome,3.35,4.6.1.4
+AQA 6.5,"DNA Structure and Protein Synthesis (biology only, HT)",4.61,4.6.1.5
+AQA 6.6,Genetic Inheritance and Terminology,7.55,4.6.1.6
+AQA 6.7,Inherited Disorders and Genetic Crosses,1.74,4.6.1.7
+AQA 6.8,Sex Determination,2.19,4.6.1.8
+AQA 6.9,Variation,2.83,4.6.2.1
+AQA 6.10,Evolution by Natural Selection,2.25,4.6.2.2
+AQA 6.11,Selective Breeding,3.1,4.6.2.3
+AQA 6.12,Genetic Engineering,4.96,4.6.2.4
+AQA 6.13,Cloning (biology only),3.15,4.6.2.5
+AQA 6.14,Theory of Evolution and Speciation (biology only),5.86,4.6.3.1; 4.6.3.2
+AQA 6.15,Evidence for Evolution and Fossils,6.7,4.6.3.3; 4.6.3.4; 4.6.3.5
+AQA 6.16,Extinction and Antibiotic-Resistant Bacteria,3.66,4.6.3.6; 4.6.3.7
+AQA 6.17,Classification of Living Organisms,4.11,4.6.4
+AQA 7.1,Communities and Interdependence,4.13,4.7.1.1
+AQA 7.2,Abiotic and Biotic Factors,7.04,4.7.1.2; 4.7.1.3
+AQA 7.3,Adaptations,1.7,4.7.1.4
+AQA 7.4,Levels of Organisation and Sampling,6.08,4.7.2.1
+AQA 7.5,How Materials are Cycled (Carbon and Water Cycles),2.62,4.7.2.2
+AQA 7.6,Decomposition and Rate (biology only),5.25,4.7.2.3
+AQA 7.7,"Impact of Environmental Change (biology only, HT)",3.06,4.7.2.4
+AQA 7.8,Biodiversity and Human Impact,3.26,4.7.3.1; 4.7.3.2
+AQA 7.9,Global Warming,4.52,4.7.3.3; 4.7.3.4; 4.7.3.5
+AQA 7.10,Maintaining Biodiversity,2.61,4.7.3.6
+AQA 7.11,Trophic Levels and Pyramids of Biomass (biology only),2.34,4.7.4.1; 4.7.4.2 (1/2)
+AQA 7.12,Transfer of Biomass (biology only),4.6,4.7.4.2 (1/2); 4.7.4.3
+AQA 7.13,Food Security (biology only),2.9,4.7.5.1
+AQA 7.14,Farming Techniques and Sustainable Fisheries (biology only),2.6,4.7.5.2; 4.7.5.3
+AQA 7.15,Role of Biotechnology (biology only),1.41,4.7.5.4

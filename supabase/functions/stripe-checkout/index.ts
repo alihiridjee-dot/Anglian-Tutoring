@@ -1,17 +1,25 @@
 // Supabase Edge Function: stripe-checkout
 //
 // All authenticated Stripe operations: Checkout Sessions, the Billing Portal,
-// pause/resume/cancel, and invoice history. Together with stripe-webhook this
-// is the only place STRIPE_SECRET_KEY exists — it is never shipped to the
-// browser.
+// pause/resume/cancel, adding and removing subjects, switching cadence, and
+// invoice history. Together with stripe-webhook this is the only place
+// STRIPE_SECRET_KEY exists — it is never shipped to the browser.
+//
+// Checkout is for a family's FIRST subscription only. Every later change to a
+// live plan is an update to the existing Stripe subscription (add_subjects,
+// remove_subjects, change_cadence) — never a second Checkout Session. A second
+// session would leave the first subscription billing forever, because the
+// webhook keys public.subscriptions on student_id and would just overwrite the
+// row.
 //
 // Things this function will not let the client decide:
 //
 //   • the price — it is looked up from public.packages by tier, so a caller
 //     cannot post their own price id and buy the £139.99 plan for £0.
 //   • who is paying — the payer is taken from the verified JWT, never the body.
-//   • whose subscription is managed — pause/resume/cancel and invoices only
-//     operate on rows whose user_id (the payer) matches the caller.
+//   • whose subscription is managed — pause/resume/cancel and add/remove
+//     subjects run assertCanManage first: the payer, or a linked parent of the
+//     student. Invoices are scoped to the caller's billing household.
 //
 // A caller may nominate a *beneficiary* (a parent paying for their child), but
 // only if an active parent_student_links row already proves the relationship.
@@ -91,6 +99,50 @@ interface AddSubjectsPayload {
   subjects: { subject: string; board: string }[];
 }
 
+interface RemoveSubjectsPayload {
+  /**
+   * Drop subject(s) from a live subscription — the mirror of add_subjects, and
+   * the answer to "cancel Chemistry without cancelling everything". Moves the
+   * plan DOWN the `${cadence}_${count}` matrix, un-enrols the student and
+   * shrinks their access grant.
+   *
+   * Destructive, so it takes the stricter authority (assertCanManage) rather
+   * than the looser upgrade check, and it refuses to empty the plan: removing
+   * the last subject is cancelling, which has its own gated flow.
+   */
+  action: "remove_subjects";
+  /** subscriptions.student_id — whose plan to shrink. */
+  student_id: string;
+  /** Subject slugs to drop. */
+  subjects: string[];
+}
+
+interface ChangeCadencePayload {
+  /**
+   * Switch how often the family is billed (weekly / monthly / termly) on the
+   * subscription they already have.
+   *
+   * This replaces the old "switch plan" path, which ran a fresh Checkout
+   * Session: that charged the full new price with no proration AND left the
+   * previous Stripe subscription running, because the webhook keys
+   * public.subscriptions on student_id and simply overwrote the row. The family
+   * was then billed twice with the app aware of only one.
+   *
+   * The subject COUNT is deliberately not a parameter — it is read from
+   * student_enrolments, so a cadence switch can never silently change what the
+   * plan covers (the old picker let someone buy `monthly_3` while enrolled in
+   * two subjects). Growing or shrinking coverage goes through
+   * add_subjects / remove_subjects, which ask which subjects and enrol properly.
+   */
+  action: "change_cadence";
+  /** subscriptions.student_id — whose plan to re-time. */
+  student_id: string;
+  /** The cadence to move to. */
+  cadence: string;
+  /** When true, price it and return without touching Stripe or the database. */
+  preview?: boolean;
+}
+
 interface InvoicesPayload {
   action: "invoices";
 }
@@ -100,10 +152,12 @@ type Payload =
   | PortalPayload
   | ManagePayload
   | AddSubjectsPayload
+  | RemoveSubjectsPayload
+  | ChangeCadencePayload
   | InvoicesPayload;
 
 const VALID_SUBJECTS = ["biology", "chemistry", "physics"];
-const VALID_BOARDS = ["edexcel", "aqa", "ocr", "edexcel_intl"];
+const VALID_BOARDS = ["edexcel", "aqa", "ocr"];
 const MAX_SUBJECTS = 3;
 
 /** Billing cadence of a tier, or null if it isn't one of ours. */
@@ -180,23 +234,34 @@ async function requireUser(req: Request) {
 }
 
 /**
- * Who may manage (pause / resume / cancel) a student's subscription.
+ * Who may manage (pause / resume / cancel / drop a subject from) a student's
+ * subscription.
  *
- * Management is link-based, not payer-based: once a student is linked to a
- * parent, the PARENT controls the plan — even for a plan the student originally
- * paid for themselves. A student may only manage their own plan while NO parent
- * is linked; the moment one links, control moves to the parent and the student
- * can no longer interfere.
+ * Two authorities, either of which is enough:
  *
- *   • caller is a linked parent of the student            → allowed
- *   • caller IS the student AND has no linked parent       → allowed
- *   • anyone else (incl. a self-paying but linked student) → 403
+ *   • the PAYER — whoever's card the plan sits on (subscriptions.user_id). This
+ *     is absolute: nobody may be charged with no way to stop it. It is what
+ *     rescues the self-paying student who later links a parent — the old
+ *     link-only rule left them funding a plan they were locked out of managing.
+ *   • a LINKED PARENT of the student — oversight of a child's plan, including
+ *     one the child paid for themselves.
  *
- * This mirrors the billing_feedback RLS insert policy, so the same rule holds on
- * both sides.
+ * So the only person refused is a student who neither pays nor is unlinked: a
+ * child on a parent-funded plan, who sees status and is pointed at their payer.
+ *
+ *   • caller is the payer                                  → allowed
+ *   • caller is a linked parent of the student             → allowed
+ *   • caller IS the student AND no parent is linked        → allowed
+ *   • a linked student on someone else's card              → 403
+ *
+ * Mirrored by the billing_feedback RLS insert policy so the rule holds on both
+ * sides. `payerId` comes from the subscription row the caller already loaded;
+ * omit it and only the link-based arms apply.
  */
-async function assertCanManage(callerId: string, studentId: string) {
+async function assertCanManage(callerId: string, studentId: string, payerId?: string | null) {
   const db = admin();
+
+  if (payerId && callerId === payerId) return; // the payer, always
 
   const { data: link } = await db
     .from("parent_student_links")
@@ -370,10 +435,10 @@ async function handlePortal(req: Request, payload: PortalPayload) {
 /**
  * Pause / resume / cancel-at-period-end for a student's subscription.
  *
- * Authority is link-based (assertCanManage): the linked parent manages it, or
- * the student themselves while no parent is linked. The subscription is acted on
- * by its Stripe id, so a parent can manage a plan the student originally paid
- * for — the payer is no longer the gate.
+ * Authority is assertCanManage: the payer, or a linked parent of the student.
+ * The subscription is acted on by its Stripe id, so a parent can manage a plan
+ * the student originally paid for, and the student who is paying keeps control
+ * of their own card either way.
  */
 async function handleManage(req: Request, payload: ManagePayload) {
   const user = await requireUser(req);
@@ -388,7 +453,7 @@ async function handleManage(req: Request, payload: ManagePayload) {
     .eq("student_id", payload.student_id)
     .maybeSingle();
   if (!row?.stripe_subscription_id) throw new HttpError(404, "No subscription found.");
-  await assertCanManage(user.id, payload.student_id);
+  await assertCanManage(user.id, payload.student_id, row.user_id);
 
   const id = row.stripe_subscription_id;
   let sub: Stripe.Subscription;
@@ -536,6 +601,266 @@ async function handleAddSubjects(req: Request, payload: AddSubjectsPayload) {
 }
 
 /**
+ * Drop subject(s) from a live subscription — the mirror of handleAddSubjects,
+ * and the only way to stop paying for one subject without ending the plan.
+ *
+ * Moves the plan down its cadence's ladder, swaps the Stripe price, un-enrols
+ * the student and shrinks enrolled_courses (the RLS grant) so the material
+ * locks the moment the money stops. Unlike an upgrade there is no immediate
+ * invoice: a downgrade's proration becomes a CREDIT held against the next bill
+ * (`create_prorations`), because Stripe does not refund to the card here and
+ * silently issuing a £0 invoice would read as "we took another payment".
+ *
+ * Refuses to remove the last subject — a plan covering nothing is a cancelled
+ * plan, and cancelling has its own gated flow with its own consequences.
+ */
+async function handleRemoveSubjects(req: Request, payload: RemoveSubjectsPayload) {
+  const user = await requireUser(req);
+  const db = admin();
+  const stripe = stripeClient();
+
+  if (!payload.student_id) throw new HttpError(400, "student_id is required.");
+  const requested = [...new Set(Array.isArray(payload.subjects) ? payload.subjects : [])];
+  if (requested.length === 0) throw new HttpError(400, "Pick at least one subject to remove.");
+  for (const s of requested) {
+    if (!VALID_SUBJECTS.includes(s)) throw new HttpError(400, "That isn't a subject we offer.");
+  }
+
+  const { data: row } = await db
+    .from("subscriptions")
+    .select("user_id, stripe_subscription_id, status, plan, cancel_at_period_end")
+    .eq("student_id", payload.student_id)
+    .maybeSingle();
+  if (!row?.stripe_subscription_id) throw new HttpError(404, "No active plan to change.");
+
+  // Stricter than adding: shrinking the plan takes away access, so it belongs to
+  // whoever controls the money, not to anyone who can grow it.
+  await assertCanManage(user.id, payload.student_id, row.user_id);
+
+  const live = row.status === "active" || row.status === "trialing";
+  if (!live || row.cancel_at_period_end) {
+    throw new HttpError(409, "Resume the plan before changing the subjects on it.");
+  }
+
+  const cadence = tierCadence(row.plan);
+  if (!cadence) throw new HttpError(409, "This plan can't be changed automatically — contact us.");
+
+  const { data: existingRows } = await db
+    .from("student_enrolments")
+    .select("subject")
+    .eq("student_id", payload.student_id);
+  const existing = (existingRows ?? []).map((r) => r.subject);
+  const toRemove = requested.filter((s) => existing.includes(s));
+  if (toRemove.length === 0) throw new HttpError(409, "That subject isn't on the plan.");
+
+  const remaining = existing.filter((s) => !toRemove.includes(s));
+  if (remaining.length === 0) {
+    throw new HttpError(
+      409,
+      "That would leave the plan with no subjects — cancel the plan instead.",
+    );
+  }
+
+  const newTier = `${cadence}_${remaining.length}`;
+  const pkg = await resolvePackage(db, newTier, await studentLevel(db, payload.student_id));
+  if (!pkg?.stripe_price_id) {
+    throw new HttpError(500, `The ${newTier} plan has no Stripe price attached yet.`);
+  }
+
+  const stripeSub = await stripe.subscriptions.retrieve(row.stripe_subscription_id);
+  const itemId = stripeSub.items.data[0]?.id;
+  if (!itemId) throw new HttpError(500, "Couldn't find the subscription item to change.");
+
+  await stripe.subscriptions.update(row.stripe_subscription_id, {
+    items: [{ id: itemId, price: pkg.stripe_price_id }],
+    // Credit the unused portion against the next invoice rather than invoicing
+    // now — see the note above.
+    proration_behavior: "create_prorations",
+    metadata: { ...stripeSub.metadata, tier: newTier },
+  });
+
+  // Revoke the grant FIRST, then delete the enrolment — the exact inverse of the
+  // add path's ordering, and for the same reason: the transient state must be
+  // "enrolled but no access" (harmless), never "access with no enrolment".
+  const { error: profErr } = await db
+    .from("profiles")
+    .update({ enrolled_courses: remaining })
+    .eq("id", payload.student_id);
+  if (profErr) throw new HttpError(500, `Couldn't update access: ${profErr.message}`);
+
+  // The enrolment row carries the board, so it has to go rather than linger:
+  // a stale row would make add_subjects reject re-adding the subject later as
+  // "already on the plan".
+  const { error: enrErr } = await db
+    .from("student_enrolments")
+    .delete()
+    .eq("student_id", payload.student_id)
+    .in("subject", toRemove);
+  if (enrErr) throw new HttpError(500, `Couldn't remove the enrolment: ${enrErr.message}`);
+
+  await db
+    .from("subscriptions")
+    .update({ plan: newTier, updated_at: new Date().toISOString() })
+    .eq("stripe_subscription_id", row.stripe_subscription_id);
+
+  return { ok: true, plan: newTier, removed: toRemove, remaining };
+}
+
+/**
+ * What Stripe will actually charge for a pending item swap, straight from
+ * Stripe rather than guessed at in our own arithmetic.
+ *
+ * Cadence prices are not comparable by hand — £19.99/week against £55.99/month
+ * against £139.99/quarter, part-way through a period, with a credit for unused
+ * time. Only Stripe knows the number, so the confirm dialog quotes this instead
+ * of inventing one.
+ *
+ * Returns null rather than throwing: a preview failing must not block the
+ * change itself, so the UI degrades to "Stripe will prorate this" instead of
+ * showing a wrong figure.
+ */
+async function previewItemSwap(
+  stripe: Stripe,
+  subscriptionId: string,
+  itemId: string,
+  priceId: string,
+): Promise<{ amount_due: number; currency: string } | null> {
+  // The parameter shape moved from flat `subscription_*` keys to a nested
+  // `subscription_details` object partway through the API versions this project
+  // has run on. Try the current shape, fall back to the legacy one.
+  const nested = {
+    subscription: subscriptionId,
+    subscription_details: {
+      items: [{ id: itemId, price: priceId }],
+      proration_behavior: "always_invoice",
+    },
+  };
+  const flat = {
+    subscription: subscriptionId,
+    subscription_items: [{ id: itemId, price: priceId }],
+    subscription_proration_behavior: "always_invoice",
+  };
+
+  for (const params of [nested, flat]) {
+    try {
+      const inv = await (stripe.invoices as any).retrieveUpcoming(params);
+      return { amount_due: inv.amount_due ?? 0, currency: inv.currency ?? "gbp" };
+    } catch (err) {
+      console.warn("stripe-checkout: upcoming-invoice preview failed:", (err as Error).message);
+    }
+  }
+  return null;
+}
+
+/**
+ * Switch billing cadence on the subscription the family already has.
+ *
+ * Modifies the existing Stripe subscription in place, with proration, rather
+ * than selling them a second one — see ChangeCadencePayload for why the old
+ * checkout-based "switch plan" was actively harmful.
+ *
+ * The new tier keeps the subject count from student_enrolments, so switching
+ * can only ever change *when* they pay, never *what they get*. That is what
+ * makes it safe to offer as a one-click control: there is nothing to ask.
+ *
+ * `preview: true` prices the move and returns without mutating anything.
+ */
+async function handleChangeCadence(req: Request, payload: ChangeCadencePayload) {
+  const user = await requireUser(req);
+  const db = admin();
+  const stripe = stripeClient();
+
+  if (!payload.student_id) throw new HttpError(400, "student_id is required.");
+  const cadence = tierCadence(payload.cadence);
+  if (!cadence || cadence !== payload.cadence) {
+    throw new HttpError(400, "That isn't a billing cadence we offer.");
+  }
+
+  const { data: row } = await db
+    .from("subscriptions")
+    .select("user_id, stripe_subscription_id, status, plan, cancel_at_period_end")
+    .eq("student_id", payload.student_id)
+    .maybeSingle();
+  if (!row?.stripe_subscription_id) throw new HttpError(404, "No active plan to change.");
+
+  await assertCanManage(user.id, payload.student_id, row.user_id);
+
+  const live = row.status === "active" || row.status === "trialing";
+  if (!live || row.cancel_at_period_end) {
+    throw new HttpError(409, "Resume the plan before changing how often you're billed.");
+  }
+
+  // Coverage is whatever they're actually enrolled in — never a client-supplied
+  // count, so a switch can't quietly buy or drop a subject.
+  const { data: enrolRows } = await db
+    .from("student_enrolments")
+    .select("subject")
+    .eq("student_id", payload.student_id);
+  const count = Math.min(Math.max((enrolRows ?? []).length, 1), MAX_SUBJECTS);
+
+  const newTier = `${cadence}_${count}`;
+  if (newTier === row.plan) throw new HttpError(409, "That's already the current plan.");
+
+  const pkg = await resolvePackage(db, newTier, await studentLevel(db, payload.student_id));
+  if (!pkg?.stripe_price_id) {
+    throw new HttpError(500, `The ${newTier} plan has no Stripe price attached yet.`);
+  }
+
+  const stripeSub = await stripe.subscriptions.retrieve(row.stripe_subscription_id);
+  const itemId = stripeSub.items.data[0]?.id;
+  if (!itemId) throw new HttpError(500, "Couldn't find the subscription item to change.");
+
+  const quote = await previewItemSwap(
+    stripe,
+    row.stripe_subscription_id,
+    itemId,
+    pkg.stripe_price_id,
+  );
+
+  if (payload.preview) {
+    return {
+      ok: true,
+      preview: true,
+      plan: newTier,
+      plan_name: pkg.name,
+      subjects: count,
+      amount_due_now: quote?.amount_due ?? null,
+      currency: quote?.currency ?? "gbp",
+    };
+  }
+
+  // A cadence change resets the billing period, so the proration is invoiced
+  // now rather than parked on a future bill: the family is starting a new week
+  // / month / term today and the invoice should say so.
+  const updated = await stripe.subscriptions.update(row.stripe_subscription_id, {
+    items: [{ id: itemId, price: pkg.stripe_price_id }],
+    proration_behavior: "always_invoice",
+    metadata: { ...stripeSub.metadata, tier: newTier },
+  });
+
+  const periodEndTs =
+    updated.current_period_end ??
+    (updated.items?.data?.[0] as { current_period_end?: number } | undefined)?.current_period_end;
+  await db
+    .from("subscriptions")
+    .update({
+      plan: newTier,
+      current_period_end: periodEndTs ? new Date(periodEndTs * 1000).toISOString() : null,
+      updated_at: new Date().toISOString(),
+    })
+    .eq("stripe_subscription_id", row.stripe_subscription_id);
+
+  return {
+    ok: true,
+    plan: newTier,
+    plan_name: pkg.name,
+    subjects: count,
+    amount_due_now: quote?.amount_due ?? null,
+    currency: quote?.currency ?? "gbp",
+  };
+}
+
+/**
  * The billing household's payment history, newest first — the parent's and the
  * linked student's invoices merged into one shared list (see
  * householdCustomerIds). Each customer's invoices are fetched, combined, sorted
@@ -593,6 +918,12 @@ Deno.serve(async (req) => {
         break;
       case "add_subjects":
         result = await handleAddSubjects(req, payload);
+        break;
+      case "remove_subjects":
+        result = await handleRemoveSubjects(req, payload);
+        break;
+      case "change_cadence":
+        result = await handleChangeCadence(req, payload);
         break;
       case "invoices":
         result = await handleInvoices(req);

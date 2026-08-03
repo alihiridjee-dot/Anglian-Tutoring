@@ -19,11 +19,17 @@ import { PaywallOverlay } from "@/components/billing/PaywallOverlay";
  *
  * An unpaid student is NOT redirected: the dashboard still renders and a
  * frosted-glass PaywallOverlay is drawn over it, so they see what they're
- * missing with a single "resubscribe" call to action. It's a UI gate, not a
- * hard paywall — a determined user with their own JWT could still query the
- * curriculum tables directly. Closing that means putting
- * private.student_has_access() into the RLS policies on the content tables —
- * tracked as follow-up work, deliberately not done here.
+ * missing with a single "resubscribe" call to action.
+ *
+ * This overlay is presentation only, and is no longer the thing enforcing the
+ * paywall. Curriculum content (topics, spec_points, resources, mcq_*,
+ * weekly_focus) is gated in RLS by private.viewer_has_content_access(), so a
+ * lapsed student with their own JWT reads nothing from those tables directly
+ * either. Expect content queries to come back EMPTY rather than error when
+ * `locked` is true — that is the database refusing, not a bug.
+ *
+ * A lapsed student keeps read access to their OWN records (submissions,
+ * confidence, reviews, plans) plus billing and profile, by design.
  */
 export const Route = createFileRoute("/_authenticated")({
   ssr: false,
