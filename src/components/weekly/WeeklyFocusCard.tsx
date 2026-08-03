@@ -1,16 +1,5 @@
 import { useMemo, useState } from "react";
-import { Link } from "@tanstack/react-router";
-import {
-  CalendarRange,
-  BookMarked,
-  ClipboardList,
-  ListChecks,
-  CalendarClock,
-  ChevronRight,
-  ChevronDown,
-  PlayCircle,
-  Sparkles,
-} from "lucide-react";
+import { BookMarked } from "lucide-react";
 import {
   useWeeklyFocus,
   useWeeklyFocusVideos,
@@ -30,40 +19,6 @@ const subjectLabel: Record<string, string> = {
 };
 
 const levelLabel: Record<string, string> = { gcse: "GCSE", alevel: "A-Level" };
-
-// Quick links to the week's deliverables. Kept as the three student surfaces the
-// widget promises — homework, MCQs and live sessions — so everything the student
-// needs sits in one view.
-const quickLinks = [
-  { to: "/homework", label: "Homework", icon: ClipboardList },
-  { to: "/mcqs", label: "MCQs", icon: ListChecks },
-  { to: "/live", label: "Live Sessions", icon: CalendarClock },
-] as const;
-
-/**
- * "What you'll focus on this week" blurb for one plan. The summary is generated
- * once by the tutor's save (Anthropic Claude) and stored on the weekly_focus
- * row, so here it's a plain read — no per-view AI call. Falls back to a prompt
- * toward the spec-point dropdown when a plan predates the feature or generation
- * failed.
- */
-function PlanSummary({ plan }: { plan: WeeklyFocusPlan }) {
-  return (
-    <div className="rounded-xl border border-primary/20 bg-primary/[0.04] p-4">
-      <div className="flex items-center gap-2 mb-2">
-        <Sparkles className="w-4 h-4 text-primary shrink-0" />
-        <span className="text-sm font-bold text-foreground">Your focus this week</span>
-      </div>
-      {plan.summary ? (
-        <p className="text-[15px] text-foreground/90 leading-relaxed">{plan.summary}</p>
-      ) : (
-        <p className="text-sm text-muted-foreground leading-relaxed">
-          Review the spec points below to see what this week covers.
-        </p>
-      )}
-    </div>
-  );
-}
 
 /**
  * Student "This Week" widget. Shows the curriculum spec points the tutor has set
@@ -95,35 +50,36 @@ export function WeeklyFocusCard({
 
   return (
     <section className="mt-6 rounded-2xl premium-card overflow-hidden">
-      <header className="flex flex-wrap items-center gap-4 px-6 py-5 border-b border-border bg-muted/30">
-        <div className="w-11 h-11 rounded-xl bg-primary/10 border border-primary/20 flex items-center justify-center shrink-0">
-          <CalendarRange className="w-6 h-6 text-primary" />
+      {/* Compact header. Named for whose it is, not what week it is — the
+          programme-driven plan above is already "this week", and two cards with
+          the same title read as the same thing twice. */}
+      <header className="flex flex-wrap items-center gap-2.5 px-4 sm:px-5 py-3 border-b border-border bg-muted/30">
+        <div className="w-8 h-8 rounded-lg bg-primary/10 border border-primary/20 flex items-center justify-center shrink-0">
+          <BookMarked className="w-4 h-4 text-primary" />
         </div>
-        <h3 className="font-display font-bold text-xl leading-tight">This Week</h3>
-        {/* Combined, highlighted date range + Mon–Sun scope, boxed on the left. */}
-        <div className="ml-auto inline-flex items-center gap-2 rounded-xl border border-primary/30 bg-primary/10 px-3.5 py-2">
-          <span className="text-sm font-bold text-primary">{rangeLabel}</span>
-          <span className="text-primary/40">·</span>
-          <span className="text-sm font-bold uppercase tracking-wide text-primary">Mon–Sun</span>
+        <div className="min-w-0">
+          <h3 className="font-display font-semibold text-base leading-tight">From your tutor</h3>
+          <p className="text-xs text-muted-foreground">Extra focus for {rangeLabel} · Mon–Sun</p>
         </div>
+        {plans.length > 0 && (
+          <span className="ml-auto text-xs font-semibold text-primary tabular-nums">
+            {allPointIds.length} {allPointIds.length === 1 ? "point" : "points"}
+          </span>
+        )}
       </header>
 
-      <div className="p-6 space-y-5">
+      <div className="p-4 sm:p-5 space-y-4">
         {/* Live sessions — a mildly pulsing strip inside the This Week hub. On the
             dashboard this is hoisted into its own standalone banner (showLive =
             false here), so it isn't shown twice. */}
         {showLive && <LiveSessionsBanner to={linkTo("/live")} plansPresent={plans.length > 0} />}
 
         {loading ? (
-          <p className="text-sm text-muted-foreground">Loading this week's focus…</p>
+          <p className="text-sm text-muted-foreground">Loading…</p>
         ) : plans.length === 0 ? (
-          <div className="rounded-xl border border-dashed border-border p-6 text-center">
-            <BookMarked className="w-7 h-7 mx-auto mb-2 text-muted-foreground/60" />
-            <p className="text-sm font-medium text-foreground">No focus set for this week yet</p>
-            <p className="text-sm text-muted-foreground mt-1">
-              Your tutor will choose this week's curriculum points on Monday. Check back soon.
-            </p>
-          </div>
+          <p className="text-sm text-muted-foreground">
+            Nothing added for this week — your plan above is yours to get on with.
+          </p>
         ) : (
           <div className="space-y-4">
             {plans.map((plan) => {
@@ -132,84 +88,61 @@ export function WeeklyFocusCard({
                 v.matchedPointIds.some((id) => planPointIds.has(id)),
               );
               return (
-                <div key={plan.id} className="rounded-2xl border border-border bg-secondary/10 p-5">
-                  {/* Subject banner — subject name plus level & board badges, all
-                    on one line and comfortably readable. */}
-                  <div className="flex flex-wrap items-center gap-2.5 mb-4">
-                    <span className="font-display font-bold text-lg">
+                <div key={plan.id} className="space-y-2.5">
+                  <div className="flex flex-wrap items-center gap-2">
+                    <span className="font-display font-semibold">
                       {subjectLabel[plan.subject] ?? plan.subject}
                     </span>
-                    <span className="text-xs px-2.5 py-1 rounded-full uppercase tracking-wide font-bold bg-primary/10 text-primary">
+                    <span className="text-[10px] px-1.5 py-0.5 rounded-full uppercase tracking-wide font-bold bg-primary/10 text-primary">
                       {levelLabel[plan.level] ?? plan.level}
                     </span>
-                    <span className="text-xs px-2.5 py-1 rounded-full uppercase tracking-wide font-bold bg-accent/10 text-accent">
+                    <span className="text-[10px] px-1.5 py-0.5 rounded-full uppercase tracking-wide font-bold bg-accent/10 text-accent">
                       {plan.board.toUpperCase()}
                     </span>
                   </div>
 
-                  {plan.note && (
-                    <p className="text-sm text-muted-foreground mb-4 leading-relaxed">
-                      {plan.note}
+                  {(plan.summary || plan.note) && (
+                    <p className="text-sm text-foreground/90 leading-relaxed">
+                      {plan.summary ?? plan.note}
                     </p>
                   )}
 
-                  {/* AI focus summary, where the spec points used to sit. */}
-                  <PlanSummary plan={plan} />
-
-                  {/* Spec points — kept, but tucked into a neat dropdown since a
-                    single week can cover many. */}
-                  <details className="group mt-4 rounded-xl premium-card">
-                    <summary className="flex items-center gap-2 px-4 py-3 cursor-pointer list-none select-none">
-                      <BookMarked className="w-4 h-4 text-primary shrink-0" />
-                      <span className="text-sm font-semibold">
-                        Spec points
-                        <span className="ml-1.5 text-muted-foreground font-normal">
-                          ({plan.points.length})
+                  {/* The points themselves, in the open — they are the reason this
+                      card exists, and a dropdown hid the tutor's actual choice. */}
+                  <ul className="space-y-1.5">
+                    {plan.points.map((p) => (
+                      <li
+                        key={p.id}
+                        className="flex items-start gap-2 rounded-lg border border-border bg-card/60 px-2.5 py-2"
+                      >
+                        <span className="font-mono text-[11px] text-primary bg-primary/10 px-1.5 py-0.5 rounded shrink-0">
+                          {p.code}
                         </span>
-                      </span>
-                      <ChevronDown className="w-4 h-4 text-muted-foreground ml-auto transition-transform group-open:rotate-180" />
-                    </summary>
-                    <ul className="px-4 pb-4 pt-1 space-y-2 border-t border-border">
-                      {plan.points.map((p) => (
-                        <li key={p.id} className="flex items-start gap-2.5">
-                          <span className="font-mono text-xs text-primary bg-primary/10 px-1.5 py-0.5 rounded shrink-0 mt-0.5">
-                            {p.code}
-                          </span>
-                          <span className="text-sm leading-snug">
-                            <span className="font-medium text-foreground">{p.title}</span>
-                            {p.topicLabel && (
-                              <span className="text-muted-foreground"> — {p.topicLabel}</span>
-                            )}
-                          </span>
-                        </li>
-                      ))}
-                    </ul>
-                  </details>
+                        <span className="text-sm leading-snug">
+                          <span className="font-medium text-foreground">{p.title}</span>
+                          {p.topicLabel && (
+                            <span className="text-muted-foreground"> — {p.topicLabel}</span>
+                          )}
+                        </span>
+                      </li>
+                    ))}
+                  </ul>
 
-                  {/* Related videos — the tutor's videos tagged to this week's points. */}
                   {planVideos.length > 0 && (
-                    <div className="mt-4 pt-4 border-t border-border/60">
-                      <div className="flex items-center gap-1.5 mb-3">
-                        <PlayCircle className="w-4 h-4 text-primary shrink-0" />
-                        <span className="text-xs font-extrabold uppercase tracking-widest text-muted-foreground">
-                          Related videos
-                        </span>
-                      </div>
-                      <div className="grid grid-cols-2 sm:grid-cols-3 gap-2.5">
-                        {planVideos.map((v) => (
-                          <button
-                            key={v.id}
-                            type="button"
-                            onClick={() => setPlaying(v)}
-                            className="group text-left rounded-lg premium-card overflow-hidden hover:border-primary/40 transition"
-                          >
-                            <VideoThumbnail embed={parseVideoUrl(v.videoUrl)} />
-                            <p className="text-sm font-medium p-2 line-clamp-2 leading-snug">
-                              {v.title}
-                            </p>
-                          </button>
-                        ))}
-                      </div>
+                    <div className="grid grid-cols-3 sm:grid-cols-4 gap-2">
+                      {planVideos.map((v) => (
+                        <button
+                          key={v.id}
+                          type="button"
+                          onClick={() => setPlaying(v)}
+                          className="group text-left rounded-lg premium-card overflow-hidden hover:border-primary/40 transition"
+                        >
+                          <VideoThumbnail embed={parseVideoUrl(v.videoUrl)} />
+                          <p className="text-xs font-medium p-1.5 line-clamp-2 leading-snug">
+                            {v.title}
+                          </p>
+                        </button>
+                      ))}
                     </div>
                   )}
                 </div>
@@ -217,24 +150,6 @@ export function WeeklyFocusCard({
             })}
           </div>
         )}
-
-        {/* Direct links to the week's deliverables — always shown so the widget
-            is a hub even before a plan is set. */}
-        <div className="grid grid-cols-1 sm:grid-cols-3 gap-3 pt-1">
-          {quickLinks.map((q) => (
-            <Link
-              key={q.to}
-              to={linkTo(q.to)}
-              className="flex items-center gap-2.5 rounded-xl premium-card px-3.5 py-3 hover:border-primary/50 hover:shadow-sm transition group"
-            >
-              <span className="w-8 h-8 rounded-lg bg-primary/10 border border-primary/20 flex items-center justify-center shrink-0">
-                <q.icon className="w-4 h-4 text-primary" />
-              </span>
-              <span className="text-sm font-medium flex-1">{q.label}</span>
-              <ChevronRight className="w-4 h-4 text-muted-foreground group-hover:translate-x-0.5 group-hover:text-primary transition" />
-            </Link>
-          ))}
-        </div>
       </div>
 
       {playing && (

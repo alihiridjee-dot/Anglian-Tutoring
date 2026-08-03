@@ -5,10 +5,14 @@ import { useState } from "react";
 // ---------------------------------------------------------------------------
 // Pricing model
 //
-// A plan is built from three choices — level (KS3/GCSE), how many subjects, and
-// cadence — plus a board that is captured but never affects price. KS3 and GCSE
-// cost the same. Combined-Science Trilogy is a GCSE-only qualification that
-// always counts as three subjects.
+// A plan is built from three choices — level (KS3 / GCSE / International GCSE),
+// how many subjects, and cadence — plus a board that is captured but never
+// affects price. Every level costs the same. Combined-Science Trilogy is a
+// GCSE-only qualification that always counts as three subjects.
+//
+// International GCSE is a level, not a board: every board runs one, and it is a
+// different qualification from the domestic GCSE, so it carries its own spec and
+// its own package ladder rather than sharing GCSE's.
 //
 // Monthly is the anchor the business sets directly. Weekly and Termly are
 // derived from it with the ratios baked into the original 1-subject prices
@@ -69,7 +73,7 @@ const gbp = (pence: number) =>
   `£${(pence / 100).toLocaleString("en-GB", { minimumFractionDigits: 2, maximumFractionDigits: 2 })}`;
 
 export function PricingSection() {
-  const [level, setLevel] = useState<"ks3" | "gcse">("gcse");
+  const [level, setLevel] = useState<"ks3" | "gcse" | "igcse">("gcse");
   const [trilogy, setTrilogy] = useState(false);
   const [subjects, setSubjects] = useState<string[]>(["biology"]);
   const [board, setBoard] = useState<string>("aqa");
@@ -81,16 +85,19 @@ export function PricingSection() {
   const toggleSubject = (id: string) => {
     setTrilogy(false);
     setSubjects((prev) =>
-      prev.includes(id)
-        ? prev.length === 1
-          ? prev
-          : prev.filter((s) => s !== id)
-        : [...prev, id],
+      prev.includes(id) ? (prev.length === 1 ? prev : prev.filter((s) => s !== id)) : [...prev, id],
     );
   };
 
   const chosenSubjects = isTrilogy ? ["biology", "chemistry", "physics"] : subjects;
-  const level_key = level === "ks3" ? "ks3" : isTrilogy ? "gcse_trilogy" : "gcse_separate";
+  const level_key =
+    level === "ks3"
+      ? "ks3"
+      : level === "igcse"
+        ? "igcse"
+        : isTrilogy
+          ? "gcse_trilogy"
+          : "gcse_separate";
 
   const subjectsSummary = isTrilogy
     ? "Combined Trilogy"
@@ -125,7 +132,15 @@ export function PricingSection() {
             <Step
               index={1}
               title="What level?"
-              summary={level === "ks3" ? "KS3 (Years 7–9)" : isTrilogy ? "GCSE · Trilogy" : "GCSE"}
+              summary={
+                level === "ks3"
+                  ? "KS3 (Years 7–9)"
+                  : level === "igcse"
+                    ? "International GCSE"
+                    : isTrilogy
+                      ? "GCSE · Trilogy"
+                      : "GCSE"
+              }
               open={openStep === 0}
               onOpen={() => setOpenStep(0)}
             >
@@ -133,18 +148,25 @@ export function PricingSection() {
                 options={[
                   { value: "ks3", label: "KS3" },
                   { value: "gcse", label: "GCSE" },
+                  { value: "igcse", label: "International" },
                 ]}
                 value={level}
                 onChange={(v) => {
-                  const next = v as "ks3" | "gcse";
+                  const next = v as "ks3" | "gcse" | "igcse";
                   setLevel(next);
-                  if (next === "ks3") {
+                  if (next !== "gcse") {
                     setTrilogy(false);
                     // Let the toggle finish its slide before the step collapses.
                     window.setTimeout(() => setOpenStep(1), 340);
                   }
                 }}
               />
+              {level === "igcse" && (
+                <p className="mt-3 text-xs text-muted-foreground/70">
+                  International GCSE is a separate qualification from the UK GCSE, with its own
+                  specification — we teach it from its own spec, on your child's own board.
+                </p>
+              )}
               {level === "gcse" && (
                 <div className="mt-4">
                   <p className="text-xs font-semibold uppercase tracking-wider text-muted-foreground/70 mb-2">
@@ -201,7 +223,9 @@ export function PricingSection() {
                       )}
                       <span
                         className={`flex h-5 w-5 items-center justify-center rounded-full border transition-colors ${
-                          on ? "border-primary bg-primary text-white" : "border-border text-transparent"
+                          on
+                            ? "border-primary bg-primary text-white"
+                            : "border-border text-transparent"
                         }`}
                       >
                         <Check className="h-3 w-3" />
@@ -241,7 +265,9 @@ export function PricingSection() {
                 value={board}
                 onChange={setBoard}
               />
-              <p className="mt-3 text-xs text-muted-foreground/70">The board never changes your price.</p>
+              <p className="mt-3 text-xs text-muted-foreground/70">
+                The board never changes your price.
+              </p>
             </Step>
           </div>
 
@@ -303,7 +329,9 @@ function PricingTiers({
             <div className="relative">
               <span
                 className={`inline-block rounded-full px-2.5 py-1 text-[9px] font-bold uppercase tracking-wider ${
-                  dark ? "bg-white/15 text-white" : "bg-[var(--accent-soft)] text-[var(--primary-deep)]"
+                  dark
+                    ? "bg-white/15 text-white"
+                    : "bg-[var(--accent-soft)] text-[var(--primary-deep)]"
                 }`}
               >
                 {tier.badge}
@@ -338,7 +366,9 @@ function PricingTiers({
               </span>
             </div>
 
-            <p className={`relative mt-3 text-xs ${dark ? "text-white/75" : "text-muted-foreground"}`}>
+            <p
+              className={`relative mt-3 text-xs ${dark ? "text-white/75" : "text-muted-foreground"}`}
+            >
               {weeklyLessons} live lessons a week
             </p>
 
@@ -349,7 +379,9 @@ function PricingTiers({
                   <li key={f} className="flex items-center gap-2">
                     <span
                       className={`flex h-4 w-4 shrink-0 items-center justify-center rounded-full ${
-                        dark ? "bg-white/15 text-white" : "bg-[var(--accent-soft)] text-[var(--primary-deep)]"
+                        dark
+                          ? "bg-white/15 text-white"
+                          : "bg-[var(--accent-soft)] text-[var(--primary-deep)]"
                       }`}
                     >
                       <Check className="h-2.5 w-2.5" />
@@ -367,7 +399,9 @@ function PricingTiers({
               <span className="font-display text-xl font-bold tracking-tight tabular-nums">
                 {gbp(pence)}
               </span>
-              <span className={`block text-[11px] ${dark ? "text-white/70" : "text-muted-foreground"}`}>
+              <span
+                className={`block text-[11px] ${dark ? "text-white/70" : "text-muted-foreground"}`}
+              >
                 {tier.billing}
               </span>
               <Link
@@ -486,7 +520,9 @@ function Slider({
           type="button"
           onClick={() => onChange(o.value)}
           className={`relative z-10 flex-1 rounded-full px-3 py-2 text-sm font-semibold transition-colors duration-200 ${
-            value === o.value ? "text-[var(--primary-deep)]" : "text-muted-foreground hover:text-foreground"
+            value === o.value
+              ? "text-[var(--primary-deep)]"
+              : "text-muted-foreground hover:text-foreground"
           }`}
         >
           {o.label}

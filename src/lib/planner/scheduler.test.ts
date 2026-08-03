@@ -1,6 +1,8 @@
 import { describe, expect, test } from "bun:test";
 import {
   Rating,
+  SETTLED_THRESHOLD,
+  STRONG_STABILITY_DAYS,
   State,
   applyReview,
   confidenceToRating,
@@ -83,8 +85,8 @@ describe("applyReview / FSRS engine", () => {
   test("higher grades never produce shorter intervals (monotonicity on a mature card)", () => {
     const mature = replay([Rating.Good, Rating.Good, Rating.Good], t0, 10);
     const at = new Date(mature.due.getTime());
-    const dues = ([Rating.Again, Rating.Hard, Rating.Good, Rating.Easy] as Grade[]).map(
-      (g) => applyReview(mature, g, at).due.getTime(),
+    const dues = ([Rating.Again, Rating.Hard, Rating.Good, Rating.Easy] as Grade[]).map((g) =>
+      applyReview(mature, g, at).due.getTime(),
     );
     for (let i = 1; i < dues.length; i++) expect(dues[i]).toBeGreaterThanOrEqual(dues[i - 1]);
   });
@@ -171,12 +173,148 @@ describe("priority & selection (new vs mature)", () => {
 
   test("pointStatus: overdue trumps raw state; strong = future-due review card", () => {
     expect(pointStatus(null, now)).toBe("new");
-    const justRated = applyReview(null, Rating.Good, now);
-    // Early learning steps come due in minutes — an hour later it's already "due".
-    expect(pointStatus(justRated, new Date(now.getTime() + 3_600_000 * 24))).toBe("due");
     const strong = replay(Array(8).fill(Rating.Easy), new Date("2026-05-01T00:00:00Z"), 20);
     expect(pointStatus(strong, new Date(strong.due.getTime() - 1))).toBe("strong");
     expect(pointStatus(strong, new Date(strong.due.getTime() + 1))).toBe("due");
+  });
+
+  test("a just-rated point is not due again before the student's next weekly visit", () => {
+    // The whole reason for the week floor: on FSRS defaults a "confident" rating
+    // came due in minutes, so by the next visit every point the student had just
+    // sorted read as overdue and flooded the focus lane.
+    const justRated = applyReview(null, Rating.Good, now);
+    const day = 86_400_000;
+    expect(isDueBy(justRated, new Date(now.getTime() + 6 * day))).toBe(false);
+    expect(pointStatus(justRated, new Date(now.getTime() + 8 * day))).toBe("due");
+    // It holds for the grades FSRS would otherwise pull back hardest.
+    for (const g of [Rating.Again, Rating.Hard] as Grade[]) {
+      const card = applyReview(null, g, now);
+      expect(card.due.getTime() - now.getTime()).toBeGreaterThanOrEqual(7 * day);
+    }
+  });
+
+  test("a point just flagged 'needs work' reads weak immediately, not strong", () => {
+    // The regression this guards, and it was a bad one: the week floor pushes
+    // every fresh card's due date out, so a status read off the due date called a
+    // point the student had *just* dragged into "Needs work" strong — scoring it
+    // 70, over the settled line. It was then excluded from the focus lane and
+    // from the whole year plan, and its topic could read as already mastered.
+    const rate = (conf: number) =>
+      applyReview(null, confidenceToRating(conf), now, { countsAsLapse: false });
+    const mastery = (conf: number) => pointMastery(rate(conf), conf, now);
+
+    expect(pointStatus(rate(17), now)).toBe("learning"); // bedding in, not strong
+    expect(mastery(17)).toBeLessThan(34); // red: earns recurring revisits
+    expect(mastery(50)).toBeLessThan(SETTLED_THRESHOLD);
+    expect(mastery(83)).toBeGreaterThanOrEqual(SETTLED_THRESHOLD);
+    // The three board columns must be distinguishable on day one — they all
+    // scored ~70 before, so sorting the board changed nothing for a week.
+    expect(mastery(50)).toBeGreaterThan(mastery(17));
+    expect(mastery(83)).toBeGreaterThan(mastery(50));
+  });
+
+  test("a mature point that has just lapsed goes back in the lane, not out of it", () => {
+    const mature = replay(Array(8).fill(Rating.Easy), new Date("2026-05-01T00:00:00Z"), 20);
+    const at = new Date(mature.due.getTime() + 86_400_000);
+    const lapsed = applyReview(mature, Rating.Again, at);
+    expect(pointStatus(mature, new Date(mature.due.getTime() - 1))).toBe("strong");
+    // Its stability has collapsed, so it is shaky from the moment it flops —
+    // waiting for the floored due date to pass would sit it out for a week.
+    expect(lapsed.stability).toBeLessThan(STRONG_STABILITY_DAYS);
+    expect(pointStatus(lapsed, at)).toBe("learning");
+    expect(pointMastery(lapsed, 50, at)).toBeLessThan(SETTLED_THRESHOLD);
+  });
+
+  test("the floor only ever pushes a due date out — a mature card keeps its long interval", () => {
+    const strong = replay(Array(8).fill(Rating.Easy), new Date("2026-05-01T00:00:00Z"), 20);
+    const at = new Date(strong.due.getTime());
+    const next = applyReview(strong, Rating.Easy, at);
+    expect(next.due.getTime() - at.getTime()).toBeGreaterThan(30 * 86_400_000);
+  });
+
+  test("a self-rating shortens the interval but never lapses the card", () => {
+    // Dragging a topic to "Not confident" used to be recorded identically to
+    // failing a test, so an honest student was permanently marked down for it.
+    const mature = replay([Rating.Good, Rating.Good, Rating.Good, Rating.Easy], now, 14);
+    const at = new Date(mature.due.getTime() + 86_400_000);
+    const selfRated = applyReview(mature, Rating.Again, at, { countsAsLapse: false });
+    const flopped = applyReview(mature, Rating.Again, at);
+
+    expect(selfRated.lapses).toBe(mature.lapses); // no lapse recorded
+    expect(flopped.lapses).toBe(mature.lapses + 1); // a real flop still counts
+    // The scheduling is identical either way — the counter is bookkeeping, and
+    // a shaky self-report must still bring the point back sooner.
+    expect(selfRated.due.getTime()).toBe(flopped.due.getTime());
+    expect(selfRated.stability).toBe(flopped.stability);
+    expect(selfRated.due.getTime() - at.getTime()).toBeLessThan(
+      mature.due.getTime() - now.getTime(),
+    );
+  });
+
+  test("the lapse penalty is capped and absent once a point reads strong", () => {
+    const strong = replay(Array(8).fill(Rating.Easy), new Date("2026-05-01T00:00:00Z"), 20);
+    const at = new Date(strong.due.getTime() - 1);
+    // Stability already carries the lapse in this branch, so it is not charged
+    // again — which is also how a re-learned point sheds the penalty.
+    const clean = pointMastery({ ...strong, lapses: 0 }, 50, at);
+    expect(pointMastery({ ...strong, lapses: 6 }, 50, at)).toBe(clean);
+
+    // Elsewhere it is capped, so an old bad patch cannot bury a point forever.
+    const due = applyReview(null, Rating.Good, now);
+    const dueAt = new Date(due.due.getTime() + 60_000);
+    const three = pointMastery({ ...due, lapses: 3 }, 83, dueAt);
+    expect(pointMastery({ ...due, lapses: 6 }, 83, dueAt)).toBe(three);
+    expect(pointMastery({ ...due, lapses: 20 }, 83, dueAt)).toBe(three);
+    expect(pointMastery({ ...due, lapses: 0 }, 83, dueAt)).toBeGreaterThan(three);
+  });
+
+  test("a confident point that has just come due stays above the settled line", () => {
+    // The regression this guards: the old formula scored a due point
+    // 25 + confidence/4, so its ceiling was 50 against a settled bar of 67. A
+    // student could sort every topic into "Confident" and the plan would still
+    // drag all of it back into the focus lane, forever.
+    const card = applyReview(null, Rating.Good, now);
+    const justDue = new Date(card.due.getTime() + 60_000);
+    expect(pointMastery(card, 83, justDue)).toBeGreaterThanOrEqual(SETTLED_THRESHOLD);
+    // and a shaky one still reads shaky
+    expect(pointMastery(card, 17, justDue)).toBeLessThan(SETTLED_THRESHOLD);
+    expect(pointMastery(card, 50, justDue)).toBeLessThan(SETTLED_THRESHOLD);
+  });
+
+  test("a due point erodes the longer it is ignored, down to a floor", () => {
+    const card = applyReview(null, Rating.Good, now);
+    const at = (weeks: number) => new Date(card.due.getTime() + weeks * 7 * 86_400_000);
+    const fresh = pointMastery(card, 83, at(0));
+    const twoWeeks = pointMastery(card, 83, at(2));
+    const twoMonths = pointMastery(card, 83, at(8));
+    expect(twoWeeks).toBeLessThan(fresh);
+    expect(twoMonths).toBeLessThan(SETTLED_THRESHOLD); // ignored long enough, it comes back
+    // The erosion is capped, so an ancient point doesn't read as total ignorance.
+    expect(pointMastery(card, 83, at(52))).toBe(twoMonths);
+  });
+
+  test("mastery rises with confidence at every card state", () => {
+    const due = applyReview(null, Rating.Good, now);
+    const dueAt = new Date(due.due.getTime() + 60_000);
+    const strong = replay(Array(8).fill(Rating.Easy), new Date("2026-05-01T00:00:00Z"), 20);
+    const strongAt = new Date(strong.due.getTime() - 1);
+    for (const [card, at] of [
+      [due, dueAt],
+      [strong, strongAt],
+    ] as [Card, Date][]) {
+      const scores = [0, 17, 50, 83, 100].map((c) => pointMastery(card, c, at));
+      for (let i = 1; i < scores.length; i++) {
+        expect(scores[i]).toBeGreaterThanOrEqual(scores[i - 1]);
+      }
+    }
+  });
+
+  test("a point with marks but no self-rating starts from neutral, not zero", () => {
+    // Homework and quizzes move the card without ever setting a confidence; the
+    // old formula read that silence as a 0 and buried the point.
+    const card = applyReview(null, Rating.Good, now);
+    const justDue = new Date(card.due.getTime() + 60_000);
+    expect(pointMastery(card, null, justDue)).toBeGreaterThan(30);
   });
 
   test("pointMastery boundaries: clamped 0–100, never-touched uses confidence", () => {

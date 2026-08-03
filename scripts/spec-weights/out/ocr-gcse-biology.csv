@@ -1,0 +1,139 @@
+code,title,weight,source
+OCR 1.1a,Microscopy and Light Imaging,3.9,B1.1a
+OCR 1.1b,Eukaryotic and Prokaryotic Structures,2.9,B1.1b
+OCR 1.1c,Electron Microscopy Resolution,2.46,B1.1c
+OCR 1.2a,DNA as a Polymer,1.3,B1.2a
+OCR 1.2b,Double Helix Structure,1.3,B1.2b
+OCR 1.2c,Nucleotides and Complementary Bases,2.26,B1.2c
+OCR 1.2d,Protein Synthesis: Transcription & Translation,1.77,B1.2d
+OCR 1.2e,Triplet Genetic Code,1.79,B1.2e
+OCR 1.2f,Enzyme Experiments,4.56,B1.2f
+OCR 1.2g,Mechanism of Enzyme Action,4.08,B1.2g
+OCR 1.3a,Cellular Respiration as Universal ATP Source,1.3,B1.3a
+OCR 1.3b,Exothermic Nature of Respiration,1.3,B1.3b
+OCR 1.3c,Aerobic vs Anaerobic Comparison,2.91,B1.3c
+OCR 1.3d,Sugar Synthesis and Polymers,2.01,B1.3d
+OCR 1.3e,Amino Acid Synthesis and Proteins,1.74,B1.3e
+OCR 1.3f,Lipid Synthesis and breakdown,1.7,B1.3f
+OCR 1.4a,Photosynthetic Organisms as Biomass Producers,1.3,B1.4a
+OCR 1.4b,Process of Photosynthesis,1.81,B1.4b
+OCR 1.4c,Endothermic Nature of Photosynthesis,1.3,B1.4c
+OCR 1.4d,Photosynthesis Experiments,3.43,B1.4d
+OCR 1.4e,Factors Affecting Photosynthetic Rates,3.12,B1.4e
+OCR 1.4f,Limiting Factors Interactions,3.12,B1.4f
+OCR 2.1a,Substance Transport across Membranes,3.56,B2.1a
+OCR 2.1b,Mitosis and the Cell Cycle,1.99,B2.1b
+OCR 2.1c,Cell Differentiation & Specialisation,2.01,B2.1c
+OCR 2.1d,Stem Cell Sources,1.1,B2.1d
+OCR 2.1e,Functions of Stem Cells,1.46,B2.1e
+OCR 2.1f,Embryonic vs Adult Stem Cells,1.3,B2.1f
+OCR 2.2a,Surface Area to Volume Ratio (SA:V),2.88,B2.2a
+OCR 2.2b,Transported Substances,1.48,B2.2b
+OCR 2.2c,Human Circulatory System,1.46,B2.2c
+OCR 2.2d,Heart and Blood Vessel Adaptations,3.14,B2.2d
+OCR 2.2e,Red Blood Cell and Plasma Adaptations,2.17,B2.2e
+OCR 2.2f,Plant Water and Mineral Uptake,3.3,B2.2f
+OCR 2.2g,Transpiration and Translocation,1.7,B2.2g
+OCR 2.2h,Xylem and Phloem Adaptations,1.7,B2.2h
+OCR 2.2i,Factors Affecting Water Uptake,2.94,B2.2i
+OCR 2.2j,Potometer Investigations,5.46,B2.2j
+OCR 3.1a,Structure of the Nervous System,1.63,B3.1a
+OCR 3.1b,Nervous Coordination and Response,2.32,B3.1b
+OCR 3.1c,Reflex Arc Function,2.46,B3.1c
+OCR 3.1d,Structures of the Eye,2.32,B3.1d
+OCR 3.1e,Common Eye Defects,1.72,B3.1e
+OCR 3.1f,Structure and Function of the Brain,1.3,B3.1f
+OCR 3.1g,Brain Investigation Challenges,1.97,B3.1g
+OCR 3.1h,Limitations of Nervous Treatments,2.3,B3.1h
+OCR 3.2a,Principles of Endocrine Coordination,1.3,B3.2a
+OCR 3.2b,Thyroxine and Adrenaline,1.7,B3.2b
+OCR 3.2c,Hormones in Human Reproduction,1.3,B3.2c
+OCR 3.2d,Menstrual Cycle Interactions,2.54,B3.2d
+OCR 3.2e,Use of Hormones in Contraception,2.51,B3.2e
+OCR 3.2f,Reproductive Infertility Technologies,1.94,B3.2f
+OCR 3.2g,Plant Auxins & Tropisms,2.14,B3.2g
+OCR 3.2h,"Auxins, Gibberellins, and Ethene",1.81,B3.2h
+OCR 3.2i,Commercial Use of Plant Hormones,1.39,B3.2i
+OCR 3.3a,Importance of Homeostasis,1.77,B3.3a
+OCR 3.3b,Skin and Thermoregulation,2.17,B3.3b
+OCR 3.3c,Insulin Regulation of Blood Glucose,1.95,B3.3c
+OCR 3.3d,Glucagon and Insulin Interactions,2.17,B3.3d
+OCR 3.3e,Type 1 vs Type 2 Diabetes,1.8,B3.3e
+OCR 3.3f,Osmotic Changes in Body Fluids,2.17,B3.3f
+OCR 3.3g,Kidneys and Water Balance,2.32,B3.3g
+OCR 3.3h,Structure of Kidney Tubules,1.3,B3.3h
+OCR 3.3i,ADH Permeability Feedback,1.77,B3.3i
+OCR 3.3j,Osmotic and Temperature Challenges,2.32,B3.3j
+OCR 4.1a,Abiotic and Biotic Cycles,1.1,B4.1a
+OCR 4.1b,Microorganisms and Decomposition,2.1,B4.1b
+OCR 4.1c,Carbon and Water Cycles,1.81,B4.1c
+OCR 4.1d,Factors Affecting Decomposition,3.43,B4.1d
+OCR 4.1e,Ecosystem Organisation Levels,1.55,B4.1e
+OCR 4.1f,Abiotic and Biotic Factors on Communities,2.89,B4.1f
+OCR 4.1g,Interdependence and Competition,1.99,B4.1g
+OCR 4.1h,Trophic Levels Differences,1.43,B4.1h
+OCR 4.1i,Pyramids of Biomass,2.24,B4.1i
+OCR 4.1j,Biomass Transfer Efficiency,2.25,B4.1j
+OCR 5.1a,Genetic Terminology Nomenclature,1.7,B5.1a
+OCR 5.1b,Genome Definition,1.3,B5.1b
+OCR 5.1c,Genome-Environment Interaction,1.5,B5.1c
+OCR 5.1d,Mutations and Phenotypic Impact,1.1,B5.1d
+OCR 5.1e,Coding and Non-Coding Variants,2.98,B5.1e
+OCR 5.1f,Reproduction Advantages & Disadvantages,2.14,B5.1f
+OCR 5.1g,Haploid and Diploid Terms,1.7,B5.1g
+OCR 5.1h,Meiotic Cell Division,1.81,B5.1h
+OCR 5.1i,Single Gene Inheritance,2.51,B5.1i
+OCR 5.1j,Predicting Cross Outcomes,2.9,B5.1j
+OCR 5.1k,Human Sex Determination,2.3,B5.1k
+OCR 5.1l,Polygenic Phenotypic Features,1.1,B5.1l
+OCR 5.1m,Development of Genetics (Mendel),1.3,B5.1m
+OCR 5.2a,Genetic Variation in Populations,1.0,B5.2a
+OCR 5.2b,Developments in Classification Systems,1.3,B5.2b
+OCR 5.2c,Evolution via Natural Selection,1.7,B5.2c
+OCR 5.2d,Speciation and Population Shift,1.39,B5.2d
+OCR 5.2e,Evidence for Evolution,1.3,B5.2e
+OCR 5.2f,Darwin and Wallace Theories,1.7,B5.2f
+OCR 6.1a,Field Investigation and Sampling,4.01,B6.1a
+OCR 6.1b,Human Impact on Biodiversity,2.1,B6.1b
+OCR 6.1c,Maintaining Local and Global Biodiversity,1.83,B6.1c
+OCR 6.1d,Environmental Changes Distribution,2.1,B6.1d
+OCR 6.2a,Biological Food Security Factors,1.98,B6.2a
+OCR 6.2b,Agricultural Solutions,1.34,B6.2b
+OCR 6.2c,Selective Breeding Impact,2.45,B6.2c
+OCR 6.2d,Genetic Engineering Definition,1.3,B6.2d
+OCR 6.2e,Steps in Genetic Engineering,1.52,B6.2e
+OCR 6.2f,Benefits and Risks of Gene Technology,1.99,B6.2f
+OCR 6.2g,Biotechnological Solutions,2.23,B6.2g
+OCR 6.3a,Health and Disease Relationship,1.3,B6.3a
+OCR 6.3b,Communicable vs Non-Communicable Diseases,1.3,B6.3b
+OCR 6.3c,Interactions Between Different Diseases,1.55,B6.3c
+OCR 6.3d,Spread of Communicable Pathogens,2.38,B6.3d
+OCR 6.3e,Preventing Disease Transmission,2.04,B6.3e
+OCR 6.3f,Common Infections examples,1.79,B6.3f
+OCR 6.3g,Physical Plant Defences,1.3,B6.3g
+OCR 6.3h,Chemical Plant Defences,1.3,B6.3h
+OCR 6.3i,Plant Disease Detection methods,1.57,B6.3i
+OCR 6.3j,White Blood Cell Adaptations,1.7,B6.3j
+OCR 6.3k,Non-Specific Defence Systems,1.3,B6.3k
+OCR 6.3l,The Immune System,1.7,B6.3l
+OCR 6.3m,Monoclonal Antibody Production,1.3,B6.3m
+OCR 6.3n,Monoclonal Antibody Applications,1.46,B6.3n
+OCR 6.3o,Vaccines and Medicines,1.77,B6.3o
+OCR 6.3p,Aseptic Techniques for Culturing,2.87,B6.3p
+OCR 6.3q,Discovery and Clinical Testing of Medicines,2.27,B6.3q
+OCR 6.3r,Multifactorial Non-Communicable Diseases,1.39,B6.3r
+OCR 6.3s,Cardiovascular Disease Treatments,2.6,B6.3s
+OCR 6.3t,Lifestyle Factors on Disease,2.88,B6.3t
+OCR 6.3u,Cancer Definition,1.3,B6.3u
+OCR 6.3v,Stem Cells in Medicine,1.9,B6.3v
+OCR 6.3w,Gene Technology in Medicine,1.7,B6.3w
+OCR 6.3x,Understanding the Human Genome,2.19,B6.3x
+OCR 7.1,Using Microscopes and Preparing Slides,3.5,practical activity group
+OCR 7.2,Investigating Osmosis in Plant Tissue,3.5,practical activity group
+OCR 7.3,"Food Tests (Sugars, Starch, Protein, Lipids)",3.5,practical activity group
+OCR 7.4,Investigating Enzyme Activity,3.5,practical activity group
+OCR 7.5,Investigating Photosynthesis and Rate,3.5,practical activity group
+OCR 7.6,Sampling Techniques and Field Investigations,3.5,practical activity group
+OCR 7.7,Investigating the Effect of Antimicrobials/Disinfectants,3.5,practical activity group
+OCR 7.8,Investigating Respiration and Gas Exchange,3.5,practical activity group
+OCR 7.9,"Handling Data, Variables and Practical Safety",3.5,practical activity group

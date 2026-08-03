@@ -2,22 +2,44 @@ import { GripVertical, Sliders } from "lucide-react";
 import { type TopicWithConfidence } from "@/lib/plannerDal";
 import { confidenceColor, bandOf } from "@/lib/planner/bands";
 
-/** A draggable topic-group card. Shows a confidence ring and opens the sliders. */
+/**
+ * A draggable topic-group card.
+ *
+ * The ring shows **mastery** — how well the topic is actually sticking, the same
+ * number the plan quotes — not the student's own rating. The rating is already
+ * expressed by which column the card sits in, so printing it again in the ring
+ * meant the board said "83" while the plan said "41%" about the same topic, with
+ * nothing on screen admitting they were different questions. Until a topic has
+ * any measured progress the ring falls back to the rating, because then the two
+ * genuinely are the same number.
+ */
 export function TopicCard({
   topic,
+  mastery,
   onOpen,
   onDragStart,
   onDragEnd,
   dragging,
 }: {
   topic: TopicWithConfidence;
+  /** Measured mastery 0–100, or null when nothing has been measured yet. */
+  mastery?: number | null;
   onOpen: () => void;
   onDragStart: (id: string) => void;
   onDragEnd: () => void;
   dragging: boolean;
 }) {
-  const rated = topic.confidence != null;
-  const value = topic.confidence ?? 0;
+  const measured = mastery != null;
+  const value = measured ? mastery : (topic.confidence ?? 0);
+  const rated = measured || topic.confidence != null;
+
+  const label = !rated
+    ? "Not rated yet"
+    : measured
+      ? `How well this is sticking: ${mastery}%${
+          topic.confidence != null ? ` · you rated it ${bandOf(topic.confidence).label}` : ""
+        }`
+      : `You rated this ${bandOf(topic.confidence!).label} — nothing measured yet`;
 
   return (
     <div
@@ -37,7 +59,7 @@ export function TopicCard({
       }`}
     >
       <GripVertical className="w-4 h-4 text-muted-foreground/50 shrink-0" />
-      <ConfidenceRing value={value} rated={rated} />
+      <ConfidenceRing value={value} rated={rated} label={label} />
       <button type="button" onClick={onOpen} className="flex-1 min-w-0 text-left">
         {topic.code && (
           <div className="text-[10px] font-bold uppercase tracking-wide text-muted-foreground">
@@ -59,7 +81,7 @@ export function TopicCard({
   );
 }
 
-function ConfidenceRing({ value, rated }: { value: number; rated: boolean }) {
+function ConfidenceRing({ value, rated, label }: { value: number; rated: boolean; label: string }) {
   const size = 34;
   const stroke = 3.5;
   const r = (size - stroke) / 2;
@@ -68,11 +90,7 @@ function ConfidenceRing({ value, rated }: { value: number; rated: boolean }) {
   const dash = rated ? (value / 100) * c : c;
 
   return (
-    <div
-      className="relative shrink-0"
-      style={{ width: size, height: size }}
-      title={rated ? bandOf(value).label : "Not rated yet"}
-    >
+    <div className="relative shrink-0" style={{ width: size, height: size }} title={label}>
       <svg width={size} height={size} className="-rotate-90">
         <circle
           cx={size / 2}

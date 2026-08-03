@@ -147,9 +147,9 @@ export async function openBillingPortal(returnTo: BillingReturnTo = "billing") {
 }
 
 /**
- * Pause, resume, or cancel-at-period-end. Caller must manage the plan (the
- * linked parent, or an unlinked student). Cancelling is the only way to end a
- * plan — there is no immediate delete.
+ * Pause, resume, or cancel-at-period-end. Caller must manage the plan — the
+ * payer, or a linked parent. Cancelling is the only way to end a plan; there is
+ * no immediate delete, so access always runs to the period boundary.
  */
 export async function manageSubscription(action: "cancel" | "pause" | "resume", studentId: string) {
   return invokeBilling<{ ok: boolean; status: string }>({ action, student_id: studentId });
@@ -168,6 +168,56 @@ export async function addSubjects(
     action: "add_subjects",
     student_id: studentId,
     subjects,
+  });
+}
+
+/**
+ * Drop subject(s) from a live plan — the downgrade, and the way to stop paying
+ * for one subject without ending the plan. Steps down the cadence's ladder,
+ * un-enrols the student, and credits the unused portion against the next bill.
+ * Caller must MANAGE the plan (stricter than adding, which any student may do
+ * for themselves). The server refuses to remove the last subject.
+ */
+export async function removeSubjects(studentId: string, subjects: string[]) {
+  return invokeBilling<{ ok: boolean; plan: string; removed: string[]; remaining: string[] }>({
+    action: "remove_subjects",
+    student_id: studentId,
+    subjects,
+  });
+}
+
+export interface CadenceQuote {
+  ok: boolean;
+  /** The tier they'd land on, e.g. "monthly_2". */
+  plan: string;
+  plan_name: string;
+  /** How many subjects it covers — unchanged by a cadence switch. */
+  subjects: number;
+  /** Pence Stripe will charge today, or null if the preview couldn't be got. */
+  amount_due_now: number | null;
+  currency: string;
+}
+
+/**
+ * Change how often the family is billed, on the subscription they already have.
+ *
+ * Note what this does NOT take: a subject count. The new tier keeps whatever
+ * the student is enrolled in, so switching cadence can never change what the
+ * plan covers — that's what add/removeSubjects are for. It also never opens
+ * Checkout: this edits the live subscription, so there's exactly one.
+ *
+ * `preview` prices the move without committing to it.
+ */
+export async function changeCadence(
+  studentId: string,
+  cadence: string,
+  opts: { preview?: boolean } = {},
+) {
+  return invokeBilling<CadenceQuote>({
+    action: "change_cadence",
+    student_id: studentId,
+    cadence,
+    preview: opts.preview ?? false,
   });
 }
 

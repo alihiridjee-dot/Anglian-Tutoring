@@ -272,11 +272,9 @@ export function WeekReview({
             className="mt-2.5 w-full rounded-lg premium-input px-3 py-2 text-sm resize-none"
           />
         </div>
-      ) : (
-        // Tutor view: the student's check-in is surfaced in context inside the
-        // feedback editor below ("The student said"), so we don't repeat it here.
-        null
-      )}
+      ) : // Tutor view: the student's check-in is surfaced in context inside the
+      // feedback editor below ("The student said"), so we don't repeat it here.
+      null}
 
       {/* Ali's take — the personalized-tutoring voice on the week + next week */}
       <TutorTake

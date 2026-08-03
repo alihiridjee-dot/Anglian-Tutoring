@@ -1,6 +1,7 @@
-import { createFileRoute, Link } from "@tanstack/react-router";
+import { createFileRoute, Link, useNavigate, useSearch } from "@tanstack/react-router";
 import { guardStudentSection } from "@/lib/routeGuards";
-import { useEffect, useMemo, useState } from "react";
+import { useCallback, useEffect, useMemo, useRef, useState } from "react";
+import { useQuery } from "@tanstack/react-query";
 import { useServerFn } from "@tanstack/react-start";
 import { motion, AnimatePresence } from "motion/react";
 import { AppLayout } from "@/components/AppLayout";
@@ -15,9 +16,14 @@ import {
   CurriculumDAL,
   type Topic,
   type SpecPoint,
+  type SpecPointMatch,
   type Resource,
   type McqSet,
 } from "@/lib/curriculumDal";
+import { validateCurriculumSearch, type CurriculumSearchParams } from "@/lib/curriculumParams";
+import { useDebounced } from "@/hooks/useGlobalSearch";
+import { MIN_QUERY_LENGTH, queryTerms } from "@/lib/search/match";
+import { Highlight } from "@/components/search/Highlight";
 import { CurriculumSyncPanel } from "@/components/CurriculumSyncPanel";
 import { VideoModal, VideoThumbnail } from "@/components/VideoPlayer";
 import { parseVideoUrl, type VideoEmbed } from "@/lib/videoEmbed";
@@ -40,11 +46,14 @@ import {
   Award,
   BookOpen,
   Lock,
+  Search,
+  X,
 } from "lucide-react";
 
 export const Route = createFileRoute("/_authenticated/curriculum")({
   beforeLoad: guardStudentSection,
   head: () => ({ meta: [{ title: "Curriculum | Anglia Educate" }] }),
+  validateSearch: validateCurriculumSearch,
   component: Curriculum,
 });
 
@@ -58,12 +67,28 @@ export function Curriculum() {
   // the guardrail — topics/spec_points RLS enforces the same thing server-side.
   const ent = useEntitlements();
   const { level: profileLevel } = useEnrolments();
-  const [subject, setSubject] = useState<SubjectV>("biology");
-  const [board, setBoard] = useState<BoardV>("edexcel");
-  const [level, setLevel] = useState<LevelV>("gcse");
+  // Read loosely (`strict: false`) rather than through `Route.useSearch()`:
+  // the /demo/* showcase mounts this same component under a different route,
+  // and a route-bound reader would throw there.
+  const search = useSearch({ strict: false }) as CurriculumSearchParams;
+  const navigate = useNavigate();
+  const [subject, setSubject] = useState<SubjectV>(search.subject ?? "biology");
+  const [board, setBoard] = useState<BoardV>(search.board ?? "edexcel");
+  const [level, setLevel] = useState<LevelV>(search.level ?? "gcse");
   const [topics, setTopics] = useState<Topic[]>([]);
-  const [openTopicId, setOpenTopicId] = useState<string | null>(null);
+  const [openTopicId, setOpenTopicId] = useState<string | null>(search.topic ?? null);
   const [loading, setLoading] = useState(true);
+
+  /** Writes a partial change into the URL without disturbing the rest of it. */
+  const patchSearch = useCallback(
+    (patch: Partial<CurriculumSearchParams>, replace = false) => {
+      navigate({
+        search: (prev: CurriculumSearchParams) => ({ ...prev, ...patch }),
+        replace,
+      } as never);
+    },
+    [navigate],
+  );
 
   // Snap a student's filters onto their entitlement: the first subject they're
   // enrolled in, at their board and level. Guards against the "biology/edexcel"
@@ -85,6 +110,91 @@ export function Curriculum() {
 
   // Selected specification point state to handle full sub-page navigation
   const [selectedSpecPoint, setSelectedSpecPoint] = useState<SpecPoint | null>(null);
+
+  // ── Specification search ────────────────────────────────────────────────
+  // Searches the *whole* selected specification, not just the topics currently
+  // expanded — the point being that a student searching "limiting factors"
+  // doesn't know which topic it lives under, and shouldn't have to.
+  const [query, setQuery] = useState(search.q ?? "");
+  const settledQuery = useDebounced(query);
+  const searching = settledQuery.trim().length >= MIN_QUERY_LENGTH;
+  const searchTerms = useMemo(() => queryTerms(settledQuery), [settledQuery]);
+
+  const { data: matches, isFetching: searchFetching } = useQuery({
+    queryKey: ["curriculum-search", level, board, subject, settledQuery.trim()],
+    queryFn: () => CurriculumDAL.searchSpecPoints(level, board, subject, settledQuery),
+    enabled: searching,
+    staleTime: 30_000,
+    // Keep the last results up while the next ones land, so refining a query
+    // narrows the list instead of blanking it.
+    placeholderData: (prev) => prev,
+  });
+
+  // The box and the URL mirror each other, but only ever one way at a time —
+  // otherwise the two effects fight, and arriving from the palette re-pushes
+  // the query the incoming URL just cleared.
+  const urlQuery = search.q ?? "";
+  const urlQueryRef = useRef(urlQuery);
+  useEffect(() => {
+    urlQueryRef.current = urlQuery;
+  }, [urlQuery]);
+
+  // Box → URL. Keyed on the settled query *alone*, deliberately: it must fire
+  // when the box changes and stay silent when the URL changes underneath it.
+  // Replacing rather than pushing keeps one search to one history entry.
+  useEffect(() => {
+    const next = settledQuery.trim();
+    if (next !== urlQueryRef.current.trim()) patchSearch({ q: next || undefined }, true);
+  }, [settledQuery, patchSearch]);
+
+  // URL → box, for the back button, a bookmark, or a link someone shared.
+  useEffect(() => {
+    setQuery((current) => (current.trim() === urlQuery.trim() ? current : urlQuery));
+  }, [urlQuery]);
+
+  /** Opens a spec point's detail page and makes it addressable in the URL. */
+  const openSpecPoint = useCallback(
+    (point: SpecPoint) => {
+      setSelectedSpecPoint(point);
+      patchSearch({ point: point.id });
+    },
+    [patchSearch],
+  );
+
+  const closeSpecPoint = useCallback(() => {
+    setSelectedSpecPoint(null);
+    patchSearch({ point: undefined });
+  }, [patchSearch]);
+
+  // A `?point=` arriving from elsewhere (global search, a bookmark, a link a
+  // tutor sent) opens straight onto that point, without expanding its topic.
+  useEffect(() => {
+    const id = search.point;
+    if (!id) {
+      setSelectedSpecPoint(null);
+      return;
+    }
+    if (selectedSpecPoint?.id === id) return;
+    let cancelled = false;
+    CurriculumDAL.getSpecPointById(id).then((point) => {
+      if (!cancelled && point) setSelectedSpecPoint(point);
+    });
+    return () => {
+      cancelled = true;
+    };
+  }, [search.point, selectedSpecPoint?.id]);
+
+  // Likewise for the taxonomy and the topic to expand. A student's own
+  // entitlement effects run after these and clamp anything out of bounds.
+  useEffect(() => {
+    if (search.subject) setSubject(search.subject);
+    if (search.board) setBoard(search.board);
+    if (search.level) setLevel(search.level);
+  }, [search.subject, search.board, search.level]);
+
+  useEffect(() => {
+    if (search.topic) setOpenTopicId(search.topic);
+  }, [search.topic]);
 
   const loadTopics = async () => {
     setLoading(true);
@@ -108,7 +218,7 @@ export function Curriculum() {
       <AppLayout title="Curriculum Point">
         <div className="max-w-4xl mx-auto space-y-6">
           <button
-            onClick={() => setSelectedSpecPoint(null)}
+            onClick={closeSpecPoint}
             className="inline-flex items-center gap-2 text-sm text-muted-foreground hover:text-primary transition font-semibold"
           >
             <ChevronLeft className="w-4 h-4" /> Back to Curriculum
@@ -129,7 +239,7 @@ export function Curriculum() {
               </span>
             </div>
 
-            <p className="font-mono text-xs text-primary font-bold">
+            <p className="text-[10px] uppercase tracking-wider font-extrabold text-primary">
               Specification Point {selectedSpecPoint.code}
             </p>
             <h2 className="font-display text-2xl font-bold text-foreground mt-1.5 leading-snug">
@@ -193,43 +303,235 @@ export function Curriculum() {
             entitlements={ent}
           />
         )}
+
+        <div className="mt-4 pt-4 border-t border-border">
+          <SpecSearchBar
+            value={query}
+            onChange={setQuery}
+            subject={subject}
+            board={board}
+            level={level}
+          />
+        </div>
       </div>
 
-      {isTutor && (
-        <CurriculumSyncPanel subject={subject} board={board} level={level} onSynced={loadTopics} />
-      )}
-
-      {isTutor && (
-        <TopicCreate subject={subject} board={board} level={level} onCreated={loadTopics} />
-      )}
-
-      {loading ? (
-        <p className="text-sm text-muted-foreground">Loading topics…</p>
-      ) : topics.length === 0 ? (
-        <div className="rounded-2xl border border-dashed border-border p-10 text-center text-muted-foreground">
-          <BookMarked className="w-8 h-8 mx-auto mb-3 opacity-50" />
-          No topics yet for this subject/board/level.
-          {isTutor && <p className="mt-2 text-xs">Add one above to get started.</p>}
-        </div>
+      {searching ? (
+        <SpecSearchResults
+          matches={matches ?? []}
+          terms={searchTerms}
+          loading={searchFetching && !matches}
+          query={settledQuery}
+          onSelect={openSpecPoint}
+          onClear={() => setQuery("")}
+        />
       ) : (
-        <div className="space-y-3">
-          {topics.map((t) => (
-            <TopicCard
-              key={t.id}
-              topic={t}
-              open={openTopicId === t.id}
-              onToggle={() => setOpenTopicId(openTopicId === t.id ? null : t.id)}
-              isTutor={isTutor}
-              onDeleted={loadTopics}
-              level={level}
-              board={board}
+        <>
+          {isTutor && (
+            <CurriculumSyncPanel
               subject={subject}
-              onSelectSpecPoint={(p) => setSelectedSpecPoint(p)}
+              board={board}
+              level={level}
+              onSynced={loadTopics}
             />
-          ))}
-        </div>
+          )}
+
+          {isTutor && (
+            <TopicCreate subject={subject} board={board} level={level} onCreated={loadTopics} />
+          )}
+
+          {loading ? (
+            <p className="text-sm text-muted-foreground">Loading topics…</p>
+          ) : topics.length === 0 ? (
+            <div className="rounded-2xl border border-dashed border-border p-10 text-center text-muted-foreground">
+              <BookMarked className="w-8 h-8 mx-auto mb-3 opacity-50" />
+              No topics yet for this subject/board/level.
+              {isTutor && <p className="mt-2 text-xs">Add one above to get started.</p>}
+            </div>
+          ) : (
+            <div className="space-y-3">
+              {topics.map((t) => (
+                <TopicCard
+                  key={t.id}
+                  topic={t}
+                  open={openTopicId === t.id}
+                  onToggle={() => setOpenTopicId(openTopicId === t.id ? null : t.id)}
+                  isTutor={isTutor}
+                  onDeleted={loadTopics}
+                  level={level}
+                  board={board}
+                  subject={subject}
+                  onSelectSpecPoint={openSpecPoint}
+                />
+              ))}
+            </div>
+          )}
+        </>
       )}
     </AppLayout>
+  );
+}
+
+/**
+ * The specification search box.
+ *
+ * It names the specification it searches ("Search Biology · Edexcel · GCSE"),
+ * because the same box returns entirely different results after a subject
+ * switch and there is otherwise nothing on screen saying so.
+ */
+function SpecSearchBar({
+  value,
+  onChange,
+  subject,
+  board,
+  level,
+}: {
+  value: string;
+  onChange: (v: string) => void;
+  subject: SubjectV;
+  board: BoardV;
+  level: LevelV;
+}) {
+  const scope = [labelOf(SUBJECTS, subject), labelOf(BOARDS, board), labelOf(LEVELS, level)].join(
+    " · ",
+  );
+  return (
+    <div className="flex items-center gap-2.5 h-11 px-3.5 rounded-xl bg-secondary border border-border focus-within:border-primary/50 focus-within:ring-2 focus-within:ring-primary/20 transition">
+      <Search className="w-4 h-4 text-muted-foreground shrink-0" />
+      <input
+        value={value}
+        onChange={(e) => onChange(e.target.value)}
+        placeholder={`Search ${scope} — spec code, title or description`}
+        aria-label={`Search the ${scope} specification`}
+        className="flex-1 min-w-0 bg-transparent text-sm focus:outline-none placeholder:text-muted-foreground/70"
+      />
+      {value && (
+        <button
+          onClick={() => onChange("")}
+          aria-label="Clear search"
+          className="shrink-0 inline-flex items-center gap-1 text-xs font-semibold text-muted-foreground hover:text-foreground cursor-pointer transition"
+        >
+          <X className="w-3.5 h-3.5" /> Clear
+        </button>
+      )}
+    </div>
+  );
+}
+
+/**
+ * Search results, grouped under the topic each point belongs to.
+ *
+ * The topic grouping is the part that makes the results *teach* something: it
+ * answers "where does this sit in the spec?" at the same time as "here it is",
+ * which is exactly the context a student browsing blind is missing.
+ */
+function SpecSearchResults({
+  matches,
+  terms,
+  loading,
+  query,
+  onSelect,
+  onClear,
+}: {
+  matches: SpecPointMatch[];
+  terms: string[];
+  loading: boolean;
+  query: string;
+  onSelect: (p: SpecPoint) => void;
+  onClear: () => void;
+}) {
+  // Groups keep the ranked order: the topic holding the best match comes first.
+  const groups = useMemo(() => {
+    const byTopic = new Map<string, { topic: SpecPointMatch["topic"]; points: SpecPointMatch[] }>();
+    for (const m of matches) {
+      const existing = byTopic.get(m.topic.id);
+      if (existing) existing.points.push(m);
+      else byTopic.set(m.topic.id, { topic: m.topic, points: [m] });
+    }
+    return [...byTopic.values()];
+  }, [matches]);
+
+  if (loading) {
+    return <p className="text-sm text-muted-foreground">Searching the specification…</p>;
+  }
+
+  if (matches.length === 0) {
+    return (
+      <div className="rounded-2xl border border-dashed border-border p-10 text-center">
+        <Search className="w-8 h-8 mx-auto mb-3 opacity-40 text-muted-foreground" />
+        <p className="text-sm font-semibold text-foreground">
+          No spec points match “{query.trim()}”
+        </p>
+        <p className="text-xs text-muted-foreground mt-1.5">
+          Try a spec code like 4.1, a single keyword, or check the subject and board above.
+        </p>
+        <button
+          onClick={onClear}
+          className="mt-4 inline-flex items-center gap-1.5 text-xs font-semibold text-primary hover:underline cursor-pointer"
+        >
+          <X className="w-3.5 h-3.5" /> Clear search
+        </button>
+      </div>
+    );
+  }
+
+  return (
+    <div className="space-y-4">
+      <div className="flex items-center justify-between gap-3 flex-wrap">
+        <p className="text-sm text-muted-foreground">
+          <span className="font-semibold text-foreground">{matches.length}</span> spec{" "}
+          {matches.length === 1 ? "point" : "points"} across{" "}
+          <span className="font-semibold text-foreground">{groups.length}</span>{" "}
+          {groups.length === 1 ? "topic" : "topics"}
+        </p>
+        <button
+          onClick={onClear}
+          className="inline-flex items-center gap-1.5 text-xs font-semibold text-muted-foreground hover:text-foreground cursor-pointer transition"
+        >
+          <X className="w-3.5 h-3.5" /> Back to all topics
+        </button>
+      </div>
+
+      {groups.map(({ topic, points }) => (
+        <div key={topic.id} className="rounded-2xl premium-card overflow-hidden">
+          <div className="flex items-center gap-2.5 px-5 py-3 border-b border-border bg-secondary/30">
+            {topic.code && (
+              <span className="text-[11px] font-bold tracking-wide px-2 py-0.5 rounded bg-primary/15 text-primary shrink-0">
+                {topic.code}
+              </span>
+            )}
+            <span className="font-display font-semibold text-sm truncate">
+              <Highlight text={topic.title} terms={terms} />
+            </span>
+            <span className="ml-auto text-[11px] font-semibold text-muted-foreground shrink-0">
+              {points.length} {points.length === 1 ? "match" : "matches"}
+            </span>
+          </div>
+          <div className="p-4 grid grid-cols-1 sm:grid-cols-2 gap-3">
+            {points.map((p) => (
+              <button
+                key={p.id}
+                onClick={() => onSelect(p)}
+                className="text-left p-4 rounded-xl border border-border bg-secondary/10 hover:border-primary/50 hover:bg-secondary/30 transition flex items-start gap-3 group cursor-pointer"
+              >
+                <span className="text-[11px] font-bold tracking-wide text-primary bg-primary/10 px-2 py-0.5 rounded shrink-0 mt-0.5">
+                  <Highlight text={p.code} terms={terms} />
+                </span>
+                <div className="min-w-0">
+                  <h4 className="font-semibold text-sm text-foreground leading-tight group-hover:text-primary transition">
+                    <Highlight text={p.title} terms={terms} />
+                  </h4>
+                  {p.description && (
+                    <p className="text-xs text-muted-foreground line-clamp-2 mt-1 leading-normal">
+                      <Highlight text={p.description} terms={terms} />
+                    </p>
+                  )}
+                </div>
+              </button>
+            ))}
+          </div>
+        </div>
+      ))}
+    </div>
   );
 }
 
@@ -499,7 +801,7 @@ function TopicCard({
         >
           <ChevronRight className={`w-4 h-4 shrink-0 transition ${open ? "rotate-90" : ""}`} />
           {topic.code && (
-            <span className="text-xs font-mono px-2 py-0.5 rounded bg-primary/15 text-primary">
+            <span className="text-[11px] font-bold tracking-wide px-2 py-0.5 rounded bg-primary/15 text-primary">
               {topic.code}
             </span>
           )}
@@ -528,7 +830,7 @@ function TopicCard({
                   onClick={() => onSelectSpecPoint(p)}
                   className="text-left p-4 rounded-xl border border-border bg-secondary/10 hover:border-primary/50 hover:bg-secondary/30 transition flex items-start gap-3 group"
                 >
-                  <span className="font-mono text-xs text-primary bg-primary/10 px-2 py-0.5 rounded shrink-0 mt-0.5">
+                  <span className="text-[11px] font-bold tracking-wide text-primary bg-primary/10 px-2 py-0.5 rounded shrink-0 mt-0.5">
                     {p.code}
                   </span>
                   <div>

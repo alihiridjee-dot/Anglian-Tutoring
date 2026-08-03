@@ -1,30 +1,23 @@
-import { useEffect, useMemo, useState } from "react";
-import { Link } from "@tanstack/react-router";
+import { useMemo, useState } from "react";
 import { useServerFn } from "@tanstack/react-start";
 import { toast } from "sonner";
 import {
   Sparkles,
   Loader2,
-  X,
-  ClipboardList,
-  ListChecks,
   Wand2,
   Plus,
   CalendarRange,
   ChevronLeft,
   ChevronRight,
-  RotateCcw,
   Undo2,
-  CheckCircle2,
 } from "lucide-react";
-import { WeeklyPlanDAL, type WeeklyPlan, type PlanPoint } from "@/lib/weeklyPlanDal";
-import { ScheduleDAL } from "@/lib/scheduleDal";
+import { WeeklyPlanDAL, type PlanPoint } from "@/lib/weeklyPlanDal";
 import { interpretWeakness } from "@/lib/weeklyPlan.functions";
 import { type Enrolment } from "@/hooks/data/useEnrolments";
 import { type SubjectV, type BoardV, type LevelV } from "@/lib/taxonomy";
 import { currentWeekKey, mondayOf, addWeeks, toDateKey, weekRangeLabel } from "@/lib/week";
-import { type PointCoverage, statusOf } from "@/lib/planner/coverage";
-import { CoveragePill } from "./CoveragePill";
+import { ThisWeekPanel } from "./ThisWeekPanel";
+import { useWeekPlan } from "./useWeekPlan";
 import { WeekReview } from "./WeekReview";
 
 const subjectLabel: Record<string, string> = {
@@ -33,15 +26,14 @@ const subjectLabel: Record<string, string> = {
   physics: "Physics",
 };
 
-type Activity = Map<string, { hasHomework: boolean; hasQuiz: boolean }>;
-
 /**
- * "This week" — the student's editable weekly plan, now week-navigable. The
- * platform suggests the week's spec points from their confidence (or a free-text
- * description of what's tricky); the student adds/removes freely. Past weeks show
- * how each point went (coverage) plus the end-of-week review, and let the student
- * pull any point back into focus. Future weeks can be planned ahead. Nothing is
- * fixed — re-suggesting or editing just rewrites that week's row.
+ * The dashboard's "this week": subject tabs and week navigation around the
+ * shared {@link ThisWeekPanel}, with the end-of-week review as its own box
+ * underneath rather than buried at the bottom of the plan.
+ *
+ * The week itself needs no asking for — it's this week's slice of the year-long
+ * programme and builds itself (see {@link useWeekPlan}). The student shapes it
+ * by hand: drop a point, or describe what's tricky to pull more in.
  */
 export function WeeklyPlanPanel({
   studentId,
@@ -72,92 +64,24 @@ export function WeeklyPlanPanel({
   const editable = !isPast; // history is read-only (but you can pull points forward)
   const showReview = weekOffset <= 0; // review current + past weeks
 
-  const [plan, setPlan] = useState<WeeklyPlan | null>(null);
-  const [points, setPoints] = useState<PlanPoint[]>([]);
-  const [activity, setActivity] = useState<Activity>(new Map());
-  const [coverage, setCoverage] = useState<Map<string, PointCoverage>>(new Map());
-  const [loading, setLoading] = useState(true);
-  const [busy, setBusy] = useState<null | "suggest" | "weakness">(null);
+  const [busy, setBusy] = useState(false);
   const [weakness, setWeakness] = useState("");
   const [showWeakness, setShowWeakness] = useState(false);
-
   const weaknessFn = useServerFn(interpretWeakness);
 
-  const reload = async () => {
-    if (!active) return;
-    setLoading(true);
-    const res = await WeeklyPlanDAL.getPlan(studentId, active.subject as SubjectV, weekStart);
-    const pts = res?.points ?? [];
-    setPlan(res?.plan ?? null);
-    setPoints(pts);
-    const ids = pts.map((p) => p.spec_point_id);
-    // Fold any new homework/MCQ results into the spaced-repetition schedule first
-    // (idempotent), so coverage below and the next suggestion reflect them.
-    if (showReview && ids.length) {
-      await ScheduleDAL.syncReviewsFromAttempts(studentId, ids).catch(() => {});
-    }
-    const [act, cov] = await Promise.all([
-      WeeklyPlanDAL.getActivity(ids),
-      showReview && ids.length
-        ? WeeklyPlanDAL.getCoverage(studentId, ids)
-        : Promise.resolve(new Map()),
-    ]);
-    setActivity(act);
-    setCoverage(cov);
-    setLoading(false);
-  };
-
-  useEffect(() => {
-    reload();
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [studentId, active?.subject, active?.board, weekStart]);
-
-  const doSuggest = async () => {
-    if (!active) return;
-    setBusy("suggest");
-    try {
-      const monday = addWeeks(mondayOf(), weekOffset);
-      const weekEnd = new Date(monday);
-      weekEnd.setDate(monday.getDate() + 6);
-      weekEnd.setHours(23, 59, 59, 999);
-      // Deterministic spaced-repetition engine: weakest / most-overdue first,
-      // lighter on what's already sticking. Runs locally, no AI dependency.
-      const ids = await ScheduleDAL.suggestForWeek({
-        studentId,
-        subject: active.subject as SubjectV,
-        board: active.board as BoardV,
-        level,
-        weekEnd,
-        targetCount: 6,
-      });
-      if (!ids.length) {
-        toast.info("Rate a few topics first so we've got something to plan from.");
-        return;
-      }
-      await WeeklyPlanDAL.savePlan({
-        subject: active.subject as SubjectV,
-        board: active.board as BoardV,
-        level,
-        weekStart,
-        specPointIds: ids,
-        source: "ai",
-        rationale:
-          "Led with your weakest and due-for-review topics, and went lighter on the ones that are already sticking.",
-        origin: "ai",
-      });
-      toast.success(`Planned ${ids.length} topics for this week.`);
-      setShowWeakness(false);
-      await reload();
-    } catch (e) {
-      toast.error(e instanceof Error ? e.message : "Couldn't build a plan — try again.");
-    } finally {
-      setBusy(null);
-    }
-  };
+  const week = useWeekPlan({
+    studentId,
+    subject: (active?.subject ?? "biology") as SubjectV,
+    board: (active?.board ?? "edexcel") as BoardV,
+    level,
+    weekStart,
+    isCurrent,
+    withCoverage: showReview,
+  });
 
   const doWeakness = async () => {
     if (!active || !weakness.trim()) return;
-    setBusy("weakness");
+    setBusy(true);
     try {
       const r = await weaknessFn({
         data: {
@@ -171,8 +95,8 @@ export function WeeklyPlanPanel({
         toast.info("Couldn't match that to any spec points — try describing it differently.");
         return;
       }
-      if (plan) {
-        await WeeklyPlanDAL.addPoints(plan.id, r.specPointIds, "student");
+      if (week.plan) {
+        await WeeklyPlanDAL.addPoints(week.plan.id, r.specPointIds, "student");
       } else {
         await WeeklyPlanDAL.savePlan({
           subject: active.subject as SubjectV,
@@ -187,35 +111,26 @@ export function WeeklyPlanPanel({
       toast.success(`Added ${r.specPointIds.length} topics.`);
       setWeakness("");
       setShowWeakness(false);
-      await reload();
+      await week.reload();
     } catch (e) {
       toast.error(e instanceof Error ? e.message : "Couldn't add those — try again.");
     } finally {
-      setBusy(null);
-    }
-  };
-
-  const remove = async (specPointId: string) => {
-    if (!plan) return;
-    setPoints((prev) => prev.filter((p) => p.spec_point_id !== specPointId));
-    try {
-      await WeeklyPlanDAL.removePoint(plan.id, specPointId);
-    } catch {
-      await reload();
+      setBusy(false);
     }
   };
 
   // Pull a past-week point back into this week's plan.
   const focusAgain = async (point: PlanPoint) => {
+    if (!active) return;
     const curStart = currentWeekKey();
     try {
-      const cur = await WeeklyPlanDAL.getPlan(studentId, active!.subject as SubjectV, curStart);
+      const cur = await WeeklyPlanDAL.getPlan(studentId, active.subject as SubjectV, curStart);
       if (cur) {
         await WeeklyPlanDAL.addPoints(cur.plan.id, [point.spec_point_id], "carried_over");
       } else {
         await WeeklyPlanDAL.savePlan({
-          subject: active!.subject as SubjectV,
-          board: active!.board as BoardV,
+          subject: active.subject as SubjectV,
+          board: active.board as BoardV,
           level,
           weekStart: curStart,
           specPointIds: [point.spec_point_id],
@@ -229,273 +144,137 @@ export function WeeklyPlanPanel({
     }
   };
 
-  // Group points by topic for display.
-  const groups = useMemo(() => {
-    const m = new Map<string, { title: string; points: PlanPoint[] }>();
-    for (const p of points) {
-      const g = m.get(p.topic_id) ?? { title: p.topic_title ?? "—", points: [] };
-      g.points.push(p);
-      m.set(p.topic_id, g);
-    }
-    return [...m.values()];
-  }, [points]);
-
   if (!active) return null;
 
   return (
-    <div className="rounded-2xl premium-card p-4 sm:p-5 shadow-sm mb-6">
-      <div className="flex flex-wrap items-center justify-between gap-3 mb-4">
-        <div className="flex items-center gap-2.5">
-          <div className="w-9 h-9 rounded-xl bg-primary/10 text-primary flex items-center justify-center shrink-0">
-            <CalendarRange className="w-5 h-5" />
-          </div>
-          <div>
-            <div className="flex items-center gap-1.5">
-              <h2 className="font-display text-base font-semibold tracking-tight">
-                {isCurrent ? "This week" : isPast ? "Past week" : "Upcoming week"}
-              </h2>
-              {!isCurrent && (
-                <button
-                  type="button"
-                  onClick={() => setWeekOffset(0)}
-                  className="inline-flex items-center gap-1 h-5 px-2 rounded-full bg-muted text-[10px] font-semibold text-muted-foreground hover:text-foreground"
-                >
-                  <Undo2 className="w-3 h-3" /> Today
-                </button>
-              )}
+    <>
+      <div className="rounded-2xl premium-card p-4 sm:p-5 shadow-sm mb-4">
+        <div className="flex flex-wrap items-center justify-between gap-3 mb-4">
+          <div className="flex items-center gap-2.5">
+            <div className="w-9 h-9 rounded-xl bg-primary/10 text-primary flex items-center justify-center shrink-0">
+              <CalendarRange className="w-5 h-5" />
             </div>
-            <p className="text-xs text-muted-foreground">{weekLabel}</p>
+            <div>
+              <div className="flex items-center gap-1.5">
+                <h2 className="font-display text-base font-semibold tracking-tight">
+                  {isCurrent ? "This week" : isPast ? "Past week" : "Upcoming week"}
+                </h2>
+                {!isCurrent && (
+                  <button
+                    type="button"
+                    onClick={() => setWeekOffset(0)}
+                    className="inline-flex items-center gap-1 h-5 px-2 rounded-full bg-muted text-[10px] font-semibold text-muted-foreground hover:text-foreground"
+                  >
+                    <Undo2 className="w-3 h-3" /> Today
+                  </button>
+                )}
+              </div>
+              <p className="text-xs text-muted-foreground">{weekLabel}</p>
+            </div>
+          </div>
+          <div className="flex items-center gap-3">
+            {ordered.length > 1 && (
+              <div className="flex items-center gap-1.5">
+                {ordered.map((e) => (
+                  <button
+                    key={e.subject}
+                    type="button"
+                    onClick={() => setActiveSubject(e.subject)}
+                    className={`h-8 px-3 rounded-lg text-sm font-medium transition ${
+                      e.subject === activeSubject
+                        ? "bg-primary text-primary-foreground"
+                        : "bg-muted text-muted-foreground hover:text-foreground"
+                    }`}
+                  >
+                    {subjectLabel[e.subject] ?? e.subject}
+                  </button>
+                ))}
+              </div>
+            )}
+            <div className="flex items-center gap-1">
+              <button
+                type="button"
+                onClick={() => setWeekOffset((w) => w - 1)}
+                className="w-8 h-8 rounded-lg border border-border text-muted-foreground hover:text-foreground hover:bg-muted flex items-center justify-center"
+                aria-label="Previous week"
+              >
+                <ChevronLeft className="w-4 h-4" />
+              </button>
+              <button
+                type="button"
+                onClick={() => setWeekOffset((w) => w + 1)}
+                className="w-8 h-8 rounded-lg border border-border text-muted-foreground hover:text-foreground hover:bg-muted flex items-center justify-center"
+                aria-label="Next week"
+              >
+                <ChevronRight className="w-4 h-4" />
+              </button>
+            </div>
           </div>
         </div>
-        <div className="flex items-center gap-3">
-          {ordered.length > 1 && (
-            <div className="flex items-center gap-1.5">
-              {ordered.map((e) => (
-                <button
-                  key={e.subject}
-                  type="button"
-                  onClick={() => setActiveSubject(e.subject)}
-                  className={`h-8 px-3 rounded-lg text-sm font-medium transition ${
-                    e.subject === activeSubject
-                      ? "bg-primary text-primary-foreground"
-                      : "bg-muted text-muted-foreground hover:text-foreground"
-                  }`}
-                >
-                  {subjectLabel[e.subject] ?? e.subject}
-                </button>
-              ))}
-            </div>
-          )}
-          <div className="flex items-center gap-1">
-            <button
-              type="button"
-              onClick={() => setWeekOffset((w) => w - 1)}
-              className="w-8 h-8 rounded-lg border border-border text-muted-foreground hover:text-foreground hover:bg-muted flex items-center justify-center"
-              aria-label="Previous week"
-            >
-              <ChevronLeft className="w-4 h-4" />
-            </button>
-            <button
-              type="button"
-              onClick={() => setWeekOffset((w) => w + 1)}
-              className="w-8 h-8 rounded-lg border border-border text-muted-foreground hover:text-foreground hover:bg-muted flex items-center justify-center"
-              aria-label="Next week"
-            >
-              <ChevronRight className="w-4 h-4" />
-            </button>
-          </div>
-        </div>
+
+        {!week.loading && week.points.length === 0 && !week.roadmap ? (
+          editable ? (
+            <EmptyState onAddTricky={() => setShowWeakness(true)} future={isFuture} />
+          ) : (
+            <p className="rounded-xl border border-dashed border-border p-6 text-center text-sm text-muted-foreground">
+              No plan was set for this week.
+            </p>
+          )
+        ) : (
+          <ThisWeekPanel
+            plan={week.plan}
+            points={week.points}
+            activity={week.activity}
+            coverage={week.coverage}
+            roadmap={week.roadmap}
+            loading={week.loading}
+            weekStart={weekStart}
+            editable={editable}
+            isPast={isPast}
+            showRationale={isCurrent}
+            showCoverage={showReview}
+            onRemove={week.removePoint}
+            onFocusAgain={focusAgain}
+            onAddTricky={editable ? () => setShowWeakness((s) => !s) : undefined}
+          />
+        )}
+
+        {showWeakness && editable && (
+          <WeaknessInput
+            value={weakness}
+            onChange={setWeakness}
+            busy={busy}
+            onSubmit={doWeakness}
+          />
+        )}
       </div>
 
-      {loading ? (
-        <div className="py-10 text-center">
-          <Loader2 className="w-5 h-5 animate-spin mx-auto text-muted-foreground" />
-        </div>
-      ) : points.length === 0 ? (
-        editable ? (
-          <EmptyState busy={busy} onSuggest={doSuggest} future={isFuture} />
-        ) : (
-          <p className="rounded-xl border border-dashed border-border p-6 text-center text-sm text-muted-foreground">
-            No plan was set for this week.
-          </p>
-        )
-      ) : (
-        <div className="space-y-4">
-          {plan?.ai_rationale && isCurrent && (
-            <div className="flex items-start gap-2 rounded-xl bg-primary/5 border border-primary/15 p-3">
-              <Sparkles className="w-4 h-4 text-primary mt-0.5 shrink-0" />
-              <p className="text-sm text-foreground/90">{plan.ai_rationale}</p>
-            </div>
-          )}
-
-          {groups.map((g) => (
-            <div key={g.title}>
-              <h3 className="text-[11px] font-bold uppercase tracking-wide text-muted-foreground mb-1.5">
-                {g.title}
-              </h3>
-              <div className="space-y-1.5">
-                {g.points.map((p) => {
-                  const a = activity.get(p.spec_point_id);
-                  const cov = coverage.get(p.spec_point_id);
-                  return (
-                    <div
-                      key={p.spec_point_id}
-                      className="group flex items-center gap-3 rounded-xl border border-border bg-muted/20 p-2.5"
-                    >
-                      <div className="flex-1 min-w-0">
-                        <span className="text-[11px] font-semibold text-muted-foreground mr-1.5">
-                          {p.code}
-                        </span>
-                        <span className="text-sm">{p.title}</span>
-                      </div>
-                      <div className="flex items-center gap-1.5 shrink-0">
-                        {showReview && (
-                          <CoveragePill status={statusOf(cov)} score={cov?.bestScore} />
-                        )}
-                        {a?.hasHomework &&
-                          (() => {
-                            const done = showReview && cov?.homeworkDone;
-                            return (
-                              <Link
-                                to="/homework"
-                                className={`inline-flex items-center gap-1 h-6 px-2 rounded-md border text-[11px] font-medium ${
-                                  done
-                                    ? "bg-emerald-500/10 border-emerald-500/30 text-emerald-700 dark:text-emerald-300"
-                                    : "bg-card border-border text-muted-foreground hover:text-foreground"
-                                }`}
-                                title={done ? "Homework completed" : "Homework available"}
-                              >
-                                {done ? (
-                                  <CheckCircle2 className="w-3 h-3" />
-                                ) : (
-                                  <ClipboardList className="w-3 h-3" />
-                                )}
-                                Homework
-                                {done && cov?.homeworkScore != null && (
-                                  <span className="tabular-nums font-semibold">
-                                    {cov.homeworkScore}%
-                                  </span>
-                                )}
-                              </Link>
-                            );
-                          })()}
-                        {a?.hasQuiz &&
-                          (() => {
-                            const done = showReview && cov?.quizDone;
-                            return (
-                              <Link
-                                to="/mcqs"
-                                className={`inline-flex items-center gap-1 h-6 px-2 rounded-md border text-[11px] font-medium ${
-                                  done
-                                    ? "bg-emerald-500/10 border-emerald-500/30 text-emerald-700 dark:text-emerald-300"
-                                    : "bg-card border-border text-muted-foreground hover:text-foreground"
-                                }`}
-                                title={done ? "Quiz completed" : "Quiz available"}
-                              >
-                                {done ? (
-                                  <CheckCircle2 className="w-3 h-3" />
-                                ) : (
-                                  <ListChecks className="w-3 h-3" />
-                                )}
-                                Quiz
-                                {done && cov?.quizScore != null && (
-                                  <span className="tabular-nums font-semibold">
-                                    {cov.quizScore}%
-                                  </span>
-                                )}
-                              </Link>
-                            );
-                          })()}
-                        {isPast && (
-                          <button
-                            type="button"
-                            onClick={() => focusAgain(p)}
-                            className="inline-flex items-center gap-1 h-6 px-2 rounded-md premium-card text-[11px] font-medium text-muted-foreground hover:text-primary hover:border-primary/40"
-                            title="Focus on this again this week"
-                          >
-                            <RotateCcw className="w-3 h-3" /> Focus again
-                          </button>
-                        )}
-                        {editable && (
-                          <button
-                            type="button"
-                            onClick={() => remove(p.spec_point_id)}
-                            className="w-6 h-6 rounded-md text-muted-foreground/50 hover:text-rose-500 hover:bg-rose-500/10 flex items-center justify-center opacity-0 group-hover:opacity-100 transition"
-                            aria-label="Remove from this week"
-                          >
-                            <X className="w-3.5 h-3.5" />
-                          </button>
-                        )}
-                      </div>
-                    </div>
-                  );
-                })}
-              </div>
-            </div>
-          ))}
-
-          {editable && (
-            <div className="flex flex-wrap items-center gap-2 pt-1">
-              <button
-                type="button"
-                onClick={doSuggest}
-                disabled={!!busy}
-                className="inline-flex items-center gap-1.5 h-9 px-3 rounded-lg border border-border text-sm font-medium hover:bg-muted disabled:opacity-50"
-              >
-                {busy === "suggest" ? (
-                  <Loader2 className="w-4 h-4 animate-spin" />
-                ) : (
-                  <Wand2 className="w-4 h-4" />
-                )}
-                Re-suggest
-              </button>
-              <button
-                type="button"
-                onClick={() => setShowWeakness((s) => !s)}
-                className="inline-flex items-center gap-1.5 h-9 px-3 rounded-lg border border-border text-sm font-medium hover:bg-muted"
-              >
-                <Plus className="w-4 h-4" /> Add what's tricky
-              </button>
-            </div>
-          )}
-
-          {showReview && plan && (
-            <WeekReview
-              studentId={studentId}
-              plan={plan}
-              points={points}
-              coverage={coverage}
-              subject={active.subject as SubjectV}
-              board={active.board as BoardV}
-              level={level}
-              weekStart={weekStart}
-              onChanged={reload}
-            />
-          )}
+      {/* The student's own read on the week — its own box, not a footnote to the plan. */}
+      {showReview && week.plan && active && (
+        <div className="mb-6">
+          <WeekReview
+            studentId={studentId}
+            plan={week.plan}
+            points={week.points}
+            coverage={week.coverage}
+            subject={active.subject as SubjectV}
+            board={active.board as BoardV}
+            level={level}
+            weekStart={weekStart}
+            onChanged={week.reload}
+          />
         </div>
       )}
-
-      {showWeakness && editable && (
-        <WeaknessInput
-          value={weakness}
-          onChange={setWeakness}
-          busy={busy === "weakness"}
-          onSubmit={doWeakness}
-        />
-      )}
-    </div>
+    </>
   );
 }
 
-function EmptyState({
-  busy,
-  onSuggest,
-  future,
-}: {
-  busy: null | "suggest" | "weakness";
-  onSuggest: () => void;
-  future: boolean;
-}) {
+/**
+ * Shown when the week has nothing and the programme has nothing to give it —
+ * which means the student hasn't rated anything yet, so it points them at the
+ * board rather than at a button.
+ */
+function EmptyState({ onAddTricky, future }: { onAddTricky: () => void; future: boolean }) {
   return (
     <div className="rounded-xl border border-dashed border-border p-6 text-center">
       <div className="w-11 h-11 rounded-xl bg-primary/10 text-primary flex items-center justify-center mx-auto mb-3">
@@ -505,21 +284,16 @@ function EmptyState({
         {future ? "Nothing planned for this week yet" : "No plan for this week yet"}
       </p>
       <p className="text-xs text-muted-foreground mb-4 max-w-sm mx-auto">
-        We'll suggest a week of topics from how you rated your confidence — then you can tweak it
-        however you like.
+        {future
+          ? "This week fills itself from your programme when it comes round. You can add something to it now if you want to get ahead."
+          : "Sort a few topics on your planner and your week builds itself from them — weakest first, spread out to the exam."}
       </p>
       <button
         type="button"
-        onClick={onSuggest}
-        disabled={!!busy}
-        className="inline-flex items-center gap-2 h-10 px-5 rounded-xl bg-primary text-primary-foreground text-sm font-semibold hover:opacity-90 disabled:opacity-50"
+        onClick={onAddTricky}
+        className="inline-flex items-center gap-2 h-10 px-4 rounded-xl border border-border text-sm font-medium hover:bg-muted"
       >
-        {busy === "suggest" ? (
-          <Loader2 className="w-4 h-4 animate-spin" />
-        ) : (
-          <Sparkles className="w-4 h-4" />
-        )}
-        Suggest {future ? "this week" : "my week"}
+        <Plus className="w-4 h-4" /> Add what's tricky
       </button>
     </div>
   );

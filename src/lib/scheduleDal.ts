@@ -47,6 +47,8 @@ export interface ProgressPoint {
   quizScore: number | null;
   status: PointStatus;
   mastery: number;
+  /** Its share of a week's work — see `spec_points.weight`. 1 when unmeasured. */
+  weight: number;
 }
 /** A topic's overall standing plus its per-point breakdown. */
 export interface TopicProgress {
@@ -153,7 +155,10 @@ export class ScheduleDAL {
     const reviewedAt = params.reviewedAt ?? new Date();
 
     const existing = await this.getSchedule(studentId, [params.specPointId]);
-    const next = applyReview(existing.get(params.specPointId) ?? null, params.rating, reviewedAt);
+    // A self-rating is a report, not a failed recall — it never lapses the card.
+    const next = applyReview(existing.get(params.specPointId) ?? null, params.rating, reviewedAt, {
+      countsAsLapse: params.source !== "confidence",
+    });
 
     // Ledger insert + card upsert happen inside one DB transaction, so an
     // interruption can't strand a ledger row whose card never advanced (the
@@ -197,7 +202,8 @@ export class ScheduleDAL {
     // so they always insert — same semantics as before).
     const { error } = await supabase.rpc("record_reviews_atomic", {
       _reviews: specPointIds.map((id) => {
-        const next = applyReview(cards.get(id) ?? null, rating, now);
+        // Self-ratings never lapse the card — see applyReview.
+        const next = applyReview(cards.get(id) ?? null, rating, now, { countsAsLapse: false });
         return {
           student_id: uid,
           spec_point_id: id,
@@ -443,7 +449,7 @@ export class ScheduleDAL {
 
     const { data: pts } = await supabase
       .from("spec_points")
-      .select("id, code, title, sort_order, topic_id")
+      .select("id, code, title, sort_order, topic_id, weight")
       .in(
         "topic_id",
         topics.map((t) => t.id),
@@ -472,6 +478,7 @@ export class ScheduleDAL {
         quizScore: m?.quiz ?? null,
         status: pointStatus(card, now),
         mastery: pointMastery(card, confidence, now),
+        weight: Number(p.weight) > 0 ? Number(p.weight) : 1,
       });
       byTopic.set(p.topic_id, list);
     }

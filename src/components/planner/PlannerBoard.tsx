@@ -16,8 +16,13 @@ const subjectLabel: Record<string, string> = {
 
 /**
  * The termly planner's confidence board. The student sorts each topic group into
- * a confidence band (drag between columns) — that band sets the topic's broad
- * mastery. Expanding a group lets them rate its individual spec points on the
+ * a confidence band (drag between columns) — that band is their own read of the
+ * topic, and seeds the FSRS cards underneath it.
+ *
+ * The column is what they *said*; the ring on each card is what the engine
+ * *measures* (see `masteryByTopic`). Those are different questions and the board
+ * shows both, but it never shows a second, invented number for the same thing —
+ * when the plan has a mastery for a topic, that is the number on the card. Expanding a group lets them rate its individual spec points on the
  * same red/amber/green scale; those ratings are a finer FSRS signal layered
  * underneath and don't move the topic between columns (they only seed the column
  * when the topic hasn't been sorted at all yet).
@@ -27,6 +32,7 @@ export function PlannerBoard({
   enrolments,
   level,
   subject,
+  masteryByTopic,
   onChanged,
 }: {
   studentId: string;
@@ -34,6 +40,13 @@ export function PlannerBoard({
   level: LevelV;
   /** When set, the subject is controlled by the parent and the tabs are hidden. */
   subject?: string;
+  /**
+   * Topic id → the mastery the plan uses. Supplied by a parent that has already
+   * loaded the roadmap, so the card ring and the plan quote one number instead of
+   * two. Omitted (a board with no plan beside it) → the ring falls back to the
+   * student's own rating.
+   */
+  masteryByTopic?: Map<string, number>;
   /** Fires after a confidence write lands, so siblings (the roadmap) can reload. */
   onChanged?: () => void;
 }) {
@@ -188,6 +201,7 @@ export function PlannerBoard({
                   <TopicCard
                     key={t.id}
                     topic={t}
+                    mastery={masteryByTopic?.get(t.id) ?? null}
                     dragging={draggingId === t.id}
                     onDragStart={(id) => setDraggingId(id)}
                     onDragEnd={() => setDraggingId(null)}
@@ -230,6 +244,7 @@ export function PlannerBoard({
                       <TopicCard
                         key={t.id}
                         topic={t}
+                        mastery={masteryByTopic?.get(t.id) ?? null}
                         dragging={draggingId === t.id}
                         onDragStart={(id) => setDraggingId(id)}
                         onDragEnd={() => setDraggingId(null)}

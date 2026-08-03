@@ -1,0 +1,882 @@
+{
+ "IGCSE 1.1": {
+  "title": "understand how living organisms share the following characteristics: \u2022 they require nutrit",
+  "weight": 3.72,
+  "source": "1.1"
+ },
+ "IGCSE 1.2": {
+  "title": "describe the common features shown by eukaryotic organisms: plants, animals, fungi and pro",
+  "weight": 2.9,
+  "source": "1.2"
+ },
+ "IGCSE 1.3": {
+  "title": "describe the common features shown by prokaryotic organisms such as bacteria Bacteria: the",
+  "weight": 2.52,
+  "source": "1.3"
+ },
+ "IGCSE 1.4": {
+  "title": "understand the term pathogen and know that pathogens may include fungi, bacteria, protocti",
+  "weight": 3.0,
+  "source": "1.4"
+ },
+ "IGCSE 2.1": {
+  "title": "describe the levels of organisation in organisms: organelles, cells, tissues, organs and s",
+  "weight": 1.3,
+  "source": "2.1"
+ },
+ "IGCSE 2.2": {
+  "title": "describe cell structures, including the nucleus, cytoplasm, cell membrane, cell wall, mito",
+  "weight": 1.3,
+  "source": "2.2"
+ },
+ "IGCSE 2.3": {
+  "title": "describe the functions of the nucleus, cytoplasm, cell membrane, cell wall, mitochondria, ",
+  "weight": 1.3,
+  "source": "2.3"
+ },
+ "IGCSE 2.4": {
+  "title": "know the similarities and differences in the structure of plant and animal cells",
+  "weight": 1.05,
+  "source": "2.4"
+ },
+ "IGCSE 2.5B": {
+  "title": "explain the importance of cell differentiation in the development of specialised cells",
+  "weight": 1.7,
+  "source": "2.5B"
+ },
+ "IGCSE 2.6B": {
+  "title": "understand the advantages and disadvantages of using stem cells in medicine",
+  "weight": 1.4,
+  "source": "2.6B"
+ },
+ "IGCSE 2.7": {
+  "title": "identify the chemical elements present in carbohydrates, proteins and lipids (fats and oil",
+  "weight": 1.2,
+  "source": "2.7"
+ },
+ "IGCSE 2.8": {
+  "title": "describe the structure of carbohydrates, proteins and lipids as large molecules made up fr",
+  "weight": 1.5,
+  "source": "2.8"
+ },
+ "IGCSE 2.9": {
+  "title": "practical: investigate food samples for the presence of glucose, starch, protein and fat",
+  "weight": 4.4,
+  "source": "2.9"
+ },
+ "IGCSE 2.10": {
+  "title": "understand the role of enzymes as biological catalysts in metabolic reactions",
+  "weight": 1.4,
+  "source": "2.10"
+ },
+ "IGCSE 2.11": {
+  "title": "understand how temperature changes can affect enzyme function, including changes to the sh",
+  "weight": 1.4,
+  "source": "2.11"
+ },
+ "IGCSE 2.12": {
+  "title": "practical: investigate how enzyme activity can be affected by changes in temperature",
+  "weight": 4.4,
+  "source": "2.12"
+ },
+ "IGCSE 2.13": {
+  "title": "understand how enzyme function can be affected by changes in pH altering the active site",
+  "weight": 1.4,
+  "source": "2.13"
+ },
+ "IGCSE 2.14B": {
+  "title": "practical: investigate how enzyme activity can be affected by changes in pH (d) Movement o",
+  "weight": 4.4,
+  "source": "2.14B"
+ },
+ "IGCSE 2.15": {
+  "title": "understand the processes of diffusion, osmosis and active transport by which substances mo",
+  "weight": 1.4,
+  "source": "2.15"
+ },
+ "IGCSE 2.16": {
+  "title": "understand how factors affect the rate of movement of substances into and out of cells, in",
+  "weight": 1.49,
+  "source": "2.16"
+ },
+ "IGCSE 2.17": {
+  "title": "practical: investigate diffusion and osmosis using living and non-living systems",
+  "weight": 4.4,
+  "source": "2.17"
+ },
+ "IGCSE 2.18": {
+  "title": "understand the process of photosynthesis and its importance in the conversion of light ene",
+  "weight": 1.4,
+  "source": "2.18"
+ },
+ "IGCSE 2.19": {
+  "title": "know the word equation and the balanced chemical symbol equation for photosynthesis",
+  "weight": 1.05,
+  "source": "2.19"
+ },
+ "IGCSE 2.20": {
+  "title": "understand how varying carbon dioxide concentration, light intensity and temperature affec",
+  "weight": 1.4,
+  "source": "2.20"
+ },
+ "IGCSE 2.21": {
+  "title": "describe the structure of the leaf and explain how it is adapted for photosynthesis",
+  "weight": 1.3,
+  "source": "2.21"
+ },
+ "IGCSE 2.22": {
+  "title": "understand that plants require mineral ions for growth, and that magnesium ions are needed",
+  "weight": 1.4,
+  "source": "2.22"
+ },
+ "IGCSE 2.23": {
+  "title": "practical: investigate photosynthesis, showing the evolution of oxygen from a water plant,",
+  "weight": 4.42,
+  "source": "2.23"
+ },
+ "IGCSE 2.24": {
+  "title": "understand that a balanced diet should include appropriate proportions of carbohydrate, pr",
+  "weight": 1.4,
+  "source": "2.24"
+ },
+ "IGCSE 2.25": {
+  "title": "identify the sources and describe the functions of carbohydrate, protein, lipid (fats and ",
+  "weight": 1.4,
+  "source": "2.25"
+ },
+ "IGCSE 2.26": {
+  "title": "understand how energy requirements vary with activity levels, age and pregnancy",
+  "weight": 1.4,
+  "source": "2.26"
+ },
+ "IGCSE 2.27": {
+  "title": "describe the structure and function of the human alimentary canal, including the mouth, oe",
+  "weight": 1.34,
+  "source": "2.27"
+ },
+ "IGCSE 2.28": {
+  "title": "understand how food is moved through the gut by peristalsis",
+  "weight": 1.4,
+  "source": "2.28"
+ },
+ "IGCSE 2.29": {
+  "title": "understand the role of digestive enzymes, including the digestion of starch to glucose by ",
+  "weight": 1.69,
+  "source": "2.29"
+ },
+ "IGCSE 2.30": {
+  "title": "understand that bile is produced by the liver and stored in the gall bladder",
+  "weight": 1.4,
+  "source": "2.30"
+ },
+ "IGCSE 2.31": {
+  "title": "understand the role of bile in neutralising stomach acid and emulsifying lipids",
+  "weight": 1.4,
+  "source": "2.31"
+ },
+ "IGCSE 2.32": {
+  "title": "understand how the small intestine is adapted for absorption, including the structure of a",
+  "weight": 1.4,
+  "source": "2.32"
+ },
+ "IGCSE 2.33B": {
+  "title": "practical: investigate the energy content in a food sample",
+  "weight": 4.4,
+  "source": "2.33B"
+ },
+ "IGCSE 2.34": {
+  "title": "understand how the process of respiration produces ATP in living organisms",
+  "weight": 1.4,
+  "source": "2.34"
+ },
+ "IGCSE 2.35": {
+  "title": "know that ATP provides energy for cells",
+  "weight": 1.05,
+  "source": "2.35"
+ },
+ "IGCSE 2.36": {
+  "title": "describe the differences between aerobic and anaerobic respiration",
+  "weight": 1.3,
+  "source": "2.36"
+ },
+ "IGCSE 2.37": {
+  "title": "know the word equation and the balanced chemical symbol equation for aerobic respiration i",
+  "weight": 1.05,
+  "source": "2.37"
+ },
+ "IGCSE 2.38": {
+  "title": "know the word equation for anaerobic respiration in plants and in animals",
+  "weight": 1.05,
+  "source": "2.38"
+ },
+ "IGCSE 2.39": {
+  "title": "practical: investigate the evolution of carbon dioxide and heat from respiring seeds or ot",
+  "weight": 4.4,
+  "source": "2.39"
+ },
+ "IGCSE 2.40B": {
+  "title": "understand the role of diffusion in gas exchange",
+  "weight": 1.4,
+  "source": "2.40B"
+ },
+ "IGCSE 2.41B": {
+  "title": "understand gas exchange (of carbon dioxide and oxygen) in relation to respiration and phot",
+  "weight": 1.4,
+  "source": "2.41B"
+ },
+ "IGCSE 2.42B": {
+  "title": "understand how the structure of the leaf is adapted for gas exchange",
+  "weight": 1.4,
+  "source": "2.42B"
+ },
+ "IGCSE 2.43B": {
+  "title": "describe the role of stomata in gas exchange",
+  "weight": 1.3,
+  "source": "2.43B"
+ },
+ "IGCSE 2.44B": {
+  "title": "understand how respiration continues during the day and night, but that the net exchange o",
+  "weight": 1.4,
+  "source": "2.44B"
+ },
+ "IGCSE 2.45B": {
+  "title": "practical: investigate the effect of light on net gas exchange from a leaf, using hydrogen",
+  "weight": 4.4,
+  "source": "2.45B"
+ },
+ "IGCSE 2.46": {
+  "title": "describe the structure of the thorax, including the ribs, intercostal muscles, diaphragm, ",
+  "weight": 1.3,
+  "source": "2.46"
+ },
+ "IGCSE 2.47": {
+  "title": "understand the role of the intercostal muscles and the diaphragm in ventilation",
+  "weight": 1.4,
+  "source": "2.47"
+ },
+ "IGCSE 2.48": {
+  "title": "explain how alveoli are adapted for gas exchange by diffusion between air in the lungs and",
+  "weight": 1.7,
+  "source": "2.48"
+ },
+ "IGCSE 2.49": {
+  "title": "understand the biological consequences of smoking in relation to the lungs and the circula",
+  "weight": 1.4,
+  "source": "2.49"
+ },
+ "IGCSE 2.50": {
+  "title": "practical: investigate breathing in humans, including the release of carbon dioxide and th",
+  "weight": 4.4,
+  "source": "2.50"
+ },
+ "IGCSE 2.51": {
+  "title": "understand why simple, unicellular organisms can rely on diffusion for movement of substan",
+  "weight": 1.4,
+  "source": "2.51"
+ },
+ "IGCSE 2.52": {
+  "title": "understand the need for a transport system in multicellular organisms Flowering plants",
+  "weight": 1.4,
+  "source": "2.52"
+ },
+ "IGCSE 2.53": {
+  "title": "describe the role of phloem in transporting sucrose and amino acids between the leaves and",
+  "weight": 1.3,
+  "source": "2.53"
+ },
+ "IGCSE 2.54": {
+  "title": "describe the role of xylem in transporting water and mineral ions from the roots to other ",
+  "weight": 1.3,
+  "source": "2.54"
+ },
+ "IGCSE 2.55B": {
+  "title": "understand how water is absorbed by root hair cells",
+  "weight": 1.4,
+  "source": "2.55B"
+ },
+ "IGCSE 2.56B": {
+  "title": "understand that transpiration is the evaporation of water from the surface of a plant",
+  "weight": 1.4,
+  "source": "2.56B"
+ },
+ "IGCSE 2.57B": {
+  "title": "understand how the rate of transpiration is affected by changes in humidity, wind speed, t",
+  "weight": 1.4,
+  "source": "2.57B"
+ },
+ "IGCSE 2.58B": {
+  "title": "practical: investigate the role of environmental factors in determining the rate of transp",
+  "weight": 4.4,
+  "source": "2.58B"
+ },
+ "IGCSE 2.59": {
+  "title": "describe the composition of the blood: red blood cells, white blood cells, platelets and p",
+  "weight": 1.3,
+  "source": "2.59"
+ },
+ "IGCSE 2.60": {
+  "title": "understand the role of plasma in the transport of carbon dioxide, digested food, urea, hor",
+  "weight": 1.4,
+  "source": "2.60"
+ },
+ "IGCSE 2.61": {
+  "title": "understand how adaptations of red blood cells make them suitable for the transport of oxyg",
+  "weight": 1.44,
+  "source": "2.61"
+ },
+ "IGCSE 2.62": {
+  "title": "understand how the immune system responds to disease using white blood cells, illustrated ",
+  "weight": 1.4,
+  "source": "2.62"
+ },
+ "IGCSE 2.63B": {
+  "title": "understand how vaccination results in the manufacture of memory cells, which enable future",
+  "weight": 1.42,
+  "source": "2.63B"
+ },
+ "IGCSE 2.64B": {
+  "title": "understand how platelets are involved in blood clotting, which prevents blood loss and the",
+  "weight": 1.4,
+  "source": "2.64B"
+ },
+ "IGCSE 2.65": {
+  "title": "describe the structure of the heart and how it functions",
+  "weight": 1.3,
+  "source": "2.65"
+ },
+ "IGCSE 2.66": {
+  "title": "explain how the heart rate changes during exercise and under the influence of adrenaline",
+  "weight": 1.7,
+  "source": "2.66"
+ },
+ "IGCSE 2.67": {
+  "title": "understand how factors may increase the risk of developing coronary heart disease",
+  "weight": 1.4,
+  "source": "2.67"
+ },
+ "IGCSE 2.68": {
+  "title": "understand how the structure of arteries, veins and capillaries relate to their function",
+  "weight": 1.4,
+  "source": "2.68"
+ },
+ "IGCSE 2.69": {
+  "title": "understand the general structure of the circulation system, including the blood vessels to",
+  "weight": 1.4,
+  "source": "2.69"
+ },
+ "IGCSE 2.70": {
+  "title": "understand the origin of carbon dioxide and oxygen as waste products of metabolism and the",
+  "weight": 1.4,
+  "source": "2.70"
+ },
+ "IGCSE 2.71": {
+  "title": "know the excretory products of the lungs, kidneys and skin (organs of excretion)",
+  "weight": 1.05,
+  "source": "2.71"
+ },
+ "IGCSE 2.72B": {
+  "title": "understand how the kidney carries out its roles of excretion and osmoregulation",
+  "weight": 1.4,
+  "source": "2.72B"
+ },
+ "IGCSE 2.73B": {
+  "title": "describe the structure of the urinary system, including the kidneys, ureters, bladder and ",
+  "weight": 1.3,
+  "source": "2.73B"
+ },
+ "IGCSE 2.74B": {
+  "title": "describe the structure of a nephron, including the Bowman\u2019s capsule and glomerulus, convol",
+  "weight": 1.3,
+  "source": "2.74B"
+ },
+ "IGCSE 2.75B": {
+  "title": "describe ultrafiltration in the Bowman\u2019s capsule and the composition of the glomerular fil",
+  "weight": 1.3,
+  "source": "2.75B"
+ },
+ "IGCSE 2.76B": {
+  "title": "understand how water is reabsorbed into the blood from the collecting duct",
+  "weight": 1.4,
+  "source": "2.76B"
+ },
+ "IGCSE 2.77B": {
+  "title": "understand why selective reabsorption of glucose occurs at the proximal convoluted tubule",
+  "weight": 1.4,
+  "source": "2.77B"
+ },
+ "IGCSE 2.78B": {
+  "title": "describe the role of ADH in regulating the water content of the blood",
+  "weight": 1.3,
+  "source": "2.78B"
+ },
+ "IGCSE 2.79B": {
+  "title": "understand that urine contains water, urea and ions (j) Co-ordination and response Student",
+  "weight": 1.4,
+  "source": "2.79B"
+ },
+ "IGCSE 2.80": {
+  "title": "understand how organisms are able to respond to changes in their environment",
+  "weight": 1.4,
+  "source": "2.80"
+ },
+ "IGCSE 2.81": {
+  "title": "understand that homeostasis is the maintenance of a constant internal environment, and tha",
+  "weight": 1.4,
+  "source": "2.81"
+ },
+ "IGCSE 2.82": {
+  "title": "understand that a co-ordinated response requires a stimulus, a receptor and an effector Fl",
+  "weight": 1.4,
+  "source": "2.82"
+ },
+ "IGCSE 2.83": {
+  "title": "understand that plants respond to stimuli",
+  "weight": 1.4,
+  "source": "2.83"
+ },
+ "IGCSE 2.84": {
+  "title": "describe the geotropic and phototropic responses of roots and stems",
+  "weight": 1.3,
+  "source": "2.84"
+ },
+ "IGCSE 2.85": {
+  "title": "understand the role of auxin in the phototropic response of stems",
+  "weight": 1.4,
+  "source": "2.85"
+ },
+ "IGCSE 2.86": {
+  "title": "describe how nervous and hormonal communication control responses and understand the diffe",
+  "weight": 1.3,
+  "source": "2.86"
+ },
+ "IGCSE 2.87": {
+  "title": "understand that the central nervous system consists of the brain and spinal cord and is li",
+  "weight": 1.4,
+  "source": "2.87"
+ },
+ "IGCSE 2.88": {
+  "title": "understand that stimulation of receptors in the sense organs sends electrical impulses alo",
+  "weight": 1.42,
+  "source": "2.88"
+ },
+ "IGCSE 2.89": {
+  "title": "understand the role of neurotransmitters at synapses",
+  "weight": 1.4,
+  "source": "2.89"
+ },
+ "IGCSE 2.90": {
+  "title": "describe the structure and functioning of a simple reflex arc illustrated by the withdrawa",
+  "weight": 1.3,
+  "source": "2.90"
+ },
+ "IGCSE 2.91": {
+  "title": "describe the structure and function of the eye as a receptor",
+  "weight": 1.3,
+  "source": "2.91"
+ },
+ "IGCSE 2.92": {
+  "title": "understand the function of the eye in focusing on near and distant objects, and in respond",
+  "weight": 1.4,
+  "source": "2.92"
+ },
+ "IGCSE 2.93": {
+  "title": "describe the role of the skin in temperature regulation, with reference to sweating, vasoc",
+  "weight": 1.3,
+  "source": "2.93"
+ },
+ "IGCSE 2.94": {
+  "title": "understand the sources, roles and effects of the following hormones: adrenaline, insulin, ",
+  "weight": 1.4,
+  "source": "2.94"
+ },
+ "IGCSE 2.95B": {
+  "title": "understand the sources, roles and effects of the following hormones: ADH, FSH and LH",
+  "weight": 1.4,
+  "source": "2.95B"
+ },
+ "IGCSE 3.1": {
+  "title": "understand the differences between sexual and asexual reproduction",
+  "weight": 1.4,
+  "source": "3.1"
+ },
+ "IGCSE 3.2": {
+  "title": "understand that fertilisation involves the fusion of a male and female gamete to produce a",
+  "weight": 1.44,
+  "source": "3.2"
+ },
+ "IGCSE 3.3": {
+  "title": "describe the structures of an insect-pollinated and a wind-pollinated flower and explain h",
+  "weight": 1.3,
+  "source": "3.3"
+ },
+ "IGCSE 3.4": {
+  "title": "million students studying our academic and vocational qualifications worldwide, we offer i",
+  "weight": 3.0,
+  "source": "3.4"
+ },
+ "IGCSE 3.5": {
+  "title": "practical: investigate the conditions needed for seed germination",
+  "weight": 4.4,
+  "source": "3.5"
+ },
+ "IGCSE 3.6": {
+  "title": "understand how germinating seeds utilise food reserves until the seedling can carry out ph",
+  "weight": 1.4,
+  "source": "3.6"
+ },
+ "IGCSE 3.7": {
+  "title": "understand that plants can reproduce asexually by natural methods (illustrated by runners)",
+  "weight": 1.4,
+  "source": "3.7"
+ },
+ "IGCSE 3.8": {
+  "title": "understand how the structure of the male and female reproductive systems are adapted for t",
+  "weight": 1.4,
+  "source": "3.8"
+ },
+ "IGCSE 3.9": {
+  "title": "understand the roles of oestrogen and progesterone in the menstrual cycle",
+  "weight": 1.4,
+  "source": "3.9"
+ },
+ "IGCSE 3.10B": {
+  "title": "understand the roles of FSH and LH in the menstrual cycle",
+  "weight": 1.4,
+  "source": "3.10B"
+ },
+ "IGCSE 3.11": {
+  "title": "describe the role of the placenta in the nutrition of the developing embryo",
+  "weight": 1.3,
+  "source": "3.11"
+ },
+ "IGCSE 3.12": {
+  "title": "understand how the developing embryo is protected by amniotic fluid",
+  "weight": 1.4,
+  "source": "3.12"
+ },
+ "IGCSE 3.13": {
+  "title": "understand the roles of oestrogen and testosterone in the development of secondary sexual ",
+  "weight": 1.4,
+  "source": "3.13"
+ },
+ "IGCSE 3.14": {
+  "title": "understand that the genome is the entire DNA of an organism and that a gene is a section o",
+  "weight": 1.49,
+  "source": "3.14"
+ },
+ "IGCSE 3.15": {
+  "title": "understand that the nucleus of a cell contains chromosomes on which genes are located",
+  "weight": 1.4,
+  "source": "3.15"
+ },
+ "IGCSE 3.16B": {
+  "title": "describe a DNA molecule as two strands coiled to form a double helix, the strands being li",
+  "weight": 1.5,
+  "source": "3.16B"
+ },
+ "IGCSE 3.17B": {
+  "title": "understand that an RNA molecule is single stranded and contains uracil (U) instead of thym",
+  "weight": 1.4,
+  "source": "3.17B"
+ },
+ "IGCSE 3.18B": {
+  "title": "describe the stages of protein synthesis including transcription and translation, includin",
+  "weight": 1.3,
+  "source": "3.18B"
+ },
+ "IGCSE 3.19": {
+  "title": "understand how genes exist in alternative forms called alleles which give rise to differen",
+  "weight": 1.4,
+  "source": "3.19"
+ },
+ "IGCSE 3.20": {
+  "title": "understand the meaning of the terms: dominant, recessive, homozygous, heterozygous, phenot",
+  "weight": 1.4,
+  "source": "3.20"
+ },
+ "IGCSE 3.21B": {
+  "title": "understand the meaning of the term codominance",
+  "weight": 1.4,
+  "source": "3.21B"
+ },
+ "IGCSE 3.22": {
+  "title": "understand that most phenotypic features are the result of polygenic inheritance rather th",
+  "weight": 1.4,
+  "source": "3.22"
+ },
+ "IGCSE 3.23": {
+  "title": "describe patterns of monohybrid inheritance using a genetic diagram",
+  "weight": 1.3,
+  "source": "3.23"
+ },
+ "IGCSE 3.24": {
+  "title": "understand how to interpret family pedigrees",
+  "weight": 1.4,
+  "source": "3.24"
+ },
+ "IGCSE 3.25": {
+  "title": "predict probabilities of outcomes from monohybrid crosses",
+  "weight": 1.9,
+  "source": "3.25"
+ },
+ "IGCSE 3.26": {
+  "title": "understand how the sex of a person is controlled by one pair of chromosomes, XX in a femal",
+  "weight": 1.4,
+  "source": "3.26"
+ },
+ "IGCSE 3.27": {
+  "title": "describe the determination of the sex of offspring at fertilisation, using a genetic diagr",
+  "weight": 1.3,
+  "source": "3.27"
+ },
+ "IGCSE 3.28": {
+  "title": "understand how division of a diploid cell by mitosis produces two cells that contain ident",
+  "weight": 1.4,
+  "source": "3.28"
+ },
+ "IGCSE 3.29": {
+  "title": "understand that mitosis occurs during growth, repair, cloning and asexual reproduction",
+  "weight": 1.4,
+  "source": "3.29"
+ },
+ "IGCSE 3.30": {
+  "title": "understand how division of a cell by meiosis produces four cells, each with half the numbe",
+  "weight": 1.51,
+  "source": "3.30"
+ },
+ "IGCSE 3.31": {
+  "title": "understand how random fertilisation produces genetic variation of offspring",
+  "weight": 1.4,
+  "source": "3.31"
+ },
+ "IGCSE 3.32": {
+  "title": "know that in human cells the diploid number of chromosomes is 46 and the haploid number is",
+  "weight": 1.05,
+  "source": "3.32"
+ },
+ "IGCSE 3.33": {
+  "title": "understand that variation within a species can be genetic, environmental, or a combination",
+  "weight": 1.4,
+  "source": "3.33"
+ },
+ "IGCSE 3.34": {
+  "title": "understand that mutation is a rare, random change in genetic material that can be inherite",
+  "weight": 1.4,
+  "source": "3.34"
+ },
+ "IGCSE 3.35B": {
+  "title": "understand how a change in DNA can affect the phenotype by altering the sequence of amino ",
+  "weight": 1.4,
+  "source": "3.35B"
+ },
+ "IGCSE 3.36B": {
+  "title": "understand how most genetic mutations have no effect on the phenotype, some have a small e",
+  "weight": 1.4,
+  "source": "3.36B"
+ },
+ "IGCSE 3.37B": {
+  "title": "understand that the incidence of mutations can be increased by exposure to ionising radiat",
+  "weight": 1.53,
+  "source": "3.37B"
+ },
+ "IGCSE 3.38": {
+  "title": "explain Darwin\u2019s theory of evolution by natural selection",
+  "weight": 1.7,
+  "source": "3.38"
+ },
+ "IGCSE 3.39": {
+  "title": "understand how resistance to antibiotics can increase in bacterial populations, and apprec",
+  "weight": 1.4,
+  "source": "3.39"
+ },
+ "IGCSE 4.1": {
+  "title": "understand the terms population, community, habitat and ecosystem",
+  "weight": 1.4,
+  "source": "4.1"
+ },
+ "IGCSE 4.2": {
+  "title": "practical: investigate the population size of an organism in two different areas using qua",
+  "weight": 4.4,
+  "source": "4.2"
+ },
+ "IGCSE 4.3B": {
+  "title": "understand the term biodiversity",
+  "weight": 1.4,
+  "source": "4.3B"
+ },
+ "IGCSE 4.4B": {
+  "title": "practical: investigate the distribution of organisms in their habitats and measure biodive",
+  "weight": 4.4,
+  "source": "4.4B"
+ },
+ "IGCSE 4.5": {
+  "title": "understand how abiotic and biotic factors affect the population size and distribution of o",
+  "weight": 1.4,
+  "source": "4.5"
+ },
+ "IGCSE 4.6": {
+  "title": "understand the names given to different trophic levels, including producers, primary, seco",
+  "weight": 1.4,
+  "source": "4.6"
+ },
+ "IGCSE 4.7": {
+  "title": "understand the concepts of food chains, food webs, pyramids of number, pyramids of biomass",
+  "weight": 1.4,
+  "source": "4.7"
+ },
+ "IGCSE 4.8": {
+  "title": "understand the transfer of substances and energy along a food chain",
+  "weight": 1.4,
+  "source": "4.8"
+ },
+ "IGCSE 4.9": {
+  "title": "understand why only about 10% of energy is transferred from one trophic level to the next ",
+  "weight": 1.4,
+  "source": "4.9"
+ },
+ "IGCSE 4.10": {
+  "title": "describe the stages in the carbon cycle, including respiration, photosynthesis, decomposit",
+  "weight": 1.3,
+  "source": "4.10"
+ },
+ "IGCSE 4.11B": {
+  "title": "describe the stages in the nitrogen cycle, including the roles of nitrogen fixing bacteria",
+  "weight": 1.34,
+  "source": "4.11B"
+ },
+ "IGCSE 4.12": {
+  "title": "understand the biological consequences of pollution of air by sulfur dioxide and carbon mo",
+  "weight": 1.4,
+  "source": "4.12"
+ },
+ "IGCSE 4.13": {
+  "title": "understand that water vapour, carbon dioxide, nitrous oxide, methane and CFCs are greenhou",
+  "weight": 1.4,
+  "source": "4.13"
+ },
+ "IGCSE 4.14": {
+  "title": "understand how human activities contribute to greenhouse gases",
+  "weight": 1.4,
+  "source": "4.14"
+ },
+ "IGCSE 4.15": {
+  "title": "understand how an increase in greenhouse gases results in an enhanced greenhouse effect an",
+  "weight": 1.4,
+  "source": "4.15"
+ },
+ "IGCSE 4.16": {
+  "title": "understand the biological consequences of pollution of water by sewage",
+  "weight": 1.4,
+  "source": "4.16"
+ },
+ "IGCSE 4.17": {
+  "title": "understand the biological consequences of eutrophication caused by leached minerals from f",
+  "weight": 1.4,
+  "source": "4.17"
+ },
+ "IGCSE 4.18B": {
+  "title": "understand the effects of deforestation, including leaching, soil erosion, disturbance of ",
+  "weight": 1.4,
+  "source": "4.18B"
+ },
+ "IGCSE 5.1": {
+  "title": "describe how glasshouses and polythene tunnels can be used to increase the yield of certai",
+  "weight": 1.3,
+  "source": "5.1"
+ },
+ "IGCSE 5.2": {
+  "title": "understand the effects on crop yield of increased carbon dioxide and increased temperature",
+  "weight": 1.4,
+  "source": "5.2"
+ },
+ "IGCSE 5.3": {
+  "title": "understand how the use of fertiliser can increase crop yield",
+  "weight": 1.4,
+  "source": "5.3"
+ },
+ "IGCSE 5.4": {
+  "title": "understand the reasons for pest control and the advantages and disadvantages of using pest",
+  "weight": 1.4,
+  "source": "5.4"
+ },
+ "IGCSE 5.5": {
+  "title": "understand the role of yeast in the production of food including bread",
+  "weight": 1.4,
+  "source": "5.5"
+ },
+ "IGCSE 5.6": {
+  "title": "practical: investigate the role of anaerobic respiration by yeast in different conditions",
+  "weight": 4.4,
+  "source": "5.6"
+ },
+ "IGCSE 5.7": {
+  "title": "understand the role of bacteria (Lactobacillus) in the production of yoghurt",
+  "weight": 1.4,
+  "source": "5.7"
+ },
+ "IGCSE 5.8": {
+  "title": "understand the use of an industrial fermenter and explain the need to provide suitable con",
+  "weight": 1.67,
+  "source": "5.8"
+ },
+ "IGCSE 5.9B": {
+  "title": "understand the methods used to farm large numbers of fish to provide a source of protein, ",
+  "weight": 1.84,
+  "source": "5.9B"
+ },
+ "IGCSE 5.10": {
+  "title": "understand how selective breeding can develop plants with desired characteristics",
+  "weight": 1.4,
+  "source": "5.10"
+ },
+ "IGCSE 5.11": {
+  "title": "understand how selective breeding can develop animals with desired characteristics",
+  "weight": 1.4,
+  "source": "5.11"
+ },
+ "IGCSE 5.12": {
+  "title": "understand how restriction enzymes are used to cut DNA at specific sites and ligase enzyme",
+  "weight": 1.4,
+  "source": "5.12"
+ },
+ "IGCSE 5.13": {
+  "title": "understand how plasmids and viruses can act as vectors, which take up pieces of DNA, and t",
+  "weight": 1.4,
+  "source": "5.13"
+ },
+ "IGCSE 5.14": {
+  "title": "understand how large amounts of human insulin can be manufactured from genetically modifie",
+  "weight": 1.4,
+  "source": "5.14"
+ },
+ "IGCSE 5.15": {
+  "title": "understand how genetically modified plants can be used to improve food production",
+  "weight": 1.4,
+  "source": "5.15"
+ },
+ "IGCSE 5.16": {
+  "title": "understand that the term transgenic means the transfer of genetic material from one specie",
+  "weight": 1.4,
+  "source": "5.16"
+ },
+ "IGCSE 5.17B": {
+  "title": "describe the process of micropropagation (tissue culture) in which explants are grown in v",
+  "weight": 1.3,
+  "source": "5.17B"
+ },
+ "IGCSE 5.18B": {
+  "title": "understand how micropropagation can be used to produce commercial quantities of geneticall",
+  "weight": 1.4,
+  "source": "5.18B"
+ },
+ "IGCSE 5.19B": {
+  "title": "describe the stages in the production of cloned mammals involving the introduction of a di",
+  "weight": 1.41,
+  "source": "5.19B"
+ },
+ "IGCSE 5.20B": {
+  "title": "understand how cloned transgenic animals can be used to produce human proteins",
+  "weight": 1.4,
+  "source": "5.20B"
+ }
+}

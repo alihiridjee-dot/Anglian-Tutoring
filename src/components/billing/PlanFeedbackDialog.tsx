@@ -1,10 +1,15 @@
 import { useState } from "react";
-import { Loader2, PauseCircle, X, XCircle } from "lucide-react";
-import { BILLING_FEEDBACK_REASONS, type BillingFeedbackAction } from "@/lib/billingFeedback";
+import { Loader2, PauseCircle, X } from "lucide-react";
+import { BILLING_FEEDBACK_REASONS } from "@/lib/billingFeedback";
 
 interface PlanFeedbackDialogProps {
-  /** Which lifecycle action this gate fronts. Drives all the copy + styling. */
-  action: BillingFeedbackAction;
+  /**
+   * Which lifecycle action this gate fronts. Pause only — cancelling outgrew a
+   * single screen and moved to CancelPlanDialog, and dropping a subject has
+   * RemoveSubjectDialog. Narrowed rather than dropped so a call site can't quietly
+   * reuse this form for a heavier action.
+   */
+  action: "pause";
   /** Human plan name, shown so the user knows what they're acting on. */
   planName: string;
   /** Whose plan it is ("Alex's plan") for the parent view. Omit for own plan. */
@@ -20,14 +25,16 @@ interface PlanFeedbackDialogProps {
 }
 
 /**
- * The feedback gate on pausing OR cancelling a plan. Both are now deliberately
- * behind this small form — the confirm button stays disabled until a category
- * is picked, and the reason is recorded (billing_feedback) before the Stripe
- * call runs. This is the friction: there is no one-click cancel, and cancelling
- * is the only way to end a plan (deletion was removed).
+ * The feedback gate on pausing a plan: one screen, and the confirm button stays
+ * disabled until a category is picked. The reason is recorded (billing_feedback)
+ * before the Stripe call runs.
+ *
+ * Deliberately the *lightest* of the three gates, because pausing is the fully
+ * reversible action — the one we'd rather a wavering family took. Cancelling
+ * (CancelPlanDialog) and dropping a subject (RemoveSubjectDialog) each carry
+ * more friction in proportion to what they take away.
  */
 export function PlanFeedbackDialog({
-  action,
   planName,
   ownerLabel,
   endsAtLabel,
@@ -39,28 +46,17 @@ export function PlanFeedbackDialog({
   const [comment, setComment] = useState("");
   const whose = ownerLabel ? `${ownerLabel}'s` : "your";
 
-  const isCancel = action === "cancel";
-  const copy = isCancel
-    ? {
-        title: "Cancel this plan",
-        icon: <XCircle className="w-5 h-5 text-rose-600" />,
-        iconBg: "bg-rose-100",
-        body: `${whose[0].toUpperCase()}${whose.slice(1)} plan will stay active until ${
-          endsAtLabel ?? "the end of the current billing period"
-        }, then stop — no further charges. You can resume any time before it ends. Before you cancel, please tell us why.`,
-        confirm: "Cancel plan",
-        confirmClass: "bg-rose-600",
-        keep: "Keep plan",
-      }
-    : {
-        title: "Pause this plan",
-        icon: <PauseCircle className="w-5 h-5 text-amber-600" />,
-        iconBg: "bg-amber-100",
-        body: `Payments stop immediately and ${whose} access is suspended until you resume. Nothing is lost — progress and history are kept. Before you pause, please tell us why.`,
-        confirm: "Pause plan",
-        confirmClass: "bg-amber-600",
-        keep: "Keep plan",
-      };
+  const copy = {
+    title: "Pause this plan",
+    icon: <PauseCircle className="w-5 h-5 text-amber-600" />,
+    iconBg: "bg-amber-100",
+    body: `Payments stop immediately and ${whose} access is suspended until you resume — nothing is lost, and progress and history are kept.${
+      endsAtLabel ? ` This period was due to renew ${endsAtLabel}.` : ""
+    } Before you pause, please tell us why.`,
+    confirm: "Pause plan",
+    confirmClass: "bg-amber-600",
+    keep: "Keep plan",
+  };
 
   return (
     <div

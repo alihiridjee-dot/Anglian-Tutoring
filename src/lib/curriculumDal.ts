@@ -7,6 +7,18 @@ import {
   DEMO_CURRICULUM_CONTENT,
   DEMO_CURRICULUM_FALLBACK,
 } from "./demo/studentDemo";
+import {
+  queryTerms,
+  scoreRecord,
+  ilikeValue,
+  broadestTerm,
+  MIN_QUERY_LENGTH,
+} from "./search/match";
+
+/** Rows pulled from the database before ranking narrows them. */
+const SEARCH_FETCH_LIMIT = 300;
+/** Matches shown; beyond this the query is too broad to be worth scrolling. */
+const SEARCH_RESULT_LIMIT = 60;
 
 export type Topic = {
   id: string;
@@ -41,6 +53,13 @@ export type McqSet = {
   id: string;
   title: string;
   published: boolean;
+};
+
+/** A spec point returned by a search, carrying the topic it belongs to. */
+export type SpecPointMatch = SpecPoint & {
+  topic: { id: string; code: string | null; title: string };
+  /** Descending relevance from `scoreRecord`. */
+  score: number;
 };
 
 /**
@@ -87,6 +106,125 @@ export class CurriculumDAL {
       return [];
     }
     return data ?? [];
+  }
+
+  /**
+   * Every spec point in one specification that matches `query`, ranked.
+   *
+   * Searching the whole (level, board, subject) rather than the topics already
+   * expanded on screen is the point of it: a student who half-remembers
+   * "limiting factors" has no idea which topic it lives under, and browsing to
+   * find out is the problem the search exists to remove.
+   *
+   * The database is asked only for rows containing the query's most selective
+   * term; the remaining terms and the ranking are applied here, so one request
+   * serves any number of words. Returns [] for a query too short to be useful.
+   */
+  static async searchSpecPoints(
+    level: LevelV,
+    board: BoardV,
+    subject: SubjectV,
+    query: string,
+    limit = SEARCH_RESULT_LIMIT,
+  ): Promise<SpecPointMatch[]> {
+    const terms = queryTerms(query);
+    if (query.trim().length < MIN_QUERY_LENGTH || terms.length === 0) return [];
+
+    const rank = (point: SpecPoint, topic: { code: string | null; title: string }) =>
+      scoreRecord(
+        [
+          { text: point.code, weight: 1.4 },
+          { text: point.title, weight: 1 },
+          { text: point.description, weight: 0.3 },
+          { text: topic.title, weight: 0.2 },
+          { text: topic.code, weight: 0.2 },
+        ],
+        terms,
+      );
+
+    const matches: SpecPointMatch[] = [];
+
+    if (isDemoStudent()) {
+      for (const topic of DEMO_CURRICULUM_TOPICS[subject] ?? []) {
+        for (const point of DEMO_CURRICULUM_SPEC_POINTS[topic.id] ?? []) {
+          const score = rank(point, topic);
+          if (score) {
+            matches.push({
+              ...point,
+              topic: { id: topic.id, code: topic.code, title: topic.title },
+              score,
+            });
+          }
+        }
+      }
+    } else {
+      const value = ilikeValue(broadestTerm(terms));
+      if (!value) return [];
+
+      const { data, error } = await supabase
+        .from("spec_points")
+        .select("id, topic_id, code, title, description, topics!inner(id, code, title)")
+        .eq("topics.subject", subject)
+        .eq("topics.board", board)
+        .eq("topics.level", level)
+        .or(`code.ilike.${value},title.ilike.${value},description.ilike.${value}`)
+        .limit(SEARCH_FETCH_LIMIT);
+
+      if (error) {
+        console.error("Error searching spec points:", error);
+        throw error;
+      }
+
+      type Row = SpecPoint & { topics: { id: string; code: string | null; title: string } | null };
+      for (const row of (data ?? []) as unknown as Row[]) {
+        const topic = row.topics;
+        if (!topic) continue;
+        const score = rank(row, topic);
+        if (score) {
+          matches.push({
+            id: row.id,
+            topic_id: row.topic_id,
+            code: row.code,
+            title: row.title,
+            description: row.description,
+            topic: { id: topic.id, code: topic.code, title: topic.title },
+            score,
+          });
+        }
+      }
+    }
+
+    // Ties fall back to specification order — "4.1.2" before "4.1.10".
+    return matches
+      .sort(
+        (a, b) => b.score - a.score || a.code.localeCompare(b.code, undefined, { numeric: true }),
+      )
+      .slice(0, limit);
+  }
+
+  /**
+   * One spec point by id, for restoring a link straight to it (from the global
+   * search, a bookmark, or a shared URL) without expanding its topic first.
+   */
+  static async getSpecPointById(id: string): Promise<SpecPoint | null> {
+    if (isDemoStudent()) {
+      for (const points of Object.values(DEMO_CURRICULUM_SPEC_POINTS)) {
+        const found = points.find((p) => p.id === id);
+        if (found) return found;
+      }
+      return null;
+    }
+
+    const { data, error } = await supabase
+      .from("spec_points")
+      .select("id, topic_id, code, title, description")
+      .eq("id", id)
+      .maybeSingle();
+    if (error) {
+      console.error("Error loading spec point:", error);
+      return null;
+    }
+    return data ?? null;
   }
 
   static async getResourcesAndMcqSets(

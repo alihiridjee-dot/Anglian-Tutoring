@@ -13,20 +13,29 @@ import {
   Loader2,
   Map as MapIcon,
   Repeat,
+  RefreshCw,
   SlidersHorizontal,
   Sparkles,
   Target,
 } from "lucide-react";
 import { isTeachBand, FOCUS_RED_BELOW, type PacingBand } from "@/lib/planner/pacing";
 import { ProgramDAL, type RoadmapResult } from "@/lib/programDal";
-import { ScheduleDAL, type MemoryStats, type ProgressPoint, type TopicProgress } from "@/lib/scheduleDal";
+import {
+  ScheduleDAL,
+  type MemoryStats,
+  type ProgressPoint,
+  type TopicProgress,
+} from "@/lib/scheduleDal";
 import { type PointStatus } from "@/lib/planner/scheduler";
 import { bandOf } from "@/lib/planner/bands";
 import { type Enrolment } from "@/hooks/data/useEnrolments";
 import { type SubjectV, type BoardV, type LevelV } from "@/lib/taxonomy";
-import { currentWeekKey, weekKeyToDate, sundayOf, addWeeks, toDateKey } from "@/lib/week";
+import { currentWeekKey, weekKeyToDate, addWeeks, toDateKey } from "@/lib/week";
 import { PlannerBoard } from "./PlannerBoard";
 import { CoveredLedger } from "./CoveredLedger";
+import { ThisWeekPanel } from "./ThisWeekPanel";
+import { useWeekPlan } from "./useWeekPlan";
+import { WeekReview } from "./WeekReview";
 
 const subjectLabel: Record<string, string> = {
   biology: "Biology",
@@ -37,13 +46,6 @@ const subjectLabel: Record<string, string> = {
 function fmtDate(d: Date): string {
   return d.toLocaleDateString(undefined, { day: "numeric", month: "short" });
 }
-function fmtRange(startKey: string, endKey: string): string {
-  const start = weekKeyToDate(startKey);
-  const end = sundayOf(weekKeyToDate(endKey));
-  const y = end.getFullYear() !== new Date().getFullYear() ? ` ${end.getFullYear()}` : "";
-  return `${fmtDate(start)} – ${fmtDate(end)}${y}`;
-}
-
 /** Stable identity for one focus-lane band — topic + kind + week it lands on. */
 function focusKey(b: PacingBand): string {
   return `${b.topicId}|${b.kind}|${b.startWeek}`;
@@ -90,12 +92,24 @@ export function StudentPlanner({
   const [loading, setLoading] = useState(true);
   // Bumped when the confidence board writes, so the plan re-flows live.
   const [boardRev, setBoardRev] = useState(0);
+  // Bumped once the current week has actually been re-cut, so a mounted week
+  // panel reloads its points. Separate from `boardRev`: a rating that doesn't
+  // change the week's point set shouldn't make the panel flash.
+  const [weekRev, setWeekRev] = useState(0);
   // Focus-lane bands added/moved since the last load of *this same course* — so
   // when a student re-rates topics we can point at exactly what their revision
   // schedule now does differently ("your new schedule"). Session-only, never
   // persisted: the diff is between the plan as it was and as it is right now.
   const prevFocus = useRef<{ course: string; keys: Set<string> } | null>(null);
   const [newFocusKeys, setNewFocusKeys] = useState<Set<string>>(new Set());
+
+  // The plan's own mastery per topic, lifted here so the confidence board can
+  // show the same number rather than inventing a second one. Comes free from the
+  // roadmap that this screen already loads.
+  const masteryByTopic = useMemo(
+    () => new Map((data?.progress ?? []).map((t) => [t.topicId, t.masteryPct])),
+    [data],
+  );
 
   useEffect(() => {
     if (!active) return;
@@ -107,10 +121,27 @@ export function StudentPlanner({
       board: active.board as BoardV,
       level,
     };
-    Promise.all([
-      ProgramDAL.loadRoadmap(params),
-      ScheduleDAL.getMemoryStats(params).catch(() => null),
-    ])
+    // A rating just landed (boardRev moved off 0): re-cut the current week from
+    // the new programme before anything reads it. This has to happen here rather
+    // than in the week panel — that panel lives in a tab which is unmounted
+    // while the student is over on the board doing the rating, so it is the one
+    // component that can never see the write. Keeps work already attempted.
+    const recut =
+      boardRev > 0
+        ? ProgramDAL.refreshWeek({ ...params, weekStart: currentWeekKey() }).catch((e) => {
+            console.error("refresh this week from the programme", e);
+            return false;
+          })
+        : Promise.resolve(false);
+
+    recut
+      .then((changed) => {
+        if (changed && alive) setWeekRev((r) => r + 1);
+        return Promise.all([
+          ProgramDAL.loadRoadmap(params),
+          ScheduleDAL.getMemoryStats(params).catch(() => null),
+        ]);
+      })
       .then(([road, mem]) => {
         if (!alive) return;
         setData(road);
@@ -189,6 +220,7 @@ export function StudentPlanner({
       <div className="p-4 sm:p-5">
         {tab === "topics" ? (
           <TopicsTab
+            masteryByTopic={masteryByTopic}
             studentId={studentId}
             enrolments={enrolments}
             level={level}
@@ -209,8 +241,11 @@ export function StudentPlanner({
             memory={memory}
             studentId={studentId}
             subject={active.subject as SubjectV}
-            onAcked={() => setBoardRev((r) => r + 1)}
+            board={active.board as BoardV}
+            level={level}
             onRateTopics={() => setTab("topics")}
+            onReviewPlan={() => setTab("plan")}
+            refreshKey={weekRev}
           />
         ) : (
           <FullPlanTab
@@ -240,11 +275,27 @@ function useRoadmapView(data: RoadmapResult) {
       spine.find((b) => b.endWeek >= nowKey) ??
       spine[spine.length - 1];
     const focus = data.bands.filter((b) => !isTeachBand(b));
+    // The spine they last accepted. While a reschedule is pending this is the
+    // plan they are still living by, and `spine` is the proposal.
+    const baselineSpine = data.baselineBands.filter(isTeachBand);
+    const reviewing = data.needsAck && baselineSpine.length > 0;
+    const changeByTopic = new Map(data.changes.map((c) => [c.topicId, c]));
     const focusNow = focus.filter((b) => b.startWeek <= nowKey && nowKey <= b.endWeek);
     const progressByTopic = new Map<string, TopicProgress>(
       data.progress.map((t) => [t.topicId, t]),
     );
-    return { nowKey, covered, spine, nowBand, focus, focusNow, progressByTopic };
+    return {
+      nowKey,
+      covered,
+      spine,
+      baselineSpine,
+      reviewing,
+      changeByTopic,
+      nowBand,
+      focus,
+      focusNow,
+      progressByTopic,
+    };
   }, [data]);
 }
 
@@ -257,42 +308,38 @@ function ThisWeekTab({
   memory,
   studentId,
   subject,
-  onAcked,
+  board,
+  level,
   onRateTopics,
+  onReviewPlan,
+  refreshKey,
 }: {
   data: RoadmapResult;
   memory: MemoryStats | null;
   studentId: string;
   subject: SubjectV;
-  onAcked: () => void;
+  board: BoardV;
+  level: LevelV;
   onRateTopics: () => void;
+  /** Jump to Full plan, where the proposal can be compared and accepted. */
+  onReviewPlan: () => void;
+  /** Bumped by the confidence board — re-cuts this week from the new ratings. */
+  refreshKey: number;
 }) {
-  const { covered, nowBand, focusNow, progressByTopic } = useRoadmapView(data);
-  const [acking, setAcking] = useState(false);
-  const [openPoints, setOpenPoints] = useState(false);
-
-  const acknowledge = async () => {
-    setAcking(true);
-    try {
-      await ProgramDAL.acknowledge({
-        studentId,
-        subject,
-        bands: data.bands,
-        programStart: data.programStart,
-        examDate: data.examDate,
-      });
-      toast.success("Plan updated — you're all set.");
-      onAcked();
-    } catch (e) {
-      toast.error(e instanceof Error ? e.message : "Couldn't update — try again.");
-    } finally {
-      setAcking(false);
-    }
-  };
-
-  const tp = nowBand ? progressByTopic.get(nowBand.topicId) : undefined;
-  const mastery = tp && tp.points.length > 0 ? tp.masteryPct : null;
-  const nothingRated = data.progress.every((t) => t.points.every((p) => p.confidence == null));
+  // The same week the dashboard shows, from the same hook — the roadmap this
+  // screen has already loaded is handed over so it isn't fetched twice.
+  const weekStart = currentWeekKey();
+  const week = useWeekPlan({
+    studentId,
+    subject,
+    board,
+    level,
+    weekStart,
+    isCurrent: true,
+    withCoverage: true,
+    roadmap: data,
+    refreshKey,
+  });
 
   return (
     <div className="space-y-4">
@@ -302,142 +349,59 @@ function ThisWeekTab({
           <p className="flex-1 min-w-[200px] text-sm">
             <span className="font-semibold">Your plan has shifted.</span>{" "}
             <span className="text-muted-foreground">
-              {data.changes.length} {data.changes.length === 1 ? "topic" : "topics"} moved to keep
-              you on track for the exams — see the new dates in Full plan.
+              {data.changes.length} {data.changes.length === 1 ? "topic" : "topics"} would move to
+              keep you on track for the exams. Compare it side by side in Full plan — nothing
+              changes until you accept.
             </span>
           </p>
           <button
             type="button"
-            onClick={acknowledge}
-            disabled={acking}
-            className="inline-flex items-center gap-1.5 h-8 px-3 rounded-lg bg-amber-600 text-white text-xs font-semibold hover:opacity-90 disabled:opacity-50"
+            onClick={onReviewPlan}
+            className="inline-flex items-center gap-1.5 h-8 px-3 rounded-lg bg-amber-600 text-white text-xs font-semibold hover:opacity-90"
           >
-            {acking ? <Loader2 className="w-3.5 h-3.5 animate-spin" /> : null}
-            OK, update my plan
+            Review it
+            <ArrowRight className="w-3.5 h-3.5" />
           </button>
         </div>
       )}
 
-      {/* Learning this week — the core topic and any focused revisits, side by side. */}
+      {/* Learning this week — core topic and focused topics, the shared panel. */}
       <section>
         <h2 className="flex items-center gap-1.5 font-display text-sm font-semibold tracking-tight mb-2.5">
           <CalendarDays className="w-4 h-4 text-primary" />
           Learning this week
         </h2>
-        <div className="grid gap-4 md:grid-cols-2 items-stretch">
-          {/* Core topic */}
-          <div className="h-full flex flex-col rounded-xl border border-primary/30 bg-primary/[0.05] p-4">
-            <div className="flex items-center gap-1.5 mb-1">
-              {nowBand && covered.has(nowBand.topicId) ? (
-                <>
-                  <CheckCircle2 className="w-3.5 h-3.5 text-emerald-600 dark:text-emerald-400" />
-                  <span className="text-[10px] font-bold uppercase tracking-wide text-emerald-600 dark:text-emerald-400">
-                    Core topic · covered
-                  </span>
-                </>
-              ) : (
-                <>
-                  <CircleDot className="w-3.5 h-3.5 text-primary" />
-                  <span className="text-[10px] font-bold uppercase tracking-wide text-primary">
-                    Core topic
-                  </span>
-                </>
-              )}
-              {nowBand && (
-                <span className="ml-auto text-[11px] text-muted-foreground">
-                  {fmtRange(nowBand.startWeek, nowBand.endWeek)}
-                </span>
-              )}
-            </div>
-            {nowBand ? (
-              <>
-                <p className="font-display text-lg font-semibold leading-snug">{nowBand.title}</p>
-                {mastery != null && (
-                  <div className="mt-3">
-                    <div className="flex items-center justify-between text-[11px] mb-1">
-                      <span className="text-muted-foreground">How well it's sticking</span>
-                      <span className="font-semibold tabular-nums">{mastery}%</span>
-                    </div>
-                    <div className="h-1.5 rounded-full bg-muted overflow-hidden">
-                      <div
-                        className="h-full rounded-full bg-primary transition-all"
-                        style={{ width: `${Math.max(2, mastery)}%` }}
-                      />
-                    </div>
-                  </div>
-                )}
-                {tp && tp.points.length > 0 && (
-                  <>
-                    <button
-                      type="button"
-                      onClick={() => setOpenPoints((v) => !v)}
-                      aria-expanded={openPoints}
-                      className="mt-3 inline-flex items-center gap-1 text-xs font-medium text-muted-foreground hover:text-foreground"
-                    >
-                      <ChevronDown
-                        className={`w-3.5 h-3.5 transition-transform ${
-                          openPoints ? "rotate-180" : ""
-                        }`}
-                      />
-                      {openPoints ? "Hide the detail" : "What's in this topic"}
-                    </button>
-                    {openPoints && (
-                      <ul className="mt-2 space-y-1 border-t border-border/60 pt-2.5">
-                        {tp.points.map((p) => (
-                          <PointRow key={p.id} point={p} />
-                        ))}
-                      </ul>
-                    )}
-                  </>
-                )}
-              </>
-            ) : (
-              <p className="text-sm text-muted-foreground">No core topic scheduled this week.</p>
-            )}
-          </div>
-
-          {/* Focused topics — personal, from spaced repetition. */}
-          <div className="h-full flex flex-col rounded-xl premium-card p-4">
-            <div className="flex items-center gap-1.5 mb-2">
-              <Repeat className="w-3.5 h-3.5 text-rose-500" />
-              <span className="text-[10px] font-bold uppercase tracking-wide text-rose-600 dark:text-rose-400">
-                Focused topics
-              </span>
-            </div>
-            {focusNow.length > 0 ? (
-              <ul className="space-y-1.5">
-                {focusNow.map((b) => (
-                  <FocusRow
-                    key={`${b.topicId}-${b.kind}-${b.startWeek}`}
-                    b={b}
-                    mastery={progressByTopic.get(b.topicId)?.masteryPct ?? 0}
-                  />
-                ))}
-              </ul>
-            ) : (
-              <div className="flex-1 flex items-center">
-                <p className="text-sm text-muted-foreground">
-                  {nothingRated ? (
-                    <>
-                      Nothing yet — head to{" "}
-                      <button
-                        type="button"
-                        onClick={onRateTopics}
-                        className="font-semibold text-primary hover:underline"
-                      >
-                        My topics
-                      </button>{" "}
-                      and rate how confident you feel, and we'll plan your revision from it.
-                    </>
-                  ) : (
-                    "Nothing to revisit this week — you're on track. 🎯"
-                  )}
-                </p>
-              </div>
-            )}
-          </div>
-        </div>
+        <ThisWeekPanel
+          plan={week.plan}
+          points={week.points}
+          activity={week.activity}
+          coverage={week.coverage}
+          roadmap={week.roadmap}
+          loading={week.loading}
+          weekStart={weekStart}
+          editable
+          isPast={false}
+          showRationale
+          showCoverage
+          onRemove={week.removePoint}
+          onRateTopics={onRateTopics}
+        />
       </section>
+
+      {/* The student's own read on the week, in its own box. */}
+      {week.plan && (
+        <WeekReview
+          studentId={studentId}
+          plan={week.plan}
+          points={week.points}
+          coverage={week.coverage}
+          subject={subject}
+          board={board}
+          level={level}
+          weekStart={weekStart}
+          onChanged={week.reload}
+        />
+      )}
 
       {/* Memory strip — how the course is held right now. */}
       {memory && memory.total - memory.newCount > 0 && (
@@ -459,9 +423,9 @@ function ThisWeekTab({
               <span className="font-semibold text-rose-600 dark:text-rose-400 tabular-nums">
                 {memory.dueNow}
               </span>{" "}
-              due now ·{" "}
-              <span className="font-semibold tabular-nums">{memory.dueThisWeek}</span> due this week
-              · <span className="font-semibold tabular-nums">{memory.stable}</span> holding
+              due now · <span className="font-semibold tabular-nums">{memory.dueThisWeek}</span> due
+              this week · <span className="font-semibold tabular-nums">{memory.stable}</span>{" "}
+              holding
             </span>
           </div>
           {memory.weakest.length > 0 && (
@@ -501,9 +465,43 @@ function FullPlanTab({
   newFocusKeys: Set<string>;
   onChanged: () => void;
 }) {
-  const { nowKey, covered, spine, focus, progressByTopic } = useRoadmapView(data);
+  const {
+    nowKey,
+    covered,
+    spine,
+    baselineSpine,
+    reviewing,
+    changeByTopic,
+    focus,
+    progressByTopic,
+  } = useRoadmapView(data);
   const [expanded, setExpanded] = useState<Set<string>>(new Set());
   const [savingDate, setSavingDate] = useState(false);
+  const [accepting, setAccepting] = useState(false);
+
+  /**
+   * Accept the proposed plan. Until this runs the student keeps the plan they
+   * already agreed to; accepting writes the re-flowed spine as the new baseline,
+   * which is what closes the review column on the next load.
+   */
+  const acceptPlan = async () => {
+    setAccepting(true);
+    try {
+      await ProgramDAL.acknowledge({
+        studentId,
+        subject,
+        bands: data.bands,
+        programStart: data.programStart,
+        examDate: data.examDate,
+      });
+      toast.success("New plan accepted — your schedule is up to date.");
+      onChanged();
+    } catch (e) {
+      toast.error(e instanceof Error ? e.message : "Couldn't update — try again.");
+    } finally {
+      setAccepting(false);
+    }
+  };
 
   const saveExamDate = async (value: string) => {
     if (!value || value === data.examDate) return;
@@ -529,9 +527,47 @@ function FullPlanTab({
   const doneCount = spine.filter((b) => covered.has(b.topicId)).length;
   const weeks = weekKeysBetween(nowKey, data.examDate);
   const inBand = (b: PacingBand, wk: string) => b.startWeek <= wk && wk <= b.endWeek;
+  // While reviewing, the Core column holds the accepted plan and the proposal
+  // sits beside it; once accepted there is nothing to compare and the fourth
+  // column disappears.
+  const coreSpine = reviewing ? baselineSpine : spine;
+  const proposedSpine = reviewing ? spine : null;
+  const cols = proposedSpine
+    ? "grid-cols-[6rem_minmax(0,1fr)_minmax(0,1fr)_minmax(0,1.05fr)]"
+    : "grid-cols-[6.5rem_1fr_1fr]";
 
   return (
     <div>
+      {/* A pending re-flow: the proposal is open in its own column, and this says
+          so plainly — the plan on screen is still the one they agreed to. */}
+      {reviewing && (
+        <div className="flex flex-wrap items-center gap-3 rounded-xl border border-amber-500/30 bg-amber-500/[0.06] px-3 py-2.5 mb-3">
+          <RefreshCw className="w-4 h-4 text-amber-600 dark:text-amber-400 shrink-0" />
+          <p className="flex-1 min-w-[220px] text-[12px] leading-relaxed">
+            <span className="font-semibold">A new plan is ready for you.</span>{" "}
+            <span className="text-muted-foreground">
+              {data.changes.length} {data.changes.length === 1 ? "topic" : "topics"} would move.
+              Compare it in the{" "}
+              <span className="font-semibold text-amber-700 dark:text-amber-300">Proposed</span>{" "}
+              column — your current plan stays exactly as it is until you accept.
+            </span>
+          </p>
+          <button
+            type="button"
+            onClick={acceptPlan}
+            disabled={accepting}
+            className="inline-flex items-center gap-1.5 h-8 px-3 rounded-lg bg-amber-600 text-white text-xs font-semibold hover:opacity-90 disabled:opacity-50 shrink-0"
+          >
+            {accepting ? (
+              <Loader2 className="w-3.5 h-3.5 animate-spin" />
+            ) : (
+              <CheckCircle2 className="w-3.5 h-3.5" />
+            )}
+            Accept the new plan
+          </button>
+        </div>
+      )}
+
       {/* Your new schedule — what the latest ratings changed in the focus lane. */}
       {newFocusKeys.size > 0 && (
         <div className="flex items-start gap-2 rounded-xl border border-rose-500/30 bg-rose-500/[0.06] px-3 py-2.5 mb-3">
@@ -539,9 +575,9 @@ function FullPlanTab({
           <p className="text-[12px] leading-relaxed">
             <span className="font-semibold">Your revision schedule updated.</span>{" "}
             <span className="text-muted-foreground">
-              {newFocusKeys.size} focus {newFocusKeys.size === 1 ? "slot" : "slots"} moved or added —
-              flagged <span className="font-semibold text-rose-600 dark:text-rose-400">New</span> in
-              the Focused column below.
+              {newFocusKeys.size} focus {newFocusKeys.size === 1 ? "slot" : "slots"} moved or added
+              — flagged <span className="font-semibold text-rose-600 dark:text-rose-400">New</span>{" "}
+              in the Focused column below.
             </span>
           </p>
         </div>
@@ -553,8 +589,9 @@ function FullPlanTab({
           <span>
             Week by week: <span className="font-medium text-foreground">core topics</span> are what
             the class is working through, and{" "}
-            <span className="font-medium text-foreground">focused topics</span> are the ones we bring
-            back until they stick.{" "}
+            <span className="font-medium text-foreground">focused topics</span> are the ones we
+            bring back until they stick. The percentage on each topic is how well it's sticking —
+            the same number as on its card in My topics.{" "}
             <span className="font-semibold text-foreground tabular-nums">
               {doneCount} of {spine.length}
             </span>{" "}
@@ -576,32 +613,80 @@ function FullPlanTab({
 
       <div className="rounded-xl border border-border overflow-hidden">
         {/* Header */}
-        <div className="grid grid-cols-[6.5rem_1fr_1fr] bg-muted/50 border-b border-border text-[11px] font-semibold uppercase tracking-wide text-muted-foreground">
+        <div
+          className={`grid ${cols} bg-muted/50 border-b border-border text-[11px] font-semibold uppercase tracking-wide text-muted-foreground`}
+        >
           <div className="flex items-center gap-1.5 px-3 py-2">
             <CalendarDays className="w-3.5 h-3.5" /> Week
           </div>
           <div className="flex items-center gap-1.5 px-3 py-2 border-l border-border">
-            <CircleDot className="w-3.5 h-3.5 text-primary" /> Core topics
+            <CircleDot className="w-3.5 h-3.5 text-primary" />
+            {proposedSpine ? "Core · your plan now" : "Core topics"}
           </div>
           <div className="flex items-center gap-1.5 px-3 py-2 border-l border-border">
             <Repeat className="w-3.5 h-3.5 text-rose-500" /> Focused topics
           </div>
+          {proposedSpine && (
+            <div className="flex items-center gap-2 px-3 py-2 border-l-2 border-l-amber-500 bg-amber-500/[0.07]">
+              <span className="flex items-center gap-1.5 text-amber-700 dark:text-amber-300">
+                <RefreshCw className="w-3.5 h-3.5" /> Proposed
+              </span>
+              <button
+                type="button"
+                onClick={acceptPlan}
+                disabled={accepting}
+                className="ml-auto inline-flex items-center gap-1.5 h-6 px-2 rounded-md bg-amber-600 text-white text-[10px] font-bold uppercase tracking-wide hover:opacity-90 disabled:opacity-50"
+              >
+                {accepting ? (
+                  <Loader2 className="w-3 h-3 animate-spin" />
+                ) : (
+                  <CheckCircle2 className="w-3 h-3" />
+                )}
+                Accept
+              </button>
+            </div>
+          )}
         </div>
 
         <div className="max-h-[34rem] overflow-y-auto divide-y divide-border">
           {weeks.map((wk) => {
             const isNow = wk === nowKey;
-            const core = spine.find((b) => inBand(b, wk));
+            const core = coreSpine.find((b) => inBand(b, wk));
             const focused = focus.filter((b) => inBand(b, wk));
             const tp = core ? progressByTopic.get(core.topicId) : undefined;
-            const isOpen = core ? expanded.has(core.topicId) : false;
+            // Expansion is per ROW, not per topic: a topic spans several weeks
+            // and each one teaches a different slice, so opening "Topic 1" in
+            // October must not also open its September and November rows.
+            const rowKey = core ? `${core.topicId}@${wk}` : "";
+            const isOpen = core ? expanded.has(rowKey) : false;
+            const showWholeTopic = core ? expanded.has(`${rowKey}@all`) : false;
+            // This week's share of the topic, as the year plan divided it. Bands
+            // stored before `pointsByWeek` existed fall back to the whole topic.
+            const weekPoints = core?.pointsByWeek?.[wk];
+            const byId = new Map((tp?.points ?? []).map((p) => [p.id, p]));
+            const shown =
+              showWholeTopic || !weekPoints
+                ? (tp?.points ?? [])
+                : weekPoints.map((r) => byId.get(r.specPointId)).filter((p) => p !== undefined);
             const hasDetail = (tp?.points.length ?? 0) > 0;
             const isCovered = core ? covered.has(core.topicId) : false;
+            const proposed = proposedSpine?.find((b) => inBand(b, wk));
+            // The week where the proposal actually differs from today's plan.
+            const shifted =
+              !!proposedSpine && (proposed?.topicId ?? null) !== (core?.topicId ?? null);
+            const change =
+              proposed && wk === proposed.startWeek
+                ? changeByTopic.get(proposed.topicId)
+                : undefined;
             return (
               <div key={wk}>
                 <div
-                  className={`grid grid-cols-[6.5rem_1fr_1fr] items-stretch ${
-                    isNow ? "bg-primary/[0.04]" : ""
+                  className={`grid ${cols} items-stretch ${
+                    shifted
+                      ? "bg-amber-500/[0.06] border-l-2 border-l-amber-500"
+                      : isNow
+                        ? "bg-primary/[0.04]"
+                        : ""
                   }`}
                 >
                   {/* Week */}
@@ -621,7 +706,7 @@ function FullPlanTab({
                     {core ? (
                       <button
                         type="button"
-                        onClick={() => hasDetail && toggle(core.topicId)}
+                        onClick={() => hasDetail && toggle(rowKey)}
                         className={`w-full text-left rounded-md -mx-1 px-1 ${
                           hasDetail ? "hover:bg-muted/50" : "cursor-default"
                         }`}
@@ -643,7 +728,10 @@ function FullPlanTab({
                           </div>
                         </div>
                         {tp && tp.points.length > 0 && (
-                          <div className="mt-1.5 flex items-center gap-2">
+                          <div
+                            className="mt-1.5 flex items-center gap-2"
+                            title={`How well this is sticking: ${tp.masteryPct}% — the same number shown on this topic's card in My topics`}
+                          >
                             <div className="h-1.5 flex-1 rounded-full bg-muted overflow-hidden">
                               <div
                                 className="h-full rounded-full bg-primary"
@@ -696,15 +784,86 @@ function FullPlanTab({
                       <span className="text-[12px] text-muted-foreground/60">—</span>
                     )}
                   </div>
+
+                  {/* Proposed — a temporary column, open only until it's accepted */}
+                  {proposedSpine && (
+                    <div
+                      className={`px-3 py-2.5 border-l-2 border-l-amber-500 min-w-0 ${
+                        shifted ? "bg-amber-500/[0.08]" : "bg-amber-500/[0.02]"
+                      }`}
+                    >
+                      {proposed ? (
+                        <>
+                          <div className="flex items-start gap-2">
+                            <span
+                              className={`text-[13px] leading-snug ${
+                                shifted
+                                  ? "font-semibold text-amber-800 dark:text-amber-200"
+                                  : "font-medium text-muted-foreground"
+                              }`}
+                            >
+                              {proposed.title}
+                            </span>
+                            {!shifted && (
+                              <span className="ml-auto text-[10px] text-muted-foreground/70 shrink-0">
+                                unchanged
+                              </span>
+                            )}
+                          </div>
+                          {change && (
+                            <span
+                              className="mt-1.5 inline-flex items-center gap-1 h-5 px-1.5 rounded-md border border-amber-500/40 bg-amber-500/10 text-[10px] font-semibold text-amber-700 dark:text-amber-300"
+                              title={
+                                change.from
+                                  ? `Rescheduled from the week of ${fmtDate(weekKeyToDate(change.from))}`
+                                  : "Newly added to the plan"
+                              }
+                            >
+                              <RefreshCw className="w-2.5 h-2.5" />
+                              {change.from ? (
+                                <>Moved from {fmtDate(weekKeyToDate(change.from))}</>
+                              ) : (
+                                <>New in plan</>
+                              )}
+                            </span>
+                          )}
+                        </>
+                      ) : (
+                        <span className="text-[12px] text-muted-foreground/60">—</span>
+                      )}
+                    </div>
+                  )}
                 </div>
 
                 {/* Expanded spec-point breakdown for the core topic */}
+                {/* This week's share of the topic, not the whole thing. A topic
+                    spanning six weeks used to list all 17 of its spec points
+                    under every one of those weeks, which answered "what is in
+                    this topic" when the question is "what am I studying now". */}
                 {isOpen && tp && (
-                  <ul className="bg-muted/20 px-4 py-2.5 space-y-1 border-t border-border">
-                    {tp.points.map((p) => (
-                      <PointRow key={p.id} point={p} />
-                    ))}
-                  </ul>
+                  <div className="bg-muted/20 px-4 py-2.5 border-t border-border">
+                    <div className="flex items-center justify-between gap-2 mb-1.5">
+                      <span className="text-[10px] font-bold uppercase tracking-wide text-muted-foreground">
+                        {showWholeTopic || !weekPoints
+                          ? `Whole topic · ${tp.points.length} spec points`
+                          : `This week · ${shown.length} of ${tp.points.length} spec points`}
+                      </span>
+                      {weekPoints && weekPoints.length < tp.points.length && (
+                        <button
+                          type="button"
+                          onClick={() => toggle(`${rowKey}@all`)}
+                          className="text-[10px] font-semibold text-primary hover:underline shrink-0"
+                        >
+                          {showWholeTopic ? "Show this week only" : "Show whole topic"}
+                        </button>
+                      )}
+                    </div>
+                    <ul className="space-y-1">
+                      {shown.map((p) => (
+                        <PointRow key={p.id} point={p} />
+                      ))}
+                    </ul>
+                  </div>
                 )}
               </div>
             );
@@ -741,12 +900,15 @@ function TopicsTab({
   enrolments,
   level,
   subject,
+  masteryByTopic,
   onChanged,
 }: {
   studentId: string;
   enrolments: Enrolment[];
   level: LevelV;
   subject: string;
+  /** Topic id → the mastery the plan uses, so the board shows the same number. */
+  masteryByTopic: Map<string, number>;
   onChanged: () => void;
 }) {
   return (
@@ -756,18 +918,25 @@ function TopicsTab({
           How confident do you feel?
         </h3>
         <p className="text-xs text-muted-foreground mb-3">
-          Drag each topic into a column — your weekly plan and revision are built from this. Tap a
-          topic to rate its individual points.
+          Drag each topic into a column to tell us how you feel. The number on each card is
+          something different — it's how well the topic is actually sticking, and it's the same
+          number your plan uses. Tap a topic to rate its individual points.
         </p>
         <PlannerBoard
           studentId={studentId}
           enrolments={enrolments}
           level={level}
           subject={subject}
+          masteryByTopic={masteryByTopic}
           onChanged={onChanged}
         />
       </div>
-      <CoveredLedger studentId={studentId} enrolments={enrolments} level={level} subject={subject} />
+      <CoveredLedger
+        studentId={studentId}
+        enrolments={enrolments}
+        level={level}
+        subject={subject}
+      />
     </div>
   );
 }
@@ -797,34 +966,6 @@ function focusTone(b: PacingBand, mastery: number) {
     icon: Repeat,
     badge: "bg-amber-500/[0.08] border-amber-500/25 text-amber-700/90 dark:text-amber-300/80",
   };
-}
-
-function FocusRow({ b, mastery }: { b: PacingBand; mastery: number }) {
-  const tone = focusTone(b, mastery);
-  const Icon = tone.icon;
-  const nowKey = currentWeekKey();
-  const isCurrent = b.startWeek <= nowKey && nowKey <= b.endWeek;
-  return (
-    <li className="rounded-lg premium-card px-2.5 py-2 min-w-0">
-      <div className="flex items-center gap-2 min-w-0">
-        <span
-          className={`inline-flex items-center gap-1 h-5 px-1.5 rounded-md border text-[10px] font-semibold shrink-0 ${tone.badge}`}
-        >
-          <Icon className="w-2.5 h-2.5" />
-          {tone.label}
-        </span>
-        <span className="flex-1 text-[13px] font-medium truncate">{b.title}</span>
-        <span className="text-[11px] text-muted-foreground shrink-0">
-          {isCurrent ? "This week" : `wk of ${fmtDate(weekKeyToDate(b.startWeek))}`}
-        </span>
-      </div>
-      {b.points && b.points.length > 0 && (
-        <p className="mt-1 text-[11px] text-muted-foreground truncate">
-          {b.points.map((p) => `${p.code} ${p.title}`).join(" · ")}
-        </p>
-      )}
-    </li>
-  );
 }
 
 const statusMeta: Record<PointStatus, { label: string; cls: string }> = {

@@ -277,12 +277,27 @@
    Tailwind's layers and wins against the `bg-card` / `border-border` utilities
    it replaces — apply it instead of those, not alongside them. */
 
+/* …with one deliberate exception: `position`.
+ *
+ * Both classes below need a positioned box for their decorative `::before`, but
+ * winning that unlayered would be a trap — `absolute premium-card` on a popover
+ * would silently compute to `relative`, drop back into flow, and stretch its
+ * parent. So the `position` declaration alone lives in Tailwind's `components`
+ * layer, where an `absolute` / `fixed` utility on the same element beats it.
+ * Every other declaration in these rules stays unlayered and still wins. */
+@layer components {
+  .page-aurora,
+  .auth-aurora,
+  .premium-card {
+    position: relative;
+  }
+}
+
 /* Page backdrop: two soft brand-coloured washes over the canvas plus a faint
    grid, so large empty areas don't read as blank white. Purely decorative.
    `.auth-aurora` is the original name, kept so the auth screens keep working. */
 .page-aurora,
 .auth-aurora {
-  position: relative;
   isolation: isolate;
   background:
     radial-gradient(
@@ -316,7 +331,6 @@
    light border, a layered brand-tinted shadow instead of a flat grey one, and a
    gradient sheen along the top edge. */
 .premium-card {
-  position: relative;
   background: linear-gradient(180deg, color-mix(in oklab, var(--primary) 3%, var(--card)), var(--card));
   border: 1px solid color-mix(in oklab, var(--primary) 10%, var(--border));
   box-shadow:
