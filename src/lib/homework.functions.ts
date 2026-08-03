@@ -71,9 +71,18 @@ export const deleteHomework = createServerFn({ method: "POST" })
       .eq("resource_id", data.homeworkId);
     if (subsError) throw new Error(subsError.message);
 
+    // Figures attached to the brief's own questions. They cascade away with the
+    // row like everything else, so their bytes have to be swept here too.
+    const { data: figures, error: figError } = await supabase
+      .from("homework_questions")
+      .select("image_path")
+      .eq("resource_id", data.homeworkId);
+    if (figError) throw new Error(figError.message);
+
     const paths = new Set<string>();
     if (typeof hw.file_path === "string") paths.add(hw.file_path);
     if (typeof hw.mark_scheme_path === "string") paths.add(hw.mark_scheme_path);
+    for (const f of figures ?? []) if (typeof f.image_path === "string") paths.add(f.image_path);
     for (const s of subs ?? []) for (const p of pathsOf(s.files)) paths.add(p);
 
     // Delete the row first — this is the authoritative, RLS-checked step that

@@ -36,7 +36,127 @@ export type Database = {
           student_id?: string;
           user_id?: string;
         };
-        Relationships: [];
+        Relationships: [
+          {
+            foreignKeyName: "billing_feedback_student_id_fkey";
+            columns: ["student_id"];
+            isOneToOne: false;
+            referencedRelation: "profiles";
+            referencedColumns: ["id"];
+          },
+          {
+            foreignKeyName: "billing_feedback_user_id_fkey";
+            columns: ["user_id"];
+            isOneToOne: false;
+            referencedRelation: "profiles";
+            referencedColumns: ["id"];
+          },
+        ];
+      };
+      homework_answers: {
+        Row: {
+          answer_text: string | null;
+          awarded_marks: number | null;
+          created_at: string;
+          feedback: string | null;
+          id: string;
+          images: Json;
+          question_id: string;
+          submission_id: string;
+        };
+        Insert: {
+          answer_text?: string | null;
+          awarded_marks?: number | null;
+          created_at?: string;
+          feedback?: string | null;
+          id?: string;
+          images?: Json;
+          question_id: string;
+          submission_id: string;
+        };
+        Update: {
+          answer_text?: string | null;
+          awarded_marks?: number | null;
+          created_at?: string;
+          feedback?: string | null;
+          id?: string;
+          images?: Json;
+          question_id?: string;
+          submission_id?: string;
+        };
+        Relationships: [
+          {
+            foreignKeyName: "homework_answers_question_id_fkey";
+            columns: ["question_id"];
+            isOneToOne: false;
+            referencedRelation: "homework_questions";
+            referencedColumns: ["id"];
+          },
+          {
+            foreignKeyName: "homework_answers_submission_id_fkey";
+            columns: ["submission_id"];
+            isOneToOne: false;
+            referencedRelation: "homework_submissions";
+            referencedColumns: ["id"];
+          },
+        ];
+      };
+      homework_questions: {
+        Row: {
+          answer_type: string;
+          created_at: string;
+          id: string;
+          image_name: string | null;
+          image_path: string | null;
+          mark_scheme: string | null;
+          marks: number;
+          position: number;
+          prompt: string;
+          resource_id: string;
+          spec_point_id: string | null;
+        };
+        Insert: {
+          answer_type?: string;
+          created_at?: string;
+          id?: string;
+          image_name?: string | null;
+          image_path?: string | null;
+          mark_scheme?: string | null;
+          marks?: number;
+          position: number;
+          prompt: string;
+          resource_id: string;
+          spec_point_id?: string | null;
+        };
+        Update: {
+          answer_type?: string;
+          created_at?: string;
+          id?: string;
+          image_name?: string | null;
+          image_path?: string | null;
+          mark_scheme?: string | null;
+          marks?: number;
+          position?: number;
+          prompt?: string;
+          resource_id?: string;
+          spec_point_id?: string | null;
+        };
+        Relationships: [
+          {
+            foreignKeyName: "homework_questions_resource_id_fkey";
+            columns: ["resource_id"];
+            isOneToOne: false;
+            referencedRelation: "resources";
+            referencedColumns: ["id"];
+          },
+          {
+            foreignKeyName: "homework_questions_spec_point_id_fkey";
+            columns: ["spec_point_id"];
+            isOneToOne: false;
+            referencedRelation: "spec_points";
+            referencedColumns: ["id"];
+          },
+        ];
       };
       homework_submissions: {
         Row: {
@@ -273,6 +393,50 @@ export type Database = {
           },
         ];
       };
+      notifications: {
+        Row: {
+          body: string | null;
+          created_at: string;
+          id: string;
+          link: string | null;
+          read_at: string | null;
+          submission_id: string | null;
+          title: string;
+          type: string;
+          user_id: string;
+        };
+        Insert: {
+          body?: string | null;
+          created_at?: string;
+          id?: string;
+          link?: string | null;
+          read_at?: string | null;
+          submission_id?: string | null;
+          title: string;
+          type: string;
+          user_id: string;
+        };
+        Update: {
+          body?: string | null;
+          created_at?: string;
+          id?: string;
+          link?: string | null;
+          read_at?: string | null;
+          submission_id?: string | null;
+          title?: string;
+          type?: string;
+          user_id?: string;
+        };
+        Relationships: [
+          {
+            foreignKeyName: "notifications_submission_id_fkey";
+            columns: ["submission_id"];
+            isOneToOne: false;
+            referencedRelation: "homework_submissions";
+            referencedColumns: ["id"];
+          },
+        ];
+      };
       packages: {
         Row: {
           active: boolean;
@@ -372,83 +536,6 @@ export type Database = {
         };
         Relationships: [];
       };
-      notifications: {
-        Row: {
-          body: string | null;
-          created_at: string;
-          id: string;
-          link: string | null;
-          read_at: string | null;
-          submission_id: string | null;
-          title: string;
-          type: string;
-          user_id: string;
-        };
-        Insert: {
-          body?: string | null;
-          created_at?: string;
-          id?: string;
-          link?: string | null;
-          read_at?: string | null;
-          submission_id?: string | null;
-          title: string;
-          type: string;
-          user_id: string;
-        };
-        Update: {
-          body?: string | null;
-          created_at?: string;
-          id?: string;
-          link?: string | null;
-          read_at?: string | null;
-          submission_id?: string | null;
-          title?: string;
-          type?: string;
-          user_id?: string;
-        };
-        Relationships: [
-          {
-            foreignKeyName: "notifications_submission_id_fkey";
-            columns: ["submission_id"];
-            isOneToOne: false;
-            referencedRelation: "homework_submissions";
-            referencedColumns: ["id"];
-          },
-        ];
-      };
-      resource_spec_points: {
-        Row: {
-          created_at: string;
-          resource_id: string;
-          spec_point_id: string;
-        };
-        Insert: {
-          created_at?: string;
-          resource_id: string;
-          spec_point_id: string;
-        };
-        Update: {
-          created_at?: string;
-          resource_id?: string;
-          spec_point_id?: string;
-        };
-        Relationships: [
-          {
-            foreignKeyName: "resource_spec_points_resource_id_fkey";
-            columns: ["resource_id"];
-            isOneToOne: false;
-            referencedRelation: "resources";
-            referencedColumns: ["id"];
-          },
-          {
-            foreignKeyName: "resource_spec_points_spec_point_id_fkey";
-            columns: ["spec_point_id"];
-            isOneToOne: false;
-            referencedRelation: "spec_points";
-            referencedColumns: ["id"];
-          },
-        ];
-      };
       profiles: {
         Row: {
           created_at: string;
@@ -487,6 +574,39 @@ export type Database = {
           student_invite_code?: string | null;
         };
         Relationships: [];
+      };
+      resource_spec_points: {
+        Row: {
+          created_at: string;
+          resource_id: string;
+          spec_point_id: string;
+        };
+        Insert: {
+          created_at?: string;
+          resource_id: string;
+          spec_point_id: string;
+        };
+        Update: {
+          created_at?: string;
+          resource_id?: string;
+          spec_point_id?: string;
+        };
+        Relationships: [
+          {
+            foreignKeyName: "resource_spec_points_resource_id_fkey";
+            columns: ["resource_id"];
+            isOneToOne: false;
+            referencedRelation: "resources";
+            referencedColumns: ["id"];
+          },
+          {
+            foreignKeyName: "resource_spec_points_spec_point_id_fkey";
+            columns: ["spec_point_id"];
+            isOneToOne: false;
+            referencedRelation: "spec_points";
+            referencedColumns: ["id"];
+          },
+        ];
       };
       resources: {
         Row: {
@@ -646,6 +766,48 @@ export type Database = {
             referencedColumns: ["id"];
           },
         ];
+      };
+      stripe_cancellation_queue: {
+        Row: {
+          attempts: number;
+          enqueued_at: string;
+          id: string;
+          last_error: string | null;
+          plan: string | null;
+          processed_at: string | null;
+          reason: string;
+          stripe_customer_id: string | null;
+          stripe_subscription_id: string;
+          subject_email: string | null;
+          subject_user_id: string | null;
+        };
+        Insert: {
+          attempts?: number;
+          enqueued_at?: string;
+          id?: string;
+          last_error?: string | null;
+          plan?: string | null;
+          processed_at?: string | null;
+          reason?: string;
+          stripe_customer_id?: string | null;
+          stripe_subscription_id: string;
+          subject_email?: string | null;
+          subject_user_id?: string | null;
+        };
+        Update: {
+          attempts?: number;
+          enqueued_at?: string;
+          id?: string;
+          last_error?: string | null;
+          plan?: string | null;
+          processed_at?: string | null;
+          reason?: string;
+          stripe_customer_id?: string | null;
+          stripe_subscription_id?: string;
+          subject_email?: string | null;
+          subject_user_id?: string | null;
+        };
+        Relationships: [];
       };
       stripe_customers: {
         Row: {
@@ -1195,19 +1357,16 @@ export type Database = {
       user_roles: {
         Row: {
           id: string;
-          is_principal: boolean;
           role: Database["public"]["Enums"]["app_role"];
           user_id: string;
         };
         Insert: {
           id?: string;
-          is_principal?: boolean;
           role: Database["public"]["Enums"]["app_role"];
           user_id: string;
         };
         Update: {
           id?: string;
-          is_principal?: boolean;
           role?: Database["public"]["Enums"]["app_role"];
           user_id?: string;
         };
@@ -1295,18 +1454,48 @@ export type Database = {
         Returns: undefined;
       };
       curriculum_coverage: {
-        Args: Record<PropertyKey, never>;
+        Args: never;
         Returns: {
-          level: Database["public"]["Enums"]["level"];
           board: Database["public"]["Enums"]["board"];
+          level: Database["public"]["Enums"]["level"];
+          spec_point_count: number;
           subject: Database["public"]["Enums"]["subject"];
           topic_count: number;
-          spec_point_count: number;
         }[];
       };
-      record_reviews_atomic: {
-        Args: { _reviews: Json };
-        Returns: string[];
+      gen_student_invite_code: { Args: never; Returns: string };
+      invite_parent_by_email: { Args: { _email: string }; Returns: Json };
+      is_enrolled_in: {
+        Args: {
+          _subject: Database["public"]["Enums"]["subject"];
+          _user_id: string;
+        };
+        Returns: boolean;
+      };
+      link_child_by_code: { Args: { _code: string }; Returns: Json };
+      list_my_child_links: {
+        Args: never;
+        Returns: {
+          display_name: string;
+          email: string;
+          link_id: string;
+          linked_at: string;
+          student_id: string;
+        }[];
+      };
+      list_my_parent_links: {
+        Args: never;
+        Returns: {
+          display_name: string;
+          email: string;
+          link_id: string;
+          linked_at: string;
+          parent_id: string;
+        }[];
+      };
+      mark_submission_files_deleted: {
+        Args: { _submission_id: string };
+        Returns: undefined;
       };
       my_access_state: {
         Args: never;
@@ -1315,61 +1504,19 @@ export type Database = {
           onboarding_complete: boolean;
         }[];
       };
-      mark_submission_files_deleted: {
-        Args: { _submission_id: string };
-        Returns: undefined;
+      purge_stale_live_sessions: { Args: never; Returns: number };
+      record_reviews_atomic: { Args: { _reviews: Json }; Returns: string[] };
+      respond_to_parent_invite: {
+        Args: { _accept: boolean; _invite_id: string };
+        Returns: Json;
       };
-      is_enrolled_in: {
-        Args: {
-          _subject: Database["public"]["Enums"]["subject"];
-          _user_id: string;
-        };
-        Returns: boolean;
-      };
-      rotate_student_invite_code: {
-        Args: Record<PropertyKey, never>;
+      revoke_parent_invite: { Args: { _invite_id: string }; Returns: undefined };
+      rotate_student_invite_code: { Args: never; Returns: string };
+      submit_homework_answers: {
+        Args: { _answers: Json; _notes?: string; _resource_id: string };
         Returns: string;
       };
-      invite_parent_by_email: {
-        Args: { _email: string };
-        Returns: Json;
-      };
-      link_child_by_code: {
-        Args: { _code: string };
-        Returns: Json;
-      };
-      respond_to_parent_invite: {
-        Args: { _invite_id: string; _accept: boolean };
-        Returns: Json;
-      };
-      revoke_parent_invite: {
-        Args: { _invite_id: string };
-        Returns: undefined;
-      };
-      unlink_parent: {
-        Args: { _link_id: string };
-        Returns: undefined;
-      };
-      list_my_parent_links: {
-        Args: Record<PropertyKey, never>;
-        Returns: {
-          link_id: string;
-          parent_id: string;
-          display_name: string | null;
-          email: string;
-          linked_at: string;
-        }[];
-      };
-      list_my_child_links: {
-        Args: Record<PropertyKey, never>;
-        Returns: {
-          link_id: string;
-          student_id: string;
-          display_name: string | null;
-          email: string;
-          linked_at: string;
-        }[];
-      };
+      unlink_parent: { Args: { _link_id: string }; Returns: undefined };
     };
     Enums: {
       app_role: "student" | "tutor" | "admin";
