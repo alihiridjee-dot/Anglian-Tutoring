@@ -6,6 +6,7 @@ import { FilterBar, type Filters } from "@/components/FilterBar";
 import { downloadEntriesAsZip, downloadSingleFile, type ZipEntry } from "@/lib/homeworkDownload";
 import { toast } from "sonner";
 import { ClipboardCheck, Clock, Download, Inbox, Loader2, MessageSquare } from "lucide-react";
+import { useAnswerMarking, AnswerMarkingList } from "./AnswerMarking";
 import type { SubjectV, BoardV, LevelV } from "@/lib/taxonomy";
 
 /** Derived lifecycle status for a submission. */
@@ -394,6 +395,18 @@ function MarkSubmissionCard({
   const [saving, setSaving] = useState(false);
   const [downloading, setDownloading] = useState(false);
 
+  // Built-in homework: the questions and this student's answers, loaded only
+  // once the card is open.
+  const marking = useAnswerMarking(sub.resource?.id, sub.id, open);
+
+  // The awarded total is the honest source for score_pct, so keep the field in
+  // step with the per-question marks until the tutor overrides it by hand.
+  const [pctTouched, setPctTouched] = useState(false);
+  useEffect(() => {
+    if (pctTouched || !marking.hasQuestions || marking.scorePct == null) return;
+    setScorePct(String(marking.scorePct));
+  }, [pctTouched, marking.hasQuestions, marking.scorePct]);
+
   const save = async () => {
     if (!graderId) return toast.error("Not signed in");
     const pct = scorePct.trim() === "" ? null : Number(scorePct);
@@ -402,6 +415,10 @@ function MarkSubmissionCard({
     }
     setSaving(true);
     try {
+      // Per-question marks first: if one is out of range the overall mark isn't
+      // written either, so the two can't disagree.
+      if (marking.hasQuestions) await marking.saveMarks();
+
       const { error } = await supabase
         .from("homework_submissions")
         .update({
@@ -515,7 +532,27 @@ function MarkSubmissionCard({
                 </button>
               )}
             </div>
-            {sub.files.length === 0 ? (
+            {marking.loading ? (
+              <p className="inline-flex items-center gap-2 text-sm text-muted-foreground">
+                <Loader2 className="w-3.5 h-3.5 animate-spin" /> Loading answers…
+              </p>
+            ) : marking.hasQuestions ? (
+              // Built-in homework: the answers themselves are the work, and any
+              // photos are shown inline against the question they belong to.
+              <div className="space-y-3">
+                <p className="text-xs text-muted-foreground">
+                  Answered on the site — {marking.markedCount}/{marking.questions.length} marked,{" "}
+                  {marking.awarded}/{marking.totalMarks} marks
+                  {marking.scorePct != null ? ` (${marking.scorePct}%)` : ""}
+                </p>
+                <AnswerMarkingList
+                  questions={marking.questions}
+                  answers={marking.answers}
+                  marks={marking.marks}
+                  setMark={marking.setMark}
+                />
+              </div>
+            ) : sub.files.length === 0 ? (
               <p className="text-sm text-muted-foreground">No files attached.</p>
             ) : (
               <ul className="space-y-1">
@@ -562,7 +599,10 @@ function MarkSubmissionCard({
                 min={0}
                 max={100}
                 value={scorePct}
-                onChange={(e) => setScorePct(e.target.value)}
+                onChange={(e) => {
+                  setPctTouched(true);
+                  setScorePct(e.target.value);
+                }}
                 placeholder="0–100"
                 className="mt-1 w-full h-10 rounded-lg premium-input px-3 text-sm"
               />

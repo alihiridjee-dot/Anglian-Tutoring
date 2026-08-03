@@ -6,6 +6,7 @@ import { Field, inputCls, submitBtn } from "./Field";
 import { TaxonomyFields } from "./TaxonomyFields";
 import { SpecPointSelect } from "./SpecPointSelect";
 import { UseWeeklyFocusButton } from "./UseWeeklyFocusButton";
+import { QuestionBuilder, type BuilderQuestion } from "./QuestionBuilder";
 import { type SubjectV, type BoardV, type LevelV } from "@/lib/taxonomy";
 
 interface HomeworkFormProps {
@@ -35,10 +36,16 @@ export function HomeworkForm({ userId, taxonomy }: HomeworkFormProps) {
   const [specPointIds, setSpecPointIds] = useState<string[]>([]);
   const [taskFile, setTaskFile] = useState<File | null>(null);
   const [msFile, setMsFile] = useState<File | null>(null);
+  const [questions, setQuestions] = useState<BuilderQuestion[]>([]);
   const [loading, setLoading] = useState(false);
 
   const submit = async (e: React.FormEvent) => {
     e.preventDefault();
+    // A question with no prompt would render as an empty box the student can't
+    // answer, so catch it here rather than shipping it.
+    if (questions.some((q) => !q.prompt.trim())) {
+      return toast.error("Every question needs a prompt — fill it in or delete it");
+    }
     setLoading(true);
     try {
       let task: { path: string; name: string; mime: string; size: number } | null = null;
@@ -67,6 +74,29 @@ export function HomeworkForm({ userId, taxonomy }: HomeworkFormProps) {
         .single();
       if (error) throw error;
 
+      // The questions themselves. Figures are uploaded only now, so an abandoned
+      // form leaves nothing behind in storage.
+      if (questions.length > 0) {
+        const rows = [];
+        for (let i = 0; i < questions.length; i++) {
+          const q = questions[i];
+          const figure = q.image ? await uploadFile(q.image, "homework/figures") : null;
+          rows.push({
+            resource_id: created.id,
+            position: i,
+            prompt: q.prompt.trim(),
+            marks: q.marks,
+            answer_type: q.answer_type,
+            image_path: figure?.path ?? null,
+            image_name: figure?.name ?? null,
+            mark_scheme: q.mark_scheme.trim() || null,
+            spec_point_id: q.spec_point_id,
+          });
+        }
+        const { error: qError } = await supabase.from("homework_questions").insert(rows);
+        if (qError) throw qError;
+      }
+
       // Curriculum links live in resource_spec_points, not resources.spec_point_id
       // (deprecated) — homework can hang off several points, and students find it
       // by browsing any of them.
@@ -80,8 +110,8 @@ export function HomeworkForm({ userId, taxonomy }: HomeworkFormProps) {
       }
 
       toast.success(
-        specPointIds.length > 0
-          ? `Homework set and linked to ${specPointIds.length} spec point${specPointIds.length === 1 ? "" : "s"}`
+        questions.length > 0
+          ? `Homework set — ${questions.length} question${questions.length === 1 ? "" : "s"} students answer on the site`
           : "Homework set",
       );
       qc.invalidateQueries({ queryKey: ["homework"] });
@@ -91,6 +121,7 @@ export function HomeworkForm({ userId, taxonomy }: HomeworkFormProps) {
       setSpecPointIds([]);
       setTaskFile(null);
       setMsFile(null);
+      setQuestions([]);
     } catch (err) {
       toast.error(err instanceof Error ? err.message : "Failed to save");
     } finally {
@@ -123,22 +154,6 @@ export function HomeworkForm({ userId, taxonomy }: HomeworkFormProps) {
           onChange={(e) => setDueAt(e.target.value)}
         />
       </Field>
-      <div className="grid grid-cols-2 gap-3">
-        <Field label="Task file (optional)">
-          <input
-            type="file"
-            className="text-sm"
-            onChange={(e) => setTaskFile(e.target.files?.[0] ?? null)}
-          />
-        </Field>
-        <Field label="Mark scheme (optional)">
-          <input
-            type="file"
-            className="text-sm"
-            onChange={(e) => setMsFile(e.target.files?.[0] ?? null)}
-          />
-        </Field>
-      </div>
       <TaxonomyFields {...taxonomy} />
       <UseWeeklyFocusButton
         subject={taxonomy.subject}
@@ -154,6 +169,44 @@ export function HomeworkForm({ userId, taxonomy }: HomeworkFormProps) {
         value={specPointIds}
         onChange={setSpecPointIds}
       />
+
+      {/* The homework itself. Students answer these on the site — the files
+          below are only for anything that can't be expressed as a question. */}
+      <QuestionBuilder
+        questions={questions}
+        onChange={setQuestions}
+        subject={taxonomy.subject}
+        board={taxonomy.board}
+        level={taxonomy.level}
+        specPointIds={specPointIds}
+      />
+
+      <details className="rounded-xl border border-border px-4 py-3">
+        <summary className="text-xs uppercase tracking-widest font-semibold text-muted-foreground cursor-pointer">
+          Attachments (optional)
+        </summary>
+        <div className="grid grid-cols-2 gap-3 mt-3">
+          <Field label="Reference sheet">
+            <input
+              type="file"
+              className="text-sm"
+              onChange={(e) => setTaskFile(e.target.files?.[0] ?? null)}
+            />
+          </Field>
+          <Field label="Mark scheme">
+            <input
+              type="file"
+              className="text-sm"
+              onChange={(e) => setMsFile(e.target.files?.[0] ?? null)}
+            />
+          </Field>
+        </div>
+        <p className="mt-2 text-[11px] text-muted-foreground">
+          Only needed for material the questions can't carry — a data booklet or a long source. The
+          questions above are what students actually answer.
+        </p>
+      </details>
+
       <button disabled={loading} className={submitBtn}>
         {loading ? "Uploading…" : "Set homework"}
       </button>

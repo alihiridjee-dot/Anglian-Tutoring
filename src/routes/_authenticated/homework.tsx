@@ -13,6 +13,13 @@ import {
   type SubmissionRow,
 } from "@/hooks/data/useHomework";
 import {
+  useHomeworkQuestions,
+  useHomeworkAnswers,
+  type HomeworkQuestion,
+  type HomeworkAnswer,
+} from "@/hooks/data/useHomeworkQuestions";
+import { BuiltInHomework } from "@/components/BuiltInHomework";
+import {
   ClipboardList,
   Upload,
   FileText,
@@ -132,6 +139,17 @@ export function HomeworkPage() {
   });
   const reload = useInvalidateHomework();
 
+  // Built-in questions and this student's answers, fetched once for every brief
+  // on screen rather than per card.
+  const { data: questionsByBrief = {} } = useHomeworkQuestions(
+    homework.map((h) => h.id),
+    identityReady,
+  );
+  const { data: answersByQuestion = {} } = useHomeworkAnswers(
+    Object.values(submissions).map((s) => s.id),
+    identityReady && wantsSubmissions,
+  );
+
   // A disabled query stays pending forever, so only wait on one that will run.
   const loading = !identityReady || homeworkPending || (wantsSubmissions && submissionsPending);
 
@@ -144,8 +162,8 @@ export function HomeworkPage() {
     return (
       <AppLayout title="Homework & Grades">
         <p className="text-muted-foreground mb-6 max-w-2xl">
-          Set new homework, then mark student submissions — segmented by status, filtered by
-          subject, board and level.
+          Set homework as questions students answer on the site — generate them from the spec with
+          AI, edit anything, then mark the answers question by question.
         </p>
         {userId && <SetHomeworkPanel userId={userId} />}
         <MarkingQueue />
@@ -157,7 +175,8 @@ export function HomeworkPage() {
   return (
     <AppLayout title="Homework & Grades">
       <p className="text-muted-foreground mb-6 max-w-2xl">
-        Read each brief, upload your work, and see your grades and feedback as soon as your tutor
+        Answer each homework here on the page — nothing to download, nothing to hand in. Attach a
+        photo of your working if it helps, and see your grades and feedback as soon as your tutor
         marks them.
       </p>
 
@@ -213,6 +232,8 @@ export function HomeworkPage() {
               key={h.id}
               hw={h}
               submission={submissions[h.id]}
+              questions={questionsByBrief[h.id] ?? []}
+              answers={answersByQuestion}
               userId={userId}
               onChanged={reload}
               readonly={demo}
@@ -390,12 +411,16 @@ function TutorBriefRow({ hw, onDeleted }: { hw: Homework; onDeleted: () => void 
 function HomeworkCard({
   hw,
   submission,
+  questions,
+  answers,
   userId,
   onChanged,
   readonly,
 }: {
   hw: Homework;
   submission?: SubmissionRow;
+  questions: HomeworkQuestion[];
+  answers: Record<string, HomeworkAnswer>;
   userId: string | null;
   onChanged: () => void;
   readonly: boolean;
@@ -466,6 +491,9 @@ function HomeworkCard({
     }
   };
 
+  // A built-in brief carries its own questions and is answered on the page; the
+  // file-upload form is the fallback for older briefs that have none.
+  const builtIn = questions.length > 0;
   const completed = !!submission;
   const isOverdue = hw.due_at && new Date(hw.due_at) < new Date() && !completed;
   const marked = submission?.graded_at != null;
@@ -553,7 +581,19 @@ function HomeworkCard({
           </div>
         )}
 
-        {submission && submission.files.length > 0 && (
+        {builtIn && submission && (
+          <BuiltInHomework
+            hw={hw}
+            questions={questions}
+            userId={userId}
+            submission={submission}
+            answers={answers}
+            onChanged={onChanged}
+            readonly={readonly}
+          />
+        )}
+
+        {!builtIn && submission && submission.files.length > 0 && (
           <div className="mt-4">
             <p className="text-xs font-semibold uppercase tracking-wider text-muted-foreground mb-2">
               Your submission
@@ -589,7 +629,18 @@ function HomeworkCard({
         )}
       </div>
 
-      {!readonly && !submission && (
+      {builtIn && !submission && (
+        <BuiltInHomework
+          hw={hw}
+          questions={questions}
+          userId={userId}
+          answers={answers}
+          onChanged={onChanged}
+          readonly={readonly}
+        />
+      )}
+
+      {!builtIn && !readonly && !submission && (
         <form onSubmit={submit} className="border-t border-border p-6 bg-muted/40 space-y-3">
           <p className="text-xs font-semibold uppercase tracking-wider text-muted-foreground">
             Upload your work
