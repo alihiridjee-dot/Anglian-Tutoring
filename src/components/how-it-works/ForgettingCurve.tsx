@@ -101,7 +101,8 @@ export function ForgettingCurve() {
   return (
     <figure
       ref={ref}
-      className="relative rounded-3xl border border-border/80 bg-white/90 backdrop-blur-xl p-5 sm:p-8 shadow-[0_30px_80px_-40px_rgba(15,23,42,0.45)]">
+      className="relative rounded-3xl border border-border/80 bg-white/90 backdrop-blur-xl p-5 sm:p-8 shadow-[0_30px_80px_-40px_rgba(15,23,42,0.45)]"
+    >
       {/* Legend */}
       <figcaption className="mb-6 flex flex-col gap-3 sm:flex-row sm:items-center sm:justify-between">
         <div className="flex flex-wrap items-center gap-x-6 gap-y-2 text-sm">

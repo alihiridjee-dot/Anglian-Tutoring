@@ -2,6 +2,7 @@ import { useState } from "react";
 import {
   CreditCard,
   ExternalLink,
+  GraduationCap,
   Loader2,
   PauseCircle,
   PlayCircle,
@@ -42,6 +43,15 @@ interface SubscriptionPanelProps {
   payerLabel?: string;
   /** Formatted recurring price, e.g. "£89.99 per month". */
   priceLabel?: string;
+  /**
+   * The exam course the plan teaches, e.g. "GCSE · Edexcel".
+   *
+   * A plan name ("2 Subjects, Monthly") says what is being paid for but not
+   * what is being taught, and the level and board are what decide every piece of
+   * content on the account. Stating them here means the first place anyone
+   * checks their subscription is also the place they can catch a wrong board.
+   */
+  courseLabel?: string;
   /** Subjects the plan covers, for the cancel dialog's consequence list. */
   subjectLabels?: string[];
   /**
@@ -89,6 +99,7 @@ export function SubscriptionPanel({
   ownerLabel,
   payerLabel,
   priceLabel,
+  courseLabel,
   subjectLabels = [],
   subjectsAnchorId = "subjects",
 }: SubscriptionPanelProps) {
@@ -168,6 +179,18 @@ export function SubscriptionPanel({
               ? `Paused — was due to renew ${endsAtLabel}.`
               : `Renews ${endsAtLabel}.`}
         </p>
+      )}
+
+      {/* What the plan teaches, next to what it costs — the two halves of
+          "which plan am I on?" that were never shown together. */}
+      {courseLabel && (
+        <div className="mt-3 flex items-center gap-2 text-sm">
+          <GraduationCap className="w-4 h-4 text-muted-foreground shrink-0" />
+          <span className="text-muted-foreground">
+            Studying <strong className="text-foreground font-semibold">{courseLabel}</strong>
+            {subjectLabels.length > 0 && ` — ${subjectLabels.join(", ")}`}
+          </span>
+        </div>
       )}
 
       {/* Who is actually paying, stated rather than left to be inferred. On a

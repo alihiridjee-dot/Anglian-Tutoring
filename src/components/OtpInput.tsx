@@ -16,14 +16,7 @@ type Props = {
  * behave; only the first box carries autoComplete="one-time-code", which is
  * what iOS/Android look for before filling the whole code.
  */
-export function OtpInput({
-  value,
-  onChange,
-  length = 6,
-  onComplete,
-  disabled,
-  autoFocus,
-}: Props) {
+export function OtpInput({ value, onChange, length = 6, onComplete, disabled, autoFocus }: Props) {
   const refs = useRef<(HTMLInputElement | null)[]>([]);
   const hadValue = useRef(false);
   const digits = value.split("");
@@ -93,7 +86,11 @@ export function OtpInput({
   };
 
   return (
-    <div className="flex items-center justify-center gap-2 sm:gap-2.5" role="group" aria-label="Verification code">
+    <div
+      className="flex items-center justify-center gap-2 sm:gap-2.5"
+      role="group"
+      aria-label="Verification code"
+    >
       {Array.from({ length }).map((_, i) => (
         <input
           key={i}

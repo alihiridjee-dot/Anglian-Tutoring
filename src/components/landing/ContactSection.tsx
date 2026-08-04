@@ -67,9 +67,7 @@ export function ContactSection() {
           <div className="premium-card rounded-2xl p-8">
             <form onSubmit={handleSubmit} className="space-y-4">
               <div>
-                <label className="eyebrow text-[10px]">
-                  Name
-                </label>
+                <label className="eyebrow text-[10px]">Name</label>
                 <input
                   required
                   placeholder="Your full name"
@@ -81,9 +79,7 @@ export function ContactSection() {
 
               <div className="grid sm:grid-cols-2 gap-4">
                 <div>
-                  <label className="eyebrow text-[10px]">
-                    Email
-                  </label>
+                  <label className="eyebrow text-[10px]">Email</label>
                   <input
                     required
                     type="email"
@@ -94,9 +90,7 @@ export function ContactSection() {
                   />
                 </div>
                 <div>
-                  <label className="eyebrow text-[10px]">
-                    Phone (optional)
-                  </label>
+                  <label className="eyebrow text-[10px]">Phone (optional)</label>
                   <input
                     type="tel"
                     placeholder="07123 456789"
@@ -108,9 +102,7 @@ export function ContactSection() {
               </div>
 
               <div>
-                <label className="eyebrow text-[10px]">
-                  Message
-                </label>
+                <label className="eyebrow text-[10px]">Message</label>
                 <textarea
                   required
                   rows={4}

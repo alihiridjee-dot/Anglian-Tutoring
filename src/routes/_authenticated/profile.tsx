@@ -12,7 +12,7 @@ import { supabase } from "@/integrations/supabase/client";
 import { firstError, validateEmail, validatePassword, validatePhone } from "@/lib/validation";
 
 export const Route = createFileRoute("/_authenticated/profile")({
-  head: () => ({ meta: [{ title: "Profile | StudyHub" }] }),
+  head: () => ({ meta: [{ title: "Profile | Anglia Educate" }] }),
   component: ProfilePage,
 });
 

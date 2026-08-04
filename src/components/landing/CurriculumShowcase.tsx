@@ -182,8 +182,8 @@ function FocusScreen({ runId }: { runId: number }) {
           <Target className="h-3.5 w-3.5" /> This week's focus
         </p>
         <p className="mt-1 text-[13px] leading-relaxed text-muted-foreground">
-          We'll prioritise required practicals and electrolysis — your lowest-confidence topics — then
-          check in to confirm they've clicked.
+          We'll prioritise required practicals and electrolysis — your lowest-confidence topics —
+          then check in to confirm they've clicked.
         </p>
       </div>
     </div>
@@ -220,8 +220,12 @@ function RepetitionScreen({ runId }: { runId: number }) {
     <div key={runId} className="screen-in flex flex-col gap-4">
       <div className="flex items-center justify-between">
         <div>
-          <p className="text-xs font-semibold text-muted-foreground/70">Memory strength over time</p>
-          <p className="font-display text-lg font-bold text-foreground">The forgetting curve, beaten</p>
+          <p className="text-xs font-semibold text-muted-foreground/70">
+            Memory strength over time
+          </p>
+          <p className="font-display text-lg font-bold text-foreground">
+            The forgetting curve, beaten
+          </p>
         </div>
         <span className="inline-flex items-center gap-1.5 rounded-full bg-primary/10 px-3 py-1 text-xs font-bold text-primary">
           <RefreshCw className="h-3.5 w-3.5" /> Auto-scheduled
@@ -263,9 +267,23 @@ function RepetitionScreen({ runId }: { runId: number }) {
               className="spike-in"
               style={{ "--spike-delay": `${0.5 + i * 0.4}s` } as React.CSSProperties}
             >
-              <line x1={rx} y1="20" x2={rx} y2={H} stroke="#2D8CFF" strokeWidth="1.5" strokeDasharray="3 3" opacity="0.4" />
+              <line
+                x1={rx}
+                y1="20"
+                x2={rx}
+                y2={H}
+                stroke="#2D8CFF"
+                strokeWidth="1.5"
+                strokeDasharray="3 3"
+                opacity="0.4"
+              />
               <circle cx={rx} cy="20" r="5" fill="#2D8CFF" />
-              <text x={rx} y={H + 16} textAnchor="middle" className="fill-[var(--muted-foreground)] text-[9px] font-semibold">
+              <text
+                x={rx}
+                y={H + 16}
+                textAnchor="middle"
+                className="fill-[var(--muted-foreground)] text-[9px] font-semibold"
+              >
                 Review {i + 1}
               </text>
             </g>
@@ -331,9 +349,7 @@ export function CurriculumShowcase() {
 
       <div className="mx-auto max-w-7xl px-6">
         <div className="mx-auto mb-14 max-w-2xl text-center">
-          <span className="eyebrow">
-            HOW THE LEARNING WORKS
-          </span>
+          <span className="eyebrow">HOW THE LEARNING WORKS</span>
           <h2 className="mt-3 font-display text-3xl font-bold tracking-tight text-foreground sm:text-4xl">
             Cover everything. Focus on what's hard. Never forget it.
           </h2>
@@ -415,7 +431,9 @@ export function CurriculumShowcase() {
                     </span>
                     <span
                       className={`mt-1.5 block text-sm leading-relaxed text-muted-foreground transition-all ${
-                        isActive ? "max-h-40 opacity-100" : "max-h-0 overflow-hidden opacity-0 lg:max-h-40 lg:opacity-100"
+                        isActive
+                          ? "max-h-40 opacity-100"
+                          : "max-h-0 overflow-hidden opacity-0 lg:max-h-40 lg:opacity-100"
                       }`}
                     >
                       {s.blurb}

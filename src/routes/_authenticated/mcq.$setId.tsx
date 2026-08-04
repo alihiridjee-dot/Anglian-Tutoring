@@ -8,7 +8,7 @@ import { CheckCircle2, XCircle } from "lucide-react";
 import { isDemoStudent, DEMO_MCQ } from "@/lib/demo/studentDemo";
 
 export const Route = createFileRoute("/_authenticated/mcq/$setId")({
-  head: () => ({ meta: [{ title: "MCQ | StudyHub" }] }),
+  head: () => ({ meta: [{ title: "MCQ | Anglia Educate" }] }),
   component: TakeMcq,
 });
 

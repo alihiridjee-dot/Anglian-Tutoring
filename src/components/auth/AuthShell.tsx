@@ -31,7 +31,11 @@ const POINTS = [
 export function BrandPanel() {
   return (
     <aside className="hidden lg:flex flex-col justify-between rounded-3xl p-9 text-primary-foreground relative overflow-hidden rise-in">
-      <div aria-hidden className="absolute inset-0" style={{ background: "var(--gradient-hero)" }} />
+      <div
+        aria-hidden
+        className="absolute inset-0"
+        style={{ background: "var(--gradient-hero)" }}
+      />
       <div
         aria-hidden
         className="absolute inset-0 opacity-[0.16]"
@@ -62,7 +66,9 @@ export function BrandPanel() {
       </div>
       <div className="relative mt-10 flex items-center gap-2.5 rounded-2xl bg-white/10 px-4 py-3 text-sm backdrop-blur-sm">
         <Stethoscope className="w-4 h-4 shrink-0" />
-        <span className="text-white/90">Taught by practising NHS doctors and qualified teachers.</span>
+        <span className="text-white/90">
+          Taught by practising NHS doctors and qualified teachers.
+        </span>
       </div>
     </aside>
   );

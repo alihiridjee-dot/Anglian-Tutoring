@@ -51,7 +51,11 @@ export function UseWeeklyFocusButton({
         disabled={allSelected}
         className="inline-flex items-center gap-1.5 text-xs font-medium px-3 py-1.5 rounded-lg border border-primary/30 bg-primary/5 text-primary hover:bg-primary/10 transition disabled:opacity-60 disabled:hover:bg-primary/5"
       >
-        {allSelected ? <Check className="w-3.5 h-3.5" /> : <CalendarRange className="w-3.5 h-3.5" />}
+        {allSelected ? (
+          <Check className="w-3.5 h-3.5" />
+        ) : (
+          <CalendarRange className="w-3.5 h-3.5" />
+        )}
         {allSelected
           ? `This week's ${focusIds.length} spec point${focusIds.length === 1 ? "" : "s"} added`
           : `Use this week's spec points (${focusIds.length})`}

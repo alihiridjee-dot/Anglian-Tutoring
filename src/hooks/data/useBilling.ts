@@ -1,6 +1,6 @@
 import { useMutation, useQuery, useQueryClient } from "@tanstack/react-query";
 import { supabase } from "@/integrations/supabase/client";
-import { isDemoMode } from "@/lib/auth/session";
+import { isDemoMode, getSessionUserId } from "@/lib/auth/session";
 import {
   fetchInvoices,
   manageSubscription,
@@ -98,6 +98,47 @@ export function useSubscriptions(studentIds: string[]) {
     },
     enabled: !isDemoMode() && studentIds.length > 0,
   });
+}
+
+/**
+ * The signed-in student's own plan, and whether it is merely dormant.
+ *
+ * `resumable` is the one that matters: a paused plan (or one running to a
+ * period end) still exists in Stripe, so the way back in is Resume — free, and
+ * instant. Offering Checkout there sells a SECOND subscription on top, and
+ * because the webhook upserts subscriptions on student_id the new row silently
+ * overwrites the old while the first keeps billing. Every surface that reacts to
+ * "no access" must ask this before it says the word "subscribe".
+ *
+ * The server refuses that purchase too (assertNoLiveSubscription); this is what
+ * stops the app from offering it in the first place.
+ */
+export function useOwnPlanState() {
+  const query = useQuery({
+    queryKey: [...BILLING_KEY, "own-plan"],
+    enabled: !isDemoMode(),
+    queryFn: async () => {
+      const uid = await getSessionUserId();
+      if (!uid) return null;
+      const { data, error } = await supabase
+        .from("subscriptions")
+        .select("status, cancel_at_period_end, current_period_end")
+        .eq("student_id", uid)
+        .maybeSingle();
+      if (error) throw new Error(error.message);
+      return data ?? null;
+    },
+  });
+
+  const sub = query.data ?? null;
+  return {
+    ...query,
+    sub,
+    /** A dormant plan that Resume brings back — never a reason to buy again. */
+    resumable: !!sub && (sub.status === "paused" || sub.cancel_at_period_end),
+    /** No plan has ever existed for this student, so Checkout is correct. */
+    neverSubscribed: !query.isPending && sub === null,
+  };
 }
 
 /** The signed-in payer's Stripe payment history. */

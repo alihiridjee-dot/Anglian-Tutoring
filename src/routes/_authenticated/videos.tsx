@@ -10,7 +10,7 @@ import { parseVideoUrl } from "@/lib/videoEmbed";
 import { VideoThumbnail, VideoModal } from "@/components/VideoPlayer";
 
 export const Route = createFileRoute("/_authenticated/videos")({
-  head: () => ({ meta: [{ title: "Videos | StudyHub" }] }),
+  head: () => ({ meta: [{ title: "Videos | Anglia Educate" }] }),
   component: Videos,
 });
 

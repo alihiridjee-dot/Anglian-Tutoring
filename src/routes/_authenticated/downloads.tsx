@@ -9,7 +9,7 @@ import { toast } from "sonner";
 import { isDemoStudent, DEMO_DOWNLOADS, DEMO_FILE_PREFIX } from "@/lib/demo/studentDemo";
 
 export const Route = createFileRoute("/_authenticated/downloads")({
-  head: () => ({ meta: [{ title: "Downloads | StudyHub" }] }),
+  head: () => ({ meta: [{ title: "Downloads | Anglia Educate" }] }),
   component: Downloads,
 });
 
@@ -77,10 +77,7 @@ export function Downloads() {
       ) : (
         <div className="grid gap-3 md:grid-cols-2">
           {data.map((d) => (
-            <div
-              key={d.id}
-              className="rounded-xl premium-card p-5 flex items-center gap-4"
-            >
+            <div key={d.id} className="rounded-xl premium-card p-5 flex items-center gap-4">
               <div className="w-11 h-11 rounded-lg bg-primary/15 border border-primary/30 flex items-center justify-center">
                 <FileText className="w-5 h-5 text-primary" />
               </div>

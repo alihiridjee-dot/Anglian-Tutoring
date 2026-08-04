@@ -6,7 +6,8 @@ import { Field, inputCls, submitBtn } from "./Field";
 import { TaxonomyFields } from "./TaxonomyFields";
 import { SpecPointSelect } from "./SpecPointSelect";
 import { UseWeeklyFocusButton } from "./UseWeeklyFocusButton";
-import { QuestionBuilder, type BuilderQuestion } from "./QuestionBuilder";
+import { QuestionBuilder } from "./QuestionBuilder";
+import { type BuilderQuestion } from "@/lib/builderQuestion";
 import { type SubjectV, type BoardV, type LevelV } from "@/lib/taxonomy";
 
 interface HomeworkFormProps {

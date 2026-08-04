@@ -33,7 +33,6 @@
 // Auto-injected by the platform:
 //   SUPABASE_URL, SUPABASE_SERVICE_ROLE_KEY
 //
-// deno-lint-ignore-file no-explicit-any
 import { createClient } from "https://esm.sh/@supabase/supabase-js@2";
 import Stripe from "https://esm.sh/stripe@17.5.0?target=deno";
 
@@ -202,11 +201,9 @@ async function resolvePackage(
 }
 
 function admin() {
-  return createClient(
-    Deno.env.get("SUPABASE_URL")!,
-    Deno.env.get("SUPABASE_SERVICE_ROLE_KEY")!,
-    { auth: { persistSession: false } },
-  );
+  return createClient(Deno.env.get("SUPABASE_URL")!, Deno.env.get("SUPABASE_SERVICE_ROLE_KEY")!, {
+    auth: { persistSession: false },
+  });
 }
 
 function stripeClient() {
@@ -362,6 +359,61 @@ async function resolveCustomer(stripe: Stripe, userId: string, email: string | u
   return customer.id;
 }
 
+/**
+ * Stripe statuses that mean the subscription object is finished for good. Any
+ * other status — including `paused`, `past_due` and `unpaid` — is a live object
+ * that can be resumed or repaired, never replaced.
+ */
+const DEAD_STRIPE_STATUSES = new Set(["canceled", "incomplete_expired"]);
+
+/**
+ * Refuses to open Checkout for a student who already has a Stripe subscription.
+ *
+ * This is the guardrail behind this file's central rule: Checkout is for a
+ * family's FIRST subscription only. A paused or ending plan is still a real
+ * Stripe object, and buying a second one on top would be silently destructive —
+ * the webhook upserts public.subscriptions on student_id, so the new row
+ * overwrites the old and the first subscription bills on forever, invisible to
+ * the app and to the family. Pausing is free to undo; paying twice is not.
+ *
+ * The check is confirmed against Stripe rather than trusting our own row, so a
+ * stale row left behind by a subscription deleted in the Stripe dashboard can't
+ * lock a genuine customer out of buying.
+ */
+async function assertNoLiveSubscription(
+  stripe: Stripe,
+  db: ReturnType<typeof admin>,
+  studentId: string,
+) {
+  const { data: row } = await db
+    .from("subscriptions")
+    .select("stripe_subscription_id")
+    .eq("student_id", studentId)
+    .maybeSingle();
+  if (!row?.stripe_subscription_id) return;
+
+  let sub: Stripe.Subscription;
+  try {
+    sub = await stripe.subscriptions.retrieve(row.stripe_subscription_id);
+  } catch {
+    return; // gone from Stripe — the row is stale, let them buy.
+  }
+  if (DEAD_STRIPE_STATUSES.has(sub.status)) return;
+
+  // Name the actual way out, which differs by state — a 409 that just says "no"
+  // sends people to support, and a failing card is not fixed by resuming.
+  throw new HttpError(
+    409,
+    sub.pause_collection
+      ? "This plan is paused, not gone. Resume it from Billing and access comes straight back — there's nothing to pay."
+      : sub.cancel_at_period_end
+        ? "This plan is already running to the end of its period. Resume it from Billing instead of buying a second one."
+        : sub.status === "past_due" || sub.status === "unpaid"
+          ? "There's a payment that didn't go through on the existing plan. Update the card under Card & invoices in Billing — buying a second plan won't clear it."
+          : "There's already an active plan for this student. Change it from Billing rather than buying a second one.",
+  );
+}
+
 async function handleCheckout(req: Request, payload: CheckoutPayload) {
   const user = await requireUser(req);
   const db = admin();
@@ -380,6 +432,8 @@ async function handleCheckout(req: Request, payload: CheckoutPayload) {
       .maybeSingle();
     if (!link) throw new HttpError(403, "You aren't linked to that student.");
   }
+
+  await assertNoLiveSubscription(stripe, db, beneficiary);
 
   const pkg = await resolvePackage(db, payload.tier, await studentLevel(db, beneficiary));
   if (!pkg) throw new HttpError(404, `No active plan called "${payload.tier}".`);
@@ -741,9 +795,20 @@ async function previewItemSwap(
     subscription_proration_behavior: "always_invoice",
   };
 
+  // `retrieveUpcoming` exists on the wire but has been dropped from, or renamed
+  // in, the SDK's own types depending on the pinned version. Naming the shape we
+  // rely on is more honest than `any`: it says exactly which call and which two
+  // fields this depends on, so a future SDK bump breaks here rather than
+  // silently returning undefined into a price shown to a customer.
+  const invoices = stripe.invoices as unknown as {
+    retrieveUpcoming(
+      params: Record<string, unknown>,
+    ): Promise<{ amount_due?: number; currency?: string }>;
+  };
+
   for (const params of [nested, flat]) {
     try {
-      const inv = await (stripe.invoices as any).retrieveUpcoming(params);
+      const inv = await invoices.retrieveUpcoming(params);
       return { amount_due: inv.amount_due ?? 0, currency: inv.currency ?? "gbp" };
     } catch (err) {
       console.warn("stripe-checkout: upcoming-invoice preview failed:", (err as Error).message);

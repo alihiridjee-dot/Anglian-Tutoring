@@ -6,7 +6,8 @@ import { FilterBar, type Filters } from "@/components/FilterBar";
 import { downloadEntriesAsZip, downloadSingleFile, type ZipEntry } from "@/lib/homeworkDownload";
 import { toast } from "sonner";
 import { ClipboardCheck, Clock, Download, Inbox, Loader2, MessageSquare } from "lucide-react";
-import { useAnswerMarking, AnswerMarkingList } from "./AnswerMarking";
+import { AnswerMarkingList } from "./AnswerMarking";
+import { useAnswerMarking } from "@/hooks/data/useAnswerMarking";
 import type { SubjectV, BoardV, LevelV } from "@/lib/taxonomy";
 
 /** Derived lifecycle status for a submission. */

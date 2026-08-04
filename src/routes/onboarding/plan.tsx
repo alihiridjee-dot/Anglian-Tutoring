@@ -4,7 +4,7 @@ import { toast } from "sonner";
 import { Check, Loader2, Mail, CreditCard, Clock, Pencil, GraduationCap } from "lucide-react";
 import { supabase } from "@/integrations/supabase/client";
 import { useSignOut } from "@/hooks/useSignOut";
-import { usePackages } from "@/hooks/data/useBilling";
+import { usePackages, useOwnPlanState } from "@/hooks/data/useBilling";
 import { useEnrolments } from "@/hooks/data/useEnrolments";
 import { startCheckout, formatPence } from "@/lib/billing";
 import { SUBJECTS, BOARDS, LEVELS } from "@/lib/taxonomy";
@@ -64,21 +64,11 @@ function PlanStep() {
   // it's read from what they're studying, so price and enrolment can't disagree.
   const subjectCount = Math.min(Math.max(enrolments.length, 1), 3);
 
-  // A student landing here with a paused (or period-end-cancelled) plan should
-  // resume it from Billing, not buy a second one on top.
-  const [pausedPlan, setPausedPlan] = useState(false);
-  useEffect(() => {
-    (async () => {
-      const { data: u } = await supabase.auth.getUser();
-      if (!u.user) return;
-      const { data: sub } = await supabase
-        .from("subscriptions")
-        .select("status, cancel_at_period_end")
-        .eq("student_id", u.user.id)
-        .maybeSingle();
-      setPausedPlan(sub?.status === "paused" || !!sub?.cancel_at_period_end);
-    })();
-  }, []);
+  // A student landing here with a paused (or period-end-cancelled) plan must
+  // resume it, not buy a second one on top — see useOwnPlanState for why that
+  // would quietly double-bill the family. When it's true this page stops being
+  // a shop entirely; the edge function refuses the purchase as well.
+  const { resumable, isPending: planStatePending } = useOwnPlanState();
 
   const [cadence, setCadence] = useState<Cadence>("monthly");
   const [redirecting, setRedirecting] = useState(false);
@@ -182,25 +172,51 @@ function PlanStep() {
     );
   }
 
-  return (
-    <div className="space-y-4">
-      {pausedPlan && (
-        <div className="rounded-2xl bg-warning/10 border border-warning/30 p-5 text-sm">
-          <p className="font-semibold text-amber-900 mb-1">You already have a plan on hold</p>
-          <p className="text-amber-800">
-            It's paused or set to end — resume it from{" "}
-            <button
-              type="button"
-              onClick={() => navigate({ to: "/billing" })}
-              className="font-semibold underline"
-            >
-              Billing
-            </button>{" "}
-            instead of buying a new one, and your access comes straight back.
+  // Wait for the plan-state answer before choosing a branch. Flashing the shop
+  // at a student who only paused is the exact mistake this page guards against.
+  if (planStatePending) {
+    return (
+      <div className="premium-card rounded-3xl p-10 text-center">
+        <Loader2 className="w-6 h-6 animate-spin mx-auto text-muted-foreground" />
+      </div>
+    );
+  }
+
+  // Dormant plan: this page must not offer to sell anything — not Checkout, and
+  // not "ask a parent to pay" either, since a parent buying on top creates the
+  // same duplicate subscription. Resume is the whole answer, and it's free.
+  if (resumable) {
+    return (
+      <div className="premium-card rounded-3xl p-6 sm:p-8 rise-in space-y-4">
+        <div>
+          <h1 className="font-display text-2xl font-semibold tracking-tight mb-1">
+            Your plan is on hold
+          </h1>
+          <p className="text-sm text-muted-foreground">
+            You already have a plan with us — it's paused or set to end, not gone. Resume it and
+            your dashboard, progress and history come straight back. There's nothing to buy again.
           </p>
         </div>
-      )}
+        <button
+          type="button"
+          onClick={() => navigate({ to: "/billing" })}
+          className="btn-premium w-full h-12 rounded-xl font-semibold text-sm inline-flex items-center justify-center gap-2"
+        >
+          <CreditCard className="w-4 h-4" /> Go to Billing and resume
+        </button>
+        <button
+          type="button"
+          onClick={signOut}
+          className="w-full text-xs text-muted-foreground hover:text-foreground"
+        >
+          Sign out
+        </button>
+      </div>
+    );
+  }
 
+  return (
+    <div className="space-y-4">
       <div className="premium-card rounded-3xl p-6 sm:p-8 rise-in">
         <h1 className="font-display text-2xl font-semibold tracking-tight mb-1">Your plan</h1>
         <p className="text-sm text-muted-foreground mb-6">

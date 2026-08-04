@@ -28,7 +28,6 @@
 // Auto-injected by the platform:
 //   SUPABASE_URL, SUPABASE_SERVICE_ROLE_KEY
 //
-// deno-lint-ignore-file no-explicit-any
 import { createClient } from "https://esm.sh/@supabase/supabase-js@2";
 import Stripe from "https://esm.sh/stripe@17.5.0?target=deno";
 
@@ -51,11 +50,9 @@ class HttpError extends Error {
 const LIVE_STATUSES = ["active", "trialing", "past_due", "unpaid", "paused"];
 
 function admin() {
-  return createClient(
-    Deno.env.get("SUPABASE_URL")!,
-    Deno.env.get("SUPABASE_SERVICE_ROLE_KEY")!,
-    { auth: { persistSession: false } },
-  );
+  return createClient(Deno.env.get("SUPABASE_URL")!, Deno.env.get("SUPABASE_SERVICE_ROLE_KEY")!, {
+    auth: { persistSession: false },
+  });
 }
 
 function stripeClient() {
@@ -87,10 +84,12 @@ function requireServiceRole(req: Request) {
 
   try {
     const part = token.split(".")[1];
-    const json = atob(part.replace(/-/g, "+").replace(/_/g, "/").padEnd(
-      part.length + ((4 - (part.length % 4)) % 4),
-      "=",
-    ));
+    const json = atob(
+      part
+        .replace(/-/g, "+")
+        .replace(/_/g, "/")
+        .padEnd(part.length + ((4 - (part.length % 4)) % 4), "="),
+    );
     if (JSON.parse(json)?.role === "service_role") return;
   } catch {
     // fall through to the throw below
@@ -115,11 +114,14 @@ async function cancelIfPresent(
     if (sub.status === "canceled") return { ok: true, outcome: "already_canceled" };
     await stripe.subscriptions.cancel(subscriptionId);
     return { ok: true, outcome: "canceled" };
-  } catch (err: any) {
-    if (err?.code === "resource_missing" || err?.statusCode === 404) {
+  } catch (err) {
+    // Only the two fields that decide the outcome are named — "already gone
+    // from Stripe" is a success here, anything else is a real failure.
+    const e = err as { code?: string; statusCode?: number; message?: string };
+    if (e?.code === "resource_missing" || e?.statusCode === 404) {
       return { ok: true, outcome: "not_found_in_stripe" };
     }
-    return { ok: false, error: err?.message ?? String(err) };
+    return { ok: false, error: e?.message ?? String(err) };
   }
 }
 
@@ -139,7 +141,11 @@ async function drainQueue(dryRun: boolean) {
   const results: unknown[] = [];
   for (const row of pending ?? []) {
     if (dryRun) {
-      results.push({ id: row.id, subscription: row.stripe_subscription_id, outcome: "would_cancel" });
+      results.push({
+        id: row.id,
+        subscription: row.stripe_subscription_id,
+        outcome: "would_cancel",
+      });
       continue;
     }
 
@@ -147,7 +153,11 @@ async function drainQueue(dryRun: boolean) {
     if (res.ok) {
       await db
         .from("stripe_cancellation_queue")
-        .update({ processed_at: new Date().toISOString(), attempts: row.attempts + 1, last_error: null })
+        .update({
+          processed_at: new Date().toISOString(),
+          attempts: row.attempts + 1,
+          last_error: null,
+        })
         .eq("id", row.id);
       results.push({ id: row.id, subscription: row.stripe_subscription_id, outcome: res.outcome });
     } else {
@@ -156,7 +166,12 @@ async function drainQueue(dryRun: boolean) {
         .from("stripe_cancellation_queue")
         .update({ attempts: row.attempts + 1, last_error: res.error })
         .eq("id", row.id);
-      results.push({ id: row.id, subscription: row.stripe_subscription_id, outcome: "error", error: res.error });
+      results.push({
+        id: row.id,
+        subscription: row.stripe_subscription_id,
+        outcome: "error",
+        error: res.error,
+      });
     }
   }
 
@@ -180,8 +195,16 @@ async function sweepOrphans(dryRun: boolean) {
   const unidentified: unknown[] = [];
 
   for (const status of ["active", "trialing", "past_due", "unpaid"] as const) {
-    for await (const sub of stripe.subscriptions.list({ status, limit: 100, expand: ["data.customer"] })) {
-      const customer = sub.customer as any;
+    for await (const sub of stripe.subscriptions.list({
+      status,
+      limit: 100,
+      expand: ["data.customer"],
+    })) {
+      // Expanded above, so this is an object in practice — but Stripe still
+      // types it as id-or-object-or-deleted, and a deleted customer carries no
+      // metadata. Narrowed to exactly what the owner lookup below reads.
+      const customer = sub.customer as
+        string | { id?: string; metadata?: Record<string, string> } | null;
       const ids = [
         sub.metadata?.student_id,
         sub.metadata?.payer_id,
@@ -220,7 +243,11 @@ async function sweepOrphans(dryRun: boolean) {
       }
 
       const res = await cancelIfPresent(stripe, sub.id);
-      orphans.push({ ...record, outcome: res.ok ? res.outcome : "error", error: res.ok ? undefined : res.error });
+      orphans.push({
+        ...record,
+        outcome: res.ok ? res.outcome : "error",
+        error: res.ok ? undefined : res.error,
+      });
 
       // Record what happened, so an orphan cancelled by the sweep is as
       // auditable as one the trigger caught.

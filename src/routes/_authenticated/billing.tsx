@@ -14,15 +14,12 @@ import { AddSubjectCard } from "@/components/billing/AddSubjectCard";
 import { EnrolledSubjectsCard } from "@/components/billing/EnrolledSubjectsCard";
 import { ParentBillingSection } from "@/components/billing/ParentBillingSection";
 import { resolveDisplayName } from "@/lib/displayName";
-import { SUBJECTS } from "@/lib/taxonomy";
+import { subjectLabel, summariseCourse } from "@/lib/courseSummary";
 
 export const Route = createFileRoute("/_authenticated/billing")({
   head: () => ({ meta: [{ title: "Billing | Anglia Educate" }] }),
   component: BillingPage,
 });
-
-const subjectLabel = (value: string) =>
-  SUBJECTS.find((s) => s.value === value)?.label ?? value.charAt(0).toUpperCase() + value.slice(1);
 
 /** The Stripe reassurance + back-link, shared by both persona views. */
 function StripeFooter() {
@@ -125,6 +122,9 @@ function BillingPage() {
     ? `${formatPence(activePkg.price_pence)} ${billingIntervalLabel(activePkg.billing_interval)}`.trim()
     : undefined;
   const subjectLabels = enrolments.map((e) => subjectLabel(e.subject));
+  // Level + board — what the plan actually teaches. Mixed boards are named
+  // per subject just below, in EnrolledSubjectsCard.
+  const course = summariseCourse(level, enrolments);
 
   return (
     <AppLayout title="Billing">
@@ -153,6 +153,7 @@ function BillingPage() {
                   returnTo="billing"
                   payerLabel={payerLabel}
                   priceLabel={priceLabel}
+                  courseLabel={course.headline ?? undefined}
                   subjectLabels={subjectLabels}
                 />
                 {!canManage && linksSettled && (
@@ -168,10 +169,20 @@ function BillingPage() {
                 )}
               </>
             ) : (
-              <p className="text-muted-foreground">
-                You don't have an active plan yet. Pick one below to unlock lessons, quizzes, and
-                homework marking.
-              </p>
+              <div>
+                <p className="text-muted-foreground">
+                  You don't have an active plan yet. Pick one below to unlock lessons, quizzes, and
+                  homework marking.
+                </p>
+                {/* Still say what they'd be buying — the course is set at
+                    signup and is the thing worth checking before paying. */}
+                {course.headline && (
+                  <p className="mt-2 text-sm text-muted-foreground">
+                    Set up for <strong className="text-foreground">{course.headline}</strong>
+                    {subjectLabels.length > 0 && ` — ${subjectLabels.join(", ")}`}.
+                  </p>
+                )}
+              </div>
             )}
           </div>
         </div>

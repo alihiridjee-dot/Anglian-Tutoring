@@ -7,6 +7,7 @@ import {
   Users,
   Compass,
   CreditCard,
+  MessagesSquare,
 } from "lucide-react";
 import type { ComponentType } from "react";
 import type { ProfileRole } from "@/hooks/data/useEnrolments";
@@ -30,6 +31,7 @@ export type NavRoute =
   | "/homework"
   | "/live"
   | "/mcqs"
+  | "/messages"
   | "/tutor"
   | "/students"
   | "/parents"
@@ -54,6 +56,7 @@ export const STUDENT_SECTION_ROUTES = [
   "/homework",
   "/live",
   "/mcqs",
+  "/messages",
 ] as const;
 
 export type StudentSectionRoute = (typeof STUDENT_SECTION_ROUTES)[number];
@@ -79,6 +82,9 @@ const studentNav: NavItem[] = [
   { to: "/homework", label: "Homework & Grades", icon: ClipboardList },
   { to: "/live", label: "Live Sessions", icon: Video },
   { to: "/mcqs", label: "MCQs", icon: ListChecks },
+  // Sits with the learning sections, not with account settings: asking your
+  // tutor is part of studying, and a tutor's inbox is part of teaching.
+  { to: "/messages", label: "Messages", icon: MessagesSquare },
 ];
 
 const tutorExtra: NavItem[] = [{ to: "/students", label: "Students", icon: Users }];

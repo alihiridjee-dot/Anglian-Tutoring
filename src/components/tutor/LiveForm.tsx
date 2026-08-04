@@ -73,7 +73,11 @@ export function LiveForm({ userId, taxonomy, linkToWeek = false }: LiveFormProps
   const seededFor = useRef<string>("");
   useEffect(() => {
     if (!linkToWeek || !weekKey || weekLoading) return;
-    const sig = `${weekKey}|${taxonomy.subject}|${taxonomy.board}|${taxonomy.level}`;
+    // Board is deliberately absent: the focus above is matched on subject +
+    // level only, so the seeded points are identical across boards. Including it
+    // made the signature finer-grained than the data it guards, which meant
+    // switching board re-seeded and wiped points the tutor had added on top.
+    const sig = `${weekKey}|${taxonomy.subject}|${taxonomy.level}`;
     if (seededFor.current === sig) return;
     seededFor.current = sig;
     const focusIds = weekFocus?.points.map((p) => p.id) ?? [];
@@ -167,7 +171,9 @@ export function LiveForm({ userId, taxonomy, linkToWeek = false }: LiveFormProps
     // A live session must be tied to the curriculum it covers — spec points are
     // required, not optional.
     if (specPointIds.length === 0) {
-      return toast.error("Tag at least one spec point — a live session must cover some curriculum.");
+      return toast.error(
+        "Tag at least one spec point — a live session must cover some curriculum.",
+      );
     }
 
     setLoading(true);
@@ -213,7 +219,7 @@ export function LiveForm({ userId, taxonomy, linkToWeek = false }: LiveFormProps
 
     if (broadcastWhatsApp) {
       const timeStr = new Date(startsAt).toLocaleString();
-      const inviteText = `📚 *New StudyHub Live Session Scheduled!* 📚\n\n🔹 *Session:* ${title}\n🔹 *Subject:* ${taxonomy.subject.toUpperCase()} (${taxonomy.level.toUpperCase()})\n🔹 *Time:* ${timeStr}\n\n👉 *Join here:* ${joinUrl || "Link pending"}`;
+      const inviteText = `📚 *New Anglia Educate Live Session Scheduled!* 📚\n\n🔹 *Session:* ${title}\n🔹 *Subject:* ${taxonomy.subject.toUpperCase()} (${taxonomy.level.toUpperCase()})\n🔹 *Time:* ${timeStr}\n\n👉 *Join here:* ${joinUrl || "Link pending"}`;
 
       try {
         await navigator.clipboard.writeText(inviteText);

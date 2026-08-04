@@ -67,22 +67,28 @@ export function PlannerBoard({
   const [overBand, setOverBand] = useState<BandKey | "unsorted" | null>(null);
   const [modalTopic, setModalTopic] = useState<TopicWithConfidence | null>(null);
 
+  // Named separately so the effect can depend on the two values it actually
+  // uses. Depending on `active` itself would re-fetch whenever the enrolments
+  // query hands back a fresh object for the same course.
+  const activeBoard = active?.board;
+  const activeCourseSubject = active?.subject;
+
   useEffect(() => {
-    if (!active) return;
+    if (!activeBoard || !activeCourseSubject) return;
     let alive = true;
     setLoading(true);
     PlannerDAL.getTopicsWithConfidence(
       studentId,
       level,
-      active.board as BoardV,
-      active.subject as SubjectV,
+      activeBoard as BoardV,
+      activeCourseSubject as SubjectV,
     )
       .then((t) => alive && setTopics(t))
       .finally(() => alive && setLoading(false));
     return () => {
       alive = false;
     };
-  }, [studentId, level, active?.board, active?.subject]);
+  }, [studentId, level, activeBoard, activeCourseSubject]);
 
   const unsorted = topics.filter((t) => t.confidence == null);
   const byBand = (key: BandKey) =>

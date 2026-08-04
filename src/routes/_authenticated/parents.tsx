@@ -22,7 +22,7 @@ import {
 import { validateEmail } from "@/lib/validation";
 
 export const Route = createFileRoute("/_authenticated/parents")({
-  head: () => ({ meta: [{ title: "Linked Parents | StudyHub" }] }),
+  head: () => ({ meta: [{ title: "Linked Parents | Anglia Educate" }] }),
   component: ParentsPage,
 });
 

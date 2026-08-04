@@ -17,7 +17,9 @@ import { useSignOut } from "@/hooks/useSignOut";
 import { isDemoMode, getDemoRole } from "@/lib/auth/session";
 import { DEMO_STUDENT_NAME, DEMO_PARENT_NAME } from "@/lib/demo/studentDemo";
 import { useEnrolments } from "@/hooks/data/useEnrolments";
+import { useChatUnread } from "@/hooks/data/useChat";
 import { NotificationBell } from "@/components/NotificationBell";
+import { CourseBadge } from "@/components/CourseBadge";
 import { UserMenu } from "@/components/UserMenu";
 import { HeaderLiveButton } from "@/components/live/HeaderLiveButton";
 import { GlobalSearchDialog } from "@/components/search/GlobalSearchDialog";
@@ -53,6 +55,7 @@ export function AppLayout({ title, children }: { title: string; children: ReactN
   const router = useRouter();
   const signOut = useSignOut();
   const [searchOpen, setSearchOpen] = useState(false);
+  const { data: unreadMessages = 0 } = useChatUnread();
 
   // ⌘K / Ctrl+K opens search from anywhere in the app. Bound on the window
   // rather than the sidebar button so it works while focus is in a page form,
@@ -117,25 +120,38 @@ export function AppLayout({ title, children }: { title: string; children: ReactN
             >
               <GraduationCap className="w-5 h-5 text-primary-foreground" />
             </div>
-            <span className={`${labelClass} font-display font-semibold tracking-tight text-foreground`}>
+            <span
+              className={`${labelClass} font-display font-semibold tracking-tight text-foreground`}
+            >
               Anglia Educate
             </span>
           </Link>
           <SidebarSearchButton onOpen={() => setSearchOpen(true)} />
           {nav.map(({ to, label, icon: Icon }) => {
             const active = pathname === to || pathname.startsWith(to + "/");
+            // The rail is collapsed most of the time, so an unread count has to
+            // read as a dot on the icon rather than a number beside a hidden
+            // label. It stays visible either way.
+            const badge = to === "/messages" ? unreadMessages : 0;
             return (
               <Link
                 key={to}
                 to={to}
-                title={label}
-                className={`flex items-center gap-3 px-3 py-2.5 rounded-xl text-sm font-medium transition ${
+                title={badge > 0 ? `${label} (${badge} unread)` : label}
+                className={`relative flex items-center gap-3 px-3 py-2.5 rounded-xl text-sm font-medium transition ${
                   active
                     ? "btn-premium"
                     : "text-sidebar-foreground/80 hover:bg-sidebar-accent hover:text-foreground"
                 }`}
               >
-                <Icon className="w-5 h-5 shrink-0" />
+                <span className="relative shrink-0">
+                  <Icon className="w-5 h-5" />
+                  {badge > 0 && (
+                    <span className="absolute -top-1.5 -right-1.5 min-w-4 h-4 px-1 rounded-full bg-red-500 text-white text-[10px] font-bold flex items-center justify-center">
+                      {badge > 9 ? "9+" : badge}
+                    </span>
+                  )}
+                </span>
                 <span className={labelClass}>{label}</span>
               </Link>
             );
@@ -212,6 +228,10 @@ export function AppLayout({ title, children }: { title: string; children: ReactN
                 {title}
               </h1>
             </div>
+            {/* Which spec this student is on, stated on every page — it decides
+                everything they're shown, and it used to appear nowhere after the
+                onboarding step that set it. */}
+            <CourseBadge />
           </div>
           <div className="flex items-center gap-3">
             {isStudentContext && (

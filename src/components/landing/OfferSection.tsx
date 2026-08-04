@@ -54,10 +54,7 @@ export function OfferSection() {
           {OFFERS.map((o) => {
             const Icon = o.icon;
             return (
-              <div
-                key={o.id}
-                className="premium-card premium-card-interactive rounded-2xl p-6"
-              >
+              <div key={o.id} className="premium-card premium-card-interactive rounded-2xl p-6">
                 <div className="icon-tile w-12 h-12 rounded-xl mb-5">
                   <Icon className="w-5.5 h-5.5" />
                 </div>

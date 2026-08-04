@@ -3,7 +3,7 @@ import { AppLayout } from "@/components/AppLayout";
 import { useRoles } from "@/hooks/useRole";
 
 export const Route = createFileRoute("/_authenticated/settings")({
-  head: () => ({ meta: [{ title: "Settings | StudyHub" }] }),
+  head: () => ({ meta: [{ title: "Settings | Anglia Educate" }] }),
   component: Settings,
 });
 
