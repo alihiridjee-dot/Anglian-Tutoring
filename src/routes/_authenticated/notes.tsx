@@ -2,7 +2,7 @@ import { createFileRoute } from "@tanstack/react-router";
 import { AppLayout } from "@/components/AppLayout";
 
 export const Route = createFileRoute("/_authenticated/notes")({
-  head: () => ({ meta: [{ title: "Notes | StudyHub" }] }),
+  head: () => ({ meta: [{ title: "Notes | Anglia Educate" }] }),
   component: Notes,
 });
 

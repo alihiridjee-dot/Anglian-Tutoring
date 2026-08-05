@@ -196,9 +196,7 @@ function HowItWorks() {
       <section className="border-b border-border bg-secondary/60 py-20 lg:py-24">
         <div className="mx-auto max-w-5xl px-6">
           <motion.div {...fadeUp} className="mx-auto mb-12 max-w-2xl text-center">
-            <span className="eyebrow">
-              The problem with normal revision
-            </span>
+            <span className="eyebrow">The problem with normal revision</span>
             <h2 className="mt-3 font-display text-3xl font-bold tracking-tight text-foreground sm:text-4xl">
               Most of a lesson is gone within a month
             </h2>
@@ -219,9 +217,7 @@ function HowItWorks() {
       <section className="border-b border-border bg-card py-20 lg:py-24">
         <div className="mx-auto max-w-7xl px-6">
           <motion.div {...fadeUp} className="mx-auto mb-14 max-w-2xl text-center">
-            <span className="eyebrow">
-              What we actually do
-            </span>
+            <span className="eyebrow">What we actually do</span>
             <h2 className="mt-3 font-display text-3xl font-bold tracking-tight text-foreground sm:text-4xl">
               A loop that closes itself
             </h2>
@@ -257,9 +253,7 @@ function HowItWorks() {
       <section className="border-b border-border bg-secondary/60 py-20 lg:py-24">
         <div className="mx-auto max-w-6xl px-6">
           <motion.div {...fadeUp} className="mx-auto mb-12 max-w-2xl text-center">
-            <span className="eyebrow">
-              See it for yourself
-            </span>
+            <span className="eyebrow">See it for yourself</span>
             <h2 className="mt-3 font-display text-3xl font-bold tracking-tight text-foreground sm:text-4xl">
               Try the scheduler
             </h2>
@@ -278,11 +272,12 @@ function HowItWorks() {
             transition={{ ...fadeUp.transition, delay: 0.2 }}
             className="mx-auto mt-8 max-w-3xl text-center text-sm leading-relaxed text-muted-foreground/70"
           >
-            Under the bonnet this is <strong className="font-semibold text-muted-foreground">FSRS</strong>{" "}
-            — a free, open, peer-reviewed scheduling algorithm built on decades of memory research
-            and trained on well over a billion real study reviews. We didn't invent it. We did the
-            harder part: wiring it to real marked homework, real quizzes and a real tutor, so it
-            works for a fifteen-year-old who has better things to do.
+            Under the bonnet this is{" "}
+            <strong className="font-semibold text-muted-foreground">FSRS</strong> — a free, open,
+            peer-reviewed scheduling algorithm built on decades of memory research and trained on
+            well over a billion real study reviews. We didn't invent it. We did the harder part:
+            wiring it to real marked homework, real quizzes and a real tutor, so it works for a
+            fifteen-year-old who has better things to do.
           </motion.p>
         </div>
       </section>
@@ -291,9 +286,7 @@ function HowItWorks() {
       <section className="border-b border-border bg-card py-20 lg:py-24">
         <div className="mx-auto max-w-7xl px-6">
           <motion.div {...fadeUp} className="mx-auto mb-14 max-w-2xl text-center">
-            <span className="eyebrow">
-              For parents
-            </span>
+            <span className="eyebrow">For parents</span>
             <h2 className="mt-3 font-display text-3xl font-bold tracking-tight text-foreground sm:text-4xl">
               The end of "I've done my revision"
             </h2>
@@ -332,9 +325,7 @@ function HowItWorks() {
       <section className="border-b border-border bg-secondary/60 py-20 lg:py-24">
         <div className="mx-auto max-w-7xl px-6">
           <motion.div {...fadeUp} className="mx-auto mb-14 max-w-2xl text-center">
-            <span className="eyebrow">
-              What's included
-            </span>
+            <span className="eyebrow">What's included</span>
             <h2 className="mt-3 font-display text-3xl font-bold tracking-tight text-foreground sm:text-4xl">
               It all comes in the one place
             </h2>

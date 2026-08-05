@@ -34,6 +34,8 @@ For authentication & the live/demo session model, see [docs/AUTHENTICATION.md](d
     │   ├── UserMenu.tsx       # Header avatar dropdown (profile/dashboard/parents/sign out)
     │   ├── CurriculumSyncPanel.tsx # Tutor-only curriculum text/PDF importer
     │   ├── FilterBar.tsx      # Subject/Board/Level interactive filters
+    │   ├── CourseBadge.tsx    # Header chip: the level + board this student sits
+    │   ├── chat/              # Thread list, conversation view, compose + context picker
     │   ├── landing/           # Landing page component modules
     │   ├── tutor/             # Tutor management forms
     │   └── ui/
@@ -42,6 +44,8 @@ For authentication & the live/demo session model, see [docs/AUTHENTICATION.md](d
     ├── hooks/                 # Custom React hooks
     │   ├── data/              # Query-bound data hooks
     │   │   ├── useAnalytics.ts
+    │   │   ├── useBilling.ts       # Plans, subscriptions, useOwnPlanState (resumable?)
+    │   │   ├── useChat.ts          # Threads, messages, unread badge (polled)
     │   │   ├── useEnrolments.ts
     │   │   └── useParentLinks.ts   # Parent<->student link lifecycle (RPC-backed)
     │   ├── useSignOut.ts      # Shared sign-out teardown (cancel → clear → signOut)
@@ -58,6 +62,9 @@ For authentication & the live/demo session model, see [docs/AUTHENTICATION.md](d
     ├── lib/
     │   ├── auth/session.ts    # Typed AuthSession — single source of truth for live/demo
     │   ├── authService.ts     # Role resolution + effective student id
+    │   ├── chatDal.ts         # Data access layer — student<->tutor threads/messages
+    │   ├── chatDraft.functions.ts # Server fn: AI draft of a tutor reply (tutor-only)
+    │   ├── courseSummary.ts   # Level + per-subject board labels — one phrasing, app-wide
     │   ├── curriculumDal.ts   # Data access layer — ALL curriculum reads (DB only)
     │   ├── curriculumSyncService.ts # Parses spec text → inserts topics/points/MCQ sets
     │   ├── demoAuth.ts        # enterDemoMode — signs into the seeded demo accounts
@@ -82,6 +89,7 @@ For authentication & the live/demo session model, see [docs/AUTHENTICATION.md](d
     │       ├── route.tsx      # AuthGuard — validates session, exposes AuthSession
     │       ├── billing.tsx · curriculum.tsx · dashboard.tsx · downloads.tsx
     │       ├── homework.tsx · live.tsx · mcqs.tsx · mcq.$setId.tsx · notes.tsx
+    │       ├── messages.tsx   # Student<->tutor chat; one route, branches on role
     │       ├── parent-dashboard.tsx · parents.tsx · profile.tsx
     │       ├── settings.tsx · student-dashboard.tsx
     │       └── students.tsx · tutor.tsx · videos.tsx

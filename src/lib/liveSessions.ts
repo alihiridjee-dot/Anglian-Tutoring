@@ -95,3 +95,17 @@ export async function fetchLiveSessions(filters: LiveFilters = {}): Promise<Live
   if (error) throw error;
   return ((data ?? []) as unknown as RawRow[]).map(mapRow);
 }
+
+// "Thu 17 Jul · 11:58 PM" — far more scannable than a raw locale timestamp.
+// Lives here rather than in SessionMeta so the component file exports only
+// components, which is what keeps fast refresh working across the live views.
+export function formatWhen(ms: number) {
+  const d = new Date(ms);
+  const day = d.toLocaleDateString(undefined, {
+    weekday: "short",
+    day: "numeric",
+    month: "short",
+  });
+  const time = d.toLocaleTimeString(undefined, { hour: "numeric", minute: "2-digit" });
+  return `${day} · ${time}`;
+}

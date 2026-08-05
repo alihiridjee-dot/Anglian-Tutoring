@@ -24,7 +24,7 @@ import { MarkingQueue } from "@/components/tutor/MarkingQueue";
 import { type SubjectV, type BoardV, type LevelV } from "@/lib/taxonomy";
 
 export const Route = createFileRoute("/_authenticated/tutor")({
-  head: () => ({ meta: [{ title: "Tutor Studio | StudyHub" }] }),
+  head: () => ({ meta: [{ title: "Tutor Studio | Anglia Educate" }] }),
   component: Tutor,
 });
 

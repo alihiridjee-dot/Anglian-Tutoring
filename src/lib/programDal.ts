@@ -376,9 +376,7 @@ export class ProgramDAL {
       // can't judge it yet.
       return c.bestScore == null || c.bestScore < STRONG_THRESHOLD;
     };
-    const keep = existing.points.filter(
-      (p) => p.origin === "student" || inFlight(p.spec_point_id),
-    );
+    const keep = existing.points.filter((p) => p.origin === "student" || inFlight(p.spec_point_id));
 
     // Kept points first so their original lane wins the merge.
     const origins: Record<string, PlanPointOrigin> = {};

@@ -314,8 +314,7 @@ export function Hero() {
             <Check className="w-4 h-4 text-accent shrink-0" /> Loved by hundreds of students
           </div>
           <div className="flex items-center gap-2">
-            <Check className="w-4 h-4 text-accent shrink-0" /> Led by experienced qualified
-            tutors
+            <Check className="w-4 h-4 text-accent shrink-0" /> Led by experienced qualified tutors
           </div>
           <div className="flex items-center gap-2">
             <Check className="w-4 h-4 text-accent shrink-0" /> 15+ years combined teaching

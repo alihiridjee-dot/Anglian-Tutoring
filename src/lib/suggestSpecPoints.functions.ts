@@ -49,10 +49,7 @@ async function pickIndices(
 
   // Index each candidate so the model returns small integers, not fragile uuids.
   const list = candidates
-    .map(
-      (c, i) =>
-        `[${i}] ${boardLabel(c.board)} · ${c.topic ?? "—"} · ${c.code} ${c.title}`,
-    )
+    .map((c, i) => `[${i}] ${boardLabel(c.board)} · ${c.topic ?? "—"} · ${c.code} ${c.title}`)
     .join("\n");
 
   const system = `You match a UK ${level.toUpperCase()} ${subject} live-session description to the curriculum spec points it covers.

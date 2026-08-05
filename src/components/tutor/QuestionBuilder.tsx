@@ -3,45 +3,23 @@ import { toast } from "sonner";
 import { ArrowDown, ArrowUp, ImagePlus, Loader2, Plus, Sparkles, Trash2, X } from "lucide-react";
 import { generateHomeworkQuestions, type DraftQuestion } from "@/lib/homeworkQuestions.functions";
 import { prepareUpload, formatBytes, MAX_UPLOAD_BYTES } from "@/lib/uploadLimits";
+import { blankQuestion, type BuilderQuestion } from "@/lib/builderQuestion";
 import { inputCls } from "./Field";
 import type { SubjectV, BoardV, LevelV } from "@/lib/taxonomy";
 
 /**
  * The questions themselves, built in the homework form.
  *
- * A question is a draft until the brief is saved: figures are held as local
- * `File`s and only uploaded by the parent form on submit, so abandoning a
- * half-written homework leaves no orphaned bytes in storage. Generation is the
- * fast path (the tutor picks spec points and asks for N questions) but every
- * field stays editable, and a question can be written by hand.
+ * Generation is the fast path (the tutor picks spec points and asks for N
+ * questions) but every field stays editable, and a question can be written by
+ * hand. The draft shape itself lives in `@/lib/builderQuestion`.
  */
-
-export type BuilderQuestion = DraftQuestion & {
-  /** Stable key for React across reordering — drafts have no id yet. */
-  key: string;
-  /** Optional figure shown above the prompt. */
-  image: File | null;
-  imagePreview: string | null;
-};
 
 const ANSWER_TYPE_LABELS: Record<DraftQuestion["answer_type"], string> = {
   short: "Short answer",
   long: "Extended answer",
   numeric: "Numeric",
 };
-
-export function blankQuestion(specPointId: string | null = null): BuilderQuestion {
-  return {
-    key: crypto.randomUUID(),
-    prompt: "",
-    marks: 2,
-    answer_type: "short",
-    mark_scheme: "",
-    spec_point_id: specPointId,
-    image: null,
-    imagePreview: null,
-  };
-}
 
 export function QuestionBuilder({
   questions,

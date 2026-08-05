@@ -10,7 +10,6 @@
 // Auto-injected by the platform:
 //   SUPABASE_URL, SUPABASE_SERVICE_ROLE_KEY, SUPABASE_ANON_KEY
 //
-// deno-lint-ignore-file no-explicit-any
 import { createClient } from "https://esm.sh/@supabase/supabase-js@2";
 
 // CORS for browser-invoked calls (the tutor dashboard uses functions.invoke).
@@ -79,7 +78,25 @@ async function getZoomAccessToken(): Promise<string> {
   return cachedToken.token;
 }
 
-async function zoomFetch(path: string, init?: RequestInit): Promise<any> {
+/**
+ * The fields this function actually reads off a Zoom meeting. Zoom returns far
+ * more; naming only what is consumed keeps the contract honest and means a
+ * field we depend on can't quietly disappear behind an untyped response.
+ */
+interface ZoomMeeting {
+  id?: number | string;
+  topic?: string;
+  join_url?: string;
+  /** Host-only — never returned to a student. */
+  start_url?: string;
+  password?: string | null;
+  start_time?: string;
+  duration?: number;
+  status?: string;
+  timezone?: string;
+}
+
+async function zoomFetch(path: string, init?: RequestInit): Promise<ZoomMeeting> {
   const token = await getZoomAccessToken();
   const res = await fetch(`https://api.zoom.us/v2${path}`, {
     ...init,
@@ -120,7 +137,9 @@ async function assertAuthorized(req: Request): Promise<void> {
     .eq("user_id", userData.user.id);
   if (rolesErr) throw new HttpError(500, "Could not verify permissions.");
 
-  const isTutor = (roles ?? []).some((r: { role: string }) => r.role === "tutor" || r.role === "admin");
+  const isTutor = (roles ?? []).some(
+    (r: { role: string }) => r.role === "tutor" || r.role === "admin",
+  );
   if (!isTutor) throw new HttpError(403, "Tutor access required to manage live sessions.");
 }
 
@@ -199,7 +218,10 @@ async function handleDelete(p: DeletePayload) {
 // --- Entrypoint -------------------------------------------------------------
 
 class HttpError extends Error {
-  constructor(public status: number, message: string) {
+  constructor(
+    public status: number,
+    message: string,
+  ) {
     super(message);
   }
 }

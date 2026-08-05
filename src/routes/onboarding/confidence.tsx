@@ -52,11 +52,11 @@ function ConfidenceStep() {
       onContinue={() => navigate({ to: "/onboarding/school" })}
       continueLabel="Continue"
     >
-      {loading || !studentId || !level ? (
+      {loading || !studentId ? (
         <div className="py-10 text-center">
           <Loader2 className="w-5 h-5 animate-spin mx-auto text-muted-foreground" />
         </div>
-      ) : ordered.length === 0 ? (
+      ) : ordered.length === 0 || !level ? (
         <p className="text-sm text-muted-foreground">
           No subjects yet — you can set your confidence later from the planner.
         </p>
@@ -120,7 +120,17 @@ function SubjectConfidence({
       </div>
     );
   }
-  if (topics.length === 0) return null;
+  // Say so rather than rendering nothing. A silent `null` here is what made the
+  // whole step look broken when the curriculum came back empty — an unrateable
+  // subject is worth one honest line, and the step is skippable anyway.
+  if (topics.length === 0) {
+    return (
+      <p className="text-sm text-muted-foreground">
+        We don't have the {subjectLabel[subject] ?? subject} topic list for your board yet — you can
+        set this later from your planner.
+      </p>
+    );
+  }
 
   return (
     <div>

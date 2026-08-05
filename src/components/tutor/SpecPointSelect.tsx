@@ -29,8 +29,7 @@ type Group = {
 type Section = { board: string | null; groups: Group[] };
 
 const BOARD_RANK = new Map(BOARDS.map((b, i) => [b.value as string, i]));
-const boardLabel = (b: string) =>
-  BOARDS.find((x) => x.value === b)?.label ?? b.toUpperCase();
+const boardLabel = (b: string) => BOARDS.find((x) => x.value === b)?.label ?? b.toUpperCase();
 
 /**
  * Multi-select curriculum-module picker. Given the current subject/board/level,

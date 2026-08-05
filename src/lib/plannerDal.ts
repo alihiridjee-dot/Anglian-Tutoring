@@ -35,7 +35,15 @@ export class PlannerDAL {
   ): Promise<TopicWithConfidence[]> {
     if (isDemoStudent()) return [];
 
-    const topics = await CurriculumDAL.getTopics(level, board, subject);
+    // Fall back to the headings-only RPC when the scoped read comes back empty.
+    // That happens for a student who is enrolled but has no live subscription —
+    // onboarding's confidence step (payment is two steps later) and a lapsed
+    // student's planner. Both are surfaces about the student's OWN progress, so
+    // rating a chapter list is right; the paid content stays gated either way.
+    let topics = await CurriculumDAL.getTopics(level, board, subject);
+    if (topics.length === 0) {
+      topics = await CurriculumDAL.getTopicOutline(level, board, subject);
+    }
     if (topics.length === 0) return [];
 
     const { data, error } = await supabase

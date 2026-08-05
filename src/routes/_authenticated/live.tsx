@@ -28,7 +28,7 @@ import { toast } from "sonner";
 
 export const Route = createFileRoute("/_authenticated/live")({
   beforeLoad: guardStudentSection,
-  head: () => ({ meta: [{ title: "Live Sessions | StudyHub" }] }),
+  head: () => ({ meta: [{ title: "Live Sessions | Anglia Educate" }] }),
   component: Live,
 });
 
@@ -106,14 +106,14 @@ export function Live() {
 
   const getWhatsAppShareLink = (s: LiveSession) => {
     const timeStr = s.starts_at ? new Date(s.starts_at).toLocaleString() : "";
-    const text = `📚 *StudyHub Live Session Reminder* 📚\n\nI have an upcoming live session scheduled:\n\n🔹 *Session:* ${s.title}\n🔹 *Subject:* ${s.subject.toUpperCase()} (${s.level.toUpperCase()})\n🔹 *Time:* ${timeStr}\n\n👉 *Join link:* ${s.join_url || "Link pending"}\n\nSee you there!`;
+    const text = `📚 *Anglia Educate Live Session Reminder* 📚\n\nI have an upcoming live session scheduled:\n\n🔹 *Session:* ${s.title}\n🔹 *Subject:* ${s.subject.toUpperCase()} (${s.level.toUpperCase()})\n🔹 *Time:* ${timeStr}\n\n👉 *Join link:* ${s.join_url || "Link pending"}\n\nSee you there!`;
     const cleanPhone = `${phonePrefix.replace("+", "")}${phoneNumber.replace(/[^0-9]/g, "")}`;
     return `https://wa.me/${cleanPhone}?text=${encodeURIComponent(text)}`;
   };
 
   const getWhatsAppGroupShareLink = (s: LiveSession) => {
     const timeStr = s.starts_at ? new Date(s.starts_at).toLocaleString() : "";
-    const text = `📚 *StudyHub Live Session Invite* 📚\n\nHey everyone! Join the live tutoring session:\n\n🔹 *Session:* ${s.title}\n🔹 *Subject:* ${s.subject.toUpperCase()} (${s.level.toUpperCase()})\n🔹 *Time:* ${timeStr}\n\n👉 *Join here:* ${s.join_url || "Link pending"}`;
+    const text = `📚 *Anglia Educate Live Session Invite* 📚\n\nHey everyone! Join the live tutoring session:\n\n🔹 *Session:* ${s.title}\n🔹 *Subject:* ${s.subject.toUpperCase()} (${s.level.toUpperCase()})\n🔹 *Time:* ${timeStr}\n\n👉 *Join here:* ${s.join_url || "Link pending"}`;
     return `https://wa.me/?text=${encodeURIComponent(text)}`;
   };
 

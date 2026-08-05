@@ -199,8 +199,8 @@ export function McqManager() {
     <>
       <div className="flex items-start justify-between gap-4 mb-8">
         <p className="text-muted-foreground max-w-2xl">
-          Manage every quiz you&apos;ve generated: publish or unpublish to control what students see,
-          preview the student experience, and delete sets you no longer need.
+          Manage every quiz you&apos;ve generated: publish or unpublish to control what students
+          see, preview the student experience, and delete sets you no longer need.
         </p>
         <Link
           to="/tutor"

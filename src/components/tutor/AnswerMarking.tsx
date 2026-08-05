@@ -1,7 +1,6 @@
-import { useCallback, useEffect, useMemo, useState } from "react";
-import { supabase } from "@/integrations/supabase/client";
 import { SignedImage } from "@/components/SignedImage";
 import type { HomeworkQuestion, HomeworkAnswer } from "@/hooks/data/useHomeworkQuestions";
+import type { QuestionMark } from "@/hooks/data/useAnswerMarking";
 
 /**
  * Marking a built-in homework question by question.
@@ -12,140 +11,9 @@ import type { HomeworkQuestion, HomeworkAnswer } from "@/hooks/data/useHomeworkQ
  * feeds predicted grades — so the number the student sees is derived from the
  * marking rather than estimated.
  *
- * Loading is lazy: a marking queue can hold dozens of submissions, and only the
- * open one needs its answers.
+ * Purely presentational: the loading and mark state live in
+ * `useAnswerMarking`, which the marking queue owns.
  */
-
-export type QuestionMark = { marks: string; feedback: string };
-
-export function useAnswerMarking(
-  resourceId: string | undefined,
-  submissionId: string,
-  open: boolean,
-) {
-  const [questions, setQuestions] = useState<HomeworkQuestion[]>([]);
-  const [answers, setAnswers] = useState<Record<string, HomeworkAnswer>>({});
-  const [marks, setMarks] = useState<Record<string, QuestionMark>>({});
-  const [loading, setLoading] = useState(false);
-  const [loaded, setLoaded] = useState(false);
-
-  useEffect(() => {
-    if (!open || loaded || !resourceId) return;
-    let cancelled = false;
-    setLoading(true);
-    (async () => {
-      const [qRes, aRes] = await Promise.all([
-        supabase
-          .from("homework_questions")
-          .select(
-            "id, resource_id, position, prompt, marks, answer_type, image_path, image_name, mark_scheme, spec_point_id",
-          )
-          .eq("resource_id", resourceId)
-          .order("position", { ascending: true }),
-        supabase
-          .from("homework_answers")
-          .select("id, submission_id, question_id, answer_text, images, awarded_marks, feedback")
-          .eq("submission_id", submissionId),
-      ]);
-      if (cancelled) return;
-
-      const qs = (qRes.data ?? []) as HomeworkQuestion[];
-      const map: Record<string, HomeworkAnswer> = {};
-      const initial: Record<string, QuestionMark> = {};
-      for (const a of aRes.data ?? []) {
-        const row = {
-          ...a,
-          images: (a.images as unknown as Array<{ path: string; name: string }>) ?? [],
-        } as HomeworkAnswer;
-        map[row.question_id] = row;
-        initial[row.question_id] = {
-          marks: row.awarded_marks != null ? String(Number(row.awarded_marks)) : "",
-          feedback: row.feedback ?? "",
-        };
-      }
-      setQuestions(qs);
-      setAnswers(map);
-      setMarks(initial);
-      setLoaded(true);
-      setLoading(false);
-    })();
-    return () => {
-      cancelled = true;
-    };
-  }, [open, loaded, resourceId, submissionId]);
-
-  const setMark = useCallback((questionId: string, changes: Partial<QuestionMark>) => {
-    setMarks((prev) => ({
-      ...prev,
-      [questionId]: { ...{ marks: "", feedback: "" }, ...prev[questionId], ...changes },
-    }));
-  }, []);
-
-  const totalMarks = useMemo(() => questions.reduce((sum, q) => sum + q.marks, 0), [questions]);
-
-  // Only questions the tutor has actually marked count towards the awarded
-  // total, so a part-marked submission doesn't read as zeros.
-  const awarded = useMemo(() => {
-    let sum = 0;
-    for (const q of questions) {
-      const raw = marks[q.id]?.marks ?? "";
-      if (raw.trim() === "") continue;
-      const n = Number(raw);
-      if (Number.isFinite(n)) sum += n;
-    }
-    return sum;
-  }, [questions, marks]);
-
-  const markedCount = useMemo(
-    () => questions.filter((q) => (marks[q.id]?.marks ?? "").trim() !== "").length,
-    [questions, marks],
-  );
-
-  const scorePct =
-    totalMarks > 0 && markedCount > 0 ? Math.round((awarded / totalMarks) * 100) : null;
-
-  /** Persist the per-question marks. Called as part of saving the overall mark. */
-  const saveMarks = useCallback(async () => {
-    const updates = questions
-      .filter((q) => answers[q.id])
-      .map((q) => {
-        const m = marks[q.id];
-        const raw = m?.marks?.trim() ?? "";
-        const value = raw === "" ? null : Number(raw);
-        if (value != null && (!Number.isFinite(value) || value < 0 || value > q.marks)) {
-          throw new Error(`Q${q.position + 1}: marks must be between 0 and ${q.marks}`);
-        }
-        return {
-          id: answers[q.id].id,
-          awarded_marks: value,
-          feedback: m?.feedback?.trim() || null,
-        };
-      });
-
-    for (const u of updates) {
-      const { error } = await supabase
-        .from("homework_answers")
-        .update({ awarded_marks: u.awarded_marks, feedback: u.feedback })
-        .eq("id", u.id);
-      if (error) throw error;
-    }
-  }, [questions, answers, marks]);
-
-  return {
-    questions,
-    answers,
-    marks,
-    setMark,
-    loading,
-    hasQuestions: questions.length > 0,
-    totalMarks,
-    awarded,
-    markedCount,
-    scorePct,
-    saveMarks,
-  };
-}
-
 export function AnswerMarkingList({
   questions,
   answers,

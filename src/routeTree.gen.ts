@@ -33,6 +33,7 @@ import { Route as AuthenticatedPlannerRouteImport } from './routes/_authenticate
 import { Route as AuthenticatedParentsRouteImport } from './routes/_authenticated/parents'
 import { Route as AuthenticatedParentDashboardRouteImport } from './routes/_authenticated/parent-dashboard'
 import { Route as AuthenticatedNotesRouteImport } from './routes/_authenticated/notes'
+import { Route as AuthenticatedMessagesRouteImport } from './routes/_authenticated/messages'
 import { Route as AuthenticatedMcqsRouteImport } from './routes/_authenticated/mcqs'
 import { Route as AuthenticatedLiveRouteImport } from './routes/_authenticated/live'
 import { Route as AuthenticatedHomeworkRouteImport } from './routes/_authenticated/homework'
@@ -172,6 +173,11 @@ const AuthenticatedNotesRoute = AuthenticatedNotesRouteImport.update({
   path: '/notes',
   getParentRoute: () => AuthenticatedRouteRoute,
 } as any)
+const AuthenticatedMessagesRoute = AuthenticatedMessagesRouteImport.update({
+  id: '/messages',
+  path: '/messages',
+  getParentRoute: () => AuthenticatedRouteRoute,
+} as any)
 const AuthenticatedMcqsRoute = AuthenticatedMcqsRouteImport.update({
   id: '/mcqs',
   path: '/mcqs',
@@ -271,6 +277,7 @@ export interface FileRoutesByFullPath {
   '/homework': typeof AuthenticatedHomeworkRoute
   '/live': typeof AuthenticatedLiveRoute
   '/mcqs': typeof AuthenticatedMcqsRoute
+  '/messages': typeof AuthenticatedMessagesRoute
   '/notes': typeof AuthenticatedNotesRoute
   '/parent-dashboard': typeof AuthenticatedParentDashboardRoute
   '/parents': typeof AuthenticatedParentsRoute
@@ -312,6 +319,7 @@ export interface FileRoutesByTo {
   '/homework': typeof AuthenticatedHomeworkRoute
   '/live': typeof AuthenticatedLiveRoute
   '/mcqs': typeof AuthenticatedMcqsRoute
+  '/messages': typeof AuthenticatedMessagesRoute
   '/notes': typeof AuthenticatedNotesRoute
   '/parent-dashboard': typeof AuthenticatedParentDashboardRoute
   '/parents': typeof AuthenticatedParentsRoute
@@ -356,6 +364,7 @@ export interface FileRoutesById {
   '/_authenticated/homework': typeof AuthenticatedHomeworkRoute
   '/_authenticated/live': typeof AuthenticatedLiveRoute
   '/_authenticated/mcqs': typeof AuthenticatedMcqsRoute
+  '/_authenticated/messages': typeof AuthenticatedMessagesRoute
   '/_authenticated/notes': typeof AuthenticatedNotesRoute
   '/_authenticated/parent-dashboard': typeof AuthenticatedParentDashboardRoute
   '/_authenticated/parents': typeof AuthenticatedParentsRoute
@@ -400,6 +409,7 @@ export interface FileRouteTypes {
     | '/homework'
     | '/live'
     | '/mcqs'
+    | '/messages'
     | '/notes'
     | '/parent-dashboard'
     | '/parents'
@@ -441,6 +451,7 @@ export interface FileRouteTypes {
     | '/homework'
     | '/live'
     | '/mcqs'
+    | '/messages'
     | '/notes'
     | '/parent-dashboard'
     | '/parents'
@@ -484,6 +495,7 @@ export interface FileRouteTypes {
     | '/_authenticated/homework'
     | '/_authenticated/live'
     | '/_authenticated/mcqs'
+    | '/_authenticated/messages'
     | '/_authenticated/notes'
     | '/_authenticated/parent-dashboard'
     | '/_authenticated/parents'
@@ -703,6 +715,13 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof AuthenticatedNotesRouteImport
       parentRoute: typeof AuthenticatedRouteRoute
     }
+    '/_authenticated/messages': {
+      id: '/_authenticated/messages'
+      path: '/messages'
+      fullPath: '/messages'
+      preLoaderRoute: typeof AuthenticatedMessagesRouteImport
+      parentRoute: typeof AuthenticatedRouteRoute
+    }
     '/_authenticated/mcqs': {
       id: '/_authenticated/mcqs'
       path: '/mcqs'
@@ -833,6 +852,7 @@ interface AuthenticatedRouteRouteChildren {
   AuthenticatedHomeworkRoute: typeof AuthenticatedHomeworkRoute
   AuthenticatedLiveRoute: typeof AuthenticatedLiveRoute
   AuthenticatedMcqsRoute: typeof AuthenticatedMcqsRoute
+  AuthenticatedMessagesRoute: typeof AuthenticatedMessagesRoute
   AuthenticatedNotesRoute: typeof AuthenticatedNotesRoute
   AuthenticatedParentDashboardRoute: typeof AuthenticatedParentDashboardRoute
   AuthenticatedParentsRoute: typeof AuthenticatedParentsRoute
@@ -854,6 +874,7 @@ const AuthenticatedRouteRouteChildren: AuthenticatedRouteRouteChildren = {
   AuthenticatedHomeworkRoute: AuthenticatedHomeworkRoute,
   AuthenticatedLiveRoute: AuthenticatedLiveRoute,
   AuthenticatedMcqsRoute: AuthenticatedMcqsRoute,
+  AuthenticatedMessagesRoute: AuthenticatedMessagesRoute,
   AuthenticatedNotesRoute: AuthenticatedNotesRoute,
   AuthenticatedParentDashboardRoute: AuthenticatedParentDashboardRoute,
   AuthenticatedParentsRoute: AuthenticatedParentsRoute,

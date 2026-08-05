@@ -53,6 +53,135 @@ export type Database = {
           },
         ];
       };
+      chat_messages: {
+        Row: {
+          ai_drafted: boolean;
+          body: string;
+          created_at: string;
+          id: string;
+          sender_id: string;
+          thread_id: string;
+        };
+        Insert: {
+          ai_drafted?: boolean;
+          body: string;
+          created_at?: string;
+          id?: string;
+          sender_id: string;
+          thread_id: string;
+        };
+        Update: {
+          ai_drafted?: boolean;
+          body?: string;
+          created_at?: string;
+          id?: string;
+          sender_id?: string;
+          thread_id?: string;
+        };
+        Relationships: [
+          {
+            foreignKeyName: "chat_messages_sender_id_fkey";
+            columns: ["sender_id"];
+            isOneToOne: false;
+            referencedRelation: "profiles";
+            referencedColumns: ["id"];
+          },
+          {
+            foreignKeyName: "chat_messages_thread_id_fkey";
+            columns: ["thread_id"];
+            isOneToOne: false;
+            referencedRelation: "chat_threads";
+            referencedColumns: ["id"];
+          },
+        ];
+      };
+      chat_threads: {
+        Row: {
+          context_label: string | null;
+          created_at: string;
+          id: string;
+          last_message_at: string;
+          mcq_set_id: string | null;
+          resource_id: string | null;
+          spec_point_id: string | null;
+          status: string;
+          student_id: string;
+          student_last_read_at: string | null;
+          subject: Database["public"]["Enums"]["subject"] | null;
+          subject_line: string;
+          tutor_id: string | null;
+          tutor_last_read_at: string | null;
+        };
+        Insert: {
+          context_label?: string | null;
+          created_at?: string;
+          id?: string;
+          last_message_at?: string;
+          mcq_set_id?: string | null;
+          resource_id?: string | null;
+          spec_point_id?: string | null;
+          status?: string;
+          student_id: string;
+          student_last_read_at?: string | null;
+          subject?: Database["public"]["Enums"]["subject"] | null;
+          subject_line: string;
+          tutor_id?: string | null;
+          tutor_last_read_at?: string | null;
+        };
+        Update: {
+          context_label?: string | null;
+          created_at?: string;
+          id?: string;
+          last_message_at?: string;
+          mcq_set_id?: string | null;
+          resource_id?: string | null;
+          spec_point_id?: string | null;
+          status?: string;
+          student_id?: string;
+          student_last_read_at?: string | null;
+          subject?: Database["public"]["Enums"]["subject"] | null;
+          subject_line?: string;
+          tutor_id?: string | null;
+          tutor_last_read_at?: string | null;
+        };
+        Relationships: [
+          {
+            foreignKeyName: "chat_threads_mcq_set_id_fkey";
+            columns: ["mcq_set_id"];
+            isOneToOne: false;
+            referencedRelation: "mcq_sets";
+            referencedColumns: ["id"];
+          },
+          {
+            foreignKeyName: "chat_threads_resource_id_fkey";
+            columns: ["resource_id"];
+            isOneToOne: false;
+            referencedRelation: "resources";
+            referencedColumns: ["id"];
+          },
+          {
+            foreignKeyName: "chat_threads_spec_point_id_fkey";
+            columns: ["spec_point_id"];
+            isOneToOne: false;
+            referencedRelation: "spec_points";
+            referencedColumns: ["id"];
+          },
+          {
+            foreignKeyName: "chat_threads_student_id_fkey";
+            columns: ["student_id"];
+            isOneToOne: false;
+            referencedRelation: "profiles";
+            referencedColumns: ["id"];
+          },
+          {
+            foreignKeyName: "chat_threads_tutor_id_fkey";
+            columns: ["tutor_id"];
+            isOneToOne: false;
+            referencedRelation: "profiles";
+            referencedColumns: ["id"];
+          },
+        ];
+      };
       homework_answers: {
         Row: {
           answer_text: string | null;
@@ -1453,6 +1582,7 @@ export type Database = {
         Args: { _submission_id: string };
         Returns: undefined;
       };
+      chat_unread_count: { Args: never; Returns: number };
       curriculum_coverage: {
         Args: never;
         Returns: {
@@ -1461,6 +1591,20 @@ export type Database = {
           spec_point_count: number;
           subject: Database["public"]["Enums"]["subject"];
           topic_count: number;
+        }[];
+      };
+      curriculum_topic_outline: {
+        Args: {
+          p_board: Database["public"]["Enums"]["board"];
+          p_level: Database["public"]["Enums"]["level"];
+          p_subject: Database["public"]["Enums"]["subject"];
+        };
+        Returns: {
+          code: string;
+          description: string;
+          id: string;
+          sort_order: number;
+          title: string;
         }[];
       };
       gen_student_invite_code: { Args: never; Returns: string };
@@ -1493,6 +1637,10 @@ export type Database = {
           parent_id: string;
         }[];
       };
+      mark_chat_thread_read: {
+        Args: { p_thread_id: string };
+        Returns: undefined;
+      };
       mark_submission_files_deleted: {
         Args: { _submission_id: string };
         Returns: undefined;
@@ -1515,6 +1663,13 @@ export type Database = {
       submit_homework_answers: {
         Args: { _answers: Json; _notes?: string; _resource_id: string };
         Returns: string;
+      };
+      tutor_directory: {
+        Args: never;
+        Returns: {
+          display_name: string;
+          id: string;
+        }[];
       };
       unlink_parent: { Args: { _link_id: string }; Returns: undefined };
     };

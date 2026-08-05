@@ -92,6 +92,33 @@ export class CurriculumDAL {
     return data ?? [];
   }
 
+  /**
+   * Topic HEADINGS for a course, readable without a live subscription.
+   *
+   * `getTopics` reads the table directly, and that RLS policy requires
+   * `viewer_has_content_access` — so it returns nothing for a student who is
+   * enrolled but hasn't paid yet (all of onboarding) or has lapsed. This goes
+   * through a SECURITY DEFINER RPC instead, the same way `curriculum_coverage`
+   * does for the board/subject pickers, and still requires enrolment.
+   *
+   * Headings only, by design: spec points, resources and quizzes stay behind
+   * the paywall. Use this when a chapter list is all the surface needs.
+   */
+  static async getTopicOutline(level: LevelV, board: BoardV, subject: SubjectV): Promise<Topic[]> {
+    if (isDemoStudent()) return DEMO_CURRICULUM_TOPICS[subject] ?? [];
+
+    const { data, error } = await supabase.rpc("curriculum_topic_outline", {
+      p_level: level,
+      p_board: board,
+      p_subject: subject,
+    });
+    if (error) {
+      console.error("Error loading topic outline:", error);
+      return [];
+    }
+    return (data ?? []) as Topic[];
+  }
+
   static async getSpecPoints(topicId: string): Promise<SpecPoint[]> {
     if (isDemoStudent()) return DEMO_CURRICULUM_SPEC_POINTS[topicId] ?? [];
 

@@ -1,13 +1,13 @@
 import { createFileRoute, useNavigate } from "@tanstack/react-router";
 import { useEffect, useState } from "react";
-import { GraduationCap } from "lucide-react";
 import { supabase } from "@/integrations/supabase/client";
 import { toast } from "sonner";
+import { BrandMark } from "@/components/auth/AuthShell";
 
 export const Route = createFileRoute("/reset-password")({
   head: () => ({
     meta: [
-      { title: "Reset password | StudyHub" },
+      { title: "Reset password | Anglia Educate" },
       { name: "description", content: "Set a new password for your account." },
     ],
   }),
@@ -58,11 +58,11 @@ function ResetPasswordPage() {
   return (
     <div className="min-h-screen flex items-center justify-center bg-background px-4">
       <div className="w-full max-w-md">
-        <div className="flex items-center justify-center gap-2 mb-8">
-          <div className="w-11 h-11 rounded-xl bg-primary/15 border border-primary/30 flex items-center justify-center">
-            <GraduationCap className="w-5 h-5 text-primary" />
-          </div>
-          <span className="font-display text-xl font-semibold tracking-tight">StudyHub</span>
+        {/* The shared lockup rather than a local copy — this page having its own
+            hardcoded wordmark is exactly why it was still saying the old name
+            long after everything else was rebranded. */}
+        <div className="flex items-center justify-center mb-8">
+          <BrandMark />
         </div>
 
         <div className="rounded-2xl premium-card p-6 shadow-lg">

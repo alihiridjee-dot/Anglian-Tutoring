@@ -85,6 +85,11 @@ export function StudentPlanner({
   );
   const [activeSubject, setActiveSubject] = useState(ordered[0]?.subject ?? "biology");
   const active = ordered.find((e) => e.subject === activeSubject) ?? ordered[0];
+  // Named separately so the effect below can depend on the two values it uses.
+  // Depending on `active` itself would re-run the whole roadmap load whenever
+  // the enrolments query hands back a fresh object for the same course.
+  const activeCourseSubject = active?.subject;
+  const activeBoard = active?.board;
   const [tab, setTab] = useState<TabKey>("week");
 
   const [data, setData] = useState<RoadmapResult | null>(null);
@@ -112,13 +117,13 @@ export function StudentPlanner({
   );
 
   useEffect(() => {
-    if (!active) return;
+    if (!activeCourseSubject || !activeBoard) return;
     let alive = true;
     setLoading(true);
     const params = {
       studentId,
-      subject: active.subject as SubjectV,
-      board: active.board as BoardV,
+      subject: activeCourseSubject as SubjectV,
+      board: activeBoard as BoardV,
       level,
     };
     // A rating just landed (boardRev moved off 0): re-cut the current week from
@@ -147,7 +152,7 @@ export function StudentPlanner({
         setData(road);
         setMemory(mem);
         // Diff the focus lane against the previous load of the same course.
-        const course = `${active.subject}|${active.board}`;
+        const course = `${activeCourseSubject}|${activeBoard}`;
         const keys = new Set((road?.bands ?? []).filter((b) => !isTeachBand(b)).map(focusKey));
         const prev = prevFocus.current;
         setNewFocusKeys(
@@ -161,7 +166,7 @@ export function StudentPlanner({
     return () => {
       alive = false;
     };
-  }, [studentId, active?.subject, active?.board, level, boardRev]);
+  }, [studentId, activeCourseSubject, activeBoard, level, boardRev]);
 
   if (!active) {
     return (

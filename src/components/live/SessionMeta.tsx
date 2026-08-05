@@ -1,17 +1,5 @@
 import { BookOpen, CalendarClock } from "lucide-react";
-import type { LiveSession } from "@/lib/liveSessions";
-
-// "Thu 17 Jul · 11:58 PM" — far more scannable than a raw locale timestamp.
-export function formatWhen(ms: number) {
-  const d = new Date(ms);
-  const day = d.toLocaleDateString(undefined, {
-    weekday: "short",
-    day: "numeric",
-    month: "short",
-  });
-  const time = d.toLocaleTimeString(undefined, { hour: "numeric", minute: "2-digit" });
-  return `${day} · ${time}`;
-}
+import { formatWhen, type LiveSession } from "@/lib/liveSessions";
 
 // The identity block for a session — status eyebrow, subject/level chips, title
 // and start time. Shared by the countdown banner and the session rows so a
