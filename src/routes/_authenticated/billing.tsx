@@ -153,8 +153,10 @@ function BillingPage() {
                   returnTo="billing"
                   payerLabel={payerLabel}
                   priceLabel={priceLabel}
-                  courseLabel={course.headline ?? undefined}
-                  subjectLabels={subjectLabels}
+                  course={course}
+                  // The board is the student's own academic fact — theirs to set
+                  // even on a plan a parent pays for.
+                  canChangeBoard
                 />
                 {!canManage && linksSettled && (
                   <div className="mt-4 flex gap-2.5 rounded-xl border border-border bg-muted/40 p-3.5 text-sm text-muted-foreground">
@@ -198,6 +200,7 @@ function BillingPage() {
               enrolments={enrolments}
               level={level}
               canManage={canManage}
+              canChangeBoard
             />
           </div>
         )}

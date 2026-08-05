@@ -1,20 +1,13 @@
 import { useState } from "react";
-import {
-  CreditCard,
-  ExternalLink,
-  GraduationCap,
-  Loader2,
-  PauseCircle,
-  PlayCircle,
-  ShieldCheck,
-  XCircle,
-} from "lucide-react";
+import { ExternalLink, Loader2, PauseCircle, PlayCircle, ShieldCheck, XCircle } from "lucide-react";
 import { toast } from "sonner";
 import { isSubscriptionLive, openBillingPortal, type BillingReturnTo } from "@/lib/billing";
 import { useManageSubscription } from "@/hooks/data/useBilling";
 import { PlanFeedbackDialog } from "@/components/billing/PlanFeedbackDialog";
 import { CancelPlanDialog } from "@/components/billing/CancelPlanDialog";
+import { PlanFacts } from "@/components/billing/PlanFacts";
 import { recordBillingFeedback } from "@/lib/billingFeedback";
+import type { CourseSummary } from "@/lib/courseSummary";
 import type { SubscriptionRow } from "@/lib/billing";
 
 interface SubscriptionPanelProps {
@@ -44,16 +37,21 @@ interface SubscriptionPanelProps {
   /** Formatted recurring price, e.g. "£89.99 per month". */
   priceLabel?: string;
   /**
-   * The exam course the plan teaches, e.g. "GCSE · Edexcel".
+   * The exam course the plan teaches — level, and the board of each subject.
    *
    * A plan name ("2 Subjects, Monthly") says what is being paid for but not
    * what is being taught, and the level and board are what decide every piece of
    * content on the account. Stating them here means the first place anyone
-   * checks their subscription is also the place they can catch a wrong board.
+   * checks their subscription is also the place they can catch a wrong board —
+   * and, for a student, fix it.
    */
-  courseLabel?: string;
-  /** Subjects the plan covers, for the cancel dialog's consequence list. */
-  subjectLabels?: string[];
+  course?: CourseSummary;
+  /**
+   * Whether the viewer may move a subject to a different board. Student-only:
+   * RLS lets nobody but the student write their own enrolment rows. When set,
+   * the board tile offers a jump to the controls in EnrolledSubjectsCard.
+   */
+  canChangeBoard?: boolean;
   /**
    * DOM id of the matching EnrolledSubjectsCard, for the cancel dialog's "drop a
    * subject instead" jump. Per-child on the parent tab, which renders several.
@@ -99,8 +97,8 @@ export function SubscriptionPanel({
   ownerLabel,
   payerLabel,
   priceLabel,
-  courseLabel,
-  subjectLabels = [],
+  course,
+  canChangeBoard = false,
   subjectsAnchorId = "subjects",
 }: SubscriptionPanelProps) {
   const manage = useManageSubscription();
@@ -121,6 +119,9 @@ export function SubscriptionPanel({
   const manageable = canManage && !!sub.stripe_subscription_id;
   const canPause = live && !sub.cancel_at_period_end;
   const canCancel = (live || paused) && !sub.cancel_at_period_end;
+  // Subjects come from the course summary so there is one source for "what does
+  // this plan cover" — the tiles and the cancel dialog can't disagree.
+  const subjectLabels = course?.perSubject.map((s) => s.subjectLabel) ?? [];
 
   const run = (action: "cancel" | "pause" | "resume") => {
     manage.mutate(
@@ -171,40 +172,35 @@ export function SubscriptionPanel({
 
       {priceLabel && <p className="font-display text-2xl font-bold mt-1">{priceLabel}</p>}
 
-      {endsAtLabel && (
-        <p className="text-sm text-muted-foreground mt-1">
-          {sub.cancel_at_period_end
-            ? `Access ends ${endsAtLabel} — no further charges.`
+      {/* What the plan teaches, when it next bills and who pays — each its own
+          tile, each with its own control where one exists. Prose here read as
+          fixed and hid the fact that most of it is changeable. */}
+      <PlanFacts
+        course={course}
+        payerLabel={payerLabel}
+        payerHint={
+          // A managing parent on a plan the child paid for still controls it, so
+          // don't tell them it's someone else's to change.
+          !canManage
+            ? "Changing or stopping it happens from their account"
+            : isPayer
+              ? "You can change or stop it any time"
+              : "You can still change or stop this plan"
+        }
+        billingLabel={
+          sub.cancel_at_period_end ? "Access ends" : paused ? "Paused — was due" : "Next bill"
+        }
+        billingValue={endsAtLabel}
+        billingHint={
+          sub.cancel_at_period_end
+            ? "No further charges"
             : paused
-              ? `Paused — was due to renew ${endsAtLabel}.`
-              : `Renews ${endsAtLabel}.`}
-        </p>
-      )}
-
-      {/* What the plan teaches, next to what it costs — the two halves of
-          "which plan am I on?" that were never shown together. */}
-      {courseLabel && (
-        <div className="mt-3 flex items-center gap-2 text-sm">
-          <GraduationCap className="w-4 h-4 text-muted-foreground shrink-0" />
-          <span className="text-muted-foreground">
-            Studying <strong className="text-foreground font-semibold">{courseLabel}</strong>
-            {subjectLabels.length > 0 && ` — ${subjectLabels.join(", ")}`}
-          </span>
-        </div>
-      )}
-
-      {/* Who is actually paying, stated rather than left to be inferred. On a
-          household plan this is the first question anyone has, and getting it
-          wrong is what makes a student think they can't stop the charges. */}
-      {payerLabel && (
-        <div className="mt-3 flex items-center gap-2 text-sm">
-          <CreditCard className="w-4 h-4 text-muted-foreground shrink-0" />
-          <span className="text-muted-foreground">
-            Paid by <strong className="text-foreground font-semibold">{payerLabel}</strong>
-            {isPayer && canManage && " — you can change or stop it any time"}
-          </span>
-        </div>
-      )}
+              ? "Nothing is taken until you resume"
+              : undefined
+        }
+        onChangeBoard={canChangeBoard ? goToSubjects : undefined}
+        onManageSubjects={canManage ? goToSubjects : undefined}
+      />
 
       {manageable && (
         <>

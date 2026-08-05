@@ -1,4 +1,4 @@
-import { useQuery } from "@tanstack/react-query";
+import { useMutation, useQuery, useQueryClient } from "@tanstack/react-query";
 import { supabase } from "@/integrations/supabase/client";
 import { isDemoMode, getDemoRole } from "@/lib/auth/session";
 import {
@@ -14,6 +14,7 @@ import { getSessionUserId } from "@/lib/auth/session";
 export type ProfileRole = Database["public"]["Enums"]["profile_role"];
 export type BoardV = Database["public"]["Enums"]["board"];
 export type LevelV = Database["public"]["Enums"]["level"];
+export type SubjectV = Database["public"]["Enums"]["subject"];
 
 /** One enrolled subject and the exam board the student sits it with. */
 export interface Enrolment {
@@ -117,4 +118,57 @@ export function useEnrolments(): EnrolmentsState {
     inviteCode: data?.inviteCode ?? null,
     displayName: data?.displayName ?? null,
   };
+}
+
+/**
+ * Move one enrolled subject onto a different exam board.
+ *
+ * The board is what scopes every piece of content on the account — topics,
+ * videos, quizzes, homework, the weekly focus and the planner are all keyed by
+ * (level, board, subject) — but it is deliberately *not* priced: plans are sold
+ * on subject count and cadence alone, so a student sitting Biology with OCR pays
+ * exactly what one sitting it with AQA pays. That is why this writes straight to
+ * the enrolment row rather than going through the billing edge function: there
+ * is nothing for Stripe to do.
+ *
+ * RLS ("enrolments self update") allows the student themselves and nobody else —
+ * not even a linked parent — so only offer this on the signed-in student's own
+ * enrolments.
+ */
+export function useUpdateEnrolmentBoard() {
+  const qc = useQueryClient();
+  return useMutation({
+    mutationFn: async ({
+      studentId,
+      subject,
+      board,
+    }: {
+      studentId: string;
+      subject: SubjectV;
+      board: BoardV;
+    }) => {
+      const { data, error } = await supabase
+        .from("student_enrolments")
+        .update({ board })
+        .eq("student_id", studentId)
+        .eq("subject", subject)
+        .select("subject, board");
+      if (error) throw new Error(error.message);
+      // RLS refuses a write by matching no rows rather than erroring, so an
+      // empty result is a denial — reporting it as success would leave the UI
+      // showing a board the database never accepted.
+      if (!data?.length) {
+        throw new Error("Only the student's own account can change their exam board.");
+      }
+      return { subject, board };
+    },
+    onSuccess: () => {
+      // Curriculum, videos, quizzes, homework, weekly focus and the planner are
+      // every one of them board-scoped, so a switch invalidates essentially the
+      // whole account. Blanket rather than enumerated on purpose: a key missed
+      // here leaves the student reading another board's spec, which is far worse
+      // than a refetch they didn't need.
+      qc.invalidateQueries();
+    },
+  });
 }
