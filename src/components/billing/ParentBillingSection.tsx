@@ -19,10 +19,8 @@ import { AddSubjectCard } from "@/components/billing/AddSubjectCard";
 import { EnrolledSubjectsCard } from "@/components/billing/EnrolledSubjectsCard";
 import { InvoiceHistoryCard } from "@/components/billing/InvoiceHistory";
 import { resolveDisplayName } from "@/lib/displayName";
-import { SUBJECTS, type BoardV } from "@/lib/taxonomy";
-
-const subjectLabel = (value: string) =>
-  SUBJECTS.find((s) => s.value === value)?.label ?? value.charAt(0).toUpperCase() + value.slice(1);
+import { summariseCourse } from "@/lib/courseSummary";
+import { type BoardV, type LevelV } from "@/lib/taxonomy";
 
 /** Formatted recurring price for a tier, or undefined if it isn't priced here. */
 function priceLabelFor(packages: PackageRow[], tier: string | null | undefined) {
@@ -89,7 +87,10 @@ function ChildPlan({
           ownerLabel={childName}
           payerLabel={isPayer ? "you" : childName}
           priceLabel={priceLabelFor(packages, sub.plan)}
-          subjectLabels={enrolments.map((e) => subjectLabel(e.subject))}
+          // Same course facts the child sees on their own page — a parent
+          // checking the plan should be able to catch a wrong board too, even
+          // though only the child can write the change.
+          course={summariseCourse(level as LevelV | null, enrolments)}
           subjectsAnchorId={anchorId}
         />
       ) : null}
