@@ -3,6 +3,7 @@ import { type SubjectV, type BoardV, type LevelV } from "./taxonomy";
 import { type Database, type Json } from "@/integrations/supabase/types";
 import { type PointCoverage } from "./planner/coverage";
 import { mapAttemptSources } from "./planner/attemptSources";
+import { selectInSafe } from "./db/chunked";
 import { getSessionUserId } from "@/lib/auth/session";
 
 /** A stored end-of-week check-in row. */
@@ -57,11 +58,15 @@ export type PlanPoint = {
   description: string | null;
   topic_id: string;
   topic_title: string | null;
+  /** The lane this point sits in — kept intact when a point is carried. */
   origin: PlanPointOrigin;
+  /** Monday of the week it was carried from, or null if planned for this week. */
+  carried_from: string | null;
 };
 
 type PointRow = {
   origin: PlanPointOrigin;
+  carried_from: string | null;
   spec_points: {
     id: string;
     code: string;
@@ -102,7 +107,7 @@ export class WeeklyPlanDAL {
     const { data: rows } = await supabase
       .from("student_weekly_plan_points")
       .select(
-        "origin, spec_points!inner(id, code, title, description, topic_id, sort_order, topics!inner(title, sort_order))",
+        "origin, carried_from, spec_points!inner(id, code, title, description, topic_id, sort_order, topics!inner(title, sort_order))",
       )
       .eq("plan_id", plan.id);
 
@@ -116,6 +121,7 @@ export class WeeklyPlanDAL {
         topic_id: r.spec_points!.topic_id,
         topic_title: r.spec_points!.topics?.title ?? null,
         origin: r.origin,
+        carried_from: r.carried_from,
         _ts: r.spec_points!.topics?.sort_order ?? 0,
         _ps: r.spec_points!.sort_order ?? 0,
       }))
@@ -143,6 +149,14 @@ export class WeeklyPlanDAL {
      * week records which lane each point came from (`core` vs `focus`).
      */
     origins?: Record<string, PlanPointOrigin>;
+    /** Monday of the week these points were carried from, if they all were. */
+    carriedFrom?: string | null;
+    /**
+     * Per-point override of `carriedFrom`. A plan that is being re-cut rather
+     * than created has to hand its existing carry markers back, or rewriting the
+     * week would quietly turn carried points into freshly-planned ones.
+     */
+    carriedFroms?: Record<string, string | null>;
     /** Whose plan — omit for the signed-in student; a tutor passes the target. */
     studentId?: string;
   }): Promise<string> {
@@ -150,51 +164,50 @@ export class WeeklyPlanDAL {
     if (!uid) throw new Error("Not signed in");
     const studentId = params.studentId ?? uid;
 
-    const { data: plan, error } = await supabase
-      .from("student_weekly_plans")
-      .upsert(
-        {
-          student_id: studentId,
-          subject: params.subject,
-          board: params.board,
-          level: params.level,
-          week_start: params.weekStart,
-          source: params.source,
-          ai_rationale: params.rationale ?? null,
-          updated_at: new Date().toISOString(),
-        },
-        { onConflict: "student_id,subject,week_start" },
-      )
-      .select("id")
-      .single();
+    // One transaction, server-side (`save_weekly_plan`). This used to be an
+    // upsert followed by a separate delete and insert, which left the plan
+    // holding zero points in between — a window another tab could both observe
+    // and collide with. See the migration for the full account.
+    const { data: planId, error } = await supabase.rpc("save_weekly_plan", {
+      _student_id: studentId,
+      _subject: params.subject,
+      _board: params.board,
+      _level: params.level,
+      _week_start: params.weekStart,
+      _source: params.source,
+      // The generated signature types every text parameter as non-null; both
+      // the column and the function accept null here.
+      _rationale: (params.rationale ?? null) as string,
+      _points: params.specPointIds.map((spec_point_id) => ({
+        spec_point_id,
+        origin: params.origins?.[spec_point_id] ?? params.origin ?? "ai",
+        carried_from: params.carriedFroms?.[spec_point_id] ?? params.carriedFrom ?? null,
+      })) as unknown as Json,
+    });
     if (error) throw error;
-
-    const planId = plan.id;
-    // Swap the point set wholesale — simplest correct semantics for "this is the
-    // plan now", and the table is tiny (a handful of rows per plan).
-    await supabase.from("student_weekly_plan_points").delete().eq("plan_id", planId);
-    if (params.specPointIds.length > 0) {
-      const { error: insErr } = await supabase.from("student_weekly_plan_points").insert(
-        params.specPointIds.map((spec_point_id) => ({
-          plan_id: planId,
-          spec_point_id,
-          origin: params.origins?.[spec_point_id] ?? params.origin ?? "ai",
-        })),
-      );
-      if (insErr) throw insErr;
-    }
     return planId;
   }
 
-  /** Add spec points to an existing plan (ignores ones already present). */
+  /**
+   * Add spec points to an existing plan (ignores ones already present).
+   *
+   * `origins` overrides `origin` per point — how a carry-forward keeps each
+   * point in the lane it was already in instead of dropping them all into one.
+   */
   static async addPoints(
     planId: string,
     specPointIds: string[],
     origin: PlanPointOrigin = "student",
+    opts: { origins?: Record<string, PlanPointOrigin>; carriedFrom?: string | null } = {},
   ): Promise<void> {
     if (specPointIds.length === 0) return;
     const { error } = await supabase.from("student_weekly_plan_points").upsert(
-      specPointIds.map((spec_point_id) => ({ plan_id: planId, spec_point_id, origin })),
+      specPointIds.map((spec_point_id) => ({
+        plan_id: planId,
+        spec_point_id,
+        origin: opts.origins?.[spec_point_id] ?? origin,
+        carried_from: opts.carriedFrom ?? null,
+      })),
       { onConflict: "plan_id,spec_point_id", ignoreDuplicates: true },
     );
     if (error) throw error;
@@ -222,28 +235,45 @@ export class WeeklyPlanDAL {
     if (specPointIds.length === 0) return out;
     for (const id of specPointIds) out.set(id, { hasHomework: false, hasQuiz: false });
 
-    const [res, taggedQ, directSets] = await Promise.all([
-      supabase
-        .from("resource_spec_points")
-        .select("spec_point_id, resources!inner(kind)")
-        .in("spec_point_id", specPointIds),
-      supabase.from("mcq_questions").select("spec_point_id").in("spec_point_id", specPointIds),
-      supabase.from("mcq_sets").select("spec_point_id").in("spec_point_id", specPointIds),
+    const [res, directRes, taggedQ, directSets] = await Promise.all([
+      selectInSafe<{ spec_point_id: string; resources: { kind: string } | null }>(
+        specPointIds,
+        (batch) =>
+          supabase
+            .from("resource_spec_points")
+            .select("spec_point_id, resources!inner(kind)")
+            .in("spec_point_id", batch),
+      ),
+      // Homework linked straight off the resource rather than through the join
+      // table. `mapAttemptSources` counts both, so this must too — a homework
+      // visible to coverage but invisible here would let the review's lock open
+      // on work it can't see.
+      selectInSafe<{ spec_point_id: string | null; kind: string }>(specPointIds, (batch) =>
+        supabase.from("resources").select("spec_point_id, kind").in("spec_point_id", batch),
+      ),
+      selectInSafe<{ spec_point_id: string | null }>(specPointIds, (batch) =>
+        supabase.from("mcq_questions").select("spec_point_id").in("spec_point_id", batch),
+      ),
+      selectInSafe<{ spec_point_id: string | null }>(specPointIds, (batch) =>
+        supabase.from("mcq_sets").select("spec_point_id").in("spec_point_id", batch),
+      ),
     ]);
 
-    for (const r of (res.data ?? []) as unknown as Array<{
-      spec_point_id: string;
-      resources: { kind: string } | null;
-    }>) {
+    for (const r of res) {
       if (r.resources?.kind === "homework") {
         const e = out.get(r.spec_point_id);
         if (e) e.hasHomework = true;
       }
     }
-    for (const r of (taggedQ.data ?? []) as Array<{ spec_point_id: string | null }>) {
+    for (const r of directRes) {
+      if (r.kind !== "homework" || !r.spec_point_id) continue;
+      const e = out.get(r.spec_point_id);
+      if (e) e.hasHomework = true;
+    }
+    for (const r of taggedQ) {
       if (r.spec_point_id && out.has(r.spec_point_id)) out.get(r.spec_point_id)!.hasQuiz = true;
     }
-    for (const r of (directSets.data ?? []) as Array<{ spec_point_id: string | null }>) {
+    for (const r of directSets) {
       if (r.spec_point_id && out.has(r.spec_point_id)) out.get(r.spec_point_id)!.hasQuiz = true;
     }
     return out;
@@ -289,31 +319,28 @@ export class WeeklyPlanDAL {
     const setIds = [...setToPoints.keys()];
 
     const [subs, attempts] = await Promise.all([
-      resourceIds.length
-        ? supabase
-            .from("homework_submissions")
-            .select("resource_id, score_pct")
-            .eq("student_id", studentId)
-            .in("resource_id", resourceIds)
-        : Promise.resolve({ data: [] as Array<{ resource_id: string; score_pct: number | null }> }),
-      setIds.length
-        ? supabase
+      selectInSafe<{ resource_id: string; score_pct: number | null }>(resourceIds, (batch) =>
+        supabase
+          .from("homework_submissions")
+          .select("resource_id, score_pct")
+          .eq("student_id", studentId)
+          .in("resource_id", batch),
+      ),
+      selectInSafe<{ set_id: string; score: number | null; total: number | null }>(
+        setIds,
+        (batch) =>
+          supabase
             .from("mcq_attempts")
             .select("set_id, score, total")
             .eq("user_id", studentId)
-            .in("set_id", setIds)
-        : Promise.resolve({
-            data: [] as Array<{ set_id: string; score: number | null; total: number | null }>,
-          }),
+            .in("set_id", batch),
+      ),
     ]);
 
     const merge = (a: number | null, b: number | null) =>
       b == null ? a : a == null ? b : Math.max(a, b);
 
-    for (const sub of (subs.data ?? []) as Array<{
-      resource_id: string;
-      score_pct: number | null;
-    }>) {
+    for (const sub of subs) {
       const pct = sub.score_pct == null ? null : Math.round(Number(sub.score_pct));
       for (const p of resourceToPoints.get(sub.resource_id) ?? []) {
         const e = out.get(p);
@@ -324,11 +351,7 @@ export class WeeklyPlanDAL {
         e.homeworkScore = merge(e.homeworkScore, pct);
       }
     }
-    for (const a of (attempts.data ?? []) as Array<{
-      set_id: string;
-      score: number | null;
-      total: number | null;
-    }>) {
+    for (const a of attempts) {
       const pct = a.total ? Math.round(((a.score ?? 0) / a.total) * 100) : null;
       for (const p of setToPoints.get(a.set_id) ?? []) {
         const e = out.get(p);
@@ -416,19 +439,19 @@ export class WeeklyPlanDAL {
   /** Display labels (code + title) for a set of spec points, in curriculum order. */
   static async getSpecPointLabels(specPointIds: string[]): Promise<SpecPointLabel[]> {
     if (specPointIds.length === 0) return [];
-    const { data } = await supabase
-      .from("spec_points")
-      .select("id, code, title, sort_order, topics!inner(sort_order)")
-      .in("id", specPointIds);
-    return (
-      (data ?? []) as unknown as Array<{
-        id: string;
-        code: string;
-        title: string;
-        sort_order: number | null;
-        topics: { sort_order: number | null } | null;
-      }>
-    )
+    const data = await selectInSafe<{
+      id: string;
+      code: string;
+      title: string;
+      sort_order: number | null;
+      topics: { sort_order: number | null } | null;
+    }>(specPointIds, (batch) =>
+      supabase
+        .from("spec_points")
+        .select("id, code, title, sort_order, topics!inner(sort_order)")
+        .in("id", batch),
+    );
+    return data
       .map((p) => ({
         id: p.id,
         code: p.code,
@@ -446,9 +469,11 @@ export class WeeklyPlanDAL {
    * anyone with at least one subject enrolment is plannable.
    */
   static async listStudents(): Promise<PlannerStudent[]> {
+    // Both bounded. The enrolments read had no limit at all, so it grew with
+    // the roster and relied on whatever server-side cap happened to apply.
     const [{ data: profiles }, { data: enrols }] = await Promise.all([
       supabase.from("profiles").select("id, display_name, level, role").limit(1000),
-      supabase.from("student_enrolments").select("student_id, subject, board"),
+      supabase.from("student_enrolments").select("student_id, subject, board").limit(5000),
     ]);
     const byStudent = new Map<string, { subject: SubjectV; board: BoardV }[]>();
     for (const e of (enrols ?? []) as Array<{

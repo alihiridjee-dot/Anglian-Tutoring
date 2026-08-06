@@ -8,6 +8,27 @@ export type Database = {
   };
   public: {
     Tables: {
+      ai_request_log: {
+        Row: {
+          created_at: string;
+          endpoint: string;
+          id: number;
+          user_id: string;
+        };
+        Insert: {
+          created_at?: string;
+          endpoint: string;
+          id?: never;
+          user_id: string;
+        };
+        Update: {
+          created_at?: string;
+          endpoint?: string;
+          id?: never;
+          user_id?: string;
+        };
+        Relationships: [];
+      };
       billing_feedback: {
         Row: {
           action: string;
@@ -1269,18 +1290,21 @@ export type Database = {
       };
       student_weekly_plan_points: {
         Row: {
+          carried_from: string | null;
           created_at: string;
           origin: Database["public"]["Enums"]["plan_point_origin"];
           plan_id: string;
           spec_point_id: string;
         };
         Insert: {
+          carried_from?: string | null;
           created_at?: string;
           origin?: Database["public"]["Enums"]["plan_point_origin"];
           plan_id: string;
           spec_point_id: string;
         };
         Update: {
+          carried_from?: string | null;
           created_at?: string;
           origin?: Database["public"]["Enums"]["plan_point_origin"];
           plan_id?: string;
@@ -1583,6 +1607,10 @@ export type Database = {
         Returns: undefined;
       };
       chat_unread_count: { Args: never; Returns: number };
+      claim_ai_request: {
+        Args: { _endpoint: string; _limit: number; _window: string };
+        Returns: boolean;
+      };
       curriculum_coverage: {
         Args: never;
         Returns: {
@@ -1608,6 +1636,10 @@ export type Database = {
         }[];
       };
       gen_student_invite_code: { Args: never; Returns: string };
+      grade_mcq_attempt: {
+        Args: { _answers: Json; _set_id: string };
+        Returns: Json;
+      };
       invite_parent_by_email: { Args: { _email: string }; Returns: Json };
       is_enrolled_in: {
         Args: {
@@ -1652,6 +1684,7 @@ export type Database = {
           onboarding_complete: boolean;
         }[];
       };
+      prune_ai_request_log: { Args: never; Returns: number };
       purge_stale_live_sessions: { Args: never; Returns: number };
       record_reviews_atomic: { Args: { _reviews: Json }; Returns: string[] };
       respond_to_parent_invite: {
@@ -1660,6 +1693,20 @@ export type Database = {
       };
       revoke_parent_invite: { Args: { _invite_id: string }; Returns: undefined };
       rotate_student_invite_code: { Args: never; Returns: string };
+      save_student_enrolments: { Args: { _subjects: Json }; Returns: undefined };
+      save_weekly_plan: {
+        Args: {
+          _board: Database["public"]["Enums"]["board"];
+          _level: Database["public"]["Enums"]["level"];
+          _points: Json;
+          _rationale: string;
+          _source: Database["public"]["Enums"]["plan_source"];
+          _student_id: string;
+          _subject: Database["public"]["Enums"]["subject"];
+          _week_start: string;
+        };
+        Returns: string;
+      };
       submit_homework_answers: {
         Args: { _answers: Json; _notes?: string; _resource_id: string };
         Returns: string;

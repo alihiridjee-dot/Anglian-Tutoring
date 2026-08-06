@@ -3,6 +3,7 @@ import { useEffect, useState } from "react";
 import { useQueryClient } from "@tanstack/react-query";
 import { toast } from "sonner";
 import { supabase } from "@/integrations/supabase/client";
+import type { Json } from "@/integrations/supabase/types";
 import { SUBJECTS, BOARDS, LEVELS, type BoardV, type LevelV, type SubjectV } from "@/lib/taxonomy";
 import { StepCard } from "@/components/onboarding/StepCard";
 import { useCurriculumCoverage } from "@/hooks/data/useCurriculumCoverage";
@@ -125,35 +126,21 @@ function SubjectsStep() {
     try {
       const { data: u } = await supabase.auth.getUser();
       if (!u.user) throw new Error("You need to be signed in.");
-      const uid = u.user.id;
 
-      // Drop de-selected subjects first: a student narrowing from three
-      // subjects to one must actually lose access to the other two, and an
-      // upsert alone would leave those rows in place.
-      const keep = selected.map((s) => s.value);
-      const del = supabase.from("student_enrolments").delete().eq("student_id", uid);
-      const { error: delErr } = await (keep.length
-        ? del.not("subject", "in", `(${keep.join(",")})`)
-        : del);
-      if (delErr) throw delErr;
-
-      const { error: upErr } = await supabase.from("student_enrolments").upsert(
-        selected.map((s) => ({
-          student_id: uid,
+      // Drop de-selected subjects, save the chosen ones, and move
+      // `enrolled_courses` in step — all in one transaction.
+      //
+      // These used to be three separate round trips. A failure between them
+      // left the enrolment rows and `enrolled_courses` disagreeing, and the
+      // content RLS reads the latter: the student ends up paid up and unable to
+      // see anything, with nothing on screen to explain it.
+      const { error } = await supabase.rpc("save_student_enrolments", {
+        _subjects: selected.map((s) => ({
           subject: s.value,
           board: boards[s.value],
-        })),
-        { onConflict: "student_id,subject" },
-      );
-      if (upErr) throw upErr;
-
-      // enrolled_courses is the denormalised subject list many reads still use;
-      // it has to move in step with the enrolment rows or the two disagree.
-      const { error: profErr } = await supabase
-        .from("profiles")
-        .update({ enrolled_courses: keep })
-        .eq("id", uid);
-      if (profErr) throw profErr;
+        })) as unknown as Json,
+      });
+      if (error) throw error;
 
       queryClient.invalidateQueries({ queryKey: ["user-enrolments-and-profile"] });
       navigate({ to: "/onboarding/learning" });

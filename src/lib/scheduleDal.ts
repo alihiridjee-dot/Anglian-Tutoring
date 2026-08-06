@@ -21,6 +21,7 @@ import {
 } from "./planner/scheduler";
 import { type WeekLane } from "./planner/pacing";
 import { mapAttemptSources } from "./planner/attemptSources";
+import { selectInSafe } from "./db/chunked";
 import { getSessionUserId } from "@/lib/auth/session";
 
 /** One covered spec point, with how it went, for the "covered so far" ledger. */
@@ -94,14 +95,54 @@ export interface MemoryStats {
   weakest: { code: string; title: string; retention: number }[];
 }
 
+/** `record_reviews_atomic` rejects an array longer than this. */
+const RPC_REVIEW_LIMIT = 500;
+
 /** One review event before it's applied — used to replay history in time order. */
-interface ReviewEvent {
+export interface ReviewEvent {
   specPointId: string;
   rating: Grade;
   source: ReviewSource;
   scorePct: number | null;
   sourceId: string | null;
   reviewedAt: Date;
+}
+
+/** The ledger's idempotency key for one event. */
+export function reviewKey(e: {
+  specPointId: string;
+  source: string;
+  sourceId: string | null;
+}): string {
+  return `${e.specPointId}|${e.source}|${e.sourceId ?? ""}`;
+}
+
+/**
+ * Replay a run of review events against a set of cards, in time order.
+ *
+ * Events already present in the ledger are dropped rather than re-applied:
+ * `record_reviews_atomic` skips them server-side (that is what makes a replay
+ * idempotent), so folding one would advance the card for a review the database
+ * is about to ignore. Pure, so the batched path can be checked against the
+ * one-request-per-event path it replaces.
+ */
+export function foldReviews(
+  events: ReviewEvent[],
+  cards: Map<string, Card>,
+  alreadyApplied: ReadonlySet<string>,
+): { specPointId: string; card: Card; event: ReviewEvent }[] {
+  const ordered = [...events].sort((x, y) => x.reviewedAt.getTime() - y.reviewedAt.getTime());
+  const working = new Map(cards);
+  const out: { specPointId: string; card: Card; event: ReviewEvent }[] = [];
+  for (const e of ordered) {
+    if (alreadyApplied.has(reviewKey(e))) continue;
+    const next = applyReview(working.get(e.specPointId) ?? null, e.rating, e.reviewedAt, {
+      countsAsLapse: e.source !== "confidence",
+    });
+    working.set(e.specPointId, next);
+    out.push({ specPointId: e.specPointId, card: next, event: e });
+  }
+  return out;
 }
 
 /**
@@ -118,16 +159,17 @@ export class ScheduleDAL {
   static async getSchedule(studentId: string, specPointIds: string[]): Promise<Map<string, Card>> {
     const out = new Map<string, Card>();
     if (specPointIds.length === 0) return out;
-    const { data, error } = await supabase
-      .from("student_spec_point_schedule")
-      .select("spec_point_id, card")
-      .eq("student_id", studentId)
-      .in("spec_point_id", specPointIds);
-    if (error) {
-      console.error("Error loading schedule:", error);
-      return out;
-    }
-    for (const r of data ?? []) out.set(r.spec_point_id, reviveCard(r.card));
+    const rows = await selectInSafe<{ spec_point_id: string; card: Json }>(
+      specPointIds,
+      (batch) =>
+        supabase
+          .from("student_spec_point_schedule")
+          .select("spec_point_id, card")
+          .eq("student_id", studentId)
+          .in("spec_point_id", batch),
+      (m) => console.error("Error loading schedule:", m),
+    );
+    for (const r of rows) out.set(r.spec_point_id, reviveCard(r.card));
     return out;
   }
 
@@ -138,12 +180,16 @@ export class ScheduleDAL {
   ): Promise<Map<string, number | null>> {
     const out = new Map<string, number | null>();
     if (specPointIds.length === 0) return out;
-    const { data } = await supabase
-      .from("student_spec_point_confidence")
-      .select("spec_point_id, confidence")
-      .eq("student_id", studentId)
-      .in("spec_point_id", specPointIds);
-    for (const r of data ?? []) out.set(r.spec_point_id, r.confidence);
+    const rows = await selectInSafe<{ spec_point_id: string; confidence: number }>(
+      specPointIds,
+      (batch) =>
+        supabase
+          .from("student_spec_point_confidence")
+          .select("spec_point_id, confidence")
+          .eq("student_id", studentId)
+          .in("spec_point_id", batch),
+    );
+    for (const r of rows) out.set(r.spec_point_id, r.confidence);
     return out;
   }
 
@@ -248,24 +294,24 @@ export class ScheduleDAL {
     const resourceIds = [...resourceToPoints.keys()];
     const setIds = [...setToPoints.keys()];
     const [subs, attempts] = await Promise.all([
-      resourceIds.length
-        ? supabase
-            .from("homework_submissions")
-            .select("id, resource_id, score_pct, graded_at, submitted_at")
-            .eq("student_id", studentId)
-            .in("resource_id", resourceIds)
-        : Promise.resolve({ data: [] as HwRow[] }),
-      setIds.length
-        ? supabase
-            .from("mcq_attempts")
-            .select("id, set_id, score, total, created_at")
-            .eq("user_id", studentId)
-            .in("set_id", setIds)
-        : Promise.resolve({ data: [] as AttemptRow[] }),
+      selectInSafe<HwRow>(resourceIds, (batch) =>
+        supabase
+          .from("homework_submissions")
+          .select("id, resource_id, score_pct, graded_at, submitted_at")
+          .eq("student_id", studentId)
+          .in("resource_id", batch),
+      ),
+      selectInSafe<AttemptRow>(setIds, (batch) =>
+        supabase
+          .from("mcq_attempts")
+          .select("id, set_id, score, total, created_at")
+          .eq("user_id", studentId)
+          .in("set_id", batch),
+      ),
     ]);
 
     const events: ReviewEvent[] = [];
-    for (const sub of (subs.data ?? []) as HwRow[]) {
+    for (const sub of subs) {
       if (sub.score_pct == null) continue; // ungraded homework isn't a signal yet
       const pct = Math.round(Number(sub.score_pct));
       for (const p of resourceToPoints.get(sub.resource_id) ?? []) {
@@ -279,7 +325,7 @@ export class ScheduleDAL {
         });
       }
     }
-    for (const a of (attempts.data ?? []) as AttemptRow[]) {
+    for (const a of attempts) {
       if (!a.total) continue;
       const pct = Math.round(((a.score ?? 0) / a.total) * 100);
       for (const p of setToPoints.get(a.set_id) ?? []) {
@@ -294,11 +340,63 @@ export class ScheduleDAL {
       }
     }
 
+    if (events.length === 0) return 0;
+
     // Chronological replay so the card's stability/lapses reflect the real order.
     events.sort((x, y) => x.reviewedAt.getTime() - y.reviewedAt.getTime());
+
+    // This used to call recordReview once per event, and each call was two round
+    // trips (read the card, then the RPC). A student with a term of marks behind
+    // them could sit through hundreds of sequential requests on every planner
+    // load — and this runs on the hot path, for every student at once.
+    //
+    // The replay is folded in memory instead, then written in one transaction.
+    // Getting that right needs the ledger first: the RPC skips a review it has
+    // already seen (that is what makes replays idempotent), so folding an
+    // already-applied attempt would advance the card a second time. Reading the
+    // existing keys up front and dropping those events keeps the outcome
+    // identical to the one-at-a-time version.
+    const seen = new Set(
+      (
+        await selectInSafe<{ spec_point_id: string; source: string; source_id: string | null }>(
+          specPointIds,
+          (batch) =>
+            supabase
+              .from("student_spec_point_reviews")
+              .select("spec_point_id, source, source_id")
+              .eq("student_id", studentId)
+              .in("source", ["homework", "mcq"])
+              .in("spec_point_id", batch),
+        )
+      ).map((r) => `${r.spec_point_id}|${r.source}|${r.source_id ?? ""}`),
+    );
+
+    const pending = events.filter((e) => !seen.has(reviewKey(e)));
+    if (pending.length === 0) return 0;
+
+    const cards = await this.getSchedule(studentId, [
+      ...new Set(pending.map((e) => e.specPointId)),
+    ]);
+    const rows = foldReviews(events, cards, seen).map(({ card, event: e }) => ({
+      student_id: studentId,
+      spec_point_id: e.specPointId,
+      rating: e.rating,
+      source: e.source,
+      score_pct: e.scorePct ?? null,
+      source_id: e.sourceId ?? null,
+      reviewed_at: e.reviewedAt.toISOString(),
+      card: card as unknown as Json,
+      due: card.due.toISOString(),
+    }));
+
+    // The RPC refuses more than 500 rows per call.
     let applied = 0;
-    for (const e of events) {
-      if (await this.recordReview({ studentId, ...e })) applied++;
+    for (let i = 0; i < rows.length; i += RPC_REVIEW_LIMIT) {
+      const { data, error } = await supabase.rpc("record_reviews_atomic", {
+        _reviews: rows.slice(i, i + RPC_REVIEW_LIMIT) as unknown as Json,
+      });
+      if (error) throw error;
+      applied += ((data as unknown as string[]) ?? []).length;
     }
     return applied;
   }
@@ -384,26 +482,39 @@ export class ScheduleDAL {
     if (!topics || topics.length === 0) return [];
     const topicMeta = new Map(topics.map((t) => [t.id, t]));
 
-    const { data: pts } = await supabase
-      .from("spec_points")
-      .select("id, code, title, sort_order, topic_id")
-      .in(
-        "topic_id",
-        topics.map((t) => t.id),
-      );
-    if (!pts || pts.length === 0) return [];
+    const pts = await selectInSafe<{
+      id: string;
+      code: string;
+      title: string;
+      sort_order: number | null;
+      topic_id: string;
+    }>(
+      topics.map((t) => t.id),
+      (batch) =>
+        supabase
+          .from("spec_points")
+          .select("id, code, title, sort_order, topic_id")
+          .in("topic_id", batch),
+    );
+    if (pts.length === 0) return [];
     const pointMeta = new Map(pts.map((p) => [p.id, p]));
 
-    const { data: reviews } = await supabase
-      .from("student_spec_point_reviews")
-      .select("spec_point_id, source, score_pct, reviewed_at")
-      .eq("student_id", params.studentId)
-      .in("source", ["homework", "mcq"])
-      .in(
-        "spec_point_id",
-        pts.map((p) => p.id),
-      );
-    if (!reviews || reviews.length === 0) return [];
+    const reviews = await selectInSafe<{
+      spec_point_id: string;
+      source: string;
+      score_pct: number | null;
+      reviewed_at: string;
+    }>(
+      pts.map((p) => p.id),
+      (batch) =>
+        supabase
+          .from("student_spec_point_reviews")
+          .select("spec_point_id, source, score_pct, reviewed_at")
+          .eq("student_id", params.studentId)
+          .in("source", ["homework", "mcq"])
+          .in("spec_point_id", batch),
+    );
+    if (reviews.length === 0) return [];
 
     const agg = new Map<string, { homework: number | null; quiz: number | null; last: string }>();
     const max = (a: number | null, b: number | null) =>
@@ -472,14 +583,22 @@ export class ScheduleDAL {
       .eq("level", params.level);
     if (!topics || topics.length === 0) return [];
 
-    const { data: pts } = await supabase
-      .from("spec_points")
-      .select("id, code, title, sort_order, topic_id, weight")
-      .in(
-        "topic_id",
-        topics.map((t) => t.id),
-      );
-    if (!pts || pts.length === 0) return [];
+    const pts = await selectInSafe<{
+      id: string;
+      code: string;
+      title: string;
+      sort_order: number | null;
+      topic_id: string;
+      weight: number | null;
+    }>(
+      topics.map((t) => t.id),
+      (batch) =>
+        supabase
+          .from("spec_points")
+          .select("id, code, title, sort_order, topic_id, weight")
+          .in("topic_id", batch),
+    );
+    if (pts.length === 0) return [];
     const pointIds = pts.map((p) => p.id);
 
     const [cards, conf, marks] = await Promise.all([
@@ -566,11 +685,10 @@ export class ScheduleDAL {
     const topicIds = (topics ?? []).map((t) => t.id);
     if (topicIds.length === 0) return empty;
 
-    const { data: pts } = await supabase
-      .from("spec_points")
-      .select("id, code, title")
-      .in("topic_id", topicIds);
-    if (!pts || pts.length === 0) return empty;
+    const pts = await selectInSafe<{ id: string; code: string; title: string }>(topicIds, (batch) =>
+      supabase.from("spec_points").select("id, code, title").in("topic_id", batch),
+    );
+    if (pts.length === 0) return empty;
 
     const cards = await this.getSchedule(
       params.studentId,
@@ -612,15 +730,21 @@ export class ScheduleDAL {
   ): Promise<Map<string, { homework: number | null; quiz: number | null }>> {
     const out = new Map<string, { homework: number | null; quiz: number | null }>();
     if (specPointIds.length === 0) return out;
-    const { data: reviews } = await supabase
-      .from("student_spec_point_reviews")
-      .select("spec_point_id, source, score_pct")
-      .eq("student_id", studentId)
-      .in("source", ["homework", "mcq"])
-      .in("spec_point_id", specPointIds);
+    const reviews = await selectInSafe<{
+      spec_point_id: string;
+      source: string;
+      score_pct: number | null;
+    }>(specPointIds, (batch) =>
+      supabase
+        .from("student_spec_point_reviews")
+        .select("spec_point_id, source, score_pct")
+        .eq("student_id", studentId)
+        .in("source", ["homework", "mcq"])
+        .in("spec_point_id", batch),
+    );
     const max = (a: number | null, b: number | null) =>
       b == null ? a : a == null ? b : Math.max(a, b);
-    for (const r of reviews ?? []) {
+    for (const r of reviews) {
       const cur = out.get(r.spec_point_id) ?? { homework: null, quiz: null };
       if (r.source === "homework") cur.homework = max(cur.homework, r.score_pct);
       else if (r.source === "mcq") cur.quiz = max(cur.quiz, r.score_pct);

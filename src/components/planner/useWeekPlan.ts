@@ -8,6 +8,27 @@ import { getSessionUserId } from "@/lib/auth/session";
 
 export type Activity = Map<string, { hasHomework: boolean; hasQuiz: boolean }>;
 
+/**
+ * Week-builds already running, keyed by (student, subject, week).
+ *
+ * The dashboard and the planner's "This week" tab both mount this hook, and
+ * both build the current week when it's missing. Mounted together they each ran
+ * a full `planForWeek` — two roadmap loads, two AI-free selections, two writes —
+ * to arrive at the same answer. The database now serialises the write itself,
+ * but the second run is still wasted work on the load path, and it doubles the
+ * query volume of the busiest screen exactly when everyone opens it at once.
+ * The second caller waits on the first instead.
+ */
+const inFlightBuilds = new Map<string, Promise<unknown>>();
+
+function dedupeBuild<T>(key: string, run: () => Promise<T>): Promise<T> {
+  const existing = inFlightBuilds.get(key);
+  if (existing) return existing as Promise<T>;
+  const promise = run().finally(() => inFlightBuilds.delete(key));
+  inFlightBuilds.set(key, promise);
+  return promise;
+}
+
 export interface WeekPlanState {
   plan: WeeklyPlan | null;
   points: PlanPoint[];
@@ -75,72 +96,100 @@ export function useWeekPlan(params: {
   const materialise = useCallback(async () => {
     if (!isCurrent) return null;
     if ((await getSessionUserId()) !== studentId) return null;
-    const { specPointIds, origins, rationale } = await ProgramDAL.planForWeek({
-      studentId,
-      subject,
-      board,
-      level,
-      weekStart,
+    return dedupeBuild(`${studentId}|${subject}|${weekStart}`, async () => {
+      // Re-check inside the lock: the panel that was waiting must not rebuild a
+      // week the panel ahead of it just created.
+      const already = await WeeklyPlanDAL.getPlan(studentId, subject, weekStart);
+      if (already) return already;
+
+      const { specPointIds, origins, rationale } = await ProgramDAL.planForWeek({
+        studentId,
+        subject,
+        board,
+        level,
+        weekStart,
+      });
+      if (specPointIds.length === 0) return null;
+      await WeeklyPlanDAL.savePlan({
+        subject,
+        board,
+        level,
+        weekStart,
+        specPointIds,
+        source: "ai",
+        rationale,
+        // Each point records the lane it came from, so the week can show the split.
+        origins,
+        origin: "ai",
+      });
+      return WeeklyPlanDAL.getPlan(studentId, subject, weekStart);
     });
-    if (specPointIds.length === 0) return null;
-    await WeeklyPlanDAL.savePlan({
-      subject,
-      board,
-      level,
-      weekStart,
-      specPointIds,
-      source: "ai",
-      rationale,
-      // Each point records the lane it came from, so the week can show the split.
-      origins,
-      origin: "ai",
-    });
-    return WeeklyPlanDAL.getPlan(studentId, subject, weekStart);
   }, [studentId, subject, board, level, weekStart, isCurrent]);
 
-  const reload = useCallback(async () => {
-    setLoading(true);
-    let res = await WeeklyPlanDAL.getPlan(studentId, subject, weekStart);
-    if (!res) {
-      // Best-effort: an empty week is a fine outcome, a broken panel is not.
-      res = await materialise().catch((e) => {
-        console.error("build this week from the programme", e);
-        return null;
-      });
-    }
-    const pts = res?.points ?? [];
-    setPlan(res?.plan ?? null);
-    setPoints(pts);
+  /**
+   * Which load is current. Paging between weeks starts a new load without
+   * cancelling the old one, and the two can land out of order — so an earlier,
+   * slower week would overwrite the one the student is actually looking at, and
+   * a load in flight when the panel unmounts would set state on a dead
+   * component. Every write below is gated on still being the newest request.
+   */
+  const loadSeq = useRef(0);
 
-    const ids = pts.map((p) => p.spec_point_id);
-    // Fold any new homework/MCQ results into the spaced-repetition schedule
-    // first (idempotent), so coverage below reflects them.
-    if (withCoverage && ids.length) {
-      await ScheduleDAL.syncReviewsFromAttempts(studentId, ids).catch(() => {});
+  const reload = useCallback(async () => {
+    const seq = ++loadSeq.current;
+    const current = () => seq === loadSeq.current;
+
+    setLoading(true);
+    try {
+      let res = await WeeklyPlanDAL.getPlan(studentId, subject, weekStart);
+      if (!current()) return;
+      if (!res) {
+        // Best-effort: an empty week is a fine outcome, a broken panel is not.
+        res = await materialise().catch((e) => {
+          console.error("build this week from the programme", e);
+          return null;
+        });
+        if (!current()) return;
+      }
+      const pts = res?.points ?? [];
+      setPlan(res?.plan ?? null);
+      setPoints(pts);
+
+      const ids = pts.map((p) => p.spec_point_id);
+      // Fold any new homework/MCQ results into the spaced-repetition schedule
+      // first (idempotent), so coverage below reflects them.
+      if (withCoverage && ids.length) {
+        await ScheduleDAL.syncReviewsFromAttempts(studentId, ids).catch(() => {});
+      }
+      const [act, cov, road] = await Promise.all([
+        WeeklyPlanDAL.getActivity(ids),
+        withCoverage && ids.length
+          ? WeeklyPlanDAL.getCoverage(studentId, ids)
+          : Promise.resolve(new Map<string, PointCoverage>()),
+        // The core card needs the week's band and its mastery. `planForWeek` has
+        // usually just loaded this; re-reading is cheap next to showing the
+        // student a topic heading the programme doesn't agree with.
+        suppliedRoadmap !== undefined
+          ? Promise.resolve(suppliedRoadmap)
+          : ProgramDAL.loadRoadmap({ studentId, subject, board, level }).catch(() => null),
+      ]);
+      if (!current()) return;
+      setActivity(act);
+      setCoverage(cov);
+      setRoadmap(road);
+      setLoading(false);
+    } catch (e) {
+      console.error("load week plan", e);
+      if (current()) setLoading(false);
     }
-    const [act, cov, road] = await Promise.all([
-      WeeklyPlanDAL.getActivity(ids),
-      withCoverage && ids.length
-        ? WeeklyPlanDAL.getCoverage(studentId, ids)
-        : Promise.resolve(new Map<string, PointCoverage>()),
-      // The core card needs the week's band and its mastery. `planForWeek` has
-      // usually just loaded this; re-reading is cheap next to showing the
-      // student a topic heading the programme doesn't agree with.
-      suppliedRoadmap !== undefined
-        ? Promise.resolve(suppliedRoadmap)
-        : ProgramDAL.loadRoadmap({ studentId, subject, board, level }).catch(() => null),
-    ]);
-    setActivity(act);
-    setCoverage(cov);
-    setRoadmap(road);
-    setLoading(false);
   }, [studentId, subject, board, level, weekStart, withCoverage, suppliedRoadmap, materialise]);
 
   useEffect(() => {
-    let alive = true;
-    reload().catch(() => alive && setLoading(false));
+    void reload();
+    // Retiring the sequence on teardown discards whatever is still in flight, so
+    // a late response can't write into an unmounted panel.
     return () => {
-      alive = false;
+      loadSeq.current += 1;
     };
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [studentId, subject, board, level, weekStart]);

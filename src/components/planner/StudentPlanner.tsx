@@ -400,6 +400,7 @@ function ThisWeekTab({
           plan={week.plan}
           points={week.points}
           coverage={week.coverage}
+          activity={week.activity}
           subject={subject}
           board={board}
           level={level}

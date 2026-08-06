@@ -65,16 +65,27 @@ export class AuthService {
     }
 
     if (role === UserRole.PARENT) {
-      // Find linked student record to maintain single source of truth
-      const { data: link } = await supabase
+      // Find linked student record to maintain single source of truth.
+      //
+      // Ordered and limited rather than `maybeSingle()`: a parent with two
+      // children matches two rows, and `maybeSingle()` treats that as an error
+      // — it returned no data, the code fell through to the parent's own id,
+      // and the parent was shown an empty dashboard belonging to themselves.
+      // Silently, and only for families with more than one child on the
+      // platform, which is why it survived single-student testing.
+      //
+      // The oldest link is the stable choice: it doesn't change as siblings are
+      // added. Surfaces that should let a parent switch between children need a
+      // child picker, not a different default here.
+      const { data: links } = await supabase
         .from("parent_student_links")
-        .select("student_id")
+        .select("student_id, created_at")
         .eq("parent_id", user.id)
-        .maybeSingle();
+        .order("created_at", { ascending: true })
+        .limit(1);
 
-      if (link?.student_id) {
-        return link.student_id;
-      }
+      const first = links?.[0]?.student_id;
+      if (first) return first;
     }
 
     return user.id; // fallback to own ID if not linked or tutor

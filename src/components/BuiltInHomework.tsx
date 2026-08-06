@@ -1,9 +1,10 @@
-import { useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import { toast } from "sonner";
 import { CheckCircle2, ImagePlus, Loader2, Send, X } from "lucide-react";
 import { supabase } from "@/integrations/supabase/client";
 import { SignedImage } from "@/components/SignedImage";
 import { prepareUpload, formatBytes, MAX_UPLOAD_BYTES } from "@/lib/uploadLimits";
+import { clearDraft, loadDraft, saveDraft } from "@/lib/homeworkDrafts";
 import type { HomeworkQuestion, HomeworkAnswer } from "@/hooks/data/useHomeworkQuestions";
 
 /**
@@ -150,10 +151,55 @@ function AnswerForm({
   const [drafts, setDrafts] = useState<Record<string, Draft>>({});
   const [notes, setNotes] = useState("");
   const [saving, setSaving] = useState(false);
+  const [restored, setRestored] = useState(false);
 
   const draftOf = (id: string): Draft => drafts[id] ?? { text: "", images: [] };
   const patch = (id: string, changes: Partial<Draft>) =>
     setDrafts((prev) => ({ ...prev, [id]: { ...draftOf(id), ...changes } }));
+
+  // Bring back anything typed but never submitted. Answers only — attached
+  // photos are File objects and can't be persisted, so those must be re-picked.
+  const hydrated = useRef(false);
+  useEffect(() => {
+    if (hydrated.current || !userId) return;
+    hydrated.current = true;
+    const saved = loadDraft(userId, hw.id);
+    if (!saved) return;
+    setDrafts((prev) => {
+      const next = { ...prev };
+      for (const [qid, text] of Object.entries(saved.answers)) {
+        next[qid] = { text, images: next[qid]?.images ?? [] };
+      }
+      return next;
+    });
+    setNotes(saved.notes);
+    setRestored(true);
+  }, [userId, hw.id]);
+
+  // Persist as they type. Debounced so a fast typist isn't writing to storage
+  // on every keystroke.
+  useEffect(() => {
+    if (!userId || !hydrated.current) return;
+    const t = setTimeout(() => {
+      saveDraft(userId, hw.id, {
+        answers: Object.fromEntries(Object.entries(drafts).map(([k, v]) => [k, v.text])),
+        notes,
+      });
+    }, 400);
+    return () => clearTimeout(t);
+  }, [drafts, notes, userId, hw.id]);
+
+  const hasUnsent =
+    notes.trim().length > 0 || Object.values(drafts).some((d) => d.text.trim().length > 0);
+
+  // A reload or a closed tab is recoverable now, but a student who navigates
+  // away mid-answer still deserves the browser's own warning.
+  useEffect(() => {
+    if (!hasUnsent) return;
+    const warn = (e: BeforeUnloadEvent) => e.preventDefault();
+    window.addEventListener("beforeunload", warn);
+    return () => window.removeEventListener("beforeunload", warn);
+  }, [hasUnsent]);
 
   const answered = questions.filter((q) => draftOf(q.id).text.trim().length > 0).length;
   const totalMarks = questions.reduce((sum, q) => sum + q.marks, 0);
@@ -211,8 +257,10 @@ function AnswerForm({
       if (error) throw error;
 
       toast.success("Homework submitted");
+      if (userId) clearDraft(userId, hw.id);
       setDrafts({});
       setNotes("");
+      setRestored(false);
       onChanged();
     } catch (err) {
       toast.error(err instanceof Error ? err.message : "Could not submit");
@@ -235,6 +283,11 @@ function AnswerForm({
 
   return (
     <form onSubmit={submit} className="border-t border-border p-6 bg-muted/40 space-y-4">
+      {restored && (
+        <p className="text-xs rounded-lg bg-primary/10 border border-primary/30 px-3 py-2">
+          We brought back what you'd typed last time. Any photos you'd attached need adding again.
+        </p>
+      )}
       <div className="flex flex-wrap items-center gap-2">
         <p className="text-xs font-semibold uppercase tracking-wider text-muted-foreground">
           Answer on the page

@@ -1,5 +1,6 @@
 import { useMutation, useQuery, useQueryClient } from "@tanstack/react-query";
 import { supabase } from "@/integrations/supabase/client";
+import { invalidateGuardState } from "@/lib/auth/guardState";
 import { isDemoMode, getSessionUserId } from "@/lib/auth/session";
 import {
   fetchInvoices,
@@ -164,6 +165,10 @@ export function useManageSubscription() {
     }) => manageSubscription(action, studentId),
     onSuccess: () => {
       qc.invalidateQueries({ queryKey: BILLING_KEY });
+      // Pausing, resuming, cancelling and subject changes all move the access
+      // state the route guard caches — evict it or the paywall lags a minute
+      // behind what the student just did.
+      invalidateGuardState(qc);
     },
   });
 }
@@ -185,6 +190,10 @@ export function useAddSubjects() {
     }) => addSubjects(studentId, subjects),
     onSuccess: () => {
       qc.invalidateQueries({ queryKey: BILLING_KEY });
+      // Pausing, resuming, cancelling and subject changes all move the access
+      // state the route guard caches — evict it or the paywall lags a minute
+      // behind what the student just did.
+      invalidateGuardState(qc);
       qc.invalidateQueries({ queryKey: ["user-enrolments-and-profile"] });
       qc.invalidateQueries({ queryKey: ["parent-links"] });
       // The parent tab reads a child's enrolment under this key; without it the
@@ -218,6 +227,10 @@ export function useChangeCadence() {
       changeCadence(studentId, cadence),
     onSuccess: () => {
       qc.invalidateQueries({ queryKey: BILLING_KEY });
+      // Pausing, resuming, cancelling and subject changes all move the access
+      // state the route guard caches — evict it or the paywall lags a minute
+      // behind what the student just did.
+      invalidateGuardState(qc);
       qc.invalidateQueries({ queryKey: ["user-enrolments-and-profile"] });
     },
   });
@@ -236,6 +249,10 @@ export function useRemoveSubjects() {
       removeSubjects(studentId, subjects),
     onSuccess: () => {
       qc.invalidateQueries({ queryKey: BILLING_KEY });
+      // Pausing, resuming, cancelling and subject changes all move the access
+      // state the route guard caches — evict it or the paywall lags a minute
+      // behind what the student just did.
+      invalidateGuardState(qc);
       qc.invalidateQueries({ queryKey: ["user-enrolments-and-profile"] });
       qc.invalidateQueries({ queryKey: ["parent-links"] });
       qc.invalidateQueries({ queryKey: ["child-progress"] });

@@ -16,7 +16,7 @@ import { type PlanPoint, type WeeklyPlan } from "@/lib/weeklyPlanDal";
 import { type RoadmapResult } from "@/lib/programDal";
 import { isTeachBand, type PacingBand } from "@/lib/planner/pacing";
 import { SETTLED_THRESHOLD } from "@/lib/planner/scheduler";
-import { type PointCoverage, statusOf } from "@/lib/planner/coverage";
+import { type PointCoverage, statusOfPoint, laneOf } from "@/lib/planner/coverage";
 import { weekKeyToDate } from "@/lib/week";
 import { CoveragePill } from "./CoveragePill";
 import { type Activity } from "./useWeekPlan";
@@ -35,14 +35,9 @@ import { type Activity } from "./useWeekPlan";
  * Purely presentational: the plan, its coverage and the programme all arrive
  * from `useWeekPlan`, so every surface renders one answer.
  */
-/**
- * Is this point core curriculum? `ai` is the pre-lanes value and has always
- * meant "generated, lane unknown" — it reads as core because presenting
- * unlabelled work as revision tells the student they flagged something they
- * never flagged.
- */
+/** Is this point core curriculum? See {@link laneOf} for what `ai` means. */
 function isCoreLane(p: PlanPoint): boolean {
-  return p.origin === "core" || p.origin === "ai";
+  return laneOf(p.origin) === "core";
 }
 
 export function ThisWeekPanel({
@@ -158,8 +153,8 @@ export function ThisWeekPanel({
       return [...m.values()];
     };
     return {
-      focus: group(points.filter((p) => p.origin === "focus")),
-      yours: group(points.filter((p) => ["student", "tutor", "carried_over"].includes(p.origin))),
+      focus: group(points.filter((p) => laneOf(p.origin) === "focus")),
+      yours: group(points.filter((p) => laneOf(p.origin) === "yours")),
       // Core-lane work outside this week's band — a week planned without a
       // programme (no band at all), or a point carried in from another topic.
       // Rendered under its own topic, and never dropped: it used to vanish from
@@ -209,9 +204,17 @@ export function ThisWeekPanel({
         <div className="flex-1 min-w-0">
           <span className="text-[11px] font-semibold text-muted-foreground mr-1.5">{p.code}</span>
           <span className="text-sm">{p.title}</span>
+          {p.carried_from && (
+            <span
+              className="ml-1.5 inline-flex items-center gap-1 align-middle h-5 px-1.5 rounded-md bg-muted text-[10px] font-medium text-muted-foreground"
+              title="Carried over from last week — it stays in this lane"
+            >
+              <RotateCcw className="w-2.5 h-2.5" /> Carried
+            </span>
+          )}
         </div>
         <div className="flex items-center gap-1.5 shrink-0">
-          {showCoverage && <CoveragePill status={statusOf(cov)} score={cov?.bestScore} />}
+          {showCoverage && <CoveragePill status={statusOfPoint(cov, a)} score={cov?.bestScore} />}
           {a?.hasHomework && (
             <PracticeLink
               to="/homework"

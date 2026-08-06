@@ -1,4 +1,5 @@
 import { supabase } from "@/integrations/supabase/client";
+import { selectInSafe } from "@/lib/db/chunked";
 
 /**
  * Where practice on a spec point can come from: homework resources (linked via
@@ -21,16 +22,27 @@ export async function mapAttemptSources(specPointIds: string[]): Promise<Attempt
   if (specPointIds.length === 0) return { resourceToPoints, setToPoints };
 
   const [rsp, directRes, setsDirect, qTagged] = await Promise.all([
-    supabase
-      .from("resource_spec_points")
-      .select("resource_id, spec_point_id, resources!inner(kind)")
-      .in("spec_point_id", specPointIds),
-    supabase.from("resources").select("id, spec_point_id, kind").in("spec_point_id", specPointIds),
-    supabase.from("mcq_sets").select("id, spec_point_id").in("spec_point_id", specPointIds),
-    supabase
-      .from("mcq_questions")
-      .select("set_id, spec_point_id")
-      .in("spec_point_id", specPointIds),
+    selectInSafe<{
+      resource_id: string;
+      spec_point_id: string;
+      resources: { kind: string } | null;
+    }>(specPointIds, (batch) =>
+      supabase
+        .from("resource_spec_points")
+        .select("resource_id, spec_point_id, resources!inner(kind)")
+        .in("spec_point_id", batch),
+    ),
+    selectInSafe<{ id: string; spec_point_id: string | null; kind: string }>(
+      specPointIds,
+      (batch) =>
+        supabase.from("resources").select("id, spec_point_id, kind").in("spec_point_id", batch),
+    ),
+    selectInSafe<{ id: string; spec_point_id: string | null }>(specPointIds, (batch) =>
+      supabase.from("mcq_sets").select("id, spec_point_id").in("spec_point_id", batch),
+    ),
+    selectInSafe<{ set_id: string; spec_point_id: string | null }>(specPointIds, (batch) =>
+      supabase.from("mcq_questions").select("set_id, spec_point_id").in("spec_point_id", batch),
+    ),
   ]);
 
   const push = (m: Map<string, Set<string>>, key: string, point: string) => {
@@ -38,24 +50,16 @@ export async function mapAttemptSources(specPointIds: string[]): Promise<Attempt
     s.add(point);
     m.set(key, s);
   };
-  for (const r of (rsp.data ?? []) as unknown as Array<{
-    resource_id: string;
-    spec_point_id: string;
-    resources: { kind: string } | null;
-  }>) {
+  for (const r of rsp) {
     if (r.resources?.kind === "homework") push(resourceToPoints, r.resource_id, r.spec_point_id);
   }
-  for (const r of (directRes.data ?? []) as Array<{
-    id: string;
-    spec_point_id: string | null;
-    kind: string;
-  }>) {
+  for (const r of directRes) {
     if (r.kind === "homework" && r.spec_point_id) push(resourceToPoints, r.id, r.spec_point_id);
   }
-  for (const r of (setsDirect.data ?? []) as Array<{ id: string; spec_point_id: string | null }>) {
+  for (const r of setsDirect) {
     if (r.spec_point_id) push(setToPoints, r.id, r.spec_point_id);
   }
-  for (const r of (qTagged.data ?? []) as Array<{ set_id: string; spec_point_id: string | null }>) {
+  for (const r of qTagged) {
     if (r.spec_point_id) push(setToPoints, r.set_id, r.spec_point_id);
   }
   return { resourceToPoints, setToPoints };
