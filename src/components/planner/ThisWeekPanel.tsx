@@ -35,6 +35,16 @@ import { type Activity } from "./useWeekPlan";
  * Purely presentational: the plan, its coverage and the programme all arrive
  * from `useWeekPlan`, so every surface renders one answer.
  */
+/**
+ * Is this point core curriculum? `ai` is the pre-lanes value and has always
+ * meant "generated, lane unknown" — it reads as core because presenting
+ * unlabelled work as revision tells the student they flagged something they
+ * never flagged.
+ */
+function isCoreLane(p: PlanPoint): boolean {
+  return p.origin === "core" || p.origin === "ai";
+}
+
 export function ThisWeekPanel({
   plan,
   points,
@@ -95,6 +105,11 @@ export function ThisWeekPanel({
    * is the live answer to "what am I studying this week", so the card asks it —
    * and enriches each point with the plan's coverage and practice links where
    * the two agree.
+   *
+   * Only the band's own topic lands here. Core-lane points from *other* topics
+   * used to be appended to this list, which put them on screen under the band's
+   * heading — a point from Topic 3 presented as part of Topic 1. They get their
+   * own blocks ({@link extraCore}) instead.
    */
   const coreThisWeek = useMemo(() => {
     const inPlan = new Map(points.map((p) => [p.spec_point_id, p]));
@@ -109,12 +124,13 @@ export function ThisWeekPanel({
         title: r.title,
         planned: inPlan.get(r.specPointId) ?? null,
       }));
-    // Anything the saved plan filed as core that this week's share doesn't
-    // mention — a plan written before bands carried their division, or a point
-    // carried in from an earlier week. Shown rather than silently dropped.
+    // Anything the saved plan filed under this topic that the week's share
+    // doesn't mention — a plan written before bands carried their division, or a
+    // point carried in from an earlier week of the same run.
     const shown = new Set(out.map((o) => o.id));
     for (const p of points) {
-      if ((p.origin === "core" || p.origin === "ai") && !shown.has(p.spec_point_id)) {
+      if (!band || p.topic_id !== band.topicId) continue;
+      if (isCoreLane(p) && !shown.has(p.spec_point_id)) {
         out.push({ id: p.spec_point_id, code: p.code, title: p.title, planned: p });
       }
     }
@@ -124,13 +140,16 @@ export function ThisWeekPanel({
   // Split the plan by the lane each point was saved with. Plans written before
   // lanes existed carry `ai`; they join the core column rather than being hidden
   // in a nameless third list.
-  const { focus, yours } = useMemo(() => {
+  const { focus, yours, extraCore } = useMemo(() => {
+    const titleOf = new Map((roadmap?.progress ?? []).map((t) => [t.topicId, t.title]));
     const group = (list: PlanPoint[]) => {
       const m = new Map<string, { topicId: string; title: string; points: PlanPoint[] }>();
       for (const p of list) {
         const g = m.get(p.topic_id) ?? {
           topicId: p.topic_id,
-          title: p.topic_title ?? "—",
+          // The plan's own title first, then the programme's — a point whose
+          // topic row didn't come back should still be filed under a name.
+          title: p.topic_title ?? titleOf.get(p.topic_id) ?? "—",
           points: [],
         };
         g.points.push(p);
@@ -141,14 +160,38 @@ export function ThisWeekPanel({
     return {
       focus: group(points.filter((p) => p.origin === "focus")),
       yours: group(points.filter((p) => ["student", "tutor", "carried_over"].includes(p.origin))),
+      // Core-lane work outside this week's band — a week planned without a
+      // programme (no band at all), or a point carried in from another topic.
+      // Rendered under its own topic, and never dropped: it used to vanish from
+      // the panel entirely whenever there was no band to hang it on.
+      extraCore: group(
+        points.filter((p) => isCoreLane(p) && (!band || p.topic_id !== band.topicId)),
+      ),
     };
-  }, [points]);
+  }, [points, roadmap, band]);
 
   const focusPointCount = focus.reduce((n, g) => n + g.points.length, 0);
-  /** A topic's mastery, so a focused topic shows the same bar the core one does. */
-  const masteryOf = (topicId: string): number | null => {
-    const t = roadmap?.progress.find((x) => x.topicId === topicId);
-    return t && t.points.length > 0 ? t.masteryPct : null;
+
+  const masteryByPoint = useMemo(() => {
+    const m = new Map<string, number>();
+    for (const t of roadmap?.progress ?? []) for (const p of t.points) m.set(p.id, p.mastery);
+    return m;
+  }, [roadmap]);
+
+  /**
+   * Mastery of the points actually listed, for the cards that show a *selection*
+   * from a topic rather than the topic itself.
+   *
+   * The topic average was the wrong number here and read as a contradiction: a
+   * strong topic with two shaky points in it showed "80% — how well it's
+   * sticking" directly above the two points the student had just told us they
+   * couldn't do. The bar should describe the work on the card.
+   */
+  const masteryOfPoints = (pts: PlanPoint[]): number | null => {
+    const vals = pts
+      .map((p) => masteryByPoint.get(p.spec_point_id))
+      .filter((v): v is number => v != null);
+    return vals.length ? Math.round(vals.reduce((s, v) => s + v, 0) / vals.length) : null;
   };
 
   const nothingRated = (roadmap?.progress ?? []).every((t) =>
@@ -255,34 +298,49 @@ export function ThisWeekPanel({
             )}
           </div>
 
-          {band ? (
-            <TopicBlock title={band.title} mastery={mastery} accent="primary">
-              {coreThisWeek.length > 0 ? (
-                <SpecPointList count={coreThisWeek.length}>
-                  {coreThisWeek.map((p) =>
-                    p.planned ? (
-                      row(p.planned)
-                    ) : (
-                      <div
-                        key={p.id}
-                        className="flex items-center gap-2 rounded-lg border border-border bg-card/60 px-2.5 py-2"
-                      >
-                        <span className="text-[11px] font-semibold text-muted-foreground">
-                          {p.code}
-                        </span>
-                        <span className="text-sm flex-1 min-w-0">{p.title}</span>
-                      </div>
-                    ),
+          {band || extraCore.length > 0 ? (
+            <div className="space-y-5">
+              {band && (
+                <TopicBlock title={band.title} mastery={mastery} accent="primary">
+                  {coreThisWeek.length > 0 ? (
+                    <SpecPointList count={coreThisWeek.length}>
+                      {coreThisWeek.map((p) =>
+                        p.planned ? (
+                          row(p.planned)
+                        ) : (
+                          <div
+                            key={p.id}
+                            className="flex items-center gap-2 rounded-lg border border-border bg-card/60 px-2.5 py-2"
+                          >
+                            <span className="text-[11px] font-semibold text-muted-foreground">
+                              {p.code}
+                            </span>
+                            <span className="text-sm flex-1 min-w-0">{p.title}</span>
+                          </div>
+                        ),
+                      )}
+                    </SpecPointList>
+                  ) : (
+                    <p className="mt-3 text-sm text-muted-foreground">
+                      {covered
+                        ? "Nothing outstanding here — you've covered this topic. It'll come back for a light review before the exam."
+                        : "This topic's spec points are all covered for this week."}
+                    </p>
                   )}
-                </SpecPointList>
-              ) : (
-                <p className="mt-3 text-sm text-muted-foreground">
-                  {covered
-                    ? "Nothing outstanding here — you've covered this topic. It'll come back for a light review before the exam."
-                    : "This topic's spec points are all covered for this week."}
-                </p>
+                </TopicBlock>
               )}
-            </TopicBlock>
+              {extraCore.map((g) => (
+                <TopicBlock
+                  key={g.topicId}
+                  title={g.title}
+                  mastery={masteryOfPoints(g.points)}
+                  masteryLabel="How well these are sticking"
+                  accent="primary"
+                >
+                  <SpecPointList count={g.points.length}>{g.points.map(row)}</SpecPointList>
+                </TopicBlock>
+              ))}
+            </div>
           ) : (
             <p className="text-sm text-muted-foreground">No core topic scheduled this week.</p>
           )}
@@ -309,7 +367,8 @@ export function ThisWeekPanel({
                 <TopicBlock
                   key={g.topicId}
                   title={g.title}
-                  mastery={masteryOf(g.topicId)}
+                  mastery={masteryOfPoints(g.points)}
+                  masteryLabel="How well these are sticking"
                   accent="rose"
                 >
                   <SpecPointList count={g.points.length}>{g.points.map(row)}</SpecPointList>
@@ -353,7 +412,8 @@ export function ThisWeekPanel({
               <TopicBlock
                 key={g.topicId}
                 title={g.title}
-                mastery={masteryOf(g.topicId)}
+                mastery={masteryOfPoints(g.points)}
+                masteryLabel="How well these are sticking"
                 accent="muted"
               >
                 <SpecPointList count={g.points.length}>{g.points.map(row)}</SpecPointList>
@@ -391,11 +451,14 @@ const BAR: Record<"primary" | "rose" | "muted", string> = {
 function TopicBlock({
   title,
   mastery,
+  masteryLabel = "How well it's sticking",
   accent,
   children,
 }: {
   title: string;
   mastery: number | null;
+  /** What the bar measures — the whole topic, or just the points listed here. */
+  masteryLabel?: string;
   accent: "primary" | "rose" | "muted";
   children: React.ReactNode;
 }) {
@@ -405,7 +468,7 @@ function TopicBlock({
       {mastery != null && (
         <div className="mt-3">
           <div className="flex items-center justify-between text-[11px] mb-1">
-            <span className="text-muted-foreground">How well it's sticking</span>
+            <span className="text-muted-foreground">{masteryLabel}</span>
             <span className="font-semibold tabular-nums">{mastery}%</span>
           </div>
           <div className="h-1.5 rounded-full bg-muted overflow-hidden">

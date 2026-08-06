@@ -1,5 +1,6 @@
 import { describe, expect, test } from "bun:test";
 import {
+  bandsForWeek,
   computePacing,
   scheduleFocusPoints,
   selectWeekPoints,
@@ -431,6 +432,114 @@ describe("selectWeekPoints — the year plan's slice of one week", () => {
     });
     expect(sel.specPointIds).toEqual(["lo", "hi"]); // weakest first
     expect(sel.reviewCount).toBe(2);
+  });
+});
+
+describe("bandsForWeek — has the programme got anything to say?", () => {
+  const wk = (n: number) => toDateKey(addWeeks(currentMonday, n));
+  const band: PacingBand = {
+    topicId: "t1",
+    title: "T1",
+    startWeek: wk(1),
+    endWeek: wk(3),
+    weeks: 3,
+    kind: "teach",
+  };
+
+  test("a band covers every week of its run, inclusive of both ends", () => {
+    expect(bandsForWeek([band], wk(0))).toEqual([]);
+    for (const n of [1, 2, 3]) expect(bandsForWeek([band], wk(n))).toEqual([band]);
+    expect(bandsForWeek([band], wk(4))).toEqual([]);
+  });
+
+  test("a covered topic still owns its weeks — it just refreshes instead of teaching", () => {
+    const sel = selectWeekPoints({
+      bands: [band],
+      weekStart: wk(1),
+      topics: [{ topicId: "t1", points: [{ id: "p1", mastery: 95, stability: 20 }] }],
+      focusBudget: 6,
+      settledThreshold: 67,
+    });
+    expect(bandsForWeek([band], wk(1))).toHaveLength(1);
+    expect(sel.teachCount).toBe(0); // nothing new left to teach
+    expect(sel.refreshCount).toBe(1); // a light pass over it instead
+    expect(sel.lanes).toEqual({ p1: "core" }); // never presented as revision
+  });
+});
+
+describe("selectWeekPoints — the refresher pass ranks by memory strength", () => {
+  const wk = (n: number) => toDateKey(addWeeks(currentMonday, n));
+  const band: PacingBand = {
+    topicId: "t1",
+    title: "T1",
+    startWeek: wk(0),
+    endWeek: wk(0),
+    weeks: 1,
+    kind: "teach",
+  };
+
+  test("the most fragile points come first, even when mastery is a dead tie", () => {
+    // The real shape of the data: a student drags a whole topic to one place on
+    // the confidence board, so every point in it scores the same mastery.
+    // Ranking on mastery alone would degrade to spec order and pick arbitrarily.
+    const sel = selectWeekPoints({
+      bands: [band],
+      weekStart: wk(0),
+      topics: [
+        {
+          topicId: "t1",
+          points: [
+            { id: "holds-a-fortnight", mastery: 80, stability: 14 },
+            { id: "holds-a-day", mastery: 80, stability: 1 },
+            { id: "holds-half-a-day", mastery: 80, stability: 0.5 },
+          ],
+        },
+      ],
+      focusBudget: 6,
+      settledThreshold: 67,
+    });
+    expect(sel.specPointIds).toEqual(["holds-half-a-day", "holds-a-day", "holds-a-fortnight"]);
+  });
+
+  test("a point with no card at all ranks most fragile — a rating is not evidence", () => {
+    const sel = selectWeekPoints({
+      bands: [band],
+      weekStart: wk(0),
+      topics: [
+        {
+          topicId: "t1",
+          points: [
+            { id: "practised", mastery: 80, stability: 9 },
+            { id: "only-self-rated", mastery: 80, stability: null },
+          ],
+        },
+      ],
+      focusBudget: 6,
+      settledThreshold: 67,
+    });
+    expect(sel.specPointIds[0]).toBe("only-self-rated");
+  });
+
+  test("a week with real teaching left in it is never turned into a refresher", () => {
+    const sel = selectWeekPoints({
+      bands: [band],
+      weekStart: wk(0),
+      topics: [
+        {
+          topicId: "t1",
+          points: [
+            { id: "settled", mastery: 90, stability: 0.1 },
+            { id: "untaught", mastery: 10, stability: null },
+          ],
+        },
+      ],
+      focusBudget: 6,
+      settledThreshold: 67,
+    });
+    expect(sel.teachCount).toBe(1);
+    expect(sel.refreshCount).toBe(0);
+    // The fragile-but-settled point is not dragged in ahead of new material.
+    expect(sel.specPointIds).toEqual(["untaught"]);
   });
 });
 

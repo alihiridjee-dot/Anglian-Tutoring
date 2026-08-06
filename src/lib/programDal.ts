@@ -9,6 +9,7 @@ import {
   type PacingChange,
   type PacingInput,
   DEFAULT_FOCUS_BUDGET,
+  bandsForWeek,
   computePacing,
   diffPacing,
   examMondayFor,
@@ -29,8 +30,8 @@ function listSentence(parts: string[]): string {
 }
 
 /**
- * The weak spec points of not-yet-settled topics, and the settled topics that
- * get a light review pass — the two inputs the focus scheduler needs.
+ * The weak spec points to bring back round, and the settled topics that get a
+ * light pre-exam review pass — the two inputs the focus scheduler needs.
  *
  * The focus lane's ordering signal is the student's confidence rating, and
  * nothing else — deliberately. It used to rank by blended FSRS mastery (which
@@ -41,18 +42,25 @@ function listSentence(parts: string[]): string {
  * back sooner. FSRS still owns the *cadence* (revisit gaps, weekly budget) —
  * confidence owns the order. Unrated points don't qualify: first contact is the
  * teach spine's job.
+ *
+ * **Candidacy is per spec point, never per topic.** A settled topic's points
+ * used to be skipped wholesale, so a student who said they were shaky on one
+ * point of an otherwise-strong topic never got it back — the topic average
+ * outvoted the answer they actually gave. It also left weeks with nothing in the
+ * focus lane at all, which is how a fully-covered week ended up in the hands of
+ * the fallback planner. A topic mean is a summary; it is not a reason to discard
+ * the individual answers underneath it. A settled topic can therefore appear in
+ * both lists — weak points revisited now, the topic reviewed again before the
+ * exam — and those windows never overlap ({@link scheduleFocusPoints}).
  */
-function focusInputs(progress: TopicProgress[]): {
+export function focusInputs(progress: TopicProgress[]): {
   candidates: FocusCandidate[];
   coveredTopics: { topicId: string; title: string }[];
 } {
   const candidates: FocusCandidate[] = [];
   const coveredTopics: { topicId: string; title: string }[] = [];
   for (const t of progress) {
-    if (t.settled) {
-      coveredTopics.push({ topicId: t.topicId, title: t.title });
-      continue;
-    }
+    if (t.settled) coveredTopics.push({ topicId: t.topicId, title: t.title });
     for (const p of t.points) {
       if (p.confidence != null && p.confidence < SETTLED_THRESHOLD) {
         candidates.push({
@@ -254,9 +262,16 @@ export class ProgramDAL {
    *  3. in the pre-exam revision window, the weakest points of settled topics.
    *
    * (1) and (2) both have to happen and are budgeted separately — see
-   * {@link selectWeekPoints}. Falls back to the raw scheduler only when the
-   * programme has nothing for the week at all (no curriculum, or a week past the
-   * exam horizon).
+   * {@link selectWeekPoints}.
+   *
+   * **The programme's answer stands, including an empty one.** It falls back to
+   * the raw scheduler only when the programme has no band covering the week at
+   * all — no curriculum, or a week past the exam horizon. "Bands, but nothing
+   * left to do in them" is a real answer: it means the topic on the spine is
+   * already covered and nothing is due back, and the week should say so. Testing
+   * for an empty point list instead is what put students on the fallback in the
+   * middle of a perfectly healthy term, and the fallback then labelled the whole
+   * week as revision.
    */
   static async planForWeek(params: {
     studentId: string;
@@ -277,8 +292,8 @@ export class ProgramDAL {
     const focusBudget = Math.max(1, params.focusBudget ?? DEFAULT_FOCUS_BUDGET);
     const roadmap = await this.loadRoadmap({ studentId, subject, board, level });
 
-    if (roadmap) {
-      const { specPointIds, lanes, teachTitle, focusCount, teachCount, reviewCount } =
+    if (roadmap && bandsForWeek(roadmap.bands, weekStart).length > 0) {
+      const { specPointIds, lanes, teachTitle, focusCount, teachCount, refreshCount, reviewCount } =
         selectWeekPoints({
           bands: roadmap.bands,
           weekStart,
@@ -286,23 +301,32 @@ export class ProgramDAL {
           focusBudget,
           settledThreshold: SETTLED_THRESHOLD,
         });
-      if (specPointIds.length > 0) {
-        const parts: string[] = [];
-        if (focusCount > 0) parts.push(`${focusCount} to revisit`);
-        if (teachCount > 0) parts.push(`${teachCount} from this week's topic (${teachTitle})`);
-        if (reviewCount > 0) parts.push(`${reviewCount} for pre-exam review`);
-        return {
-          specPointIds,
-          origins: lanes,
-          rationale: `From your programme: ${listSentence(parts)}. The rest of what you flagged is spread over the weeks ahead so it never lands all at once.`,
-        };
+      if (specPointIds.length === 0) {
+        // The programme covers this week and has nothing outstanding in it. A
+        // real answer, and the week's own copy says it far better than six
+        // points picked for no stated reason would.
+        return { specPointIds: [], origins: {}, rationale: "" };
       }
+      const parts: string[] = [];
+      if (focusCount > 0) parts.push(`${focusCount} to revisit`);
+      if (teachCount > 0) parts.push(`${teachCount} from this week's topic (${teachTitle})`);
+      // Named for what it is, so a refresher week never reads as new material.
+      if (refreshCount > 0) {
+        parts.push(`${refreshCount} to keep ${teachTitle} fresh — you're ahead on it`);
+      }
+      if (reviewCount > 0) parts.push(`${reviewCount} for pre-exam review`);
+      return {
+        specPointIds,
+        origins: lanes,
+        rationale: `From your programme: ${listSentence(parts)}. The rest of what you flagged is spread over the weeks ahead so it never lands all at once.`,
+      };
     }
 
-    // Nothing on the programme for this week — fall back to the raw scheduler.
+    // No programme for this week — fall back to the raw scheduler, which labels
+    // each pick by whether the student has met it before (see `suggestForWeek`).
     const weekEnd = sundayOf(weekKeyToDate(weekStart));
     weekEnd.setHours(23, 59, 59, 999);
-    const specPointIds = await ScheduleDAL.suggestForWeek({
+    const { specPointIds, lanes } = await ScheduleDAL.suggestForWeek({
       studentId,
       subject,
       board,
@@ -312,7 +336,7 @@ export class ProgramDAL {
     });
     return {
       specPointIds,
-      origins: Object.fromEntries(specPointIds.map((id) => [id, "focus" as PlanPointOrigin])),
+      origins: lanes,
       rationale: specPointIds.length
         ? "Led with your weakest and due-for-review topics, and went lighter on the ones that are already sticking."
         : "",
@@ -378,10 +402,14 @@ export class ProgramDAL {
     };
     const keep = existing.points.filter((p) => p.origin === "student" || inFlight(p.spec_point_id));
 
-    // Kept points first so their original lane wins the merge.
+    // Kept points first so their original lane wins the merge. Both planners
+    // label every point they return, so the default below is unreachable — it is
+    // `ai` ("generated, lane unknown") rather than `focus` because guessing
+    // `focus` is exactly how a point the student never flagged ends up presented
+    // to them as revision.
     const origins: Record<string, PlanPointOrigin> = {};
     for (const p of keep) origins[p.spec_point_id] = p.origin;
-    for (const id of fresh.specPointIds) origins[id] ??= fresh.origins[id] ?? "focus";
+    for (const id of fresh.specPointIds) origins[id] ??= fresh.origins[id] ?? "ai";
     const specPointIds = Object.keys(origins);
 
     const before = new Set(existing.points.map((p) => p.spec_point_id));

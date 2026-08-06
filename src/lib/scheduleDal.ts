@@ -13,11 +13,13 @@ import {
   pointMastery,
   pointStatus,
   isDueBy,
+  isFirstContact,
   retrievability,
   reviveCard,
   scoreToRating,
   selectForWeek,
 } from "./planner/scheduler";
+import { type WeekLane } from "./planner/pacing";
 import { mapAttemptSources } from "./planner/attemptSources";
 import { getSessionUserId } from "@/lib/auth/session";
 
@@ -47,6 +49,17 @@ export interface ProgressPoint {
   quizScore: number | null;
   status: PointStatus;
   mastery: number;
+  /**
+   * FSRS memory strength in days — how long the point is expected to hold.
+   * Null when never practised.
+   *
+   * Carried alongside `mastery` because the two answer different questions and
+   * mastery alone can't order a topic: it is anchored on the confidence rating,
+   * so a student who rates a topic uniformly scores every point in it
+   * identically. Stability still separates them, and it's what "closest to being
+   * forgotten" actually means.
+   */
+  stability: number | null;
   /** Its share of a week's work — see `spec_points.weight`. 1 when unmeasured. */
   weight: number;
 }
@@ -295,6 +308,12 @@ export class ScheduleDAL {
    * everything due (or never practised) ordered most-urgent first, capped at
    * `targetCount`. Deterministic (no AI), so it works locally and offline; the
    * AI suggester can still layer a rationale on top.
+   *
+   * Each pick comes back with the lane it belongs in, decided by
+   * {@link isFirstContact}: a point the student has never met is new material,
+   * not revision. This is the planner of last resort — it runs only when the
+   * programme has no bands for the week — and it used to hand every point back
+   * unlabelled, which the caller then filed wholesale as revision.
    */
   static async suggestForWeek(params: {
     studentId: string;
@@ -303,7 +322,8 @@ export class ScheduleDAL {
     level: LevelV;
     weekEnd: Date;
     targetCount?: number;
-  }): Promise<string[]> {
+  }): Promise<{ specPointIds: string[]; lanes: Record<string, WeekLane> }> {
+    const empty = { specPointIds: [], lanes: {} };
     const { data: topics } = await supabase
       .from("topics")
       .select("id")
@@ -311,7 +331,7 @@ export class ScheduleDAL {
       .eq("board", params.board)
       .eq("level", params.level);
     const topicIds = (topics ?? []).map((t) => t.id);
-    if (topicIds.length === 0) return [];
+    if (topicIds.length === 0) return empty;
 
     const { data: pts } = await supabase
       .from("spec_points")
@@ -324,7 +344,7 @@ export class ScheduleDAL {
       .map((p) => ({ id: p.id, ts: p.topics?.sort_order ?? 0, ps: p.sort_order ?? 0 }))
       .sort((a, b) => a.ts - b.ts || a.ps - b.ps)
       .map((o) => o.id);
-    if (ids.length === 0) return [];
+    if (ids.length === 0) return empty;
 
     const [cards, conf] = await Promise.all([
       this.getSchedule(params.studentId, ids),
@@ -335,7 +355,12 @@ export class ScheduleDAL {
       card: cards.get(id) ?? null,
       confidence: conf.get(id) ?? null,
     }));
-    return selectForWeek(items, params.weekEnd, params.targetCount ?? 6);
+    const specPointIds = selectForWeek(items, params.weekEnd, params.targetCount ?? 6);
+    const lanes: Record<string, WeekLane> = {};
+    for (const id of specPointIds) {
+      lanes[id] = isFirstContact(cards.get(id) ?? null) ? "core" : "focus";
+    }
+    return { specPointIds, lanes };
   }
 
   /**
@@ -478,6 +503,7 @@ export class ScheduleDAL {
         quizScore: m?.quiz ?? null,
         status: pointStatus(card, now),
         mastery: pointMastery(card, confidence, now),
+        stability: card && !isFirstContact(card) ? card.stability : null,
         weight: Number(p.weight) > 0 ? Number(p.weight) : 1,
       });
       byTopic.set(p.topic_id, list);

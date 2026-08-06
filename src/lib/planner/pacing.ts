@@ -462,10 +462,45 @@ export function withWeeklyPoints(
   });
 }
 
+/**
+ * The bands covering a given week — the programme's answer to "have you got
+ * anything to say about this week?".
+ *
+ * Date-keys are YYYY-MM-DD, so a lexical compare is a chronological one.
+ *
+ * Callers must distinguish *no bands* from *bands with nothing left to do*: the
+ * second is a real answer ("you're on top of this week"), and treating it as
+ * silence is what used to hand the week to the fallback planner.
+ */
+export function bandsForWeek(bands: PacingBand[], weekStart: string): PacingBand[] {
+  return bands.filter((b) => b.startWeek <= weekStart && b.endWeek >= weekStart);
+}
+
 /** A topic's points with their mastery — the shape {@link selectWeekPoints} reads. */
 export interface WeekTopic {
   topicId: string;
-  points: { id: string; mastery: number; weight?: number }[];
+  points: { id: string; mastery: number; weight?: number; stability?: number | null }[];
+}
+
+/** One point as the review passes rank it. */
+type RankablePoint = { mastery: number; stability?: number | null };
+
+/**
+ * Closest to being forgotten, first.
+ *
+ * Mastery cannot order a review on its own. It is anchored on the student's
+ * confidence rating, so a student who rated a topic uniformly — the common case
+ * on the termly board, where the whole topic gets dragged to one place — scores
+ * every point in that topic identically, and "weakest first" silently degrades
+ * into spec order. FSRS stability is the number that still separates them: how
+ * many days the memory is expected to hold. On a real topic that's the
+ * difference between a point good for half a day and one good for a fortnight.
+ *
+ * A point with no card ranks most fragile of all: there is no evidence it holds
+ * at all, only a self-rating. Mastery breaks the remaining ties.
+ */
+function byFragility(a: RankablePoint, b: RankablePoint): number {
+  return (a.stability ?? 0) - (b.stability ?? 0) || a.mastery - b.mastery;
 }
 
 /** Which lane of the programme a week's point came from. */
@@ -479,6 +514,8 @@ export interface WeekSelection {
   teachTitle: string | null;
   focusCount: number;
   teachCount: number;
+  /** A light pass over the spine topic when there is nothing new left to teach. */
+  refreshCount: number;
   reviewCount: number;
 }
 
@@ -510,8 +547,7 @@ export function selectWeekPoints(params: {
 }): WeekSelection {
   const { weekStart, topics, settledThreshold } = params;
   const focusBudget = Math.max(0, params.focusBudget);
-  // Date-keys are YYYY-MM-DD, so a lexical compare is a chronological one.
-  const inWeek = params.bands.filter((b) => b.startWeek <= weekStart && b.endWeek >= weekStart);
+  const inWeek = bandsForWeek(params.bands, weekStart);
   const byTopic = new Map(topics.map((t) => [t.topicId, t]));
 
   const specPointIds: string[] = [];
@@ -552,6 +588,7 @@ export function selectWeekPoints(params: {
   // 2. The teach spine — this week's share of the topic being taught, uncapped.
   let teachTitle: string | null = null;
   let teachCount = 0;
+  let refreshCount = 0;
   for (const band of inWeek.filter(isTeachBand)) {
     const all = byTopic.get(band.topicId)?.points ?? [];
     if (all.length === 0) continue;
@@ -581,22 +618,35 @@ export function selectWeekPoints(params: {
       "core",
       budget,
     );
-    if (took > 0) teachTitle ??= band.title;
     teachCount += took;
+    if (took > 0) {
+      teachTitle ??= band.title;
+      continue;
+    }
+
+    // Nothing left to teach here: the student is already on top of everything
+    // this band owes them. A light pass over the same material keeps the week
+    // worth opening — most fragile first, in the core lane, because it is
+    // straightforwardly the topic they are on. The alternative was an empty
+    // week, which is honest but hands a student who is ahead of the plan
+    // nothing at all, week after week, until the spine moves on.
+    const refreshed = addWeighted([...owed].sort(byFragility), "core", budget);
+    if (refreshed > 0) teachTitle ??= band.title;
+    refreshCount += refreshed;
   }
 
-  // 3. Revision weeks: a light pass over what's settled, weakest first. Core
-  // curriculum coming back round before the exam, so it reads as core.
+  // 3. Revision weeks: a light pass over what's settled, most fragile first.
+  // Core curriculum coming back round before the exam, so it reads as core.
   const reviewCount = addWeighted(
     inWeek
       .filter((b) => b.kind === "review")
       .flatMap((b) => byTopic.get(b.topicId)?.points ?? [])
-      .sort((a, b) => a.mastery - b.mastery),
+      .sort(byFragility),
     "core",
     focusBudget,
   );
 
-  return { specPointIds, lanes, teachTitle, focusCount, teachCount, reviewCount };
+  return { specPointIds, lanes, teachTitle, focusCount, teachCount, refreshCount, reviewCount };
 }
 
 /** Merge focus bands onto the teach spine in roadmap render order. */
