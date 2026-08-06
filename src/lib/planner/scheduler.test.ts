@@ -7,6 +7,7 @@ import {
   applyReview,
   confidenceToRating,
   isDueBy,
+  isFirstContact,
   pointMastery,
   pointStatus,
   priority,
@@ -169,6 +170,17 @@ describe("priority & selection (new vs mature)", () => {
     expect(picked).not.toContain("not-due");
     expect(selectForWeek(items, weekEnd, 0, now)).toHaveLength(0);
     expect(selectForWeek([], weekEnd, 5, now)).toHaveLength(0);
+  });
+
+  test("isFirstContact separates new material from work coming back round", () => {
+    // The lane rule the fallback planner runs on. It used to have none, so a
+    // point the student had never been taught was presented to them as revision.
+    const reviewed = applyReview(null, Rating.Good, now);
+    expect(isFirstContact(null)).toBe(true);
+    expect(isFirstContact({ ...reviewed, state: State.New })).toBe(true); // card row, never sat
+    expect(isFirstContact(reviewed)).toBe(false);
+    // A lapsed point has been met before — still revision, however badly it went.
+    expect(isFirstContact(replay([Rating.Easy, Rating.Again], now))).toBe(false);
   });
 
   test("pointStatus: overdue trumps raw state; strong = future-due review card", () => {

@@ -190,6 +190,20 @@ export function isDueBy(card: Card | null, when: Date): boolean {
 }
 
 /**
+ * Has the student never met this point? The one honest lane signal available
+ * when there is no programme to ask.
+ *
+ * A point with no card behind it is first contact — that's teaching, and it
+ * belongs in the core lane. A point that already has one is coming back round,
+ * which is revision. The fallback planner had no such rule and labelled
+ * everything it picked as revision, so a student who had simply never been
+ * taught a topic was told they were revisiting it.
+ */
+export function isFirstContact(card: Card | null): boolean {
+  return !card || card.state === State.New;
+}
+
+/**
  * A plain-English read of where a spec point sits in its learning curve, for the
  * progress surfaces (roadmap expand, covered ledger). Every graded event —
  * including a confidence self-rating — moves the card, so this reflects the
