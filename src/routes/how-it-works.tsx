@@ -6,20 +6,31 @@ import {
   ClipboardCheck,
   Eye,
   LineChart,
+  ListChecks,
   MessageCircle,
+  PenLine,
   Sparkles,
   Target,
   Video,
-  BookOpen,
   Users,
   ArrowRight,
   Check,
 } from "lucide-react";
+import type { LucideIcon } from "lucide-react";
 import { Nav } from "@/components/landing/Nav";
 import { Footer } from "@/components/landing/Footer";
 import { FloatingWhatsApp } from "@/components/landing/FloatingWhatsApp";
 import { ForgettingCurve } from "@/components/how-it-works/ForgettingCurve";
 import { RevisitSimulator } from "@/components/how-it-works/RevisitSimulator";
+import { MemoryEngine } from "@/components/how-it-works/MemoryEngine";
+import { TypicalWeek } from "@/components/how-it-works/TypicalWeek";
+import {
+  ChatMock,
+  FeedbackMock,
+  HomeworkMock,
+  LiveMock,
+  QuizMock,
+} from "@/components/how-it-works/ServicePreviews";
 
 export const Route = createFileRoute("/how-it-works")({
   head: () => ({
@@ -28,7 +39,7 @@ export const Route = createFileRoute("/how-it-works")({
       {
         name: "description",
         content:
-          "Most revision is forgotten within weeks. We use a proven spaced-repetition scheduler to bring every topic back at exactly the right moment — and show parents the proof. Here's how.",
+          "Two live lessons a week, homework marked by the tutor who taught it, a weekly quiz, a direct line to your tutor — and a spaced-repetition scheduler that brings every topic back just before your child would forget it.",
       },
     ],
   }),
@@ -58,6 +69,106 @@ const LOOP = [
   },
 ];
 
+/**
+ * The five things a place actually buys, each shown as the card the student
+ * will really open. Ordered the way the week runs: taught, practised, tested,
+ * fed back, and a way to ask when none of that was enough.
+ */
+interface Service {
+  icon: LucideIcon;
+  eyebrow: string;
+  title: string;
+  body: string;
+  points: string[];
+  preview: () => React.JSX.Element;
+}
+
+const SERVICES: Service[] = [
+  {
+    icon: Video,
+    eyebrow: "Taught live",
+    title: "Two live lessons a week, per subject",
+    body: "Small groups on Zoom, taught personally by Dr Nadia or Ali — two practising medics, never an agency tutor and never a recording standing in for a lesson. Your child is a name in the room, not a login.",
+    points: [
+      "Taught against your child's own exam board and spec points",
+      "Every session recorded, so a missed week is recoverable",
+      "Groups kept small enough that a quiet student can't hide",
+    ],
+    preview: LiveMock,
+  },
+  {
+    icon: ClipboardCheck,
+    eyebrow: "Practised",
+    title: "Homework set, marked and returned",
+    body: "Answered inside the platform on the spec points just taught, then marked by the tutor who taught them — so the feedback comes from someone who watched your child try it, not a marking service.",
+    points: [
+      "Returned with a grade, a percentage and personalised comments",
+      "Written feedback that says what to do differently, not just what was wrong",
+      "The mark feeds the schedule automatically — nothing to chase",
+    ],
+    preview: HomeworkMock,
+  },
+  {
+    icon: ListChecks,
+    eyebrow: "Tested",
+    title: "A weekly quiz on the right topics",
+    body: "Every week, a short quiz built from the spec points your child has actually covered — tutor-approved, tagged question by question, and marked the moment they finish.",
+    points: [
+      "Every question tagged to a specific spec point",
+      "Instant explanations, so a wrong answer teaches something",
+      "Scores feed straight into what comes back next week",
+    ],
+    preview: QuizMock,
+  },
+  {
+    icon: PenLine,
+    eyebrow: "Fed back",
+    title: "A tutor who tells you what they're seeing",
+    body: "Not a termly report. Each week your child gets a note from their tutor about their week specifically — what has clicked, what is still leaking marks, and what the two of them are doing about it next.",
+    points: [
+      "Written by the tutor, about your child, every week",
+      "Points at named spec points, not vague encouragement",
+      "Visible to you in the parent dashboard as it happens",
+    ],
+    preview: FeedbackMock,
+  },
+  {
+    icon: MessageCircle,
+    eyebrow: "Never stuck",
+    title: "A direct line to their tutor, all week",
+    body: "Stuck at nine on a Sunday? They message their tutor from inside the platform, with the spec point, homework or quiz question already attached — so the answer that comes back is about the thing they're actually stuck on.",
+    points: [
+      "Questions pinned to the exact topic they came from",
+      "Answered by their tutor — never auto-replied by a bot",
+      "No app to install, no phone number to share",
+    ],
+    preview: ChatMock,
+  },
+];
+
+const ALSO = [
+  {
+    icon: LineChart,
+    title: "A predicted grade that means something",
+    desc: "Built from real marked work over time, not a one-off test. It moves when their work moves.",
+  },
+  {
+    icon: Users,
+    title: "Your own parent dashboard",
+    desc: "A separate login: attendance, submissions, scores and progress — without having to ask them how it's going.",
+  },
+  {
+    icon: Sparkles,
+    title: "Every board, every spec point",
+    desc: "AQA, Edexcel and OCR, Separate Sciences or Combined Trilogy — and iGCSE. Tagged to the specification your child is sitting.",
+  },
+  {
+    icon: CalendarCheck,
+    title: "Flexibility that suits you",
+    desc: "Weekly, monthly or termly billing. Add or drop subjects as things change. Cancel anytime.",
+  },
+];
+
 const ACCOUNTABILITY = [
   {
     icon: Target,
@@ -78,49 +189,6 @@ const ACCOUNTABILITY = [
     icon: MessageCircle,
     title: "A tutor who already knows",
     desc: "Because every score feeds the same system, Dr Nadia and Ali walk into each lesson already knowing which topics are slipping. Small group sizes mean they can act on it.",
-  },
-];
-
-const INCLUDED = [
-  {
-    icon: Video,
-    title: "Two live lessons a week, per subject",
-    desc: "Small groups on Zoom, taught personally by Dr Nadia or Ali — never an agency tutor. Every session recorded.",
-  },
-  {
-    icon: ClipboardCheck,
-    title: "Homework set, marked and fed back",
-    desc: "Submitted in the platform, returned with personalised feedback within 48 hours — and the mark feeds the schedule automatically.",
-  },
-  {
-    icon: BookOpen,
-    title: "Weekly quizzes on the right topics",
-    desc: "Tutor-approved questions, tagged to the exact spec point, with instant explanations so a wrong answer teaches something.",
-  },
-  {
-    icon: Brain,
-    title: "The personalised revision planner",
-    desc: "The scheduler on this page, running quietly in the background — turning every score into a plan for the week ahead.",
-  },
-  {
-    icon: LineChart,
-    title: "A predicted grade that means something",
-    desc: "Built from real marked work over time, not a one-off test. It moves when their work moves.",
-  },
-  {
-    icon: Users,
-    title: "Your own parent dashboard",
-    desc: "A separate login for you: attendance, submissions, scores and progress — without having to ask them how it's going.",
-  },
-  {
-    icon: Sparkles,
-    title: "Every board, every spec point",
-    desc: "AQA, Edexcel and OCR, Separate Sciences or Combined Trilogy. Resources tagged to the specification your child is actually sitting.",
-  },
-  {
-    icon: CalendarCheck,
-    title: "Flexibility that suits you",
-    desc: "Weekly, monthly or termly billing. Add or drop subjects as things change. Cancel anytime.",
   },
 ];
 
@@ -249,8 +317,175 @@ function HowItWorks() {
         </div>
       </section>
 
-      {/* ---------------- Try it ---------------- */}
+      {/* ---------------- A week, in full ---------------- */}
       <section className="border-b border-border bg-secondary/60 py-20 lg:py-24">
+        <div className="mx-auto max-w-7xl px-6">
+          <motion.div {...fadeUp} className="mx-auto mb-12 max-w-2xl text-center">
+            <span className="eyebrow">What a place actually buys</span>
+            <h2 className="mt-3 font-display text-3xl font-bold tracking-tight text-foreground sm:text-4xl">
+              Their week has a shape to it
+            </h2>
+            <p className="mt-4 text-base leading-relaxed text-muted-foreground">
+              Not two hours of Zoom and a folder of PDFs. Something arrives, is looked at by a
+              person, and comes back — every week, on a rhythm your child can feel.
+            </p>
+          </motion.div>
+
+          <motion.div {...fadeUp} transition={{ ...fadeUp.transition, delay: 0.08 }}>
+            <TypicalWeek />
+          </motion.div>
+        </div>
+      </section>
+
+      {/* ---------------- The five services ---------------- */}
+      <section className="border-b border-border bg-card py-20 lg:py-24">
+        <div className="mx-auto max-w-6xl px-6">
+          <motion.div {...fadeUp} className="mx-auto mb-16 max-w-2xl text-center">
+            <span className="eyebrow">Included, every week</span>
+            <h2 className="mt-3 font-display text-3xl font-bold tracking-tight text-foreground sm:text-4xl">
+              Five things, and a person behind each one
+            </h2>
+            <p className="mt-4 text-base leading-relaxed text-muted-foreground">
+              One membership — no add-ons, no premium tier, no paying extra for the bits that
+              matter. Here is exactly what your child gets, shown as they'll actually see it.
+            </p>
+          </motion.div>
+
+          <div className="space-y-14 lg:space-y-20">
+            {SERVICES.map((s, i) => {
+              const Icon = s.icon;
+              const Preview = s.preview;
+              const flip = i % 2 === 1;
+              return (
+                <motion.div
+                  key={s.title}
+                  {...fadeUp}
+                  className="grid items-center gap-8 lg:grid-cols-2 lg:gap-14"
+                >
+                  <div className={flip ? "lg:order-2" : undefined}>
+                    <div className="flex items-center gap-3">
+                      <span className="flex h-11 w-11 items-center justify-center rounded-2xl border border-border bg-[var(--accent-soft)]/60">
+                        <Icon className="h-5 w-5 text-[var(--primary-deep)]" />
+                      </span>
+                      <span className="eyebrow">{s.eyebrow}</span>
+                    </div>
+                    <h3 className="mt-5 font-display text-2xl font-bold tracking-tight text-foreground sm:text-[28px]">
+                      {s.title}
+                    </h3>
+                    <p className="mt-4 text-base leading-relaxed text-muted-foreground">{s.body}</p>
+                    <ul className="mt-5 space-y-2.5">
+                      {s.points.map((p) => (
+                        <li key={p} className="flex items-start gap-2.5 text-sm text-foreground/90">
+                          <Check className="mt-0.5 h-4 w-4 shrink-0 text-[var(--accent)]" />
+                          {p}
+                        </li>
+                      ))}
+                    </ul>
+                  </div>
+
+                  {/* The mock, floated on a soft tint so it reads as a screen. */}
+                  <div className={flip ? "lg:order-1" : undefined}>
+                    <div className="relative rounded-3xl border border-border bg-secondary/60 p-5 sm:p-8">
+                      <div
+                        aria-hidden
+                        className="pointer-events-none absolute inset-0 rounded-3xl bg-[radial-gradient(ellipse_at_top_left,_var(--accent-soft)_0%,transparent_65%)] opacity-70"
+                      />
+                      <div className="relative mx-auto max-w-sm">
+                        <Preview />
+                      </div>
+                    </div>
+                  </div>
+                </motion.div>
+              );
+            })}
+          </div>
+
+          {/* Everything else that comes with it, without another five sections. */}
+          <div className="mt-16 grid gap-5 border-t border-border pt-14 sm:grid-cols-2 lg:grid-cols-4">
+            {ALSO.map((f, i) => {
+              const Icon = f.icon;
+              return (
+                <motion.div
+                  key={f.title}
+                  {...fadeUp}
+                  transition={{ ...fadeUp.transition, delay: (i % 4) * 0.07 }}
+                >
+                  <div className="mb-4 flex h-10 w-10 items-center justify-center rounded-xl border border-border bg-secondary">
+                    <Icon className="h-4.5 w-4.5 text-foreground" />
+                  </div>
+                  <h3 className="font-display text-[15px] font-bold leading-snug text-foreground">
+                    {f.title}
+                  </h3>
+                  <p className="mt-2 text-sm leading-relaxed text-muted-foreground">{f.desc}</p>
+                </motion.div>
+              );
+            })}
+          </div>
+        </div>
+      </section>
+
+      {/* ---------------- The engine ---------------- */}
+      <section className="border-b border-border bg-secondary/60 py-20 lg:py-24">
+        <div className="mx-auto max-w-7xl px-6">
+          <motion.div {...fadeUp} className="mx-auto mb-12 max-w-2xl text-center">
+            <span className="eyebrow">The part that runs all week</span>
+            <h2 className="mt-3 font-display text-3xl font-bold tracking-tight text-foreground sm:text-4xl">
+              A plan built for your child, not for a class
+            </h2>
+            <p className="mt-4 text-base leading-relaxed text-muted-foreground">
+              Everything on this page feeds one thing: a schedule that knows which topics{" "}
+              <em>your</em> child is shaky on, and brings each one back at its own moment. Two
+              students in the same lesson get different weeks — because they are different students.
+            </p>
+          </motion.div>
+
+          <motion.div {...fadeUp} transition={{ ...fadeUp.transition, delay: 0.08 }}>
+            <MemoryEngine />
+          </motion.div>
+
+          <motion.div
+            {...fadeUp}
+            transition={{ ...fadeUp.transition, delay: 0.16 }}
+            className="mx-auto mt-10 max-w-3xl rounded-3xl border border-border bg-card p-7 sm:p-9"
+          >
+            <div className="flex flex-wrap items-center gap-3">
+              <span className="flex h-10 w-10 items-center justify-center rounded-xl border border-border bg-[var(--accent-soft)]/60">
+                <Brain className="h-5 w-5 text-[var(--primary-deep)]" />
+              </span>
+              <div>
+                <span className="eyebrow">The technology</span>
+                <p className="font-display text-lg font-bold leading-tight text-foreground">
+                  It's called FSRS, and we didn't invent it
+                </p>
+              </div>
+            </div>
+            <p className="mt-5 text-sm leading-relaxed text-muted-foreground">
+              <strong className="font-semibold text-foreground">
+                FSRS — the Free Spaced Repetition Scheduler
+              </strong>{" "}
+              is a free, open, peer-reviewed algorithm built on decades of memory research and
+              trained on well over a billion real study reviews. It's what serious medical students
+              use to hold thousands of facts through finals. For each topic it keeps two numbers:
+              how likely your child is to recall it <em>today</em>, and how durable that memory has
+              become. Every mark, score and self-rating updates both.
+            </p>
+            <p className="mt-4 text-sm leading-relaxed text-muted-foreground">
+              We did the harder part: wiring it to real marked homework, real quizzes and a real
+              tutor, so it works for a fifteen-year-old who has better things to do. The algorithm
+              picks the moment. A person still picks what's worth learning — and still writes the
+              sentence that explains it.
+            </p>
+            <p className="mt-4 rounded-xl bg-secondary/70 px-4 py-3 text-sm leading-relaxed text-muted-foreground">
+              <strong className="font-semibold text-foreground">In plain English:</strong> your
+              child never has to decide what to revise, and never revises something they already
+              know while something they don't quietly rots.
+            </p>
+          </motion.div>
+        </div>
+      </section>
+
+      {/* ---------------- Try it ---------------- */}
+      <section className="border-b border-border bg-card py-20 lg:py-24">
         <div className="mx-auto max-w-6xl px-6">
           <motion.div {...fadeUp} className="mx-auto mb-12 max-w-2xl text-center">
             <span className="eyebrow">See it for yourself</span>
@@ -266,19 +501,57 @@ function HowItWorks() {
           <motion.div {...fadeUp} transition={{ ...fadeUp.transition, delay: 0.1 }}>
             <RevisitSimulator />
           </motion.div>
+        </div>
+      </section>
 
-          <motion.p
+      {/* ---------------- The people ---------------- */}
+      <section className="border-b border-border bg-secondary/60 py-20 lg:py-24">
+        <div className="mx-auto max-w-4xl px-6 text-center">
+          <motion.div {...fadeUp}>
+            <span className="eyebrow">Who's actually teaching</span>
+            <h2 className="mt-3 font-display text-3xl font-bold tracking-tight text-foreground sm:text-4xl">
+              The same two people, every week
+            </h2>
+            <p className="mx-auto mt-5 max-w-2xl text-base leading-relaxed text-muted-foreground">
+              Every lesson is taught by Dr Nadia or Ali. Every piece of homework is marked by
+              whichever of them taught it. Every message is answered by the person your child sat
+              with on Tuesday. There is no pool of tutors behind this, no marking service, and no
+              chatbot wearing someone's name — which is the whole reason the feedback is worth
+              reading.
+            </p>
+          </motion.div>
+
+          <motion.div
             {...fadeUp}
-            transition={{ ...fadeUp.transition, delay: 0.2 }}
-            className="mx-auto mt-8 max-w-3xl text-center text-sm leading-relaxed text-muted-foreground/70"
+            transition={{ ...fadeUp.transition, delay: 0.1 }}
+            className="mt-10 grid gap-5 sm:grid-cols-3"
           >
-            Under the bonnet this is{" "}
-            <strong className="font-semibold text-muted-foreground">FSRS</strong> — a free, open,
-            peer-reviewed scheduling algorithm built on decades of memory research and trained on
-            well over a billion real study reviews. We didn't invent it. We did the harder part:
-            wiring it to real marked homework, real quizzes and a real tutor, so it works for a
-            fifteen-year-old who has better things to do.
-          </motion.p>
+            {[
+              {
+                stat: "2",
+                label: "tutors, and only two",
+                note: "Both practising medics. Both teach every week.",
+              },
+              {
+                stat: "48h",
+                label: "to marked and back",
+                note: "With comments written for your child specifically.",
+              },
+              {
+                stat: "1",
+                label: "plan per student",
+                note: "Rebuilt weekly from their own evidence.",
+              },
+            ].map((s) => (
+              <div key={s.label} className="premium-card rounded-2xl p-6">
+                <div className="font-display text-3xl font-bold text-[var(--primary-deep)]">
+                  {s.stat}
+                </div>
+                <div className="mt-1 text-sm font-bold text-foreground">{s.label}</div>
+                <p className="mt-2 text-xs leading-relaxed text-muted-foreground">{s.note}</p>
+              </div>
+            ))}
+          </motion.div>
         </div>
       </section>
 
@@ -321,45 +594,8 @@ function HowItWorks() {
         </div>
       </section>
 
-      {/* ---------------- What's included ---------------- */}
-      <section className="border-b border-border bg-secondary/60 py-20 lg:py-24">
-        <div className="mx-auto max-w-7xl px-6">
-          <motion.div {...fadeUp} className="mx-auto mb-14 max-w-2xl text-center">
-            <span className="eyebrow">What's included</span>
-            <h2 className="mt-3 font-display text-3xl font-bold tracking-tight text-foreground sm:text-4xl">
-              It all comes in the one place
-            </h2>
-            <p className="mt-4 text-base leading-relaxed text-muted-foreground">
-              One membership. No add-ons, no premium tier, no paying extra for the bits that matter.
-            </p>
-          </motion.div>
-
-          <div className="grid gap-5 sm:grid-cols-2 lg:grid-cols-4">
-            {INCLUDED.map((f, i) => {
-              const Icon = f.icon;
-              return (
-                <motion.div
-                  key={f.title}
-                  {...fadeUp}
-                  transition={{ ...fadeUp.transition, delay: (i % 4) * 0.07 }}
-                  className="premium-card premium-card-interactive rounded-2xl p-6"
-                >
-                  <div className="mb-5 flex h-11 w-11 items-center justify-center rounded-xl border border-border bg-secondary">
-                    <Icon className="h-5 w-5 text-foreground" />
-                  </div>
-                  <h3 className="font-display text-[15px] font-bold leading-snug text-foreground">
-                    {f.title}
-                  </h3>
-                  <p className="mt-2.5 text-sm leading-relaxed text-muted-foreground">{f.desc}</p>
-                </motion.div>
-              );
-            })}
-          </div>
-        </div>
-      </section>
-
       {/* ---------------- Closing CTA ---------------- */}
-      <section className="bg-card py-20 lg:py-24">
+      <section className="bg-secondary/40 py-20 lg:py-24">
         <div className="mx-auto max-w-5xl px-6">
           <motion.div
             {...fadeUp}
@@ -397,7 +633,7 @@ function HowItWorks() {
               </Link>
             </div>
             <p className="relative mt-6 text-xs text-white/60">
-              Cancel anytime · AQA, Edexcel &amp; OCR · KS3 and GCSE
+              Cancel anytime · AQA, Edexcel &amp; OCR · KS3, GCSE and iGCSE
             </p>
           </motion.div>
         </div>
