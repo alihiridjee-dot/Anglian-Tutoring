@@ -15,6 +15,7 @@ import {
 import { isDemoStudent, DEMO_MCQ_SETS } from "@/lib/demo/studentDemo";
 import { useRoles } from "@/hooks/useRole";
 import { McqManager } from "@/components/tutor/McqManager";
+import { boardLabel, levelLabel, subjectLabel } from "@/lib/courseSummary";
 
 export const Route = createFileRoute("/_authenticated/mcqs")({
   beforeLoad: guardStudentSection,
@@ -122,13 +123,18 @@ function StudentMCQs() {
   const groupedAssessments = useMemo(() => {
     const groups: Record<string, SetRow[]> = {};
     for (const s of topical) {
-      const boardLabel = s.board ? s.board.toUpperCase() : "";
-      const levelLabel = s.level ? (s.level === "alevel" ? "A-Level" : "GCSE") : "";
-      const subjectLabel = s.subject ? s.subject.charAt(0).toUpperCase() + s.subject.slice(1) : "";
+      // Labels come from the taxonomy rather than being derived here. The local
+      // version read `level === "alevel" ? "A-Level" : "GCSE"`, which filed every
+      // iGCSE and Combined Trilogy set under a heading that named the wrong
+      // qualification — a student could open a quiz for a spec they aren't sitting
+      // believing it was theirs.
+      const board = s.board ? boardLabel(s.board) : "";
+      const level = levelLabel(s.level);
+      const subject = s.subject ? subjectLabel(s.subject) : "";
 
       const catKey =
-        boardLabel && levelLabel && subjectLabel
-          ? `${boardLabel} • ${levelLabel} ${subjectLabel}`
+        board && level && subject
+          ? `${board} • ${level} ${subject}`
           : "Syllabus Topical Assessments";
 
       if (!groups[catKey]) {

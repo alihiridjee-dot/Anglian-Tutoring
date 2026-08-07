@@ -145,10 +145,21 @@ export class ChatDAL {
     }
     const tutorNames = new Map(tutors.map((t) => [t.id, t.display_name]));
 
+    // Bucket the messages by thread once. Re-filtering the whole array inside the
+    // map below made this O(threads × messages) — fine for a student with three
+    // conversations, quadratic for a tutor working an inbox, which is the only
+    // person who ever sees the big version of this list.
+    const byThread = new Map<string, typeof messages>();
+    for (const m of messages ?? []) {
+      const bucket = byThread.get(m.thread_id);
+      if (bucket) bucket.push(m);
+      else byThread.set(m.thread_id, [m]);
+    }
+
     return rows.map((t) => {
       const mine = t.student_id === uid;
       const watermark = mine ? t.student_last_read_at : t.tutor_last_read_at;
-      const threadMessages = (messages ?? []).filter((m) => m.thread_id === t.id);
+      const threadMessages = byThread.get(t.id) ?? [];
       const unread = threadMessages.filter(
         (m) => m.sender_id !== uid && (!watermark || m.created_at > watermark),
       ).length;

@@ -13,13 +13,7 @@ import {
 import { currentWeekKey, mondayOf, weekRangeLabel } from "@/lib/week";
 import { useServerFn } from "@tanstack/react-start";
 import { refreshWeeklySummary } from "@/lib/weeklySummary.functions";
-
-const subjectLabel: Record<string, string> = {
-  biology: "Biology",
-  chemistry: "Chemistry",
-  physics: "Physics",
-};
-const levelLabel: Record<string, string> = { gcse: "GCSE", alevel: "A-Level" };
+import { levelLabel, subjectLabel } from "@/lib/courseSummary";
 
 interface Props {
   userId: string;
@@ -98,7 +92,7 @@ export function WeeklyFocusManager({ userId, taxonomy }: Props) {
       }
       invalidate();
       toast.success(
-        `Saved — ${subjectLabel[taxonomy.subject] ?? taxonomy.subject}, ${specPointIds.length} point${
+        `Saved — ${subjectLabel(taxonomy.subject)}, ${specPointIds.length} point${
           specPointIds.length === 1 ? "" : "s"
         } this week`,
         { id: t },
@@ -112,7 +106,7 @@ export function WeeklyFocusManager({ userId, taxonomy }: Props) {
 
   const clear = async () => {
     if (!existing) return;
-    if (!confirm(`Remove ${subjectLabel[taxonomy.subject]} from this week's focus?`)) return;
+    if (!confirm(`Remove ${subjectLabel(taxonomy.subject)} from this week's focus?`)) return;
     setSaving(true);
     const t = toast.loading("Clearing…");
     try {
@@ -180,9 +174,9 @@ export function WeeklyFocusManager({ userId, taxonomy }: Props) {
                 key={p.id}
                 className="inline-flex items-center gap-1.5 rounded-full premium-card px-3 py-1 text-xs"
               >
-                <span className="font-semibold">{subjectLabel[p.subject] ?? p.subject}</span>
+                <span className="font-semibold">{subjectLabel(p.subject)}</span>
                 <span className="text-muted-foreground">
-                  {levelLabel[p.level] ?? p.level} · {p.board.toUpperCase()}
+                  {levelLabel(p.level)} · {p.board.toUpperCase()}
                 </span>
                 <span className="inline-flex items-center justify-center min-w-4 h-4 px-1 rounded-full bg-primary/15 text-primary text-[10px] font-bold">
                   {p.points.length}

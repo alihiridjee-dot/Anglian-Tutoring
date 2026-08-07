@@ -13,15 +13,28 @@ import {
 } from "@/hooks/data/useChildProgress";
 import { AuthService } from "@/lib/authService";
 import { GradePredictorCard } from "@/components/parent/GradePredictorCard";
-import { TrendsChart } from "@/components/parent/TrendsChart";
 import { EngagementStats } from "@/components/parent/EngagementStats";
 import { FeedbackList } from "@/components/parent/FeedbackList";
 import { isDemoMode } from "@/lib/auth/session";
 import { DEMO_PARENT_NAME } from "@/lib/demo/studentDemo";
 import { resolveDisplayName } from "@/lib/displayName";
 import { UserRole } from "@/types/user";
-import { useState } from "react";
+import { Suspense, lazy, useState } from "react";
 import { Users } from "lucide-react";
+
+/**
+ * Recharts, and the d3 + lodash tail it drags with it, is ~96 kB gzipped — and
+ * `TrendsChart` is the only thing in the app that touches it, on this one route.
+ * Imported statically it landed in the chunk every route shares, so a parent who
+ * had never signed in still downloaded a charting library to read the landing
+ * page. Loading it on demand moves the whole thing off everyone else's critical
+ * path; the one person who actually sees a chart waits a few hundred
+ * milliseconds for it, behind a placeholder the same height as the chart so the
+ * page doesn't jump when it arrives.
+ */
+const TrendsChart = lazy(() =>
+  import("@/components/parent/TrendsChart").then((m) => ({ default: m.TrendsChart })),
+);
 
 export const Route = createFileRoute("/_authenticated/parent-dashboard")({
   beforeLoad: async () => {
@@ -210,7 +223,13 @@ export function ParentDashboard() {
         <div className="grid grid-cols-1 lg:grid-cols-3 gap-8">
           <div className="lg:col-span-2 space-y-8">
             <GradePredictorCard analytics={analytics} />
-            <TrendsChart points={trends} subjects={trendSubjects} />
+            <Suspense
+              fallback={
+                <div className="premium-card h-[22rem] animate-pulse rounded-2xl bg-secondary/40" />
+              }
+            >
+              <TrendsChart points={trends} subjects={trendSubjects} />
+            </Suspense>
           </div>
           <div className="space-y-8">
             {engagement && <EngagementStats engagement={engagement} childName={childName} />}

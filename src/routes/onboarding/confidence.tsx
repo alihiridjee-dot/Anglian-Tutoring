@@ -7,6 +7,7 @@ import { useEnrolments } from "@/hooks/data/useEnrolments";
 import { PlannerDAL, type TopicWithConfidence } from "@/lib/plannerDal";
 import { BANDS, bandOf, type BandKey } from "@/lib/planner/bands";
 import { type SubjectV, type BoardV, type LevelV } from "@/lib/taxonomy";
+import { subjectLabel } from "@/lib/courseSummary";
 
 /**
  * Step 4 — a light first pass at the planner.
@@ -21,12 +22,6 @@ export const Route = createFileRoute("/onboarding/confidence")({
   head: () => ({ meta: [{ title: "Your topics | Anglia Educate" }] }),
   component: ConfidenceStep,
 });
-
-const subjectLabel: Record<string, string> = {
-  biology: "Biology",
-  chemistry: "Chemistry",
-  physics: "Physics",
-};
 
 function ConfidenceStep() {
   const navigate = useNavigate();
@@ -126,8 +121,8 @@ function SubjectConfidence({
   if (topics.length === 0) {
     return (
       <p className="text-sm text-muted-foreground">
-        We don't have the {subjectLabel[subject] ?? subject} topic list for your board yet — you can
-        set this later from your planner.
+        We don't have the {subjectLabel(subject)} topic list for your board yet — you can set this
+        later from your planner.
       </p>
     );
   }
@@ -136,7 +131,7 @@ function SubjectConfidence({
     <div>
       {showHeader && (
         <h3 className="text-xs font-bold uppercase tracking-wide text-muted-foreground mb-2">
-          {subjectLabel[subject] ?? subject}
+          {subjectLabel(subject)}
         </h3>
       )}
       <div className="space-y-2">

@@ -3,12 +3,7 @@ import { Brain, Loader2 } from "lucide-react";
 import { ScheduleDAL, type MemoryStats } from "@/lib/scheduleDal";
 import { type Enrolment } from "@/hooks/data/useEnrolments";
 import { type SubjectV, type BoardV, type LevelV } from "@/lib/taxonomy";
-
-const subjectLabel: Record<string, string> = {
-  biology: "Biology",
-  chemistry: "Chemistry",
-  physics: "Physics",
-};
+import { subjectLabel } from "@/lib/courseSummary";
 
 /**
  * The memory dashboard: how well the course is actually held right now,
@@ -112,7 +107,7 @@ export function MemoryPanel({
                     : "bg-muted text-muted-foreground hover:bg-muted/70"
                 }`}
               >
-                {subjectLabel[e.subject] ?? e.subject}
+                {subjectLabel(e.subject)}
               </button>
             ))}
           </div>

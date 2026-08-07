@@ -116,13 +116,30 @@ export function useAnswerMarking(
         };
       });
 
-    for (const u of updates) {
-      const { error } = await supabase
-        .from("homework_answers")
-        .update({ awarded_marks: u.awarded_marks, feedback: u.feedback })
-        .eq("id", u.id);
-      if (error) throw error;
-    }
+    // One request per answer, but concurrently rather than in a queue. Marking a
+    // twelve-question paper was twelve sequential round trips — over a second of
+    // the tutor staring at a spinner on a normal connection, for writes that
+    // don't depend on each other. Supabase has no "update many rows to many
+    // different values" call, so a batch needs a SECURITY DEFINER RPC in the
+    // shape of `record_reviews_atomic`; until that exists this is the same set
+    // of writes with the waiting removed.
+    //
+    // Partial failure is unchanged: neither form is a transaction, so a rejected
+    // write leaves the rest applied. This version at least attempts them all
+    // rather than abandoning everything after the first error.
+    const results = await Promise.allSettled(
+      updates.map((u) =>
+        supabase
+          .from("homework_answers")
+          .update({ awarded_marks: u.awarded_marks, feedback: u.feedback })
+          .eq("id", u.id)
+          .then(({ error }) => {
+            if (error) throw error;
+          }),
+      ),
+    );
+    const failed = results.find((r) => r.status === "rejected");
+    if (failed) throw failed.reason;
   }, [questions, answers, marks]);
 
   return {

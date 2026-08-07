@@ -20,12 +20,7 @@ import { carryOrigin } from "@/lib/planner/coverage";
 import { ThisWeekPanel } from "./ThisWeekPanel";
 import { useWeekPlan } from "./useWeekPlan";
 import { WeekReview } from "./WeekReview";
-
-const subjectLabel: Record<string, string> = {
-  biology: "Biology",
-  chemistry: "Chemistry",
-  physics: "Physics",
-};
+import { subjectLabel } from "@/lib/courseSummary";
 
 /**
  * The dashboard's "this week": subject tabs and week navigation around the
@@ -192,7 +187,7 @@ export function WeeklyPlanPanel({
                         : "bg-muted text-muted-foreground hover:text-foreground"
                     }`}
                   >
-                    {subjectLabel[e.subject] ?? e.subject}
+                    {subjectLabel(e.subject)}
                   </button>
                 ))}
               </div>

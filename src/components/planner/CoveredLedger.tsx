@@ -6,12 +6,7 @@ import { STRONG_THRESHOLD } from "@/lib/planner/coverage";
 import { type Enrolment } from "@/hooks/data/useEnrolments";
 import { type SubjectV, type BoardV, type LevelV } from "@/lib/taxonomy";
 import { currentWeekKey } from "@/lib/week";
-
-const subjectLabel: Record<string, string> = {
-  biology: "Biology",
-  chemistry: "Chemistry",
-  physics: "Physics",
-};
+import { subjectLabel } from "@/lib/courseSummary";
 
 /**
  * "Covered so far" — a progress ledger under the termly confidence board. It
@@ -142,7 +137,7 @@ export function CoveredLedger({
                     : "bg-muted text-muted-foreground hover:text-foreground"
                 }`}
               >
-                {subjectLabel[e.subject] ?? e.subject}
+                {subjectLabel(e.subject)}
               </button>
             ))}
           </div>

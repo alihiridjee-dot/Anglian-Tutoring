@@ -26,12 +26,7 @@ import { CoveredLedger } from "./CoveredLedger";
 import { SpecPointSelect } from "@/components/tutor/SpecPointSelect";
 import { CoveragePill } from "./CoveragePill";
 import { WeekReview } from "./WeekReview";
-
-const subjectLabel: Record<string, string> = {
-  biology: "Biology",
-  chemistry: "Chemistry",
-  physics: "Physics",
-};
+import { subjectLabel } from "@/lib/courseSummary";
 
 /**
  * The tutor's window into any student's weekly plan. Pick a student, page
@@ -265,7 +260,7 @@ export function TutorPlannerPanel() {
                     : "bg-muted text-muted-foreground hover:text-foreground"
                 }`}
               >
-                {subjectLabel[e.subject] ?? e.subject}
+                {subjectLabel(e.subject)}
               </button>
             ))}
           </div>

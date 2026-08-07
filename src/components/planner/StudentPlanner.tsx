@@ -36,12 +36,7 @@ import { CoveredLedger } from "./CoveredLedger";
 import { ThisWeekPanel } from "./ThisWeekPanel";
 import { useWeekPlan } from "./useWeekPlan";
 import { WeekReview } from "./WeekReview";
-
-const subjectLabel: Record<string, string> = {
-  biology: "Biology",
-  chemistry: "Chemistry",
-  physics: "Physics",
-};
+import { subjectLabel } from "@/lib/courseSummary";
 
 function fmtDate(d: Date): string {
   return d.toLocaleDateString(undefined, { day: "numeric", month: "short" });
@@ -197,7 +192,7 @@ export function StudentPlanner({
                     : "bg-muted text-muted-foreground hover:text-foreground"
                 }`}
               >
-                {subjectLabel[e.subject] ?? e.subject}
+                {subjectLabel(e.subject)}
               </button>
             ))}
           </div>

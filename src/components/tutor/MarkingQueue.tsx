@@ -9,6 +9,7 @@ import { ClipboardCheck, Clock, Download, Inbox, Loader2, MessageSquare } from "
 import { AnswerMarkingList } from "./AnswerMarking";
 import { useAnswerMarking } from "@/hooks/data/useAnswerMarking";
 import type { SubjectV, BoardV, LevelV } from "@/lib/taxonomy";
+import { subjectLabel } from "@/lib/courseSummary";
 
 /** Derived lifecycle status for a submission. */
 type SubmissionStatus = "PENDING_REVIEW" | "GRADED";
@@ -42,12 +43,6 @@ type Submission = {
     level: LevelV | null;
     due_at: string | null;
   } | null;
-};
-
-const subjectLabel: Record<string, string> = {
-  biology: "Biology",
-  chemistry: "Chemistry",
-  physics: "Physics",
 };
 
 const DAY_MS = 86_400_000;
@@ -488,7 +483,7 @@ function MarkSubmissionCard({
             <div className="flex flex-wrap items-center gap-1.5 mb-1">
               {subject && (
                 <span className="text-[10px] px-2 py-0.5 rounded uppercase tracking-widest font-semibold bg-primary/10 text-primary">
-                  {subjectLabel[subject] ?? subject}
+                  {subjectLabel(subject)}
                 </span>
               )}
               {isPending ? <UrgencyBadge sub={sub} /> : <GradedBadge />}

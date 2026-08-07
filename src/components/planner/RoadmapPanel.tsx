@@ -29,12 +29,7 @@ import { bandOf } from "@/lib/planner/bands";
 import { type Enrolment } from "@/hooks/data/useEnrolments";
 import { type SubjectV, type BoardV, type LevelV } from "@/lib/taxonomy";
 import { currentWeekKey, weekKeyToDate, sundayOf, addWeeks, toDateKey } from "@/lib/week";
-
-const subjectLabel: Record<string, string> = {
-  biology: "Biology",
-  chemistry: "Chemistry",
-  physics: "Physics",
-};
+import { subjectLabel } from "@/lib/courseSummary";
 
 function fmtDate(d: Date): string {
   return d.toLocaleDateString(undefined, { day: "numeric", month: "short" });
@@ -205,7 +200,7 @@ export function RoadmapPanel({
                     : "bg-muted text-muted-foreground hover:text-foreground"
                 }`}
               >
-                {subjectLabel[e.subject] ?? e.subject}
+                {subjectLabel(e.subject)}
               </button>
             ))}
           </div>
