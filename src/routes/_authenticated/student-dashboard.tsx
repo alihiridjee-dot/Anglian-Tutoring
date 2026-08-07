@@ -5,12 +5,13 @@ import { useEnrolments } from "@/hooks/data/useEnrolments";
 import { useAnalytics } from "@/hooks/data/useAnalytics";
 import { isDemoStudent, DEMO_STUDENT_NAME } from "@/lib/demo/studentDemo";
 import { resolveDisplayName } from "@/lib/displayName";
-import { useState, useEffect } from "react";
+import { useState, useEffect, type ReactNode } from "react";
 import { WeeklyFocusCard } from "@/components/weekly/WeeklyFocusCard";
 import { LiveSessionsBanner } from "@/components/live/LiveSessionsBanner";
 import { WeeklyPlanPanel } from "@/components/planner/WeeklyPlanPanel";
 import { AuthService } from "@/lib/authService";
 import { UserRole } from "@/types/user";
+import { boardLabel, levelLabel, subjectLabel } from "@/lib/courseSummary";
 
 export const Route = createFileRoute("/_authenticated/student-dashboard")({
   beforeLoad: async () => {
@@ -30,24 +31,14 @@ export const Route = createFileRoute("/_authenticated/student-dashboard")({
   component: StudentDashboard,
 });
 
-const subjectLabel: Record<string, string> = {
-  biology: "Biology",
-  chemistry: "Chemistry",
-  physics: "Physics",
-};
-
-const boardLabel: Record<string, string> = {
-  edexcel: "Edexcel",
-  aqa: "AQA",
-  ocr: "OCR",
-};
-
-const levelLabel: Record<string, string> = {
-  gcse: "GCSE",
-  alevel: "A-Level",
-};
-
-export function StudentDashboard() {
+/**
+ * @param afterContent Rendered inside the layout, below the dashboard's own
+ *   sections. The public showcase mounts this same component and uses the slot
+ *   for its sales chat; a real student's dashboard passes nothing. Keeping it a
+ *   slot rather than an `isDemoStudent()` branch in the body means demo-only UI
+ *   stays in the demo route, where it cannot leak into a paying student's page.
+ */
+export function StudentDashboard({ afterContent }: { afterContent?: ReactNode } = {}) {
   const { email } = useRoles();
   const { enrolledCourses, enrolments, level, displayName: profileName } = useEnrolments();
   const [effectiveStudentId, setEffectiveStudentId] = useState<string | null>(null);
@@ -106,6 +97,8 @@ export function StudentDashboard() {
           Mon–Sun week, plus curated videos and links to homework, MCQs and live
           sessions. Live strip suppressed here since it now has its own banner. */}
       <WeeklyFocusCard subjects={enrolledCourses} showLive={false} />
+
+      {afterContent}
     </AppLayout>
   );
 }
@@ -134,7 +127,7 @@ function EnrolmentSummary({
     <div className="flex flex-wrap items-center gap-1.5">
       {level && (
         <span className="text-[11px] font-bold uppercase tracking-wide px-2 py-1 rounded-md bg-accent/25 text-primary-foreground border border-accent/30">
-          {levelLabel[level] ?? level}
+          {levelLabel(level)}
         </span>
       )}
       {enrolments.map((e) => (
@@ -142,9 +135,9 @@ function EnrolmentSummary({
           key={e.subject}
           className="inline-flex items-center gap-1.5 text-[11px] sm:text-xs font-medium px-2.5 py-1 rounded-md bg-white/10 border border-white/10 text-primary-foreground/90"
         >
-          {subjectLabel[e.subject] ?? e.subject}
+          {subjectLabel(e.subject)}
           <span className="text-primary-foreground/50">·</span>
-          <span className="text-primary-foreground/70">{boardLabel[e.board] ?? e.board}</span>
+          <span className="text-primary-foreground/70">{boardLabel(e.board)}</span>
         </span>
       ))}
     </div>
