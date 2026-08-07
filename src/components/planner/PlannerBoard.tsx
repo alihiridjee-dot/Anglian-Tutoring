@@ -7,12 +7,7 @@ import { type SubjectV, type BoardV, type LevelV } from "@/lib/taxonomy";
 import { BANDS, bandOf, type BandKey } from "@/lib/planner/bands";
 import { TopicCard } from "./TopicCard";
 import { SpecPointSwipeModal } from "./SpecPointSwipeModal";
-
-const subjectLabel: Record<string, string> = {
-  biology: "Biology",
-  chemistry: "Chemistry",
-  physics: "Physics",
-};
+import { subjectLabel } from "@/lib/courseSummary";
 
 /**
  * The termly planner's confidence board. The student sorts each topic group into
@@ -159,7 +154,7 @@ export function PlannerBoard({
                     : "bg-muted text-muted-foreground hover:text-foreground"
                 }`}
               >
-                {subjectLabel[e.subject] ?? e.subject}
+                {subjectLabel(e.subject)}
               </button>
             ))}
         </div>
@@ -176,7 +171,7 @@ export function PlannerBoard({
         </div>
       ) : topics.length === 0 ? (
         <div className="rounded-xl border border-dashed border-border p-8 text-center text-sm text-muted-foreground">
-          No curriculum topics are set up for {subjectLabel[active.subject] ?? active.subject} (
+          No curriculum topics are set up for {subjectLabel(active.subject)} (
           {active.board.toUpperCase()}) yet.
         </div>
       ) : (

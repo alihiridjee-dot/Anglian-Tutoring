@@ -18,19 +18,15 @@ import {
 } from "@/lib/weeklyPlanDal";
 import { type SubjectV, type BoardV } from "@/lib/taxonomy";
 import { mondayOf, addWeeks, toDateKey, weekRangeLabel } from "@/lib/week";
-import { type PointCoverage, statusOf } from "@/lib/planner/coverage";
+import { type PointCoverage, statusOfPoint } from "@/lib/planner/coverage";
+import { type Activity } from "./useWeekPlan";
 import { ScheduleDAL } from "@/lib/scheduleDal";
 import { RoadmapPanel } from "./RoadmapPanel";
 import { CoveredLedger } from "./CoveredLedger";
 import { SpecPointSelect } from "@/components/tutor/SpecPointSelect";
 import { CoveragePill } from "./CoveragePill";
 import { WeekReview } from "./WeekReview";
-
-const subjectLabel: Record<string, string> = {
-  biology: "Biology",
-  chemistry: "Chemistry",
-  physics: "Physics",
-};
+import { subjectLabel } from "@/lib/courseSummary";
 
 /**
  * The tutor's window into any student's weekly plan. Pick a student, page
@@ -75,6 +71,9 @@ export function TutorPlannerPanel() {
   const [plan, setPlan] = useState<WeeklyPlan | null>(null);
   const [points, setPoints] = useState<PlanPoint[]>([]);
   const [coverage, setCoverage] = useState<Map<string, PointCoverage>>(new Map());
+  // What practice exists per point — so the tutor's view can tell a point the
+  // student skipped from one nothing was ever set on.
+  const [activity, setActivity] = useState<Activity>(new Map());
   const [loading, setLoading] = useState(false);
   const [picking, setPicking] = useState(false);
   const [toAdd, setToAdd] = useState<string[]>([]);
@@ -89,6 +88,7 @@ export function TutorPlannerPanel() {
       setPlan(null);
       setPoints([]);
       setCoverage(new Map());
+      setActivity(new Map());
       return;
     }
     setLoading(true);
@@ -102,9 +102,12 @@ export function TutorPlannerPanel() {
       // results before reading coverage (idempotent; tutor RLS allows the write).
       await ScheduleDAL.syncReviewsFromAttempts(student.id, ids).catch(() => {});
     }
-    setCoverage(
-      showReview && ids.length ? await WeeklyPlanDAL.getCoverage(student.id, ids) : new Map(),
-    );
+    const [cov, act] = await Promise.all([
+      showReview && ids.length ? WeeklyPlanDAL.getCoverage(student.id, ids) : new Map(),
+      ids.length ? WeeklyPlanDAL.getActivity(ids) : new Map(),
+    ]);
+    setCoverage(cov);
+    setActivity(act);
     setLoading(false);
   };
 
@@ -257,7 +260,7 @@ export function TutorPlannerPanel() {
                     : "bg-muted text-muted-foreground hover:text-foreground"
                 }`}
               >
-                {subjectLabel[e.subject] ?? e.subject}
+                {subjectLabel(e.subject)}
               </button>
             ))}
           </div>
@@ -312,7 +315,7 @@ export function TutorPlannerPanel() {
                               {p.code}
                             </span>
                             <span className="text-sm">{p.title}</span>
-                            {p.origin === "carried_over" && (
+                            {(p.carried_from || p.origin === "carried_over") && (
                               <span className="ml-1.5 text-[10px] text-amber-600 dark:text-amber-400">
                                 carried over
                               </span>
@@ -320,7 +323,10 @@ export function TutorPlannerPanel() {
                           </div>
                           <div className="flex items-center gap-1.5 shrink-0">
                             {showReview && (
-                              <CoveragePill status={statusOf(cov)} score={cov?.bestScore} />
+                              <CoveragePill
+                                status={statusOfPoint(cov, activity.get(p.spec_point_id))}
+                                score={cov?.bestScore}
+                              />
                             )}
                             <button
                               type="button"
@@ -399,6 +405,7 @@ export function TutorPlannerPanel() {
                 plan={plan}
                 points={points}
                 coverage={coverage}
+                activity={activity}
                 subject={active.subject as SubjectV}
                 board={active.board as BoardV}
                 level={student.level ?? "gcse"}

@@ -1,4 +1,5 @@
 import { supabase } from "@/integrations/supabase/client";
+import { getSessionUserId } from "@/lib/auth/session";
 import { type SubjectV, type BoardV, type LevelV } from "./taxonomy";
 import { type Json } from "@/integrations/supabase/types";
 import { mondayOf, sundayOf, toDateKey, weekKeyToDate } from "./week";
@@ -186,17 +187,33 @@ export class ProgramDAL {
       const live = computePacing(topics, thisMonday, examMonday);
       const programStart = toDateKey(thisMonday);
       const examDate = toDateKey(examMonday);
-      // Seed the acknowledged baseline so the first view is calm (no diff).
-      await supabase.from("student_program_plan").upsert(
-        {
-          student_id: studentId,
-          subject,
-          program_start: programStart,
-          exam_date: examDate,
-          pacing: live as unknown as Json,
-        },
-        { onConflict: "student_id,subject" },
-      );
+
+      // Seed the acknowledged baseline so the first view is calm (no diff) —
+      // but ONLY when the student is the one looking.
+      //
+      // "First view = enrolment" is the rule, and it sets an anchor that never
+      // moves again. That has to mean the student's first view. A tutor opening
+      // the planner to check on a new student, or a parent looking before their
+      // child has logged in, would otherwise stamp the programme's permanent
+      // start week with the date THEY happened to look — silently compressing
+      // or stretching a runway to the exam that nobody chose. With one tutor and
+      // fifty students, the tutor gets there first almost every time.
+      //
+      // The read still answers normally; it just doesn't leave a mark. The
+      // student's own first visit does the seeding, as intended.
+      const viewerId = await getSessionUserId();
+      if (viewerId === studentId) {
+        await supabase.from("student_program_plan").upsert(
+          {
+            student_id: studentId,
+            subject,
+            program_start: programStart,
+            exam_date: examDate,
+            pacing: live as unknown as Json,
+          },
+          { onConflict: "student_id,subject" },
+        );
+      }
       return {
         // Weekly points are added for display only — `live` stays clean, so the
         // stored baseline and its diff never see them.
@@ -400,7 +417,12 @@ export class ProgramDAL {
       // can't judge it yet.
       return c.bestScore == null || c.bestScore < STRONG_THRESHOLD;
     };
-    const keep = existing.points.filter((p) => p.origin === "student" || inFlight(p.spec_point_id));
+    // A carried point survives a re-cut whether or not it has been touched:
+    // carrying it forward was a decision that it needs another week, and
+    // re-planning the week is not a reason to overturn it.
+    const keep = existing.points.filter(
+      (p) => p.origin === "student" || p.carried_from || inFlight(p.spec_point_id),
+    );
 
     // Kept points first so their original lane wins the merge. Both planners
     // label every point they return, so the default below is unreachable — it is
@@ -408,7 +430,13 @@ export class ProgramDAL {
     // `focus` is exactly how a point the student never flagged ends up presented
     // to them as revision.
     const origins: Record<string, PlanPointOrigin> = {};
-    for (const p of keep) origins[p.spec_point_id] = p.origin;
+    // Carry markers ride along too — `savePlan` rewrites the point set wholesale,
+    // so anything not handed back here is lost.
+    const carriedFroms: Record<string, string | null> = {};
+    for (const p of keep) {
+      origins[p.spec_point_id] = p.origin;
+      carriedFroms[p.spec_point_id] = p.carried_from;
+    }
     for (const id of fresh.specPointIds) origins[id] ??= fresh.origins[id] ?? "ai";
     const specPointIds = Object.keys(origins);
 
@@ -427,6 +455,7 @@ export class ProgramDAL {
       source: "ai",
       rationale: fresh.rationale,
       origins,
+      carriedFroms,
       origin: "ai",
     });
     return true;

@@ -4,6 +4,7 @@ import type { SupabaseClient } from "@supabase/supabase-js";
 import { requireSupabaseAuth } from "@/integrations/supabase/auth-middleware";
 import type { Database } from "@/integrations/supabase/types";
 import { type SubjectV, type BoardV, type LevelV } from "@/lib/taxonomy";
+import { callWithBackoff, claimRequest } from "@/lib/ai/throttle";
 
 // AI for the personalized planner. Two read-only suggesters, both mirroring the
 // suggestSpecPoints setup (Anthropic claude-sonnet-5, ANTHROPIC_API_KEY, server-
@@ -126,6 +127,40 @@ function confLabel(c: number | null): string {
   return `needs work (${c})`;
 }
 
+/**
+ * The course's spec points as a numbered list, with NO student data in it.
+ *
+ * This is the expensive part of the prompt — a few thousand tokens for a full
+ * GCSE course — and it is byte-identical for every student sitting that course.
+ * Splitting it out from the per-student confidence ratings is what makes it
+ * cacheable: the list goes in a cached system block, the ratings ride in the
+ * user turn after the breakpoint. The fiftieth student to open the planner on a
+ * given course reads that prefix from cache instead of paying for it again.
+ *
+ * Caching is a prefix match, so the ordering here has to be deterministic —
+ * `loadCandidates` sorts by topic then point, and the indices the model returns
+ * are positions in this list.
+ */
+function courseCatalogue(candidates: Candidate[]): string {
+  return candidates.map((c, i) => `[${i}] ${c.topic ?? "—"} · ${c.code} ${c.title}`).join("\n");
+}
+
+/**
+ * Only the points the student has actually rated, as `index: label` lines.
+ *
+ * Sending ratings for every point would be nearly as long as the catalogue
+ * itself and would repeat what the catalogue already says. Unrated points are
+ * simply absent, which the prompt explains — that is both shorter and a clearer
+ * signal than a wall of "not rated".
+ */
+function confidenceDelta(candidates: Candidate[]): string {
+  const rated = candidates
+    .map((c, i) => ({ i, confidence: c.confidence }))
+    .filter((r) => r.confidence != null);
+  if (rated.length === 0) return "(the student hasn't rated anything yet)";
+  return rated.map((r) => `[${r.i}] ${confLabel(r.confidence)}`).join("\n");
+}
+
 function parseIndices(text: string, max: number): number[] {
   let parsed: { indices?: unknown };
   try {
@@ -183,28 +218,47 @@ export const suggestWeeklyPlan = createServerFn({ method: "POST" })
   )
   .handler(async ({ data, context }) => {
     const { supabase } = context;
+    await claimRequest(supabase, "suggest-weekly-plan");
+
     const candidates = await loadCandidates(supabase, data.subject, data.board, data.level);
     if (candidates.length === 0) return { specPointIds: [] as string[], rationale: "", count: 0 };
 
-    const list = candidates
-      .map((c, i) => `[${i}] ${c.topic ?? "—"} · ${c.code} ${c.title} — ${confLabel(c.confidence)}`)
-      .join("\n");
-
-    const system = `You are planning one week of revision for a UK ${data.level.toUpperCase()} ${data.subject} student.
-You get a numbered list of every spec point in their course, each tagged with how confident the student feels (or "not rated").
-Choose about ${data.targetCount} spec points for THIS week. Lead with the weakest ("needs work"), then "getting there"; include a "not rated" point only if it fits the theme. Keep the set coherent — points from the same topic that build on each other are better than a scattergun across the whole spec.
-${data.focus ? `The student specifically wants to focus on: "${data.focus}". Weight the selection toward that.` : ""}
+    // Two system blocks, and the split is what makes this affordable at cohort
+    // scale. The first is identical for every student on this course and is
+    // cached; the second carries the per-request instructions. Everything that
+    // varies per student sits in the user turn, after the breakpoint.
+    const system: Anthropic.TextBlockParam[] = [
+      {
+        type: "text",
+        text: `You are planning one week of revision for a UK ${data.level.toUpperCase()} ${data.subject} student.
+Here is every spec point in their course, numbered:
+${courseCatalogue(candidates)}`,
+        cache_control: { type: "ephemeral" },
+      },
+      {
+        type: "text",
+        text: `The student rates their own confidence on some of these points. Points they haven't rated are simply absent from the ratings list — treat those as unknown, not as weak.
+Choose about ${data.targetCount} spec points for THIS week. Lead with the weakest ("needs work"), then "getting there"; include an unrated point only if it fits the theme. Keep the set coherent — points from the same topic that build on each other are better than a scattergun across the whole spec.
 Return ONLY JSON, no prose, no markdown fences:
-{"indices":[3,4,5],"rationale":"one short sentence, addressed to the student, on why these"}`;
+{"indices":[3,4,5],"rationale":"one short sentence, addressed to the student, on why these"}`,
+      },
+    ];
+
+    const user = [
+      `Student's confidence ratings:\n${confidenceDelta(candidates)}`,
+      data.focus ? `\nThe student specifically wants to focus on: "${data.focus}".` : "",
+    ].join("");
 
     let res;
     try {
-      res = await client().messages.create({
-        model: MODEL,
-        max_tokens: 1000,
-        system,
-        messages: [{ role: "user", content: `Spec points:\n${list}` }],
-      });
+      res = await callWithBackoff(() =>
+        client().messages.create({
+          model: MODEL,
+          max_tokens: 1000,
+          system,
+          messages: [{ role: "user", content: user }],
+        }),
+      );
     } catch (e) {
       throw mapAnthropicError(e);
     }
@@ -242,28 +296,40 @@ export const interpretWeakness = createServerFn({ method: "POST" })
   })
   .handler(async ({ data, context }) => {
     const { supabase } = context;
+    await claimRequest(supabase, "interpret-weakness");
+
     const candidates = await loadCandidates(supabase, data.subject, data.board, data.level);
     if (candidates.length === 0) return { specPointIds: [] as string[], count: 0 };
 
-    const list = candidates
-      .map((c, i) => `[${i}] ${c.topic ?? "—"} · ${c.code} ${c.title}`)
-      .join("\n");
-
-    const system = `A UK ${data.level.toUpperCase()} ${data.subject} student describes what they find difficult, in their own words.
-Match it to the spec points it refers to from the numbered list. Be precise, not generous — pick the points genuinely implied, not a whole topic because one word overlapped. If nothing matches, return an empty list.
+    // Same split as suggestWeeklyPlan: the catalogue is shared across every
+    // student on this course, so it goes in a cached block and only the
+    // student's own words ride in the user turn.
+    const system: Anthropic.TextBlockParam[] = [
+      {
+        type: "text",
+        text: `A UK ${data.level.toUpperCase()} ${data.subject} student describes what they find difficult, in their own words.
+Here is every spec point in their course, numbered:
+${courseCatalogue(candidates)}`,
+        cache_control: { type: "ephemeral" },
+      },
+      {
+        type: "text",
+        text: `Match what they say to the spec points it refers to. Be precise, not generous — pick the points genuinely implied, not a whole topic because one word overlapped. If nothing matches, return an empty list.
 Return ONLY JSON, no prose, no markdown fences:
-{"indices":[3,4,5]}`;
+{"indices":[3,4,5]}`,
+      },
+    ];
 
     let res;
     try {
-      res = await client().messages.create({
-        model: MODEL,
-        max_tokens: 800,
-        system,
-        messages: [
-          { role: "user", content: `Student says:\n${data.text}\n\nSpec points:\n${list}` },
-        ],
-      });
+      res = await callWithBackoff(() =>
+        client().messages.create({
+          model: MODEL,
+          max_tokens: 800,
+          system,
+          messages: [{ role: "user", content: `Student says:\n${data.text}` }],
+        }),
+      );
     } catch (e) {
       throw mapAnthropicError(e);
     }

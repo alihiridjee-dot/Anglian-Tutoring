@@ -1,6 +1,6 @@
 import { createFileRoute, Outlet, redirect } from "@tanstack/react-router";
 import { getAuthSession } from "@/lib/auth/session";
-import { supabase } from "@/integrations/supabase/client";
+import { loadGuardState } from "@/lib/auth/guardState";
 import { PaywallOverlay } from "@/components/billing/PaywallOverlay";
 
 /**
@@ -33,32 +33,36 @@ import { PaywallOverlay } from "@/components/billing/PaywallOverlay";
  */
 export const Route = createFileRoute("/_authenticated")({
   ssr: false,
-  beforeLoad: async ({ location }) => {
+  beforeLoad: async ({ location, context }) => {
     const session = await getAuthSession();
     if (!session.user) {
       throw redirect({ to: "/auth", search: { redirect: location.href } as never });
     }
 
-    const { data: profile } = await supabase
-      .from("profiles")
-      .select("role")
-      .eq("id", session.user.id)
-      .maybeSingle();
+    const guard = await loadGuardState(context.queryClient, session.user.id);
 
     let locked = false;
-    if (profile?.role === "student") {
-      const { data: access } = await supabase.rpc("my_access_state").single();
-
-      // A failed read must not hand out access. If we can't answer the
-      // question, we don't open the door.
-      if (!access?.onboarding_complete) {
+    if (guard.role === "student") {
+      // "Not onboarded" and "couldn't tell" are different answers, and they must
+      // not be treated alike. A failed access read used to fall through to the
+      // redirect below, which threw a fully onboarded, paying student back to
+      // step one of setup — and that failure shows up precisely under load,
+      // because that is when reads start timing out. Only a definite `false`
+      // relocates anybody.
+      if (guard.onboardingComplete === false) {
         throw redirect({ to: "/onboarding/board" });
       }
-      // /billing stays exempt from the overlay: a student who paused or
-      // cancelled their own plan must be able to get back in to resume it —
-      // covering it would push them into buying a second subscription on top
-      // of the paused one.
-      locked = !access?.has_access && !location.pathname.startsWith("/billing");
+      // The overlay is presentation, not enforcement (see above), so an
+      // unanswerable access check must not accuse a paying student of having
+      // lapsed. RLS is still refusing content either way, so the worst case
+      // here is a page that renders empty rather than one that renders a false
+      // demand for money.
+      //
+      // /billing stays exempt regardless: a student who paused or cancelled
+      // their own plan must be able to get back in to resume it — covering it
+      // would push them into buying a second subscription on top of the paused
+      // one.
+      locked = guard.hasAccess === false && !location.pathname.startsWith("/billing");
     }
 
     return { session, locked };

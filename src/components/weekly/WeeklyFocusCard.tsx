@@ -11,14 +11,7 @@ import { currentWeekKey, mondayOf, weekRangeLabel } from "@/lib/week";
 import { parseVideoUrl } from "@/lib/videoEmbed";
 import { VideoThumbnail, VideoModal } from "@/components/VideoPlayer";
 import { LiveSessionsBanner } from "@/components/live/LiveSessionsBanner";
-
-const subjectLabel: Record<string, string> = {
-  biology: "Biology",
-  chemistry: "Chemistry",
-  physics: "Physics",
-};
-
-const levelLabel: Record<string, string> = { gcse: "GCSE", alevel: "A-Level" };
+import { levelLabel, subjectLabel } from "@/lib/courseSummary";
 
 /**
  * Student "This Week" widget. Shows the curriculum spec points the tutor has set
@@ -90,11 +83,9 @@ export function WeeklyFocusCard({
               return (
                 <div key={plan.id} className="space-y-2.5">
                   <div className="flex flex-wrap items-center gap-2">
-                    <span className="font-display font-semibold">
-                      {subjectLabel[plan.subject] ?? plan.subject}
-                    </span>
+                    <span className="font-display font-semibold">{subjectLabel(plan.subject)}</span>
                     <span className="text-[10px] px-1.5 py-0.5 rounded-full uppercase tracking-wide font-bold bg-primary/10 text-primary">
-                      {levelLabel[plan.level] ?? plan.level}
+                      {levelLabel(plan.level)}
                     </span>
                     <span className="text-[10px] px-1.5 py-0.5 rounded-full uppercase tracking-wide font-bold bg-accent/10 text-accent">
                       {plan.board.toUpperCase()}

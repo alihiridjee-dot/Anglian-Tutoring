@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 import { ImageOff, Loader2 } from "lucide-react";
-import { createResourceSignedUrl } from "@/lib/storage.functions";
+import { getSignedUrl, msUntilRefresh } from "@/lib/signedUrlCache";
 import { DEMO_FILE_PREFIX } from "@/lib/demo/studentDemo";
 
 /**
@@ -8,9 +8,13 @@ import { DEMO_FILE_PREFIX } from "@/lib/demo/studentDemo";
  *
  * Unlike SignedFileLink this resolves its signed URL on mount rather than on
  * click — a question figure or a photo of working is part of the page, not
- * something you go and open. Signed URLs are short-lived, so a card left open
- * for a long time may need a reload; that's preferable to minting long-lived
- * links to student work.
+ * something you go and open.
+ *
+ * The URL comes from [[signedUrlCache]], which batches every image that mounts
+ * in the same tick into one request and re-signs before the five-minute link
+ * expires. Links to student work stay short-lived; they're renewed rather than
+ * issued long, so a homework page left open mid-answer doesn't quietly fill
+ * with broken images.
  */
 export function SignedImage({
   path,
@@ -25,22 +29,40 @@ export function SignedImage({
   const [failed, setFailed] = useState(false);
 
   useEffect(() => {
-    let cancelled = false;
     if (path.startsWith(DEMO_FILE_PREFIX)) {
       setFailed(true);
       return;
     }
+
+    let cancelled = false;
+    let renewal: ReturnType<typeof setTimeout> | undefined;
+
+    const load = () => {
+      getSignedUrl(path)
+        .then((next) => {
+          if (cancelled) return;
+          if (!next) {
+            setFailed(true);
+            return;
+          }
+          setUrl(next);
+          // Re-sign just before this link lapses, so a long read never lands on
+          // a dead URL.
+          const wait = msUntilRefresh(path);
+          if (wait != null) renewal = setTimeout(load, wait);
+        })
+        .catch(() => {
+          if (!cancelled) setFailed(true);
+        });
+    };
+
     setUrl(null);
     setFailed(false);
-    createResourceSignedUrl({ data: { path } })
-      .then(({ url }) => {
-        if (!cancelled) setUrl(url);
-      })
-      .catch(() => {
-        if (!cancelled) setFailed(true);
-      });
+    load();
+
     return () => {
       cancelled = true;
+      if (renewal) clearTimeout(renewal);
     };
   }, [path]);
 

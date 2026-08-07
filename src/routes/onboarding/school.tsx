@@ -1,7 +1,9 @@
 import { createFileRoute, useNavigate } from "@tanstack/react-router";
 import { useEffect, useState } from "react";
+import { useQueryClient } from "@tanstack/react-query";
 import { toast } from "sonner";
 import { supabase } from "@/integrations/supabase/client";
+import { invalidateGuardState } from "@/lib/auth/guardState";
 import { gradeOptions, completeOnboarding } from "@/lib/onboarding";
 import { SUBJECTS, type LevelV, type SubjectV } from "@/lib/taxonomy";
 import { StepCard } from "@/components/onboarding/StepCard";
@@ -27,6 +29,7 @@ export const Route = createFileRoute("/onboarding/school")({
 
 function SchoolStep() {
   const navigate = useNavigate();
+  const queryClient = useQueryClient();
   const [school, setSchool] = useState("");
   const [level, setLevel] = useState<LevelV | null>(null);
   const [subjects, setSubjects] = useState<SubjectV[]>([]);
@@ -97,6 +100,10 @@ function SchoolStep() {
       }
 
       await completeOnboarding(uid);
+      // The auth guard caches its answer, so the freshly-set flag has to evict
+      // it — otherwise the next guarded navigation reads the stale "not
+      // onboarded" and bounces the student straight back here.
+      invalidateGuardState(queryClient);
       navigate({ to: "/onboarding/plan" });
     } catch (err) {
       toast.error(err instanceof Error ? err.message : "Couldn't save that — try again.");

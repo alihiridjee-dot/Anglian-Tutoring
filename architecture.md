@@ -55,7 +55,6 @@ For authentication & the live/demo session model, see [docs/AUTHENTICATION.md](d
     │   └── supabase/          # Supabase client, auth attacher & middleware
     │       ├── auth-attacher.ts    # Attaches bearer token to serverFn RPCs
     │       ├── auth-middleware.ts  # requireSupabaseAuth for server functions
-    │       ├── client.server.ts    # Service-role admin client (currently unused)
     │       ├── client.ts           # Browser/SSR client (publishable key)
     │       └── types.ts            # Generated DB types (supabase gen types)
     │
@@ -64,11 +63,14 @@ For authentication & the live/demo session model, see [docs/AUTHENTICATION.md](d
     │   ├── authService.ts     # Role resolution + effective student id
     │   ├── chatDal.ts         # Data access layer — student<->tutor threads/messages
     │   ├── chatDraft.functions.ts # Server fn: AI draft of a tutor reply (tutor-only)
-    │   ├── courseSummary.ts   # Level + per-subject board labels — one phrasing, app-wide
+    │   ├── courseSummary.ts   # Level/board/subject labels — the ONLY place they're spelled
     │   ├── curriculumDal.ts   # Data access layer — ALL curriculum reads (DB only)
     │   ├── curriculumSyncService.ts # Parses spec text → inserts topics/points/MCQ sets
-    │   ├── demoAuth.ts        # enterDemoMode — signs into the seeded demo accounts
+    │   ├── demo/studentDemo.ts # Showcase fixtures — no account, no session
     │   ├── error-capture.ts   # Catastrophic SSR error reporting bounds
+    │   ├── rateLimit.ts       # In-memory sliding window, for endpoints with no caller
+    │   ├── whatsapp.ts        # The public WhatsApp number + wa.me links
+    │   ├── whatsappLead.functions.ts # Server fn: demo sales chat → leads + WhatsApp
     │   ├── error-page.ts      # Fail-safe SSR error layout page
     │   ├── mcq.functions.ts   # Server fn: AI MCQ generation (tutor-only)
     │   ├── taxonomy.ts        # Subjects, boards, levels
@@ -78,7 +80,8 @@ For authentication & the live/demo session model, see [docs/AUTHENTICATION.md](d
     ├── routes/                # File-based routing (TanStack Start)
     │   ├── __root.tsx         # Global base wrapper (meta tags, Toaster)
     │   ├── auth.tsx           # Login/signup — identity only (honours ?redirect=)
-    │   ├── demo.tsx           # Public demo entry (student/parent sandbox)
+    │   ├── demo/              # Public showcase — thin wrappers, fixtures, no session
+    │   ├── how-it-works.tsx   # The services + FSRS explainer (live engine, not art)
     │   ├── index.tsx          # Public landing page
     │   ├── reset-password.tsx
     │   ├── onboarding/        # Profile setup + paywall — OUTSIDE _authenticated
@@ -117,15 +120,32 @@ For authentication & the live/demo session model, see [docs/AUTHENTICATION.md](d
 
 ## 🔐 Data access model (summary)
 
-- Live and demo users both hold **real Supabase sessions**; demo is a dedicated
-  seeded account pair (`demo.student` / `demo.parent`).
-- **Row-Level Security** is the enforcement layer: enrolment scopes real
-  students; demo accounts get the full curriculum + videos but exactly one
-  pinned MCQ set (`mcq_sets.demo_visible`), one pinned homework
-  (`resources.demo_visible`), and no live sessions.
-- Sign-up grants **nothing** — no enrolment, no subscription. Board, subjects
-  and payment are captured in `/onboarding/*`, and `/_authenticated` gates
-  students on `my_access_state()`. See [docs/STRIPE_SETUP.md](docs/STRIPE_SETUP.md).
+- **There is no demo account.** `/demo/*` is a session-less showcase: the real
+  page components mounted outside the guard, with every data path
+  short-circuiting to fixtures in `lib/demo/studentDemo.ts`. `isDemoMode()`
+  derives from the pathname, so it cannot be left on by a stale flag. The
+  `is_demo` / `demo_visible` columns were dropped in 2026-07; don't bring them
+  back.
+- **Row-Level Security is the enforcement layer**, and it is the only one.
+  Guards and `enabled:` flags shape the UI; they are not access control.
+- **Sign-up grants nothing** — no enrolment, no subscription, and (since
+  2026-08-07) no role beyond `student`. `raw_user_meta_data.role` is a
+  self-declared *profile* role limited to student/parent; `user_roles`, which is
+  what every policy consults, is never written from it. Staff access is granted
+  out of band.
+- **Identity columns are not the user's to write.** `authenticated` holds
+  UPDATE on `profiles` only for display_name, phone, school, level and the
+  onboarding stamp. `role`, `student_invite_code` and `enrolled_courses` are
+  revoked — the last of those *is* the subject scope of the content policies, so
+  a writable copy was a paywall bypass. `save_student_enrolments` is the single
+  writer and is SECURITY DEFINER for that reason.
+- **Scores are written by the grader, not the client.** `mcq_attempts` has no
+  INSERT/UPDATE grant for `authenticated`; `grade_mcq_attempt` marks server-side
+  against the stored answer key. `homework_submissions` has the equivalent guard
+  as a trigger (`enforce_grading_privileges`).
+- Board, subjects and payment are captured in `/onboarding/*`, and
+  `/_authenticated` gates students on `my_access_state()`. See
+  [docs/STRIPE_SETUP.md](docs/STRIPE_SETUP.md).
 
 ## 👪 Parent linking
 
@@ -147,13 +167,21 @@ on the invites table: `invite_parent_by_email` (student → pending invite),
 `parent_student_links`), `revoke_parent_invite`, and `unlink_parent` (either
 side ends a link; RLS otherwise permits DELETE to tutors only).
 
-Invite codes (`profiles.student_invite_code`) are the **sign-up** path only —
-`handle_new_user` consumes `raw_user_meta_data.parent_invite_code`. Codes are
-CSPRNG-drawn Crockford base32 (~40 bits) via `gen_student_invite_code`, and
+Invite codes (`profiles.student_invite_code`) are redeemed two ways.
+`handle_new_user` consumes `raw_user_meta_data.parent_invite_code` at sign-up,
+and `link_child_by_code` lets an *existing* parent redeem one afterwards. Codes
+are CSPRNG-drawn Crockford base32 (~40 bits) via `gen_student_invite_code`, and
 `rotate_student_invite_code` lets a student invalidate a leaked one without
-disturbing existing links. There is deliberately no code-redemption RPC — an
-existing parent links by email invite, which keeps codes un-brute-forceable
-because nothing accepts one after sign-up.
+disturbing existing links.
+
+> An earlier version of this document claimed there was no post-sign-up
+> redemption RPC and that this made codes un-brute-forceable. `link_child_by_code`
+> exists, so the second half of that claim rests on the code's 40 bits of entropy
+> alone: guessing one is ~10¹² attempts, which is out of reach over HTTP, but
+> **the RPC is not rate limited**, and it distinguishes `not_found` from
+> `already_linked`. If the code length is ever shortened, or a bulk-attempt
+> pattern shows up in the logs, add a throttle before doing anything else — a
+> successful guess links a stranger to a child's account and all their work.
 
 ## 🌐 Core API & Backend Integration
 

@@ -41,6 +41,7 @@ import { prepareUpload, formatBytes, MAX_UPLOAD_BYTES } from "@/lib/uploadLimits
 import { acknowledgeSubmission, deleteHomework } from "@/lib/homework.functions";
 import { isDemoStudent } from "@/lib/demo/studentDemo";
 import { type SubjectV, type BoardV, type LevelV } from "@/lib/taxonomy";
+import { subjectLabel } from "@/lib/courseSummary";
 
 export const Route = createFileRoute("/_authenticated/homework")({
   beforeLoad: guardStudentSection,
@@ -48,11 +49,6 @@ export const Route = createFileRoute("/_authenticated/homework")({
   component: HomeworkPage,
 });
 
-const subjectLabel: Record<string, string> = {
-  biology: "Biology",
-  chemistry: "Chemistry",
-  physics: "Physics",
-};
 const subjectColor: Record<string, string> = {
   biology: "from-accent to-accent/60",
   chemistry: "from-primary to-primary/60",
@@ -199,7 +195,7 @@ export function HomeworkPage() {
                   className={`absolute top-0 left-0 right-0 h-1 bg-gradient-to-r ${subjectColor[a.subject] ?? "from-primary to-accent"}`}
                 />
                 <p className="text-[10px] uppercase tracking-widest text-muted-foreground font-semibold">
-                  {subjectLabel[a.subject] ?? a.subject}
+                  {subjectLabel(a.subject)}
                 </p>
                 <p className="font-display text-2xl font-extrabold mt-1 text-foreground">
                   Grade {a.predictedGrade}

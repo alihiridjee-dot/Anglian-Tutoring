@@ -16,15 +16,11 @@ import { interpretWeakness } from "@/lib/weeklyPlan.functions";
 import { type Enrolment } from "@/hooks/data/useEnrolments";
 import { type SubjectV, type BoardV, type LevelV } from "@/lib/taxonomy";
 import { currentWeekKey, mondayOf, addWeeks, toDateKey, weekRangeLabel } from "@/lib/week";
+import { carryOrigin } from "@/lib/planner/coverage";
 import { ThisWeekPanel } from "./ThisWeekPanel";
 import { useWeekPlan } from "./useWeekPlan";
 import { WeekReview } from "./WeekReview";
-
-const subjectLabel: Record<string, string> = {
-  biology: "Biology",
-  chemistry: "Chemistry",
-  physics: "Physics",
-};
+import { subjectLabel } from "@/lib/courseSummary";
 
 /**
  * The dashboard's "this week": subject tabs and week navigation around the
@@ -119,14 +115,18 @@ export function WeeklyPlanPanel({
     }
   };
 
-  // Pull a past-week point back into this week's plan.
+  // Pull a past-week point back into this week's plan, in the lane it was in —
+  // the same rule the end-of-week carry follows ({@link carryOrigin}).
   const focusAgain = async (point: PlanPoint) => {
     if (!active) return;
     const curStart = currentWeekKey();
+    const origin = carryOrigin(point.origin);
     try {
       const cur = await WeeklyPlanDAL.getPlan(studentId, active.subject as SubjectV, curStart);
       if (cur) {
-        await WeeklyPlanDAL.addPoints(cur.plan.id, [point.spec_point_id], "carried_over");
+        await WeeklyPlanDAL.addPoints(cur.plan.id, [point.spec_point_id], origin, {
+          carriedFrom: weekStart,
+        });
       } else {
         await WeeklyPlanDAL.savePlan({
           subject: active.subject as SubjectV,
@@ -135,7 +135,8 @@ export function WeeklyPlanPanel({
           weekStart: curStart,
           specPointIds: [point.spec_point_id],
           source: "student",
-          origin: "carried_over",
+          origin,
+          carriedFrom: weekStart,
         });
       }
       toast.success(`Added “${point.code}” back into this week.`);
@@ -186,7 +187,7 @@ export function WeeklyPlanPanel({
                         : "bg-muted text-muted-foreground hover:text-foreground"
                     }`}
                   >
-                    {subjectLabel[e.subject] ?? e.subject}
+                    {subjectLabel(e.subject)}
                   </button>
                 ))}
               </div>
@@ -257,6 +258,7 @@ export function WeeklyPlanPanel({
             plan={week.plan}
             points={week.points}
             coverage={week.coverage}
+            activity={week.activity}
             subject={active.subject as SubjectV}
             board={active.board as BoardV}
             level={level}

@@ -1,8 +1,10 @@
 import { createFileRoute, useNavigate } from "@tanstack/react-router";
 import { useEffect, useMemo, useState } from "react";
+import { useQueryClient } from "@tanstack/react-query";
 import { toast } from "sonner";
 import { Check, Loader2, Mail, CreditCard, Clock, Pencil, GraduationCap } from "lucide-react";
 import { supabase } from "@/integrations/supabase/client";
+import { invalidateGuardState } from "@/lib/auth/guardState";
 import { useSignOut } from "@/hooks/useSignOut";
 import { usePackages, useOwnPlanState } from "@/hooks/data/useBilling";
 import { useEnrolments } from "@/hooks/data/useEnrolments";
@@ -52,6 +54,7 @@ export const Route = createFileRoute("/onboarding/plan")({
 
 function PlanStep() {
   const navigate = useNavigate();
+  const queryClient = useQueryClient();
   const search = Route.useSearch();
   const signOut = useSignOut();
 
@@ -109,6 +112,10 @@ function PlanStep() {
       const { data } = await supabase.rpc("my_access_state").single();
       if (cancelled) return;
       if (data?.has_access) {
+        // The auth guard caches its answer for a minute. Without evicting it,
+        // the student lands on a dashboard still wearing the paywall they just
+        // paid to remove.
+        invalidateGuardState(queryClient);
         toast.success("You're all set — welcome to Anglia Educate.");
         navigate({ to: "/dashboard" });
         return;
@@ -124,7 +131,7 @@ function PlanStep() {
     return () => {
       cancelled = true;
     };
-  }, [search.checkout, navigate]);
+  }, [search.checkout, navigate, queryClient]);
 
   useEffect(() => {
     if (search.checkout === "cancelled") toast.info("Checkout cancelled — nothing was charged.");
