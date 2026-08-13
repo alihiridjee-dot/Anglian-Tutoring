@@ -80,6 +80,19 @@ export function focusInputs(progress: TopicProgress[]): {
   return { candidates, coveredTopics };
 }
 
+/**
+ * Was this point put in the week by a person rather than by the programme?
+ *
+ * The two hand-picked origins are the student's own additions and the tutor's
+ * ({@link TutorPlannerPanel} writes `tutor`). They behave identically on a
+ * re-cut — see {@link ProgramDAL.refreshWeek} — because the distinction that
+ * matters there is "the programme did not choose this, so it does not get to
+ * un-choose it", and that is equally true of both.
+ */
+export function handPicked(origin: PlanPointOrigin): boolean {
+  return origin === "student" || origin === "tutor";
+}
+
 export interface RoadmapResult {
   /** The live curriculum bands (past/current/future), most-recent first order. */
   bands: PacingBand[];
@@ -376,8 +389,9 @@ export class ProgramDAL {
    *  • points the student has started but not yet nailed stay, at their original
    *    lane — pulling those out would delete visible progress and orphan work
    *    that's still mid-flight;
-   *  • points they added themselves (`origin: "student"`) stay, because the
-   *    programme never chose them and must not un-choose them;
+   *  • points a person put in by hand — the student (`origin: "student"`) or
+   *    their tutor (`origin: "tutor"`) — stay, because the programme never chose
+   *    them and so must not un-choose them;
    *  • everything else is replaced by what the programme now says.
    *
    * "Started but not nailed" rather than merely "attempted", because a point
@@ -421,7 +435,7 @@ export class ProgramDAL {
     // carrying it forward was a decision that it needs another week, and
     // re-planning the week is not a reason to overturn it.
     const keep = existing.points.filter(
-      (p) => p.origin === "student" || p.carried_from || inFlight(p.spec_point_id),
+      (p) => handPicked(p.origin) || p.carried_from || inFlight(p.spec_point_id),
     );
 
     // Kept points first so their original lane wins the merge. Both planners
