@@ -2,6 +2,9 @@ import { describe, expect, test } from "bun:test";
 import {
   bandsForWeek,
   computePacing,
+  focusBudgetFor,
+  focusLoadFor,
+  weeksBetween,
   scheduleFocusPoints,
   selectWeekPoints,
   splitAcrossWeeks,
@@ -182,6 +185,105 @@ describe("scheduleFocusPoints — revision load balancer", () => {
     expect(pointsPerWeek(bands).get(toDateKey(currentMonday))).toBe(2);
   });
 
+  /**
+   * A course rated mostly "needs work", with four topics dropped into "getting
+   * there" — the shape that used to make the amber ones vanish from the plan.
+   */
+  const mixedBacklog = () => {
+    const needsWork = makeCandidates(6, 20, 17); // 120 points × 3 revisits = 360
+    const gettingThere = makeCandidates(4, 18, 50).map((c) => ({
+      ...c,
+      specPointId: `amber-${c.specPointId}`,
+      topicId: `amber-${c.topicId}`,
+    })); // 72 points × 1 revisit — far past what 6 × ~36 weeks could hold
+    return { needsWork, gettingThere, candidates: [...needsWork, ...gettingThere] };
+  };
+
+  const scheduledIds = (bands: ReturnType<typeof scheduleFocusPoints>) =>
+    new Set(bands.flatMap((b) => (b.points ?? []).map((p) => p.specPointId)));
+
+  test("a backlog too big for a fixed budget is still scheduled in full", () => {
+    // Half the regression this exists for: a constant budget made the lane a
+    // queue with a fixed service rate, so a backlog past its capacity dropped
+    // the tail outright and said nothing. Sizing the budget to the backlog
+    // leaves no tail to drop.
+    const { candidates } = mixedBacklog();
+    const scheduled = scheduledIds(
+      scheduleFocusPoints({ candidates, coveredTopics: [], currentMonday, examMonday }),
+    );
+    for (const c of candidates) expect(scheduled.has(c.specPointId)).toBe(true);
+  });
+
+  test("every band is in the plan from the first weeks, not queued behind the one below", () => {
+    // The other half. One queue served weakest-first is a strict priority queue,
+    // which doesn't merely slow the tier below — it defers it until the tier
+    // above is completely finished. "Getting there" used to wait out every red
+    // revisit in the course and then arrive in the last month, one look each,
+    // which is not spacing. Each band now holds a share of every week.
+    const { gettingThere, candidates } = mixedBacklog();
+    const amber = new Set(gettingThere.map((c) => c.specPointId));
+    const amberWeeks = scheduleFocusPoints({
+      candidates,
+      coveredTopics: [],
+      currentMonday,
+      examMonday,
+    })
+      .filter((b) => b.points?.some((p) => amber.has(p.specPointId)))
+      .map((b) => weeksBetween(currentMonday, weekKeyToDate(b.startWeek)));
+
+    expect(Math.min(...amberWeeks)).toBeLessThanOrEqual(2); // starts straight away
+    expect(new Set(amberWeeks).size).toBeGreaterThan(10); // and is spread, not crammed
+  });
+
+  test("a shortfall is shared between the bands, never dumped on one", () => {
+    // Force a budget too small for the backlog — the very thing the derived one
+    // exists to prevent. Even then, what must not happen is the whole loss
+    // landing on the same band, which is exactly what a strict priority order
+    // does: it serves the tier above to completion first.
+    const { needsWork, gettingThere, candidates } = mixedBacklog();
+    const scheduled = scheduledIds(
+      scheduleFocusPoints({
+        candidates,
+        coveredTopics: [],
+        currentMonday,
+        examMonday,
+        weeklyBudget: 3,
+      }),
+    );
+    for (const band of [needsWork, gettingThere]) {
+      const got = band.filter((c) => scheduled.has(c.specPointId)).length;
+      expect(got).toBeGreaterThan(0); // nobody is shut out
+      expect(got).toBeLessThan(band.length); // and nobody is served to completion first
+    }
+  });
+
+  test("the budget is the backlog divided by the runway", () => {
+    // 120 points × 3 revisits = 360 units over a ~36-week runway → 10 a week.
+    const candidates = makeCandidates(6, 20, 17);
+    expect(focusBudgetFor({ candidates, currentMonday, examMonday })).toBe(10);
+    for (const [, n] of pointsPerWeek(
+      scheduleFocusPoints({ candidates, coveredTopics: [], currentMonday, examMonday }),
+    )) {
+      expect(n).toBeLessThanOrEqual(10);
+    }
+  });
+
+  test("a small backlog keeps the old weekly shape rather than being rationed", () => {
+    // Averaging three points across a whole year would hand a student one look a
+    // week for no reason. The default is a floor, so light backlogs are unchanged.
+    const candidates = makeCandidates(1, 3, 10);
+    expect(focusBudgetFor({ candidates, currentMonday, examMonday })).toBe(DEFAULT_FOCUS_BUDGET);
+  });
+
+  test("weight counts toward the budget, so heavy points raise it", () => {
+    // Demand is work, not a headcount — the same 80 points at weight 3 ask three
+    // times as much of the year, and the week has to be sized for it.
+    const light = makeCandidates(4, 20, 17); // 80 × 3 revisits = 240 over 36 weeks
+    const heavy = light.map((c) => ({ ...c, weight: 3 })); // → 720 over 36 weeks
+    expect(focusBudgetFor({ candidates: light, currentMonday, examMonday })).toBe(7);
+    expect(focusBudgetFor({ candidates: heavy, currentMonday, examMonday })).toBe(20);
+  });
+
   test("settled topics get a review band, weak ones get revisits", () => {
     const bands = scheduleFocusPoints({
       candidates: makeCandidates(1, 2, 10),
@@ -191,6 +293,48 @@ describe("scheduleFocusPoints — revision load balancer", () => {
     });
     expect(bands.some((b) => b.kind === "review" && b.topicId === "done")).toBe(true);
     expect(bands.some((b) => b.kind === "revisit" && b.topicId === "t0")).toBe(true);
+  });
+});
+
+describe("focusLoadFor — is the revision heavier than the teaching?", () => {
+  // 396 units of course over a 36-week teaching run = 11 a week on the spine.
+  const topics = [
+    { topicId: "a", title: "A", weight: 132 },
+    { topicId: "b", title: "B", weight: 132 },
+    { topicId: "c", title: "C", weight: 132 },
+  ];
+  const spine = computePacing(topics, currentMonday, examMonday);
+
+  test("a lane running at its intended size says nothing", () => {
+    const load = focusLoadFor({ budget: DEFAULT_FOCUS_BUDGET, topics, spine });
+    // The lane is designed to run at roughly half the spine — that is the shape
+    // revision is meant to have, and it must never read as a problem.
+    expect(load.spine).toBeCloseTo(11);
+    expect(load.overloaded).toBe(false);
+  });
+
+  test("a backlog that outgrows the spine is flagged, with the multiple", () => {
+    const load = focusLoadFor({ budget: 22, topics, spine });
+    expect(load.overloaded).toBe(true);
+    expect(load.ratio).toBeCloseTo(2);
+  });
+
+  test("the yardstick moves with the course, so there is no number to keep in step", () => {
+    // Half the course over the same runway halves the spine, and a budget that
+    // was comfortable against the full course is now the bigger half of the week.
+    const lighter = topics.slice(0, 1);
+    const load = focusLoadFor({
+      budget: 8,
+      topics: lighter,
+      spine: computePacing(lighter, currentMonday, examMonday),
+    });
+    expect(load.overloaded).toBe(true);
+  });
+
+  test("no spine to compare against is never a warning", () => {
+    const load = focusLoadFor({ budget: 50, topics: [], spine: [] });
+    expect(load.overloaded).toBe(false);
+    expect(load.ratio).toBe(0);
   });
 });
 
