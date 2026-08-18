@@ -9,27 +9,19 @@ import {
   ArrowRight,
   ChevronDown,
   CalendarDays,
-  ClipboardList,
-  ListChecks,
-  Repeat,
   RefreshCw,
-  Sparkles,
-  Target,
+  Scale,
 } from "lucide-react";
-import {
-  isTeachBand,
-  FOCUS_RED_BELOW,
-  type PacingBand,
-  type PacingChange,
-} from "@/lib/planner/pacing";
+import { isTeachBand, type PacingBand, type PacingChange } from "@/lib/planner/pacing";
 import { ProgramDAL, type RoadmapResult } from "@/lib/programDal";
-import { type ProgressPoint, type TopicProgress } from "@/lib/scheduleDal";
-import { type PointStatus } from "@/lib/planner/scheduler";
-import { bandOf } from "@/lib/planner/bands";
+import { type TopicProgress } from "@/lib/scheduleDal";
 import { type Enrolment } from "@/hooks/data/useEnrolments";
 import { type SubjectV, type BoardV, type LevelV } from "@/lib/taxonomy";
 import { currentWeekKey, weekKeyToDate, sundayOf, addWeeks, toDateKey } from "@/lib/week";
 import { subjectLabel } from "@/lib/courseSummary";
+import { PointRow } from "./PointRow";
+import { FocusedTopicsHeaderCell, FocusKey, FocusPointsPanel, FocusTopicButton } from "./FocusLane";
+import { focusHasDetail, focusRowKey } from "./focusMeta";
 
 function fmtDate(d: Date): string {
   return d.toLocaleDateString(undefined, { day: "numeric", month: "short" });
@@ -217,6 +209,31 @@ export function RoadmapPanel({
         </p>
       ) : (
         <>
+          {/* The ratings have asked for a year that doesn't fit in the year.
+              For a tutor this is triage — one number that says which students
+              need the conversation — so it names the cause rather than nagging
+              about the workload, because the fix is a re-rate, not more hours. */}
+          {data.focusLoad.overloaded && (
+            <div className="mb-4 flex items-start gap-2.5 rounded-xl border border-amber-500/30 bg-amber-500/[0.06] p-3.5">
+              <Scale className="w-5 h-5 text-amber-600 dark:text-amber-400 mt-0.5 shrink-0" />
+              <div className="flex-1 min-w-0">
+                <p className="text-sm font-semibold text-amber-700 dark:text-amber-300">
+                  {asTutor
+                    ? `This plan doesn't fit the time ${studentName ? `${studentName} has` : "left"}`
+                    : "This plan is asking a lot each week"}
+                </p>
+                <p className="text-xs text-muted-foreground mt-0.5">
+                  The ratings work out at about {Math.round(data.focusLoad.budget)} points a week to
+                  revisit — {data.focusLoad.ratio.toFixed(1)}× the{" "}
+                  {Math.round(data.focusLoad.spine)} of new material each week.{" "}
+                  {asTutor
+                    ? "Usually a sign that topics were rated in bulk rather than point by point, which is worth going through together."
+                    : "That usually means whole topics were rated in one go — rating them point by point gives a lighter, truer plan."}
+                </p>
+              </div>
+            </div>
+          )}
+
           {/* Plan-shift banner — a compact summary; the moved topics are flagged
               inline in the table below, so we don't repeat the full list here. */}
           {data.needsAck && (
@@ -287,22 +304,17 @@ export function RoadmapPanel({
             </div>
           )}
 
-          {/* How the plan works — plain-language reassurance, for the student only.
-              A tutor knows core vs focused; the table headers say it, so we omit it. */}
-          {!asTutor && (
-            <div className="mb-4 flex items-start gap-2 rounded-xl bg-muted/40 px-3 py-2.5">
-              <Target className="w-4 h-4 text-primary mt-0.5 shrink-0" />
-              <p className="text-[12px] text-muted-foreground leading-relaxed">
-                <span className="font-semibold text-foreground">
-                  This plan is built around you.
-                </span>{" "}
-                Week by week, <span className="font-medium text-foreground">core topics</span> are
-                what the class is working through, and{" "}
-                <span className="font-medium text-foreground">focused topics</span> are the ones we
-                keep bringing back until they stick.
-              </p>
-            </div>
-          )}
+          {/* One line for what the two columns are, and the key for the colours
+              in the second. The longer version of both lives on hover — in the
+              column's question mark, and on each swatch. */}
+          <div className="flex flex-wrap items-center justify-between gap-x-4 gap-y-2 mb-2.5 text-[11px] text-muted-foreground">
+            <p>
+              <span className="font-semibold text-foreground">Core</span> is the course in order.{" "}
+              <span className="font-semibold text-foreground">Focused</span> comes back until it
+              sticks.
+            </p>
+            <FocusKey />
+          </div>
 
           <WeekTable
             spine={reviewing ? baselineSpine : spine}
@@ -319,43 +331,13 @@ export function RoadmapPanel({
             onToggle={toggle}
           />
 
-          <p className="mt-4 text-[11px] text-muted-foreground">
-            <span className="font-medium text-foreground">Core</span> topics move only as they're
-            covered; <span className="font-medium text-foreground">focused</span> topics are chosen
-            live by the spaced-repetition engine from ratings, homework and quizzes — a weaker topic
-            resurfaces more often. Expand a core topic to see its spec points.
+          <p className="mt-3 text-[11px] text-muted-foreground">
+            Expand any topic to see its spec points.
           </p>
         </>
       )}
     </div>
   );
-}
-
-/** Colour + label a focused-topic chip by why the spaced-repetition engine put
- *  it back this week. `why` is the plain-English driver (shown on hover). */
-function focusTone(b: PacingBand, mastery: number) {
-  if (b.kind !== "revisit") {
-    return {
-      label: "Quick refresh",
-      icon: Sparkles,
-      badge: "bg-emerald-500/10 border-emerald-500/30 text-emerald-700 dark:text-emerald-300",
-      why: "Already covered — a light review before the exams.",
-    };
-  }
-  if (mastery < FOCUS_RED_BELOW) {
-    return {
-      label: "Needs work",
-      icon: Repeat,
-      badge: "bg-rose-500/15 border-rose-500/40 text-rose-700 dark:text-rose-300",
-      why: `Low mastery (${Math.round(mastery)}%) — the engine resurfaces this often until it sticks.`,
-    };
-  }
-  return {
-    label: "Revisit",
-    icon: Repeat,
-    badge: "bg-amber-500/[0.08] border-amber-500/25 text-amber-700/90 dark:text-amber-300/80",
-    why: `Getting there (${Math.round(mastery)}%) — due a spaced review so it doesn't slip.`,
-  };
 }
 
 /** Every Monday date-key from `startKey` to `endKey` inclusive. */
@@ -433,9 +415,7 @@ function WeekTable({
           <CircleDot className="w-3.5 h-3.5 text-primary" />
           {proposedSpine ? "Core topics · now" : "Core topics"}
         </div>
-        <div className="flex items-center gap-1.5 px-3 py-2 border-l border-border">
-          <Repeat className="w-3.5 h-3.5 text-rose-500" /> Focused topics
-        </div>
+        <FocusedTopicsHeaderCell />
         {proposedSpine && (
           <div className="flex items-center gap-2 px-3 py-2 border-l-2 border-l-amber-500 bg-amber-500/[0.07]">
             <span className="flex items-center gap-1.5 text-amber-700 dark:text-amber-300">
@@ -590,29 +570,16 @@ function WeekTable({
                 <div className="px-3 py-2.5 border-l border-border min-w-0 space-y-1.5">
                   {focused.length > 0 ? (
                     focused.map((b) => {
-                      const tone = focusTone(b, masteryByTopic.get(b.topicId) ?? 0);
-                      const Icon = tone.icon;
+                      const k = focusRowKey(b, wk);
                       return (
-                        <div
-                          key={`${b.topicId}-${b.kind}-${b.startWeek}`}
-                          className="min-w-0"
-                          title={tone.why}
-                        >
-                          <div className="flex items-center gap-1.5 min-w-0">
-                            <span
-                              className={`inline-flex items-center gap-1 h-5 px-1.5 rounded-md border text-[10px] font-semibold shrink-0 ${tone.badge}`}
-                            >
-                              <Icon className="w-2.5 h-2.5" />
-                              {tone.label}
-                            </span>
-                            <span className="text-[12px] font-medium truncate">{b.title}</span>
-                          </div>
-                          {b.points && b.points.length > 0 && (
-                            <div className="mt-0.5 pl-[3.75rem] text-[11px] text-muted-foreground truncate">
-                              {b.points.map((p) => p.code).join(", ")}
-                            </div>
-                          )}
-                        </div>
+                        <FocusTopicButton
+                          key={k}
+                          band={b}
+                          mastery={masteryByTopic.get(b.topicId) ?? 0}
+                          hasDetail={focusHasDetail(b, progressByTopic.get(b.topicId))}
+                          open={expanded.has(k)}
+                          onToggle={() => onToggle(k)}
+                        />
                       );
                     })
                   ) : (
@@ -699,79 +666,25 @@ function WeekTable({
                   </ul>
                 </div>
               )}
+
+              {/* …and the same for any focused topic opened on this row. */}
+              {focused.map((b) => {
+                const k = focusRowKey(b, wk);
+                if (!expanded.has(k)) return null;
+                return (
+                  <FocusPointsPanel
+                    key={k}
+                    band={b}
+                    progress={progressByTopic.get(b.topicId)}
+                    wholeTopic={expanded.has(`${k}@all`)}
+                    onToggleWholeTopic={() => onToggle(`${k}@all`)}
+                  />
+                );
+              })}
             </div>
           );
         })}
       </div>
     </div>
-  );
-}
-
-const statusMeta: Record<PointStatus, { label: string; cls: string }> = {
-  new: { label: "Not started", cls: "bg-muted text-muted-foreground border-border" },
-  due: {
-    label: "Due again",
-    cls: "bg-amber-500/10 text-amber-700 dark:text-amber-300 border-amber-500/30",
-  },
-  learning: {
-    label: "Learning",
-    cls: "bg-indigo-500/10 text-indigo-700 dark:text-indigo-300 border-indigo-500/30",
-  },
-  strong: {
-    label: "Strong",
-    cls: "bg-emerald-500/10 text-emerald-700 dark:text-emerald-300 border-emerald-500/30",
-  },
-};
-
-/** One spec point inside an expanded topic: its confidence, marks and standing. */
-function PointRow({ point }: { point: ProgressPoint }) {
-  const s = statusMeta[point.status];
-  const band = point.confidence != null ? bandOf(point.confidence) : null;
-  return (
-    <li className="flex items-center gap-2 py-1">
-      <div className="flex-1 min-w-0">
-        <span className="text-[11px] font-semibold text-muted-foreground mr-1.5">{point.code}</span>
-        <span className="text-[13px]">{point.title}</span>
-      </div>
-      <div className="flex items-center gap-1.5 shrink-0">
-        {band && (
-          <span
-            className="inline-flex items-center gap-1 h-5 px-1.5 rounded-md border border-border text-[10px] font-medium text-muted-foreground"
-            title={`You rated this ${band.label.toLowerCase()}`}
-          >
-            <span className={`w-1.5 h-1.5 rounded-full ${band.dot}`} />
-            {point.confidence}
-          </span>
-        )}
-        {point.homeworkScore != null && <MarkChip kind="homework" score={point.homeworkScore} />}
-        {point.quizScore != null && <MarkChip kind="quiz" score={point.quizScore} />}
-        <span
-          className={`inline-flex items-center h-5 px-1.5 rounded-md border text-[10px] font-semibold ${s.cls}`}
-        >
-          {s.label}
-        </span>
-      </div>
-    </li>
-  );
-}
-
-function MarkChip({ kind, score }: { kind: "homework" | "quiz"; score: number }) {
-  const strong = score >= 70;
-  return (
-    <span
-      className={`inline-flex items-center gap-1 h-5 px-1.5 rounded-md border text-[10px] font-medium ${
-        strong
-          ? "bg-emerald-500/10 border-emerald-500/30 text-emerald-700 dark:text-emerald-300"
-          : "bg-amber-500/10 border-amber-500/30 text-amber-700 dark:text-amber-300"
-      }`}
-      title={`${kind === "homework" ? "Homework" : "Quiz"}: best ${score}%`}
-    >
-      {kind === "homework" ? (
-        <ClipboardList className="w-2.5 h-2.5" />
-      ) : (
-        <ListChecks className="w-2.5 h-2.5" />
-      )}
-      <span className="tabular-nums font-semibold">{score}%</span>
-    </span>
   );
 }

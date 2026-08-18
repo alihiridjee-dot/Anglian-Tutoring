@@ -1,0 +1,96 @@
+import { ClipboardList, ListChecks } from "lucide-react";
+import { type ProgressPoint } from "@/lib/scheduleDal";
+import { type PointStatus } from "@/lib/planner/scheduler";
+import { bandOf } from "@/lib/planner/bands";
+
+/**
+ * One spec point as every expanded topic on the plan shows it.
+ *
+ * Shared because the row is the *answer to the same question* wherever it
+ * appears — "what is this point, and where do I stand on it" — and the two plan
+ * tables plus the focus lane had each grown their own copy of it. A student
+ * comparing a core topic with a focused one must not be reading two different
+ * vocabularies for the same standing.
+ */
+
+const statusMeta: Record<PointStatus, { label: string; cls: string }> = {
+  new: { label: "Not started", cls: "bg-muted text-muted-foreground border-border" },
+  due: {
+    label: "Due again",
+    cls: "bg-amber-500/10 text-amber-700 dark:text-amber-300 border-amber-500/30",
+  },
+  learning: {
+    label: "Learning",
+    cls: "bg-indigo-500/10 text-indigo-700 dark:text-indigo-300 border-indigo-500/30",
+  },
+  strong: {
+    label: "Strong",
+    cls: "bg-emerald-500/10 text-emerald-700 dark:text-emerald-300 border-emerald-500/30",
+  },
+};
+
+/** One spec point inside an expanded topic: its confidence, marks and standing. */
+export function PointRow({ point }: { point: ProgressPoint }) {
+  const s = statusMeta[point.status];
+  const band = point.confidence != null ? bandOf(point.confidence) : null;
+  return (
+    <li className="flex items-center gap-2 py-1">
+      <div className="flex-1 min-w-0">
+        <span className="text-[11px] font-semibold text-muted-foreground mr-1.5">{point.code}</span>
+        <span className="text-[13px]">{point.title}</span>
+      </div>
+      <div className="flex items-center gap-1.5 shrink-0">
+        {band && (
+          <span
+            className="inline-flex items-center gap-1 h-5 px-1.5 rounded-md border border-border text-[10px] font-medium text-muted-foreground"
+            title={`You rated this ${band.label.toLowerCase()}`}
+          >
+            <span className={`w-1.5 h-1.5 rounded-full ${band.dot}`} />
+            {point.confidence}
+          </span>
+        )}
+        {point.homeworkScore != null && <MarkChip kind="homework" score={point.homeworkScore} />}
+        {point.quizScore != null && <MarkChip kind="quiz" score={point.quizScore} />}
+        <span
+          className={`inline-flex items-center h-5 px-1.5 rounded-md border text-[10px] font-semibold ${s.cls}`}
+        >
+          {s.label}
+        </span>
+      </div>
+    </li>
+  );
+}
+
+/**
+ * A spec point the programme knows only by name — it rides in a band, but no
+ * progress row came back for it, so there is no standing to report yet.
+ */
+export function BarePointRow({ code, title }: { code: string; title: string }) {
+  return (
+    <li className="flex items-center gap-2 py-1">
+      <span className="text-[11px] font-semibold text-muted-foreground">{code}</span>
+      <span className="text-[13px] flex-1 min-w-0">{title}</span>
+    </li>
+  );
+}
+
+function MarkChip({ kind, score }: { kind: "homework" | "quiz"; score: number }) {
+  const strong = score >= 70;
+  return (
+    <span
+      className={`inline-flex items-center gap-1 h-5 px-1.5 rounded-md border text-[10px] font-medium ${
+        strong
+          ? "bg-emerald-500/10 border-emerald-500/30 text-emerald-700 dark:text-emerald-300"
+          : "bg-amber-500/10 border-amber-500/30 text-amber-700 dark:text-amber-300"
+      }`}
+      title={`${kind === "homework" ? "Homework" : "Quiz"}: best ${score}%`}
+    >
+      {kind === "homework" ? (
+        <ClipboardList className="w-2.5 h-2.5" />
+      ) : (
+        <ListChecks className="w-2.5 h-2.5" />
+      )}
+      <span className="tabular-nums font-semibold">{score}%</span>
+    </span>
+  );
+}

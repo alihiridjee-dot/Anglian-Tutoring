@@ -3,7 +3,6 @@ import { Link } from "@tanstack/react-router";
 import {
   CircleDot,
   CheckCircle2,
-  Repeat,
   ClipboardList,
   ListChecks,
   Plus,
@@ -19,6 +18,7 @@ import { SETTLED_THRESHOLD } from "@/lib/planner/scheduler";
 import { type PointCoverage, statusOfPoint, laneOf } from "@/lib/planner/coverage";
 import { weekKeyToDate } from "@/lib/week";
 import { CoveragePill } from "./CoveragePill";
+import { FocusedTopicsLabel } from "./FocusLane";
 import { type Activity } from "./useWeekPlan";
 
 /**
@@ -354,10 +354,7 @@ export function ThisWeekPanel({
             once per topic, so the two halves read as one idea in two colours. */}
         <div className="h-full flex flex-col rounded-xl premium-card p-4">
           <div className="flex items-center gap-1.5 mb-1">
-            <Repeat className="w-3.5 h-3.5 text-rose-500" />
-            <span className="text-[10px] font-bold uppercase tracking-wide text-rose-600 dark:text-rose-400">
-              Focused topics
-            </span>
+            <FocusedTopicsLabel className="text-[10px] font-bold uppercase tracking-wide text-rose-600 dark:text-rose-400" />
             {focus.length > 0 && (
               <span className="ml-auto text-[11px] text-muted-foreground">
                 {focusPointCount} to revisit

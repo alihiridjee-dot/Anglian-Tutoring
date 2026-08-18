@@ -8,26 +8,16 @@ import {
   CheckCircle2,
   ChevronDown,
   CircleDot,
-  ClipboardList,
-  ListChecks,
   Loader2,
   Map as MapIcon,
   Repeat,
   RefreshCw,
+  Scale,
   SlidersHorizontal,
-  Sparkles,
-  Target,
 } from "lucide-react";
-import { isTeachBand, FOCUS_RED_BELOW, type PacingBand } from "@/lib/planner/pacing";
+import { isTeachBand, type PacingBand } from "@/lib/planner/pacing";
 import { ProgramDAL, type RoadmapResult } from "@/lib/programDal";
-import {
-  ScheduleDAL,
-  type MemoryStats,
-  type ProgressPoint,
-  type TopicProgress,
-} from "@/lib/scheduleDal";
-import { type PointStatus } from "@/lib/planner/scheduler";
-import { bandOf } from "@/lib/planner/bands";
+import { ScheduleDAL, type MemoryStats, type TopicProgress } from "@/lib/scheduleDal";
 import { type Enrolment } from "@/hooks/data/useEnrolments";
 import { type SubjectV, type BoardV, type LevelV } from "@/lib/taxonomy";
 import { currentWeekKey, weekKeyToDate, addWeeks, toDateKey } from "@/lib/week";
@@ -37,6 +27,9 @@ import { ThisWeekPanel } from "./ThisWeekPanel";
 import { useWeekPlan } from "./useWeekPlan";
 import { WeekReview } from "./WeekReview";
 import { subjectLabel } from "@/lib/courseSummary";
+import { PointRow } from "./PointRow";
+import { FocusedTopicsHeaderCell, FocusKey, FocusPointsPanel, FocusTopicButton } from "./FocusLane";
+import { focusHasDetail, focusRowKey } from "./focusMeta";
 
 function fmtDate(d: Date): string {
   return d.toLocaleDateString(undefined, { day: "numeric", month: "short" });
@@ -253,6 +246,7 @@ export function StudentPlanner({
             studentId={studentId}
             subject={active.subject as SubjectV}
             newFocusKeys={newFocusKeys}
+            onRateTopics={() => setTab("topics")}
             onChanged={() => setBoardRev((r) => r + 1)}
           />
         )}
@@ -457,6 +451,7 @@ function FullPlanTab({
   studentId,
   subject,
   newFocusKeys,
+  onRateTopics,
   onChanged,
 }: {
   data: RoadmapResult;
@@ -464,6 +459,8 @@ function FullPlanTab({
   subject: SubjectV;
   /** Focus-lane band keys that are new/moved since the last re-rate. */
   newFocusKeys: Set<string>;
+  /** Jump to My topics — the one place an overloaded plan can be fixed. */
+  onRateTopics: () => void;
   onChanged: () => void;
 }) {
   const {
@@ -584,32 +581,73 @@ function FullPlanTab({
         </div>
       )}
 
-      <div className="flex flex-wrap items-center justify-between gap-2 rounded-xl bg-muted/40 px-3 py-2.5 mb-4">
-        <p className="flex items-start gap-2 text-[12px] text-muted-foreground leading-relaxed min-w-[220px] flex-1">
-          <Target className="w-4 h-4 text-primary mt-0.5 shrink-0" />
+      {/* A plan asking for more revision than teaching. Said plainly and once,
+          with the action attached — the cause is nearly always a topic dragged
+          into a column in one go, which rates all twenty of its points at that
+          same value. Rating them individually is both the lighter plan and the
+          better data, so the nudge points there rather than at the workload. */}
+      {data.focusLoad.overloaded && (
+        <div className="flex flex-wrap items-start gap-3 rounded-xl border border-amber-500/30 bg-amber-500/[0.06] px-3.5 py-3 mb-3">
+          <Scale className="w-4 h-4 text-amber-600 dark:text-amber-400 mt-0.5 shrink-0" />
+          <p className="flex-1 min-w-[240px] text-[12px] leading-relaxed">
+            <span className="font-semibold">This plan is asking a lot each week.</span>{" "}
+            <span className="text-muted-foreground">
+              It has set aside about {Math.round(data.focusLoad.budget)} points a week to revisit,
+              on top of the {Math.round(data.focusLoad.spine)} of new material — so revision is now
+              the bigger half of your week. That usually means whole topics were rated in one go.
+              Rating a topic point by point almost always gives a lighter, truer plan.
+            </span>
+          </p>
+          <button
+            type="button"
+            onClick={onRateTopics}
+            className="inline-flex items-center gap-1.5 h-8 px-3 rounded-lg bg-amber-600 text-white text-xs font-semibold hover:opacity-90 shrink-0"
+          >
+            <SlidersHorizontal className="w-3.5 h-3.5" />
+            Rate points individually
+          </button>
+        </div>
+      )}
+
+      {/* The exam date leads, because the plan is derived from it: every band
+          below is the course divided across the weeks between the student's
+          start and this date. Changing it re-flows the year. It used to sit as
+          a footnote to a paragraph of definitions, which had it backwards. */}
+      <div className="flex flex-wrap items-center justify-between gap-3 rounded-xl border border-primary/25 bg-primary/[0.05] px-3.5 py-3 mb-3">
+        <label className="flex flex-wrap items-center gap-x-3 gap-y-2">
+          <CalendarDays className="w-4 h-4 text-primary shrink-0" />
           <span>
-            Week by week: <span className="font-medium text-foreground">core topics</span> are what
-            the class is working through, and{" "}
-            <span className="font-medium text-foreground">focused topics</span> are the ones we
-            bring back until they stick. The percentage on each topic is how well it's sticking —
-            the same number as on its card in My topics.{" "}
-            <span className="font-semibold text-foreground tabular-nums">
-              {doneCount} of {spine.length}
-            </span>{" "}
-            topics covered.
+            <span className="block text-[13px] font-semibold leading-tight">Exams from</span>
+            <span className="block text-[11px] text-muted-foreground">
+              Every week below is paced from this date.
+            </span>
           </span>
-        </p>
-        <label className="inline-flex items-center gap-1.5 text-[12px] text-muted-foreground shrink-0">
-          <CalendarDays className="w-3.5 h-3.5" />
-          <span>Exam date</span>
           <input
             type="date"
             defaultValue={data.examDate}
             disabled={savingDate}
             onChange={(e) => saveExamDate(e.target.value)}
-            className="h-8 rounded-lg premium-card px-2 text-[12px] text-foreground focus:outline-none focus:ring-2 focus:ring-primary/40 disabled:opacity-50"
+            className="h-9 rounded-lg premium-card px-2.5 text-[13px] font-semibold text-foreground focus:outline-none focus:ring-2 focus:ring-primary/40 disabled:opacity-50"
           />
         </label>
+        <span className="text-[12px] text-muted-foreground">
+          <span className="font-semibold text-foreground tabular-nums">
+            {doneCount} of {spine.length}
+          </span>{" "}
+          topics covered ·{" "}
+          <span className="font-semibold text-foreground tabular-nums">
+            ~{Math.round(data.focusLoad.budget)}
+          </span>{" "}
+          points a week to revisit
+        </span>
+      </div>
+
+      <div className="flex flex-wrap items-center justify-between gap-x-4 gap-y-2 mb-2.5 text-[11px] text-muted-foreground">
+        <p>
+          <span className="font-semibold text-foreground">Core</span> is the course in order.{" "}
+          <span className="font-semibold text-foreground">Focused</span> comes back until it sticks.
+        </p>
+        <FocusKey />
       </div>
 
       <div className="rounded-xl border border-border overflow-hidden">
@@ -624,9 +662,7 @@ function FullPlanTab({
             <CircleDot className="w-3.5 h-3.5 text-primary" />
             {proposedSpine ? "Core · your plan now" : "Core topics"}
           </div>
-          <div className="flex items-center gap-1.5 px-3 py-2 border-l border-border">
-            <Repeat className="w-3.5 h-3.5 text-rose-500" /> Focused topics
-          </div>
+          <FocusedTopicsHeaderCell />
           {proposedSpine && (
             <div className="flex items-center gap-2 px-3 py-2 border-l-2 border-l-amber-500 bg-amber-500/[0.07]">
               <span className="flex items-center gap-1.5 text-amber-700 dark:text-amber-300">
@@ -754,31 +790,17 @@ function FullPlanTab({
                   <div className="px-3 py-2.5 border-l border-border min-w-0 space-y-1.5">
                     {focused.length > 0 ? (
                       focused.map((b) => {
-                        const tone = focusTone(b, progressByTopic.get(b.topicId)?.masteryPct ?? 0);
-                        const Icon = tone.icon;
-                        const isNew = newFocusKeys.has(focusKey(b));
+                        const k = focusRowKey(b, wk);
                         return (
-                          <div key={`${b.topicId}-${b.kind}-${b.startWeek}`} className="min-w-0">
-                            <div className="flex items-center gap-1.5 min-w-0">
-                              <span
-                                className={`inline-flex items-center gap-1 h-5 px-1.5 rounded-md border text-[10px] font-semibold shrink-0 ${tone.badge}`}
-                              >
-                                <Icon className="w-2.5 h-2.5" />
-                                {tone.label}
-                              </span>
-                              <span className="text-[12px] font-medium truncate">{b.title}</span>
-                              {isNew && (
-                                <span className="inline-flex items-center h-4 px-1 rounded bg-rose-500/15 text-rose-600 dark:text-rose-400 text-[9px] font-bold uppercase tracking-wide shrink-0">
-                                  New
-                                </span>
-                              )}
-                            </div>
-                            {b.points && b.points.length > 0 && (
-                              <div className="mt-0.5 pl-[3.75rem] text-[11px] text-muted-foreground truncate">
-                                {b.points.map((p) => p.code).join(", ")}
-                              </div>
-                            )}
-                          </div>
+                          <FocusTopicButton
+                            key={k}
+                            band={b}
+                            mastery={progressByTopic.get(b.topicId)?.masteryPct ?? 0}
+                            isNew={newFocusKeys.has(focusKey(b))}
+                            hasDetail={focusHasDetail(b, progressByTopic.get(b.topicId))}
+                            open={expanded.has(k)}
+                            onToggle={() => toggle(k)}
+                          />
                         );
                       })
                     ) : (
@@ -866,6 +888,21 @@ function FullPlanTab({
                     </ul>
                   </div>
                 )}
+
+                {/* …and the same for any focused topic opened on this row. */}
+                {focused.map((b) => {
+                  const k = focusRowKey(b, wk);
+                  if (!expanded.has(k)) return null;
+                  return (
+                    <FocusPointsPanel
+                      key={k}
+                      band={b}
+                      progress={progressByTopic.get(b.topicId)}
+                      wholeTopic={expanded.has(`${k}@all`)}
+                      onToggleWholeTopic={() => toggle(`${k}@all`)}
+                    />
+                  );
+                })}
               </div>
             );
           })}
@@ -873,8 +910,8 @@ function FullPlanTab({
       </div>
 
       <p className="mt-4 text-[11px] text-muted-foreground">
-        Mastery blends how you've rated each topic with your homework and quiz results. Tap a core
-        topic to see what's inside it.
+        Tap any topic to see what's inside it. The percentage is how well it's sticking — your
+        ratings, homework and quizzes combined.
       </p>
     </div>
   );
@@ -945,95 +982,3 @@ function TopicsTab({
 /* ------------------------------------------------------------------ */
 /* Small shared pieces                                                 */
 /* ------------------------------------------------------------------ */
-
-/** Colour + label a revisit item by why it's there. */
-function focusTone(b: PacingBand, mastery: number) {
-  if (b.kind !== "revisit") {
-    return {
-      label: "Quick refresh",
-      icon: Sparkles,
-      badge: "bg-emerald-500/10 border-emerald-500/30 text-emerald-700 dark:text-emerald-300",
-    };
-  }
-  if (mastery < FOCUS_RED_BELOW) {
-    return {
-      label: "Needs work",
-      icon: Repeat,
-      badge: "bg-rose-500/15 border-rose-500/40 text-rose-700 dark:text-rose-300",
-    };
-  }
-  return {
-    label: "Revisit",
-    icon: Repeat,
-    badge: "bg-amber-500/[0.08] border-amber-500/25 text-amber-700/90 dark:text-amber-300/80",
-  };
-}
-
-const statusMeta: Record<PointStatus, { label: string; cls: string }> = {
-  new: { label: "Not started", cls: "bg-muted text-muted-foreground border-border" },
-  due: {
-    label: "Due again",
-    cls: "bg-amber-500/10 text-amber-700 dark:text-amber-300 border-amber-500/30",
-  },
-  learning: {
-    label: "Learning",
-    cls: "bg-indigo-500/10 text-indigo-700 dark:text-indigo-300 border-indigo-500/30",
-  },
-  strong: {
-    label: "Strong",
-    cls: "bg-emerald-500/10 text-emerald-700 dark:text-emerald-300 border-emerald-500/30",
-  },
-};
-
-/** One spec point inside an expanded topic: its confidence, marks and standing. */
-function PointRow({ point }: { point: ProgressPoint }) {
-  const s = statusMeta[point.status];
-  const band = point.confidence != null ? bandOf(point.confidence) : null;
-  return (
-    <li className="flex items-center gap-2 py-1">
-      <div className="flex-1 min-w-0">
-        <span className="text-[11px] font-semibold text-muted-foreground mr-1.5">{point.code}</span>
-        <span className="text-[13px]">{point.title}</span>
-      </div>
-      <div className="flex items-center gap-1.5 shrink-0">
-        {band && (
-          <span
-            className="inline-flex items-center gap-1 h-5 px-1.5 rounded-md border border-border text-[10px] font-medium text-muted-foreground"
-            title={`You rated this ${band.label.toLowerCase()}`}
-          >
-            <span className={`w-1.5 h-1.5 rounded-full ${band.dot}`} />
-            {point.confidence}
-          </span>
-        )}
-        {point.homeworkScore != null && <MarkChip kind="homework" score={point.homeworkScore} />}
-        {point.quizScore != null && <MarkChip kind="quiz" score={point.quizScore} />}
-        <span
-          className={`inline-flex items-center h-5 px-1.5 rounded-md border text-[10px] font-semibold ${s.cls}`}
-        >
-          {s.label}
-        </span>
-      </div>
-    </li>
-  );
-}
-
-function MarkChip({ kind, score }: { kind: "homework" | "quiz"; score: number }) {
-  const strong = score >= 70;
-  return (
-    <span
-      className={`inline-flex items-center gap-1 h-5 px-1.5 rounded-md border text-[10px] font-medium ${
-        strong
-          ? "bg-emerald-500/10 border-emerald-500/30 text-emerald-700 dark:text-emerald-300"
-          : "bg-amber-500/10 border-amber-500/30 text-amber-700 dark:text-amber-300"
-      }`}
-      title={`${kind === "homework" ? "Homework" : "Quiz"}: best ${score}%`}
-    >
-      {kind === "homework" ? (
-        <ClipboardList className="w-2.5 h-2.5" />
-      ) : (
-        <ListChecks className="w-2.5 h-2.5" />
-      )}
-      <span className="tabular-nums font-semibold">{score}%</span>
-    </span>
-  );
-}
