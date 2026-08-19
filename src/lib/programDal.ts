@@ -6,6 +6,7 @@ import { mondayOf, sundayOf, toDateKey, weekKeyToDate } from "./week";
 import { ScheduleDAL, type TopicProgress } from "./scheduleDal";
 import {
   type FocusCandidate,
+  type FocusLoad,
   type PacingBand,
   type PacingChange,
   type PacingInput,
@@ -14,6 +15,8 @@ import {
   computePacing,
   diffPacing,
   examMondayFor,
+  focusBudgetFor,
+  focusLoadFor,
   isTeachBand,
   mergeFocus,
   scheduleFocusPoints,
@@ -80,6 +83,19 @@ export function focusInputs(progress: TopicProgress[]): {
   return { candidates, coveredTopics };
 }
 
+/**
+ * Was this point put in the week by a person rather than by the programme?
+ *
+ * The two hand-picked origins are the student's own additions and the tutor's
+ * ({@link TutorPlannerPanel} writes `tutor`). They behave identically on a
+ * re-cut — see {@link ProgramDAL.refreshWeek} — because the distinction that
+ * matters there is "the programme did not choose this, so it does not get to
+ * un-choose it", and that is equally true of both.
+ */
+export function handPicked(origin: PlanPointOrigin): boolean {
+  return origin === "student" || origin === "tutor";
+}
+
 export interface RoadmapResult {
   /** The live curriculum bands (past/current/future), most-recent first order. */
   bands: PacingBand[];
@@ -99,6 +115,19 @@ export interface RoadmapResult {
   coveredTopicIds: string[];
   /** Per-topic mastery + spec-point breakdown, for the expandable timeline. */
   progress: TopicProgress[];
+  /**
+   * The weekly revision allowance this student's backlog works out at, and how
+   * it compares to the spine ({@link focusLoadFor}).
+   *
+   * Carried on the result so the weekly plan reads the lane at the size the
+   * roadmap allocated it. The two used to arrive at the figure separately and
+   * agreed only because both defaulted to the same constant; now that it moves
+   * with the backlog, deriving it twice would be two planners disagreeing about
+   * one student again. The comparison rides along because every surface that
+   * shows the number also has to decide whether to say anything about it, and
+   * that judgement belongs in one place.
+   */
+  focusLoad: FocusLoad;
 }
 
 /**
@@ -180,8 +209,16 @@ export class ProgramDAL {
 
     const thisMonday = mondayOf();
 
+    // One figure for the year, computed once from the same candidates both the
+    // roadmap and the week are about to be cut from.
+    const examMonday = baseline ? weekKeyToDate(baseline.exam_date) : examMondayFor();
+    const focusBudget = focusBudgetFor({
+      candidates: focus.candidates,
+      currentMonday: thisMonday,
+      examMonday,
+    });
+
     if (!baseline) {
-      const examMonday = examMondayFor();
       // First view = enrolment: this Monday becomes the student's permanent
       // spine anchor, and their runway to the exam sets the weekly pace.
       const live = computePacing(topics, thisMonday, examMonday);
@@ -219,7 +256,12 @@ export class ProgramDAL {
         // stored baseline and its diff never see them.
         bands: mergeFocus(
           withWeeklyPoints(live, pointsByTopic),
-          scheduleFocusPoints({ ...focus, currentMonday: thisMonday, examMonday }),
+          scheduleFocusPoints({
+            ...focus,
+            currentMonday: thisMonday,
+            examMonday,
+            weeklyBudget: focusBudget,
+          }),
         ),
         baselineBands: live,
         changes: [],
@@ -228,17 +270,14 @@ export class ProgramDAL {
         examDate,
         coveredTopicIds: [...coveredTopicIds],
         progress,
+        focusLoad: focusLoadFor({ budget: focusBudget, topics, spine: live }),
       };
     }
 
     // The spine is a pure function of (enrolment week, exam date, topic
     // weights) — recomputing it here only ever differs from the stored baseline
     // when the exam date moved or the curriculum itself changed.
-    const live = computePacing(
-      topics,
-      weekKeyToDate(baseline.program_start),
-      weekKeyToDate(baseline.exam_date),
-    );
+    const live = computePacing(topics, weekKeyToDate(baseline.program_start), examMonday);
     const changes = diffPacing(baseline.pacing as unknown as PacingBand[], live);
     return {
       bands: mergeFocus(
@@ -246,7 +285,8 @@ export class ProgramDAL {
         scheduleFocusPoints({
           ...focus,
           currentMonday: thisMonday,
-          examMonday: weekKeyToDate(baseline.exam_date),
+          examMonday,
+          weeklyBudget: focusBudget,
         }),
       ),
       baselineBands: (baseline.pacing as unknown as PacingBand[]).filter(isTeachBand),
@@ -256,6 +296,7 @@ export class ProgramDAL {
       examDate: baseline.exam_date,
       coveredTopicIds: [...coveredTopicIds],
       progress,
+      focusLoad: focusLoadFor({ budget: focusBudget, topics, spine: live }),
     };
   }
 
@@ -306,8 +347,14 @@ export class ProgramDAL {
     rationale: string;
   }> {
     const { studentId, subject, board, level, weekStart } = params;
-    const focusBudget = Math.max(1, params.focusBudget ?? DEFAULT_FOCUS_BUDGET);
     const roadmap = await this.loadRoadmap({ studentId, subject, board, level });
+    // The programme's own allowance, so the week reads the revisit lane at the
+    // size the roadmap cut it. Only the fallback path below has no programme to
+    // ask, and that is what the constant is left for.
+    const focusBudget = Math.max(
+      1,
+      params.focusBudget ?? roadmap?.focusLoad.budget ?? DEFAULT_FOCUS_BUDGET,
+    );
 
     if (roadmap && bandsForWeek(roadmap.bands, weekStart).length > 0) {
       const { specPointIds, lanes, teachTitle, focusCount, teachCount, refreshCount, reviewCount } =
@@ -376,8 +423,9 @@ export class ProgramDAL {
    *  • points the student has started but not yet nailed stay, at their original
    *    lane — pulling those out would delete visible progress and orphan work
    *    that's still mid-flight;
-   *  • points they added themselves (`origin: "student"`) stay, because the
-   *    programme never chose them and must not un-choose them;
+   *  • points a person put in by hand — the student (`origin: "student"`) or
+   *    their tutor (`origin: "tutor"`) — stay, because the programme never chose
+   *    them and so must not un-choose them;
    *  • everything else is replaced by what the programme now says.
    *
    * "Started but not nailed" rather than merely "attempted", because a point
@@ -421,7 +469,7 @@ export class ProgramDAL {
     // carrying it forward was a decision that it needs another week, and
     // re-planning the week is not a reason to overturn it.
     const keep = existing.points.filter(
-      (p) => p.origin === "student" || p.carried_from || inFlight(p.spec_point_id),
+      (p) => handPicked(p.origin) || p.carried_from || inFlight(p.spec_point_id),
     );
 
     // Kept points first so their original lane wins the merge. Both planners

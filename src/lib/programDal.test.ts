@@ -1,5 +1,5 @@
 import { describe, expect, test } from "bun:test";
-import { focusInputs } from "./programDal";
+import { focusInputs, handPicked } from "./programDal";
 import {
   bandsForWeek,
   scheduleFocusPoints,
@@ -155,5 +155,24 @@ describe("a covered spine week with weak points elsewhere", () => {
       settledThreshold: SETTLED_THRESHOLD,
     });
     expect(sel.specPointIds).not.toContain("4.2");
+  });
+});
+
+describe("what survives a re-cut of the week", () => {
+  test("a point a person put in by hand is kept, whoever that person was", () => {
+    // The bug: only `student` was listed, so a tutor's hand-added point vanished
+    // from the week the next time anything re-cut it — a rating on the confidence
+    // board silently undoing the tutor's assignment.
+    expect(handPicked("student")).toBe(true);
+    expect(handPicked("tutor")).toBe(true);
+  });
+
+  test("points the programme chose are not pinned by origin", () => {
+    // They are replaced by what the programme now says; the in-flight and
+    // carried-over rules are what hold anything of theirs in place.
+    expect(handPicked("ai")).toBe(false);
+    expect(handPicked("core")).toBe(false);
+    expect(handPicked("focus")).toBe(false);
+    expect(handPicked("carried_over")).toBe(false);
   });
 });

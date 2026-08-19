@@ -1,4 +1,5 @@
 import { mondayOf, addWeeks, toDateKey, weekKeyToDate } from "@/lib/week";
+import { bandOf, type BandKey } from "./bands";
 
 /**
  * Curriculum pacing — the year-long "programme" view. Given the course's topics
@@ -197,13 +198,133 @@ export interface FocusCandidate {
 }
 
 /**
- * The focus lane as a **capacity-limited revision queue** rather than a flood.
+ * The **floor** on a week's revision allowance, in weight — not the cap.
+ *
+ * Six on a tree with no measured weights is exactly the old "six points a week",
+ * so a student with a small backlog sees precisely what they saw before: their
+ * few weak points come back promptly rather than being rationed one a week
+ * across a year that has no need of the room. On a weighted tree it buys two to
+ * four real points, each an honest piece of work.
+ *
+ * What it is no longer is a ceiling. See {@link focusBudgetFor}.
+ */
+export const DEFAULT_FOCUS_BUDGET = 6;
+
+/**
+ * The total revision work a set of candidates is asking for, in weight: every
+ * point's revisits, each charged at the point's own size.
+ *
+ * This is the number the year has to absorb. Nothing else in the module knows
+ * it — the scheduler used to discover it a week at a time, by running out of
+ * room — which is why the budget could be set without reference to it.
+ */
+export function focusDemand(candidates: FocusCandidate[]): number {
+  return candidates.reduce((s, c) => s + revisitCount(c.mastery) * weightOf(c), 0);
+}
+
+/**
+ * The weekly revision allowance, sized to the work actually in front of the
+ * student: everything they have flagged, divided by the weeks available to do it
+ * in, floored at {@link DEFAULT_FOCUS_BUDGET}.
+ *
+ * **Why this replaced a constant.** A fixed weekly allowance is a queue with a
+ * fixed service rate, and a queue whose arrival rate exceeds it drops the tail —
+ * silently, and always the same tail. Because the lane is served weakest-first,
+ * that tail was every "getting there" point in the course: a student with enough
+ * "needs work" points to fill the year (on a real GCSE tree, about eighty — each
+ * asking for three revisits against a capacity of six a week) had their amber
+ * ratings absorbed and then dropped outright. They dragged four topics into a
+ * band and the plan showed nothing, forever. Worse, it was a cliff and not a
+ * slope: a few points either side of the line was the difference between every
+ * amber topic being scheduled and none of them being scheduled.
+ *
+ * Dividing the demand by the runway removes the failure mode at its root rather
+ * than raising the constant until it usually fits — the capacity now *derives*
+ * from what was asked for, so there is no "usually". The two lanes still hold:
+ * this budget spreads a topic's revisits across the year, and it is the whole
+ * point that it doesn't try to do them all at once.
+ *
+ * **It has no ceiling, deliberately.** A cap is precisely the thing that starves
+ * one topic to feed another, so re-introducing one to keep weeks comfortable
+ * would re-introduce the bug. A student who rates the entire course as shaky
+ * therefore gets genuinely heavy weeks — which is the honest reading of that
+ * input, and is visible in the plan rather than hidden by a silent drop.
+ */
+export function focusBudgetFor(params: {
+  candidates: FocusCandidate[];
+  currentMonday: Date;
+  examMonday: Date;
+  revisionWeeks?: number;
+}): number {
+  const revisionStart = addWeeks(mondayOf(params.examMonday), -(params.revisionWeeks ?? 3));
+  const runway = Math.max(0, weeksBetween(mondayOf(params.currentMonday), revisionStart));
+  return budgetFor(focusDemand(params.candidates), runway);
+}
+
+/**
+ * How heavy the revision lane has come out, measured against the teaching it is
+ * supposed to sit on top of.
+ *
+ * The comparison is the point. "Is 21 units a week too much?" has no answer in
+ * the abstract — it depends on the course, the runway and how the spec is
+ * weighted — but "revision is now heavier than the new material" is a judgement
+ * anyone can make, and it stays true when any of those three change. The
+ * alternative was a hand-picked number that would silently rot.
+ */
+export interface FocusLoad {
+  /** Revision work per week, in weight: what the lane was budgeted at. */
+  budget: number;
+  /** New material per week, in weight: the spine's own pace, and the yardstick. */
+  spine: number;
+  /** Revision as a multiple of new material; 0 when there is no spine to compare to. */
+  ratio: number;
+  /** Revision has come out heavier than the teaching it is meant to support. */
+  overloaded: boolean;
+}
+
+/**
+ * Weigh the revision lane against the spine.
+ *
+ * The lane is designed to run at roughly half the spine — revision supporting
+ * new material, not competing with it. Passing the spine outright means the
+ * ratings have asked for a year that doesn't fit in the year, which is worth
+ * saying out loud to somebody who can act on it.
+ */
+export function focusLoadFor(params: {
+  budget: number;
+  topics: PacingInput[];
+  spine: PacingBand[];
+}): FocusLoad {
+  const weeks = params.spine.filter(isTeachBand).reduce((s, b) => s + b.weeks, 0);
+  const work = params.topics.reduce((s, t) => s + Math.max(t.weight, 1), 0);
+  const spine = weeks > 0 ? work / weeks : 0;
+  return {
+    budget: params.budget,
+    spine,
+    ratio: spine > 0 ? params.budget / spine : 0,
+    overloaded: spine > 0 && params.budget > spine,
+  };
+}
+
+/** The averaging itself, shared with {@link scheduleFocusPoints}'s own runway. */
+function budgetFor(demand: number, runway: number): number {
+  if (runway <= 0) return DEFAULT_FOCUS_BUDGET;
+  return Math.max(DEFAULT_FOCUS_BUDGET, Math.ceil(demand / runway));
+}
+
+/**
+ * The focus lane as a **load-balanced revision queue** rather than a flood.
  *
  * The problem it solves: FSRS resurfaces everything the instant it's rated, so a
  * student who rates nine topics badly would otherwise get nine revisits dumped
- * into next week. Instead we give each week a fixed budget of revision *work*
- * ({@link DEFAULT_FOCUS_BUDGET}) and spread the backlog across the weeks to the
- * exam, weakest-first.
+ * into next week. Instead we give each week a budget of revision *work* and
+ * spread the backlog across the weeks to the exam, weakest-first.
+ *
+ * That budget is the backlog divided by the runway ({@link focusBudgetFor}), so
+ * the year holds everything that was asked of it. It used to be a constant, and
+ * a constant makes the lane a queue that drops its tail — always the same tail,
+ * because the service order is weakest-first, so an overloaded plan discarded
+ * every "getting there" point in the course and said nothing about it.
  *
  * The budget is measured in weight, not in points, for the same reason the teach
  * spine is: six revisits is a different afternoon depending on which six. A week
@@ -211,33 +332,32 @@ export interface FocusCandidate {
  * also full. Counting slots made the first look two-thirds empty.
  *
  * Week-by-week simulation: each weak point wants {@link revisitCount} revisits at
- * expanding intervals; every week we place the weakest available points up to the
- * budget and push the rest to the next week (cascade). A placed point's next
- * revisit is scheduled a widening gap later, so it competes again later — not
- * every week. Points that never fit before revision simply don't get scheduled
- * (an over-rated backlog can't all fit, and pretending otherwise is the bug).
+ * expanding intervals; every week the budget is split between the confidence
+ * bands in proportion to what each still owes, and each band spends its share on
+ * its own weakest points. A placed point's next revisit is scheduled a widening
+ * gap later, so it competes again later — not every week. The budget is sized so
+ * the runway holds the whole backlog, so a point failing to be scheduled at all
+ * now means the runway itself is too short for the gaps its revisits need — a
+ * fortnight before the exams, say — and not that something else outranked it.
  * Covered topics get one light review band in the pre-exam window, budget-exempt.
+ *
+ * **The bands are served side by side, not in order of weakness.** A single
+ * queue sorted weakest-first is a strict priority queue, and a strict priority
+ * queue doesn't merely delay the tier below — it defers it until the tier above
+ * is completely finished. With "needs work" asking three revisits per point
+ * against "getting there" asking one, that left the amber tier untouched for
+ * two-thirds of the year and then crammed into the last month at one look each,
+ * which is not spacing by any definition. Sharing every week between the bands
+ * keeps the ratio — shaky points still come back far more often, because they
+ * are asking for more — while giving every band a place in the plan from week
+ * one. The shares come from the backlog itself, so there is no tuning constant
+ * deciding how long a point must wait before it counts.
  *
  * Placed points are grouped by (week, topic) into revisit bands carrying their
  * specific spec points, so the roadmap shows "Topic 5 · 5.1, 5.4" — the real unit
  * of work — and never more than the budget in any week. Pure/deterministic, never
  * persisted: recomputed live from mastery every load.
  */
-/**
- * A week's revision allowance, in weight.
- *
- * Held at 6 deliberately. On a tree with no measured weights every point counts
- * 1, so this is exactly the old "six points a week" and nothing changes. On a
- * weighted tree it buys two to four real points instead — fewer, but each an
- * honest piece of work, and roughly half the teach spine's ~11 units a week,
- * which is the right shape for revision sitting on top of new material.
- *
- * It is the dial for how hard the focus lane pushes: raising it to ~14 would
- * restore the old *volume* of revision (six average points), at the cost of
- * weeks that ran to nearly double the spine.
- */
-export const DEFAULT_FOCUS_BUDGET = 6;
-
 export function scheduleFocusPoints(params: {
   candidates: FocusCandidate[];
   /** Settled topics — one review slot each, no revisits. */
@@ -250,10 +370,11 @@ export function scheduleFocusPoints(params: {
 }): PacingBand[] {
   const { candidates, coveredTopics, examMonday } = params;
   const currentMonday = mondayOf(params.currentMonday);
-  const budget = Math.max(1, params.weeklyBudget ?? DEFAULT_FOCUS_BUDGET);
   const revisionWeeks = params.revisionWeeks ?? 3;
   const revisionStart = addWeeks(mondayOf(examMonday), -revisionWeeks);
   const runway = Math.max(0, weeksBetween(currentMonday, revisionStart));
+  // Sized to the backlog unless a caller names a figure ({@link focusBudgetFor}).
+  const budget = Math.max(1, params.weeklyBudget ?? budgetFor(focusDemand(candidates), runway));
 
   const out: PacingBand[] = [];
 
@@ -277,35 +398,91 @@ export function scheduleFocusPoints(params: {
   const gaps = [Math.max(2, Math.round(runway * 0.08)), Math.max(4, Math.round(runway * 0.2))];
   const gapAfter = (placed: number) => gaps[Math.min(placed, gaps.length - 1)];
 
-  type Ticket = { c: FocusCandidate; remaining: number; placed: number; nextIdx: number };
+  type Ticket = {
+    c: FocusCandidate;
+    remaining: number;
+    placed: number;
+    nextIdx: number;
+    /** The column the student dropped it in — and so the queue it belongs to. */
+    band: BandKey;
+  };
   const tickets: Ticket[] = candidates.map((c) => ({
     c,
     remaining: revisitCount(c.mastery),
     placed: 0,
-    nextIdx: 0, // everything wants this week; the budget is what spreads it
+    nextIdx: 0, // everything wants this week; the shares are what spread it
+    band: bandOf(c.mastery).key,
   }));
+
+  /**
+   * Each band's unspent share of the weeks so far.
+   *
+   * A share is a fraction of a week and a spec point is a whole thing, so a band
+   * holding a thin slice of the backlog is owed a fraction of a point per week
+   * and could never afford one. Carrying the remainder lets it save up and be
+   * served every few weeks rather than never. Spending may take a band into
+   * debt — the point that crosses the line still goes in, and the band pays by
+   * sitting out until its credit climbs back.
+   */
+  const credit = new Map<BandKey, number>();
 
   // From week 0 — the week the student is standing in. Starting at 1 meant a
   // topic they had just flagged as weak was always somebody else's problem: the
   // soonest the plan could act on it was the following Monday.
   const placedByWeek = new Map<number, FocusCandidate[]>();
   for (let wk = 0; wk < runway; wk++) {
-    const avail = tickets
-      .filter((t) => t.remaining > 0 && t.nextIdx <= wk)
-      .sort((a, b) => a.c.mastery - b.c.mastery || a.nextIdx - b.nextIdx);
+    // What each band still owes, recomputed every week so the shares re-balance
+    // as the backlog burns down: when one band finishes, its slice passes to the
+    // others without needing a hand-off rule.
+    const owed = new Map<BandKey, number>();
+    let owedTotal = 0;
+    for (const t of tickets) {
+      if (t.remaining <= 0) continue;
+      const w = t.remaining * weightOf(t.c);
+      owed.set(t.band, (owed.get(t.band) ?? 0) + w);
+      owedTotal += w;
+    }
+    if (owedTotal <= 0) break; // the whole backlog is scheduled
+    for (const [b, w] of owed) credit.set(b, (credit.get(b) ?? 0) + (budget * w) / owedTotal);
+
     let cap = budget;
-    for (const t of avail) {
-      if (cap <= 0) break;
+    const place = (t: Ticket) => {
       const list = placedByWeek.get(wk) ?? [];
       list.push(t.c);
       placedByWeek.set(wk, list);
-      // A point that overshoots the remaining budget still goes in — it is the
-      // weakest thing left and the week is then full. Charging its full weight
+      // A point that overshoots what's left still goes in — it is the weakest
+      // thing its band has and the week is then full. Charging its full weight
       // is what stops a second heavy point joining it.
-      cap -= weightOf(t.c);
+      const cost = weightOf(t.c);
+      cap -= cost;
+      credit.set(t.band, (credit.get(t.band) ?? 0) - cost);
       t.remaining--;
       t.nextIdx = wk + gapAfter(t.placed); // next look, a widening gap later
       t.placed++;
+    };
+    // Weakest first *within* a band; between bands it is the share that decides,
+    // not the rating. Recomputed between the passes because placing a point
+    // moves its next look past this week.
+    const available = () =>
+      tickets
+        .filter((t) => t.remaining > 0 && t.nextIdx <= wk)
+        .sort((a, b) => a.c.mastery - b.c.mastery || a.nextIdx - b.nextIdx);
+
+    // 1. Each band spends its own share. This is the fix: a band with credit is
+    //    served this week whatever the other bands are asking for.
+    for (const t of available()) {
+      if (cap <= 0) break;
+      if ((credit.get(t.band) ?? 0) <= 0) continue;
+      place(t);
+    }
+    // 2. Spill. A band whose points are all mid-gap can't use its share this
+    //    week, and the room it leaves goes to whoever can rather than being
+    //    lost — the runway only holds the whole backlog if no week is wasted.
+    //    The borrower is still charged, so capacity taken from another band is
+    //    paid back out of its own later share.
+    for (const t of available()) {
+      if (cap <= 0) break;
+      place(t);
     }
     // Tickets that didn't fit keep nextIdx ≤ wk, so they're first in line next week.
   }
