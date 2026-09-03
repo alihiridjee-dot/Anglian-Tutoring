@@ -45,7 +45,8 @@ export interface PendingInvite {
 export type InviteOutcome = "invited" | "no_account" | "not_a_parent" | "already_linked";
 
 /** The outcomes `link_child_by_code` reports without raising. */
-export type LinkChildOutcome = "linked" | "already_linked" | "not_found" | "not_a_parent";
+export type LinkChildOutcome =
+  "linked" | "already_linked" | "not_found" | "not_a_parent" | "rate_limited";
 
 export interface LinkChildResult {
   status: LinkChildOutcome;

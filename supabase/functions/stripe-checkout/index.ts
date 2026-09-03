@@ -435,8 +435,24 @@ async function handleCheckout(req: Request, payload: CheckoutPayload) {
 
   await assertNoLiveSubscription(stripe, db, beneficiary);
 
-  const pkg = await resolvePackage(db, payload.tier, await studentLevel(db, beneficiary));
-  if (!pkg) throw new HttpError(404, `No active plan called "${payload.tier}".`);
+  // The subject COUNT is what's priced, so it must come from what the student is
+  // actually enrolled in — never from the tier the client sent. Otherwise a
+  // student could declare three subjects in onboarding and then check out on the
+  // one-subject tier, unlocking all three subjects' curriculum for the price of
+  // one (the content RLS scopes reads to enrolled_courses, not to the plan). The
+  // cadence is the caller's to choose; the count is the server's to enforce, the
+  // same way add_subjects / remove_subjects / change_cadence already derive it.
+  const cadence = tierCadence(payload.tier);
+  if (!cadence) throw new HttpError(404, `No active plan called "${payload.tier}".`);
+  const { data: enrolRows } = await db
+    .from("student_enrolments")
+    .select("subject")
+    .eq("student_id", beneficiary);
+  const enrolledCount = Math.min(Math.max((enrolRows ?? []).length, 1), MAX_SUBJECTS);
+  const enforcedTier = `${cadence}_${enrolledCount}`;
+
+  const pkg = await resolvePackage(db, enforcedTier, await studentLevel(db, beneficiary));
+  if (!pkg) throw new HttpError(404, `No active plan called "${enforcedTier}".`);
   if (!pkg.stripe_price_id) {
     throw new HttpError(
       500,

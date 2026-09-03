@@ -26,7 +26,9 @@ export function useSignOut() {
     clearSignedUrlCache();
     clearAllDrafts();
     await supabase.auth.signOut();
-    toast.success("Signed out");
+    // A bare acknowledgement the user is already navigating away from — the
+    // 4s sonner default leaves it sitting over the landing page.
+    toast.success("Signed out", { duration: 2000 });
     navigate({ to: "/", replace: true });
   }, [navigate, qc]);
 }
