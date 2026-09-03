@@ -1,31 +1,32 @@
 import { useState } from "react";
-import { supabase } from "@/integrations/supabase/client";
 import { toast } from "sonner";
 import { Send, PhoneCall, Mail } from "lucide-react";
+import { submitContactLead } from "@/lib/contactLead.functions";
 
 export function ContactSection() {
   const [name, setName] = useState("");
   const [email, setEmail] = useState("");
   const [phone, setPhone] = useState("");
   const [message, setMessage] = useState("");
+  // Honeypot: never shown to a person, so a real submission leaves it empty.
+  const [website, setWebsite] = useState("");
   const [submitting, setSubmitting] = useState(false);
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     setSubmitting(true);
-    const { error } = await supabase.from("leads").insert({
-      name,
-      email,
-      phone: phone || null,
-      message,
-    });
-    setSubmitting(false);
-    if (error) return toast.error(error.message);
-    toast.success("Message sent! We'll be in touch shortly.");
-    setName("");
-    setEmail("");
-    setPhone("");
-    setMessage("");
+    try {
+      await submitContactLead({ data: { name, email, phone: phone || null, message, website } });
+      toast.success("Message sent! We'll be in touch shortly.");
+      setName("");
+      setEmail("");
+      setPhone("");
+      setMessage("");
+    } catch (err) {
+      toast.error(err instanceof Error ? err.message : "We couldn't send that just now.");
+    } finally {
+      setSubmitting(false);
+    }
   };
 
   return (
@@ -66,6 +67,17 @@ export function ContactSection() {
 
           <div className="premium-card rounded-2xl p-8">
             <form onSubmit={handleSubmit} className="space-y-4">
+              {/* Honeypot — hidden from people, catnip for bots. Not tab-reachable. */}
+              <input
+                type="text"
+                name="website"
+                tabIndex={-1}
+                autoComplete="off"
+                aria-hidden="true"
+                value={website}
+                onChange={(e) => setWebsite(e.target.value)}
+                className="hidden"
+              />
               <div>
                 <label className="eyebrow text-[10px]">Name</label>
                 <input

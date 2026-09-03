@@ -5,6 +5,7 @@
       "name": "anglian-dev",
       "runtimeExecutable": "bun",
       "runtimeArgs": ["run", "dev"],
+      "autoPort": true,
       "port": 8080
     }
   ]

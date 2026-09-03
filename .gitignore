@@ -39,3 +39,4 @@ bun.lock
 *.sln
 *.sw?
 .vercel
+supabase/.temp/

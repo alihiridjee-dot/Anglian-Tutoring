@@ -332,6 +332,7 @@ const LINK_CHILD_MESSAGE: Record<Exclude<LinkChildOutcome, "linked">, string> = 
   already_linked: "You're already linked to that student.",
   not_found: "No student matches that invite code. Check it and try again.",
   not_a_parent: "Only a parent/guardian account can link to a student.",
+  rate_limited: "Too many attempts. Please wait a little while, then try again.",
 };
 
 function ParentView() {
