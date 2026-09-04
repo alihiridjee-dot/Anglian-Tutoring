@@ -170,7 +170,9 @@ export function TypicalWeek() {
                 <p className="text-[10px] font-bold uppercase tracking-wider text-muted-foreground">
                   {d.full}
                 </p>
-                <p className="text-sm font-bold leading-tight text-foreground">{d.what}</p>
+                <p className="font-display text-foreground text-sm leading-tight font-bold">
+                  {d.what}
+                </p>
                 <p className="mt-0.5 text-xs leading-relaxed text-muted-foreground">{d.detail}</p>
               </div>
             </motion.li>

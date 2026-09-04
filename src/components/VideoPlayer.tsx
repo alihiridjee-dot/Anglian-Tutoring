@@ -110,7 +110,7 @@ export function VideoModal({
         </div>
 
         <div className="p-4">
-          <p className="font-semibold">{title}</p>
+          <p className="font-display font-bold">{title}</p>
           {description && <p className="text-sm text-muted-foreground mt-1">{description}</p>}
         </div>
       </div>

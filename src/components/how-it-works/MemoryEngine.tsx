@@ -184,7 +184,9 @@ export function MemoryEngine() {
             <div key={lane.key}>
               <div className="mb-2 flex flex-wrap items-center justify-between gap-x-3 gap-y-1">
                 <div className="min-w-0">
-                  <p className="text-sm font-bold leading-tight text-foreground">{lane.label}</p>
+                  <p className="font-display text-foreground text-sm leading-tight font-bold">
+                    {lane.label}
+                  </p>
                   <p className="text-[11px] text-muted-foreground">{lane.evidence}</p>
                 </div>
                 <span

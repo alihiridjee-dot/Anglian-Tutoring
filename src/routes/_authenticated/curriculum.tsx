@@ -502,7 +502,7 @@ function SpecSearchResults({
         <div key={topic.id} className="rounded-2xl premium-card overflow-hidden">
           <div className="flex items-center gap-2.5 px-5 py-3 border-b border-border bg-secondary/30">
             {topic.code && (
-              <span className="text-[11px] font-bold tracking-wide px-2 py-0.5 rounded bg-primary/15 text-primary shrink-0">
+              <span className="text-[11px] font-bold tracking-wide px-2 py-0.5 rounded bg-[color:color-mix(in_oklab,var(--tint)_15%,transparent)] text-[color:var(--tint)] shrink-0">
                 {topic.code}
               </span>
             )}
@@ -805,7 +805,7 @@ function TopicCard({
         >
           <ChevronRight className={`w-4 h-4 shrink-0 transition ${open ? "rotate-90" : ""}`} />
           {topic.code && (
-            <span className="text-[11px] font-bold tracking-wide px-2 py-0.5 rounded bg-primary/15 text-primary">
+            <span className="text-[11px] font-bold tracking-wide px-2 py-0.5 rounded bg-[color:color-mix(in_oklab,var(--tint)_15%,transparent)] text-[color:var(--tint)]">
               {topic.code}
             </span>
           )}
@@ -1132,7 +1132,9 @@ function SpecPointDetail({
                 >
                   <VideoThumbnail embed={embed} />
                   <div className="p-3">
-                    <p className="text-sm font-semibold text-foreground leading-snug">{r.title}</p>
+                    <p className="font-display text-foreground text-sm leading-snug font-bold">
+                      {r.title}
+                    </p>
                     {r.description && (
                       <p className="text-xs font-normal text-muted-foreground mt-0.5 leading-normal line-clamp-2">
                         {r.description}

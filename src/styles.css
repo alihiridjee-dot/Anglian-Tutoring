@@ -186,6 +186,32 @@
   --tint: oklch(0.55 0.03 250);
 }
 
+/* Re-resolve the depth tokens wherever `--tint` changes.
+ *
+ * This is not belt-and-braces, it is required. A `var()` nested inside a custom
+ * property is substituted once, at computed-value time, on the element the
+ * property is DECLARED on — not where it is finally used. `--lift-2` is
+ * declared on `:root`, so its `var(--tint)` resolved to the brand blue there,
+ * and every descendant inherited that already-blue string. The upshot was that
+ * a Biology card drew a green border and then cast a BLUE shadow, which is the
+ * opposite of what the comment on `--lift-*` promises.
+ *
+ * Re-declaring the three tokens on any element that sets `--tint` forces the
+ * substitution to happen again in that element's context, so the shadow finally
+ * follows the subject. Descendants inherit the correctly-resolved value, and a
+ * nested tint re-resolves again. */
+[class*="tint-"] {
+  --lift-1:
+    0 2px 0 0 color-mix(in oklab, var(--tint) 22%, transparent),
+    0 6px 16px -10px color-mix(in oklab, var(--tint) 40%, transparent);
+  --lift-2:
+    0 4px 0 0 color-mix(in oklab, var(--tint) 24%, transparent),
+    0 14px 30px -16px color-mix(in oklab, var(--tint) 45%, transparent);
+  --lift-3:
+    0 7px 0 0 color-mix(in oklab, var(--tint) 26%, transparent),
+    0 26px 50px -22px color-mix(in oklab, var(--tint) 50%, transparent);
+}
+
 /* ════════════════════════════════════════════════════════════════════════════
    POSITIONING ESCAPE HATCH
    Decorative ::before layers need a positioned box, but winning `position`
@@ -1048,11 +1074,39 @@ body {
 }
 
 /* Display type is the loudest part of the redesign: tight, heavy, and never
-   set below `font-bold`. Applied through the `font-display` utility. */
+   set below `font-bold`. */
 .font-display {
   font-family: var(--font-display);
   letter-spacing: -0.025em;
   font-variation-settings: "wdth" 100;
+}
+
+/* Every heading is display type, whether or not anyone remembered the class.
+ *
+ * `.font-display` alone is opt-in, and opt-in loses: a heading written without
+ * it fell back to the body face and nothing flagged it, so the site drifted
+ * into two different voices depending on which file you were looking at. The
+ * element is the rule now, and the class is only needed for the things that
+ * are display type WITHOUT being headings — stat numerals, stickers, a card
+ * title that is really a <p>.
+ *
+ * This lives in `@layer base` on purpose, unlike the rest of this stylesheet.
+ * Utilities beat base, so `tracking-widest` on a small uppercase label still
+ * wins over the negative tracking below (heading tracking is set tighter than
+ * the class's -0.025em precisely because those micro-labels exist), and
+ * `font-sans` remains a working escape hatch for the rare heading that wants
+ * the body face. Unlayered, this rule would silently override both. */
+@layer base {
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6 {
+    font-family: var(--font-display);
+    letter-spacing: -0.02em;
+    font-variation-settings: "wdth" 100;
+  }
 }
 
 /* Rows that scroll sideways by design (tab strips, thread lists). A visible
