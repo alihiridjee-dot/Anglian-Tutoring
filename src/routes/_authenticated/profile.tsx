@@ -34,7 +34,7 @@ function Card({
           <Icon className="w-4 h-4 text-primary" />
         </div>
         <div>
-          <h2 className="font-display text-lg font-semibold tracking-tight">{title}</h2>
+          <h2 className="font-display text-lg font-bold tracking-tight">{title}</h2>
           <p className="text-sm text-muted-foreground">{description}</p>
         </div>
       </div>

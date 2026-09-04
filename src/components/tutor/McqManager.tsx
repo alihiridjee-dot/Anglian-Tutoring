@@ -1,3 +1,4 @@
+import { Spinner } from "@/components/Shared";
 import { Link } from "@tanstack/react-router";
 import { useQuery, useQueryClient } from "@tanstack/react-query";
 import { useState } from "react";
@@ -204,7 +205,7 @@ export function McqManager() {
         </p>
         <Link
           to="/tutor"
-          className="inline-flex items-center gap-2 shrink-0 text-sm font-semibold px-4 py-2.5 rounded-lg bg-primary text-primary-foreground hover:opacity-90 transition"
+          className="inline-flex items-center gap-2 shrink-0 text-sm font-semibold px-4 py-2.5 rounded-lg btn-solid hover:opacity-90 transition"
         >
           <Wand2 className="w-4 h-4" /> Generate quiz
         </Link>
@@ -215,7 +216,7 @@ export function McqManager() {
           Couldn&apos;t load quizzes: {(error as Error).message}
         </div>
       ) : isPending ? (
-        <p className="text-sm text-muted-foreground">Loading…</p>
+        <Spinner label="Loading quizzes" className="py-8" />
       ) : sets.length === 0 ? (
         <div className="rounded-2xl border border-dashed border-border p-10 text-center text-muted-foreground">
           <ListChecks className="w-8 h-8 mx-auto mb-3 opacity-50" />

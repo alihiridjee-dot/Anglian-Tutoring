@@ -2,6 +2,8 @@ import { useCallback, useEffect, useRef, useState } from "react";
 import { Link } from "@tanstack/react-router";
 import { Sparkles, ArrowRight, Check, Stethoscope } from "lucide-react";
 
+import { Mascot } from "@/components/Doodles";
+
 // Deterministic glitter field. Positions are hand-fixed (not Math.random) so the
 // server and client render the exact same dots — otherwise React throws a
 // hydration mismatch on this SSR'd page. Kept sparse and toward the edges so the
@@ -271,17 +273,19 @@ export function Hero() {
           below the content). */}
       <GradCapRibbons runId={runId} />
 
-      <div className="max-w-4xl mx-auto px-6 text-center relative z-20">
-        <span className="chip backdrop-blur-xs">
-          <Sparkles className="w-3.5 h-3.5 text-accent" /> Modern Science Platform for KS3 & GCSE
+      <div className="relative z-20 mx-auto max-w-4xl px-6 text-center">
+        <span className="sticker stamp-in">
+          <Sparkles className="size-3.5 text-[color:var(--pop-ink)]" aria-hidden /> Modern science
+          platform for KS3 &amp; GCSE
         </span>
 
-        <h1 className="mt-8 font-display text-4xl sm:text-5xl lg:text-6xl font-bold tracking-tight text-foreground leading-[1.15] max-w-3xl mx-auto">
-          Better grades in <span className="text-gradient">science</span>, taught by teachers who
-          care.
+        {/* The highlighter goes on the one word the whole page is about. A
+            second marker anywhere on this screen and neither would land. */}
+        <h1 className="font-display text-foreground mx-auto mt-8 max-w-3xl text-4xl leading-[1.1] font-extrabold tracking-tight sm:text-5xl lg:text-6xl">
+          Better grades in <span className="marker">science</span>, taught by teachers who care.
         </h1>
 
-        <p className="mt-6 text-lg text-muted-foreground leading-relaxed max-w-2xl mx-auto">
+        <p className="text-muted-foreground mx-auto mt-6 max-w-2xl text-lg leading-relaxed">
           Weekly live lessons in Biology, Chemistry, and Physics, aligned to Edexcel, AQA, and OCR.
           Interactive quizzes, marked homework, and a grade predictor that actually reflects your
           progress.
@@ -291,34 +295,48 @@ export function Hero() {
           <Link
             to="/auth"
             search={{ mode: "signup" } as never}
-            className="btn-premium group inline-flex items-center gap-2 px-7 py-3.5 rounded-xl font-semibold cursor-pointer"
+            className="btn-hero group inline-flex cursor-pointer items-center gap-2 rounded-xl px-7 py-3.5"
           >
             Get started{" "}
-            <ArrowRight className="w-4 h-4 transition-transform group-hover:translate-x-0.5" />
+            <ArrowRight
+              className="size-4 transition-transform group-hover:translate-x-0.5"
+              aria-hidden
+            />
           </Link>
           <Link
             to="/demo"
-            className="btn-soft inline-flex items-center gap-2 px-7 py-3.5 rounded-xl font-semibold cursor-pointer"
+            className="btn-soft inline-flex cursor-pointer items-center gap-2 rounded-xl px-7 py-3.5"
           >
-            <Sparkles className="w-4 h-4 text-accent" />
+            <Sparkles className="text-accent size-4" aria-hidden />
             Try Demo Platform
           </Link>
         </div>
 
+        {/* The cast, one per science, introduced once at the top of the site so
+            the characters further down read as familiar rather than random.
+            They rise in behind the buttons after the ribbons have landed. */}
+        <div className="peek-in mt-12 flex items-end justify-center gap-2 sm:gap-6">
+          <Mascot name="cell" mood="happy" size={72} className="sm:size-[92px]" />
+          <Mascot name="flask" mood="wink" size={84} className="sm:size-[108px]" />
+          <Mascot name="bolt" mood="wow" size={72} className="sm:size-[92px]" />
+        </div>
+
         {/* Social proof + trust ticks. */}
-        <div className="mt-10 flex flex-wrap justify-center items-center gap-x-6 gap-y-3 text-sm text-muted-foreground">
-          <div className="inline-flex items-center gap-2 rounded-full border border-[#005EB8]/20 bg-[#005EB8]/5 px-3.5 py-1.5 font-semibold text-[#005EB8]">
-            <Stethoscope className="w-4 h-4 shrink-0" /> Taught by practising NHS doctors
+        <div className="text-muted-foreground mt-10 flex flex-wrap items-center justify-center gap-x-6 gap-y-3 text-sm font-semibold">
+          <div className="inline-flex items-center gap-2 rounded-full border-[1.5px] border-[#005EB8]/25 bg-[#005EB8]/5 px-3.5 py-1.5 text-[#005EB8] shadow-[0_2px_0_0_rgba(0,94,184,0.18)]">
+            <Stethoscope className="size-4 shrink-0" aria-hidden /> Taught by practising NHS doctors
           </div>
           <div className="flex items-center gap-2">
-            <Check className="w-4 h-4 text-accent shrink-0" /> Loved by hundreds of students
+            <Check className="text-accent size-4 shrink-0" aria-hidden /> Loved by hundreds of
+            students
           </div>
           <div className="flex items-center gap-2">
-            <Check className="w-4 h-4 text-accent shrink-0" /> Led by experienced qualified tutors
+            <Check className="text-accent size-4 shrink-0" aria-hidden /> Led by experienced
+            qualified tutors
           </div>
           <div className="flex items-center gap-2">
-            <Check className="w-4 h-4 text-accent shrink-0" /> 15+ years combined teaching
-            experience
+            <Check className="text-accent size-4 shrink-0" aria-hidden /> 15+ years combined
+            teaching experience
           </div>
         </div>
       </div>

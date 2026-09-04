@@ -39,7 +39,9 @@ interface Props {
 export function ThreadList({ threads, selectedId, onSelect, showCounterpart }: Props) {
   if (threads.length === 0) {
     return (
-      <p className="px-4 py-10 text-center text-sm text-muted-foreground">No conversations yet.</p>
+      <p className="text-muted-foreground px-4 py-10 text-center text-sm">
+        No conversations yet — start one and it&apos;ll show up here.
+      </p>
     );
   }
 

@@ -209,7 +209,7 @@ export function SubscriptionPanel({
               <button
                 onClick={() => run("resume")}
                 disabled={manage.isPending}
-                className="inline-flex items-center gap-1.5 h-9 px-3.5 rounded-lg bg-primary text-primary-foreground text-sm font-semibold hover:opacity-90 disabled:opacity-50"
+                className="inline-flex items-center gap-1.5 h-9 px-3.5 rounded-lg btn-solid text-sm font-semibold hover:opacity-90 disabled:opacity-50"
               >
                 {manage.isPending ? (
                   <Loader2 className="w-4 h-4 animate-spin" />

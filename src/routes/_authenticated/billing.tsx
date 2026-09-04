@@ -1,6 +1,7 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
 import { useEffect, useState } from "react";
 import { CreditCard, Info } from "lucide-react";
+import { Spinner } from "@/components/Shared";
 import { AppLayout } from "@/components/AppLayout";
 import { supabase } from "@/integrations/supabase/client";
 import { useEnrolments } from "@/hooks/data/useEnrolments";
@@ -40,7 +41,7 @@ function StripeFooter() {
 }
 
 function SectionHeading({ children }: { children: React.ReactNode }) {
-  return <h3 className="font-display text-lg font-semibold mb-4">{children}</h3>;
+  return <h3 className="font-display text-lg font-bold mb-4">{children}</h3>;
 }
 
 /**
@@ -84,7 +85,7 @@ function BillingPage() {
           {userId ? (
             <ParentBillingSection parentId={userId} />
           ) : (
-            <p className="text-sm text-muted-foreground">Loading…</p>
+            <Spinner label="Loading" className="py-8" />
           )}
           <StripeFooter />
         </div>
@@ -138,11 +139,11 @@ function BillingPage() {
               <div className="w-8 h-8 rounded-lg bg-primary/15 flex items-center justify-center">
                 <CreditCard className="w-4 h-4 text-primary" />
               </div>
-              <h2 className="font-display text-xl font-semibold">Current plan</h2>
+              <h2 className="font-display text-xl font-bold">Current plan</h2>
             </div>
 
             {loading ? (
-              <p className="text-sm text-muted-foreground">Loading…</p>
+              <Spinner label="Loading" className="py-8" />
             ) : hasUsablePlan && sub ? (
               <>
                 <SubscriptionPanel

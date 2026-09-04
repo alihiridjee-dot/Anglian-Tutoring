@@ -45,7 +45,7 @@ export function SessionIdentity({
           {session.level}
         </span>
       </div>
-      <p className="font-display font-semibold mt-1">{session.title}</p>
+      <p className="font-display font-bold mt-1">{session.title}</p>
       {showWhen && session.starts_at && (
         <p className="flex items-center gap-1.5 text-sm font-medium text-foreground/80 mt-0.5">
           <CalendarClock className="w-3.5 h-3.5 text-muted-foreground shrink-0" />

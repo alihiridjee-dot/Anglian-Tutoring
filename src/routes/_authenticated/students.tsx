@@ -1,5 +1,6 @@
 import { createFileRoute } from "@tanstack/react-router";
 import { useEffect, useState } from "react";
+import { Spinner } from "@/components/Shared";
 import { AppLayout } from "@/components/AppLayout";
 import { useRoles } from "@/hooks/useRole";
 import { supabase } from "@/integrations/supabase/client";
@@ -25,7 +26,12 @@ function Students() {
     })();
   }, []);
 
-  if (rolesLoading) return <AppLayout title="Students">Loading…</AppLayout>;
+  if (rolesLoading)
+    return (
+      <AppLayout title="Students">
+        <Spinner />
+      </AppLayout>
+    );
   if (!isTutor) {
     return (
       <AppLayout title="Students">
@@ -41,7 +47,7 @@ function Students() {
         is enabled.
       </p>
       {loading ? (
-        <p className="text-sm text-muted-foreground">Loading…</p>
+        <Spinner label="Loading students" className="py-8" />
       ) : (
         <div className="rounded-2xl premium-card overflow-hidden">
           <table className="w-full text-sm">

@@ -12,6 +12,7 @@ import { parseVideoUrl } from "@/lib/videoEmbed";
 import { VideoThumbnail, VideoModal } from "@/components/VideoPlayer";
 import { LiveSessionsBanner } from "@/components/live/LiveSessionsBanner";
 import { levelLabel, subjectLabel } from "@/lib/courseSummary";
+import { Spinner } from "@/components/Shared";
 
 /**
  * Student "This Week" widget. Shows the curriculum spec points the tutor has set
@@ -51,7 +52,7 @@ export function WeeklyFocusCard({
           <BookMarked className="w-4 h-4 text-primary" />
         </div>
         <div className="min-w-0">
-          <h3 className="font-display font-semibold text-base leading-tight">From your tutor</h3>
+          <h3 className="font-display font-bold text-base leading-tight">From your tutor</h3>
           <p className="text-xs text-muted-foreground">Extra focus for {rangeLabel} · Mon–Sun</p>
         </div>
         {plans.length > 0 && (
@@ -68,7 +69,7 @@ export function WeeklyFocusCard({
         {showLive && <LiveSessionsBanner to={linkTo("/live")} plansPresent={plans.length > 0} />}
 
         {loading ? (
-          <p className="text-sm text-muted-foreground">Loading…</p>
+          <Spinner label="Loading this week" className="py-8" />
         ) : plans.length === 0 ? (
           <p className="text-sm text-muted-foreground">
             Nothing added for this week — your plan above is yours to get on with.
@@ -83,7 +84,7 @@ export function WeeklyFocusCard({
               return (
                 <div key={plan.id} className="space-y-2.5">
                   <div className="flex flex-wrap items-center gap-2">
-                    <span className="font-display font-semibold">{subjectLabel(plan.subject)}</span>
+                    <span className="font-display font-bold">{subjectLabel(plan.subject)}</span>
                     <span className="text-[10px] px-1.5 py-0.5 rounded-full uppercase tracking-wide font-bold bg-primary/10 text-primary">
                       {levelLabel(plan.level)}
                     </span>

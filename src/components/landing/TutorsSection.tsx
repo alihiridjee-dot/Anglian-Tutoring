@@ -26,6 +26,8 @@ const TUTORS = [
     accent: "text-emerald-600 bg-emerald-50 border-emerald-100",
     themeColor: "emerald",
     image: "/tutors/nadia.jpg",
+    // See `avatarFocus` on the type below.
+    avatarFocus: { size: "230%", position: "47% 30%" },
   },
   {
     id: "ali",
@@ -46,6 +48,7 @@ const TUTORS = [
     accent: "text-sky-600 bg-sky-50 border-sky-100",
     themeColor: "sky",
     image: "/tutors/ali.jpg",
+    avatarFocus: { size: "250%", position: "53% 55%" },
   },
 ];
 
@@ -265,14 +268,14 @@ function TutorChatModal({ tutor, onClose }: { tutor: Tutor; onClose: () => void 
         exit={{ opacity: 0, scale: 0.96, y: 8 }}
         transition={{ type: "spring", stiffness: 300, damping: 28 }}
         onClick={(e) => e.stopPropagation()}
-        className="premium-card relative w-full max-w-3xl rounded-3xl overflow-hidden flex flex-col sm:flex-row max-h-[90vh]"
+        className="pop-card pop-card-hero relative flex max-h-[90vh] w-full max-w-3xl flex-col overflow-hidden sm:flex-row"
       >
         <button
           onClick={onClose}
           aria-label="Close"
-          className="absolute top-4 right-4 z-10 p-2 rounded-full bg-white/80 backdrop-blur text-muted-foreground hover:text-foreground hover:bg-white transition shadow-sm"
+          className="icon-tile absolute top-4 right-4 z-20 size-9 bg-white/90 backdrop-blur transition hover:bg-white"
         >
-          <X className="w-5 h-5" />
+          <X className="size-5" aria-hidden />
         </button>
 
         {/* Full-resolution photo */}
@@ -290,26 +293,51 @@ function TutorChatModal({ tutor, onClose }: { tutor: Tutor; onClose: () => void 
         </div>
 
         {/* Chat side */}
-        <div className="sm:w-1/2 p-6 sm:p-8 flex flex-col overflow-y-auto">
-          <div className="flex items-center gap-2">
-            <h3 className="font-display text-xl font-bold text-foreground">{tutor.name}</h3>
-            <span
-              className={`inline-flex items-center px-2 py-0.5 text-[10px] font-bold uppercase tracking-wider rounded-full border ${tutor.accent}`}
-            >
+        <div className="scroll-slim flex flex-col overflow-y-auto p-6 sm:w-1/2 sm:p-8">
+          <div className="flex flex-wrap items-center gap-2">
+            <h3 className="font-display text-foreground text-xl font-extrabold">{tutor.name}</h3>
+            <span className="sticker stamp-in text-[10px] tracking-wider uppercase">
               {tutor.badge}
             </span>
           </div>
-          <p className="text-sm text-primary font-semibold mt-0.5">{tutor.role}</p>
+          <p className="text-primary mt-0.5 text-sm font-bold">{tutor.role}</p>
 
-          {/* Greeting chat bubble */}
+          {/* Greeting, drawn as a real message: the tutor's own face as the
+              avatar and a bubble with a tail pointing at it. A bare grey box
+              with no sender attached is what made this read as a form. */}
           <motion.div
-            initial={{ opacity: 0, y: 8 }}
+            initial={{ opacity: 0, y: 10 }}
             animate={{ opacity: 1, y: 0 }}
-            transition={{ delay: 0.15 }}
-            className="mt-5 self-start max-w-[90%] rounded-2xl rounded-tl-sm bg-secondary px-4 py-3 text-sm text-foreground font-medium leading-relaxed"
+            transition={{ delay: 0.2, type: "spring", stiffness: 320, damping: 24 }}
+            className="mt-5 flex items-end gap-2.5"
           >
-            Hi! Nice to meet you 👋 I'm {firstName}. Do you have any questions about tutoring? Ask
-            away and I'll get straight back to you on WhatsApp.
+            {/* Framing a face in a 36px circle needs a zoomed crop, and one
+                shared crop cannot do it: Nadia's portrait is square (so
+                `object-cover` never crops it at all, and the avatar came out as
+                the whole photo shrunk to 36px) while Ali's is a portrait-
+                oriented 3:4 with his face low and right of centre. Hence a
+                focal point per tutor, alongside the image it belongs to. */}
+            <span
+              aria-hidden
+              style={{
+                backgroundImage: `url(${tutor.image})`,
+                backgroundSize: tutor.avatarFocus.size,
+                backgroundPosition: tutor.avatarFocus.position,
+              }}
+              className="size-9 shrink-0 rounded-full border-2 border-[color:var(--card)] bg-no-repeat shadow-[0_2px_0_0_color-mix(in_oklab,var(--tint)_30%,transparent)]"
+            />
+            <div className="surface-soft relative rounded-2xl rounded-bl-sm px-4 py-3 text-sm leading-relaxed font-medium">
+              {/* The tail. Drawn as a rotated square tucked behind the bubble's
+                  bottom-left corner so it inherits the same fill and border. */}
+              <span
+                aria-hidden
+                className="absolute bottom-1.5 left-[-5px] size-3 rotate-45 rounded-[2px] border-b border-l border-[color:color-mix(in_oklab,var(--tint)_14%,var(--edge))] bg-[color:color-mix(in_oklab,var(--tint)_5%,var(--card))]"
+              />
+              <span className="relative">
+                Hi! Nice to meet you 👋 I&apos;m {firstName}. Do you have any questions about
+                tutoring? Ask away and I&apos;ll get straight back to you on WhatsApp.
+              </span>
+            </div>
           </motion.div>
 
           <div className="mt-4 flex-1 flex flex-col">
@@ -322,17 +350,20 @@ function TutorChatModal({ tutor, onClose }: { tutor: Tutor; onClose: () => void 
               autoFocus
               rows={4}
               placeholder={`Type your question for ${firstName}…`}
-              className="w-full resize-none rounded-2xl border border-border bg-secondary px-4 py-3 text-sm text-foreground placeholder:text-muted-foreground/70 focus:outline-none focus:ring-2 focus:ring-primary/30 focus:border-primary/30 transition"
+              className="pop-input w-full resize-none px-4 py-3 text-sm"
             />
 
             <button
               onClick={sendToWhatsApp}
-              className="mt-4 inline-flex items-center justify-center gap-2 w-full rounded-2xl bg-[#25D366] hover:bg-[#1ebd5b] active:scale-[0.98] text-white text-sm font-bold px-5 py-3.5 shadow-lg shadow-emerald-500/20 transition"
+              className="group mt-4 inline-flex w-full items-center justify-center gap-2 rounded-2xl border-[1.5px] border-[#128C7E] bg-[#25D366] px-5 py-3.5 text-sm font-extrabold text-white shadow-[0_4px_0_0_#128C7E] transition-[transform,box-shadow,filter] hover:brightness-105 active:translate-y-[3px] active:shadow-[0_1px_0_0_#128C7E]"
             >
-              <Send className="w-4 h-4" />
+              <Send
+                className="size-4 transition-transform group-hover:translate-x-0.5"
+                aria-hidden
+              />
               Send on WhatsApp
             </button>
-            <p className="mt-2.5 text-center text-[11px] text-muted-foreground/70 font-medium">
+            <p className="text-muted-foreground/70 mt-2.5 text-center text-[11px] font-medium">
               Opens WhatsApp with your message ready to send — no app? It works on web too.
             </p>
           </div>

@@ -44,10 +44,7 @@ export function PaywallOverlay() {
           </div>
         ) : resumable ? (
           <>
-            <h1
-              id="paywall-title"
-              className="font-display text-2xl font-semibold tracking-tight mb-2"
-            >
+            <h1 id="paywall-title" className="font-display text-2xl font-bold tracking-tight mb-2">
               Your plan is on hold
             </h1>
             <p className="text-sm text-muted-foreground mb-6 leading-relaxed">
@@ -57,17 +54,14 @@ export function PaywallOverlay() {
             <button
               type="button"
               onClick={() => navigate({ to: "/billing" })}
-              className="w-full h-11 rounded-xl bg-primary text-primary-foreground font-semibold hover:opacity-90 text-sm shadow-sm inline-flex items-center justify-center gap-2"
+              className="w-full h-11 rounded-xl btn-solid font-semibold hover:opacity-90 text-sm shadow-sm inline-flex items-center justify-center gap-2"
             >
               <PlayCircle className="h-4 w-4" /> Resume my plan
             </button>
           </>
         ) : (
           <>
-            <h1
-              id="paywall-title"
-              className="font-display text-2xl font-semibold tracking-tight mb-2"
-            >
+            <h1 id="paywall-title" className="font-display text-2xl font-bold tracking-tight mb-2">
               Please resubscribe
             </h1>
             <p className="text-sm text-muted-foreground mb-6 leading-relaxed">
@@ -77,7 +71,7 @@ export function PaywallOverlay() {
             <button
               type="button"
               onClick={() => navigate({ to: "/onboarding/plan" })}
-              className="w-full h-11 rounded-xl bg-primary text-primary-foreground font-semibold hover:opacity-90 text-sm shadow-sm inline-flex items-center justify-center gap-2"
+              className="w-full h-11 rounded-xl btn-solid font-semibold hover:opacity-90 text-sm shadow-sm inline-flex items-center justify-center gap-2"
             >
               <CreditCard className="h-4 w-4" /> Resubscribe
             </button>

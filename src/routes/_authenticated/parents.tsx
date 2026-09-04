@@ -2,6 +2,7 @@ import { createFileRoute } from "@tanstack/react-router";
 import { useState } from "react";
 import { toast } from "sonner";
 import { Check, Copy, Link2, Mail, RefreshCw, Users, X } from "lucide-react";
+import { Spinner } from "@/components/Shared";
 import { AppLayout } from "@/components/AppLayout";
 import { Field, inputCls, submitBtn } from "@/components/tutor/Field";
 import { useEnrolments } from "@/hooks/data/useEnrolments";
@@ -46,7 +47,7 @@ function ParentsPage() {
     <AppLayout title={title}>
       <div className="max-w-2xl space-y-6">
         {loading ? (
-          <p className="text-sm text-muted-foreground">Loading…</p>
+          <Spinner label="Loading" className="py-8" />
         ) : role === "parent" ? (
           <ParentView />
         ) : role === "tutor" ? (
@@ -83,7 +84,7 @@ function Panel({
           <Icon className="w-4 h-4 text-primary" />
         </div>
         <div>
-          <h2 className="font-display text-lg font-semibold tracking-tight">{title}</h2>
+          <h2 className="font-display text-lg font-bold tracking-tight">{title}</h2>
           {description && <p className="text-sm text-muted-foreground">{description}</p>}
         </div>
       </div>
@@ -113,7 +114,7 @@ function ListState({
   empty: string;
   children: React.ReactNode;
 }) {
-  if (query.isLoading) return <Empty>Loading…</Empty>;
+  if (query.isLoading) return <Spinner label="Loading" className="py-8" />;
   if (query.isError) {
     return (
       <p className="text-sm text-destructive py-2">
@@ -428,7 +429,7 @@ function ParentView() {
                     <button
                       onClick={() => answer(i.id, true)}
                       disabled={respond.isPending}
-                      className="h-8 px-3 rounded-lg bg-primary text-primary-foreground text-xs font-semibold inline-flex items-center gap-1.5 hover:opacity-90 disabled:opacity-60 cursor-pointer"
+                      className="h-8 px-3 rounded-lg btn-solid text-xs font-semibold inline-flex items-center gap-1.5 hover:opacity-90 disabled:opacity-60 cursor-pointer"
                     >
                       <Check className="w-3.5 h-3.5" /> Accept
                     </button>

@@ -1,5 +1,6 @@
+import { Spinner } from "@/components/Shared";
 import { useEffect, useMemo, useState } from "react";
-import { BookMarked, ClipboardList, ListChecks, Loader2, MessageSquare, X } from "lucide-react";
+import { BookMarked, ClipboardList, ListChecks, MessageSquare, X } from "lucide-react";
 import { supabase } from "@/integrations/supabase/client";
 import { CurriculumDAL, type SpecPointMatch } from "@/lib/curriculumDal";
 import { useEnrolments } from "@/hooks/data/useEnrolments";
@@ -187,9 +188,7 @@ function SpecPointSearch({ onPick }: { onPick: (s: ChatContextSelection) => void
       {query.trim().length >= 2 && (
         <PickerShell>
           {searching ? (
-            <div className="py-4 text-center">
-              <Loader2 className="mx-auto h-4 w-4 animate-spin text-muted-foreground" />
-            </div>
+            <Spinner className="py-4" />
           ) : results.length === 0 ? (
             <EmptyRow>No spec points match that.</EmptyRow>
           ) : (
@@ -231,9 +230,7 @@ function HomeworkList({ onPick }: { onPick: (s: ChatContextSelection) => void })
   return (
     <PickerShell>
       {rows === null ? (
-        <div className="py-4 text-center">
-          <Loader2 className="mx-auto h-4 w-4 animate-spin text-muted-foreground" />
-        </div>
+        <Spinner className="py-4" />
       ) : rows.length === 0 ? (
         <EmptyRow>No homework set yet.</EmptyRow>
       ) : (
@@ -275,9 +272,7 @@ function QuizList({ onPick }: { onPick: (s: ChatContextSelection) => void }) {
   return (
     <PickerShell>
       {rows === null ? (
-        <div className="py-4 text-center">
-          <Loader2 className="mx-auto h-4 w-4 animate-spin text-muted-foreground" />
-        </div>
+        <Spinner className="py-4" />
       ) : rows.length === 0 ? (
         <EmptyRow>No quizzes published yet.</EmptyRow>
       ) : (

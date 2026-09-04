@@ -1,3 +1,4 @@
+import { Spinner } from "@/components/Shared";
 import { useMemo } from "react";
 import { Link } from "@tanstack/react-router";
 import {
@@ -9,7 +10,6 @@ import {
   X,
   RotateCcw,
   Sparkles,
-  Loader2,
 } from "lucide-react";
 import { type PlanPoint, type WeeklyPlan } from "@/lib/weeklyPlanDal";
 import { type RoadmapResult } from "@/lib/programDal";
@@ -259,11 +259,7 @@ export function ThisWeekPanel({
   };
 
   if (loading) {
-    return (
-      <div className="py-10 text-center">
-        <Loader2 className="w-5 h-5 animate-spin mx-auto text-muted-foreground" />
-      </div>
-    );
+    return <Spinner className="py-10" />;
   }
 
   return (
@@ -464,7 +460,7 @@ function TopicBlock({
 }) {
   return (
     <div>
-      <p className="font-display text-lg font-semibold leading-snug">{title}</p>
+      <p className="font-display text-lg font-bold leading-snug">{title}</p>
       {mastery != null && (
         <div className="mt-3">
           <div className="flex items-center justify-between text-[11px] mb-1">

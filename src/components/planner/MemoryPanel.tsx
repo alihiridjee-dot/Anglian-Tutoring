@@ -1,5 +1,6 @@
+import { Spinner } from "@/components/Shared";
 import { useEffect, useMemo, useState } from "react";
-import { Brain, Loader2 } from "lucide-react";
+import { Brain } from "lucide-react";
 import { ScheduleDAL, type MemoryStats } from "@/lib/scheduleDal";
 import { type Enrolment } from "@/hooks/data/useEnrolments";
 import { type SubjectV, type BoardV, type LevelV } from "@/lib/taxonomy";
@@ -86,7 +87,7 @@ export function MemoryPanel({
             <Brain className="w-4.5 h-4.5" />
           </div>
           <div>
-            <h2 className="font-display text-base font-semibold tracking-tight">How it's held</h2>
+            <h2 className="font-display text-base font-bold tracking-tight">How it's held</h2>
             <p className="text-xs text-muted-foreground">
               What your revision has made stick — and what's about to slip.
             </p>
@@ -103,7 +104,7 @@ export function MemoryPanel({
                 onClick={() => setActiveSubject(e.subject)}
                 className={`px-3 py-1 rounded-full text-xs font-medium transition-colors ${
                   e.subject === activeSubject
-                    ? "bg-primary text-primary-foreground"
+                    ? "btn-solid"
                     : "bg-muted text-muted-foreground hover:bg-muted/70"
                 }`}
               >
@@ -115,11 +116,9 @@ export function MemoryPanel({
       </div>
 
       {loading ? (
-        <div className="py-8 text-center">
-          <Loader2 className="w-5 h-5 animate-spin mx-auto text-muted-foreground" />
-        </div>
+        <Spinner className="py-8" />
       ) : !stats || stats.total === 0 ? (
-        <p className="text-sm text-muted-foreground">No curriculum loaded for this subject yet.</p>
+        <p className="text-muted-foreground text-sm">No curriculum loaded for this subject yet.</p>
       ) : practised === 0 ? (
         <p className="text-sm text-muted-foreground">
           Nothing practised yet — rate your confidence or finish some homework and this fills in.

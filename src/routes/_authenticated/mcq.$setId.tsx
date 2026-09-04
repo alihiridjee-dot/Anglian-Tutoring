@@ -1,5 +1,6 @@
 import { createFileRoute, Link, useParams } from "@tanstack/react-router";
 import { useEffect, useState } from "react";
+import { Spinner } from "@/components/Shared";
 import { AppLayout } from "@/components/AppLayout";
 import { supabase } from "@/integrations/supabase/client";
 import { useRoles } from "@/hooks/useRole";
@@ -156,7 +157,12 @@ export function TakeMcq() {
       </AppLayout>
     );
   }
-  if (!set) return <AppLayout title="MCQ">Loading…</AppLayout>;
+  if (!set)
+    return (
+      <AppLayout title="MCQ">
+        <Spinner label="Loading the quiz" />
+      </AppLayout>
+    );
 
   return (
     <AppLayout title={set.title}>
@@ -216,7 +222,7 @@ export function TakeMcq() {
           <button
             onClick={submit}
             disabled={submitting || Object.keys(answers).length !== questions.length}
-            className="mt-6 w-full h-11 rounded-xl bg-primary text-primary-foreground font-semibold disabled:opacity-50"
+            className="mt-6 w-full h-11 rounded-xl btn-solid font-semibold disabled:opacity-50"
           >
             {submitting ? "Marking…" : "Submit answers"}
           </button>
@@ -225,7 +231,7 @@ export function TakeMcq() {
             <p className="text-xs uppercase tracking-widest text-primary font-semibold">
               Your score
             </p>
-            <p className="font-display text-4xl font-semibold mt-1">
+            <p className="font-display text-4xl font-bold mt-1">
               {marked?.score}/{marked?.total}
             </p>
             <Link

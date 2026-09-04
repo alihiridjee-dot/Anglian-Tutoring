@@ -141,7 +141,7 @@ export function DemoSalesChat() {
           : "Thanks — we'll be in touch.";
 
   return (
-    <section className="premium-card mt-6 overflow-hidden rounded-2xl">
+    <section className="pop-card mt-6 overflow-hidden">
       <header className="flex items-center gap-3 border-b border-border bg-muted/30 px-4 py-3 sm:px-5">
         <div className="flex h-9 w-9 shrink-0 items-center justify-center rounded-xl border border-[#1ebd5b]/30 bg-[#25D366]/15">
           <WhatsAppGlyph className="h-4.5 w-4.5 text-[#128C7E]" />
@@ -165,8 +165,8 @@ export function DemoSalesChat() {
             <div
               className={`max-w-[85%] whitespace-pre-wrap rounded-2xl px-3.5 py-2.5 text-sm leading-relaxed ${
                 b.from === "me"
-                  ? "rounded-br-md bg-primary text-primary-foreground"
-                  : "rounded-bl-md bg-secondary text-foreground"
+                  ? "rounded-br-md bg-[color:var(--primary)] font-medium text-[color:var(--primary-foreground)]"
+                  : "surface-soft rounded-bl-md text-foreground"
               }`}
             >
               {b.body}
@@ -176,12 +176,12 @@ export function DemoSalesChat() {
 
         {typing && (
           <div className="flex justify-start">
-            <div className="flex items-center gap-1 rounded-2xl rounded-bl-md bg-secondary px-4 py-3">
+            <div className="surface-soft flex items-end gap-1.5 rounded-2xl rounded-bl-md px-4 py-3">
               {[0, 1, 2].map((i) => (
                 <span
                   key={i}
-                  className="h-1.5 w-1.5 animate-bounce rounded-full bg-muted-foreground/60"
-                  style={{ animationDelay: `${i * 120}ms` }}
+                  className="load-dot block size-1.5 rounded-full bg-[color:var(--tint)]"
+                  style={{ "--dot-delay": `${i * 130}ms` } as React.CSSProperties}
                 />
               ))}
             </div>
@@ -193,7 +193,7 @@ export function DemoSalesChat() {
             href={whatsappLink(`Hi Anglia Educate — I'm ${answers.name}. ${answers.message}`)}
             target="_blank"
             rel="noreferrer"
-            className="inline-flex w-full items-center justify-center gap-2 rounded-xl bg-[#25D366] px-4 py-3 text-sm font-bold text-white shadow-sm transition hover:bg-[#1ebd5b]"
+            className="inline-flex w-full items-center justify-center gap-2 rounded-xl border-[1.5px] border-[#128C7E] bg-[#25D366] px-4 py-3 text-sm font-extrabold text-white shadow-[0_3px_0_0_#128C7E] transition-[transform,box-shadow,filter] hover:brightness-105 active:translate-y-[2px] active:shadow-[0_1px_0_0_#128C7E]"
           >
             <WhatsAppGlyph className="h-4 w-4" /> Continue on WhatsApp
           </a>
@@ -229,14 +229,14 @@ export function DemoSalesChat() {
             disabled={composerDisabled}
             placeholder={placeholder}
             aria-label={placeholder}
-            className="flex-1 resize-none rounded-xl border border-border bg-background p-3 text-sm transition focus:border-[#25D366] focus:outline-none focus:ring-4 focus:ring-[#25D366]/15 disabled:opacity-60"
+            className="pop-input flex-1 resize-none p-3 text-sm disabled:opacity-60"
           />
           <button
             type="button"
             onClick={send}
             disabled={composerDisabled || !draft.trim()}
             aria-label="Send message"
-            className="inline-flex h-11 w-11 shrink-0 items-center justify-center rounded-xl bg-[#25D366] text-white transition hover:bg-[#1ebd5b] disabled:opacity-50"
+            className="inline-flex size-11 shrink-0 items-center justify-center rounded-xl border-[1.5px] border-[#128C7E] bg-[#25D366] text-white shadow-[0_3px_0_0_#128C7E] transition-[transform,box-shadow,filter] hover:brightness-105 active:translate-y-[2px] active:shadow-[0_1px_0_0_#128C7E] disabled:opacity-50 disabled:shadow-none"
           >
             {step === "sending" ? (
               <Loader2 className="h-4 w-4 animate-spin" />

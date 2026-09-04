@@ -31,7 +31,7 @@ export function ThisWeekPanel({ userId, taxonomy }: Props) {
       <div className="max-w-2xl rounded-2xl premium-card p-6">
         <div className="flex items-center gap-2">
           <CalendarClock className="w-5 h-5 text-primary shrink-0" />
-          <h3 className="font-display text-lg font-semibold">Schedule this week's live session</h3>
+          <h3 className="font-display text-lg font-bold">Schedule this week's live session</h3>
         </div>
         <p className="text-xs text-muted-foreground mt-1 mb-4">
           Pick a date and the session automatically links to the focus you set above for that week.

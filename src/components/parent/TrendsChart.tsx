@@ -6,7 +6,7 @@ import {
   type ChartConfig,
 } from "@/components/ui/chart";
 import type { WeeklyTrendPoint } from "@/hooks/data/useChildProgress";
-import { SUBJECT_STROKE, SUBJECT_TEXT, subjectLabel } from "@/components/parent/subjectTheme";
+import { SUBJECT_STROKE, SUBJECT_TEXT, subjectLabel } from "@/lib/subjectTheme";
 
 /**
  * Weekly quiz averages per subject. Weeks with no attempts leave a gap in that

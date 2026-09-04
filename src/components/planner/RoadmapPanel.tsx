@@ -1,3 +1,4 @@
+import { Spinner } from "@/components/Shared";
 import { useEffect, useMemo, useState } from "react";
 import { toast } from "sonner";
 import {
@@ -165,7 +166,7 @@ export function RoadmapPanel({
             <MapIcon className="w-5 h-5" />
           </div>
           <div>
-            <h2 className="font-display text-base font-semibold tracking-tight">
+            <h2 className="font-display text-base font-bold tracking-tight">
               {asTutor
                 ? `${studentName ? `${studentName}'s` : "Student"} programme to the exams`
                 : "Your programme to the exams"}
@@ -188,7 +189,7 @@ export function RoadmapPanel({
                 onClick={() => setActiveSubject(e.subject)}
                 className={`h-8 px-3 rounded-lg text-sm font-medium transition ${
                   e.subject === activeSubject
-                    ? "bg-primary text-primary-foreground"
+                    ? "btn-solid"
                     : "bg-muted text-muted-foreground hover:text-foreground"
                 }`}
               >
@@ -200,9 +201,7 @@ export function RoadmapPanel({
       </div>
 
       {loading ? (
-        <div className="py-8 text-center">
-          <Loader2 className="w-5 h-5 animate-spin mx-auto text-muted-foreground" />
-        </div>
+        <Spinner className="py-8" />
       ) : !data ? (
         <p className="rounded-xl border border-dashed border-border p-6 text-center text-sm text-muted-foreground">
           No curriculum found for this course yet.

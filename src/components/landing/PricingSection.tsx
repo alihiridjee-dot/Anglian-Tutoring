@@ -114,11 +114,11 @@ export function PricingSection() {
       />
       <div className="relative max-w-7xl mx-auto px-6">
         <div className="text-center max-w-2xl mx-auto mb-14">
-          <span className="inline-flex items-center gap-1.5 rounded-full border border-border bg-white/70 backdrop-blur px-3 py-1 text-[11px] font-semibold uppercase tracking-wider text-[var(--primary-deep)]">
-            <Sparkles className="w-3.5 h-3.5" /> Build your plan
+          <span className="sticker">
+            <Sparkles className="size-3.5" aria-hidden /> Build your plan
           </span>
-          <h2 className="mt-5 font-display text-4xl sm:text-5xl font-bold tracking-tight text-foreground">
-            A plan that fits your child
+          <h2 className="font-display text-foreground mt-5 text-4xl font-extrabold tracking-tight sm:text-5xl">
+            A plan that <span className="marker">fits your child</span>
           </h2>
           <p className="mt-4 text-base text-muted-foreground leading-relaxed">
             Choose what suits them and watch the price update as you go. Cancel anytime.
@@ -328,11 +328,11 @@ function PricingTiers({
             {/* Identity */}
             <div className="relative">
               <span
-                className={`inline-block rounded-full px-2.5 py-1 text-[9px] font-bold uppercase tracking-wider ${
+                className={
                   dark
-                    ? "bg-white/15 text-white"
-                    : "bg-[var(--accent-soft)] text-[var(--primary-deep)]"
-                }`}
+                    ? "sticker stamp-in text-[10px] tracking-wider uppercase"
+                    : "chip text-[9px] tracking-wider uppercase"
+                }
               >
                 {tier.badge}
               </span>
@@ -349,7 +349,7 @@ function PricingTiers({
             >
               <div className="flex items-baseline gap-1">
                 <span
-                  className={`font-display text-3xl font-semibold leading-none tracking-tight tabular-nums ${
+                  className={`font-display text-3xl font-bold leading-none tracking-tight tabular-nums ${
                     dark ? "text-white" : "text-[var(--primary-deep)]"
                   }`}
                   style={{ fontFeatureSettings: '"ss01","tnum"' }}
@@ -418,7 +418,7 @@ function PricingTiers({
                 className={`mt-3 block rounded-xl py-2.5 text-center text-sm font-bold transition-all duration-200 ${
                   dark
                     ? "bg-white text-[var(--primary-deep)] hover:bg-white/90 shadow-lg"
-                    : "bg-primary text-primary-foreground hover:bg-[var(--primary-deep)]"
+                    : "btn-solid hover:bg-[var(--primary-deep)]"
                 }`}
               >
                 Enrol

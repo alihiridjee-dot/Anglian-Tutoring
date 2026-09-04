@@ -1,3 +1,4 @@
+import { Mascot } from "@/components/Doodles";
 import { createFileRoute, Link, redirect } from "@tanstack/react-router";
 import { AppLayout } from "@/components/AppLayout";
 import { useRoles } from "@/hooks/useRole";
@@ -173,7 +174,7 @@ export function ParentDashboard() {
             Parent Workspace
           </span>
         </div>
-        <h2 className="mt-1 font-display text-3xl font-semibold tracking-tight relative">
+        <h2 className="mt-1 font-display text-3xl font-bold tracking-tight relative">
           Welcome back, {displayEmailName}
         </h2>
         <p className="mt-2 text-primary-foreground/90 max-w-2xl relative">
@@ -203,10 +204,10 @@ export function ParentDashboard() {
       </div>
 
       {!hasChild && !childrenLoading ? (
-        <div className="rounded-2xl premium-card p-8 text-center">
-          <Users className="w-8 h-8 text-muted-foreground mx-auto mb-3" />
-          <p className="font-display font-semibold mb-1">No linked children yet</p>
-          <p className="text-sm text-muted-foreground max-w-md mx-auto">
+        <div className="pop-card p-8 text-center">
+          <Mascot name="owl" mood="happy" size={96} className="mx-auto mb-3" />
+          <p className="font-display mb-1 text-xl font-extrabold">No linked children yet</p>
+          <p className="text-muted-foreground mx-auto max-w-md text-sm leading-relaxed">
             Enter your child's invite code on the{" "}
             <span className="font-semibold">Linked Students</span> page to link straight away — or
             ask them to invite you and accept it there. Their progress appears here the moment
@@ -214,7 +215,7 @@ export function ParentDashboard() {
           </p>
           <Link
             to="/parents"
-            className="inline-block mt-4 h-10 leading-10 px-5 rounded-lg bg-primary text-primary-foreground text-sm font-semibold hover:opacity-90"
+            className="btn-hero mt-6 inline-flex items-center rounded-xl px-5 py-2.5 text-sm"
           >
             Link a student
           </Link>

@@ -1,10 +1,10 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
 import { guardStudentSection } from "@/lib/routeGuards";
 import { useEffect, useMemo, useState } from "react";
+import { EmptyState, Spinner } from "@/components/Shared";
 import { AppLayout } from "@/components/AppLayout";
 import { supabase } from "@/integrations/supabase/client";
 import {
-  ListChecks,
   Sparkles,
   ChevronRight,
   BookOpen,
@@ -49,7 +49,7 @@ export function MCQs() {
   if (rolesLoading) {
     return (
       <AppLayout title="Weekly MCQs">
-        <p className="text-sm text-muted-foreground">Loading…</p>
+        <Spinner />
       </AppLayout>
     );
   }
@@ -218,25 +218,25 @@ function StudentMCQs() {
       </p>
 
       {loading ? (
-        <p className="text-sm text-muted-foreground">Loading…</p>
+        <Spinner label="Loading your quizzes" />
       ) : !hasAny ? (
-        <div className="rounded-2xl border border-dashed border-border p-10 text-center text-muted-foreground">
-          <ListChecks className="w-8 h-8 mx-auto mb-3 opacity-50" />
-          No quizzes yet. Ask your tutor to generate one for this week.
-        </div>
+        <EmptyState
+          mascot="pencil"
+          mood="sleepy"
+          title="No quizzes yet"
+          body="Nothing has been set for your subjects so far. Ask your tutor to generate one for this week — quizzes are the quickest way to find the spec points you haven't nailed yet."
+        />
       ) : (
         <div className="space-y-10">
           {/* This week's MCQs — tutor-assigned sets within a week of their due date */}
           {activeWeekly.length > 0 && (
-            <div className="rounded-2xl border border-primary/25 bg-primary/[0.04] p-5 space-y-4">
+            <div className="surface-loud space-y-4 p-5">
               <div className="flex items-center gap-3">
-                <CalendarClock className="w-4 h-4 text-primary" />
-                <h3 className="font-display font-bold text-sm tracking-wide uppercase text-foreground">
+                <CalendarClock className="text-primary size-4" aria-hidden />
+                <h3 className="font-display text-foreground text-sm font-extrabold tracking-wide uppercase">
                   This week&apos;s MCQs
                 </h3>
-                <span className="text-[10px] px-2 py-0.5 rounded-full bg-primary/10 text-primary font-semibold">
-                  {activeWeekly.length} to do
-                </span>
+                <span className="chip">{activeWeekly.length} to do</span>
               </div>
               <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
                 {activeWeekly.map((s) => Card(s))}

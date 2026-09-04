@@ -1,3 +1,4 @@
+import { Spinner } from "@/components/Shared";
 import { useEffect, useMemo, useRef, useState } from "react";
 import { toast } from "sonner";
 import {
@@ -181,7 +182,7 @@ export function StudentPlanner({
                 onClick={() => setActiveSubject(e.subject)}
                 className={`h-8 px-3.5 rounded-full text-sm font-medium transition ${
                   e.subject === activeSubject
-                    ? "bg-primary text-primary-foreground"
+                    ? "btn-solid"
                     : "bg-muted text-muted-foreground hover:text-foreground"
                 }`}
               >
@@ -221,9 +222,7 @@ export function StudentPlanner({
             onChanged={() => setBoardRev((r) => r + 1)}
           />
         ) : loading ? (
-          <div className="py-12 text-center">
-            <Loader2 className="w-5 h-5 animate-spin mx-auto text-muted-foreground" />
-          </div>
+          <Spinner className="py-12" />
         ) : !data ? (
           <p className="rounded-xl border border-dashed border-border p-6 text-center text-sm text-muted-foreground">
             No curriculum found for this course yet.
@@ -361,7 +360,7 @@ function ThisWeekTab({
 
       {/* Learning this week — core topic and focused topics, the shared panel. */}
       <section>
-        <h2 className="flex items-center gap-1.5 font-display text-sm font-semibold tracking-tight mb-2.5">
+        <h2 className="flex items-center gap-1.5 font-display text-sm font-bold tracking-tight mb-2.5">
           <CalendarDays className="w-4 h-4 text-primary" />
           Learning this week
         </h2>
@@ -952,7 +951,7 @@ function TopicsTab({
   return (
     <div className="space-y-6">
       <div>
-        <h3 className="font-display text-sm font-semibold tracking-tight">
+        <h3 className="font-display text-sm font-bold tracking-tight">
           How confident do you feel?
         </h3>
         <p className="text-xs text-muted-foreground mb-3">

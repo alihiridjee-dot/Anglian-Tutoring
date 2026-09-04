@@ -1,3 +1,4 @@
+import { Spinner } from "@/components/Shared";
 import { useEffect, useMemo, useState } from "react";
 import { toast } from "sonner";
 import { Loader2, ClipboardList, ListChecks, History, ChevronDown, RotateCcw } from "lucide-react";
@@ -116,7 +117,7 @@ export function CoveredLedger({
             <History className="w-5 h-5" />
           </div>
           <div>
-            <h2 className="font-display text-base font-semibold tracking-tight">Covered so far</h2>
+            <h2 className="font-display text-base font-bold tracking-tight">Covered so far</h2>
             <p className="text-xs text-muted-foreground">
               {total > 0
                 ? `${total} spec ${total === 1 ? "point" : "points"} practised, and how each went.`
@@ -133,7 +134,7 @@ export function CoveredLedger({
                 onClick={() => setPickedSubject(e.subject)}
                 className={`h-8 px-3 rounded-lg text-sm font-medium transition ${
                   e.subject === activeSubject
-                    ? "bg-primary text-primary-foreground"
+                    ? "btn-solid"
                     : "bg-muted text-muted-foreground hover:text-foreground"
                 }`}
               >
@@ -145,9 +146,7 @@ export function CoveredLedger({
       </div>
 
       {loading ? (
-        <div className="py-8 text-center">
-          <Loader2 className="w-5 h-5 animate-spin mx-auto text-muted-foreground" />
-        </div>
+        <Spinner className="py-8" />
       ) : total === 0 ? (
         <p className="rounded-xl border border-dashed border-border p-6 text-center text-sm text-muted-foreground">
           Nothing logged yet — do some homework or a quiz and it'll show up here with your mark.

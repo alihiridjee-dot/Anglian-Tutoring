@@ -124,7 +124,7 @@ export function CadenceChangeDialog({
             <button
               onClick={onConfirm}
               disabled={pending || isLoading}
-              className="flex-1 h-10 px-4 rounded-lg bg-primary text-primary-foreground text-sm font-semibold hover:opacity-90 disabled:opacity-50 inline-flex items-center justify-center gap-2"
+              className="flex-1 h-10 px-4 rounded-lg btn-solid text-sm font-semibold hover:opacity-90 disabled:opacity-50 inline-flex items-center justify-center gap-2"
             >
               {pending && <Loader2 className="w-4 h-4 animate-spin" />}
               Switch to {cadenceLabel}

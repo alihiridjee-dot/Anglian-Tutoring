@@ -309,7 +309,7 @@ export function CancelPlanDialog({
             <button
               onClick={onClose}
               disabled={pending}
-              className="flex-1 h-10 px-4 rounded-lg bg-primary text-primary-foreground text-sm font-semibold hover:opacity-90 disabled:opacity-50"
+              className="flex-1 h-10 px-4 rounded-lg btn-solid text-sm font-semibold hover:opacity-90 disabled:opacity-50"
             >
               Keep my plan
             </button>

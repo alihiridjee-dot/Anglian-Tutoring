@@ -142,7 +142,7 @@ export function QuestionBuilder({
           type="button"
           onClick={generate}
           disabled={generating}
-          className="inline-flex items-center gap-2 h-10 px-4 rounded-lg bg-primary text-primary-foreground text-sm font-semibold hover:opacity-90 disabled:opacity-60"
+          className="inline-flex items-center gap-2 h-10 px-4 rounded-lg btn-solid text-sm font-semibold hover:opacity-90 disabled:opacity-60"
         >
           {generating ? (
             <Loader2 className="w-4 h-4 animate-spin" />

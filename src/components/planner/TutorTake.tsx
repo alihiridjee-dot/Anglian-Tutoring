@@ -319,9 +319,7 @@ export function TutorTake({
                   type="button"
                   onClick={() => setMode(m)}
                   className={`h-7 px-3 rounded-md text-xs font-semibold transition ${
-                    mode === m
-                      ? "bg-primary text-primary-foreground"
-                      : "text-muted-foreground hover:text-foreground"
+                    mode === m ? "btn-solid" : "text-muted-foreground hover:text-foreground"
                   }`}
                 >
                   {m === "reply" ? "Reply to student" : "General feedback"}
@@ -368,7 +366,7 @@ export function TutorTake({
             type="button"
             onClick={saveNote}
             disabled={!!busy || drafting}
-            className="inline-flex items-center gap-1.5 h-9 px-3.5 rounded-lg bg-primary text-primary-foreground text-sm font-semibold hover:opacity-90 disabled:opacity-50"
+            className="inline-flex items-center gap-1.5 h-9 px-3.5 rounded-lg btn-solid text-sm font-semibold hover:opacity-90 disabled:opacity-50"
           >
             {busy === "save" ? (
               <Loader2 className="w-4 h-4 animate-spin" />
@@ -440,7 +438,7 @@ export function TutorTake({
             type="button"
             onClick={applyToNextWeek}
             disabled={!!busy}
-            className="inline-flex items-center gap-1.5 h-9 px-3.5 rounded-lg bg-primary text-primary-foreground text-sm font-semibold hover:opacity-90 disabled:opacity-50"
+            className="inline-flex items-center gap-1.5 h-9 px-3.5 rounded-lg btn-solid text-sm font-semibold hover:opacity-90 disabled:opacity-50"
           >
             {busy === "apply" ? (
               <Loader2 className="w-4 h-4 animate-spin" />

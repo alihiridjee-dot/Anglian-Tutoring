@@ -97,7 +97,9 @@ export function NotificationBell() {
           </div>
 
           {items.length === 0 ? (
-            <p className="px-4 py-8 text-center text-sm text-muted-foreground">Nothing yet.</p>
+            <p className="text-muted-foreground px-4 py-8 text-center text-sm">
+              You&apos;re all caught up.
+            </p>
           ) : (
             <ul className="divide-y divide-border">
               {items.map((n) => {
