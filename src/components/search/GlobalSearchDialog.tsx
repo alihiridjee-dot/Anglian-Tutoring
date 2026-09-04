@@ -226,7 +226,7 @@ function ResultRow({
 function EmptyState({ title, body }: { title: string; body: string }) {
   return (
     <div className="px-6 py-10 text-center">
-      <p className="text-sm font-semibold text-foreground">{title}</p>
+      <p className="font-display text-foreground text-sm font-bold">{title}</p>
       <p className="text-xs text-muted-foreground mt-1.5 max-w-md mx-auto leading-relaxed">
         {body}
       </p>

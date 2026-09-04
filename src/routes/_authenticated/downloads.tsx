@@ -88,7 +88,7 @@ export function Downloads() {
                 <FileText className="size-5" aria-hidden />
               </span>
               <div className="min-w-0 flex-1">
-                <p className="truncate font-semibold">{d.title}</p>
+                <p className="font-display truncate font-bold">{d.title}</p>
                 <p className="text-xs text-muted-foreground truncate">
                   <span className="capitalize">{d.subject}</span>
                   {d.board ? ` · ${d.board.toUpperCase()}` : ""} ·{" "}

@@ -162,7 +162,7 @@ export function SubscriptionPanel({
   return (
     <div>
       <div className="flex items-center gap-2 flex-wrap">
-        <p className="font-semibold text-lg">{planName}</p>
+        <p className="font-display text-lg font-bold">{planName}</p>
         <span
           className={`text-[10px] px-2 py-0.5 rounded-full border font-bold uppercase tracking-wider ${statusBadgeClass(sub.status)}`}
         >
