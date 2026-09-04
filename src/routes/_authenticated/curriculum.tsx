@@ -1,9 +1,11 @@
+import { Spinner } from "@/components/Shared";
 import { createFileRoute, Link, useNavigate, useSearch } from "@tanstack/react-router";
 import { guardStudentSection } from "@/lib/routeGuards";
 import { useCallback, useEffect, useMemo, useRef, useState } from "react";
 import { useQuery } from "@tanstack/react-query";
 import { useServerFn } from "@tanstack/react-start";
 import { motion, AnimatePresence } from "motion/react";
+import { subjectTint } from "@/lib/subjectTheme";
 import { AppLayout } from "@/components/AppLayout";
 import { supabase } from "@/integrations/supabase/client";
 import { useRoles } from "@/hooks/useRole";
@@ -267,106 +269,111 @@ export function Curriculum() {
 
   return (
     <AppLayout title="Curriculum">
-      <p className="text-muted-foreground mb-6 max-w-2xl">
-        Explore interactive specification points across chemistry, physics, and biology. Select your
-        level, exam board, and subject to begin.
-      </p>
+      {/* The whole page carries the subject's tint, so switching from Biology
+          to Chemistry repaints every card, meter and shadow below in violet
+          without a single conditional class in the markup. */}
+      <div className={subjectTint(subject)}>
+        <p className="text-muted-foreground mb-6 max-w-2xl">
+          Explore interactive specification points across chemistry, physics, and biology. Select
+          your level, exam board, and subject to begin.
+        </p>
 
-      <div className="rounded-2xl premium-card p-5 mb-6">
-        {isTutor ? (
-          <div className="grid grid-cols-3 gap-3">
-            <Filter
-              label="Subject"
-              value={subject}
-              onChange={(v) => setSubject(v as SubjectV)}
-              opts={SUBJECTS}
+        <div className="rounded-2xl premium-card p-5 mb-6">
+          {isTutor ? (
+            <div className="grid grid-cols-3 gap-3">
+              <Filter
+                label="Subject"
+                value={subject}
+                onChange={(v) => setSubject(v as SubjectV)}
+                opts={SUBJECTS}
+              />
+              <Filter
+                label="Board"
+                value={board}
+                onChange={(v) => setBoard(v as BoardV)}
+                opts={BOARDS}
+              />
+              <Filter
+                label="Level"
+                value={level}
+                onChange={(v) => setLevel(v as LevelV)}
+                opts={LEVELS}
+              />
+            </div>
+          ) : (
+            <StudentSubjectPicker
+              subject={subject}
+              onSelect={setSubject}
+              board={board}
+              level={level}
+              entitlements={ent}
             />
-            <Filter
-              label="Board"
-              value={board}
-              onChange={(v) => setBoard(v as BoardV)}
-              opts={BOARDS}
-            />
-            <Filter
-              label="Level"
-              value={level}
-              onChange={(v) => setLevel(v as LevelV)}
-              opts={LEVELS}
-            />
-          </div>
-        ) : (
-          <StudentSubjectPicker
-            subject={subject}
-            onSelect={setSubject}
-            board={board}
-            level={level}
-            entitlements={ent}
-          />
-        )}
+          )}
 
-        <div className="mt-4 pt-4 border-t border-border">
-          <SpecSearchBar
-            value={query}
-            onChange={setQuery}
-            subject={subject}
-            board={board}
-            level={level}
-          />
-        </div>
-      </div>
-
-      {searching ? (
-        <SpecSearchResults
-          matches={matches ?? []}
-          terms={searchTerms}
-          loading={searchFetching && !matches}
-          query={settledQuery}
-          onSelect={openSpecPoint}
-          onClear={() => setQuery("")}
-        />
-      ) : (
-        <>
-          {isTutor && (
-            <CurriculumSyncPanel
+          <div className="mt-4 pt-4 border-t border-border">
+            <SpecSearchBar
+              value={query}
+              onChange={setQuery}
               subject={subject}
               board={board}
               level={level}
-              onSynced={loadTopics}
             />
-          )}
+          </div>
+        </div>
 
-          {isTutor && (
-            <TopicCreate subject={subject} board={board} level={level} onCreated={loadTopics} />
-          )}
+        {searching ? (
+          <SpecSearchResults
+            matches={matches ?? []}
+            terms={searchTerms}
+            loading={searchFetching && !matches}
+            query={settledQuery}
+            onSelect={openSpecPoint}
+            onClear={() => setQuery("")}
+          />
+        ) : (
+          <>
+            {isTutor && (
+              <CurriculumSyncPanel
+                subject={subject}
+                board={board}
+                level={level}
+                onSynced={loadTopics}
+              />
+            )}
 
-          {loading ? (
-            <p className="text-sm text-muted-foreground">Loading topics…</p>
-          ) : topics.length === 0 ? (
-            <div className="rounded-2xl border border-dashed border-border p-10 text-center text-muted-foreground">
-              <BookMarked className="w-8 h-8 mx-auto mb-3 opacity-50" />
-              No topics yet for this subject/board/level.
-              {isTutor && <p className="mt-2 text-xs">Add one above to get started.</p>}
-            </div>
-          ) : (
-            <div className="space-y-3">
-              {topics.map((t) => (
-                <TopicCard
-                  key={t.id}
-                  topic={t}
-                  open={openTopicId === t.id}
-                  onToggle={() => setOpenTopicId(openTopicId === t.id ? null : t.id)}
-                  isTutor={isTutor}
-                  onDeleted={loadTopics}
-                  level={level}
-                  board={board}
-                  subject={subject}
-                  onSelectSpecPoint={openSpecPoint}
-                />
-              ))}
-            </div>
-          )}
-        </>
-      )}
+            {isTutor && (
+              <TopicCreate subject={subject} board={board} level={level} onCreated={loadTopics} />
+            )}
+
+            {loading ? (
+              <Spinner label="Loading topics" className="py-10" />
+            ) : topics.length === 0 ? (
+              <div className="rounded-2xl border border-dashed border-border p-10 text-center text-muted-foreground">
+                <BookMarked className="w-8 h-8 mx-auto mb-3 opacity-50" />
+                No topics yet for this subject/board/level.
+                {isTutor && <p className="mt-2 text-xs">Add one above to get started.</p>}
+              </div>
+            ) : (
+              <div className="space-y-3">
+                {topics.map((t) => (
+                  <TopicCard
+                    key={t.id}
+                    topic={t}
+                    open={openTopicId === t.id}
+                    onToggle={() => setOpenTopicId(openTopicId === t.id ? null : t.id)}
+                    isTutor={isTutor}
+                    onDeleted={loadTopics}
+                    level={level}
+                    board={board}
+                    subject={subject}
+                    onSelectSpecPoint={openSpecPoint}
+                  />
+                ))}
+              </div>
+            )}
+          </>
+        )}
+      </div>
     </AppLayout>
   );
 }
@@ -499,7 +506,7 @@ function SpecSearchResults({
                 {topic.code}
               </span>
             )}
-            <span className="font-display font-semibold text-sm truncate">
+            <span className="font-display font-bold text-sm truncate">
               <Highlight text={topic.title} terms={terms} />
             </span>
             <span className="ml-auto text-[11px] font-semibold text-muted-foreground shrink-0">
@@ -726,10 +733,7 @@ function TopicCreate({
         >
           Cancel
         </button>
-        <button
-          type="submit"
-          className="h-8 px-3 rounded-md text-xs bg-primary text-primary-foreground font-semibold"
-        >
+        <button type="submit" className="h-8 px-3 rounded-md text-xs btn-solid font-semibold">
           Create
         </button>
       </div>
@@ -805,7 +809,7 @@ function TopicCard({
               {topic.code}
             </span>
           )}
-          <span className="font-display font-semibold truncate">{topic.title}</span>
+          <span className="font-display font-bold truncate">{topic.title}</span>
         </button>
         {isTutor && (
           <button
@@ -821,7 +825,9 @@ function TopicCard({
         <div className="border-t border-border p-5 space-y-4">
           {isTutor && <SpecPointCreate topicId={topic.id} onCreated={reload} />}
           {points.length === 0 ? (
-            <p className="text-sm text-muted-foreground italic">No spec points yet.</p>
+            <p className="text-muted-foreground text-sm italic">
+              No spec points in this topic yet.
+            </p>
           ) : (
             <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
               {points.map((p) => (
@@ -937,10 +943,7 @@ function SpecPointCreate({ topicId, onCreated }: { topicId: string; onCreated: (
         >
           Cancel
         </button>
-        <button
-          type="submit"
-          className="h-8 px-3 rounded-md text-xs bg-primary text-primary-foreground font-semibold"
-        >
+        <button type="submit" className="h-8 px-3 rounded-md text-xs btn-solid font-semibold">
           Add Point
         </button>
       </div>
@@ -1174,7 +1177,7 @@ function SpecPointDetail({
                     href={r.join_url}
                     target="_blank"
                     rel="noreferrer"
-                    className="text-[10px] px-2 py-0.5 rounded bg-primary text-primary-foreground font-bold"
+                    className="text-[10px] px-2 py-0.5 rounded btn-solid font-bold"
                   >
                     Join
                   </a>

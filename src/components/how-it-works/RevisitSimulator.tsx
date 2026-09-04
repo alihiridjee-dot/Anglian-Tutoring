@@ -217,9 +217,7 @@ export function RevisitSimulator() {
                   >
                     {gap!.value}
                   </span>
-                  <span className="font-display text-2xl font-semibold text-white/70">
-                    {gap!.unit}
-                  </span>
+                  <span className="font-display text-2xl font-bold text-white/70">{gap!.unit}</span>
                 </div>
                 <p className="mt-4 text-sm leading-relaxed text-white/80">{lastOutcome?.blurb}</p>
               </motion.div>

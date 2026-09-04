@@ -116,7 +116,7 @@ export function AddSubjectCard({
           <div className="w-8 h-8 rounded-lg bg-primary/15 flex items-center justify-center">
             <Sparkles className="w-4 h-4 text-primary" />
           </div>
-          <h3 className="font-display text-lg font-semibold">Add another subject</h3>
+          <h3 className="font-display text-lg font-bold">Add another subject</h3>
         </div>
         <p className="text-sm text-muted-foreground max-w-md">
           The same expert tutoring across more of {whose} sciences. You only pay the difference,
@@ -200,7 +200,7 @@ export function AddSubjectCard({
         <button
           onClick={submit}
           disabled={chosen.length === 0 || add.isPending}
-          className="mt-4 w-full h-11 rounded-xl bg-primary text-primary-foreground font-semibold hover:opacity-90 disabled:opacity-50 text-sm shadow-sm inline-flex items-center justify-center gap-2"
+          className="mt-4 w-full h-11 rounded-xl btn-solid font-semibold hover:opacity-90 disabled:opacity-50 text-sm shadow-sm inline-flex items-center justify-center gap-2"
         >
           {add.isPending ? (
             <>

@@ -1,3 +1,4 @@
+import { Spinner } from "@/components/Shared";
 import { useEffect, useMemo, useState } from "react";
 import { toast } from "sonner";
 import {
@@ -256,7 +257,7 @@ export function TutorPlannerPanel() {
                 onClick={() => setActiveSubject(e.subject)}
                 className={`h-8 px-3 rounded-lg text-sm font-medium transition ${
                   e.subject === activeSubject
-                    ? "bg-primary text-primary-foreground"
+                    ? "btn-solid"
                     : "bg-muted text-muted-foreground hover:text-foreground"
                 }`}
               >
@@ -273,9 +274,7 @@ export function TutorPlannerPanel() {
               : "Pick a student to view and adjust their weekly plan."}
           </p>
         ) : loading ? (
-          <div className="py-10 text-center">
-            <Loader2 className="w-5 h-5 animate-spin mx-auto text-muted-foreground" />
-          </div>
+          <Spinner className="py-10" />
         ) : (
           <div className="space-y-4">
             {/* Editing boundary — make it unmistakable which week these points belong to */}
@@ -372,7 +371,7 @@ export function TutorPlannerPanel() {
                         type="button"
                         onClick={addSelected}
                         disabled={adding || toAdd.length === 0}
-                        className="inline-flex items-center gap-1.5 h-9 px-4 rounded-lg bg-primary text-primary-foreground text-sm font-semibold hover:opacity-90 disabled:opacity-50"
+                        className="inline-flex items-center gap-1.5 h-9 px-4 rounded-lg btn-solid text-sm font-semibold hover:opacity-90 disabled:opacity-50"
                       >
                         {adding ? (
                           <Loader2 className="w-4 h-4 animate-spin" />

@@ -58,7 +58,7 @@ function LiveSessionsFallback({ to, plansPresent }: { to: string; plansPresent: 
         <p className="text-[10px] font-bold uppercase tracking-widest text-emerald-600">
           Live sessions
         </p>
-        <p className="font-display font-semibold leading-tight mt-0.5">
+        <p className="font-display font-bold leading-tight mt-0.5">
           {plansPresent ? "Join your live lessons this week" : "See your upcoming live lessons"}
         </p>
       </div>

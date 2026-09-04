@@ -1,6 +1,7 @@
 import { createFileRoute } from "@tanstack/react-router";
 import { guardStudentSection } from "@/lib/routeGuards";
 import { useState } from "react";
+import { EmptyState, Spinner } from "@/components/Shared";
 import { AppLayout } from "@/components/AppLayout";
 import { supabase } from "@/integrations/supabase/client";
 import { useRoles } from "@/hooks/useRole";
@@ -103,7 +104,7 @@ function AcknowledgeFeedback({
       <button
         onClick={acknowledge}
         disabled={saving}
-        className="inline-flex items-center gap-2 h-9 px-4 rounded-lg bg-primary text-primary-foreground text-sm font-semibold hover:opacity-90 disabled:opacity-60 shrink-0"
+        className="inline-flex items-center gap-2 h-9 px-4 rounded-lg btn-solid text-sm font-semibold hover:opacity-90 disabled:opacity-60 shrink-0"
       >
         <CheckCircle2 className="w-4 h-4" />
         {saving ? "Acknowledging…" : "Acknowledge"}
@@ -181,9 +182,7 @@ export function HomeworkPage() {
         <div className="mb-8">
           <div className="flex items-center gap-2 mb-3">
             <TrendingUp className="w-4 h-4 text-primary" />
-            <h3 className="font-display font-semibold text-base text-foreground">
-              Predicted Grades
-            </h3>
+            <h3 className="font-display font-bold text-base text-foreground">Predicted Grades</h3>
           </div>
           <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4">
             {analytics.map((a) => (
@@ -215,12 +214,14 @@ export function HomeworkPage() {
       )}
 
       {loading ? (
-        <p className="text-sm text-muted-foreground">Loading…</p>
+        <Spinner label="Fetching your homework" />
       ) : homework.length === 0 ? (
-        <div className="rounded-2xl border border-dashed border-border p-10 text-center text-muted-foreground">
-          <ClipboardList className="w-8 h-8 mx-auto mb-3 opacity-50" />
-          No homework for your subjects yet.
-        </div>
+        <EmptyState
+          mascot="star"
+          mood="happy"
+          title="Nothing due right now"
+          body="No homework has been set for your subjects yet. When your tutor posts a brief it lands here, with the questions and your marks in the same place."
+        />
       ) : (
         <div className="space-y-4">
           {homework.map((h) => (
@@ -317,9 +318,11 @@ function TutorBriefs({
       {open && (
         <div className="border-t border-border p-5">
           {loading ? (
-            <p className="text-sm text-muted-foreground">Loading…</p>
+            <Spinner label="Loading briefs" className="py-8" />
           ) : homework.length === 0 ? (
-            <p className="text-sm text-muted-foreground">No homework set yet — set one above.</p>
+            <p className="text-muted-foreground text-sm">
+              You haven&apos;t set any homework yet — use the form above to post the first brief.
+            </p>
           ) : (
             <ul className="divide-y divide-border">
               {homework.map((h) => (
@@ -539,7 +542,7 @@ function HomeworkCard({
                 </span>
               )}
             </div>
-            <h3 className="font-display text-lg font-semibold">{hw.title}</h3>
+            <h3 className="font-display text-lg font-bold">{hw.title}</h3>
             {hw.instructions && (
               <p className="mt-2 text-sm text-muted-foreground whitespace-pre-wrap">
                 {hw.instructions}
@@ -712,7 +715,7 @@ function HomeworkCard({
           </p>
           <button
             disabled={uploading}
-            className="w-full h-10 rounded-lg bg-primary text-primary-foreground text-sm font-semibold hover:opacity-90 disabled:opacity-60"
+            className="w-full h-10 rounded-lg btn-solid text-sm font-semibold hover:opacity-90 disabled:opacity-60"
           >
             {uploading ? "Uploading…" : "Submit homework"}
           </button>

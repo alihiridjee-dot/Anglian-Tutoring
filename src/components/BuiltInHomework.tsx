@@ -367,7 +367,7 @@ function AnswerForm({
       </p>
       <button
         disabled={saving}
-        className="w-full h-10 rounded-lg bg-primary text-primary-foreground text-sm font-semibold hover:opacity-90 disabled:opacity-60 inline-flex items-center justify-center gap-2"
+        className="w-full h-10 rounded-lg btn-solid text-sm font-semibold hover:opacity-90 disabled:opacity-60 inline-flex items-center justify-center gap-2"
       >
         {saving ? <Loader2 className="w-4 h-4 animate-spin" /> : <Send className="w-4 h-4" />}
         {saving ? "Submitting…" : "Submit answers"}

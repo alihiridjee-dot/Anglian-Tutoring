@@ -1,3 +1,4 @@
+import { Spinner } from "@/components/Shared";
 import { useEffect, useRef, useState } from "react";
 import { Link } from "@tanstack/react-router";
 import { ExternalLink, Loader2, Send, Sparkles } from "lucide-react";
@@ -90,9 +91,7 @@ export function ThreadView({ thread, viewerId, isTutor }: Props) {
   return (
     <div className="flex h-full min-h-0 flex-col">
       <div className="border-b border-border px-5 py-4">
-        <h2 className="font-display text-base font-semibold leading-tight">
-          {thread.subject_line}
-        </h2>
+        <h2 className="font-display text-base font-bold leading-tight">{thread.subject_line}</h2>
         <div className="mt-1 flex flex-wrap items-center gap-2 text-xs text-muted-foreground">
           <span>with {thread.counterpartName}</span>
           {thread.context_label && (
@@ -112,9 +111,7 @@ export function ThreadView({ thread, viewerId, isTutor }: Props) {
 
       <div className="min-h-0 flex-1 space-y-3 overflow-y-auto px-5 py-4">
         {isPending ? (
-          <div className="py-10 text-center">
-            <Loader2 className="mx-auto h-5 w-5 animate-spin text-muted-foreground" />
-          </div>
+          <Spinner className="py-10" />
         ) : (
           messages.map((m) => {
             const mine = m.sender_id === viewerId;
@@ -123,8 +120,8 @@ export function ThreadView({ thread, viewerId, isTutor }: Props) {
                 <div
                   className={`max-w-[80%] rounded-2xl px-3.5 py-2.5 text-sm leading-relaxed whitespace-pre-wrap ${
                     mine
-                      ? "bg-primary text-primary-foreground rounded-br-md"
-                      : "bg-secondary text-foreground rounded-bl-md"
+                      ? "bg-[color:var(--primary)] text-[color:var(--primary-foreground)] rounded-br-md font-medium"
+                      : "surface-soft text-foreground rounded-bl-md"
                   }`}
                 >
                   {m.body}

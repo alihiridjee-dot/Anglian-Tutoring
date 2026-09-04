@@ -1,6 +1,7 @@
 import { createFileRoute } from "@tanstack/react-router";
 import { useState } from "react";
 import { useQuery } from "@tanstack/react-query";
+import { EmptyState, Spinner } from "@/components/Shared";
 import { AppLayout } from "@/components/AppLayout";
 import { FilterBar, type Filters } from "@/components/FilterBar";
 import { supabase } from "@/integrations/supabase/client";
@@ -53,9 +54,14 @@ export function Videos() {
     <AppLayout title="Videos">
       <FilterBar value={filters} onChange={setFilters} />
       {isLoading ? (
-        <p className="text-muted-foreground">Loading…</p>
+        <Spinner label="Loading the video library" />
       ) : !data || data.length === 0 ? (
-        <p className="text-muted-foreground">No videos yet for this selection.</p>
+        <EmptyState
+          mascot="rocket"
+          mood="sleepy"
+          title="No videos for this selection"
+          body="Nothing has been published for this subject, board and level yet. Try widening the filters above, or come back once your tutor has recorded the next topic."
+        />
       ) : (
         <div className="grid gap-4 md:grid-cols-2 lg:grid-cols-3">
           {data.map((v) => {
@@ -67,29 +73,29 @@ export function Videos() {
                 onClick={() =>
                   setPlaying({ title: v.title, description: v.description, url: v.video_url })
                 }
-                className="group text-left rounded-2xl premium-card overflow-hidden hover:border-primary/40 transition"
+                className="pop-card pop-card-interactive group overflow-hidden text-left"
               >
                 <VideoThumbnail embed={embed} />
                 <div className="p-4">
-                  <p className="font-semibold">{v.title}</p>
+                  <p className="font-display font-bold">{v.title}</p>
                   {v.description && (
                     <p className="text-xs text-muted-foreground mt-1 line-clamp-2">
                       {v.description}
                     </p>
                   )}
                   <div className="mt-3 flex flex-wrap gap-1.5 text-[10px]">
-                    <span className="px-2 py-0.5 rounded-full bg-primary/15 text-primary uppercase tracking-wider font-semibold">
+                    <span className="chip text-[10px] tracking-wider uppercase">
                       {tagLabel("subject", v.subject)}
                     </span>
                     {v.board && (
-                      <span className="px-2 py-0.5 rounded-full bg-secondary text-muted-foreground uppercase tracking-wider font-semibold">
+                      <span className="chip tint-slate text-[10px] tracking-wider uppercase">
                         {tagLabel("board", v.board)}
                       </span>
                     )}
-                    <span className="px-2 py-0.5 rounded-full bg-secondary text-muted-foreground uppercase tracking-wider font-semibold">
+                    <span className="chip tint-slate text-[10px] tracking-wider uppercase">
                       {tagLabel("level", v.level)}
                     </span>
-                    <span className="ml-auto inline-flex items-center gap-1 text-primary font-semibold">
+                    <span className="text-primary ml-auto inline-flex items-center gap-1 font-bold">
                       Watch
                     </span>
                   </div>

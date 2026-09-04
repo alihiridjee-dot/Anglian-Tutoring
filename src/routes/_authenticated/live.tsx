@@ -2,6 +2,7 @@ import { createFileRoute } from "@tanstack/react-router";
 import { guardStudentSection } from "@/lib/routeGuards";
 import { useState } from "react";
 import { useQuery, useQueryClient } from "@tanstack/react-query";
+import { EmptyState, Spinner } from "@/components/Shared";
 import { AppLayout } from "@/components/AppLayout";
 import { FilterBar, type Filters } from "@/components/FilterBar";
 import { supabase } from "@/integrations/supabase/client";
@@ -121,7 +122,7 @@ export function Live() {
     <AppLayout title="Live Sessions">
       {isTutor && userId && (
         <div className="max-w-2xl rounded-2xl premium-card p-6 mb-8">
-          <h3 className="font-display text-lg font-semibold mb-4">Schedule a Live Session</h3>
+          <h3 className="font-display text-lg font-bold mb-4">Schedule a Live Session</h3>
           <LiveForm
             userId={userId}
             taxonomy={{ subject, setSubject, board, setBoard, level, setLevel }}
@@ -155,11 +156,16 @@ export function Live() {
       </div>
 
       {isLoading ? (
-        <p className="text-muted-foreground">Loading…</p>
+        <Spinner label="Checking the timetable" />
       ) : tab === "upcoming" ? (
         <div className="grid gap-3">
           {upcoming.length === 0 ? (
-            <p className="text-sm text-muted-foreground">No upcoming sessions.</p>
+            <EmptyState
+              mascot="owl"
+              mood="sleepy"
+              title="No lessons booked in"
+              body="There's nothing on the timetable right now. Once your tutor schedules the next session it appears here with a join link and the spec points it'll cover."
+            />
           ) : (
             upcoming.map((s) => {
               const isZoom = s.join_url?.toLowerCase().includes("zoom");
@@ -204,9 +210,9 @@ export function Live() {
                           href={s.join_url}
                           target="_blank"
                           rel="noreferrer"
-                          className="bg-primary text-primary-foreground px-4 py-2 rounded-lg text-sm font-semibold inline-flex items-center gap-2 transition-colors"
+                          className="btn-solid inline-flex items-center gap-2 rounded-xl px-4 py-2 text-sm"
                         >
-                          <Video className="w-4 h-4" />
+                          <Video className="size-4" aria-hidden />
                           Join Session
                         </a>
                       )
@@ -243,7 +249,7 @@ export function Live() {
             each session.
           </p>
           {past.length === 0 ? (
-            <p className="text-sm text-muted-foreground">No sessions in the last 7 days.</p>
+            <p className="text-muted-foreground text-sm">No sessions in the last 7 days.</p>
           ) : (
             past.map((s) => (
               <div

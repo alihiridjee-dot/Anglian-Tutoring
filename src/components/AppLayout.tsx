@@ -113,17 +113,17 @@ export function AppLayout({ title, children }: { title: string; children: ReactN
         {/* Above the demo ribbon (z-40) and the sticky header (z-30), both of
             which the expanded rail passes in front of. */}
         <aside className="group/sidebar absolute inset-y-0 left-0 z-50 w-20 hover:w-60 overflow-hidden bg-sidebar border-r border-sidebar-border flex flex-col py-5 px-3 gap-1 transition-[width,box-shadow] duration-200 ease-out motion-reduce:transition-none hover:shadow-2xl">
-          <Link to="/" className="group flex items-center gap-2 px-2 mb-6">
-            <div
-              className="w-10 h-10 rounded-xl flex items-center justify-center shrink-0 shadow-[0_8px_16px_-8px_var(--primary)] transition-transform group-hover:scale-105"
-              style={{ background: "var(--gradient-hero)" }}
-            >
-              <GraduationCap className="w-5 h-5 text-primary-foreground" />
-            </div>
+          <Link to="/" className="wordmark mb-6 flex items-center gap-2 px-2">
+            <span className="icon-tile icon-tile-solid wordmark-tile size-10 shrink-0">
+              <GraduationCap className="size-5" aria-hidden />
+            </span>
             <span
-              className={`${labelClass} font-display font-semibold tracking-tight text-foreground`}
+              className={`${labelClass} font-display text-foreground text-[0.95rem] leading-tight font-extrabold`}
             >
-              Anglia Educate
+              Anglia
+              <span className="text-muted-foreground block text-[0.7rem] font-bold tracking-[0.18em] uppercase">
+                Educate
+              </span>
             </span>
           </Link>
           <SidebarSearchButton onOpen={() => setSearchOpen(true)} />
@@ -138,16 +138,15 @@ export function AppLayout({ title, children }: { title: string; children: ReactN
                 key={to}
                 to={to}
                 title={badge > 0 ? `${label} (${badge} unread)` : label}
-                className={`relative flex items-center gap-3 px-3 py-2.5 rounded-xl text-sm font-medium transition ${
-                  active
-                    ? "btn-premium"
-                    : "text-sidebar-foreground/80 hover:bg-sidebar-accent hover:text-foreground"
+                data-active={active ? "true" : undefined}
+                className={`relative flex items-center gap-3 rounded-xl px-3 py-2.5 text-sm transition ${
+                  active ? "btn-solid" : "btn-ghost"
                 }`}
               >
-                <span className="relative shrink-0">
-                  <Icon className="w-5 h-5" />
+                <span className="tab-pop relative shrink-0">
+                  <Icon className="size-5" aria-hidden />
                   {badge > 0 && (
-                    <span className="absolute -top-1.5 -right-1.5 min-w-4 h-4 px-1 rounded-full bg-red-500 text-white text-[10px] font-bold flex items-center justify-center">
+                    <span className="bg-destructive text-destructive-foreground absolute -top-1.5 -right-1.5 flex h-4 min-w-4 items-center justify-center rounded-full border-[1.5px] border-white px-1 text-[10px] font-extrabold">
                       {badge > 9 ? "9+" : badge}
                     </span>
                   )}
@@ -179,8 +178,8 @@ export function AppLayout({ title, children }: { title: string; children: ReactN
             }}
           >
             <div className="flex flex-wrap items-center gap-2.5 justify-center sm:justify-start">
-              <span className="inline-flex items-center gap-1 bg-warning text-warning-foreground px-2.5 py-0.5 rounded-full text-[10px] font-bold uppercase tracking-wider animate-pulse shrink-0">
-                <Sparkles className="w-3 h-3 fill-current" />{" "}
+              <span className="sticker stamp-in shrink-0 text-[10px] tracking-wider uppercase">
+                <Sparkles className="size-3 fill-current" aria-hidden />{" "}
                 {demoRole === "student" ? "STUDENT" : "PARENT"} DEMO MODE
               </span>
               <span className="text-primary-foreground/80 text-center sm:text-left leading-relaxed">
@@ -192,13 +191,13 @@ export function AppLayout({ title, children }: { title: string; children: ReactN
             <div className="flex items-center gap-2.5 shrink-0">
               <Link
                 to="/"
-                className="bg-card text-primary hover:bg-card/90 px-3.5 py-1.5 rounded-lg font-bold text-xs shadow-sm transition shrink-0"
+                className="bg-card text-primary hover:bg-card/90 shrink-0 rounded-lg border-[1.5px] border-white/40 px-3.5 py-1.5 text-xs font-extrabold shadow-[0_2px_0_0_rgba(0,0,0,0.18)] transition"
               >
                 Join Now
               </Link>
               <button
                 onClick={handleExitDemo}
-                className="bg-white/10 hover:bg-white/20 text-primary-foreground border border-white/20 px-3 py-1.5 rounded-lg font-bold text-xs transition cursor-pointer shrink-0"
+                className="text-primary-foreground shrink-0 cursor-pointer rounded-lg border-[1.5px] border-white/25 bg-white/10 px-3 py-1.5 text-xs font-extrabold shadow-[0_2px_0_0_rgba(0,0,0,0.15)] transition hover:bg-white/20"
               >
                 Exit Sandbox
               </button>
@@ -224,7 +223,7 @@ export function AppLayout({ title, children }: { title: string; children: ReactN
               </button>
             </div>
             <div>
-              <h1 className="text-xl lg:text-2xl font-display font-semibold tracking-tight">
+              <h1 className="font-display text-xl font-extrabold tracking-tight lg:text-2xl">
                 {title}
               </h1>
             </div>

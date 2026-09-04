@@ -1,6 +1,7 @@
 import { Download, ExternalLink, Receipt } from "lucide-react";
 import { useInvoices } from "@/hooks/data/useBilling";
 import { formatPence } from "@/lib/billing";
+import { Spinner } from "@/components/Shared";
 
 /**
  * The signed-in payer's Stripe payment history. Students who have never paid
@@ -11,13 +12,17 @@ export function InvoiceHistory() {
   const { data: invoices, isLoading, error } = useInvoices();
 
   if (isLoading) {
-    return <p className="text-sm text-muted-foreground">Loading payment history…</p>;
+    return <Spinner label="Loading payment history" className="py-8" />;
   }
   if (error) {
     return <p className="text-sm text-rose-600">Couldn't load payment history: {error.message}</p>;
   }
   if (!invoices || invoices.length === 0) {
-    return <p className="text-sm text-muted-foreground">No payments yet.</p>;
+    return (
+      <p className="text-muted-foreground text-sm">
+        No payments yet — your first invoice will appear here.
+      </p>
+    );
   }
 
   return (
@@ -97,7 +102,7 @@ export function InvoiceHistoryCard() {
           <div className="w-8 h-8 rounded-lg bg-primary/15 flex items-center justify-center">
             <Receipt className="w-4 h-4 text-primary" />
           </div>
-          <h2 className="font-display text-xl font-semibold">Payment history</h2>
+          <h2 className="font-display text-xl font-bold">Payment history</h2>
         </div>
         <InvoiceHistory />
       </div>

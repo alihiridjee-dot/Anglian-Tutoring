@@ -26,11 +26,11 @@ export function StepCard({
   saving?: boolean;
 }) {
   return (
-    <div className="premium-card rounded-3xl p-6 sm:p-8 rise-in">
-      <h1 className="font-display text-2xl sm:text-[1.75rem] leading-tight font-bold tracking-tight mb-1.5">
+    <div className="pop-card pop-card-hero rise-in p-6 sm:p-8">
+      <h1 className="font-display mb-1.5 text-2xl leading-tight font-extrabold tracking-tight sm:text-[1.75rem]">
         {title}
       </h1>
-      {subtitle && <p className="text-sm text-muted-foreground mb-7 leading-relaxed">{subtitle}</p>}
+      {subtitle && <p className="text-muted-foreground mb-7 text-sm leading-relaxed">{subtitle}</p>}
 
       <div className="space-y-5">{children}</div>
 
@@ -39,18 +39,14 @@ export function StepCard({
           <button
             type="button"
             onClick={onBack}
-            className="inline-flex items-center gap-1.5 h-11 px-4 rounded-xl border border-border text-sm font-semibold text-muted-foreground hover:text-foreground hover:border-primary/40 transition"
+            className="btn-soft inline-flex h-11 items-center gap-1.5 rounded-xl px-4 text-sm"
           >
-            <ArrowLeft className="w-4 h-4" /> Back
+            <ArrowLeft className="size-4" aria-hidden /> Back
           </button>
         )}
         <div className="flex-1" />
         {onSkip && (
-          <button
-            type="button"
-            onClick={onSkip}
-            className="h-11 px-4 rounded-xl text-sm font-semibold text-muted-foreground hover:text-foreground"
-          >
+          <button type="button" onClick={onSkip} className="btn-ghost h-11 rounded-xl px-4 text-sm">
             Skip for now
           </button>
         )}
@@ -58,7 +54,7 @@ export function StepCard({
           type="button"
           onClick={onContinue}
           disabled={continueDisabled || saving}
-          className="btn-premium inline-flex items-center gap-1.5 h-11 px-6 rounded-xl font-semibold text-sm"
+          className="btn-hero inline-flex h-11 items-center gap-1.5 rounded-xl px-6 text-sm"
         >
           {saving ? (
             <>
@@ -102,30 +98,32 @@ export function ChoiceTile({
       onClick={onClick}
       disabled={disabled}
       aria-pressed={selected}
-      className={`group relative w-full text-left rounded-2xl border p-4 pr-10 transition duration-200 ${
+      className={`group relative w-full rounded-2xl p-4 pr-10 text-left transition duration-200 ${
         disabled
-          ? "border-border bg-secondary/30 opacity-55 cursor-not-allowed"
+          ? "border-border bg-secondary/30 cursor-not-allowed border opacity-55"
           : selected
-            ? "border-primary bg-primary/[0.07] ring-2 ring-primary/15 shadow-sm"
-            : "border-border bg-background hover:border-primary/50 hover:shadow-sm hover:-translate-y-0.5"
+            ? "surface-loud shadow-[var(--lift-2)]"
+            : "pop-card pop-card-flat pop-card-interactive"
       }`}
     >
-      <div className={`font-semibold text-sm ${selected && !disabled ? "text-primary" : ""}`}>
+      <div
+        className={`font-display text-sm font-bold ${selected && !disabled ? "text-[color:var(--tint)]" : ""}`}
+      >
         {title}
       </div>
       {description && (
-        <div className="text-xs text-muted-foreground mt-1 leading-relaxed">{description}</div>
+        <div className="text-muted-foreground mt-1 text-xs leading-relaxed">{description}</div>
       )}
       {!disabled && (
         <span
           aria-hidden
-          className={`absolute top-4 right-4 w-5 h-5 rounded-full flex items-center justify-center transition ${
+          className={`absolute top-4 right-4 flex size-5 items-center justify-center rounded-full transition ${
             selected
-              ? "bg-primary text-primary-foreground scale-100"
-              : "border border-border scale-90 opacity-0 group-hover:opacity-100"
+              ? "pop-in bg-[color:var(--tint)] text-white"
+              : "border-border scale-90 border opacity-0 group-hover:opacity-100"
           }`}
         >
-          <Check className="w-3 h-3" strokeWidth={3} />
+          <Check className="size-3" strokeWidth={3} />
         </span>
       )}
     </button>

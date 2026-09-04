@@ -12,21 +12,20 @@ import { useEffect, type ReactNode, createElement } from "react";
 
 import appCss from "../styles.css?url";
 import { supabase } from "@/integrations/supabase/client";
+import { Mascot } from "@/components/Doodles";
 
 function NotFoundComponent() {
   return (
-    <div className="flex min-h-screen items-center justify-center bg-background px-4">
-      <div className="max-w-md text-center">
-        <h1 className="text-7xl font-bold text-foreground">404</h1>
-        <h2 className="mt-4 text-xl font-semibold text-foreground">Page not found</h2>
-        <div className="mt-6">
-          <Link
-            to="/"
-            className="inline-flex items-center justify-center rounded-md bg-primary px-4 py-2 text-sm font-medium text-primary-foreground transition-colors hover:bg-primary/90"
-          >
-            Back to home
-          </Link>
-        </div>
+    <div className="page-aurora flex min-h-screen items-center justify-center px-4">
+      <div className="pop-card pop-card-hero max-w-md p-8 text-center">
+        <Mascot name="rocket" mood="wow" size={104} className="mx-auto" />
+        <p className="numeral mt-4 text-6xl text-[color:var(--tint)]">404</p>
+        <h1 className="font-display mt-2 text-xl font-extrabold">
+          Nothing here — wrong turn somewhere
+        </h1>
+        <Link to="/" className="btn-hero mt-6 inline-flex rounded-xl px-6 py-3 text-sm">
+          Back to home
+        </Link>
       </div>
     </div>
   );
@@ -39,18 +38,20 @@ function ErrorComponent({ error, reset }: { error: Error; reset: () => void }) {
   }, [error]);
 
   return (
-    <div className="flex min-h-screen items-center justify-center bg-background px-4">
-      <div className="max-w-md text-center">
-        <h1 className="text-xl font-semibold tracking-tight text-foreground">
-          This page didn't load
-        </h1>
+    <div className="page-aurora flex min-h-screen items-center justify-center px-4">
+      <div className="tint-rose pop-card pop-card-hero max-w-md p-8 text-center">
+        <Mascot name="flask" mood="wow" size={96} className="mx-auto" inheritTint />
+        <h1 className="font-display mt-4 text-xl font-extrabold">This page didn&apos;t load</h1>
+        <p className="text-muted-foreground mt-2 text-sm font-medium">
+          Something went wrong on our side, not yours.
+        </p>
         <div className="mt-6 flex flex-wrap justify-center gap-2">
           <button
             onClick={() => {
               router.invalidate();
               reset();
             }}
-            className="inline-flex items-center justify-center rounded-md bg-primary px-4 py-2 text-sm font-medium text-primary-foreground"
+            className="btn-solid inline-flex items-center justify-center rounded-xl px-6 py-3 text-sm"
           >
             Try again
           </button>
@@ -90,7 +91,7 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
       { rel: "preconnect", href: "https://fonts.gstatic.com", crossOrigin: "" },
       {
         rel: "stylesheet",
-        href: "https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:ital,wght@0,300..800;1,300..800&display=swap",
+        href: "https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,400..800&family=Plus+Jakarta+Sans:ital,wght@0,300..800;1,300..800&display=swap",
       },
       { rel: "stylesheet", href: appCss },
     ],

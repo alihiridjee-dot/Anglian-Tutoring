@@ -66,7 +66,7 @@ function ResetPasswordPage() {
         </div>
 
         <div className="rounded-2xl premium-card p-6 shadow-lg">
-          <h1 className="font-display text-2xl font-semibold tracking-tight mb-1">
+          <h1 className="font-display text-2xl font-bold tracking-tight mb-1">
             Set a new password
           </h1>
           <p className="text-sm text-muted-foreground mb-6">
@@ -104,7 +104,7 @@ function ResetPasswordPage() {
             <button
               type="submit"
               disabled={loading || !ready}
-              className="w-full h-10 rounded-lg bg-primary text-primary-foreground font-semibold text-sm hover:opacity-90 disabled:opacity-60"
+              className="w-full h-10 rounded-lg btn-solid font-semibold text-sm hover:opacity-90 disabled:opacity-60"
             >
               {loading ? "Updating…" : "Update password"}
             </button>

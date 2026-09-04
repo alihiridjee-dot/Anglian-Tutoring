@@ -1,64 +1,89 @@
 import { Link } from "@tanstack/react-router";
 import { GraduationCap, Sparkles } from "lucide-react";
 
+/**
+ * The wordmark: a chunky monogram tile plus the name.
+ *
+ * The tile squashes and stretches on hover of the whole mark (`.wordmark-tile`,
+ * see styles.css). It is silent until someone reaches for it, which is what
+ * keeps the personality from becoming noise on a page you read every day.
+ */
+export function Wordmark() {
+  return (
+    <span className="wordmark inline-flex items-center gap-2.5">
+      <span className="icon-tile icon-tile-solid wordmark-tile size-10 shrink-0">
+        <GraduationCap className="size-5" aria-hidden />
+      </span>
+      <span className="font-display text-[0.95rem] leading-tight font-extrabold">
+        Anglia
+        <span className="text-muted-foreground block text-[0.7rem] font-bold tracking-[0.18em] uppercase">
+          Educate
+        </span>
+      </span>
+    </span>
+  );
+}
+
+/**
+ * Section links underline with the highlighter on hover rather than a rule —
+ * the same yellow that marks the one word in the hero, so the nav belongs to
+ * the same drawing.
+ */
+const NAV_LINK =
+  "relative font-semibold transition hover:text-foreground after:absolute after:-bottom-1 after:left-0 after:h-[3px] after:w-0 after:rounded-full after:bg-[color:var(--pop)] after:transition-[width] hover:after:w-full";
+
 export function Nav() {
   return (
     <header className="glass-bar sticky top-0 z-40">
-      <div className="max-w-7xl mx-auto px-6 h-16 flex items-center justify-between">
-        <Link to="/" hash="top" className="flex items-center gap-2.5 group">
-          <div
-            className="w-10 h-10 rounded-xl flex items-center justify-center shadow-[0_8px_16px_-8px_var(--primary)] transition-transform group-hover:scale-105"
-            style={{ background: "var(--gradient-hero)" }}
-          >
-            <GraduationCap className="w-5.5 h-5.5 text-primary-foreground" />
-          </div>
-          <span className="font-display font-bold text-lg tracking-tight text-foreground">
-            Anglia Educate
-          </span>
+      <div className="mx-auto flex h-18 max-w-7xl items-center justify-between px-6">
+        <Link to="/" hash="top">
+          <Wordmark />
         </Link>
+
         {/* Section links route back to the landing page by path + hash, so they
             work from standalone pages (e.g. /how-it-works) as well as from "/". */}
-        <nav className="hidden md:flex items-center gap-7 text-sm font-medium text-muted-foreground">
-          <Link to="/" hash="tutors" className="hover:text-primary transition">
+        <nav className="text-muted-foreground hidden items-center gap-7 text-sm md:flex">
+          <Link to="/" hash="tutors" className={NAV_LINK}>
             Our Tutors
           </Link>
           <Link
             to="/how-it-works"
-            className="hover:text-primary transition"
-            activeProps={{ className: "text-primary" }}
+            className={NAV_LINK}
+            activeProps={{ className: "text-foreground" }}
           >
             How it works
           </Link>
-          <Link to="/" hash="offer" className="hover:text-primary transition">
+          <Link to="/" hash="offer" className={NAV_LINK}>
             What we offer
           </Link>
-          <Link to="/" hash="pricing" className="hover:text-primary transition">
+          <Link to="/" hash="pricing" className={NAV_LINK}>
             Pricing
           </Link>
-          <Link to="/" hash="contact" className="hover:text-primary transition">
+          <Link to="/" hash="contact" className={NAV_LINK}>
             Contact
           </Link>
         </nav>
+
         <div className="flex items-center gap-2.5">
           <Link
             to="/demo"
-            className="btn-soft inline-flex items-center gap-1.5 px-3.5 py-2 rounded-xl text-sm font-semibold cursor-pointer"
+            className="btn-soft inline-flex cursor-pointer items-center gap-1.5 rounded-xl px-3.5 py-2 text-sm"
           >
-            <Sparkles className="w-3.5 h-3.5 text-warning" />
+            <Sparkles className="size-3.5 text-[color:var(--pop-ink)]" aria-hidden />
             <span className="hidden sm:inline">Demo Platform</span>
             <span className="sm:hidden">Demo</span>
           </Link>
           <Link
             to="/auth"
             search={{ mode: "signin" } as never}
-            className="px-3 py-2 rounded-xl text-sm font-semibold text-muted-foreground hover:text-foreground hover:bg-secondary transition"
+            className="btn-ghost rounded-xl px-3 py-2 text-sm"
           >
             Login
           </Link>
           <Link
             to="/auth"
             search={{ mode: "signup" } as never}
-            className="btn-premium px-4 py-2 rounded-xl text-sm font-semibold"
+            className="btn-hero rounded-xl px-4 py-2 text-sm"
           >
             Sign up
           </Link>

@@ -1,6 +1,6 @@
 import { Sparkles } from "lucide-react";
 import type { SubjectAnalytics } from "@/hooks/data/useAnalytics";
-import { SUBJECT_BADGE, subjectLabel } from "@/components/parent/subjectTheme";
+import { subjectLabel, subjectTint } from "@/lib/subjectTheme";
 
 /**
  * Predicted GCSE grades per subject, from real quiz and homework averages.
@@ -32,26 +32,20 @@ export function GradePredictorCard({ analytics }: { analytics: SubjectAnalytics[
       ) : (
         <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
           {analytics.map((row) => {
-            const colors =
-              SUBJECT_BADGE[row.subject] ?? "text-muted-foreground bg-secondary border-border";
             const hasData = row.mcqAttempts + row.hwGraded > 0;
             return (
               <div
                 key={row.subject}
-                className="border border-border/60 rounded-xl p-5 hover:border-primary/20 transition bg-linear-to-b from-card to-secondary/50"
+                className={`pop-card pop-card-banded p-5 ${subjectTint(row.subject)}`}
               >
-                <div className="flex items-center justify-between mb-4">
-                  <span
-                    className={`text-xs font-bold uppercase px-2 py-0.5 rounded-md border ${colors}`}
-                  >
-                    {subjectLabel(row.subject)}
-                  </span>
+                <div className="mb-4 flex items-center justify-between">
+                  <span className="chip uppercase">{subjectLabel(row.subject)}</span>
                 </div>
 
                 {hasData ? (
                   <>
                     <div className="flex items-baseline gap-2 mb-2">
-                      <span className="text-4xl font-display font-extrabold text-foreground">
+                      <span className="numeral text-4xl text-[color:var(--tint)]">
                         Grade {row.predictedGrade}
                       </span>
                     </div>

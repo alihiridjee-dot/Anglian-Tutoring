@@ -1,3 +1,4 @@
+import { Spinner } from "@/components/Shared";
 import { useEffect, useState } from "react";
 import { AnimatePresence, motion, useMotionValue, useTransform } from "motion/react";
 import { X, Loader2, Check, Undo2 } from "lucide-react";
@@ -142,9 +143,7 @@ export function SpecPointSwipeModal({
                 {topicCode}
               </div>
             )}
-            <h2 className="font-display text-lg font-semibold tracking-tight truncate">
-              {topicTitle}
-            </h2>
+            <h2 className="font-display text-lg font-bold tracking-tight truncate">{topicTitle}</h2>
             <p className="text-xs text-muted-foreground mt-0.5">
               Rate each point: needs work, getting there, or confident.
             </p>
@@ -161,9 +160,7 @@ export function SpecPointSwipeModal({
 
         <div className="p-5">
           {loading ? (
-            <div className="py-16 text-center">
-              <Loader2 className="w-5 h-5 animate-spin mx-auto text-muted-foreground" />
-            </div>
+            <Spinner className="py-16" />
           ) : points.length === 0 ? (
             <p className="text-sm text-muted-foreground py-10 text-center">
               No specification points for this topic yet.
@@ -300,7 +297,7 @@ function SwipeCard({
         <span className="text-[11px] font-bold uppercase tracking-wide text-muted-foreground">
           {point.code}
         </span>
-        <p className="mt-2 font-display text-lg font-semibold leading-snug flex-1 flex items-center">
+        <p className="mt-2 font-display text-lg font-bold leading-snug flex-1 flex items-center">
           {point.title}
         </p>
         {isTop && (
