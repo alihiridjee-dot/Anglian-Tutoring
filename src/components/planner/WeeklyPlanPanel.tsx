@@ -18,6 +18,7 @@ import { type SubjectV, type BoardV, type LevelV } from "@/lib/taxonomy";
 import { currentWeekKey, mondayOf, addWeeks, toDateKey, weekRangeLabel } from "@/lib/week";
 import { carryOrigin } from "@/lib/planner/coverage";
 import { ThisWeekPanel } from "./ThisWeekPanel";
+import { DoNowPanel } from "./DoNowPanel";
 import { useWeekPlan } from "./useWeekPlan";
 import { WeekReview } from "./WeekReview";
 import { subjectLabel } from "@/lib/courseSummary";
@@ -249,6 +250,17 @@ export function WeeklyPlanPanel({
           />
         )}
       </div>
+
+      {/* The week as a checklist, between the plan and the review: the panel above
+          says what this week is and why, this one says what to press. */}
+      <DoNowPanel
+        points={week.points}
+        activity={week.activity}
+        editable={editable}
+        onToggle={(id, done) => {
+          void week.setPointDone(id, done);
+        }}
+      />
 
       {/* The student's own read on the week — its own box, not a footnote to the plan. */}
       {showReview && week.plan && active && (

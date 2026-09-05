@@ -3,10 +3,11 @@ import { WeeklyPlanDAL, type WeeklyPlan, type PlanPoint } from "@/lib/weeklyPlan
 import { ScheduleDAL } from "@/lib/scheduleDal";
 import { ProgramDAL, type RoadmapResult } from "@/lib/programDal";
 import { type SubjectV, type BoardV, type LevelV } from "@/lib/taxonomy";
-import { type PointCoverage } from "@/lib/planner/coverage";
+import { type PointCoverage, type PointActivity, type PointWork } from "@/lib/planner/coverage";
 import { getSessionUserId } from "@/lib/auth/session";
 
-export type Activity = Map<string, { hasHomework: boolean; hasQuiz: boolean }>;
+/** Per spec point: whether practice exists, and the items themselves. */
+export type Activity = Map<string, PointActivity & PointWork>;
 
 /**
  * Week-builds already running, keyed by (student, subject, week).
@@ -39,6 +40,8 @@ export interface WeekPlanState {
   loading: boolean;
   reload: () => Promise<void>;
   removePoint: (specPointId: string) => Promise<void>;
+  /** Tick a point off the week's checklist (optimistic; reloads on failure). */
+  setPointDone: (specPointId: string, done: boolean) => Promise<void>;
 }
 
 /**
@@ -217,5 +220,31 @@ export function useWeekPlan(params: {
     [plan, reload],
   );
 
-  return { plan, points, activity, coverage, roadmap, loading, reload, removePoint };
+  const setPointDone = useCallback(
+    async (specPointId: string, done: boolean) => {
+      if (!plan) return;
+      const at = done ? new Date().toISOString() : null;
+      setPoints((prev) =>
+        prev.map((p) => (p.spec_point_id === specPointId ? { ...p, done_at: at } : p)),
+      );
+      try {
+        await WeeklyPlanDAL.setPointDone(plan.id, specPointId, done);
+      } catch {
+        await reload();
+      }
+    },
+    [plan, reload],
+  );
+
+  return {
+    plan,
+    points,
+    activity,
+    coverage,
+    roadmap,
+    loading,
+    reload,
+    removePoint,
+    setPointDone,
+  };
 }

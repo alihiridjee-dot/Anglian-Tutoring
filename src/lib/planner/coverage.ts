@@ -28,6 +28,45 @@ export interface PointActivity {
   hasQuiz: boolean;
 }
 
+/** One thing a student can actually open: a video, a download, a homework, a quiz. */
+export interface PointWorkItem {
+  /** Resource id — or, for a quiz, the MCQ set id the player route takes. */
+  id: string;
+  title: string;
+  /** Videos: the URL to hand the embedded player. */
+  videoUrl?: string | null;
+  /** Downloads: where the file lives in the private bucket. */
+  filePath?: string | null;
+  fileName?: string | null;
+  /** Homework and quizzes, when a deadline was set. */
+  dueAt?: string | null;
+}
+
+/**
+ * The work attached to one spec point, named and addressable.
+ *
+ * {@link PointActivity} answers "is there practice here?", which is all a status
+ * chip needs. A checklist has to *link* to the thing, so it needs the items
+ * themselves — the same rows, kept rather than counted.
+ */
+export interface PointWork {
+  videos: PointWorkItem[];
+  downloads: PointWorkItem[];
+  homework: PointWorkItem[];
+  quizzes: PointWorkItem[];
+}
+
+/** An empty {@link PointWork}, for points nothing is attached to. */
+export function noWork(): PointWork {
+  return { videos: [], downloads: [], homework: [], quizzes: [] };
+}
+
+/** Every openable item on a point, in the order a student should meet them. */
+export function workItems(w: PointWork | undefined): PointWorkItem[] {
+  if (!w) return [];
+  return [...w.videos, ...w.downloads, ...w.homework, ...w.quizzes];
+}
+
 export type PointStatus =
   | "strong" // did it and scored well
   | "weak" // did it but scored below the bar
