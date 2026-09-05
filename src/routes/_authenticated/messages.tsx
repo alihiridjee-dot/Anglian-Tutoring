@@ -1,6 +1,8 @@
+import { Mascot } from "@/components/Doodles";
+import { Spinner } from "@/components/Shared";
 import { createFileRoute } from "@tanstack/react-router";
 import { useEffect, useMemo, useState } from "react";
-import { Loader2, MessageSquarePlus, MessagesSquare } from "lucide-react";
+import { MessageSquarePlus } from "lucide-react";
 import { AppLayout } from "@/components/AppLayout";
 import { guardStudentSection } from "@/lib/routeGuards";
 import { useRoles } from "@/hooks/useRole";
@@ -49,9 +51,7 @@ function MessagesPage() {
   if (rolesLoading || isPending) {
     return (
       <AppLayout title="Messages">
-        <div className="py-16 text-center">
-          <Loader2 className="mx-auto h-5 w-5 animate-spin text-muted-foreground" />
-        </div>
+        <Spinner label="Loading your messages" />
       </AppLayout>
     );
   }
@@ -70,22 +70,20 @@ function MessagesPage() {
           {!isTutor && (
             <button
               onClick={() => setComposing(true)}
-              className="btn-premium inline-flex h-10 shrink-0 items-center gap-2 rounded-lg px-4 text-sm font-semibold"
+              className="btn-hero inline-flex h-10 shrink-0 items-center gap-2 rounded-xl px-4 text-sm"
             >
-              <MessageSquarePlus className="h-4 w-4" /> Ask a question
+              <MessageSquarePlus className="size-4" aria-hidden /> Ask a question
             </button>
           )}
         </div>
 
         {threads.length === 0 ? (
-          <div className="premium-card rounded-2xl p-10 text-center">
-            <div className="mx-auto mb-4 flex h-12 w-12 items-center justify-center rounded-2xl bg-primary/10 text-primary">
-              <MessagesSquare className="h-6 w-6" />
-            </div>
-            <h2 className="font-display text-lg font-semibold">
+          <div className="pop-card p-10 text-center">
+            <Mascot name="owl" mood="happy" size={104} className="mx-auto mb-4" />
+            <h2 className="font-display text-xl font-extrabold">
               {isTutor ? "No questions yet" : "No conversations yet"}
             </h2>
-            <p className="mx-auto mt-1 max-w-sm text-sm text-muted-foreground">
+            <p className="text-muted-foreground mx-auto mt-2 max-w-sm text-sm leading-relaxed">
               {isTutor
                 ? "When a student asks a question it lands here, with the spec point or homework they were working on attached."
                 : "Stuck on something? Ask your tutor — they'll see exactly which part of the spec you mean."}
@@ -93,15 +91,15 @@ function MessagesPage() {
             {!isTutor && (
               <button
                 onClick={() => setComposing(true)}
-                className="btn-premium mt-5 inline-flex h-10 items-center gap-2 rounded-lg px-4 text-sm font-semibold"
+                className="btn-hero mt-6 inline-flex h-11 items-center gap-2 rounded-xl px-5 text-sm"
               >
-                <MessageSquarePlus className="h-4 w-4" /> Ask a question
+                <MessageSquarePlus className="size-4" aria-hidden /> Ask a question
               </button>
             )}
           </div>
         ) : (
           <div className="grid gap-4 lg:grid-cols-[minmax(0,20rem)_1fr]">
-            <div className="premium-card max-h-[70vh] overflow-y-auto rounded-2xl">
+            <div className="pop-card scroll-slim max-h-[70vh] overflow-y-auto">
               <ThreadList
                 threads={threads}
                 selectedId={selectedId}

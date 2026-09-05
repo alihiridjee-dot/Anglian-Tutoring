@@ -2,11 +2,30 @@
 @source "../src";
 @import "tw-animate-css";
 
+/* ════════════════════════════════════════════════════════════════════════════
+   Anglia Educate — "exam-board pop".
+   ────────────────────────────────────────────────────────────────────────────
+   The look: revision-guide energy (chunky borders, printed offset shadows, big
+   confident type, colour-coded subjects, stickers, a small cast of doodle
+   characters) held to a premium standard (one accent per surface, generous
+   white, real hierarchy, restrained motion).
+
+   Everything a screen needs is a class in here. Pages should reach for
+   `.pop-card` / `.btn-hero` / `.sticker` rather than re-deriving a card
+   treatment per file — that is what keeps the site consistent across the
+   marketing pages, the onboarding flow and the signed-in app.
+
+   The previous vocabulary (`.premium-card`, `.btn-premium`, `.chip`,
+   `.icon-tile`, `.page-aurora`…) all still resolves, and now resolves to the
+   new treatment — which is how every screen picked up this design at once
+   without being edited.
+   ════════════════════════════════════════════════════════════════════════════ */
+
 @theme inline {
-  --font-display: "Plus Jakarta Sans", ui-sans-serif, system-ui, sans-serif;
+  --font-display: "Bricolage Grotesque", "Plus Jakarta Sans", ui-sans-serif, system-ui, sans-serif;
   --font-sans: "Plus Jakarta Sans", ui-sans-serif, system-ui, sans-serif;
-  --radius-sm: calc(var(--radius) - 4px);
-  --radius-md: calc(var(--radius) - 2px);
+  --radius-sm: calc(var(--radius) - 8px);
+  --radius-md: calc(var(--radius) - 4px);
   --radius-lg: var(--radius);
   --radius-xl: calc(var(--radius) + 4px);
   --radius-2xl: calc(var(--radius) + 8px);
@@ -37,59 +56,1095 @@
   --color-sidebar-foreground: var(--sidebar-foreground);
   --color-sidebar-accent: var(--sidebar-accent);
   --color-sidebar-border: var(--sidebar-border);
+
+  /* Named so pages can write `bg-tint/10`, `text-bio`, `border-pop` etc. */
+  --color-tint: var(--tint);
+  --color-pop: var(--pop);
+  --color-bio: var(--bio);
+  --color-chem: var(--chem);
+  --color-phys: var(--phys);
+  --color-ink: var(--foreground);
 }
 
-/* Anglia Educate — Light theme only.
-   See README.md for the RGB token map. */
 :root {
-  --radius: 1.25rem; /* 20px Apple-style rounded corners */
+  --radius: 1.25rem;
 
-  /* Surfaces */
-  --background: oklch(0.992 0.003 215); /* Ultra light slate-teal canvas */
-  --foreground: oklch(0.22 0.03 215); /* Deep slate-teal for high-contrast, premium text */
-  --card: oklch(1 0 0); /* Pure White */
-  --card-foreground: oklch(0.22 0.03 215);
+  /* ── Surfaces ──────────────────────────────────────────────────────────── */
+  --background: oklch(0.985 0.008 240); /* cool paper */
+  --foreground: oklch(0.21 0.03 250); /* near-black navy — all text */
+  --card: oklch(1 0 0);
+  --card-foreground: var(--foreground);
   --popover: oklch(1 0 0);
-  --popover-foreground: oklch(0.22 0.03 215);
+  --popover-foreground: var(--foreground);
 
-  /* Brand */
-  --primary: oklch(0.46 0.12 215); /* Premium Deep Ocean Teal / Blue-Green */
+  /* ── Brand ─────────────────────────────────────────────────────────────────
+     Electric ocean blue against a fresh teal-green. The blue is the brand: it
+     carries every primary button, every active tab and every card's shadow, and
+     the green exists to give it something to sit against rather than to share
+     the work. */
+  --primary: oklch(0.52 0.16 245); /* electric ocean blue */
   --primary-foreground: oklch(1 0 0);
-  --primary-soft: oklch(0.93 0.02 215); /* Soft teal-blue background tint */
-  --primary-deep: oklch(0.35 0.1 215); /* Dark ocean navy for headers */
+  --primary-soft: oklch(0.94 0.03 245);
+  --primary-deep: oklch(0.32 0.11 250); /* headline navy */
 
-  --accent: oklch(0.6 0.13 162); /* Elegant Mint Green */
+  --accent: oklch(0.66 0.15 165); /* fresh teal-green */
   --accent-foreground: oklch(1 0 0);
-  --accent-soft: oklch(0.95 0.03 162); /* Soft mint tint */
+  --accent-soft: oklch(0.95 0.04 165);
 
-  /* Neutrals */
-  --secondary: oklch(0.965 0.006 215); /* Minimal slate-teal gray */
-  --secondary-foreground: oklch(0.22 0.03 215);
-  --muted: oklch(0.982 0.003 215);
-  --muted-foreground: oklch(0.5 0.03 215); /* Balanced gray with subtle teal-blue tint */
+  /* The highlighter. Stickers, marker underlines and milestones only — never
+     body text, which it cannot carry at any size. */
+  --pop: oklch(0.86 0.16 92);
+  --pop-ink: oklch(0.32 0.08 80);
 
-  --destructive: oklch(0.577 0.245 27); /* #DC2626 red-600 */
+  /* ── Subject colour-coding ─────────────────────────────────────────────── */
+  --bio: oklch(0.62 0.16 152);
+  --chem: oklch(0.56 0.2 300);
+  --phys: oklch(0.58 0.17 255);
+
+  /* `--tint` is the per-surface accent. Cards, meters, icon tiles and glows all
+     mix against it, so wrapping a subtree in `.tint-bio` recolours the lot
+     without a single conditional class in the markup. */
+  --tint: var(--primary);
+
+  /* ── Neutrals ──────────────────────────────────────────────────────────── */
+  --secondary: oklch(0.96 0.008 245);
+  --secondary-foreground: var(--foreground);
+  --muted: oklch(0.965 0.006 245);
+  --muted-foreground: oklch(0.52 0.03 250);
+
+  --destructive: oklch(0.6 0.21 22);
   --destructive-foreground: oklch(1 0 0);
-  --success: oklch(0.6 0.13 162);
+  --success: oklch(0.62 0.16 152);
   --success-foreground: oklch(1 0 0);
-  --warning: oklch(0.769 0.188 70); /* #F59E0B amber-500 */
-  --warning-foreground: oklch(0.22 0.03 215);
+  --warning: oklch(0.77 0.17 75);
+  --warning-foreground: oklch(0.24 0.04 80);
 
-  --border: oklch(0.935 0.008 215); /* Crisp, clean, thin border */
-  --input: oklch(0.935 0.008 215);
-  --ring: oklch(0.46 0.12 215);
+  /* The printed edge. Every card, button and pill in the system is outlined —
+     that outline is what makes the look read as a revision guide rather than a
+     dashboard, so it is one token and never a one-off grey. */
+  --edge: oklch(0.21 0.03 250 / 0.14);
+  --border: oklch(0.21 0.03 250 / 0.1);
+  --input: oklch(0.21 0.03 250 / 0.12);
+  --ring: var(--primary);
 
-  /* Sidebar */
-  --sidebar: oklch(0.982 0.003 215); /* slate-50 */
-  --sidebar-foreground: oklch(0.22 0.03 215);
-  --sidebar-accent: oklch(0.93 0.02 215); /* blue-100 */
-  --sidebar-border: oklch(0.935 0.008 215);
+  --sidebar: oklch(0.98 0.006 245);
+  --sidebar-foreground: var(--foreground);
+  --sidebar-accent: var(--primary-soft);
+  --sidebar-border: var(--border);
 
-  /* Gradients & shadows */
-  --gradient-hero: linear-gradient(135deg, oklch(0.46 0.12 215), oklch(0.6 0.13 162));
-  --gradient-soft: linear-gradient(180deg, oklch(0.982 0.003 215), oklch(1 0 0));
-  --shadow-elegant: 0 16px 36px -16px color-mix(in oklab, oklch(0.46 0.12 215) 15%, transparent);
+  /* ── Depth ─────────────────────────────────────────────────────────────────
+     Two layers, always together: a HARD offset (the printed edge lifting off
+     the page) plus a soft tinted blur (the premium half). Either one alone
+     looks like a different website. */
+  --lift-1:
+    0 2px 0 0 color-mix(in oklab, var(--tint) 22%, transparent),
+    0 6px 16px -10px color-mix(in oklab, var(--tint) 40%, transparent);
+  --lift-2:
+    0 4px 0 0 color-mix(in oklab, var(--tint) 24%, transparent),
+    0 14px 30px -16px color-mix(in oklab, var(--tint) 45%, transparent);
+  --lift-3:
+    0 7px 0 0 color-mix(in oklab, var(--tint) 26%, transparent),
+    0 26px 50px -22px color-mix(in oklab, var(--tint) 50%, transparent);
+
+  --gradient-hero: linear-gradient(
+    135deg,
+    var(--primary),
+    color-mix(in oklab, var(--accent) 70%, var(--primary))
+  );
+  --gradient-soft: linear-gradient(180deg, var(--muted), var(--card));
+  --shadow-elegant: var(--lift-2);
 }
+/* Subject tinting. One class on any wrapper. */
+.tint-bio {
+  --tint: var(--bio);
+}
+.tint-chem {
+  --tint: var(--chem);
+}
+.tint-phys {
+  --tint: var(--phys);
+}
+.tint-primary {
+  --tint: var(--primary);
+}
+.tint-accent {
+  --tint: var(--accent);
+}
+.tint-pop {
+  --tint: var(--pop);
+}
+.tint-rose {
+  --tint: oklch(0.62 0.2 15);
+}
+.tint-amber {
+  --tint: oklch(0.75 0.16 70);
+}
+.tint-emerald {
+  --tint: oklch(0.64 0.15 155);
+}
+.tint-slate {
+  --tint: oklch(0.55 0.03 250);
+}
+
+/* Re-resolve the depth tokens wherever `--tint` changes.
+ *
+ * This is not belt-and-braces, it is required. A `var()` nested inside a custom
+ * property is substituted once, at computed-value time, on the element the
+ * property is DECLARED on — not where it is finally used. `--lift-2` is
+ * declared on `:root`, so its `var(--tint)` resolved to the brand blue there,
+ * and every descendant inherited that already-blue string. The upshot was that
+ * a Biology card drew a green border and then cast a BLUE shadow, which is the
+ * opposite of what the comment on `--lift-*` promises.
+ *
+ * Re-declaring the three tokens on any element that sets `--tint` forces the
+ * substitution to happen again in that element's context, so the shadow finally
+ * follows the subject. Descendants inherit the correctly-resolved value, and a
+ * nested tint re-resolves again. */
+[class*="tint-"] {
+  --lift-1:
+    0 2px 0 0 color-mix(in oklab, var(--tint) 22%, transparent),
+    0 6px 16px -10px color-mix(in oklab, var(--tint) 40%, transparent);
+  --lift-2:
+    0 4px 0 0 color-mix(in oklab, var(--tint) 24%, transparent),
+    0 14px 30px -16px color-mix(in oklab, var(--tint) 45%, transparent);
+  --lift-3:
+    0 7px 0 0 color-mix(in oklab, var(--tint) 26%, transparent),
+    0 26px 50px -22px color-mix(in oklab, var(--tint) 50%, transparent);
+}
+
+/* ════════════════════════════════════════════════════════════════════════════
+   POSITIONING ESCAPE HATCH
+   Decorative ::before layers need a positioned box, but winning `position`
+   unlayered is a trap: `absolute pop-card` on a popover would silently compute
+   back to `relative` and stretch its parent. So `position` alone lives in
+   Tailwind's components layer, where a utility beats it. Everything else in
+   these rules stays unlayered and still wins over `bg-card` / `border-border`.
+   ════════════════════════════════════════════════════════════════════════════ */
+@layer components {
+  .page-aurora,
+  .auth-aurora,
+  .pop-card,
+  .premium-card,
+  .sticker,
+  .marker,
+  .banner-strip {
+    position: relative;
+  }
+
+  /* `display` lives here for the same reason `position` does, and this one bit
+     for real: `.tab-row` set `display: inline-flex` unlayered, which beat the
+     `hidden` utility next to it — so the desktop tab row and the phone bottom
+     bar both rendered at once on a narrow screen. Any class in this kit that
+     needs a default display declares it HERE, where `hidden` / `flex` / `block`
+     on the same element still win. */
+  .chip,
+  .sticker,
+  .eyebrow,
+  .icon-tile,
+  .tab-row,
+  .tab-item {
+    display: inline-flex;
+    align-items: center;
+  }
+
+  .marker {
+    display: inline;
+  }
+}
+
+/* ── Page backdrop ───────────────────────────────────────────────────────────
+   Printed-page dot grid under two soft brand washes. The dots are what make an
+   empty screen read as paper instead of a blank div. */
+.page-aurora,
+.auth-aurora {
+  isolation: isolate;
+  background:
+    radial-gradient(
+      44rem 30rem at 8% -10%,
+      color-mix(in oklab, var(--primary) 14%, transparent),
+      transparent 70%
+    ),
+    radial-gradient(
+      38rem 28rem at 102% 4%,
+      color-mix(in oklab, var(--accent) 13%, transparent),
+      transparent 68%
+    ),
+    var(--background);
+}
+
+.page-aurora::before,
+.auth-aurora::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: -1;
+  pointer-events: none;
+  background-image: radial-gradient(
+    color-mix(in oklab, var(--foreground) 13%, transparent) 1.1px,
+    transparent 1.1px
+  );
+  background-size: 1.375rem 1.375rem;
+  mask-image: radial-gradient(70rem 46rem at 50% -4%, black, transparent 78%);
+}
+
+/* ════════════════════════════════════════════════════════════════════════════
+   CARDS
+   ════════════════════════════════════════════════════════════════════════════ */
+
+/* The signature surface: white, outlined, sitting a few millimetres off the
+   page. `--tint` decides the shadow's colour, so a Biology card casts green. */
+.pop-card,
+.premium-card {
+  background: var(--card);
+  border: 1.5px solid color-mix(in oklab, var(--tint) 22%, var(--edge));
+  box-shadow: var(--lift-2);
+  border-radius: var(--radius);
+}
+
+/* Heavier variant for the one card that owns the screen. */
+.pop-card-hero {
+  border-width: 2px;
+  border-color: color-mix(in oklab, var(--tint) 34%, var(--edge));
+  box-shadow: var(--lift-3);
+}
+
+/* Flat variant for grids of many cards, where a shadow per item is mush. */
+.pop-card-flat {
+  box-shadow: none;
+  border-color: color-mix(in oklab, var(--tint) 16%, var(--edge));
+}
+
+/* Cards that are also links or buttons. */
+.pop-card-interactive,
+.premium-card-interactive {
+  transition:
+    transform 0.18s cubic-bezier(0.22, 1, 0.36, 1),
+    box-shadow 0.22s ease,
+    border-color 0.18s ease;
+}
+.pop-card-interactive:hover,
+.premium-card-interactive:hover {
+  transform: translateY(-3px);
+  border-color: color-mix(in oklab, var(--tint) 45%, var(--edge));
+  box-shadow: var(--lift-3);
+}
+.pop-card-interactive:active,
+.premium-card-interactive:active {
+  transform: translateY(0);
+  box-shadow: var(--lift-1);
+}
+
+/* The colour band across the top of a subject card — the spine of the book. */
+.pop-card-banded {
+  overflow: hidden;
+}
+.pop-card-banded::before {
+  content: "";
+  position: absolute;
+  inset-inline: 0;
+  top: 0;
+  height: 5px;
+  background: linear-gradient(
+    to right,
+    var(--tint),
+    color-mix(in oklab, var(--tint) 55%, var(--pop))
+  );
+}
+
+/* Nested panel inside a card — tinted, flat, so shadows never stack. */
+.surface-soft {
+  background: color-mix(in oklab, var(--tint) 5%, var(--card));
+  border: 1px solid color-mix(in oklab, var(--tint) 14%, var(--edge));
+  border-radius: calc(var(--radius) - 6px);
+}
+
+/* A panel that is the whole point of the screen (this week's topic, the active
+   question). Tinted harder, still flat. */
+.surface-loud {
+  background: color-mix(in oklab, var(--tint) 10%, var(--card));
+  border: 1.5px solid color-mix(in oklab, var(--tint) 30%, var(--edge));
+  border-radius: calc(var(--radius) - 4px);
+}
+
+/* Full-bleed attention strip (announcements, milestones). */
+.banner-strip {
+  background: linear-gradient(
+    100deg,
+    color-mix(in oklab, var(--tint) 16%, var(--card)),
+    color-mix(in oklab, var(--pop) 18%, var(--card))
+  );
+  border: 1.5px solid color-mix(in oklab, var(--tint) 26%, var(--edge));
+  border-radius: var(--radius);
+}
+
+/* ════════════════════════════════════════════════════════════════════════════
+   BUTTONS
+   All three share the chunky press: they sit on a hard shadow and travel down
+   into it when clicked, which is the single most satisfying detail in the kit.
+   ════════════════════════════════════════════════════════════════════════════ */
+.btn-hero,
+.btn-premium {
+  background: var(--gradient-hero);
+  color: var(--primary-foreground);
+  border: 1.5px solid color-mix(in oklab, var(--primary-deep) 40%, transparent);
+  font-weight: 700;
+  box-shadow:
+    0 4px 0 0 color-mix(in oklab, var(--primary-deep) 55%, transparent),
+    0 12px 22px -12px color-mix(in oklab, var(--primary) 75%, transparent);
+  transition:
+    transform 0.12s cubic-bezier(0.22, 1, 0.36, 1),
+    box-shadow 0.16s ease,
+    filter 0.18s ease;
+}
+.btn-hero:hover:not(:disabled),
+.btn-premium:hover:not(:disabled) {
+  filter: brightness(1.05);
+  transform: translateY(-1px);
+  box-shadow:
+    0 5px 0 0 color-mix(in oklab, var(--primary-deep) 55%, transparent),
+    0 16px 26px -12px color-mix(in oklab, var(--primary) 80%, transparent);
+}
+.btn-hero:active:not(:disabled),
+.btn-premium:active:not(:disabled) {
+  transform: translateY(3px);
+  box-shadow:
+    0 1px 0 0 color-mix(in oklab, var(--primary-deep) 55%, transparent),
+    0 6px 12px -10px color-mix(in oklab, var(--primary) 70%, transparent);
+}
+.btn-hero:disabled,
+.btn-premium:disabled {
+  background: color-mix(in oklab, var(--primary) 30%, var(--muted));
+  border-color: transparent;
+  box-shadow: none;
+  color: color-mix(in oklab, var(--primary-foreground) 80%, transparent);
+}
+
+/* Quieter primary for dense screens: brand fill, no gradient. */
+.btn-solid {
+  /* Mixed a little toward the headline navy rather than used neat: a light tint
+     (amber, pop) at full strength cannot carry white text. */
+  background: color-mix(in oklab, var(--tint) 84%, var(--primary-deep));
+  color: var(--primary-foreground);
+  font-weight: 600;
+  border: 1.5px solid color-mix(in oklab, var(--primary-deep) 35%, transparent);
+  box-shadow: 0 3px 0 0 color-mix(in oklab, var(--tint) 40%, var(--primary-deep));
+  transition:
+    transform 0.12s ease,
+    box-shadow 0.16s ease,
+    filter 0.18s ease;
+}
+.btn-solid:hover:not(:disabled) {
+  filter: brightness(1.07);
+}
+.btn-solid:active:not(:disabled) {
+  transform: translateY(2px);
+  box-shadow: 0 1px 0 0 color-mix(in oklab, var(--tint) 40%, var(--primary-deep));
+}
+.btn-solid:disabled {
+  opacity: 0.5;
+  box-shadow: none;
+}
+
+/* Secondary: reads as a surface you can press, not a filled control. */
+.btn-soft {
+  background: color-mix(in oklab, var(--tint) 8%, var(--card));
+  color: color-mix(in oklab, var(--tint) 70%, var(--primary-deep));
+  font-weight: 600;
+  border: 1.5px solid color-mix(in oklab, var(--tint) 24%, var(--edge));
+  box-shadow: 0 2px 0 0 color-mix(in oklab, var(--tint) 18%, transparent);
+  transition:
+    background 0.18s ease,
+    border-color 0.18s ease,
+    transform 0.12s ease,
+    box-shadow 0.16s ease;
+}
+.btn-soft:hover:not(:disabled) {
+  background: color-mix(in oklab, var(--tint) 14%, var(--card));
+  border-color: color-mix(in oklab, var(--tint) 40%, var(--edge));
+}
+.btn-soft:active:not(:disabled) {
+  transform: translateY(2px);
+  box-shadow: none;
+}
+.btn-soft:disabled {
+  opacity: 0.5;
+  box-shadow: none;
+}
+
+/* Bare button for toolbars and icon rows — no fill until you touch it. */
+.btn-ghost {
+  color: var(--muted-foreground);
+  font-weight: 600;
+  border: 1.5px solid transparent;
+  transition:
+    background 0.16s ease,
+    color 0.16s ease,
+    border-color 0.16s ease;
+}
+.btn-ghost:hover:not(:disabled) {
+  background: color-mix(in oklab, var(--tint) 8%, var(--card));
+  border-color: color-mix(in oklab, var(--tint) 18%, var(--edge));
+  color: var(--foreground);
+}
+
+/* Destructive, same chassis. */
+.btn-danger {
+  background: var(--destructive);
+  color: var(--destructive-foreground);
+  font-weight: 600;
+  border: 1.5px solid color-mix(in oklab, var(--destructive) 60%, black);
+  box-shadow: 0 3px 0 0 color-mix(in oklab, var(--destructive) 55%, black);
+  transition:
+    transform 0.12s ease,
+    box-shadow 0.16s ease,
+    filter 0.18s ease;
+}
+.btn-danger:hover:not(:disabled) {
+  filter: brightness(1.06);
+}
+.btn-danger:active:not(:disabled) {
+  transform: translateY(2px);
+  box-shadow: 0 1px 0 0 color-mix(in oklab, var(--destructive) 55%, black);
+}
+
+/* ════════════════════════════════════════════════════════════════════════════
+   BADGES, STICKERS, LABELS
+   ════════════════════════════════════════════════════════════════════════════ */
+
+/* Pill badge. Outlined like everything else so it belongs to the same book. */
+.chip {
+  gap: 0.375rem;
+  border-radius: 999px;
+  padding: 0.2rem 0.65rem;
+  font-size: 0.75rem;
+  font-weight: 700;
+  line-height: 1.4;
+  background: color-mix(in oklab, var(--tint) 10%, var(--card));
+  color: color-mix(in oklab, var(--tint) 72%, var(--primary-deep));
+  border: 1.25px solid color-mix(in oklab, var(--tint) 26%, transparent);
+}
+
+/* Solid version, for the one status per row that matters most. */
+.chip-solid {
+  background: var(--tint);
+  color: white;
+  border-color: color-mix(in oklab, var(--tint) 60%, black);
+}
+
+/* The sticker: a chip that has been slapped on at an angle, with a hard shadow.
+   Reserve it for celebration and emphasis — a screen with four is a screen
+   with none. */
+.sticker {
+  gap: 0.4rem;
+  border-radius: 999px;
+  padding: 0.35rem 0.85rem;
+  font-family: var(--font-display);
+  font-size: 0.8125rem;
+  font-weight: 800;
+  letter-spacing: -0.01em;
+  background: var(--pop);
+  color: var(--pop-ink);
+  border: 2px solid color-mix(in oklab, var(--pop-ink) 55%, transparent);
+  box-shadow: 0 3px 0 0 color-mix(in oklab, var(--pop-ink) 40%, transparent);
+  transform: rotate(-2.5deg);
+}
+.sticker-alt {
+  background: color-mix(in oklab, var(--tint) 88%, white);
+  color: white;
+  border-color: color-mix(in oklab, var(--tint) 55%, black);
+  box-shadow: 0 3px 0 0 color-mix(in oklab, var(--tint) 45%, black);
+  transform: rotate(2deg);
+}
+
+/* Micro-label above a heading. The leading rule is what stops it floating. */
+.eyebrow {
+  gap: 0.5rem;
+  font-family: var(--font-display);
+  font-size: 0.6875rem;
+  font-weight: 800;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: color-mix(in oklab, var(--tint) 78%, var(--muted-foreground));
+}
+.eyebrow::before {
+  content: "";
+  width: 1.25rem;
+  height: 3px;
+  border-radius: 999px;
+  background: var(--tint);
+}
+/* Where the rule would collide (centred headings, inside chips). */
+.eyebrow-bare::before {
+  display: none;
+}
+
+/* Highlighter behind a run of text. Sits BEHIND the glyphs, clipped to the
+   text's own box, so descenders still read. */
+.marker {
+  /* Sits low and stops short of the cap height — a full-height band reads as
+     selected text rather than as a highlighter stroke. `box-decoration-break`
+     is what keeps it drawn per line instead of one box across the wrap. */
+  background-image: linear-gradient(
+    to top,
+    color-mix(in oklab, var(--pop) 80%, transparent) 0.02em,
+    color-mix(in oklab, var(--pop) 80%, transparent) 0.34em,
+    transparent 0.34em
+  );
+  -webkit-box-decoration-break: clone;
+  box-decoration-break: clone;
+  padding-inline: 0.08em;
+}
+.marker-tint {
+  background-image: linear-gradient(
+    to top,
+    color-mix(in oklab, var(--tint) 22%, transparent) 0.02em,
+    color-mix(in oklab, var(--tint) 22%, transparent) 0.34em,
+    transparent 0.34em
+  );
+}
+
+/* The rounded square an icon sits in. */
+.icon-tile {
+  justify-content: center;
+  border-radius: 0.875rem;
+  background: linear-gradient(
+    140deg,
+    color-mix(in oklab, var(--tint) 16%, var(--card)),
+    color-mix(in oklab, var(--tint) 7%, var(--card))
+  );
+  border: 1.5px solid color-mix(in oklab, var(--tint) 26%, transparent);
+  box-shadow: 0 2px 0 0 color-mix(in oklab, var(--tint) 16%, transparent);
+  color: color-mix(in oklab, var(--tint) 85%, var(--primary-deep));
+}
+.icon-tile-solid {
+  background: var(--tint);
+  color: white;
+  border-color: color-mix(in oklab, var(--tint) 55%, black);
+  box-shadow: 0 2px 0 0 color-mix(in oklab, var(--tint) 45%, black);
+}
+
+/* Big numeral, for stat tiles and week counters. */
+.numeral {
+  font-family: var(--font-display);
+  font-weight: 800;
+  letter-spacing: -0.03em;
+  font-variant-numeric: tabular-nums;
+  line-height: 0.95;
+}
+
+/* ════════════════════════════════════════════════════════════════════════════
+   NAV, BARS, INPUTS
+   ════════════════════════════════════════════════════════════════════════════ */
+.glass-bar {
+  background: color-mix(in oklab, var(--background) 88%, transparent);
+  backdrop-filter: saturate(1.7) blur(18px);
+  -webkit-backdrop-filter: saturate(1.7) blur(18px);
+  border-bottom: 1.5px solid color-mix(in oklab, var(--foreground) 9%, transparent);
+}
+
+/* Segmented nav / tab row. The active item is a raised white card, so the row
+   reads like index tabs on a folder. */
+.tab-row {
+  gap: 0.25rem;
+  padding: 0.25rem;
+  border-radius: 999px;
+  background: color-mix(in oklab, var(--foreground) 5%, transparent);
+  border: 1.5px solid color-mix(in oklab, var(--foreground) 7%, transparent);
+}
+.tab-item {
+  gap: 0.4rem;
+  border-radius: 999px;
+  padding: 0.45rem 0.85rem;
+  font-size: 0.875rem;
+  font-weight: 600;
+  color: var(--muted-foreground);
+  white-space: nowrap;
+  transition:
+    background 0.16s ease,
+    color 0.16s ease,
+    box-shadow 0.16s ease;
+}
+.tab-item:hover {
+  color: var(--foreground);
+}
+.tab-item[data-status="active"],
+.tab-item[aria-selected="true"],
+.tab-item[data-active="true"] {
+  background: var(--card);
+  color: var(--foreground);
+  font-weight: 700;
+  box-shadow:
+    0 1px 0 0 color-mix(in oklab, var(--foreground) 12%, transparent),
+    0 4px 10px -6px color-mix(in oklab, var(--tint) 60%, transparent);
+}
+
+.premium-input,
+.pop-input {
+  background: color-mix(in oklab, var(--tint) 4%, var(--card));
+  border: 1.5px solid color-mix(in oklab, var(--tint) 16%, var(--edge));
+  border-radius: 0.875rem;
+  color: var(--foreground);
+  transition:
+    background 0.18s ease,
+    border-color 0.18s ease,
+    box-shadow 0.18s ease;
+}
+.premium-input:focus,
+.premium-input:focus-visible,
+.pop-input:focus,
+.pop-input:focus-visible {
+  outline: none;
+  background: var(--card);
+  border-color: color-mix(in oklab, var(--tint) 60%, transparent);
+  box-shadow: 0 0 0 4px color-mix(in oklab, var(--tint) 16%, transparent);
+}
+.premium-input::placeholder,
+.pop-input::placeholder {
+  color: color-mix(in oklab, var(--muted-foreground) 70%, transparent);
+}
+
+/* Keyboard focus, everywhere. */
+:where(a, button, [role="button"], input, select, textarea, [tabindex]):focus-visible {
+  outline: 2px solid color-mix(in oklab, var(--tint) 75%, transparent);
+  outline-offset: 2px;
+  border-radius: 0.5rem;
+}
+
+.text-gradient {
+  background: var(--gradient-hero);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+
+/* Ruled divider with the printed feel. */
+.rule-dashed {
+  border: 0;
+  border-top: 2px dashed color-mix(in oklab, var(--foreground) 14%, transparent);
+}
+
+/* ════════════════════════════════════════════════════════════════════════════
+   MOTION
+   Entrances are quick and physical. Nothing loops except the two idle
+   animations, and everything folds flat under reduced-motion.
+   ════════════════════════════════════════════════════════════════════════════ */
+@keyframes rise-in {
+  from {
+    opacity: 0;
+    transform: translateY(12px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+.rise-in {
+  animation: rise-in 0.5s cubic-bezier(0.22, 1, 0.36, 1) both;
+  animation-delay: var(--rise-delay, 0s);
+}
+
+@keyframes pop-in {
+  0% {
+    opacity: 0;
+    transform: scale(0.82);
+  }
+  62% {
+    transform: scale(1.05);
+  }
+  100% {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+.pop-in {
+  animation: pop-in 0.44s cubic-bezier(0.34, 1.56, 0.64, 1) both;
+  animation-delay: var(--pop-delay, 0s);
+}
+
+/* Sticker landing: rotates into place as it scales up. */
+@keyframes stamp-in {
+  0% {
+    opacity: 0;
+    transform: rotate(-14deg) scale(1.5);
+  }
+  70% {
+    opacity: 1;
+    transform: rotate(1deg) scale(0.96);
+  }
+  100% {
+    opacity: 1;
+    transform: rotate(-2.5deg) scale(1);
+  }
+}
+.stamp-in {
+  animation: stamp-in 0.5s cubic-bezier(0.34, 1.4, 0.64, 1) both;
+  animation-delay: var(--stamp-delay, 0s);
+}
+
+/* Loading blocks. A dedicated keyframe rather than reusing `pop-in` on repeat:
+   pop-in starts at opacity 0, so an infinite loop of it made each block vanish
+   for part of every cycle and the row read as broken rather than busy. */
+@keyframes load-hop {
+  0%,
+  100% {
+    transform: translateY(0) scaleY(1);
+    opacity: 0.45;
+  }
+  40% {
+    transform: translateY(-7px) scaleY(1.15);
+    opacity: 1;
+  }
+}
+.load-dot {
+  animation: load-hop 0.9s ease-in-out infinite;
+  animation-delay: var(--dot-delay, 0s);
+}
+
+@keyframes bar-grow {
+  from {
+    transform: scaleX(0);
+  }
+  to {
+    transform: scaleX(1);
+  }
+}
+.bar-grow {
+  transform-origin: left center;
+  animation: bar-grow 0.9s cubic-bezier(0.22, 1, 0.36, 1) both;
+  animation-delay: var(--grow-delay, 0s);
+}
+
+@keyframes ring-draw {
+  from {
+    stroke-dashoffset: var(--ring-len, 1000);
+  }
+  to {
+    stroke-dashoffset: var(--ring-end, 0);
+  }
+}
+.ring-draw {
+  animation: ring-draw 1s cubic-bezier(0.22, 1, 0.36, 1) both;
+  animation-delay: var(--ring-delay, 0.1s);
+}
+
+@keyframes float-y {
+  0%,
+  100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-6px);
+  }
+}
+.float-y {
+  animation: float-y 4.5s ease-in-out infinite;
+}
+
+/* The cast blinks.
+ *
+ * The single cheapest bit of life in the kit: the eyes squash for two frames
+ * every few seconds and the character stops being a sticker. Staggered per
+ * mascot via `--blink-delay` so a row of three never blinks in unison, which
+ * reads as a glitch rather than as three creatures.
+ *
+ * Only the neutral mood blinks — squashing a wink or a closed sleepy eye just
+ * makes the drawing twitch. */
+@keyframes blink {
+  0%,
+  92%,
+  100% {
+    transform: scaleY(1);
+  }
+  95%,
+  97% {
+    transform: scaleY(0.08);
+  }
+}
+.blink {
+  animation: blink 5.5s ease-in-out infinite;
+  animation-delay: var(--blink-delay, 0s);
+  transform-box: fill-box;
+  transform-origin: center;
+}
+
+/* Doodle characters breathe rather than bounce. */
+@keyframes idle-tilt {
+  0%,
+  100% {
+    transform: rotate(-1.5deg) translateY(0);
+  }
+  50% {
+    transform: rotate(1.5deg) translateY(-3px);
+  }
+}
+.idle-tilt {
+  animation: idle-tilt 5s ease-in-out infinite;
+  animation-delay: var(--idle-delay, 0s);
+  transform-origin: bottom center;
+}
+
+/* A character rising into place from behind the card it peeks over. Runs once,
+   on load, and settles — it is a greeting, not a loop. */
+@keyframes peek-in {
+  from {
+    opacity: 0;
+    transform: translateY(26px) rotate(-6deg);
+  }
+  70% {
+    opacity: 1;
+    transform: translateY(-4px) rotate(2deg);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0) rotate(0deg);
+  }
+}
+.peek-in {
+  animation: peek-in 0.9s cubic-bezier(0.34, 1.4, 0.64, 1) both;
+  animation-delay: var(--peek-delay, 0.35s);
+}
+
+/* The monogram tile's squash-and-stretch on hover of the wordmark. Silent until
+   someone reaches for it, which is what keeps it chic rather than busy. */
+@keyframes hop {
+  0%,
+  100% {
+    transform: translateY(0) scale(1, 1);
+  }
+  25% {
+    transform: translateY(-4px) scale(0.94, 1.08);
+  }
+  55% {
+    transform: translateY(0) scale(1.08, 0.92);
+  }
+  80% {
+    transform: translateY(-1px) scale(1, 1);
+  }
+}
+.wordmark:hover .wordmark-tile,
+.wordmark:focus-visible .wordmark-tile {
+  animation: hop 0.55s cubic-bezier(0.34, 1.4, 0.64, 1);
+}
+
+/* Tapping a nav tab pops its icon. The animation is declared only under the
+   active state, so it fires on the transition INTO active — i.e. exactly once
+   per navigation — and never on the tab you are already sitting on. */
+@keyframes tab-pop {
+  0% {
+    transform: scale(1);
+  }
+  40% {
+    transform: scale(1.22);
+  }
+  70% {
+    transform: scale(0.94);
+  }
+  100% {
+    transform: scale(1);
+  }
+}
+[data-status="active"] .tab-pop,
+[data-active="true"] .tab-pop {
+  animation: tab-pop 0.4s cubic-bezier(0.34, 1.5, 0.64, 1);
+}
+
+@keyframes cheer {
+  0%,
+  100% {
+    transform: rotate(0deg) scale(1);
+  }
+  20% {
+    transform: rotate(-7deg) scale(1.06);
+  }
+  45% {
+    transform: rotate(6deg) scale(1.06);
+  }
+  70% {
+    transform: rotate(-3deg) scale(1.02);
+  }
+}
+.cheer {
+  animation: cheer 0.7s ease-in-out;
+}
+
+@keyframes screen-in {
+  from {
+    opacity: 0;
+    transform: translateY(14px) scale(0.985);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+.screen-in {
+  animation: screen-in 0.6s cubic-bezier(0.22, 1, 0.36, 1) both;
+}
+
+@keyframes cell-pop {
+  0% {
+    opacity: 0;
+    transform: scale(0.4);
+  }
+  60% {
+    transform: scale(1.12);
+  }
+  100% {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+.cell-pop {
+  animation: cell-pop 0.5s cubic-bezier(0.22, 1, 0.36, 1) both;
+  animation-delay: var(--pop-delay, 0s);
+}
+
+/* Confetti for milestones — a few absolutely-positioned shards, no library. */
+@keyframes confetti-fall {
+  0% {
+    opacity: 0;
+    transform: translate(0, 0) rotate(0deg);
+  }
+  12% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 0;
+    transform: translate(var(--dx, 0), var(--dy, 80px)) rotate(var(--dr, 220deg));
+  }
+}
+.confetti-bit {
+  animation: confetti-fall 1.5s cubic-bezier(0.2, 0.6, 0.4, 1) both;
+  animation-delay: var(--confetti-delay, 0s);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .rise-in,
+  .pop-in,
+  .stamp-in,
+  .bar-grow,
+  .ring-draw,
+  .float-y,
+  .load-dot,
+  .idle-tilt,
+  .blink,
+  .peek-in,
+  .cheer,
+  .screen-in,
+  .cell-pop,
+  .confetti-bit {
+    animation: none;
+  }
+  .bar-grow {
+    transform: scaleX(1);
+  }
+  .ring-draw {
+    stroke-dashoffset: var(--ring-end, 0);
+  }
+  .sticker {
+    transform: rotate(-2.5deg);
+  }
+  .btn-hero:hover:not(:disabled),
+  .btn-premium:hover:not(:disabled),
+  .pop-card-interactive:hover,
+  .premium-card-interactive:hover {
+    transform: none;
+  }
+  .confetti-bit {
+    display: none;
+  }
+  .wordmark:hover .wordmark-tile,
+  .wordmark:focus-visible .wordmark-tile,
+  [data-status="active"] .tab-pop,
+  [data-active="true"] .tab-pop {
+    animation: none;
+  }
+}
+
+/* ════════════════════════════════════════════════════════════════════════════
+   BASE
+   ════════════════════════════════════════════════════════════════════════════ */
+html,
+body {
+  background: var(--background);
+  color: var(--foreground);
+  font-family: var(--font-sans);
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+}
+
+/* Display type is the loudest part of the redesign: tight, heavy, and never
+   set below `font-bold`. */
+.font-display {
+  font-family: var(--font-display);
+  letter-spacing: -0.025em;
+  font-variation-settings: "wdth" 100;
+}
+
+/* Every heading is display type, whether or not anyone remembered the class.
+ *
+ * `.font-display` alone is opt-in, and opt-in loses: a heading written without
+ * it fell back to the body face and nothing flagged it, so the site drifted
+ * into two different voices depending on which file you were looking at. The
+ * element is the rule now, and the class is only needed for the things that
+ * are display type WITHOUT being headings — stat numerals, stickers, a card
+ * title that is really a <p>.
+ *
+ * This lives in `@layer base` on purpose, unlike the rest of this stylesheet.
+ * Utilities beat base, so `tracking-widest` on a small uppercase label still
+ * wins over the negative tracking below (heading tracking is set tighter than
+ * the class's -0.025em precisely because those micro-labels exist), and
+ * `font-sans` remains a working escape hatch for the rare heading that wants
+ * the body face. Unlayered, this rule would silently override both. */
+@layer base {
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6 {
+    font-family: var(--font-display);
+    letter-spacing: -0.02em;
+    font-variation-settings: "wdth" 100;
+  }
+}
+
+/* Rows that scroll sideways by design (tab strips, thread lists). A visible
+   track inside a pill-shaped tab row reads as a broken control. */
+.scroll-none {
+  scrollbar-width: none;
+  -ms-overflow-style: none;
+}
+.scroll-none::-webkit-scrollbar {
+  display: none;
+}
+
+/* Scrollbars inside panels (the board columns, chat) — thin and tinted, so a
+   scrolling column doesn't get a grey OS bar down its middle. */
+.scroll-slim {
+  scrollbar-width: thin;
+  scrollbar-color: color-mix(in oklab, var(--tint) 35%, transparent) transparent;
+}
+.scroll-slim::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+.scroll-slim::-webkit-scrollbar-thumb {
+  background: color-mix(in oklab, var(--tint) 30%, transparent);
+  border-radius: 999px;
+}
+.scroll-slim::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+/* ════════════════════════════════════════════════════════════════════════════
+   MARKETING-PAGE SET PIECES
+   Animations that belong to one illustration each on the public site: the hero
+   grad-cap, and the three visuals inside the curriculum showcase. They predate
+   the redesign and are kept as-is — they are already drawn in this kit's stroke
+   weight, and they are the only motion on the site that tells a story rather
+   than announcing an element.
+   ════════════════════════════════════════════════════════════════════════════ */
 
 /* Hero grad-cap ribbons. Each ribbon is drawn on with stroke-dashoffset while
    its group drifts in from an offset position and settles — so the strokes
@@ -149,45 +1204,9 @@
   transform-origin: center;
 }
 
-/* Curriculum showcase: the auto-cycling "moving screens" section. Each screen
-   swaps in with a soft rise, and the visuals inside animate on entry — spec-point
-   cells pop into coverage, confidence bars grow, and the spaced-repetition
-   forgetting curve draws itself with review spikes. Keyed remounts (see
-   CurriculumShowcase.tsx) replay these each time a screen becomes active. */
-@keyframes screen-in {
-  from {
-    opacity: 0;
-    transform: translateY(14px) scale(0.985);
-  }
-  to {
-    opacity: 1;
-    transform: translateY(0) scale(1);
-  }
-}
-
-@keyframes cell-pop {
-  0% {
-    opacity: 0;
-    transform: scale(0.4);
-  }
-  60% {
-    transform: scale(1.12);
-  }
-  100% {
-    opacity: 1;
-    transform: scale(1);
-  }
-}
-
-@keyframes bar-grow {
-  from {
-    transform: scaleX(0);
-  }
-  to {
-    transform: scaleX(1);
-  }
-}
-
+/* The spaced-repetition forgetting curve, and the review spikes that land on
+   it. Keyed remounts (see CurriculumShowcase.tsx) replay these each time the
+   screen becomes active. */
 @keyframes curve-draw {
   from {
     stroke-dashoffset: var(--curve-len, 1000);
@@ -208,334 +1227,29 @@
   }
 }
 
-@keyframes float-y {
-  0%,
-  100% {
-    transform: translateY(0);
-  }
-  50% {
-    transform: translateY(-6px);
-  }
-}
-
-.screen-in {
-  animation: screen-in 0.6s cubic-bezier(0.22, 1, 0.36, 1) both;
-}
-.cell-pop {
-  animation: cell-pop 0.5s cubic-bezier(0.22, 1, 0.36, 1) both;
-  animation-delay: var(--pop-delay, 0s);
-}
-.bar-grow {
-  transform-origin: left center;
-  animation: bar-grow 0.9s cubic-bezier(0.22, 1, 0.36, 1) both;
-  animation-delay: var(--grow-delay, 0s);
-}
 .curve-draw {
   stroke-dasharray: var(--curve-len, 1000);
   animation: curve-draw 2s cubic-bezier(0.4, 0, 0.2, 1) both;
   animation-delay: var(--curve-delay, 0.2s);
 }
+
 .spike-in {
   animation: spike-in 0.5s cubic-bezier(0.22, 1, 0.36, 1) both;
   animation-delay: var(--spike-delay, 0s);
   transform-box: fill-box;
   transform-origin: bottom center;
 }
-.float-y {
-  animation: float-y 4s ease-in-out infinite;
-}
 
 @media (prefers-reduced-motion: reduce) {
   .ribbon-path,
   .ribbon-group,
-  .glitter-dot {
-    animation: none;
-  }
-  .ribbon-path {
-    stroke-dashoffset: 0;
-  }
-  .screen-in,
-  .cell-pop,
-  .bar-grow,
+  .glitter-dot,
   .curve-draw,
-  .spike-in,
-  .float-y {
+  .spike-in {
     animation: none;
   }
+  .ribbon-path,
   .curve-draw {
     stroke-dashoffset: 0;
   }
-  .bar-grow {
-    transform: scaleX(1);
-  }
-}
-
-/* ── Premium surface vocabulary ─────────────────────────────────────────────
-   The look first built for sign-up/onboarding, generalised so the rest of the
-   site can reach for the same handful of classes instead of re-deriving a card
-   treatment per file. Everything below is plain CSS, so it sits outside
-   Tailwind's layers and wins against the `bg-card` / `border-border` utilities
-   it replaces — apply it instead of those, not alongside them. */
-
-/* …with one deliberate exception: `position`.
- *
- * Both classes below need a positioned box for their decorative `::before`, but
- * winning that unlayered would be a trap — `absolute premium-card` on a popover
- * would silently compute to `relative`, drop back into flow, and stretch its
- * parent. So the `position` declaration alone lives in Tailwind's `components`
- * layer, where an `absolute` / `fixed` utility on the same element beats it.
- * Every other declaration in these rules stays unlayered and still wins. */
-@layer components {
-  .page-aurora,
-  .auth-aurora,
-  .premium-card {
-    position: relative;
-  }
-}
-
-/* Page backdrop: two soft brand-coloured washes over the canvas plus a faint
-   grid, so large empty areas don't read as blank white. Purely decorative.
-   `.auth-aurora` is the original name, kept so the auth screens keep working. */
-.page-aurora,
-.auth-aurora {
-  isolation: isolate;
-  background:
-    radial-gradient(
-      40rem 28rem at 12% -8%,
-      color-mix(in oklab, var(--primary) 16%, transparent),
-      transparent 70%
-    ),
-    radial-gradient(
-      36rem 26rem at 100% 8%,
-      color-mix(in oklab, var(--accent) 14%, transparent),
-      transparent 68%
-    ),
-    var(--background);
-}
-
-.page-aurora::before,
-.auth-aurora::before {
-  content: "";
-  position: absolute;
-  inset: 0;
-  z-index: -1;
-  pointer-events: none;
-  background-image:
-    linear-gradient(to right, color-mix(in oklab, var(--primary) 7%, transparent) 1px, transparent 1px),
-    linear-gradient(to bottom, color-mix(in oklab, var(--primary) 7%, transparent) 1px, transparent 1px);
-  background-size: 3.5rem 3.5rem;
-  mask-image: radial-gradient(60rem 40rem at 50% 0%, black, transparent 75%);
-}
-
-/* Card treatment shared by the auth card and every onboarding step: a hairline
-   light border, a layered brand-tinted shadow instead of a flat grey one, and a
-   gradient sheen along the top edge. */
-.premium-card {
-  background: linear-gradient(180deg, color-mix(in oklab, var(--primary) 3%, var(--card)), var(--card));
-  border: 1px solid color-mix(in oklab, var(--primary) 10%, var(--border));
-  box-shadow:
-    0 1px 2px color-mix(in oklab, var(--foreground) 4%, transparent),
-    0 12px 24px -12px color-mix(in oklab, var(--primary) 18%, transparent),
-    0 40px 64px -32px color-mix(in oklab, var(--primary) 22%, transparent);
-}
-
-.premium-card::before {
-  content: "";
-  position: absolute;
-  inset-inline: 1.5rem;
-  top: 0;
-  height: 1px;
-  background: linear-gradient(
-    to right,
-    transparent,
-    color-mix(in oklab, var(--primary) 45%, transparent),
-    transparent
-  );
-}
-
-/* Primary action shared across these screens. */
-.btn-premium {
-  background: var(--gradient-hero);
-  color: var(--primary-foreground);
-  box-shadow: 0 10px 20px -10px color-mix(in oklab, var(--primary) 65%, transparent);
-  transition:
-    transform 0.15s cubic-bezier(0.22, 1, 0.36, 1),
-    box-shadow 0.2s ease,
-    filter 0.2s ease;
-}
-.btn-premium:hover:not(:disabled) {
-  filter: brightness(1.06);
-  box-shadow: 0 14px 26px -10px color-mix(in oklab, var(--primary) 70%, transparent);
-  transform: translateY(-1px);
-}
-.btn-premium:active:not(:disabled) {
-  transform: translateY(0);
-}
-.btn-premium:disabled {
-  background: color-mix(in oklab, var(--primary) 40%, var(--muted));
-  box-shadow: none;
-}
-
-/* Quieter primary: brand fill, no gradient. For dense screens (tables, panels)
-   where a gradient on every button would be noise. */
-.btn-solid {
-  background: var(--primary);
-  color: var(--primary-foreground);
-  box-shadow: 0 6px 14px -8px color-mix(in oklab, var(--primary) 60%, transparent);
-  transition:
-    background 0.2s ease,
-    box-shadow 0.2s ease;
-}
-.btn-solid:hover:not(:disabled) {
-  background: color-mix(in oklab, var(--primary-deep) 65%, var(--primary));
-}
-.btn-solid:disabled {
-  opacity: 0.55;
-  box-shadow: none;
-}
-
-/* Secondary action: reads as a surface, not a filled control. */
-.btn-soft {
-  background: color-mix(in oklab, var(--primary) 7%, var(--card));
-  color: var(--primary-deep);
-  border: 1px solid color-mix(in oklab, var(--primary) 16%, transparent);
-  transition:
-    background 0.2s ease,
-    border-color 0.2s ease;
-}
-.btn-soft:hover:not(:disabled) {
-  background: color-mix(in oklab, var(--primary) 12%, var(--card));
-  border-color: color-mix(in oklab, var(--primary) 28%, transparent);
-}
-
-/* Nested panel inside a premium card — flat, tinted, no shadow, so cards don't
-   nest shadows into mush. */
-.surface-soft {
-  background: color-mix(in oklab, var(--primary) 4%, var(--card));
-  border: 1px solid color-mix(in oklab, var(--primary) 9%, var(--border));
-}
-
-/* Cards that are also links/buttons. Pair with .premium-card. */
-.premium-card-interactive {
-  transition:
-    transform 0.2s cubic-bezier(0.22, 1, 0.36, 1),
-    box-shadow 0.25s ease,
-    border-color 0.2s ease;
-}
-.premium-card-interactive:hover {
-  transform: translateY(-2px);
-  border-color: color-mix(in oklab, var(--primary) 26%, var(--border));
-  box-shadow:
-    0 1px 2px color-mix(in oklab, var(--foreground) 5%, transparent),
-    0 18px 32px -14px color-mix(in oklab, var(--primary) 26%, transparent),
-    0 52px 76px -34px color-mix(in oklab, var(--primary) 28%, transparent);
-}
-
-/* Sticky headers/navs that sit over scrolling content. */
-.glass-bar {
-  background: color-mix(in oklab, var(--background) 72%, transparent);
-  backdrop-filter: saturate(1.6) blur(14px);
-  -webkit-backdrop-filter: saturate(1.6) blur(14px);
-  border-bottom: 1px solid color-mix(in oklab, var(--primary) 10%, var(--border));
-}
-
-/* The small uppercase label above a section heading. */
-.eyebrow {
-  font-size: 0.6875rem;
-  font-weight: 700;
-  letter-spacing: 0.14em;
-  text-transform: uppercase;
-  color: color-mix(in oklab, var(--primary) 72%, var(--muted-foreground));
-}
-
-/* Pill badge, tinted to the brand. */
-.chip {
-  display: inline-flex;
-  align-items: center;
-  gap: 0.375rem;
-  border-radius: 999px;
-  padding: 0.25rem 0.75rem;
-  font-size: 0.75rem;
-  font-weight: 600;
-  background: color-mix(in oklab, var(--primary) 9%, var(--card));
-  color: var(--primary-deep);
-  border: 1px solid color-mix(in oklab, var(--primary) 16%, transparent);
-}
-
-/* The small rounded square an icon sits in at the top of a feature card. */
-.icon-tile {
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  background: linear-gradient(
-    135deg,
-    color-mix(in oklab, var(--primary) 12%, var(--card)),
-    color-mix(in oklab, var(--accent) 10%, var(--card))
-  );
-  border: 1px solid color-mix(in oklab, var(--primary) 15%, transparent);
-  color: var(--primary);
-}
-
-/* Text fields. Sunken until focused, then the surface lifts to card white and
-   the brand ring comes up — same feel as the OTP boxes. */
-.premium-input {
-  background: color-mix(in oklab, var(--primary) 4%, var(--card));
-  border: 1px solid color-mix(in oklab, var(--primary) 12%, var(--border));
-  color: var(--foreground);
-  transition:
-    background 0.2s ease,
-    border-color 0.2s ease,
-    box-shadow 0.2s ease;
-}
-.premium-input:focus,
-.premium-input:focus-visible {
-  outline: none;
-  background: var(--card);
-  border-color: color-mix(in oklab, var(--primary) 45%, transparent);
-  box-shadow: 0 0 0 3px color-mix(in oklab, var(--primary) 15%, transparent);
-}
-.premium-input::placeholder {
-  color: color-mix(in oklab, var(--muted-foreground) 75%, transparent);
-}
-
-.text-gradient {
-  background: var(--gradient-hero);
-  -webkit-background-clip: text;
-  background-clip: text;
-  color: transparent;
-}
-
-@keyframes rise-in {
-  from {
-    opacity: 0;
-    transform: translateY(12px);
-  }
-  to {
-    opacity: 1;
-    transform: translateY(0);
-  }
-}
-.rise-in {
-  animation: rise-in 0.5s cubic-bezier(0.22, 1, 0.36, 1) both;
-  animation-delay: var(--rise-delay, 0s);
-}
-
-@media (prefers-reduced-motion: reduce) {
-  .rise-in {
-    animation: none;
-  }
-  .btn-premium:hover:not(:disabled) {
-    transform: none;
-  }
-  .premium-card-interactive:hover {
-    transform: none;
-  }
-}
-
-html,
-body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: var(--font-sans);
-  -webkit-font-smoothing: antialiased;
 }

@@ -1,6 +1,7 @@
+import { Spinner } from "@/components/Shared";
 import { useEffect, useMemo, useState, type DragEvent as ReactDragEvent } from "react";
 import { AnimatePresence } from "motion/react";
-import { Loader2, Layers, Info } from "lucide-react";
+import { Layers, Info } from "lucide-react";
 import { PlannerDAL, type TopicWithConfidence } from "@/lib/plannerDal";
 import { type Enrolment } from "@/hooks/data/useEnrolments";
 import { type SubjectV, type BoardV, type LevelV } from "@/lib/taxonomy";
@@ -150,7 +151,7 @@ export function PlannerBoard({
                 onClick={() => setPickedSubject(e.subject)}
                 className={`h-8 px-3 rounded-lg text-sm font-medium transition ${
                   e.subject === activeSubject
-                    ? "bg-primary text-primary-foreground"
+                    ? "btn-solid"
                     : "bg-muted text-muted-foreground hover:text-foreground"
                 }`}
               >
@@ -166,9 +167,7 @@ export function PlannerBoard({
       </div>
 
       {loading ? (
-        <div className="py-16 text-center">
-          <Loader2 className="w-6 h-6 animate-spin mx-auto text-muted-foreground" />
-        </div>
+        <Spinner className="py-16" />
       ) : topics.length === 0 ? (
         <div className="rounded-xl border border-dashed border-border p-8 text-center text-sm text-muted-foreground">
           No curriculum topics are set up for {subjectLabel(active.subject)} (

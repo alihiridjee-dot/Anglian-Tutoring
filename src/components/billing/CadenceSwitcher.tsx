@@ -96,7 +96,7 @@ export function CadenceSwitcher({
 
   return (
     <div className="rounded-2xl premium-card p-6">
-      <h3 className="font-display text-lg font-semibold">
+      <h3 className="font-display text-lg font-bold">
         {currentTier ? "How often you pay" : "Choose how often you pay"}
       </h3>
       <p className="text-sm text-muted-foreground mt-0.5">
@@ -158,7 +158,7 @@ export function CadenceSwitcher({
                 <button
                   onClick={() => (currentTier ? setPending(c.key) : buy(c.key))}
                   disabled={buying !== null || change.isPending}
-                  className="h-9 px-3.5 rounded-lg bg-primary text-primary-foreground text-sm font-semibold hover:opacity-90 disabled:opacity-50 shrink-0 inline-flex items-center gap-1.5"
+                  className="h-9 px-3.5 rounded-lg btn-solid text-sm font-semibold hover:opacity-90 disabled:opacity-50 shrink-0 inline-flex items-center gap-1.5"
                 >
                   {buying === c.key && <Loader2 className="w-4 h-4 animate-spin" />}
                   {currentTier ? "Switch" : "Choose"}

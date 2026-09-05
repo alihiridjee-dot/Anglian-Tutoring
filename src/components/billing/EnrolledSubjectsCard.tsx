@@ -140,7 +140,7 @@ export function EnrolledSubjectsCard({
         <div className="w-8 h-8 rounded-lg bg-primary/15 flex items-center justify-center">
           <BookOpen className="w-4 h-4 text-primary" />
         </div>
-        <h3 className="font-display text-lg font-semibold">Subjects on this plan</h3>
+        <h3 className="font-display text-lg font-bold">Subjects on this plan</h3>
       </div>
       <p className="text-sm text-muted-foreground">
         {canManage
@@ -152,7 +152,9 @@ export function EnrolledSubjectsCard({
 
       <div className="mt-4 space-y-2">
         {enrolments.length === 0 && (
-          <p className="text-sm text-muted-foreground">No subjects on this plan yet.</p>
+          <p className="text-muted-foreground text-sm">
+            No subjects on this plan yet — add one to get started.
+          </p>
         )}
         {enrolments.map((e) => {
           const options = boardsFor(e.subject);
@@ -214,7 +216,7 @@ export function EnrolledSubjectsCard({
                             }
                             className={`h-7 px-2.5 rounded-md text-xs font-semibold transition disabled:cursor-default ${
                               on
-                                ? "bg-primary text-primary-foreground shadow-sm"
+                                ? "btn-solid shadow-sm"
                                 : teachable
                                   ? "text-muted-foreground hover:text-foreground hover:bg-card"
                                   : "text-muted-foreground/40"

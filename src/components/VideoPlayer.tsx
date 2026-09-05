@@ -100,7 +100,7 @@ export function VideoModal({
                 href={embed.originalUrl}
                 target="_blank"
                 rel="noreferrer"
-                className="inline-flex items-center gap-2 px-4 py-2 rounded-lg bg-primary text-primary-foreground text-sm font-semibold"
+                className="inline-flex items-center gap-2 px-4 py-2 rounded-lg btn-solid text-sm font-semibold"
               >
                 <ExternalLink className="w-4 h-4" />
                 Open in new tab
@@ -110,7 +110,7 @@ export function VideoModal({
         </div>
 
         <div className="p-4">
-          <p className="font-semibold">{title}</p>
+          <p className="font-display font-bold">{title}</p>
           {description && <p className="text-sm text-muted-foreground mt-1">{description}</p>}
         </div>
       </div>

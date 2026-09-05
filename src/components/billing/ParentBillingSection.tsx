@@ -159,7 +159,7 @@ export function ParentBillingSection({ parentId }: { parentId: string }) {
     <div>
       <div className="flex items-center gap-3 mb-5">
         <CreditCard className="w-5 h-5 text-primary" />
-        <h2 className="font-display text-xl font-semibold text-foreground">Billing &amp; plans</h2>
+        <h2 className="font-display text-xl font-bold text-foreground">Billing &amp; plans</h2>
       </div>
 
       {children.length === 0 ? (

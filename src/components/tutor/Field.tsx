@@ -15,4 +15,4 @@ export const inputCls =
   "w-full h-10 rounded-lg bg-secondary border border-border px-3 text-sm focus:outline-none focus:ring-2 focus:ring-primary/40";
 
 export const submitBtn =
-  "w-full h-10 rounded-lg bg-primary text-primary-foreground font-semibold text-sm hover:opacity-90 disabled:opacity-60";
+  "w-full h-10 rounded-lg btn-solid font-semibold text-sm hover:opacity-90 disabled:opacity-60";

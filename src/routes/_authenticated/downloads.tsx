@@ -1,6 +1,7 @@
 import { createFileRoute } from "@tanstack/react-router";
 import { useState } from "react";
 import { useQuery } from "@tanstack/react-query";
+import { EmptyState, Spinner } from "@/components/Shared";
 import { AppLayout } from "@/components/AppLayout";
 import { FilterBar, type Filters } from "@/components/FilterBar";
 import { supabase } from "@/integrations/supabase/client";
@@ -71,18 +72,23 @@ export function Downloads() {
     <AppLayout title="Downloads">
       <FilterBar value={filters} onChange={setFilters} />
       {isLoading ? (
-        <p className="text-muted-foreground">Loading…</p>
+        <Spinner label="Fetching your worksheets" />
       ) : !data || data.length === 0 ? (
-        <p className="text-muted-foreground">No downloads yet.</p>
+        <EmptyState
+          mascot="books"
+          mood="sleepy"
+          title="No worksheets here yet"
+          body="Nothing has been shared for this subject, board and level yet. Your tutor adds worksheets and past papers as you cover the topics — check back after your next lesson."
+        />
       ) : (
         <div className="grid gap-3 md:grid-cols-2">
           {data.map((d) => (
-            <div key={d.id} className="rounded-xl premium-card p-5 flex items-center gap-4">
-              <div className="w-11 h-11 rounded-lg bg-primary/15 border border-primary/30 flex items-center justify-center">
-                <FileText className="w-5 h-5 text-primary" />
-              </div>
-              <div className="flex-1 min-w-0">
-                <p className="font-medium truncate">{d.title}</p>
+            <div key={d.id} className="pop-card flex items-center gap-4 p-5">
+              <span className="icon-tile size-11 shrink-0">
+                <FileText className="size-5" aria-hidden />
+              </span>
+              <div className="min-w-0 flex-1">
+                <p className="font-display truncate font-bold">{d.title}</p>
                 <p className="text-xs text-muted-foreground truncate">
                   <span className="capitalize">{d.subject}</span>
                   {d.board ? ` · ${d.board.toUpperCase()}` : ""} ·{" "}
@@ -93,9 +99,9 @@ export function Downloads() {
               {d.file_path && (
                 <button
                   onClick={() => open(d.file_path!)}
-                  className="bg-primary text-primary-foreground px-3 py-2 rounded-lg text-xs font-semibold inline-flex items-center gap-1.5"
+                  className="btn-solid inline-flex items-center gap-1.5 rounded-lg px-3 py-2 text-xs"
                 >
-                  <DownloadIcon className="w-3.5 h-3.5" />
+                  <DownloadIcon className="size-3.5" aria-hidden />
                   Download
                 </button>
               )}

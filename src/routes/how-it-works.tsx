@@ -211,21 +211,20 @@ function HowItWorks() {
           className="pointer-events-none absolute inset-0 bg-[radial-gradient(ellipse_at_top,_var(--accent-soft)_0%,transparent_60%)] opacity-70"
         />
         <div className="relative mx-auto max-w-4xl px-6 py-20 text-center lg:py-28">
-          <motion.span
-            {...fadeUp}
-            className="inline-flex items-center gap-1.5 rounded-full border border-border bg-white/70 px-3 py-1 text-[11px] font-semibold uppercase tracking-wider text-[var(--primary-deep)] backdrop-blur"
-          >
-            <Brain className="h-3.5 w-3.5" /> How it works
+          <motion.span {...fadeUp} className="sticker">
+            <Brain className="size-3.5" aria-hidden /> How it works
           </motion.span>
 
           <motion.h1
             {...fadeUp}
             transition={{ ...fadeUp.transition, delay: 0.08 }}
-            className="mt-6 font-display text-4xl font-bold tracking-tight text-foreground sm:text-5xl lg:text-6xl"
+            className="font-display text-foreground mt-6 text-4xl leading-[1.1] font-extrabold tracking-tight sm:text-5xl lg:text-6xl"
           >
-            Your child isn't lazy.
+            Your child isn&apos;t lazy.
             <br />
-            <span className="text-[var(--primary-deep)]">They're just forgetting.</span>
+            {/* The page turns on this one line, so it gets the highlighter and
+                nothing else on the screen does. */}
+            <span className="marker text-[var(--primary-deep)]">They&apos;re just forgetting.</span>
           </motion.h1>
 
           <motion.p

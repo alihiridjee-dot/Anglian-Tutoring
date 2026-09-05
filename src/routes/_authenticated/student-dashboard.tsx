@@ -1,3 +1,4 @@
+import { Mascot } from "@/components/Doodles";
 import { createFileRoute, redirect } from "@tanstack/react-router";
 import { AppLayout } from "@/components/AppLayout";
 import { useRoles } from "@/hooks/useRole";
@@ -60,22 +61,31 @@ export function StudentDashboard({ afterContent }: { afterContent?: ReactNode } 
     <AppLayout title="Student Dashboard">
       {/* Slim welcome ribbon — name on the left, the student's actual level and
           per-subject exam boards on the right. */}
-      <div className="rounded-2xl bg-gradient-to-br from-[var(--primary-deep)] to-[var(--primary)] text-primary-foreground px-5 py-4 sm:px-6 sm:py-5 mb-6 relative overflow-hidden border border-white/10 shadow-elegant">
-        <div
-          className="absolute inset-0 opacity-10"
-          style={{
-            backgroundImage: "radial-gradient(circle at 30% 20%, white 1.5px, transparent 1.5px)",
-            backgroundSize: "24px 24px",
-          }}
+      <div className="relative mb-6">
+        <Mascot
+          name="star"
+          mood="proud"
+          size={72}
+          idle={false}
+          className="peek-in pointer-events-none absolute -top-12 right-6 z-0 hidden text-[color:var(--primary-deep)] sm:block"
         />
-        <div className="relative flex flex-col gap-3 sm:flex-row sm:items-center sm:justify-between">
-          <div className="flex items-center gap-2.5">
-            <span className="w-2 h-2 rounded-full bg-accent animate-pulse shrink-0" />
-            <h2 className="font-display text-lg sm:text-xl font-bold tracking-tight text-white">
-              Welcome back, {displayName}
-            </h2>
+        <div className="text-primary-foreground shadow-elegant relative z-10 overflow-hidden rounded-2xl border-2 border-white/15 bg-gradient-to-br from-[var(--primary-deep)] to-[var(--primary)] px-5 py-4 sm:px-6 sm:py-5">
+          <div
+            className="absolute inset-0 opacity-10"
+            style={{
+              backgroundImage: "radial-gradient(circle at 30% 20%, white 1.5px, transparent 1.5px)",
+              backgroundSize: "24px 24px",
+            }}
+          />
+          <div className="relative flex flex-col gap-3 sm:flex-row sm:items-center sm:justify-between">
+            <div className="flex items-center gap-2.5">
+              <span className="w-2 h-2 rounded-full bg-accent animate-pulse shrink-0" />
+              <h2 className="font-display text-lg sm:text-xl font-bold tracking-tight text-white">
+                Welcome back, {displayName}
+              </h2>
+            </div>
+            <EnrolmentSummary enrolments={enrolments} level={level} />
           </div>
-          <EnrolmentSummary enrolments={enrolments} level={level} />
         </div>
       </div>
 

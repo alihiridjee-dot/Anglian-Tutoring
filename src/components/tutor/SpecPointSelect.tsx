@@ -3,6 +3,7 @@ import { supabase } from "@/integrations/supabase/client";
 import { Field } from "./Field";
 import { Search, X, ChevronDown, Layers } from "lucide-react";
 import { BOARDS, type SubjectV, type BoardV, type LevelV } from "@/lib/taxonomy";
+import { Spinner } from "@/components/Shared";
 
 type Row = {
   id: string;
@@ -257,7 +258,7 @@ export function SpecPointSelect({
 
         <div className="max-h-56 overflow-auto">
           {loading ? (
-            <p className="px-3 py-6 text-center text-sm text-muted-foreground">Loading…</p>
+            <Spinner label="Loading spec points" className="py-6" />
           ) : sections.length === 0 ? (
             <p className="px-3 py-6 text-center text-sm text-muted-foreground">
               {groups.length === 0

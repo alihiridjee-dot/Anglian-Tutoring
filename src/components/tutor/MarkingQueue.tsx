@@ -273,7 +273,7 @@ export function MarkingQueue() {
               <button
                 onClick={bulkDownload}
                 disabled={zipping}
-                className="ml-auto inline-flex items-center gap-2 h-9 px-4 rounded-lg bg-primary text-primary-foreground text-sm font-semibold hover:opacity-90 disabled:opacity-60"
+                className="ml-auto inline-flex items-center gap-2 h-9 px-4 rounded-lg btn-solid text-sm font-semibold hover:opacity-90 disabled:opacity-60"
               >
                 {zipping ? (
                   <Loader2 className="w-4 h-4 animate-spin" />
@@ -493,7 +493,7 @@ function MarkSubmissionCard({
                 </span>
               )}
             </div>
-            <p className="font-display font-semibold truncate">
+            <p className="font-display font-bold truncate">
               {sub.resource?.title ?? "Untitled homework"}
             </p>
             <p className="text-xs text-muted-foreground mt-0.5">
@@ -626,7 +626,7 @@ function MarkSubmissionCard({
             <button
               onClick={save}
               disabled={saving}
-              className="ml-auto inline-flex items-center gap-2 h-10 px-5 rounded-lg bg-primary text-primary-foreground text-sm font-semibold hover:opacity-90 disabled:opacity-60"
+              className="ml-auto inline-flex items-center gap-2 h-10 px-5 rounded-lg btn-solid text-sm font-semibold hover:opacity-90 disabled:opacity-60"
             >
               {saving ? (
                 <Loader2 className="w-4 h-4 animate-spin" />

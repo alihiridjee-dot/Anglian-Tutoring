@@ -58,7 +58,7 @@ function OnboardingLayout() {
       <div className="w-full max-w-2xl mx-auto">
         <div className="flex items-center justify-between mb-8">
           <BrandMark />
-          <span className="text-xs font-semibold text-muted-foreground tabular-nums">
+          <span className="chip tabular-nums">
             Step {Math.min(current + 1, total)} of {total}
           </span>
         </div>
@@ -67,7 +67,7 @@ function OnboardingLayout() {
             step — it reads as progress through a single flow instead of six
             unrelated segments. Labels sit under their own slice. */}
         <div className="mb-8 rise-in">
-          <div className="h-2 rounded-full bg-secondary overflow-hidden border border-border/60">
+          <div className="bg-secondary h-2.5 overflow-hidden rounded-full border-[1.5px] border-[color:color-mix(in_oklab,var(--tint)_22%,var(--edge))]">
             <div
               className="h-full rounded-full transition-[width] duration-500 ease-out"
               style={{ width: `${pct}%`, background: "var(--gradient-hero)" }}
@@ -80,19 +80,19 @@ function OnboardingLayout() {
               return (
                 <li key={step.path} className="flex-1 flex items-center gap-1.5 min-w-0">
                   {done ? (
-                    <span className="w-4 h-4 rounded-full bg-primary text-primary-foreground flex items-center justify-center shrink-0">
-                      <Check className="w-2.5 h-2.5" strokeWidth={3} />
+                    <span className="bg-primary text-primary-foreground pop-in flex size-4 shrink-0 items-center justify-center rounded-full">
+                      <Check className="size-2.5" strokeWidth={3} />
                     </span>
                   ) : (
                     <span
-                      className={`w-4 h-4 rounded-full shrink-0 border-2 ${
+                      className={`size-4 shrink-0 rounded-full border-2 ${
                         active ? "border-primary bg-primary/20" : "border-border"
                       }`}
                     />
                   )}
                   <span
-                    className={`text-[11px] truncate ${
-                      active ? "font-semibold text-foreground" : "text-muted-foreground"
+                    className={`truncate text-[11px] ${
+                      active ? "text-foreground font-bold" : "text-muted-foreground"
                     }`}
                   >
                     {step.label}

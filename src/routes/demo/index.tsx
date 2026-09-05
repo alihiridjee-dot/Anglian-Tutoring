@@ -125,13 +125,7 @@ function DemoCard({
         </ul>
       </div>
 
-      <span
-        className={`w-full py-4 rounded-xl font-semibold shadow-md group-hover:shadow-lg transition-all duration-200 flex items-center justify-center gap-2 ${
-          isStudent
-            ? "btn-solid group-"
-            : "bg-primary text-primary-foreground group-hover:opacity-90"
-        }`}
-      >
+      <span className="btn-solid flex w-full items-center justify-center gap-2 rounded-xl py-4 transition-all duration-200">
         {cta} <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
       </span>
     </Link>

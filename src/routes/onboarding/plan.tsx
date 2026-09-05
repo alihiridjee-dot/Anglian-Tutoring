@@ -1,3 +1,5 @@
+import { Mascot } from "@/components/Doodles";
+import { Spinner } from "@/components/Shared";
 import { createFileRoute, useNavigate } from "@tanstack/react-router";
 import { useEffect, useMemo, useState } from "react";
 import { useQueryClient } from "@tanstack/react-query";
@@ -167,13 +169,13 @@ function PlanStep() {
 
   if (search.checkout === "success") {
     return (
-      <div className="premium-card rounded-3xl p-10 text-center rise-in">
-        <Loader2 className="w-8 h-8 animate-spin mx-auto text-primary mb-4" />
-        <h1 className="font-display text-2xl font-semibold tracking-tight mb-2">
+      <div className="pop-card pop-card-hero rise-in p-10 text-center">
+        <Mascot name="rocket" mood="wow" size={96} className="mx-auto" />
+        <h1 className="font-display mt-4 mb-2 text-2xl font-extrabold tracking-tight">
           Confirming your payment…
         </h1>
-        <p className="text-sm text-muted-foreground">
-          This usually takes a couple of seconds. Don't close this tab.
+        <p className="text-muted-foreground text-sm">
+          This usually takes a couple of seconds. Don&apos;t close this tab.
         </p>
       </div>
     );
@@ -183,8 +185,8 @@ function PlanStep() {
   // at a student who only paused is the exact mistake this page guards against.
   if (planStatePending) {
     return (
-      <div className="premium-card rounded-3xl p-10 text-center">
-        <Loader2 className="w-6 h-6 animate-spin mx-auto text-muted-foreground" />
+      <div className="pop-card p-10 text-center">
+        <Spinner className="py-2" />
       </div>
     );
   }
@@ -196,7 +198,7 @@ function PlanStep() {
     return (
       <div className="premium-card rounded-3xl p-6 sm:p-8 rise-in space-y-4">
         <div>
-          <h1 className="font-display text-2xl font-semibold tracking-tight mb-1">
+          <h1 className="font-display text-2xl font-bold tracking-tight mb-1">
             Your plan is on hold
           </h1>
           <p className="text-sm text-muted-foreground">
@@ -225,16 +227,14 @@ function PlanStep() {
   return (
     <div className="space-y-4">
       <div className="premium-card rounded-3xl p-6 sm:p-8 rise-in">
-        <h1 className="font-display text-2xl font-semibold tracking-tight mb-1">Your plan</h1>
+        <h1 className="font-display text-2xl font-bold tracking-tight mb-1">Your plan</h1>
         <p className="text-sm text-muted-foreground mb-6">
           Built from the subjects you're studying with us. Choose how often you'd like to pay — your
           dashboard unlocks straight away, and you can cancel anytime.
         </p>
 
         {loading ? (
-          <div className="py-10 text-center">
-            <Loader2 className="w-5 h-5 animate-spin mx-auto text-muted-foreground" />
-          </div>
+          <Spinner className="py-10" />
         ) : (
           <>
             {/* Summary — what they're buying, read from their enrolments. */}
@@ -347,7 +347,7 @@ function PlanStep() {
       <div className="premium-card rounded-3xl p-6 sm:p-8 rise-in">
         <div className="flex items-center gap-2 mb-1">
           <Mail className="w-4 h-4 text-muted-foreground" />
-          <h2 className="font-display text-base font-semibold">Not your card to use?</h2>
+          <h2 className="font-display text-base font-bold">Not your card to use?</h2>
         </div>
         <p className="text-sm text-muted-foreground mb-4">
           Send your parent or guardian an invite. Once they link to your account, they can pay for

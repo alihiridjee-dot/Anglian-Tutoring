@@ -1,6 +1,6 @@
 import { Award } from "lucide-react";
 import type { FeedbackItem } from "@/hooks/data/useChildProgress";
-import { SUBJECT_TEXT, subjectLabel } from "@/components/parent/subjectTheme";
+import { SUBJECT_TEXT, subjectLabel } from "@/lib/subjectTheme";
 
 function timeAgo(iso: string): string {
   const days = Math.floor((Date.now() - new Date(iso).getTime()) / 86_400_000);

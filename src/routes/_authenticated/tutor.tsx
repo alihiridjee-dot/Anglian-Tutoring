@@ -1,5 +1,6 @@
 import { createFileRoute, useNavigate } from "@tanstack/react-router";
 import { useEffect, useState } from "react";
+import { Spinner } from "@/components/Shared";
 import { AppLayout } from "@/components/AppLayout";
 import { useRoles } from "@/hooks/useRole";
 import { useEnrolments } from "@/hooks/data/useEnrolments";
@@ -53,7 +54,12 @@ function Tutor() {
     }
   }, [loading, isTutor, navigate]);
 
-  if (!isTutor) return <AppLayout title="Tutor Studio">Loading…</AppLayout>;
+  if (!isTutor)
+    return (
+      <AppLayout title="Tutor Studio">
+        <Spinner />
+      </AppLayout>
+    );
 
   // Prefers the name set on the profile, so editing it there lands here too.
   const tutorName = resolveDisplayName(profileName, email);
@@ -101,7 +107,7 @@ function Tutor() {
             onClick={() => setTab(t.k)}
             className={`inline-flex items-center gap-2 px-4 py-2 rounded-lg text-sm font-medium border transition ${
               tab === t.k
-                ? "bg-primary text-primary-foreground border-primary"
+                ? "btn-solid border-primary"
                 : "bg-card border-border text-muted-foreground hover:text-foreground"
             }`}
           >

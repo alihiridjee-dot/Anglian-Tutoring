@@ -1,6 +1,6 @@
+import { Spinner } from "@/components/Shared";
 import { createFileRoute, useNavigate } from "@tanstack/react-router";
 import { useEffect, useState } from "react";
-import { Loader2 } from "lucide-react";
 import { supabase } from "@/integrations/supabase/client";
 import { StepCard } from "@/components/onboarding/StepCard";
 import { useEnrolments } from "@/hooks/data/useEnrolments";
@@ -48,9 +48,7 @@ function ConfidenceStep() {
       continueLabel="Continue"
     >
       {loading || !studentId ? (
-        <div className="py-10 text-center">
-          <Loader2 className="w-5 h-5 animate-spin mx-auto text-muted-foreground" />
-        </div>
+        <Spinner className="py-10" />
       ) : ordered.length === 0 || !level ? (
         <p className="text-sm text-muted-foreground">
           No subjects yet — you can set your confidence later from the planner.
@@ -109,11 +107,7 @@ function SubjectConfidence({
   };
 
   if (loading) {
-    return (
-      <div className="py-6 text-center">
-        <Loader2 className="w-4 h-4 animate-spin mx-auto text-muted-foreground" />
-      </div>
-    );
+    return <Spinner className="py-6" />;
   }
   // Say so rather than rendering nothing. A silent `null` here is what made the
   // whole step look broken when the curriculum came back empty — an unrateable

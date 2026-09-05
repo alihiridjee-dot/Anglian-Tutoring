@@ -186,7 +186,7 @@ function AuthPage() {
               <div className="w-14 h-14 bg-primary/10 rounded-2xl flex items-center justify-center mx-auto mb-5 text-primary">
                 <MailCheck className="w-7 h-7" />
               </div>
-              <h1 className="font-display text-2xl font-semibold tracking-tight mb-2">
+              <h1 className="font-display text-2xl font-bold tracking-tight mb-2">
                 Enter your code
               </h1>
               <p className="text-sm text-muted-foreground mb-7 leading-relaxed">

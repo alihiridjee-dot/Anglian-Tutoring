@@ -158,7 +158,7 @@ export function WeeklyPlanPanel({
             </div>
             <div>
               <div className="flex items-center gap-1.5">
-                <h2 className="font-display text-base font-semibold tracking-tight">
+                <h2 className="font-display text-base font-bold tracking-tight">
                   {isCurrent ? "This week" : isPast ? "Past week" : "Upcoming week"}
                 </h2>
                 {!isCurrent && (
@@ -184,7 +184,7 @@ export function WeeklyPlanPanel({
                     onClick={() => setActiveSubject(e.subject)}
                     className={`h-8 px-3 rounded-lg text-sm font-medium transition ${
                       e.subject === activeSubject
-                        ? "bg-primary text-primary-foreground"
+                        ? "btn-solid"
                         : "bg-muted text-muted-foreground hover:text-foreground"
                     }`}
                   >
@@ -341,7 +341,7 @@ function WeaknessInput({
           type="button"
           onClick={onSubmit}
           disabled={busy || !value.trim()}
-          className="inline-flex items-center gap-1.5 h-9 px-4 rounded-lg bg-primary text-primary-foreground text-sm font-semibold hover:opacity-90 disabled:opacity-50"
+          className="inline-flex items-center gap-1.5 h-9 px-4 rounded-lg btn-solid text-sm font-semibold hover:opacity-90 disabled:opacity-50"
         >
           {busy ? <Loader2 className="w-4 h-4 animate-spin" /> : <Wand2 className="w-4 h-4" />}
           Add to my week

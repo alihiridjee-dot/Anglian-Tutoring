@@ -119,7 +119,7 @@ export function CurriculumSyncPanel({ subject, board, level, onSynced }: Curricu
               />
               <button
                 onClick={handleParse}
-                className="w-full h-9 bg-primary text-primary-foreground rounded-xl text-xs font-semibold hover:bg-primary/90 transition-colors flex items-center justify-center gap-1.5"
+                className="w-full h-9 btn-solid rounded-xl text-xs font-semibold hover:bg-primary/90 transition-colors flex items-center justify-center gap-1.5"
               >
                 <RefreshCw className="w-3.5 h-3.5" />
                 Parse Text Specification

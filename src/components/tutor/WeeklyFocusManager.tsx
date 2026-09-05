@@ -14,6 +14,7 @@ import { currentWeekKey, mondayOf, weekRangeLabel } from "@/lib/week";
 import { useServerFn } from "@tanstack/react-start";
 import { refreshWeeklySummary } from "@/lib/weeklySummary.functions";
 import { levelLabel, subjectLabel } from "@/lib/courseSummary";
+import { Spinner } from "@/components/Shared";
 
 interface Props {
   userId: string;
@@ -162,7 +163,7 @@ export function WeeklyFocusManager({ userId, taxonomy }: Props) {
           Set for this week
         </p>
         {allLoading ? (
-          <p className="text-sm text-muted-foreground">Loading…</p>
+          <Spinner label="Loading focus" className="py-8" />
         ) : allPlans.length === 0 ? (
           <p className="text-sm text-muted-foreground italic">
             Nothing set yet — pick points below to start this week.

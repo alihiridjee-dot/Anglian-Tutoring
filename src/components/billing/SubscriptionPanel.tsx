@@ -162,7 +162,7 @@ export function SubscriptionPanel({
   return (
     <div>
       <div className="flex items-center gap-2 flex-wrap">
-        <p className="font-semibold text-lg">{planName}</p>
+        <p className="font-display text-lg font-bold">{planName}</p>
         <span
           className={`text-[10px] px-2 py-0.5 rounded-full border font-bold uppercase tracking-wider ${statusBadgeClass(sub.status)}`}
         >
@@ -209,7 +209,7 @@ export function SubscriptionPanel({
               <button
                 onClick={() => run("resume")}
                 disabled={manage.isPending}
-                className="inline-flex items-center gap-1.5 h-9 px-3.5 rounded-lg bg-primary text-primary-foreground text-sm font-semibold hover:opacity-90 disabled:opacity-50"
+                className="inline-flex items-center gap-1.5 h-9 px-3.5 rounded-lg btn-solid text-sm font-semibold hover:opacity-90 disabled:opacity-50"
               >
                 {manage.isPending ? (
                   <Loader2 className="w-4 h-4 animate-spin" />

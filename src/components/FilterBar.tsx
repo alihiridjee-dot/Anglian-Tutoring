@@ -21,7 +21,7 @@ export function FilterBar({ value, onChange }: { value: Filters; onChange: (f: F
           onClick={() => onSelect(undefined)}
           className={`px-3 py-1.5 text-xs rounded-full border transition ${
             !selected
-              ? "bg-primary text-primary-foreground border-primary"
+              ? "btn-solid border-primary"
               : "bg-secondary border-border text-muted-foreground hover:text-foreground"
           }`}
         >
@@ -33,7 +33,7 @@ export function FilterBar({ value, onChange }: { value: Filters; onChange: (f: F
             onClick={() => onSelect(o.value)}
             className={`px-3 py-1.5 text-xs rounded-full border transition ${
               selected === o.value
-                ? "bg-primary text-primary-foreground border-primary"
+                ? "btn-solid border-primary"
                 : "bg-secondary border-border text-muted-foreground hover:text-foreground"
             }`}
           >
