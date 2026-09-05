@@ -12,6 +12,8 @@ import { type Activity } from "./useWeekPlan";
 import { parseVideoUrl } from "@/lib/videoEmbed";
 import { VideoModal } from "@/components/VideoPlayer";
 import { SignedFileLink } from "@/components/SignedFileLink";
+import { SectionHeading, Meter } from "@/components/Shared";
+import { SUBJECT_TINT } from "@/lib/subjectTheme";
 
 /**
  * "What to do now" — the week as a single checklist.
@@ -37,11 +39,14 @@ import { SignedFileLink } from "@/components/SignedFileLink";
 export function DoNowPanel({
   points,
   activity,
+  subject,
   editable,
   onToggle,
 }: {
   points: PlanPoint[];
   activity: Activity;
+  /** The week's subject — tints the whole card to Biology/Chemistry/Physics. */
+  subject: string;
   /** Past weeks are read-only — you can look, but you can't tick history. */
   editable: boolean;
   onToggle: (specPointId: string, done: boolean) => void;
@@ -61,36 +66,32 @@ export function DoNowPanel({
   const embed = playing ? parseVideoUrl(playing.item.videoUrl) : null;
 
   return (
-    <div className="rounded-2xl premium-card p-4 sm:p-5 shadow-sm mb-4">
-      <div className="flex flex-wrap items-center justify-between gap-2 mb-1">
-        <div className="flex items-center gap-2.5">
-          <div className="w-9 h-9 rounded-xl bg-accent/10 text-accent flex items-center justify-center shrink-0">
-            <ListChecks className="w-5 h-5" />
-          </div>
-          <div>
-            <h2 className="font-display text-base font-semibold tracking-tight">What to do now</h2>
-            <p className="text-xs text-muted-foreground">
-              {allDone
-                ? "Everything ticked off — nice one. 🎯"
+    <div className={`rounded-2xl premium-card p-4 sm:p-5 mb-4 ${SUBJECT_TINT[subject] ?? ""}`}>
+      <div className="flex items-start gap-2.5">
+        <span className="icon-tile inline-flex w-9 h-9 shrink-0">
+          <ListChecks className="w-5 h-5" />
+        </span>
+        <div className="flex-1 min-w-0">
+          <SectionHeading
+            title="What to do now"
+            hint={
+              allDone
+                ? "Everything ticked off — nice one."
                 : next
                   ? `Next up: ${next.code} ${next.title}`
-                  : "Work through the list — tick each one off as you go."}
-            </p>
-          </div>
+                  : "Work through the list — tick each one off as you go."
+            }
+          >
+            <span className="numeral text-sm text-[color:var(--tint)]">
+              {doneCount} of {total} done
+            </span>
+          </SectionHeading>
         </div>
-        <span className="text-xs font-semibold tabular-nums text-muted-foreground">
-          {doneCount} of {total} done
-        </span>
       </div>
 
       {/* One bar for the whole week. The mastery bars upstairs say how well it's
           going; this one only says how far through it you are. */}
-      <div className="h-1.5 rounded-full bg-muted overflow-hidden my-3">
-        <div
-          className="h-full rounded-full bg-accent transition-[width] duration-300"
-          style={{ width: `${total ? (doneCount / total) * 100 : 0}%` }}
-        />
-      </div>
+      <Meter value={total ? (doneCount / total) * 100 : 0} size="sm" className="my-3" />
 
       <ul className="space-y-1.5">
         {points.map((p) => (
@@ -138,7 +139,9 @@ function ChecklistRow({
         disabled={!editable}
         onClick={() => onToggle(point.spec_point_id, !done)}
         className={`shrink-0 transition ${
-          done ? "text-accent" : "text-muted-foreground/40 hover:text-accent"
+          done
+            ? "text-[color:var(--tint)]"
+            : "text-muted-foreground/40 hover:text-[color:var(--tint)]"
         } ${editable ? "" : "cursor-default"}`}
       >
         {done ? <CheckCircle2 className="w-5 h-5" /> : <Circle className="w-5 h-5" />}
@@ -156,7 +159,7 @@ function ChecklistRow({
             type="button"
             onClick={() => onPlay(v)}
             title={v.title}
-            className="inline-flex items-center gap-1 h-6 px-2 rounded-md border border-border bg-card text-[11px] font-medium text-muted-foreground hover:text-primary hover:border-primary/40"
+            className="chip inline-flex text-[11px] hover:brightness-95"
           >
             <PlayCircle className="w-3 h-3" /> Watch
           </button>
@@ -167,7 +170,7 @@ function ChecklistRow({
             <SignedFileLink
               key={d.id}
               file={{ path: d.filePath, name: d.fileName ?? d.title }}
-              className="inline-flex items-center gap-1 h-6 px-2 rounded-md border border-border bg-card text-[11px] font-medium text-muted-foreground hover:text-primary hover:border-primary/40"
+              className="chip inline-flex text-[11px] hover:brightness-95"
             />
           ) : null,
         )}
@@ -179,7 +182,7 @@ function ChecklistRow({
             key={h.id}
             to="/homework"
             title={h.title}
-            className="inline-flex items-center gap-1 h-6 px-2 rounded-md border border-border bg-card text-[11px] font-medium text-muted-foreground hover:text-primary hover:border-primary/40"
+            className="chip inline-flex text-[11px] hover:brightness-95"
           >
             <ClipboardList className="w-3 h-3" /> Homework
           </Link>
@@ -191,7 +194,7 @@ function ChecklistRow({
             to="/mcq/$setId"
             params={{ setId: q.id }}
             title={q.title}
-            className="inline-flex items-center gap-1 h-6 px-2 rounded-md border border-border bg-card text-[11px] font-medium text-muted-foreground hover:text-primary hover:border-primary/40"
+            className="chip inline-flex text-[11px] hover:brightness-95"
           >
             <ListChecks className="w-3 h-3" /> Quiz
           </Link>

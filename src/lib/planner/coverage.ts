@@ -106,9 +106,19 @@ export interface StatusStyle {
    * carries its definition with it so no surface has to explain them again.
    */
   meaning: string;
-  /** Tailwind classes for the pill (bg + text + border), light/dark aware. */
+  /**
+   * The kit tint the status wears. `.chip` paints its own fill, text and
+   * border by mixing against `--tint`, so a status sets the tint and nothing
+   * else — hand-picked emerald/sky/amber triples were the reason these pills
+   * stayed the same five colours inside a violet Chemistry card.
+   */
   pill: string;
-  /** Solid background for a dot or a bar segment. */
+  /**
+   * Solid fill for a dot or a bar segment. Carries its own tint class as well
+   * as the colour, because these are used bare — the week review's legend
+   * stacks all five, and a dot that only read an inherited `--tint` would
+   * paint the whole legend one colour.
+   */
   dot: string;
 }
 
@@ -116,32 +126,32 @@ export const STATUS_STYLE: Record<PointStatus, StatusStyle> = {
   strong: {
     label: "Nailed it",
     meaning: `you scored ${STRONG_THRESHOLD}% or more`,
-    pill: "bg-emerald-500/10 text-emerald-700 dark:text-emerald-300 border-emerald-500/20",
-    dot: "bg-emerald-500",
+    pill: "tint-emerald",
+    dot: "tint-emerald bg-[color:var(--tint)]",
   },
   practised: {
     label: "Practised",
     meaning: "you did the work — it isn't marked yet",
-    pill: "bg-sky-500/10 text-sky-700 dark:text-sky-300 border-sky-500/20",
-    dot: "bg-sky-500",
+    pill: "tint-primary",
+    dot: "tint-primary bg-[color:var(--tint)]",
   },
   weak: {
     label: "Shaky",
     meaning: `you scored under ${STRONG_THRESHOLD}%`,
-    pill: "bg-amber-500/10 text-amber-700 dark:text-amber-300 border-amber-500/20",
-    dot: "bg-amber-500",
+    pill: "tint-amber",
+    dot: "tint-amber bg-[color:var(--tint)]",
   },
   not_done: {
     label: "Not done",
     meaning: "homework or a quiz is waiting on this one",
-    pill: "bg-muted text-muted-foreground border-border",
-    dot: "bg-muted-foreground/40",
+    pill: "tint-slate",
+    dot: "tint-slate bg-[color:var(--tint)]",
   },
   not_set: {
     label: "Nothing set",
     meaning: "nothing has been set on this one yet",
-    pill: "bg-muted/50 text-muted-foreground/80 border-dashed border-border",
-    dot: "bg-muted-foreground/25",
+    pill: "tint-slate opacity-70",
+    dot: "tint-slate bg-[color:var(--tint)] opacity-50",
   },
 };
 
