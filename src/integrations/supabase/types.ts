@@ -1292,6 +1292,7 @@ export type Database = {
         Row: {
           carried_from: string | null;
           created_at: string;
+          done_at: string | null;
           origin: Database["public"]["Enums"]["plan_point_origin"];
           plan_id: string;
           spec_point_id: string;
@@ -1299,6 +1300,7 @@ export type Database = {
         Insert: {
           carried_from?: string | null;
           created_at?: string;
+          done_at?: string | null;
           origin?: Database["public"]["Enums"]["plan_point_origin"];
           plan_id: string;
           spec_point_id: string;
@@ -1306,6 +1308,7 @@ export type Database = {
         Update: {
           carried_from?: string | null;
           created_at?: string;
+          done_at?: string | null;
           origin?: Database["public"]["Enums"]["plan_point_origin"];
           plan_id?: string;
           spec_point_id?: string;

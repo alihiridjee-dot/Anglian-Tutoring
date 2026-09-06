@@ -1,7 +1,13 @@
 import { supabase } from "@/integrations/supabase/client";
 import { type SubjectV, type BoardV, type LevelV } from "./taxonomy";
 import { type Database, type Json } from "@/integrations/supabase/types";
-import { type PointCoverage } from "./planner/coverage";
+import {
+  type PointCoverage,
+  type PointActivity,
+  type PointWork,
+  type PointWorkItem,
+  noWork,
+} from "./planner/coverage";
 import { mapAttemptSources } from "./planner/attemptSources";
 import { selectInSafe } from "./db/chunked";
 import { getSessionUserId } from "@/lib/auth/session";
@@ -62,11 +68,14 @@ export type PlanPoint = {
   origin: PlanPointOrigin;
   /** Monday of the week it was carried from, or null if planned for this week. */
   carried_from: string | null;
+  /** When the student ticked this point off their week, or null. */
+  done_at: string | null;
 };
 
 type PointRow = {
   origin: PlanPointOrigin;
   carried_from: string | null;
+  done_at: string | null;
   spec_points: {
     id: string;
     code: string;
@@ -107,7 +116,7 @@ export class WeeklyPlanDAL {
     const { data: rows } = await supabase
       .from("student_weekly_plan_points")
       .select(
-        "origin, carried_from, spec_points!inner(id, code, title, description, topic_id, sort_order, topics!inner(title, sort_order))",
+        "origin, carried_from, done_at, spec_points!inner(id, code, title, description, topic_id, sort_order, topics!inner(title, sort_order))",
       )
       .eq("plan_id", plan.id);
 
@@ -122,6 +131,7 @@ export class WeeklyPlanDAL {
         topic_title: r.spec_points!.topics?.title ?? null,
         origin: r.origin,
         carried_from: r.carried_from,
+        done_at: r.done_at,
         _ts: r.spec_points!.topics?.sort_order ?? 0,
         _ps: r.spec_points!.sort_order ?? 0,
       }))
@@ -224,59 +234,150 @@ export class WeeklyPlanDAL {
   }
 
   /**
-   * For a set of spec points, whether each has homework and/or a published quiz
-   * — so the weekly plan can show, per point, that practice is waiting. Batched
-   * into three `in` queries rather than N per-point lookups.
+   * For a set of spec points, the work attached to each — the videos, downloads,
+   * homework and quizzes themselves, not just a count of them.
+   *
+   * This used to return two booleans, which is all a "practice waiting" chip
+   * needs; the checklist has to open the thing, so it needs its id and title.
+   * The rows were already coming back — the resource join has always fetched
+   * every kind and then kept only homework — so naming them costs one extra
+   * lookup (quiz titles) rather than a new pass over the library.
+   *
+   * `hasHomework`/`hasQuiz` keep their old meaning exactly, unpublished quizzes
+   * included: they gate the week's review lock, and narrowing them here would
+   * quietly change when a student is allowed to close a week. Only `quizzes`
+   * filters to published sets, because only those have somewhere to link to.
    */
   static async getActivity(
     specPointIds: string[],
-  ): Promise<Map<string, { hasHomework: boolean; hasQuiz: boolean }>> {
-    const out = new Map<string, { hasHomework: boolean; hasQuiz: boolean }>();
+  ): Promise<Map<string, PointActivity & PointWork>> {
+    const out = new Map<string, PointActivity & PointWork>();
     if (specPointIds.length === 0) return out;
-    for (const id of specPointIds) out.set(id, { hasHomework: false, hasQuiz: false });
+    for (const id of specPointIds) out.set(id, { hasHomework: false, hasQuiz: false, ...noWork() });
 
-    const [res, directRes, taggedQ, directSets] = await Promise.all([
-      selectInSafe<{ spec_point_id: string; resources: { kind: string } | null }>(
-        specPointIds,
-        (batch) =>
-          supabase
-            .from("resource_spec_points")
-            .select("spec_point_id, resources!inner(kind)")
-            .in("spec_point_id", batch),
+    type ResRow = {
+      id: string;
+      kind: string;
+      title: string;
+      video_url: string | null;
+      file_path: string | null;
+      file_name: string | null;
+      due_at: string | null;
+    };
+    const RES_COLS = "id, kind, title, video_url, file_path, file_name, due_at";
+
+    const [joined, directRes, taggedQ, directSets] = await Promise.all([
+      selectInSafe<{ spec_point_id: string; resources: ResRow | null }>(specPointIds, (batch) =>
+        supabase
+          .from("resource_spec_points")
+          .select(`spec_point_id, resources!inner(${RES_COLS})`)
+          .in("spec_point_id", batch),
       ),
       // Homework linked straight off the resource rather than through the join
       // table. `mapAttemptSources` counts both, so this must too — a homework
       // visible to coverage but invisible here would let the review's lock open
       // on work it can't see.
-      selectInSafe<{ spec_point_id: string | null; kind: string }>(specPointIds, (batch) =>
-        supabase.from("resources").select("spec_point_id, kind").in("spec_point_id", batch),
+      selectInSafe<ResRow & { spec_point_id: string | null }>(specPointIds, (batch) =>
+        supabase.from("resources").select(`spec_point_id, ${RES_COLS}`).in("spec_point_id", batch),
       ),
-      selectInSafe<{ spec_point_id: string | null }>(specPointIds, (batch) =>
-        supabase.from("mcq_questions").select("spec_point_id").in("spec_point_id", batch),
+      selectInSafe<{ spec_point_id: string | null; set_id: string }>(specPointIds, (batch) =>
+        supabase.from("mcq_questions").select("spec_point_id, set_id").in("spec_point_id", batch),
       ),
-      selectInSafe<{ spec_point_id: string | null }>(specPointIds, (batch) =>
-        supabase.from("mcq_sets").select("spec_point_id").in("spec_point_id", batch),
+      selectInSafe<{ spec_point_id: string | null; id: string; title: string; published: boolean }>(
+        specPointIds,
+        (batch) =>
+          supabase
+            .from("mcq_sets")
+            .select("spec_point_id, id, title, published")
+            .in("spec_point_id", batch),
       ),
     ]);
 
-    for (const r of res) {
-      if (r.resources?.kind === "homework") {
-        const e = out.get(r.spec_point_id);
-        if (e) e.hasHomework = true;
+    /** File a resource under the list its kind belongs in, de-duplicated by id. */
+    const addResource = (specPointId: string | null, r: ResRow | null) => {
+      if (!specPointId || !r) return;
+      const e = out.get(specPointId);
+      if (!e) return;
+      const item: PointWorkItem = {
+        id: r.id,
+        title: r.title,
+        videoUrl: r.video_url,
+        filePath: r.file_path,
+        fileName: r.file_name,
+        dueAt: r.due_at,
+      };
+      const list =
+        r.kind === "homework"
+          ? e.homework
+          : r.kind === "video"
+            ? e.videos
+            : r.kind === "download"
+              ? e.downloads
+              : null;
+      // `live_session` resources belong to the live banner, not the checklist.
+      if (!list || list.some((x) => x.id === item.id)) return;
+      list.push(item);
+      if (r.kind === "homework") e.hasHomework = true;
+    };
+
+    for (const r of joined) addResource(r.spec_point_id, r.resources);
+    for (const r of directRes) addResource(r.spec_point_id, r);
+
+    // Both routes to a quiz: a set tagged to the point, and a set holding a
+    // question tagged to it. The first names itself; the second needs a lookup.
+    const setsForPoint = new Map<string, Set<string>>();
+    const known = new Map<string, { title: string; published: boolean }>();
+    const note = (specPointId: string | null, setId: string) => {
+      if (!specPointId || !out.has(specPointId)) return;
+      out.get(specPointId)!.hasQuiz = true;
+      const s = setsForPoint.get(specPointId) ?? new Set<string>();
+      s.add(setId);
+      setsForPoint.set(specPointId, s);
+    };
+    for (const r of directSets) {
+      known.set(r.id, { title: r.title, published: r.published });
+      note(r.spec_point_id, r.id);
+    }
+    for (const r of taggedQ) note(r.spec_point_id, r.set_id);
+
+    const missing = [...new Set([...setsForPoint.values()].flatMap((s) => [...s]))].filter(
+      (id) => !known.has(id),
+    );
+    if (missing.length) {
+      const rows = await selectInSafe<{ id: string; title: string; published: boolean }>(
+        missing,
+        (batch) => supabase.from("mcq_sets").select("id, title, published").in("id", batch),
+      );
+      for (const r of rows) known.set(r.id, { title: r.title, published: r.published });
+    }
+
+    for (const [specPointId, ids] of setsForPoint) {
+      const e = out.get(specPointId)!;
+      for (const id of ids) {
+        const meta = known.get(id);
+        if (!meta?.published) continue;
+        if (e.quizzes.some((q) => q.id === id)) continue;
+        e.quizzes.push({ id, title: meta.title });
       }
     }
-    for (const r of directRes) {
-      if (r.kind !== "homework" || !r.spec_point_id) continue;
-      const e = out.get(r.spec_point_id);
-      if (e) e.hasHomework = true;
-    }
-    for (const r of taggedQ) {
-      if (r.spec_point_id && out.has(r.spec_point_id)) out.get(r.spec_point_id)!.hasQuiz = true;
-    }
-    for (const r of directSets) {
-      if (r.spec_point_id && out.has(r.spec_point_id)) out.get(r.spec_point_id)!.hasQuiz = true;
-    }
+
     return out;
+  }
+
+  /**
+   * Tick a spec point off (or back onto) the week.
+   *
+   * The point must already be in the plan — the checklist only offers a box on
+   * points that are, so an unplanned point can't be marked done and then vanish
+   * on the next re-cut with nothing to show for it.
+   */
+  static async setPointDone(planId: string, specPointId: string, done: boolean): Promise<void> {
+    const { error } = await supabase
+      .from("student_weekly_plan_points")
+      .update({ done_at: done ? new Date().toISOString() : null })
+      .eq("plan_id", planId)
+      .eq("spec_point_id", specPointId);
+    if (error) throw error;
   }
 
   /** Persist the student's free-text note on the plan. */

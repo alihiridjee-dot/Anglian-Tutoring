@@ -1,4 +1,4 @@
-import { Spinner } from "@/components/Shared";
+import { Spinner, Meter } from "@/components/Shared";
 import { useMemo } from "react";
 import { Link } from "@tanstack/react-router";
 import {
@@ -278,16 +278,12 @@ export function ThisWeekPanel({
             {covered ? (
               <>
                 <CheckCircle2 className="w-3.5 h-3.5 text-emerald-600 dark:text-emerald-400" />
-                <span className="text-[10px] font-bold uppercase tracking-wide text-emerald-600 dark:text-emerald-400">
-                  Core topic · covered
-                </span>
+                <span className="eyebrow eyebrow-bare tint-emerald">Core topic · covered</span>
               </>
             ) : (
               <>
                 <CircleDot className="w-3.5 h-3.5 text-primary" />
-                <span className="text-[10px] font-bold uppercase tracking-wide text-primary">
-                  Core topic
-                </span>
+                <span className="eyebrow eyebrow-bare">Core topic</span>
               </>
             )}
             {band && (
@@ -350,7 +346,7 @@ export function ThisWeekPanel({
             once per topic, so the two halves read as one idea in two colours. */}
         <div className="h-full flex flex-col rounded-xl premium-card p-4">
           <div className="flex items-center gap-1.5 mb-1">
-            <FocusedTopicsLabel className="text-[10px] font-bold uppercase tracking-wide text-rose-600 dark:text-rose-400" />
+            <FocusedTopicsLabel className="eyebrow eyebrow-bare tint-rose" />
             {focus.length > 0 && (
               <span className="ml-auto text-[11px] text-muted-foreground">
                 {focusPointCount} to revisit
@@ -399,9 +395,7 @@ export function ThisWeekPanel({
         <div className="rounded-xl border border-border bg-muted/20 p-4">
           <div className="flex items-center gap-1.5 mb-2">
             <Plus className="w-3.5 h-3.5 text-muted-foreground" />
-            <span className="text-[10px] font-bold uppercase tracking-wide text-muted-foreground">
-              Added by you
-            </span>
+            <span className="eyebrow eyebrow-bare tint-slate">Added by you</span>
           </div>
           <div className="space-y-5">
             {yours.map((g) => (
@@ -432,10 +426,11 @@ export function ThisWeekPanel({
   );
 }
 
-const BAR: Record<"primary" | "rose" | "muted", string> = {
-  primary: "bg-primary",
-  rose: "bg-rose-500",
-  muted: "bg-muted-foreground/50",
+/** The kit paints meters from `--tint`, so an accent is a tint class now. */
+const ACCENT_TINT: Record<"primary" | "rose" | "muted", string> = {
+  primary: "tint-primary",
+  rose: "tint-rose",
+  muted: "tint-slate",
 };
 
 /**
@@ -467,12 +462,7 @@ function TopicBlock({
             <span className="text-muted-foreground">{masteryLabel}</span>
             <span className="font-semibold tabular-nums">{mastery}%</span>
           </div>
-          <div className="h-1.5 rounded-full bg-muted overflow-hidden">
-            <div
-              className={`h-full rounded-full transition-all ${BAR[accent]}`}
-              style={{ width: `${Math.max(2, mastery)}%` }}
-            />
-          </div>
+          <Meter value={Math.max(2, mastery)} size="sm" className={ACCENT_TINT[accent]} />
         </div>
       )}
       {children}
@@ -485,9 +475,7 @@ function SpecPointList({ count, children }: { count: number; children: React.Rea
   return (
     <div className="mt-3">
       <div className="flex items-center gap-1.5 mb-1.5">
-        <h3 className="text-[11px] font-bold uppercase tracking-wide text-muted-foreground">
-          This week's spec points
-        </h3>
+        <h3 className="eyebrow eyebrow-bare">This week&apos;s spec points</h3>
         <span className="text-[11px] text-muted-foreground/70 tabular-nums">{count}</span>
       </div>
       <div className="space-y-1.5">{children}</div>
@@ -511,11 +499,7 @@ function PracticeLink({
   return (
     <Link
       to={to}
-      className={`inline-flex items-center gap-1 h-6 px-2 rounded-md border text-[11px] font-medium ${
-        done
-          ? "bg-emerald-500/10 border-emerald-500/30 text-emerald-700 dark:text-emerald-300"
-          : "bg-card border-border text-muted-foreground hover:text-foreground"
-      }`}
+      className={`chip inline-flex text-[11px] hover:brightness-95 ${done ? "tint-emerald" : ""}`}
       title={done ? `${label} completed` : `${label} available`}
     >
       {done ? <CheckCircle2 className="w-3 h-3" /> : <Icon className="w-3 h-3" />}
