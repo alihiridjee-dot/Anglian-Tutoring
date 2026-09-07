@@ -78,10 +78,17 @@ export function TutorTake({
   const [nextPoints, setNextPoints] = useState<string[]>([]);
   const queryClient = useQueryClient();
   const noteKey = [...plannerKey(studentId), "tutor-note", plan.id, nextStart];
-  const savedQuery = useQuery({ queryKey: noteKey, queryFn: async () => {
-    const [tn, next] = await Promise.all([WeeklyPlanDAL.getTutorNote(plan.id), WeeklyPlanDAL.getPlan(studentId, subject, nextStart)]);
-    return { tn, next };
-  }, refetchOnWindowFocus: false });
+  const savedQuery = useQuery({
+    queryKey: noteKey,
+    queryFn: async () => {
+      const [tn, next] = await Promise.all([
+        WeeklyPlanDAL.getTutorNote(plan.id),
+        WeeklyPlanDAL.getPlan(studentId, subject, nextStart),
+      ]);
+      return { tn, next };
+    },
+    refetchOnWindowFocus: false,
+  });
   const loaded = savedQuery.isSuccess;
   const [savedNote, setSavedNote] = useState<string | null>(null);
   const [busy, setBusy] = useState<null | "save" | "apply">(null);
@@ -102,16 +109,23 @@ export function TutorTake({
     if (!savedQuery.data || hydratedPlan.current === plan.id) return;
     hydratedPlan.current = plan.id;
     const { tn, next } = savedQuery.data;
-    setNote(tn?.note ?? ""); setSavedNote(tn?.note ?? null); setNextPoints(tn?.next_points ?? []);
-    setExistingNext((next?.points ?? []).map((p) => ({ id: p.spec_point_id, code: p.code, title: p.title })));
+    setNote(tn?.note ?? "");
+    setSavedNote(tn?.note ?? null);
+    setNextPoints(tn?.next_points ?? []);
+    setExistingNext(
+      (next?.points ?? []).map((p) => ({ id: p.spec_point_id, code: p.code, title: p.title })),
+    );
   }, [plan.id, savedQuery.data]);
   const labelIds = [...new Set([...nextPoints, ...existingNext.map((p) => p.id)])].sort();
-  const labelQuery = useQuery({ queryKey: [...plannerKey(studentId), "point-labels", labelIds],
-    queryFn: () => WeeklyPlanDAL.getSpecPointLabels(labelIds), enabled: labelIds.length > 0 });
-  const labels = new Map((labelQuery.data ?? []).map((r) => [r.id, r]));
+  const labelQuery = useQuery({
+    queryKey: [...plannerKey(studentId), "point-labels", labelIds],
+    queryFn: () => WeeklyPlanDAL.getSpecPointLabels(labelIds),
+    enabled: labelIds.length > 0,
+  });
 
   // The resulting next-week focus = what's already there ∪ the tutor's new picks.
   const preview = useMemo(() => {
+    const labels = new Map((labelQuery.data ?? []).map((r) => [r.id, r]));
     const existingIds = new Set(existingNext.map((p) => p.id));
     const merged = [...existingNext];
     for (const id of nextPoints) {
@@ -121,7 +135,7 @@ export function TutorTake({
       }
     }
     return merged;
-  }, [existingNext, nextPoints, labels]);
+  }, [existingNext, nextPoints, labelQuery.data]);
 
   const saveTutorNote = async (input: Parameters<typeof WeeklyPlanDAL.saveTutorNote>[0]) => {
     await WeeklyPlanDAL.saveTutorNote(input);

@@ -36,7 +36,11 @@ import { FocusedTopicsHeaderCell, FocusKey, FocusPointsPanel, FocusTopicButton }
 import { focusHasDetail, focusRowKey } from "./focusMeta";
 
 function fmtDate(d: Date): string {
-  return d.toLocaleDateString(undefined, { timeZone: PLANNER_TIME_ZONE, day: "numeric", month: "short" });
+  return d.toLocaleDateString(undefined, {
+    timeZone: PLANNER_TIME_ZONE,
+    day: "numeric",
+    month: "short",
+  });
 }
 /** Stable identity for one focus-lane band — topic + kind + week it lands on. */
 function focusKey(b: PacingBand): string {
@@ -97,8 +101,12 @@ export function StudentPlanner({
   const prevFocus = useRef<{ course: string; keys: Set<string> } | null>(null);
   const [newFocusKeys, setNewFocusKeys] = useState<Set<string>>(new Set());
 
-  const courseParams = { studentId, subject: (activeCourseSubject ?? "biology") as SubjectV,
-    board: (activeBoard ?? "aqa") as BoardV, level };
+  const courseParams = {
+    studentId,
+    subject: (activeCourseSubject ?? "biology") as SubjectV,
+    board: (activeBoard ?? "aqa") as BoardV,
+    level,
+  };
   const roadQuery = usePlannerRoadmap(courseParams, boardRev, !!active);
   const memQuery = usePlannerMemory(courseParams, !!active);
   const data = roadQuery.data ?? null;
@@ -108,7 +116,11 @@ export function StudentPlanner({
     const course = `${studentId}|${activeCourseSubject}|${activeBoard}|${level}`;
     const keys = new Set((data?.bands ?? []).filter((b) => !isTeachBand(b)).map(focusKey));
     const prev = prevFocus.current;
-    setNewFocusKeys(prev && prev.course === course ? new Set([...keys].filter((k) => !prev.keys.has(k))) : new Set());
+    setNewFocusKeys(
+      prev && prev.course === course
+        ? new Set([...keys].filter((k) => !prev.keys.has(k)))
+        : new Set(),
+    );
     prevFocus.current = { course, keys };
   }, [data, studentId, activeCourseSubject, activeBoard, level]);
 

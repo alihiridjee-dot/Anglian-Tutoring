@@ -1,12 +1,22 @@
 /** The teaching calendar is UK time, independent of the viewer's location. */
 export const PLANNER_TIME_ZONE = "Europe/London";
 const partsFormatter = new Intl.DateTimeFormat("en-GB", {
-  timeZone: PLANNER_TIME_ZONE, year: "numeric", month: "2-digit", day: "2-digit",
-  hour: "2-digit", minute: "2-digit", second: "2-digit", hourCycle: "h23",
+  timeZone: PLANNER_TIME_ZONE,
+  year: "numeric",
+  month: "2-digit",
+  day: "2-digit",
+  hour: "2-digit",
+  minute: "2-digit",
+  second: "2-digit",
+  hourCycle: "h23",
 });
 function parts(d: Date): Record<string, number> {
-  return Object.fromEntries(partsFormatter.formatToParts(d)
-    .filter((p) => p.type !== "literal").map((p) => [p.type, Number(p.value)]));
+  return Object.fromEntries(
+    partsFormatter
+      .formatToParts(d)
+      .filter((p) => p.type !== "literal")
+      .map((p) => [p.type, Number(p.value)]),
+  );
 }
 export function toDateKey(d: Date): string {
   const p = parts(d);
@@ -44,11 +54,14 @@ export function addWeeks(monday: Date, n: number): Date {
   return shiftDays(monday, n * 7);
 }
 export const currentWeekKey = (now: Date = new Date()): string => toDateKey(mondayOf(now));
-export const plannerDateLabel = (d: Date, options: Intl.DateTimeFormatOptions = { day: "numeric", month: "short" }): string =>
-  d.toLocaleDateString("en-GB", { ...options, timeZone: PLANNER_TIME_ZONE });
+export const plannerDateLabel = (
+  d: Date,
+  options: Intl.DateTimeFormatOptions = { day: "numeric", month: "short" },
+): string => d.toLocaleDateString("en-GB", { ...options, timeZone: PLANNER_TIME_ZONE });
 export function weekRangeLabel(monday: Date): string {
   const sunday = sundayOf(monday);
-  const start = toDateKey(monday), end = toDateKey(sunday);
+  const start = toDateKey(monday),
+    end = toDateKey(sunday);
   const day = (s: string) => Number(s.slice(8));
   if (start.slice(0, 7) === end.slice(0, 7))
     return `${day(start)}–${day(end)} ${plannerDateLabel(sunday, { month: "short", year: "numeric" })}`;

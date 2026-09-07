@@ -28,7 +28,12 @@ alter table mcq_attempts enable row level security;
 create policy own_homework on homework_submissions for select to authenticated using(student_id = current_setting('test.viewer')::uuid);
 create policy own_quiz on mcq_attempts for select to authenticated using(user_id = current_setting('test.viewer')::uuid);
 `);
-await db.exec(readFileSync(new URL("../supabase/migrations/20260907120000_planner_read_models.sql", import.meta.url), "utf8"));
+await db.exec(
+  readFileSync(
+    new URL("../supabase/migrations/20260907120000_planner_read_models.sql", import.meta.url),
+    "utf8",
+  ),
+);
 const a = "00000000-0000-0000-0000-000000000001";
 const b = "00000000-0000-0000-0000-000000000002";
 const point = "00000000-0000-0000-0000-000000000003";
@@ -43,22 +48,42 @@ insert into homework_submissions values ('${a}','${a}','${a}',75,now(),now()), (
 insert into mcq_attempts select md5(i::text)::uuid,'${a}','${a}',1,1,now(),jsonb_build_object('${point}',100) from generate_series(1,1205) i;
 set role authenticated; set test.viewer = '${a}';
 `);
-const snapshot = (await db.query(`select planner_course_snapshot('${a}','biology','aqa','gcse') as data`)).rows[0].data;
-assert.equal(snapshot.attempts.length,1205, "RPC must not truncate history");
-assert.equal(snapshot.submissions.length,1);
-assert.equal(snapshot.sources.resourceLinks.length,1, "direct/junction links deduplicate");
-assert(snapshot.sources.setScope.some((s: any) => s.set_id === b && s.spec_point_id === "__unattributed__"));
-const other = (await db.query(`select planner_course_snapshot('${b}','biology','aqa','gcse') as data`)).rows[0].data;
-assert.equal(other.submissions.length,0, "RLS blocks other students' evidence");
-assert.equal(other.attempts.length,0);
-const privileges = (await db.query(`select
+const snapshot = (
+  await db.query(`select planner_course_snapshot('${a}','biology','aqa','gcse') as data`)
+).rows[0].data;
+assert.equal(snapshot.attempts.length, 1205, "RPC must not truncate history");
+assert.equal(snapshot.submissions.length, 1);
+assert.equal(snapshot.sources.resourceLinks.length, 1, "direct/junction links deduplicate");
+assert(
+  snapshot.sources.setScope.some(
+    (s: { set_id: string; spec_point_id: string }) =>
+      s.set_id === b && s.spec_point_id === "__unattributed__",
+  ),
+);
+const other = (
+  await db.query(`select planner_course_snapshot('${b}','biology','aqa','gcse') as data`)
+).rows[0].data;
+assert.equal(other.submissions.length, 0, "RLS blocks other students' evidence");
+assert.equal(other.attempts.length, 0);
+const privileges = (
+  await db.query(`select
  has_table_privilege('authenticated','student_spec_point_schedule','INSERT') as card_write,
  has_table_privilege('authenticated','student_spec_point_reviews','INSERT') as ledger_write,
  has_function_privilege('authenticated','record_reviews_atomic(jsonb)','EXECUTE') as rpc_write,
- has_function_privilege('anon','planner_attempt_sources(uuid[])','EXECUTE') as anon_read`)).rows[0];
-assert.deepEqual(privileges,{card_write:false,ledger_write:false,rpc_write:false,anon_read:false});
+ has_function_privilege('anon','planner_attempt_sources(uuid[])','EXECUTE') as anon_read`)
+).rows[0];
+assert.deepEqual(privileges, {
+  card_write: false,
+  ledger_write: false,
+  rpc_write: false,
+  anon_read: false,
+});
 await db.exec("reset role; set role service_role;");
-const job = (await db.query(`select planner_course_snapshot('${b}','biology','aqa','gcse') as data`)).rows[0].data;
-assert.equal(job.submissions.length,1, "service jobs can use the same read model");
+const job = (
+  await db.query(`select planner_course_snapshot('${b}','biology','aqa','gcse') as data`)
+).rows[0].data;
+assert.equal(job.submissions.length, 1, "service jobs can use the same read model");
 await db.close();
-console.log("Planner RPC checks passed: SQL execution, 1,205 attempts, attribution, RLS, anonymous denial, retired write denial, service access.");
+console.log(
+  "Planner RPC checks passed: SQL execution, 1,205 attempts, attribution, RLS, anonymous denial, retired write denial, service access.",
+);

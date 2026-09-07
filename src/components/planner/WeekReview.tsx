@@ -148,7 +148,11 @@ export function WeekReview({
   const [noteState, setNoteState] = useState<"idle" | "saving" | "sent">("idle");
   const checkinClient = useQueryClient();
   const checkinKey = [...plannerKey(studentId), "checkin", plan.id];
-  const checkin = useQuery({ queryKey: checkinKey, queryFn: () => WeeklyPlanDAL.getCheckin(plan.id), refetchOnWindowFocus: false });
+  const checkin = useQuery({
+    queryKey: checkinKey,
+    queryFn: () => WeeklyPlanDAL.getCheckin(plan.id),
+    refetchOnWindowFocus: false,
+  });
   const loaded = checkin.isSuccess;
   const [busy, setBusy] = useState<null | "confident" | "practice" | "carry">(null);
 
@@ -547,7 +551,8 @@ function tutorHeadline(s: WeekSummary): string {
  * "two homeworks left" is a thing the student can act on this afternoon.
  */
 function LockedCard({ lock }: { lock: ReturnType<typeof reviewLock> }) {
-  const opens = lock.opensOn.toLocaleDateString(undefined, { timeZone: PLANNER_TIME_ZONE,
+  const opens = lock.opensOn.toLocaleDateString(undefined, {
+    timeZone: PLANNER_TIME_ZONE,
     weekday: "long",
     day: "numeric",
     month: "short",

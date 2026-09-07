@@ -270,17 +270,23 @@ export function projectReviews(params: {
   const beyondExam = pending.filter((t) => t.eligible >= horizon).map((t) => t.c);
   // With uncapped reviews, each point goes directly into its first eligible
   // week. Sort once, rather than scanning and splicing the queue for every week.
-  const due = pending.filter((t) => t.eligible < horizon).map((t) => ({
-    ...t,
-    week: new Date(Math.max(current.getTime(), t.opening.getTime())),
-    dueMs: new Date(t.c.dueAt).getTime(),
-  }));
+  const due = pending
+    .filter((t) => t.eligible < horizon)
+    .map((t) => ({
+      ...t,
+      week: new Date(Math.max(current.getTime(), t.opening.getTime())),
+      dueMs: new Date(t.c.dueAt).getTime(),
+    }));
   const backlog = due.filter((t) => t.week >= horizon).map((t) => t.c);
-  const scheduled = due.filter((t) => t.week < horizon).sort((a, b) =>
-    a.week.getTime() - b.week.getTime() || a.dueMs - b.dueMs ||
-    (a.c.retention ?? 1) - (b.c.retention ?? 1) ||
-    a.c.specPointId.localeCompare(b.c.specPointId),
-  );
+  const scheduled = due
+    .filter((t) => t.week < horizon)
+    .sort(
+      (a, b) =>
+        a.week.getTime() - b.week.getTime() ||
+        a.dueMs - b.dueMs ||
+        (a.c.retention ?? 1) - (b.c.retention ?? 1) ||
+        a.c.specPointId.localeCompare(b.c.specPointId),
+    );
   const bands: PacingBand[] = [];
   const grouped = new Map<string, PacingBand>();
   for (const { c, week } of scheduled) {
@@ -289,15 +295,24 @@ export function projectReviews(params: {
     let band = grouped.get(groupKey);
     if (!band) {
       band = {
-        topicId: c.topicId, title: c.topicTitle,
-        startWeek: key, endWeek: key, weeks: 1, kind: "revisit", points: [],
+        topicId: c.topicId,
+        title: c.topicTitle,
+        startWeek: key,
+        endWeek: key,
+        weeks: 1,
+        kind: "revisit",
+        points: [],
       };
       grouped.set(groupKey, band);
       bands.push(band);
     }
     band.points!.push({
-      specPointId: c.specPointId, code: c.code, title: c.pointTitle,
-      weight: c.weight, dueAt: c.dueAt, eligibleAt: c.eligibleAt,
+      specPointId: c.specPointId,
+      code: c.code,
+      title: c.pointTitle,
+      weight: c.weight,
+      dueAt: c.dueAt,
+      eligibleAt: c.eligibleAt,
     });
   }
   return { bands, backlog, beyondExam };
@@ -479,10 +494,7 @@ export function selectWeekPoints(params: {
   const lanes: Record<string, WeekLane> = {};
   const seen = new Set<string>();
   /** Add each assigned point once, retaining its lane. */
-  const addPoints = (
-    items: { id: string; weight?: number }[],
-    lane: WeekLane,
-  ): number => {
+  const addPoints = (items: { id: string; weight?: number }[], lane: WeekLane): number => {
     let n = 0;
     for (const p of items) {
       if (seen.has(p.id)) continue;

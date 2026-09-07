@@ -62,7 +62,6 @@ export function scoreToRating(pct: number): Grade {
   return Rating.Easy;
 }
 
-
 /** Apply assessed evidence, preserving the raw FSRS due date. */
 export function applyReview(
   card: Card | null,
@@ -74,7 +73,6 @@ export function applyReview(
   const next = scheduler.next(base, now, grade).card;
   return { ...next, lapses: countsAsLapse ? next.lapses : base.lapses };
 }
-
 
 /**
  * FSRS retrievability: the probability (0–1) the student could recall this

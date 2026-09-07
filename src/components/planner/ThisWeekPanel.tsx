@@ -451,6 +451,10 @@ function PracticeLink({
 /** "13 Jul – 16 Aug" for a band's week keys. */
 function fmtRange(startWeek: string, endWeek: string): string {
   const fmt = (k: string) =>
-    weekKeyToDate(k).toLocaleDateString(undefined, { timeZone: PLANNER_TIME_ZONE, day: "numeric", month: "short" });
+    weekKeyToDate(k).toLocaleDateString(undefined, {
+      timeZone: PLANNER_TIME_ZONE,
+      day: "numeric",
+      month: "short",
+    });
   return `${fmt(startWeek)} – ${fmt(endWeek)}`;
 }

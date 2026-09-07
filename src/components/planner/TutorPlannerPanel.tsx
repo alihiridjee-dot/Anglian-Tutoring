@@ -40,10 +40,15 @@ import { subjectLabel } from "@/lib/courseSummary";
  * to the chosen student (tutor RLS on the plan tables allows it).
  */
 export function TutorPlannerPanel() {
-  const roster = useQuery({ queryKey: ["planner-roster"], queryFn: () => WeeklyPlanDAL.listStudents() });
+  const roster = useQuery({
+    queryKey: ["planner-roster"],
+    queryFn: () => WeeklyPlanDAL.listStudents(),
+  });
   const students = roster.data ?? null;
   const [studentId, setStudentId] = useState<string>("");
-  useEffect(() => { if (!studentId && students?.length) setStudentId(students[0].id); }, [students, studentId]);
+  useEffect(() => {
+    if (!studentId && students?.length) setStudentId(students[0].id);
+  }, [students, studentId]);
 
   const student = students?.find((s) => s.id === studentId) ?? null;
   const ordered = useMemo(
@@ -76,12 +81,24 @@ export function TutorPlannerPanel() {
   const [refreshToken, setRefreshToken] = useState(0);
   const bumpRefresh = () => setRefreshToken((n) => n + 1);
 
-  const week = useWeekPlan({ studentId, subject: (active?.subject ?? "biology") as SubjectV,
-    board: (active?.board ?? "aqa") as BoardV, level: student?.level ?? "gcse",
-    weekStart, isCurrent: false, withCoverage: showReview });
+  const week = useWeekPlan({
+    studentId,
+    subject: (active?.subject ?? "biology") as SubjectV,
+    board: (active?.board ?? "aqa") as BoardV,
+    level: student?.level ?? "gcse",
+    weekStart,
+    isCurrent: false,
+    withCoverage: showReview,
+  });
   const { plan, points, coverage, activity, roadmap, loading, reload } = week;
-  useEffect(() => { setPicking(false); setToAdd([]); }, [studentId, active?.subject, active?.board, weekStart]);
-  const remove = async (id: string) => { await week.removePoint(id); bumpRefresh(); };
+  useEffect(() => {
+    setPicking(false);
+    setToAdd([]);
+  }, [studentId, active?.subject, active?.board, weekStart]);
+  const remove = async (id: string) => {
+    await week.removePoint(id);
+    bumpRefresh();
+  };
 
   const addSelected = async () => {
     if (!student || !active || toAdd.length === 0) return;

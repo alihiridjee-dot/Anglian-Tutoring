@@ -45,11 +45,21 @@ export function CoveredLedger({
   }, [studentId]);
 
   const queryClient = useQueryClient();
-  const params = { studentId, subject: (active?.subject ?? "biology") as SubjectV,
-    board: (active?.board ?? "aqa") as BoardV, level };
-  const history = useQuery({ queryKey: [...courseKey(params), "history"],
-    queryFn: async () => ScheduleDAL.getCoveredLedger({ ...params, progress: await queryClient.fetchQuery(progressQuery(params)) }),
-    enabled: !!active });
+  const params = {
+    studentId,
+    subject: (active?.subject ?? "biology") as SubjectV,
+    board: (active?.board ?? "aqa") as BoardV,
+    level,
+  };
+  const history = useQuery({
+    queryKey: [...courseKey(params), "history"],
+    queryFn: async () =>
+      ScheduleDAL.getCoveredLedger({
+        ...params,
+        progress: await queryClient.fetchQuery(progressQuery(params)),
+      }),
+    enabled: !!active,
+  });
   const data = history.data ?? [];
   const loading = history.isLoading;
   const [expanded, setExpanded] = useState<Set<string>>(new Set());

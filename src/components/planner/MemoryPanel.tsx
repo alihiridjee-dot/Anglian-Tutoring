@@ -42,8 +42,15 @@ export function MemoryPanel({
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [studentId]);
 
-  const memoryQuery = usePlannerMemory({ studentId, subject: (active?.subject ?? "biology") as SubjectV,
-    board: (active?.board ?? "aqa") as BoardV, level }, !!active);
+  const memoryQuery = usePlannerMemory(
+    {
+      studentId,
+      subject: (active?.subject ?? "biology") as SubjectV,
+      board: (active?.board ?? "aqa") as BoardV,
+      level,
+    },
+    !!active,
+  );
   const stats = memoryQuery.data ?? null;
   const loading = memoryQuery.isLoading;
 

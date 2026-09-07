@@ -30,7 +30,11 @@ import { FocusedTopicsHeaderCell, FocusKey, FocusPointsPanel, FocusTopicButton }
 import { focusHasDetail, focusRowKey } from "./focusMeta";
 
 function fmtDate(d: Date): string {
-  return d.toLocaleDateString(undefined, { timeZone: PLANNER_TIME_ZONE, day: "numeric", month: "short" });
+  return d.toLocaleDateString(undefined, {
+    timeZone: PLANNER_TIME_ZONE,
+    day: "numeric",
+    month: "short",
+  });
 }
 function fmtRange(startKey: string, endKey: string): string {
   const start = weekKeyToDate(startKey);
@@ -83,8 +87,16 @@ export function RoadmapPanel({
   }, [studentId]);
 
   const queryClient = useQueryClient();
-  const roadmapQuery = usePlannerRoadmap({ studentId, subject: (active?.subject ?? "biology") as SubjectV,
-    board: (active?.board ?? "aqa") as BoardV, level }, refreshToken, !!active);
+  const roadmapQuery = usePlannerRoadmap(
+    {
+      studentId,
+      subject: (active?.subject ?? "biology") as SubjectV,
+      board: (active?.board ?? "aqa") as BoardV,
+      level,
+    },
+    refreshToken,
+    !!active,
+  );
   const data = roadmapQuery.data ?? null;
   const loading = roadmapQuery.isLoading;
   const [acking, setAcking] = useState(false);
@@ -114,7 +126,9 @@ export function RoadmapPanel({
     [data],
   );
 
-  const load = async () => { await invalidatePlanner(queryClient, studentId); };
+  const load = async () => {
+    await invalidatePlanner(queryClient, studentId);
+  };
 
   const acknowledge = async () => {
     if (!data || !active) return;
