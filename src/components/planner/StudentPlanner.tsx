@@ -1,3 +1,4 @@
+import { WithheldPlanPoints } from "./WithheldPlanPoints";
 import { ErrorNote } from "@/components/Shared";
 import { PLANNER_TIME_ZONE } from "@/lib/week";
 import { usePlannerRoadmap, usePlannerMemory } from "@/hooks/data/usePlanner";
@@ -348,6 +349,8 @@ function ThisWeekTab({
         />
       </section>
 
+      <WithheldPlanPoints points={week.withheld} coverage={week.coverage} />
+
       {week.plan && (
         <ScheduleComparison
           studentId={studentId}
@@ -361,6 +364,8 @@ function ThisWeekTab({
         />
       )}
       {/* Optional reflection and tutor feedback. */}
+      <WithheldPlanPoints points={week.withheld} coverage={week.coverage} />
+
       {week.plan && (
         <details className="premium-card rounded-xl p-3">
           <summary className="cursor-pointer text-sm font-bold">

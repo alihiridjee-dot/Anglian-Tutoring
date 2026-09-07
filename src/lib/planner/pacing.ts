@@ -242,6 +242,8 @@ export function mondayOnOrAfter(date: Date): Date {
  */
 export function projectReviews(params: {
   candidates: FocusCandidate[];
+  /** A review cannot precede acknowledged teaching, even with early evidence. */
+  topicOpenings?: ReadonlyMap<string, string>;
   currentMonday: Date;
   examMonday: Date;
 }): ReviewProjection {
@@ -274,7 +276,15 @@ export function projectReviews(params: {
     .filter((t) => t.eligible < horizon)
     .map((t) => ({
       ...t,
-      week: new Date(Math.max(current.getTime(), t.opening.getTime())),
+      week: new Date(
+        Math.max(
+          current.getTime(),
+          t.opening.getTime(),
+          params.topicOpenings?.get(t.c.topicId)
+            ? weekKeyToDate(params.topicOpenings.get(t.c.topicId)!).getTime()
+            : -Infinity,
+        ),
+      ),
       dueMs: new Date(t.c.dueAt).getTime(),
     }));
   const backlog = due.filter((t) => t.week >= horizon).map((t) => t.c);

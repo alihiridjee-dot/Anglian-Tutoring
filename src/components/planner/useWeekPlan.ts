@@ -1,6 +1,11 @@
 import { useCallback, useEffect, useRef } from "react";
 import { useMutation, useQuery, useQueryClient } from "@tanstack/react-query";
-import { WeeklyPlanDAL, type WeeklyPlan, type PlanPoint } from "@/lib/weeklyPlanDal";
+import {
+  WeeklyPlanDAL,
+  type WeeklyPlan,
+  type PlanPoint,
+  type WithheldPlanPoint,
+} from "@/lib/weeklyPlanDal";
 import { ProgramDAL, type RoadmapResult } from "@/lib/programDal";
 import { type SubjectV, type BoardV, type LevelV } from "@/lib/taxonomy";
 import { type PointCoverage, type PointActivity, type PointWork } from "@/lib/planner/coverage";
@@ -11,6 +16,7 @@ export type Activity = Map<string, PointActivity & PointWork>;
 export interface WeekPlanState {
   plan: WeeklyPlan | null;
   points: PlanPoint[];
+  withheld: WithheldPlanPoint[];
   activity: Activity;
   coverage: Map<string, PointCoverage>;
   roadmap: RoadmapResult | null;
@@ -65,7 +71,8 @@ export function useWeekPlan(params: {
     retry: false, // A query that can materialise a week must not replay writes automatically.
   });
   const points = week.data?.points ?? [];
-  const ids = points.map((p) => p.spec_point_id).sort();
+  const withheld = week.data?.withheld ?? [];
+  const ids = [...points, ...withheld.map((r) => r.point)].map((p) => p.spec_point_id).sort();
   const activity = useQuery({
     queryKey: [...courseKey(params), "activity", ids],
     queryFn: () => WeeklyPlanDAL.getActivity(ids),
@@ -105,6 +112,7 @@ export function useWeekPlan(params: {
   return {
     plan: week.data?.plan ?? null,
     points,
+    withheld,
     activity: activity.data ?? new Map(),
     coverage: withCoverage ? (coverage.data ?? new Map()) : new Map(),
     roadmap: params.roadmap !== undefined ? params.roadmap : (road.data ?? null),

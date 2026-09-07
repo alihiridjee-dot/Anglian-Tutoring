@@ -29,6 +29,28 @@ function createSupabaseFetch(supabaseKey: string): typeof fetch {
   };
 }
 
+/**
+ * Where Supabase should persist the session, when there is anywhere to persist it.
+ *
+ * `typeof window !== "undefined"` is not enough on its own. A browser with site
+ * data blocked *throws* on `localStorage` access rather than returning null, and
+ * anything that defines a bare `window` without a DOM — a test, a partial SSR
+ * shim — reaches this line and throws `ReferenceError`. Both took the client
+ * down at construction, which is the worst possible moment: the Proxy below
+ * builds it lazily on first use, so the failure surfaced as an unrelated query
+ * blowing up rather than as a storage problem.
+ *
+ * No storage means sessions live in memory for that page load, which is the
+ * correct degradation — the alternative is no client at all.
+ */
+function sessionStorageOrNone(): Storage | undefined {
+  try {
+    return typeof window !== "undefined" && window.localStorage ? window.localStorage : undefined;
+  } catch {
+    return undefined;
+  }
+}
+
 function createSupabaseClient() {
   // Use import.meta.env for client-side (Vite build-time replacement)
   // Fall back to process.env for SSR (server-side rendering)
@@ -51,7 +73,7 @@ function createSupabaseClient() {
       fetch: createSupabaseFetch(SUPABASE_PUBLISHABLE_KEY),
     },
     auth: {
-      storage: typeof window !== "undefined" ? localStorage : undefined,
+      storage: sessionStorageOrNone(),
       persistSession: true,
       autoRefreshToken: true,
     },

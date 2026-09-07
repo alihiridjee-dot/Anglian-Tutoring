@@ -1,3 +1,4 @@
+import { WithheldPlanPoints } from "./WithheldPlanPoints";
 import { ErrorNote } from "@/components/Shared";
 import { useMemo, useState } from "react";
 import { useServerFn } from "@tanstack/react-start";
@@ -252,6 +253,8 @@ export function WeeklyPlanPanel({
           />
         )}
       </div>
+
+      <WithheldPlanPoints points={week.withheld} coverage={week.coverage} />
 
       {/* The week as a checklist, between the plan and the review: the panel above
           says what this week is and why, this one says what to press. */}

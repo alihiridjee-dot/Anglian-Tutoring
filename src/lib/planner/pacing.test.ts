@@ -333,3 +333,45 @@ describe("engine robustness", () => {
     expect(a.backlog).toEqual([]);
   });
 });
+
+describe("reviews respect acknowledged teaching openings", () => {
+  const candidate: FocusCandidate = {
+    specPointId: "early",
+    topicId: "future",
+    topicTitle: "Future topic",
+    code: "B6",
+    pointTitle: "Early assessment",
+    dueAt: "2026-09-14T00:00:00+01:00",
+    eligibleAt: "2026-09-14T00:00:00+01:00",
+    lastReviewedAt: "2026-09-01T00:00:00Z",
+  };
+  test("early evidence waits for teaching instead of disappearing", () => {
+    const result = projectReviews({
+      candidates: [candidate],
+      currentMonday,
+      examMonday,
+      topicOpenings: new Map([["future", "2026-11-02"]]),
+    });
+    expect(result.bands[0].startWeek).toBe("2026-11-02");
+    expect(result.bands[0].points?.[0].specPointId).toBe("early");
+  });
+  test("a review due after opening keeps its later eligibility", () => {
+    const result = projectReviews({
+      candidates: [{ ...candidate, dueAt: "2026-12-07T00:00:00Z" }],
+      currentMonday,
+      examMonday,
+      topicOpenings: new Map([["future", "2026-11-02"]]),
+    });
+    expect(result.bands[0].startWeek).toBe("2026-12-07");
+  });
+  test("teaching beyond the exam is reported as backlog, never silently removed", () => {
+    const result = projectReviews({
+      candidates: [candidate],
+      currentMonday,
+      examMonday,
+      topicOpenings: new Map([["future", "2027-06-14"]]),
+    });
+    expect(result.bands).toEqual([]);
+    expect(result.backlog).toEqual([candidate]);
+  });
+});

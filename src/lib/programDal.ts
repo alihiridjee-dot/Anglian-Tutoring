@@ -21,6 +21,12 @@ import {
   selectWeekPoints,
   withWeeklyPoints,
 } from "./planner/pacing";
+import {
+  hasStudentHistory,
+  partition,
+  spineReach,
+  type RejectionReason,
+} from "./planner/admissibility";
 import { WeeklyPlanDAL, type PlanPointOrigin } from "./weeklyPlanDal";
 import { type PointCoverage } from "./planner/coverage";
 
@@ -67,6 +73,16 @@ export function handPicked(origin: PlanPointOrigin): boolean {
   return origin === "student" || origin === "tutor";
 }
 
+/** One point the admissibility rule kept out of a week, with its reason. */
+export interface InadmissiblePoint {
+  specPointId: string;
+  code: string;
+  title: string;
+  topicId: string;
+  topicTitle: string;
+  reason: RejectionReason;
+}
+
 export interface RoadmapResult {
   /** The live curriculum bands (past/current/future), most-recent first order. */
   bands: PacingBand[];
@@ -87,6 +103,15 @@ export interface RoadmapResult {
   /** Per-topic mastery + spec-point breakdown, for the expandable timeline. */
   progress: TopicProgress[];
   reviewBacklog: FocusCandidate[];
+  /**
+   * Points the programme refused to assign, and why — work that would otherwise
+   * have been scheduled for a topic the spine has not reached, a course the
+   * student is not on, or a review with nothing behind it. Reported rather than
+   * silently dropped, so the tutor's attention panel can show what was withheld
+   * instead of the student quietly receiving material they have never been
+   * taught. See [[admissibility]].
+   */
+  inadmissible: InadmissiblePoint[];
   unscheduledTopicTitles: string[];
   /** Exam-horizon backlog reporting for the roadmap and weekly plan. */
   focusLoad: FocusLoad;
@@ -158,22 +183,77 @@ export class ProgramDAL {
     // roadmap and the week are about to be cut from.
     const examMonday = baseline ? weekKeyToDate(baseline.exam_date) : examMondayFor();
 
+    // The spine is a pure function of (enrolment week, exam date, topic weights),
+    // so it is computed once, before anything is allowed into a week. Its reach
+    // is what the admissibility rule tests against: a review cannot be assigned
+    // for a topic the programme has not opened yet, however good the FSRS
+    // evidence behind it looks. See [[admissibility]].
+    const start = baseline ? weekKeyToDate(baseline.program_start) : thisMonday;
+    const live = computePacing(topics, start, examMonday);
+    // The acknowledged spine, not the live recomputation, so this agrees with
+    // the `plan_point_admissible` trigger — which reads the same stored pacing.
+    // Two enforcement layers answering the same question differently is worse
+    // than either answer. Falls back to `live` only before a baseline exists.
+    const reach = spineReach(baseline ? (baseline.pacing as unknown as PacingBand[]) : live);
+    const thisWeek = toDateKey(thisMonday);
+    const examDate = baseline ? baseline.exam_date : toDateKey(examMonday);
+    const inadmissible: InadmissiblePoint[] = [];
+
     const savedWeek = params.projectOnly
       ? null
       : await WeeklyPlanDAL.getPlan(studentId, subject, toDateKey(thisMonday));
     const savedIds = new Set(savedWeek?.points.map((p) => p.spec_point_id) ?? []);
     // A saved assignment owns this week. Never project a second copy of pending work.
-    const projection = projectReviews({
-      ...focus,
-      candidates: focus.candidates.filter(
+    const eligible = partition(
+      focus.candidates.filter(
         (p) => !savedIds.has(p.specPointId) || new Date(p.lastReviewedAt) >= thisMonday,
       ),
+      (c) => ({
+        specPointId: c.specPointId,
+        topicId: c.topicId,
+        origin: "focus",
+        // A candidate only exists because assessed practice produced a card.
+        hasEvidence: true,
+        onCourse: true,
+      }),
+      // Projection starts at the week the plan is being cut for, so that is the
+      // week the spine test has to answer for.
+      {
+        reach: new Map(),
+        weekStart: savedWeek ? toDateKey(addWeeks(thisMonday, 1)) : thisWeek,
+        examDate,
+      },
+    );
+    for (const { point, reason } of eligible.rejected)
+      inadmissible.push({
+        specPointId: point.specPointId,
+        code: point.code,
+        title: point.pointTitle,
+        topicId: point.topicId,
+        topicTitle: point.topicTitle,
+        reason,
+      });
+    const projection = projectReviews({
+      ...focus,
+      candidates: eligible.admitted,
+      topicOpenings: reach,
       currentMonday: savedWeek ? addWeeks(thisMonday, 1) : thisMonday,
       examMonday,
     });
     if (savedWeek) {
+      // All saved-week consumers use the DAL's same active/history split.
+      const admitted = savedWeek.points.filter((p) => p.origin === "focus");
+      for (const { point, reason } of savedWeek.withheld)
+        inadmissible.push({
+          specPointId: point.spec_point_id,
+          code: point.code,
+          title: point.title,
+          topicId: point.topic_id,
+          topicTitle: point.topic_title ?? "",
+          reason,
+        });
       const grouped = new Map<string, typeof savedWeek.points>();
-      for (const p of savedWeek.points.filter((p) => p.origin === "focus")) {
+      for (const p of admitted) {
         grouped.set(p.topic_id, [...(grouped.get(p.topic_id) ?? []), p]);
       }
       for (const [topicId, points] of grouped)
@@ -181,8 +261,8 @@ export class ProgramDAL {
           topicId,
           title: points[0].topic_title ?? "Assigned review",
           kind: "revisit",
-          startWeek: toDateKey(thisMonday),
-          endWeek: toDateKey(thisMonday),
+          startWeek: thisWeek,
+          endWeek: thisWeek,
           weeks: 1,
           points: points.map((p) => ({
             specPointId: p.spec_point_id,
@@ -191,7 +271,6 @@ export class ProgramDAL {
           })),
         });
     }
-    const start = baseline ? weekKeyToDate(baseline.program_start) : thisMonday;
     const teachingWeeksShort = Math.max(
       0,
       topics.length - Math.max(0, weeksBetween(start, examMonday)),
@@ -200,9 +279,7 @@ export class ProgramDAL {
     if (!baseline) {
       // First view = enrolment: this Monday becomes the student's permanent
       // spine anchor, and their runway to the exam sets the weekly pace.
-      const live = computePacing(topics, thisMonday, examMonday);
       const programStart = toDateKey(thisMonday);
-      const examDate = toDateKey(examMonday);
 
       // Seed the acknowledged baseline so the first view is calm (no diff) —
       // but ONLY when the student is the one looking.
@@ -243,6 +320,7 @@ export class ProgramDAL {
         coveredTopicIds: [...coveredTopicIds],
         progress,
         reviewBacklog: projection.backlog,
+        inadmissible,
         unscheduledTopicTitles: topics
           .slice(Math.max(0, topics.length - teachingWeeksShort))
           .map((t) => t.title),
@@ -255,10 +333,9 @@ export class ProgramDAL {
       };
     }
 
-    // The spine is a pure function of (enrolment week, exam date, topic
-    // weights) — recomputing it here only ever differs from the stored baseline
-    // when the exam date moved or the curriculum itself changed.
-    const live = computePacing(topics, weekKeyToDate(baseline.program_start), examMonday);
+    // `live` was recomputed above from the same inputs — it only ever differs
+    // from the stored baseline when the exam date moved or the curriculum
+    // itself changed.
     const changes = diffPacing(baseline.pacing as unknown as PacingBand[], live);
     return {
       bands: mergeFocus(withWeeklyPoints(live, pointsByTopic), projection.bands),
@@ -270,6 +347,7 @@ export class ProgramDAL {
       coveredTopicIds: [...coveredTopicIds],
       progress,
       reviewBacklog: projection.backlog,
+      inadmissible,
       unscheduledTopicTitles: topics
         .slice(Math.max(0, topics.length - teachingWeeksShort))
         .map((t) => t.title),
@@ -306,7 +384,23 @@ export class ProgramDAL {
     if (roadmap) {
       if (weekStart >= roadmap.examDate) return { specPointIds: [], origins: {}, rationale: "" };
       const { specPointIds, lanes, teachTitle, focusCount, teachCount } = selectWeekPoints({
-        bands: roadmap.bands,
+        bands: [
+          ...withWeeklyPoints(
+            roadmap.baselineBands,
+            new Map(
+              roadmap.progress.map((t) => [
+                t.topicId,
+                t.points.map((p) => ({
+                  specPointId: p.id,
+                  code: p.code,
+                  title: p.title,
+                  weight: p.weight,
+                })),
+              ]),
+            ),
+          ),
+          ...roadmap.bands.filter((b) => !isTeachBand(b)),
+        ],
         weekStart,
         topics: roadmap.progress,
       });
@@ -344,7 +438,14 @@ export class ProgramDAL {
     const existing = await WeeklyPlanDAL.getPlan(studentId, subject, weekStart);
     if (!existing) return false; // nothing saved yet — the normal build path owns this
 
-    const fresh = await this.planForWeek(params);
+    const roadmap = await this.loadRoadmap({
+      studentId,
+      subject,
+      board,
+      level,
+      projectOnly: true,
+    });
+    const fresh = await this.planForWeek({ ...params, roadmap });
 
     const coverage = await WeeklyPlanDAL.getCoverage(
       studentId,
@@ -354,11 +455,11 @@ export class ProgramDAL {
 
     // Completed attempts remain visible too: re-planning must not erase progress.
     const inFlight = (id: string): boolean => !!coverage.get(id)?.attempted;
-    // A carried point survives a re-cut whether or not it has been touched:
-    // carrying it forward was a decision that it needs another week, and
-    // re-planning the week is not a reason to overturn it.
+    // getPlan exposes only admissible work here. Withheld history is preserved
+    // by save_weekly_plan itself; resubmitting it would re-trigger admission.
     const keep = existing.points.filter(
-      (p) => handPicked(p.origin) || p.done_at || p.carried_from || inFlight(p.spec_point_id),
+      (p) =>
+        handPicked(p.origin) || hasStudentHistory({ ...p, attempted: inFlight(p.spec_point_id) }),
     );
 
     // Kept points first so their original lane wins the merge. Both planners
@@ -389,7 +490,7 @@ export class ProgramDAL {
     const before = new Set(existing.points.map((p) => p.spec_point_id));
     const unchanged =
       specPointIds.length === before.size && specPointIds.every((id) => before.has(id));
-    if (unchanged) return false;
+    if (unchanged && existing.withheld.length === 0) return false;
 
     await WeeklyPlanDAL.savePlan({
       studentId,

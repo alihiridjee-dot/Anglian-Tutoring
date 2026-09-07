@@ -62,7 +62,7 @@ For authentication & the live/demo session model, see [docs/AUTHENTICATION.md](d
     │       └── types.ts            # Generated DB types (supabase gen types)
     │
     ├── lib/
-    │   ├── planner/           # Pure FSRS/pacing/coverage, RPC adapters and shared query keys
+    │   ├── planner/           # Pure FSRS/pacing/coverage/admissibility, RPC adapters, query keys
     │   ├── programDal.ts      # Fixed teaching + eligible reviews; programme persistence
     │   ├── scheduleDal.ts     # Graded-source reconstruction; no client-written memory
     │   ├── weeklyPlanDal.ts   # Saved assignments, weekly activity/coverage and tutor roster
@@ -213,7 +213,9 @@ The engine has four layers, with deliberately separate responsibilities:
    role can call the same functions for future scheduled jobs.
 2. **Pure calculations:** `planner/scheduler.ts` applies FSRS to assessed evidence;
    `planner/pacing.ts` allocates teaching and eligible reviews;
-   `planner/coverage.ts` evaluates activity within a particular assigned week.
+   `planner/coverage.ts` evaluates activity within a particular assigned week;
+   `planner/admissibility.ts` decides whether a point may be assigned in a week at
+   all.
    Teaching uses the entire pre-exam window. Reviews have no weekly count/weight
    cap, but retain the 168-hour minimum and next London Monday opening.
 3. **Data composition:** `ScheduleDAL` reconstructs memory from homework grades
@@ -233,6 +235,29 @@ prevents duplicate work within one application instance; database constraints an
 atomic save routines remain necessary across devices. Existing weeks are never
 silently re-cut by cache refreshes. Unstarted automatic work is replaced only via
 explicit comparison; started/completed/carried/manual work is retained.
+
+**Admissibility** is a separate question from scheduling, and it is asked in one
+place. A review's own logic is self-consistent — evidence produces a card, a card
+produces a next review — but evidence can exist ahead of teaching, because a quiz
+tagged across several topics scores every point it touches. Reviews were therefore
+being assigned for topics the spine had not opened. `planner/admissibility.ts`
+holds the rule: the point must be on the plan's course, and for automatic origins
+its topic's teach band must have opened by that week. Hand-picked origins
+(`student`, `tutor`) may outrun the spine deliberately. It is applied when a week
+is generated, when saved weeks are read back (so stored mistakes stop rendering
+without a data migration), at the `WeeklyPlanDAL` write chokepoint, and by the
+`plan_point_admissible` trigger. An inadmissible point carrying the student's own
+work — done, carried or attempted — is quarantined rather than deleted; the
+completion-protection rules exist to preserve student work, not to make a
+scheduling mistake permanent, which is what they had been doing.
+A plan being *internally* consistent is a different question from its being a
+plan this student should have. `student_program_plan` is keyed on (student, subject)
+and carries no board or level; `student_weekly_plans` carries both. Nothing tied
+them together, so a week could be generated from one board's curriculum and saved
+for a student enrolled on another — and one was. `plan_matches_enrolment` now checks
+a plan's board and level against `student_enrolments` and the student's profile.
+`scripts/audit-plan-integrity.ts` sweeps every saved week for both classes of
+violation.
 
 ### Security and rollout
 
