@@ -74,7 +74,7 @@ export function ThisWeekPanel({
   // The spine band this week sits in — the core topic, whether or not it still
   // has points outstanding.
   const band: PacingBand | null = useMemo(() => {
-    const bands = roadmap?.bands ?? [];
+    const bands = roadmap?.baselineBands ?? [];
     return (
       bands.find((b) => isTeachBand(b) && b.startWeek <= weekStart && b.endWeek >= weekStart) ??
       null

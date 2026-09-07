@@ -1,3 +1,4 @@
+import { WithheldPlanPoints } from "./WithheldPlanPoints";
 import { ErrorNote } from "@/components/Shared";
 import { useQuery, useQueryClient } from "@tanstack/react-query";
 import { useWeekPlan } from "./useWeekPlan";
@@ -336,6 +337,8 @@ export function TutorPlannerPanel() {
                 </div>
               ))
             )}
+
+            <WithheldPlanPoints points={week.withheld} coverage={week.coverage} />
 
             {/* Add spec points */}
             {picking ? (

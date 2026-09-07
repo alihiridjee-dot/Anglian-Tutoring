@@ -59,7 +59,7 @@ export function ScheduleComparison({
       const { data, error: migrationError } = await supabase.rpc(
         "assessment_scheduler_version" as never,
       );
-      if (migrationError || Number(data) < 2)
+      if (migrationError || !Number.isFinite(Number(data)) || Number(data) < 4)
         throw new Error(
           "The scheduler database update must be installed before replacing an existing week. You can still compare the proposal here.",
         );
@@ -79,8 +79,8 @@ export function ScheduleComparison({
         Compare with the assessment-driven schedule
       </summary>
       <p className="my-2 text-sm text-muted-foreground">
-        Completed, started and manually added work stays. Only unstarted automatic assignments can
-        change.
+        Completed, started and manually added work is preserved. Assignments outside the programme’s
+        rules remain in saved history instead of the active week.
       </p>
       {busy ? (
         <Spinner />

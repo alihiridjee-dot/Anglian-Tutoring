@@ -39,9 +39,40 @@ Apply these migrations in order through the normal Supabase deployment process:
 3. `20260907120000_planner_read_models.sql`: adds RLS-preserving course and
    assessment-scope RPCs and revokes client writes to retired memory tables/RPCs.
 
-These migrations have not been applied to the hosted database by this task.
-Until the read RPCs exist, the application falls back to direct graded-source reads.
-Only missing-function errors permit fallback. Historical confidence, stored cards
+4. `20260907130000_plan_point_admissibility.sql`: enforces, in the database, that
+   a weekly plan holds only work the programme has reached. Two rules — the spec
+   point must be on the plan's own course (every origin), and for automatic
+   origins its topic's teach band must have opened by the plan's week. Hand-picked
+   origins (`student`, `tutor`) are exempt from the second, so explicit tutor and
+   student overrides to spacing still work. The test reads the acknowledged
+   `student_program_plan.pacing`, not a live recomputation: until a student
+   accepts a moved exam date, the stored spine is the one they are living by.
+   Bumps `assessment_scheduler_version()` to 3. Applied in three steps — function
+   and index, then the trigger, then the version — so that a parse failure could
+   never leave a broken trigger live on the table. Verified with a rolled-back
+   transaction covering all three outcomes: an ahead-of-spine automatic point
+   rejected, another course's point rejected even for a tutor, and a valid
+   hand-picked point accepted.
+
+   The same migration adds `plan_matches_enrolment` on `student_weekly_plans`:
+   a plan's board must appear in the student's `student_enrolments` for that
+   subject, and its level must match their profile. The point-level rule cannot
+   see this case — it compares a topic to the *plan's* board, so a wholly wrong
+   plan holding wholly matching points agrees with itself and passes. An Edexcel
+   GCSE chemistry student had one AQA week, generator rationale and all, sitting
+   between three correct Edexcel weeks; it was removed on 2026-09-07 along with
+   its three points. Both rules fail open where there is nothing to compare
+   against — no enrolment row, no profile level — because the rule refuses a
+   contradiction, never an absence. The root cause of the wrong-board generation
+   is not yet identified; a tutor's board filter reaching `planForWeek` is the
+   leading candidate and is worth confirming.
+
+All four are applied to the hosted database as of 2026-09-07, verified against
+`pg_proc`/`information_schema` rather than the migration history table, which is
+not a reliable record in this project. `assessment_scheduler_version()` returns 3.
+The application still falls back to direct graded-source reads when a read RPC is
+missing, so it remains safe against an older database; only missing-function
+errors permit that fallback. Historical confidence, stored cards
 and client-written review ledger rows are never used as evidence. Grading invalidates
 React Query caches; it does not write derived memory. Old single-skill quiz totals
 remain eligible evidence when attribution is unambiguous.
@@ -70,6 +101,12 @@ Do not drop confidence history or snapshot columns as a rollback operation.
 - Memory reconstruction reads source history rather than persisting a new versioned
   cache; profile this with large real histories before a broad production rollout.
 - Existing explicit carry/add-practice controls remain human overrides to spacing.
+- Assignment admissibility is one rule in `src/lib/planner/admissibility.ts`, applied
+  at generation, at read-back of saved weeks, at the DAL write chokepoint and in the
+  database trigger. An inadmissible point with completion, carry or attempt history
+  is quarantined — kept but withheld from the week — rather than deleted; one
+  without is dropped on the next re-cut. `bun run scripts/audit-plan-integrity.ts`
+  sweeps every saved week for violations and exits non-zero when it finds any.
 
 Validation covers deterministic FSRS updates, confidence exclusion, assessment
 snapshot attribution, weekly completion boundaries, seven-day eligibility, Monday
