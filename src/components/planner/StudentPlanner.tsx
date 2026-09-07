@@ -35,6 +35,7 @@ import { subjectLabel } from "@/lib/courseSummary";
 import { PointRow } from "./PointRow";
 import { FocusedTopicsHeaderCell, FocusKey, FocusPointsPanel, FocusTopicButton } from "./FocusLane";
 import { focusHasDetail, focusRowKey } from "./focusMeta";
+import { PacingChangeBadge } from "./PacingChangeBadge";
 
 function fmtDate(d: Date): string {
   return d.toLocaleDateString(undefined, {
@@ -786,29 +787,13 @@ function FullPlanTab({
                             >
                               {proposed.title}
                             </span>
-                            {!shifted && (
+                            {!shifted && !change && (
                               <span className="ml-auto text-[10px] text-muted-foreground/70 shrink-0">
-                                unchanged
+                                same this week
                               </span>
                             )}
                           </div>
-                          {change && (
-                            <span
-                              className="mt-1.5 inline-flex items-center gap-1 h-5 px-1.5 rounded-md border border-amber-500/40 bg-amber-500/10 text-[10px] font-semibold text-amber-700 dark:text-amber-300"
-                              title={
-                                change.from
-                                  ? `Rescheduled from the week of ${fmtDate(weekKeyToDate(change.from))}`
-                                  : "Newly added to the plan"
-                              }
-                            >
-                              <RefreshCw className="w-2.5 h-2.5" />
-                              {change.from ? (
-                                <>Moved from {fmtDate(weekKeyToDate(change.from))}</>
-                              ) : (
-                                <>New in plan</>
-                              )}
-                            </span>
-                          )}
+                          {change && <PacingChangeBadge change={change} />}
                         </>
                       ) : (
                         <span className="text-[12px] text-muted-foreground/60">—</span>

@@ -304,6 +304,42 @@ describe("engine robustness", () => {
     expect(diffPacing([before], [{ ...before, endWeek: "2026-10-05", weeks: 5 }])).toHaveLength(1);
     expect(diffPacing([before], [{ ...before }])).toEqual([]);
   });
+
+  // The badge used to render every change as "Moved from {from}". A topic that
+  // kept its start week and only ran longer was therefore told it had moved
+  // from the week it was still sitting in. The three cases are now distinct.
+  test("a change names what actually differs, not just that something did", () => {
+    const before: PacingBand = {
+      topicId: "t",
+      title: "Topic",
+      startWeek: "2026-09-07",
+      endWeek: "2026-09-14",
+      weeks: 2,
+    };
+
+    const resized = diffPacing([before], [{ ...before, endWeek: "2026-09-21", weeks: 3 }])[0];
+    expect(resized.kind).toBe("resized");
+    expect(resized.from).toBe(resized.to); // same start — never render "moved from"
+    expect([resized.fromWeeks, resized.weeks]).toEqual([2, 3]);
+
+    const moved = diffPacing(
+      [before],
+      [{ ...before, startWeek: "2026-09-14", endWeek: "2026-09-21" }],
+    )[0];
+    expect(moved.kind).toBe("moved");
+    expect(moved.from).toBe("2026-09-07");
+    expect(moved.to).toBe("2026-09-14");
+
+    const added = diffPacing([], [before])[0];
+    expect(added.kind).toBe("added");
+    expect(added.from).toBeNull();
+    expect(added.fromWeeks).toBeNull();
+
+    // A shortened run is still a resize, and the delta carries the direction.
+    const shorter = diffPacing([before], [{ ...before, endWeek: "2026-09-07", weeks: 1 }])[0];
+    expect(shorter.kind).toBe("resized");
+    expect(shorter.weeks - shorter.fromWeeks!).toBe(-1);
+  });
   test("non-finite weights cannot poison workload arithmetic", () => {
     for (const weight of [NaN, Infinity, -Infinity, 0, -1]) expect(weightOf({ weight })).toBe(1);
     expect(weightOf({ weight: 2.5 })).toBe(2.5);

@@ -558,16 +558,39 @@ export function mergeFocus(spine: PacingBand[], focus: PacingBand[]): PacingBand
   );
 }
 
+/**
+ * What actually differs about a topic between the acknowledged plan and the
+ * live one.
+ *
+ * This used to be implicit, and the display got it wrong. A change was recorded
+ * whenever the start week, end week *or* length differed, but the only thing
+ * rendered was "Moved from {from}" — so a topic that kept its start and merely
+ * ran a week longer was labelled as having moved from the week it was already
+ * sitting on. Naming the three cases makes that unrepresentable.
+ */
+export type PacingChangeKind =
+  /** Not in the acknowledged plan at all. */
+  | "added"
+  /** Starts in a different week than before. */
+  | "moved"
+  /** Same start week, different length. */
+  | "resized";
+
 export interface PacingChange {
   topicId: string;
   title: string;
   from: string | null;
   to: string;
+  kind: PacingChangeKind;
+  /** Length before the change; null for a topic that is newly added. */
+  fromWeeks: number | null;
+  /** Length after it. */
+  weeks: number;
 }
 
 /**
- * Topics whose start week moved between the acknowledged plan and the live one.
- * Only spine (teach) bands count: the focus lane is recomputed live from
+ * Topics whose spine band differs between the acknowledged plan and the live
+ * one. Only spine (teach) bands count: the focus lane is recomputed live from
  * assessed memory, so its churn must never trigger an "accept the new plan" prompt.
  */
 export function diffPacing(prev: PacingBand[], cur: PacingBand[]): PacingChange[] {
@@ -576,7 +599,15 @@ export function diffPacing(prev: PacingBand[], cur: PacingBand[]): PacingChange[
   for (const b of cur.filter(isTeachBand)) {
     const p = prevByTopic.get(b.topicId);
     if (!p || p.startWeek !== b.startWeek || p.endWeek !== b.endWeek || p.weeks !== b.weeks) {
-      out.push({ topicId: b.topicId, title: b.title, from: p?.startWeek ?? null, to: b.startWeek });
+      out.push({
+        topicId: b.topicId,
+        title: b.title,
+        from: p?.startWeek ?? null,
+        to: b.startWeek,
+        kind: !p ? "added" : p.startWeek !== b.startWeek ? "moved" : "resized",
+        fromWeeks: p?.weeks ?? null,
+        weeks: b.weeks,
+      });
     }
   }
   return out;
