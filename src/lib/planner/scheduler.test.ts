@@ -35,7 +35,6 @@ describe("rating maps (boundary inputs)", () => {
     expect(scoreToRating(90)).toBe(Rating.Easy);
     expect(scoreToRating(100)).toBe(Rating.Easy);
   });
-
 });
 
 describe("applyReview / FSRS engine", () => {

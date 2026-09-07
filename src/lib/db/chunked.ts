@@ -79,7 +79,10 @@ export async function selectInSafe<Row, Id = string>(
  * a server-side row cap may be lower than the requested page size. */
 export async function selectInHistory<Row extends { id: string }>(
   ids: readonly string[],
-  query: (batch: string[], after: string | null) => PromiseLike<{
+  query: (
+    batch: string[],
+    after: string | null,
+  ) => PromiseLike<{
     data: Row[] | null;
     error: { message: string } | null;
   }>,

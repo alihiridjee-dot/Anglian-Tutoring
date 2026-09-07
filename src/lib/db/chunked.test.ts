@@ -11,17 +11,25 @@ test("history reads continue beyond small server caps and deduplicate input IDs"
 });
 
 test("history read failures never return partial evidence", async () => {
-  await expect(selectInHistory(["point"], async (_batch, after) => after
-    ? { data: null, error: { message: "Connection lost" } }
-    : { data: [{ id: "1" }], error: null },
-  )).rejects.toThrow("Connection lost");
+  await expect(
+    selectInHistory(["point"], async (_batch, after) =>
+      after
+        ? { data: null, error: { message: "Connection lost" } }
+        : { data: [{ id: "1" }], error: null },
+    ),
+  ).rejects.toThrow("Connection lost");
 });
 
 test("non-advancing pagination fails rather than looping indefinitely", async () => {
-  await expect(selectInHistory(["point"], async () => ({ data: [{ id: "1" }], error: null })))
-    .rejects.toThrow("did not advance");
+  await expect(
+    selectInHistory(["point"], async () => ({ data: [{ id: "1" }], error: null })),
+  ).rejects.toThrow("did not advance");
 });
 
 test("empty input does not query the database", async () => {
-  expect(await selectInHistory([], async () => { throw new Error("Unexpected query"); })).toEqual([]);
+  expect(
+    await selectInHistory([], async () => {
+      throw new Error("Unexpected query");
+    }),
+  ).toEqual([]);
 });

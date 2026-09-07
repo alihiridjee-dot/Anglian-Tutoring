@@ -116,7 +116,8 @@ export class ProgramDAL {
 
     // Progress already contains the ordered curriculum and weights. Reusing it
     // avoids two redundant reads and keeps teaching and reviews on one snapshot.
-    const progress = params.progress ?? await ScheduleDAL.getTopicProgress({ studentId, subject, board, level });
+    const progress =
+      params.progress ?? (await ScheduleDAL.getTopicProgress({ studentId, subject, board, level }));
     if (progress.length === 0) return null;
     const topics: PacingInput[] = progress.map((t) => ({
       topicId: t.topicId,
@@ -167,9 +168,7 @@ export class ProgramDAL {
       candidates: focus.candidates.filter(
         (p) => !savedIds.has(p.specPointId) || new Date(p.lastReviewedAt) >= thisMonday,
       ),
-      currentMonday: savedWeek
-        ? addWeeks(thisMonday, 1)
-        : thisMonday,
+      currentMonday: savedWeek ? addWeeks(thisMonday, 1) : thisMonday,
       examMonday,
     });
     if (savedWeek) {
@@ -299,16 +298,18 @@ export class ProgramDAL {
     rationale: string;
   }> {
     const { studentId, subject, board, level, weekStart } = params;
-    const roadmap = params.roadmap !== undefined ? params.roadmap : await this.loadRoadmap({ studentId, subject, board, level, projectOnly: true });
+    const roadmap =
+      params.roadmap !== undefined
+        ? params.roadmap
+        : await this.loadRoadmap({ studentId, subject, board, level, projectOnly: true });
 
     if (roadmap) {
       if (weekStart >= roadmap.examDate) return { specPointIds: [], origins: {}, rationale: "" };
-      const { specPointIds, lanes, teachTitle, focusCount, teachCount } =
-        selectWeekPoints({
-          bands: roadmap.bands,
-          weekStart,
-          topics: roadmap.progress,
-        });
+      const { specPointIds, lanes, teachTitle, focusCount, teachCount } = selectWeekPoints({
+        bands: roadmap.bands,
+        weekStart,
+        topics: roadmap.progress,
+      });
       if (specPointIds.length === 0) {
         // The programme covers this week and has nothing outstanding in it. A
         // real answer, and the week's own copy says it far better than six

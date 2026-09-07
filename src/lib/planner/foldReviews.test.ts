@@ -129,11 +129,14 @@ describe("foldReviews", () => {
   });
 });
 
-
 test("invalid evidence is skipped and caller deduplication state is unchanged", () => {
   const valid = event(POINT_A, 4, 0, "valid");
   const invalidDate = { ...valid, sourceId: "invalid-date", reviewedAt: new Date(NaN) };
-  const invalidRating = { ...valid, sourceId: "invalid-rating", rating: 9 as ReviewEvent["rating"] };
+  const invalidRating = {
+    ...valid,
+    sourceId: "invalid-rating",
+    rating: 9 as ReviewEvent["rating"],
+  };
   const seen = new Set<string>();
   const rows = foldReviews([invalidDate, invalidRating, valid, valid], new Map(), seen);
   expect(rows).toHaveLength(1);

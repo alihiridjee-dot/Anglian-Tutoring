@@ -12,7 +12,6 @@ const DAY = 86_400_000;
 const EPOCH = new Date("2025-01-06T00:00:00Z").getTime();
 const at = (d: number) => new Date(EPOCH + d * DAY);
 
-
 /** The four outcomes a parent recognises, mapped to the real score bands. */
 const OUTCOMES = [
   {

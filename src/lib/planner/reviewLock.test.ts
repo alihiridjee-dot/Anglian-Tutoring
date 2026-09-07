@@ -3,7 +3,8 @@ import { reviewLock } from "./reviewLock";
 import { type PointActivity, type PointCoverage } from "./coverage";
 
 const WEEK = "2026-08-03"; // Monday; the week runs to Sunday 9 Aug
-const at = (day: number, hour = 12) => new Date(`2026-08-${String(day).padStart(2, "0")}T${String(hour).padStart(2, "0")}:00:00+01:00`);
+const at = (day: number, hour = 12) =>
+  new Date(`2026-08-${String(day).padStart(2, "0")}T${String(hour).padStart(2, "0")}:00:00+01:00`);
 
 const cov = (over: Partial<PointCoverage> = {}): PointCoverage => ({
   attempted: false,

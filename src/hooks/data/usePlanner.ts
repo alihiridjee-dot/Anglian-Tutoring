@@ -1,6 +1,11 @@
 import { useEffect, useRef } from "react";
 import { useQuery, useQueryClient } from "@tanstack/react-query";
-import { invalidatePlanner, roadmapQuery, memoryQuery, type PlannerCourse } from "@/lib/planner/queries";
+import {
+  invalidatePlanner,
+  roadmapQuery,
+  memoryQuery,
+  type PlannerCourse,
+} from "@/lib/planner/queries";
 
 /** Shared keys serve student, dashboard and tutor views. Tokens are mutation
  * notifications, not cache keys, so they never create duplicate cache entries. */

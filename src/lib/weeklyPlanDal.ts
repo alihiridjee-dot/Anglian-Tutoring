@@ -583,15 +583,29 @@ export class WeeklyPlanDAL {
     // Keyset pagination reads the complete roster even when the API caps rows.
     const [profiles, enrols] = await Promise.all([
       selectInHistory<{
-        id: string; display_name: string | null; level: LevelV | null; role: string | null;
+        id: string;
+        display_name: string | null;
+        level: LevelV | null;
+        role: string | null;
       }>(["roster"], (_batch, after) => {
-        const query = supabase.from("profiles").select("id, display_name, level, role").order("id").limit(500);
+        const query = supabase
+          .from("profiles")
+          .select("id, display_name, level, role")
+          .order("id")
+          .limit(500);
         return after ? query.gt("id", after) : query;
       }),
       selectInHistory<{
-        id: string; student_id: string; subject: string; board: string;
+        id: string;
+        student_id: string;
+        subject: string;
+        board: string;
       }>(["enrolments"], (_batch, after) => {
-        const query = supabase.from("student_enrolments").select("id, student_id, subject, board").order("id").limit(500);
+        const query = supabase
+          .from("student_enrolments")
+          .select("id, student_id, subject, board")
+          .order("id")
+          .limit(500);
         return after ? query.gt("id", after) : query;
       }),
     ]);

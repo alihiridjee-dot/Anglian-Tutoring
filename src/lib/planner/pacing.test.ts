@@ -29,7 +29,9 @@ describe("computePacing — the fixed core spine", () => {
     const bands = computePacing(topics, currentMonday, examMonday);
     expect(bands[0].startWeek).toBe(toDateKey(currentMonday));
     expect(bands.at(-1)?.endWeek).toBe(toDateKey(addWeeks(examMonday, -1)));
-    expect(bands.reduce((sum, b) => sum + b.weeks, 0)).toBe(weeksBetween(currentMonday, examMonday));
+    expect(bands.reduce((sum, b) => sum + b.weeks, 0)).toBe(
+      weeksBetween(currentMonday, examMonday),
+    );
     // Strictly sequential: each band starts the week after the previous ends.
     for (let i = 1; i < bands.length; i++) {
       expect(bands[i].startWeek).toBe(toDateKey(addWeeks(weekKeyToDate(bands[i - 1].endWeek), 1)));
@@ -99,11 +101,13 @@ describe("assessment-driven review queue", () => {
     );
     expect(result.bands.flatMap((b) => b.points ?? [])).toHaveLength(10);
     expect(result.backlog).toHaveLength(0);
-    expect(
-      focusLoadFor({ topics: [], spine: [], backlog: result.backlog }).overloaded,
-    ).toBe(false);
+    expect(focusLoadFor({ topics: [], spine: [], backlog: result.backlog }).overloaded).toBe(false);
     expect(result.bands.every((b) => b.startWeek === toDateKey(currentMonday))).toBe(true);
-    const week = selectWeekPoints({ bands: result.bands, weekStart: toDateKey(currentMonday), topics: [] });
+    const week = selectWeekPoints({
+      bands: result.bands,
+      weekStart: toDateKey(currentMonday),
+      topics: [],
+    });
     expect(week.specPointIds).toHaveLength(10);
   });
   test("an indivisible point heavier than six is assigned", () => {
@@ -113,7 +117,10 @@ describe("assessment-driven review queue", () => {
   });
   test("post-exam dates are not pulled into the final week", () => {
     const result = project([
-      candidate("later", { dueAt: "2027-07-01T00:00:00+01:00", eligibleAt: "2027-07-01T00:00:00+01:00" }),
+      candidate("later", {
+        dueAt: "2027-07-01T00:00:00+01:00",
+        eligibleAt: "2027-07-01T00:00:00+01:00",
+      }),
     ]);
     expect(result.bands).toHaveLength(0);
     expect(result.beyondExam).toHaveLength(1);
@@ -121,14 +128,22 @@ describe("assessment-driven review queue", () => {
   });
   test("eligible before exam but missing the last weekly opening stays a backlog", () => {
     const result = project(
-      [candidate("late", { dueAt: "2026-09-08T00:00:00+01:00", eligibleAt: "2026-09-08T00:00:00+01:00" })],
+      [
+        candidate("late", {
+          dueAt: "2026-09-08T00:00:00+01:00",
+          eligibleAt: "2026-09-08T00:00:00+01:00",
+        }),
+      ],
       { examMonday: new Date("2026-09-10T00:00:00+01:00") },
     );
     expect(result.backlog).toHaveLength(1);
   });
   test("reloading doesn't reset eligibility or invent new repetitions", () => {
     const candidates = [
-      candidate("future", { dueAt: "2026-10-01T00:00:00+01:00", eligibleAt: "2026-10-01T00:00:00+01:00" }),
+      candidate("future", {
+        dueAt: "2026-10-01T00:00:00+01:00",
+        eligibleAt: "2026-10-01T00:00:00+01:00",
+      }),
     ];
     expect(project(candidates).bands).toEqual(
       project(candidates, { currentMonday: addWeeks(currentMonday, 1) }).bands,
@@ -277,10 +292,15 @@ describe("splitAcrossWeeks / withWeeklyPoints — a week's worth of a topic", ()
   });
 });
 
-
 describe("engine robustness", () => {
   test("duration-only teaching changes require acknowledgement", () => {
-    const before: PacingBand = { topicId: "t", title: "Topic", startWeek: "2026-09-07", endWeek: "2026-09-14", weeks: 2 };
+    const before: PacingBand = {
+      topicId: "t",
+      title: "Topic",
+      startWeek: "2026-09-07",
+      endWeek: "2026-09-14",
+      weeks: 2,
+    };
     expect(diffPacing([before], [{ ...before, endWeek: "2026-10-05", weeks: 5 }])).toHaveLength(1);
     expect(diffPacing([before], [{ ...before }])).toEqual([]);
   });
@@ -289,13 +309,21 @@ describe("engine robustness", () => {
     expect(weightOf({ weight: 2.5 })).toBe(2.5);
   });
   test("invalid projection boundaries fail explicitly", () => {
-    expect(() => projectReviews({ candidates: [], currentMonday: new Date(NaN), examMonday })).toThrow();
+    expect(() =>
+      projectReviews({ candidates: [], currentMonday: new Date(NaN), examMonday }),
+    ).toThrow();
   });
   test("large uncapped queues retain every point in deterministic weekly order", () => {
     const candidates: FocusCandidate[] = Array.from({ length: 2000 }, (_, i) => ({
-      specPointId: String(i).padStart(4, "0"), topicId: "t", topicTitle: "Topic", code: String(i), pointTitle: String(i),
+      specPointId: String(i).padStart(4, "0"),
+      topicId: "t",
+      topicTitle: "Topic",
+      code: String(i),
+      pointTitle: String(i),
       dueAt: i % 2 ? "2026-09-07T00:00:00+01:00" : "2026-09-21T00:00:00+01:00",
-      eligibleAt: "2026-09-07T00:00:00+01:00", lastReviewedAt: "2026-08-24T00:00:00+01:00", weight: 7,
+      eligibleAt: "2026-09-07T00:00:00+01:00",
+      lastReviewedAt: "2026-08-24T00:00:00+01:00",
+      weight: 7,
     }));
     const a = projectReviews({ candidates, currentMonday, examMonday });
     const b = projectReviews({ candidates: [...candidates].reverse(), currentMonday, examMonday });

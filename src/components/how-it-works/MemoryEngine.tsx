@@ -1,6 +1,12 @@
 import { useRef } from "react";
 import { motion, useInView } from "motion/react";
-import { applyReview, reviewEligibleAt, Rating, type Card, type Grade } from "@/lib/planner/scheduler";
+import {
+  applyReview,
+  reviewEligibleAt,
+  Rating,
+  type Card,
+  type Grade,
+} from "@/lib/planner/scheduler";
 import { mondayOnOrAfter } from "@/lib/planner/pacing";
 import { ClipboardCheck, ListChecks } from "lucide-react";
 
@@ -11,7 +17,6 @@ const DAY = 86_400_000;
 const EPOCH = new Date("2025-01-06T00:00:00Z").getTime();
 const HORIZON = 70; // days on the rail
 const at = (d: number) => new Date(EPOCH + d * DAY);
-
 
 /**
  * Walk the engine forward, always answering `rating`, and collect the due dates.
@@ -224,8 +229,7 @@ export function MemoryEngine() {
 
         <p className="mt-5 text-sm leading-relaxed text-muted-foreground">
           These examples assume the same result at each review and show the earliest weekly slots.
-          Actual results and the exam date determine the assigned dates.
-          The shaky one is back in{" "}
+          Actual results and the exam date determine the assigned dates. The shaky one is back in{" "}
           <strong className="font-semibold text-[var(--primary-deep)]">
             {firstReturn(LANES[0])}
           </strong>{" "}

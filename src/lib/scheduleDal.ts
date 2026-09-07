@@ -93,7 +93,6 @@ export interface MemoryStats {
   weakest: { code: string; title: string; retention: number }[];
 }
 
-
 /** One review event before it's applied — used to replay history in time order. */
 export interface ReviewEvent {
   specPointId: string;
@@ -128,10 +127,13 @@ export function foldReviews(
   alreadyApplied: ReadonlySet<string>,
 ): { specPointId: string; card: Card; event: ReviewEvent }[] {
   const ordered = [...events]
-    .filter((e) =>
-      e.source !== "confidence" &&
-      Number.isFinite(e.reviewedAt.getTime()) &&
-      Number.isInteger(e.rating) && e.rating >= 1 && e.rating <= 4,
+    .filter(
+      (e) =>
+        e.source !== "confidence" &&
+        Number.isFinite(e.reviewedAt.getTime()) &&
+        Number.isInteger(e.rating) &&
+        e.rating >= 1 &&
+        e.rating <= 4,
     )
     .sort(
       (x, y) =>
@@ -166,40 +168,52 @@ export class ScheduleDAL {
 
   /** Canonical assessed history. Replayed on read: no destructive migration,
    * no stale confidence cards, and corrected/late marks take their proper place. */
-  private static async assessmentEvents(studentId: string, ids: string[], snapshot?: CourseSnapshot | null): Promise<ReviewEvent[]> {
+  private static async assessmentEvents(
+    studentId: string,
+    ids: string[],
+    snapshot?: CourseSnapshot | null,
+  ): Promise<ReviewEvent[]> {
     if (!ids.length) return [];
     const sources = snapshot ? sourcesFromRows(snapshot.sources) : await mapAttemptSources(ids);
     const { resourceToPoints, setToPoints, setScope } = sources;
     const requestedIds = new Set(ids);
-    const [subs, attempts] = snapshot ? [snapshot.submissions, snapshot.attempts] : await Promise.all([
-      selectInHistory<HwRow>([...resourceToPoints.keys()], (batch, after) => {
-        const query = supabase
-          .from("homework_submissions")
-          .select("id, resource_id, score_pct, graded_at, submitted_at")
-          .eq("student_id", studentId)
-          .in("resource_id", batch).order("id").limit(500);
-        return after ? query.gt("id", after) : query;
-      }),
-      selectInHistory<AttemptRow>([...setToPoints.keys()], (batch, after) => {
-        const query = supabase
-          .from("mcq_attempts")
-          .select("id, set_id, score, total, created_at")
-          .eq("user_id", studentId)
-          .in("set_id", batch).order("id").limit(500);
-        return after ? query.gt("id", after) : query;
-      }),
-    ]);
-    const snapshots = snapshot ? snapshot.attempts.map((a) => ({ id: a.id, point_scores: a.point_scores })) : await selectInSafe<{ id: string; point_scores: Json | null }>(
-      attempts.map((a) => a.id),
-      (batch) =>
-        // Column is introduced by the assessment-snapshot migration. Before rollout,
-        // only safely single-point aggregate attempts remain eligible evidence.
-        supabase.from("mcq_attempts").select("id, point_scores").in("id", batch) as never,
-      (message) => {
-        if (!/point_scores.*does not exist|Could not find.*point_scores/i.test(message))
-          throw new Error(message);
-      },
-    );
+    const [subs, attempts] = snapshot
+      ? [snapshot.submissions, snapshot.attempts]
+      : await Promise.all([
+          selectInHistory<HwRow>([...resourceToPoints.keys()], (batch, after) => {
+            const query = supabase
+              .from("homework_submissions")
+              .select("id, resource_id, score_pct, graded_at, submitted_at")
+              .eq("student_id", studentId)
+              .in("resource_id", batch)
+              .order("id")
+              .limit(500);
+            return after ? query.gt("id", after) : query;
+          }),
+          selectInHistory<AttemptRow>([...setToPoints.keys()], (batch, after) => {
+            const query = supabase
+              .from("mcq_attempts")
+              .select("id, set_id, score, total, created_at")
+              .eq("user_id", studentId)
+              .in("set_id", batch)
+              .order("id")
+              .limit(500);
+            return after ? query.gt("id", after) : query;
+          }),
+        ]);
+    const snapshots = snapshot
+      ? snapshot.attempts.map((a) => ({ id: a.id, point_scores: a.point_scores }))
+      : await selectInSafe<{ id: string; point_scores: Json | null }>(
+          attempts.map((a) => a.id),
+          (batch) =>
+            // Column is introduced by the assessment-snapshot migration. Before rollout,
+            // only safely single-point aggregate attempts remain eligible evidence.
+            supabase.from("mcq_attempts").select("id, point_scores").in("id", batch) as never,
+          (message) => {
+            if (!/point_scores.*does not exist|Could not find.*point_scores/i.test(message))
+              throw new Error(message);
+          },
+        );
     const byAttempt = new Map(snapshots.map((a) => [a.id, a.point_scores]));
     const events: ReviewEvent[] = [];
     for (const sub of subs) {
@@ -237,7 +251,6 @@ export class ScheduleDAL {
     return events;
   }
 
-
   /**
    * "Covered so far" — every spec point the student has actually practised
    * (has a homework or MCQ result on), with their best mark from each, grouped
@@ -245,17 +258,29 @@ export class ScheduleDAL {
    * Drives the practice-history ledger.
    */
   static async getCoveredLedger(params: {
-    studentId: string; subject: SubjectV; board: BoardV; level: LevelV;
+    studentId: string;
+    subject: SubjectV;
+    board: BoardV;
+    level: LevelV;
     progress?: TopicProgress[];
   }): Promise<CoveredTopic[]> {
-    const progress = params.progress ?? await this.getTopicProgress(params);
-    return progress.map((t) => ({
-      topicId: t.topicId, title: t.title,
-      points: t.points.filter((p) => p.lastReviewedAt && (p.homeworkScore != null || p.quizScore != null)).map((p) => ({
-        id: p.id, code: p.code, title: p.title, homeworkScore: p.homeworkScore,
-        quizScore: p.quizScore, lastReviewed: p.lastReviewedAt!,
-      })),
-    })).filter((t) => t.points.length > 0);
+    const progress = params.progress ?? (await this.getTopicProgress(params));
+    return progress
+      .map((t) => ({
+        topicId: t.topicId,
+        title: t.title,
+        points: t.points
+          .filter((p) => p.lastReviewedAt && (p.homeworkScore != null || p.quizScore != null))
+          .map((p) => ({
+            id: p.id,
+            code: p.code,
+            title: p.title,
+            homeworkScore: p.homeworkScore,
+            quizScore: p.quizScore,
+            lastReviewed: p.lastReviewedAt!,
+          })),
+      }))
+      .filter((t) => t.points.length > 0);
   }
 
   /** Assessed marks and reconstructed memory per point. A topic is settled
@@ -269,30 +294,34 @@ export class ScheduleDAL {
   }): Promise<TopicProgress[]> {
     const now = params.now ?? new Date();
     const snapshot = await readCourseSnapshot(params);
-    const { data: topics, error: topicsError } = snapshot ? { data: snapshot.topics, error: null } : await supabase
-      .from("topics")
-      .select("id, title, sort_order")
-      .eq("subject", params.subject)
-      .eq("board", params.board)
-      .eq("level", params.level);
+    const { data: topics, error: topicsError } = snapshot
+      ? { data: snapshot.topics, error: null }
+      : await supabase
+          .from("topics")
+          .select("id, title, sort_order")
+          .eq("subject", params.subject)
+          .eq("board", params.board)
+          .eq("level", params.level);
     if (topicsError) throw topicsError;
     if (!topics || topics.length === 0) return [];
 
-    const pts = snapshot?.points ?? await selectIn<{
-      id: string;
-      code: string;
-      title: string;
-      sort_order: number | null;
-      topic_id: string;
-      weight: number | null;
-    }>(
-      topics.map((t) => t.id),
-      (batch) =>
-        supabase
-          .from("spec_points")
-          .select("id, code, title, sort_order, topic_id, weight")
-          .in("topic_id", batch),
-    );
+    const pts =
+      snapshot?.points ??
+      (await selectIn<{
+        id: string;
+        code: string;
+        title: string;
+        sort_order: number | null;
+        topic_id: string;
+        weight: number | null;
+      }>(
+        topics.map((t) => t.id),
+        (batch) =>
+          supabase
+            .from("spec_points")
+            .select("id, code, title, sort_order, topic_id, weight")
+            .in("topic_id", batch),
+      ));
     const pointIds = pts.map((p) => p.id);
 
     // Read-only reconstruction also serves parent/tutor views without requiring
@@ -383,7 +412,7 @@ export class ScheduleDAL {
       avgRetention: null,
       weakest: [],
     };
-    const progress = params.progress ?? await this.getTopicProgress(params);
+    const progress = params.progress ?? (await this.getTopicProgress(params));
     const pts = progress.flatMap((t) => t.points);
     const weekEnd = new Date(now.getTime() + 7 * 86_400_000);
     const stats = { ...empty, total: pts.length };
