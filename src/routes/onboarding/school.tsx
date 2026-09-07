@@ -122,7 +122,7 @@ function SchoolStep() {
     <StepCard
       title="Where are you now, and where do you want to be?"
       subtitle="All optional — but target grades let your tutor track you against something real."
-      onBack={() => navigate({ to: "/onboarding/confidence" })}
+      onBack={() => navigate({ to: "/onboarding/learning" })}
       onSkip={() => finish(false)}
       onContinue={() => finish(true)}
       continueLabel="Continue to payment"

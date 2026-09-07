@@ -1,50 +1,22 @@
 import { describe, expect, test } from "bun:test";
 import {
-  bandsForWeek,
+  projectReviews,
+  mondayOnOrAfter,
   computePacing,
-  focusBudgetFor,
+  diffPacing,
+  weightOf,
   focusLoadFor,
   weeksBetween,
-  scheduleFocusPoints,
   selectWeekPoints,
   splitAcrossWeeks,
   withWeeklyPoints,
   type FocusCandidate,
   type PacingBand,
-  DEFAULT_FOCUS_BUDGET,
 } from "./pacing";
 import { addWeeks, mondayOf, toDateKey, weekKeyToDate } from "@/lib/week";
 
-const currentMonday = mondayOf(new Date("2026-09-07T00:00:00"));
-const examMonday = mondayOf(new Date("2027-06-07T00:00:00")); // ~39 weeks out
-
-/** N weak points across `topics` topics, all rated `mastery`. */
-function makeCandidates(topics: number, pointsEach: number, mastery: number): FocusCandidate[] {
-  const out: FocusCandidate[] = [];
-  for (let t = 0; t < topics; t++) {
-    for (let p = 0; p < pointsEach; p++) {
-      out.push({
-        specPointId: `t${t}-p${p}`,
-        topicId: `t${t}`,
-        topicTitle: `Topic ${t}`,
-        code: `${t}.${p}`,
-        pointTitle: `Point ${t}.${p}`,
-        mastery,
-      });
-    }
-  }
-  return out;
-}
-
-/** Total spec points scheduled in each week (across all topic bands). */
-function pointsPerWeek(bands: ReturnType<typeof scheduleFocusPoints>): Map<string, number> {
-  const m = new Map<string, number>();
-  for (const b of bands) {
-    if (b.kind !== "revisit") continue;
-    m.set(b.startWeek, (m.get(b.startWeek) ?? 0) + (b.points?.length ?? 0));
-  }
-  return m;
-}
+const currentMonday = mondayOf(new Date("2026-09-07T00:00:00+01:00"));
+const examMonday = mondayOf(new Date("2027-06-07T00:00:00+01:00")); // ~39 weeks out
 
 describe("computePacing — the fixed core spine", () => {
   const topics = [
@@ -56,6 +28,8 @@ describe("computePacing — the fixed core spine", () => {
   test("runs sequentially, gapless and overlap-free, from the student's start week", () => {
     const bands = computePacing(topics, currentMonday, examMonday);
     expect(bands[0].startWeek).toBe(toDateKey(currentMonday));
+    expect(bands.at(-1)?.endWeek).toBe(toDateKey(addWeeks(examMonday, -1)));
+    expect(bands.reduce((sum, b) => sum + b.weeks, 0)).toBe(weeksBetween(currentMonday, examMonday));
     // Strictly sequential: each band starts the week after the previous ends.
     for (let i = 1; i < bands.length; i++) {
       expect(bands[i].startWeek).toBe(toDateKey(addWeeks(weekKeyToDate(bands[i - 1].endWeek), 1)));
@@ -90,642 +64,100 @@ describe("computePacing — the fixed core spine", () => {
   });
 });
 
-describe("scheduleFocusPoints — revision load balancer", () => {
-  test("never exceeds the weekly budget, even with a huge backlog", () => {
-    // Nine topics rated badly, 8 points each = 72 weak points landing at once.
-    const bands = scheduleFocusPoints({
-      candidates: makeCandidates(9, 8, 10),
-      coveredTopics: [],
-      currentMonday,
-      examMonday,
-    });
-    for (const [, n] of pointsPerWeek(bands)) {
-      expect(n).toBeLessThanOrEqual(DEFAULT_FOCUS_BUDGET);
-    }
+describe("assessment-driven review queue", () => {
+  const candidate = (id: string, overrides: Partial<FocusCandidate> = {}): FocusCandidate => ({
+    specPointId: id,
+    topicId: "t",
+    topicTitle: "Topic",
+    code: id,
+    pointTitle: id,
+    dueAt: "2026-09-07T00:00:00+01:00",
+    eligibleAt: "2026-09-07T00:00:00+01:00",
+    lastReviewedAt: "2026-08-24T00:00:00+01:00",
+    weight: 1,
+    ...overrides,
   });
-
-  test("spreads the backlog across multiple weeks instead of flooding week one", () => {
-    const bands = scheduleFocusPoints({
-      candidates: makeCandidates(9, 8, 10),
-      coveredTopics: [],
-      currentMonday,
-      examMonday,
-    });
-    const weeks = pointsPerWeek(bands);
-    expect(weeks.size).toBeGreaterThan(5); // cascaded over many weeks, not one
+  const project = (candidates: FocusCandidate[], extra = {}) =>
+    projectReviews({ candidates, currentMonday, examMonday, ...extra });
+  test("one next review per skill, no repeats or automatic final sweep", () => {
+    const c = candidate("a");
+    const result = project([c, c]);
+    expect(result.bands.flatMap((b) => b.points ?? []).map((p) => p.specPointId)).toEqual(["a"]);
+    expect(result.bands.every((b) => b.kind === "revisit")).toBe(true);
   });
-
-  test("weakest points are scheduled first", () => {
-    const candidates: FocusCandidate[] = [
-      {
-        specPointId: "weak",
-        topicId: "a",
-        topicTitle: "A",
-        code: "a.1",
-        pointTitle: "weak",
-        mastery: 5,
-      },
-      ...makeCandidates(2, DEFAULT_FOCUS_BUDGET, 60), // fill the first week with amber
-    ];
-    const bands = scheduleFocusPoints({ candidates, coveredTopics: [], currentMonday, examMonday });
-    const firstWeek = toDateKey(currentMonday);
-    const inFirst = bands
-      .filter((b) => b.startWeek === firstWeek)
-      .flatMap((b) => b.points ?? [])
-      .map((p) => p.specPointId);
-    expect(inFirst).toContain("weak"); // the mastery-5 point is never bumped
+  test("seven-day minimum cannot be bypassed by an early FSRS date", () => {
+    const result = project([candidate("a", { lastReviewedAt: "2026-09-09T12:00:00+01:00" })]);
+    expect(result.bands[0].startWeek).toBe("2026-09-21");
   });
-
-  test("respects budget with a small backlog and groups points under their topic", () => {
-    const bands = scheduleFocusPoints({
-      candidates: makeCandidates(1, 3, 10), // one topic, 3 weak points
-      coveredTopics: [],
-      currentMonday,
-      examMonday,
-    });
-    const firstWeek = toDateKey(currentMonday);
-    const band = bands.find((b) => b.startWeek === firstWeek && b.topicId === "t0");
-    expect(band).toBeDefined();
-    expect(band!.points?.length).toBe(3); // all three fit in one week under one topic band
+  test("a Monday afternoon eligibility cannot unlock Monday morning", () => {
+    expect(toDateKey(mondayOnOrAfter(new Date("2026-09-14T12:00:00+01:00")))).toBe("2026-09-21");
   });
-
-  test("the weekly budget is work, not a headcount", () => {
-    // Six heavy points can't all land in one week just because six is the
-    // number. With everything weighing 3, a budget of 6 buys two of them.
-    const heavy = makeCandidates(1, 6, 10).map((c) => ({ ...c, weight: 3 }));
-    const bands = scheduleFocusPoints({
-      candidates: heavy,
-      coveredTopics: [],
-      currentMonday,
-      examMonday,
-    });
-    const first = pointsPerWeek(bands).get(toDateKey(currentMonday));
-    expect(first).toBe(2);
-
-    // The same six, unweighted, still fill the lane exactly as before — a tree
-    // with no measured weights must behave identically to the old build.
-    const plain = scheduleFocusPoints({
-      candidates: makeCandidates(1, 6, 10),
-      coveredTopics: [],
-      currentMonday,
-      examMonday,
-    });
-    expect(pointsPerWeek(plain).get(toDateKey(currentMonday))).toBe(DEFAULT_FOCUS_BUDGET);
-  });
-
-  test("plans the week the student is standing in, not just the ones after it", () => {
-    // It used to start at week 1, so a topic dragged into "Needs work" could not
-    // be acted on until the following Monday however weak it was.
-    const bands = scheduleFocusPoints({
-      candidates: makeCandidates(1, 2, 5),
-      coveredTopics: [],
-      currentMonday,
-      examMonday,
-    });
-    expect(pointsPerWeek(bands).get(toDateKey(currentMonday))).toBe(2);
-  });
-
-  /**
-   * A course rated mostly "needs work", with four topics dropped into "getting
-   * there" — the shape that used to make the amber ones vanish from the plan.
-   */
-  const mixedBacklog = () => {
-    const needsWork = makeCandidates(6, 20, 17); // 120 points × 3 revisits = 360
-    const gettingThere = makeCandidates(4, 18, 50).map((c) => ({
-      ...c,
-      specPointId: `amber-${c.specPointId}`,
-      topicId: `amber-${c.topicId}`,
-    })); // 72 points × 1 revisit — far past what 6 × ~36 weeks could hold
-    return { needsWork, gettingThere, candidates: [...needsWork, ...gettingThere] };
-  };
-
-  const scheduledIds = (bands: ReturnType<typeof scheduleFocusPoints>) =>
-    new Set(bands.flatMap((b) => (b.points ?? []).map((p) => p.specPointId)));
-
-  test("a backlog too big for a fixed budget is still scheduled in full", () => {
-    // Half the regression this exists for: a constant budget made the lane a
-    // queue with a fixed service rate, so a backlog past its capacity dropped
-    // the tail outright and said nothing. Sizing the budget to the backlog
-    // leaves no tail to drop.
-    const { candidates } = mixedBacklog();
-    const scheduled = scheduledIds(
-      scheduleFocusPoints({ candidates, coveredTopics: [], currentMonday, examMonday }),
+  test("all eligible reviews fit in the first week regardless of total weight", () => {
+    const result = project(
+      Array.from({ length: 10 }, (_, i) => candidate(String(i), { weight: 2 })),
+      { examMonday: addWeeks(currentMonday, 1) },
     );
-    for (const c of candidates) expect(scheduled.has(c.specPointId)).toBe(true);
-  });
-
-  test("every band is in the plan from the first weeks, not queued behind the one below", () => {
-    // The other half. One queue served weakest-first is a strict priority queue,
-    // which doesn't merely slow the tier below — it defers it until the tier
-    // above is completely finished. "Getting there" used to wait out every red
-    // revisit in the course and then arrive in the last month, one look each,
-    // which is not spacing. Each band now holds a share of every week.
-    const { gettingThere, candidates } = mixedBacklog();
-    const amber = new Set(gettingThere.map((c) => c.specPointId));
-    const amberWeeks = scheduleFocusPoints({
-      candidates,
-      coveredTopics: [],
-      currentMonday,
-      examMonday,
-    })
-      .filter((b) => b.points?.some((p) => amber.has(p.specPointId)))
-      .map((b) => weeksBetween(currentMonday, weekKeyToDate(b.startWeek)));
-
-    expect(Math.min(...amberWeeks)).toBeLessThanOrEqual(2); // starts straight away
-    expect(new Set(amberWeeks).size).toBeGreaterThan(10); // and is spread, not crammed
-  });
-
-  test("a shortfall is shared between the bands, never dumped on one", () => {
-    // Force a budget too small for the backlog — the very thing the derived one
-    // exists to prevent. Even then, what must not happen is the whole loss
-    // landing on the same band, which is exactly what a strict priority order
-    // does: it serves the tier above to completion first.
-    const { needsWork, gettingThere, candidates } = mixedBacklog();
-    const scheduled = scheduledIds(
-      scheduleFocusPoints({
-        candidates,
-        coveredTopics: [],
-        currentMonday,
-        examMonday,
-        weeklyBudget: 3,
-      }),
-    );
-    for (const band of [needsWork, gettingThere]) {
-      const got = band.filter((c) => scheduled.has(c.specPointId)).length;
-      expect(got).toBeGreaterThan(0); // nobody is shut out
-      expect(got).toBeLessThan(band.length); // and nobody is served to completion first
-    }
-  });
-
-  test("the budget is the backlog divided by the runway", () => {
-    // 120 points × 3 revisits = 360 units over a ~36-week runway → 10 a week.
-    const candidates = makeCandidates(6, 20, 17);
-    expect(focusBudgetFor({ candidates, currentMonday, examMonday })).toBe(10);
-    for (const [, n] of pointsPerWeek(
-      scheduleFocusPoints({ candidates, coveredTopics: [], currentMonday, examMonday }),
-    )) {
-      expect(n).toBeLessThanOrEqual(10);
-    }
-  });
-
-  test("a small backlog keeps the old weekly shape rather than being rationed", () => {
-    // Averaging three points across a whole year would hand a student one look a
-    // week for no reason. The default is a floor, so light backlogs are unchanged.
-    const candidates = makeCandidates(1, 3, 10);
-    expect(focusBudgetFor({ candidates, currentMonday, examMonday })).toBe(DEFAULT_FOCUS_BUDGET);
-  });
-
-  test("weight counts toward the budget, so heavy points raise it", () => {
-    // Demand is work, not a headcount — the same 80 points at weight 3 ask three
-    // times as much of the year, and the week has to be sized for it.
-    const light = makeCandidates(4, 20, 17); // 80 × 3 revisits = 240 over 36 weeks
-    const heavy = light.map((c) => ({ ...c, weight: 3 })); // → 720 over 36 weeks
-    expect(focusBudgetFor({ candidates: light, currentMonday, examMonday })).toBe(7);
-    expect(focusBudgetFor({ candidates: heavy, currentMonday, examMonday })).toBe(20);
-  });
-
-  test("settled topics get a review band, weak ones get revisits", () => {
-    const bands = scheduleFocusPoints({
-      candidates: makeCandidates(1, 2, 10),
-      coveredTopics: [{ topicId: "done", title: "Done topic" }],
-      currentMonday,
-      examMonday,
-    });
-    expect(bands.some((b) => b.kind === "review" && b.topicId === "done")).toBe(true);
-    expect(bands.some((b) => b.kind === "revisit" && b.topicId === "t0")).toBe(true);
-  });
-});
-
-describe("focusLoadFor — is the revision heavier than the teaching?", () => {
-  // 396 units of course over a 36-week teaching run = 11 a week on the spine.
-  const topics = [
-    { topicId: "a", title: "A", weight: 132 },
-    { topicId: "b", title: "B", weight: 132 },
-    { topicId: "c", title: "C", weight: 132 },
-  ];
-  const spine = computePacing(topics, currentMonday, examMonday);
-
-  test("a lane running at its intended size says nothing", () => {
-    const load = focusLoadFor({ budget: DEFAULT_FOCUS_BUDGET, topics, spine });
-    // The lane is designed to run at roughly half the spine — that is the shape
-    // revision is meant to have, and it must never read as a problem.
-    expect(load.spine).toBeCloseTo(11);
-    expect(load.overloaded).toBe(false);
-  });
-
-  test("a backlog that outgrows the spine is flagged, with the multiple", () => {
-    const load = focusLoadFor({ budget: 22, topics, spine });
-    expect(load.overloaded).toBe(true);
-    expect(load.ratio).toBeCloseTo(2);
-  });
-
-  test("the yardstick moves with the course, so there is no number to keep in step", () => {
-    // Half the course over the same runway halves the spine, and a budget that
-    // was comfortable against the full course is now the bigger half of the week.
-    const lighter = topics.slice(0, 1);
-    const load = focusLoadFor({
-      budget: 8,
-      topics: lighter,
-      spine: computePacing(lighter, currentMonday, examMonday),
-    });
-    expect(load.overloaded).toBe(true);
-  });
-
-  test("no spine to compare against is never a warning", () => {
-    const load = focusLoadFor({ budget: 50, topics: [], spine: [] });
-    expect(load.overloaded).toBe(false);
-    expect(load.ratio).toBe(0);
-  });
-});
-
-describe("selectWeekPoints — the year plan's slice of one week", () => {
-  const wk = (n: number) => toDateKey(addWeeks(currentMonday, n));
-  const SETTLED = 67;
-
-  /** A topic whose points all sit at `mastery`. */
-  const topic = (topicId: string, n: number, mastery: number) => ({
-    topicId,
-    points: Array.from({ length: n }, (_, i) => ({ id: `${topicId}-p${i}`, mastery })),
-  });
-
-  const teachBand = (topicId: string, title: string, start: number, weeks: number): PacingBand => ({
-    topicId,
-    title,
-    startWeek: wk(start),
-    endWeek: wk(start + weeks - 1),
-    weeks,
-    kind: "teach",
-  });
-
-  const revisitBand = (topicId: string, start: number, codes: string[]): PacingBand => ({
-    topicId,
-    title: topicId,
-    startWeek: wk(start),
-    endWeek: wk(start),
-    weeks: 1,
-    kind: "revisit",
-    points: codes.map((c) => ({ specPointId: c, code: c, title: c })),
-  });
-
-  test("revisits never starve the spine — the two lanes are budgeted separately", () => {
-    // The bug this guards: one shared cap of 6 meant a full revisit lane left no
-    // room to teach anything, every week, until the backlog cleared.
-    const sel = selectWeekPoints({
-      bands: [
-        revisitBand("t1", 0, ["a", "b", "c", "d", "e", "f"]),
-        teachBand("t2", "Topic 2", 0, 1),
-      ],
-      weekStart: wk(0),
-      topics: [topic("t1", 6, 10), topic("t2", 4, 0)],
-      focusBudget: 6,
-      settledThreshold: SETTLED,
-    });
-    expect(sel.focusCount).toBe(6); // the lane is full…
-    expect(sel.teachCount).toBe(4); // …and the whole topic still gets taught
-    expect(sel.teachTitle).toBe("Topic 2");
-    expect(sel.specPointIds).toHaveLength(10);
-  });
-
-  test("the focus budget caps revisits only", () => {
-    const sel = selectWeekPoints({
-      bands: [revisitBand("t1", 0, ["a", "b", "c", "d"]), teachBand("t2", "Topic 2", 0, 1)],
-      weekStart: wk(0),
-      topics: [topic("t1", 4, 10), topic("t2", 5, 0)],
-      focusBudget: 2,
-      settledThreshold: SETTLED,
-    });
-    expect(sel.specPointIds.slice(0, 2)).toEqual(["a", "b"]); // capped at 2
-    expect(sel.focusCount).toBe(2);
-    expect(sel.teachCount).toBe(5); // teaching is untouched by the cap
-  });
-
-  test("a long teach band hands out a share a week, not everything at once", () => {
-    // A 9-point topic over 3 weeks moves 3 a week as they're covered — that is
-    // what "spread across the year" means. The plan advances because the work
-    // got done, never because the calendar moved on without it.
-    const bands = [teachBand("t1", "Topic 1", 0, 3)];
-    const points = Array.from({ length: 9 }, (_, i) => ({ id: `t1-p${i}`, mastery: 0 }));
-    const pick = (n: number) =>
-      selectWeekPoints({
-        bands,
-        weekStart: wk(n),
-        topics: [{ topicId: "t1", points }],
-        focusBudget: 6,
-        settledThreshold: SETTLED,
-      }).specPointIds;
-    const markDone = (ids: string[]) => {
-      for (const p of points) if (ids.includes(p.id)) p.mastery = 90;
-    };
-
-    expect(pick(0)).toEqual(["t1-p0", "t1-p1", "t1-p2"]);
-    markDone(pick(0));
-    expect(pick(1)).toEqual(["t1-p3", "t1-p4", "t1-p5"]);
-    markDone(pick(1));
-    expect(pick(2)).toEqual(["t1-p6", "t1-p7", "t1-p8"]);
-  });
-
-  test("points left undone come back first, and nothing is stepped over", () => {
-    // Week 0 was offered p0–p2; say only p1 got done. Week 1 owes p3–p5, but the
-    // two stragglers are still outstanding — they lead, and the week keeps its
-    // size, so p5 rolls on rather than vanishing. Slicing the unsettled list by
-    // week index (the earlier approach) silently skipped p0 and p2 forever.
-    const bands = [teachBand("t1", "Topic 1", 0, 3)];
-    const topics = [
-      {
-        topicId: "t1",
-        points: [
-          { id: "p0", mastery: 10 },
-          { id: "p1", mastery: 90 }, // done
-          { id: "p2", mastery: 10 },
-          { id: "p3", mastery: 10 },
-          { id: "p4", mastery: 10 },
-          { id: "p5", mastery: 10 },
-          { id: "p6", mastery: 10 },
-          { id: "p7", mastery: 10 },
-          { id: "p8", mastery: 10 },
-        ],
-      },
-    ];
-    const week1 = selectWeekPoints({
-      bands,
-      weekStart: wk(1),
-      topics,
-      focusBudget: 6,
-      settledThreshold: SETTLED,
-    });
-    expect(week1.specPointIds).toEqual(["p0", "p2", "p3"]);
-  });
-
-  test("a week's share is measured in work, so one heavy point can be the week", () => {
-    // Under the old count-based cap this week handed over three points whatever
-    // they weighed. The first point here is worth three of the others, so it is
-    // a week's work on its own.
-    const bands = [teachBand("t1", "Topic 1", 0, 3)];
-    const points = [
-      { id: "heavy", mastery: 0, weight: 3 },
-      { id: "a", mastery: 0, weight: 1 },
-      { id: "b", mastery: 0, weight: 1 },
-      { id: "c", mastery: 0, weight: 1 },
-      { id: "d", mastery: 0, weight: 1 },
-      { id: "e", mastery: 0, weight: 1 },
-    ];
-    const sel = selectWeekPoints({
-      bands,
-      weekStart: wk(0),
-      topics: [{ topicId: "t1", points }],
-      focusBudget: 6,
-      settledThreshold: SETTLED,
-    });
-    expect(sel.specPointIds).toEqual(["heavy"]);
-  });
-
-  test("the roadmap's last week and the week view agree on its size", () => {
-    // 13 points over 5 weeks: the old split was 3/3/3/3/1 and the week view
-    // capped on chunks[0].length = 3, so the roadmap promised one point in week
-    // 5 and the planner handed over three. Both now read the same chunk.
-    const bands = [teachBand("t1", "Topic 1", 0, 5)];
-    const points = Array.from({ length: 13 }, (_, i) => ({ id: `p${i}`, mastery: 0 }));
-    const [band] = withWeeklyPoints(
-      bands,
-      new Map([["t1", points.map((p) => ({ specPointId: p.id, code: p.id, title: p.id }))]]),
-    );
-    const lastWeek = band.pointsByWeek?.[wk(4)] ?? [];
-    const sel = selectWeekPoints({
-      bands,
-      weekStart: wk(4),
-      // Everything before the last week is done, so only its own share is owed.
-      topics: [
-        {
-          topicId: "t1",
-          points: points.map((p, i) => ({ ...p, mastery: i < 13 - lastWeek.length ? 90 : 0 })),
-        },
-      ],
-      focusBudget: 6,
-      settledThreshold: SETTLED,
-    });
-    expect(sel.teachCount).toBe(lastWeek.length);
-  });
-
-  test("settled points are never re-taught, and a week outside every band is empty", () => {
-    const bands = [teachBand("t1", "Topic 1", 0, 1)];
-    const topics = [
-      {
-        topicId: "t1",
-        points: [
-          { id: "weak", mastery: 20 },
-          { id: "solid", mastery: 90 },
-        ],
-      },
-    ];
+    expect(result.bands.flatMap((b) => b.points ?? [])).toHaveLength(10);
+    expect(result.backlog).toHaveLength(0);
     expect(
-      selectWeekPoints({
-        bands,
-        weekStart: wk(0),
-        topics,
-        focusBudget: 6,
-        settledThreshold: SETTLED,
-      }).specPointIds,
-    ).toEqual(["weak"]);
-    expect(
-      selectWeekPoints({
-        bands,
-        weekStart: wk(5),
-        topics,
-        focusBudget: 6,
-        settledThreshold: SETTLED,
-      }).specPointIds,
-    ).toEqual([]);
+      focusLoadFor({ topics: [], spine: [], backlog: result.backlog }).overloaded,
+    ).toBe(false);
+    expect(result.bands.every((b) => b.startWeek === toDateKey(currentMonday))).toBe(true);
+    const week = selectWeekPoints({ bands: result.bands, weekStart: toDateKey(currentMonday), topics: [] });
+    expect(week.specPointIds).toHaveLength(10);
   });
-
-  test("never repeats a point that both lanes want", () => {
-    const sel = selectWeekPoints({
-      bands: [revisitBand("t1", 0, ["t1-p0", "t1-p1"]), teachBand("t1", "Topic 1", 0, 1)],
-      weekStart: wk(0),
-      topics: [topic("t1", 8, 10)],
-      focusBudget: 6,
-      settledThreshold: SETTLED,
+  test("an indivisible point heavier than six is assigned", () => {
+    const result = project([candidate("heavy", { weight: 7 })]);
+    expect(result.bands[0].points?.map((p) => p.specPointId)).toEqual(["heavy"]);
+    expect(result.backlog).toHaveLength(0);
+  });
+  test("post-exam dates are not pulled into the final week", () => {
+    const result = project([
+      candidate("later", { dueAt: "2027-07-01T00:00:00+01:00", eligibleAt: "2027-07-01T00:00:00+01:00" }),
+    ]);
+    expect(result.bands).toHaveLength(0);
+    expect(result.beyondExam).toHaveLength(1);
+    expect(result.backlog).toHaveLength(0);
+  });
+  test("eligible before exam but missing the last weekly opening stays a backlog", () => {
+    const result = project(
+      [candidate("late", { dueAt: "2026-09-08T00:00:00+01:00", eligibleAt: "2026-09-08T00:00:00+01:00" })],
+      { examMonday: new Date("2026-09-10T00:00:00+01:00") },
+    );
+    expect(result.backlog).toHaveLength(1);
+  });
+  test("reloading doesn't reset eligibility or invent new repetitions", () => {
+    const candidates = [
+      candidate("future", { dueAt: "2026-10-01T00:00:00+01:00", eligibleAt: "2026-10-01T00:00:00+01:00" }),
+    ];
+    expect(project(candidates).bands).toEqual(
+      project(candidates, { currentMonday: addWeeks(currentMonday, 1) }).bands,
+    );
+  });
+  test("no graded evidence means no reviews", () => {
+    expect(project([]).bands).toHaveLength(0);
+  });
+  test("short teaching runway never silently runs past its window", () => {
+    const bands = computePacing(
+      Array.from({ length: 8 }, (_, i) => ({ topicId: String(i), title: String(i), weight: 1 })),
+      currentMonday,
+      addWeeks(currentMonday, 5),
+    );
+    expect(bands).toHaveLength(5);
+    expect(bands.every((b) => b.endWeek < toDateKey(addWeeks(currentMonday, 5)))).toBe(true);
+  });
+  test("assessed teaching points don't become automatic refreshers", () => {
+    const bands = computePacing(
+      [{ topicId: "t", title: "T", weight: 1 }],
+      currentMonday,
+      addWeeks(currentMonday, 4),
+    );
+    const selection = selectWeekPoints({
+      bands,
+      weekStart: toDateKey(currentMonday),
+      topics: [{ topicId: "t", points: [{ id: "a", mastery: 0, reps: 1 }] }],
     });
-    expect(new Set(sel.specPointIds).size).toBe(sel.specPointIds.length);
-    expect(sel.specPointIds).toHaveLength(8); // 2 revisits + the other 6 taught
-  });
-
-  test("a revision week falls back to a light pass over settled topics", () => {
-    const sel = selectWeekPoints({
-      bands: [
-        {
-          topicId: "t1",
-          title: "Topic 1",
-          startWeek: wk(0),
-          endWeek: wk(0),
-          weeks: 1,
-          kind: "review",
-        },
-      ],
-      weekStart: wk(0),
-      topics: [
-        {
-          topicId: "t1",
-          points: [
-            { id: "hi", mastery: 95 },
-            { id: "lo", mastery: 70 },
-          ],
-        },
-      ],
-      focusBudget: 6,
-      settledThreshold: SETTLED,
-    });
-    expect(sel.specPointIds).toEqual(["lo", "hi"]); // weakest first
-    expect(sel.reviewCount).toBe(2);
-  });
-});
-
-describe("bandsForWeek — has the programme got anything to say?", () => {
-  const wk = (n: number) => toDateKey(addWeeks(currentMonday, n));
-  const band: PacingBand = {
-    topicId: "t1",
-    title: "T1",
-    startWeek: wk(1),
-    endWeek: wk(3),
-    weeks: 3,
-    kind: "teach",
-  };
-
-  test("a band covers every week of its run, inclusive of both ends", () => {
-    expect(bandsForWeek([band], wk(0))).toEqual([]);
-    for (const n of [1, 2, 3]) expect(bandsForWeek([band], wk(n))).toEqual([band]);
-    expect(bandsForWeek([band], wk(4))).toEqual([]);
-  });
-
-  test("a covered topic still owns its weeks — it just refreshes instead of teaching", () => {
-    const sel = selectWeekPoints({
-      bands: [band],
-      weekStart: wk(1),
-      topics: [{ topicId: "t1", points: [{ id: "p1", mastery: 95, stability: 20 }] }],
-      focusBudget: 6,
-      settledThreshold: 67,
-    });
-    expect(bandsForWeek([band], wk(1))).toHaveLength(1);
-    expect(sel.teachCount).toBe(0); // nothing new left to teach
-    expect(sel.refreshCount).toBe(1); // a light pass over it instead
-    expect(sel.lanes).toEqual({ p1: "core" }); // never presented as revision
-  });
-});
-
-describe("selectWeekPoints — the refresher pass ranks by memory strength", () => {
-  const wk = (n: number) => toDateKey(addWeeks(currentMonday, n));
-  const band: PacingBand = {
-    topicId: "t1",
-    title: "T1",
-    startWeek: wk(0),
-    endWeek: wk(0),
-    weeks: 1,
-    kind: "teach",
-  };
-
-  test("the most fragile points come first, even when mastery is a dead tie", () => {
-    // The real shape of the data: a student drags a whole topic to one place on
-    // the confidence board, so every point in it scores the same mastery.
-    // Ranking on mastery alone would degrade to spec order and pick arbitrarily.
-    const sel = selectWeekPoints({
-      bands: [band],
-      weekStart: wk(0),
-      topics: [
-        {
-          topicId: "t1",
-          points: [
-            { id: "holds-a-fortnight", mastery: 80, stability: 14 },
-            { id: "holds-a-day", mastery: 80, stability: 1 },
-            { id: "holds-half-a-day", mastery: 80, stability: 0.5 },
-          ],
-        },
-      ],
-      focusBudget: 6,
-      settledThreshold: 67,
-    });
-    expect(sel.specPointIds).toEqual(["holds-half-a-day", "holds-a-day", "holds-a-fortnight"]);
-  });
-
-  test("a point with no card at all ranks most fragile — a rating is not evidence", () => {
-    const sel = selectWeekPoints({
-      bands: [band],
-      weekStart: wk(0),
-      topics: [
-        {
-          topicId: "t1",
-          points: [
-            { id: "practised", mastery: 80, stability: 9 },
-            { id: "only-self-rated", mastery: 80, stability: null },
-          ],
-        },
-      ],
-      focusBudget: 6,
-      settledThreshold: 67,
-    });
-    expect(sel.specPointIds[0]).toBe("only-self-rated");
-  });
-
-  test("a week with real teaching left in it is never turned into a refresher", () => {
-    const sel = selectWeekPoints({
-      bands: [band],
-      weekStart: wk(0),
-      topics: [
-        {
-          topicId: "t1",
-          points: [
-            { id: "settled", mastery: 90, stability: 0.1 },
-            { id: "untaught", mastery: 10, stability: null },
-          ],
-        },
-      ],
-      focusBudget: 6,
-      settledThreshold: 67,
-    });
-    expect(sel.teachCount).toBe(1);
-    expect(sel.refreshCount).toBe(0);
-    // The fragile-but-settled point is not dragged in ahead of new material.
-    expect(sel.specPointIds).toEqual(["untaught"]);
-  });
-});
-
-describe("selectWeekPoints — lane labelling", () => {
-  const wk = (n: number) => toDateKey(addWeeks(currentMonday, n));
-
-  test("every point is tagged with the lane it came from", () => {
-    const sel = selectWeekPoints({
-      bands: [
-        {
-          topicId: "t1",
-          title: "T1",
-          startWeek: wk(0),
-          endWeek: wk(0),
-          weeks: 1,
-          kind: "revisit",
-          points: [{ specPointId: "r1", code: "r1", title: "r1" }],
-        },
-        { topicId: "t2", title: "T2", startWeek: wk(0), endWeek: wk(0), weeks: 1, kind: "teach" },
-      ],
-      weekStart: wk(0),
-      topics: [
-        { topicId: "t1", points: [{ id: "r1", mastery: 10 }] },
-        { topicId: "t2", points: [{ id: "c1", mastery: 0 }] },
-      ],
-      focusBudget: 6,
-      settledThreshold: 67,
-    });
-    expect(sel.lanes).toEqual({ r1: "focus", c1: "core" });
-  });
-
-  test("the pre-exam review pass counts as core curriculum", () => {
-    const sel = selectWeekPoints({
-      bands: [
-        { topicId: "t1", title: "T1", startWeek: wk(0), endWeek: wk(0), weeks: 1, kind: "review" },
-      ],
-      weekStart: wk(0),
-      topics: [{ topicId: "t1", points: [{ id: "s1", mastery: 90 }] }],
-      focusBudget: 6,
-      settledThreshold: 67,
-    });
-    expect(sel.lanes).toEqual({ s1: "core" });
+    expect(selection.specPointIds).toEqual([]);
   });
 });
 
@@ -842,5 +274,34 @@ describe("splitAcrossWeeks / withWeeklyPoints — a week's worth of a topic", ()
     const [r, t] = withWeeklyPoints([revisit, teach], new Map());
     expect(r.pointsByWeek).toBeUndefined();
     expect(t.pointsByWeek).toBeUndefined();
+  });
+});
+
+
+describe("engine robustness", () => {
+  test("duration-only teaching changes require acknowledgement", () => {
+    const before: PacingBand = { topicId: "t", title: "Topic", startWeek: "2026-09-07", endWeek: "2026-09-14", weeks: 2 };
+    expect(diffPacing([before], [{ ...before, endWeek: "2026-10-05", weeks: 5 }])).toHaveLength(1);
+    expect(diffPacing([before], [{ ...before }])).toEqual([]);
+  });
+  test("non-finite weights cannot poison workload arithmetic", () => {
+    for (const weight of [NaN, Infinity, -Infinity, 0, -1]) expect(weightOf({ weight })).toBe(1);
+    expect(weightOf({ weight: 2.5 })).toBe(2.5);
+  });
+  test("invalid projection boundaries fail explicitly", () => {
+    expect(() => projectReviews({ candidates: [], currentMonday: new Date(NaN), examMonday })).toThrow();
+  });
+  test("large uncapped queues retain every point in deterministic weekly order", () => {
+    const candidates: FocusCandidate[] = Array.from({ length: 2000 }, (_, i) => ({
+      specPointId: String(i).padStart(4, "0"), topicId: "t", topicTitle: "Topic", code: String(i), pointTitle: String(i),
+      dueAt: i % 2 ? "2026-09-07T00:00:00+01:00" : "2026-09-21T00:00:00+01:00",
+      eligibleAt: "2026-09-07T00:00:00+01:00", lastReviewedAt: "2026-08-24T00:00:00+01:00", weight: 7,
+    }));
+    const a = projectReviews({ candidates, currentMonday, examMonday });
+    const b = projectReviews({ candidates: [...candidates].reverse(), currentMonday, examMonday });
+    expect(a).toEqual(b);
+    expect(a.bands.map((band) => band.startWeek)).toEqual(["2026-09-07", "2026-09-21"]);
+    expect(a.bands.map((band) => band.points?.length)).toEqual([1000, 1000]);
+    expect(a.backlog).toEqual([]);
   });
 });

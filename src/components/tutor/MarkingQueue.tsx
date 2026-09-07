@@ -1,3 +1,5 @@
+import { useQueryClient } from "@tanstack/react-query";
+import { invalidatePlanner } from "@/lib/planner/assessmentSync";
 import { useCallback, useEffect, useMemo, useState } from "react";
 import { supabase } from "@/integrations/supabase/client";
 import { useRoles } from "@/hooks/useRole";
@@ -381,6 +383,7 @@ function MarkSubmissionCard({
   onToggleSelect: () => void;
   onSaved: () => void;
 }) {
+  const plannerQueryClient = useQueryClient();
   const status = statusOf(sub);
   const [open, setOpen] = useState(false);
   const [grade, setGrade] = useState(sub.grade ?? "");
@@ -427,6 +430,7 @@ function MarkSubmissionCard({
         .eq("id", sub.id);
       if (error) throw error;
       toast.success(`Marked ${studentName}'s submission`);
+      void invalidatePlanner(plannerQueryClient, sub.student_id);
       onSaved();
     } catch (err) {
       toast.error(err instanceof Error ? err.message : "Failed to save mark");

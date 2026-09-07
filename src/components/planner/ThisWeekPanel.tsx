@@ -1,4 +1,5 @@
-import { Spinner, Meter } from "@/components/Shared";
+import { PLANNER_TIME_ZONE } from "@/lib/week";
+import { Spinner, Meter, EmptyState } from "@/components/Shared";
 import { useMemo } from "react";
 import { Link } from "@tanstack/react-router";
 import {
@@ -13,8 +14,7 @@ import {
 } from "lucide-react";
 import { type PlanPoint, type WeeklyPlan } from "@/lib/weeklyPlanDal";
 import { type RoadmapResult } from "@/lib/programDal";
-import { isTeachBand, type PacingBand } from "@/lib/planner/pacing";
-import { SETTLED_THRESHOLD } from "@/lib/planner/scheduler";
+import { isTeachBand, mondayOnOrAfter, type PacingBand } from "@/lib/planner/pacing";
 import { type PointCoverage, statusOfPoint, laneOf } from "@/lib/planner/coverage";
 import { weekKeyToDate } from "@/lib/week";
 import { CoveragePill } from "./CoveragePill";
@@ -27,7 +27,7 @@ import { type Activity } from "./useWeekPlan";
  * Two cards, the same two the roadmap uses, because they are the same two ideas:
  * the **core topic** is the curriculum marching through the year toward the
  * exam, and **focused topics** are the points that came back round because the
- * student flagged them or flopped them. Both are always shown — a week with
+ * assessment history makes them eligible for review. Both are always shown — a week with
  * nothing to revisit still has a course to get through, and a week of pure
  * revision still sits somewhere on the spine. Showing only whichever lane
  * happened to be non-empty was the thing that made the week unreadable.
@@ -55,7 +55,6 @@ export function ThisWeekPanel({
   onRemove,
   onFocusAgain,
   onAddTricky,
-  onRateTopics,
 }: {
   plan: WeeklyPlan | null;
   points: PlanPoint[];
@@ -71,8 +70,6 @@ export function ThisWeekPanel({
   onRemove: (specPointId: string) => void;
   onFocusAgain?: (point: PlanPoint) => void;
   onAddTricky?: () => void;
-  /** Sends the student to the confidence board when they've rated nothing. */
-  onRateTopics?: () => void;
 }) {
   // The spine band this week sits in — the core topic, whether or not it still
   // has points outstanding.
@@ -84,53 +81,13 @@ export function ThisWeekPanel({
     );
   }, [roadmap, weekStart]);
 
-  const topicProgress = band
-    ? roadmap?.progress.find((t) => t.topicId === band.topicId)
-    : undefined;
-  const mastery = topicProgress?.points.length ? topicProgress.masteryPct : null;
   const covered = !!band && (roadmap?.coveredTopicIds ?? []).includes(band.topicId);
 
-  /**
-   * This week's share of the core topic, read off the band's own division
-   * ({@link withWeeklyPoints}) rather than off the saved plan.
-   *
-   * The plan is a snapshot: it records what the programme said the day it was
-   * written, so a topic re-rated afterwards leaves the card claiming there is
-   * nothing outstanding in a topic with a term's work left in it. The programme
-   * is the live answer to "what am I studying this week", so the card asks it —
-   * and enriches each point with the plan's coverage and practice links where
-   * the two agree.
-   *
-   * Only the band's own topic lands here. Core-lane points from *other* topics
-   * used to be appended to this list, which put them on screen under the band's
-   * heading — a point from Topic 3 presented as part of Topic 1. They get their
-   * own blocks ({@link extraCore}) instead.
-   */
-  const coreThisWeek = useMemo(() => {
-    const inPlan = new Map(points.map((p) => [p.spec_point_id, p]));
-    const settled = new Set(
-      (topicProgress?.points ?? []).filter((p) => p.mastery >= SETTLED_THRESHOLD).map((p) => p.id),
-    );
-    const out = (band?.pointsByWeek?.[weekStart] ?? [])
-      .filter((r) => !settled.has(r.specPointId))
-      .map((r) => ({
-        id: r.specPointId,
-        code: r.code,
-        title: r.title,
-        planned: inPlan.get(r.specPointId) ?? null,
-      }));
-    // Anything the saved plan filed under this topic that the week's share
-    // doesn't mention — a plan written before bands carried their division, or a
-    // point carried in from an earlier week of the same run.
-    const shown = new Set(out.map((o) => o.id));
-    for (const p of points) {
-      if (!band || p.topic_id !== band.topicId) continue;
-      if (isCoreLane(p) && !shown.has(p.spec_point_id)) {
-        out.push({ id: p.spec_point_id, code: p.code, title: p.title, planned: p });
-      }
-    }
-    return out;
-  }, [band, weekStart, points, topicProgress]);
+  // The saved assignment is authoritative; roadmap points are never added here.
+  const coreThisWeek = useMemo(
+    () => points.filter((p) => isCoreLane(p) && p.topic_id === band?.topicId),
+    [points, band],
+  );
 
   // Split the plan by the lane each point was saved with. Plans written before
   // lanes existed carry `ai`; they join the core column rather than being hidden
@@ -167,35 +124,51 @@ export function ThisWeekPanel({
 
   const focusPointCount = focus.reduce((n, g) => n + g.points.length, 0);
 
-  const masteryByPoint = useMemo(() => {
-    const m = new Map<string, number>();
-    for (const t of roadmap?.progress ?? []) for (const p of t.points) m.set(p.id, p.mastery);
-    return m;
-  }, [roadmap]);
-
-  /**
-   * Mastery of the points actually listed, for the cards that show a *selection*
-   * from a topic rather than the topic itself.
-   *
-   * The topic average was the wrong number here and read as a contradiction: a
-   * strong topic with two shaky points in it showed "80% — how well it's
-   * sticking" directly above the two points the student had just told us they
-   * couldn't do. The bar should describe the work on the card.
-   */
-  const masteryOfPoints = (pts: PlanPoint[]): number | null => {
-    const vals = pts
-      .map((p) => masteryByPoint.get(p.spec_point_id))
-      .filter((v): v is number => v != null);
-    return vals.length ? Math.round(vals.reduce((s, v) => s + v, 0) / vals.length) : null;
-  };
-
-  const nothingRated = (roadmap?.progress ?? []).every((t) =>
-    t.points.every((p) => p.confidence == null),
-  );
+  const assigned = points.filter((p) => {
+    const a = activity.get(p.spec_point_id);
+    return a?.hasHomework || a?.hasQuiz;
+  });
+  const completed = assigned.filter((p) => {
+    const a = activity.get(p.spec_point_id);
+    const c = coverage.get(p.spec_point_id);
+    return (!a?.hasHomework || c?.homeworkDone) && (!a?.hasQuiz || c?.quizDone);
+  }).length;
+  const next = assigned.find((p) => {
+    const a = activity.get(p.spec_point_id);
+    const c = coverage.get(p.spec_point_id);
+    return (a?.hasHomework && !c?.homeworkDone) || (a?.hasQuiz && !c?.quizDone);
+  });
 
   const row = (p: PlanPoint) => {
     const a = activity.get(p.spec_point_id);
     const cov = coverage.get(p.spec_point_id);
+    const progress = roadmap?.progress
+      .flatMap((t) => t.points)
+      .find((point) => point.id === p.spec_point_id);
+    const nextReview =
+      progress?.eligibleAt &&
+      progress.lastReviewedAt &&
+      new Date(progress.lastReviewedAt) >= weekKeyToDate(weekStart)
+        ? mondayOnOrAfter(new Date(progress.eligibleAt))
+        : null;
+    if (!a?.hasHomework && !a?.hasQuiz)
+      return (
+        <details key={p.spec_point_id} className="text-sm text-muted-foreground">
+          <summary className="cursor-pointer">{p.title} · practice not attached yet</summary>
+          <p className="mt-1">
+            Your tutor can attach practice to this curriculum point. It does not count as unfinished
+            practice.
+          </p>
+          {editable && (
+            <button
+              className="btn-premium px-2 py-1 text-xs mt-2"
+              onClick={() => onRemove(p.spec_point_id)}
+            >
+              Remove from this week
+            </button>
+          )}
+        </details>
+      );
     return (
       <div
         key={p.spec_point_id}
@@ -204,6 +177,13 @@ export function ThisWeekPanel({
         <div className="flex-1 min-w-0">
           <span className="text-[11px] font-semibold text-muted-foreground mr-1.5">{p.code}</span>
           <span className="text-sm">{p.title}</span>
+          {nextReview && (
+            <p className="text-xs text-muted-foreground mt-1">
+              {roadmap && nextReview >= weekKeyToDate(roadmap.examDate)
+                ? "Next memory review falls beyond this exam period."
+                : `Next review eligible from ${nextReview.toLocaleDateString(undefined, { timeZone: PLANNER_TIME_ZONE, day: "numeric", month: "short" })}; assigned at the next weekly opening before the exam.`}
+            </p>
+          )}
           {p.carried_from && (
             <span
               className="ml-1.5 inline-flex items-center gap-1 align-middle h-5 px-1.5 rounded-md bg-muted text-[10px] font-medium text-muted-foreground"
@@ -264,7 +244,41 @@ export function ThisWeekPanel({
 
   return (
     <div className="space-y-4">
-      {showRationale && plan?.ai_rationale && (
+      {points.length === 0 && (
+        <EmptyState
+          title="Nothing assigned this week"
+          body="Your next review will appear when it is eligible. There is no extra practice to complete here today."
+        />
+      )}
+      {showCoverage && assigned.length > 0 && (
+        <div className="premium-card tint-primary rounded-xl p-4 space-y-2">
+          <h3 className="text-base font-bold">
+            {completed === assigned.length
+              ? "This week’s assigned practice is complete"
+              : `${completed} of ${assigned.length} points practised`}
+          </h3>
+          <Meter value={(completed / assigned.length) * 100} size="sm" />
+          {next && (
+            <Link
+              className="btn-solid inline-flex px-3 py-2 text-sm"
+              to={
+                activity.get(next.spec_point_id)?.hasHomework &&
+                !coverage.get(next.spec_point_id)?.homeworkDone
+                  ? "/homework"
+                  : "/mcqs"
+              }
+            >
+              Next: {next.title}
+            </Link>
+          )}
+          {completed === assigned.length && (
+            <p className="text-sm text-muted-foreground">
+              Your results will guide future reviews. You can finish here for this week.
+            </p>
+          )}
+        </div>
+      )}
+      {showRationale && plan?.ai_rationale && !/flagged|confidence/i.test(plan.ai_rationale) && (
         <div className="flex items-start gap-2 rounded-xl bg-primary/5 border border-primary/15 p-3">
           <Sparkles className="w-4 h-4 text-primary mt-0.5 shrink-0" />
           <p className="text-sm text-foreground/90">{plan.ai_rationale}</p>
@@ -273,7 +287,7 @@ export function ThisWeekPanel({
 
       <div className="grid gap-4 md:grid-cols-2 items-stretch">
         {/* Core topic — the curriculum, on schedule for the exam. */}
-        <div className="h-full flex flex-col rounded-xl border border-primary/30 bg-primary/[0.05] p-4">
+        <div className="h-full flex flex-col rounded-xl premium-card tint-primary p-4">
           <div className="flex items-center gap-1.5 mb-1">
             {covered ? (
               <>
@@ -296,42 +310,22 @@ export function ThisWeekPanel({
           {band || extraCore.length > 0 ? (
             <div className="space-y-5">
               {band && (
-                <TopicBlock title={band.title} mastery={mastery} accent="primary">
+                <TopicBlock title={band.title} accent="primary">
                   {coreThisWeek.length > 0 ? (
                     <SpecPointList count={coreThisWeek.length}>
-                      {coreThisWeek.map((p) =>
-                        p.planned ? (
-                          row(p.planned)
-                        ) : (
-                          <div
-                            key={p.id}
-                            className="flex items-center gap-2 rounded-lg border border-border bg-card/60 px-2.5 py-2"
-                          >
-                            <span className="text-[11px] font-semibold text-muted-foreground">
-                              {p.code}
-                            </span>
-                            <span className="text-sm flex-1 min-w-0">{p.title}</span>
-                          </div>
-                        ),
-                      )}
+                      {coreThisWeek.map(row)}
                     </SpecPointList>
                   ) : (
                     <p className="mt-3 text-sm text-muted-foreground">
                       {covered
-                        ? "Nothing outstanding here — you've covered this topic. It'll come back for a light review before the exam."
-                        : "This topic's spec points are all covered for this week."}
+                        ? "No new learning is assigned here this week."
+                        : "No new learning is assigned here this week."}
                     </p>
                   )}
                 </TopicBlock>
               )}
               {extraCore.map((g) => (
-                <TopicBlock
-                  key={g.topicId}
-                  title={g.title}
-                  mastery={masteryOfPoints(g.points)}
-                  masteryLabel="How well these are sticking"
-                  accent="primary"
-                >
+                <TopicBlock key={g.topicId} title={g.title} accent="primary">
                   <SpecPointList count={g.points.length}>{g.points.map(row)}</SpecPointList>
                 </TopicBlock>
               ))}
@@ -356,13 +350,7 @@ export function ThisWeekPanel({
           {focus.length > 0 ? (
             <div className="space-y-5">
               {focus.map((g) => (
-                <TopicBlock
-                  key={g.topicId}
-                  title={g.title}
-                  mastery={masteryOfPoints(g.points)}
-                  masteryLabel="How well these are sticking"
-                  accent="rose"
-                >
+                <TopicBlock key={g.topicId} title={g.title} accent="rose">
                   <SpecPointList count={g.points.length}>{g.points.map(row)}</SpecPointList>
                 </TopicBlock>
               ))}
@@ -370,21 +358,7 @@ export function ThisWeekPanel({
           ) : (
             <div className="flex-1 flex items-center">
               <p className="text-sm text-muted-foreground">
-                {nothingRated && onRateTopics ? (
-                  <>
-                    Nothing yet — head to{" "}
-                    <button
-                      type="button"
-                      onClick={onRateTopics}
-                      className="font-semibold text-primary hover:underline"
-                    >
-                      My topics
-                    </button>{" "}
-                    and rate how confident you feel, and we'll plan your revision from it.
-                  </>
-                ) : (
-                  "Nothing to revisit this week — you're on track. 🎯"
-                )}
+                No reviews assigned this week. Future reviews follow your assessed practice.
               </p>
             </div>
           )}
@@ -399,13 +373,7 @@ export function ThisWeekPanel({
           </div>
           <div className="space-y-5">
             {yours.map((g) => (
-              <TopicBlock
-                key={g.topicId}
-                title={g.title}
-                mastery={masteryOfPoints(g.points)}
-                masteryLabel="How well these are sticking"
-                accent="muted"
-              >
+              <TopicBlock key={g.topicId} title={g.title} accent="muted">
                 <SpecPointList count={g.points.length}>{g.points.map(row)}</SpecPointList>
               </TopicBlock>
             ))}
@@ -426,45 +394,17 @@ export function ThisWeekPanel({
   );
 }
 
-/** The kit paints meters from `--tint`, so an accent is a tint class now. */
-const ACCENT_TINT: Record<"primary" | "rose" | "muted", string> = {
-  primary: "tint-primary",
-  rose: "tint-rose",
-  muted: "tint-slate",
-};
-
-/**
- * One topic as this panel presents it: its name, how well it's sticking, and
- * what it asks of the student this week. Both cards are built from this, so the
- * core topic and a focused topic read identically apart from their accent —
- * they're the same kind of thing, differing only in why they're on the list.
- */
 function TopicBlock({
   title,
-  mastery,
-  masteryLabel = "How well it's sticking",
-  accent,
   children,
 }: {
   title: string;
-  mastery: number | null;
-  /** What the bar measures — the whole topic, or just the points listed here. */
-  masteryLabel?: string;
   accent: "primary" | "rose" | "muted";
   children: React.ReactNode;
 }) {
   return (
     <div>
-      <p className="font-display text-lg font-bold leading-snug">{title}</p>
-      {mastery != null && (
-        <div className="mt-3">
-          <div className="flex items-center justify-between text-[11px] mb-1">
-            <span className="text-muted-foreground">{masteryLabel}</span>
-            <span className="font-semibold tabular-nums">{mastery}%</span>
-          </div>
-          <Meter value={Math.max(2, mastery)} size="sm" className={ACCENT_TINT[accent]} />
-        </div>
-      )}
+      <h3 className="text-lg font-bold leading-snug">{title}</h3>
       {children}
     </div>
   );
@@ -473,13 +413,12 @@ function TopicBlock({
 /** The week's spec points under a topic, with the same heading everywhere. */
 function SpecPointList({ count, children }: { count: number; children: React.ReactNode }) {
   return (
-    <div className="mt-3">
-      <div className="flex items-center gap-1.5 mb-1.5">
-        <h3 className="eyebrow eyebrow-bare">This week&apos;s spec points</h3>
-        <span className="text-[11px] text-muted-foreground/70 tabular-nums">{count}</span>
-      </div>
-      <div className="space-y-1.5">{children}</div>
-    </div>
+    <details className="mt-3" open={count <= 3}>
+      <summary className="cursor-pointer text-sm font-bold">
+        {count} curriculum {count === 1 ? "point" : "points"}
+      </summary>
+      <div className="space-y-1.5 mt-2">{children}</div>
+    </details>
   );
 }
 
@@ -512,6 +451,6 @@ function PracticeLink({
 /** "13 Jul – 16 Aug" for a band's week keys. */
 function fmtRange(startWeek: string, endWeek: string): string {
   const fmt = (k: string) =>
-    weekKeyToDate(k).toLocaleDateString(undefined, { day: "numeric", month: "short" });
+    weekKeyToDate(k).toLocaleDateString(undefined, { timeZone: PLANNER_TIME_ZONE, day: "numeric", month: "short" });
   return `${fmt(startWeek)} – ${fmt(endWeek)}`;
 }

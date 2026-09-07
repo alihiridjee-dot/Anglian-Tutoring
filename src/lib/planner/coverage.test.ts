@@ -1,6 +1,7 @@
 import { describe, expect, test } from "bun:test";
 import {
   laneOf,
+  practiceInWeek,
   statusOf,
   statusOfPoint,
   summarize,
@@ -145,5 +146,17 @@ describe("laneOf", () => {
     expect(laneOf("student")).toBe("yours");
     expect(laneOf("tutor")).toBe("yours");
     expect(laneOf("carried_over")).toBe("yours"); // legacy carry origin
+  });
+});
+
+describe("weekly completion window", () => {
+  test("previous practice does not finish a newly assigned review", () => {
+    expect(practiceInWeek(new Date("2026-09-06T23:59:00+01:00").toISOString(), "2026-09-07")).toBe(false);
+    expect(practiceInWeek(new Date("2026-09-07T00:00:00+01:00").toISOString(), "2026-09-07")).toBe(true);
+    expect(practiceInWeek(new Date("2026-09-13T23:59:00+01:00").toISOString(), "2026-09-07")).toBe(true);
+    expect(practiceInWeek(new Date("2026-09-14T00:00:00+01:00").toISOString(), "2026-09-07")).toBe(false);
+  });
+  test("invalid timestamps cannot complete work", () => {
+    expect(practiceInWeek("invalid", "2026-09-07")).toBe(false);
   });
 });

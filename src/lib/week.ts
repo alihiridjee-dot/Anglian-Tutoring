@@ -1,70 +1,58 @@
-// Week helpers for the "This Week" widget. Weeks run Monday → Sunday. A weekly
-// plan is keyed by the date of its Monday, so the current plan is whatever row
-// carries this week's Monday. When the week rolls over on Sunday night the
-// Monday key changes, so last week's plan is no longer "this week" — the view
-// clears itself and the tutor is prompted to set the new one. No stored state
-// is ever mutated on a schedule; everything derives from today's date.
-
-/** Local-midnight Monday that starts the week containing `d`. */
-export function mondayOf(d: Date = new Date()): Date {
-  const date = new Date(d.getFullYear(), d.getMonth(), d.getDate());
-  // getDay(): 0=Sun … 6=Sat. Shift so Monday is the start of the week.
-  const dow = (date.getDay() + 6) % 7; // 0=Mon … 6=Sun
-  date.setDate(date.getDate() - dow);
-  return date;
+/** The teaching calendar is UK time, independent of the viewer's location. */
+export const PLANNER_TIME_ZONE = "Europe/London";
+const partsFormatter = new Intl.DateTimeFormat("en-GB", {
+  timeZone: PLANNER_TIME_ZONE, year: "numeric", month: "2-digit", day: "2-digit",
+  hour: "2-digit", minute: "2-digit", second: "2-digit", hourCycle: "h23",
+});
+function parts(d: Date): Record<string, number> {
+  return Object.fromEntries(partsFormatter.formatToParts(d)
+    .filter((p) => p.type !== "literal").map((p) => [p.type, Number(p.value)]));
 }
-
-/** Sunday that ends the week starting on `monday`. */
-export function sundayOf(monday: Date): Date {
-  const d = new Date(monday);
-  d.setDate(d.getDate() + 6);
-  return d;
-}
-
-/** The Monday `n` weeks from `monday` (negative goes back). */
-export function addWeeks(monday: Date, n: number): Date {
-  const d = new Date(monday);
-  d.setDate(d.getDate() + n * 7);
-  return d;
-}
-
-/** `YYYY-MM-DD` in local time — the storage key for a week (`weekly_focus.week_start`). */
 export function toDateKey(d: Date): string {
-  const y = d.getFullYear();
-  const m = String(d.getMonth() + 1).padStart(2, "0");
-  const day = String(d.getDate()).padStart(2, "0");
-  return `${y}-${m}-${day}`;
+  const p = parts(d);
+  return `${p.year}-${String(p.month).padStart(2, "0")}-${String(p.day).padStart(2, "0")}`;
 }
-
-/** The current week's Monday as a `YYYY-MM-DD` key. */
-export function currentWeekKey(now: Date = new Date()): string {
-  return toDateKey(mondayOf(now));
-}
-
-/** Parse a `YYYY-MM-DD` week key back into a local-midnight Date. */
+/** Parse a calendar key at London midnight, including BST transitions. */
 export function weekKeyToDate(key: string): Date {
-  const [y, m, d] = key.split("-").map(Number);
-  return new Date(y, (m ?? 1) - 1, d ?? 1);
+  if (!/^\d{4}-\d{2}-\d{2}$/.test(key)) throw new Error("Invalid calendar date");
+  const utc = new Date(`${key}T00:00:00Z`);
+  if (!Number.isFinite(utc.getTime()) || utc.toISOString().slice(0, 10) !== key)
+    throw new Error("Invalid calendar date");
+  let time = utc.getTime();
+  for (let i = 0; i < 3; i++) {
+    const p = parts(new Date(time));
+    const wall = Date.UTC(p.year, p.month - 1, p.day, p.hour, p.minute, p.second);
+    const delta = utc.getTime() - wall;
+    if (!delta) return new Date(time);
+    time += delta;
+  }
+  throw new Error("Could not resolve UK calendar date");
 }
-
-/**
- * Human label for a week, e.g. "14–20 Jul 2026" or, across a month/year
- * boundary, "28 Jul – 3 Aug 2026". Written so students can see at a glance
- * exactly which dates the plan covers.
- */
+function shiftDays(d: Date, days: number): Date {
+  const date = new Date(`${toDateKey(d)}T00:00:00Z`);
+  date.setUTCDate(date.getUTCDate() + days);
+  return weekKeyToDate(date.toISOString().slice(0, 10));
+}
+export function mondayOf(d: Date = new Date()): Date {
+  const key = toDateKey(d);
+  const dow = (new Date(`${key}T00:00:00Z`).getUTCDay() + 6) % 7;
+  return shiftDays(d, -dow);
+}
+export const sundayOf = (monday: Date): Date => shiftDays(monday, 6);
+export function addWeeks(monday: Date, n: number): Date {
+  if (!Number.isInteger(n)) throw new Error("Week offsets must be whole numbers");
+  return shiftDays(monday, n * 7);
+}
+export const currentWeekKey = (now: Date = new Date()): string => toDateKey(mondayOf(now));
+export const plannerDateLabel = (d: Date, options: Intl.DateTimeFormatOptions = { day: "numeric", month: "short" }): string =>
+  d.toLocaleDateString("en-GB", { ...options, timeZone: PLANNER_TIME_ZONE });
 export function weekRangeLabel(monday: Date): string {
   const sunday = sundayOf(monday);
-  const sameMonth = monday.getMonth() === sunday.getMonth();
-  const sameYear = monday.getFullYear() === sunday.getFullYear();
-  const day = (d: Date) => d.getDate();
-  const mon = (d: Date) => d.toLocaleDateString(undefined, { month: "short" });
-  const yr = (d: Date) => d.getFullYear();
-
-  if (sameMonth && sameYear) {
-    return `${day(monday)}–${day(sunday)} ${mon(sunday)} ${yr(sunday)}`;
-  }
-  if (sameYear) {
-    return `${day(monday)} ${mon(monday)} – ${day(sunday)} ${mon(sunday)} ${yr(sunday)}`;
-  }
-  return `${day(monday)} ${mon(monday)} ${yr(monday)} – ${day(sunday)} ${mon(sunday)} ${yr(sunday)}`;
+  const start = toDateKey(monday), end = toDateKey(sunday);
+  const day = (s: string) => Number(s.slice(8));
+  if (start.slice(0, 7) === end.slice(0, 7))
+    return `${day(start)}–${day(end)} ${plannerDateLabel(sunday, { month: "short", year: "numeric" })}`;
+  if (start.slice(0, 4) === end.slice(0, 4))
+    return `${plannerDateLabel(monday)} – ${plannerDateLabel(sunday, { day: "numeric", month: "short", year: "numeric" })}`;
+  return `${plannerDateLabel(monday, { day: "numeric", month: "short", year: "numeric" })} – ${plannerDateLabel(sunday, { day: "numeric", month: "short", year: "numeric" })}`;
 }

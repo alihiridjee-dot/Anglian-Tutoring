@@ -13,6 +13,7 @@ For authentication & the live/demo session model, see [docs/AUTHENTICATION.md](d
 ├── AGENTS.md                  # Custom agent instructions & safety guardrails
 ├── README.md                  # Developer instructions and project overview
 ├── docs/
+│   ├── ASSESSMENT_SCHEDULER.md # Engine rules, rollout and regression validation
 │   ├── AUTHENTICATION.md      # Session model, guard, sign-up → setup → paywall
 │   └── STRIPE_SETUP.md        # Seeding products, deploying the webhook, going live
 ├── scripts/
@@ -36,6 +37,7 @@ For authentication & the live/demo session model, see [docs/AUTHENTICATION.md](d
     │   ├── FilterBar.tsx      # Subject/Board/Level interactive filters
     │   ├── CourseBadge.tsx    # Header chip: the level + board this student sits
     │   ├── chat/              # Thread list, conversation view, compose + context picker
+    │   ├── planner/           # Query-backed weekly plan, roadmap, memory and tutor views
     │   ├── landing/           # Landing page component modules
     │   ├── tutor/             # Tutor management forms
     │   └── ui/
@@ -43,6 +45,7 @@ For authentication & the live/demo session model, see [docs/AUTHENTICATION.md](d
     │
     ├── hooks/                 # Custom React hooks
     │   ├── data/              # Query-bound data hooks
+    │   │   ├── usePlanner.ts      # Shared course/roadmap/memory query consumers
     │   │   ├── useAnalytics.ts
     │   │   ├── useBilling.ts       # Plans, subscriptions, useOwnPlanState (resumable?)
     │   │   ├── useChat.ts          # Threads, messages, unread badge (polled)
@@ -59,6 +62,11 @@ For authentication & the live/demo session model, see [docs/AUTHENTICATION.md](d
     │       └── types.ts            # Generated DB types (supabase gen types)
     │
     ├── lib/
+    │   ├── planner/           # Pure FSRS/pacing/coverage, RPC adapters and shared query keys
+    │   ├── programDal.ts      # Fixed teaching + eligible reviews; programme persistence
+    │   ├── scheduleDal.ts     # Graded-source reconstruction; no client-written memory
+    │   ├── weeklyPlanDal.ts   # Saved assignments, weekly activity/coverage and tutor roster
+    │   ├── week.ts            # Europe/London calendar keys and DST-aware weekly boundaries
     │   ├── auth/session.ts    # Typed AuthSession — single source of truth for live/demo
     │   ├── authService.ts     # Role resolution + effective student id
     │   ├── chatDal.ts         # Data access layer — student<->tutor threads/messages
@@ -191,3 +199,64 @@ disturbing existing links.
   validation); the client attaches tokens via `attachSupabaseAuth` in `start.ts`.
 - **Supabase** — Auth (email/password), RLS-secured Postgres, and a private
   `resources` storage bucket for homework uploads and downloads.
+
+
+## Assessment-driven tutoring engine
+
+The engine has four layers, with deliberately separate responsibilities:
+
+1. **Postgres read models:** `planner_course_snapshot` returns the ordered course,
+   assessment scope and graded source records in one JSON response;
+   `planner_attempt_sources` returns resource/quiz mappings for activity coverage.
+   Both are `STABLE SECURITY INVOKER`, retain the caller's table RLS, and omit
+   answer keys. JSON aggregation avoids PostgREST's result-row cap. The service
+   role can call the same functions for future scheduled jobs.
+2. **Pure calculations:** `planner/scheduler.ts` applies FSRS to assessed evidence;
+   `planner/pacing.ts` allocates teaching and eligible reviews;
+   `planner/coverage.ts` evaluates activity within a particular assigned week.
+   Teaching uses the entire pre-exam window. Reviews have no weekly count/weight
+   cap, but retain the 168-hour minimum and next London Monday opening.
+3. **Data composition:** `ScheduleDAL` reconstructs memory from homework grades
+   and immutable quiz snapshots, excluding historical confidence and the retired
+   client-writable ledger. `ProgramDAL` combines that progress with programme dates
+   and saved assignments. `WeeklyPlanDAL` owns weekly assignment persistence.
+4. **React Query:** `planner/queries.ts` owns keys scoped by student, subject,
+   board, level and week. Student, dashboard and tutor views share these keys.
+   Progress is reused by roadmap, memory and practice-history queries. Grading
+   invalidates the affected student's keys; plan edits invalidate saved-week and
+   roadmap data. Form drafts remain local and are not overwritten by refetches.
+   Sign-out cancels/clears the application's QueryClient, which is created per
+   router instance rather than as a server-global cache.
+
+The first student visit may create a missing programme/week. Query-level deduplication
+prevents duplicate work within one application instance; database constraints and
+atomic save routines remain necessary across devices. Existing weeks are never
+silently re-cut by cache refreshes. Unstarted automatic work is replaced only via
+explicit comparison; started/completed/carried/manual work is retained.
+
+### Security and rollout
+
+Deploy `20260907120000_planner_read_models.sql` after the assessment snapshot and
+weekly-completion migrations listed in `docs/ASSESSMENT_SCHEDULER.md`. It revokes
+client writes to historical memory tables and execution of the old client-card RPC.
+Historical rows remain archived. Until the new RPCs exist, the app uses direct
+source reads; only missing-function errors enable that compatibility path.
+Permission/network errors surface instead of being mistaken for empty plans.
+
+This is read aggregation and cache consolidation, **not a server scheduling service**.
+FSRS still runs in the consuming application. A client can alter its own display,
+but cannot use the retired memory-write endpoints to alter the active source record.
+Reports that must be independently authoritative should reconstruct on a trusted
+server using these graded sources. No cron jobs, automated emails or cohort-wide
+forecasting have been added. The tutor's existing scheduling-attention panel reports
+exam-horizon problems; a weekly workload alert needs a separately agreed threshold.
+
+### Validation
+
+`bun test src/lib/planner src/lib/db src/lib/programDal.test.ts src/lib/week.test.ts`
+covers scheduling, pagination, query deduplication/invalidation and UK calendar
+boundaries (including viewers in UTC, New York and Tokyo). Run the isolated SQL
+fixture with the command documented in `scripts/test-planner-read-models.ts`.
+It executes the migration and checks attribution, 1,205 returned attempts, RLS,
+retired-write denial, anonymous denial and service-role reads. This fixture does
+not replace a staging check against the full deployed Supabase policy set.

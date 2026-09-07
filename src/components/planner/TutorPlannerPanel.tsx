@@ -1,3 +1,7 @@
+import { ErrorNote } from "@/components/Shared";
+import { useQuery, useQueryClient } from "@tanstack/react-query";
+import { useWeekPlan } from "./useWeekPlan";
+import { ProgramDAL, type RoadmapResult } from "@/lib/programDal";
 import { Spinner } from "@/components/Shared";
 import { useEffect, useMemo, useState } from "react";
 import { toast } from "sonner";
@@ -36,15 +40,10 @@ import { subjectLabel } from "@/lib/courseSummary";
  * to the chosen student (tutor RLS on the plan tables allows it).
  */
 export function TutorPlannerPanel() {
-  const [students, setStudents] = useState<PlannerStudent[] | null>(null);
+  const roster = useQuery({ queryKey: ["planner-roster"], queryFn: () => WeeklyPlanDAL.listStudents() });
+  const students = roster.data ?? null;
   const [studentId, setStudentId] = useState<string>("");
-
-  useEffect(() => {
-    WeeklyPlanDAL.listStudents().then((s) => {
-      setStudents(s);
-      setStudentId((prev) => prev || s[0]?.id || "");
-    });
-  }, []);
+  useEffect(() => { if (!studentId && students?.length) setStudentId(students[0].id); }, [students, studentId]);
 
   const student = students?.find((s) => s.id === studentId) ?? null;
   const ordered = useMemo(
@@ -69,13 +68,6 @@ export function TutorPlannerPanel() {
   const isCurrent = weekOffset === 0;
   const showReview = weekOffset <= 0;
 
-  const [plan, setPlan] = useState<WeeklyPlan | null>(null);
-  const [points, setPoints] = useState<PlanPoint[]>([]);
-  const [coverage, setCoverage] = useState<Map<string, PointCoverage>>(new Map());
-  // What practice exists per point — so the tutor's view can tell a point the
-  // student skipped from one nothing was ever set on.
-  const [activity, setActivity] = useState<Activity>(new Map());
-  const [loading, setLoading] = useState(false);
   const [picking, setPicking] = useState(false);
   const [toAdd, setToAdd] = useState<string[]>([]);
   const [adding, setAdding] = useState(false);
@@ -84,51 +76,12 @@ export function TutorPlannerPanel() {
   const [refreshToken, setRefreshToken] = useState(0);
   const bumpRefresh = () => setRefreshToken((n) => n + 1);
 
-  const reload = async () => {
-    if (!student || !active) {
-      setPlan(null);
-      setPoints([]);
-      setCoverage(new Map());
-      setActivity(new Map());
-      return;
-    }
-    setLoading(true);
-    const res = await WeeklyPlanDAL.getPlan(student.id, active.subject as SubjectV, weekStart);
-    const pts = res?.points ?? [];
-    setPlan(res?.plan ?? null);
-    setPoints(pts);
-    const ids = pts.map((p) => p.spec_point_id);
-    if (showReview && ids.length) {
-      // Keep the student's SR schedule current from their real homework/MCQ
-      // results before reading coverage (idempotent; tutor RLS allows the write).
-      await ScheduleDAL.syncReviewsFromAttempts(student.id, ids).catch(() => {});
-    }
-    const [cov, act] = await Promise.all([
-      showReview && ids.length ? WeeklyPlanDAL.getCoverage(student.id, ids) : new Map(),
-      ids.length ? WeeklyPlanDAL.getActivity(ids) : new Map(),
-    ]);
-    setCoverage(cov);
-    setActivity(act);
-    setLoading(false);
-  };
-
-  useEffect(() => {
-    reload();
-    setPicking(false);
-    setToAdd([]);
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [studentId, active?.subject, active?.board, weekStart]);
-
-  const remove = async (specPointId: string) => {
-    if (!plan) return;
-    setPoints((prev) => prev.filter((p) => p.spec_point_id !== specPointId));
-    try {
-      await WeeklyPlanDAL.removePoint(plan.id, specPointId);
-      bumpRefresh();
-    } catch {
-      await reload();
-    }
-  };
+  const week = useWeekPlan({ studentId, subject: (active?.subject ?? "biology") as SubjectV,
+    board: (active?.board ?? "aqa") as BoardV, level: student?.level ?? "gcse",
+    weekStart, isCurrent: false, withCoverage: showReview });
+  const { plan, points, coverage, activity, roadmap, loading, reload } = week;
+  useEffect(() => { setPicking(false); setToAdd([]); }, [studentId, active?.subject, active?.board, weekStart]);
+  const remove = async (id: string) => { await week.removePoint(id); bumpRefresh(); };
 
   const addSelected = async () => {
     if (!student || !active || toAdd.length === 0) return;
@@ -171,6 +124,7 @@ export function TutorPlannerPanel() {
     return [...m.values()];
   }, [points]);
 
+  if (roster.error || week.error) return <ErrorNote error={roster.error ?? week.error} />;
   if (students === null) {
     return (
       <div className="rounded-2xl premium-card p-16 text-center shadow-sm">
@@ -181,6 +135,28 @@ export function TutorPlannerPanel() {
 
   return (
     <>
+      {roadmap?.focusLoad.overloaded && (
+        <section className="premium-card tint-amber rounded-xl p-4 mb-4">
+          <h3>Scheduling needs attention</h3>
+          <p className="text-sm">
+            {roadmap.reviewBacklog.length} reviews cannot fit before the exam.{" "}
+            {roadmap.unscheduledTopicTitles.length} topics lack teaching time.
+          </p>
+          <details className="mt-2">
+            <summary className="cursor-pointer text-sm font-bold">See outstanding work</summary>
+            <ul className="list-disc pl-5 text-sm">
+              {roadmap.reviewBacklog.map((p) => (
+                <li key={p.specPointId}>
+                  {p.code} {p.pointTitle}
+                </li>
+              ))}
+              {roadmap.unscheduledTopicTitles.map((t) => (
+                <li key={t}>{t} — teaching time needed</li>
+              ))}
+            </ul>
+          </details>
+        </section>
+      )}
       <div className="rounded-2xl premium-card p-4 sm:p-5 shadow-sm">
         {/* Student picker + week nav */}
         <div className="flex flex-wrap items-center justify-between gap-3 mb-4">

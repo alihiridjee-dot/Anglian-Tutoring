@@ -7,9 +7,10 @@ import {
   type PointWork,
   type PointWorkItem,
   noWork,
+  practiceInWeek,
 } from "./planner/coverage";
 import { mapAttemptSources } from "./planner/attemptSources";
-import { selectInSafe } from "./db/chunked";
+import { selectIn, selectInSafe, selectInHistory } from "./db/chunked";
 import { getSessionUserId } from "@/lib/auth/session";
 
 /** A stored end-of-week check-in row. */
@@ -108,17 +109,18 @@ export class WeeklyPlanDAL {
       .eq("week_start", weekStart)
       .maybeSingle();
     if (error) {
-      console.error("Error loading weekly plan:", error);
-      return null;
+      throw new Error(error.message);
     }
     if (!plan) return null;
 
-    const { data: rows } = await supabase
+    const { data: rows, error: pointsError } = await supabase
       .from("student_weekly_plan_points")
       .select(
         "origin, carried_from, done_at, spec_points!inner(id, code, title, description, topic_id, sort_order, topics!inner(title, sort_order))",
       )
       .eq("plan_id", plan.id);
+
+    if (pointsError) throw new Error(pointsError.message);
 
     const points: PlanPoint[] = ((rows ?? []) as unknown as PointRow[])
       .filter((r) => !!r.spec_points)
@@ -399,6 +401,7 @@ export class WeeklyPlanDAL {
   static async getCoverage(
     studentId: string,
     specPointIds: string[],
+    weekStart?: string,
   ): Promise<Map<string, PointCoverage>> {
     const out = new Map<string, PointCoverage>();
     for (const id of specPointIds) {
@@ -420,21 +423,26 @@ export class WeeklyPlanDAL {
     const setIds = [...setToPoints.keys()];
 
     const [subs, attempts] = await Promise.all([
-      selectInSafe<{ resource_id: string; score_pct: number | null }>(resourceIds, (batch) =>
-        supabase
-          .from("homework_submissions")
-          .select("resource_id, score_pct")
-          .eq("student_id", studentId)
-          .in("resource_id", batch),
-      ),
-      selectInSafe<{ set_id: string; score: number | null; total: number | null }>(
-        setIds,
+      selectIn<{ resource_id: string; score_pct: number | null; submitted_at: string }>(
+        resourceIds,
         (batch) =>
           supabase
-            .from("mcq_attempts")
-            .select("set_id, score, total")
-            .eq("user_id", studentId)
-            .in("set_id", batch),
+            .from("homework_submissions")
+            .select("resource_id, score_pct, submitted_at")
+            .eq("student_id", studentId)
+            .in("resource_id", batch),
+      ),
+      selectIn<{
+        set_id: string;
+        score: number | null;
+        total: number | null;
+        created_at: string;
+      }>(setIds, (batch) =>
+        supabase
+          .from("mcq_attempts")
+          .select("set_id, score, total, created_at")
+          .eq("user_id", studentId)
+          .in("set_id", batch),
       ),
     ]);
 
@@ -442,6 +450,7 @@ export class WeeklyPlanDAL {
       b == null ? a : a == null ? b : Math.max(a, b);
 
     for (const sub of subs) {
+      if (!practiceInWeek(sub.submitted_at, weekStart)) continue;
       const pct = sub.score_pct == null ? null : Math.round(Number(sub.score_pct));
       for (const p of resourceToPoints.get(sub.resource_id) ?? []) {
         const e = out.get(p);
@@ -453,6 +462,7 @@ export class WeeklyPlanDAL {
       }
     }
     for (const a of attempts) {
+      if (!practiceInWeek(a.created_at, weekStart)) continue;
       const pct = a.total ? Math.round(((a.score ?? 0) / a.total) * 100) : null;
       for (const p of setToPoints.get(a.set_id) ?? []) {
         const e = out.get(p);
@@ -570,11 +580,20 @@ export class WeeklyPlanDAL {
    * anyone with at least one subject enrolment is plannable.
    */
   static async listStudents(): Promise<PlannerStudent[]> {
-    // Both bounded. The enrolments read had no limit at all, so it grew with
-    // the roster and relied on whatever server-side cap happened to apply.
-    const [{ data: profiles }, { data: enrols }] = await Promise.all([
-      supabase.from("profiles").select("id, display_name, level, role").limit(1000),
-      supabase.from("student_enrolments").select("student_id, subject, board").limit(5000),
+    // Keyset pagination reads the complete roster even when the API caps rows.
+    const [profiles, enrols] = await Promise.all([
+      selectInHistory<{
+        id: string; display_name: string | null; level: LevelV | null; role: string | null;
+      }>(["roster"], (_batch, after) => {
+        const query = supabase.from("profiles").select("id, display_name, level, role").order("id").limit(500);
+        return after ? query.gt("id", after) : query;
+      }),
+      selectInHistory<{
+        id: string; student_id: string; subject: string; board: string;
+      }>(["enrolments"], (_batch, after) => {
+        const query = supabase.from("student_enrolments").select("id, student_id, subject, board").order("id").limit(500);
+        return after ? query.gt("id", after) : query;
+      }),
     ]);
     const byStudent = new Map<string, { subject: SubjectV; board: BoardV }[]>();
     for (const e of (enrols ?? []) as Array<{

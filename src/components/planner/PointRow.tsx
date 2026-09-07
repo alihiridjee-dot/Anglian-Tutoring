@@ -1,7 +1,6 @@
 import { ClipboardList, ListChecks } from "lucide-react";
 import { type ProgressPoint } from "@/lib/scheduleDal";
 import { type PointStatus } from "@/lib/planner/scheduler";
-import { bandOf } from "@/lib/planner/bands";
 
 /**
  * One spec point as every expanded topic on the plan shows it.
@@ -29,10 +28,9 @@ const statusMeta: Record<PointStatus, { label: string; cls: string }> = {
   },
 };
 
-/** One spec point inside an expanded topic: its confidence, marks and standing. */
+/** One spec point inside an expanded topic: its assessed marks and memory standing. */
 export function PointRow({ point }: { point: ProgressPoint }) {
   const s = statusMeta[point.status];
-  const band = point.confidence != null ? bandOf(point.confidence) : null;
   return (
     <li className="flex items-center gap-2 py-1">
       <div className="flex-1 min-w-0">
@@ -40,15 +38,6 @@ export function PointRow({ point }: { point: ProgressPoint }) {
         <span className="text-[13px]">{point.title}</span>
       </div>
       <div className="flex items-center gap-1.5 shrink-0">
-        {band && (
-          <span
-            className="inline-flex items-center gap-1 h-5 px-1.5 rounded-md border border-border text-[10px] font-medium text-muted-foreground"
-            title={`You rated this ${band.label.toLowerCase()}`}
-          >
-            <span className={`w-1.5 h-1.5 rounded-full ${band.dot}`} />
-            {point.confidence}
-          </span>
-        )}
         {point.homeworkScore != null && <MarkChip kind="homework" score={point.homeworkScore} />}
         {point.quizScore != null && <MarkChip kind="quiz" score={point.quizScore} />}
         <span

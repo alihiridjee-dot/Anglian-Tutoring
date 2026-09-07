@@ -106,7 +106,7 @@ describe("foldReviews", () => {
     expect(foldReviews(events, new Map(), seen)).toEqual([]);
   });
 
-  test("confidence events never lapse the card, unlike marks", () => {
+  test("confidence history is excluded entirely while assessed failures remain", () => {
     const asConfidence = [
       event(POINT_A, 4, 0, "c0", "confidence"),
       { ...event(POINT_A, 1, 5, ""), source: "confidence" as const, sourceId: null },
@@ -114,7 +114,7 @@ describe("foldReviews", () => {
     const asMarks = [event(POINT_A, 4, 0, "m1"), event(POINT_A, 1, 5, "m2")];
     const conf = foldedInto(asConfidence, new Map(), new Set()).get(POINT_A)!;
     const mark = foldedInto(asMarks, new Map(), new Set()).get(POINT_A)!;
-    expect(conf.lapses).toBe(0);
+    expect(conf).toBeUndefined();
     expect(mark.lapses).toBeGreaterThan(0);
   });
 
@@ -127,4 +127,16 @@ describe("foldReviews", () => {
     const cards = foldedInto(events, new Map(), new Set());
     expect(cards.get(POINT_A)!.lapses).toBeGreaterThan(cards.get(POINT_B)!.lapses);
   });
+});
+
+
+test("invalid evidence is skipped and caller deduplication state is unchanged", () => {
+  const valid = event(POINT_A, 4, 0, "valid");
+  const invalidDate = { ...valid, sourceId: "invalid-date", reviewedAt: new Date(NaN) };
+  const invalidRating = { ...valid, sourceId: "invalid-rating", rating: 9 as ReviewEvent["rating"] };
+  const seen = new Set<string>();
+  const rows = foldReviews([invalidDate, invalidRating, valid, valid], new Map(), seen);
+  expect(rows).toHaveLength(1);
+  expect(rows[0].event.sourceId).toBe("valid");
+  expect(seen.size).toBe(0);
 });

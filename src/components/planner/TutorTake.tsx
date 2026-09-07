@@ -1,4 +1,6 @@
-import { useEffect, useMemo, useState } from "react";
+import { useQuery, useQueryClient } from "@tanstack/react-query";
+import { plannerKey } from "@/lib/planner/queries";
+import { useEffect, useMemo, useRef, useState } from "react";
 import { useServerFn } from "@tanstack/react-start";
 import { toast } from "sonner";
 import {
@@ -74,7 +76,13 @@ export function TutorTake({
 
   const [note, setNote] = useState("");
   const [nextPoints, setNextPoints] = useState<string[]>([]);
-  const [loaded, setLoaded] = useState(false);
+  const queryClient = useQueryClient();
+  const noteKey = [...plannerKey(studentId), "tutor-note", plan.id, nextStart];
+  const savedQuery = useQuery({ queryKey: noteKey, queryFn: async () => {
+    const [tn, next] = await Promise.all([WeeklyPlanDAL.getTutorNote(plan.id), WeeklyPlanDAL.getPlan(studentId, subject, nextStart)]);
+    return { tn, next };
+  }, refetchOnWindowFocus: false });
+  const loaded = savedQuery.isSuccess;
   const [savedNote, setSavedNote] = useState<string | null>(null);
   const [busy, setBusy] = useState<null | "save" | "apply">(null);
   const [drafting, setDrafting] = useState(false);
@@ -85,47 +93,22 @@ export function TutorTake({
   }, [studentFeltReady, studentReflection]);
 
   // Labels for read-only display + the "next week will look like this" preview.
-  const [labels, setLabels] = useState<Map<string, SpecPointLabel>>(new Map());
+
   // What's already sitting in next week's plan, so the preview is the full picture.
   const [existingNext, setExistingNext] = useState<SpecPointLabel[]>([]);
 
+  const hydratedPlan = useRef<string | null>(null);
   useEffect(() => {
-    let alive = true;
-    (async () => {
-      const [tn, next] = await Promise.all([
-        WeeklyPlanDAL.getTutorNote(plan.id),
-        WeeklyPlanDAL.getPlan(studentId, subject, nextStart),
-      ]);
-      if (!alive) return;
-      setNote(tn?.note ?? "");
-      setSavedNote(tn?.note ?? null);
-      setNextPoints(tn?.next_points ?? []);
-      setExistingNext(
-        (next?.points ?? []).map((p) => ({ id: p.spec_point_id, code: p.code, title: p.title })),
-      );
-      setLoaded(true);
-    })();
-    return () => {
-      alive = false;
-    };
-  }, [plan.id, studentId, subject, nextStart]);
-
-  // Resolve labels for whatever points are referenced (tutor's picks + existing).
-  useEffect(() => {
-    const ids = [...new Set([...nextPoints, ...existingNext.map((p) => p.id)])];
-    if (ids.length === 0) {
-      setLabels(new Map());
-      return;
-    }
-    let alive = true;
-    WeeklyPlanDAL.getSpecPointLabels(ids).then((rows) => {
-      if (!alive) return;
-      setLabels(new Map(rows.map((r) => [r.id, r])));
-    });
-    return () => {
-      alive = false;
-    };
-  }, [nextPoints, existingNext]);
+    if (!savedQuery.data || hydratedPlan.current === plan.id) return;
+    hydratedPlan.current = plan.id;
+    const { tn, next } = savedQuery.data;
+    setNote(tn?.note ?? ""); setSavedNote(tn?.note ?? null); setNextPoints(tn?.next_points ?? []);
+    setExistingNext((next?.points ?? []).map((p) => ({ id: p.spec_point_id, code: p.code, title: p.title })));
+  }, [plan.id, savedQuery.data]);
+  const labelIds = [...new Set([...nextPoints, ...existingNext.map((p) => p.id)])].sort();
+  const labelQuery = useQuery({ queryKey: [...plannerKey(studentId), "point-labels", labelIds],
+    queryFn: () => WeeklyPlanDAL.getSpecPointLabels(labelIds), enabled: labelIds.length > 0 });
+  const labels = new Map((labelQuery.data ?? []).map((r) => [r.id, r]));
 
   // The resulting next-week focus = what's already there ∪ the tutor's new picks.
   const preview = useMemo(() => {
@@ -139,6 +122,11 @@ export function TutorTake({
     }
     return merged;
   }, [existingNext, nextPoints, labels]);
+
+  const saveTutorNote = async (input: Parameters<typeof WeeklyPlanDAL.saveTutorNote>[0]) => {
+    await WeeklyPlanDAL.saveTutorNote(input);
+    await queryClient.invalidateQueries({ queryKey: noteKey });
+  };
 
   const draftWithAI = async () => {
     setDrafting(true);
@@ -171,7 +159,7 @@ export function TutorTake({
   const saveNote = async () => {
     setBusy("save");
     try {
-      await WeeklyPlanDAL.saveTutorNote({
+      await saveTutorNote({
         planId: plan.id,
         studentId,
         note: note.trim() || null,
@@ -195,7 +183,7 @@ export function TutorTake({
     try {
       // Save the take, then merge the picks into next week's plan (creating it if
       // there isn't one yet) so the change is real, not just a suggestion.
-      await WeeklyPlanDAL.saveTutorNote({
+      await saveTutorNote({
         planId: plan.id,
         studentId,
         note: note.trim() || null,

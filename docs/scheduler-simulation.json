@@ -1,0 +1,50 @@
+{
+  "assumptions": "90 unit-weight skills; uncapped eligible reviews; seven-day floor; grading on Monday; full teaching window",
+  "report": [
+    {
+      "scenario": "consistent success",
+      "weeks": 36,
+      "skills": 90,
+      "completedReviews": 217,
+      "peakWeeklyReviews": 10,
+      "stillDueAtExam": 2,
+      "spacingViolations": 0
+    },
+    {
+      "scenario": "mixed results",
+      "weeks": 36,
+      "skills": 90,
+      "completedReviews": 495,
+      "peakWeeklyReviews": 27,
+      "stillDueAtExam": 5,
+      "spacingViolations": 0
+    },
+    {
+      "scenario": "persistent difficulty",
+      "weeks": 36,
+      "skills": 90,
+      "completedReviews": 1494,
+      "peakWeeklyReviews": 87,
+      "stillDueAtExam": 0,
+      "spacingViolations": 0
+    },
+    {
+      "scenario": "late joiner",
+      "weeks": 12,
+      "skills": 90,
+      "completedReviews": 224,
+      "peakWeeklyReviews": 36,
+      "stillDueAtExam": 23,
+      "spacingViolations": 0
+    },
+    {
+      "scenario": "missed weeks",
+      "weeks": 36,
+      "skills": 90,
+      "completedReviews": 205,
+      "peakWeeklyReviews": 17,
+      "stillDueAtExam": 3,
+      "spacingViolations": 0
+    }
+  ]
+}

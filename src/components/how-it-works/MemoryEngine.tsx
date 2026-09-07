@@ -1,31 +1,17 @@
 import { useRef } from "react";
 import { motion, useInView } from "motion/react";
-import { fsrs, generatorParameters, createEmptyCard, Rating, type Card, type Grade } from "ts-fsrs";
-import { ClipboardCheck, ListChecks, Video, HeartHandshake } from "lucide-react";
+import { applyReview, reviewEligibleAt, Rating, type Card, type Grade } from "@/lib/planner/scheduler";
+import { mondayOnOrAfter } from "@/lib/planner/pacing";
+import { ClipboardCheck, ListChecks } from "lucide-react";
 
-/**
- * What the scheduler does with the week's evidence.
- *
- * The forgetting curve above proves revisiting works. This answers the next
- * question a parent asks: *how does it know when?* — and it answers it with the
- * real engine rather than a drawing. The three timelines below are the actual
- * intervals `ts-fsrs` returns for a topic the student keeps fluffing, one
- * they're steady on, and one they've nailed. Nothing here is art-directed; if
- * the engine's parameters change, the picture changes with it.
- *
- * Computed once at module scope from a fixed epoch, for the same reason
- * `ForgettingCurve` does it: the page is server-rendered, and a schedule built
- * from `new Date()` would hydrate differently on the client.
- */
+/** Illustrative repeated outcomes using the real weekly eligibility rules.
+ * A fixed epoch keeps server and client rendering deterministic. */
 
 const DAY = 86_400_000;
-const EPOCH = new Date("2025-01-01T00:00:00Z").getTime();
+const EPOCH = new Date("2025-01-06T00:00:00Z").getTime();
 const HORIZON = 70; // days on the rail
 const at = (d: number) => new Date(EPOCH + d * DAY);
 
-const engine = fsrs(
-  generatorParameters({ enable_fuzz: false, enable_short_term: false, maximum_interval: 365 }),
-);
 
 /**
  * Walk the engine forward, always answering `rating`, and collect the due dates.
@@ -39,12 +25,12 @@ const engine = fsrs(
 const STEPS = 8;
 
 function schedule(rating: Grade): number[] {
-  let card = createEmptyCard<Card>(at(0));
+  let card: Card | null = null;
   const days: number[] = [];
   let day = 0;
   for (let i = 0; i < STEPS; i++) {
-    card = engine.next(card, at(day), rating).card;
-    day = Math.round((card.due.getTime() - EPOCH) / DAY);
+    card = applyReview(card, rating, at(day));
+    day = (mondayOnOrAfter(reviewEligibleAt(card)).getTime() - EPOCH) / DAY;
     days.push(day);
   }
   return days;
@@ -61,27 +47,22 @@ interface Lane {
 const LANES: Lane[] = [
   {
     key: "weak",
-    // `Hard`, not `Again`: a student who keeps failing outright never leaves
-    // relearning, so every interval stays at a day and the rail draws as an
-    // unreadable clump of dots. `Hard` is also the truer picture of the topic
-    // this describes — one they can half-do, which comes back often and earns
-    // its space slowly.
     label: "Required practicals",
-    evidence: "Quiz 40% · homework 5/12 · “not confident”",
+    evidence: "Quiz 40% · homework 5/12",
     tone: "weak",
-    days: schedule(Rating.Hard),
+    days: schedule(Rating.Again),
   },
   {
     key: "steady",
     label: "Transport in cells",
-    evidence: "Quiz 70% · homework 8/12 · “getting there”",
+    evidence: "Quiz 70% · homework 9/12",
     tone: "steady",
     days: schedule(Rating.Good),
   },
   {
     key: "strong",
     label: "Cell structure",
-    evidence: "Quiz 100% · homework 12/12 · “solid”",
+    evidence: "Quiz 100% · homework 12/12",
     tone: "strong",
     days: schedule(Rating.Easy),
   },
@@ -106,23 +87,21 @@ const TONE: Record<Lane["tone"], { dot: string; bar: string; chip: string }> = {
 };
 
 const SIGNALS = [
-  { icon: Video, label: "The live lesson", note: "what was taught, and who turned up" },
   { icon: ClipboardCheck, label: "Marked homework", note: "a real mark on real work" },
   { icon: ListChecks, label: "The weekly quiz", note: "recall, per spec point" },
-  { icon: HeartHandshake, label: "Their own rating", note: "how solid it actually felt" },
 ];
 
 /** Plain-English gap between the lesson and the first time it comes back. */
 function firstReturn(lane: Lane): string {
   const d = lane.days[0];
   if (!d) return "—";
-  return d === 1 ? "tomorrow" : `${d} days`;
+  return d === 1 ? "tomorrow" : `${Math.round(d)} days`;
 }
 
 /** The gap between the first revisit and the second — how fast it lets go. */
 function secondGap(lane: Lane): number {
   const { days } = lane;
-  return days.length < 2 ? 0 : days[1] - days[0];
+  return days.length < 2 ? 0 : Math.round(days[1] - days[0]);
 }
 
 export function MemoryEngine() {
@@ -133,10 +112,10 @@ export function MemoryEngine() {
     <div ref={ref} className="grid gap-5 lg:grid-cols-[minmax(0,20rem)_1fr]">
       {/* ---- What goes in ---- */}
       <div className="premium-card rounded-3xl p-6">
-        <span className="eyebrow">Four signals, every week</span>
+        <span className="eyebrow">Assessed practice, every week</span>
         <p className="mt-3 text-sm leading-relaxed text-muted-foreground">
-          Every topic your child studies carries a single number: how likely they are to still know
-          it today. These four things move it.
+          Graded practice helps estimate how likely your child is to recall each specification
+          point. These two sources update its memory schedule.
         </p>
 
         <ul className="mt-5 space-y-3">
@@ -165,8 +144,8 @@ export function MemoryEngine() {
         </ul>
 
         <p className="mt-5 rounded-xl bg-secondary/70 px-3.5 py-3 text-xs leading-relaxed text-muted-foreground">
-          Three of those are evidence. The fourth is your child telling us the truth about what they
-          understood — which is why we ask, and why it counts.
+          Reviews follow marked work, with at least seven days between assessed practice and the
+          next eligible review. Self-ratings do not change the memory schedule.
         </p>
       </div>
 
@@ -244,8 +223,8 @@ export function MemoryEngine() {
         </div>
 
         <p className="mt-5 text-sm leading-relaxed text-muted-foreground">
-          Three topics from the same week, on three different schedules — because your child does
-          not know all three equally well, and pretending otherwise is what wastes their evenings.
+          These examples assume the same result at each review and show the earliest weekly slots.
+          Actual results and the exam date determine the assigned dates.
           The shaky one is back in{" "}
           <strong className="font-semibold text-[var(--primary-deep)]">
             {firstReturn(LANES[0])}

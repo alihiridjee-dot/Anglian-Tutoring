@@ -57,7 +57,7 @@ function LearningStep() {
       );
       if (error) throw error;
 
-      navigate({ to: "/onboarding/confidence" });
+      navigate({ to: "/onboarding/school" });
     } catch (err) {
       toast.error(err instanceof Error ? err.message : "Couldn't save your answers — try again.");
     } finally {
@@ -70,7 +70,7 @@ function LearningStep() {
       title="How do you find science right now?"
       subtitle="Be honest — there's no wrong answer, and it only helps your tutor pitch lessons right."
       onBack={() => navigate({ to: "/onboarding/subjects" })}
-      onSkip={() => navigate({ to: "/onboarding/confidence" })}
+      onSkip={() => navigate({ to: "/onboarding/school" })}
       onContinue={handleContinue}
       saving={saving}
     >

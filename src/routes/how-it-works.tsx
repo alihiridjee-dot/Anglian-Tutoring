@@ -59,7 +59,7 @@ const LOOP = [
     icon: ClipboardCheck,
     step: "02",
     title: "We find out what stuck",
-    desc: "Marked homework, a weekly quiz, and a quick honest self-rating. Three angles on the same topic — because 'I understood it in the lesson' and 'I can do it in the exam' are very different things.",
+    desc: "Marked homework and a weekly quiz guide the next review. Two assessments of the same topic — because 'I understood it in the lesson' and 'I can do it in the exam' are very different things.",
   },
   {
     icon: CalendarCheck,
@@ -178,7 +178,7 @@ const ACCOUNTABILITY = [
   {
     icon: Eye,
     title: "Weak topics can't hide",
-    desc: "Students naturally revise what they already enjoy. Our scheduler does the opposite: it pushes the shaky topics to the top and keeps them there until they're genuinely solid.",
+    desc: "Students naturally revise what they already enjoy. Our scheduler brings assessed topics back when they are due, prioritising overdue reviews and using memory estimates to break ties.",
   },
   {
     icon: LineChart,
@@ -466,7 +466,7 @@ function HowItWorks() {
               trained on well over a billion real study reviews. It's what serious medical students
               use to hold thousands of facts through finals. For each topic it keeps two numbers:
               how likely your child is to recall it <em>today</em>, and how durable that memory has
-              become. Every mark, score and self-rating updates both.
+              become. Graded homework and quiz results update both.
             </p>
             <p className="mt-4 text-sm leading-relaxed text-muted-foreground">
               We did the harder part: wiring it to real marked homework, real quizzes and a real
@@ -493,7 +493,7 @@ function HowItWorks() {
             </h2>
             <p className="mt-4 text-base leading-relaxed text-muted-foreground">
               Play the part of your child for a moment. Answer a quiz, and watch the plan react in
-              real time — this is the live engine, not an animation.
+              real time, using the same memory and weekly eligibility rules.
             </p>
           </motion.div>
 
