@@ -1,24 +1,17 @@
 import { useState } from "react";
 import { motion, AnimatePresence } from "motion/react";
-import { fsrs, generatorParameters, createEmptyCard, Rating, type Card } from "ts-fsrs";
+import { type Card } from "ts-fsrs";
 import { RotateCcw, ArrowRight } from "lucide-react";
-import { scoreToRating } from "@/lib/planner/scheduler";
+import { applyReview, reviewEligibleAt, scoreToRating } from "@/lib/planner/scheduler";
+import { mondayOnOrAfter } from "@/lib/planner/pacing";
 
-/**
- * "Try it yourself" — a parent plays the part of their child sitting a weekly
- * quiz, and watches the schedule respond. This is not a mock-up: the outcomes
- * run through the platform's own `scoreToRating` thresholds and the same FSRS
- * engine that books real revisits, so what a parent sees here is what the
- * planner would actually do.
- */
+/** One-point demonstration of assessed memory and earliest weekly eligibility.
+ * Real assignments also depend on the exam horizon and saved assignments. */
 
 const DAY = 86_400_000;
-const EPOCH = new Date("2025-01-01T00:00:00Z").getTime();
+const EPOCH = new Date("2025-01-06T00:00:00Z").getTime();
 const at = (d: number) => new Date(EPOCH + d * DAY);
 
-const engine = fsrs(
-  generatorParameters({ enable_fuzz: false, enable_short_term: false, maximum_interval: 365 }),
-);
 
 /** The four outcomes a parent recognises, mapped to the real score bands. */
 const OUTCOMES = [
@@ -108,14 +101,15 @@ export function RevisitSimulator() {
 
   const answer = (outcome: (typeof OUTCOMES)[number]) => {
     const grade = scoreToRating(outcome.pct);
-    const next = engine.next(card ?? createEmptyCard<Card>(at(day)), at(day), grade).card;
-    const gapDays = Math.max(1, Math.round((next.due.getTime() - EPOCH) / DAY - day));
+    const next = applyReview(card, grade, at(day));
+    const nextDay = (mondayOnOrAfter(reviewEligibleAt(next)).getTime() - EPOCH) / DAY;
+    const gapDays = Math.round(nextDay - day);
     setSteps((prev) => [
       ...prev,
       { outcomeId: outcome.id, label: outcome.label, tone: outcome.tone, onDay: day, gapDays },
     ]);
     setCard(next);
-    setDay(day + gapDays);
+    setDay(nextDay);
   };
 
   const reset = () => {
@@ -198,8 +192,8 @@ export function RevisitSimulator() {
                 exit={{ opacity: 0 }}
                 className="text-base leading-relaxed text-white/70"
               >
-                Pick an outcome and watch the schedule respond. Nothing here is a guess — it's the
-                same engine that plans your child's real week.
+                Pick an outcome to see this point's earliest weekly review slot. Your child's actual
+                assignment also depends on the exam date and any saved weekly plan.
               </motion.p>
             ) : (
               <motion.div
@@ -254,9 +248,8 @@ export function RevisitSimulator() {
               })}
             </div>
             <p className="mt-4 text-xs leading-relaxed text-white/60">
-              Keep answering to see it play out. Strong weeks push the topic further away so it
-              stops eating revision time; a weak week drags it straight back — even if they'd aced
-              it before.
+              Keep answering to see the earliest eligible weekly slots. Reviews wait at least seven
+              days; the exam date and saved weekly plan can affect the actual assignment.
             </p>
           </div>
         )}

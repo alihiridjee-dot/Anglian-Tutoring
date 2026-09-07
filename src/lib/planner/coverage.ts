@@ -1,8 +1,19 @@
+import { addWeeks, weekKeyToDate } from "@/lib/week";
+
 // The coverage loop: at the end of a week we look at what the student actually
 // did on each spec point in the plan — homework submissions and MCQ attempts,
 // both already spec-point-linked — and turn that into a per-point status and a
 // whole-week verdict ("you've got this, move on" vs "worth another pass"). Kept
 // as pure functions so the panel, the check-in card and any tests all agree.
+
+/** Assignment completion belongs to the week the practice was submitted in. */
+export function practiceInWeek(at: string, weekStart?: string): boolean {
+  const time = new Date(at).getTime();
+  if (!Number.isFinite(time)) return false;
+  if (!weekStart) return true;
+  const start = weekKeyToDate(weekStart);
+  return time >= start.getTime() && time < addWeeks(start, 1).getTime();
+}
 
 /** A score at or above this (percent) counts as "solid" on a point. */
 export const STRONG_THRESHOLD = 70;

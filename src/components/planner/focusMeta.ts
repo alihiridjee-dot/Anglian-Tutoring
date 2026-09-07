@@ -1,5 +1,5 @@
 import { Repeat, Sparkles } from "lucide-react";
-import { FOCUS_RED_BELOW, type PacingBand } from "@/lib/planner/pacing";
+import { type PacingBand } from "@/lib/planner/pacing";
 import { type TopicProgress } from "@/lib/scheduleDal";
 
 /**
@@ -9,7 +9,7 @@ import { type TopicProgress } from "@/lib/scheduleDal";
 
 /** What a student is told "focused topics" means, on hover. */
 export const FOCUSED_TOPICS_BLURB =
-  "Topics we bring back round. When a confidence rating, a quiz or a piece of homework says something hasn't stuck, it's scheduled again just before you'd forget it — and it keeps coming back until it does.";
+  "Reviews selected from assessed practice and memory timing. Future weeks are estimates; your weekly assignment is the confirmed list.";
 
 /** Why a topic is in the focus lane, strongest call on attention first. */
 export type FocusToneName = "needsWork" | "revisit" | "refresh";
@@ -52,7 +52,7 @@ export const FOCUS_TONES: Record<
     row: "bg-amber-500/[0.10] border-l-amber-500 hover:bg-amber-500/[0.16]",
     swatch: "bg-amber-500/[0.14] border-amber-500/30 border-l-amber-500",
     iconCls: "text-amber-600 dark:text-amber-400",
-    meaning: "Getting there — due a spaced review.",
+    meaning: "Due for a spaced review.",
   },
   refresh: {
     label: "Quick refresh",
@@ -65,12 +65,11 @@ export const FOCUS_TONES: Record<
 };
 
 /** The key's order: worst first, so it reads as a scale. */
-export const FOCUS_TONE_ORDER: FocusToneName[] = ["needsWork", "revisit", "refresh"];
+export const FOCUS_TONE_ORDER: FocusToneName[] = ["revisit"];
 
 /** Which of the three a band is, from its kind and how well it's sticking. */
 export function focusToneOf(b: PacingBand, mastery: number): FocusToneName {
-  if (b.kind !== "revisit") return "refresh";
-  return mastery < FOCUS_RED_BELOW ? "needsWork" : "revisit";
+  return "revisit";
 }
 
 /**
@@ -80,13 +79,9 @@ export function focusToneOf(b: PacingBand, mastery: number): FocusToneName {
 export function focusTone(b: PacingBand, mastery: number) {
   const name = focusToneOf(b, mastery);
   const tone = FOCUS_TONES[name];
-  const pct = Math.round(mastery);
-  const why =
-    name === "refresh"
-      ? "Already covered — a light review before the exams."
-      : name === "needsWork"
-        ? `Low mastery (${pct}%) — the engine resurfaces this often until it sticks.`
-        : `Getting there (${pct}%) — due a spaced review so it doesn't slip.`;
+  const why = b.points?.some((p) => p.dueAt)
+    ? "Estimated next review from assessed practice; confirmed when the week is assigned."
+    : "Saved in your weekly assignment. Use the schedule comparison to review older assignments.";
   return { ...tone, name, why };
 }
 

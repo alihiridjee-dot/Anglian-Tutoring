@@ -1,3 +1,5 @@
+import { ErrorNote } from "@/components/Shared";
+import { usePlannerMemory } from "@/hooks/data/usePlanner";
 import { Spinner } from "@/components/Shared";
 import { useEffect, useMemo, useState } from "react";
 import { Brain } from "lucide-react";
@@ -40,34 +42,13 @@ export function MemoryPanel({
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [studentId]);
 
-  const [stats, setStats] = useState<MemoryStats | null>(null);
-  const [loading, setLoading] = useState(true);
-
-  useEffect(() => {
-    if (!active) return;
-    let cancelled = false;
-    setLoading(true);
-    ScheduleDAL.getMemoryStats({
-      studentId,
-      subject: active.subject as SubjectV,
-      board: active.board as BoardV,
-      level,
-    })
-      .then((s) => {
-        if (!cancelled) setStats(s);
-      })
-      .catch(() => {
-        if (!cancelled) setStats(null);
-      })
-      .finally(() => {
-        if (!cancelled) setLoading(false);
-      });
-    return () => {
-      cancelled = true;
-    };
-  }, [studentId, active, level, refreshToken]);
+  const memoryQuery = usePlannerMemory({ studentId, subject: (active?.subject ?? "biology") as SubjectV,
+    board: (active?.board ?? "aqa") as BoardV, level }, !!active);
+  const stats = memoryQuery.data ?? null;
+  const loading = memoryQuery.isLoading;
 
   if (!active) return null;
+  if (memoryQuery.error) return <ErrorNote error={memoryQuery.error} />;
 
   const practised = stats ? stats.total - stats.newCount : 0;
   const segments = stats
@@ -121,7 +102,7 @@ export function MemoryPanel({
         <p className="text-muted-foreground text-sm">No curriculum loaded for this subject yet.</p>
       ) : practised === 0 ? (
         <p className="text-sm text-muted-foreground">
-          Nothing practised yet — rate your confidence or finish some homework and this fills in.
+          Nothing practised yet — finish some homework or a quiz and this fills in.
         </p>
       ) : (
         <div className="flex flex-col lg:flex-row gap-5">

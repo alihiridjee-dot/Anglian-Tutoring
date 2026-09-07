@@ -1,3 +1,8 @@
+import { ErrorNote } from "@/components/Shared";
+import { PLANNER_TIME_ZONE } from "@/lib/week";
+import { usePlannerRoadmap } from "@/hooks/data/usePlanner";
+import { useQueryClient } from "@tanstack/react-query";
+import { invalidatePlanner } from "@/lib/planner/queries";
 import { Spinner } from "@/components/Shared";
 import { useEffect, useMemo, useState } from "react";
 import { toast } from "sonner";
@@ -25,7 +30,7 @@ import { FocusedTopicsHeaderCell, FocusKey, FocusPointsPanel, FocusTopicButton }
 import { focusHasDetail, focusRowKey } from "./focusMeta";
 
 function fmtDate(d: Date): string {
-  return d.toLocaleDateString(undefined, { day: "numeric", month: "short" });
+  return d.toLocaleDateString(undefined, { timeZone: PLANNER_TIME_ZONE, day: "numeric", month: "short" });
 }
 function fmtRange(startKey: string, endKey: string): string {
   const start = weekKeyToDate(startKey);
@@ -52,7 +57,7 @@ export function RoadmapPanel({
   studentId: string;
   enrolments: Enrolment[];
   level: LevelV;
-  /** Bump to force a reload (e.g. after the confidence board changes). */
+  /** Bump to reload after an explicit schedule update. */
   refreshToken?: number;
   /** Tutor review mode: neutral copy, and the plan-shift is informational only
    *  (the acknowledgement is the student's own gesture — a tutor never consumes it). */
@@ -77,8 +82,11 @@ export function RoadmapPanel({
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [studentId]);
 
-  const [data, setData] = useState<RoadmapResult | null>(null);
-  const [loading, setLoading] = useState(true);
+  const queryClient = useQueryClient();
+  const roadmapQuery = usePlannerRoadmap({ studentId, subject: (active?.subject ?? "biology") as SubjectV,
+    board: (active?.board ?? "aqa") as BoardV, level }, refreshToken, !!active);
+  const data = roadmapQuery.data ?? null;
+  const loading = roadmapQuery.isLoading;
   const [acking, setAcking] = useState(false);
   const [expanded, setExpanded] = useState<Set<string>>(new Set());
   const [showAllChanges, setShowAllChanges] = useState(false);
@@ -106,24 +114,7 @@ export function RoadmapPanel({
     [data],
   );
 
-  const load = async () => {
-    if (!active) return;
-    setLoading(true);
-    setExpanded(new Set());
-    const res = await ProgramDAL.loadRoadmap({
-      studentId,
-      subject: active.subject as SubjectV,
-      board: active.board as BoardV,
-      level,
-    });
-    setData(res);
-    setLoading(false);
-  };
-
-  useEffect(() => {
-    load();
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [studentId, active?.subject, active?.board, level, refreshToken]);
+  const load = async () => { await invalidatePlanner(queryClient, studentId); };
 
   const acknowledge = async () => {
     if (!data || !active) return;
@@ -146,6 +137,7 @@ export function RoadmapPanel({
   };
 
   if (!active) return null;
+  if (roadmapQuery.error) return <ErrorNote error={roadmapQuery.error} />;
 
   const covered = new Set(data?.coveredTopicIds ?? []);
   const spine = data?.bands.filter(isTeachBand) ?? [];
@@ -222,12 +214,9 @@ export function RoadmapPanel({
                     : "This plan is asking a lot each week"}
                 </p>
                 <p className="text-xs text-muted-foreground mt-0.5">
-                  The ratings work out at about {Math.round(data.focusLoad.budget)} points a week to
-                  revisit — {data.focusLoad.ratio.toFixed(1)}× the{" "}
-                  {Math.round(data.focusLoad.spine)} of new material each week.{" "}
                   {asTutor
-                    ? "Usually a sign that topics were rated in bulk rather than point by point, which is worth going through together."
-                    : "That usually means whole topics were rated in one go — rating them point by point gives a lighter, truer plan."}
+                    ? "Some teaching topics or eligible reviews have no weekly slot before the exam. Review the exam date and remaining teaching runway."
+                    : "Some work has no weekly slot before the exam. Ask your tutor to review the plan."}
                 </p>
               </div>
             </div>
@@ -542,22 +531,6 @@ function WeekTable({
                             <>New in plan</>
                           )}
                         </span>
-                      )}
-                      {tp && tp.points.length > 0 && (
-                        <div
-                          className="mt-1.5 flex items-center gap-2"
-                          title={`How well this is sticking: ${tp.masteryPct}%`}
-                        >
-                          <div className="h-1.5 flex-1 rounded-full bg-muted overflow-hidden">
-                            <div
-                              className="h-full rounded-full bg-primary"
-                              style={{ width: `${Math.max(2, tp.masteryPct)}%` }}
-                            />
-                          </div>
-                          <span className="text-[10px] font-semibold tabular-nums text-muted-foreground">
-                            {tp.masteryPct}%
-                          </span>
-                        </div>
                       )}
                     </button>
                   ) : (

@@ -1,3 +1,4 @@
+import { ErrorNote } from "@/components/Shared";
 import { useMemo, useState } from "react";
 import { useServerFn } from "@tanstack/react-start";
 import { toast } from "sonner";
@@ -148,6 +149,7 @@ export function WeeklyPlanPanel({
 
   if (!active) return null;
 
+  if (week.error) return <ErrorNote error={week.error} />;
   return (
     <>
       <div className="rounded-2xl premium-card p-4 sm:p-5 shadow-sm mb-4">

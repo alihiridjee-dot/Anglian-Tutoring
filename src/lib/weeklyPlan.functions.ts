@@ -6,20 +6,8 @@ import type { Database } from "@/integrations/supabase/types";
 import { type SubjectV, type BoardV, type LevelV } from "@/lib/taxonomy";
 import { callWithBackoff, claimRequest } from "@/lib/ai/throttle";
 
-// AI for the personalized planner. Two read-only suggesters, both mirroring the
-// suggestSpecPoints setup (Anthropic claude-sonnet-5, ANTHROPIC_API_KEY, server-
-// side id resolution so the client only ever exchanges free text + spec-point
-// ids):
-//
-//   • suggestWeeklyPlan — from the student's own confidence across the topic
-//     tree (+ optional free-text focus), pick the handful of spec points to
-//     cover THIS week, weakest-first but coherent, with a one-line rationale.
-//   • interpretWeakness — map a free-text "what I struggle with" to the spec
-//     points it refers to, so the student can seed a plan by describing it.
-//
-// Neither writes anything: the client confirms the selection and the planner DAL
-// persists the weekly plan. Scoped to one subject/board/level (the student's
-// enrolment), so candidates are that course's spec points only.
+// Explicit student requests are mapped to curriculum points here.
+// Automatic weekly assignments are owned by ProgramDAL and FSRS.
 
 const MODEL = "claude-sonnet-5";
 
@@ -36,8 +24,6 @@ type Candidate = {
   topic: string | null;
   topicSort: number;
   pointSort: number;
-  /** 0-100, or null when the student hasn't rated it. */
-  confidence: number | null;
 };
 
 function client(): Anthropic {
@@ -53,13 +39,7 @@ function mapAnthropicError(e: unknown): Error {
   return new Error(`AI error: ${e instanceof Error ? e.message : String(e)}`);
 }
 
-/**
- * Loads every spec point for a course, merged with the caller's confidence.
- * Effective confidence for a point is its own rating, else the topic's rating,
- * else null (never rated). Ordered by topic then point so candidate indices are
- * deterministic. RLS: `context.supabase` is the caller, so the confidence rows
- * it reads are the caller's own.
- */
+/** Load the course catalogue without historical confidence ratings. */
 async function loadCandidates(
   supabase: SupabaseClient<Database>,
   subject: SubjectV,
@@ -78,32 +58,16 @@ async function loadCandidates(
   const topicById = new Map(topics.map((t) => [t.id, t]));
   const topicIds = topics.map((t) => t.id);
 
-  const [{ data: points, error: pErr }, { data: topicConf }, { data: specConf }] =
-    await Promise.all([
-      supabase
-        .from("spec_points")
-        .select("id, code, title, topic_id, sort_order")
-        .in("topic_id", topicIds),
-      supabase
-        .from("student_topic_confidence")
-        .select("topic_id, confidence")
-        .in("topic_id", topicIds),
-      supabase.from("student_spec_point_confidence").select("spec_point_id, confidence"),
-    ]);
+  const { data: points, error: pErr } = await supabase
+    .from("spec_points")
+    .select("id, code, title, topic_id, sort_order")
+    .in("topic_id", topicIds);
   if (pErr) throw pErr;
   if (!points) return [];
-
-  const topicConfById = new Map((topicConf ?? []).map((r) => [r.topic_id, r.confidence]));
-  const specConfById = new Map((specConf ?? []).map((r) => [r.spec_point_id, r.confidence]));
 
   return points
     .map((p) => {
       const topic = topicById.get(p.topic_id);
-      const conf = specConfById.has(p.id)
-        ? (specConfById.get(p.id) as number)
-        : topicConfById.has(p.topic_id)
-          ? (topicConfById.get(p.topic_id) as number)
-          : null;
       return {
         id: p.id,
         code: p.code,
@@ -111,7 +75,6 @@ async function loadCandidates(
         topic: topic?.title ?? null,
         topicSort: topic?.sort_order ?? 0,
         pointSort: p.sort_order ?? 0,
-        confidence: conf,
       };
     })
     .sort(
@@ -120,45 +83,8 @@ async function loadCandidates(
     );
 }
 
-function confLabel(c: number | null): string {
-  if (c == null) return "not rated";
-  if (c >= 67) return `confident (${c})`;
-  if (c >= 34) return `getting there (${c})`;
-  return `needs work (${c})`;
-}
-
-/**
- * The course's spec points as a numbered list, with NO student data in it.
- *
- * This is the expensive part of the prompt — a few thousand tokens for a full
- * GCSE course — and it is byte-identical for every student sitting that course.
- * Splitting it out from the per-student confidence ratings is what makes it
- * cacheable: the list goes in a cached system block, the ratings ride in the
- * user turn after the breakpoint. The fiftieth student to open the planner on a
- * given course reads that prefix from cache instead of paying for it again.
- *
- * Caching is a prefix match, so the ordering here has to be deterministic —
- * `loadCandidates` sorts by topic then point, and the indices the model returns
- * are positions in this list.
- */
 function courseCatalogue(candidates: Candidate[]): string {
   return candidates.map((c, i) => `[${i}] ${c.topic ?? "—"} · ${c.code} ${c.title}`).join("\n");
-}
-
-/**
- * Only the points the student has actually rated, as `index: label` lines.
- *
- * Sending ratings for every point would be nearly as long as the catalogue
- * itself and would repeat what the catalogue already says. Unrated points are
- * simply absent, which the prompt explains — that is both shorter and a clearer
- * signal than a wall of "not rated".
- */
-function confidenceDelta(candidates: Candidate[]): string {
-  const rated = candidates
-    .map((c, i) => ({ i, confidence: c.confidence }))
-    .filter((r) => r.confidence != null);
-  if (rated.length === 0) return "(the student hasn't rated anything yet)";
-  return rated.map((r) => `[${r.i}] ${confLabel(r.confidence)}`).join("\n");
 }
 
 function parseIndices(text: string, max: number): number[] {
@@ -180,101 +106,6 @@ function parseIndices(text: string, max: number): number[] {
   }
   return out;
 }
-
-function parseRationale(text: string): string {
-  try {
-    const parsed = JSON.parse(stripFences(text)) as { rationale?: unknown };
-    return typeof parsed.rationale === "string" ? parsed.rationale : "";
-  } catch {
-    return "";
-  }
-}
-
-/**
- * Suggest the spec points to cover this week from the student's confidence
- * (plus an optional free-text focus). Returns their ids + a short rationale; the
- * client turns that into an editable weekly plan. Read-only.
- */
-export const suggestWeeklyPlan = createServerFn({ method: "POST" })
-  .middleware([requireSupabaseAuth])
-  .inputValidator(
-    (input: {
-      subject: string;
-      board: string;
-      level: string;
-      focus?: string;
-      targetCount?: number;
-    }) => {
-      if (!input?.subject || !input?.board || !input?.level)
-        throw new Error("subject, board and level required");
-      return {
-        subject: String(input.subject) as SubjectV,
-        board: String(input.board) as BoardV,
-        level: String(input.level) as LevelV,
-        focus: input.focus ? String(input.focus).slice(0, 1000) : "",
-        targetCount: Math.min(Math.max(Number(input.targetCount) || 6, 3), 10),
-      };
-    },
-  )
-  .handler(async ({ data, context }) => {
-    const { supabase } = context;
-    await claimRequest(supabase, "suggest-weekly-plan");
-
-    const candidates = await loadCandidates(supabase, data.subject, data.board, data.level);
-    if (candidates.length === 0) return { specPointIds: [] as string[], rationale: "", count: 0 };
-
-    // Two system blocks, and the split is what makes this affordable at cohort
-    // scale. The first is identical for every student on this course and is
-    // cached; the second carries the per-request instructions. Everything that
-    // varies per student sits in the user turn, after the breakpoint.
-    const system: Anthropic.TextBlockParam[] = [
-      {
-        type: "text",
-        text: `You are planning one week of revision for a UK ${data.level.toUpperCase()} ${data.subject} student.
-Here is every spec point in their course, numbered:
-${courseCatalogue(candidates)}`,
-        cache_control: { type: "ephemeral" },
-      },
-      {
-        type: "text",
-        text: `The student rates their own confidence on some of these points. Points they haven't rated are simply absent from the ratings list — treat those as unknown, not as weak.
-Choose about ${data.targetCount} spec points for THIS week. Lead with the weakest ("needs work"), then "getting there"; include an unrated point only if it fits the theme. Keep the set coherent — points from the same topic that build on each other are better than a scattergun across the whole spec.
-Return ONLY JSON, no prose, no markdown fences:
-{"indices":[3,4,5],"rationale":"one short sentence, addressed to the student, on why these"}`,
-      },
-    ];
-
-    const user = [
-      `Student's confidence ratings:\n${confidenceDelta(candidates)}`,
-      data.focus ? `\nThe student specifically wants to focus on: "${data.focus}".` : "",
-    ].join("");
-
-    let res;
-    try {
-      res = await callWithBackoff(() =>
-        client().messages.create({
-          model: MODEL,
-          max_tokens: 1000,
-          system,
-          messages: [{ role: "user", content: user }],
-        }),
-      );
-    } catch (e) {
-      throw mapAnthropicError(e);
-    }
-
-    const text = res.content
-      .filter((b): b is Anthropic.TextBlock => b.type === "text")
-      .map((b) => b.text)
-      .join("");
-
-    const indices = parseIndices(text, candidates.length);
-    return {
-      specPointIds: indices.map((i) => candidates[i].id),
-      rationale: parseRationale(text),
-      count: indices.length,
-    };
-  });
 
 /**
  * Map a free-text description of what a student struggles with to the spec
@@ -301,7 +132,7 @@ export const interpretWeakness = createServerFn({ method: "POST" })
     const candidates = await loadCandidates(supabase, data.subject, data.board, data.level);
     if (candidates.length === 0) return { specPointIds: [] as string[], count: 0 };
 
-    // Same split as suggestWeeklyPlan: the catalogue is shared across every
+    // The catalogue is shared across every
     // student on this course, so it goes in a cached block and only the
     // student's own words ride in the user turn.
     const system: Anthropic.TextBlockParam[] = [

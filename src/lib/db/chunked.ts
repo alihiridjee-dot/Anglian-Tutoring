@@ -73,3 +73,30 @@ export async function selectInSafe<Row, Id = string>(
     return [];
   }
 }
+
+/** Read complete one-to-many histories. The query must order by unique `id`,
+ * apply `id > after` when present, and limit each page. Continue until empty:
+ * a server-side row cap may be lower than the requested page size. */
+export async function selectInHistory<Row extends { id: string }>(
+  ids: readonly string[],
+  query: (batch: string[], after: string | null) => PromiseLike<{
+    data: Row[] | null;
+    error: { message: string } | null;
+  }>,
+): Promise<Row[]> {
+  return selectIn<Row>([...new Set(ids)], async (batch) => {
+    const rows: Row[] = [];
+    let after: string | null = null;
+    for (;;) {
+      const { data, error } = await query(batch, after);
+      if (error) throw new Error(error.message);
+      if (!data?.length) break;
+      const next = data[data.length - 1].id;
+      if (!next || (after !== null && next <= after))
+        throw new Error("Assessment history pagination did not advance.");
+      rows.push(...data);
+      after = next;
+    }
+    return { data: rows, error: null };
+  });
+}

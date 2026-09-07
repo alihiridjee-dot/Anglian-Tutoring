@@ -1,4 +1,7 @@
-import { useCallback, useEffect, useMemo, useState } from "react";
+import { useQuery, useQueryClient } from "@tanstack/react-query";
+import { plannerKey } from "@/lib/planner/queries";
+import { PLANNER_TIME_ZONE } from "@/lib/week";
+import { useCallback, useEffect, useMemo, useRef, useState } from "react";
 import { toast } from "sonner";
 import {
   Loader2,
@@ -49,11 +52,7 @@ import { type Activity } from "./useWeekPlan";
  *
  *  • It never opens mid-week ({@link reviewLock}). A verdict on an unfinished
  *    week grades work the student still has days to do.
- *  • It never writes to the confidence board. The check-in is a self-report on a
- *    week; the board is a deliberate per-point rating. Letting one tap of "I feel
- *    fine" overwrite every point at 80 silently rewrote ratings the student had
- *    thought about individually — and, because confidence anchors mastery and
- *    nothing ever refreshes it, that number then sat there for good.
+ *  • Reflections never update memory; only assessed work advances FSRS.
  *
  * In `readOnly` mode (the tutor viewing a student) the lock and the self-report
  * are skipped and the student's own reflection is shown in the feedback editor
@@ -147,23 +146,27 @@ export function WeekReview({
   /** What the tutor can already see, so we only save when it actually changed. */
   const [sentReflection, setSentReflection] = useState("");
   const [noteState, setNoteState] = useState<"idle" | "saving" | "sent">("idle");
-  const [loaded, setLoaded] = useState(false);
+  const checkinClient = useQueryClient();
+  const checkinKey = [...plannerKey(studentId), "checkin", plan.id];
+  const checkin = useQuery({ queryKey: checkinKey, queryFn: () => WeeklyPlanDAL.getCheckin(plan.id), refetchOnWindowFocus: false });
+  const loaded = checkin.isSuccess;
   const [busy, setBusy] = useState<null | "confident" | "practice" | "carry">(null);
 
+  const hydratedPlan = useRef<string | null>(null);
   useEffect(() => {
-    let alive = true;
-    WeeklyPlanDAL.getCheckin(plan.id).then((c) => {
-      if (!alive) return;
-      setCoveredOk(c?.covered_ok ?? null);
-      setReflection(c?.reflection ?? "");
-      setSentReflection(c?.reflection ?? "");
-      setNoteState(c?.reflection ? "sent" : "idle");
-      setLoaded(true);
-    });
-    return () => {
-      alive = false;
-    };
-  }, [plan.id]);
+    if (!checkin.isSuccess || hydratedPlan.current === plan.id) return;
+    hydratedPlan.current = plan.id;
+    const c = checkin.data;
+    setCoveredOk(c?.covered_ok ?? null);
+    setReflection(c?.reflection ?? "");
+    setSentReflection(c?.reflection ?? "");
+    setNoteState(c?.reflection ? "sent" : "idle");
+  }, [plan.id, checkin.data, checkin.isSuccess]);
+
+  const saveCheckin = async (input: Parameters<typeof WeeklyPlanDAL.saveCheckin>[0]) => {
+    await WeeklyPlanDAL.saveCheckin(input);
+    await checkinClient.invalidateQueries({ queryKey: checkinKey });
+  };
 
   const nextWeekLabel = weekRangeLabel(addWeeks(weekKeyToDate(weekStart), 1));
 
@@ -178,7 +181,7 @@ export function WeekReview({
   const report = async (ok: boolean) => {
     setBusy(ok ? "confident" : "practice");
     try {
-      await WeeklyPlanDAL.saveCheckin({
+      await saveCheckin({
         planId: plan.id,
         coveredOk: ok,
         reflection: reflection.trim() || null,
@@ -209,7 +212,7 @@ export function WeekReview({
     if (!loaded || text === sentReflection) return;
     setNoteState("saving");
     try {
-      await WeeklyPlanDAL.saveCheckin({
+      await saveCheckin({
         planId: plan.id,
         coveredOk,
         reflection: text || null,
@@ -304,7 +307,7 @@ export function WeekReview({
           {!readOnly && (
             <div className="mt-4">
               <p className="text-xs font-semibold text-muted-foreground mb-2">
-                How do you feel about this week?
+                Your weekly check-in
               </p>
               <div className="flex flex-wrap gap-2">
                 <button
@@ -322,7 +325,7 @@ export function WeekReview({
                   ) : (
                     <CheckCircle2 className="w-4 h-4" />
                   )}
-                  I'm confident, move on
+                  I've finished my work
                 </button>
                 <button
                   type="button"
@@ -339,7 +342,7 @@ export function WeekReview({
                   ) : (
                     <Target className="w-4 h-4" />
                   )}
-                  I'd like more practice
+                  I'd like help or more practice
                 </button>
               </div>
 
@@ -410,7 +413,8 @@ export function WeekReview({
             Carry {summary.toRevisit.length} into next week
           </button>
           <span className="text-[11px] text-muted-foreground">
-            Keeps them in focus for {nextWeekLabel}, in the same lane they're in now.
+            An explicit request for extra practice in {nextWeekLabel}; normal reviews follow their
+            scheduled dates.
           </span>
         </div>
       )}
@@ -543,7 +547,7 @@ function tutorHeadline(s: WeekSummary): string {
  * "two homeworks left" is a thing the student can act on this afternoon.
  */
 function LockedCard({ lock }: { lock: ReturnType<typeof reviewLock> }) {
-  const opens = lock.opensOn.toLocaleDateString(undefined, {
+  const opens = lock.opensOn.toLocaleDateString(undefined, { timeZone: PLANNER_TIME_ZONE,
     weekday: "long",
     day: "numeric",
     month: "short",

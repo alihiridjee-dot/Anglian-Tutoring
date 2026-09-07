@@ -93,10 +93,7 @@ export function StudentDashboard({ afterContent }: { afterContent?: ReactNode } 
           it stands apart from the study plan below. */}
       <LiveSessionsBanner />
 
-      {/* The student's personalised weekly plan — the spaced-repetition-driven
-          "this week" the platform builds from their confidence + results, with the
-          end-of-week review and the tutor's take. The forward-looking programme and
-          termly confidence board live on the Planner tab. */}
+      {/* Saved weekly assignments, assessed practice, and end-of-week feedback. */}
       {effectiveStudentId && level && (
         <div className="mt-6">
           <WeeklyPlanPanel studentId={effectiveStudentId} enrolments={enrolments} level={level} />

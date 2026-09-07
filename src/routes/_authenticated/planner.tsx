@@ -40,7 +40,7 @@ function PlannerPage() {
             <p className="text-xs sm:text-sm text-indigo-100">
               {isTutor
                 ? "Pick a student to review how their week went and adjust their focus."
-                : "What to work on this week, the road ahead, and where to rate your topics."}
+                : "What to work on this week, the road ahead, and your practice history."}
             </p>
           </div>
         </div>

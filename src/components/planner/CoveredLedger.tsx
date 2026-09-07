@@ -1,3 +1,6 @@
+import { ErrorNote } from "@/components/Shared";
+import { useQuery, useQueryClient } from "@tanstack/react-query";
+import { courseKey, progressQuery, invalidatePlanner } from "@/lib/planner/queries";
 import { Spinner } from "@/components/Shared";
 import { useEffect, useMemo, useState } from "react";
 import { toast } from "sonner";
@@ -9,13 +12,7 @@ import { type SubjectV, type BoardV, type LevelV } from "@/lib/taxonomy";
 import { currentWeekKey } from "@/lib/week";
 import { subjectLabel } from "@/lib/courseSummary";
 
-/**
- * "Covered so far" — a progress ledger under the termly confidence board. It
- * shows the spec points the student has actually practised (homework/MCQ), with
- * their best mark from each, grouped by topic. Where the confidence board is
- * forward-looking (how ready do I feel?), this is the record of what's been done
- * and how it went — the other half of the picture.
- */
+/** Practised specification points and their best homework/quiz marks, grouped by topic. */
 export function CoveredLedger({
   studentId,
   enrolments,
@@ -47,8 +44,14 @@ export function CoveredLedger({
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [studentId]);
 
-  const [data, setData] = useState<CoveredTopic[]>([]);
-  const [loading, setLoading] = useState(true);
+  const queryClient = useQueryClient();
+  const params = { studentId, subject: (active?.subject ?? "biology") as SubjectV,
+    board: (active?.board ?? "aqa") as BoardV, level };
+  const history = useQuery({ queryKey: [...courseKey(params), "history"],
+    queryFn: async () => ScheduleDAL.getCoveredLedger({ ...params, progress: await queryClient.fetchQuery(progressQuery(params)) }),
+    enabled: !!active });
+  const data = history.data ?? [];
+  const loading = history.isLoading;
   const [expanded, setExpanded] = useState<Set<string>>(new Set());
   const [retaking, setRetaking] = useState<string | null>(null);
 
@@ -72,6 +75,7 @@ export function CoveredLedger({
         level,
         weekStart: currentWeekKey(),
       });
+      await invalidatePlanner(queryClient, studentId);
       toast.success(
         `Added ${n} spec ${n === 1 ? "point" : "points"} from “${topic.title}” back into this week.`,
       );
@@ -82,30 +86,8 @@ export function CoveredLedger({
     }
   };
 
-  useEffect(() => {
-    if (!active) return;
-    let alive = true;
-    setLoading(true);
-    setExpanded(new Set());
-    ScheduleDAL.getCoveredLedger({
-      studentId,
-      subject: active.subject as SubjectV,
-      board: active.board as BoardV,
-      level,
-    })
-      .then((d) => {
-        if (alive) setData(d);
-      })
-      .finally(() => {
-        if (alive) setLoading(false);
-      });
-    return () => {
-      alive = false;
-    };
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [studentId, active?.subject, active?.board, level]);
-
   if (!active) return null;
+  if (history.error) return <ErrorNote error={history.error} />;
 
   const total = data.reduce((n, t) => n + t.points.length, 0);
 

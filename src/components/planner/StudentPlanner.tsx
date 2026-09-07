@@ -1,3 +1,7 @@
+import { ErrorNote } from "@/components/Shared";
+import { PLANNER_TIME_ZONE } from "@/lib/week";
+import { usePlannerRoadmap, usePlannerMemory } from "@/hooks/data/usePlanner";
+import { ScheduleComparison } from "./ScheduleComparison";
 import { Spinner } from "@/components/Shared";
 import { useEffect, useMemo, useRef, useState } from "react";
 import { toast } from "sonner";
@@ -22,7 +26,6 @@ import { ScheduleDAL, type MemoryStats, type TopicProgress } from "@/lib/schedul
 import { type Enrolment } from "@/hooks/data/useEnrolments";
 import { type SubjectV, type BoardV, type LevelV } from "@/lib/taxonomy";
 import { currentWeekKey, weekKeyToDate, addWeeks, toDateKey } from "@/lib/week";
-import { PlannerBoard } from "./PlannerBoard";
 import { CoveredLedger } from "./CoveredLedger";
 import { ThisWeekPanel } from "./ThisWeekPanel";
 import { useWeekPlan } from "./useWeekPlan";
@@ -33,7 +36,7 @@ import { FocusedTopicsHeaderCell, FocusKey, FocusPointsPanel, FocusTopicButton }
 import { focusHasDetail, focusRowKey } from "./focusMeta";
 
 function fmtDate(d: Date): string {
-  return d.toLocaleDateString(undefined, { day: "numeric", month: "short" });
+  return d.toLocaleDateString(undefined, { timeZone: PLANNER_TIME_ZONE, day: "numeric", month: "short" });
 }
 /** Stable identity for one focus-lane band — topic + kind + week it lands on. */
 function focusKey(b: PacingBand): string {
@@ -45,14 +48,14 @@ type TabKey = "week" | "plan" | "topics";
 const TABS: { key: TabKey; label: string; icon: typeof CalendarDays }[] = [
   { key: "week", label: "This week", icon: CalendarDays },
   { key: "plan", label: "Full plan", icon: MapIcon },
-  { key: "topics", label: "My topics", icon: SlidersHorizontal },
+  { key: "topics", label: "Practice history", icon: SlidersHorizontal },
 ];
 
 /**
  * The whole student planner in one place: subject picked once up top, then
  * three tabs. "This week" is the landing view — the one topic being taught,
  * anything to revisit, and how memory is holding. "Full plan" is the road to
- * the exams. "My topics" is where the student rates confidence and reviews
+ * the exams. "My topics" is where the student reviews
  * what's been practised. Replaces the old four stacked panels, each of which
  * had its own subject tabs.
  */
@@ -81,10 +84,7 @@ export function StudentPlanner({
   const activeBoard = active?.board;
   const [tab, setTab] = useState<TabKey>("week");
 
-  const [data, setData] = useState<RoadmapResult | null>(null);
-  const [memory, setMemory] = useState<MemoryStats | null>(null);
-  const [loading, setLoading] = useState(true);
-  // Bumped when the confidence board writes, so the plan re-flows live.
+  // Bumped after an explicit schedule update.
   const [boardRev, setBoardRev] = useState(0);
   // Bumped once the current week has actually been re-cut, so a mounted week
   // panel reloads its points. Separate from `boardRev`: a rating that doesn't
@@ -97,65 +97,20 @@ export function StudentPlanner({
   const prevFocus = useRef<{ course: string; keys: Set<string> } | null>(null);
   const [newFocusKeys, setNewFocusKeys] = useState<Set<string>>(new Set());
 
-  // The plan's own mastery per topic, lifted here so the confidence board can
-  // show the same number rather than inventing a second one. Comes free from the
-  // roadmap that this screen already loads.
-  const masteryByTopic = useMemo(
-    () => new Map((data?.progress ?? []).map((t) => [t.topicId, t.masteryPct])),
-    [data],
-  );
-
+  const courseParams = { studentId, subject: (activeCourseSubject ?? "biology") as SubjectV,
+    board: (activeBoard ?? "aqa") as BoardV, level };
+  const roadQuery = usePlannerRoadmap(courseParams, boardRev, !!active);
+  const memQuery = usePlannerMemory(courseParams, !!active);
+  const data = roadQuery.data ?? null;
+  const memory = memQuery.data ?? null;
+  const loading = roadQuery.isLoading || memQuery.isLoading;
   useEffect(() => {
-    if (!activeCourseSubject || !activeBoard) return;
-    let alive = true;
-    setLoading(true);
-    const params = {
-      studentId,
-      subject: activeCourseSubject as SubjectV,
-      board: activeBoard as BoardV,
-      level,
-    };
-    // A rating just landed (boardRev moved off 0): re-cut the current week from
-    // the new programme before anything reads it. This has to happen here rather
-    // than in the week panel — that panel lives in a tab which is unmounted
-    // while the student is over on the board doing the rating, so it is the one
-    // component that can never see the write. Keeps work already attempted.
-    const recut =
-      boardRev > 0
-        ? ProgramDAL.refreshWeek({ ...params, weekStart: currentWeekKey() }).catch((e) => {
-            console.error("refresh this week from the programme", e);
-            return false;
-          })
-        : Promise.resolve(false);
-
-    recut
-      .then((changed) => {
-        if (changed && alive) setWeekRev((r) => r + 1);
-        return Promise.all([
-          ProgramDAL.loadRoadmap(params),
-          ScheduleDAL.getMemoryStats(params).catch(() => null),
-        ]);
-      })
-      .then(([road, mem]) => {
-        if (!alive) return;
-        setData(road);
-        setMemory(mem);
-        // Diff the focus lane against the previous load of the same course.
-        const course = `${activeCourseSubject}|${activeBoard}`;
-        const keys = new Set((road?.bands ?? []).filter((b) => !isTeachBand(b)).map(focusKey));
-        const prev = prevFocus.current;
-        setNewFocusKeys(
-          prev && prev.course === course
-            ? new Set([...keys].filter((k) => !prev.keys.has(k)))
-            : new Set(),
-        );
-        prevFocus.current = { course, keys };
-      })
-      .finally(() => alive && setLoading(false));
-    return () => {
-      alive = false;
-    };
-  }, [studentId, activeCourseSubject, activeBoard, level, boardRev]);
+    const course = `${studentId}|${activeCourseSubject}|${activeBoard}|${level}`;
+    const keys = new Set((data?.bands ?? []).filter((b) => !isTeachBand(b)).map(focusKey));
+    const prev = prevFocus.current;
+    setNewFocusKeys(prev && prev.course === course ? new Set([...keys].filter((k) => !prev.keys.has(k))) : new Set());
+    prevFocus.current = { course, keys };
+  }, [data, studentId, activeCourseSubject, activeBoard, level]);
 
   if (!active) {
     return (
@@ -214,13 +169,13 @@ export function StudentPlanner({
       <div className="p-4 sm:p-5">
         {tab === "topics" ? (
           <TopicsTab
-            masteryByTopic={masteryByTopic}
             studentId={studentId}
             enrolments={enrolments}
             level={level}
             subject={active.subject}
-            onChanged={() => setBoardRev((r) => r + 1)}
           />
+        ) : roadQuery.error ? (
+          <ErrorNote error={roadQuery.error} />
         ) : loading ? (
           <Spinner className="py-12" />
         ) : !data ? (
@@ -235,9 +190,9 @@ export function StudentPlanner({
             subject={active.subject as SubjectV}
             board={active.board as BoardV}
             level={level}
-            onRateTopics={() => setTab("topics")}
             onReviewPlan={() => setTab("plan")}
             refreshKey={weekRev}
+            onScheduleApplied={() => setBoardRev((r) => r + 1)}
           />
         ) : (
           <FullPlanTab
@@ -245,7 +200,6 @@ export function StudentPlanner({
             studentId={studentId}
             subject={active.subject as SubjectV}
             newFocusKeys={newFocusKeys}
-            onRateTopics={() => setTab("topics")}
             onChanged={() => setBoardRev((r) => r + 1)}
           />
         )}
@@ -303,9 +257,9 @@ function ThisWeekTab({
   subject,
   board,
   level,
-  onRateTopics,
   onReviewPlan,
   refreshKey,
+  onScheduleApplied,
 }: {
   data: RoadmapResult;
   memory: MemoryStats | null;
@@ -313,11 +267,11 @@ function ThisWeekTab({
   subject: SubjectV;
   board: BoardV;
   level: LevelV;
-  onRateTopics: () => void;
   /** Jump to Full plan, where the proposal can be compared and accepted. */
   onReviewPlan: () => void;
-  /** Bumped by the confidence board — re-cuts this week from the new ratings. */
+  /** Reload after an explicit schedule update. */
   refreshKey: number;
+  onScheduleApplied: () => void;
 }) {
   // The same week the dashboard shows, from the same hook — the roadmap this
   // screen has already loaded is handed over so it isn't fetched twice.
@@ -333,6 +287,8 @@ function ThisWeekTab({
     roadmap: data,
     refreshKey,
   });
+
+  if (week.error) return <ErrorNote error={week.error} />;
 
   return (
     <div className="space-y-4">
@@ -377,30 +333,47 @@ function ThisWeekTab({
           showRationale
           showCoverage
           onRemove={week.removePoint}
-          onRateTopics={onRateTopics}
         />
       </section>
 
-      {/* The student's own read on the week, in its own box. */}
       {week.plan && (
-        <WeekReview
+        <ScheduleComparison
           studentId={studentId}
-          plan={week.plan}
-          points={week.points}
-          coverage={week.coverage}
-          activity={week.activity}
           subject={subject}
           board={board}
           level={level}
           weekStart={weekStart}
-          onChanged={week.reload}
+          week={week}
+          roadmap={data}
+          onApplied={onScheduleApplied}
         />
+      )}
+      {/* Optional reflection and tutor feedback. */}
+      {week.plan && (
+        <details className="premium-card rounded-xl p-3">
+          <summary className="cursor-pointer text-sm font-bold">
+            Weekly check-in and tutor feedback
+          </summary>
+          <WeekReview
+            studentId={studentId}
+            plan={week.plan}
+            points={week.points}
+            coverage={week.coverage}
+            activity={week.activity}
+            subject={subject}
+            board={board}
+            level={level}
+            weekStart={weekStart}
+            onChanged={week.reload}
+          />
+        </details>
       )}
 
       {/* Memory strip — how the course is held right now. */}
       {memory && memory.total - memory.newCount > 0 && (
-        <div className="rounded-xl border border-border bg-muted/20 p-3.5">
-          <h3 className="flex items-center gap-1.5 text-sm font-semibold mb-2">
+        <details className="premium-card tint-primary rounded-xl p-3.5">
+          <summary className="cursor-pointer text-sm font-bold">Memory details</summary>
+          <h3 className="flex items-center gap-1.5 text-sm font-bold mb-2">
             <Brain className="w-4 h-4 text-violet-500" />
             Your memory right now
           </h3>
@@ -435,7 +408,7 @@ function ThisWeekTab({
               ))}
             </ul>
           )}
-        </div>
+        </details>
       )}
     </div>
   );
@@ -450,7 +423,6 @@ function FullPlanTab({
   studentId,
   subject,
   newFocusKeys,
-  onRateTopics,
   onChanged,
 }: {
   data: RoadmapResult;
@@ -459,7 +431,6 @@ function FullPlanTab({
   /** Focus-lane band keys that are new/moved since the last re-rate. */
   newFocusKeys: Set<string>;
   /** Jump to My topics — the one place an overloaded plan can be fixed. */
-  onRateTopics: () => void;
   onChanged: () => void;
 }) {
   const {
@@ -591,20 +562,11 @@ function FullPlanTab({
           <p className="flex-1 min-w-[240px] text-[12px] leading-relaxed">
             <span className="font-semibold">This plan is asking a lot each week.</span>{" "}
             <span className="text-muted-foreground">
-              It has set aside about {Math.round(data.focusLoad.budget)} points a week to revisit,
-              on top of the {Math.round(data.focusLoad.spine)} of new material — so revision is now
-              the bigger half of your week. That usually means whole topics were rated in one go.
-              Rating a topic point by point almost always gives a lighter, truer plan.
+              {data.reviewBacklog.length} reviews cannot fit before the exam;{" "}
+              {data.unscheduledTopicTitles.length} topics need teaching time. Ask your tutor to
+              review the workload; completing your assigned work will not automatically add more.
             </span>
           </p>
-          <button
-            type="button"
-            onClick={onRateTopics}
-            className="inline-flex items-center gap-1.5 h-8 px-3 rounded-lg bg-amber-600 text-white text-xs font-semibold hover:opacity-90 shrink-0"
-          >
-            <SlidersHorizontal className="w-3.5 h-3.5" />
-            Rate points individually
-          </button>
         </div>
       )}
 
@@ -633,18 +595,15 @@ function FullPlanTab({
           <span className="font-semibold text-foreground tabular-nums">
             {doneCount} of {spine.length}
           </span>{" "}
-          topics covered ·{" "}
-          <span className="font-semibold text-foreground tabular-nums">
-            ~{Math.round(data.focusLoad.budget)}
-          </span>{" "}
-          points a week to revisit
+          topics covered
         </span>
       </div>
 
       <div className="flex flex-wrap items-center justify-between gap-x-4 gap-y-2 mb-2.5 text-[11px] text-muted-foreground">
         <p>
           <span className="font-semibold text-foreground">Core</span> is the course in order.{" "}
-          <span className="font-semibold text-foreground">Focused</span> comes back until it sticks.
+          <span className="font-semibold text-foreground">Focused</span> shows assigned reviews and
+          estimates for the next review.
         </p>
         <FocusKey />
       </div>
@@ -763,22 +722,6 @@ function FullPlanTab({
                             )}
                           </div>
                         </div>
-                        {tp && tp.points.length > 0 && (
-                          <div
-                            className="mt-1.5 flex items-center gap-2"
-                            title={`How well this is sticking: ${tp.masteryPct}% — the same number shown on this topic's card in My topics`}
-                          >
-                            <div className="h-1.5 flex-1 rounded-full bg-muted overflow-hidden">
-                              <div
-                                className="h-full rounded-full bg-primary"
-                                style={{ width: `${Math.max(2, tp.masteryPct)}%` }}
-                              />
-                            </div>
-                            <span className="text-[10px] font-semibold tabular-nums text-muted-foreground">
-                              {tp.masteryPct}%
-                            </span>
-                          </div>
-                        )}
                       </button>
                     ) : (
                       <span className="text-[12px] text-muted-foreground/60">—</span>
@@ -909,8 +852,8 @@ function FullPlanTab({
       </div>
 
       <p className="mt-4 text-[11px] text-muted-foreground">
-        Tap any topic to see what's inside it. The percentage is how well it's sticking — your
-        ratings, homework and quizzes combined.
+        Tap any topic to see its points and assessment results. Future review weeks are estimates;
+        This week contains your confirmed assignment.
       </p>
     </div>
   );
@@ -929,7 +872,7 @@ function weekKeysBetween(startKey: string, endKey: string): string[] {
 }
 
 /* ------------------------------------------------------------------ */
-/* Tab 3 — My topics (confidence board + practice history)             */
+/* Tab 3 — My topics (practice history)             */
 /* ------------------------------------------------------------------ */
 
 function TopicsTab({
@@ -937,44 +880,14 @@ function TopicsTab({
   enrolments,
   level,
   subject,
-  masteryByTopic,
-  onChanged,
 }: {
   studentId: string;
   enrolments: Enrolment[];
   level: LevelV;
   subject: string;
-  /** Topic id → the mastery the plan uses, so the board shows the same number. */
-  masteryByTopic: Map<string, number>;
-  onChanged: () => void;
 }) {
   return (
-    <div className="space-y-6">
-      <div>
-        <h3 className="font-display text-sm font-bold tracking-tight">
-          How confident do you feel?
-        </h3>
-        <p className="text-xs text-muted-foreground mb-3">
-          Drag each topic into a column to tell us how you feel. The number on each card is
-          something different — it's how well the topic is actually sticking, and it's the same
-          number your plan uses. Tap a topic to rate its individual points.
-        </p>
-        <PlannerBoard
-          studentId={studentId}
-          enrolments={enrolments}
-          level={level}
-          subject={subject}
-          masteryByTopic={masteryByTopic}
-          onChanged={onChanged}
-        />
-      </div>
-      <CoveredLedger
-        studentId={studentId}
-        enrolments={enrolments}
-        level={level}
-        subject={subject}
-      />
-    </div>
+    <CoveredLedger studentId={studentId} enrolments={enrolments} level={level} subject={subject} />
   );
 }
 

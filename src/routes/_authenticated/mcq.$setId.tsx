@@ -1,3 +1,5 @@
+import { useQueryClient } from "@tanstack/react-query";
+import { invalidatePlanner } from "@/lib/planner/assessmentSync";
 import { createFileRoute, Link, useParams } from "@tanstack/react-router";
 import { useEffect, useState } from "react";
 import { Spinner } from "@/components/Shared";
@@ -29,6 +31,7 @@ type Marked = {
 };
 
 export function TakeMcq() {
+  const plannerQueryClient = useQueryClient();
   const { setId } = useParams({ from: "/_authenticated/mcq/$setId" });
   const { userId } = useRoles();
   const [set, setSet] = useState<SetRow | null>(null);
@@ -138,6 +141,7 @@ export function TakeMcq() {
       }
       setMarked({ score: graded.score, total: graded.total, byQuestion });
       toast.success(`Scored ${graded.score}/${graded.total}`);
+      void invalidatePlanner(plannerQueryClient, userId);
     } catch (err) {
       // Nothing is marked on a failure, so the student keeps their answers and
       // can simply press submit again.
