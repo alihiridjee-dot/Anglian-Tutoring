@@ -399,6 +399,7 @@ export type Database = {
           answers: Json;
           created_at: string;
           id: string;
+          point_scores: Json | null;
           score: number;
           set_id: string;
           total: number;
@@ -408,6 +409,7 @@ export type Database = {
           answers: Json;
           created_at?: string;
           id?: string;
+          point_scores?: Json | null;
           score: number;
           set_id: string;
           total: number;
@@ -417,6 +419,7 @@ export type Database = {
           answers?: Json;
           created_at?: string;
           id?: string;
+          point_scores?: Json | null;
           score?: number;
           set_id?: string;
           total?: number;
@@ -1609,6 +1612,7 @@ export type Database = {
         Args: { _submission_id: string };
         Returns: undefined;
       };
+      assessment_scheduler_version: { Args: never; Returns: number };
       chat_unread_count: { Args: never; Returns: number };
       claim_ai_request: {
         Args: { _endpoint: string; _limit: number; _window: string };
@@ -1687,6 +1691,16 @@ export type Database = {
           has_access: boolean;
           onboarding_complete: boolean;
         }[];
+      };
+      planner_attempt_sources: { Args: { _ids: string[] }; Returns: Json };
+      planner_course_snapshot: {
+        Args: {
+          _board: Database["public"]["Enums"]["board"];
+          _level: Database["public"]["Enums"]["level"];
+          _student: string;
+          _subject: Database["public"]["Enums"]["subject"];
+        };
+        Returns: Json;
       };
       prune_ai_request_log: { Args: never; Returns: number };
       purge_stale_live_sessions: { Args: never; Returns: number };
