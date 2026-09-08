@@ -1638,6 +1638,7 @@ export type Database = {
           title: string;
         }[];
       };
+      expire_stale_chat_threads: { Args: never; Returns: number };
       gen_student_invite_code: { Args: never; Returns: string };
       grade_mcq_attempt: {
         Args: { _answers: Json; _set_id: string };

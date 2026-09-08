@@ -60,13 +60,21 @@ function MessagesPage() {
     <AppLayout title="Messages">
       <div className="max-w-6xl">
         <div className="mb-4 flex items-center justify-between gap-3">
-          <p className="text-sm text-muted-foreground">
-            {isTutor
-              ? unreadTotal > 0
-                ? `${unreadTotal} message${unreadTotal === 1 ? "" : "s"} waiting for a reply.`
-                : "Everything's answered."
-              : "Ask your tutor anything — attach the spec point, homework or quiz you're stuck on."}
-          </p>
+          <div>
+            <p className="text-sm text-muted-foreground">
+              {isTutor
+                ? unreadTotal > 0
+                  ? `${unreadTotal} message${unreadTotal === 1 ? "" : "s"} waiting for a reply.`
+                  : "Everything's answered."
+                : "Ask your tutor anything — attach the spec point, homework or quiz you're stuck on."}
+            </p>
+            {/* Both retention rules, said where people write, rather than
+                letting conversations quietly fold away or vanish unannounced. */}
+            <p className="mt-0.5 text-xs text-muted-foreground/80">
+              Quiet conversations fold away after a day, and are deleted 30 days after the last
+              message.
+            </p>
+          </div>
           {!isTutor && (
             <button
               onClick={() => setComposing(true)}
