@@ -100,3 +100,20 @@ export function sourcesFromRows(rows: SourceRows): AttemptSources {
   for (const r of rows.setScope) add(setScope, r.set_id, r.spec_point_id);
   return { resourceToPoints, setToPoints, setScope };
 }
+
+/**
+ * Every spec point with any assessment material behind it — a homework resource
+ * or an MCQ set that could produce a mark.
+ *
+ * The denominator for {@link assessTopic}. Without it the engine cannot tell a
+ * point nobody has written a question for from one the student skipped, and
+ * grades both as zero. `setScope` is deliberately not consulted: it carries the
+ * `__unattributed__` placeholder for untagged questions, which is a reason
+ * *not* to attribute a mark, not evidence that practice exists on a point.
+ */
+export function assessablePoints(sources: AttemptSources): Set<string> {
+  const out = new Set<string>();
+  for (const points of sources.resourceToPoints.values()) for (const p of points) out.add(p);
+  for (const points of sources.setToPoints.values()) for (const p of points) out.add(p);
+  return out;
+}

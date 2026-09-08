@@ -1,6 +1,7 @@
 import { ClipboardList, ListChecks } from "lucide-react";
 import { type ProgressPoint } from "@/lib/scheduleDal";
 import { type PointStatus } from "@/lib/planner/scheduler";
+import { describeAssessability } from "@/lib/planner/assessability";
 
 /**
  * One spec point as every expanded topic on the plan shows it.
@@ -28,9 +29,24 @@ const statusMeta: Record<PointStatus, { label: string; cls: string }> = {
   },
 };
 
-/** One spec point inside an expanded topic: its assessed marks and memory standing. */
+/**
+ * One spec point inside an expanded topic: its assessed marks and memory standing.
+ *
+ * A point with nothing written to test it reports that, rather than borrowing
+ * the "Not started" chip. The two look the same from here — no card, no mark —
+ * and mean opposite things: one is work the student has not done, the other is
+ * work that does not exist. Saying "Not started" for the second blames them for
+ * a gap in the library, which on this course is the overwhelmingly common case.
+ * See [[assessability]].
+ */
 export function PointRow({ point }: { point: ProgressPoint }) {
-  const s = statusMeta[point.status];
+  const unassessable = point.assessability === "unassessable";
+  const s = unassessable
+    ? {
+        label: "No practice yet",
+        cls: "bg-muted text-muted-foreground border-border opacity-70",
+      }
+    : statusMeta[point.status];
   return (
     <li className="flex items-center gap-2 py-1">
       <div className="flex-1 min-w-0">
@@ -42,6 +58,7 @@ export function PointRow({ point }: { point: ProgressPoint }) {
         {point.quizScore != null && <MarkChip kind="quiz" score={point.quizScore} />}
         <span
           className={`inline-flex items-center h-5 px-1.5 rounded-md border text-[10px] font-semibold ${s.cls}`}
+          title={describeAssessability(point.assessability)}
         >
           {s.label}
         </span>

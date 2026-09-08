@@ -13,21 +13,26 @@ import {
   CalendarDays,
   CheckCircle2,
   ChevronDown,
+  ChevronLeft,
+  ChevronRight,
   CircleDot,
+  History,
   Loader2,
   Map as MapIcon,
   Repeat,
   RefreshCw,
   Scale,
   SlidersHorizontal,
+  Undo2,
 } from "lucide-react";
 import { isTeachBand, type PacingBand } from "@/lib/planner/pacing";
 import { ProgramDAL, type RoadmapResult } from "@/lib/programDal";
 import { ScheduleDAL, type MemoryStats, type TopicProgress } from "@/lib/scheduleDal";
 import { type Enrolment } from "@/hooks/data/useEnrolments";
 import { type SubjectV, type BoardV, type LevelV } from "@/lib/taxonomy";
-import { currentWeekKey, weekKeyToDate, addWeeks, toDateKey } from "@/lib/week";
+import { currentWeekKey, weekKeyToDate, addWeeks, toDateKey, weekRangeLabel } from "@/lib/week";
 import { CoveredLedger } from "./CoveredLedger";
+import { CatchUpPanel } from "./CatchUpPanel";
 import { ThisWeekPanel } from "./ThisWeekPanel";
 import { useWeekPlan } from "./useWeekPlan";
 import { WeekReview } from "./WeekReview";
@@ -213,6 +218,8 @@ export function StudentPlanner({
             data={data}
             studentId={studentId}
             subject={active.subject as SubjectV}
+            board={active.board as BoardV}
+            level={level}
             newFocusKeys={newFocusKeys}
             onChanged={() => setBoardRev((r) => r + 1)}
           />
@@ -287,17 +294,34 @@ function ThisWeekTab({
   refreshKey: number;
   onScheduleApplied: () => void;
 }) {
+  /**
+   * 0 = this week, -1 = last week, +1 = next.
+   *
+   * The planner used to be pinned to `currentWeekKey()` with no way back, so a
+   * week that has passed — and everything the student did or missed in it — was
+   * unreachable from the surface that plans their weeks. The dashboard's panel
+   * has had these arrows all along; this is the same gesture, on the screen
+   * where it is actually looked for.
+   */
+  const [weekOffset, setWeekOffset] = useState(0);
+  const weekStart = toDateKey(addWeeks(weekKeyToDate(currentWeekKey()), weekOffset));
+  const isCurrent = weekOffset === 0;
+  const isPast = weekOffset < 0;
+  // History is read-only, and — more importantly — never generated: cutting a
+  // fresh plan for a week that has gone by would invent a record of work that
+  // was never set. `useWeekPlan` only materialises a week when `isCurrent`.
+  const editable = !isPast;
+  const showReview = weekOffset <= 0;
   // The same week the dashboard shows, from the same hook — the roadmap this
   // screen has already loaded is handed over so it isn't fetched twice.
-  const weekStart = currentWeekKey();
   const week = useWeekPlan({
     studentId,
     subject,
     board,
     level,
     weekStart,
-    isCurrent: true,
-    withCoverage: true,
+    isCurrent,
+    withCoverage: showReview,
     roadmap: data,
     refreshKey,
   });
@@ -330,29 +354,73 @@ function ThisWeekTab({
 
       {/* Learning this week — core topic and focused topics, the shared panel. */}
       <section>
-        <h2 className="flex items-center gap-1.5 font-display text-sm font-bold tracking-tight mb-2.5">
-          <CalendarDays className="w-4 h-4 text-primary" />
-          Learning this week
-        </h2>
-        <ThisWeekPanel
-          plan={week.plan}
-          points={week.points}
-          activity={week.activity}
-          coverage={week.coverage}
-          roadmap={week.roadmap}
-          loading={week.loading}
-          weekStart={weekStart}
-          editable
-          isPast={false}
-          showRationale
-          showCoverage
-          onRemove={week.removePoint}
-        />
+        <div className="flex flex-wrap items-center justify-between gap-2 mb-2.5">
+          <h2 className="flex items-center gap-1.5 font-display text-sm font-bold tracking-tight">
+            <CalendarDays className="w-4 h-4 text-primary" />
+            {isCurrent ? "Learning this week" : isPast ? "That week" : "An upcoming week"}
+            <span className="font-normal text-muted-foreground">
+              {weekRangeLabel(weekKeyToDate(weekStart))}
+            </span>
+          </h2>
+          <div className="flex items-center gap-1">
+            {!isCurrent && (
+              <button
+                type="button"
+                onClick={() => setWeekOffset(0)}
+                className="inline-flex items-center gap-1 h-6 px-2 mr-1 rounded-full bg-muted text-[10px] font-semibold text-muted-foreground hover:text-foreground"
+              >
+                <Undo2 className="w-3 h-3" /> Today
+              </button>
+            )}
+            <button
+              type="button"
+              onClick={() => setWeekOffset((w) => w - 1)}
+              className="w-7 h-7 rounded-lg border border-border text-muted-foreground hover:text-foreground hover:bg-muted flex items-center justify-center"
+              aria-label="Previous week"
+            >
+              <ChevronLeft className="w-4 h-4" />
+            </button>
+            <button
+              type="button"
+              onClick={() => setWeekOffset((w) => w + 1)}
+              className="w-7 h-7 rounded-lg border border-border text-muted-foreground hover:text-foreground hover:bg-muted flex items-center justify-center"
+              aria-label="Next week"
+            >
+              <ChevronRight className="w-4 h-4" />
+            </button>
+          </div>
+        </div>
+        {!week.loading && week.points.length === 0 && isPast ? (
+          // Said plainly, because the alternative reading — "you did nothing" —
+          // is the wrong one, and on this account it was the common one: three
+          // consecutive weeks of Topic 1 were saved with no points at all.
+          <p className="rounded-xl border border-dashed border-border p-6 text-center text-sm text-muted-foreground">
+            No plan was set for this week.
+          </p>
+        ) : (
+          <ThisWeekPanel
+            plan={week.plan}
+            points={week.points}
+            activity={week.activity}
+            coverage={week.coverage}
+            roadmap={week.roadmap}
+            loading={week.loading}
+            weekStart={weekStart}
+            editable={editable}
+            isPast={isPast}
+            showRationale={isCurrent}
+            showCoverage={showReview}
+            onRemove={week.removePoint}
+          />
+        )}
       </section>
 
       <WithheldPlanPoints points={week.withheld} coverage={week.coverage} />
 
-      {week.plan && (
+      {/* Re-cutting a week is a statement about the week ahead. Offering it on a
+          week that has gone by would let a student rewrite what was set for
+          them after the fact. */}
+      {week.plan && isCurrent && (
         <ScheduleComparison
           studentId={studentId}
           subject={subject}
@@ -365,9 +433,7 @@ function ThisWeekTab({
         />
       )}
       {/* Optional reflection and tutor feedback. */}
-      <WithheldPlanPoints points={week.withheld} coverage={week.coverage} />
-
-      {week.plan && (
+      {week.plan && showReview && (
         <details className="premium-card rounded-xl p-3">
           <summary className="cursor-pointer text-sm font-bold">
             Weekly check-in and tutor feedback
@@ -440,12 +506,16 @@ function FullPlanTab({
   data,
   studentId,
   subject,
+  board,
+  level,
   newFocusKeys,
   onChanged,
 }: {
   data: RoadmapResult;
   studentId: string;
   subject: SubjectV;
+  board: BoardV;
+  level: LevelV;
   /** Focus-lane band keys that are new/moved since the last re-rate. */
   newFocusKeys: Set<string>;
   /** Jump to My topics — the one place an overloaded plan can be fixed. */
@@ -464,6 +534,21 @@ function FullPlanTab({
   const [expanded, setExpanded] = useState<Set<string>>(new Set());
   const [savingDate, setSavingDate] = useState(false);
   const [accepting, setAccepting] = useState(false);
+  // Collapsed by default — the road ahead is what this tab is for — but present,
+  // which it was not. See the window comment on `weeks` below.
+  const [showHistory, setShowHistory] = useState(false);
+
+  // Which of a past week's promises are still outstanding, so a history row can
+  // report what became of it rather than only which topic was due ([[backlog]]).
+  const owedByWeek = useMemo(() => {
+    const out = new Map<string, number>();
+    // From the display backlog, so work already pulled into this week stops
+    // being reported as outstanding in the week it was originally promised.
+    for (const topic of data.backlogByTopic ?? [])
+      for (const point of topic.points)
+        out.set(point.plannedWeek, (out.get(point.plannedWeek) ?? 0) + 1);
+    return out;
+  }, [data]);
 
   /**
    * Accept the proposed plan. Until this runs the student keeps the plan they
@@ -511,7 +596,17 @@ function FullPlanTab({
     });
 
   const doneCount = spine.filter((b) => covered.has(b.topicId)).length;
-  const weeks = weekKeysBetween(nowKey, data.examDate);
+  /**
+   * The programme's whole run, or just the road ahead.
+   *
+   * This was unconditionally `weekKeysBetween(nowKey, data.examDate)`, and that
+   * one line is why a topic taught before today could not be seen: its rows
+   * were outside the window entirely — not filtered as done, not flagged as
+   * missed — while the counter above went on including it in "N of 9 topics
+   * covered". Topic 1 ran 13 Jul – 10 Aug and had no row anywhere on this tab.
+   */
+  const weeks = weekKeysBetween(showHistory ? data.programStart : nowKey, data.examDate);
+  const earlierWeeks = Math.max(0, weekKeysBetween(data.programStart, nowKey).length - 1);
   const inBand = (b: PacingBand, wk: string) => b.startWeek <= wk && wk <= b.endWeek;
   // While reviewing, the Core column holds the accepted plan and the proposal
   // sits beside it; once accepted there is nothing to compare and the fourth
@@ -617,6 +712,17 @@ function FullPlanTab({
         </span>
       </div>
 
+      <CatchUpPanel
+        studentId={studentId}
+        subject={subject}
+        board={board}
+        level={level}
+        weekStart={nowKey}
+        backlog={data.backlogByTopic ?? []}
+        asTutor={false}
+        onAdded={onChanged}
+      />
+
       <div className="flex flex-wrap items-center justify-between gap-x-4 gap-y-2 mb-2.5 text-[11px] text-muted-foreground">
         <p>
           <span className="font-semibold text-foreground">Core</span> is the course in order.{" "}
@@ -664,6 +770,9 @@ function FullPlanTab({
         <div className="max-h-[34rem] overflow-y-auto divide-y divide-border">
           {weeks.map((wk) => {
             const isNow = wk === nowKey;
+            // Date-keys are YYYY-MM-DD, so a lexical compare is a chronological one.
+            const isPast = wk < nowKey;
+            const owed = owedByWeek.get(wk) ?? 0;
             const core = coreSpine.find((b) => inBand(b, wk));
             const focused = focus.filter((b) => inBand(b, wk));
             const tp = core ? progressByTopic.get(core.topicId) : undefined;
@@ -699,7 +808,9 @@ function FullPlanTab({
                       ? "bg-amber-500/[0.06] border-l-2 border-l-amber-500"
                       : isNow
                         ? "bg-primary/[0.04]"
-                        : ""
+                        : isPast
+                          ? "bg-muted/20"
+                          : ""
                   }`}
                 >
                   {/* Week */}
@@ -709,9 +820,22 @@ function FullPlanTab({
                         <CircleDot className="w-3 h-3" /> Now
                       </span>
                     )}
-                    <span className="text-[13px] font-medium tabular-nums">
+                    <span
+                      className={`text-[13px] font-medium tabular-nums ${
+                        isPast ? "text-muted-foreground" : ""
+                      }`}
+                    >
                       {fmtDate(weekKeyToDate(wk))}
                     </span>
+                    {/* Only the claim the engine can support. A week with
+                        nothing owed says nothing: "Covered" would also be
+                        printed over work that was merely pulled into a later
+                        week, and the engine cannot tell those apart. */}
+                    {isPast && core && owed > 0 && (
+                      <span className="mt-0.5 text-[10px] font-semibold text-amber-700 dark:text-amber-300">
+                        {owed} not covered
+                      </span>
+                    )}
                   </div>
 
                   {/* Core */}
@@ -857,6 +981,19 @@ function FullPlanTab({
         Tap any topic to see its points and assessment results. Future review weeks are estimates;
         This week contains your confirmed assignment.
       </p>
+      {earlierWeeks > 0 && (
+        <button
+          type="button"
+          onClick={() => setShowHistory((v) => !v)}
+          className="mt-2 inline-flex items-center gap-1.5 text-[11px] font-semibold text-primary hover:underline"
+          aria-expanded={showHistory}
+        >
+          <History className="w-3.5 h-3.5" />
+          {showHistory
+            ? "Hide earlier weeks"
+            : `Show ${earlierWeeks} earlier ${earlierWeeks === 1 ? "week" : "weeks"}`}
+        </button>
+      )}
     </div>
   );
 }

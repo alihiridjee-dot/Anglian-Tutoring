@@ -87,6 +87,107 @@ requires a compatible application version that does not call the retired write R
 the new nullable snapshots can remain archived.
 Do not drop confidence history or snapshot columns as a rollback operation.
 
+## Catch-up: what happens to work the spine walked past
+
+The spine allocates every spec point to exactly one week. Nothing used to check
+whether that week happened. Both lanes look forward only — the teach lane reads
+`bandsForWeek(weekStart)` and takes that week's slice, so a closed band is
+unreachable; the focus lane requires `reps > 0`, and reps come from graded
+evidence, which a point nobody was offered cannot have. A spec point missed in
+its own week therefore left the system permanently, unreported.
+
+`src/lib/planner/backlog.ts` is the rule, pure and in one place.
+
+**A promise is discharged three ways, and only these three:**
+
+| Route | Meaning |
+|---|---|
+| `assessed` | graded evidence exists — FSRS owns the point, the focus lane will bring it back |
+| `done` | the student ticked it off in some week |
+| `outstanding` | it already sits in a plan for a week **after** the one being cut |
+
+Being *offered* is not delivery. A point in a plan the student never opened is
+still owed. `outstanding` deliberately stops short of the current week: counting
+it would make a re-cut drop the catch-up point and the next cut restore it,
+flip-flopping the plan week on week.
+
+**How much comes back:** `CATCH_UP_SHARE` = 0.2 of the week's average spine
+weight, oldest first, greedy in queue order. A student who missed a month clears
+it over about five weeks while the spine keeps running. `trickle` always takes
+at least one point when there is any budget, or a spec point heavier than a
+fifth of a week would be skipped forever — the exact permanent exclusion this
+module exists to end. A light point never jumps a heavy one queued ahead of it.
+
+Catch-up points are filed in the `core` lane and reported separately
+(`catchUpIds`, `catchUpTopics`). No new `plan_point_origin` value: they are
+first teaching of a spec point arriving late, and a lane of their own would tell
+the student their week is part remedial.
+
+`RoadmapResult.backlog` is the engine's list. `RoadmapResult.backlogByTopic` is
+the same debt minus whatever the current week already carries — **read that one
+for display**, or a panel goes on offering "practise Topic 1" straight after the
+student has put all of Topic 1 into their week.
+
+`CatchUpPanel` is the on-demand path: one control puts a whole topic's
+outstanding points into the current week, hand-picked (`student` / `tutor`), so
+it survives a re-cut. Admissibility already permitted this — `admit()` tests
+whether a topic *has opened*, not whether it is open now — so nothing was
+relaxed to allow it.
+
+## When a topic is not tested for
+
+`src/lib/planner/assessability.ts`. Three reasons a spec point has no mark, and
+the engine now distinguishes them instead of rendering all three as `0`:
+
+| State | Cause | Whose gap |
+|---|---|---|
+| `assessed` | graded evidence exists | — |
+| `awaiting` | a quiz or homework is tagged to the point and has not been done | the student's |
+| `unassessable` | nothing is tagged to the point at all | the library's |
+
+`pointMastery(null, …)` returns 0, so a topic nobody had written a question for
+displayed exactly like a topic the student had sat and failed. On Edexcel GCSE
+Biology, 160 of 165 spec points have no quiz and no homework — so "0%" was
+overwhelmingly a statement about the content library, shown to the student as a
+statement about them.
+
+**The rules:**
+
+- `TopicProgress.assessment.masteryPct` averages the **assessed** points only,
+  and is `null` when none are. `masteryPct` (non-null, 0 when none) is kept for
+  existing consumers; callers must check `assessment.state` before rendering it.
+- An unassessable topic is not complete either — `coveragePct` stays 0. Nothing
+  has been shown, so nothing is known.
+- Unwritten points do not hold a topic back from `assessed`: a topic is assessed
+  when every *assessable* point is marked.
+- `reflectsStudent(state)` is false for `unassessable`. Such a topic must never
+  be rendered as a low score, counted in a "topics covered" tally, or raised with
+  the student as something they are behind on.
+- `PointRow` shows "No practice yet" rather than "Not started" for these.
+
+This is the same distinction as the weekly review's `not_set` vs `not_done`
+(`coverage.ts`), which already existed and stopped at the edge of one week. It
+now reaches the point, the topic and the programme.
+
+## Historical topics are visible
+
+The roadmap table ran `weekKeysBetween(nowKey, examDate)` in both
+`StudentPlanner.FullPlanTab` and `RoadmapPanel`. A topic whose band had closed
+had no row at all — not filtered as finished, not flagged as missed — while the
+header above went on counting it in "N of 9 topics covered".
+
+Both now window from `programStart` when history is toggled on ("Show N earlier
+weeks", collapsed by default). Past rows are muted and carry the count still
+owed from that week. They do **not** claim "Covered" when nothing is owed: work
+pulled into a later week looks identical from here, and the engine cannot tell
+those apart.
+
+`StudentPlanner`'s week tab gained the back/forward navigation the dashboard's
+`WeeklyPlanPanel` already had. Past weeks are read-only and are **never
+generated** — cutting a fresh plan for a week that has gone by would invent a
+record of work that was never set. Re-cut and check-in controls are scoped to
+the current week accordingly.
+
 ## Practical limits and follow-up validation
 
 - Homework is currently evidence for its explicitly linked assessment scope using

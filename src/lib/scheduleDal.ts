@@ -18,7 +18,18 @@ import {
 } from "./planner/scheduler";
 import { weightOf } from "./planner/pacing";
 import { readCourseSnapshot, type CourseSnapshot } from "./planner/readModels";
-import { mapAttemptSources, sourcesFromRows } from "./planner/attemptSources";
+import {
+  assessablePoints,
+  mapAttemptSources,
+  sourcesFromRows,
+  type AttemptSources,
+} from "./planner/attemptSources";
+import {
+  assessTopic,
+  pointAssessability,
+  type PointAssessability,
+  type TopicAssessment,
+} from "./planner/assessability";
 import { selectIn, selectInSafe, selectInHistory } from "./db/chunked";
 import { getSessionUserId } from "@/lib/auth/session";
 
@@ -61,18 +72,33 @@ export interface ProgressPoint {
   lastReviewedAt: string | null;
   reps: number;
   retention: number | null;
+  /**
+   * Why this point does or does not have a mark — see [[assessability]].
+   * `unassessable` means nothing has been written to test it, which is a
+   * statement about the library and must never be rendered as a low score.
+   */
+  assessability: PointAssessability;
 }
 /** A topic's overall standing plus its per-point breakdown. */
 export interface TopicProgress {
   topicId: string;
   title: string;
   points: ProgressPoint[];
-  /** Mean mastery across the topic's points (0–100). */
+  /**
+   * Mean mastery across the topic's **assessed** points (0–100), 0 when none.
+   *
+   * Callers must consult {@link assessment} before rendering this: on a topic
+   * with no assessable points the figure is not a low score, it is the absence
+   * of one, and `assessment.masteryPct` is null to say so. Kept non-null here
+   * only so existing consumers keep type-checking.
+   */
   masteryPct: number;
   /** Every point has an assessed mark of at least 70%. */
   settled: boolean;
   /** How many of its points have real homework/MCQ practice behind them. */
   practisedCount: number;
+  /** Assessed / awaiting / unassessable counts and state — see [[assessability]]. */
+  assessment: TopicAssessment;
 }
 
 /** One course's memory snapshot for the planner dashboard. */
@@ -159,21 +185,34 @@ export function foldReviews(
 export class ScheduleDAL {
   /** FSRS cards for a set of spec points (revived to real Dates). */
   static async getSchedule(studentId: string, specPointIds: string[]): Promise<Map<string, Card>> {
-    const events = await this.assessmentEvents(studentId, specPointIds);
+    const { events } = await this.assessmentEvents(studentId, specPointIds);
     const cards = new Map<string, Card>();
     for (const row of foldReviews(events, new Map(), new Set()))
       cards.set(row.specPointId, row.card);
     return cards;
   }
 
-  /** Canonical assessed history. Replayed on read: no destructive migration,
-   * no stale confidence cards, and corrected/late marks take their proper place. */
+  /**
+   * Canonical assessed history. Replayed on read: no destructive migration,
+   * no stale confidence cards, and corrected/late marks take their proper place.
+   *
+   * Returns the source map alongside the events because it has already built it
+   * and it answers a question the events cannot: which points have practice
+   * attached *at all*. A point with no events and no material is a hole in the
+   * library; one with no events and material waiting is a student who has not
+   * done it. See [[assessability]].
+   */
   private static async assessmentEvents(
     studentId: string,
     ids: string[],
     snapshot?: CourseSnapshot | null,
-  ): Promise<ReviewEvent[]> {
-    if (!ids.length) return [];
+  ): Promise<{ events: ReviewEvent[]; sources: AttemptSources }> {
+    const empty: AttemptSources = {
+      resourceToPoints: new Map(),
+      setToPoints: new Map(),
+      setScope: new Map(),
+    };
+    if (!ids.length) return { events: [], sources: empty };
     const sources = snapshot ? sourcesFromRows(snapshot.sources) : await mapAttemptSources(ids);
     const { resourceToPoints, setToPoints, setScope } = sources;
     const requestedIds = new Set(ids);
@@ -248,7 +287,7 @@ export class ScheduleDAL {
         });
       }
     }
-    return events;
+    return { events, sources };
   }
 
   /**
@@ -326,7 +365,13 @@ export class ScheduleDAL {
 
     // Read-only reconstruction also serves parent/tutor views without requiring
     // a write permission or mutating historical confidence records.
-    const evidence = await this.assessmentEvents(params.studentId, pointIds, snapshot);
+    const { events: evidence, sources } = await this.assessmentEvents(
+      params.studentId,
+      pointIds,
+      snapshot,
+    );
+    // Which points anything could have marked, independent of whether it did.
+    const assessable = assessablePoints(sources);
     const cards = new Map<string, Card>();
     for (const row of foldReviews(evidence, new Map(), new Set()))
       cards.set(row.specPointId, row.card);
@@ -355,6 +400,12 @@ export class ScheduleDAL {
         lastReviewedAt: card?.last_review?.toISOString() ?? null,
         reps: card?.reps ?? 0,
         retention: retrievability(card, now),
+        assessability: pointAssessability({
+          hasMaterial: assessable.has(p.id),
+          // A mark, not a card: a point can hold an FSRS card only because
+          // something graded it, so these agree, and the mark is the fact.
+          hasEvidence: m?.homework != null || m?.quiz != null,
+        }),
       });
       byTopic.set(p.topic_id, list);
     }
@@ -366,14 +417,15 @@ export class ScheduleDAL {
           (a, b) =>
             (sortOf.get(a.id) ?? 0) - (sortOf.get(b.id) ?? 0) || a.code.localeCompare(b.code),
         );
-        const masteryPct = points.length
-          ? Math.round(points.reduce((s, p) => s + p.mastery, 0) / points.length)
-          : 0;
+        const assessment = assessTopic(
+          points.map((p) => ({ state: p.assessability, mastery: p.mastery })),
+        );
         return {
           topicId: t.id,
           title: t.title,
           points,
-          masteryPct,
+          masteryPct: assessment.masteryPct ?? 0,
+          assessment,
           settled:
             points.length > 0 &&
             points.every(
@@ -451,7 +503,7 @@ export class ScheduleDAL {
   ): Promise<Map<string, { homework: number | null; quiz: number | null }>> {
     const out = new Map<string, { homework: number | null; quiz: number | null }>();
     if (specPointIds.length === 0) return out;
-    const reviews = (evidence ?? (await this.assessmentEvents(studentId, specPointIds))).map(
+    const reviews = (evidence ?? (await this.assessmentEvents(studentId, specPointIds)).events).map(
       (e) => ({
         spec_point_id: e.specPointId,
         source: e.source,

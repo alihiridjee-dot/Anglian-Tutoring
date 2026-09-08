@@ -17,6 +17,7 @@ import {
   CalendarDays,
   RefreshCw,
   Scale,
+  History,
 } from "lucide-react";
 import { isTeachBand, type PacingBand, type PacingChange } from "@/lib/planner/pacing";
 import { ProgramDAL, type RoadmapResult } from "@/lib/programDal";
@@ -29,6 +30,8 @@ import { PointRow } from "./PointRow";
 import { FocusedTopicsHeaderCell, FocusKey, FocusPointsPanel, FocusTopicButton } from "./FocusLane";
 import { focusHasDetail, focusRowKey } from "./focusMeta";
 import { PacingChangeBadge } from "./PacingChangeBadge";
+import { CatchUpPanel } from "./CatchUpPanel";
+import { type BacklogPoint } from "@/lib/planner/backlog";
 
 function fmtDate(d: Date): string {
   return d.toLocaleDateString(undefined, {
@@ -103,6 +106,11 @@ export function RoadmapPanel({
   const [acking, setAcking] = useState(false);
   const [expanded, setExpanded] = useState<Set<string>>(new Set());
   const [showAllChanges, setShowAllChanges] = useState(false);
+  // The programme's past is collapsed by default — the road ahead is what the
+  // student came for — but it is *present*, which it was not before: the table
+  // used to begin at the current week, so a topic taught earlier had no row at
+  // all and could not be found, expanded, or practised from here.
+  const [showHistory, setShowHistory] = useState(false);
 
   const toggle = (topicId: string) =>
     setExpanded((prev) => {
@@ -126,6 +134,17 @@ export function RoadmapPanel({
     () => new Map((data?.changes ?? []).map((c) => [c.topicId, c])),
     [data],
   );
+  // Which of a past week's promises are still outstanding, so a history row can
+  // say what actually happened in it rather than just which topic was due.
+  const owedByWeek = useMemo(() => {
+    const out = new Map<string, BacklogPoint[]>();
+    // From the display backlog, so work already pulled into this week stops
+    // being reported as outstanding in the week it was originally promised.
+    for (const topic of data?.backlogByTopic ?? [])
+      for (const point of topic.points)
+        out.set(point.plannedWeek, [...(out.get(point.plannedWeek) ?? []), point]);
+    return out;
+  }, [data]);
 
   const load = async () => {
     await invalidatePlanner(queryClient, studentId);
@@ -164,6 +183,12 @@ export function RoadmapPanel({
   const reviewing = !!data?.needsAck && baselineSpine.length > 0;
   const total = spine.length;
   const doneCount = spine.filter((b) => covered.has(b.topicId)).length;
+  // Weeks between the programme's start and today — the history the table can
+  // show. Zero for a student in their first week, which is why the control is
+  // conditional rather than always present.
+  const earlierWeeks = data
+    ? Math.max(0, weekKeysBetween(data.programStart, currentWeekKey()).length - 1)
+    : 0;
 
   return (
     <div className="rounded-2xl premium-card p-4 sm:p-5 shadow-sm mt-6">
@@ -319,12 +344,26 @@ export function RoadmapPanel({
             <FocusKey />
           </div>
 
+          <CatchUpPanel
+            studentId={studentId}
+            subject={(active.subject ?? "biology") as SubjectV}
+            board={(active.board ?? "aqa") as BoardV}
+            level={level}
+            weekStart={currentWeekKey()}
+            backlog={data.backlogByTopic ?? []}
+            asTutor={asTutor}
+            onAdded={load}
+          />
+
           <WeekTable
             spine={reviewing ? baselineSpine : spine}
             proposedSpine={reviewing ? spine : null}
             onAccept={asTutor ? null : acknowledge}
             accepting={acking}
             focusBands={data.bands.filter((b) => !isTeachBand(b))}
+            programStart={data.programStart}
+            showHistory={showHistory}
+            owedByWeek={owedByWeek}
             examDate={data.examDate}
             covered={covered}
             progressByTopic={progressByTopic}
@@ -334,9 +373,24 @@ export function RoadmapPanel({
             onToggle={toggle}
           />
 
-          <p className="mt-3 text-[11px] text-muted-foreground">
-            Expand any topic to see its spec points.
-          </p>
+          <div className="mt-3 flex flex-wrap items-center justify-between gap-2">
+            <p className="text-[11px] text-muted-foreground">
+              Expand any topic to see its spec points.
+            </p>
+            {earlierWeeks > 0 && (
+              <button
+                type="button"
+                onClick={() => setShowHistory((v) => !v)}
+                className="inline-flex items-center gap-1.5 text-[11px] font-semibold text-primary hover:underline"
+                aria-expanded={showHistory}
+              >
+                <History className="w-3.5 h-3.5" />
+                {showHistory
+                  ? "Hide earlier weeks"
+                  : `Show ${earlierWeeks} earlier ${earlierWeeks === 1 ? "week" : "weeks"}`}
+              </button>
+            )}
+          </div>
         </>
       )}
     </div>
@@ -368,6 +422,9 @@ function WeekTable({
   onAccept,
   accepting,
   focusBands,
+  programStart,
+  showHistory,
+  owedByWeek,
   examDate,
   covered,
   progressByTopic,
@@ -384,6 +441,11 @@ function WeekTable({
   onAccept: (() => void) | null;
   accepting: boolean;
   focusBands: PacingBand[];
+  /** The programme's anchor week — where the table starts once history is shown. */
+  programStart: string;
+  showHistory: boolean;
+  /** Week → the points promised in it that are still outstanding ([[backlog]]). */
+  owedByWeek: Map<string, BacklogPoint[]>;
   examDate: string;
   covered: Set<string>;
   progressByTopic: Map<string, TopicProgress>;
@@ -394,8 +456,16 @@ function WeekTable({
   onToggle: (topicId: string) => void;
 }) {
   const nowKey = currentWeekKey();
-  // Run from this week through to the exams.
-  const weeks = weekKeysBetween(nowKey, examDate);
+  /**
+   * The programme's whole run, or just the road ahead.
+   *
+   * This used to be unconditionally `weekKeysBetween(nowKey, examDate)`, and
+   * that single line was why a topic whose band had closed could not be seen at
+   * all: not filtered as finished, not marked as missed — simply outside the
+   * window, while the header above went on counting it in "N of 9 topics
+   * covered". A student four weeks past Topic 1 had no way to reach it.
+   */
+  const weeks = weekKeysBetween(showHistory ? programStart : nowKey, examDate);
 
   const inBand = (b: PacingBand, wk: string) => b.startWeek <= wk && wk <= b.endWeek;
 
@@ -446,6 +516,9 @@ function WeekTable({
       <div className="max-h-[32rem] overflow-y-auto divide-y divide-border">
         {weeks.map((wk) => {
           const isNow = wk === nowKey;
+          // Date-keys are YYYY-MM-DD, so a lexical compare is a chronological one.
+          const isPast = wk < nowKey;
+          const owed = owedByWeek.get(wk) ?? [];
           const core = spine.find((b) => inBand(b, wk));
           const focused = focusBands.filter((b) => inBand(b, wk));
           const tp = core ? progressByTopic.get(core.topicId) : undefined;
@@ -489,7 +562,9 @@ function WeekTable({
                     ? "bg-amber-500/[0.06] border-l-2 border-l-amber-500"
                     : isNow
                       ? "bg-primary/[0.04]"
-                      : ""
+                      : isPast
+                        ? "bg-muted/20"
+                        : ""
                 }`}
               >
                 {/* Week */}
@@ -499,9 +574,22 @@ function WeekTable({
                       <CircleDot className="w-3 h-3" /> This week
                     </span>
                   )}
-                  <span className="text-[13px] font-medium tabular-nums">
+                  <span
+                    className={`text-[13px] font-medium tabular-nums ${
+                      isPast ? "text-muted-foreground" : ""
+                    }`}
+                  >
                     {fmtDate(weekKeyToDate(wk))}
                   </span>
+                  {/* Only the claim the engine can support. A week with nothing
+                      owed says nothing: "Covered" would also be printed over
+                      work that was merely pulled into a later week, and the
+                      engine cannot tell those apart. */}
+                  {isPast && core && owed.length > 0 && (
+                    <span className="mt-0.5 text-[10px] font-semibold text-amber-700 dark:text-amber-300">
+                      {owed.length} not covered
+                    </span>
+                  )}
                 </div>
 
                 {/* Core */}
