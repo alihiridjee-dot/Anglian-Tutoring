@@ -27,6 +27,14 @@ import {
   spineReach,
   type RejectionReason,
 } from "./planner/admissibility";
+import {
+  byTopic,
+  catchUpBudget,
+  spineBacklog,
+  trickle,
+  type BacklogPoint,
+  type TopicBacklog,
+} from "./planner/backlog";
 import { WeeklyPlanDAL, type PlanPointOrigin } from "./weeklyPlanDal";
 import { type PointCoverage } from "./planner/coverage";
 
@@ -112,6 +120,23 @@ export interface RoadmapResult {
    * taught. See [[admissibility]].
    */
   inadmissible: InadmissiblePoint[];
+  /**
+   * Spec points the spine allocated to a week that has passed, and which
+   * nothing has covered since — see [[backlog]].
+   *
+   * Distinct from `inadmissible`, which is work the engine *refused*. This is
+   * work it promised and never delivered: before this existed such a point fell
+   * out of both lanes permanently and was reported nowhere, so a topic taught
+   * before the student engaged simply ceased to exist as far as the planner was
+   * concerned.
+   */
+  backlog: BacklogPoint[];
+  /**
+   * The backlog grouped by topic, oldest first — **minus** anything the current
+   * week's plan is already carrying, which is what a surface should offer to
+   * put right. Read this, not `backlog`, for display.
+   */
+  backlogByTopic: TopicBacklog[];
   unscheduledTopicTitles: string[];
   /** Exam-horizon backlog reporting for the roadmap and weekly plan. */
   focusLoad: FocusLoad;
@@ -276,6 +301,54 @@ export class ProgramDAL {
       topics.length - Math.max(0, weeksBetween(start, examMonday)),
     );
 
+    /**
+     * What the spine promised and did not deliver.
+     *
+     * Measured against the **acknowledged** spine, hydrated with the same
+     * weighted weekly division the student was shown, for the same reason the
+     * admissibility rule reads it: until they accept a reschedule, the stored
+     * plan is the one they are living by, and chasing them for a week a
+     * recomputation has since moved would be chasing a promise nobody made.
+     *
+     * Evidence counts as delivery, so a point FSRS is already scheduling never
+     * appears here — the focus lane owns it and the two must not both assign it.
+     */
+    const promised = withWeeklyPoints(
+      baseline ? (baseline.pacing as unknown as PacingBand[]).filter(isTeachBand) : live,
+      pointsByTopic,
+    );
+    // Read even under `projectOnly` — that flag suppresses reading back the
+    // *saved week* so projection isn't doubled, and this is a different fact.
+    // Skipping it would hand the generation path an empty ledger and chase the
+    // student for work they had already done.
+    const ledger = await WeeklyPlanDAL.getDeliveryLedger(studentId, subject, thisWeek);
+    const backlog = spineBacklog({
+      bands: promised,
+      weekStart: thisWeek,
+      pointsByTopic,
+      ledger: {
+        ...ledger,
+        assessed: new Set(
+          progress.flatMap((t) =>
+            t.points.filter((p) => p.assessability === "assessed").map((p) => p.id),
+          ),
+        ),
+      },
+    });
+    /**
+     * The same debt, minus what this week is already carrying.
+     *
+     * `backlog` deliberately still holds those points — the trickle re-selects
+     * them on every cut of the current week, and dropping them would make a
+     * re-cut lose the catch-up work and the next cut put it back. But a panel
+     * that goes on offering "practise Topic 1 now" the moment after a student
+     * has put all of Topic 1 into this week is nagging them about work they can
+     * see in front of them, so the display asks the narrower question: what is
+     * still not being dealt with anywhere?
+     */
+    const inThisWeek = new Set(savedWeek?.points.map((p) => p.spec_point_id) ?? []);
+    const unaddressed = backlog.filter((p) => !inThisWeek.has(p.specPointId));
+
     if (!baseline) {
       // First view = enrolment: this Monday becomes the student's permanent
       // spine anchor, and their runway to the exam sets the weekly pace.
@@ -321,6 +394,8 @@ export class ProgramDAL {
         progress,
         reviewBacklog: projection.backlog,
         inadmissible,
+        backlog,
+        backlogByTopic: byTopic(unaddressed),
         unscheduledTopicTitles: topics
           .slice(Math.max(0, topics.length - teachingWeeksShort))
           .map((t) => t.title),
@@ -348,6 +423,8 @@ export class ProgramDAL {
       progress,
       reviewBacklog: projection.backlog,
       inadmissible,
+      backlog,
+      backlogByTopic: byTopic(unaddressed),
       unscheduledTopicTitles: topics
         .slice(Math.max(0, topics.length - teachingWeeksShort))
         .map((t) => t.title),
@@ -383,27 +460,43 @@ export class ProgramDAL {
 
     if (roadmap) {
       if (weekStart >= roadmap.examDate) return { specPointIds: [], origins: {}, rationale: "" };
-      const { specPointIds, lanes, teachTitle, focusCount, teachCount } = selectWeekPoints({
-        bands: [
-          ...withWeeklyPoints(
-            roadmap.baselineBands,
-            new Map(
-              roadmap.progress.map((t) => [
-                t.topicId,
-                t.points.map((p) => ({
-                  specPointId: p.id,
-                  code: p.code,
-                  title: p.title,
-                  weight: p.weight,
-                })),
-              ]),
+      // Only what was promised strictly before the week being cut: the roadmap
+      // measures the backlog from today, and a week planned further ahead has
+      // not yet passed the weeks between.
+      //
+      // Both fields are tolerated as absent because the roadmap can be handed in
+      // by a caller rather than loaded here. Catching up is an addition to the
+      // week, so a roadmap that cannot describe the debt yields no catch-up
+      // rather than no week.
+      const due = (roadmap.backlog ?? []).filter((b) => b.plannedWeek < weekStart);
+      const { take } = trickle(due, catchUpBudget(roadmap.focusLoad?.spine ?? 0));
+      const { specPointIds, lanes, teachTitle, focusCount, teachCount, catchUpIds, catchUpTopics } =
+        selectWeekPoints({
+          bands: [
+            ...withWeeklyPoints(
+              roadmap.baselineBands,
+              new Map(
+                roadmap.progress.map((t) => [
+                  t.topicId,
+                  t.points.map((p) => ({
+                    specPointId: p.id,
+                    code: p.code,
+                    title: p.title,
+                    weight: p.weight,
+                  })),
+                ]),
+              ),
             ),
-          ),
-          ...roadmap.bands.filter((b) => !isTeachBand(b)),
-        ],
-        weekStart,
-        topics: roadmap.progress,
-      });
+            ...roadmap.bands.filter((b) => !isTeachBand(b)),
+          ],
+          weekStart,
+          topics: roadmap.progress,
+          catchUp: take.map((b) => ({
+            specPointId: b.specPointId,
+            topicTitle: b.topicTitle,
+            weight: b.weight,
+          })),
+        });
       if (specPointIds.length === 0) {
         // The programme covers this week and has nothing outstanding in it. A
         // real answer, and the week's own copy says it far better than six
@@ -413,10 +506,20 @@ export class ProgramDAL {
       const parts: string[] = [];
       if (focusCount > 0) parts.push(`${focusCount} to revisit`);
       if (teachCount > 0) parts.push(`${teachCount} from this week's topic (${teachTitle})`);
+      if (catchUpIds.length > 0)
+        parts.push(`${catchUpIds.length} catching up on ${listSentence(catchUpTopics)}`);
+      // Naming the rest of the backlog is the point: the student is told the
+      // debt exists and is being worked through, rather than meeting it as
+      // unexplained old material appearing in their week for months.
+      const remaining = due.length - catchUpIds.length;
+      const chasing =
+        remaining > 0
+          ? ` ${remaining} more missed ${remaining === 1 ? "point is" : "points are"} queued for the weeks after this one.`
+          : "";
       return {
         specPointIds,
         origins: lanes,
-        rationale: `From your programme: ${listSentence(parts)}. Reviews follow assessed practice and are assigned when eligible.`,
+        rationale: `From your programme: ${listSentence(parts)}. Reviews follow assessed practice and are assigned when eligible.${chasing}`,
       };
     }
 

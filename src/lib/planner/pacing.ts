@@ -487,6 +487,19 @@ export interface WeekSelection {
   teachTitle: string | null;
   focusCount: number;
   teachCount: number;
+  /**
+   * Spec points taken from the backlog rather than from this week's own band —
+   * work the spine promised in a week that has already passed ([[backlog]]).
+   *
+   * Reported separately but filed in the `core` lane, because that is what they
+   * are: first teaching of a spec point, arriving late. A lane of their own
+   * would need a new `plan_point_origin` value and would tell the student their
+   * week is part remedial, when the honest framing is that the course is still
+   * being covered — just not on the original date.
+   */
+  catchUpIds: string[];
+  /** Titles of the topics this week's catch-up work came from, in order. */
+  catchUpTopics: string[];
 }
 
 /** Combine all eligible reviews with the fixed weighted teaching allocation. */
@@ -495,6 +508,12 @@ export function selectWeekPoints(params: {
   /** Monday date-key of the week being planned. */
   weekStart: string;
   topics: WeekTopic[];
+  /**
+   * Backlog points this week is taking on, already limited to what it can hold
+   * ({@link trickle}). The budget rule lives in [[backlog]]; this function only
+   * places what it is given, after the two lanes that own the week proper.
+   */
+  catchUp?: { specPointId: string; topicTitle: string; weight?: number }[];
 }): WeekSelection {
   const { weekStart, topics } = params;
   const inWeek = bandsForWeek(params.bands, weekStart);
@@ -547,7 +566,21 @@ export function selectWeekPoints(params: {
     if (took > 0) teachTitle ??= band.title;
   }
 
-  return { specPointIds, lanes, teachTitle, focusCount, teachCount };
+  // 3. Catch-up — what the spine promised in a week that has already gone by.
+  //    Last, and from a budget the caller has already capped, so a long backlog
+  //    can never displace the teaching this week was actually for.
+  const catchUpIds: string[] = [];
+  const catchUpTopics: string[] = [];
+  for (const point of params.catchUp ?? []) {
+    if (seen.has(point.specPointId)) continue;
+    seen.add(point.specPointId);
+    specPointIds.push(point.specPointId);
+    lanes[point.specPointId] = "core";
+    catchUpIds.push(point.specPointId);
+    if (!catchUpTopics.includes(point.topicTitle)) catchUpTopics.push(point.topicTitle);
+  }
+
+  return { specPointIds, lanes, teachTitle, focusCount, teachCount, catchUpIds, catchUpTopics };
 }
 
 /** Merge focus bands onto the teach spine in roadmap render order. */

@@ -376,6 +376,91 @@ export class WeeklyPlanDAL {
     if (error) throw error;
   }
 
+  /**
+   * What the programme can account for, across every week it has ever cut.
+   *
+   * The catch-up rule needs to know which of the spine's past promises were
+   * kept ([[backlog]]), and "kept" is not a fact any single week holds: a point
+   * promised in July may have been ticked off in August, or may be sitting in
+   * next week's plan already. Both are answers, and both live in other rows.
+   *
+   * Deliberately does not treat mere presence in a plan as delivery — a point
+   * the student was offered and never touched is exactly what the backlog is
+   * for, and that holds for the week now being cut as much as for a past one.
+   * Only weeks *after* it count as outstanding: a point sitting undone in the
+   * current week must stay in the backlog, or re-cutting that week would drop
+   * it (nothing else re-selects a catch-up point) and the next cut would put it
+   * back, flip-flopping the plan week on week.
+   *
+   * Evidence is the third route and is not read here; it comes from the graded
+   * sources ([[scheduleDal]]), which this DAL must not duplicate.
+   */
+  static async getDeliveryLedger(
+    studentId: string,
+    subject: SubjectV,
+    /** Monday of the week being planned — only later weeks are outstanding. */
+    fromWeek: string,
+  ): Promise<{ done: Set<string>; outstanding: Set<string> }> {
+    const done = new Set<string>();
+    const outstanding = new Set<string>();
+    const { data, error } = await supabase
+      .from("student_weekly_plans")
+      .select("week_start, student_weekly_plan_points(spec_point_id, done_at)")
+      .eq("student_id", studentId)
+      .eq("subject", subject);
+    if (error) throw new Error(error.message);
+
+    for (const plan of (data ?? []) as unknown as {
+      week_start: string;
+      student_weekly_plan_points: { spec_point_id: string; done_at: string | null }[] | null;
+    }[]) {
+      // Date-keys are YYYY-MM-DD, so a lexical compare is a chronological one.
+      const pending = plan.week_start > fromWeek;
+      for (const point of plan.student_weekly_plan_points ?? []) {
+        if (point.done_at) done.add(point.spec_point_id);
+        else if (pending) outstanding.add(point.spec_point_id);
+      }
+    }
+    return { done, outstanding };
+  }
+
+  /**
+   * Put spec points into a week, creating that week's plan if it has none.
+   *
+   * The catch-up controls act on a week the caller is not holding open — the
+   * roadmap offers "practise this topic" from a table of the whole year, and a
+   * student whose current week was never generated (an empty past week, a
+   * subject they have not opened) has no plan row to add to. Both write paths
+   * screen through {@link screen}, so this is a convenience over the two, not a
+   * way around admissibility.
+   */
+  static async addToWeek(params: {
+    studentId: string;
+    subject: SubjectV;
+    board: BoardV;
+    level: LevelV;
+    weekStart: string;
+    specPointIds: string[];
+    origin: PlanPointOrigin;
+  }): Promise<void> {
+    if (params.specPointIds.length === 0) return;
+    const existing = await this.getPlan(params.studentId, params.subject, params.weekStart);
+    if (existing) {
+      await this.addPoints(existing.plan.id, params.specPointIds, params.origin);
+      return;
+    }
+    await this.savePlan({
+      studentId: params.studentId,
+      subject: params.subject,
+      board: params.board,
+      level: params.level,
+      weekStart: params.weekStart,
+      specPointIds: params.specPointIds,
+      source: params.origin === "tutor" ? "tutor" : "student",
+      origin: params.origin,
+    });
+  }
+
   /** Remove one spec point from a plan. */
   static async removePoint(planId: string, specPointId: string): Promise<void> {
     const { error } = await supabase
