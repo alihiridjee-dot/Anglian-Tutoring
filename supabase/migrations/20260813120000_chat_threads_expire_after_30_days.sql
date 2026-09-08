@@ -22,6 +22,30 @@
 -- rewrite history. That still holds for clients: this is a scheduled sweep
 -- running as the cron role, and nothing here lets a student or tutor delete a
 -- conversation early or edit what was said.
+--
+-- An unanswered question is never swept, however old it gets.
+--
+-- Age alone was the original rule, and it deletes exactly the wrong thing. The
+-- threads most likely to sit untouched for a month are the ones nobody got
+-- round to replying to, so the sweep would quietly bin a student's unanswered
+-- question and leave no trace that it was ever asked. That is a service failure
+-- being tidied away rather than a conversation ageing out, and the tutor is the
+-- one person who would have wanted to see it. (Found on the way to applying
+-- this: a thread from 4 August asking why potato pieces gain mass in distilled
+-- water, still open, never replied to, due for deletion.)
+--
+-- So the rule is now: a thread is only swept once the tutor has actually said
+-- something in it. That is what makes it a conversation rather than an
+-- outstanding obligation, and only then does "thirty days after it finished"
+-- mean anything.
+--
+-- `status` is deliberately not used as the test. The column exists but nothing
+-- in the application ever writes it — every row is 'open' forever — so gating
+-- on it would read as a rule while doing nothing at all.
+--
+-- The cost is that a question nobody ever answers is kept indefinitely. That is
+-- the right way round: the fix for an unanswered thread is a reply or a
+-- deliberate deletion, not a timer.
 create or replace function public.expire_stale_chat_threads()
 returns integer
 language plpgsql
@@ -31,8 +55,14 @@ as $$
 declare
   _deleted integer;
 begin
-  delete from chat_threads
-  where last_message_at < now() - interval '30 days';
+  delete from chat_threads t
+  where t.last_message_at < now() - interval '30 days'
+    and exists (
+      select 1
+      from chat_messages m
+      where m.thread_id = t.id
+        and m.sender_id = t.tutor_id
+    );
   get diagnostics _deleted = row_count;
   return _deleted;
 end
