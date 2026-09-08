@@ -21,7 +21,7 @@ import { FOCUSED_TOPICS_BLURB, FOCUS_TONES, FOCUS_TONE_ORDER, focusTone } from "
  */
 
 /**
- * The "Focused topics" column header, with the explanation a hover away.
+ * The "Topics to revisit" column header, with the explanation a hover away.
  *
  * The whole plan hinges on the student understanding why a topic they already
  * covered is sitting on next week's row. The legend above the table says it
@@ -36,7 +36,7 @@ export function FocusedTopicsHeaderCell() {
 }
 
 /**
- * "Focused topics" wherever it's used as a heading, with the blurb behind the
+ * "Topics to revisit" wherever it's used as a heading, with the blurb behind the
  * question mark beside it.
  *
  * The blurb hangs off the *icon* alone, not the whole heading: a tooltip that
@@ -51,11 +51,11 @@ export function FocusedTopicsLabel({ className = "" }: { className?: string }) {
   return (
     <span className={`inline-flex items-center gap-1.5 ${className}`}>
       <Repeat className="w-3.5 h-3.5 text-rose-500 shrink-0" />
-      Focused topics
+      Topics to revisit
       <span
         className="group/help relative inline-flex shrink-0 cursor-help"
         tabIndex={0}
-        aria-label="What are focused topics?"
+        aria-label="What are topics to revisit?"
       >
         <HelpCircle className="w-3 h-3 opacity-60" />
         <span

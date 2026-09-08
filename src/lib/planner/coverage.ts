@@ -312,7 +312,7 @@ export type Lane = "core" | "focus" | "yours";
 
 export const LANE_LABEL: Record<Lane, string> = {
   core: "Core topic",
-  focus: "Focused topics",
+  focus: "Topics to revisit",
   yours: "Added by you",
 };
 

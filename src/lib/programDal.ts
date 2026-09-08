@@ -35,7 +35,7 @@ import {
   type BacklogPoint,
   type TopicBacklog,
 } from "./planner/backlog";
-import { WeeklyPlanDAL, type PlanPointOrigin } from "./weeklyPlanDal";
+import { WeeklyPlanDAL, type PlanPoint, type PlanPointOrigin } from "./weeklyPlanDal";
 import { type PointCoverage } from "./planner/coverage";
 
 /** "a", "a and b", "a, b and c" — for the plan's one-line rationale. */
@@ -536,34 +536,80 @@ export class ProgramDAL {
     level: LevelV;
     weekStart: string;
     expectedPointIds?: string[];
+    /** Repair legacy review lanes without churning otherwise valid saved weeks. */
+    repairUnsupportedReviews?: boolean;
+    roadmap?: RoadmapResult | null;
   }): Promise<boolean> {
     const { studentId, subject, board, level, weekStart } = params;
     const existing = await WeeklyPlanDAL.getPlan(studentId, subject, weekStart);
     if (!existing) return false; // nothing saved yet — the normal build path owns this
 
-    const roadmap = await this.loadRoadmap({
-      studentId,
-      subject,
-      board,
-      level,
-      projectOnly: true,
-    });
+    // A caller that already holds the roadmap hands it over; otherwise it is
+    // loaded here exactly as before.
+    const roadmap =
+      params.roadmap !== undefined
+        ? params.roadmap
+        : await this.loadRoadmap({
+            studentId,
+            subject,
+            board,
+            level,
+            projectOnly: true,
+          });
+    // Missing curriculum is not evidence that a saved assignment is invalid.
+    if (params.repairUnsupportedReviews && !roadmap) return false;
+    const assessed = new Set(
+      focusInputs(roadmap?.progress ?? []).candidates.map((p) => p.specPointId),
+    );
+    const unsupported = (p: PlanPoint) => p.origin === "focus" && !assessed.has(p.spec_point_id);
+    /**
+     * Reviews quarantined for having nothing behind them, which the repair is
+     * about to turn into teaching.
+     *
+     * Since [[admissibility]], `getPlan` splits a saved week into `points` and
+     * `withheld`, and a `focus` point with no assessed evidence is precisely
+     * what lands in the second — so a repair that only scanned `points` would
+     * find nothing to do and quietly no-op. Only `no-evidence` is pulled back:
+     * a point withheld as ahead-of-spine or off-course has a different problem,
+     * and relabelling its lane would not fix it.
+     */
+    const quarantined = existing.withheld
+      .filter((w) => w.reason === "no-evidence")
+      .map((w) => w.point);
+    const saved = [...existing.points, ...quarantined];
+    if (params.repairUnsupportedReviews && !saved.some(unsupported)) return false;
     const fresh = await this.planForWeek({ ...params, roadmap });
 
     const coverage = await WeeklyPlanDAL.getCoverage(
       studentId,
-      existing.points.map((p) => p.spec_point_id),
+      saved.map((p) => p.spec_point_id),
       weekStart,
     );
 
     // Completed attempts remain visible too: re-planning must not erase progress.
     const inFlight = (id: string): boolean => !!coverage.get(id)?.attempted;
-    // getPlan exposes only admissible work here. Withheld history is preserved
-    // by save_weekly_plan itself; resubmitting it would re-trigger admission.
-    const keep = existing.points.filter(
-      (p) =>
-        handPicked(p.origin) || hasStudentHistory({ ...p, attempted: inFlight(p.spec_point_id) }),
-    );
+    /**
+     * What survives the re-cut: hand-picked work, anything the student has
+     * touched, and — when repairing — the quarantined reviews themselves.
+     *
+     * Withheld history is normally left alone, because resubmitting it would
+     * just re-trigger admission and it is preserved by `save_weekly_plan`
+     * regardless. A `no-evidence` review is the exception the repair exists
+     * for: it is re-admitted deliberately, and only because its lane is about
+     * to change to `core` below, which is a lane the rule accepts.
+     */
+    const keep = [
+      // The original rule, unchanged: an active point survives a re-cut only if
+      // a person chose it or the student has touched it. A stale automatic
+      // review with no history is still dropped and re-selected from scratch.
+      ...existing.points.filter(
+        (p) =>
+          handPicked(p.origin) || hasStudentHistory({ ...p, attempted: inFlight(p.spec_point_id) }),
+      ),
+      // Quarantined reviews are the addition, and they come back regardless of
+      // history: having none is the whole reason they were withheld.
+      ...(params.repairUnsupportedReviews ? quarantined : []),
+    ];
 
     // Kept points first so their original lane wins the merge. Both planners
     // label every point they return, so the default below is unreachable — it is
@@ -575,7 +621,7 @@ export class ProgramDAL {
     // so anything not handed back here is lost.
     const carriedFroms: Record<string, string | null> = {};
     for (const p of keep) {
-      origins[p.spec_point_id] = p.origin;
+      origins[p.spec_point_id] = roadmap && unsupported(p) ? "core" : p.origin;
       carriedFroms[p.spec_point_id] = p.carried_from;
     }
     for (const id of fresh.specPointIds) origins[id] ??= fresh.origins[id] ?? "ai";
@@ -591,8 +637,14 @@ export class ProgramDAL {
     }
 
     const before = new Set(existing.points.map((p) => p.spec_point_id));
+    // Three independent reasons to write. The point set differing is the
+    // obvious one; a point keeping its id while its *lane* was repaired is
+    // Codex's case; and a week still holding withheld rows must be re-saved so
+    // they are cleared, which is why an unchanged set is not enough on its own.
     const unchanged =
-      specPointIds.length === before.size && specPointIds.every((id) => before.has(id));
+      specPointIds.length === before.size &&
+      specPointIds.every((id) => before.has(id)) &&
+      existing.points.every((p) => origins[p.spec_point_id] === p.origin);
     if (unchanged && existing.withheld.length === 0) return false;
 
     await WeeklyPlanDAL.savePlan({

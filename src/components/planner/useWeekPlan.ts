@@ -47,6 +47,28 @@ export function useWeekPlan(params: {
     enabled: !!studentId,
     queryFn: async ({ signal }) => {
       let saved = await WeeklyPlanDAL.getPlan(studentId, subject, weekStart);
+      /**
+       * A saved review with nothing behind it is repaired before the week is
+       * read, not left sitting there.
+       *
+       * The trigger looks at the withheld list as well as the active one. Since
+       * [[admissibility]], `getPlan` splits a week in two, and a `focus` point
+       * with no assessed evidence is exactly what lands in `withheld` — so a
+       * test against `points` alone would never fire, and the repair would be
+       * dead code. Quarantine stops it being *shown* as revision; this turns it
+       * into honest teaching so it actually gets covered.
+       */
+      const unsupported =
+        saved?.points.some((p) => p.origin === "focus") ||
+        saved?.withheld.some((w) => w.reason === "no-evidence");
+      if (unsupported && isCurrent && (await getSessionUserId()) === studentId) {
+        const roadmap = await client.fetchQuery(roadmapQuery(client, params, true));
+        signal.throwIfAborted();
+        if (await ProgramDAL.refreshWeek({ ...params, roadmap, repairUnsupportedReviews: true })) {
+          saved = await WeeklyPlanDAL.getPlan(studentId, subject, weekStart);
+          await client.invalidateQueries({ queryKey: [...courseKey(params), "roadmap"] });
+        }
+      }
       if (!saved && isCurrent && (await getSessionUserId()) === studentId) {
         const roadmap = await client.fetchQuery(roadmapQuery(client, params, true));
         const selection = await ProgramDAL.planForWeek({ ...params, roadmap });
