@@ -69,10 +69,13 @@ function MessagesPage() {
                 : "Ask your tutor anything — attach the spec point, homework or quiz you're stuck on."}
             </p>
             {/* Both retention rules, said where people write, rather than
-                letting conversations quietly fold away or vanish unannounced. */}
+                letting conversations quietly fold away or vanish unannounced.
+                "Answered" is load-bearing and not a detail: a question nobody
+                replied to is never deleted, and a student is owed that promise
+                plainly rather than having to infer it. */}
             <p className="mt-0.5 text-xs text-muted-foreground/80">
-              Quiet conversations fold away after a day, and are deleted 30 days after the last
-              message.
+              Quiet conversations fold away after a day. Answered ones are deleted 30 days after the
+              last message — a question that hasn't been answered is always kept.
             </p>
           </div>
           {!isTutor && (
