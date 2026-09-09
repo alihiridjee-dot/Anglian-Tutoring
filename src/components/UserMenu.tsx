@@ -6,8 +6,10 @@ import { useSignOut } from "@/hooks/useSignOut";
 type MenuTarget = "/profile" | "/dashboard" | "/parents" | "/billing";
 
 interface UserMenuProps {
-  /** Initials rendered in the avatar. */
+  /** Initials rendered in the avatar when there's no photo. */
   initials: string;
+  /** The user's profile photo, or null to fall back to the initials. */
+  avatarUrl: string | null;
   /** Signed-in address, shown as the menu's subtitle. Null in the showcase. */
   email: string | null;
   /**
@@ -29,7 +31,7 @@ const itemCls =
  * caller's role and redirects, so one link lands every persona on their own home
  * without this component knowing the routing rules.
  */
-export function UserMenu({ initials, email, showLinkedParents, isDemo }: UserMenuProps) {
+export function UserMenu({ initials, avatarUrl, email, showLinkedParents, isDemo }: UserMenuProps) {
   const [open, setOpen] = useState(false);
   const ref = useRef<HTMLDivElement>(null);
   const signOut = useSignOut();
@@ -52,8 +54,13 @@ export function UserMenu({ initials, email, showLinkedParents, isDemo }: UserMen
   }, [open]);
 
   const avatar = (
-    <div className="w-9 h-9 rounded-full bg-gradient-to-br from-primary to-accent flex items-center justify-center text-xs font-semibold text-primary-foreground">
-      {initials}
+    <div className="w-9 h-9 rounded-full overflow-hidden bg-gradient-to-br from-primary to-accent flex items-center justify-center text-xs font-semibold text-primary-foreground">
+      {avatarUrl ? (
+        // Decorative: the button around this already carries "Account menu".
+        <img src={avatarUrl} alt="" width={36} height={36} className="w-full h-full object-cover" />
+      ) : (
+        initials
+      )}
     </div>
   );
 

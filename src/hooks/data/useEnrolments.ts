@@ -40,9 +40,17 @@ export interface EnrolmentsState {
    * email-derived name would silently ignore the edit.
    */
   displayName: string | null;
+  /**
+   * Path to the user's profile photo in the private `avatars` bucket, or null
+   * if they've never set one. It is not renderable on its own — pass it through
+   * `useAvatarUrl` for a signed URL. Consumers fall back to `resolveInitials`;
+   * the photo is an addition to the initials disc, not a replacement for having
+   * one.
+   */
+  avatarPath: string | null;
 }
 
-/** Reads the current user's profile row (name + role + enrolled subjects). */
+/** Reads the current user's profile row (name + photo + role + subjects). */
 export function useEnrolments(): EnrolmentsState {
   const { data, isLoading } = useQuery({
     queryKey: ["user-enrolments-and-profile"],
@@ -57,6 +65,8 @@ export function useEnrolments(): EnrolmentsState {
           level: DEMO_LEVEL as LevelV,
           inviteCode: null,
           displayName: getDemoRole() === "parent" ? DEMO_PARENT_NAME : DEMO_STUDENT_NAME,
+          // The fixture personas are stock names, not real people with photos.
+          avatarPath: null,
         };
       }
 
@@ -69,12 +79,13 @@ export function useEnrolments(): EnrolmentsState {
           level: null,
           inviteCode: null,
           displayName: null,
+          avatarPath: null,
         };
       }
       const [{ data }, { data: enrolRows }] = await Promise.all([
         supabase
           .from("profiles")
-          .select("role, enrolled_courses, student_invite_code, display_name, level")
+          .select("role, enrolled_courses, student_invite_code, display_name, level, avatar_path")
           .eq("id", uid)
           .maybeSingle(),
         supabase
@@ -103,6 +114,7 @@ export function useEnrolments(): EnrolmentsState {
         // Blank is the same as unset — a name of "" would render as an empty
         // greeting rather than falling back.
         displayName: data?.display_name?.trim() || null,
+        avatarPath: data?.avatar_path ?? null,
       };
     },
     staleTime: 1000 * 60 * 10, // 10 minutes cache
@@ -117,6 +129,7 @@ export function useEnrolments(): EnrolmentsState {
     level: data?.level ?? null,
     inviteCode: data?.inviteCode ?? null,
     displayName: data?.displayName ?? null,
+    avatarPath: data?.avatarPath ?? null,
   };
 }
 

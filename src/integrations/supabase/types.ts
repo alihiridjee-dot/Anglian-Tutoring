@@ -691,6 +691,7 @@ export type Database = {
       };
       profiles: {
         Row: {
+          avatar_path: string | null;
           created_at: string;
           display_name: string | null;
           enrolled_courses: string[];
@@ -703,6 +704,7 @@ export type Database = {
           student_invite_code: string | null;
         };
         Insert: {
+          avatar_path?: string | null;
           created_at?: string;
           display_name?: string | null;
           enrolled_courses?: string[];
@@ -715,6 +717,7 @@ export type Database = {
           student_invite_code?: string | null;
         };
         Update: {
+          avatar_path?: string | null;
           created_at?: string;
           display_name?: string | null;
           enrolled_courses?: string[];
