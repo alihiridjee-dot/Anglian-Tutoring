@@ -17,6 +17,7 @@ import { useSignOut } from "@/hooks/useSignOut";
 import { isDemoMode, getDemoRole } from "@/lib/auth/session";
 import { DEMO_STUDENT_NAME, DEMO_PARENT_NAME } from "@/lib/demo/studentDemo";
 import { useEnrolments } from "@/hooks/data/useEnrolments";
+import { useAvatarUrl } from "@/hooks/data/useAvatar";
 import { useChatUnread } from "@/hooks/data/useChat";
 import { NotificationBell } from "@/components/NotificationBell";
 import { CourseBadge } from "@/components/CourseBadge";
@@ -50,7 +51,11 @@ const demoParentNav = [
 export function AppLayout({ title, children }: { title: string; children: ReactNode }) {
   const pathname = useRouterState({ select: (s) => s.location.pathname });
   const { isTutor, email } = useRoles();
-  const { role: userRole, displayName: profileName } = useEnrolments();
+  const { role: userRole, displayName: profileName, avatarPath } = useEnrolments();
+  // The bucket is private, so the header avatar is a short-lived signed URL
+  // rather than a stored one. Null path — the showcase, or nobody's photo —
+  // never issues a request.
+  const avatarUrl = useAvatarUrl(avatarPath);
   const navigate = useNavigate();
   const router = useRouter();
   const signOut = useSignOut();
@@ -239,6 +244,10 @@ export function AppLayout({ title, children }: { title: string; children: ReactN
             <NotificationBell />
             <UserMenu
               initials={initials}
+              // Null in the showcase, for anyone who hasn't set one, and while
+              // a URL is still being signed — all of which keep the initials
+              // disc as the default rather than the exception.
+              avatarUrl={avatarUrl}
               email={email}
               // Tutors manage families from /students; the item would point a
               // tutor at a page about their own parents, which they don't have.

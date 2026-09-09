@@ -1823,6 +1823,7 @@ export type Database = {
         Args: { _answers: Json; _notes?: string; _resource_id: string };
         Returns: string;
       };
+      sweep_stale_homework_drafts: { Args: never; Returns: number };
       tutor_directory: {
         Args: never;
         Returns: {
