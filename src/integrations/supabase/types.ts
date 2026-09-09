@@ -203,6 +203,38 @@ export type Database = {
           },
         ];
       };
+      homework_ai_marks: {
+        Row: {
+          created_at: string;
+          marks: Json;
+          model: string | null;
+          submission_id: string;
+          summary: string | null;
+        };
+        Insert: {
+          created_at?: string;
+          marks: Json;
+          model?: string | null;
+          submission_id: string;
+          summary?: string | null;
+        };
+        Update: {
+          created_at?: string;
+          marks?: Json;
+          model?: string | null;
+          submission_id?: string;
+          summary?: string | null;
+        };
+        Relationships: [
+          {
+            foreignKeyName: "homework_ai_marks_submission_id_fkey";
+            columns: ["submission_id"];
+            isOneToOne: true;
+            referencedRelation: "homework_submissions";
+            referencedColumns: ["id"];
+          },
+        ];
+      };
       homework_answers: {
         Row: {
           answer_text: string | null;
@@ -247,6 +279,38 @@ export type Database = {
             columns: ["submission_id"];
             isOneToOne: false;
             referencedRelation: "homework_submissions";
+            referencedColumns: ["id"];
+          },
+        ];
+      };
+      homework_drafts: {
+        Row: {
+          answers: Json;
+          notes: string | null;
+          resource_id: string;
+          student_id: string;
+          updated_at: string;
+        };
+        Insert: {
+          answers?: Json;
+          notes?: string | null;
+          resource_id: string;
+          student_id: string;
+          updated_at?: string;
+        };
+        Update: {
+          answers?: Json;
+          notes?: string | null;
+          resource_id?: string;
+          student_id?: string;
+          updated_at?: string;
+        };
+        Relationships: [
+          {
+            foreignKeyName: "homework_drafts_resource_id_fkey";
+            columns: ["resource_id"];
+            isOneToOne: false;
+            referencedRelation: "resources";
             referencedColumns: ["id"];
           },
         ];
@@ -311,6 +375,7 @@ export type Database = {
       homework_submissions: {
         Row: {
           acknowledged_at: string | null;
+          ai_marked_at: string | null;
           feedback: string | null;
           files: Json;
           files_deleted_at: string | null;
@@ -319,13 +384,16 @@ export type Database = {
           graded_by: string | null;
           id: string;
           notes: string | null;
+          release_at: string | null;
           resource_id: string;
           score_pct: number | null;
           student_id: string;
           submitted_at: string;
+          tutor_reviewed_at: string | null;
         };
         Insert: {
           acknowledged_at?: string | null;
+          ai_marked_at?: string | null;
           feedback?: string | null;
           files?: Json;
           files_deleted_at?: string | null;
@@ -334,13 +402,16 @@ export type Database = {
           graded_by?: string | null;
           id?: string;
           notes?: string | null;
+          release_at?: string | null;
           resource_id: string;
           score_pct?: number | null;
           student_id: string;
           submitted_at?: string;
+          tutor_reviewed_at?: string | null;
         };
         Update: {
           acknowledged_at?: string | null;
+          ai_marked_at?: string | null;
           feedback?: string | null;
           files?: Json;
           files_deleted_at?: string | null;
@@ -349,10 +420,12 @@ export type Database = {
           graded_by?: string | null;
           id?: string;
           notes?: string | null;
+          release_at?: string | null;
           resource_id?: string;
           score_pct?: number | null;
           student_id?: string;
           submitted_at?: string;
+          tutor_reviewed_at?: string | null;
         };
         Relationships: [
           {
@@ -399,6 +472,7 @@ export type Database = {
           answers: Json;
           created_at: string;
           id: string;
+          point_scores: Json | null;
           score: number;
           set_id: string;
           total: number;
@@ -408,6 +482,7 @@ export type Database = {
           answers: Json;
           created_at?: string;
           id?: string;
+          point_scores?: Json | null;
           score: number;
           set_id: string;
           total: number;
@@ -417,6 +492,7 @@ export type Database = {
           answers?: Json;
           created_at?: string;
           id?: string;
+          point_scores?: Json | null;
           score?: number;
           set_id?: string;
           total?: number;
@@ -688,6 +764,7 @@ export type Database = {
       };
       profiles: {
         Row: {
+          avatar_path: string | null;
           created_at: string;
           display_name: string | null;
           enrolled_courses: string[];
@@ -700,6 +777,7 @@ export type Database = {
           student_invite_code: string | null;
         };
         Insert: {
+          avatar_path?: string | null;
           created_at?: string;
           display_name?: string | null;
           enrolled_courses?: string[];
@@ -712,6 +790,7 @@ export type Database = {
           student_invite_code?: string | null;
         };
         Update: {
+          avatar_path?: string | null;
           created_at?: string;
           display_name?: string | null;
           enrolled_courses?: string[];
@@ -777,6 +856,7 @@ export type Database = {
           level: Database["public"]["Enums"]["level"];
           mark_scheme_name: string | null;
           mark_scheme_path: string | null;
+          origin: Database["public"]["Enums"]["resource_origin"];
           spec_point_id: string | null;
           starts_at: string | null;
           subject: Database["public"]["Enums"]["subject"];
@@ -801,6 +881,7 @@ export type Database = {
           level: Database["public"]["Enums"]["level"];
           mark_scheme_name?: string | null;
           mark_scheme_path?: string | null;
+          origin?: Database["public"]["Enums"]["resource_origin"];
           spec_point_id?: string | null;
           starts_at?: string | null;
           subject: Database["public"]["Enums"]["subject"];
@@ -825,6 +906,7 @@ export type Database = {
           level?: Database["public"]["Enums"]["level"];
           mark_scheme_name?: string | null;
           mark_scheme_path?: string | null;
+          origin?: Database["public"]["Enums"]["resource_origin"];
           spec_point_id?: string | null;
           starts_at?: string | null;
           subject?: Database["public"]["Enums"]["subject"];
@@ -1609,6 +1691,7 @@ export type Database = {
         Args: { _submission_id: string };
         Returns: undefined;
       };
+      assessment_scheduler_version: { Args: never; Returns: number };
       chat_unread_count: { Args: never; Returns: number };
       claim_ai_request: {
         Args: { _endpoint: string; _limit: number; _window: string };
@@ -1638,6 +1721,18 @@ export type Database = {
           title: string;
         }[];
       };
+      ensure_generated_homework: {
+        Args: {
+          _board?: Database["public"]["Enums"]["board"];
+          _level: Database["public"]["Enums"]["level"];
+          _questions: Json;
+          _spec_point_id: string;
+          _subject: Database["public"]["Enums"]["subject"];
+          _title: string;
+        };
+        Returns: string;
+      };
+      expire_stale_chat_threads: { Args: never; Returns: number };
       gen_student_invite_code: { Args: never; Returns: string };
       grade_mcq_attempt: {
         Args: { _answers: Json; _set_id: string };
@@ -1687,7 +1782,21 @@ export type Database = {
           onboarding_complete: boolean;
         }[];
       };
+      planner_attempt_sources: { Args: { _ids: string[] }; Returns: Json };
+      planner_course_snapshot: {
+        Args: {
+          _board: Database["public"]["Enums"]["board"];
+          _level: Database["public"]["Enums"]["level"];
+          _student: string;
+          _subject: Database["public"]["Enums"]["subject"];
+        };
+        Returns: Json;
+      };
       prune_ai_request_log: { Args: never; Returns: number };
+      publish_homework_marks: {
+        Args: { _submission_id: string };
+        Returns: boolean;
+      };
       purge_stale_live_sessions: { Args: never; Returns: number };
       record_reviews_atomic: { Args: { _reviews: Json }; Returns: string[] };
       respond_to_parent_invite: {
@@ -1731,6 +1840,7 @@ export type Database = {
       plan_source: "ai" | "student" | "tutor";
       profile_role: "student" | "parent" | "tutor";
       resource_kind: "video" | "download" | "live_session" | "homework";
+      resource_origin: "tutor" | "generated";
       subject: "biology" | "chemistry" | "physics";
     };
     CompositeTypes: {
@@ -1860,6 +1970,7 @@ export const Constants = {
       plan_source: ["ai", "student", "tutor"],
       profile_role: ["student", "parent", "tutor"],
       resource_kind: ["video", "download", "live_session", "homework"],
+      resource_origin: ["tutor", "generated"],
       subject: ["biology", "chemistry", "physics"],
     },
   },

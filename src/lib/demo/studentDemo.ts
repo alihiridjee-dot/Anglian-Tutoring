@@ -37,9 +37,6 @@ export const DEMO_ENROLMENTS = [
   { subject: "physics", board: "ocr" },
 ] as const;
 
-/** Sentinel prefix marking a fixture file that must not hit real Storage. */
-export const DEMO_FILE_PREFIX = "demo:";
-
 /** Impressive-but-believable progress profile shown across the demo. */
 export const DEMO_ANALYTICS: SubjectAnalytics[] = [
   {
@@ -75,13 +72,13 @@ export type DemoHomework = {
   subject: string;
   due_at: string | null;
   created_at: string;
+  origin: "tutor" | "generated";
 };
 
 export type DemoSubmission = {
   id: string;
   resource_id: string;
   student_id: string;
-  files: Array<{ path: string; name: string }>;
   notes: string | null;
   submitted_at: string;
   grade: string | null;
@@ -90,88 +87,125 @@ export type DemoSubmission = {
   graded_at: string | null;
   /** Always null in the demo: acknowledging would write to the real DB. */
   acknowledged_at: string | null;
-  /** Always null in the demo: fixture files are static chips, never deleted. */
-  files_deleted_at: string | null;
+  /** Set on the one piece that is still being marked, so the demo shows that state. */
+  release_at: string | null;
+};
+
+/** A question on a demo sheet. Matches the shape `useHomeworkQuestions` returns. */
+export type DemoQuestion = {
+  id: string;
+  resource_id: string;
+  position: number;
+  prompt: string;
+  marks: number;
+  answer_type: "short" | "long" | "numeric";
+  mark_scheme: string | null;
+  spec_point_id: string | null;
+};
+
+/** A demo answer. Matches the shape `useHomeworkAnswers` returns. */
+export type DemoAnswer = {
+  id: string;
+  submission_id: string;
+  question_id: string;
+  answer_text: string | null;
+  awarded_marks: number | null;
+  feedback: string | null;
 };
 
 // Dates are generated relative to "now" so the demo never looks stale.
 const daysFromNow = (d: number) => new Date(Date.now() + d * 86400000).toISOString();
 
+// Every question is answerable in typed prose. That is not a stylistic choice:
+// homework is answered in a textarea on the page, so a fixture that told a
+// student to draw a graph would be showcasing something the product cannot do.
 export const DEMO_HOMEWORK: DemoHomework[] = [
   {
     id: "demo-hw-photosynthesis",
-    title: "Photosynthesis Practical & Limiting Factors Analysis",
+    title: "Photosynthesis: Limiting Factors",
     instructions:
-      "Review the required practical on pondweed bubble counting. Draw the graph showing how light intensity, CO₂, and temperature limit the rate, and write a 6-mark comparative response using the inverse-square law.",
+      "Think back to the pondweed practical. Describe in words what the graph does and explain why — you don't need to draw anything.",
     subject: "biology",
     due_at: daysFromNow(-6),
     created_at: daysFromNow(-13),
+    origin: "tutor",
   },
   {
     id: "demo-hw-mitosis",
-    title: "Cell Division & Mitosis Worksheet",
-    instructions:
-      "Complete the stages-of-mitosis diagram and the 12-mark exam question on the cell cycle.",
+    title: "Cell Division & the Cell Cycle",
+    instructions: "Describe the stages in order, then the extended question on why it matters.",
     subject: "biology",
     due_at: daysFromNow(-2),
     created_at: daysFromNow(-9),
+    origin: "tutor",
   },
   {
     id: "demo-hw-rates",
-    title: "Rates of Reaction — Required Practical Write-up",
-    instructions: "Sodium thiosulfate + HCl. Plot rate vs concentration and evaluate the method.",
+    title: "Rates of Reaction — Required Practical",
+    instructions:
+      "Sodium thiosulfate and hydrochloric acid. Describe the trend, then evaluate the method.",
     subject: "chemistry",
     due_at: daysFromNow(1),
     created_at: daysFromNow(-5),
+    origin: "tutor",
   },
   {
     id: "demo-hw-electricity",
-    title: "Electricity: I–V Characteristics of Components",
+    title: "Electricity: I–V Characteristics",
     instructions:
-      "Sketch and explain the I–V graphs for a fixed resistor, a filament lamp, and a diode. Include the physics of each shape.",
+      "Describe the shape of the I–V graph for each component and explain the physics behind it.",
     subject: "physics",
     due_at: daysFromNow(4),
     created_at: daysFromNow(-1),
+    origin: "tutor",
+  },
+  // No due date, so this lands in the practice section — which is where the
+  // planner's per-spec-point sheets live for a real student.
+  {
+    id: "demo-hw-osmosis",
+    title: "4.1.3 Osmosis",
+    instructions: null,
+    subject: "biology",
+    due_at: null,
+    created_at: daysFromNow(-4),
+    origin: "generated",
   },
 ];
 
-/** Submissions keyed by homework id. Two graded (with feedback), one submitted, one outstanding. */
+/** Submissions keyed by homework id. Two marked, one still being marked, two outstanding. */
 export const DEMO_SUBMISSIONS: Record<string, DemoSubmission> = {
   "demo-hw-photosynthesis": {
     id: "demo-sub-1",
     resource_id: "demo-hw-photosynthesis",
     student_id: "demo",
-    files: [{ path: `${DEMO_FILE_PREFIX}pondweed_practical.pdf`, name: "pondweed_practical.pdf" }],
-    notes: "Attached my full write-up with the graph and the 6-marker.",
+    notes: "I wasn't sure how to word the bit about the plateau.",
     submitted_at: daysFromNow(-7),
     grade: "8",
     score_pct: 88,
     feedback:
-      "Excellent graph work and a confident inverse-square explanation. To push to a 9, tighten the limiting-factors comparison — explain explicitly why the rate plateaus once CO₂ becomes saturated.",
+      "A confident answer with the inverse-square relationship handled well. To push to a 9, be explicit about why the rate plateaus once CO₂ becomes the limiting factor.",
     graded_at: daysFromNow(-5),
     acknowledged_at: null,
-    files_deleted_at: null,
+    release_at: null,
   },
   "demo-hw-mitosis": {
     id: "demo-sub-2",
     resource_id: "demo-hw-mitosis",
     student_id: "demo",
-    files: [{ path: `${DEMO_FILE_PREFIX}mitosis_worksheet.pdf`, name: "mitosis_worksheet.pdf" }],
     notes: null,
     submitted_at: daysFromNow(-3),
     grade: "9",
     score_pct: 92,
     feedback:
-      "Superb — every stage correctly labelled and a well-structured 12-marker on the cell cycle. Exam-ready on this topic.",
+      "Superb — every stage in the right order and a well-structured extended answer on the cell cycle. Exam-ready on this topic.",
     graded_at: daysFromNow(-1),
     acknowledged_at: null,
-    files_deleted_at: null,
+    release_at: null,
   },
   "demo-hw-rates": {
     id: "demo-sub-3",
     resource_id: "demo-hw-rates",
     student_id: "demo",
-    files: [{ path: `${DEMO_FILE_PREFIX}rates_writeup.pdf`, name: "rates_writeup.pdf" }],
     notes: "Not sure my evaluation section is detailed enough — would appreciate feedback there.",
     submitted_at: daysFromNow(-1),
     grade: null,
@@ -179,13 +213,202 @@ export const DEMO_SUBMISSIONS: Record<string, DemoSubmission> = {
     feedback: null,
     graded_at: null,
     acknowledged_at: null,
-    files_deleted_at: null,
+    // Still inside its review window, which is the state the page explains
+    // rather than leaving blank.
+    release_at: daysFromNow(0.5),
   },
-  // demo-hw-electricity intentionally has no submission (an outstanding "due" task).
+  // demo-hw-electricity and demo-hw-osmosis intentionally have no submission —
+  // one outstanding "due" task and one untouched practice sheet.
+};
+
+/**
+ * The questions on each demo sheet, keyed by homework id.
+ *
+ * The fixtures used to stop at the brief, which left the showcase demonstrating
+ * a homework page with no homework on it — the one screen a prospective parent
+ * most wants to see working.
+ */
+export const DEMO_QUESTIONS: Record<string, DemoQuestion[]> = {
+  "demo-hw-photosynthesis": [
+    {
+      id: "demo-q-ps-1",
+      resource_id: "demo-hw-photosynthesis",
+      position: 0,
+      prompt:
+        "Describe what happens to the rate of photosynthesis as the lamp is moved further from the pondweed.",
+      marks: 2,
+      answer_type: "short",
+      mark_scheme: "Rate decreases (1). Light intensity falls with distance (1).",
+      spec_point_id: null,
+    },
+    {
+      id: "demo-q-ps-2",
+      resource_id: "demo-hw-photosynthesis",
+      position: 1,
+      prompt:
+        "Explain why the rate stops increasing at high light intensity, even though the lamp is getting brighter.",
+      marks: 4,
+      answer_type: "long",
+      mark_scheme:
+        "Light is no longer the limiting factor (1). Another factor limits the rate (1). Named: CO₂ concentration or temperature (1). Rate is capped by whichever factor is in shortest supply (1).",
+      spec_point_id: null,
+    },
+  ],
+  "demo-hw-mitosis": [
+    {
+      id: "demo-q-mi-1",
+      resource_id: "demo-hw-mitosis",
+      position: 0,
+      prompt: "Name the stages of the cell cycle in order.",
+      marks: 3,
+      answer_type: "short",
+      mark_scheme: "Interphase (1), mitosis (1), cytokinesis (1). Correct order required.",
+      spec_point_id: null,
+    },
+    {
+      id: "demo-q-mi-2",
+      resource_id: "demo-hw-mitosis",
+      position: 1,
+      prompt: "Explain why the DNA must be copied before a cell divides.",
+      marks: 4,
+      answer_type: "long",
+      mark_scheme:
+        "Each daughter cell needs a full copy (1). Otherwise cells would lose genetic information (1). Copies are identical (1). Needed for growth and repair (1).",
+      spec_point_id: null,
+    },
+  ],
+  "demo-hw-rates": [
+    {
+      id: "demo-q-ra-1",
+      resource_id: "demo-hw-rates",
+      position: 0,
+      prompt:
+        "Describe how the time for the cross to disappear changes as the concentration of sodium thiosulfate increases.",
+      marks: 2,
+      answer_type: "short",
+      mark_scheme: "Time decreases (1). Rate of reaction increases (1).",
+      spec_point_id: null,
+    },
+    {
+      id: "demo-q-ra-2",
+      resource_id: "demo-hw-rates",
+      position: 1,
+      prompt: "Evaluate the method. Give one weakness and how you would improve it.",
+      marks: 4,
+      answer_type: "long",
+      mark_scheme:
+        "Judging the disappearing cross is subjective (1). Different people judge it differently (1). Improvement: use a light sensor or data logger (1). Gives a consistent end point (1).",
+      spec_point_id: null,
+    },
+  ],
+  "demo-hw-electricity": [
+    {
+      id: "demo-q-el-1",
+      resource_id: "demo-hw-electricity",
+      position: 0,
+      prompt: "Describe the shape of the I–V graph for a fixed resistor at constant temperature.",
+      marks: 2,
+      answer_type: "short",
+      mark_scheme: "Straight line (1) through the origin (1).",
+      spec_point_id: null,
+    },
+    {
+      id: "demo-q-el-2",
+      resource_id: "demo-hw-electricity",
+      position: 1,
+      prompt: "Explain why the graph for a filament lamp curves.",
+      marks: 3,
+      answer_type: "long",
+      mark_scheme:
+        "Current heats the filament (1). Resistance increases with temperature (1). So current rises less steeply at higher voltage (1).",
+      spec_point_id: null,
+    },
+  ],
+  "demo-hw-osmosis": [
+    {
+      id: "demo-q-os-1",
+      resource_id: "demo-hw-osmosis",
+      position: 0,
+      prompt: "Define osmosis.",
+      marks: 3,
+      answer_type: "short",
+      mark_scheme:
+        "Movement of water (1) from a dilute to a concentrated solution (1) through a partially permeable membrane (1).",
+      spec_point_id: null,
+    },
+    {
+      id: "demo-q-os-2",
+      resource_id: "demo-hw-osmosis",
+      position: 1,
+      prompt: "Explain what happens to a piece of potato left in pure water.",
+      marks: 3,
+      answer_type: "long",
+      mark_scheme:
+        "Water moves into the cells by osmosis (1). Cells become turgid (1). The potato gains mass / increases in length (1).",
+      spec_point_id: null,
+    },
+  ],
+};
+
+/** The demo student's answers, keyed by question id, with marks where marked. */
+export const DEMO_ANSWERS: Record<string, DemoAnswer> = {
+  "demo-q-ps-1": {
+    id: "demo-a-ps-1",
+    submission_id: "demo-sub-1",
+    question_id: "demo-q-ps-1",
+    answer_text:
+      "The rate goes down as the lamp gets further away, because the light reaching the pondweed is weaker.",
+    awarded_marks: 2,
+    feedback: "Both marks — the link to light intensity is exactly what was wanted.",
+  },
+  "demo-q-ps-2": {
+    id: "demo-a-ps-2",
+    submission_id: "demo-sub-1",
+    question_id: "demo-q-ps-2",
+    answer_text:
+      "Because light isn't the thing holding it back any more. Something else becomes the limiting factor, like carbon dioxide, so making the lamp brighter doesn't help.",
+    awarded_marks: 3,
+    feedback:
+      "Three of four. You named CO₂ but didn't say the rate is capped by whichever factor is in shortest supply.",
+  },
+  "demo-q-mi-1": {
+    id: "demo-a-mi-1",
+    submission_id: "demo-sub-2",
+    question_id: "demo-q-mi-1",
+    answer_text: "Interphase, then mitosis, then cytokinesis.",
+    awarded_marks: 3,
+    feedback: "All three, in the right order.",
+  },
+  "demo-q-mi-2": {
+    id: "demo-a-mi-2",
+    submission_id: "demo-sub-2",
+    question_id: "demo-q-mi-2",
+    answer_text:
+      "So each new cell gets a complete copy of the DNA. If it wasn't copied first the two cells would end up with half each and lose genetic information. The copies are identical, which is what you need for growth and repair.",
+    awarded_marks: 4,
+    feedback: "Full marks — all four points, clearly linked.",
+  },
+  "demo-q-ra-1": {
+    id: "demo-a-ra-1",
+    submission_id: "demo-sub-3",
+    question_id: "demo-q-ra-1",
+    answer_text: "The time gets shorter as the concentration goes up, so the rate is faster.",
+    awarded_marks: null,
+    feedback: null,
+  },
+  "demo-q-ra-2": {
+    id: "demo-a-ra-2",
+    submission_id: "demo-sub-3",
+    question_id: "demo-q-ra-2",
+    answer_text:
+      "Watching for the cross to disappear is a judgement call and people see it at different points. A light sensor would be more reliable.",
+    awarded_marks: null,
+    feedback: null,
+  },
 };
 
 // ---------------------------------------------------------------------------
-// Videos, downloads, live sessions, MCQs — all fixture content for the demo.
+// Videos, live sessions, MCQs — all fixture content for the demo.
 // ---------------------------------------------------------------------------
 
 export type DemoVideo = {
@@ -235,50 +458,6 @@ export const DEMO_VIDEOS: DemoVideo[] = [
     board: "aqa",
     level: "gcse",
     video_url: "https://www.youtube.com/watch?v=demo",
-  },
-];
-
-export type DemoDownload = {
-  id: string;
-  title: string;
-  subject: string;
-  board: string;
-  level: string;
-  file_size: number | null;
-  file_path: string;
-  file_name: string;
-};
-
-export const DEMO_DOWNLOADS: DemoDownload[] = [
-  {
-    id: "demo-dl-1",
-    title: "Biology Paper 1 — Revision Checklist",
-    subject: "biology",
-    board: "aqa",
-    level: "gcse",
-    file_size: 246000,
-    file_path: `${DEMO_FILE_PREFIX}bio_p1_checklist.pdf`,
-    file_name: "bio_p1_checklist.pdf",
-  },
-  {
-    id: "demo-dl-2",
-    title: "Chemistry Required Practicals — Summary",
-    subject: "chemistry",
-    board: "aqa",
-    level: "gcse",
-    file_size: 512000,
-    file_path: `${DEMO_FILE_PREFIX}chem_practicals.pdf`,
-    file_name: "chem_practicals.pdf",
-  },
-  {
-    id: "demo-dl-3",
-    title: "Physics Equations Sheet (Annotated)",
-    subject: "physics",
-    board: "aqa",
-    level: "gcse",
-    file_size: 180000,
-    file_path: `${DEMO_FILE_PREFIX}physics_equations.pdf`,
-    file_name: "physics_equations.pdf",
   },
 ];
 

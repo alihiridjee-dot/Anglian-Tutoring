@@ -1,23 +1,22 @@
 import { PLANNER_TIME_ZONE } from "@/lib/week";
 import { Spinner, Meter, EmptyState } from "@/components/Shared";
-import { useMemo } from "react";
+import { useMemo, useState } from "react";
 import { Link } from "@tanstack/react-router";
-import {
-  CircleDot,
-  CheckCircle2,
-  ClipboardList,
-  ListChecks,
-  Plus,
-  X,
-  RotateCcw,
-  Sparkles,
-} from "lucide-react";
+import { CircleDot, CheckCircle2, Plus, RotateCcw, Sparkles } from "lucide-react";
 import { type PlanPoint, type WeeklyPlan } from "@/lib/weeklyPlanDal";
 import { type RoadmapResult } from "@/lib/programDal";
 import { isTeachBand, mondayOnOrAfter, type PacingBand } from "@/lib/planner/pacing";
-import { type PointCoverage, statusOfPoint, laneOf } from "@/lib/planner/coverage";
+import {
+  type PointCoverage,
+  type PointWorkItem,
+  statusOfPoint,
+  laneOf,
+} from "@/lib/planner/coverage";
 import { weekKeyToDate } from "@/lib/week";
+import { parseVideoUrl } from "@/lib/videoEmbed";
+import { VideoModal } from "@/components/VideoPlayer";
 import { CoveragePill } from "./CoveragePill";
+import { WorkChips } from "./WorkChips";
 import { FocusedTopicsLabel } from "./FocusLane";
 import { type Activity } from "./useWeekPlan";
 
@@ -48,13 +47,10 @@ export function ThisWeekPanel({
   roadmap,
   loading,
   weekStart,
-  editable,
   isPast,
   showRationale,
   showCoverage,
-  onRemove,
   onFocusAgain,
-  onAddTricky,
 }: {
   plan: WeeklyPlan | null;
   points: PlanPoint[];
@@ -63,14 +59,15 @@ export function ThisWeekPanel({
   roadmap: RoadmapResult | null;
   loading: boolean;
   weekStart: string;
-  editable: boolean;
   isPast: boolean;
   showRationale: boolean;
   showCoverage: boolean;
-  onRemove: (specPointId: string) => void;
   onFocusAgain?: (point: PlanPoint) => void;
-  onAddTricky?: () => void;
 }) {
+  // The video a Watch chip has opened, if any. Same modal the checklist uses —
+  // a point's video plays where the student pressed it, not on another page.
+  const [playing, setPlaying] = useState<PointWorkItem | null>(null);
+
   // The spine band this week sits in — the core topic, whether or not it still
   // has points outstanding.
   const band: PacingBand | null = useMemo(() => {
@@ -140,7 +137,7 @@ export function ThisWeekPanel({
   });
 
   const row = (p: PlanPoint) => {
-    const a = activity.get(p.spec_point_id);
+    const work = activity.get(p.spec_point_id);
     const cov = coverage.get(p.spec_point_id);
     const progress = roadmap?.progress
       .flatMap((t) => t.points)
@@ -151,30 +148,13 @@ export function ThisWeekPanel({
       new Date(progress.lastReviewedAt) >= weekKeyToDate(weekStart)
         ? mondayOnOrAfter(new Date(progress.eligibleAt))
         : null;
-    if (!a?.hasHomework && !a?.hasQuiz)
-      return (
-        <details key={p.spec_point_id} className="text-sm text-muted-foreground">
-          <summary className="cursor-pointer">{p.title} · practice not attached yet</summary>
-          <p className="mt-1">
-            Your tutor can attach practice to this curriculum point. It does not count as unfinished
-            practice.
-          </p>
-          {editable && (
-            <button
-              className="btn-premium px-2 py-1 text-xs mt-2"
-              onClick={() => onRemove(p.spec_point_id)}
-            >
-              Remove from this week
-            </button>
-          )}
-        </details>
-      );
+    const status = statusOfPoint(cov, work);
     return (
       <div
         key={p.spec_point_id}
-        className="group flex items-center gap-2 rounded-lg border border-border bg-card/60 px-2.5 py-2"
+        className="flex flex-wrap items-center gap-x-2 gap-y-1.5 rounded-lg border border-border bg-card/60 px-2.5 py-2"
       >
-        <div className="flex-1 min-w-0">
+        <div className="flex-1 min-w-[11rem]">
           <span className="text-[11px] font-semibold text-muted-foreground mr-1.5">{p.code}</span>
           <span className="text-sm">{p.title}</span>
           {nextReview && (
@@ -193,26 +173,15 @@ export function ThisWeekPanel({
             </span>
           )}
         </div>
-        <div className="flex items-center gap-1.5 shrink-0">
-          {showCoverage && <CoveragePill status={statusOfPoint(cov, a)} score={cov?.bestScore} />}
-          {a?.hasHomework && (
-            <PracticeLink
-              to="/homework"
-              label="Homework"
-              icon={ClipboardList}
-              done={showCoverage && !!cov?.homeworkDone}
-              score={cov?.homeworkScore}
-            />
+        <div className="flex flex-wrap items-center gap-1.5 shrink-0">
+          {showCoverage && status !== "not_set" && (
+            <CoveragePill status={status} score={cov?.bestScore} />
           )}
-          {a?.hasQuiz && (
-            <PracticeLink
-              to="/mcqs"
-              label="Quiz"
-              icon={ListChecks}
-              done={showCoverage && !!cov?.quizDone}
-              score={cov?.quizScore}
-            />
-          )}
+          <WorkChips
+            work={work}
+            coverage={showCoverage ? cov : null}
+            onPlay={(item) => setPlaying(item)}
+          />
           {isPast && onFocusAgain && (
             <button
               type="button"
@@ -223,16 +192,6 @@ export function ThisWeekPanel({
               <RotateCcw className="w-3 h-3" /> Focus again
             </button>
           )}
-          {editable && (
-            <button
-              type="button"
-              onClick={() => onRemove(p.spec_point_id)}
-              className="w-6 h-6 rounded-md text-muted-foreground/50 hover:text-rose-500 hover:bg-rose-500/10 flex items-center justify-center opacity-0 group-hover:opacity-100 transition"
-              aria-label="Remove from this week"
-            >
-              <X className="w-3.5 h-3.5" />
-            </button>
-          )}
         </div>
       </div>
     );
@@ -241,6 +200,8 @@ export function ThisWeekPanel({
   if (loading) {
     return <Spinner className="py-10" />;
   }
+
+  const embed = playing ? parseVideoUrl(playing.videoUrl) : null;
 
   return (
     <div className="space-y-4">
@@ -381,14 +342,8 @@ export function ThisWeekPanel({
         </div>
       )}
 
-      {editable && onAddTricky && (
-        <button
-          type="button"
-          onClick={onAddTricky}
-          className="inline-flex items-center gap-1.5 h-9 px-3 rounded-lg border border-border text-sm font-medium hover:bg-muted"
-        >
-          <Plus className="w-4 h-4" /> Add what's tricky
-        </button>
+      {playing && embed && (
+        <VideoModal embed={embed} title={playing.title} onClose={() => setPlaying(null)} />
       )}
     </div>
   );
@@ -419,32 +374,6 @@ function SpecPointList({ count, children }: { count: number; children: React.Rea
       </summary>
       <div className="space-y-1.5 mt-2">{children}</div>
     </details>
-  );
-}
-
-function PracticeLink({
-  to,
-  label,
-  icon: Icon,
-  done,
-  score,
-}: {
-  to: string;
-  label: string;
-  icon: typeof ClipboardList;
-  done: boolean;
-  score?: number | null;
-}) {
-  return (
-    <Link
-      to={to}
-      className={`chip inline-flex text-[11px] hover:brightness-95 ${done ? "tint-emerald" : ""}`}
-      title={done ? `${label} completed` : `${label} available`}
-    >
-      {done ? <CheckCircle2 className="w-3 h-3" /> : <Icon className="w-3 h-3" />}
-      {label}
-      {done && score != null && <span className="tabular-nums font-semibold">{score}%</span>}
-    </Link>
   );
 }
 

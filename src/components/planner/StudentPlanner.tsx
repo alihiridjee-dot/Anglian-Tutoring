@@ -406,11 +406,9 @@ function ThisWeekTab({
             roadmap={week.roadmap}
             loading={week.loading}
             weekStart={weekStart}
-            editable={editable}
             isPast={isPast}
             showRationale={isCurrent}
             showCoverage={showReview}
-            onRemove={week.removePoint}
           />
         )}
       </section>

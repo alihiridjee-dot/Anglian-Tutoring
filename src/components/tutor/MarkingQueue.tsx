@@ -3,33 +3,35 @@ import { invalidatePlanner } from "@/lib/planner/assessmentSync";
 import { useCallback, useEffect, useMemo, useState } from "react";
 import { supabase } from "@/integrations/supabase/client";
 import { useRoles } from "@/hooks/useRole";
-import { SignedFileLink } from "@/components/SignedFileLink";
 import { FilterBar, type Filters } from "@/components/FilterBar";
-import { downloadEntriesAsZip, downloadSingleFile, type ZipEntry } from "@/lib/homeworkDownload";
 import { toast } from "sonner";
-import { ClipboardCheck, Clock, Download, Inbox, Loader2, MessageSquare } from "lucide-react";
+import { ClipboardCheck, Clock, Inbox, Loader2, MessageSquare } from "lucide-react";
 import { AnswerMarkingList } from "./AnswerMarking";
 import { useAnswerMarking } from "@/hooks/data/useAnswerMarking";
 import type { SubjectV, BoardV, LevelV } from "@/lib/taxonomy";
 import { subjectLabel } from "@/lib/courseSummary";
+import { gradeFromPct } from "@/hooks/data/useAnalytics";
 
 /** Derived lifecycle status for a submission. */
 type SubmissionStatus = "PENDING_REVIEW" | "GRADED";
 
 /**
- * How long a tutor has left submitted work unmarked. This is the queue's
- * urgency axis — it's about the tutor's backlog, not the student's deadline
- * (that's `isLate`).
+ * How long is left before a mark goes out on its own.
+ *
+ * This is the queue's urgency axis, and it changed meaning when marking became
+ * automatic. It used to measure the tutor's backlog — how long work had sat
+ * ignored — which was the right pressure when nothing happened until someone
+ * acted. Now something does happen: every submission is marked on arrival and
+ * publishes itself a day later whether or not anyone looked. So the number that
+ * matters is not how long this has been waiting, it is how long is left to
+ * change it.
  */
 type Urgency = "urgent" | "soon" | "fresh";
-
-type SubmissionFile = { path: string; name: string };
 
 type Submission = {
   id: string;
   resource_id: string;
   student_id: string;
-  files: SubmissionFile[];
   notes: string | null;
   submitted_at: string;
   grade: string | null;
@@ -37,6 +39,10 @@ type Submission = {
   feedback: string | null;
   graded_by: string | null;
   graded_at: string | null;
+  /** When this publishes itself if nobody gets to it first. */
+  release_at: string | null;
+  ai_marked_at: string | null;
+  tutor_reviewed_at: string | null;
   resource: {
     id: string;
     title: string;
@@ -47,20 +53,24 @@ type Submission = {
   } | null;
 };
 
-const DAY_MS = 86_400_000;
-
 function statusOf(s: Submission): SubmissionStatus {
   return s.graded_at ? "GRADED" : "PENDING_REVIEW";
 }
 
-function daysWaiting(s: Submission): number {
-  return Math.floor((Date.now() - new Date(s.submitted_at).getTime()) / DAY_MS);
+/** Minutes until this publishes; null when nothing is staged to publish. */
+function minutesToRelease(s: Submission): number | null {
+  if (!s.release_at) return null;
+  return (new Date(s.release_at).getTime() - Date.now()) / 60_000;
 }
 
 function urgencyOf(s: Submission): Urgency {
-  const d = daysWaiting(s);
-  if (d >= 5) return "urgent";
-  if (d >= 2) return "soon";
+  const left = minutesToRelease(s);
+  // Nothing staged: the model never marked it, so it needs a person and there
+  // is no clock running. That is the most urgent thing in the queue, because
+  // nothing will happen to it otherwise.
+  if (left == null) return "urgent";
+  if (left <= 5) return "urgent";
+  if (left <= 15) return "soon";
   return "fresh";
 }
 
@@ -70,11 +80,6 @@ function isLate(s: Submission): boolean {
   return !!due && new Date(s.submitted_at).getTime() > new Date(due).getTime();
 }
 
-/** Folder name for this submission inside a bulk zip. */
-function zipFolder(s: Submission, studentName: string): string {
-  return `${studentName} - ${s.resource?.title ?? "Untitled homework"}`;
-}
-
 export function MarkingQueue() {
   const { userId } = useRoles();
   const [subs, setSubs] = useState<Submission[]>([]);
@@ -82,9 +87,6 @@ export function MarkingQueue() {
   const [loading, setLoading] = useState(true);
   const [segment, setSegment] = useState<SubmissionStatus>("PENDING_REVIEW");
   const [filters, setFilters] = useState<Filters>({});
-  const [selected, setSelected] = useState<Set<string>>(new Set());
-  const [zipping, setZipping] = useState(false);
-  const [zipProgress, setZipProgress] = useState({ done: 0, total: 0 });
 
   const reload = useCallback(async () => {
     setLoading(true);
@@ -97,10 +99,7 @@ export function MarkingQueue() {
       setLoading(false);
       return;
     }
-    const allRows = (data ?? []).map((r) => ({
-      ...r,
-      files: (r.files as unknown as SubmissionFile[]) ?? [],
-    })) as Submission[];
+    const allRows = (data ?? []) as Submission[];
 
     // Resolve the author profiles so we can show real names. Every submission
     // here is genuine: the public demo is a session-less showcase that cannot
@@ -143,8 +142,12 @@ export function MarkingQueue() {
     () =>
       visible
         .filter((s) => statusOf(s) === "PENDING_REVIEW")
-        // Longest-waiting first — the queue's whole job is surfacing these.
-        .sort((a, b) => a.submitted_at.localeCompare(b.submitted_at)),
+        // Whatever publishes soonest, first — and anything with no mark staged
+        // at the very top, since nothing will happen to it without a person.
+        .sort((a, b) => {
+          const left = (s: Submission) => minutesToRelease(s) ?? -Infinity;
+          return left(a) - left(b);
+        }),
     [visible],
   );
 
@@ -159,59 +162,6 @@ export function MarkingQueue() {
   const shown = segment === "PENDING_REVIEW" ? pending : graded;
   const urgentCount = pending.filter((s) => urgencyOf(s) === "urgent").length;
 
-  // A submission stays selectable only while it's visible; drop stale ids so the
-  // bulk bar can never act on something off-screen.
-  const shownIds = useMemo(() => new Set(shown.map((s) => s.id)), [shown]);
-  const activeSelection = useMemo(() => shown.filter((s) => selected.has(s.id)), [shown, selected]);
-  useEffect(() => {
-    setSelected((prev) => {
-      const next = new Set([...prev].filter((id) => shownIds.has(id)));
-      return next.size === prev.size ? prev : next;
-    });
-  }, [shownIds]);
-
-  const toggle = (id: string) =>
-    setSelected((prev) => {
-      const next = new Set(prev);
-      if (next.has(id)) next.delete(id);
-      else next.add(id);
-      return next;
-    });
-
-  const allShownSelected = shown.length > 0 && activeSelection.length === shown.length;
-  const toggleAll = () =>
-    setSelected(allShownSelected ? new Set() : new Set(shown.map((s) => s.id)));
-
-  const bulkDownload = async () => {
-    const entries: ZipEntry[] = activeSelection.flatMap((s) =>
-      s.files.map((file) => ({ folder: zipFolder(s, nameOf(s.student_id)), file })),
-    );
-    if (entries.length === 0) {
-      return toast.error("The selected submissions have no files attached");
-    }
-    setZipping(true);
-    setZipProgress({ done: 0, total: entries.length });
-    try {
-      const stamp = new Date().toISOString().slice(0, 10);
-      const { zipped, failed } = await downloadEntriesAsZip(
-        entries,
-        `homework-${stamp}.zip`,
-        (done, total) => setZipProgress({ done, total }),
-      );
-      if (failed.length > 0) {
-        toast.warning(
-          `Downloaded ${zipped} file${zipped === 1 ? "" : "s"} — ${failed.length} failed`,
-        );
-      } else {
-        toast.success(`Downloaded ${zipped} file${zipped === 1 ? "" : "s"}`);
-      }
-    } catch (err) {
-      toast.error(err instanceof Error ? err.message : "Download failed");
-    } finally {
-      setZipping(false);
-    }
-  };
-
   if (loading) {
     return (
       <div className="flex items-center gap-2 text-sm text-muted-foreground py-10 justify-center">
@@ -224,8 +174,8 @@ export function MarkingQueue() {
     return (
       <div className="rounded-2xl border border-dashed border-border p-10 text-center text-muted-foreground">
         <Inbox className="w-8 h-8 mx-auto mb-3 opacity-50" />
-        No homework submissions yet. Once students upload their work it will appear here for
-        marking.
+        No homework submissions yet. Once students answer their homework it will appear here to
+        review.
       </div>
     );
   }
@@ -238,7 +188,7 @@ export function MarkingQueue() {
         <SegmentTab
           active={segment === "PENDING_REVIEW"}
           onClick={() => setSegment("PENDING_REVIEW")}
-          label="Needs marking"
+          label="To review"
           count={pending.length}
           tone="amber"
           badge={urgentCount > 0 ? `${urgentCount} urgent` : undefined}
@@ -254,53 +204,11 @@ export function MarkingQueue() {
 
       <FilterBar value={filters} onChange={setFilters} />
 
-      {shown.length > 0 && (
-        <div className="flex flex-wrap items-center gap-3 rounded-xl premium-card px-4 py-3">
-          <label className="inline-flex items-center gap-2 text-sm cursor-pointer select-none">
-            <input
-              type="checkbox"
-              checked={allShownSelected}
-              onChange={toggleAll}
-              className="w-4 h-4 rounded border-border accent-primary"
-            />
-            <span className="text-muted-foreground">
-              {activeSelection.length > 0
-                ? `${activeSelection.length} selected`
-                : `Select all ${shown.length}`}
-            </span>
-          </label>
-
-          {activeSelection.length > 0 && (
-            <>
-              <button
-                onClick={bulkDownload}
-                disabled={zipping}
-                className="ml-auto inline-flex items-center gap-2 h-9 px-4 rounded-lg btn-solid text-sm font-semibold hover:opacity-90 disabled:opacity-60"
-              >
-                {zipping ? (
-                  <Loader2 className="w-4 h-4 animate-spin" />
-                ) : (
-                  <Download className="w-4 h-4" />
-                )}
-                {zipping ? `Zipping ${zipProgress.done}/${zipProgress.total}…` : "Download as ZIP"}
-              </button>
-              <button
-                onClick={() => setSelected(new Set())}
-                disabled={zipping}
-                className="text-xs text-muted-foreground hover:text-foreground disabled:opacity-60"
-              >
-                Clear
-              </button>
-            </>
-          )}
-        </div>
-      )}
-
       {shown.length === 0 ? (
         <div className="rounded-2xl border border-dashed border-border p-10 text-center text-muted-foreground">
           <Inbox className="w-8 h-8 mx-auto mb-3 opacity-50" />
           {segment === "PENDING_REVIEW"
-            ? "Nothing waiting to be marked here."
+            ? "Nothing waiting to be reviewed here."
             : "No marked submissions here yet."}
           {(filters.subject || filters.board || filters.level) && " Try clearing the filters."}
         </div>
@@ -312,8 +220,6 @@ export function MarkingQueue() {
               sub={s}
               studentName={nameOf(s.student_id)}
               graderId={userId}
-              selected={selected.has(s.id)}
-              onToggleSelect={() => toggle(s.id)}
               onSaved={reload}
             />
           ))}
@@ -372,27 +278,21 @@ function MarkSubmissionCard({
   sub,
   studentName,
   graderId,
-  selected,
-  onToggleSelect,
   onSaved,
 }: {
   sub: Submission;
   studentName: string;
   graderId: string | null;
-  selected: boolean;
-  onToggleSelect: () => void;
   onSaved: () => void;
 }) {
   const plannerQueryClient = useQueryClient();
   const status = statusOf(sub);
   const [open, setOpen] = useState(false);
-  const [grade, setGrade] = useState(sub.grade ?? "");
   const [scorePct, setScorePct] = useState<string>(
     sub.score_pct != null ? String(sub.score_pct) : "",
   );
   const [feedback, setFeedback] = useState(sub.feedback ?? "");
   const [saving, setSaving] = useState(false);
-  const [downloading, setDownloading] = useState(false);
 
   // Built-in homework: the questions and this student's answers, loaded only
   // once the card is open.
@@ -405,6 +305,14 @@ function MarkSubmissionCard({
     if (pctTouched || !marking.hasQuestions || marking.scorePct == null) return;
     setScorePct(String(marking.scorePct));
   }, [pctTouched, marking.hasQuestions, marking.scorePct]);
+
+  // Same for the overall comment: offered, not imposed. A tutor who has written
+  // their own keeps it.
+  const [feedbackTouched, setFeedbackTouched] = useState(false);
+  useEffect(() => {
+    if (feedbackTouched || !marking.summary || feedback.trim() !== "") return;
+    setFeedback(marking.summary);
+  }, [feedbackTouched, marking.summary, feedback]);
 
   const save = async () => {
     if (!graderId) return toast.error("Not signed in");
@@ -421,11 +329,18 @@ function MarkSubmissionCard({
       const { error } = await supabase
         .from("homework_submissions")
         .update({
-          grade: grade.trim() || null,
+          // Derived, not typed. The marks are the mark; a grade box a tutor
+          // filled in by hand was a second source of truth that could — and
+          // did — disagree with the percentage printed next to it.
+          grade: pct != null ? String(gradeFromPct(pct)) : null,
           score_pct: pct,
           feedback: feedback.trim() || null,
           graded_by: graderId,
           graded_at: new Date().toISOString(),
+          // Publishing by hand is also the record that a person looked at it,
+          // which is the difference between a checked mark and one that ran out
+          // of clock.
+          tutor_reviewed_at: new Date().toISOString(),
         })
         .eq("id", sub.id);
       if (error) throw error;
@@ -439,46 +354,18 @@ function MarkSubmissionCard({
     }
   };
 
-  const downloadAll = async () => {
-    setDownloading(true);
-    try {
-      if (sub.files.length === 1) {
-        await downloadSingleFile(sub.files[0]);
-      } else {
-        const folder = zipFolder(sub, studentName);
-        await downloadEntriesAsZip(
-          sub.files.map((file) => ({ folder, file })),
-          `${folder}.zip`,
-        );
-      }
-    } catch (err) {
-      toast.error(err instanceof Error ? err.message : "Download failed");
-    } finally {
-      setDownloading(false);
-    }
-  };
-
   const subject = sub.resource?.subject ?? "";
   const isPending = status === "PENDING_REVIEW";
 
   return (
     <div
       className={`rounded-2xl bg-card border-2 overflow-hidden shadow-xs transition ${
-        selected
-          ? "border-primary"
-          : isPending
-            ? "border-amber-500/40 dark:border-amber-500/30"
-            : "border-emerald-500/30 dark:border-emerald-500/25"
+        isPending
+          ? "border-amber-500/40 dark:border-amber-500/30"
+          : "border-emerald-500/30 dark:border-emerald-500/25"
       }`}
     >
       <div className="flex items-center gap-3 pl-5 pr-2">
-        <input
-          type="checkbox"
-          checked={selected}
-          onChange={onToggleSelect}
-          aria-label={`Select ${studentName}'s submission`}
-          className="w-4 h-4 shrink-0 rounded border-border accent-primary"
-        />
         <button
           onClick={() => setOpen((o) => !o)}
           className="flex-1 min-w-0 flex items-center justify-between gap-4 py-4 pr-4 text-left"
@@ -505,7 +392,7 @@ function MarkSubmissionCard({
               {sub.grade ? ` · grade ${sub.grade}` : ""}
             </p>
           </div>
-          <span className="text-xs text-muted-foreground shrink-0">{open ? "Hide" : "Mark"}</span>
+          <span className="text-xs text-muted-foreground shrink-0">{open ? "Hide" : "Review"}</span>
         </button>
       </div>
 
@@ -513,25 +400,9 @@ function MarkSubmissionCard({
         <div className="border-t border-border p-6 space-y-5 bg-muted/20">
           {/* Submitted work */}
           <div>
-            <div className="flex items-center justify-between gap-3 mb-2">
-              <p className="text-[10px] font-extrabold uppercase tracking-widest text-muted-foreground">
-                Submitted work
-              </p>
-              {sub.files.length > 0 && (
-                <button
-                  onClick={downloadAll}
-                  disabled={downloading}
-                  className="inline-flex items-center gap-1.5 text-xs text-muted-foreground hover:text-foreground disabled:opacity-60"
-                >
-                  {downloading ? (
-                    <Loader2 className="w-3.5 h-3.5 animate-spin" />
-                  ) : (
-                    <Download className="w-3.5 h-3.5" />
-                  )}
-                  Download {sub.files.length > 1 ? `all ${sub.files.length}` : "file"}
-                </button>
-              )}
-            </div>
+            <p className="text-[10px] font-extrabold uppercase tracking-widest text-muted-foreground mb-2">
+              Submitted work
+            </p>
             {marking.loading ? (
               <p className="inline-flex items-center gap-2 text-sm text-muted-foreground">
                 <Loader2 className="w-3.5 h-3.5 animate-spin" /> Loading answers…
@@ -552,16 +423,12 @@ function MarkSubmissionCard({
                   setMark={marking.setMark}
                 />
               </div>
-            ) : sub.files.length === 0 ? (
-              <p className="text-sm text-muted-foreground">No files attached.</p>
             ) : (
-              <ul className="space-y-1">
-                {sub.files.map((f) => (
-                  <li key={f.path}>
-                    <SignedFileLink file={f} />
-                  </li>
-                ))}
-              </ul>
+              // Submissions predating on-site answering were handed in as files.
+              // Those files are gone, and nothing new can arrive this way.
+              <p className="text-sm text-muted-foreground">
+                This submission predates on-site answering and has no answers to show.
+              </p>
             )}
             {sub.notes && (
               <div className="mt-3 flex items-start gap-2 text-sm text-muted-foreground">
@@ -578,36 +445,28 @@ function MarkSubmissionCard({
           </div>
 
           {/* Marking form */}
-          <div className="grid grid-cols-1 sm:grid-cols-[1fr_1fr] gap-3">
-            <label className="block">
-              <span className="text-[10px] font-semibold uppercase tracking-wider text-muted-foreground">
-                Grade (letter or number)
-              </span>
-              <input
-                value={grade}
-                onChange={(e) => setGrade(e.target.value)}
-                placeholder="e.g. A, 7, 18/20"
-                className="mt-1 w-full h-10 rounded-lg premium-input px-3 text-sm"
-              />
-            </label>
-            <label className="block">
-              <span className="text-[10px] font-semibold uppercase tracking-wider text-muted-foreground">
-                Score % (feeds predicted grade)
-              </span>
-              <input
-                type="number"
-                min={0}
-                max={100}
-                value={scorePct}
-                onChange={(e) => {
-                  setPctTouched(true);
-                  setScorePct(e.target.value);
-                }}
-                placeholder="0–100"
-                className="mt-1 w-full h-10 rounded-lg premium-input px-3 text-sm"
-              />
-            </label>
-          </div>
+          <label className="block max-w-xs">
+            <span className="text-[10px] font-semibold uppercase tracking-wider text-muted-foreground">
+              Score % (feeds predicted grade)
+            </span>
+            <input
+              type="number"
+              min={0}
+              max={100}
+              value={scorePct}
+              onChange={(e) => {
+                setPctTouched(true);
+                setScorePct(e.target.value);
+              }}
+              placeholder="0–100"
+              className="mt-1 w-full h-10 rounded-lg premium-input px-3 text-sm"
+            />
+            <span className="mt-1 block text-[11px] text-muted-foreground">
+              {scorePct.trim() === ""
+                ? "Adds up from the marks above."
+                : `Grade ${gradeFromPct(Number(scorePct) || 0)}`}
+            </span>
+          </label>
 
           <label className="block">
             <span className="text-[10px] font-semibold uppercase tracking-wider text-muted-foreground">
@@ -637,7 +496,7 @@ function MarkSubmissionCard({
               ) : (
                 <ClipboardCheck className="w-4 h-4" />
               )}
-              {isPending ? "Save & mark graded" : "Update mark"}
+              {isPending ? "Confirm & publish" : "Update mark"}
             </button>
           </div>
         </div>
@@ -647,23 +506,33 @@ function MarkSubmissionCard({
 }
 
 /**
- * Colour-coded by how long the work has sat unmarked: red once it's been
- * ignored for most of a week, amber after a couple of days, green while fresh.
+ * How long is left to change this before the student sees it.
+ *
+ * With a half-hour window this rarely reads as anything but "publishing now",
+ * and that is honest: at this length review is a spot-check after the fact
+ * rather than a gate, and most work a tutor opens will already be in the Marked
+ * segment. The badge earns its place on the one row it still describes — work
+ * with nothing staged at all, which no timer will ever release.
  */
 function UrgencyBadge({ sub }: { sub: Submission }) {
   const urgency = urgencyOf(sub);
-  const days = daysWaiting(sub);
+  const left = minutesToRelease(sub);
   const cls: Record<Urgency, string> = {
-    urgent: "bg-red-500/10 text-red-600 dark:text-red-400 border-red-500/20",
-    soon: "bg-amber-500/10 text-amber-600 dark:text-amber-400 border-amber-500/20",
-    fresh: "bg-emerald-500/10 text-emerald-600 dark:text-emerald-400 border-emerald-500/20",
+    urgent: "tint-rose chip",
+    soon: "tint-amber chip",
+    fresh: "tint-emerald chip",
   };
-  const text = days < 1 ? "Today" : days === 1 ? "Waiting 1 day" : `Waiting ${days} days`;
+
+  const text =
+    left == null
+      ? "No marks yet"
+      : left <= 0
+        ? "Publishing now"
+        : `Publishes in ${Math.ceil(left)} min`;
+
   return (
-    <span
-      className={`inline-flex items-center gap-1 text-[10px] px-2 py-0.5 rounded uppercase tracking-widest font-semibold border ${cls[urgency]}`}
-    >
-      <Clock className="w-2.5 h-2.5" /> {text}
+    <span className={`${cls[urgency]} inline-flex items-center gap-1`}>
+      <Clock className="size-2.5" /> {text}
     </span>
   );
 }

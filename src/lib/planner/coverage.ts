@@ -39,16 +39,13 @@ export interface PointActivity {
   hasQuiz: boolean;
 }
 
-/** One thing a student can actually open: a video, a download, a homework, a quiz. */
+/** One thing a student can actually open: a video, a homework, a quiz. */
 export interface PointWorkItem {
   /** Resource id — or, for a quiz, the MCQ set id the player route takes. */
   id: string;
   title: string;
   /** Videos: the URL to hand the embedded player. */
   videoUrl?: string | null;
-  /** Downloads: where the file lives in the private bucket. */
-  filePath?: string | null;
-  fileName?: string | null;
   /** Homework and quizzes, when a deadline was set. */
   dueAt?: string | null;
 }
@@ -62,20 +59,19 @@ export interface PointWorkItem {
  */
 export interface PointWork {
   videos: PointWorkItem[];
-  downloads: PointWorkItem[];
   homework: PointWorkItem[];
   quizzes: PointWorkItem[];
 }
 
 /** An empty {@link PointWork}, for points nothing is attached to. */
 export function noWork(): PointWork {
-  return { videos: [], downloads: [], homework: [], quizzes: [] };
+  return { videos: [], homework: [], quizzes: [] };
 }
 
 /** Every openable item on a point, in the order a student should meet them. */
 export function workItems(w: PointWork | undefined): PointWorkItem[] {
   if (!w) return [];
-  return [...w.videos, ...w.downloads, ...w.homework, ...w.quizzes];
+  return [...w.videos, ...w.homework, ...w.quizzes];
 }
 
 export type PointStatus =

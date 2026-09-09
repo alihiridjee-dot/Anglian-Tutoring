@@ -1,8 +1,7 @@
 import { useState } from "react";
 import { toast } from "sonner";
-import { ArrowDown, ArrowUp, ImagePlus, Loader2, Plus, Sparkles, Trash2, X } from "lucide-react";
+import { ArrowDown, ArrowUp, Loader2, Plus, Sparkles, Trash2 } from "lucide-react";
 import { generateHomeworkQuestions, type DraftQuestion } from "@/lib/homeworkQuestions.functions";
-import { prepareUpload, formatBytes, MAX_UPLOAD_BYTES } from "@/lib/uploadLimits";
 import { blankQuestion, type BuilderQuestion } from "@/lib/builderQuestion";
 import { inputCls } from "./Field";
 import type { SubjectV, BoardV, LevelV } from "@/lib/taxonomy";
@@ -28,6 +27,7 @@ export function QuestionBuilder({
   board,
   level,
   specPointIds,
+  editing = false,
 }: {
   questions: BuilderQuestion[];
   onChange: (next: BuilderQuestion[]) => void;
@@ -35,6 +35,8 @@ export function QuestionBuilder({
   board: BoardV;
   level: LevelV;
   specPointIds: string[];
+  /** Correcting a brief students may already have answered. */
+  editing?: boolean;
 }) {
   const [count, setCount] = useState(5);
   const [notes, setNotes] = useState("");
@@ -53,15 +55,6 @@ export function QuestionBuilder({
     onChange(next);
   };
 
-  const setImage = async (key: string, file: File | null) => {
-    if (!file) return patch(key, { image: null, imagePreview: null });
-    // Figures go through the same compression path as student photos so a
-    // camera-sized diagram doesn't hit the upload cap.
-    const result = await prepareUpload(file);
-    if (!result.ok) return toast.error(result.reason);
-    patch(key, { image: result.file, imagePreview: URL.createObjectURL(result.file) });
-  };
-
   const generate = async () => {
     if (specPointIds.length === 0) {
       return toast.error("Pick the spec points this homework covers first");
@@ -73,15 +66,7 @@ export function QuestionBuilder({
       });
       // Append rather than replace — a tutor can generate twice, or top up a
       // set they've already started writing by hand.
-      onChange([
-        ...questions,
-        ...drafts.map((d) => ({
-          ...d,
-          key: crypto.randomUUID(),
-          image: null,
-          imagePreview: null,
-        })),
-      ]);
+      onChange([...questions, ...drafts.map((d) => ({ ...d, key: crypto.randomUUID() }))]);
       toast.success(
         `Drafted ${drafts.length} question${drafts.length === 1 ? "" : "s"} — review before setting`,
       );
@@ -110,6 +95,13 @@ export function QuestionBuilder({
           Add question
         </button>
       </div>
+
+      {editing && (
+        <p className="px-4 py-3 text-xs text-muted-foreground border-b border-border">
+          Editing a question leaves it attached to the answers students have already written.
+          Deleting one removes those answers.
+        </p>
+      )}
 
       {/* AI drafting — the tutor's fast path, but nothing is saved until they
           review it and set the homework. */}
@@ -185,7 +177,20 @@ export function QuestionBuilder({
                   </button>
                   <button
                     type="button"
-                    onClick={() => onChange(questions.filter((x) => x.key !== q.key))}
+                    onClick={() => {
+                      // Removing a question that already exists takes every
+                      // answer written against it with it, so make that the
+                      // tutor's decision rather than a stray click's.
+                      if (
+                        q.id &&
+                        !window.confirm(
+                          "Delete this question? Any answers students have already written for it are deleted too.",
+                        )
+                      ) {
+                        return;
+                      }
+                      onChange(questions.filter((x) => x.key !== q.key));
+                    }}
                     aria-label="Delete question"
                     className="p-1.5 rounded-md text-muted-foreground hover:text-destructive"
                   >
@@ -235,38 +240,6 @@ export function QuestionBuilder({
                     ))}
                   </select>
                 </label>
-
-                {q.imagePreview ? (
-                  <span className="inline-flex items-center gap-2 text-xs">
-                    <img
-                      src={q.imagePreview}
-                      alt=""
-                      className="w-10 h-10 object-cover rounded-md border border-border"
-                    />
-                    <span className="text-muted-foreground">
-                      {q.image ? formatBytes(q.image.size) : ""}
-                    </span>
-                    <button
-                      type="button"
-                      onClick={() => setImage(q.key, null)}
-                      aria-label="Remove figure"
-                      className="text-muted-foreground hover:text-destructive"
-                    >
-                      <X className="w-3.5 h-3.5" />
-                    </button>
-                  </span>
-                ) : (
-                  <label className="inline-flex items-center gap-1.5 text-xs text-muted-foreground cursor-pointer hover:text-foreground">
-                    <ImagePlus className="w-3.5 h-3.5" />
-                    Add figure
-                    <input
-                      type="file"
-                      accept="image/*"
-                      className="hidden"
-                      onChange={(e) => setImage(q.key, e.target.files?.[0] ?? null)}
-                    />
-                  </label>
-                )}
               </div>
 
               <textarea
@@ -279,11 +252,6 @@ export function QuestionBuilder({
           ))}
         </ul>
       )}
-
-      <p className="px-4 py-2 text-[11px] text-muted-foreground border-t border-border">
-        Figures are compressed to fit {formatBytes(MAX_UPLOAD_BYTES)} and uploaded when you set the
-        homework.
-      </p>
     </div>
   );
 }

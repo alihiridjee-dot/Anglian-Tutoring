@@ -472,7 +472,7 @@ export class WeeklyPlanDAL {
   }
 
   /**
-   * For a set of spec points, the work attached to each — the videos, downloads,
+   * For a set of spec points, the work attached to each — the videos,
    * homework and quizzes themselves, not just a count of them.
    *
    * This used to return two booleans, which is all a "practice waiting" chip
@@ -498,11 +498,9 @@ export class WeeklyPlanDAL {
       kind: string;
       title: string;
       video_url: string | null;
-      file_path: string | null;
-      file_name: string | null;
       due_at: string | null;
     };
-    const RES_COLS = "id, kind, title, video_url, file_path, file_name, due_at";
+    const RES_COLS = "id, kind, title, video_url, due_at";
 
     const [joined, directRes, taggedQ, directSets] = await Promise.all([
       selectInSafe<{ spec_point_id: string; resources: ResRow | null }>(specPointIds, (batch) =>
@@ -540,18 +538,9 @@ export class WeeklyPlanDAL {
         id: r.id,
         title: r.title,
         videoUrl: r.video_url,
-        filePath: r.file_path,
-        fileName: r.file_name,
         dueAt: r.due_at,
       };
-      const list =
-        r.kind === "homework"
-          ? e.homework
-          : r.kind === "video"
-            ? e.videos
-            : r.kind === "download"
-              ? e.downloads
-              : null;
+      const list = r.kind === "homework" ? e.homework : r.kind === "video" ? e.videos : null;
       // `live_session` resources belong to the live banner, not the checklist.
       if (!list || list.some((x) => x.id === item.id)) return;
       list.push(item);
