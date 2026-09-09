@@ -12,10 +12,10 @@
 // which here means the platform injecting it, and nobody's browser ever being
 // one bug away from it.
 //
-// Nothing published here is visible yet. The marks are *staged* on the
-// submission with a `release_at` a day out; a tutor confirming early or the
-// scheduled sweep is what turns them into a grade. See the migration
-// `20260909120000_homework_on_platform.sql`.
+// Nothing published here is visible yet. The marks are *staged* in
+// `homework_ai_marks` with a `release_at` a short way out; a tutor confirming
+// early or the scheduled publisher is what turns them into a grade. See the
+// migration `20260909150000_homework_on_platform.sql`.
 //
 // Required function secrets (set with `supabase secrets set ...`):
 //   ANTHROPIC_API_KEY

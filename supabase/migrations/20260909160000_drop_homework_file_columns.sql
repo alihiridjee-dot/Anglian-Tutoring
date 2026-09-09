@@ -1,6 +1,6 @@
 -- The file era, closed out.
 --
--- Split from `20260909120000_homework_on_platform.sql` on purpose: everything in
+-- Split from `20260909150000_homework_on_platform.sql` on purpose: everything in
 -- that migration is additive and can land while the old code is still running,
 -- but these drops cannot be undone and break any deploy still reading the
 -- columns. Expand first, contract after — run this once the app that no longer
