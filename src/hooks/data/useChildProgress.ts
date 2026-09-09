@@ -122,15 +122,26 @@ export function useChildEngagement(studentId: string | null, subjects: string[])
           .from("session_attendees")
           .select("id", { count: "exact", head: true })
           .eq("user_id", studentId!),
+        // Only homework somebody actually set. The planner writes a practice
+        // sheet for every spec point a student's week reaches, and counting
+        // those would show a parent "4 of 180 handed in" — a number that says
+        // their child is failing when it is really measuring the size of the
+        // library.
         supabase
           .from("resources")
           .select("id", { count: "exact", head: true })
           .eq("kind", "homework")
+          .eq("origin", "tutor")
           .in("subject", subjectList),
+        // Counted against the same population as `homeworkSet` above. Without
+        // the join a term of enthusiastic practice reads as every set homework
+        // handed in, because the pair is clamped to each other below.
         supabase
           .from("homework_submissions")
-          .select("id", { count: "exact", head: true })
-          .eq("student_id", studentId!),
+          .select("id, resources!inner(origin, subject)", { count: "exact", head: true })
+          .eq("student_id", studentId!)
+          .eq("resources.origin", "tutor")
+          .in("resources.subject", subjectList),
       ]);
       for (const r of [sessions, attended, homework, submissions]) {
         if (r.error) throw new Error(r.error.message);

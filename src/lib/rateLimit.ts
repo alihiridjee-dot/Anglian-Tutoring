@@ -2,11 +2,11 @@
  * A small in-memory sliding-window limiter for endpoints that have no signed-in
  * caller to attribute a quota to.
  *
- * `lib/ai/throttle.ts` solves the authenticated version of this problem in the
- * database, keyed on `auth.uid()`, which is durable across serverless instances.
- * That is not available here: the demo sales chat is deliberately session-less,
- * so there is no user id to count against and the only identifier is a client
- * IP the caller can rotate.
+ * The authenticated version of this problem used to be solved in the database,
+ * keyed on `auth.uid()` and durable across serverless instances. Either way it
+ * is not available here: the demo sales chat is deliberately session-less, so
+ * there is no user id to count against and the only identifier is a client IP
+ * the caller can rotate.
  *
  * So this is best-effort by construction, and worth having anyway. What it
  * actually stops is the realistic failure: a double-clicked send button, a

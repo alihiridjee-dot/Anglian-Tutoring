@@ -1,4 +1,4 @@
-import { useCallback, useEffect, useRef } from "react";
+import { useCallback, useEffect, useMemo, useRef } from "react";
 import { useMutation, useQuery, useQueryClient } from "@tanstack/react-query";
 import {
   WeeklyPlanDAL,
@@ -10,6 +10,7 @@ import { ProgramDAL, type RoadmapResult } from "@/lib/programDal";
 import { type SubjectV, type BoardV, type LevelV } from "@/lib/taxonomy";
 import { type PointCoverage, type PointActivity, type PointWork } from "@/lib/planner/coverage";
 import { getSessionUserId } from "@/lib/auth/session";
+import { ensureHomeworkForPoints } from "@/lib/homeworkQuestions.functions";
 import { courseKey, invalidatePlanner, roadmapQuery } from "@/lib/planner/queries";
 
 export type Activity = Map<string, PointActivity & PointWork>;
@@ -92,8 +93,8 @@ export function useWeekPlan(params: {
     },
     retry: false, // A query that can materialise a week must not replay writes automatically.
   });
-  const points = week.data?.points ?? [];
-  const withheld = week.data?.withheld ?? [];
+  const points = useMemo(() => week.data?.points ?? [], [week.data]);
+  const withheld = useMemo(() => week.data?.withheld ?? [], [week.data]);
   const ids = [...points, ...withheld.map((r) => r.point)].map((p) => p.spec_point_id).sort();
   const activity = useQuery({
     queryKey: [...courseKey(params), "activity", ids],
@@ -109,6 +110,51 @@ export function useWeekPlan(params: {
     ...roadmapQuery(client, params),
     enabled: !!studentId && params.roadmap === undefined,
   });
+  /**
+   * Fill in any homework this week's points are missing.
+   *
+   * Homework is one sheet per spec point, which makes it library content: the
+   * sheet for a point is written once and read by every student who ever
+   * reaches it. So the gap is filled here, at planning time, rather than by a
+   * 2,000-sheet backfill nobody would review — the first student to reach a
+   * point pays for it and everyone after reads the same rows for free.
+   *
+   * Keyed on the missing ids and remembered for the session, because the query
+   * that reveals the gap also re-runs whenever the week is refetched; without
+   * the guard a point the model keeps failing on would be retried on every
+   * render. Failures stay silent: a missing homework chip is a smaller problem
+   * than a dashboard that won't load.
+   */
+  const missingHomework = useMemo(() => {
+    if (!activity.data) return "";
+    return points
+      .map((p) => p.spec_point_id)
+      .filter((id) => (activity.data.get(id)?.homework.length ?? 0) === 0)
+      .sort()
+      .join(",");
+  }, [activity.data, points]);
+  const attempted = useRef<Set<string>>(new Set());
+  useEffect(() => {
+    if (!missingHomework || !isCurrent) return;
+    if (attempted.current.has(missingHomework)) return;
+    attempted.current.add(missingHomework);
+    void (async () => {
+      // Only the student's own week generates — a tutor looking at it is a
+      // reader, and should not be billing AI calls by browsing.
+      if ((await getSessionUserId()) !== studentId) return;
+      try {
+        const result = await ensureHomeworkForPoints({
+          data: { specPointIds: missingHomework.split(","), subject, board, level },
+        });
+        if (result.created > 0) {
+          await client.invalidateQueries({ queryKey: [...courseKey(params), "activity"] });
+        }
+      } catch {
+        // Soft by design — see above.
+      }
+    })();
+  }, [missingHomework, isCurrent, studentId, subject, board, level, client, params]);
+
   const reload = useCallback(async () => {
     await invalidatePlanner(client, studentId);
   }, [client, studentId]);
