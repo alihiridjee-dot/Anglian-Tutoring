@@ -44,3 +44,9 @@ supabase/.temp/
 # Python (scripts/ingest-paper)
 __pycache__/
 *.pyc
+
+# Exam papers. Board copyright, held locally for building the exemplar library —
+# never committed. The rows extracted from them live in the database instead.
+# The README stays, so the workflow is documented where the work happens.
+papers/*
+!papers/README.md

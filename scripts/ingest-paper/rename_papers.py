@@ -13,9 +13,13 @@ specification code on the page — and name it after what it actually is:
 
     edexcel-physics-gcse-2018-p1F-QP.pdf
 
-    python3 rename_papers.py ~/Downloads              # show what it would do
-    python3 rename_papers.py ~/Downloads --apply      # copy into ./papers/
-    python3 rename_papers.py ~/Downloads --apply --out /some/dir
+    python3 rename_papers.py papers/incoming              # show what it would do
+    python3 rename_papers.py papers/incoming --apply      # copy into papers/named/
+    python3 rename_papers.py ~/Downloads --out /some/dir  # or anywhere else
+
+Point it at a folder holding only papers. It will happily read a Downloads
+folder, but it opens every PDF it finds to see what it is, so 500 unrelated
+documents cost minutes for nothing.
 
 Copies rather than moves, so the originals stay where they are and a wrong
 guess costs nothing. Files it cannot identify are listed and left alone —
@@ -198,7 +202,7 @@ def main(src_dir, apply, out_dir):
     print(f"\n  {len(pairs)} complete pairs, {len(orphans)} unpaired, {len(skipped)} unidentified")
 
     if not apply:
-        print("\n  Dry run. Re-run with --apply to copy the pairs into ./papers/")
+        print(f"\n  Dry run. Re-run with --apply to copy the pairs into {out_dir}/")
         return
 
     dest = pathlib.Path(out_dir).expanduser()
@@ -216,7 +220,7 @@ if __name__ == "__main__":
     args = [a for a in sys.argv[1:] if not a.startswith("--")]
     if not args:
         sys.exit(__doc__)
-    out = "papers"
+    out = "papers/named"
     if "--out" in sys.argv:
         out = sys.argv[sys.argv.index("--out") + 1]
     main(args[0], "--apply" in sys.argv, out)
