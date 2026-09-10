@@ -196,7 +196,15 @@ def clean_ms(path, profile):
     for n in profile["noise"]:
         text = text.replace(n, " ")
     text = re.sub(r"[ \t]+", " ", text)
-    # The column header repeats on every page once its longer cells are gone.
+    # The column header repeats above every question, not just at the top of a
+    # page, so `ms_starts_at` only removes the first one. Left in, it becomes
+    # the opening words of the mark scheme text for the question beneath it.
+    text = re.sub(
+        r"(?:Question|Answer(?:/Indicative content)?|Answers?|Marks?|Mark|Guidance"
+        r"|Additional guidance|Extra information|Number|AO ?/?|Spec\.? ?Ref\.?)"
+        r"(?:[ \t]+(?:Question|Answer(?:/Indicative content)?|Answers?|Marks?|Mark"
+        r"|Guidance|Additional guidance|Extra information|Number|AO ?/?|Spec\.? ?Ref\.?))+",
+        " ", text)
     text = re.sub(r"^\s*(?:Question|Marks|Guidance|Number)(?:\s+(?:Question|Marks|Guidance|Number))*\s*$",
                   "", text, flags=re.M)
     return "\n".join(l.rstrip() for l in text.split("\n"))
