@@ -24,7 +24,8 @@ const key = process.env.SUPABASE_SERVICE_ROLE_KEY;
 if (!url || !key) throw new Error("SUPABASE_URL and SUPABASE_SERVICE_ROLE_KEY must be set");
 
 const args = process.argv.slice(2);
-const files = args.filter((a) => !a.startsWith("--"));
+const valueFlags = new Set(["--board", "--subject", "--level", "--year"]);
+const files = args.filter((a, i) => !a.startsWith("--") && !valueFlags.has(args[i - 1]));
 const write = args.includes("--write");
 if (files.length === 0) throw new Error("Give at least one --json file from split_paper.py");
 
@@ -40,9 +41,22 @@ type Row = {
   marks: number | null;
   options: { letter: string; text: string }[] | null;
   flags: string[];
+  mark_scheme?: string | null;
+  shared_context?: string | null;
+  specification_version?: string | null;
+  source_reference?: Record<string, unknown>;
+  command_word?: string | null;
+  assessment_objectives?: string[];
+  question_format?: string | null;
+  mathematical_demand?: boolean | null;
+  practical_demand?: boolean | null;
 };
 
-type Parsed = { profile: string; rows: Row[]; scheme: { q: string; scheme: string }[] };
+type Parsed = {
+  profile: string;
+  rows: Row[];
+  scheme: { q: string; scheme: string; flags?: string[] }[];
+};
 
 /** Provenance from the renamer's filename: board-subject-level-year-pNT-QP.json */
 function provenance(path: string) {
@@ -73,8 +87,7 @@ async function upsert(rows: unknown[]) {
         ...(key!.startsWith("sb_secret_") ? {} : { Authorization: `Bearer ${key}` }),
         "Content-Type": "application/json",
         // merge-duplicates so re-ingesting a paper corrects rows in place;
-        // approval state lives in columns we do not send, so a tutor's decision
-        // is not undone by a re-run.
+        // the database invalidates approval if the source content changes.
         Prefer: "resolution=merge-duplicates,return=representation",
       },
       body: JSON.stringify(rows),
@@ -104,6 +117,9 @@ for (const file of files) {
   // question's scheme onto each part would credit every part with every other
   // part's marks, so it goes on the first part and the rest are left null.
   const schemeFor = new Map(parsed.scheme.map((s) => [s.q, s.scheme]));
+  const schemeFlags = new Map(parsed.scheme.map((s) => [s.q, s.flags ?? []]));
+  const partCounts = new Map<string, number>();
+  for (const row of parsed.rows) partCounts.set(row.q, (partCounts.get(row.q) ?? 0) + 1);
   const seenQuestion = new Set<string>();
 
   const payload = parsed.rows
@@ -113,12 +129,14 @@ for (const file of files) {
       return false;
     })
     .map((r) => {
-      // A null mark_scheme already means "not attached yet", so there is no
-      // need to flag it as well — flags are for things that went wrong, and
-      // filling them with a normal intermediate state hides the real ones.
+      // Legacy output has a whole-question scheme. Keep it for ingestion work,
+      // but prevent generation from treating it as an aligned subpart rubric.
       const first = !seenQuestion.has(r.q);
       seenQuestion.add(r.q);
-      const flags = [...r.flags];
+      const flags = [...new Set([...r.flags, ...(schemeFlags.get(r.q) ?? [])])];
+      const alignedScheme = r.mark_scheme?.trim() || null;
+      if (!alignedScheme && (partCounts.get(r.q) ?? 0) > 1)
+        flags.push("mark scheme needs subpart alignment");
       return {
         board: p.board,
         subject: p.subject,
@@ -129,10 +147,22 @@ for (const file of files) {
         question_label: r.label,
         prompt: r.prompt,
         marks: r.marks,
-        mark_scheme: first ? (schemeFor.get(r.q) ?? null) : null,
+        mark_scheme: alignedScheme ?? (first ? (schemeFor.get(r.q) ?? null) : null),
         options: r.options,
         needs_image: r.flags.includes("needs image"),
         flags,
+        shared_context: r.shared_context ?? null,
+        specification_version: r.specification_version ?? null,
+        source_reference: {
+          ...r.source_reference,
+          parsed_file: file.split("/").pop(),
+          parser_profile: parsed.profile,
+        },
+        command_word: r.command_word ?? null,
+        assessment_objectives: r.assessment_objectives ?? [],
+        question_format: r.question_format ?? (r.options ? "mcq" : "written"),
+        mathematical_demand: r.mathematical_demand ?? null,
+        practical_demand: r.practical_demand ?? null,
       };
     });
 

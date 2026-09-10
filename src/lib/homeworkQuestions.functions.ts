@@ -1,5 +1,6 @@
 import { createServerFn } from "@tanstack/react-start";
-import Anthropic from "@anthropic-ai/sdk";
+import { generateExamQuestions, loadGenerationContext } from "./examGeneration.server";
+import type { WrittenQuestion } from "./examGeneration";
 import { requireSupabaseAuth } from "@/integrations/supabase/auth-middleware";
 import { SUBJECTS, LEVELS, BOARDS } from "@/lib/taxonomy";
 import type { SupabaseClient } from "@supabase/supabase-js";
@@ -15,8 +16,6 @@ import type { Database } from "@/integrations/supabase/types";
  * `resources`.
  */
 
-const MODEL = "claude-sonnet-5";
-
 export type DraftQuestion = {
   prompt: string;
   marks: number;
@@ -24,22 +23,6 @@ export type DraftQuestion = {
   mark_scheme: string;
   spec_point_id: string | null;
 };
-
-type RawQuestion = {
-  prompt?: string;
-  marks?: number;
-  answer_type?: string;
-  mark_scheme?: string;
-};
-
-const ANSWER_TYPES = new Set(["short", "long", "numeric"]);
-
-// Claude occasionally wraps JSON in ```json fences despite instructions.
-function stripFences(text: string): string {
-  const trimmed = text.trim();
-  const fenced = trimmed.match(/```(?:json)?\s*([\s\S]*?)\s*```/i);
-  return (fenced ? fenced[1] : trimmed).trim();
-}
 
 type SupabaseServer = SupabaseClient<Database>;
 
@@ -49,69 +32,15 @@ async function requireTutor(supabase: SupabaseServer, userId: string) {
   if (!roles.includes("tutor")) throw new Error("Tutor access required");
 }
 
-async function askClaude(system: string, user: string): Promise<RawQuestion[]> {
-  const apiKey = process.env.ANTHROPIC_API_KEY;
-  if (!apiKey) throw new Error("ANTHROPIC_API_KEY not configured");
-  const client = new Anthropic({ apiKey });
-
-  let res;
-  try {
-    res = await client.messages.create({
-      model: MODEL,
-      max_tokens: 4000,
-      system,
-      messages: [{ role: "user", content: user }],
-    });
-  } catch (e) {
-    const status = (e as { status?: number })?.status;
-    if (status === 429) throw new Error("AI rate limit — try again in a moment");
-    if (status === 402) throw new Error("AI credits exhausted — top up in workspace billing");
-    throw new Error(`AI error: ${e instanceof Error ? e.message : String(e)}`);
-  }
-
-  const text = res.content
-    .filter((b): b is Anthropic.TextBlock => b.type === "text")
-    .map((b) => b.text)
-    .join("");
-
-  let parsed: { questions?: RawQuestion[] };
-  try {
-    parsed = JSON.parse(stripFences(text));
-  } catch {
-    throw new Error("AI returned invalid JSON");
-  }
-  const qs = Array.isArray(parsed.questions) ? parsed.questions : [];
-  if (qs.length === 0) throw new Error("No questions generated");
-  return qs;
-}
-
-/** Coerce whatever the model returned into something the form can safely render. */
-function toDrafts(raw: RawQuestion[], specPointId: string | null, limit: number): DraftQuestion[] {
-  return raw
-    .filter((q) => typeof q?.prompt === "string" && q.prompt.trim().length > 0)
-    .slice(0, limit)
-    .map((q) => ({
-      prompt: String(q.prompt).trim(),
-      marks: Math.min(Math.max(Math.round(Number(q.marks) || 2), 1), 30),
-      answer_type: (ANSWER_TYPES.has(String(q.answer_type))
-        ? String(q.answer_type)
-        : "short") as DraftQuestion["answer_type"],
-      mark_scheme: typeof q.mark_scheme === "string" ? q.mark_scheme.trim() : "",
-      spec_point_id: specPointId,
-    }));
-}
-
-function systemPrompt(count: number, level: string, board: string, subject: string): string {
-  return `You are an experienced UK ${board.toUpperCase()} ${level.toUpperCase()} ${subject} teacher writing a homework worksheet.
-Write exactly ${count} exam-style written questions on the spec point below.
-Rules:
-- Questions are answered by typing into a text box and nothing can be uploaded, so never write "draw", "sketch", "plot" or anything the student would have to hand in as an image. Every answer must be fully expressible as typed text.
-- Use real exam command words (state, describe, explain, calculate, compare, evaluate) and build up in difficulty.
-- Award marks realistically: 1–2 for recall, 3–4 for explanation, 5–6 for extended reasoning.
-- answer_type is "short" for one-line recall, "numeric" for a calculated value, "long" for anything needing several sentences.
-- mark_scheme lists the credit-worthy points, one per line, as a real mark scheme would.
-Return ONLY JSON in this exact shape — no prose, no markdown fences:
-{"questions":[{"prompt":"...","marks":3,"answer_type":"long","mark_scheme":"..."}]}`;
+/** The shared framework validates the whole set before these drafts are exposed. */
+function toDrafts(raw: WrittenQuestion[], specPointId: string): DraftQuestion[] {
+  return raw.map((q) => ({
+    prompt: q.prompt.trim(),
+    marks: q.marks,
+    answer_type: q.answer_type,
+    mark_scheme: q.mark_scheme.trim(),
+    spec_point_id: specPointId,
+  }));
 }
 
 type GenInput = {
@@ -181,13 +110,15 @@ export const generateHomeworkQuestions = createServerFn({ method: "POST" })
     const drafts: DraftQuestion[] = [];
     for (let i = 0; i < points.length; i++) {
       const p = points[i];
-      const raw = await askClaude(
-        systemPrompt(counts[i], data.level, data.board, data.subject),
-        `Spec point: ${p.title}\n\nDetails:\n${
-          p.description || "(no additional detail — infer from the title)"
-        }${data.notes ? `\n\nTutor's steer: ${data.notes}` : ""}`,
-      );
-      drafts.push(...toDrafts(raw, p.id, counts[i]));
+      const generation = await loadGenerationContext(supabase, p.id);
+      if (
+        generation.point.subject !== data.subject ||
+        generation.point.level !== data.level ||
+        generation.point.board !== data.board
+      )
+        throw new Error("Specification point does not match the selected course");
+      const raw = await generateExamQuestions(generation, counts[i], "written", data.notes);
+      drafts.push(...toDrafts(raw, p.id));
     }
 
     if (drafts.length === 0) throw new Error("No usable questions came back — try again");
@@ -308,21 +239,22 @@ export const ensureHomeworkForPoints = createServerFn({ method: "POST" })
       }
 
       try {
-        const raw = await askClaude(
-          systemPrompt(QUESTIONS_PER_POINT, data.level, data.board ?? "aqa", data.subject),
-          `Spec point: ${p.code} ${p.title}\n\nDetails:\n${
-            p.description || "(no additional detail — infer from the title)"
-          }`,
-        );
-        const questions = toDrafts(raw, p.id, QUESTIONS_PER_POINT);
-        if (questions.length === 0) continue;
+        const generation = await loadGenerationContext(supabase, p.id);
+        if (
+          generation.point.subject !== data.subject ||
+          generation.point.level !== data.level ||
+          (data.board && generation.point.board !== data.board)
+        )
+          throw new Error("Specification point does not match the selected course");
+        const raw = await generateExamQuestions(generation, QUESTIONS_PER_POINT, "written");
+        const questions = toDrafts(raw, p.id);
 
         const { error: writeErr } = await supabase.rpc("ensure_generated_homework", {
           _spec_point_id: p.id,
           _title: `${p.code} ${p.title}`,
           _subject: data.subject,
           _level: data.level,
-          _board: data.board ?? undefined,
+          _board: generation.point.board as Database["public"]["Enums"]["board"],
           _questions: questions.map((q) => ({
             prompt: q.prompt,
             marks: q.marks,

@@ -1,5 +1,6 @@
 import { createServerFn } from "@tanstack/react-start";
-import Anthropic from "@anthropic-ai/sdk";
+import { generateExamQuestions, loadGenerationContext } from "./examGeneration.server";
+import type { McqQuestion } from "./examGeneration";
 import { requireSupabaseAuth } from "@/integrations/supabase/auth-middleware";
 import { SUBJECTS } from "@/lib/taxonomy";
 import type { SupabaseClient } from "@supabase/supabase-js";
@@ -14,16 +15,7 @@ import type { Database } from "@/integrations/supabase/types";
 //                          tagged with its spec point so students can later
 //                          browse questions by point across weeks).
 
-const MODEL = "claude-sonnet-5";
-// Strong on UK GCSE/A-Level science at good cost; swap to "claude-opus-4-8" if
-// question quality needs to go higher.
-
-type RawQuestion = {
-  question: string;
-  options: string[];
-  correct_index: number;
-  explanation?: string;
-};
+type RawQuestion = McqQuestion;
 
 type QuestionRow = {
   set_id: string;
@@ -35,63 +27,14 @@ type QuestionRow = {
   spec_point_id: string | null;
 };
 
-// Claude occasionally wraps JSON in ```json fences despite instructions; strip
-// them before parsing.
-function stripFences(text: string): string {
-  const trimmed = text.trim();
-  const fenced = trimmed.match(/```(?:json)?\s*([\s\S]*?)\s*```/i);
-  return (fenced ? fenced[1] : trimmed).trim();
-}
-
 async function generateQuestions(
-  title: string,
-  context: string,
+  supabase: SupabaseClient<Database>,
+  pointId: string,
   count: number,
+  notes = "",
 ): Promise<RawQuestion[]> {
-  const apiKey = process.env.ANTHROPIC_API_KEY;
-  if (!apiKey) throw new Error("ANTHROPIC_API_KEY not configured");
-  const client = new Anthropic({ apiKey });
-
-  const system = `You are an expert exam question writer for UK GCSE and A-Level science.
-Generate exactly ${count} multiple choice questions covering the spec point below.
-Each question must have exactly 4 plausible options and exactly one clearly correct answer.
-Vary the position of the correct answer across questions.
-Return ONLY JSON matching this exact shape — no prose, no markdown fences:
-{"questions":[{"question":"...","options":["A","B","C","D"],"correct_index":0,"explanation":"..."}]}`;
-
-  const user = `Spec point: ${title}\n\nDetails / context:\n${
-    context || "(no additional context provided — infer from the title)"
-  }`;
-
-  let res;
-  try {
-    res = await client.messages.create({
-      model: MODEL,
-      max_tokens: 4000,
-      system,
-      messages: [{ role: "user", content: user }],
-    });
-  } catch (e) {
-    const status = (e as { status?: number })?.status;
-    if (status === 429) throw new Error("AI rate limit — try again in a moment");
-    if (status === 402) throw new Error("AI credits exhausted — top up in workspace billing");
-    throw new Error(`AI error: ${e instanceof Error ? e.message : String(e)}`);
-  }
-
-  const text = res.content
-    .filter((b): b is Anthropic.TextBlock => b.type === "text")
-    .map((b) => b.text)
-    .join("");
-
-  let parsed: { questions?: RawQuestion[] };
-  try {
-    parsed = JSON.parse(stripFences(text));
-  } catch {
-    throw new Error("AI returned invalid JSON");
-  }
-  const qs = Array.isArray(parsed.questions) ? parsed.questions : [];
-  if (qs.length === 0) throw new Error("No questions generated");
-  return qs.slice(0, count);
+  const context = await loadGenerationContext(supabase, pointId);
+  return generateExamQuestions(context, count, "mcq", notes);
 }
 
 // Shape raw AI questions into insertable mcq_questions rows, tagging each with
@@ -105,10 +48,10 @@ function toRows(
   return qs.map((q, i) => ({
     set_id: setId,
     position: startPosition + i,
-    question: String(q.question ?? ""),
-    options: Array.isArray(q.options) ? q.options.slice(0, 4) : ["A", "B", "C", "D"],
-    correct_index: Math.min(Math.max(Number(q.correct_index) || 0, 0), 3),
-    explanation: q.explanation ? String(q.explanation) : null,
+    question: q.question.trim(),
+    options: q.options.map((o) => o.trim()),
+    correct_index: q.correct_index,
+    explanation: q.explanation.trim(),
     spec_point_id: specPointId,
   }));
 }
@@ -169,7 +112,7 @@ export const generateMcqSet = createServerFn({ method: "POST" })
     const { supabase, userId } = context;
     await requireTutor(supabase, userId);
 
-    const qs = await generateQuestions(data.title, data.context, data.count);
+    const qs = await generateQuestions(supabase, data.specPointId, data.count, data.context);
 
     const { data: setRow, error: setErr } = await supabase
       .from("mcq_sets")
@@ -246,7 +189,7 @@ export const generateCurriculumQuiz = createServerFn({ method: "POST" })
     const generated: Array<{ pointId: string; qs: RawQuestion[] }> = [];
     for (let i = 0; i < points.length; i++) {
       const p = points[i];
-      const qs = await generateQuestions(p.title, p.description || "", counts[i]);
+      const qs = await generateQuestions(supabase, p.id, counts[i]);
       generated.push({ pointId: p.id, qs });
     }
 
@@ -330,7 +273,7 @@ export const generateWeeklyQuiz = createServerFn({ method: "POST" })
     const generated: Array<{ pointId: string; qs: RawQuestion[] }> = [];
     for (let i = 0; i < points.length; i++) {
       const p = points[i];
-      const qs = await generateQuestions(p.title, p.description || "", counts[i]);
+      const qs = await generateQuestions(supabase, p.id, counts[i]);
       generated.push({ pointId: p.id, qs });
     }
 
