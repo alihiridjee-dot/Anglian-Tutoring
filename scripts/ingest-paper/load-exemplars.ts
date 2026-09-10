@@ -70,6 +70,8 @@ type Row = {
 type Parsed = {
   profile: string;
   rows: Row[];
+  // Only the old parser produced this: a whole question's scheme that it could
+  // not divide between the parts. Absent from anything read in a session.
   scheme?: { q: string; scheme: string; flags?: string[] }[];
 };
 

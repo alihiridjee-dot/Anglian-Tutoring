@@ -1,27 +1,19 @@
 # Reading an exam paper
 
-Instructions for whoever — person or model — turns a question paper and its mark
-scheme into rows. Written for a Claude Code session: no API key, no per-paper
-cost, the reading happens in the session.
+Turn a question paper and its mark scheme into rows for `exam_exemplars`.
 
-**Check the two documents are the same paper first.** Every board prints its
-specification code on the page — `1PH0/1F`, `J247/01`, `8463/1H`, `8464/B/1F`,
-`0625/42`, `9203/1` — and it must match on both. Filenames lie: a question paper read against another subject's
-mark scheme still produces rows, and nothing downstream will notice. That code
-is also where the board, subject, qualification, paper and tier come from, so
-name the output file after it.
+## 1. Check they are the same paper
 
-Then get the text. This strips the DRAFT watermark and trims the layout padding
-that would otherwise be most of what you read:
+Every board prints its specification code on the page — `1PH0/1F`, `J247/01`,
+`8463/1H`, `8464/B/1F`, `0625/42`, `9203/1`. It must match on both documents.
+Filenames lie, and a question paper read against another subject's mark scheme
+produces rows that look fine and are silently wrong.
 
-    python3 scripts/ingest-paper/split_paper.py QP.pdf MS.pdf --text
+That code is also the output filename, and the loader takes provenance from it:
 
-Read the text. Where a question is ambiguous — a table that came out scrambled,
-an option that may be part of a figure — look at that page of the PDF itself.
+    papers/<board>-<subject>-<level>-<year>-<sitting>-p<paper><tier>.json
+    papers/edexcel-physics-gcse-2018-jun-p1F.json
 
-Write the result to `papers/<board>-<subject>-<level>-<year>-<sitting>-p<paper><tier>.json`
-in the shape at the bottom, then load it with `load-exemplars.ts`. The loader
-takes provenance from that filename, so it has to match the specification code.
 A Cambridge paper keeps its whole component, `p42` for `0625/42`: paper 4,
 variant 2, a different paper from `p41`. AQA Trilogy is filed by its subject at
 the `gcse_trilogy` level, so `8464/B/1F` is `aqa-biology-gcse_trilogy-…-p1F`.
@@ -35,7 +27,67 @@ cancelled May papers were sat in November, so the paper says May and its mark
 scheme says November — the mark scheme is when it was actually sat, but check
 that it really is that paper's scheme before trusting it.
 
-## Tagging is part of reading, not a later pass
+## 2. Get the text
+
+    python3 scripts/ingest-paper/split_paper.py QP.pdf MS.pdf --text
+
+Strips the watermark and the layout padding. If a question is ambiguous in the
+text, open that page of the PDF.
+
+## 3. Index the paper
+
+List every question, its parts, and the marks printed for each. Do this before
+transcribing anything — it is what the totals get checked against at the end.
+
+## 4. Write the rows
+
+One row per answerable part. `7(a)`, `7(b)(i)`, `7(b)(ii)` is three rows.
+
+**Transcribe. Never compose.** Every word of a prompt, an option or a mark
+scheme must appear in the documents. Do not reword, complete or correct
+anything, however mangled the extraction is. If a question cannot be
+represented faithfully, skip it and say why — inventing the missing half is the
+one unrecoverable mistake, because the mark scheme still says the answer is B.
+
+**Skip anything that needs a figure.** A graph, diagram, photograph, or a table
+that only exists as an image. Do not transcribe it, do not describe it, do not
+work around it. Put its label, marks and reason in `skipped` and move on. That
+is roughly 40% of a paper and none of it is usable yet.
+
+```
+`label` — as printed: `7`, `7(a)`, `7(b)(ii)`, `04.3`
+`q` — the question number alone: `7`
+`shared_context` — the stem the parts share: scenario, data table, extract.
+  Verbatim, repeated on every part that needs it. A prompt must never depend on
+  text left behind. Null if there is none
+`prompt` — this part's question text, verbatim. No shared stem, no printed
+  marks, no dotted answer lines, no "Your answer"
+`options` — multiple-choice options as printed. Null otherwise. Never write
+  your own
+`marks` — as printed for this part
+`mark_scheme` — this part's own answer and marking notes, verbatim, including
+  accept/allow/ignore and error-carried-forward. Not the whole question's, and
+  not a sibling part's
+`command_word` — Describe, Explain, Calculate, State, Evaluate, Suggest,
+  Compare. Null if none
+`assessment_objectives` — only if the scheme prints them. Normalise `AO 2 1` to
+  `["AO2.1"]`. Empty otherwise
+`question_format` — `mcq` when options are printed, else `written`
+`specification_version` — the spec code: `1PH0`, `J247`, `8463`
+`mathematical_demand` — does answering require calculation
+`practical_demand` — does answering draw on practical technique
+`spec_points` — the spec points this part credits, as codes without the board
+  prefix: `["1.6", "6.4"]`. See "Tag each row as you write it" below. Omit it
+  rather than guess
+`flags` — empty when the row is complete and faithful. Otherwise what is wrong:
+  garbled text, the scheme does not cover this part. A flagged row is never
+  approved
+```
+
+Ignore anything that is not a question: covers, candidate instructions, formula
+sheets, periodic tables, blank pages, "Turn over", footers.
+
+### Tag each row as you write it
 
 An untagged question grounds a generated question by style only — same board,
 same subject, any topic. A tagged one grounds it by the spec point itself, which
@@ -43,7 +95,7 @@ is the whole value of the library. You are already reading the question, so
 decide then: put the codes in `spec_points` on the row and `load-exemplars.ts`
 writes the links with everything else.
 
-The point is what the question *credits*: a calculation set in a photosynthesis
+The point is what the question _credits_: a calculation set in a photosynthesis
 investigation is tagged to photosynthesis, and a question that only tests method
 with no content is better left untagged than forced into a point. Two or three
 codes is usually the honest answer; more is a sign the question is being
@@ -68,77 +120,12 @@ name>.txt`, one rule per line — labels, then codes:
 Preview first. Either route replaces that paper's tags rather than adding to
 them, so a correction is the whole edit.
 
-## The rule that matters
+## 5. Un-interleave the mark schemes
 
-**Transcribe. Never compose.** Every word of a prompt, an option and a mark
-scheme must appear in the documents in front of you. Do not reword, modernise,
-summarise, complete or correct anything — not even when the source is obviously
-mangled by PDF extraction.
-
-If you cannot represent a question faithfully, flag it and say what is missing.
-That is the correct outcome and costs nothing. There are hundreds of questions
-and binning a broken one is free.
-
-Filling the gap is the one unrecoverable mistake, for two reasons. A question
-whose four options live inside a figure would get four invented options, and the
-mark scheme still says the answer is B — so that row would mark a child's answer
-against the wrong thing. And generation copies these rows for style, so a
-fabricated exemplar teaches it to imitate model output rather than the board,
-which is the exact failure the library exists to prevent.
-
-## Rows
-
-One row per answerable part. A question with parts (a), (b)(i), (b)(ii) is three
-rows; a question with no parts is one row.
-
-- **label** — exactly as the paper prints it: `7`, `7(a)`, `7(b)(ii)`, `04.3`.
-- **q** — the question number alone: `7`.
-- **shared_context** — the stem the parts share: the scenario, the data table,
-  the extract. Verbatim, and attached to every part that needs it. A part's
-  prompt must never depend on text left behind.
-- **prompt** — this part's own question text, verbatim, without the shared stem
-  and without the printed marks. Leave out what the candidate writes into:
-  dotted answer lines, ruled space, "Your answer", answer boxes.
-- **options** — multiple-choice options as printed. Null unless the paper prints
-  them. Never write options yourself.
-- **marks** — the allocation printed for this part.
-- **mark_scheme** — this part's own answer and marking guidance, verbatim,
-  including accept/allow/ignore notes and any error-carried-forward rule. Not
-  the whole question's scheme, and not a sibling part's.
-- **needs_image** — true when answering needs a figure, graph, diagram or
-  photograph that is not in the text. Extraction drops images, so this is common
-  and is not a failure. Around 40% of rows.
-- **command_word** — Describe, Explain, Calculate, State, Evaluate, Suggest,
-  Compare. Null if there is none.
-- **assessment_objectives** — only if the mark scheme prints them. Extraction
-  breaks them apart, so normalise: `AO 2 1`, `AO2 1` and `AO2.1` are all
-  `["AO2.1"]`. Empty array if the scheme does not print them.
-- **question_format** — `mcq` when options are printed, otherwise `written`.
-- **specification_version** — the specification code the paper was set against,
-  as printed: `1PH0`, `J247`, `8463`. It does not narrow retrieval yet, because
-  no topic records one, but it is what tells a 2016-spec question from a
-  reformed one later.
-- **mathematical_demand** / **practical_demand** — whether answering requires
-  calculation, and whether it draws on practical technique. Judgements about the
-  question, and both can be true.
-- **spec_points** — the specification points this part credits, as codes without
-  the board prefix: `["1.6", "6.4"]`. See "Tagging is part of reading" above.
-  Omit it rather than guess.
-- **flags** — empty when the row is complete and faithful. Otherwise say what is
-  wrong: the options are in a figure, the text is garbled, the mark scheme does
-  not cover this part. A flagged row is never approved, so this is the brake.
-
-Skip everything that is not a question: cover pages, instructions to candidates,
-formula sheets, periodic tables, blank pages, "Turn over", page footers.
-
-## Un-interleaving a mark scheme
-
-Mark schemes are printed as a table — the creditworthy answer in one column, the
-examiner's guidance in another — and extraction weaves the two together line by
-line, so a sentence of the answer is cut in half by a note about it.
-
-Put the columns back: the answer as continuous text, then the guidance after a
-line reading `Guidance:`. Keep both. This is the only reordering allowed.
+Mark schemes print as a table — answer in one column, examiner guidance in
+another — and extraction weaves them together line by line, cutting sentences in
+half. Put the columns back: answer first, then guidance after a `Guidance:`
+line. Keep both. This is the only reordering allowed.
 
 Before:
 
@@ -151,35 +138,36 @@ After:
 > Guidance: reject 0.10 x 2.02 and the follow-up evaluation; correct answer
 > without working gets 2 marks
 
-## Checking the work
+## 6. Check the totals
 
-Index the paper before transcribing it: list every question, its parts, and the
-marks printed for it. Then check the rows against that index.
+- Every question in the index appears in `rows` or `skipped`.
+- Per question: transcribed marks + skipped marks = that question's total.
+- Whole paper: the same sum = the total printed on the cover. Edexcel and OCR
+  print one; AQA does not, so there it cannot be checked.
 
-- Every question in the index has rows. A question that quietly vanished is the
-  failure worth catching, because nothing else will show it.
-- Each question's part marks add up to the question's total.
-- The paper's marks add up to the total on the cover, where one is printed.
-  Edexcel and OCR print one; AQA does not.
+Report anything that does not reconcile. Never adjust marks to make it.
 
-Both boards tested this way came out exact: 90 of 90 marks on OCR Biology 2019
-paper 1, 100 of 100 on Edexcel Physics 2018 paper 1F.
+## 7. Load it
+
+    bun run scripts/ingest-paper/load-exemplars.ts papers/<stem>.json
+    bun run scripts/ingest-paper/load-exemplars.ts papers/<stem>.json --write
+
+The paper and its rows move to `papers/done/` once they are in.
 
 ## Output shape
 
 ```json
 {
-  "profile": "read-by-hand",
+  "profile": "read-in-session",
   "rows": [
     {
       "label": "4(c)",
       "q": "4",
-      "shared_context": "Figure 7 shows a skier going down a hill...",
+      "shared_context": "A skier descends through a vertical height of 200 m...",
       "prompt": "Describe how her speed at the bottom of the slope could be determined.",
       "options": null,
       "marks": 3,
       "mark_scheme": "measure a distance (1)...\nGuidance: allow a light gate...",
-      "needs_image": false,
       "command_word": "Describe",
       "assessment_objectives": ["AO2.2"],
       "question_format": "written",
@@ -189,9 +177,8 @@ paper 1, 100 of 100 on Edexcel Physics 2018 paper 1F.
       "flags": []
     }
   ],
-  "scheme": []
+  "skipped": [{ "label": "4(a)", "marks": 2, "reason": "answer is read off Figure 7" }]
 }
 ```
 
-`scheme` stays empty — it is where the old parser put whole-question schemes it
-could not split, and there is nothing left to split.
+`skipped` is there so the marks still reconcile. Nothing is loaded from it.

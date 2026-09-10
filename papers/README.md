@@ -22,6 +22,8 @@ no per-paper cost.
 3. **Write the rows** to `papers/<board>-<subject>-<level>-<year>-<sitting>-p<paper><tier>.json`,
    following [READING.md](../scripts/ingest-paper/READING.md). The filename is
    where the loader reads provenance from, so it has to match what step 1 found.
+   Questions that need a figure are skipped for now — about 40% of a paper —
+   and recorded only so the marks still reconcile.
 4. **Load them.** Preview, then write. Upserts, so re-reading a paper corrects
    its rows rather than duplicating them.
 
