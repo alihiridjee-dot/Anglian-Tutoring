@@ -69,6 +69,10 @@ rows; a question with no parts is one row.
   breaks them apart, so normalise: `AO 2 1`, `AO2 1` and `AO2.1` are all
   `["AO2.1"]`. Empty array if the scheme does not print them.
 - **question_format** — `mcq` when options are printed, otherwise `written`.
+- **specification_version** — the specification code the paper was set against,
+  as printed: `1PH0`, `J247`, `8463`. It does not narrow retrieval yet, because
+  no topic records one, but it is what tells a 2016-spec question from a
+  reformed one later.
 - **mathematical_demand** / **practical_demand** — whether answering requires
   calculation, and whether it draws on practical technique. Judgements about the
   question, and both can be true.
@@ -131,6 +135,7 @@ paper 1, 100 of 100 on Edexcel Physics 2018 paper 1F.
       "command_word": "Describe",
       "assessment_objectives": ["AO2.2"],
       "question_format": "written",
+      "specification_version": "1PH0",
       "mathematical_demand": false,
       "practical_demand": true,
       "flags": []
