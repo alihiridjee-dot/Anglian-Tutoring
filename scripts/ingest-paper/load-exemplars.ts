@@ -1,9 +1,11 @@
 /**
  * Load parsed exam questions into the exemplar library.
  *
- * Takes the `--json` output of split_paper.py and writes it to
- * `exam_exemplars`. Rows arrive unapproved: nothing generated or marked reads
- * them until a tutor has said so, because everything downstream copies them.
+ * Takes rows in the shape split_paper.py `--json` produces and writes them to
+ * `exam_exemplars`. Approval is the database's job, not this script's: a row
+ * that arrives complete — text, marks, its own mark scheme, no flags, no
+ * missing figure — is approved on the way in, and one that does not is held
+ * back until a later ingest mends it.
  *
  *   python3 scripts/ingest-paper/split_paper.py QP.pdf MS.pdf --json > rows.json
  *   bun run scripts/ingest-paper/load-exemplars.ts rows.json          # preview
@@ -188,4 +190,4 @@ console.log(
   `\n  ${total} rows${skipped ? `, ${skipped} skipped as too short to be a question` : ""}`,
 );
 if (!write) console.log("  Preview only. Re-run with --write to insert.");
-else console.log("  All rows are unapproved until a tutor approves them.");
+else console.log("  Complete rows are approved on arrival; flagged ones are held back.");
