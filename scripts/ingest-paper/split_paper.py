@@ -1,15 +1,20 @@
 """
-Turn an exam question paper + its mark scheme into question rows.
+Turn an exam question paper + its mark scheme into question rows, for free.
 
-This exists because the expensive-looking part of building the exemplar library
-turned out not to need a model at all. Exam papers are typeset to a rigid
-template, so the split is a parsing job. The only work left for a model
-afterwards is dividing a multi-part question's mark scheme between its
-sub-parts, and tagging spec points. Both are small and both are checkable.
+Exam papers are typeset to a rigid template, so finding the questions is a
+parsing job and costs nothing. Dividing a multi-part question's mark scheme
+between its sub-parts is not, and that is where this stops: a question's scheme
+goes on its first part and the rest are left null, which leaves most rows with
+no scheme of their own and so unusable for generating or marking.
+
+`read-paper.ts` gives both documents to a model instead, and is the path to use
+when the rows are meant to be loaded. This is still the quickest way to see what
+is in a paper, and its `--text` mode is what feeds that model.
 
     python3 split_paper.py QP.pdf MS.pdf              # human report
     python3 split_paper.py QP.pdf MS.pdf --json       # rows for insertion
     python3 split_paper.py QP.pdf MS.pdf --model-jobs # what still needs a model
+    python3 split_paper.py QP.pdf MS.pdf --text       # both documents as text
 
 Every split is verified against marks the paper states about itself, but the
 boards do not agree on where. Edexcel prints "Total for Question N = M marks"
@@ -32,7 +37,10 @@ import re
 import sys
 import json
 import collections
+import copy
+import math
 from pypdf import PdfReader
+from pypdf.generic import ContentStream, NameObject
 
 # --------------------------------------------------------------------------
 # Board profiles. Adding a board should be data, not code.
@@ -150,11 +158,68 @@ def detect_profile(text):
 # Extraction
 # --------------------------------------------------------------------------
 
-def raw_text(path):
+def raw_text(path, remove_watermark=False):
     reader = PdfReader(path)
     return "\n".join(
-        (page.extract_text(extraction_mode="layout") or "") for page in reader.pages
+        ((without_draft_watermark(page) if remove_watermark else page)
+         .extract_text(extraction_mode="layout") or "") for page in reader.pages
     )
+
+
+def without_draft_watermark(page):
+    """Remove known diagonal watermark runs before layout interleaves them.
+
+    Work on an in-memory copy; never change the source PDF. Match both the
+    diagonal text matrix and the watermark's exact text-showing operands.
+    Upright prose, slightly skewed diagram labels and vertical margin text
+    are retained, even when they share letters with the watermark.
+    """
+    contents = page.get_contents()
+    if contents is None:
+        return page
+    watermark_runs = {"DRAFT", "RAFT", "D", "exemplar", "xemplar", "e"}
+    diagonal = False
+    candidates = collections.defaultdict(list)
+    matrix = None
+    for index, (args, op) in enumerate(contents.operations):
+        if op in (b"BT", b"ET"):
+            diagonal = False
+        elif op == b"Tm":
+            angle = math.degrees(math.atan2(float(args[1]), float(args[0]))) % 90
+            diagonal = 30 < angle < 60
+            matrix = tuple(args[:4])
+        if diagonal and op in (b"Tj", b"TJ"):
+            runs = args[0] if op == b"TJ" else args
+            text = "".join(run for run in runs if isinstance(run, str))
+            if text in watermark_runs:
+                candidates[matrix].append((index, text))
+    # A diagonal 'e' or 'D' can be a genuine diagram label. Only remove runs
+    # sharing a transform with both full words of the known watermark.
+    removed = {
+        index for runs in candidates.values()
+        if {"DRAFT", "exemplar"} <= {text for _, text in runs}
+        for index, _ in runs
+    }
+    if not removed:
+        return page
+    cleaned = copy.copy(page)
+    stream = ContentStream(None, page.pdf)
+    stream.operations = [op for index, op in enumerate(contents.operations) if index not in removed]
+    cleaned[NameObject("/Contents")] = stream
+    return cleaned
+
+
+def squeeze(text):
+    """Trim layout padding without losing the shape it carries.
+
+    Layout mode pads every line out to the page width. That padding is what
+    keeps a mark scheme's columns apart, so it cannot simply be collapsed to a
+    single space — but at roughly four spaces to the token it is also most of
+    what a model would be charged to read. Keep the indentation, drop the bulk.
+    """
+    text = re.sub(r"[ \t]+$", "", text, flags=re.M)
+    text = re.sub(r"[ \t]{4,}", "   ", text)
+    return re.sub(r"\n{3,}", "\n\n", text)
 
 
 def commentary_fragments(path, band):
@@ -215,6 +280,7 @@ def clean_ms(path, profile):
 # --------------------------------------------------------------------------
 
 FIGURE = re.compile(r"\b(diagram|bar chart|figure|graph|table|image|photograph)\b", re.I)
+WATERMARK_DEBRIS = re.compile(r"\b(?:DRAFT|DeR\w*|AFT(?:xe|ex)\w*|x?exemplar|xemplar)\b")
 
 # An assessment-objective marker such as "(2 × AO1.2)" is wrapped by the column
 # and arrives split across lines, so the opening "(2 ×" and the "AO1.2)" have to
@@ -234,7 +300,6 @@ def parse_questions(text, profile):
     marks_re = re.compile(profile["marks"], re.M)
     option_re = re.compile(profile["option"], re.M)
 
-    text = DRAFT_MARK.sub(" ", text)
     text = re.sub(r"^\s*\*[A-Z]\d{5,}[A-Z]?\d*\*\s*$", "", text, flags=re.M)  # Edexcel page codes
     text = re.sub(r"[ \t]+", " ", text)
     # Nothing before the instructions is a question; covers and formulae sheets
@@ -284,6 +349,7 @@ def build_row(num, part, roman, body, marks_re, option_re, profile):
     prompt = re.sub(profile["sub"], "", prompt, count=1, flags=re.M)
     if options:
         prompt = option_re.sub("", prompt)
+    prompt = re.sub(r"\(?\s*Total for Question\s+\d+\s*=\s*\d+\s*marks?\s*\)?", " ", prompt)
     prompt = re.sub(r"\.{4,}", " ", prompt)          # dotted answer lines
     prompt = fix_units(prompt)
     prompt = re.sub(r"\n{2,}", "\n", prompt).strip()
@@ -297,6 +363,8 @@ def build_row(num, part, roman, body, marks_re, option_re, profile):
         flags.append("needs image")
     if len(prompt) < 15:
         flags.append("prompt suspiciously short")
+    if WATERMARK_DEBRIS.search(prompt) or any(WATERMARK_DEBRIS.search(t) for _, t in options):
+        flags.append("watermark residue")
 
     return {
         "label": label, "q": num, "part": part, "sub": roman,
@@ -307,32 +375,38 @@ def build_row(num, part, roman, body, marks_re, option_re, profile):
     }
 
 
-DRAFT_MARK = re.compile(
-    r"\b(?:D?R?AFT(?:ex|x)?|e?x?emplar|DR|De)\b"
-    r"|(?<=\s)[Rx](?=\s)",          # the stray single glyphs it also leaves
-)
-# Edexcel's typesetting kerns letters apart, so pypdf reads "curve" as "cur ve".
-# Only joined where the tail is a known continuation, never on guesswork.
-KERN_TAILS = r"(?:ve|face|ues|ure|ent|ing|ed|es|er|ce|ty|ly)"
-KERNED = re.compile(rf"\b([a-z]{{2,}}) ({KERN_TAILS})\b")
+# Edexcel's kerning can split recognised words at several different letters.
+# Only match known joins so ordinary adjacent words remain untouched.
 KERN_WORDS = {
-    "curve", "curves", "surface", "surfaces", "values", "feature", "features",
-    "figure", "figures", "measure", "different", "difference", "temperature",
-    "structure", "pressure", "movement", "moving", "energy",
+    "curve", "curves", "surface", "surfaces", "values", "value", "feature",
+    "features", "figure", "figures", "measure", "measures", "measured",
+    "different", "difference", "temperature", "structure", "pressure",
+    "movement", "moving", "energy", "particle", "particles", "distance",
+    "substance", "substances", "reaction", "reactions", "electron", "electrons",
+    "molecule", "molecules", "element", "elements", "compound", "compounds",
+    "mixture", "mixtures", "solution", "solutions", "arrangement", "voltage",
+    "resistance", "current", "circuit", "circuits", "frequency", "wavelength",
+    "radiation", "concentration", "experiment", "experiments", "apparatus",
+    "evidence", "statement", "sentence", "correct", "increase", "decrease",
+    "produce", "produced", "process", "processes", "release", "released",
+    "absorbed", "transferred", "described", "describe", "explained", "explain",
 }
+KERNED = re.compile(
+    r"\b(?:" + "|".join(
+        re.escape(word[:i]) + r"[ \t]+" + re.escape(word[i:])
+        for word in sorted(KERN_WORDS) for i in range(2, len(word) - 1)
+    ) + r")\b", re.I,
+)
 
 
 def fix_units(s):
-    """Undo what the text layer mangles: superscripts, watermarks, kerning."""
-    s = DRAFT_MARK.sub(" ", s)
+    """Undo what the text layer mangles: superscripts and known kerned words."""
     s = re.sub(r"\b(m|cm|mm|km)\s*3\b", r"\1³", s)
     s = re.sub(r"\b(m|cm|mm|km)\s*2\b", r"\1²", s)
     s = re.sub(r"\b(kg|g)\s*/\s*(m|cm)\s*3\b", r"\1/\2³", s)
     # Rejoin a split word only when the join produces a word we recognise —
     # otherwise "the value" would become "thevalue".
-    s = KERNED.sub(lambda m: m.group(1) + m.group(2)
-                   if (m.group(1) + m.group(2)).lower() in KERN_WORDS
-                   else m.group(0), s)
+    s = KERNED.sub(lambda m: re.sub(r"[ \t]+", "", m.group(0)), s)
     return re.sub(r"[ \t]{2,}", " ", s)
 
 
@@ -472,9 +546,16 @@ def model_jobs(rows, report):
 # --------------------------------------------------------------------------
 
 def main(qp_path, ms_path, mode):
-    qp_raw = raw_text(qp_path)
+    qp_raw = raw_text(qp_path, remove_watermark=True)
     ms_raw = raw_text(ms_path)
     name = detect_profile(qp_raw + "\n" + ms_raw)
+    if mode == "--text":
+        # Both documents as text, for a model to read instead of these patterns.
+        # Deliberately unparsed: no board profile, no column stripping, nothing
+        # dropped. An unrecognised board is fine here — that is the point.
+        print(json.dumps({"profile": name, "qp": squeeze(qp_raw), "ms": squeeze(ms_raw)},
+                         ensure_ascii=False))
+        return
     if not name:
         sys.exit("Could not identify the board. Add a profile or pass one explicitly.")
     profile = PROFILES[name]
