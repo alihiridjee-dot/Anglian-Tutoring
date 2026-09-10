@@ -40,3 +40,7 @@ bun.lock
 *.sw?
 .vercel
 supabase/.temp/
+
+# Python (scripts/ingest-paper)
+__pycache__/
+*.pyc
