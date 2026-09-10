@@ -7,9 +7,9 @@ between its sub-parts is not, and that is where this stops: a question's scheme
 goes on its first part and the rest are left null, which leaves most rows with
 no scheme of their own and so unusable for generating or marking.
 
-`read-paper.ts` gives both documents to a model instead, and is the path to use
-when the rows are meant to be loaded. This is still the quickest way to see what
-is in a paper, and its `--text` mode is what feeds that model.
+Papers meant to be loaded are read in a Claude Code session instead, following
+scripts/ingest-paper/READING.md. This is still the quickest way to see what is in
+a paper, and its `--text` mode is what feeds that reading.
 
     python3 split_paper.py QP.pdf MS.pdf              # human report
     python3 split_paper.py QP.pdf MS.pdf --json       # rows for insertion

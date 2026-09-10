@@ -4,13 +4,24 @@ Instructions for whoever — person or model — turns a question paper and its 
 scheme into rows. Written for a Claude Code session: no API key, no per-paper
 cost, the reading happens in the session.
 
-Get the text first. This strips the DRAFT watermark and trims the layout padding
+**Check the two documents are the same paper first.** Every board prints its
+specification code on the page — `1PH0/1F`, `J247/01`, `8463/1H` — and it must
+match on both. Filenames lie: a question paper read against another subject's
+mark scheme still produces rows, and nothing downstream will notice. That code
+is also where the board, subject, qualification, paper and tier come from, so
+name the output file after it.
+
+Then get the text. This strips the DRAFT watermark and trims the layout padding
 that would otherwise be most of what you read:
 
     python3 scripts/ingest-paper/split_paper.py QP.pdf MS.pdf --text
 
-Write the result to `papers/<stem>.json` in the shape at the bottom, then load it
-with `load-exemplars.ts`.
+Read the text. Where a question is ambiguous — a table that came out scrambled,
+an option that may be part of a figure — look at that page of the PDF itself.
+
+Write the result to `papers/<board>-<subject>-<level>-<year>-p<paper><tier>.json`
+in the shape at the bottom, then load it with `load-exemplars.ts`. The loader
+takes provenance from that filename, so it has to match the specification code.
 
 ## The rule that matters
 
