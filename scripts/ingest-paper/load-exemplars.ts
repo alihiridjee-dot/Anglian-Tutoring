@@ -219,7 +219,7 @@ async function fileAway(file: string) {
 }
 
 let total = 0;
-let skipped = 0;
+const dropped: string[] = [];
 
 for (const file of files) {
   const parsed = JSON.parse(await Bun.file(file).text()) as Parsed;
@@ -256,8 +256,15 @@ for (const file of files) {
 
   const payload = parsed.rows
     .filter((r) => {
-      if (r.prompt && r.prompt.trim().length >= 15) return true;
-      skipped += 1;
+      // A continuation part is legitimately short: "Explain why." is the whole
+      // question when the part before it did the setting up, and the stem it
+      // depends on is in shared_context. Judging the prompt on its own threw
+      // three complete three-mark questions away without saying so, which is
+      // why this counts what the row actually carries — and names what it drops.
+      const prompt = r.prompt?.trim() ?? "";
+      const context = r.shared_context?.trim() ?? "";
+      if (prompt && prompt.length + context.length >= 15) return true;
+      dropped.push(r.label);
       return false;
     })
     .map((r) => {
@@ -338,7 +345,7 @@ for (const file of files) {
 }
 
 console.log(
-  `\n  ${total} rows${skipped ? `, ${skipped} skipped as too short to be a question` : ""}`,
+  `\n  ${total} rows` + (dropped.length ? `\n  dropped as empty: ${dropped.join(", ")}` : ""),
 );
 if (!write) console.log("  Preview only. Re-run with --write to insert.");
 else console.log("  Complete rows are approved on arrival; flagged ones are held back.");
