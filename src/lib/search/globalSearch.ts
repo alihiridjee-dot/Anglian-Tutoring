@@ -5,7 +5,6 @@ import {
   ClipboardList,
   CalendarClock,
   PlayCircle,
-  Download,
   ListChecks,
   Users,
   CreditCard,
@@ -21,7 +20,6 @@ import {
   DEMO_HOMEWORK,
   DEMO_LIVE,
   DEMO_VIDEOS,
-  DEMO_DOWNLOADS,
   DEMO_MCQ_SETS,
 } from "@/lib/demo/studentDemo";
 import {
@@ -43,7 +41,7 @@ import {
 
 /**
  * The global search: one query answered across every surface the caller can
- * reach — pages, the specification, homework, live sessions, videos, downloads,
+ * reach — pages, the specification, homework, live sessions, videos,
  * quizzes, and (for a tutor) students.
  *
  * Two independent layers keep results honest. RLS decides what the database
@@ -136,18 +134,12 @@ function pageHits(ctx: SearchContext, terms: string[]): SearchHit[] {
           { to: "/demo/student/live", label: "Live Sessions", icon: CalendarClock },
           { to: "/demo/student/mcqs", label: "MCQs", icon: ListChecks },
           { to: "/demo/student/videos", label: "Videos", icon: PlayCircle },
-          { to: "/demo/student/downloads", label: "Downloads", icon: Download },
         ]
     : [
         ...buildAuthedNav({ isTutor: ctx.isTutor, role: ctx.role }),
         // Real pages that aren't in the sidebar — the palette is the fastest
         // way to reach them, which is half the point of having one.
-        ...(ctx.role === "parent"
-          ? []
-          : [
-              { to: "/videos", label: "Videos", icon: PlayCircle },
-              { to: "/downloads", label: "Downloads", icon: Download },
-            ]),
+        ...(ctx.role === "parent" ? [] : [{ to: "/videos", label: "Videos", icon: PlayCircle }]),
         { to: "/billing", label: "Billing", icon: CreditCard },
         { to: "/profile", label: "Profile", icon: UserRound },
         { to: "/settings", label: "Settings", icon: Settings },
@@ -178,14 +170,14 @@ const RESOURCE_ICON: Record<string, SearchHit["icon"]> = {
   homework: ClipboardList,
   live_session: CalendarClock,
   video: PlayCircle,
-  download: Download,
 };
 
-const RESOURCE_ROUTE: Record<string, (isDemo: boolean) => string> = {
-  homework: (d) => (d ? "/demo/student/homework" : "/homework"),
+// Homework has a page per sheet, so a hit can open the thing it found rather
+// than the list it lives in. The demo has no such page and keeps its list.
+const RESOURCE_ROUTE: Record<string, (isDemo: boolean, id: string) => string> = {
+  homework: (d, id) => (d ? "/demo/student/homework" : `/homework/${id}`),
   live_session: (d) => (d ? "/demo/student/live" : "/live"),
   video: (d) => (d ? "/demo/student/videos" : "/videos"),
-  download: (d) => (d ? "/demo/student/downloads" : "/downloads"),
 };
 
 /**
@@ -219,7 +211,6 @@ function resourceSubtitle(row: {
     return `Starts ${new Date(row.starts_at).toLocaleString()}`;
   if (row.kind === "homework" && row.due_at)
     return `Due ${new Date(row.due_at).toLocaleDateString()}`;
-  if (row.kind === "download" && row.file_name) return row.file_name;
   return row.description;
 }
 
@@ -390,7 +381,7 @@ async function searchLive(ctx: SearchContext, terms: string[]): Promise<SearchHi
       terms,
     );
     if (!score) continue;
-    const kind = row.kind as "homework" | "live_session" | "video" | "download";
+    const kind = row.kind as "homework" | "live_session" | "video";
     hits.push({
       key: `${kind}:${row.id}`,
       group: kind,
@@ -399,7 +390,7 @@ async function searchLive(ctx: SearchContext, terms: string[]): Promise<SearchHi
       tags: taxonomyTags(row),
       icon: RESOURCE_ICON[kind] ?? ClipboardList,
       score,
-      to: RESOURCE_ROUTE[kind](ctx.isDemo),
+      to: RESOURCE_ROUTE[kind](ctx.isDemo, row.id),
     });
   }
 
@@ -566,21 +557,6 @@ function searchDemo(ctx: SearchContext, terms: string[]): SearchHit[] {
         icon: PlayCircle,
         score,
         to: "/demo/student/videos",
-      });
-  }
-
-  for (const d of DEMO_DOWNLOADS) {
-    const score = scoreRecord([{ text: d.title, weight: 1 }], terms);
-    if (score)
-      hits.push({
-        key: `download:${d.id}`,
-        group: "download",
-        title: d.title,
-        subtitle: d.file_name,
-        tags: taxonomyTags(d),
-        icon: Download,
-        score,
-        to: "/demo/student/downloads",
       });
   }
 

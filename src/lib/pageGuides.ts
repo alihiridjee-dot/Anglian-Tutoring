@@ -103,7 +103,7 @@ export const pageGuides: Record<string, GuideStep[]> = {
     select(
       '[data-guide="homework-list"] button',
       "Work through your assignments",
-      "Open an assignment and answer its questions on the page. You can attach a photo of your working and return for marks and feedback after your tutor reviews it.",
+      "Open an assignment and answer its questions on the page. Return here for marks and feedback once your answers have been checked.",
     ),
   ],
   "Weekly MCQs": [
@@ -303,5 +303,5 @@ export const pageIntroductions: Record<string, string> = {
   Students: "Find and manage your students and family links from this workspace.",
   "Tutor Studio": "Your workspace for managing learning resources and teaching activities.",
   "Revision Notes":
-    "Personal notes are coming soon. For now, use the Downloads link on this page to find study materials.",
+    "Personal notes are coming soon. For now, your dashboard brings together your week’s videos, quizzes and homework.",
 };

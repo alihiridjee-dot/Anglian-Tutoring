@@ -1,4 +1,3 @@
-import { SignedImage } from "@/components/SignedImage";
 import type { HomeworkQuestion, HomeworkAnswer } from "@/hooks/data/useHomeworkQuestions";
 import type { QuestionMark } from "@/hooks/data/useAnswerMarking";
 
@@ -37,14 +36,6 @@ export function AnswerMarkingList({
               <p className="text-sm font-medium whitespace-pre-wrap flex-1">{q.prompt}</p>
               <span className="text-[11px] text-muted-foreground shrink-0">[{q.marks}]</span>
             </div>
-            {q.image_path && (
-              <SignedImage
-                path={q.image_path}
-                alt={q.image_name ?? "Question figure"}
-                className="max-h-48 rounded-lg border border-border object-contain"
-              />
-            )}
-
             <div className="rounded-lg bg-muted/50 border border-border px-3 py-2">
               <p className="text-[10px] font-extrabold uppercase tracking-widest text-muted-foreground mb-1">
                 Student's answer
@@ -52,18 +43,6 @@ export function AnswerMarkingList({
               <p className="text-sm whitespace-pre-wrap">
                 {a?.answer_text || <span className="italic text-muted-foreground">Left blank</span>}
               </p>
-              {a && a.images.length > 0 && (
-                <div className="mt-2 flex flex-wrap gap-2">
-                  {a.images.map((img) => (
-                    <SignedImage
-                      key={img.path}
-                      path={img.path}
-                      alt={img.name}
-                      className="max-h-48 rounded-lg border border-border object-contain"
-                    />
-                  ))}
-                </div>
-              )}
             </div>
 
             {q.mark_scheme && (

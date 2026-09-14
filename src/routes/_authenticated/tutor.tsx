@@ -9,7 +9,6 @@ import { toast } from "sonner";
 import {
   PlayCircle,
   ClipboardList,
-  Upload,
   Wrench,
   ClipboardCheck,
   ListChecks,
@@ -19,7 +18,6 @@ import {
 import { ThisWeekPanel } from "@/components/tutor/ThisWeekPanel";
 import { VideoForm } from "@/components/tutor/VideoForm";
 import { HomeworkForm } from "@/components/tutor/HomeworkForm";
-import { DownloadForm } from "@/components/tutor/DownloadForm";
 import { WeeklyMcqForm } from "@/components/tutor/WeeklyMcqForm";
 import { MarkingQueue } from "@/components/tutor/MarkingQueue";
 import { type SubjectV, type BoardV, type LevelV } from "@/lib/taxonomy";
@@ -29,7 +27,7 @@ export const Route = createFileRoute("/_authenticated/tutor")({
   component: Tutor,
 });
 
-type Kind = "video" | "homework" | "download";
+type Kind = "video" | "homework";
 type Tab = "this_week" | "marking" | "weekly_mcq" | Kind;
 
 function useTaxonomy() {
@@ -70,7 +68,6 @@ function Tutor() {
     { k: "video", label: "Add Video", icon: PlayCircle },
     { k: "weekly_mcq", label: "Weekly MCQ", icon: ListChecks },
     { k: "homework", label: "Set Homework", icon: ClipboardList },
-    { k: "download", label: "Upload File", icon: Upload },
   ];
 
   return (
@@ -94,8 +91,8 @@ function Tutor() {
             Welcome, {tutorName}
           </h2>
           <p className="text-sm md:text-base text-primary-foreground/75 max-w-2xl mt-1">
-            Mark student submissions and manage teaching resources — set homework, upload files and
-            videos, and schedule live sessions.
+            Mark student submissions and manage teaching resources — set homework, add videos, and
+            schedule live sessions.
           </p>
         </div>
       </div>
@@ -126,7 +123,6 @@ function Tutor() {
           {tab === "video" && <VideoForm userId={userId!} taxonomy={taxonomy} />}
           {tab === "weekly_mcq" && <WeeklyMcqForm userId={userId!} taxonomy={taxonomy} />}
           {tab === "homework" && <HomeworkForm userId={userId!} taxonomy={taxonomy} />}
-          {tab === "download" && <DownloadForm userId={userId!} taxonomy={taxonomy} />}
         </div>
       )}
     </AppLayout>

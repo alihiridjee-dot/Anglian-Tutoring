@@ -4,23 +4,23 @@ import { EmptyRevision } from "./EmptyRevision";
 import { CatchUpWeek } from "./CatchUpWeek";
 import { currentWeekKey, PLANNER_TIME_ZONE } from "@/lib/week";
 import { Spinner, Meter, EmptyState } from "@/components/Shared";
-import { useMemo } from "react";
+import { useMemo, useState } from "react";
 import { Link } from "@tanstack/react-router";
-import {
-  CircleDot,
-  Repeat,
-  CheckCircle2,
-  ClipboardList,
-  ListChecks,
-  Plus,
-  RotateCcw,
-} from "lucide-react";
+import { CircleDot, Repeat, CheckCircle2, Plus, RotateCcw } from "lucide-react";
 import { type PlanPoint, type WeeklyPlan } from "@/lib/weeklyPlanDal";
 import { type RoadmapResult } from "@/lib/programDal";
 import { isTeachBand, mondayOnOrAfter, type PacingBand } from "@/lib/planner/pacing";
-import { type PointCoverage, statusOfPoint, laneOf } from "@/lib/planner/coverage";
+import {
+  type PointCoverage,
+  type PointWorkItem,
+  statusOfPoint,
+  laneOf,
+} from "@/lib/planner/coverage";
 import { weekKeyToDate } from "@/lib/week";
+import { parseVideoUrl } from "@/lib/videoEmbed";
+import { VideoModal } from "@/components/VideoPlayer";
 import { CoveragePill } from "./CoveragePill";
+import { WorkChips } from "./WorkChips";
 import { type Activity } from "./useWeekPlan";
 
 /**
@@ -50,11 +50,9 @@ export function ThisWeekPanel({
   roadmap,
   loading,
   weekStart,
-  editable,
   isPast,
   showCoverage,
   onFocusAgain,
-  onAddTricky,
 }: {
   plan: WeeklyPlan | null;
   points: PlanPoint[];
@@ -63,12 +61,14 @@ export function ThisWeekPanel({
   roadmap: RoadmapResult | null;
   loading: boolean;
   weekStart: string;
-  editable: boolean;
   isPast: boolean;
   showCoverage: boolean;
   onFocusAgain?: (point: PlanPoint) => void;
-  onAddTricky?: () => void;
 }) {
+  // The video a Watch chip has opened, if any. Same modal the checklist uses —
+  // a point's video plays where the student pressed it, not on another page.
+  const [playing, setPlaying] = useState<PointWorkItem | null>(null);
+
   // The spine band this week sits in — the core topic, whether or not it still
   // has points outstanding.
   const band: PacingBand | null = useMemo(() => {
@@ -144,7 +144,7 @@ export function ThisWeekPanel({
   });
 
   const row = (p: PlanPoint) => {
-    const a = activity.get(p.spec_point_id);
+    const work = activity.get(p.spec_point_id);
     const cov = coverage.get(p.spec_point_id);
     const progress = roadmap?.progress
       .flatMap((t) => t.points)
@@ -155,7 +155,7 @@ export function ThisWeekPanel({
       new Date(progress.lastReviewedAt) >= weekKeyToDate(weekStart)
         ? mondayOnOrAfter(new Date(progress.eligibleAt))
         : null;
-    const hasPractice = !!(a?.hasHomework || a?.hasQuiz);
+    const hasPractice = !!(work?.hasHomework || work?.hasQuiz);
     return (
       <PlannerPointItem
         key={p.spec_point_id}
@@ -165,7 +165,7 @@ export function ThisWeekPanel({
           !hasPractice ? (
             <span className="chip tint-slate text-[11px]">Practice not attached</span>
           ) : showCoverage ? (
-            <CoveragePill status={statusOfPoint(cov, a)} score={cov?.bestScore} />
+            <CoveragePill status={statusOfPoint(cov, work)} score={cov?.bestScore} />
           ) : undefined
         }
       >
@@ -188,24 +188,7 @@ export function ThisWeekPanel({
           </span>
         )}
         <div className="flex flex-wrap items-center gap-2">
-          {a?.hasHomework && (
-            <PracticeLink
-              to="/homework"
-              label="Homework"
-              icon={ClipboardList}
-              done={showCoverage && !!cov?.homeworkDone}
-              score={cov?.homeworkScore}
-            />
-          )}
-          {a?.hasQuiz && (
-            <PracticeLink
-              to="/mcqs"
-              label="Quiz"
-              icon={ListChecks}
-              done={showCoverage && !!cov?.quizDone}
-              score={cov?.quizScore}
-            />
-          )}
+          <WorkChips work={work} coverage={showCoverage ? cov : null} onPlay={setPlaying} />
           {hasPractice && isPast && onFocusAgain && (
             <button type="button" onClick={() => onFocusAgain(p)} className="chip text-xs">
               <RotateCcw className="size-3" />
@@ -220,6 +203,8 @@ export function ThisWeekPanel({
   if (loading) {
     return <Spinner className="py-10" />;
   }
+
+  const embed = playing ? parseVideoUrl(playing.videoUrl) : null;
 
   return (
     <div className="space-y-4">
@@ -377,14 +362,8 @@ export function ThisWeekPanel({
         </div>
       )}
 
-      {editable && onAddTricky && (
-        <button
-          type="button"
-          onClick={onAddTricky}
-          className="inline-flex items-center gap-1.5 h-9 px-3 rounded-lg border border-border text-sm font-medium hover:bg-muted"
-        >
-          <Plus className="w-4 h-4" /> Add what's tricky
-        </button>
+      {playing && embed && (
+        <VideoModal embed={embed} title={playing.title} onClose={() => setPlaying(null)} />
       )}
     </div>
   );
@@ -411,32 +390,6 @@ function TopicBlock({
 /** The week's spec points stay visible directly beneath their topic. */
 function SpecPointList({ children }: { children: React.ReactNode }) {
   return <div className="space-y-1.5 mt-3">{children}</div>;
-}
-
-function PracticeLink({
-  to,
-  label,
-  icon: Icon,
-  done,
-  score,
-}: {
-  to: string;
-  label: string;
-  icon: typeof ClipboardList;
-  done: boolean;
-  score?: number | null;
-}) {
-  return (
-    <Link
-      to={to}
-      className={`chip inline-flex text-[11px] hover:brightness-95 ${done ? "tint-emerald" : ""}`}
-      title={done ? `${label} completed` : `${label} available`}
-    >
-      {done ? <CheckCircle2 className="w-3 h-3" /> : <Icon className="w-3 h-3" />}
-      {label}
-      {done && score != null && <span className="tabular-nums font-semibold">{score}%</span>}
-    </Link>
-  );
 }
 
 /** "13 Jul – 16 Aug" for a band's week keys. */

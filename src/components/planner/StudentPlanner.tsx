@@ -415,7 +415,6 @@ function ThisWeekTab({
             roadmap={week.roadmap}
             loading={week.loading}
             weekStart={weekStart}
-            editable={editable}
             isPast={isPast}
             showCoverage={showReview}
           />

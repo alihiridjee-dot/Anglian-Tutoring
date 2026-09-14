@@ -9,8 +9,18 @@ import type { HomeworkQuestion, HomeworkAnswer } from "@/hooks/data/useHomeworkQ
  * Loading is lazy: a marking queue can hold dozens of submissions, and only the
  * open one needs its answers — hence the `open` flag rather than fetching on
  * mount. Rendering lives in `AnswerMarkingList`.
+ *
+ * The boxes come pre-filled. Work is marked automatically when it is handed in
+ * and the result staged in `homework_ai_marks`, so what the tutor sees is a
+ * proposal to check rather than an empty grid to fill — which is the difference
+ * between marking a paper and reading one. A tutor's own saved marks always win
+ * over the staged ones, so re-opening something already marked shows their
+ * corrections and not the proposal they corrected.
  */
 export type QuestionMark = { marks: string; feedback: string };
+
+/** One entry of the staged proposal held in `homework_ai_marks.marks`. */
+type StagedMark = { question_id: string; marks: number; feedback: string };
 
 export function useAnswerMarking(
   resourceId: string | undefined,
@@ -20,6 +30,7 @@ export function useAnswerMarking(
   const [questions, setQuestions] = useState<HomeworkQuestion[]>([]);
   const [answers, setAnswers] = useState<Record<string, HomeworkAnswer>>({});
   const [marks, setMarks] = useState<Record<string, QuestionMark>>({});
+  const [summary, setSummary] = useState<string | null>(null);
   const [loading, setLoading] = useState(false);
   const [loaded, setLoaded] = useState(false);
 
@@ -28,38 +39,54 @@ export function useAnswerMarking(
     let cancelled = false;
     setLoading(true);
     (async () => {
-      const [qRes, aRes] = await Promise.all([
+      const [qRes, aRes, sRes] = await Promise.all([
         supabase
           .from("homework_questions")
           .select(
-            "id, resource_id, position, prompt, marks, answer_type, image_path, image_name, mark_scheme, spec_point_id",
+            "id, resource_id, position, prompt, marks, answer_type, mark_scheme, spec_point_id",
           )
           .eq("resource_id", resourceId)
           .order("position", { ascending: true }),
         supabase
           .from("homework_answers")
-          .select("id, submission_id, question_id, answer_text, images, awarded_marks, feedback")
+          .select("id, submission_id, question_id, answer_text, awarded_marks, feedback")
           .eq("submission_id", submissionId),
+        supabase
+          .from("homework_ai_marks")
+          .select("marks, summary")
+          .eq("submission_id", submissionId)
+          .maybeSingle(),
       ]);
       if (cancelled) return;
 
       const qs = (qRes.data ?? []) as HomeworkQuestion[];
+
+      // The staged proposal, if one was made, keyed for lookup below.
+      const staged = new Map<string, StagedMark>();
+      for (const m of (sRes.data?.marks as StagedMark[] | null) ?? []) {
+        if (m && typeof m.question_id === "string") staged.set(m.question_id, m);
+      }
+
       const map: Record<string, HomeworkAnswer> = {};
       const initial: Record<string, QuestionMark> = {};
       for (const a of aRes.data ?? []) {
-        const row = {
-          ...a,
-          images: (a.images as unknown as Array<{ path: string; name: string }>) ?? [],
-        } as HomeworkAnswer;
+        const row = a as HomeworkAnswer;
         map[row.question_id] = row;
+        const proposal = staged.get(row.question_id);
         initial[row.question_id] = {
-          marks: row.awarded_marks != null ? String(Number(row.awarded_marks)) : "",
-          feedback: row.feedback ?? "",
+          marks:
+            row.awarded_marks != null
+              ? String(Number(row.awarded_marks))
+              : proposal
+                ? String(proposal.marks)
+                : "",
+          feedback: row.feedback ?? proposal?.feedback ?? "",
         };
       }
       setQuestions(qs);
       setAnswers(map);
       setMarks(initial);
+      setSummary(sRes.data?.summary ?? null);
       setLoaded(true);
       setLoading(false);
     })();
@@ -147,6 +174,8 @@ export function useAnswerMarking(
     answers,
     marks,
     setMark,
+    /** The proposed overall comment, offered as a starting point for feedback. */
+    summary,
     loading,
     hasQuestions: questions.length > 0,
     totalMarks,
