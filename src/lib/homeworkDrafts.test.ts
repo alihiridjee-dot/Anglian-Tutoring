@@ -42,9 +42,12 @@ beforeEach(() => {
 describe("homework drafts", () => {
   test("round-trips answers and notes", () => {
     saveDraft(STUDENT_A, HOMEWORK, { answers: { q1: "mitochondria" }, notes: "unsure on q3" });
+    // `savedAt` comes back too: drafts now live in two places, and the
+    // timestamp is what decides which copy wins when they disagree.
     expect(loadDraft(STUDENT_A, HOMEWORK)).toEqual({
       answers: { q1: "mitochondria" },
       notes: "unsure on q3",
+      savedAt: expect.any(Number),
     });
   });
 

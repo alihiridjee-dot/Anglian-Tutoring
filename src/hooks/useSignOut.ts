@@ -3,7 +3,6 @@ import { useNavigate } from "@tanstack/react-router";
 import { useQueryClient } from "@tanstack/react-query";
 import { toast } from "sonner";
 import { supabase } from "@/integrations/supabase/client";
-import { clearSignedUrlCache } from "@/lib/signedUrlCache";
 import { clearAllDrafts } from "@/lib/homeworkDrafts";
 
 /**
@@ -21,9 +20,6 @@ export function useSignOut() {
   return useCallback(async () => {
     await qc.cancelQueries();
     qc.clear();
-    // Signed URLs live outside React Query; without this the next user on a
-    // shared machine inherits working links to the previous student's work.
-    clearSignedUrlCache();
     clearAllDrafts();
     await supabase.auth.signOut();
     // A bare acknowledgement the user is already navigating away from — the

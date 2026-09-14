@@ -11,9 +11,10 @@ function Notes() {
     <AppLayout title="Revision Notes">
       <div className="rounded-2xl premium-card p-8 text-center">
         <p className="text-muted-foreground">
-          Personal notes are coming soon. For now, download study materials from{" "}
-          <a href="/downloads" className="text-primary hover:underline">
-            Downloads
+          Personal notes are coming soon. In the meantime, your week&rsquo;s videos, quizzes and
+          homework are all on your{" "}
+          <a href="/student-dashboard" className="text-primary hover:underline">
+            dashboard
           </a>
           .
         </p>

@@ -10,7 +10,6 @@ export const SEARCH_GROUPS = [
   "homework",
   "live_session",
   "video",
-  "download",
   "mcq_set",
   "student",
 ] as const;
@@ -24,7 +23,6 @@ export const GROUP_LABEL: Record<SearchGroup, string> = {
   homework: "Homework",
   live_session: "Live sessions",
   video: "Videos",
-  download: "Downloads",
   mcq_set: "Quizzes",
   student: "Students",
 };

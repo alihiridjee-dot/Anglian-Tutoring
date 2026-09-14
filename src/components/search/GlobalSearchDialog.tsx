@@ -115,7 +115,7 @@ export function GlobalSearchDialog({ open, onClose }: { open: boolean; onClose: 
           {!active ? (
             <EmptyState
               title="Search everything"
-              body={`Type at least ${MIN_QUERY_LENGTH} characters to search across the specification, homework, live sessions, videos, downloads and quizzes.`}
+              body={`Type at least ${MIN_QUERY_LENGTH} characters to search across the specification, homework, live sessions, videos and quizzes.`}
             />
           ) : error ? (
             <EmptyState title="Search failed" body={error} />

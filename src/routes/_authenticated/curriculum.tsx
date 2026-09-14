@@ -39,7 +39,6 @@ import {
   ChevronDown,
   BookMarked,
   PlayCircle,
-  Download,
   ClipboardList,
   CalendarClock,
   ListChecks,
@@ -1209,10 +1208,11 @@ function SpecPointDetail({
               <div className="flex items-start justify-between gap-2 text-sm font-semibold text-foreground leading-snug">
                 <span className="font-semibold">{r.title}</span>
                 <Link
-                  to="/homework"
+                  to="/homework/$homeworkId"
+                  params={{ homeworkId: r.id }}
                   className="text-[10px] px-2 py-0.5 rounded bg-secondary text-foreground hover:bg-primary hover:text-primary-foreground font-bold transition"
                 >
-                  View Desk
+                  Open
                 </Link>
               </div>
               {r.description && (
@@ -1226,21 +1226,6 @@ function SpecPointDetail({
                 </span>
               )}
             </div>
-          )}
-        />
-
-        {/* Revision Downloads Section */}
-        <CollapsibleResourceGroup
-          label="Revision Downloads"
-          icon={Download}
-          items={resources.filter((r) => r.kind === "download")}
-          render={(r) => (
-            <DownloadRow
-              file_path={r.file_path}
-              title={r.title}
-              name={r.file_name}
-              description={r.description}
-            />
           )}
         />
       </div>
@@ -1369,49 +1354,4 @@ function CollapsibleResourceGroup<T extends { id: string }>({
 
 function Empty({ label }: { label: string }) {
   return <p className="text-xs italic text-muted-foreground">{label}</p>;
-}
-
-function DownloadRow({
-  file_path,
-  title,
-  name,
-  description,
-}: {
-  file_path: string | null;
-  title: string;
-  name: string | null;
-  description?: string | null;
-}) {
-  const [url, setUrl] = useState<string | null>(null);
-  useEffect(() => {
-    if (!file_path) return;
-    supabase.storage
-      .from("resources")
-      .createSignedUrl(file_path, 3600)
-      .then(({ data }) => setUrl(data?.signedUrl ?? null));
-  }, [file_path]);
-
-  return (
-    <div className="w-full">
-      <a
-        href={url ?? "#"}
-        target="_blank"
-        rel="noreferrer"
-        className="text-sm font-semibold text-foreground hover:text-primary flex items-center gap-2 leading-tight"
-      >
-        <Download className="w-4 h-4 text-primary shrink-0" />
-        <div>
-          <span>{title}</span>
-          {name && (
-            <span className="text-xs font-normal text-muted-foreground ml-1.5">({name})</span>
-          )}
-        </div>
-      </a>
-      {description && (
-        <p className="text-xs text-muted-foreground font-normal leading-normal mt-1 pl-6">
-          {description}
-        </p>
-      )}
-    </div>
-  );
 }

@@ -1,9 +1,8 @@
-import { createFileRoute } from "@tanstack/react-router";
+import { createFileRoute, Link } from "@tanstack/react-router";
 import { guardStudentSection } from "@/lib/routeGuards";
-import { useState } from "react";
-import { EmptyState, Spinner } from "@/components/Shared";
+import { useMemo, useState } from "react";
+import { EmptyState, SectionHeading, Spinner } from "@/components/Shared";
 import { AppLayout } from "@/components/AppLayout";
-import { supabase } from "@/integrations/supabase/client";
 import { useRoles } from "@/hooks/useRole";
 import { useEnrolments } from "@/hooks/data/useEnrolments";
 import {
@@ -13,36 +12,25 @@ import {
   type Homework,
   type SubmissionRow,
 } from "@/hooks/data/useHomework";
+import { useHomeworkSummaries, type HomeworkSummary } from "@/hooks/data/useHomeworkQuestions";
 import {
-  useHomeworkQuestions,
-  useHomeworkAnswers,
-  type HomeworkQuestion,
-  type HomeworkAnswer,
-} from "@/hooks/data/useHomeworkQuestions";
-import { BuiltInHomework } from "@/components/BuiltInHomework";
-import {
-  ClipboardList,
-  Upload,
-  FileText,
-  X,
-  CheckCircle2,
-  ChevronDown,
-  Clock,
-  Info,
-  TrendingUp,
-  Plus,
-  Trash2,
-} from "lucide-react";
-import { toast } from "sonner";
+  BUCKET_HINT,
+  BUCKET_LABEL,
+  BUCKET_TINT,
+  groupHomework,
+  isAwaitingRelease,
+  isOverdue,
+  type HomeworkBucket,
+  type HomeworkItem,
+} from "@/lib/homeworkBuckets";
+import { ChevronDown, ChevronRight, Clock, Plus, TrendingUp } from "lucide-react";
 import { useAnalytics } from "@/hooks/data/useAnalytics";
-import { SignedFileLink } from "@/components/SignedFileLink";
 import { MarkingQueue } from "@/components/tutor/MarkingQueue";
+import { HomeworkLibrary } from "@/components/tutor/HomeworkLibrary";
 import { HomeworkForm } from "@/components/tutor/HomeworkForm";
-import { prepareUpload, formatBytes, MAX_UPLOAD_BYTES } from "@/lib/uploadLimits";
-import { acknowledgeSubmission, deleteHomework } from "@/lib/homework.functions";
 import { isDemoStudent } from "@/lib/demo/studentDemo";
 import { type SubjectV, type BoardV, type LevelV } from "@/lib/taxonomy";
-import { subjectLabel } from "@/lib/courseSummary";
+import { SUBJECT_LABEL, SUBJECT_TINT } from "@/lib/subjectTheme";
 
 export const Route = createFileRoute("/_authenticated/homework")({
   beforeLoad: guardStudentSection,
@@ -50,69 +38,18 @@ export const Route = createFileRoute("/_authenticated/homework")({
   component: HomeworkPage,
 });
 
-const subjectColor: Record<string, string> = {
-  biology: "from-accent to-accent/60",
-  chemistry: "from-primary to-primary/60",
-  physics: "from-primary-deep to-primary",
-};
-
 /**
- * Closes the feedback loop: the student confirms they've read the mark, which
- * notifies the tutor and drops the uploaded files from storage.
+ * The homework list.
  *
- * The deletion is spelled out up front — it's irreversible, and a student who
- * wants to keep their work needs to download it before clicking.
+ * Deliberately only a list. Answering happens on `/homework/$homeworkId`,
+ * because two writers now create homework — a tutor setting a brief, and the
+ * planner filling in a sheet for each spec point — and a page that rendered
+ * every unsubmitted sheet's form inline stopped being viable the moment the
+ * second one existed.
+ *
+ * Sections are lifecycle states, not sources: due, handed in, marked, then the
+ * practice library. See `@/lib/homeworkBuckets` for why that is the right axis.
  */
-function AcknowledgeFeedback({
-  submission,
-  onChanged,
-}: {
-  submission: SubmissionRow;
-  onChanged: () => void;
-}) {
-  const [saving, setSaving] = useState(false);
-
-  if (submission.acknowledged_at) {
-    return (
-      <div className="mt-3 pt-3 border-t border-accent/15 flex items-center gap-2 text-xs text-muted-foreground">
-        <CheckCircle2 className="w-3.5 h-3.5 text-emerald-500 shrink-0" />
-        You acknowledged this feedback on{" "}
-        {new Date(submission.acknowledged_at).toLocaleDateString()}
-      </div>
-    );
-  }
-
-  const acknowledge = async () => {
-    setSaving(true);
-    try {
-      await acknowledgeSubmission({ data: { submissionId: submission.id } });
-      toast.success("Feedback acknowledged — your tutor has been notified");
-      onChanged();
-    } catch (err) {
-      toast.error(err instanceof Error ? err.message : "Could not acknowledge feedback");
-    } finally {
-      setSaving(false);
-    }
-  };
-
-  return (
-    <div className="mt-3 pt-3 border-t border-accent/15 flex flex-wrap items-center justify-between gap-3">
-      <p className="text-xs text-muted-foreground max-w-md">
-        Let your tutor know you've read this. Your uploaded files will be removed to save space —
-        download them first if you want to keep them. Your grade and feedback stay.
-      </p>
-      <button
-        onClick={acknowledge}
-        disabled={saving}
-        className="inline-flex items-center gap-2 h-9 px-4 rounded-lg btn-solid text-sm font-semibold hover:opacity-90 disabled:opacity-60 shrink-0"
-      >
-        <CheckCircle2 className="w-4 h-4" />
-        {saving ? "Acknowledging…" : "Acknowledge"}
-      </button>
-    </div>
-  );
-}
-
 export function HomeworkPage() {
   const { isTutor, userId, loading: rolesLoading } = useRoles();
   const demo = isDemoStudent();
@@ -136,70 +73,95 @@ export function HomeworkPage() {
   });
   const reload = useInvalidateHomework();
 
-  // Built-in questions and this student's answers, fetched once for every brief
-  // on screen rather than per card.
-  const { data: questionsByBrief = {} } = useHomeworkQuestions(
-    homework.map((h) => h.id),
-    identityReady,
-  );
-  const { data: answersByQuestion = {} } = useHomeworkAnswers(
-    Object.values(submissions).map((s) => s.id),
-    identityReady && wantsSubmissions,
-  );
-
   // A disabled query stays pending forever, so only wait on one that will run.
   const loading = !identityReady || homeworkPending || (wantsSubmissions && submissionsPending);
 
   const { rows: analytics } = useAnalytics(userId, enrolledCourses);
 
   // Homework & Grades is the dedicated marking section: for a tutor the page is
-  // the marking queue itself, not a read-only list of briefs. The briefs they've
-  // set stay available below as secondary context.
+  // the marking queue itself, not a read-only list of briefs. The library of
+  // what exists stays available below as secondary context.
   if (isTutor) {
     return (
       <AppLayout title="Homework & Grades">
         <p className="text-muted-foreground mb-6 max-w-2xl">
           Set homework as questions students answer on the site — generate them from the spec with
-          AI, edit anything, then mark the answers question by question.
+          AI, edit anything, then check the marks before they go out.
         </p>
         {userId && <SetHomeworkPanel userId={userId} />}
         <MarkingQueue />
-        <TutorBriefs homework={homework} loading={loading} onDeleted={reload} />
+        {userId && (
+          <HomeworkLibrary
+            homework={homework}
+            loading={loading}
+            userId={userId}
+            onChanged={reload}
+          />
+        )}
       </AppLayout>
     );
   }
 
   return (
+    <StudentHomework
+      homework={homework}
+      submissions={submissions}
+      loading={loading}
+      analytics={analytics}
+    />
+  );
+}
+
+function StudentHomework({
+  homework,
+  submissions,
+  loading,
+  analytics,
+}: {
+  homework: Homework[];
+  submissions: Record<string, SubmissionRow>;
+  loading: boolean;
+  analytics: ReturnType<typeof useAnalytics>["rows"];
+}) {
+  const items: HomeworkItem[] = useMemo(
+    () => homework.map((hw) => ({ hw, submission: submissions[hw.id] })),
+    [homework, submissions],
+  );
+  const sections = useMemo(() => groupHomework(items), [items]);
+
+  // Only the sheets on screen need their question counts, and the practice
+  // section is collapsed by default — but it is also the biggest, so counting
+  // everything at once is still one round trip rather than one per card.
+  const { data: summaries = {} } = useHomeworkSummaries(
+    homework.map((h) => h.id),
+    homework.length > 0,
+  );
+
+  return (
     <AppLayout title="Homework & Grades">
       <p className="text-muted-foreground mb-6 max-w-2xl">
-        Answer each homework here on the page — nothing to download, nothing to hand in. Attach a
-        photo of your working if it helps, and see your grades and feedback as soon as your tutor
-        marks them.
+        Answer each homework here on the page — nothing to download, nothing to hand in. Your marks
+        and feedback appear here once they&apos;ve been checked.
       </p>
 
-      {/* Predicted grades live in homework section now */}
-      {!isTutor && enrolledCourses.length > 0 && analytics.length > 0 && (
+      {/* Predicted grades live in the homework section. */}
+      {analytics.length > 0 && (
         <div className="mb-8">
-          <div className="flex items-center gap-2 mb-3">
-            <TrendingUp className="w-4 h-4 text-primary" />
-            <h3 className="font-display font-bold text-base text-foreground">Predicted Grades</h3>
+          <div className="mb-3 flex items-center gap-2">
+            <TrendingUp className="text-primary size-4" />
+            <h3 className="text-base">Predicted Grades</h3>
           </div>
-          <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4">
+          <div className="grid grid-cols-1 gap-4 sm:grid-cols-2 md:grid-cols-3">
             {analytics.map((a) => (
               <div
                 key={a.subject}
-                className="rounded-2xl premium-card p-5 relative overflow-hidden shadow-xs"
+                className={`premium-card p-5 ${SUBJECT_TINT[a.subject] ?? "tint-primary"}`}
               >
-                <div
-                  className={`absolute top-0 left-0 right-0 h-1 bg-gradient-to-r ${subjectColor[a.subject] ?? "from-primary to-accent"}`}
-                />
-                <p className="text-[10px] uppercase tracking-widest text-muted-foreground font-semibold">
-                  {subjectLabel(a.subject)}
-                </p>
-                <p className="font-display text-2xl font-extrabold mt-1 text-foreground">
+                <p className="eyebrow-bare">{SUBJECT_LABEL[a.subject] ?? a.subject}</p>
+                <p className="numeral mt-1 text-2xl text-[color:var(--tint)]">
                   Grade {a.predictedGrade}
                 </p>
-                <div className="flex items-center justify-between text-[11px] text-muted-foreground mt-3 pt-3 border-t border-border/60">
+                <div className="border-border text-muted-foreground mt-3 flex items-center justify-between border-t pt-3 text-[11px]">
                   <span>
                     MCQs: <strong className="text-foreground">{a.mcqAverage}%</strong>
                   </span>
@@ -215,25 +177,21 @@ export function HomeworkPage() {
 
       {loading ? (
         <Spinner label="Fetching your homework" />
-      ) : homework.length === 0 ? (
+      ) : sections.length === 0 ? (
         <EmptyState
           mascot="star"
           mood="happy"
           title="Nothing due right now"
-          body="No homework has been set for your subjects yet. When your tutor posts a brief it lands here, with the questions and your marks in the same place."
+          body="No homework has been set for your subjects yet. When your tutor posts one it lands here, with the questions and your marks in the same place."
         />
       ) : (
-        <div className="space-y-4">
-          {homework.map((h) => (
-            <HomeworkCard
-              key={h.id}
-              hw={h}
-              submission={submissions[h.id]}
-              questions={questionsByBrief[h.id] ?? []}
-              answers={answersByQuestion}
-              userId={userId}
-              onChanged={reload}
-              readonly={demo}
+        <div className="space-y-8">
+          {sections.map((section) => (
+            <HomeworkSection
+              key={section.bucket}
+              bucket={section.bucket}
+              items={section.items}
+              summaries={summaries}
             />
           ))}
         </div>
@@ -243,9 +201,117 @@ export function HomeworkPage() {
 }
 
 /**
+ * One lifecycle section.
+ *
+ * Practice starts collapsed. It is the section that grows without bound — one
+ * sheet for every spec point the student's plan has ever touched — and left
+ * open it would bury the three sections that actually need attention under a
+ * scrolling wall of topics.
+ */
+function HomeworkSection({
+  bucket,
+  items,
+  summaries,
+}: {
+  bucket: HomeworkBucket;
+  items: HomeworkItem[];
+  summaries: Record<string, HomeworkSummary>;
+}) {
+  const [open, setOpen] = useState(bucket !== "practice");
+
+  return (
+    <section className={BUCKET_TINT[bucket]}>
+      <button
+        type="button"
+        onClick={() => setOpen((o) => !o)}
+        className="flex w-full items-center gap-2 text-left"
+        aria-expanded={open}
+      >
+        {open ? (
+          <ChevronDown className="text-muted-foreground size-4 shrink-0" aria-hidden />
+        ) : (
+          <ChevronRight className="text-muted-foreground size-4 shrink-0" aria-hidden />
+        )}
+        <div className="min-w-0 flex-1">
+          <SectionHeading
+            title={`${BUCKET_LABEL[bucket]} (${items.length})`}
+            hint={BUCKET_HINT[bucket]}
+          />
+        </div>
+      </button>
+
+      {open && (
+        <div className="mt-4 space-y-3">
+          {items.map((item) => (
+            <HomeworkCard key={item.hw.id} item={item} summary={summaries[item.hw.id]} />
+          ))}
+        </div>
+      )}
+    </section>
+  );
+}
+
+/**
+ * One sheet, as a row you press.
+ *
+ * Everything on it answers "should I open this?" — what it is, how big it is,
+ * and where it has got to. What the questions actually say is a page away,
+ * which is the whole point.
+ */
+function HomeworkCard({ item, summary }: { item: HomeworkItem; summary?: HomeworkSummary }) {
+  const { hw, submission } = item;
+  const overdue = isOverdue(item);
+  const awaiting = isAwaitingRelease(item);
+
+  return (
+    <Link
+      // The showcase mounts the same sheet page under /demo/student, outside the
+      // auth guard — linking into the guarded one would bounce a visitor to
+      // sign-in from a page whose whole job is to be browsable without an account.
+      to={isDemoStudent() ? "/demo/student/homework/$homeworkId" : "/homework/$homeworkId"}
+      params={{ homeworkId: hw.id }}
+      className={`premium-card block p-4 transition hover:brightness-[0.99] ${
+        SUBJECT_TINT[hw.subject] ?? "tint-primary"
+      }`}
+    >
+      <div className="flex flex-wrap items-center gap-2">
+        <span className="chip">{SUBJECT_LABEL[hw.subject] ?? hw.subject}</span>
+        {hw.origin === "tutor" && <span className="chip">Set by your tutor</span>}
+        {overdue && <span className="chip tint-rose">Overdue</span>}
+        {submission?.graded_at && submission.score_pct != null && (
+          <span className="chip-solid">
+            <span className="numeral">{Number(submission.score_pct)}%</span>
+          </span>
+        )}
+      </div>
+
+      <p className="font-display mt-2 font-bold">{hw.title}</p>
+
+      <div className="text-muted-foreground mt-1.5 flex flex-wrap items-center gap-x-3 gap-y-1 text-xs">
+        {summary && summary.count > 0 && (
+          <span>
+            {summary.count} question{summary.count === 1 ? "" : "s"} · {summary.marks} marks
+          </span>
+        )}
+        {hw.due_at && !submission && (
+          <span className="inline-flex items-center gap-1">
+            <Clock className="size-3" aria-hidden />
+            Due {new Date(hw.due_at).toLocaleDateString()}
+          </span>
+        )}
+        {awaiting && <span>Being marked</span>}
+        {submission?.graded_at && (
+          <span>Marked {new Date(submission.graded_at).toLocaleDateString()}</span>
+        )}
+      </div>
+    </Link>
+  );
+}
+
+/**
  * Set homework straight from the Homework & Grades tab, so a tutor doesn't have
- * to detour through Tutor Studio to post a brief. Reuses the same form and
- * insert path; taxonomy state is local to the panel.
+ * to detour through Tutor Studio to post one. Reuses the same form and insert
+ * path; taxonomy state is local to the panel.
  */
 function SetHomeworkPanel({ userId }: { userId: string }) {
   const [open, setOpen] = useState(false);
@@ -254,472 +320,27 @@ function SetHomeworkPanel({ userId }: { userId: string }) {
   const [level, setLevel] = useState<LevelV>("gcse");
 
   return (
-    <div className="mb-8 rounded-2xl premium-card overflow-hidden">
+    <div className="premium-card mb-8 overflow-hidden">
       <button
         onClick={() => setOpen((o) => !o)}
-        className="w-full flex items-center justify-between gap-3 px-5 py-4 text-left hover:bg-muted/40"
+        className="hover:bg-muted/40 flex w-full items-center justify-between gap-3 px-5 py-4 text-left"
       >
         <span className="inline-flex items-center gap-2 text-sm font-semibold">
-          <Plus className="w-4 h-4 text-primary" />
+          <Plus className="text-primary size-4" />
           Set new homework
         </span>
         <ChevronDown
-          className={`w-4 h-4 text-muted-foreground transition-transform ${open ? "rotate-180" : ""}`}
+          className={`text-muted-foreground size-4 transition-transform ${open ? "rotate-180" : ""}`}
         />
       </button>
 
       {open && (
-        <div className="border-t border-border p-5">
+        <div className="border-border border-t p-5">
           <HomeworkForm
             userId={userId}
             taxonomy={{ subject, setSubject, board, setBoard, level, setLevel }}
           />
         </div>
-      )}
-    </div>
-  );
-}
-
-/**
- * The briefs a tutor has set, kept collapsed beneath the marking queue. It's
- * reference material rather than something needing action, so it stays out of
- * the way until asked for — plus a delete escape hatch for briefs posted in
- * error.
- */
-function TutorBriefs({
-  homework,
-  loading,
-  onDeleted,
-}: {
-  homework: Homework[];
-  loading: boolean;
-  onDeleted: () => void;
-}) {
-  const [open, setOpen] = useState(false);
-
-  return (
-    <div className="mt-8 rounded-2xl premium-card overflow-hidden">
-      <button
-        onClick={() => setOpen((o) => !o)}
-        className="w-full flex items-center justify-between gap-3 px-5 py-4 text-left hover:bg-muted/40"
-      >
-        <span className="inline-flex items-center gap-2 text-sm font-semibold">
-          <ClipboardList className="w-4 h-4 text-muted-foreground" />
-          Homework you've set
-          <span className="inline-flex items-center justify-center min-w-5 h-5 px-1.5 rounded-full bg-secondary text-[11px] text-muted-foreground">
-            {loading ? "…" : homework.length}
-          </span>
-        </span>
-        <ChevronDown
-          className={`w-4 h-4 text-muted-foreground transition-transform ${open ? "rotate-180" : ""}`}
-        />
-      </button>
-
-      {open && (
-        <div className="border-t border-border p-5">
-          {loading ? (
-            <Spinner label="Loading briefs" className="py-8" />
-          ) : homework.length === 0 ? (
-            <p className="text-muted-foreground text-sm">
-              You haven&apos;t set any homework yet — use the form above to post the first brief.
-            </p>
-          ) : (
-            <ul className="divide-y divide-border">
-              {homework.map((h) => (
-                <TutorBriefRow key={h.id} hw={h} onDeleted={onDeleted} />
-              ))}
-            </ul>
-          )}
-        </div>
-      )}
-    </div>
-  );
-}
-
-/**
- * A single set-homework row with a delete control. Deletion is destructive and
- * system-wide — it removes the brief and every student's submission for it — so
- * it's gated behind an inline confirm rather than a one-click button.
- */
-function TutorBriefRow({ hw, onDeleted }: { hw: Homework; onDeleted: () => void }) {
-  const [confirming, setConfirming] = useState(false);
-  const [deleting, setDeleting] = useState(false);
-
-  const remove = async () => {
-    setDeleting(true);
-    try {
-      await deleteHomework({ data: { homeworkId: hw.id } });
-      toast.success("Homework deleted for everyone");
-      onDeleted();
-    } catch (err) {
-      toast.error(err instanceof Error ? err.message : "Could not delete homework");
-      setDeleting(false);
-      setConfirming(false);
-    }
-  };
-
-  return (
-    <li className="py-3 first:pt-0 last:pb-0">
-      <div className="flex flex-wrap items-center gap-2">
-        <span className="text-[10px] px-2 py-0.5 rounded uppercase tracking-widest font-semibold bg-primary/10 text-primary">
-          {hw.subject}
-        </span>
-        <span className="text-sm font-medium">{hw.title}</span>
-        {hw.due_at && (
-          <span className="text-xs text-muted-foreground inline-flex items-center gap-1">
-            <Clock className="w-3 h-3" /> Due {new Date(hw.due_at).toLocaleDateString()}
-          </span>
-        )}
-
-        {confirming ? (
-          <span className="ml-auto inline-flex items-center gap-2">
-            <span className="text-xs text-muted-foreground">Delete for all students?</span>
-            <button
-              type="button"
-              onClick={remove}
-              disabled={deleting}
-              className="inline-flex items-center gap-1 h-7 px-2.5 rounded-md bg-destructive text-white text-xs font-semibold hover:opacity-90 disabled:opacity-60"
-            >
-              <Trash2 className="w-3 h-3" />
-              {deleting ? "Deleting…" : "Delete"}
-            </button>
-            <button
-              type="button"
-              onClick={() => setConfirming(false)}
-              disabled={deleting}
-              className="h-7 px-2.5 rounded-md border border-border text-xs font-medium hover:bg-muted/50 disabled:opacity-60"
-            >
-              Cancel
-            </button>
-          </span>
-        ) : (
-          <button
-            type="button"
-            onClick={() => setConfirming(true)}
-            className="ml-auto inline-flex items-center gap-1 text-xs text-muted-foreground hover:text-destructive"
-          >
-            <Trash2 className="w-3.5 h-3.5" />
-            Delete
-          </button>
-        )}
-      </div>
-    </li>
-  );
-}
-
-function HomeworkCard({
-  hw,
-  submission,
-  questions,
-  answers,
-  userId,
-  onChanged,
-  readonly,
-}: {
-  hw: Homework;
-  submission?: SubmissionRow;
-  questions: HomeworkQuestion[];
-  answers: Record<string, HomeworkAnswer>;
-  userId: string | null;
-  onChanged: () => void;
-  readonly: boolean;
-}) {
-  const [files, setFiles] = useState<File[]>([]);
-  const [notes, setNotes] = useState("");
-  const [uploading, setUploading] = useState(false);
-
-  const submit = async (e: React.FormEvent) => {
-    e.preventDefault();
-    if (!userId || files.length === 0) return toast.error("Choose at least one file");
-    setUploading(true);
-    try {
-      // Photos come off a phone at several MB; shrink them to fit the 1 MB cap
-      // before anything is uploaded, and fail the whole submission if one can't
-      // be made to fit — a partial upload would leave orphaned files behind.
-      const prepared: File[] = [];
-      let shrunk = 0;
-      for (const f of files) {
-        const result = await prepareUpload(f);
-        if (!result.ok) {
-          toast.error(result.reason);
-          setUploading(false);
-          return;
-        }
-        if (result.compressed) shrunk++;
-        prepared.push(result.file);
-      }
-      if (shrunk > 0) {
-        toast.info(`Compressed ${shrunk} image${shrunk === 1 ? "" : "s"} to fit the 1 MB limit`);
-      }
-
-      const uploaded: Array<{ path: string; name: string }> = [];
-      for (const f of prepared) {
-        const path = `submissions/${userId}/${hw.id}/${crypto.randomUUID()}-${f.name}`;
-        const { error } = await supabase.storage
-          .from("resources")
-          .upload(path, f, { upsert: false });
-        if (error) throw error;
-        uploaded.push({ path, name: f.name });
-      }
-      // A submission is final — insert, never upsert. RLS grants students
-      // INSERT only, and UNIQUE (resource_id, student_id) rejects a second
-      // attempt, so a stale tab cannot overwrite submitted (or graded) work.
-      const { error } = await supabase.from("homework_submissions").insert({
-        resource_id: hw.id,
-        student_id: userId,
-        files: uploaded,
-        notes: notes || null,
-        submitted_at: new Date().toISOString(),
-      });
-      if (error) {
-        if (error.code === "23505") {
-          toast.error("You've already submitted this homework — submissions are final.");
-          onChanged();
-          return;
-        }
-        throw error;
-      }
-      toast.success("Homework submitted");
-      setFiles([]);
-      setNotes("");
-      onChanged();
-    } catch (err) {
-      toast.error(err instanceof Error ? err.message : "Upload failed");
-    } finally {
-      setUploading(false);
-    }
-  };
-
-  // A built-in brief carries its own questions and is answered on the page; the
-  // file-upload form is the fallback for older briefs that have none.
-  const builtIn = questions.length > 0;
-  const completed = !!submission;
-  const isOverdue = hw.due_at && new Date(hw.due_at) < new Date() && !completed;
-  const marked = submission?.graded_at != null;
-
-  let cardBorderClass = "border-border";
-  let statusLabel = "Due";
-  let statusBadgeClass =
-    "bg-amber-500/10 text-amber-600 dark:text-amber-400 border border-amber-500/20";
-
-  if (completed) {
-    cardBorderClass = "border-emerald-500/40 dark:border-emerald-500/30 bg-emerald-500/[0.005]";
-    statusLabel = marked ? "Completed & Marked" : "Submitted";
-    statusBadgeClass =
-      "bg-emerald-500/10 text-emerald-600 dark:text-emerald-400 border border-emerald-500/20";
-  } else if (isOverdue) {
-    cardBorderClass = "border-rose-500/40 dark:border-rose-500/30 bg-rose-500/[0.005]";
-    statusLabel = "Overdue";
-    statusBadgeClass = "bg-rose-500/10 text-rose-600 dark:text-rose-400 border border-rose-500/20";
-  } else {
-    cardBorderClass = "border-amber-500/40 dark:border-amber-500/30 bg-amber-500/[0.005]";
-    statusLabel = "Due";
-    statusBadgeClass =
-      "bg-amber-500/10 text-amber-600 dark:text-amber-400 border border-amber-500/20";
-  }
-
-  return (
-    <div
-      className={`rounded-2xl bg-card border-2 ${cardBorderClass} overflow-hidden shadow-xs transition duration-200`}
-    >
-      <div className="p-6">
-        <div className="flex items-start justify-between gap-4">
-          <div>
-            <div className="flex items-center gap-2 mb-2">
-              <span className="text-[10px] px-2 py-0.5 rounded uppercase tracking-widest font-semibold bg-primary/10 text-primary">
-                {hw.subject}
-              </span>
-              <span
-                className={`text-[10px] px-2 py-0.5 rounded uppercase tracking-widest font-semibold ${statusBadgeClass}`}
-              >
-                {statusLabel}
-              </span>
-              {hw.due_at && (
-                <span
-                  className={`text-xs inline-flex items-center gap-1 ${isOverdue ? "text-rose-500" : "text-muted-foreground"}`}
-                >
-                  <Clock className="w-3 h-3" /> Due {new Date(hw.due_at).toLocaleDateString()}
-                </span>
-              )}
-            </div>
-            <h3 className="font-display text-lg font-bold">{hw.title}</h3>
-            {hw.instructions && (
-              <p className="mt-2 text-sm text-muted-foreground whitespace-pre-wrap">
-                {hw.instructions}
-              </p>
-            )}
-          </div>
-        </div>
-
-        {marked && submission && (
-          <div className="mt-4 rounded-xl bg-accent/5 border border-accent/20 p-4">
-            <div className="flex flex-wrap items-center gap-2 mb-3">
-              {submission.grade && (
-                <span className="inline-flex items-center gap-1.5 text-xs bg-accent/15 border border-accent/20 text-accent font-semibold px-2.5 py-1 rounded-full">
-                  <span className="w-1.5 h-1.5 rounded-full bg-accent animate-ping" />
-                  Grade: {submission.grade}
-                </span>
-              )}
-              {submission.score_pct != null && (
-                <span className="inline-flex items-center text-xs bg-accent/10 text-accent font-semibold px-2.5 py-1 rounded-full border border-accent/20">
-                  Score: {Number(submission.score_pct)}%
-                </span>
-              )}
-            </div>
-            {submission.feedback && (
-              <div className="mt-3 pt-3 border-t border-accent/15">
-                <p className="text-[10px] font-extrabold uppercase tracking-widest text-accent mb-2">
-                  Tutor Feedback
-                </p>
-                <div className="p-3.5 premium-card rounded-xl text-foreground text-sm whitespace-pre-wrap leading-relaxed shadow-inner">
-                  {submission.feedback}
-                </div>
-              </div>
-            )}
-            {!readonly && <AcknowledgeFeedback submission={submission} onChanged={onChanged} />}
-          </div>
-        )}
-
-        {builtIn && submission && (
-          <BuiltInHomework
-            hw={hw}
-            questions={questions}
-            userId={userId}
-            submission={submission}
-            answers={answers}
-            onChanged={onChanged}
-            readonly={readonly}
-          />
-        )}
-
-        {!builtIn && submission && submission.files.length > 0 && (
-          <div className="mt-4">
-            <p className="text-xs font-semibold uppercase tracking-wider text-muted-foreground mb-2">
-              Your submission
-            </p>
-            <ul className="space-y-1">
-              {submission.files.map((f) =>
-                // Once the bytes are gone the path no longer resolves, so show
-                // what was handed in rather than a link that would 404.
-                submission.files_deleted_at ? (
-                  <li
-                    key={f.path}
-                    className="text-sm inline-flex items-center gap-2 text-muted-foreground"
-                  >
-                    <FileText className="w-3.5 h-3.5 shrink-0" />
-                    <span className="line-through">{f.name}</span>
-                    <span className="text-[10px] uppercase tracking-widest font-semibold px-1.5 py-0.5 rounded bg-muted text-muted-foreground">
-                      Removed
-                    </span>
-                  </li>
-                ) : (
-                  <li key={f.path}>
-                    <SignedFileLink file={f} />
-                  </li>
-                ),
-              )}
-            </ul>
-            {submission.files_deleted_at && (
-              <p className="mt-2 text-xs text-muted-foreground">
-                Your files were removed to save space. Your grade and feedback are kept.
-              </p>
-            )}
-          </div>
-        )}
-      </div>
-
-      {builtIn && !submission && (
-        <BuiltInHomework
-          hw={hw}
-          questions={questions}
-          userId={userId}
-          answers={answers}
-          onChanged={onChanged}
-          readonly={readonly}
-        />
-      )}
-
-      {!builtIn && !readonly && !submission && (
-        <form onSubmit={submit} className="border-t border-border p-6 bg-muted/40 space-y-3">
-          <p className="text-xs font-semibold uppercase tracking-wider text-muted-foreground">
-            Upload your work
-          </p>
-          <label className="flex flex-col items-center justify-center gap-2 border-2 border-dashed border-border rounded-xl p-6 cursor-pointer hover:border-primary/50 transition bg-card">
-            <Upload className="w-6 h-6 text-primary" />
-            <span className="text-sm">Click to choose files (PDF, DOCX, PNG, JPG)</span>
-            <span className="text-[11px] text-muted-foreground">
-              Max {formatBytes(MAX_UPLOAD_BYTES)} per file — photos are compressed automatically
-            </span>
-            <input
-              type="file"
-              multiple
-              accept=".pdf,.doc,.docx,.png,.jpg,.jpeg"
-              className="hidden"
-              onChange={(e) => setFiles(Array.from(e.target.files ?? []))}
-            />
-          </label>
-          {files.length > 0 && (
-            <ul className="space-y-1">
-              {files.map((f, i) => {
-                // Images over the cap get shrunk on submit, so flag them as
-                // "will compress" rather than as a problem.
-                const over = f.size > MAX_UPLOAD_BYTES;
-                const fixable = over && f.type.startsWith("image/");
-                return (
-                  <li
-                    key={i}
-                    className="text-xs flex items-center gap-2 premium-card rounded-lg px-3 py-1.5"
-                  >
-                    <FileText className="w-3 h-3 text-muted-foreground shrink-0" />
-                    <span className="truncate">{f.name}</span>
-                    <span
-                      className={
-                        over && !fixable
-                          ? "text-destructive shrink-0"
-                          : "text-muted-foreground shrink-0"
-                      }
-                    >
-                      {formatBytes(f.size)}
-                    </span>
-                    {fixable && (
-                      <span className="text-[10px] uppercase tracking-wider font-semibold px-1.5 py-0.5 rounded bg-primary/10 text-primary shrink-0">
-                        Will compress
-                      </span>
-                    )}
-                    {over && !fixable && (
-                      <span className="text-[10px] uppercase tracking-wider font-semibold px-1.5 py-0.5 rounded bg-destructive/10 text-destructive shrink-0">
-                        Too large
-                      </span>
-                    )}
-                    <button
-                      type="button"
-                      onClick={() => setFiles(files.filter((_, j) => j !== i))}
-                      className="ml-auto text-muted-foreground hover:text-destructive shrink-0"
-                    >
-                      <X className="w-3 h-3" />
-                    </button>
-                  </li>
-                );
-              })}
-            </ul>
-          )}
-          <textarea
-            value={notes}
-            onChange={(e) => setNotes(e.target.value)}
-            placeholder="Notes for your tutor (optional)"
-            className="w-full min-h-16 rounded-lg premium-input px-3 py-2 text-sm"
-          />
-          <p className="text-[11px] text-muted-foreground leading-relaxed">
-            Submissions are final — once you submit, you can't change or remove your work. Check
-            your files before submitting.
-          </p>
-          <button
-            disabled={uploading}
-            className="w-full h-10 rounded-lg btn-solid text-sm font-semibold hover:opacity-90 disabled:opacity-60"
-          >
-            {uploading ? "Uploading…" : "Submit homework"}
-          </button>
-        </form>
       )}
     </div>
   );
