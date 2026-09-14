@@ -68,6 +68,7 @@ export function Videos() {
             const embed = parseVideoUrl(v.video_url);
             return (
               <button
+                data-guide="video-watch"
                 key={v.id}
                 type="button"
                 onClick={() =>

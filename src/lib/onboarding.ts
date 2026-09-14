@@ -105,4 +105,9 @@ export async function completeOnboarding(userId: string) {
     .update({ onboarding_completed_at: new Date().toISOString() })
     .eq("id", userId);
   if (error) throw error;
+  try {
+    localStorage.setItem(`student-guide:${userId}`, "pending");
+  } catch {
+    /* The guide can still be opened manually when storage is unavailable. */
+  }
 }

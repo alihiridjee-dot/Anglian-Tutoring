@@ -1,8 +1,12 @@
-import { PLANNER_TIME_ZONE } from "@/lib/week";
+import { ReturningTopicInfo } from "./ReturningTopicInfo";
+import { PlannerPointItem } from "./PlannerPointItem";
+import { EmptyRevision } from "./EmptyRevision";
+import { CatchUpWeek } from "./CatchUpWeek";
+import { currentWeekKey, PLANNER_TIME_ZONE } from "@/lib/week";
 import { Spinner, Meter, EmptyState } from "@/components/Shared";
 import { useMemo, useState } from "react";
 import { Link } from "@tanstack/react-router";
-import { CircleDot, CheckCircle2, Plus, RotateCcw, Sparkles } from "lucide-react";
+import { CircleDot, Repeat, CheckCircle2, Plus, RotateCcw } from "lucide-react";
 import { type PlanPoint, type WeeklyPlan } from "@/lib/weeklyPlanDal";
 import { type RoadmapResult } from "@/lib/programDal";
 import { isTeachBand, mondayOnOrAfter, type PacingBand } from "@/lib/planner/pacing";
@@ -17,7 +21,6 @@ import { parseVideoUrl } from "@/lib/videoEmbed";
 import { VideoModal } from "@/components/VideoPlayer";
 import { CoveragePill } from "./CoveragePill";
 import { WorkChips } from "./WorkChips";
-import { FocusedTopicsLabel } from "./FocusLane";
 import { type Activity } from "./useWeekPlan";
 
 /**
@@ -48,7 +51,6 @@ export function ThisWeekPanel({
   loading,
   weekStart,
   isPast,
-  showRationale,
   showCoverage,
   onFocusAgain,
 }: {
@@ -60,7 +62,6 @@ export function ThisWeekPanel({
   loading: boolean;
   weekStart: string;
   isPast: boolean;
-  showRationale: boolean;
   showCoverage: boolean;
   onFocusAgain?: (point: PlanPoint) => void;
 }) {
@@ -120,6 +121,12 @@ export function ThisWeekPanel({
   }, [points, roadmap, band]);
 
   const focusPointCount = focus.reduce((n, g) => n + g.points.length, 0);
+  const returningIds = new Set([
+    ...(roadmap?.catchUpSchedule?.weeks[weekStart] ?? []).map((p) => p.specPointId),
+    ...(roadmap?.backlog ?? []).filter((p) => p.plannedWeek < weekStart).map((p) => p.specPointId),
+  ]);
+  const upcomingCatchUp =
+    !plan && weekStart > currentWeekKey() && !!roadmap?.catchUpSchedule?.weeks[weekStart]?.length;
 
   const assigned = points.filter((p) => {
     const a = activity.get(p.spec_point_id);
@@ -148,52 +155,48 @@ export function ThisWeekPanel({
       new Date(progress.lastReviewedAt) >= weekKeyToDate(weekStart)
         ? mondayOnOrAfter(new Date(progress.eligibleAt))
         : null;
-    const status = statusOfPoint(cov, work);
+    const hasPractice = !!(work?.hasHomework || work?.hasQuiz);
     return (
-      <div
+      <PlannerPointItem
         key={p.spec_point_id}
-        className="flex flex-wrap items-center gap-x-2 gap-y-1.5 rounded-lg border border-border bg-card/60 px-2.5 py-2"
+        code={p.code}
+        title={p.title}
+        status={
+          !hasPractice ? (
+            <span className="chip tint-slate text-[11px]">Practice not attached</span>
+          ) : showCoverage ? (
+            <CoveragePill status={statusOfPoint(cov, work)} score={cov?.bestScore} />
+          ) : undefined
+        }
       >
-        <div className="flex-1 min-w-[11rem]">
-          <span className="text-[11px] font-semibold text-muted-foreground mr-1.5">{p.code}</span>
-          <span className="text-sm">{p.title}</span>
-          {nextReview && (
-            <p className="text-xs text-muted-foreground mt-1">
-              {roadmap && nextReview >= weekKeyToDate(roadmap.examDate)
-                ? "Next memory review falls beyond this exam period."
-                : `Next review eligible from ${nextReview.toLocaleDateString(undefined, { timeZone: PLANNER_TIME_ZONE, day: "numeric", month: "short" })}; assigned at the next weekly opening before the exam.`}
-            </p>
-          )}
-          {p.carried_from && (
-            <span
-              className="ml-1.5 inline-flex items-center gap-1 align-middle h-5 px-1.5 rounded-md bg-muted text-[10px] font-medium text-muted-foreground"
-              title="Carried over from last week — it stays in this lane"
-            >
-              <RotateCcw className="w-2.5 h-2.5" /> Carried
-            </span>
-          )}
-        </div>
-        <div className="flex flex-wrap items-center gap-1.5 shrink-0">
-          {showCoverage && status !== "not_set" && (
-            <CoveragePill status={status} score={cov?.bestScore} />
-          )}
-          <WorkChips
-            work={work}
-            coverage={showCoverage ? cov : null}
-            onPlay={(item) => setPlaying(item)}
-          />
-          {isPast && onFocusAgain && (
-            <button
-              type="button"
-              onClick={() => onFocusAgain(p)}
-              className="inline-flex items-center gap-1 h-6 px-2 rounded-md premium-card text-[11px] font-medium text-muted-foreground hover:text-primary hover:border-primary/40"
-              title="Focus on this again this week"
-            >
-              <RotateCcw className="w-3 h-3" /> Focus again
+        {!hasPractice && (
+          <p className="text-muted-foreground">
+            Your tutor can attach practice to this point. It does not count as unfinished practice.
+          </p>
+        )}
+        {nextReview && (
+          <p className="text-sm text-muted-foreground">
+            {roadmap && nextReview >= weekKeyToDate(roadmap.examDate)
+              ? "Next memory review falls beyond this exam period."
+              : `Next review eligible from ${nextReview.toLocaleDateString(undefined, { timeZone: PLANNER_TIME_ZONE, day: "numeric", month: "short" })}. It will be assigned at the next weekly opening.`}
+          </p>
+        )}
+        {p.carried_from && (
+          <span className="chip text-[11px]">
+            <RotateCcw className="size-3" />
+            Carried from an earlier week
+          </span>
+        )}
+        <div className="flex flex-wrap items-center gap-2">
+          <WorkChips work={work} coverage={showCoverage ? cov : null} onPlay={setPlaying} />
+          {hasPractice && isPast && onFocusAgain && (
+            <button type="button" onClick={() => onFocusAgain(p)} className="chip text-xs">
+              <RotateCcw className="size-3" />
+              Focus again
             </button>
           )}
         </div>
-      </div>
+      </PlannerPointItem>
     );
   };
 
@@ -207,8 +210,12 @@ export function ThisWeekPanel({
     <div className="space-y-4">
       {points.length === 0 && (
         <EmptyState
-          title="Nothing assigned this week"
-          body="Your next review will appear when it is eligible. There is no extra practice to complete here today."
+          title={upcomingCatchUp ? "Upcoming week preview" : "Nothing assigned this week"}
+          body={
+            upcomingCatchUp
+              ? "The catch-up estimate below will be confirmed when this week arrives. It assumes earlier work is completed."
+              : "Your next review will appear when it is eligible. There is no extra practice to complete here today."
+          }
         />
       )}
       {showCoverage && assigned.length > 0 && (
@@ -239,26 +246,22 @@ export function ThisWeekPanel({
           )}
         </div>
       )}
-      {showRationale && plan?.ai_rationale && !/flagged|confidence/i.test(plan.ai_rationale) && (
-        <div className="flex items-start gap-2 rounded-xl bg-primary/5 border border-primary/15 p-3">
-          <Sparkles className="w-4 h-4 text-primary mt-0.5 shrink-0" />
-          <p className="text-sm text-foreground/90">{plan.ai_rationale}</p>
-        </div>
-      )}
 
-      <div className="grid gap-4 md:grid-cols-2 items-stretch">
+      <div className="grid gap-4 md:grid-cols-2 items-start">
         {/* Core topic — the curriculum, on schedule for the exam. */}
         <div className="h-full flex flex-col rounded-xl premium-card tint-primary p-4">
           <div className="flex items-center gap-1.5 mb-1">
             {covered ? (
               <>
                 <CheckCircle2 className="w-3.5 h-3.5 text-emerald-600 dark:text-emerald-400" />
-                <span className="eyebrow eyebrow-bare tint-emerald">Core topic · covered</span>
+                <span className="eyebrow eyebrow-bare text-xs tint-emerald">
+                  New learning · covered
+                </span>
               </>
             ) : (
               <>
                 <CircleDot className="w-3.5 h-3.5 text-primary" />
-                <span className="eyebrow eyebrow-bare">Core topic</span>
+                <span className="eyebrow eyebrow-bare text-xs">New learning</span>
               </>
             )}
             {band && (
@@ -273,9 +276,7 @@ export function ThisWeekPanel({
               {band && (
                 <TopicBlock title={band.title} accent="primary">
                   {coreThisWeek.length > 0 ? (
-                    <SpecPointList count={coreThisWeek.length}>
-                      {coreThisWeek.map(row)}
-                    </SpecPointList>
+                    <SpecPointList>{coreThisWeek.map(row)}</SpecPointList>
                   ) : (
                     <p className="mt-3 text-sm text-muted-foreground">
                       {covered
@@ -286,42 +287,61 @@ export function ThisWeekPanel({
                 </TopicBlock>
               )}
               {extraCore.map((g) => (
-                <TopicBlock key={g.topicId} title={g.title} accent="primary">
-                  <SpecPointList count={g.points.length}>{g.points.map(row)}</SpecPointList>
-                </TopicBlock>
+                <div key={g.topicId} className="border-t border-border pt-4 tint-amber">
+                  {g.points.some((p) => returningIds.has(p.spec_point_id)) && (
+                    <p className="eyebrow eyebrow-bare text-xs mb-3">Missed work returning</p>
+                  )}
+                  <TopicBlock
+                    title={g.title}
+                    accent="primary"
+                    header={
+                      g.points.some((p) => returningIds.has(p.spec_point_id)) ? (
+                        <ReturningTopicInfo
+                          title={g.title}
+                          points={(
+                            roadmap?.catchUpSchedule?.weeks[weekStart] ??
+                            roadmap?.backlog ??
+                            []
+                          ).filter((p) =>
+                            g.points.some((point) => point.spec_point_id === p.specPointId),
+                          )}
+                        />
+                      ) : undefined
+                    }
+                  >
+                    <SpecPointList>{g.points.map(row)}</SpecPointList>
+                  </TopicBlock>
+                </div>
               ))}
             </div>
           ) : (
             <p className="text-sm text-muted-foreground">No core topic scheduled this week.</p>
+          )}
+          {upcomingCatchUp && (
+            <CatchUpWeek schedule={roadmap?.catchUpSchedule} weekStart={weekStart} />
           )}
         </div>
 
         {/* Focused topics — what came back round. Same anatomy as the core card
             (topic, how well it's sticking, this week's spec points), repeated
             once per topic, so the two halves read as one idea in two colours. */}
-        <div className="h-full flex flex-col rounded-xl premium-card p-4">
-          <div className="flex items-center gap-1.5 mb-1">
-            <FocusedTopicsLabel className="eyebrow eyebrow-bare tint-rose" />
-            {focus.length > 0 && (
-              <span className="ml-auto text-[11px] text-muted-foreground">
-                {focusPointCount} to revisit
-              </span>
-            )}
-          </div>
+        <div className="rounded-xl premium-card tint-rose p-4">
           {focus.length > 0 ? (
-            <div className="space-y-5">
-              {focus.map((g) => (
-                <TopicBlock key={g.topicId} title={g.title} accent="rose">
-                  <SpecPointList count={g.points.length}>{g.points.map(row)}</SpecPointList>
-                </TopicBlock>
-              ))}
-            </div>
-          ) : (
-            <div className="flex-1 flex items-center">
-              <p className="text-sm text-muted-foreground">
-                No reviews assigned this week. Future reviews follow your assessed practice.
+            <>
+              <p className="eyebrow eyebrow-bare text-xs flex items-center gap-2 mb-3">
+                <Repeat className="size-4" />
+                Revision<span className="chip ml-auto text-xs">{focusPointCount} points</span>
               </p>
-            </div>
+              <div className="space-y-5">
+                {focus.map((g) => (
+                  <TopicBlock key={g.topicId} title={g.title} accent="rose">
+                    <SpecPointList>{g.points.map(row)}</SpecPointList>
+                  </TopicBlock>
+                ))}
+              </div>
+            </>
+          ) : (
+            <EmptyRevision isPast={isPast} />
           )}
         </div>
       </div>
@@ -335,7 +355,7 @@ export function ThisWeekPanel({
           <div className="space-y-5">
             {yours.map((g) => (
               <TopicBlock key={g.topicId} title={g.title} accent="muted">
-                <SpecPointList count={g.points.length}>{g.points.map(row)}</SpecPointList>
+                <SpecPointList>{g.points.map(row)}</SpecPointList>
               </TopicBlock>
             ))}
           </div>
@@ -352,29 +372,24 @@ export function ThisWeekPanel({
 function TopicBlock({
   title,
   children,
+  header,
 }: {
   title: string;
   accent: "primary" | "rose" | "muted";
   children: React.ReactNode;
+  header?: React.ReactNode;
 }) {
   return (
     <div>
-      <h3 className="text-lg font-bold leading-snug">{title}</h3>
+      {header ?? <h3 className="text-base font-bold leading-snug">{title}</h3>}
       {children}
     </div>
   );
 }
 
-/** The week's spec points under a topic, with the same heading everywhere. */
-function SpecPointList({ count, children }: { count: number; children: React.ReactNode }) {
-  return (
-    <details className="mt-3" open={count <= 3}>
-      <summary className="cursor-pointer text-sm font-bold">
-        {count} curriculum {count === 1 ? "point" : "points"}
-      </summary>
-      <div className="space-y-1.5 mt-2">{children}</div>
-    </details>
-  );
+/** The week's spec points stay visible directly beneath their topic. */
+function SpecPointList({ children }: { children: React.ReactNode }) {
+  return <div className="space-y-1.5 mt-3">{children}</div>;
 }
 
 /** "13 Jul – 16 Aug" for a band's week keys. */

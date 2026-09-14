@@ -40,3 +40,12 @@ bun.lock
 *.sw?
 .vercel
 supabase/.temp/
+
+# Local exam-paper sources; extracted content belongs in Supabase.
+papers/*
+!papers/README.md
+
+# Python-generated caches
+__pycache__/
+*.pyc
+.pytest_cache/

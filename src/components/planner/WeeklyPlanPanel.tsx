@@ -1,3 +1,4 @@
+import { WeekBreakdown } from "./WeekBreakdown";
 import { WithheldPlanPoints } from "./WithheldPlanPoints";
 import { ErrorNote } from "@/components/Shared";
 import { useMemo, useState } from "react";
@@ -122,7 +123,15 @@ export function WeeklyPlanPanel({
               <p className="text-xs text-muted-foreground">{weekLabel}</p>
             </div>
           </div>
-          <div className="flex items-center gap-3">
+          <div className="flex flex-wrap items-center gap-3">
+            {isCurrent && week.plan && !week.loading && (
+              <WeekBreakdown
+                id="week-breakdown"
+                points={week.points}
+                roadmap={week.roadmap}
+                weekStart={weekStart}
+              />
+            )}
             {ordered.length > 1 && (
               <div className="flex items-center gap-1.5">
                 {ordered.map((e) => (
@@ -180,7 +189,6 @@ export function WeeklyPlanPanel({
             loading={week.loading}
             weekStart={weekStart}
             isPast={isPast}
-            showRationale={isCurrent}
             showCoverage={showReview}
             onFocusAgain={focusAgain}
           />

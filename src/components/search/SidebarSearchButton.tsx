@@ -26,6 +26,7 @@ export function SidebarSearchButton({ onOpen }: { onOpen: () => void }) {
 
   return (
     <button
+      data-guide="search"
       onClick={onOpen}
       title="Search (⌘K)"
       aria-label="Search"

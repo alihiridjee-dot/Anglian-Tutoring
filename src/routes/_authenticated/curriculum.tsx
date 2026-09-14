@@ -219,6 +219,7 @@ export function Curriculum() {
       <AppLayout title="Curriculum Point">
         <div className="max-w-4xl mx-auto space-y-6">
           <button
+            data-guide="curriculum-back"
             onClick={closeSpecPoint}
             className="inline-flex items-center gap-2 text-sm text-muted-foreground hover:text-primary transition font-semibold"
           >
@@ -277,7 +278,7 @@ export function Curriculum() {
           your level, exam board, and subject to begin.
         </p>
 
-        <div className="rounded-2xl premium-card p-5 mb-6">
+        <div data-guide="curriculum-filters" className="rounded-2xl premium-card p-5 mb-6">
           {isTutor ? (
             <div className="grid grid-cols-3 gap-3">
               <Filter
@@ -309,7 +310,7 @@ export function Curriculum() {
             />
           )}
 
-          <div className="mt-4 pt-4 border-t border-border">
+          <div data-guide="curriculum-search" className="mt-4 pt-4 border-t border-border">
             <SpecSearchBar
               value={query}
               onChange={setQuery}
@@ -353,7 +354,7 @@ export function Curriculum() {
                 {isTutor && <p className="mt-2 text-xs">Add one above to get started.</p>}
               </div>
             ) : (
-              <div className="space-y-3">
+              <div data-guide="curriculum-topics" className="space-y-3">
                 {topics.map((t) => (
                   <TopicCard
                     key={t.id}
@@ -1051,7 +1052,7 @@ function SpecPointDetail({
         </div>
       )}
 
-      <div className="space-y-4">
+      <div data-guide="point-sections" className="space-y-4">
         {/* MCQ Sets Section */}
         <CollapsibleSection
           title="MCQ Sets"

@@ -1,3 +1,4 @@
+import { StudentGuide } from "@/components/StudentGuide";
 import { Link, useNavigate, useRouter, useRouterState } from "@tanstack/react-router";
 import {
   LayoutDashboard,
@@ -141,6 +142,7 @@ export function AppLayout({ title, children }: { title: string; children: ReactN
             return (
               <Link
                 key={to}
+                data-guide={to.split("/").pop()}
                 to={to}
                 title={badge > 0 ? `${label} (${badge} unread)` : label}
                 data-active={active ? "true" : undefined}
@@ -209,7 +211,7 @@ export function AppLayout({ title, children }: { title: string; children: ReactN
             </div>
           </div>
         )}
-        <header className="glass-bar sticky top-0 z-30 flex items-center justify-between px-6 lg:px-10 py-4 shrink-0">
+        <header className="glass-bar sticky top-0 z-30 flex flex-wrap gap-3 items-center justify-between px-6 lg:px-10 py-4 shrink-0">
           <div className="flex items-center gap-3">
             <div className="flex items-center gap-1">
               <button
@@ -237,7 +239,13 @@ export function AppLayout({ title, children }: { title: string; children: ReactN
                 onboarding step that set it. */}
             <CourseBadge />
           </div>
-          <div className="flex items-center gap-3">
+          <div className="flex flex-wrap items-center gap-3">
+            <StudentGuide
+              key={`${pathname}:${title}`}
+              pageTitle={title}
+              guideKey={pathname.includes("/mcq/") ? "MCQ" : title}
+              autoStart={isStudentContext && pathname === "/student-dashboard"}
+            />
             {isStudentContext && (
               <HeaderLiveButton liveHref={isDemo ? "/demo/student/live" : "/live"} />
             )}
@@ -256,7 +264,9 @@ export function AppLayout({ title, children }: { title: string; children: ReactN
             />
           </div>
         </header>
-        <div className="page-aurora flex-1 p-6 lg:p-10 overflow-auto">{children}</div>
+        <div data-guide="page-content" className="page-aurora flex-1 p-6 lg:p-10 overflow-auto">
+          {children}
+        </div>
       </main>
 
       <GlobalSearchDialog open={searchOpen} onClose={() => setSearchOpen(false)} />

@@ -1,3 +1,4 @@
+import { PlannerPointItem } from "./PlannerPointItem";
 import { ClipboardList, ListChecks } from "lucide-react";
 import { type ProgressPoint } from "@/lib/scheduleDal";
 import { type PointStatus } from "@/lib/planner/scheduler";
@@ -39,7 +40,7 @@ const statusMeta: Record<PointStatus, { label: string; cls: string }> = {
  * a gap in the library, which on this course is the overwhelmingly common case.
  * See [[assessability]].
  */
-export function PointRow({ point }: { point: ProgressPoint }) {
+export function PointRow({ point, card = false }: { point: ProgressPoint; card?: boolean }) {
   const unassessable = point.assessability === "unassessable";
   const s = unassessable
     ? {
@@ -47,6 +48,30 @@ export function PointRow({ point }: { point: ProgressPoint }) {
         cls: "bg-muted text-muted-foreground border-border opacity-70",
       }
     : statusMeta[point.status];
+  if (card)
+    return (
+      <li>
+        <PlannerPointItem
+          code={point.code}
+          title={point.title}
+          status={
+            <span
+              className={`chip text-[11px] ${unassessable ? "tint-slate" : point.status === "strong" ? "tint-emerald" : ""}`}
+            >
+              {unassessable ? "Practice not attached" : s.label}
+            </span>
+          }
+        >
+          <p className="text-muted-foreground">{describeAssessability(point.assessability)}</p>
+          <div className="flex flex-wrap gap-2">
+            {point.homeworkScore != null && (
+              <MarkChip kind="homework" score={point.homeworkScore} />
+            )}
+            {point.quizScore != null && <MarkChip kind="quiz" score={point.quizScore} />}
+          </div>
+        </PlannerPointItem>
+      </li>
+    );
   return (
     <li className="flex items-center gap-2 py-1">
       <div className="flex-1 min-w-0">
@@ -71,7 +96,25 @@ export function PointRow({ point }: { point: ProgressPoint }) {
  * A spec point the programme knows only by name — it rides in a band, but no
  * progress row came back for it, so there is no standing to report yet.
  */
-export function BarePointRow({ code, title }: { code: string; title: string }) {
+export function BarePointRow({
+  code,
+  title,
+  card = false,
+}: {
+  code: string;
+  title: string;
+  card?: boolean;
+}) {
+  if (card)
+    return (
+      <li>
+        <PlannerPointItem code={code} title={title}>
+          <p className="text-muted-foreground">
+            No assessment results are available for this point yet.
+          </p>
+        </PlannerPointItem>
+      </li>
+    );
   return (
     <li className="flex items-center gap-2 py-1">
       <span className="text-[11px] font-semibold text-muted-foreground">{code}</span>

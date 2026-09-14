@@ -29,6 +29,8 @@ import {
 } from "./planner/admissibility";
 import {
   byTopic,
+  projectCatchUp,
+  type CatchUpSchedule,
   catchUpBudget,
   spineBacklog,
   trickle,
@@ -137,6 +139,7 @@ export interface RoadmapResult {
    * put right. Read this, not `backlog`, for display.
    */
   backlogByTopic: TopicBacklog[];
+  catchUpSchedule?: CatchUpSchedule;
   unscheduledTopicTitles: string[];
   /** Exam-horizon backlog reporting for the roadmap and weekly plan. */
   focusLoad: FocusLoad;
@@ -348,6 +351,27 @@ export class ProgramDAL {
      */
     const inThisWeek = new Set(savedWeek?.points.map((p) => p.spec_point_id) ?? []);
     const unaddressed = backlog.filter((p) => !inThisWeek.has(p.specPointId));
+    // Generation suppresses saved review bands, but must still reserve catch-up
+    // capacity already used by this week's assignments, including completed ones.
+    const catchUpWeek =
+      savedWeek ??
+      (params.projectOnly ? await WeeklyPlanDAL.getPlan(studentId, subject, thisWeek) : null);
+    const assignedIds = new Set(
+      catchUpWeek?.points.filter((p) => p.origin !== "focus").map((p) => p.spec_point_id) ?? [],
+    );
+    const pastPromises = spineBacklog({
+      bands: promised,
+      weekStart: thisWeek,
+      pointsByTopic,
+      ledger: { assessed: new Set(), done: new Set(), outstanding: new Set() },
+    });
+    const catchUpSchedule = projectCatchUp({
+      backlog,
+      assigned: pastPromises.filter((p) => assignedIds.has(p.specPointId)),
+      weekStart: thisWeek,
+      examDate,
+      weeklyWeight: focusLoadFor({ topics, spine: live }).spine,
+    });
 
     if (!baseline) {
       // First view = enrolment: this Monday becomes the student's permanent
@@ -396,6 +420,7 @@ export class ProgramDAL {
         inadmissible,
         backlog,
         backlogByTopic: byTopic(unaddressed),
+        catchUpSchedule,
         unscheduledTopicTitles: topics
           .slice(Math.max(0, topics.length - teachingWeeksShort))
           .map((t) => t.title),
@@ -425,6 +450,7 @@ export class ProgramDAL {
       inadmissible,
       backlog,
       backlogByTopic: byTopic(unaddressed),
+      catchUpSchedule,
       unscheduledTopicTitles: topics
         .slice(Math.max(0, topics.length - teachingWeeksShort))
         .map((t) => t.title),
@@ -435,6 +461,22 @@ export class ProgramDAL {
         teachingWeeksShort,
       }),
     };
+  }
+
+  /** Top up only the catch-up allowance; never replace a saved assignment. */
+  static async ensureCatchUp(params: {
+    planId: string;
+    weekStart: string;
+    points: PlanPoint[];
+    roadmap: RoadmapResult | null;
+  }): Promise<boolean> {
+    const existing = new Set(params.points.map((p) => p.spec_point_id));
+    const missing = (params.roadmap?.catchUpSchedule?.weeks[params.weekStart] ?? [])
+      .filter((p) => !existing.has(p.specPointId))
+      .map((p) => p.specPointId);
+    if (!missing.length) return false;
+    await WeeklyPlanDAL.addPoints(params.planId, missing, "core");
+    return true;
   }
 
   /** Build a week from fixed teaching and assessed reviews. Empty weeks stay empty. */
@@ -469,7 +511,11 @@ export class ProgramDAL {
       // week, so a roadmap that cannot describe the debt yields no catch-up
       // rather than no week.
       const due = (roadmap.backlog ?? []).filter((b) => b.plannedWeek < weekStart);
-      const { take } = trickle(due, catchUpBudget(roadmap.focusLoad?.spine ?? 0));
+      const take = roadmap.catchUpSchedule
+        ? (roadmap.catchUpSchedule.weeks[weekStart] ?? []).filter((p) =>
+            due.some((b) => b.specPointId === p.specPointId),
+          )
+        : trickle(due, catchUpBudget(roadmap.focusLoad?.spine ?? 0)).take;
       const { specPointIds, lanes, teachTitle, focusCount, teachCount, catchUpIds, catchUpTopics } =
         selectWeekPoints({
           bands: [

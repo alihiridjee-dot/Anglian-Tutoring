@@ -162,9 +162,7 @@ function ChecklistRow({
   const done = !!point.done_at;
 
   return (
-    <li
-      className={`${GRID} sm:items-center rounded-lg border border-border bg-card/60 px-2.5 py-2`}
-    >
+    <li className={`${GRID} sm:items-center premium-card planner-point-row px-2.5 py-2`}>
       <div className="flex items-center gap-2 min-w-0">
         <button
           type="button"

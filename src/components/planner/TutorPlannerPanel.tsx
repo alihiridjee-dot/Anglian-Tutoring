@@ -8,7 +8,6 @@ import { useEffect, useMemo, useState } from "react";
 import { toast } from "sonner";
 import {
   Loader2,
-  X,
   ChevronLeft,
   ChevronRight,
   Undo2,
@@ -96,10 +95,6 @@ export function TutorPlannerPanel() {
     setPicking(false);
     setToAdd([]);
   }, [studentId, active?.subject, active?.board, weekStart]);
-  const remove = async (id: string) => {
-    await week.removePoint(id);
-    bumpRefresh();
-  };
 
   const addSelected = async () => {
     if (!student || !active || toAdd.length === 0) return;
@@ -321,14 +316,6 @@ export function TutorPlannerPanel() {
                                 score={cov?.bestScore}
                               />
                             )}
-                            <button
-                              type="button"
-                              onClick={() => remove(p.spec_point_id)}
-                              className="w-6 h-6 rounded-md text-muted-foreground/50 hover:text-rose-500 hover:bg-rose-500/10 flex items-center justify-center opacity-0 group-hover:opacity-100 transition"
-                              aria-label="Remove from this week"
-                            >
-                              <X className="w-3.5 h-3.5" />
-                            </button>
                           </div>
                         </div>
                       );

@@ -146,7 +146,7 @@ function StudentHomework({
 
       {/* Predicted grades live in the homework section. */}
       {analytics.length > 0 && (
-        <div className="mb-8">
+        <div data-guide="homework-grades" className="mb-8">
           <div className="mb-3 flex items-center gap-2">
             <TrendingUp className="text-primary size-4" />
             <h3 className="text-base">Predicted Grades</h3>
@@ -185,7 +185,7 @@ function StudentHomework({
           body="No homework has been set for your subjects yet. When your tutor posts one it lands here, with the questions and your marks in the same place."
         />
       ) : (
-        <div className="space-y-8">
+        <div data-guide="homework-list" className="space-y-8">
           {sections.map((section) => (
             <HomeworkSection
               key={section.bucket}
