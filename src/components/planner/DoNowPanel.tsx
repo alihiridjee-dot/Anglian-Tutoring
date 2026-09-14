@@ -130,7 +130,7 @@ function ChecklistRow({
   const nothingAttached = workItems(work).length === 0;
 
   return (
-    <li className="flex flex-wrap items-center gap-x-2 gap-y-1.5 rounded-lg border border-border bg-card/60 px-2.5 py-2">
+    <li className="flex flex-wrap items-center gap-x-2 gap-y-1.5 premium-card planner-point-row px-2.5 py-2">
       <button
         type="button"
         role="checkbox"

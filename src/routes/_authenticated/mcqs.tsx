@@ -230,7 +230,7 @@ function StudentMCQs() {
         <div className="space-y-10">
           {/* This week's MCQs — tutor-assigned sets within a week of their due date */}
           {activeWeekly.length > 0 && (
-            <div className="surface-loud space-y-4 p-5">
+            <div data-guide="mcq-weekly" className="surface-loud space-y-4 p-5">
               <div className="flex items-center gap-3">
                 <CalendarClock className="text-primary size-4" aria-hidden />
                 <h3 className="font-display text-foreground text-sm font-extrabold tracking-wide uppercase">
@@ -246,7 +246,7 @@ function StudentMCQs() {
 
           {/* Syllabus topical assessments, grouped by board/level/subject */}
           {Object.entries(groupedAssessments).map(([category, items]) => (
-            <div key={category} className="space-y-4">
+            <div data-guide="mcq-topical" key={category} className="space-y-4">
               <div className="flex items-center gap-3 pb-2 border-b border-border/60">
                 <BookOpen className="w-4 h-4 text-primary" />
                 <h3 className="font-display font-bold text-sm tracking-wide uppercase text-foreground">
@@ -267,7 +267,10 @@ function StudentMCQs() {
               reachable any time by browsing the covered spec points on Curriculum. */}
           {pastWeekly.length > 0 && (
             <details className="group rounded-2xl premium-card/50">
-              <summary className="flex items-center gap-3 px-5 py-4 cursor-pointer list-none select-none">
+              <summary
+                data-guide="mcq-past"
+                className="flex items-center gap-3 px-5 py-4 cursor-pointer list-none select-none"
+              >
                 <ChevronDown className="w-4 h-4 text-muted-foreground transition-transform group-open:rotate-180" />
                 <span className="font-display font-bold text-sm tracking-wide uppercase text-muted-foreground">
                   Completed / past MCQs

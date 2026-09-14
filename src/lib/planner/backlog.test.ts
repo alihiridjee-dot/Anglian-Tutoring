@@ -1,6 +1,7 @@
 import { describe, expect, test } from "bun:test";
 import {
   backlogWeight,
+  projectCatchUp,
   byTopic,
   CATCH_UP_SHARE,
   catchUpBudget,
@@ -234,5 +235,65 @@ describe("backlogWeight", () => {
         },
       ]),
     ).toBe(2.5);
+  });
+});
+
+describe("catch-up forecast", () => {
+  const missed = ["a", "b", "c", "d"].map((id): BacklogPoint => ({
+    specPointId: id,
+    code: id,
+    title: id,
+    topicId: "old",
+    topicTitle: "Old topic",
+    weight: 1,
+    plannedWeek: "2026-07-13",
+  }));
+  const params = {
+    backlog: missed,
+    assigned: [],
+    weekStart: "2026-09-07",
+    examDate: "2026-10-05",
+    weeklyWeight: 5,
+  };
+  test("September 7 and 14 receive different oldest points without manual action", () => {
+    const result = projectCatchUp(params);
+    expect(result.weeks["2026-09-07"].map((p) => p.specPointId)).toEqual(["a"]);
+    expect(result.weeks["2026-09-14"].map((p) => p.specPointId)).toEqual(["b"]);
+    expect(Object.values(result.weeks).flat()).toEqual(missed);
+    expect(result.held).toEqual([]);
+  });
+  test("saving or completing this week's catch-up does not refill its allowance", () => {
+    const saved = projectCatchUp({ ...params, assigned: [missed[0]] });
+    const completed = projectCatchUp({
+      ...params,
+      backlog: missed.slice(1),
+      assigned: [missed[0]],
+    });
+    expect(saved).toEqual(completed);
+    expect(completed.weeks["2026-09-07"]).toEqual([missed[0]]);
+  });
+  test("an unfinished point returns first when the next week arrives", () => {
+    const result = projectCatchUp({ ...params, weekStart: "2026-09-14" });
+    expect(result.weeks["2026-09-14"]).toEqual([missed[0]]);
+  });
+  test("manual catch-up consumes capacity and is not forecast again", () => {
+    const result = projectCatchUp({ ...params, assigned: missed.slice(0, 2) });
+    expect(result.weeks["2026-09-07"]).toEqual(missed.slice(0, 2));
+    expect(result.weeks["2026-09-14"]).toEqual([missed[2]]);
+  });
+  test("an oversized point is served once, without opening another floor on reload", () => {
+    const heavy = { ...missed[0], weight: 8 };
+    const result = projectCatchUp({ ...params, backlog: [heavy, missed[1]] });
+    expect(result.weeks["2026-09-07"]).toEqual([heavy]);
+    expect(projectCatchUp({ ...params, backlog: [heavy, missed[1]], assigned: [heavy] })).toEqual({
+      ...result,
+      assignedIds: [heavy.specPointId],
+    });
+  });
+  test("does not allocate on or after the exam; reports what cannot fit", () => {
+    const result = projectCatchUp({ ...params, examDate: "2026-09-14" });
+    expect(result.weeks["2026-09-14"]).toBeUndefined();
+    expect(result.held).toEqual(missed.slice(1));
+    expect(projectCatchUp({ ...params, weeklyWeight: 0 }).held).toEqual(missed);
   });
 });

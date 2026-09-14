@@ -1,3 +1,5 @@
+import { CatchUpWeek } from "./CatchUpWeek";
+import type { CatchUpSchedule } from "@/lib/planner/backlog";
 import { ErrorNote } from "@/components/Shared";
 import { PLANNER_TIME_ZONE } from "@/lib/week";
 import { usePlannerRoadmap } from "@/hooks/data/usePlanner";
@@ -364,6 +366,7 @@ export function RoadmapPanel({
             programStart={data.programStart}
             showHistory={showHistory}
             owedByWeek={owedByWeek}
+            catchUpSchedule={data.catchUpSchedule}
             examDate={data.examDate}
             covered={covered}
             progressByTopic={progressByTopic}
@@ -373,9 +376,17 @@ export function RoadmapPanel({
             onToggle={toggle}
           />
 
+          {!!data.catchUpSchedule?.held.length && (
+            <p className="mt-3 text-sm text-muted-foreground" role="status">
+              {data.catchUpSchedule.held.length} missed spec points cannot fit before the exam at
+              the current catch-up pace.
+            </p>
+          )}
+
           <div className="mt-3 flex flex-wrap items-center justify-between gap-2">
             <p className="text-[11px] text-muted-foreground">
-              Expand any topic to see its spec points.
+              Expand any topic to see its spec points. Catch-up estimates assume earlier weeks’ work
+              is completed.
             </p>
             {earlierWeeks > 0 && (
               <button
@@ -425,6 +436,7 @@ function WeekTable({
   programStart,
   showHistory,
   owedByWeek,
+  catchUpSchedule,
   examDate,
   covered,
   progressByTopic,
@@ -446,6 +458,7 @@ function WeekTable({
   showHistory: boolean;
   /** Week → the points promised in it that are still outstanding ([[backlog]]). */
   owedByWeek: Map<string, BacklogPoint[]>;
+  catchUpSchedule?: CatchUpSchedule;
   examDate: string;
   covered: Set<string>;
   progressByTopic: Map<string, TopicProgress>;
@@ -623,6 +636,7 @@ function WeekTable({
                   ) : (
                     <span className="text-[12px] text-muted-foreground/60">—</span>
                   )}
+                  <CatchUpWeek schedule={catchUpSchedule} weekStart={wk} />
                 </div>
 
                 {/* Focused */}

@@ -1,3 +1,4 @@
+import { addWeeks, toDateKey, weekKeyToDate } from "../week";
 import { isTeachBand, weightOf, type PacingBand } from "./pacing";
 
 /**
@@ -236,4 +237,43 @@ export function byTopic(points: BacklogPoint[]): TopicBacklog[] {
   return [...groups.values()].sort(
     (a, b) => a.since.localeCompare(b.since) || a.topicTitle.localeCompare(b.topicTitle),
   );
+}
+
+/** A forecast of today's missed work; future weeks assume earlier work is completed. */
+export interface CatchUpSchedule {
+  weeks: Record<string, BacklogPoint[]>;
+  /** Confirmed current-week work, including completed points that used its allowance. */
+  assignedIds: string[];
+  held: BacklogPoint[];
+}
+
+export function projectCatchUp(params: {
+  backlog: BacklogPoint[];
+  assigned: BacklogPoint[];
+  weekStart: string;
+  examDate: string;
+  weeklyWeight: number;
+}): CatchUpSchedule {
+  const assignedIds = params.assigned.map((p) => p.specPointId);
+  const assigned = new Set(assignedIds);
+  let remaining = params.backlog.filter((p) => !assigned.has(p.specPointId));
+  const weeks: Record<string, BacklogPoint[]> = {};
+  const budget = catchUpBudget(params.weeklyWeight);
+  for (
+    let week = params.weekStart;
+    week < params.examDate;
+    week = toDateKey(addWeeks(weekKeyToDate(week), 1))
+  ) {
+    const reserved = week === params.weekStart ? params.assigned : [];
+    const available = Math.max(0, budget - backlogWeight(reserved));
+    // The oversized-point floor belongs to the whole week, not each reload.
+    const selection = reserved.length
+      ? remaining.filter((p, i, all) => backlogWeight(all.slice(0, i + 1)) <= available)
+      : trickle(remaining, available).take;
+    const selected = new Set(selection.map((p) => p.specPointId));
+    weeks[week] = [...reserved, ...selection];
+    remaining = remaining.filter((p) => !selected.has(p.specPointId));
+    if (remaining.length === 0) break;
+  }
+  return { weeks, assignedIds, held: remaining };
 }

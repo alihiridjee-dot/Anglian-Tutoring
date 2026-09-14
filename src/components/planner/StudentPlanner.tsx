@@ -1,6 +1,7 @@
+import { WeekBreakdown } from "./WeekBreakdown";
+import { FullPlanTimeline } from "./FullPlanTimeline";
 import { WithheldPlanPoints } from "./WithheldPlanPoints";
 import { ErrorNote } from "@/components/Shared";
-import { PLANNER_TIME_ZONE } from "@/lib/week";
 import { usePlannerRoadmap, usePlannerMemory } from "@/hooks/data/usePlanner";
 import { ScheduleComparison } from "./ScheduleComparison";
 import { Spinner } from "@/components/Shared";
@@ -12,11 +13,9 @@ import {
   Brain,
   CalendarDays,
   CheckCircle2,
-  ChevronDown,
   ChevronLeft,
   ChevronRight,
   CircleDot,
-  History,
   Loader2,
   Map as MapIcon,
   Repeat,
@@ -37,18 +36,7 @@ import { ThisWeekPanel } from "./ThisWeekPanel";
 import { useWeekPlan } from "./useWeekPlan";
 import { WeekReview } from "./WeekReview";
 import { subjectLabel } from "@/lib/courseSummary";
-import { PointRow } from "./PointRow";
-import { FocusedTopicsHeaderCell, FocusKey, FocusPointsPanel, FocusTopicButton } from "./FocusLane";
-import { focusHasDetail, focusRowKey } from "./focusMeta";
-import { PacingChangeBadge } from "./PacingChangeBadge";
 
-function fmtDate(d: Date): string {
-  return d.toLocaleDateString(undefined, {
-    timeZone: PLANNER_TIME_ZONE,
-    day: "numeric",
-    month: "short",
-  });
-}
 /** Stable identity for one focus-lane band — topic + kind + week it lands on. */
 function focusKey(b: PacingBand): string {
   return `${b.topicId}|${b.kind}|${b.startWeek}`;
@@ -117,8 +105,18 @@ export function StudentPlanner({
   const roadQuery = usePlannerRoadmap(courseParams, boardRev, !!active);
   const memQuery = usePlannerMemory(courseParams, !!active);
   const data = roadQuery.data ?? null;
+  // Keep the current assignment in sync even when Full plan is the open tab.
+  // The weekly view shares this query, so only one load/write can run per course.
+  const currentWeek = useWeekPlan({
+    ...courseParams,
+    weekStart: currentWeekKey(),
+    isCurrent: true,
+    withCoverage: false,
+    roadmap: data,
+    enabled: !!active,
+  });
   const memory = memQuery.data ?? null;
-  const loading = roadQuery.isLoading || memQuery.isLoading;
+  const loading = roadQuery.isLoading || memQuery.isLoading || currentWeek.loading;
   useEffect(() => {
     const course = `${studentId}|${activeCourseSubject}|${activeBoard}|${level}`;
     const keys = new Set((data?.bands ?? []).filter((b) => !isTeachBand(b)).map(focusKey));
@@ -186,7 +184,9 @@ export function StudentPlanner({
       </div>
 
       <div className="p-4 sm:p-5">
-        {tab === "topics" ? (
+        {currentWeek.error ? (
+          <ErrorNote error={currentWeek.error} />
+        ) : tab === "topics" ? (
           <TopicsTab
             studentId={studentId}
             enrolments={enrolments}
@@ -362,7 +362,15 @@ function ThisWeekTab({
               {weekRangeLabel(weekKeyToDate(weekStart))}
             </span>
           </h2>
-          <div className="flex items-center gap-1">
+          <div className="flex flex-wrap items-center gap-1">
+            {isCurrent && week.plan && !week.loading && (
+              <WeekBreakdown
+                id="week-breakdown"
+                points={week.points}
+                roadmap={week.roadmap}
+                weekStart={weekStart}
+              />
+            )}
             {!isCurrent && (
               <button
                 type="button"
@@ -390,6 +398,7 @@ function ThisWeekTab({
             </button>
           </div>
         </div>
+
         {!week.loading && week.points.length === 0 && isPast ? (
           // Said plainly, because the alternative reading — "you did nothing" —
           // is the wrong one, and on this account it was the common one: three
@@ -408,9 +417,7 @@ function ThisWeekTab({
             weekStart={weekStart}
             editable={editable}
             isPast={isPast}
-            showRationale={isCurrent}
             showCoverage={showReview}
-            onRemove={week.removePoint}
           />
         )}
       </section>
@@ -521,39 +528,14 @@ function FullPlanTab({
   /** Jump to My topics — the one place an overloaded plan can be fixed. */
   onChanged: () => void;
 }) {
-  const {
-    nowKey,
-    covered,
-    spine,
-    baselineSpine,
-    reviewing,
-    changeByTopic,
-    focus,
-    progressByTopic,
-  } = useRoadmapView(data);
-  const [expanded, setExpanded] = useState<Set<string>>(new Set());
+  const { nowKey, covered, spine, reviewing } = useRoadmapView(data);
   const [savingDate, setSavingDate] = useState(false);
   const [accepting, setAccepting] = useState(false);
-  // Collapsed by default — the road ahead is what this tab is for — but present,
-  // which it was not. See the window comment on `weeks` below.
-  const [showHistory, setShowHistory] = useState(false);
-
-  // Which of a past week's promises are still outstanding, so a history row can
-  // report what became of it rather than only which topic was due ([[backlog]]).
-  const owedByWeek = useMemo(() => {
-    const out = new Map<string, number>();
-    // From the display backlog, so work already pulled into this week stops
-    // being reported as outstanding in the week it was originally promised.
-    for (const topic of data.backlogByTopic ?? [])
-      for (const point of topic.points)
-        out.set(point.plannedWeek, (out.get(point.plannedWeek) ?? 0) + 1);
-    return out;
-  }, [data]);
 
   /**
    * Accept the proposed plan. Until this runs the student keeps the plan they
    * already agreed to; accepting writes the re-flowed spine as the new baseline,
-   * which is what closes the review column on the next load.
+   * which closes the proposed-learning sections on the next load.
    */
   const acceptPlan = async () => {
     setAccepting(true);
@@ -587,40 +569,11 @@ function FullPlanTab({
       setSavingDate(false);
     }
   };
-  const toggle = (id: string) =>
-    setExpanded((prev) => {
-      const next = new Set(prev);
-      if (next.has(id)) next.delete(id);
-      else next.add(id);
-      return next;
-    });
-
   const doneCount = spine.filter((b) => covered.has(b.topicId)).length;
-  /**
-   * The programme's whole run, or just the road ahead.
-   *
-   * This was unconditionally `weekKeysBetween(nowKey, data.examDate)`, and that
-   * one line is why a topic taught before today could not be seen: its rows
-   * were outside the window entirely — not filtered as done, not flagged as
-   * missed — while the counter above went on including it in "N of 9 topics
-   * covered". Topic 1 ran 13 Jul – 10 Aug and had no row anywhere on this tab.
-   */
-  const weeks = weekKeysBetween(showHistory ? data.programStart : nowKey, data.examDate);
-  const earlierWeeks = Math.max(0, weekKeysBetween(data.programStart, nowKey).length - 1);
-  const inBand = (b: PacingBand, wk: string) => b.startWeek <= wk && wk <= b.endWeek;
-  // While reviewing, the Core column holds the accepted plan and the proposal
-  // sits beside it; once accepted there is nothing to compare and the fourth
-  // column disappears.
-  const coreSpine = reviewing ? baselineSpine : spine;
-  const proposedSpine = reviewing ? spine : null;
-  const cols = proposedSpine
-    ? "grid-cols-[6rem_minmax(0,1fr)_minmax(0,1fr)_minmax(0,1.05fr)]"
-    : "grid-cols-[6.5rem_1fr_1fr]";
 
   return (
     <div>
-      {/* A pending re-flow: the proposal is open in its own column, and this says
-          so plainly — the plan on screen is still the one they agreed to. */}
+      {/* Proposed learning stays separate until the student accepts it. */}
       {reviewing && (
         <div className="flex flex-wrap items-center gap-3 rounded-xl border border-amber-500/30 bg-amber-500/[0.06] px-3 py-2.5 mb-3">
           <RefreshCw className="w-4 h-4 text-amber-600 dark:text-amber-400 shrink-0" />
@@ -628,9 +581,8 @@ function FullPlanTab({
             <span className="font-semibold">A new plan is ready for you.</span>{" "}
             <span className="text-muted-foreground">
               {data.changes.length} {data.changes.length === 1 ? "topic" : "topics"} would move.
-              Compare it in the{" "}
-              <span className="font-semibold text-amber-700 dark:text-amber-300">Proposed</span>{" "}
-              column — your current plan stays exactly as it is until you accept.
+              Compare the proposed learning in each week — your current plan stays exactly as it is
+              until you accept.
             </span>
           </p>
           <button
@@ -658,7 +610,7 @@ function FullPlanTab({
             <span className="text-muted-foreground">
               {newFocusKeys.size} focus {newFocusKeys.size === 1 ? "slot" : "slots"} moved or added
               — flagged <span className="font-semibold text-rose-600 dark:text-rose-400">New</span>{" "}
-              in the Focused column below.
+              in the revision sections below.
             </span>
           </p>
         </div>
@@ -712,302 +664,39 @@ function FullPlanTab({
         </span>
       </div>
 
-      <CatchUpPanel
-        studentId={studentId}
-        subject={subject}
-        board={board}
-        level={level}
-        weekStart={nowKey}
-        backlog={data.backlogByTopic ?? []}
-        asTutor={false}
-        onAdded={onChanged}
-      />
-
-      <div className="flex flex-wrap items-center justify-between gap-x-4 gap-y-2 mb-2.5 text-[11px] text-muted-foreground">
-        <p>
-          <span className="font-semibold text-foreground">Core</span> is the course in order.{" "}
-          <span className="font-semibold text-foreground">Focused</span> shows assigned reviews and
-          estimates for the next review.
-        </p>
-        <FocusKey />
-      </div>
-
-      <div className="rounded-xl border border-border overflow-hidden">
-        {/* Header */}
-        <div
-          className={`grid ${cols} bg-muted/50 border-b border-border text-[11px] font-semibold uppercase tracking-wide text-muted-foreground`}
-        >
-          <div className="flex items-center gap-1.5 px-3 py-2">
-            <CalendarDays className="w-3.5 h-3.5" /> Week
+      {(data.backlogByTopic ?? []).length > 0 && (
+        <details className="premium-card tint-amber rounded-xl px-4 py-3 mb-5">
+          <summary className="cursor-pointer text-sm font-bold">
+            {data.backlogByTopic.reduce((count, topic) => count + topic.points.length, 0)} points
+            still to cover
+            <span className="block mt-1 text-xs font-normal text-muted-foreground">
+              They return gradually in the plan below. Open to take on a whole topic now.
+            </span>
+          </summary>
+          <div className="mt-3">
+            <CatchUpPanel
+              studentId={studentId}
+              subject={subject}
+              board={board}
+              level={level}
+              weekStart={nowKey}
+              backlog={data.backlogByTopic ?? []}
+              asTutor={false}
+              onAdded={onChanged}
+            />
           </div>
-          <div className="flex items-center gap-1.5 px-3 py-2 border-l border-border">
-            <CircleDot className="w-3.5 h-3.5 text-primary" />
-            {proposedSpine ? "Core · your plan now" : "Core topics"}
-          </div>
-          <FocusedTopicsHeaderCell />
-          {proposedSpine && (
-            <div className="flex items-center gap-2 px-3 py-2 border-l-2 border-l-amber-500 bg-amber-500/[0.07]">
-              <span className="flex items-center gap-1.5 text-amber-700 dark:text-amber-300">
-                <RefreshCw className="w-3.5 h-3.5" /> Proposed
-              </span>
-              <button
-                type="button"
-                onClick={acceptPlan}
-                disabled={accepting}
-                className="ml-auto inline-flex items-center gap-1.5 h-6 px-2 rounded-md bg-amber-600 text-white text-[10px] font-bold uppercase tracking-wide hover:opacity-90 disabled:opacity-50"
-              >
-                {accepting ? (
-                  <Loader2 className="w-3 h-3 animate-spin" />
-                ) : (
-                  <CheckCircle2 className="w-3 h-3" />
-                )}
-                Accept
-              </button>
-            </div>
-          )}
-        </div>
-
-        <div className="max-h-[34rem] overflow-y-auto divide-y divide-border">
-          {weeks.map((wk) => {
-            const isNow = wk === nowKey;
-            // Date-keys are YYYY-MM-DD, so a lexical compare is a chronological one.
-            const isPast = wk < nowKey;
-            const owed = owedByWeek.get(wk) ?? 0;
-            const core = coreSpine.find((b) => inBand(b, wk));
-            const focused = focus.filter((b) => inBand(b, wk));
-            const tp = core ? progressByTopic.get(core.topicId) : undefined;
-            // Expansion is per ROW, not per topic: a topic spans several weeks
-            // and each one teaches a different slice, so opening "Topic 1" in
-            // October must not also open its September and November rows.
-            const rowKey = core ? `${core.topicId}@${wk}` : "";
-            const isOpen = core ? expanded.has(rowKey) : false;
-            const showWholeTopic = core ? expanded.has(`${rowKey}@all`) : false;
-            // This week's share of the topic, as the year plan divided it. Bands
-            // stored before `pointsByWeek` existed fall back to the whole topic.
-            const weekPoints = core?.pointsByWeek?.[wk];
-            const byId = new Map((tp?.points ?? []).map((p) => [p.id, p]));
-            const shown =
-              showWholeTopic || !weekPoints
-                ? (tp?.points ?? [])
-                : weekPoints.map((r) => byId.get(r.specPointId)).filter((p) => p !== undefined);
-            const hasDetail = (tp?.points.length ?? 0) > 0;
-            const isCovered = core ? covered.has(core.topicId) : false;
-            const proposed = proposedSpine?.find((b) => inBand(b, wk));
-            // The week where the proposal actually differs from today's plan.
-            const shifted =
-              !!proposedSpine && (proposed?.topicId ?? null) !== (core?.topicId ?? null);
-            const change =
-              proposed && wk === proposed.startWeek
-                ? changeByTopic.get(proposed.topicId)
-                : undefined;
-            return (
-              <div key={wk}>
-                <div
-                  className={`grid ${cols} items-stretch ${
-                    shifted
-                      ? "bg-amber-500/[0.06] border-l-2 border-l-amber-500"
-                      : isNow
-                        ? "bg-primary/[0.04]"
-                        : isPast
-                          ? "bg-muted/20"
-                          : ""
-                  }`}
-                >
-                  {/* Week */}
-                  <div className="px-3 py-2.5 flex flex-col justify-center">
-                    {isNow && (
-                      <span className="inline-flex w-fit items-center gap-1 text-[10px] font-bold uppercase tracking-wide text-primary mb-0.5">
-                        <CircleDot className="w-3 h-3" /> Now
-                      </span>
-                    )}
-                    <span
-                      className={`text-[13px] font-medium tabular-nums ${
-                        isPast ? "text-muted-foreground" : ""
-                      }`}
-                    >
-                      {fmtDate(weekKeyToDate(wk))}
-                    </span>
-                    {/* Only the claim the engine can support. A week with
-                        nothing owed says nothing: "Covered" would also be
-                        printed over work that was merely pulled into a later
-                        week, and the engine cannot tell those apart. */}
-                    {isPast && core && owed > 0 && (
-                      <span className="mt-0.5 text-[10px] font-semibold text-amber-700 dark:text-amber-300">
-                        {owed} not covered
-                      </span>
-                    )}
-                  </div>
-
-                  {/* Core */}
-                  <div className="px-3 py-2.5 border-l border-border min-w-0">
-                    {core ? (
-                      <button
-                        type="button"
-                        onClick={() => hasDetail && toggle(rowKey)}
-                        className={`w-full text-left rounded-md -mx-1 px-1 ${
-                          hasDetail ? "hover:bg-muted/50" : "cursor-default"
-                        }`}
-                        aria-expanded={isOpen}
-                      >
-                        <div className="flex items-start justify-between gap-2">
-                          <span className="text-[13px] font-medium leading-snug">{core.title}</span>
-                          <div className="flex items-center gap-1 shrink-0">
-                            {isCovered && (
-                              <CheckCircle2 className="w-3.5 h-3.5 text-emerald-600 dark:text-emerald-400" />
-                            )}
-                            {hasDetail && (
-                              <ChevronDown
-                                className={`w-3.5 h-3.5 text-muted-foreground transition-transform ${
-                                  isOpen ? "rotate-180" : ""
-                                }`}
-                              />
-                            )}
-                          </div>
-                        </div>
-                      </button>
-                    ) : (
-                      <span className="text-[12px] text-muted-foreground/60">—</span>
-                    )}
-                  </div>
-
-                  {/* Focused */}
-                  <div className="px-3 py-2.5 border-l border-border min-w-0 space-y-1.5">
-                    {focused.length > 0 ? (
-                      focused.map((b) => {
-                        const k = focusRowKey(b, wk);
-                        return (
-                          <FocusTopicButton
-                            key={k}
-                            band={b}
-                            mastery={progressByTopic.get(b.topicId)?.masteryPct ?? 0}
-                            isNew={newFocusKeys.has(focusKey(b))}
-                            hasDetail={focusHasDetail(b, progressByTopic.get(b.topicId))}
-                            open={expanded.has(k)}
-                            onToggle={() => toggle(k)}
-                          />
-                        );
-                      })
-                    ) : (
-                      <span className="text-[12px] text-muted-foreground/60">—</span>
-                    )}
-                  </div>
-
-                  {/* Proposed — a temporary column, open only until it's accepted */}
-                  {proposedSpine && (
-                    <div
-                      className={`px-3 py-2.5 border-l-2 border-l-amber-500 min-w-0 ${
-                        shifted ? "bg-amber-500/[0.08]" : "bg-amber-500/[0.02]"
-                      }`}
-                    >
-                      {proposed ? (
-                        <>
-                          <div className="flex items-start gap-2">
-                            <span
-                              className={`text-[13px] leading-snug ${
-                                shifted
-                                  ? "font-semibold text-amber-800 dark:text-amber-200"
-                                  : "font-medium text-muted-foreground"
-                              }`}
-                            >
-                              {proposed.title}
-                            </span>
-                            {!shifted && !change && (
-                              <span className="ml-auto text-[10px] text-muted-foreground/70 shrink-0">
-                                same this week
-                              </span>
-                            )}
-                          </div>
-                          {change && <PacingChangeBadge change={change} />}
-                        </>
-                      ) : (
-                        <span className="text-[12px] text-muted-foreground/60">—</span>
-                      )}
-                    </div>
-                  )}
-                </div>
-
-                {/* Expanded spec-point breakdown for the core topic */}
-                {/* This week's share of the topic, not the whole thing. A topic
-                    spanning six weeks used to list all 17 of its spec points
-                    under every one of those weeks, which answered "what is in
-                    this topic" when the question is "what am I studying now". */}
-                {isOpen && tp && (
-                  <div className="bg-muted/20 px-4 py-2.5 border-t border-border">
-                    <div className="flex items-center justify-between gap-2 mb-1.5">
-                      <span className="text-[10px] font-bold uppercase tracking-wide text-muted-foreground">
-                        {showWholeTopic || !weekPoints
-                          ? `Whole topic · ${tp.points.length} spec points`
-                          : `This week · ${shown.length} of ${tp.points.length} spec points`}
-                      </span>
-                      {weekPoints && weekPoints.length < tp.points.length && (
-                        <button
-                          type="button"
-                          onClick={() => toggle(`${rowKey}@all`)}
-                          className="text-[10px] font-semibold text-primary hover:underline shrink-0"
-                        >
-                          {showWholeTopic ? "Show this week only" : "Show whole topic"}
-                        </button>
-                      )}
-                    </div>
-                    <ul className="space-y-1">
-                      {shown.map((p) => (
-                        <PointRow key={p.id} point={p} />
-                      ))}
-                    </ul>
-                  </div>
-                )}
-
-                {/* …and the same for any focused topic opened on this row. */}
-                {focused.map((b) => {
-                  const k = focusRowKey(b, wk);
-                  if (!expanded.has(k)) return null;
-                  return (
-                    <FocusPointsPanel
-                      key={k}
-                      band={b}
-                      progress={progressByTopic.get(b.topicId)}
-                      wholeTopic={expanded.has(`${k}@all`)}
-                      onToggleWholeTopic={() => toggle(`${k}@all`)}
-                    />
-                  );
-                })}
-              </div>
-            );
-          })}
-        </div>
-      </div>
-
-      <p className="mt-4 text-[11px] text-muted-foreground">
-        Tap any topic to see its points and assessment results. Future review weeks are estimates;
-        This week contains your confirmed assignment.
-      </p>
-      {earlierWeeks > 0 && (
-        <button
-          type="button"
-          onClick={() => setShowHistory((v) => !v)}
-          className="mt-2 inline-flex items-center gap-1.5 text-[11px] font-semibold text-primary hover:underline"
-          aria-expanded={showHistory}
-        >
-          <History className="w-3.5 h-3.5" />
-          {showHistory
-            ? "Hide earlier weeks"
-            : `Show ${earlierWeeks} earlier ${earlierWeeks === 1 ? "week" : "weeks"}`}
-        </button>
+        </details>
       )}
+
+      {!!data.catchUpSchedule?.held.length && (
+        <p className="text-sm text-muted-foreground mb-3" role="status">
+          {data.catchUpSchedule.held.length} missed spec points cannot fit before the exam at the
+          current catch-up pace. Use Practise now or ask your tutor to adjust the workload.
+        </p>
+      )}
+      <FullPlanTimeline data={data} newFocusKeys={newFocusKeys} />
     </div>
   );
-}
-
-/** Every Monday date-key from `startKey` to `endKey` inclusive. */
-function weekKeysBetween(startKey: string, endKey: string): string[] {
-  const out: string[] = [];
-  let d = weekKeyToDate(startKey);
-  const end = weekKeyToDate(endKey);
-  while (d <= end) {
-    out.push(toDateKey(d));
-    d = addWeeks(d, 1);
-  }
-  return out;
 }
 
 /* ------------------------------------------------------------------ */

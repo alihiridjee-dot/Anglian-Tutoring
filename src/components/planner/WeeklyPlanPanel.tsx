@@ -1,3 +1,4 @@
+import { WeekBreakdown } from "./WeekBreakdown";
 import { WithheldPlanPoints } from "./WithheldPlanPoints";
 import { ErrorNote } from "@/components/Shared";
 import { useMemo, useState } from "react";
@@ -32,7 +33,7 @@ import { subjectLabel } from "@/lib/courseSummary";
  *
  * The week itself needs no asking for — it's this week's slice of the year-long
  * programme and builds itself (see {@link useWeekPlan}). The student shapes it
- * by hand: drop a point, or describe what's tricky to pull more in.
+ * by hand: describe what's tricky to pull more in.
  */
 export function WeeklyPlanPanel({
   studentId,
@@ -177,7 +178,15 @@ export function WeeklyPlanPanel({
               <p className="text-xs text-muted-foreground">{weekLabel}</p>
             </div>
           </div>
-          <div className="flex items-center gap-3">
+          <div className="flex flex-wrap items-center gap-3">
+            {isCurrent && week.plan && !week.loading && (
+              <WeekBreakdown
+                id="week-breakdown"
+                points={week.points}
+                roadmap={week.roadmap}
+                weekStart={weekStart}
+              />
+            )}
             {ordered.length > 1 && (
               <div className="flex items-center gap-1.5">
                 {ordered.map((e) => (
@@ -236,9 +245,7 @@ export function WeeklyPlanPanel({
             weekStart={weekStart}
             editable={editable}
             isPast={isPast}
-            showRationale={isCurrent}
             showCoverage={showReview}
-            onRemove={week.removePoint}
             onFocusAgain={focusAgain}
             onAddTricky={editable ? () => setShowWeakness((s) => !s) : undefined}
           />

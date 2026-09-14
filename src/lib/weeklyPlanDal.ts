@@ -461,16 +461,6 @@ export class WeeklyPlanDAL {
     });
   }
 
-  /** Remove one spec point from a plan. */
-  static async removePoint(planId: string, specPointId: string): Promise<void> {
-    const { error } = await supabase
-      .from("student_weekly_plan_points")
-      .delete()
-      .eq("plan_id", planId)
-      .eq("spec_point_id", specPointId);
-    if (error) throw error;
-  }
-
   /**
    * For a set of spec points, the work attached to each — the videos, downloads,
    * homework and quizzes themselves, not just a count of them.

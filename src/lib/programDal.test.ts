@@ -185,3 +185,52 @@ describe("what survives a re-cut of the week", () => {
     expect(handPicked("carried_over")).toBe(false);
   });
 });
+
+describe("saved-week catch-up", () => {
+  test("appends missing core work, preserves existing points, and is idempotent", async () => {
+    const catchUp = {
+      specPointId: "old",
+      topicId: "old-topic",
+      topicTitle: "Old topic",
+      code: "1.1",
+      title: "Missed point",
+      weight: 1,
+      plannedWeek: "2026-07-13",
+    };
+    const roadmap = {
+      catchUpSchedule: {
+        weeks: { "2026-09-07": [catchUp] },
+        assignedIds: [],
+        held: [],
+      },
+    } as unknown as RoadmapResult;
+    const points = [
+      { spec_point_id: "manual", origin: "student", done_at: "2026-09-07" },
+    ] as PlanPoint[];
+    const add = spyOn(WeeklyPlanDAL, "addPoints").mockResolvedValue();
+    try {
+      expect(
+        await ProgramDAL.ensureCatchUp({
+          planId: "saved",
+          weekStart: "2026-09-07",
+          points,
+          roadmap,
+        }),
+      ).toBe(true);
+      expect(add).toHaveBeenCalledWith("saved", ["old"], "core");
+      expect(
+        await ProgramDAL.ensureCatchUp({
+          planId: "saved",
+          weekStart: "2026-09-07",
+          points: [...points, { spec_point_id: "old", origin: "core" } as PlanPoint],
+          roadmap,
+        }),
+      ).toBe(false);
+      expect(add).toHaveBeenCalledTimes(1);
+      expect(points[0].origin).toBe("student");
+      expect(points[0].done_at).toBe("2026-09-07");
+    } finally {
+      add.mockRestore();
+    }
+  });
+});

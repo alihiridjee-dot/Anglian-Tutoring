@@ -23,7 +23,6 @@ export interface WeekPlanState {
   loading: boolean;
   error: Error | null;
   reload: () => Promise<void>;
-  removePoint: (specPointId: string) => Promise<void>;
   setPointDone: (specPointId: string, done: boolean) => Promise<void>;
 }
 
@@ -35,6 +34,7 @@ export function useWeekPlan(params: {
   level: LevelV;
   weekStart: string;
   isCurrent: boolean;
+  enabled?: boolean;
   withCoverage: boolean;
   roadmap?: RoadmapResult | null;
   refreshKey?: number;
@@ -44,7 +44,7 @@ export function useWeekPlan(params: {
   const weekKey = [...courseKey(params), "week", weekStart];
   const week = useQuery({
     queryKey: weekKey,
-    enabled: !!studentId,
+    enabled: !!studentId && params.enabled !== false,
     queryFn: async ({ signal }) => {
       let saved = await WeeklyPlanDAL.getPlan(studentId, subject, weekStart);
       /**
@@ -88,6 +88,21 @@ export function useWeekPlan(params: {
         // A newly saved week now owns the current roadmap assignments.
         await client.invalidateQueries({ queryKey: [...courseKey(params), "roadmap"] });
       }
+      if (saved && isCurrent && (await getSessionUserId()) === studentId) {
+        const roadmap = await client.fetchQuery(roadmapQuery(client, params));
+        signal.throwIfAborted();
+        if (
+          await ProgramDAL.ensureCatchUp({
+            planId: saved.plan.id,
+            weekStart,
+            points: saved.points,
+            roadmap,
+          })
+        ) {
+          saved = await WeeklyPlanDAL.getPlan(studentId, subject, weekStart);
+          await client.invalidateQueries({ queryKey: [...courseKey(params), "roadmap"] });
+        }
+      }
       return saved;
     },
     retry: false, // A query that can materialise a week must not replay writes automatically.
@@ -119,12 +134,6 @@ export function useWeekPlan(params: {
       void reload();
     }
   }, [params.refreshKey, reload]);
-  const remove = useMutation({
-    mutationFn: async (id: string) => {
-      if (week.data) await WeeklyPlanDAL.removePoint(week.data.plan.id, id);
-    },
-    onSettled: reload,
-  });
   const done = useMutation({
     mutationFn: async ({ id, value }: { id: string; value: boolean }) => {
       if (week.data) await WeeklyPlanDAL.setPointDone(week.data.plan.id, id, value);
@@ -141,9 +150,6 @@ export function useWeekPlan(params: {
     loading: week.isLoading || activity.isLoading || coverage.isLoading || road.isLoading,
     error: week.error ?? activity.error ?? coverage.error ?? road.error,
     reload,
-    removePoint: async (id) => {
-      await remove.mutateAsync(id);
-    },
     setPointDone: async (id, value) => {
       await done.mutateAsync({ id, value });
     },

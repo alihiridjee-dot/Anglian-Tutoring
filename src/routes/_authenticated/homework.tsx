@@ -179,7 +179,7 @@ export function HomeworkPage() {
 
       {/* Predicted grades live in homework section now */}
       {!isTutor && enrolledCourses.length > 0 && analytics.length > 0 && (
-        <div className="mb-8">
+        <div data-guide="homework-grades" className="mb-8">
           <div className="flex items-center gap-2 mb-3">
             <TrendingUp className="w-4 h-4 text-primary" />
             <h3 className="font-display font-bold text-base text-foreground">Predicted Grades</h3>
@@ -223,7 +223,7 @@ export function HomeworkPage() {
           body="No homework has been set for your subjects yet. When your tutor posts a brief it lands here, with the questions and your marks in the same place."
         />
       ) : (
-        <div className="space-y-4">
+        <div data-guide="homework-list" className="space-y-4">
           {homework.map((h) => (
             <HomeworkCard
               key={h.id}

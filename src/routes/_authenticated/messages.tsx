@@ -80,6 +80,7 @@ function MessagesPage() {
           </div>
           {!isTutor && (
             <button
+              data-guide="ask-question"
               onClick={() => setComposing(true)}
               className="btn-hero inline-flex h-10 shrink-0 items-center gap-2 rounded-xl px-4 text-sm"
             >
@@ -101,6 +102,7 @@ function MessagesPage() {
             </p>
             {!isTutor && (
               <button
+                data-guide="ask-question"
                 onClick={() => setComposing(true)}
                 className="btn-hero mt-6 inline-flex h-11 items-center gap-2 rounded-xl px-5 text-sm"
               >
@@ -110,7 +112,10 @@ function MessagesPage() {
           </div>
         ) : (
           <div className="grid gap-4 lg:grid-cols-[minmax(0,20rem)_1fr]">
-            <div className="pop-card scroll-slim max-h-[70vh] overflow-y-auto">
+            <div
+              data-guide="message-list"
+              className="pop-card scroll-slim max-h-[70vh] overflow-y-auto"
+            >
               <ThreadList
                 threads={threads}
                 selectedId={selectedId}
@@ -118,7 +123,10 @@ function MessagesPage() {
                 showCounterpart={isTutor}
               />
             </div>
-            <div className="premium-card h-[70vh] overflow-hidden rounded-2xl">
+            <div
+              data-guide="message-thread"
+              className="premium-card h-[70vh] overflow-hidden rounded-2xl"
+            >
               {selected && userId ? (
                 <ThreadView thread={selected} viewerId={userId} isTutor={isTutor} />
               ) : (

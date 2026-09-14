@@ -98,6 +98,7 @@ export function Downloads() {
               </div>
               {d.file_path && (
                 <button
+                  data-guide="download-file"
                   onClick={() => open(d.file_path!)}
                   className="btn-solid inline-flex items-center gap-1.5 rounded-lg px-3 py-2 text-xs"
                 >

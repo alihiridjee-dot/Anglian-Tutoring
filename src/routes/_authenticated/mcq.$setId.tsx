@@ -224,6 +224,7 @@ export function TakeMcq() {
         </ol>
         {!submitted ? (
           <button
+            data-guide="quiz-submit"
             onClick={submit}
             disabled={submitting || Object.keys(answers).length !== questions.length}
             className="mt-6 w-full h-11 rounded-xl btn-solid font-semibold disabled:opacity-50"

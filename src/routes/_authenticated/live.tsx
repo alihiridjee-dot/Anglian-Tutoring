@@ -136,7 +136,10 @@ export function Live() {
       <FilterBar value={filters} onChange={setFilters} />
 
       {/* Upcoming / Previous tab switch */}
-      <div className="flex items-center gap-1 p-1 rounded-xl bg-secondary/60 border border-border w-fit mb-5">
+      <div
+        data-guide="live-tabs"
+        className="flex items-center gap-1 p-1 rounded-xl bg-secondary/60 border border-border w-fit mb-5"
+      >
         {(["upcoming", "previous"] as const).map((t) => (
           <button
             key={t}
@@ -171,6 +174,7 @@ export function Live() {
               const isZoom = s.join_url?.toLowerCase().includes("zoom");
               return (
                 <div
+                  data-guide="live-session"
                   key={s.id}
                   className="rounded-xl premium-card p-5 flex flex-col lg:flex-row lg:items-center gap-4"
                 >
@@ -253,6 +257,7 @@ export function Live() {
           ) : (
             past.map((s) => (
               <div
+                data-guide="live-session"
                 key={s.id}
                 className="rounded-xl premium-card p-5 flex flex-col sm:flex-row sm:items-start gap-3"
               >
