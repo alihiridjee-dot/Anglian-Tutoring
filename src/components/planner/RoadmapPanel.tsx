@@ -183,8 +183,9 @@ export function RoadmapPanel({
   // The review column is open exactly while there is a shift to accept, and
   // closes the moment they accept it (needsAck goes false on reload).
   const reviewing = !!data?.needsAck && baselineSpine.length > 0;
-  const total = spine.length;
-  const doneCount = spine.filter((b) => covered.has(b.topicId)).length;
+  const topicIds = new Set(spine.map((b) => b.topicId));
+  const total = topicIds.size;
+  const doneCount = [...topicIds].filter((id) => covered.has(id)).length;
   // Weeks between the programme's start and today — the history the table can
   // show. Zero for a student in their first week, which is why the control is
   // conditional rather than always present.
@@ -543,7 +544,7 @@ function WeekTable({
           const showWholeTopic = core ? expanded.has(`${rowKey}@all`) : false;
           // This week's share of the topic, as the year plan divided it. Bands
           // stored before `pointsByWeek` existed fall back to the whole topic.
-          const weekPoints = core?.pointsByWeek?.[wk];
+          const weekPoints = core?.pointsByWeek?.[wk] ?? (core?.fixedPoints ? [] : undefined);
           const byId = new Map((tp?.points ?? []).map((p) => [p.id, p]));
           const shown =
             showWholeTopic || !weekPoints

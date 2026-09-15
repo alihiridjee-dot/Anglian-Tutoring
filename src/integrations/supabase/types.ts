@@ -1687,6 +1687,20 @@ export type Database = {
       [_ in never]: never;
     };
     Functions: {
+      reorder_student_topics: {
+        Args: {
+          _subject: Database["public"]["Enums"]["subject"];
+          _board: Database["public"]["Enums"]["board"];
+          _level: Database["public"]["Enums"]["level"];
+          _from: string;
+          _expected_pacing: Json;
+          _expected_exam: string;
+          _pacing: Json;
+          _assessed: string[];
+          _reviews: Json;
+        };
+        Returns: undefined;
+      };
       acknowledge_submission: {
         Args: { _submission_id: string };
         Returns: undefined;

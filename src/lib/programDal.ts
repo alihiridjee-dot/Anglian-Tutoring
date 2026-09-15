@@ -1,3 +1,4 @@
+import { customSchedule, orderInputs, reorderTopics } from "./planner/topicOrder";
 import { supabase } from "@/integrations/supabase/client";
 import { getSessionUserId } from "@/lib/auth/session";
 import { type SubjectV, type BoardV, type LevelV } from "./taxonomy";
@@ -110,6 +111,7 @@ export interface RoadmapResult {
   examDate: string;
   /** Topic ids whose points all have assessed marks of at least 70%. */
   coveredTopicIds: string[];
+  completedPointIds?: string[];
   /** Per-topic mastery + spec-point breakdown, for the expandable timeline. */
   progress: TopicProgress[];
   reviewBacklog: FocusCandidate[];
@@ -147,12 +149,11 @@ export interface RoadmapResult {
 
 /**
  * The year-long curriculum programme ([[pacing]]) with persistence. The core
- * spine is FIXED: laid once, sequentially, from the student's enrolment week
- * (their first view of the programme) to the agreed exam date, weeks allocated
- * by weight — and it never re-flows from progress. The whole course is spread
- * evenly over that personal runway: enrol early and the weeks run light, join
- * late and each week carries more. The only spine-moving event is the exam date
- * changing, and that shift surfaces as a diff for the student to accept. The
+ * spine defaults to curriculum order from the first programme visit to the exam,
+ * weighted by topic size. An explicit student reorder snapshots earlier weekly
+ * promises and redistributes the remaining topics from a chosen Monday. Progress
+ * never re-flows either schedule. Exam changes retain a custom order and require
+ * acknowledgement before the remaining timetable is replaced. The
  * focus lane is the moving part: recomputed from assessed memory every load and
  * overlaid on the spine.
  */
@@ -217,12 +218,34 @@ export class ProgramDAL {
     // for a topic the programme has not opened yet, however good the FSRS
     // evidence behind it looks. See [[admissibility]].
     const start = baseline ? weekKeyToDate(baseline.program_start) : thisMonday;
-    const live = computePacing(topics, start, examMonday);
+    const stored = baseline ? (baseline.pacing as unknown as PacingBand[]) : [];
+    const custom = customSchedule(stored);
+    let live = computePacing(topics, start, examMonday);
+    if (custom) {
+      live = stored;
+      if (custom.examDate !== baseline!.exam_date) {
+        const from = [custom.from, toDateKey(thisMonday)].sort().at(-1)!;
+        const orderTopics = progress.map((t) => ({
+          topicId: t.topicId,
+          title: t.title,
+          points: pointsByTopic.get(t.topicId)!,
+        }));
+        const remaining = orderInputs(stored, orderTopics, from).remaining;
+        if (remaining.length)
+          live = reorderTopics({
+            bands: stored,
+            topics: orderTopics,
+            order: remaining.map((t) => t.topicId),
+            from,
+            examDate: baseline!.exam_date,
+          });
+      }
+    }
     // The acknowledged spine, not the live recomputation, so this agrees with
     // the `plan_point_admissible` trigger — which reads the same stored pacing.
     // Two enforcement layers answering the same question differently is worse
     // than either answer. Falls back to `live` only before a baseline exists.
-    const reach = spineReach(baseline ? (baseline.pacing as unknown as PacingBand[]) : live);
+    const reviewReach = spineReach(baseline ? stored : live, true);
     const thisWeek = toDateKey(thisMonday);
     const examDate = baseline ? baseline.exam_date : toDateKey(examMonday);
     const inadmissible: InadmissiblePoint[] = [];
@@ -264,7 +287,7 @@ export class ProgramDAL {
     const projection = projectReviews({
       ...focus,
       candidates: eligible.admitted,
-      topicOpenings: reach,
+      topicOpenings: reviewReach,
       currentMonday: savedWeek ? addWeeks(thisMonday, 1) : thisMonday,
       examMonday,
     });
@@ -415,6 +438,7 @@ export class ProgramDAL {
         programStart,
         examDate,
         coveredTopicIds: [...coveredTopicIds],
+        completedPointIds: [...ledger.done],
         progress,
         reviewBacklog: projection.backlog,
         inadmissible,
@@ -445,15 +469,27 @@ export class ProgramDAL {
       programStart: baseline.program_start,
       examDate: baseline.exam_date,
       coveredTopicIds: [...coveredTopicIds],
+      completedPointIds: [...ledger.done],
       progress,
       reviewBacklog: projection.backlog,
       inadmissible,
       backlog,
       backlogByTopic: byTopic(unaddressed),
       catchUpSchedule,
-      unscheduledTopicTitles: topics
-        .slice(Math.max(0, topics.length - teachingWeeksShort))
-        .map((t) => t.title),
+      unscheduledTopicTitles: custom
+        ? progress
+            .filter((t) =>
+              t.points.some(
+                (p) =>
+                  !promised.some((b) =>
+                    Object.values(b.pointsByWeek ?? {})
+                      .flat()
+                      .some((ref) => ref.specPointId === p.id),
+                  ),
+              ),
+            )
+            .map((t) => t.title)
+        : topics.slice(Math.max(0, topics.length - teachingWeeksShort)).map((t) => t.title),
       focusLoad: focusLoadFor({
         topics,
         spine: live,
@@ -536,7 +572,15 @@ export class ProgramDAL {
             ...roadmap.bands.filter((b) => !isTeachBand(b)),
           ],
           weekStart,
-          topics: roadmap.progress,
+          topics: customSchedule(roadmap.baselineBands)
+            ? roadmap.progress.map((t) => ({
+                ...t,
+                points: t.points.map((p) => ({
+                  ...p,
+                  reps: roadmap.completedPointIds?.includes(p.id) ? Math.max(1, p.reps) : p.reps,
+                })),
+              }))
+            : roadmap.progress,
           catchUp: take.map((b) => ({
             specPointId: b.specPointId,
             topicTitle: b.topicTitle,
@@ -709,6 +753,89 @@ export class ProgramDAL {
     return true;
   }
 
+  private static async reorderedReviews(p: {
+    studentId: string;
+    subject: SubjectV;
+    progress: TopicProgress[];
+    pacing: PacingBand[];
+    examDate: string;
+  }) {
+    const monday = mondayOf();
+    const saved = await WeeklyPlanDAL.getPlan(p.studentId, p.subject, toDateKey(monday));
+    const assigned = new Set(saved?.points.map((point) => point.spec_point_id) ?? []);
+    return projectReviews({
+      candidates: focusInputs(p.progress).candidates.filter(
+        (c) => !assigned.has(c.specPointId) || new Date(c.lastReviewedAt) >= monday,
+      ),
+      topicOpenings: spineReach(p.pacing, true),
+      currentMonday: saved ? addWeeks(monday, 1) : monday,
+      examMonday: weekKeyToDate(p.examDate),
+    }).bands;
+  }
+
+  /** One transaction updates the spine and every already-saved affected week. */
+  static async reorder(params: {
+    studentId: string;
+    subject: SubjectV;
+    board: BoardV;
+    level: LevelV;
+    data: RoadmapResult;
+    from: string;
+    order: string[];
+  }): Promise<void> {
+    const { studentId, subject, board, level, data, from, order } = params;
+    if ((await getSessionUserId()) !== studentId)
+      throw new Error("Only the student can change their topic order.");
+    if (data.needsAck)
+      throw new Error("Accept your pending exam-date change before changing topic order.");
+    const progress = await ScheduleDAL.getTopicProgress({ studentId, subject, board, level });
+    const fingerprint = (items: TopicProgress[]) =>
+      JSON.stringify(items.map((t) => [t.topicId, t.points.map((p) => [p.id, p.weight])]));
+    if (fingerprint(progress) !== fingerprint(data.progress))
+      throw new Error("Your curriculum changed. Reload and preview the new order.");
+    const topics = progress.map((t) => ({
+      topicId: t.topicId,
+      title: t.title,
+      points: t.points.map((p) => ({
+        specPointId: p.id,
+        code: p.code,
+        title: p.title,
+        weight: p.weight,
+      })),
+    }));
+    const pacing = reorderTopics({
+      bands: data.baselineBands,
+      topics,
+      order,
+      from,
+      examDate: data.examDate,
+    });
+    const { error } = await supabase.rpc("reorder_student_topics", {
+      _subject: subject,
+      _board: board,
+      _level: level,
+      _from: from,
+      _expected_pacing: data.baselineBands as unknown as Json,
+      _expected_exam: data.examDate,
+      _pacing: pacing as unknown as Json,
+      _assessed: progress.flatMap((t) => t.points.filter((p) => p.reps > 0).map((p) => p.id)),
+      _reviews: (await this.reorderedReviews({
+        studentId,
+        subject,
+        progress,
+        pacing,
+        examDate: data.examDate,
+      })) as unknown as Json,
+    });
+    if (error) {
+      if (error.code === "PGRST202")
+        throw new Error(
+          "Topic ordering is not available yet. Your current plan is unchanged. Please try again later.",
+        );
+      throw new Error(error.message);
+    }
+  }
+
   /**
    * Set a real exam date for one course. Stored verbatim (any weekday) — the
    * pacing math monday-ises internally, so this just moves the horizon the plan
@@ -721,6 +848,29 @@ export class ProgramDAL {
     subject: SubjectV;
     examDate: string;
   }): Promise<void> {
+    const { data: saved, error: readError } = await supabase
+      .from("student_program_plan")
+      .select("pacing")
+      .eq("student_id", params.studentId)
+      .eq("subject", params.subject)
+      .maybeSingle();
+    if (readError) throw readError;
+    const stored = (saved?.pacing ?? []) as unknown as PacingBand[];
+    const custom = customSchedule(stored);
+    if (custom) {
+      const from = [custom.from, toDateKey(mondayOf())].sort().at(-1)!;
+      const remaining = new Set(
+        stored
+          .filter((b) =>
+            Object.entries(b.pointsByWeek ?? {}).some(([w, points]) => w >= from && points.length),
+          )
+          .map((b) => b.topicId),
+      );
+      if (weeksBetween(weekKeyToDate(from), weekKeyToDate(params.examDate)) < remaining.size)
+        throw new Error(
+          "That exam date leaves too few weeks for your remaining topics. Choose a later date.",
+        );
+    }
     const { error } = await supabase
       .from("student_program_plan")
       .update({ exam_date: params.examDate, updated_at: new Date().toISOString() })
@@ -740,6 +890,63 @@ export class ProgramDAL {
     programStart: string;
     examDate: string;
   }): Promise<void> {
+    const schedule = customSchedule(params.bands);
+    if (schedule) {
+      const [
+        { data: enrolment, error: enrolmentError },
+        { data: profile, error: profileError },
+        { data: baseline, error: baselineError },
+      ] = await Promise.all([
+        supabase
+          .from("student_enrolments")
+          .select("board")
+          .eq("student_id", params.studentId)
+          .eq("subject", params.subject)
+          .single(),
+        supabase.from("profiles").select("level").eq("id", params.studentId).single(),
+        supabase
+          .from("student_program_plan")
+          .select("pacing, exam_date")
+          .eq("student_id", params.studentId)
+          .eq("subject", params.subject)
+          .single(),
+      ]);
+      if (enrolmentError || profileError || baselineError || !profile?.level)
+        throw new Error("Could not read your current course. Reload your planner.");
+      const course = {
+        studentId: params.studentId,
+        subject: params.subject,
+        board: enrolment!.board,
+        level: profile.level,
+      };
+      const fresh = await this.loadRoadmap(course);
+      if (
+        !fresh ||
+        JSON.stringify(fresh.bands.filter(isTeachBand)) !==
+          JSON.stringify(params.bands.filter(isTeachBand))
+      )
+        throw new Error("Your plan changed. Reload and review the proposal again.");
+      const { error } = await supabase.rpc("reorder_student_topics", {
+        _subject: params.subject,
+        _board: course.board,
+        _level: course.level,
+        _from: schedule.from,
+        _expected_pacing: baseline!.pacing,
+        _expected_exam: params.examDate,
+        _pacing: params.bands.filter(isTeachBand) as unknown as Json,
+        _assessed: fresh.progress.flatMap((t) =>
+          t.points.filter((p) => p.reps > 0).map((p) => p.id),
+        ),
+        _reviews: (await this.reorderedReviews({
+          ...course,
+          progress: fresh.progress,
+          pacing: params.bands,
+          examDate: params.examDate,
+        })) as unknown as Json,
+      });
+      if (error) throw error;
+      return;
+    }
     const { error } = await supabase.from("student_program_plan").upsert(
       {
         student_id: params.studentId,
