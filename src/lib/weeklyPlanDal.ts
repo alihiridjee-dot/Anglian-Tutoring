@@ -183,6 +183,7 @@ export class WeeklyPlanDAL {
       },
       {
         reach: spineReach((baseline?.pacing ?? []) as unknown as PacingBand[]),
+        reviewReach: spineReach((baseline?.pacing ?? []) as unknown as PacingBand[], true),
         weekStart,
         examDate: baseline?.exam_date,
       },

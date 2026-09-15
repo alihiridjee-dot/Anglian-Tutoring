@@ -63,6 +63,11 @@ export function weightOf(p: { weight?: number | null }): number {
 }
 
 export interface PacingBand {
+  /** Explicit weekly promises survive topic reordering and historical reads. */
+  fixedPoints?: boolean;
+  openedWeek?: string;
+  reviewStartWeek?: string;
+  schedule?: { version: number; from: string; examDate: string };
   topicId: string;
   title: string;
   /** Monday date-keys (inclusive) bounding the topic's run. */
@@ -437,7 +442,7 @@ export function withWeeklyPoints(
   pointsByTopic: Map<string, FocusPointRef[]>,
 ): PacingBand[] {
   return bands.map((b) => {
-    if (!isTeachBand(b)) return b;
+    if (!isTeachBand(b) || b.fixedPoints) return b;
     const points = pointsByTopic.get(b.topicId) ?? [];
     if (points.length === 0) return b;
     const chunks = splitAcrossWeeks(points, b.weeks, weightOf);
@@ -556,10 +561,15 @@ export function selectWeekPoints(params: {
     );
     // Use the same fixed, weighted allocation as the roadmap.
     const chunks = splitAcrossWeeks(all, weeks, weightOf);
+    const selected = band.fixedPoints
+      ? all.filter((p) =>
+          (band.pointsByWeek?.[weekStart] ?? []).some((ref) => ref.specPointId === p.id),
+        )
+      : (chunks[idx] ?? []);
     // First learning follows this week's fixed curriculum allocation. Previously
     // assessed points wait for FSRS rather than becoming automatic refreshers.
     const took = addPoints(
-      (chunks[idx] ?? []).filter((p) => !(p.reps && p.reps > 0)),
+      selected.filter((p) => !(p.reps && p.reps > 0)),
       "core",
     );
     teachCount += took;
@@ -630,7 +640,10 @@ export function diffPacing(prev: PacingBand[], cur: PacingBand[]): PacingChange[
   const prevByTopic = new Map(prev.filter(isTeachBand).map((b) => [b.topicId, b]));
   const out: PacingChange[] = [];
   for (const b of cur.filter(isTeachBand)) {
-    const p = prevByTopic.get(b.topicId);
+    // A reordered topic can have a frozen historical band and a remaining band.
+    const p =
+      prev.find((p) => isTeachBand(p) && p.topicId === b.topicId && p.startWeek === b.startWeek) ??
+      prevByTopic.get(b.topicId);
     if (!p || p.startWeek !== b.startWeek || p.endWeek !== b.endWeek || p.weeks !== b.weeks) {
       out.push({
         topicId: b.topicId,

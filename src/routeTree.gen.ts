@@ -29,6 +29,7 @@ import { Route as AuthenticatedStudentsRouteImport } from './routes/_authenticat
 import { Route as AuthenticatedStudentDashboardRouteImport } from './routes/_authenticated/student-dashboard'
 import { Route as AuthenticatedSettingsRouteImport } from './routes/_authenticated/settings'
 import { Route as AuthenticatedProfileRouteImport } from './routes/_authenticated/profile'
+import { Route as AuthenticatedPlannerOrderRouteImport } from './routes/_authenticated/planner-order'
 import { Route as AuthenticatedPlannerRouteImport } from './routes/_authenticated/planner'
 import { Route as AuthenticatedParentsRouteImport } from './routes/_authenticated/parents'
 import { Route as AuthenticatedParentDashboardRouteImport } from './routes/_authenticated/parent-dashboard'
@@ -152,6 +153,12 @@ const AuthenticatedProfileRoute = AuthenticatedProfileRouteImport.update({
   path: '/profile',
   getParentRoute: () => AuthenticatedRouteRoute,
 } as any)
+const AuthenticatedPlannerOrderRoute =
+  AuthenticatedPlannerOrderRouteImport.update({
+    id: '/planner-order',
+    path: '/planner-order',
+    getParentRoute: () => AuthenticatedRouteRoute,
+  } as any)
 const AuthenticatedPlannerRoute = AuthenticatedPlannerRouteImport.update({
   id: '/planner',
   path: '/planner',
@@ -283,6 +290,7 @@ export interface FileRoutesByFullPath {
   '/parent-dashboard': typeof AuthenticatedParentDashboardRoute
   '/parents': typeof AuthenticatedParentsRoute
   '/planner': typeof AuthenticatedPlannerRoute
+  '/planner-order': typeof AuthenticatedPlannerOrderRoute
   '/profile': typeof AuthenticatedProfileRoute
   '/settings': typeof AuthenticatedSettingsRoute
   '/student-dashboard': typeof AuthenticatedStudentDashboardRoute
@@ -325,6 +333,7 @@ export interface FileRoutesByTo {
   '/parent-dashboard': typeof AuthenticatedParentDashboardRoute
   '/parents': typeof AuthenticatedParentsRoute
   '/planner': typeof AuthenticatedPlannerRoute
+  '/planner-order': typeof AuthenticatedPlannerOrderRoute
   '/profile': typeof AuthenticatedProfileRoute
   '/settings': typeof AuthenticatedSettingsRoute
   '/student-dashboard': typeof AuthenticatedStudentDashboardRoute
@@ -370,6 +379,7 @@ export interface FileRoutesById {
   '/_authenticated/parent-dashboard': typeof AuthenticatedParentDashboardRoute
   '/_authenticated/parents': typeof AuthenticatedParentsRoute
   '/_authenticated/planner': typeof AuthenticatedPlannerRoute
+  '/_authenticated/planner-order': typeof AuthenticatedPlannerOrderRoute
   '/_authenticated/profile': typeof AuthenticatedProfileRoute
   '/_authenticated/settings': typeof AuthenticatedSettingsRoute
   '/_authenticated/student-dashboard': typeof AuthenticatedStudentDashboardRoute
@@ -415,6 +425,7 @@ export interface FileRouteTypes {
     | '/parent-dashboard'
     | '/parents'
     | '/planner'
+    | '/planner-order'
     | '/profile'
     | '/settings'
     | '/student-dashboard'
@@ -457,6 +468,7 @@ export interface FileRouteTypes {
     | '/parent-dashboard'
     | '/parents'
     | '/planner'
+    | '/planner-order'
     | '/profile'
     | '/settings'
     | '/student-dashboard'
@@ -501,6 +513,7 @@ export interface FileRouteTypes {
     | '/_authenticated/parent-dashboard'
     | '/_authenticated/parents'
     | '/_authenticated/planner'
+    | '/_authenticated/planner-order'
     | '/_authenticated/profile'
     | '/_authenticated/settings'
     | '/_authenticated/student-dashboard'
@@ -689,6 +702,13 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof AuthenticatedProfileRouteImport
       parentRoute: typeof AuthenticatedRouteRoute
     }
+    '/_authenticated/planner-order': {
+      id: '/_authenticated/planner-order'
+      path: '/planner-order'
+      fullPath: '/planner-order'
+      preLoaderRoute: typeof AuthenticatedPlannerOrderRouteImport
+      parentRoute: typeof AuthenticatedRouteRoute
+    }
     '/_authenticated/planner': {
       id: '/_authenticated/planner'
       path: '/planner'
@@ -858,6 +878,7 @@ interface AuthenticatedRouteRouteChildren {
   AuthenticatedParentDashboardRoute: typeof AuthenticatedParentDashboardRoute
   AuthenticatedParentsRoute: typeof AuthenticatedParentsRoute
   AuthenticatedPlannerRoute: typeof AuthenticatedPlannerRoute
+  AuthenticatedPlannerOrderRoute: typeof AuthenticatedPlannerOrderRoute
   AuthenticatedProfileRoute: typeof AuthenticatedProfileRoute
   AuthenticatedSettingsRoute: typeof AuthenticatedSettingsRoute
   AuthenticatedStudentDashboardRoute: typeof AuthenticatedStudentDashboardRoute
@@ -880,6 +901,7 @@ const AuthenticatedRouteRouteChildren: AuthenticatedRouteRouteChildren = {
   AuthenticatedParentDashboardRoute: AuthenticatedParentDashboardRoute,
   AuthenticatedParentsRoute: AuthenticatedParentsRoute,
   AuthenticatedPlannerRoute: AuthenticatedPlannerRoute,
+  AuthenticatedPlannerOrderRoute: AuthenticatedPlannerOrderRoute,
   AuthenticatedProfileRoute: AuthenticatedProfileRoute,
   AuthenticatedSettingsRoute: AuthenticatedSettingsRoute,
   AuthenticatedStudentDashboardRoute: AuthenticatedStudentDashboardRoute,

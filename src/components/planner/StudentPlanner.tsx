@@ -1,3 +1,4 @@
+import { Link } from "@tanstack/react-router";
 import { WeekBreakdown } from "./WeekBreakdown";
 import { FullPlanTimeline } from "./FullPlanTimeline";
 import { WithheldPlanPoints } from "./WithheldPlanPoints";
@@ -568,10 +569,20 @@ function FullPlanTab({
       setSavingDate(false);
     }
   };
-  const doneCount = spine.filter((b) => covered.has(b.topicId)).length;
+  const topicIds = new Set(spine.map((b) => b.topicId));
+  const doneCount = [...topicIds].filter((id) => covered.has(id)).length;
 
   return (
     <div>
+      <div className="flex justify-end mb-4">
+        <Link
+          to="/planner-order"
+          search={{ subject }}
+          className="btn-premium rounded-xl px-4 py-2 text-sm inline-flex items-center gap-2"
+        >
+          <SlidersHorizontal className="size-4" /> Change topic order
+        </Link>
+      </div>
       {/* Proposed learning stays separate until the student accepts it. */}
       {reviewing && (
         <div className="flex flex-wrap items-center gap-3 rounded-xl border border-amber-500/30 bg-amber-500/[0.06] px-3 py-2.5 mb-3">
@@ -657,7 +668,7 @@ function FullPlanTab({
         </label>
         <span className="text-[12px] text-muted-foreground">
           <span className="font-semibold text-foreground tabular-nums">
-            {doneCount} of {spine.length}
+            {doneCount} of {topicIds.size}
           </span>{" "}
           topics covered
         </span>

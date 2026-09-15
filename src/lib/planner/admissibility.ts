@@ -97,13 +97,16 @@ const ADMITTED: Verdict = { ok: true };
  * test would refuse work mid-topic whenever the split shifted under it. "The
  * programme has started topic 3" is also what the question actually means.
  */
-export function spineReach(bands: PacingBand[]): Map<string, string> {
+export function spineReach(bands: PacingBand[], reviews = false): Map<string, string> {
   const reach = new Map<string, string>();
   for (const band of bands) {
     if (!isTeachBand(band)) continue;
     const current = reach.get(band.topicId);
     // Date-keys are YYYY-MM-DD, so a lexical compare is a chronological one.
-    if (!current || band.startWeek < current) reach.set(band.topicId, band.startWeek);
+    const opens = [band.startWeek, band.openedWeek, ...(reviews ? [band.reviewStartWeek] : [])]
+      .filter((w): w is string => !!w)
+      .sort()[0];
+    if (!current || opens < current) reach.set(band.topicId, opens);
   }
   return reach;
 }
@@ -134,6 +137,7 @@ export interface AdmissionCandidate {
 export interface AdmissionContext {
   /** From {@link spineReach} over the live or baseline spine. */
   reach: Map<string, string>;
+  reviewReach?: Map<string, string>;
   /** Monday date-key of the week being planned. */
   weekStart: string;
   /** The programme's exam date, when known. */
@@ -175,7 +179,9 @@ export function admit(point: AdmissionCandidate, ctx: AdmissionContext): Verdict
    * itself against the student's enrolment, which is the case neither this
    * module nor the point-level trigger can see.
    */
-  const opens = ctx.reach.get(point.topicId);
+  const opens = (origin === "focus" ? (ctx.reviewReach ?? ctx.reach) : ctx.reach).get(
+    point.topicId,
+  );
   if (opens && opens > ctx.weekStart) return { ok: false, reason: "ahead-of-spine" };
 
   // A review is a claim about something already practised. Teaching is not, so

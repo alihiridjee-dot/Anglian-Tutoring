@@ -142,7 +142,7 @@ export function FullPlanTimeline({
           const core = teaching.find((band) => band.startWeek <= week && band.endWeek >= week);
           const topic = core ? progress.get(core.topicId) : undefined;
           const rowKey = `${core?.topicId}@${week}`;
-          const refs = core?.pointsByWeek?.[week];
+          const refs = core?.pointsByWeek?.[week] ?? (core?.fixedPoints ? [] : undefined);
           const all = topic?.points ?? [];
           const weekly = refs
             ? all.filter((point) => refs.some((ref) => ref.specPointId === point.id))
