@@ -6,7 +6,7 @@ import { currentWeekKey, PLANNER_TIME_ZONE } from "@/lib/week";
 import { Spinner, Meter, EmptyState } from "@/components/Shared";
 import { useMemo, useState } from "react";
 import { Link } from "@tanstack/react-router";
-import { CircleDot, Repeat, CheckCircle2, Plus, RotateCcw } from "lucide-react";
+import { CircleDot, History, Repeat, CheckCircle2, Plus, RotateCcw } from "lucide-react";
 import { type PlanPoint, type WeeklyPlan } from "@/lib/weeklyPlanDal";
 import { type RoadmapResult } from "@/lib/programDal";
 import { isTeachBand, mondayOnOrAfter, type PacingBand } from "@/lib/planner/pacing";
@@ -26,13 +26,7 @@ import { type Activity } from "./useWeekPlan";
 /**
  * "This week", as both the dashboard and the planner show it.
  *
- * Two cards, the same two the roadmap uses, because they are the same two ideas:
- * the **core topic** is the curriculum marching through the year toward the
- * exam, and **focused topics** are the points that came back round because the
- * assessment history makes them eligible for review. Both are always shown — a week with
- * nothing to revisit still has a course to get through, and a week of pure
- * revision still sits somewhere on the spine. Showing only whichever lane
- * happened to be non-empty was the thing that made the week unreadable.
+ * Three distinct lanes: new learning, missed work returning, and revision.
  *
  * Purely presentational: the plan, its coverage and the programme all arrive
  * from `useWeekPlan`, so every surface renders one answer.
@@ -81,16 +75,30 @@ export function ThisWeekPanel({
 
   const covered = !!band && (roadmap?.coveredTopicIds ?? []).includes(band.topicId);
 
+  const returningIds = useMemo(
+    () =>
+      new Set([
+        ...(roadmap?.catchUpSchedule?.weeks[weekStart] ?? []).map((p) => p.specPointId),
+        ...(roadmap?.backlog ?? [])
+          .filter((p) => p.plannedWeek < weekStart)
+          .map((p) => p.specPointId),
+      ]),
+    [roadmap, weekStart],
+  );
+
   // The saved assignment is authoritative; roadmap points are never added here.
   const coreThisWeek = useMemo(
-    () => points.filter((p) => isCoreLane(p) && p.topic_id === band?.topicId),
-    [points, band],
+    () =>
+      points.filter(
+        (p) => isCoreLane(p) && p.topic_id === band?.topicId && !returningIds.has(p.spec_point_id),
+      ),
+    [points, band, returningIds],
   );
 
   // Split the plan by the lane each point was saved with. Plans written before
   // lanes existed carry `ai`; they join the core column rather than being hidden
   // in a nameless third list.
-  const { focus, yours, extraCore } = useMemo(() => {
+  const { focus, yours, extraCore, returning } = useMemo(() => {
     const titleOf = new Map((roadmap?.progress ?? []).map((t) => [t.topicId, t.title]));
     const group = (list: PlanPoint[]) => {
       const m = new Map<string, { topicId: string; title: string; points: PlanPoint[] }>();
@@ -114,17 +122,19 @@ export function ThisWeekPanel({
       // programme (no band at all), or a point carried in from another topic.
       // Rendered under its own topic, and never dropped: it used to vanish from
       // the panel entirely whenever there was no band to hang it on.
+      returning: group(points.filter((p) => isCoreLane(p) && returningIds.has(p.spec_point_id))),
       extraCore: group(
-        points.filter((p) => isCoreLane(p) && (!band || p.topic_id !== band.topicId)),
+        points.filter(
+          (p) =>
+            isCoreLane(p) &&
+            !returningIds.has(p.spec_point_id) &&
+            (!band || p.topic_id !== band.topicId),
+        ),
       ),
     };
-  }, [points, roadmap, band]);
+  }, [points, roadmap, band, returningIds]);
 
   const focusPointCount = focus.reduce((n, g) => n + g.points.length, 0);
-  const returningIds = new Set([
-    ...(roadmap?.catchUpSchedule?.weeks[weekStart] ?? []).map((p) => p.specPointId),
-    ...(roadmap?.backlog ?? []).filter((p) => p.plannedWeek < weekStart).map((p) => p.specPointId),
-  ]);
   const upcomingCatchUp =
     !plan && weekStart > currentWeekKey() && !!roadmap?.catchUpSchedule?.weeks[weekStart]?.length;
 
@@ -247,9 +257,9 @@ export function ThisWeekPanel({
         </div>
       )}
 
-      <div className="grid gap-4 md:grid-cols-2 items-start">
+      <div className="grid gap-4 lg:grid-cols-3 items-stretch">
         {/* Core topic — the curriculum, on schedule for the exam. */}
-        <div className="h-full flex flex-col rounded-xl premium-card tint-primary p-4">
+        <div className="min-w-0 rounded-xl premium-card tint-primary p-4 bg-[color-mix(in_oklch,var(--tint)_4%,var(--card))]">
           <div className="flex items-center gap-1.5 mb-1">
             {covered ? (
               <>
@@ -287,28 +297,8 @@ export function ThisWeekPanel({
                 </TopicBlock>
               )}
               {extraCore.map((g) => (
-                <div key={g.topicId} className="border-t border-border pt-4 tint-amber">
-                  {g.points.some((p) => returningIds.has(p.spec_point_id)) && (
-                    <p className="eyebrow eyebrow-bare text-xs mb-3">Missed work returning</p>
-                  )}
-                  <TopicBlock
-                    title={g.title}
-                    accent="primary"
-                    header={
-                      g.points.some((p) => returningIds.has(p.spec_point_id)) ? (
-                        <ReturningTopicInfo
-                          title={g.title}
-                          points={(
-                            roadmap?.catchUpSchedule?.weeks[weekStart] ??
-                            roadmap?.backlog ??
-                            []
-                          ).filter((p) =>
-                            g.points.some((point) => point.spec_point_id === p.specPointId),
-                          )}
-                        />
-                      ) : undefined
-                    }
-                  >
+                <div key={g.topicId} className="border-t border-border pt-4">
+                  <TopicBlock title={g.title} accent="primary">
                     <SpecPointList>{g.points.map(row)}</SpecPointList>
                   </TopicBlock>
                 </div>
@@ -317,15 +307,52 @@ export function ThisWeekPanel({
           ) : (
             <p className="text-sm text-muted-foreground">No core topic scheduled this week.</p>
           )}
-          {upcomingCatchUp && (
-            <CatchUpWeek schedule={roadmap?.catchUpSchedule} weekStart={weekStart} />
-          )}
         </div>
 
-        {/* Focused topics — what came back round. Same anatomy as the core card
-            (topic, how well it's sticking, this week's spec points), repeated
-            once per topic, so the two halves read as one idea in two colours. */}
-        <div className="rounded-xl premium-card tint-rose p-4">
+        <section
+          aria-label="Missed work returning"
+          className="min-w-0 rounded-xl premium-card tint-amber p-4 bg-[color-mix(in_oklch,var(--tint)_4%,var(--card))]"
+        >
+          <p className="eyebrow eyebrow-bare text-xs flex items-center gap-2 mb-3">
+            <History className="size-4 shrink-0" /> Missed work returning
+          </p>
+          <div className="space-y-5">
+            {returning.map((g) => (
+              <TopicBlock
+                key={g.topicId}
+                title={g.title}
+                accent="primary"
+                header={
+                  <ReturningTopicInfo
+                    title={g.title}
+                    points={[
+                      ...(roadmap?.catchUpSchedule?.weeks[weekStart] ?? []),
+                      ...(roadmap?.backlog ?? []),
+                    ].filter(
+                      (p, i, all) =>
+                        g.points.some((point) => point.spec_point_id === p.specPointId) &&
+                        all.findIndex((item) => item.specPointId === p.specPointId) === i,
+                    )}
+                  />
+                }
+              >
+                <SpecPointList>{g.points.map(row)}</SpecPointList>
+              </TopicBlock>
+            ))}
+            {upcomingCatchUp && (
+              <CatchUpWeek schedule={roadmap?.catchUpSchedule} weekStart={weekStart} />
+            )}
+            {!returning.length && !upcomingCatchUp && (
+              <EmptyState
+                compact
+                title="Nothing due"
+                body="No missed work is returning this week."
+              />
+            )}
+          </div>
+        </section>
+
+        <div className="min-w-0 rounded-xl premium-card tint-rose p-4 bg-[color-mix(in_oklch,var(--tint)_4%,var(--card))]">
           {focus.length > 0 ? (
             <>
               <p className="eyebrow eyebrow-bare text-xs flex items-center gap-2 mb-3">
