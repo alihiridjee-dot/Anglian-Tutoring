@@ -2,7 +2,7 @@ import { ReturningTopicInfo } from "./ReturningTopicInfo";
 import { EmptyRevision } from "./EmptyRevision";
 import { useEffect, useRef, useState } from "react";
 import { BookOpen, CheckCircle2, ChevronDown, History, Repeat } from "lucide-react";
-import { SectionHeading } from "@/components/Shared";
+import { EmptyState, SectionHeading } from "@/components/Shared";
 import type { RoadmapResult } from "@/lib/programDal";
 import { isTeachBand, withWeeklyPoints } from "@/lib/planner/pacing";
 import { byTopic } from "@/lib/planner/backlog";
@@ -181,9 +181,9 @@ export function FullPlanTimeline({
                   {isNow ? "This week" : isPast ? "Earlier week" : "Upcoming"}
                 </span>
               </header>
-              <div className="divide-y divide-border">
+              <div className="grid gap-3 p-3 sm:p-4 lg:grid-cols-3">
                 <section
-                  className="px-4 py-4 sm:px-5 space-y-3 tint-primary"
+                  className="min-w-0 premium-card rounded-xl p-4 space-y-3 tint-primary bg-[color-mix(in_oklch,var(--tint)_4%,var(--card))]"
                   aria-label={`New learning for ${week}`}
                 >
                   <p className="eyebrow eyebrow-bare text-xs flex items-center gap-2">
@@ -247,16 +247,16 @@ export function FullPlanTimeline({
                     </p>
                   )}
                 </section>
-                {catchUp.length > 0 && (
-                  <section
-                    className="px-4 py-4 sm:px-5 space-y-3 tint-amber"
-                    aria-label={`Missed work returning for ${week}`}
-                  >
-                    <div className="flex flex-wrap items-center justify-between gap-2">
-                      <p className="eyebrow eyebrow-bare text-xs flex items-center gap-2">
-                        <History className="size-4" />
-                        Missed work returning
-                      </p>
+                <section
+                  className="min-w-0 premium-card rounded-xl p-4 space-y-3 tint-amber bg-[color-mix(in_oklch,var(--tint)_4%,var(--card))]"
+                  aria-label={`Missed work returning for ${week}`}
+                >
+                  <div className="flex flex-wrap items-center justify-between gap-2">
+                    <p className="eyebrow eyebrow-bare text-xs flex items-center gap-2">
+                      <History className="size-4" />
+                      Missed work returning
+                    </p>
+                    {catchUp.length > 0 && (
                       <span className="chip text-xs">
                         {isNow &&
                         catchUp.every((group) =>
@@ -265,38 +265,45 @@ export function FullPlanTimeline({
                           ? "Assigned this week"
                           : "Expected this week"}
                       </span>
+                    )}
+                  </div>
+                  {!catchUp.length && (
+                    <EmptyState
+                      compact
+                      title="Nothing due"
+                      body="No missed work is returning this week."
+                    />
+                  )}
+                  {catchUp.map((group) => (
+                    <div key={group.topicId} className="space-y-3">
+                      <ReturningTopicInfo
+                        title={group.topicTitle}
+                        points={group.points}
+                        estimated={week > now}
+                        onOriginalWeek={jump}
+                      />
+                      <ul className="space-y-1.5">
+                        {group.points.map((point) => {
+                          const assessed = progress
+                            .get(group.topicId)
+                            ?.points.find((p) => p.id === point.specPointId);
+                          return assessed ? (
+                            <PointRow key={point.specPointId} point={assessed} card />
+                          ) : (
+                            <BarePointRow
+                              key={point.specPointId}
+                              code={point.code}
+                              title={point.title}
+                              card
+                            />
+                          );
+                        })}
+                      </ul>
                     </div>
-                    {catchUp.map((group) => (
-                      <div key={group.topicId} className="space-y-3">
-                        <ReturningTopicInfo
-                          title={group.topicTitle}
-                          points={group.points}
-                          estimated={week > now}
-                          onOriginalWeek={jump}
-                        />
-                        <ul className="space-y-1.5">
-                          {group.points.map((point) => {
-                            const assessed = progress
-                              .get(group.topicId)
-                              ?.points.find((p) => p.id === point.specPointId);
-                            return assessed ? (
-                              <PointRow key={point.specPointId} point={assessed} card />
-                            ) : (
-                              <BarePointRow
-                                key={point.specPointId}
-                                code={point.code}
-                                title={point.title}
-                                card
-                              />
-                            );
-                          })}
-                        </ul>
-                      </div>
-                    ))}
-                  </section>
-                )}
+                  ))}
+                </section>
                 <section
-                  className="px-4 py-3 sm:px-5 space-y-3 tint-rose"
+                  className="min-w-0 premium-card rounded-xl p-4 space-y-3 tint-rose bg-[color-mix(in_oklch,var(--tint)_4%,var(--card))]"
                   aria-label={`Revision for ${week}`}
                 >
                   {reviews.length ? (
@@ -359,7 +366,7 @@ export function FullPlanTimeline({
                 </section>
                 {reviewing && (
                   <section
-                    className="tint-amber px-4 py-4 sm:px-5 space-y-2"
+                    className="tint-amber lg:col-span-3 px-4 py-4 sm:px-5 space-y-2"
                     aria-label={`Proposed learning for ${week}`}
                   >
                     <p className="eyebrow eyebrow-bare text-xs">Proposed learning</p>
