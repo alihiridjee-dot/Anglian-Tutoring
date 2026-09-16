@@ -329,6 +329,74 @@
   outline-offset: -2px;
 }
 
+/* The current week in the full plan wears a warm glow, so "now" reads at a glance
+   among the cool blue weeks around it. */
+.premium-card.current-week {
+  --glow: oklch(0.8 0.15 70);
+  border-color: color-mix(in oklab, var(--glow) 55%, var(--edge));
+  background: linear-gradient(
+    180deg,
+    color-mix(in oklab, var(--glow) 9%, var(--card)),
+    var(--card) 12rem
+  );
+  box-shadow:
+    0 0 0 3px color-mix(in oklab, var(--glow) 28%, transparent),
+    0 4px 0 0 color-mix(in oklab, var(--glow) 30%, transparent),
+    0 18px 40px -16px color-mix(in oklab, var(--glow) 65%, transparent);
+}
+
+/* A spec point's week, as a button into the planner: a tinted ticket with an
+   icon tile, the date, and an arrow that nudges forward on hover. */
+.when-link {
+  border-radius: 1rem;
+  color: var(--foreground);
+  background: linear-gradient(
+    135deg,
+    color-mix(in oklab, var(--tint) 12%, var(--card)),
+    var(--card) 70%
+  );
+  border: 1.5px solid color-mix(in oklab, var(--tint) 32%, var(--edge));
+  box-shadow: var(--lift-1);
+  transition:
+    transform 0.18s cubic-bezier(0.22, 1, 0.36, 1),
+    box-shadow 0.22s ease,
+    border-color 0.18s ease;
+}
+a.when-link:hover {
+  transform: translateY(-2px);
+  box-shadow: var(--lift-2);
+  border-color: color-mix(in oklab, var(--tint) 50%, var(--edge));
+}
+a.when-link:active {
+  transform: translateY(0);
+  box-shadow: var(--lift-1);
+}
+a.when-link:focus-visible {
+  outline: 2px solid var(--tint);
+  outline-offset: 2px;
+}
+.when-link-arrow {
+  display: inline-flex;
+  flex-shrink: 0;
+  align-items: center;
+  justify-content: center;
+  width: 2rem;
+  height: 2rem;
+  border-radius: 999px;
+  color: white;
+  background: color-mix(in oklab, var(--tint) 84%, var(--primary-deep));
+  transition: transform 0.18s cubic-bezier(0.22, 1, 0.36, 1);
+}
+a.when-link:hover .when-link-arrow {
+  transform: translateX(3px);
+}
+@media (prefers-reduced-motion: reduce) {
+  a.when-link,
+  .when-link-arrow {
+    transition: none;
+  }
+}
+
 /* Heavier variant for the one card that owns the screen. */
 .pop-card-hero {
   border-width: 2px;

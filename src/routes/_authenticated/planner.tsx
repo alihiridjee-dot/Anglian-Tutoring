@@ -9,8 +9,26 @@ import { AuthService } from "@/lib/authService";
 import { StudentPlanner } from "@/components/planner/StudentPlanner";
 import { TutorPlannerPanel } from "@/components/planner/TutorPlannerPanel";
 
+/** Deep links open a course's full plan at a given week, e.g. from a curriculum point. */
+export interface PlannerSearch {
+  subject?: string;
+  tab?: "week" | "plan" | "topics";
+  week?: string;
+}
+
 export const Route = createFileRoute("/_authenticated/planner")({
   beforeLoad: guardStudentSection,
+  validateSearch: (search: Record<string, unknown>): PlannerSearch => ({
+    subject: typeof search.subject === "string" ? search.subject : undefined,
+    tab:
+      search.tab === "week" || search.tab === "plan" || search.tab === "topics"
+        ? search.tab
+        : undefined,
+    week:
+      typeof search.week === "string" && /^\d{4}-\d{2}-\d{2}$/.test(search.week)
+        ? search.week
+        : undefined,
+  }),
   head: () => ({ meta: [{ title: "My Planner | Anglia Educate" }] }),
   component: PlannerPage,
 });
@@ -61,6 +79,7 @@ function PlannerPage() {
 
 function StudentPlannerGate() {
   const { enrolments, level, loading } = useEnrolments();
+  const search = Route.useSearch();
   const [studentId, setStudentId] = useState<string | null>(null);
 
   useEffect(() => {
@@ -84,5 +103,14 @@ function StudentPlannerGate() {
     );
   }
 
-  return <StudentPlanner studentId={studentId} enrolments={enrolments} level={level} />;
+  return (
+    <StudentPlanner
+      studentId={studentId}
+      enrolments={enrolments}
+      level={level}
+      initialSubject={search.subject}
+      initialTab={search.tab ?? (search.week ? "plan" : undefined)}
+      focusWeek={search.week}
+    />
+  );
 }

@@ -7,12 +7,10 @@ import { plannerDateLabel, weekKeyToDate } from "@/lib/week";
 export function ReturningTopicInfo({
   title,
   points,
-  estimated,
   onOriginalWeek,
 }: {
   title: string;
   points: BacklogPoint[];
-  estimated?: boolean;
   onOriginalWeek?: (week: string, topicId: string) => void;
 }) {
   const [open, setOpen] = useState(false);
@@ -21,11 +19,7 @@ export function ReturningTopicInfo({
   const panelId = useId();
   const show = () => {
     const bounds = root.current?.getBoundingClientRect();
-    const scrollBounds = root.current?.closest("[data-planner-scroll]")?.getBoundingClientRect();
-    if (bounds)
-      setAbove(
-        bounds.bottom + 260 > Math.min(window.innerHeight, scrollBounds?.bottom ?? Infinity),
-      );
+    if (bounds) setAbove(bounds.bottom + 260 > window.innerHeight);
     setOpen(true);
   };
 
@@ -92,11 +86,12 @@ export function ReturningTopicInfo({
             <p className="font-bold">Returning from an earlier week</p>
             {points.map((point) => (
               <div key={point.specPointId} className="space-y-1.5">
-                <p className="text-xs text-muted-foreground">
-                  <span className="numeral">{point.code}</span> · Originally scheduled for{" "}
+                <p className="flex flex-wrap items-center gap-1.5 text-xs font-semibold">
+                  <span className="chip numeral">{point.code}</span>
+                  Planned for{" "}
                   {plannerDateLabel(weekKeyToDate(point.plannedWeek), {
                     day: "numeric",
-                    month: "long",
+                    month: "short",
                     year: "numeric",
                   })}
                 </p>
@@ -116,11 +111,6 @@ export function ReturningTopicInfo({
                 )}
               </div>
             ))}
-            {estimated && (
-              <p className="text-xs text-muted-foreground">
-                This estimate assumes earlier work is completed. Unfinished points return first.
-              </p>
-            )}
           </div>
         </div>
       )}

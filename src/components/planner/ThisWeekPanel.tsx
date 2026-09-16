@@ -1,6 +1,6 @@
 import { ReturningTopicInfo } from "./ReturningTopicInfo";
 import { PlannerPointItem } from "./PlannerPointItem";
-import { EmptyRevision } from "./EmptyRevision";
+import { NothingDue } from "./NothingDue";
 import { CatchUpWeek } from "./CatchUpWeek";
 import { currentWeekKey, PLANNER_TIME_ZONE } from "@/lib/week";
 import { Spinner, Meter, EmptyState } from "@/components/Shared";
@@ -305,7 +305,7 @@ export function ThisWeekPanel({
               ))}
             </div>
           ) : (
-            <p className="text-sm text-muted-foreground">No core topic scheduled this week.</p>
+            <NothingDue mascot="panda" mood="sleepy" title="No new topic this week" />
           )}
         </div>
 
@@ -343,11 +343,7 @@ export function ThisWeekPanel({
               <CatchUpWeek schedule={roadmap?.catchUpSchedule} weekStart={weekStart} />
             )}
             {!returning.length && !upcomingCatchUp && (
-              <EmptyState
-                compact
-                title="Nothing due"
-                body="No missed work is returning this week."
-              />
+              <NothingDue mascot="cat" title="Nothing to catch up" />
             )}
           </div>
         </section>
@@ -368,7 +364,13 @@ export function ThisWeekPanel({
               </div>
             </>
           ) : (
-            <EmptyRevision isPast={isPast} />
+            <>
+              <p className="eyebrow eyebrow-bare text-xs flex items-center gap-2 mb-3">
+                <Repeat className="size-4" />
+                Revision
+              </p>
+              <NothingDue mascot="owl" mood="sleepy" title="No revision due" />
+            </>
           )}
         </div>
       </div>

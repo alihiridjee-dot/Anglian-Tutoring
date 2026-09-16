@@ -11,7 +11,7 @@ export function PlannerPointItem({
   code: string;
   title: string;
   status?: ReactNode;
-  children: ReactNode;
+  children?: ReactNode;
 }) {
   return (
     <details className="premium-card planner-point-row group/point">

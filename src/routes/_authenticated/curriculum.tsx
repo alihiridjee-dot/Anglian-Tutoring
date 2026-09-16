@@ -27,6 +27,15 @@ import { useDebounced } from "@/hooks/useGlobalSearch";
 import { MIN_QUERY_LENGTH, queryTerms } from "@/lib/search/match";
 import { Highlight } from "@/components/search/Highlight";
 import { CurriculumSyncPanel } from "@/components/CurriculumSyncPanel";
+import {
+  CoverageBox,
+  TopicCoverage,
+  TopicCoverageLoading,
+  WhenLink,
+} from "@/components/curriculum/ScheduleBadges";
+import { usePlannerRoadmap } from "@/hooks/data/usePlanner";
+import { courseSchedule, type CourseSchedule } from "@/lib/planner/pointSchedule";
+import { currentWeekKey } from "@/lib/week";
 import { VideoModal, VideoThumbnail } from "@/components/VideoPlayer";
 import { parseVideoUrl, type VideoEmbed } from "@/lib/videoEmbed";
 import { SpecPointVideoEditor, type EditableVideo } from "@/components/tutor/SpecPointVideoEditor";
@@ -62,7 +71,7 @@ const inputCls =
   "w-full h-9 rounded-md bg-secondary border border-border px-2.5 text-sm focus:outline-none focus:ring-2 focus:ring-primary/40";
 
 export function Curriculum() {
-  const { isTutor } = useRoles();
+  const { isTutor, userId } = useRoles();
   // Students are scoped to the subjects (and board/level) their subscription
   // covers; tutors author freely across everything. This is the client half of
   // the guardrail — topics/spec_points RLS enforces the same thing server-side.
@@ -111,6 +120,27 @@ export function Curriculum() {
 
   // Selected specification point state to handle full sub-page navigation
   const [selectedSpecPoint, setSelectedSpecPoint] = useState<SpecPoint | null>(null);
+
+  // A student's own plan for the selected course: how much of each topic is
+  // covered, and when each uncovered point comes up. Only for a course they are
+  // actually on — a tutor, or a subject they don't take, has no plan to show.
+  const now = currentWeekKey();
+  const onOwnCourse =
+    !isTutor &&
+    !!userId &&
+    ent.entitledSubjects.includes(subject) &&
+    ent.boardBySubject[subject] === board &&
+    profileLevel === level;
+  const roadmap = usePlannerRoadmap(
+    { studentId: userId ?? "", subject, board, level },
+    0,
+    onOwnCourse,
+  );
+  const schedule = useMemo(
+    () => (onOwnCourse && roadmap.data ? courseSchedule(roadmap.data, now) : null),
+    [onOwnCourse, roadmap.data, now],
+  );
+  const scheduleLoading = onOwnCourse && roadmap.isLoading;
 
   // ── Specification search ────────────────────────────────────────────────
   // Searches the *whole* selected specification, not just the topics currently
@@ -252,6 +282,15 @@ export function Curriculum() {
                 {selectedSpecPoint.description}
               </p>
             )}
+            {schedule?.byPoint.get(selectedSpecPoint.id) && (
+              <div className={`mt-5 ${subjectTint(subject)}`}>
+                <WhenLink
+                  when={schedule.byPoint.get(selectedSpecPoint.id)!}
+                  now={now}
+                  subject={subject}
+                />
+              </div>
+            )}
           </div>
 
           <div className="mt-8">
@@ -367,6 +406,8 @@ export function Curriculum() {
                     board={board}
                     subject={subject}
                     onSelectSpecPoint={openSpecPoint}
+                    schedule={schedule}
+                    scheduleLoading={scheduleLoading}
                   />
                 ))}
               </div>
@@ -751,6 +792,8 @@ function TopicCard({
   board,
   subject,
   onSelectSpecPoint,
+  schedule,
+  scheduleLoading,
 }: {
   topic: Topic;
   open: boolean;
@@ -761,7 +804,10 @@ function TopicCard({
   board: BoardV;
   subject: SubjectV;
   onSelectSpecPoint: (p: SpecPoint) => void;
+  schedule: CourseSchedule | null;
+  scheduleLoading: boolean;
 }) {
+  const coverage = schedule?.byTopic.get(topic.id);
   const [points, setPoints] = useState<SpecPoint[]>([]);
 
   useEffect(() => {
@@ -801,15 +847,18 @@ function TopicCard({
       <div className="flex items-center hover:bg-secondary/40">
         <button
           onClick={onToggle}
-          className="flex-1 min-w-0 flex items-center gap-3 px-5 py-4 text-left"
+          className="flex-1 min-w-0 flex flex-wrap sm:flex-nowrap items-center gap-x-3 gap-y-2 px-5 py-4 text-left"
         >
           <ChevronRight className={`w-4 h-4 shrink-0 transition ${open ? "rotate-90" : ""}`} />
           {topic.code && (
-            <span className="text-[11px] font-bold tracking-wide px-2 py-0.5 rounded bg-[color:color-mix(in_oklab,var(--tint)_15%,transparent)] text-[color:var(--tint)]">
+            <span className="text-[11px] font-bold tracking-wide whitespace-nowrap px-2 py-0.5 rounded bg-[color:color-mix(in_oklab,var(--tint)_15%,transparent)] text-[color:var(--tint)]">
               {topic.code}
             </span>
           )}
-          <span className="font-display font-bold truncate">{topic.title}</span>
+          <span className="font-display font-bold truncate min-w-0 flex-1 sm:flex-initial">
+            {topic.title}
+          </span>
+          {coverage ? <TopicCoverage {...coverage} /> : scheduleLoading && <TopicCoverageLoading />}
         </button>
         {isTutor && (
           <button
@@ -830,27 +879,31 @@ function TopicCard({
             </p>
           ) : (
             <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
-              {points.map((p) => (
-                <button
-                  key={p.id}
-                  onClick={() => onSelectSpecPoint(p)}
-                  className="text-left p-4 rounded-xl border border-border bg-secondary/10 hover:border-primary/50 hover:bg-secondary/30 transition flex items-start gap-3 group"
-                >
-                  <span className="text-[11px] font-bold tracking-wide text-primary bg-primary/10 px-2 py-0.5 rounded shrink-0 mt-0.5">
-                    {p.code}
-                  </span>
-                  <div>
-                    <h4 className="font-semibold text-sm text-foreground leading-tight group-hover:text-primary transition">
-                      {p.title}
-                    </h4>
-                    {p.description && (
-                      <p className="text-xs text-muted-foreground line-clamp-2 mt-1 leading-normal">
-                        {p.description}
-                      </p>
-                    )}
-                  </div>
-                </button>
-              ))}
+              {points.map((p) => {
+                const covered = schedule?.byPoint.get(p.id)?.kind === "covered";
+                return (
+                  <button
+                    key={p.id}
+                    onClick={() => onSelectSpecPoint(p)}
+                    className={`text-left p-4 rounded-xl border transition flex items-start gap-3 group ${covered ? "border-emerald-500/40 bg-emerald-500/[0.05] hover:border-emerald-500/60" : "border-border bg-secondary/10 hover:border-primary/50 hover:bg-secondary/30"}`}
+                  >
+                    <span className="text-[11px] font-bold tracking-wide text-primary bg-primary/10 px-2 py-0.5 rounded shrink-0 mt-0.5">
+                      {p.code}
+                    </span>
+                    <div className="flex-1 min-w-0">
+                      <h4 className="font-semibold text-sm text-foreground leading-tight group-hover:text-primary transition">
+                        {p.title}
+                      </h4>
+                      {p.description && (
+                        <p className="text-xs text-muted-foreground line-clamp-2 mt-1 leading-normal">
+                          {p.description}
+                        </p>
+                      )}
+                    </div>
+                    {schedule && <CoverageBox covered={covered} />}
+                  </button>
+                );
+              })}
             </div>
           )}
         </div>
