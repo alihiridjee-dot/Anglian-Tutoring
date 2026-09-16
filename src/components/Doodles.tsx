@@ -3,11 +3,11 @@
  *
  * Rules of the house, so this stays charming rather than childish:
  *
- *  1. Characters appear in EMPTY STATES, MILESTONES, the SORT flow, and as the
- *     ONE character peeking over the dashboard's headline card. Nowhere else —
- *     a planner grid with a cartoon in it stops being a tool, and the charm of
- *     the peek is that it is the only one. `<Mascot>` is the only export that
- *     draws a face.
+ *  1. Characters appear in EMPTY STATES (including an empty planner column),
+ *     MILESTONES, the SORT flow, and as the ONE character peeking over the
+ *     dashboard's headline card. Nowhere else — never beside real work, where a
+ *     cartoon stops the planner being a tool, and the charm of the peek is that
+ *     it is the only one. `<Mascot>` is the only export that draws a face.
  *  2. Everything is drawn from `currentColor` plus `--tint`, so a doodle
  *     dropped inside `.tint-bio` comes out green with no props.
  *  3. Strokes are 2.5–3 units on a 120 viewBox — the same weight as the card
@@ -74,7 +74,17 @@ function Face({ mood = "happy", x = 60, y = 60 }: { mood?: Mood; x?: number; y?:
 }
 
 export type MascotName =
-  "cell" | "flask" | "bolt" | "star" | "books" | "rocket" | "owl" | "atom" | "pencil";
+  | "cell"
+  | "flask"
+  | "bolt"
+  | "star"
+  | "books"
+  | "rocket"
+  | "owl"
+  | "atom"
+  | "pencil"
+  | "cat"
+  | "panda";
 
 /**
  * When each character blinks, so a group of them never blinks in unison.
@@ -91,6 +101,8 @@ const MASCOT_BLINK_DELAY: Record<MascotName, string> = {
   owl: "2.9s",
   atom: "1.2s",
   pencil: "3.7s",
+  cat: "0.5s",
+  panda: "2.1s",
 };
 
 const MASCOT_TINT: Record<MascotName, string> = {
@@ -103,6 +115,8 @@ const MASCOT_TINT: Record<MascotName, string> = {
   owl: "tint-amber",
   atom: "tint-phys",
   pencil: "tint-rose",
+  cat: "tint-amber",
+  panda: "tint-primary",
 };
 
 /**
@@ -301,6 +315,37 @@ export function Mascot({
             <path d="M52 103h16" strokeWidth={2.5} />
             <Face mood={mood} y={56} />
             <path d="M86 46c5-2 10-1 12 3M86 68c5 2 10 1 12-3" strokeWidth={2.5} opacity={0.5} />
+          </>
+        ) : null}
+
+        {name === "cat" ? (
+          <>
+            <path
+              d="M28 56c-2-14 0-28 4-36 8 3 15 9 19 15 3-1 6-1 9-1s6 0 9 1c4-6 11-12 19-15 4 8 6 22 4 36 4 26-10 44-32 44S24 82 28 56Z"
+              fill={fill}
+            />
+            <path d="M36 28l2 12 8-5ZM84 28l-2 12-8-5Z" fill={deep} strokeWidth={2} />
+            <path d="M57 64h6l-3 3.5Z" fill={deep} strokeWidth={2} />
+            <Face mood={mood} y={62} />
+            {/* Whiskers cross the outline on purpose: they are the whole cat. */}
+            <path
+              d="M14 64l20 3M14 75l20-4M106 64l-20 3M106 75l-20-4"
+              strokeWidth={2.5}
+              opacity={0.55}
+            />
+          </>
+        ) : null}
+
+        {name === "panda" ? (
+          <>
+            <circle cx={33} cy={36} r={12} fill={deep} />
+            <circle cx={87} cy={36} r={12} fill={deep} />
+            <ellipse cx={60} cy={64} rx={36} ry={33} fill="white" />
+            {/* The eye patches carry the character; the pupils sit inside them. */}
+            <path d="M42 50c6-6 15-3 15 5s-6 12-12 10-9-9-3-15Z" fill={deep} strokeWidth={2} />
+            <path d="M78 50c-6-6-15-3-15 5s6 12 12 10 9-9 3-15Z" fill={deep} strokeWidth={2} />
+            <ellipse cx={60} cy={64} rx={3.5} ry={2.5} fill="currentColor" stroke="none" />
+            <Face mood={mood} y={60} />
           </>
         ) : null}
       </g>

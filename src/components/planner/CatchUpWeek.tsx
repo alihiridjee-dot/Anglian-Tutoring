@@ -20,11 +20,7 @@ export function CatchUpWeek({
         return (
           <div key={topic.topicId} className="space-y-3">
             <span className="chip text-xs">Catch-up · {estimated ? "Estimated" : "Assigned"}</span>
-            <ReturningTopicInfo
-              title={topic.topicTitle}
-              points={topic.points}
-              estimated={estimated}
-            />
+            <ReturningTopicInfo title={topic.topicTitle} points={topic.points} />
             <ul className="mt-3 space-y-1.5">
               {topic.points.map((point) => (
                 <li key={point.specPointId}>

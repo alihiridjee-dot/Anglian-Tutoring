@@ -1,7 +1,16 @@
 import { ReturningTopicInfo } from "./ReturningTopicInfo";
-import { EmptyRevision } from "./EmptyRevision";
+import { NothingDue } from "./NothingDue";
 import { useEffect, useRef, useState } from "react";
-import { BookOpen, CheckCircle2, ChevronDown, History, Repeat } from "lucide-react";
+import {
+  BookOpen,
+  CalendarDays,
+  CheckCircle2,
+  ChevronLeft,
+  ChevronRight,
+  GraduationCap,
+  History,
+  Repeat,
+} from "lucide-react";
 import { EmptyState, SectionHeading } from "@/components/Shared";
 import type { RoadmapResult } from "@/lib/programDal";
 import { isTeachBand, withWeeklyPoints } from "@/lib/planner/pacing";
@@ -20,20 +29,24 @@ import { PacingChangeBadge } from "./PacingChangeBadge";
 const dateLabel = (key: string) =>
   plannerDateLabel(weekKeyToDate(key), { day: "numeric", month: "long", year: "numeric" });
 
-/** One continuous history, opening at today, with the reason for each kind of work visible. */
+/** Month chapters retain the weekly plan and links back to original assignments. */
 export function FullPlanTimeline({
   data,
   newFocusKeys,
+  focusWeek,
 }: {
   data: RoadmapResult;
   newFocusKeys: Set<string>;
+  /** Opens on this week's month, scrolled to and highlighting the week. */
+  focusWeek?: string;
 }) {
   const now = currentWeekKey();
   const viewport = useRef<HTMLDivElement>(null);
   const cards = useRef(new Map<string, HTMLElement>());
   const [expanded, setExpanded] = useState(new Set<string>());
-  const [selectedMonth, setSelectedMonth] = useState(now.slice(0, 7));
-  const [destination, setDestination] = useState<string | null>(null);
+  const [selectedMonth, setSelectedMonth] = useState((focusWeek ?? now).slice(0, 7));
+  const [pendingJump, setPendingJump] = useState<string | null>(focusWeek ?? null);
+  const [destination, setDestination] = useState<string | null>(focusWeek ?? null);
   const progress = new Map(data.progress.map((topic) => [topic.topicId, topic]));
   const missed = new Set(data.backlog.map((point) => point.specPointId));
   const assigned = new Set(data.catchUpSchedule?.assignedIds ?? []);
@@ -60,6 +73,20 @@ export function FullPlanTimeline({
   )
     weeks.push(week);
   const months = [...new Set(weeks.map((week) => week.slice(0, 7)))];
+  const activeMonth = months.includes(selectedMonth)
+    ? selectedMonth
+    : now < (weeks[0] ?? now)
+      ? months[0]
+      : months[months.length - 1];
+  const monthIndex = months.indexOf(activeMonth);
+  const monthWeeks = weeks.filter((week) => week.startsWith(activeMonth));
+  const monthLabel = (month: string) =>
+    plannerDateLabel(weekKeyToDate(`${month}-01`), { month: "long", year: "numeric" });
+  const chooseMonth = (month: string) => {
+    setSelectedMonth(month);
+    setDestination(null);
+    setPendingJump(null);
+  };
   const toggle = (key: string) =>
     setExpanded((previous) => {
       const next = new Set(previous);
@@ -67,87 +94,130 @@ export function FullPlanTimeline({
       else next.add(key);
       return next;
     });
-  const jump = (week: string, originalTopic?: string) => {
-    const card = cards.current.get(week);
-    const container = viewport.current;
-    if (!card || !container) return;
-    if (originalTopic)
-      setExpanded((previous) => new Set([...previous, `${originalTopic}@${week}`]));
-    setDestination(week);
+  const jump = (week: string) => {
+    if (!weeks.includes(week)) return;
     setSelectedMonth(week.slice(0, 7));
-    container.scrollTop +=
-      card.getBoundingClientRect().top - container.getBoundingClientRect().top - 16;
-    card.focus({ preventScroll: true });
+    setDestination(week);
+    setPendingJump(week);
   };
   useEffect(() => {
-    const container = viewport.current;
-    const initial = cards.current.get(now) ?? cards.current.values().next().value;
-    if (container && initial) {
-      container.scrollTop +=
-        initial.getBoundingClientRect().top - container.getBoundingClientRect().top - 16;
-      setSelectedMonth(initial.dataset.week!.slice(0, 7));
+    if (!pendingJump) return;
+    const card = cards.current.get(pendingJump);
+    if (card) {
+      // The app bar is sticky and its height changes as it wraps on narrow screens.
+      const bar = document.querySelector("header.sticky")?.getBoundingClientRect().bottom ?? 0;
+      card.style.scrollMarginTop = `${Math.max(bar, 0) + 16}px`;
+      card.scrollIntoView({ block: "start" });
+      card.focus({ preventScroll: true });
+      if (
+        (pendingJump === now || pendingJump === focusWeek) &&
+        !window.matchMedia("(prefers-reduced-motion: reduce)").matches
+      )
+        card.animate(
+          [{ transform: "scale(1)" }, { transform: "scale(1.015)" }, { transform: "scale(1)" }],
+          { duration: 500, iterations: 2, easing: "ease-in-out" },
+        );
+      setPendingJump(null);
     }
-  }, [now, data.programStart]);
+  }, [pendingJump, activeMonth, now, focusWeek]);
+  useEffect(() => {
+    if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) return;
+    const animation = viewport.current?.animate(
+      [
+        { opacity: 0, transform: "translateY(8px)" },
+        { opacity: 1, transform: "translateY(0)" },
+      ],
+      { duration: 180, easing: "ease-out" },
+    );
+    return () => animation?.cancel();
+  }, [activeMonth]);
+
+  if (!months.length)
+    return (
+      <EmptyState
+        compact
+        title="Your plan is taking shape"
+        body="Your weekly plan will appear once your course dates are set."
+      />
+    );
 
   return (
     <section className="space-y-4" aria-label="Full plan timeline">
-      <SectionHeading
-        title="Your weekly plan"
-        hint="Scroll up for earlier weeks, down for what’s next."
-      />
-      <div className="flex flex-wrap items-center justify-between gap-3">
-        <label className="flex items-center gap-2 text-sm font-medium">
-          Go to
-          <select
-            aria-label="Go to month"
-            className="premium-card rounded-lg px-3 py-2 text-sm max-w-full"
-            value={selectedMonth}
-            onChange={(event) => jump(weeks.find((week) => week.startsWith(event.target.value))!)}
-          >
-            {months.map((month) => (
-              <option key={month} value={month}>
-                {plannerDateLabel(weekKeyToDate(`${month}-01`), { month: "long", year: "numeric" })}
-              </option>
-            ))}
-          </select>
-        </label>
-        <button
-          type="button"
-          className="btn-premium rounded-lg px-3 py-2 text-sm"
-          onClick={() => jump(weeks.includes(now) ? now : weeks[weeks.length - 1])}
-        >
-          Jump to this week
-        </button>
+      <SectionHeading title="Your weekly plan" />
+      <div className="premium-card tint-primary rounded-2xl p-4 sm:p-5">
+        <div className="flex flex-wrap items-center justify-between gap-4">
+          <div>
+            <p className="eyebrow eyebrow-bare text-xs">Your route to exams</p>
+            <h3
+              className="text-xl sm:text-3xl font-bold mt-2"
+              aria-live="polite"
+              aria-atomic="true"
+            >
+              {monthLabel(activeMonth)}
+            </h3>
+          </div>
+          <div className="flex flex-wrap w-full sm:w-auto items-center gap-1.5 sm:gap-2">
+            <button
+              type="button"
+              aria-label="Previous month"
+              disabled={monthIndex === 0}
+              className="btn-premium rounded-lg p-1.5 sm:p-2 disabled:opacity-40 disabled:cursor-not-allowed"
+              onClick={() => chooseMonth(months[monthIndex - 1])}
+            >
+              <ChevronLeft className="size-5" />
+            </button>
+            <select
+              aria-label="Go to month"
+              className="premium-card rounded-lg px-3 py-2 text-xs sm:text-sm order-first w-full sm:order-none sm:w-auto"
+              value={activeMonth}
+              onChange={(event) => chooseMonth(event.target.value)}
+            >
+              {months.map((month) => (
+                <option key={month} value={month}>
+                  {monthLabel(month)}
+                  {month === now.slice(0, 7) ? " · Now" : ""}
+                </option>
+              ))}
+            </select>
+            <button
+              type="button"
+              aria-label="Next month"
+              disabled={monthIndex === months.length - 1}
+              className="btn-premium rounded-lg p-1.5 sm:p-2 order-2 ml-auto sm:order-none sm:ml-0 disabled:opacity-40 disabled:cursor-not-allowed"
+              onClick={() => chooseMonth(months[monthIndex + 1])}
+            >
+              <ChevronRight className="size-5" />
+            </button>
+            {weeks.includes(now) && (
+              <button
+                type="button"
+                className="btn-premium rounded-lg px-2 sm:px-3 py-2 text-xs sm:text-sm inline-flex items-center gap-1.5 whitespace-nowrap justify-center order-1 flex-1 sm:order-none sm:flex-none"
+                onClick={() => jump(now)}
+              >
+                <CalendarDays className="size-4 hidden sm:block" aria-hidden />
+                This week
+              </button>
+            )}
+          </div>
+        </div>
       </div>
       <div
         ref={viewport}
-        data-planner-scroll
         role="region"
-        aria-label="Weeks from enrolment to exams"
-        tabIndex={0}
-        className="relative max-h-[70vh] min-h-80 overflow-y-auto overscroll-contain rounded-xl bg-muted/30 px-3 py-4 sm:px-5 space-y-5 focus-visible:outline-2 focus-visible:outline-primary"
-        onScroll={() => {
-          const container = viewport.current;
-          if (!container) return;
-          const top = container.getBoundingClientRect().top;
-          const visible = [...cards.current.values()].find(
-            (card) => card.getBoundingClientRect().bottom > top + 60,
-          );
-          if (visible) setSelectedMonth(visible.dataset.week!.slice(0, 7));
-        }}
+        aria-label={`Weeks in ${monthLabel(activeMonth)}`}
+        className="space-y-5"
       >
-        {weeks.map((week) => {
+        {monthWeeks.map((week) => {
           const isPast = week < now;
           const isNow = week === now;
           const core = teaching.find((band) => band.startWeek <= week && band.endWeek >= week);
           const topic = core ? progress.get(core.topicId) : undefined;
-          const rowKey = `${core?.topicId}@${week}`;
           const refs = core?.pointsByWeek?.[week] ?? (core?.fixedPoints ? [] : undefined);
           const all = topic?.points ?? [];
           const weekly = refs
             ? all.filter((point) => refs.some((ref) => ref.specPointId === point.id))
             : all;
-          const shown = expanded.has(`${rowKey}@all`) ? all : weekly;
+          const isCovered = !!core && data.coveredTopicIds.includes(core.topicId);
           const owing = weekly.filter((point) => missed.has(point.id)).length;
           const catchUp = byTopic(data.catchUpSchedule?.weeks[week] ?? []);
           const reviews = data.bands.filter(
@@ -173,13 +243,20 @@ export function FullPlanTimeline({
                 if (element) cards.current.set(week, element);
                 else cards.current.delete(week);
               }}
-              className={`premium-card rounded-2xl focus-visible:ring-2 focus-visible:ring-[var(--tint)] outline-none ${isNow ? "tint-primary" : "tint-slate"} ${destination === week ? "ring-2 ring-[var(--tint)]" : ""}`}
+              className={`premium-card rounded-2xl focus-visible:ring-2 focus-visible:ring-[var(--tint)] outline-none ${isNow ? "tint-primary current-week" : "tint-slate"} ${destination === week && !isNow ? "ring-2 ring-[var(--tint)]" : ""}`}
             >
               <header className="flex flex-wrap items-center justify-between gap-2 px-4 py-4 sm:px-5 border-b border-border">
                 <h3 className="text-base font-bold">{weekRangeLabel(weekKeyToDate(week))}</h3>
-                <span className="chip text-xs">
-                  {isNow ? "This week" : isPast ? "Earlier week" : "Upcoming"}
-                </span>
+                {(isNow || week >= data.examDate) && (
+                  <span className="flex flex-wrap gap-1.5">
+                    {isNow && <span className="chip chip-solid text-xs">This week</span>}
+                    {week >= data.examDate && (
+                      <span className="chip tint-rose text-xs">
+                        <GraduationCap className="size-3.5" aria-hidden /> Exams
+                      </span>
+                    )}
+                  </span>
+                )}
               </header>
               <div className="grid gap-3 p-3 sm:p-4 lg:grid-cols-3">
                 <section
@@ -192,59 +269,33 @@ export function FullPlanTimeline({
                   </p>
                   {core ? (
                     <>
-                      <button
-                        type="button"
-                        className="flex items-start justify-between gap-3 w-full text-left"
-                        aria-expanded={expanded.has(rowKey)}
-                        onClick={() => toggle(rowKey)}
-                      >
-                        <span>
-                          <span className="block text-base font-bold">{core.title}</span>
-                          <span className="block mt-1 text-xs text-muted-foreground">
-                            {weekly.length} spec points ·{" "}
-                            {expanded.has(rowKey) ? "Hide details" : "View points & results"}
-                          </span>
-                        </span>
-                        <ChevronDown
-                          className={`size-4 shrink-0 mt-1 ${expanded.has(rowKey) ? "rotate-180" : ""}`}
-                        />
-                      </button>
-                      {data.coveredTopicIds.includes(core.topicId) && (
-                        <span className="chip tint-emerald text-xs">
-                          <CheckCircle2 className="size-3" /> Topic covered
-                        </span>
-                      )}
-                      {isPast && owing > 0 && (
-                        <p className="text-sm text-muted-foreground">
-                          {owing} {owing === 1 ? "point still needs" : "points still need"}{" "}
-                          covering. Missed work returns in later weeks.
-                        </p>
-                      )}
-                      {expanded.has(rowKey) && (
-                        <div className="space-y-2">
-                          {weekly.length < all.length && (
-                            <button
-                              type="button"
-                              className="btn-premium rounded-lg px-2 py-1 text-xs"
-                              onClick={() => toggle(`${rowKey}@all`)}
-                            >
-                              {expanded.has(`${rowKey}@all`)
-                                ? "Show this week only"
-                                : "Show whole topic"}
-                            </button>
+                      <h4 className="text-base font-bold leading-snug">{core.title}</h4>
+                      {(isCovered || (isPast && owing > 0)) && (
+                        <div className="flex flex-wrap gap-1.5">
+                          {isCovered && (
+                            <span className="chip tint-emerald text-xs">
+                              <CheckCircle2 className="size-3" aria-hidden /> Topic covered
+                            </span>
                           )}
-                          <ul className="space-y-1.5">
-                            {shown.map((point) => (
-                              <PointRow key={point.id} point={point} card />
-                            ))}
-                          </ul>
+                          {isPast && owing > 0 && (
+                            <span className="chip tint-amber text-xs">
+                              <History className="size-3" aria-hidden /> {owing} to catch up
+                            </span>
+                          )}
                         </div>
                       )}
+                      {weekly.length > 0 && (
+                        <ul className="space-y-1.5">
+                          {weekly.map((point) => (
+                            <PointRow key={point.id} point={point} card />
+                          ))}
+                        </ul>
+                      )}
                     </>
+                  ) : week >= data.examDate ? (
+                    <NothingDue mascot="panda" mood="proud" title="Exam time. Good luck!" />
                   ) : (
-                    <p className="text-sm text-muted-foreground">
-                      {week >= data.examDate ? "Exam period begins." : "No new learning scheduled."}
-                    </p>
+                    <NothingDue mascot="panda" mood="sleepy" title="No new topic this week" />
                   )}
                 </section>
                 <section
@@ -267,19 +318,12 @@ export function FullPlanTimeline({
                       </span>
                     )}
                   </div>
-                  {!catchUp.length && (
-                    <EmptyState
-                      compact
-                      title="Nothing due"
-                      body="No missed work is returning this week."
-                    />
-                  )}
+                  {!catchUp.length && <NothingDue mascot="cat" title="Nothing to catch up" />}
                   {catchUp.map((group) => (
                     <div key={group.topicId} className="space-y-3">
                       <ReturningTopicInfo
                         title={group.topicTitle}
                         points={group.points}
-                        estimated={week > now}
                         onOriginalWeek={jump}
                       />
                       <ul className="space-y-1.5">
@@ -306,16 +350,12 @@ export function FullPlanTimeline({
                   className="min-w-0 premium-card rounded-xl p-4 space-y-3 tint-rose bg-[color-mix(in_oklch,var(--tint)_4%,var(--card))]"
                   aria-label={`Revision for ${week}`}
                 >
+                  <p className="eyebrow eyebrow-bare text-xs flex items-center gap-2">
+                    <Repeat className="size-4" />
+                    Revision
+                  </p>
                   {reviews.length ? (
                     <>
-                      <p className="eyebrow eyebrow-bare text-xs flex items-center gap-2">
-                        <Repeat className="size-4" />
-                        Revision
-                      </p>
-                      <p className="text-xs text-muted-foreground">
-                        Previously assessed work, due for another review.
-                        {week > now ? " Future review dates are estimates." : ""}
-                      </p>
                       {reviews.map((band) => {
                         const bandKey = `${band.topicId}|${band.kind}|${band.startWeek}`;
                         const key = `${bandKey}@${week}`;
@@ -361,7 +401,7 @@ export function FullPlanTimeline({
                       })}
                     </>
                   ) : (
-                    <EmptyRevision isPast={isPast} />
+                    <NothingDue mascot="owl" mood="sleepy" title="No revision due" />
                   )}
                 </section>
                 {reviewing && (
@@ -369,13 +409,13 @@ export function FullPlanTimeline({
                     className="tint-amber lg:col-span-3 px-4 py-4 sm:px-5 space-y-2"
                     aria-label={`Proposed learning for ${week}`}
                   >
-                    <p className="eyebrow eyebrow-bare text-xs">Proposed learning</p>
-                    <p className="text-sm font-bold">{proposed?.title ?? "No new learning"}</p>
-                    <p className="text-xs text-muted-foreground">
-                      {proposed?.topicId === core?.topicId
-                        ? "Same topic as your current plan."
-                        : "Only changes if you accept the new plan."}
+                    <p className="eyebrow eyebrow-bare text-xs flex items-center gap-2">
+                      Proposed learning
+                      {proposed?.topicId !== core?.topicId && (
+                        <span className="chip chip-solid text-xs">Changes</span>
+                      )}
                     </p>
+                    <p className="text-sm font-bold">{proposed?.title ?? "No new learning"}</p>
                     {change && <PacingChangeBadge change={change} />}
                   </section>
                 )}

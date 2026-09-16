@@ -84,49 +84,56 @@ export function CatchUpPanel({
     }
   };
 
+  const topics = (
+    <ul className="space-y-2">
+      {backlog.map((topic) => (
+        <li
+          key={topic.topicId}
+          className="flex flex-wrap items-center gap-2 rounded-xl border border-[color:color-mix(in_oklab,var(--tint)_22%,var(--border))] bg-card px-3 py-2"
+        >
+          <span className="text-sm font-semibold leading-snug flex-1 min-w-[8rem]">
+            {topic.topicTitle}
+          </span>
+          <span className="chip text-[11px] tabular-nums shrink-0">
+            {topic.points.length} {topic.points.length === 1 ? "point" : "points"}
+          </span>
+          <span className="chip text-[11px] shrink-0">since {fmtWeek(topic.since)}</span>
+          <button
+            type="button"
+            onClick={() => add(topic)}
+            disabled={busy !== null}
+            className="btn-soft h-8 px-3 rounded-lg text-xs inline-flex items-center gap-1.5 shrink-0"
+          >
+            {busy === topic.topicId ? (
+              <Loader2 className="size-3.5 animate-spin" aria-hidden />
+            ) : (
+              <Plus className="size-3.5" aria-hidden />
+            )}
+            Practise now
+          </button>
+        </li>
+      ))}
+    </ul>
+  );
+
+  // Students reach this from a tile that already shows the count.
+  if (!asTutor) return topics;
+
   return (
     <div className="mb-4 rounded-xl border border-border bg-muted/30 p-3.5">
       <div className="flex items-start gap-2.5">
         <History className="w-5 h-5 text-muted-foreground mt-0.5 shrink-0" />
-        <div className="flex-1 min-w-0">
-          <p className="text-sm font-semibold">
-            {total} {total === 1 ? "spec point" : "spec points"} the plan has moved past
-          </p>
-          <p className="text-xs text-muted-foreground mt-0.5">
-            {asTutor
-              ? "These were scheduled in weeks that have gone by and were never covered. The programme brings a little back each week; add a whole topic to this week to go faster."
-              : "These were set for weeks that have already gone by and never got covered. We bring a bit back each week — or add a whole topic to this week and take it on now."}
-          </p>
-
-          <ul className="mt-2.5 space-y-1.5">
-            {backlog.map((topic) => (
-              <li
-                key={topic.topicId}
-                className="flex flex-wrap items-center gap-x-2 gap-y-1 rounded-lg bg-background/60 border border-border px-2.5 py-1.5"
-              >
-                <span className="text-[13px] font-medium leading-snug flex-1 min-w-[8rem]">
-                  {topic.topicTitle}
-                </span>
-                <span className="text-[11px] text-muted-foreground tabular-nums shrink-0">
-                  {topic.points.length} {topic.points.length === 1 ? "point" : "points"} · since{" "}
-                  {fmtWeek(topic.since)}
-                </span>
-                <button
-                  type="button"
-                  onClick={() => add(topic)}
-                  disabled={busy !== null}
-                  className="inline-flex items-center gap-1 h-6 px-2 rounded-md bg-muted text-[10px] font-bold uppercase tracking-wide hover:bg-muted/70 disabled:opacity-50 shrink-0"
-                >
-                  {busy === topic.topicId ? (
-                    <Loader2 className="w-3 h-3 animate-spin" />
-                  ) : (
-                    <Plus className="w-3 h-3" />
-                  )}
-                  Practise now
-                </button>
-              </li>
-            ))}
-          </ul>
+        <div className="flex-1 min-w-0 space-y-2.5">
+          <div>
+            <p className="text-sm font-semibold">
+              {total} {total === 1 ? "spec point" : "spec points"} the plan has moved past
+            </p>
+            <p className="text-xs text-muted-foreground mt-0.5">
+              These were scheduled in weeks that have gone by and were never covered. The programme
+              brings a little back each week; add a whole topic to this week to go faster.
+            </p>
+          </div>
+          {topics}
         </div>
       </div>
     </div>

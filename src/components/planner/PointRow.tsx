@@ -55,14 +55,20 @@ export function PointRow({ point, card = false }: { point: ProgressPoint; card?:
           code={point.code}
           title={point.title}
           status={
-            <span
-              className={`chip text-[11px] ${unassessable ? "tint-slate" : point.status === "strong" ? "tint-emerald" : ""}`}
-            >
-              {unassessable ? "Practice not attached" : s.label}
-            </span>
+            <div className="flex flex-wrap gap-1.5">
+              <span
+                className={`chip text-[11px] ${unassessable ? "tint-slate" : point.status === "strong" ? "tint-emerald" : ""}`}
+              >
+                {unassessable ? "Practice not attached" : s.label}
+              </span>
+              {point.assessability === "awaiting" && (
+                <span className="chip tint-amber text-[11px]">
+                  <ClipboardList className="size-3" aria-hidden /> Practice set
+                </span>
+              )}
+            </div>
           }
         >
-          <p className="text-muted-foreground">{describeAssessability(point.assessability)}</p>
           <div className="flex flex-wrap gap-2">
             {point.homeworkScore != null && (
               <MarkChip kind="homework" score={point.homeworkScore} />
@@ -108,11 +114,11 @@ export function BarePointRow({
   if (card)
     return (
       <li>
-        <PlannerPointItem code={code} title={title}>
-          <p className="text-muted-foreground">
-            No assessment results are available for this point yet.
-          </p>
-        </PlannerPointItem>
+        <PlannerPointItem
+          code={code}
+          title={title}
+          status={<span className="chip tint-slate text-[11px]">No results yet</span>}
+        />
       </li>
     );
   return (

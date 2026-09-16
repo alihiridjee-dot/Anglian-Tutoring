@@ -2,11 +2,11 @@ import { Link } from "@tanstack/react-router";
 import { WeekBreakdown } from "./WeekBreakdown";
 import { FullPlanTimeline } from "./FullPlanTimeline";
 import { WithheldPlanPoints } from "./WithheldPlanPoints";
-import { ErrorNote } from "@/components/Shared";
+import { ErrorNote, Meter } from "@/components/Shared";
 import { usePlannerRoadmap, usePlannerMemory } from "@/hooks/data/usePlanner";
 import { ScheduleComparison } from "./ScheduleComparison";
 import { Spinner } from "@/components/Shared";
-import { useEffect, useMemo, useRef, useState } from "react";
+import { useEffect, useMemo, useRef, useState, type ReactNode } from "react";
 import { toast } from "sonner";
 import {
   AlertTriangle,
@@ -14,9 +14,11 @@ import {
   Brain,
   CalendarDays,
   CheckCircle2,
+  ChevronDown,
   ChevronLeft,
   ChevronRight,
   CircleDot,
+  History,
   Loader2,
   Map as MapIcon,
   Repeat,
@@ -24,6 +26,7 @@ import {
   Scale,
   SlidersHorizontal,
   Undo2,
+  type LucideIcon,
 } from "lucide-react";
 import { isTeachBand, type PacingBand } from "@/lib/planner/pacing";
 import { ProgramDAL, type RoadmapResult } from "@/lib/programDal";
@@ -63,10 +66,18 @@ export function StudentPlanner({
   studentId,
   enrolments,
   level,
+  initialSubject,
+  initialTab,
+  focusWeek,
 }: {
   studentId: string;
   enrolments: Enrolment[];
   level: LevelV;
+  /** Opens on this course when the student is enrolled on it. */
+  initialSubject?: string;
+  initialTab?: TabKey;
+  /** A week the full plan opens at, e.g. from a curriculum point. */
+  focusWeek?: string;
 }) {
   const ordered = useMemo(
     () => [
@@ -75,14 +86,16 @@ export function StudentPlanner({
     ],
     [enrolments],
   );
-  const [activeSubject, setActiveSubject] = useState(ordered[0]?.subject ?? "biology");
+  const [activeSubject, setActiveSubject] = useState(
+    ordered.find((e) => e.subject === initialSubject)?.subject ?? ordered[0]?.subject ?? "biology",
+  );
   const active = ordered.find((e) => e.subject === activeSubject) ?? ordered[0];
   // Named separately so the effect below can depend on the two values it uses.
   // Depending on `active` itself would re-run the whole roadmap load whenever
   // the enrolments query hands back a fresh object for the same course.
   const activeCourseSubject = active?.subject;
   const activeBoard = active?.board;
-  const [tab, setTab] = useState<TabKey>("week");
+  const [tab, setTab] = useState<TabKey>(initialTab ?? "week");
 
   // Bumped after an explicit schedule update.
   const [boardRev, setBoardRev] = useState(0);
@@ -222,6 +235,7 @@ export function StudentPlanner({
             board={active.board as BoardV}
             level={level}
             newFocusKeys={newFocusKeys}
+            focusWeek={focusWeek}
             onChanged={() => setBoardRev((r) => r + 1)}
           />
         )}
@@ -509,6 +523,19 @@ function ThisWeekTab({
 /* Tab 2 — Full plan                                                   */
 /* ------------------------------------------------------------------ */
 
+const WEEK_MS = 7 * 24 * 60 * 60 * 1000;
+
+function SummaryLabel({ icon: Icon, children }: { icon: LucideIcon; children: ReactNode }) {
+  return (
+    <p className="eyebrow eyebrow-bare flex items-center gap-2">
+      <span className="icon-tile size-8 shrink-0">
+        <Icon className="size-4" aria-hidden />
+      </span>
+      {children}
+    </p>
+  );
+}
+
 function FullPlanTab({
   data,
   studentId,
@@ -516,6 +543,7 @@ function FullPlanTab({
   board,
   level,
   newFocusKeys,
+  focusWeek,
   onChanged,
 }: {
   data: RoadmapResult;
@@ -525,12 +553,14 @@ function FullPlanTab({
   level: LevelV;
   /** Focus-lane band keys that are new/moved since the last re-rate. */
   newFocusKeys: Set<string>;
+  focusWeek?: string;
   /** Jump to My topics — the one place an overloaded plan can be fixed. */
   onChanged: () => void;
 }) {
   const { nowKey, covered, spine, reviewing } = useRoadmapView(data);
   const [savingDate, setSavingDate] = useState(false);
   const [accepting, setAccepting] = useState(false);
+  const [catchUpOpen, setCatchUpOpen] = useState(false);
 
   /**
    * Accept the proposed plan. Until this runs the student keeps the plan they
@@ -571,25 +601,106 @@ function FullPlanTab({
   };
   const topicIds = new Set(spine.map((b) => b.topicId));
   const doneCount = [...topicIds].filter((id) => covered.has(id)).length;
+  const backlog = data.backlogByTopic ?? [];
+  const owed = backlog.reduce((count, topic) => count + topic.points.length, 0);
+  const held = data.catchUpSchedule?.held.length ?? 0;
+  const weeksToGo = Math.max(
+    0,
+    Math.round(
+      (weekKeyToDate(data.examDate).getTime() - weekKeyToDate(nowKey).getTime()) / WEEK_MS,
+    ),
+  );
 
   return (
     <div>
-      <div className="flex justify-end mb-4">
-        <Link
-          to="/planner-order"
-          search={{ subject }}
-          className="btn-premium rounded-xl px-4 py-2 text-sm inline-flex items-center gap-2"
-        >
-          <SlidersHorizontal className="size-4" /> Change topic order
-        </Link>
+      {/* The course at a glance. The exam date leads because every week below is
+          paced from it; each tile carries the one action that changes its number. */}
+      <div className="grid gap-3 md:grid-cols-3 mb-4">
+        <div className="premium-card tint-primary rounded-2xl p-4 flex flex-col gap-3">
+          <SummaryLabel icon={CalendarDays}>Exams</SummaryLabel>
+          <p className="numeral text-3xl text-[color:var(--tint)]">
+            {weeksToGo}{" "}
+            <span className="text-base">{weeksToGo === 1 ? "week" : "weeks"} to go</span>
+          </p>
+          <label className="mt-auto">
+            <span className="sr-only">Exam date</span>
+            <input
+              type="date"
+              defaultValue={data.examDate}
+              disabled={savingDate}
+              onChange={(e) => saveExamDate(e.target.value)}
+              className="btn-soft h-9 w-full rounded-xl px-3 text-sm focus:outline-none focus:ring-2 focus:ring-[var(--tint)] disabled:opacity-50"
+            />
+          </label>
+        </div>
+
+        <div className="premium-card tint-emerald rounded-2xl p-4 flex flex-col gap-3">
+          <SummaryLabel icon={CheckCircle2}>Topics covered</SummaryLabel>
+          <p className="numeral text-3xl text-[color:var(--tint)]">
+            {doneCount} <span className="text-base">of {topicIds.size}</span>
+          </p>
+          <Meter value={topicIds.size ? (doneCount / topicIds.size) * 100 : 0} size="sm" />
+          <Link
+            to="/planner-order"
+            search={{ subject }}
+            className="btn-soft mt-auto h-9 rounded-xl px-3 text-sm inline-flex items-center justify-center gap-2"
+          >
+            <SlidersHorizontal className="size-4" aria-hidden /> Reorder topics
+          </Link>
+        </div>
+
+        <div className="premium-card tint-amber rounded-2xl p-4 flex flex-col gap-3">
+          <SummaryLabel icon={History}>To catch up</SummaryLabel>
+          <p className="numeral text-3xl text-[color:var(--tint)]">
+            {owed} <span className="text-base">{owed === 1 ? "point" : "points"}</span>
+          </p>
+          {held > 0 && (
+            <span className="chip tint-rose text-xs self-start" role="status">
+              <AlertTriangle className="size-3.5" aria-hidden /> {held} won’t fit before exams
+            </span>
+          )}
+          {owed > 0 ? (
+            <button
+              type="button"
+              aria-expanded={catchUpOpen}
+              onClick={() => setCatchUpOpen((open) => !open)}
+              className="btn-soft mt-auto h-9 rounded-xl px-3 text-sm inline-flex items-center justify-center gap-2"
+            >
+              {catchUpOpen ? "Hide catch-up" : "Catch up now"}
+              <ChevronDown
+                className={`size-4 transition-transform ${catchUpOpen ? "rotate-180" : ""}`}
+                aria-hidden
+              />
+            </button>
+          ) : (
+            <span className="chip tint-emerald text-xs self-start mt-auto">
+              <CheckCircle2 className="size-3.5" aria-hidden /> All caught up
+            </span>
+          )}
+        </div>
       </div>
+
+      {catchUpOpen && owed > 0 && (
+        <div className="premium-card tint-amber rounded-2xl p-4 mb-4">
+          <CatchUpPanel
+            studentId={studentId}
+            subject={subject}
+            board={board}
+            level={level}
+            weekStart={nowKey}
+            backlog={backlog}
+            asTutor={false}
+            onAdded={onChanged}
+          />
+        </div>
+      )}
       {/* Proposed learning stays separate until the student accepts it. */}
       {reviewing && (
         <div className="flex flex-wrap items-center gap-3 rounded-xl border border-amber-500/30 bg-amber-500/[0.06] px-3 py-2.5 mb-3">
           <RefreshCw className="w-4 h-4 text-amber-600 dark:text-amber-400 shrink-0" />
           <p className="flex-1 min-w-[220px] text-[12px] leading-relaxed">
             <span className="font-semibold">A new plan is ready for you.</span>{" "}
-            <span className="text-muted-foreground">
+            <span>
               {data.changes.length} {data.changes.length === 1 ? "topic" : "topics"} would move.
               Compare the proposed learning in each week — your current plan stays exactly as it is
               until you accept.
@@ -617,7 +728,7 @@ function FullPlanTab({
           <Repeat className="w-4 h-4 text-rose-600 dark:text-rose-400 mt-0.5 shrink-0" />
           <p className="text-[12px] leading-relaxed">
             <span className="font-semibold">Your revision schedule updated.</span>{" "}
-            <span className="text-muted-foreground">
+            <span>
               {newFocusKeys.size} focus {newFocusKeys.size === 1 ? "slot" : "slots"} moved or added
               — flagged <span className="font-semibold text-rose-600 dark:text-rose-400">New</span>{" "}
               in the revision sections below.
@@ -636,7 +747,7 @@ function FullPlanTab({
           <Scale className="w-4 h-4 text-amber-600 dark:text-amber-400 mt-0.5 shrink-0" />
           <p className="flex-1 min-w-[240px] text-[12px] leading-relaxed">
             <span className="font-semibold">This plan is asking a lot each week.</span>{" "}
-            <span className="text-muted-foreground">
+            <span>
               {data.reviewBacklog.length} reviews cannot fit before the exam;{" "}
               {data.unscheduledTopicTitles.length} topics need teaching time. Ask your tutor to
               review the workload; completing your assigned work will not automatically add more.
@@ -645,66 +756,7 @@ function FullPlanTab({
         </div>
       )}
 
-      {/* The exam date leads, because the plan is derived from it: every band
-          below is the course divided across the weeks between the student's
-          start and this date. Changing it re-flows the year. It used to sit as
-          a footnote to a paragraph of definitions, which had it backwards. */}
-      <div className="flex flex-wrap items-center justify-between gap-3 rounded-xl border border-primary/25 bg-primary/[0.05] px-3.5 py-3 mb-3">
-        <label className="flex flex-wrap items-center gap-x-3 gap-y-2">
-          <CalendarDays className="w-4 h-4 text-primary shrink-0" />
-          <span>
-            <span className="block text-[13px] font-semibold leading-tight">Exams from</span>
-            <span className="block text-[11px] text-muted-foreground">
-              Every week below is paced from this date.
-            </span>
-          </span>
-          <input
-            type="date"
-            defaultValue={data.examDate}
-            disabled={savingDate}
-            onChange={(e) => saveExamDate(e.target.value)}
-            className="h-9 rounded-lg premium-card px-2.5 text-[13px] font-semibold text-foreground focus:outline-none focus:ring-2 focus:ring-primary/40 disabled:opacity-50"
-          />
-        </label>
-        <span className="text-[12px] text-muted-foreground">
-          <span className="font-semibold text-foreground tabular-nums">
-            {doneCount} of {topicIds.size}
-          </span>{" "}
-          topics covered
-        </span>
-      </div>
-
-      {(data.backlogByTopic ?? []).length > 0 && (
-        <details className="premium-card tint-amber rounded-xl px-4 py-3 mb-5">
-          <summary className="cursor-pointer text-sm font-bold">
-            {data.backlogByTopic.reduce((count, topic) => count + topic.points.length, 0)} points
-            still to cover
-            <span className="block mt-1 text-xs font-normal text-muted-foreground">
-              They return gradually in the plan below. Open to take on a whole topic now.
-            </span>
-          </summary>
-          <div className="mt-3">
-            <CatchUpPanel
-              studentId={studentId}
-              subject={subject}
-              board={board}
-              level={level}
-              weekStart={nowKey}
-              backlog={data.backlogByTopic ?? []}
-              asTutor={false}
-              onAdded={onChanged}
-            />
-          </div>
-        </details>
-      )}
-
-      {!!data.catchUpSchedule?.held.length && (
-        <p className="text-sm text-muted-foreground mb-3" role="status">
-          {data.catchUpSchedule.held.length} missed spec points cannot fit before the exam at the
-          current catch-up pace. Use Practise now or ask your tutor to adjust the workload.
-        </p>
-      )}
-      <FullPlanTimeline data={data} newFocusKeys={newFocusKeys} />
+      <FullPlanTimeline data={data} newFocusKeys={newFocusKeys} focusWeek={focusWeek} />
     </div>
   );
 }
