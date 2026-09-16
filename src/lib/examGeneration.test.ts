@@ -117,6 +117,31 @@ describe("exam generation selection", () => {
     expect(selected.map((e) => e.id)).toEqual(["a", "b"]);
     expect(selected[0].shared_context).toBe(example("a").shared_context);
   });
+  test("imitates the requested format when the library has it, and falls back when it does not", () => {
+    const mcq = example("mcq", {
+      question_format: "mcq",
+      options: [{ letter: "A", text: "Nucleus" }],
+    });
+    const examples = [example("written"), mcq];
+    expect(selectExamples({ ...context, examples }, 5, 18000, "mcq").map((e) => e.id)).toEqual([
+      "mcq",
+    ]);
+    expect(selectExamples({ ...context, examples }, 5, 18000, "written").map((e) => e.id)).toEqual([
+      "written",
+    ]);
+    expect(
+      selectExamples({ ...context, examples: [example("written")] }, 5, 18000, "mcq").map(
+        (e) => e.id,
+      ),
+    ).toEqual(["written"]);
+  });
+  test("prefers the example most similar to the spec point among equals", () => {
+    const examples = [
+      example("a-unrelated", { similarity: 0.01 }),
+      example("b-similar", { similarity: 0.08 }),
+    ];
+    expect(selectExamples({ ...context, examples }, 1)[0].id).toBe("b-similar");
+  });
   test("falls back through topic/style and then curriculum without inventing references", () => {
     expect(buildGenerationPrompt(context, 5, "written").grounding).toBe("curriculum_only");
     const result = buildGenerationPrompt(

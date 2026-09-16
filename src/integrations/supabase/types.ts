@@ -566,6 +566,7 @@ export type Database = {
           description: string | null;
           due_at: string | null;
           id: string;
+          origin: Database["public"]["Enums"]["resource_origin"];
           published: boolean;
           resource_id: string | null;
           spec_point_id: string | null;
@@ -580,6 +581,7 @@ export type Database = {
           description?: string | null;
           due_at?: string | null;
           id?: string;
+          origin?: Database["public"]["Enums"]["resource_origin"];
           published?: boolean;
           resource_id?: string | null;
           spec_point_id?: string | null;
@@ -594,6 +596,7 @@ export type Database = {
           description?: string | null;
           due_at?: string | null;
           id?: string;
+          origin?: Database["public"]["Enums"]["resource_origin"];
           published?: boolean;
           resource_id?: string | null;
           spec_point_id?: string | null;
@@ -1746,8 +1749,16 @@ export type Database = {
         };
         Returns: string;
       };
+      ensure_generated_mcq_set: {
+        Args: { _created_by: string; _questions: Json; _spec_point_id: string };
+        Returns: string;
+      };
       expire_stale_chat_threads: { Args: never; Returns: number };
       gen_student_invite_code: { Args: never; Returns: string };
+      fill_mcq_set_from_shared: {
+        Args: { _set_id: string; _spec_point_ids: string[] };
+        Returns: number;
+      };
       grade_mcq_attempt: {
         Args: { _answers: Json; _set_id: string };
         Returns: Json;

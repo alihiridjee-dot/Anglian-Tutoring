@@ -40,6 +40,8 @@ export type ExamExample = {
   needs_image: boolean;
   flags: string[];
   grounding: Grounding;
+  /** Text similarity to the spec point, from the retrieval RPC. Orders examples of equal standing. */
+  similarity?: number;
 };
 
 export type GenerationContext = {
@@ -49,6 +51,8 @@ export type GenerationContext = {
 };
 
 const rank = { exact: 3, topic: 2, style: 1 };
+
+const isMcq = (e: ExamExample) => e.question_format === "mcq" || !!e.options;
 
 function dimensions(e: ExamExample): string[] {
   return [
@@ -61,14 +65,21 @@ function dimensions(e: ExamExample): string[] {
   ];
 }
 
-/** Complete examples only. Budget is characters, deliberately not claimed as exact tokens. */
+/**
+ * Complete examples only. Budget is characters, deliberately not claimed as exact tokens.
+ *
+ * Given a format, examples of that format are used when the library has any: an MCQ
+ * set imitates real MCQs, a worksheet imitates written questions. Only when none
+ * exist does it fall back to the other kind for style.
+ */
 export function selectExamples(
   context: GenerationContext,
   limit = 5,
   characterBudget = 18000,
+  format?: GenerationFormat,
 ): ExamExample[] {
   const p = context.point;
-  const candidates = context.examples.filter(
+  const complete = context.examples.filter(
     (e) =>
       e.approved_at &&
       !e.needs_image &&
@@ -85,6 +96,8 @@ export function selectExamples(
         e.specification_version === p.specification_version) &&
       (!p.tier || !e.tier || e.tier === p.tier),
   );
+  const sameFormat = format ? complete.filter((e) => isMcq(e) === (format === "mcq")) : [];
+  const candidates = sameFormat.length ? sameFormat : complete;
   const selected: ExamExample[] = [];
   const seenDimensions = new Set<string>();
   const seenPrompts = new Set<string>();
@@ -92,7 +105,12 @@ export function selectExamples(
   while (selected.length < limit && candidates.length) {
     const score = (e: ExamExample) =>
       rank[e.grounding] * 4 + dimensions(e).filter((d) => !seenDimensions.has(d)).length * 3;
-    candidates.sort((a, b) => score(b) - score(a) || a.id.localeCompare(b.id));
+    candidates.sort(
+      (a, b) =>
+        score(b) - score(a) ||
+        (b.similarity ?? 0) - (a.similarity ?? 0) ||
+        a.id.localeCompare(b.id),
+    );
     const e = candidates.shift()!;
     const identity = `${e.shared_context ?? ""}\n${e.prompt}`
       .replace(/\s+/g, " ")
@@ -156,7 +174,7 @@ export function buildGenerationPrompt(
   if (!Number.isInteger(count) || count < 1 || count > 20)
     throw new Error("Invalid question count");
   if (!context.point.title.trim()) throw new Error("Curriculum title is missing");
-  const examples = selectExamples(context);
+  const examples = selectExamples(context, undefined, undefined, format);
   const grounding = examples.length
     ? [...new Set(examples.map((e) => e.grounding))].join("+")
     : "curriculum_only";

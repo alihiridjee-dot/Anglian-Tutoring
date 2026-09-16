@@ -15,8 +15,12 @@ import {
 
 const MODEL = "claude-sonnet-5";
 
-/** Privileged reads stay server-only; no public endpoint exposes the source library. */
-async function libraryRequest(path: string, body: unknown): Promise<unknown> {
+/**
+ * Privileged calls stay server-only; no public endpoint exposes the source library.
+ * Also the only route to writers a browser must never reach directly, such as the
+ * shared MCQ sets.
+ */
+export async function libraryRequest(path: string, body: unknown): Promise<unknown> {
   const url = process.env.SUPABASE_URL;
   const key = process.env.SUPABASE_SERVICE_ROLE_KEY;
   if (!url || !key)
@@ -91,7 +95,10 @@ export async function generateExamQuestions(
   try {
     response = await client.messages.create({
       model: MODEL,
-      max_tokens: Math.min(16000, Math.max(4000, count * (format === "written" ? 900 : 500))),
+      // Sonnet 5 thinks before answering, and that thinking counts against this
+      // ceiling: a per-question estimate left an 8-question set ~400 tokens for
+      // the JSON itself. Only tokens actually produced are billed.
+      max_tokens: 16000,
       system: [{ type: "text", text: prompt.system, cache_control: { type: "ephemeral" } }],
       output_config: { format: { type: "json_schema", schema: generationSchema(format) } },
       messages: [{ role: "user", content: prompt.user }],

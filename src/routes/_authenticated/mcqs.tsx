@@ -75,18 +75,31 @@ function StudentMCQs() {
         setLoading(false);
         return;
       }
-      const [{ data }, { data: auth }] = await Promise.all([
+      const { data: auth } = await supabase.auth.getUser();
+      const uid = auth?.user?.id;
+      const [{ data }, { data: planned }] = await Promise.all([
         supabase
           .from("mcq_sets")
-          .select("id, title, published, created_at, due_at")
+          .select("id, title, published, created_at, due_at, origin, spec_point_id")
           .order("created_at", { ascending: false }),
-        supabase.auth.getUser(),
+        uid
+          ? supabase
+              .from("student_weekly_plan_points")
+              .select("spec_point_id, student_weekly_plans!inner(student_id)")
+              .eq("student_weekly_plans.student_id", uid)
+          : Promise.resolve({ data: [] as { spec_point_id: string }[] }),
       ]);
-      setSets(data ?? []);
+      // Shared sets are written for every spec point any student reaches, across
+      // every board, so a student sees only those for points in their own weeks.
+      const mine = new Set((planned ?? []).map((p) => p.spec_point_id));
+      setSets(
+        (data ?? []).filter(
+          (s) => s.origin !== "generated" || (!!s.spec_point_id && mine.has(s.spec_point_id)),
+        ),
+      );
 
       // Which of these sets the student has already attempted — drives the
       // "Completed" badge (visibility itself is time-driven, not completion-driven).
-      const uid = auth?.user?.id;
       if (uid) {
         const { data: attempts } = await supabase
           .from("mcq_attempts")
