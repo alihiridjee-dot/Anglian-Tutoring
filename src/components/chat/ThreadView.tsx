@@ -1,9 +1,14 @@
 import { Spinner } from "@/components/Shared";
 import { useEffect, useRef, useState } from "react";
 import { Link } from "@tanstack/react-router";
-import { ExternalLink, Loader2, Send, Sparkles } from "lucide-react";
+import { ExternalLink, Loader2, Send, Sparkles, Trash2 } from "lucide-react";
 import { toast } from "sonner";
-import { useChatMessages, useMarkThreadRead, useSendMessage } from "@/hooks/data/useChat";
+import {
+  useChatMessages,
+  useDeleteThread,
+  useMarkThreadRead,
+  useSendMessage,
+} from "@/hooks/data/useChat";
 import { generateChatDraft } from "@/lib/chatDraft.functions";
 import { contextTarget } from "@/lib/chatDal";
 import type { ThreadSummary } from "@/hooks/data/useChat";
@@ -30,9 +35,11 @@ export function ThreadView({ thread, viewerId, isTutor }: Props) {
   const { data: messages = [], isPending } = useChatMessages(thread.id);
   const send = useSendMessage();
   const markRead = useMarkThreadRead();
+  const remove = useDeleteThread();
   const [body, setBody] = useState("");
   const [drafting, setDrafting] = useState(false);
   const [usedDraft, setUsedDraft] = useState(false);
+  const [confirmingDelete, setConfirmingDelete] = useState(false);
   const endRef = useRef<HTMLDivElement>(null);
   const markedRef = useRef<string | null>(null);
 
@@ -57,6 +64,7 @@ export function ThreadView({ thread, viewerId, isTutor }: Props) {
   useEffect(() => {
     setBody("");
     setUsedDraft(false);
+    setConfirmingDelete(false);
   }, [thread.id]);
 
   const draft = async () => {
@@ -86,27 +94,80 @@ export function ThreadView({ thread, viewerId, isTutor }: Props) {
     );
   };
 
+  // Confirmed in the page rather than with window.confirm, which some embedded
+  // browsers suppress — the bin then silently does nothing.
+  const deleteThread = () => {
+    remove.mutate(thread.id, {
+      onSuccess: () => toast.success("Conversation deleted."),
+      onError: (err) => {
+        setConfirmingDelete(false);
+        toast.error(err.message);
+      },
+    });
+  };
+
   const target = contextTarget(thread);
 
   return (
     <div className="flex h-full min-h-0 flex-col">
-      <div className="border-b border-border px-5 py-4">
-        <h2 className="font-display text-base font-bold leading-tight">{thread.subject_line}</h2>
-        <div className="mt-1 flex flex-wrap items-center gap-2 text-xs text-muted-foreground">
-          <span>with {thread.counterpartName}</span>
-          {thread.context_label && (
-            <>
-              <span aria-hidden>·</span>
-              {target ? (
-                <Link {...target} className="inline-flex items-center gap-1 hover:text-foreground">
-                  {thread.context_label} <ExternalLink className="h-3 w-3" />
-                </Link>
-              ) : (
-                <span>{thread.context_label}</span>
-              )}
-            </>
-          )}
+      <div className="flex items-start gap-3 border-b border-border px-5 py-4">
+        <div className="min-w-0 flex-1">
+          <h2 className="font-display text-base font-bold leading-tight">{thread.subject_line}</h2>
+          <div className="mt-1 flex flex-wrap items-center gap-2 text-xs text-muted-foreground">
+            <span>with {thread.counterpartName}</span>
+            {thread.context_label && (
+              <>
+                <span aria-hidden>·</span>
+                {target ? (
+                  <Link
+                    {...target}
+                    className="inline-flex items-center gap-1 hover:text-foreground"
+                  >
+                    {thread.context_label} <ExternalLink className="h-3 w-3" />
+                  </Link>
+                ) : (
+                  <span>{thread.context_label}</span>
+                )}
+              </>
+            )}
+          </div>
         </div>
+        {confirmingDelete ? (
+          <div className="flex shrink-0 items-center gap-2">
+            <span className="text-sm font-semibold">Delete for good?</span>
+            <button
+              type="button"
+              onClick={() => setConfirmingDelete(false)}
+              disabled={remove.isPending}
+              className="h-9 rounded-lg border border-border px-3 text-sm font-semibold hover:bg-muted disabled:opacity-50"
+            >
+              Cancel
+            </button>
+            <button
+              type="button"
+              onClick={deleteThread}
+              disabled={remove.isPending}
+              className="inline-flex h-9 items-center gap-1.5 rounded-lg bg-destructive px-3 text-sm font-semibold text-destructive-foreground hover:opacity-90 disabled:opacity-50"
+            >
+              {remove.isPending ? (
+                <Loader2 className="h-4 w-4 animate-spin" />
+              ) : (
+                <Trash2 className="h-4 w-4" />
+              )}
+              Delete
+            </button>
+          </div>
+        ) : (
+          <button
+            type="button"
+            onClick={() => setConfirmingDelete(true)}
+            aria-label="Delete conversation"
+            title="Delete conversation"
+            className="inline-flex h-9 w-9 shrink-0 items-center justify-center rounded-lg text-muted-foreground transition hover:bg-destructive/10 hover:text-destructive"
+          >
+            <Trash2 className="h-4 w-4" />
+          </button>
+        )}
       </div>
 
       <div className="min-h-0 flex-1 space-y-3 overflow-y-auto px-5 py-4">

@@ -72,6 +72,15 @@ export function useSendMessage() {
   });
 }
 
+export function useDeleteThread() {
+  const qc = useQueryClient();
+  return useMutation({
+    mutationFn: (threadId: string) => ChatDAL.deleteThread(threadId),
+    // The bell holds copies of the message text, so it refreshes too.
+    onSuccess: () => qc.invalidateQueries(),
+  });
+}
+
 /**
  * Marks a thread read and refreshes the badges.
  *

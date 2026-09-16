@@ -255,6 +255,12 @@ export class ChatDAL {
     if (error) console.error("Error marking thread read:", error);
   }
 
+  /** Permanently deletes a thread, its messages and their notifications. */
+  static async deleteThread(threadId: string): Promise<void> {
+    const { error } = await supabase.rpc("delete_chat_thread", { p_thread_id: threadId });
+    if (error) throw new Error(error.message);
+  }
+
   /** Total unread across every thread — the sidebar badge. */
   static async unreadCount(): Promise<number> {
     const { data, error } = await supabase.rpc("chat_unread_count");

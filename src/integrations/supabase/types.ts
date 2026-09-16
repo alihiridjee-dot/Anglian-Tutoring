@@ -1781,6 +1781,10 @@ export type Database = {
           parent_id: string;
         }[];
       };
+      delete_chat_thread: {
+        Args: { p_thread_id: string };
+        Returns: undefined;
+      };
       mark_chat_thread_read: {
         Args: { p_thread_id: string };
         Returns: undefined;

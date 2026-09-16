@@ -36,10 +36,12 @@ function MessagesPage() {
   const [selectedId, setSelectedId] = useState<string | null>(null);
   const [composing, setComposing] = useState(false);
 
-  // Open the most recent conversation on arrival — an empty right-hand pane next
-  // to a full list is a dead end, especially for a tutor working through an inbox.
+  // Open the most recent conversation on arrival, and again when the open one is
+  // deleted — an empty right-hand pane next to a full list is a dead end.
   useEffect(() => {
-    if (!selectedId && threads.length > 0) setSelectedId(threads[0].id);
+    if (threads.length > 0 && !threads.some((t) => t.id === selectedId)) {
+      setSelectedId(threads[0].id);
+    }
   }, [threads, selectedId]);
 
   const selected = useMemo(
