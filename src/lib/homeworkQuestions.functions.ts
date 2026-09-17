@@ -1,5 +1,9 @@
 import { createServerFn } from "@tanstack/react-start";
-import { generateExamQuestions, loadGenerationContext } from "./examGeneration.server";
+import {
+  generateExamQuestions,
+  libraryRequest,
+  loadGenerationContext,
+} from "./examGeneration.server";
 import type { WrittenQuestion } from "./examGeneration";
 import { requireSupabaseAuth } from "@/integrations/supabase/auth-middleware";
 import { SUBJECTS, LEVELS, BOARDS } from "@/lib/taxonomy";
@@ -164,12 +168,13 @@ export interface EnsureHomeworkResult {
  * point. So this is called at planning time, fills only the gaps, and on every
  * subsequent week costs one indexed lookup and nothing else.
  *
- * It writes through `ensure_generated_homework` because setting homework needs
- * the tutor role and the caller here is the student whose week needs it. That
- * function is also the concurrency guard: two students reaching the same point
- * in the same minute both generate, and the partial unique index means the
- * second one's insert loses and returns the winner's sheet. Wasted tokens, not
- * a duplicate.
+ * It writes through `ensure_generated_homework`, using the server's own
+ * credential rather than the caller's: setting homework needs the tutor role,
+ * the caller here is the student whose week needs it, and a sheet every student
+ * reads must not be writable from a browser. That function is also the
+ * concurrency guard: two students reaching the same point in the same minute
+ * both generate, and the partial unique index means the second one's insert
+ * loses and returns the winner's sheet. Wasted tokens, not a duplicate.
  *
  * Failures are deliberately soft. A week that renders without homework is a
  * week missing a chip; a week that fails to render because the model was slow
@@ -192,7 +197,7 @@ export const ensureHomeworkForPoints = createServerFn({ method: "POST" })
     return { specPointIds: ids.slice(0, 12), subject, board, level };
   })
   .handler(async ({ data, context }): Promise<EnsureHomeworkResult> => {
-    const { supabase } = context;
+    const { supabase, userId } = context;
 
     const { data: already, error: haveErr } = await supabase
       .from("resources")
@@ -249,12 +254,15 @@ export const ensureHomeworkForPoints = createServerFn({ method: "POST" })
         const raw = await generateExamQuestions(generation, QUESTIONS_PER_POINT, "written");
         const questions = toDrafts(raw, p.id);
 
-        const { error: writeErr } = await supabase.rpc("ensure_generated_homework", {
+        // Through the server's own credential: a sheet is read by every student
+        // who reaches this point, so a browser may not write one directly.
+        await libraryRequest("rpc/ensure_generated_homework", {
           _spec_point_id: p.id,
           _title: `${p.code} ${p.title}`,
           _subject: data.subject,
           _level: data.level,
-          _board: generation.point.board as Database["public"]["Enums"]["board"],
+          _board: generation.point.board,
+          _created_by: userId,
           _questions: questions.map((q) => ({
             prompt: q.prompt,
             marks: q.marks,
@@ -262,7 +270,6 @@ export const ensureHomeworkForPoints = createServerFn({ method: "POST" })
             mark_scheme: q.mark_scheme,
           })),
         });
-        if (writeErr) throw writeErr;
         created++;
       } catch (err) {
         // One bad spec point must not cost the rest of the week its homework.

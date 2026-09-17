@@ -1741,6 +1741,7 @@ export type Database = {
       ensure_generated_homework: {
         Args: {
           _board?: Database["public"]["Enums"]["board"];
+          _created_by: string;
           _level: Database["public"]["Enums"]["level"];
           _questions: Json;
           _spec_point_id: string;

@@ -52,12 +52,14 @@ type Row = {
   question_format?: string | null;
   mathematical_demand?: boolean | null;
   practical_demand?: boolean | null;
+  /** Spec point codes this part credits, without the board prefix: ["1.6"]. */
+  spec_points?: string[];
 };
 
 type Parsed = {
   profile: string;
   rows: Row[];
-  scheme: { q: string; scheme: string; flags?: string[] }[];
+  scheme?: { q: string; scheme: string; flags?: string[] }[];
 };
 
 /** Provenance from the renamer's filename: board-subject-level-year-pNT-QP.json */
@@ -96,7 +98,89 @@ async function upsert(rows: unknown[]) {
     },
   );
   if (!res.ok) throw new Error(`insert failed: ${res.status} ${await res.text()}`);
-  return (await res.json()) as { id: string }[];
+  return (await res.json()) as { id: string; question_label: string }[];
+}
+
+/** Board prefix as the curriculum writes its codes, keyed by the board. */
+const CODE_PREFIX: Record<string, string> = { aqa: "AQA", edexcel: "EDEX", ocr: "OCR" };
+
+/**
+ * Link the rows that name spec points to those points.
+ *
+ * Which point a question credits is the judgement half of ingestion and the
+ * half most worth reviewing: a bad split is obvious, a bad tag is invisible. A
+ * code that doesn't exist is reported rather than guessed at, and the rest of
+ * the paper still loads — a missing tag costs relevance, never correctness.
+ */
+async function writeTags(
+  rows: Row[],
+  inserted: { id: string; question_label: string }[],
+  p: { board?: string; level?: string; subject?: string },
+): Promise<number> {
+  const wanted = rows.filter((r) => r.spec_points?.length);
+  if (wanted.length === 0) return 0;
+  const prefix = CODE_PREFIX[p.board ?? ""];
+  if (!prefix) {
+    console.error(`  no spec point code prefix known for board "${p.board}" — tags skipped`);
+    process.exitCode = 1;
+    return 0;
+  }
+
+  const res = await fetch(
+    `${url}/rest/v1/spec_points?select=id,code,topics!inner(board,level,subject)` +
+      `&topics.board=eq.${p.board}&topics.level=eq.${p.level}&topics.subject=eq.${p.subject}`,
+    {
+      headers: {
+        apikey: key!,
+        ...(key!.startsWith("sb_secret_") ? {} : { Authorization: `Bearer ${key}` }),
+      },
+    },
+  );
+  if (!res.ok) throw new Error(`spec point lookup failed: ${res.status} ${await res.text()}`);
+  const byCode = new Map(
+    ((await res.json()) as { id: string; code: string }[]).map((s) => [s.code, s.id]),
+  );
+  const byLabel = new Map(inserted.map((e) => [e.question_label, e.id]));
+
+  const unknown: string[] = [];
+  const pairs: { exemplar_id: string; spec_point_id: string }[] = [];
+  for (const row of wanted) {
+    const exemplarId = byLabel.get(row.label);
+    if (!exemplarId) continue;
+    for (const code of row.spec_points!) {
+      const pointId = byCode.get(`${prefix} ${code}`);
+      if (!pointId) {
+        unknown.push(code);
+        continue;
+      }
+      pairs.push({ exemplar_id: exemplarId, spec_point_id: pointId });
+    }
+  }
+  if (unknown.length) {
+    console.error(`  unknown spec point codes: ${[...new Set(unknown)].join(", ")}`);
+    process.exitCode = 1;
+  }
+  if (pairs.length === 0) return 0;
+
+  const headers = {
+    apikey: key!,
+    ...(key!.startsWith("sb_secret_") ? {} : { Authorization: `Bearer ${key}` }),
+    "Content-Type": "application/json",
+  };
+  // Re-ingesting a paper replaces its tags rather than adding to them.
+  const ids = [...new Set(pairs.map((t) => t.exemplar_id))];
+  for (let i = 0; i < ids.length; i += 100) {
+    await fetch(
+      `${url}/rest/v1/exam_exemplar_spec_points?exemplar_id=in.(${ids.slice(i, i + 100).join(",")})`,
+      { method: "DELETE", headers },
+    );
+  }
+  const write = await fetch(
+    `${url}/rest/v1/exam_exemplar_spec_points?on_conflict=exemplar_id,spec_point_id`,
+    { method: "POST", headers, body: JSON.stringify(pairs) },
+  );
+  if (!write.ok) throw new Error(`tag insert failed: ${write.status} ${await write.text()}`);
+  return pairs.length;
 }
 
 let total = 0;
@@ -118,8 +202,11 @@ for (const file of files) {
   // sub-parts is the model's job and has not happened yet. Copying the whole
   // question's scheme onto each part would credit every part with every other
   // part's marks, so it goes on the first part and the rest are left null.
-  const schemeFor = new Map(parsed.scheme.map((s) => [s.q, s.scheme]));
-  const schemeFlags = new Map(parsed.scheme.map((s) => [s.q, s.flags ?? []]));
+  // Optional: papers read straight into per-part mark schemes carry no separate
+  // block, and the legacy whole-question one is only a fallback.
+  const scheme = parsed.scheme ?? [];
+  const schemeFor = new Map(scheme.map((s) => [s.q, s.scheme]));
+  const schemeFlags = new Map(scheme.map((s) => [s.q, s.flags ?? []]));
   const partCounts = new Map<string, number>();
   for (const row of parsed.rows) partCounts.set(row.q, (partCounts.get(row.q) ?? 0) + 1);
   const seenQuestion = new Set<string>();
@@ -179,9 +266,23 @@ for (const file of files) {
       `    ${awaiting} awaiting their share of a multi-part mark scheme`,
   );
 
+  const tagged = parsed.rows.filter((r) => r.spec_points?.length).length;
+  console.log(
+    `    ${tagged} tagged to a spec point` +
+      (tagged < payload.length - images
+        ? ` — ${payload.length - images - tagged} usable rows carry no tag, so they only ever ground a question by style`
+        : ""),
+  );
+
   if (write) {
     const inserted = await upsert(payload);
     console.log(`  wrote ${inserted.length}`);
+    // Tags travel with the rows: the reading pass already decided which point
+    // each question credits, and a second pass over the same paper would only
+    // be a chance to decide differently. `load-tags.ts` exists for corrections
+    // and for papers read before tagging was part of this.
+    const links = await writeTags(parsed.rows, inserted, p);
+    if (links) console.log(`  linked ${links} question/spec point pairs`);
   }
   total += payload.length;
 }

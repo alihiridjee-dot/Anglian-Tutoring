@@ -23,28 +23,35 @@ Write the result to `papers/<board>-<subject>-<level>-<year>-p<paper><tier>.json
 in the shape at the bottom, then load it with `load-exemplars.ts`. The loader
 takes provenance from that filename, so it has to match the specification code.
 
-## Tagging, once the rows are in
+## Tagging is part of reading, not a later pass
 
-A loaded question is only "style" grounding until something says which part of
-the specification it credits. That link lives in `tags/<same paper name>.txt`,
-one line per rule — labels, then the spec point codes without their board
-prefix:
+An untagged question grounds a generated question by style only — same board,
+same subject, any topic. A tagged one grounds it by the spec point itself, which
+is the whole value of the library. You are already reading the question, so
+decide then: put the codes in `spec_points` on the row and `load-exemplars.ts`
+writes the links with everything else.
+
+The point is what the question *credits*: a calculation set in a photosynthesis
+investigation is tagged to photosynthesis, and a question that only tests method
+with no content is better left untagged than forced into a point. Two or three
+codes is usually the honest answer; more is a sign the question is being
+stretched to fit. Codes go in without their board prefix — `1.6`, not `AQA 1.6`.
+
+A code that doesn't exist is reported, never guessed at, and the rest of the
+paper still loads.
+
+`load-tags.ts` is the back door for the papers read before this existed, and for
+correcting a tag without re-reading a paper. Tag files live in `tags/<same paper
+name>.txt`, one rule per line — labels, then codes:
 
     01.1,01.2 1.6,6.4
     03.6 2.2
 
-Read the paper, not the filename: the point is what the question *credits*, so a
-calculation set in a photosynthesis investigation is tagged to photosynthesis,
-and a question that only tests method with no content is better left untagged.
-Two or three codes is usually the honest answer; more than that is a sign the
-question is being stretched to fit.
-
     bun run scripts/ingest-paper/load-tags.ts scripts/ingest-paper/tags/*.txt
     bun run scripts/ingest-paper/load-tags.ts scripts/ingest-paper/tags/*.txt --write
 
-Preview first: it reports any label or code that doesn't exist rather than
-guessing. Re-running replaces that paper's tags, so fixing a line in the file is
-the whole correction.
+Preview first. Either route replaces that paper's tags rather than adding to
+them, so a correction is the whole edit.
 
 ## The rule that matters
 
@@ -99,6 +106,9 @@ rows; a question with no parts is one row.
 - **mathematical_demand** / **practical_demand** — whether answering requires
   calculation, and whether it draws on practical technique. Judgements about the
   question, and both can be true.
+- **spec_points** — the specification points this part credits, as codes without
+  the board prefix: `["1.6", "6.4"]`. See "Tagging is part of reading" above.
+  Omit it rather than guess.
 - **flags** — empty when the row is complete and faithful. Otherwise say what is
   wrong: the options are in a figure, the text is garbled, the mark scheme does
   not cover this part. A flagged row is never approved, so this is the brake.
