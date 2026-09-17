@@ -23,6 +23,29 @@ Write the result to `papers/<board>-<subject>-<level>-<year>-p<paper><tier>.json
 in the shape at the bottom, then load it with `load-exemplars.ts`. The loader
 takes provenance from that filename, so it has to match the specification code.
 
+## Tagging, once the rows are in
+
+A loaded question is only "style" grounding until something says which part of
+the specification it credits. That link lives in `tags/<same paper name>.txt`,
+one line per rule — labels, then the spec point codes without their board
+prefix:
+
+    01.1,01.2 1.6,6.4
+    03.6 2.2
+
+Read the paper, not the filename: the point is what the question *credits*, so a
+calculation set in a photosynthesis investigation is tagged to photosynthesis,
+and a question that only tests method with no content is better left untagged.
+Two or three codes is usually the honest answer; more than that is a sign the
+question is being stretched to fit.
+
+    bun run scripts/ingest-paper/load-tags.ts scripts/ingest-paper/tags/*.txt
+    bun run scripts/ingest-paper/load-tags.ts scripts/ingest-paper/tags/*.txt --write
+
+Preview first: it reports any label or code that doesn't exist rather than
+guessing. Re-running replaces that paper's tags, so fixing a line in the file is
+the whole correction.
+
 ## The rule that matters
 
 **Transcribe. Never compose.** Every word of a prompt, an option and a mark
