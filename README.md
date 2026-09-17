@@ -69,6 +69,85 @@ rule, so `tracking-widest` on a small uppercase label wins as intended.
 
 - React 19, TanStack Start v1, Tailwind CSS v4, TypeScript strict
 - Supabase — Auth, Postgres with RLS, Storage
-- Gemini API (`gemini-2.5-flash`) — MCQ generation
+- Anthropic Claude — written question and MCQ generation
 - Stripe — monthly subscriptions
 - Microsoft Teams — live session scheduling
+
+## Exam question generation
+
+The framework lives in `src/lib/examGeneration.ts`; its database and Claude calls
+live in `src/lib/examGeneration.server.ts`. Both the written-homework generators
+(including automatic planner homework) and all three MCQ generators use it.
+There is one model call per generated set for a specification point. Existing
+publishing paths and the reuse of already-generated homework are retained.
+
+The server loads the specification point using the signed-in user's database
+access, then retrieves reference context using its service credential. Claude
+receives the assembled context in the API request; it does not browse the repo,
+read the local `papers/` directory, or connect to Postgres itself.
+
+### Database setup
+
+Apply these migrations, in order, before deploying the generation changes:
+
+- `20260910120000_exam_exemplar_library.sql`
+- `20260910150000_exam_generation_framework.sql`
+
+The app server needs `SUPABASE_URL`, `SUPABASE_PUBLISHABLE_KEY`,
+`SUPABASE_SERVICE_ROLE_KEY` and `ANTHROPIC_API_KEY`. The service credential and
+reference records stay server-side; the retrieval RPC is not executable by
+anonymous or authenticated browser clients. Missing credentials/migrations are
+configuration errors, not an empty-library fallback.
+
+Populate `topics.specification_version` and `topics.exam_tier` when known. Null
+means unrecorded: the prompt must not invent a version or assume Higher tier.
+`spec_points.assessment_context` holds relevant specification-backed practical
+and mathematical skills and scope notes. These fields currently have no new UI.
+
+`exam_exemplars` supports shared introductions, source file/page references,
+command words, assessment objectives, question formats and independent
+mathematical/practical demand flags. `load-exemplars.ts` accepts these optional
+fields plus an aligned `mark_scheme` on each JSON row. Legacy parser output is
+still importable, but unresolved multipart schemes are flagged. Import does not
+approve records. Changes to approved exemplar content invalidate that approval.
+Source-paper extraction, AI-assisted library review and tagging remain separate
+ingestion work; this framework does not run an ingestion model automatically.
+
+### Retrieval and prompting
+
+Only approved, unflagged examples with text, positive marks, a mark scheme and
+no missing image are eligible. Board, qualification and subject must match.
+Recorded version/tier constraints are respected. The database returns a bounded
+pool from the exact point, surrounding topic and same-course style examples.
+The prompt builder selects up to five complete, diverse examples within an
+18,000-character reference budget; it never truncates a question's scheme to fit.
+
+No exact match is required. Topic/style examples can support generation, with
+style examples explicitly forbidden from expanding the curriculum scope. If
+none qualify, the request uses the curriculum and available board guidance.
+Practical and mathematical demand are variety attributes, not mandatory filters;
+the same question may assess both, and unsuitable skills must not be forced in.
+
+`exam_generation_guidance` stores source-linked board/qualification guidance.
+The migration seeds concise GCSE AQA and Edexcel guidance. Other qualifications
+use the common framework and their available exemplars until applicable guidance
+is added; GCSE guidance is not silently reused for another qualification.
+
+The call returns schema-constrained JSON. Code rejects incomplete sets, empty
+rubrics, invalid marks, duplicate prompts and malformed MCQ answer keys. This
+checks structure, not scientific correctness, and introduces no second AI review
+or new publishing gate. Questions retain their generated mark schemes for marking.
+Keep curriculum descriptions complete; a title alone provides much less guidance.
+
+`exam_generation_runs` records the model, framework version, selected exemplar
+IDs, fallback level, response (including assessment tags) and API usage. These
+records are tutor-readable only. Logging failure is reported server-side without
+discarding an otherwise valid set. System-prompt caching is requested; actual cache
+hits depend on the provider's minimum prompt length and cache lifetime.
+
+### Verification
+
+Run `bun test src/lib/examGeneration.test.ts src/lib/examGeneration.server.test.ts`
+for reference selection, context isolation, fallback and mocked API checks.
+Use a representative sample to compare future prompt/model versions before
+deployment. Runtime validation cannot guarantee exam accuracy.

@@ -1,4 +1,17 @@
 project_id = "peohauhwquuvghrpmotf"
 
+[auth]
+# Where Supabase sends people when a link has no valid redirect of its own.
+# Left at localhost, every password-reset email points at a dev server the
+# recipient does not have running.
+site_url = "https://angliaeducate.co.uk"
+# resetPasswordForEmail passes `${window.location.origin}/reset-password`, but
+# Supabase only honours a redirect that matches one of these — anything else
+# falls back to site_url without complaining.
+additional_redirect_urls = [
+  "https://angliaeducate.co.uk/**",
+  "http://localhost:8080/**",
+]
+
 [auth.security]
 hibp_enabled = true
