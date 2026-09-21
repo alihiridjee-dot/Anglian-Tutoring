@@ -1,5 +1,6 @@
 import { useMutation, useQuery, useQueryClient } from "@tanstack/react-query";
 import { isDemoMode } from "@/lib/auth/session";
+import { useRoles } from "@/hooks/useRole";
 import { ChatDAL, type ChatMessage, type ThreadSummary, type TutorOption } from "@/lib/chatDal";
 
 /** Everything chat-shaped sits under this prefix, so one invalidate refreshes it. */
@@ -18,40 +19,62 @@ const POLL_MS = 20_000;
  * notification bell already carries anything the user misses.
  */
 
+/**
+ * Chat needs a signed-in caller, not merely a non-demo one.
+ *
+ * `chat_unread_count` and friends are revoked from `anon` on purpose — a
+ * visitor with no session has no unread messages to count. But these queries
+ * only checked for demo mode, so on every page they fired before the session
+ * had hydrated, hit PostgREST as `anon` and came back 42501 *permission
+ * denied*. The badge swallowed it and rendered 0, so the only symptom was a
+ * console full of 403s repeating on the poll interval.
+ *
+ * Waiting for the user id is the whole fix: the grant was right, the caller
+ * was wrong.
+ */
+function useChatEnabled(): boolean {
+  const { userId, loading } = useRoles();
+  return !isDemoMode() && !loading && !!userId;
+}
+
 export function useChatThreads() {
+  const enabled = useChatEnabled();
   return useQuery({
     queryKey: [...CHAT_KEY, "threads"],
     queryFn: () => ChatDAL.listThreads(),
-    enabled: !isDemoMode(),
+    enabled,
     refetchInterval: POLL_MS,
   });
 }
 
 export function useChatMessages(threadId: string | null) {
+  const enabled = useChatEnabled();
   return useQuery({
     queryKey: [...CHAT_KEY, "messages", threadId],
     queryFn: (): Promise<ChatMessage[]> => ChatDAL.getMessages(threadId!),
-    enabled: !!threadId && !isDemoMode(),
+    enabled: !!threadId && enabled,
     refetchInterval: POLL_MS,
   });
 }
 
 /** Tutors a student may address, newest role grants included automatically. */
 export function useTutorDirectory() {
+  const enabled = useChatEnabled();
   return useQuery({
     queryKey: [...CHAT_KEY, "tutors"],
     queryFn: (): Promise<TutorOption[]> => ChatDAL.listTutors(),
-    enabled: !isDemoMode(),
+    enabled,
     staleTime: 1000 * 60 * 30,
   });
 }
 
 /** Unread total for the sidebar badge. */
 export function useChatUnread() {
+  const enabled = useChatEnabled();
   return useQuery({
     queryKey: [...CHAT_KEY, "unread"],
     queryFn: () => ChatDAL.unreadCount(),
-    enabled: !isDemoMode(),
+    enabled,
     refetchInterval: POLL_MS,
   });
 }

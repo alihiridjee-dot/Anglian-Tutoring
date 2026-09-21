@@ -54,7 +54,8 @@ export function isAwaitingRelease(item: HomeworkItem, now = Date.now()): boolean
   return new Date(release).getTime() > now;
 }
 
-const BUCKET_ORDER: HomeworkBucket[] = ["due", "submitted", "marked", "practice"];
+/** Lifecycle order — also the order of the tabs on the student page. */
+export const BUCKET_ORDER: HomeworkBucket[] = ["due", "submitted", "marked", "practice"];
 
 /** The key each section sorts on, and which way round. */
 const SORT: Record<HomeworkBucket, { key: (i: HomeworkItem) => string; descending: boolean }> = {
