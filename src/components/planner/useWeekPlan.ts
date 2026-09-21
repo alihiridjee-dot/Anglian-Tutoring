@@ -53,16 +53,16 @@ export function useWeekPlan(params: {
        * A saved review with nothing behind it is repaired before the week is
        * read, not left sitting there.
        *
-       * The trigger looks at the withheld list as well as the active one. Since
-       * [[admissibility]], `getPlan` splits a week in two, and a `focus` point
-       * with no assessed evidence is exactly what lands in `withheld` — so a
-       * test against `points` alone would never fire, and the repair would be
-       * dead code. Quarantine stops it being *shown* as revision; this turns it
-       * into honest teaching so it actually gets covered.
+       * The trigger is the withheld list alone. Since [[admissibility]],
+       * `getPlan` splits a week in two, and a `focus` point with no assessed
+       * evidence is exactly what lands in `withheld`. A `focus` point still in
+       * `points` has already passed that same evidence test, so testing for one
+       * there fired the repair — a second full roadmap load — on every visit to
+       * any week holding a review, only for `refreshWeek` to find nothing to do.
+       * Quarantine stops an unsupported review being *shown* as revision; this
+       * turns it into honest teaching so it actually gets covered.
        */
-      const unsupported =
-        saved?.points.some((p) => p.origin === "focus") ||
-        saved?.withheld.some((w) => w.reason === "no-evidence");
+      const unsupported = saved?.withheld.some((w) => w.reason === "no-evidence");
       if (unsupported && isCurrent && (await getSessionUserId()) === studentId) {
         const roadmap = await client.fetchQuery(roadmapQuery(client, params, true));
         signal.throwIfAborted();
@@ -97,7 +97,7 @@ export function useWeekPlan(params: {
           await ProgramDAL.ensureCatchUp({
             planId: saved.plan.id,
             weekStart,
-            points: saved.points,
+            points: [...saved.points, ...saved.withheld.map((w) => w.point)],
             roadmap,
           })
         ) {

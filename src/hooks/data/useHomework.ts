@@ -5,10 +5,12 @@ import {
   isDemoStudent,
   DEMO_ANSWERS,
   DEMO_HOMEWORK,
+  DEMO_LEVEL,
   DEMO_QUESTIONS,
   DEMO_SUBMISSIONS,
 } from "@/lib/demo/studentDemo";
 import type { HomeworkAnswer, HomeworkQuestion } from "@/hooks/data/useHomeworkQuestions";
+import type { BoardV, LevelV } from "@/lib/taxonomy";
 
 /** Where a homework came from: a tutor set it, or the planner generated it. */
 export type HomeworkOrigin = "tutor" | "generated";
@@ -18,6 +20,9 @@ export type Homework = {
   title: string;
   instructions: string | null;
   subject: string;
+  /** Null for a tutor brief set for the subject on every board. */
+  board: BoardV | null;
+  level: LevelV;
   due_at: string | null;
   created_at: string;
   origin: HomeworkOrigin;
@@ -41,12 +46,21 @@ export type SubmissionRow = {
   release_at: string | null;
 };
 
+/** How often an open sheet checks whether its mark has been released. */
+const AWAITING_MARK_POLL_MS = 30_000;
+
 /** Both homework queries sit under this prefix so one invalidate refreshes the page. */
 const HOMEWORK_KEY = ["homework"] as const;
 
 /**
  * The homework briefs visible to the caller: every brief for a tutor, and only
- * the enrolled subjects for a student.
+ * the enrolled subjects at the student's own level for a student.
+ *
+ * Level is filtered here because a different level is a different
+ * qualification. Board is left to the page, which knows what has been handed
+ * in. RLS scopes `resources` by subject alone, and the planner writes a sheet
+ * for every spec point any student reaches on any board. Without both filters,
+ * an AQA GCSE student's practice list filled with Edexcel and A-Level sheets.
  *
  * `subjects` must be settled before this runs — an empty list while the profile
  * is still loading would read as "no filter" and flash every subject's homework
@@ -55,25 +69,29 @@ const HOMEWORK_KEY = ["homework"] as const;
 export function useHomework({
   isTutor,
   subjects,
+  level = null,
   enabled = true,
 }: {
   isTutor: boolean;
   subjects: string[];
+  /** The student's level. Null (not yet set) filters nothing rather than everything. */
+  level?: LevelV | null;
   enabled?: boolean;
 }) {
   return useQuery({
-    queryKey: [...HOMEWORK_KEY, "briefs", { isTutor, subjects: [...subjects].sort() }],
+    queryKey: [...HOMEWORK_KEY, "briefs", { isTutor, subjects: [...subjects].sort(), level }],
     queryFn: async (): Promise<Homework[]> => {
       // Demo student: render the self-contained fixture set, never real content.
-      if (isDemoStudent()) return DEMO_HOMEWORK;
+      if (isDemoStudent()) return DEMO_HOMEWORK.map(demoHomework);
 
       let q = supabase
         .from("resources")
-        .select("id, title, instructions, subject, due_at, created_at, origin")
+        .select("id, title, instructions, subject, board, level, due_at, created_at, origin")
         .eq("kind", "homework")
         .order("due_at", { ascending: true });
       if (!isTutor && subjects.length > 0)
         q = q.in("subject", subjects as ("biology" | "chemistry" | "physics")[]);
+      if (!isTutor && level) q = q.eq("level", level);
       const { data, error } = await q;
       if (error) throw error;
       return (data ?? []) as Homework[];
@@ -144,7 +162,7 @@ export function useHomeworkSheet({
       const [hwRes, qRes] = await Promise.all([
         supabase
           .from("resources")
-          .select("id, title, instructions, subject, due_at, created_at, origin")
+          .select("id, title, instructions, subject, board, level, due_at, created_at, origin")
           .eq("id", homeworkId)
           .eq("kind", "homework")
           .maybeSingle(),
@@ -165,7 +183,11 @@ export function useHomeworkSheet({
       let submission: SubmissionRow | null = null;
       let answers: Record<string, HomeworkAnswer> = {};
       if (userId) {
-        const { data: sub } = await supabase
+        // These two reads must fail loudly. "No submission" is what draws the
+        // blank answer form, so a dropped request used to show a student an
+        // empty sheet for homework they had already handed in — and invite them
+        // to write it all out again.
+        const { data: sub, error: subError } = await supabase
           .from("homework_submissions")
           .select(
             "id, resource_id, student_id, notes, submitted_at, score_pct, feedback, graded_at, acknowledged_at, release_at",
@@ -173,13 +195,15 @@ export function useHomeworkSheet({
           .eq("resource_id", homeworkId)
           .eq("student_id", userId)
           .maybeSingle();
+        if (subError) throw subError;
         submission = (sub as SubmissionRow | null) ?? null;
 
         if (submission) {
-          const { data: rows } = await supabase
+          const { data: rows, error: answersError } = await supabase
             .from("homework_answers")
             .select("id, submission_id, question_id, answer_text, awarded_marks, feedback")
             .eq("submission_id", submission.id);
+          if (answersError) throw answersError;
           answers = Object.fromEntries(
             (rows ?? []).map((a) => [a.question_id, a as HomeworkAnswer]),
           );
@@ -194,6 +218,15 @@ export function useHomeworkSheet({
       };
     },
     enabled: enabled && !!homeworkId,
+    // Handed in and not yet marked: the mark lands within minutes, and the
+    // student is sitting on this page waiting for it. Check for them, rather
+    // than asking them to keep refreshing. Stops as soon as the mark arrives.
+    refetchInterval: (query) => {
+      const submission = query.state.data?.submission;
+      return submission && !submission.graded_at && !isDemoStudent()
+        ? AWAITING_MARK_POLL_MS
+        : false;
+    },
   });
 }
 
@@ -220,9 +253,14 @@ function demoSheet(homeworkId: string) {
     : {};
 
   return {
-    hw: hw as Homework,
+    hw: demoHomework(hw),
     questions: DEMO_QUESTIONS[homeworkId] ?? [],
     submission: submission as SubmissionRow | null,
     answers,
   };
+}
+
+/** A showcase fixture in the shape of a real brief: every board, the demo's level. */
+function demoHomework(hw: (typeof DEMO_HOMEWORK)[number]): Homework {
+  return { ...hw, board: null, level: DEMO_LEVEL };
 }

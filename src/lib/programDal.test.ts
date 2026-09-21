@@ -207,7 +207,7 @@ describe("saved-week catch-up", () => {
     const points = [
       { spec_point_id: "manual", origin: "student", done_at: "2026-09-07" },
     ] as PlanPoint[];
-    const add = spyOn(WeeklyPlanDAL, "addPoints").mockResolvedValue();
+    const add = spyOn(WeeklyPlanDAL, "addPoints").mockResolvedValue(1);
     try {
       expect(
         await ProgramDAL.ensureCatchUp({
@@ -229,6 +229,18 @@ describe("saved-week catch-up", () => {
       expect(add).toHaveBeenCalledTimes(1);
       expect(points[0].origin).toBe("student");
       expect(points[0].done_at).toBe("2026-09-07");
+
+      // Every point refused by admissibility: nothing changed, so say so — a
+      // `true` here re-reads the week and invalidates the roadmap for nothing.
+      add.mockResolvedValueOnce(0);
+      expect(
+        await ProgramDAL.ensureCatchUp({
+          planId: "saved",
+          weekStart: "2026-09-07",
+          points,
+          roadmap,
+        }),
+      ).toBe(false);
     } finally {
       add.mockRestore();
     }

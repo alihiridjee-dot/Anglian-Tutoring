@@ -87,7 +87,9 @@ export function CoveredLedger({
       });
       await invalidatePlanner(queryClient, studentId);
       toast.success(
-        `Added ${n} spec ${n === 1 ? "point" : "points"} from “${topic.title}” back into this week.`,
+        n === 0
+          ? `“${topic.title}” is already in this week.`
+          : `Added ${n} spec ${n === 1 ? "point" : "points"} from “${topic.title}” back into this week.`,
       );
     } catch (e) {
       toast.error(e instanceof Error ? e.message : "Couldn't set that up — try again.");
@@ -97,7 +99,8 @@ export function CoveredLedger({
   };
 
   if (!active) return null;
-  if (history.error) return <ErrorNote error={history.error} />;
+  if (history.error)
+    return <ErrorNote error={history.error} onRetry={() => void history.refetch()} />;
 
   const total = data.reduce((n, t) => n + t.points.length, 0);
 
