@@ -1,10 +1,9 @@
 import { useState } from "react";
 import { motion, AnimatePresence } from "motion/react";
 import { GraduationCap, Award, Star, X, Send, MessageCircle } from "lucide-react";
-
 // Shared WhatsApp number (same as the floating button). The pre-filled message
 // names the tutor so we know who the enquiry is about.
-const WA_NUMBER = "447530863009";
+import { whatsappLink } from "@/lib/whatsapp";
 
 const TUTORS = [
   {
@@ -12,13 +11,13 @@ const TUTORS = [
     name: "Dr Nadia",
     role: "Head of Biology & Chemistry",
     degrees: [
-      "BSc (Hons) Biomedical Sciences, Queen Mary University of London",
-      "MBBS, Anglia Ruskin University",
+      "BSc (Hons) Neuroscience, Queen Mary University of London",
+      "MBChB, Anglia Ruskin University",
     ],
-    bio: "Practising NHS Doctor and science tutor of 5+ years, having taught students across the region to excellent GCSE results. Specialises in Biology and Chemistry.",
+    bio: "Practising NHS Doctor and science tutor of 10+ years, having taught students across the region to excellent GCSE results. Specialises in Biology and Chemistry.",
     fullBio: [
       "Dr Nadia brings real clinical experience straight from the NHS into the classroom, turning abstract biology and chemistry into the science she uses every day at work.",
-      "Over 5+ years of tutoring, she has helped students across the region achieve excellent results — focusing on structured exam-board mark schemes and demystifying complex metabolic pathways.",
+      "Over 10 years of tutoring, she has helped students across the region achieve excellent results — focusing on structured exam-board mark schemes and demystifying complex metabolic pathways.",
       "Her lessons build long-term memory retrieval systems that make science second nature, so students recall it under exam pressure.",
     ],
     badge: "GCSE Expert",
@@ -34,12 +33,12 @@ const TUTORS = [
     name: "Ali",
     role: "Head of Physics & Maths",
     degrees: [
-      "BSc (Merit) Synthetic Organic Chemistry & Biomedical Sciences, UCL",
+      "BSc Synthetic Organic Chemistry & Biomedical Sciences, UCL",
       "MBChB, Anglia Ruskin University",
     ],
     bio: "UCL graduate now training as a doctor, and an expert across KS3, GCSE and A Level. Passionate about making science accessible and building strong problem-solving foundations.",
     fullBio: [
-      "Ali graduated from UCL with a Merit in Synthetic Organic Chemistry & Biomedical Sciences and is now studying medicine on the MBChB programme at Anglia Ruskin University.",
+      "Ali graduated from UCL in Synthetic Organic Chemistry & Biomedical Sciences and is now studying medicine on the MBChB programme at Anglia Ruskin University.",
       "Known for his highly dynamic, visual teaching style, he covers KS3, GCSE and A Level with equal depth — breaking down mechanics, electricity and chemistry into bite-sized mental models.",
       "With over 1,500 hours of 1-to-1 and small group online instruction, he specialises in building robust problem-solving frameworks.",
     ],
@@ -249,7 +248,7 @@ function TutorChatModal({ tutor, onClose }: { tutor: Tutor; onClose: () => void 
     const text =
       `Hi ${firstName}! I saw your profile on the Anglia Educate site.` +
       (message.trim() ? `\n\n${message.trim()}` : "");
-    const url = `https://wa.me/${WA_NUMBER}?text=${encodeURIComponent(text)}`;
+    const url = whatsappLink(text);
     window.open(url, "_blank", "noopener,noreferrer");
     onClose();
   };

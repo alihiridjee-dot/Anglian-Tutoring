@@ -896,20 +896,6 @@ a.when-link:hover .when-link-arrow {
   animation-delay: var(--dot-delay, 0s);
 }
 
-@keyframes bar-grow {
-  from {
-    transform: scaleX(0);
-  }
-  to {
-    transform: scaleX(1);
-  }
-}
-.bar-grow {
-  transform-origin: left center;
-  animation: bar-grow 0.9s cubic-bezier(0.22, 1, 0.36, 1) both;
-  animation-delay: var(--grow-delay, 0s);
-}
-
 @keyframes ring-draw {
   from {
     stroke-dashoffset: var(--ring-len, 1000);
@@ -921,19 +907,6 @@ a.when-link:hover .when-link-arrow {
 .ring-draw {
   animation: ring-draw 1s cubic-bezier(0.22, 1, 0.36, 1) both;
   animation-delay: var(--ring-delay, 0.1s);
-}
-
-@keyframes float-y {
-  0%,
-  100% {
-    transform: translateY(0);
-  }
-  50% {
-    transform: translateY(-6px);
-  }
-}
-.float-y {
-  animation: float-y 4.5s ease-in-out infinite;
 }
 
 /* The cast blinks.
@@ -1063,38 +1036,6 @@ a.when-link:hover .when-link-arrow {
   animation: cheer 0.7s ease-in-out;
 }
 
-@keyframes screen-in {
-  from {
-    opacity: 0;
-    transform: translateY(14px) scale(0.985);
-  }
-  to {
-    opacity: 1;
-    transform: translateY(0) scale(1);
-  }
-}
-.screen-in {
-  animation: screen-in 0.6s cubic-bezier(0.22, 1, 0.36, 1) both;
-}
-
-@keyframes cell-pop {
-  0% {
-    opacity: 0;
-    transform: scale(0.4);
-  }
-  60% {
-    transform: scale(1.12);
-  }
-  100% {
-    opacity: 1;
-    transform: scale(1);
-  }
-}
-.cell-pop {
-  animation: cell-pop 0.5s cubic-bezier(0.22, 1, 0.36, 1) both;
-  animation-delay: var(--pop-delay, 0s);
-}
-
 /* Confetti for milestones — a few absolutely-positioned shards, no library. */
 @keyframes confetti-fall {
   0% {
@@ -1118,21 +1059,14 @@ a.when-link:hover .when-link-arrow {
   .rise-in,
   .pop-in,
   .stamp-in,
-  .bar-grow,
   .ring-draw,
-  .float-y,
   .load-dot,
   .idle-tilt,
   .blink,
   .peek-in,
   .cheer,
-  .screen-in,
-  .cell-pop,
   .confetti-bit {
     animation: none;
-  }
-  .bar-grow {
-    transform: scaleX(1);
   }
   .ring-draw {
     stroke-dashoffset: var(--ring-end, 0);
@@ -1300,52 +1234,13 @@ body {
   transform-origin: center;
 }
 
-/* The spaced-repetition forgetting curve, and the review spikes that land on
-   it. Keyed remounts (see CurriculumShowcase.tsx) replay these each time the
-   screen becomes active. */
-@keyframes curve-draw {
-  from {
-    stroke-dashoffset: var(--curve-len, 1000);
-  }
-  to {
-    stroke-dashoffset: 0;
-  }
-}
-
-@keyframes spike-in {
-  0% {
-    opacity: 0;
-    transform: translateY(8px) scale(0.5);
-  }
-  100% {
-    opacity: 1;
-    transform: translateY(0) scale(1);
-  }
-}
-
-.curve-draw {
-  stroke-dasharray: var(--curve-len, 1000);
-  animation: curve-draw 2s cubic-bezier(0.4, 0, 0.2, 1) both;
-  animation-delay: var(--curve-delay, 0.2s);
-}
-
-.spike-in {
-  animation: spike-in 0.5s cubic-bezier(0.22, 1, 0.36, 1) both;
-  animation-delay: var(--spike-delay, 0s);
-  transform-box: fill-box;
-  transform-origin: bottom center;
-}
-
 @media (prefers-reduced-motion: reduce) {
   .ribbon-path,
   .ribbon-group,
-  .glitter-dot,
-  .curve-draw,
-  .spike-in {
+  .glitter-dot {
     animation: none;
   }
-  .ribbon-path,
-  .curve-draw {
+  .ribbon-path {
     stroke-dashoffset: 0;
   }
 }
