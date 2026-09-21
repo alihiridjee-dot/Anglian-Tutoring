@@ -10,6 +10,7 @@
 
 import { Route as rootRouteImport } from './routes/__root'
 import { Route as ResetPasswordRouteImport } from './routes/reset-password'
+import { Route as OurStoryRouteImport } from './routes/our-story'
 import { Route as HowItWorksRouteImport } from './routes/how-it-works'
 import { Route as AuthRouteImport } from './routes/auth'
 import { Route as OnboardingRouteRouteImport } from './routes/onboarding/route'
@@ -60,6 +61,11 @@ import { Route as DemoStudentHomeworkHomeworkIdRouteImport } from './routes/demo
 const ResetPasswordRoute = ResetPasswordRouteImport.update({
   id: '/reset-password',
   path: '/reset-password',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const OurStoryRoute = OurStoryRouteImport.update({
+  id: '/our-story',
+  path: '/our-story',
   getParentRoute: () => rootRouteImport,
 } as any)
 const HowItWorksRoute = HowItWorksRouteImport.update({
@@ -302,6 +308,7 @@ export interface FileRoutesByFullPath {
   '/onboarding': typeof OnboardingRouteRouteWithChildren
   '/auth': typeof AuthRoute
   '/how-it-works': typeof HowItWorksRoute
+  '/our-story': typeof OurStoryRoute
   '/reset-password': typeof ResetPasswordRoute
   '/demo/parent': typeof DemoParentRouteRouteWithChildren
   '/demo/student': typeof DemoStudentRouteRouteWithChildren
@@ -349,6 +356,7 @@ export interface FileRoutesByTo {
   '/': typeof IndexRoute
   '/auth': typeof AuthRoute
   '/how-it-works': typeof HowItWorksRoute
+  '/our-story': typeof OurStoryRoute
   '/reset-password': typeof ResetPasswordRoute
   '/demo/parent': typeof DemoParentRouteRouteWithChildren
   '/demo/student': typeof DemoStudentRouteRouteWithChildren
@@ -399,6 +407,7 @@ export interface FileRoutesById {
   '/onboarding': typeof OnboardingRouteRouteWithChildren
   '/auth': typeof AuthRoute
   '/how-it-works': typeof HowItWorksRoute
+  '/our-story': typeof OurStoryRoute
   '/reset-password': typeof ResetPasswordRoute
   '/demo/parent': typeof DemoParentRouteRouteWithChildren
   '/demo/student': typeof DemoStudentRouteRouteWithChildren
@@ -449,6 +458,7 @@ export interface FileRouteTypes {
     | '/onboarding'
     | '/auth'
     | '/how-it-works'
+    | '/our-story'
     | '/reset-password'
     | '/demo/parent'
     | '/demo/student'
@@ -496,6 +506,7 @@ export interface FileRouteTypes {
     | '/'
     | '/auth'
     | '/how-it-works'
+    | '/our-story'
     | '/reset-password'
     | '/demo/parent'
     | '/demo/student'
@@ -545,6 +556,7 @@ export interface FileRouteTypes {
     | '/onboarding'
     | '/auth'
     | '/how-it-works'
+    | '/our-story'
     | '/reset-password'
     | '/demo/parent'
     | '/demo/student'
@@ -595,6 +607,7 @@ export interface RootRouteChildren {
   OnboardingRouteRoute: typeof OnboardingRouteRouteWithChildren
   AuthRoute: typeof AuthRoute
   HowItWorksRoute: typeof HowItWorksRoute
+  OurStoryRoute: typeof OurStoryRoute
   ResetPasswordRoute: typeof ResetPasswordRoute
   DemoParentRouteRoute: typeof DemoParentRouteRouteWithChildren
   DemoStudentRouteRoute: typeof DemoStudentRouteRouteWithChildren
@@ -608,6 +621,13 @@ declare module '@tanstack/react-router' {
       path: '/reset-password'
       fullPath: '/reset-password'
       preLoaderRoute: typeof ResetPasswordRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/our-story': {
+      id: '/our-story'
+      path: '/our-story'
+      fullPath: '/our-story'
+      preLoaderRoute: typeof OurStoryRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/how-it-works': {
@@ -1055,6 +1075,7 @@ const rootRouteChildren: RootRouteChildren = {
   OnboardingRouteRoute: OnboardingRouteRouteWithChildren,
   AuthRoute: AuthRoute,
   HowItWorksRoute: HowItWorksRoute,
+  OurStoryRoute: OurStoryRoute,
   ResetPasswordRoute: ResetPasswordRoute,
   DemoParentRouteRoute: DemoParentRouteRouteWithChildren,
   DemoStudentRouteRoute: DemoStudentRouteRouteWithChildren,

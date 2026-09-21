@@ -30,7 +30,7 @@ export function Wordmark() {
  * the same drawing.
  */
 const NAV_LINK =
-  "relative font-semibold transition hover:text-foreground after:absolute after:-bottom-1 after:left-0 after:h-[3px] after:w-0 after:rounded-full after:bg-[color:var(--pop)] after:transition-[width] hover:after:w-full";
+  "relative whitespace-nowrap font-semibold transition hover:text-foreground after:absolute after:-bottom-1 after:left-0 after:h-[3px] after:w-0 after:rounded-full after:bg-[color:var(--pop)] after:transition-[width] hover:after:w-full";
 
 export function Nav() {
   return (
@@ -53,8 +53,12 @@ export function Nav() {
           >
             How it works
           </Link>
-          <Link to="/" hash="offer" className={NAV_LINK}>
-            What we offer
+          <Link
+            to="/our-story"
+            className={NAV_LINK}
+            activeProps={{ className: "text-foreground" }}
+          >
+            Our story
           </Link>
           <Link to="/" hash="pricing" className={NAV_LINK}>
             Pricing

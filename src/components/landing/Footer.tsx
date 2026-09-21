@@ -40,6 +40,9 @@ export function Footer() {
         {/* The nav bar's section links are desktop-only, so the footer carries
             the standalone pages for mobile visitors. */}
         <nav className="flex items-center gap-6 text-sm font-semibold">
+          <Link to="/our-story" className="hover:text-primary-foreground transition">
+            Our story
+          </Link>
           <Link to="/how-it-works" className="hover:text-primary-foreground transition">
             How it works
           </Link>
