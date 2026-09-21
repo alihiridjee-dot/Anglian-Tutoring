@@ -3,7 +3,9 @@ import { Check } from "lucide-react";
 import { BrandMark } from "@/components/auth/AuthShell";
 import { RoutePending } from "@/components/RouteFallbacks";
 import { getAuthSession } from "@/lib/auth/session";
-import { supabase } from "@/integrations/supabase/client";
+import { whenHydrated } from "@/lib/hydration";
+import { loadGuardState } from "@/lib/auth/guardState";
+import { UserRole } from "@/types/user";
 import { ONBOARDING_STEPS, stepIndex } from "@/lib/onboarding";
 
 /**
@@ -17,32 +19,34 @@ import { ONBOARDING_STEPS, stepIndex } from "@/lib/onboarding";
  */
 export const Route = createFileRoute("/onboarding")({
   ssr: false,
-  beforeLoad: async ({ location }) => {
+  beforeLoad: async ({ location, context }) => {
+    // First, because everything below can redirect — see `@/lib/hydration`.
+    await whenHydrated();
+
     const session = await getAuthSession();
     if (!session.user) {
       throw redirect({ to: "/auth", search: { redirect: location.href } as never });
     }
 
-    const { data: profile } = await supabase
-      .from("profiles")
-      .select("role")
-      .eq("id", session.user.id)
-      .maybeSingle();
+    // The same cached answer /_authenticated acts on. Asked separately here —
+    // a profile read and the access RPC, on every "Continue" — the two guards
+    // could disagree for a moment, and each sends the student to the other.
+    const viewer = await loadGuardState(context.queryClient, session.user.id);
 
     // Setup is a student flow. Parents and tutors have no board, no subjects
     // and nothing to buy for themselves, so send them to their own landing.
-    if (profile && profile.role !== "student") {
+    if (viewer.appRole !== UserRole.STUDENT) {
       throw redirect({ to: "/dashboard" });
     }
 
     // Nothing left to set up or pay for — don't make a paying student sit
-    // through setup again just because they typed the URL.
-    const { data: access } = await supabase.rpc("my_access_state").single();
-    if (access?.has_access && access?.onboarding_complete) {
+    // through setup again just because they typed the URL. Only a definite
+    // yes to both moves anybody: `null` is "couldn't tell", and they stay.
+    if (viewer.hasAccess === true && viewer.onboardingComplete === true) {
       throw redirect({ to: "/dashboard" });
     }
 
-    return { session };
+    return { session, viewer };
   },
   // No server render here either: show the loading state, not an empty body.
   pendingComponent: RoutePending,

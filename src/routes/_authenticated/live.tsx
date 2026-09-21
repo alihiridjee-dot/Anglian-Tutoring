@@ -2,7 +2,8 @@ import { createFileRoute } from "@tanstack/react-router";
 import { guardStudentSection } from "@/lib/routeGuards";
 import { useState } from "react";
 import { useQuery, useQueryClient } from "@tanstack/react-query";
-import { EmptyState, Spinner } from "@/components/Shared";
+import { EmptyState, ErrorNote, Spinner } from "@/components/Shared";
+import { useNow } from "@/hooks/useNow";
 import { AppLayout } from "@/components/AppLayout";
 import { FilterBar, type Filters } from "@/components/FilterBar";
 import { supabase } from "@/integrations/supabase/client";
@@ -10,7 +11,13 @@ import { useRoles } from "@/hooks/useRole";
 import { LiveForm } from "@/components/tutor/LiveForm";
 import { NextSessionCountdown } from "@/components/live/NextSessionCountdown";
 import { deleteZoomMeeting } from "@/lib/zoom.functions";
-import { fetchLiveSessions, type LiveSession } from "@/lib/liveSessions";
+import {
+  fetchLiveSessions,
+  hasSessionFinished,
+  sessionStartMs,
+  sessionTiming,
+  type LiveSession,
+} from "@/lib/liveSessions";
 import { type SubjectV, type BoardV, type LevelV } from "@/lib/taxonomy";
 import { SessionIdentity, WhatsCovered } from "@/components/live/SessionMeta";
 import {
@@ -42,7 +49,7 @@ export function Live() {
   const [subject, setSubject] = useState<SubjectV>("biology");
   const [board, setBoard] = useState<BoardV>("edexcel");
   const [level, setLevel] = useState<LevelV>("gcse");
-  const { data, isLoading } = useQuery({
+  const { data, isLoading, error, refetch } = useQuery({
     queryKey: ["live", filters],
     queryFn: () => fetchLiveSessions(filters),
   });
@@ -53,13 +60,16 @@ export function Live() {
   const [phonePrefix, setPhonePrefix] = useState("+44");
   const [phoneNumber, setPhoneNumber] = useState("");
 
-  const now = Date.now();
-  const upcoming = ((data as LiveSession[]) ?? []).filter(
-    (s) => s.starts_at && new Date(s.starts_at).getTime() >= now,
-  );
-  const past = ((data as LiveSession[]) ?? []).filter(
-    (s) => s.starts_at && new Date(s.starts_at).getTime() < now,
-  );
+  // A lesson stays under Upcoming — with its Join button — until it has
+  // finished, by the same rule the header and the countdown use. This compared
+  // against the start time, so a lesson moved to Previous as "Completed" the
+  // second it began: a student two minutes late, or a tutor (who gets no
+  // countdown above), found the session they were joining filed as over.
+  // Ticking, so the lists re-sort as lessons start and end on an open page.
+  const now = useNow(30_000);
+  const dated = (data ?? []).filter((s) => sessionStartMs(s) !== null);
+  const upcoming = dated.filter((s) => !hasSessionFinished(s, now));
+  const past = dated.filter((s) => hasSessionFinished(s, now));
 
   // Tutor-only: cancel a session scheduled in error. Removes the Zoom meeting
   // first (best-effort — a link-less or already-gone meeting is fine), then
@@ -160,6 +170,10 @@ export function Live() {
 
       {isLoading ? (
         <Spinner label="Checking the timetable" />
+      ) : error ? (
+        // Not the empty state: "No lessons booked in" is a claim about the
+        // timetable, and a failed request hasn't read it.
+        <ErrorNote error={error} onRetry={() => void refetch()} />
       ) : tab === "upcoming" ? (
         <div className="grid gap-3">
           {upcoming.length === 0 ? (
@@ -172,6 +186,7 @@ export function Live() {
           ) : (
             upcoming.map((s) => {
               const isZoom = s.join_url?.toLowerCase().includes("zoom");
+              const { isLive } = sessionTiming(sessionStartMs(s) ?? now, now);
               return (
                 <div
                   data-guide="live-session"
@@ -182,7 +197,11 @@ export function Live() {
                     <div className="w-11 h-11 rounded-xl bg-[#2D8CFF]/10 text-[#2D8CFF] flex items-center justify-center shrink-0">
                       <CalendarClock className="w-5 h-5" />
                     </div>
-                    <SessionIdentity session={s} eyebrow="Upcoming" />
+                    <SessionIdentity
+                      session={s}
+                      eyebrow={isLive ? "● Live now" : "Upcoming"}
+                      tone={isLive ? "emerald" : "blue"}
+                    />
                   </div>
                   <div className="flex-1 min-w-0">
                     <WhatsCovered points={s.specPoints} />

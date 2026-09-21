@@ -1,23 +1,16 @@
-import { useEffect, useMemo, useState } from "react";
+import { useMemo } from "react";
 import { useQuery } from "@tanstack/react-query";
 import { Link } from "@tanstack/react-router";
 import { Video, Radio } from "lucide-react";
-import { fetchLiveSessions, type LiveSession } from "@/lib/liveSessions";
-
-const MINUTE = 60_000;
-const DAY_MS = 24 * 60 * MINUTE;
-// Mirrors NextSessionCountdown: joinable from 10 min before start until 90 min after.
-const JOIN_LEAD_MS = 10 * MINUTE;
-const LIVE_TAIL_MS = 90 * MINUTE;
-
-function useNow() {
-  const [now, setNow] = useState(() => Date.now());
-  useEffect(() => {
-    const id = setInterval(() => setNow(Date.now()), 1000);
-    return () => clearInterval(id);
-  }, []);
-  return now;
-}
+import { useNow } from "@/hooks/useNow";
+import {
+  DAY_MS,
+  MINUTE_MS as MINUTE,
+  fetchLiveSessions,
+  nextSession,
+  sessionStartMs,
+  sessionTiming,
+} from "@/lib/liveSessions";
 
 function formatShort(diff: number) {
   const days = Math.floor(diff / DAY_MS);
@@ -42,24 +35,15 @@ export function HeaderLiveButton({ liveHref }: { liveHref: "/live" | "/demo/stud
     queryKey: ["live", "countdown"],
     queryFn: () => fetchLiveSessions(),
   });
-  const now = useNow();
+  // This chip shows minutes, on every page of the app — it has no use for a
+  // one-second tick.
+  const now = useNow(15_000);
 
-  const next = useMemo<LiveSession | null>(() => {
-    return (
-      (data ?? [])
-        .filter((s) => s.starts_at && new Date(s.starts_at).getTime() + LIVE_TAIL_MS > now)
-        .sort((a, b) => new Date(a.starts_at!).getTime() - new Date(b.starts_at!).getTime())[0] ??
-      null
-    );
-  }, [data, now]);
+  const next = useMemo(() => nextSession(data ?? [], now), [data, now]);
+  const start = next ? sessionStartMs(next) : null;
+  if (!next || start === null) return null;
 
-  if (!next) return null;
-
-  const start = new Date(next.starts_at!).getTime();
-  const diff = start - now;
-  const isLive = diff <= 0 && now < start + LIVE_TAIL_MS;
-  const withinDay = diff > 0 && diff <= DAY_MS;
-  const joinable = isLive || diff <= JOIN_LEAD_MS;
+  const { untilStart: diff, isLive, withinDay, joinable } = sessionTiming(start, now);
 
   // Keep the ribbon uncluttered: only surface a session that's live or coming up
   // within the day.

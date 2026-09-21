@@ -1,4 +1,5 @@
 import { createFileRoute, useNavigate } from "@tanstack/react-router";
+import { useOnboardingUser } from "@/hooks/useOnboardingUser";
 import { useEffect, useState } from "react";
 import { toast } from "sonner";
 import { supabase } from "@/integrations/supabase/client";
@@ -23,6 +24,7 @@ export const Route = createFileRoute("/onboarding/board")({
 
 function BoardStep() {
   const navigate = useNavigate();
+  const user = useOnboardingUser();
   const [level, setLevel] = useState<LevelV>("gcse");
   const [board, setBoard] = useState<BoardV>("edexcel");
   const [saving, setSaving] = useState(false);
@@ -48,34 +50,29 @@ function BoardStep() {
   // step shows their answer rather than silently resetting it to the default.
   useEffect(() => {
     (async () => {
-      const { data: u } = await supabase.auth.getUser();
-      if (!u.user) return;
       const [{ data: profile }, { data: enrolments }] = await Promise.all([
-        supabase.from("profiles").select("level").eq("id", u.user.id).maybeSingle(),
-        supabase.from("student_enrolments").select("board").eq("student_id", u.user.id).limit(1),
+        supabase.from("profiles").select("level").eq("id", user.id).maybeSingle(),
+        supabase.from("student_enrolments").select("board").eq("student_id", user.id).limit(1),
       ]);
       // The pricing page sends a level key; only the ones that are real levels
       // here can seed the answer (it also emits "gcse_separate" and "ks3").
-      const intendedLevel = u.user.user_metadata?.intended_level as string | undefined;
+      const intendedLevel = user.user_metadata?.intended_level as string | undefined;
       if (profile?.level) setLevel(profile.level as LevelV);
       else if (intendedLevel && LEVELS.some((l) => l.value === intendedLevel))
         setLevel(intendedLevel as LevelV);
       // Seed the board from what they picked on the pricing page, but let
       // anything they've already saved win — and they can still change it here.
-      const intendedBoard = u.user.user_metadata?.intended_board as string | undefined;
+      const intendedBoard = user.user_metadata?.intended_board as string | undefined;
       if (enrolments?.[0]?.board) setBoard(enrolments[0].board as BoardV);
       else if (intendedBoard && BOARDS.some((b) => b.value === intendedBoard))
         setBoard(intendedBoard as BoardV);
     })();
-  }, []);
+  }, [user]);
 
   const handleContinue = async () => {
     setSaving(true);
     try {
-      const { data: u } = await supabase.auth.getUser();
-      if (!u.user) throw new Error("You need to be signed in.");
-
-      const { error } = await supabase.from("profiles").update({ level }).eq("id", u.user.id);
+      const { error } = await supabase.from("profiles").update({ level }).eq("id", user.id);
       if (error) throw error;
 
       navigate({ to: "/onboarding/subjects", search: { board, level } as never });

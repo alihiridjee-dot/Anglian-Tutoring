@@ -1,4 +1,4 @@
-import type { User } from "@supabase/supabase-js";
+import { isAuthRetryableFetchError, type User } from "@supabase/supabase-js";
 import { supabase } from "@/integrations/supabase/client";
 
 /**
@@ -63,9 +63,21 @@ export async function getSessionUserId(): Promise<string | null> {
 /**
  * Resolves the auth state by validating the session with the server (getUser
  * hits the auth API — it does not trust local storage alone).
+ *
+ * "The server said no" and "the server couldn't be reached" are different
+ * answers. Both used to come back as `user: null`, so a student on school Wi-Fi
+ * that dropped for a second was thrown to the login screen mid-lesson, holding
+ * a perfectly good session. When the auth API is unreachable, the locally held
+ * session stands in: it only decides which screen to draw, and RLS re-checks
+ * the JWT on every request that follows regardless. A token the server has
+ * actually rejected still resolves to anonymous.
  */
 export async function getAuthSession(): Promise<AuthSession> {
-  const { data } = await supabase.auth.getUser();
-  const user = data.user ?? null;
+  const { data, error } = await supabase.auth.getUser();
+  let user = data.user ?? null;
+  if (!user && error && isAuthRetryableFetchError(error)) {
+    const { data: local } = await supabase.auth.getSession();
+    user = local.session?.user ?? null;
+  }
   return { mode: user ? "live" : "anonymous", user };
 }

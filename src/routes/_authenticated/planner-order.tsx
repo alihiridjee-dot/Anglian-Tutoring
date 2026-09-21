@@ -1,12 +1,11 @@
 import { createFileRoute, useNavigate } from "@tanstack/react-router";
-import { useEffect, useState } from "react";
 import { useQueryClient } from "@tanstack/react-query";
 import { AppLayout } from "@/components/AppLayout";
 import { EmptyState, ErrorNote, Spinner } from "@/components/Shared";
 import { TopicOrderEditor } from "@/components/planner/TopicOrderEditor";
 import { useEnrolments } from "@/hooks/data/useEnrolments";
 import { usePlannerRoadmap } from "@/hooks/data/usePlanner";
-import { getSessionUserId } from "@/lib/auth/session";
+import { useViewerId } from "@/hooks/useViewer";
 import { guardStudentSection } from "@/lib/routeGuards";
 import { invalidatePlanner } from "@/lib/planner/queries";
 import { isSubject, type SubjectV } from "@/lib/taxonomy";
@@ -23,10 +22,7 @@ export const Route = createFileRoute("/_authenticated/planner-order")({
 function TopicOrderPage() {
   const { subject: requested } = Route.useSearch();
   const { enrolments, level, loading } = useEnrolments();
-  const [studentId, setStudentId] = useState<string | null>(null);
-  useEffect(() => {
-    void getSessionUserId().then(setStudentId);
-  }, []);
+  const studentId = useViewerId();
   // A bare /planner-order opens the student's own first subject. It used to
   // assume Biology, which left a Physics-only student on "No course plan".
   const enrolment = requested
@@ -51,7 +47,7 @@ function TopicOrderPage() {
       {loading || !studentId || query.isLoading ? (
         <Spinner className="py-12" />
       ) : query.error ? (
-        <ErrorNote error={query.error} />
+        <ErrorNote error={query.error} onRetry={() => void query.refetch()} />
       ) : !enrolment || !level || !query.data ? (
         <EmptyState
           title="No course plan available"

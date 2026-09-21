@@ -1,4 +1,5 @@
 import { createFileRoute, useNavigate } from "@tanstack/react-router";
+import { useOnboardingUser } from "@/hooks/useOnboardingUser";
 import { useEffect, useState } from "react";
 import { useQueryClient } from "@tanstack/react-query";
 import { toast } from "sonner";
@@ -29,6 +30,7 @@ export const Route = createFileRoute("/onboarding/school")({
 
 function SchoolStep() {
   const navigate = useNavigate();
+  const user = useOnboardingUser();
   const queryClient = useQueryClient();
   const [school, setSchool] = useState("");
   const [level, setLevel] = useState<LevelV | null>(null);
@@ -38,14 +40,12 @@ function SchoolStep() {
 
   useEffect(() => {
     (async () => {
-      const { data: u } = await supabase.auth.getUser();
-      if (!u.user) return;
       const [{ data: profile }, { data: enrolments }] = await Promise.all([
-        supabase.from("profiles").select("school, level").eq("id", u.user.id).maybeSingle(),
+        supabase.from("profiles").select("school, level").eq("id", user.id).maybeSingle(),
         supabase
           .from("student_enrolments")
           .select("subject, previous_grade, current_grade, target_grade")
-          .eq("student_id", u.user.id)
+          .eq("student_id", user.id)
           .order("subject"),
       ]);
       if (profile?.school) setSchool(profile.school);
@@ -64,14 +64,12 @@ function SchoolStep() {
         ),
       );
     })();
-  }, []);
+  }, [user]);
 
   const finish = async (save: boolean) => {
     setSaving(true);
     try {
-      const { data: u } = await supabase.auth.getUser();
-      if (!u.user) throw new Error("You need to be signed in.");
-      const uid = u.user.id;
+      const uid = user.id;
 
       if (save) {
         const { error: profErr } = await supabase
