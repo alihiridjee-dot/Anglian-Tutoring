@@ -284,7 +284,7 @@ export function RoadmapPanel({
                     </span>
                     .{" "}
                     {asTutor
-                      ? "The student will be asked to confirm the new dates."
+                      ? "It applies the next time they open their planner."
                       : "Nothing changes until you accept it."}
                   </p>
 

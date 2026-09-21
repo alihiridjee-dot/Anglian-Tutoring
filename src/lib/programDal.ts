@@ -795,7 +795,7 @@ export class ProgramDAL {
     if ((await getSessionUserId()) !== studentId)
       throw new Error("Only the student can change their topic order.");
     if (data.needsAck)
-      throw new Error("Accept your pending exam-date change before changing topic order.");
+      throw new Error("Your plan is still updating. Open your planner, then try again.");
     const progress = await ScheduleDAL.getTopicProgress({ studentId, subject, board, level });
     const fingerprint = (items: TopicProgress[]) =>
       JSON.stringify(items.map((t) => [t.topicId, t.points.map((p) => [p.id, p.weight])]));
@@ -888,6 +888,32 @@ export class ProgramDAL {
   }
 
   /**
+   * Make the re-flowed plan the plan, with no accept step.
+   *
+   * A spine only re-flows when the exam date or the course itself changes, and
+   * neither is a choice the student can decline — so asking them to review and
+   * accept the result was a chore with one possible answer. Reads fresh rather
+   * than from the cache, because the caller has usually just changed the date.
+   */
+  static async applyPending(course: {
+    studentId: string;
+    subject: SubjectV;
+    board: BoardV;
+    level: LevelV;
+  }): Promise<RoadmapResult | null> {
+    const fresh = await this.loadRoadmap(course);
+    if (fresh?.needsAck)
+      await this.acknowledge({
+        studentId: course.studentId,
+        subject: course.subject,
+        bands: fresh.bands,
+        programStart: fresh.programStart,
+        examDate: fresh.examDate,
+      });
+    return fresh;
+  }
+
+  /**
    * Accept the current live pacing as the new acknowledged baseline. Only the
    * spine persists — the focus lane is recomputed from live mastery every load.
    */
@@ -933,7 +959,7 @@ export class ProgramDAL {
         JSON.stringify(fresh.bands.filter(isTeachBand)) !==
           JSON.stringify(params.bands.filter(isTeachBand))
       )
-        throw new Error("Your plan changed. Reload and review the proposal again.");
+        throw new Error("Your plan changed. Reload your planner and try again.");
       const { error } = await supabase.rpc("reorder_student_topics", {
         _subject: params.subject,
         _board: course.board,

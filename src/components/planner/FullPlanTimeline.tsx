@@ -24,7 +24,6 @@ import {
   weekRangeLabel,
 } from "@/lib/week";
 import { PointRow, BarePointRow } from "./PointRow";
-import { PacingChangeBadge } from "./PacingChangeBadge";
 
 const dateLabel = (key: string) =>
   plannerDateLabel(weekKeyToDate(key), { day: "numeric", month: "long", year: "numeric" });
@@ -223,16 +222,6 @@ export function FullPlanTimeline({
           const reviews = data.bands.filter(
             (band) => !isTeachBand(band) && band.startWeek <= week && band.endWeek >= week,
           );
-          const proposed = reviewing
-            ? data.bands.find(
-                (band) => isTeachBand(band) && band.startWeek <= week && band.endWeek >= week,
-              )
-            : undefined;
-          const change = proposed
-            ? data.changes.find(
-                (c) => c.topicId === proposed.topicId && proposed.startWeek === week,
-              )
-            : undefined;
           return (
             <article
               key={week}
@@ -404,21 +393,6 @@ export function FullPlanTimeline({
                     <NothingDue mascot="owl" mood="sleepy" title="No revision due" />
                   )}
                 </section>
-                {reviewing && (
-                  <section
-                    className="tint-amber lg:col-span-3 px-4 py-4 sm:px-5 space-y-2"
-                    aria-label={`Proposed learning for ${week}`}
-                  >
-                    <p className="eyebrow eyebrow-bare text-xs flex items-center gap-2">
-                      Proposed learning
-                      {proposed?.topicId !== core?.topicId && (
-                        <span className="chip chip-solid text-xs">Changes</span>
-                      )}
-                    </p>
-                    <p className="text-sm font-bold">{proposed?.title ?? "No new learning"}</p>
-                    {change && <PacingChangeBadge change={change} />}
-                  </section>
-                )}
               </div>
             </article>
           );

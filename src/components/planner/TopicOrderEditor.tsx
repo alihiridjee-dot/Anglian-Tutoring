@@ -167,8 +167,8 @@ export function TopicOrderEditor({
       </div>
       {snapshot.needsAck ? (
         <EmptyState
-          title="Your exam-date change is waiting"
-          body="Return to your planner and accept the proposed plan before changing topic order."
+          title="Your plan is still updating"
+          body="Open your planner, then come back to change your topic order."
         />
       ) : (
         <>
