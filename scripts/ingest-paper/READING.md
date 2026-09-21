@@ -5,8 +5,8 @@ scheme into rows. Written for a Claude Code session: no API key, no per-paper
 cost, the reading happens in the session.
 
 **Check the two documents are the same paper first.** Every board prints its
-specification code on the page — `1PH0/1F`, `J247/01`, `8463/1H` — and it must
-match on both. Filenames lie: a question paper read against another subject's
+specification code on the page — `1PH0/1F`, `J247/01`, `8463/1H`, `8464/B/1F`,
+`0625/42`, `9203/1` — and it must match on both. Filenames lie: a question paper read against another subject's
 mark scheme still produces rows, and nothing downstream will notice. That code
 is also where the board, subject, qualification, paper and tier come from, so
 name the output file after it.
@@ -22,6 +22,9 @@ an option that may be part of a figure — look at that page of the PDF itself.
 Write the result to `papers/<board>-<subject>-<level>-<year>-<sitting>-p<paper><tier>.json`
 in the shape at the bottom, then load it with `load-exemplars.ts`. The loader
 takes provenance from that filename, so it has to match the specification code.
+A Cambridge paper keeps its whole component, `p42` for `0625/42`: paper 4,
+variant 2, a different paper from `p41`. AQA Trilogy is filed by its subject at
+the `gcse_trilogy` level, so `8464/B/1F` is `aqa-biology-gcse_trilogy-…-p1F`.
 
 The sitting is `jan`, `mar` (February/March), `jun` (May/June) or `nov`
 (October/November), read off the paper: the date it was sat on the cover, the
