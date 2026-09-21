@@ -101,26 +101,26 @@ export const pageGuides: Record<string, GuideStep[]> = {
       "Your predicted grades and practice averages appear here when enough results are available. Use them to spot subjects that need more attention.",
     ),
     select(
-      '[data-guide="homework-list"] button',
+      '[data-guide="homework-list"] a',
       "Work through your assignments",
       "Open an assignment and answer its questions on the page. Return here for marks and feedback once your answers have been checked.",
     ),
   ],
   "Weekly MCQs": [
     select(
-      '[data-guide="mcq-weekly"] h3',
-      "Start with this week",
-      "These are your current weekly quizzes. Select a set to answer the questions and review the explanations.",
+      '[aria-label="Subject"]',
+      "Pick your subject",
+      "Switch subjects to see the quizzes for the course you want to work on.",
     ),
     select(
-      '[data-guide="mcq-topical"] h3',
-      "Practise a topic",
-      "These assessments are grouped by course. Pick a set for the topic you want to check.",
+      '[data-guide="mcq-this-week"] h2',
+      "Start with this week",
+      "These quizzes match the spec points in this week’s plan. Open one to answer the questions, then read the explanations.",
     ),
-    at(
-      "mcq-past",
-      "Revisit previous quizzes",
-      "Expand Completed / past MCQs to find older sets and practise again.",
+    select(
+      '[data-guide="mcq-past"] button',
+      "Revisit earlier quizzes",
+      "Quizzes from earlier weeks are filed under their topic. Open a topic to retake one.",
     ),
   ],
   "My Planner": [
@@ -285,7 +285,7 @@ export const pageIntroductions: Record<string, string> = {
   "Homework & Grades":
     "Complete your homework here and return for tutor feedback and grades. New assignments appear when your tutor sets them.",
   "Weekly MCQs":
-    "Choose a weekly quiz or a topic assessment to check your understanding. Quizzes appear here once they’ve been made available for your subjects.",
+    "Start with this week’s quizzes, then revisit earlier ones by topic. A quiz appears here once your plan reaches its spec point.",
   MCQ: "Choose an answer for each question, submit the set and review the explanations. Your answers stay untouched during this tour.",
   "My Planner":
     "See what to work on this week, explore the road ahead and review your practice history.",

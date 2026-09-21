@@ -3,6 +3,7 @@ import { Link, useRouter, type ErrorComponentProps } from "@tanstack/react-route
 import { AppLayout } from "@/components/AppLayout";
 import { Mascot } from "@/components/Doodles";
 import { Spinner } from "@/components/Shared";
+import { markHydrated } from "@/lib/hydration";
 
 /**
  * What a guarded route shows while it cannot show itself yet.
@@ -14,6 +15,9 @@ import { Spinner } from "@/components/Shared";
  * navigation whose guard takes longer than the router's pending delay.
  */
 export function RoutePending() {
+  // An effect runs only once this boundary has hydrated, which is the moment a
+  // guard may redirect away from it without a hydration mismatch.
+  useEffect(markHydrated, []);
   return (
     <div className="page-aurora flex min-h-screen items-center justify-center px-4">
       <Spinner />

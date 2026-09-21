@@ -5,20 +5,18 @@ import {
   loadGenerationContext,
 } from "./examGeneration.server";
 import { requireSupabaseAuth } from "@/integrations/supabase/auth-middleware";
-import { SUBJECTS } from "@/lib/taxonomy";
 import type { SupabaseClient } from "@supabase/supabase-js";
 import type { Database } from "@/integrations/supabase/types";
 
 // MCQs are library content, the way homework is: each spec point has one shared
 // set, written once — grounded in real past-paper questions — and reused by every
-// student and every quiz after that. Nothing here pays for a point that already
-// has its set.
+// student after that. Nothing here pays for a point that already has its set.
 //
-//   - ensureMcqForPoints     — the planner fills in a week's missing sets.
-//   - generateMcqSet         — a tutor's "generate" button on one spec point.
-//   - generateCurriculumQuiz — a tutor-assigned quiz with a due date, built by
-//                              copying the shared questions for its points.
-//   - generateWeeklyQuiz     — the same, for the points a live session covers.
+//   - ensureMcqForPoints — the planner fills in a week's missing sets.
+//   - generateMcqSet     — a tutor's "generate" button on one spec point.
+//
+// Tutors do not assign quizzes. A student's quizzes are the shared sets for the
+// points in their own weekly plan, and nothing else.
 
 /** Questions in each spec point's shared set. */
 const QUESTIONS_PER_POINT = 8;
@@ -32,12 +30,16 @@ const GENERATIONS_PER_HOUR = 12;
 
 type SupabaseServer = SupabaseClient<Database>;
 
+/**
+ * Tutor only, matching every write policy on library content. Admin used to be
+ * let through here too, and this path writes with the server's own credential —
+ * so it was the one place an admin without the tutor role could write the
+ * shared quiz every student reads, past the RLS that refuses them elsewhere.
+ */
 async function requireTutor(supabase: SupabaseServer, userId: string) {
   const { data: role } = await supabase.from("user_roles").select("role").eq("user_id", userId);
   const roles = ((role ?? []) as Array<{ role: string }>).map((r) => r.role);
-  if (!roles.includes("tutor") && !roles.includes("admin")) {
-    throw new Error("Tutor access required");
-  }
+  if (!roles.includes("tutor")) throw new Error("Tutor access required");
 }
 
 /**
@@ -135,35 +137,6 @@ async function ensureSharedSets(
   return { sets, created, throttled };
 }
 
-/** Copy the shared questions for `pointIds`, in order, into a tutor quiz. */
-async function fillFromShared(
-  supabase: SupabaseServer,
-  setId: string,
-  pointIds: string[],
-): Promise<number> {
-  const { data: copied, error } = await supabase.rpc("fill_mcq_set_from_shared", {
-    _set_id: setId,
-    _spec_point_ids: pointIds,
-  });
-  if (error) throw error;
-  if (!copied) throw new Error("None of the chosen points has any questions yet");
-  return copied;
-}
-
-// ISO-8601 week number, used to label the weekly quiz.
-function isoWeek(dateStr: string | null): number | null {
-  if (!dateStr) return null;
-  const d = new Date(dateStr);
-  if (Number.isNaN(d.getTime())) return null;
-  const target = new Date(Date.UTC(d.getFullYear(), d.getMonth(), d.getDate()));
-  const dayNr = (target.getUTCDay() + 6) % 7; // Mon=0..Sun=6
-  target.setUTCDate(target.getUTCDate() - dayNr + 3); // nearest Thursday
-  const firstThursday = new Date(Date.UTC(target.getUTCFullYear(), 0, 4));
-  const firstDayNr = (firstThursday.getUTCDay() + 6) % 7;
-  firstThursday.setUTCDate(firstThursday.getUTCDate() - firstDayNr + 3);
-  return 1 + Math.round((target.getTime() - firstThursday.getTime()) / (7 * 24 * 3600 * 1000));
-}
-
 type EnsureInput = { specPointIds: string[] };
 
 export interface EnsureMcqResult {
@@ -226,160 +199,4 @@ export const generateMcqSet = createServerFn({ method: "POST" })
       soft: false,
     });
     return { setId: result.sets.get(data.specPointId)!, created: result.created > 0 };
-  });
-
-type CurriculumQuizInput = {
-  subject: string;
-  specPointIds: string[];
-  title: string;
-  dueAt: string;
-};
-
-// Tutor-assigned weekly quiz built from hand-picked curriculum points, with a due
-// date — independent of any live session. It holds copies of each point's shared
-// questions, tagged with their point so the set surfaces under every point a
-// student browses. The non-null due_at is what marks it as an assigned weekly set
-// on the student page.
-export const generateCurriculumQuiz = createServerFn({ method: "POST" })
-  .middleware([requireSupabaseAuth])
-  .inputValidator((input: CurriculumQuizInput) => {
-    const ids = Array.isArray(input?.specPointIds)
-      ? [...new Set(input.specPointIds.map(String).filter(Boolean))]
-      : [];
-    if (ids.length === 0) throw new Error("Select at least one spec point");
-    if (!input?.dueAt) throw new Error("Due date required");
-    const subject = SUBJECTS.find((s) => s.value === input?.subject)?.value;
-    if (!subject) throw new Error("subject required");
-    return {
-      subject,
-      specPointIds: ids,
-      title: String(input.title || "Weekly MCQs"),
-      dueAt: String(input.dueAt),
-    };
-  })
-  .handler(async ({ data, context }) => {
-    const { supabase, userId } = context;
-    await requireTutor(supabase, userId);
-
-    // Every point's set exists before the quiz row does, so a mid-way AI failure
-    // can't leave a half-built published quiz.
-    const { sets } = await ensureSharedSets(supabase, userId, data.specPointIds, {
-      throttle: false,
-      soft: false,
-    });
-    const points = data.specPointIds.filter((id) => sets.has(id));
-
-    const { data: setRow, error: setErr } = await supabase
-      .from("mcq_sets")
-      .insert({
-        resource_id: null,
-        spec_point_id: null,
-        title: data.title,
-        description: `Weekly MCQs across ${points.length} spec point${
-          points.length === 1 ? "" : "s"
-        }`,
-        published: true,
-        subject: data.subject,
-        week_number: isoWeek(data.dueAt),
-        due_at: data.dueAt,
-        created_by: userId,
-      })
-      .select("id")
-      .single();
-    if (setErr) throw setErr;
-
-    try {
-      const count = await fillFromShared(supabase, setRow.id, points);
-      return { setId: setRow.id, count, points: points.length };
-    } catch (err) {
-      await supabase.from("mcq_sets").delete().eq("id", setRow.id);
-      throw err;
-    }
-  });
-
-type WeeklyInput = { resourceId: string };
-
-export const generateWeeklyQuiz = createServerFn({ method: "POST" })
-  .middleware([requireSupabaseAuth])
-  .inputValidator((input: WeeklyInput) => {
-    if (!input?.resourceId) throw new Error("resourceId required");
-    return { resourceId: String(input.resourceId) };
-  })
-  .handler(async ({ data, context }) => {
-    const { supabase, userId } = context;
-    await requireTutor(supabase, userId);
-
-    const { data: resource, error: resErr } = await supabase
-      .from("resources")
-      .select("id, title, subject, starts_at, kind")
-      .eq("id", data.resourceId)
-      .single();
-    if (resErr || !resource) throw new Error("Session not found");
-    if (resource.kind !== "live_session")
-      throw new Error("Weekly quizzes are generated from live sessions");
-
-    const { data: links, error: linkErr } = await supabase
-      .from("resource_spec_points")
-      .select("spec_point_id")
-      .eq("resource_id", data.resourceId);
-    if (linkErr) throw linkErr;
-
-    const pointIds = [...new Set((links ?? []).map((l) => l.spec_point_id).filter(Boolean))];
-    if (pointIds.length === 0) throw new Error("Tag at least one spec point on this session first");
-
-    const { sets } = await ensureSharedSets(supabase, userId, pointIds, {
-      throttle: false,
-      soft: false,
-    });
-    const points = pointIds.filter((id) => sets.has(id));
-
-    const title = `Weekly quiz — ${resource.title}`;
-    const description = `Auto-generated from live session: ${resource.title}`;
-    const week_number = isoWeek(resource.starts_at);
-
-    // Idempotent per session: refresh the existing weekly set in place (keeps
-    // any student attempts pointing at a live set) rather than duplicating.
-    // Refreshing copies the shared questions again, so it costs nothing.
-    const { data: existing } = await supabase
-      .from("mcq_sets")
-      .select("id")
-      .eq("resource_id", data.resourceId)
-      .maybeSingle();
-
-    let setId: string;
-    if (existing) {
-      setId = existing.id;
-      const { error: updErr } = await supabase
-        .from("mcq_sets")
-        .update({
-          title,
-          description,
-          published: true,
-          subject: resource.subject,
-          week_number,
-          spec_point_id: null,
-        })
-        .eq("id", setId);
-      if (updErr) throw updErr;
-    } else {
-      const { data: setRow, error: setErr } = await supabase
-        .from("mcq_sets")
-        .insert({
-          resource_id: data.resourceId,
-          spec_point_id: null,
-          title,
-          description,
-          published: true,
-          subject: resource.subject,
-          week_number,
-          created_by: userId,
-        })
-        .select("id")
-        .single();
-      if (setErr) throw setErr;
-      setId = setRow.id;
-    }
-
-    const count = await fillFromShared(supabase, setId, points);
-    return { setId, count, points: points.length };
   });

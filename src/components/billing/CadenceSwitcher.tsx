@@ -1,4 +1,5 @@
 import { useState } from "react";
+import { usePageRestore } from "@/hooks/usePageRestore";
 import { Check, Loader2 } from "lucide-react";
 import { toast } from "sonner";
 import { usePackages, useChangeCadence } from "@/hooks/data/useBilling";
@@ -52,6 +53,8 @@ export function CadenceSwitcher({
   const change = useChangeCadence();
   const [pending, setPending] = useState<Cadence | null>(null);
   const [buying, setBuying] = useState<Cadence | null>(null);
+  // Back from Stripe restores this page as it was left — spinner and all.
+  usePageRestore(() => setBuying(null));
 
   const current = planCadence(currentTier);
   const count = Math.max(subjectCount, 1);

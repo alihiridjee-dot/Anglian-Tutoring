@@ -14,18 +14,21 @@
  * whole edit; nothing has to be undone by hand.
  *
  * Tag files are plain text, one line per rule, named after the paper exactly as
- * the exemplars were loaded (aqa-biology-gcse-2018-p1F.txt):
+ * the exemplars were loaded (aqa-biology-gcse-2018-jun-p1F.txt):
  *
  *     01.1,01.2 1.6,6.4      # these labels credit these points
  *     # comments and blank lines are ignored
  *
- * Codes are written without their board prefix — `1.6` for `AQA 1.6` — because
- * the prefix is already in the filename and repeating it 1,600 times invites a
- * typo. A label or a code that doesn't exist is reported, not guessed at.
+ * Codes are written without their board prefix — `1.6` for `AQA 1.6`, `1.1.5S`
+ * for `CAIE 1.1.5S` — because the prefix is already in the filename and
+ * repeating it 1,600 times invites a typo. A label or a code that doesn't exist
+ * is reported, not guessed at.
  *
  * Needs SUPABASE_URL and SUPABASE_SERVICE_ROLE_KEY: the tables are behind
  * tutor-only RLS and this runs outside a session.
  */
+import { indexSpecPoints, parsePaperStem } from "./specCodes";
+
 const url = process.env.SUPABASE_URL;
 const key = process.env.SUPABASE_SERVICE_ROLE_KEY;
 if (!url || !key) throw new Error("SUPABASE_URL and SUPABASE_SERVICE_ROLE_KEY must be set");
@@ -34,9 +37,6 @@ const args = process.argv.slice(2);
 const files = args.filter((a) => !a.startsWith("--"));
 const write = args.includes("--write");
 if (files.length === 0) throw new Error("Give at least one tag file");
-
-/** Board prefix as the curriculum writes it, keyed by the board in the filename. */
-const CODE_PREFIX: Record<string, string> = { aqa: "AQA", edexcel: "EDEX", ocr: "OCR" };
 
 const headers = {
   apikey: key,
@@ -58,16 +58,12 @@ function provenance(path: string) {
     .split("/")
     .pop()!
     .replace(/\.txt$/, "");
-  const m = stem.match(/^([a-z]+)-([a-z-]+)-(gcse|igcse|alevel)-(\d{4}|unknown)-p(\d)([A-Z]?)$/);
-  if (!m) throw new Error(`${path}: filename must look like aqa-biology-gcse-2018-p1F.txt`);
-  return {
-    board: m[1],
-    subject: m[2],
-    level: m[3],
-    year: m[4] === "unknown" ? null : m[4],
-    paper: m[5],
-    tier: m[6] || null,
-  };
+  const paper = parsePaperStem(stem);
+  if (!paper) throw new Error(`${path}: filename must look like aqa-biology-gcse-2018-jun-p1F.txt`);
+  // Every loaded paper has a sitting, so a file without one can't name any of them.
+  if (!paper.series)
+    throw new Error(`${path}: the sitting is unknown — name it (jan, mar, jun, nov)`);
+  return paper;
 }
 
 const eq = (column: string, value: string | null) =>
@@ -78,17 +74,12 @@ let totalUntagged = 0;
 
 for (const file of files) {
   const p = provenance(file);
-  const prefix = CODE_PREFIX[p.board];
-  if (!prefix) {
-    console.error(`${file}: no code prefix known for board "${p.board}"`);
-    process.exitCode = 1;
-    continue;
-  }
 
   // What this paper's rows are, and what the specification calls its points.
   const exemplars: { id: string; question_label: string }[] = await api(
     `exam_exemplars?select=id,question_label&${eq("board", p.board)}&${eq("subject", p.subject)}` +
-      `&${eq("level", p.level)}&${eq("year", p.year)}&${eq("paper", p.paper)}&${eq("tier", p.tier)}`,
+      `&${eq("level", p.level)}&${eq("year", p.year)}&${eq("series", p.series)}` +
+      `&${eq("paper", p.paper)}&${eq("tier", p.tier)}`,
   );
   const byLabel = new Map(exemplars.map((e) => [e.question_label, e.id]));
 
@@ -96,7 +87,7 @@ for (const file of files) {
     `spec_points?select=id,code,topics!inner(board,level,subject)&topics.board=eq.${p.board}` +
       `&topics.level=eq.${p.level}&topics.subject=eq.${p.subject}`,
   );
-  const byCode = new Map(points.map((s) => [s.code, s.id]));
+  const byCode = indexSpecPoints(points);
 
   const pairs = new Map<string, Set<string>>();
   const unknownLabels: string[] = [];
@@ -114,7 +105,7 @@ for (const file of files) {
         continue;
       }
       for (const code of codePart.split(",").filter(Boolean)) {
-        const pointId = byCode.get(`${prefix} ${code}`);
+        const pointId = byCode.get(code);
         if (!pointId) {
           unknownCodes.push(code);
           continue;

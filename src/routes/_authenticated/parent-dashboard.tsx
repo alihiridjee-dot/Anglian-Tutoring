@@ -1,5 +1,5 @@
 import { Mascot } from "@/components/Doodles";
-import { createFileRoute, Link, redirect } from "@tanstack/react-router";
+import { createFileRoute, Link } from "@tanstack/react-router";
 import { AppLayout } from "@/components/AppLayout";
 import { useRoles } from "@/hooks/useRole";
 import { useEnrolments } from "@/hooks/data/useEnrolments";
@@ -12,7 +12,7 @@ import {
   useChildFeedback,
   type WeeklyTrendPoint,
 } from "@/hooks/data/useChildProgress";
-import { AuthService } from "@/lib/authService";
+import { guardParentOnly } from "@/lib/routeGuards";
 import { GradePredictorCard } from "@/components/parent/GradePredictorCard";
 import { EngagementStats } from "@/components/parent/EngagementStats";
 import { FeedbackList } from "@/components/parent/FeedbackList";
@@ -24,7 +24,6 @@ import {
   DEMO_SUBMISSIONS,
 } from "@/lib/demo/studentDemo";
 import { resolveDisplayName } from "@/lib/displayName";
-import { UserRole } from "@/types/user";
 import { Suspense, lazy, useState } from "react";
 import { Users } from "lucide-react";
 
@@ -43,14 +42,7 @@ const TrendsChart = lazy(() =>
 );
 
 export const Route = createFileRoute("/_authenticated/parent-dashboard")({
-  beforeLoad: async () => {
-    // PARENT-only surface. Tutors/students are routed away so the Parent
-    // Portal can never render inside a tutor or student session.
-    const hasAccess = await AuthService.verifyRoleAccess([UserRole.PARENT]);
-    if (!hasAccess) {
-      throw redirect({ to: "/dashboard" });
-    }
-  },
+  beforeLoad: guardParentOnly,
   head: () => ({ meta: [{ title: "Parent Portal | Anglia Educate" }] }),
   component: ParentDashboard,
 });

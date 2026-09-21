@@ -15,18 +15,23 @@
  * Re-running the same paper updates its rows rather than duplicating them.
  *
  * Provenance comes from the filename the renamer produced
- * (edexcel-physics-gcse-2018-p1F-QP.pdf), so run these against renamed papers
- * or pass --board/--subject/--level explicitly.
+ * (edexcel-physics-gcse-2018-jun-p1F-QP.pdf), so run these against renamed
+ * papers or pass --board/--subject/--level/--series explicitly. The sitting is
+ * required: the same paper number is set more than once a year by the
+ * international boards, and without it a second sitting would overwrite the
+ * first.
  *
  * Needs SUPABASE_URL and SUPABASE_SERVICE_ROLE_KEY: the table is behind
  * tutor-only RLS and this runs outside a session.
  */
+import { indexSpecPoints, parsePaperStem, SERIES, type Series } from "./specCodes";
+
 const url = process.env.SUPABASE_URL;
 const key = process.env.SUPABASE_SERVICE_ROLE_KEY;
 if (!url || !key) throw new Error("SUPABASE_URL and SUPABASE_SERVICE_ROLE_KEY must be set");
 
 const args = process.argv.slice(2);
-const valueFlags = new Set(["--board", "--subject", "--level", "--year"]);
+const valueFlags = new Set(["--board", "--subject", "--level", "--year", "--series"]);
 const files = args.filter((a, i) => !a.startsWith("--") && !valueFlags.has(args[i - 1]));
 const write = args.includes("--write");
 if (files.length === 0) throw new Error("Give at least one --json file from split_paper.py");
@@ -62,28 +67,32 @@ type Parsed = {
   scheme?: { q: string; scheme: string; flags?: string[] }[];
 };
 
-/** Provenance from the renamer's filename: board-subject-level-year-pNT-QP.json */
+/** Provenance from the renamer's filename: board-subject-level-year-series-pNT-QP.json */
 function provenance(path: string) {
   const stem = path
     .split("/")
     .pop()!
     .replace(/\.json$/, "")
     .replace(/-(QP|MS)$/, "");
-  const m = stem.match(/^([a-z]+)-([a-z-]+)-(gcse|igcse|alevel)-(\d{4}|unknown)-p(\d)([A-Z]?)$/);
+  const m = parsePaperStem(stem);
+  const series = flag("series");
+  if (series !== undefined && !(SERIES as readonly string[]).includes(series))
+    throw new Error(`--series must be one of ${SERIES.join(", ")}`);
   return {
-    board: flag("board") ?? m?.[1],
-    subject: flag("subject") ?? m?.[2],
-    level: flag("level") ?? m?.[3],
-    year: flag("year") ?? (m?.[4] === "unknown" ? null : (m?.[4] ?? null)),
-    paper: m?.[5] ?? null,
-    tier: m?.[6] || null,
+    board: flag("board") ?? m?.board,
+    subject: flag("subject") ?? m?.subject,
+    level: flag("level") ?? m?.level,
+    year: flag("year") ?? m?.year ?? null,
+    series: (series as Series | undefined) ?? m?.series ?? null,
+    paper: m?.paper ?? null,
+    tier: m?.tier ?? null,
   };
 }
 
 async function upsert(rows: unknown[]) {
   const res = await fetch(
     `${url}/rest/v1/exam_exemplars` +
-      `?on_conflict=board,subject,level,year,paper,tier,question_label`,
+      `?on_conflict=board,subject,level,year,series,paper,tier,question_label`,
     {
       method: "POST",
       headers: {
@@ -101,9 +110,6 @@ async function upsert(rows: unknown[]) {
   return (await res.json()) as { id: string; question_label: string }[];
 }
 
-/** Board prefix as the curriculum writes its codes, keyed by the board. */
-const CODE_PREFIX: Record<string, string> = { aqa: "AQA", edexcel: "EDEX", ocr: "OCR" };
-
 /**
  * Link the rows that name spec points to those points.
  *
@@ -119,12 +125,6 @@ async function writeTags(
 ): Promise<number> {
   const wanted = rows.filter((r) => r.spec_points?.length);
   if (wanted.length === 0) return 0;
-  const prefix = CODE_PREFIX[p.board ?? ""];
-  if (!prefix) {
-    console.error(`  no spec point code prefix known for board "${p.board}" — tags skipped`);
-    process.exitCode = 1;
-    return 0;
-  }
 
   const res = await fetch(
     `${url}/rest/v1/spec_points?select=id,code,topics!inner(board,level,subject)` +
@@ -137,9 +137,7 @@ async function writeTags(
     },
   );
   if (!res.ok) throw new Error(`spec point lookup failed: ${res.status} ${await res.text()}`);
-  const byCode = new Map(
-    ((await res.json()) as { id: string; code: string }[]).map((s) => [s.code, s.id]),
-  );
+  const byCode = indexSpecPoints((await res.json()) as { id: string; code: string }[]);
   const byLabel = new Map(inserted.map((e) => [e.question_label, e.id]));
 
   const unknown: string[] = [];
@@ -148,7 +146,7 @@ async function writeTags(
     const exemplarId = byLabel.get(row.label);
     if (!exemplarId) continue;
     for (const code of row.spec_points!) {
-      const pointId = byCode.get(`${prefix} ${code}`);
+      const pointId = byCode.get(code);
       if (!pointId) {
         unknown.push(code);
         continue;
@@ -192,7 +190,15 @@ for (const file of files) {
   if (!p.board || !p.subject || !p.level) {
     console.error(
       `${file}: cannot tell what paper this is from the filename. ` +
-        `Rename it, or pass --board --subject --level.`,
+        `Rename it, or pass --board --subject --level --series.`,
+    );
+    process.exitCode = 1;
+    continue;
+  }
+  if (!p.series) {
+    console.error(
+      `${file}: which sitting this paper is from is unknown. Check the date on the paper, ` +
+        `then rename it or pass --series (${SERIES.join(", ")}).`,
     );
     process.exitCode = 1;
     continue;
@@ -231,6 +237,7 @@ for (const file of files) {
         subject: p.subject,
         level: p.level,
         year: p.year,
+        series: p.series,
         paper: p.paper,
         tier: p.tier,
         question_label: r.label,
@@ -260,7 +267,7 @@ for (const file of files) {
   const awaiting = payload.filter((r) => r.mark_scheme === null).length;
   const ready = payload.length - images - flagged;
   console.log(
-    `${file}\n  ${p.board}/${p.subject}/${p.level} ${p.year ?? "?"} ` +
+    `${file}\n  ${p.board}/${p.subject}/${p.level} ${p.series} ${p.year ?? "?"} ` +
       `p${p.paper ?? "?"}${p.tier ?? ""} — ${payload.length} rows\n` +
       `    ${ready} usable, ${images} need an image, ${flagged} flagged\n` +
       `    ${awaiting} awaiting their share of a multi-part mark scheme`,

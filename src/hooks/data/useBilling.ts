@@ -1,4 +1,6 @@
+import { useEffect, useRef, useState } from "react";
 import { useMutation, useQuery, useQueryClient } from "@tanstack/react-query";
+import { toast } from "sonner";
 import { supabase } from "@/integrations/supabase/client";
 import { invalidateGuardState } from "@/lib/auth/guardState";
 import { isDemoMode, getSessionUserId } from "@/lib/auth/session";
@@ -258,4 +260,106 @@ export function useRemoveSubjects() {
       qc.invalidateQueries({ queryKey: ["child-progress"] });
     },
   });
+}
+
+/** What Stripe Checkout appended to the URL it sent the browser back to. */
+export type CheckoutStatus = "success" | "cancelled";
+
+/** `validateSearch` for any page Checkout can return to. */
+export function parseCheckoutStatus(value: unknown): CheckoutStatus | undefined {
+  return value === "success" || value === "cancelled" ? value : undefined;
+}
+
+/** How often the plan is re-read while a payment is being confirmed. */
+const CONFIRM_POLL_MS = 1500;
+/** How long to keep looking before admitting the confirmation is late. */
+const CONFIRM_WINDOW_MS = 30_000;
+
+/**
+ * The few seconds between paying and the app knowing about it.
+ *
+ * Coming back from Stripe means the payment succeeded, not that we know about
+ * it yet — the webhook is a separate round trip, and it is the only writer of
+ * `subscriptions`. The Billing page ignored that gap entirely: a student who had
+ * just paid landed on "You don't have an active plan yet. Pick one below", with
+ * the shop open beneath it, and until the webhook landed nothing on the server
+ * would have stopped them buying a second plan.
+ *
+ * While `confirming` is true the caller must not offer Checkout. The plan is
+ * re-read on a short timer until `confirmed` flips; past the window the state
+ * becomes `delayed`, which the caller shows with `retry` — never the shop.
+ *
+ * @param confirmed Whether the plan being waited for is now visible. Pass
+ *   `null` when that can't be told from here (a parent with several children):
+ *   the window then simply runs out quietly instead of reporting a delay.
+ * @param onDone Clear `?checkout=` from the URL. A reload must not replay this.
+ */
+export function useCheckoutReturn({
+  status,
+  confirmed,
+  onDone,
+}: {
+  status: CheckoutStatus | undefined;
+  confirmed: boolean | null;
+  onDone: () => void;
+}) {
+  const qc = useQueryClient();
+  const [phase, setPhase] = useState<"idle" | "confirming" | "delayed">(
+    status === "success" ? "confirming" : "idle",
+  );
+  const [round, setRound] = useState(0);
+
+  // Read through refs so the timer below isn't torn down and restarted by
+  // every render — it would never reach the end of its window.
+  const confirmedRef = useRef(confirmed);
+  confirmedRef.current = confirmed;
+  const onDoneRef = useRef(onDone);
+  onDoneRef.current = onDone;
+
+  useEffect(() => {
+    if (status !== "cancelled") return;
+    // The id makes it one toast, not one per effect run.
+    toast.info("Checkout cancelled — nothing was charged.", { id: "checkout-cancelled" });
+    onDoneRef.current();
+  }, [status]);
+
+  useEffect(() => {
+    if (status !== "success" || phase !== "confirming") return;
+    const startedAt = Date.now();
+    const timer = setInterval(() => {
+      if (Date.now() - startedAt < CONFIRM_WINDOW_MS) {
+        void qc.invalidateQueries({ queryKey: BILLING_KEY });
+        return;
+      }
+      clearInterval(timer);
+      if (confirmedRef.current === null) {
+        setPhase("idle");
+        onDoneRef.current();
+      } else {
+        setPhase("delayed");
+      }
+    }, CONFIRM_POLL_MS);
+    return () => clearInterval(timer);
+  }, [status, phase, round, qc]);
+
+  useEffect(() => {
+    if (status !== "success" || !confirmed) return;
+    // The route guard caches "no access" for a minute; without this the student
+    // leaves Billing still wearing the paywall they just paid to remove.
+    invalidateGuardState(qc);
+    toast.success("Payment confirmed — your plan is active.", { id: "checkout-confirmed" });
+    setPhase("idle");
+    onDoneRef.current();
+  }, [status, confirmed, qc]);
+
+  return {
+    /** Paid, not yet visible. Show a waiting state; do not offer Checkout. */
+    confirming: status === "success" && phase === "confirming",
+    /** Still not visible after the window. Offer `retry`, not the shop. */
+    delayed: status === "success" && phase === "delayed",
+    retry: () => {
+      setPhase("confirming");
+      setRound((n) => n + 1);
+    },
+  };
 }

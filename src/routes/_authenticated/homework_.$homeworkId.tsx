@@ -45,7 +45,7 @@ export function HomeworkSheetPage() {
   const demo = isDemoStudent();
   const reload = useInvalidateHomework();
 
-  const { data, isPending, error } = useHomeworkSheet({
+  const { data, isPending, error, refetch } = useHomeworkSheet({
     homeworkId,
     // A tutor is previewing, not answering, so they carry no submission into
     // the query and get the blank paper.
@@ -65,7 +65,7 @@ export function HomeworkSheetPage() {
       <AppLayout title="Homework">
         <BackLink />
         <div className="mt-6">
-          <ErrorNote error={error} />
+          <ErrorNote error={error} onRetry={() => void refetch()} />
         </div>
       </AppLayout>
     );

@@ -1,12 +1,12 @@
 import { Mascot } from "@/components/Doodles";
-import { Spinner } from "@/components/Shared";
+import { ErrorNote, Spinner } from "@/components/Shared";
 import { createFileRoute } from "@tanstack/react-router";
-import { useEffect, useMemo, useState } from "react";
+import { useEffect, useMemo, useRef, useState } from "react";
 import { MessageSquarePlus } from "lucide-react";
 import { AppLayout } from "@/components/AppLayout";
 import { guardStudentSection } from "@/lib/routeGuards";
 import { useRoles } from "@/hooks/useRole";
-import { useChatThreads } from "@/hooks/data/useChat";
+import { useChatThreads, type ThreadSummary } from "@/hooks/data/useChat";
 import { ThreadList } from "@/components/chat/ThreadList";
 import { ThreadView } from "@/components/chat/ThreadView";
 import { NewThreadDialog } from "@/components/chat/NewThreadDialog";
@@ -30,18 +30,32 @@ export const Route = createFileRoute("/_authenticated/messages")({
   component: MessagesPage,
 });
 
+/** One identity for "no threads", so the selection effect isn't re-run by every render. */
+const EMPTY_THREADS: ThreadSummary[] = [];
+
 function MessagesPage() {
   const { isTutor, userId, loading: rolesLoading } = useRoles();
-  const { data: threads = [], isPending } = useChatThreads();
+  const { data: threads = EMPTY_THREADS, isPending, error, refetch } = useChatThreads();
   const [selectedId, setSelectedId] = useState<string | null>(null);
   const [composing, setComposing] = useState(false);
 
   // Open the most recent conversation on arrival, and again when the open one is
   // deleted — an empty right-hand pane next to a full list is a dead end.
+  //
+  // "Not in the list" has two meanings, and only one of them is "deleted". A
+  // thread that was just created isn't in the list either until the refetch
+  // lands, and treating that as a deletion bounced the student out of the
+  // question they had just asked and into their previous conversation — where a
+  // follow-up would have gone to the wrong thread. So only a selection that
+  // *has been seen* in the list, and has now gone, is replaced.
+  const seenIds = useRef(new Set<string>());
   useEffect(() => {
-    if (threads.length > 0 && !threads.some((t) => t.id === selectedId)) {
-      setSelectedId(threads[0].id);
+    if (selectedId && threads.some((t) => t.id === selectedId)) {
+      seenIds.current.add(selectedId);
+      return;
     }
+    if (selectedId && !seenIds.current.has(selectedId)) return;
+    if (threads.length > 0) setSelectedId(threads[0].id);
   }, [threads, selectedId]);
 
   const selected = useMemo(
@@ -91,7 +105,11 @@ function MessagesPage() {
           )}
         </div>
 
-        {threads.length === 0 ? (
+        {error && threads.length === 0 ? (
+          // Nothing to fall back on, so say so — not "No conversations yet",
+          // which is a claim about the inbox that a failed request can't make.
+          <ErrorNote error={error} onRetry={() => void refetch()} />
+        ) : threads.length === 0 ? (
           <div className="pop-card p-10 text-center">
             <Mascot name="owl" mood="happy" size={104} className="mx-auto mb-4" />
             <h2 className="font-display text-xl font-extrabold">

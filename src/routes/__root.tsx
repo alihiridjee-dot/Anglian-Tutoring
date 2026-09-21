@@ -13,6 +13,7 @@ import { useEffect, type ReactNode, createElement } from "react";
 import appCss from "../styles.css?url";
 import { supabase } from "@/integrations/supabase/client";
 import { Mascot } from "@/components/Doodles";
+import { markHydrated } from "@/lib/hydration";
 
 function NotFoundComponent() {
   return (
@@ -115,9 +116,35 @@ function RootComponent() {
   const { queryClient } = Route.useRouteContext();
   const router = useRouter();
 
+  // Booted on a server-rendered page: there is no loading screen still waiting
+  // to hydrate, so guards on later navigations needn't wait for one. On a deep
+  // link to a client-only route that signal belongs to `RoutePending` instead.
   useEffect(() => {
-    const { data: sub } = supabase.auth.onAuthStateChange((event) => {
+    if (!router.state.matches.some((match) => match.ssr === false)) markHydrated();
+  }, [router]);
+
+  useEffect(() => {
+    // Whose session the app last acted on. `undefined` until the first event.
+    let knownUserId: string | null | undefined;
+
+    const { data: sub } = supabase.auth.onAuthStateChange((event, session) => {
+      const userId = session?.user.id ?? null;
+
+      if (event === "INITIAL_SESSION") {
+        knownUserId = userId;
+        return;
+      }
       if (event !== "SIGNED_IN" && event !== "SIGNED_OUT" && event !== "USER_UPDATED") return;
+
+      // supabase-js re-announces SIGNED_IN every time the tab regains focus (it
+      // recovers the session on `visibilitychange`). Treating each of those as a
+      // fresh sign-in re-validated the session, re-ran every route guard and
+      // refetched every query on screen — on every alt-tab back from a web
+      // search mid-homework. Only a change of *who* is signed in, or of their
+      // account, is news.
+      if (event === "SIGNED_IN" && userId === knownUserId) return;
+      knownUserId = userId;
+
       router.invalidate();
       if (event !== "SIGNED_OUT") queryClient.invalidateQueries();
     });

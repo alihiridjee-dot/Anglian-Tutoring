@@ -19,7 +19,7 @@ no per-paper cost.
 2. **Get the text.** `python3 scripts/ingest-paper/split_paper.py QP.pdf MS.pdf --text`
    strips the DRAFT watermark and the layout padding. When a question is
    ambiguous in the text, look at that page of the PDF directly.
-3. **Write the rows** to `papers/<board>-<subject>-<level>-<year>-p<paper><tier>.json`,
+3. **Write the rows** to `papers/<board>-<subject>-<level>-<year>-<sitting>-p<paper><tier>.json`,
    following [READING.md](../scripts/ingest-paper/READING.md). The filename is
    where the loader reads provenance from, so it has to match what step 1 found.
 4. **Load them.** Preview, then write. Upserts, so re-reading a paper corrects

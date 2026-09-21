@@ -1,12 +1,18 @@
-import { createFileRoute, Link } from "@tanstack/react-router";
-import { useEffect, useState } from "react";
+import { createFileRoute, Link, useNavigate } from "@tanstack/react-router";
 import { CreditCard, Info } from "lucide-react";
-import { Spinner } from "@/components/Shared";
+import { ErrorNote, Spinner } from "@/components/Shared";
 import { AppLayout } from "@/components/AppLayout";
-import { supabase } from "@/integrations/supabase/client";
 import { useEnrolments } from "@/hooks/data/useEnrolments";
 import { useParentLinks } from "@/hooks/data/useParentLinks";
-import { usePackages, useSubscriptions } from "@/hooks/data/useBilling";
+import { useViewer } from "@/hooks/useViewer";
+import { PaymentPending } from "@/components/billing/PaymentPending";
+import {
+  parseCheckoutStatus,
+  useCheckoutReturn,
+  usePackages,
+  useSubscriptions,
+  type CheckoutStatus,
+} from "@/hooks/data/useBilling";
 import { isSubscriptionLive, planLabel, formatPence, billingIntervalLabel } from "@/lib/billing";
 import { CadenceSwitcher } from "@/components/billing/CadenceSwitcher";
 import { SubscriptionPanel } from "@/components/billing/SubscriptionPanel";
@@ -18,6 +24,10 @@ import { resolveDisplayName } from "@/lib/displayName";
 import { subjectLabel, summariseCourse } from "@/lib/courseSummary";
 
 export const Route = createFileRoute("/_authenticated/billing")({
+  // Stripe Checkout returns here with ?checkout=success|cancelled.
+  validateSearch: (search: Record<string, unknown>): { checkout?: CheckoutStatus } => ({
+    checkout: parseCheckoutStatus(search.checkout),
+  }),
   head: () => ({ meta: [{ title: "Billing | Anglia Educate" }] }),
   component: BillingPage,
 });
@@ -62,20 +72,36 @@ function SectionHeading({ children }: { children: React.ReactNode }) {
  * lives in a danger strip inside SubscriptionPanel, behind a four-step gate.
  */
 function BillingPage() {
-  const { enrolledCourses, enrolments, role, level } = useEnrolments();
-  const [userId, setUserId] = useState<string | null>(null);
-
-  useEffect(() => {
-    supabase.auth.getUser().then(({ data }) => setUserId(data.user?.id ?? null));
-  }, []);
+  const { enrolledCourses, enrolments, role: profileRole, level } = useEnrolments();
+  // Who is looking, from the guard — known on first render. This used to be a
+  // `getUser()` round trip from an effect, and `loading` waited on it: one
+  // failed request and "Current plan" spun for ever, on the page a student
+  // opens precisely when something is already wrong.
+  const viewer = useViewer();
+  const userId = viewer?.userId ?? null;
+  const role = profileRole ?? (viewer?.appRole === "parent" ? "parent" : null);
+  const { checkout } = Route.useSearch();
+  const navigate = useNavigate();
 
   const { data: packages = [], isLoading: packagesLoading } = usePackages(level);
-  const { data: subs = [], isLoading: subsLoading } = useSubscriptions(userId ? [userId] : []);
+  const subsQuery = useSubscriptions(userId ? [userId] : []);
+  const { data: subs = [], isLoading: subsLoading } = subsQuery;
   // A student's linked parents (empty for the parent view) — used to name the
   // payer and to decide whether the student manages their own plan.
   const { data: linkedParents = [], isLoading: parentsLoading } = useParentLinks(role !== "parent");
   const sub = subs[0] ?? null;
-  const loading = packagesLoading || subsLoading || userId === null;
+  const loading = packagesLoading || subsLoading;
+  const hasUsablePlan = !!sub && (isSubscriptionLive(sub.status) || sub.status === "paused");
+
+  const payment = useCheckoutReturn({
+    status: checkout,
+    // A parent's purchase is for one of several children, so "is it here yet"
+    // can't be answered from this page — their cards simply refresh.
+    confirmed: role === "parent" ? null : hasUsablePlan,
+    onDone: () => void navigate({ to: "/billing", search: {}, replace: true }),
+  });
+  // Paid but not yet visible. Nothing may offer Checkout while this is true.
+  const awaitingPayment = payment.confirming || payment.delayed;
 
   // ---- Parent: manage each linked child's plan + payment history. ----
   if (role === "parent") {
@@ -83,7 +109,7 @@ function BillingPage() {
       <AppLayout title="Billing">
         <div className="max-w-4xl">
           {userId ? (
-            <ParentBillingSection parentId={userId} />
+            <ParentBillingSection parentId={userId} awaitingPayment={awaitingPayment} />
           ) : (
             <Spinner label="Loading" className="py-8" />
           )}
@@ -94,7 +120,6 @@ function BillingPage() {
   }
 
   // ---- Student: their own plan. ----
-  const hasUsablePlan = !!sub && (isSubscriptionLive(sub.status) || sub.status === "paused");
   const activeTier = hasUsablePlan ? sub.plan : null;
   const isPayer = !!sub && !!userId && sub.user_id === userId;
 
@@ -144,6 +169,11 @@ function BillingPage() {
 
             {loading ? (
               <Spinner label="Loading" className="py-8" />
+            ) : subsQuery.error ? (
+              // "Couldn't read your plan" is not "you have no plan". Falling
+              // through to the branch below told a paying student to pick a
+              // plan, with the shop open underneath.
+              <ErrorNote error={subsQuery.error} onRetry={() => void subsQuery.refetch()} />
             ) : hasUsablePlan && sub ? (
               <>
                 <SubscriptionPanel
@@ -171,6 +201,8 @@ function BillingPage() {
                   </div>
                 )}
               </>
+            ) : awaitingPayment ? (
+              <PaymentPending delayed={payment.delayed} onRetry={payment.retry} />
             ) : (
               <div>
                 <p className="text-muted-foreground">
@@ -224,7 +256,7 @@ function BillingPage() {
         {/* Billing rhythm only — three rows, not the old nine-card grid. What
             the plan covers is the subjects card's job, so a switch here can't
             change it (and can't sell coverage the student isn't enrolled in). */}
-        {userId && (canManage || !hasUsablePlan) && (
+        {userId && !subsQuery.error && !awaitingPayment && (canManage || !hasUsablePlan) && (
           <div className="mb-8">
             <CadenceSwitcher
               studentId={userId}

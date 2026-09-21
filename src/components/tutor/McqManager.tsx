@@ -4,17 +4,7 @@ import { useQuery, useQueryClient } from "@tanstack/react-query";
 import { useState } from "react";
 import { supabase } from "@/integrations/supabase/client";
 import { toast } from "sonner";
-import {
-  ListChecks,
-  Sparkles,
-  CalendarClock,
-  BookOpen,
-  Eye,
-  Trash2,
-  Users,
-  FileQuestion,
-  Wand2,
-} from "lucide-react";
+import { ListChecks, Sparkles, Eye, Trash2, Users, FileQuestion, Wand2 } from "lucide-react";
 
 // Tutor-facing counterpart to the student MCQs page. Same route (/mcqs), entirely
 // different view: instead of "Take Quiz" cards this lists every set the tutor owns
@@ -27,7 +17,6 @@ type ManagedSet = {
   title: string;
   published: boolean;
   created_at: string;
-  due_at: string | null;
   questionCount: number;
   attemptCount: number;
 };
@@ -39,7 +28,7 @@ function useManagedSets() {
       const [{ data: sets, error }, { data: questions }, { data: attempts }] = await Promise.all([
         supabase
           .from("mcq_sets")
-          .select("id, title, published, created_at, due_at")
+          .select("id, title, published, created_at")
           .order("created_at", { ascending: false }),
         supabase.from("mcq_questions").select("set_id"),
         supabase.from("mcq_attempts").select("set_id"),
@@ -100,9 +89,6 @@ export function McqManager() {
     reload();
   };
 
-  const weekly = sets.filter((s) => s.due_at);
-  const topical = sets.filter((s) => !s.due_at);
-
   const Row = (s: ManagedSet) => (
     <div
       key={s.id}
@@ -133,14 +119,7 @@ export function McqManager() {
             {s.attemptCount} attempt{s.attemptCount === 1 ? "" : "s"}
           </span>
           <span className="inline-flex items-center gap-1">
-            {s.due_at ? (
-              <>
-                <CalendarClock className="w-3 h-3" />
-                Due {new Date(s.due_at).toLocaleDateString()}
-              </>
-            ) : (
-              new Date(s.created_at).toLocaleDateString()
-            )}
+            {new Date(s.created_at).toLocaleDateString()}
           </span>
         </div>
       </div>
@@ -172,30 +151,6 @@ export function McqManager() {
     </div>
   );
 
-  const Section = ({
-    icon: Icon,
-    label,
-    items,
-  }: {
-    icon: React.ComponentType<{ className?: string }>;
-    label: string;
-    items: ManagedSet[];
-  }) =>
-    items.length === 0 ? null : (
-      <div className="space-y-4">
-        <div className="flex items-center gap-3 pb-2 border-b border-border/60">
-          <Icon className="w-4 h-4 text-primary" />
-          <h3 className="font-display font-bold text-sm tracking-wide uppercase text-foreground">
-            {label}
-          </h3>
-          <span className="text-[10px] px-2 py-0.5 rounded-full bg-primary/10 text-primary font-semibold">
-            {items.length}
-          </span>
-        </div>
-        <div className="space-y-3">{items.map(Row)}</div>
-      </div>
-    );
-
   return (
     <>
       <div className="flex items-start justify-between gap-4 mb-8">
@@ -204,7 +159,7 @@ export function McqManager() {
           see, preview the student experience, and delete sets you no longer need.
         </p>
         <Link
-          to="/tutor"
+          to="/curriculum"
           className="inline-flex items-center gap-2 shrink-0 text-sm font-semibold px-4 py-2.5 rounded-lg btn-solid hover:opacity-90 transition"
         >
           <Wand2 className="w-4 h-4" /> Generate quiz
@@ -223,10 +178,7 @@ export function McqManager() {
           No quizzes yet. Use “Generate quiz” to create your first one.
         </div>
       ) : (
-        <div className="space-y-10">
-          <Section icon={CalendarClock} label="Weekly assigned quizzes" items={weekly} />
-          <Section icon={BookOpen} label="Topical assessments" items={topical} />
-        </div>
+        <div className="space-y-3">{sets.map(Row)}</div>
       )}
     </>
   );

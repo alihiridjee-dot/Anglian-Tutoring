@@ -1,5 +1,7 @@
 import { Mascot } from "@/components/Doodles";
-import { Spinner } from "@/components/Shared";
+import { useOnboardingUser } from "@/hooks/useOnboardingUser";
+import { ErrorNote, Spinner } from "@/components/Shared";
+import { usePageRestore } from "@/hooks/usePageRestore";
 import { createFileRoute, useNavigate } from "@tanstack/react-router";
 import { useEffect, useMemo, useState } from "react";
 import { useQueryClient } from "@tanstack/react-query";
@@ -56,6 +58,7 @@ export const Route = createFileRoute("/onboarding/plan")({
 
 function PlanStep() {
   const navigate = useNavigate();
+  const user = useOnboardingUser();
   const queryClient = useQueryClient();
   const search = Route.useSearch();
   const signOut = useSignOut();
@@ -73,24 +76,28 @@ function PlanStep() {
   // resume it, not buy a second one on top — see useOwnPlanState for why that
   // would quietly double-bill the family. When it's true this page stops being
   // a shop entirely; the edge function refuses the purchase as well.
-  const { resumable, isPending: planStatePending } = useOwnPlanState();
-
-  const [cadence, setCadence] = useState<Cadence>("monthly");
-  const [redirecting, setRedirecting] = useState(false);
-  const [parentEmail, setParentEmail] = useState("");
-  const [inviting, setInviting] = useState(false);
-  const [invited, setInvited] = useState(false);
+  const {
+    resumable,
+    isPending: planStatePending,
+    error: planStateError,
+    refetch: refetchPlanState,
+  } = useOwnPlanState();
 
   // Preselect the cadence the student picked on the pricing page (stashed in
   // auth metadata at signup as e.g. "weekly_2"); otherwise keep monthly.
-  useEffect(() => {
-    (async () => {
-      const { data: u } = await supabase.auth.getUser();
-      const intended = u.user?.user_metadata?.intended_tier as string | undefined;
-      const match = CADENCES.find((c) => intended?.startsWith(c.key));
-      if (match) setCadence(match.key);
-    })();
-  }, []);
+  const [cadence, setCadence] = useState<Cadence>(() => {
+    const intended = user.user_metadata?.intended_tier as string | undefined;
+    return CADENCES.find((c) => intended?.startsWith(c.key))?.key ?? "monthly";
+  });
+  const [redirecting, setRedirecting] = useState(false);
+  // Back from Stripe restores this page as it was left — spinner and all.
+  usePageRestore(() => setRedirecting(false));
+  // The confirmation poll ran out. `confirmRound` restarts it.
+  const [confirmDelayed, setConfirmDelayed] = useState(false);
+  const [confirmRound, setConfirmRound] = useState(0);
+  const [parentEmail, setParentEmail] = useState("");
+  const [inviting, setInviting] = useState(false);
+  const [invited, setInvited] = useState(false);
 
   // The concrete package for a cadence at this student's subject count.
   const packageFor = useMemo(
@@ -123,17 +130,17 @@ function PlanStep() {
         return;
       }
       if (++attempts < 15) setTimeout(poll, 1000);
-      else if (!cancelled) {
-        toast.error(
-          "Payment went through, but we haven't had confirmation yet. Refresh in a moment.",
-        );
-      }
+      // Out of attempts. This used to toast "refresh in a moment" and leave
+      // "Confirming your payment… Don't close this tab" on screen for ever,
+      // with nothing to press.
+      else if (!cancelled) setConfirmDelayed(true);
     };
+    setConfirmDelayed(false);
     poll();
     return () => {
       cancelled = true;
     };
-  }, [search.checkout, navigate, queryClient]);
+  }, [search.checkout, navigate, queryClient, confirmRound]);
 
   useEffect(() => {
     if (search.checkout === "cancelled") toast.info("Checkout cancelled — nothing was charged.");
@@ -167,6 +174,27 @@ function PlanStep() {
     }
   };
 
+  if (search.checkout === "success" && confirmDelayed) {
+    return (
+      <div className="pop-card pop-card-hero rise-in p-10 text-center">
+        <Mascot name="rocket" mood="wow" size={96} className="mx-auto" />
+        <h1 className="font-display mt-4 mb-2 text-2xl font-extrabold tracking-tight">
+          Still confirming your payment
+        </h1>
+        <p className="text-sm">
+          You don&apos;t need to pay again. It can take a minute to reach us.
+        </p>
+        <button
+          type="button"
+          onClick={() => setConfirmRound((n) => n + 1)}
+          className="btn-solid mt-6 inline-flex h-11 items-center justify-center rounded-xl px-6 text-sm font-semibold"
+        >
+          Check again
+        </button>
+      </div>
+    );
+  }
+
   if (search.checkout === "success") {
     return (
       <div className="pop-card pop-card-hero rise-in p-10 text-center">
@@ -187,6 +215,17 @@ function PlanStep() {
     return (
       <div className="pop-card p-10 text-center">
         <Spinner className="py-2" />
+      </div>
+    );
+  }
+
+  // "Couldn't read your plan" is not "you have no plan". Falling through to the
+  // shop here is the double-billing case this page exists to prevent: a student
+  // who only paused, offered Checkout because one request failed.
+  if (planStateError) {
+    return (
+      <div className="premium-card rounded-3xl p-6 sm:p-8">
+        <ErrorNote error={planStateError} onRetry={() => void refetchPlanState()} />
       </div>
     );
   }

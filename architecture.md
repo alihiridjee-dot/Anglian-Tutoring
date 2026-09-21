@@ -49,12 +49,16 @@ For authentication & the live/demo session model, see [docs/AUTHENTICATION.md](d
     │   ├── data/              # Query-bound data hooks
     │   │   ├── usePlanner.ts      # Shared course/roadmap/memory query consumers
     │   │   ├── useAnalytics.ts
-    │   │   ├── useBilling.ts       # Plans, subscriptions, useOwnPlanState (resumable?)
+    │   │   ├── useBilling.ts       # Plans, subscriptions, useOwnPlanState, useCheckoutReturn
     │   │   ├── useChat.ts          # Threads, messages, unread badge (polled)
     │   │   ├── useEnrolments.ts
     │   │   └── useParentLinks.ts   # Parent<->student link lifecycle (RPC-backed)
     │   ├── useSignOut.ts      # Shared sign-out teardown (cancel → clear → signOut)
-    │   └── useRole.ts         # Authentication role state cache
+    │   ├── useViewer.ts       # The guard-resolved viewer, read off route context (no fetch)
+    │   ├── useOnboardingUser.ts # The guard-validated user for /onboarding steps (no fetch)
+    │   ├── useNow.ts          # Ticking clock; pick the interval from what's on screen
+    │   ├── usePageRestore.ts  # Clears "redirecting…" state when Back restores the page
+    │   └── useRole.ts         # Roles + tutor flag; seeded by the viewer, confirmed by user_roles
     │
     ├── integrations/
     │   └── supabase/          # Supabase client, auth attacher & middleware
@@ -70,7 +74,11 @@ For authentication & the live/demo session model, see [docs/AUTHENTICATION.md](d
     │   ├── weeklyPlanDal.ts   # Saved assignments, weekly activity/coverage and tutor roster
     │   ├── week.ts            # Europe/London calendar keys and DST-aware weekly boundaries
     │   ├── auth/session.ts    # Typed AuthSession — single source of truth for live/demo
-    │   ├── authService.ts     # Role resolution + effective student id
+    │   ├── auth/guardState.ts # THE viewer: role + access, resolved once, cached a minute
+    │   ├── routeGuards.ts     # Role guards — read `context.viewer`, never the network
+    │   ├── hydration.ts       # whenHydrated — guards wait for it before redirecting on a deep link
+    │   ├── errors.ts          # describeError — Supabase errors are plain objects, not Errors
+    │   ├── mcqAnswers.ts      # A half-finished quiz's answers, kept across a reload
     │   ├── chatDal.ts         # Data access layer — student<->tutor threads/messages
     │   ├── chatDraft.functions.ts # Server fn: AI draft of a tutor reply (tutor-only)
     │   ├── courseSummary.ts   # Level/board/subject labels — the ONLY place they're spelled
@@ -90,7 +98,8 @@ For authentication & the live/demo session model, see [docs/AUTHENTICATION.md](d
     ├── routes/                # File-based routing (TanStack Start)
     │   ├── __root.tsx         # Global base wrapper (meta tags, Toaster)
     │   ├── auth.tsx           # Login/signup — identity only (honours ?redirect=)
-    │   ├── demo/              # Public showcase — thin wrappers, fixtures, no session
+    │   ├── demo/              # SALES-ONLY showcase — fixtures, no session; never a test env
+    │   │   └── student|parent/route.tsx # `ssr: false` layouts (showcase mode needs `window`)
     │   ├── how-it-works.tsx   # The services + FSRS explainer (live engine, not art)
     │   ├── index.tsx          # Public landing page
     │   ├── reset-password.tsx
@@ -127,6 +136,51 @@ For authentication & the live/demo session model, see [docs/AUTHENTICATION.md](d
 2. **Routing State (TanStack Router)** — transitions, query-string state
    (login modes, pricing plans), and auth-guard redirects.
 3. **Local UI/Form State (React state)** — ephemeral UI properties.
+
+## 🪪 One viewer, resolved once
+
+`/_authenticated`'s `beforeLoad` resolves who the caller is — profile role, staff
+grants in `user_roles`, and (students) `my_access_state()` — through
+`lib/auth/guardState.ts`, and returns it on the route context as `viewer`.
+
+- **Child route guards read `context.viewer`.** They never call the network. A
+  click into a student section used to cost eight identity requests in series;
+  it now costs one (the session check).
+- **Components read `useViewer()` / `useViewerId()`.** A page that needs "whose
+  data is this" has it on first render, with nothing to await and nothing that
+  can fail into an endless spinner.
+- **A failed read is never cached as an answer.** `role: null` and
+  `hasAccess: null` mean "couldn't tell": nobody is relocated, nobody is shown a
+  paywall, and the next navigation asks again. A last good answer is preferred
+  over either.
+- **Query functions throw Supabase errors rather than swallowing them.** A
+  swallowed error becomes an empty result that React Query then caches as the
+  truth — "not enrolled", "not a tutor", "no submission" — for as long as the
+  entry lives. Show failures with `<ErrorNote error onRetry />`.
+
+Testing this path means signing in as the test student (`123@123.com`) — the
+`/demo/*` showcase has no session and exercises none of it. See
+[docs/AUTHENTICATION.md](docs/AUTHENTICATION.md).
+
+## 💳 Two rules every billing surface follows
+
+1. **"Couldn't read the plan" is never "no plan".** A failed subscriptions or
+   plan-state read shows `ErrorNote` with a retry. It must not fall through to
+   "You don't have a plan — pick one" or "Please resubscribe": that offers a
+   paying (or merely paused) family the chance to pay twice.
+2. **Back from Checkout, nothing sells.** Stripe's redirect means the payment
+   succeeded, not that the webhook — the only writer of `subscriptions` — has
+   run. `useCheckoutReturn` polls until the plan is visible; while it is
+   `confirming` or `delayed` the page shows `PaymentPending`, never the shop.
+   `/billing` and `/onboarding/plan` both accept `?checkout=success|cancelled`.
+
+## 🎥 When a live session is "on"
+
+One rule, in `lib/liveSessions.ts` (`sessionTiming`, `nextSession`,
+`hasSessionFinished`): joinable from 10 minutes before the start, running for 90
+minutes after it. The header button, the dashboard banner, the countdown and the
+Live Sessions list all read it. The list used to compare against the start time
+alone, so a lesson was filed under Previous as "Completed" the second it began.
 
 ## 🔐 Data access model (summary)
 

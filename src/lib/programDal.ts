@@ -499,7 +499,16 @@ export class ProgramDAL {
     };
   }
 
-  /** Top up only the catch-up allowance; never replace a saved assignment. */
+  /**
+   * Top up only the catch-up allowance; never replace a saved assignment.
+   * Returns whether anything was actually added.
+   *
+   * `points` must include the week's withheld rows as well as its active ones.
+   * A catch-up point already in the plan but withheld on read-back would
+   * otherwise look missing on every load, be re-sent, be ignored as a
+   * duplicate, and still report a change — re-reading the week and invalidating
+   * the roadmap each time for nothing.
+   */
   static async ensureCatchUp(params: {
     planId: string;
     weekStart: string;
@@ -511,8 +520,7 @@ export class ProgramDAL {
       .filter((p) => !existing.has(p.specPointId))
       .map((p) => p.specPointId);
     if (!missing.length) return false;
-    await WeeklyPlanDAL.addPoints(params.planId, missing, "core");
-    return true;
+    return (await WeeklyPlanDAL.addPoints(params.planId, missing, "core")) > 0;
   }
 
   /** Build a week from fixed teaching and assessed reviews. Empty weeks stay empty. */
