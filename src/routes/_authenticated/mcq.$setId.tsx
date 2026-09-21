@@ -32,7 +32,12 @@ type Marked = {
 
 export function TakeMcq() {
   const plannerQueryClient = useQueryClient();
-  const { setId } = useParams({ from: "/_authenticated/mcq/$setId" });
+  // `strict: false` because this component is mounted twice — here, and again
+  // under /demo/student for the signed-out showcase. Binding the params to one
+  // route id makes it readable from only one of them, and the showcase mount
+  // threw on every render until the list stopped linking past it.
+  const params = useParams({ strict: false }) as { setId?: string };
+  const setId = params.setId ?? "";
   const { userId } = useRoles();
   const [set, setSet] = useState<SetRow | null>(null);
   const [questions, setQuestions] = useState<Q[]>([]);

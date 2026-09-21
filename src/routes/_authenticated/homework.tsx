@@ -1,7 +1,7 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
 import { guardStudentSection } from "@/lib/routeGuards";
-import { useMemo, useState } from "react";
-import { EmptyState, SectionHeading, Spinner } from "@/components/Shared";
+import { useEffect, useMemo, useState } from "react";
+import { EmptyState, SegmentedToggle, Spinner, SubjectToggle } from "@/components/Shared";
 import { AppLayout } from "@/components/AppLayout";
 import { useRoles } from "@/hooks/useRole";
 import { useEnrolments } from "@/hooks/data/useEnrolments";
@@ -16,7 +16,7 @@ import { useHomeworkSummaries, type HomeworkSummary } from "@/hooks/data/useHome
 import {
   BUCKET_HINT,
   BUCKET_LABEL,
-  BUCKET_TINT,
+  BUCKET_ORDER,
   groupHomework,
   isAwaitingRelease,
   isOverdue,
@@ -31,6 +31,9 @@ import { HomeworkForm } from "@/components/tutor/HomeworkForm";
 import { isDemoStudent } from "@/lib/demo/studentDemo";
 import { type SubjectV, type BoardV, type LevelV } from "@/lib/taxonomy";
 import { SUBJECT_LABEL, SUBJECT_TINT } from "@/lib/subjectTheme";
+
+/** Remembers the last subject so the page opens where you left it. */
+const SUBJECT_KEY = "homework:subject";
 
 export const Route = createFileRoute("/_authenticated/homework")({
   beforeLoad: guardStudentSection,
@@ -112,6 +115,21 @@ export function HomeworkPage() {
   );
 }
 
+/**
+ * The student's homework list.
+ *
+ * Two controls narrow what is on screen, mirroring the MCQ page so the pair
+ * read as one product: a subject toggle across the top, then the lifecycle as
+ * tabs. Previously every lifecycle section was stacked open at once, which was
+ * fine at four sheets and unreadable once the planner started writing one per
+ * spec point — the practice section alone runs to fifteen.
+ *
+ * Colour comes from the subject, not the bucket. The buckets used to tint
+ * themselves amber/emerald, but a subject toggle that repaints the page cannot
+ * share a surface with a second colour system without one of them looking like
+ * a bug. Urgency keeps its own signal regardless: overdue still carries a red
+ * chip, a mark still carries its score.
+ */
 function StudentHomework({
   homework,
   submissions,
@@ -123,19 +141,72 @@ function StudentHomework({
   loading: boolean;
   analytics: ReturnType<typeof useAnalytics>["rows"];
 }) {
+  const { enrolledCourses } = useEnrolments();
+  const [subject, setSubject] = useState<string | null>(null);
+  const [bucket, setBucket] = useState<HomeworkBucket>("due");
+
   const items: HomeworkItem[] = useMemo(
     () => homework.map((hw) => ({ hw, submission: submissions[hw.id] })),
     [homework, submissions],
   );
-  const sections = useMemo(() => groupHomework(items), [items]);
 
-  // Only the sheets on screen need their question counts, and the practice
-  // section is collapsed by default — but it is also the biggest, so counting
+  // Only the sheets on screen need their question counts, but counting
   // everything at once is still one round trip rather than one per card.
   const { data: summaries = {} } = useHomeworkSummaries(
     homework.map((h) => h.id),
     homework.length > 0,
   );
+
+  // Only subjects the student sits that actually have homework behind them — a
+  // toggle segment that opens an empty page is a dead end.
+  const subjects = useMemo(() => {
+    const withWork = new Set(items.map((i) => i.hw.subject).filter(Boolean));
+    const enrolled = enrolledCourses.filter((s) => withWork.has(s));
+    return enrolled.length > 0 ? enrolled : [...withWork].sort();
+  }, [items, enrolledCourses]);
+
+  // Settle on a subject once the list is known: the remembered one if it is
+  // still on offer, otherwise the first.
+  useEffect(() => {
+    if (subjects.length === 0 || (subject && subjects.includes(subject))) return;
+    let remembered: string | null = null;
+    try {
+      remembered = localStorage.getItem(SUBJECT_KEY);
+    } catch {
+      // Private browsing, or storage refused. Not worth a failure.
+    }
+    setSubject(remembered && subjects.includes(remembered) ? remembered : subjects[0]);
+  }, [subjects, subject]);
+
+  const chooseSubject = (next: string) => {
+    setSubject(next);
+    try {
+      localStorage.setItem(SUBJECT_KEY, next);
+    } catch {
+      // As above — remembering is a convenience, not a requirement.
+    }
+  };
+
+  // Every bucket, including the empty ones: the tab row keeps its shape as work
+  // moves through it, so the tab in a given position is always the same tab.
+  const sections = useMemo(() => {
+    const mine = subject ? items.filter((i) => i.hw.subject === subject) : items;
+    const found = new Map(groupHomework(mine).map((s) => [s.bucket, s.items]));
+    return BUCKET_ORDER.map((b) => ({ bucket: b, items: found.get(b) ?? [] }));
+  }, [items, subject]);
+
+  // Land on something worth reading. "Due" is the right default when there is
+  // anything due, but opening on an empty tab because nothing is would be a
+  // worse first impression than simply showing the work that does exist.
+  useEffect(() => {
+    const current = sections.find((s) => s.bucket === bucket);
+    if (current && current.items.length > 0) return;
+    const firstWithWork = sections.find((s) => s.items.length > 0);
+    if (firstWithWork) setBucket(firstWithWork.bucket);
+  }, [sections, bucket]);
+
+  const active = sections.find((s) => s.bucket === bucket) ?? sections[0];
+  const nothingAtAll = sections.every((s) => s.items.length === 0);
 
   return (
     <AppLayout title="Homework & Grades">
@@ -144,7 +215,9 @@ function StudentHomework({
         and feedback appear here once they&apos;ve been checked.
       </p>
 
-      {/* Predicted grades live in the homework section. */}
+      {/* Predicted grades stay a whole-picture summary above the toggle: they
+          are the one block on this page that is about comparing subjects, so
+          filtering them to the selected one would remove their point. */}
       {analytics.length > 0 && (
         <div data-guide="homework-grades" className="mb-8">
           <div className="mb-3 flex items-center gap-2">
@@ -177,7 +250,7 @@ function StudentHomework({
 
       {loading ? (
         <Spinner label="Fetching your homework" />
-      ) : sections.length === 0 ? (
+      ) : subjects.length === 0 ? (
         <EmptyState
           mascot="star"
           mood="happy"
@@ -185,79 +258,55 @@ function StudentHomework({
           body="No homework has been set for your subjects yet. When your tutor posts one it lands here, with the questions and your marks in the same place."
         />
       ) : (
-        <div data-guide="homework-list" className="space-y-8">
-          {sections.map((section) => (
-            <HomeworkSection
-              key={section.bucket}
-              bucket={section.bucket}
-              items={section.items}
-              summaries={summaries}
+        // The subject tint wraps the page, so the toggle, the tabs and every
+        // card and chip inside them are one colour without any of them naming it.
+        <div className={SUBJECT_TINT[subject ?? ""] ?? "tint-primary"}>
+          <div className="mb-5">
+            <SubjectToggle
+              subjects={subjects}
+              value={subject ?? subjects[0]}
+              onChange={chooseSubject}
             />
-          ))}
+          </div>
+
+          <div className="mb-5 overflow-x-auto">
+            <SegmentedToggle
+              layoutId="homework-bucket-pill"
+              label="Homework status"
+              value={active?.bucket ?? "due"}
+              onChange={(v) => setBucket(v as HomeworkBucket)}
+              items={sections.map((s) => ({
+                value: s.bucket,
+                label: BUCKET_LABEL[s.bucket],
+                count: s.items.length,
+              }))}
+            />
+          </div>
+
+          {nothingAtAll ? (
+            <EmptyState
+              mascot="star"
+              mood="happy"
+              title={`No ${SUBJECT_LABEL[subject ?? ""] ?? ""} homework yet`}
+              body="Nothing has been set for this subject so far. It'll appear here as soon as your tutor posts one, or your plan reaches a spec point with a sheet behind it."
+            />
+          ) : (
+            active && (
+              <div data-guide="homework-list">
+                <p className="text-muted-foreground mb-4 text-xs">{BUCKET_HINT[active.bucket]}</p>
+                <div className="space-y-3">
+                  {active.items.map((item) => (
+                    <HomeworkCard key={item.hw.id} item={item} summary={summaries[item.hw.id]} />
+                  ))}
+                </div>
+              </div>
+            )
+          )}
         </div>
       )}
     </AppLayout>
   );
 }
-
-/**
- * One lifecycle section.
- *
- * Practice starts collapsed. It is the section that grows without bound — one
- * sheet for every spec point the student's plan has ever touched — and left
- * open it would bury the three sections that actually need attention under a
- * scrolling wall of topics.
- */
-function HomeworkSection({
-  bucket,
-  items,
-  summaries,
-}: {
-  bucket: HomeworkBucket;
-  items: HomeworkItem[];
-  summaries: Record<string, HomeworkSummary>;
-}) {
-  const [open, setOpen] = useState(bucket !== "practice");
-
-  return (
-    <section className={BUCKET_TINT[bucket]}>
-      <button
-        type="button"
-        onClick={() => setOpen((o) => !o)}
-        className="flex w-full items-center gap-2 text-left"
-        aria-expanded={open}
-      >
-        {open ? (
-          <ChevronDown className="text-muted-foreground size-4 shrink-0" aria-hidden />
-        ) : (
-          <ChevronRight className="text-muted-foreground size-4 shrink-0" aria-hidden />
-        )}
-        <div className="min-w-0 flex-1">
-          <SectionHeading
-            title={`${BUCKET_LABEL[bucket]} (${items.length})`}
-            hint={BUCKET_HINT[bucket]}
-          />
-        </div>
-      </button>
-
-      {open && (
-        <div className="mt-4 space-y-3">
-          {items.map((item) => (
-            <HomeworkCard key={item.hw.id} item={item} summary={summaries[item.hw.id]} />
-          ))}
-        </div>
-      )}
-    </section>
-  );
-}
-
-/**
- * One sheet, as a row you press.
- *
- * Everything on it answers "should I open this?" — what it is, how big it is,
- * and where it has got to. What the questions actually say is a page away,
- * which is the whole point.
- */
 function HomeworkCard({ item, summary }: { item: HomeworkItem; summary?: HomeworkSummary }) {
   const { hw, submission } = item;
   const overdue = isOverdue(item);

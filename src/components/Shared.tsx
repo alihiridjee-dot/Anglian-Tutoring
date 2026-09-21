@@ -12,10 +12,12 @@
  * those classes a given block earns.
  */
 import { Link } from "@tanstack/react-router";
-import type { ReactNode } from "react";
+import { useEffect, useRef, type ReactNode } from "react";
 import type { LucideIcon } from "lucide-react";
+import { motion, useReducedMotion } from "motion/react";
 
 import { cn } from "@/lib/utils";
+import { SUBJECT_TINT, subjectLabel } from "@/lib/subjectTheme";
 import { Confetti, Mascot, Sparkles, type MascotName, type Mood } from "@/components/Doodles";
 
 /**
@@ -355,5 +357,148 @@ export function Milestone({
         {children ? <div className="flex flex-wrap gap-2">{children}</div> : null}
       </div>
     </div>
+  );
+}
+/**
+ * The segmented toggle.
+ *
+ * Built on the kit's own `.tab-row` / `.tab-item` chassis, with one addition:
+ * the active pill is a single element that *moves* between segments rather than
+ * several backgrounds that blink on and off. That is what `layoutId` buys, and
+ * it is the difference between a control that feels mechanical and one that
+ * feels physical.
+ *
+ * `layoutId` must be unique per control on a page — two toggles sharing one id
+ * would have their pills try to fly into each other.
+ *
+ * An item with a zero count is shown and disabled rather than dropped, so the
+ * row keeps its shape as work moves through it and the tab in a given position
+ * is always the same tab.
+ */
+export interface ToggleItem {
+  value: string;
+  label: string;
+  /** Shown as a numeral beside the label. A zero disables the segment. */
+  count?: number;
+  /** Repaints this segment — e.g. a subject's own colour. */
+  tint?: string;
+}
+
+export function SegmentedToggle({
+  items,
+  value,
+  onChange,
+  layoutId,
+  label,
+}: {
+  items: ToggleItem[];
+  value: string;
+  onChange: (value: string) => void;
+  layoutId: string;
+  label: string;
+}) {
+  // Someone who has asked not to be moved gets the same control without the
+  // glide — the pill still lands in the right place, it just doesn't travel.
+  const reduceMotion = useReducedMotion();
+
+  // On a phone the row is wider than the screen and scrolls sideways, so the
+  // selected segment can sit off the right-hand edge — a control that doesn't
+  // show you what it is set to. Keep it in view whenever it changes.
+  const activeRef = useRef<HTMLButtonElement>(null);
+  useEffect(() => {
+    activeRef.current?.scrollIntoView({ block: "nearest", inline: "nearest" });
+  }, [value]);
+
+  if (items.length < 2) return null;
+
+  return (
+    <div className="tab-row" role="tablist" aria-label={label}>
+      {items.map((item) => {
+        const active = item.value === value;
+        const empty = item.count === 0;
+        return (
+          <button
+            key={item.value}
+            type="button"
+            role="tab"
+            ref={active ? activeRef : undefined}
+            aria-selected={active}
+            disabled={empty && !active}
+            onClick={() => onChange(item.value)}
+            // The chassis paints its own active state; here the sliding pill is
+            // that state, so the built-in one is suppressed rather than drawn
+            // underneath it. `aria-selected` stays for screen readers.
+            className={cn(
+              "tab-item relative aria-selected:bg-transparent aria-selected:shadow-none",
+              empty && !active && "cursor-default opacity-45",
+              item.tint,
+            )}
+          >
+            {active && (
+              <motion.span
+                layoutId={layoutId}
+                className="bg-card absolute inset-0 rounded-full"
+                style={{
+                  border: "1.5px solid color-mix(in oklab, var(--tint) 30%, transparent)",
+                  boxShadow:
+                    "0 1px 0 0 color-mix(in oklab, var(--tint) 30%, transparent), 0 4px 10px -6px color-mix(in oklab, var(--tint) 70%, transparent)",
+                }}
+                transition={
+                  reduceMotion ? { duration: 0 } : { type: "spring", stiffness: 420, damping: 36 }
+                }
+              />
+            )}
+            <span className={cn("relative", active && "text-[color:var(--tint)] font-bold")}>
+              {item.label}
+            </span>
+            {item.count !== undefined && (
+              <span
+                className={cn(
+                  "numeral relative text-xs",
+                  active ? "text-[color:var(--tint)]" : "text-muted-foreground",
+                )}
+              >
+                {item.count}
+              </span>
+            )}
+          </button>
+        );
+      })}
+    </div>
+  );
+}
+
+/**
+ * The subject switcher — a segmented toggle that carries each subject's colour.
+ *
+ * The three sciences are colour-coded everywhere else in the product, so the
+ * pill arrives in the subject's own green, violet or blue and agrees with the
+ * cards it is about to repaint, instead of sitting above them in brand blue.
+ *
+ * Renders nothing below two subjects. A toggle with one option is furniture.
+ */
+export function SubjectToggle({
+  subjects,
+  value,
+  onChange,
+  label = "Subject",
+}: {
+  subjects: string[];
+  value: string;
+  onChange: (subject: string) => void;
+  label?: string;
+}) {
+  return (
+    <SegmentedToggle
+      layoutId="subject-toggle-pill"
+      label={label}
+      value={value}
+      onChange={onChange}
+      items={subjects.map((s) => ({
+        value: s,
+        label: subjectLabel(s),
+        tint: SUBJECT_TINT[s] ?? "tint-primary",
+      }))}
+    />
   );
 }
