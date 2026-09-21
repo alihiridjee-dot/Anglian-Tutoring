@@ -1,5 +1,5 @@
 import { createFileRoute } from "@tanstack/react-router";
-import { HomeworkSheetPage } from "@/routes/_authenticated/homework_.$homeworkId";
+import { HomeworkSheetPage } from "@/components/homework/HomeworkSheetPage";
 
 // Showcase mount: the real page component, rendered outside the auth guard.
 // isDemoMode() keys off the /demo/* pathname, so every query inside short-circuits
