@@ -73,6 +73,12 @@ describe("parsePaperStem", () => {
     expect(parsePaperStem("aqa-biology-gcse_trilogy-2018-jun-p1F")?.level).toBe("gcse_trilogy");
   });
 
+  test("keeps a Cambridge component whole, so its variants stay apart", () => {
+    expect(parsePaperStem("cambridge-physics-igcse-2024-jun-p41")?.paper).toBe("41");
+    expect(parsePaperStem("cambridge-physics-igcse-2024-jun-p42")?.paper).toBe("42");
+    expect(parsePaperStem("cambridge-physics-igcse-2024-jun-p41")?.tier).toBeNull();
+  });
+
   test("keeps an Edexcel iGCSE R paper apart from its partner", () => {
     expect(parsePaperStem("edexcel-biology-igcse-2019-jun-p1B")?.tier).toBe("B");
     expect(parsePaperStem("edexcel-biology-igcse-2019-jun-p1BR")?.tier).toBe("BR");

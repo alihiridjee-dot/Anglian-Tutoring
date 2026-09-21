@@ -41,35 +41,57 @@ from pypdf import PdfReader
 # finds the question papers and orphans every scheme.
 SEP = r"[\s/_-]*"
 
+# How each board prints a paper after its code: the paper as one capture group,
+# then the tier (or the empty string where the board has none).
+NUMBERED = r"0?([1-9])"        # 8461/1F, 1PH0/1F
+OCR_PAPER = r"0([1-9])\b"      # J247/01
+# Cambridge prints a component: the paper, then a variant set for other time
+# zones (0625/41, /42, /43). Variants of one paper are different papers, so the
+# whole component is the paper; tier is already in it (2 and 4 are Extended).
+COMPONENT = r"([1-6][1-3])\b"
+# OxfordAQA's sciences are two untiered papers: 9203/1, 9203/2.
+TWO_PAPERS = r"([12])\b"
+
 _CODES = [
     # AQA GCSE — tier F or H
-    ("8461", "aqa", "biology", "gcse", "[FH]"),
-    ("8462", "aqa", "chemistry", "gcse", "[FH]"),
-    ("8463", "aqa", "physics", "gcse", "[FH]"),
-    ("8464", "aqa", "combined-trilogy", "gcse", "[FH]"),
-    ("8465", "aqa", "combined-synergy", "gcse", "[FH]"),
+    ("8461", "aqa", "biology", "gcse", NUMBERED, "[FH]"),
+    ("8462", "aqa", "chemistry", "gcse", NUMBERED, "[FH]"),
+    ("8463", "aqa", "physics", "gcse", NUMBERED, "[FH]"),
+    # AQA Combined Science: Trilogy prints its subject between code and paper
+    # (8464/B/1F). The curriculum files it by subject at the gcse_trilogy level.
+    (f"8464{SEP}B", "aqa", "biology", "gcse_trilogy", NUMBERED, "[FH]"),
+    (f"8464{SEP}C", "aqa", "chemistry", "gcse_trilogy", NUMBERED, "[FH]"),
+    (f"8464{SEP}P", "aqa", "physics", "gcse_trilogy", NUMBERED, "[FH]"),
+    ("8465", "aqa", "combined-synergy", "gcse", NUMBERED, "[FH]"),
     # Pearson Edexcel GCSE
-    ("1BI0", "edexcel", "biology", "gcse", "[FH]"),
-    ("1CH0", "edexcel", "chemistry", "gcse", "[FH]"),
-    ("1PH0", "edexcel", "physics", "gcse", "[FH]"),
-    ("1SC0", "edexcel", "combined", "gcse", "[FH]"),
+    ("1BI0", "edexcel", "biology", "gcse", NUMBERED, "[FH]"),
+    ("1CH0", "edexcel", "chemistry", "gcse", NUMBERED, "[FH]"),
+    ("1PH0", "edexcel", "physics", "gcse", NUMBERED, "[FH]"),
+    ("1SC0", "edexcel", "combined", "gcse", NUMBERED, "[FH]"),
     # Pearson Edexcel International GCSE — the subject's letter, then R for the
     # paper's second version: 4CH1/1C and 4CH1/1CR sit in the same session with
     # different questions, so the R has to reach the name or the two pair up.
-    ("4BI1", "edexcel", "biology", "igcse", "BR?"),
-    ("4CH1", "edexcel", "chemistry", "igcse", "CR?"),
-    ("4PH1", "edexcel", "physics", "igcse", "PR?"),
+    ("4BI1", "edexcel", "biology", "igcse", NUMBERED, "BR?"),
+    ("4CH1", "edexcel", "chemistry", "igcse", NUMBERED, "CR?"),
+    ("4PH1", "edexcel", "physics", "igcse", NUMBERED, "PR?"),
+    # Cambridge IGCSE
+    ("0610", "cambridge", "biology", "igcse", COMPONENT, ""),
+    ("0620", "cambridge", "chemistry", "igcse", COMPONENT, ""),
+    ("0625", "cambridge", "physics", "igcse", COMPONENT, ""),
+    # OxfordAQA International GCSE
+    ("9201", "oxford_aqa", "biology", "igcse", TWO_PAPERS, ""),
+    ("9202", "oxford_aqa", "chemistry", "igcse", TWO_PAPERS, ""),
+    ("9203", "oxford_aqa", "physics", "igcse", TWO_PAPERS, ""),
     # OCR Gateway A — no tier in the code, papers are 01/02
-    ("J247", "ocr", "biology", "gcse", ""),
-    ("J248", "ocr", "chemistry", "gcse", ""),
-    ("J249", "ocr", "physics", "gcse", ""),
-    ("J250", "ocr", "combined", "gcse", ""),
+    ("J247", "ocr", "biology", "gcse", OCR_PAPER, ""),
+    ("J248", "ocr", "chemistry", "gcse", OCR_PAPER, ""),
+    ("J249", "ocr", "physics", "gcse", OCR_PAPER, ""),
+    ("J250", "ocr", "combined", "gcse", OCR_PAPER, ""),
 ]
 
 SPECS = {
-    (rf"\b{code}{SEP}0?([1-9]){SEP}({tier})" if tier else rf"\b{code}{SEP}0([1-9])\b"):
-        (board, subject, level)
-    for code, board, subject, level, tier in _CODES
+    rf"\b{code}{SEP}{paper}" + (rf"{SEP}({tier})" if tier else ""): (board, subject, level)
+    for code, board, subject, level, paper, tier in _CODES
 }
 
 # Which sitting a paper belongs to. It is part of the name because the
@@ -89,6 +111,10 @@ SESSION_SQUASHED = re.compile(rf"({_MONTHS})(20\d\d)(?!\d)")
 # AQA prints its sitting on every page even when the cover has no date:
 # IB/M/Jun21/8462/1F.
 AQA_SITTING = re.compile(r"\bIB/[A-Z]/(Jan|Jun|Nov)(\d\d)/")
+# Cambridge's page footer: component, then the series' months, then the year
+# (0625/41/M/J/24 is May/June 2024).
+CAMBRIDGE_SITTING = re.compile(r"\b06[12][05]/\d\d/(F/M|M/J|O/N)/(\d\d)\b")
+CAMBRIDGE_SERIES = {"F/M": "mar", "M/J": "jun", "O/N": "nov"}
 # Pearson's publications code carries the month: 1PH0_1F_1806_MS.
 PUBLICATION = re.compile(r"_([0-9]{2})(0[1-9]|1[0-2])_")
 PUBLICATION_SITTING = {1: "jan", 2: "mar", 3: "mar", 5: "jun", 6: "jun", 10: "nov", 11: "nov"}
@@ -108,6 +134,9 @@ def sitting(text):
     aqa = AQA_SITTING.search(text)
     if aqa:
         return aqa.group(1).lower(), f"20{aqa.group(2)}"
+    cambridge = CAMBRIDGE_SITTING.search(text)
+    if cambridge:
+        return CAMBRIDGE_SERIES[cambridge.group(1)], f"20{cambridge.group(2)}"
     pub = PUBLICATION.search(text)
     if pub and int(pub.group(2)) in PUBLICATION_SITTING:
         return PUBLICATION_SITTING[int(pub.group(2))], f"20{pub.group(1)}"
@@ -141,15 +170,23 @@ def read(path, max_pages=14):
         reader = PdfReader(path)
     except Exception:
         return None
+    pages = reader.pages[:max_pages]
     out = []
-    for page in reader.pages[:max_pages]:
-        try:
-            out.append(page.extract_text(extraction_mode="layout") or "")
-        except Exception:
-            continue
+    for page in pages:
+        out.append(extract(page, "layout"))
         if len(out) >= 3 and match_spec("\n".join(out)):
-            break
-    return "\n".join(out)
+            return "\n".join(out)
+    # Some PDFs' layout pass drops text outright — a Cambridge paper can lose its
+    # cover and every footer, which is where its code is printed — so read the
+    # plain text too before calling a paper unidentifiable.
+    return "\n".join(out + [extract(page, "plain") for page in pages])
+
+
+def extract(page, mode):
+    try:
+        return page.extract_text(extraction_mode=mode) or ""
+    except Exception:
+        return ""
 
 
 def match_spec(text):

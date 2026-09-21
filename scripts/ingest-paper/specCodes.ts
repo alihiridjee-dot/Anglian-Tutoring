@@ -18,16 +18,19 @@ export type Series = (typeof SERIES)[number];
  *     aqa-biology-gcse-2018-jun-p1F             tier F
  *     edexcel-biology-igcse-2019-jun-p1BR       Edexcel iGCSE: subject letter, then R
  *     oxford_aqa-physics-igcse-2024-nov-p1      no tier
+ *     cambridge-physics-igcse-2024-jun-p41      Cambridge component: paper 4, variant 1
  *     aqa-biology-gcse_trilogy-2018-jun-p1F     Combined Science: Trilogy
  *
  * The board and level are curriculum values, so they may contain an
  * underscore. The sitting is part of the name because the international boards
- * set the same paper number more than once a year. The suffix is up to two
- * capitals because Edexcel iGCSE prints its papers as 1B and 1BR, and those
- * are two different papers, not one paper in two tiers.
+ * set the same paper number more than once a year. The paper is up to two
+ * digits because Cambridge sets each paper in variants (0625/41, /42, /43)
+ * that are different papers. The suffix is up to two capitals because Edexcel
+ * iGCSE prints its papers as 1B and 1BR, and those are two different papers,
+ * not one paper in two tiers.
  */
 export const PAPER_STEM =
-  /^([a-z_]+)-([a-z-]+)-(gcse|gcse_trilogy|igcse|alevel)-(\d{4}|unknown)-(jan|mar|jun|nov|unknown)-p(\d)([A-Z]{0,2})$/;
+  /^([a-z_]+)-([a-z-]+)-(gcse|gcse_trilogy|igcse|alevel)-(\d{4}|unknown)-(jan|mar|jun|nov|unknown)-p(\d{1,2})([A-Z]{0,2})$/;
 
 export type Paper = {
   board: string;
