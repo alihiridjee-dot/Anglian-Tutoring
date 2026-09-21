@@ -1,4 +1,6 @@
 import { StudentGuide } from "@/components/StudentGuide";
+import { DemoTour } from "@/components/demo/DemoTour";
+import { startDemoTour, TOUR_START_PATH } from "@/lib/demo/tourSteps";
 import { Link, useNavigate, useRouter, useRouterState } from "@tanstack/react-router";
 import {
   LayoutDashboard,
@@ -11,6 +13,8 @@ import {
   ArrowLeft,
   ArrowRight,
   Sparkles,
+  Compass,
+  MessagesSquare,
 } from "lucide-react";
 import { useEffect, useState, type ReactNode } from "react";
 import { useRoles } from "@/hooks/useRole";
@@ -39,10 +43,12 @@ import { SIDEBAR_LABEL_CLASS as labelClass } from "@/components/sidebarLabel";
  */
 const demoStudentNav = [
   { to: "/demo/student/dashboard", label: "Dashboard", icon: LayoutDashboard },
+  { to: "/demo/student/planner", label: "Planner", icon: Compass },
   { to: "/demo/student/curriculum", label: "Curriculum", icon: BookMarked },
   { to: "/demo/student/homework", label: "Homework & Grades", icon: ClipboardList },
   { to: "/demo/student/live", label: "Live Sessions", icon: Video },
   { to: "/demo/student/mcqs", label: "MCQs", icon: ListChecks },
+  { to: "/demo/student/messages", label: "Messages", icon: MessagesSquare },
 ] as const;
 
 const demoParentNav = [
@@ -191,11 +197,22 @@ export function AppLayout({ title, children }: { title: string; children: ReactN
               </span>
               <span className="text-primary-foreground/80 text-center sm:text-left leading-relaxed">
                 {demoRole === "student"
-                  ? "Exploring the GCSE Science Student Hub as a student. Check out curriculum, live classes, quizzes, and homework!"
-                  : "Exploring the GCSE Science Student Hub. Click around to preview live classes, grades, worksheets, and syllabus views!"}
+                  ? "You're looking around as Alex, a GCSE science student. Everything here is sample data — click anything."
+                  : "You're looking around as Alex's parent. Everything here is sample data — click anything."}
               </span>
             </div>
-            <div className="flex items-center gap-2.5 shrink-0">
+            <div className="flex flex-wrap items-center justify-center gap-2.5">
+              <button
+                type="button"
+                data-tour="tour-button"
+                onClick={() => {
+                  startDemoTour();
+                  if (pathname !== TOUR_START_PATH) router.history.push(TOUR_START_PATH);
+                }}
+                className="text-primary-foreground inline-flex shrink-0 cursor-pointer items-center gap-1.5 rounded-lg border-[1.5px] border-white/25 bg-white/10 px-3 py-1.5 text-xs font-extrabold shadow-[0_2px_0_0_rgba(0,0,0,0.15)] transition hover:bg-white/20"
+              >
+                <Compass className="size-3.5" aria-hidden /> Guided tour
+              </button>
               <Link
                 to="/"
                 className="bg-card text-primary hover:bg-card/90 shrink-0 rounded-lg border-[1.5px] border-white/40 px-3.5 py-1.5 text-xs font-extrabold shadow-[0_2px_0_0_rgba(0,0,0,0.18)] transition"
@@ -270,6 +287,7 @@ export function AppLayout({ title, children }: { title: string; children: ReactN
       </main>
 
       <GlobalSearchDialog open={searchOpen} onClose={() => setSearchOpen(false)} />
+      {isDemo && <DemoTour />}
     </div>
   );
 }

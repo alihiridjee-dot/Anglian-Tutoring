@@ -1,6 +1,7 @@
 import { createFileRoute } from "@tanstack/react-router";
 import { StudentDashboard } from "@/routes/_authenticated/student-dashboard";
 import { DemoSalesChat } from "@/components/demo/DemoSalesChat";
+import { DemoWeekPlan } from "@/components/demo/DemoWeekPlan";
 
 // Showcase mount: the real page component, rendered outside the auth guard.
 // isDemoMode() keys off the /demo/* pathname, so every query inside short-circuits
@@ -10,11 +11,14 @@ import { DemoSalesChat } from "@/components/demo/DemoSalesChat";
 // than branched into its body — a visitor exploring the product should be able to
 // ask about it from the page they're looking at, and a real student should never
 // see a "talk to sales" box on their own dashboard.
+//
+// The weekly plan is swapped the same way: the live panel builds and saves plans
+// and generates practice, so the showcase passes a fixture plan in its place.
 export const Route = createFileRoute("/demo/student/dashboard")({
   head: () => ({ meta: [{ title: "Student Demo | Anglia Educate" }] }),
   component: DemoStudentDashboard,
 });
 
 function DemoStudentDashboard() {
-  return <StudentDashboard afterContent={<DemoSalesChat />} />;
+  return <StudentDashboard weekPlan={<DemoWeekPlan />} afterContent={<DemoSalesChat />} />;
 }

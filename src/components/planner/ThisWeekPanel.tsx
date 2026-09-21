@@ -22,6 +22,7 @@ import { VideoModal } from "@/components/VideoPlayer";
 import { CoveragePill } from "./CoveragePill";
 import { WorkChips } from "./WorkChips";
 import { type Activity } from "./useWeekPlan";
+import { isDemoStudent } from "@/lib/demo/studentDemo";
 
 /**
  * "This week", as both the dashboard and the planner show it.
@@ -242,8 +243,12 @@ export function ThisWeekPanel({
               to={
                 activity.get(next.spec_point_id)?.hasHomework &&
                 !coverage.get(next.spec_point_id)?.homeworkDone
-                  ? "/homework"
-                  : "/mcqs"
+                  ? isDemoStudent()
+                    ? "/demo/student/homework"
+                    : "/homework"
+                  : isDemoStudent()
+                    ? "/demo/student/mcqs"
+                    : "/mcqs"
               }
             >
               Next: {next.title}

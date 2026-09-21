@@ -1,4 +1,5 @@
 import { Link } from "@tanstack/react-router";
+import { isDemoStudent } from "@/lib/demo/studentDemo";
 import { CheckCircle2, ClipboardList, ListChecks, PlayCircle } from "lucide-react";
 import {
   type PointCoverage,
@@ -59,7 +60,9 @@ export function HomeworkChip({
   const done = !!coverage?.homeworkDone;
   return (
     <Link
-      to="/homework/$homeworkId"
+      // The showcase renders these chips from fixtures under /demo/student; the
+      // guarded route would bounce a visitor to sign-in.
+      to={isDemoStudent() ? "/demo/student/homework/$homeworkId" : "/homework/$homeworkId"}
       params={{ homeworkId: item.id }}
       title={chipTitle(item, "Homework", done, coverage?.homeworkScore)}
       className={`${CHIP} ${done ? "tint-emerald" : ""}`}
@@ -86,7 +89,7 @@ export function QuizChip({
   const done = !!coverage?.quizDone;
   return (
     <Link
-      to="/mcq/$setId"
+      to={isDemoStudent() ? "/demo/student/mcq/$setId" : "/mcq/$setId"}
       params={{ setId: item.id }}
       title={chipTitle(item, "Quiz", done, coverage?.quizScore)}
       className={`${CHIP} ${done ? "tint-emerald" : ""}`}

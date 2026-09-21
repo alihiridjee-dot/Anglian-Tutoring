@@ -160,9 +160,7 @@ export function TakeMcq() {
     return (
       <AppLayout title="MCQ">
         <p className="text-sm text-muted-foreground">{loadError}</p>
-        <Link to="/curriculum" className="mt-4 inline-block text-sm text-primary hover:underline">
-          ← Back to curriculum
-        </Link>
+        <BackLink className="mt-4 inline-block text-sm text-primary hover:underline" />
       </AppLayout>
     );
   }
@@ -244,15 +242,29 @@ export function TakeMcq() {
             <p className="font-display text-4xl font-bold mt-1">
               {marked?.score}/{marked?.total}
             </p>
-            <Link
-              to="/curriculum"
-              className="mt-4 inline-block text-sm text-primary hover:underline"
-            >
-              ← Back to curriculum
-            </Link>
+            <BackLink className="mt-4 inline-block text-sm text-primary hover:underline" />
           </div>
         )}
       </div>
     </AppLayout>
+  );
+}
+
+/**
+ * Where a finished quiz sends you. The showcase has its own quiz list under
+ * /demo/student; the guarded /curriculum would bounce a visitor to sign-in.
+ */
+function BackLink({ className }: { className: string }) {
+  if (isDemoStudent()) {
+    return (
+      <Link to="/demo/student/mcqs" className={className}>
+        ← Back to MCQs
+      </Link>
+    );
+  }
+  return (
+    <Link to="/curriculum" className={className}>
+      ← Back to curriculum
+    </Link>
   );
 }

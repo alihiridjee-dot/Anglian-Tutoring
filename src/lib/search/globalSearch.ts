@@ -10,6 +10,8 @@ import {
   CreditCard,
   Settings,
   UserRound,
+  Compass,
+  MessagesSquare,
 } from "lucide-react";
 import { supabase } from "@/integrations/supabase/client";
 import { buildAuthedNav } from "@/lib/nav";
@@ -129,10 +131,12 @@ function pageHits(ctx: SearchContext, terms: string[]): SearchHit[] {
       ? [{ to: "/demo/parent/dashboard", label: "Parent Portal", icon: LayoutDashboard }]
       : [
           { to: "/demo/student/dashboard", label: "Dashboard", icon: LayoutDashboard },
+          { to: "/demo/student/planner", label: "Planner", icon: Compass },
           { to: "/demo/student/curriculum", label: "Curriculum", icon: BookMarked },
           { to: "/demo/student/homework", label: "Homework & Grades", icon: ClipboardList },
           { to: "/demo/student/live", label: "Live Sessions", icon: CalendarClock },
           { to: "/demo/student/mcqs", label: "MCQs", icon: ListChecks },
+          { to: "/demo/student/messages", label: "Messages", icon: MessagesSquare },
           { to: "/demo/student/videos", label: "Videos", icon: PlayCircle },
         ]
     : [

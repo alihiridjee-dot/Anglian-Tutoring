@@ -421,25 +421,52 @@ export type DemoVideo = {
   video_url: string;
 };
 
+/**
+ * Real, public GCSE revision videos — the same ones tutors have attached in the
+ * live library. They used to point at `watch?v=demo`, which has no thumbnail and
+ * no player behind it, so every video tile in the showcase was a grey box.
+ * These are only URLs: nothing is read from the library at runtime.
+ */
+const yt = (id: string) => `https://www.youtube.com/watch?v=${id}`;
+export const DEMO_YT = {
+  photosynthesis: yt("6sLrh-SDv_Y"),
+  photosynthesisPractical: yt("id0aO_OdFwA"),
+  osmosis: yt("B0cH91joZwA"),
+  transport: yt("fUEnfb9VpgE"),
+  cells: yt("qHkUOlC8Nbo"),
+  mitosis: yt("9ttuZxrJZpk"),
+  digestion: yt("e1RUivE3H1k"),
+  pathogens: yt("-30_21Juyek"),
+  respiration: yt("dDkxJzLepFI"),
+  collision: yt("JK7yPzO9POU"),
+  ratesPractical: yt("Gl6LVl7oAlU"),
+  isotopes: yt("-FBk8cNvJds"),
+  ionic: yt("3hUwVYOue5s"),
+  ivGraphs: yt("BbizKa6eywo"),
+  seriesParallel: yt("CmOH3HjSQAY"),
+  energyStores: yt("2HJ2y5US7VI"),
+  covalent: yt("7IkYm7ZgiAw"),
+} as const;
+
 export const DEMO_VIDEOS: DemoVideo[] = [
   {
     id: "demo-vid-1",
-    title: "Photosynthesis: Light & Dark Reactions",
+    title: "Photosynthesis: Limiting Factors",
     description:
-      "Full walkthrough of the two stages, with the balanced equation and limiting factors.",
+      "Light intensity, CO₂ and temperature — and how to read the limiting-factor graphs.",
     subject: "biology",
-    board: "aqa",
+    board: "edexcel",
     level: "gcse",
-    video_url: "https://www.youtube.com/watch?v=demo",
+    video_url: DEMO_YT.photosynthesis,
   },
   {
     id: "demo-vid-2",
     title: "Required Practical: Osmosis in Potato Cells",
     description: "Step-by-step method, results table, and how to plot percentage change in mass.",
     subject: "biology",
-    board: "aqa",
+    board: "edexcel",
     level: "gcse",
-    video_url: "https://www.youtube.com/watch?v=demo",
+    video_url: DEMO_YT.osmosis,
   },
   {
     id: "demo-vid-3",
@@ -448,16 +475,34 @@ export const DEMO_VIDEOS: DemoVideo[] = [
     subject: "chemistry",
     board: "aqa",
     level: "gcse",
-    video_url: "https://www.youtube.com/watch?v=demo",
+    video_url: DEMO_YT.collision,
   },
   {
     id: "demo-vid-4",
     title: "Electricity: Series & Parallel Circuits",
     description: "Current, potential difference and resistance rules with worked examples.",
     subject: "physics",
+    board: "ocr",
+    level: "gcse",
+    video_url: DEMO_YT.seriesParallel,
+  },
+  {
+    id: "demo-vid-5",
+    title: "Ionic Bonding & the Properties of Ionic Compounds",
+    description: "Why ionic compounds form giant lattices, and why they melt so high.",
+    subject: "chemistry",
     board: "aqa",
     level: "gcse",
-    video_url: "https://www.youtube.com/watch?v=demo",
+    video_url: DEMO_YT.ionic,
+  },
+  {
+    id: "demo-vid-6",
+    title: "Diffusion, Osmosis & Active Transport",
+    description: "The three ways substances cross a membrane, side by side.",
+    subject: "biology",
+    board: "edexcel",
+    level: "gcse",
+    video_url: DEMO_YT.transport,
   },
 ];
 
@@ -480,7 +525,7 @@ export const DEMO_LIVE: DemoLive[] = [
     title: "Biology: Exam Technique for 6-Mark Questions",
     description: "Live worked examples on structuring extended-response answers.",
     subject: "biology",
-    board: "aqa",
+    board: "edexcel",
     level: "gcse",
     starts_at: daysFromNow(2),
     join_url: "https://zoom.us/j/8500000001",
@@ -502,7 +547,7 @@ export const DEMO_LIVE: DemoLive[] = [
     title: "Physics: Forces & Motion Recap",
     description: "Recorded — recap of speed, velocity and acceleration graphs.",
     subject: "physics",
-    board: "aqa",
+    board: "ocr",
     level: "gcse",
     starts_at: daysFromNow(-3),
     join_url: null,
@@ -518,44 +563,139 @@ export type DemoMcqSet = {
   level: string;
   subject: string;
   topic: string;
+  /** Curriculum order of the topic, so the archive files topics as the spec does. */
+  topicSort: number;
+  /** The spec point code the set is written for. */
   specPoint: string;
+  /** On the demo student's plan this week, rather than filed under Past MCQs. */
+  thisWeek: boolean;
 };
 
+/**
+ * The demo's quizzes. Every set is fixture content — there is no generation,
+ * no read of `mcq_sets`, and no attempt is ever written. A real student's quizzes
+ * are generated per spec point by `ensureMcqForPoints`; nothing here reaches it.
+ */
 export const DEMO_MCQ_SETS: DemoMcqSet[] = [
+  // This week's work — one per subject, matching the demo planner.
   {
-    id: "demo-mcq-cells",
-    title: "Cell Biology — Weekly Quiz",
+    id: "demo-mcq-transport",
+    title: "Transport in Cells — Diffusion, Osmosis & Active Transport",
     published: true,
-    created_at: daysFromNow(-2),
-    board: "aqa",
+    created_at: daysFromNow(-1),
+    board: "edexcel",
     level: "gcse",
     subject: "biology",
     topic: "Cell Biology",
-    specPoint: "AQA 4.1 — Cell structure",
+    topicSort: 1,
+    specPoint: "4.1.3",
+    thisWeek: true,
   },
   {
-    id: "demo-mcq-bioenergetics",
-    title: "Bioenergetics — Photosynthesis & Respiration",
+    id: "demo-mcq-bonding",
+    title: "Ionic Bonding",
     published: true,
-    created_at: daysFromNow(-6),
-    board: "aqa",
-    level: "gcse",
-    subject: "biology",
-    topic: "Bioenergetics",
-    specPoint: "AQA 4.4 — Photosynthesis",
-  },
-  {
-    id: "demo-mcq-atomic",
-    title: "Atomic Structure & The Periodic Table",
-    published: true,
-    created_at: daysFromNow(-9),
+    created_at: daysFromNow(-1),
     board: "aqa",
     level: "gcse",
     subject: "chemistry",
-    topic: "Atomic Structure",
-    specPoint: "AQA 5.1 — Atoms",
+    topic: "Bonding, Structure & Properties",
+    topicSort: 2,
+    specPoint: "5.2.1",
+    thisWeek: true,
+  },
+  {
+    id: "demo-mcq-electricity",
+    title: "Circuits & I–V Characteristics",
+    published: true,
+    created_at: daysFromNow(-1),
+    board: "ocr",
+    level: "gcse",
+    subject: "physics",
+    topic: "Electricity",
+    topicSort: 2,
+    specPoint: "6.2.1",
+    thisWeek: true,
+  },
+  // Earlier weeks — already attempted, so the archive shows scores.
+  {
+    id: "demo-mcq-cells",
+    title: "Cell Structure",
+    published: true,
+    created_at: daysFromNow(-16),
+    board: "edexcel",
+    level: "gcse",
+    subject: "biology",
+    topic: "Cell Biology",
+    topicSort: 1,
+    specPoint: "4.1.1",
+    thisWeek: false,
+  },
+  {
+    id: "demo-mcq-mitosis",
+    title: "Cell Division & Mitosis",
+    published: true,
+    created_at: daysFromNow(-9),
+    board: "edexcel",
+    level: "gcse",
+    subject: "biology",
+    topic: "Cell Biology",
+    topicSort: 1,
+    specPoint: "4.1.2",
+    thisWeek: false,
+  },
+  {
+    id: "demo-mcq-bioenergetics",
+    title: "Photosynthesis & Limiting Factors",
+    published: true,
+    created_at: daysFromNow(-23),
+    board: "edexcel",
+    level: "gcse",
+    subject: "biology",
+    topic: "Bioenergetics",
+    topicSort: 4,
+    specPoint: "4.4.1",
+    thisWeek: false,
+  },
+  {
+    id: "demo-mcq-atomic",
+    title: "Atoms, Isotopes & Relative Atomic Mass",
+    published: true,
+    created_at: daysFromNow(-12),
+    board: "aqa",
+    level: "gcse",
+    subject: "chemistry",
+    topic: "Atomic Structure & the Periodic Table",
+    topicSort: 1,
+    specPoint: "5.1.1",
+    thisWeek: false,
+  },
+  {
+    id: "demo-mcq-energy",
+    title: "Energy Stores & Transfers",
+    published: true,
+    created_at: daysFromNow(-12),
+    board: "ocr",
+    level: "gcse",
+    subject: "physics",
+    topic: "Energy",
+    topicSort: 1,
+    specPoint: "6.1.1",
+    thisWeek: false,
   },
 ];
+
+/**
+ * The demo student's best score on each set they've taken, out of the set's
+ * length. This week's sets are left untaken so a visitor can try one.
+ */
+export const DEMO_MCQ_ATTEMPTS: Record<string, { score: number; total: number }> = {
+  "demo-mcq-cells": { score: 5, total: 5 },
+  "demo-mcq-mitosis": { score: 4, total: 5 },
+  "demo-mcq-bioenergetics": { score: 4, total: 5 },
+  "demo-mcq-atomic": { score: 4, total: 5 },
+  "demo-mcq-energy": { score: 3, total: 5 },
+};
 
 export type DemoMcqQuestion = {
   id: string;
@@ -566,6 +706,25 @@ export type DemoMcqQuestion = {
   explanation: string | null;
 };
 
+/** Builds a question list with positions, so fixtures stay short to read. */
+const qs = (
+  prefix: string,
+  items: Array<[question: string, options: string[], correct: number, explanation: string]>,
+): DemoMcqQuestion[] =>
+  items.map(([question, options, correct_index, explanation], position) => ({
+    id: `${prefix}-${position + 1}`,
+    position,
+    question,
+    options,
+    correct_index,
+    explanation,
+  }));
+
+const mcqSet = (id: string, description: string, questions: DemoMcqQuestion[]) => {
+  const meta = DEMO_MCQ_SETS.find((s) => s.id === id)!;
+  return { set: { id, title: meta.title, description, published: true }, questions };
+};
+
 export const DEMO_MCQ: Record<
   string,
   {
@@ -573,93 +732,349 @@ export const DEMO_MCQ: Record<
     questions: DemoMcqQuestion[];
   }
 > = {
-  "demo-mcq-cells": {
-    set: {
-      id: "demo-mcq-cells",
-      title: "Cell Biology — Weekly Quiz",
-      description: "Test your recall of cell structure and organelles.",
-      published: true,
-    },
-    questions: [
-      {
-        id: "dq1",
-        position: 0,
-        question: "Which organelle is the site of aerobic respiration?",
-        options: ["Nucleus", "Mitochondria", "Ribosome", "Chloroplast"],
-        correct_index: 1,
-        explanation: "Mitochondria carry out aerobic respiration, releasing energy from glucose.",
-      },
-      {
-        id: "dq2",
-        position: 1,
-        question: "What structure do plant cells have that animal cells do not?",
-        options: ["Cell membrane", "Cytoplasm", "Cell wall", "Mitochondria"],
-        correct_index: 2,
-        explanation: "Plant cells have a cellulose cell wall for support; animal cells do not.",
-      },
-      {
-        id: "dq3",
-        position: 2,
-        question: "Prokaryotic cells differ from eukaryotic cells because they have no…",
-        options: ["Cytoplasm", "Cell membrane", "Genetic material", "True nucleus"],
-        correct_index: 3,
-        explanation:
-          "Prokaryotes have DNA free in the cytoplasm as a single loop, not enclosed in a nucleus.",
-      },
-    ],
-  },
-  "demo-mcq-bioenergetics": {
-    set: {
-      id: "demo-mcq-bioenergetics",
-      title: "Bioenergetics — Photosynthesis & Respiration",
-      description: "Photosynthesis, limiting factors and respiration.",
-      published: true,
-    },
-    questions: [
-      {
-        id: "dq4",
-        position: 0,
-        question: "Which is a product of photosynthesis?",
-        options: ["Carbon dioxide", "Oxygen", "Nitrogen", "Methane"],
-        correct_index: 1,
-        explanation: "Photosynthesis produces glucose and oxygen from carbon dioxide and water.",
-      },
-      {
-        id: "dq5",
-        position: 1,
-        question: "Which of these is NOT a limiting factor of photosynthesis?",
-        options: ["Light intensity", "CO₂ concentration", "Temperature", "Soil colour"],
-        correct_index: 3,
-        explanation: "Light, CO₂ and temperature limit the rate; soil colour does not.",
-      },
-    ],
-  },
-  "demo-mcq-atomic": {
-    set: {
-      id: "demo-mcq-atomic",
-      title: "Atomic Structure & The Periodic Table",
-      description: "Atoms, isotopes and the modern periodic table.",
-      published: true,
-    },
-    questions: [
-      {
-        id: "dq6",
-        position: 0,
-        question: "What is the relative charge of a proton?",
-        options: ["+1", "0", "-1", "+2"],
-        correct_index: 0,
-        explanation: "Protons carry a relative charge of +1; neutrons 0; electrons -1.",
-      },
-      {
-        id: "dq7",
-        position: 1,
-        question: "Isotopes of an element have the same number of…",
-        options: ["Neutrons", "Protons", "Neutrons and protons", "Nucleons"],
-        correct_index: 1,
-        explanation: "Isotopes have the same number of protons but different numbers of neutrons.",
-      },
-    ],
-  },
+  "demo-mcq-transport": mcqSet(
+    "demo-mcq-transport",
+    "How substances move in and out of cells. Five questions, marked the moment you submit.",
+    qs("dq-tr", [
+      [
+        "Diffusion is the net movement of particles…",
+        [
+          "from low to high concentration, using energy",
+          "from high to low concentration",
+          "only through a partially permeable membrane",
+          "only in plant cells",
+        ],
+        1,
+        "Diffusion is passive: particles spread from high to low concentration, down the gradient, with no energy needed.",
+      ],
+      [
+        "Osmosis is the diffusion of which substance?",
+        ["Glucose", "Oxygen", "Water", "Mineral ions"],
+        2,
+        "Osmosis is the movement of water from a dilute to a more concentrated solution through a partially permeable membrane.",
+      ],
+      [
+        "A potato chip is left in concentrated salt solution. What happens to its mass?",
+        [
+          "It increases, because water moves in",
+          "It decreases, because water moves out",
+          "It stays the same",
+          "It increases, because salt moves in",
+        ],
+        1,
+        "The solution outside is more concentrated, so water leaves the potato cells by osmosis and the chip loses mass.",
+      ],
+      [
+        "Which process can move substances against a concentration gradient?",
+        ["Diffusion", "Osmosis", "Active transport", "Evaporation"],
+        2,
+        "Active transport uses energy from respiration to move substances from low to high concentration.",
+      ],
+      [
+        "Root hair cells absorb mineral ions by active transport. Why can't they use diffusion?",
+        [
+          "Mineral ions are too large to diffuse",
+          "The concentration of ions is lower in the soil than in the root",
+          "Diffusion only works for gases",
+          "Root hair cells have no cell membrane",
+        ],
+        1,
+        "The soil holds fewer ions than the root cell, so ions must be moved up the gradient — which needs energy.",
+      ],
+    ]),
+  ),
+  "demo-mcq-bonding": mcqSet(
+    "demo-mcq-bonding",
+    "How metals and non-metals swap electrons to form ions and giant lattices.",
+    qs("dq-bo", [
+      [
+        "Ionic bonding happens between…",
+        ["two non-metals", "a metal and a non-metal", "two metals", "noble gases only"],
+        1,
+        "Metal atoms lose electrons and non-metal atoms gain them, forming oppositely charged ions.",
+      ],
+      [
+        "What charge does a sodium ion carry?",
+        ["+1", "−1", "+2", "0"],
+        0,
+        "Sodium is in Group 1, so it loses its single outer electron to form Na⁺.",
+      ],
+      [
+        "What is the formula of magnesium oxide?",
+        ["Mg₂O", "MgO₂", "MgO", "Mg₂O₃"],
+        2,
+        "Mg²⁺ and O²⁻ carry equal and opposite charges, so they combine one to one.",
+      ],
+      [
+        "Why do ionic compounds have high melting points?",
+        [
+          "Their molecules are very large",
+          "Strong electrostatic forces act in all directions in the lattice",
+          "They contain delocalised electrons",
+          "Their covalent bonds are hard to break",
+        ],
+        1,
+        "A giant ionic lattice is held by strong attraction between oppositely charged ions, which takes a lot of energy to overcome.",
+      ],
+      [
+        "When can an ionic compound conduct electricity?",
+        ["Only as a solid", "Never", "When melted or dissolved in water", "Only when cold"],
+        2,
+        "Melted or dissolved, the ions are free to move and carry charge. In a solid they are held in place.",
+      ],
+    ]),
+  ),
+  "demo-mcq-electricity": mcqSet(
+    "demo-mcq-electricity",
+    "Current, potential difference, resistance and how components behave.",
+    qs("dq-el", [
+      [
+        "Which equation links potential difference, current and resistance?",
+        ["V = I ÷ R", "V = I × R", "V = R ÷ I", "V = I + R"],
+        1,
+        "Potential difference (V) = current (A) × resistance (Ω).",
+      ],
+      [
+        "A 12 Ω resistor has a current of 0.5 A through it. What is the potential difference?",
+        ["24 V", "6 V", "12.5 V", "0.04 V"],
+        1,
+        "V = I × R = 0.5 × 12 = 6 V.",
+      ],
+      [
+        "What shape is the I–V graph for a fixed resistor at constant temperature?",
+        [
+          "A curve that flattens off",
+          "A straight line through the origin",
+          "A horizontal line",
+          "Zero until a threshold, then steep",
+        ],
+        1,
+        "Current is directly proportional to potential difference, so the line is straight and passes through the origin.",
+      ],
+      [
+        "Why does the I–V graph for a filament lamp curve?",
+        [
+          "Its resistance falls as it gets hotter",
+          "Its resistance rises as it gets hotter",
+          "It only lets current flow one way",
+          "Its resistance depends on light level",
+        ],
+        1,
+        "As the filament heats up, its ions vibrate more, so resistance increases and current rises less steeply.",
+      ],
+      [
+        "In a series circuit, the current is…",
+        [
+          "shared between the components",
+          "the same everywhere",
+          "largest through the biggest resistor",
+          "zero at the cell",
+        ],
+        1,
+        "There is only one path in a series circuit, so the same current flows through every component.",
+      ],
+    ]),
+  ),
+  "demo-mcq-cells": mcqSet(
+    "demo-mcq-cells",
+    "Animal, plant and bacterial cells, and what each part does.",
+    qs("dq-ce", [
+      [
+        "Which organelle is the site of aerobic respiration?",
+        ["Nucleus", "Mitochondria", "Ribosome", "Chloroplast"],
+        1,
+        "Mitochondria carry out aerobic respiration, releasing energy from glucose.",
+      ],
+      [
+        "What structure do plant cells have that animal cells do not?",
+        ["Cell membrane", "Cytoplasm", "Cell wall", "Mitochondria"],
+        2,
+        "Plant cells have a cellulose cell wall for support; animal cells do not.",
+      ],
+      [
+        "Prokaryotic cells differ from eukaryotic cells because they have no…",
+        ["Cytoplasm", "Cell membrane", "Genetic material", "True nucleus"],
+        3,
+        "Prokaryotes have DNA free in the cytoplasm as a single loop, not enclosed in a nucleus.",
+      ],
+      [
+        "Where are proteins made in a cell?",
+        ["Ribosomes", "Vacuole", "Cell wall", "Nucleus"],
+        0,
+        "Ribosomes are the site of protein synthesis.",
+      ],
+      [
+        "What is the function of chloroplasts?",
+        [
+          "Controlling the cell's activities",
+          "Absorbing light for photosynthesis",
+          "Storing cell sap",
+          "Releasing energy",
+        ],
+        1,
+        "Chloroplasts contain chlorophyll, which absorbs light energy for photosynthesis.",
+      ],
+    ]),
+  ),
+  "demo-mcq-mitosis": mcqSet(
+    "demo-mcq-mitosis",
+    "The cell cycle, mitosis and stem cells.",
+    qs("dq-mi", [
+      [
+        "What happens during interphase?",
+        [
+          "The cell splits in two",
+          "DNA is copied and the cell grows",
+          "Chromosomes line up at the centre",
+          "The nucleus disappears for good",
+        ],
+        1,
+        "Before mitosis the cell grows, makes more organelles and copies its DNA.",
+      ],
+      [
+        "How many daughter cells does mitosis produce?",
+        ["One", "Two", "Four", "Eight"],
+        1,
+        "Mitosis produces two genetically identical daughter cells.",
+      ],
+      [
+        "Mitosis is needed for…",
+        [
+          "making gametes",
+          "growth and repair",
+          "creating variation",
+          "halving the chromosome number",
+        ],
+        1,
+        "Mitosis makes identical cells for growth, repair and asexual reproduction.",
+      ],
+      [
+        "What is the final stage of the cell cycle, when the cytoplasm divides?",
+        ["Interphase", "Mitosis", "Cytokinesis", "Meiosis"],
+        2,
+        "In cytokinesis the cytoplasm and cell membrane divide to form two cells.",
+      ],
+      [
+        "Where are stem cells found in plants?",
+        ["Leaves", "Meristems", "Xylem", "Root hair cells"],
+        1,
+        "Meristem tissue at the tips of roots and shoots contains stem cells.",
+      ],
+    ]),
+  ),
+  "demo-mcq-bioenergetics": mcqSet(
+    "demo-mcq-bioenergetics",
+    "Photosynthesis, limiting factors and the inverse-square law.",
+    qs("dq-bi", [
+      [
+        "Which is a product of photosynthesis?",
+        ["Carbon dioxide", "Oxygen", "Nitrogen", "Methane"],
+        1,
+        "Photosynthesis produces glucose and oxygen from carbon dioxide and water.",
+      ],
+      [
+        "Which of these is NOT a limiting factor of photosynthesis?",
+        ["Light intensity", "CO₂ concentration", "Temperature", "Soil colour"],
+        3,
+        "Light, CO₂ and temperature limit the rate; soil colour does not.",
+      ],
+      [
+        "Photosynthesis is described as endothermic because…",
+        [
+          "it releases energy",
+          "it takes in energy from the environment",
+          "it happens only at night",
+          "it produces heat",
+        ],
+        1,
+        "Energy is transferred from the environment (light) to the chloroplasts.",
+      ],
+      [
+        "If the distance from a lamp doubles, light intensity…",
+        ["doubles", "halves", "falls to a quarter", "stays the same"],
+        2,
+        "Light intensity follows the inverse-square law: 1 ÷ distance².",
+      ],
+      [
+        "Where in the cell does photosynthesis happen?",
+        ["Mitochondria", "Nucleus", "Chloroplasts", "Ribosomes"],
+        2,
+        "Chloroplasts contain the chlorophyll that absorbs light.",
+      ],
+    ]),
+  ),
+  "demo-mcq-atomic": mcqSet(
+    "demo-mcq-atomic",
+    "Atoms, isotopes and the modern periodic table.",
+    qs("dq-at", [
+      [
+        "What is the relative charge of a proton?",
+        ["+1", "0", "−1", "+2"],
+        0,
+        "Protons carry a relative charge of +1; neutrons 0; electrons −1.",
+      ],
+      [
+        "Isotopes of an element have the same number of…",
+        ["Neutrons", "Protons", "Neutrons and protons", "Nucleons"],
+        1,
+        "Isotopes have the same number of protons but different numbers of neutrons.",
+      ],
+      [
+        "An atom has a mass number of 23 and atomic number 11. How many neutrons does it have?",
+        ["11", "12", "23", "34"],
+        1,
+        "Neutrons = mass number − atomic number = 23 − 11 = 12.",
+      ],
+      [
+        "Who proposed the nuclear model of the atom after the gold foil experiment?",
+        ["Dalton", "Thomson", "Rutherford", "Bohr"],
+        2,
+        "Rutherford's alpha-scattering experiment showed a small, dense, positive nucleus.",
+      ],
+      [
+        "Elements in the same group of the periodic table have the same number of…",
+        ["neutrons", "electron shells", "outer-shell electrons", "protons"],
+        2,
+        "The group number tells you the number of electrons in the outer shell.",
+      ],
+    ]),
+  ),
+  "demo-mcq-energy": mcqSet(
+    "demo-mcq-energy",
+    "Energy stores, transfers and the equations that go with them.",
+    qs("dq-en", [
+      [
+        "A drawn bow holds energy in which store?",
+        ["Kinetic", "Elastic potential", "Chemical", "Thermal"],
+        1,
+        "A stretched or compressed object stores elastic potential energy.",
+      ],
+      [
+        "What is the kinetic energy of a 2 kg ball moving at 3 m/s?",
+        ["6 J", "9 J", "18 J", "3 J"],
+        1,
+        "Eₖ = ½ × m × v² = ½ × 2 × 3² = 9 J.",
+      ],
+      [
+        "Energy cannot be created or destroyed. It can only be…",
+        ["used up", "transferred between stores", "turned into mass", "lost forever"],
+        1,
+        "This is the principle of conservation of energy.",
+      ],
+      [
+        "A machine wastes energy mainly as…",
+        ["light", "sound only", "thermal energy to the surroundings", "chemical energy"],
+        2,
+        "Friction and resistance heat the surroundings, which is wasted energy.",
+      ],
+      [
+        "Which unit is energy measured in?",
+        ["Watts", "Newtons", "Joules", "Volts"],
+        2,
+        "Energy is measured in joules (J). Power is joules per second — watts.",
+      ],
+    ]),
+  ),
 };
 
 // ---------------------------------------------------------------------------
@@ -667,29 +1082,38 @@ export const DEMO_MCQ: Record<
 // Consumed via CurriculumDAL, which serves these to the demo student.
 // ---------------------------------------------------------------------------
 
-const demoVid = (id: string, title: string, description: string): Resource => ({
+const demoVid = (id: string, title: string, description: string, url: string): Resource => ({
   id,
   kind: "video",
   title,
   description,
-  video_url: "https://www.youtube.com/watch?v=demo",
+  video_url: url,
   file_path: null,
   file_name: null,
   starts_at: null,
   join_url: null,
   due_at: null,
 });
-const demoHw = (id: string, title: string, description: string, dueDays: number): Resource => ({
+/** A curriculum homework link. The id must be a DEMO_HOMEWORK id so "Open" lands on a real sheet. */
+const demoHw = (homeworkId: string): Resource => {
+  const hw = DEMO_HOMEWORK.find((h) => h.id === homeworkId)!;
+  return {
+    id: hw.id,
+    kind: "homework",
+    title: hw.title,
+    description: hw.instructions,
+    video_url: null,
+    file_path: null,
+    file_name: null,
+    starts_at: null,
+    join_url: null,
+    due_at: hw.due_at,
+  };
+};
+const quiz = (id: string): McqSet => ({
   id,
-  kind: "homework",
-  title,
-  description,
-  video_url: null,
-  file_path: null,
-  file_name: null,
-  starts_at: null,
-  join_url: null,
-  due_at: daysFromNow(dueDays),
+  title: DEMO_MCQ_SETS.find((s) => s.id === id)!.title,
+  published: true,
 });
 
 export const DEMO_CURRICULUM_TOPICS: Record<string, Topic[]> = {
@@ -737,6 +1161,13 @@ export const DEMO_CURRICULUM_TOPICS: Record<string, Topic[]> = {
       title: "Bonding, Structure & Properties",
       description: "Ionic, covalent and metallic bonding.",
       sort_order: 2,
+    },
+    {
+      id: "demo-topic-rates",
+      code: "C6",
+      title: "Rate of Chemical Change",
+      description: "Measuring rates, collision theory and catalysts.",
+      sort_order: 6,
     },
   ],
   physics: [
@@ -832,6 +1263,22 @@ export const DEMO_CURRICULUM_SPEC_POINTS: Record<string, SpecPoint[]> = {
       title: "Ionic bonding",
       description: "Formation and properties of ionic compounds.",
     },
+    {
+      id: "demo-sp-covalent",
+      topic_id: "demo-topic-bonding",
+      code: "5.2.2",
+      title: "Covalent bonding",
+      description: "Shared pairs of electrons and simple molecules.",
+    },
+  ],
+  "demo-topic-rates": [
+    {
+      id: "demo-sp-rates",
+      topic_id: "demo-topic-rates",
+      code: "5.6.1",
+      title: "Rate of reaction",
+      description: "Measuring rate, collision theory and the factors that affect it.",
+    },
   ],
   "demo-topic-energy": [
     {
@@ -848,76 +1295,205 @@ export const DEMO_CURRICULUM_SPEC_POINTS: Record<string, SpecPoint[]> = {
       topic_id: "demo-topic-electricity",
       code: "6.2.1",
       title: "Circuits & I–V characteristics",
-      description: "Series and parallel circuits and component behaviour.",
+      description: "Resistance, V = IR and how components behave.",
+    },
+    {
+      id: "demo-sp-series",
+      topic_id: "demo-topic-electricity",
+      code: "6.2.2",
+      title: "Series & parallel circuits",
+      description: "Current, potential difference and resistance in each kind of circuit.",
     },
   ],
 };
 
-/** Attached resources/quizzes per spec point. MCQ set ids map into DEMO_MCQ so "Take" works. */
+/**
+ * What is attached to each spec point: a real video, and the demo quiz and
+ * homework written for it. Every id resolves — "Take" opens a DEMO_MCQ set and
+ * "Open" a DEMO_HOMEWORK sheet — so nothing in the curriculum is a dead link.
+ */
 export const DEMO_CURRICULUM_CONTENT: Record<string, { resources: Resource[]; mcqSets: McqSet[] }> =
   {
     "demo-sp-cell-structure": {
       resources: [
         demoVid(
           "demo-res-v-cells",
-          "Cell Structure & Organelles",
+          "Cell Types & Cell Structure",
           "A tour of the animal, plant and bacterial cell.",
-        ),
-        demoHw(
-          "demo-res-hw-cells",
-          "Cell Structure Labelling Worksheet",
-          "Label the organelles and describe their functions.",
-          3,
+          DEMO_YT.cells,
         ),
       ],
-      mcqSets: [{ id: "demo-mcq-cells", title: "Cell Biology — Weekly Quiz", published: true }],
+      mcqSets: [quiz("demo-mcq-cells")],
+    },
+    "demo-sp-cell-division": {
+      resources: [
+        demoVid(
+          "demo-res-v-mitosis",
+          "Cell Division by Mitosis",
+          "The cell cycle, stage by stage.",
+          DEMO_YT.mitosis,
+        ),
+        demoHw("demo-hw-mitosis"),
+      ],
+      mcqSets: [quiz("demo-mcq-mitosis")],
+    },
+    "demo-sp-transport": {
+      resources: [
+        demoVid(
+          "demo-res-v-transport",
+          "Diffusion, Osmosis & Active Transport",
+          "The three ways substances cross a membrane.",
+          DEMO_YT.transport,
+        ),
+        demoVid(
+          "demo-res-v-osmosis",
+          "Required Practical: Osmosis in Potato Cells",
+          "Method, results and percentage change in mass.",
+          DEMO_YT.osmosis,
+        ),
+        demoHw("demo-hw-osmosis"),
+      ],
+      mcqSets: [quiz("demo-mcq-transport")],
+    },
+    "demo-sp-digestion": {
+      resources: [
+        demoVid(
+          "demo-res-v-digestion",
+          "The Digestive System",
+          "Organs, enzymes and the products of digestion.",
+          DEMO_YT.digestion,
+        ),
+      ],
+      mcqSets: [],
+    },
+    "demo-sp-pathogens": {
+      resources: [
+        demoVid(
+          "demo-res-v-pathogens",
+          "Communicable Disease: Bacterial Disease",
+          "How bacteria cause disease, with the examples you need.",
+          DEMO_YT.pathogens,
+        ),
+      ],
+      mcqSets: [],
     },
     "demo-sp-photosynthesis": {
       resources: [
         demoVid(
           "demo-res-v-photo",
-          "Photosynthesis: Light & Dark Reactions",
-          "The two stages and limiting factors.",
+          "Photosynthesis: Limiting Factors",
+          "Light, CO₂ and temperature, and the graphs that go with them.",
+          DEMO_YT.photosynthesis,
         ),
-        demoHw(
-          "demo-res-hw-photo",
-          "Photosynthesis Practical & Limiting Factors",
-          "Pondweed practical write-up and 6-mark question.",
-          -6,
+        demoVid(
+          "demo-res-v-photo-practical",
+          "Required Practical: Rates of Photosynthesis",
+          "The pondweed practical, step by step.",
+          DEMO_YT.photosynthesisPractical,
+        ),
+        demoHw("demo-hw-photosynthesis"),
+      ],
+      mcqSets: [quiz("demo-mcq-bioenergetics")],
+    },
+    "demo-sp-respiration": {
+      resources: [
+        demoVid(
+          "demo-res-v-respiration",
+          "Aerobic Respiration",
+          "What it is, where it happens and the equation.",
+          DEMO_YT.respiration,
         ),
       ],
-      mcqSets: [
-        {
-          id: "demo-mcq-bioenergetics",
-          title: "Bioenergetics — Photosynthesis & Respiration",
-          published: true,
-        },
-      ],
+      mcqSets: [],
     },
     "demo-sp-atoms": {
       resources: [
         demoVid(
           "demo-res-v-atoms",
-          "Atomic Structure Explained",
+          "Elements, Isotopes & Relative Atomic Mass",
           "Protons, neutrons, electrons and isotopes.",
+          DEMO_YT.isotopes,
         ),
       ],
-      mcqSets: [
-        { id: "demo-mcq-atomic", title: "Atomic Structure & The Periodic Table", published: true },
+      mcqSets: [quiz("demo-mcq-atomic")],
+    },
+    "demo-sp-ionic": {
+      resources: [
+        demoVid(
+          "demo-res-v-ionic",
+          "Properties of Ionic Compounds",
+          "Giant lattices and why they melt so high.",
+          DEMO_YT.ionic,
+        ),
       ],
+      mcqSets: [quiz("demo-mcq-bonding")],
+    },
+    "demo-sp-covalent": {
+      resources: [
+        demoVid(
+          "demo-res-v-covalent",
+          "Covalent Bonding",
+          "Shared pairs, and how to draw them.",
+          DEMO_YT.covalent,
+        ),
+      ],
+      mcqSets: [],
+    },
+    "demo-sp-rates": {
+      resources: [
+        demoVid(
+          "demo-res-v-collision",
+          "Factors Affecting Rate & Collision Theory",
+          "Concentration, temperature, surface area and catalysts.",
+          DEMO_YT.collision,
+        ),
+        demoVid(
+          "demo-res-v-rates-practical",
+          "Required Practical: Rates of Reaction",
+          "The disappearing-cross method.",
+          DEMO_YT.ratesPractical,
+        ),
+        demoHw("demo-hw-rates"),
+      ],
+      mcqSets: [],
+    },
+    "demo-sp-energy-stores": {
+      resources: [
+        demoVid(
+          "demo-res-v-energy",
+          "Energy Stores: a Worked Example",
+          "Following the energy through an arrow's flight.",
+          DEMO_YT.energyStores,
+        ),
+      ],
+      mcqSets: [quiz("demo-mcq-energy")],
+    },
+    "demo-sp-circuits": {
+      resources: [
+        demoVid(
+          "demo-res-v-iv",
+          "Voltage, Current & Resistance — I–V Graphs",
+          "V = IR and the three I–V graphs you need.",
+          DEMO_YT.ivGraphs,
+        ),
+        demoHw("demo-hw-electricity"),
+      ],
+      mcqSets: [quiz("demo-mcq-electricity")],
+    },
+    "demo-sp-series": {
+      resources: [
+        demoVid(
+          "demo-res-v-series",
+          "Required Practical: Lamps in Series & Parallel",
+          "What happens to current and brightness in each circuit.",
+          DEMO_YT.seriesParallel,
+        ),
+      ],
+      mcqSets: [],
     },
   };
 
-/** Generic fallback content for spec points without bespoke fixtures. */
+/** Every demo spec point has bespoke content above; this only guards a missing key. */
 export const DEMO_CURRICULUM_FALLBACK = (
-  point: SpecPoint,
-): { resources: Resource[]; mcqSets: McqSet[] } => ({
-  resources: [
-    demoVid(
-      `demo-res-v-${point.id}`,
-      `${point.title} — Video Lesson`,
-      `Full walkthrough of ${point.title.toLowerCase()}.`,
-    ),
-  ],
-  mcqSets: [],
-});
+  _point: SpecPoint,
+): { resources: Resource[]; mcqSets: McqSet[] } => ({ resources: [], mcqSets: [] });
