@@ -1,5 +1,6 @@
 import { describe, expect, test, spyOn } from "bun:test";
-import { focusInputs, handPicked, ProgramDAL, type RoadmapResult } from "./programDal";
+import { handPicked, ProgramDAL } from "./programDal";
+import { focusInputs, type RoadmapResult } from "./roadmap";
 import { WeeklyPlanDAL, type PlanPoint } from "./weeklyPlanDal";
 import { type RejectionReason } from "./admissibility";
 import type { ProgressPoint, TopicProgress } from "./scheduleDal";

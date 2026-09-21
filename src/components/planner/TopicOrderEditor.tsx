@@ -2,7 +2,8 @@ import { useMemo, useState, type ReactNode } from "react";
 import { Reorder, motion, useDragControls } from "motion/react";
 import { ArrowDown, ArrowUp, CalendarDays, GripVertical, Undo2 } from "lucide-react";
 import { SectionHeading, EmptyState, ErrorNote, Spinner } from "@/components/Shared";
-import { ProgramDAL, type RoadmapResult } from "@/lib/planner/programDal";
+import { ProgramDAL } from "@/lib/planner/programDal";
+import { type RoadmapResult } from "@/lib/planner/roadmap";
 import { orderInputs, reorderTopics } from "@/lib/planner/topicOrder";
 import {
   addWeeks,

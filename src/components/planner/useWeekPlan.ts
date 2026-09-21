@@ -6,7 +6,8 @@ import {
   type PlanPoint,
   type WithheldPlanPoint,
 } from "@/lib/planner/weeklyPlanDal";
-import { ProgramDAL, type RoadmapResult } from "@/lib/planner/programDal";
+import { ProgramDAL } from "@/lib/planner/programDal";
+import { type RoadmapResult } from "@/lib/planner/roadmap";
 import { type SubjectV, type BoardV, type LevelV } from "@/lib/curriculum/taxonomy";
 import { type PointCoverage, type PointActivity, type PointWork } from "@/lib/planner/coverage";
 import { getSessionUserId } from "@/lib/auth/session";

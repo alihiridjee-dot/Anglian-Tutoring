@@ -8,7 +8,7 @@ import { useMemo, useState } from "react";
 import { Link } from "@tanstack/react-router";
 import { CircleDot, History, Repeat, CheckCircle2, Plus, RotateCcw } from "lucide-react";
 import { type PlanPoint, type WeeklyPlan } from "@/lib/planner/weeklyPlanDal";
-import { type RoadmapResult } from "@/lib/planner/programDal";
+import { type RoadmapResult } from "@/lib/planner/roadmap";
 import { isTeachBand, mondayOnOrAfter, type PacingBand } from "@/lib/planner/pacing";
 import {
   type PointCoverage,

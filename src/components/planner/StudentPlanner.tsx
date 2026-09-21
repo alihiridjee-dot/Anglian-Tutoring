@@ -26,7 +26,8 @@ import {
   type LucideIcon,
 } from "lucide-react";
 import { isTeachBand, type PacingBand } from "@/lib/planner/pacing";
-import { ProgramDAL, type RoadmapResult } from "@/lib/planner/programDal";
+import { ProgramDAL } from "@/lib/planner/programDal";
+import { type RoadmapResult } from "@/lib/planner/roadmap";
 import { ScheduleDAL, type MemoryStats, type TopicProgress } from "@/lib/planner/scheduleDal";
 import { type Enrolment } from "@/lib/profile/enrolment";
 import { type SubjectV, type BoardV, type LevelV } from "@/lib/curriculum/taxonomy";

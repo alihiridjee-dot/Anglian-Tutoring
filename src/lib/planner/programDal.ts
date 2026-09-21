@@ -1,4 +1,4 @@
-import { customSchedule, orderInputs, reorderTopics } from "./topicOrder";
+import { customSchedule, reorderTopics } from "./topicOrder";
 import { supabase } from "@/integrations/supabase/client";
 import { getSessionUserId } from "@/lib/auth/session";
 import { type SubjectV, type BoardV, type LevelV } from "../curriculum/taxonomy";
@@ -6,64 +6,23 @@ import { type Json } from "@/integrations/supabase/types";
 import { mondayOf, addWeeks, toDateKey, weekKeyToDate } from "./week";
 import { ScheduleDAL, type TopicProgress } from "./scheduleDal";
 import {
-  type FocusCandidate,
-  type FocusLoad,
   type PacingBand,
-  type PacingChange,
-  type PacingInput,
-  computePacing,
-  diffPacing,
   examMondayFor,
-  focusLoadFor,
   isTeachBand,
-  mergeFocus,
   projectReviews,
   weeksBetween,
   selectWeekPoints,
   withWeeklyPoints,
 } from "./pacing";
-import { hasStudentHistory, partition, spineReach, type RejectionReason } from "./admissibility";
-import {
-  byTopic,
-  projectCatchUp,
-  type CatchUpSchedule,
-  catchUpBudget,
-  spineBacklog,
-  trickle,
-  type BacklogPoint,
-  type TopicBacklog,
-} from "./backlog";
+import { hasStudentHistory, spineReach } from "./admissibility";
+import { catchUpBudget, trickle } from "./backlog";
 import { WeeklyPlanDAL, type PlanPoint, type PlanPointOrigin } from "./weeklyPlanDal";
-import { type PointCoverage } from "./coverage";
+import { buildRoadmap, focusInputs, type RoadmapResult } from "./roadmap";
 
 /** "a", "a and b", "a, b and c" — for the plan's one-line rationale. */
 function listSentence(parts: string[]): string {
   if (parts.length <= 1) return parts[0] ?? "";
   return `${parts.slice(0, -1).join(", ")} and ${parts[parts.length - 1]}`;
-}
-
-/** Assessment-backed cards supply one next review per point. */
-export function focusInputs(progress: TopicProgress[]): {
-  candidates: FocusCandidate[];
-} {
-  const candidates: FocusCandidate[] = [];
-  for (const t of progress)
-    for (const p of t.points) {
-      if (p.reps > 0 && p.dueAt && p.eligibleAt && p.lastReviewedAt)
-        candidates.push({
-          specPointId: p.id,
-          topicId: t.topicId,
-          topicTitle: t.title,
-          code: p.code,
-          pointTitle: p.title,
-          dueAt: p.dueAt,
-          eligibleAt: p.eligibleAt,
-          lastReviewedAt: p.lastReviewedAt,
-          retention: p.retention,
-          weight: p.weight,
-        });
-    }
-  return { candidates };
 }
 
 /**
@@ -77,69 +36,6 @@ export function focusInputs(progress: TopicProgress[]): {
  */
 export function handPicked(origin: PlanPointOrigin): boolean {
   return origin === "student" || origin === "tutor";
-}
-
-/** One point the admissibility rule kept out of a week, with its reason. */
-export interface InadmissiblePoint {
-  specPointId: string;
-  code: string;
-  title: string;
-  topicId: string;
-  topicTitle: string;
-  reason: RejectionReason;
-}
-
-export interface RoadmapResult {
-  /** The live curriculum bands (past/current/future), most-recent first order. */
-  bands: PacingBand[];
-  /**
-   * The spine the student last accepted. While `needsAck` is true this is what
-   * they are still living by, and `bands` is the proposal — the roadmap shows
-   * the two side by side so a reschedule is something they see and accept
-   * rather than something that has already happened to them.
-   */
-  baselineBands: PacingBand[];
-  /** Topics whose start week moved since the student last acknowledged. */
-  changes: PacingChange[];
-  needsAck: boolean;
-  programStart: string;
-  examDate: string;
-  /** Topic ids whose points all have assessed marks of at least 70%. */
-  coveredTopicIds: string[];
-  completedPointIds?: string[];
-  /** Per-topic mastery + spec-point breakdown, for the expandable timeline. */
-  progress: TopicProgress[];
-  reviewBacklog: FocusCandidate[];
-  /**
-   * Points the programme refused to assign, and why — work that would otherwise
-   * have been scheduled for a topic the spine has not reached, a course the
-   * student is not on, or a review with nothing behind it. Reported rather than
-   * silently dropped, so the tutor's attention panel can show what was withheld
-   * instead of the student quietly receiving material they have never been
-   * taught. See [[admissibility]].
-   */
-  inadmissible: InadmissiblePoint[];
-  /**
-   * Spec points the spine allocated to a week that has passed, and which
-   * nothing has covered since — see [[backlog]].
-   *
-   * Distinct from `inadmissible`, which is work the engine *refused*. This is
-   * work it promised and never delivered: before this existed such a point fell
-   * out of both lanes permanently and was reported nowhere, so a topic taught
-   * before the student engaged simply ceased to exist as far as the planner was
-   * concerned.
-   */
-  backlog: BacklogPoint[];
-  /**
-   * The backlog grouped by topic, oldest first — **minus** anything the current
-   * week's plan is already carrying, which is what a surface should offer to
-   * put right. Read this, not `backlog`, for display.
-   */
-  backlogByTopic: TopicBacklog[];
-  catchUpSchedule?: CatchUpSchedule;
-  unscheduledTopicTitles: string[];
-  /** Exam-horizon backlog reporting for the roadmap and weekly plan. */
-  focusLoad: FocusLoad;
 }
 
 /**
@@ -168,29 +64,6 @@ export class ProgramDAL {
     const progress =
       params.progress ?? (await ScheduleDAL.getTopicProgress({ studentId, subject, board, level }));
     if (progress.length === 0) return null;
-    const topics: PacingInput[] = progress.map((t) => ({
-      topicId: t.topicId,
-      title: t.title,
-      weight: t.points.reduce((sum, p) => sum + p.weight, 0) || 1,
-    }));
-
-    // Coverage is assessed understanding, separate from the next memory review.
-    const coveredTopicIds = new Set(progress.filter((t) => t.settled).map((t) => t.topicId));
-    const focus = focusInputs(progress);
-
-    // Each topic's spec points in curriculum order, so a teach band can carry
-    // its week-by-week division rather than just a topic and a date range.
-    const pointsByTopic = new Map(
-      progress.map((t) => [
-        t.topicId,
-        t.points.map((p) => ({
-          specPointId: p.id,
-          code: p.code,
-          title: p.title,
-          weight: p.weight,
-        })),
-      ]),
-    );
 
     const { data: baseline, error: baselineError } = await supabase
       .from("student_program_plan")
@@ -202,200 +75,37 @@ export class ProgramDAL {
     if (baselineError) throw baselineError;
 
     const thisMonday = mondayOf();
+    const thisWeek = toDateKey(thisMonday);
 
     // One figure for the year, computed once from the same candidates both the
     // roadmap and the week are about to be cut from.
     const examMonday = baseline ? weekKeyToDate(baseline.exam_date) : examMondayFor();
 
-    // The spine is a pure function of (enrolment week, exam date, topic weights),
-    // so it is computed once, before anything is allowed into a week. Its reach
-    // is what the admissibility rule tests against: a review cannot be assigned
-    // for a topic the programme has not opened yet, however good the FSRS
-    // evidence behind it looks. See [[admissibility]].
-    const start = baseline ? weekKeyToDate(baseline.program_start) : thisMonday;
-    const stored = baseline ? (baseline.pacing as unknown as PacingBand[]) : [];
-    const custom = customSchedule(stored);
-    let live = computePacing(topics, start, examMonday);
-    if (custom) {
-      live = stored;
-      if (custom.examDate !== baseline!.exam_date) {
-        const from = [custom.from, toDateKey(thisMonday)].sort().at(-1)!;
-        const orderTopics = progress.map((t) => ({
-          topicId: t.topicId,
-          title: t.title,
-          points: pointsByTopic.get(t.topicId)!,
-        }));
-        const remaining = orderInputs(stored, orderTopics, from).remaining;
-        if (remaining.length)
-          live = reorderTopics({
-            bands: stored,
-            topics: orderTopics,
-            order: remaining.map((t) => t.topicId),
-            from,
-            examDate: baseline!.exam_date,
-          });
-      }
-    }
-    // The acknowledged spine, not the live recomputation, so this agrees with
-    // the `plan_point_admissible` trigger — which reads the same stored pacing.
-    // Two enforcement layers answering the same question differently is worse
-    // than either answer. Falls back to `live` only before a baseline exists.
-    const reviewReach = spineReach(baseline ? stored : live, true);
-    const thisWeek = toDateKey(thisMonday);
-    const examDate = baseline ? baseline.exam_date : toDateKey(examMonday);
-    const inadmissible: InadmissiblePoint[] = [];
-
     const savedWeek = params.projectOnly
       ? null
-      : await WeeklyPlanDAL.getPlan(studentId, subject, toDateKey(thisMonday));
-    const savedIds = new Set(savedWeek?.points.map((p) => p.spec_point_id) ?? []);
-    // A saved assignment owns this week. Never project a second copy of pending work.
-    const eligible = partition(
-      focus.candidates.filter(
-        (p) => !savedIds.has(p.specPointId) || new Date(p.lastReviewedAt) >= thisMonday,
-      ),
-      (c) => ({
-        specPointId: c.specPointId,
-        topicId: c.topicId,
-        origin: "focus",
-        // A candidate only exists because assessed practice produced a card.
-        hasEvidence: true,
-        onCourse: true,
-      }),
-      // Projection starts at the week the plan is being cut for, so that is the
-      // week the spine test has to answer for.
-      {
-        reach: new Map(),
-        weekStart: savedWeek ? toDateKey(addWeeks(thisMonday, 1)) : thisWeek,
-        examDate,
-      },
-    );
-    for (const { point, reason } of eligible.rejected)
-      inadmissible.push({
-        specPointId: point.specPointId,
-        code: point.code,
-        title: point.pointTitle,
-        topicId: point.topicId,
-        topicTitle: point.topicTitle,
-        reason,
-      });
-    const projection = projectReviews({
-      ...focus,
-      candidates: eligible.admitted,
-      topicOpenings: reviewReach,
-      currentMonday: savedWeek ? addWeeks(thisMonday, 1) : thisMonday,
-      examMonday,
-    });
-    if (savedWeek) {
-      // All saved-week consumers use the DAL's same active/history split.
-      const admitted = savedWeek.points.filter((p) => p.origin === "focus");
-      for (const { point, reason } of savedWeek.withheld)
-        inadmissible.push({
-          specPointId: point.spec_point_id,
-          code: point.code,
-          title: point.title,
-          topicId: point.topic_id,
-          topicTitle: point.topic_title ?? "",
-          reason,
-        });
-      const grouped = new Map<string, typeof savedWeek.points>();
-      for (const p of admitted) {
-        grouped.set(p.topic_id, [...(grouped.get(p.topic_id) ?? []), p]);
-      }
-      for (const [topicId, points] of grouped)
-        projection.bands.unshift({
-          topicId,
-          title: points[0].topic_title ?? "Assigned review",
-          kind: "revisit",
-          startWeek: thisWeek,
-          endWeek: thisWeek,
-          weeks: 1,
-          points: points.map((p) => ({
-            specPointId: p.spec_point_id,
-            code: p.code,
-            title: p.title,
-          })),
-        });
-    }
-    const teachingWeeksShort = Math.max(
-      0,
-      topics.length - Math.max(0, weeksBetween(start, examMonday)),
-    );
-
-    /**
-     * What the spine promised and did not deliver.
-     *
-     * Measured against the **acknowledged** spine, hydrated with the same
-     * weighted weekly division the student was shown, for the same reason the
-     * admissibility rule reads it: until they accept a reschedule, the stored
-     * plan is the one they are living by, and chasing them for a week a
-     * recomputation has since moved would be chasing a promise nobody made.
-     *
-     * Evidence counts as delivery, so a point FSRS is already scheduling never
-     * appears here — the focus lane owns it and the two must not both assign it.
-     */
-    const promised = withWeeklyPoints(
-      baseline ? (baseline.pacing as unknown as PacingBand[]).filter(isTeachBand) : live,
-      pointsByTopic,
-    );
+      : await WeeklyPlanDAL.getPlan(studentId, subject, thisWeek);
     // Read even under `projectOnly` — that flag suppresses reading back the
     // *saved week* so projection isn't doubled, and this is a different fact.
     // Skipping it would hand the generation path an empty ledger and chase the
     // student for work they had already done.
     const ledger = await WeeklyPlanDAL.getDeliveryLedger(studentId, subject, thisWeek);
-    const backlog = spineBacklog({
-      bands: promised,
-      weekStart: thisWeek,
-      pointsByTopic,
-      ledger: {
-        ...ledger,
-        assessed: new Set(
-          progress.flatMap((t) =>
-            t.points.filter((p) => p.assessability === "assessed").map((p) => p.id),
-          ),
-        ),
-      },
-    });
-    /**
-     * The same debt, minus what this week is already carrying.
-     *
-     * `backlog` deliberately still holds those points — the trickle re-selects
-     * them on every cut of the current week, and dropping them would make a
-     * re-cut lose the catch-up work and the next cut put it back. But a panel
-     * that goes on offering "practise Topic 1 now" the moment after a student
-     * has put all of Topic 1 into this week is nagging them about work they can
-     * see in front of them, so the display asks the narrower question: what is
-     * still not being dealt with anywhere?
-     */
-    const inThisWeek = new Set(savedWeek?.points.map((p) => p.spec_point_id) ?? []);
-    const unaddressed = backlog.filter((p) => !inThisWeek.has(p.specPointId));
     // Generation suppresses saved review bands, but must still reserve catch-up
     // capacity already used by this week's assignments, including completed ones.
     const catchUpWeek =
       savedWeek ??
       (params.projectOnly ? await WeeklyPlanDAL.getPlan(studentId, subject, thisWeek) : null);
-    const assignedIds = new Set(
-      catchUpWeek?.points.filter((p) => p.origin !== "focus").map((p) => p.spec_point_id) ?? [],
-    );
-    const pastPromises = spineBacklog({
-      bands: promised,
-      weekStart: thisWeek,
-      pointsByTopic,
-      ledger: { assessed: new Set(), done: new Set(), outstanding: new Set() },
-    });
-    const catchUpSchedule = projectCatchUp({
-      backlog,
-      assigned: pastPromises.filter((p) => assignedIds.has(p.specPointId)),
-      weekStart: thisWeek,
-      examDate,
-      weeklyWeight: focusLoadFor({ topics, spine: live }).spine,
+
+    const roadmap = buildRoadmap({
+      progress,
+      baseline: baseline && { ...baseline, pacing: baseline.pacing as unknown as PacingBand[] },
+      savedWeek,
+      catchUpWeek,
+      ledger,
+      thisMonday,
+      examMonday,
     });
 
     if (!baseline) {
-      // First view = enrolment: this Monday becomes the student's permanent
-      // spine anchor, and their runway to the exam sets the weekly pace.
-      const programStart = toDateKey(thisMonday);
-
       // Seed the acknowledged baseline so the first view is calm (no diff) —
       // but ONLY when the student is the one looking.
       //
@@ -415,83 +125,16 @@ export class ProgramDAL {
           {
             student_id: studentId,
             subject,
-            program_start: programStart,
-            exam_date: examDate,
-            pacing: live as unknown as Json,
+            program_start: roadmap.programStart,
+            exam_date: roadmap.examDate,
+            pacing: roadmap.baselineBands as unknown as Json,
           },
           { onConflict: "student_id,subject" },
         );
         if (seedError) throw seedError;
       }
-      return {
-        // Weekly points are added for display only — `live` stays clean, so the
-        // stored baseline and its diff never see them.
-        bands: mergeFocus(withWeeklyPoints(live, pointsByTopic), projection.bands),
-        baselineBands: live,
-        changes: [],
-        needsAck: false,
-        programStart,
-        examDate,
-        coveredTopicIds: [...coveredTopicIds],
-        completedPointIds: [...ledger.done],
-        progress,
-        reviewBacklog: projection.backlog,
-        inadmissible,
-        backlog,
-        backlogByTopic: byTopic(unaddressed),
-        catchUpSchedule,
-        unscheduledTopicTitles: topics
-          .slice(Math.max(0, topics.length - teachingWeeksShort))
-          .map((t) => t.title),
-        focusLoad: focusLoadFor({
-          topics,
-          spine: live,
-          backlog: projection.backlog,
-          teachingWeeksShort,
-        }),
-      };
     }
-
-    // `live` was recomputed above from the same inputs — it only ever differs
-    // from the stored baseline when the exam date moved or the curriculum
-    // itself changed.
-    const changes = diffPacing(baseline.pacing as unknown as PacingBand[], live);
-    return {
-      bands: mergeFocus(withWeeklyPoints(live, pointsByTopic), projection.bands),
-      baselineBands: (baseline.pacing as unknown as PacingBand[]).filter(isTeachBand),
-      changes,
-      needsAck: changes.length > 0,
-      programStart: baseline.program_start,
-      examDate: baseline.exam_date,
-      coveredTopicIds: [...coveredTopicIds],
-      completedPointIds: [...ledger.done],
-      progress,
-      reviewBacklog: projection.backlog,
-      inadmissible,
-      backlog,
-      backlogByTopic: byTopic(unaddressed),
-      catchUpSchedule,
-      unscheduledTopicTitles: custom
-        ? progress
-            .filter((t) =>
-              t.points.some(
-                (p) =>
-                  !promised.some((b) =>
-                    Object.values(b.pointsByWeek ?? {})
-                      .flat()
-                      .some((ref) => ref.specPointId === p.id),
-                  ),
-              ),
-            )
-            .map((t) => t.title)
-        : topics.slice(Math.max(0, topics.length - teachingWeeksShort)).map((t) => t.title),
-      focusLoad: focusLoadFor({
-        topics,
-        spine: live,
-        backlog: projection.backlog,
-        teachingWeeksShort,
-      }),
-    };
+    return roadmap;
   }
 
   /**

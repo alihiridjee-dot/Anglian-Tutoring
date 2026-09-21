@@ -1,5 +1,5 @@
 import type { PlanPoint } from "@/lib/planner/weeklyPlanDal";
-import type { RoadmapResult } from "@/lib/planner/programDal";
+import type { RoadmapResult } from "@/lib/planner/roadmap";
 import { laneOf } from "@/lib/planner/coverage";
 
 export function WeekBreakdown({
