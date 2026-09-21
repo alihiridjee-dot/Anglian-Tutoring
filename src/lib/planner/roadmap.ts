@@ -1,4 +1,4 @@
-import { customSchedule, orderInputs, reorderTopics } from "./topicOrder";
+import { customSchedule, orderInputs, reorderTopics, type OrderTopic } from "./topicOrder";
 import { addWeeks, toDateKey, weekKeyToDate } from "./week";
 import { type TopicProgress } from "./scheduleDal";
 import {
@@ -175,27 +175,15 @@ export function buildRoadmap(inputs: RoadmapInputs): RoadmapResult {
   const start = baseline ? weekKeyToDate(baseline.program_start) : thisMonday;
   const stored = baseline ? baseline.pacing : [];
   const custom = customSchedule(stored);
-  let live = computePacing(topics, start, examMonday);
-  if (custom) {
-    live = stored;
-    if (custom.examDate !== baseline!.exam_date) {
-      const from = [custom.from, toDateKey(thisMonday)].sort().at(-1)!;
-      const orderTopics = progress.map((t) => ({
-        topicId: t.topicId,
-        title: t.title,
-        points: pointsByTopic.get(t.topicId)!,
-      }));
-      const remaining = orderInputs(stored, orderTopics, from).remaining;
-      if (remaining.length)
-        live = reorderTopics({
-          bands: stored,
-          topics: orderTopics,
-          order: remaining.map((t) => t.topicId),
-          from,
-          examDate: baseline!.exam_date,
-        });
-    }
-  }
+  const live = liveSpine({
+    topics,
+    start,
+    examMonday,
+    baseline,
+    progress,
+    pointsByTopic,
+    thisMonday,
+  });
   // The acknowledged spine, not the live recomputation, so this agrees with
   // the `plan_point_admissible` trigger — which reads the same stored pacing.
   // Two enforcement layers answering the same question differently is worse
@@ -340,50 +328,17 @@ export function buildRoadmap(inputs: RoadmapInputs): RoadmapResult {
     weeklyWeight: focusLoadFor({ topics, spine: live }).spine,
   });
 
-  if (!baseline) {
-    // First view = enrolment: this Monday becomes the student's permanent
-    // spine anchor, and their runway to the exam sets the weekly pace.
-    const programStart = toDateKey(thisMonday);
-    return {
-      // Weekly points are added for display only — `live` stays clean, so the
-      // stored baseline and its diff never see them.
-      bands: mergeFocus(withWeeklyPoints(live, pointsByTopic), projection.bands),
-      baselineBands: live,
-      changes: [],
-      needsAck: false,
-      programStart,
-      examDate,
-      coveredTopicIds: [...coveredTopicIds],
-      completedPointIds: [...ledger.done],
-      progress,
-      reviewBacklog: projection.backlog,
-      inadmissible,
-      backlog,
-      backlogByTopic: byTopic(unaddressed),
-      catchUpSchedule,
-      unscheduledTopicTitles: topics
-        .slice(Math.max(0, topics.length - teachingWeeksShort))
-        .map((t) => t.title),
-      focusLoad: focusLoadFor({
-        topics,
-        spine: live,
-        backlog: projection.backlog,
-        teachingWeeksShort,
-      }),
-    };
-  }
+  // The topics the runway is too short to reach, in curriculum order.
+  const beyondTheRunway = topics
+    .slice(Math.max(0, topics.length - teachingWeeksShort))
+    .map((t) => t.title);
 
-  // `live` was recomputed above from the same inputs — it only ever differs
-  // from the stored baseline when the exam date moved or the curriculum
-  // itself changed.
-  const changes = diffPacing(baseline.pacing, live);
-  return {
+  // What the roadmap says whether or not a baseline has been acknowledged yet.
+  const common = {
+    // Weekly points are added for display only — `live` stays clean, so the
+    // stored baseline and its diff never see them.
     bands: mergeFocus(withWeeklyPoints(live, pointsByTopic), projection.bands),
-    baselineBands: baseline.pacing.filter(isTeachBand),
-    changes,
-    needsAck: changes.length > 0,
-    programStart: baseline.program_start,
-    examDate: baseline.exam_date,
+    examDate,
     coveredTopicIds: [...coveredTopicIds],
     completedPointIds: [...ledger.done],
     progress,
@@ -392,20 +347,6 @@ export function buildRoadmap(inputs: RoadmapInputs): RoadmapResult {
     backlog,
     backlogByTopic: byTopic(unaddressed),
     catchUpSchedule,
-    unscheduledTopicTitles: custom
-      ? progress
-          .filter((t) =>
-            t.points.some(
-              (p) =>
-                !promised.some((b) =>
-                  Object.values(b.pointsByWeek ?? {})
-                    .flat()
-                    .some((ref) => ref.specPointId === p.id),
-                ),
-            ),
-          )
-          .map((t) => t.title)
-      : topics.slice(Math.max(0, topics.length - teachingWeeksShort)).map((t) => t.title),
     focusLoad: focusLoadFor({
       topics,
       spine: live,
@@ -413,4 +354,86 @@ export function buildRoadmap(inputs: RoadmapInputs): RoadmapResult {
       teachingWeeksShort,
     }),
   };
+
+  if (!baseline) {
+    return {
+      ...common,
+      baselineBands: live,
+      changes: [],
+      needsAck: false,
+      // First view = enrolment: this Monday becomes the student's permanent
+      // spine anchor, and their runway to the exam sets the weekly pace.
+      programStart: toDateKey(thisMonday),
+      unscheduledTopicTitles: beyondTheRunway,
+    };
+  }
+
+  // `live` was recomputed above from the same inputs — it only ever differs
+  // from the stored baseline when the exam date moved or the curriculum
+  // itself changed.
+  const changes = diffPacing(baseline.pacing, live);
+  return {
+    ...common,
+    baselineBands: baseline.pacing.filter(isTeachBand),
+    changes,
+    needsAck: changes.length > 0,
+    programStart: baseline.program_start,
+    unscheduledTopicTitles: custom
+      ? topicsWithUnpromisedPoints(progress, promised)
+      : beyondTheRunway,
+  };
+}
+
+/**
+ * The spine as it would be cut today. Curriculum order is recomputed from the
+ * topic weights. A custom order is kept as stored, and is only re-spread over
+ * the topics still to come when the exam date has moved since it was chosen.
+ */
+function liveSpine(params: {
+  topics: PacingInput[];
+  start: Date;
+  examMonday: Date;
+  baseline: RoadmapInputs["baseline"];
+  progress: TopicProgress[];
+  pointsByTopic: Map<string, OrderTopic["points"]>;
+  thisMonday: Date;
+}): PacingBand[] {
+  const { topics, start, examMonday, baseline, progress, pointsByTopic, thisMonday } = params;
+  const computed = computePacing(topics, start, examMonday);
+  const stored = baseline ? baseline.pacing : [];
+  const custom = customSchedule(stored);
+  if (!custom || !baseline) return computed;
+  if (custom.examDate === baseline.exam_date) return stored;
+
+  const from = [custom.from, toDateKey(thisMonday)].sort().at(-1)!;
+  const orderTopics = progress.map((t) => ({
+    topicId: t.topicId,
+    title: t.title,
+    points: pointsByTopic.get(t.topicId)!,
+  }));
+  const remaining = orderInputs(stored, orderTopics, from).remaining;
+  if (!remaining.length) return stored;
+  return reorderTopics({
+    bands: stored,
+    topics: orderTopics,
+    order: remaining.map((t) => t.topicId),
+    from,
+    examDate: baseline.exam_date,
+  });
+}
+
+/** Under a custom order: topics with at least one point no week of the spine carries. */
+function topicsWithUnpromisedPoints(progress: TopicProgress[], promised: PacingBand[]): string[] {
+  return progress
+    .filter((t) =>
+      t.points.some(
+        (p) =>
+          !promised.some((b) =>
+            Object.values(b.pointsByWeek ?? {})
+              .flat()
+              .some((ref) => ref.specPointId === p.id),
+          ),
+      ),
+    )
+    .map((t) => t.title);
 }
