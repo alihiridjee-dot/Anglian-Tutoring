@@ -10,6 +10,7 @@ import { useRoles } from "@/hooks/useRole";
 import { useEnrolments } from "@/hooks/data/useEnrolments";
 import { McqManager } from "@/components/tutor/McqManager";
 import { SUBJECT_TINT, subjectLabel } from "@/lib/subjectTheme";
+import { selectIn, selectInHistory } from "@/lib/db/chunked";
 import { currentWeekKey, plannerDateLabel, toDateKey, weekRangeLabel, mondayOf } from "@/lib/week";
 
 export const Route = createFileRoute("/_authenticated/mcqs")({
@@ -71,11 +72,10 @@ export function MCQs() {
  * 1. **One subject at a time.** Every quiz used to sit in one scroll, so a
  *    student revising Chemistry had to read past Biology to find it. The
  *    toggle picks the subject and the whole page repaints to its colour.
- * 2. **This week is defined by the plan, not by a due date.** Sets are written
- *    per spec point and carry no deadline — `due_at` is null on every one in
- *    production — so "this week" reads the student's own weekly plan and asks
- *    which points they are on right now. It follows the plan forward with no
- *    tutor action.
+ * 2. **This week is defined by the plan.** Tutors don't assign quizzes: every
+ *    set is the shared one for a spec point, with no deadline. So "this week"
+ *    reads the student's own weekly plan and asks which points they are on
+ *    right now. It follows the plan forward with no tutor action.
  * 3. **Everything else is filed under its topic, collapsed.** The archive grows
  *    without bound; left flat it buries the handful of quizzes that matter.
  */
@@ -83,13 +83,11 @@ function StudentMCQs() {
   const { enrolledCourses, loading: enrolmentsLoading } = useEnrolments();
   const [sets, setSets] = useState<QuizSet[]>([]);
   const [attempts, setAttempts] = useState<Record<string, Attempt>>({});
-  /** spec point id → the Monday of the week the student is scheduled to do it. */
-  const [weekByPoint, setWeekByPoint] = useState<Record<string, string>>({});
+  /** Spec points in this week's plan — including any carried in from earlier. */
+  const [thisWeekPoints, setThisWeekPoints] = useState<ReadonlySet<string>>(new Set());
   const [loading, setLoading] = useState(true);
   const [loadError, setLoadError] = useState<string | null>(null);
   const [subject, setSubject] = useState<string | null>(null);
-
-  const thisWeek = currentWeekKey();
 
   useEffect(() => {
     let cancelled = false;
@@ -114,10 +112,10 @@ function StudentMCQs() {
             questionCount: 0,
           })),
         );
-        setWeekByPoint(
-          Object.fromEntries(
+        setThisWeekPoints(
+          new Set(
             DEMO_MCQ_SETS.filter((s) => toDateKey(new Date(s.created_at)) >= currentWeekKey()).map(
-              (s) => [s.id, currentWeekKey()],
+              (s) => s.id,
             ),
           ),
         );
@@ -127,71 +125,72 @@ function StudentMCQs() {
 
       const { data: auth } = await supabase.auth.getUser();
       const uid = auth?.user?.id;
-
-      const [
-        { data: rows, error: setsError },
-        { data: planned, error: plannedError },
-        { data: attemptRows },
-      ] = await Promise.all([
-        // The topic comes through the spec point — `mcq_sets` has no topic
-        // column of its own, and the heading a student scans by is the topic's.
-        //
-        // Deliberately no `mcq_questions(count)` here. A student's grant on
-        // `mcq_questions` is column-level — question, options, position, but
-        // never `correct_index` or `explanation` — and an aggregate needs SELECT
-        // on the whole table, so asking for one 403s the entire query and empties
-        // the page. The counts come from a granted column below instead; the
-        // answers stay unreadable, which is the point of marking server-side.
-        supabase
-          .from("mcq_sets")
-          .select(
-            "id, title, published, created_at, origin, spec_point_id, subject, spec_points(code, topics(id, title, sort_order, subject))",
-          )
-          .order("created_at", { ascending: false }),
-        uid
-          ? supabase
-              .from("student_weekly_plan_points")
-              .select("spec_point_id, student_weekly_plans!inner(student_id, week_start)")
-              .eq("student_weekly_plans.student_id", uid)
-          : Promise.resolve({ data: [] as PlanPointRow[], error: null }),
-        uid
-          ? supabase.from("mcq_attempts").select("set_id, score, total").eq("user_id", uid)
-          : Promise.resolve({ data: [] as AttemptRow[] }),
-      ]);
-      if (cancelled) return;
-
-      // A failed read is not an empty shelf. Swallowing an error here is what
-      // turned a 403 into a confident "No quizzes yet" on a page whose quizzes
-      // all existed, so both reads that can empty the page are checked: the
-      // sets themselves, and the plan that decides which of them are this
-      // student's. A failed plan read leaves every generated set filtered out,
-      // which looks exactly like having no quizzes and is not the same thing.
-      const fatal = setsError ?? plannedError;
-      if (fatal) {
-        setLoadError(fatal.message);
+      if (!uid) {
         setLoading(false);
         return;
       }
 
-      // A point can be planned more than once (it gets carried, or revisited).
-      // The latest week is the one that decides whether it is current, so a
-      // point carried into this week counts as this week's work.
-      const weeks: Record<string, string> = {};
+      // Which spec points the student has been on, and which of them are this
+      // week's. A point can be planned more than once — carried, revisited, or
+      // cut again next week — so "this week" means *any* plan for this week
+      // holds it, not that this week is the latest one to.
+      const [{ data: planned, error: plannedError }, { data: attemptRows }] = await Promise.all([
+        supabase
+          .from("student_weekly_plan_points")
+          .select("spec_point_id, student_weekly_plans!inner(student_id, week_start)")
+          .eq("student_weekly_plans.student_id", uid),
+        supabase.from("mcq_attempts").select("set_id, score, total").eq("user_id", uid),
+      ]);
+      if (cancelled) return;
+      // A failed read is not an empty shelf. Swallowing an error here is what
+      // turned a 403 into a confident "No quizzes yet" on a page whose quizzes
+      // all existed.
+      if (plannedError) {
+        setLoadError(plannedError.message);
+        setLoading(false);
+        return;
+      }
+
+      const thisWeek = currentWeekKey();
+      const now = new Set<string>();
+      const reached = new Set<string>();
       for (const p of (planned ?? []) as unknown as PlanPointRow[]) {
         const week = p.student_weekly_plans?.week_start;
         if (!p.spec_point_id || !week) continue;
-        if (!weeks[p.spec_point_id] || week > weeks[p.spec_point_id]) {
-          weeks[p.spec_point_id] = week;
-        }
+        // A point only planned for a later week hasn't been reached yet; its
+        // quiz turns up here when that week does.
+        if (week > thisWeek) continue;
+        reached.add(p.spec_point_id);
+        if (week === thisWeek) now.add(p.spec_point_id);
       }
-      setWeekByPoint(weeks);
+      setThisWeekPoints(now);
 
-      const mine = new Set(Object.keys(weeks));
-      const visible = ((rows ?? []) as unknown as SetQueryRow[])
-        // Shared sets are written for every spec point any student reaches,
-        // across every board, so a student sees only those for points that
-        // have appeared in one of their own weeks.
-        .filter((r) => r.origin !== "generated" || (!!r.spec_point_id && mine.has(r.spec_point_id)))
+      // Only the shared sets for points the student has actually reached. Asked
+      // of the database by point rather than fetched whole and filtered here:
+      // the library holds a set for every point any student on any board has
+      // reached, which both outgrows a single page of rows and was letting
+      // another course's quizzes through wherever the filter missed.
+      let rows: SetQueryRow[];
+      try {
+        rows = await selectIn<SetQueryRow>([...reached], (batch) =>
+          supabase
+            .from("mcq_sets")
+            .select(
+              "id, title, published, created_at, origin, spec_point_id, subject, spec_points(code, topics(id, title, sort_order, subject))",
+            )
+            .eq("origin", "generated")
+            .in("spec_point_id", batch),
+        );
+      } catch (e) {
+        if (cancelled) return;
+        setLoadError(e instanceof Error ? e.message : "Couldn't load your quizzes.");
+        setLoading(false);
+        return;
+      }
+      if (cancelled) return;
+
+      const visible = rows
+        .sort((a, b) => b.created_at.localeCompare(a.created_at))
         .map((r) => ({
           id: r.id,
           title: r.title,
@@ -207,23 +206,31 @@ function StudentMCQs() {
         }));
 
       // How long each quiz is, counted from `set_id` — a column a student is
-      // granted — rather than from an aggregate they are not. A failure here
-      // costs the card its "12 questions" line and nothing else, so it is
-      // deliberately not allowed to fail the page.
+      // granted — rather than from an aggregate they are not. Paged, because a
+      // year of points at eight questions a set is more rows than one response
+      // carries. A failure here costs the card its "8 questions" line and
+      // nothing else, so it is deliberately not allowed to fail the page.
       if (visible.length > 0) {
-        const { data: qRows } = await supabase
-          .from("mcq_questions")
-          .select("set_id")
-          .in(
-            "set_id",
+        try {
+          const qRows = await selectInHistory<{ id: string; set_id: string }>(
             visible.map((s) => s.id),
+            (batch, after) => {
+              const query = supabase
+                .from("mcq_questions")
+                .select("id, set_id")
+                .in("set_id", batch)
+                .order("id")
+                .limit(500);
+              return after ? query.gt("id", after) : query;
+            },
           );
-        if (cancelled) return;
-        const counts = new Map<string, number>();
-        for (const q of (qRows ?? []) as { set_id: string }[]) {
-          counts.set(q.set_id, (counts.get(q.set_id) ?? 0) + 1);
+          if (cancelled) return;
+          const counts = new Map<string, number>();
+          for (const q of qRows) counts.set(q.set_id, (counts.get(q.set_id) ?? 0) + 1);
+          for (const s of visible) s.questionCount = counts.get(s.id) ?? 0;
+        } catch {
+          // Counts are decoration; the quizzes themselves have loaded.
         }
-        for (const s of visible) s.questionCount = counts.get(s.id) ?? 0;
       }
       setSets(visible);
 
@@ -283,8 +290,7 @@ function StudentMCQs() {
     const current: QuizSet[] = [];
     const past: QuizSet[] = [];
     for (const s of mine) {
-      const week = s.specPointId ? weekByPoint[s.specPointId] : undefined;
-      if (week === thisWeek) current.push(s);
+      if (s.specPointId && thisWeekPoints.has(s.specPointId)) current.push(s);
       else past.push(s);
     }
 
@@ -304,7 +310,7 @@ function StudentMCQs() {
       (a, b) => a.sort - b.sort || a.title.localeCompare(b.title),
     );
     return { current, byTopic };
-  }, [sets, subject, weekByPoint, thisWeek]);
+  }, [sets, subject, thisWeekPoints]);
 
   const pageLoading = loading || enrolmentsLoading;
 
@@ -341,7 +347,7 @@ function StudentMCQs() {
           <ThisWeek sets={current} attempts={attempts} />
 
           {byTopic.length > 0 && (
-            <div className="mt-10">
+            <div data-guide="mcq-past" className="mt-10">
               <SectionHeading
                 title="Past MCQs"
                 hint="Everything you've covered before this week, filed by topic."
@@ -378,7 +384,7 @@ function ThisWeek({ sets, attempts }: { sets: QuizSet[]; attempts: Record<string
   const done = sets.filter((s) => attempts[s.id]).length;
 
   return (
-    <section className="surface-loud p-5">
+    <section data-guide="mcq-this-week" className="surface-loud p-5">
       <div className="flex flex-wrap items-center justify-between gap-3">
         <div className="flex items-center gap-2.5">
           <span className="icon-tile size-9 rounded-xl">

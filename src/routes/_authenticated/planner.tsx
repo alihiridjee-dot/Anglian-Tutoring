@@ -1,11 +1,10 @@
 import { createFileRoute } from "@tanstack/react-router";
 import { guardStudentSection } from "@/lib/routeGuards";
-import { useEffect, useState } from "react";
 import { Compass, Loader2 } from "lucide-react";
 import { AppLayout } from "@/components/AppLayout";
 import { useEnrolments } from "@/hooks/data/useEnrolments";
 import { useRoles } from "@/hooks/useRole";
-import { AuthService } from "@/lib/authService";
+import { useViewerId } from "@/hooks/useViewer";
 import { StudentPlanner } from "@/components/planner/StudentPlanner";
 import { TutorPlannerPanel } from "@/components/planner/TutorPlannerPanel";
 
@@ -80,11 +79,10 @@ function PlannerPage() {
 function StudentPlannerGate() {
   const { enrolments, level, loading } = useEnrolments();
   const search = Route.useSearch();
-  const [studentId, setStudentId] = useState<string | null>(null);
-
-  useEffect(() => {
-    AuthService.getEffectiveStudentId().then(setStudentId);
-  }, []);
+  // Parents are bounced by the guard and tutors take the other branch, so the
+  // student being planned for is always the viewer — known before first render,
+  // with no lookup that could fail and leave this on a spinner forever.
+  const studentId = useViewerId();
 
   if (loading || !studentId) {
     return (

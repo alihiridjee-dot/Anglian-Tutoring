@@ -1,25 +1,16 @@
-import { useEffect, useMemo, useState } from "react";
+import { useMemo } from "react";
 import { useQuery } from "@tanstack/react-query";
 import { Video, CalendarClock, Radio } from "lucide-react";
-import { fetchLiveSessions, type LiveSession } from "@/lib/liveSessions";
+import { useNow } from "@/hooks/useNow";
+import {
+  DAY_MS,
+  MINUTE_MS as MINUTE,
+  fetchLiveSessions,
+  nextSession,
+  sessionStartMs,
+  sessionTiming,
+} from "@/lib/liveSessions";
 import { SessionIdentity, WhatsCovered } from "@/components/live/SessionMeta";
-
-const MINUTE = 60_000;
-const DAY_MS = 24 * 60 * MINUTE;
-// A session counts as "live" from 10 min before its start until 90 min after,
-// so students can jump in slightly early and it stays joinable for the lesson.
-const JOIN_LEAD_MS = 10 * MINUTE;
-const LIVE_TAIL_MS = 90 * MINUTE;
-
-// One ticking clock for the whole widget so the countdown updates every second.
-function useNow() {
-  const [now, setNow] = useState(() => Date.now());
-  useEffect(() => {
-    const id = setInterval(() => setNow(Date.now()), 1000);
-    return () => clearInterval(id);
-  }, []);
-  return now;
-}
 
 function pad(n: number) {
   return String(n).padStart(2, "0");
@@ -50,25 +41,15 @@ export function NextSessionCountdown({ className = "" }: { className?: string })
     queryKey: ["live", "countdown"],
     queryFn: () => fetchLiveSessions(),
   });
+  // Seconds are on screen here, so this one does tick every second.
   const now = useNow();
 
-  const next = useMemo<LiveSession | null>(() => {
-    return (
-      (data ?? [])
-        .filter((s) => s.starts_at && new Date(s.starts_at).getTime() + LIVE_TAIL_MS > now)
-        .sort((a, b) => new Date(a.starts_at!).getTime() - new Date(b.starts_at!).getTime())[0] ??
-      null
-    );
-  }, [data, now]);
+  const next = useMemo(() => nextSession(data ?? [], now), [data, now]);
+  const start = next ? sessionStartMs(next) : null;
+  if (!next || start === null) return null;
 
-  if (!next) return null;
-
-  const start = new Date(next.starts_at!).getTime();
-  const diff = start - now;
-  const isLive = diff <= 0 && now < start + LIVE_TAIL_MS;
-  const withinDay = diff > 0 && diff <= DAY_MS;
   // Join button only appears 10 min before or while live, avoiding empty waiting rooms.
-  const joinable = isLive || diff <= JOIN_LEAD_MS;
+  const { untilStart: diff, isLive, withinDay, joinable } = sessionTiming(start, now);
 
   const days = Math.max(0, Math.floor(diff / DAY_MS));
   const hours = Math.max(0, Math.floor((diff % DAY_MS) / (60 * MINUTE)));

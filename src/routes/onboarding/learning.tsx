@@ -1,4 +1,5 @@
 import { createFileRoute, useNavigate } from "@tanstack/react-router";
+import { useOnboardingUser } from "@/hooks/useOnboardingUser";
 import { useEffect, useState } from "react";
 import { toast } from "sonner";
 import { supabase } from "@/integrations/supabase/client";
@@ -23,33 +24,29 @@ export const Route = createFileRoute("/onboarding/learning")({
 
 function LearningStep() {
   const navigate = useNavigate();
+  const user = useOnboardingUser();
   const [responses, setResponses] = useState<LearningResponses>(DEFAULT_LEARNING_RESPONSES);
   const [saving, setSaving] = useState(false);
 
   useEffect(() => {
     (async () => {
-      const { data: u } = await supabase.auth.getUser();
-      if (!u.user) return;
       const { data } = await supabase
         .from("student_learning_profile")
         .select("responses")
-        .eq("student_id", u.user.id)
+        .eq("student_id", user.id)
         .maybeSingle();
       if (data?.responses) {
         setResponses({ ...DEFAULT_LEARNING_RESPONSES, ...(data.responses as LearningResponses) });
       }
     })();
-  }, []);
+  }, [user]);
 
   const handleContinue = async () => {
     setSaving(true);
     try {
-      const { data: u } = await supabase.auth.getUser();
-      if (!u.user) throw new Error("You need to be signed in.");
-
       const { error } = await supabase.from("student_learning_profile").upsert(
         {
-          student_id: u.user.id,
+          student_id: user.id,
           responses,
           updated_at: new Date().toISOString(),
         },

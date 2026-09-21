@@ -1,5 +1,5 @@
 import { useNavigate } from "@tanstack/react-router";
-import { CreditCard, Loader2, Lock, PlayCircle } from "lucide-react";
+import { CreditCard, Loader2, Lock, PlayCircle, RotateCw } from "lucide-react";
 import { useOwnPlanState } from "@/hooks/data/useBilling";
 
 /**
@@ -24,7 +24,7 @@ import { useOwnPlanState } from "@/hooks/data/useBilling";
  */
 export function PaywallOverlay() {
   const navigate = useNavigate();
-  const { resumable, isPending } = useOwnPlanState();
+  const { resumable, isPending, error, refetch } = useOwnPlanState();
 
   return (
     <div
@@ -42,6 +42,30 @@ export function PaywallOverlay() {
           <div className="py-6">
             <Loader2 className="mx-auto h-5 w-5 animate-spin text-muted-foreground" />
           </div>
+        ) : error ? (
+          // "Couldn't read your plan" must not fall through to "Please
+          // resubscribe": that is the wrong instruction for anyone who only
+          // paused, and it is the one that leads to paying twice. Billing can
+          // always be opened, and it shows the plan as it really is.
+          <>
+            <h1 id="paywall-title" className="font-display text-2xl font-bold tracking-tight mb-6">
+              We couldn&apos;t check your plan
+            </h1>
+            <button
+              type="button"
+              onClick={() => void refetch()}
+              className="w-full h-11 rounded-xl btn-solid font-semibold text-sm shadow-sm inline-flex items-center justify-center gap-2"
+            >
+              <RotateCw className="h-4 w-4" /> Try again
+            </button>
+            <button
+              type="button"
+              onClick={() => navigate({ to: "/billing" })}
+              className="mt-3 text-xs text-muted-foreground hover:text-foreground"
+            >
+              Open Billing
+            </button>
+          </>
         ) : resumable ? (
           <>
             <h1 id="paywall-title" className="font-display text-2xl font-bold tracking-tight mb-2">

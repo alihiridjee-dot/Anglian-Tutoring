@@ -17,6 +17,7 @@ import type { LucideIcon } from "lucide-react";
 import { motion, useReducedMotion } from "motion/react";
 
 import { cn } from "@/lib/utils";
+import { describeError } from "@/lib/errors";
 import { SUBJECT_TINT, subjectLabel } from "@/lib/subjectTheme";
 import { Confetti, Mascot, Sparkles, type MascotName, type Mood } from "@/components/Doodles";
 
@@ -163,14 +164,30 @@ export function Spinner({
   );
 }
 
-export function ErrorNote({ error }: { error: unknown }) {
-  const message = error instanceof Error ? error.message : String(error);
+/**
+ * A failed load, said plainly, with a way out.
+ *
+ * Pass `onRetry` — a query's `refetch` — wherever there is one. Without it the
+ * note is a dead end: the only way to try again is a browser reload, which a
+ * student mid-homework shouldn't have to know about, and which throws away
+ * whatever else on the page had loaded fine.
+ */
+export function ErrorNote({ error, onRetry }: { error: unknown; onRetry?: () => void }) {
   return (
     <div className="tint-rose pop-card flex items-start gap-3 p-4 text-sm">
       <span className="icon-tile size-8 shrink-0 text-base font-black">!</span>
-      <div>
+      <div className="min-w-0 flex-1">
         <p className="font-display font-bold text-[color:var(--tint)]">That didn&apos;t work</p>
-        <p className="text-muted-foreground mt-0.5 leading-relaxed">{message}</p>
+        <p className="text-muted-foreground mt-0.5 leading-relaxed">{describeError(error)}</p>
+        {onRetry && (
+          <button
+            type="button"
+            onClick={onRetry}
+            className="btn-soft mt-3 inline-flex h-9 items-center rounded-lg px-4 text-sm font-semibold"
+          >
+            Try again
+          </button>
+        )}
       </div>
     </div>
   );

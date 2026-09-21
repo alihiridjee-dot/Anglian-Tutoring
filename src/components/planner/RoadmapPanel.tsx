@@ -173,7 +173,8 @@ export function RoadmapPanel({
   };
 
   if (!active) return null;
-  if (roadmapQuery.error) return <ErrorNote error={roadmapQuery.error} />;
+  if (roadmapQuery.error)
+    return <ErrorNote error={roadmapQuery.error} onRetry={() => void roadmapQuery.refetch()} />;
 
   const covered = new Set(data?.coveredTopicIds ?? []);
   const spine = data?.bands.filter(isTeachBand) ?? [];

@@ -1,4 +1,4 @@
-import { Spinner } from "@/components/Shared";
+import { ErrorNote, Spinner } from "@/components/Shared";
 import { useEffect, useRef, useState } from "react";
 import { Link } from "@tanstack/react-router";
 import { ExternalLink, Loader2, Send, Sparkles, Trash2 } from "lucide-react";
@@ -10,8 +10,10 @@ import {
   useSendMessage,
 } from "@/hooks/data/useChat";
 import { generateChatDraft } from "@/lib/chatDraft.functions";
-import { contextTarget } from "@/lib/chatDal";
+import { contextTarget, type ChatMessage } from "@/lib/chatDal";
 import type { ThreadSummary } from "@/hooks/data/useChat";
+
+const EMPTY_MESSAGES: ChatMessage[] = [];
 
 interface Props {
   thread: ThreadSummary;
@@ -32,7 +34,7 @@ interface Props {
  * different (and worse) thing.
  */
 export function ThreadView({ thread, viewerId, isTutor }: Props) {
-  const { data: messages = [], isPending } = useChatMessages(thread.id);
+  const { data: messages = EMPTY_MESSAGES, isPending, error, refetch } = useChatMessages(thread.id);
   const send = useSendMessage();
   const markRead = useMarkThreadRead();
   const remove = useDeleteThread();
@@ -43,14 +45,20 @@ export function ThreadView({ thread, viewerId, isTutor }: Props) {
   const endRef = useRef<HTMLDivElement>(null);
   const markedRef = useRef<string | null>(null);
 
-  // Opening a thread is reading it. Guarded by a ref so the poll refetch doesn't
-  // fire a write every twenty seconds.
+  // Opening a thread is reading it — and so is having it open when a reply
+  // arrives. The ref stops one burst of unread from firing more than one write
+  // (the poll refetch, StrictMode's double effect); it is cleared once the
+  // count is back to zero, so the *next* message is marked too. It used to be
+  // cleared only on switching threads, which left the sidebar badge lit for the
+  // reply the student was looking straight at.
   useEffect(() => {
-    if (thread.unread > 0 && markedRef.current !== thread.id) {
-      markedRef.current = thread.id;
-      markRead.mutate(thread.id);
+    if (thread.unread === 0) {
+      markedRef.current = null;
+      return;
     }
-    if (markedRef.current !== thread.id) markedRef.current = null;
+    if (markedRef.current === thread.id) return;
+    markedRef.current = thread.id;
+    markRead.mutate(thread.id);
     // markRead is a stable mutation object; re-running on it would loop.
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [thread.id, thread.unread]);
@@ -173,6 +181,8 @@ export function ThreadView({ thread, viewerId, isTutor }: Props) {
       <div className="min-h-0 flex-1 space-y-3 overflow-y-auto px-5 py-4">
         {isPending ? (
           <Spinner className="py-10" />
+        ) : error && messages.length === 0 ? (
+          <ErrorNote error={error} onRetry={() => void refetch()} />
         ) : (
           messages.map((m) => {
             const mine = m.sender_id === viewerId;

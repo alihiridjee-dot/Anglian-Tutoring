@@ -55,7 +55,8 @@ export function MemoryPanel({
   const loading = memoryQuery.isLoading;
 
   if (!active) return null;
-  if (memoryQuery.error) return <ErrorNote error={memoryQuery.error} />;
+  if (memoryQuery.error)
+    return <ErrorNote error={memoryQuery.error} onRetry={() => void memoryQuery.refetch()} />;
 
   const practised = stats ? stats.total - stats.newCount : 0;
   const segments = stats

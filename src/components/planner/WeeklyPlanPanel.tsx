@@ -96,7 +96,7 @@ export function WeeklyPlanPanel({
 
   if (!active) return null;
 
-  if (week.error) return <ErrorNote error={week.error} />;
+  if (week.error) return <ErrorNote error={week.error} onRetry={() => void week.reload()} />;
   return (
     <>
       <div className="rounded-2xl premium-card p-4 sm:p-5 shadow-sm mb-4">

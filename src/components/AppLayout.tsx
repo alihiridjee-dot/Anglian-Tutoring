@@ -15,6 +15,7 @@ import {
 import { useEffect, useState, type ReactNode } from "react";
 import { useRoles } from "@/hooks/useRole";
 import { useSignOut } from "@/hooks/useSignOut";
+import { useViewer } from "@/hooks/useViewer";
 import { isDemoMode, getDemoRole } from "@/lib/auth/session";
 import { DEMO_STUDENT_NAME, DEMO_PARENT_NAME } from "@/lib/demo/studentDemo";
 import { useEnrolments } from "@/hooks/data/useEnrolments";
@@ -52,7 +53,12 @@ const demoParentNav = [
 export function AppLayout({ title, children }: { title: string; children: ReactNode }) {
   const pathname = useRouterState({ select: (s) => s.location.pathname });
   const { isTutor, email } = useRoles();
-  const { role: userRole, displayName: profileName, avatarPath } = useEnrolments();
+  const { role: profileRole, displayName: profileName, avatarPath } = useEnrolments();
+  // The guard already knows a parent is a parent. Waiting on the profile query
+  // drew the student sidebar first and swapped it a moment later, on every hard
+  // load of the Portal.
+  const viewer = useViewer();
+  const userRole = profileRole ?? (viewer?.appRole === "parent" ? "parent" : null);
   // The bucket is private, so the header avatar is a short-lived signed URL
   // rather than a stored one. Null path — the showcase, or nobody's photo —
   // never issues a request.

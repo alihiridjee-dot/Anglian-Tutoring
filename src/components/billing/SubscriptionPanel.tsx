@@ -3,6 +3,7 @@ import { ExternalLink, Loader2, PauseCircle, PlayCircle, ShieldCheck, XCircle } 
 import { toast } from "sonner";
 import { isSubscriptionLive, openBillingPortal, type BillingReturnTo } from "@/lib/billing";
 import { useManageSubscription } from "@/hooks/data/useBilling";
+import { usePageRestore } from "@/hooks/usePageRestore";
 import { PlanFeedbackDialog } from "@/components/billing/PlanFeedbackDialog";
 import { CancelPlanDialog } from "@/components/billing/CancelPlanDialog";
 import { PlanFacts } from "@/components/billing/PlanFacts";
@@ -105,6 +106,8 @@ export function SubscriptionPanel({
   const [pauseOpen, setPauseOpen] = useState(false);
   const [cancelOpen, setCancelOpen] = useState(false);
   const [portalBusy, setPortalBusy] = useState(false);
+  // Back from the Stripe portal restores this page as it was left — busy and all.
+  usePageRestore(() => setPortalBusy(false));
 
   const live = isSubscriptionLive(sub.status);
   const paused = sub.status === "paused";

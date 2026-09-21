@@ -1,33 +1,21 @@
 import { Mascot } from "@/components/Doodles";
-import { createFileRoute, redirect } from "@tanstack/react-router";
+import { createFileRoute } from "@tanstack/react-router";
 import { AppLayout } from "@/components/AppLayout";
 import { useRoles } from "@/hooks/useRole";
 import { useEnrolments } from "@/hooks/data/useEnrolments";
 import { useAnalytics } from "@/hooks/data/useAnalytics";
 import { isDemoStudent, DEMO_STUDENT_NAME } from "@/lib/demo/studentDemo";
 import { resolveDisplayName } from "@/lib/displayName";
-import { useState, useEffect, type ReactNode } from "react";
+import type { ReactNode } from "react";
 import { WeeklyFocusCard } from "@/components/weekly/WeeklyFocusCard";
 import { LiveSessionsBanner } from "@/components/live/LiveSessionsBanner";
 import { WeeklyPlanPanel } from "@/components/planner/WeeklyPlanPanel";
-import { AuthService } from "@/lib/authService";
-import { UserRole } from "@/types/user";
+import { guardStudentHome } from "@/lib/routeGuards";
+import { useViewerId } from "@/hooks/useViewer";
 import { boardLabel, levelLabel, subjectLabel } from "@/lib/courseSummary";
 
 export const Route = createFileRoute("/_authenticated/student-dashboard")({
-  beforeLoad: async () => {
-    // Student surface. Tutors/admins own the Studio and parents own the Portal;
-    // each is routed to their own home rather than rendering a student page in
-    // their session. An unresolved role falls through to the student view, which
-    // matches the safe fallback in dashboard.tsx and avoids a redirect loop.
-    const role = await AuthService.getUserRole();
-    if (role === UserRole.TUTOR || role === UserRole.ADMIN) {
-      throw redirect({ to: "/tutor" });
-    }
-    if (role === UserRole.PARENT) {
-      throw redirect({ to: "/parent-dashboard" });
-    }
-  },
+  beforeLoad: guardStudentHome,
   head: () => ({ meta: [{ title: "Student Dashboard | Anglia Educate" }] }),
   component: StudentDashboard,
 });
@@ -42,13 +30,9 @@ export const Route = createFileRoute("/_authenticated/student-dashboard")({
 export function StudentDashboard({ afterContent }: { afterContent?: ReactNode } = {}) {
   const { email } = useRoles();
   const { enrolledCourses, enrolments, level, displayName: profileName } = useEnrolments();
-  const [effectiveStudentId, setEffectiveStudentId] = useState<string | null>(null);
-
-  useEffect(() => {
-    AuthService.getEffectiveStudentId().then((id) => {
-      setEffectiveStudentId(id);
-    });
-  }, []);
+  // This is a student-only surface (see the guard above), so the student whose
+  // plan is shown is always the viewer. Null in the showcase, which has nobody.
+  const effectiveStudentId = useViewerId();
 
   // Warms the analytics cache for the pages that render it.
   useAnalytics(effectiveStudentId, enrolledCourses);

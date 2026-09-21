@@ -82,18 +82,26 @@ export function useEnrolments(): EnrolmentsState {
           avatarPath: null,
         };
       }
-      const [{ data }, { data: enrolRows }] = await Promise.all([
-        supabase
-          .from("profiles")
-          .select("role, enrolled_courses, student_invite_code, display_name, level, avatar_path")
-          .eq("id", uid)
-          .maybeSingle(),
-        supabase
-          .from("student_enrolments")
-          .select("subject, board")
-          .eq("student_id", uid)
-          .order("subject", { ascending: true }),
-      ]);
+      const [{ data, error: profileError }, { data: enrolRows, error: enrolError }] =
+        await Promise.all([
+          supabase
+            .from("profiles")
+            .select("role, enrolled_courses, student_invite_code, display_name, level, avatar_path")
+            .eq("id", uid)
+            .maybeSingle(),
+          supabase
+            .from("student_enrolments")
+            .select("subject, board")
+            .eq("student_id", uid)
+            .order("subject", { ascending: true }),
+        ]);
+      // Thrown, not swallowed. This entry is held for ten minutes and nearly
+      // every page reads it, so a single dropped request used to tell an
+      // enrolled student "you're not enrolled in any subjects yet" — on every
+      // page, until it expired. Throwing lets React Query retry and caches
+      // nothing in the meantime.
+      if (profileError) throw profileError;
+      if (enrolError) throw enrolError;
 
       const enrolments = (enrolRows ?? []).map((r) => ({
         subject: r.subject as string,

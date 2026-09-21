@@ -1,4 +1,5 @@
 import { createFileRoute, useNavigate } from "@tanstack/react-router";
+import { useOnboardingUser } from "@/hooks/useOnboardingUser";
 import { useEffect, useState } from "react";
 import { useQueryClient } from "@tanstack/react-query";
 import { toast } from "sonner";
@@ -29,6 +30,7 @@ export const Route = createFileRoute("/onboarding/subjects")({
 
 function SubjectsStep() {
   const navigate = useNavigate();
+  const user = useOnboardingUser();
   const search = Route.useSearch();
   const queryClient = useQueryClient();
   const defaultBoard: BoardV = search.board ?? "edexcel";
@@ -54,11 +56,9 @@ function SubjectsStep() {
   // metadata at signup). Either way every choice stays editable below.
   useEffect(() => {
     (async () => {
-      const { data: u } = await supabase.auth.getUser();
-      if (!u.user) return;
       const [{ data }, { data: profile }] = await Promise.all([
-        supabase.from("student_enrolments").select("subject, board").eq("student_id", u.user.id),
-        supabase.from("profiles").select("level").eq("id", u.user.id).maybeSingle(),
+        supabase.from("student_enrolments").select("subject, board").eq("student_id", user.id),
+        supabase.from("profiles").select("level").eq("id", user.id).maybeSingle(),
       ]);
       if (!search.level && profile?.level) setLevel(profile.level as LevelV);
       if (data?.length) {
@@ -73,7 +73,7 @@ function SubjectsStep() {
         return;
       }
 
-      const intended = u.user.user_metadata?.intended_subjects as string | undefined;
+      const intended = user.user_metadata?.intended_subjects as string | undefined;
       const picked = (intended ?? "")
         .split(",")
         .map((s) => s.trim())
@@ -124,9 +124,6 @@ function SubjectsStep() {
   const handleContinue = async () => {
     setSaving(true);
     try {
-      const { data: u } = await supabase.auth.getUser();
-      if (!u.user) throw new Error("You need to be signed in.");
-
       // Drop de-selected subjects, save the chosen ones, and move
       // `enrolled_courses` in step — all in one transaction.
       //

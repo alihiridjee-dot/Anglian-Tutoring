@@ -56,7 +56,7 @@ export const Route = createFileRoute("/_authenticated/homework")({
 export function HomeworkPage() {
   const { isTutor, userId, loading: rolesLoading } = useRoles();
   const demo = isDemoStudent();
-  const { enrolledCourses, loading: enrolmentsLoading } = useEnrolments();
+  const { enrolledCourses, level, loading: enrolmentsLoading } = useEnrolments();
 
   // Both queries key off role and enrolled subjects, so hold them until those
   // have settled — querying with a half-known identity would filter wrongly.
@@ -65,6 +65,7 @@ export function HomeworkPage() {
   const { data: homework = [], isPending: homeworkPending } = useHomework({
     isTutor,
     subjects: enrolledCourses,
+    level,
     enabled: identityReady,
   });
   // Only a student has submissions to fetch, and only the demo one has them
@@ -141,20 +142,29 @@ function StudentHomework({
   loading: boolean;
   analytics: ReturnType<typeof useAnalytics>["rows"];
 }) {
-  const { enrolledCourses } = useEnrolments();
+  const { enrolledCourses, enrolments } = useEnrolments();
   const [subject, setSubject] = useState<string | null>(null);
   const [bucket, setBucket] = useState<HomeworkBucket>("due");
 
-  const items: HomeworkItem[] = useMemo(
-    () => homework.map((hw) => ({ hw, submission: submissions[hw.id] })),
-    [homework, submissions],
-  );
+  // The student sits each subject with one board. A sheet belongs on this page
+  // if it is for that board, for every board, or already handed in — switching
+  // board must not hide work that has been marked. A subject with no enrolment
+  // row (legacy accounts) has nothing to contradict, so nothing is filtered.
+  const items: HomeworkItem[] = useMemo(() => {
+    const boardOf = new Map(enrolments.map((e) => [e.subject, e.board]));
+    return homework
+      .map((hw) => ({ hw, submission: submissions[hw.id] }))
+      .filter(({ hw, submission }) => {
+        const board = boardOf.get(hw.subject);
+        return !!submission || !hw.board || !board || hw.board === board;
+      });
+  }, [homework, submissions, enrolments]);
 
   // Only the sheets on screen need their question counts, but counting
   // everything at once is still one round trip rather than one per card.
   const { data: summaries = {} } = useHomeworkSummaries(
-    homework.map((h) => h.id),
-    homework.length > 0,
+    items.map((i) => i.hw.id),
+    items.length > 0,
   );
 
   // Only subjects the student sits that actually have homework behind them — a

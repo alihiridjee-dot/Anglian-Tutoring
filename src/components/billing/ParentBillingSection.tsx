@@ -1,6 +1,8 @@
 import { useMemo } from "react";
 import { useQuery } from "@tanstack/react-query";
 import { CreditCard } from "lucide-react";
+import { ErrorNote, Spinner } from "@/components/Shared";
+import { PaymentPending } from "@/components/billing/PaymentPending";
 import { supabase } from "@/integrations/supabase/client";
 import { useChildLinks } from "@/hooks/data/useParentLinks";
 import { useRawPackages, useStudentLevels, useSubscriptions } from "@/hooks/data/useBilling";
@@ -144,16 +146,45 @@ function ChildPlan({
  * billing portal is the one payer-only control, since it is tied to whoever's
  * card the plan sits on.
  */
-export function ParentBillingSection({ parentId }: { parentId: string }) {
-  const { data: children = [], isLoading: childrenLoading } = useChildLinks();
+export function ParentBillingSection({
+  parentId,
+  awaitingPayment = false,
+}: {
+  parentId: string;
+  /** Just back from Checkout: a child with no plan yet may simply not show it yet. */
+  awaitingPayment?: boolean;
+}) {
+  const childrenQuery = useChildLinks();
+  const { data: children = [], isLoading: childrenLoading } = childrenQuery;
   const studentIds = useMemo(() => children.map((c) => c.student_id), [children]);
-  const { data: subs = [] } = useSubscriptions(studentIds);
+  const subsQuery = useSubscriptions(studentIds);
+  const { data: subs = [] } = subsQuery;
   // Children may sit different levels, so prices resolve per child rather than
   // once for the whole tab.
   const { data: allPackages = [] } = useRawPackages();
   const { data: levels = {} } = useStudentLevels(studentIds);
 
-  if (childrenLoading) return null;
+  if (childrenLoading) return <Spinner label="Loading" className="py-8" />;
+
+  // A failed read of either list must not be drawn as its empty state. "No
+  // children linked" hides every plan; "no subscriptions" is worse — it offers a
+  // parent who is already paying the chance to pay for the same child again.
+  const loadError = childrenQuery.error ?? subsQuery.error;
+  if (loadError) {
+    return (
+      <ErrorNote
+        error={loadError}
+        onRetry={() => {
+          void childrenQuery.refetch();
+          void subsQuery.refetch();
+        }}
+      />
+    );
+  }
+  // The plans haven't been read yet, so nothing can be said about who has one.
+  if (children.length > 0 && subsQuery.isPending) {
+    return <Spinner label="Loading" className="py-8" />;
+  }
 
   return (
     <div>
@@ -188,23 +219,28 @@ export function ParentBillingSection({ parentId }: { parentId: string }) {
                     {childName}'s plan
                   </p>
 
-                  {!hasUsablePlan && (
+                  {!hasUsablePlan && awaitingPayment && (
+                    <PaymentPending delayed={false} onRetry={() => undefined} />
+                  )}
+                  {!hasUsablePlan && !awaitingPayment && (
                     <p className="text-sm text-muted-foreground mb-4">
                       {sub
                         ? "Their previous plan has ended. Pick how often you'd like to pay to restart their access."
                         : `${childName} doesn't have an active plan. Pick how often you'd like to pay — you'll use your own card and can manage it here.`}
                     </p>
                   )}
-                  <ChildPlan
-                    studentId={child.student_id}
-                    // A dead subscription is treated as no plan: its controls are
-                    // gone and what's needed is a fresh checkout, not management.
-                    sub={hasUsablePlan ? sub : null}
-                    childName={childName}
-                    packages={packages}
-                    level={levels[child.student_id]}
-                    isPayer={sub?.user_id === parentId}
-                  />
+                  {(hasUsablePlan || !awaitingPayment) && (
+                    <ChildPlan
+                      studentId={child.student_id}
+                      // A dead subscription is treated as no plan: its controls are
+                      // gone and what's needed is a fresh checkout, not management.
+                      sub={hasUsablePlan ? sub : null}
+                      childName={childName}
+                      packages={packages}
+                      level={levels[child.student_id]}
+                      isPayer={sub?.user_id === parentId}
+                    />
+                  )}
                 </div>
               </div>
             );

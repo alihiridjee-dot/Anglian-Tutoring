@@ -109,3 +109,74 @@ export function formatWhen(ms: number) {
   const time = d.toLocaleTimeString(undefined, { hour: "numeric", minute: "2-digit" });
   return `${day} · ${time}`;
 }
+
+/* ---------- When a session is "on" ----------
+ *
+ * One definition, used by the header button, the dashboard banner, the
+ * countdown and the Live Sessions list. Each of the first three kept its own
+ * copy of these numbers, and the list had a different rule altogether: it filed
+ * a session under Previous → "Completed" the second it started, so a student
+ * two minutes late — or a tutor, who gets no countdown — found the lesson they
+ * were trying to join listed as finished, without a Join button.
+ */
+
+export const MINUTE_MS = 60_000;
+export const DAY_MS = 24 * 60 * MINUTE_MS;
+/** Joinable from this long before the start — early enough to settle in. */
+export const JOIN_LEAD_MS = 10 * MINUTE_MS;
+/** …and treated as running for this long after it, which covers a lesson. */
+export const LIVE_TAIL_MS = 90 * MINUTE_MS;
+
+/** The session's start as epoch ms, or null if it has no (valid) start time. */
+export function sessionStartMs(session: Pick<LiveSession, "starts_at">): number | null {
+  if (!session.starts_at) return null;
+  const ms = new Date(session.starts_at).getTime();
+  return Number.isFinite(ms) ? ms : null;
+}
+
+/** True once a session's running window has closed. Undated sessions never have. */
+export function hasSessionFinished(session: Pick<LiveSession, "starts_at">, now: number): boolean {
+  const start = sessionStartMs(session);
+  return start !== null && start + LIVE_TAIL_MS <= now;
+}
+
+export interface SessionTiming {
+  /** Ms until the start; zero or negative once it has begun. */
+  untilStart: number;
+  /** Started, and still inside its running window. */
+  isLive: boolean;
+  /** Not started yet, but starts within 24 hours. */
+  withinDay: boolean;
+  /** Live, or close enough to the start that the room is worth opening. */
+  joinable: boolean;
+}
+
+/** Where `now` sits relative to a dated session. */
+export function sessionTiming(startMs: number, now: number): SessionTiming {
+  const untilStart = startMs - now;
+  const isLive = untilStart <= 0 && now < startMs + LIVE_TAIL_MS;
+  return {
+    untilStart,
+    isLive,
+    withinDay: untilStart > 0 && untilStart <= DAY_MS,
+    joinable: isLive || (untilStart > 0 && untilStart <= JOIN_LEAD_MS),
+  };
+}
+
+/** The soonest dated session that hasn't finished — including one running now. */
+export function nextSession<T extends Pick<LiveSession, "starts_at">>(
+  sessions: readonly T[],
+  now: number,
+): T | null {
+  let best: T | null = null;
+  let bestStart = Infinity;
+  for (const s of sessions) {
+    const start = sessionStartMs(s);
+    if (start === null || start + LIVE_TAIL_MS <= now) continue;
+    if (start < bestStart) {
+      best = s;
+      bestStart = start;
+    }
+  }
+  return best;
+}

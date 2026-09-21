@@ -339,14 +339,17 @@ export class WeeklyPlanDAL {
    *
    * `origins` overrides `origin` per point — how a carry-forward keeps each
    * point in the lane it was already in instead of dropping them all into one.
+   *
+   * Returns how many points passed admissibility and were sent to the plan, so a
+   * caller can tell "added" from "all refused".
    */
   static async addPoints(
     planId: string,
     specPointIds: string[],
     origin: PlanPointOrigin = "student",
     opts: { origins?: Record<string, PlanPointOrigin>; carriedFrom?: string | null } = {},
-  ): Promise<void> {
-    if (specPointIds.length === 0) return;
+  ): Promise<number> {
+    if (specPointIds.length === 0) return 0;
 
     // The plan's own row says whose week this is and which week it is — the two
     // facts the admissibility rule needs and a bare plan id does not carry.
@@ -368,13 +371,14 @@ export class WeeklyPlanDAL {
         carried_from: opts.carriedFrom ?? null,
       })),
     );
-    if (points.length === 0) return;
+    if (points.length === 0) return 0;
 
     const { error } = await supabase.from("student_weekly_plan_points").upsert(
       points.map((p) => ({ plan_id: planId, ...p })),
       { onConflict: "plan_id,spec_point_id", ignoreDuplicates: true },
     );
     if (error) throw error;
+    return points.length;
   }
 
   /**

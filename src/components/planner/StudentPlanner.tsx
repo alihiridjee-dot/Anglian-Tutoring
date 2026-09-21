@@ -199,7 +199,7 @@ export function StudentPlanner({
 
       <div className="p-4 sm:p-5">
         {currentWeek.error ? (
-          <ErrorNote error={currentWeek.error} />
+          <ErrorNote error={currentWeek.error} onRetry={() => void currentWeek.reload()} />
         ) : tab === "topics" ? (
           <TopicsTab
             studentId={studentId}
@@ -208,7 +208,7 @@ export function StudentPlanner({
             subject={active.subject}
           />
         ) : roadQuery.error ? (
-          <ErrorNote error={roadQuery.error} />
+          <ErrorNote error={roadQuery.error} onRetry={() => void roadQuery.refetch()} />
         ) : loading ? (
           <Spinner className="py-12" />
         ) : !data ? (
@@ -341,7 +341,7 @@ function ThisWeekTab({
     refreshKey,
   });
 
-  if (week.error) return <ErrorNote error={week.error} />;
+  if (week.error) return <ErrorNote error={week.error} onRetry={() => void week.reload()} />;
 
   return (
     <div className="space-y-4">

@@ -261,10 +261,10 @@ export function Curriculum() {
 
             <div className="flex flex-wrap items-center gap-2 mb-3">
               <span className="text-[10px] px-2.5 py-1 rounded-full uppercase tracking-wider font-extrabold bg-primary/10 text-primary">
-                {level === "alevel" ? "A-Level" : "GCSE"}
+                {labelOf(LEVELS, level)}
               </span>
               <span className="text-[10px] px-2.5 py-1 rounded-full uppercase tracking-wider font-extrabold bg-accent/10 text-accent">
-                {board.toUpperCase()}
+                {labelOf(BOARDS, board)}
               </span>
               <span className="text-[10px] px-2.5 py-1 rounded-full uppercase tracking-wider font-extrabold bg-secondary text-foreground">
                 {subject.toUpperCase()}

@@ -1,6 +1,8 @@
 import { createFileRoute, Outlet, redirect } from "@tanstack/react-router";
 import { getAuthSession } from "@/lib/auth/session";
+import { whenHydrated } from "@/lib/hydration";
 import { loadGuardState } from "@/lib/auth/guardState";
+import { UserRole } from "@/types/user";
 import { PaywallOverlay } from "@/components/billing/PaywallOverlay";
 import { AuthedRouteError, RoutePending } from "@/components/RouteFallbacks";
 
@@ -35,6 +37,9 @@ import { AuthedRouteError, RoutePending } from "@/components/RouteFallbacks";
 export const Route = createFileRoute("/_authenticated")({
   ssr: false,
   beforeLoad: async ({ location, context }) => {
+    // First, because everything below can redirect — see `@/lib/hydration`.
+    await whenHydrated();
+
     const session = await getAuthSession();
     if (!session.user) {
       throw redirect({ to: "/auth", search: { redirect: location.href } as never });
@@ -43,7 +48,7 @@ export const Route = createFileRoute("/_authenticated")({
     const guard = await loadGuardState(context.queryClient, session.user.id);
 
     let locked = false;
-    if (guard.role === "student") {
+    if (guard.appRole === UserRole.STUDENT) {
       // "Not onboarded" and "couldn't tell" are different answers, and they must
       // not be treated alike. A failed access read used to fall through to the
       // redirect below, which threw a fully onboarded, paying student back to
@@ -66,7 +71,10 @@ export const Route = createFileRoute("/_authenticated")({
       locked = guard.hasAccess === false && !location.pathname.startsWith("/billing");
     }
 
-    return { session, locked };
+    // `viewer` is the resolved identity every child route and page reads — see
+    // `@/lib/routeGuards` and `useViewer`. Nothing below this guard needs to ask
+    // the network who the caller is again.
+    return { session, locked, viewer: guard };
   },
   // No server render here, so without these the first paint was an empty body
   // and a crash on any page took the navigation down with it.

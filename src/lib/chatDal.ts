@@ -110,14 +110,15 @@ export class ChatDAL {
       .from("chat_threads")
       .select(THREAD_COLUMNS)
       .order("last_message_at", { ascending: false });
-    if (error) {
-      console.error("Error loading chat threads:", error);
-      return [];
-    }
+    // Thrown, not turned into []. These reads are polled every twenty seconds,
+    // and React Query keeps the last good data when a refetch *fails* — but an
+    // empty array is a success, so one dropped poll used to replace a full
+    // inbox with "No conversations yet" until the next one came round.
+    if (error) throw new Error(error.message);
     const rows = (threads ?? []) as ChatThread[];
     if (rows.length === 0) return [];
 
-    const [{ data: messages }, tutors] = await Promise.all([
+    const [{ data: messages, error: messagesError }, tutors] = await Promise.all([
       supabase
         .from("chat_messages")
         .select("thread_id, sender_id, body, created_at")
@@ -128,6 +129,9 @@ export class ChatDAL {
         .order("created_at", { ascending: true }),
       ChatDAL.listTutors(),
     ]);
+    // Without the messages every thread would report nothing unread and no
+    // last line — a quiet wrong answer rather than a visible failure.
+    if (messagesError) throw new Error(messagesError.message);
 
     // A tutor's counterpart is the student, so their names come from profiles —
     // which tutors may read. A student's counterpart is the tutor, whose name
@@ -182,10 +186,9 @@ export class ChatDAL {
       .select("id, thread_id, sender_id, body, ai_drafted, created_at")
       .eq("thread_id", threadId)
       .order("created_at", { ascending: true });
-    if (error) {
-      console.error("Error loading chat messages:", error);
-      return [];
-    }
+    // As above: [] here blanked the conversation someone was in the middle of
+    // reading, and brought it back twenty seconds later.
+    if (error) throw new Error(error.message);
     return (data ?? []) as ChatMessage[];
   }
 
@@ -227,7 +230,19 @@ export class ChatDAL {
       .single();
     if (error) throw new Error(error.message);
 
-    await ChatDAL.sendMessage({ threadId: data.id, body: input.body });
+    try {
+      await ChatDAL.sendMessage({ threadId: data.id, body: input.body });
+    } catch (err) {
+      // The student is about to press Send again, and that makes another
+      // thread. Left in place, each failed attempt stacked one more empty
+      // conversation in both inboxes. Best-effort: if this fails too, an empty
+      // thread is still the harmless direction.
+      await supabase.rpc("delete_chat_thread", { p_thread_id: data.id }).then(
+        () => undefined,
+        () => undefined,
+      );
+      throw err;
+    }
     return data.id;
   }
 
@@ -264,10 +279,9 @@ export class ChatDAL {
   /** Total unread across every thread — the sidebar badge. */
   static async unreadCount(): Promise<number> {
     const { data, error } = await supabase.rpc("chat_unread_count");
-    if (error) {
-      console.error("Error loading unread count:", error);
-      return 0;
-    }
+    // Thrown so a failed poll keeps the last count, instead of clearing the
+    // badge off a message that is still waiting.
+    if (error) throw new Error(error.message);
     return Number(data ?? 0);
   }
 }

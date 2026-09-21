@@ -6,19 +6,11 @@ import { useRoles } from "@/hooks/useRole";
 import { useEnrolments } from "@/hooks/data/useEnrolments";
 import { resolveDisplayName } from "@/lib/displayName";
 import { toast } from "sonner";
-import {
-  PlayCircle,
-  ClipboardList,
-  Wrench,
-  ClipboardCheck,
-  ListChecks,
-  CalendarRange,
-} from "lucide-react";
+import { PlayCircle, ClipboardList, Wrench, ClipboardCheck, CalendarRange } from "lucide-react";
 
 import { ThisWeekPanel } from "@/components/tutor/ThisWeekPanel";
 import { VideoForm } from "@/components/tutor/VideoForm";
 import { HomeworkForm } from "@/components/tutor/HomeworkForm";
-import { WeeklyMcqForm } from "@/components/tutor/WeeklyMcqForm";
 import { MarkingQueue } from "@/components/tutor/MarkingQueue";
 import { type SubjectV, type BoardV, type LevelV } from "@/lib/taxonomy";
 
@@ -28,7 +20,7 @@ export const Route = createFileRoute("/_authenticated/tutor")({
 });
 
 type Kind = "video" | "homework";
-type Tab = "this_week" | "marking" | "weekly_mcq" | Kind;
+type Tab = "this_week" | "marking" | Kind;
 
 function useTaxonomy() {
   const [subject, setSubject] = useState<SubjectV>("biology");
@@ -66,7 +58,6 @@ function Tutor() {
     { k: "this_week", label: "This Week", icon: CalendarRange },
     { k: "marking", label: "Marking Queue", icon: ClipboardCheck },
     { k: "video", label: "Add Video", icon: PlayCircle },
-    { k: "weekly_mcq", label: "Weekly MCQ", icon: ListChecks },
     { k: "homework", label: "Set Homework", icon: ClipboardList },
   ];
 
@@ -121,7 +112,6 @@ function Tutor() {
       ) : (
         <div className="max-w-2xl rounded-2xl premium-card p-6">
           {tab === "video" && <VideoForm userId={userId!} taxonomy={taxonomy} />}
-          {tab === "weekly_mcq" && <WeeklyMcqForm userId={userId!} taxonomy={taxonomy} />}
           {tab === "homework" && <HomeworkForm userId={userId!} taxonomy={taxonomy} />}
         </div>
       )}

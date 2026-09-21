@@ -437,7 +437,7 @@ export function AwaitingMark({ releaseAt }: { releaseAt: string | null }) {
         <p className="font-display font-bold">Handed in — being marked</p>
         <p className="text-muted-foreground mt-0.5 text-sm leading-relaxed">
           {minutes != null && minutes > 0
-            ? `Your marks and feedback should appear in about ${minutes} minute${minutes === 1 ? "" : "s"} — refresh the page then.`
+            ? `Your marks and feedback should appear here in about ${minutes} minute${minutes === 1 ? "" : "s"}.`
             : "Your marks and feedback will appear here shortly."}
         </p>
       </div>
