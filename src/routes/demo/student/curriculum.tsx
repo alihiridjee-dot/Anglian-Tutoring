@@ -1,5 +1,5 @@
 import { createFileRoute } from "@tanstack/react-router";
-import { Curriculum } from "@/routes/_authenticated/curriculum";
+import { Curriculum } from "@/components/curriculum/CurriculumPage";
 import { validateCurriculumSearch } from "@/lib/curriculum/curriculumParams";
 
 // Showcase mount: the real page component, rendered outside the auth guard.
