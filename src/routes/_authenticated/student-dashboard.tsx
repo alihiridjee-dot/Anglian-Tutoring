@@ -26,8 +26,14 @@ export const Route = createFileRoute("/_authenticated/student-dashboard")({
  *   for its sales chat; a real student's dashboard passes nothing. Keeping it a
  *   slot rather than an `isDemoStudent()` branch in the body means demo-only UI
  *   stays in the demo route, where it cannot leak into a paying student's page.
+ * @param weekPlan Replaces the live weekly plan. Only the showcase passes it —
+ *   with a fixture plan — because the live panel saves plans and generates
+ *   practice, which must never run without a student behind it.
  */
-export function StudentDashboard({ afterContent }: { afterContent?: ReactNode } = {}) {
+export function StudentDashboard({
+  afterContent,
+  weekPlan,
+}: { afterContent?: ReactNode; weekPlan?: ReactNode } = {}) {
   const { email } = useRoles();
   const { enrolledCourses, enrolments, level, displayName: profileName } = useEnrolments();
   // This is a student-only surface (see the guard above), so the student whose
@@ -45,7 +51,7 @@ export function StudentDashboard({ afterContent }: { afterContent?: ReactNode } 
     <AppLayout title="Student Dashboard">
       {/* Slim welcome ribbon — name on the left, the student's actual level and
           per-subject exam boards on the right. */}
-      <div className="relative mb-6">
+      <div data-tour="welcome" className="relative mb-6">
         <Mascot
           name="star"
           mood="proud"
@@ -75,19 +81,28 @@ export function StudentDashboard({ afterContent }: { afterContent?: ReactNode } 
 
       {/* Live sessions — hoisted out of the "This Week" hub into its own banner so
           it stands apart from the study plan below. */}
-      <LiveSessionsBanner />
+      <div data-tour="live-banner">
+        <LiveSessionsBanner />
+      </div>
 
       {/* Saved weekly assignments, assessed practice, and end-of-week feedback. */}
-      {effectiveStudentId && level && (
-        <div className="mt-6">
-          <WeeklyPlanPanel studentId={effectiveStudentId} enrolments={enrolments} level={level} />
-        </div>
+      {weekPlan ? (
+        <div className="mt-6">{weekPlan}</div>
+      ) : (
+        effectiveStudentId &&
+        level && (
+          <div className="mt-6">
+            <WeeklyPlanPanel studentId={effectiveStudentId} enrolments={enrolments} level={level} />
+          </div>
+        )
       )}
 
       {/* "This Week" hub — the curriculum focus the tutor set for the current
           Mon–Sun week, plus curated videos and links to homework, MCQs and live
           sessions. Live strip suppressed here since it now has its own banner. */}
-      <WeeklyFocusCard subjects={enrolledCourses} showLive={false} />
+      <div data-tour="tutor-focus">
+        <WeeklyFocusCard subjects={enrolledCourses} showLive={false} />
+      </div>
 
       {afterContent}
     </AppLayout>

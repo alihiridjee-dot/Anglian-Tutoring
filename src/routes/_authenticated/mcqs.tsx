@@ -5,13 +5,13 @@ import { EmptyState, ErrorNote, SectionHeading, Spinner, SubjectToggle } from "@
 import { AppLayout } from "@/components/AppLayout";
 import { supabase } from "@/integrations/supabase/client";
 import { ChevronRight, ChevronDown, CalendarClock, CheckCircle2 } from "lucide-react";
-import { isDemoStudent, DEMO_MCQ_SETS } from "@/lib/demo/studentDemo";
+import { isDemoStudent, DEMO_MCQ, DEMO_MCQ_ATTEMPTS, DEMO_MCQ_SETS } from "@/lib/demo/studentDemo";
 import { useRoles } from "@/hooks/useRole";
 import { useEnrolments } from "@/hooks/data/useEnrolments";
 import { McqManager } from "@/components/tutor/McqManager";
 import { SUBJECT_TINT, subjectLabel } from "@/lib/subjectTheme";
 import { selectIn, selectInHistory } from "@/lib/db/chunked";
-import { currentWeekKey, plannerDateLabel, toDateKey, weekRangeLabel, mondayOf } from "@/lib/week";
+import { currentWeekKey, plannerDateLabel, weekRangeLabel, mondayOf } from "@/lib/week";
 
 export const Route = createFileRoute("/_authenticated/mcqs")({
   beforeLoad: guardStudentSection,
@@ -92,9 +92,9 @@ function StudentMCQs() {
   useEffect(() => {
     let cancelled = false;
     (async () => {
-      // The showcase has no session, so it renders fixtures. A demo set counts
-      // as "this week" if it was written this week — the plan tables it would
-      // otherwise read are empty without a student behind them.
+      // The showcase has no session, so it renders fixtures and nothing else —
+      // no read of `mcq_sets`, no attempts, and nothing that could reach quiz
+      // generation. Each fixture says whether it is on this week's plan.
       if (isDemoStudent()) {
         if (cancelled) return;
         setSets(
@@ -108,17 +108,12 @@ function StudentMCQs() {
             specCode: s.specPoint,
             topicId: s.topic,
             topicTitle: s.topic,
-            topicSort: 0,
-            questionCount: 0,
+            topicSort: s.topicSort,
+            questionCount: DEMO_MCQ[s.id]?.questions.length ?? 0,
           })),
         );
-        setThisWeekPoints(
-          new Set(
-            DEMO_MCQ_SETS.filter((s) => toDateKey(new Date(s.created_at)) >= currentWeekKey()).map(
-              (s) => s.id,
-            ),
-          ),
-        );
+        setThisWeekPoints(new Set(DEMO_MCQ_SETS.filter((s) => s.thisWeek).map((s) => s.id)));
+        setAttempts(DEMO_MCQ_ATTEMPTS);
         setLoading(false);
         return;
       }

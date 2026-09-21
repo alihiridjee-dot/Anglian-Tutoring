@@ -17,7 +17,12 @@ import { GradePredictorCard } from "@/components/parent/GradePredictorCard";
 import { EngagementStats } from "@/components/parent/EngagementStats";
 import { FeedbackList } from "@/components/parent/FeedbackList";
 import { isDemoMode } from "@/lib/auth/session";
-import { DEMO_PARENT_NAME } from "@/lib/demo/studentDemo";
+import {
+  DEMO_ANALYTICS,
+  DEMO_HOMEWORK,
+  DEMO_PARENT_NAME,
+  DEMO_SUBMISSIONS,
+} from "@/lib/demo/studentDemo";
 import { resolveDisplayName } from "@/lib/displayName";
 import { Suspense, lazy, useState } from "react";
 import { Users } from "lucide-react";
@@ -45,75 +50,47 @@ export const Route = createFileRoute("/_authenticated/parent-dashboard")({
 /* ---------- Demo fixtures: only the session-less /demo/* showcase sees these.
    A real parent session below this block renders live data exclusively. ---- */
 
-const DEMO_ANALYTICS_ROWS = [
-  {
-    subject: "biology",
-    mcqAttempts: 12,
-    mcqAverage: 88,
-    hwGraded: 6,
-    hwAverage: 84,
-    predictedGrade: 8,
-  },
-  {
-    subject: "chemistry",
-    mcqAttempts: 10,
-    mcqAverage: 79,
-    hwGraded: 5,
-    hwAverage: 76,
-    predictedGrade: 7,
-  },
-  {
-    subject: "physics",
-    mcqAttempts: 8,
-    mcqAverage: 82,
-    hwGraded: 4,
-    hwAverage: 80,
-    predictedGrade: 7,
-  },
-];
+// The parent sees the same child the student showcase shows: grades, marks and
+// feedback all come from the student fixtures, so the two demos agree.
+const DEMO_ANALYTICS_ROWS = DEMO_ANALYTICS;
 
 const DEMO_TRENDS: WeeklyTrendPoint[] = [
-  { biology: 72, chemistry: 68, physics: 60 },
-  { biology: 78, chemistry: 70, physics: 62 },
-  { biology: 80, chemistry: 72, physics: 58 },
-  { biology: 85, chemistry: 74, physics: 60 },
-  { biology: 84, chemistry: 76, physics: 62 },
-  { biology: 88, chemistry: 78, physics: 65 },
+  { biology: 78, chemistry: 70, physics: 58 },
+  { biology: 82, chemistry: 72, physics: 64 },
+  { biology: 80, chemistry: 76, physics: 60 },
+  { biology: 86, chemistry: 78, physics: 68 },
+  { biology: 88, chemistry: 81, physics: 71 },
+  { biology: 91, chemistry: 83, physics: 76 },
 ].map((averages, i) => ({
   weekStart: `demo-${i}`,
   label: `Wk ${i + 1}`,
   averages,
 }));
 
+// Four pieces of set homework in the student demo; three are handed in and the
+// fourth isn't due yet.
 const DEMO_ENGAGEMENT = {
   sessionsHeld: 16,
   sessionsAttended: 15,
-  homeworkSet: 6,
-  homeworkSubmitted: 6,
+  homeworkSet: DEMO_HOMEWORK.filter((h) => h.due_at).length,
+  homeworkSubmitted: DEMO_HOMEWORK.filter((h) => h.due_at && DEMO_SUBMISSIONS[h.id]).length,
 };
 
-const DEMO_FEEDBACK = [
-  {
-    id: "demo-1",
-    subject: "biology",
-    homeworkTitle: "Respiration structures",
-    feedback:
-      "Alex did brilliantly with human respiration structures. Perfect recall on the circulatory cycles and metabolic calculations.",
-    grade: "A",
-    scorePct: 92,
-    gradedAt: new Date(Date.now() - 4 * 86_400_000).toISOString(),
-  },
-  {
-    id: "demo-2",
-    subject: "physics",
-    homeworkTitle: "Electromagnetism quiz",
-    feedback:
-      "Electromagnetism showed high understanding (92%). Reacting extremely well to mock paper practice guides. Keep it up!",
-    grade: "A",
-    scorePct: 92,
-    gradedAt: new Date(Date.now() - 7 * 86_400_000).toISOString(),
-  },
-];
+const DEMO_FEEDBACK = DEMO_HOMEWORK.flatMap((h) => {
+  const sub = DEMO_SUBMISSIONS[h.id];
+  if (!sub?.feedback || !sub.graded_at) return [];
+  return [
+    {
+      id: sub.id,
+      subject: h.subject,
+      homeworkTitle: h.title,
+      feedback: sub.feedback,
+      grade: sub.grade,
+      scorePct: sub.score_pct,
+      gradedAt: sub.graded_at,
+    },
+  ];
+}).sort((a, b) => b.gradedAt.localeCompare(a.gradedAt));
 
 export function ParentDashboard() {
   const { email } = useRoles();
@@ -152,7 +129,10 @@ export function ParentDashboard() {
   return (
     <AppLayout title="Parent Portal">
       {/* Welcome Banner */}
-      <div className="rounded-2xl bg-gradient-to-br from-primary to-primary-deep text-primary-foreground p-8 mb-8 relative overflow-hidden shadow-sm">
+      <div
+        data-tour="parent-welcome"
+        className="rounded-2xl bg-gradient-to-br from-primary to-primary-deep text-primary-foreground p-8 mb-8 relative overflow-hidden shadow-sm"
+      >
         <div
           className="absolute inset-0 opacity-10"
           style={{
@@ -215,18 +195,28 @@ export function ParentDashboard() {
       ) : (
         <div className="grid grid-cols-1 lg:grid-cols-3 gap-8">
           <div className="lg:col-span-2 space-y-8">
-            <GradePredictorCard analytics={analytics} />
-            <Suspense
-              fallback={
-                <div className="premium-card h-[22rem] animate-pulse rounded-2xl bg-secondary/40" />
-              }
-            >
-              <TrendsChart points={trends} subjects={trendSubjects} />
-            </Suspense>
+            <div data-tour="parent-grades">
+              <GradePredictorCard analytics={analytics} />
+            </div>
+            <div data-tour="parent-trends">
+              <Suspense
+                fallback={
+                  <div className="premium-card h-[22rem] animate-pulse rounded-2xl bg-secondary/40" />
+                }
+              >
+                <TrendsChart points={trends} subjects={trendSubjects} />
+              </Suspense>
+            </div>
           </div>
           <div className="space-y-8">
-            {engagement && <EngagementStats engagement={engagement} childName={childName} />}
-            <FeedbackList items={feedback} />
+            {engagement && (
+              <div data-tour="parent-engagement">
+                <EngagementStats engagement={engagement} childName={childName} />
+              </div>
+            )}
+            <div data-tour="parent-feedback">
+              <FeedbackList items={feedback} />
+            </div>
           </div>
         </div>
       )}

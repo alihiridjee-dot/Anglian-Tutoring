@@ -78,28 +78,28 @@ const DEMO_PLANS: WeeklyFocusPlan[] = [
     subject: "biology",
     board: "edexcel",
     level: "gcse",
-    note: "Focus on exchange surfaces before Thursday's live session.",
+    note: "Focus on exchange surfaces before this week's live session.",
     summary:
-      "This week you'll get to grips with how substances move in and out of cells — diffusion, osmosis and active transport — and why a cell's surface area matters so much. It's the groundwork for understanding how your body absorbs what it needs, so nailing it now will pay off across the whole topic.",
+      "This week you'll get to grips with how substances move in and out of cells — diffusion, osmosis and active transport — and then look again at photosynthesis, where your last quiz dropped a mark on limiting factors. Both come up in the 6-mark questions we'll practise in this week's live session.",
     points: [
       {
         id: "d1",
-        code: "4.1",
+        code: "4.1.3",
         title: "Diffusion, osmosis and active transport",
-        topicLabel: "4 · Transport",
+        topicLabel: "B1 · Cell Biology",
       },
-      { id: "d2", code: "4.3", title: "Surface area to volume ratio", topicLabel: "4 · Transport" },
+      { id: "d2", code: "4.4.1", title: "Photosynthesis", topicLabel: "B4 · Bioenergetics" },
     ],
   },
   {
     id: "demo-focus-chem",
     subject: "chemistry",
-    board: "edexcel",
+    board: "aqa",
     level: "gcse",
     note: null,
     summary:
       "This week is all about ionic bonding — how metals and non-metals swap electrons to form charged ions that stick together in giant lattices. Once it clicks, you'll be able to explain why salts like sodium chloride behave the way they do.",
-    points: [{ id: "d3", code: "2.2", title: "Ionic bonding", topicLabel: "2 · Bonding" }],
+    points: [{ id: "d3", code: "5.2.1", title: "Ionic bonding", topicLabel: "C2 · Bonding" }],
   },
 ];
 

@@ -44,6 +44,8 @@ import { Route as AuthenticatedBillingRouteImport } from './routes/_authenticate
 import { Route as DemoStudentRouteRouteImport } from './routes/demo/student/route'
 import { Route as DemoParentRouteRouteImport } from './routes/demo/parent/route'
 import { Route as DemoStudentVideosRouteImport } from './routes/demo/student/videos'
+import { Route as DemoStudentPlannerRouteImport } from './routes/demo/student/planner'
+import { Route as DemoStudentMessagesRouteImport } from './routes/demo/student/messages'
 import { Route as DemoStudentMcqsRouteImport } from './routes/demo/student/mcqs'
 import { Route as DemoStudentLiveRouteImport } from './routes/demo/student/live'
 import { Route as DemoStudentHomeworkRouteImport } from './routes/demo/student/homework'
@@ -232,6 +234,16 @@ const DemoStudentVideosRoute = DemoStudentVideosRouteImport.update({
   path: '/videos',
   getParentRoute: () => DemoStudentRouteRoute,
 } as any)
+const DemoStudentPlannerRoute = DemoStudentPlannerRouteImport.update({
+  id: '/planner',
+  path: '/planner',
+  getParentRoute: () => DemoStudentRouteRoute,
+} as any)
+const DemoStudentMessagesRoute = DemoStudentMessagesRouteImport.update({
+  id: '/messages',
+  path: '/messages',
+  getParentRoute: () => DemoStudentRouteRoute,
+} as any)
 const DemoStudentMcqsRoute = DemoStudentMcqsRouteImport.update({
   id: '/mcqs',
   path: '/mcqs',
@@ -327,6 +339,8 @@ export interface FileRoutesByFullPath {
   '/demo/student/homework': typeof DemoStudentHomeworkRoute
   '/demo/student/live': typeof DemoStudentLiveRoute
   '/demo/student/mcqs': typeof DemoStudentMcqsRoute
+  '/demo/student/messages': typeof DemoStudentMessagesRoute
+  '/demo/student/planner': typeof DemoStudentPlannerRoute
   '/demo/student/videos': typeof DemoStudentVideosRoute
   '/demo/student/homework/$homeworkId': typeof DemoStudentHomeworkHomeworkIdRoute
   '/demo/student/mcq/$setId': typeof DemoStudentMcqSetIdRoute
@@ -372,6 +386,8 @@ export interface FileRoutesByTo {
   '/demo/student/homework': typeof DemoStudentHomeworkRoute
   '/demo/student/live': typeof DemoStudentLiveRoute
   '/demo/student/mcqs': typeof DemoStudentMcqsRoute
+  '/demo/student/messages': typeof DemoStudentMessagesRoute
+  '/demo/student/planner': typeof DemoStudentPlannerRoute
   '/demo/student/videos': typeof DemoStudentVideosRoute
   '/demo/student/homework/$homeworkId': typeof DemoStudentHomeworkHomeworkIdRoute
   '/demo/student/mcq/$setId': typeof DemoStudentMcqSetIdRoute
@@ -420,6 +436,8 @@ export interface FileRoutesById {
   '/demo/student/homework': typeof DemoStudentHomeworkRoute
   '/demo/student/live': typeof DemoStudentLiveRoute
   '/demo/student/mcqs': typeof DemoStudentMcqsRoute
+  '/demo/student/messages': typeof DemoStudentMessagesRoute
+  '/demo/student/planner': typeof DemoStudentPlannerRoute
   '/demo/student/videos': typeof DemoStudentVideosRoute
   '/demo/student/homework_/$homeworkId': typeof DemoStudentHomeworkHomeworkIdRoute
   '/demo/student/mcq/$setId': typeof DemoStudentMcqSetIdRoute
@@ -468,6 +486,8 @@ export interface FileRouteTypes {
     | '/demo/student/homework'
     | '/demo/student/live'
     | '/demo/student/mcqs'
+    | '/demo/student/messages'
+    | '/demo/student/planner'
     | '/demo/student/videos'
     | '/demo/student/homework/$homeworkId'
     | '/demo/student/mcq/$setId'
@@ -513,6 +533,8 @@ export interface FileRouteTypes {
     | '/demo/student/homework'
     | '/demo/student/live'
     | '/demo/student/mcqs'
+    | '/demo/student/messages'
+    | '/demo/student/planner'
     | '/demo/student/videos'
     | '/demo/student/homework/$homeworkId'
     | '/demo/student/mcq/$setId'
@@ -560,6 +582,8 @@ export interface FileRouteTypes {
     | '/demo/student/homework'
     | '/demo/student/live'
     | '/demo/student/mcqs'
+    | '/demo/student/messages'
+    | '/demo/student/planner'
     | '/demo/student/videos'
     | '/demo/student/homework_/$homeworkId'
     | '/demo/student/mcq/$setId'
@@ -824,6 +848,20 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof DemoStudentVideosRouteImport
       parentRoute: typeof DemoStudentRouteRoute
     }
+    '/demo/student/planner': {
+      id: '/demo/student/planner'
+      path: '/planner'
+      fullPath: '/demo/student/planner'
+      preLoaderRoute: typeof DemoStudentPlannerRouteImport
+      parentRoute: typeof DemoStudentRouteRoute
+    }
+    '/demo/student/messages': {
+      id: '/demo/student/messages'
+      path: '/messages'
+      fullPath: '/demo/student/messages'
+      preLoaderRoute: typeof DemoStudentMessagesRouteImport
+      parentRoute: typeof DemoStudentRouteRoute
+    }
     '/demo/student/mcqs': {
       id: '/demo/student/mcqs'
       path: '/mcqs'
@@ -988,6 +1026,8 @@ interface DemoStudentRouteRouteChildren {
   DemoStudentHomeworkRoute: typeof DemoStudentHomeworkRoute
   DemoStudentLiveRoute: typeof DemoStudentLiveRoute
   DemoStudentMcqsRoute: typeof DemoStudentMcqsRoute
+  DemoStudentMessagesRoute: typeof DemoStudentMessagesRoute
+  DemoStudentPlannerRoute: typeof DemoStudentPlannerRoute
   DemoStudentVideosRoute: typeof DemoStudentVideosRoute
   DemoStudentHomeworkHomeworkIdRoute: typeof DemoStudentHomeworkHomeworkIdRoute
   DemoStudentMcqSetIdRoute: typeof DemoStudentMcqSetIdRoute
@@ -999,6 +1039,8 @@ const DemoStudentRouteRouteChildren: DemoStudentRouteRouteChildren = {
   DemoStudentHomeworkRoute: DemoStudentHomeworkRoute,
   DemoStudentLiveRoute: DemoStudentLiveRoute,
   DemoStudentMcqsRoute: DemoStudentMcqsRoute,
+  DemoStudentMessagesRoute: DemoStudentMessagesRoute,
+  DemoStudentPlannerRoute: DemoStudentPlannerRoute,
   DemoStudentVideosRoute: DemoStudentVideosRoute,
   DemoStudentHomeworkHomeworkIdRoute: DemoStudentHomeworkHomeworkIdRoute,
   DemoStudentMcqSetIdRoute: DemoStudentMcqSetIdRoute,

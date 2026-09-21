@@ -37,6 +37,7 @@ import { usePlannerRoadmap } from "@/hooks/data/usePlanner";
 import { courseSchedule, type CourseSchedule } from "@/lib/planner/pointSchedule";
 import { currentWeekKey } from "@/lib/week";
 import { VideoModal, VideoThumbnail } from "@/components/VideoPlayer";
+import { isDemoStudent } from "@/lib/demo/studentDemo";
 import { parseVideoUrl, type VideoEmbed } from "@/lib/videoEmbed";
 import { SpecPointVideoEditor, type EditableVideo } from "@/components/tutor/SpecPointVideoEditor";
 import {
@@ -1132,7 +1133,7 @@ function SpecPointDetail({
                   <div className="flex items-center gap-2 shrink-0">
                     {(s.published || isTutor) && (
                       <Link
-                        to="/mcq/$setId"
+                        to={isDemoStudent() ? "/demo/student/mcq/$setId" : "/mcq/$setId"}
                         params={{ setId: s.id }}
                         className="text-xs px-2.5 py-1.5 rounded-lg border border-border bg-background hover:border-primary/50 text-foreground font-medium transition"
                       >
@@ -1259,7 +1260,9 @@ function SpecPointDetail({
               <div className="flex items-start justify-between gap-2 text-sm font-semibold text-foreground leading-snug">
                 <span className="font-semibold">{r.title}</span>
                 <Link
-                  to="/homework/$homeworkId"
+                  to={
+                    isDemoStudent() ? "/demo/student/homework/$homeworkId" : "/homework/$homeworkId"
+                  }
                   params={{ homeworkId: r.id }}
                   className="text-[10px] px-2 py-0.5 rounded bg-secondary text-foreground hover:bg-primary hover:text-primary-foreground font-bold transition"
                 >
