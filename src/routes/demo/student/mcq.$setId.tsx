@@ -1,5 +1,5 @@
 import { createFileRoute } from "@tanstack/react-router";
-import { TakeMcq } from "@/routes/_authenticated/mcq.$setId";
+import { TakeMcq } from "@/components/mcq/TakeMcqPage";
 
 // Showcase mount: the real page component, rendered outside the auth guard.
 // isDemoMode() keys off the /demo/* pathname, so every query inside short-circuits

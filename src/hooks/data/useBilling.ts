@@ -14,7 +14,7 @@ import {
   type Invoice,
   type PackageRow,
   type SubscriptionRow,
-} from "@/lib/billing";
+} from "@/lib/billing/billing";
 
 /** All billing reads sit under this prefix, so one invalidate refreshes it. */
 export const BILLING_KEY = ["billing"] as const;

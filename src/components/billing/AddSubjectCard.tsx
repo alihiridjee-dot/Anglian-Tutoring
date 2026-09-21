@@ -1,17 +1,24 @@
 import { useMemo, useState } from "react";
 import { Loader2, Plus, Sparkles, TrendingUp, Check } from "lucide-react";
 import { toast } from "sonner";
-import { SUBJECTS, BOARDS, isBoard, isLevel, isSubject, type BoardV } from "@/lib/taxonomy";
+import {
+  SUBJECTS,
+  BOARDS,
+  isBoard,
+  isLevel,
+  isSubject,
+  type BoardV,
+} from "@/lib/curriculum/taxonomy";
 import { usePackages, useAddSubjects } from "@/hooks/data/useBilling";
 import { useCurriculumCoverage } from "@/hooks/data/useCurriculumCoverage";
-import { formatPence } from "@/lib/billing";
+import { formatPence } from "@/lib/billing/billing";
 import {
   planCadence,
   planSubjectCount,
   tierFor,
   CADENCES,
   PLAN_MAX_SUBJECTS,
-} from "@/lib/entitlements";
+} from "@/lib/billing/entitlements";
 
 interface AddSubjectCardProps {
   /** subscriptions.student_id whose plan is being grown. */

@@ -1,7 +1,7 @@
 import { useState } from "react";
 import { toast } from "sonner";
 import { Send, PhoneCall, Mail } from "lucide-react";
-import { submitContactLead } from "@/lib/contactLead.functions";
+import { submitContactLead } from "@/lib/leads/contactLead.functions";
 
 export function ContactSection() {
   const [name, setName] = useState("");

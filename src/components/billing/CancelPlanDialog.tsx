@@ -9,7 +9,7 @@ import {
   X,
   XCircle,
 } from "lucide-react";
-import { BILLING_FEEDBACK_REASONS } from "@/lib/billingFeedback";
+import { BILLING_FEEDBACK_REASONS } from "@/lib/billing/billingFeedback";
 
 /** The exact word the user has to type before the cancel button unlocks. */
 const CONFIRM_WORD = "CANCEL";

@@ -1,5 +1,5 @@
 import { RefreshCw } from "lucide-react";
-import { PLANNER_TIME_ZONE, weekKeyToDate } from "@/lib/week";
+import { PLANNER_TIME_ZONE, weekKeyToDate } from "@/lib/planner/week";
 import { type PacingChange } from "@/lib/planner/pacing";
 
 /**

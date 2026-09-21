@@ -1,5 +1,5 @@
 import { createFileRoute } from "@tanstack/react-router";
-import { StudentDashboard } from "@/routes/_authenticated/student-dashboard";
+import { StudentDashboard } from "@/components/dashboard/StudentDashboardPage";
 import { DemoSalesChat } from "@/components/demo/DemoSalesChat";
 import { DemoWeekPlan } from "@/components/demo/DemoWeekPlan";
 

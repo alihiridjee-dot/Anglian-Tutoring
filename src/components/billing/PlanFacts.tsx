@@ -7,7 +7,7 @@ import {
   Layers,
 } from "lucide-react";
 import type { LucideIcon } from "lucide-react";
-import type { CourseSummary } from "@/lib/courseSummary";
+import type { CourseSummary } from "@/lib/curriculum/courseSummary";
 
 interface FactTileProps {
   icon: LucideIcon;

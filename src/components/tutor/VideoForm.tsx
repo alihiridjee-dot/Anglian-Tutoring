@@ -6,7 +6,7 @@ import { Field, inputCls, submitBtn } from "./Field";
 import { TaxonomyFields } from "./TaxonomyFields";
 import { SpecPointSelect } from "./SpecPointSelect";
 import { UseWeeklyFocusButton } from "./UseWeeklyFocusButton";
-import { type SubjectV, type BoardV, type LevelV } from "@/lib/taxonomy";
+import { type SubjectV, type BoardV, type LevelV } from "@/lib/curriculum/taxonomy";
 
 interface VideoFormProps {
   userId: string;

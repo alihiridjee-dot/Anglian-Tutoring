@@ -10,7 +10,7 @@ import {
 } from "lucide-react";
 import { Meter } from "@/components/Shared";
 import { cn } from "@/lib/utils";
-import { plannerDateLabel, weekKeyToDate } from "@/lib/week";
+import { plannerDateLabel, weekKeyToDate } from "@/lib/planner/week";
 import type { PointWhen } from "@/lib/planner/pointSchedule";
 
 const WHEN_STYLE: Record<

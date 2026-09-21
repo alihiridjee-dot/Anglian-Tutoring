@@ -1,6 +1,6 @@
 import { useState } from "react";
 import { Loader2, PauseCircle, X } from "lucide-react";
-import { BILLING_FEEDBACK_REASONS } from "@/lib/billingFeedback";
+import { BILLING_FEEDBACK_REASONS } from "@/lib/billing/billingFeedback";
 
 interface PlanFeedbackDialogProps {
   /**

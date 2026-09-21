@@ -25,7 +25,7 @@ import {
   type PointOrigin,
   type RejectionReason,
 } from "../src/lib/planner/admissibility";
-import { assessmentPointScores } from "../src/lib/scheduleDal";
+import { assessmentPointScores } from "../src/lib/planner/scheduleDal";
 import { sourcesFromRows } from "../src/lib/planner/attemptSources";
 import type { CourseSnapshot } from "../src/lib/planner/readModels";
 import { practiceInWeek } from "../src/lib/planner/coverage";

@@ -13,7 +13,7 @@ import {
   type FocusCandidate,
   type PacingBand,
 } from "./pacing";
-import { addWeeks, mondayOf, toDateKey, weekKeyToDate } from "@/lib/week";
+import { addWeeks, mondayOf, toDateKey, weekKeyToDate } from "@/lib/planner/week";
 
 const currentMonday = mondayOf(new Date("2026-09-07T00:00:00+01:00"));
 const examMonday = mondayOf(new Date("2027-06-07T00:00:00+01:00")); // ~39 weeks out

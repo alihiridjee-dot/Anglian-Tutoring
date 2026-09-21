@@ -7,11 +7,11 @@ import {
   type WeeklyFocusPlan,
 } from "@/hooks/data/useWeeklyFocus";
 import { isDemoStudent } from "@/lib/demo/studentDemo";
-import { currentWeekKey, mondayOf, weekRangeLabel } from "@/lib/week";
-import { parseVideoUrl } from "@/lib/videoEmbed";
+import { currentWeekKey, mondayOf, weekRangeLabel } from "@/lib/planner/week";
+import { parseVideoUrl } from "@/lib/curriculum/videoEmbed";
 import { VideoThumbnail, VideoModal } from "@/components/VideoPlayer";
 import { LiveSessionsBanner } from "@/components/live/LiveSessionsBanner";
-import { levelLabel, subjectLabel } from "@/lib/courseSummary";
+import { levelLabel, subjectLabel } from "@/lib/curriculum/courseSummary";
 import { Spinner } from "@/components/Shared";
 
 /**

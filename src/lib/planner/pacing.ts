@@ -1,4 +1,4 @@
-import { mondayOf, addWeeks, toDateKey, weekKeyToDate } from "@/lib/week";
+import { mondayOf, addWeeks, toDateKey, weekKeyToDate } from "@/lib/planner/week";
 
 /**
  * Curriculum pacing — the year-long "programme" view. Given the course's topics

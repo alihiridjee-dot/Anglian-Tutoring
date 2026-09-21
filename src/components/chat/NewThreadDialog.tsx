@@ -3,7 +3,7 @@ import { Loader2, MessageSquarePlus, X } from "lucide-react";
 import { toast } from "sonner";
 import { useStartThread, useTutorDirectory } from "@/hooks/data/useChat";
 import { ContextPicker } from "@/components/chat/ContextPicker";
-import { EMPTY_CONTEXT, type ChatContextSelection } from "@/lib/chatContext";
+import { EMPTY_CONTEXT, type ChatContextSelection } from "@/lib/chat/chatContext";
 
 interface Props {
   /** Pre-attach something the student was already looking at. */

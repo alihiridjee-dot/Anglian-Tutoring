@@ -3,7 +3,7 @@ import { useNavigate } from "@tanstack/react-router";
 import { useQueryClient } from "@tanstack/react-query";
 import { toast } from "sonner";
 import { supabase } from "@/integrations/supabase/client";
-import { clearAllDrafts } from "@/lib/homeworkDrafts";
+import { clearAllDrafts } from "@/lib/homework/homeworkDrafts";
 
 /**
  * Signs the user out and clears every cached row on the way.

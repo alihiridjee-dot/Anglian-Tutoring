@@ -4,16 +4,16 @@ import { ErrorNote } from "@/components/Shared";
 import { useMemo, useState } from "react";
 import { toast } from "sonner";
 import { Sparkles, CalendarRange, ChevronLeft, ChevronRight, Undo2 } from "lucide-react";
-import { WeeklyPlanDAL, type PlanPoint } from "@/lib/weeklyPlanDal";
-import { type Enrolment } from "@/hooks/data/useEnrolments";
-import { type SubjectV, type BoardV, type LevelV } from "@/lib/taxonomy";
-import { currentWeekKey, mondayOf, addWeeks, toDateKey, weekRangeLabel } from "@/lib/week";
+import { WeeklyPlanDAL, type PlanPoint } from "@/lib/planner/weeklyPlanDal";
+import { type Enrolment } from "@/lib/profile/enrolment";
+import { type SubjectV, type BoardV, type LevelV } from "@/lib/curriculum/taxonomy";
+import { currentWeekKey, mondayOf, addWeeks, toDateKey, weekRangeLabel } from "@/lib/planner/week";
 import { carryOrigin } from "@/lib/planner/coverage";
 import { ThisWeekPanel } from "./ThisWeekPanel";
 import { DoNowPanel } from "./DoNowPanel";
 import { useWeekPlan } from "./useWeekPlan";
 import { WeekReview } from "./WeekReview";
-import { subjectLabel } from "@/lib/courseSummary";
+import { subjectLabel } from "@/lib/curriculum/courseSummary";
 
 /**
  * The dashboard's "this week": subject tabs and week navigation around the

@@ -1,4 +1,4 @@
-import { addWeeks, currentWeekKey, mondayOf, toDateKey, weekKeyToDate } from "../week";
+import { addWeeks, currentWeekKey, mondayOf, toDateKey, weekKeyToDate } from "./week";
 import {
   computePacing,
   isTeachBand,

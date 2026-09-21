@@ -1,6 +1,6 @@
 import { useQuery } from "@tanstack/react-query";
 import { supabase } from "@/integrations/supabase/client";
-import { mondayOf, toDateKey } from "@/lib/week";
+import { mondayOf, toDateKey } from "@/lib/planner/week";
 
 /**
  * Real progress data for one student, read by a linked parent (or the student

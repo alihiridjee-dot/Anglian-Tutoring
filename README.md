@@ -38,7 +38,7 @@ The kit mixes against a single inherited `--tint`, so a card, its meter, its
 chips, its icon tile and its shadow are one colour without any of them naming
 it. Set the tint on an ancestor and the subtree repaints:
 
-- `SUBJECT_TINT[subject]` from `src/lib/subjectTheme.ts` for the three sciences
+- `SUBJECT_TINT[subject]` from `src/lib/curriculum/subjectTheme.ts` for the three sciences
   (`--bio` green, `--chem` violet, `--phys` blue)
 - `tint-primary`, `tint-accent`, `tint-pop`, `tint-rose`, `tint-amber`,
   `tint-emerald`, `tint-slate` for everything else
@@ -75,8 +75,8 @@ rule, so `tracking-widest` on a small uppercase label wins as intended.
 
 ## Exam question generation
 
-The framework lives in `src/lib/examGeneration.ts`; its database and Claude calls
-live in `src/lib/examGeneration.server.ts`. Both the written-homework generators
+The framework lives in `src/lib/homework/examGeneration.ts`; its database and Claude calls
+live in `src/lib/homework/examGeneration.server.ts`. Both the written-homework generators
 (including automatic planner homework) and all three MCQ generators use it.
 There is one model call per generated set for a specification point. Existing
 publishing paths and the reuse of already-generated homework are retained.
@@ -147,7 +147,7 @@ hits depend on the provider's minimum prompt length and cache lifetime.
 
 ### Verification
 
-Run `bun test src/lib/examGeneration.test.ts src/lib/examGeneration.server.test.ts`
+Run `bun test src/lib/homework/examGeneration.test.ts src/lib/homework/examGeneration.server.test.ts`
 for reference selection, context isolation, fallback and mocked API checks.
 Use a representative sample to compare future prompt/model versions before
 deployment. Runtime validation cannot guarantee exam accuracy.

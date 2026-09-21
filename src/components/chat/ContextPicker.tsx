@@ -2,11 +2,12 @@ import { Spinner } from "@/components/Shared";
 import { useEffect, useMemo, useState } from "react";
 import { BookMarked, ClipboardList, ListChecks, MessageSquare, X } from "lucide-react";
 import { supabase } from "@/integrations/supabase/client";
-import { CurriculumDAL, type SpecPointMatch } from "@/lib/curriculumDal";
+import { CurriculumDAL } from "@/lib/curriculum/curriculumDal";
+import type { SpecPointMatch } from "@/lib/curriculum/types";
 import { useEnrolments } from "@/hooks/data/useEnrolments";
-import { subjectLabel } from "@/lib/courseSummary";
-import { EMPTY_CONTEXT, type ChatContextSelection } from "@/lib/chatContext";
-import type { BoardV, LevelV, SubjectV } from "@/lib/taxonomy";
+import { subjectLabel } from "@/lib/curriculum/courseSummary";
+import { EMPTY_CONTEXT, type ChatContextSelection } from "@/lib/chat/chatContext";
+import type { BoardV, LevelV, SubjectV } from "@/lib/curriculum/taxonomy";
 
 /**
  * What the question is about: a spec point, a homework, a quiz, or nothing.

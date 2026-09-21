@@ -5,10 +5,10 @@ import { ChevronDown, ClipboardList, Clock, Eye, Pencil, Trash2 } from "lucide-r
 
 import { Spinner } from "@/components/Shared";
 import { HomeworkForm } from "@/components/tutor/HomeworkForm";
-import { deleteHomework } from "@/lib/homework.functions";
-import { SUBJECT_LABEL } from "@/lib/subjectTheme";
-import type { Homework, HomeworkOrigin } from "@/hooks/data/useHomework";
-import { type SubjectV, type BoardV, type LevelV } from "@/lib/taxonomy";
+import { deleteHomework } from "@/lib/homework/homework.functions";
+import { SUBJECT_LABEL } from "@/lib/curriculum/subjectTheme";
+import type { Homework, HomeworkOrigin } from "@/lib/homework/types";
+import { type SubjectV, type BoardV, type LevelV } from "@/lib/curriculum/taxonomy";
 
 /**
  * Every homework that exists, for the tutor who has to keep it honest.

@@ -1,7 +1,7 @@
 import { useQuery } from "@tanstack/react-query";
 import { supabase } from "@/integrations/supabase/client";
-import { Coverage, type CoverageRow } from "@/lib/curriculumCoverage";
-import type { SubjectV, BoardV, LevelV } from "@/lib/taxonomy";
+import { Coverage, type CoverageRow } from "@/lib/curriculum/curriculumCoverage";
+import type { SubjectV, BoardV, LevelV } from "@/lib/curriculum/taxonomy";
 
 export { Coverage, type CoverageRow };
 

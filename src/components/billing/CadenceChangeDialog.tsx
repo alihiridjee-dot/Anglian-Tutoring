@@ -1,6 +1,6 @@
 import { CalendarClock, Loader2, X } from "lucide-react";
 import { useCadenceQuote } from "@/hooks/data/useBilling";
-import { formatPence } from "@/lib/billing";
+import { formatPence } from "@/lib/billing/billing";
 
 interface CadenceChangeDialogProps {
   studentId: string;

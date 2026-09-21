@@ -1,4 +1,4 @@
-import type { WithheldPlanPoint } from "@/lib/weeklyPlanDal";
+import type { WithheldPlanPoint } from "@/lib/planner/weeklyPlanDal";
 import type { PointCoverage } from "@/lib/planner/coverage";
 import { describeReason } from "@/lib/planner/admissibility";
 

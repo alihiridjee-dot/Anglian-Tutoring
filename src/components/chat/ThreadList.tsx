@@ -1,6 +1,6 @@
 import { useState } from "react";
 import { BookMarked, ChevronRight, ClipboardList, ListChecks, MessageSquare } from "lucide-react";
-import type { ChatContextKind } from "@/lib/chatDal";
+import type { ChatContextKind } from "@/lib/chat/chatDal";
 import type { ThreadSummary } from "@/hooks/data/useChat";
 
 const CONTEXT_ICON: Record<ChatContextKind, typeof MessageSquare> = {

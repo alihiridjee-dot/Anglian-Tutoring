@@ -20,7 +20,7 @@ import {
   type InviteOutcome,
   type LinkChildOutcome,
 } from "@/hooks/data/useParentLinks";
-import { validateEmail } from "@/lib/validation";
+import { validateEmail } from "@/lib/auth/validation";
 
 export const Route = createFileRoute("/_authenticated/parents")({
   head: () => ({ meta: [{ title: "Linked Parents | Anglia Educate" }] }),

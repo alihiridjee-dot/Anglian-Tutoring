@@ -12,7 +12,7 @@ import {
   Repeat,
 } from "lucide-react";
 import { EmptyState, SectionHeading } from "@/components/Shared";
-import type { RoadmapResult } from "@/lib/programDal";
+import type { RoadmapResult } from "@/lib/planner/roadmap";
 import { isTeachBand, withWeeklyPoints } from "@/lib/planner/pacing";
 import { byTopic } from "@/lib/planner/backlog";
 import {
@@ -22,7 +22,7 @@ import {
   toDateKey,
   weekKeyToDate,
   weekRangeLabel,
-} from "@/lib/week";
+} from "@/lib/planner/week";
 import { PointRow, BarePointRow } from "./PointRow";
 
 const dateLabel = (key: string) =>

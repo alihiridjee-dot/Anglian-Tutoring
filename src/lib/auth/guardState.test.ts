@@ -1,4 +1,4 @@
-import { beforeEach, describe, expect, mock, test } from "bun:test";
+import { afterAll, beforeEach, describe, expect, mock, test } from "bun:test";
 import { QueryClient } from "@tanstack/react-query";
 import { UserRole } from "@/types/user";
 
@@ -17,23 +17,42 @@ const net = {
   accessCalls: 0,
 };
 
+const fakeSupabase = {
+  from: (table: string) => ({
+    select: () => ({
+      eq: () =>
+        table === "profiles"
+          ? { maybeSingle: () => Promise.resolve(net.profile) }
+          : Promise.resolve(net.roles),
+    }),
+  }),
+  rpc: () => ({
+    single: () => {
+      net.accessCalls += 1;
+      return Promise.resolve(net.access);
+    },
+  }),
+};
+
+/**
+ * Bun's module mocks are process-wide and are never undone, so a plain fake
+ * here becomes the client every later test file receives. It answers only
+ * while this file's tests run, then hands back to the real client.
+ */
+const { supabase: realSupabase } = await import("@/integrations/supabase/client");
+let faking = true;
+afterAll(() => {
+  faking = false;
+});
+
 mock.module("@/integrations/supabase/client", () => ({
-  supabase: {
-    from: (table: string) => ({
-      select: () => ({
-        eq: () =>
-          table === "profiles"
-            ? { maybeSingle: () => Promise.resolve(net.profile) }
-            : Promise.resolve(net.roles),
-      }),
-    }),
-    rpc: () => ({
-      single: () => {
-        net.accessCalls += 1;
-        return Promise.resolve(net.access);
-      },
-    }),
-  },
+  supabase: new Proxy(realSupabase, {
+    get(real, key) {
+      if (faking && key in fakeSupabase) return fakeSupabase[key as keyof typeof fakeSupabase];
+      const value = Reflect.get(real, key);
+      return typeof value === "function" ? value.bind(real) : value;
+    },
+  }),
 }));
 
 const { loadGuardState, resolveAppRole } = await import("./guardState");

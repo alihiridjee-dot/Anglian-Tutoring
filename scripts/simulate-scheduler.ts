@@ -6,7 +6,7 @@ import {
   type Grade,
 } from "../src/lib/planner/scheduler";
 import { projectReviews, type FocusCandidate } from "../src/lib/planner/pacing";
-import { addWeeks, toDateKey } from "../src/lib/week";
+import { addWeeks, toDateKey } from "../src/lib/planner/week";
 
 // Synthetic evidence, not student predictions. All skills weigh one unit.
 const start = new Date(2026, 8, 7);

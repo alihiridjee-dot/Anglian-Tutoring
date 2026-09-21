@@ -3,7 +3,7 @@ import { motion, AnimatePresence } from "motion/react";
 import { GraduationCap, Award, Star, X, Send, MessageCircle } from "lucide-react";
 // Shared WhatsApp number (same as the floating button). The pre-filled message
 // names the tutor so we know who the enquiry is about.
-import { whatsappLink } from "@/lib/whatsapp";
+import { whatsappLink } from "@/lib/leads/whatsapp";
 
 const TUTORS = [
   {

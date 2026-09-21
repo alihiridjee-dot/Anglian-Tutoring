@@ -1,6 +1,6 @@
 import { isDemoMode, getDemoRole } from "@/lib/auth/session";
-import type { SubjectAnalytics } from "@/hooks/data/useAnalytics";
-import type { Topic, SpecPoint, Resource, McqSet } from "@/lib/curriculumDal";
+import type { SubjectAnalytics } from "@/lib/profile/analytics";
+import type { Topic, SpecPoint, Resource, McqSet } from "@/lib/curriculum/types";
 
 /**
  * Demo-student isolation layer.

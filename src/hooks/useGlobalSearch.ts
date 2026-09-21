@@ -2,7 +2,7 @@ import { useEffect, useMemo, useState } from "react";
 import { useQuery } from "@tanstack/react-query";
 import { useRoles } from "@/hooks/useRole";
 import { useEnrolments } from "@/hooks/data/useEnrolments";
-import { useEntitlements } from "@/lib/entitlements";
+import { useEntitlements } from "@/hooks/data/useEntitlements";
 import { isDemoMode, getDemoRole } from "@/lib/auth/session";
 import { runGlobalSearch, type SearchSection } from "@/lib/search/globalSearch";
 import { MIN_QUERY_LENGTH, queryTerms } from "@/lib/search/match";

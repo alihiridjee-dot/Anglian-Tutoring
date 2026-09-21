@@ -10,9 +10,14 @@ import { AppLayout } from "@/components/AppLayout";
 import { Field, inputCls, submitBtn } from "@/components/tutor/Field";
 import { supabase } from "@/integrations/supabase/client";
 import { useAvatarUrl } from "@/hooks/data/useAvatar";
-import { AVATAR_ACCEPT, AVATAR_BUCKET, avatarObjectPath, prepareAvatar } from "@/lib/avatar";
-import { resolveInitials } from "@/lib/displayName";
-import { firstError, validateEmail, validatePassword, validatePhone } from "@/lib/validation";
+import {
+  AVATAR_ACCEPT,
+  AVATAR_BUCKET,
+  avatarObjectPath,
+  prepareAvatar,
+} from "@/lib/profile/avatar";
+import { resolveInitials } from "@/lib/profile/displayName";
+import { firstError, validateEmail, validatePassword, validatePhone } from "@/lib/auth/validation";
 
 export const Route = createFileRoute("/_authenticated/profile")({
   head: () => ({ meta: [{ title: "Profile | Anglia Educate" }] }),

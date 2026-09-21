@@ -8,9 +8,9 @@ import { toast } from "sonner";
 import { ClipboardCheck, Clock, Inbox, Loader2, MessageSquare } from "lucide-react";
 import { AnswerMarkingList } from "./AnswerMarking";
 import { useAnswerMarking } from "@/hooks/data/useAnswerMarking";
-import type { SubjectV, BoardV, LevelV } from "@/lib/taxonomy";
-import { subjectLabel } from "@/lib/courseSummary";
-import { gradeFromPct } from "@/hooks/data/useAnalytics";
+import type { SubjectV, BoardV, LevelV } from "@/lib/curriculum/taxonomy";
+import { subjectLabel } from "@/lib/curriculum/courseSummary";
+import { gradeFromPct } from "@/lib/profile/analytics";
 
 /** Derived lifecycle status for a submission. */
 type SubmissionStatus = "PENDING_REVIEW" | "GRADED";

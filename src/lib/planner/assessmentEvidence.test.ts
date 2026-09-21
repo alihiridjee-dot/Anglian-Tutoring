@@ -1,5 +1,5 @@
 import { describe, expect, test } from "bun:test";
-import { assessmentPointScores, foldReviews, type ReviewEvent } from "@/lib/scheduleDal";
+import { assessmentPointScores, foldReviews, type ReviewEvent } from "@/lib/planner/scheduleDal";
 import { Rating } from "./scheduler";
 
 describe("assessment evidence", () => {

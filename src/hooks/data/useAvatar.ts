@@ -1,6 +1,6 @@
 import { useQuery } from "@tanstack/react-query";
 import { supabase } from "@/integrations/supabase/client";
-import { AVATAR_BUCKET, AVATAR_URL_TTL_SECONDS } from "@/lib/avatar";
+import { AVATAR_BUCKET, AVATAR_URL_TTL_SECONDS } from "@/lib/profile/avatar";
 
 /** Re-sign a minute before expiry, so a URL is never handed out already dead. */
 const REFRESH_MARGIN_SECONDS = 60;

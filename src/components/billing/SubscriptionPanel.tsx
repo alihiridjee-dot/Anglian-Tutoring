@@ -1,15 +1,15 @@
 import { useState } from "react";
 import { ExternalLink, Loader2, PauseCircle, PlayCircle, ShieldCheck, XCircle } from "lucide-react";
 import { toast } from "sonner";
-import { isSubscriptionLive, openBillingPortal, type BillingReturnTo } from "@/lib/billing";
+import { isSubscriptionLive, openBillingPortal, type BillingReturnTo } from "@/lib/billing/billing";
 import { useManageSubscription } from "@/hooks/data/useBilling";
 import { usePageRestore } from "@/hooks/usePageRestore";
 import { PlanFeedbackDialog } from "@/components/billing/PlanFeedbackDialog";
 import { CancelPlanDialog } from "@/components/billing/CancelPlanDialog";
 import { PlanFacts } from "@/components/billing/PlanFacts";
-import { recordBillingFeedback } from "@/lib/billingFeedback";
-import type { CourseSummary } from "@/lib/courseSummary";
-import type { SubscriptionRow } from "@/lib/billing";
+import { recordBillingFeedback } from "@/lib/billing/billingFeedback";
+import type { CourseSummary } from "@/lib/curriculum/courseSummary";
+import type { SubscriptionRow } from "@/lib/billing/billing";
 
 interface SubscriptionPanelProps {
   sub: SubscriptionRow;

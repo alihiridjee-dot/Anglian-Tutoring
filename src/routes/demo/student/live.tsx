@@ -1,5 +1,5 @@
 import { createFileRoute } from "@tanstack/react-router";
-import { Live } from "@/routes/_authenticated/live";
+import { Live } from "@/components/live/LivePage";
 
 // Showcase mount: the real page component, rendered outside the auth guard.
 // isDemoMode() keys off the /demo/* pathname, so every query inside short-circuits

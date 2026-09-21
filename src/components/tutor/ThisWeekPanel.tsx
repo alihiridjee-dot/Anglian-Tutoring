@@ -1,7 +1,7 @@
 import { CalendarClock } from "lucide-react";
 import { WeeklyFocusManager } from "./WeeklyFocusManager";
 import { LiveForm } from "./LiveForm";
-import type { SubjectV, BoardV, LevelV } from "@/lib/taxonomy";
+import type { SubjectV, BoardV, LevelV } from "@/lib/curriculum/taxonomy";
 
 interface Props {
   userId: string;

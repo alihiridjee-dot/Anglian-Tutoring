@@ -14,8 +14,15 @@ import {
   MessagesSquare,
 } from "lucide-react";
 import { supabase } from "@/integrations/supabase/client";
-import { buildAuthedNav } from "@/lib/nav";
-import { SUBJECTS, BOARDS, LEVELS, type SubjectV, type BoardV, type LevelV } from "@/lib/taxonomy";
+import { buildAuthedNav } from "@/lib/shell/nav";
+import {
+  SUBJECTS,
+  BOARDS,
+  LEVELS,
+  type SubjectV,
+  type BoardV,
+  type LevelV,
+} from "@/lib/curriculum/taxonomy";
 import {
   DEMO_CURRICULUM_TOPICS,
   DEMO_CURRICULUM_SPEC_POINTS,

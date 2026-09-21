@@ -1,4 +1,4 @@
-import { addWeeks, weekKeyToDate } from "@/lib/week";
+import { addWeeks, weekKeyToDate } from "@/lib/planner/week";
 
 // The coverage loop: at the end of a week we look at what the student actually
 // did on each spec point in the plan — homework submissions and MCQ attempts,

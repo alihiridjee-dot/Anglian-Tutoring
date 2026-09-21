@@ -1,7 +1,7 @@
 import { useEffect, useId, useRef, useState } from "react";
 import { ArrowUpLeft, Info } from "lucide-react";
 import type { BacklogPoint } from "@/lib/planner/backlog";
-import { plannerDateLabel, weekKeyToDate } from "@/lib/week";
+import { plannerDateLabel, weekKeyToDate } from "@/lib/planner/week";
 
 /** Topic context opens only from the information button. */
 export function ReturningTopicInfo({

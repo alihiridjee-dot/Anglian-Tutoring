@@ -1,6 +1,6 @@
 import { Sparkles } from "lucide-react";
-import type { SubjectAnalytics } from "@/hooks/data/useAnalytics";
-import { subjectLabel, subjectTint } from "@/lib/subjectTheme";
+import type { SubjectAnalytics } from "@/lib/profile/analytics";
+import { subjectLabel, subjectTint } from "@/lib/curriculum/subjectTheme";
 
 /**
  * Predicted GCSE grades per subject, from real quiz and homework averages.

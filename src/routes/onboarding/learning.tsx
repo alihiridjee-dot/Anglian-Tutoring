@@ -7,7 +7,7 @@ import {
   LEARNING_QUESTIONS,
   DEFAULT_LEARNING_RESPONSES,
   type LearningResponses,
-} from "@/lib/onboarding";
+} from "@/lib/auth/onboarding";
 import { StepCard } from "@/components/onboarding/StepCard";
 
 /**

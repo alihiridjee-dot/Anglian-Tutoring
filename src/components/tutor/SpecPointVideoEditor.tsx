@@ -12,8 +12,8 @@ import { useEffect, useState } from "react";
 import { supabase } from "@/integrations/supabase/client";
 import { toast } from "sonner";
 import { Loader2, Link2Off, Trash2, ShieldCheck, ShieldAlert, X } from "lucide-react";
-import { parseVideoUrl } from "@/lib/videoEmbed";
-import { type SubjectV, type BoardV, type LevelV } from "@/lib/taxonomy";
+import { parseVideoUrl } from "@/lib/curriculum/videoEmbed";
+import { type SubjectV, type BoardV, type LevelV } from "@/lib/curriculum/taxonomy";
 import { Field, inputCls, submitBtn } from "./Field";
 
 export interface EditableVideo {

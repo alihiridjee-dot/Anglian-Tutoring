@@ -67,33 +67,54 @@ For authentication & the live/demo session model, see [docs/AUTHENTICATION.md](d
     │       ├── client.ts           # Browser/SSR client (publishable key)
     │       └── types.ts            # Generated DB types (supabase gen types)
     │
-    ├── lib/
+    ├── lib/                   # One folder per domain. lib/ never imports hooks/, components/ or routes/
+    │   ├── auth/
+    │   │   ├── session.ts     # Typed AuthSession — single source of truth for live/demo
+    │   │   ├── guardState.ts  # THE viewer: role + access, resolved once, cached a minute
+    │   │   ├── routeGuards.ts # Role guards — read `context.viewer`, never the network
+    │   │   ├── hydration.ts   # whenHydrated — guards wait for it before redirecting on a deep link
+    │   │   ├── onboarding.ts  # Profile setup steps between verifying an email and payment
+    │   │   └── validation.ts  # Dependency-free field validators for account forms
+    │   ├── billing/           # Plan labels and prices, cancel/pause feedback, plan-tier arithmetic
+    │   ├── chat/
+    │   │   ├── chatDal.ts     # Data access layer — student<->tutor threads/messages
+    │   │   ├── chatContext.ts # What a new question is attached to while being composed
+    │   │   └── chatDraft.functions.ts # Server fn: AI draft of a tutor reply (tutor-only)
+    │   ├── curriculum/
+    │   │   ├── types.ts       # Topic, SpecPoint, Resource, McqSet row shapes
+    │   │   ├── curriculumDal.ts # Data access layer — ALL curriculum reads (DB only)
+    │   │   ├── curriculumSyncService.ts # Parses spec text → inserts topics/points/MCQ sets
+    │   │   ├── taxonomy.ts    # Subjects, boards, levels
+    │   │   ├── courseSummary.ts # Level/board/subject labels — the ONLY place they're spelled
+    │   │   └── …              # coverage, URL params, subject theme, video embeds, spec-point suggestions
+    │   ├── homework/          # Row types, list buckets, drafts, question builder, exam generation, server fns
+    │   ├── mcq/
+    │   │   ├── mcq.functions.ts # Server fn: AI MCQ generation (tutor-only)
+    │   │   └── mcqAnswers.ts  # A half-finished quiz's answers, kept across a reload
     │   ├── planner/           # Pure FSRS/pacing/coverage/admissibility, RPC adapters, query keys
-    │   ├── programDal.ts      # Fixed teaching + eligible reviews; programme persistence
-    │   ├── scheduleDal.ts     # Graded-source reconstruction; no client-written memory
-    │   ├── weeklyPlanDal.ts   # Saved assignments, weekly activity/coverage and tutor roster
-    │   ├── week.ts            # Europe/London calendar keys and DST-aware weekly boundaries
-    │   ├── auth/session.ts    # Typed AuthSession — single source of truth for live/demo
-    │   ├── auth/guardState.ts # THE viewer: role + access, resolved once, cached a minute
-    │   ├── routeGuards.ts     # Role guards — read `context.viewer`, never the network
-    │   ├── hydration.ts       # whenHydrated — guards wait for it before redirecting on a deep link
-    │   ├── errors.ts          # describeError — Supabase errors are plain objects, not Errors
-    │   ├── mcqAnswers.ts      # A half-finished quiz's answers, kept across a reload
-    │   ├── chatDal.ts         # Data access layer — student<->tutor threads/messages
-    │   ├── chatDraft.functions.ts # Server fn: AI draft of a tutor reply (tutor-only)
-    │   ├── courseSummary.ts   # Level/board/subject labels — the ONLY place they're spelled
-    │   ├── curriculumDal.ts   # Data access layer — ALL curriculum reads (DB only)
-    │   ├── curriculumSyncService.ts # Parses spec text → inserts topics/points/MCQ sets
+    │   │   ├── programDal.ts  # Fixed teaching + eligible reviews; programme persistence
+    │   │   ├── scheduleDal.ts # Graded-source reconstruction; no client-written memory
+    │   │   ├── roadmap.ts     # buildRoadmap — the pure core loadRoadmap calls; no network, no clock
+    │   │   ├── weeklyPlanDal.ts # Saved assignments: admission, reads and writes of the week itself
+    │   │   ├── weeklyActivityDal.ts # Delivery ledger, per-point activity and weekly coverage (reads)
+    │   │   ├── weeklyNotesDal.ts # Student check-in and tutor note on a week
+    │   │   ├── plannerRosterDal.ts # Tutor planner lookups: students and spec-point labels
+    │   │   └── week.ts        # Europe/London calendar keys and DST-aware weekly boundaries
+    │   ├── live/              # Live-session timing rule, Zoom and session-blurb server fns
+    │   ├── leads/
+    │   │   ├── whatsapp.ts    # The public WhatsApp number + wa.me links
+    │   │   └── whatsappLead.functions.ts # Server fn: demo sales chat → leads + WhatsApp
+    │   ├── profile/           # Enrolment + role types, avatar prep, display name, grade analytics
+    │   ├── shell/             # Sidebar navigation model and page guides
+    │   ├── platform/
+    │   │   ├── errors.ts      # describeError — Supabase errors are plain objects, not Errors
+    │   │   ├── error-capture.ts # Catastrophic SSR error reporting bounds
+    │   │   ├── error-page.ts  # Fail-safe SSR error layout page
+    │   │   ├── rateLimit.ts   # In-memory sliding window, for endpoints with no caller
+    │   │   └── db/            # Chunked `in (...)` selects
     │   ├── demo/studentDemo.ts # Showcase fixtures — no account, no session
-    │   ├── error-capture.ts   # Catastrophic SSR error reporting bounds
-    │   ├── rateLimit.ts       # In-memory sliding window, for endpoints with no caller
-    │   ├── whatsapp.ts        # The public WhatsApp number + wa.me links
-    │   ├── whatsappLead.functions.ts # Server fn: demo sales chat → leads + WhatsApp
-    │   ├── error-page.ts      # Fail-safe SSR error layout page
-    │   ├── mcq.functions.ts   # Server fn: AI MCQ generation (tutor-only)
-    │   ├── taxonomy.ts        # Subjects, boards, levels
-    │   ├── validation.ts      # Dependency-free field validators for account forms
-    │   └── utils.ts           # Classnames merging utility
+    │   ├── search/            # Global search matching, ranking and result types
+    │   └── utils.ts           # Classnames merging utility (path pinned by components.json)
     │
     ├── routes/                # File-based routing (TanStack Start)
     │   ├── __root.tsx         # Global base wrapper (meta tags, Toaster)
@@ -176,7 +197,7 @@ Testing this path means signing in as the test student (`123@123.com`) — the
 
 ## 🎥 When a live session is "on"
 
-One rule, in `lib/liveSessions.ts` (`sessionTiming`, `nextSession`,
+One rule, in `lib/live/liveSessions.ts` (`sessionTiming`, `nextSession`,
 `hasSessionFinished`): joinable from 10 minutes before the start, running for 90
 minutes after it. The header button, the dashboard banner, the countdown and the
 Live Sessions list all read it. The list used to compare against the start time
@@ -271,13 +292,18 @@ The engine has four layers, with deliberately separate responsibilities:
    `planner/pacing.ts` allocates teaching and eligible reviews;
    `planner/coverage.ts` evaluates activity within a particular assigned week;
    `planner/admissibility.ts` decides whether a point may be assigned in a week at
-   all.
+   all; `planner/roadmap.ts` (`buildRoadmap`) turns what was read into the roadmap.
    Teaching uses the entire pre-exam window. Reviews have no weekly count/weight
    cap, but retain the 168-hour minimum and next London Monday opening.
 3. **Data composition:** `ScheduleDAL` reconstructs memory from homework grades
    and immutable quiz snapshots, excluding historical confidence and the retired
    client-writable ledger. `ProgramDAL` combines that progress with programme dates
-   and saved assignments. `WeeklyPlanDAL` owns weekly assignment persistence.
+   and saved assignments: `loadRoadmap` only reads, calls `buildRoadmap`, and seeds
+   the baseline on the student's own first view. `WeeklyPlanDAL` owns weekly
+   assignment persistence; `WeeklyActivityDAL` reads what was delivered and covered;
+   `WeeklyNotesDAL` holds the check-in and tutor note; `PlannerRosterDAL` serves the
+   tutor's lookups. DALs call each other through their class (`WeeklyPlanDAL.getPlan`),
+   never by direct function reference, so a test can replace any one of them.
 4. **React Query:** `planner/queries.ts` owns keys scoped by student, subject,
    board, level and week. Student, dashboard and tutor views share these keys.
    Progress is reused by roadmap, memory and practice-history queries. Grading
@@ -334,7 +360,7 @@ exam-horizon problems; a weekly workload alert needs a separately agreed thresho
 
 ### Validation
 
-`bun test src/lib/planner src/lib/db src/lib/programDal.test.ts src/lib/week.test.ts`
+`bun test src/lib/planner src/lib/platform/db`
 covers scheduling, pagination, query deduplication/invalidation and UK calendar
 boundaries (including viewers in UTC, New York and Tokyo). Run the isolated SQL
 fixture with the command documented in `scripts/test-planner-read-models.ts`.

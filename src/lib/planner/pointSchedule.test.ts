@@ -1,7 +1,7 @@
 import { describe, expect, test } from "bun:test";
 import { courseSchedule } from "./pointSchedule";
 import type { PacingBand } from "./pacing";
-import type { ProgressPoint, TopicProgress } from "@/lib/scheduleDal";
+import type { ProgressPoint, TopicProgress } from "@/lib/planner/scheduleDal";
 
 const point = (id: string, assessability = "unassessable") =>
   ({ id, code: id, title: id, weight: 1, assessability }) as unknown as ProgressPoint;

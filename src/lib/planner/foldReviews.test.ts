@@ -1,5 +1,5 @@
 import { describe, expect, test } from "bun:test";
-import { foldReviews, reviewKey, type ReviewEvent } from "@/lib/scheduleDal";
+import { foldReviews, reviewKey, type ReviewEvent } from "@/lib/planner/scheduleDal";
 import { applyReview, type Card, type Grade } from "@/lib/planner/scheduler";
 
 /**

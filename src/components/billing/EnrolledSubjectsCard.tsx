@@ -1,16 +1,23 @@
 import { useState } from "react";
 import { BookOpen, Loader2, MinusCircle } from "lucide-react";
 import { toast } from "sonner";
-import { SUBJECTS, BOARDS, isLevel, isSubject, type BoardV, type SubjectV } from "@/lib/taxonomy";
+import {
+  SUBJECTS,
+  BOARDS,
+  isLevel,
+  isSubject,
+  type BoardV,
+  type SubjectV,
+} from "@/lib/curriculum/taxonomy";
 import { usePackages, useRemoveSubjects } from "@/hooks/data/useBilling";
 import { useUpdateEnrolmentBoard } from "@/hooks/data/useEnrolments";
 import { useCurriculumCoverage } from "@/hooks/data/useCurriculumCoverage";
-import { formatPence } from "@/lib/billing";
-import { levelLabel } from "@/lib/courseSummary";
-import { planCadence, tierFor, CADENCES } from "@/lib/entitlements";
+import { formatPence } from "@/lib/billing/billing";
+import { levelLabel } from "@/lib/curriculum/courseSummary";
+import { planCadence, tierFor, CADENCES } from "@/lib/billing/entitlements";
 import { RemoveSubjectDialog } from "@/components/billing/RemoveSubjectDialog";
 import { SwitchBoardDialog } from "@/components/billing/SwitchBoardDialog";
-import { recordBillingFeedback } from "@/lib/billingFeedback";
+import { recordBillingFeedback } from "@/lib/billing/billingFeedback";
 
 interface EnrolledSubjectsCardProps {
   /** subscriptions.student_id whose plan these subjects sit on. */

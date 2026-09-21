@@ -1,8 +1,8 @@
 import { queryOptions, type QueryClient } from "@tanstack/react-query";
-import { ProgramDAL } from "@/lib/programDal";
-import { ScheduleDAL } from "@/lib/scheduleDal";
-import { currentWeekKey } from "@/lib/week";
-import type { SubjectV, BoardV, LevelV } from "@/lib/taxonomy";
+import { ProgramDAL } from "@/lib/planner/programDal";
+import { ScheduleDAL } from "@/lib/planner/scheduleDal";
+import { currentWeekKey } from "@/lib/planner/week";
+import type { SubjectV, BoardV, LevelV } from "@/lib/curriculum/taxonomy";
 
 export interface PlannerCourse {
   studentId: string;

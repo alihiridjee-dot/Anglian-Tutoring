@@ -1,6 +1,6 @@
 import { ChevronDown, HelpCircle, Repeat } from "lucide-react";
 import { type PacingBand } from "@/lib/planner/pacing";
-import { type TopicProgress } from "@/lib/scheduleDal";
+import { type TopicProgress } from "@/lib/planner/scheduleDal";
 import { PointRow, BarePointRow } from "./PointRow";
 import { FOCUSED_TOPICS_BLURB, FOCUS_TONES, FOCUS_TONE_ORDER, focusTone } from "./focusMeta";
 

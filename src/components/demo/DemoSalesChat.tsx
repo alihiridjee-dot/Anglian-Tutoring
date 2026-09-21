@@ -1,8 +1,8 @@
 import { useEffect, useRef, useState } from "react";
 import { Check, Loader2, Send, ShieldCheck } from "lucide-react";
 import { toast } from "sonner";
-import { sendWhatsAppLead } from "@/lib/whatsappLead.functions";
-import { whatsappLink } from "@/lib/whatsapp";
+import { sendWhatsAppLead } from "@/lib/leads/whatsappLead.functions";
+import { whatsappLink } from "@/lib/leads/whatsapp";
 
 /**
  * The showcase's message box — the demo's counterpart to a student's tutor chat.

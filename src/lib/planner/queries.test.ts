@@ -1,7 +1,7 @@
 import { expect, test, spyOn } from "bun:test";
 import { QueryClient } from "@tanstack/react-query";
-import { ScheduleDAL } from "@/lib/scheduleDal";
-import { ProgramDAL } from "@/lib/programDal";
+import { ScheduleDAL } from "@/lib/planner/scheduleDal";
+import { ProgramDAL } from "@/lib/planner/programDal";
 import { progressQuery, roadmapQuery, memoryQuery, courseKey, invalidatePlanner } from "./queries";
 import { missingPlannerRpc } from "./readModels";
 

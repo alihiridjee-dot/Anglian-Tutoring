@@ -1,10 +1,10 @@
 import { useState } from "react";
 import { toast } from "sonner";
 import { History, Loader2, Plus } from "lucide-react";
-import { WeeklyPlanDAL } from "@/lib/weeklyPlanDal";
+import { WeeklyPlanDAL } from "@/lib/planner/weeklyPlanDal";
 import { type TopicBacklog } from "@/lib/planner/backlog";
-import { type SubjectV, type BoardV, type LevelV } from "@/lib/taxonomy";
-import { PLANNER_TIME_ZONE, weekKeyToDate } from "@/lib/week";
+import { type SubjectV, type BoardV, type LevelV } from "@/lib/curriculum/taxonomy";
+import { PLANNER_TIME_ZONE, weekKeyToDate } from "@/lib/planner/week";
 
 function fmtWeek(key: string): string {
   return weekKeyToDate(key).toLocaleDateString(undefined, {

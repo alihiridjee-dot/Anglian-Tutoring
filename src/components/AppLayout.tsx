@@ -31,15 +31,15 @@ import { UserMenu } from "@/components/UserMenu";
 import { HeaderLiveButton } from "@/components/live/HeaderLiveButton";
 import { GlobalSearchDialog } from "@/components/search/GlobalSearchDialog";
 import { SidebarSearchButton } from "@/components/search/SidebarSearchButton";
-import { resolveInitials } from "@/lib/displayName";
-import { buildAuthedNav } from "@/lib/nav";
+import { resolveInitials } from "@/lib/profile/displayName";
+import { buildAuthedNav } from "@/lib/shell/nav";
 import { SIDEBAR_LABEL_CLASS as labelClass } from "@/components/sidebarLabel";
 
 /**
  * The showcase sidebar. It must stay inside `/demo/*`, or a click lands on a
  * guarded route and bounces the visitor to `/auth`, so these entries carry the
  * demo paths and are kept separate from the real authenticated nav in
- * `@/lib/nav`. The parent showcase mirrors the live Parent Portal: Portal only,
+ * `@/lib/shell/nav`. The parent showcase mirrors the live Parent Portal: Portal only,
  * none of the student learning sections.
  */
 const demoStudentNav = [
@@ -100,7 +100,7 @@ export function AppLayout({ title, children }: { title: string; children: ReactN
   };
 
   // Real sessions derive their nav per persona from the single source of truth
-  // in @/lib/nav, where a parent's sidebar is *typed* to exclude the student
+  // in @/lib/shell/nav, where a parent's sidebar is *typed* to exclude the student
   // learning sections. The demo showcase keeps its own /demo/* entries.
   const nav = isDemo
     ? demoRole === "parent"

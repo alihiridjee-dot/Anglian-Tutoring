@@ -1,5 +1,5 @@
 import { createFileRoute } from "@tanstack/react-router";
-import { Videos } from "@/routes/_authenticated/videos";
+import { Videos } from "@/components/curriculum/VideosPage";
 
 // Showcase mount: the real page component, rendered outside the auth guard.
 // isDemoMode() keys off the /demo/* pathname, so every query inside short-circuits

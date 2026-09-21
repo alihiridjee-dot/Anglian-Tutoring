@@ -1,17 +1,20 @@
 import { useState } from "react";
 import { toast } from "sonner";
 import { ArrowDown, ArrowUp, Loader2, Plus, Sparkles, Trash2 } from "lucide-react";
-import { generateHomeworkQuestions, type DraftQuestion } from "@/lib/homeworkQuestions.functions";
-import { blankQuestion, type BuilderQuestion } from "@/lib/builderQuestion";
+import {
+  generateHomeworkQuestions,
+  type DraftQuestion,
+} from "@/lib/homework/homeworkQuestions.functions";
+import { blankQuestion, type BuilderQuestion } from "@/lib/homework/builderQuestion";
 import { inputCls } from "./Field";
-import type { SubjectV, BoardV, LevelV } from "@/lib/taxonomy";
+import type { SubjectV, BoardV, LevelV } from "@/lib/curriculum/taxonomy";
 
 /**
  * The questions themselves, built in the homework form.
  *
  * Generation is the fast path (the tutor picks spec points and asks for N
  * questions) but every field stays editable, and a question can be written by
- * hand. The draft shape itself lives in `@/lib/builderQuestion`.
+ * hand. The draft shape itself lives in `@/lib/homework/builderQuestion`.
  */
 
 const ANSWER_TYPE_LABELS: Record<DraftQuestion["answer_type"], string> = {

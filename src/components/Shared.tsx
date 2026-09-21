@@ -17,8 +17,8 @@ import type { LucideIcon } from "lucide-react";
 import { motion, useReducedMotion } from "motion/react";
 
 import { cn } from "@/lib/utils";
-import { describeError } from "@/lib/errors";
-import { SUBJECT_TINT, subjectLabel } from "@/lib/subjectTheme";
+import { describeError } from "@/lib/platform/errors";
+import { SUBJECT_TINT, subjectLabel } from "@/lib/curriculum/subjectTheme";
 import { Confetti, Mascot, Sparkles, type MascotName, type Mood } from "@/components/Doodles";
 
 /**

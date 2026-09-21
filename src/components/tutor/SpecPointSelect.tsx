@@ -2,7 +2,7 @@ import { useEffect, useMemo, useState } from "react";
 import { supabase } from "@/integrations/supabase/client";
 import { Field } from "./Field";
 import { Search, X, ChevronDown, Layers } from "lucide-react";
-import { BOARDS, type SubjectV, type BoardV, type LevelV } from "@/lib/taxonomy";
+import { BOARDS, type SubjectV, type BoardV, type LevelV } from "@/lib/curriculum/taxonomy";
 import { Spinner } from "@/components/Shared";
 
 type Row = {

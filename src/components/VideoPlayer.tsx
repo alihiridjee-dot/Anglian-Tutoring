@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 import { PlayCircle, X, ExternalLink } from "lucide-react";
-import { type VideoEmbed } from "@/lib/videoEmbed";
+import { type VideoEmbed } from "@/lib/curriculum/videoEmbed";
 
 /**
  * Poster tile for a video. Uses the real YouTube thumbnail when we can derive

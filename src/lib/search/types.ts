@@ -1,6 +1,6 @@
 import type { ComponentType } from "react";
-import type { SubjectV, BoardV, LevelV } from "@/lib/taxonomy";
-import type { ProfileRole } from "@/hooks/data/useEnrolments";
+import type { SubjectV, BoardV, LevelV } from "@/lib/curriculum/taxonomy";
+import type { ProfileRole } from "@/lib/profile/enrolment";
 
 /** The kinds of thing the global palette can turn up, in display order. */
 export const SEARCH_GROUPS = [

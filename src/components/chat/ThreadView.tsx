@@ -9,8 +9,8 @@ import {
   useMarkThreadRead,
   useSendMessage,
 } from "@/hooks/data/useChat";
-import { generateChatDraft } from "@/lib/chatDraft.functions";
-import { contextTarget, type ChatMessage } from "@/lib/chatDal";
+import { generateChatDraft } from "@/lib/chat/chatDraft.functions";
+import { contextTarget, type ChatMessage } from "@/lib/chat/chatDal";
 import type { ThreadSummary } from "@/hooks/data/useChat";
 
 const EMPTY_MESSAGES: ChatMessage[] = [];
