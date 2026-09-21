@@ -53,10 +53,10 @@ const CADENCES: {
     cadence: "monthly",
     name: "Monthly Saver",
     billing: "per month",
-    badge: "Trackable",
+    badge: "Saving",
     highlight: true,
   },
-  { cadence: "termly", name: "Termly", billing: "per term", badge: "Stable", highlight: false },
+  { cadence: "termly", name: "Termly", billing: "per term", badge: "Best value", highlight: false },
 ];
 
 // Maths is the one subject not taught at all yet. Whether a science is taught at
