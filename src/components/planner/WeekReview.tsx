@@ -22,6 +22,7 @@ import {
   type PlanPoint,
   type PlanPointOrigin,
 } from "@/lib/planner/weeklyPlanDal";
+import { WeeklyNotesDAL } from "@/lib/planner/weeklyNotesDal";
 import { type SubjectV, type BoardV, type LevelV } from "@/lib/curriculum/taxonomy";
 import {
   statusOfPoint,
@@ -150,7 +151,7 @@ export function WeekReview({
   const checkinKey = [...plannerKey(studentId), "checkin", plan.id];
   const checkin = useQuery({
     queryKey: checkinKey,
-    queryFn: () => WeeklyPlanDAL.getCheckin(plan.id),
+    queryFn: () => WeeklyNotesDAL.getCheckin(plan.id),
     refetchOnWindowFocus: false,
   });
   const loaded = checkin.isSuccess;
@@ -167,8 +168,8 @@ export function WeekReview({
     setNoteState(c?.reflection ? "sent" : "idle");
   }, [plan.id, checkin.data, checkin.isSuccess]);
 
-  const saveCheckin = async (input: Parameters<typeof WeeklyPlanDAL.saveCheckin>[0]) => {
-    await WeeklyPlanDAL.saveCheckin(input);
+  const saveCheckin = async (input: Parameters<typeof WeeklyNotesDAL.saveCheckin>[0]) => {
+    await WeeklyNotesDAL.saveCheckin(input);
     await checkinClient.invalidateQueries({ queryKey: checkinKey });
   };
 

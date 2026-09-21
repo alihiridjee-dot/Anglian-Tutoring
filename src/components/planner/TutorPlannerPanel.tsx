@@ -16,12 +16,8 @@ import {
   Users,
   CalendarRange,
 } from "lucide-react";
-import {
-  WeeklyPlanDAL,
-  type WeeklyPlan,
-  type PlanPoint,
-  type PlannerStudent,
-} from "@/lib/planner/weeklyPlanDal";
+import { WeeklyPlanDAL, type WeeklyPlan, type PlanPoint } from "@/lib/planner/weeklyPlanDal";
+import { PlannerRosterDAL, type PlannerStudent } from "@/lib/planner/plannerRosterDal";
 import { type SubjectV, type BoardV } from "@/lib/curriculum/taxonomy";
 import { mondayOf, addWeeks, toDateKey, weekRangeLabel } from "@/lib/planner/week";
 import { type PointCoverage, statusOfPoint } from "@/lib/planner/coverage";
@@ -43,7 +39,7 @@ import { subjectLabel } from "@/lib/curriculum/courseSummary";
 export function TutorPlannerPanel() {
   const roster = useQuery({
     queryKey: ["planner-roster"],
-    queryFn: () => WeeklyPlanDAL.listStudents(),
+    queryFn: () => PlannerRosterDAL.listStudents(),
   });
   const students = roster.data ?? null;
   const [studentId, setStudentId] = useState<string>("");

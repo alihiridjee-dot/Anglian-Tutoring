@@ -54,7 +54,7 @@ before students use custom orders in production.
 
 ## Verification
 
-- `bun test src/lib/planner src/lib/planner/programDal.test.ts`
+- `bun test src/lib/planner`
 - `bunx tsc --noEmit`
 - `bun run build`
 - Isolated PostgreSQL regression script, using a temporary PGlite installation

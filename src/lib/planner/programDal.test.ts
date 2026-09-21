@@ -2,6 +2,7 @@ import { describe, expect, test, spyOn } from "bun:test";
 import { handPicked, ProgramDAL } from "./programDal";
 import { focusInputs, type RoadmapResult } from "./roadmap";
 import { WeeklyPlanDAL, type PlanPoint } from "./weeklyPlanDal";
+import { WeeklyActivityDAL } from "./weeklyActivityDal";
 import { type RejectionReason } from "./admissibility";
 import type { ProgressPoint, TopicProgress } from "./scheduleDal";
 
@@ -61,7 +62,7 @@ describe("saved review repair", () => {
       points,
       withheld,
     }));
-    const coverage = spyOn(WeeklyPlanDAL, "getCoverage").mockResolvedValue(
+    const coverage = spyOn(WeeklyActivityDAL, "getCoverage").mockResolvedValue(
       new Map([["started", { attempted: true } as never]]),
     );
     const select = spyOn(ProgramDAL, "planForWeek").mockResolvedValue({

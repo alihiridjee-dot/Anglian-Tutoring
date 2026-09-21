@@ -17,6 +17,7 @@ import {
 import { hasStudentHistory, spineReach } from "./admissibility";
 import { catchUpBudget, trickle } from "./backlog";
 import { WeeklyPlanDAL, type PlanPoint, type PlanPointOrigin } from "./weeklyPlanDal";
+import { WeeklyActivityDAL } from "./weeklyActivityDal";
 import { buildRoadmap, focusInputs, type RoadmapResult } from "./roadmap";
 
 /** "a", "a and b", "a, b and c" — for the plan's one-line rationale. */
@@ -88,7 +89,7 @@ export class ProgramDAL {
     // *saved week* so projection isn't doubled, and this is a different fact.
     // Skipping it would hand the generation path an empty ledger and chase the
     // student for work they had already done.
-    const ledger = await WeeklyPlanDAL.getDeliveryLedger(studentId, subject, thisWeek);
+    const ledger = await WeeklyActivityDAL.getDeliveryLedger(studentId, subject, thisWeek);
     // Generation suppresses saved review bands, but must still reserve catch-up
     // capacity already used by this week's assignments, including completed ones.
     const catchUpWeek =
@@ -316,7 +317,7 @@ export class ProgramDAL {
     if (params.repairUnsupportedReviews && !saved.some(unsupported)) return false;
     const fresh = await this.planForWeek({ ...params, roadmap });
 
-    const coverage = await WeeklyPlanDAL.getCoverage(
+    const coverage = await WeeklyActivityDAL.getCoverage(
       studentId,
       saved.map((p) => p.spec_point_id),
       weekStart,

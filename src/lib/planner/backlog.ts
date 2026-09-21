@@ -63,7 +63,7 @@ export interface BacklogPoint {
  * the case this module exists for, and treating an untouched offer as covered
  * would let the engine discharge its promise by having made it once. It is also
  * why `outstanding` stops short of the current week — see
- * {@link WeeklyPlanDAL.getDeliveryLedger}, where counting it would make a
+ * {@link WeeklyActivityDAL.getDeliveryLedger}, where counting it would make a
  * re-cut drop the catch-up point and the next cut put it back.
  */
 export interface DeliveryLedger {

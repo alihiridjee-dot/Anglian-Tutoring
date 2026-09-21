@@ -2,6 +2,7 @@ import { afterEach, beforeEach, expect, setSystemTime, spyOn, test } from "bun:t
 import { ProgramDAL } from "./programDal";
 import { ScheduleDAL, type ProgressPoint, type TopicProgress } from "./scheduleDal";
 import { WeeklyPlanDAL, type PlanPoint, type PlanPointOrigin } from "./weeklyPlanDal";
+import { WeeklyActivityDAL } from "./weeklyActivityDal";
 import { computePacing, type PacingBand } from "./pacing";
 import { reorderTopics } from "./topicOrder";
 import { weekKeyToDate } from "./week";
@@ -151,7 +152,7 @@ function arrange(world: {
       io.push(["getPlan", args]);
       return world.saved ?? null;
     }),
-    spyOn(WeeklyPlanDAL, "getDeliveryLedger").mockImplementation(async (...args) => {
+    spyOn(WeeklyActivityDAL, "getDeliveryLedger").mockImplementation(async (...args) => {
       io.push(["getDeliveryLedger", args]);
       return {
         done: new Set(world.ledger?.done ?? []),

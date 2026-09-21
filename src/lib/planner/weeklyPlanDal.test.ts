@@ -1,5 +1,6 @@
 import { afterEach, beforeEach, expect, spyOn, test } from "bun:test";
 import { WeeklyPlanDAL } from "./weeklyPlanDal";
+import { WeeklyActivityDAL } from "./weeklyActivityDal";
 import { ScheduleDAL, type TopicProgress } from "./scheduleDal";
 import * as session from "../auth/session";
 import { ProgramDAL } from "./programDal";
@@ -205,7 +206,7 @@ test("week generation uses acknowledged teaching even when the preview has moved
 
 test("refresh removes withheld work from the proposal without re-inserting historical rows", async () => {
   const roadmap = spyOn(ProgramDAL, "loadRoadmap").mockResolvedValue(null);
-  const coverage = spyOn(WeeklyPlanDAL, "getCoverage").mockResolvedValue(new Map());
+  const coverage = spyOn(WeeklyActivityDAL, "getCoverage").mockResolvedValue(new Map());
   try {
     await ProgramDAL.refreshWeek({
       studentId: "student",

@@ -12,7 +12,9 @@ import {
   Wand2,
   CalendarRange,
 } from "lucide-react";
-import { WeeklyPlanDAL, type WeeklyPlan, type SpecPointLabel } from "@/lib/planner/weeklyPlanDal";
+import { WeeklyPlanDAL, type WeeklyPlan } from "@/lib/planner/weeklyPlanDal";
+import { PlannerRosterDAL, type SpecPointLabel } from "@/lib/planner/plannerRosterDal";
+import { WeeklyNotesDAL } from "@/lib/planner/weeklyNotesDal";
 import { type SubjectV, type BoardV, type LevelV } from "@/lib/curriculum/taxonomy";
 import { addWeeks, weekKeyToDate, toDateKey, weekRangeLabel } from "@/lib/planner/week";
 import { SpecPointSelect } from "@/components/tutor/SpecPointSelect";
@@ -82,7 +84,7 @@ export function TutorTake({
     queryKey: noteKey,
     queryFn: async () => {
       const [tn, next] = await Promise.all([
-        WeeklyPlanDAL.getTutorNote(plan.id),
+        WeeklyNotesDAL.getTutorNote(plan.id),
         WeeklyPlanDAL.getPlan(studentId, subject, nextStart),
       ]);
       return { tn, next };
@@ -119,7 +121,7 @@ export function TutorTake({
   const labelIds = [...new Set([...nextPoints, ...existingNext.map((p) => p.id)])].sort();
   const labelQuery = useQuery({
     queryKey: [...plannerKey(studentId), "point-labels", labelIds],
-    queryFn: () => WeeklyPlanDAL.getSpecPointLabels(labelIds),
+    queryFn: () => PlannerRosterDAL.getSpecPointLabels(labelIds),
     enabled: labelIds.length > 0,
   });
 
@@ -137,8 +139,8 @@ export function TutorTake({
     return merged;
   }, [existingNext, nextPoints, labelQuery.data]);
 
-  const saveTutorNote = async (input: Parameters<typeof WeeklyPlanDAL.saveTutorNote>[0]) => {
-    await WeeklyPlanDAL.saveTutorNote(input);
+  const saveTutorNote = async (input: Parameters<typeof WeeklyNotesDAL.saveTutorNote>[0]) => {
+    await WeeklyNotesDAL.saveTutorNote(input);
     await queryClient.invalidateQueries({ queryKey: noteKey });
   };
 

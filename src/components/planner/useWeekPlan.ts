@@ -6,6 +6,7 @@ import {
   type PlanPoint,
   type WithheldPlanPoint,
 } from "@/lib/planner/weeklyPlanDal";
+import { WeeklyActivityDAL } from "@/lib/planner/weeklyActivityDal";
 import { ProgramDAL } from "@/lib/planner/programDal";
 import { type RoadmapResult } from "@/lib/planner/roadmap";
 import { type SubjectV, type BoardV, type LevelV } from "@/lib/curriculum/taxonomy";
@@ -115,12 +116,12 @@ export function useWeekPlan(params: {
   const ids = [...points, ...withheld.map((r) => r.point)].map((p) => p.spec_point_id).sort();
   const activity = useQuery({
     queryKey: [...courseKey(params), "activity", ids],
-    queryFn: () => WeeklyPlanDAL.getActivity(ids),
+    queryFn: () => WeeklyActivityDAL.getActivity(ids),
     enabled: !!week.data,
   });
   const coverage = useQuery({
     queryKey: [...weekKey, "coverage", ids],
-    queryFn: () => WeeklyPlanDAL.getCoverage(studentId, ids, weekStart),
+    queryFn: () => WeeklyActivityDAL.getCoverage(studentId, ids, weekStart),
     enabled: !!week.data && withCoverage,
   });
   const road = useQuery({

@@ -94,7 +94,11 @@ For authentication & the live/demo session model, see [docs/AUTHENTICATION.md](d
     │   ├── planner/           # Pure FSRS/pacing/coverage/admissibility, RPC adapters, query keys
     │   │   ├── programDal.ts  # Fixed teaching + eligible reviews; programme persistence
     │   │   ├── scheduleDal.ts # Graded-source reconstruction; no client-written memory
-    │   │   ├── weeklyPlanDal.ts # Saved assignments, weekly activity/coverage and tutor roster
+    │   │   ├── roadmap.ts     # buildRoadmap — the pure core loadRoadmap calls; no network, no clock
+    │   │   ├── weeklyPlanDal.ts # Saved assignments: admission, reads and writes of the week itself
+    │   │   ├── weeklyActivityDal.ts # Delivery ledger, per-point activity and weekly coverage (reads)
+    │   │   ├── weeklyNotesDal.ts # Student check-in and tutor note on a week
+    │   │   ├── plannerRosterDal.ts # Tutor planner lookups: students and spec-point labels
     │   │   └── week.ts        # Europe/London calendar keys and DST-aware weekly boundaries
     │   ├── live/              # Live-session timing rule, Zoom and session-blurb server fns
     │   ├── leads/
@@ -288,13 +292,18 @@ The engine has four layers, with deliberately separate responsibilities:
    `planner/pacing.ts` allocates teaching and eligible reviews;
    `planner/coverage.ts` evaluates activity within a particular assigned week;
    `planner/admissibility.ts` decides whether a point may be assigned in a week at
-   all.
+   all; `planner/roadmap.ts` (`buildRoadmap`) turns what was read into the roadmap.
    Teaching uses the entire pre-exam window. Reviews have no weekly count/weight
    cap, but retain the 168-hour minimum and next London Monday opening.
 3. **Data composition:** `ScheduleDAL` reconstructs memory from homework grades
    and immutable quiz snapshots, excluding historical confidence and the retired
    client-writable ledger. `ProgramDAL` combines that progress with programme dates
-   and saved assignments. `WeeklyPlanDAL` owns weekly assignment persistence.
+   and saved assignments: `loadRoadmap` only reads, calls `buildRoadmap`, and seeds
+   the baseline on the student's own first view. `WeeklyPlanDAL` owns weekly
+   assignment persistence; `WeeklyActivityDAL` reads what was delivered and covered;
+   `WeeklyNotesDAL` holds the check-in and tutor note; `PlannerRosterDAL` serves the
+   tutor's lookups. DALs call each other through their class (`WeeklyPlanDAL.getPlan`),
+   never by direct function reference, so a test can replace any one of them.
 4. **React Query:** `planner/queries.ts` owns keys scoped by student, subject,
    board, level and week. Student, dashboard and tutor views share these keys.
    Progress is reused by roadmap, memory and practice-history queries. Grading
@@ -351,7 +360,7 @@ exam-horizon problems; a weekly workload alert needs a separately agreed thresho
 
 ### Validation
 
-`bun test src/lib/planner src/lib/db src/lib/planner/programDal.test.ts src/lib/planner/week.test.ts`
+`bun test src/lib/planner src/lib/platform/db`
 covers scheduling, pagination, query deduplication/invalidation and UK calendar
 boundaries (including viewers in UTC, New York and Tokyo). Run the isolated SQL
 fixture with the command documented in `scripts/test-planner-read-models.ts`.
