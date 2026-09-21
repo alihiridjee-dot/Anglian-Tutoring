@@ -1,34 +1,19 @@
 import { WithheldPlanPoints } from "./WithheldPlanPoints";
 import { ErrorNote } from "@/components/Shared";
-import { useQuery, useQueryClient } from "@tanstack/react-query";
-import { useWeekPlan } from "./useWeekPlan";
-import { ProgramDAL } from "@/lib/planner/programDal";
-import { type RoadmapResult } from "@/lib/planner/roadmap";
 import { Spinner } from "@/components/Shared";
-import { useEffect, useMemo, useState } from "react";
-import { toast } from "sonner";
-import {
-  Loader2,
-  ChevronLeft,
-  ChevronRight,
-  Undo2,
-  Plus,
-  Users,
-  CalendarRange,
-} from "lucide-react";
-import { WeeklyPlanDAL, type WeeklyPlan, type PlanPoint } from "@/lib/planner/weeklyPlanDal";
-import { PlannerRosterDAL, type PlannerStudent } from "@/lib/planner/plannerRosterDal";
+import { Loader2, CalendarRange } from "lucide-react";
 import { type SubjectV, type BoardV } from "@/lib/curriculum/taxonomy";
-import { mondayOf, addWeeks, toDateKey, weekRangeLabel } from "@/lib/planner/week";
-import { type PointCoverage, statusOfPoint } from "@/lib/planner/coverage";
-import { type Activity } from "./useWeekPlan";
-import { ScheduleDAL } from "@/lib/planner/scheduleDal";
 import { RoadmapPanel } from "./RoadmapPanel";
 import { CoveredLedger } from "./CoveredLedger";
-import { SpecPointSelect } from "@/components/tutor/SpecPointSelect";
-import { CoveragePill } from "./CoveragePill";
 import { WeekReview } from "./WeekReview";
-import { subjectLabel } from "@/lib/curriculum/courseSummary";
+import { useTutorPlanner } from "./useTutorPlanner";
+import {
+  AddPointsBox,
+  PlannerToolbar,
+  SchedulingAttention,
+  SubjectTabs,
+  WeekPointGroup,
+} from "./TutorPlannerParts";
 
 /**
  * The tutor's window into any student's weekly plan. Pick a student, page
@@ -37,102 +22,30 @@ import { subjectLabel } from "@/lib/curriculum/courseSummary";
  * to the chosen student (tutor RLS on the plan tables allows it).
  */
 export function TutorPlannerPanel() {
-  const roster = useQuery({
-    queryKey: ["planner-roster"],
-    queryFn: () => PlannerRosterDAL.listStudents(),
-  });
-  const students = roster.data ?? null;
-  const [studentId, setStudentId] = useState<string>("");
-  useEffect(() => {
-    if (!studentId && students?.length) setStudentId(students[0].id);
-  }, [students, studentId]);
-
-  const student = students?.find((s) => s.id === studentId) ?? null;
-  const ordered = useMemo(
-    () =>
-      student
-        ? [
-            ...student.enrolments.filter((e) => e.subject === "biology"),
-            ...student.enrolments.filter((e) => e.subject !== "biology"),
-          ]
-        : [],
-    [student],
-  );
-  const [activeSubject, setActiveSubject] = useState<string>("");
-  useEffect(() => {
-    setActiveSubject(ordered[0]?.subject ?? "");
-  }, [ordered]);
-  const active = ordered.find((e) => e.subject === activeSubject) ?? ordered[0];
-
-  const [weekOffset, setWeekOffset] = useState(0);
-  const weekStart = toDateKey(addWeeks(mondayOf(), weekOffset));
-  const weekLabel = weekRangeLabel(addWeeks(mondayOf(), weekOffset));
-  const isCurrent = weekOffset === 0;
-  const showReview = weekOffset <= 0;
-
-  const [picking, setPicking] = useState(false);
-  const [toAdd, setToAdd] = useState<string[]>([]);
-  const [adding, setAdding] = useState(false);
-  // Bumped after any plan mutation so the roadmap below re-derives from the DB —
-  // keeping the curriculum view in sync with edits in real time.
-  const [refreshToken, setRefreshToken] = useState(0);
-  const bumpRefresh = () => setRefreshToken((n) => n + 1);
-
-  const week = useWeekPlan({
-    studentId,
-    subject: (active?.subject ?? "biology") as SubjectV,
-    board: (active?.board ?? "aqa") as BoardV,
-    level: student?.level ?? "gcse",
+  const planner = useTutorPlanner();
+  const {
+    roster,
+    students,
+    student,
+    ordered,
+    active,
+    weekOffset,
     weekStart,
-    isCurrent: false,
-    withCoverage: showReview,
-  });
-  const { plan, points, coverage, activity, roadmap, loading, reload } = week;
-  useEffect(() => {
-    setPicking(false);
-    setToAdd([]);
-  }, [studentId, active?.subject, active?.board, weekStart]);
-
-  const addSelected = async () => {
-    if (!student || !active || toAdd.length === 0) return;
-    setAdding(true);
-    try {
-      if (plan) {
-        await WeeklyPlanDAL.addPoints(plan.id, toAdd, "tutor");
-      } else {
-        if (!student.level) throw new Error("Student has no exam level set.");
-        await WeeklyPlanDAL.savePlan({
-          subject: active.subject as SubjectV,
-          board: active.board as BoardV,
-          level: student.level,
-          weekStart,
-          specPointIds: toAdd,
-          source: "tutor",
-          origin: "tutor",
-          studentId: student.id,
-        });
-      }
-      toast.success(`Added ${toAdd.length} spec ${toAdd.length === 1 ? "point" : "points"}.`);
-      setToAdd([]);
-      setPicking(false);
-      await reload();
-      bumpRefresh();
-    } catch (e) {
-      toast.error(e instanceof Error ? e.message : "Couldn't add those — try again.");
-    } finally {
-      setAdding(false);
-    }
-  };
-
-  const groups = useMemo(() => {
-    const m = new Map<string, { title: string; points: PlanPoint[] }>();
-    for (const p of points) {
-      const g = m.get(p.topic_id) ?? { title: p.topic_title ?? "—", points: [] };
-      g.points.push(p);
-      m.set(p.topic_id, g);
-    }
-    return [...m.values()];
-  }, [points]);
+    weekLabel,
+    isCurrent,
+    showReview,
+    refreshToken,
+    bumpRefresh,
+    week,
+    plan,
+    points,
+    coverage,
+    activity,
+    roadmap,
+    loading,
+    reload,
+    groups,
+  } = planner;
 
   if (roster.error || week.error) return <ErrorNote error={roster.error ?? week.error} />;
   if (students === null) {
@@ -145,113 +58,13 @@ export function TutorPlannerPanel() {
 
   return (
     <>
-      {roadmap?.focusLoad.overloaded && (
-        <section className="premium-card tint-amber rounded-xl p-4 mb-4">
-          <h3>Scheduling needs attention</h3>
-          <p className="text-sm">
-            {roadmap.reviewBacklog.length} reviews cannot fit before the exam.{" "}
-            {roadmap.unscheduledTopicTitles.length} topics lack teaching time.
-          </p>
-          <details className="mt-2">
-            <summary className="cursor-pointer text-sm font-bold">See outstanding work</summary>
-            <ul className="list-disc pl-5 text-sm">
-              {roadmap.reviewBacklog.map((p) => (
-                <li key={p.specPointId}>
-                  {p.code} {p.pointTitle}
-                </li>
-              ))}
-              {roadmap.unscheduledTopicTitles.map((t) => (
-                <li key={t}>{t} — teaching time needed</li>
-              ))}
-            </ul>
-          </details>
-        </section>
-      )}
+      {roadmap?.focusLoad.overloaded && <SchedulingAttention roadmap={roadmap} />}
       <div className="rounded-2xl premium-card p-4 sm:p-5 shadow-sm">
         {/* Student picker + week nav */}
-        <div className="flex flex-wrap items-center justify-between gap-3 mb-4">
-          <div className="flex items-center gap-2.5">
-            <div className="w-9 h-9 rounded-xl bg-primary/10 text-primary flex items-center justify-center shrink-0">
-              <Users className="w-5 h-5" />
-            </div>
-            <div>
-              <label className="text-[11px] font-semibold uppercase tracking-wide text-muted-foreground">
-                Student
-              </label>
-              <select
-                value={studentId}
-                onChange={(e) => setStudentId(e.target.value)}
-                className="block mt-0.5 h-8 rounded-lg premium-card px-2 text-sm font-medium focus:outline-none focus:ring-2 focus:ring-primary/40"
-              >
-                {students.length === 0 && <option value="">No students</option>}
-                {students.map((s) => (
-                  <option key={s.id} value={s.id}>
-                    {s.name ?? s.id.slice(0, 8)}
-                    {s.enrolments.length === 0 ? " (no enrolments)" : ""}
-                  </option>
-                ))}
-              </select>
-            </div>
-          </div>
-          <div className="flex items-center gap-3">
-            <div className="text-right">
-              <div className="flex items-center justify-end gap-1.5">
-                <CalendarRange className="w-3.5 h-3.5 text-muted-foreground" />
-                <span className="text-sm font-medium">
-                  {isCurrent ? "This week" : weekOffset < 0 ? "Past week" : "Upcoming"}
-                </span>
-                {!isCurrent && (
-                  <button
-                    type="button"
-                    onClick={() => setWeekOffset(0)}
-                    className="inline-flex items-center gap-1 h-5 px-2 rounded-full bg-muted text-[10px] font-semibold text-muted-foreground hover:text-foreground"
-                  >
-                    <Undo2 className="w-3 h-3" /> Today
-                  </button>
-                )}
-              </div>
-              <p className="text-xs text-muted-foreground">{weekLabel}</p>
-            </div>
-            <div className="flex items-center gap-1">
-              <button
-                type="button"
-                onClick={() => setWeekOffset((w) => w - 1)}
-                className="w-8 h-8 rounded-lg border border-border text-muted-foreground hover:text-foreground hover:bg-muted flex items-center justify-center"
-                aria-label="Previous week"
-              >
-                <ChevronLeft className="w-4 h-4" />
-              </button>
-              <button
-                type="button"
-                onClick={() => setWeekOffset((w) => w + 1)}
-                className="w-8 h-8 rounded-lg border border-border text-muted-foreground hover:text-foreground hover:bg-muted flex items-center justify-center"
-                aria-label="Next week"
-              >
-                <ChevronRight className="w-4 h-4" />
-              </button>
-            </div>
-          </div>
-        </div>
+        <PlannerToolbar {...planner} students={students} />
 
         {/* Subject tabs */}
-        {ordered.length > 0 && (
-          <div className="flex items-center gap-1.5 mb-4">
-            {ordered.map((e) => (
-              <button
-                key={e.subject}
-                type="button"
-                onClick={() => setActiveSubject(e.subject)}
-                className={`h-8 px-3 rounded-lg text-sm font-medium transition ${
-                  e.subject === activeSubject
-                    ? "btn-solid"
-                    : "bg-muted text-muted-foreground hover:text-foreground"
-                }`}
-              >
-                {subjectLabel(e.subject)}
-              </button>
-            ))}
-          </div>
-        )}
+        {ordered.length > 0 && <SubjectTabs {...planner} />}
 
         {!student || !active ? (
           <p className="rounded-xl border border-dashed border-border p-6 text-center text-sm text-muted-foreground">
@@ -283,100 +96,20 @@ export function TutorPlannerPanel() {
               </p>
             ) : (
               groups.map((g) => (
-                <div key={g.title}>
-                  <h3 className="text-[11px] font-bold uppercase tracking-wide text-muted-foreground mb-1.5">
-                    {g.title}
-                  </h3>
-                  <div className="space-y-1.5">
-                    {g.points.map((p) => {
-                      const cov = coverage.get(p.spec_point_id);
-                      return (
-                        <div
-                          key={p.spec_point_id}
-                          className="group flex items-center gap-3 rounded-xl border border-border bg-muted/20 p-2.5"
-                        >
-                          <div className="flex-1 min-w-0">
-                            <span className="text-[11px] font-semibold text-muted-foreground mr-1.5">
-                              {p.code}
-                            </span>
-                            <span className="text-sm">{p.title}</span>
-                            {(p.carried_from || p.origin === "carried_over") && (
-                              <span className="ml-1.5 text-[10px] text-amber-600 dark:text-amber-400">
-                                carried over
-                              </span>
-                            )}
-                          </div>
-                          <div className="flex items-center gap-1.5 shrink-0">
-                            {showReview && (
-                              <CoveragePill
-                                status={statusOfPoint(cov, activity.get(p.spec_point_id))}
-                                score={cov?.bestScore}
-                              />
-                            )}
-                          </div>
-                        </div>
-                      );
-                    })}
-                  </div>
-                </div>
+                <WeekPointGroup
+                  key={g.title}
+                  g={g}
+                  coverage={coverage}
+                  activity={activity}
+                  showReview={showReview}
+                />
               ))
             )}
 
             <WithheldPlanPoints points={week.withheld} coverage={week.coverage} />
 
             {/* Add spec points */}
-            {picking ? (
-              <div className="rounded-xl border border-border bg-muted/20 p-3">
-                {student.level ? (
-                  <>
-                    <SpecPointSelect
-                      subject={active.subject as SubjectV}
-                      board={active.board as BoardV}
-                      level={student.level}
-                      value={toAdd}
-                      onChange={setToAdd}
-                    />
-                    <div className="mt-2 flex justify-end gap-2">
-                      <button
-                        type="button"
-                        onClick={() => {
-                          setPicking(false);
-                          setToAdd([]);
-                        }}
-                        className="h-9 px-3 rounded-lg border border-border text-sm font-medium hover:bg-muted"
-                      >
-                        Cancel
-                      </button>
-                      <button
-                        type="button"
-                        onClick={addSelected}
-                        disabled={adding || toAdd.length === 0}
-                        className="inline-flex items-center gap-1.5 h-9 px-4 rounded-lg btn-solid text-sm font-semibold hover:opacity-90 disabled:opacity-50"
-                      >
-                        {adding ? (
-                          <Loader2 className="w-4 h-4 animate-spin" />
-                        ) : (
-                          <Plus className="w-4 h-4" />
-                        )}
-                        Add {toAdd.length > 0 ? toAdd.length : ""}
-                      </button>
-                    </div>
-                  </>
-                ) : (
-                  <p className="text-sm text-muted-foreground">
-                    This student has no exam level set — set it on their profile before planning.
-                  </p>
-                )}
-              </div>
-            ) : (
-              <button
-                type="button"
-                onClick={() => setPicking(true)}
-                className="inline-flex items-center gap-1.5 h-9 px-3 rounded-lg border border-border text-sm font-medium hover:bg-muted"
-              >
-                <Plus className="w-4 h-4" /> Add spec points to {weekLabel}
-              </button>
-            )}
+            <AddPointsBox {...planner} student={student} active={active} />
 
             {showReview && plan && (
               <WeekReview
