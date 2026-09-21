@@ -21,6 +21,8 @@
  * Needs SUPABASE_URL and SUPABASE_SERVICE_ROLE_KEY: the table is behind
  * tutor-only RLS and this runs outside a session.
  */
+import { indexSpecPoints, PAPER_STEM } from "./specCodes";
+
 const url = process.env.SUPABASE_URL;
 const key = process.env.SUPABASE_SERVICE_ROLE_KEY;
 if (!url || !key) throw new Error("SUPABASE_URL and SUPABASE_SERVICE_ROLE_KEY must be set");
@@ -69,7 +71,7 @@ function provenance(path: string) {
     .pop()!
     .replace(/\.json$/, "")
     .replace(/-(QP|MS)$/, "");
-  const m = stem.match(/^([a-z]+)-([a-z-]+)-(gcse|igcse|alevel)-(\d{4}|unknown)-p(\d)([A-Z]?)$/);
+  const m = stem.match(PAPER_STEM);
   return {
     board: flag("board") ?? m?.[1],
     subject: flag("subject") ?? m?.[2],
@@ -101,9 +103,6 @@ async function upsert(rows: unknown[]) {
   return (await res.json()) as { id: string; question_label: string }[];
 }
 
-/** Board prefix as the curriculum writes its codes, keyed by the board. */
-const CODE_PREFIX: Record<string, string> = { aqa: "AQA", edexcel: "EDEX", ocr: "OCR" };
-
 /**
  * Link the rows that name spec points to those points.
  *
@@ -119,12 +118,6 @@ async function writeTags(
 ): Promise<number> {
   const wanted = rows.filter((r) => r.spec_points?.length);
   if (wanted.length === 0) return 0;
-  const prefix = CODE_PREFIX[p.board ?? ""];
-  if (!prefix) {
-    console.error(`  no spec point code prefix known for board "${p.board}" — tags skipped`);
-    process.exitCode = 1;
-    return 0;
-  }
 
   const res = await fetch(
     `${url}/rest/v1/spec_points?select=id,code,topics!inner(board,level,subject)` +
@@ -137,9 +130,7 @@ async function writeTags(
     },
   );
   if (!res.ok) throw new Error(`spec point lookup failed: ${res.status} ${await res.text()}`);
-  const byCode = new Map(
-    ((await res.json()) as { id: string; code: string }[]).map((s) => [s.code, s.id]),
-  );
+  const byCode = indexSpecPoints((await res.json()) as { id: string; code: string }[]);
   const byLabel = new Map(inserted.map((e) => [e.question_label, e.id]));
 
   const unknown: string[] = [];
@@ -148,7 +139,7 @@ async function writeTags(
     const exemplarId = byLabel.get(row.label);
     if (!exemplarId) continue;
     for (const code of row.spec_points!) {
-      const pointId = byCode.get(`${prefix} ${code}`);
+      const pointId = byCode.get(code);
       if (!pointId) {
         unknown.push(code);
         continue;

@@ -19,13 +19,16 @@
  *     01.1,01.2 1.6,6.4      # these labels credit these points
  *     # comments and blank lines are ignored
  *
- * Codes are written without their board prefix — `1.6` for `AQA 1.6` — because
- * the prefix is already in the filename and repeating it 1,600 times invites a
- * typo. A label or a code that doesn't exist is reported, not guessed at.
+ * Codes are written without their board prefix — `1.6` for `AQA 1.6`, `1.1.5S`
+ * for `CAIE 1.1.5S` — because the prefix is already in the filename and
+ * repeating it 1,600 times invites a typo. A label or a code that doesn't exist
+ * is reported, not guessed at.
  *
  * Needs SUPABASE_URL and SUPABASE_SERVICE_ROLE_KEY: the tables are behind
  * tutor-only RLS and this runs outside a session.
  */
+import { indexSpecPoints, PAPER_STEM } from "./specCodes";
+
 const url = process.env.SUPABASE_URL;
 const key = process.env.SUPABASE_SERVICE_ROLE_KEY;
 if (!url || !key) throw new Error("SUPABASE_URL and SUPABASE_SERVICE_ROLE_KEY must be set");
@@ -34,9 +37,6 @@ const args = process.argv.slice(2);
 const files = args.filter((a) => !a.startsWith("--"));
 const write = args.includes("--write");
 if (files.length === 0) throw new Error("Give at least one tag file");
-
-/** Board prefix as the curriculum writes it, keyed by the board in the filename. */
-const CODE_PREFIX: Record<string, string> = { aqa: "AQA", edexcel: "EDEX", ocr: "OCR" };
 
 const headers = {
   apikey: key,
@@ -58,7 +58,7 @@ function provenance(path: string) {
     .split("/")
     .pop()!
     .replace(/\.txt$/, "");
-  const m = stem.match(/^([a-z]+)-([a-z-]+)-(gcse|igcse|alevel)-(\d{4}|unknown)-p(\d)([A-Z]?)$/);
+  const m = stem.match(PAPER_STEM);
   if (!m) throw new Error(`${path}: filename must look like aqa-biology-gcse-2018-p1F.txt`);
   return {
     board: m[1],
@@ -78,12 +78,6 @@ let totalUntagged = 0;
 
 for (const file of files) {
   const p = provenance(file);
-  const prefix = CODE_PREFIX[p.board];
-  if (!prefix) {
-    console.error(`${file}: no code prefix known for board "${p.board}"`);
-    process.exitCode = 1;
-    continue;
-  }
 
   // What this paper's rows are, and what the specification calls its points.
   const exemplars: { id: string; question_label: string }[] = await api(
@@ -96,7 +90,7 @@ for (const file of files) {
     `spec_points?select=id,code,topics!inner(board,level,subject)&topics.board=eq.${p.board}` +
       `&topics.level=eq.${p.level}&topics.subject=eq.${p.subject}`,
   );
-  const byCode = new Map(points.map((s) => [s.code, s.id]));
+  const byCode = indexSpecPoints(points);
 
   const pairs = new Map<string, Set<string>>();
   const unknownLabels: string[] = [];
@@ -114,7 +108,7 @@ for (const file of files) {
         continue;
       }
       for (const code of codePart.split(",").filter(Boolean)) {
-        const pointId = byCode.get(`${prefix} ${code}`);
+        const pointId = byCode.get(code);
         if (!pointId) {
           unknownCodes.push(code);
           continue;

@@ -53,10 +53,12 @@ _CODES = [
     ("1CH0", "edexcel", "chemistry", "gcse", "[FH]"),
     ("1PH0", "edexcel", "physics", "gcse", "[FH]"),
     ("1SC0", "edexcel", "combined", "gcse", "[FH]"),
-    # Pearson Edexcel International GCSE — C (core) or R (extension)
-    ("4BI1", "edexcel", "biology", "igcse", "[CR]"),
-    ("4CH1", "edexcel", "chemistry", "igcse", "[CR]"),
-    ("4PH1", "edexcel", "physics", "igcse", "[CR]"),
+    # Pearson Edexcel International GCSE — the subject's letter, then R for the
+    # paper's second version: 4CH1/1C and 4CH1/1CR sit in the same session with
+    # different questions, so the R has to reach the name or the two pair up.
+    ("4BI1", "edexcel", "biology", "igcse", "BR?"),
+    ("4CH1", "edexcel", "chemistry", "igcse", "CR?"),
+    ("4PH1", "edexcel", "physics", "igcse", "PR?"),
     # OCR Gateway A — no tier in the code, papers are 01/02
     ("J247", "ocr", "biology", "gcse", ""),
     ("J248", "ocr", "chemistry", "gcse", ""),

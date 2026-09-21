@@ -36,6 +36,9 @@ investigation is tagged to photosynthesis, and a question that only tests method
 with no content is better left untagged than forced into a point. Two or three
 codes is usually the honest answer; more is a sign the question is being
 stretched to fit. Codes go in without their board prefix — `1.6`, not `AQA 1.6`.
+The prefix is everything before the number, so the letters that follow it stay:
+`1.1.5S` for `CAIE 1.1.5S`, `3.1.5eB` for `OXAQA 3.1.5eB`, `1.2P` for
+`IGCSE 1.2P`, `C1.1a` for `OCR C1.1a`.
 
 A code that doesn't exist is reported, never guessed at, and the rest of the
 paper still loads.
