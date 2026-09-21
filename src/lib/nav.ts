@@ -10,7 +10,7 @@ import {
   MessagesSquare,
 } from "lucide-react";
 import type { ComponentType } from "react";
-import type { ProfileRole } from "@/hooks/data/useEnrolments";
+import type { ProfileRole } from "@/lib/enrolment";
 
 /**
  * Single source of truth for the authenticated sidebar.

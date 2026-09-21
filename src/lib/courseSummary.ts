@@ -1,5 +1,5 @@
 import { LEVELS, BOARDS, SUBJECTS, type BoardV, type LevelV } from "@/lib/taxonomy";
-import type { Enrolment } from "@/hooks/data/useEnrolments";
+import type { Enrolment } from "@/lib/enrolment";
 
 /**
  * "What am I actually signed up to?" — answered once, for the whole app.

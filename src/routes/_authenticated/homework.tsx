@@ -9,9 +9,8 @@ import {
   useHomework,
   useHomeworkSubmissions,
   useInvalidateHomework,
-  type Homework,
-  type SubmissionRow,
 } from "@/hooks/data/useHomework";
+import type { Homework, SubmissionRow } from "@/lib/homework/types";
 import { useHomeworkSummaries, type HomeworkSummary } from "@/hooks/data/useHomeworkQuestions";
 import {
   BUCKET_HINT,

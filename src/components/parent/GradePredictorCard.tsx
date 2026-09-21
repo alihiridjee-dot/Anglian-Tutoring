@@ -1,5 +1,5 @@
 import { Sparkles } from "lucide-react";
-import type { SubjectAnalytics } from "@/hooks/data/useAnalytics";
+import type { SubjectAnalytics } from "@/lib/analytics";
 import { subjectLabel, subjectTint } from "@/lib/subjectTheme";
 
 /**

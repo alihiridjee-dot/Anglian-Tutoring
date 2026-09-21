@@ -24,7 +24,7 @@ import {
 import { isTeachBand, type PacingBand, type PacingChange } from "@/lib/planner/pacing";
 import { ProgramDAL, type RoadmapResult } from "@/lib/programDal";
 import { type TopicProgress } from "@/lib/scheduleDal";
-import { type Enrolment } from "@/hooks/data/useEnrolments";
+import { type Enrolment } from "@/lib/enrolment";
 import { type SubjectV, type BoardV, type LevelV } from "@/lib/taxonomy";
 import { currentWeekKey, weekKeyToDate, sundayOf, addWeeks, toDateKey } from "@/lib/week";
 import { subjectLabel } from "@/lib/courseSummary";

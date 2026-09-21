@@ -10,7 +10,7 @@ import { AnswerMarkingList } from "./AnswerMarking";
 import { useAnswerMarking } from "@/hooks/data/useAnswerMarking";
 import type { SubjectV, BoardV, LevelV } from "@/lib/taxonomy";
 import { subjectLabel } from "@/lib/courseSummary";
-import { gradeFromPct } from "@/hooks/data/useAnalytics";
+import { gradeFromPct } from "@/lib/analytics";
 
 /** Derived lifecycle status for a submission. */
 type SubmissionStatus = "PENDING_REVIEW" | "GRADED";

@@ -6,8 +6,9 @@ import { useEffect, useMemo, useState } from "react";
 import { toast } from "sonner";
 import { Loader2, ClipboardList, ListChecks, History, ChevronDown, RotateCcw } from "lucide-react";
 import { ScheduleDAL, type CoveredTopic } from "@/lib/scheduleDal";
+import { WeeklyPlanDAL } from "@/lib/weeklyPlanDal";
 import { STRONG_THRESHOLD } from "@/lib/planner/coverage";
-import { type Enrolment } from "@/hooks/data/useEnrolments";
+import { type Enrolment } from "@/lib/enrolment";
 import { type SubjectV, type BoardV, type LevelV } from "@/lib/taxonomy";
 import { currentWeekKey } from "@/lib/week";
 import { subjectLabel } from "@/lib/courseSummary";
@@ -77,7 +78,7 @@ export function CoveredLedger({
     if (!active) return;
     setRetaking(topic.topicId);
     try {
-      const n = await ScheduleDAL.resurfaceTopic({
+      const n = await WeeklyPlanDAL.resurfaceTopic({
         studentId,
         topicId: topic.topicId,
         subject: active.subject as SubjectV,

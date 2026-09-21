@@ -31,7 +31,6 @@ import {
   type TopicAssessment,
 } from "./planner/assessability";
 import { selectIn, selectInSafe, selectInHistory } from "./db/chunked";
-import { getSessionUserId } from "@/lib/auth/session";
 
 /** One covered spec point, with how it went, for the "covered so far" ledger. */
 export interface CoveredPoint {
@@ -519,64 +518,6 @@ export class ScheduleDAL {
       out.set(r.spec_point_id, cur);
     }
     return out;
-  }
-
-  /**
-   * "Retake this topic": pull every one of a topic's spec points back into the
-   * current week's plan as an explicit practice request. It never changes memory. Used
-   * by the "covered so far" ledger. Returns how many points were newly added.
-   *
-   * Filed as `student` (or `tutor`, when a tutor asks on the student's behalf) —
-   * a person's choice. It used to be `carried_over`, which no re-cut protects:
-   * neither `refreshWeek` nor `save_weekly_plan` keeps that origin, so the
-   * retaken topic vanished the next time the week was re-planned.
-   */
-  static async resurfaceTopic(params: {
-    studentId?: string;
-    topicId: string;
-    subject: SubjectV;
-    board: BoardV;
-    level: LevelV;
-    weekStart: string;
-  }): Promise<number> {
-    const uid = await getSessionUserId();
-    if (!uid) throw new Error("Not signed in");
-    const studentId = params.studentId ?? uid;
-    const who = studentId === uid ? "student" : "tutor";
-
-    const { data: pts, error } = await supabase
-      .from("spec_points")
-      .select("id")
-      .eq("topic_id", params.topicId);
-    if (error) throw error;
-    const ids = (pts ?? []).map((p) => p.id);
-    if (ids.length === 0) return 0;
-
-    // Add them to this week's plan (create the plan if there isn't one yet).
-    const { WeeklyPlanDAL } = await import("./weeklyPlanDal");
-    const existing = await WeeklyPlanDAL.getPlan(studentId, params.subject, params.weekStart);
-    if (existing) {
-      // Already in the week — active or withheld — is not "added".
-      const present = new Set([
-        ...existing.points.map((p) => p.spec_point_id),
-        ...existing.withheld.map((w) => w.point.spec_point_id),
-      ]);
-      const fresh = ids.filter((id) => !present.has(id));
-      await WeeklyPlanDAL.addPoints(existing.plan.id, fresh, who);
-      // An explicit practice request changes the assignment, not the memory model.
-      return fresh.length;
-    }
-    await WeeklyPlanDAL.savePlan({
-      subject: params.subject,
-      board: params.board,
-      level: params.level,
-      weekStart: params.weekStart,
-      specPointIds: ids,
-      source: who,
-      origin: who,
-      studentId,
-    });
-    return ids.length;
   }
 }
 

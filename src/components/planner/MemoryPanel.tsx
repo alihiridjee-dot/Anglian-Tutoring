@@ -4,7 +4,7 @@ import { Spinner } from "@/components/Shared";
 import { useEffect, useMemo, useState } from "react";
 import { Brain } from "lucide-react";
 import { ScheduleDAL, type MemoryStats } from "@/lib/scheduleDal";
-import { type Enrolment } from "@/hooks/data/useEnrolments";
+import { type Enrolment } from "@/lib/enrolment";
 import { type SubjectV, type BoardV, type LevelV } from "@/lib/taxonomy";
 import { subjectLabel } from "@/lib/courseSummary";
 

@@ -7,7 +7,7 @@ import { AppLayout } from "@/components/AppLayout";
 import { AwaitingMark, BuiltInHomework } from "@/components/BuiltInHomework";
 import { EmptyState, ErrorNote, SectionHeading, Spinner } from "@/components/Shared";
 import { useHomeworkSheet, useInvalidateHomework } from "@/hooks/data/useHomework";
-import type { SubmissionRow } from "@/hooks/data/useHomework";
+import type { SubmissionRow } from "@/lib/homework/types";
 import { useRoles } from "@/hooks/useRole";
 import { acknowledgeSubmission } from "@/lib/homework.functions";
 import { isDemoStudent } from "@/lib/demo/studentDemo";

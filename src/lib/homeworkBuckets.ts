@@ -1,4 +1,4 @@
-import type { Homework, SubmissionRow } from "@/hooks/data/useHomework";
+import type { Homework, SubmissionRow } from "@/lib/homework/types";
 
 /**
  * How the homework list is ordered: by what the student has to do about it.

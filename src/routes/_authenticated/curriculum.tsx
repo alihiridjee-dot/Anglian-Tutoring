@@ -9,19 +9,13 @@ import { subjectTint } from "@/lib/subjectTheme";
 import { AppLayout } from "@/components/AppLayout";
 import { supabase } from "@/integrations/supabase/client";
 import { useRoles } from "@/hooks/useRole";
-import { useEntitlements, type Entitlements } from "@/lib/entitlements";
+import { useEntitlements, type Entitlements } from "@/hooks/data/useEntitlements";
 import { useEnrolments } from "@/hooks/data/useEnrolments";
 import { SUBJECTS, BOARDS, LEVELS, type SubjectV, type BoardV, type LevelV } from "@/lib/taxonomy";
 import { generateMcqSet } from "@/lib/mcq.functions";
 import { toast } from "sonner";
-import {
-  CurriculumDAL,
-  type Topic,
-  type SpecPoint,
-  type SpecPointMatch,
-  type Resource,
-  type McqSet,
-} from "@/lib/curriculumDal";
+import { CurriculumDAL } from "@/lib/curriculumDal";
+import type { Topic, SpecPoint, SpecPointMatch, Resource, McqSet } from "@/lib/curriculum/types";
 import { validateCurriculumSearch, type CurriculumSearchParams } from "@/lib/curriculumParams";
 import { useDebounced } from "@/hooks/useGlobalSearch";
 import { MIN_QUERY_LENGTH, queryTerms } from "@/lib/search/match";

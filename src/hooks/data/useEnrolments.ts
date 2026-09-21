@@ -9,18 +9,12 @@ import {
   DEMO_LEVEL,
 } from "@/lib/demo/studentDemo";
 import type { Database } from "@/integrations/supabase/types";
+import type { Enrolment, ProfileRole } from "@/lib/enrolment";
 import { getSessionUserId } from "@/lib/auth/session";
 
-export type ProfileRole = Database["public"]["Enums"]["profile_role"];
-export type BoardV = Database["public"]["Enums"]["board"];
-export type LevelV = Database["public"]["Enums"]["level"];
-export type SubjectV = Database["public"]["Enums"]["subject"];
-
-/** One enrolled subject and the exam board the student sits it with. */
-export interface Enrolment {
-  subject: string;
-  board: BoardV;
-}
+type BoardV = Database["public"]["Enums"]["board"];
+type LevelV = Database["public"]["Enums"]["level"];
+type SubjectV = Database["public"]["Enums"]["subject"];
 
 export interface EnrolmentsState {
   loading: boolean;

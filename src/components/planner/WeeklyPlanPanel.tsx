@@ -5,7 +5,7 @@ import { useMemo, useState } from "react";
 import { toast } from "sonner";
 import { Sparkles, CalendarRange, ChevronLeft, ChevronRight, Undo2 } from "lucide-react";
 import { WeeklyPlanDAL, type PlanPoint } from "@/lib/weeklyPlanDal";
-import { type Enrolment } from "@/hooks/data/useEnrolments";
+import { type Enrolment } from "@/lib/enrolment";
 import { type SubjectV, type BoardV, type LevelV } from "@/lib/taxonomy";
 import { currentWeekKey, mondayOf, addWeeks, toDateKey, weekRangeLabel } from "@/lib/week";
 import { carryOrigin } from "@/lib/planner/coverage";
