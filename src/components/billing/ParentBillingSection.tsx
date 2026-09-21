@@ -14,15 +14,15 @@ import {
   billingIntervalLabel,
   type PackageRow,
   type SubscriptionRow,
-} from "@/lib/billing";
+} from "@/lib/billing/billing";
 import { CadenceSwitcher } from "@/components/billing/CadenceSwitcher";
 import { SubscriptionPanel } from "@/components/billing/SubscriptionPanel";
 import { AddSubjectCard } from "@/components/billing/AddSubjectCard";
 import { EnrolledSubjectsCard } from "@/components/billing/EnrolledSubjectsCard";
 import { InvoiceHistoryCard } from "@/components/billing/InvoiceHistory";
-import { resolveDisplayName } from "@/lib/displayName";
-import { summariseCourse } from "@/lib/courseSummary";
-import { type BoardV, type LevelV } from "@/lib/taxonomy";
+import { resolveDisplayName } from "@/lib/profile/displayName";
+import { summariseCourse } from "@/lib/curriculum/courseSummary";
+import { type BoardV, type LevelV } from "@/lib/curriculum/taxonomy";
 
 /** Formatted recurring price for a tier, or undefined if it isn't priced here. */
 function priceLabelFor(packages: PackageRow[], tier: string | null | undefined) {

@@ -5,7 +5,14 @@ import { useQueryClient } from "@tanstack/react-query";
 import { toast } from "sonner";
 import { supabase } from "@/integrations/supabase/client";
 import type { Json } from "@/integrations/supabase/types";
-import { SUBJECTS, BOARDS, LEVELS, type BoardV, type LevelV, type SubjectV } from "@/lib/taxonomy";
+import {
+  SUBJECTS,
+  BOARDS,
+  LEVELS,
+  type BoardV,
+  type LevelV,
+  type SubjectV,
+} from "@/lib/curriculum/taxonomy";
 import { StepCard } from "@/components/onboarding/StepCard";
 import { useCurriculumCoverage } from "@/hooks/data/useCurriculumCoverage";
 

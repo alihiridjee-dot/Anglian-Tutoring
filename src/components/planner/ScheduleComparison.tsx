@@ -1,7 +1,7 @@
 import { useState } from "react";
-import { ProgramDAL, handPicked, type RoadmapResult } from "@/lib/programDal";
+import { ProgramDAL, handPicked, type RoadmapResult } from "@/lib/planner/programDal";
 import type { WeekPlanState } from "./useWeekPlan";
-import type { SubjectV, BoardV, LevelV } from "@/lib/taxonomy";
+import type { SubjectV, BoardV, LevelV } from "@/lib/curriculum/taxonomy";
 import { supabase } from "@/integrations/supabase/client";
 import { Spinner } from "@/components/Shared";
 

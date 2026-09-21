@@ -1,5 +1,5 @@
 import { createFileRoute } from "@tanstack/react-router";
-import { guardStudentSection } from "@/lib/routeGuards";
+import { guardStudentSection } from "@/lib/auth/routeGuards";
 import { useState } from "react";
 import { useQuery, useQueryClient } from "@tanstack/react-query";
 import { EmptyState, ErrorNote, Spinner } from "@/components/Shared";
@@ -10,15 +10,15 @@ import { supabase } from "@/integrations/supabase/client";
 import { useRoles } from "@/hooks/useRole";
 import { LiveForm } from "@/components/tutor/LiveForm";
 import { NextSessionCountdown } from "@/components/live/NextSessionCountdown";
-import { deleteZoomMeeting } from "@/lib/zoom.functions";
+import { deleteZoomMeeting } from "@/lib/live/zoom.functions";
 import {
   fetchLiveSessions,
   hasSessionFinished,
   sessionStartMs,
   sessionTiming,
   type LiveSession,
-} from "@/lib/liveSessions";
-import { type SubjectV, type BoardV, type LevelV } from "@/lib/taxonomy";
+} from "@/lib/live/liveSessions";
+import { type SubjectV, type BoardV, type LevelV } from "@/lib/curriculum/taxonomy";
 import { SessionIdentity, WhatsCovered } from "@/components/live/SessionMeta";
 import {
   Video,

@@ -3,7 +3,7 @@ import {
   generateExamQuestions,
   libraryRequest,
   loadGenerationContext,
-} from "./examGeneration.server";
+} from "../homework/examGeneration.server";
 import { requireSupabaseAuth } from "@/integrations/supabase/auth-middleware";
 import type { SupabaseClient } from "@supabase/supabase-js";
 import type { Database } from "@/integrations/supabase/types";

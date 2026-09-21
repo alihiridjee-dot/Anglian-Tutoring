@@ -10,7 +10,7 @@ import {
   nextSession,
   sessionStartMs,
   sessionTiming,
-} from "@/lib/liveSessions";
+} from "@/lib/live/liveSessions";
 
 function formatShort(diff: number) {
   const days = Math.floor(diff / DAY_MS);

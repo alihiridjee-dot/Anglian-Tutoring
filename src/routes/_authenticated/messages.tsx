@@ -4,7 +4,7 @@ import { createFileRoute } from "@tanstack/react-router";
 import { useEffect, useMemo, useRef, useState } from "react";
 import { MessageSquarePlus } from "lucide-react";
 import { AppLayout } from "@/components/AppLayout";
-import { guardStudentSection } from "@/lib/routeGuards";
+import { guardStudentSection } from "@/lib/auth/routeGuards";
 import { useRoles } from "@/hooks/useRole";
 import { useChatThreads, type ThreadSummary } from "@/hooks/data/useChat";
 import { ThreadList } from "@/components/chat/ThreadList";

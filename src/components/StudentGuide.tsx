@@ -1,4 +1,4 @@
-import { pageGuides, pageIntroductions, type GuideStep } from "@/lib/pageGuides";
+import { pageGuides, pageIntroductions, type GuideStep } from "@/lib/shell/pageGuides";
 import { useEffect, useRef, useState } from "react";
 import { ArrowRight } from "lucide-react";
 import { getSessionUserId, isDemoMode } from "@/lib/auth/session";

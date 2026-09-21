@@ -3,7 +3,7 @@ import { useOnboardingUser } from "@/hooks/useOnboardingUser";
 import { useEffect, useState } from "react";
 import { toast } from "sonner";
 import { supabase } from "@/integrations/supabase/client";
-import { LEVELS, BOARDS, type LevelV, type BoardV } from "@/lib/taxonomy";
+import { LEVELS, BOARDS, type LevelV, type BoardV } from "@/lib/curriculum/taxonomy";
 import { StepCard, ChoiceTile } from "@/components/onboarding/StepCard";
 import { Spinner } from "@/components/Shared";
 import { useCurriculumCoverage } from "@/hooks/data/useCurriculumCoverage";

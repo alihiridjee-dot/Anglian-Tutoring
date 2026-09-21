@@ -1,5 +1,5 @@
 import { supabase } from "@/integrations/supabase/client";
-import type { SubjectV, BoardV, LevelV } from "@/lib/taxonomy";
+import type { SubjectV, BoardV, LevelV } from "@/lib/curriculum/taxonomy";
 
 export interface SourceRows {
   resourceLinks: { resource_id: string; spec_point_id: string }[];

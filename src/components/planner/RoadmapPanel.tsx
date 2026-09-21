@@ -1,7 +1,7 @@
 import { CatchUpWeek } from "./CatchUpWeek";
 import type { CatchUpSchedule } from "@/lib/planner/backlog";
 import { ErrorNote } from "@/components/Shared";
-import { PLANNER_TIME_ZONE } from "@/lib/week";
+import { PLANNER_TIME_ZONE } from "@/lib/planner/week";
 import { usePlannerRoadmap } from "@/hooks/data/usePlanner";
 import { useQueryClient } from "@tanstack/react-query";
 import { invalidatePlanner } from "@/lib/planner/queries";
@@ -22,12 +22,12 @@ import {
   History,
 } from "lucide-react";
 import { isTeachBand, type PacingBand, type PacingChange } from "@/lib/planner/pacing";
-import { ProgramDAL, type RoadmapResult } from "@/lib/programDal";
-import { type TopicProgress } from "@/lib/scheduleDal";
-import { type Enrolment } from "@/lib/enrolment";
-import { type SubjectV, type BoardV, type LevelV } from "@/lib/taxonomy";
-import { currentWeekKey, weekKeyToDate, sundayOf, addWeeks, toDateKey } from "@/lib/week";
-import { subjectLabel } from "@/lib/courseSummary";
+import { ProgramDAL, type RoadmapResult } from "@/lib/planner/programDal";
+import { type TopicProgress } from "@/lib/planner/scheduleDal";
+import { type Enrolment } from "@/lib/profile/enrolment";
+import { type SubjectV, type BoardV, type LevelV } from "@/lib/curriculum/taxonomy";
+import { currentWeekKey, weekKeyToDate, sundayOf, addWeeks, toDateKey } from "@/lib/planner/week";
+import { subjectLabel } from "@/lib/curriculum/courseSummary";
 import { PointRow } from "./PointRow";
 import { FocusedTopicsHeaderCell, FocusKey, FocusPointsPanel, FocusTopicButton } from "./FocusLane";
 import { focusHasDetail, focusRowKey } from "./focusMeta";

@@ -9,7 +9,7 @@ import {
   nextSession,
   sessionStartMs,
   sessionTiming,
-} from "@/lib/liveSessions";
+} from "@/lib/live/liveSessions";
 import { SessionIdentity, WhatsCovered } from "@/components/live/SessionMeta";
 
 function pad(n: number) {

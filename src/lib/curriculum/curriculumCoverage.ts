@@ -1,4 +1,11 @@
-import { SUBJECTS, BOARDS, LEVELS, type SubjectV, type BoardV, type LevelV } from "@/lib/taxonomy";
+import {
+  SUBJECTS,
+  BOARDS,
+  LEVELS,
+  type SubjectV,
+  type BoardV,
+  type LevelV,
+} from "@/lib/curriculum/taxonomy";
 
 /**
  * Which level/board/subject combinations actually have curriculum.

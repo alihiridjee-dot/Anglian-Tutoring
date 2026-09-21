@@ -3,8 +3,8 @@ import { usePageRestore } from "@/hooks/usePageRestore";
 import { Check, Loader2 } from "lucide-react";
 import { toast } from "sonner";
 import { usePackages, useChangeCadence } from "@/hooks/data/useBilling";
-import { formatPence, billingIntervalLabel, startCheckout } from "@/lib/billing";
-import { planCadence, tierFor, CADENCES, type Cadence } from "@/lib/entitlements";
+import { formatPence, billingIntervalLabel, startCheckout } from "@/lib/billing/billing";
+import { planCadence, tierFor, CADENCES, type Cadence } from "@/lib/billing/entitlements";
 import { CadenceChangeDialog } from "@/components/billing/CadenceChangeDialog";
 
 interface CadenceSwitcherProps {

@@ -4,8 +4,8 @@ import { AppLayout } from "@/components/AppLayout";
 import { DemoWeekPlan } from "@/components/demo/DemoWeekPlan";
 import { Meter, SectionHeading } from "@/components/Shared";
 import { DEMO_ROADMAP } from "@/lib/demo/plannerDemo";
-import { addWeeks, mondayOf, PLANNER_TIME_ZONE } from "@/lib/week";
-import type { SubjectV } from "@/lib/taxonomy";
+import { addWeeks, mondayOf, PLANNER_TIME_ZONE } from "@/lib/planner/week";
+import type { SubjectV } from "@/lib/curriculum/taxonomy";
 
 // Showcase mount of the planner. Unlike the other /demo/student pages this is
 // not the live page component: the live planner builds, saves and repairs plans

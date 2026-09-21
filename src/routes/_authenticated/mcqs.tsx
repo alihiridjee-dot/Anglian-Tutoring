@@ -1,5 +1,5 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
-import { guardStudentSection } from "@/lib/routeGuards";
+import { guardStudentSection } from "@/lib/auth/routeGuards";
 import { useEffect, useMemo, useState } from "react";
 import { EmptyState, ErrorNote, SectionHeading, Spinner, SubjectToggle } from "@/components/Shared";
 import { AppLayout } from "@/components/AppLayout";
@@ -9,9 +9,9 @@ import { isDemoStudent, DEMO_MCQ, DEMO_MCQ_ATTEMPTS, DEMO_MCQ_SETS } from "@/lib
 import { useRoles } from "@/hooks/useRole";
 import { useEnrolments } from "@/hooks/data/useEnrolments";
 import { McqManager } from "@/components/tutor/McqManager";
-import { SUBJECT_TINT, subjectLabel } from "@/lib/subjectTheme";
-import { selectIn, selectInHistory } from "@/lib/db/chunked";
-import { currentWeekKey, plannerDateLabel, weekRangeLabel, mondayOf } from "@/lib/week";
+import { SUBJECT_TINT, subjectLabel } from "@/lib/curriculum/subjectTheme";
+import { selectIn, selectInHistory } from "@/lib/platform/db/chunked";
+import { currentWeekKey, plannerDateLabel, weekRangeLabel, mondayOf } from "@/lib/planner/week";
 
 export const Route = createFileRoute("/_authenticated/mcqs")({
   beforeLoad: guardStudentSection,

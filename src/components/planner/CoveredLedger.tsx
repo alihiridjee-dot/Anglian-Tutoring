@@ -5,13 +5,13 @@ import { Spinner } from "@/components/Shared";
 import { useEffect, useMemo, useState } from "react";
 import { toast } from "sonner";
 import { Loader2, ClipboardList, ListChecks, History, ChevronDown, RotateCcw } from "lucide-react";
-import { ScheduleDAL, type CoveredTopic } from "@/lib/scheduleDal";
-import { WeeklyPlanDAL } from "@/lib/weeklyPlanDal";
+import { ScheduleDAL, type CoveredTopic } from "@/lib/planner/scheduleDal";
+import { WeeklyPlanDAL } from "@/lib/planner/weeklyPlanDal";
 import { STRONG_THRESHOLD } from "@/lib/planner/coverage";
-import { type Enrolment } from "@/lib/enrolment";
-import { type SubjectV, type BoardV, type LevelV } from "@/lib/taxonomy";
-import { currentWeekKey } from "@/lib/week";
-import { subjectLabel } from "@/lib/courseSummary";
+import { type Enrolment } from "@/lib/profile/enrolment";
+import { type SubjectV, type BoardV, type LevelV } from "@/lib/curriculum/taxonomy";
+import { currentWeekKey } from "@/lib/planner/week";
+import { subjectLabel } from "@/lib/curriculum/courseSummary";
 
 /** Practised specification points and their best homework/quiz marks, grouped by topic. */
 export function CoveredLedger({

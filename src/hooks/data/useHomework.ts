@@ -11,7 +11,7 @@ import {
 } from "@/lib/demo/studentDemo";
 import type { HomeworkAnswer, HomeworkQuestion } from "@/hooks/data/useHomeworkQuestions";
 import type { Homework, SubmissionRow } from "@/lib/homework/types";
-import type { LevelV } from "@/lib/taxonomy";
+import type { LevelV } from "@/lib/curriculum/taxonomy";
 
 /** How often an open sheet checks whether its mark has been released. */
 const AWAITING_MARK_POLL_MS = 30_000;

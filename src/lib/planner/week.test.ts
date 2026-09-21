@@ -9,7 +9,7 @@ test("UK Monday keys do not follow the viewer's timezone", () => {
       [
         process.execPath,
         "-e",
-        `import {currentWeekKey,weekKeyToDate} from './src/lib/week.ts'; console.log(currentWeekKey(new Date('2026-09-06T23:30:00Z')),weekKeyToDate('2026-09-07').toISOString())`,
+        `import {currentWeekKey,weekKeyToDate} from './src/lib/planner/week.ts'; console.log(currentWeekKey(new Date('2026-09-06T23:30:00Z')),weekKeyToDate('2026-09-07').toISOString())`,
       ],
       { env: { ...process.env, TZ } },
     );

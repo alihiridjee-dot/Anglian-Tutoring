@@ -1,5 +1,5 @@
 import { describe, expect, test, beforeEach } from "bun:test";
-import { loadDraft, saveDraft, clearDraft, clearAllDrafts } from "@/lib/homeworkDrafts";
+import { loadDraft, saveDraft, clearDraft, clearAllDrafts } from "@/lib/homework/homeworkDrafts";
 
 /**
  * Draft persistence exists so a reload doesn't cost a student twenty minutes of

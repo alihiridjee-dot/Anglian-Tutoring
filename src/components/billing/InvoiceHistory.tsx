@@ -1,6 +1,6 @@
 import { Download, ExternalLink, Receipt } from "lucide-react";
 import { useInvoices } from "@/hooks/data/useBilling";
-import { formatPence } from "@/lib/billing";
+import { formatPence } from "@/lib/billing/billing";
 import { Spinner } from "@/components/Shared";
 
 /**

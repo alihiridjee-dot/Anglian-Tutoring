@@ -1,8 +1,8 @@
 import { useMemo } from "react";
 import { CalendarRange, Check } from "lucide-react";
 import { useWeeklyFocus } from "@/hooks/data/useWeeklyFocus";
-import { currentWeekKey } from "@/lib/week";
-import type { SubjectV, BoardV, LevelV } from "@/lib/taxonomy";
+import { currentWeekKey } from "@/lib/planner/week";
+import type { SubjectV, BoardV, LevelV } from "@/lib/curriculum/taxonomy";
 
 /**
  * One-click "use this week's focus" for the tutor resource forms (MCQ, homework,

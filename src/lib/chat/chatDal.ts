@@ -1,6 +1,6 @@
 import { supabase } from "@/integrations/supabase/client";
 import { getSessionUserId } from "@/lib/auth/session";
-import type { SubjectV } from "@/lib/taxonomy";
+import type { SubjectV } from "@/lib/curriculum/taxonomy";
 
 /**
  * Data Access Layer for student ↔ tutor messaging.

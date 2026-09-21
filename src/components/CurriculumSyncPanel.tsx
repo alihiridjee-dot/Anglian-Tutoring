@@ -1,6 +1,9 @@
 import { useState } from "react";
-import { type SubjectV, type BoardV, type LevelV } from "@/lib/taxonomy";
-import { CurriculumSyncService, type ParsedCurriculum } from "@/lib/curriculumSyncService";
+import { type SubjectV, type BoardV, type LevelV } from "@/lib/curriculum/taxonomy";
+import {
+  CurriculumSyncService,
+  type ParsedCurriculum,
+} from "@/lib/curriculum/curriculumSyncService";
 import { toast } from "sonner";
 import {
   RefreshCw,

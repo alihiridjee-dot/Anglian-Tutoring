@@ -1,4 +1,4 @@
-import type { SubjectV } from "@/lib/taxonomy";
+import type { SubjectV } from "@/lib/curriculum/taxonomy";
 
 /**
  * What a new question is attached to, while it is still being composed.
@@ -6,7 +6,7 @@ import type { SubjectV } from "@/lib/taxonomy";
  * Shared by the picker that produces it and the dialog that submits it, so it
  * lives apart from either. Once the thread is created this shape is gone — the
  * database stores the id in its own typed column plus a `context_label`
- * snapshot; see `ChatContextKind` in `@/lib/chatDal` for the persisted side.
+ * snapshot; see `ChatContextKind` in `@/lib/chat/chatDal` for the persisted side.
  *
  * At most one id is ever set, matching the `chat_threads_single_context` check
  * constraint. `label` is carried alongside so the thread can record what it was

@@ -1,4 +1,4 @@
-import { sundayOf, weekKeyToDate } from "@/lib/week";
+import { sundayOf, weekKeyToDate } from "@/lib/planner/week";
 import { type PointActivity, type PointCoverage } from "./coverage";
 
 /**

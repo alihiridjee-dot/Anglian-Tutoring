@@ -1,6 +1,6 @@
 import { useState } from "react";
 import { AlertTriangle, Check, Loader2, MinusCircle, X } from "lucide-react";
-import { BILLING_FEEDBACK_REASONS } from "@/lib/billingFeedback";
+import { BILLING_FEEDBACK_REASONS } from "@/lib/billing/billingFeedback";
 
 interface RemoveSubjectDialogProps {
   /** Display name of the subject being dropped ("Chemistry"). */

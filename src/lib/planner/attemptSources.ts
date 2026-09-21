@@ -1,6 +1,6 @@
 import { readSourceRows, type SourceRows } from "./readModels";
 import { supabase } from "@/integrations/supabase/client";
-import { selectIn } from "@/lib/db/chunked";
+import { selectIn } from "@/lib/platform/db/chunked";
 
 /**
  * Where practice on a spec point can come from: homework resources (linked via

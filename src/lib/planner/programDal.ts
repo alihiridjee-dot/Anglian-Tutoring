@@ -1,7 +1,7 @@
-import { customSchedule, orderInputs, reorderTopics } from "./planner/topicOrder";
+import { customSchedule, orderInputs, reorderTopics } from "./topicOrder";
 import { supabase } from "@/integrations/supabase/client";
 import { getSessionUserId } from "@/lib/auth/session";
-import { type SubjectV, type BoardV, type LevelV } from "./taxonomy";
+import { type SubjectV, type BoardV, type LevelV } from "../curriculum/taxonomy";
 import { type Json } from "@/integrations/supabase/types";
 import { mondayOf, addWeeks, toDateKey, weekKeyToDate } from "./week";
 import { ScheduleDAL, type TopicProgress } from "./scheduleDal";
@@ -21,13 +21,8 @@ import {
   weeksBetween,
   selectWeekPoints,
   withWeeklyPoints,
-} from "./planner/pacing";
-import {
-  hasStudentHistory,
-  partition,
-  spineReach,
-  type RejectionReason,
-} from "./planner/admissibility";
+} from "./pacing";
+import { hasStudentHistory, partition, spineReach, type RejectionReason } from "./admissibility";
 import {
   byTopic,
   projectCatchUp,
@@ -37,9 +32,9 @@ import {
   trickle,
   type BacklogPoint,
   type TopicBacklog,
-} from "./planner/backlog";
+} from "./backlog";
 import { WeeklyPlanDAL, type PlanPoint, type PlanPointOrigin } from "./weeklyPlanDal";
-import { type PointCoverage } from "./planner/coverage";
+import { type PointCoverage } from "./coverage";
 
 /** "a", "a and b", "a, b and c" — for the plan's one-line rationale. */
 function listSentence(parts: string[]): string {

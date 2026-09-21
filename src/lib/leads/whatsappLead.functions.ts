@@ -2,7 +2,7 @@ import { createServerFn } from "@tanstack/react-start";
 import { getRequest } from "@tanstack/react-start/server";
 import { createClient } from "@supabase/supabase-js";
 import type { Database } from "@/integrations/supabase/types";
-import { takeToken } from "@/lib/rateLimit";
+import { takeToken } from "@/lib/platform/rateLimit";
 
 /**
  * The demo's sales chat: a visitor's question, delivered to the team's WhatsApp.
@@ -28,7 +28,7 @@ import { takeToken } from "@/lib/rateLimit";
  *     the cap; only the notification is dropped, and the team can see them in
  *     the dashboard.
  *
- * Credentials live only here. `lib/whatsapp.ts` holds the public number for the
+ * Credentials live only here. `lib/leads/whatsapp.ts` holds the public number for the
  * wa.me hand-off; the Cloud API token never leaves the server.
  */
 

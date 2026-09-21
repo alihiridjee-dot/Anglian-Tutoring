@@ -9,7 +9,7 @@ import {
   DEMO_LEVEL,
 } from "@/lib/demo/studentDemo";
 import type { Database } from "@/integrations/supabase/types";
-import type { Enrolment, ProfileRole } from "@/lib/enrolment";
+import type { Enrolment, ProfileRole } from "@/lib/profile/enrolment";
 import { getSessionUserId } from "@/lib/auth/session";
 
 type BoardV = Database["public"]["Enums"]["board"];

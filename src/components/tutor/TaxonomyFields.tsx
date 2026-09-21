@@ -1,4 +1,11 @@
-import { SUBJECTS, BOARDS, LEVELS, type SubjectV, type BoardV, type LevelV } from "@/lib/taxonomy";
+import {
+  SUBJECTS,
+  BOARDS,
+  LEVELS,
+  type SubjectV,
+  type BoardV,
+  type LevelV,
+} from "@/lib/curriculum/taxonomy";
 import { Field, inputCls } from "./Field";
 
 export function TaxonomyFields({

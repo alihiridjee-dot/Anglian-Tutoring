@@ -10,7 +10,7 @@ import {
 import { orderInputs, reorderTopics, type OrderTopic } from "./topicOrder";
 import { spineReach, admit } from "./admissibility";
 import { spineBacklog } from "./backlog";
-import { weekKeyToDate } from "../week";
+import { weekKeyToDate } from "./week";
 const today = "2026-09-14";
 const examDate = "2026-11-09";
 const topics: OrderTopic[] = ["a", "b", "c"].map((id, i) => ({

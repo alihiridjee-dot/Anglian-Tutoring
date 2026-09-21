@@ -26,17 +26,23 @@ import {
   type LucideIcon,
 } from "lucide-react";
 import { isTeachBand, type PacingBand } from "@/lib/planner/pacing";
-import { ProgramDAL, type RoadmapResult } from "@/lib/programDal";
-import { ScheduleDAL, type MemoryStats, type TopicProgress } from "@/lib/scheduleDal";
-import { type Enrolment } from "@/lib/enrolment";
-import { type SubjectV, type BoardV, type LevelV } from "@/lib/taxonomy";
-import { currentWeekKey, weekKeyToDate, addWeeks, toDateKey, weekRangeLabel } from "@/lib/week";
+import { ProgramDAL, type RoadmapResult } from "@/lib/planner/programDal";
+import { ScheduleDAL, type MemoryStats, type TopicProgress } from "@/lib/planner/scheduleDal";
+import { type Enrolment } from "@/lib/profile/enrolment";
+import { type SubjectV, type BoardV, type LevelV } from "@/lib/curriculum/taxonomy";
+import {
+  currentWeekKey,
+  weekKeyToDate,
+  addWeeks,
+  toDateKey,
+  weekRangeLabel,
+} from "@/lib/planner/week";
 import { CoveredLedger } from "./CoveredLedger";
 import { CatchUpPanel } from "./CatchUpPanel";
 import { ThisWeekPanel } from "./ThisWeekPanel";
 import { useWeekPlan } from "./useWeekPlan";
 import { WeekReview } from "./WeekReview";
-import { subjectLabel } from "@/lib/courseSummary";
+import { subjectLabel } from "@/lib/curriculum/courseSummary";
 
 /** Stable identity for one focus-lane band — topic + kind + week it lands on. */
 function focusKey(b: PacingBand): string {

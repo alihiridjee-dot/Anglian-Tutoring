@@ -6,12 +6,12 @@ import { toast } from "sonner";
 import { Field, inputCls, submitBtn } from "./Field";
 import { TaxonomyFields } from "./TaxonomyFields";
 import { SpecPointSelect } from "./SpecPointSelect";
-import { type SubjectV, type BoardV, type LevelV } from "@/lib/taxonomy";
-import { createZoomMeeting } from "@/lib/zoom.functions";
-import { generateSessionBlurb } from "@/lib/sessionBlurb.functions";
-import { suggestSpecPoints } from "@/lib/suggestSpecPoints.functions";
+import { type SubjectV, type BoardV, type LevelV } from "@/lib/curriculum/taxonomy";
+import { createZoomMeeting } from "@/lib/live/zoom.functions";
+import { generateSessionBlurb } from "@/lib/live/sessionBlurb.functions";
+import { suggestSpecPoints } from "@/lib/curriculum/suggestSpecPoints.functions";
 import { useWeeklyFocus } from "@/hooks/data/useWeeklyFocus";
-import { mondayOf, toDateKey, weekRangeLabel } from "@/lib/week";
+import { mondayOf, toDateKey, weekRangeLabel } from "@/lib/planner/week";
 import { Video, Smartphone, Loader2, CalendarRange, Link2, Sparkles, Wand2 } from "lucide-react";
 
 interface LiveFormProps {

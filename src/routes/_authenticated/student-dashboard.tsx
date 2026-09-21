@@ -5,14 +5,14 @@ import { useRoles } from "@/hooks/useRole";
 import { useEnrolments } from "@/hooks/data/useEnrolments";
 import { useAnalytics } from "@/hooks/data/useAnalytics";
 import { isDemoStudent, DEMO_STUDENT_NAME } from "@/lib/demo/studentDemo";
-import { resolveDisplayName } from "@/lib/displayName";
+import { resolveDisplayName } from "@/lib/profile/displayName";
 import type { ReactNode } from "react";
 import { WeeklyFocusCard } from "@/components/weekly/WeeklyFocusCard";
 import { LiveSessionsBanner } from "@/components/live/LiveSessionsBanner";
 import { WeeklyPlanPanel } from "@/components/planner/WeeklyPlanPanel";
-import { guardStudentHome } from "@/lib/routeGuards";
+import { guardStudentHome } from "@/lib/auth/routeGuards";
 import { useViewerId } from "@/hooks/useViewer";
-import { boardLabel, levelLabel, subjectLabel } from "@/lib/courseSummary";
+import { boardLabel, levelLabel, subjectLabel } from "@/lib/curriculum/courseSummary";
 
 export const Route = createFileRoute("/_authenticated/student-dashboard")({
   beforeLoad: guardStudentHome,

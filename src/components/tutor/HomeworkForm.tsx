@@ -7,8 +7,8 @@ import { TaxonomyFields } from "./TaxonomyFields";
 import { SpecPointSelect } from "./SpecPointSelect";
 import { UseWeeklyFocusButton } from "./UseWeeklyFocusButton";
 import { QuestionBuilder } from "./QuestionBuilder";
-import { type BuilderQuestion } from "@/lib/builderQuestion";
-import { type SubjectV, type BoardV, type LevelV } from "@/lib/taxonomy";
+import { type BuilderQuestion } from "@/lib/homework/builderQuestion";
+import { type SubjectV, type BoardV, type LevelV } from "@/lib/curriculum/taxonomy";
 
 /**
  * Writing a homework, and — with `editing` — correcting one already set.

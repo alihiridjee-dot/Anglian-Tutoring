@@ -1,7 +1,12 @@
 import { useMutation, useQuery, useQueryClient } from "@tanstack/react-query";
 import { isDemoMode } from "@/lib/auth/session";
 import { useRoles } from "@/hooks/useRole";
-import { ChatDAL, type ChatMessage, type ThreadSummary, type TutorOption } from "@/lib/chatDal";
+import {
+  ChatDAL,
+  type ChatMessage,
+  type ThreadSummary,
+  type TutorOption,
+} from "@/lib/chat/chatDal";
 
 /** Everything chat-shaped sits under this prefix, so one invalidate refreshes it. */
 export const CHAT_KEY = ["chat"] as const;

@@ -12,7 +12,7 @@ import {
   useChildFeedback,
   type WeeklyTrendPoint,
 } from "@/hooks/data/useChildProgress";
-import { guardParentOnly } from "@/lib/routeGuards";
+import { guardParentOnly } from "@/lib/auth/routeGuards";
 import { GradePredictorCard } from "@/components/parent/GradePredictorCard";
 import { EngagementStats } from "@/components/parent/EngagementStats";
 import { FeedbackList } from "@/components/parent/FeedbackList";
@@ -23,7 +23,7 @@ import {
   DEMO_PARENT_NAME,
   DEMO_SUBMISSIONS,
 } from "@/lib/demo/studentDemo";
-import { resolveDisplayName } from "@/lib/displayName";
+import { resolveDisplayName } from "@/lib/profile/displayName";
 import { Suspense, lazy, useState } from "react";
 import { Users } from "lucide-react";
 

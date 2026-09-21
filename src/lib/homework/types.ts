@@ -1,4 +1,4 @@
-import type { BoardV, LevelV } from "@/lib/taxonomy";
+import type { BoardV, LevelV } from "@/lib/curriculum/taxonomy";
 
 /** Where a homework came from: a tutor set it, or the planner generated it. */
 export type HomeworkOrigin = "tutor" | "generated";

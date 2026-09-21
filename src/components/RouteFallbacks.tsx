@@ -3,7 +3,7 @@ import { Link, useRouter, type ErrorComponentProps } from "@tanstack/react-route
 import { AppLayout } from "@/components/AppLayout";
 import { Mascot } from "@/components/Doodles";
 import { Spinner } from "@/components/Shared";
-import { markHydrated } from "@/lib/hydration";
+import { markHydrated } from "@/lib/auth/hydration";
 
 /**
  * What a guarded route shows while it cannot show itself yet.

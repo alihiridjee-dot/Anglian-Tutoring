@@ -3,10 +3,10 @@ import { Check } from "lucide-react";
 import { BrandMark } from "@/components/auth/AuthShell";
 import { RoutePending } from "@/components/RouteFallbacks";
 import { getAuthSession } from "@/lib/auth/session";
-import { whenHydrated } from "@/lib/hydration";
+import { whenHydrated } from "@/lib/auth/hydration";
 import { loadGuardState } from "@/lib/auth/guardState";
 import { UserRole } from "@/types/user";
-import { ONBOARDING_STEPS, stepIndex } from "@/lib/onboarding";
+import { ONBOARDING_STEPS, stepIndex } from "@/lib/auth/onboarding";
 
 /**
  * Profile setup + payment, for students who have verified their email but do
@@ -20,7 +20,7 @@ import { ONBOARDING_STEPS, stepIndex } from "@/lib/onboarding";
 export const Route = createFileRoute("/onboarding")({
   ssr: false,
   beforeLoad: async ({ location, context }) => {
-    // First, because everything below can redirect — see `@/lib/hydration`.
+    // First, because everything below can redirect — see `@/lib/auth/hydration`.
     await whenHydrated();
 
     const session = await getAuthSession();

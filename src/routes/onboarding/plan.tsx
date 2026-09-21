@@ -12,8 +12,8 @@ import { invalidateGuardState } from "@/lib/auth/guardState";
 import { useSignOut } from "@/hooks/useSignOut";
 import { usePackages, useOwnPlanState } from "@/hooks/data/useBilling";
 import { useEnrolments } from "@/hooks/data/useEnrolments";
-import { startCheckout, formatPence } from "@/lib/billing";
-import { SUBJECTS, BOARDS, LEVELS } from "@/lib/taxonomy";
+import { startCheckout, formatPence } from "@/lib/billing/billing";
+import { SUBJECTS, BOARDS, LEVELS } from "@/lib/curriculum/taxonomy";
 
 type SearchParams = { checkout?: "success" | "cancelled" };
 

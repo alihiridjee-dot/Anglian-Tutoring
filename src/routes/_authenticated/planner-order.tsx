@@ -6,9 +6,9 @@ import { TopicOrderEditor } from "@/components/planner/TopicOrderEditor";
 import { useEnrolments } from "@/hooks/data/useEnrolments";
 import { usePlannerRoadmap } from "@/hooks/data/usePlanner";
 import { useViewerId } from "@/hooks/useViewer";
-import { guardStudentSection } from "@/lib/routeGuards";
+import { guardStudentSection } from "@/lib/auth/routeGuards";
 import { invalidatePlanner } from "@/lib/planner/queries";
-import { isSubject, type SubjectV } from "@/lib/taxonomy";
+import { isSubject, type SubjectV } from "@/lib/curriculum/taxonomy";
 import { toast } from "sonner";
 
 export const Route = createFileRoute("/_authenticated/planner-order")({

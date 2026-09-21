@@ -4,7 +4,7 @@ import { Spinner } from "@/components/Shared";
 import { AppLayout } from "@/components/AppLayout";
 import { useRoles } from "@/hooks/useRole";
 import { useEnrolments } from "@/hooks/data/useEnrolments";
-import { resolveDisplayName } from "@/lib/displayName";
+import { resolveDisplayName } from "@/lib/profile/displayName";
 import { toast } from "sonner";
 import { PlayCircle, ClipboardList, Wrench, ClipboardCheck, CalendarRange } from "lucide-react";
 
@@ -12,7 +12,7 @@ import { ThisWeekPanel } from "@/components/tutor/ThisWeekPanel";
 import { VideoForm } from "@/components/tutor/VideoForm";
 import { HomeworkForm } from "@/components/tutor/HomeworkForm";
 import { MarkingQueue } from "@/components/tutor/MarkingQueue";
-import { type SubjectV, type BoardV, type LevelV } from "@/lib/taxonomy";
+import { type SubjectV, type BoardV, type LevelV } from "@/lib/curriculum/taxonomy";
 
 export const Route = createFileRoute("/_authenticated/tutor")({
   head: () => ({ meta: [{ title: "Tutor Studio | Anglia Educate" }] }),

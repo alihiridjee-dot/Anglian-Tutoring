@@ -1,5 +1,5 @@
 import { supabase } from "@/integrations/supabase/client";
-import { type SubjectV, type BoardV, type LevelV } from "./taxonomy";
+import { type SubjectV, type BoardV, type LevelV } from "../curriculum/taxonomy";
 import { type Database, type Json } from "@/integrations/supabase/types";
 import {
   type PointCoverage,
@@ -8,8 +8,8 @@ import {
   type PointWorkItem,
   noWork,
   practiceInWeek,
-} from "./planner/coverage";
-import { mapAttemptSources } from "./planner/attemptSources";
+} from "./coverage";
+import { mapAttemptSources } from "./attemptSources";
 import {
   describeReason,
   isHandPicked,
@@ -17,10 +17,10 @@ import {
   spineReach,
   type Rejection,
   type Partitioned,
-} from "./planner/admissibility";
+} from "./admissibility";
 import { ScheduleDAL } from "./scheduleDal";
-import { type PacingBand } from "./planner/pacing";
-import { selectIn, selectInSafe, selectInHistory } from "./db/chunked";
+import { type PacingBand } from "./pacing";
+import { selectIn, selectInSafe, selectInHistory } from "../platform/db/chunked";
 import { getSessionUserId } from "@/lib/auth/session";
 
 /** A stored end-of-week check-in row. */

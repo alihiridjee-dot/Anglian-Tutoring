@@ -6,7 +6,7 @@ import {
 } from "./examGeneration.server";
 import type { WrittenQuestion } from "./examGeneration";
 import { requireSupabaseAuth } from "@/integrations/supabase/auth-middleware";
-import { SUBJECTS, LEVELS, BOARDS } from "@/lib/taxonomy";
+import { SUBJECTS, LEVELS, BOARDS } from "@/lib/curriculum/taxonomy";
 import type { SupabaseClient } from "@supabase/supabase-js";
 import type { Database } from "@/integrations/supabase/types";
 

@@ -1,6 +1,6 @@
 import { useQuery, useQueryClient } from "@tanstack/react-query";
 import { plannerKey } from "@/lib/planner/queries";
-import { PLANNER_TIME_ZONE } from "@/lib/week";
+import { PLANNER_TIME_ZONE } from "@/lib/planner/week";
 import { useCallback, useEffect, useMemo, useRef, useState } from "react";
 import { toast } from "sonner";
 import {
@@ -21,8 +21,8 @@ import {
   type WeeklyPlan,
   type PlanPoint,
   type PlanPointOrigin,
-} from "@/lib/weeklyPlanDal";
-import { type SubjectV, type BoardV, type LevelV } from "@/lib/taxonomy";
+} from "@/lib/planner/weeklyPlanDal";
+import { type SubjectV, type BoardV, type LevelV } from "@/lib/curriculum/taxonomy";
 import {
   statusOfPoint,
   summarize,
@@ -37,7 +37,7 @@ import {
   type WeekSummary,
 } from "@/lib/planner/coverage";
 import { reviewLock } from "@/lib/planner/reviewLock";
-import { addWeeks, weekKeyToDate, toDateKey, weekRangeLabel } from "@/lib/week";
+import { addWeeks, weekKeyToDate, toDateKey, weekRangeLabel } from "@/lib/planner/week";
 import { TutorTake } from "./TutorTake";
 import { type Activity } from "./useWeekPlan";
 

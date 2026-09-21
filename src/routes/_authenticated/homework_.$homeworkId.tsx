@@ -9,10 +9,10 @@ import { EmptyState, ErrorNote, SectionHeading, Spinner } from "@/components/Sha
 import { useHomeworkSheet, useInvalidateHomework } from "@/hooks/data/useHomework";
 import type { SubmissionRow } from "@/lib/homework/types";
 import { useRoles } from "@/hooks/useRole";
-import { acknowledgeSubmission } from "@/lib/homework.functions";
+import { acknowledgeSubmission } from "@/lib/homework/homework.functions";
 import { isDemoStudent } from "@/lib/demo/studentDemo";
-import { SUBJECT_LABEL, SUBJECT_TINT } from "@/lib/subjectTheme";
-import { guardStudentSection } from "@/lib/routeGuards";
+import { SUBJECT_LABEL, SUBJECT_TINT } from "@/lib/curriculum/subjectTheme";
+import { guardStudentSection } from "@/lib/auth/routeGuards";
 
 /**
  * One homework sheet, on its own page.

@@ -9,7 +9,7 @@ import {
   mergeDrafts,
   saveDraft,
   saveServerDraft,
-} from "@/lib/homeworkDrafts";
+} from "@/lib/homework/homeworkDrafts";
 import type { HomeworkQuestion, HomeworkAnswer } from "@/hooks/data/useHomeworkQuestions";
 
 /**

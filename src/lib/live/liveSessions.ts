@@ -1,6 +1,6 @@
 import { supabase } from "@/integrations/supabase/client";
 import { isDemoStudent, DEMO_LIVE } from "@/lib/demo/studentDemo";
-import { type SubjectV, type BoardV, type LevelV } from "@/lib/taxonomy";
+import { type SubjectV, type BoardV, type LevelV } from "@/lib/curriculum/taxonomy";
 
 /**
  * Shared live-session reads. Both the Live Sessions page and the student

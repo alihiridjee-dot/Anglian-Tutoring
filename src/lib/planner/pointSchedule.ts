@@ -1,4 +1,4 @@
-import type { RoadmapResult } from "@/lib/programDal";
+import type { RoadmapResult } from "@/lib/planner/programDal";
 import { isTeachBand, withWeeklyPoints, type FocusPointRef } from "./pacing";
 
 /**

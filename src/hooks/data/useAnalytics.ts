@@ -1,7 +1,7 @@
 import { useQuery } from "@tanstack/react-query";
 import { supabase } from "@/integrations/supabase/client";
 import { isDemoStudent, DEMO_ANALYTICS } from "@/lib/demo/studentDemo";
-import { summariseAnalytics, type SubjectAnalytics } from "@/lib/analytics";
+import { summariseAnalytics, type SubjectAnalytics } from "@/lib/profile/analytics";
 
 async function fetchAnalytics(userId: string, subjects: string[]): Promise<SubjectAnalytics[]> {
   const [attempts, subs] = await Promise.all([

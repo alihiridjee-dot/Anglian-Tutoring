@@ -2,7 +2,7 @@ import { createServerFn } from "@tanstack/react-start";
 import { getRequest } from "@tanstack/react-start/server";
 import { createClient } from "@supabase/supabase-js";
 import type { Database } from "@/integrations/supabase/types";
-import { takeToken } from "@/lib/rateLimit";
+import { takeToken } from "@/lib/platform/rateLimit";
 
 /**
  * The landing page's contact form: a visitor's enquiry, written to the CRM.

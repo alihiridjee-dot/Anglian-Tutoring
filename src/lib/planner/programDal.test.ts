@@ -1,7 +1,7 @@
 import { describe, expect, test, spyOn } from "bun:test";
 import { focusInputs, handPicked, ProgramDAL, type RoadmapResult } from "./programDal";
 import { WeeklyPlanDAL, type PlanPoint } from "./weeklyPlanDal";
-import { type RejectionReason } from "./planner/admissibility";
+import { type RejectionReason } from "./admissibility";
 import type { ProgressPoint, TopicProgress } from "./scheduleDal";
 
 const point = (id: string, values: Partial<ProgressPoint> = {}): ProgressPoint => ({

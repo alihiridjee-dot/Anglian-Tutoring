@@ -5,9 +5,9 @@ import { EmptyState, Spinner } from "@/components/Shared";
 import { AppLayout } from "@/components/AppLayout";
 import { FilterBar, type Filters } from "@/components/FilterBar";
 import { supabase } from "@/integrations/supabase/client";
-import { SUBJECTS, BOARDS, LEVELS } from "@/lib/taxonomy";
+import { SUBJECTS, BOARDS, LEVELS } from "@/lib/curriculum/taxonomy";
 import { isDemoStudent, DEMO_VIDEOS } from "@/lib/demo/studentDemo";
-import { parseVideoUrl } from "@/lib/videoEmbed";
+import { parseVideoUrl } from "@/lib/curriculum/videoEmbed";
 import { VideoThumbnail, VideoModal } from "@/components/VideoPlayer";
 
 export const Route = createFileRoute("/_authenticated/videos")({

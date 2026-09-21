@@ -23,7 +23,7 @@ function roleOf({ context }: GuardArgs): UserRole {
 
 /**
  * `beforeLoad` guard for the student learning sections — planner, curriculum,
- * homework, live, and mcqs (see `STUDENT_SECTION_ROUTES` in `@/lib/nav`).
+ * homework, live, and mcqs (see `STUDENT_SECTION_ROUTES` in `@/lib/shell/nav`).
  *
  * These render the caller's *own* study surface, which a parent does not have:
  * the Parent Portal already surfaces the child's equivalents read-only. A

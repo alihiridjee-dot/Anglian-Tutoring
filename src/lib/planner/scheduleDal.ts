@@ -1,5 +1,5 @@
 import { supabase } from "@/integrations/supabase/client";
-import { type SubjectV, type BoardV, type LevelV } from "./taxonomy";
+import { type SubjectV, type BoardV, type LevelV } from "../curriculum/taxonomy";
 import { type Json } from "@/integrations/supabase/types";
 import {
   type Card,
@@ -15,22 +15,22 @@ import {
   retrievability,
   reviewEligibleAt,
   scoreToRating,
-} from "./planner/scheduler";
-import { weightOf } from "./planner/pacing";
-import { readCourseSnapshot, type CourseSnapshot } from "./planner/readModels";
+} from "./scheduler";
+import { weightOf } from "./pacing";
+import { readCourseSnapshot, type CourseSnapshot } from "./readModels";
 import {
   assessablePoints,
   mapAttemptSources,
   sourcesFromRows,
   type AttemptSources,
-} from "./planner/attemptSources";
+} from "./attemptSources";
 import {
   assessTopic,
   pointAssessability,
   type PointAssessability,
   type TopicAssessment,
-} from "./planner/assessability";
-import { selectIn, selectInSafe, selectInHistory } from "./db/chunked";
+} from "./assessability";
+import { selectIn, selectInSafe, selectInHistory } from "../platform/db/chunked";
 
 /** One covered spec point, with how it went, for the "covered so far" ledger. */
 export interface CoveredPoint {

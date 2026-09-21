@@ -1,6 +1,6 @@
 import { describe, expect, test } from "bun:test";
 import { describeError, isNetworkError } from "./errors";
-import { reconcileAnswers } from "./mcqAnswers";
+import { reconcileAnswers } from "../mcq/mcqAnswers";
 
 describe("describeError", () => {
   test("reads the message off a Supabase error, which is a plain object", () => {

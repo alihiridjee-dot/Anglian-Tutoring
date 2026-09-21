@@ -1,4 +1,11 @@
-import { SUBJECTS, BOARDS, LEVELS, type SubjectV, type BoardV, type LevelV } from "@/lib/taxonomy";
+import {
+  SUBJECTS,
+  BOARDS,
+  LEVELS,
+  type SubjectV,
+  type BoardV,
+  type LevelV,
+} from "@/lib/curriculum/taxonomy";
 
 /**
  * The curriculum page's URL state, so a specification point can be *addressed*.

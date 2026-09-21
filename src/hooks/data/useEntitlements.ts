@@ -1,5 +1,5 @@
 import { useMemo } from "react";
-import { SUBJECTS, type SubjectV, type BoardV } from "@/lib/taxonomy";
+import { SUBJECTS, type SubjectV, type BoardV } from "@/lib/curriculum/taxonomy";
 import { useEnrolments } from "@/hooks/data/useEnrolments";
 
 /**

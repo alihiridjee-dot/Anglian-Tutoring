@@ -1,22 +1,32 @@
 import { Spinner } from "@/components/Shared";
 import { createFileRoute, Link, useNavigate, useSearch } from "@tanstack/react-router";
-import { guardStudentSection } from "@/lib/routeGuards";
+import { guardStudentSection } from "@/lib/auth/routeGuards";
 import { useCallback, useEffect, useMemo, useRef, useState } from "react";
 import { useQuery } from "@tanstack/react-query";
 import { useServerFn } from "@tanstack/react-start";
 import { motion, AnimatePresence } from "motion/react";
-import { subjectTint } from "@/lib/subjectTheme";
+import { subjectTint } from "@/lib/curriculum/subjectTheme";
 import { AppLayout } from "@/components/AppLayout";
 import { supabase } from "@/integrations/supabase/client";
 import { useRoles } from "@/hooks/useRole";
 import { useEntitlements, type Entitlements } from "@/hooks/data/useEntitlements";
 import { useEnrolments } from "@/hooks/data/useEnrolments";
-import { SUBJECTS, BOARDS, LEVELS, type SubjectV, type BoardV, type LevelV } from "@/lib/taxonomy";
-import { generateMcqSet } from "@/lib/mcq.functions";
+import {
+  SUBJECTS,
+  BOARDS,
+  LEVELS,
+  type SubjectV,
+  type BoardV,
+  type LevelV,
+} from "@/lib/curriculum/taxonomy";
+import { generateMcqSet } from "@/lib/mcq/mcq.functions";
 import { toast } from "sonner";
-import { CurriculumDAL } from "@/lib/curriculumDal";
+import { CurriculumDAL } from "@/lib/curriculum/curriculumDal";
 import type { Topic, SpecPoint, SpecPointMatch, Resource, McqSet } from "@/lib/curriculum/types";
-import { validateCurriculumSearch, type CurriculumSearchParams } from "@/lib/curriculumParams";
+import {
+  validateCurriculumSearch,
+  type CurriculumSearchParams,
+} from "@/lib/curriculum/curriculumParams";
 import { useDebounced } from "@/hooks/useGlobalSearch";
 import { MIN_QUERY_LENGTH, queryTerms } from "@/lib/search/match";
 import { Highlight } from "@/components/search/Highlight";
@@ -29,10 +39,10 @@ import {
 } from "@/components/curriculum/ScheduleBadges";
 import { usePlannerRoadmap } from "@/hooks/data/usePlanner";
 import { courseSchedule, type CourseSchedule } from "@/lib/planner/pointSchedule";
-import { currentWeekKey } from "@/lib/week";
+import { currentWeekKey } from "@/lib/planner/week";
 import { VideoModal, VideoThumbnail } from "@/components/VideoPlayer";
 import { isDemoStudent } from "@/lib/demo/studentDemo";
-import { parseVideoUrl, type VideoEmbed } from "@/lib/videoEmbed";
+import { parseVideoUrl, type VideoEmbed } from "@/lib/curriculum/videoEmbed";
 import { SpecPointVideoEditor, type EditableVideo } from "@/components/tutor/SpecPointVideoEditor";
 import {
   Plus,

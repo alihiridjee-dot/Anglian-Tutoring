@@ -1,7 +1,7 @@
 import { useQuery, useQueryClient } from "@tanstack/react-query";
 import { supabase } from "@/integrations/supabase/client";
 import { isDemoStudent, DEMO_VIDEOS } from "@/lib/demo/studentDemo";
-import type { SubjectV, BoardV, LevelV } from "@/lib/taxonomy";
+import type { SubjectV, BoardV, LevelV } from "@/lib/curriculum/taxonomy";
 
 export interface WeeklyFocusPoint {
   id: string;

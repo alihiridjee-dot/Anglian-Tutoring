@@ -1,6 +1,6 @@
 import { type ReactNode, useMemo, useState } from "react";
 import { CheckCircle2, ListChecks, Circle } from "lucide-react";
-import { type PlanPoint } from "@/lib/weeklyPlanDal";
+import { type PlanPoint } from "@/lib/planner/weeklyPlanDal";
 import {
   type PointActivity,
   type PointCoverage,
@@ -8,10 +8,10 @@ import {
   type PointWorkItem,
 } from "@/lib/planner/coverage";
 import { type Activity } from "./useWeekPlan";
-import { parseVideoUrl } from "@/lib/videoEmbed";
+import { parseVideoUrl } from "@/lib/curriculum/videoEmbed";
 import { VideoModal } from "@/components/VideoPlayer";
 import { SectionHeading, Meter } from "@/components/Shared";
-import { SUBJECT_TINT } from "@/lib/subjectTheme";
+import { SUBJECT_TINT } from "@/lib/curriculum/subjectTheme";
 import { HomeworkChip, QuizChip, VideoChip } from "./WorkChips";
 
 /**

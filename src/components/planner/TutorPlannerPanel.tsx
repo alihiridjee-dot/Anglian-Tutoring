@@ -2,7 +2,7 @@ import { WithheldPlanPoints } from "./WithheldPlanPoints";
 import { ErrorNote } from "@/components/Shared";
 import { useQuery, useQueryClient } from "@tanstack/react-query";
 import { useWeekPlan } from "./useWeekPlan";
-import { ProgramDAL, type RoadmapResult } from "@/lib/programDal";
+import { ProgramDAL, type RoadmapResult } from "@/lib/planner/programDal";
 import { Spinner } from "@/components/Shared";
 import { useEffect, useMemo, useState } from "react";
 import { toast } from "sonner";
@@ -20,18 +20,18 @@ import {
   type WeeklyPlan,
   type PlanPoint,
   type PlannerStudent,
-} from "@/lib/weeklyPlanDal";
-import { type SubjectV, type BoardV } from "@/lib/taxonomy";
-import { mondayOf, addWeeks, toDateKey, weekRangeLabel } from "@/lib/week";
+} from "@/lib/planner/weeklyPlanDal";
+import { type SubjectV, type BoardV } from "@/lib/curriculum/taxonomy";
+import { mondayOf, addWeeks, toDateKey, weekRangeLabel } from "@/lib/planner/week";
 import { type PointCoverage, statusOfPoint } from "@/lib/planner/coverage";
 import { type Activity } from "./useWeekPlan";
-import { ScheduleDAL } from "@/lib/scheduleDal";
+import { ScheduleDAL } from "@/lib/planner/scheduleDal";
 import { RoadmapPanel } from "./RoadmapPanel";
 import { CoveredLedger } from "./CoveredLedger";
 import { SpecPointSelect } from "@/components/tutor/SpecPointSelect";
 import { CoveragePill } from "./CoveragePill";
 import { WeekReview } from "./WeekReview";
-import { subjectLabel } from "@/lib/courseSummary";
+import { subjectLabel } from "@/lib/curriculum/courseSummary";
 
 /**
  * The tutor's window into any student's weekly plan. Pick a student, page

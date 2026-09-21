@@ -3,10 +3,10 @@ import { usePlannerMemory } from "@/hooks/data/usePlanner";
 import { Spinner } from "@/components/Shared";
 import { useEffect, useMemo, useState } from "react";
 import { Brain } from "lucide-react";
-import { ScheduleDAL, type MemoryStats } from "@/lib/scheduleDal";
-import { type Enrolment } from "@/lib/enrolment";
-import { type SubjectV, type BoardV, type LevelV } from "@/lib/taxonomy";
-import { subjectLabel } from "@/lib/courseSummary";
+import { ScheduleDAL, type MemoryStats } from "@/lib/planner/scheduleDal";
+import { type Enrolment } from "@/lib/profile/enrolment";
+import { type SubjectV, type BoardV, type LevelV } from "@/lib/curriculum/taxonomy";
+import { subjectLabel } from "@/lib/curriculum/courseSummary";
 
 /**
  * The memory dashboard: how well the course is actually held right now,

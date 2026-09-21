@@ -1,6 +1,6 @@
 import { PlannerPointItem } from "./PlannerPointItem";
 import { ClipboardList, ListChecks } from "lucide-react";
-import { type ProgressPoint } from "@/lib/scheduleDal";
+import { type ProgressPoint } from "@/lib/planner/scheduleDal";
 import { type PointStatus } from "@/lib/planner/scheduler";
 import { describeAssessability } from "@/lib/planner/assessability";
 

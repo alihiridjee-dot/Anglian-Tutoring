@@ -1,5 +1,5 @@
 import { BookOpen, CalendarClock } from "lucide-react";
-import { formatWhen, type LiveSession } from "@/lib/liveSessions";
+import { formatWhen, type LiveSession } from "@/lib/live/liveSessions";
 
 // The identity block for a session — status eyebrow, subject/level chips, title
 // and start time. Shared by the countdown banner and the session rows so a

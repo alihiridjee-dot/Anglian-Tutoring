@@ -1,4 +1,4 @@
-import type { DraftQuestion } from "@/lib/homeworkQuestions.functions";
+import type { DraftQuestion } from "@/lib/homework/homeworkQuestions.functions";
 
 /**
  * A homework question while it is still being written.

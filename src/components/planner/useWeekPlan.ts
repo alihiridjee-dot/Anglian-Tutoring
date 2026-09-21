@@ -5,13 +5,13 @@ import {
   type WeeklyPlan,
   type PlanPoint,
   type WithheldPlanPoint,
-} from "@/lib/weeklyPlanDal";
-import { ProgramDAL, type RoadmapResult } from "@/lib/programDal";
-import { type SubjectV, type BoardV, type LevelV } from "@/lib/taxonomy";
+} from "@/lib/planner/weeklyPlanDal";
+import { ProgramDAL, type RoadmapResult } from "@/lib/planner/programDal";
+import { type SubjectV, type BoardV, type LevelV } from "@/lib/curriculum/taxonomy";
 import { type PointCoverage, type PointActivity, type PointWork } from "@/lib/planner/coverage";
 import { getSessionUserId } from "@/lib/auth/session";
-import { ensureHomeworkForPoints } from "@/lib/homeworkQuestions.functions";
-import { ensureMcqForPoints } from "@/lib/mcq.functions";
+import { ensureHomeworkForPoints } from "@/lib/homework/homeworkQuestions.functions";
+import { ensureMcqForPoints } from "@/lib/mcq/mcq.functions";
 import { courseKey, invalidatePlanner, roadmapQuery } from "@/lib/planner/queries";
 
 export type Activity = Map<string, PointActivity & PointWork>;

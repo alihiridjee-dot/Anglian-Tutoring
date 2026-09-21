@@ -2,13 +2,13 @@ import { ReturningTopicInfo } from "./ReturningTopicInfo";
 import { PlannerPointItem } from "./PlannerPointItem";
 import { NothingDue } from "./NothingDue";
 import { CatchUpWeek } from "./CatchUpWeek";
-import { currentWeekKey, PLANNER_TIME_ZONE } from "@/lib/week";
+import { currentWeekKey, PLANNER_TIME_ZONE } from "@/lib/planner/week";
 import { Spinner, Meter, EmptyState } from "@/components/Shared";
 import { useMemo, useState } from "react";
 import { Link } from "@tanstack/react-router";
 import { CircleDot, History, Repeat, CheckCircle2, Plus, RotateCcw } from "lucide-react";
-import { type PlanPoint, type WeeklyPlan } from "@/lib/weeklyPlanDal";
-import { type RoadmapResult } from "@/lib/programDal";
+import { type PlanPoint, type WeeklyPlan } from "@/lib/planner/weeklyPlanDal";
+import { type RoadmapResult } from "@/lib/planner/programDal";
 import { isTeachBand, mondayOnOrAfter, type PacingBand } from "@/lib/planner/pacing";
 import {
   type PointCoverage,
@@ -16,8 +16,8 @@ import {
   statusOfPoint,
   laneOf,
 } from "@/lib/planner/coverage";
-import { weekKeyToDate } from "@/lib/week";
-import { parseVideoUrl } from "@/lib/videoEmbed";
+import { weekKeyToDate } from "@/lib/planner/week";
+import { parseVideoUrl } from "@/lib/curriculum/videoEmbed";
 import { VideoModal } from "@/components/VideoPlayer";
 import { CoveragePill } from "./CoveragePill";
 import { WorkChips } from "./WorkChips";

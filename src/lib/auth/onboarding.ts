@@ -1,5 +1,5 @@
 import { supabase } from "@/integrations/supabase/client";
-import { type LevelV } from "@/lib/taxonomy";
+import { type LevelV } from "@/lib/curriculum/taxonomy";
 
 /**
  * Profile setup — the steps between verifying an email and reaching payment.

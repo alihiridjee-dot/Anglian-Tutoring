@@ -1,6 +1,6 @@
 import { createFileRoute, Outlet, redirect } from "@tanstack/react-router";
 import { getAuthSession } from "@/lib/auth/session";
-import { whenHydrated } from "@/lib/hydration";
+import { whenHydrated } from "@/lib/auth/hydration";
 import { loadGuardState } from "@/lib/auth/guardState";
 import { UserRole } from "@/types/user";
 import { PaywallOverlay } from "@/components/billing/PaywallOverlay";
@@ -37,7 +37,7 @@ import { AuthedRouteError, RoutePending } from "@/components/RouteFallbacks";
 export const Route = createFileRoute("/_authenticated")({
   ssr: false,
   beforeLoad: async ({ location, context }) => {
-    // First, because everything below can redirect — see `@/lib/hydration`.
+    // First, because everything below can redirect — see `@/lib/auth/hydration`.
     await whenHydrated();
 
     const session = await getAuthSession();
@@ -72,7 +72,7 @@ export const Route = createFileRoute("/_authenticated")({
     }
 
     // `viewer` is the resolved identity every child route and page reads — see
-    // `@/lib/routeGuards` and `useViewer`. Nothing below this guard needs to ask
+    // `@/lib/auth/routeGuards` and `useViewer`. Nothing below this guard needs to ask
     // the network who the caller is again.
     return { session, locked, viewer: guard };
   },

@@ -2,8 +2,8 @@ import { Link } from "@tanstack/react-router";
 import { Check, ChevronDown, Sparkles } from "lucide-react";
 import { useState } from "react";
 import { useCurriculumCoverage } from "@/hooks/data/useCurriculumCoverage";
-import { boardLabel } from "@/lib/courseSummary";
-import { isBoard, isSubject, type BoardV, type LevelV } from "@/lib/taxonomy";
+import { boardLabel } from "@/lib/curriculum/courseSummary";
+import { isBoard, isSubject, type BoardV, type LevelV } from "@/lib/curriculum/taxonomy";
 
 // ---------------------------------------------------------------------------
 // Pricing model

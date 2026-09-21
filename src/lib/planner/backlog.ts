@@ -1,4 +1,4 @@
-import { addWeeks, toDateKey, weekKeyToDate } from "../week";
+import { addWeeks, toDateKey, weekKeyToDate } from "./week";
 import { isTeachBand, weightOf, type PacingBand } from "./pacing";
 
 /**

@@ -10,7 +10,7 @@ import {
   MessagesSquare,
 } from "lucide-react";
 import type { ComponentType } from "react";
-import type { ProfileRole } from "@/lib/enrolment";
+import type { ProfileRole } from "@/lib/profile/enrolment";
 
 /**
  * Single source of truth for the authenticated sidebar.
@@ -18,7 +18,7 @@ import type { ProfileRole } from "@/lib/enrolment";
  * Navigation is derived here — per persona — rather than assembled ad hoc in
  * the layout, so the rule "a parent never sees a student learning section"
  * lives in one place and is enforced by the type system (see
- * {@link ParentNavRoute}). The route-level guard in `@/lib/routeGuards`
+ * {@link ParentNavRoute}). The route-level guard in `@/lib/auth/routeGuards`
  * mirrors this at the routing layer, so the invariant holds even for a URL
  * typed by hand.
  */

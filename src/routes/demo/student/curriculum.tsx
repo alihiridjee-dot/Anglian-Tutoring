@@ -1,6 +1,6 @@
 import { createFileRoute } from "@tanstack/react-router";
 import { Curriculum } from "@/routes/_authenticated/curriculum";
-import { validateCurriculumSearch } from "@/lib/curriculumParams";
+import { validateCurriculumSearch } from "@/lib/curriculum/curriculumParams";
 
 // Showcase mount: the real page component, rendered outside the auth guard.
 // isDemoMode() keys off the /demo/* pathname, so every query inside short-circuits

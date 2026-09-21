@@ -13,7 +13,7 @@ import { useEffect, type ReactNode, createElement } from "react";
 import appCss from "../styles.css?url";
 import { supabase } from "@/integrations/supabase/client";
 import { Mascot } from "@/components/Doodles";
-import { markHydrated } from "@/lib/hydration";
+import { markHydrated } from "@/lib/auth/hydration";
 
 function NotFoundComponent() {
   return (

@@ -5,9 +5,9 @@ import { DoNowPanel } from "@/components/planner/DoNowPanel";
 import { SubjectToggle } from "@/components/Shared";
 import { demoWeek } from "@/lib/demo/plannerDemo";
 import { DEMO_ENROLMENTS } from "@/lib/demo/studentDemo";
-import { SUBJECT_TINT } from "@/lib/subjectTheme";
-import { mondayOf, weekRangeLabel } from "@/lib/week";
-import type { SubjectV } from "@/lib/taxonomy";
+import { SUBJECT_TINT } from "@/lib/curriculum/subjectTheme";
+import { mondayOf, weekRangeLabel } from "@/lib/planner/week";
+import type { SubjectV } from "@/lib/curriculum/taxonomy";
 
 /**
  * The showcase's "This week" — the planner a real student sees on their

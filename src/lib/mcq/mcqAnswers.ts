@@ -4,7 +4,7 @@
  * The chosen options lived in React state alone, so a refresh, a phone that
  * locked and reclaimed the tab, or a stray swipe back wiped a twenty-question
  * quiz at question nineteen. Homework has had drafts for this reason since it
- * moved on-page (`@/lib/homeworkDrafts`); a quiz is lighter — a few integers,
+ * moved on-page (`@/lib/homework/homeworkDrafts`); a quiz is lighter — a few integers,
  * with nothing worth carrying between devices — so it gets the light version.
  *
  * sessionStorage, not localStorage: it survives the reload, which is the

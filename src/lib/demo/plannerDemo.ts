@@ -1,7 +1,7 @@
-import type { PlanPoint, WeeklyPlan } from "@/lib/weeklyPlanDal";
+import type { PlanPoint, WeeklyPlan } from "@/lib/planner/weeklyPlanDal";
 import type { PointActivity, PointCoverage, PointWork } from "@/lib/planner/coverage";
-import type { SubjectV } from "@/lib/taxonomy";
-import { currentWeekKey } from "@/lib/week";
+import type { SubjectV } from "@/lib/curriculum/taxonomy";
+import { currentWeekKey } from "@/lib/planner/week";
 import { DEMO_ENROLMENTS, DEMO_MCQ_SETS, DEMO_YT } from "./studentDemo";
 
 /**

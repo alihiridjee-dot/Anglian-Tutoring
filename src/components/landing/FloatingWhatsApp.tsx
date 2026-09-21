@@ -1,5 +1,5 @@
 import { MessageSquare } from "lucide-react";
-import { whatsappLink } from "@/lib/whatsapp";
+import { whatsappLink } from "@/lib/leads/whatsapp";
 
 export function FloatingWhatsApp() {
   return (

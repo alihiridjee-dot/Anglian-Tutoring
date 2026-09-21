@@ -3,7 +3,7 @@ import { useQuery } from "@tanstack/react-query";
 import { ChevronRight, Radio } from "lucide-react";
 import { NextSessionCountdown } from "@/components/live/NextSessionCountdown";
 import { useNow } from "@/hooks/useNow";
-import { fetchLiveSessions, nextSession } from "@/lib/liveSessions";
+import { fetchLiveSessions, nextSession } from "@/lib/live/liveSessions";
 
 /**
  * The student's live-sessions strip: a gently pulsing panel that shows the

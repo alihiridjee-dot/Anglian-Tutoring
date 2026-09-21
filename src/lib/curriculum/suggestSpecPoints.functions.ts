@@ -1,7 +1,7 @@
 import { createServerFn } from "@tanstack/react-start";
 import Anthropic from "@anthropic-ai/sdk";
 import { requireSupabaseAuth } from "@/integrations/supabase/auth-middleware";
-import { BOARDS, type SubjectV, type LevelV } from "@/lib/taxonomy";
+import { BOARDS, type SubjectV, type LevelV } from "@/lib/curriculum/taxonomy";
 
 // AI spec-point suggester for live sessions. The tutor writes a session title +
 // description ("Photosynthesis masterclass — light-dependent reactions, limiting

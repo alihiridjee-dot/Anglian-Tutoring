@@ -13,15 +13,20 @@ import {
   useSubscriptions,
   type CheckoutStatus,
 } from "@/hooks/data/useBilling";
-import { isSubscriptionLive, planLabel, formatPence, billingIntervalLabel } from "@/lib/billing";
+import {
+  isSubscriptionLive,
+  planLabel,
+  formatPence,
+  billingIntervalLabel,
+} from "@/lib/billing/billing";
 import { CadenceSwitcher } from "@/components/billing/CadenceSwitcher";
 import { SubscriptionPanel } from "@/components/billing/SubscriptionPanel";
 import { InvoiceHistoryCard } from "@/components/billing/InvoiceHistory";
 import { AddSubjectCard } from "@/components/billing/AddSubjectCard";
 import { EnrolledSubjectsCard } from "@/components/billing/EnrolledSubjectsCard";
 import { ParentBillingSection } from "@/components/billing/ParentBillingSection";
-import { resolveDisplayName } from "@/lib/displayName";
-import { subjectLabel, summariseCourse } from "@/lib/courseSummary";
+import { resolveDisplayName } from "@/lib/profile/displayName";
+import { subjectLabel, summariseCourse } from "@/lib/curriculum/courseSummary";
 
 export const Route = createFileRoute("/_authenticated/billing")({
   // Stripe Checkout returns here with ?checkout=success|cancelled.

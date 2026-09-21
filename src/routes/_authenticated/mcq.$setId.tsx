@@ -9,15 +9,15 @@ import { useRoles } from "@/hooks/useRole";
 import { toast } from "sonner";
 import { CheckCircle2, XCircle } from "lucide-react";
 import { isDemoStudent, DEMO_MCQ } from "@/lib/demo/studentDemo";
-import { describeError } from "@/lib/errors";
-import { guardStudentSection } from "@/lib/routeGuards";
+import { describeError } from "@/lib/platform/errors";
+import { guardStudentSection } from "@/lib/auth/routeGuards";
 import {
   clearMcqAnswers,
   loadMcqAnswers,
   reconcileAnswers,
   saveMcqAnswers,
   type McqAnswers,
-} from "@/lib/mcqAnswers";
+} from "@/lib/mcq/mcqAnswers";
 import type { Json } from "@/integrations/supabase/types";
 
 export const Route = createFileRoute("/_authenticated/mcq/$setId")({

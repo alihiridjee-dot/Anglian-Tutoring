@@ -1,5 +1,5 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
-import { guardStudentSection } from "@/lib/routeGuards";
+import { guardStudentSection } from "@/lib/auth/routeGuards";
 import { useEffect, useMemo, useState } from "react";
 import { EmptyState, SegmentedToggle, Spinner, SubjectToggle } from "@/components/Shared";
 import { AppLayout } from "@/components/AppLayout";
@@ -21,15 +21,15 @@ import {
   isOverdue,
   type HomeworkBucket,
   type HomeworkItem,
-} from "@/lib/homeworkBuckets";
+} from "@/lib/homework/homeworkBuckets";
 import { ChevronDown, ChevronRight, Clock, Plus, TrendingUp } from "lucide-react";
 import { useAnalytics } from "@/hooks/data/useAnalytics";
 import { MarkingQueue } from "@/components/tutor/MarkingQueue";
 import { HomeworkLibrary } from "@/components/tutor/HomeworkLibrary";
 import { HomeworkForm } from "@/components/tutor/HomeworkForm";
 import { isDemoStudent } from "@/lib/demo/studentDemo";
-import { type SubjectV, type BoardV, type LevelV } from "@/lib/taxonomy";
-import { SUBJECT_LABEL, SUBJECT_TINT } from "@/lib/subjectTheme";
+import { type SubjectV, type BoardV, type LevelV } from "@/lib/curriculum/taxonomy";
+import { SUBJECT_LABEL, SUBJECT_TINT } from "@/lib/curriculum/subjectTheme";
 
 /** Remembers the last subject so the page opens where you left it. */
 const SUBJECT_KEY = "homework:subject";
@@ -50,7 +50,7 @@ export const Route = createFileRoute("/_authenticated/homework")({
  * second one existed.
  *
  * Sections are lifecycle states, not sources: due, handed in, marked, then the
- * practice library. See `@/lib/homeworkBuckets` for why that is the right axis.
+ * practice library. See `@/lib/homework/homeworkBuckets` for why that is the right axis.
  */
 export function HomeworkPage() {
   const { isTutor, userId, loading: rolesLoading } = useRoles();

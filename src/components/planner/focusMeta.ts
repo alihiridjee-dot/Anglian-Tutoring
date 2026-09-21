@@ -1,6 +1,6 @@
 import { Repeat, Sparkles } from "lucide-react";
 import { type PacingBand } from "@/lib/planner/pacing";
-import { type TopicProgress } from "@/lib/scheduleDal";
+import { type TopicProgress } from "@/lib/planner/scheduleDal";
 
 /**
  * How the focus lane describes itself — the words and colours, kept apart from

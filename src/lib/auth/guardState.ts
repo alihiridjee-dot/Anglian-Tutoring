@@ -22,7 +22,7 @@ import { UserRole } from "@/types/user";
  * guards used to re-derive it themselves — a session validation, a user_roles
  * read and a profile read, on every click into a student section — and a failed
  * read there quietly answered "student". They read `appRole` off the route
- * context now (see `@/lib/routeGuards`), which costs nothing and cannot disagree
+ * context now (see `@/lib/auth/routeGuards`), which costs nothing and cannot disagree
  * with the answer the parent guard just acted on.
  */
 

@@ -12,11 +12,11 @@ import {
   Wand2,
   CalendarRange,
 } from "lucide-react";
-import { WeeklyPlanDAL, type WeeklyPlan, type SpecPointLabel } from "@/lib/weeklyPlanDal";
-import { type SubjectV, type BoardV, type LevelV } from "@/lib/taxonomy";
-import { addWeeks, weekKeyToDate, toDateKey, weekRangeLabel } from "@/lib/week";
+import { WeeklyPlanDAL, type WeeklyPlan, type SpecPointLabel } from "@/lib/planner/weeklyPlanDal";
+import { type SubjectV, type BoardV, type LevelV } from "@/lib/curriculum/taxonomy";
+import { addWeeks, weekKeyToDate, toDateKey, weekRangeLabel } from "@/lib/planner/week";
 import { SpecPointSelect } from "@/components/tutor/SpecPointSelect";
-import { draftWeeklyFeedback } from "@/lib/weeklyFeedback.functions";
+import { draftWeeklyFeedback } from "@/lib/planner/weeklyFeedback.functions";
 
 /** Per-point performance the tutor's AI draft is grounded in. */
 export type FeedbackMetric = {

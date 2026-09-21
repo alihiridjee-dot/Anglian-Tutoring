@@ -4,16 +4,16 @@ import { CalendarRange, Save, Trash2, Info } from "lucide-react";
 import { Field, inputCls, submitBtn } from "./Field";
 import { TaxonomyFields } from "./TaxonomyFields";
 import { SpecPointSelect } from "./SpecPointSelect";
-import type { SubjectV, BoardV, LevelV } from "@/lib/taxonomy";
+import type { SubjectV, BoardV, LevelV } from "@/lib/curriculum/taxonomy";
 import {
   useWeeklyFocus,
   useInvalidateWeeklyFocus,
   saveWeeklyFocus,
 } from "@/hooks/data/useWeeklyFocus";
-import { currentWeekKey, mondayOf, weekRangeLabel } from "@/lib/week";
+import { currentWeekKey, mondayOf, weekRangeLabel } from "@/lib/planner/week";
 import { useServerFn } from "@tanstack/react-start";
-import { refreshWeeklySummary } from "@/lib/weeklySummary.functions";
-import { levelLabel, subjectLabel } from "@/lib/courseSummary";
+import { refreshWeeklySummary } from "@/lib/planner/weeklySummary.functions";
+import { levelLabel, subjectLabel } from "@/lib/curriculum/courseSummary";
 import { Spinner } from "@/components/Shared";
 
 interface Props {

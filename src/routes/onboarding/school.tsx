@@ -5,8 +5,8 @@ import { useQueryClient } from "@tanstack/react-query";
 import { toast } from "sonner";
 import { supabase } from "@/integrations/supabase/client";
 import { invalidateGuardState } from "@/lib/auth/guardState";
-import { gradeOptions, completeOnboarding } from "@/lib/onboarding";
-import { SUBJECTS, type LevelV, type SubjectV } from "@/lib/taxonomy";
+import { gradeOptions, completeOnboarding } from "@/lib/auth/onboarding";
+import { SUBJECTS, type LevelV, type SubjectV } from "@/lib/curriculum/taxonomy";
 import { StepCard } from "@/components/onboarding/StepCard";
 
 type Grades = { previous_grade: string; current_grade: string; target_grade: string };

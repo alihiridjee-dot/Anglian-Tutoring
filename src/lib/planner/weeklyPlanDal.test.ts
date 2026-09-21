@@ -1,9 +1,9 @@
 import { afterEach, beforeEach, expect, spyOn, test } from "bun:test";
 import { WeeklyPlanDAL } from "./weeklyPlanDal";
 import { ScheduleDAL, type TopicProgress } from "./scheduleDal";
-import * as session from "./auth/session";
+import * as session from "../auth/session";
 import { ProgramDAL } from "./programDal";
-import type { PacingBand } from "./planner/pacing";
+import type { PacingBand } from "./pacing";
 
 const course = { subject: "biology", board: "aqa", level: "gcse" } as const;
 const plan = {

@@ -4,7 +4,7 @@ import assert from "node:assert/strict";
 import { readFile } from "node:fs/promises";
 import { computePacing, withWeeklyPoints } from "../src/lib/planner/pacing";
 import { orderInputs, reorderTopics } from "../src/lib/planner/topicOrder";
-import { addWeeks, currentWeekKey, toDateKey, weekKeyToDate } from "../src/lib/week";
+import { addWeeks, currentWeekKey, toDateKey, weekKeyToDate } from "../src/lib/planner/week";
 const { PGlite } = await import(process.env.PGLITE_PATH ?? "@electric-sql/pglite");
 const db = new PGlite();
 await db.exec(`

@@ -2,9 +2,15 @@ import { useMemo, useState, type ReactNode } from "react";
 import { Reorder, motion, useDragControls } from "motion/react";
 import { ArrowDown, ArrowUp, CalendarDays, GripVertical, Undo2 } from "lucide-react";
 import { SectionHeading, EmptyState, ErrorNote, Spinner } from "@/components/Shared";
-import { ProgramDAL, type RoadmapResult } from "@/lib/programDal";
+import { ProgramDAL, type RoadmapResult } from "@/lib/planner/programDal";
 import { orderInputs, reorderTopics } from "@/lib/planner/topicOrder";
-import { addWeeks, currentWeekKey, toDateKey, weekKeyToDate, weekRangeLabel } from "@/lib/week";
+import {
+  addWeeks,
+  currentWeekKey,
+  toDateKey,
+  weekKeyToDate,
+  weekRangeLabel,
+} from "@/lib/planner/week";
 import type { PlannerCourse } from "@/lib/planner/queries";
 
 function DraggableTopic({
