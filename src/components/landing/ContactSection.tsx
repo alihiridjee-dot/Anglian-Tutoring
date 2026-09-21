@@ -54,13 +54,13 @@ export function ContactSection() {
                 angliaeducate@gmail.com
               </a>
               <a
-                href="tel:07530863009"
+                href="tel:07410116988"
                 className="group flex items-center gap-3.5 text-sm text-muted-foreground hover:text-foreground transition"
               >
                 <div className="surface-soft w-10 h-10 rounded-xl flex items-center justify-center transition group-hover:border-primary/30">
                   <PhoneCall className="w-4 h-4 text-primary" />
                 </div>
-                07530 863009
+                07410 116988
               </a>
             </div>
           </div>

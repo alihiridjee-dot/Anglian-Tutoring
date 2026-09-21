@@ -13,13 +13,13 @@
  */
 
 /** E.164 without the leading `+`, which is the form wa.me expects. */
-const FALLBACK_NUMBER = "447530863009";
+const FALLBACK_NUMBER = "447410116988";
 
 export const WHATSAPP_NUMBER: string =
   import.meta.env.VITE_WHATSAPP_NUMBER?.replace(/\D/g, "") || FALLBACK_NUMBER;
 
 /** Human-readable, for printing next to the link. */
-export const WHATSAPP_DISPLAY = "+44 7530 863009";
+export const WHATSAPP_DISPLAY = "+44 7410 116988";
 
 /**
  * A wa.me deep link, optionally pre-filled.
