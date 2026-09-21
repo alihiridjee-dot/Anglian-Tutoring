@@ -11,6 +11,7 @@ import { type SubjectV, type BoardV, type LevelV } from "@/lib/taxonomy";
 import { type PointCoverage, type PointActivity, type PointWork } from "@/lib/planner/coverage";
 import { getSessionUserId } from "@/lib/auth/session";
 import { ensureHomeworkForPoints } from "@/lib/homeworkQuestions.functions";
+import { ensureMcqForPoints } from "@/lib/mcq.functions";
 import { courseKey, invalidatePlanner, roadmapQuery } from "@/lib/planner/queries";
 
 export type Activity = Map<string, PointActivity & PointWork>;
@@ -126,7 +127,7 @@ export function useWeekPlan(params: {
     enabled: !!studentId && params.roadmap === undefined,
   });
   /**
-   * Fill in any homework this week's points are missing.
+   * Fill in any homework or quiz this week's points are missing.
    *
    * Homework is one sheet per spec point, which makes it library content: the
    * sheet for a point is written once and read by every student who ever
@@ -139,6 +140,10 @@ export function useWeekPlan(params: {
    * the guard a point the model keeps failing on would be retried on every
    * render. Failures stay silent: a missing homework chip is a smaller problem
    * than a dashboard that won't load.
+   *
+   * Quizzes follow the same rule — one shared set per spec point — and are filled
+   * the same way, as a separate request so one slow generation can't hold up the
+   * other.
    */
   const missingHomework = useMemo(() => {
     if (!activity.data) return "";
@@ -148,11 +153,19 @@ export function useWeekPlan(params: {
       .sort()
       .join(",");
   }, [activity.data, points]);
+  const missingQuiz = useMemo(() => {
+    if (!activity.data) return "";
+    return points
+      .map((p) => p.spec_point_id)
+      .filter((id) => !activity.data.get(id)?.hasQuiz)
+      .sort()
+      .join(",");
+  }, [activity.data, points]);
   const attempted = useRef<Set<string>>(new Set());
   useEffect(() => {
     if (!missingHomework || !isCurrent) return;
-    if (attempted.current.has(missingHomework)) return;
-    attempted.current.add(missingHomework);
+    if (attempted.current.has(`homework:${missingHomework}`)) return;
+    attempted.current.add(`homework:${missingHomework}`);
     void (async () => {
       // Only the student's own week generates — a tutor looking at it is a
       // reader, and should not be billing AI calls by browsing.
@@ -169,6 +182,24 @@ export function useWeekPlan(params: {
       }
     })();
   }, [missingHomework, isCurrent, studentId, subject, board, level, client, params]);
+  useEffect(() => {
+    if (!missingQuiz || !isCurrent) return;
+    if (attempted.current.has(`quiz:${missingQuiz}`)) return;
+    attempted.current.add(`quiz:${missingQuiz}`);
+    void (async () => {
+      if ((await getSessionUserId()) !== studentId) return;
+      try {
+        const result = await ensureMcqForPoints({
+          data: { specPointIds: missingQuiz.split(",") },
+        });
+        if (result.created > 0) {
+          await client.invalidateQueries({ queryKey: [...courseKey(params), "activity"] });
+        }
+      } catch {
+        // Soft by design — see above.
+      }
+    })();
+  }, [missingQuiz, isCurrent, studentId, client, params]);
 
   const reload = useCallback(async () => {
     await invalidatePlanner(client, studentId);

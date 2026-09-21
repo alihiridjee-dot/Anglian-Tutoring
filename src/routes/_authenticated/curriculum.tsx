@@ -1046,15 +1046,12 @@ function SpecPointDetail({
   const generate = async () => {
     setGenLoading(true);
     try {
-      const res = await genFn({
-        data: {
-          specPointId: point.id,
-          title: point.title,
-          context: point.description || "",
-          count: 6,
-        },
-      });
-      toast.success(`Generated ${res.count} questions — review & publish`);
+      const res = await genFn({ data: { specPointId: point.id } });
+      toast.success(
+        res.created
+          ? "Generated this point's MCQs — every student now shares them"
+          : "This point already has its MCQs — nothing new was generated",
+      );
       reload();
     } catch (e) {
       toast.error(e instanceof Error ? e.message : "Generation failed");
