@@ -39,7 +39,7 @@ export const Route = createFileRoute("/how-it-works")({
       {
         name: "description",
         content:
-          "Two live lessons a week, homework marked by the tutor who taught it, a weekly quiz, a direct line to your tutor — and a spaced-repetition scheduler that brings every topic back just before your child would forget it.",
+          "Up to 3 live sessions a week, homework marked by the tutor who taught it, a weekly quiz, a direct line to your tutor — and a spaced-repetition scheduler that brings every topic back just before your child would forget it.",
       },
     ],
   }),
@@ -87,7 +87,7 @@ const SERVICES: Service[] = [
   {
     icon: Video,
     eyebrow: "Taught live",
-    title: "Two live lessons a week, per subject",
+    title: "Up to 3 live sessions a week",
     body: "Small groups on Zoom, taught personally by Dr Nadia or Ali — two practising medics, never an agency tutor and never a recording standing in for a lesson. Your child is a name in the room, not a login.",
     points: [
       "Taught against your child's own exam board and spec points",
