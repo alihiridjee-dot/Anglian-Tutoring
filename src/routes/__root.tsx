@@ -1,4 +1,5 @@
 import { Toaster } from "sonner";
+import { Analytics } from "@vercel/analytics/react";
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 import {
   Outlet,
@@ -155,6 +156,7 @@ function RootComponent() {
     <QueryClientProvider client={queryClient}>
       <Outlet />
       <Toaster richColors position="top-right" />
+      <Analytics />
     </QueryClientProvider>
   );
 }
