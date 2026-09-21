@@ -1,5 +1,5 @@
 import { describe, expect, test } from "bun:test";
-import { bareCode, indexSpecPoints, PAPER_STEM } from "./specCodes";
+import { bareCode, indexSpecPoints, parsePaperStem } from "./specCodes";
 
 describe("bareCode", () => {
   test("drops each curriculum's prefix, however many words it is", () => {
@@ -38,27 +38,43 @@ describe("indexSpecPoints", () => {
   });
 });
 
-describe("PAPER_STEM", () => {
-  const parse = (stem: string) => stem.match(PAPER_STEM)?.slice(1);
-
+describe("parsePaperStem", () => {
   test("reads the names the renamer gives", () => {
-    expect(parse("aqa-biology-gcse-2018-p1F")).toEqual([
-      "aqa",
-      "biology",
-      "gcse",
-      "2018",
-      "1",
-      "F",
-    ]);
-    expect(parse("ocr-physics-gcse-2018-p1")).toEqual(["ocr", "physics", "gcse", "2018", "1", ""]);
+    expect(parsePaperStem("aqa-biology-gcse-2018-jun-p1F")).toEqual({
+      board: "aqa",
+      subject: "biology",
+      level: "gcse",
+      year: "2018",
+      series: "jun",
+      paper: "1",
+      tier: "F",
+    });
+    expect(parsePaperStem("ocr-physics-gcse-2018-jun-p1")?.tier).toBeNull();
   });
 
-  test("reads a board with an underscore", () => {
-    expect(parse("oxford_aqa-physics-igcse-2024-p1")?.[0]).toBe("oxford_aqa");
+  test("tells two sittings of one paper apart", () => {
+    expect(parsePaperStem("edexcel-chemistry-igcse-2021-jan-p1C")?.series).toBe("jan");
+    expect(parsePaperStem("edexcel-chemistry-igcse-2021-nov-p1C")?.series).toBe("nov");
+  });
+
+  test("keeps an unknown sitting or year as null, for the loader to refuse", () => {
+    const paper = parsePaperStem("aqa-biology-gcse-unknown-unknown-p1F");
+    expect(paper?.year).toBeNull();
+    expect(paper?.series).toBeNull();
+  });
+
+  test("rejects a name without a sitting, rather than filing it under none", () => {
+    expect(parsePaperStem("aqa-biology-gcse-2018-p1F")).toBeNull();
+    expect(parsePaperStem("aqa-biology-gcse-2018-apr-p1F")).toBeNull();
+  });
+
+  test("reads a board or level with an underscore", () => {
+    expect(parsePaperStem("oxford_aqa-physics-igcse-2024-nov-p1")?.board).toBe("oxford_aqa");
+    expect(parsePaperStem("aqa-biology-gcse_trilogy-2018-jun-p1F")?.level).toBe("gcse_trilogy");
   });
 
   test("keeps an Edexcel iGCSE R paper apart from its partner", () => {
-    expect(parse("edexcel-biology-igcse-2019-p1B")?.[5]).toBe("B");
-    expect(parse("edexcel-biology-igcse-2019-p1BR")?.[5]).toBe("BR");
+    expect(parsePaperStem("edexcel-biology-igcse-2019-jun-p1B")?.tier).toBe("B");
+    expect(parsePaperStem("edexcel-biology-igcse-2019-jun-p1BR")?.tier).toBe("BR");
   });
 });

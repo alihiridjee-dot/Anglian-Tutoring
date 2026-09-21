@@ -6,18 +6,57 @@
  */
 
 /**
+ * The sittings a paper can belong to, as `exam_exemplars.series` stores them:
+ * January, February/March, May/June (summer) and October/November (autumn).
+ */
+export const SERIES = ["jan", "mar", "jun", "nov"] as const;
+export type Series = (typeof SERIES)[number];
+
+/**
  * The paper a file holds, from the name the renamer gives it:
  *
- *     aqa-biology-gcse-2018-p1F            tier F
- *     edexcel-biology-igcse-2019-p1BR      Edexcel iGCSE: subject letter, then R
- *     oxford_aqa-physics-igcse-2024-p1     no tier
+ *     aqa-biology-gcse-2018-jun-p1F             tier F
+ *     edexcel-biology-igcse-2019-jun-p1BR       Edexcel iGCSE: subject letter, then R
+ *     oxford_aqa-physics-igcse-2024-nov-p1      no tier
+ *     aqa-biology-gcse_trilogy-2018-jun-p1F     Combined Science: Trilogy
  *
- * The board is a curriculum board value, so it may contain an underscore. The
- * suffix is up to two capitals because Edexcel iGCSE prints its papers as 1B
- * and 1BR, and those are two different papers, not one paper in two tiers.
+ * The board and level are curriculum values, so they may contain an
+ * underscore. The sitting is part of the name because the international boards
+ * set the same paper number more than once a year. The suffix is up to two
+ * capitals because Edexcel iGCSE prints its papers as 1B and 1BR, and those
+ * are two different papers, not one paper in two tiers.
  */
 export const PAPER_STEM =
-  /^([a-z_]+)-([a-z-]+)-(gcse|igcse|alevel)-(\d{4}|unknown)-p(\d)([A-Z]{0,2})$/;
+  /^([a-z_]+)-([a-z-]+)-(gcse|gcse_trilogy|igcse|alevel)-(\d{4}|unknown)-(jan|mar|jun|nov|unknown)-p(\d)([A-Z]{0,2})$/;
+
+export type Paper = {
+  board: string;
+  subject: string;
+  level: string;
+  year: string | null;
+  /** Null when the renamer could not read the sitting off the paper. */
+  series: Series | null;
+  paper: string;
+  tier: string | null;
+};
+
+const isSeries = (s: string): s is Series => (SERIES as readonly string[]).includes(s);
+
+/** A paper's identity from its filename stem, or null if the name isn't one the renamer gives. */
+export function parsePaperStem(stem: string): Paper | null {
+  const m = stem.match(PAPER_STEM);
+  if (!m) return null;
+  const [, board, subject, level, year, series, paper, tier] = m;
+  return {
+    board,
+    subject,
+    level,
+    year: year === "unknown" ? null : year,
+    series: isSeries(series) ? series : null,
+    paper,
+    tier: tier || null,
+  };
+}
 
 /**
  * A spec point code as a tag writes it: without the prefix, which is everything

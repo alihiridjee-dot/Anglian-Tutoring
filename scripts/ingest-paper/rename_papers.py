@@ -11,7 +11,7 @@ still produces rows.
 So identify each file from its own contents — every board prints its
 specification code on the page — and name it after what it actually is:
 
-    edexcel-physics-gcse-2018-p1F-QP.pdf
+    edexcel-physics-gcse-2018-jun-p1F-QP.pdf
 
     python3 rename_papers.py papers/incoming              # show what it would do
     python3 rename_papers.py papers/incoming --apply      # copy into papers/named/
@@ -72,7 +72,47 @@ SPECS = {
     for code, board, subject, level, tier in _CODES
 }
 
-SESSION = re.compile(r"\b(January|June|November|May|October)\s+(20\d\d)\b", re.I)
+# Which sitting a paper belongs to. It is part of the name because the
+# international boards set the same paper number more than once a year, so
+# without it a January paper and its June namesake would pair with each
+# other's mark schemes. A question paper prints the date it was sat ("Thursday
+# 14 May 2020"); a mark scheme prints the series ("Summer 2020"). Both come
+# down to the four sittings exam_exemplars.series stores.
+_MONTHS = "January|February|March|May|June|October|November|Summer|Autumn|Winter"
+SITTING = {"january": "jan", "february": "mar", "march": "mar", "may": "jun",
+           "june": "jun", "summer": "jun", "october": "nov", "november": "nov",
+           "autumn": "nov", "winter": "nov"}
+SESSION = re.compile(rf"\b({_MONTHS})\s+(20\d\d)\b", re.I)
+# Layout extraction splits words ("Nov ember 2021"), so look again with the
+# spaces taken out. Capitalised only: squashed text is full of "may".
+SESSION_SQUASHED = re.compile(rf"({_MONTHS})(20\d\d)(?!\d)")
+# AQA prints its sitting on every page even when the cover has no date:
+# IB/M/Jun21/8462/1F.
+AQA_SITTING = re.compile(r"\bIB/[A-Z]/(Jan|Jun|Nov)(\d\d)/")
+# Pearson's publications code carries the month: 1PH0_1F_1806_MS.
+PUBLICATION = re.compile(r"_([0-9]{2})(0[1-9]|1[0-2])_")
+PUBLICATION_SITTING = {1: "jan", 2: "mar", 3: "mar", 5: "jun", 6: "jun", 10: "nov", 11: "nov"}
+# Pearson prints a question paper's number in the barcode on every page
+# (*P62045A0136*), and its mark scheme names the paper it marks ("Question
+# Paper Log Number P62045A"). Where a question paper carries no date, that is
+# how it learns its sitting: from the scheme that names it, not from a guess.
+PEARSON_PAPER = re.compile(r"\*(P\d{5}[A-Z]{1,2})\d{4}\*")
+PEARSON_LOG = re.compile(r"Question\s+Paper\s+Log\s+Number\s+(P\d{5}[A-Z]{1,2})")
+
+
+def sitting(text):
+    """(series, year) as printed on the paper, or (None, None) if it never says."""
+    m = SESSION.search(text) or SESSION_SQUASHED.search(re.sub(r"\s+", "", text))
+    if m:
+        return SITTING[m.group(1).lower()], m.group(2)
+    aqa = AQA_SITTING.search(text)
+    if aqa:
+        return aqa.group(1).lower(), f"20{aqa.group(2)}"
+    pub = PUBLICATION.search(text)
+    if pub and int(pub.group(2)) in PUBLICATION_SITTING:
+        return PUBLICATION_SITTING[int(pub.group(2))], f"20{pub.group(1)}"
+    return None, None
+
 
 # A mark scheme announces itself; a question paper instructs the candidate.
 MS_MARKERS = ["Mark Scheme", "MARK SCHEME", "Mark scheme", "mark scheme",
@@ -134,26 +174,51 @@ def identify(path):
     # front of its mark scheme, so fall back in order of reliability: the stated
     # session, then Edexcel's publications code (1PH0_1F_1806_MS — YYMM), then
     # the filename. Getting this wrong un-pairs a paper from its own scheme.
-    session = SESSION.search(text)
-    if session:
-        year, month = session.group(2), session.group(1).lower()[:3]
-    else:
-        pub = re.search(r"_([0-9]{2})(0[1-9]|1[0-2])_", text)
+    series, year = sitting(text)
+    if not year:
+        pub = PUBLICATION.search(text)
         named = re.search(r"\b(20[0-2]\d)\b", path.name)
         year = f"20{pub.group(1)}" if pub else (named.group(1) if named else "unknown")
-        month = ""
 
     ms_hits = sum(text.count(m) for m in MS_MARKERS)
     qp_hits = sum(text.count(m) for m in QP_MARKERS)
     kind = "MS" if ms_hits > qp_hits else "QP"
 
+    log = (PEARSON_LOG if kind == "MS" else PEARSON_PAPER).search(text)
     board, subject, level, paper, tier = spec
     return {
         "kind": kind, "board": board, "subject": subject, "level": level,
-        "year": year, "month": month, "paper": paper, "tier": tier,
-        "stem": f"{board}-{subject}-{level}-{year}-p{paper}{tier}",
+        "year": year, "series": series, "paper": paper, "tier": tier,
+        "log": log.group(1) if log else None,
         "confidence": abs(ms_hits - qp_hits),
     }
+
+
+def stem(info):
+    return (f"{info['board']}-{info['subject']}-{info['level']}-{info['year']}-"
+            f"{info['series'] or 'unknown'}-p{info['paper']}{info['tier']}")
+
+
+def same_paper(a, b):
+    """Everything in the name but the sitting, and the year where one side lacks it."""
+    return (all(a[k] == b[k] for k in ("board", "subject", "level", "paper", "tier"))
+            and (a["year"] == b["year"] or "unknown" in (a["year"], b["year"])))
+
+
+def borrow_sittings(found):
+    """Give an undated Pearson question paper the sitting of the scheme that names it.
+
+    Only a mark scheme that prints this paper's own number counts. A scheme that
+    merely shares its board, subject and year could be January's or June's, and
+    choosing between them is exactly the guess the sitting exists to prevent.
+    """
+    schemes = {info["log"]: info for _, info in found if info["kind"] == "MS" and info["log"]}
+    for _, info in found:
+        scheme = schemes.get(info["log"]) if info["kind"] == "QP" else None
+        if scheme and not info["series"] and scheme["series"]:
+            info["series"] = scheme["series"]
+            if info["year"] == "unknown":
+                info["year"] = scheme["year"]
 
 
 def main(src_dir, apply, out_dir):
@@ -163,36 +228,58 @@ def main(src_dir, apply, out_dir):
         sys.exit(f"No PDFs in {src}")
 
     print(f"Scanning {len(pdfs)} PDFs in {src}", flush=True)
-    found, skipped = {}, []
+    identified, skipped = [], []
     for i, p in enumerate(pdfs, 1):
         print(f"\r  {i}/{len(pdfs)}", end="", flush=True)
         info = identify(p)
         if not info:
             skipped.append(p.name)
             continue
-        found.setdefault(info["stem"], {})[info["kind"]] = (p, info)
+        identified.append((p, info))
+
+    borrow_sittings(identified)
+    found, undated = {}, []
+    for p, info in identified:
+        # A paper that never says when it was sat is not paired on the rest of
+        # its name alone: January's and June's copies of it look identical.
+        if not info["series"]:
+            undated.append((p, info))
+            continue
+        found.setdefault(stem(info), {})[info["kind"]] = (p, info)
 
     print("\r" + " " * 24 + "\r", end="")
     pairs, orphans = [], []
-    for stem, halves in sorted(found.items()):
+    for name, halves in sorted(found.items()):
         if "QP" in halves and "MS" in halves:
-            pairs.append((stem, halves))
+            pairs.append((name, halves))
         else:
-            orphans.append((stem, halves))
+            orphans.append((name, halves))
 
-    print(f"{'PAIRED':8} {'NEW NAME':46}  FROM")
-    print("-" * 92)
-    for stem, halves in pairs:
+    print(f"{'PAIRED':8} {'NEW NAME':50}  FROM")
+    print("-" * 96)
+    for name, halves in pairs:
         for kind in ("QP", "MS"):
             path, info = halves[kind]
-            print(f"{'':8} {stem + '-' + kind + '.pdf':46}  {path.name}")
+            print(f"{'':8} {name + '-' + kind + '.pdf':50}  {path.name}")
 
     if orphans:
-        print(f"\n{'UNPAIRED — the other half is missing':<46}")
-        print("-" * 92)
-        for stem, halves in orphans:
+        print("\nUNPAIRED — the other half is missing, or dates a different sitting")
+        print("-" * 96)
+        for name, halves in orphans:
             for kind, (path, _) in halves.items():
-                print(f"  {stem}-{kind}  (have {kind} only)   from {path.name}")
+                print(f"  {name}-{kind}  (have {kind} only)   from {path.name}")
+
+    if undated:
+        print(f"\nSITTING UNKNOWN ({len(undated)}) — the paper never says when it was sat, left alone")
+        print("-" * 96)
+        for path, info in undated:
+            # What the other half says is a lead for whoever checks the paper,
+            # not an answer: that other sitting's own half may simply be missing.
+            others = sorted({o["series"] for _, o in identified
+                             if o["kind"] != info["kind"] and o["series"]
+                             and same_paper(o, info)})
+            hint = f"   (the {'scheme' if info['kind'] == 'QP' else 'paper'} here says {', '.join(others)})" if others else ""
+            print(f"  {stem(info)}-{info['kind']}   from {path.name}{hint}")
 
     if skipped:
         print(f"\nCOULD NOT IDENTIFY ({len(skipped)}) — no specification code found, left alone")
@@ -201,7 +288,8 @@ def main(src_dir, apply, out_dir):
         if len(skipped) > 15:
             print(f"  ... and {len(skipped) - 15} more")
 
-    print(f"\n  {len(pairs)} complete pairs, {len(orphans)} unpaired, {len(skipped)} unidentified")
+    print(f"\n  {len(pairs)} complete pairs, {len(orphans)} unpaired, "
+          f"{len(undated)} with no sitting, {len(skipped)} unidentified")
 
     if not apply:
         print(f"\n  Dry run. Re-run with --apply to copy the pairs into {out_dir}/")
@@ -210,10 +298,10 @@ def main(src_dir, apply, out_dir):
     dest = pathlib.Path(out_dir).expanduser()
     dest.mkdir(parents=True, exist_ok=True)
     n = 0
-    for stem, halves in pairs:
+    for name, halves in pairs:
         for kind in ("QP", "MS"):
             path, _ = halves[kind]
-            shutil.copy2(path, dest / f"{stem}-{kind}.pdf")
+            shutil.copy2(path, dest / f"{name}-{kind}.pdf")
             n += 1
     print(f"\n  Copied {n} files into {dest}. Originals untouched.")
 

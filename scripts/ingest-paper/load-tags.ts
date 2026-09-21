@@ -14,7 +14,7 @@
  * whole edit; nothing has to be undone by hand.
  *
  * Tag files are plain text, one line per rule, named after the paper exactly as
- * the exemplars were loaded (aqa-biology-gcse-2018-p1F.txt):
+ * the exemplars were loaded (aqa-biology-gcse-2018-jun-p1F.txt):
  *
  *     01.1,01.2 1.6,6.4      # these labels credit these points
  *     # comments and blank lines are ignored
@@ -27,7 +27,7 @@
  * Needs SUPABASE_URL and SUPABASE_SERVICE_ROLE_KEY: the tables are behind
  * tutor-only RLS and this runs outside a session.
  */
-import { indexSpecPoints, PAPER_STEM } from "./specCodes";
+import { indexSpecPoints, parsePaperStem } from "./specCodes";
 
 const url = process.env.SUPABASE_URL;
 const key = process.env.SUPABASE_SERVICE_ROLE_KEY;
@@ -58,16 +58,12 @@ function provenance(path: string) {
     .split("/")
     .pop()!
     .replace(/\.txt$/, "");
-  const m = stem.match(PAPER_STEM);
-  if (!m) throw new Error(`${path}: filename must look like aqa-biology-gcse-2018-p1F.txt`);
-  return {
-    board: m[1],
-    subject: m[2],
-    level: m[3],
-    year: m[4] === "unknown" ? null : m[4],
-    paper: m[5],
-    tier: m[6] || null,
-  };
+  const paper = parsePaperStem(stem);
+  if (!paper) throw new Error(`${path}: filename must look like aqa-biology-gcse-2018-jun-p1F.txt`);
+  // Every loaded paper has a sitting, so a file without one can't name any of them.
+  if (!paper.series)
+    throw new Error(`${path}: the sitting is unknown — name it (jan, mar, jun, nov)`);
+  return paper;
 }
 
 const eq = (column: string, value: string | null) =>
@@ -82,7 +78,8 @@ for (const file of files) {
   // What this paper's rows are, and what the specification calls its points.
   const exemplars: { id: string; question_label: string }[] = await api(
     `exam_exemplars?select=id,question_label&${eq("board", p.board)}&${eq("subject", p.subject)}` +
-      `&${eq("level", p.level)}&${eq("year", p.year)}&${eq("paper", p.paper)}&${eq("tier", p.tier)}`,
+      `&${eq("level", p.level)}&${eq("year", p.year)}&${eq("series", p.series)}` +
+      `&${eq("paper", p.paper)}&${eq("tier", p.tier)}`,
   );
   const byLabel = new Map(exemplars.map((e) => [e.question_label, e.id]));
 

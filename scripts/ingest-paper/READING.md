@@ -19,9 +19,18 @@ that would otherwise be most of what you read:
 Read the text. Where a question is ambiguous — a table that came out scrambled,
 an option that may be part of a figure — look at that page of the PDF itself.
 
-Write the result to `papers/<board>-<subject>-<level>-<year>-p<paper><tier>.json`
+Write the result to `papers/<board>-<subject>-<level>-<year>-<sitting>-p<paper><tier>.json`
 in the shape at the bottom, then load it with `load-exemplars.ts`. The loader
 takes provenance from that filename, so it has to match the specification code.
+
+The sitting is `jan`, `mar` (February/March), `jun` (May/June) or `nov`
+(October/November), read off the paper: the date it was sat on the cover, the
+series on the mark scheme. It is not optional. The international boards set
+the same paper number more than once a year, so a paper filed under the wrong
+sitting overwrites a different paper. When the two documents disagree — 2020's
+cancelled May papers were sat in November, so the paper says May and its mark
+scheme says November — the mark scheme is when it was actually sat, but check
+that it really is that paper's scheme before trusting it.
 
 ## Tagging is part of reading, not a later pass
 
