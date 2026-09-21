@@ -10,7 +10,6 @@ import { useEffect, useMemo, useRef, useState, type ReactNode } from "react";
 import { toast } from "sonner";
 import {
   AlertTriangle,
-  ArrowRight,
   Brain,
   CalendarDays,
   CheckCircle2,
@@ -19,10 +18,8 @@ import {
   ChevronRight,
   CircleDot,
   History,
-  Loader2,
   Map as MapIcon,
   Repeat,
-  RefreshCw,
   Scale,
   SlidersHorizontal,
   Undo2,
@@ -130,6 +127,25 @@ export function StudentPlanner({
     enabled: !!active,
   });
   const memory = memQuery.data ?? null;
+  // A re-flowed plan left unapplied — the course changed, or an exam-date save
+  // was cut short. It is settled quietly on sight, once per proposal, rather
+  // than handed to the student as something to review.
+  const settled = useRef(new Set<string>());
+  useEffect(() => {
+    if (!data?.needsAck || !activeCourseSubject || !activeBoard) return;
+    const key = `${studentId}|${activeCourseSubject}|${JSON.stringify(data.changes)}`;
+    if (settled.current.has(key)) return;
+    settled.current.add(key);
+    ProgramDAL.applyPending({
+      studentId,
+      subject: activeCourseSubject as SubjectV,
+      board: activeBoard as BoardV,
+      level,
+    })
+      .then(() => setBoardRev((r) => r + 1))
+      // Stays pending and is tried again on the next visit.
+      .catch(() => {});
+  }, [data, studentId, activeCourseSubject, activeBoard, level]);
   const loading = roadQuery.isLoading || memQuery.isLoading || currentWeek.loading;
   useEffect(() => {
     const course = `${studentId}|${activeCourseSubject}|${activeBoard}|${level}`;
@@ -223,7 +239,6 @@ export function StudentPlanner({
             subject={active.subject as SubjectV}
             board={active.board as BoardV}
             level={level}
-            onReviewPlan={() => setTab("plan")}
             refreshKey={weekRev}
             onScheduleApplied={() => setBoardRev((r) => r + 1)}
           />
@@ -258,11 +273,6 @@ function useRoadmapView(data: RoadmapResult) {
       spine.find((b) => b.endWeek >= nowKey) ??
       spine[spine.length - 1];
     const focus = data.bands.filter((b) => !isTeachBand(b));
-    // The spine they last accepted. While a reschedule is pending this is the
-    // plan they are still living by, and `spine` is the proposal.
-    const baselineSpine = data.baselineBands.filter(isTeachBand);
-    const reviewing = data.needsAck && baselineSpine.length > 0;
-    const changeByTopic = new Map(data.changes.map((c) => [c.topicId, c]));
     const focusNow = focus.filter((b) => b.startWeek <= nowKey && nowKey <= b.endWeek);
     const progressByTopic = new Map<string, TopicProgress>(
       data.progress.map((t) => [t.topicId, t]),
@@ -271,9 +281,6 @@ function useRoadmapView(data: RoadmapResult) {
       nowKey,
       covered,
       spine,
-      baselineSpine,
-      reviewing,
-      changeByTopic,
       nowBand,
       focus,
       focusNow,
@@ -293,7 +300,6 @@ function ThisWeekTab({
   subject,
   board,
   level,
-  onReviewPlan,
   refreshKey,
   onScheduleApplied,
 }: {
@@ -303,8 +309,6 @@ function ThisWeekTab({
   subject: SubjectV;
   board: BoardV;
   level: LevelV;
-  /** Jump to Full plan, where the proposal can be compared and accepted. */
-  onReviewPlan: () => void;
   /** Reload after an explicit schedule update. */
   refreshKey: number;
   onScheduleApplied: () => void;
@@ -345,28 +349,6 @@ function ThisWeekTab({
 
   return (
     <div className="space-y-4">
-      {data.needsAck && (
-        <div className="rounded-xl border border-amber-500/30 bg-amber-500/[0.06] p-3.5 flex flex-wrap items-center gap-3">
-          <AlertTriangle className="w-4.5 h-4.5 text-amber-600 dark:text-amber-400 shrink-0" />
-          <p className="flex-1 min-w-[200px] text-sm">
-            <span className="font-semibold">Your plan has shifted.</span>{" "}
-            <span className="text-muted-foreground">
-              {data.changes.length} {data.changes.length === 1 ? "topic" : "topics"} would move to
-              keep you on track for the exams. Compare it side by side in Full plan — nothing
-              changes until you accept.
-            </span>
-          </p>
-          <button
-            type="button"
-            onClick={onReviewPlan}
-            className="inline-flex items-center gap-1.5 h-8 px-3 rounded-lg bg-amber-600 text-white text-xs font-semibold hover:opacity-90"
-          >
-            Review it
-            <ArrowRight className="w-3.5 h-3.5" />
-          </button>
-        </div>
-      )}
-
       {/* Learning this week — core topic and focused topics, the shared panel. */}
       <section>
         <div className="flex flex-wrap items-center justify-between gap-2 mb-2.5">
@@ -557,41 +539,27 @@ function FullPlanTab({
   /** Jump to My topics — the one place an overloaded plan can be fixed. */
   onChanged: () => void;
 }) {
-  const { nowKey, covered, spine, reviewing } = useRoadmapView(data);
+  const { nowKey, covered, spine } = useRoadmapView(data);
   const [savingDate, setSavingDate] = useState(false);
-  const [accepting, setAccepting] = useState(false);
   const [catchUpOpen, setCatchUpOpen] = useState(false);
-
-  /**
-   * Accept the proposed plan. Until this runs the student keeps the plan they
-   * already agreed to; accepting writes the re-flowed spine as the new baseline,
-   * which closes the proposed-learning sections on the next load.
-   */
-  const acceptPlan = async () => {
-    setAccepting(true);
-    try {
-      await ProgramDAL.acknowledge({
-        studentId,
-        subject,
-        bands: data.bands,
-        programStart: data.programStart,
-        examDate: data.examDate,
-      });
-      toast.success("New plan accepted — your schedule is up to date.");
-      onChanged();
-    } catch (e) {
-      toast.error(e instanceof Error ? e.message : "Couldn't update — try again.");
-    } finally {
-      setAccepting(false);
-    }
-  };
 
   const saveExamDate = async (value: string) => {
     if (!value || value === data.examDate) return;
     setSavingDate(true);
     try {
       await ProgramDAL.setExamDate({ studentId, subject, examDate: value });
-      toast.success("Exam date updated — re-flowing your plan.");
+      // The new date is the decision; the re-flowed weeks follow from it.
+      const applied = await ProgramDAL.applyPending({ studentId, subject, board, level });
+      const lastTeaching = applied?.bands
+        .filter(isTeachBand)
+        .reduce((end, b) => (b.endWeek > end ? b.endWeek : end), "");
+      toast.success(
+        lastTeaching
+          ? `Exam date updated. Teaching now finishes the week of ${weekKeyToDate(
+              lastTeaching,
+            ).toLocaleDateString("en-GB", { day: "numeric", month: "long" })}.`
+          : "Exam date updated.",
+      );
       onChanged();
     } catch (e) {
       toast.error(e instanceof Error ? e.message : "Couldn't update the exam date — try again.");
@@ -694,34 +662,6 @@ function FullPlanTab({
           />
         </div>
       )}
-      {/* Proposed learning stays separate until the student accepts it. */}
-      {reviewing && (
-        <div className="flex flex-wrap items-center gap-3 rounded-xl border border-amber-500/30 bg-amber-500/[0.06] px-3 py-2.5 mb-3">
-          <RefreshCw className="w-4 h-4 text-amber-600 dark:text-amber-400 shrink-0" />
-          <p className="flex-1 min-w-[220px] text-[12px] leading-relaxed">
-            <span className="font-semibold">A new plan is ready for you.</span>{" "}
-            <span>
-              {data.changes.length} {data.changes.length === 1 ? "topic" : "topics"} would move.
-              Compare the proposed learning in each week — your current plan stays exactly as it is
-              until you accept.
-            </span>
-          </p>
-          <button
-            type="button"
-            onClick={acceptPlan}
-            disabled={accepting}
-            className="inline-flex items-center gap-1.5 h-8 px-3 rounded-lg bg-amber-600 text-white text-xs font-semibold hover:opacity-90 disabled:opacity-50 shrink-0"
-          >
-            {accepting ? (
-              <Loader2 className="w-3.5 h-3.5 animate-spin" />
-            ) : (
-              <CheckCircle2 className="w-3.5 h-3.5" />
-            )}
-            Accept the new plan
-          </button>
-        </div>
-      )}
-
       {/* Your new schedule — what the latest ratings changed in the focus lane. */}
       {newFocusKeys.size > 0 && (
         <div className="flex items-start gap-2 rounded-xl border border-rose-500/30 bg-rose-500/[0.06] px-3 py-2.5 mb-3">
