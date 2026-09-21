@@ -1853,7 +1853,7 @@ export type Database = {
     };
     Enums: {
       app_role: "student" | "tutor" | "admin";
-      board: "edexcel" | "aqa" | "ocr";
+      board: "edexcel" | "aqa" | "ocr" | "cambridge" | "oxford_aqa";
       level: "gcse" | "alevel" | "gcse_trilogy" | "igcse";
       plan_point_origin: "ai" | "student" | "tutor" | "carried_over" | "core" | "focus";
       plan_source: "ai" | "student" | "tutor";
@@ -1983,7 +1983,7 @@ export const Constants = {
   public: {
     Enums: {
       app_role: ["student", "tutor", "admin"],
-      board: ["edexcel", "aqa", "ocr"],
+      board: ["edexcel", "aqa", "ocr", "cambridge", "oxford_aqa"],
       level: ["gcse", "alevel", "gcse_trilogy", "igcse"],
       plan_point_origin: ["ai", "student", "tutor", "carried_over", "core", "focus"],
       plan_source: ["ai", "student", "tutor"],

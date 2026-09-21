@@ -4,10 +4,22 @@ export const SUBJECTS = [
   { value: "physics", label: "Physics" },
 ] as const;
 
+/**
+ * Cambridge (CAIE) and OxfordAQA are international boards: they sit alongside
+ * Pearson Edexcel at iGCSE. OxfordAQA is its own board rather than AQA at a
+ * different level, because that is the name on the student's paper and the
+ * awarding body is a different one.
+ *
+ * Listing a board here does not offer it to anyone. Student-facing pickers
+ * filter this list through curriculum coverage, so a board appears only at the
+ * levels and subjects it has spec points for.
+ */
 export const BOARDS = [
   { value: "edexcel", label: "Edexcel" },
   { value: "aqa", label: "AQA" },
   { value: "ocr", label: "OCR" },
+  { value: "cambridge", label: "Cambridge" },
+  { value: "oxford_aqa", label: "OxfordAQA" },
 ] as const;
 
 /**
@@ -28,3 +40,16 @@ export const LEVELS = [
 export type SubjectV = (typeof SUBJECTS)[number]["value"];
 export type BoardV = (typeof BOARDS)[number]["value"];
 export type LevelV = (typeof LEVELS)[number]["value"];
+
+/**
+ * Type guards for values that arrive as plain strings — a URL, a profile row,
+ * a pricing slider — so they can be narrowed without a cast.
+ */
+const valueIn =
+  <T extends string>(list: readonly { value: T }[]) =>
+  (v: unknown): v is T =>
+    list.some((x) => x.value === v);
+
+export const isSubject = valueIn(SUBJECTS);
+export const isBoard = valueIn(BOARDS);
+export const isLevel = valueIn(LEVELS);

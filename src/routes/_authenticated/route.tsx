@@ -2,6 +2,7 @@ import { createFileRoute, Outlet, redirect } from "@tanstack/react-router";
 import { getAuthSession } from "@/lib/auth/session";
 import { loadGuardState } from "@/lib/auth/guardState";
 import { PaywallOverlay } from "@/components/billing/PaywallOverlay";
+import { AuthedRouteError, RoutePending } from "@/components/RouteFallbacks";
 
 /**
  * Auth guard for every /_authenticated/* route.
@@ -67,6 +68,10 @@ export const Route = createFileRoute("/_authenticated")({
 
     return { session, locked };
   },
+  // No server render here, so without these the first paint was an empty body
+  // and a crash on any page took the navigation down with it.
+  pendingComponent: RoutePending,
+  errorComponent: AuthedRouteError,
   component: AuthenticatedLayout,
 });
 

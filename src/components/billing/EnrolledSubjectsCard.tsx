@@ -1,7 +1,7 @@
 import { useState } from "react";
 import { BookOpen, Loader2, MinusCircle } from "lucide-react";
 import { toast } from "sonner";
-import { SUBJECTS, BOARDS, type BoardV, type LevelV, type SubjectV } from "@/lib/taxonomy";
+import { SUBJECTS, BOARDS, isLevel, isSubject, type BoardV, type SubjectV } from "@/lib/taxonomy";
 import { usePackages, useRemoveSubjects } from "@/hooks/data/useBilling";
 import { useUpdateEnrolmentBoard } from "@/hooks/data/useEnrolments";
 import { useCurriculumCoverage } from "@/hooks/data/useCurriculumCoverage";
@@ -74,7 +74,7 @@ export function EnrolledSubjectsCard({
   const { data: packages = [] } = usePackages(level);
   const remove = useRemoveSubjects();
   const switchBoard = useUpdateEnrolmentBoard();
-  const { coverage, isPending: coverageLoading } = useCurriculumCoverage();
+  const { coverage } = useCurriculumCoverage();
   const [removing, setRemoving] = useState<string | null>(null);
   /** The pending board switch, held until the dialog confirms it. */
   const [switching, setSwitching] = useState<{ subject: string; board: BoardV } | null>(null);
@@ -115,7 +115,7 @@ export function EnrolledSubjectsCard({
 
   /** Boards that actually teach this subject at the student's level. */
   const boardsFor = (subject: string): BoardV[] =>
-    level ? coverage.boardsForSubject(level as LevelV, subject as SubjectV) : [];
+    isLevel(level) && isSubject(subject) ? coverage.boardsForSubject(level, subject) : [];
 
   const confirmSwitch = () => {
     if (!switching) return;
@@ -199,33 +199,30 @@ export function EnrolledSubjectsCard({
                       aria-label={`Exam board for ${subjectLabel(e.subject)}`}
                       className="inline-flex rounded-lg border border-border bg-muted/40 p-0.5"
                     >
-                      {BOARDS.map((b) => {
-                        const on = b.value === e.board;
-                        // While coverage is in flight leave everything enabled
-                        // rather than flashing the whole row as unavailable.
-                        const teachable =
-                          coverageLoading || options.length === 0 || options.includes(b.value);
-                        return (
-                          <button
-                            key={b.value}
-                            onClick={() => setSwitching({ subject: e.subject, board: b.value })}
-                            disabled={on || !teachable || switchBoard.isPending}
-                            aria-pressed={on}
-                            title={
-                              teachable ? undefined : `We don't teach ${b.label} at this level yet`
-                            }
-                            className={`h-7 px-2.5 rounded-md text-xs font-semibold transition disabled:cursor-default ${
-                              on
-                                ? "btn-solid shadow-sm"
-                                : teachable
-                                  ? "text-muted-foreground hover:text-foreground hover:bg-card"
-                                  : "text-muted-foreground/40"
-                            }`}
-                          >
-                            {b.label}
-                          </button>
-                        );
-                      })}
+                      {/* The current board, plus only those that teach this
+                          subject at the student's level. Until coverage is
+                          known that is just the current one: a switch to a
+                          board with no spec would leave the subject empty. */}
+                      {BOARDS.filter((b) => b.value === e.board || options.includes(b.value)).map(
+                        (b) => {
+                          const on = b.value === e.board;
+                          return (
+                            <button
+                              key={b.value}
+                              onClick={() => setSwitching({ subject: e.subject, board: b.value })}
+                              disabled={on || switchBoard.isPending}
+                              aria-pressed={on}
+                              className={`h-7 px-2.5 rounded-md text-xs font-semibold transition disabled:cursor-default ${
+                                on
+                                  ? "btn-solid shadow-sm"
+                                  : "text-muted-foreground hover:text-foreground hover:bg-card"
+                              }`}
+                            >
+                              {b.label}
+                            </button>
+                          );
+                        },
+                      )}
                     </div>
                     {busy ? (
                       <span className="inline-flex items-center gap-1.5 text-[11px] text-muted-foreground">

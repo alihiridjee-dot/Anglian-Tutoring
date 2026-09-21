@@ -1,6 +1,9 @@
 import { Link } from "@tanstack/react-router";
 import { Check, ChevronDown, Sparkles } from "lucide-react";
 import { useState } from "react";
+import { useCurriculumCoverage } from "@/hooks/data/useCurriculumCoverage";
+import { boardLabel } from "@/lib/courseSummary";
+import { isBoard, isSubject, type BoardV, type LevelV } from "@/lib/taxonomy";
 
 // ---------------------------------------------------------------------------
 // Pricing model
@@ -56,18 +59,22 @@ const CADENCES: {
   { cadence: "termly", name: "Termly", billing: "per term", badge: "Stable", highlight: false },
 ];
 
+// Maths is the one subject not taught at all yet. Whether a science is taught at
+// the chosen level comes from curriculum coverage (below), not from this list.
 const SUBJECTS = [
   { id: "biology", label: "Biology", comingSoon: false },
   { id: "chemistry", label: "Chemistry", comingSoon: false },
-  { id: "physics", label: "Physics", comingSoon: true },
+  { id: "physics", label: "Physics", comingSoon: false },
   { id: "maths", label: "Maths", comingSoon: true },
 ] as const;
 
-const BOARDS = [
-  { id: "aqa", label: "AQA" },
-  { id: "edexcel", label: "Edexcel" },
-  { id: "ocr", label: "OCR" },
-] as const;
+// Boards in the order this page offers them. Which of them appear depends on
+// the level: coverage decides, so a parent is never offered a board that
+// onboarding would then move their child off. KS3 is not a level the
+// curriculum is keyed by, so it has no coverage to consult and keeps the
+// domestic boards — as does every level while coverage is still loading.
+const BOARD_ORDER: readonly BoardV[] = ["aqa", "edexcel", "ocr", "cambridge", "oxford_aqa"];
+const DOMESTIC_BOARDS: readonly BoardV[] = ["aqa", "edexcel", "ocr"];
 
 const gbp = (pence: number) =>
   `£${(pence / 100).toLocaleString("en-GB", { minimumFractionDigits: 2, maximumFractionDigits: 2 })}`;
@@ -76,20 +83,56 @@ export function PricingSection() {
   const [level, setLevel] = useState<"ks3" | "gcse" | "igcse">("gcse");
   const [trilogy, setTrilogy] = useState(false);
   const [subjects, setSubjects] = useState<string[]>(["biology"]);
-  const [board, setBoard] = useState<string>("aqa");
+  const [board, setBoard] = useState<BoardV>("aqa");
   const [openStep, setOpenStep] = useState<0 | 1 | 2>(0);
+  const { coverage } = useCurriculumCoverage();
 
   const isTrilogy = level === "gcse" && trilogy;
-  const count = (isTrilogy ? 3 : Math.max(1, subjects.length)) as Count;
+
+  // The curriculum this plan would be taught from — null for KS3, which has none.
+  const curriculumLevel: LevelV | null =
+    level === "ks3" ? null : level === "igcse" ? "igcse" : isTrilogy ? "gcse_trilogy" : "gcse";
+
+  /** Taught at the chosen level under some board. Ungated until coverage lands. */
+  const taught = (id: string): boolean =>
+    isSubject(id) &&
+    (curriculumLevel === null ||
+      coverage.isEmpty ||
+      coverage.boardsForSubject(curriculumLevel, id).length > 0);
+
+  // What is picked *and* taught here. Derived rather than written back, so a
+  // parent who picks Physics, tries International and comes back still has it.
+  const pickedAndTaught = subjects.filter(taught);
+  const firstTaught = SUBJECTS.find((s) => !s.comingSoon && taught(s.id))?.id;
+  const liveSubjects = pickedAndTaught.length ? pickedAndTaught : firstTaught ? [firstTaught] : [];
+
+  const count = (isTrilogy ? 3 : Math.max(1, liveSubjects.length)) as Count;
 
   const toggleSubject = (id: string) => {
     setTrilogy(false);
-    setSubjects((prev) =>
-      prev.includes(id) ? (prev.length === 1 ? prev : prev.filter((s) => s !== id)) : [...prev, id],
+    setSubjects(
+      liveSubjects.includes(id)
+        ? liveSubjects.length === 1
+          ? liveSubjects
+          : liveSubjects.filter((s) => s !== id)
+        : [...liveSubjects, id],
     );
   };
 
-  const chosenSubjects = isTrilogy ? ["biology", "chemistry", "physics"] : subjects;
+  const chosenSubjects = isTrilogy ? ["biology", "chemistry", "physics"] : liveSubjects;
+
+  // Boards that teach every chosen subject at this level; failing that, any
+  // board teaching at this level, so the step is never empty.
+  const boardOptions: readonly BoardV[] = (() => {
+    if (curriculumLevel === null || coverage.isEmpty) return DOMESTIC_BOARDS;
+    const atLevel = BOARD_ORDER.filter((b) => coverage.boardsFor(curriculumLevel).includes(b));
+    const forAll = atLevel.filter((b) =>
+      chosenSubjects.every((s) => isSubject(s) && coverage.has(curriculumLevel, b, s)),
+    );
+    return forAll.length ? forAll : atLevel.length ? atLevel : DOMESTIC_BOARDS;
+  })();
+  const liveBoard: BoardV = boardOptions.includes(board) ? board : (boardOptions[0] ?? "aqa");
+
   const level_key =
     level === "ks3"
       ? "ks3"
@@ -101,7 +144,7 @@ export function PricingSection() {
 
   const subjectsSummary = isTrilogy
     ? "Combined Trilogy"
-    : SUBJECTS.filter((s) => subjects.includes(s.id))
+    : SUBJECTS.filter((s) => liveSubjects.includes(s.id))
         .map((s) => s.label)
         .join(", ");
 
@@ -200,8 +243,8 @@ export function PricingSection() {
             >
               <div className="grid grid-cols-2 gap-2.5">
                 {SUBJECTS.map((s) => {
-                  const soon = s.comingSoon;
-                  const on = !soon && (isTrilogy || subjects.includes(s.id));
+                  const soon = s.comingSoon || !taught(s.id);
+                  const on = !soon && (isTrilogy || liveSubjects.includes(s.id));
                   return (
                     <button
                       key={s.id}
@@ -241,7 +284,7 @@ export function PricingSection() {
                   : "Choose one or more — price adjusts automatically."}
               </p>
               <p className="mt-1.5 text-xs font-medium text-[var(--primary-deep)]/70">
-                Physics &amp; Maths coming soon — we're building out our team of specialists!
+                Maths coming soon — we're building out our team of specialists!
               </p>
               <button
                 type="button"
@@ -255,15 +298,15 @@ export function PricingSection() {
             <Step
               index={3}
               title="Exam board"
-              summary={BOARDS.find((b) => b.id === board)?.label ?? ""}
+              summary={boardLabel(liveBoard)}
               open={openStep === 2}
               onOpen={() => setOpenStep(2)}
               last
             >
               <Slider
-                options={BOARDS.map((b) => ({ value: b.id, label: b.label }))}
-                value={board}
-                onChange={setBoard}
+                options={boardOptions.map((b) => ({ value: b, label: boardLabel(b) }))}
+                value={liveBoard}
+                onChange={(v) => isBoard(v) && setBoard(v)}
               />
               <p className="mt-3 text-xs text-muted-foreground/70">
                 The board never changes your price.
@@ -277,7 +320,7 @@ export function PricingSection() {
             count={count}
             level_key={level_key}
             chosenSubjects={chosenSubjects}
-            board={board}
+            board={liveBoard}
           />
         </div>
       </div>

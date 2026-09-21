@@ -4,6 +4,7 @@ import { toast } from "sonner";
 import { supabase } from "@/integrations/supabase/client";
 import { LEVELS, BOARDS, type LevelV, type BoardV } from "@/lib/taxonomy";
 import { StepCard, ChoiceTile } from "@/components/onboarding/StepCard";
+import { Spinner } from "@/components/Shared";
 import { useCurriculumCoverage } from "@/hooks/data/useCurriculumCoverage";
 
 /**
@@ -121,21 +122,26 @@ function BoardStep() {
         <p className="mt-1 text-xs text-muted-foreground">
           Not sure? It's on the front of your exam papers. You can change this later.
         </p>
-        <div className="mt-2 grid grid-cols-3 gap-2">
-          {BOARDS.map((b) => {
-            const available = coverageLoading || teachableBoards.includes(b.value);
-            return (
-              <ChoiceTile
-                key={b.value}
-                title={b.label}
-                description={available ? undefined : "Not at this level yet"}
-                disabled={!available}
-                selected={board === b.value}
-                onClick={() => setBoard(b.value)}
-              />
-            );
-          })}
-        </div>
+        {/* Only boards with curriculum at this level are offered, so Cambridge
+            and OxfordAQA appear once their specs are loaded and never at a level
+            they don't run. If coverage fails, every board shows rather than
+            none — the same "don't gate on an error" rule as the levels above. */}
+        {coverageLoading ? (
+          <Spinner className="py-6" />
+        ) : (
+          <div className="mt-2 grid grid-cols-3 gap-2">
+            {BOARDS.filter((b) => coverage.isEmpty || teachableBoards.includes(b.value)).map(
+              (b) => (
+                <ChoiceTile
+                  key={b.value}
+                  title={b.label}
+                  selected={board === b.value}
+                  onClick={() => setBoard(b.value)}
+                />
+              ),
+            )}
+          </div>
+        )}
       </div>
     </StepCard>
   );
