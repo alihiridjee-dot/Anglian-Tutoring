@@ -1,8 +1,9 @@
 import { useMemo, useState } from "react";
 import { Loader2, Plus, Sparkles, TrendingUp, Check } from "lucide-react";
 import { toast } from "sonner";
-import { SUBJECTS, BOARDS, type BoardV } from "@/lib/taxonomy";
+import { SUBJECTS, BOARDS, isBoard, isLevel, isSubject, type BoardV } from "@/lib/taxonomy";
 import { usePackages, useAddSubjects } from "@/hooks/data/useBilling";
+import { useCurriculumCoverage } from "@/hooks/data/useCurriculumCoverage";
 import { formatPence } from "@/lib/billing";
 import {
   planCadence,
@@ -47,12 +48,29 @@ export function AddSubjectCard({
 }: AddSubjectCardProps) {
   const { data: packages = [] } = usePackages(level);
   const add = useAddSubjects();
+  const { coverage } = useCurriculumCoverage();
 
   const cadence = planCadence(currentTier);
   const currentCount = planSubjectCount(currentTier);
   const remaining = PLAN_MAX_SUBJECTS - enrolledSubjects.length;
 
-  const available = SUBJECTS.filter((s) => !enrolledSubjects.includes(s.value));
+  /** Boards that teach this subject at the student's level; none while unknown. */
+  const boardsFor = (subject: string): BoardV[] =>
+    isLevel(level) && isSubject(subject) ? coverage.boardsForSubject(level, subject) : [];
+
+  /** The board a new subject starts on: the student's own, if it teaches it here. */
+  const startingBoard = (subject: string): BoardV => {
+    const options = boardsFor(subject);
+    return options.includes(defaultBoard) ? defaultBoard : (options[0] ?? defaultBoard);
+  };
+
+  // Only subjects with a spec at this level are for sale. This fails closed —
+  // nothing is offered while coverage loads or if it can't be read — because a
+  // subject sold with no curriculum behind it is a paid, empty app. It is what
+  // stopped an iGCSE student buying Physics, which has no iGCSE spec yet.
+  const available = SUBJECTS.filter(
+    (s) => !enrolledSubjects.includes(s.value) && boardsFor(s.value).length > 0,
+  );
   const [picked, setPicked] = useState<Record<string, boolean>>({});
   const [boards, setBoards] = useState<Record<string, BoardV>>({});
 
@@ -84,7 +102,7 @@ export function AddSubjectCard({
       if (!prev[value] && Object.values(next).filter(Boolean).length > remaining) return prev;
       return next;
     });
-    setBoards((prev) => (prev[value] ? prev : { ...prev, [value]: defaultBoard }));
+    setBoards((prev) => (prev[value] ? prev : { ...prev, [value]: startingBoard(value) }));
   };
 
   const submit = () => {
@@ -92,7 +110,10 @@ export function AddSubjectCard({
     add.mutate(
       {
         studentId,
-        subjects: chosen.map((s) => ({ subject: s.value, board: boards[s.value] ?? defaultBoard })),
+        subjects: chosen.map((s) => ({
+          subject: s.value,
+          board: boards[s.value] ?? startingBoard(s.value),
+        })),
       },
       {
         onSuccess: (res) => {
@@ -162,13 +183,14 @@ export function AddSubjectCard({
                   <div className="mt-2.5 pl-8 flex items-center gap-2">
                     <span className="text-xs text-muted-foreground">Exam board</span>
                     <select
-                      value={boards[s.value] ?? defaultBoard}
-                      onChange={(e) =>
-                        setBoards((prev) => ({ ...prev, [s.value]: e.target.value as BoardV }))
-                      }
+                      value={boards[s.value] ?? startingBoard(s.value)}
+                      onChange={(e) => {
+                        const next = e.target.value;
+                        if (isBoard(next)) setBoards((prev) => ({ ...prev, [s.value]: next }));
+                      }}
                       className="h-8 rounded-lg premium-card px-2 text-xs focus:outline-none focus:ring-2 focus:ring-primary/40"
                     >
-                      {BOARDS.map((b) => (
+                      {BOARDS.filter((b) => boardsFor(s.value).includes(b.value)).map((b) => (
                         <option key={b.value} value={b.value}>
                           {b.label}
                         </option>

@@ -23,7 +23,8 @@ For authentication & the live/demo session model, see [docs/AUTHENTICATION.md](d
 │   ├── functions/
 │   │   ├── stripe-checkout/   # Checkout + billing-portal sessions (price read server-side)
 │   │   └── stripe-webhook/    # THE only writer of subscriptions — grants/revokes access
-│   └── migrations/            # Canonical schema — applied in order via db push
+│   ├── migrations/            # Canonical schema — applied in order via db push
+│   └── rollbacks/             # Hand-run DOWN scripts — never applied by the CLI
 ├── components.json            # Configuration for UI components (Shadcn UI)
 ├── eslint.config.js           # Linting configuration
 ├── package.json               # Dependencies, build, and start scripts
@@ -36,6 +37,7 @@ For authentication & the live/demo session model, see [docs/AUTHENTICATION.md](d
     │   ├── CurriculumSyncPanel.tsx # Tutor-only curriculum text/PDF importer
     │   ├── FilterBar.tsx      # Subject/Board/Level interactive filters
     │   ├── CourseBadge.tsx    # Header chip: the level + board this student sits
+    │   ├── RouteFallbacks.tsx # Loading + in-shell error screens for the guarded routes
     │   ├── chat/              # Thread list, conversation view, compose + context picker
     │   ├── planner/           # Query-backed weekly plan, roadmap, memory and tutor views
     │   ├── landing/           # Landing page component modules

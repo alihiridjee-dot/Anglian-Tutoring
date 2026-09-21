@@ -1,6 +1,7 @@
 import { createFileRoute, Outlet, redirect, useRouterState } from "@tanstack/react-router";
 import { Check } from "lucide-react";
 import { BrandMark } from "@/components/auth/AuthShell";
+import { RoutePending } from "@/components/RouteFallbacks";
 import { getAuthSession } from "@/lib/auth/session";
 import { supabase } from "@/integrations/supabase/client";
 import { ONBOARDING_STEPS, stepIndex } from "@/lib/onboarding";
@@ -43,6 +44,8 @@ export const Route = createFileRoute("/onboarding")({
 
     return { session };
   },
+  // No server render here either: show the loading state, not an empty body.
+  pendingComponent: RoutePending,
   component: OnboardingLayout,
 });
 

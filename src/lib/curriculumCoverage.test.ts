@@ -90,6 +90,24 @@ describe("Coverage", () => {
     expect(none.levels()).toEqual([]);
   });
 
+  test("a board with no curriculum is never offered, at any level", () => {
+    // Cambridge and OxfordAQA are in the taxonomy before any of their specs are
+    // loaded. Every student picker filters through here, so this is what keeps
+    // them out of sight until a tutor syncs one.
+    for (const level of ["gcse", "gcse_trilogy", "igcse", "alevel"] as const) {
+      expect(c.boardsFor(level)).not.toContain("cambridge");
+      expect(c.boardsFor(level)).not.toContain("oxford_aqa");
+    }
+  });
+
+  test("a new board appears at iGCSE, for its own subjects, once its spec is loaded", () => {
+    const withCambridge = new Coverage([...LIVE, row("igcse", "cambridge", "physics", 40)]);
+    expect(withCambridge.boardsFor("igcse")).toEqual(["edexcel", "cambridge"]);
+    expect(withCambridge.boardsForSubject("igcse", "physics")).toEqual(["cambridge"]);
+    expect(withCambridge.boardsForSubject("igcse", "biology")).toEqual(["edexcel"]);
+    expect(withCambridge.boardsFor("gcse")).toEqual(["edexcel", "aqa", "ocr"]);
+  });
+
   test("results follow taxonomy order, not row order", () => {
     const shuffled = new Coverage([
       row("gcse", "ocr", "physics"),

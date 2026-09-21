@@ -9,29 +9,35 @@ import { usePlannerRoadmap } from "@/hooks/data/usePlanner";
 import { getSessionUserId } from "@/lib/auth/session";
 import { guardStudentSection } from "@/lib/routeGuards";
 import { invalidatePlanner } from "@/lib/planner/queries";
-import type { SubjectV, BoardV } from "@/lib/taxonomy";
+import { isSubject, type SubjectV } from "@/lib/taxonomy";
 import { toast } from "sonner";
 
 export const Route = createFileRoute("/_authenticated/planner-order")({
   beforeLoad: guardStudentSection,
-  validateSearch: (search: Record<string, unknown>) => ({
-    subject: typeof search.subject === "string" ? search.subject : "biology",
+  validateSearch: (search: Record<string, unknown>): { subject?: SubjectV } => ({
+    subject: isSubject(search.subject) ? search.subject : undefined,
   }),
   head: () => ({ meta: [{ title: "Topic order | Anglia Educate" }] }),
   component: TopicOrderPage,
 });
 function TopicOrderPage() {
-  const { subject } = Route.useSearch();
+  const { subject: requested } = Route.useSearch();
   const { enrolments, level, loading } = useEnrolments();
   const [studentId, setStudentId] = useState<string | null>(null);
   useEffect(() => {
     void getSessionUserId().then(setStudentId);
   }, []);
-  const enrolment = enrolments.find((e) => e.subject === subject);
+  // A bare /planner-order opens the student's own first subject. It used to
+  // assume Biology, which left a Physics-only student on "No course plan".
+  const enrolment = requested
+    ? enrolments.find((e) => e.subject === requested)
+    : enrolments.find((e) => isSubject(e.subject));
+  const subject: SubjectV =
+    requested ?? (isSubject(enrolment?.subject) ? enrolment.subject : "biology");
   const course = {
     studentId: studentId ?? "",
-    subject: subject as SubjectV,
-    board: (enrolment?.board ?? "aqa") as BoardV,
+    subject,
+    board: enrolment?.board ?? "aqa",
     level: level ?? ("gcse" as const),
   };
   const query = usePlannerRoadmap(course, 0, !!studentId && !!enrolment && !!level);
