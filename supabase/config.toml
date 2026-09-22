@@ -13,5 +13,7 @@ additional_redirect_urls = [
   "http://localhost:8080/**",
 ]
 
-[auth.security]
-hibp_enabled = true
+# Leaked-password protection (HIBP) is a dashboard setting on hosted Supabase:
+# Authentication → Sign In / Providers → Password. The CLI has no config table
+# for it, and the `[auth.security]` block that used to sit here made every
+# `supabase functions deploy` fail with "failed to parse config".
