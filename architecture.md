@@ -95,6 +95,7 @@ For authentication & the live/demo session model, see [docs/AUTHENTICATION.md](d
     │   │   ├── programDal.ts  # Fixed teaching + eligible reviews; programme persistence
     │   │   ├── scheduleDal.ts # Graded-source reconstruction; no client-written memory
     │   │   ├── roadmap.ts     # buildRoadmap — the pure core loadRoadmap calls; no network, no clock
+    │   │   ├── weekCut.ts     # selectWeek + mergeWeek — the pure cores of planForWeek and refreshWeek
     │   │   ├── weeklyPlanDal.ts # Saved assignments: admission, reads and writes of the week itself
     │   │   ├── weeklyActivityDal.ts # Delivery ledger, per-point activity and weekly coverage (reads)
     │   │   ├── weeklyNotesDal.ts # Student check-in and tutor note on a week
@@ -292,14 +293,17 @@ The engine has four layers, with deliberately separate responsibilities:
    `planner/pacing.ts` allocates teaching and eligible reviews;
    `planner/coverage.ts` evaluates activity within a particular assigned week;
    `planner/admissibility.ts` decides whether a point may be assigned in a week at
-   all; `planner/roadmap.ts` (`buildRoadmap`) turns what was read into the roadmap.
+   all; `planner/roadmap.ts` (`buildRoadmap`) turns what was read into the roadmap;
+   `planner/weekCut.ts` chooses a week's points from it (`selectWeek`) and merges a
+   fresh cut into a saved week (`mergeWeek`).
    Teaching uses the entire pre-exam window. Reviews have no weekly count/weight
    cap, but retain the 168-hour minimum and next London Monday opening.
 3. **Data composition:** `ScheduleDAL` reconstructs memory from homework grades
    and immutable quiz snapshots, excluding historical confidence and the retired
    client-writable ledger. `ProgramDAL` combines that progress with programme dates
    and saved assignments: `loadRoadmap` only reads, calls `buildRoadmap`, and seeds
-   the baseline on the student's own first view. `WeeklyPlanDAL` owns weekly
+   the baseline on the student's own first view; `planForWeek` and `refreshWeek`
+   likewise only read, call `weekCut`, and write. `WeeklyPlanDAL` owns weekly
    assignment persistence; `WeeklyActivityDAL` reads what was delivered and covered;
    `WeeklyNotesDAL` holds the check-in and tutor note; `PlannerRosterDAL` serves the
    tutor's lookups. DALs call each other through their class (`WeeklyPlanDAL.getPlan`),
