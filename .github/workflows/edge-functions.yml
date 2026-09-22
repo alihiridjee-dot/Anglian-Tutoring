@@ -1,0 +1,28 @@
+# The edge functions run on Deno with URL imports, so the app's TypeScript
+# setup cannot see them. Until this existed, nothing caught a type error in
+# them before a hand deploy. Typecheck only: deploys stay manual.
+name: Edge functions
+
+on:
+  pull_request:
+    paths:
+      - "supabase/functions/**"
+      - ".github/workflows/edge-functions.yml"
+  push:
+    branches: [main]
+    paths:
+      - "supabase/functions/**"
+
+jobs:
+  typecheck:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: denoland/setup-deno@v2
+        with:
+          deno-version: v2.x
+      # The functions never see the app's package.json (the edge runtime has
+      # none), so npm: specifiers must resolve on their own, not via node_modules.
+      - run: deno check supabase/functions/*/index.ts
+        env:
+          DENO_NO_PACKAGE_JSON: "1"

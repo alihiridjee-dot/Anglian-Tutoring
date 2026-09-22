@@ -48,17 +48,25 @@ id onto `packages.stripe_price_id`. It's re-runnable: prices are looked up by
 
 Both are **already deployed** to the project:
 
-| Function | `verify_jwt` | Why |
-| --- | --- | --- |
-| `stripe-checkout` | `true` | Called by signed-in users; the platform rejects unsigned callers before the code runs |
-| `stripe-webhook` | `false` | **Deliberate.** Stripe calls it unauthenticated, so there's no JWT to check — the Stripe signature authenticates it instead, which is why step 3 is not optional |
+| Function          | `verify_jwt` | Why                                                                                                                                                              |
+| ----------------- | ------------ | ---------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| `stripe-checkout` | `true`       | Called by signed-in users; the platform rejects unsigned callers before the code runs                                                                            |
+| `stripe-webhook`  | `false`      | **Deliberate.** Stripe calls it unauthenticated, so there's no JWT to check — the Stripe signature authenticates it instead, which is why step 3 is not optional |
 
-Redeploying by hand (only needed if you edit them):
+Redeploying by hand (only needed if you edit them). Typecheck first — the
+functions run on Deno, so the app's `tsc` never sees them, and a deploy does
+not check types either:
 
 ```bash
+bun run check:functions   # deno check, with the app's package.json ignored
 supabase functions deploy stripe-checkout
 supabase functions deploy stripe-webhook --no-verify-jwt
 ```
+
+A successful deploy bumps the version in `supabase functions list`. To confirm
+what production is actually running, `supabase functions download <name>` into
+a scratch folder and diff it against the repo — on 2026-09-22 the live
+`stripe-checkout` turned out to be seven weeks behind `main`.
 
 They need secrets, which are **not** read from `.env` — set them on the project.
 Dashboard → Project Settings → Edge Functions → Secrets, or:
@@ -70,7 +78,7 @@ supabase secrets set APP_URL=http://localhost:5173   # your real origin in prod
 
 `APP_URL` is where Stripe sends the browser back after checkout. Pointing it at
 `localhost:5173` is fine for testing — the browser makes that redirect, so it
-only has to resolve on *your* machine. The webhook is a separate call from
+only has to resolve on _your_ machine. The webhook is a separate call from
 Stripe's servers to Supabase, and is unaffected.
 
 ## 3. Wire up the webhook
