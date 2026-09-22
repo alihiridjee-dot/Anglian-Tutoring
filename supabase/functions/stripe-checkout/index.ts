@@ -955,7 +955,9 @@ async function handleInvoices(req: Request) {
   const customerIds = await householdCustomerIds(user.id);
   if (customerIds.length === 0) return { invoices: [] };
 
-  const lists = await Promise.all(
+  // Under Deno the SDK's list() resolves to `any`, so the shape is named here
+  // rather than on each callback below.
+  const lists: Stripe.ApiList<Stripe.Invoice>[] = await Promise.all(
     customerIds.map((customer) => stripe.invoices.list({ customer, limit: 24 })),
   );
 

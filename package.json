@@ -11,6 +11,7 @@
     "start": "bun .output/server/index.mjs",
     "preview": "vite preview",
     "lint": "eslint .",
+    "check:functions": "deno check supabase/functions/*/index.ts",
     "format": "prettier --write ."
   },
   "dependencies": {

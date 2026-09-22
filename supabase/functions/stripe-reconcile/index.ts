@@ -202,9 +202,10 @@ async function sweepOrphans(dryRun: boolean) {
     })) {
       // Expanded above, so this is an object in practice — but Stripe still
       // types it as id-or-object-or-deleted, and a deleted customer carries no
-      // metadata. Narrowed to exactly what the owner lookup below reads.
+      // metadata. Narrowed to exactly what the owner lookup and the queue
+      // record below read.
       const customer = sub.customer as
-        string | { id?: string; metadata?: Record<string, string> } | null;
+        string | { id?: string; email?: string | null; metadata?: Record<string, string> } | null;
       const ids = [
         sub.metadata?.student_id,
         sub.metadata?.payer_id,
