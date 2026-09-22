@@ -21,7 +21,10 @@ For authentication & the live/demo session model, see [docs/AUTHENTICATION.md](d
 ├── supabase/
 │   ├── config.toml            # Supabase project link (project_id)
 │   ├── functions/
+│   │   ├── _shared/           # corsHeaders + HttpError (http.ts); admin() + stripeClient() (clients.ts)
 │   │   ├── stripe-checkout/   # Checkout + billing-portal sessions (price read server-side)
+│   │   ├── stripe-reconcile/  # Sweeps orphaned subscriptions; queues cancellations
+│   │   ├── mark-homework/ · zoom-meeting/
 │   │   └── stripe-webhook/    # THE only writer of subscriptions — grants/revokes access
 │   ├── migrations/            # Canonical schema — applied in order via db push
 │   └── rollbacks/             # Hand-run DOWN scripts — never applied by the CLI

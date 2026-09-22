@@ -28,38 +28,12 @@
 // Auto-injected by the platform:
 //   SUPABASE_URL, SUPABASE_SERVICE_ROLE_KEY
 //
-import { createClient } from "https://esm.sh/@supabase/supabase-js@2";
 import Stripe from "https://esm.sh/stripe@17.5.0?target=deno";
-
-const corsHeaders = {
-  "Access-Control-Allow-Origin": "*",
-  "Access-Control-Allow-Headers": "authorization, x-client-info, apikey, content-type",
-  "Access-Control-Allow-Methods": "POST, OPTIONS",
-};
-
-class HttpError extends Error {
-  constructor(
-    public status: number,
-    message: string,
-  ) {
-    super(message);
-  }
-}
+import { corsHeaders, HttpError } from "../_shared/http.ts";
+import { admin, stripeClient } from "../_shared/clients.ts";
 
 /** Statuses worth acting on. Anything else is already dead or never started. */
 const LIVE_STATUSES = ["active", "trialing", "past_due", "unpaid", "paused"];
-
-function admin() {
-  return createClient(Deno.env.get("SUPABASE_URL")!, Deno.env.get("SUPABASE_SERVICE_ROLE_KEY")!, {
-    auth: { persistSession: false },
-  });
-}
-
-function stripeClient() {
-  const key = Deno.env.get("STRIPE_SECRET_KEY");
-  if (!key) throw new HttpError(500, "Stripe is not configured on the server.");
-  return new Stripe(key, { apiVersion: "2024-12-18.acacia" });
-}
 
 /**
  * Service-role gate.

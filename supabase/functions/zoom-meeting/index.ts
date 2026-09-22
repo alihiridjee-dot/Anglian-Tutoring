@@ -11,13 +11,9 @@
 //   SUPABASE_URL, SUPABASE_SERVICE_ROLE_KEY, SUPABASE_ANON_KEY
 //
 import { createClient } from "https://esm.sh/@supabase/supabase-js@2";
+import { corsHeaders, HttpError } from "../_shared/http.ts";
 
 // CORS for browser-invoked calls (the tutor dashboard uses functions.invoke).
-const corsHeaders = {
-  "Access-Control-Allow-Origin": "*",
-  "Access-Control-Allow-Headers": "authorization, x-client-info, apikey, content-type",
-  "Access-Control-Allow-Methods": "POST, OPTIONS",
-};
 
 interface CreatePayload {
   action: "create";
@@ -216,15 +212,6 @@ async function handleDelete(p: DeletePayload) {
 }
 
 // --- Entrypoint -------------------------------------------------------------
-
-class HttpError extends Error {
-  constructor(
-    public status: number,
-    message: string,
-  ) {
-    super(message);
-  }
-}
 
 Deno.serve(async (req) => {
   if (req.method === "OPTIONS") {

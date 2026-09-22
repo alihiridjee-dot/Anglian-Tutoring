@@ -31,12 +31,7 @@ import { createClient } from "https://esm.sh/@supabase/supabase-js@2";
 // `node/stream/promises.ts` — the deploy fails at module resolution, before any
 // of this code runs. The edge runtime speaks npm specifiers natively.
 import Anthropic from "npm:@anthropic-ai/sdk@0.111.0";
-
-const corsHeaders = {
-  "Access-Control-Allow-Origin": "*",
-  "Access-Control-Allow-Headers": "authorization, x-client-info, apikey, content-type",
-  "Access-Control-Allow-Methods": "POST, OPTIONS",
-};
+import { corsHeaders, HttpError } from "../_shared/http.ts";
 
 const MODEL = "claude-opus-5";
 
@@ -63,15 +58,6 @@ const MARKINGS_PER_HOUR = 30;
 const db = createClient(Deno.env.get("SUPABASE_URL")!, Deno.env.get("SUPABASE_SERVICE_ROLE_KEY")!, {
   auth: { persistSession: false },
 });
-
-class HttpError extends Error {
-  constructor(
-    readonly status: number,
-    message: string,
-  ) {
-    super(message);
-  }
-}
 
 type Question = {
   id: string;

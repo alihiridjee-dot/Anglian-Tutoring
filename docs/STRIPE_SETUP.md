@@ -63,7 +63,10 @@ supabase functions deploy stripe-checkout
 supabase functions deploy stripe-webhook --no-verify-jwt
 ```
 
-A successful deploy bumps the version in `supabase functions list`. To confirm
+A successful deploy bumps the version in `supabase functions list`. The
+functions import `supabase/functions/_shared/` (CORS headers, `HttpError`, the
+service-role and Stripe clients), which the CLI bundles into each deploy — so a
+change under `_shared/` needs every function that imports it redeployed. To confirm
 what production is actually running, `supabase functions download <name>` into
 a scratch folder and diff it against the repo — on 2026-09-22 the live
 `stripe-checkout` turned out to be seven weeks behind `main`.

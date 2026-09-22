@@ -33,23 +33,9 @@
 // Auto-injected by the platform:
 //   SUPABASE_URL, SUPABASE_SERVICE_ROLE_KEY
 //
-import { createClient } from "https://esm.sh/@supabase/supabase-js@2";
 import Stripe from "https://esm.sh/stripe@17.5.0?target=deno";
-
-const corsHeaders = {
-  "Access-Control-Allow-Origin": "*",
-  "Access-Control-Allow-Headers": "authorization, x-client-info, apikey, content-type",
-  "Access-Control-Allow-Methods": "POST, OPTIONS",
-};
-
-class HttpError extends Error {
-  constructor(
-    public status: number,
-    message: string,
-  ) {
-    super(message);
-  }
-}
+import { corsHeaders, HttpError } from "../_shared/http.ts";
+import { admin, stripeClient } from "../_shared/clients.ts";
 
 /** Where Stripe sends the browser back to. Whitelisted — never client URLs. */
 const RETURN_PATHS: Record<string, string> = {
@@ -198,18 +184,6 @@ async function resolvePackage(
     .eq("active", true);
   const rows = data ?? [];
   return rows.find((r) => r.level === level) ?? rows.find((r) => r.level === null) ?? null;
-}
-
-function admin() {
-  return createClient(Deno.env.get("SUPABASE_URL")!, Deno.env.get("SUPABASE_SERVICE_ROLE_KEY")!, {
-    auth: { persistSession: false },
-  });
-}
-
-function stripeClient() {
-  const key = Deno.env.get("STRIPE_SECRET_KEY");
-  if (!key) throw new HttpError(500, "Stripe is not configured on the server.");
-  return new Stripe(key, { apiVersion: "2024-12-18.acacia" });
 }
 
 function appUrl() {
