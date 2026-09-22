@@ -25,6 +25,7 @@ import {
   type BacklogPoint,
   type TopicBacklog,
 } from "./backlog";
+import { blockedBy, indexOverrides, type PlanOverride } from "./overrides";
 import { type PlanPoint, type WithheldPlanPoint } from "./weeklyPlanDal";
 
 /** Assessment-backed cards supply one next review per point. */
@@ -112,6 +113,13 @@ export interface RoadmapResult {
   unscheduledTopicTitles: string[];
   /** Exam-horizon backlog reporting for the roadmap and weekly plan. */
   focusLoad: FocusLoad;
+  /**
+   * The tutor's standing decisions against the programme — points removed
+   * from a week or skipped altogether ([[overrides]]). Every lane above was
+   * projected around them, and the week cut applies them once more; carried
+   * here so a surface can show what was set aside and by whom.
+   */
+  overrides: PlanOverride[];
 }
 
 /** A week as `WeeklyPlanDAL.getPlan` reads it back: what is active, and what was withheld. */
@@ -133,6 +141,8 @@ export interface RoadmapInputs {
   thisMonday: Date;
   /** The stored exam week, or the default one before a baseline exists. */
   examMonday: Date;
+  /** The tutor's overrides for this course. Absent means none. */
+  overrides?: PlanOverride[];
 }
 
 /**
@@ -142,6 +152,11 @@ export interface RoadmapInputs {
  */
 export function buildRoadmap(inputs: RoadmapInputs): RoadmapResult {
   const { progress, baseline, savedWeek, catchUpWeek, ledger, thisMonday, examMonday } = inputs;
+  const overrides = inputs.overrides ?? [];
+  // The tutor's overrides bind every automatic lane below: a skipped point is
+  // neither reviewed nor chased, and a removed week is stepped past.
+  const overrideIndex = indexOverrides(overrides);
+  const isBlocked = blockedBy(overrideIndex);
 
   const topics: PacingInput[] = progress.map((t) => ({
     topicId: t.topicId,
@@ -197,7 +212,9 @@ export function buildRoadmap(inputs: RoadmapInputs): RoadmapResult {
   // A saved assignment owns this week. Never project a second copy of pending work.
   const eligible = partition(
     focus.candidates.filter(
-      (p) => !savedIds.has(p.specPointId) || new Date(p.lastReviewedAt) >= thisMonday,
+      (p) =>
+        !overrideIndex.skipped.has(p.specPointId) &&
+        (!savedIds.has(p.specPointId) || new Date(p.lastReviewedAt) >= thisMonday),
     ),
     (c) => ({
       specPointId: c.specPointId,
@@ -230,6 +247,7 @@ export function buildRoadmap(inputs: RoadmapInputs): RoadmapResult {
     topicOpenings: reviewReach,
     currentMonday: savedWeek ? addWeeks(thisMonday, 1) : thisMonday,
     examMonday,
+    isBlocked,
   });
   if (savedWeek) {
     // All saved-week consumers use the DAL's same active/history split.
@@ -284,6 +302,8 @@ export function buildRoadmap(inputs: RoadmapInputs): RoadmapResult {
     pointsByTopic,
   );
 
+  // A skipped point is not owed: the tutor has said the programme will not
+  // deliver it, so there is nothing to chase.
   const backlog = spineBacklog({
     bands: promised,
     weekStart: thisWeek,
@@ -296,7 +316,7 @@ export function buildRoadmap(inputs: RoadmapInputs): RoadmapResult {
         ),
       ),
     },
-  });
+  }).filter((p) => !overrideIndex.skipped.has(p.specPointId));
   /**
    * The same debt, minus what this week is already carrying.
    *
@@ -326,6 +346,7 @@ export function buildRoadmap(inputs: RoadmapInputs): RoadmapResult {
     weekStart: thisWeek,
     examDate,
     weeklyWeight: focusLoadFor({ topics, spine: live }).spine,
+    isBlocked,
   });
 
   // The topics the runway is too short to reach, in curriculum order.
@@ -353,6 +374,7 @@ export function buildRoadmap(inputs: RoadmapInputs): RoadmapResult {
       backlog: projection.backlog,
       teachingWeeksShort,
     }),
+    overrides,
   };
 
   if (!baseline) {

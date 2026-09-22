@@ -142,6 +142,8 @@ function arrange(world: {
   saved?: SavedWeek | null;
   ledger?: { done: string[]; outstanding: string[] };
   viewer?: string;
+  /** Rows of `student_plan_overrides`, as the API would return them. */
+  overrides?: Record<string, unknown>[];
 }) {
   spies = [
     spyOn(ScheduleDAL, "getTopicProgress").mockImplementation(async (args) => {
@@ -175,6 +177,11 @@ function arrange(world: {
         table,
         method === "GET" ? url.search : JSON.parse(String(init?.body ?? "null")),
       ]);
+      // The tutor's overrides are read alongside the baseline; these worlds have none.
+      if (table === "student_plan_overrides" && method === "GET")
+        return new Response(JSON.stringify(world.overrides ?? []), {
+          headers: { "Content-Type": "application/json" },
+        });
       if (table !== "student_program_plan") throw new Error(`Unexpected request: ${url.pathname}`);
       if (method === "GET") {
         if (baselineFails)

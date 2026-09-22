@@ -1129,6 +1129,50 @@ export type Database = {
           },
         ];
       };
+      student_plan_overrides: {
+        Row: {
+          created_at: string;
+          created_by: string | null;
+          id: string;
+          kind: Database["public"]["Enums"]["plan_override_kind"];
+          note: string | null;
+          spec_point_id: string;
+          student_id: string;
+          subject: Database["public"]["Enums"]["subject"];
+          week_start: string | null;
+        };
+        Insert: {
+          created_at?: string;
+          created_by?: string | null;
+          id?: string;
+          kind: Database["public"]["Enums"]["plan_override_kind"];
+          note?: string | null;
+          spec_point_id: string;
+          student_id: string;
+          subject: Database["public"]["Enums"]["subject"];
+          week_start?: string | null;
+        };
+        Update: {
+          created_at?: string;
+          created_by?: string | null;
+          id?: string;
+          kind?: Database["public"]["Enums"]["plan_override_kind"];
+          note?: string | null;
+          spec_point_id?: string;
+          student_id?: string;
+          subject?: Database["public"]["Enums"]["subject"];
+          week_start?: string | null;
+        };
+        Relationships: [
+          {
+            foreignKeyName: "student_plan_overrides_spec_point_id_fkey";
+            columns: ["spec_point_id"];
+            isOneToOne: false;
+            referencedRelation: "spec_points";
+            referencedColumns: ["id"];
+          },
+        ];
+      };
       student_program_plan: {
         Row: {
           acknowledged_at: string;
@@ -1701,6 +1745,7 @@ export type Database = {
           _pacing: Json;
           _assessed: string[];
           _reviews: Json;
+          _student_id?: string;
         };
         Returns: undefined;
       };
@@ -1849,6 +1894,30 @@ export type Database = {
         };
         Returns: string;
       };
+      plan_override_caller_is_tutor: { Args: never; Returns: boolean };
+      plan_point_has_work: {
+        Args: { _student_id: string; _spec_point_id: string; _week_start: string };
+        Returns: boolean;
+      };
+      remove_plan_point: {
+        Args: {
+          _student_id: string;
+          _subject: Database["public"]["Enums"]["subject"];
+          _spec_point_id: string;
+          _week_start: string;
+          _note?: string;
+        };
+        Returns: Json;
+      };
+      skip_plan_point: {
+        Args: {
+          _student_id: string;
+          _subject: Database["public"]["Enums"]["subject"];
+          _spec_point_id: string;
+          _note?: string;
+        };
+        Returns: Json;
+      };
       submit_homework_answers: {
         Args: { _answers: Json; _notes?: string; _resource_id: string };
         Returns: string;
@@ -1867,6 +1936,7 @@ export type Database = {
       app_role: "student" | "tutor" | "admin";
       board: "edexcel" | "aqa" | "ocr" | "cambridge" | "oxford_aqa";
       level: "gcse" | "alevel" | "gcse_trilogy" | "igcse";
+      plan_override_kind: "remove" | "skip";
       plan_point_origin: "ai" | "student" | "tutor" | "carried_over" | "core" | "focus";
       plan_source: "ai" | "student" | "tutor";
       profile_role: "student" | "parent" | "tutor";
@@ -1997,6 +2067,7 @@ export const Constants = {
       app_role: ["student", "tutor", "admin"],
       board: ["edexcel", "aqa", "ocr", "cambridge", "oxford_aqa"],
       level: ["gcse", "alevel", "gcse_trilogy", "igcse"],
+      plan_override_kind: ["remove", "skip"],
       plan_point_origin: ["ai", "student", "tutor", "carried_over", "core", "focus"],
       plan_source: ["ai", "student", "tutor"],
       profile_role: ["student", "parent", "tutor"],

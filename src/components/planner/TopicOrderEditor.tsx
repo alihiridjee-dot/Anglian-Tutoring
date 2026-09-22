@@ -46,18 +46,33 @@ function DraggableTopic({
   );
 }
 
-/** Whole-topic editing only; weekly point divisions are always engine-generated. */
+/**
+ * Whole-topic editing only; weekly point divisions are always engine-generated.
+ *
+ * Voiced to the student by default. A tutor reordering on a student's behalf
+ * gets the same editor addressed the right way round — "Alex's calendar", not
+ * "your calendar" — and the write names the student, which the database
+ * accepts from a tutor.
+ */
 export function TopicOrderEditor({
   data,
   course,
   onSaved,
   onCancel,
+  asTutor = false,
+  studentName,
 }: {
   data: RoadmapResult;
   course: PlannerCourse;
   onSaved: () => Promise<void>;
   onCancel: () => void;
+  /** A tutor acting for the student: neutral copy, and the write is on their behalf. */
+  asTutor?: boolean;
+  studentName?: string | null;
 }) {
+  const who = asTutor ? (studentName ?? "the student") : "you";
+  const whose = asTutor ? `${studentName ?? "the student"}'s` : "your";
+  const Whose = asTutor ? `${studentName ?? "The student"}'s` : "Your";
   // An open preview has a stable baseline. The write compares it with the database.
   const [snapshot] = useState(data);
   const [from, setFrom] = useState([currentWeekKey(), data.programStart].sort().at(-1)!);
@@ -142,12 +157,14 @@ export function TopicOrderEditor({
   return (
     <div className="space-y-6 tint-primary">
       <SectionHeading
-        title="Make the plan match your school"
-        hint="Move whole topics. Your calendar updates as you go."
+        title={asTutor ? `Make the plan match ${whose} school` : "Make the plan match your school"}
+        hint={`Move whole topics. ${Whose} calendar updates as you go.`}
       />
       <div className="premium-card rounded-2xl p-4 flex flex-wrap justify-between gap-4 items-center">
         <label className="text-sm font-bold space-y-2">
-          <span className="block">Change my order from</span>
+          <span className="block">
+            {asTutor ? "Change the order from" : "Change my order from"}
+          </span>
           <select
             className="premium-card rounded-xl px-3 py-2 max-w-full"
             aria-label="Change order from week"
@@ -174,15 +191,19 @@ export function TopicOrderEditor({
       </div>
       {snapshot.needsAck ? (
         <EmptyState
-          title="Your plan is still updating"
-          body="Open your planner, then come back to change your topic order."
+          title={`${Whose} plan is still updating`}
+          body={
+            asTutor
+              ? "The plan settles the next time the student opens their planner. Come back to change the topic order after that."
+              : "Open your planner, then come back to change your topic order."
+          }
         />
       ) : (
         <>
           <div className="grid gap-6 lg:grid-cols-2">
             <section className="space-y-3" aria-label="Topic order">
               <SectionHeading
-                title="Your topic order"
+                title={`${Whose} topic order`}
                 hint="Drag a topic, or use its arrows to move it."
               />
               <button
@@ -264,7 +285,7 @@ export function TopicOrderEditor({
               aria-label="Calendar preview"
             >
               <SectionHeading
-                title="Your calendar"
+                title={`${Whose} calendar`}
                 hint="Teaching time stays balanced by topic weight."
               />
               {preview.error ? (
@@ -313,8 +334,9 @@ export function TopicOrderEditor({
               new plan.
             </p>
             <p className="text-muted-foreground">
-              Completed and started work, carried work, and topics you or your tutor assigned stay
-              in your saved weeks. These can sit alongside the new learning shown here.
+              {asTutor
+                ? `Completed and started work, carried work, and spec points you or ${who} assigned stay in the saved weeks, and anything you removed or skipped stays out. These can sit alongside the new learning shown here.`
+                : "Completed and started work, carried work, and topics you or your tutor assigned stay in your saved weeks. These can sit alongside the new learning shown here."}
             </p>
           </div>
         </>
@@ -330,7 +352,7 @@ export function TopicOrderEditor({
           disabled={saving}
           className="btn-premium px-5 py-2.5 rounded-xl"
         >
-          Back to planner
+          {asTutor ? "Close" : "Back to planner"}
         </button>
         <button
           type="button"
@@ -343,7 +365,7 @@ export function TopicOrderEditor({
           }
           className="btn-solid px-5 py-2.5 rounded-xl"
         >
-          {saving ? "Saving your order…" : "Save topic order"}
+          {saving ? (asTutor ? "Saving the order…" : "Saving your order…") : "Save topic order"}
         </button>
       </div>
       {saving && <Spinner className="py-2" />}

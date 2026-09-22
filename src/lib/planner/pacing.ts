@@ -251,6 +251,12 @@ export function projectReviews(params: {
   topicOpenings?: ReadonlyMap<string, string>;
   currentMonday: Date;
   examMonday: Date;
+  /**
+   * Weeks a point may not be scheduled into — a tutor's `remove` override
+   * ([[overrides]]). A review due in a blocked week waits for the next open
+   * one; a point blocked all the way to the exam joins the backlog.
+   */
+  isBlocked?: (specPointId: string, weekKey: string) => boolean;
 }): ReviewProjection {
   const current = mondayOf(params.currentMonday);
   const horizon = params.examMonday;
@@ -279,9 +285,8 @@ export function projectReviews(params: {
   // week. Sort once, rather than scanning and splicing the queue for every week.
   const due = pending
     .filter((t) => t.eligible < horizon)
-    .map((t) => ({
-      ...t,
-      week: new Date(
+    .map((t) => {
+      let week = new Date(
         Math.max(
           current.getTime(),
           t.opening.getTime(),
@@ -289,9 +294,13 @@ export function projectReviews(params: {
             ? weekKeyToDate(params.topicOpenings.get(t.c.topicId)!).getTime()
             : -Infinity,
         ),
-      ),
-      dueMs: new Date(t.c.dueAt).getTime(),
-    }));
+      );
+      // Step past every week the tutor has closed to this point. Bounded by
+      // the horizon, where the point becomes backlog rather than a review.
+      while (week < horizon && params.isBlocked?.(t.c.specPointId, toDateKey(week)))
+        week = addWeeks(week, 1);
+      return { ...t, week, dueMs: new Date(t.c.dueAt).getTime() };
+    });
   const backlog = due.filter((t) => t.week >= horizon).map((t) => t.c);
   const scheduled = due
     .filter((t) => t.week < horizon)

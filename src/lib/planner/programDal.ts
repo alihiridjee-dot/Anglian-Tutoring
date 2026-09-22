@@ -15,6 +15,8 @@ import {
 import { spineReach } from "./admissibility";
 import { WeeklyPlanDAL, type PlanPoint } from "./weeklyPlanDal";
 import { WeeklyActivityDAL } from "./weeklyActivityDal";
+import { PlanOverridesDAL } from "./planOverridesDal";
+import { blockedBy, indexOverrides, programmeMayAssign, type PlanOverride } from "./overrides";
 import { buildRoadmap, focusInputs, type RoadmapResult } from "./roadmap";
 import { mergeWeek, selectWeek, unsupportedReviews, type WeekSelection } from "./weekCut";
 
@@ -71,6 +73,9 @@ export class ProgramDAL {
     // Skipping it would hand the generation path an empty ledger and chase the
     // student for work they had already done.
     const ledger = await WeeklyActivityDAL.getDeliveryLedger(studentId, subject, thisWeek);
+    // The tutor's standing decisions against the programme, read every load
+    // for the same reason the ledger is: every lane below projects around them.
+    const overrides = await PlanOverridesDAL.list(studentId, subject);
     // Generation suppresses saved review bands, but must still reserve catch-up
     // capacity already used by this week's assignments, including completed ones.
     const catchUpWeek =
@@ -85,6 +90,7 @@ export class ProgramDAL {
       ledger,
       thisMonday,
       examMonday,
+      overrides,
     });
 
     if (!baseline) {
@@ -136,8 +142,20 @@ export class ProgramDAL {
     roadmap: RoadmapResult | null;
   }): Promise<boolean> {
     const existing = new Set(params.points.map((p) => p.spec_point_id));
+    // The schedule was projected around the tutor's overrides already; the
+    // test is repeated here so a roadmap handed in from elsewhere cannot top
+    // the week up with a point the tutor took out of it.
+    const overrides = indexOverrides(params.roadmap?.overrides);
     const missing = (params.roadmap?.catchUpSchedule?.weeks[params.weekStart] ?? [])
-      .filter((p) => !existing.has(p.specPointId))
+      .filter(
+        (p) =>
+          !existing.has(p.specPointId) &&
+          programmeMayAssign(
+            overrides,
+            { specPointId: p.specPointId, origin: "core" },
+            params.weekStart,
+          ),
+      )
       .map((p) => p.specPointId);
     if (!missing.length) return false;
     return (await WeeklyPlanDAL.addPoints(params.planId, missing, "core")) > 0;
@@ -235,21 +253,33 @@ export class ProgramDAL {
     progress: TopicProgress[];
     pacing: PacingBand[];
     examDate: string;
+    /** The tutor's overrides: skipped points are not reviewed, closed weeks are stepped past. */
+    overrides?: PlanOverride[];
   }) {
     const monday = mondayOf();
     const saved = await WeeklyPlanDAL.getPlan(p.studentId, p.subject, toDateKey(monday));
     const assigned = new Set(saved?.points.map((point) => point.spec_point_id) ?? []);
+    const overrides = indexOverrides(p.overrides);
     return projectReviews({
       candidates: focusInputs(p.progress).candidates.filter(
-        (c) => !assigned.has(c.specPointId) || new Date(c.lastReviewedAt) >= monday,
+        (c) =>
+          !overrides.skipped.has(c.specPointId) &&
+          (!assigned.has(c.specPointId) || new Date(c.lastReviewedAt) >= monday),
       ),
       topicOpenings: spineReach(p.pacing, true),
       currentMonday: saved ? addWeeks(monday, 1) : monday,
       examMonday: weekKeyToDate(p.examDate),
+      isBlocked: blockedBy(overrides),
     }).bands;
   }
 
-  /** One transaction updates the spine and every already-saved affected week. */
+  /**
+   * One transaction updates the spine and every already-saved affected week.
+   *
+   * The student reorders their own plan; a tutor reorders it on their behalf,
+   * naming the student, and the database checks the tutor's role. Either way
+   * the re-cut weeks keep the student's pins, work and the tutor's overrides.
+   */
   static async reorder(params: {
     studentId: string;
     subject: SubjectV;
@@ -260,10 +290,13 @@ export class ProgramDAL {
     order: string[];
   }): Promise<void> {
     const { studentId, subject, board, level, data, from, order } = params;
-    if ((await getSessionUserId()) !== studentId)
-      throw new Error("Only the student can change their topic order.");
+    const viewer = await getSessionUserId();
+    if (!viewer) throw new Error("Not signed in");
+    // Only named when acting for someone else, so a database without the
+    // parameter still serves the student's own reorder.
+    const onBehalf = viewer !== studentId ? { _student_id: studentId } : {};
     if (data.needsAck)
-      throw new Error("Your plan is still updating. Open your planner, then try again.");
+      throw new Error("The plan is still updating. Open the planner, then try again.");
     const progress = await ScheduleDAL.getTopicProgress({ studentId, subject, board, level });
     const fingerprint = (items: TopicProgress[]) =>
       JSON.stringify(items.map((t) => [t.topicId, t.points.map((p) => [p.id, p.weight])]));
@@ -301,12 +334,16 @@ export class ProgramDAL {
         progress,
         pacing,
         examDate: data.examDate,
+        overrides: data.overrides,
       })) as unknown as Json,
+      ...onBehalf,
     });
     if (error) {
       if (error.code === "PGRST202")
         throw new Error(
-          "Topic ordering is not available yet. Your current plan is unchanged. Please try again later.",
+          viewer !== studentId
+            ? "Reordering a student's topics needs the planner override update installed. The plan is unchanged."
+            : "Topic ordering is not available yet. Your current plan is unchanged. Please try again later.",
         );
       throw new Error(error.message);
     }
@@ -444,6 +481,7 @@ export class ProgramDAL {
           progress: fresh.progress,
           pacing: params.bands,
           examDate: params.examDate,
+          overrides: fresh.overrides,
         })) as unknown as Json,
       });
       if (error) throw error;

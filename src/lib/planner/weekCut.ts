@@ -2,6 +2,7 @@ import { customSchedule } from "./topicOrder";
 import { isTeachBand, selectWeekPoints, withWeeklyPoints } from "./pacing";
 import { hasStudentHistory } from "./admissibility";
 import { catchUpBudget, trickle } from "./backlog";
+import { applyOverrides, indexOverrides } from "./overrides";
 import { type PointCoverage } from "./coverage";
 import { type PlanPoint, type PlanPointOrigin, type WithheldPlanPoint } from "./weeklyPlanDal";
 import { focusInputs, type RoadmapResult } from "./roadmap";
@@ -99,29 +100,55 @@ export function selectWeek(roadmap: RoadmapResult | null, weekStart: string): We
           weight: b.weight,
         })),
       });
-    if (specPointIds.length === 0) {
+    /**
+     * The tutor's overrides are the last word on an automatic selection: a
+     * point removed from this week or skipped in the programme comes out here
+     * ([[overrides]]). The lanes above already project around them — a review
+     * or a catch-up point steps past a closed week — so this is the guard for
+     * the one lane that cannot, the fixed teaching slice, and for any caller
+     * that hands in a roadmap built without them.
+     */
+    const { selection: allowed, suppressed } = applyOverrides(
+      { specPointIds, origins: lanes },
+      indexOverrides(roadmap.overrides),
+      weekStart,
+    );
+    const kept = new Set(allowed.specPointIds);
+    const keptCatchUp = catchUpIds.filter((id) => kept.has(id));
+    const keptFocus =
+      focusCount - suppressed.filter((s) => lanes[s.specPointId] === "focus").length;
+    const keptTeach =
+      teachCount -
+      suppressed.filter(
+        (s) => lanes[s.specPointId] === "core" && !catchUpIds.includes(s.specPointId),
+      ).length;
+    if (allowed.specPointIds.length === 0) {
       // The programme covers this week and has nothing outstanding in it. A
       // real answer, and the week's own copy says it far better than six
       // points picked for no stated reason would.
       return emptyWeek();
     }
     const parts: string[] = [];
-    if (focusCount > 0) parts.push(`${focusCount} to revisit`);
-    if (teachCount > 0) parts.push(`${teachCount} from this week's topic (${teachTitle})`);
-    if (catchUpIds.length > 0)
-      parts.push(`${catchUpIds.length} catching up on ${listSentence(catchUpTopics)}`);
+    if (keptFocus > 0) parts.push(`${keptFocus} to revisit`);
+    if (keptTeach > 0) parts.push(`${keptTeach} from this week's topic (${teachTitle})`);
+    if (keptCatchUp.length > 0)
+      parts.push(`${keptCatchUp.length} catching up on ${listSentence(catchUpTopics)}`);
     // Naming the rest of the backlog is the point: the student is told the
     // debt exists and is being worked through, rather than meeting it as
     // unexplained old material appearing in their week for months.
-    const remaining = due.length - catchUpIds.length;
+    const remaining = due.length - keptCatchUp.length;
     const chasing =
       remaining > 0
         ? ` ${remaining} more missed ${remaining === 1 ? "point is" : "points are"} queued for the weeks after this one.`
         : "";
+    const overridden =
+      suppressed.length > 0
+        ? ` Your tutor has set ${suppressed.length} ${suppressed.length === 1 ? "point" : "points"} aside.`
+        : "";
     return {
-      specPointIds,
-      origins: lanes,
-      rationale: `From your programme: ${listSentence(parts)}. Reviews follow assessed practice and are assigned when eligible.${chasing}`,
+      specPointIds: allowed.specPointIds,
+      origins: allowed.origins,
+      rationale: `From your programme: ${listSentence(parts)}. Reviews follow assessed practice and are assigned when eligible.${chasing}${overridden}`,
     };
   }
 
