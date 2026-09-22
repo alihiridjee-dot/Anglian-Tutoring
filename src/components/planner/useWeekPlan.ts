@@ -92,6 +92,30 @@ export function useWeekPlan(params: {
         // A newly saved week now owns the current roadmap assignments.
         await client.invalidateQueries({ queryKey: [...courseKey(params), "roadmap"] });
       }
+      /**
+       * A week a person started, not the programme, is completed by it.
+       *
+       * A tutor pinning a point into next week, or a student carrying loose
+       * points forward, creates that week's plan row with a `tutor` or
+       * `student` source. The branch above then finds a saved week and never
+       * cuts it, so the student reached a week holding only the pins and none
+       * of the teaching. The programme's source is `ai`; any other source on a
+       * current week means the automatic lanes have not been through it yet,
+       * and `refreshWeek` merges them in around what the person chose.
+       */
+      if (
+        saved &&
+        saved.plan.source !== "ai" &&
+        isCurrent &&
+        (await getSessionUserId()) === studentId
+      ) {
+        const roadmap = await client.fetchQuery(roadmapQuery(client, params, true));
+        signal.throwIfAborted();
+        if (await ProgramDAL.refreshWeek({ ...params, roadmap })) {
+          saved = await WeeklyPlanDAL.getPlan(studentId, subject, weekStart);
+          await client.invalidateQueries({ queryKey: [...courseKey(params), "roadmap"] });
+        }
+      }
       if (saved && isCurrent && (await getSessionUserId()) === studentId) {
         const roadmap = await client.fetchQuery(roadmapQuery(client, params));
         signal.throwIfAborted();

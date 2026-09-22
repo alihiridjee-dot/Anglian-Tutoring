@@ -253,6 +253,12 @@ export function projectCatchUp(params: {
   weekStart: string;
   examDate: string;
   weeklyWeight: number;
+  /**
+   * Weeks a point may not be scheduled into — a tutor's `remove` override
+   * ([[overrides]]). A blocked point sits out that week without holding up
+   * the points behind it, and comes back at the next open one.
+   */
+  isBlocked?: (specPointId: string, weekKey: string) => boolean;
 }): CatchUpSchedule {
   const assignedIds = params.assigned.map((p) => p.specPointId);
   const assigned = new Set(assignedIds);
@@ -266,10 +272,13 @@ export function projectCatchUp(params: {
   ) {
     const reserved = week === params.weekStart ? params.assigned : [];
     const available = Math.max(0, budget - backlogWeight(reserved));
+    const open = params.isBlocked
+      ? remaining.filter((p) => !params.isBlocked!(p.specPointId, week))
+      : remaining;
     // The oversized-point floor belongs to the whole week, not each reload.
     const selection = reserved.length
-      ? remaining.filter((p, i, all) => backlogWeight(all.slice(0, i + 1)) <= available)
-      : trickle(remaining, available).take;
+      ? open.filter((p, i, all) => backlogWeight(all.slice(0, i + 1)) <= available)
+      : trickle(open, available).take;
     const selected = new Set(selection.map((p) => p.specPointId));
     weeks[week] = [...reserved, ...selection];
     remaining = remaining.filter((p) => !selected.has(p.specPointId));

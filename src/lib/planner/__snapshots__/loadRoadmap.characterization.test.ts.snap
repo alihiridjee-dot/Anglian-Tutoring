@@ -52,6 +52,12 @@ exports[`first view by the student: seeds the baseline 1`] = `
       ],
     ],
     [
+      "db",
+      "GET",
+      "student_plan_overrides",
+      "?select=id%2Cspec_point_id%2Ckind%2Cweek_start%2Cnote%2Ccreated_by%2Ccreated_at&student_id=eq.student&subject=eq.biology&order=created_at.asc",
+    ],
+    [
       "getSessionUserId",
     ],
     [
@@ -276,6 +282,7 @@ exports[`first view by the student: seeds the baseline 1`] = `
     },
     "inadmissible": [],
     "needsAck": false,
+    "overrides": [],
     "programStart": "2026-09-21",
     "progress": [
       {
@@ -498,6 +505,12 @@ exports[`first view by someone else: answers the same but leaves no mark 1`] = `
       ],
     ],
     [
+      "db",
+      "GET",
+      "student_plan_overrides",
+      "?select=id%2Cspec_point_id%2Ckind%2Cweek_start%2Cnote%2Ccreated_by%2Ccreated_at&student_id=eq.student&subject=eq.biology&order=created_at.asc",
+    ],
+    [
       "getSessionUserId",
     ],
   ],
@@ -688,6 +701,7 @@ exports[`first view by someone else: answers the same but leaves no mark 1`] = `
     },
     "inadmissible": [],
     "needsAck": false,
+    "overrides": [],
     "programStart": "2026-09-21",
     "progress": [
       {
@@ -909,6 +923,12 @@ exports[`acknowledged baseline, nothing saved this week 1`] = `
         "2026-09-21",
       ],
     ],
+    [
+      "db",
+      "GET",
+      "student_plan_overrides",
+      "?select=id%2Cspec_point_id%2Ckind%2Cweek_start%2Cnote%2Ccreated_by%2Ccreated_at&student_id=eq.student&subject=eq.biology&order=created_at.asc",
+    ],
   ],
   "result": {
     "backlog": [],
@@ -1099,6 +1119,7 @@ exports[`acknowledged baseline, nothing saved this week 1`] = `
     },
     "inadmissible": [],
     "needsAck": false,
+    "overrides": [],
     "programStart": "2026-09-07",
     "progress": [
       {
@@ -1320,6 +1341,12 @@ exports[`saved week: owns its reviews, reports withheld points, narrows the back
         "2026-09-21",
       ],
     ],
+    [
+      "db",
+      "GET",
+      "student_plan_overrides",
+      "?select=id%2Cspec_point_id%2Ckind%2Cweek_start%2Cnote%2Ccreated_by%2Ccreated_at&student_id=eq.student&subject=eq.biology&order=created_at.asc",
+    ],
   ],
   "result": {
     "backlog": [],
@@ -1523,6 +1550,7 @@ exports[`saved week: owns its reviews, reports withheld points, narrows the back
       },
     ],
     "needsAck": false,
+    "overrides": [],
     "programStart": "2026-06-01",
     "progress": [
       {
@@ -1735,6 +1763,12 @@ exports[`projectOnly: skips the saved-week read but still reserves its catch-up 
         "biology",
         "2026-09-21",
       ],
+    ],
+    [
+      "db",
+      "GET",
+      "student_plan_overrides",
+      "?select=id%2Cspec_point_id%2Ckind%2Cweek_start%2Cnote%2Ccreated_by%2Ccreated_at&student_id=eq.student&subject=eq.biology&order=created_at.asc",
     ],
     [
       "getPlan",
@@ -1972,6 +2006,7 @@ exports[`projectOnly: skips the saved-week read but still reserves its catch-up 
     },
     "inadmissible": [],
     "needsAck": false,
+    "overrides": [],
     "programStart": "2026-06-01",
     "progress": [
       {
@@ -2193,6 +2228,12 @@ exports[`exam date moved: proposes changes and asks for acknowledgement 1`] = `
         "2026-09-21",
       ],
     ],
+    [
+      "db",
+      "GET",
+      "student_plan_overrides",
+      "?select=id%2Cspec_point_id%2Ckind%2Cweek_start%2Cnote%2Ccreated_by%2Ccreated_at&student_id=eq.student&subject=eq.biology&order=created_at.asc",
+    ],
   ],
   "result": {
     "backlog": [],
@@ -2409,6 +2450,7 @@ exports[`exam date moved: proposes changes and asks for acknowledgement 1`] = `
     },
     "inadmissible": [],
     "needsAck": true,
+    "overrides": [],
     "programStart": "2026-09-07",
     "progress": [
       {
@@ -2629,6 +2671,12 @@ exports[`custom topic order is kept as stored 1`] = `
         "biology",
         "2026-09-21",
       ],
+    ],
+    [
+      "db",
+      "GET",
+      "student_plan_overrides",
+      "?select=id%2Cspec_point_id%2Ckind%2Cweek_start%2Cnote%2Ccreated_by%2Ccreated_at&student_id=eq.student&subject=eq.biology&order=created_at.asc",
     ],
   ],
   "result": {
@@ -2920,6 +2968,7 @@ exports[`custom topic order is kept as stored 1`] = `
     },
     "inadmissible": [],
     "needsAck": false,
+    "overrides": [],
     "programStart": "2026-09-07",
     "progress": [
       {
@@ -3140,6 +3189,12 @@ exports[`custom topic order is re-spread when the exam date has moved 1`] = `
         "biology",
         "2026-09-21",
       ],
+    ],
+    [
+      "db",
+      "GET",
+      "student_plan_overrides",
+      "?select=id%2Cspec_point_id%2Ckind%2Cweek_start%2Cnote%2Ccreated_by%2Ccreated_at&student_id=eq.student&subject=eq.biology&order=created_at.asc",
     ],
   ],
   "result": {
@@ -3452,6 +3507,7 @@ exports[`custom topic order is re-spread when the exam date has moved 1`] = `
     },
     "inadmissible": [],
     "needsAck": true,
+    "overrides": [],
     "programStart": "2026-09-07",
     "progress": [
       {
@@ -3664,6 +3720,12 @@ exports[`caller-supplied progress is used instead of reading it 1`] = `
         "2026-09-21",
       ],
     ],
+    [
+      "db",
+      "GET",
+      "student_plan_overrides",
+      "?select=id%2Cspec_point_id%2Ckind%2Cweek_start%2Cnote%2Ccreated_by%2Ccreated_at&student_id=eq.student&subject=eq.biology&order=created_at.asc",
+    ],
   ],
   "result": {
     "backlog": [],
@@ -3846,6 +3908,7 @@ exports[`caller-supplied progress is used instead of reading it 1`] = `
     },
     "inadmissible": [],
     "needsAck": true,
+    "overrides": [],
     "programStart": "2026-09-07",
     "progress": [
       {
