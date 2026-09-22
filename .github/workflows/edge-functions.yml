@@ -21,4 +21,8 @@ jobs:
       - uses: denoland/setup-deno@v2
         with:
           deno-version: v2.x
+      # The functions never see the app's package.json (the edge runtime has
+      # none), so npm: specifiers must resolve on their own, not via node_modules.
       - run: deno check supabase/functions/*/index.ts
+        env:
+          DENO_NO_PACKAGE_JSON: "1"

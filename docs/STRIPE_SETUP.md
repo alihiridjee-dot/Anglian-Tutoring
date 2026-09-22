@@ -58,7 +58,7 @@ functions run on Deno, so the app's `tsc` never sees them, and a deploy does
 not check types either:
 
 ```bash
-bun run check:functions   # deno check supabase/functions/*/index.ts
+bun run check:functions   # deno check, with the app's package.json ignored
 supabase functions deploy stripe-checkout
 supabase functions deploy stripe-webhook --no-verify-jwt
 ```
