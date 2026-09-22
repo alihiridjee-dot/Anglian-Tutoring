@@ -1,0 +1,541 @@
+// Bun Snapshot v1, https://bun.sh/docs/test/snapshots
+
+exports[`planForWeek no curriculum: an empty week 1`] = `
+{
+  "origins": {},
+  "rationale": "",
+  "specPointIds": [],
+}
+`;
+
+exports[`planForWeek the exam week and after: an empty week 1`] = `
+[
+  {
+    "origins": {},
+    "rationale": "",
+    "specPointIds": [],
+  },
+  {
+    "origins": {},
+    "rationale": "",
+    "specPointIds": [],
+  },
+]
+`;
+
+exports[`planForWeek an ordinary week: this week's teaching plus the reviews that are due 1`] = `
+{
+  "origins": {
+    "a1": "focus",
+    "a3": "core",
+  },
+  "rationale": "From your programme: 1 to revisit and 1 from this week's topic (Topic t1). Reviews follow assessed practice and are assigned when eligible.",
+  "specPointIds": [
+    "a1",
+    "a3",
+  ],
+}
+`;
+
+exports[`planForWeek a programme that began months ago: catch-up is trickled in and the rest is named 1`] = `
+{
+  "origins": {
+    "a1": "focus",
+    "a3": "core",
+  },
+  "rationale": "From your programme: 1 to revisit and 1 catching up on Topic t1. Reviews follow assessed practice and are assigned when eligible. 1 more missed point is queued for the weeks after this one.",
+  "specPointIds": [
+    "a1",
+    "a3",
+  ],
+}
+`;
+
+exports[`planForWeek delivered work is not chased again 1`] = `
+{
+  "origins": {
+    "a1": "focus",
+  },
+  "rationale": "From your programme: 1 to revisit. Reviews follow assessed practice and are assigned when eligible.",
+  "specPointIds": [
+    "a1",
+  ],
+}
+`;
+
+exports[`planForWeek next week: its own review and catch-up slice; a teaching week months on: teaching alone 1`] = `
+[
+  {
+    "origins": {
+      "a2": "focus",
+      "a4": "core",
+    },
+    "rationale": "From your programme: 1 to revisit and 1 catching up on Topic t1. Reviews follow assessed practice and are assigned when eligible. 1 more missed point is queued for the weeks after this one.",
+    "specPointIds": [
+      "a2",
+      "a4",
+    ],
+  },
+  {
+    "origins": {
+      "b2": "core",
+    },
+    "rationale": "From your programme: 1 from this week's topic (Topic t2). Reviews follow assessed practice and are assigned when eligible. 2 more missed points are queued for the weeks after this one.",
+    "specPointIds": [
+      "b2",
+    ],
+  },
+]
+`;
+
+exports[`planForWeek a week the spine leaves empty stays empty 1`] = `
+{
+  "origins": {},
+  "rationale": "",
+  "specPointIds": [],
+}
+`;
+
+exports[`planForWeek a handed-in roadmap with no catch-up schedule falls back to the trickle 1`] = `
+{
+  "origins": {
+    "a1": "focus",
+    "a3": "core",
+  },
+  "rationale": "From your programme: 1 to revisit and 1 catching up on Topic t1. Reviews follow assessed practice and are assigned when eligible. 1 more missed point is queued for the weeks after this one.",
+  "specPointIds": [
+    "a1",
+    "a3",
+  ],
+}
+`;
+
+exports[`planForWeek a custom topic order: a completed point's week vs an untouched point's week 1`] = `
+[
+  {
+    "origins": {},
+    "rationale": "",
+    "specPointIds": [],
+  },
+  {
+    "origins": {
+      "c2": "core",
+    },
+    "rationale": "From your programme: 1 from this week's topic (Topic t3). Reviews follow assessed practice and are assigned when eligible.",
+    "specPointIds": [
+      "c2",
+    ],
+  },
+]
+`;
+
+exports[`planForWeek with no roadmap handed in, it loads one for projection only 1`] = `
+{
+  "loadedWith": [
+    [
+      {
+        "board": "aqa",
+        "level": "gcse",
+        "projectOnly": true,
+        "studentId": "student",
+        "subject": "biology",
+      },
+    ],
+  ],
+  "result": {
+    "origins": {
+      "a1": "focus",
+      "a3": "core",
+    },
+    "rationale": "From your programme: 1 to revisit and 1 from this week's topic (Topic t1). Reviews follow assessed practice and are assigned when eligible.",
+    "specPointIds": [
+      "a1",
+      "a3",
+    ],
+  },
+}
+`;
+
+exports[`refreshWeek nothing saved yet: leaves the week to the build path 1`] = `
+{
+  "changed": false,
+  "io": [
+    [
+      "getPlan",
+      [
+        "student",
+        "biology",
+        "2026-09-21",
+      ],
+    ],
+  ],
+}
+`;
+
+exports[`refreshWeek repairing with no curriculum: a saved week is not judged invalid 1`] = `
+{
+  "changed": false,
+  "io": [
+    [
+      "getPlan",
+      [
+        "student",
+        "biology",
+        "2026-09-21",
+      ],
+    ],
+  ],
+}
+`;
+
+exports[`refreshWeek repairing a week with nothing unsupported: no re-plan, no write 1`] = `
+{
+  "changed": false,
+  "io": [
+    [
+      "getPlan",
+      [
+        "student",
+        "biology",
+        "2026-09-21",
+      ],
+    ],
+  ],
+}
+`;
+
+exports[`refreshWeek a re-cut keeps what a person chose or the student touched, and drops stale automatic work 1`] = `
+{
+  "changed": true,
+  "io": [
+    [
+      "getPlan",
+      [
+        "student",
+        "biology",
+        "2026-09-21",
+      ],
+    ],
+    [
+      "getCoverage",
+      [
+        "student",
+        [
+          "zz-stale",
+          "c2",
+          "c3",
+          "b2",
+          "b3",
+          "c1",
+        ],
+        "2026-09-21",
+      ],
+    ],
+    [
+      "savePlan",
+      {
+        "board": "aqa",
+        "carriedFroms": {
+          "b2": null,
+          "b3": "2026-09-14",
+          "c1": null,
+          "c2": null,
+          "c3": null,
+        },
+        "level": "gcse",
+        "origin": "ai",
+        "origins": {
+          "a1": "focus",
+          "a3": "core",
+          "b2": "core",
+          "b3": "core",
+          "c1": "ai",
+          "c2": "tutor",
+          "c3": "student",
+        },
+        "rationale": "From your programme: 1 to revisit and 1 from this week's topic (Topic t1). Reviews follow assessed practice and are assigned when eligible.",
+        "source": "ai",
+        "specPointIds": [
+          "c2",
+          "c3",
+          "b2",
+          "b3",
+          "c1",
+          "a1",
+          "a3",
+        ],
+        "studentId": "student",
+        "subject": "biology",
+        "weekStart": "2026-09-21",
+      },
+    ],
+  ],
+}
+`;
+
+exports[`refreshWeek a week that already matches the fresh cut is not rewritten 1`] = `
+{
+  "changed": false,
+  "io": [
+    [
+      "getPlan",
+      [
+        "student",
+        "biology",
+        "2026-09-21",
+      ],
+    ],
+    [
+      "getCoverage",
+      [
+        "student",
+        [
+          "a1",
+          "a3",
+        ],
+        "2026-09-21",
+      ],
+    ],
+  ],
+}
+`;
+
+exports[`refreshWeek the same set is still rewritten when withheld rows need clearing 1`] = `
+{
+  "changed": true,
+  "io": [
+    [
+      "getPlan",
+      [
+        "student",
+        "biology",
+        "2026-09-21",
+      ],
+    ],
+    [
+      "getCoverage",
+      [
+        "student",
+        [
+          "a1",
+          "a3",
+        ],
+        "2026-09-21",
+      ],
+    ],
+    [
+      "savePlan",
+      {
+        "board": "aqa",
+        "carriedFroms": {},
+        "level": "gcse",
+        "origin": "ai",
+        "origins": {
+          "a1": "focus",
+          "a3": "core",
+        },
+        "rationale": "From your programme: 1 to revisit and 1 from this week's topic (Topic t1). Reviews follow assessed practice and are assigned when eligible.",
+        "source": "ai",
+        "specPointIds": [
+          "a1",
+          "a3",
+        ],
+        "studentId": "student",
+        "subject": "biology",
+        "weekStart": "2026-09-21",
+      },
+    ],
+  ],
+}
+`;
+
+exports[`refreshWeek repair turns a quarantined no-evidence review into teaching, and leaves other withheld rows out 1`] = `
+{
+  "changed": true,
+  "io": [
+    [
+      "getPlan",
+      [
+        "student",
+        "biology",
+        "2026-09-21",
+      ],
+    ],
+    [
+      "getCoverage",
+      [
+        "student",
+        [
+          "a3",
+          "b2",
+        ],
+        "2026-09-21",
+      ],
+    ],
+    [
+      "savePlan",
+      {
+        "board": "aqa",
+        "carriedFroms": {
+          "b2": null,
+        },
+        "level": "gcse",
+        "origin": "ai",
+        "origins": {
+          "a1": "focus",
+          "a3": "core",
+          "b2": "core",
+        },
+        "rationale": "From your programme: 1 to revisit and 1 from this week's topic (Topic t1). Reviews follow assessed practice and are assigned when eligible.",
+        "source": "ai",
+        "specPointIds": [
+          "b2",
+          "a1",
+          "a3",
+        ],
+        "studentId": "student",
+        "subject": "biology",
+        "weekStart": "2026-09-21",
+      },
+    ],
+  ],
+}
+`;
+
+exports[`refreshWeek a preview that no longer matches is refused before anything is written 1`] = `
+[
+  [
+    "getPlan",
+    [
+      "student",
+      "biology",
+      "2026-09-21",
+    ],
+  ],
+  [
+    "getCoverage",
+    [
+      "student",
+      [
+        "c2",
+      ],
+      "2026-09-21",
+    ],
+  ],
+]
+`;
+
+exports[`refreshWeek a preview that still matches is applied 1`] = `
+{
+  "changed": true,
+  "io": [
+    [
+      "getPlan",
+      [
+        "student",
+        "biology",
+        "2026-09-21",
+      ],
+    ],
+    [
+      "getCoverage",
+      [
+        "student",
+        [
+          "c2",
+        ],
+        "2026-09-21",
+      ],
+    ],
+    [
+      "savePlan",
+      {
+        "board": "aqa",
+        "carriedFroms": {
+          "c2": null,
+        },
+        "level": "gcse",
+        "origin": "ai",
+        "origins": {
+          "a1": "focus",
+          "a3": "core",
+          "c2": "tutor",
+        },
+        "rationale": "From your programme: 1 to revisit and 1 from this week's topic (Topic t1). Reviews follow assessed practice and are assigned when eligible.",
+        "source": "ai",
+        "specPointIds": [
+          "c2",
+          "a1",
+          "a3",
+        ],
+        "studentId": "student",
+        "subject": "biology",
+        "weekStart": "2026-09-21",
+      },
+    ],
+  ],
+}
+`;
+
+exports[`refreshWeek with no roadmap handed in, it loads one for projection only 1`] = `
+{
+  "changed": true,
+  "io": [
+    [
+      "getPlan",
+      [
+        "student",
+        "biology",
+        "2026-09-21",
+      ],
+    ],
+    [
+      "getCoverage",
+      [
+        "student",
+        [
+          "c2",
+        ],
+        "2026-09-21",
+      ],
+    ],
+    [
+      "savePlan",
+      {
+        "board": "aqa",
+        "carriedFroms": {
+          "c2": null,
+        },
+        "level": "gcse",
+        "origin": "ai",
+        "origins": {
+          "a1": "focus",
+          "a3": "core",
+          "c2": "tutor",
+        },
+        "rationale": "From your programme: 1 to revisit and 1 from this week's topic (Topic t1). Reviews follow assessed practice and are assigned when eligible.",
+        "source": "ai",
+        "specPointIds": [
+          "c2",
+          "a1",
+          "a3",
+        ],
+        "studentId": "student",
+        "subject": "biology",
+        "weekStart": "2026-09-21",
+      },
+    ],
+  ],
+  "loadedWith": [
+    [
+      {
+        "board": "aqa",
+        "level": "gcse",
+        "projectOnly": true,
+        "studentId": "student",
+        "subject": "biology",
+      },
+    ],
+  ],
+}
+`;
