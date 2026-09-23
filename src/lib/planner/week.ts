@@ -69,3 +69,16 @@ export function weekRangeLabel(monday: Date): string {
     return `${plannerDateLabel(monday)} – ${plannerDateLabel(sunday, { day: "numeric", month: "short", year: "numeric" })}`;
   return `${plannerDateLabel(monday, { day: "numeric", month: "short", year: "numeric" })} – ${plannerDateLabel(sunday, { day: "numeric", month: "short", year: "numeric" })}`;
 }
+/**
+ * Where a week sits from this one, in words: "This week", "Next week",
+ * "3 weeks ago". Counted on the calendar keys, so a clock change between the
+ * two Mondays cannot turn a whole week into a fraction.
+ */
+export function relativeWeekLabel(weekKey: string, currentKey: string): string {
+  const utc = (key: string) => new Date(`${key}T00:00:00Z`).getTime();
+  const n = Math.round((utc(weekKey) - utc(currentKey)) / (7 * 86_400_000));
+  if (n === 0) return "This week";
+  if (n === 1) return "Next week";
+  if (n === -1) return "Last week";
+  return n > 0 ? `In ${n} weeks` : `${-n} weeks ago`;
+}

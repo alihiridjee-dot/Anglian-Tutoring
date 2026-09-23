@@ -9,6 +9,7 @@ import { TutorRowMenu } from "./TutorRowMenu";
 import { AddPointsBox, OverridesPanel, OverridesUnavailable } from "./TutorPlannerParts";
 import { type TutorWeekRow } from "./tutorWeekRows";
 import { type TutorPlannerState } from "./useTutorPlanner";
+import { WeekSwitcher } from "./WeekSwitcher";
 
 const COUNTED: PointStatus[] = ["strong", "practised", "weak", "not_done"];
 
@@ -94,14 +95,33 @@ function Row({ row, state }: { row: TutorWeekRow; state: TutorPlannerState }) {
  */
 export function TutorWeekTab({ state }: { state: TutorPlannerState }) {
   const { student, active, loading, lanes, rows, plan, projection, editable } = state;
-  const { isCurrent, weekLabel, overridesAvailable, points, coverage, activity, reload } = state;
+  const { isCurrent, weekLabel, overridesAvailable, points, coverage, activity } = state;
+  const { weekStart, currentWeek, shiftWeek, setWeek } = state;
   if (!student || !active) return null;
-  if (loading) return <Spinner className="py-10" />;
   const who = student.name ?? "The student";
   const uncut = editable && !!projection;
+  // On a wide screen the roster beside this pane carries the week control; on
+  // a phone the roster is hidden while a student is open, so it comes here.
+  const switcher = (
+    <WeekSwitcher
+      weekStart={weekStart}
+      currentWeek={currentWeek}
+      onShift={shiftWeek}
+      onToday={() => setWeek(currentWeek)}
+      className="rounded-xl bg-muted/50 px-2.5 py-2 lg:hidden"
+    />
+  );
+  if (loading)
+    return (
+      <div className="space-y-5">
+        {switcher}
+        <Spinner className="py-10" />
+      </div>
+    );
 
   return (
     <div className="space-y-5">
+      {switcher}
       {uncut && (
         <p className="flex items-start gap-2 rounded-xl border border-primary/25 bg-primary/[0.06] px-3 py-2.5 text-[12px] leading-relaxed">
           <Sparkles className="w-4 h-4 text-primary mt-0.5 shrink-0" aria-hidden />
@@ -170,11 +190,8 @@ export function TutorWeekTab({ state }: { state: TutorPlannerState }) {
           subject={active.subject as SubjectV}
           board={active.board as BoardV}
           level={student.level ?? "gcse"}
-          weekStart={state.weekStart}
-          onChanged={() => {
-            void reload();
-            state.bumpRefresh();
-          }}
+          weekStart={weekStart}
+          onChanged={() => void state.refreshAll()}
           readOnly
         />
       )}
