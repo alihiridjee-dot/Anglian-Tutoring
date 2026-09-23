@@ -77,6 +77,32 @@ export interface StudentRecord {
   billingFeedback: BillingFeedbackRow[];
 }
 
+/** A deletion booked on a student, while it can still be undone. */
+export interface AccountDeletion {
+  id: string;
+  requested_at: string;
+  purge_after: string;
+  last_error: string | null;
+}
+
+/**
+ * Calls the delete-account edge function, surfacing its own error message
+ * rather than "Edge Function returned a non-2xx status code" (see invokeBilling).
+ */
+async function invokeDeleteAccount<T>(body: Record<string, unknown>): Promise<T> {
+  const { data, error } = await supabase.functions.invoke("delete-account", { body });
+  if (error) {
+    const ctx = (error as { context?: Response }).context;
+    if (ctx && typeof ctx.json === "function") {
+      const parsed = await ctx.json().catch(() => null);
+      if (parsed?.error) throw new Error(parsed.error);
+    }
+    throw new Error(error.message);
+  }
+  if (data?.error) throw new Error(data.error);
+  return data as T;
+}
+
 export interface StudentNote {
   id: string;
   student_id: string;
@@ -270,6 +296,31 @@ export class StudentsDAL {
       .select("id");
     if (error) throw new Error(error.message);
     if (!data?.length) throw new Error("This link couldn't be removed from your account.");
+  }
+
+  /** The open deletion on this student, if one is booked. Tutor-only by RLS. */
+  static async getOpenDeletion(studentId: string): Promise<AccountDeletion | null> {
+    const { data, error } = await supabase
+      .from("account_deletions")
+      .select("id, requested_at, purge_after, last_error")
+      .eq("student_id", studentId)
+      .eq("status", "scheduled")
+      .maybeSingle();
+    if (error) throw new Error(error.message);
+    return data;
+  }
+
+  /** Books the deletion: pauses the plan, locks the login, emails everyone. */
+  static async scheduleDeletion(
+    studentId: string,
+  ): Promise<{ purge_after: string; emails_failed: number }> {
+    return invokeDeleteAccount({ action: "schedule", student_id: studentId });
+  }
+
+  static async undoDeletion(
+    studentId: string,
+  ): Promise<{ plan_resumed: boolean; plan_error: string | null }> {
+    return invokeDeleteAccount({ action: "undo", student_id: studentId });
   }
 
   static async listNotes(studentId: string): Promise<StudentNote[]> {

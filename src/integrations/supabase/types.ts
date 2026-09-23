@@ -8,6 +8,60 @@ export type Database = {
   };
   public: {
     Tables: {
+      account_deletions: {
+        Row: {
+          attempts: number;
+          cancelled_at: string | null;
+          cancelled_by: string | null;
+          claimed_at: string | null;
+          completed_at: string | null;
+          id: string;
+          last_error: string | null;
+          notify: Json;
+          paused_subscription_id: string | null;
+          purge_after: string;
+          requested_at: string;
+          requested_by: string | null;
+          status: string;
+          student_id: string;
+          student_name: string | null;
+        };
+        Insert: {
+          attempts?: number;
+          cancelled_at?: string | null;
+          cancelled_by?: string | null;
+          claimed_at?: string | null;
+          completed_at?: string | null;
+          id?: string;
+          last_error?: string | null;
+          notify?: Json;
+          paused_subscription_id?: string | null;
+          purge_after: string;
+          requested_at?: string;
+          requested_by?: string | null;
+          status?: string;
+          student_id: string;
+          student_name?: string | null;
+        };
+        Update: {
+          attempts?: number;
+          cancelled_at?: string | null;
+          cancelled_by?: string | null;
+          claimed_at?: string | null;
+          completed_at?: string | null;
+          id?: string;
+          last_error?: string | null;
+          notify?: Json;
+          paused_subscription_id?: string | null;
+          purge_after?: string;
+          requested_at?: string;
+          requested_by?: string | null;
+          status?: string;
+          student_id?: string;
+          student_name?: string | null;
+        };
+        Relationships: [];
+      };
       ai_request_log: {
         Row: {
           created_at: string;

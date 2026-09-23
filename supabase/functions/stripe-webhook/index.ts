@@ -84,6 +84,13 @@ async function upsertSubscription(sub: Stripe.Subscription) {
   // parent buying a plan for a child who already had their own replaces it
   // rather than stacking a second.
   const { error } = await db.from("subscriptions").upsert(row, { onConflict: "student_id" });
+  // 23503: the student's profile is gone. The account was deleted and this is
+  // Stripe reporting the cancellation that went with it — there is no row left
+  // to update, and failing would only make Stripe retry it for days.
+  if (error?.code === "23503") {
+    console.log(`stripe-webhook: ${sub.id} → student ${row.student_id} no longer exists`);
+    return;
+  }
   if (error) throw new Error(`subscriptions upsert failed: ${error.message}`);
 
   console.log(`stripe-webhook: ${sub.id} → student ${row.student_id} is ${row.status}`);

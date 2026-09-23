@@ -17,3 +17,9 @@ additional_redirect_urls = [
 # Authentication → Sign In / Providers → Password. The CLI has no config table
 # for it, and the `[auth.security]` block that used to sit here made every
 # `supabase functions deploy` fail with "failed to parse config".
+
+# Called hourly by the purge-deleted-accounts cron with no key (see
+# 20260923114330_account_deletions.sql). schedule/undo check the caller's own
+# session; purge only acts on rows a tutor already booked and that are due.
+[functions.delete-account]
+verify_jwt = false
