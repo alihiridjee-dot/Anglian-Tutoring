@@ -1,66 +1,27 @@
-import { WithheldPlanPoints } from "./WithheldPlanPoints";
 import { ErrorNote } from "@/components/Shared";
-import { Spinner } from "@/components/Shared";
-import { Loader2, CalendarRange, SlidersHorizontal } from "lucide-react";
-import { toast } from "sonner";
-import { type SubjectV, type BoardV } from "@/lib/curriculum/taxonomy";
-import { RoadmapPanel } from "./RoadmapPanel";
-import { CoveredLedger } from "./CoveredLedger";
-import { WeekReview } from "./WeekReview";
-import { TopicOrderEditor } from "./TopicOrderEditor";
+import { CalendarRange, ChevronLeft, ChevronRight, Loader2, Undo2, UserRound } from "lucide-react";
+import { TutorRoster } from "./TutorRoster";
+import { TutorStudentPane } from "./TutorStudentPane";
 import { useTutorPlanner } from "./useTutorPlanner";
-import {
-  AddPointsBox,
-  OverridesPanel,
-  OverridesUnavailable,
-  PlannerToolbar,
-  SchedulingAttention,
-  SubjectTabs,
-  WeekPointGroup,
-} from "./TutorPlannerParts";
 
 /**
- * The tutor's window into any student's weekly plan. Pick a student, page
- * through their weeks, and take charge of the plan: see what is saved and what
- * the programme will add, pin spec points in, take them out of a week or out
- * of the programme, move them between weeks, and reorder the topics to come.
- * Writes bind to the chosen student (tutor RLS on the plan tables allows it),
- * and every removal is recorded so the scheduler cannot undo it
- * ([[overrides]]).
+ * The tutor's planner: every student down the side, one student's week in
+ * the middle, one week control over both.
+ *
+ * It used to be a dropdown of names above a single student's week, with the
+ * year-long roadmap and the practice ledger stacked underneath — one long
+ * page per student, and nothing that said which of forty students needed
+ * looking at. Now the roster carries that answer, the open student's page is
+ * tabbed like the student's own, and the URL names all of it so a week can
+ * be bookmarked or handed to a colleague.
  */
 export function TutorPlannerPanel() {
-  const planner = useTutorPlanner();
-  const {
-    roster,
-    students,
-    student,
-    ordered,
-    active,
-    course,
-    weekOffset,
-    weekStart,
-    weekLabel,
-    isCurrent,
-    showReview,
-    editable,
-    refreshToken,
-    bumpRefresh,
-    week,
-    plan,
-    points,
-    coverage,
-    activity,
-    roadmap,
-    loading,
-    reload,
-    groups,
-    projection,
-    overridesAvailable,
-    orderEditorOpen,
-    setOrderEditorOpen,
-  } = planner;
+  const state = useTutorPlanner();
+  const { roster, students, student, studentId, isCurrent, weekLabel, shiftWeek, setWeek } = state;
+  const { currentWeek, editable } = state;
 
-  if (roster.error || week.error) return <ErrorNote error={roster.error ?? week.error} />;
+  if (roster.error || state.week.error)
+    return <ErrorNote error={roster.error ?? state.week.error} />;
   if (students === null) {
     return (
       <div className="rounded-2xl premium-card p-16 text-center shadow-sm">
@@ -69,133 +30,67 @@ export function TutorPlannerPanel() {
     );
   }
 
-  const projectedCount = groups.reduce(
-    (n, g) => n + g.rows.filter((r) => r.state === "projected").length,
-    0,
-  );
-
   return (
-    <>
-      {roadmap?.focusLoad.overloaded && <SchedulingAttention roadmap={roadmap} />}
-      <div className="rounded-2xl premium-card p-4 sm:p-5 shadow-sm">
-        {/* Student picker + week nav */}
-        <PlannerToolbar {...planner} students={students} />
-
-        {/* Subject tabs */}
-        {ordered.length > 0 && <SubjectTabs {...planner} />}
-
-        {!student || !active ? (
-          <p className="rounded-xl border border-dashed border-border p-6 text-center text-sm text-muted-foreground">
-            {student && student.enrolments.length === 0
-              ? "This student has no subject enrolments yet."
-              : "Pick a student to view and adjust their weekly plan."}
-          </p>
-        ) : loading ? (
-          <Spinner className="py-10" />
-        ) : (
-          <div className="space-y-4">
-            {/* Editing boundary — make it unmistakable which week these points belong to */}
-            <div className="flex items-center gap-2 rounded-lg bg-muted/40 px-3 py-2">
-              <CalendarRange className="w-3.5 h-3.5 text-muted-foreground shrink-0" />
-              <p className="text-[11px] text-muted-foreground">
-                {editable ? "Editing" : "Viewing"} the plan for{" "}
-                <span className="font-semibold text-foreground">{weekLabel}</span>
-                {isCurrent ? " (this week)" : weekOffset < 0 ? " (past week)" : " (upcoming week)"}
-                {editable
-                  ? projection && projectedCount > 0
-                    ? ` · ${projectedCount} ${projectedCount === 1 ? "point is" : "points are"} planned but not saved yet · changes apply to this week only.`
-                    : " · changes apply to this week only."
-                  : " · past weeks are history."}
-              </p>
-            </div>
-            {overridesAvailable === false && editable && <OverridesUnavailable />}
-            {groups.length === 0 ? (
-              <p className="rounded-xl border border-dashed border-border p-6 text-center text-sm text-muted-foreground">
-                {editable
-                  ? `Nothing is set or planned for ${weekLabel} — add spec points below to build the week.`
-                  : `No plan was set for ${weekLabel}.`}
-              </p>
-            ) : (
-              groups.map((g) => <WeekPointGroup key={g.topicId} g={g} {...planner} />)
-            )}
-
-            <OverridesPanel {...planner} subject={active.subject} />
-
-            <WithheldPlanPoints points={week.withheld} coverage={week.coverage} />
-
-            {/* Add spec points */}
-            {editable && <AddPointsBox {...planner} student={student} active={active} />}
-
-            {showReview && plan && (
-              <WeekReview
-                studentId={student.id}
-                plan={plan}
-                points={points}
-                coverage={coverage}
-                activity={activity}
-                subject={active.subject as SubjectV}
-                board={active.board as BoardV}
-                level={student.level ?? "gcse"}
-                weekStart={weekStart}
-                onChanged={() => {
-                  reload();
-                  bumpRefresh();
-                }}
-                readOnly
-              />
-            )}
-          </div>
-        )}
-      </div>
-      {student && student.level && (
-        <>
-          {orderEditorOpen && roadmap ? (
-            <div className="rounded-2xl premium-card p-4 sm:p-5 shadow-sm mt-6">
-              <TopicOrderEditor
-                key={`${student.id}:${course.subject}`}
-                data={roadmap}
-                course={course}
-                asTutor
-                studentName={student.name}
-                onCancel={() => setOrderEditorOpen(false)}
-                onSaved={async () => {
-                  await reload();
-                  bumpRefresh();
-                  toast.success(`Topic order saved for ${student.name ?? "the student"}.`);
-                  setOrderEditorOpen(false);
-                }}
-              />
-            </div>
-          ) : (
-            <>
-              {roadmap && !roadmap.needsAck && (
-                <div className="mt-6 flex justify-end">
-                  <button
-                    type="button"
-                    onClick={() => setOrderEditorOpen(true)}
-                    className="inline-flex items-center gap-1.5 h-9 px-3 rounded-lg border border-border text-sm font-medium hover:bg-muted"
-                  >
-                    <SlidersHorizontal className="w-4 h-4" aria-hidden /> Change topic order
-                  </button>
-                </div>
-              )}
-              <RoadmapPanel
-                studentId={student.id}
-                enrolments={student.enrolments}
-                level={student.level}
-                asTutor
-                studentName={student.name}
-                refreshToken={refreshToken}
-              />
-              <CoveredLedger
-                studentId={student.id}
-                enrolments={student.enrolments}
-                level={student.level}
-              />
-            </>
+    <div className="space-y-4">
+      {/* One week for the whole screen: the roster's counts and the open student's plan. */}
+      <div className="rounded-2xl premium-card shadow-sm px-3 py-2 sm:px-4 flex flex-wrap items-center justify-between gap-2">
+        <div className="flex items-center gap-2">
+          <CalendarRange className="w-4 h-4 text-muted-foreground" aria-hidden />
+          <span className="text-sm font-semibold">
+            {isCurrent ? "This week" : editable ? "Upcoming week" : "Past week"}
+          </span>
+          <span className="text-sm text-muted-foreground">{weekLabel}</span>
+          {!isCurrent && (
+            <button
+              type="button"
+              onClick={() => setWeek(currentWeek)}
+              className="inline-flex items-center gap-1 h-6 px-2 rounded-full bg-muted text-[10px] font-semibold text-muted-foreground hover:text-foreground"
+            >
+              <Undo2 className="w-3 h-3" aria-hidden /> Today
+            </button>
           )}
-        </>
-      )}
-    </>
+        </div>
+        <div className="flex items-center gap-1">
+          <button
+            type="button"
+            onClick={() => shiftWeek(-1)}
+            className="w-8 h-8 rounded-lg border border-border text-muted-foreground hover:text-foreground hover:bg-muted flex items-center justify-center"
+            aria-label="Previous week"
+          >
+            <ChevronLeft className="w-4 h-4" />
+          </button>
+          <button
+            type="button"
+            onClick={() => shiftWeek(1)}
+            className="w-8 h-8 rounded-lg border border-border text-muted-foreground hover:text-foreground hover:bg-muted flex items-center justify-center"
+            aria-label="Next week"
+          >
+            <ChevronRight className="w-4 h-4" />
+          </button>
+        </div>
+      </div>
+
+      <div className="grid gap-4 lg:grid-cols-[19rem_minmax(0,1fr)] items-start">
+        <div className={studentId ? "hidden lg:block" : ""}>
+          <TutorRoster state={state} />
+        </div>
+        <div className={studentId ? "" : "hidden lg:block"}>
+          {student ? (
+            <TutorStudentPane state={state} />
+          ) : (
+            <div className="rounded-2xl premium-card p-10 text-center shadow-sm">
+              <span className="icon-tile size-10 mx-auto mb-3">
+                <UserRound className="size-5" aria-hidden />
+              </span>
+              <p className="text-sm font-semibold">
+                {studentId
+                  ? "That student isn't on your roster."
+                  : "Pick a student to open their week."}
+              </p>
+            </div>
+          )}
+        </div>
+      </div>
+    </div>
   );
 }

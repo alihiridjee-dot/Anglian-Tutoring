@@ -20,7 +20,7 @@
 -- an override. Student work is protected as before: a point with a submission,
 -- an attempt or a tick in the week is never deleted by a removal.
 --
--- Idempotent. Rollback: supabase/rollbacks/20260922120000_planner_tutor_overrides.down.sql
+-- Idempotent. Rollback: supabase/rollbacks/20260922104641_planner_tutor_overrides.down.sql
 
 begin;
 

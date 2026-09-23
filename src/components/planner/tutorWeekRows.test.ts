@@ -1,5 +1,5 @@
 import { describe, expect, test } from "bun:test";
-import { assignmentWarnings, laneLabel, showsProjection, tutorWeekRows } from "./tutorWeekRows";
+import { assignmentWarnings, laneSections, showsProjection, tutorWeekRows } from "./tutorWeekRows";
 import type { PlanPoint } from "@/lib/planner/weeklyPlanDal";
 import type { RoadmapResult } from "@/lib/planner/roadmap";
 import type { PlanOverride } from "@/lib/planner/overrides";
@@ -22,6 +22,8 @@ const roadmap = {
     },
   ],
   completedPointIds: ["a3"],
+  backlog: [{ specPointId: "a3", plannedWeek: "2026-09-07" }],
+  catchUpSchedule: { weeks: { "2026-09-21": [{ specPointId: "a3" }] }, assignedIds: [], held: [] },
 } as unknown as RoadmapResult;
 
 const saved = (
@@ -87,7 +89,7 @@ describe("showsProjection", () => {
 
 describe("tutorWeekRows", () => {
   test("saved rows win, projected rows fill in, overridden projections are left out", () => {
-    const groups = tutorWeekRows({
+    const rows = tutorWeekRows({
       saved: [saved("a1", "tutor"), saved("b1", "core", { carried_from: "2026-09-14" })],
       projection: {
         specPointIds: ["a1", "a2", "a3", "zz"],
@@ -98,65 +100,77 @@ describe("tutorWeekRows", () => {
       overrides: [override("a2", "remove", "2026-09-21"), override("a3", "remove", "2026-09-28")],
       weekStart: "2026-09-21",
     });
-    expect(groups.map((g) => g.title)).toEqual(["Cells", "Organisation"]);
-    const cells = groups[0].rows;
-    expect(cells.map((r) => [r.specPointId, r.state, r.pinned])).toEqual([
+    expect(rows.map((r) => [r.specPointId, r.state, r.pinned])).toEqual([
       ["a1", "saved", true],
       ["a3", "projected", false],
+      ["b1", "saved", false],
     ]);
     // The saved row keeps its own title and origin over the projection's.
-    expect(cells[0].title).toBe("Saved a1");
-    expect(cells[0].origin).toBe("tutor");
-    expect(cells[1].origin).toBe("focus");
-    expect(groups[1].rows[0].carriedFrom).toBe("2026-09-14");
+    expect(rows[0].title).toBe("Saved a1");
+    expect(rows[0].origin).toBe("tutor");
+    expect(rows[1].origin).toBe("focus");
+    expect(rows[2].carriedFrom).toBe("2026-09-14");
   });
 
   test("rows follow curriculum order across saved and projected points", () => {
-    const groups = tutorWeekRows({
+    const rows = tutorWeekRows({
       saved: [saved("a3", "core")],
       projection: { specPointIds: ["a1"], origins: { a1: "core" }, rationale: "" },
       roadmap,
       overrides: [],
       weekStart: "2026-09-21",
     });
-    expect(groups[0].rows.map((r) => r.specPointId)).toEqual(["a1", "a3"]);
+    expect(rows.map((r) => r.specPointId)).toEqual(["a1", "a3"]);
   });
 
-  test("no projection: only the saved week", () => {
-    const groups = tutorWeekRows({
-      saved: [saved("a2", "focus")],
-      projection: null,
-      roadmap,
-      overrides: [],
-      weekStart: "2026-09-21",
-    });
-    expect(groups).toHaveLength(1);
-    expect(groups[0].rows[0].state).toBe("saved");
-  });
-
-  test("lane labels name where a point came from", () => {
-    const [group] = tutorWeekRows({
+  test("each row is filed under the reason it is in the week", () => {
+    const rows = tutorWeekRows({
       saved: [
         saved("a1", "tutor"),
         saved("a2", "student"),
-        saved("a3", "focus"),
-        saved("b1", "core", { carried_from: "2026-09-14" }),
+        saved("a3", "core"), // promised in an earlier week: catch-up
+        saved("b1", "focus"),
       ],
       projection: null,
       roadmap,
       overrides: [],
       weekStart: "2026-09-21",
     });
-    expect(group.rows.map(laneLabel)).toEqual(["Set by you", "Added by student", "Revision"]);
+    expect(rows.map((r) => [r.specPointId, r.lane])).toEqual([
+      ["a1", "pinned"],
+      ["a2", "student"],
+      ["a3", "catchup"],
+      ["b1", "revision"],
+    ]);
+    // The same core point in its own week is the course, not catch-up.
     expect(
       tutorWeekRows({
-        saved: [saved("b1", "core", { carried_from: "2026-09-14" }), saved("b1", "ai")],
+        saved: [saved("a3", "core")],
+        projection: null,
+        roadmap,
+        overrides: [],
+        weekStart: "2026-09-07",
+      })[0].lane,
+    ).toBe("course");
+  });
+
+  test("laneSections keeps lane order, groups by topic, and drops empty lanes", () => {
+    const lanes = laneSections(
+      tutorWeekRows({
+        saved: [saved("b1", "focus"), saved("a1", "core"), saved("a2", "tutor")],
         projection: null,
         roadmap,
         overrides: [],
         weekStart: "2026-09-21",
-      })[0].rows.map(laneLabel),
-    ).toEqual(["Course"]);
+      }),
+    );
+    expect(lanes.map((l) => [l.key, l.count])).toEqual([
+      ["course", 1],
+      ["revision", 1],
+      ["pinned", 1],
+    ]);
+    expect(lanes[0].groups.map((g) => g.title)).toEqual(["Cells"]);
+    expect(lanes[1].groups[0].rows[0].specPointId).toBe("b1");
   });
 });
 

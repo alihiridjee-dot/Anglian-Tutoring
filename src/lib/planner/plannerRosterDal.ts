@@ -17,6 +17,22 @@ export interface PlannerStudent {
   enrolments: { subject: SubjectV; board: BoardV }[];
 }
 
+/**
+ * One student's saved week for one subject, as the roster shows it: enough to
+ * say "6 set · 2 done · 1 by you" without loading the week itself. A missing
+ * entry means the week has no plan row yet — the student has not opened it.
+ */
+export interface RosterWeekSummary {
+  planId: string;
+  subject: SubjectV;
+  /** `ai` once the programme has cut it; `tutor` / `student` while only a person has. */
+  source: "ai" | "student" | "tutor";
+  total: number;
+  done: number;
+  /** Hand-picked by the tutor. */
+  pinned: number;
+}
+
 /** Lookups the tutor's planner needs: who the students are, and what a spec point is called. */
 export class PlannerRosterDAL {
   /** Display labels (code + title) for a set of spec points, in curriculum order. */
@@ -44,6 +60,50 @@ export class PlannerRosterDAL {
       }))
       .sort((a, b) => a._ts - b._ts || a._ps - b._ps || a.code.localeCompare(b.code))
       .map(({ _ts, _ps, ...p }) => p);
+  }
+
+  /**
+   * Every student's saved plan for one week, keyed by student id, in one read.
+   *
+   * The roster has to answer "who has a week set, and how is it going" for
+   * every student at once, and loading each student's roadmap to say so would
+   * be one heavy read per row. The plan rows alone carry the answer: whether
+   * the week exists, how many points it holds, how many are ticked, and how
+   * many the tutor pinned. Coverage — how the work went — stays with the
+   * student's own pane, where it is one student's worth of reads.
+   */
+  static async weekSummaries(weekStart: string): Promise<Map<string, RosterWeekSummary[]>> {
+    type Row = {
+      id: string;
+      student_id: string;
+      subject: string;
+      source: "ai" | "student" | "tutor";
+      student_weekly_plan_points: { origin: string; done_at: string | null }[] | null;
+    };
+    const rows = await selectInHistory<Row>(["week"], (_batch, after) => {
+      const query = supabase
+        .from("student_weekly_plans")
+        .select("id, student_id, subject, source, student_weekly_plan_points(origin, done_at)")
+        .eq("week_start", weekStart)
+        .order("id")
+        .limit(500);
+      return after ? query.gt("id", after) : query;
+    });
+    const out = new Map<string, RosterWeekSummary[]>();
+    for (const r of rows ?? []) {
+      const points = r.student_weekly_plan_points ?? [];
+      const list = out.get(r.student_id) ?? [];
+      list.push({
+        planId: r.id,
+        subject: r.subject as SubjectV,
+        source: r.source,
+        total: points.length,
+        done: points.filter((p) => !!p.done_at).length,
+        pinned: points.filter((p) => p.origin === "tutor").length,
+      });
+      out.set(r.student_id, list);
+    }
+    return out;
   }
 
   /**

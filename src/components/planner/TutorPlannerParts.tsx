@@ -1,43 +1,17 @@
-import { useState } from "react";
-import {
-  Loader2,
-  ChevronLeft,
-  ChevronRight,
-  Undo2,
-  Plus,
-  Users,
-  CalendarRange,
-  X,
-  ArrowRightLeft,
-  Ban,
-  Pin,
-  CheckCircle2,
-  RotateCcw,
-  AlertTriangle,
-} from "lucide-react";
+import { AlertTriangle, Ban, Loader2, Plus, Undo2 } from "lucide-react";
 import { type RoadmapResult } from "@/lib/planner/roadmap";
-import { type PlannerStudent } from "@/lib/planner/plannerRosterDal";
 import { type SubjectV, type BoardV } from "@/lib/curriculum/taxonomy";
-import { statusOfPoint } from "@/lib/planner/coverage";
 import { type PlanOverride } from "@/lib/planner/overrides";
-import { weekKeyToDate, weekRangeLabel } from "@/lib/planner/week";
 import { SpecPointSelect } from "@/components/tutor/SpecPointSelect";
-import { CoveragePill } from "./CoveragePill";
 import { subjectLabel } from "@/lib/curriculum/courseSummary";
 import { type TutorPlannerState } from "./useTutorPlanner";
-import {
-  laneLabel,
-  type AssignmentWarning,
-  type TutorWeekGroup,
-  type TutorWeekRow,
-} from "./tutorWeekRows";
-import { type TutorOverrideActions } from "./useTutorOverrides";
+import { type AssignmentWarning } from "./tutorWeekRows";
 
 /** The plan cannot fit before the exam: what is left over, for the tutor to triage. */
 export function SchedulingAttention({ roadmap }: { roadmap: RoadmapResult }) {
   return (
-    <section className="premium-card tint-amber rounded-xl p-4 mb-4">
-      <h3>Scheduling needs attention</h3>
+    <section className="premium-card tint-amber rounded-xl p-4">
+      <h3 className="text-sm font-bold">Scheduling needs attention</h3>
       <p className="text-sm">
         {roadmap.reviewBacklog.length} reviews cannot fit before the exam.{" "}
         {roadmap.unscheduledTopicTitles.length} topics lack teaching time.
@@ -59,323 +33,9 @@ export function SchedulingAttention({ roadmap }: { roadmap: RoadmapResult }) {
   );
 }
 
-/** Student picker + week nav. */
-export function PlannerToolbar({
-  students,
-  studentId,
-  setStudentId,
-  isCurrent,
-  weekOffset,
-  setWeekOffset,
-  weekLabel,
-}: Pick<
-  TutorPlannerState,
-  "studentId" | "setStudentId" | "isCurrent" | "weekOffset" | "setWeekOffset" | "weekLabel"
-> & { students: PlannerStudent[] }) {
-  return (
-    <div className="flex flex-wrap items-center justify-between gap-3 mb-4">
-      <div className="flex items-center gap-2.5">
-        <div className="w-9 h-9 rounded-xl bg-primary/10 text-primary flex items-center justify-center shrink-0">
-          <Users className="w-5 h-5" />
-        </div>
-        <div>
-          <label className="text-[11px] font-semibold uppercase tracking-wide text-muted-foreground">
-            Student
-          </label>
-          <select
-            value={studentId}
-            onChange={(e) => setStudentId(e.target.value)}
-            className="block mt-0.5 h-8 rounded-lg premium-card px-2 text-sm font-medium focus:outline-none focus:ring-2 focus:ring-primary/40"
-          >
-            {students.length === 0 && <option value="">No students</option>}
-            {students.map((s) => (
-              <option key={s.id} value={s.id}>
-                {s.name ?? s.id.slice(0, 8)}
-                {s.enrolments.length === 0 ? " (no enrolments)" : ""}
-              </option>
-            ))}
-          </select>
-        </div>
-      </div>
-      <div className="flex items-center gap-3">
-        <div className="text-right">
-          <div className="flex items-center justify-end gap-1.5">
-            <CalendarRange className="w-3.5 h-3.5 text-muted-foreground" />
-            <span className="text-sm font-medium">
-              {isCurrent ? "This week" : weekOffset < 0 ? "Past week" : "Upcoming"}
-            </span>
-            {!isCurrent && (
-              <button
-                type="button"
-                onClick={() => setWeekOffset(0)}
-                className="inline-flex items-center gap-1 h-5 px-2 rounded-full bg-muted text-[10px] font-semibold text-muted-foreground hover:text-foreground"
-              >
-                <Undo2 className="w-3 h-3" /> Today
-              </button>
-            )}
-          </div>
-          <p className="text-xs text-muted-foreground">{weekLabel}</p>
-        </div>
-        <div className="flex items-center gap-1">
-          <button
-            type="button"
-            onClick={() => setWeekOffset((w) => w - 1)}
-            className="w-8 h-8 rounded-lg border border-border text-muted-foreground hover:text-foreground hover:bg-muted flex items-center justify-center"
-            aria-label="Previous week"
-          >
-            <ChevronLeft className="w-4 h-4" />
-          </button>
-          <button
-            type="button"
-            onClick={() => setWeekOffset((w) => w + 1)}
-            className="w-8 h-8 rounded-lg border border-border text-muted-foreground hover:text-foreground hover:bg-muted flex items-center justify-center"
-            aria-label="Next week"
-          >
-            <ChevronRight className="w-4 h-4" />
-          </button>
-        </div>
-      </div>
-    </div>
-  );
-}
-
-export function SubjectTabs({
-  ordered,
-  activeSubject,
-  setActiveSubject,
-}: Pick<TutorPlannerState, "ordered" | "activeSubject" | "setActiveSubject">) {
-  return (
-    <div className="flex items-center gap-1.5 mb-4">
-      {ordered.map((e) => (
-        <button
-          key={e.subject}
-          type="button"
-          onClick={() => setActiveSubject(e.subject)}
-          className={`h-8 px-3 rounded-lg text-sm font-medium transition ${
-            e.subject === activeSubject
-              ? "btn-solid"
-              : "bg-muted text-muted-foreground hover:text-foreground"
-          }`}
-        >
-          {subjectLabel(e.subject)}
-        </button>
-      ))}
-    </div>
-  );
-}
-
-const weekLabelOf = (key: string) => weekRangeLabel(weekKeyToDate(key));
-
-/** The controls one row offers: remove, move, skip. Hidden on a row that cannot be changed. */
-function RowActions({
-  row,
-  actions,
-  weekChoices,
-}: {
-  row: TutorWeekRow;
-  actions: TutorOverrideActions;
-  weekChoices: string[];
-}) {
-  const [moving, setMoving] = useState(false);
-  const [target, setTarget] = useState(weekChoices[0] ?? "");
-  const busy = actions.busy;
-  const thisRow = busy && "specPointId" in busy && busy.specPointId === row.specPointId;
-  const disabled = busy !== null;
-  const icon =
-    "w-7 h-7 rounded-lg border border-border text-muted-foreground hover:text-foreground hover:bg-muted flex items-center justify-center disabled:opacity-40";
-  if (moving) {
-    return (
-      <div className="flex flex-wrap items-center gap-1.5">
-        <select
-          value={target}
-          onChange={(e) => setTarget(e.target.value)}
-          aria-label={`Move ${row.code} to week`}
-          className="h-7 rounded-lg premium-card px-2 text-xs font-medium focus:outline-none focus:ring-2 focus:ring-primary/40"
-        >
-          {weekChoices.map((w) => (
-            <option key={w} value={w}>
-              {weekLabelOf(w)}
-            </option>
-          ))}
-        </select>
-        <button
-          type="button"
-          disabled={disabled || !target}
-          onClick={async () => {
-            await actions.move(row, target);
-            setMoving(false);
-          }}
-          className="h-7 px-2.5 rounded-lg btn-solid text-xs font-semibold disabled:opacity-50"
-        >
-          {thisRow && busy?.action === "move" ? (
-            <Loader2 className="w-3.5 h-3.5 animate-spin" />
-          ) : (
-            "Move"
-          )}
-        </button>
-        <button
-          type="button"
-          disabled={disabled}
-          onClick={() => setMoving(false)}
-          className="h-7 px-2 rounded-lg border border-border text-xs font-medium hover:bg-muted"
-        >
-          Cancel
-        </button>
-      </div>
-    );
-  }
-  return (
-    <div className="flex items-center gap-1">
-      {weekChoices.length > 0 && (
-        <button
-          type="button"
-          disabled={disabled}
-          onClick={() => {
-            // The choices follow the week in view; start from the first one now.
-            setTarget(weekChoices[0] ?? "");
-            setMoving(true);
-          }}
-          className={icon}
-          title="Move to another week"
-          aria-label={`Move ${row.code} to another week`}
-        >
-          <ArrowRightLeft className="w-3.5 h-3.5" />
-        </button>
-      )}
-      <button
-        type="button"
-        disabled={disabled}
-        onClick={() => actions.skip(row)}
-        className={icon}
-        title="Skip in the programme — never set automatically"
-        aria-label={`Skip ${row.code} in the programme`}
-      >
-        {thisRow && busy?.action === "skip" ? (
-          <Loader2 className="w-3.5 h-3.5 animate-spin" />
-        ) : (
-          <Ban className="w-3.5 h-3.5" />
-        )}
-      </button>
-      <button
-        type="button"
-        disabled={disabled}
-        onClick={() => actions.remove(row)}
-        className={icon}
-        title={row.state === "projected" ? "Don't set this week" : "Remove from this week"}
-        aria-label={`Remove ${row.code} from this week`}
-      >
-        {thisRow && busy?.action === "remove" ? (
-          <Loader2 className="w-3.5 h-3.5 animate-spin" />
-        ) : (
-          <X className="w-3.5 h-3.5" />
-        )}
-      </button>
-    </div>
-  );
-}
-
-/** One topic of the week being edited: what the student has, what the programme will add, and the controls. */
-export function WeekPointGroup({
-  g,
-  coverage,
-  activity,
-  showReview,
-  editable,
-  overridesAvailable,
-  actions,
-  weekChoices,
-}: Pick<
-  TutorPlannerState,
-  | "coverage"
-  | "activity"
-  | "showReview"
-  | "editable"
-  | "overridesAvailable"
-  | "actions"
-  | "weekChoices"
-> & { g: TutorWeekGroup }) {
-  const controls = editable && overridesAvailable === true;
-  return (
-    <div>
-      <h3 className="text-[11px] font-bold uppercase tracking-wide text-muted-foreground mb-1.5">
-        {g.title}
-      </h3>
-      <div className="space-y-1.5">
-        {g.rows.map((row) => {
-          const cov = coverage.get(row.specPointId);
-          const projected = row.state === "projected";
-          return (
-            <div
-              key={row.specPointId}
-              className={`group flex flex-wrap items-center gap-x-3 gap-y-2 rounded-xl border p-2.5 ${
-                projected
-                  ? "border-dashed border-border bg-transparent"
-                  : "border-border bg-muted/20"
-              }`}
-            >
-              <div className="flex-1 min-w-[12rem]">
-                <span className="text-[11px] font-semibold text-muted-foreground mr-1.5">
-                  {row.code}
-                </span>
-                <span className={`text-sm ${projected ? "text-muted-foreground" : ""}`}>
-                  {row.title}
-                </span>
-              </div>
-              <div className="flex flex-wrap items-center gap-1.5">
-                {projected ? (
-                  <span
-                    className="chip tint-slate text-[10px]"
-                    title="Not saved yet — this is what the programme will set unless you change it"
-                  >
-                    Planned
-                  </span>
-                ) : (
-                  <span
-                    className={`chip text-[10px] ${row.pinned ? "tint-primary" : "tint-slate"}`}
-                  >
-                    {row.pinned && <Pin className="w-3 h-3" aria-hidden />}
-                    {laneLabel(row)}
-                  </span>
-                )}
-                {row.carriedFrom && !projected && (
-                  <span className="chip tint-amber text-[10px]">
-                    <RotateCcw className="w-3 h-3" aria-hidden /> carried over
-                  </span>
-                )}
-                {row.doneAt && (
-                  <span className="chip tint-emerald text-[10px]" title="Ticked off by the student">
-                    <CheckCircle2 className="w-3 h-3" aria-hidden /> Done
-                  </span>
-                )}
-                {showReview && !projected && (
-                  <CoveragePill
-                    status={statusOfPoint(cov, activity.get(row.specPointId))}
-                    score={cov?.bestScore}
-                  />
-                )}
-              </div>
-              {controls && !row.doneAt && (
-                <RowActions row={row} actions={actions} weekChoices={weekChoices} />
-              )}
-            </div>
-          );
-        })}
-      </div>
-    </div>
-  );
-}
-
 /** What the tutor has set aside — removed from this week, or skipped in the programme — with the way back. */
-export function OverridesPanel({
-  weekOverrides,
-  labels,
-  actions,
-  editable,
-  weekLabel,
-  subject,
-}: Pick<TutorPlannerState, "weekOverrides" | "labels" | "actions" | "editable" | "weekLabel"> & {
-  subject: string;
-}) {
+export function OverridesPanel({ state }: { state: TutorPlannerState }) {
+  const { weekOverrides, labels, actions, editable, weekLabel, active } = state;
   const { removed, skipped } = weekOverrides;
   if (removed.length === 0 && skipped.length === 0) return null;
   const busy = actions.busy;
@@ -417,18 +77,22 @@ export function OverridesPanel({
     <div className="space-y-3">
       {removed.length > 0 && (
         <section>
-          <h3 className="text-[11px] font-bold uppercase tracking-wide text-muted-foreground mb-1.5">
-            Removed from {weekLabel}
+          <h3 className="text-sm font-bold mb-2">
+            Removed from {weekLabel}{" "}
+            <span className="text-muted-foreground font-medium tabular-nums">{removed.length}</span>
           </h3>
           <ul className="space-y-1.5">{removed.map(item)}</ul>
         </section>
       )}
       {skipped.length > 0 && (
-        <details className="group/skipped">
-          <summary className="cursor-pointer text-[11px] font-bold uppercase tracking-wide text-muted-foreground mb-1.5 list-none [&::-webkit-details-marker]:hidden">
+        <details>
+          <summary className="cursor-pointer text-sm font-bold mb-2 list-none [&::-webkit-details-marker]:hidden">
             <span className="inline-flex items-center gap-1.5">
-              <Ban className="w-3 h-3" aria-hidden />
-              Skipped in {subjectLabel(subject)} ({skipped.length})
+              <Ban className="w-3.5 h-3.5 text-muted-foreground" aria-hidden />
+              Skipped in {active ? subjectLabel(active.subject) : "the programme"}{" "}
+              <span className="text-muted-foreground font-medium tabular-nums">
+                {skipped.length}
+              </span>
             </span>
           </summary>
           <ul className="space-y-1.5">{skipped.map(item)}</ul>
@@ -459,28 +123,10 @@ const WARNING_COPY: Record<AssignmentWarning["reason"], (w: AssignmentWarning) =
 };
 
 /** Add spec points to the week: the closed button, or the open picker with its warnings. */
-export function AddPointsBox({
-  picking,
-  setPicking,
-  student,
-  active,
-  toAdd,
-  setToAdd,
-  adding,
-  addSelected,
-  weekLabel,
-  warnings,
-}: Pick<
-  TutorPlannerState,
-  | "picking"
-  | "setPicking"
-  | "toAdd"
-  | "setToAdd"
-  | "adding"
-  | "addSelected"
-  | "weekLabel"
-  | "warnings"
-> & { student: PlannerStudent; active: { subject: string; board: string } }) {
+export function AddPointsBox({ state }: { state: TutorPlannerState }) {
+  const { picking, setPicking, student, active, toAdd, setToAdd, adding, addSelected } = state;
+  const { weekLabel, warnings } = state;
+  if (!student || !active) return null;
   return picking ? (
     <div className="rounded-xl border border-border bg-muted/20 p-3">
       {student.level ? (
