@@ -7,27 +7,13 @@ import { useRoles } from "@/hooks/useRole";
 import { useViewerId } from "@/hooks/useViewer";
 import { StudentPlanner } from "@/components/planner/StudentPlanner";
 import { TutorPlannerPanel } from "@/components/planner/TutorPlannerPanel";
+import { validatePlannerSearch, type PlannerSearch } from "@/lib/planner/plannerSearch";
 
-/** Deep links open a course's full plan at a given week, e.g. from a curriculum point. */
-export interface PlannerSearch {
-  subject?: string;
-  tab?: "week" | "plan" | "topics";
-  week?: string;
-}
+export type { PlannerSearch };
 
 export const Route = createFileRoute("/_authenticated/planner")({
   beforeLoad: guardStudentSection,
-  validateSearch: (search: Record<string, unknown>): PlannerSearch => ({
-    subject: typeof search.subject === "string" ? search.subject : undefined,
-    tab:
-      search.tab === "week" || search.tab === "plan" || search.tab === "topics"
-        ? search.tab
-        : undefined,
-    week:
-      typeof search.week === "string" && /^\d{4}-\d{2}-\d{2}$/.test(search.week)
-        ? search.week
-        : undefined,
-  }),
+  validateSearch: validatePlannerSearch,
   head: () => ({ meta: [{ title: "My Planner | Anglia Educate" }] }),
   component: PlannerPage,
 });
@@ -56,7 +42,7 @@ function PlannerPage() {
             </h2>
             <p className="text-xs sm:text-sm text-indigo-100">
               {isTutor
-                ? "Pick a student to review how their week went and adjust their focus."
+                ? "Every student's week at a glance. Open one to change what they'll work on."
                 : "What to work on this week, the road ahead, and your practice history."}
             </p>
           </div>

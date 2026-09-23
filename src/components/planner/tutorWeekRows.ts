@@ -11,9 +11,11 @@ import { STRONG_THRESHOLD } from "@/lib/planner/coverage";
  * A saved week is what the student has; a projected one is what the programme
  * will give them when the week is cut. The tutor needs both on one list — the
  * point of editing next week is to change it *before* the student meets it —
- * and needs to be told which is which, because a projected row can still be
- * removed with nothing to delete, and a saved one cannot be un-worked.
+ * and needs each row filed under the reason it is there, because "why is this
+ * here" is the question a tutor asks before "should it be".
  */
+export type WeekLane = "course" | "catchup" | "revision" | "pinned" | "student";
+
 export interface TutorWeekRow {
   specPointId: string;
   code: string;
@@ -23,6 +25,7 @@ export interface TutorWeekRow {
   /** Written to the student's plan, or only what the programme would write. */
   state: "saved" | "projected";
   origin: PlanPointOrigin;
+  lane: WeekLane;
   /** A person put it here: exempt from the programme's re-cuts and overrides. */
   pinned: boolean;
   carriedFrom: string | null;
@@ -35,6 +38,25 @@ export interface TutorWeekGroup {
   title: string;
   rows: TutorWeekRow[];
 }
+
+/** One lane of the week, with its rows grouped by topic. */
+export interface TutorWeekLane {
+  key: WeekLane;
+  title: string;
+  hint: string;
+  groups: TutorWeekGroup[];
+  count: number;
+}
+
+export const LANE_META: Record<WeekLane, { title: string; hint: string }> = {
+  course: { title: "Course this week", hint: "New learning, in curriculum order" },
+  catchup: { title: "Catching up", hint: "Promised in an earlier week and not yet covered" },
+  revision: { title: "Revision", hint: "Coming back until it sticks" },
+  pinned: { title: "Set by you", hint: "Kept through every re-plan" },
+  student: { title: "Added by the student", hint: "Their own choice, also kept" },
+};
+
+const LANE_ORDER: WeekLane[] = ["course", "catchup", "revision", "pinned", "student"];
 
 /** Ids of every point in a topic, in curriculum order, from the roadmap. */
 function pointIndex(roadmap: RoadmapResult | null) {
@@ -72,10 +94,18 @@ export function showsProjection(params: {
   return !params.plan || params.plan.source !== "ai";
 }
 
+/** Which lane a point is in, from its origin and whether it is catch-up work. */
+function laneOf(origin: PlanPointOrigin, catchUp: boolean): WeekLane {
+  if (origin === "tutor") return "pinned";
+  if (origin === "student") return "student";
+  if (origin === "focus") return "revision";
+  return catchUp ? "catchup" : "course";
+}
+
 /**
- * Merge the saved week with the programme's projection into one list, grouped
- * by topic. Saved rows win over projected ones for the same point, and a
- * projected point the tutor has already removed or skipped is not shown as
+ * Merge the saved week with the programme's projection into one list in
+ * curriculum order. Saved rows win over projected ones for the same point, and
+ * a projected point the tutor has already removed or skipped is not shown as
  * coming — it is in the overrides list instead.
  */
 export function tutorWeekRows(params: {
@@ -84,10 +114,18 @@ export function tutorWeekRows(params: {
   roadmap: RoadmapResult | null;
   overrides: PlanOverride[];
   weekStart: string;
-}): TutorWeekGroup[] {
+}): TutorWeekRow[] {
   const index = pointIndex(params.roadmap);
   const { removed, skipped } = overridesForWeek(params.overrides, params.weekStart);
   const blocked = new Set([...removed, ...skipped].map((o) => o.specPointId));
+  // Catch-up is first teaching arriving late: promised before this week, or
+  // scheduled into this week by the catch-up trickle.
+  const catchUp = new Set([
+    ...(params.roadmap?.catchUpSchedule?.weeks[params.weekStart] ?? []).map((p) => p.specPointId),
+    ...(params.roadmap?.backlog ?? [])
+      .filter((p) => p.plannedWeek < params.weekStart)
+      .map((p) => p.specPointId),
+  ]);
   const rows = new Map<string, TutorWeekRow>();
   for (const p of params.saved) {
     rows.set(p.spec_point_id, {
@@ -98,6 +136,7 @@ export function tutorWeekRows(params: {
       topicTitle: p.topic_title ?? index.get(p.spec_point_id)?.topicTitle ?? "—",
       state: "saved",
       origin: p.origin,
+      lane: laneOf(p.origin, catchUp.has(p.spec_point_id)),
       pinned: isHandPicked(p.origin),
       carriedFrom: p.carried_from,
       doneAt: p.done_at,
@@ -107,6 +146,7 @@ export function tutorWeekRows(params: {
     if (rows.has(id) || blocked.has(id)) continue;
     const meta = index.get(id);
     if (!meta) continue; // a point the curriculum no longer has is not offered
+    const origin = params.projection?.origins[id] ?? "ai";
     rows.set(id, {
       specPointId: id,
       code: meta.code,
@@ -114,31 +154,36 @@ export function tutorWeekRows(params: {
       topicId: meta.topicId,
       topicTitle: meta.topicTitle,
       state: "projected",
-      origin: params.projection?.origins[id] ?? "ai",
+      origin,
+      lane: laneOf(origin, catchUp.has(id)),
       pinned: false,
       carriedFrom: null,
       doneAt: null,
     });
   }
   const order = (id: string) => index.get(id)?.order ?? Number.MAX_SAFE_INTEGER;
-  const groups = new Map<string, TutorWeekGroup>();
-  for (const row of [...rows.values()].sort(
-    (a, b) => order(a.specPointId) - order(b.specPointId),
-  )) {
-    const g = groups.get(row.topicId) ?? { topicId: row.topicId, title: row.topicTitle, rows: [] };
-    g.rows.push(row);
-    groups.set(row.topicId, g);
-  }
-  return [...groups.values()];
+  return [...rows.values()].sort((a, b) => order(a.specPointId) - order(b.specPointId));
 }
 
-/** How a row should be labelled: where the point came from. */
-export function laneLabel(row: TutorWeekRow): string {
-  if (row.origin === "tutor") return "Set by you";
-  if (row.origin === "student") return "Added by student";
-  if (row.origin === "focus") return "Revision";
-  if (row.carriedFrom) return "Carried over";
-  return "Course";
+/** The week's rows filed under their lanes, each lane grouped by topic. Empty lanes are left out. */
+export function laneSections(rows: TutorWeekRow[]): TutorWeekLane[] {
+  const lanes: TutorWeekLane[] = [];
+  for (const key of LANE_ORDER) {
+    const mine = rows.filter((r) => r.lane === key);
+    if (mine.length === 0) continue;
+    const groups = new Map<string, TutorWeekGroup>();
+    for (const row of mine) {
+      const g = groups.get(row.topicId) ?? {
+        topicId: row.topicId,
+        title: row.topicTitle,
+        rows: [],
+      };
+      g.rows.push(row);
+      groups.set(row.topicId, g);
+    }
+    lanes.push({ key, ...LANE_META[key], groups: [...groups.values()], count: mine.length });
+  }
+  return lanes;
 }
 
 /** What the tutor is told before assigning a point the student may not need. */
@@ -147,7 +192,7 @@ export interface AssignmentWarning {
   code: string;
   title: string;
   reason:
-    /** Assessed at 70% or better already. */
+    /** Assessed at the strong threshold or better already. */
     | "covered"
     /** Ticked off by the student in some week. */
     | "done"
@@ -170,7 +215,6 @@ export function assignmentWarnings(params: {
   saved: PlanPoint[];
   overrides: PlanOverride[];
 }): AssignmentWarning[] {
-  const strong = STRONG_THRESHOLD;
   const saved = new Set(params.saved.map((p) => p.spec_point_id));
   const done = new Set(params.roadmap?.completedPointIds ?? []);
   const skipped = new Set(
@@ -189,7 +233,7 @@ export function assignmentWarnings(params: {
       out.push({ specPointId: id, code, title, reason: "in-week", bestScore: null });
     else if (skipped.has(id))
       out.push({ specPointId: id, code, title, reason: "skipped", bestScore: null });
-    else if (bestScore >= strong)
+    else if (bestScore >= STRONG_THRESHOLD)
       out.push({ specPointId: id, code, title, reason: "covered", bestScore });
     else if (done.has(id))
       out.push({ specPointId: id, code, title, reason: "done", bestScore: null });
