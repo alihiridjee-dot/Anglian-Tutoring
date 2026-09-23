@@ -13,12 +13,15 @@ export interface PlannerSearch {
   subject?: string;
   tab?: "week" | "plan" | "topics";
   week?: string;
+  /** Tutor only: the student to open the planner on, from their record. */
+  student?: string;
 }
 
 export const Route = createFileRoute("/_authenticated/planner")({
   beforeLoad: guardStudentSection,
   validateSearch: (search: Record<string, unknown>): PlannerSearch => ({
     subject: typeof search.subject === "string" ? search.subject : undefined,
+    student: typeof search.student === "string" ? search.student : undefined,
     tab:
       search.tab === "week" || search.tab === "plan" || search.tab === "topics"
         ? search.tab

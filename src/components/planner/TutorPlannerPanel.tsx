@@ -1,3 +1,4 @@
+import { useSearch } from "@tanstack/react-router";
 import { WithheldPlanPoints } from "./WithheldPlanPoints";
 import { ErrorNote } from "@/components/Shared";
 import { Spinner } from "@/components/Shared";
@@ -29,7 +30,10 @@ import {
  * ([[overrides]]).
  */
 export function TutorPlannerPanel() {
-  const planner = useTutorPlanner();
+  // A student's record links here with ?student=, so the planner opens on
+  // them rather than on whoever sorts first.
+  const { student: requested } = useSearch({ from: "/_authenticated/planner" });
+  const planner = useTutorPlanner(requested);
   const {
     roster,
     students,

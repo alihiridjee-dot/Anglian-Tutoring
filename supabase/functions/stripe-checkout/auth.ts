@@ -18,11 +18,23 @@ export async function requireUser(req: Request) {
   return data.user;
 }
 
+/** Whether the caller holds a staff role. Read from user_roles, never the body. */
+export async function isStaff(callerId: string): Promise<boolean> {
+  const { data } = await admin()
+    .from("user_roles")
+    .select("role")
+    .eq("user_id", callerId)
+    .in("role", ["tutor", "admin"])
+    .limit(1)
+    .maybeSingle();
+  return !!data;
+}
+
 /**
  * Who may manage (pause / resume / cancel / drop a subject from) a student's
  * subscription.
  *
- * Two authorities, either of which is enough:
+ * Three authorities, any of which is enough:
  *
  *   • the PAYER — whoever's card the plan sits on (subscriptions.user_id). This
  *     is absolute: nobody may be charged with no way to stop it. It is what
@@ -30,12 +42,16 @@ export async function requireUser(req: Request) {
  *     link-only rule left them funding a plan they were locked out of managing.
  *   • a LINKED PARENT of the student — oversight of a child's plan, including
  *     one the child paid for themselves.
+ *   • a TUTOR or ADMIN — the business ending or pausing a plan from the
+ *     student's record on /students. Staff is read from user_roles, the same
+ *     table RLS consults.
  *
  * So the only person refused is a student who neither pays nor is unlinked: a
  * child on a parent-funded plan, who sees status and is pointed at their payer.
  *
  *   • caller is the payer                                  → allowed
  *   • caller is a linked parent of the student             → allowed
+ *   • caller is a tutor or admin                           → allowed
  *   • caller IS the student AND no parent is linked        → allowed
  *   • a linked student on someone else's card              → 403
  *
@@ -51,6 +67,8 @@ export async function assertCanManage(
   const db = admin();
 
   if (payerId && callerId === payerId) return; // the payer, always
+
+  if (await isStaff(callerId)) return; // a tutor, from the student's record
 
   const { data: link } = await db
     .from("parent_student_links")

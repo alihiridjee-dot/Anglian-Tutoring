@@ -28,15 +28,19 @@ import { useTutorOverrides } from "./useTutorOverrides";
  * view, that week as the student will meet it — what is saved plus what the
  * programme will add — and the tutor's controls over it.
  */
-export function useTutorPlanner() {
+export function useTutorPlanner(initialStudentId?: string) {
   const roster = useQuery({
     queryKey: ["planner-roster"],
     queryFn: () => PlannerRosterDAL.listStudents(),
   });
   const students = roster.data ?? null;
-  const [studentId, setStudentId] = useState<string>("");
+  const [studentId, setStudentId] = useState<string>(initialStudentId ?? "");
   useEffect(() => {
-    if (!studentId && students?.length) setStudentId(students[0].id);
+    // A requested student who isn't on the roster (no enrolments, or not a
+    // student) falls back to the first, the same as no request at all.
+    if (students?.length && !students.some((s) => s.id === studentId)) {
+      setStudentId(students[0].id);
+    }
   }, [students, studentId]);
 
   const student = students?.find((s) => s.id === studentId) ?? null;

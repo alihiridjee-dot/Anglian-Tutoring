@@ -1379,6 +1379,33 @@ export type Database = {
           },
         ];
       };
+      student_tutor_notes: {
+        Row: {
+          author_id: string;
+          body: string;
+          created_at: string;
+          id: string;
+          student_id: string;
+          updated_at: string;
+        };
+        Insert: {
+          author_id: string;
+          body: string;
+          created_at?: string;
+          id?: string;
+          student_id: string;
+          updated_at?: string;
+        };
+        Update: {
+          author_id?: string;
+          body?: string;
+          created_at?: string;
+          id?: string;
+          student_id?: string;
+          updated_at?: string;
+        };
+        Relationships: [];
+      };
       student_weekly_checkins: {
         Row: {
           coverage: Json;
@@ -1928,6 +1955,24 @@ export type Database = {
         Returns: {
           display_name: string;
           id: string;
+        }[];
+      };
+      tutor_set_student_level: {
+        Args: { _level: Database["public"]["Enums"]["level"]; _student_id: string };
+        Returns: undefined;
+      };
+      tutor_student_directory: {
+        Args: never;
+        Returns: {
+          created_at: string;
+          display_name: string | null;
+          email: string;
+          id: string;
+          last_sign_in_at: string | null;
+          level: Database["public"]["Enums"]["level"] | null;
+          onboarding_completed_at: string | null;
+          school: string | null;
+          student_invite_code: string | null;
         }[];
       };
       unlink_parent: { Args: { _link_id: string }; Returns: undefined };
