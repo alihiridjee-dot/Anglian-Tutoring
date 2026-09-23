@@ -6,8 +6,10 @@ import { StudentRecordPage } from "@/components/students/StudentRecordPage";
 import { isStudentTab, type StudentTab } from "@/components/students/studentTabs";
 
 export const Route = createFileRoute("/_authenticated/students_/$studentId")({
-  validateSearch: (search: Record<string, unknown>): { tab?: StudentTab } => ({
-    tab: isStudentTab(search.tab) ? search.tab : undefined,
+  // `section`, not `tab`: the planner already uses `?tab=` with its own values,
+  // and the router unions every route's search shape for untyped navigation.
+  validateSearch: (search: Record<string, unknown>): { section?: StudentTab } => ({
+    section: isStudentTab(search.section) ? search.section : undefined,
   }),
   head: () => ({ meta: [{ title: "Student | Anglia Educate" }] }),
   component: StudentRoute,
@@ -15,7 +17,7 @@ export const Route = createFileRoute("/_authenticated/students_/$studentId")({
 
 function StudentRoute() {
   const { studentId } = Route.useParams();
-  const { tab } = Route.useSearch();
+  const { section } = Route.useSearch();
   const { isTutor, loading: rolesLoading } = useRoles();
 
   if (rolesLoading)
@@ -32,5 +34,5 @@ function StudentRoute() {
     );
   }
 
-  return <StudentRecordPage studentId={studentId} tab={tab ?? "overview"} />;
+  return <StudentRecordPage studentId={studentId} tab={section ?? "overview"} />;
 }

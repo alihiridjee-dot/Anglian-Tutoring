@@ -61,7 +61,7 @@ export function StudentRecordPage({ studentId, tab }: { studentId: string; tab: 
     void navigate({
       to: "/students/$studentId",
       params: { studentId },
-      search: { tab: next },
+      search: { section: next },
       replace: true,
     });
 
