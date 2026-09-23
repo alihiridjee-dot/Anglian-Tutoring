@@ -63,7 +63,9 @@ function subscriptionRow(sub: Stripe.Subscription) {
     student_id: studentId,
     stripe_customer_id: typeof sub.customer === "string" ? sub.customer : sub.customer.id,
     stripe_subscription_id: sub.id,
-    status: sub.pause_collection ? "paused" : sub.status,
+    // Stripe leaves pause_collection set on a subscription it cancels, so a
+    // paused plan that ends would otherwise read as "paused" for ever.
+    status: sub.status !== "canceled" && sub.pause_collection ? "paused" : sub.status,
     cancel_at_period_end: sub.cancel_at_period_end ?? false,
     plan: sub.metadata?.tier ?? null,
     current_period_end: periodEnd(sub),
