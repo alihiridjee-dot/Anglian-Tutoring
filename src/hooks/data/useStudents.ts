@@ -161,3 +161,35 @@ export function useDeleteStudentNote() {
       void qc.invalidateQueries({ queryKey: [...studentKey(vars.studentId), "notes"] }),
   });
 }
+
+/** The deletion booked on a student, if any — shown in the header and on Billing. */
+export function useAccountDeletion(studentId: string) {
+  return useQuery({
+    queryKey: [...studentKey(studentId), "deletion"],
+    queryFn: () => StudentsDAL.getOpenDeletion(studentId),
+    staleTime: 30_000,
+  });
+}
+
+/**
+ * Booking or undoing a deletion also pauses or resumes the plan and locks or
+ * unlocks the login, so the roster and billing refresh too, not just the record.
+ */
+function useDeletionMutation<T>(fn: (studentId: string) => Promise<T>) {
+  const qc = useQueryClient();
+  return useMutation({
+    mutationFn: ({ studentId }: { studentId: string }) => fn(studentId),
+    onSettled: () => {
+      void qc.invalidateQueries({ queryKey: STUDENTS_KEY });
+      void qc.invalidateQueries({ queryKey: BILLING_KEY });
+    },
+  });
+}
+
+export function useScheduleDeletion() {
+  return useDeletionMutation((id) => StudentsDAL.scheduleDeletion(id));
+}
+
+export function useUndoDeletion() {
+  return useDeletionMutation((id) => StudentsDAL.undoDeletion(id));
+}

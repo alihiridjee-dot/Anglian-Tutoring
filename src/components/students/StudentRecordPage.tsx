@@ -14,7 +14,11 @@ import {
 } from "lucide-react";
 import { AppLayout } from "@/components/AppLayout";
 import { EmptyState, ErrorNote, Spinner } from "@/components/Shared";
-import { useStudentDirectory, useStudentRecord } from "@/hooks/data/useStudents";
+import {
+  useAccountDeletion,
+  useStudentDirectory,
+  useStudentRecord,
+} from "@/hooks/data/useStudents";
 import { resolveDisplayName } from "@/lib/profile/displayName";
 import { levelLabel, subjectLabel } from "@/lib/curriculum/courseSummary";
 import { SUBJECT_TINT } from "@/lib/curriculum/subjectTheme";
@@ -26,7 +30,7 @@ import { StudentQuizzes } from "./StudentQuizzes";
 import { StudentBilling } from "./StudentBilling";
 import { StudentMessages } from "./StudentMessages";
 import { StudentNotes } from "./StudentNotes";
-import { PLAN_STATE_LABEL, PLAN_STATE_TINT, planStateOf } from "./studentPresentation";
+import { PLAN_STATE_LABEL, PLAN_STATE_TINT, formatDate, planStateOf } from "./studentPresentation";
 import type { StudentTab } from "./studentTabs";
 
 // Recharts comes with the performance tab only, for the same reason the parent
@@ -53,6 +57,7 @@ const NAV: { tab: StudentTab; label: string; icon: LucideIcon }[] = [
  */
 export function StudentRecordPage({ studentId, tab }: { studentId: string; tab: StudentTab }) {
   const record = useStudentRecord(studentId);
+  const deletion = useAccountDeletion(studentId);
   // The directory carries the email; the profile row does not. Usually cached
   // from the roster the tutor came through.
   const directory = useStudentDirectory();
@@ -122,6 +127,11 @@ export function StudentRecordPage({ studentId, tab }: { studentId: string; tab: 
         <span className={`chip text-[10px] ${PLAN_STATE_TINT[plan]}`}>
           {PLAN_STATE_LABEL[plan]}
         </span>
+        {deletion.data && (
+          <span className="chip tint-rose text-[10px]">
+            Deleting {formatDate(deletion.data.purge_after)}
+          </span>
+        )}
       </StudentHeader>
 
       {/* Below lg this is one column. Left to size itself, it grew to the tab

@@ -1,11 +1,13 @@
 import { EmptyState, SectionHeading, Spinner } from "@/components/Shared";
 import { SubscriptionPanel } from "@/components/billing/SubscriptionPanel";
 import { usePackages } from "@/hooks/data/useBilling";
+import { useAccountDeletion } from "@/hooks/data/useStudents";
 import { billingIntervalLabel, formatPence, planLabel } from "@/lib/billing/billing";
 import { BILLING_FEEDBACK_REASONS } from "@/lib/billing/billingFeedback";
 import { summariseCourse } from "@/lib/curriculum/courseSummary";
 import { resolveDisplayName } from "@/lib/profile/displayName";
 import type { StudentRecord } from "@/lib/students/studentsDal";
+import { DeleteAccountSection } from "./DeleteAccountSection";
 import { formatDate } from "./studentPresentation";
 
 const ACTION_LABEL: Record<string, string> = {
@@ -23,6 +25,9 @@ const ACTION_LABEL: Record<string, string> = {
 export function StudentBilling({ record, name }: { record: StudentRecord; name: string }) {
   const { subscription: sub, profile, enrolments, parents, billingFeedback } = record;
   const { data: packages = [], isPending } = usePackages(profile.level);
+  // While a deletion is booked the plan is held paused by it; resuming or
+  // changing it here would bill a student who can no longer sign in.
+  const { data: deletion } = useAccountDeletion(profile.id);
 
   if (isPending) return <Spinner label="Loading plan" className="py-12" />;
 
@@ -49,7 +54,7 @@ export function StudentBilling({ record, name }: { record: StudentRecord; name: 
         <SubscriptionPanel
           sub={sub}
           planName={planLabel(sub.plan, packages)}
-          canManage
+          canManage={!deletion}
           isPayer={false}
           returnTo="billing"
           ownerLabel={name}
@@ -91,6 +96,8 @@ export function StudentBilling({ record, name }: { record: StudentRecord; name: 
           </ul>
         </section>
       )}
+
+      <DeleteAccountSection studentId={profile.id} name={name} />
     </div>
   );
 }
