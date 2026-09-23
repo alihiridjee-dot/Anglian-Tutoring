@@ -64,7 +64,15 @@ const topic = (topicId: string, points: ProgressPoint[], settled = false): Topic
   masteryPct: 0,
   settled,
   practisedCount: points.filter((p) => p.reps > 0).length,
-  assessment: { total: points.length, assessable: 0, assessed: 0, state: "unassessable" },
+  // The shape the snapshots were recorded with, before masteryPct and
+  // coveragePct existed. loadRoadmap passes it through, so adding them would
+  // rewrite every snapshot; cast instead.
+  assessment: {
+    total: points.length,
+    assessable: 0,
+    assessed: 0,
+    state: "unassessable",
+  } as TopicProgress["assessment"],
 });
 
 const progress: TopicProgress[] = [
@@ -165,7 +173,8 @@ function arrange(world: {
       io.push(["getSessionUserId"]);
       return world.viewer ?? "student";
     }),
-    spyOn(globalThis, "fetch").mockImplementation(async (input, init) => {
+    // Cast: Bun's `typeof fetch` also carries `preconnect`, which a mock has no use for.
+    spyOn(globalThis, "fetch").mockImplementation((async (input, init) => {
       const url = new URL(
         typeof input === "string" ? input : input instanceof URL ? input.href : input.url,
       );
@@ -193,7 +202,7 @@ function arrange(world: {
         });
       }
       return new Response(null, { status: 201 });
-    }),
+    }) as typeof fetch),
   ];
 }
 

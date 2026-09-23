@@ -7,7 +7,9 @@ function isNewSupabaseApiKey(value: string): boolean {
 }
 
 function createSupabaseFetch(supabaseKey: string): typeof fetch {
-  return (input, init) => {
+  // Cast rather than inferred: under Bun's types `typeof fetch` also carries
+  // `preconnect`, which a wrapper has no use for. The browser's does not.
+  return ((input, init) => {
     const headers = new Headers(
       typeof Request !== "undefined" && input instanceof Request ? input.headers : undefined,
     );
@@ -26,7 +28,7 @@ function createSupabaseFetch(supabaseKey: string): typeof fetch {
 
     headers.set("apikey", supabaseKey);
     return fetch(input, { ...init, headers });
-  };
+  }) as typeof fetch;
 }
 
 /**

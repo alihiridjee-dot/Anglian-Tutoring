@@ -23,6 +23,7 @@ const point = (id: string, values: Partial<ProgressPoint> = {}): ProgressPoint =
   lastReviewedAt: null,
   reps: 0,
   retention: null,
+  assessability: "unassessable",
   ...values,
 });
 const topic = (points: ProgressPoint[]): TopicProgress => ({
@@ -32,6 +33,14 @@ const topic = (points: ProgressPoint[]): TopicProgress => ({
   masteryPct: 0,
   settled: false,
   practisedCount: 0,
+  assessment: {
+    total: points.length,
+    assessable: 0,
+    assessed: 0,
+    state: "unassessable",
+    masteryPct: null,
+    coveragePct: 0,
+  },
 });
 
 describe("saved review repair", () => {
