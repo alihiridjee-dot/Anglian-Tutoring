@@ -2,6 +2,7 @@ import { Search, Users } from "lucide-react";
 import { type PlannerStudent, type RosterWeekSummary } from "@/lib/planner/plannerRosterDal";
 import { subjectLabel } from "@/lib/curriculum/courseSummary";
 import { type RosterFilter, type TutorPlannerState } from "./useTutorPlanner";
+import { WeekSwitcher } from "./WeekSwitcher";
 
 const FILTERS: { key: RosterFilter; label: string }[] = [
   { key: "all", label: "All" },
@@ -29,22 +30,31 @@ function summaryLine(s: RosterWeekSummary | undefined, editable: boolean): strin
  */
 export function TutorRoster({ state }: { state: TutorPlannerState }) {
   const { students, visibleStudents, summaries, query, setQuery, filter, setFilter } = state;
-  const { studentId, selectStudent, editable } = state;
+  const { studentId, selectStudent, editable, weekStart, currentWeek, shiftWeek, setWeek } = state;
   const total = students?.length ?? 0;
   return (
     <aside
       className="rounded-2xl premium-card shadow-sm flex flex-col min-h-0"
       aria-label="Students"
     >
-      <div className="p-3 border-b border-border space-y-2">
+      <div className="p-3 border-b border-border space-y-3">
         <div className="flex items-center gap-2">
-          <span className="w-8 h-8 rounded-lg bg-primary/10 text-primary flex items-center justify-center shrink-0">
-            <Users className="w-4 h-4" />
+          <span className="icon-tile size-8 shrink-0">
+            <Users className="size-4" aria-hidden />
           </span>
           <h2 className="text-sm font-bold">
             Students <span className="text-muted-foreground font-medium">({total})</span>
           </h2>
         </div>
+        {/* The week every count below is for — and, on a wide screen, the
+            open student's week too. */}
+        <WeekSwitcher
+          weekStart={weekStart}
+          currentWeek={currentWeek}
+          onShift={shiftWeek}
+          onToday={() => setWeek(currentWeek)}
+          className="rounded-xl bg-muted/50 px-2.5 py-2"
+        />
         <label className="flex items-center gap-2 h-9 rounded-lg premium-card px-2.5">
           <Search className="w-3.5 h-3.5 text-muted-foreground shrink-0" aria-hidden />
           <input

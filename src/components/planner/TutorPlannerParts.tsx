@@ -1,37 +1,10 @@
 import { AlertTriangle, Ban, Loader2, Plus, Undo2 } from "lucide-react";
-import { type RoadmapResult } from "@/lib/planner/roadmap";
 import { type SubjectV, type BoardV } from "@/lib/curriculum/taxonomy";
 import { type PlanOverride } from "@/lib/planner/overrides";
 import { SpecPointSelect } from "@/components/tutor/SpecPointSelect";
 import { subjectLabel } from "@/lib/curriculum/courseSummary";
 import { type TutorPlannerState } from "./useTutorPlanner";
 import { type AssignmentWarning } from "./tutorWeekRows";
-
-/** The plan cannot fit before the exam: what is left over, for the tutor to triage. */
-export function SchedulingAttention({ roadmap }: { roadmap: RoadmapResult }) {
-  return (
-    <section className="premium-card tint-amber rounded-xl p-4">
-      <h3 className="text-sm font-bold">Scheduling needs attention</h3>
-      <p className="text-sm">
-        {roadmap.reviewBacklog.length} reviews cannot fit before the exam.{" "}
-        {roadmap.unscheduledTopicTitles.length} topics lack teaching time.
-      </p>
-      <details className="mt-2">
-        <summary className="cursor-pointer text-sm font-bold">See outstanding work</summary>
-        <ul className="list-disc pl-5 text-sm">
-          {roadmap.reviewBacklog.map((p) => (
-            <li key={p.specPointId}>
-              {p.code} {p.pointTitle}
-            </li>
-          ))}
-          {roadmap.unscheduledTopicTitles.map((t) => (
-            <li key={t}>{t} — teaching time needed</li>
-          ))}
-        </ul>
-      </details>
-    </section>
-  );
-}
 
 /** What the tutor has set aside — removed from this week, or skipped in the programme — with the way back. */
 export function OverridesPanel({ state }: { state: TutorPlannerState }) {

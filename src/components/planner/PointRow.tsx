@@ -79,8 +79,10 @@ export function PointRow({ point, card = false }: { point: ProgressPoint; card?:
       </li>
     );
   return (
-    <li className="flex items-center gap-2 py-1">
-      <div className="flex-1 min-w-0">
+    // Wraps: on a phone the marks and standing drop under the title rather than
+    // squeezing it to a word per line.
+    <li className="flex flex-wrap items-center gap-x-2 gap-y-0.5 py-1">
+      <div className="flex-1 min-w-[9rem]">
         <span className="text-[11px] font-semibold text-muted-foreground mr-1.5">{point.code}</span>
         <span className="text-[13px]">{point.title}</span>
       </div>

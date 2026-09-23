@@ -1,11 +1,9 @@
-import { ArrowLeft, CalendarDays, Map as MapIcon, SlidersHorizontal, History } from "lucide-react";
-import { toast } from "sonner";
-import { subjectLabel } from "@/lib/curriculum/courseSummary";
-import { RoadmapPanel } from "./RoadmapPanel";
+import { ArrowLeft, CalendarDays, Map as MapIcon, History } from "lucide-react";
+import { SubjectToggle } from "@/components/Shared";
+import { relativeWeekLabel } from "@/lib/planner/week";
 import { CoveredLedger } from "./CoveredLedger";
-import { TopicOrderEditor } from "./TopicOrderEditor";
 import { TutorWeekTab } from "./TutorWeekTab";
-import { SchedulingAttention } from "./TutorPlannerParts";
+import { TutorFullPlan } from "./fullPlan/TutorFullPlan";
 import { type TutorPlannerState, type TutorTab } from "./useTutorPlanner";
 
 const TABS: { key: TutorTab; label: string; icon: typeof CalendarDays }[] = [
@@ -16,23 +14,22 @@ const TABS: { key: TutorTab; label: string; icon: typeof CalendarDays }[] = [
 
 /**
  * One student, opened from the roster: their name and course up top, the
- * subject picked once, then the same three tabs the student sees — this week,
+ * subject picked once, then the same three tabs the student sees — the week,
  * the road to the exams, and what they have practised — with the tutor's
  * controls on each.
+ *
+ * This header is the only place the student is named. The tabs below it do
+ * not repeat the name or the subject, which is most of what made the full plan
+ * read as boxes inside boxes.
  */
 export function TutorStudentPane({ state }: { state: TutorPlannerState }) {
   const { student, ordered, active, activeSubject, setSubject, tab, setTab, selectStudent } = state;
-  const {
-    roadmap,
-    course,
-    reload,
-    bumpRefresh,
-    refreshToken,
-    orderEditorOpen,
-    setOrderEditorOpen,
-  } = state;
+  const { weekStart, currentWeek } = state;
   if (!student) return null;
   const name = student.name ?? "This student";
+  const courseLabel = [student.level?.replace(/_/g, " "), active?.board.toUpperCase()]
+    .filter(Boolean)
+    .join(" · ");
 
   return (
     <section className="rounded-2xl premium-card shadow-sm overflow-hidden" aria-label={name}>
@@ -41,38 +38,24 @@ export function TutorStudentPane({ state }: { state: TutorPlannerState }) {
           <button
             type="button"
             onClick={() => selectStudent(null)}
-            className="lg:hidden inline-flex items-center gap-1 h-7 px-2 rounded-full bg-muted text-[11px] font-semibold text-muted-foreground hover:text-foreground"
+            className="lg:hidden btn-ghost inline-flex items-center gap-1 h-8 px-2.5 rounded-lg text-xs"
           >
-            <ArrowLeft className="w-3 h-3" aria-hidden /> Students
+            <ArrowLeft className="size-3.5" aria-hidden /> Students
           </button>
-          <h2 className="font-display text-lg sm:text-xl font-bold tracking-tight">{name}</h2>
-          {student.level && (
-            <span className="chip tint-slate text-[10px] uppercase tracking-wide">
-              {student.level.replace("_", " ")}
+          <h2 className="text-lg sm:text-xl font-bold tracking-tight">{name}</h2>
+          {courseLabel && (
+            <span className="chip tint-slate text-[11px] uppercase tracking-wide">
+              {courseLabel}
             </span>
-          )}
-          {active && (
-            <span className="text-xs text-muted-foreground">{active.board.toUpperCase()}</span>
           )}
         </div>
         {ordered.length > 1 && (
-          <div className="flex items-center gap-1.5 mb-3" role="tablist" aria-label="Subject">
-            {ordered.map((e) => (
-              <button
-                key={e.subject}
-                type="button"
-                role="tab"
-                aria-selected={e.subject === activeSubject}
-                onClick={() => setSubject(e.subject)}
-                className={`h-8 px-3.5 rounded-full text-sm font-medium transition ${
-                  e.subject === activeSubject
-                    ? "btn-solid"
-                    : "bg-muted text-muted-foreground hover:text-foreground"
-                }`}
-              >
-                {subjectLabel(e.subject)}
-              </button>
-            ))}
+          <div className="mb-3">
+            <SubjectToggle
+              subjects={ordered.map((e) => e.subject)}
+              value={activeSubject}
+              onChange={setSubject}
+            />
           </div>
         )}
         <nav className="flex gap-1 -mb-px overflow-x-auto" aria-label="Planner sections">
@@ -89,7 +72,9 @@ export function TutorStudentPane({ state }: { state: TutorPlannerState }) {
               }`}
             >
               <Icon className="w-4 h-4" aria-hidden />
-              {label}
+              {/* The week tab names the week it shows, so moving the week in
+                  the roster is visible here too. */}
+              {key === "week" ? relativeWeekLabel(weekStart, currentWeek) : label}
             </button>
           ))}
         </nav>
@@ -107,47 +92,7 @@ export function TutorStudentPane({ state }: { state: TutorPlannerState }) {
         ) : tab === "week" ? (
           <TutorWeekTab state={state} />
         ) : tab === "plan" ? (
-          <div className="space-y-4">
-            {roadmap?.focusLoad.overloaded && <SchedulingAttention roadmap={roadmap} />}
-            {orderEditorOpen && roadmap ? (
-              <TopicOrderEditor
-                key={`${student.id}:${course.subject}`}
-                data={roadmap}
-                course={course}
-                asTutor
-                studentName={student.name}
-                onCancel={() => setOrderEditorOpen(false)}
-                onSaved={async () => {
-                  await reload();
-                  bumpRefresh();
-                  toast.success(`Topic order saved for ${name}.`);
-                  setOrderEditorOpen(false);
-                }}
-              />
-            ) : (
-              <>
-                {roadmap && !roadmap.needsAck && (
-                  <div className="flex justify-end">
-                    <button
-                      type="button"
-                      onClick={() => setOrderEditorOpen(true)}
-                      className="inline-flex items-center gap-1.5 h-9 px-3 rounded-lg border border-border text-sm font-medium hover:bg-muted"
-                    >
-                      <SlidersHorizontal className="w-4 h-4" aria-hidden /> Change topic order
-                    </button>
-                  </div>
-                )}
-                <RoadmapPanel
-                  studentId={student.id}
-                  enrolments={[active]}
-                  level={student.level}
-                  asTutor
-                  studentName={student.name}
-                  refreshToken={refreshToken}
-                />
-              </>
-            )}
-          </div>
+          <TutorFullPlan key={`${student.id}:${active.subject}`} state={state} />
         ) : (
           <CoveredLedger
             studentId={student.id}

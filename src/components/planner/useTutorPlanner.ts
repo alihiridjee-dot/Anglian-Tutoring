@@ -136,9 +136,6 @@ export function useTutorPlanner() {
   const [toAdd, setToAdd] = useState<string[]>([]);
   const [adding, setAdding] = useState(false);
   const [orderEditorOpen, setOrderEditorOpen] = useState(false);
-  // Bumped after any plan mutation so the roadmap re-derives from the DB.
-  const [refreshToken, setRefreshToken] = useState(0);
-  const bumpRefresh = () => setRefreshToken((n) => n + 1);
 
   const course = {
     studentId,
@@ -154,6 +151,15 @@ export function useTutorPlanner() {
     enabled: !!student && !!active,
   });
   const { plan, points, coverage, activity, roadmap, loading, reload } = week;
+  /**
+   * After any change to the plan: re-read the student's planner (the week and
+   * the roadmap share one cache, so both tabs follow) and the roster's counts.
+   */
+  const refreshSummaries = summaries.refetch;
+  const refreshAll = useCallback(async () => {
+    await reload();
+    void refreshSummaries();
+  }, [reload, refreshSummaries]);
   useEffect(() => {
     setPicking(false);
     setToAdd([]);
@@ -245,11 +251,7 @@ export function useTutorPlanner() {
     weekStart,
     plan,
     studentName: student?.name ?? null,
-    onChanged: () => {
-      void reload();
-      void summaries.refetch();
-      bumpRefresh();
-    },
+    onChanged: () => void refreshAll(),
   });
 
   /**
@@ -274,9 +276,7 @@ export function useTutorPlanner() {
       toast.success(`Added ${toAdd.length} spec ${toAdd.length === 1 ? "point" : "points"}.`);
       setToAdd([]);
       setPicking(false);
-      await reload();
-      void summaries.refetch();
-      bumpRefresh();
+      await refreshAll();
     } catch (e) {
       toast.error(e instanceof Error ? e.message : "Couldn't add those — try again.");
     } finally {
@@ -317,8 +317,7 @@ export function useTutorPlanner() {
     setToAdd,
     adding,
     warnings,
-    refreshToken,
-    bumpRefresh,
+    refreshAll,
     week,
     plan,
     points,

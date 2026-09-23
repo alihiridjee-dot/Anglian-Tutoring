@@ -1,5 +1,5 @@
 import { expect, test } from "bun:test";
-import { addWeeks, currentWeekKey, weekKeyToDate, toDateKey } from "./week";
+import { addWeeks, currentWeekKey, relativeWeekLabel, weekKeyToDate, toDateKey } from "./week";
 
 test("UK Monday keys do not follow the viewer's timezone", () => {
   expect(currentWeekKey(new Date("2026-09-06T23:30:00Z"))).toBe("2026-09-07");
@@ -31,4 +31,12 @@ test("calendar weeks retain midnight through both BST transitions", () => {
 test("invalid date keys fail rather than rolling into another month", () => {
   for (const key of ["2026-02-30", "2026-13-01", "garbage"])
     expect(() => weekKeyToDate(key)).toThrow();
+});
+test("relative week labels count whole weeks, across a clock change", () => {
+  expect(relativeWeekLabel("2026-09-21", "2026-09-21")).toBe("This week");
+  expect(relativeWeekLabel("2026-09-28", "2026-09-21")).toBe("Next week");
+  expect(relativeWeekLabel("2026-09-14", "2026-09-21")).toBe("Last week");
+  // BST ends on 25 Oct 2026, between these two Mondays.
+  expect(relativeWeekLabel("2026-11-02", "2026-10-19")).toBe("In 2 weeks");
+  expect(relativeWeekLabel("2026-08-31", "2026-09-21")).toBe("3 weeks ago");
 });
