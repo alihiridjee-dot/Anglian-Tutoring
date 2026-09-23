@@ -70,11 +70,13 @@ export function TutorPlannerPanel() {
         </div>
       </div>
 
-      <div className="grid gap-4 lg:grid-cols-[19rem_minmax(0,1fr)] items-start">
-        <div className={studentId ? "hidden lg:block" : ""}>
+      {/* minmax(0, …) on both tracks: a grid track defaults to min-content, and a
+          long spec-point title would widen the pane past a phone screen. */}
+      <div className="grid gap-4 grid-cols-[minmax(0,1fr)] lg:grid-cols-[19rem_minmax(0,1fr)] items-start">
+        <div className={`min-w-0 ${studentId ? "hidden lg:block" : ""}`}>
           <TutorRoster state={state} />
         </div>
-        <div className={studentId ? "" : "hidden lg:block"}>
+        <div className={`min-w-0 ${studentId ? "" : "hidden lg:block"}`}>
           {student ? (
             <TutorStudentPane state={state} />
           ) : (
