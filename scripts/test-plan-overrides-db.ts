@@ -49,7 +49,7 @@ create table mcq_questions(set_id uuid, spec_point_id uuid);
 `);
 await db.exec(
   await readFile(
-    new URL("../supabase/migrations/20260922120000_planner_tutor_overrides.sql", import.meta.url),
+    new URL("../supabase/migrations/20260922104641_planner_tutor_overrides.sql", import.meta.url),
     "utf8",
   ),
 );

@@ -48,11 +48,16 @@ history and cannot be changed.
 | Database | `enforce_plan_overrides` | Drops an automatic insert/update of an overridden point, whatever client wrote it; pins pass |
 | Database | `remove_plan_point`, `skip_plan_point` | Tutor/admin only; refuse past weeks, wrong subject; report when the student's work kept a point |
 | Database | `reorder_student_topics` | New trailing `_student_id`; a tutor or admin may name a student |
-| UI | `TutorPlannerPanel.tsx` + parts | Saved and projected rows on one list; remove / move / skip per row; restore lists; assignment warnings; inline topic-order editor |
+| UI | `TutorPlannerPanel.tsx` | Master-detail: one week control, the roster down the side, the open student in the middle; student, subject, week and tab live in the URL (`lib/planner/plannerSearch.ts`) |
+| UI | `TutorRoster.tsx` | Every student with "6 set · 2 done · 1 by you" per subject from one read (`PlannerRosterDAL.weekSummaries`); search; filters for "Not opened" and "Set by you" |
+| UI | `TutorStudentPane.tsx` | Name, level, subject pills, then This week / Full plan / Practice history tabs; topic-order editor under Full plan |
+| UI | `TutorWeekTab.tsx` | Rows filed by lane — Course this week, Catching up, Revision, Set by you, Added by the student — with a stats strip, the set-aside lists, the add box with warnings, and the week review |
+| UI | `TutorRowMenu.tsx` | One "⋯" menu per row, in words: move to next week, move to another week, remove from this week, skip in the programme |
 
 The screen shows the programme's projection for any week it has not cut yet
 (`showsProjection` in `tutorWeekRows.ts`), so next week can be changed before
-the student meets it. A projected row can be removed with nothing to delete.
+the student meets it. A projected row can be removed with nothing to delete;
+the only sign a week is uncut is one banner, not a chip per row.
 
 ## Edge cases handled
 
@@ -77,20 +82,21 @@ the student meets it. A projected row can be removed with nothing to delete.
 
 ## Database
 
-`supabase/migrations/20260922120000_planner_tutor_overrides.sql`, idempotent.
-Rollback: `supabase/rollbacks/20260922120000_planner_tutor_overrides.down.sql`.
+`supabase/migrations/20260922104641_planner_tutor_overrides.sql`, idempotent.
+Rollback: `supabase/rollbacks/20260922104641_planner_tutor_overrides.down.sql`.
 `assessment_scheduler_version()` returns **5**; the client shows the override
 controls at 5 or later.
 
-**Not applied to the linked project by this branch.** Apply it after the
-frontend is deployed or before — both orders are safe — with:
+**Applied to the linked project (`peohauhwquuvghrpmotf`) on 2026-09-22** via the
+Supabase MCP, which recorded it as version `20260922104641`; the local file is
+named to match. Verified live afterwards: version 5, the table and its three
+policies, both triggers on `student_weekly_plan_points`, the ten-argument
+`reorder_student_topics`, execute granted to `authenticated` and not `anon`, and
+every function body md5-equal to the file (comments stripped — the MCP copy
+omitted them).
 
-```bash
-supabase db push --include-all   # or apply the single file by hand
-```
-
-Then regenerate `src/integrations/supabase/types.ts` if the hand-written
-additions drift from the generated shape.
+`src/integrations/supabase/types.ts` was written by hand for the new table,
+enum and functions; regenerate it if the generated shape drifts.
 
 ## Verification
 

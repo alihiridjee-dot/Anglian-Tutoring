@@ -1,49 +1,116 @@
 import { useQuery } from "@tanstack/react-query";
+import { useNavigate, useSearch } from "@tanstack/react-router";
 import { useWeekPlan } from "./useWeekPlan";
-import { useEffect, useMemo, useState } from "react";
+import { useCallback, useEffect, useMemo, useState } from "react";
 import { toast } from "sonner";
-import { PlannerRosterDAL } from "@/lib/planner/plannerRosterDal";
+import { PlannerRosterDAL, type PlannerStudent } from "@/lib/planner/plannerRosterDal";
 import { PlanOverridesDAL } from "@/lib/planner/planOverridesDal";
 import { selectWeek } from "@/lib/planner/weekCut";
 import { overridesForWeek } from "@/lib/planner/overrides";
-import { type SubjectV, type BoardV, type LevelV } from "@/lib/curriculum/taxonomy";
+import { statusOfPoint, type PointStatus } from "@/lib/planner/coverage";
+import { isSubject, type SubjectV, type BoardV, type LevelV } from "@/lib/curriculum/taxonomy";
 import {
-  mondayOf,
   addWeeks,
   currentWeekKey,
   toDateKey,
   weekKeyToDate,
   weekRangeLabel,
 } from "@/lib/planner/week";
-import {
-  assignmentWarnings,
-  showsProjection,
-  tutorWeekRows,
-  type TutorWeekGroup,
-} from "./tutorWeekRows";
+import { assignmentWarnings, laneSections, showsProjection, tutorWeekRows } from "./tutorWeekRows";
 import { useTutorOverrides } from "./useTutorOverrides";
+import type { PlannerSearch } from "@/lib/planner/plannerSearch";
+
+export type TutorTab = "week" | "plan" | "topics";
+export type RosterFilter = "all" | "unopened" | "pinned";
+
+/** How the week is going, counted from the saved rows' coverage. */
+export interface WeekStats {
+  total: number;
+  saved: number;
+  projected: number;
+  pinned: number;
+  done: number;
+  byStatus: Record<PointStatus, number>;
+}
+
+const isWeekKey = (s: string | undefined): s is string => !!s && /^\d{4}-\d{2}-\d{2}$/.test(s);
 
 /**
- * The tutor planner's working state: which student, subject and week are in
- * view, that week as the student will meet it — what is saved plus what the
- * programme will add — and the tutor's controls over it.
+ * The tutor planner's working state. Which student, subject, week and tab are
+ * open lives in the URL, so a student's week is a link: it survives a reload,
+ * the back button works, and it can be handed to a colleague. Everything
+ * derived — the roster's per-week summaries, the open student's week as they
+ * will meet it, and the tutor's controls over it — hangs off that.
  */
-export function useTutorPlanner(initialStudentId?: string) {
+export function useTutorPlanner() {
+  // Read loosely, as the curriculum page does: the route's own reader would
+  // bind this hook to one route id, and the search shape is already validated
+  // by the route before it gets here.
+  const search = useSearch({ strict: false }) as PlannerSearch;
+  const navigate = useNavigate();
+  const setSearch = useCallback(
+    (patch: Partial<PlannerSearch>) => {
+      void navigate({
+        to: "/planner",
+        search: (prev: PlannerSearch) => ({ ...prev, ...patch }),
+        replace: true,
+      });
+    },
+    [navigate],
+  );
+
+  /* ── Roster ─────────────────────────────────────────────────────────── */
   const roster = useQuery({
     queryKey: ["planner-roster"],
     queryFn: () => PlannerRosterDAL.listStudents(),
+    staleTime: 60_000,
   });
-  const students = roster.data ?? null;
-  const [studentId, setStudentId] = useState<string>(initialStudentId ?? "");
-  useEffect(() => {
-    // A requested student who isn't on the roster (no enrolments, or not a
-    // student) falls back to the first, the same as no request at all.
-    if (students?.length && !students.some((s) => s.id === studentId)) {
-      setStudentId(students[0].id);
-    }
-  }, [students, studentId]);
+  const students = useMemo(() => roster.data ?? null, [roster.data]);
 
-  const student = students?.find((s) => s.id === studentId) ?? null;
+  const currentWeek = currentWeekKey();
+  const weekStart = isWeekKey(search.week) ? search.week : currentWeek;
+  const weekLabel = weekRangeLabel(weekKeyToDate(weekStart));
+  const isCurrent = weekStart === currentWeek;
+  const showReview = weekStart <= currentWeek;
+  // History is read-only: what was not set then is not owed now.
+  const editable = weekStart >= currentWeek;
+  const setWeek = useCallback((key: string) => setSearch({ week: key }), [setSearch]);
+  const shiftWeek = useCallback(
+    (n: number) => setWeek(toDateKey(addWeeks(weekKeyToDate(weekStart), n))),
+    [setWeek, weekStart],
+  );
+
+  const summaries = useQuery({
+    queryKey: ["planner-roster-week", weekStart],
+    queryFn: () => PlannerRosterDAL.weekSummaries(weekStart),
+    staleTime: 30_000,
+  });
+
+  const [query, setQuery] = useState("");
+  const [filter, setFilter] = useState<RosterFilter>("all");
+  const visibleStudents = useMemo(() => {
+    const q = query.trim().toLowerCase();
+    const byStudent = summaries.data ?? new Map();
+    return (students ?? []).filter((s) => {
+      if (q && !(s.name ?? "").toLowerCase().includes(q)) return false;
+      if (filter === "all") return true;
+      const mine = byStudent.get(s.id) ?? [];
+      if (filter === "pinned") return mine.some((w: { pinned: number }) => w.pinned > 0);
+      // Unopened: at least one enrolled subject with no plan row for the week.
+      return s.enrolments.some(
+        (e) => !mine.some((w: { subject: string }) => w.subject === e.subject),
+      );
+    });
+  }, [students, summaries.data, query, filter]);
+
+  /* ── Selection ──────────────────────────────────────────────────────── */
+  const studentId = search.student ?? "";
+  const student: PlannerStudent | null = students?.find((s) => s.id === studentId) ?? null;
+  const selectStudent = useCallback(
+    (id: string | null) => setSearch({ student: id ?? undefined, subject: undefined }),
+    [setSearch],
+  );
+
   const ordered = useMemo(
     () =>
       student
@@ -54,27 +121,22 @@ export function useTutorPlanner(initialStudentId?: string) {
         : [],
     [student],
   );
-  const [activeSubject, setActiveSubject] = useState<string>("");
-  useEffect(() => {
-    setActiveSubject(ordered[0]?.subject ?? "");
-  }, [ordered]);
+  const activeSubject =
+    (isSubject(search.subject) && ordered.some((e) => e.subject === search.subject)
+      ? search.subject
+      : ordered[0]?.subject) ?? "";
+  const setSubject = useCallback((subject: string) => setSearch({ subject }), [setSearch]);
   const active = ordered.find((e) => e.subject === activeSubject) ?? ordered[0];
 
-  const [weekOffset, setWeekOffset] = useState(0);
-  const weekStart = toDateKey(addWeeks(mondayOf(), weekOffset));
-  const weekLabel = weekRangeLabel(addWeeks(mondayOf(), weekOffset));
-  const currentWeek = currentWeekKey();
-  const isCurrent = weekOffset === 0;
-  const showReview = weekOffset <= 0;
-  // History is read-only: what was not set then is not owed now.
-  const editable = weekOffset >= 0;
+  const tab: TutorTab = search.tab ?? "week";
+  const setTab = useCallback((t: TutorTab) => setSearch({ tab: t }), [setSearch]);
 
+  /* ── The open student's week ────────────────────────────────────────── */
   const [picking, setPicking] = useState(false);
   const [toAdd, setToAdd] = useState<string[]>([]);
   const [adding, setAdding] = useState(false);
   const [orderEditorOpen, setOrderEditorOpen] = useState(false);
-  // Bumped after any plan mutation so the roadmap below re-derives from the DB —
-  // keeping the curriculum view in sync with edits in real time.
+  // Bumped after any plan mutation so the roadmap re-derives from the DB.
   const [refreshToken, setRefreshToken] = useState(0);
   const bumpRefresh = () => setRefreshToken((n) => n + 1);
 
@@ -89,6 +151,7 @@ export function useTutorPlanner(initialStudentId?: string) {
     weekStart,
     isCurrent: false,
     withCoverage: showReview,
+    enabled: !!student && !!active,
   });
   const { plan, points, coverage, activity, roadmap, loading, reload } = week;
   useEffect(() => {
@@ -119,10 +182,32 @@ export function useTutorPlanner(initialStudentId?: string) {
         : null,
     [roadmap, weekStart, currentWeek, plan],
   );
-  const groups: TutorWeekGroup[] = useMemo(
+  const rows = useMemo(
     () => tutorWeekRows({ saved: points, projection, roadmap, overrides, weekStart }),
     [points, projection, roadmap, overrides, weekStart],
   );
+  const lanes = useMemo(() => laneSections(rows), [rows]);
+  const stats = useMemo<WeekStats>(() => {
+    const byStatus: Record<PointStatus, number> = {
+      strong: 0,
+      practised: 0,
+      weak: 0,
+      not_done: 0,
+      not_set: 0,
+    };
+    if (showReview)
+      for (const r of rows)
+        if (r.state === "saved")
+          byStatus[statusOfPoint(coverage.get(r.specPointId), activity.get(r.specPointId))]++;
+    return {
+      total: rows.length,
+      saved: rows.filter((r) => r.state === "saved").length,
+      projected: rows.filter((r) => r.state === "projected").length,
+      pinned: rows.filter((r) => r.origin === "tutor").length,
+      done: rows.filter((r) => !!r.doneAt).length,
+      byStatus,
+    };
+  }, [rows, coverage, activity, showReview]);
   const weekOverrides = useMemo(
     () => overridesForWeek(overrides, weekStart),
     [overrides, weekStart],
@@ -162,6 +247,7 @@ export function useTutorPlanner(initialStudentId?: string) {
     studentName: student?.name ?? null,
     onChanged: () => {
       void reload();
+      void summaries.refetch();
       bumpRefresh();
     },
   });
@@ -189,6 +275,7 @@ export function useTutorPlanner(initialStudentId?: string) {
       setToAdd([]);
       setPicking(false);
       await reload();
+      void summaries.refetch();
       bumpRefresh();
     } catch (e) {
       toast.error(e instanceof Error ? e.message : "Couldn't add those — try again.");
@@ -200,22 +287,30 @@ export function useTutorPlanner(initialStudentId?: string) {
   return {
     roster,
     students,
+    summaries: summaries.data ?? null,
+    query,
+    setQuery,
+    filter,
+    setFilter,
+    visibleStudents,
     studentId,
-    setStudentId,
     student,
+    selectStudent,
     ordered,
     activeSubject,
-    setActiveSubject,
+    setSubject,
     active,
     course,
-    weekOffset,
-    setWeekOffset,
     weekStart,
     weekLabel,
     currentWeek,
     isCurrent,
     showReview,
     editable,
+    setWeek,
+    shiftWeek,
+    tab,
+    setTab,
     picking,
     setPicking,
     toAdd,
@@ -233,7 +328,9 @@ export function useTutorPlanner(initialStudentId?: string) {
     loading,
     reload,
     addSelected,
-    groups,
+    rows,
+    lanes,
+    stats,
     projection,
     overrides,
     weekOverrides,

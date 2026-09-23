@@ -1,10 +1,10 @@
--- DOWN for migrations/20260922120000_planner_tutor_overrides.sql.
+-- DOWN for migrations/20260922104641_planner_tutor_overrides.sql.
 --
 -- Kept out of supabase/migrations on purpose: the CLI applies everything in
 -- that folder, in order, and a rollback must only ever run by hand.
 --
 --     psql "$DATABASE_URL" -v ON_ERROR_STOP=1 \
---       -f supabase/rollbacks/20260922120000_planner_tutor_overrides.down.sql
+--       -f supabase/rollbacks/20260922104641_planner_tutor_overrides.down.sql
 --
 -- Drops the override table (and every tutor decision in it), the trigger and
 -- RPCs, restores `save_weekly_plan` and `reorder_student_topics` to their
