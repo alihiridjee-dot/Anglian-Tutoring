@@ -7,7 +7,6 @@ import { useAnalytics } from "@/hooks/data/useAnalytics";
 import { isDemoStudent, DEMO_STUDENT_NAME } from "@/lib/demo/studentDemo";
 import { resolveDisplayName } from "@/lib/displayName";
 import type { ReactNode } from "react";
-import { WeeklyFocusCard } from "@/components/weekly/WeeklyFocusCard";
 import { LiveSessionsBanner } from "@/components/live/LiveSessionsBanner";
 import { WeeklyPlanPanel } from "@/components/planner/WeeklyPlanPanel";
 import { guardStudentHome } from "@/lib/routeGuards";
@@ -96,13 +95,6 @@ export function StudentDashboard({
           </div>
         )
       )}
-
-      {/* "This Week" hub — the curriculum focus the tutor set for the current
-          Mon–Sun week, plus curated videos and links to homework, MCQs and live
-          sessions. Live strip suppressed here since it now has its own banner. */}
-      <div data-tour="tutor-focus">
-        <WeeklyFocusCard subjects={enrolledCourses} showLive={false} />
-      </div>
 
       {afterContent}
     </AppLayout>

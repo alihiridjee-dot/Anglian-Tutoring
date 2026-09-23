@@ -6,7 +6,7 @@ import { requireSupabaseAuth } from "@/integrations/supabase/auth-middleware";
 // drop into a live session's description. It runs in the tutor studio (not per
 // student view): the tutor clicks generate, the text lands in the editable
 // description field, and once the session is scheduled that same description is
-// what the student sees on their countdown banner. Mirrors weeklySummary's setup.
+// what the student sees on their countdown banner. Mirrors suggestSpecPoints' setup.
 
 const MODEL = "claude-sonnet-5";
 

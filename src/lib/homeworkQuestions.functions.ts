@@ -7,6 +7,7 @@ import {
 import type { WrittenQuestion } from "./examGeneration";
 import { requireSupabaseAuth } from "@/integrations/supabase/auth-middleware";
 import { SUBJECTS, LEVELS, BOARDS } from "@/lib/taxonomy";
+import { currentWeekKey, weekKeyToDate } from "@/lib/week";
 import type { SupabaseClient } from "@supabase/supabase-js";
 import type { Database } from "@/integrations/supabase/types";
 
@@ -143,11 +144,21 @@ const QUESTIONS_PER_POINT = 5;
  */
 const GENERATIONS_PER_HOUR = 12;
 
+/** Sheets written ahead of time go live at this hour, UK time, on their Monday. */
+const PUBLISH_HOUR = 7;
+
 type EnsureInput = {
   specPointIds: string[];
   subject: string;
   board: string;
   level: string;
+  /**
+   * The Monday these points are planned for, when that is not the week under
+   * way. A sheet written ahead of time waits behind the tutor's review gate
+   * until that Monday morning; one written for the current week is needed now
+   * and goes live at once.
+   */
+  forWeekStart?: string;
 };
 
 export interface EnsureHomeworkResult {
@@ -194,19 +205,34 @@ export const ensureHomeworkForPoints = createServerFn({ method: "POST" })
     const board = BOARDS.find((b) => b.value === input?.board)?.value ?? null;
     // A week is a handful of points; the cap is what stops a hand-rolled
     // request asking for the whole specification in one call.
-    return { specPointIds: ids.slice(0, 12), subject, board, level };
+    // Only a future Monday holds a sheet back. Anything else — a past week, a
+    // malformed key — is treated as "needed now", which is the behaviour that
+    // cannot strand a student without their homework.
+    let publishAt: string | null = null;
+    const week = String(input?.forWeekStart ?? "");
+    if (/^\d{4}-\d{2}-\d{2}$/.test(week) && week > currentWeekKey()) {
+      try {
+        publishAt = new Date(
+          weekKeyToDate(week).getTime() + PUBLISH_HOUR * 3_600_000,
+        ).toISOString();
+      } catch {
+        publishAt = null;
+      }
+    }
+    return { specPointIds: ids.slice(0, 12), subject, board, level, publishAt };
   })
   .handler(async ({ data, context }): Promise<EnsureHomeworkResult> => {
     const { supabase, userId } = context;
 
-    const { data: already, error: haveErr } = await supabase
-      .from("resources")
-      .select("spec_point_id")
-      .eq("kind", "homework")
-      .in("spec_point_id", data.specPointIds);
+    // Asked through a function rather than of `resources` directly: a sheet a
+    // tutor is holding, or one waiting for its Monday, is invisible to the
+    // student this runs as, and must still count as written.
+    const { data: already, error: haveErr } = await supabase.rpc("homework_points_with_sheet", {
+      _spec_point_ids: data.specPointIds,
+    });
     if (haveErr) throw haveErr;
 
-    const have = new Set((already ?? []).map((r) => r.spec_point_id).filter(Boolean));
+    const have = new Set(already ?? []);
     const missing = data.specPointIds.filter((id) => !have.has(id));
     if (missing.length === 0) {
       return { created: 0, existing: data.specPointIds.length, throttled: false };
@@ -263,6 +289,7 @@ export const ensureHomeworkForPoints = createServerFn({ method: "POST" })
           _level: data.level,
           _board: generation.point.board,
           _created_by: userId,
+          _publish_at: data.publishAt,
           _questions: questions.map((q) => ({
             prompt: q.prompt,
             marks: q.marks,

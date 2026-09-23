@@ -13,6 +13,7 @@ import { getSessionUserId } from "@/lib/auth/session";
 import { ensureHomeworkForPoints } from "@/lib/homeworkQuestions.functions";
 import { ensureMcqForPoints } from "@/lib/mcq.functions";
 import { courseKey, invalidatePlanner, roadmapQuery } from "@/lib/planner/queries";
+import { addWeeks, toDateKey, weekKeyToDate } from "@/lib/week";
 
 export type Activity = Map<string, PointActivity & PointWork>;
 export interface WeekPlanState {
@@ -200,6 +201,68 @@ export function useWeekPlan(params: {
       }
     })();
   }, [missingQuiz, isCurrent, studentId, client, params]);
+
+  /**
+   * Write next week's sheets now, so a tutor can read them before anyone needs
+   * them.
+   *
+   * A sheet written for the week under way has to go live immediately — the
+   * student is waiting on it — which leaves no room for review. Next week's
+   * teaching points are already known from the roadmap, so their sheets are
+   * written early and held behind the review gate until that Monday morning.
+   * Only teach bands are read: next week's revision depends on marks that have
+   * not happened yet, and a sheet for a point is the same sheet whoever reaches
+   * it, so anything this misses is simply written on the day, as before.
+   */
+  const liveRoadmap = params.roadmap !== undefined ? params.roadmap : road.data;
+  const nextWeek = useMemo(() => {
+    try {
+      return toDateKey(addWeeks(weekKeyToDate(weekStart), 1));
+    } catch {
+      return "";
+    }
+  }, [weekStart]);
+  const upcoming = useMemo(() => {
+    if (!liveRoadmap || !nextWeek) return "";
+    const ids = liveRoadmap.bands.flatMap((b) =>
+      (b.pointsByWeek?.[nextWeek] ?? []).map((p) => p.specPointId),
+    );
+    return [...new Set(ids)].sort().join(",");
+  }, [liveRoadmap, nextWeek]);
+  useEffect(() => {
+    if (!upcoming || !isCurrent) return;
+    // This week first. Both draw on the same hourly budget, and the sheet a
+    // student is waiting on must never lose it to one nobody needs until Monday.
+    if (!activity.data || missingHomework) return;
+    if (attempted.current.has(`upcoming:${upcoming}`)) return;
+    attempted.current.add(`upcoming:${upcoming}`);
+    void (async () => {
+      if ((await getSessionUserId()) !== studentId) return;
+      try {
+        await ensureHomeworkForPoints({
+          data: {
+            specPointIds: upcoming.split(","),
+            subject,
+            board,
+            level,
+            forWeekStart: nextWeek,
+          },
+        });
+      } catch {
+        // Soft, like the rest: a sheet not written early is written on the day.
+      }
+    })();
+  }, [
+    upcoming,
+    nextWeek,
+    isCurrent,
+    studentId,
+    subject,
+    board,
+    level,
+    activity.data,
+    missingHomework,
+  ]);
 
   const reload = useCallback(async () => {
     await invalidatePlanner(client, studentId);

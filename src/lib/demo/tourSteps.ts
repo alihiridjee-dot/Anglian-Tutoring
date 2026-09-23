@@ -52,13 +52,6 @@ export const TOUR_STEPS: TourStep[] = [
     body: "The same week as a checklist. Every spec point has its video, quiz and homework one click away. Try pressing Play, or tick a point off.",
   },
   {
-    path: "/demo/student/dashboard",
-    target: '[data-tour="tutor-focus"]',
-    chapter: "Student",
-    title: "Extra focus from the tutor",
-    body: "Tutors add their own focus for the week, with a short note on why it matters and the videos that go with it.",
-  },
-  {
     path: "/demo/student/planner",
     target: '[data-tour="roadmap"]',
     chapter: "Student",

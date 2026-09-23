@@ -1,6 +1,12 @@
 import type { HomeworkQuestion, HomeworkAnswer } from "@/hooks/data/useHomeworkQuestions";
 import type { QuestionMark } from "@/hooks/data/useAnswerMarking";
 
+/** Nudge a mark by one, kept inside what the question is worth. */
+function step(raw: string, delta: number, max: number): number {
+  const current = Number(raw);
+  return Math.min(max, Math.max(0, (Number.isFinite(current) ? current : 0) + delta));
+}
+
 /**
  * Marking a built-in homework question by question.
  *
@@ -11,7 +17,7 @@ import type { QuestionMark } from "@/hooks/data/useAnswerMarking";
  * marking rather than estimated.
  *
  * Purely presentational: the loading and mark state live in
- * `useAnswerMarking`, which the marking queue owns.
+ * `useAnswerMarking`, which the grading review owns.
  */
 export function AnswerMarkingList({
   questions,
@@ -53,18 +59,37 @@ export function AnswerMarkingList({
             )}
 
             <div className="flex flex-wrap items-center gap-3">
-              <label className="inline-flex items-center gap-2 text-xs text-muted-foreground">
+              {/* A stepper either side of the box: most corrections are one mark
+                  up or down, and that should not need the keyboard. */}
+              <div className="inline-flex items-center gap-1.5 text-xs text-muted-foreground">
                 Marks
+                <button
+                  type="button"
+                  aria-label={`One mark fewer for question ${i + 1}`}
+                  onClick={() => setMark(q.id, { marks: String(step(m.marks, -1, q.marks)) })}
+                  className="icon-tile size-8 cursor-pointer"
+                >
+                  −
+                </button>
                 <input
                   type="number"
                   min={0}
                   max={q.marks}
                   value={m.marks}
+                  aria-label={`Marks for question ${i + 1}`}
                   onChange={(e) => setMark(q.id, { marks: e.target.value })}
-                  placeholder={`/${q.marks}`}
-                  className="w-20 h-9 rounded-lg premium-input px-2 text-sm"
+                  className="w-14 h-9 rounded-lg premium-input px-2 text-sm text-center"
                 />
-              </label>
+                <button
+                  type="button"
+                  aria-label={`One mark more for question ${i + 1}`}
+                  onClick={() => setMark(q.id, { marks: String(step(m.marks, 1, q.marks)) })}
+                  className="icon-tile size-8 cursor-pointer"
+                >
+                  +
+                </button>
+                <span className="numeral">/ {q.marks}</span>
+              </div>
               <input
                 value={m.feedback}
                 onChange={(e) => setMark(q.id, { feedback: e.target.value })}

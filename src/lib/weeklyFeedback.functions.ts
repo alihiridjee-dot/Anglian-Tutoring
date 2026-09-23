@@ -13,7 +13,7 @@ import { requireSupabaseAuth } from "@/integrations/supabase/auth-middleware";
 // Metrics come in as input rather than being re-queried server-side because the
 // coverage mapping (mapAttemptSources) is bound to the browser Supabase client;
 // the tutor already sees these numbers, so trusting the payload is fine for a
-// text-only generation. Mirrors the suggestSpecPoints / weeklySummary setup
+// text-only generation. Mirrors the suggestSpecPoints setup
 // (Anthropic claude-sonnet-5, needs ANTHROPIC_API_KEY).
 
 const MODEL = "claude-sonnet-5";

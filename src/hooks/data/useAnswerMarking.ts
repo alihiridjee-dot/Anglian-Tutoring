@@ -6,7 +6,7 @@ import type { HomeworkQuestion, HomeworkAnswer } from "@/hooks/data/useHomeworkQ
  * Loads one submission's questions and answers, and holds the marks the tutor
  * awards as they work down them.
  *
- * Loading is lazy: a marking queue can hold dozens of submissions, and only the
+ * Loading is lazy: a grading queue can hold dozens of submissions, and only the
  * open one needs its answers — hence the `open` flag rather than fetching on
  * mount. Rendering lives in `AnswerMarkingList`.
  *

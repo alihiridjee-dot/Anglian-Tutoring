@@ -1,26 +1,38 @@
-import { createFileRoute, useNavigate } from "@tanstack/react-router";
-import { useEffect, useState } from "react";
+import { createFileRoute } from "@tanstack/react-router";
+import { useCallback, useEffect, useState } from "react";
 import { Spinner } from "@/components/Shared";
 import { AppLayout } from "@/components/AppLayout";
 import { useRoles } from "@/hooks/useRole";
 import { useEnrolments } from "@/hooks/data/useEnrolments";
 import { resolveDisplayName } from "@/lib/displayName";
 import { toast } from "sonner";
-import { PlayCircle, ClipboardList, Wrench, ClipboardCheck, CalendarRange } from "lucide-react";
+import { PlayCircle, ClipboardList, Wrench, GraduationCap, CalendarClock } from "lucide-react";
 
-import { ThisWeekPanel } from "@/components/tutor/ThisWeekPanel";
 import { VideoForm } from "@/components/tutor/VideoForm";
 import { HomeworkForm } from "@/components/tutor/HomeworkForm";
-import { MarkingQueue } from "@/components/tutor/MarkingQueue";
+import { LiveForm } from "@/components/tutor/LiveForm";
+import { HomeworkGrades } from "@/components/tutor/grades/HomeworkGrades";
+import { validateGradesSearch, type GradesSearch } from "@/lib/homeworkReview";
 import { type SubjectV, type BoardV, type LevelV } from "@/lib/taxonomy";
+
+type Kind = "video" | "homework" | "live";
+type Tab = "grades" | Kind;
+const TABS: Tab[] = ["grades", "video", "homework", "live"];
+
+/**
+ * The tab and every Homework & Grades filter live in the URL, so a refresh
+ * lands where the tutor was and a filtered queue can be sent as a link.
+ */
+type TutorSearch = GradesSearch & { tab?: Tab };
 
 export const Route = createFileRoute("/_authenticated/tutor")({
   head: () => ({ meta: [{ title: "Tutor Studio | Anglia Educate" }] }),
   component: Tutor,
+  validateSearch: (search: Record<string, unknown>): TutorSearch => ({
+    tab: TABS.find((t) => t === search.tab),
+    ...validateGradesSearch(search),
+  }),
 });
-
-type Kind = "video" | "homework";
-type Tab = "this_week" | "marking" | Kind;
 
 function useTaxonomy() {
   const [subject, setSubject] = useState<SubjectV>("biology");
@@ -32,8 +44,20 @@ function useTaxonomy() {
 function Tutor() {
   const { isTutor, loading, userId, email } = useRoles();
   const { displayName: profileName } = useEnrolments();
-  const navigate = useNavigate();
-  const [tab, setTab] = useState<Tab>("this_week");
+  const navigate = Route.useNavigate();
+  const search = Route.useSearch();
+  const tab: Tab = search.tab ?? "grades";
+  // Replace, not push: toggling six filters should not put six entries between
+  // the tutor and the page they came from.
+  const setSearch = useCallback(
+    (changes: Partial<TutorSearch>) =>
+      void navigate({
+        search: (prev) => ({ ...prev, ...changes }),
+        replace: true,
+        resetScroll: false,
+      }),
+    [navigate],
+  );
   const taxonomy = useTaxonomy();
 
   // Access is a tutor/admin privilege.
@@ -55,10 +79,10 @@ function Tutor() {
   const tutorName = resolveDisplayName(profileName, email);
 
   const tabs: { k: Tab; label: string; icon: typeof PlayCircle }[] = [
-    { k: "this_week", label: "This Week", icon: CalendarRange },
-    { k: "marking", label: "Marking Queue", icon: ClipboardCheck },
+    { k: "grades", label: "Homework & Grades", icon: GraduationCap },
     { k: "video", label: "Add Video", icon: PlayCircle },
     { k: "homework", label: "Set Homework", icon: ClipboardList },
+    { k: "live", label: "Live Session", icon: CalendarClock },
   ];
 
   return (
@@ -82,7 +106,7 @@ function Tutor() {
             Welcome, {tutorName}
           </h2>
           <p className="text-sm md:text-base text-primary-foreground/75 max-w-2xl mt-1">
-            Mark student submissions and manage teaching resources — set homework, add videos, and
+            Review homework and marks, and manage teaching resources — set homework, add videos, and
             schedule live sessions.
           </p>
         </div>
@@ -92,7 +116,7 @@ function Tutor() {
         {tabs.map((t) => (
           <button
             key={t.k}
-            onClick={() => setTab(t.k)}
+            onClick={() => setSearch({ tab: t.k })}
             className={`inline-flex items-center gap-2 px-4 py-2 rounded-lg text-sm font-medium border transition ${
               tab === t.k
                 ? "btn-solid border-primary"
@@ -105,14 +129,13 @@ function Tutor() {
         ))}
       </div>
 
-      {tab === "this_week" ? (
-        <ThisWeekPanel userId={userId!} taxonomy={taxonomy} />
-      ) : tab === "marking" ? (
-        <MarkingQueue />
+      {tab === "grades" ? (
+        <HomeworkGrades userId={userId} search={search} setSearch={setSearch} />
       ) : (
         <div className="max-w-2xl rounded-2xl premium-card p-6">
           {tab === "video" && <VideoForm userId={userId!} taxonomy={taxonomy} />}
           {tab === "homework" && <HomeworkForm userId={userId!} taxonomy={taxonomy} />}
+          {tab === "live" && <LiveForm userId={userId!} taxonomy={taxonomy} />}
         </div>
       )}
     </AppLayout>

@@ -25,7 +25,8 @@ import {
 } from "@/lib/homeworkBuckets";
 import { ChevronDown, ChevronRight, Clock, Plus, TrendingUp } from "lucide-react";
 import { useAnalytics } from "@/hooks/data/useAnalytics";
-import { MarkingQueue } from "@/components/tutor/MarkingQueue";
+import { HomeworkGrades } from "@/components/tutor/grades/HomeworkGrades";
+import type { GradesSearch } from "@/lib/homeworkReview";
 import { HomeworkLibrary } from "@/components/tutor/HomeworkLibrary";
 import { HomeworkForm } from "@/components/tutor/HomeworkForm";
 import { isDemoStudent } from "@/lib/demo/studentDemo";
@@ -55,6 +56,9 @@ export const Route = createFileRoute("/_authenticated/homework")({
  */
 export function HomeworkPage() {
   const { isTutor, userId, loading: rolesLoading } = useRoles();
+  // The review workspace keeps its filters in the URL on /tutor; here it is one
+  // section of a longer page, so they live for the visit instead.
+  const [grades, setGrades] = useState<GradesSearch>({});
   const demo = isDemoStudent();
   const { enrolledCourses, level, loading: enrolmentsLoading } = useEnrolments();
 
@@ -83,7 +87,7 @@ export function HomeworkPage() {
   const { rows: analytics } = useAnalytics(userId, enrolledCourses);
 
   // Homework & Grades is the dedicated marking section: for a tutor the page is
-  // the marking queue itself, not a read-only list of briefs. The library of
+  // the review workspace itself, not a read-only list of briefs. The library of
   // what exists stays available below as secondary context.
   if (isTutor) {
     return (
@@ -93,7 +97,11 @@ export function HomeworkPage() {
           AI, edit anything, then check the marks before they go out.
         </p>
         {userId && <SetHomeworkPanel userId={userId} />}
-        <MarkingQueue />
+        <HomeworkGrades
+          userId={userId}
+          search={grades}
+          setSearch={(changes) => setGrades((prev) => ({ ...prev, ...changes }))}
+        />
         {userId && (
           <HomeworkLibrary
             homework={homework}

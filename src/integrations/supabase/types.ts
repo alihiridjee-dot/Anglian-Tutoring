@@ -860,6 +860,10 @@ export type Database = {
           mark_scheme_name: string | null;
           mark_scheme_path: string | null;
           origin: Database["public"]["Enums"]["resource_origin"];
+          publish_at: string | null;
+          review_status: string;
+          reviewed_at: string | null;
+          reviewed_by: string | null;
           spec_point_id: string | null;
           starts_at: string | null;
           subject: Database["public"]["Enums"]["subject"];
@@ -885,6 +889,10 @@ export type Database = {
           mark_scheme_name?: string | null;
           mark_scheme_path?: string | null;
           origin?: Database["public"]["Enums"]["resource_origin"];
+          publish_at?: string | null;
+          review_status?: string;
+          reviewed_at?: string | null;
+          reviewed_by?: string | null;
           spec_point_id?: string | null;
           starts_at?: string | null;
           subject: Database["public"]["Enums"]["subject"];
@@ -910,6 +918,10 @@ export type Database = {
           mark_scheme_name?: string | null;
           mark_scheme_path?: string | null;
           origin?: Database["public"]["Enums"]["resource_origin"];
+          publish_at?: string | null;
+          review_status?: string;
+          reviewed_at?: string | null;
+          reviewed_by?: string | null;
           spec_point_id?: string | null;
           starts_at?: string | null;
           subject?: Database["public"]["Enums"]["subject"];
@@ -1069,6 +1081,53 @@ export type Database = {
             referencedColumns: ["id"];
           },
         ];
+      };
+      student_group_members: {
+        Row: {
+          added_at: string;
+          group_id: string;
+          student_id: string;
+        };
+        Insert: {
+          added_at?: string;
+          group_id: string;
+          student_id: string;
+        };
+        Update: {
+          added_at?: string;
+          group_id?: string;
+          student_id?: string;
+        };
+        Relationships: [
+          {
+            foreignKeyName: "student_group_members_group_id_fkey";
+            columns: ["group_id"];
+            isOneToOne: false;
+            referencedRelation: "student_groups";
+            referencedColumns: ["id"];
+          },
+        ];
+      };
+      student_groups: {
+        Row: {
+          created_at: string;
+          created_by: string | null;
+          id: string;
+          name: string;
+        };
+        Insert: {
+          created_at?: string;
+          created_by?: string | null;
+          id?: string;
+          name: string;
+        };
+        Update: {
+          created_at?: string;
+          created_by?: string | null;
+          id?: string;
+          name?: string;
+        };
+        Relationships: [];
       };
       student_enrolments: {
         Row: {
@@ -1743,6 +1802,7 @@ export type Database = {
           _board?: Database["public"]["Enums"]["board"];
           _created_by: string;
           _level: Database["public"]["Enums"]["level"];
+          _publish_at?: string | null;
           _questions: Json;
           _spec_point_id: string;
           _subject: Database["public"]["Enums"]["subject"];
@@ -1765,6 +1825,10 @@ export type Database = {
         Returns: Json;
       };
       invite_parent_by_email: { Args: { _email: string }; Returns: Json };
+      homework_points_with_sheet: {
+        Args: { _spec_point_ids: string[] };
+        Returns: string[];
+      };
       is_enrolled_in: {
         Args: {
           _subject: Database["public"]["Enums"]["subject"];
@@ -1835,6 +1899,10 @@ export type Database = {
       };
       revoke_parent_invite: { Args: { _invite_id: string }; Returns: undefined };
       rotate_student_invite_code: { Args: never; Returns: string };
+      save_homework_mark_draft: {
+        Args: { _marks: Json; _submission_id: string; _summary?: string };
+        Returns: undefined;
+      };
       save_student_enrolments: { Args: { _subjects: Json }; Returns: undefined };
       save_weekly_plan: {
         Args: {
