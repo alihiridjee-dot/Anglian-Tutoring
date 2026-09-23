@@ -94,7 +94,7 @@ describe("the rule", () => {
       "2026-09-21",
     );
     expect(selection.specPointIds).toEqual(["d", "e"]);
-    expect(selection.origins).toEqual({ d: "core", e: "tutor" });
+    expect(selection.origins as Record<string, string>).toEqual({ d: "core", e: "tutor" });
     expect(selection.rationale).toBe("as cut");
     expect(suppressed.map((s) => [s.specPointId, s.override.kind])).toEqual([
       ["a", "remove"],
@@ -212,7 +212,14 @@ describe("the week cut", () => {
     masteryPct: 0,
     settled: false,
     practisedCount: 0,
-    assessment: { total: points.length, assessable: 0, assessed: 0, state: "unassessable" },
+    assessment: {
+      total: points.length,
+      assessable: 0,
+      assessed: 0,
+      state: "unassessable",
+      masteryPct: null,
+      coveragePct: 0,
+    },
   });
   const progress = [
     topic("t1", [point("a1"), point("a2"), point("a3")]),

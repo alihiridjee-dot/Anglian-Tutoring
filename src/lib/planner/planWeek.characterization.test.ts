@@ -71,7 +71,14 @@ const topic = (topicId: string, points: ProgressPoint[], settled = false): Topic
   masteryPct: 0,
   settled,
   practisedCount: points.filter((p) => p.reps > 0).length,
-  assessment: { total: points.length, assessable: 0, assessed: 0, state: "unassessable" },
+  assessment: {
+    total: points.length,
+    assessable: 0,
+    assessed: 0,
+    state: "unassessable",
+    masteryPct: null,
+    coveragePct: 0,
+  },
 });
 
 const progress: TopicProgress[] = [

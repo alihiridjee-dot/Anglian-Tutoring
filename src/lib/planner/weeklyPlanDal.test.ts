@@ -63,7 +63,8 @@ beforeEach(() => {
   evidence = spyOn(ScheduleDAL, "getTopicProgress").mockResolvedValue([
     { topicId: "t", points: [{ id: "early", reps: 1 }] } as TopicProgress,
   ]);
-  network = spyOn(globalThis, "fetch").mockImplementation(async (input, init) => {
+  // Cast: Bun's `typeof fetch` also carries `preconnect`, which a mock has no use for.
+  network = spyOn(globalThis, "fetch").mockImplementation((async (input, init) => {
     const url = new URL(
       typeof input === "string" ? input : input instanceof URL ? input.href : input.url,
     );
@@ -86,7 +87,7 @@ beforeEach(() => {
     return new Response(JSON.stringify(tables[name]), {
       headers: { "Content-Type": "application/json" },
     });
-  });
+  }) as typeof fetch);
 });
 afterEach(() => {
   network.mockRestore();
