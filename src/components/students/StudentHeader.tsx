@@ -31,7 +31,10 @@ export function StudentHeader({
           <span aria-hidden>{initials}</span>
         )}
       </div>
-      <div className="min-w-0 flex-1">
+      {/* From sm the chips sit beside this column. With flex-1's zero basis it had
+          nothing to defend and was squeezed to a sliver instead of wrapping them.
+          Below sm the chips are full width and wrap anyway. */}
+      <div className="min-w-0 flex-1 sm:basis-56">
         <p className="eyebrow eyebrow-bare">Student</p>
         <h1 className="mt-1 truncate text-2xl font-extrabold sm:text-3xl">{name}</h1>
         <p className="text-muted-foreground mt-1 flex flex-wrap gap-x-3 gap-y-0.5 text-sm">
