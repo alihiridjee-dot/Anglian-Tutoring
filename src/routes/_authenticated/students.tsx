@@ -1,30 +1,21 @@
 import { createFileRoute } from "@tanstack/react-router";
-import { useEffect, useState } from "react";
-import { Spinner } from "@/components/Shared";
+import { Users } from "lucide-react";
+import { PageHeader, Spinner } from "@/components/Shared";
 import { AppLayout } from "@/components/AppLayout";
 import { useRoles } from "@/hooks/useRole";
-import { supabase } from "@/integrations/supabase/client";
-import { Users } from "lucide-react";
+import { StudentsRoster } from "@/components/students/StudentsRoster";
 
 export const Route = createFileRoute("/_authenticated/students")({
   head: () => ({ meta: [{ title: "Students | Anglia Educate" }] }),
   component: Students,
 });
 
-type StudentRow = { id: string; display_name: string | null };
-
+/**
+ * The roster. Each row opens the student's record, where everything about them
+ * — course, performance, homework, quizzes, plan, messages, notes — lives.
+ */
 function Students() {
   const { isTutor, loading: rolesLoading } = useRoles();
-  const [rows, setRows] = useState<StudentRow[]>([]);
-  const [loading, setLoading] = useState(true);
-
-  useEffect(() => {
-    (async () => {
-      const { data } = await supabase.from("profiles").select("id, display_name").limit(500);
-      setRows(data ?? []);
-      setLoading(false);
-    })();
-  }, []);
 
   if (rolesLoading)
     return (
@@ -42,42 +33,15 @@ function Students() {
 
   return (
     <AppLayout title="Students">
-      <p className="text-muted-foreground mb-6">
-        Manage enrolments and see subscription status. Enrolment auto-syncs from Stripe once billing
-        is enabled.
-      </p>
-      {loading ? (
-        <Spinner label="Loading students" className="py-8" />
-      ) : (
-        <div className="rounded-2xl premium-card overflow-hidden">
-          <table className="w-full text-sm">
-            <thead className="bg-muted/60 text-xs uppercase tracking-widest text-muted-foreground">
-              <tr>
-                <th className="text-left px-6 py-3">Name</th>
-                <th className="text-left px-6 py-3">ID</th>
-              </tr>
-            </thead>
-            <tbody className="divide-y divide-border">
-              {rows.length === 0 ? (
-                <tr>
-                  <td colSpan={2} className="px-6 py-10 text-center text-muted-foreground">
-                    <Users className="w-6 h-6 mx-auto opacity-50 mb-2" /> No students yet.
-                  </td>
-                </tr>
-              ) : (
-                rows.map((r) => (
-                  <tr key={r.id} className="hover:bg-muted/30">
-                    <td className="px-6 py-3 font-medium">{r.display_name ?? "—"}</td>
-                    <td className="px-6 py-3 font-mono text-xs text-muted-foreground">
-                      {r.id.slice(0, 8)}
-                    </td>
-                  </tr>
-                ))
-              )}
-            </tbody>
-          </table>
-        </div>
-      )}
+      <div className="mb-6">
+        <PageHeader
+          eyebrow="Tutor workspace"
+          title="Students"
+          lede="Every student on the platform. Open one to see their course, work, plan and family, and to make changes."
+          icon={Users}
+        />
+      </div>
+      <StudentsRoster />
     </AppLayout>
   );
 }
