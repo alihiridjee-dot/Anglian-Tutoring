@@ -124,8 +124,14 @@ export function StudentRecordPage({ studentId, tab }: { studentId: string; tab: 
         </span>
       </StudentHeader>
 
-      <div className="mt-6 grid gap-6 lg:grid-cols-[13rem_minmax(0,1fr)]">
-        <nav aria-label="Student record sections" className="lg:sticky lg:top-6 lg:self-start">
+      {/* Below lg this is one column. Left to size itself, it grew to the tab
+          row's full width and pushed every card off a phone screen, so the
+          column is bounded and the row scrolls sideways within it instead. */}
+      <div className="mt-6 grid grid-cols-[minmax(0,1fr)] gap-6 lg:grid-cols-[13rem_minmax(0,1fr)]">
+        <nav
+          aria-label="Student record sections"
+          className="scroll-slim min-w-0 overflow-x-auto pb-1 lg:sticky lg:top-6 lg:self-start lg:overflow-visible lg:pb-0"
+        >
           <ul className="tab-row lg:flex-col lg:items-stretch">
             {NAV.map(({ tab: t, label, icon: Icon }) => (
               <li key={t} className="shrink-0">
