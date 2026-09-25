@@ -22,11 +22,17 @@ no per-paper cost.
 3. **Write the rows** to `papers/<board>-<subject>-<level>-<year>-<sitting>-p<paper><tier>.json`,
    following [READING.md](../scripts/ingest-paper/READING.md). The filename is
    where the loader reads provenance from, so it has to match what step 1 found.
+   Questions that need a figure are skipped for now — about 40% of a paper —
+   and recorded only so the marks still reconcile.
 4. **Load them.** Preview, then write. Upserts, so re-reading a paper corrects
    its rows rather than duplicating them.
 
        bun run scripts/ingest-paper/load-exemplars.ts papers/*.json
        bun run scripts/ingest-paper/load-exemplars.ts papers/*.json --write
+
+   Once a paper's rows are in, its two PDFs and its JSON move to `done/`. So
+   what is left in `incoming/` and `named/` is what is left to read, and the
+   next `papers/*.json` will not reload everything again. `--keep` opts out.
 
 5. **Tag them** with the specification points they credit. Until that happens a
    row can only be retrieved as a style example, so generation for a particular
@@ -42,11 +48,22 @@ text, marks, its own mark scheme, no flags, no missing figure. Anything short of
 that is held back, and a later read that mends it approves it. Nothing else sets
 or clears `approved_at`.
 
-## Also here
+## The folders
 
-    incoming/   somewhere to put PDFs
-    named/      papers named after what they are
-    *.json      rows waiting to be loaded
+    incoming/     put papers here — any name, any board
+    named/        papers named after what they are
+    *.json        rows waiting to be loaded
+    done/         read, loaded, and out of the way
+    superseded/   the old parser's output, kept but not to be loaded
+
+One physical set of folders, in the main checkout's `papers/`
+(`~/code/Anglian-Tutoring/papers/`). A worktree should link to those rather
+than keep its own, so it does not matter which one you are working in — there
+is only ever one copy of a paper.
+
+`superseded/` holds the 15 JSON files the old parser produced. They are the
+rows that arrive with no mark scheme, and loading them would put 460 unusable
+rows back. Kept only as a record of what was tried.
 
 `split_paper.py` without `--text` is a free look at what a paper contains — its
 rows are not worth loading, because it cannot split a mark scheme across a

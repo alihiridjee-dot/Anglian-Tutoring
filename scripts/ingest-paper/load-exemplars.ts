@@ -7,12 +7,16 @@
  * missing figure — is approved on the way in, and one that does not is held
  * back until a later ingest mends it.
  *
- *   python3 scripts/ingest-paper/split_paper.py QP.pdf MS.pdf --json > rows.json
- *   bun run scripts/ingest-paper/load-exemplars.ts rows.json          # preview
- *   bun run scripts/ingest-paper/load-exemplars.ts rows.json --write  # insert
+ *   bun run scripts/ingest-paper/load-exemplars.ts papers/*.json          # preview
+ *   bun run scripts/ingest-paper/load-exemplars.ts papers/*.json --write  # insert
  *
  * Preview by default — it prints what it would write and touches nothing.
  * Re-running the same paper updates its rows rather than duplicating them.
+ *
+ * Once a paper's rows are in the database it is filed away: the two PDFs and
+ * the JSON move to papers/done/. That is what stops the next `papers/*.json`
+ * from reloading everything read so far, and it is how you can tell at a glance
+ * which papers are still to do. `--keep` leaves them where they are.
  *
  * Provenance comes from the filename the renamer produced
  * (edexcel-physics-gcse-2018-jun-p1F-QP.pdf), so run these against renamed
@@ -24,6 +28,7 @@
  * Needs SUPABASE_URL and SUPABASE_SERVICE_ROLE_KEY: the table is behind
  * tutor-only RLS and this runs outside a session.
  */
+import { mkdir, rename } from "node:fs/promises";
 import { indexSpecPoints, parsePaperStem, SERIES, type Series } from "./specCodes";
 
 const url = process.env.SUPABASE_URL;
@@ -34,6 +39,7 @@ const args = process.argv.slice(2);
 const valueFlags = new Set(["--board", "--subject", "--level", "--year", "--series"]);
 const files = args.filter((a, i) => !a.startsWith("--") && !valueFlags.has(args[i - 1]));
 const write = args.includes("--write");
+const keep = args.includes("--keep");
 if (files.length === 0) throw new Error("Give at least one --json file from split_paper.py");
 
 function flag(name: string): string | undefined {
@@ -64,6 +70,8 @@ type Row = {
 type Parsed = {
   profile: string;
   rows: Row[];
+  // Only the old parser produced this: a whole question's scheme that it could
+  // not divide between the parts. Absent from anything read in a session.
   scheme?: { q: string; scheme: string; flags?: string[] }[];
 };
 
@@ -181,8 +189,37 @@ async function writeTags(
   return pairs.length;
 }
 
+/** Move a loaded paper and its rows out of the way, so what is left in the
+ *  folder is what is left to do. Missing halves are not an error: a paper read
+ *  from somewhere else has no PDFs here to move. */
+async function fileAway(file: string) {
+  const stem = file
+    .split("/")
+    .pop()!
+    .replace(/\.json$/, "");
+  const moved: string[] = [];
+  await mkdir("papers/done", { recursive: true });
+  for (const from of [
+    file,
+    `papers/named/${stem}-QP.pdf`,
+    `papers/named/${stem}-MS.pdf`,
+    `papers/incoming/${stem}-QP.pdf`,
+    `papers/incoming/${stem}-MS.pdf`,
+  ]) {
+    const name = from.split("/").pop()!;
+    try {
+      await rename(from, `papers/done/${name}`);
+      moved.push(name);
+    } catch {
+      // Not there. A paper read from somewhere else has no PDFs here to move,
+      // and that is not a failure worth stopping a load over.
+    }
+  }
+  return moved;
+}
+
 let total = 0;
-let skipped = 0;
+const dropped: string[] = [];
 
 for (const file of files) {
   const parsed = JSON.parse(await Bun.file(file).text()) as Parsed;
@@ -219,8 +256,15 @@ for (const file of files) {
 
   const payload = parsed.rows
     .filter((r) => {
-      if (r.prompt && r.prompt.trim().length >= 15) return true;
-      skipped += 1;
+      // A continuation part is legitimately short: "Explain why." is the whole
+      // question when the part before it did the setting up, and the stem it
+      // depends on is in shared_context. Judging the prompt on its own threw
+      // three complete three-mark questions away without saying so, which is
+      // why this counts what the row actually carries — and names what it drops.
+      const prompt = r.prompt?.trim() ?? "";
+      const context = r.shared_context?.trim() ?? "";
+      if (prompt && prompt.length + context.length >= 15) return true;
+      dropped.push(r.label);
       return false;
     })
     .map((r) => {
@@ -290,12 +334,18 @@ for (const file of files) {
     // and for papers read before tagging was part of this.
     const links = await writeTags(parsed.rows, inserted, p);
     if (links) console.log(`  linked ${links} question/spec point pairs`);
+    // Filed away only once its tags are in too, so a paper in papers/done/ is
+    // finished rather than half-loaded.
+    if (!keep) {
+      const moved = await fileAway(file);
+      if (moved.length) console.log(`  filed away in papers/done/: ${moved.join(", ")}`);
+    }
   }
   total += payload.length;
 }
 
 console.log(
-  `\n  ${total} rows${skipped ? `, ${skipped} skipped as too short to be a question` : ""}`,
+  `\n  ${total} rows` + (dropped.length ? `\n  dropped as empty: ${dropped.join(", ")}` : ""),
 );
 if (!write) console.log("  Preview only. Re-run with --write to insert.");
 else console.log("  Complete rows are approved on arrival; flagged ones are held back.");
