@@ -11,10 +11,10 @@ server authenticates to that function with the Supabase **service-role** key.
 
 ## Tools
 
-| Tool | Input | Returns |
-| --- | --- | --- |
-| `create_zoom_meeting` | `topic`, `start_time` (ISO 8601), `duration_minutes?`, `timezone?`, `agenda?` | `{ id, join_url, start_url, password, start_time, duration }` |
-| `get_meeting_details` | `meeting_id` (numeric id or join URL) | `{ id, topic, join_url, start_time, duration, status, timezone }` |
+| Tool                  | Input                                                                         | Returns                                                           |
+| --------------------- | ----------------------------------------------------------------------------- | ----------------------------------------------------------------- |
+| `create_zoom_meeting` | `topic`, `start_time` (ISO 8601), `duration_minutes?`, `timezone?`, `agenda?` | `{ id, join_url, start_url, password, start_time, duration }`     |
+| `get_meeting_details` | `meeting_id` (numeric id or join URL)                                         | `{ id, topic, join_url, start_time, duration, status, timezone }` |
 
 ## Setup
 
@@ -52,5 +52,5 @@ The `zoom-meeting` edge function must be deployed and its Zoom secrets set first
 }
 ```
 
-Then ask the agent e.g. *"Create a Zoom meeting titled 'Chemistry Revision' for
-2026-08-01 14:00 UTC"* and it will call `create_zoom_meeting`.
+Then ask the agent e.g. _"Create a Zoom meeting titled 'Chemistry Revision' for
+2026-08-01 14:00 UTC"_ and it will call `create_zoom_meeting`.

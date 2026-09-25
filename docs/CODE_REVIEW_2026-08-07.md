@@ -5,7 +5,7 @@ Speed, modularity, and whether anything has turned into spaghetti. Companion to
 
 **Verdict: this is a well-kept codebase.** Zero `console.log`, one `any` in
 ~44k lines, 125 passing tests, a consistent DAL layer, and comments that explain
-*why* rather than restating the code — which is rarer than it should be and is
+_why_ rather than restating the code — which is rarer than it should be and is
 the reason this review could move quickly.
 
 Four things were worth fixing, and they're done. Three more are flagged below.
@@ -18,15 +18,15 @@ Four things were worth fixing, and they're done. Three more are flagged below.
 
 `subjectLabel`, `levelLabel` and `boardLabel` were redefined locally in twenty-one
 files. `lib/courseSummary.ts` already exported all three, derived from
-`lib/taxonomy.ts`, with the docstring *"answered once, for the whole app."*
+`lib/taxonomy.ts`, with the docstring _"answered once, for the whole app."_
 Nothing used it.
 
 Duplication like this doesn't stay harmless — it drifts, and it had:
 
-| Where | What it said | What a student saw |
-| --- | --- | --- |
-| `mcqs.tsx` | `level === "alevel" ? "A-Level" : "GCSE"` | **An iGCSE quiz filed under a "GCSE" heading** — the wrong qualification, on the page where they choose what to revise |
-| `WeeklyFocusCard`, `WeeklyFocusManager`, `student-dashboard` | `{ gcse, alevel }` only | `igcse` and `gcse_trilogy` rendered as raw lowercase enum values |
+| Where                                                        | What it said                              | What a student saw                                                                                                     |
+| ------------------------------------------------------------ | ----------------------------------------- | ---------------------------------------------------------------------------------------------------------------------- |
+| `mcqs.tsx`                                                   | `level === "alevel" ? "A-Level" : "GCSE"` | **An iGCSE quiz filed under a "GCSE" heading** — the wrong qualification, on the page where they choose what to revise |
+| `WeeklyFocusCard`, `WeeklyFocusManager`, `student-dashboard` | `{ gcse, alevel }` only                   | `igcse` and `gcse_trilogy` rendered as raw lowercase enum values                                                       |
 
 iGCSE became a level on 2026-07-29 and Combined Trilogy before it. Both were
 added to `taxonomy.ts` — and to none of the twenty-one copies, because nothing
@@ -62,7 +62,7 @@ A twelve-question paper was twelve sequential round trips — over a second of a
 tutor watching a spinner, for writes that don't depend on each other.
 
 **Fixed** — `Promise.allSettled`, so they go together and one failure no longer
-abandons the rest. See *Flagged #1* for the proper version.
+abandons the rest. See _Flagged #1_ for the proper version.
 
 ### 4. Thread list was quadratic in an inbox
 
@@ -76,7 +76,7 @@ tutor working a full inbox is the only person who ever sees the big version.
 It described `demoAuth.ts`, `client.server.ts` and `routes/demo.tsx` (all
 deleted), the seeded `demo.student`/`demo.parent` accounts and the
 `demo_visible` columns (removed in July — confirmed gone from the database), and
-stated there was *"deliberately no code-redemption RPC"* when
+stated there was _"deliberately no code-redemption RPC"_ when
 `link_child_by_code` exists and is live.
 
 Stale architecture docs are worse than none: they're what someone reaches for
@@ -127,8 +127,8 @@ problem. Everything else sits comfortably under 850.
   and `ai/throttle` are dependency-free and carry the 125 tests. This is the
   right split — the FSRS maths can be reasoned about without a database.
 - **Multi-row writes already go through atomic RPCs** where it counts, and the
-  comments say why (`save_student_enrolments`: *"Moving in the same transaction
-  as the rows above is the whole point of this function"*).
+  comments say why (`save_student_enrolments`: _"Moving in the same transaction
+  as the rows above is the whole point of this function"_).
 - **The N+1 hazards that remain are the acceptable ones.** File uploads are
   sequential deliberately (bandwidth-bound, and parallel uploads on a phone are
   worse); the onboarding grade loop runs over at most three subjects.

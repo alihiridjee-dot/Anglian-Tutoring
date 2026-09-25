@@ -100,7 +100,7 @@ real UI: a student on an active `weekly_1` plan (one subject) whose
 `enrolled_courses` lists three subjects read the entire curriculum — 123 topics
 across biology, chemistry and physics. Two independent gaps combine:
 
-1. `save_student_enrolments` (the only writer of `enrolled_courses`, which *is*
+1. `save_student_enrolments` (the only writer of `enrolled_courses`, which _is_
    the content-RLS subject scope) accepted up to 20 subjects regardless of the
    plan.
 2. `stripe-checkout`'s `handleCheckout` trusted a **client-supplied `tier`**
@@ -110,6 +110,7 @@ across biology, chemistry and physics. Two independent gaps combine:
    the count server-side; only initial checkout did not.)
 
 **Fix (half self-contained, half needs your sign-off before deploy):**
+
 - `supabase/migrations/20260820130000_cap_enrolments_to_paid_subject_count.sql`
   adds `private.my_paid_subject_cap()` and makes `save_student_enrolments` reject
   a declaration exceeding the live plan's count. Silent when there's no

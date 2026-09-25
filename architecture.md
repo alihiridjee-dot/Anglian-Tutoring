@@ -219,13 +219,13 @@ alone, so a lesson was filed under Previous as "Completed" the second it began.
   Guards and `enabled:` flags shape the UI; they are not access control.
 - **Sign-up grants nothing** — no enrolment, no subscription, and (since
   2026-08-07) no role beyond `student`. `raw_user_meta_data.role` is a
-  self-declared *profile* role limited to student/parent; `user_roles`, which is
+  self-declared _profile_ role limited to student/parent; `user_roles`, which is
   what every policy consults, is never written from it. Staff access is granted
   out of band.
 - **Identity columns are not the user's to write.** `authenticated` holds
   UPDATE on `profiles` only for display_name, phone, school, level and the
   onboarding stamp. `role`, `student_invite_code` and `enrolled_courses` are
-  revoked — the last of those *is* the subject scope of the content policies, so
+  revoked — the last of those _is_ the subject scope of the content policies, so
   a writable copy was a paywall bypass. `save_student_enrolments` is the single
   writer and is SECURITY DEFINER for that reason.
 - **Scores are written by the grader, not the client.** `mcq_attempts` has no
@@ -247,7 +247,7 @@ Two tables, and the split between them is load-bearing:
   here as proof the parent may read that child's data. None of them filter on a
   status, so **never add a pending/inactive row to this table**: it would grant
   access, not request it.
-- **`parent_link_invites`** holds pending invites, addressed to an *email* (the
+- **`parent_link_invites`** holds pending invites, addressed to an _email_ (the
   invitee may have no account yet). It grants nothing on its own.
 
 Writes go through SECURITY DEFINER RPCs, since `authenticated` has SELECT only
@@ -258,7 +258,7 @@ side ends a link; RLS otherwise permits DELETE to tutors only).
 
 Invite codes (`profiles.student_invite_code`) are redeemed two ways.
 `handle_new_user` consumes `raw_user_meta_data.parent_invite_code` at sign-up,
-and `link_child_by_code` lets an *existing* parent redeem one afterwards. Codes
+and `link_child_by_code` lets an _existing_ parent redeem one afterwards. Codes
 are CSPRNG-drawn Crockford base32 (~40 bits) via `gen_student_invite_code`, and
 `rotate_student_invite_code` lets a student invalidate a leaked one without
 disturbing existing links.
@@ -280,7 +280,6 @@ disturbing existing links.
   validation); the client attaches tokens via `attachSupabaseAuth` in `start.ts`.
 - **Supabase** — Auth (email/password), RLS-secured Postgres, and a private
   `resources` storage bucket for homework uploads and downloads.
-
 
 ## Assessment-driven tutoring engine
 
@@ -339,7 +338,7 @@ without a data migration), at the `WeeklyPlanDAL` write chokepoint, and by the
 work — done, carried or attempted — is quarantined rather than deleted; the
 completion-protection rules exist to preserve student work, not to make a
 scheduling mistake permanent, which is what they had been doing.
-A plan being *internally* consistent is a different question from its being a
+A plan being _internally_ consistent is a different question from its being a
 plan this student should have. `student_program_plan` is keyed on (student, subject)
 and carries no board or level; `student_weekly_plans` carries both. Nothing tied
 them together, so a week could be generated from one board's curriculum and saved

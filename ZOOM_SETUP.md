@@ -78,15 +78,15 @@ proxying to the same edge function with the service-role key.
 
 ## What changed in the app
 
-| File | Change |
-| --- | --- |
-| `supabase/functions/zoom-meeting/index.ts` | **New, deployed (v1)** — Zoom S2S OAuth + create/get. Self-contained (CORS inlined). |
-| `src/lib/live/zoom.functions.ts` | **New** — `createZoomMeeting` / `getZoomMeeting` client helpers. |
-| `src/components/tutor/LiveForm.tsx` | "Auto Teams" mock → **Auto Zoom** real meeting creation. Join link is now **optional** so a session can be scheduled before Zoom creds exist (link fills in via Auto Zoom or manual paste). |
-| `src/routes/_authenticated/live.tsx` | Join button rebranded Teams → **Zoom**. |
-| `src/lib/demo/studentDemo.ts` | Demo join URLs → `zoom.us`. |
-| `src/components/landing/OfferSection.tsx` | Marketing copy → Zoom. |
-| `mcp/zoom-mcp/` | **New** — MCP server for agent-driven creation. |
+| File                                       | Change                                                                                                                                                                                      |
+| ------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| `supabase/functions/zoom-meeting/index.ts` | **New, deployed (v1)** — Zoom S2S OAuth + create/get. Self-contained (CORS inlined).                                                                                                        |
+| `src/lib/live/zoom.functions.ts`           | **New** — `createZoomMeeting` / `getZoomMeeting` client helpers.                                                                                                                            |
+| `src/components/tutor/LiveForm.tsx`        | "Auto Teams" mock → **Auto Zoom** real meeting creation. Join link is now **optional** so a session can be scheduled before Zoom creds exist (link fills in via Auto Zoom or manual paste). |
+| `src/routes/_authenticated/live.tsx`       | Join button rebranded Teams → **Zoom**.                                                                                                                                                     |
+| `src/lib/demo/studentDemo.ts`              | Demo join URLs → `zoom.us`.                                                                                                                                                                 |
+| `src/components/landing/OfferSection.tsx`  | Marketing copy → Zoom.                                                                                                                                                                      |
+| `mcp/zoom-mcp/`                            | **New** — MCP server for agent-driven creation.                                                                                                                                             |
 
 ### Notes / trade-offs
 

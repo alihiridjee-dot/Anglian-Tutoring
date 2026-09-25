@@ -6,7 +6,7 @@ Offline sizing of spec points, so the planner can divide a topic into weeks by
 ## The problem this solves
 
 `allocateWeeks` sizes a topic's band by `pointCount` and `splitAcrossWeeks` cuts
-it into equal *counts* — both assume spec points are interchangeable units. On a
+it into equal _counts_ — both assume spec points are interchangeable units. On a
 real spec they are not: "know the word equation for anaerobic respiration" and
 "investigate how enzyme activity is affected by pH" are one point each.
 
@@ -19,11 +19,11 @@ year. `compare_split.py` computes it rather than hard-coding it.
 
 Note that `examMondayFor()` in `src/lib/planner/pacing.ts` currently anchors on
 the first Monday on or after 1 June, which is 39 weeks out — about two weeks
-*after* the average exam date, and after many students have sat paper 1.
+_after_ the average exam date, and after many students have sat paper 1.
 
 ## What a weight is
 
-A number in *study units*: the relative teaching-and-learning load of one spec
+A number in _study units_: the relative teaching-and-learning load of one spec
 point. Only ratios matter — the planner uses them to divide a fixed number of
 weeks, so a tree that is uniformly 20% high still produces the same plan.
 
@@ -63,24 +63,24 @@ iGCSE 176/176.
 **Section-matched** (`score_aqa_gcse_biology.py`) — AQA's 97 leaf sections do not
 line up with our 92 points: the tree merges AQA's four pathogen sections into
 one point and splits AQA's one digestive-system section into four. `align()`
-walks both in spec order and allows either. Where a section is split across *k*
+walks both in spec order and allows either. Where a section is split across _k_
 points each gets `score / k`, so a topic's total is conserved wherever the
 boundaries fall.
 
 ## How a point gets its weight
 
-| Signal | Effect |
-| --- | --- |
-| Command verb (state/know → evaluate/investigate) | 1.0 → 2.2 |
-| The statement *is* a practical | +2.0 |
-| Each additional "students should be able to…" (AQA) | +0.35 |
-| Each bulleted item of content | +0.22 |
-| Maths (MS/M) and apparatus (AT) skill tags | +0.25 / +0.15 each, capped |
-| Higher tier only | +0.3 |
-| Residual word count | up to +1.6 |
+| Signal                                              | Effect                     |
+| --------------------------------------------------- | -------------------------- |
+| Command verb (state/know → evaluate/investigate)    | 1.0 → 2.2                  |
+| The statement _is_ a practical                      | +2.0                       |
+| Each additional "students should be able to…" (AQA) | +0.35                      |
+| Each bulleted item of content                       | +0.22                      |
+| Maths (MS/M) and apparatus (AT) skill tags          | +0.25 / +0.15 each, capped |
+| Higher tier only                                    | +0.3                       |
+| Residual word count                                 | up to +1.6                 |
 
 Scope markers are deliberately **not** scored: AQA's "(biology only)", Edexcel's
-`B` suffix and OCR's  glyph all mean "separate science, not combined", which
+`B` suffix and OCR's glyph all mean "separate science, not combined", which
 says nothing about how long the content takes.
 
 ## Loading them
@@ -99,7 +99,7 @@ CSVs are the source of truth: regenerate, review, load.
   default 1 — an unweighted tree behaves exactly as it did before.
 - `allocateWeeks` in `src/lib/planner/pacing.ts` sizes each topic's band by the
   sum of its points' weights instead of counting rows.
-- `splitAcrossWeeks` cuts a topic into weeks of equal *work* (exact min-max
+- `splitAcrossWeeks` cuts a topic into weeks of equal _work_ (exact min-max
   partition, ties broken to level the lightest week up), instead of equal counts
   rounded up.
 - `selectWeekPoints` budgets the teach lane by this week's weight rather than
@@ -109,12 +109,12 @@ CSVs are the source of truth: regenerate, review, load.
 
 At 34 teaching weeks, heaviest week ÷ lightest week:
 
-| Tree | Points | Before | After |
-| --- | --- | --- | --- |
-| AQA GCSE | 92 | 11.8x | 1.8x |
-| Edexcel GCSE | 165 | 4.7x | 1.6x |
-| Edexcel iGCSE | 176 | 3.1x (2 empty weeks) | 1.8x |
-| OCR GCSE | 138 | 4.0x | 1.7x |
+| Tree          | Points | Before               | After |
+| ------------- | ------ | -------------------- | ----- |
+| AQA GCSE      | 92     | 11.8x                | 1.8x  |
+| Edexcel GCSE  | 165    | 4.7x                 | 1.6x  |
+| Edexcel iGCSE | 176    | 3.1x (2 empty weeks) | 1.8x  |
+| OCR GCSE      | 138    | 4.0x                 | 1.7x  |
 
 "After" is measured by running the shipped `computePacing` + `withWeeklyPoints`
 against the live weights, not by a model of them.

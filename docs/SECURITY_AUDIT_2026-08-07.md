@@ -20,7 +20,7 @@ That column is the `options.data` bag of `supabase.auth.signUp()` — entirely
 attacker-controlled, from an unauthenticated public endpoint:
 
 ```js
-supabase.auth.signUp({ email, password, options: { data: { role: "tutor" } } })
+supabase.auth.signUp({ email, password, options: { data: { role: "tutor" } } });
 ```
 
 `private.has_role(uid, 'tutor')` is the predicate behind almost every policy in
@@ -37,11 +37,11 @@ In other words: the platform's complete records on its children, from the sign-u
 form, in a single request.
 
 **Fixed** — `20260806232130_never_grant_staff_role_from_signup_metadata.sql`. A
-self-declared role is now only ever a *profile* role and only `student` or
+self-declared role is now only ever a _profile_ role and only `student` or
 `parent`; anything else falls back to `student`. `user_roles` is never written
 from metadata. Staff access is granted out of band.
 
-*Not exploited.* `user_roles` holds exactly one tutor and seven students, which
+_Not exploited._ `user_roles` holds exactly one tutor and seven students, which
 matches the intended state.
 
 The bootstrap branch for `asa180@live.co.uk` is kept, so the project isn't left
@@ -54,11 +54,11 @@ and is confirmed, and `auth.users.email` is unique.
 policy with no column restriction. The app only ever writes four fields. Three
 of the others are load-bearing:
 
-| Column | What writing it bought |
-| --- | --- |
-| `enrolled_courses` | **The subject scope of the content policies.** `private.my_content_subjects()` reads it directly, and `student_has_access()` only asks whether *a* subscription exists — not which subjects it covers. One PATCH adding `chemistry` and `physics` unlocked the full curriculum, resources, spec points and quizzes for subjects that were never paid for. |
-| `role` | Flips the client-side dashboard, and is the gate on `link_child_by_code` (parent-only). A student could make themselves a "parent" and start redeeming invite codes. |
-| `student_invite_code` | The credential a parent redeems to attach to a child's account. |
+| Column                | What writing it bought                                                                                                                                                                                                                                                                                                                                    |
+| --------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| `enrolled_courses`    | **The subject scope of the content policies.** `private.my_content_subjects()` reads it directly, and `student_has_access()` only asks whether _a_ subscription exists — not which subjects it covers. One PATCH adding `chemistry` and `physics` unlocked the full curriculum, resources, spec points and quizzes for subjects that were never paid for. |
+| `role`                | Flips the client-side dashboard, and is the gate on `link_child_by_code` (parent-only). A student could make themselves a "parent" and start redeeming invite codes.                                                                                                                                                                                      |
+| `student_invite_code` | The credential a parent redeems to attach to a child's account.                                                                                                                                                                                                                                                                                           |
 
 **Fixed** — `20260806232142_pin_identity_columns_on_profiles.sql` plus
 `20260806232240_..._grant_fix.sql`. The table-level grant is dropped and
@@ -84,7 +84,7 @@ POST /rest/v1/mcq_attempts  {"set_id": …, "user_id": me, "score": 20, "total":
 
 wrote a perfect paper. `authenticated` also held UPDATE on every column, with no
 policy granting it — the only thing preventing a student from rewriting last
-term's marks was the *absence* of a policy rather than the absence of a
+term's marks was the _absence_ of a policy rather than the absence of a
 privilege.
 
 This isn't a vanity number. An attempt feeds the predicted grade shown to the
@@ -106,7 +106,7 @@ No client code inserted directly, so nothing broke.
 Even with #2 closed, `save_student_enrolments` still lets a student set their own
 subject list to all three, and `private.student_has_access()` only checks that a
 subscription is `active`/`trialing`. The `subscriptions` table has no per-subject
-record — just `plan`, a text column — so the database *cannot* currently check
+record — just `plan`, a text column — so the database _cannot_ currently check
 that a student's subjects match what they bought.
 
 Practically: **a student paying for one subject can self-serve all three.**
@@ -146,7 +146,7 @@ same treatment on the contact form is a small change worth making.
 - **Storage** — `resources` is private. Students read only
   `submissions/{own uid}/…` plus files for subjects they're enrolled in; parents
   only their linked child's; tutors all. Signed URLs are issued by a server
-  function bound to the *caller's* JWT, so RLS decides each path; traversal and
+  function bound to the _caller's_ JWT, so RLS decides each path; traversal and
   absolute paths are rejected, TTL is clamped to [30s, 1h], and a denial and a
   missing file return the same message so existence isn't leaked.
 - **Homework grades** are already protected the right way, by the
@@ -159,11 +159,11 @@ same treatment on the contact form is a small change worth making.
   comment in the function says so, and it's correct.
 - **Chat** — `chat_messages` has no UPDATE or DELETE policy, so neither side
   rewrites history. Read watermarks go through `mark_chat_thread_read()` rather
-  than a client UPDATE. The AI draft is tutor-gated *server-side* before spending
+  than a client UPDATE. The AI draft is tutor-gated _server-side_ before spending
   credits, so a student can't use it as a free answer service. The fan-out
   trigger is revoked from `anon`/`authenticated`, which matters because PostgREST
   otherwise exposes every `public` function as an RPC.
-  - *Note:* the `chat_threads`/`chat_messages` policies are granted to `public`
+  - _Note:_ the `chat_threads`/`chat_messages` policies are granted to `public`
     rather than `authenticated`, unlike the rest of the schema. Safe in practice
     — every predicate compares against `auth.uid()`, which is NULL for `anon` —
     but it's the odd one out and would be worth aligning.
