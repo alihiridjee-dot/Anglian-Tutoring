@@ -142,6 +142,18 @@ describe("exam generation selection", () => {
     ];
     expect(selectExamples({ ...context, examples }, 1)[0].id).toBe("b-similar");
   });
+  test("takes five, then more only while each adds something new, up to twelve", () => {
+    const alike = Array.from({ length: 8 }, (_, i) => example(`alike-${i}`));
+    const varied = (n: number) =>
+      Array.from({ length: n }, (_, i) => example(`varied-${i}`, { command_word: `word-${i}` }));
+    expect(selectExamples({ ...context, examples: alike })).toHaveLength(5);
+    const mixed = selectExamples({ ...context, examples: [...alike, ...varied(8)] }).map(
+      (e) => e.id,
+    );
+    expect(mixed).toHaveLength(9);
+    expect(mixed.filter((id) => id.startsWith("alike-"))).toHaveLength(1);
+    expect(selectExamples({ ...context, examples: varied(15) })).toHaveLength(12);
+  });
   test("falls back through topic/style and then curriculum without inventing references", () => {
     expect(buildGenerationPrompt(context, 5, "written").grounding).toBe("curriculum_only");
     const result = buildGenerationPrompt(

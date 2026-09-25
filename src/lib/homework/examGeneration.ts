@@ -1,5 +1,5 @@
 /** Pure selection, prompting and response validation; no credentials or DB access. */
-export const FRAMEWORK_VERSION = "exam-generation-v1";
+export const FRAMEWORK_VERSION = "exam-generation-v2";
 export type GenerationFormat = "written" | "mcq";
 export type Grounding = "exact" | "topic" | "style";
 
@@ -71,12 +71,18 @@ function dimensions(e: ExamExample): string[] {
  * Given a format, examples of that format are used when the library has any: an MCQ
  * set imitates real MCQs, a worksheet imitates written questions. Only when none
  * exist does it fall back to the other kind for style.
+ *
+ * Takes `minimum` examples, then keeps going only while the next one shows the model
+ * something the chosen ones do not — a new command word, objective, size or demand —
+ * up to `limit`. A point with thirty look-alike questions stops at the minimum; one
+ * with thirty varied questions gets up to the limit.
  */
 export function selectExamples(
   context: GenerationContext,
-  limit = 5,
-  characterBudget = 18000,
+  limit = 12,
+  characterBudget = 36000,
   format?: GenerationFormat,
+  minimum = 5,
 ): ExamExample[] {
   const p = context.point;
   const complete = context.examples.filter(
@@ -97,14 +103,18 @@ export function selectExamples(
       (!p.tier || !e.tier || e.tier === p.tier),
   );
   const sameFormat = format ? complete.filter((e) => isMcq(e) === (format === "mcq")) : [];
-  const candidates = sameFormat.length ? sameFormat : complete;
+  let candidates = sameFormat.length ? sameFormat : complete;
   const selected: ExamExample[] = [];
   const seenDimensions = new Set<string>();
   const seenPrompts = new Set<string>();
+  const newDimensions = (e: ExamExample) =>
+    dimensions(e).filter((d) => !seenDimensions.has(d)).length;
   let remaining = characterBudget;
   while (selected.length < limit && candidates.length) {
-    const score = (e: ExamExample) =>
-      rank[e.grounding] * 4 + dimensions(e).filter((d) => !seenDimensions.has(d)).length * 3;
+    // Seen dimensions only grow, so an example that adds nothing now never will.
+    if (selected.length >= minimum) candidates = candidates.filter((e) => newDimensions(e) > 0);
+    if (!candidates.length) break;
+    const score = (e: ExamExample) => rank[e.grounding] * 4 + newDimensions(e) * 3;
     candidates.sort(
       (a, b) =>
         score(b) - score(a) ||
