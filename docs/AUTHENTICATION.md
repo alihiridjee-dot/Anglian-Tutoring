@@ -16,15 +16,15 @@ test against.
 
 ## The two environments
 
-|               | Signed-in user                   | Sales showcase (`/demo/*`)                     |
-| ------------- | -------------------------------- | ---------------------------------------------- |
-| Purpose       | The product                      | **Sales only** — a look around before buying   |
-| Session       | Real Supabase session            | None                                           |
-| How you enter | `/auth` sign in / sign up        | Navigate to `/demo`                            |
-| Data          | Live rows, scoped by RLS         | Fixtures in `src/lib/demo/studentDemo.ts`      |
-| Writes        | Real                             | None — quizzes are marked locally, forms are read-only |
-| Guard         | `/_authenticated` `beforeLoad`   | Sits outside the guard entirely                |
-| Rendering     | Client only (`ssr: false`)       | Client only (`ssr: false`) for `/demo/student/*` and `/demo/parent/*` |
+|               | Signed-in user                 | Sales showcase (`/demo/*`)                                            |
+| ------------- | ------------------------------ | --------------------------------------------------------------------- |
+| Purpose       | The product                    | **Sales only** — a look around before buying                          |
+| Session       | Real Supabase session          | None                                                                  |
+| How you enter | `/auth` sign in / sign up      | Navigate to `/demo`                                                   |
+| Data          | Live rows, scoped by RLS       | Fixtures in `src/lib/demo/studentDemo.ts`                             |
+| Writes        | Real                           | None — quizzes are marked locally, forms are read-only                |
+| Guard         | `/_authenticated` `beforeLoad` | Sits outside the guard entirely                                       |
+| Rendering     | Client only (`ssr: false`)     | Client only (`ssr: false`) for `/demo/student/*` and `/demo/parent/*` |
 
 There are **no demo accounts**. The `demo.student@…` / `demo.parent@…` users,
 `enterDemoMode`, the `is_demo` / `demo_visible` columns and
@@ -32,7 +32,7 @@ There are **no demo accounts**. The `demo.student@…` / `demo.parent@…` users
 
 The showcase pages skip the server render because showcase mode is read off
 `window.location`, which the server doesn't have: rendered there, a demo page
-comes out as a *live* page with nobody signed in, and React discards it with a
+comes out as a _live_ page with nobody signed in, and React discards it with a
 hydration error.
 
 ## Testing: use the test account, not the showcase
@@ -88,8 +88,8 @@ last good answer instead of being cached as "student" or "hasn't paid".
 ```ts
 interface GuardState {
   userId: string;
-  role: string | null;      // profiles.role; null = could not be read
-  appRole: UserRole;        // what the app routes on — staff grants win
+  role: string | null; // profiles.role; null = could not be read
+  appRole: UserRole; // what the app routes on — staff grants win
   onboardingComplete: boolean | null; // null = unanswered, never "no"
   hasAccess: boolean | null;
 }
@@ -138,7 +138,7 @@ verified, in `/onboarding/*`:
 5. `plan` — Stripe Checkout, or invite a parent to pay
 
 These routes sit **outside** `/_authenticated` on purpose: that guard redirects
-unpaid students *to* them, so nesting them under it would loop.
+unpaid students _to_ them, so nesting them under it would loop.
 
 ## The paywall
 
@@ -164,7 +164,7 @@ to buy for themselves and `my_access_state()` answers `false` for them, so
 applying it to everyone would lock every tutor out of their own app.
 
 Access itself is `private.student_has_access(student_id)`: a subscription
-covering *that student*, `active` or `trialing`, still inside its period. A
+covering _that student_, `active` or `trialing`, still inside its period. A
 subscription names the student it covers (`student_id`) separately from who pays
 for it (`user_id`), so a parent can fund a child without either of them being
 mistaken for the other.
