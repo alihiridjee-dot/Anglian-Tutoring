@@ -172,6 +172,7 @@ export type Database = {
       };
       chat_threads: {
         Row: {
+          about_student_id: string | null;
           context_label: string | null;
           created_at: string;
           id: string;
@@ -188,6 +189,7 @@ export type Database = {
           tutor_last_read_at: string | null;
         };
         Insert: {
+          about_student_id?: string | null;
           context_label?: string | null;
           created_at?: string;
           id?: string;
@@ -204,6 +206,7 @@ export type Database = {
           tutor_last_read_at?: string | null;
         };
         Update: {
+          about_student_id?: string | null;
           context_label?: string | null;
           created_at?: string;
           id?: string;

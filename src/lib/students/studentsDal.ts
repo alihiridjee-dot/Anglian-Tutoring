@@ -147,6 +147,8 @@ export interface StudentThread {
   context_label: string | null;
   last_message_at: string;
   tutor_last_read_at: string | null;
+  /** Set on a thread one of the student's parents opened about them. */
+  about_student_id: string | null;
 }
 
 /** Fields a tutor may change on an enrolment. Subject is not one of them. */
@@ -395,9 +397,10 @@ export class StudentsDAL {
     const { data, error } = await supabase
       .from("chat_threads")
       .select(
-        "id, subject_line, subject, status, context_label, last_message_at, tutor_last_read_at",
+        "id, subject_line, subject, status, context_label, last_message_at, tutor_last_read_at, about_student_id",
       )
-      .eq("student_id", studentId)
+      // The student's own threads, and the ones a parent opened about them.
+      .or(`student_id.eq.${studentId},about_student_id.eq.${studentId}`)
       .order("last_message_at", { ascending: false })
       .limit(50);
     if (error) throw new Error(error.message);

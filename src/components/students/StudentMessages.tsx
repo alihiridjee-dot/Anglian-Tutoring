@@ -17,7 +17,7 @@ export function StudentMessages({ studentId }: { studentId: string }) {
     return (
       <EmptyState
         title="No messages yet"
-        body="Conversations this student starts appear here. Threads close after 30 days."
+        body="Conversations this student or their parents start appear here. Threads close after 30 days."
         action={{ to: "/messages", label: "Open messages" }}
         mascot="books"
       />
@@ -50,6 +50,9 @@ export function StudentMessages({ studentId }: { studentId: string }) {
                   <span className="truncate">{t.subject_line}</span>
                 </p>
                 <div className="mt-1 flex flex-wrap items-center gap-1.5">
+                  {t.about_student_id && (
+                    <span className="chip tint-amber text-[10px]">From a parent</span>
+                  )}
                   {t.subject && (
                     <span className={`chip text-[10px] ${SUBJECT_TINT[t.subject] ?? "tint-slate"}`}>
                       {subjectLabel(t.subject)}

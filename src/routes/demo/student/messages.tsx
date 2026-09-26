@@ -38,6 +38,7 @@ const thread = (
   const last = t.messages[t.messages.length - 1];
   return {
     student_id: STUDENT,
+    about_student_id: null,
     tutor_id: TUTOR,
     spec_point_id: null,
     resource_id: null,

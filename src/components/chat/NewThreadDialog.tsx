@@ -8,6 +8,12 @@ import { EMPTY_CONTEXT, type ChatContextSelection } from "@/lib/chat/chatContext
 interface Props {
   /** Pre-attach something the student was already looking at. */
   initialContext?: ChatContextSelection;
+  /**
+   * Set when a parent is writing: the linked child the message is about. The
+   * spec point / homework / quiz picker goes — those are the student's pages,
+   * which a parent can't open — and the copy speaks to a parent.
+   */
+  about?: { studentId: string; name: string };
   onClose: () => void;
   onCreated: (threadId: string) => void;
 }
@@ -20,7 +26,7 @@ interface Props {
  * RPC, so it is whoever currently holds the tutor role — no names are baked in,
  * and a new tutor appears here the moment their account is granted the role.
  */
-export function NewThreadDialog({ initialContext, onClose, onCreated }: Props) {
+export function NewThreadDialog({ initialContext, about, onClose, onCreated }: Props) {
   const { data: tutors = [], isPending: tutorsPending } = useTutorDirectory();
   const start = useStartThread();
 
@@ -57,6 +63,7 @@ export function NewThreadDialog({ initialContext, onClose, onCreated }: Props) {
         resourceId: context.resourceId ?? null,
         mcqSetId: context.mcqSetId ?? null,
         contextLabel: context.label ?? null,
+        aboutStudentId: about?.studentId ?? null,
       },
       {
         onSuccess: (threadId) => {
@@ -83,11 +90,12 @@ export function NewThreadDialog({ initialContext, onClose, onCreated }: Props) {
             </div>
             <div>
               <h2 id="new-thread-title" className="font-display text-lg font-bold leading-tight">
-                Ask your tutor
+                {about ? "Message a tutor" : "Ask your tutor"}
               </h2>
               <p className="text-xs text-muted-foreground mt-0.5">
-                Attach the spec point, homework or quiz you're stuck on and they'll see it straight
-                away.
+                {about
+                  ? `About ${about.name}`
+                  : "Attach the spec point, homework or quiz you're stuck on and they'll see it straight away."}
               </p>
             </div>
           </div>
@@ -103,7 +111,7 @@ export function NewThreadDialog({ initialContext, onClose, onCreated }: Props) {
         <div className="p-6 space-y-4">
           <div>
             <label className="text-xs font-semibold uppercase tracking-wider text-muted-foreground">
-              Who are you asking?
+              {about ? "Who are you writing to?" : "Who are you asking?"}
             </label>
             {tutorsPending ? (
               <div className="mt-2 py-3">
@@ -133,14 +141,16 @@ export function NewThreadDialog({ initialContext, onClose, onCreated }: Props) {
             )}
           </div>
 
-          <div>
-            <label className="text-xs font-semibold uppercase tracking-wider text-muted-foreground">
-              What's it about?
-            </label>
-            <div className="mt-2">
-              <ContextPicker value={context} onChange={setContext} />
+          {!about && (
+            <div>
+              <label className="text-xs font-semibold uppercase tracking-wider text-muted-foreground">
+                What's it about?
+              </label>
+              <div className="mt-2">
+                <ContextPicker value={context} onChange={setContext} />
+              </div>
             </div>
-          </div>
+          )}
 
           <div>
             <label
@@ -154,7 +164,11 @@ export function NewThreadDialog({ initialContext, onClose, onCreated }: Props) {
               value={subjectLine}
               onChange={(e) => setSubjectLine(e.target.value)}
               maxLength={140}
-              placeholder="e.g. I don't get why water moves out of the cell"
+              placeholder={
+                about
+                  ? `e.g. How is ${about.name} getting on with chemistry?`
+                  : "e.g. I don't get why water moves out of the cell"
+              }
               className="mt-2 w-full h-11 rounded-xl border border-border bg-background px-3.5 text-sm transition focus:outline-none focus:border-primary focus:ring-4 focus:ring-primary/15"
             />
           </div>
@@ -164,14 +178,18 @@ export function NewThreadDialog({ initialContext, onClose, onCreated }: Props) {
               htmlFor="thread-body"
               className="text-xs font-semibold uppercase tracking-wider text-muted-foreground"
             >
-              Your question
+              {about ? "Your message" : "Your question"}
             </label>
             <textarea
               id="thread-body"
               value={body}
               onChange={(e) => setBody(e.target.value)}
               rows={5}
-              placeholder="Tell them what you've tried and where you got stuck — the more specific, the faster the answer."
+              placeholder={
+                about
+                  ? "Write your message"
+                  : "Tell them what you've tried and where you got stuck — the more specific, the faster the answer."
+              }
               className="mt-2 w-full rounded-xl border border-border bg-background p-3.5 text-sm transition focus:outline-none focus:border-primary focus:ring-4 focus:ring-primary/15"
             />
           </div>
@@ -189,7 +207,8 @@ export function NewThreadDialog({ initialContext, onClose, onCreated }: Props) {
             disabled={!canSend || start.isPending}
             className="btn-premium h-10 px-4 rounded-lg text-sm font-semibold inline-flex items-center gap-2 disabled:opacity-50"
           >
-            {start.isPending && <Loader2 className="w-4 h-4 animate-spin" />} Send question
+            {start.isPending && <Loader2 className="w-4 h-4 animate-spin" />}{" "}
+            {about ? "Send message" : "Send question"}
           </button>
         </div>
       </div>
