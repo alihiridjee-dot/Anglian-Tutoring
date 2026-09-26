@@ -15,6 +15,7 @@ import { Loader2, Link2Off, Trash2, ShieldCheck, ShieldAlert, X } from "lucide-r
 import { parseVideoUrl } from "@/lib/curriculum/videoEmbed";
 import { type SubjectV, type BoardV, type LevelV } from "@/lib/curriculum/taxonomy";
 import { Field, inputCls, submitBtn } from "./Field";
+import { useBodyScrollLock } from "@/hooks/useBodyScrollLock";
 
 export interface EditableVideo {
   id: string;
@@ -88,6 +89,9 @@ export function SpecPointVideoEditor({
 
   // A URL edit invalidates whatever the previous check said.
   useEffect(() => setCheck({ status: "idle" }), [videoUrl]);
+
+  // Mounted only while open, so the page underneath holds still on a phone.
+  useBodyScrollLock(true);
 
   useEffect(() => {
     const onKey = (e: KeyboardEvent) => e.key === "Escape" && onClose();
@@ -188,7 +192,7 @@ export function SpecPointVideoEditor({
       <form
         onSubmit={save}
         onClick={(e) => e.stopPropagation()}
-        className="w-full max-w-lg my-8 rounded-2xl premium-card p-6 space-y-4"
+        className="w-full max-w-lg my-4 sm:my-8 max-h-[calc(100dvh-2rem)] overflow-y-auto rounded-2xl premium-card p-4 sm:p-6 space-y-4"
       >
         <div className="flex items-start justify-between gap-3">
           <h3 className="font-display text-lg font-bold text-foreground">
@@ -197,7 +201,7 @@ export function SpecPointVideoEditor({
           <button
             type="button"
             onClick={onClose}
-            className="text-muted-foreground hover:text-foreground p-1"
+            className="tap-target text-muted-foreground hover:text-foreground p-1"
             aria-label="Close"
           >
             <X className="w-4 h-4" />
@@ -217,6 +221,7 @@ export function SpecPointVideoEditor({
           <input
             required
             type="url"
+            inputMode="url"
             className={inputCls}
             value={videoUrl}
             onChange={(e) => setVideoUrl(e.target.value)}
@@ -229,7 +234,7 @@ export function SpecPointVideoEditor({
             type="button"
             onClick={runCheck}
             disabled={!videoUrl || check.status === "checking"}
-            className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-md border border-border text-xs font-semibold text-foreground hover:bg-secondary/40 disabled:opacity-60"
+            className="inline-flex min-h-11 sm:min-h-0 items-center gap-1.5 px-3 py-1.5 rounded-md border border-border text-xs font-semibold text-foreground hover:bg-secondary/40 disabled:opacity-60"
           >
             {check.status === "checking" ? (
               <Loader2 className="w-3.5 h-3.5 animate-spin" />
@@ -284,7 +289,7 @@ export function SpecPointVideoEditor({
               type="button"
               onClick={unlink}
               disabled={busy}
-              className="inline-flex items-center gap-1.5 mt-3 px-3 py-1.5 rounded-md border border-border text-xs font-semibold text-muted-foreground hover:text-foreground disabled:opacity-60"
+              className="inline-flex min-h-11 sm:min-h-0 items-center gap-1.5 mt-3 px-3 py-1.5 rounded-md border border-border text-xs font-semibold text-muted-foreground hover:text-foreground disabled:opacity-60"
             >
               <Link2Off className="w-3.5 h-3.5" /> Remove from this point
             </button>
@@ -292,7 +297,7 @@ export function SpecPointVideoEditor({
               type="button"
               onClick={destroy}
               disabled={busy}
-              className="inline-flex items-center gap-1.5 mt-3 px-3 py-1.5 rounded-md border border-destructive/40 text-xs font-semibold text-destructive hover:bg-destructive/10 disabled:opacity-60"
+              className="inline-flex min-h-11 sm:min-h-0 items-center gap-1.5 mt-3 px-3 py-1.5 rounded-md border border-destructive/40 text-xs font-semibold text-destructive hover:bg-destructive/10 disabled:opacity-60"
             >
               <Trash2 className="w-3.5 h-3.5" /> Delete everywhere
             </button>

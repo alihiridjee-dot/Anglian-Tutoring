@@ -135,7 +135,7 @@ export function AddSubjectCard({
   };
 
   return (
-    <div className="relative overflow-hidden rounded-2xl border border-primary/30 bg-gradient-to-br from-primary/5 via-card to-card p-6 shadow-sm">
+    <div className="relative overflow-hidden rounded-2xl border border-primary/30 bg-gradient-to-br from-primary/5 via-card to-card p-4 sm:p-6 shadow-sm">
       {/* soft glow accent */}
       <div className="pointer-events-none absolute -top-16 -right-16 h-40 w-40 rounded-full bg-primary/10 blur-3xl" />
 
@@ -168,7 +168,7 @@ export function AddSubjectCard({
                   on ? "border-primary bg-primary/10" : "border-border bg-card"
                 } ${disabled ? "opacity-50" : ""}`}
               >
-                <label className="flex items-center gap-3 cursor-pointer select-none">
+                <label className="-my-3 flex min-h-11 items-center gap-3 cursor-pointer select-none sm:my-0 sm:min-h-0">
                   <span
                     className={`flex h-5 w-5 items-center justify-center rounded-md border ${
                       on ? "border-primary bg-primary text-primary-foreground" : "border-border"
@@ -195,7 +195,8 @@ export function AddSubjectCard({
                         const next = e.target.value;
                         if (isBoard(next)) setBoards((prev) => ({ ...prev, [s.value]: next }));
                       }}
-                      className="h-8 rounded-lg premium-card px-2 text-xs focus:outline-none focus:ring-2 focus:ring-primary/40"
+                      aria-label="Exam board"
+                      className="h-11 sm:h-8 rounded-lg premium-card px-2 text-xs focus:outline-none focus:ring-2 focus:ring-primary/40"
                     >
                       {BOARDS.filter((b) => boardsFor(s.value).includes(b.value)).map((b) => (
                         <option key={b.value} value={b.value}>

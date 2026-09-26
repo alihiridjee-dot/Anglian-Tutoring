@@ -155,7 +155,7 @@ export function PricingSection() {
         aria-hidden
         className="pointer-events-none absolute inset-0 bg-[radial-gradient(ellipse_at_top,_var(--accent-soft)_0%,transparent_55%)] opacity-60"
       />
-      <div className="relative max-w-7xl mx-auto px-6">
+      <div className="relative max-w-7xl mx-auto px-4 sm:px-6">
         <div className="text-center max-w-2xl mx-auto mb-14">
           <span className="sticker">
             <Sparkles className="size-3.5" aria-hidden /> Build your plan
@@ -226,7 +226,7 @@ export function PricingSection() {
                   <button
                     type="button"
                     onClick={() => window.setTimeout(() => setOpenStep(1), 40)}
-                    className="mt-4 w-full rounded-xl bg-primary py-2.5 text-sm font-semibold text-white transition-colors "
+                    className="mt-4 w-full min-h-11 rounded-xl bg-primary py-2.5 text-sm font-semibold text-white transition-colors sm:min-h-0"
                   >
                     Continue
                   </button>
@@ -289,7 +289,7 @@ export function PricingSection() {
               <button
                 type="button"
                 onClick={() => setOpenStep(2)}
-                className="mt-4 w-full rounded-xl bg-primary py-2.5 text-sm font-semibold text-white transition-colors "
+                className="mt-4 w-full min-h-11 rounded-xl bg-primary py-2.5 text-sm font-semibold text-white transition-colors sm:min-h-0"
               >
                 Continue
               </button>
@@ -344,7 +344,7 @@ function PricingTiers({
   board: string;
 }) {
   return (
-    <div className="grid h-full grid-cols-3 gap-3 sm:gap-4">
+    <div className="grid h-full grid-cols-1 gap-3 sm:grid-cols-3 sm:gap-4">
       {CADENCES.map((tier) => {
         const pence = PRICE_PENCE[tier.cadence][count];
         const perSession = pence / SESSIONS[tier.cadence](count);
@@ -458,7 +458,7 @@ function PricingTiers({
                     board,
                   } as never
                 }
-                className={`mt-3 block rounded-xl py-2.5 text-center text-sm font-bold transition-all duration-200 ${
+                className={`mt-3 flex min-h-11 items-center justify-center rounded-xl py-2.5 text-center text-sm font-bold transition-all duration-200 sm:min-h-0 ${
                   dark
                     ? "bg-white text-[var(--primary-deep)] hover:bg-white/90 shadow-lg"
                     : "btn-solid hover:bg-[var(--primary-deep)]"
@@ -498,7 +498,7 @@ function Step({
       <button
         type="button"
         onClick={onOpen}
-        className="flex w-full items-center gap-4 px-6 py-5 text-left"
+        className="flex w-full items-center gap-4 px-5 py-4 text-left sm:px-6 sm:py-5"
       >
         <span
           className={`flex h-8 w-8 shrink-0 items-center justify-center rounded-full text-sm font-bold transition-colors ${
@@ -526,7 +526,7 @@ function Step({
         }`}
       >
         <div className="overflow-hidden">
-          <div className={`px-6 pb-6 ${last ? "" : ""}`}>{children}</div>
+          <div className={`px-5 pb-5 sm:px-6 sm:pb-6 ${last ? "" : ""}`}>{children}</div>
         </div>
       </div>
     </div>
@@ -562,7 +562,7 @@ function Slider({
           key={o.value}
           type="button"
           onClick={() => onChange(o.value)}
-          className={`relative z-10 flex-1 rounded-full px-3 py-2 text-sm font-semibold transition-colors duration-200 ${
+          className={`relative z-10 min-h-11 flex-1 rounded-full px-2 py-2 text-sm leading-tight font-semibold transition-colors duration-200 sm:min-h-0 sm:px-3 ${
             value === o.value
               ? "text-[var(--primary-deep)]"
               : "text-muted-foreground hover:text-foreground"

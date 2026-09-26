@@ -122,13 +122,13 @@ export function CoveredLedger({
           </div>
         </div>
         {subject == null && ordered.length > 1 && (
-          <div className="flex items-center gap-1.5">
+          <div className="flex flex-wrap items-center gap-2">
             {ordered.map((e) => (
               <button
                 key={e.subject}
                 type="button"
                 onClick={() => setPickedSubject(e.subject)}
-                className={`h-8 px-3 rounded-lg text-sm font-medium transition ${
+                className={`h-11 sm:h-8 px-3 rounded-lg text-sm font-medium transition ${
                   e.subject === activeSubject
                     ? "btn-solid"
                     : "bg-muted text-muted-foreground hover:text-foreground"
@@ -168,7 +168,7 @@ export function CoveredLedger({
                   aria-expanded={isOpen}
                 >
                   <div className="flex-1 min-w-0">
-                    <h3 className="text-sm font-semibold">{t.title}</h3>
+                    <h3 className="text-sm font-bold">{t.title}</h3>
                     <p className="text-[11px] text-muted-foreground">
                       {t.points.length} {t.points.length === 1 ? "point" : "points"} practised ·{" "}
                       {strongCount} going well
@@ -205,7 +205,7 @@ export function CoveredLedger({
                       type="button"
                       onClick={() => retake(t)}
                       disabled={retaking === t.topicId}
-                      className="mt-1 inline-flex items-center gap-1.5 h-8 px-3 rounded-lg border border-border text-xs font-semibold text-muted-foreground hover:text-primary hover:border-primary/40 disabled:opacity-50"
+                      className="mt-1 inline-flex items-center gap-1.5 h-11 sm:h-8 px-3 rounded-lg border border-border text-xs font-semibold text-muted-foreground hover:text-primary hover:border-primary/40 disabled:opacity-50"
                       title="Bring this whole topic back into this week to revise it again"
                     >
                       {retaking === t.topicId ? (

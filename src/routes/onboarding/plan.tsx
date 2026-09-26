@@ -78,7 +78,7 @@ function PlanStep() {
   // at a student who only paused is the exact mistake this page guards against.
   if (planStatePending) {
     return (
-      <div className="pop-card p-10 text-center">
+      <div className="pop-card p-6 text-center sm:p-10">
         <Spinner className="py-2" />
       </div>
     );
@@ -161,14 +161,14 @@ function PlanStep() {
         <button
           type="button"
           onClick={() => navigate({ to: "/onboarding/school" })}
-          className="text-xs text-muted-foreground hover:text-foreground"
+          className="inline-flex min-h-11 items-center text-xs text-muted-foreground hover:text-foreground sm:min-h-0"
         >
           ← Back to your profile
         </button>
         <button
           type="button"
           onClick={signOut}
-          className="text-xs text-muted-foreground hover:text-foreground"
+          className="inline-flex min-h-11 items-center text-xs text-muted-foreground hover:text-foreground sm:min-h-0"
         >
           Sign out
         </button>

@@ -1,6 +1,7 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { motion, AnimatePresence } from "motion/react";
 import { GraduationCap, Award, Star, X, Send, MessageCircle } from "lucide-react";
+import { useBodyScrollLock } from "@/hooks/useBodyScrollLock";
 // Shared WhatsApp number (same as the floating button). The pre-filled message
 // names the tutor so we know who the enquiry is about.
 import { whatsappLink } from "@/lib/leads/whatsapp";
@@ -62,7 +63,7 @@ export function TutorsSection() {
       id="tutors"
       className="py-20 lg:py-24 bg-card border-t border-border relative overflow-visible"
     >
-      <div className="max-w-7xl mx-auto px-6 relative z-10">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 relative z-10">
         <div className="text-center max-w-2xl mx-auto mb-16">
           <h2 className="font-display text-3xl sm:text-4xl font-bold tracking-tight text-foreground">
             Meet your expert tutors
@@ -90,7 +91,7 @@ export function TutorsSection() {
                     setActiveId(t.id);
                   }
                 }}
-                className="group relative rounded-[2rem] border border-white/60 bg-white/70 backdrop-blur-xl p-8 pt-10 shadow-[0_8px_40px_-12px_rgba(15,23,42,0.15)] hover:shadow-[0_20px_60px_-16px_rgba(15,23,42,0.25)] transition duration-300 cursor-pointer overflow-hidden flex flex-col justify-between focus:outline-none focus-visible:ring-2 focus-visible:ring-primary/40"
+                className="group relative rounded-[2rem] border border-white/60 bg-white/70 backdrop-blur-xl p-5 pt-8 sm:p-8 sm:pt-10 shadow-[0_8px_40px_-12px_rgba(15,23,42,0.15)] hover:shadow-[0_20px_60px_-16px_rgba(15,23,42,0.25)] transition duration-300 cursor-pointer overflow-hidden flex flex-col justify-between focus:outline-none focus-visible:ring-2 focus-visible:ring-primary/40"
               >
                 {/* Soft gradient tint wash */}
                 <div
@@ -242,6 +243,15 @@ type Tutor = (typeof TUTORS)[number];
 
 function TutorChatModal({ tutor, onClose }: { tutor: Tutor; onClose: () => void }) {
   const [message, setMessage] = useState("");
+  // Only mounted while open, so the page stays still for exactly that long.
+  useBodyScrollLock(true);
+  useEffect(() => {
+    const onKey = (e: KeyboardEvent) => {
+      if (e.key === "Escape") onClose();
+    };
+    window.addEventListener("keydown", onKey);
+    return () => window.removeEventListener("keydown", onKey);
+  }, [onClose]);
 
   const firstName = tutor.name.replace("Dr ", "");
   const sendToWhatsApp = () => {
@@ -267,12 +277,12 @@ function TutorChatModal({ tutor, onClose }: { tutor: Tutor; onClose: () => void 
         exit={{ opacity: 0, scale: 0.96, y: 8 }}
         transition={{ type: "spring", stiffness: 300, damping: 28 }}
         onClick={(e) => e.stopPropagation()}
-        className="pop-card pop-card-hero relative flex max-h-[90vh] w-full max-w-3xl flex-col overflow-hidden sm:flex-row"
+        className="pop-card pop-card-hero relative flex max-h-[calc(100dvh-2rem)] w-full max-w-3xl flex-col overflow-hidden sm:flex-row"
       >
         <button
           onClick={onClose}
           aria-label="Close"
-          className="icon-tile absolute top-4 right-4 z-20 size-9 bg-white/90 backdrop-blur transition hover:bg-white"
+          className="icon-tile absolute top-4 right-4 z-20 size-11 sm:size-9 bg-white/90 backdrop-blur transition hover:bg-white"
         >
           <X className="size-5" aria-hidden />
         </button>
@@ -292,7 +302,7 @@ function TutorChatModal({ tutor, onClose }: { tutor: Tutor; onClose: () => void 
         </div>
 
         {/* Chat side */}
-        <div className="scroll-slim flex flex-col overflow-y-auto p-6 sm:w-1/2 sm:p-8">
+        <div className="scroll-slim flex min-h-0 flex-col overflow-y-auto p-5 sm:w-1/2 sm:p-8">
           <div className="flex flex-wrap items-center gap-2">
             <h3 className="font-display text-foreground text-xl font-extrabold">{tutor.name}</h3>
             <span className="sticker stamp-in text-[10px] tracking-wider uppercase">

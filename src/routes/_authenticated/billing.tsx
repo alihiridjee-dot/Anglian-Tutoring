@@ -40,14 +40,14 @@ export const Route = createFileRoute("/_authenticated/billing")({
 /** The Stripe reassurance + back-link, shared by both persona views. */
 function StripeFooter() {
   return (
-    <div className="mt-8 rounded-2xl bg-primary/5 border border-primary/20 p-6 text-sm">
+    <div className="mt-8 rounded-2xl bg-primary/5 border border-primary/20 p-4 sm:p-6 text-sm">
       <p className="text-muted-foreground">
         Payments are handled by Stripe. Your card details go straight to them and are never seen or
         stored by Anglia Educate.
       </p>
       <Link
         to="/dashboard"
-        className="text-primary mt-3 inline-block text-sm font-semibold hover:underline"
+        className="text-primary mt-3 inline-flex min-h-11 items-center text-sm font-semibold hover:underline sm:min-h-0"
       >
         ← Back to dashboard
       </Link>
@@ -160,7 +160,7 @@ function BillingPage() {
   return (
     <AppLayout title="Billing">
       <div className="max-w-4xl">
-        <div className="relative overflow-hidden rounded-2xl border border-primary/30 bg-gradient-to-br from-primary/5 via-card to-card p-6 mb-8 shadow-sm">
+        <div className="relative overflow-hidden rounded-2xl border border-primary/30 bg-gradient-to-br from-primary/5 via-card to-card p-4 sm:p-6 mb-8 shadow-sm">
           {/* soft glow accent */}
           <div className="pointer-events-none absolute -top-16 -right-16 h-40 w-40 rounded-full bg-primary/10 blur-3xl" />
 

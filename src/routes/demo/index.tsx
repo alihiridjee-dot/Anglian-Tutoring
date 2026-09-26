@@ -27,10 +27,10 @@ function DemoPage() {
   const navigate = useNavigate();
   return (
     <div className="page-aurora min-h-screen relative flex flex-col">
-      <div className="absolute top-6 left-6 z-10">
+      <div className="absolute top-4 left-4 z-10 sm:top-6 sm:left-6">
         <Link
           to="/"
-          className="inline-flex items-center gap-2 text-sm font-semibold text-muted-foreground hover:text-foreground transition px-3 py-1.5 rounded-lg hover:bg-secondary"
+          className="inline-flex min-h-11 items-center gap-2 text-sm font-semibold text-muted-foreground hover:text-foreground transition px-3 py-1.5 rounded-lg hover:bg-secondary"
         >
           <ArrowLeft className="w-4 h-4" /> Back to home
         </Link>
@@ -118,7 +118,7 @@ function DemoCard({
   return (
     <Link
       to={to}
-      className={`group max-w-md w-full bg-secondary/50 hover:bg-secondary/80 border border-border rounded-3xl p-8 sm:p-10 shadow-xs hover:shadow-lg transition-all duration-300 flex flex-col justify-between min-h-[460px] ${
+      className={`group max-w-md w-full bg-secondary/50 hover:bg-secondary/80 border border-border rounded-3xl p-6 sm:p-10 shadow-xs hover:shadow-lg transition-all duration-300 flex flex-col justify-between min-h-[460px] ${
         isStudent ? "hover:border-emerald-200/60" : "hover:border-primary/20"
       }`}
     >

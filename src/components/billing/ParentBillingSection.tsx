@@ -194,7 +194,7 @@ export function ParentBillingSection({
       </div>
 
       {children.length === 0 ? (
-        <div className="rounded-2xl premium-card p-6 text-sm text-muted-foreground">
+        <div className="rounded-2xl premium-card p-4 sm:p-6 text-sm text-muted-foreground">
           Link to your child from their Settings page to pay for and manage their plan here.
         </div>
       ) : (
@@ -209,7 +209,7 @@ export function ParentBillingSection({
             return (
               <div
                 key={child.link_id}
-                className="relative overflow-hidden rounded-2xl border border-primary/30 bg-gradient-to-br from-primary/5 via-card to-card p-6 shadow-sm"
+                className="relative overflow-hidden rounded-2xl border border-primary/30 bg-gradient-to-br from-primary/5 via-card to-card p-4 sm:p-6 shadow-sm"
               >
                 {/* soft glow accent (matches Add-subject card) */}
                 <div className="pointer-events-none absolute -top-16 -right-16 h-40 w-40 rounded-full bg-primary/10 blur-3xl" />

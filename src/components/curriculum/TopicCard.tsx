@@ -79,7 +79,7 @@ export function TopicCard({
       <div className="flex items-center hover:bg-secondary/40">
         <button
           onClick={onToggle}
-          className="flex-1 min-w-0 flex flex-wrap sm:flex-nowrap items-center gap-x-3 gap-y-2 px-5 py-4 text-left"
+          className="flex-1 min-w-0 flex flex-wrap sm:flex-nowrap items-center gap-x-3 gap-y-2 px-4 sm:px-5 py-4 text-left"
         >
           <ChevronRight className={`w-4 h-4 shrink-0 transition ${open ? "rotate-90" : ""}`} />
           {topic.code && (
@@ -95,7 +95,7 @@ export function TopicCard({
         {isTutor && (
           <button
             onClick={del}
-            className="text-muted-foreground hover:text-destructive p-1 mr-4 shrink-0"
+            className="tap-target text-muted-foreground hover:text-destructive p-1 mr-3 sm:mr-4 shrink-0"
             aria-label={`Delete topic ${topic.title}`}
           >
             <Trash2 className="w-4 h-4" />
@@ -103,7 +103,7 @@ export function TopicCard({
         )}
       </div>
       {open && (
-        <div className="border-t border-border p-5 space-y-4">
+        <div className="border-t border-border p-4 sm:p-5 space-y-4">
           {isTutor && <SpecPointCreate topicId={topic.id} onCreated={reload} />}
           {points.length === 0 ? (
             <p className="text-muted-foreground text-sm italic">
@@ -123,7 +123,7 @@ export function TopicCard({
                       {p.code}
                     </span>
                     <div className="flex-1 min-w-0">
-                      <h4 className="font-semibold text-sm text-foreground leading-tight group-hover:text-primary transition">
+                      <h4 className="font-bold text-sm text-foreground leading-tight group-hover:text-primary transition">
                         {p.title}
                       </h4>
                       {p.description && (
@@ -174,7 +174,7 @@ function SpecPointCreate({ topicId, onCreated }: { topicId: string; onCreated: (
     return (
       <button
         onClick={() => setOpen(true)}
-        className="w-full h-10 border border-dashed border-border rounded-xl flex items-center justify-center gap-1.5 text-xs font-semibold hover:border-primary/50 text-muted-foreground hover:text-primary transition"
+        className="w-full h-11 sm:h-10 border border-dashed border-border rounded-xl flex items-center justify-center gap-1.5 text-xs font-semibold hover:border-primary/50 text-muted-foreground hover:text-primary transition"
       >
         <Plus className="w-3.5 h-3.5" /> Add Specification Point
       </button>
@@ -224,11 +224,14 @@ function SpecPointCreate({ topicId, onCreated }: { topicId: string; onCreated: (
         <button
           type="button"
           onClick={() => setOpen(false)}
-          className="h-8 px-3 rounded-md text-xs hover:bg-secondary border border-border"
+          className="h-11 sm:h-8 px-3 rounded-md text-xs hover:bg-secondary border border-border"
         >
           Cancel
         </button>
-        <button type="submit" className="h-8 px-3 rounded-md text-xs btn-solid font-semibold">
+        <button
+          type="submit"
+          className="h-11 sm:h-8 px-3 rounded-md text-xs btn-solid font-semibold"
+        >
           Add Point
         </button>
       </div>

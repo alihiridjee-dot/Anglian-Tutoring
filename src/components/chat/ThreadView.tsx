@@ -118,7 +118,7 @@ export function ThreadView({ thread, viewerId, isTutor }: Props) {
 
   return (
     <div className="flex h-full min-h-0 flex-col">
-      <div className="flex items-start gap-3 border-b border-border px-5 py-4">
+      <div className="flex flex-wrap items-start gap-3 border-b border-border px-4 py-4 sm:px-5">
         <div className="min-w-0 flex-1">
           <h2 className="font-display text-base font-bold leading-tight">{thread.subject_line}</h2>
           <div className="mt-1 flex flex-wrap items-center gap-2 text-xs text-muted-foreground">
@@ -141,13 +141,13 @@ export function ThreadView({ thread, viewerId, isTutor }: Props) {
           </div>
         </div>
         {confirmingDelete ? (
-          <div className="flex shrink-0 items-center gap-2">
+          <div className="ml-auto flex shrink-0 items-center gap-2">
             <span className="text-sm font-semibold">Delete for good?</span>
             <button
               type="button"
               onClick={() => setConfirmingDelete(false)}
               disabled={remove.isPending}
-              className="h-9 rounded-lg border border-border px-3 text-sm font-semibold hover:bg-muted disabled:opacity-50"
+              className="h-11 sm:h-9 rounded-lg border border-border px-3 text-sm font-semibold hover:bg-muted disabled:opacity-50"
             >
               Cancel
             </button>
@@ -155,7 +155,7 @@ export function ThreadView({ thread, viewerId, isTutor }: Props) {
               type="button"
               onClick={deleteThread}
               disabled={remove.isPending}
-              className="inline-flex h-9 items-center gap-1.5 rounded-lg bg-destructive px-3 text-sm font-semibold text-destructive-foreground hover:opacity-90 disabled:opacity-50"
+              className="inline-flex h-11 sm:h-9 items-center gap-1.5 rounded-lg bg-destructive px-3 text-sm font-semibold text-destructive-foreground hover:opacity-90 disabled:opacity-50"
             >
               {remove.isPending ? (
                 <Loader2 className="h-4 w-4 animate-spin" />
@@ -171,14 +171,14 @@ export function ThreadView({ thread, viewerId, isTutor }: Props) {
             onClick={() => setConfirmingDelete(true)}
             aria-label="Delete conversation"
             title="Delete conversation"
-            className="inline-flex h-9 w-9 shrink-0 items-center justify-center rounded-lg text-muted-foreground transition hover:bg-destructive/10 hover:text-destructive"
+            className="inline-flex size-11 sm:size-9 shrink-0 items-center justify-center rounded-lg text-muted-foreground transition hover:bg-destructive/10 hover:text-destructive"
           >
             <Trash2 className="h-4 w-4" />
           </button>
         )}
       </div>
 
-      <div className="min-h-0 flex-1 space-y-3 overflow-y-auto px-5 py-4">
+      <div className="min-h-0 flex-1 space-y-3 overflow-y-auto px-4 py-4 sm:px-5">
         {isPending ? (
           <Spinner className="py-10" />
         ) : error && messages.length === 0 ? (
@@ -221,7 +221,7 @@ export function ThreadView({ thread, viewerId, isTutor }: Props) {
               type="button"
               onClick={draft}
               disabled={drafting || messages.length === 0}
-              className="inline-flex items-center gap-1.5 h-8 px-3 rounded-lg border border-border text-xs font-semibold hover:bg-muted disabled:opacity-50"
+              className="inline-flex items-center gap-1.5 h-11 sm:h-8 px-3 rounded-lg border border-border text-xs font-semibold hover:bg-muted disabled:opacity-50"
             >
               {drafting ? (
                 <Loader2 className="h-3.5 w-3.5 animate-spin" />
@@ -249,6 +249,7 @@ export function ThreadView({ thread, viewerId, isTutor }: Props) {
             }}
             rows={3}
             placeholder={isTutor ? "Write your reply…" : "Write a message…"}
+            aria-label={isTutor ? "Your reply" : "Your message"}
             className="flex-1 rounded-xl border border-border bg-background p-3 text-sm transition focus:outline-none focus:border-primary focus:ring-4 focus:ring-primary/15"
           />
           <button

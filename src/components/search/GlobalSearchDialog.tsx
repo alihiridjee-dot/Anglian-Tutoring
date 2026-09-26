@@ -78,7 +78,7 @@ export function GlobalSearchDialog({ open, onClose }: { open: boolean; onClose: 
 
   return (
     <div
-      className="fixed inset-0 z-50 flex items-start justify-center p-4 pt-[10vh] bg-foreground/25 backdrop-blur-sm"
+      className="fixed inset-0 z-50 flex items-start justify-center p-3 pt-[max(0.75rem,env(safe-area-inset-top))] sm:p-4 sm:pt-[10vh] bg-foreground/25 backdrop-blur-sm"
       role="presentation"
       onMouseDown={(e) => {
         if (e.target === e.currentTarget) onClose();
@@ -99,19 +99,19 @@ export function GlobalSearchDialog({ open, onClose }: { open: boolean; onClose: 
             onChange={(e) => setQuery(e.target.value)}
             placeholder="Search spec points, homework, sessions, quizzes…"
             aria-label="Search"
-            className="flex-1 bg-transparent text-[15px] focus:outline-none placeholder:text-muted-foreground/70"
+            className="flex-1 min-w-0 bg-transparent text-base focus:outline-none placeholder:text-muted-foreground/70"
           />
           {loading && <Loader2 className="w-4 h-4 text-muted-foreground animate-spin shrink-0" />}
           <button
             onClick={onClose}
             aria-label="Close search"
-            className="shrink-0 text-muted-foreground hover:text-foreground p-1 rounded-md hover:bg-secondary transition cursor-pointer"
+            className="tap-target shrink-0 text-muted-foreground hover:text-foreground p-1 rounded-md hover:bg-secondary transition cursor-pointer"
           >
             <X className="w-4 h-4" />
           </button>
         </div>
 
-        <div ref={listRef} className="max-h-[60vh] overflow-y-auto">
+        <div ref={listRef} className="max-h-[60dvh] overflow-y-auto">
           {!active ? (
             <EmptyState
               title="Search everything"
@@ -190,7 +190,7 @@ function ResultRow({
       data-active={active}
       onMouseMove={onHover}
       onClick={onSelect}
-      className={`w-full flex items-start gap-3 px-4 py-2.5 text-left transition cursor-pointer ${
+      className={`w-full flex min-h-11 items-start gap-3 px-4 py-2.5 text-left transition cursor-pointer ${
         active ? "bg-primary/10" : "hover:bg-secondary/40"
       }`}
     >

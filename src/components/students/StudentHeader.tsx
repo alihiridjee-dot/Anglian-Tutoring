@@ -26,7 +26,7 @@ export function StudentHeader({
     <div className="premium-card tint-primary flex flex-wrap items-center gap-5 rounded-2xl p-5 sm:p-6">
       <div className="icon-tile size-16 shrink-0 overflow-hidden text-xl font-black">
         {avatarUrl ? (
-          <img src={avatarUrl} alt="" className="size-full object-cover" />
+          <img src={avatarUrl} alt="" width={64} height={64} className="size-full object-cover" />
         ) : (
           <span aria-hidden>{initials}</span>
         )}

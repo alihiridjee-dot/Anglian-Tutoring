@@ -53,7 +53,7 @@ export function StudentSubjectPicker({
               <span
                 key={s.value}
                 title="Not included in your plan — add it from Billing."
-                className="inline-flex items-center gap-1.5 h-9 px-3.5 rounded-lg border border-dashed border-border bg-muted/40 text-sm font-semibold text-muted-foreground/70 cursor-not-allowed select-none"
+                className="inline-flex items-center gap-1.5 h-11 sm:h-9 px-3.5 rounded-lg border border-dashed border-border bg-muted/40 text-sm font-semibold text-muted-foreground/70 cursor-not-allowed select-none"
               >
                 <Lock className="w-3.5 h-3.5" /> {s.label}
               </span>
@@ -63,7 +63,7 @@ export function StudentSubjectPicker({
             <button
               key={s.value}
               onClick={() => onSelect(s.value)}
-              className={`inline-flex items-center gap-1.5 h-9 px-3.5 rounded-lg border text-sm font-semibold transition ${
+              className={`inline-flex items-center gap-1.5 h-11 sm:h-9 px-3.5 rounded-lg border text-sm font-semibold transition ${
                 active
                   ? "border-primary bg-primary/10 text-primary ring-2 ring-primary/20"
                   : "border-border hover:bg-muted"
@@ -78,7 +78,7 @@ export function StudentSubjectPicker({
       {lockedSubjects.length > 0 && (
         <Link
           to="/billing"
-          className="mt-3 inline-flex items-center gap-1.5 text-xs font-semibold text-primary hover:underline"
+          className="mt-3 inline-flex items-center gap-1.5 min-h-11 sm:min-h-0 text-xs font-semibold text-primary hover:underline"
         >
           <Sparkles className="w-3.5 h-3.5" />
           Add {lockedSubjects.map((s) => labelOf(SUBJECTS, s)).join(" & ")} to your plan
@@ -105,7 +105,7 @@ export function Filter<T extends string>({
         {label}
       </label>
       <select
-        className={inputCls + " h-10 mt-1"}
+        className={inputCls + " h-10 min-h-11 sm:min-h-0 mt-1"}
         value={value}
         onChange={(e) => onChange(e.target.value as T)}
       >

@@ -49,7 +49,7 @@ export function UseWeeklyFocusButton({
         type="button"
         onClick={apply}
         disabled={allSelected}
-        className="inline-flex items-center gap-1.5 text-xs font-medium px-3 py-1.5 rounded-lg border border-primary/30 bg-primary/5 text-primary hover:bg-primary/10 transition disabled:opacity-60 disabled:hover:bg-primary/5"
+        className="inline-flex min-h-11 sm:min-h-0 items-center gap-1.5 text-xs font-medium px-3 py-1.5 rounded-lg border border-primary/30 bg-primary/5 text-primary hover:bg-primary/10 transition disabled:opacity-60 disabled:hover:bg-primary/5"
       >
         {allSelected ? (
           <Check className="w-3.5 h-3.5" />

@@ -74,8 +74,11 @@ function LearningStep() {
       <div className="space-y-5">
         {LEARNING_QUESTIONS.map((q) => (
           <div key={q.id}>
-            <label className="text-sm font-medium">{q.prompt}</label>
+            <label htmlFor={`learning-${q.id}`} className="text-sm font-medium">
+              {q.prompt}
+            </label>
             <input
+              id={`learning-${q.id}`}
               type="range"
               min={1}
               max={5}
@@ -84,7 +87,7 @@ function LearningStep() {
               onChange={(e) =>
                 setResponses((prev) => ({ ...prev, [q.id]: Number(e.target.value) }))
               }
-              className="mt-2 w-full accent-primary"
+              className="mt-1 h-11 w-full accent-primary"
             />
             <div className="flex justify-between text-[11px] text-muted-foreground">
               <span>{q.low}</span>

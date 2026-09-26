@@ -49,7 +49,7 @@ export function SpecSearchBar({
         <button
           onClick={() => onChange("")}
           aria-label="Clear search"
-          className="shrink-0 inline-flex items-center gap-1 text-xs font-semibold text-muted-foreground hover:text-foreground cursor-pointer transition"
+          className="shrink-0 inline-flex items-center gap-1 min-h-11 sm:min-h-0 text-xs font-semibold text-muted-foreground hover:text-foreground cursor-pointer transition"
         >
           <X className="w-3.5 h-3.5" /> Clear
         </button>
@@ -107,7 +107,7 @@ export function SpecSearchResults({
         </p>
         <button
           onClick={onClear}
-          className="mt-4 inline-flex items-center gap-1.5 text-xs font-semibold text-primary hover:underline cursor-pointer"
+          className="mt-4 inline-flex items-center gap-1.5 min-h-11 sm:min-h-0 text-xs font-semibold text-primary hover:underline cursor-pointer"
         >
           <X className="w-3.5 h-3.5" /> Clear search
         </button>
@@ -126,7 +126,7 @@ export function SpecSearchResults({
         </p>
         <button
           onClick={onClear}
-          className="inline-flex items-center gap-1.5 text-xs font-semibold text-muted-foreground hover:text-foreground cursor-pointer transition"
+          className="inline-flex items-center gap-1.5 min-h-11 sm:min-h-0 text-xs font-semibold text-muted-foreground hover:text-foreground cursor-pointer transition"
         >
           <X className="w-3.5 h-3.5" /> Back to all topics
         </button>
@@ -134,7 +134,7 @@ export function SpecSearchResults({
 
       {groups.map(({ topic, points }) => (
         <div key={topic.id} className="rounded-2xl premium-card overflow-hidden">
-          <div className="flex items-center gap-2.5 px-5 py-3 border-b border-border bg-secondary/30">
+          <div className="flex items-center gap-2.5 px-4 sm:px-5 py-3 border-b border-border bg-secondary/30">
             {topic.code && (
               <span className="text-[11px] font-bold tracking-wide px-2 py-0.5 rounded bg-[color:color-mix(in_oklab,var(--tint)_15%,transparent)] text-[color:var(--tint)] shrink-0">
                 {topic.code}
@@ -158,7 +158,7 @@ export function SpecSearchResults({
                   <Highlight text={p.code} terms={terms} />
                 </span>
                 <div className="min-w-0">
-                  <h4 className="font-semibold text-sm text-foreground leading-tight group-hover:text-primary transition">
+                  <h4 className="font-bold text-sm text-foreground leading-tight group-hover:text-primary transition">
                     <Highlight text={p.title} terms={terms} />
                   </h4>
                   {p.description && (

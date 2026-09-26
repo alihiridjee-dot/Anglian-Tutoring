@@ -76,11 +76,16 @@ function ResetPasswordPage() {
           </p>
           <form onSubmit={handleSubmit} className="space-y-4">
             <div>
-              <label className="text-xs font-medium text-muted-foreground uppercase tracking-wider">
+              <label
+                htmlFor="reset-new-password"
+                className="text-xs font-medium text-muted-foreground uppercase tracking-wider"
+              >
                 New password
               </label>
               <input
+                id="reset-new-password"
                 type="password"
+                autoComplete="new-password"
                 required
                 minLength={6}
                 value={password}
@@ -89,11 +94,16 @@ function ResetPasswordPage() {
               />
             </div>
             <div>
-              <label className="text-xs font-medium text-muted-foreground uppercase tracking-wider">
+              <label
+                htmlFor="reset-confirm-password"
+                className="text-xs font-medium text-muted-foreground uppercase tracking-wider"
+              >
                 Confirm password
               </label>
               <input
+                id="reset-confirm-password"
                 type="password"
+                autoComplete="new-password"
                 required
                 minLength={6}
                 value={confirm}
@@ -104,7 +114,7 @@ function ResetPasswordPage() {
             <button
               type="submit"
               disabled={loading || !ready}
-              className="w-full h-10 rounded-lg btn-solid font-semibold text-sm hover:opacity-90 disabled:opacity-60"
+              className="w-full h-11 sm:h-10 rounded-lg btn-solid font-semibold text-sm hover:opacity-90 disabled:opacity-60"
             >
               {loading ? "Updating…" : "Update password"}
             </button>

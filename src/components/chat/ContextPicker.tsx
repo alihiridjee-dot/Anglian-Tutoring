@@ -57,7 +57,7 @@ export function ContextPicker({ value, onChange }: Props) {
                 if (key === "general") select(EMPTY_CONTEXT);
                 else select({ kind: key });
               }}
-              className={`inline-flex items-center gap-1.5 h-8 px-3 rounded-lg border text-xs font-semibold transition ${
+              className={`inline-flex items-center gap-1.5 h-11 sm:h-8 px-3 rounded-lg border text-xs font-semibold transition ${
                 active
                   ? "border-primary bg-primary/10 text-foreground"
                   : "border-border text-muted-foreground hover:border-primary/40"
@@ -79,7 +79,7 @@ export function ContextPicker({ value, onChange }: Props) {
               select(EMPTY_CONTEXT);
             }}
             aria-label="Remove attachment"
-            className="shrink-0 text-muted-foreground hover:text-foreground"
+            className="tap-target shrink-0 text-muted-foreground hover:text-foreground"
           >
             <X className="w-4 h-4" />
           </button>
@@ -115,7 +115,7 @@ function PickerRow({
     <button
       type="button"
       onClick={onClick}
-      className="block w-full px-3 py-2.5 text-left hover:bg-muted/50"
+      className="block w-full min-h-11 px-3 py-2.5 text-left hover:bg-muted/50"
     >
       <div className="text-sm font-medium truncate">{title}</div>
       {subtitle && <div className="text-xs text-muted-foreground truncate">{subtitle}</div>}
@@ -184,6 +184,7 @@ function SpecPointSearch({ onPick }: { onPick: (s: ChatContextSelection) => void
         value={query}
         onChange={(e) => setQuery(e.target.value)}
         placeholder="Search your spec — e.g. osmosis, 4.1.2…"
+        aria-label="Search your spec"
         className="w-full h-10 rounded-xl border border-border bg-background px-3 text-sm transition focus:outline-none focus:border-primary focus:ring-4 focus:ring-primary/15"
       />
       {query.trim().length >= 2 && (

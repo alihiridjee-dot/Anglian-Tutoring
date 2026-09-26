@@ -31,15 +31,15 @@ export function TrendsChart({
   ) satisfies ChartConfig;
 
   return (
-    <div className="premium-card rounded-2xl p-6">
-      <div className="flex items-center justify-between mb-6">
-        <div>
+    <div className="premium-card rounded-2xl p-4 sm:p-6">
+      <div className="flex flex-wrap items-start justify-between gap-3 mb-6">
+        <div className="min-w-0">
           <h3 className="font-display text-lg font-bold text-foreground">Performance Trends</h3>
           <p className="text-xs text-muted-foreground mt-0.5">
             Weekly quiz averages over the past six weeks.
           </p>
         </div>
-        <div className="flex gap-4 text-xs font-semibold">
+        <div className="flex flex-wrap gap-x-4 gap-y-1 text-xs font-semibold">
           {subjects.map((s) => (
             <span
               key={s}

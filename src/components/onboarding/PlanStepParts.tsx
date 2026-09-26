@@ -10,7 +10,7 @@ const labelFor = (list: readonly { value: string; label: string }[], value: stri
 /** Back from Stripe and the webhook has not landed within the window. Never the shop. */
 export function PaymentStillConfirming({ onCheckAgain }: { onCheckAgain: () => void }) {
   return (
-    <div className="pop-card pop-card-hero rise-in p-10 text-center">
+    <div className="pop-card pop-card-hero rise-in p-6 text-center sm:p-10">
       <Mascot name="rocket" mood="wow" size={96} className="mx-auto" />
       <h1 className="font-display mt-4 mb-2 text-2xl font-extrabold tracking-tight">
         Still confirming your payment
@@ -30,7 +30,7 @@ export function PaymentStillConfirming({ onCheckAgain }: { onCheckAgain: () => v
 /** Back from Stripe, waiting for the webhook. */
 export function PaymentConfirming() {
   return (
-    <div className="pop-card pop-card-hero rise-in p-10 text-center">
+    <div className="pop-card pop-card-hero rise-in p-6 text-center sm:p-10">
       <Mascot name="rocket" mood="wow" size={96} className="mx-auto" />
       <h1 className="font-display mt-4 mb-2 text-2xl font-extrabold tracking-tight">
         Confirming your payment…
@@ -71,7 +71,7 @@ export function PlanOnHold({
       <button
         type="button"
         onClick={onSignOut}
-        className="w-full text-xs text-muted-foreground hover:text-foreground"
+        className="w-full min-h-11 text-xs text-muted-foreground hover:text-foreground sm:min-h-0"
       >
         Sign out
       </button>
@@ -96,7 +96,7 @@ export function PlanSummary({
         <button
           type="button"
           onClick={onEditSubjects}
-          className="inline-flex items-center gap-1 text-[11px] text-muted-foreground hover:text-foreground"
+          className="tap-target inline-flex items-center gap-1 text-[11px] text-muted-foreground hover:text-foreground"
         >
           <Pencil className="w-3 h-3" /> Edit subjects
         </button>
@@ -130,7 +130,7 @@ export function CadencePicker({
             key={c.key}
             type="button"
             onClick={() => setCadence(c.key)}
-            className={`relative rounded-xl border p-3 text-center transition ${
+            className={`relative min-w-0 rounded-xl border p-2 text-center transition sm:p-3 ${
               on
                 ? "border-primary bg-primary/[0.07] ring-2 ring-primary/15 shadow-sm"
                 : "border-border bg-background hover:border-primary/50 hover:-translate-y-0.5 hover:shadow-sm"
@@ -214,10 +214,13 @@ export function AskParentCard({
         <div className="flex gap-2">
           <input
             type="email"
+            inputMode="email"
+            autoComplete="email"
+            aria-label="Parent or guardian's email"
             value={parentEmail}
             onChange={(e) => setParentEmail(e.target.value)}
             placeholder="parent@example.com"
-            className="flex-1 h-11 rounded-xl bg-background border border-border px-3.5 text-sm transition focus:outline-none focus:border-primary focus:ring-4 focus:ring-primary/15"
+            className="flex-1 min-w-0 h-11 rounded-xl bg-background border border-border px-3.5 text-sm transition focus:outline-none focus:border-primary focus:ring-4 focus:ring-primary/15"
           />
           <button
             type="button"

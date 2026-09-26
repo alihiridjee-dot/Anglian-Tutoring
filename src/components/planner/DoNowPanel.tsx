@@ -171,7 +171,7 @@ function ChecklistRow({
           aria-label={`${done ? "Untick" : "Tick off"} ${point.code} ${point.title}`}
           disabled={!editable}
           onClick={() => onToggle(point.spec_point_id, !done)}
-          className={`shrink-0 transition ${
+          className={`tap-target shrink-0 transition ${
             done
               ? "text-[color:var(--tint)]"
               : "text-muted-foreground/40 hover:text-[color:var(--tint)]"

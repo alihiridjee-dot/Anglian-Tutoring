@@ -92,7 +92,7 @@ export function QuestionBuilder({
         <button
           type="button"
           onClick={() => onChange([...questions, blankQuestion(specPointIds[0] ?? null)])}
-          className="ml-auto inline-flex items-center gap-1.5 h-8 px-3 rounded-lg border border-border text-xs font-semibold hover:bg-muted/60"
+          className="ml-auto inline-flex items-center gap-1.5 h-11 sm:h-8 px-3 rounded-lg border border-border text-xs font-semibold hover:bg-muted/60"
         >
           <Plus className="w-3.5 h-3.5" />
           Add question
@@ -115,6 +115,7 @@ export function QuestionBuilder({
           </span>
           <input
             type="number"
+            inputMode="numeric"
             min={1}
             max={20}
             value={count}
@@ -137,7 +138,7 @@ export function QuestionBuilder({
           type="button"
           onClick={generate}
           disabled={generating}
-          className="inline-flex items-center gap-2 h-10 px-4 rounded-lg btn-solid text-sm font-semibold hover:opacity-90 disabled:opacity-60"
+          className="inline-flex items-center gap-2 h-11 sm:h-10 px-4 rounded-lg btn-solid text-sm font-semibold hover:opacity-90 disabled:opacity-60"
         >
           {generating ? (
             <Loader2 className="w-4 h-4 animate-spin" />
@@ -165,7 +166,7 @@ export function QuestionBuilder({
                     onClick={() => move(i, -1)}
                     disabled={i === 0}
                     aria-label="Move up"
-                    className="p-1.5 rounded-md text-muted-foreground hover:text-foreground disabled:opacity-30"
+                    className="inline-flex size-11 sm:size-auto items-center justify-center p-1.5 rounded-md text-muted-foreground hover:text-foreground disabled:opacity-30"
                   >
                     <ArrowUp className="w-3.5 h-3.5" />
                   </button>
@@ -174,7 +175,7 @@ export function QuestionBuilder({
                     onClick={() => move(i, 1)}
                     disabled={i === questions.length - 1}
                     aria-label="Move down"
-                    className="p-1.5 rounded-md text-muted-foreground hover:text-foreground disabled:opacity-30"
+                    className="inline-flex size-11 sm:size-auto items-center justify-center p-1.5 rounded-md text-muted-foreground hover:text-foreground disabled:opacity-30"
                   >
                     <ArrowDown className="w-3.5 h-3.5" />
                   </button>
@@ -195,7 +196,7 @@ export function QuestionBuilder({
                       onChange(questions.filter((x) => x.key !== q.key));
                     }}
                     aria-label="Delete question"
-                    className="p-1.5 rounded-md text-muted-foreground hover:text-destructive"
+                    className="inline-flex size-11 sm:size-auto items-center justify-center p-1.5 rounded-md text-muted-foreground hover:text-destructive"
                   >
                     <Trash2 className="w-3.5 h-3.5" />
                   </button>
@@ -206,6 +207,7 @@ export function QuestionBuilder({
                 value={q.prompt}
                 onChange={(e) => patch(q.key, { prompt: e.target.value })}
                 placeholder="Question the student will answer…"
+                aria-label="Question prompt"
                 className="w-full min-h-20 rounded-lg bg-secondary border border-border px-3 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-primary/40"
               />
 
@@ -214,6 +216,7 @@ export function QuestionBuilder({
                   Marks
                   <input
                     type="number"
+                    inputMode="numeric"
                     min={1}
                     max={30}
                     value={q.marks}
@@ -222,7 +225,7 @@ export function QuestionBuilder({
                         marks: Math.min(Math.max(Number(e.target.value) || 1, 1), 30),
                       })
                     }
-                    className={`${inputCls} w-20 h-9`}
+                    className={`${inputCls} w-20 h-11 sm:h-9`}
                   />
                 </label>
                 <label className="inline-flex items-center gap-2 text-xs text-muted-foreground">
@@ -234,7 +237,7 @@ export function QuestionBuilder({
                         answer_type: e.target.value as DraftQuestion["answer_type"],
                       })
                     }
-                    className={`${inputCls} h-9 w-40`}
+                    className={`${inputCls} h-11 sm:h-9 w-40`}
                   >
                     {Object.entries(ANSWER_TYPE_LABELS).map(([value, label]) => (
                       <option key={value} value={value}>
@@ -249,6 +252,7 @@ export function QuestionBuilder({
                 value={q.mark_scheme}
                 onChange={(e) => patch(q.key, { mark_scheme: e.target.value })}
                 placeholder="Mark scheme — one credit-worthy point per line. Shown to you while marking, and to the student once marked."
+                aria-label="Mark scheme"
                 className="w-full min-h-16 rounded-lg bg-secondary border border-border px-3 py-2 text-xs focus:outline-none focus:ring-2 focus:ring-primary/40"
               />
             </li>

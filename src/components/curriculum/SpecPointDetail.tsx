@@ -107,19 +107,19 @@ export function SpecPointDetail({
           <button
             onClick={generate}
             disabled={genLoading}
-            className="inline-flex items-center gap-2 px-3 py-1.5 rounded-md bg-accent/20 border border-accent/40 text-accent-foreground text-xs font-semibold hover:bg-accent/30 disabled:opacity-60"
+            className="inline-flex items-center gap-2 px-3 py-1.5 min-h-11 sm:min-h-0 rounded-md bg-accent/20 border border-accent/40 text-accent-foreground text-xs font-semibold hover:bg-accent/30 disabled:opacity-60"
           >
             <Sparkles className="w-3.5 h-3.5" /> {genLoading ? "Generating…" : "AI generate MCQs"}
           </button>
           <button
             onClick={() => setEditingVideo({ video: null })}
-            className="inline-flex items-center gap-2 px-3 py-1.5 rounded-md border border-border text-xs text-foreground font-semibold hover:bg-secondary/40 transition"
+            className="inline-flex items-center gap-2 px-3 py-1.5 min-h-11 sm:min-h-0 rounded-md border border-border text-xs text-foreground font-semibold hover:bg-secondary/40 transition"
           >
             <PlayCircle className="w-3.5 h-3.5" /> Add video to this point
           </button>
           <Link
             to="/tutor"
-            className="inline-flex items-center gap-2 px-3 py-1.5 rounded-md border border-border text-xs text-foreground font-semibold hover:bg-secondary/40 transition"
+            className="inline-flex items-center gap-2 px-3 py-1.5 min-h-11 sm:min-h-0 rounded-md border border-border text-xs text-foreground font-semibold hover:bg-secondary/40 transition"
           >
             <Plus className="w-3.5 h-3.5" /> Add resource in Tutor Studio
           </Link>
@@ -141,7 +141,7 @@ export function SpecPointDetail({
               {mcqSets.map((s) => (
                 <li
                   key={s.id}
-                  className="flex items-center justify-between px-3.5 py-3 rounded-xl bg-secondary/10 border border-border"
+                  className="flex flex-wrap items-center justify-between gap-2 px-3.5 py-3 rounded-xl bg-secondary/10 border border-border"
                 >
                   <div className="flex items-center gap-2 min-w-0">
                     <span
@@ -158,7 +158,7 @@ export function SpecPointDetail({
                       <Link
                         to={isDemoStudent() ? "/demo/student/mcq/$setId" : "/mcq/$setId"}
                         params={{ setId: s.id }}
-                        className="text-xs px-2.5 py-1.5 rounded-lg border border-border bg-background hover:border-primary/50 text-foreground font-medium transition"
+                        className="inline-flex items-center text-xs px-2.5 py-1.5 min-h-11 sm:min-h-0 rounded-lg border border-border bg-background hover:border-primary/50 text-foreground font-medium transition"
                       >
                         Take
                       </Link>
@@ -167,13 +167,14 @@ export function SpecPointDetail({
                       <>
                         <button
                           onClick={() => publish(s.id, s.published)}
-                          className="text-xs px-2.5 py-1.5 rounded-lg border border-border text-muted-foreground hover:text-foreground transition"
+                          className="inline-flex items-center text-xs px-2.5 py-1.5 min-h-11 sm:min-h-0 rounded-lg border border-border text-muted-foreground hover:text-foreground transition"
                         >
                           {s.published ? "Unpublish" : "Publish"}
                         </button>
                         <button
                           onClick={() => delSet(s.id)}
-                          className="text-muted-foreground hover:text-destructive p-1 transition"
+                          aria-label={`Delete MCQ set ${s.title}`}
+                          className="tap-target text-muted-foreground hover:text-destructive p-1 transition"
                         >
                           <Trash2 className="w-3.5 h-3.5" />
                         </button>
@@ -229,7 +230,7 @@ export function SpecPointDetail({
                         },
                       })
                     }
-                    className="absolute top-2 right-2 inline-flex items-center gap-1 px-2 py-1 rounded-md bg-background/90 border border-border text-[10px] font-bold uppercase tracking-wider text-foreground hover:border-primary/50 shadow-xs transition"
+                    className="tap-target absolute top-2 right-2 inline-flex items-center gap-1 px-2 py-1 rounded-md bg-background/90 border border-border text-[10px] font-bold uppercase tracking-wider text-foreground hover:border-primary/50 shadow-xs transition"
                   >
                     <Pencil className="w-3 h-3" /> Edit
                   </button>
@@ -253,7 +254,7 @@ export function SpecPointDetail({
                     href={r.join_url}
                     target="_blank"
                     rel="noreferrer"
-                    className="text-[10px] px-2 py-0.5 rounded btn-solid font-bold"
+                    className="tap-target inline-flex items-center shrink-0 text-[10px] px-2 py-0.5 rounded btn-solid font-bold"
                   >
                     Join
                   </a>
@@ -287,7 +288,7 @@ export function SpecPointDetail({
                     isDemoStudent() ? "/demo/student/homework/$homeworkId" : "/homework/$homeworkId"
                   }
                   params={{ homeworkId: r.id }}
-                  className="text-[10px] px-2 py-0.5 rounded bg-secondary text-foreground hover:bg-primary hover:text-primary-foreground font-bold transition"
+                  className="tap-target inline-flex items-center shrink-0 text-[10px] px-2 py-0.5 rounded bg-secondary text-foreground hover:bg-primary hover:text-primary-foreground font-bold transition"
                 >
                   Open
                 </Link>

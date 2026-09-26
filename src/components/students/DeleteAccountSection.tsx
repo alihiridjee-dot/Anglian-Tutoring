@@ -3,6 +3,7 @@ import { Loader2, Trash2, Undo2, X } from "lucide-react";
 import { toast } from "sonner";
 import { SectionHeading } from "@/components/Shared";
 import { inputCls } from "@/components/tutor/Field";
+import { useBodyScrollLock } from "@/hooks/useBodyScrollLock";
 import { useAccountDeletion, useScheduleDeletion, useUndoDeletion } from "@/hooks/data/useStudents";
 import { formatDate } from "./studentPresentation";
 
@@ -51,7 +52,7 @@ export function DeleteAccountSection({ studentId, name }: { studentId: string; n
                 },
               )
             }
-            className="btn-soft inline-flex h-9 items-center gap-1.5 rounded-lg px-3.5 text-sm"
+            className="btn-soft inline-flex h-11 items-center gap-1.5 rounded-lg px-3.5 text-sm sm:h-9"
           >
             {undo.isPending ? (
               <Loader2 className="size-4 animate-spin" aria-hidden />
@@ -74,7 +75,7 @@ export function DeleteAccountSection({ studentId, name }: { studentId: string; n
         <button
           type="button"
           onClick={() => setConfirming(true)}
-          className="btn-solid tint-rose inline-flex h-9 items-center gap-1.5 rounded-lg px-3.5 text-sm"
+          className="btn-solid tint-rose inline-flex h-11 items-center gap-1.5 rounded-lg px-3.5 text-sm sm:h-9"
         >
           <Trash2 className="size-4" aria-hidden /> Delete account
         </button>
@@ -112,6 +113,9 @@ function DeleteAccountDialog({
   const date = formatDate(new Date(Date.now() + COOLING_OFF_DAYS * 86_400_000).toISOString());
   const matches = typed.trim().toLowerCase() === name.trim().toLowerCase();
 
+  // The record underneath holds still; a tap outside closes the sheet until the
+  // name has been started, after which only the buttons or Escape do.
+  useBodyScrollLock(true);
   useEffect(() => {
     const onKey = (e: KeyboardEvent) => {
       if (e.key === "Escape" && !schedule.isPending) onClose();
@@ -145,14 +149,17 @@ function DeleteAccountDialog({
       role="dialog"
       aria-modal="true"
       aria-labelledby="delete-account-title"
+      onClick={(e) => {
+        if (e.target === e.currentTarget && !typed.trim() && !schedule.isPending) onClose();
+      }}
     >
-      <div className="premium-card tint-rose max-h-[90vh] w-full max-w-lg overflow-y-auto rounded-2xl">
-        <div className="border-border flex items-start justify-between gap-3 border-b p-6">
+      <div className="premium-card tint-rose max-h-[calc(100dvh-2rem)] w-full max-w-lg overflow-y-auto rounded-2xl">
+        <div className="border-border flex items-start justify-between gap-3 border-b p-4 sm:p-6">
           <div className="flex items-center gap-3">
             <span className="icon-tile size-10 shrink-0">
               <Trash2 className="size-5" aria-hidden />
             </span>
-            <h2 id="delete-account-title" className="text-lg leading-tight">
+            <h2 id="delete-account-title" className="min-w-0 text-lg leading-tight break-words">
               Delete {name}'s account
             </h2>
           </div>
@@ -161,13 +168,13 @@ function DeleteAccountDialog({
             onClick={onClose}
             disabled={schedule.isPending}
             aria-label="Close"
-            className="text-muted-foreground hover:text-foreground shrink-0"
+            className="tap-target text-muted-foreground hover:text-foreground shrink-0"
           >
             <X className="size-5" />
           </button>
         </div>
 
-        <div className="space-y-4 p-6 text-sm">
+        <div className="space-y-4 p-4 sm:p-6 text-sm">
           <ul className="list-disc space-y-2 pl-5">
             <li>
               <strong>Today</strong> {name} is locked out and the plan is paused. No more charges,
@@ -201,7 +208,7 @@ function DeleteAccountDialog({
               type="button"
               onClick={onClose}
               disabled={schedule.isPending}
-              className="btn-soft tint-slate inline-flex h-9 items-center rounded-lg px-3.5 text-sm"
+              className="btn-soft tint-slate inline-flex h-11 items-center rounded-lg px-3.5 text-sm sm:h-9"
             >
               Keep account
             </button>
@@ -209,7 +216,7 @@ function DeleteAccountDialog({
               type="button"
               onClick={confirm}
               disabled={!matches || schedule.isPending}
-              className="btn-solid tint-rose inline-flex h-9 items-center gap-1.5 rounded-lg px-3.5 text-sm"
+              className="btn-solid tint-rose inline-flex h-11 items-center gap-1.5 rounded-lg px-3.5 text-sm sm:h-9"
             >
               {schedule.isPending ? (
                 <Loader2 className="size-4 animate-spin" aria-hidden />

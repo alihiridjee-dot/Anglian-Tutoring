@@ -63,7 +63,7 @@ function Tutor() {
 
   return (
     <AppLayout title="Tutor Studio">
-      <div className="rounded-2xl bg-gradient-to-br from-[var(--primary-deep)] to-[var(--primary)] text-primary-foreground p-8 mb-6 relative overflow-hidden border border-white/10 shadow-elegant">
+      <div className="rounded-2xl bg-gradient-to-br from-[var(--primary-deep)] to-[var(--primary)] text-primary-foreground p-5 sm:p-8 mb-6 relative overflow-hidden border border-white/10 shadow-elegant">
         <div
           className="absolute inset-0 opacity-10"
           style={{
@@ -93,7 +93,7 @@ function Tutor() {
           <button
             key={t.k}
             onClick={() => setTab(t.k)}
-            className={`inline-flex items-center gap-2 px-4 py-2 rounded-lg text-sm font-medium border transition ${
+            className={`inline-flex items-center gap-2 px-4 py-2 min-h-11 sm:min-h-0 rounded-lg text-sm font-medium border transition ${
               tab === t.k
                 ? "btn-solid border-primary"
                 : "bg-card border-border text-muted-foreground hover:text-foreground"
@@ -110,7 +110,7 @@ function Tutor() {
       ) : tab === "marking" ? (
         <MarkingQueue />
       ) : (
-        <div className="max-w-2xl rounded-2xl premium-card p-6">
+        <div className="max-w-2xl rounded-2xl premium-card p-4 sm:p-6">
           {tab === "video" && <VideoForm userId={userId!} taxonomy={taxonomy} />}
           {tab === "homework" && <HomeworkForm userId={userId!} taxonomy={taxonomy} />}
         </div>

@@ -55,7 +55,7 @@ export function TutorRoster({ state }: { state: TutorPlannerState }) {
           onToday={() => setWeek(currentWeek)}
           className="rounded-xl bg-muted/50 px-2.5 py-2"
         />
-        <label className="flex items-center gap-2 h-9 rounded-lg premium-card px-2.5">
+        <label className="flex items-center gap-2 h-11 sm:h-9 rounded-lg premium-card px-2.5">
           <Search className="w-3.5 h-3.5 text-muted-foreground shrink-0" aria-hidden />
           <input
             value={query}
@@ -72,7 +72,7 @@ export function TutorRoster({ state }: { state: TutorPlannerState }) {
               type="button"
               aria-pressed={filter === f.key}
               onClick={() => setFilter(f.key)}
-              className={`h-7 px-2.5 rounded-full text-[11px] font-semibold transition ${
+              className={`h-11 sm:h-7 px-2.5 rounded-full text-[11px] font-semibold transition ${
                 filter === f.key
                   ? "btn-solid"
                   : "bg-muted text-muted-foreground hover:text-foreground"

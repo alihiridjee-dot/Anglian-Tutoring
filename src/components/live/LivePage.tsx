@@ -58,7 +58,7 @@ export function Live() {
   return (
     <AppLayout title="Live Sessions">
       {isTutor && userId && (
-        <div className="max-w-2xl rounded-2xl premium-card p-6 mb-8">
+        <div className="max-w-2xl rounded-2xl premium-card p-4 sm:p-6 mb-8">
           <h3 className="font-display text-lg font-bold mb-4">Schedule a Live Session</h3>
           <LiveForm
             userId={userId}

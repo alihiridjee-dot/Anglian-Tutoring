@@ -34,7 +34,10 @@ export function StepCard({
 
       <div className="space-y-5">{children}</div>
 
-      <div className="mt-9 pt-6 border-t border-border/70 flex items-center gap-3">
+      {/* On a phone the row wraps (Back · Skip, then a full-width Continue) and
+          sticks to the bottom of the screen, so the way forward is under the
+          thumb however long the step is. From `sm` it is the plain footer. */}
+      <div className="mt-9 flex flex-wrap items-center gap-3 border-t border-border/70 pt-6 max-sm:sticky max-sm:bottom-0 max-sm:-mx-6 max-sm:-mb-6 max-sm:rounded-b-[inherit] max-sm:bg-card/90 max-sm:px-6 max-sm:pb-[calc(1.5rem+env(safe-area-inset-bottom))] max-sm:backdrop-blur">
         {onBack && (
           <button
             type="button"
@@ -54,7 +57,7 @@ export function StepCard({
           type="button"
           onClick={onContinue}
           disabled={continueDisabled || saving}
-          className="btn-hero inline-flex h-11 items-center gap-1.5 rounded-xl px-6 text-sm"
+          className="btn-hero inline-flex h-11 items-center gap-1.5 rounded-xl px-6 text-sm max-sm:w-full max-sm:justify-center"
         >
           {saving ? (
             <>

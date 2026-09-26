@@ -21,7 +21,7 @@ export function OverridesPanel({ state }: { state: TutorPlannerState }) {
         key={o.id}
         className="flex flex-wrap items-center gap-x-3 gap-y-1 rounded-xl border border-border bg-muted/10 px-3 py-2"
       >
-        <span className="flex-1 min-w-[12rem] text-sm">
+        <span className="flex-1 min-w-0 sm:min-w-[12rem] text-sm">
           <span className="text-[11px] font-semibold text-muted-foreground mr-1.5">{code}</span>
           <span className="text-muted-foreground line-through decoration-border">
             {meta?.title ?? "Spec point"}
@@ -33,7 +33,7 @@ export function OverridesPanel({ state }: { state: TutorPlannerState }) {
             type="button"
             disabled={busy !== null}
             onClick={() => actions.restore(o, code)}
-            className="inline-flex items-center gap-1 h-7 px-2.5 rounded-lg border border-border text-xs font-medium hover:bg-muted disabled:opacity-50"
+            className="inline-flex items-center gap-1 h-11 sm:h-7 px-2.5 rounded-lg border border-border text-xs font-medium hover:bg-muted disabled:opacity-50"
           >
             {restoring ? (
               <Loader2 className="w-3.5 h-3.5 animate-spin" />
@@ -135,7 +135,7 @@ export function AddPointsBox({ state }: { state: TutorPlannerState }) {
                 setPicking(false);
                 setToAdd([]);
               }}
-              className="h-9 px-3 rounded-lg border border-border text-sm font-medium hover:bg-muted"
+              className="h-11 sm:h-9 px-3 rounded-lg border border-border text-sm font-medium hover:bg-muted"
             >
               Cancel
             </button>
@@ -143,7 +143,7 @@ export function AddPointsBox({ state }: { state: TutorPlannerState }) {
               type="button"
               onClick={addSelected}
               disabled={adding || toAdd.length === 0}
-              className="inline-flex items-center gap-1.5 h-9 px-4 rounded-lg btn-solid text-sm font-semibold hover:opacity-90 disabled:opacity-50"
+              className="inline-flex items-center gap-1.5 h-11 sm:h-9 px-4 rounded-lg btn-solid text-sm font-semibold hover:opacity-90 disabled:opacity-50"
             >
               {adding ? <Loader2 className="w-4 h-4 animate-spin" /> : <Plus className="w-4 h-4" />}
               {warnings.length > 0 ? "Add anyway" : "Add"} {toAdd.length > 0 ? toAdd.length : ""}
@@ -160,7 +160,7 @@ export function AddPointsBox({ state }: { state: TutorPlannerState }) {
     <button
       type="button"
       onClick={() => setPicking(true)}
-      className="inline-flex items-center gap-1.5 h-9 px-3 rounded-lg border border-border text-sm font-medium hover:bg-muted"
+      className="inline-flex items-center gap-1.5 h-11 sm:h-9 px-3 rounded-lg border border-border text-sm font-medium hover:bg-muted"
     >
       <Plus className="w-4 h-4" /> Add spec points to {weekLabel}
     </button>
