@@ -1,5 +1,4 @@
 import { Mascot } from "@/components/Doodles";
-import { Link } from "@tanstack/react-router";
 import { AppLayout } from "@/components/AppLayout";
 import { useRoles } from "@/hooks/useRole";
 import { useEnrolments } from "@/hooks/data/useEnrolments";
@@ -7,6 +6,7 @@ import { useAnalytics } from "@/hooks/data/useAnalytics";
 import { useChildLinks } from "@/hooks/data/useParentLinks";
 import {
   useChildSubjects,
+  useChildCourse,
   useChildTrends,
   useChildEngagement,
   useChildFeedback,
@@ -19,12 +19,13 @@ import { isDemoMode } from "@/lib/auth/session";
 import {
   DEMO_ANALYTICS,
   DEMO_HOMEWORK,
+  DEMO_LEVEL,
   DEMO_PARENT_NAME,
   DEMO_SUBMISSIONS,
 } from "@/lib/demo/studentDemo";
 import { resolveDisplayName } from "@/lib/profile/displayName";
 import { Suspense, lazy, useState } from "react";
-import { Users } from "lucide-react";
+import { EmptyState, ErrorNote, SegmentedToggle, Spinner } from "@/components/Shared";
 
 /**
  * Recharts, and the d3 + lodash tail it drags with it, is ~96 kB gzipped — and
@@ -89,7 +90,8 @@ export function ParentDashboard() {
 
   // Which child is being viewed. Defaults to the first linked child; a parent
   // with several children gets a switcher.
-  const { data: children = [], isLoading: childrenLoading } = useChildLinks(!isDemo);
+  const childrenQ = useChildLinks(!isDemo);
+  const children = childrenQ.data ?? [];
   const [selectedChildId, setSelectedChildId] = useState<string | null>(null);
   const childId = isDemo ? null : (selectedChildId ?? children[0]?.student_id ?? null);
   const selectedChild = children.find((c) => c.student_id === childId) ?? null;
@@ -101,115 +103,132 @@ export function ParentDashboard() {
 
   // Real data, all keyed by the selected child. Every hook no-ops in demo mode
   // (childId stays null there).
-  const { data: childSubjects = [] } = useChildSubjects(childId);
-  const { rows: realAnalytics } = useAnalytics(childId, childSubjects);
-  const { data: realTrends = [] } = useChildTrends(childId);
-  const { data: realEngagement } = useChildEngagement(childId, childSubjects);
-  const { data: realFeedback = [] } = useChildFeedback(childId);
+  const subjectsQ = useChildSubjects(childId);
+  const childSubjects = subjectsQ.data ?? EMPTY;
+  const courseQ = useChildCourse(childId);
+  const analyticsQ = useAnalytics(childId, childSubjects);
+  const trendsQ = useChildTrends(childId);
+  const engagementQ = useChildEngagement(childId, childSubjects, courseQ.data);
+  const feedbackQ = useChildFeedback(childId);
 
-  const analytics = isDemo ? DEMO_ANALYTICS_ROWS : realAnalytics;
-  const trends = isDemo ? DEMO_TRENDS : realTrends;
+  const analytics = isDemo ? DEMO_ANALYTICS_ROWS : analyticsQ.rows;
+  const level = isDemo ? DEMO_LEVEL : (courseQ.data?.level ?? null);
+  const trends = isDemo ? DEMO_TRENDS : (trendsQ.data ?? []);
   const trendSubjects = isDemo ? ["biology", "chemistry", "physics"] : childSubjects;
-  const engagement = isDemo ? DEMO_ENGAGEMENT : realEngagement;
-  const feedback = isDemo ? DEMO_FEEDBACK : realFeedback;
+  const engagement = isDemo ? DEMO_ENGAGEMENT : engagementQ.data;
+  const feedback = isDemo ? DEMO_FEEDBACK : (feedbackQ.data ?? []);
 
   const displayEmailName = isDemo ? DEMO_PARENT_NAME : resolveDisplayName(profileName, email);
   const hasChild = isDemo || !!childId;
 
+  // A failed read used to fall through to the empty copy, telling a parent
+  // their child had done no work when the request had simply not come back.
+  const queries = [childrenQ, subjectsQ, courseQ, analyticsQ, trendsQ, engagementQ, feedbackQ];
+  const error = isDemo ? null : (queries.find((q) => q.error)?.error ?? null);
+  const retry = () => queries.forEach((q) => q.error && q.refetch());
+  // Likewise the loading gap, which flashed "no subjects yet" on every visit.
+  const loading =
+    !isDemo &&
+    (childrenQ.isLoading || subjectsQ.isLoading || courseQ.isLoading || analyticsQ.loading);
+
+  const showEngagement =
+    !!engagement && (engagement.sessionsHeld > 0 || engagement.homeworkSet > 0);
+  const showSide = showEngagement || feedback.length > 0;
+
   return (
     <AppLayout title="Parent Portal">
-      {/* Welcome Banner */}
-      <div
-        data-tour="parent-welcome"
-        className="rounded-2xl bg-gradient-to-br from-primary to-primary-deep text-primary-foreground p-8 mb-8 relative overflow-hidden shadow-sm"
-      >
-        <div
-          className="absolute inset-0 opacity-10"
-          style={{
-            backgroundImage: "radial-gradient(circle at 30% 20%, white 1.5px, transparent 1.5px)",
-            backgroundSize: "24px 24px",
-          }}
+      {/* Slim welcome ribbon, the same one the student dashboard opens with. */}
+      <div data-tour="parent-welcome" className="relative mb-6">
+        <Mascot
+          name="owl"
+          mood="happy"
+          size={72}
+          idle={false}
+          className="peek-in pointer-events-none absolute -top-12 right-6 z-0 hidden text-[color:var(--primary-deep)] sm:block"
         />
-        <div className="flex flex-wrap items-center gap-2 mb-2 relative">
-          <Users className="w-4 h-4 text-primary-foreground/80" />
-          <span className="text-xs uppercase tracking-widest text-primary-foreground/80 font-semibold">
-            Parent Workspace
-          </span>
-        </div>
-        <h2 className="mt-1 font-display text-3xl font-bold tracking-tight relative">
-          Welcome back, {displayEmailName}
-        </h2>
-        <p className="mt-2 text-primary-foreground/90 max-w-2xl relative">
-          {hasChild
-            ? `Track ${childName}'s science progress, predicted grades, attendance, and tutor feedback all in one place.`
-            : "Link to your child's account to see their progress, grades and tutor feedback here."}
-        </p>
-
-        {/* Child switcher — only when there's a choice to make. */}
-        {!isDemo && children.length > 1 && (
-          <div className="mt-5 flex flex-wrap gap-2 relative">
-            {children.map((c) => (
-              <button
-                key={c.student_id}
-                onClick={() => setSelectedChildId(c.student_id)}
-                className={`px-3.5 py-1.5 rounded-xl text-xs font-semibold transition ${
-                  c.student_id === childId
-                    ? "bg-primary-foreground text-primary"
-                    : "bg-white/10 text-primary-foreground border border-white/20 hover:bg-white/20"
-                }`}
-              >
-                {resolveDisplayName(c.display_name, c.email)}
-              </button>
-            ))}
+        <div className="text-primary-foreground shadow-elegant relative z-10 overflow-hidden rounded-2xl border-2 border-white/15 bg-gradient-to-br from-[var(--primary-deep)] to-[var(--primary)] px-5 py-4 sm:px-6 sm:py-5">
+          <div
+            className="absolute inset-0 opacity-10"
+            style={{
+              backgroundImage: "radial-gradient(circle at 30% 20%, white 1.5px, transparent 1.5px)",
+              backgroundSize: "24px 24px",
+            }}
+          />
+          <div className="relative flex items-center gap-2.5">
+            <span className="bg-accent h-2 w-2 shrink-0 animate-pulse rounded-full" />
+            <h2 className="text-lg font-bold tracking-tight text-white sm:text-xl">
+              Welcome back, {displayEmailName}
+            </h2>
           </div>
-        )}
+        </div>
       </div>
 
-      {!hasChild && !childrenLoading ? (
-        <div className="pop-card p-8 text-center">
-          <Mascot name="owl" mood="happy" size={96} className="mx-auto mb-3" />
-          <p className="font-display mb-1 text-xl font-extrabold">No linked children yet</p>
-          <p className="text-muted-foreground mx-auto max-w-md text-sm leading-relaxed">
-            Enter your child's invite code on the{" "}
-            <span className="font-semibold">Linked Students</span> page to link straight away — or
-            ask them to invite you and accept it there. Their progress appears here the moment
-            you're linked.
-          </p>
-          <Link
-            to="/parents"
-            className="btn-hero mt-6 inline-flex items-center rounded-xl px-5 py-2.5 text-sm"
-          >
-            Link a student
-          </Link>
+      {/* Child switcher — only when there's a choice to make. */}
+      {!isDemo && children.length > 1 && (
+        <div className="mb-6">
+          <SegmentedToggle
+            layoutId="parent-child-toggle"
+            label="Child"
+            value={childId ?? ""}
+            onChange={setSelectedChildId}
+            items={children.map((c) => ({
+              value: c.student_id,
+              label: resolveDisplayName(c.display_name, c.email),
+            }))}
+          />
         </div>
+      )}
+
+      {error ? (
+        <ErrorNote error={error} onRetry={retry} />
+      ) : loading ? (
+        <Spinner label={hasChild ? `Loading ${childName}'s progress` : "Loading"} />
+      ) : !hasChild ? (
+        <EmptyState
+          title="No linked children yet"
+          body="Enter your child's invite code on the Linked Students page, or accept their invite there."
+          action={{ to: "/parents", label: "Link a student" }}
+          mascot="owl"
+          mood="happy"
+        />
+      ) : !isDemo && childSubjects.length === 0 ? (
+        <EmptyState
+          title={`${childName} isn't enrolled yet`}
+          body="Their grades, attendance and tutor feedback appear here once they're enrolled in a subject."
+          mascot="books"
+        />
       ) : (
-        <div className="grid grid-cols-1 lg:grid-cols-3 gap-8">
-          <div className="lg:col-span-2 space-y-8">
+        <div className="grid grid-cols-1 gap-8 lg:grid-cols-3">
+          <div className={`space-y-8 ${showSide ? "lg:col-span-2" : "lg:col-span-3"}`}>
             <div data-tour="parent-grades">
-              <GradePredictorCard analytics={analytics} />
+              <GradePredictorCard analytics={analytics} level={level} />
             </div>
             <div data-tour="parent-trends">
               <Suspense
-                fallback={
-                  <div className="premium-card h-[22rem] animate-pulse rounded-2xl bg-secondary/40" />
-                }
+                fallback={<div className="premium-card bg-secondary/40 h-[22rem] animate-pulse" />}
               >
                 <TrendsChart points={trends} subjects={trendSubjects} />
               </Suspense>
             </div>
           </div>
-          <div className="space-y-8">
-            {engagement && (
-              <div data-tour="parent-engagement">
-                <EngagementStats engagement={engagement} childName={childName} />
-              </div>
-            )}
-            <div data-tour="parent-feedback">
-              <FeedbackList items={feedback} />
+          {showSide && (
+            <div className="space-y-8">
+              {showEngagement && engagement && (
+                <div data-tour="parent-engagement">
+                  <EngagementStats engagement={engagement} childName={childName} />
+                </div>
+              )}
+              {feedback.length > 0 && (
+                <div data-tour="parent-feedback">
+                  <FeedbackList items={feedback} />
+                </div>
+              )}
             </div>
-          </div>
+          )}
         </div>
       )}
     </AppLayout>
   );
 }
+
+const EMPTY: string[] = [];

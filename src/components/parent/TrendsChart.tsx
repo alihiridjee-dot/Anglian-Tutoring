@@ -1,4 +1,4 @@
-import { LineChart, Line, XAxis, YAxis, CartesianGrid, ResponsiveContainer } from "recharts";
+import { LineChart, Line, XAxis, YAxis, CartesianGrid } from "recharts";
 import {
   ChartContainer,
   ChartTooltip,
@@ -7,10 +7,17 @@ import {
 } from "@/components/ui/chart";
 import type { WeeklyTrendPoint } from "@/hooks/data/useChildProgress";
 import { SUBJECT_STROKE, SUBJECT_TEXT, subjectLabel } from "@/lib/curriculum/subjectTheme";
+import { SectionHeading } from "@/components/Shared";
+
+// Recharts takes bare colours, so these read the design tokens directly rather
+// than the class names the rest of the kit uses.
+const FALLBACK_STROKE = "var(--muted-foreground)";
+const AXIS_TICK = { fontSize: "11px", fill: "var(--muted-foreground)" };
 
 /**
  * Weekly quiz averages per subject. Weeks with no attempts leave a gap in that
  * subject's line (connectNulls bridges it) rather than plotting a fake zero.
+ * Six quiet weeks in a row draw nothing at all, rather than an empty frame.
  */
 export function TrendsChart({
   points,
@@ -20,6 +27,9 @@ export function TrendsChart({
   subjects: string[];
 }) {
   const hasAny = points.some((p) => Object.keys(p.averages).length > 0);
+  if (!hasAny) return null;
+
+  const stroke = (s: string) => SUBJECT_STROKE[s] ?? FALLBACK_STROKE;
 
   const data = points.map((p) => ({
     label: p.label,
@@ -27,78 +37,51 @@ export function TrendsChart({
   }));
 
   const config = Object.fromEntries(
-    subjects.map((s) => [s, { label: subjectLabel(s), color: SUBJECT_STROKE[s] ?? "#64748b" }]),
+    subjects.map((s) => [s, { label: subjectLabel(s), color: stroke(s) }]),
   ) satisfies ChartConfig;
 
   return (
-    <div className="premium-card rounded-2xl p-6">
-      <div className="flex items-center justify-between mb-6">
-        <div>
-          <h3 className="font-display text-lg font-bold text-foreground">Performance Trends</h3>
-          <p className="text-xs text-muted-foreground mt-0.5">
-            Weekly quiz averages over the past six weeks.
-          </p>
-        </div>
+    <div className="premium-card p-6">
+      <SectionHeading title="Performance trends" hint="Weekly quiz averages, last six weeks">
         <div className="flex gap-4 text-xs font-semibold">
           {subjects.map((s) => (
             <span
               key={s}
               className={`inline-flex items-center gap-1.5 ${SUBJECT_TEXT[s] ?? "text-muted-foreground"}`}
             >
-              <span
-                className="w-2.5 h-2.5 rounded-full"
-                style={{ backgroundColor: SUBJECT_STROKE[s] ?? "#64748b" }}
-              />
+              <span className="size-2.5 rounded-full" style={{ backgroundColor: stroke(s) }} />
               {subjectLabel(s)}
             </span>
           ))}
         </div>
-      </div>
+      </SectionHeading>
 
-      {!hasAny ? (
-        <p className="text-sm text-muted-foreground py-8 text-center">
-          No quiz attempts in the last six weeks — the chart fills in as your child completes weekly
-          MCQs.
-        </p>
-      ) : (
-        <div className="h-64">
-          <ChartContainer config={config}>
-            <ResponsiveContainer width="100%" height="100%">
-              <LineChart data={data} margin={{ top: 10, right: 10, left: -20, bottom: 0 }}>
-                <CartesianGrid strokeDasharray="3 3" vertical={false} stroke="#f1f5f9" />
-                <XAxis
-                  dataKey="label"
-                  tickLine={false}
-                  axisLine={false}
-                  dy={10}
-                  style={{ fontSize: "11px", fill: "#64748b" }}
-                />
-                <YAxis
-                  domain={[0, 100]}
-                  tickLine={false}
-                  axisLine={false}
-                  dx={-5}
-                  style={{ fontSize: "11px", fill: "#64748b" }}
-                />
-                <ChartTooltip content={<ChartTooltipContent />} />
-                {subjects.map((s) => (
-                  <Line
-                    key={s}
-                    type="monotone"
-                    dataKey={s}
-                    name={subjectLabel(s)}
-                    stroke={SUBJECT_STROKE[s] ?? "#64748b"}
-                    strokeWidth={2.5}
-                    connectNulls
-                    dot={{ r: 4, strokeWidth: 0, fill: SUBJECT_STROKE[s] ?? "#64748b" }}
-                    activeDot={{ r: 6 }}
-                  />
-                ))}
-              </LineChart>
-            </ResponsiveContainer>
-          </ChartContainer>
-        </div>
-      )}
+      {/* ChartContainer brings its own ResponsiveContainer and a 16:9 aspect.
+          Left at 16:9 the chart outgrew this box on any card wider than ~450px
+          and ran out through the bottom of the card; it fills the box instead. */}
+      <div className="mt-6 h-64">
+        <ChartContainer config={config} className="aspect-auto h-full w-full">
+          <LineChart data={data} margin={{ top: 10, right: 10, left: -20, bottom: 0 }}>
+            <CartesianGrid strokeDasharray="3 3" vertical={false} stroke="var(--border)" />
+            <XAxis dataKey="label" tickLine={false} axisLine={false} dy={10} style={AXIS_TICK} />
+            <YAxis domain={[0, 100]} tickLine={false} axisLine={false} dx={-5} style={AXIS_TICK} />
+            <ChartTooltip content={<ChartTooltipContent />} />
+            {subjects.map((s) => (
+              <Line
+                key={s}
+                type="monotone"
+                dataKey={s}
+                name={subjectLabel(s)}
+                stroke={stroke(s)}
+                strokeWidth={2.5}
+                connectNulls
+                dot={{ r: 4, strokeWidth: 0, fill: stroke(s) }}
+                activeDot={{ r: 6 }}
+              />
+            ))}
+          </LineChart>
+        </ChartContainer>
+      </div>
     </div>
   );
 }

@@ -1,41 +1,42 @@
 import { CheckCircle2, Clock } from "lucide-react";
+import type { LucideIcon } from "lucide-react";
 import type { ChildEngagement } from "@/hooks/data/useChildProgress";
+import { Meter, SectionHeading } from "@/components/Shared";
 
-function Bar({
+function Row({
   label,
-  icon,
+  icon: Icon,
   done,
   total,
-  barClass,
-  valueClass,
+  tint,
   caption,
 }: {
   label: string;
-  icon: React.ReactNode;
+  icon: LucideIcon;
   done: number;
   total: number;
-  barClass: string;
-  valueClass: string;
+  tint: string;
   caption: string;
 }) {
-  const pct = total > 0 ? Math.round((done / total) * 100) : 0;
   return (
-    <div>
-      <div className="flex justify-between items-center text-xs font-semibold mb-2">
-        <span className="text-muted-foreground flex items-center gap-1.5">
-          {icon} {label}
+    <div className={tint}>
+      <div className="mb-2 flex items-center gap-2.5">
+        <span className="icon-tile size-7 shrink-0">
+          <Icon className="size-3.5" aria-hidden />
         </span>
-        <span className={valueClass}>{total > 0 ? `${pct}%` : "—"}</span>
+        <span className="text-sm font-semibold">{label}</span>
       </div>
-      <div className="w-full bg-secondary h-2 rounded-full overflow-hidden">
-        <div className={`${barClass} h-full rounded-full`} style={{ width: `${pct}%` }} />
-      </div>
-      <p className="text-[10px] text-muted-foreground mt-1.5">{caption}</p>
+      <Meter value={(done / total) * 100} label size="sm" />
+      <p className="text-muted-foreground mt-1.5 text-xs">{caption}</p>
     </div>
   );
 }
 
-/** Real attendance and homework-completion, from join records and submissions. */
+/**
+ * Real attendance and homework-completion, from join records and submissions.
+ * A measure with nothing behind it yet (no sessions held, no homework set) is
+ * left out rather than shown as an empty bar.
+ */
 export function EngagementStats({
   engagement,
   childName,
@@ -44,36 +45,32 @@ export function EngagementStats({
   childName: string;
 }) {
   const { sessionsHeld, sessionsAttended, homeworkSet, homeworkSubmitted } = engagement;
+  if (sessionsHeld === 0 && homeworkSet === 0) return null;
+
   return (
-    <div className="premium-card rounded-2xl p-6">
-      <h3 className="font-display text-lg font-bold text-foreground mb-5">Engagement Stats</h3>
-      <div className="space-y-5">
-        <Bar
-          label="Live Class Attendance"
-          icon={<Clock className="w-4 h-4 text-muted-foreground/70" />}
-          done={sessionsAttended}
-          total={sessionsHeld}
-          barClass="bg-primary"
-          valueClass="text-foreground"
-          caption={
-            sessionsHeld > 0
-              ? `${childName} joined ${sessionsAttended} of ${sessionsHeld} live sessions.`
-              : "No live sessions have run yet."
-          }
-        />
-        <Bar
-          label="Homework Submitted"
-          icon={<CheckCircle2 className="w-4 h-4 text-emerald-500" />}
-          done={homeworkSubmitted}
-          total={homeworkSet}
-          barClass="bg-emerald-500"
-          valueClass="text-emerald-600"
-          caption={
-            homeworkSet > 0
-              ? `${homeworkSubmitted} of ${homeworkSet} set homeworks submitted.`
-              : "No homework has been set yet."
-          }
-        />
+    <div className="premium-card p-6">
+      <SectionHeading title="Engagement" />
+      <div className="mt-5 space-y-5">
+        {sessionsHeld > 0 && (
+          <Row
+            label="Live class attendance"
+            icon={Clock}
+            done={sessionsAttended}
+            total={sessionsHeld}
+            tint="tint-primary"
+            caption={`${childName} joined ${sessionsAttended} of ${sessionsHeld} live sessions.`}
+          />
+        )}
+        {homeworkSet > 0 && (
+          <Row
+            label="Homework handed in"
+            icon={CheckCircle2}
+            done={homeworkSubmitted}
+            total={homeworkSet}
+            tint="tint-emerald"
+            caption={`${homeworkSubmitted} of ${homeworkSet} set homeworks handed in.`}
+          />
+        )}
       </div>
     </div>
   );
