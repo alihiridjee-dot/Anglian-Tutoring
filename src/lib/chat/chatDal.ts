@@ -19,7 +19,10 @@ export type ChatContextKind = "spec_point" | "homework" | "mcq_set" | "general";
 
 export interface ChatThread {
   id: string;
+  /** The thread's one non-staff member: a student, or a parent. */
   student_id: string;
+  /** Set when that member is a parent: the child the conversation is about. */
+  about_student_id: string | null;
   tutor_id: string | null;
   subject: string | null;
   spec_point_id: string | null;
@@ -58,8 +61,22 @@ export interface ThreadSummary extends ChatThread {
   counterpartName: string;
 }
 
+/**
+ * The name a tutor sees for a thread's member. A parent is named with the
+ * child the conversation is about, because "Mum" alone doesn't say whose.
+ */
+export function memberLabel(
+  t: Pick<ChatThread, "student_id" | "about_student_id">,
+  names: ReadonlyMap<string, string>,
+): string {
+  const member = names.get(t.student_id);
+  if (!t.about_student_id) return member || "Student";
+  const child = names.get(t.about_student_id);
+  return `${member || "Parent"} · parent of ${child || "a student"}`;
+}
+
 const THREAD_COLUMNS =
-  "id, student_id, tutor_id, subject, spec_point_id, resource_id, mcq_set_id, subject_line, context_label, status, student_last_read_at, tutor_last_read_at, last_message_at, created_at";
+  "id, student_id, about_student_id, tutor_id, subject, spec_point_id, resource_id, mcq_set_id, subject_line, context_label, status, student_last_read_at, tutor_last_read_at, last_message_at, created_at";
 
 export function contextKindOf(t: ChatThread): ChatContextKind {
   if (t.spec_point_id) return "spec_point";
@@ -133,18 +150,28 @@ export class ChatDAL {
     // last line — a quiet wrong answer rather than a visible failure.
     if (messagesError) throw new Error(messagesError.message);
 
-    // A tutor's counterpart is the student, so their names come from profiles —
-    // which tutors may read. A student's counterpart is the tutor, whose name
-    // only the directory RPC will hand over.
-    const studentNames = new Map<string, string>();
-    const studentIds = [...new Set(rows.map((t) => t.student_id))].filter((id) => id !== uid);
-    if (studentIds.length > 0) {
+    // A tutor's counterpart is the student (or a parent, and the child they're
+    // writing about), so their names come from profiles — which tutors may
+    // read. A student's or parent's counterpart is the tutor, whose name only
+    // the directory RPC will hand over.
+    const memberNames = new Map<string, string>();
+    const memberIds = [
+      ...new Set(
+        rows
+          .filter((t) => t.student_id !== uid)
+          .flatMap((t) =>
+            t.about_student_id ? [t.student_id, t.about_student_id] : [t.student_id],
+          ),
+      ),
+    ];
+    if (memberIds.length > 0) {
       const { data: profiles } = await supabase
         .from("profiles")
         .select("id, display_name")
-        .in("id", studentIds);
+        .in("id", memberIds);
       for (const p of profiles ?? []) {
-        studentNames.set(p.id, p.display_name?.trim() || "Student");
+        const name = p.display_name?.trim();
+        if (name) memberNames.set(p.id, name);
       }
     }
     const tutorNames = new Map(tutors.map((t) => [t.id, t.display_name]));
@@ -175,7 +202,7 @@ export class ChatDAL {
         lastMessage: threadMessages.at(-1)?.body ?? null,
         counterpartName: mine
           ? (t.tutor_id && tutorNames.get(t.tutor_id)) || "Your tutor"
-          : studentNames.get(t.student_id) || "Student",
+          : memberLabel(t, memberNames),
       };
     });
   }
@@ -193,7 +220,8 @@ export class ChatDAL {
   }
 
   /**
-   * Opens a thread and posts its first message, as the signed-in student.
+   * Opens a thread and posts its first message, as the signed-in student — or
+   * as a parent, who names the linked child it is about (`aboutStudentId`).
    *
    * The two writes are separate statements, so a failure between them would
    * leave an empty thread. That is the harmless direction — an empty thread is
@@ -210,6 +238,7 @@ export class ChatDAL {
     resourceId?: string | null;
     mcqSetId?: string | null;
     contextLabel?: string | null;
+    aboutStudentId?: string | null;
   }): Promise<string> {
     const uid = await getSessionUserId();
     if (!uid) throw new Error("Not signed in");
@@ -225,6 +254,7 @@ export class ChatDAL {
         resource_id: input.resourceId ?? null,
         mcq_set_id: input.mcqSetId ?? null,
         context_label: input.contextLabel ?? null,
+        about_student_id: input.aboutStudentId ?? null,
       })
       .select("id")
       .single();

@@ -15,6 +15,7 @@ import {
 import { GradePredictorCard } from "@/components/parent/GradePredictorCard";
 import { EngagementStats } from "@/components/parent/EngagementStats";
 import { FeedbackList } from "@/components/parent/FeedbackList";
+import { ParentMessages } from "@/components/parent/ParentMessages";
 import { isDemoMode } from "@/lib/auth/session";
 import {
   DEMO_ANALYTICS,
@@ -225,6 +226,13 @@ export function ParentDashboard() {
               )}
             </div>
           )}
+        </div>
+      )}
+
+      {/* Real parents only: the showcase has no session to send from. */}
+      {!isDemo && childId && !error && !loading && (
+        <div className="mt-8">
+          <ParentMessages childId={childId} childName={childName} />
         </div>
       )}
     </AppLayout>

@@ -215,7 +215,9 @@ export function ThreadView({ thread, viewerId, isTutor }: Props) {
       </div>
 
       <div className="border-t border-border p-4">
-        {isTutor && (
+        {/* The draft prompt is written for answering a student's question, so a
+            parent's thread doesn't offer it. */}
+        {isTutor && !thread.about_student_id && (
           <div className="mb-2 flex items-center gap-2">
             <button
               type="button"

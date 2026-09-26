@@ -110,11 +110,14 @@ export const generateChatDraft = createServerFn({ method: "POST" })
     // isn't found — the role check above is the authorisation, this is the fetch.
     const { data: thread, error: threadErr } = await supabase
       .from("chat_threads")
-      .select("id, student_id, subject, subject_line, context_label")
+      .select("id, student_id, about_student_id, subject, subject_line, context_label")
       .eq("id", data.threadId)
       .maybeSingle();
     if (threadErr) throw threadErr;
     if (!thread) throw new Error("Thread not found.");
+    // The prompt answers a student's question in the tutor's voice; pointed at
+    // a parent it would lecture them on the spec.
+    if (thread.about_student_id) throw new Error("Drafts are for student questions only.");
 
     const [{ data: messages }, { data: profile }, { data: enrolment }] = await Promise.all([
       supabase
