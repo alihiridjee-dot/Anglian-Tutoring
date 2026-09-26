@@ -89,7 +89,7 @@ export function ThreadList({ threads, selectedId, onSelect, showCounterpart }: P
         <button
           type="button"
           onClick={() => setShowDormant((v) => !v)}
-          className="flex w-full items-center gap-1.5 border-t border-border px-4 py-2.5 text-left text-xs font-medium text-muted-foreground transition hover:bg-muted/40"
+          className="flex w-full min-h-11 items-center gap-1.5 border-t border-border px-4 py-2.5 text-left text-xs font-medium text-muted-foreground transition hover:bg-muted/40"
           aria-expanded={showDormant}
         >
           <ChevronRight

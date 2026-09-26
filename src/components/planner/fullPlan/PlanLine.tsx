@@ -191,7 +191,7 @@ function LinePoints({
         <button
           type="button"
           onClick={onToggleWhole}
-          className="text-xs font-semibold text-[color:var(--tint)] hover:underline"
+          className="inline-flex items-center min-h-11 sm:min-h-0 text-xs font-semibold text-[color:var(--tint)] hover:underline"
         >
           {whole
             ? "Show this week only"

@@ -56,10 +56,11 @@ export function LiveForm({ userId, taxonomy, linkToWeek = false }: LiveFormProps
           />
         </Field>
         <Field label="Join URL">
-          <div className="relative">
+          <div className="sm:relative">
             <input
               type="url"
-              className={`${inputCls} pr-32`}
+              inputMode="url"
+              className={`${inputCls} sm:pr-32`}
               value={joinUrl}
               onChange={(e) => setJoinUrl(e.target.value)}
               placeholder="Auto Zoom, paste a link, or leave for later"
@@ -67,7 +68,7 @@ export function LiveForm({ userId, taxonomy, linkToWeek = false }: LiveFormProps
             <button
               onClick={generateZoomLink}
               disabled={generatingLink}
-              className="absolute right-1 top-1 bottom-1 px-2.5 rounded bg-[#2D8CFF] hover:bg-[#2681F2] text-white text-xs font-semibold flex items-center gap-1 transition-colors cursor-pointer disabled:opacity-70"
+              className="mt-2 h-11 w-full justify-center sm:mt-0 sm:h-auto sm:w-auto sm:absolute sm:right-1 sm:top-1 sm:bottom-1 px-2.5 rounded bg-[#2D8CFF] hover:bg-[#2681F2] text-white text-xs font-semibold flex items-center gap-1 transition-colors cursor-pointer disabled:opacity-70"
               title="Create a Zoom meeting"
             >
               {generatingLink ? (
@@ -82,7 +83,7 @@ export function LiveForm({ userId, taxonomy, linkToWeek = false }: LiveFormProps
       </div>
 
       <Field label="Description">
-        <div className="relative">
+        <div className="flex flex-col-reverse gap-2 sm:block sm:relative">
           <textarea
             className={`${inputCls} h-24 py-2`}
             value={description}
@@ -92,7 +93,7 @@ export function LiveForm({ userId, taxonomy, linkToWeek = false }: LiveFormProps
           <button
             onClick={generateDescription}
             disabled={generatingBlurb}
-            className="absolute right-1.5 top-1.5 px-2.5 py-1 rounded bg-primary/10 hover:bg-primary/15 text-primary text-xs font-semibold inline-flex items-center gap-1 transition-colors cursor-pointer disabled:opacity-70"
+            className="self-end min-h-11 sm:min-h-0 sm:absolute sm:right-1.5 sm:top-1.5 px-2.5 py-1 rounded bg-primary/10 hover:bg-primary/15 text-primary text-xs font-semibold inline-flex items-center gap-1 transition-colors cursor-pointer disabled:opacity-70"
             title="Draft a description with AI from the title & spec points"
           >
             {generatingBlurb ? (

@@ -15,6 +15,8 @@ import {
   Sparkles,
   Compass,
   MessagesSquare,
+  Menu,
+  X,
 } from "lucide-react";
 import { useEffect, useState, type ReactNode } from "react";
 import { useRoles } from "@/hooks/useRole";
@@ -34,6 +36,7 @@ import { SidebarSearchButton } from "@/components/search/SidebarSearchButton";
 import { resolveInitials } from "@/lib/profile/displayName";
 import { buildAuthedNav } from "@/lib/shell/nav";
 import { SIDEBAR_LABEL_CLASS as labelClass } from "@/components/sidebarLabel";
+import { useBodyScrollLock } from "@/hooks/useBodyScrollLock";
 
 /**
  * The showcase sidebar. It must stay inside `/demo/*`, or a click lands on a
@@ -73,7 +76,25 @@ export function AppLayout({ title, children }: { title: string; children: ReactN
   const router = useRouter();
   const signOut = useSignOut();
   const [searchOpen, setSearchOpen] = useState(false);
+  // The phone drawer. Below `md` the sidebar has no hover to expand on, so it
+  // slides in from the left instead and is dismissed by the backdrop, Escape,
+  // its own close button, or simply arriving somewhere.
+  const [navOpen, setNavOpen] = useState(false);
   const { data: unreadMessages = 0 } = useChatUnread();
+
+  useEffect(() => {
+    setNavOpen(false);
+  }, [pathname]);
+
+  useBodyScrollLock(navOpen);
+  useEffect(() => {
+    if (!navOpen) return;
+    const onKeyDown = (e: KeyboardEvent) => {
+      if (e.key === "Escape") setNavOpen(false);
+    };
+    window.addEventListener("keydown", onKeyDown);
+    return () => window.removeEventListener("keydown", onKeyDown);
+  }, [navOpen]);
 
   // ⌘K / Ctrl+K opens search from anywhere in the app. Bound on the window
   // rather than the sidebar button so it works while focus is in a page form,
@@ -127,23 +148,50 @@ export function AppLayout({ title, children }: { title: string; children: ReactN
        * never reflows the content beside it. Tailwind's `hover:` variant is
        * gated on `@media (hover: hover)`, so touch devices simply keep the rail.
        */}
-      <div className="relative w-20 shrink-0">
+      <div className="relative w-0 shrink-0 md:w-20">
+        {/* Phone only: the tap-to-close backdrop behind the open drawer. Sits
+            under the drawer (z-50) and over the ribbon and header. */}
+        {navOpen && (
+          <button
+            type="button"
+            aria-label="Close menu"
+            onClick={() => setNavOpen(false)}
+            className="bg-primary-deep/40 fixed inset-0 z-45 cursor-pointer md:hidden"
+          />
+        )}
         {/* Above the demo ribbon (z-40) and the sticky header (z-30), both of
-            which the expanded rail passes in front of. */}
-        <aside className="group/sidebar absolute inset-y-0 left-0 z-50 w-20 hover:w-60 overflow-hidden bg-sidebar border-r border-sidebar-border flex flex-col py-5 px-3 gap-1 transition-[width,box-shadow] duration-200 ease-out motion-reduce:transition-none hover:shadow-2xl">
-          <Link to="/" className="wordmark mb-6 flex items-center gap-2 px-2">
-            <span className="icon-tile icon-tile-solid wordmark-tile size-10 shrink-0">
-              <GraduationCap className="size-5" aria-hidden />
-            </span>
-            <span
-              className={`${labelClass} font-display text-foreground text-[0.95rem] leading-tight font-extrabold`}
-            >
-              Anglia
-              <span className="text-muted-foreground block text-[0.7rem] font-bold tracking-[0.18em] uppercase">
-                Educate
+            which the expanded rail passes in front of. Below `md` the same
+            element is a fixed drawer: full labels, slid off-screen and made
+            `invisible` (so it leaves the tab order) until opened. */}
+        <aside
+          id="app-sidebar"
+          className={`group/sidebar fixed inset-y-0 left-0 z-50 flex w-60 flex-col gap-1 overflow-y-auto overflow-x-hidden border-r border-sidebar-border bg-sidebar px-3 py-5 pb-[calc(1.25rem+env(safe-area-inset-bottom))] transition-[width,box-shadow,transform,visibility] duration-200 ease-out motion-reduce:transition-none md:absolute md:w-20 md:translate-x-0 md:overflow-hidden md:pb-5 md:hover:w-60 md:hover:shadow-2xl ${
+            navOpen ? "translate-x-0 shadow-2xl" : "max-md:invisible max-md:-translate-x-full"
+          }`}
+        >
+          <div className="mb-6 flex items-center justify-between gap-2">
+            <Link to="/" className="wordmark flex min-w-0 items-center gap-2 px-2">
+              <span className="icon-tile icon-tile-solid wordmark-tile size-10 shrink-0">
+                <GraduationCap className="size-5" aria-hidden />
               </span>
-            </span>
-          </Link>
+              <span
+                className={`${labelClass} font-display text-foreground text-[0.95rem] leading-tight font-extrabold`}
+              >
+                Anglia
+                <span className="text-muted-foreground block text-[0.7rem] font-bold tracking-[0.18em] uppercase">
+                  Educate
+                </span>
+              </span>
+            </Link>
+            <button
+              type="button"
+              onClick={() => setNavOpen(false)}
+              aria-label="Close menu"
+              className="btn-ghost flex size-11 shrink-0 cursor-pointer items-center justify-center rounded-xl md:hidden"
+            >
+              <X className="size-5" aria-hidden />
+            </button>
+          </div>
           <SidebarSearchButton onOpen={() => setSearchOpen(true)} />
           {nav.map(({ to, label, icon: Icon }) => {
             const active = pathname === to || pathname.startsWith(to + "/");
@@ -158,7 +206,7 @@ export function AppLayout({ title, children }: { title: string; children: ReactN
                 to={to}
                 title={badge > 0 ? `${label} (${badge} unread)` : label}
                 data-active={active ? "true" : undefined}
-                className={`relative flex items-center gap-3 rounded-xl px-3 py-2.5 text-sm transition ${
+                className={`relative flex min-h-11 items-center gap-3 rounded-xl px-3 py-2.5 text-sm transition ${
                   active ? "btn-solid" : "btn-ghost"
                 }`}
               >
@@ -178,7 +226,7 @@ export function AppLayout({ title, children }: { title: string; children: ReactN
             <button
               onClick={signOut}
               title="Sign out"
-              className="w-full flex items-center gap-3 px-3 py-2.5 rounded-lg text-sm text-sidebar-foreground/70 hover:text-destructive hover:bg-destructive/10"
+              className="w-full flex min-h-11 items-center gap-3 px-3 py-2.5 rounded-lg text-sm text-sidebar-foreground/70 hover:text-destructive hover:bg-destructive/10"
             >
               <LogOut className="w-5 h-5 shrink-0" />
               <span className={labelClass}>Sign out</span>
@@ -190,7 +238,7 @@ export function AppLayout({ title, children }: { title: string; children: ReactN
       <main className="flex-1 min-w-0 flex flex-col">
         {isDemo && (
           <div
-            className="text-primary-foreground px-6 py-2.5 flex flex-col sm:flex-row gap-3 items-center justify-between text-xs font-semibold shrink-0 select-none shadow-md z-40"
+            className="text-primary-foreground px-4 sm:px-6 py-2.5 flex flex-col sm:flex-row gap-3 items-center justify-between text-xs font-semibold shrink-0 select-none shadow-md z-40"
             style={{
               background:
                 "linear-gradient(90deg, var(--primary-deep), color-mix(in oklab, var(--accent) 35%, var(--primary-deep)), var(--primary-deep))",
@@ -234,26 +282,41 @@ export function AppLayout({ title, children }: { title: string; children: ReactN
             </div>
           </div>
         )}
-        <header className="glass-bar sticky top-0 z-30 flex flex-wrap gap-3 items-center justify-between px-6 lg:px-10 py-4 shrink-0">
-          <div className="flex items-center gap-3">
-            <div className="flex items-center gap-1">
+        <header className="glass-bar sticky top-0 z-30 flex flex-wrap gap-x-3 gap-y-2 items-center justify-between px-4 sm:px-6 lg:px-10 py-3 sm:py-4 shrink-0">
+          <div className="flex min-w-0 items-center gap-2 sm:gap-3">
+            <button
+              type="button"
+              onClick={() => setNavOpen(true)}
+              aria-label="Open menu"
+              aria-controls="app-sidebar"
+              aria-expanded={navOpen}
+              className="btn-soft flex size-11 shrink-0 cursor-pointer items-center justify-center rounded-xl md:hidden"
+            >
+              <Menu className="size-5" aria-hidden />
+            </button>
+            {/* History buttons are 44px on a phone. Forward waits for `sm`:
+                phones have a swipe for it, and the header has the space for a
+                menu button or a forward button, not both. */}
+            <div className="flex items-center gap-1 sm:gap-1.5">
               <button
                 onClick={() => router.history.back()}
                 title="Back"
-                className="btn-soft w-9 h-9 rounded-xl flex items-center justify-center cursor-pointer"
+                aria-label="Back"
+                className="btn-soft size-11 sm:size-9 rounded-xl flex items-center justify-center cursor-pointer"
               >
                 <ArrowLeft className="w-4 h-4" />
               </button>
               <button
                 onClick={() => router.history.forward()}
                 title="Forward"
-                className="btn-soft w-9 h-9 rounded-xl flex items-center justify-center cursor-pointer"
+                aria-label="Forward"
+                className="btn-soft hidden size-9 rounded-xl sm:flex items-center justify-center cursor-pointer"
               >
                 <ArrowRight className="w-4 h-4" />
               </button>
             </div>
-            <div>
-              <h1 className="font-display text-xl font-extrabold tracking-tight lg:text-2xl">
+            <div className="min-w-0">
+              <h1 className="font-display truncate text-lg font-extrabold tracking-tight sm:text-xl lg:text-2xl">
                 {title}
               </h1>
             </div>
@@ -262,7 +325,7 @@ export function AppLayout({ title, children }: { title: string; children: ReactN
                 onboarding step that set it. */}
             <CourseBadge />
           </div>
-          <div className="flex flex-wrap items-center gap-3">
+          <div className="flex flex-wrap items-center gap-2 sm:gap-3">
             <StudentGuide
               key={`${pathname}:${title}`}
               pageTitle={title}
@@ -287,7 +350,10 @@ export function AppLayout({ title, children }: { title: string; children: ReactN
             />
           </div>
         </header>
-        <div data-guide="page-content" className="page-aurora flex-1 p-6 lg:p-10 overflow-auto">
+        <div
+          data-guide="page-content"
+          className="page-aurora flex-1 overflow-x-clip p-4 pb-[calc(1rem+env(safe-area-inset-bottom))] sm:p-6 lg:p-10"
+        >
           {children}
         </div>
       </main>

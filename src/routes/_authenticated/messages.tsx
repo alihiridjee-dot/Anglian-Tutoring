@@ -2,7 +2,7 @@ import { Mascot } from "@/components/Doodles";
 import { ErrorNote, Spinner } from "@/components/Shared";
 import { createFileRoute } from "@tanstack/react-router";
 import { useEffect, useMemo, useRef, useState } from "react";
-import { MessageSquarePlus } from "lucide-react";
+import { ArrowLeft, MessageSquarePlus } from "lucide-react";
 import { AppLayout } from "@/components/AppLayout";
 import { guardStudentSection } from "@/lib/auth/routeGuards";
 import { useRoles } from "@/hooks/useRole";
@@ -38,6 +38,10 @@ function MessagesPage() {
   const { data: threads = EMPTY_THREADS, isPending, error, refetch } = useChatThreads();
   const [selectedId, setSelectedId] = useState<string | null>(null);
   const [composing, setComposing] = useState(false);
+  // On a phone the list and the thread take turns in one column; picking a row
+  // opens the thread and the back arrow returns to the list. Wide screens show
+  // both and ignore this.
+  const [threadOpen, setThreadOpen] = useState(false);
 
   // Open the most recent conversation on arrival, and again when the open one is
   // deleted — an empty right-hand pane next to a full list is a dead end.
@@ -89,7 +93,7 @@ function MessagesPage() {
             <button
               data-guide="ask-question"
               onClick={() => setComposing(true)}
-              className="btn-hero inline-flex h-10 shrink-0 items-center gap-2 rounded-xl px-4 text-sm"
+              className="btn-hero inline-flex h-11 sm:h-10 shrink-0 items-center gap-2 rounded-xl px-4 text-sm"
             >
               <MessageSquarePlus className="size-4" aria-hidden /> Ask a question
             </button>
@@ -125,26 +129,38 @@ function MessagesPage() {
           <div className="grid gap-4 lg:grid-cols-[minmax(0,20rem)_1fr]">
             <div
               data-guide="message-list"
-              className="pop-card scroll-slim max-h-[70vh] overflow-y-auto"
+              className={`pop-card scroll-slim max-h-[70vh] overflow-y-auto ${threadOpen ? "max-lg:hidden" : ""}`}
             >
               <ThreadList
                 threads={threads}
                 selectedId={selectedId}
-                onSelect={setSelectedId}
+                onSelect={(id) => {
+                  setSelectedId(id);
+                  setThreadOpen(true);
+                }}
                 showCounterpart={isTutor}
               />
             </div>
             <div
               data-guide="message-thread"
-              className="premium-card h-[70vh] overflow-hidden rounded-2xl"
+              className={`premium-card flex h-[70vh] min-h-0 flex-col overflow-hidden rounded-2xl ${threadOpen ? "" : "max-lg:hidden"}`}
             >
-              {selected && userId ? (
-                <ThreadView thread={selected} viewerId={userId} isTutor={isTutor} />
-              ) : (
-                <p className="p-10 text-center text-sm text-muted-foreground">
-                  Pick a conversation.
-                </p>
-              )}
+              <button
+                type="button"
+                onClick={() => setThreadOpen(false)}
+                className="inline-flex min-h-11 items-center gap-2 border-b border-border px-4 text-sm font-semibold text-muted-foreground hover:text-foreground lg:hidden"
+              >
+                <ArrowLeft className="size-4" aria-hidden /> All conversations
+              </button>
+              <div className="min-h-0 flex-1">
+                {selected && userId ? (
+                  <ThreadView thread={selected} viewerId={userId} isTutor={isTutor} />
+                ) : (
+                  <p className="p-10 text-center text-sm text-muted-foreground">
+                    Pick a conversation.
+                  </p>
+                )}
+              </div>
             </div>
           </div>
         )}
@@ -156,6 +172,7 @@ function MessagesPage() {
           onCreated={(id) => {
             setComposing(false);
             setSelectedId(id);
+            setThreadOpen(true);
           }}
         />
       )}

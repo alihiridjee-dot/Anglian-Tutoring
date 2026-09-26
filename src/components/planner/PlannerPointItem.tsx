@@ -15,7 +15,7 @@ export function PlannerPointItem({
 }) {
   return (
     <details className="premium-card planner-point-row group/point">
-      <summary className="list-none cursor-pointer px-2.5 py-2 flex items-center gap-2 [&::-webkit-details-marker]:hidden">
+      <summary className="list-none cursor-pointer px-2.5 py-2 min-h-11 sm:min-h-0 flex items-center gap-2 [&::-webkit-details-marker]:hidden">
         <ChevronDown
           aria-hidden
           className="size-4 mt-0.5 shrink-0 -rotate-90 transition-transform group-open/point:rotate-0"

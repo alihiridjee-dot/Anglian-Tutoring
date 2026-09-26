@@ -87,10 +87,10 @@ export function WhatsCovered({
         {points.map((p) => (
           <span
             key={p.id}
-            className="inline-flex items-center gap-1 text-xs px-2 py-0.5 rounded-full bg-secondary border border-border"
+            className="inline-flex max-w-full items-center gap-1 text-xs px-2 py-0.5 rounded-full bg-secondary border border-border"
           >
             <span className="font-mono font-medium text-primary">{p.code}</span>
-            <span className="text-muted-foreground truncate max-w-[220px]">{p.title}</span>
+            <span className="text-muted-foreground min-w-0 truncate max-w-[220px]">{p.title}</span>
           </span>
         ))}
       </div>

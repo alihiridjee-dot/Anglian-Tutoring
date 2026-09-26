@@ -1,4 +1,6 @@
+import { useEffect } from "react";
 import { CalendarClock, Loader2, X } from "lucide-react";
+import { useBodyScrollLock } from "@/hooks/useBodyScrollLock";
 import { useCadenceQuote } from "@/hooks/data/useBilling";
 import { formatPence } from "@/lib/billing/billing";
 
@@ -43,20 +45,33 @@ export function CadenceChangeDialog({
   const { data: quote, isLoading, isError } = useCadenceQuote(studentId, cadence);
   const whose = ownerLabel ? `${ownerLabel}'s` : "your";
 
+  // Nothing is typed here, so Escape or a tap outside simply closes it.
+  useBodyScrollLock(true);
+  useEffect(() => {
+    const onKey = (e: KeyboardEvent) => {
+      if (e.key === "Escape" && !pending) onClose();
+    };
+    window.addEventListener("keydown", onKey);
+    return () => window.removeEventListener("keydown", onKey);
+  }, [onClose, pending]);
+
   return (
     <div
       className="fixed inset-0 z-50 flex items-center justify-center bg-primary-deep/50 p-4"
       role="dialog"
       aria-modal="true"
       aria-labelledby="cadence-change-title"
+      onClick={(e) => {
+        if (e.target === e.currentTarget && !pending) onClose();
+      }}
     >
-      <div className="w-full max-w-md rounded-2xl premium-card shadow-xl max-h-[90vh] overflow-y-auto">
-        <div className="flex items-start justify-between gap-3 p-6 border-b border-border">
+      <div className="w-full max-w-md rounded-2xl premium-card shadow-xl max-h-[calc(100dvh-2rem)] overflow-y-auto">
+        <div className="flex items-start justify-between gap-3 p-4 sm:p-6 border-b border-border">
           <div className="flex items-center gap-3">
             <div className="w-10 h-10 rounded-xl bg-primary/15 flex items-center justify-center shrink-0">
               <CalendarClock className="w-5 h-5 text-primary" />
             </div>
-            <div>
+            <div className="min-w-0">
               <h2
                 id="cadence-change-title"
                 className="font-display text-lg font-bold leading-tight"
@@ -71,14 +86,14 @@ export function CadenceChangeDialog({
           </div>
           <button
             onClick={onClose}
-            className="w-8 h-8 rounded-lg hover:bg-muted flex items-center justify-center shrink-0"
+            className="size-11 sm:size-8 rounded-lg hover:bg-muted flex items-center justify-center shrink-0"
             aria-label="Close"
           >
             <X className="w-4 h-4" />
           </button>
         </div>
 
-        <div className="p-6 space-y-4 text-sm">
+        <div className="p-4 sm:p-6 space-y-4 text-sm">
           <div className="rounded-xl border border-border bg-muted/40 p-4">
             <div className="text-xs text-muted-foreground">Due today</div>
             {isLoading ? (
@@ -117,14 +132,14 @@ export function CadenceChangeDialog({
             <button
               onClick={onClose}
               disabled={pending}
-              className="h-10 px-4 rounded-lg border border-border text-sm font-semibold hover:bg-muted disabled:opacity-50"
+              className="h-11 sm:h-10 px-4 rounded-lg border border-border text-sm font-semibold hover:bg-muted disabled:opacity-50"
             >
               Cancel
             </button>
             <button
               onClick={onConfirm}
               disabled={pending || isLoading}
-              className="flex-1 h-10 px-4 rounded-lg btn-solid text-sm font-semibold hover:opacity-90 disabled:opacity-50 inline-flex items-center justify-center gap-2"
+              className="flex-1 h-11 sm:h-10 px-4 rounded-lg btn-solid text-sm font-semibold hover:opacity-90 disabled:opacity-50 inline-flex items-center justify-center gap-2"
             >
               {pending && <Loader2 className="w-4 h-4 animate-spin" />}
               Switch to {cadenceLabel}

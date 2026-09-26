@@ -44,7 +44,7 @@ export function VerifyCodeScreen({ flow }: { flow: AuthFlow }) {
           type="button"
           onClick={handleResend}
           disabled={resendIn > 0}
-          className="w-full text-xs text-muted-foreground hover:text-primary disabled:hover:text-muted-foreground"
+          className="w-full min-h-11 text-xs text-muted-foreground hover:text-primary disabled:hover:text-muted-foreground sm:min-h-0"
         >
           {resendIn > 0 ? `Resend code in ${resendIn}s` : "Didn't get it? Resend code"}
         </button>
@@ -55,7 +55,7 @@ export function VerifyCodeScreen({ flow }: { flow: AuthFlow }) {
             setOtp("");
             setMode("signin");
           }}
-          className="w-full text-xs text-muted-foreground hover:text-foreground"
+          className="w-full min-h-11 text-xs text-muted-foreground hover:text-foreground sm:min-h-0"
         >
           Back to log in
         </button>
@@ -90,7 +90,7 @@ export function CredentialsForm({ flow, tier }: { flow: AuthFlow; tier?: string 
           <button
             key={m}
             onClick={() => setMode(m)}
-            className={`py-2.5 rounded-lg text-sm font-semibold transition ${
+            className={`min-h-11 py-2.5 rounded-lg text-sm font-semibold transition sm:min-h-0 ${
               mode === m
                 ? "bg-card text-foreground shadow-sm ring-1 ring-border"
                 : "text-muted-foreground hover:text-foreground"
@@ -142,10 +142,12 @@ export function CredentialsForm({ flow, tier }: { flow: AuthFlow; tier?: string 
 
       <form onSubmit={handleSubmit} className="space-y-4">
         {mode === "signup" && (
-          <Field label="Full name">
+          <Field label="Full name" htmlFor="auth-name">
             <input
+              id="auth-name"
               required
               type="text"
+              autoComplete="name"
               value={name}
               onChange={(e) => setName(e.target.value)}
               className={inputCls}
@@ -154,9 +156,13 @@ export function CredentialsForm({ flow, tier }: { flow: AuthFlow; tier?: string 
           </Field>
         )}
         {mode === "signup" && role === "parent" && (
-          <Field label="Student invite code">
+          <Field label="Student invite code" htmlFor="auth-invite-code">
             <input
+              id="auth-invite-code"
               required
+              type="text"
+              autoComplete="off"
+              autoCapitalize="characters"
               value={inviteCode}
               onChange={(e) => setInviteCode(e.target.value)}
               className={inputCls}
@@ -167,21 +173,26 @@ export function CredentialsForm({ flow, tier }: { flow: AuthFlow; tier?: string 
             </p>
           </Field>
         )}
-        <Field label="Email">
+        <Field label="Email" htmlFor="auth-email">
           <input
+            id="auth-email"
             required
             type="email"
+            inputMode="email"
+            autoComplete="email"
             value={email}
             onChange={(e) => setEmail(e.target.value)}
             className={inputCls}
             placeholder="you@example.com"
           />
         </Field>
-        <Field label="Password">
+        <Field label="Password" htmlFor="auth-password">
           <input
+            id="auth-password"
             required
             minLength={6}
             type="password"
+            autoComplete={mode === "signin" ? "current-password" : "new-password"}
             value={password}
             onChange={(e) => setPassword(e.target.value)}
             className={inputCls}
@@ -201,7 +212,7 @@ export function CredentialsForm({ flow, tier }: { flow: AuthFlow; tier?: string 
           <button
             type="button"
             onClick={handleForgotPassword}
-            className="w-full text-xs text-muted-foreground hover:text-primary"
+            className="w-full min-h-11 text-xs text-muted-foreground hover:text-primary sm:min-h-0"
           >
             Forgot password?
           </button>
@@ -218,10 +229,21 @@ export function CredentialsForm({ flow, tier }: { flow: AuthFlow; tier?: string 
   );
 }
 
-function Field({ label, children }: { label: string; children: React.ReactNode }) {
+function Field({
+  label,
+  htmlFor,
+  children,
+}: {
+  label: string;
+  htmlFor?: string;
+  children: React.ReactNode;
+}) {
   return (
     <div>
-      <label className="text-xs font-semibold uppercase tracking-wider text-muted-foreground">
+      <label
+        htmlFor={htmlFor}
+        className="text-xs font-semibold uppercase tracking-wider text-muted-foreground"
+      >
         {label}
       </label>
       <div className="mt-1">{children}</div>

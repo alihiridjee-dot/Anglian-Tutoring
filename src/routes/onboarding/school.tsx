@@ -127,10 +127,16 @@ function SchoolStep() {
       saving={saving}
     >
       <div>
-        <label className="text-xs font-semibold uppercase tracking-wider text-muted-foreground">
+        <label
+          htmlFor="onboarding-school"
+          className="text-xs font-semibold uppercase tracking-wider text-muted-foreground"
+        >
           School or college
         </label>
         <input
+          id="onboarding-school"
+          type="text"
+          autoComplete="organization"
           value={school}
           onChange={(e) => setSchool(e.target.value)}
           placeholder="e.g. Cambridge Academy"
@@ -161,6 +167,7 @@ function SchoolStep() {
                     <div key={key}>
                       <span className="text-[11px] text-muted-foreground">{text}</span>
                       <select
+                        aria-label={`${text} grade, ${label[subject] ?? subject}`}
                         value={grades[subject]?.[key] ?? ""}
                         onChange={(e) =>
                           setGrades((prev) => ({
@@ -168,7 +175,7 @@ function SchoolStep() {
                             [subject]: { ...(prev[subject] ?? EMPTY), [key]: e.target.value },
                           }))
                         }
-                        className="mt-0.5 w-full h-9 rounded-lg premium-input px-2 text-sm"
+                        className="mt-0.5 w-full h-11 sm:h-9 rounded-lg premium-input px-2 text-sm"
                       >
                         <option value="">—</option>
                         {options.map((g) => (

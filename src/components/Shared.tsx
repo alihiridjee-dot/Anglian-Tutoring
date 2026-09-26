@@ -429,7 +429,13 @@ export function SegmentedToggle({
   if (items.length < 2) return null;
 
   return (
-    <div className="tab-row" role="tablist" aria-label={label}>
+    <div
+      // Up to four segments share a phone's width (see `.tab-row-fluid`);
+      // more than that would crush the labels, so those rows scroll instead.
+      className={cn("tab-row", items.length <= 4 && "tab-row-fluid")}
+      role="tablist"
+      aria-label={label}
+    >
       {items.map((item) => {
         const active = item.value === value;
         const empty = item.count === 0;

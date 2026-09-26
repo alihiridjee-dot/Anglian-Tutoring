@@ -72,7 +72,7 @@ export function PlanAttention({
                 type="button"
                 onClick={() => add(topic)}
                 disabled={busy !== null}
-                className="btn-soft inline-flex h-8 shrink-0 items-center gap-1.5 rounded-lg px-3 text-xs"
+                className="btn-soft inline-flex h-11 sm:h-8 shrink-0 items-center gap-1.5 rounded-lg px-3 text-xs"
               >
                 {busy === topic.topicId ? (
                   <Loader2 className="size-3.5 animate-spin" aria-hidden />
@@ -195,7 +195,7 @@ function AttentionItem({
             onClick={() => setOpen((v) => !v)}
             aria-expanded={open}
             aria-controls={open ? listId : undefined}
-            className="btn-ghost inline-flex h-8 shrink-0 items-center gap-1 rounded-lg px-2.5 text-xs"
+            className="btn-ghost inline-flex h-11 sm:h-8 shrink-0 items-center gap-1 rounded-lg px-2.5 text-xs"
           >
             {details.label}
             <ChevronDown

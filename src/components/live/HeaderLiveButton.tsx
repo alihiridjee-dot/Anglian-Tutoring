@@ -60,7 +60,7 @@ export function HeaderLiveButton({ liveHref }: { liveHref: "/live" | "/demo/stud
         target="_blank"
         rel="noreferrer"
         title={`${next.title}${isLive ? " — live now" : " — starting soon"}`}
-        className={`inline-flex items-center gap-1.5 h-9 px-3 rounded-lg text-xs font-bold text-white shadow-sm transition ${
+        className={`tap-target inline-flex items-center gap-1.5 h-9 px-3 rounded-lg text-xs font-bold text-white shadow-sm transition ${
           isLive ? "bg-emerald-600 hover:bg-emerald-700" : "bg-[#2D8CFF] hover:bg-[#2681F2]"
         }`}
       >
@@ -83,7 +83,7 @@ export function HeaderLiveButton({ liveHref }: { liveHref: "/live" | "/demo/stud
     <Link
       to={liveHref}
       title={next.title}
-      className="inline-flex items-center gap-1.5 h-9 px-3 rounded-lg text-xs font-semibold border border-[#2D8CFF]/40 bg-[#2D8CFF]/10 text-[#2D8CFF] hover:bg-[#2D8CFF]/15 transition"
+      className="tap-target inline-flex items-center gap-1.5 h-9 px-3 rounded-lg text-xs font-semibold border border-[#2D8CFF]/40 bg-[#2D8CFF]/10 text-[#2D8CFF] hover:bg-[#2D8CFF]/15 transition"
     >
       <Radio className="w-3.5 h-3.5 animate-pulse" />
       <span className="hidden sm:inline">Live in {remaining}</span>

@@ -40,7 +40,7 @@ export function WeekProgressCard({
       <Meter value={(completed / assigned.length) * 100} size="sm" />
       {next && (
         <Link
-          className="btn-solid inline-flex px-3 py-2 text-sm"
+          className="btn-solid inline-flex items-center max-w-full min-h-11 sm:min-h-0 px-3 py-2 text-sm"
           to={
             activity.get(next.spec_point_id)?.hasHomework &&
             !coverage.get(next.spec_point_id)?.homeworkDone

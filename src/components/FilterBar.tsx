@@ -26,7 +26,7 @@ export function FilterBar({ value, onChange }: { value: Filters; onChange: (f: F
       <div className="flex flex-wrap gap-2">
         <button
           onClick={() => onSelect(undefined)}
-          className={`px-3 py-1.5 text-xs rounded-full border transition ${
+          className={`tap-target px-3 py-1.5 text-xs rounded-full border transition ${
             !selected
               ? "btn-solid border-primary"
               : "bg-secondary border-border text-muted-foreground hover:text-foreground"
@@ -38,7 +38,7 @@ export function FilterBar({ value, onChange }: { value: Filters; onChange: (f: F
           <button
             key={o.value}
             onClick={() => onSelect(o.value)}
-            className={`px-3 py-1.5 text-xs rounded-full border transition ${
+            className={`tap-target px-3 py-1.5 text-xs rounded-full border transition ${
               selected === o.value
                 ? "btn-solid border-primary"
                 : "bg-secondary border-border text-muted-foreground hover:text-foreground"
@@ -52,7 +52,7 @@ export function FilterBar({ value, onChange }: { value: Filters; onChange: (f: F
   );
 
   return (
-    <div data-guide="filters" className="rounded-2xl premium-card p-5 mb-6 space-y-4">
+    <div data-guide="filters" className="rounded-2xl premium-card p-4 sm:p-5 mb-6 space-y-4">
       <Group
         label="Subject"
         options={SUBJECTS}

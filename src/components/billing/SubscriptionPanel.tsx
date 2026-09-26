@@ -212,7 +212,7 @@ export function SubscriptionPanel({
               <button
                 onClick={() => run("resume")}
                 disabled={manage.isPending}
-                className="inline-flex items-center gap-1.5 h-9 px-3.5 rounded-lg btn-solid text-sm font-semibold hover:opacity-90 disabled:opacity-50"
+                className="inline-flex items-center gap-1.5 h-11 sm:h-9 px-3.5 rounded-lg btn-solid text-sm font-semibold hover:opacity-90 disabled:opacity-50"
               >
                 {manage.isPending ? (
                   <Loader2 className="w-4 h-4 animate-spin" />
@@ -237,7 +237,7 @@ export function SubscriptionPanel({
                   }
                 }}
                 disabled={portalBusy}
-                className="inline-flex items-center gap-1.5 h-9 px-3.5 rounded-lg border border-border text-sm font-semibold hover:bg-muted disabled:opacity-50"
+                className="inline-flex items-center gap-1.5 h-11 sm:h-9 px-3.5 rounded-lg border border-border text-sm font-semibold hover:bg-muted disabled:opacity-50"
               >
                 {portalBusy ? (
                   <Loader2 className="w-4 h-4 animate-spin" />
@@ -265,7 +265,7 @@ export function SubscriptionPanel({
                   <button
                     onClick={() => setPauseOpen(true)}
                     disabled={manage.isPending}
-                    className="inline-flex items-center gap-1.5 h-9 px-3.5 rounded-lg border border-border bg-card text-sm font-semibold hover:bg-muted disabled:opacity-50"
+                    className="inline-flex items-center gap-1.5 h-11 sm:h-9 px-3.5 rounded-lg border border-border bg-card text-sm font-semibold hover:bg-muted disabled:opacity-50"
                   >
                     <PauseCircle className="w-4 h-4 text-amber-600" /> Pause plan
                   </button>
@@ -274,7 +274,7 @@ export function SubscriptionPanel({
                   <button
                     onClick={() => setCancelOpen(true)}
                     disabled={manage.isPending}
-                    className="inline-flex items-center gap-1.5 h-9 px-3.5 rounded-lg border border-rose-300 bg-card text-rose-600 text-sm font-semibold hover:bg-rose-50 disabled:opacity-50"
+                    className="inline-flex items-center gap-1.5 h-11 sm:h-9 px-3.5 rounded-lg border border-rose-300 bg-card text-rose-600 text-sm font-semibold hover:bg-rose-50 disabled:opacity-50"
                   >
                     <XCircle className="w-4 h-4" /> Cancel plan
                   </button>

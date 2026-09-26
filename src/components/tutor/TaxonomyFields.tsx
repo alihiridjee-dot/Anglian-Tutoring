@@ -27,7 +27,7 @@ export function TaxonomyFields({
   hideBoard?: boolean;
 }) {
   return (
-    <div className={`grid gap-3 ${hideBoard ? "grid-cols-2" : "grid-cols-3"}`}>
+    <div className={`grid gap-3 grid-cols-1 ${hideBoard ? "sm:grid-cols-2" : "sm:grid-cols-3"}`}>
       <Field label="Subject">
         <select
           className={inputCls}

@@ -147,7 +147,7 @@ export function TutorWeekTab({ state }: { state: TutorPlannerState }) {
       ) : (
         lanes.map((lane) => (
           <section key={lane.key} aria-label={lane.title}>
-            <div className="flex items-baseline justify-between gap-2 mb-2">
+            <div className="flex flex-wrap items-baseline justify-between gap-2 mb-2">
               <h3 className="text-sm font-bold">
                 {lane.title}{" "}
                 <span className="text-muted-foreground font-medium tabular-nums">{lane.count}</span>

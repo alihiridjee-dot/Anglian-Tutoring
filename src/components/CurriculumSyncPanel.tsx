@@ -84,8 +84,8 @@ export function CurriculumSyncPanel({ subject, board, level, onSynced }: Curricu
   };
 
   return (
-    <div className="rounded-2xl premium-card p-6 mb-6">
-      <div className="flex items-center justify-between">
+    <div className="rounded-2xl premium-card p-4 sm:p-6 mb-6">
+      <div className="flex flex-wrap items-center justify-between gap-3">
         <div className="flex items-center gap-3">
           <div className="p-2 rounded-xl bg-violet-500/10 text-violet-500">
             <CloudLightning className="w-5 h-5 animate-pulse" />
@@ -99,7 +99,7 @@ export function CurriculumSyncPanel({ subject, board, level, onSynced }: Curricu
         </div>
         <button
           onClick={() => setIsOpen(!isOpen)}
-          className="h-9 px-4 rounded-xl border border-border hover:bg-accent text-xs font-medium transition-colors"
+          className="h-11 sm:h-9 px-4 rounded-xl border border-border hover:bg-accent text-xs font-medium transition-colors"
         >
           {isOpen ? "Close Sync Service" : "Launch Sync Portal"}
         </button>
@@ -117,12 +117,13 @@ export function CurriculumSyncPanel({ subject, board, level, onSynced }: Curricu
               <textarea
                 value={rawText}
                 onChange={(e) => setRawText(e.target.value)}
+                aria-label="Raw specification text"
                 placeholder="Paste OCR text here. (e.g. 'Topic B1: Cell level systems\nB1.1a describe how light microscopes work...')"
                 className="w-full h-44 rounded-xl bg-secondary border border-border p-3 text-xs focus:outline-none focus:ring-2 focus:ring-primary/40 font-mono resize-none"
               />
               <button
                 onClick={handleParse}
-                className="w-full h-9 btn-solid rounded-xl text-xs font-semibold hover:bg-primary/90 transition-colors flex items-center justify-center gap-1.5"
+                className="w-full h-11 sm:h-9 btn-solid rounded-xl text-xs font-semibold hover:bg-primary/90 transition-colors flex items-center justify-center gap-1.5"
               >
                 <RefreshCw className="w-3.5 h-3.5" />
                 Parse Text Specification
@@ -182,7 +183,7 @@ export function CurriculumSyncPanel({ subject, board, level, onSynced }: Curricu
                   <button
                     onClick={handleSync}
                     disabled={syncing}
-                    className="w-full h-9 bg-violet-600 hover:bg-violet-700 text-white rounded-xl text-xs font-semibold transition-colors flex items-center justify-center gap-1.5"
+                    className="w-full h-11 sm:h-9 bg-violet-600 hover:bg-violet-700 text-white rounded-xl text-xs font-semibold transition-colors flex items-center justify-center gap-1.5"
                   >
                     {syncing ? (
                       <RefreshCw className="w-3.5 h-3.5 animate-spin" />

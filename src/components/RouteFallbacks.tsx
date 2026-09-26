@@ -42,7 +42,7 @@ export function AuthedRouteError({ error, reset }: ErrorComponentProps) {
 
   return (
     <AppLayout title="This page didn't load">
-      <div className="tint-rose pop-card mx-auto mt-6 max-w-md p-8 text-center">
+      <div className="tint-rose pop-card mx-auto mt-6 max-w-md p-5 text-center sm:p-8">
         <Mascot name="flask" mood="wow" size={96} className="mx-auto" inheritTint />
         <h2 className="font-display mt-4 text-xl font-extrabold">This page didn&apos;t load</h2>
         <p className="text-muted-foreground mt-2 text-sm font-medium">

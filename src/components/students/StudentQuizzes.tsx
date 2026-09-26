@@ -49,54 +49,58 @@ export function StudentQuizzes({ studentId }: { studentId: string }) {
         <div className="p-5 pb-3 sm:p-6 sm:pb-3">
           <SectionHeading title="Attempts" />
         </div>
-        <table className="w-full text-sm">
-          <thead className="bg-muted/60 text-muted-foreground text-xs tracking-widest uppercase">
-            <tr>
-              <th className="px-5 py-3 text-left">Quiz</th>
-              <th className="hidden px-5 py-3 text-left sm:table-cell">When</th>
-              <th className="px-5 py-3 text-left">Score</th>
-            </tr>
-          </thead>
-          <tbody className="divide-border divide-y">
-            {rows.map((r) => {
-              const pct = r.total > 0 ? Math.round((r.score / r.total) * 100) : null;
-              const subject = r.set?.subject;
-              return (
-                <tr key={r.id} className="hover:bg-muted/30">
-                  <td className="px-5 py-3">
-                    <Link
-                      to="/mcq/$setId"
-                      params={{ setId: r.set_id }}
-                      className="font-semibold hover:underline"
-                    >
-                      {r.set?.title ?? "Quiz"}
-                    </Link>
-                    {subject && (
-                      <div className="mt-1">
-                        <span
-                          className={`chip text-[10px] ${SUBJECT_TINT[subject] ?? "tint-slate"}`}
-                        >
-                          {subjectLabel(subject)}
-                        </span>
-                      </div>
-                    )}
-                  </td>
-                  <td className="text-muted-foreground hidden px-5 py-3 text-xs sm:table-cell">
-                    {formatDateTime(r.created_at)}
-                  </td>
-                  <td className="px-5 py-3">
-                    <span className={`numeral text-lg text-[color:var(--tint)] ${scoreTint(pct)}`}>
-                      {pct == null ? "—" : `${pct}%`}
-                    </span>
-                    <span className="text-muted-foreground ml-1.5 text-xs">
-                      {r.score}/{r.total}
-                    </span>
-                  </td>
-                </tr>
-              );
-            })}
-          </tbody>
-        </table>
+        <div className="scroll-slim overflow-x-auto">
+          <table className="w-full text-sm">
+            <thead className="bg-muted/60 text-muted-foreground text-xs tracking-widest uppercase">
+              <tr>
+                <th className="px-4 sm:px-5 py-3 text-left">Quiz</th>
+                <th className="hidden px-4 sm:px-5 py-3 text-left sm:table-cell">When</th>
+                <th className="px-4 sm:px-5 py-3 text-left">Score</th>
+              </tr>
+            </thead>
+            <tbody className="divide-border divide-y">
+              {rows.map((r) => {
+                const pct = r.total > 0 ? Math.round((r.score / r.total) * 100) : null;
+                const subject = r.set?.subject;
+                return (
+                  <tr key={r.id} className="hover:bg-muted/30">
+                    <td className="px-4 sm:px-5 py-3">
+                      <Link
+                        to="/mcq/$setId"
+                        params={{ setId: r.set_id }}
+                        className="font-semibold hover:underline"
+                      >
+                        {r.set?.title ?? "Quiz"}
+                      </Link>
+                      {subject && (
+                        <div className="mt-1">
+                          <span
+                            className={`chip text-[10px] ${SUBJECT_TINT[subject] ?? "tint-slate"}`}
+                          >
+                            {subjectLabel(subject)}
+                          </span>
+                        </div>
+                      )}
+                    </td>
+                    <td className="text-muted-foreground hidden px-4 sm:px-5 py-3 text-xs sm:table-cell">
+                      {formatDateTime(r.created_at)}
+                    </td>
+                    <td className="px-4 sm:px-5 py-3">
+                      <span
+                        className={`numeral text-lg text-[color:var(--tint)] ${scoreTint(pct)}`}
+                      >
+                        {pct == null ? "—" : `${pct}%`}
+                      </span>
+                      <span className="text-muted-foreground ml-1.5 text-xs">
+                        {r.score}/{r.total}
+                      </span>
+                    </td>
+                  </tr>
+                );
+              })}
+            </tbody>
+          </table>
+        </div>
       </section>
     </div>
   );

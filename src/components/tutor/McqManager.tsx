@@ -92,7 +92,7 @@ export function McqManager() {
   const Row = (s: ManagedSet) => (
     <div
       key={s.id}
-      className="rounded-2xl premium-card p-5 flex flex-col sm:flex-row sm:items-center gap-4"
+      className="rounded-2xl premium-card p-4 sm:p-5 flex flex-col sm:flex-row sm:items-center gap-4"
     >
       <div className="w-9 h-9 rounded-xl bg-primary/10 border border-primary/20 flex items-center justify-center shrink-0">
         <Sparkles className="w-3.5 h-3.5 text-primary" />
@@ -124,25 +124,25 @@ export function McqManager() {
         </div>
       </div>
 
-      <div className="flex items-center gap-2 shrink-0">
+      <div className="flex flex-wrap items-center gap-2 shrink-0">
         <Link
           to="/mcq/$setId"
           params={{ setId: s.id }}
-          className="inline-flex items-center gap-1 text-xs font-medium px-3 py-2 rounded-lg border border-border hover:border-primary/50 hover:text-primary transition"
+          className="inline-flex min-h-11 sm:min-h-0 items-center gap-1 text-xs font-medium px-3 py-2 rounded-lg border border-border hover:border-primary/50 hover:text-primary transition"
         >
           <Eye className="w-3.5 h-3.5" /> Preview
         </Link>
         <button
           onClick={() => togglePublish(s)}
           disabled={busyId === s.id}
-          className="inline-flex items-center gap-1 text-xs font-medium px-3 py-2 rounded-lg border border-border hover:border-primary/50 hover:text-primary transition disabled:opacity-50"
+          className="inline-flex min-h-11 sm:min-h-0 items-center gap-1 text-xs font-medium px-3 py-2 rounded-lg border border-border hover:border-primary/50 hover:text-primary transition disabled:opacity-50"
         >
           {s.published ? "Unpublish" : "Publish"}
         </button>
         <button
           onClick={() => remove(s)}
           disabled={busyId === s.id}
-          className="inline-flex items-center justify-center w-9 h-9 rounded-lg border border-border text-muted-foreground hover:border-destructive/50 hover:text-destructive transition disabled:opacity-50"
+          className="inline-flex items-center justify-center size-11 sm:size-9 rounded-lg border border-border text-muted-foreground hover:border-destructive/50 hover:text-destructive transition disabled:opacity-50"
           aria-label="Delete quiz"
         >
           <Trash2 className="w-3.5 h-3.5" />
@@ -153,14 +153,14 @@ export function McqManager() {
 
   return (
     <>
-      <div className="flex items-start justify-between gap-4 mb-8">
+      <div className="flex flex-wrap items-start justify-between gap-4 mb-8">
         <p className="text-muted-foreground max-w-2xl">
           Manage every quiz you&apos;ve generated: publish or unpublish to control what students
           see, preview the student experience, and delete sets you no longer need.
         </p>
         <Link
           to="/curriculum"
-          className="inline-flex items-center gap-2 shrink-0 text-sm font-semibold px-4 py-2.5 rounded-lg btn-solid hover:opacity-90 transition"
+          className="inline-flex min-h-11 sm:min-h-0 items-center gap-2 shrink-0 text-sm font-semibold px-4 py-2.5 rounded-lg btn-solid hover:opacity-90 transition"
         >
           <Wand2 className="w-4 h-4" /> Generate quiz
         </Link>

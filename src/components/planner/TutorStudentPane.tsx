@@ -38,7 +38,7 @@ export function TutorStudentPane({ state }: { state: TutorPlannerState }) {
           <button
             type="button"
             onClick={() => selectStudent(null)}
-            className="lg:hidden btn-ghost inline-flex items-center gap-1 h-8 px-2.5 rounded-lg text-xs"
+            className="lg:hidden btn-ghost inline-flex items-center gap-1 h-11 px-3 rounded-lg text-xs"
           >
             <ArrowLeft className="size-3.5" aria-hidden /> Students
           </button>
@@ -65,7 +65,7 @@ export function TutorStudentPane({ state }: { state: TutorPlannerState }) {
               type="button"
               onClick={() => setTab(key)}
               aria-current={tab === key ? "page" : undefined}
-              className={`inline-flex items-center gap-1.5 px-3.5 h-10 text-sm font-medium border-b-2 transition whitespace-nowrap ${
+              className={`inline-flex items-center gap-1.5 px-3.5 h-11 sm:h-10 text-sm font-medium border-b-2 transition whitespace-nowrap ${
                 tab === key
                   ? "border-primary text-foreground"
                   : "border-transparent text-muted-foreground hover:text-foreground"

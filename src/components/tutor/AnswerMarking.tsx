@@ -57,19 +57,21 @@ export function AnswerMarkingList({
                 Marks
                 <input
                   type="number"
+                  inputMode="numeric"
                   min={0}
                   max={q.marks}
                   value={m.marks}
                   onChange={(e) => setMark(q.id, { marks: e.target.value })}
                   placeholder={`/${q.marks}`}
-                  className="w-20 h-9 rounded-lg premium-input px-2 text-sm"
+                  className="w-20 h-11 sm:h-9 rounded-lg premium-input px-2 text-sm"
                 />
               </label>
               <input
                 value={m.feedback}
                 onChange={(e) => setMark(q.id, { feedback: e.target.value })}
                 placeholder="Comment on this answer (optional)"
-                className="flex-1 min-w-48 h-9 rounded-lg premium-input px-3 text-sm"
+                aria-label="Comment on this answer"
+                className="flex-1 min-w-48 h-11 sm:h-9 rounded-lg premium-input px-3 text-sm"
               />
             </div>
           </li>

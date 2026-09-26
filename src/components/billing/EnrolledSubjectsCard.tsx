@@ -142,7 +142,7 @@ export function EnrolledSubjectsCard({
   };
 
   return (
-    <div id={anchorId} className="rounded-2xl premium-card p-6 scroll-mt-24">
+    <div id={anchorId} className="rounded-2xl premium-card p-4 sm:p-6 scroll-mt-24">
       <div className="flex items-center gap-2 mb-1">
         <div className="w-8 h-8 rounded-lg bg-primary/15 flex items-center justify-center">
           <BookOpen className="w-4 h-4 text-primary" />
@@ -179,7 +179,7 @@ export function EnrolledSubjectsCard({
                   <button
                     onClick={() => setRemoving(e.subject)}
                     disabled={remove.isPending}
-                    className="inline-flex items-center gap-1.5 h-9 px-3 rounded-lg border border-rose-200 text-rose-600 text-sm font-semibold hover:bg-rose-50 disabled:opacity-50 shrink-0"
+                    className="inline-flex items-center gap-1.5 h-11 sm:h-9 px-3 rounded-lg border border-rose-200 text-rose-600 text-sm font-semibold hover:bg-rose-50 disabled:opacity-50 shrink-0"
                   >
                     {remove.isPending && removing === e.subject ? (
                       <Loader2 className="w-4 h-4 animate-spin" />
@@ -219,7 +219,7 @@ export function EnrolledSubjectsCard({
                               onClick={() => setSwitching({ subject: e.subject, board: b.value })}
                               disabled={on || switchBoard.isPending}
                               aria-pressed={on}
-                              className={`h-7 px-2.5 rounded-md text-xs font-semibold transition disabled:cursor-default ${
+                              className={`tap-target h-7 px-2.5 rounded-md text-xs font-semibold transition disabled:cursor-default ${
                                 on
                                   ? "btn-solid shadow-sm"
                                   : "text-muted-foreground hover:text-foreground hover:bg-card"

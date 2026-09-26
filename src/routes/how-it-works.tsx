@@ -180,7 +180,7 @@ function HowItWorks() {
           aria-hidden
           className="pointer-events-none absolute inset-0 bg-[radial-gradient(ellipse_at_top,_var(--accent-soft)_0%,transparent_60%)] opacity-70"
         />
-        <div className="relative mx-auto max-w-4xl px-6 py-20 text-center lg:py-28">
+        <div className="relative mx-auto max-w-4xl px-4 py-16 text-center sm:px-6 sm:py-20 lg:py-28">
           <motion.span {...fadeUp} className="sticker">
             <Brain className="size-3.5" aria-hidden /> How it works
           </motion.span>
@@ -215,13 +215,13 @@ function HowItWorks() {
             <Link
               to="/auth"
               search={{ mode: "signup" } as never}
-              className="inline-flex items-center gap-2 rounded-xl bg-primary px-6 py-3 text-sm font-bold text-white shadow-sm transition "
+              className="inline-flex min-h-11 items-center gap-2 rounded-xl bg-primary px-6 py-3 text-sm font-bold text-white shadow-sm transition "
             >
               Book your child's place <ArrowRight className="h-4 w-4" />
             </Link>
             <Link
               to="/demo"
-              className="inline-flex items-center gap-1.5 rounded-xl border border-primary/20 bg-primary/5 px-6 py-3 text-sm font-semibold text-primary transition hover:bg-primary/10"
+              className="inline-flex min-h-11 items-center gap-1.5 rounded-xl border border-primary/20 bg-primary/5 px-6 py-3 text-sm font-semibold text-primary transition hover:bg-primary/10"
             >
               <Sparkles className="h-3.5 w-3.5 text-amber-500" /> Explore the platform
             </Link>
@@ -231,7 +231,7 @@ function HowItWorks() {
 
       {/* ---------------- What a place includes ---------------- */}
       <section className="border-b border-border bg-card py-20 lg:py-24">
-        <div className="mx-auto max-w-6xl px-6">
+        <div className="mx-auto max-w-6xl px-4 sm:px-6">
           <motion.div {...fadeUp} className="mx-auto mb-16 max-w-2xl text-center">
             <span className="eyebrow">Included, every week</span>
             <h2 className="mt-3 font-display text-3xl font-bold tracking-tight text-foreground sm:text-4xl">
@@ -314,7 +314,7 @@ function HowItWorks() {
 
       {/* ---------------- Try it ---------------- */}
       <section className="border-b border-border bg-secondary/60 py-20 lg:py-24">
-        <div className="mx-auto max-w-6xl px-6">
+        <div className="mx-auto max-w-6xl px-4 sm:px-6">
           <motion.div {...fadeUp} className="mx-auto mb-12 max-w-2xl text-center">
             <span className="eyebrow">See it for yourself</span>
             <h2 className="mt-3 font-display text-3xl font-bold tracking-tight text-foreground sm:text-4xl">
@@ -334,7 +334,7 @@ function HowItWorks() {
 
       {/* ---------------- The forgetting curve ---------------- */}
       <section className="border-b border-border bg-card py-20 lg:py-24">
-        <div className="mx-auto max-w-5xl px-6">
+        <div className="mx-auto max-w-5xl px-4 sm:px-6">
           <motion.div {...fadeUp} className="mx-auto mb-12 max-w-2xl text-center">
             <span className="eyebrow">The problem with normal revision</span>
             <h2 className="mt-3 font-display text-3xl font-bold tracking-tight text-foreground sm:text-4xl">
@@ -355,10 +355,10 @@ function HowItWorks() {
 
       {/* ---------------- Closing CTA ---------------- */}
       <section className="bg-secondary/40 py-20 lg:py-24">
-        <div className="mx-auto max-w-5xl px-6">
+        <div className="mx-auto max-w-5xl px-4 sm:px-6">
           <motion.div
             {...fadeUp}
-            className="relative overflow-hidden rounded-[2rem] bg-gradient-to-br from-[var(--primary-deep)] to-primary px-8 py-14 text-center text-white shadow-[0_40px_90px_-40px_rgba(6,78,90,0.85)] sm:px-14"
+            className="relative overflow-hidden rounded-[2rem] bg-gradient-to-br from-[var(--primary-deep)] to-primary px-5 py-10 text-center text-white shadow-[0_40px_90px_-40px_rgba(6,78,90,0.85)] sm:px-14 sm:py-14"
           >
             <div
               aria-hidden

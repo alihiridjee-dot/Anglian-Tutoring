@@ -95,7 +95,7 @@ function BoardStep() {
         <label className="text-xs font-semibold uppercase tracking-wider text-muted-foreground">
           Level
         </label>
-        <div className="mt-2 grid grid-cols-2 gap-2">
+        <div className="mt-2 grid grid-cols-1 gap-2 sm:grid-cols-2">
           {LEVELS.map((l) => {
             const available = coverageLoading || teachableLevels.includes(l.value);
             return (
@@ -126,7 +126,7 @@ function BoardStep() {
         {coverageLoading ? (
           <Spinner className="py-6" />
         ) : (
-          <div className="mt-2 grid grid-cols-3 gap-2">
+          <div className="mt-2 grid grid-cols-2 gap-2 sm:grid-cols-3">
             {BOARDS.filter((b) => coverage.isEmpty || teachableBoards.includes(b.value)).map(
               (b) => (
                 <ChoiceTile

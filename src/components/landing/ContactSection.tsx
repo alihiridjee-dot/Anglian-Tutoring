@@ -31,7 +31,7 @@ export function ContactSection() {
 
   return (
     <section id="contact" className="page-aurora py-20 lg:py-24 border-t border-border">
-      <div className="max-w-7xl mx-auto px-6">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6">
         <div className="grid lg:grid-cols-2 gap-12 max-w-5xl mx-auto">
           <div>
             <span className="eyebrow">Get in touch</span>
@@ -46,16 +46,16 @@ export function ContactSection() {
             <div className="mt-8 space-y-4">
               <a
                 href="mailto:angliaeducate@gmail.com"
-                className="group flex items-center gap-3.5 text-sm text-muted-foreground hover:text-foreground transition"
+                className="group flex min-h-11 items-center gap-3.5 text-sm text-muted-foreground hover:text-foreground transition"
               >
                 <div className="surface-soft w-10 h-10 rounded-xl flex items-center justify-center transition group-hover:border-primary/30">
                   <Mail className="w-4 h-4 text-primary" />
                 </div>
-                angliaeducate@gmail.com
+                <span className="break-all">angliaeducate@gmail.com</span>
               </a>
               <a
                 href="tel:07410116988"
-                className="group flex items-center gap-3.5 text-sm text-muted-foreground hover:text-foreground transition"
+                className="group flex min-h-11 items-center gap-3.5 text-sm text-muted-foreground hover:text-foreground transition"
               >
                 <div className="surface-soft w-10 h-10 rounded-xl flex items-center justify-center transition group-hover:border-primary/30">
                   <PhoneCall className="w-4 h-4 text-primary" />
@@ -65,7 +65,7 @@ export function ContactSection() {
             </div>
           </div>
 
-          <div className="premium-card rounded-2xl p-8">
+          <div className="premium-card rounded-2xl p-5 sm:p-8">
             <form onSubmit={handleSubmit} className="space-y-4">
               {/* Honeypot — hidden from people, catnip for bots. Not tab-reachable. */}
               <input
@@ -79,8 +79,13 @@ export function ContactSection() {
                 className="hidden"
               />
               <div>
-                <label className="eyebrow text-[10px]">Name</label>
+                <label htmlFor="contact-name" className="eyebrow text-[10px]">
+                  Name
+                </label>
                 <input
+                  id="contact-name"
+                  type="text"
+                  autoComplete="name"
                   required
                   placeholder="Your full name"
                   value={name}
@@ -91,10 +96,15 @@ export function ContactSection() {
 
               <div className="grid sm:grid-cols-2 gap-4">
                 <div>
-                  <label className="eyebrow text-[10px]">Email</label>
+                  <label htmlFor="contact-email" className="eyebrow text-[10px]">
+                    Email
+                  </label>
                   <input
+                    id="contact-email"
                     required
                     type="email"
+                    inputMode="email"
+                    autoComplete="email"
                     placeholder="you@example.com"
                     value={email}
                     onChange={(e) => setEmail(e.target.value)}
@@ -102,9 +112,13 @@ export function ContactSection() {
                   />
                 </div>
                 <div>
-                  <label className="eyebrow text-[10px]">Phone (optional)</label>
+                  <label htmlFor="contact-phone" className="eyebrow text-[10px]">
+                    Phone (optional)
+                  </label>
                   <input
+                    id="contact-phone"
                     type="tel"
+                    autoComplete="tel"
                     placeholder="07123 456789"
                     value={phone}
                     onChange={(e) => setPhone(e.target.value)}
@@ -114,8 +128,11 @@ export function ContactSection() {
               </div>
 
               <div>
-                <label className="eyebrow text-[10px]">Message</label>
+                <label htmlFor="contact-message" className="eyebrow text-[10px]">
+                  Message
+                </label>
                 <textarea
+                  id="contact-message"
                   required
                   rows={4}
                   placeholder="How can we help?"

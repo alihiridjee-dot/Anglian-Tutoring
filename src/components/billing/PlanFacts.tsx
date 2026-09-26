@@ -36,7 +36,7 @@ function FactTile({ icon: Icon, label, value, hint, action, className = "" }: Fa
       {action && (
         <button
           onClick={action.onClick}
-          className="mt-auto pt-1.5 self-start inline-flex items-center gap-1 text-[11px] font-bold text-primary hover:underline"
+          className="mt-auto pt-1.5 self-start inline-flex min-h-11 items-center gap-1 text-[11px] font-bold text-primary hover:underline sm:min-h-0"
         >
           {action.label}
           <ArrowRight className="w-3 h-3" />

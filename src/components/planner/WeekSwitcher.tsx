@@ -36,7 +36,7 @@ export function WeekSwitcher({
             <button
               type="button"
               onClick={onToday}
-              className="btn-ghost inline-flex h-6 items-center rounded-md px-1.5 text-xs"
+              className="btn-ghost tap-target inline-flex h-6 items-center rounded-md px-1.5 text-xs"
             >
               Today
             </button>
@@ -50,7 +50,7 @@ export function WeekSwitcher({
         type="button"
         onClick={() => onShift(-1)}
         aria-label="Previous week"
-        className="btn-soft inline-flex size-8 shrink-0 items-center justify-center rounded-lg"
+        className="btn-soft inline-flex size-11 sm:size-8 shrink-0 items-center justify-center rounded-lg"
       >
         <ChevronLeft className="size-4" aria-hidden />
       </button>
@@ -58,7 +58,7 @@ export function WeekSwitcher({
         type="button"
         onClick={() => onShift(1)}
         aria-label="Next week"
-        className="btn-soft inline-flex size-8 shrink-0 items-center justify-center rounded-lg"
+        className="btn-soft inline-flex size-11 sm:size-8 shrink-0 items-center justify-center rounded-lg"
       >
         <ChevronRight className="size-4" aria-hidden />
       </button>

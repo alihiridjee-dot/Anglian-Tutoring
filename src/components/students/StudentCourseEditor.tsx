@@ -121,12 +121,12 @@ function EnrolmentCard({
             <span className="font-bold">{BOARDS.find((b) => b.value === pendingBoard)?.label}</span>
             ? Their curriculum, quizzes, homework and planner for this subject all change with it.
           </p>
-          <div className="mt-3 flex gap-2">
+          <div className="mt-3 flex flex-wrap gap-2">
             <button
               type="button"
               disabled={busy}
               onClick={() => save({ board: pendingBoard }, "Exam board changed.")}
-              className="btn-solid inline-flex h-9 items-center rounded-lg px-4 text-sm font-semibold"
+              className="btn-solid inline-flex h-11 sm:h-9 items-center rounded-lg px-4 text-sm font-semibold"
             >
               Switch board
             </button>
@@ -134,7 +134,7 @@ function EnrolmentCard({
               type="button"
               disabled={busy}
               onClick={() => setPendingBoard(null)}
-              className="btn-soft inline-flex h-9 items-center rounded-lg px-4 text-sm font-semibold"
+              className="btn-soft inline-flex h-11 sm:h-9 items-center rounded-lg px-4 text-sm font-semibold"
             >
               Keep {BOARDS.find((b) => b.value === enrolment.board)?.label}
             </button>
@@ -191,7 +191,7 @@ export function StudentCourseEditor({ record }: { record: StudentRecord }) {
             <span className="font-bold">{LEVELS.find((l) => l.value === pendingLevel)?.label}</span>
             ? A different level is a different qualification: every subject's content changes.
           </p>
-          <div className="mt-3 flex gap-2">
+          <div className="mt-3 flex flex-wrap gap-2">
             <button
               type="button"
               disabled={setLevel.isPending}
@@ -205,7 +205,7 @@ export function StudentCourseEditor({ record }: { record: StudentRecord }) {
                   },
                 )
               }
-              className="btn-solid inline-flex h-9 items-center gap-1.5 rounded-lg px-4 text-sm font-semibold"
+              className="btn-solid inline-flex h-11 sm:h-9 items-center gap-1.5 rounded-lg px-4 text-sm font-semibold"
             >
               {setLevel.isPending && <Loader2 className="size-4 animate-spin" aria-hidden />}
               Change level
@@ -214,7 +214,7 @@ export function StudentCourseEditor({ record }: { record: StudentRecord }) {
               type="button"
               disabled={setLevel.isPending}
               onClick={() => setPendingLevel(null)}
-              className="btn-soft inline-flex h-9 items-center rounded-lg px-4 text-sm font-semibold"
+              className="btn-soft inline-flex h-11 sm:h-9 items-center rounded-lg px-4 text-sm font-semibold"
             >
               Keep {profile.level ? LEVELS.find((l) => l.value === profile.level)?.label : "unset"}
             </button>

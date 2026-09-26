@@ -126,7 +126,7 @@ export function DemoTour() {
   // Wandered off the tour's page: a small card to get back, and nothing else.
   if (!onPage) {
     return (
-      <div className="tint-primary fixed right-4 bottom-4 z-[60] w-[min(22rem,calc(100vw-2rem))]">
+      <div className="tint-primary fixed right-4 bottom-[calc(1rem+env(safe-area-inset-bottom))] z-[60] w-[min(22rem,calc(100vw-2rem))]">
         <div
           className="premium-card flex items-center gap-3 p-3 shadow-xl"
           style={{ background: "var(--card)" }}
@@ -141,7 +141,7 @@ export function DemoTour() {
           <button
             type="button"
             onClick={() => router.history.push(step.path)}
-            className="btn-solid rounded-lg px-3 py-1.5 text-sm"
+            className="btn-solid inline-flex min-h-11 sm:min-h-0 items-center rounded-lg px-3 py-1.5 text-sm"
           >
             Resume
           </button>
@@ -149,7 +149,7 @@ export function DemoTour() {
             type="button"
             onClick={() => go(null)}
             aria-label="End the tour"
-            className="btn-ghost rounded-lg p-1.5"
+            className="btn-ghost tap-target rounded-lg p-1.5"
           >
             <X className="size-4" />
           </button>
@@ -180,7 +180,7 @@ export function DemoTour() {
   } else if (box.y + box.height / 2 > viewport.height / 2) {
     style = { right: 16, top: 16, width };
   } else {
-    style = { right: 16, bottom: 16, width };
+    style = { right: 16, bottom: "calc(16px + env(safe-area-inset-bottom))", width };
   }
 
   return (
@@ -223,7 +223,7 @@ export function DemoTour() {
             type="button"
             onClick={() => go(null)}
             aria-label="End the tour"
-            className="btn-ghost ml-auto rounded-lg p-1.5"
+            className="btn-ghost tap-target ml-auto rounded-lg p-1.5"
           >
             <X className="size-4" />
           </button>
@@ -240,7 +240,7 @@ export function DemoTour() {
             <button
               type="button"
               onClick={() => go(index - 1)}
-              className="btn-premium inline-flex items-center gap-1.5 rounded-xl px-3 py-2 text-sm"
+              className="btn-premium inline-flex min-h-11 sm:min-h-0 items-center gap-1.5 rounded-xl px-3 py-2 text-sm"
             >
               <ArrowLeft className="size-4" aria-hidden /> Back
             </button>
@@ -251,14 +251,14 @@ export function DemoTour() {
                 <button
                   type="button"
                   onClick={() => go(null)}
-                  className="btn-premium rounded-xl px-3 py-2 text-sm"
+                  className="btn-premium inline-flex min-h-11 sm:min-h-0 items-center rounded-xl px-3 py-2 text-sm"
                 >
                   Keep exploring
                 </button>
                 <Link
                   to="/"
                   onClick={() => go(null)}
-                  className="btn-solid inline-flex items-center gap-1.5 rounded-xl px-3 py-2 text-sm"
+                  className="btn-solid inline-flex min-h-11 sm:min-h-0 items-center gap-1.5 rounded-xl px-3 py-2 text-sm"
                 >
                   Join now <ArrowRight className="size-4" aria-hidden />
                 </Link>
@@ -268,7 +268,7 @@ export function DemoTour() {
                 type="button"
                 autoFocus
                 onClick={() => go(index + 1)}
-                className="btn-solid inline-flex items-center gap-1.5 rounded-xl px-3 py-2 text-sm"
+                className="btn-solid inline-flex min-h-11 sm:min-h-0 items-center gap-1.5 rounded-xl px-3 py-2 text-sm"
               >
                 {index === 0 ? "Start the tour" : "Next"}
                 <ArrowRight className="size-4" aria-hidden />

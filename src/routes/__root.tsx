@@ -67,7 +67,10 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
   head: () => ({
     meta: [
       { charSet: "utf-8" },
-      { name: "viewport", content: "width=device-width, initial-scale=1" },
+      // `viewport-fit=cover` lets the page extend under a phone's notch and home
+      // indicator, so `env(safe-area-inset-*)` resolves and the shell can pad
+      // for them (see `styles.css` — MOBILE).
+      { name: "viewport", content: "width=device-width, initial-scale=1, viewport-fit=cover" },
       { title: "Anglia Educate — GCSE & KS3 Science Tutoring" },
       {
         name: "description",

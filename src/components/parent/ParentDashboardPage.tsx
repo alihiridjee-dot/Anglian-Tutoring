@@ -121,7 +121,7 @@ export function ParentDashboard() {
       {/* Welcome Banner */}
       <div
         data-tour="parent-welcome"
-        className="rounded-2xl bg-gradient-to-br from-primary to-primary-deep text-primary-foreground p-8 mb-8 relative overflow-hidden shadow-sm"
+        className="rounded-2xl bg-gradient-to-br from-primary to-primary-deep text-primary-foreground p-5 sm:p-8 mb-8 relative overflow-hidden shadow-sm"
       >
         <div
           className="absolute inset-0 opacity-10"
@@ -136,7 +136,7 @@ export function ParentDashboard() {
             Parent Workspace
           </span>
         </div>
-        <h2 className="mt-1 font-display text-3xl font-bold tracking-tight relative">
+        <h2 className="mt-1 font-display text-2xl sm:text-3xl font-bold tracking-tight relative break-words">
           Welcome back, {displayEmailName}
         </h2>
         <p className="mt-2 text-primary-foreground/90 max-w-2xl relative">
@@ -152,7 +152,7 @@ export function ParentDashboard() {
               <button
                 key={c.student_id}
                 onClick={() => setSelectedChildId(c.student_id)}
-                className={`px-3.5 py-1.5 rounded-xl text-xs font-semibold transition ${
+                className={`min-h-11 sm:min-h-0 px-3.5 py-1.5 rounded-xl text-xs font-semibold transition ${
                   c.student_id === childId
                     ? "bg-primary-foreground text-primary"
                     : "bg-white/10 text-primary-foreground border border-white/20 hover:bg-white/20"
@@ -166,7 +166,7 @@ export function ParentDashboard() {
       </div>
 
       {!hasChild && !childrenLoading ? (
-        <div className="pop-card p-8 text-center">
+        <div className="pop-card p-5 sm:p-8 text-center">
           <Mascot name="owl" mood="happy" size={96} className="mx-auto mb-3" />
           <p className="font-display mb-1 text-xl font-extrabold">No linked children yet</p>
           <p className="text-muted-foreground mx-auto max-w-md text-sm leading-relaxed">
@@ -177,7 +177,7 @@ export function ParentDashboard() {
           </p>
           <Link
             to="/parents"
-            className="btn-hero mt-6 inline-flex items-center rounded-xl px-5 py-2.5 text-sm"
+            className="btn-hero mt-6 inline-flex min-h-11 items-center rounded-xl px-5 py-2.5 text-sm"
           >
             Link a student
           </Link>
