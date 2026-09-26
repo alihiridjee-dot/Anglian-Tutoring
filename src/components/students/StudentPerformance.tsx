@@ -23,14 +23,17 @@ export function StudentPerformance({ record, name }: { record: StudentRecord; na
 
   const { rows: analytics, loading } = useAnalytics(studentId, subjects);
   const { data: trends = [] } = useChildTrends(studentId);
-  const { data: engagement } = useChildEngagement(studentId, subjects);
+  const { data: engagement } = useChildEngagement(studentId, subjects, {
+    level: record.profile.level,
+    joinedAt: record.profile.created_at,
+  });
   const { data: feedback = [] } = useChildFeedback(studentId, 8);
 
   if (loading) return <Spinner label="Loading performance" className="py-12" />;
 
   return (
     <div className="space-y-6">
-      <GradePredictorCard analytics={analytics} />
+      <GradePredictorCard analytics={analytics} level={record.profile.level} />
       <TrendsChart points={trends} subjects={subjects} />
       <div className="grid gap-6 lg:grid-cols-2">
         {engagement && <EngagementStats engagement={engagement} childName={name} />}
