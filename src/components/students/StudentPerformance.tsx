@@ -33,7 +33,11 @@ export function StudentPerformance({ record, name }: { record: StudentRecord; na
 
   return (
     <div className="space-y-6">
-      <GradePredictorCard analytics={analytics} level={record.profile.level} />
+      <GradePredictorCard
+        analytics={analytics}
+        level={record.profile.level}
+        grades={record.enrolments}
+      />
       <TrendsChart points={trends} subjects={subjects} />
       <div className="grid gap-6 lg:grid-cols-2">
         {engagement && <EngagementStats engagement={engagement} childName={name} />}
