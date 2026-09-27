@@ -1,6 +1,6 @@
 import { useCallback, useEffect, useRef, useState } from "react";
 import { Link } from "@tanstack/react-router";
-import { Sparkles, ArrowRight, Check, Stethoscope } from "lucide-react";
+import { Sparkles, ArrowRight, Check } from "lucide-react";
 
 import { Mascot } from "@/components/Doodles";
 
@@ -322,21 +322,15 @@ export function Hero() {
         </div>
 
         {/* Social proof + trust ticks. */}
-        <div className="text-muted-foreground mt-10 flex flex-wrap items-center justify-center gap-x-6 gap-y-3 text-sm font-semibold">
-          <div className="inline-flex items-center gap-2 rounded-full border-[1.5px] border-[#005EB8]/25 bg-[#005EB8]/5 px-3.5 py-1.5 text-[#005EB8] shadow-[0_2px_0_0_rgba(0,94,184,0.18)]">
-            <Stethoscope className="size-4 shrink-0" aria-hidden /> Taught by practising NHS doctors
+        <div className="text-muted-foreground mt-10 flex flex-wrap items-center justify-center gap-3 text-sm font-semibold">
+          <div className="chip tint-accent">
+            <Check className="size-3.5 shrink-0" aria-hidden /> Loved by hundreds of students
           </div>
-          <div className="flex items-center gap-2">
-            <Check className="text-accent size-4 shrink-0" aria-hidden /> Loved by hundreds of
-            students
+          <div className="chip tint-accent">
+            <Check className="size-3.5 shrink-0" aria-hidden /> Led by experienced qualified tutors
           </div>
-          <div className="flex items-center gap-2">
-            <Check className="text-accent size-4 shrink-0" aria-hidden /> Led by experienced
-            qualified tutors
-          </div>
-          <div className="flex items-center gap-2">
-            <Check className="text-accent size-4 shrink-0" aria-hidden /> 15+ years combined
-            teaching experience
+          <div className="chip tint-accent">
+            <Check className="size-3.5 shrink-0" aria-hidden /> 15+ years combined teaching experience
           </div>
         </div>
       </div>
