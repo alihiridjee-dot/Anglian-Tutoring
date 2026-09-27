@@ -129,6 +129,15 @@ Deno.serve(async (req) => {
               : session.subscription.id;
           await upsertSubscription(await stripe.subscriptions.retrieve(id));
         }
+        // A free-trial code is spent once its Checkout completes (see
+        // stripe-checkout/trialCodes.ts).
+        if (session.metadata?.trial_code) {
+          await db
+            .from("trial_codes")
+            .update({ redeemed_at: new Date().toISOString() })
+            .eq("code", session.metadata.trial_code)
+            .is("redeemed_at", null);
+        }
         break;
       }
 

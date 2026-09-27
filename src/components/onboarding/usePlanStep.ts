@@ -9,6 +9,7 @@ import { invalidateGuardState } from "@/lib/auth/guardState";
 import { usePackages, useOwnPlanState } from "@/hooks/data/useBilling";
 import { useEnrolments } from "@/hooks/data/useEnrolments";
 import { startCheckout } from "@/lib/billing/billing";
+import { forgetTrialCode, readTrialCode } from "@/lib/billing/trialCode";
 
 export type SearchParams = { checkout?: "success" | "cancelled" };
 
@@ -71,6 +72,10 @@ export function usePlanStep({
   const [parentEmail, setParentEmail] = useState("");
   const [inviting, setInviting] = useState(false);
   const [invited, setInvited] = useState(false);
+  // A code from the emailed link, read after mount so the server render and
+  // the first client render agree.
+  const [trialCode, setTrialCode] = useState("");
+  useEffect(() => setTrialCode(readTrialCode()), []);
 
   // The concrete package for a cadence at this student's subject count.
   const packageFor = useMemo(
@@ -94,6 +99,7 @@ export function usePlanStep({
       const { data } = await supabase.rpc("my_access_state").single();
       if (cancelled) return;
       if (data?.has_access) {
+        forgetTrialCode();
         // The auth guard caches its answer for a minute. Without evicting it,
         // the student lands on a dashboard still wearing the paywall they just
         // paid to remove.
@@ -123,7 +129,7 @@ export function usePlanStep({
     if (!selectedPkg) return;
     setRedirecting(true);
     try {
-      await startCheckout({ tier: selectedPkg.tier, returnTo: "onboarding" });
+      await startCheckout({ tier: selectedPkg.tier, returnTo: "onboarding", trialCode });
     } catch (err) {
       toast.error(err instanceof Error ? err.message : "Couldn't open checkout — try again.");
       setRedirecting(false);
@@ -166,6 +172,8 @@ export function usePlanStep({
     inviting,
     invited,
     packageFor,
+    trialCode,
+    setTrialCode,
     selectedPkg,
     selectedUnit,
     payNow,

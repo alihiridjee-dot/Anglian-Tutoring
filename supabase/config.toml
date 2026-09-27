@@ -23,3 +23,8 @@ additional_redirect_urls = [
 # session; purge only acts on rows a tutor already booked and that are due.
 [functions.delete-account]
 verify_jwt = false
+
+# The landing page's free-trial pop-up: the visitor has no account yet. Guarded
+# in the function itself (honeypot, per-address cooldown, hourly cap).
+[functions.trial-code]
+verify_jwt = false
