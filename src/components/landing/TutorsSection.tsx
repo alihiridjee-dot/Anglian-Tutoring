@@ -15,6 +15,11 @@ const TUTORS = [
       "BSc (Hons) Neuroscience, Queen Mary University of London",
       "MBChB, Anglia Ruskin University",
     ],
+    experience:
+      "Practising NHS doctor with over a decade of independent tutoring, trusted by families across the region to turn GCSE science into top grades." as
+        | string
+        | null,
+    agencies: [] as { name: string; logo: string }[],
     bio: "Practising NHS Doctor and science tutor of 10+ years, having taught students across the region to excellent GCSE results. Specialises in Biology and Chemistry.",
     fullBio: [
       "Dr Nadia brings real clinical experience straight from the NHS into the classroom, turning abstract biology and chemistry into the science she uses every day at work.",
@@ -36,6 +41,13 @@ const TUTORS = [
     degrees: [
       "BSc Synthetic Organic Chemistry & Biomedical Sciences, UCL",
       "MBChB, Anglia Ruskin University",
+    ],
+    experience:
+      "Accredited tutor with three of London's top tutoring agencies, and has tutored independently for 5+ years.",
+    agencies: [
+      { name: "Dulwich Tutors", logo: "/agencies/dulwich-tutors.png" },
+      { name: "Ivy Education", logo: "/agencies/ivy-education.png" },
+      { name: "Bonas MacFarlane", logo: "/agencies/bonas-macfarlane.svg" },
     ],
     bio: "UCL graduate now training as a doctor, and an expert across KS3, GCSE and A Level. Passionate about making science accessible and building strong problem-solving foundations.",
     fullBio: [
@@ -185,6 +197,31 @@ export function TutorsSection() {
                                   </li>
                                 ))}
                               </ul>
+                              {t.experience && (
+                                <p className="mt-3 text-xs text-muted-foreground leading-relaxed font-semibold">
+                                  {t.experience}
+                                </p>
+                              )}
+                              {t.agencies.length > 0 && (
+                                <ul className="mt-3 grid grid-cols-3 gap-2">
+                                  {t.agencies.map((a) => (
+                                    <li
+                                      key={a.name}
+                                      className="flex flex-col items-center justify-center gap-1.5 rounded-xl border border-border/60 bg-white/60 px-2 py-2.5"
+                                    >
+                                      <img
+                                        src={a.logo}
+                                        alt={a.name}
+                                        loading="lazy"
+                                        className="h-7 max-w-full object-contain grayscale opacity-70 transition duration-300 group-hover:grayscale-0 group-hover:opacity-100"
+                                      />
+                                      <span className="text-[10px] font-bold text-muted-foreground text-center leading-tight">
+                                        {a.name}
+                                      </span>
+                                    </li>
+                                  ))}
+                                </ul>
+                              )}
                             </div>
                           </div>
 
