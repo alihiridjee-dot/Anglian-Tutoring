@@ -2,7 +2,7 @@
 //
 // The landing page's free-trial pop-up. A visitor gives an email address and
 // is sent a code of their own that unlocks a 14-day trial at Checkout (see
-// stripe-checkout, which honours it, and 20260927120000_trial_codes.sql).
+// stripe-checkout, which honours it, and 20260927082050_trial_codes.sql).
 //
 // Public and session-less (verify_jwt off): the people asking have no account
 // yet. That makes it a way to send email from our domain to any address, so:

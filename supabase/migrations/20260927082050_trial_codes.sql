@@ -18,7 +18,7 @@
 -- No RLS policies on purpose: only the service role (the edge functions) reads
 -- or writes this table. A browser that could read it could collect codes.
 --
--- Idempotent. Rollback: supabase/rollbacks/20260927120000_trial_codes.down.sql
+-- Idempotent. Rollback: supabase/rollbacks/20260927082050_trial_codes.down.sql
 
 begin;
 
