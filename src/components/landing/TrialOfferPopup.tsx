@@ -10,7 +10,7 @@ const DISMISSED_KEY = "trial-offer-dismissed-at";
 /** How long a closed pop-up stays closed. */
 const QUIET_MS = 7 * 24 * 60 * 60_000;
 /** How long a visitor reads the page before it appears. */
-const DELAY_MS = 6_000;
+const DELAY_MS = 2_000;
 
 function recentlyDismissed(): boolean {
   try {
@@ -122,17 +122,16 @@ export function TrialOfferPopup() {
             </Link>
           </div>
         ) : (
-          <>
+          <div className="text-center">
             <span className="sticker">{TRIAL_DAYS} days free</span>
-            <h2 id="trial-offer-title" className="mt-4 text-2xl font-extrabold tracking-tight">
+            <h2
+              id="trial-offer-title"
+              className="mt-5 text-3xl sm:text-4xl font-extrabold tracking-tight leading-tight"
+            >
               Try Anglia Educate <span className="marker">free for two weeks</span>
             </h2>
-            <p className="mt-2 text-[15px] leading-relaxed text-muted-foreground">
-              Live lessons, marked homework and weekly quizzes. We'll email you a code of your own
-              to use when you sign up.
-            </p>
 
-            <form onSubmit={submit} className="mt-5 space-y-3">
+            <form onSubmit={submit} className="mt-6 space-y-3">
               {/* Honeypot — hidden from people, catnip for bots. Not tab-reachable. */}
               <input
                 type="text"
@@ -144,7 +143,7 @@ export function TrialOfferPopup() {
                 onChange={(e) => setWebsite(e.target.value)}
                 className="hidden"
               />
-              <label htmlFor="trial-offer-email" className="eyebrow text-[10px]">
+              <label htmlFor="trial-offer-email" className="sr-only">
                 Email
               </label>
               <input
@@ -169,7 +168,7 @@ export function TrialOfferPopup() {
                 {sending ? "Sending…" : "Email my code"}
               </button>
             </form>
-          </>
+          </div>
         )}
       </div>
     </div>
