@@ -22,7 +22,7 @@ import { isBoard, isSubject, type BoardV, type LevelV } from "@/lib/curriculum/t
 // (weekly ≈ monthly × 0.4, termly ≈ monthly × 2.8), rounded to a clean .99.
 // Numbers are stored in pence to avoid float drift.
 //
-// Live sessions scale at 2 per subject per week, so per-session equivalence
+// Live sessions scale at 1 per subject per week, so per-session equivalence
 // falls as students add subjects — that lower number is the headline value.
 // ---------------------------------------------------------------------------
 
@@ -36,9 +36,9 @@ const PRICE_PENCE: Record<Cadence, Record<Count, number>> = {
 };
 
 const SESSIONS: Record<Cadence, (n: Count) => number> = {
-  weekly: (n) => 2 * n,
-  monthly: (n) => 8 * n,
-  termly: (n) => 24 * n,
+  weekly: (n) => n,
+  monthly: (n) => 4 * n,
+  termly: (n) => 12 * n,
 };
 
 const CADENCES: {
@@ -348,7 +348,7 @@ function PricingTiers({
       {CADENCES.map((tier) => {
         const pence = PRICE_PENCE[tier.cadence][count];
         const perSession = pence / SESSIONS[tier.cadence](count);
-        const weeklyLessons = 2 * count;
+        const weeklyLessons = count;
         const dark = tier.highlight;
 
         return (
@@ -412,7 +412,7 @@ function PricingTiers({
             <p
               className={`relative mt-3 text-xs ${dark ? "text-white/75" : "text-muted-foreground"}`}
             >
-              {weeklyLessons} live lessons a week
+              {weeklyLessons} live {weeklyLessons === 1 ? "session" : "sessions"} a week · 1 per subject
             </p>
 
             {/* Feature list — fills the middle so cards feel substantial */}
