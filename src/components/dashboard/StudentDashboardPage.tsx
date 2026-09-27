@@ -106,7 +106,7 @@ export function StudentDashboard({
  * pill per subject showing its exam board. Boards can differ per subject, so
  * they're always shown alongside the subject rather than collapsed.
  */
-function EnrolmentSummary({
+export function EnrolmentSummary({
   enrolments,
   level,
 }: {

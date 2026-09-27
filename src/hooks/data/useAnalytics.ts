@@ -53,7 +53,7 @@ export function useAnalytics(userId: string | null, subjects: string[]) {
   // are one cache entry.
   const sorted = [...subjects].sort();
 
-  const { data, isLoading } = useQuery({
+  const { data, isLoading, error, refetch } = useQuery({
     queryKey: ["analytics", demo ? "demo" : userId, sorted],
     queryFn: async (): Promise<SubjectAnalytics[]> => {
       // Demo student: serve the fixed showcase profile, never real analytics.
@@ -66,7 +66,7 @@ export function useAnalytics(userId: string | null, subjects: string[]) {
     enabled: demo || (!!userId && sorted.length > 0),
   });
 
-  return { rows: data ?? EMPTY_ROWS, loading: isLoading };
+  return { rows: data ?? EMPTY_ROWS, loading: isLoading, error, refetch };
 }
 
 const EMPTY_ROWS: SubjectAnalytics[] = [];

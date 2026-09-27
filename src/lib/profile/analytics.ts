@@ -24,6 +24,19 @@ export function gradeFromPct(pct: number): number {
   return 1;
 }
 
+/**
+ * Scored pieces of work (quizzes plus marked homework) a subject needs before a
+ * grade is predicted from it. Below this the prediction is one bad quiz: a
+ * single 0% put "Grade 1" in front of a parent, which says far more than one
+ * quiz can.
+ */
+export const MIN_WORK_FOR_PREDICTION = 3;
+
+/** Whether a subject has enough scored work to show its predicted grade. */
+export function hasPrediction(row: SubjectAnalytics): boolean {
+  return row.mcqAttempts + row.hwGraded >= MIN_WORK_FOR_PREDICTION;
+}
+
 /** One scored piece of work, reduced to the subject it belongs to and its percentage. */
 export interface ScoredWork {
   subject: string | null | undefined;

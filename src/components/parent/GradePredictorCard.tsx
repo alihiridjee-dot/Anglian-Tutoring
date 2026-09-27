@@ -1,84 +1,117 @@
 import { Sparkles } from "lucide-react";
-import type { SubjectAnalytics } from "@/lib/profile/analytics";
+import { hasPrediction, type SubjectAnalytics } from "@/lib/profile/analytics";
 import { subjectLabel, subjectTint } from "@/lib/curriculum/subjectTheme";
+import { levelLabel } from "@/lib/curriculum/courseSummary";
+import { SectionHeading } from "@/components/Shared";
+
+export interface SubjectGrades {
+  subject: string;
+  target_grade: string | null;
+  current_grade: string | null;
+}
+
+function Row({ label, value }: { label: string; value: string }) {
+  return (
+    <div className="flex justify-between">
+      <dt className="text-muted-foreground">{label}</dt>
+      <dd className="numeral text-sm">{value}</dd>
+    </div>
+  );
+}
 
 /**
- * Predicted GCSE grades per subject, from real quiz and homework averages.
- * Subjects with no marked work yet say so instead of predicting Grade 1 from
- * nothing — a baseless "Grade 1" would alarm a parent for no reason.
+ * Predicted grades per subject, from real quiz and homework averages.
+ * A subject shows a dash until it has enough scored work to predict from
+ * (`hasPrediction`) — a baseless "Grade 1" would alarm a parent for no reason.
+ *
+ * The tutor's target and current grade for each subject sit alongside, when
+ * they have recorded them, so the prediction reads against where the child is
+ * meant to be heading.
+ *
+ * The 1–9 scale is GCSE and International GCSE only. An A-Level student is
+ * graded A*–E, and there is no calibrated mapping to one yet, so their card
+ * shows the averages without inventing a letter.
  */
-export function GradePredictorCard({ analytics }: { analytics: SubjectAnalytics[] }) {
+export function GradePredictorCard({
+  analytics,
+  level,
+  grades = [],
+}: {
+  analytics: SubjectAnalytics[];
+  level: string | null;
+  /** The tutor-recorded grades per subject, from the enrolments. */
+  grades?: readonly SubjectGrades[];
+}) {
+  if (analytics.length === 0) return null;
+  const gradesOneToNine = level !== "alevel";
+
   return (
-    <div className="premium-card rounded-2xl p-4 sm:p-6">
-      <div className="flex flex-wrap items-start justify-between gap-2 mb-6">
-        <div className="min-w-0">
-          <h3 className="font-display text-lg font-bold text-foreground">
-            GCSE Science Grade Predictor
-          </h3>
-          <p className="text-xs text-muted-foreground mt-0.5">
-            Grades (1-9) predicted from combined quiz results and marked homework.
-          </p>
-        </div>
-        <span className="inline-flex items-center gap-1.5 px-2.5 py-1 bg-emerald-50 text-emerald-700 border border-emerald-100 rounded-full text-xs font-medium">
-          <Sparkles className="w-3.5 h-3.5 text-emerald-500" /> Live data
+    <div className="premium-card p-4 sm:p-6">
+      <SectionHeading
+        title="Predicted grades"
+        hint={[levelLabel(level), "From quizzes and marked homework"].filter(Boolean).join(" · ")}
+      >
+        <span className="chip tint-emerald">
+          <Sparkles className="size-3.5" aria-hidden /> Live data
         </span>
-      </div>
+      </SectionHeading>
 
-      {analytics.length === 0 ? (
-        <p className="text-sm text-muted-foreground">
-          No enrolled subjects yet — predictions appear once your child is enrolled and has
-          completed some work.
-        </p>
-      ) : (
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
-          {analytics.map((row) => {
-            const hasData = row.mcqAttempts + row.hwGraded > 0;
-            return (
-              <div
-                key={row.subject}
-                className={`pop-card pop-card-banded p-4 sm:p-5 ${subjectTint(row.subject)}`}
-              >
-                <div className="mb-4 flex items-center justify-between">
-                  <span className="chip uppercase">{subjectLabel(row.subject)}</span>
-                </div>
-
-                {hasData ? (
-                  <>
-                    <div className="flex items-baseline gap-2 mb-2">
-                      <span className="numeral text-4xl text-[color:var(--tint)]">
-                        Grade {row.predictedGrade}
-                      </span>
-                    </div>
-                    <p className="text-[11px] text-muted-foreground leading-relaxed mb-4">
-                      Based on {row.mcqAttempts} quiz attempt{row.mcqAttempts === 1 ? "" : "s"} and{" "}
-                      {row.hwGraded} marked homework{row.hwGraded === 1 ? "" : "s"}.
-                    </p>
-                    <div className="space-y-2 text-xs border-t border-border pt-3">
-                      <div className="flex justify-between">
-                        <span className="text-muted-foreground">Quiz Average:</span>
-                        <span className="font-semibold text-foreground">
-                          {row.mcqAttempts > 0 ? `${row.mcqAverage}%` : "—"}
-                        </span>
-                      </div>
-                      <div className="flex justify-between">
-                        <span className="text-muted-foreground">Homework Average:</span>
-                        <span className="font-semibold text-foreground">
-                          {row.hwGraded > 0 ? `${row.hwAverage}%` : "—"}
-                        </span>
-                      </div>
-                    </div>
-                  </>
-                ) : (
-                  <p className="text-xs text-muted-foreground leading-relaxed">
-                    No marked work yet — a prediction appears after the first quiz or graded
-                    homework.
-                  </p>
-                )}
+      <div className="mt-6 grid grid-cols-1 gap-4 md:grid-cols-3">
+        {analytics.map((row) => {
+          const hasData = row.mcqAttempts + row.hwGraded > 0;
+          const { target_grade: target, current_grade: current } =
+            grades.find((g) => g.subject === row.subject) ?? {};
+          return (
+            <div
+              key={row.subject}
+              className={`pop-card pop-card-banded p-4 sm:p-5 ${subjectTint(row.subject)}`}
+            >
+              <div className="flex flex-wrap items-center justify-between gap-2">
+                <span className="chip uppercase">{subjectLabel(row.subject)}</span>
+                {target && <span className="chip chip-solid">Target {target}</span>}
               </div>
-            );
-          })}
-        </div>
-      )}
+
+              {hasData ? (
+                <>
+                  {gradesOneToNine &&
+                    (hasPrediction(row) ? (
+                      <p className="numeral mt-4 text-4xl text-[color:var(--tint)]">
+                        Grade {row.predictedGrade}
+                      </p>
+                    ) : (
+                      <p className="numeral text-muted-foreground mt-4 text-4xl">—</p>
+                    ))}
+                  <p className="text-muted-foreground mt-2 text-xs">
+                    {row.mcqAttempts} quiz{row.mcqAttempts === 1 ? "" : "zes"} · {row.hwGraded}{" "}
+                    marked homework{row.hwGraded === 1 ? "" : "s"}
+                  </p>
+                  <dl className="border-border mt-4 space-y-2 border-t pt-3 text-xs">
+                    <Row
+                      label="Quiz average"
+                      value={row.mcqAttempts > 0 ? `${row.mcqAverage}%` : "—"}
+                    />
+                    <Row
+                      label="Homework average"
+                      value={row.hwGraded > 0 ? `${row.hwAverage}%` : "—"}
+                    />
+                    {current && <Row label="Current grade" value={current} />}
+                  </dl>
+                </>
+              ) : (
+                <>
+                  <p className="numeral text-muted-foreground mt-4 text-4xl">—</p>
+                  <p className="text-muted-foreground mt-2 text-xs">No marked work yet</p>
+                  {current && (
+                    <dl className="border-border mt-4 border-t pt-3 text-xs">
+                      <Row label="Current grade" value={current} />
+                    </dl>
+                  )}
+                </>
+              )}
+            </div>
+          );
+        })}
+      </div>
     </div>
   );
 }

@@ -23,6 +23,7 @@ import {
 } from "@/lib/homework/homeworkBuckets";
 import { ChevronDown, Clock, Plus, TrendingUp } from "lucide-react";
 import { useAnalytics } from "@/hooks/data/useAnalytics";
+import { hasPrediction } from "@/lib/profile/analytics";
 import { MarkingQueue } from "@/components/tutor/MarkingQueue";
 import { HomeworkLibrary } from "@/components/tutor/HomeworkLibrary";
 import { HomeworkForm } from "@/components/tutor/HomeworkForm";
@@ -234,7 +235,7 @@ function StudentHomework({
               >
                 <p className="eyebrow-bare">{SUBJECT_LABEL[a.subject] ?? a.subject}</p>
                 <p className="numeral mt-1 text-2xl text-[color:var(--tint)]">
-                  Grade {a.predictedGrade}
+                  {hasPrediction(a) ? `Grade ${a.predictedGrade}` : "—"}
                 </p>
                 <div className="border-border text-muted-foreground mt-3 flex items-center justify-between border-t pt-3 text-[11px]">
                   <span>

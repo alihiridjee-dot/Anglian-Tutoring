@@ -44,15 +44,22 @@ route guard, RLS, the paywall, a real query or a real write. A change that works
 in `/demo/*` has been shown to render, and nothing more.
 
 End-to-end testing of the platform is done signed in as the dedicated test
-student:
+student, or as the test parent linked to it. These are the only two accounts
+to test on:
 
-- **Account:** `123@123.com`
-- **Designed for testing.** It has no active card, so nothing can be charged.
-- **It is a real student on the live project, so its writes are real.** Submitting
-  a quiz files an attempt; handing in homework is final. Know what a test will
-  write before running it.
+- **Student:** `123@123.com`
+- **Parent:** the parent account linked to `123@123.com`. Use it for anything a
+  parent sees: the Parent Portal, parent messaging, linking and billing.
+- **Designed for testing.** Neither has an active card, so nothing can be charged.
+- **They are real accounts on the live project, so their writes are real.**
+  Submitting a quiz files an attempt; handing in homework is final; a parent's
+  message reaches a real tutor. Know what a test will write before running it.
 - **Credentials are not kept in this repository.** Ask Ali. Never commit them,
   and never paste them into a doc, a test or a script.
+
+A feature with no real data to show yet (no target grades set, no session
+scheduled) is **untested**, not tested in the showcase. Create the data on the
+test accounts, or say it's untested.
 
 ## Source of truth: `src/lib/auth/session.ts` and `src/lib/auth/guardState.ts`
 
