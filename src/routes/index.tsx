@@ -7,6 +7,7 @@ import { PricingSection } from "@/components/landing/PricingSection";
 import { ContactSection } from "@/components/landing/ContactSection";
 import { Footer } from "@/components/landing/Footer";
 import { FloatingWhatsApp } from "@/components/landing/FloatingWhatsApp";
+import { TrialOfferPopup } from "@/components/landing/TrialOfferPopup";
 
 export const Route = createFileRoute("/")({
   head: () => ({
@@ -33,6 +34,7 @@ function Landing() {
       <ContactSection />
       <Footer />
       <FloatingWhatsApp />
+      <TrialOfferPopup />
     </div>
   );
 }

@@ -1,7 +1,9 @@
 import { createFileRoute, useNavigate } from "@tanstack/react-router";
+import { useEffect } from "react";
 import { AuthShell, BrandPanel } from "@/components/auth/AuthShell";
 import { useAuthFlow, type SearchParams } from "@/components/auth/useAuthFlow";
 import { CredentialsForm, VerifyCodeScreen } from "@/components/auth/AuthForms";
+import { rememberTrialCode } from "@/lib/billing/trialCode";
 
 export const Route = createFileRoute("/auth")({
   head: () => ({
@@ -17,6 +19,7 @@ export const Route = createFileRoute("/auth")({
     subjects: typeof search.subjects === "string" ? search.subjects : undefined,
     board: typeof search.board === "string" ? search.board : undefined,
     redirect: typeof search.redirect === "string" ? search.redirect : undefined,
+    trial: typeof search.trial === "string" ? search.trial : undefined,
   }),
   component: AuthPage,
 });
@@ -25,6 +28,10 @@ function AuthPage() {
   const navigate = useNavigate();
   const search = Route.useSearch();
   const flow = useAuthFlow(navigate, search);
+
+  useEffect(() => {
+    if (search.trial) rememberTrialCode(search.trial);
+  }, [search.trial]);
 
   return (
     <AuthShell>

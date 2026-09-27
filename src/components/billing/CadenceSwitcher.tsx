@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { usePageRestore } from "@/hooks/usePageRestore";
 import { Check, Loader2 } from "lucide-react";
 import { toast } from "sonner";
@@ -6,6 +6,8 @@ import { usePackages, useChangeCadence } from "@/hooks/data/useBilling";
 import { formatPence, billingIntervalLabel, startCheckout } from "@/lib/billing/billing";
 import { planCadence, tierFor, CADENCES, type Cadence } from "@/lib/billing/entitlements";
 import { CadenceChangeDialog } from "@/components/billing/CadenceChangeDialog";
+import { TrialCodeField } from "@/components/billing/TrialCodeField";
+import { readTrialCode } from "@/lib/billing/trialCode";
 
 interface CadenceSwitcherProps {
   /** subscriptions.student_id whose billing rhythm this is. */
@@ -53,6 +55,9 @@ export function CadenceSwitcher({
   const change = useChangeCadence();
   const [pending, setPending] = useState<Cadence | null>(null);
   const [buying, setBuying] = useState<Cadence | null>(null);
+  // Only offered when buying a first plan; read after mount (see usePlanStep).
+  const [trialCode, setTrialCode] = useState("");
+  useEffect(() => setTrialCode(readTrialCode()), []);
   // Back from Stripe restores this page as it was left — spinner and all.
   usePageRestore(() => setBuying(null));
 
@@ -72,7 +77,7 @@ export function CadenceSwitcher({
   const buy = async (c: Cadence) => {
     setBuying(c);
     try {
-      await startCheckout({ tier: tierFor(c, count), studentId, returnTo: "billing" });
+      await startCheckout({ tier: tierFor(c, count), studentId, returnTo: "billing", trialCode });
     } catch (err) {
       toast.error(err instanceof Error ? err.message : "Couldn't open checkout — try again.");
       setBuying(null);
@@ -106,6 +111,8 @@ export function CadenceSwitcher({
         Same {count === 1 ? "subject" : `${count} subjects`}, same tutoring — pay less by committing
         for longer. {currentTier && "Switching is prorated, never a fresh charge."}
       </p>
+
+      {!currentTier && canManage && <TrialCodeField value={trialCode} onChange={setTrialCode} />}
 
       <div className="mt-4 space-y-2">
         {CADENCES.map((c) => {

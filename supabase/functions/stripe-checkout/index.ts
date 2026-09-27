@@ -38,6 +38,8 @@ import { corsHeaders, HttpError } from "../_shared/http.ts";
 import { admin, stripeClient } from "../_shared/clients.ts";
 import { requireUser, assertCanManage, assertCanUpgrade } from "./auth.ts";
 import { householdCustomerIds, resolveCustomer, assertNoLiveSubscription } from "./customers.ts";
+import { checkTrialCode, claimTrialCode } from "./trialCodes.ts";
+import { TRIAL_DAYS } from "../_shared/trialCode.ts";
 
 /** Where Stripe sends the browser back to. Whitelisted — never client URLs. */
 const RETURN_PATHS: Record<string, string> = {
@@ -54,6 +56,8 @@ interface CheckoutPayload {
   student_id?: string;
   /** Which app page to land back on. Key into RETURN_PATHS. */
   return_to?: string;
+  /** A free-trial code from the landing page. Checked and held server-side. */
+  trial_code?: string;
 }
 
 interface PortalPayload {
@@ -242,6 +246,10 @@ async function handleCheckout(req: Request, payload: CheckoutPayload) {
     );
   }
 
+  const trial = payload.trial_code
+    ? await checkTrialCode(stripe, db, payload.trial_code, user.id, beneficiary)
+    : null;
+
   const customerId = await resolveCustomer(stripe, user.id, user.email);
   const back = `${appUrl()}${returnPath(payload.return_to, RETURN_PATHS.onboarding)}`;
 
@@ -255,10 +263,26 @@ async function handleCheckout(req: Request, payload: CheckoutPayload) {
     // set here, server-side, from values already verified above.
     subscription_data: {
       metadata: { student_id: beneficiary, payer_id: user.id, tier: pkg.tier },
+      ...(trial ? { trial_period_days: TRIAL_DAYS } : {}),
     },
-    metadata: { student_id: beneficiary, payer_id: user.id, tier: pkg.tier },
+    metadata: {
+      student_id: beneficiary,
+      payer_id: user.id,
+      tier: pkg.tier,
+      ...(trial ? { trial_code: trial.code } : {}),
+    },
     allow_promotion_codes: true,
+    // A trial still takes the card up front, so it rolls into the plan on day
+    // 15 unless cancelled. The short expiry frees an abandoned trial code.
+    ...(trial
+      ? {
+          payment_method_collection: "always" as const,
+          expires_at: Math.floor(Date.now() / 1000) + 31 * 60,
+        }
+      : {}),
   });
+
+  if (trial) await claimTrialCode(stripe, db, trial, session.id, user.id, beneficiary);
 
   return { url: session.url };
 }
