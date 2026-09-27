@@ -2,6 +2,7 @@ import { useEffect, useState } from "react";
 import { Link } from "@tanstack/react-router";
 import { ArrowRight, Loader2, Mail, X } from "lucide-react";
 import { toast } from "sonner";
+import { useBodyScrollLock } from "@/hooks/useBodyScrollLock";
 import { requestTrialCode, readTrialCode } from "@/lib/billing/trialCode";
 import { TRIAL_DAYS } from "@/components/billing/TrialCodeField";
 
@@ -41,6 +42,7 @@ export function TrialOfferPopup() {
   const [website, setWebsite] = useState("");
   const [sending, setSending] = useState(false);
   const [sentTo, setSentTo] = useState<string | null>(null);
+  useBodyScrollLock(open);
 
   useEffect(() => {
     if (recentlyDismissed() || readTrialCode()) return;
@@ -88,11 +90,11 @@ export function TrialOfferPopup() {
       aria-labelledby="trial-offer-title"
       onClick={(e) => e.target === e.currentTarget && close()}
     >
-      <div className="pop-card pop-card-hero rise-in tint-primary relative w-full max-w-md p-7 sm:p-8">
+      <div className="pop-card pop-card-hero rise-in tint-primary relative w-full max-w-md max-h-[calc(100dvh-2rem)] overflow-y-auto p-6 sm:p-8">
         <button
           type="button"
           onClick={close}
-          className="absolute top-4 right-4 w-8 h-8 rounded-lg hover:bg-muted flex items-center justify-center"
+          className="absolute top-2 right-2 sm:top-4 sm:right-4 size-11 sm:size-8 rounded-lg hover:bg-muted flex items-center justify-center"
           aria-label="Close"
         >
           <X className="w-4 h-4" />
