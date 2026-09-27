@@ -16,7 +16,7 @@ function timeAgo(iso: string): string {
 /** Real tutor feedback, straight from marked homework submissions. */
 export function FeedbackList({ items }: { items: FeedbackItem[] }) {
   return (
-    <div className="premium-card rounded-2xl p-6">
+    <div className="premium-card rounded-2xl p-4 sm:p-6">
       <div className="flex items-center justify-between mb-5">
         <h3 className="font-display text-lg font-bold text-foreground">Tutor Feedback</h3>
         <Award className="w-5 h-5 text-amber-500" />
@@ -30,9 +30,9 @@ export function FeedbackList({ items }: { items: FeedbackItem[] }) {
         <div className="space-y-4">
           {items.map((f) => (
             <div key={f.id} className="bg-secondary border border-border rounded-xl p-4">
-              <div className="flex items-center justify-between mb-2">
+              <div className="flex items-start justify-between mb-2">
                 <span
-                  className={`text-xs font-bold ${SUBJECT_TEXT[f.subject] ?? "text-muted-foreground"}`}
+                  className={`min-w-0 break-words text-xs font-bold ${SUBJECT_TEXT[f.subject] ?? "text-muted-foreground"}`}
                 >
                   {subjectLabel(f.subject)} — {f.homeworkTitle}
                 </span>

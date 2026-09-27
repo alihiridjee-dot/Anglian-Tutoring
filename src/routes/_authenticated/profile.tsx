@@ -36,12 +36,12 @@ function Card({
   children: React.ReactNode;
 }) {
   return (
-    <section className="rounded-2xl premium-card p-6">
+    <section className="rounded-2xl premium-card p-4 sm:p-6">
       <div className="flex items-start gap-3 mb-5">
         <div className="w-9 h-9 rounded-lg bg-primary/10 border border-primary/20 flex items-center justify-center shrink-0">
           <Icon className="w-4 h-4 text-primary" />
         </div>
-        <div>
+        <div className="min-w-0">
           <h2 className="font-display text-lg font-bold tracking-tight">{title}</h2>
           <p className="text-sm text-muted-foreground">{description}</p>
         </div>
@@ -212,7 +212,7 @@ function PhotoCard({ currentEmail }: { currentEmail: string | null }) {
               type="button"
               onClick={() => picker.current?.click()}
               disabled={isLoading || busy !== null}
-              className="btn-premium h-10 px-4 rounded-lg text-sm font-semibold inline-flex items-center gap-2 whitespace-nowrap disabled:opacity-50"
+              className="btn-premium h-11 sm:h-10 px-4 rounded-lg text-sm font-semibold inline-flex items-center gap-2 whitespace-nowrap disabled:opacity-50"
             >
               {busy === "upload" ? (
                 <Loader2 className="w-4 h-4 animate-spin" />
@@ -227,7 +227,7 @@ function PhotoCard({ currentEmail }: { currentEmail: string | null }) {
                 type="button"
                 onClick={remove}
                 disabled={busy !== null}
-                className="h-10 px-4 rounded-lg border border-border text-sm font-semibold inline-flex items-center gap-2 hover:bg-muted disabled:opacity-50"
+                className="h-11 sm:h-10 px-4 rounded-lg border border-border text-sm font-semibold inline-flex items-center gap-2 hover:bg-muted disabled:opacity-50"
               >
                 {busy === "remove" ? (
                   <Loader2 className="w-4 h-4 animate-spin" />
@@ -321,6 +321,7 @@ function DetailsCard() {
           <input
             value={displayName}
             onChange={(e) => setDisplayName(e.target.value)}
+            autoComplete="name"
             maxLength={80}
             placeholder={isLoading ? "Loading…" : "e.g. Alex Taylor"}
             className={inputCls}
@@ -329,6 +330,7 @@ function DetailsCard() {
         <Field label="Phone number">
           <input
             type="tel"
+            autoComplete="tel"
             value={phone}
             onChange={(e) => {
               setPhone(e.target.value);
@@ -393,6 +395,7 @@ function EmailCard({ currentEmail }: { currentEmail: string | null }) {
         <Field label="New email">
           <input
             type="email"
+            autoComplete="email"
             value={email}
             onChange={(e) => {
               setEmail(e.target.value);

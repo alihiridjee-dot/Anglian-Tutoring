@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
 import { PlayCircle, X, ExternalLink } from "lucide-react";
 import { type VideoEmbed } from "@/lib/curriculum/videoEmbed";
+import { useBodyScrollLock } from "@/hooks/useBodyScrollLock";
 
 /**
  * Poster tile for a video. Uses the real YouTube thumbnail when we can derive
@@ -54,14 +55,12 @@ export function VideoModal({
   onClose: () => void;
 }) {
   // Close on Escape; lock body scroll while open.
+  useBodyScrollLock(true);
   useEffect(() => {
     const onKey = (e: KeyboardEvent) => e.key === "Escape" && onClose();
     document.addEventListener("keydown", onKey);
-    const prev = document.body.style.overflow;
-    document.body.style.overflow = "hidden";
     return () => {
       document.removeEventListener("keydown", onKey);
-      document.body.style.overflow = prev;
     };
   }, [onClose]);
 
@@ -71,13 +70,13 @@ export function VideoModal({
       onClick={onClose}
     >
       <div
-        className="relative w-full max-w-3xl bg-card rounded-2xl overflow-hidden shadow-2xl border border-border"
+        className="relative w-full max-w-3xl max-h-[calc(100dvh-2rem)] overflow-y-auto overflow-x-hidden bg-card rounded-2xl shadow-2xl border border-border"
         onClick={(e) => e.stopPropagation()}
       >
         <button
           onClick={onClose}
           aria-label="Close player"
-          className="absolute top-3 right-3 z-10 w-9 h-9 rounded-full bg-black/50 hover:bg-black/70 text-white flex items-center justify-center"
+          className="absolute top-3 right-3 z-10 size-11 sm:size-9 rounded-full bg-black/50 hover:bg-black/70 text-white flex items-center justify-center"
         >
           <X className="w-5 h-5" />
         </button>
@@ -100,7 +99,7 @@ export function VideoModal({
                 href={embed.originalUrl}
                 target="_blank"
                 rel="noreferrer"
-                className="inline-flex items-center gap-2 px-4 py-2 rounded-lg btn-solid text-sm font-semibold"
+                className="inline-flex items-center gap-2 px-4 py-2 min-h-11 sm:min-h-0 rounded-lg btn-solid text-sm font-semibold"
               >
                 <ExternalLink className="w-4 h-4" />
                 Open in new tab

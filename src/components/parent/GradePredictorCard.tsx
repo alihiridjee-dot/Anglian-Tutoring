@@ -9,9 +9,9 @@ import { subjectLabel, subjectTint } from "@/lib/curriculum/subjectTheme";
  */
 export function GradePredictorCard({ analytics }: { analytics: SubjectAnalytics[] }) {
   return (
-    <div className="premium-card rounded-2xl p-6">
-      <div className="flex items-center justify-between mb-6">
-        <div>
+    <div className="premium-card rounded-2xl p-4 sm:p-6">
+      <div className="flex flex-wrap items-start justify-between gap-2 mb-6">
+        <div className="min-w-0">
           <h3 className="font-display text-lg font-bold text-foreground">
             GCSE Science Grade Predictor
           </h3>
@@ -36,7 +36,7 @@ export function GradePredictorCard({ analytics }: { analytics: SubjectAnalytics[
             return (
               <div
                 key={row.subject}
-                className={`pop-card pop-card-banded p-5 ${subjectTint(row.subject)}`}
+                className={`pop-card pop-card-banded p-4 sm:p-5 ${subjectTint(row.subject)}`}
               >
                 <div className="mb-4 flex items-center justify-between">
                   <span className="chip uppercase">{subjectLabel(row.subject)}</span>

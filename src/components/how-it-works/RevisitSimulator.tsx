@@ -124,7 +124,7 @@ export function RevisitSimulator() {
   return (
     <div className="grid gap-6 lg:grid-cols-[minmax(0,1fr)_minmax(0,1.05fr)] lg:gap-8 items-stretch">
       {/* ---- The quiz ---- */}
-      <div className="rounded-3xl border border-border/80 bg-white p-6 sm:p-7 shadow-[0_20px_60px_-35px_rgba(15,23,42,0.4)]">
+      <div className="rounded-3xl border border-border/80 bg-white p-5 sm:p-7 shadow-[0_20px_60px_-35px_rgba(15,23,42,0.4)]">
         <span className="text-[11px] font-bold uppercase tracking-widest text-muted-foreground/70">
           {steps.length === 0 ? "This week's quiz" : `Revisit ${steps.length}`}
         </span>
@@ -164,7 +164,7 @@ export function RevisitSimulator() {
           <button
             type="button"
             onClick={reset}
-            className="mt-5 inline-flex cursor-pointer items-center gap-1.5 text-xs font-semibold text-muted-foreground/70 transition hover:text-foreground"
+            className="mt-5 inline-flex min-h-11 cursor-pointer items-center gap-1.5 text-xs font-semibold text-muted-foreground/70 transition hover:text-foreground sm:min-h-0"
           >
             <RotateCcw className="h-3.5 w-3.5" /> Start again
           </button>
@@ -172,7 +172,7 @@ export function RevisitSimulator() {
       </div>
 
       {/* ---- The response ---- */}
-      <div className="relative flex flex-col overflow-hidden rounded-3xl bg-gradient-to-br from-[var(--primary-deep)] to-primary p-6 sm:p-7 text-white shadow-[0_30px_70px_-30px_rgba(6,78,90,0.85)]">
+      <div className="relative flex flex-col overflow-hidden rounded-3xl bg-gradient-to-br from-[var(--primary-deep)] to-primary p-5 sm:p-7 text-white shadow-[0_30px_70px_-30px_rgba(6,78,90,0.85)]">
         <div
           aria-hidden
           className="pointer-events-none absolute -right-16 -top-16 h-52 w-52 rounded-full bg-white/10 blur-3xl"

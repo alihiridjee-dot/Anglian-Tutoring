@@ -203,14 +203,15 @@ function SubjectsStep() {
               </label>
 
               {on && (
-                <div className="mt-3 pl-7 flex items-center gap-2">
+                <div className="mt-3 pl-7 flex flex-wrap items-center gap-2">
                   <span className="text-xs text-muted-foreground">Exam board</span>
                   <select
+                    aria-label={`Exam board for ${s.label}`}
                     value={boards[s.value]}
                     onChange={(e) =>
                       setBoards((prev) => ({ ...prev, [s.value]: e.target.value as BoardV }))
                     }
-                    className="h-8 rounded-lg premium-card px-2 text-xs transition focus:outline-none focus:border-primary focus:ring-4 focus:ring-primary/15"
+                    className="h-11 sm:h-8 rounded-lg premium-card px-2 text-xs transition focus:outline-none focus:border-primary focus:ring-4 focus:ring-primary/15"
                   >
                     {BOARDS.filter((b) => options.includes(b.value)).map((b) => (
                       <option key={b.value} value={b.value}>

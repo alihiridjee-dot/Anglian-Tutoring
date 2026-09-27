@@ -58,82 +58,84 @@ export function StudentHomework({ studentId }: { studentId: string }) {
           <SectionHeading title="Submissions">
             <Link
               to="/tutor"
-              className="btn-soft inline-flex h-9 items-center rounded-lg px-3 text-xs font-semibold"
+              className="btn-soft inline-flex h-11 sm:h-9 items-center rounded-lg px-3 text-xs font-semibold"
             >
               Open marking queue
             </Link>
           </SectionHeading>
         </div>
-        <table className="w-full text-sm">
-          <thead className="bg-muted/60 text-muted-foreground text-xs tracking-widest uppercase">
-            <tr>
-              <th className="px-5 py-3 text-left">Homework</th>
-              <th className="hidden px-5 py-3 text-left sm:table-cell">Handed in</th>
-              <th className="px-5 py-3 text-left">Mark</th>
-              <th className="hidden px-5 py-3 text-left md:table-cell">Status</th>
-            </tr>
-          </thead>
-          <tbody className="divide-border divide-y">
-            {rows.map((r) => {
-              const subject = r.resource?.subject;
-              return (
-                <tr key={r.id} className="hover:bg-muted/30">
-                  <td className="px-5 py-3">
-                    <Link
-                      to="/homework/$homeworkId"
-                      params={{ homeworkId: r.resource_id }}
-                      className="font-semibold hover:underline"
-                    >
-                      {r.resource?.title ?? "Homework"}
-                    </Link>
-                    <div className="mt-1 flex flex-wrap gap-1.5">
-                      {subject && (
-                        <span
-                          className={`chip text-[10px] ${SUBJECT_TINT[subject] ?? "tint-slate"}`}
-                        >
-                          {subjectLabel(subject)}
-                        </span>
-                      )}
-                      {r.resource?.origin === "generated" && (
-                        <span className="chip tint-slate text-[10px]">Practice</span>
-                      )}
-                    </div>
-                  </td>
-                  <td className="text-muted-foreground hidden px-5 py-3 text-xs sm:table-cell">
-                    {formatDate(r.submitted_at)}
-                  </td>
-                  <td className="px-5 py-3">
-                    {r.graded_at && r.score_pct != null ? (
-                      <span
-                        className={`numeral text-lg text-[color:var(--tint)] ${scoreTint(r.score_pct)}`}
+        <div className="scroll-slim overflow-x-auto">
+          <table className="w-full text-sm">
+            <thead className="bg-muted/60 text-muted-foreground text-xs tracking-widest uppercase">
+              <tr>
+                <th className="px-4 sm:px-5 py-3 text-left">Homework</th>
+                <th className="hidden px-4 sm:px-5 py-3 text-left sm:table-cell">Handed in</th>
+                <th className="px-4 sm:px-5 py-3 text-left">Mark</th>
+                <th className="hidden px-4 sm:px-5 py-3 text-left md:table-cell">Status</th>
+              </tr>
+            </thead>
+            <tbody className="divide-border divide-y">
+              {rows.map((r) => {
+                const subject = r.resource?.subject;
+                return (
+                  <tr key={r.id} className="hover:bg-muted/30">
+                    <td className="px-4 sm:px-5 py-3">
+                      <Link
+                        to="/homework/$homeworkId"
+                        params={{ homeworkId: r.resource_id }}
+                        className="font-semibold hover:underline"
                       >
-                        {Math.round(r.score_pct)}%
-                        {r.grade && (
-                          <span className="text-muted-foreground ml-1.5 text-xs">{r.grade}</span>
+                        {r.resource?.title ?? "Homework"}
+                      </Link>
+                      <div className="mt-1 flex flex-wrap gap-1.5">
+                        {subject && (
+                          <span
+                            className={`chip text-[10px] ${SUBJECT_TINT[subject] ?? "tint-slate"}`}
+                          >
+                            {subjectLabel(subject)}
+                          </span>
                         )}
-                      </span>
-                    ) : (
-                      <span className="text-muted-foreground">—</span>
-                    )}
-                  </td>
-                  <td className="hidden px-5 py-3 md:table-cell">
-                    {r.graded_at ? (
-                      <span className="chip tint-emerald text-[10px]">
-                        Marked {formatDate(r.graded_at)}
-                      </span>
-                    ) : r.release_at ? (
-                      <span className="chip tint-amber text-[10px]">
-                        Publishes {formatDate(r.release_at)}
-                      </span>
-                    ) : (
-                      <span className="chip tint-slate text-[10px]">Awaiting mark</span>
-                    )}
-                  </td>
-                </tr>
-              );
-            })}
-          </tbody>
-        </table>
+                        {r.resource?.origin === "generated" && (
+                          <span className="chip tint-slate text-[10px]">Practice</span>
+                        )}
+                      </div>
+                    </td>
+                    <td className="text-muted-foreground hidden px-4 sm:px-5 py-3 text-xs sm:table-cell">
+                      {formatDate(r.submitted_at)}
+                    </td>
+                    <td className="px-4 sm:px-5 py-3">
+                      {r.graded_at && r.score_pct != null ? (
+                        <span
+                          className={`numeral text-lg text-[color:var(--tint)] ${scoreTint(r.score_pct)}`}
+                        >
+                          {Math.round(r.score_pct)}%
+                          {r.grade && (
+                            <span className="text-muted-foreground ml-1.5 text-xs">{r.grade}</span>
+                          )}
+                        </span>
+                      ) : (
+                        <span className="text-muted-foreground">—</span>
+                      )}
+                    </td>
+                    <td className="hidden px-4 sm:px-5 py-3 md:table-cell">
+                      {r.graded_at ? (
+                        <span className="chip tint-emerald text-[10px]">
+                          Marked {formatDate(r.graded_at)}
+                        </span>
+                      ) : r.release_at ? (
+                        <span className="chip tint-amber text-[10px]">
+                          Publishes {formatDate(r.release_at)}
+                        </span>
+                      ) : (
+                        <span className="chip tint-slate text-[10px]">Awaiting mark</span>
+                      )}
+                    </td>
+                  </tr>
+                );
+              })}
+            </tbody>
+          </table>
+        </div>
       </section>
     </div>
   );

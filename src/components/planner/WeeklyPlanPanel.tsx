@@ -114,7 +114,7 @@ export function WeeklyPlanPanel({
                   <button
                     type="button"
                     onClick={() => setWeekOffset(0)}
-                    className="inline-flex items-center gap-1 h-5 px-2 rounded-full bg-muted text-[10px] font-semibold text-muted-foreground hover:text-foreground"
+                    className="tap-target inline-flex items-center gap-1 h-5 px-2 rounded-full bg-muted text-[10px] font-semibold text-muted-foreground hover:text-foreground"
                   >
                     <Undo2 className="w-3 h-3" /> Today
                   </button>
@@ -133,13 +133,13 @@ export function WeeklyPlanPanel({
               />
             )}
             {ordered.length > 1 && (
-              <div className="flex items-center gap-1.5">
+              <div className="flex flex-wrap items-center gap-2">
                 {ordered.map((e) => (
                   <button
                     key={e.subject}
                     type="button"
                     onClick={() => setActiveSubject(e.subject)}
-                    className={`h-8 px-3 rounded-lg text-sm font-medium transition ${
+                    className={`h-11 sm:h-8 px-3 rounded-lg text-sm font-medium transition ${
                       e.subject === activeSubject
                         ? "btn-solid"
                         : "bg-muted text-muted-foreground hover:text-foreground"
@@ -150,11 +150,11 @@ export function WeeklyPlanPanel({
                 ))}
               </div>
             )}
-            <div className="flex items-center gap-1">
+            <div className="flex items-center gap-2 sm:gap-1">
               <button
                 type="button"
                 onClick={() => setWeekOffset((w) => w - 1)}
-                className="w-8 h-8 rounded-lg border border-border text-muted-foreground hover:text-foreground hover:bg-muted flex items-center justify-center"
+                className="size-11 sm:size-8 rounded-lg border border-border text-muted-foreground hover:text-foreground hover:bg-muted flex items-center justify-center"
                 aria-label="Previous week"
               >
                 <ChevronLeft className="w-4 h-4" />
@@ -162,7 +162,7 @@ export function WeeklyPlanPanel({
               <button
                 type="button"
                 onClick={() => setWeekOffset((w) => w + 1)}
-                className="w-8 h-8 rounded-lg border border-border text-muted-foreground hover:text-foreground hover:bg-muted flex items-center justify-center"
+                className="size-11 sm:size-8 rounded-lg border border-border text-muted-foreground hover:text-foreground hover:bg-muted flex items-center justify-center"
                 aria-label="Next week"
               >
                 <ChevronRight className="w-4 h-4" />

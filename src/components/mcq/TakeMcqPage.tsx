@@ -202,7 +202,10 @@ export function TakeMcq() {
   };
 
   const back = (
-    <Link to={backTo} className="mt-4 inline-block text-sm text-primary hover:underline">
+    <Link
+      to={backTo}
+      className="mt-4 inline-flex min-h-11 items-center text-sm text-primary hover:underline sm:min-h-0"
+    >
       ← Back to curriculum
     </Link>
   );
@@ -256,7 +259,7 @@ export function TakeMcq() {
           {questions.map((q, idx) => {
             const chosen = answers[q.id];
             return (
-              <li key={q.id} className="rounded-2xl premium-card p-5">
+              <li key={q.id} className="rounded-2xl premium-card p-4 sm:p-5">
                 <p className="text-xs uppercase tracking-widest text-primary font-semibold">
                   Question {idx + 1}
                 </p>
@@ -272,7 +275,7 @@ export function TakeMcq() {
                         key={i}
                         disabled={submitted}
                         onClick={() => choose(q.id, i)}
-                        className={`w-full text-left px-4 py-2.5 rounded-lg border text-sm transition ${
+                        className={`w-full min-h-11 text-left px-4 py-2.5 rounded-lg border text-sm break-words transition sm:min-h-0 ${
                           isCorrect
                             ? "bg-primary/15 border-primary text-foreground"
                             : isWrong
@@ -312,7 +315,7 @@ export function TakeMcq() {
             {submitting ? "Marking…" : "Submit answers"}
           </button>
         ) : (
-          <div className="mt-6 rounded-2xl premium-card p-6 text-center">
+          <div className="mt-6 rounded-2xl premium-card p-4 text-center sm:p-6">
             <p className="text-xs uppercase tracking-widest text-primary font-semibold">
               Your score
             </p>

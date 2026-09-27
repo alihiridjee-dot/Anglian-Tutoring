@@ -22,7 +22,7 @@ interface UserMenuProps {
 }
 
 const itemCls =
-  "w-full flex items-center gap-3 px-3 py-2 rounded-lg text-sm text-left transition hover:bg-muted";
+  "w-full flex min-h-11 items-center gap-3 px-3 py-2 rounded-lg text-sm text-left transition hover:bg-muted";
 
 /**
  * The header avatar, as a dropdown.
@@ -92,7 +92,7 @@ export function UserMenu({ initials, avatarUrl, email, showLinkedParents, isDemo
         aria-haspopup="menu"
         aria-expanded={open}
         aria-label="Account menu"
-        className="rounded-full focus:outline-none focus:ring-2 focus:ring-primary/40 cursor-pointer"
+        className="-m-1 rounded-full p-1 focus:outline-none focus:ring-2 focus:ring-primary/40 cursor-pointer"
       >
         {avatar}
       </button>
@@ -100,7 +100,7 @@ export function UserMenu({ initials, avatarUrl, email, showLinkedParents, isDemo
       {open && (
         <div
           role="menu"
-          className="absolute right-0 top-11 w-56 rounded-xl premium-card shadow-xl z-50 p-1.5"
+          className="absolute right-0 top-12 w-56 max-w-[calc(100vw-2rem)] rounded-xl premium-card shadow-xl z-50 p-1.5"
         >
           {email && (
             <div className="px-3 py-2 border-b border-border mb-1">

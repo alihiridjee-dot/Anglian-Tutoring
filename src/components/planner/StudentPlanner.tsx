@@ -181,7 +181,11 @@ export function StudentPlanner({
       {/* One header: subject picked once, tabs underneath. */}
       <div className="px-4 sm:px-5 pt-4 border-b border-border">
         {ordered.length > 1 && (
-          <div className="flex items-center gap-1.5 mb-3" role="tablist" aria-label="Subject">
+          <div
+            className="flex flex-wrap items-center gap-2 mb-3"
+            role="tablist"
+            aria-label="Subject"
+          >
             {ordered.map((e) => (
               <button
                 key={e.subject}
@@ -189,7 +193,7 @@ export function StudentPlanner({
                 role="tab"
                 aria-selected={e.subject === activeSubject}
                 onClick={() => setActiveSubject(e.subject)}
-                className={`h-8 px-3.5 rounded-full text-sm font-medium transition ${
+                className={`h-11 sm:h-8 px-3.5 rounded-full text-sm font-medium transition ${
                   e.subject === activeSubject
                     ? "btn-solid"
                     : "bg-muted text-muted-foreground hover:text-foreground"
@@ -200,14 +204,17 @@ export function StudentPlanner({
             ))}
           </div>
         )}
-        <nav className="flex gap-1 -mb-px" aria-label="Planner sections">
+        <nav
+          className="flex gap-1 -mb-px overflow-x-auto scroll-none -mx-4 px-4 sm:mx-0 sm:px-0"
+          aria-label="Planner sections"
+        >
           {TABS.map(({ key, label, icon: Icon }) => (
             <button
               key={key}
               type="button"
               onClick={() => setTab(key)}
               aria-current={tab === key ? "page" : undefined}
-              className={`inline-flex items-center gap-1.5 px-3.5 h-10 text-sm font-medium border-b-2 transition ${
+              className={`inline-flex shrink-0 whitespace-nowrap items-center gap-1.5 px-3.5 h-11 sm:h-10 text-sm font-medium border-b-2 transition ${
                 tab === key
                   ? "border-primary text-foreground"
                   : "border-transparent text-muted-foreground hover:text-foreground"
@@ -366,7 +373,7 @@ function ThisWeekTab({
               {weekRangeLabel(weekKeyToDate(weekStart))}
             </span>
           </h2>
-          <div className="flex flex-wrap items-center gap-1">
+          <div className="flex flex-wrap items-center gap-2 sm:gap-1">
             {isCurrent && week.plan && !week.loading && (
               <WeekBreakdown
                 id="week-breakdown"
@@ -379,7 +386,7 @@ function ThisWeekTab({
               <button
                 type="button"
                 onClick={() => setWeekOffset(0)}
-                className="inline-flex items-center gap-1 h-6 px-2 mr-1 rounded-full bg-muted text-[10px] font-semibold text-muted-foreground hover:text-foreground"
+                className="tap-target inline-flex items-center gap-1 h-6 px-2 mr-1 rounded-full bg-muted text-[10px] font-semibold text-muted-foreground hover:text-foreground"
               >
                 <Undo2 className="w-3 h-3" /> Today
               </button>
@@ -387,7 +394,7 @@ function ThisWeekTab({
             <button
               type="button"
               onClick={() => setWeekOffset((w) => w - 1)}
-              className="w-7 h-7 rounded-lg border border-border text-muted-foreground hover:text-foreground hover:bg-muted flex items-center justify-center"
+              className="size-11 sm:size-7 rounded-lg border border-border text-muted-foreground hover:text-foreground hover:bg-muted flex items-center justify-center"
               aria-label="Previous week"
             >
               <ChevronLeft className="w-4 h-4" />
@@ -395,7 +402,7 @@ function ThisWeekTab({
             <button
               type="button"
               onClick={() => setWeekOffset((w) => w + 1)}
-              className="w-7 h-7 rounded-lg border border-border text-muted-foreground hover:text-foreground hover:bg-muted flex items-center justify-center"
+              className="size-11 sm:size-7 rounded-lg border border-border text-muted-foreground hover:text-foreground hover:bg-muted flex items-center justify-center"
               aria-label="Next week"
             >
               <ChevronRight className="w-4 h-4" />
@@ -445,7 +452,7 @@ function ThisWeekTab({
       {/* Optional reflection and tutor feedback. */}
       {week.plan && showReview && (
         <details className="premium-card rounded-xl p-3">
-          <summary className="cursor-pointer text-sm font-bold">
+          <summary className="cursor-pointer text-sm font-bold py-3 -my-3 sm:py-0 sm:my-0">
             Weekly check-in and tutor feedback
           </summary>
           <WeekReview
@@ -466,7 +473,9 @@ function ThisWeekTab({
       {/* Memory strip — how the course is held right now. */}
       {memory && memory.total - memory.newCount > 0 && (
         <details className="premium-card tint-primary rounded-xl p-3.5">
-          <summary className="cursor-pointer text-sm font-bold">Memory details</summary>
+          <summary className="cursor-pointer text-sm font-bold py-3 -my-3 sm:py-0 sm:my-0">
+            Memory details
+          </summary>
           <h3 className="flex items-center gap-1.5 text-sm font-bold mb-2">
             <Brain className="w-4 h-4 text-violet-500" />
             Your memory right now
@@ -604,7 +613,7 @@ function FullPlanTab({
               defaultValue={data.examDate}
               disabled={savingDate}
               onChange={(e) => saveExamDate(e.target.value)}
-              className="btn-soft h-9 w-full rounded-xl px-3 text-sm focus:outline-none focus:ring-2 focus:ring-[var(--tint)] disabled:opacity-50"
+              className="btn-soft h-11 sm:h-9 w-full rounded-xl px-3 text-sm focus:outline-none focus:ring-2 focus:ring-[var(--tint)] disabled:opacity-50"
             />
           </label>
         </div>
@@ -618,7 +627,7 @@ function FullPlanTab({
           <Link
             to="/planner-order"
             search={{ subject }}
-            className="btn-soft mt-auto h-9 rounded-xl px-3 text-sm inline-flex items-center justify-center gap-2"
+            className="btn-soft mt-auto h-11 sm:h-9 rounded-xl px-3 text-sm inline-flex items-center justify-center gap-2"
           >
             <SlidersHorizontal className="size-4" aria-hidden /> Reorder topics
           </Link>
@@ -639,7 +648,7 @@ function FullPlanTab({
               type="button"
               aria-expanded={catchUpOpen}
               onClick={() => setCatchUpOpen((open) => !open)}
-              className="btn-soft mt-auto h-9 rounded-xl px-3 text-sm inline-flex items-center justify-center gap-2"
+              className="btn-soft mt-auto h-11 sm:h-9 rounded-xl px-3 text-sm inline-flex items-center justify-center gap-2"
             >
               {catchUpOpen ? "Hide catch-up" : "Catch up now"}
               <ChevronDown

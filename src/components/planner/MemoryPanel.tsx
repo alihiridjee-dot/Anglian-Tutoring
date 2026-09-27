@@ -83,7 +83,7 @@ export function MemoryPanel({
           </div>
         </div>
         {ordered.length > 1 && (
-          <div className="flex gap-1.5" role="tablist" aria-label="Subject">
+          <div className="flex flex-wrap gap-2" role="tablist" aria-label="Subject">
             {ordered.map((e) => (
               <button
                 key={e.subject}
@@ -91,7 +91,7 @@ export function MemoryPanel({
                 role="tab"
                 aria-selected={e.subject === activeSubject}
                 onClick={() => setActiveSubject(e.subject)}
-                className={`px-3 py-1 rounded-full text-xs font-medium transition-colors ${
+                className={`px-3 py-1 min-h-11 sm:min-h-0 rounded-full text-xs font-medium transition-colors ${
                   e.subject === activeSubject
                     ? "btn-solid"
                     : "bg-muted text-muted-foreground hover:bg-muted/70"

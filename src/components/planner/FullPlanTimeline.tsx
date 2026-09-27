@@ -155,19 +155,19 @@ export function FullPlanTimeline({
               {monthLabel(activeMonth)}
             </h3>
           </div>
-          <div className="flex flex-wrap w-full sm:w-auto items-center gap-1.5 sm:gap-2">
+          <div className="flex flex-wrap w-full sm:w-auto items-center gap-2">
             <button
               type="button"
               aria-label="Previous month"
               disabled={monthIndex === 0}
-              className="btn-premium rounded-lg p-1.5 sm:p-2 disabled:opacity-40 disabled:cursor-not-allowed"
+              className="btn-premium rounded-lg p-3 sm:p-2 disabled:opacity-40 disabled:cursor-not-allowed"
               onClick={() => chooseMonth(months[monthIndex - 1])}
             >
               <ChevronLeft className="size-5" />
             </button>
             <select
               aria-label="Go to month"
-              className="premium-card rounded-lg px-3 py-2 text-xs sm:text-sm order-first w-full sm:order-none sm:w-auto"
+              className="premium-card rounded-lg px-3 py-2 min-h-11 sm:min-h-0 text-xs sm:text-sm order-first w-full sm:order-none sm:w-auto"
               value={activeMonth}
               onChange={(event) => chooseMonth(event.target.value)}
             >
@@ -182,7 +182,7 @@ export function FullPlanTimeline({
               type="button"
               aria-label="Next month"
               disabled={monthIndex === months.length - 1}
-              className="btn-premium rounded-lg p-1.5 sm:p-2 order-2 ml-auto sm:order-none sm:ml-0 disabled:opacity-40 disabled:cursor-not-allowed"
+              className="btn-premium rounded-lg p-3 sm:p-2 order-2 ml-auto sm:order-none sm:ml-0 disabled:opacity-40 disabled:cursor-not-allowed"
               onClick={() => chooseMonth(months[monthIndex + 1])}
             >
               <ChevronRight className="size-5" />
@@ -190,7 +190,7 @@ export function FullPlanTimeline({
             {weeks.includes(now) && (
               <button
                 type="button"
-                className="btn-premium rounded-lg px-2 sm:px-3 py-2 text-xs sm:text-sm inline-flex items-center gap-1.5 whitespace-nowrap justify-center order-1 flex-1 sm:order-none sm:flex-none"
+                className="btn-premium rounded-lg px-2 sm:px-3 py-2 min-h-11 sm:min-h-0 text-xs sm:text-sm inline-flex items-center gap-1.5 whitespace-nowrap justify-center order-1 flex-1 sm:order-none sm:flex-none"
                 onClick={() => jump(now)}
               >
                 <CalendarDays className="size-4 hidden sm:block" aria-hidden />
@@ -356,14 +356,14 @@ export function FullPlanTimeline({
                             : band.points.map((ref) => ({ point: byId.get(ref.specPointId), ref }));
                         return (
                           <details key={key} className="text-sm">
-                            <summary className="cursor-pointer text-base font-bold leading-snug">
+                            <summary className="cursor-pointer text-base font-bold leading-snug py-2.5 -my-2.5 sm:py-0 sm:my-0">
                               {band.title}{" "}
                               {newFocusKeys.has(bandKey) && (
                                 <span className="chip text-xs">New</span>
                               )}
                             </summary>
                             <button
-                              className="btn-premium rounded-lg px-2 py-1 my-2 text-xs"
+                              className="btn-premium rounded-lg px-2 py-1 my-2 min-h-11 sm:min-h-0 text-xs"
                               type="button"
                               onClick={() => toggle(`${key}@all`)}
                             >

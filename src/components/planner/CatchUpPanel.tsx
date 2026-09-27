@@ -102,7 +102,7 @@ export function CatchUpPanel({
             type="button"
             onClick={() => add(topic)}
             disabled={busy !== null}
-            className="btn-soft h-8 px-3 rounded-lg text-xs inline-flex items-center gap-1.5 shrink-0"
+            className="btn-soft h-11 sm:h-8 px-3 rounded-lg text-xs inline-flex items-center gap-1.5 shrink-0"
           >
             {busy === topic.topicId ? (
               <Loader2 className="size-3.5 animate-spin" aria-hidden />

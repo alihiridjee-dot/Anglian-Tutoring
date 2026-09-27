@@ -273,7 +273,7 @@ export function Hero() {
           below the content). */}
       <GradCapRibbons runId={runId} />
 
-      <div className="relative z-20 mx-auto max-w-4xl px-6 text-center">
+      <div className="relative z-20 mx-auto max-w-4xl px-4 text-center sm:px-6">
         <span className="sticker stamp-in">
           <Sparkles className="size-3.5 text-[color:var(--pop-ink)]" aria-hidden /> Modern science
           platform for KS3 &amp; GCSE

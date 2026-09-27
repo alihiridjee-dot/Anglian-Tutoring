@@ -60,7 +60,7 @@ function NoteItem({
             <button
               type="submit"
               disabled={busy || !draft.trim()}
-              className="btn-solid inline-flex h-9 items-center gap-1.5 rounded-lg px-4 text-sm font-semibold"
+              className="btn-solid inline-flex h-11 sm:h-9 items-center gap-1.5 rounded-lg px-4 text-sm font-semibold"
             >
               {update.isPending && <Loader2 className="size-4 animate-spin" aria-hidden />}
               Save
@@ -72,7 +72,7 @@ function NoteItem({
                 setDraft(note.body);
                 setEditing(false);
               }}
-              className="btn-soft inline-flex h-9 items-center rounded-lg px-4 text-sm font-semibold"
+              className="btn-soft inline-flex h-11 sm:h-9 items-center rounded-lg px-4 text-sm font-semibold"
             >
               Cancel
             </button>
@@ -91,14 +91,14 @@ function NoteItem({
                 <button
                   type="button"
                   onClick={() => setEditing(true)}
-                  className="hover:text-foreground inline-flex items-center gap-1 font-semibold"
+                  className="hover:text-foreground inline-flex min-h-11 sm:min-h-0 items-center gap-1 font-semibold"
                 >
                   <Pencil className="size-3" aria-hidden /> Edit
                 </button>
                 <button
                   type="button"
                   onClick={() => setConfirming(true)}
-                  className="hover:text-foreground inline-flex items-center gap-1 font-semibold"
+                  className="hover:text-foreground inline-flex min-h-11 sm:min-h-0 items-center gap-1 font-semibold"
                 >
                   <Trash2 className="size-3" aria-hidden /> Delete
                 </button>
@@ -120,14 +120,14 @@ function NoteItem({
                       },
                     )
                   }
-                  className="tint-rose font-bold text-[color:var(--tint)]"
+                  className="tint-rose inline-flex min-h-11 sm:min-h-0 items-center font-bold text-[color:var(--tint)]"
                 >
                   Yes, delete
                 </button>
                 <button
                   type="button"
                   onClick={() => setConfirming(false)}
-                  className="font-semibold"
+                  className="inline-flex min-h-11 sm:min-h-0 items-center font-semibold"
                 >
                   Keep
                 </button>
@@ -184,7 +184,7 @@ export function StudentNotes({ studentId }: { studentId: string }) {
         <button
           type="submit"
           disabled={add.isPending || !draft.trim()}
-          className="btn-solid inline-flex h-9 items-center gap-1.5 rounded-lg px-4 text-sm font-semibold"
+          className="btn-solid inline-flex h-11 sm:h-9 items-center gap-1.5 rounded-lg px-4 text-sm font-semibold"
         >
           {add.isPending && <Loader2 className="size-4 animate-spin" aria-hidden />}
           Add note

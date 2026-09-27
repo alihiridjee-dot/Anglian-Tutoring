@@ -1,6 +1,6 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
 import { useMemo, useState } from "react";
-import { ExternalLink, Send } from "lucide-react";
+import { ArrowLeft, ExternalLink, Send } from "lucide-react";
 import { AppLayout } from "@/components/AppLayout";
 import { ThreadList } from "@/components/chat/ThreadList";
 import type { ThreadSummary } from "@/hooks/data/useChat";
@@ -113,6 +113,8 @@ function DemoMessagesPage() {
   const [selectedId, setSelectedId] = useState(THREADS[0].id);
   const [sent, setSent] = useState<Record<string, DemoMessage[]>>({});
   const [body, setBody] = useState("");
+  // Phones show the list or the thread, not both; see the live page.
+  const [threadOpen, setThreadOpen] = useState(false);
 
   const threads = useMemo(
     () =>
@@ -158,21 +160,31 @@ function DemoMessagesPage() {
           <div
             data-guide="message-list"
             data-tour="messages"
-            className="pop-card scroll-slim max-h-[70vh] overflow-y-auto"
+            className={`pop-card scroll-slim max-h-[70vh] overflow-y-auto ${threadOpen ? "max-lg:hidden" : ""}`}
           >
             <ThreadList
               threads={threads}
               selectedId={selected.id}
-              onSelect={setSelectedId}
+              onSelect={(id) => {
+                setSelectedId(id);
+                setThreadOpen(true);
+              }}
               showCounterpart={false}
             />
           </div>
 
           <div
             data-guide="message-thread"
-            className="premium-card flex h-[70vh] min-h-0 flex-col overflow-hidden rounded-2xl"
+            className={`premium-card flex h-[70vh] min-h-0 flex-col overflow-hidden rounded-2xl ${threadOpen ? "" : "max-lg:hidden"}`}
           >
-            <div className="border-b border-border px-5 py-4">
+            <button
+              type="button"
+              onClick={() => setThreadOpen(false)}
+              className="inline-flex min-h-11 items-center gap-2 border-b border-border px-4 text-sm font-semibold text-muted-foreground hover:text-foreground lg:hidden"
+            >
+              <ArrowLeft className="size-4" aria-hidden /> All conversations
+            </button>
+            <div className="border-b border-border px-4 py-4 sm:px-5">
               <h2 className="font-display text-base font-bold leading-tight">
                 {selected.subject_line}
               </h2>
@@ -197,7 +209,7 @@ function DemoMessagesPage() {
               </div>
             </div>
 
-            <div className="min-h-0 flex-1 space-y-3 overflow-y-auto px-5 py-4">
+            <div className="min-h-0 flex-1 space-y-3 overflow-y-auto px-4 py-4 sm:px-5">
               {messages.map((m) => {
                 const mine = m.from === STUDENT;
                 return (
@@ -239,6 +251,7 @@ function DemoMessagesPage() {
                   }}
                   rows={3}
                   placeholder="Write a message…"
+                  aria-label="Your message"
                   className="flex-1 rounded-xl border border-border bg-background p-3 text-sm transition focus:outline-none focus:border-primary focus:ring-4 focus:ring-primary/15"
                 />
                 <button

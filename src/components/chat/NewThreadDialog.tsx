@@ -1,4 +1,5 @@
 import { useEffect, useState } from "react";
+import { useBodyScrollLock } from "@/hooks/useBodyScrollLock";
 import { Loader2, MessageSquarePlus, X } from "lucide-react";
 import { toast } from "sonner";
 import { useStartThread, useTutorDirectory } from "@/hooks/data/useChat";
@@ -45,6 +46,18 @@ export function NewThreadDialog({ initialContext, onClose, onCreated }: Props) {
 
   const canSend = !!tutorId && subjectLine.trim().length > 0 && body.trim().length > 0;
 
+  // The sheet holds the page still underneath it, and Escape closes it. A tap
+  // on the backdrop closes it too, unless a half-written question would be lost.
+  useBodyScrollLock(true);
+  const dirty = subjectLine.trim().length > 0 || body.trim().length > 0;
+  useEffect(() => {
+    const onKey = (e: KeyboardEvent) => {
+      if (e.key === "Escape") onClose();
+    };
+    window.addEventListener("keydown", onKey);
+    return () => window.removeEventListener("keydown", onKey);
+  }, [onClose]);
+
   const submit = () => {
     if (!canSend) return;
     start.mutate(
@@ -74,14 +87,17 @@ export function NewThreadDialog({ initialContext, onClose, onCreated }: Props) {
       role="dialog"
       aria-modal="true"
       aria-labelledby="new-thread-title"
+      onClick={(e) => {
+        if (e.target === e.currentTarget && !dirty) onClose();
+      }}
     >
-      <div className="w-full max-w-lg rounded-2xl premium-card shadow-xl max-h-[90vh] overflow-y-auto">
-        <div className="flex items-start justify-between gap-3 p-6 border-b border-border">
+      <div className="w-full max-w-lg rounded-2xl premium-card shadow-xl max-h-[calc(100dvh-2rem)] overflow-y-auto">
+        <div className="flex items-start justify-between gap-3 p-4 sm:p-6 border-b border-border">
           <div className="flex items-center gap-3">
             <div className="w-10 h-10 rounded-xl bg-primary/15 flex items-center justify-center shrink-0">
               <MessageSquarePlus className="w-5 h-5 text-primary" />
             </div>
-            <div>
+            <div className="min-w-0">
               <h2 id="new-thread-title" className="font-display text-lg font-bold leading-tight">
                 Ask your tutor
               </h2>
@@ -94,13 +110,13 @@ export function NewThreadDialog({ initialContext, onClose, onCreated }: Props) {
           <button
             onClick={onClose}
             aria-label="Close"
-            className="text-muted-foreground hover:text-foreground shrink-0"
+            className="tap-target text-muted-foreground hover:text-foreground shrink-0"
           >
             <X className="w-5 h-5" />
           </button>
         </div>
 
-        <div className="p-6 space-y-4">
+        <div className="p-4 sm:p-6 space-y-4">
           <div>
             <label className="text-xs font-semibold uppercase tracking-wider text-muted-foreground">
               Who are you asking?
@@ -120,7 +136,7 @@ export function NewThreadDialog({ initialContext, onClose, onCreated }: Props) {
                     key={t.id}
                     type="button"
                     onClick={() => setTutorId(t.id)}
-                    className={`h-9 px-3.5 rounded-lg border text-sm font-semibold transition ${
+                    className={`h-11 sm:h-9 px-3.5 rounded-lg border text-sm font-semibold transition ${
                       tutorId === t.id
                         ? "border-primary bg-primary/10"
                         : "border-border text-muted-foreground hover:border-primary/40"
@@ -177,17 +193,17 @@ export function NewThreadDialog({ initialContext, onClose, onCreated }: Props) {
           </div>
         </div>
 
-        <div className="flex justify-end gap-2 p-6 border-t border-border">
+        <div className="flex justify-end gap-2 p-4 sm:p-6 border-t border-border">
           <button
             onClick={onClose}
-            className="h-10 px-4 rounded-lg border border-border text-sm font-semibold hover:bg-muted"
+            className="h-11 sm:h-10 px-4 rounded-lg border border-border text-sm font-semibold hover:bg-muted"
           >
             Cancel
           </button>
           <button
             onClick={submit}
             disabled={!canSend || start.isPending}
-            className="btn-premium h-10 px-4 rounded-lg text-sm font-semibold inline-flex items-center gap-2 disabled:opacity-50"
+            className="btn-premium h-11 sm:h-10 px-4 rounded-lg text-sm font-semibold inline-flex items-center gap-2 disabled:opacity-50"
           >
             {start.isPending && <Loader2 className="w-4 h-4 animate-spin" />} Send question
           </button>

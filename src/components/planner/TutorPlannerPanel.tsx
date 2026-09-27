@@ -41,7 +41,7 @@ export function TutorPlannerPanel() {
         {student ? (
           <TutorStudentPane state={state} />
         ) : (
-          <div className="rounded-2xl premium-card p-10 text-center shadow-sm">
+          <div className="rounded-2xl premium-card p-6 sm:p-10 text-center shadow-sm">
             <span className="icon-tile size-10 mx-auto mb-3">
               <UserRound className="size-5" aria-hidden />
             </span>

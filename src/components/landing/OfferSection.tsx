@@ -92,7 +92,7 @@ const SUPPORT = [
 export function OfferSection() {
   return (
     <section id="offer" className="py-20 lg:py-24 bg-secondary/50 border-t border-border">
-      <div className="max-w-7xl mx-auto px-6">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6">
         <div className="text-center max-w-2xl mx-auto mb-14">
           <span className="eyebrow">Our comprehensive platform</span>
           <h2 className="font-display text-foreground mt-3 text-3xl font-extrabold tracking-tight sm:text-4xl">
@@ -106,7 +106,7 @@ export function OfferSection() {
             return (
               <div
                 key={p.id}
-                className={`pop-card pop-card-banded grid items-center gap-8 p-7 sm:p-8 lg:grid-cols-2 lg:gap-12 ${p.tint}`}
+                className={`pop-card pop-card-banded grid items-center gap-8 p-5 sm:p-8 lg:grid-cols-2 lg:gap-12 ${p.tint}`}
               >
                 <div>
                   <span className="eyebrow">{p.eyebrow}</span>
@@ -140,7 +140,10 @@ export function OfferSection() {
           {SUPPORT.map((o) => {
             const Preview = o.preview;
             return (
-              <div key={o.id} className={`pop-card pop-card-banded flex flex-col p-6 ${o.tint}`}>
+              <div
+                key={o.id}
+                className={`pop-card pop-card-banded flex flex-col p-5 sm:p-6 ${o.tint}`}
+              >
                 <h3 className="font-display text-foreground text-lg font-extrabold">{o.title}</h3>
                 <p className="mt-2 text-sm text-muted-foreground leading-relaxed">{o.desc}</p>
                 <div className="surface-loud mt-5 flex flex-1 items-center p-4">

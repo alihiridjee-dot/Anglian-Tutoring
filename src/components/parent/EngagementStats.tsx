@@ -45,7 +45,7 @@ export function EngagementStats({
 }) {
   const { sessionsHeld, sessionsAttended, homeworkSet, homeworkSubmitted } = engagement;
   return (
-    <div className="premium-card rounded-2xl p-6">
+    <div className="premium-card rounded-2xl p-4 sm:p-6">
       <h3 className="font-display text-lg font-bold text-foreground mb-5">Engagement Stats</h3>
       <div className="space-y-5">
         <Bar

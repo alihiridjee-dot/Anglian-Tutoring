@@ -85,7 +85,14 @@ function OnboardingLayout() {
               const done = i < current;
               const active = i === current;
               return (
-                <li key={step.path} className="flex-1 flex items-center gap-1.5 min-w-0">
+                <li
+                  key={step.path}
+                  // Six labels do not fit a phone: the active step takes the
+                  // row and the others shrink to their dot until `sm`.
+                  className={`flex items-center gap-1.5 min-w-0 ${
+                    active ? "flex-1" : "flex-none sm:flex-1"
+                  }`}
+                >
                   {done ? (
                     <span className="bg-primary text-primary-foreground pop-in flex size-4 shrink-0 items-center justify-center rounded-full">
                       <Check className="size-2.5" strokeWidth={3} />
@@ -99,7 +106,7 @@ function OnboardingLayout() {
                   )}
                   <span
                     className={`truncate text-[11px] ${
-                      active ? "text-foreground font-bold" : "text-muted-foreground"
+                      active ? "text-foreground font-bold" : "text-muted-foreground max-sm:sr-only"
                     }`}
                   >
                     {step.label}

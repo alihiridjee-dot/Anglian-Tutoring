@@ -331,7 +331,7 @@ export function HomeworkForm({ userId, taxonomy, editing }: HomeworkFormProps) {
             type="button"
             onClick={editing.onDone}
             disabled={loading}
-            className="btn-premium h-10 shrink-0 rounded-lg px-4 text-sm font-semibold disabled:opacity-60"
+            className="btn-premium h-11 sm:h-10 shrink-0 rounded-lg px-4 text-sm font-semibold disabled:opacity-60"
           >
             Cancel
           </button>

@@ -215,12 +215,12 @@ export function Curriculum() {
           <button
             data-guide="curriculum-back"
             onClick={closeSpecPoint}
-            className="inline-flex items-center gap-2 text-sm text-muted-foreground hover:text-primary transition font-semibold"
+            className="inline-flex items-center gap-2 min-h-11 sm:min-h-0 text-sm text-muted-foreground hover:text-primary transition font-semibold"
           >
             <ChevronLeft className="w-4 h-4" /> Back to Curriculum
           </button>
 
-          <div className="rounded-2xl premium-card p-6 relative overflow-hidden shadow-xs">
+          <div className="rounded-2xl premium-card p-4 sm:p-6 relative overflow-hidden shadow-xs">
             <div className="absolute top-0 left-0 right-0 h-1.5 bg-gradient-to-r from-primary to-accent" />
 
             <div className="flex flex-wrap items-center gap-2 mb-3">
@@ -238,11 +238,11 @@ export function Curriculum() {
             <p className="text-[10px] uppercase tracking-wider font-extrabold text-primary">
               Specification Point {selectedSpecPoint.code}
             </p>
-            <h2 className="font-display text-2xl font-bold text-foreground mt-1.5 leading-snug">
+            <h2 className="font-display text-xl sm:text-2xl font-bold text-foreground mt-1.5 leading-snug break-words">
               {selectedSpecPoint.title}
             </h2>
             {selectedSpecPoint.description && (
-              <p className="text-sm text-muted-foreground mt-3 leading-relaxed whitespace-pre-wrap">
+              <p className="text-sm text-muted-foreground mt-3 leading-relaxed whitespace-pre-wrap break-words">
                 {selectedSpecPoint.description}
               </p>
             )}
@@ -281,9 +281,9 @@ export function Curriculum() {
           your level, exam board, and subject to begin.
         </p>
 
-        <div data-guide="curriculum-filters" className="rounded-2xl premium-card p-5 mb-6">
+        <div data-guide="curriculum-filters" className="rounded-2xl premium-card p-4 sm:p-5 mb-6">
           {isTutor ? (
-            <div className="grid grid-cols-3 gap-3">
+            <div className="grid grid-cols-1 sm:grid-cols-3 gap-3">
               <Filter
                 label="Subject"
                 value={subject}

@@ -86,7 +86,7 @@ function OurStory() {
           aria-hidden
           className="pointer-events-none absolute inset-0 bg-[radial-gradient(ellipse_at_top,_var(--accent-soft)_0%,transparent_60%)] opacity-70"
         />
-        <div className="relative mx-auto max-w-4xl px-6 py-20 text-center lg:py-28">
+        <div className="relative mx-auto max-w-4xl px-4 py-16 text-center sm:px-6 sm:py-20 lg:py-28">
           <motion.span {...fadeUp} className="sticker">
             <Heart className="size-3.5" aria-hidden /> Our story
           </motion.span>
@@ -131,11 +131,7 @@ function OurStory() {
               </motion.figure>
             ))}
           </div>
-          <motion.p
-            {...fadeUp}
-            className="mt-8 text-2xl"
-            aria-hidden
-          >
+          <motion.p {...fadeUp} className="mt-8 text-2xl" aria-hidden>
             💚 ✏️ 🎓
           </motion.p>
 
@@ -161,17 +157,17 @@ function OurStory() {
 
       {/* ---------------- Timeline ---------------- */}
       <section className="py-20 lg:py-24">
-        <ol className="relative mx-auto max-w-3xl px-6">
+        <ol className="relative mx-auto max-w-3xl px-4 sm:px-6">
           <div
             aria-hidden
-            className="absolute top-2 bottom-2 left-[3.25rem] w-[3px] rounded-full bg-gradient-to-b from-[var(--accent-soft)] via-primary/40 to-[var(--pop)]"
+            className="absolute top-2 bottom-2 left-[2.75rem] w-[3px] rounded-full bg-gradient-to-b from-[var(--accent-soft)] via-primary/40 to-[var(--pop)] sm:left-[3.25rem]"
           />
           {CHAPTERS.map((c, i) => (
             <motion.li
               key={c.title}
               {...fadeUp}
               transition={{ ...fadeUp.transition, delay: i * 0.05 }}
-              className="relative mb-10 flex gap-6 last:mb-0"
+              className="relative mb-10 flex gap-4 last:mb-0 sm:gap-6"
             >
               <span
                 aria-hidden
@@ -179,7 +175,7 @@ function OurStory() {
               >
                 {c.emoji}
               </span>
-              <div className="rounded-2xl border border-border bg-card p-6 shadow-sm">
+              <div className="min-w-0 flex-1 rounded-2xl border border-border bg-card p-5 shadow-sm sm:p-6">
                 <span className="eyebrow">Chapter {i + 1}</span>
                 <h2 className="font-display mt-1 text-xl font-bold tracking-tight">{c.title}</h2>
                 <p className="mt-3 leading-relaxed text-muted-foreground">{c.body}</p>
@@ -191,10 +187,10 @@ function OurStory() {
 
       {/* ---------------- Closing CTA ---------------- */}
       <section className="pb-20 lg:pb-24">
-        <div className="mx-auto max-w-5xl px-6">
+        <div className="mx-auto max-w-5xl px-4 sm:px-6">
           <motion.div
             {...fadeUp}
-            className="relative overflow-hidden rounded-[2rem] bg-gradient-to-br from-[var(--primary-deep)] to-primary px-8 py-14 text-center text-white shadow-[0_40px_90px_-40px_rgba(6,78,90,0.85)] sm:px-14"
+            className="relative overflow-hidden rounded-[2rem] bg-gradient-to-br from-[var(--primary-deep)] to-primary px-5 py-10 text-center text-white shadow-[0_40px_90px_-40px_rgba(6,78,90,0.85)] sm:px-14 sm:py-14"
           >
             <h2 className="font-display text-3xl font-bold tracking-tight sm:text-4xl">
               Come and be part of the story ✨

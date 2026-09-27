@@ -24,7 +24,7 @@ export function Footer() {
         }}
       />
 
-      <div className="relative mx-auto flex max-w-7xl flex-col items-center justify-between gap-6 px-6 md:flex-row">
+      <div className="relative mx-auto flex max-w-7xl flex-col items-center justify-between gap-6 px-4 sm:px-6 md:flex-row">
         <div className="text-primary-foreground flex items-center gap-2.5">
           <div className="flex size-10 items-center justify-center rounded-xl border-2 border-white/25 bg-white/15 shadow-[0_3px_0_0_rgba(0,0,0,0.18)]">
             <GraduationCap className="size-5" aria-hidden />
@@ -39,17 +39,31 @@ export function Footer() {
 
         {/* The nav bar's section links are desktop-only, so the footer carries
             the standalone pages for mobile visitors. */}
-        <nav className="flex items-center gap-6 text-sm font-semibold">
-          <Link to="/our-story" className="hover:text-primary-foreground transition">
+        <nav className="flex flex-wrap items-center justify-center gap-x-6 gap-y-1 text-sm font-semibold">
+          <Link
+            to="/our-story"
+            className="inline-flex min-h-11 items-center hover:text-primary-foreground transition sm:min-h-0"
+          >
             Our story
           </Link>
-          <Link to="/how-it-works" className="hover:text-primary-foreground transition">
+          <Link
+            to="/how-it-works"
+            className="inline-flex min-h-11 items-center hover:text-primary-foreground transition sm:min-h-0"
+          >
             How it works
           </Link>
-          <Link to="/" hash="pricing" className="hover:text-primary-foreground transition">
+          <Link
+            to="/"
+            hash="pricing"
+            className="inline-flex min-h-11 items-center hover:text-primary-foreground transition sm:min-h-0"
+          >
             Pricing
           </Link>
-          <Link to="/" hash="contact" className="hover:text-primary-foreground transition">
+          <Link
+            to="/"
+            hash="contact"
+            className="inline-flex min-h-11 items-center hover:text-primary-foreground transition sm:min-h-0"
+          >
             Contact
           </Link>
         </nav>

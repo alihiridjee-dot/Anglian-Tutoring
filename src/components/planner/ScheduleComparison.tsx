@@ -76,7 +76,7 @@ export function ScheduleComparison({
   };
   return (
     <details className="premium-card rounded-xl p-3">
-      <summary className="cursor-pointer text-sm font-bold">
+      <summary className="cursor-pointer text-sm font-bold py-3 -my-3 sm:py-0 sm:my-0">
         Compare with the assessment-driven schedule
       </summary>
       <p className="my-2 text-sm text-muted-foreground">
@@ -86,7 +86,7 @@ export function ScheduleComparison({
       {busy ? (
         <Spinner />
       ) : (
-        <button className="btn-premium px-3 py-2 text-sm" onClick={compare}>
+        <button className="btn-premium px-3 py-2 min-h-11 sm:min-h-0 text-sm" onClick={compare}>
           Preview proposed week
         </button>
       )}
@@ -108,7 +108,11 @@ export function ScheduleComparison({
           ) : (
             <p className="text-sm">No practice points need assigning this week.</p>
           )}
-          <button disabled={busy} className="btn-solid px-3 py-2 text-sm" onClick={apply}>
+          <button
+            disabled={busy}
+            className="btn-solid px-3 py-2 min-h-11 sm:min-h-0 text-sm"
+            onClick={apply}
+          >
             Apply updated week
           </button>
         </div>

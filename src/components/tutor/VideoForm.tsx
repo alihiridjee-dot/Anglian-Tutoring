@@ -88,6 +88,7 @@ export function VideoForm({ userId, taxonomy }: VideoFormProps) {
         <input
           required
           type="url"
+          inputMode="url"
           className={inputCls}
           value={videoUrl}
           onChange={(e) => setVideoUrl(e.target.value)}
