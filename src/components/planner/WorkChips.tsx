@@ -25,7 +25,7 @@ import {
  * change: under a column already headed "Homework" the word is redundant, and
  * the space is better spent on a verb.
  */
-const CHIP = "chip inline-flex text-[11px] hover:brightness-95";
+const CHIP = "chip tap-target inline-flex text-[11px] hover:brightness-95";
 
 export function VideoChip({
   item,

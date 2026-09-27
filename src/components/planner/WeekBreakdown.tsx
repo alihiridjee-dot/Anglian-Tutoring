@@ -24,7 +24,7 @@ export function WeekBreakdown({
   const learningCount = points.filter((p) => laneOf(p.origin) === "core").length - returningCount;
   const manualCount = points.filter((p) => laneOf(p.origin) === "yours").length;
   return (
-    <div id={id} className="flex items-center">
+    <div id={id} className="flex items-center min-w-0 max-w-full overflow-x-auto scroll-none">
       <dl aria-label="Week breakdown" className="premium-card week-breakdown flex items-stretch">
         {[
           {

@@ -44,7 +44,7 @@ export function PlanSummary({
         <button
           type="button"
           onClick={onReorder}
-          className="btn-soft inline-flex h-9 items-center gap-1.5 rounded-lg px-3 text-sm"
+          className="btn-soft inline-flex h-11 sm:h-9 items-center gap-1.5 rounded-lg px-3 text-sm"
         >
           <SlidersHorizontal className="size-4" aria-hidden />
           Change topic order

@@ -72,7 +72,7 @@ export function NotificationBell() {
           if (!open) load();
         }}
         aria-label={unread > 0 ? `Notifications (${unread} unread)` : "Notifications"}
-        className="relative w-9 h-9 rounded-lg border border-border hover:bg-muted flex items-center justify-center"
+        className="relative size-11 sm:size-9 rounded-lg border border-border hover:bg-muted flex items-center justify-center cursor-pointer"
       >
         <Bell className="w-4 h-4" />
         {unread > 0 && (
@@ -83,13 +83,13 @@ export function NotificationBell() {
       </button>
 
       {open && (
-        <div className="absolute right-0 top-11 w-80 max-h-96 overflow-auto rounded-xl premium-card shadow-xl z-50">
+        <div className="absolute right-0 top-12 sm:top-11 w-[min(20rem,calc(100vw-2rem))] max-h-[min(24rem,70dvh)] overflow-auto rounded-xl premium-card shadow-xl z-50">
           <div className="flex items-center justify-between px-4 py-3 border-b border-border sticky top-0 bg-card">
             <span className="text-sm font-semibold">Notifications</span>
             {unread > 0 && (
               <button
                 onClick={markAllRead}
-                className="text-xs text-muted-foreground hover:text-foreground inline-flex items-center gap-1"
+                className="text-xs text-muted-foreground hover:text-foreground inline-flex min-h-11 items-center gap-1 -my-2 cursor-pointer"
               >
                 <Check className="w-3 h-3" /> Mark all read
               </button>

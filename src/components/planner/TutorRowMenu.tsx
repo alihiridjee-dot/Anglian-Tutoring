@@ -59,7 +59,7 @@ export function TutorRowMenu({
     await fn();
   };
   const item =
-    "w-full flex items-center gap-2 px-3 py-2 text-left text-sm hover:bg-muted disabled:opacity-50 disabled:cursor-not-allowed";
+    "w-full flex min-h-11 sm:min-h-0 items-center gap-2 px-3 py-2 text-left text-sm hover:bg-muted disabled:opacity-50 disabled:cursor-not-allowed";
 
   return (
     <div ref={root} className="relative shrink-0">
@@ -70,7 +70,7 @@ export function TutorRowMenu({
         aria-haspopup="menu"
         aria-expanded={open}
         aria-label={`Change ${row.code}`}
-        className="w-8 h-8 rounded-lg text-muted-foreground hover:text-foreground hover:bg-muted flex items-center justify-center disabled:opacity-40"
+        className="size-11 sm:size-8 rounded-lg text-muted-foreground hover:text-foreground hover:bg-muted flex items-center justify-center disabled:opacity-40"
       >
         {mine ? (
           <Loader2 className="w-4 h-4 animate-spin" />
@@ -81,7 +81,7 @@ export function TutorRowMenu({
       {open && (
         <div
           role="menu"
-          className="absolute right-0 top-full mt-1 z-20 w-64 rounded-xl premium-card shadow-lg overflow-hidden py-1"
+          className="absolute right-0 top-full mt-1 z-20 w-64 max-w-[calc(100vw-2rem)] rounded-xl premium-card shadow-lg overflow-hidden py-1"
         >
           {choosing ? (
             <div className="px-3 py-2 space-y-2">
@@ -92,7 +92,7 @@ export function TutorRowMenu({
                 autoFocus
                 value={target}
                 onChange={(e) => setTarget(e.target.value)}
-                className="w-full h-8 rounded-lg premium-card px-2 text-sm focus:outline-none focus:ring-2 focus:ring-primary/40"
+                className="w-full h-11 sm:h-8 rounded-lg premium-card px-2 text-sm focus:outline-none focus:ring-2 focus:ring-primary/40"
               >
                 {weekChoices.map((w) => (
                   <option key={w} value={w}>
@@ -104,7 +104,7 @@ export function TutorRowMenu({
                 <button
                   type="button"
                   onClick={() => setChoosing(false)}
-                  className="h-8 px-2.5 rounded-lg border border-border text-xs font-medium hover:bg-muted"
+                  className="h-11 sm:h-8 px-2.5 rounded-lg border border-border text-xs font-medium hover:bg-muted"
                 >
                   Back
                 </button>
@@ -112,7 +112,7 @@ export function TutorRowMenu({
                   type="button"
                   disabled={!target}
                   onClick={() => run(() => actions.move(row, target))}
-                  className="h-8 px-3 rounded-lg btn-solid text-xs font-semibold disabled:opacity-50"
+                  className="h-11 sm:h-8 px-3 rounded-lg btn-solid text-xs font-semibold disabled:opacity-50"
                 >
                   Move
                 </button>

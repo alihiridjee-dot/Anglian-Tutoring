@@ -1,6 +1,7 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { Loader2, PauseCircle, X } from "lucide-react";
 import { BILLING_FEEDBACK_REASONS } from "@/lib/billing/billingFeedback";
+import { useBodyScrollLock } from "@/hooks/useBodyScrollLock";
 
 interface PlanFeedbackDialogProps {
   /**
@@ -46,6 +47,18 @@ export function PlanFeedbackDialog({
   const [comment, setComment] = useState("");
   const whose = ownerLabel ? `${ownerLabel}'s` : "your";
 
+  // The page holds still underneath. Escape closes; a tap outside closes too,
+  // unless a reason has been started.
+  useBodyScrollLock(true);
+  const dirty = !!category || comment.trim().length > 0;
+  useEffect(() => {
+    const onKey = (e: KeyboardEvent) => {
+      if (e.key === "Escape" && !pending) onClose();
+    };
+    window.addEventListener("keydown", onKey);
+    return () => window.removeEventListener("keydown", onKey);
+  }, [onClose, pending]);
+
   const copy = {
     title: "Pause this plan",
     icon: <PauseCircle className="w-5 h-5 text-amber-600" />,
@@ -64,16 +77,19 @@ export function PlanFeedbackDialog({
       role="dialog"
       aria-modal="true"
       aria-labelledby="plan-feedback-title"
+      onClick={(e) => {
+        if (e.target === e.currentTarget && !dirty && !pending) onClose();
+      }}
     >
-      <div className="w-full max-w-lg rounded-2xl premium-card shadow-xl max-h-[90vh] overflow-y-auto">
-        <div className="flex items-start justify-between gap-3 p-6 border-b border-border">
+      <div className="w-full max-w-lg rounded-2xl premium-card shadow-xl max-h-[calc(100dvh-2rem)] overflow-y-auto">
+        <div className="flex items-start justify-between gap-3 p-4 sm:p-6 border-b border-border">
           <div className="flex items-center gap-3">
             <div
               className={`w-10 h-10 rounded-xl ${copy.iconBg} flex items-center justify-center shrink-0`}
             >
               {copy.icon}
             </div>
-            <div>
+            <div className="min-w-0">
               <h2 id="plan-feedback-title" className="font-display text-lg font-bold leading-tight">
                 {copy.title}
               </h2>
@@ -82,24 +98,28 @@ export function PlanFeedbackDialog({
           </div>
           <button
             onClick={onClose}
-            className="w-8 h-8 rounded-lg hover:bg-muted flex items-center justify-center shrink-0"
+            className="size-11 sm:size-8 rounded-lg hover:bg-muted flex items-center justify-center shrink-0"
             aria-label="Close"
           >
             <X className="w-4 h-4" />
           </button>
         </div>
 
-        <div className="p-6 space-y-4 text-sm">
+        <div className="p-4 sm:p-6 space-y-4 text-sm">
           <p className="text-muted-foreground">{copy.body}</p>
 
           <div>
-            <label className="block text-xs font-semibold text-muted-foreground mb-1">
+            <label
+              htmlFor="pause-reason"
+              className="block text-xs font-semibold text-muted-foreground mb-1"
+            >
               Reason <span className="text-rose-600">*</span>
             </label>
             <select
+              id="pause-reason"
               value={category}
               onChange={(e) => setCategory(e.target.value)}
-              className="w-full rounded-lg border border-border bg-background p-2.5 text-sm"
+              className="w-full min-h-11 rounded-lg border border-border bg-background p-2.5 text-sm sm:min-h-0"
             >
               <option value="">Choose a reason…</option>
               {BILLING_FEEDBACK_REASONS.map((r) => (
@@ -111,10 +131,14 @@ export function PlanFeedbackDialog({
           </div>
 
           <div>
-            <label className="block text-xs font-semibold text-muted-foreground mb-1">
+            <label
+              htmlFor="pause-comment"
+              className="block text-xs font-semibold text-muted-foreground mb-1"
+            >
               Anything else? (optional)
             </label>
             <textarea
+              id="pause-comment"
               value={comment}
               onChange={(e) => setComment(e.target.value)}
               rows={2}
@@ -127,14 +151,14 @@ export function PlanFeedbackDialog({
             <button
               onClick={onClose}
               disabled={pending}
-              className="h-10 px-4 rounded-lg border border-border text-sm font-semibold hover:bg-muted disabled:opacity-50"
+              className="h-11 sm:h-10 px-4 rounded-lg border border-border text-sm font-semibold hover:bg-muted disabled:opacity-50"
             >
               {copy.keep}
             </button>
             <button
               onClick={() => onConfirm(category, comment)}
               disabled={!category || pending}
-              className={`flex-1 h-10 px-4 rounded-lg ${copy.confirmClass} text-white text-sm font-semibold hover:opacity-90 disabled:opacity-40 disabled:cursor-not-allowed inline-flex items-center justify-center gap-2`}
+              className={`flex-1 h-11 sm:h-10 px-4 rounded-lg ${copy.confirmClass} text-white text-sm font-semibold hover:opacity-90 disabled:opacity-40 disabled:cursor-not-allowed inline-flex items-center justify-center gap-2`}
             >
               {pending && <Loader2 className="w-4 h-4 animate-spin" />}
               {copy.confirm}

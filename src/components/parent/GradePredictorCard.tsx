@@ -46,7 +46,7 @@ export function GradePredictorCard({
   const gradesOneToNine = level !== "alevel";
 
   return (
-    <div className="premium-card p-6">
+    <div className="premium-card p-4 sm:p-6">
       <SectionHeading
         title="Predicted grades"
         hint={[levelLabel(level), "From quizzes and marked homework"].filter(Boolean).join(" · ")}
@@ -64,7 +64,7 @@ export function GradePredictorCard({
           return (
             <div
               key={row.subject}
-              className={`pop-card pop-card-banded p-5 ${subjectTint(row.subject)}`}
+              className={`pop-card pop-card-banded p-4 sm:p-5 ${subjectTint(row.subject)}`}
             >
               <div className="flex flex-wrap items-center justify-between gap-2">
                 <span className="chip uppercase">{subjectLabel(row.subject)}</span>

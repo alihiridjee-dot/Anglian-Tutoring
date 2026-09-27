@@ -172,7 +172,7 @@ export function MarkingQueue() {
 
   if (subs.length === 0) {
     return (
-      <div className="rounded-2xl border border-dashed border-border p-10 text-center text-muted-foreground">
+      <div className="rounded-2xl border border-dashed border-border p-6 sm:p-10 text-center text-muted-foreground">
         <Inbox className="w-8 h-8 mx-auto mb-3 opacity-50" />
         No homework submissions yet. Once students answer their homework it will appear here to
         review.
@@ -205,7 +205,7 @@ export function MarkingQueue() {
       <FilterBar value={filters} onChange={setFilters} />
 
       {shown.length === 0 ? (
-        <div className="rounded-2xl border border-dashed border-border p-10 text-center text-muted-foreground">
+        <div className="rounded-2xl border border-dashed border-border p-6 sm:p-10 text-center text-muted-foreground">
           <Inbox className="w-8 h-8 mx-auto mb-3 opacity-50" />
           {segment === "PENDING_REVIEW"
             ? "Nothing waiting to be reviewed here."
@@ -251,7 +251,7 @@ function SegmentTab({
   return (
     <button
       onClick={onClick}
-      className={`inline-flex items-center gap-2.5 rounded-xl border px-4 py-2.5 text-sm font-semibold transition ${
+      className={`inline-flex min-h-11 sm:min-h-0 items-center gap-2.5 rounded-xl border px-4 py-2.5 text-sm font-semibold transition ${
         active
           ? activeCls
           : "bg-secondary border-border text-muted-foreground hover:text-foreground"
@@ -397,7 +397,7 @@ function MarkSubmissionCard({
       </div>
 
       {open && (
-        <div className="border-t border-border p-6 space-y-5 bg-muted/20">
+        <div className="border-t border-border p-4 sm:p-6 space-y-5 bg-muted/20">
           {/* Submitted work */}
           <div>
             <p className="text-[10px] font-extrabold uppercase tracking-widest text-muted-foreground mb-2">
@@ -451,6 +451,7 @@ function MarkSubmissionCard({
             </span>
             <input
               type="number"
+              inputMode="numeric"
               min={0}
               max={100}
               value={scorePct}
@@ -480,7 +481,7 @@ function MarkSubmissionCard({
             />
           </label>
 
-          <div className="flex items-center justify-between gap-3">
+          <div className="flex flex-wrap items-center justify-between gap-3">
             {sub.graded_at && (
               <span className="text-[11px] text-muted-foreground">
                 Last marked {new Date(sub.graded_at).toLocaleString()}
@@ -489,7 +490,7 @@ function MarkSubmissionCard({
             <button
               onClick={save}
               disabled={saving}
-              className="ml-auto inline-flex items-center gap-2 h-10 px-5 rounded-lg btn-solid text-sm font-semibold hover:opacity-90 disabled:opacity-60"
+              className="ml-auto inline-flex items-center gap-2 h-11 sm:h-10 px-5 rounded-lg btn-solid text-sm font-semibold hover:opacity-90 disabled:opacity-60"
             >
               {saving ? (
                 <Loader2 className="w-4 h-4 animate-spin" />

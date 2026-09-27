@@ -216,7 +216,7 @@ export function ParentDashboard() {
           <div className="relative flex flex-col gap-3 sm:flex-row sm:items-center sm:justify-between">
             <div className="flex items-center gap-2.5">
               <span className="bg-accent h-2 w-2 shrink-0 animate-pulse rounded-full" />
-              <h2 className="text-lg font-bold tracking-tight text-white sm:text-xl">
+              <h2 className="text-lg font-bold tracking-tight break-words text-white sm:text-xl">
                 Welcome back, {displayEmailName}
               </h2>
             </div>

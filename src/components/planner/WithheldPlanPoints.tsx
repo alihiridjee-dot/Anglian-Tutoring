@@ -13,7 +13,7 @@ export function WithheldPlanPoints({
   if (!points.length) return null;
   return (
     <details className="premium-card tint-slate rounded-xl p-4 my-4">
-      <summary className="cursor-pointer text-sm font-bold">
+      <summary className="cursor-pointer text-sm font-bold py-3 -my-3 sm:py-0 sm:my-0">
         Saved work outside this week’s plan ({points.length})
       </summary>
       <p className="text-sm text-muted-foreground mt-2">

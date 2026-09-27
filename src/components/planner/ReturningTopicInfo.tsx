@@ -66,7 +66,7 @@ export function ReturningTopicInfo({
           aria-label={`Why ${title} is returning`}
           aria-expanded={open}
           aria-controls={open ? panelId : undefined}
-          className="chip p-1.5 shrink-0"
+          className="chip tap-target p-1.5 shrink-0"
           onClick={() => {
             if (open) setOpen(false);
             else show();
@@ -98,7 +98,7 @@ export function ReturningTopicInfo({
                 {onOriginalWeek && (
                   <button
                     type="button"
-                    className="btn-premium rounded-lg px-2.5 py-1.5 text-xs inline-flex items-center gap-1.5"
+                    className="btn-premium rounded-lg px-2.5 py-1.5 min-h-11 sm:min-h-0 text-xs inline-flex items-center gap-1.5"
                     onClick={() => {
                       setOpen(false);
 

@@ -1,5 +1,5 @@
 import { useMemo, useState } from "react";
-import { MessageSquarePlus } from "lucide-react";
+import { ArrowLeft, MessageSquarePlus } from "lucide-react";
 import { ErrorNote, SectionHeading, Spinner } from "@/components/Shared";
 import { useRoles } from "@/hooks/useRole";
 import { useChatThreads, type ThreadSummary } from "@/hooks/data/useChat";
@@ -22,6 +22,9 @@ export function ParentMessages({ childId, childName }: { childId: string; childN
   const { data: threads = EMPTY_THREADS, isPending, error, refetch } = useChatThreads();
   const [selectedId, setSelectedId] = useState<string | null>(null);
   const [composing, setComposing] = useState(false);
+  // On a phone the list and the thread take turns, as on the Messages page:
+  // picking a row opens the thread, and the back arrow returns to the list.
+  const [threadOpen, setThreadOpen] = useState(false);
 
   const aboutChild = useMemo(
     () => threads.filter((t) => t.about_student_id === childId),
@@ -30,12 +33,12 @@ export function ParentMessages({ childId, childName }: { childId: string; childN
   const selected = aboutChild.find((t) => t.id === selectedId) ?? aboutChild[0] ?? null;
 
   return (
-    <section data-tour="parent-messages" className="premium-card p-6">
+    <section data-tour="parent-messages" className="premium-card p-4 sm:p-6">
       <SectionHeading title="Messages">
         <button
           type="button"
           onClick={() => setComposing(true)}
-          className="btn-solid inline-flex h-9 items-center gap-1.5 rounded-lg px-3.5 text-sm font-semibold"
+          className="btn-solid inline-flex h-11 items-center sm:h-9 gap-1.5 rounded-lg px-3.5 text-sm font-semibold"
         >
           <MessageSquarePlus className="size-4" aria-hidden /> Message a tutor
         </button>
@@ -50,18 +53,34 @@ export function ParentMessages({ childId, childName }: { childId: string; childN
       ) : (
         aboutChild.length > 0 && (
           <div className="mt-5 grid gap-4 lg:grid-cols-[minmax(0,18rem)_1fr]">
-            <div className="pop-card pop-card-flat scroll-slim max-h-[28rem] overflow-y-auto">
+            <div
+              className={`pop-card pop-card-flat scroll-slim max-h-[28rem] overflow-y-auto ${threadOpen ? "max-lg:hidden" : ""}`}
+            >
               <ThreadList
                 threads={aboutChild}
                 selectedId={selected?.id ?? null}
-                onSelect={setSelectedId}
+                onSelect={(id) => {
+                  setSelectedId(id);
+                  setThreadOpen(true);
+                }}
                 showCounterpart
               />
             </div>
-            <div className="pop-card pop-card-flat h-[28rem] overflow-hidden">
-              {selected && userId && (
-                <ThreadView thread={selected} viewerId={userId} isTutor={false} />
-              )}
+            <div
+              className={`pop-card pop-card-flat flex h-[28rem] min-h-0 flex-col overflow-hidden ${threadOpen ? "" : "max-lg:hidden"}`}
+            >
+              <button
+                type="button"
+                onClick={() => setThreadOpen(false)}
+                className="border-border text-muted-foreground hover:text-foreground inline-flex min-h-11 items-center gap-2 border-b px-4 text-sm font-semibold lg:hidden"
+              >
+                <ArrowLeft className="size-4" aria-hidden /> All conversations
+              </button>
+              <div className="min-h-0 flex-1">
+                {selected && userId && (
+                  <ThreadView thread={selected} viewerId={userId} isTutor={false} />
+                )}
+              </div>
             </div>
           </div>
         )
@@ -74,6 +93,7 @@ export function ParentMessages({ childId, childName }: { childId: string; childN
           onCreated={(id) => {
             setComposing(false);
             setSelectedId(id);
+            setThreadOpen(true);
           }}
         />
       )}

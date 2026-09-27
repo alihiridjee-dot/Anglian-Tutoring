@@ -134,7 +134,7 @@ export function WeeklyFocusManager({ userId, taxonomy }: Props) {
   return (
     <div className="space-y-6">
       {/* Week banner + reset explanation (the Monday prompt). */}
-      <div className="rounded-2xl border border-primary/25 bg-primary/[0.04] p-5">
+      <div className="rounded-2xl border border-primary/25 bg-primary/[0.04] p-4 sm:p-5">
         <div className="flex flex-wrap items-center gap-3">
           <div className="w-10 h-10 rounded-xl bg-primary/10 border border-primary/20 flex items-center justify-center shrink-0">
             <CalendarRange className="w-5 h-5 text-primary" />
@@ -189,7 +189,7 @@ export function WeeklyFocusManager({ userId, taxonomy }: Props) {
       </div>
 
       {/* Editor. */}
-      <div className="max-w-2xl rounded-2xl premium-card p-6 space-y-4">
+      <div className="max-w-2xl rounded-2xl premium-card p-4 sm:p-6 space-y-4">
         <TaxonomyFields {...taxonomy} />
 
         <Field label="Note for students (optional)">
@@ -220,7 +220,7 @@ export function WeeklyFocusManager({ userId, taxonomy }: Props) {
             <button
               onClick={clear}
               disabled={saving}
-              className="h-10 px-4 rounded-lg border border-border text-sm font-medium text-muted-foreground hover:text-destructive hover:border-destructive/40 transition inline-flex items-center gap-2 disabled:opacity-60"
+              className="h-11 sm:h-10 px-4 rounded-lg border border-border text-sm font-medium text-muted-foreground hover:text-destructive hover:border-destructive/40 transition inline-flex items-center gap-2 disabled:opacity-60"
             >
               <Trash2 className="w-4 h-4" />
               Clear

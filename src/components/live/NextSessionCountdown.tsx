@@ -58,7 +58,7 @@ export function NextSessionCountdown({ className = "" }: { className?: string })
 
   return (
     <div
-      className={`rounded-2xl border p-5 mb-6 ${
+      className={`rounded-2xl border p-4 sm:p-5 mb-6 ${
         isLive
           ? "border-emerald-500/50 bg-emerald-500/5"
           : withinDay
@@ -92,7 +92,7 @@ export function NextSessionCountdown({ className = "" }: { className?: string })
           <WhatsCovered points={next.specPoints} />
         </div>
 
-        <div className="flex items-center gap-4 shrink-0">
+        <div className="flex flex-wrap items-center gap-4 shrink-0">
           {!isLive && (
             <div className="flex items-center gap-3">
               {days > 0 && <Segment value={String(days)} label={days === 1 ? "day" : "days"} />}
@@ -107,7 +107,7 @@ export function NextSessionCountdown({ className = "" }: { className?: string })
               href={next.join_url}
               target="_blank"
               rel="noreferrer"
-              className={`px-4 py-2.5 rounded-lg text-sm font-semibold inline-flex items-center gap-2 text-white transition-colors ${
+              className={`min-h-11 sm:min-h-0 px-4 py-2.5 rounded-lg text-sm font-semibold inline-flex items-center gap-2 text-white transition-colors ${
                 isLive ? "bg-emerald-600 hover:bg-emerald-700" : "bg-[#2D8CFF] hover:bg-[#2681F2]"
               }`}
             >

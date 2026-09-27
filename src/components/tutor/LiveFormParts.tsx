@@ -51,7 +51,7 @@ export function AiSuggestRow({
         type="button"
         onClick={suggestFromDescription}
         disabled={suggesting}
-        className="shrink-0 px-2.5 py-1 rounded bg-primary/10 hover:bg-primary/15 text-primary text-xs font-semibold inline-flex items-center gap-1 transition-colors cursor-pointer disabled:opacity-70"
+        className="shrink-0 min-h-11 sm:min-h-0 px-2.5 py-1 rounded bg-primary/10 hover:bg-primary/15 text-primary text-xs font-semibold inline-flex items-center gap-1 transition-colors cursor-pointer disabled:opacity-70"
         title="Suggest spec points with AI from the title & description"
       >
         {suggesting ? (
@@ -77,7 +77,7 @@ export function BroadcastToggle({
           Broadcast Notifications
         </span>
       </div>
-      <label className="flex items-center gap-2 cursor-pointer text-sm">
+      <label className="flex min-h-11 sm:min-h-0 items-center gap-2 cursor-pointer text-sm">
         <input
           type="checkbox"
           className="rounded border-border text-[#25D366] focus:ring-[#25D366]"

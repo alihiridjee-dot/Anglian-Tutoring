@@ -372,7 +372,7 @@ function ThisWeek({ sets, attempts }: { sets: QuizSet[]; attempts: Record<string
   const done = sets.filter((s) => attempts[s.id]).length;
 
   return (
-    <section data-guide="mcq-this-week" className="surface-loud p-5">
+    <section data-guide="mcq-this-week" className="surface-loud p-4 sm:p-5">
       <div className="flex flex-wrap items-center justify-between gap-3">
         <div className="flex items-center gap-2.5">
           <span className="icon-tile size-9 rounded-xl">

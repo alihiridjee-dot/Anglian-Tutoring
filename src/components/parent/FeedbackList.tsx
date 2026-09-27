@@ -23,7 +23,7 @@ export function FeedbackList({ items }: { items: FeedbackItem[] }) {
   if (items.length === 0) return null;
 
   return (
-    <div className="premium-card p-6">
+    <div className="premium-card p-4 sm:p-6">
       <SectionHeading title="Tutor feedback">
         <span className="icon-tile tint-amber size-8">
           <Award className="size-4" aria-hidden />
@@ -39,7 +39,7 @@ export function FeedbackList({ items }: { items: FeedbackItem[] }) {
             <div className="flex items-start justify-between gap-2">
               <div className="min-w-0">
                 <span className="chip">{subjectLabel(f.subject)}</span>
-                <p className="mt-1.5 text-sm font-semibold">{f.homeworkTitle}</p>
+                <p className="mt-1.5 text-sm font-semibold break-words">{f.homeworkTitle}</p>
               </div>
               <span className="text-muted-foreground shrink-0 text-xs">{timeAgo(f.gradedAt)}</span>
             </div>

@@ -1,6 +1,7 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { AlertTriangle, Check, Loader2, MinusCircle, X } from "lucide-react";
 import { BILLING_FEEDBACK_REASONS } from "@/lib/billing/billingFeedback";
+import { useBodyScrollLock } from "@/hooks/useBodyScrollLock";
 
 interface RemoveSubjectDialogProps {
   /** Display name of the subject being dropped ("Chemistry"). */
@@ -61,20 +62,35 @@ export function RemoveSubjectDialog({
     ? `${remainingLabels.join(" and ")} ${remainingLabels.length === 1 ? "carries" : "carry"} on exactly as now.`
     : "The rest of the plan carries on exactly as now.";
 
+  // The page holds still underneath. Escape closes; a tap outside closes too,
+  // unless a reason or the subject name has been started.
+  useBodyScrollLock(true);
+  const dirty = !!category || comment.trim().length > 0 || typed.trim().length > 0;
+  useEffect(() => {
+    const onKey = (e: KeyboardEvent) => {
+      if (e.key === "Escape" && !pending) onClose();
+    };
+    window.addEventListener("keydown", onKey);
+    return () => window.removeEventListener("keydown", onKey);
+  }, [onClose, pending]);
+
   return (
     <div
       className="fixed inset-0 z-50 flex items-center justify-center bg-primary-deep/50 p-4"
       role="dialog"
       aria-modal="true"
       aria-labelledby="remove-subject-title"
+      onClick={(e) => {
+        if (e.target === e.currentTarget && !dirty && !pending) onClose();
+      }}
     >
-      <div className="w-full max-w-lg rounded-2xl premium-card shadow-xl max-h-[90vh] overflow-y-auto">
-        <div className="flex items-start justify-between gap-3 p-6 border-b border-border">
+      <div className="w-full max-w-lg rounded-2xl premium-card shadow-xl max-h-[calc(100dvh-2rem)] overflow-y-auto">
+        <div className="flex items-start justify-between gap-3 p-4 sm:p-6 border-b border-border">
           <div className="flex items-center gap-3">
             <div className="w-10 h-10 rounded-xl bg-amber-100 flex items-center justify-center shrink-0">
               <MinusCircle className="w-5 h-5 text-amber-600" />
             </div>
-            <div>
+            <div className="min-w-0">
               <h2
                 id="remove-subject-title"
                 className="font-display text-lg font-bold leading-tight"
@@ -88,14 +104,14 @@ export function RemoveSubjectDialog({
           </div>
           <button
             onClick={onClose}
-            className="w-8 h-8 rounded-lg hover:bg-muted flex items-center justify-center shrink-0"
+            className="size-11 sm:size-8 rounded-lg hover:bg-muted flex items-center justify-center shrink-0"
             aria-label="Close"
           >
             <X className="w-4 h-4" />
           </button>
         </div>
 
-        <div className="p-6 space-y-4 text-sm">
+        <div className="p-4 sm:p-6 space-y-4 text-sm">
           <ul className="space-y-2.5">
             <li className="flex gap-2.5">
               <AlertTriangle className="w-4 h-4 text-amber-600 shrink-0 mt-0.5" />
@@ -150,7 +166,7 @@ export function RemoveSubjectDialog({
               id="remove-reason"
               value={category}
               onChange={(e) => setCategory(e.target.value)}
-              className="w-full rounded-lg border border-border bg-background p-2.5 text-sm"
+              className="w-full min-h-11 rounded-lg border border-border bg-background p-2.5 text-sm sm:min-h-0"
             >
               <option value="">Choose a reason…</option>
               {BILLING_FEEDBACK_REASONS.map((r) => (
@@ -196,18 +212,18 @@ export function RemoveSubjectDialog({
             />
           </div>
 
-          <div className="flex gap-2 pt-1">
+          <div className="flex flex-wrap gap-2 pt-1">
             <button
               onClick={onClose}
               disabled={pending}
-              className="flex-1 h-10 px-4 rounded-lg btn-solid text-sm font-semibold hover:opacity-90 disabled:opacity-50"
+              className="flex-1 h-11 sm:h-10 px-4 rounded-lg btn-solid text-sm font-semibold hover:opacity-90 disabled:opacity-50"
             >
               Keep {subjectLabel}
             </button>
             <button
               onClick={() => onConfirm(category, comment)}
               disabled={!category || !matches || pending}
-              className="h-10 px-4 rounded-lg bg-rose-600 text-white text-sm font-semibold hover:opacity-90 disabled:opacity-40 disabled:cursor-not-allowed inline-flex items-center justify-center gap-2"
+              className="h-11 sm:h-10 px-4 rounded-lg bg-rose-600 text-white text-sm font-semibold hover:opacity-90 disabled:opacity-40 disabled:cursor-not-allowed inline-flex items-center justify-center gap-2"
             >
               {pending && <Loader2 className="w-4 h-4 animate-spin" />}
               Remove {subjectLabel}

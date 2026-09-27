@@ -59,6 +59,9 @@
 
   /* Named so pages can write `bg-tint/10`, `text-bio`, `border-pop` etc. */
   --color-tint: var(--tint);
+  /* The dialogs' scrim. `bg-primary-deep/50` compiled to nothing until this
+     was registered, so every modal's backdrop was transparent. */
+  --color-primary-deep: var(--primary-deep);
   --color-pop: var(--pop);
   --color-bio: var(--bio);
   --color-chem: var(--chem);
@@ -227,7 +230,8 @@
   .premium-card,
   .sticker,
   .marker,
-  .banner-strip {
+  .banner-strip,
+  .tap-target {
     position: relative;
   }
 
@@ -1165,6 +1169,84 @@ body {
 }
 .scroll-slim::-webkit-scrollbar-track {
   background: transparent;
+}
+
+/* ════════════════════════════════════════════════════════════════════════════
+   MOBILE
+   What a phone needs and no single screen should have to remember.
+   ════════════════════════════════════════════════════════════════════════════ */
+
+/* The page never scrolls sideways. Set on `html` alone: from there it
+   propagates to the viewport and every sticky bar keeps working. Set on `body`
+   too, it would make the body its own scroll container and pin each `sticky`
+   header to a box that never scrolls. Wide content still has to be fixed at
+   source — this is the safety net, not the fix. */
+html {
+  overflow-x: hidden;
+}
+
+/* Notch insets, resolved by `viewport-fit=cover` in the root route. The sides
+   are padded once, here. The bottom is padded by the surfaces that reach it
+   (`pb-[calc(…+env(safe-area-inset-bottom))]`), because a fixed backdrop
+   should still cover the home indicator. */
+body {
+  padding-left: env(safe-area-inset-left);
+  padding-right: env(safe-area-inset-right);
+}
+
+/* iOS zooms the page when a focused field's text is under 16px, and never
+   quite zooms back out. Any field set in the kit's two small sizes grows to
+   16px on a touch screen or a phone-width window; fields set larger are left
+   alone. Unlayered so it beats the utility that set the size, like the rest of
+   the kit. */
+@media (pointer: coarse), (max-width: 40rem) {
+  :where(input, select, textarea):where(.text-xs, .text-sm) {
+    font-size: 1rem;
+    line-height: 1.5;
+  }
+}
+
+/* Thumbs. A tab segment is a nav link, so it meets the 44px minimum on touch
+   screens; the pill around it grows with it. */
+@media (pointer: coarse) {
+  .tab-item {
+    min-height: 2.75rem;
+  }
+}
+
+/* A short segmented row (up to four segments) fills a phone's width rather
+   than scrolling with its first segment cut off: the segments share the width
+   and their labels wrap. Longer rows keep scrolling. */
+@media (max-width: 40rem) {
+  .tab-row-fluid {
+    width: 100%;
+  }
+  .tab-row-fluid > .tab-item {
+    flex: 1 1 0;
+    min-width: 0;
+    flex-wrap: wrap;
+    justify-content: center;
+    text-align: center;
+    white-space: normal;
+    font-size: 0.8125rem;
+    line-height: 1.15;
+    padding-inline: 0.375rem;
+  }
+}
+
+/* A control drawn small — a close ×, a chevron, a chip's remove button — gets a
+   44px hit area without growing on screen. It needs a positioned box, so
+   `position` lives in the components layer with the others, where a utility
+   can still override it. Don't put it on anything that already draws an
+   `::after`. */
+.tap-target::after {
+  content: "";
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  width: max(100%, 44px);
+  height: max(100%, 44px);
+  transform: translate(-50%, -50%);
 }
 
 /* ════════════════════════════════════════════════════════════════════════════

@@ -26,8 +26,8 @@ export function InvoiceHistory() {
   }
 
   return (
-    <div className="overflow-x-auto">
-      <table className="w-full text-sm">
+    <div className="scroll-slim -mx-4 overflow-x-auto px-4 sm:mx-0 sm:px-0">
+      <table className="w-full min-w-[34rem] text-sm">
         <thead>
           <tr className="text-left text-xs uppercase tracking-wider text-muted-foreground border-b border-border">
             <th className="py-2 pr-4 font-semibold">Date</th>
@@ -68,7 +68,7 @@ export function InvoiceHistory() {
                     href={inv.hosted_invoice_url}
                     target="_blank"
                     rel="noreferrer"
-                    className="inline-flex items-center gap-1 text-primary hover:underline font-semibold mr-3"
+                    className="inline-flex min-h-11 items-center gap-1 text-primary hover:underline font-semibold mr-3 sm:min-h-0"
                   >
                     View <ExternalLink className="w-3 h-3" />
                   </a>
@@ -76,7 +76,7 @@ export function InvoiceHistory() {
                 {inv.invoice_pdf && (
                   <a
                     href={inv.invoice_pdf}
-                    className="inline-flex items-center gap-1 text-primary hover:underline font-semibold"
+                    className="inline-flex min-h-11 items-center gap-1 text-primary hover:underline font-semibold sm:min-h-0"
                   >
                     PDF <Download className="w-3 h-3" />
                   </a>
@@ -93,7 +93,7 @@ export function InvoiceHistory() {
 /** Card wrapper used by both the billing page and the parent dashboard. */
 export function InvoiceHistoryCard() {
   return (
-    <div className="relative overflow-hidden rounded-2xl border border-primary/30 bg-gradient-to-br from-primary/5 via-card to-card p-6 shadow-sm">
+    <div className="relative overflow-hidden rounded-2xl border border-primary/30 bg-gradient-to-br from-primary/5 via-card to-card p-4 sm:p-6 shadow-sm">
       {/* soft glow accent */}
       <div className="pointer-events-none absolute -top-16 -right-16 h-40 w-40 rounded-full bg-primary/10 blur-3xl" />
 

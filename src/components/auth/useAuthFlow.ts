@@ -14,6 +14,8 @@ export type SearchParams = {
   subjects?: string;
   board?: string;
   redirect?: string;
+  /** A free-trial code from the emailed link; remembered for the plan page. */
+  trial?: string;
 };
 
 type Role = "student" | "parent";

@@ -185,7 +185,7 @@ export function StudentGuide({
         ref={trigger}
         data-guide="guide"
         onClick={start}
-        className="btn-premium inline-flex items-center gap-2 rounded-xl px-3 py-2 text-sm tint-primary"
+        className="btn-premium inline-flex min-h-11 items-center gap-2 rounded-xl px-3 py-2 text-sm tint-primary sm:min-h-0"
       >
         <span aria-hidden="true">🧭</span> Show me around
       </button>
@@ -288,14 +288,14 @@ export function StudentGuide({
             </div>
             <Meter value={((index! + 1) / available.length) * 100} size="sm" />
             <div className="mt-5 flex items-center gap-2">
-              <button onClick={close} className="btn-ghost rounded-xl px-2 py-2 text-sm">
+              <button onClick={close} className="btn-ghost min-h-11 rounded-xl px-2 py-2 text-sm">
                 Skip
               </button>
               <div className="ml-auto flex gap-2">
                 {index! > 0 && (
                   <button
                     onClick={() => setIndex(index! - 1)}
-                    className="btn-premium rounded-xl px-3 py-2 text-sm"
+                    className="btn-premium min-h-11 rounded-xl px-3 py-2 text-sm"
                   >
                     Back
                   </button>
@@ -303,7 +303,7 @@ export function StudentGuide({
                 <button
                   autoFocus
                   onClick={() => (index === available.length - 1 ? close() : setIndex(index! + 1))}
-                  className="btn-solid inline-flex items-center gap-2 rounded-xl px-3 py-2 text-sm"
+                  className="btn-solid inline-flex min-h-11 items-center gap-2 rounded-xl px-3 py-2 text-sm"
                 >
                   {index === available.length - 1 ? "Let’s go" : "Next"}
                   <ArrowRight className="size-4" aria-hidden />

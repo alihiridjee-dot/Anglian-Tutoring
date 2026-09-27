@@ -76,7 +76,7 @@ export function WeekPointRow({
       <div className="flex flex-wrap items-center gap-2">
         <WorkChips work={work} coverage={showCoverage ? cov : null} onPlay={onPlay} />
         {hasPractice && isPast && onFocusAgain && (
-          <button type="button" onClick={() => onFocusAgain(p)} className="chip text-xs">
+          <button type="button" onClick={() => onFocusAgain(p)} className="chip tap-target text-xs">
             <RotateCcw className="size-3" />
             Focus again
           </button>

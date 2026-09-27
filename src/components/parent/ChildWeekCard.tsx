@@ -14,7 +14,7 @@ export function ChildWeekCard({ weeks }: { weeks: ChildWeekSubject[] }) {
   if (weeks.length === 0) return null;
 
   return (
-    <div className="premium-card p-6">
+    <div className="premium-card p-4 sm:p-6">
       <SectionHeading title="This week" hint={weekRangeLabel(mondayOf())} />
       <div className="mt-5 space-y-6">
         {weeks.map((w) => {

@@ -48,7 +48,7 @@ export function EngagementStats({
   if (sessionsHeld === 0 && homeworkSet === 0) return null;
 
   return (
-    <div className="premium-card p-6">
+    <div className="premium-card p-4 sm:p-6">
       <SectionHeading title="Engagement" />
       <div className="mt-5 space-y-5">
         {sessionsHeld > 0 && (

@@ -29,7 +29,7 @@ export function StudentMessages({ studentId }: { studentId: string }) {
       <SectionHeading title="Conversations">
         <Link
           to="/messages"
-          className="btn-soft inline-flex h-9 items-center gap-1.5 rounded-lg px-3 text-xs font-semibold"
+          className="btn-soft inline-flex h-11 sm:h-9 items-center gap-1.5 rounded-lg px-3 text-xs font-semibold"
         >
           <MessagesSquare className="size-4" aria-hidden /> Open messages
         </Link>

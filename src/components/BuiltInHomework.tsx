@@ -90,7 +90,9 @@ export function AnsweredView({
             <li key={q.id} className="premium-card p-4">
               <div className="flex items-start gap-2">
                 <span className="numeral text-muted-foreground shrink-0 text-xs">Q{i + 1}</span>
-                <p className="flex-1 text-sm font-medium whitespace-pre-wrap">{q.prompt}</p>
+                <p className="min-w-0 flex-1 text-sm font-medium break-words whitespace-pre-wrap">
+                  {q.prompt}
+                </p>
                 <span className="numeral text-muted-foreground shrink-0 text-xs">
                   {a?.awarded_marks != null
                     ? `${Number(a.awarded_marks)}/${q.marks}`
@@ -330,6 +332,7 @@ export function AnswerForm({
               value={draftOf(q.id).text}
               onChange={(e) => patch(q.id, { text: e.target.value })}
               placeholder={TYPE_HINT[q.answer_type]}
+              aria-label={`Answer to question ${i + 1}`}
               className={`premium-input w-full rounded-lg px-3 py-2 text-sm ${
                 q.answer_type === "long" ? "min-h-32" : "min-h-16"
               }`}
@@ -342,6 +345,7 @@ export function AnswerForm({
         value={notes}
         onChange={(e) => setNotes(e.target.value)}
         placeholder="Anything you'd like your tutor to know (optional)"
+        aria-label="Note for your tutor (optional)"
         className="premium-input min-h-16 w-full rounded-lg px-3 py-2 text-sm"
       />
 
@@ -359,7 +363,7 @@ export function AnswerForm({
               type="button"
               onClick={submit}
               disabled={saving}
-              className="btn-solid inline-flex h-10 items-center justify-center gap-2 rounded-lg px-5 text-sm font-semibold disabled:opacity-60"
+              className="btn-solid inline-flex h-11 items-center justify-center gap-2 rounded-lg px-5 text-sm font-semibold disabled:opacity-60 sm:h-10"
             >
               {saving ? <Loader2 className="size-4 animate-spin" /> : <Send className="size-4" />}
               {saving ? "Submitting…" : "Yes, hand it in"}
@@ -368,7 +372,7 @@ export function AnswerForm({
               type="button"
               onClick={() => setConfirming(false)}
               disabled={saving}
-              className="btn-premium inline-flex h-10 items-center rounded-lg px-4 text-sm font-semibold disabled:opacity-60"
+              className="btn-premium inline-flex h-11 items-center rounded-lg px-4 text-sm font-semibold disabled:opacity-60 sm:h-10"
             >
               Keep working
             </button>
@@ -382,7 +386,7 @@ export function AnswerForm({
           </p>
           <button
             type="submit"
-            className="btn-solid inline-flex h-10 w-full items-center justify-center gap-2 rounded-lg text-sm font-semibold"
+            className="btn-solid inline-flex h-11 w-full items-center justify-center gap-2 rounded-lg text-sm font-semibold sm:h-10"
           >
             <Send className="size-4" />
             Submit answers
@@ -397,7 +401,9 @@ function QuestionHeader({ q, index }: { q: HomeworkQuestion; index: number }) {
   return (
     <div className="flex items-start gap-2">
       <span className="numeral text-muted-foreground shrink-0 text-xs">Q{index + 1}</span>
-      <p className="flex-1 text-sm font-medium whitespace-pre-wrap">{q.prompt}</p>
+      <p className="min-w-0 flex-1 text-sm font-medium break-words whitespace-pre-wrap">
+        {q.prompt}
+      </p>
       <span className="numeral text-muted-foreground shrink-0 text-xs">[{q.marks}]</span>
     </div>
   );

@@ -120,7 +120,7 @@ export function ForgettingCurve() {
         </span>
       </figcaption>
 
-      <div className="overflow-x-auto">
+      <div className="scroll-slim -mx-5 overflow-x-auto px-5 sm:mx-0 sm:px-0">
         <svg
           viewBox={`0 0 ${W} ${H}`}
           /* Scrolls inside its own container on narrow screens rather than

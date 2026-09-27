@@ -2,10 +2,11 @@ import { useOnboardingUser } from "@/hooks/useOnboardingUser";
 import { ErrorNote, Spinner } from "@/components/Shared";
 import { createFileRoute, useNavigate } from "@tanstack/react-router";
 import { useQueryClient } from "@tanstack/react-query";
-import { Loader2, CreditCard } from "lucide-react";
+import { Loader2, CreditCard, Gift } from "lucide-react";
 import { useSignOut } from "@/hooks/useSignOut";
 import { formatPence } from "@/lib/billing/billing";
 import { usePlanStep, type SearchParams } from "@/components/onboarding/usePlanStep";
+import { TrialCodeField, TRIAL_DAYS } from "@/components/billing/TrialCodeField";
 import {
   AskParentCard,
   CadencePicker,
@@ -64,7 +65,10 @@ function PlanStep() {
     selectedPkg,
     selectedUnit,
     payNow,
+    trialCode,
+    setTrialCode,
   } = step;
+  const withTrial = !!trialCode.trim();
 
   if (search.checkout === "success" && confirmDelayed) {
     return <PaymentStillConfirming onCheckAgain={() => setConfirmRound((n) => n + 1)} />;
@@ -78,7 +82,7 @@ function PlanStep() {
   // at a student who only paused is the exact mistake this page guards against.
   if (planStatePending) {
     return (
-      <div className="pop-card p-10 text-center">
+      <div className="pop-card p-6 text-center sm:p-10">
         <Spinner className="py-2" />
       </div>
     );
@@ -124,6 +128,14 @@ function PlanStep() {
 
             <PlanTotal selectedPkg={selectedPkg} selectedUnit={selectedUnit} />
 
+            <TrialCodeField
+              value={trialCode}
+              onChange={setTrialCode}
+              thenPrice={
+                selectedPkg ? `${formatPence(selectedPkg.price_pence)} ${selectedUnit}` : undefined
+              }
+            />
+
             {!selectedPkg && (
               <p className="mt-3 text-xs text-rose-600">
                 We couldn't find a matching plan for your subjects. Please get in touch and we'll
@@ -140,6 +152,10 @@ function PlanStep() {
               {redirecting ? (
                 <>
                   <Loader2 className="w-4 h-4 animate-spin" /> Taking you to Stripe…
+                </>
+              ) : withTrial ? (
+                <>
+                  <Gift className="w-4 h-4" /> Start {TRIAL_DAYS}-day free trial
                 </>
               ) : (
                 <>
@@ -161,14 +177,14 @@ function PlanStep() {
         <button
           type="button"
           onClick={() => navigate({ to: "/onboarding/school" })}
-          className="text-xs text-muted-foreground hover:text-foreground"
+          className="inline-flex min-h-11 items-center text-xs text-muted-foreground hover:text-foreground sm:min-h-0"
         >
           ← Back to your profile
         </button>
         <button
           type="button"
           onClick={signOut}
-          className="text-xs text-muted-foreground hover:text-foreground"
+          className="inline-flex min-h-11 items-center text-xs text-muted-foreground hover:text-foreground sm:min-h-0"
         >
           Sign out
         </button>

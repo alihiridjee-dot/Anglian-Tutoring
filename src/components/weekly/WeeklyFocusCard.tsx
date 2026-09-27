@@ -121,7 +121,7 @@ export function WeeklyFocusCard({
                   </ul>
 
                   {planVideos.length > 0 && (
-                    <div className="grid grid-cols-3 sm:grid-cols-4 gap-2">
+                    <div className="grid grid-cols-2 sm:grid-cols-4 gap-2">
                       {planVideos.map((v) => (
                         <button
                           key={v.id}

@@ -9,7 +9,7 @@ export const Route = createFileRoute("/_authenticated/notes")({
 function Notes() {
   return (
     <AppLayout title="Revision Notes">
-      <div className="rounded-2xl premium-card p-8 text-center">
+      <div className="rounded-2xl premium-card p-4 text-center sm:p-8">
         <p className="text-muted-foreground">
           Personal notes are coming soon. In the meantime, your week&rsquo;s videos, quizzes and
           homework are all on your{" "}

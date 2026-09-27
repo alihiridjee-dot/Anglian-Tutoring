@@ -41,9 +41,9 @@ export function TrendsChart({
   ) satisfies ChartConfig;
 
   return (
-    <div className="premium-card p-6">
+    <div className="premium-card p-4 sm:p-6">
       <SectionHeading title="Performance trends" hint="Weekly quiz averages, last six weeks">
-        <div className="flex gap-4 text-xs font-semibold">
+        <div className="flex flex-wrap gap-x-4 gap-y-1 text-xs font-semibold">
           {subjects.map((s) => (
             <span
               key={s}

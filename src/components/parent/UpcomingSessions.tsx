@@ -12,7 +12,7 @@ export function UpcomingSessions({ sessions }: { sessions: UpcomingSession[] }) 
   if (sessions.length === 0) return null;
 
   return (
-    <div className="premium-card p-6">
+    <div className="premium-card p-4 sm:p-6">
       <SectionHeading title="Upcoming sessions" />
       <ul className="mt-5 space-y-3">
         {sessions.map((s) => (
@@ -21,7 +21,7 @@ export function UpcomingSessions({ sessions }: { sessions: UpcomingSession[] }) 
             className={`pop-card pop-card-flat rounded-xl p-4 ${subjectTint(s.subject)}`}
           >
             <span className="chip">{subjectLabel(s.subject)}</span>
-            <p className="mt-1.5 text-sm font-semibold">{s.title}</p>
+            <p className="mt-1.5 text-sm font-semibold break-words">{s.title}</p>
             <p className="numeral mt-1 text-sm text-[color:var(--tint)]">
               {formatWhen(new Date(s.starts_at).getTime())}
             </p>
