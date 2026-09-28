@@ -901,7 +901,7 @@ export type Database = {
         Row: {
           board: Database["public"]["Enums"]["board"] | null;
           created_at: string;
-          created_by: string;
+          created_by: string | null;
           description: string | null;
           due_at: string | null;
           duration_seconds: number | null;
@@ -926,7 +926,7 @@ export type Database = {
         Insert: {
           board?: Database["public"]["Enums"]["board"] | null;
           created_at?: string;
-          created_by: string;
+          created_by?: string | null;
           description?: string | null;
           due_at?: string | null;
           duration_seconds?: number | null;
@@ -951,7 +951,7 @@ export type Database = {
         Update: {
           board?: Database["public"]["Enums"]["board"] | null;
           created_at?: string;
-          created_by?: string;
+          created_by?: string | null;
           description?: string | null;
           due_at?: string | null;
           duration_seconds?: number | null;
@@ -1892,6 +1892,10 @@ export type Database = {
       grade_mcq_attempt: {
         Args: { _answers: Json; _set_id: string };
         Returns: Json;
+      };
+      homework_mark_schemes: {
+        Args: { _resource_ids: string[] };
+        Returns: { mark_scheme: string; question_id: string }[];
       };
       invite_parent_by_email: { Args: { _email: string }; Returns: Json };
       is_enrolled_in: {

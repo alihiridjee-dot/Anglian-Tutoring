@@ -1,5 +1,6 @@
 import { useCallback, useEffect, useMemo, useState } from "react";
 import { supabase } from "@/integrations/supabase/client";
+import { QUESTION_COLUMNS, withMarkSchemes } from "@/lib/homework/markSchemes";
 import type { HomeworkQuestion, HomeworkAnswer } from "@/hooks/data/useHomeworkQuestions";
 
 /**
@@ -42,9 +43,7 @@ export function useAnswerMarking(
       const [qRes, aRes, sRes] = await Promise.all([
         supabase
           .from("homework_questions")
-          .select(
-            "id, resource_id, position, prompt, marks, answer_type, mark_scheme, spec_point_id",
-          )
+          .select(QUESTION_COLUMNS)
           .eq("resource_id", resourceId)
           .order("position", { ascending: true }),
         supabase
@@ -59,7 +58,11 @@ export function useAnswerMarking(
       ]);
       if (cancelled) return;
 
-      const qs = (qRes.data ?? []) as HomeworkQuestion[];
+      // A scheme that fails to load shows as none; marking still works.
+      const qs = (await withMarkSchemes(qRes.data ?? []).catch(() =>
+        (qRes.data ?? []).map((q) => ({ ...q, mark_scheme: null })),
+      )) as HomeworkQuestion[];
+      if (cancelled) return;
 
       // The staged proposal, if one was made, keyed for lookup below.
       const staged = new Map<string, StagedMark>();
