@@ -269,7 +269,27 @@ assert.equal(survived.rows[0].created_by, null, "The sheet still points at a del
 assert.equal(survived.rows[0].subs, 1, "Another student's submission went with the author");
 
 // ── #10 Mark schemes after marking ────────────────────────────────────────
+// Between the two migrations both apps must work: the one still live selects
+// the column directly, and the new one calls the function.
 await as(child);
+assert.equal(
+  (await db.query("select mark_scheme from homework_questions")).rows.length,
+  1,
+  "The first migration broke the app that still reads the column",
+);
+await db.query("select * from homework_mark_schemes($1)", [[sheet]]);
+
+await asAdmin(async () =>
+  db.exec(
+    await readFile(
+      new URL(
+        "../supabase/migrations/20260928090100_withhold_homework_mark_schemes.sql",
+        import.meta.url,
+      ),
+      "utf8",
+    ),
+  ),
+);
 await fails(
   () => db.query("select mark_scheme from homework_questions"),
   "A student read the mark_scheme column directly",
@@ -426,5 +446,21 @@ assert.equal(
   3,
   "A relinked parent didn't get the history back",
 );
+
+// ── Both rollbacks run, newest first ──────────────────────────────────────
+// Restoring NOT NULL needs every sheet to have an author again, which is the
+// rollback's stated precondition.
+await asAdmin(async () => {
+  await db.query("delete from resources where created_by is null");
+  for (const f of [
+    "20260928090100_withhold_homework_mark_schemes",
+    "20260928090000_fix_first_access_rules",
+  ])
+    await db.exec(
+      await readFile(new URL(`../supabase/rollbacks/${f}.down.sql`, import.meta.url), "utf8"),
+    );
+});
+await as(sibling);
+await open(child, null); // the #2 hole is back: proof the rollback restored the old rule
 
 console.log("fix-first access migration: all checks passed");

@@ -37,9 +37,9 @@ create policy "resources bucket read scoped" on storage.objects
       )
     )
   );
+-- Roll back 20260928090100_withhold_homework_mark_schemes.sql first: the app
+-- reads schemes through this function once the column is withheld.
 drop function if exists public.homework_mark_schemes(uuid[]);
-grant select on public.homework_questions to authenticated;
-grant select on public.homework_questions to anon;
 
 -- #9
 alter table public.student_program_plan

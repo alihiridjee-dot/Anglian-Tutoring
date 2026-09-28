@@ -296,15 +296,10 @@ alter table public.student_program_plan
 -- response. Same approach as mcq_questions.correct_index: withdraw the
 -- column from browser reads and hand it out through a function that checks.
 --
--- Revoking one column is a no-op while a table-wide SELECT grant exists, so
--- drop the table grant and re-grant every other column. INSERT, UPDATE and
--- DELETE stay granted (RLS still limits them to tutors).
-revoke select on public.homework_questions from authenticated;
-revoke select on public.homework_questions from anon;
-grant select (
-  id, resource_id, position, prompt, marks, answer_type,
-  image_path, image_name, spec_point_id, created_at
-) on public.homework_questions to authenticated;
+-- This migration only adds the function. Withdrawing the column is the
+-- separate 20260928090100_withhold_homework_mark_schemes.sql, applied once
+-- the app that reads through this function is live: the app before it still
+-- selects the column, and would break in between.
 
 -- Mark schemes for the given homework, for a tutor, or for a student (or
 -- their linked parent) whose submission for that homework has been marked.
