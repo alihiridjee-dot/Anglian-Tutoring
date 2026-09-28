@@ -26,7 +26,7 @@ import {
   type LucideIcon,
 } from "lucide-react";
 import { isTeachBand, type PacingBand } from "@/lib/planner/pacing";
-import { ProgramDAL } from "@/lib/planner/programDal";
+import { ProgramDAL, examDateBounds } from "@/lib/planner/programDal";
 import { type RoadmapResult } from "@/lib/planner/roadmap";
 import { ScheduleDAL, type MemoryStats, type TopicProgress } from "@/lib/planner/scheduleDal";
 import { type Enrolment } from "@/lib/profile/enrolment";
@@ -559,8 +559,24 @@ function FullPlanTab({
   const [savingDate, setSavingDate] = useState(false);
   const [catchUpOpen, setCatchUpOpen] = useState(false);
 
+  const { min: minExamDate, max: maxExamDate } = examDateBounds();
+  const lastSavedDate = useRef(data.examDate);
+  const pendingDate = useRef<ReturnType<typeof setTimeout>>(undefined);
+  useEffect(() => () => clearTimeout(pendingDate.current), []);
+
+  // Typing into a date box fires a change per keystroke, and the first digit of
+  // the year is already a complete date ("0002-06-01"). So wait for a pause (or
+  // for the box to lose focus) and only ever save a date in range.
+  const queueExamDate = (value: string, now = false) => {
+    clearTimeout(pendingDate.current);
+    if (!value || value < minExamDate || value > maxExamDate) return;
+    if (now) void saveExamDate(value);
+    else pendingDate.current = setTimeout(() => void saveExamDate(value), 800);
+  };
+
   const saveExamDate = async (value: string) => {
-    if (!value || value === data.examDate) return;
+    if (value === lastSavedDate.current) return;
+    lastSavedDate.current = value;
     setSavingDate(true);
     try {
       await ProgramDAL.setExamDate({ studentId, subject, examDate: value });
@@ -578,6 +594,7 @@ function FullPlanTab({
       );
       onChanged();
     } catch (e) {
+      lastSavedDate.current = data.examDate;
       toast.error(e instanceof Error ? e.message : "Couldn't update the exam date — try again.");
     } finally {
       setSavingDate(false);
@@ -611,8 +628,11 @@ function FullPlanTab({
             <input
               type="date"
               defaultValue={data.examDate}
+              min={minExamDate}
+              max={maxExamDate}
               disabled={savingDate}
-              onChange={(e) => saveExamDate(e.target.value)}
+              onChange={(e) => queueExamDate(e.target.value)}
+              onBlur={(e) => queueExamDate(e.target.value, true)}
               className="btn-soft h-11 sm:h-9 w-full rounded-xl px-3 text-sm focus:outline-none focus:ring-2 focus:ring-[var(--tint)] disabled:opacity-50"
             />
           </label>

@@ -8,6 +8,7 @@ import { useChildLinks } from "@/hooks/data/useParentLinks";
 import { useRawPackages, useStudentLevels, useSubscriptions } from "@/hooks/data/useBilling";
 import {
   isSubscriptionLive,
+  isPaymentOverdue,
   planLabel,
   resolvePackagesForLevel,
   formatPence,
@@ -201,8 +202,13 @@ export function ParentBillingSection({
         <div className="space-y-6">
           {children.map((child) => {
             const sub = subs.find((s) => s.student_id === child.student_id) ?? null;
+            // An overdue plan still needs its panel: the card-update button is
+            // the way out, and the shop underneath would only be refused.
             const hasUsablePlan =
-              !!sub && (isSubscriptionLive(sub.status) || sub.status === "paused");
+              !!sub &&
+              (isSubscriptionLive(sub.status) ||
+                sub.status === "paused" ||
+                isPaymentOverdue(sub.status));
             const childName = resolveDisplayName(child.display_name, child.email);
             const packages = resolvePackagesForLevel(allPackages, levels[child.student_id]);
 

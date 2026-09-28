@@ -8,6 +8,7 @@ import { supabase } from "@/integrations/supabase/client";
 import { invalidateGuardState } from "@/lib/auth/guardState";
 import { usePackages, useOwnPlanState } from "@/hooks/data/useBilling";
 import { useEnrolments } from "@/hooks/data/useEnrolments";
+import { INVITE_MESSAGE, useInviteParent, type InviteOutcome } from "@/hooks/data/useParentLinks";
 import { startCheckout } from "@/lib/billing/billing";
 import { forgetTrialCode, readTrialCode } from "@/lib/billing/trialCode";
 
@@ -37,7 +38,7 @@ export function usePlanStep({
   queryClient: QueryClient;
   search: SearchParams;
 }) {
-  const { enrolments, level, loading: loadingEnrolments } = useEnrolments();
+  const { enrolments, level, inviteCode, loading: loadingEnrolments } = useEnrolments();
   const { data: packages = [], isLoading: loadingPackages } = usePackages(level);
   const loading = loadingPackages || loadingEnrolments;
 
@@ -52,6 +53,7 @@ export function usePlanStep({
   // a shop entirely; the edge function refuses the purchase as well.
   const {
     resumable,
+    paymentOverdue,
     isPending: planStatePending,
     error: planStateError,
     refetch: refetchPlanState,
@@ -71,7 +73,10 @@ export function usePlanStep({
   const [confirmRound, setConfirmRound] = useState(0);
   const [parentEmail, setParentEmail] = useState("");
   const [inviting, setInviting] = useState(false);
-  const [invited, setInvited] = useState(false);
+  // What invite_parent_by_email actually did. It sends no email: an existing
+  // parent gets a request in their account, and anyone else needs the code.
+  const [inviteOutcome, setInviteOutcome] = useState<InviteOutcome | null>(null);
+  const invite = useInviteParent();
   // A code from the emailed link, read after mount so the server render and
   // the first client render agree.
   const [trialCode, setTrialCode] = useState("");
@@ -140,12 +145,10 @@ export function usePlanStep({
     if (!parentEmail.trim()) return toast.error("Enter your parent's email first.");
     setInviting(true);
     try {
-      const { error } = await supabase.rpc("invite_parent_by_email", {
-        _email: parentEmail.trim().toLowerCase(),
-      });
-      if (error) throw error;
-      setInvited(true);
-      toast.success("Invite sent.");
+      const outcome = await invite.mutateAsync(parentEmail.trim().toLowerCase());
+      setInviteOutcome(outcome);
+      if (outcome === "invited") toast.success(INVITE_MESSAGE.invited);
+      else toast.info(INVITE_MESSAGE[outcome]);
     } catch (err) {
       toast.error(err instanceof Error ? err.message : "Couldn't send that invite.");
     } finally {
@@ -159,6 +162,7 @@ export function usePlanStep({
     loading,
     subjectCount,
     resumable,
+    paymentOverdue,
     planStatePending,
     planStateError,
     refetchPlanState,
@@ -170,7 +174,9 @@ export function usePlanStep({
     parentEmail,
     setParentEmail,
     inviting,
-    invited,
+    inviteOutcome,
+    setInviteOutcome,
+    inviteCode,
     packageFor,
     trialCode,
     setTrialCode,

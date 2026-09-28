@@ -1,6 +1,7 @@
 import { createServerFn } from "@tanstack/react-start";
 import Anthropic from "@anthropic-ai/sdk";
 import { requireSupabaseAuth } from "@/integrations/supabase/auth-middleware";
+import { requireTutorAi } from "@/lib/auth/tutorAi.server";
 
 // Generates the friendly "in this session we'll talk about…" blurb the tutor can
 // drop into a live session's description. It runs in the tutor studio (not per
@@ -74,16 +75,19 @@ export const generateSessionBlurb = createServerFn({ method: "POST" })
     }) => {
       if (!input?.subject || !input?.level) throw new Error("subject and level required");
       return {
-        subject: String(input.subject),
-        level: String(input.level),
-        board: input.board ? String(input.board) : null,
-        title: input.title ? String(input.title) : "",
-        specPointIds: Array.isArray(input.specPointIds) ? input.specPointIds.map(String) : [],
+        subject: String(input.subject).slice(0, 40),
+        level: String(input.level).slice(0, 40),
+        board: input.board ? String(input.board).slice(0, 40) : null,
+        title: input.title ? String(input.title).slice(0, 200) : "",
+        specPointIds: Array.isArray(input.specPointIds)
+          ? input.specPointIds.slice(0, 30).map(String)
+          : [],
       };
     },
   )
   .handler(async ({ data, context }) => {
-    const { supabase } = context;
+    const { supabase, userId } = context;
+    await requireTutorAi(supabase, userId, "session_blurb");
 
     let points: SpecPoint[] = [];
     if (data.specPointIds.length > 0) {

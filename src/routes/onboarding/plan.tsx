@@ -32,7 +32,8 @@ import {
  * the bank cards are usually not the same person:
  *
  *   • pay now — Stripe Checkout, in the student's own name.
- *   • ask a parent — emails an invite. The parent signs up, links, and pays.
+ *   • ask a parent — a request in their account if they have one, otherwise
+ *     the student's invite code to pass on. The parent links, then pays.
  */
 export const Route = createFileRoute("/onboarding/plan")({
   head: () => ({ meta: [{ title: "Choose a plan | Anglia Educate" }] }),
@@ -56,6 +57,7 @@ function PlanStep() {
   const {
     loading,
     resumable,
+    paymentOverdue,
     planStatePending,
     planStateError,
     refetchPlanState,
@@ -102,8 +104,16 @@ function PlanStep() {
   // Dormant plan: this page must not offer to sell anything — not Checkout, and
   // not "ask a parent to pay" either, since a parent buying on top creates the
   // same duplicate subscription. Resume is the whole answer, and it's free.
-  if (resumable) {
-    return <PlanOnHold onResume={() => navigate({ to: "/billing" })} onSignOut={signOut} />;
+  // A failed payment is the same: the plan is still there, and the fix is a new
+  // card in the billing portal. Checkout would only be refused with a 409.
+  if (resumable || paymentOverdue) {
+    return (
+      <PlanOnHold
+        onResume={() => navigate({ to: "/billing" })}
+        onSignOut={signOut}
+        paymentOverdue={paymentOverdue}
+      />
+    );
   }
 
   return (

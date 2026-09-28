@@ -1,6 +1,7 @@
 import { createServerFn } from "@tanstack/react-start";
 import Anthropic from "@anthropic-ai/sdk";
 import { requireSupabaseAuth } from "@/integrations/supabase/auth-middleware";
+import { requireTutorAi } from "@/lib/auth/tutorAi.server";
 import { BOARDS, type SubjectV, type LevelV } from "@/lib/curriculum/taxonomy";
 
 // AI spec-point suggester for live sessions. The tutor writes a session title +
@@ -120,19 +121,20 @@ export const suggestSpecPoints = createServerFn({ method: "POST" })
     (input: { subject: string; level: string; title?: string; description?: string }) => {
       if (!input?.subject || !input?.level) throw new Error("subject and level required");
       return {
-        subject: String(input.subject),
-        level: String(input.level),
-        title: input.title ? String(input.title) : "",
-        description: input.description ? String(input.description) : "",
+        subject: String(input.subject).slice(0, 40),
+        level: String(input.level).slice(0, 40),
+        title: input.title ? String(input.title).slice(0, 200) : "",
+        description: input.description ? String(input.description).slice(0, 2000) : "",
       };
     },
   )
   .handler(async ({ data, context }) => {
-    const { supabase } = context;
+    const { supabase, userId } = context;
 
     if (!data.title && !data.description) {
       throw new Error("Add a title or description first so the AI has something to match.");
     }
+    await requireTutorAi(supabase, userId, "suggest_spec_points");
 
     const { data: rows, error } = await supabase
       .from("spec_points")

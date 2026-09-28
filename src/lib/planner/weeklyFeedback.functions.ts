@@ -1,6 +1,7 @@
 import { createServerFn } from "@tanstack/react-start";
 import Anthropic from "@anthropic-ai/sdk";
 import { requireSupabaseAuth } from "@/integrations/supabase/auth-middleware";
+import { requireTutorAi } from "@/lib/auth/tutorAi.server";
 
 // AI-assisted end-of-week feedback for the tutor's planner. The tutor clicks
 // "Draft with AI"; this pulls together the student's real performance on the
@@ -145,9 +146,9 @@ export const draftWeeklyFeedback = createServerFn({ method: "POST" })
         quizScore: p?.quizScore == null ? null : Math.max(0, Math.min(100, Number(p.quizScore))),
       }));
       return {
-        subject: String(input.subject),
-        level: String(input.level),
-        board: input.board ? String(input.board) : "",
+        subject: String(input.subject).slice(0, 40),
+        level: String(input.level).slice(0, 40),
+        board: input.board ? String(input.board).slice(0, 40) : "",
         weekLabel: input.weekLabel ? String(input.weekLabel).slice(0, 60) : "this week",
         mode: input.mode === "reply" ? ("reply" as const) : ("general" as const),
         studentReflection: input.studentReflection
@@ -159,7 +160,8 @@ export const draftWeeklyFeedback = createServerFn({ method: "POST" })
       };
     },
   )
-  .handler(async ({ data }) => {
+  .handler(async ({ data, context }) => {
+    await requireTutorAi(context.supabase, context.userId, "weekly_feedback");
     const feedback = await generate(data);
     if (!feedback) throw new Error("No feedback generated — try again");
     return { feedback };

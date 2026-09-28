@@ -1,7 +1,12 @@
 import { useState } from "react";
 import { ExternalLink, Loader2, PauseCircle, PlayCircle, ShieldCheck, XCircle } from "lucide-react";
 import { toast } from "sonner";
-import { isSubscriptionLive, openBillingPortal, type BillingReturnTo } from "@/lib/billing/billing";
+import {
+  isPaymentOverdue,
+  isSubscriptionLive,
+  openBillingPortal,
+  type BillingReturnTo,
+} from "@/lib/billing/billing";
 import { useManageSubscription } from "@/hooks/data/useBilling";
 import { usePageRestore } from "@/hooks/usePageRestore";
 import { PlanFeedbackDialog } from "@/components/billing/PlanFeedbackDialog";
@@ -174,6 +179,24 @@ export function SubscriptionPanel({
       </div>
 
       {priceLabel && <p className="font-display text-2xl font-bold mt-1">{priceLabel}</p>}
+
+      {/* A failed card is fixed in the portal, by whoever owns the card — say
+          which, so nobody reaches for the shop instead. */}
+      {isPaymentOverdue(sub.status) && (
+        <div className="tint-rose pop-card mt-4 flex items-start gap-3 p-4 text-sm">
+          <span className="icon-tile size-8 shrink-0 text-base font-black">!</span>
+          <div className="min-w-0 flex-1">
+            <p className="font-display font-bold text-[color:var(--tint)]">
+              The last payment didn&apos;t go through
+            </p>
+            <p className="text-muted-foreground mt-0.5 leading-relaxed">
+              {isPayer
+                ? "Update the card under Card & invoices below and Stripe will take the payment again."
+                : `Ask ${payerLabel ?? "whoever pays for this plan"} to update the card from their own Billing tab.`}
+            </p>
+          </div>
+        </div>
+      )}
 
       {/* What the plan teaches, when it next bills and who pays — each its own
           tile, each with its own control where one exists. Prose here read as

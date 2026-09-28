@@ -1,5 +1,7 @@
 import { Mascot } from "@/components/Doodles";
-import { Check, CreditCard, Clock, Mail, Pencil, GraduationCap } from "lucide-react";
+import { useState } from "react";
+import { toast } from "sonner";
+import { Check, Copy, CreditCard, Clock, Mail, Pencil, GraduationCap } from "lucide-react";
 import { formatPence } from "@/lib/billing/billing";
 import { SUBJECTS, BOARDS, LEVELS } from "@/lib/curriculum/taxonomy";
 import { CADENCES, type PlanStepState } from "./usePlanStep";
@@ -46,19 +48,23 @@ export function PaymentConfirming() {
 export function PlanOnHold({
   onResume,
   onSignOut,
+  paymentOverdue = false,
 }: {
   onResume: () => void;
   onSignOut: () => void;
+  /** The last payment failed, rather than the plan being paused or ending. */
+  paymentOverdue?: boolean;
 }) {
   return (
     <div className="premium-card rounded-3xl p-6 sm:p-8 rise-in space-y-4">
       <div>
         <h1 className="font-display text-2xl font-bold tracking-tight mb-1">
-          Your plan is on hold
+          {paymentOverdue ? "Your last payment didn't go through" : "Your plan is on hold"}
         </h1>
         <p className="text-sm text-muted-foreground">
-          You already have a plan with us — it's paused or set to end, not gone. Resume it and your
-          dashboard, progress and history come straight back. There's nothing to buy again.
+          {paymentOverdue
+            ? "Your plan is still here — the card just needs updating. Once it's updated in Billing, your dashboard, progress and history come straight back. There's nothing to buy again."
+            : "You already have a plan with us — it's paused or set to end, not gone. Resume it and your dashboard, progress and history come straight back. There's nothing to buy again."}
         </p>
       </div>
       <button
@@ -66,7 +72,8 @@ export function PlanOnHold({
         onClick={onResume}
         className="btn-premium w-full h-12 rounded-xl font-semibold text-sm inline-flex items-center justify-center gap-2"
       >
-        <CreditCard className="w-4 h-4" /> Go to Billing and resume
+        <CreditCard className="w-4 h-4" />{" "}
+        {paymentOverdue ? "Go to Billing and update the card" : "Go to Billing and resume"}
       </button>
       <button
         type="button"
@@ -178,15 +185,36 @@ export function PlanTotal({
 
 /** The other way through: the card belongs to a parent, so invite them to pay. */
 export function AskParentCard({
-  invited,
+  inviteOutcome,
+  setInviteOutcome,
+  inviteCode,
   parentEmail,
   setParentEmail,
   inviteParent,
   inviting,
 }: Pick<
   PlanStepState,
-  "invited" | "parentEmail" | "setParentEmail" | "inviteParent" | "inviting"
+  | "inviteOutcome"
+  | "setInviteOutcome"
+  | "inviteCode"
+  | "parentEmail"
+  | "setParentEmail"
+  | "inviteParent"
+  | "inviting"
 >) {
+  const [copied, setCopied] = useState(false);
+  const copyCode = async () => {
+    if (!inviteCode) return;
+    try {
+      await navigator.clipboard.writeText(inviteCode);
+      setCopied(true);
+      setTimeout(() => setCopied(false), 2000);
+    } catch {
+      // Clipboard is permission-gated; the code is on screen to read either way.
+      toast.error("Could not copy — select the code and copy it manually.");
+    }
+  };
+
   return (
     <div className="premium-card rounded-3xl p-6 sm:p-8 rise-in">
       <div className="flex items-center gap-2 mb-1">
@@ -198,17 +226,50 @@ export function AskParentCard({
         — your account unlocks the moment they do.
       </p>
 
-      {invited ? (
+      {/* Nothing here sends an email. An existing parent gets a request in their
+          account; anyone else needs the student's code, so say which happened. */}
+      {inviteOutcome === "invited" ? (
         <div className="rounded-xl bg-muted/60 border border-border p-4 flex gap-3">
           <Clock className="w-4 h-4 text-primary shrink-0 mt-0.5" />
           <div className="text-xs text-muted-foreground leading-relaxed">
-            <p className="font-semibold text-foreground mb-1">Invite sent to {parentEmail}</p>
+            <p className="font-semibold text-foreground mb-1">Request sent to {parentEmail}</p>
             <p>
-              They'll get an email with a link to join and pay. You can close this — sign back in
-              any time and you'll come straight back here. We'll let you in as soon as payment
-              lands.
+              It&apos;s waiting in their account — they&apos;ll see it next time they sign in, and
+              can pay for you once they accept. You can close this — sign back in any time and
+              you&apos;ll come straight back here. We&apos;ll let you in as soon as payment lands.
             </p>
           </div>
+        </div>
+      ) : inviteOutcome === "no_account" ? (
+        <div className="rounded-xl bg-muted/60 border border-border p-4 space-y-3">
+          <div className="text-xs text-muted-foreground leading-relaxed">
+            <p className="font-semibold text-foreground mb-1">No account uses {parentEmail} yet</p>
+            <p>
+              Send them your invite code. They sign up as a parent, enter the code, and are linked
+              to you straight away — then they can pay.
+            </p>
+          </div>
+          <div className="flex flex-wrap items-center gap-2">
+            <code className="flex-1 min-w-40 h-10 rounded-lg bg-secondary border border-border px-3 flex items-center font-mono text-sm tracking-widest">
+              {inviteCode ?? "—"}
+            </code>
+            <button
+              type="button"
+              onClick={copyCode}
+              disabled={!inviteCode}
+              className="h-11 sm:h-10 px-3 rounded-lg border border-border hover:bg-muted text-sm font-medium inline-flex items-center gap-2 disabled:opacity-60 cursor-pointer"
+            >
+              {copied ? <Check className="w-4 h-4 text-primary" /> : <Copy className="w-4 h-4" />}
+              {copied ? "Copied" : "Copy"}
+            </button>
+          </div>
+          <button
+            type="button"
+            onClick={() => setInviteOutcome(null)}
+            className="inline-flex min-h-11 items-center text-xs text-muted-foreground hover:text-foreground sm:min-h-0"
+          >
+            Try a different email
+          </button>
         </div>
       ) : (
         <div className="flex gap-2">

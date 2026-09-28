@@ -84,6 +84,15 @@ export function isSubscriptionLive(status: string | undefined | null) {
   return status === "active" || status === "trialing";
 }
 
+/**
+ * A plan that still exists in Stripe but whose last payment failed. The way
+ * back is a new card in the billing portal, never a second Checkout — the
+ * server refuses that purchase (assertNoLiveSubscription) anyway.
+ */
+export function isPaymentOverdue(status: string | undefined | null) {
+  return status === "past_due" || status === "unpaid" || status === "incomplete";
+}
+
 export function formatPence(pence: number, currency = "gbp") {
   return new Intl.NumberFormat("en-GB", {
     style: "currency",

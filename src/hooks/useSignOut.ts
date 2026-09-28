@@ -21,10 +21,31 @@ export function useSignOut() {
     await qc.cancelQueries();
     qc.clear();
     clearAllDrafts();
-    await supabase.auth.signOut();
+    const { error } = await supabase.auth.signOut();
+    if (error) {
+      // On a network failure auth-js returns before it removes the stored
+      // session, so the next load would still be signed in. Drop it here and
+      // reload, which also discards the copy the client holds in memory.
+      forgetStoredSession();
+      window.location.replace("/");
+      return;
+    }
     // A bare acknowledgement the user is already navigating away from — the
     // 4s sonner default leaves it sitting over the landing page.
     toast.success("Signed out", { duration: 2000 });
     navigate({ to: "/", replace: true });
   }, [navigate, qc]);
+}
+
+/** Removes Supabase's persisted auth keys (`sb-<ref>-auth-token` and friends). */
+function forgetStoredSession() {
+  try {
+    for (const key of Object.keys(window.localStorage)) {
+      if (key.startsWith("sb-") && key.includes("-auth-token")) {
+        window.localStorage.removeItem(key);
+      }
+    }
+  } catch {
+    // Storage blocked: the session only ever lived in memory, and the reload clears it.
+  }
 }
