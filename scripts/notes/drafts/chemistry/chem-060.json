@@ -40,7 +40,7 @@
         },
         {
           "type": "paragraph",
-          "text": "Four types of change in solution can be tested. In each, the temperature change shows the heat change."
+          "text": "Several types of change in solution can be tested. In each, the temperature change shows the heat change."
         },
         {
           "type": "table",
@@ -200,17 +200,13 @@
         "reduces energy exchange / loss (to the surroundings)",
         "measure the highest temperature reached",
         "repeat the experiment and calculate the mean (ignoring anomalous results)",
-        "use the same volume of (hydrochloric) acid each time",
+        "use the same volume (of copper sulfate solution)",
         "(0.3 °C) is the uncertainty, the range about the mean value"
       ],
       "mistakes": [
         {
           "wrong": "Add different masses of ammonium nitrate to water and measure the temperature.",
           "right": "Say how the temperature change is found with each mass: the same volume of water each time, the initial and final temperature, then the difference."
-        },
-        {
-          "wrong": "A polystyrene cup stops any energy being lost to the surroundings.",
-          "right": "Polystyrene is a better insulator than glass, so it reduces energy transfer to the surroundings."
         },
         {
           "wrong": "The temperature falls after 7 minutes because the reaction has become endothermic.",
@@ -328,6 +324,8 @@
       "4e539719-04c4-48ea-bb36-945b8fc09053",
       "264de51c-7b47-40bf-82a8-6fe329655b3f",
       "63cbe95e-46aa-4bbd-b5b0-f8fe259f0f69"
-    ]
+    ],
+    "checked_by": "sonnet-science-check",
+    "checked_at": "2026-10-01"
   }
 }

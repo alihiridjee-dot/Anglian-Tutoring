@@ -8,13 +8,25 @@
     {
       "heading": "Energy transfer in reactions",
       "blocks": [
-        { "type": "paragraph", "text": "This section covers what exothermic and endothermic mean and where the energy goes." },
+        {
+          "type": "paragraph",
+          "text": "This section covers what exothermic and endothermic mean and where the energy goes."
+        },
         {
           "type": "definitions",
           "items": [
-            { "term": "Exothermic reaction", "meaning": "A reaction that transfers energy to the surroundings, so the temperature of the surroundings increases." },
-            { "term": "Endothermic reaction", "meaning": "A reaction that takes in energy from the surroundings, so the temperature of the surroundings decreases." },
-            { "term": "Surroundings", "meaning": "Everything around the reacting chemicals, such as the solution, the container and the air." }
+            {
+              "term": "Exothermic reaction",
+              "meaning": "A reaction that transfers energy to the surroundings, so the temperature of the surroundings increases."
+            },
+            {
+              "term": "Endothermic reaction",
+              "meaning": "A reaction that takes in energy from the surroundings, so the temperature of the surroundings decreases."
+            },
+            {
+              "term": "Surroundings",
+              "meaning": "Everything around the reacting chemicals, such as the solution, the container and the air."
+            }
           ]
         },
         {
@@ -38,13 +50,28 @@
     {
       "heading": "Examples and everyday uses",
       "blocks": [
-        { "type": "paragraph", "text": "Learn which common reactions are exothermic and which are endothermic, and how each is used." },
+        {
+          "type": "paragraph",
+          "text": "Learn which common reactions are exothermic and which are endothermic, and how each is used."
+        },
         {
           "type": "table",
-          "columns": ["Type", "Examples", "Everyday use"],
+          "columns": [
+            "Type",
+            "Examples",
+            "Everyday use"
+          ],
           "rows": [
-            ["Exothermic", "Combustion, many oxidation reactions, neutralisation, displacement of a metal, calcium chloride dissolving in water", "Self-heating cans and hand warmers"],
-            ["Endothermic", "Thermal decomposition, citric acid reacting with sodium hydrogencarbonate, ammonium nitrate dissolving in water", "Sports injury packs (cold packs)"]
+            [
+              "Exothermic",
+              "Combustion, many oxidation reactions, neutralisation, displacement of a metal, calcium chloride dissolving in water",
+              "Self-heating cans and hand warmers"
+            ],
+            [
+              "Endothermic",
+              "Thermal decomposition, citric acid reacting with sodium hydrogencarbonate, ammonium nitrate dissolving in water",
+              "Sports injury packs (cold packs)"
+            ]
           ]
         },
         {
@@ -53,16 +80,43 @@
             "kind": "sort",
             "alt": "Sort reactions into exothermic and endothermic.",
             "prompt": "Sort each reaction or use into exothermic or endothermic.",
-            "groups": ["Exothermic", "Endothermic"],
+            "groups": [
+              "Exothermic",
+              "Endothermic"
+            ],
             "items": [
-              { "text": "Burning methane in oxygen", "group": 0 },
-              { "text": "An acid neutralising an alkali", "group": 0 },
-              { "text": "Magnesium displacing copper from copper sulfate solution", "group": 0 },
-              { "text": "A hand warmer", "group": 0 },
-              { "text": "Thermal decomposition of a metal carbonate", "group": 1 },
-              { "text": "Citric acid reacting with sodium hydrogencarbonate", "group": 1 },
-              { "text": "Ammonium nitrate dissolving in water", "group": 1 },
-              { "text": "A sports injury cold pack", "group": 1 }
+              {
+                "text": "Burning methane in oxygen",
+                "group": 0
+              },
+              {
+                "text": "An acid neutralising an alkali",
+                "group": 0
+              },
+              {
+                "text": "Magnesium displacing copper from copper sulfate solution",
+                "group": 0
+              },
+              {
+                "text": "A hand warmer",
+                "group": 0
+              },
+              {
+                "text": "Thermal decomposition of a metal carbonate",
+                "group": 1
+              },
+              {
+                "text": "Citric acid reacting with sodium hydrogencarbonate",
+                "group": 1
+              },
+              {
+                "text": "Ammonium nitrate dissolving in water",
+                "group": 1
+              },
+              {
+                "text": "A sports injury cold pack",
+                "group": 1
+              }
             ]
           }
         },
@@ -86,7 +140,10 @@
     {
       "heading": "Telling them apart from the temperature",
       "blocks": [
-        { "type": "paragraph", "text": "You can classify a reaction from the temperature of its surroundings before and after. The sign of the change tells you the type." },
+        {
+          "type": "paragraph",
+          "text": "You can classify a reaction from the temperature of its surroundings before and after. The sign of the change tells you the type."
+        },
         {
           "type": "equation",
           "label": "Temperature change",
@@ -99,19 +156,44 @@
         },
         {
           "type": "table",
-          "columns": ["What the temperature does", "Sign of the change", "Type of reaction"],
+          "columns": [
+            "What the temperature does",
+            "Sign of the change",
+            "Type of reaction"
+          ],
           "rows": [
-            ["Rises", "Positive (+)", "Exothermic"],
-            ["Falls", "Negative (−)", "Endothermic"],
-            ["Stays the same", "Zero", "Neither: no energy change"]
+            [
+              "Rises",
+              "Positive (+)",
+              "Exothermic"
+            ],
+            [
+              "Falls",
+              "Negative (−)",
+              "Endothermic"
+            ],
+            [
+              "Stays the same",
+              "Zero",
+              "Neither: no energy change"
+            ]
           ]
         },
         {
           "type": "steps",
           "items": [
-            { "lead": "Subtract.", "text": "A solution starts at 24.0 °C and falls to 19.5 °C. Change = 19.5 − 24.0 = −4.5 °C." },
-            { "lead": "Read the sign.", "text": "The sign is negative, so the temperature fell." },
-            { "lead": "Name the type.", "text": "The surroundings lost energy to the reaction, so it is endothermic." }
+            {
+              "lead": "Subtract.",
+              "text": "A solution starts at 24.0 °C and falls to 19.5 °C. Change = 19.5 − 24.0 = −4.5 °C."
+            },
+            {
+              "lead": "Read the sign.",
+              "text": "The sign is negative, so the temperature fell."
+            },
+            {
+              "lead": "Name the type.",
+              "text": "The surroundings lost energy to the reaction, so it is endothermic."
+            }
           ]
         },
         {
@@ -121,10 +203,24 @@
             "alt": "Work out a temperature change with its sign.",
             "question": "A reaction mixture starts at {T1} °C and ends at {T2} °C. Work out the temperature change, including its sign.",
             "variables": [
-              { "id": "T1", "min": 18, "max": 24, "step": 1 },
-              { "id": "T2", "min": 12.5, "max": 35.5, "step": 1 }
+              {
+                "id": "T1",
+                "min": 18,
+                "max": 24,
+                "step": 1
+              },
+              {
+                "id": "T2",
+                "min": 12.5,
+                "max": 35.5,
+                "step": 1
+              }
             ],
-            "answer": { "formula": "T2 - T1", "unit": "°C", "decimals": 1 },
+            "answer": {
+              "formula": "T2 - T1",
+              "unit": "°C",
+              "decimals": 1
+            },
             "working": [
               "Temperature change = final temperature − initial temperature",
               "= {T2} − {T1} = {answer} °C",
@@ -161,7 +257,10 @@
   ],
   "boards": {
     "aqa": {
-      "spec_codes": ["AQA 4.5.1.1", "AQA T 5.5.1.1"],
+      "spec_codes": [
+        "AQA 4.5.1.1",
+        "AQA T 5.5.1.1"
+      ],
       "exam_phrases": [
         "a reaction which transfers energy to the surroundings (exothermic)",
         "the temperature decreases (during the reaction)",
@@ -196,7 +295,11 @@
       }
     },
     "edexcel": {
-      "spec_codes": ["EDEX 7.10", "EDEX 7.11", "EDEX 7.9"],
+      "spec_codes": [
+        "EDEX 7.10",
+        "EDEX 7.11",
+        "EDEX 7.9"
+      ],
       "exam_phrases": [
         "temperature rises / increases (by 11 °C)",
         "exothermic process",
@@ -232,7 +335,9 @@
       }
     },
     "ocr": {
-      "spec_codes": ["OCR C3.2a"],
+      "spec_codes": [
+        "OCR C3.2a"
+      ],
       "exam_phrases": [
         "exothermic reactions increase the temperature (of the surroundings)",
         "endothermic reactions decrease the temperature (of the surroundings)",
@@ -286,6 +391,8 @@
       "0847fd94-e72f-4738-8376-04881255d9d5",
       "9a4edd1a-a881-4990-be06-023278102801",
       "17f70d70-88a8-4435-b55f-b5afb3dac3c0"
-    ]
+    ],
+    "checked_by": "sonnet-science-check",
+    "checked_at": "2026-10-01"
   }
 }

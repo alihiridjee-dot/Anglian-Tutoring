@@ -53,7 +53,7 @@
     {
       "heading": "When blood glucose is too low",
       "blocks": [
-        { "type": "paragraph", "text": "(Higher tier for AQA.) If blood glucose falls, for example between meals or during exercise, glucagon raises it again." },
+        { "type": "paragraph", "text": "If blood glucose falls, for example between meals or during exercise, glucagon raises it again." },
         {
           "type": "steps",
           "items": [
@@ -207,7 +207,7 @@
       "mistakes": [
         {
           "wrong": "The blood glucose decreases because the glucose is stored.",
-          "right": "\"Glucose is stored\" is accepted as one point only. Add a second from: more insulin is released, it causes glucose to be converted to glycogen, or glucose is used for respiration."
+          "right": "\"Glucose is stored\" earns one mark only. Add a different point, such as more insulin is released or glucose is used for respiration."
         }
       ],
       "worked_example": {
@@ -232,7 +232,7 @@
         "increase insulin (levels)",
         "glucagon released when blood sugar levels decrease",
         "stores of glycogen are used to maintain blood sugar levels",
-        "spelling of glucagon / glycogen must be correct"
+        "less / no sugar is converted to glycogen"
       ],
       "mistakes": [
         {
@@ -261,6 +261,8 @@
     "status": "draft",
     "written_by": "sonnet-5-5",
     "written_at": "2026-10-01",
+    "checked_by": "sonnet-science-check",
+    "checked_at": "2026-10-01",
     "spec_point_ids": [
       "a0581644-7bb1-4117-a4f1-082ebc1acf64",
       "85daac87-9957-46c2-834d-d08d1f48dc0c",

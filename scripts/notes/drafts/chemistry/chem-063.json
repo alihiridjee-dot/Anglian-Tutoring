@@ -148,7 +148,7 @@
             "Heat is lost to the air, and the beaker or can absorbs some heat.",
             "The alcohol may not burn completely.",
             "Improve the method with a lid, a draught shield or insulation round the beaker.",
-            "Using a metal calorimeter instead of a glass beaker, or moving the beaker closer to the burner, also transfers more heat to the water."
+            "Using a metal calorimeter instead of a glass beaker also transfers more heat to the water."
           ]
         },
         {
@@ -194,15 +194,15 @@
       "mistakes": [
         {
           "wrong": "Use a polystyrene beaker so that more heat reaches the water.",
-          "right": "A polystyrene beaker is rejected. Use a metal calorimeter instead of glass, a lid or draught shield, insulation round the sides, or move the beaker closer."
+          "right": "A polystyrene beaker is rejected. Use a metal calorimeter instead of glass, a lid or draught shield, or insulation round the sides."
         },
         {
           "wrong": "Keep the mass of fuel the same when comparing alcohols.",
           "right": "The mass of fuel is ignored as a variable to keep the same. Keep the volume of water, size of wick, and distance from beaker to flame the same."
         },
         {
-          "wrong": "0.36 g ÷ 20 °C = 0.018 g per °C.",
-          "right": "Give the answer to the number of decimal places asked. To 2 decimal places the answer is 0.02 g per °C."
+          "wrong": "0.018 g per °C, when the question asks for 2 decimal places.",
+          "right": "Give the answer to the number of decimal places asked: 0.36 ÷ 20 = 0.018, which is 0.02 g per °C to 2 decimal places."
         }
       ],
       "worked_example": {
@@ -227,6 +227,8 @@
     ],
     "exemplar_ids": [
       "59a51482-317b-41a5-ad89-c41271c1d10b"
-    ]
+    ],
+    "checked_by": "sonnet-science-check",
+    "checked_at": "2026-10-01"
   }
 }

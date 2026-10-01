@@ -89,6 +89,7 @@
           "items": [
             "**Vasoconstriction**: the capillaries in the skin narrow, so less blood flows near the surface and less heat is lost.",
             "Sweating is reduced or stops, so less heat is taken away by evaporation.",
+            "The hairs in the skin become erect (stand on end), which traps an insulating layer of air.",
             "**Shivering**: skeletal muscles contract rapidly. Respiration in the muscles releases heat, so the body warms up."
           ]
         },
@@ -107,7 +108,8 @@
               { "text": "Vasoconstriction of blood vessels in the skin", "group": 1 },
               { "text": "Less blood flows near the skin surface", "group": 1 },
               { "text": "Skeletal muscles contract rapidly (shivering)", "group": 1 },
-              { "text": "Sweating is reduced or stops", "group": 1 }
+              { "text": "Sweating is reduced or stops", "group": 1 },
+              { "text": "Hairs in the skin stand on end", "group": 1 }
             ]
           }
         },
@@ -156,7 +158,7 @@
           "right": "This is not accepted. Blood vessels do not move. Say that more blood flows near the surface of the skin, so more heat is lost."
         },
         {
-          "wrong": "Respiration produces energy, which warms the echidna.",
+          "wrong": "Respiration produces energy, which warms the body.",
           "right": "\"Energy produced / made / created\" is not accepted. Say that respiration or metabolism releases heat, or releases energy."
         },
         {
@@ -289,6 +291,8 @@
     "status": "draft",
     "written_by": "sonnet-5-5",
     "written_at": "2026-10-01",
+    "checked_by": "sonnet-science-check",
+    "checked_at": "2026-10-01",
     "spec_point_ids": [
       "a5e44b65-54ec-4de8-9c99-23114844df03",
       "dd1be3e7-8505-4149-98f5-98a5ae0c9f56",

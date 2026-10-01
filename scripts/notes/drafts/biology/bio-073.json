@@ -56,8 +56,8 @@
               { "name": "Thyroid gland", "detail": "In the neck. Releases thyroxine, which increases the metabolic rate. More is released when body temperature falls." },
               { "name": "Pancreas", "detail": "In the abdomen. Releases insulin and glucagon, which control blood glucose. Their target organs include the liver and muscles." },
               { "name": "Adrenal glands", "detail": "In the abdomen. Release adrenaline, which increases heart rate and breathing rate and delivers more oxygen and glucose to cells." },
-              { "name": "Ovaries", "detail": "Glands involved in human reproduction in females. LH from the pituitary gland acts on the ovary." },
-              { "name": "Testes", "detail": "Glands involved in human reproduction in males." }
+              { "name": "Ovaries", "detail": "In the lower abdomen. Glands involved in human reproduction in females. They release oestrogen. LH from the pituitary gland acts on the ovary." },
+              { "name": "Testes", "detail": "Glands involved in human reproduction in males. They release testosterone." }
             ]
           }
         },
@@ -167,12 +167,12 @@
         "pancreas produces insulin; the target organs are the liver and muscles",
         "the pituitary gland is situated in the head and is attached to the brain",
         "pituitary (gland) produces FSH",
-        "the thyroid gland is part of the endocrine system"
+        "the thyroid gland is situated in the neck"
       ],
       "mistakes": [
         {
-          "wrong": "Insulin travels to its target organ along neurones, or on red blood cells.",
-          "right": "Hormones do not travel along neurones and do not attach to red blood cells. Say that insulin is dissolved in the blood plasma."
+          "wrong": "Insulin is carried to its target organs by red blood cells.",
+          "right": "Red blood cells (and white blood cells and platelets) do not transport insulin. Say that insulin is dissolved in the blood plasma."
         },
         {
           "wrong": "Insulin is produced by the adrenal glands and acts on the intestines.",
@@ -232,6 +232,8 @@
     "status": "draft",
     "written_by": "sonnet-5-5",
     "written_at": "2026-10-01",
+    "checked_by": "sonnet-science-check",
+    "checked_at": "2026-10-01",
     "spec_point_ids": [
       "0d14c5e3-5196-4800-92e0-029cfc09920f",
       "59420b52-2dd0-4fdf-ad29-e6ee5f53339b",
