@@ -8,6 +8,7 @@ import { ScheduleDAL, type TopicProgress } from "./scheduleDal";
 import {
   type PacingBand,
   examMondayFor,
+  programStartFor,
   isTeachBand,
   projectReviews,
   weeksBetween,
@@ -111,6 +112,7 @@ export class ProgramDAL {
       catchUpWeek,
       ledger,
       thisMonday,
+      firstWeek: programStartFor(),
       examMonday,
       overrides,
     });
