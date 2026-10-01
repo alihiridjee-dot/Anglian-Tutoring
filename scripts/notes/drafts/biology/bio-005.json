@@ -1,0 +1,303 @@
+{
+  "format": 1,
+  "concept_id": "bio-005",
+  "subject": "biology",
+  "title": "Light and electron microscopes",
+  "key_idea": "Light microscopes are affordable and can show living cells, but their magnification and resolution are limited. Electron microscopes have much higher magnification and resolution. They show sub-cellular structures in fine detail, which has helped biologists understand many more structures inside cells.",
+  "sections": [
+    {
+      "heading": "Light microscopes and staining",
+      "blocks": [
+        { "type": "paragraph", "text": "A light microscope uses light and lenses to magnify a specimen. This section covers what it can and cannot show." },
+        {
+          "type": "definitions",
+          "items": [
+            { "term": "Magnification", "meaning": "How many times bigger the image is than the real object." },
+            { "term": "Resolution", "meaning": "The ability to tell two objects that are close together apart. Higher resolution shows more detail." },
+            { "term": "Stain", "meaning": "A dye that makes colourless structures in a cell easier to see." }
+          ]
+        },
+        { "type": "subheading", "text": "Strengths and limits" },
+        {
+          "type": "list",
+          "items": [
+            "Affordable, easy to use and portable.",
+            "Can show living cells, and shows colour.",
+            "Has a large field of view.",
+            "Lower magnification and resolution, so small sub-cellular structures cannot be seen clearly."
+          ]
+        },
+        { "type": "subheading", "text": "Preparing a specimen" },
+        {
+          "type": "list",
+          "items": [
+            "Use a **thin layer** of cells so that light can pass through.",
+            "Add a **stain** such as iodine to see the parts of the cell.",
+            "Lower the cover slip at an angle to reduce air bubbles."
+          ]
+        },
+        { "type": "subheading", "text": "Total magnification" },
+        {
+          "type": "equation",
+          "label": "Total magnification",
+          "formula": "total magnification = eyepiece lens magnification × objective lens magnification",
+          "where": ["Both lenses are given as ×, for example ×10 or ×40."]
+        },
+        {
+          "type": "steps",
+          "items": [
+            { "lead": "Read the lenses.", "text": "Eyepiece ×10 and objective ×40." },
+            { "lead": "Multiply.", "text": "10 × 40 = ×400 total magnification." }
+          ]
+        },
+        {
+          "type": "key-points",
+          "items": [
+            "Light microscopes show living cells, in colour, and are cheap and easy to use.",
+            "Stains make colourless structures visible.",
+            "Total magnification is the eyepiece magnification multiplied by the objective magnification."
+          ]
+        }
+      ]
+    },
+    {
+      "heading": "Electron microscopes",
+      "blocks": [
+        { "type": "paragraph", "text": "An electron microscope uses a beam of electrons instead of light. Electrons have a shorter wavelength than light." },
+        {
+          "type": "list",
+          "items": [
+            "Much **higher magnification** than a light microscope.",
+            "Much **higher resolution** (resolving power), so smaller structures can be seen.",
+            "Light microscopes resolve about 0.2 µm. Electron microscopes resolve about 0.0001 µm (0.1 nm).",
+            "Some electron microscopes give a 3D image."
+          ]
+        },
+        { "type": "subheading", "text": "Disadvantages" },
+        {
+          "type": "list",
+          "items": [
+            "Expensive and not portable.",
+            "Specimens must be very thin sections and cannot be living.",
+            "Preparation takes longer and is more complex.",
+            "Images are black and white."
+          ]
+        },
+        {
+          "type": "key-points",
+          "items": [
+            "Electron microscopes have higher magnification and higher resolution.",
+            "Greater resolution means smaller structures can be seen in detail.",
+            "They are expensive, and the specimen cannot be living."
+          ]
+        }
+      ]
+    },
+    {
+      "heading": "How electron microscopes changed biology",
+      "blocks": [
+        { "type": "paragraph", "text": "Microscope technology has developed over time. Each improvement lets biologists collect new evidence." },
+        {
+          "type": "list",
+          "items": [
+            "Many sub-cellular structures were not clearly visible until electron microscopy.",
+            "Electron microscopes show structures such as mitochondria and ribosomes in fine detail.",
+            "Viruses are too small to see with a light microscope. An electron microscope is needed.",
+            "New technology gives new evidence, so scientific ideas change to fit it."
+          ]
+        },
+        {
+          "type": "diagram",
+          "diagram": {
+            "kind": "compare",
+            "alt": "A table comparing a light microscope and an electron microscope. The light microscope uses light, has lower magnification and resolution, can show living specimens and is cheaper. The electron microscope uses electrons, has much higher magnification and resolution, needs thin dead specimens and is more expensive.",
+            "items": ["Light microscope", "Electron microscope"],
+            "rows": [
+              { "feature": "Uses", "values": ["Light and lenses", "A beam of electrons"] },
+              { "feature": "Magnification", "values": ["Lower", "Much higher"] },
+              { "feature": "Resolution", "values": ["Lower (about 0.2 µm)", "Much higher (about 0.1 nm)"] },
+              { "feature": "Living specimens", "values": ["Can be viewed", "Cannot be viewed"] },
+              { "feature": "Cost and size", "values": ["Affordable and portable", "Expensive and large"] }
+            ]
+          }
+        },
+        {
+          "type": "diagram",
+          "diagram": {
+            "kind": "sort",
+            "alt": "Sort each statement into light microscope, electron microscope, or both.",
+            "prompt": "Which microscope?",
+            "groups": ["Light microscope", "Electron microscope", "Both"],
+            "items": [
+              { "text": "Can show living cells", "group": 0 },
+              { "text": "Affordable and easy to use", "group": 0 },
+              { "text": "Large field of view", "group": 0 },
+              { "text": "Uses a beam of electrons", "group": 1 },
+              { "text": "Higher resolution", "group": 1 },
+              { "text": "Shows ribosomes and mitochondria in fine detail", "group": 1 },
+              { "text": "Expensive and not portable", "group": 1 },
+              { "text": "Needed to see a virus", "group": 1 },
+              { "text": "Produces a magnified image of a specimen", "group": 2 },
+              { "text": "Specimen must be thin", "group": 2 }
+            ]
+          }
+        },
+        {
+          "type": "key-points",
+          "items": [
+            "Electron microscopy let biologists see and understand many more sub-cellular structures.",
+            "Quote both magnification and resolution when comparing the two microscopes.",
+            "Light microscopes are still useful: they are cheap and show living cells."
+          ]
+        }
+      ]
+    }
+  ],
+  "checks": [
+    {
+      "q": "Give two advantages of an electron microscope over a light microscope.",
+      "a": "Higher magnification and higher resolution (it can show smaller sub-cellular structures in more detail).",
+      "marks": 2
+    },
+    {
+      "q": "A student uses a ×10 eyepiece and a ×40 objective lens. Calculate the total magnification.",
+      "a": "10 × 40 = ×400.",
+      "marks": 2
+    },
+    {
+      "q": "Explain why a stain is added to a specimen for a light microscope.",
+      "a": "Cell structures are colourless. The stain makes them easier to see, so the parts of the cell can be seen.",
+      "marks": 2
+    }
+  ],
+  "boards": {
+    "aqa": {
+      "spec_codes": ["AQA T 4.1.1.5", "AQA 1.4"],
+      "exam_phrases": [
+        "higher magnification",
+        "higher resolution / resolving power",
+        "can see smaller sub-cellular structures",
+        "to stain / see the parts of the cell",
+        "thin layer so light can pass through the cells",
+        "electron microscope (to view a virus)"
+      ],
+      "mistakes": [
+        {
+          "wrong": "An electron microscope zooms in more, so the cells look bigger.",
+          "right": "As an advantage, \"bigger\" or \"zoom\" is ignored. Say higher magnification and higher resolution (resolving power)."
+        },
+        {
+          "wrong": "Iodine solution is added to stain the cell.",
+          "right": "\"To stain the cell\" is ignored as a reason. Say it stains so the parts of the cell, such as the nucleus or cell wall, can be seen."
+        },
+        {
+          "wrong": "A virus can be seen with a light microscope.",
+          "right": "A light microscope is not accepted. An electron microscope is needed to view a virus."
+        }
+      ],
+      "worked_example": {
+        "exemplar_id": "2d1416ef-8ec0-4b07-a7c5-17fdc8dbb94d",
+        "source": "AQA jun 2019, Paper 1 (F), Q07.6",
+        "question": "Give two advantages of using an electron microscope instead of a light microscope.",
+        "marks": 2,
+        "answer_points": [
+          "Higher magnification.",
+          "Higher resolution or resolving power (it shows more detail, or smaller sub-cellular structures)."
+        ],
+        "tip": "One mark for each. \"Bigger\" and \"zoom\" are ignored here."
+      }
+    },
+    "edexcel": {
+      "spec_codes": ["EDEX 1.3"],
+      "exam_phrases": [
+        "greater resolution",
+        "so greater magnification is possible",
+        "so smaller structures can be seen / identified",
+        "electrons (with a shorter wavelength) are used instead of light",
+        "light microscope is affordable / easy to use / large field of view / portable",
+        "light microscope shows colour / living cells"
+      ],
+      "mistakes": [
+        {
+          "wrong": "An electron microscope gives a clearer image.",
+          "right": "\"Clearer image\" is ignored. Say higher resolution, so smaller structures can be seen."
+        },
+        {
+          "wrong": "An electron microscope shows more detail.",
+          "right": "Some questions credit this, but others ignore it on its own. Safer: say it has greater resolution, so smaller structures can be seen."
+        },
+        {
+          "wrong": "A light microscope has no advantages.",
+          "right": "It is affordable, easy to use, portable, has a large field of view and can show colour and living cells."
+        }
+      ],
+      "worked_example": {
+        "exemplar_id": "22e8d35b-9010-4aa1-be4e-3d57b08d8dcf",
+        "source": "EDEXCEL nov 2021, Paper 2 (F), Q1(c)",
+        "question": "Explain why using an electron microscope shows the structures in the white blood cells more clearly.",
+        "marks": 2,
+        "answer_points": [
+          "Greater resolution.",
+          "So greater magnification is possible.",
+          "So smaller structures can be seen or identified.",
+          "Electrons, with a shorter wavelength, are used instead of light."
+        ],
+        "tip": "Any two score one mark each. Link resolution to what can be seen."
+      }
+    },
+    "ocr": {
+      "spec_codes": ["OCR 1.1a", "OCR 1.1c"],
+      "exam_phrases": [
+        "(sub-cellular) structures were not clearly visible until electron microscopy",
+        "high magnification",
+        "high resolution",
+        "as a stain so can see organelles",
+        "more difficult to focus",
+        "smaller field of view"
+      ],
+      "mistakes": [
+        {
+          "wrong": "A stain is used to make the cells visible.",
+          "right": "\"To make structures or cells visible\" is ignored. Say the chromosomes, nucleus or organelles are colourless, so the stain lets you see them."
+        },
+        {
+          "wrong": "The electron microscope gives clearer, sharper images and zooms in.",
+          "right": "Clearer, sharper, more detailed and zoom are ignored. Say high magnification and high resolution."
+        },
+        {
+          "wrong": "The highest magnification is always best.",
+          "right": "It is more difficult to focus, and the field of view is smaller."
+        }
+      ],
+      "worked_example": {
+        "exemplar_id": "4b89545f-caa9-4e6c-9994-8d3c34365118",
+        "source": "OCR jun 2019, Paper 3, Q20(d)",
+        "question": "Transmission electron microscopes (TEM) work by passing a beam of electrons through a very thin slice of an object. Suggest one advantage and one disadvantage of using TEM rather than a light microscope to look at cells.",
+        "marks": 2,
+        "answer_points": [
+          "Advantage: increased resolution, or high magnification, or sub-cellular structures are visible.",
+          "Disadvantage: can only be used on dead material, or thin sections only, or gives a 2-D image, or expensive, or preparation takes longer, or black and white images."
+        ],
+        "tip": "One mark for an advantage and one for a disadvantage. \"Clearer\" or \"can see small cells\" is ignored."
+      }
+    }
+  },
+  "meta": {
+    "status": "draft",
+    "checked_by": "sonnet-science-check",
+    "checked_at": "2026-10-01",
+    "written_by": "Claude Sonnet 5.5",
+    "written_at": "2026-10-01",
+    "spec_point_ids": [
+      "7bf45d21-74fd-4a2b-a9cc-49fee839f9a9",
+      "0f44c7ec-ab70-40a8-b5e8-92388154e405",
+      "72ee3590-7d6d-47ff-9a34-07e9e53b859c",
+      "557bf585-96c4-4eb2-90c6-aecc2bda386b"
+    ],
+    "exemplar_ids": [
+      "2d1416ef-8ec0-4b07-a7c5-17fdc8dbb94d",
+      "22e8d35b-9010-4aa1-be4e-3d57b08d8dcf",
+      "4b89545f-caa9-4e6c-9994-8d3c34365118"
+    ]
+  }
+}

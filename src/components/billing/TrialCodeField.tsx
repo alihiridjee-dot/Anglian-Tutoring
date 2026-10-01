@@ -1,8 +1,6 @@
 import { useState } from "react";
 import { Gift } from "lucide-react";
-
-/** Days a trial code gives. Mirrors TRIAL_DAYS in supabase/functions/_shared/trialCode.ts. */
-export const TRIAL_DAYS = 14;
+import { TRIAL_DAYS } from "@/lib/billing/trialCode";
 
 /** "11 October": the day a trial started today first charges. */
 function firstChargeDay(): string {

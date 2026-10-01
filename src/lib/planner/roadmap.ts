@@ -154,6 +154,11 @@ export interface RoadmapInputs {
   catchUpWeek: SavedWeek | null;
   ledger: { done: Set<string>; outstanding: Set<string> };
   thisMonday: Date;
+  /**
+   * Where a first visit starts the programme ({@link programStartFor}): this
+   * Monday, or next Monday from Saturday. Defaults to this Monday.
+   */
+  firstWeek?: Date;
   /** The stored exam week, or the default one before a baseline exists. */
   examMonday: Date;
   /** The tutor's overrides for this course. Absent means none. */
@@ -202,7 +207,7 @@ export function buildRoadmap(inputs: RoadmapInputs): RoadmapResult {
   // is what the admissibility rule tests against: a review cannot be assigned
   // for a topic the programme has not opened yet, however good the FSRS
   // evidence behind it looks. See [[admissibility]].
-  const start = baseline ? weekKeyToDate(baseline.program_start) : thisMonday;
+  const start = baseline ? weekKeyToDate(baseline.program_start) : (inputs.firstWeek ?? thisMonday);
   const stored = baseline ? baseline.pacing : [];
   const custom = customSchedule(stored);
   const live = liveSpine({
@@ -398,9 +403,10 @@ export function buildRoadmap(inputs: RoadmapInputs): RoadmapResult {
       baselineBands: live,
       changes: [],
       needsAck: false,
-      // First view = enrolment: this Monday becomes the student's permanent
-      // spine anchor, and their runway to the exam sets the weekly pace.
-      programStart: toDateKey(thisMonday),
+      // First view = enrolment: this Monday (next Monday, from a Saturday)
+      // becomes the student's permanent spine anchor, and their runway to the
+      // exam sets the weekly pace.
+      programStart: toDateKey(start),
       unscheduledTopicTitles: beyondTheRunway,
     };
   }

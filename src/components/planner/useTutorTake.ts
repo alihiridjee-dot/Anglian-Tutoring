@@ -148,6 +148,8 @@ export function useTutorTake({
   };
 
   const saveNote = async () => {
+    // An editor that never loaded the saved note must not save over it.
+    if (!loaded) return;
     setBusy("save");
     try {
       await saveTutorNote({
@@ -166,6 +168,7 @@ export function useTutorTake({
   };
 
   const applyToNextWeek = async () => {
+    if (!loaded) return;
     if (nextPoints.length === 0) {
       toast.info("Pick the spec points to line up for next week first.");
       return;
@@ -211,6 +214,9 @@ export function useTutorTake({
 
   return {
     loaded,
+    /** The saved note couldn't be read; `retry` asks again. */
+    error: savedQuery.error,
+    retry: () => void savedQuery.refetch(),
     nextLabel,
     thisLabel,
     hasCheckin,

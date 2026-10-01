@@ -85,7 +85,7 @@ export function useEnrolments(): EnrolmentsState {
             .maybeSingle(),
           supabase
             .from("student_enrolments")
-            .select("subject, board")
+            .select("subject, board, created_at")
             .eq("student_id", uid)
             .order("subject", { ascending: true }),
         ]);
@@ -100,6 +100,7 @@ export function useEnrolments(): EnrolmentsState {
       const enrolments = (enrolRows ?? []).map((r) => ({
         subject: r.subject as string,
         board: r.board as BoardV,
+        enrolledAt: r.created_at,
       }));
 
       return {

@@ -1,0 +1,273 @@
+{
+  "format": 1,
+  "concept_id": "chem-013",
+  "subject": "chemistry",
+  "title": "Group 0: the noble gases",
+  "key_idea": "The **noble gases** are unreactive because their atoms have a full outer shell, which is a stable arrangement of electrons. Their boiling points and densities increase going down the group. Their uses follow from being unreactive and, for helium, from having a low density.",
+  "sections": [
+    {
+      "heading": "Why the noble gases are unreactive",
+      "blocks": [
+        { "type": "paragraph", "text": "The elements in Group 0 are helium, neon, argon, krypton, xenon and radon. This section covers their electrons and their reactivity." },
+        {
+          "type": "definitions",
+          "items": [
+            { "term": "Noble gases", "meaning": "The elements in Group 0 of the periodic table." },
+            { "term": "Inert", "meaning": "Does not react. The noble gases are unreactive." },
+            { "term": "Full outer shell", "meaning": "An outer shell holding as many electrons as it can. This is a stable arrangement of electrons." }
+          ]
+        },
+        {
+          "type": "table",
+          "columns": ["Noble gas", "Electronic structure", "Outer shell"],
+          "rows": [
+            ["Helium", "2", "Full, with 2 electrons"],
+            ["Neon", "2,8", "Full, with 8 electrons"],
+            ["Argon", "2,8,8", "Full, with 8 electrons"]
+          ]
+        },
+        {
+          "type": "list",
+          "items": [
+            "The noble gases have eight electrons in their outer shell, except helium, which has two.",
+            "A full outer shell is a stable arrangement of electrons.",
+            "The atoms do not gain, lose or share electrons, so they do not easily form molecules or compounds.",
+            "A sample of a noble gas is made of single atoms."
+          ]
+        },
+        {
+          "type": "key-points",
+          "items": [
+            "Noble gases have a full outer shell: 8 electrons, or 2 for helium.",
+            "This is a stable arrangement, so they do not gain, lose or share electrons.",
+            "They are unreactive and do not easily form compounds."
+          ]
+        }
+      ]
+    },
+    {
+      "heading": "Trends in physical properties",
+      "blocks": [
+        { "type": "paragraph", "text": "The boiling points of the noble gases increase going down the group, with increasing relative atomic mass." },
+        {
+          "type": "table",
+          "columns": ["Noble gas", "Boiling point"],
+          "rows": [
+            ["Helium", "−269 °C"],
+            ["Neon", "−246 °C"],
+            ["Argon", "−186 °C"],
+            ["Krypton", "−153 °C"],
+            ["Xenon", "Higher than krypton"]
+          ]
+        },
+        {
+          "type": "steps",
+          "items": [
+            { "lead": "Find the pattern.", "text": "The boiling points rise as you go down the group." },
+            { "lead": "Place the element.", "text": "Xenon is below krypton in the group." },
+            { "lead": "Predict.", "text": "The boiling point of xenon is higher than that of krypton (−153 °C)." }
+          ]
+        },
+        {
+          "type": "list",
+          "items": [
+            "The density of the noble gases also increases going down the group. In order of increasing density: helium, neon, argon, krypton.",
+            "To predict a missing value, it lies between the values of the elements above and below it."
+          ]
+        },
+        {
+          "type": "key-points",
+          "items": [
+            "Boiling points and densities increase going down Group 0.",
+            "Use the pattern to predict values for other noble gases."
+          ]
+        }
+      ]
+    },
+    {
+      "heading": "Uses of the noble gases",
+      "blocks": [
+        { "type": "paragraph", "text": "Each use of a noble gas depends on a property: being unreactive, having a low density or not being flammable." },
+        {
+          "type": "diagram",
+          "diagram": {
+            "kind": "explorer",
+            "alt": "Tap a noble gas to learn its properties and uses, then test yourself.",
+            "prompt": "The noble gases",
+            "parts": [
+              { "name": "Helium", "detail": "Unreactive, with the lowest density and boiling point (−269 °C). It is used in balloons and airships because it is less dense than air and will not ignite." },
+              { "name": "Neon", "detail": "Electronic structure 2,8, so a full outer shell. It is unreactive and does not form compounds. Its boiling point is −246 °C." },
+              { "name": "Argon", "detail": "Electronic structure 2,8,8. It is used to fill filament light bulbs and as an inert atmosphere for welding steel, because it does not react with the hot metal." },
+              { "name": "Krypton", "detail": "Unreactive but much denser than air, so it would not float in an airship. Its boiling point is −153 °C." },
+              { "name": "Xenon", "detail": "Below krypton in the group, so its boiling point and density are higher than krypton's." }
+            ]
+          }
+        },
+        { "type": "subheading", "text": "Explaining the uses" },
+        {
+          "type": "list",
+          "items": [
+            "Helium fills balloons and airships because it is less dense than air. It is also non-flammable.",
+            "Hydrogen is not used in airships because it is flammable and could ignite.",
+            "Krypton is not used in airships because it is more dense than air, so the airship would not float.",
+            "Argon fills filament light bulbs because it does not react with the hot metal filament. Oxygen in air would react with the filament to form a metal oxide.",
+            "Argon is used as an inert atmosphere for joining steel by heating, because it is unreactive."
+          ]
+        },
+        {
+          "type": "key-points",
+          "items": [
+            "Helium is used in balloons because it is less dense than air and non-flammable.",
+            "Argon is used when a reactive gas such as oxygen must be kept away, because it is inert.",
+            "For each use, name the property that makes the gas suitable."
+          ]
+        }
+      ]
+    }
+  ],
+  "checks": [
+    {
+      "q": "Explain, in terms of electrons, why argon is unreactive.",
+      "a": "Argon has a full outer shell of eight electrons, which is a stable arrangement. It does not gain, lose or share electrons.",
+      "marks": 2
+    },
+    {
+      "q": "State the trend in the boiling points of the noble gases going down Group 0.",
+      "a": "The boiling points increase going down the group.",
+      "marks": 1
+    },
+    {
+      "q": "State one property of helium, apart from being inert, that makes it suitable for filling balloons.",
+      "a": "It is less dense than air.",
+      "marks": 1
+    }
+  ],
+  "boards": {
+    "aqa": {
+      "spec_codes": ["AQA 4.1.2.4", "AQA T 5.1.2.4"],
+      "exam_phrases": [
+        "argon has a full outer shell (of electrons)",
+        "argon has eight outer shell electrons",
+        "a stable arrangement of electrons",
+        "does not gain / lose / share electrons",
+        "neon is 2,8",
+        "the boiling points increase down the group"
+      ],
+      "mistakes": [
+        {
+          "wrong": "Argon is unreactive because it has no outer shell electrons.",
+          "right": "This is ignored, and it is wrong. Argon has a full outer shell of eight electrons."
+        },
+        {
+          "wrong": "No product forms because argon is a noble gas.",
+          "right": "'Argon is a noble gas' is ignored. Explain with electrons: a full outer shell or a stable arrangement of electrons, so argon is unreactive."
+        },
+        {
+          "wrong": "Argon is unreactive because it has a full outer shell, and that is all.",
+          "right": "Two marks need two ideas: a full outer shell (or eight electrons), and so a stable arrangement, or it does not gain, lose or share electrons."
+        }
+      ],
+      "worked_example": {
+        "exemplar_id": "21699bd4-fb5b-42e5-b36d-3f76e2bdda0c",
+        "source": "AQA jun 2025, Paper 1 (H), Q1.5",
+        "question": "Argon is an element in Group 0 of the periodic table.\n\nExplain why argon is unreactive.",
+        "marks": 2,
+        "answer_points": [
+          "Argon has a full outer shell of electrons (eight outer shell electrons is also accepted).",
+          "So argon has a stable arrangement of electrons, or it does not gain, lose or share electrons."
+        ],
+        "tip": "One mark for the full outer shell and one for the stable arrangement."
+      }
+    },
+    "edexcel": {
+      "spec_codes": ["EDEX 6.14", "EDEX 6.15", "EDEX 6.16"],
+      "exam_phrases": [
+        "(the gas atoms) have full outer shell(s)",
+        "so they do not gain / lose / transfer / share electrons",
+        "less dense than air",
+        "hydrogen is flammable / could ignite",
+        "krypton is more dense than air, so the airship would not float",
+        "argon is unreactive, so it does not react with the metal filament"
+      ],
+      "mistakes": [
+        {
+          "wrong": "Helium is suitable for balloons because it is light and not poisonous.",
+          "right": "Light and non-toxic are ignored. Say helium is less dense than air."
+        },
+        {
+          "wrong": "The gases are inert because they do not react or gain a charge.",
+          "right": "'Does not react' and 'does not gain a charge' are ignored. Say the atoms do not gain, lose, transfer or share electrons."
+        },
+        {
+          "wrong": "The noble gases are inert because they have eight electrons.",
+          "right": "Mentions of numbers of electrons are ignored. Say the atoms have a full outer shell."
+        }
+      ],
+      "worked_example": {
+        "exemplar_id": "c82f61dd-c5a7-44a6-8f3b-07886948a2b3",
+        "source": "EDEXCEL nov 2021, Paper 2 (F), Q3(a)(ii)",
+        "question": "Helium, hydrogen and krypton are gases.\n\nThe table shows the reactivity and density, at room temperature and pressure, of helium, hydrogen and krypton.\n\nHelium: unreactive, density 0.00018 g/cm³\nHydrogen: very reactive, density 0.00009 g/cm³\nKrypton: unreactive, density 0.00380 g/cm³\n\nThe density of air is 0.001225 g/cm³.\n\nHelium is used in airships.\n\nExplain why hydrogen and why krypton are not used in airships.",
+        "marks": 3,
+        "answer_points": [
+          "Hydrogen is flammable and could ignite.",
+          "Krypton is more dense than air (it has a high density).",
+          "So a krypton airship would not float."
+        ],
+        "tip": "Compare each density with the density of air, which is 0.001225."
+      }
+    },
+    "ocr": {
+      "spec_codes": ["OCR C4.1a", "OCR C4.1b"],
+      "exam_phrases": [
+        "unreactive",
+        "full / complete outer shell (of electrons)",
+        "8 electrons in the outer shell",
+        "no tendency to lose or gain electrons",
+        "Group 1 elements do not have a full outer shell / have 1 electron in the outer shell",
+        "a stable electronic structure"
+      ],
+      "mistakes": [
+        {
+          "wrong": "The noble gases have no tendency to react.",
+          "right": "This is ignored unless it is linked to a full outer shell. Say they have a full outer shell, so no tendency to lose or gain electrons."
+        },
+        {
+          "wrong": "Argon is 2,8,8 so it is unreactive.",
+          "right": "State the reason as well as the answer: it is unreactive because it has a full outer shell of electrons."
+        }
+      ],
+      "worked_example": {
+        "exemplar_id": "d43beaf3-cb6c-4484-8bff-b23aeef6db79",
+        "source": "OCR jun 2019, Paper 4, Q20(e)",
+        "question": "The elements in Group 0 (the noble gases) are unreactive.\n\nExplain why, in terms of their electronic configurations.",
+        "marks": 2,
+        "answer_points": [
+          "Group 0 elements have a full (complete) outer shell. Eight electrons in the outer shell is also accepted.",
+          "So they have no tendency to lose or gain electrons."
+        ],
+        "tip": "One mark for the full outer shell and one for the idea that they do not lose or gain electrons."
+      }
+    }
+  },
+  "meta": {
+    "status": "draft",
+    "checked_by": "sonnet-science-check",
+    "checked_at": "2026-10-01",
+    "written_by": "claude-sonnet-5-5",
+    "written_at": "2026-10-01",
+    "spec_point_ids": [
+      "df2ccffc-925b-40be-89f5-845bd52d962d",
+      "0197b84c-94a4-4e6b-9164-9807754ee574",
+      "71f396a4-bcf9-4d2f-9b6a-c4a2416cc60e",
+      "f8f4a0ac-dce6-46fa-8998-da44ea7da596",
+      "657f36a0-c356-4330-ae4b-0099cfb40b68",
+      "a62e76ed-9d93-4b0e-847a-48db3c96d8c6",
+      "7a0faa09-f358-4029-939f-a7ec394167a1"
+    ],
+    "exemplar_ids": [
+      "21699bd4-fb5b-42e5-b36d-3f76e2bdda0c",
+      "c82f61dd-c5a7-44a6-8f3b-07886948a2b3",
+      "d43beaf3-cb6c-4484-8bff-b23aeef6db79"
+    ]
+  }
+}
