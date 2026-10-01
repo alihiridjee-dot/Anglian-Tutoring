@@ -2001,6 +2001,10 @@ export type Database = {
         };
         Returns: Json;
       };
+      replace_generated_mcq_questions: {
+        Args: { _questions: Json; _set_id: string };
+        Returns: number;
+      };
       skip_plan_point: {
         Args: {
           _student_id: string;

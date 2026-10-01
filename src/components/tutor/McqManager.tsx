@@ -72,16 +72,23 @@ export function McqManager() {
   };
 
   const remove = async (s: ManagedSet) => {
+    // Students' results would go with it, so the database refuses (S-18).
+    if (s.attemptCount > 0) {
+      return toast.error(
+        `Students have taken this quiz (${s.attemptCount} attempt${s.attemptCount === 1 ? "" : "s"}), so it can't be deleted. To fix its questions, use "Replace questions" on its spec point.`,
+      );
+    }
     if (
       !window.confirm(
-        `Delete "${s.title}"? This permanently removes the quiz, its ${s.questionCount} question${
+        `Delete "${s.title}"? This permanently removes the quiz and its ${s.questionCount} question${
           s.questionCount === 1 ? "" : "s"
-        } and all ${s.attemptCount} student attempt${s.attemptCount === 1 ? "" : "s"}.`,
+        }.`,
       )
     )
       return;
     setBusyId(s.id);
-    // mcq_questions and mcq_attempts both cascade on the set FK, so one delete is enough.
+    // mcq_questions cascades on the set FK, so one delete is enough. A set with
+    // attempts is refused by the database even if the count above was stale.
     const { error } = await supabase.from("mcq_sets").delete().eq("id", s.id);
     setBusyId(null);
     if (error) return toast.error(error.message);
