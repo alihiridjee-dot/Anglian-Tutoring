@@ -66,6 +66,12 @@ export function Footer() {
           >
             Contact
           </Link>
+          <Link
+            to="/privacy"
+            className="inline-flex min-h-11 items-center hover:text-primary-foreground transition sm:min-h-0"
+          >
+            Privacy
+          </Link>
         </nav>
 
         <div className="flex items-center gap-3">

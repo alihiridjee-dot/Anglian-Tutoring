@@ -10,6 +10,7 @@
 
 import { Route as rootRouteImport } from './routes/__root'
 import { Route as ResetPasswordRouteImport } from './routes/reset-password'
+import { Route as PrivacyRouteImport } from './routes/privacy'
 import { Route as OurStoryRouteImport } from './routes/our-story'
 import { Route as HowItWorksRouteImport } from './routes/how-it-works'
 import { Route as AuthRouteImport } from './routes/auth'
@@ -62,6 +63,11 @@ import { Route as DemoStudentHomeworkHomeworkIdRouteImport } from './routes/demo
 const ResetPasswordRoute = ResetPasswordRouteImport.update({
   id: '/reset-password',
   path: '/reset-password',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const PrivacyRoute = PrivacyRouteImport.update({
+  id: '/privacy',
+  path: '/privacy',
   getParentRoute: () => rootRouteImport,
 } as any)
 const OurStoryRoute = OurStoryRouteImport.update({
@@ -316,6 +322,7 @@ export interface FileRoutesByFullPath {
   '/auth': typeof AuthRoute
   '/how-it-works': typeof HowItWorksRoute
   '/our-story': typeof OurStoryRoute
+  '/privacy': typeof PrivacyRoute
   '/reset-password': typeof ResetPasswordRoute
   '/demo/parent': typeof DemoParentRouteRouteWithChildren
   '/demo/student': typeof DemoStudentRouteRouteWithChildren
@@ -365,6 +372,7 @@ export interface FileRoutesByTo {
   '/auth': typeof AuthRoute
   '/how-it-works': typeof HowItWorksRoute
   '/our-story': typeof OurStoryRoute
+  '/privacy': typeof PrivacyRoute
   '/reset-password': typeof ResetPasswordRoute
   '/demo/parent': typeof DemoParentRouteRouteWithChildren
   '/demo/student': typeof DemoStudentRouteRouteWithChildren
@@ -417,6 +425,7 @@ export interface FileRoutesById {
   '/auth': typeof AuthRoute
   '/how-it-works': typeof HowItWorksRoute
   '/our-story': typeof OurStoryRoute
+  '/privacy': typeof PrivacyRoute
   '/reset-password': typeof ResetPasswordRoute
   '/demo/parent': typeof DemoParentRouteRouteWithChildren
   '/demo/student': typeof DemoStudentRouteRouteWithChildren
@@ -469,6 +478,7 @@ export interface FileRouteTypes {
     | '/auth'
     | '/how-it-works'
     | '/our-story'
+    | '/privacy'
     | '/reset-password'
     | '/demo/parent'
     | '/demo/student'
@@ -518,6 +528,7 @@ export interface FileRouteTypes {
     | '/auth'
     | '/how-it-works'
     | '/our-story'
+    | '/privacy'
     | '/reset-password'
     | '/demo/parent'
     | '/demo/student'
@@ -569,6 +580,7 @@ export interface FileRouteTypes {
     | '/auth'
     | '/how-it-works'
     | '/our-story'
+    | '/privacy'
     | '/reset-password'
     | '/demo/parent'
     | '/demo/student'
@@ -621,6 +633,7 @@ export interface RootRouteChildren {
   AuthRoute: typeof AuthRoute
   HowItWorksRoute: typeof HowItWorksRoute
   OurStoryRoute: typeof OurStoryRoute
+  PrivacyRoute: typeof PrivacyRoute
   ResetPasswordRoute: typeof ResetPasswordRoute
   DemoParentRouteRoute: typeof DemoParentRouteRouteWithChildren
   DemoStudentRouteRoute: typeof DemoStudentRouteRouteWithChildren
@@ -634,6 +647,13 @@ declare module '@tanstack/react-router' {
       path: '/reset-password'
       fullPath: '/reset-password'
       preLoaderRoute: typeof ResetPasswordRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/privacy': {
+      id: '/privacy'
+      path: '/privacy'
+      fullPath: '/privacy'
+      preLoaderRoute: typeof PrivacyRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/our-story': {
@@ -1098,6 +1118,7 @@ const rootRouteChildren: RootRouteChildren = {
   AuthRoute: AuthRoute,
   HowItWorksRoute: HowItWorksRoute,
   OurStoryRoute: OurStoryRoute,
+  PrivacyRoute: PrivacyRoute,
   ResetPasswordRoute: ResetPasswordRoute,
   DemoParentRouteRoute: DemoParentRouteRouteWithChildren,
   DemoStudentRouteRoute: DemoStudentRouteRouteWithChildren,
