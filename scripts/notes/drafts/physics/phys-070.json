@@ -95,7 +95,7 @@
           "items": [
             "The angle of refraction is smaller than the angle of incidence.",
             "A ray along the normal (0°) does not change direction.",
-            "The graph is a curve that bends over. It is not a straight line through the origin.",
+            "The graph is a curve that bends over. It is not a straight line.",
             "So the two angles are not directly proportional."
           ]
         },
@@ -103,7 +103,7 @@
           "type": "diagram",
           "diagram": {
             "kind": "line-graph",
-            "alt": "A line graph of angle of refraction against angle of incidence for light entering glass. The line starts at zero and rises steeply at first, then flattens, so the line is a curve and the angles are not directly proportional.",
+            "alt": "A sketch graph of angle of refraction against angle of incidence for light entering glass. The line starts at zero and rises steeply at first, then flattens, so the line is a curve and the angles are not directly proportional.",
             "x": {
               "label": "Angle of incidence",
               "min": 0,
@@ -120,7 +120,7 @@
               "unit": "°"
             },
             "y": {
-              "label": "Angle of refraction"
+              "label": "Angle of refraction (sketch of the shape only)"
             },
             "series": [
               {
@@ -257,18 +257,18 @@
           "right": "Methods involving mirrors and reflection score zero. Use a glass block and measure the angle of refraction."
         },
         {
-          "wrong": "A narrow ray gives more accurate results.",
-          "right": "This repeats the question. Say it is harder to judge the centre of a wider ray, causing a larger uncertainty in the measurements."
+          "wrong": "A wider ray gives less accurate results.",
+          "right": "This only repeats the question. Give the reason: it is harder to judge where the centre of a wider ray is, causing a larger uncertainty."
         },
         {
-          "wrong": "Measure the angles between the ray and the surface of the block.",
+          "wrong": "Measure the angles without drawing a normal.",
           "right": "Draw a normal line at 90 degrees to the surface and measure the angle of incidence and angle of refraction from it."
         }
       ],
       "worked_example": {
         "exemplar_id": "dd4a11fb-3ea4-42a9-8645-07a294f64dfa",
         "source": "AQA jun 2022, Paper 2 (H), Q02.1",
-        "question": "A student used a ray box to shine a ray of light through air into a glass block.\n\nThe student investigated how the angle of refraction varied with the angle of incidence, using angles of incidence from 10° to 80°.\n\nDescribe a method the student could have used to obtain the results.\n\nYour answer may include a labelled diagram.",
+        "question": "A student used a ray box to shine a ray of light through air into a glass block.\n\nThe student investigated how the angle of refraction varied with the angle of incidence.\n\nThe results were:\n\nAngle of incidence 10°, refraction 5°\n20°, 10°\n30°, 14°\n40°, 19°\n50°, 23°\n60°, 26°\n70°, 28°\n80°, 29°\n\nDescribe a method the student could have used to obtain these results.\n\nYour answer may include a labelled diagram.",
         "marks": 6,
         "answer_points": [
           "Place a glass block on a piece of paper and draw around it.",
@@ -294,7 +294,7 @@
       "mistakes": [
         {
           "wrong": "To test whether the angles are proportional, repeat the same readings.",
-          "right": "Repeating alone is not enough. Use different angles, or more values, as well."
+          "right": "Repeating alone scores only one of the three marks. Use different angles, or more values, as well."
         },
         {
           "wrong": "Angles up to 20° are enough to test the conclusion.",
@@ -314,6 +314,8 @@
     "exemplar_ids": [
       "dd4a11fb-3ea4-42a9-8645-07a294f64dfa",
       "1a15e8f0-7549-4922-bb3f-d574905eeb82"
-    ]
+    ],
+    "checked_by": "sonnet-science-check",
+    "checked_at": "2026-10-01"
   }
 }

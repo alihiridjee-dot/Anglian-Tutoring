@@ -10,7 +10,7 @@
       "blocks": [
         {
           "type": "paragraph",
-          "text": "Sound is a longitudinal wave. It needs particles to carry it, and it can travel through solids as well as gases and liquids."
+          "text": "(Separate science) Sound is a longitudinal wave. It needs particles to carry it, and it can travel through solids as well as gases and liquids."
         },
         {
           "type": "list",
@@ -264,10 +264,6 @@
         {
           "wrong": "In deeper water the wavelength is longer.",
           "right": "This gets only 1 of 2 marks. Add the reason: the wave speed increases and the frequency is constant."
-        },
-        {
-          "wrong": "When a wave goes into a new material its frequency changes.",
-          "right": "The frequency is constant (and so is the period). The speed and the wavelength change."
         }
       ],
       "extra": [
@@ -276,21 +272,20 @@
           "blocks": [
             {
               "type": "paragraph",
-              "text": "This topic is Higher tier content in this course."
+              "text": "(Higher tier) This topic is Higher tier content in this course."
             }
           ]
         }
       ],
       "worked_example": {
-        "exemplar_id": "408a80b6-1a71-4235-bf85-b812f53cd4dc",
-        "source": "AQA jun 2021, Paper 2 (H), Q03.4",
-        "question": "The speed of a wave is affected by the depth of the water in a ripple tank.\n\nThe deeper the water the faster the wave.\n\nExplain how the depth of the water affects the wavelength of the wave if the frequency is constant.",
-        "marks": 2,
+        "exemplar_id": "6eb1422b-32e8-44a9-aaf9-d4802a3ca7aa",
+        "source": "AQA jun 2019, Paper 2 (H), Q9.1",
+        "question": "The table gives the frequencies in the hearing ranges of five different animals.\n\nCat: 55 Hz to 77 kHz\nChicken: 125 Hz to 2 kHz\nDog: 20 Hz to 30 kHz\nGerbil: 56 Hz to 60 kHz\nHorse: 55 Hz to 33 kHz\n\nWhich one of the animals would not be able to hear ultrasound?",
+        "marks": 1,
         "answer_points": [
-          "Deeper water means a longer wavelength.",
-          "Because the wave speed (v) increases and the frequency (f) is constant. (For a fixed frequency the period is also constant.)"
+          "Chicken."
         ],
-        "tip": "One mark for the effect on wavelength and one for the reason."
+        "tip": "Ultrasound is above 20 kHz. Only the chicken's range stops below this, at 2 kHz."
       }
     },
     "edexcel": {
@@ -383,9 +378,12 @@
       "1c7ddf44-161a-4a36-a392-8bd2e74d2d84"
     ],
     "exemplar_ids": [
+      "6eb1422b-32e8-44a9-aaf9-d4802a3ca7aa",
       "408a80b6-1a71-4235-bf85-b812f53cd4dc",
       "242b340d-af10-46fd-80f2-4dffb41ed044",
       "589d6f0b-1b96-4aac-8183-8752cc701516"
-    ]
+    ],
+    "checked_by": "sonnet-science-check",
+    "checked_at": "2026-10-01"
   }
 }
