@@ -140,8 +140,9 @@ function StudentHomework({
   // row (legacy accounts) has nothing to contradict, so nothing is filtered.
   const items: HomeworkItem[] = useMemo(() => {
     const boardOf = new Map(enrolments.map((e) => [e.subject, e.board]));
+    const enrolledAt = new Map(enrolments.map((e) => [e.subject, e.enrolledAt]));
     return homework
-      .map((hw) => ({ hw, submission: submissions[hw.id] }))
+      .map((hw) => ({ hw, submission: submissions[hw.id], enrolledAt: enrolledAt.get(hw.subject) }))
       .filter(({ hw, submission }) => {
         const board = boardOf.get(hw.subject);
         return !!submission || !hw.board || !board || hw.board === board;
