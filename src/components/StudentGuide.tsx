@@ -120,7 +120,8 @@ export function StudentGuide({
   };
   const close = () => {
     setIndex(null);
-    trigger.current?.focus({ preventScroll: true });
+    // Once the dialog has gone: nothing outside an open modal can take focus.
+    window.setTimeout(() => trigger.current?.focus({ preventScroll: true }));
   };
   const step = index === null ? null : available[index];
   const last = index === available.length - 1;
@@ -368,7 +369,8 @@ export function GuideOverlay({
   onBack?: () => void;
   onNext: () => void;
   nextLabel: string;
-  closeLabel?: string;
+  /** Null leaves it out, for a last step whose Next already ends the tour. */
+  closeLabel?: string | null;
   /** Room for a picture beside the words, for the steps that explain an idea. */
   wide?: boolean;
 }) {
@@ -541,9 +543,11 @@ export function GuideOverlay({
         </div>
         <Meter value={progress * 100} size="sm" />
         <div className="mt-5 flex items-center gap-2">
-          <button onClick={onClose} className="btn-ghost min-h-11 rounded-xl px-2 py-2 text-sm">
-            {closeLabel}
-          </button>
+          {closeLabel !== null && (
+            <button onClick={onClose} className="btn-ghost min-h-11 rounded-xl px-2 py-2 text-sm">
+              {closeLabel}
+            </button>
+          )}
           <div className="ml-auto flex gap-2">
             {onBack && (
               <button

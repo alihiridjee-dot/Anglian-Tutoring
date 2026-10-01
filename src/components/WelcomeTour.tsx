@@ -84,12 +84,15 @@ export function WelcomeTour({ locked }: { locked: boolean }) {
 
   const finish = useCallback(() => {
     setIndex(null);
+    // Once the dialog has gone: nothing outside an open modal can take focus.
+    window.setTimeout(() =>
+      document.querySelector<HTMLElement>('[data-guide="guide"]')?.focus({ preventScroll: true }),
+    );
     if (!userId) return;
     // Remembered here at once, so going home doesn't start it again while the
     // write is still on its way. A failed write means it shows once more.
     queryClient.setQueryData(seenKey, new Date().toISOString());
     void markWelcomeTourSeen(userId).catch(() => {});
-    document.querySelector<HTMLElement>('[data-guide="guide"]')?.focus({ preventScroll: true });
   }, [queryClient, seenKey, userId]);
 
   const go = useCallback(
@@ -155,7 +158,7 @@ export function WelcomeTour({ locked }: { locked: boolean }) {
       onBack={index > 0 ? () => go(index - 1) : undefined}
       onNext={() => (last ? finish() : go(index + 1))}
       nextLabel={index === 0 ? "Show me around" : last ? "Let’s go" : "Next"}
-      closeLabel="Skip tour"
+      closeLabel={last ? null : "Skip tour"}
       wide={!!step.visual}
     >
       {step.body.map((paragraph) => (
