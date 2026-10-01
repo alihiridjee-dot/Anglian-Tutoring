@@ -1897,6 +1897,10 @@ export type Database = {
         Args: { _answers: Json; _set_id: string };
         Returns: Json;
       };
+      homework_points_with_sheet: {
+        Args: { _spec_point_ids: string[] };
+        Returns: string[];
+      };
       homework_mark_schemes: {
         Args: { _resource_ids: string[] };
         Returns: { mark_scheme: string; question_id: string }[];
