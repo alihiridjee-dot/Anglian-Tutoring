@@ -13,6 +13,7 @@ import {
   isTeachBand,
   mergeFocus,
   projectReviews,
+  reviewBudget,
   weeksBetween,
   withWeeklyPoints,
 } from "./pacing";
@@ -29,6 +30,24 @@ import { blockedBy, indexOverrides, type PlanOverride } from "./overrides";
 import { type PlanPoint, type WithheldPlanPoint } from "./weeklyPlanDal";
 
 /** Assessment-backed cards supply one next review per point. */
+/** Each topic's teaching weight, the input the spine and its weekly load are cut from. */
+function pacingInputs(progress: TopicProgress[]): PacingInput[] {
+  return progress.map((t) => ({
+    topicId: t.topicId,
+    title: t.title,
+    weight: t.points.reduce((sum, p) => sum + p.weight, 0) || 1,
+  }));
+}
+
+/**
+ * How much review one week of this course may hold ({@link reviewBudget}): three
+ * times its weekly teaching. Shared by the roadmap and the reorder path, so a
+ * saved future week and the live projection agree.
+ */
+export function reviewBudgetFor(progress: TopicProgress[], spine: PacingBand[]): number {
+  return reviewBudget(focusLoadFor({ topics: pacingInputs(progress), spine }).spine);
+}
+
 export function focusInputs(progress: TopicProgress[]): {
   candidates: FocusCandidate[];
 } {
@@ -83,6 +102,12 @@ export interface RoadmapResult {
   /** Per-topic mastery + spec-point breakdown, for the expandable timeline. */
   progress: TopicProgress[];
   reviewBacklog: FocusCandidate[];
+  /**
+   * Reviews due now that this week had no room for, oldest due first. They
+   * roll into the following weeks on their own; "Review more now" pulls them
+   * into this week for a student who wants to keep going.
+   */
+  reviewsWaiting: FocusCandidate[];
   /**
    * Points the programme refused to assign, and why — work that would otherwise
    * have been scheduled for a topic the spine has not reached, a course the
@@ -158,11 +183,7 @@ export function buildRoadmap(inputs: RoadmapInputs): RoadmapResult {
   const overrideIndex = indexOverrides(overrides);
   const isBlocked = blockedBy(overrideIndex);
 
-  const topics: PacingInput[] = progress.map((t) => ({
-    topicId: t.topicId,
-    title: t.title,
-    weight: t.points.reduce((sum, p) => sum + p.weight, 0) || 1,
-  }));
+  const topics: PacingInput[] = pacingInputs(progress);
 
   // Coverage is assessed understanding, separate from the next memory review.
   const coveredTopicIds = new Set(progress.filter((t) => t.settled).map((t) => t.topicId));
@@ -248,6 +269,8 @@ export function buildRoadmap(inputs: RoadmapInputs): RoadmapResult {
     currentMonday: savedWeek ? addWeeks(thisMonday, 1) : thisMonday,
     examMonday,
     isBlocked,
+    weeklyBudget: reviewBudget(focusLoadFor({ topics, spine: live }).spine),
+    readyBy: thisMonday,
   });
   if (savedWeek) {
     // All saved-week consumers use the DAL's same active/history split.
@@ -364,6 +387,7 @@ export function buildRoadmap(inputs: RoadmapInputs): RoadmapResult {
     completedPointIds: [...ledger.done],
     progress,
     reviewBacklog: projection.backlog,
+    reviewsWaiting: projection.waiting,
     inadmissible,
     backlog,
     backlogByTopic: byTopic(unaddressed),

@@ -17,7 +17,7 @@ import { WeeklyPlanDAL, type PlanPoint } from "./weeklyPlanDal";
 import { WeeklyActivityDAL } from "./weeklyActivityDal";
 import { PlanOverridesDAL } from "./planOverridesDal";
 import { blockedBy, indexOverrides, programmeMayAssign, type PlanOverride } from "./overrides";
-import { buildRoadmap, focusInputs, type RoadmapResult } from "./roadmap";
+import { buildRoadmap, focusInputs, reviewBudgetFor, type RoadmapResult } from "./roadmap";
 import { mergeWeek, selectWeek, unsupportedReviews, type WeekSelection } from "./weekCut";
 
 export { handPicked } from "./weekCut";
@@ -292,6 +292,7 @@ export class ProgramDAL {
       currentMonday: saved ? addWeeks(monday, 1) : monday,
       examMonday: weekKeyToDate(p.examDate),
       isBlocked: blockedBy(overrides),
+      weeklyBudget: reviewBudgetFor(p.progress, p.pacing.filter(isTeachBand)),
     }).bands;
   }
 
