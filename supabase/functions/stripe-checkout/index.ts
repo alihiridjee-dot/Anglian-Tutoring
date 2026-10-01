@@ -39,6 +39,7 @@ import { admin, stripeClient } from "../_shared/clients.ts";
 import { requireUser, assertCanManage, assertCanUpgrade } from "./auth.ts";
 import { householdCustomerIds, resolveCustomer, assertNoLiveSubscription } from "./customers.ts";
 import { checkTrialCode, claimTrialCode } from "./trialCodes.ts";
+import { releaseCheckoutHold, recordCheckoutHold } from "./checkoutHolds.ts";
 import { TRIAL_DAYS } from "../_shared/trialCode.ts";
 
 /** Where Stripe sends the browser back to. Whitelisted — never client URLs. */
@@ -220,6 +221,9 @@ async function handleCheckout(req: Request, payload: CheckoutPayload) {
   }
 
   await assertNoLiveSubscription(stripe, db, beneficiary);
+  // The check above can't see a plan the webhook hasn't written yet; this
+  // expires the last Checkout opened for the student, or refuses if it was paid.
+  await releaseCheckoutHold(stripe, db, beneficiary);
 
   // The subject COUNT is what's priced, so it must come from what the student is
   // actually enrolled in — never from the tier the client sent. Otherwise a
@@ -272,17 +276,17 @@ async function handleCheckout(req: Request, payload: CheckoutPayload) {
       ...(trial ? { trial_code: trial.code } : {}),
     },
     allow_promotion_codes: true,
+    // Short-lived (Stripe's minimum is 30 minutes), so a forgotten Checkout
+    // page can't be paid long after another plan was bought, and an abandoned
+    // trial frees its code.
+    expires_at: Math.floor(Date.now() / 1000) + 31 * 60,
     // A trial still takes the card up front, so it rolls into the plan on day
-    // 15 unless cancelled. The short expiry frees an abandoned trial code.
-    ...(trial
-      ? {
-          payment_method_collection: "always" as const,
-          expires_at: Math.floor(Date.now() / 1000) + 31 * 60,
-        }
-      : {}),
+    // 15 unless cancelled.
+    ...(trial ? { payment_method_collection: "always" as const } : {}),
   });
 
   if (trial) await claimTrialCode(stripe, db, trial, session.id, user.id, beneficiary);
+  await recordCheckoutHold(db, beneficiary, session.id, user.id);
 
   return { url: session.url };
 }
