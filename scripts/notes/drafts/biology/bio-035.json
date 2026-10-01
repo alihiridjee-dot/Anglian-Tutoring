@@ -65,7 +65,7 @@
           "rows": [
             ["Leaves are flat with a large surface area", "More light is absorbed for photosynthesis."],
             ["Leaves are thin", "Carbon dioxide diffuses to the chloroplasts quickly."],
-            ["Many chloroplasts, mainly in the palisade cells at the top", "More light is absorbed. Chlorophyll is where the sun shines on the leaf."],
+            ["Many chloroplasts, mainly in the palisade cells at the top", "More light is absorbed, because the sun shines on the top of the leaf."],
             ["Air spaces in the spongy mesophyll", "Gases move through the leaf."],
             ["Many stomata", "Carbon dioxide is absorbed. Water vapour and oxygen can leave."],
             ["Veins containing xylem", "Water, needed for photosynthesis, is supplied. The veins also hold the leaf up so it faces the sun."]
@@ -102,9 +102,9 @@
       "marks": 1
     },
     {
-      "q": "Sunflower leaves are large. Explain why this is an advantage.",
-      "a": "Large surface area, so more light is absorbed, to produce glucose by photosynthesis.",
-      "marks": 3
+      "q": "Leaves in the shade are wider than leaves in full sun. Explain why.",
+      "a": "Wider leaves have a larger surface area, to absorb more light.",
+      "marks": 2
     }
   ],
   "boards": {
@@ -124,10 +124,6 @@
           "right": "A reference to a single cell is not accepted. Write palisade mesophyll, the palisade layer or palisade cells."
         },
         {
-          "wrong": "The epidermis is the part of the leaf where most photosynthesis occurs.",
-          "right": "The epidermis is the layer of cells lining the upper and lower surface. Most photosynthesis occurs in the palisade mesophyll."
-        },
-        {
           "wrong": "The pores in the leaf are controlled by the stomata.",
           "right": "The pores are the stomata. The opening and closing of the stomata is controlled by guard cells."
         }
@@ -142,7 +138,7 @@
           "Spongy mesophyll (or layer)",
           "Meristem"
         ],
-        "tip": "The answers must be in this order. Do not refer to a single palisade cell."
+        "tip": "The answers must be in this order. A reference to a single palisade cell is not accepted."
       }
     },
     "edexcel": {
@@ -158,15 +154,11 @@
       "mistakes": [
         {
           "wrong": "Leaves are green.",
-          "right": "On its own this earns little credit. Say leaves are green because they have chlorophyll or chloroplasts, to absorb more light for photosynthesis."
+          "right": "A bare adaptation is only a simple reference. Add the explanation: leaves are green because they have chlorophyll or chloroplasts, to absorb more light."
         },
         {
           "wrong": "The leaves are wide in the shade.",
           "right": "Link the adaptation to its effect: wider leaves give a larger surface area, to absorb more light."
-        },
-        {
-          "wrong": "Thin leaves are an adaptation because they are light.",
-          "right": "Say leaves are thin so carbon dioxide diffuses quickly to the chloroplasts. Carbon dioxide is a reactant of photosynthesis."
         }
       ],
       "worked_example": {
@@ -185,6 +177,8 @@
   },
   "meta": {
     "status": "draft",
+    "checked_by": "sonnet-science-check",
+    "checked_at": "2026-10-01",
     "written_by": "sonnet-5-5",
     "written_at": "2026-10-01",
     "spec_point_ids": [

@@ -115,8 +115,7 @@
           "type": "list",
           "items": [
             "Some glucose is used in respiration.",
-            "Amino acids are joined to make the proteins the body needs for growth, such as muscle.",
-            "Enzymes also join small molecules together, so the same types of enzyme build molecules as well as break them down."
+            "Amino acids are joined to make the proteins the body needs for growth, such as muscle."
           ]
         },
         { "type": "subheading", "text": "Evidence that lipase works" },
@@ -280,6 +279,8 @@
     "status": "draft",
     "written_by": "sonnet-5-5",
     "written_at": "2026-10-01",
+    "checked_by": "sonnet-science-check",
+    "checked_at": "2026-10-01",
     "spec_point_ids": [
       "e328616e-f0da-41cd-b7a9-e32deffb13e5",
       "6f843388-c13f-4bd9-94ff-34677e0e9fa3"

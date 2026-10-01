@@ -8,12 +8,21 @@
     {
       "heading": "Risk factors",
       "blocks": [
-        { "type": "paragraph", "text": "This section covers what a risk factor is and how several factors can combine to cause one disease." },
+        {
+          "type": "paragraph",
+          "text": "This section covers what a risk factor is and how several factors can combine to cause one disease."
+        },
         {
           "type": "definitions",
           "items": [
-            { "term": "Risk factor", "meaning": "Something linked to an increased rate of a disease. It may be an aspect of lifestyle, or a substance in the body or environment." },
-            { "term": "Carcinogen", "meaning": "A substance or radiation, such as ionising radiation, that can cause cancer." }
+            {
+              "term": "Risk factor",
+              "meaning": "Something linked to an increased rate of a disease. It may be an aspect of lifestyle, or a substance in the body or environment."
+            },
+            {
+              "term": "Carcinogen",
+              "meaning": "A substance or radiation, such as ionising radiation, that can cause cancer."
+            }
           ]
         },
         {
@@ -38,15 +47,33 @@
     {
       "heading": "Effects of lifestyle",
       "blocks": [
-        { "type": "paragraph", "text": "Diet, exercise, smoking and alcohol each affect particular diseases. Learn the main links." },
+        {
+          "type": "paragraph",
+          "text": "Diet, exercise, smoking and alcohol each affect particular diseases. Learn the main links."
+        },
         {
           "type": "table",
-          "columns": ["Lifestyle factor", "Effect on health"],
+          "columns": [
+            "Lifestyle factor",
+            "Effect on health"
+          ],
           "rows": [
-            ["Diet", "A high fat diet raises cholesterol and can cause fatty deposits and cardiovascular disease. Obesity is a risk factor for type 2 diabetes."],
-            ["Exercise", "Lack of exercise raises the risk of obesity, high blood pressure and diabetes."],
-            ["Smoking", "Raises the risk of cardiovascular disease, lung disease and lung cancer. Smoking in pregnancy affects the unborn baby."],
-            ["Alcohol", "Affects the liver and brain function. Alcohol in pregnancy affects the unborn baby."]
+            [
+              "Diet",
+              "A high fat diet raises cholesterol and can cause fatty deposits and cardiovascular disease. Obesity is a risk factor for type 2 diabetes."
+            ],
+            [
+              "Exercise",
+              "Lack of exercise raises the risk of obesity, high blood pressure, diabetes and cardiovascular disease."
+            ],
+            [
+              "Smoking",
+              "Raises blood pressure, cholesterol and fatty deposits, so raises the risk of cardiovascular disease. Also causes lung disease and lung cancer. Smoking in pregnancy affects the unborn baby."
+            ],
+            [
+              "Alcohol",
+              "Affects the liver and brain function. Alcohol in pregnancy affects the unborn baby."
+            ]
           ]
         },
         {
@@ -61,12 +88,19 @@
     {
       "heading": "BMI and waist-to-hip ratio",
       "blocks": [
-        { "type": "paragraph", "text": "BMI and waist-to-hip ratio are used to find out if a person is obese. BMI uses mass and height." },
+        {
+          "type": "paragraph",
+          "text": "BMI and waist-to-hip ratio are used to find out if a person is obese. BMI uses mass and height."
+        },
         {
           "type": "equation",
           "label": "Body mass index (BMI)",
           "formula": "BMI = mass ÷ height²",
-          "where": ["BMI in kg/m²", "mass in kg", "height in m"]
+          "where": [
+            "BMI in kg/m²",
+            "mass in kg",
+            "height in m"
+          ]
         },
         {
           "type": "diagram",
@@ -75,16 +109,38 @@
             "alt": "A BMI calculation with new numbers each time.",
             "question": "A person has a mass of {mass} kg and a height of {height} m. Calculate their BMI. Give your answer to 1 decimal place.",
             "variables": [
-              { "id": "mass", "min": 50, "max": 100, "step": 1 },
-              { "id": "height", "min": 1.5, "max": 1.9, "step": 0.01 }
+              {
+                "id": "mass",
+                "min": 55,
+                "max": 95,
+                "step": 1
+              },
+              {
+                "id": "height",
+                "min": 1.6,
+                "max": 1.85,
+                "step": 0.01
+              }
             ],
-            "answer": { "formula": "mass / (height ^ 2)", "unit": "kg/m²", "decimals": 1 },
+            "answer": {
+              "formula": "mass / (height ^ 2)",
+              "unit": "kg/m²",
+              "decimals": 1
+            },
             "working": [
               "BMI = mass ÷ height²",
               "height² = {height} × {height}",
               "BMI = {mass} ÷ height² = {answer}"
             ]
           }
+        },
+        {
+          "type": "equation",
+          "label": "Waist-to-hip ratio",
+          "formula": "waist-to-hip ratio = waist measurement ÷ hip measurement",
+          "where": [
+            "waist and hip measured in the same unit, such as cm"
+          ]
         },
         {
           "type": "list",
@@ -106,7 +162,10 @@
     {
       "heading": "The cost of non-communicable disease",
       "blocks": [
-        { "type": "paragraph", "text": "Non-communicable diseases have human and financial costs. These fall on individuals, local communities, nations and the world." },
+        {
+          "type": "paragraph",
+          "text": "Non-communicable diseases have human and financial costs. These fall on individuals, local communities, nations and the world."
+        },
         {
           "type": "list",
           "items": [
@@ -145,11 +204,14 @@
   ],
   "boards": {
     "aqa": {
-      "spec_codes": ["AQA 2.9", "AQA T 4.2.2.6"],
+      "spec_codes": [
+        "AQA 2.9",
+        "AQA T 4.2.2.6"
+      ],
       "exam_phrases": [
         "high blood pressure",
         "high cholesterol / fatty deposition",
-        "obesity is a risk factor for (type 2) diabetes",
+        "obesity: lack of exercise / high bp / cholesterol / fatty deposition / diabetes",
         "smoking: high bp / cholesterol / fatty deposition",
         "alcohol: bp / cholesterol",
         "high salt intake: high blood pressure"
@@ -185,7 +247,10 @@
       }
     },
     "edexcel": {
-      "spec_codes": ["EDEX 5.23", "EDEX 5.24"],
+      "spec_codes": [
+        "EDEX 5.23",
+        "EDEX 5.24"
+      ],
       "exam_phrases": [
         "substitution: 72 ÷ 1.81²",
         "waist : hip ratio above 0.90: abdominally obese",
@@ -221,13 +286,16 @@
       }
     },
     "ocr": {
-      "spec_codes": ["OCR 6.3r", "OCR 6.3t"],
+      "spec_codes": [
+        "OCR 6.3r",
+        "OCR 6.3t"
+      ],
       "exam_phrases": [
         "the more points a person scores, the higher the risk",
         "total the points for each person",
         "greater risk of getting CHD",
-        "identify the risk of following the diet",
-        "benefit: helps overweight people reduce health issues"
+        "Person A has a greater risk",
+        "correct deduction based on the total of points"
       ],
       "mistakes": [
         {
@@ -269,6 +337,8 @@
       "67ce1ff8-4f78-4825-855e-a5cd3b5ec59e",
       "28b1a476-f1ff-4400-8eed-b8308e4f6585",
       "9b1242a8-c354-4ab8-b823-d7bc684d9632"
-    ]
+    ],
+    "checked_by": "sonnet-science-check",
+    "checked_at": "2026-10-01"
   }
 }

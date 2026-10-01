@@ -8,16 +8,31 @@
     {
       "heading": "Health and types of disease",
       "blocks": [
-        { "type": "paragraph", "text": "This section covers what health means and the two main types of disease." },
+        {
+          "type": "paragraph",
+          "text": "This section covers what health means and the two main types of disease."
+        },
         {
           "type": "definitions",
           "items": [
-            { "term": "Health", "meaning": "A state of complete physical, mental and social well-being, and not merely the absence of disease or infirmity." },
-            { "term": "Communicable disease", "meaning": "A disease caused by a pathogen that can be passed from person to person." },
-            { "term": "Non-communicable disease", "meaning": "A disease that is not caused by a pathogen and cannot be passed from person to person." }
+            {
+              "term": "Health",
+              "meaning": "A state of complete physical, mental and social well-being, and not merely the absence of disease or infirmity. This is the definition used by the World Health Organization (WHO)."
+            },
+            {
+              "term": "Communicable disease",
+              "meaning": "A disease caused by a pathogen that can be passed from person to person."
+            },
+            {
+              "term": "Non-communicable disease",
+              "meaning": "A disease that is not caused by a pathogen and cannot be passed from person to person."
+            }
           ]
         },
-        { "type": "subheading", "text": "Communicable and non-communicable diseases" },
+        {
+          "type": "subheading",
+          "text": "Communicable and non-communicable diseases"
+        },
         {
           "type": "list",
           "items": [
@@ -32,14 +47,35 @@
             "kind": "sort",
             "alt": "Sort each disease into communicable or non-communicable.",
             "prompt": "Communicable or non-communicable?",
-            "groups": ["Communicable", "Non-communicable"],
+            "groups": [
+              "Communicable",
+              "Non-communicable"
+            ],
             "items": [
-              { "text": "Tuberculosis (TB)", "group": 0 },
-              { "text": "AIDS", "group": 0 },
-              { "text": "Barley powdery mildew", "group": 0 },
-              { "text": "Type 2 diabetes", "group": 1 },
-              { "text": "Coronary heart disease", "group": 1 },
-              { "text": "Beriberi (lack of vitamin B1)", "group": 1 }
+              {
+                "text": "Tuberculosis (TB)",
+                "group": 0
+              },
+              {
+                "text": "AIDS",
+                "group": 0
+              },
+              {
+                "text": "Barley powdery mildew",
+                "group": 0
+              },
+              {
+                "text": "Type 2 diabetes",
+                "group": 1
+              },
+              {
+                "text": "Coronary heart disease",
+                "group": 1
+              },
+              {
+                "text": "Beriberi (lack of vitamin B1)",
+                "group": 1
+              }
             ]
           }
         },
@@ -56,7 +92,10 @@
     {
       "heading": "How diseases interact",
       "blocks": [
-        { "type": "paragraph", "text": "One disease can make another more likely. This section covers the main examples." },
+        {
+          "type": "paragraph",
+          "text": "One disease can make another more likely. This section covers the main examples."
+        },
         {
           "type": "list",
           "items": [
@@ -97,7 +136,10 @@
   ],
   "boards": {
     "aqa": {
-      "spec_codes": ["AQA T 4.2.2.5", "AQA 2.9"],
+      "spec_codes": [
+        "AQA T 4.2.2.5",
+        "AQA 2.9"
+      ],
       "exam_phrases": [
         "not caused by a pathogen / infective organism",
         "not passed / spread (from person to person)",
@@ -127,7 +169,11 @@
       }
     },
     "edexcel": {
-      "spec_codes": ["EDEX 5.1", "EDEX 5.2", "EDEX 5.3"],
+      "spec_codes": [
+        "EDEX 5.1",
+        "EDEX 5.2",
+        "EDEX 5.3"
+      ],
       "exam_phrases": [
         "World Health Organization / WHO",
         "is passed from person to person",
@@ -159,7 +205,11 @@
       }
     },
     "ocr": {
-      "spec_codes": ["OCR 6.3a", "OCR 6.3b", "OCR 6.3c"],
+      "spec_codes": [
+        "OCR 6.3a",
+        "OCR 6.3b",
+        "OCR 6.3c"
+      ],
       "exam_phrases": [
         "not caused by a pathogen",
         "not spread / not passed from person to person",
@@ -180,7 +230,7 @@
       "worked_example": {
         "exemplar_id": "c61da3fc-84ca-42d6-acc0-8051a040bb6b",
         "source": "OCR jun 2019, Paper 2, Q21(a)",
-        "question": "Animals and plants can get different types of diseases. A table has four columns: communicable disease caused by a bacterium, caused by a fungus, caused by a virus, and non-communicable disease. Write each of these four diseases in the correct column: AIDS, type 2 diabetes, crown gall disease, barley powdery mildew.",
+        "question": "Animals and plants can get different types of diseases. A table has four columns, headed: communicable disease caused by a bacterium; communicable disease caused by a fungus; communicable disease caused by a virus; non-communicable disease. Look at the list of four diseases: AIDS, type 2 diabetes, crown gall disease, barley powdery mildew. Write each disease in the correct column of the table.",
         "marks": 3,
         "answer_points": [
           "Caused by a bacterium: crown gall disease.",
@@ -209,6 +259,8 @@
       "d8399a0b-129b-4bb8-90c7-8ef25a315f20",
       "21408cc8-a358-46f1-bb1e-08634c09d107",
       "c61da3fc-84ca-42d6-acc0-8051a040bb6b"
-    ]
+    ],
+    "checked_by": "sonnet-science-check",
+    "checked_at": "2026-10-01"
   }
 }

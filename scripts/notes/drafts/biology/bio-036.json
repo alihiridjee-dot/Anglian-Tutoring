@@ -65,6 +65,15 @@
             "Made of dead cells."
           ]
         },
+        { "type": "subheading", "text": "How water moves up the xylem" },
+        {
+          "type": "list",
+          "items": [
+            "Water enters the root hair cells and passes into the xylem.",
+            "It travels up the xylem to the leaves.",
+            "It evaporates and leaves the leaf through the stomata. This movement is the **transpiration stream**."
+          ]
+        },
         { "type": "subheading", "text": "Phloem adaptations" },
         {
           "type": "list",
@@ -144,7 +153,7 @@
         },
         {
           "wrong": "Phloem transports glucose and ions.",
-          "right": "Glucose, ions and minerals in translocation are ignored. Say phloem transports dissolved sugars or sucrose."
+          "right": "Glucose is ignored for translocation, and ions are carried in the xylem. Say phloem transports dissolved sugars or sucrose."
         }
       ],
       "worked_example": {
@@ -203,7 +212,22 @@
           "Water is evaporated or diffused through the stomata."
         ],
         "tip": "Any three points score one mark each. Phloem carrying water is rejected."
-      }
+      },
+      "extra": [
+        {
+          "heading": "Phloem and energy",
+          "blocks": [
+            {
+              "type": "list",
+              "items": [
+                "Phloem is made of living cells.",
+                "Sucrose moves into and out of the phloem by active transport, which uses energy.",
+                "Water moves into and out of the xylem by osmosis."
+              ]
+            }
+          ]
+        }
+      ]
     },
     "ocr": {
       "spec_codes": ["OCR 2.2f", "OCR 2.2h"],
@@ -245,6 +269,8 @@
   },
   "meta": {
     "status": "draft",
+    "checked_by": "sonnet-science-check",
+    "checked_at": "2026-10-01",
     "written_by": "sonnet-5-5",
     "written_at": "2026-10-01",
     "spec_point_ids": [

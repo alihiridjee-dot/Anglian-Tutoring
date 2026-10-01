@@ -23,7 +23,7 @@
             "Glucose is made by photosynthesis. It is converted to **sucrose** to be transported.",
             "Sucrose dissolves in water and moves through the phloem.",
             "Phloem is made of living tubes of elongated cells. Cell sap moves from one cell to the next through pores in the end walls.",
-            "Movement in the phloem uses energy (active transport).",
+            "Translocation needs energy, because the cells are living.",
             "The sugar can move up and down, so flow is in both directions."
           ]
         },
@@ -128,8 +128,8 @@
           "right": "Glucose, ions and minerals in translocation are ignored. Phloem transports dissolved sugars (or sucrose)."
         },
         {
-          "wrong": "The aphid's mouthpiece has sugar in it because it fed on the xylem.",
-          "right": "The mouthpiece pierced the phloem, which carries dissolved sugars."
+          "wrong": "The aphid's mouthpiece has sugar in it because it pierced the stem.",
+          "right": "Say the mouthpiece pierced the phloem, or the aphid was feeding from the phloem, which carries dissolved sugars."
         }
       ],
       "worked_example": {
@@ -143,7 +143,21 @@
           "Sugars are transported to the meristems for growth, cell division or mitosis, or transported for storage as starch, fat or oil."
         ],
         "tip": "Each mark is one step: where sugar is made, why every cell needs it, and what it is used for."
-      }
+      },
+      "extra": [
+        {
+          "heading": "How much detail is needed",
+          "blocks": [
+            {
+              "type": "list",
+              "items": [
+                "Name the process as **translocation** and the tissue as the phloem.",
+                "Detailed phloem structure and the mechanism of transport are not required."
+              ]
+            }
+          ]
+        }
+      ]
     },
     "edexcel": {
       "spec_codes": ["EDEX 6.10"],
@@ -181,7 +195,21 @@
           "Using active transport (diffusion is also accepted)."
         ],
         "tip": "Any two points score one mark each. Xylem is rejected."
-      }
+      },
+      "extra": [
+        {
+          "heading": "Energy and the phloem",
+          "blocks": [
+            {
+              "type": "list",
+              "items": [
+                "Mark schemes credit **active transport** as the way sugar is moved in the phloem.",
+                "Diffusion is also accepted in the description of how sugar moves."
+              ]
+            }
+          ]
+        }
+      ]
     },
     "ocr": {
       "spec_codes": ["OCR 2.2g", "OCR 2.2h"],
@@ -210,7 +238,7 @@
       "worked_example": {
         "exemplar_id": "e83c5d72-1e00-4ed5-93ea-cd206913c821",
         "source": "OCR jun 2019, Paper 1, Q17(a)(ii)",
-        "question": "A greenfly feeds on the plant by piercing through to the phloem tissue shown in the cross-section of a plant stem. Explain why plants infested with greenfly have very poor growth.",
+        "question": "A greenfly feeds on a plant by piercing through to the phloem tissue in the stem. Explain why plants infested with greenfly have very poor growth.",
         "marks": 2,
         "answer_points": [
           "Sugar (food) is removed by the greenfly.",
@@ -224,6 +252,8 @@
     "status": "draft",
     "written_by": "sonnet-5-5",
     "written_at": "2026-10-01",
+    "checked_by": "sonnet-science-check",
+    "checked_at": "2026-10-01",
     "spec_point_ids": [
       "e0f7a2a0-2c27-4ea5-8352-ce84f3c40824",
       "b851c0f1-16fe-4d4d-8bc0-be53eb42a326"

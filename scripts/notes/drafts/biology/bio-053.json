@@ -1,0 +1,247 @@
+{
+  "format": 1,
+  "concept_id": "bio-053",
+  "subject": "biology",
+  "title": "Detecting and identifying plant diseases",
+  "key_idea": "Plant diseases can be recognised by signs such as discoloured leaves, spots and stunted growth. These can also be caused by a lack of mineral ions. The cause is identified in the field and in the laboratory, so the correct treatment can be used.",
+  "sections": [
+    {
+      "heading": "Signs of plant disease",
+      "blocks": [
+        { "type": "paragraph", "text": "Plants can be damaged by pathogens, by pests and by a lack of mineral ions. Many of these cause similar symptoms." },
+        {
+          "type": "list",
+          "items": [
+            "Stunted growth.",
+            "Spots on the leaves.",
+            "Yellow leaves (chlorosis).",
+            "Lesions on the leaves.",
+            "Pests, such as aphids, on the plant."
+          ]
+        },
+        {
+          "type": "definitions",
+          "items": [
+            { "term": "Chlorosis", "meaning": "Yellow leaves, caused by too little chlorophyll." },
+            { "term": "Deficiency", "meaning": "A shortage of a mineral ion in the soil." }
+          ]
+        },
+        {
+          "type": "key-points",
+          "items": [
+            "Stunted growth, spots and yellow leaves are signs that something is wrong.",
+            "The cause may be a pathogen, a pest or a deficiency."
+          ]
+        }
+      ]
+    },
+    {
+      "heading": "Why plants show these signs",
+      "blocks": [
+        { "type": "paragraph", "text": "Each symptom comes back to photosynthesis. Less chlorophyll means less glucose, so the plant cannot make the proteins it needs to grow." },
+        {
+          "type": "table",
+          "columns": ["Cause", "What happens", "Symptom"],
+          "rows": [
+            ["Magnesium deficiency", "Magnesium is needed to make chlorophyll, so less light is absorbed and less glucose is made.", "Yellow leaves and stunted growth"],
+            ["Nitrate deficiency", "Nitrate ions are needed to make proteins for growth.", "Yellow leaves and stunted growth"],
+            ["Tobacco mosaic virus (TMV)", "Less chlorophyll, so less glucose, starch and protein are made.", "Reduced growth"],
+            ["Aphids", "They remove sugars from the phloem, so less glucose is available.", "Stunted growth"],
+            ["Lack of light", "Chlorophyll breaks down.", "Yellow leaves"]
+          ]
+        },
+        {
+          "type": "key-points",
+          "items": [
+            "Magnesium is needed to make chlorophyll. Without it leaves turn yellow.",
+            "Less chlorophyll means less photosynthesis, less glucose and less protein for growth."
+          ]
+        }
+      ]
+    },
+    {
+      "heading": "Identifying plant diseases",
+      "blocks": [
+        { "type": "paragraph", "text": "The cause of a symptom must be identified before it can be treated. This can be done in the field or in a laboratory." },
+        {
+          "type": "diagram",
+          "diagram": {
+            "kind": "sort",
+            "alt": "Sort each method of identifying a plant disease into the field or the laboratory.",
+            "prompt": "Is the method used in the field or in the laboratory?",
+            "groups": ["In the field", "In the laboratory"],
+            "items": [
+              { "text": "Check other plants to see how the disease is spread", "group": 0 },
+              { "text": "Compare with a gardening manual, website or app", "group": 0 },
+              { "text": "Examine the lesions and the area around the plants", "group": 0 },
+              { "text": "Test a soil sample for pH or mineral ions", "group": 1 },
+              { "text": "Examine a sample under a microscope", "group": 1 },
+              { "text": "Use DNA analysis to identify the pathogen", "group": 1 },
+              { "text": "Use a testing kit containing monoclonal antibodies", "group": 1 }
+            ]
+          }
+        },
+        {
+          "type": "list",
+          "items": [
+            "Fieldwork: look at the pattern of affected plants. Clusters suggest spread by contact or soil, and affected plants downwind suggest the disease is airborne.",
+            "Eliminate other causes, such as pollution, pests, pH or a mineral ion deficiency.",
+            "Laboratory: test samples from the lesions, culture the pathogen, and identify it using DNA analysis, a microscope or monoclonal antibodies.",
+            "Identifying the pathogen early helps farmers to choose the correct treatment, to stop it spreading and to limit the loss of the crop."
+          ]
+        },
+        {
+          "type": "key-points",
+          "items": [
+            "Use the field pattern and tests to decide between a pathogen, a pest and a deficiency.",
+            "Early identification means the correct treatment can be used and the spread limited."
+          ]
+        }
+      ]
+    }
+  ],
+  "checks": [
+    {
+      "q": "Explain how a lack of magnesium ions causes yellow leaves.",
+      "a": "Magnesium is needed to make chlorophyll. With too little chlorophyll the leaves are yellow (chlorosis).",
+      "marks": 2
+    },
+    {
+      "q": "Describe two ways a gardener could identify a plant disease.",
+      "a": "Any two from: use a gardening manual, website or app; take the plant to a laboratory or expert; use a testing kit containing monoclonal antibodies.",
+      "marks": 2
+    },
+    {
+      "q": "Give two reasons why a farmer should identify a plant disease as soon as possible.",
+      "a": "To choose the correct treatment, and to stop or limit the spread of the pathogen (limiting the loss of the crop).",
+      "marks": 2
+    }
+  ],
+  "boards": {
+    "aqa": {
+      "spec_codes": ["AQA 3.9"],
+      "exam_phrases": [
+        "lack of chlorophyll",
+        "less / no light absorbed (by chlorophyll)",
+        "lower rate of / no photosynthesis",
+        "plant makes less / no sugar / glucose",
+        "plant converts less / no glucose into protein (for growth)",
+        "use testing kits that contain monoclonal antibodies"
+      ],
+      "mistakes": [
+        {
+          "wrong": "Magnesium is needed to make chlorophyll, so the leaves are yellow.",
+          "right": "This is not enough for the marks. Say yellow leaves are due to a lack of chlorophyll, so less light is absorbed and photosynthesis is lower."
+        },
+        {
+          "wrong": "A lack of magnesium means the plant makes less energy by photosynthesis.",
+          "right": "\"Energy is produced by photosynthesis\" is not accepted. Say less glucose is made, which is used to make protein for growth."
+        },
+        {
+          "wrong": "The gardener could search the internet.",
+          "right": "\"Use the internet\" unqualified is ignored. Say a gardening manual, website or app, or take the plant to a laboratory or expert."
+        }
+      ],
+      "worked_example": {
+        "exemplar_id": "de23248d-ffb6-4b45-9d57-738e19cfcf6f",
+        "source": "AQA jun 2018, Paper 1 (H), Q05.2",
+        "question": "Plants infected with aphids may show symptoms of magnesium deficiency.\n\nMagnesium deficiency symptoms include:\n- yellow leaves\n- stunted growth.\n\nExplain how a deficiency of magnesium could cause these symptoms.",
+        "marks": 5,
+        "answer_points": [
+          "Yellow leaves are due to a lack of chlorophyll.",
+          "Therefore less or no light is absorbed (by chlorophyll).",
+          "Therefore there is a lower rate of, or no, photosynthesis.",
+          "Therefore the plant makes less or no sugar (glucose).",
+          "Therefore the plant converts less or no glucose into protein (for growth, so growth is stunted)."
+        ],
+        "tip": "One mark for each linked step. Saying energy is produced by photosynthesis does not score."
+      }
+    },
+    "edexcel": {
+      "spec_codes": ["EDEX 5.11B"],
+      "exam_phrases": [
+        "check other plants in the field / find the distribution of affected plants",
+        "eliminate an environmental factor that could be causing the symptoms",
+        "test the soil e.g. for pH / nutrient levels / mineral ion deficiency",
+        "culture the pathogen",
+        "DNA analysis / microscope / monoclonal antibodies",
+        "clustering indicating contact or soil spread"
+      ],
+      "mistakes": [
+        {
+          "wrong": "The farmer should test the plants.",
+          "right": "Say what is tested and why: test the soil for pH or mineral ions, test swabs or samples from the lesions, and identify the pathogen by DNA analysis, a microscope or monoclonal antibodies."
+        },
+        {
+          "wrong": "Look at the plants with lesions only.",
+          "right": "Distribution analysis checks other plants and fields too. Link the pattern to a reason, such as clustering for contact or soil spread, or downwind for airborne spread."
+        }
+      ],
+      "worked_example": {
+        "exemplar_id": "94a9fb74-717e-4da8-ad18-4648ce8b8b6b",
+        "source": "EDEXCEL jun 2023, Paper 1 (H), Q7(a)(i)",
+        "question": "Plant growth can be affected by the environment, by pathogens, or both. A farmer found lesions on the leaves of crop plants growing in one of their fields.\n\nDiscuss how the cause of the lesions and their spread through the crops could be investigated. You should refer to distribution analysis in your answer.",
+        "marks": 6,
+        "answer_points": [
+          "Fieldwork: check other plants in the field or other fields, and find the distribution of affected plants.",
+          "Examine the area around the affected plants and the lesions on the leaf.",
+          "Eliminate an environmental factor that could cause the symptoms, such as pollution, pests, mineral ion deficiency or pH.",
+          "Link the pattern to spread: clustering indicates contact or soil spread, and downwind indicates airborne spread.",
+          "Testing: test the soil for pH or nutrient levels, and test swabs or samples from the lesions or plant.",
+          "Culture and identify the pathogen, for example by DNA analysis, a microscope or monoclonal antibodies."
+        ],
+        "tip": "This is a levelled question. The top level needs detailed fieldwork, some testing, and links between the pattern and why it is seen."
+      }
+    },
+    "ocr": {
+      "spec_codes": ["OCR 6.3i"],
+      "exam_phrases": [
+        "choose the type / correct treatment to use",
+        "stop / limit the (pathogen) spread",
+        "limit the loss of the crop",
+        "less insecticide / spray is needed",
+        "all infected plants identified"
+      ],
+      "mistakes": [
+        {
+          "wrong": "Identify the pathogen so the farmer can treat the crop with pesticides.",
+          "right": "\"Treat with pesticides\" is not accepted. Say different pathogens require different treatments, so the correct treatment can be chosen."
+        },
+        {
+          "wrong": "Identify the disease so the infected crop can be destroyed or isolated.",
+          "right": "\"Destroy or isolate the crop\" is ignored. Say it stops or limits the spread to other plants."
+        }
+      ],
+      "worked_example": {
+        "exemplar_id": "5afaf57b-ea9f-44ce-a856-f8a649ceb4c3",
+        "source": "OCR jun 2022, Paper 4, Q18(c)(ii)",
+        "question": "Growers need to identify infected tulips as soon as possible. This allows them to only spray a small area with insecticide.\n\nScientists have developed a machine that moves rapidly through the fields scanning for infected tulips. The results of a trial of the machine in a field containing 1000 tulips are:\n\nActual results:\n- 15 tulips infected\n- 985 tulips not infected\n\nMachine results:\n- All 15 infected tulips identified\n- 14 not infected tulips identified as infected\n- 971 not infected tulips identified as not infected\n\nDiscuss the advantage of early detection of infected tulips and how useful the machine may be in making this possible. Use data from the text box in your answer.",
+        "marks": 6,
+        "answer_points": [
+          "Early detection means less insecticide or spray is needed.",
+          "There is less chance that the virus is spread to other tulips (by insects).",
+          "Less insecticide means less cost to the grower, less pollution and less risk to other insects.",
+          "The machine is faster and reduces the time needed to inspect tulips.",
+          "All 15 infected tulips are identified, so no infected tulips are missed.",
+          "14 healthy tulips were wrongly identified as infected, which could lead to more area being sprayed."
+        ],
+        "tip": "This is a levelled question. Cover the advantage of early detection and judge the machine using numbers from the data."
+      }
+    }
+  },
+  "meta": {
+    "status": "draft",
+    "written_by": "sonnet-5-5",
+    "written_at": "2026-10-01",
+    "spec_point_ids": [
+      "8d106ece-5df4-414a-941f-02cc64ddab68",
+      "37172548-0b1e-4358-be07-86fe493abe27",
+      "9c10a53f-af12-4171-a415-a8a7776dc71c"
+    ],
+    "exemplar_ids": [
+      "de23248d-ffb6-4b45-9d57-738e19cfcf6f",
+      "94a9fb74-717e-4da8-ad18-4648ce8b8b6b",
+      "5afaf57b-ea9f-44ce-a856-f8a649ceb4c3"
+    ]
+  }
+}

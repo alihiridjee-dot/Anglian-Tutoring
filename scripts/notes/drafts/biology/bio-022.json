@@ -191,8 +191,8 @@
           "right": "\"Human error\" unqualified is ignored. Say the observation of the colour change is subjective, or based on opinion."
         },
         {
-          "wrong": "The control variables are the time and the amount of iodine.",
-          "right": "\"Time\" unqualified is ignored. Say the time before mixing, and give a volume, for example the volume of starch solution or the number of drops of iodine."
+          "wrong": "The control variables are the time and the temperature.",
+          "right": "\"Time\" on its own is ignored. Say the time before mixing the starch and amylase solutions, and give a volume, for example the volume of starch solution or the number of drops of iodine."
         }
       ],
       "worked_example": {
@@ -266,10 +266,6 @@
       ],
       "mistakes": [
         {
-          "wrong": "Keep the temperature the same in all the tubes.",
-          "right": "\"Temperature\" is not allowed as a control variable when temperature is the independent variable. Control the volume or mass of milk, the concentration or volume of enzyme, or the type of milk."
-        },
-        {
           "wrong": "Use the same amount of milk each time.",
           "right": "\"Amount\" and \"quantity\" are ignored. Say the volume or mass of milk."
         },
@@ -288,7 +284,7 @@
           "Observations (maximum 2): record the time it takes for the indicator to change colour, to colourless, and use a stop clock.",
           "Controlled variables (maximum 2): volume or mass of milk, concentration of enzyme, volume or mass of enzyme, type of milk."
         ],
-        "tip": "Marks are given in three groups. Do not name temperature as a controlled variable. \"Amount\" is ignored, so give a volume or a mass. The same plan works for a pH investigation: change the pH instead and control the temperature."
+        "tip": "Marks are given in three groups. In this question temperature is the variable you change, so it cannot also be a controlled variable. \"Amount\" is ignored, so give a volume or a mass. For a pH investigation the plan is the same, but you change the pH and keep the temperature constant."
       }
     }
   },
@@ -296,6 +292,8 @@
     "status": "draft",
     "written_by": "sonnet-5-5",
     "written_at": "2026-10-01",
+    "checked_by": "sonnet-science-check",
+    "checked_at": "2026-10-01",
     "spec_point_ids": [
       "82a928db-f5de-4bed-9b60-5b76834c399c",
       "3309e2ec-798f-4f59-a638-f9dba7f0248f",

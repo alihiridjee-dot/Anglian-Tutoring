@@ -1,0 +1,232 @@
+{
+  "format": 1,
+  "concept_id": "bio-047",
+  "subject": "biology",
+  "title": "The immune system and white blood cells",
+  "key_idea": "If a pathogen enters the body, white blood cells destroy it. They engulf pathogens (phagocytosis), make antibodies and make antitoxins. Memory cells remain after infection, so the same pathogen is destroyed faster the next time.",
+  "sections": [
+    {
+      "heading": "How white blood cells defend the body",
+      "blocks": [
+        { "type": "paragraph", "text": "If a pathogen gets past the barriers, the immune system tries to destroy it. White blood cells do this in three ways." },
+        {
+          "type": "definitions",
+          "items": [
+            { "term": "Antigen", "meaning": "A chemical on the surface of a pathogen that the body detects as foreign." },
+            { "term": "Antibody", "meaning": "A protein made by white blood cells (lymphocytes) that attaches to an antigen." },
+            { "term": "Antitoxin", "meaning": "A protein that neutralises a toxin made by a pathogen." },
+            { "term": "Phagocytosis", "meaning": "A white blood cell (phagocyte) engulfs a pathogen and digests it." }
+          ]
+        },
+        {
+          "type": "list",
+          "items": [
+            "**Phagocytosis:** phagocytes engulf pathogens, then digest and kill them.",
+            "**Antibodies:** lymphocytes produce antibodies when they detect foreign antigens. Antibodies attach to the pathogen, and may make the cells clump together so phagocytes can engulf more.",
+            "**Antitoxins:** these neutralise toxins, so there is less tissue damage and the person does not feel as ill."
+          ]
+        },
+        {
+          "type": "list",
+          "items": [
+            "Each antibody fits only one antigen, so a different antibody is needed for each pathogen.",
+            "Platelets are not white blood cells. They clot the blood and form a scab, which helps to prevent pathogens getting into the body."
+          ]
+        },
+        {
+          "type": "key-points",
+          "items": [
+            "White blood cells engulf pathogens, produce antibodies and produce antitoxins.",
+            "Antibodies are specific to one antigen.",
+            "Antitoxins neutralise toxins."
+          ]
+        }
+      ]
+    },
+    {
+      "heading": "The immune response and memory cells",
+      "blocks": [
+        { "type": "paragraph", "text": "The first infection by a pathogen is slow to deal with. After it, memory cells make the next response much faster." },
+        {
+          "type": "diagram",
+          "diagram": {
+            "kind": "sequence",
+            "alt": "Put the stages of the immune response to a pathogen in order.",
+            "prompt": "Put the stages of the immune response in order.",
+            "steps": [
+              "A pathogen with antigens on its surface enters the body",
+              "White blood cells detect the foreign antigens",
+              "Lymphocytes produce antibodies specific to the antigens",
+              "Antibodies attach to the pathogen and help to destroy it",
+              "Memory cells are produced and stay in the body",
+              "If the pathogen enters again, antibodies are made faster and in larger numbers"
+            ]
+          }
+        },
+        {
+          "type": "list",
+          "items": [
+            "On the second exposure the correct antibodies are produced sooner, and in greater numbers.",
+            "The pathogen is destroyed faster, often before the person feels ill. The person is **immune**.",
+            "A person with a damaged immune system, such as in AIDS, cannot kill bacteria as effectively, so they take longer to recover."
+          ]
+        },
+        {
+          "type": "key-points",
+          "items": [
+            "Memory cells remain after an infection.",
+            "A second infection causes a faster response, with more antibodies.",
+            "The person becomes immune to that pathogen."
+          ]
+        }
+      ]
+    }
+  ],
+  "checks": [
+    {
+      "q": "White blood cells help to defend the body against pathogens. How do they do this?",
+      "a": "They engulf pathogens, produce antibodies and produce antitoxins.",
+      "marks": 3
+    },
+    {
+      "q": "What is an antibody?",
+      "a": "A protein molecule made by the immune system (white blood cells). It destroys pathogens, clumps them together or attaches to antigens.",
+      "marks": 2
+    },
+    {
+      "q": "Explain why the immune response is faster the second time a person is infected by the same pathogen.",
+      "a": "Memory cells (memory lymphocytes) were produced the first time. They produce the correct antibodies faster and in greater numbers.",
+      "marks": 2
+    }
+  ],
+  "boards": {
+    "aqa": {
+      "spec_codes": ["AQA 3.3", "AQA T 4.3.1.6"],
+      "exam_phrases": [
+        "engulf pathogens",
+        "produce antibodies",
+        "produce antitoxins",
+        "(antibodies) attach to invading cells",
+        "(antitoxins) neutralise toxins / poisons",
+        "produce memory cells",
+        "(so) immune response is faster",
+        "immune system is damaged / weakened"
+      ],
+      "mistakes": [
+        {
+          "wrong": "Phagocytosis helps because white blood cells produce antibodies.",
+          "right": "Phagocytosis is engulfing. Say more pathogens are engulfed and killed by phagocytes, so there is less damage to cells, tissues or organs."
+        },
+        {
+          "wrong": "Lymphocytes engulf the pathogen.",
+          "right": "Lymphocytes do not engulf. It is phagocytes that engulf pathogens. Lymphocytes produce antibodies."
+        },
+        {
+          "wrong": "A vaccine works because the person is immune.",
+          "right": "Describe both responses: white blood cells produce specific antibodies and memory cells to the vaccine. If the pathogen enters later, the correct antibodies are produced faster, or in greater numbers, so it is destroyed faster."
+        }
+      ],
+      "worked_example": {
+        "exemplar_id": "6693ebed-02cc-45ee-b3f5-9737f75d4617",
+        "source": "AQA jun 2018, Paper 1 (F), Q01.2",
+        "question": "White blood cells help to defend the body against pathogens. How do the white blood cells do this?",
+        "marks": 3,
+        "answer_points": [
+          "Engulf pathogens.",
+          "Produce antibodies.",
+          "Produce antitoxins."
+        ],
+        "tip": "One mark each for three correct ideas. Do not add extra incorrect ideas, as these can cancel marks."
+      }
+    },
+    "edexcel": {
+      "spec_codes": ["EDEX 5.13"],
+      "exam_phrases": [
+        "antigens are on the bacteria, detected by WBCs / phagocytes",
+        "antibodies are produced by lymphocytes",
+        "antibodies surround / cover / inactivate the antigens / pathogens",
+        "memory lymphocytes / cells are produced",
+        "memory lymphocytes produce antibodies faster / in greater numbers",
+        "cause a secondary response"
+      ],
+      "mistakes": [
+        {
+          "wrong": "The immune system produces antigens to destroy the pathogen.",
+          "right": "Antigens are rejected as a response. The pathogen has antigens, and the body produces antibodies."
+        },
+        {
+          "wrong": "White blood cells defend the body.",
+          "right": "\"WBC\" on its own does not score. Say what they do: lymphocytes produce antibodies, phagocytes engulf pathogens, memory cells give a secondary response."
+        }
+      ],
+      "worked_example": {
+        "exemplar_id": "7a0393aa-e533-4144-8d3b-13ab3ec1f8a4",
+        "source": "EDEXCEL nov 2020, Paper 1 (F), Q8(c)",
+        "question": "Describe how the specific immune system defends the body against disease.",
+        "marks": 3,
+        "answer_points": [
+          "Pathogens have antigens.",
+          "These trigger antibodies to be produced.",
+          "By lymphocytes.",
+          "This leads to the destruction of the pathogen.",
+          "Memory cells (lymphocytes) are produced.",
+          "These cause a secondary response if there is infection by the same pathogen."
+        ],
+        "tip": "Any three linked points score. A secondary response can be described as reacting quickly, before the person gets ill."
+      }
+    },
+    "ocr": {
+      "spec_codes": ["OCR 6.3j", "OCR 6.3l"],
+      "exam_phrases": [
+        "antigens",
+        "white blood cells produce antibodies",
+        "antibodies attach / bind to the antigen",
+        "broken down / engulfed by phagocytes / white blood cells",
+        "platelets clot the blood",
+        "forms a scab / prevents bleeding"
+      ],
+      "mistakes": [
+        {
+          "wrong": "Antibodies engulf the invading cells.",
+          "right": "Do not allow antibodies or lymphocytes engulf. Phagocytes or white blood cells engulf, and white blood cells produce the antibodies."
+        },
+        {
+          "wrong": "Phagocytes produce antibodies.",
+          "right": "Do not allow phagocytes produce antibodies. Antibodies are made by white blood cells (lymphocytes)."
+        },
+        {
+          "wrong": "An antibody attacks or fights germs.",
+          "right": "\"Attack\", \"fight\" and \"germs\" are ignored. An antibody is a protein molecule made by the immune system that destroys pathogens, clumps them together or attaches to antigens."
+        }
+      ],
+      "worked_example": {
+        "exemplar_id": "ec77e3f2-32a7-4c04-be4f-931e8626ce79",
+        "source": "OCR jun 2018, Paper 4, Q22(a)",
+        "question": "Methamphetamine is a drug. Scientists are investigating the use of antibodies as a treatment to control the negative effects of the drug. What is an antibody?",
+        "marks": 2,
+        "answer_points": [
+          "A protein molecule.",
+          "Made by the immune system (allow: made by or found in white blood cells).",
+          "Destroys or kills pathogens, clumps them together, or attaches to antigens."
+        ],
+        "tip": "Any two score. \"Germs\", \"disease\", \"attack\" and \"fight\" are ignored."
+      }
+    }
+  },
+  "meta": {
+    "status": "draft",
+    "written_by": "sonnet-5-5",
+    "written_at": "2026-10-01",
+    "spec_point_ids": [
+      "938347af-0376-4542-a456-b7df30e25498",
+      "f612518f-3ed5-4979-b71f-f885605f2dd9",
+      "14fd819d-6a09-497d-ba81-cbec4f457cc4",
+      "19910011-e3b6-4595-9037-c1e1a6e3da6f"
+    ],
+    "exemplar_ids": [
+      "6693ebed-02cc-45ee-b3f5-9737f75d4617",
+      "7a0393aa-e533-4144-8d3b-13ab3ec1f8a4",
+      "ec77e3f2-32a7-4c04-be4f-931e8626ce79"
+    ]
+  }
+}
