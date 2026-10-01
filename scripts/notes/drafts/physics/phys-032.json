@@ -272,9 +272,9 @@
       "exam_phrases": [
         "to move to a higher energy level an electron absorbs energy from electromagnetic radiation",
         "to move to a lower energy level an electron emits energy in the form of electromagnetic radiation",
+        "absorbs energy by collision with another electron",
         "diameter = 0.18/6000",
-        "same number of electrons",
-        "same number of protons"
+        "0.000 030 (nm)"
       ],
       "mistakes": [
         {
@@ -415,8 +415,7 @@
       "aea7ce20-fb82-4661-9ad4-916d297748bc",
       "0aa843c4-885d-4e59-b40a-1b579d9fe398",
       "6f13d2a3-eefc-4b17-a65c-fdeda136088e",
-      "6a5d18e9-f459-4678-93c7-83b95218c823",
-      "64d3b5b1-669c-4a17-a30c-be7ead1fe4e4"
+      "6a5d18e9-f459-4678-93c7-83b95218c823"
     ]
   }
 }

@@ -1,0 +1,399 @@
+{
+  "format": 1,
+  "concept_id": "phys-039",
+  "subject": "physics",
+  "title": "Contamination, irradiation and radiation hazards",
+  "key_idea": "**Irradiation** is exposure to radiation from a source outside the body. **Contamination** is radioactive material on or inside the body. The hazard depends on the type of radiation and the half-life, and precautions limit exposure.",
+  "sections": [
+    {
+      "heading": "Irradiation and contamination",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "Radiation can reach a person in two different ways. This section covers what each one means and how they differ."
+        },
+        {
+          "type": "definitions",
+          "items": [
+            {
+              "term": "Irradiation",
+              "meaning": "Exposing an object or person to nuclear radiation. The object does not become radioactive."
+            },
+            {
+              "term": "Contamination",
+              "meaning": "The unwanted presence of radioactive atoms on or inside an object or person."
+            },
+            {
+              "term": "Ionising radiation",
+              "meaning": "Radiation that can damage cells and cause mutations."
+            }
+          ]
+        },
+        {
+          "type": "list",
+          "items": [
+            "In irradiation the source is **outside** the object.",
+            "Irradiation stops when the source is removed or shielded, or when you move away.",
+            "In contamination the radioactive atoms are **on or inside** the object.",
+            "Contamination keeps irradiating the person until the atoms are removed or have decayed."
+          ]
+        },
+        {
+          "type": "diagram",
+          "diagram": {
+            "kind": "sort",
+            "alt": "Sort statements into irradiation and contamination.",
+            "prompt": "Does each statement describe irradiation or contamination?",
+            "groups": [
+              "Irradiation",
+              "Contamination"
+            ],
+            "items": [
+              {
+                "text": "The source is outside the object",
+                "group": 0
+              },
+              {
+                "text": "The object does not become radioactive",
+                "group": 0
+              },
+              {
+                "text": "It stops when the source is removed",
+                "group": 0
+              },
+              {
+                "text": "It can be stopped by shielding",
+                "group": 0
+              },
+              {
+                "text": "Radioactive atoms are on or inside the object",
+                "group": 1
+              },
+              {
+                "text": "The effect is continuous",
+                "group": 1
+              },
+              {
+                "text": "Radioactive material can be breathed in",
+                "group": 1
+              },
+              {
+                "text": "Moving away does not stop it",
+                "group": 1
+              }
+            ]
+          }
+        },
+        {
+          "type": "key-points",
+          "items": [
+            "Irradiation is exposure to radiation. The object does not become radioactive.",
+            "Contamination is radioactive atoms on or inside the object.",
+            "Contamination is usually the greater hazard because the source stays with the person."
+          ]
+        }
+      ]
+    },
+    {
+      "heading": "Why radiation is dangerous",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "Nuclear radiation is ionising. It damages living cells, and the type of radiation changes how dangerous it is."
+        },
+        {
+          "type": "list",
+          "items": [
+            "Radiation can **kill cells** and damage tissue.",
+            "It can damage DNA and cause **mutations** and cancer.",
+            "Radiation can burn the skin."
+          ]
+        },
+        {
+          "type": "subheading",
+          "text": "Type of radiation"
+        },
+        {
+          "type": "diagram",
+          "diagram": {
+            "kind": "compare",
+            "alt": "A table comparing alpha, beta and gamma radiation by penetration, ionising power and risk from a source outside the body.",
+            "items": [
+              "Alpha",
+              "Beta",
+              "Gamma"
+            ],
+            "rows": [
+              {
+                "feature": "Penetration",
+                "values": [
+                  "Low: stopped by skin",
+                  "More penetrating than alpha",
+                  "High: passes through the body"
+                ]
+              },
+              {
+                "feature": "Ionising power",
+                "values": [
+                  "Highest",
+                  "Less than alpha",
+                  "Weakly ionising"
+                ]
+              },
+              {
+                "feature": "Risk from a source outside the body",
+                "values": [
+                  "Low: stopped by skin",
+                  "Higher: can pass through skin or a case",
+                  "High: can pass into the body"
+                ]
+              }
+            ]
+          }
+        },
+        {
+          "type": "paragraph",
+          "text": "An alpha source inside the body is much more dangerous. The alpha radiation is absorbed by living tissue and it is highly ionising."
+        },
+        {
+          "type": "list",
+          "items": [
+            "Alpha inside the body can damage cells, tissues, organs and DNA.",
+            "The risk lasts until the material is removed or excreted."
+          ]
+        },
+        {
+          "type": "key-points",
+          "items": [
+            "Ionising radiation damages cells and can cause mutations and cancer.",
+            "Alpha is low risk outside the body but highly dangerous inside it.",
+            "Beta and gamma are more penetrating, so they can irradiate a person from outside."
+          ]
+        }
+      ]
+    },
+    {
+      "heading": "Half-life and precautions",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "Radioactive isotopes have a very wide range of half-lives. The half-life changes how hazardous a source is."
+        },
+        {
+          "type": "list",
+          "items": [
+            "A **short** half-life means a higher activity: more radiation is emitted per second.",
+            "So for the same number of nuclei, the source with the shorter half-life is the greater hazard at the start.",
+            "A **long** half-life means the material stays radioactive, and so stays dangerous, for longer."
+          ]
+        },
+        {
+          "type": "subheading",
+          "text": "Precautions"
+        },
+        {
+          "type": "list",
+          "items": [
+            "Keep a safe distance and handle sources with **tongs**.",
+            "Limit the time of exposure.",
+            "Use shielding, such as a lead container or a screen.",
+            "Wear protective clothing, such as a lead apron, and a radiation badge.",
+            "Keep sources in sealed containers and point them away from people."
+          ]
+        },
+        {
+          "type": "key-points",
+          "items": [
+            "A shorter half-life means a higher activity, so a bigger hazard at the start.",
+            "A longer half-life means the hazard lasts longer.",
+            "Reduce exposure with distance, time and shielding."
+          ]
+        }
+      ]
+    }
+  ],
+  "checks": [
+    {
+      "q": "Describe the difference between irradiation and contamination.",
+      "a": "Irradiation is the exposure of an object or person to radiation. Contamination is the unwanted presence of radioactive material on or inside an object or person.",
+      "marks": 2
+    },
+    {
+      "q": "Explain why a source of alpha radiation inside the body is more dangerous than the same source outside it.",
+      "a": "Alpha radiation is stopped by skin, so outside the body the risk is low. Inside the body it is absorbed by tissue and is highly ionising, which damages cells and DNA.",
+      "marks": 3
+    },
+    {
+      "q": "Two sources start with the same number of radioactive nuclei. One has a half-life of 2 years and the other 432 years. Which is the greater health risk at the start? Explain.",
+      "a": "The source with the half-life of 2 years. It decays faster, so it has a higher activity.",
+      "marks": 2
+    }
+  ],
+  "boards": {
+    "aqa": {
+      "spec_codes": [
+        "AQA 4.4.2.4",
+        "AQA T 6.4.2.4",
+        "AQA 4.4.3.2"
+      ],
+      "exam_phrases": [
+        "irradiation is the exposure of an object / person to radiation",
+        "contamination is the (unwanted) presence of radioactive material / atoms on or inside an object / person",
+        "alpha radiation has a low penetrating ability",
+        "alpha radiation is stopped by skin",
+        "alpha radiation is highly ionising",
+        "greater (risk of) harm to cells / tissues / organs / DNA / genes",
+        "beta radiation is more penetrating (than alpha radiation)"
+      ],
+      "mistakes": [
+        {
+          "wrong": "A beta source is more hazardous than an alpha source in a smoke detector because beta is more ionising.",
+          "right": "This is not allowed. Say beta radiation is more penetrating: it can pass through the case or skin and irradiate people nearby."
+        },
+        {
+          "wrong": "Irradiating the water makes the water radioactive.",
+          "right": "Irradiation does not make the water radioactive. Contamination does: the radioactive isotopes enter the water or body, which increases the hazard."
+        },
+        {
+          "wrong": "Alpha contamination inside the body is dangerous because the isotope has a long half-life.",
+          "right": "References to half-life score nothing here. Say alpha is highly ionising, so it damages cells, tissues or DNA until the material is removed."
+        }
+      ],
+      "worked_example": {
+        "exemplar_id": "8490d86b-253f-4285-9351-d3214fb9ae85",
+        "source": "AQA jun 2022, Paper 1 (H), Q07.3",
+        "question": "Internal contamination of the human body means radioactive material is inside the human body. Explain how the risk from internal contamination is different to the risk from external irradiation by a source of alpha radiation.",
+        "marks": 5,
+        "answer_points": [
+          "Alpha radiation has a low penetrating ability.",
+          "So externally, alpha radiation is stopped by skin, which is low risk.",
+          "Internally, alpha radiation is absorbed by living tissue or organs.",
+          "Alpha radiation is highly ionising.",
+          "Internal contamination causes greater harm to cells, tissues, organs or DNA."
+        ],
+        "tip": "Absorbed is accepted for stopped. Greater chance of cancer or mutations also scores."
+      },
+      "extra": [
+        {
+          "heading": "Peer review (AQA)",
+          "blocks": [
+            {
+              "type": "list",
+              "items": [
+                "Findings from studies into the effects of radiation on humans are published and shared with other scientists.",
+                "Other scientists can then check the findings. This is **peer review**."
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    "edexcel": {
+      "spec_codes": [
+        "EDEX 6.29",
+        "EDEX 6.30P",
+        "EDEX 6.31",
+        "EDEX 6.32"
+      ],
+      "exam_phrases": [
+        "it is ionising",
+        "may cause cancer",
+        "may destroy / kill cells",
+        "can mutate DNA",
+        "irradiation does not make an object radioactive",
+        "irradiation stops when the source is removed",
+        "shielding, time limiting exposure, distance limiting exposure, wear PPE / protective clothing",
+        "wear a radiation badge (dosimeter)"
+      ],
+      "mistakes": [
+        {
+          "wrong": "Wear goggles or a mask to protect against radiation.",
+          "right": "Goggles and masks are ignored. Name shielding (a lead box or screen), limiting time, distance (tongs) or protective clothing such as lead aprons."
+        },
+        {
+          "wrong": "Irradiation makes an object radioactive.",
+          "right": "Irradiation does not make an object radioactive. The source is outside the object."
+        },
+        {
+          "wrong": "Contamination stops when you move away from the source.",
+          "right": "This describes irradiation. The effect of contamination is continuous because the source is in or on the object."
+        }
+      ],
+      "worked_example": {
+        "exemplar_id": "d51abfeb-a56d-4de5-825f-0896b66c829c",
+        "source": "EDEXCEL nov 2021, Paper 1 (F), Q9(d)*",
+        "question": "Exposing people to radioactive sources can be dangerous. Describe the dangers of exposure to radioactive sources and what can be done to protect hospital staff when they are working with radioactive sources.",
+        "marks": 6,
+        "answer_points": [
+          "Dangers: radiation is ionising, it may cause cancer, it may destroy or kill cells, it can mutate DNA and it can burn the skin.",
+          "Protection: use tongs to carry the sources and use lead containers to store them.",
+          "Stay at a distance and use the sources for as short a time as possible.",
+          "Wear lead-lined protective clothing and give treatments from behind a shield or wall.",
+          "Wear a radiation badge (dosimeter)."
+        ],
+        "tip": "This is a level-marked question. For top marks give a detailed explanation of both the dangers and the protection."
+      }
+    },
+    "ocr": {
+      "spec_codes": [
+        "OCR P6.2a",
+        "OCR P6.2b"
+      ],
+      "exam_phrases": [
+        "contaminated because radioactive material touched the workers / was breathed in",
+        "irradiated because workers were exposed to radiation (from outside of the body)",
+        "(shorter half-life means) higher activity",
+        "more radiation emitted per second",
+        "alpha is less penetrating / more easily absorbed (than beta)",
+        "alpha is more ionising than beta",
+        "keep a safe distance, use tongs, point sources away from people, keep exposure time as short as possible"
+      ],
+      "mistakes": [
+        {
+          "wrong": "The workers were contaminated because radiation touched them or was breathed in.",
+          "right": "Radiation is not touched or breathed in. Contamination is radioactive material touching the workers or being breathed in. Answers that mix in irradiation ideas are not allowed."
+        },
+        {
+          "wrong": "The teacher should wear gloves and goggles.",
+          "right": "Gloves and goggles are ignored. Give a safe distance, tongs, pointing the source away from people, sealed containers or a short exposure time."
+        },
+        {
+          "wrong": "A source with a long half-life is the most hazardous to a technician during an experiment.",
+          "right": "For equal masses, the shorter half-life gives a higher activity, so more radiation is emitted per second during the experiment."
+        }
+      ],
+      "worked_example": {
+        "exemplar_id": "61787676-f16c-4205-8cfd-ea17e3f6cb6e",
+        "source": "OCR jun 2024, Paper 4, Q17(a)",
+        "question": "In 1986, there was an accident when a nuclear reactor in a power station exploded. In the explosion, radioactive materials from inside the reactor were spread over the power station. Explain why workers at the power station were both contaminated and irradiated in the accident.",
+        "marks": 2,
+        "answer_points": [
+          "Contaminated because radioactive material touched the workers or was breathed in.",
+          "Irradiated because the workers were exposed to radiation from outside of the body."
+        ],
+        "tip": "Keep the two ideas apart. A contamination answer that mentions radiation touching the workers does not score."
+      }
+    }
+  },
+  "meta": {
+    "status": "draft",
+    "written_by": "sonnet-5-5",
+    "written_at": "2026-10-01",
+    "spec_point_ids": [
+      "b9af893e-2842-4584-95c1-a53e85d6d5de",
+      "c8f50835-e22c-4d17-97f3-eac470140579",
+      "1c9f2311-6743-4ed2-8451-652afa65bfdc",
+      "7636e652-043d-4b76-976e-edff078d10f9",
+      "f32d63b9-c2ce-4db3-bd9a-c1e3b27823c3",
+      "a0136f48-3a68-42da-92c2-f3b998025c1d",
+      "34f7f5af-189f-48be-bced-77943fb27fb8",
+      "74063584-ccc3-4454-b518-e3eadbe76ea5",
+      "e7f80910-8b6e-4b24-b3c5-023b9b182daa"
+    ],
+    "exemplar_ids": [
+      "8490d86b-253f-4285-9351-d3214fb9ae85",
+      "d51abfeb-a56d-4de5-825f-0896b66c829c",
+      "61787676-f16c-4205-8cfd-ea17e3f6cb6e"
+    ]
+  }
+}

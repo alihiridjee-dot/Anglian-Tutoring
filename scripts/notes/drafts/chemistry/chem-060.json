@@ -1,0 +1,333 @@
+{
+  "format": 1,
+  "concept_id": "chem-060",
+  "subject": "chemistry",
+  "title": "Practical: temperature changes in reactions",
+  "key_idea": "To classify a reaction, react known amounts in an insulated cup and measure the temperature before and after. A rise shows an exothermic reaction and a fall shows an endothermic one. Fair tests and repeats make the result reliable.",
+  "sections": [
+    {
+      "heading": "The method",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "This practical measures the temperature change when substances react or dissolve in water."
+        },
+        {
+          "type": "diagram",
+          "diagram": {
+            "kind": "sequence",
+            "alt": "The steps for measuring a temperature change in a reaction, in order.",
+            "prompt": "Put the steps of the method in the correct order.",
+            "steps": [
+              "Measure a known volume of liquid into a polystyrene cup.",
+              "Measure the starting temperature with a thermometer.",
+              "Add the solid or second solution and stir.",
+              "Put a lid on the cup.",
+              "Record the highest or lowest temperature reached.",
+              "Work out the temperature change.",
+              "Repeat and calculate a mean."
+            ]
+          }
+        },
+        {
+          "type": "list",
+          "items": [
+            "Use a **polystyrene cup**. It is a better insulator than glass, so less energy is transferred to the surroundings.",
+            "Stir the mixture so the temperature is the same throughout.",
+            "Leave the thermometer in the mixture to read the final temperature.",
+            "For a solid that dissolves, record the lowest or highest temperature after it has dissolved."
+          ]
+        },
+        {
+          "type": "paragraph",
+          "text": "Four types of change in solution can be tested. In each, the temperature change shows the heat change."
+        },
+        {
+          "type": "table",
+          "columns": [
+            "Type of change",
+            "Example",
+            "Temperature"
+          ],
+          "rows": [
+            [
+              "Salt dissolving in water",
+              "Ammonium nitrate",
+              "Falls: endothermic"
+            ],
+            [
+              "Salt dissolving in water",
+              "Calcium chloride",
+              "Rises: exothermic"
+            ],
+            [
+              "Neutralisation",
+              "Dilute sulfuric acid with potassium hydroxide solution",
+              "Rises: exothermic"
+            ],
+            [
+              "Displacement",
+              "Magnesium powder with copper sulfate solution",
+              "Rises: exothermic"
+            ],
+            [
+              "Acid with a carbonate",
+              "Citric acid with sodium hydrogencarbonate solution",
+              "Falls: endothermic"
+            ]
+          ]
+        },
+        {
+          "type": "paragraph",
+          "text": "Precipitation reactions can be tested in the same way."
+        },
+        {
+          "type": "key-points",
+          "items": [
+            "Measure the start and final temperatures in an insulated cup, with a lid, and stir.",
+            "Temperature change = final temperature − initial temperature."
+          ]
+        }
+      ]
+    },
+    {
+      "heading": "Fair tests and accurate results",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "This section covers the variables to control and how to improve accuracy."
+        },
+        {
+          "type": "definitions",
+          "items": [
+            {
+              "term": "Independent variable",
+              "meaning": "The variable you change, such as the mass of solid added."
+            },
+            {
+              "term": "Dependent variable",
+              "meaning": "The variable you measure, such as the temperature change or the highest temperature reached."
+            },
+            {
+              "term": "Control variable",
+              "meaning": "A variable kept the same so the test is fair."
+            }
+          ]
+        },
+        {
+          "type": "list",
+          "items": [
+            "Keep the same volume of liquid each time.",
+            "Keep the same starting temperature and the same concentration of any acid or solution.",
+            "To improve accuracy: use a polystyrene cup or insulate the beaker, add a lid, stir, and use a digital or more accurate thermometer.",
+            "Use a more accurate balance, and a measuring cylinder or pipette for volumes.",
+            "Repeat the experiment and calculate the mean, ignoring anomalous results."
+          ]
+        },
+        {
+          "type": "paragraph",
+          "text": "An anomalous result does not fit the pattern. Leave it out when you work out the mean."
+        },
+        {
+          "type": "equation",
+          "label": "Mean temperature change",
+          "formula": "mean = sum of the results ÷ number of results",
+          "where": [
+            "results are the temperature changes, in °C",
+            "leave out any anomalous result"
+          ]
+        },
+        {
+          "type": "steps",
+          "items": [
+            {
+              "lead": "Spot the anomaly.",
+              "text": "Results are 9.1, 9.3, 12.0 and 9.2 °C. The 12.0 °C result is much higher than the others."
+            },
+            {
+              "lead": "Leave it out.",
+              "text": "Add the other three: 9.1 + 9.3 + 9.2 = 27.6 °C."
+            },
+            {
+              "lead": "Divide.",
+              "text": "Mean = 27.6 ÷ 3 = 9.2 °C."
+            }
+          ]
+        },
+        {
+          "type": "list",
+          "items": [
+            "A result such as 16.5 ± 0.3 °C shows the uncertainty. The values lie up to 0.3 °C either side of the mean.",
+            "In a reaction that has finished, the temperature of the mixture falls back towards room temperature, because energy is lost to the surroundings.",
+            "When acid is added to alkali, the temperature rises until the reaction is complete. It then falls as more acid is added."
+          ]
+        },
+        {
+          "type": "key-points",
+          "items": [
+            "Control the volume, starting temperature and concentration so the test is fair.",
+            "Insulate, add a lid, stir and repeat to improve accuracy."
+          ]
+        }
+      ]
+    }
+  ],
+  "checks": [
+    {
+      "q": "Why is a polystyrene cup better than a glass beaker for this practical?",
+      "a": "Polystyrene is a better insulator, so it reduces energy transfer to the surroundings.",
+      "marks": 2
+    },
+    {
+      "q": "The temperature changes in three repeats are 8.0, 8.4 and 8.2 °C. Calculate the mean.",
+      "a": "(8.0 + 8.4 + 8.2) ÷ 3 = 8.2 °C.",
+      "marks": 2
+    },
+    {
+      "q": "Give two variables to keep the same when comparing the temperature change for different masses of a solid.",
+      "a": "The volume of liquid and the starting temperature of the liquid.",
+      "marks": 2
+    }
+  ],
+  "boards": {
+    "aqa": {
+      "spec_codes": [
+        "AQA 4.5.1.1",
+        "AQA T 5.5.1.1"
+      ],
+      "exam_phrases": [
+        "polystyrene is a better (thermal) insulator",
+        "reduces energy exchange / loss (to the surroundings)",
+        "measure the highest temperature reached",
+        "repeat the experiment and calculate the mean (ignoring anomalous results)",
+        "use the same volume of (hydrochloric) acid each time",
+        "(0.3 °C) is the uncertainty, the range about the mean value"
+      ],
+      "mistakes": [
+        {
+          "wrong": "Add different masses of ammonium nitrate to water and measure the temperature.",
+          "right": "Say how the temperature change is found with each mass: the same volume of water each time, the initial and final temperature, then the difference."
+        },
+        {
+          "wrong": "A polystyrene cup stops any energy being lost to the surroundings.",
+          "right": "Polystyrene is a better insulator than glass, so it reduces energy transfer to the surroundings."
+        },
+        {
+          "wrong": "The temperature falls after 7 minutes because the reaction has become endothermic.",
+          "right": "The reaction has finished or stopped. The solution then cools back to room temperature as energy is lost to the surroundings."
+        }
+      ],
+      "worked_example": {
+        "exemplar_id": "4e539719-04c4-48ea-bb36-945b8fc09053",
+        "source": "AQA jun 2019, Paper 1 (H), Q02.6",
+        "question": "This question is about salts. Ammonium nitrate solution is produced when ammonia gas reacts with nitric acid.\n\nDescribe a method to investigate how the temperature changes when different masses of ammonium nitrate are dissolved in water.\n\nYou do not need to write about safety precautions.",
+        "marks": 6,
+        "answer_points": [
+          "Use a suitable container, such as a test tube, with insulation.",
+          "Add a measured volume of water.",
+          "Measure the initial temperature of the water with a thermometer.",
+          "Add a stated mass of ammonium nitrate, for example 1 g, and stir to dissolve it.",
+          "Measure the final (lowest) temperature of the solution.",
+          "Calculate the temperature difference, or determine it graphically.",
+          "Repeat with different masses, using the same volume of water each time."
+        ],
+        "tip": "This is a levels question. For the top level, show how the temperature change is found for different masses in the same quantity of water."
+      }
+    },
+    "edexcel": {
+      "spec_codes": [
+        "EDEX 7.9"
+      ],
+      "exam_phrases": [
+        "polystyrene is an insulator / poor conductor (of heat)",
+        "reduces heat / energy loss / transfer",
+        "temperature change = final − initial, with a sign and a unit",
+        "a temperature rise is a positive change; a fall is a negative change",
+        "measure the initial temperature, add the solid and stir, then measure the final temperature"
+      ],
+      "mistakes": [
+        {
+          "wrong": "Polystyrene is better because it keeps the temperature in, or because glass breaks.",
+          "right": "Say polystyrene is a (better) insulator, so it reduces heat loss. Keeping the temperature in and breakability are ignored."
+        },
+        {
+          "wrong": "Salt R warms the water from 20.0 °C to 23.0 °C, so its temperature change is −3.0 °C.",
+          "right": "A rise is a positive change: +3.0 °C. Giving −3.0 for a rise is rejected."
+        },
+        {
+          "wrong": "The temperature changed by 2.5 when it fell from 18.6 °C to 16.1 °C.",
+          "right": "Give a sign and a unit: −2.5 °C. Leaving off the sign or the unit loses marks."
+        }
+      ],
+      "worked_example": {
+        "exemplar_id": "264de51c-7b47-40bf-82a8-6fe329655b3f",
+        "source": "EDEXCEL jun 2022, Paper 2 (F), Q4(b)(iv)",
+        "question": "In an experiment, a solid is mixed with a liquid.\n\nThe temperature change of the mixture is measured.\n\ntemperature of liquid at start = 18.6 °C\ntemperature of products at end = 16.1 °C\n\nCalculate the change in temperature.\n\nGive a sign and a unit in your answer.",
+        "marks": 3,
+        "answer_points": [
+          "Change = final temperature − initial temperature = 16.1 − 18.6.",
+          "= −2.5.",
+          "The unit is °C, so the answer is −2.5 °C."
+        ],
+        "tip": "The answer −2.5 °C scores all three marks even without working. Without the sign it scores 2, and without the sign and unit it scores 1."
+      }
+    },
+    "ocr": {
+      "spec_codes": [
+        "OCR C3.2a"
+      ],
+      "exam_phrases": [
+        "pour copper sulfate solution into an insulated cup",
+        "measure / record the start temperature",
+        "add the powder and stir",
+        "put on a lid",
+        "measure / record the maximum / final temperature",
+        "repeat the experiment (three times)",
+        "calculate the temperature change"
+      ],
+      "mistakes": [
+        {
+          "wrong": "Take the thermometer out of the beaker and then read it for the end temperature.",
+          "right": "Leave the thermometer in the reaction mixture. Otherwise the temperature at the end will be inaccurate."
+        },
+        {
+          "wrong": "The temperature keeps rising as more and more acid is added to the alkali.",
+          "right": "The temperature increases, then decreases once the reaction is complete (after 20 cm³ of acid in the data given)."
+        }
+      ],
+      "worked_example": {
+        "exemplar_id": "63cbe95e-46aa-4bbd-b5b0-f8fe259f0f69",
+        "source": "OCR jun 2025, Paper 3, Q18(a)",
+        "question": "A group of students are investigating chemical reactions.\n\nThey add magnesium powder to copper sulfate solution.\n\nThey predict this will cause an increase in temperature, as they believe the reaction is exothermic.\n\nThe students collect the apparatus needed to test their theory.\n\nDescribe an experiment the students can do to measure the increase in temperature.\n\nYou can include a labelled diagram in your answer.",
+        "marks": 4,
+        "answer_points": [
+          "Any four from:",
+          "Pour a measured volume of copper sulfate solution into an insulated cup.",
+          "Measure and record the start temperature.",
+          "Add the magnesium powder and stir.",
+          "Put on a lid.",
+          "Measure and record the maximum (final) temperature.",
+          "Repeat the experiment, for example three times.",
+          "Calculate the temperature change."
+        ],
+        "tip": "One mark for each step. Labelled diagrams can also score."
+      }
+    }
+  },
+  "meta": {
+    "status": "draft",
+    "written_by": "sonnet-5-5",
+    "written_at": "2026-10-01",
+    "spec_point_ids": [
+      "a77f540b-93d3-446c-8381-522171c2c53e",
+      "b7d1e919-98ea-4827-a7d3-fe7d3198aa19",
+      "6c7a26d7-db6c-4d9f-a19c-85292604c7e5",
+      "f66f3609-f421-43f7-b036-2e5ff458a849"
+    ],
+    "exemplar_ids": [
+      "4e539719-04c4-48ea-bb36-945b8fc09053",
+      "264de51c-7b47-40bf-82a8-6fe329655b3f",
+      "63cbe95e-46aa-4bbd-b5b0-f8fe259f0f69"
+    ]
+  }
+}

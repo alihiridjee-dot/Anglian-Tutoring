@@ -8,12 +8,21 @@
     {
       "heading": "I–V graphs of resistors, lamps and diodes",
       "blocks": [
-        { "type": "paragraph", "text": "An I–V graph plots current against potential difference for one component. Its shape shows whether the resistance stays constant or changes." },
+        {
+          "type": "paragraph",
+          "text": "An I–V graph plots current against potential difference for one component. Its shape shows whether the resistance stays constant or changes."
+        },
         {
           "type": "definitions",
           "items": [
-            { "term": "Ohmic conductor", "meaning": "A component where current is directly proportional to potential difference, at constant temperature. Its resistance stays constant." },
-            { "term": "Non-linear", "meaning": "A component whose I–V graph is curved, so its resistance changes." }
+            {
+              "term": "Ohmic conductor",
+              "meaning": "A component where current is directly proportional to potential difference, at constant temperature. Its resistance stays constant."
+            },
+            {
+              "term": "Non-linear",
+              "meaning": "A component whose I–V graph is curved, so its resistance changes."
+            }
           ]
         },
         {
@@ -21,16 +30,106 @@
           "diagram": {
             "kind": "line-graph",
             "alt": "I–V graphs for a fixed resistor, a filament lamp and a diode, with potential difference from negative to positive.",
-            "x": { "label": "Potential difference", "min": -6, "max": 6, "ticks": [-6, -3, 0, 3, 6], "unit": "V" },
-            "y": { "label": "Current", "zero": 0.5 },
+            "x": {
+              "label": "Potential difference",
+              "min": -6,
+              "max": 6,
+              "ticks": [
+                -6,
+                -3,
+                0,
+                3,
+                6
+              ],
+              "unit": "V"
+            },
+            "y": {
+              "label": "Current",
+              "zero": 0.5
+            },
             "series": [
-              { "name": "Fixed resistor", "points": [[-6, 0.05], [0, 0.5], [6, 0.95]] },
-              { "name": "Filament lamp", "points": [[-6, 0.1], [-3, 0.2], [-1, 0.38], [0, 0.5], [1, 0.62], [3, 0.8], [6, 0.9]] },
-              { "name": "Diode", "points": [[-6, 0.5], [0, 0.5], [1.5, 0.52], [2.5, 0.75], [3.5, 1]] }
+              {
+                "name": "Fixed resistor",
+                "points": [
+                  [
+                    -6,
+                    0.05
+                  ],
+                  [
+                    0,
+                    0.5
+                  ],
+                  [
+                    6,
+                    0.95
+                  ]
+                ]
+              },
+              {
+                "name": "Filament lamp",
+                "points": [
+                  [
+                    -6,
+                    0.1
+                  ],
+                  [
+                    -3,
+                    0.2
+                  ],
+                  [
+                    -1,
+                    0.38
+                  ],
+                  [
+                    0,
+                    0.5
+                  ],
+                  [
+                    1,
+                    0.62
+                  ],
+                  [
+                    3,
+                    0.8
+                  ],
+                  [
+                    6,
+                    0.9
+                  ]
+                ]
+              },
+              {
+                "name": "Diode",
+                "points": [
+                  [
+                    -6,
+                    0.5
+                  ],
+                  [
+                    0,
+                    0.5
+                  ],
+                  [
+                    1.5,
+                    0.52
+                  ],
+                  [
+                    2.5,
+                    0.75
+                  ],
+                  [
+                    3.5,
+                    1
+                  ]
+                ]
+              }
             ]
           }
         },
-        { "type": "subheading", "text": "Fixed resistor" },
+        {
+          "type": "subheading",
+          "text": "Fixed resistor"
+        },
         {
           "type": "list",
           "items": [
@@ -39,7 +138,10 @@
             "The resistance stays constant."
           ]
         },
-        { "type": "subheading", "text": "Filament lamp" },
+        {
+          "type": "subheading",
+          "text": "Filament lamp"
+        },
         {
           "type": "list",
           "items": [
@@ -48,12 +150,15 @@
             "More current means more collisions between electrons and the ions in the wire. This heats the wire."
           ]
         },
-        { "type": "subheading", "text": "Diode" },
+        {
+          "type": "subheading",
+          "text": "Diode"
+        },
         {
           "type": "list",
           "items": [
             "Current flows in one direction only.",
-            "The diode has a very high resistance in the reverse direction, so the current there is zero.",
+            "The diode has a very high resistance in the reverse direction, so (almost) no current flows that way.",
             "A light emitting diode (LED) behaves in the same way."
           ]
         },
@@ -70,12 +175,21 @@
     {
       "heading": "Thermistors and LDRs",
       "blocks": [
-        { "type": "paragraph", "text": "Some components change their resistance with the surroundings. This makes them useful as sensors." },
+        {
+          "type": "paragraph",
+          "text": "Some components change their resistance with the surroundings. This makes them useful as sensors."
+        },
         {
           "type": "definitions",
           "items": [
-            { "term": "Thermistor", "meaning": "A component whose resistance changes with temperature. In an NTC thermistor, resistance decreases as temperature increases." },
-            { "term": "LDR", "meaning": "A light dependent resistor. Its resistance decreases as light intensity increases." }
+            {
+              "term": "Thermistor",
+              "meaning": "A component whose resistance changes with temperature. In an NTC thermistor, resistance decreases as temperature increases."
+            },
+            {
+              "term": "LDR",
+              "meaning": "A light dependent resistor. Its resistance decreases as light intensity increases."
+            }
           ]
         },
         {
@@ -91,14 +205,36 @@
             "kind": "sort",
             "alt": "Sort each statement into thermistor, LDR or diode.",
             "prompt": "Which component does each statement describe?",
-            "groups": ["Thermistor", "LDR", "Diode"],
+            "groups": [
+              "Thermistor",
+              "LDR",
+              "Diode"
+            ],
             "items": [
-              { "text": "Resistance decreases as temperature increases", "group": 0 },
-              { "text": "Used in a thermostat", "group": 0 },
-              { "text": "Resistance decreases as light intensity increases", "group": 1 },
-              { "text": "Used to switch on a light when it gets dark", "group": 1 },
-              { "text": "Current flows in one direction only", "group": 2 },
-              { "text": "Very high resistance in the reverse direction", "group": 2 }
+              {
+                "text": "Resistance decreases as temperature increases",
+                "group": 0
+              },
+              {
+                "text": "Used in a thermostat",
+                "group": 0
+              },
+              {
+                "text": "Resistance decreases as light intensity increases",
+                "group": 1
+              },
+              {
+                "text": "Used to switch on a light when it gets dark",
+                "group": 1
+              },
+              {
+                "text": "Current flows in one direction only",
+                "group": 2
+              },
+              {
+                "text": "Very high resistance in the reverse direction",
+                "group": 2
+              }
             ]
           }
         },
@@ -107,7 +243,7 @@
           "items": [
             "Thermistor: resistance decreases as temperature increases.",
             "LDR: resistance decreases as light intensity increases.",
-            "Do not mix them up: temperature for a thermistor, light for an LDR."
+            "Thermistor: changes with temperature. LDR: changes with light intensity."
           ]
         }
       ]
@@ -115,7 +251,10 @@
     {
       "heading": "Finding an I–V graph by experiment",
       "blocks": [
-        { "type": "paragraph", "text": "An I–V graph comes from measuring current and potential difference for one component at a range of settings." },
+        {
+          "type": "paragraph",
+          "text": "An I–V graph comes from measuring current and potential difference for one component at a range of settings."
+        },
         {
           "type": "list",
           "items": [
@@ -123,7 +262,18 @@
             "Connect a **voltmeter** in parallel with the component.",
             "Use a variable resistor, a variable power supply or a different number of cells to change the potential difference.",
             "Reverse the connections to the power supply to get negative values.",
-            "Calculate the resistance at each point using R = V ÷ I."
+            "Calculate the resistance at each point using the equation below.",
+            "To investigate a thermistor, change its temperature and measure the current and potential difference each time. For an LDR, change the light intensity."
+          ]
+        },
+        {
+          "type": "equation",
+          "label": "Resistance",
+          "formula": "R = V ÷ I",
+          "where": [
+            "R = resistance, in ohms (Ω)",
+            "V = potential difference, in volts (V)",
+            "I = current, in amperes (A)"
           ]
         },
         {
@@ -155,7 +305,10 @@
   ],
   "boards": {
     "aqa": {
-      "spec_codes": ["AQA 4.2.1.4", "AQA T 6.2.1.4"],
+      "spec_codes": [
+        "AQA 4.2.1.4",
+        "AQA T 6.2.1.4"
+      ],
       "exam_phrases": [
         "current and p.d. would not be directly proportional",
         "I-V graph would be curved",
@@ -175,8 +328,8 @@
           "right": "A rise in temperature means current and potential difference are no longer directly proportional. The I–V graph is curved because the resistance increases."
         },
         {
-          "wrong": "The resistance of a thermistor increases as the temperature increases.",
-          "right": "The resistance of a thermistor decreases as the temperature increases."
+          "wrong": "The student takes one reading at each potential difference.",
+          "right": "Take repeat readings, calculate a mean and discard any anomalies."
         }
       ],
       "worked_example": {
@@ -192,20 +345,26 @@
       }
     },
     "edexcel": {
-      "spec_codes": ["EDEX 10.18", "EDEX 10.19", "EDEX 10.20", "EDEX 10.17", "EDEX 10.21"],
+      "spec_codes": [
+        "EDEX 10.18",
+        "EDEX 10.19",
+        "EDEX 10.20",
+        "EDEX 10.17",
+        "EDEX 10.21"
+      ],
       "exam_phrases": [
-        "identification of resistance increasing",
+        "resistance increases",
         "heating (of the filament)",
         "because of more collisions",
         "of electrons (with ions / atoms / other electrons)",
         "the current is not directly proportional to p.d.",
-        "idea that doubling the potential difference does not result in doubling of resistance",
+        "doubling the potential difference does not double the resistance",
         "a means of varying potential difference"
       ],
       "mistakes": [
         {
           "wrong": "The current in a lamp is directly proportional to the potential difference across it.",
-          "right": "For a lamp the values do not go up in equal steps and do not show doubling. The current reaches a constant value, so the relationship is not directly proportional."
+          "right": "The current increases, but not in equal steps, and doubling the potential difference does not double the current. It is not directly proportional."
         },
         {
           "wrong": "The resistance of the lamp changes because it gets hot.",
@@ -231,7 +390,12 @@
       }
     },
     "ocr": {
-      "spec_codes": ["OCR P3.2e", "OCR P3.2g", "OCR P3.2h", "OCR P3.2f"],
+      "spec_codes": [
+        "OCR P3.2e",
+        "OCR P3.2g",
+        "OCR P3.2h",
+        "OCR P3.2f"
+      ],
       "exam_phrases": [
         "ions vibrate more",
         "more electrons collide with ions (in the lattice)",
@@ -250,8 +414,8 @@
           "right": "A thermistor changes with temperature. A light dependent resistor (LDR) changes with light intensity."
         },
         {
-          "wrong": "Resistance of the lamp increases because the lamp gets bigger.",
-          "right": "Say that more current makes more electrons collide with the ions in the wire, which increases the temperature and so the resistance."
+          "wrong": "A thermistor is used to turn on lights when it gets dark.",
+          "right": "That is an LDR. A thermistor is used in a heating system, because its resistance changes with temperature."
         }
       ],
       "worked_example": {
@@ -292,7 +456,10 @@
       "c0e5817a-c56f-4424-9175-411299ad70a5",
       "7a42cdca-e3c7-454a-9473-1593ac75623f",
       "02d778ff-a56f-4799-8ed5-69069b84ae04",
-      "607822d9-b1ee-4115-993d-08b1c67fd8b1"
-    ]
+      "607822d9-b1ee-4115-993d-08b1c67fd8b1",
+      "1f7ed5c1-7cac-4580-9f15-c468b69c2c87"
+    ],
+    "checked_by": "sonnet-science-check",
+    "checked_at": "2026-10-01"
   }
 }
