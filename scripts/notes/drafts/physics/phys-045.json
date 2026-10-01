@@ -40,7 +40,7 @@
             "The field strength is much greater for massive objects, such as a planet.",
             "The force of gravity close to the Earth is due to the gravitational field around the Earth.",
             "The weight of an object depends on the field strength at the point where the object is.",
-            "The weight of an object and its mass are directly proportional."
+            "The weight of an object and its mass are directly proportional (W ∝ m)."
           ]
         },
         {
@@ -102,7 +102,34 @@
         },
         {
           "type": "paragraph",
-          "text": "To find the mass, rearrange the equation: m = W ÷ g. For an engineer of weight 710 N and g = 9.8 N/kg, m = 710 ÷ 9.8 = 72.4 kg, which is 72 kg to 2 significant figures."
+          "text": "To find the mass, rearrange the equation."
+        },
+        {
+          "type": "equation",
+          "label": "Mass",
+          "formula": "m = W ÷ g",
+          "where": [
+            "m is mass in kilograms (kg).",
+            "W is weight in newtons (N).",
+            "g is gravitational field strength in newtons per kilogram (N/kg)."
+          ]
+        },
+        {
+          "type": "steps",
+          "items": [
+            {
+              "lead": "Substitute",
+              "text": "An engineer of weight 710 N with g = 9.8 N/kg: m = 710 ÷ 9.8"
+            },
+            {
+              "lead": "Calculate",
+              "text": "m = 72.4… kg"
+            },
+            {
+              "lead": "Round",
+              "text": "To 2 significant figures, m = 72 kg"
+            }
+          ]
         },
         {
           "type": "diagram",
@@ -190,6 +217,10 @@
                   {
                     "label": "Earth (9.8 N/kg)",
                     "value": 9.8
+                  },
+                  {
+                    "label": "Jupiter (24.8 N/kg)",
+                    "value": 24.8
                   }
                 ]
               }
@@ -263,7 +294,7 @@
           "right": "This only scores one mark if nothing else is credited. Say weight depends on mass and field strength, the mass decreases as fuel is burned (or g decreases), therefore the weight decreases."
         },
         {
-          "wrong": "m = 710 ÷ 9.8 = 72.4 kg, so the mass is 72.4 kg to 2 significant figures.",
+          "wrong": "m = 72.4 kg.",
           "right": "The final answer must be given to 2 significant figures, so m = 72 kg."
         }
       ],
@@ -329,7 +360,7 @@
           "blocks": [
             {
               "type": "paragraph",
-              "text": "(Separate science) The field strength on the Moon is different from the Earth. The mark scheme looks for reasons linked to the two bodies."
+              "text": "The field strength on the Moon is different from the Earth. The mark scheme looks for reasons linked to the two bodies."
             },
             {
               "type": "list",
@@ -407,6 +438,8 @@
       "d137546d-d311-4062-926b-2dda9b1d84db",
       "30788382-ddae-4cb5-b664-61256af1439e",
       "4010c7ce-644d-41ad-886f-47619f6b6970"
-    ]
+    ],
+    "checked_by": "sonnet-science-check",
+    "checked_at": "2026-10-01"
   }
 }

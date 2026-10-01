@@ -134,7 +134,7 @@
           ],
           "rows": [
             [
-              "Gases (including LPG)",
+              "Gases (including LPG, liquefied petroleum gas)",
               "smallest, lowest boiling point",
               "domestic heating and cooking"
             ],
@@ -342,6 +342,8 @@
       "4a63a998-5ed4-4a53-9fea-268c1020e967",
       "995ca2b6-ca7c-4a18-ae60-07cc0acf50b7",
       "b6719088-53c2-41d5-bc1d-b4e10d8680ac"
-    ]
+    ],
+    "checked_by": "sonnet-science-check",
+    "checked_at": "2026-10-01"
   }
 }

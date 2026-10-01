@@ -23,6 +23,7 @@
             "A great biodiversity makes an ecosystem more **stable**.",
             "Species depend less on one other species for food, shelter and the maintenance of the physical environment.",
             "A greater diversity of plants gives more different types of food and habitat, so more animal species can live there.",
+            "A species can help keep a community stable. For example, a predator controls the population of its prey.",
             "The future of the human species on Earth relies on maintaining a good level of biodiversity."
           ]
         },
@@ -81,6 +82,7 @@
             "Cutting down and burning trees means less photosynthesis, so more carbon dioxide stays in the atmosphere.",
             "Pesticides washed into rivers by rain kill organisms and reduce biodiversity.",
             "A non-indigenous species can **outcompete** native species for food and habitat. It may have no natural herbivores and may carry diseases.",
+            "Global warming from extra carbon dioxide and methane changes habitats and migration patterns.",
             "Overfishing reduces fish populations."
           ]
         },
@@ -105,7 +107,7 @@
             "Plant trees, and plant a variety of crops instead of a monoculture.",
             "Run breeding programmes for endangered species.",
             "Rewild habitats such as hedgerows and meadows, and leave wider field margins.",
-            "Set fishing quotas, avoid catching young fish and protect breeding grounds.",
+            "Set fishing quotas, avoid catching young fish (for example with larger-holed nets) and protect breeding grounds.",
             "Breed fish in captivity, for example in fish farms, to increase their numbers."
           ]
         },
@@ -243,8 +245,8 @@
       ],
       "mistakes": [
         {
-          "wrong": "Eutrophication is caused by a build-up of nitrogen or nutrients in the water.",
-          "right": "\"Nitrogen\" and \"nutrients\" are ignored. Write that nitrates build up in the water, from fertiliser, run-off or sewage."
+          "wrong": "Eutrophication is caused by a build-up of nitrogen in the water.",
+          "right": "\"Nitrogen\" is ignored. Write that nitrates build up in the water, from fertiliser, run-off or sewage."
         },
         {
           "wrong": "Signal crayfish decrease the native crayfish only because they eat them.",
@@ -291,7 +293,7 @@
         },
         {
           "wrong": "A fall from 1.3 million to 400 000 is a percentage decrease of 69.23 %.",
-          "right": "Give the answer to the number of significant figures asked for: 69 % to 2 significant figures."
+          "right": "69.23 is the unrounded working. When the question asks for 2 significant figures, the final answer is 69 %."
         }
       ],
       "worked_example": {
@@ -309,6 +311,8 @@
   },
   "meta": {
     "status": "draft",
+    "checked_by": "sonnet-science-check",
+    "checked_at": "2026-10-01",
     "written_by": "sonnet-5-5",
     "written_at": "2026-10-01",
     "spec_point_ids": [

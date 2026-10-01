@@ -145,8 +145,15 @@
           "type": "list",
           "items": [
             "Complete combustion of a hydrocarbon produces **carbon dioxide** and **water**.",
-            "The water forms as water vapour, which condenses on a cold surface.",
-            "Methane: methane + oxygen → carbon dioxide + water."
+            "The water forms as water vapour, which condenses on a cold surface."
+          ]
+        },
+        {
+          "type": "equation",
+          "label": "Complete combustion of methane (word equation)",
+          "formula": "methane + oxygen → carbon dioxide + water",
+          "where": [
+            "energy is released"
           ]
         },
         {
@@ -247,8 +254,8 @@
         "(because the weak) intermolecular forces increase",
         "as molecular size increases viscosity increases",
         "heavy fuel oil has larger molecules (than kerosene)",
-        "petrol is more flammable than diesel",
-        "carbon dioxide; water"
+        "(because) the viscosity increases",
+        "the time increases"
       ],
       "mistakes": [
         {
@@ -283,7 +290,6 @@
         "EDEX 9.16C"
       ],
       "exam_phrases": [
-        "methane + oxygen → carbon dioxide + water",
         "water vapour forms during combustion",
         "(water vapour) condenses on cold surface",
         "balancing of correct formulae"
@@ -315,10 +321,15 @@
           "heading": "Alkenes and combustion (Separate science)",
           "blocks": [
             {
-              "type": "list",
-              "items": [
-                "Alkenes also burn completely in oxygen. The hydrocarbon is oxidised to carbon dioxide and water.",
-                "Example: C₂H₄ + 3O₂ → 2CO₂ + 2H₂O."
+              "type": "paragraph",
+              "text": "Alkenes also burn completely in oxygen. The hydrocarbon is oxidised to carbon dioxide and water."
+            },
+            {
+              "type": "equation",
+              "label": "Complete combustion of ethene",
+              "formula": "C₂H₄ + 3O₂ → 2CO₂ + 2H₂O",
+              "where": [
+                "energy is released"
               ]
             }
           ]
@@ -334,7 +345,7 @@
         "as the number of carbon atoms increases the boiling point increases",
         "larger molecules have greater intermolecular forces",
         "carbon dioxide; water",
-        "C₃H₈ + 5O₂ → 3CO₂ + 4H₂O"
+        "the stronger the intermolecular forces the higher the boiling point"
       ],
       "mistakes": [
         {
@@ -377,6 +388,8 @@
       "5f0228ba-dbef-4d2a-be83-9e2802bdcd1f",
       "91570c90-9e13-46b1-92ea-8e4461460502",
       "9c5c714a-73f5-47a7-9249-18b8982f6fe4"
-    ]
+    ],
+    "checked_by": "sonnet-science-check",
+    "checked_at": "2026-10-01"
   }
 }

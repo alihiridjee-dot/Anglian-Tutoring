@@ -1,0 +1,326 @@
+{
+  "format": 1,
+  "concept_id": "chem-103",
+  "subject": "chemistry",
+  "title": "Life cycle assessment",
+  "key_idea": "A life cycle assessment (LCA) compares the environmental impact of a product at each stage of its life: raw materials, manufacture, use and disposal. Energy, water and resources can be measured. The effect of pollutants needs value judgements, so an LCA is not purely objective.",
+  "sections": [
+    {
+      "heading": "What a life cycle assessment is",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "A life cycle assessment (LCA) judges the effect a product has on the environment during its whole life. This section covers the stages and what is measured."
+        },
+        {
+          "type": "definitions",
+          "items": [
+            {
+              "term": "Life cycle assessment (LCA)",
+              "meaning": "A comparison of the environmental impact of a product at each stage of its life."
+            },
+            {
+              "term": "Carbon footprint",
+              "meaning": "The total carbon dioxide released over the whole life of a product, not just when it is used."
+            }
+          ]
+        },
+        {
+          "type": "diagram",
+          "diagram": {
+            "kind": "flow",
+            "alt": "The stages of a life cycle assessment in order: raw materials, manufacture and packaging, use and operation, disposal.",
+            "steps": [
+              "Extracting and processing raw materials",
+              "Manufacturing and packaging",
+              "Use and operation",
+              "Disposal at end of useful life"
+            ]
+          }
+        },
+        {
+          "type": "paragraph",
+          "text": "Transport and distribution are considered at every stage."
+        },
+        {
+          "type": "subheading",
+          "text": "What is measured at each stage"
+        },
+        {
+          "type": "list",
+          "items": [
+            "Raw materials: the resources used and the energy needed to extract and process them.",
+            "Manufacture: the energy and water used to make and package the product.",
+            "Use: the energy needed to operate it, and to clean or repair it. A reusable product may be used many times.",
+            "Disposal: whether it can be recycled or reused, whether it is biodegradable, and the landfill space it takes up."
+          ]
+        },
+        {
+          "type": "key-points",
+          "items": [
+            "An LCA covers four stages: raw materials, manufacture, use and disposal.",
+            "Transport counts at every stage.",
+            "The carbon footprint of a product is more than the emissions when it is used."
+          ]
+        }
+      ]
+    },
+    {
+      "heading": "Interpreting LCA data",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "LCAs are used to compare products, for example a glass bottle and a polymer bottle. This section covers what can be measured and what cannot."
+        },
+        {
+          "type": "subheading",
+          "text": "Easy to measure and harder to measure"
+        },
+        {
+          "type": "list",
+          "items": [
+            "Use of water, resources, energy and some wastes can be fairly easily quantified.",
+            "Giving a number to the effect of a pollutant is less straightforward. It needs value judgements.",
+            "So an LCA is not a purely objective process."
+          ]
+        },
+        {
+          "type": "diagram",
+          "diagram": {
+            "kind": "sort",
+            "alt": "Sort each item into easily quantified or needs a value judgement.",
+            "prompt": "Which items in an LCA can be fairly easily quantified?",
+            "groups": [
+              "Easily quantified",
+              "Needs a value judgement"
+            ],
+            "items": [
+              {
+                "text": "Energy used to make a bottle",
+                "group": 0
+              },
+              {
+                "text": "Water used to wash a reusable bottle",
+                "group": 0
+              },
+              {
+                "text": "Mass of raw materials used",
+                "group": 0
+              },
+              {
+                "text": "Mass of waste produced",
+                "group": 0
+              },
+              {
+                "text": "Deciding how harmful one pollutant is compared with another",
+                "group": 1
+              },
+              {
+                "text": "Giving a number to the effect of a pollutant",
+                "group": 1
+              }
+            ]
+          }
+        },
+        {
+          "type": "subheading",
+          "text": "Evaluating a product"
+        },
+        {
+          "type": "list",
+          "items": [
+            "Compare the products stage by stage using the data given, for example total energy to process and manufacture.",
+            "Use ratios or percentages where the data allows, such as the percentage recycled.",
+            "A reusable product spreads its impact over every use.",
+            "Finish with a judgement that is supported by the reasons you have given."
+          ]
+        },
+        {
+          "type": "subheading",
+          "text": "Misuse of LCAs"
+        },
+        {
+          "type": "list",
+          "items": [
+            "A selective or abbreviated LCA looks at only some stages or some data.",
+            "It can be misused to reach a conclusion decided in advance, for example in advertising."
+          ]
+        },
+        {
+          "type": "key-points",
+          "items": [
+            "Energy, water, resources and some wastes can be quantified.",
+            "Pollutant effects need value judgements, so an LCA is not purely objective.",
+            "Abbreviated LCAs can be misused to support advertising claims."
+          ]
+        }
+      ]
+    }
+  ],
+  "checks": [
+    {
+      "q": "Name the four stages of a life cycle assessment of a product.",
+      "a": "Extracting and processing raw materials; manufacturing and packaging; use and operation; disposal at the end of its useful life.",
+      "marks": 2
+    },
+    {
+      "q": "Explain why carbon dioxide emitted when a car is used is not its total carbon footprint.",
+      "a": "Carbon dioxide is also released when raw materials are extracted and processed, when the car is manufactured and when it is disposed of.",
+      "marks": 3
+    },
+    {
+      "q": "Explain why an LCA is not a purely objective process.",
+      "a": "Water, energy, resources and some wastes can be measured, but giving a number to the effect of a pollutant needs value judgements.",
+      "marks": 2
+    }
+  ],
+  "boards": {
+    "aqa": {
+      "spec_codes": [
+        "AQA 4.10.2.1",
+        "AQA T 5.10.2.1"
+      ],
+      "exam_phrases": [
+        "extracting / processing raw materials",
+        "manufacturing",
+        "disposal at the end of its useful life",
+        "energy used in extraction of raw materials",
+        "energy used in cleaning non-disposable plates",
+        "glass bottles are reusable",
+        "recycling uses less energy than making new glass and polymer",
+        "reasoned judgement"
+      ],
+      "mistakes": [
+        {
+          "wrong": "A car's carbon footprint is the carbon dioxide from its exhaust when it is driven.",
+          "right": "The footprint includes carbon dioxide from extracting and processing raw materials, manufacturing and disposal at the end of the car's useful life."
+        },
+        {
+          "wrong": "Glass bottles are better because they can be reused.",
+          "right": "Reuse is one reason. A full answer links reasons across the stages, for example glass needs more energy to make, but is reused and recycled, and gives a reasoned judgement."
+        },
+        {
+          "wrong": "Energy usage means the energy the product uses in everyday life.",
+          "right": "For a complete LCA, give energy used in stages such as extraction, processing, manufacturing, transportation, cleaning, disposal or recycling."
+        }
+      ],
+      "worked_example": {
+        "exemplar_id": "5fef5df6-24fd-4a40-80b0-1607bc70d038",
+        "source": "AQA jun 2021, Paper 2 (H), Q05.6",
+        "question": "Emissions from cars contain carbon dioxide.\n\nExplain why carbon dioxide emissions during use and operation are not the total carbon footprint for a car.\n\nRefer to the stages of the life cycle assessment of a car in your answer.",
+        "marks": 3,
+        "answer_points": [
+          "Carbon dioxide is emitted when raw materials are extracted or processed.",
+          "Carbon dioxide is emitted during manufacturing.",
+          "Carbon dioxide is emitted during disposal at the end of the car's useful life."
+        ],
+        "tip": "One mark for each stage other than use and operation."
+      }
+    },
+    "edexcel": {
+      "spec_codes": [
+        "EDEX 4.11",
+        "EDEX 4.12"
+      ],
+      "exam_phrases": [
+        "crude oil is a raw material",
+        "crude oil is finite",
+        "cracking requires a lot of energy",
+        "non-biodegradable",
+        "persists in landfill",
+        "landfill space runs out",
+        "polymers must be sorted into different types"
+      ],
+      "mistakes": [
+        {
+          "wrong": "The disposal of polymers is harmful to the environment.",
+          "right": "General statements like this are ignored. Say what happens, for example it is non-biodegradable, persists in landfill and landfill space runs out."
+        },
+        {
+          "wrong": "Carbon dioxide is released in manufacture and again when plastic is burnt, so I can score for it twice.",
+          "right": "If carbon dioxide or the greenhouse effect is mentioned in both aspects, it is credited once only."
+        }
+      ],
+      "worked_example": {
+        "exemplar_id": "b991959c-35bd-4305-a3f2-e99d221a3f8a",
+        "source": "EDEXCEL jun 2018, Paper 2 (F), Q*7(c)(ii)",
+        "question": "Poly(ethene) has many uses in everyday life.\nLarge amounts of poly(ethene) are manufactured from ethene produced by cracking fractions obtained from crude oil.\nPoly(ethene) is used to make many objects.\nAfter use it is necessary to dispose of the large amounts of poly(ethene) in these objects.\nExplain some of the problems associated with the manufacture and disposal of poly(ethene).",
+        "marks": 6,
+        "answer_points": [
+          "Manufacture: crude oil is the raw material and it is finite.",
+          "Cracking requires a lot of energy. Generating that energy may release carbon dioxide, a greenhouse gas.",
+          "Disposal in landfill: poly(ethene) is non-biodegradable, persists in landfill and landfill space runs out.",
+          "Some plastic ends up as litter, which may be hazardous to wildlife.",
+          "Recycling needs polymers sorted into different types.",
+          "Burning produces carbon dioxide and may produce toxic gases."
+        ],
+        "tip": "Marked in levels: cover both manufacture and disposal, with detailed and linked explanation, for the top level."
+      }
+    },
+    "ocr": {
+      "spec_codes": [
+        "OCR C6.1k",
+        "OCR C6.1l"
+      ],
+      "exam_phrases": [
+        "Manufacture",
+        "Use",
+        "Transport",
+        "Disposal",
+        "raw materials needed",
+        "energy used in processing or manufacturing",
+        "water used in processing or manufacturing",
+        "energy needed to dispose of the product",
+        "can the product be recycled",
+        "smaller mass",
+        "higher percentage recycled",
+        "less energy use"
+      ],
+      "mistakes": [
+        {
+          "wrong": "Aluminium is better because the cost is lower.",
+          "right": "Cost without explanation is ignored. Aluminium costs more per kg, but the container has a smaller mass, so the overall cost per container is less."
+        },
+        {
+          "wrong": "Data in an LCA includes waste products and pollution.",
+          "right": "When the question has already excluded them, they are ignored. Give other data, such as raw materials needed or energy used in manufacturing."
+        },
+        {
+          "wrong": "Aluminium is better because its cost per kg is less.",
+          "right": "Cost per kg is higher for aluminium. Claiming it is less limits the answer to 2 marks out of 3."
+        }
+      ],
+      "worked_example": {
+        "exemplar_id": "2b380ca1-1be8-418a-bbcc-b2f84376aaf0",
+        "source": "OCR jun 2025, Paper 2, Q18(b)",
+        "question": "A life-cycle assessment is an analysis of the overall environmental impact that a product may have throughout its lifetime.\n\nA company does a life-cycle assessment to investigate two possible materials for making a single-use takeaway food container.\n\nTable 18.1 gives some of the information the company uses.\n\n| | Aluminium | Poly(propene) |\n| Mass of raw materials (g) | 8 | 31.5 |\n| Energy used (MJ / kg) | 61 | 73 |\n| Percentage recycled (%) | 54 | 11 |\n| Cost per kg (£) | 1.40 | 0.98 |\n\nThe company decides to use aluminium to make the food container.\n\nExplain why using aluminium is better than using poly(propene).\n\nUse information from Table 18.1.",
+        "marks": 3,
+        "answer_points": [
+          "Aluminium uses a smaller mass of raw materials (8 g compared with 31.5 g).",
+          "A higher percentage of aluminium is recycled (54% compared with 11%).",
+          "Aluminium uses less energy (61 MJ/kg compared with 73 MJ/kg).",
+          "Overall cost per container is less for aluminium, because the mass is so much smaller."
+        ],
+        "tip": "Any three. The comparison must be stated, not just the figures."
+      }
+    }
+  },
+  "meta": {
+    "status": "draft",
+    "written_by": "sonnet-5-5",
+    "written_at": "2026-10-01",
+    "spec_point_ids": [
+      "1905c47e-c669-414d-88dd-453821ecf659",
+      "4f686ad1-3d4a-46ae-be2c-22718e0fd287",
+      "70cceab6-e0a4-4f3b-bd77-a1941855fb3e",
+      "315b4ad3-bf20-445f-ae41-fe18cdfc5408",
+      "0821824e-4737-433c-83d9-4c07ffc47d65",
+      "1f794896-5bc5-4d3f-9f0e-50310d0bb847"
+    ],
+    "exemplar_ids": [
+      "5fef5df6-24fd-4a40-80b0-1607bc70d038",
+      "b991959c-35bd-4305-a3f2-e99d221a3f8a",
+      "2b380ca1-1be8-418a-bbcc-b2f84376aaf0"
+    ]
+  }
+}

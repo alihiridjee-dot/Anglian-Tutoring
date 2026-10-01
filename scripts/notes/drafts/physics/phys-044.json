@@ -51,7 +51,8 @@
           "items": [
             "Gravitational force, which gives an object its weight",
             "Electrostatic force",
-            "Magnetic force"
+            "Magnetic force",
+            "Each acts through a field: gravitational, electrostatic or magnetic."
           ]
         },
         {
@@ -179,9 +180,12 @@
           "items": [
             "A mug on a table: the mug pushes down on the table, and the table pushes up on the mug.",
             "A person on bathroom scales: the downward force on the scales is the same size as the upward force on the person.",
-            "A stationary rocket on the ground: the upward force is the normal contact force and the downward force is its weight.",
             "Each force in a pair can be drawn as a vector, an arrow with a size and a direction."
           ]
+        },
+        {
+          "type": "paragraph",
+          "text": "A stationary rocket on the ground has two forces on it: an upward normal contact force and a downward weight. These act on the same object, so they are not an interaction pair."
         },
         {
           "type": "key-points",
@@ -228,7 +232,7 @@
       "mistakes": [
         {
           "wrong": "Weight is a contact force.",
-          "right": "Weight is a non-contact force. Electrostatic force and magnetic force are the other non-contact forces in the list. Air resistance, friction and tension are contact forces."
+          "right": "Weight is a non-contact force. Friction, air resistance, tension and normal contact force are contact forces."
         },
         {
           "wrong": "The upward force from the bathroom scales is bigger than the downward force from the person.",
@@ -240,15 +244,15 @@
         }
       ],
       "worked_example": {
-        "exemplar_id": "2ff0f3f8-a615-4082-9d83-78bd7ed20827",
-        "source": "AQA jun 2020, Paper 2 (F), Q01.8",
-        "question": "A student dropped a piece of modelling clay into oil. Weight causes the modelling clay to fall through the oil. Weight is a non-contact force. Which of the following are also non-contact forces? Tick two boxes. Options: Air resistance; Electrostatic force; Friction; Magnetic force; Tension.",
+        "exemplar_id": "f0ae7788-fbd0-4801-a13e-74488e7643bd",
+        "source": "AQA jun 2019, Paper 2 (F), Q03.4",
+        "question": "Two table tennis balls are different sizes but have the same mass. Both balls were dropped onto the table from the same height. After they were dropped, the resultant force on the smaller ball was greater than the resultant force on the larger ball. Explain why.",
         "marks": 2,
         "answer_points": [
-          "Electrostatic force.",
-          "Magnetic force."
+          "The smaller ball has a smaller area.",
+          "So the air resistance is less on the smaller ball."
         ],
-        "tip": "Air resistance, friction and tension all need contact, so they score nothing."
+        "tip": "One mark for the smaller area, one for less air resistance on the smaller ball."
       }
     },
     "edexcel": {
@@ -329,9 +333,11 @@
       "3fd58c2a-e790-456d-ac60-743d36ec7155"
     ],
     "exemplar_ids": [
-      "2ff0f3f8-a615-4082-9d83-78bd7ed20827",
+      "f0ae7788-fbd0-4801-a13e-74488e7643bd",
       "4a245630-2e3b-4621-af00-20848d19c719",
       "d89201ae-365f-4db5-8eaf-52a300599c27"
-    ]
+    ],
+    "checked_by": "sonnet-science-check",
+    "checked_at": "2026-10-01"
   }
 }

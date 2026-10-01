@@ -254,10 +254,6 @@
         {
           "wrong": "The Earth's gravitational force makes the Hubble Space Telescope speed up or slow down as it orbits.",
           "right": "The force makes it accelerate towards the Earth. This changes the direction of motion but not the speed, so the velocity changes."
-        },
-        {
-          "wrong": "A stone falling with no air resistance has a constant velocity because it falls in a straight line.",
-          "right": "The magnitude of the velocity increases uniformly and the direction stays constant."
         }
       ],
       "worked_example": {
@@ -289,11 +285,11 @@
       ],
       "mistakes": [
         {
-          "wrong": "Scalars have only direction and vectors have size and mass.",
-          "right": "Vectors have size and direction. Scalars have only size. The words must go in the right order."
+          "wrong": "Scalars have only direction.",
+          "right": "Scalars have only size. Vectors have size and direction. The words are only accepted in that order."
         },
         {
-          "wrong": "Magnitude is not an acceptable word for how big a scalar is.",
+          "wrong": "Only the word size is accepted for a scalar, not magnitude.",
           "right": "Size and magnitude are both accepted."
         }
       ],
@@ -365,6 +361,8 @@
       "aee38b70-88e7-4d7f-8325-547e3a632a31",
       "8c8cbcbc-bb0b-47fc-a990-d081a00103cd",
       "97285c9f-5a3d-4435-9bc5-c7fc72d22764"
-    ]
+    ],
+    "checked_by": "sonnet-science-check",
+    "checked_at": "2026-10-01"
   }
 }

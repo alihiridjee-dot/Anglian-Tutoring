@@ -65,6 +65,7 @@
             "The carbon atoms in the molecules are in chains or rings.",
             "It is a source of fuels such as petrol, kerosene and diesel oil.",
             "It is also the feedstock for the petrochemical industry, which makes useful materials such as solvents, lubricants, polymers and detergents.",
+            "Modern life depends on hydrocarbons for transport fuels and for many everyday materials.",
             "Petrol, kerosene and diesel oil are non-renewable fossil fuels. Methane is a non-renewable fossil fuel found in natural gas."
           ]
         },
@@ -153,6 +154,8 @@
         {
           "type": "list",
           "items": [
+            "Methane, displayed: one carbon atom joined to four hydrogen atoms by single bonds.",
+            "Ethane, displayed: two carbon atoms joined by a single bond, each also bonded to three hydrogen atoms.",
             "In a displayed formula each carbon atom forms four single bonds.",
             "Each hydrogen atom forms one bond.",
             "Every C–C bond is a single bond, so alkanes are saturated."
@@ -262,8 +265,7 @@
       ],
       "exam_phrases": [
         "contains carbon and hydrogen (atoms) only",
-        "(compounds) containing hydrogen and carbon (atoms) only",
-        "H has higher boiling point so bigger molecule"
+        "(compounds) containing hydrogen and carbon (atoms) only"
       ],
       "mistakes": [
         {
@@ -363,6 +365,8 @@
       "6939c0f5-1f9d-4948-86e0-1107672e23d3",
       "261f31d4-5419-474c-8748-ae8df13024e9",
       "f1e5b5e9-89f0-4b80-9613-54c22f3f95bd"
-    ]
+    ],
+    "checked_by": "sonnet-science-check",
+    "checked_at": "2026-10-01"
   }
 }

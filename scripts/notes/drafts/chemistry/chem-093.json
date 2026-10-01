@@ -1,0 +1,330 @@
+{
+  "format": 1,
+  "concept_id": "chem-093",
+  "subject": "chemistry",
+  "title": "Instrumental methods and flame emission spectroscopy",
+  "key_idea": "Instrumental methods detect and identify elements and compounds using machines. They are accurate, sensitive and rapid. In flame emission spectroscopy the light from a flame gives a line spectrum, which identifies metal ions and measures their concentration.",
+  "sections": [
+    {
+      "heading": "Instrumental methods of analysis",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "(Separate science) This section covers what instrumental methods are and why they are used instead of simple chemical tests."
+        },
+        {
+          "type": "definitions",
+          "items": [
+            {
+              "term": "Instrumental method",
+              "meaning": "Analysis carried out with a machine, not with a chemical test in a test tube."
+            },
+            {
+              "term": "Sensitive",
+              "meaning": "Able to detect very small amounts of a substance."
+            },
+            {
+              "term": "Accurate",
+              "meaning": "Giving results that are close to the true value."
+            },
+            {
+              "term": "Rapid",
+              "meaning": "Quick, so many samples can be analysed in a short time."
+            }
+          ]
+        },
+        {
+          "type": "list",
+          "items": [
+            "Elements and compounds can be detected and identified using instrumental methods.",
+            "Examples include flame emission spectroscopy, gas chromatography, mass spectrometry and infrared spectrometry.",
+            "Compared with chemical tests, instrumental methods are **sensitive**, **accurate** and **rapid**.",
+            "They can use smaller samples and can run all the time."
+          ]
+        },
+        {
+          "type": "key-points",
+          "items": [
+            "Instrumental methods are sensitive, accurate and rapid.",
+            "They detect and identify elements and compounds."
+          ]
+        }
+      ]
+    },
+    {
+      "heading": "Flame emission spectroscopy",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "This section covers how flame emission spectroscopy analyses the metal ions in a solution."
+        },
+        {
+          "type": "diagram",
+          "diagram": {
+            "kind": "flow",
+            "alt": "Steps in flame emission spectroscopy, from the sample in a flame to a line spectrum compared with a reference.",
+            "steps": [
+              "Sample put into a flame",
+              "Flame gives out light",
+              "Light passes through a spectroscope",
+              "Line spectrum produced",
+              "Compare with reference data"
+            ]
+          }
+        },
+        {
+          "type": "list",
+          "items": [
+            "The output is a **line spectrum**.",
+            "Each metal ion gives its own set of lines, so the spectrum identifies the metal ions.",
+            "It can also measure the concentration of each metal ion in the solution.",
+            "A flame test on a mixture can show a single bright colour. The spectrum shows a separate set of lines for each ion present."
+          ]
+        },
+        {
+          "type": "key-points",
+          "items": [
+            "The sample goes in a flame and the light is passed through a spectroscope.",
+            "The line spectrum identifies the ions and their concentrations."
+          ]
+        }
+      ]
+    },
+    {
+      "heading": "Using spectra and flame photometer data",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "This section covers how to interpret the data these instruments give."
+        },
+        {
+          "type": "list",
+          "items": [
+            "To identify the ions, compare the sample's data with **reference data** in the same form: a chart or table.",
+            "To find a concentration, use a **calibration curve** drawn from solutions of known concentration.",
+            "Read the sample's measurement on the curve, then read across to the concentration."
+          ]
+        },
+        {
+          "type": "paragraph",
+          "text": "In this simplified practice the calibration line is straight, so the reading is directly proportional to the concentration."
+        },
+        {
+          "type": "diagram",
+          "diagram": {
+            "kind": "practice",
+            "alt": "Calculate the concentration of a sample from its flame photometer reading using a standard solution.",
+            "question": "A 20 mg/dm³ standard solution of sodium ions gives a flame photometer reading of {s}. A sample gives a reading of {r}. The reading is directly proportional to the concentration. Calculate the concentration of sodium ions in the sample.",
+            "variables": [
+              {
+                "id": "s",
+                "min": 40,
+                "max": 80,
+                "step": 20
+              },
+              {
+                "id": "r",
+                "min": 10,
+                "max": 40,
+                "step": 5
+              }
+            ],
+            "answer": {
+              "formula": "20 * r / s",
+              "unit": "mg/dm³",
+              "decimals": 2
+            },
+            "working": [
+              "Concentration per unit reading = 20 ÷ {s}",
+              "Concentration of sample = {r} × 20 ÷ {s} = {answer} mg/dm³"
+            ]
+          }
+        },
+        {
+          "type": "key-points",
+          "items": [
+            "Compare a spectrum with reference data to identify metal ions.",
+            "Use a calibration curve to turn a reading into a concentration."
+          ]
+        }
+      ]
+    }
+  ],
+  "checks": [
+    {
+      "q": "State two advantages of instrumental methods of analysis.",
+      "a": "Any two from: more sensitive (can use smaller samples), more accurate, faster.",
+      "marks": 2
+    },
+    {
+      "q": "Describe the output of flame emission spectroscopy and what it is used for.",
+      "a": "A line spectrum. It identifies the metal ions in the solution and measures their concentrations.",
+      "marks": 2
+    },
+    {
+      "q": "A flame test on a mixture of sodium and potassium compounds gives a bright yellow flame. Describe how you could show that both ions are present.",
+      "a": "Use flame emission spectroscopy (a flame photometer). The spectrum shows two sets of emissions, which can be compared with reference data.",
+      "marks": 2
+    }
+  ],
+  "boards": {
+    "aqa": {
+      "spec_codes": [
+        "AQA 4.8.3.6",
+        "AQA 4.8.3.7"
+      ],
+      "exam_phrases": [
+        "(more) sensitive",
+        "(more) accurate",
+        "fast(er)",
+        "small(er) sample",
+        "greater resolution",
+        "flame emission spectroscopy"
+      ],
+      "mistakes": [
+        {
+          "wrong": "A flame test and flame emission spectroscopy are the same method.",
+          "right": "They are two different methods. In flame emission spectroscopy the light from the flame is passed through a spectroscope, which gives a line spectrum."
+        },
+        {
+          "wrong": "Flame emission spectroscopy is only used to identify metal ions.",
+          "right": "The line spectrum identifies the metal ions and also measures their concentrations."
+        },
+        {
+          "wrong": "Instrumental methods are more accurate because they can use a smaller sample.",
+          "right": "A smaller sample is credited as sensitive. For accurate, greater resolution is allowed."
+        }
+      ],
+      "worked_example": {
+        "exemplar_id": "b71002f1-cf7a-43ad-8a2f-d085925a3f96",
+        "source": "AQA jun 2024, Paper 2 (H), Q04.6",
+        "question": "Another type of chromatography is called gas chromatography.\nGas chromatography is an instrumental method of chemical analysis.\nScientists tested the orange dyes using gas chromatography.\n\nSuggest two advantages of using the instrumental method of gas chromatography rather than paper chromatography.",
+        "marks": 2,
+        "answer_points": [
+          "More sensitive (a smaller sample can be used).",
+          "More accurate (greater resolution).",
+          "Faster."
+        ],
+        "tip": "Any two of the three advantages score one mark each."
+      }
+    },
+    "edexcel": {
+      "spec_codes": [
+        "EDEX 9.8C",
+        "EDEX 9.9C"
+      ],
+      "exam_phrases": [
+        "flame photometer",
+        "two (sets of) emissions",
+        "flame emission spectroscopy / spectroscope",
+        "compare emission to reference samples"
+      ],
+      "mistakes": [
+        {
+          "wrong": "Do a flame test to show that potassium and sodium ions are both present.",
+          "right": "A flame test is ignored. Use a flame photometer (or flame emission spectroscopy) and look for two sets of emissions."
+        },
+        {
+          "wrong": "A flame photometer gives one colour for the sample.",
+          "right": "It gives emissions for each ion. A sample with two metal ions shows two sets of emissions, which can be compared with reference samples."
+        }
+      ],
+      "worked_example": {
+        "exemplar_id": "3d713ae0-602b-4bc6-b5f9-958d3e9994ba",
+        "source": "EDEXCEL jun 2019, Paper 2 (H), Q10(a)",
+        "question": "A sample of potassium carbonate is contaminated with a small amount of sodium carbonate.\nWhen a flame test is carried out on the sample, a bright yellow flame is seen.\n\nDescribe how you could show that potassium and sodium ions are present in this sample.",
+        "marks": 2,
+        "answer_points": [
+          "Use a flame photometer (flame emission spectroscopy or a spectroscope is allowed).",
+          "Two sets of emissions are seen, which can be compared with reference samples."
+        ],
+        "tip": "A flame test is ignored. The method must be an instrumental one."
+      },
+      "extra": [
+        {
+          "heading": "Flame photometer data",
+          "blocks": [
+            {
+              "type": "paragraph",
+              "text": "No knowledge of how the instrument works is required. You must be able to use its data."
+            },
+            {
+              "type": "list",
+              "items": [
+                "Use a calibration curve to find the concentration of ions in a dilute solution.",
+                "Compare the data with reference data to identify metal ions."
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    "ocr": {
+      "spec_codes": [
+        "OCR C4.2f",
+        "OCR C4.2g"
+      ],
+      "exam_phrases": [
+        "(more) sensitive / can analyse small(er) amounts",
+        "(more) accurate / reliable / less error",
+        "fast(er) / can run all the time / automated",
+        "more samples can be processed in the same time or a shorter time"
+      ],
+      "mistakes": [
+        {
+          "wrong": "Instrumental methods are more precise.",
+          "right": "More precise is ignored. Say more accurate."
+        },
+        {
+          "wrong": "Instrumental methods are more efficient, easier and safer.",
+          "right": "More efficient, easier and safer are ignored. Give sensitive, accurate or faster."
+        }
+      ],
+      "worked_example": {
+        "exemplar_id": "886a8bc5-578c-4929-befd-0db943996f58",
+        "source": "OCR jun 2025, Paper 2, Q21(b)",
+        "question": "Instrumental methods of analysis can be used to analyse chemical substances.\n\nState two advantages of instrumental methods of analysis.",
+        "marks": 2,
+        "answer_points": [
+          "More sensitive (can analyse smaller amounts).",
+          "More accurate (more reliable, less error).",
+          "Faster (can run all the time, automated)."
+        ],
+        "tip": "Any two of the three advantages score one mark each."
+      },
+      "extra": [
+        {
+          "heading": "Interpreting instrumental results",
+          "blocks": [
+            {
+              "type": "list",
+              "items": [
+                "Interpret an instrumental result given in a chart or a table.",
+                "The data is accompanied by a reference set of data in the same form.",
+                "Match the features of the sample's chart or table to the reference to identify the substance."
+              ]
+            }
+          ]
+        }
+      ]
+    }
+  },
+  "meta": {
+    "status": "draft",
+    "written_by": "sonnet-5-5",
+    "written_at": "2026-10-01",
+    "spec_point_ids": [
+      "86e3702d-e0ac-4608-b225-83935cf721cb",
+      "652c832d-d2fb-4333-bff6-06966ec0848c",
+      "225a0d81-6676-4c81-9007-bfbaf6988e4c",
+      "68b965f4-05e4-4e90-811c-d944e91ed2e6",
+      "6d63e650-5277-4262-a6e0-458054b06135",
+      "da8f829d-3bdc-4725-857e-51d41d7430f9"
+    ],
+    "exemplar_ids": [
+      "b71002f1-cf7a-43ad-8a2f-d085925a3f96",
+      "3d713ae0-602b-4bc6-b5f9-958d3e9994ba",
+      "886a8bc5-578c-4929-befd-0db943996f58"
+    ]
+  }
+}

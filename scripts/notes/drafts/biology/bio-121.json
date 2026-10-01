@@ -83,7 +83,8 @@
           "columns": ["Method", "How it increases nitrates"],
           "rows": [
             ["Artificial fertilisers", "Add nitrate compounds directly to the soil"],
-            ["Manure, slurry and compost", "Decomposers break down the waste and dead matter, so the nitrogen compounds return to the soil"],
+            ["Manure, slurry, green manure and compost", "Decomposers break down the waste and dead plant matter, so minerals and nitrogen compounds return to the soil"],
+            ["Lightning", "Turns some nitrogen gas in the air into compounds that dissolve in rain and reach the soil as nitrates"],
             ["Crop rotation", "A leguminous crop such as peas or beans is grown in some years. Nitrogen-fixing bacteria in its root nodules fix nitrogen gas from the air"],
             ["Bacteria in the soil", "Nitrogen-fixing and nitrifying bacteria make nitrates naturally"]
           ]
@@ -163,7 +164,7 @@
       "spec_codes": ["OCR 4.1a"],
       "exam_phrases": [
         "minerals",
-        "washes minerals into the lake"
+        "the compost provides minerals for the plants"
       ],
       "mistakes": [
         {
@@ -171,22 +172,35 @@
           "right": "Plants cannot use nitrogen gas. Compost gives the roots minerals."
         },
         {
-          "wrong": "Run-off brings nutrients into the lake.",
-          "right": "\"Nutrients\" is ignored. Write minerals, or name a mineral."
+          "wrong": "In a ring-the-answer question, I ringed minerals and nitrogen gas to be safe.",
+          "right": "Ringing more than one answer scores no mark. Ring only one."
         }
-      ]
+      ],
+      "worked_example": {
+        "exemplar_id": "a7abb636-6d24-4af1-bd3c-93595c05ce04",
+        "source": "OCR nov 2020, Paper 2, Q20(a)",
+        "question": "Gardeners use dead plant material to make compost. They add this compost to soil where they are growing plants.\n\nWhat do plant roots get from compost in the soil?\nPut a ring around the correct answer.\n\ncarbon dioxide   minerals   nitrogen gas   oxygen gas",
+        "marks": 1,
+        "answer_points": [
+          "Minerals."
+        ],
+        "tip": "Ring one answer only. More than one ringed scores no mark."
+      }
     }
   },
   "meta": {
     "status": "draft",
     "written_by": "sonnet-5-5",
     "written_at": "2026-10-01",
+    "checked_by": "sonnet-science-check",
+    "checked_at": "2026-10-01",
     "spec_point_ids": [
       "9c6bdc5e-c134-4aa2-b450-44beee7f0b81",
       "25ac4b5c-b102-4fca-87f4-b78e48b455e2"
     ],
     "exemplar_ids": [
-      "55090dc0-b2d6-4aad-bbf2-50bb55a82c62"
+      "55090dc0-b2d6-4aad-bbf2-50bb55a82c62",
+      "a7abb636-6d24-4af1-bd3c-93595c05ce04"
     ]
   }
 }

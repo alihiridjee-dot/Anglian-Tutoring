@@ -70,7 +70,7 @@
       "blocks": [
         {
           "type": "paragraph",
-          "text": "(Separate science) Alkenes, alcohols and carboxylic acids are named and drawn in the chemistry-only course. Alkanes are covered in every course."
+          "text": "(Separate science) Alkenes, alcohols and carboxylic acids are needed for chemistry-only courses. Alkanes are needed on every course."
         },
         {
           "type": "table",
@@ -103,7 +103,7 @@
               "Carboxylic acids",
               "–COOH",
               "-oic acid",
-              "not needed"
+              "not required"
             ]
           ]
         },
@@ -152,6 +152,8 @@
           "items": [
             "The name starts with meth-, eth-, prop- or but- for 1, 2, 3 or 4 carbon atoms.",
             "Alkenes start at ethene, so the first four alkenes are ethene, propene, butene and pentene.",
+            "(Separate science) Alkenes are unsaturated: they have a C=C double bond, so two fewer hydrogen atoms than the alkane with the same number of carbon atoms.",
+            "In a displayed formula, an alcohol shows an O–H bond, and a carboxylic acid shows C=O and O–H on the same carbon atom.",
             "The functional group is what you look for to recognise the series."
           ]
         },
@@ -264,7 +266,7 @@
       "worked_example": {
         "exemplar_id": "079b79cb-9525-49bc-94fa-4dae6cd5b05e",
         "source": "AQA jun 2020, Paper 2 (H), Q7.1",
-        "question": "This question is about carboxylic acids.\n\nCarboxylic acids belong to a homologous series.\n\nThe first three carboxylic acids in this homologous series are:\n- methanoic acid, formula (?)\n- ethanoic acid, formula CH₃COOH\n- (?), formula CH₃CH₂COOH\n\nComplete the table: give the formula of methanoic acid and the name of the acid with formula CH₃CH₂COOH.",
+        "question": "This question is about carboxylic acids.\n\nCarboxylic acids belong to a homologous series.\n\nThe table shows information about the first three carboxylic acids in this homologous series.\n\nName | Formula | pH of a 0.01 mol/dm³ solution\nMethanoic acid | (?) | 2.91\nEthanoic acid | CH₃COOH | 3.39\n(?) | CH₃CH₂COOH | 3.44\n\nComplete the table.",
         "marks": 2,
         "answer_points": [
           "HCOOH (HCO₂H is allowed).",
@@ -371,6 +373,8 @@
       "079b79cb-9525-49bc-94fa-4dae6cd5b05e",
       "362c6775-377c-4e8d-a9ea-9d1ee6294f27",
       "21c12ac5-2d6d-4f9c-8207-6cbd4d8ae117"
-    ]
+    ],
+    "checked_by": "sonnet-science-check",
+    "checked_at": "2026-10-01"
   }
 }

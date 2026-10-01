@@ -101,7 +101,7 @@
       "blocks": [
         {
           "type": "paragraph",
-          "text": "Bromine water is orange. It is used to tell an alkene from an alkane."
+          "text": "(Separate science) Bromine water is orange. It is used to tell an alkene from an alkane."
         },
         {
           "type": "list",
@@ -224,7 +224,7 @@
       "blocks": [
         {
           "type": "paragraph",
-          "text": "Alkenes burn and they undergo addition reactions. The functional group decides these reactions."
+          "text": "(Separate science) Alkenes burn and they undergo addition reactions. The functional group decides these reactions."
         },
         {
           "type": "subheading",
@@ -234,7 +234,16 @@
           "type": "list",
           "items": [
             "Alkenes react with oxygen in combustion in the same way as other hydrocarbons.",
+            "Complete combustion gives carbon dioxide and water.",
             "They tend to burn in air with smoky flames, because of incomplete combustion."
+          ]
+        },
+        {
+          "type": "equation",
+          "label": "Complete combustion of ethene",
+          "formula": "C₂H₄ + 3O₂ → 2CO₂ + 2H₂O",
+          "where": [
+            "energy is released"
           ]
         },
         {
@@ -386,7 +395,7 @@
         },
         {
           "wrong": "The bromine water turns from colourless to orange.",
-          "right": "The result mark depends on the correct test and the correct direction. The colour change is orange to colourless."
+          "right": "Reversing the colours loses marks. The colour change is orange to colourless."
         },
         {
           "wrong": "Ethene is a gas and is more flammable than ethane.",
@@ -418,8 +427,8 @@
         "contains a {double / multiple} bond (between two carbon atoms)",
         "bromine water is {yellow / orange}",
         "(bromine water) turns colourless / decolourises",
-        "C₄H₈ + Br₂ → C₄H₈Br₂",
-        "A reacts with bromine (water), therefore A is unsaturated"
+        "A reacts with bromine (water), therefore A is unsaturated",
+        "(unsaturated) it has a double bond / C=C"
       ],
       "mistakes": [
         {
@@ -449,7 +458,7 @@
       },
       "extra": [
         {
-          "heading": "Butene has two forms",
+          "heading": "Butene: two positions for the double bond",
           "blocks": [
             {
               "type": "list",
@@ -457,6 +466,23 @@
                 "But-1-ene has the double bond between the first and second carbon atoms: CH₂=CH–CH₂–CH₃.",
                 "But-2-ene has the double bond between the second and third carbon atoms: CH₃–CH=CH–CH₃.",
                 "Both have the formula C₄H₈."
+              ]
+            }
+          ]
+        },
+        {
+          "heading": "Addition of bromine to other alkenes",
+          "blocks": [
+            {
+              "type": "paragraph",
+              "text": "Other alkenes add bromine across the C=C double bond in the same way as ethene."
+            },
+            {
+              "type": "equation",
+              "label": "Butene and bromine",
+              "formula": "C₄H₈ + Br₂ → C₄H₈Br₂",
+              "where": [
+                "the double bond becomes a single bond"
               ]
             }
           ]
@@ -470,8 +496,7 @@
       "exam_phrases": [
         "Ethane: bromine water remains orange / orange-brown",
         "Ethene: bromine water is decolourised / turns colourless",
-        "carbon dioxide; water (complete combustion)",
-        "C₃H₈ + 5O₂ → 3CO₂ + 4H₂O"
+        "carbon dioxide; water (complete combustion)"
       ],
       "mistakes": [
         {
@@ -513,6 +538,8 @@
       "6a70d740-75bd-416f-ac05-ed7e47374b2b",
       "05d0b627-da92-458b-9a3a-4cafa8a42397",
       "ce80f3dc-6b28-47d3-a90c-887472611b31"
-    ]
+    ],
+    "checked_by": "sonnet-science-check",
+    "checked_at": "2026-10-01"
   }
 }

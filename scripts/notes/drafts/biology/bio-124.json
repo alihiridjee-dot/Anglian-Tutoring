@@ -154,16 +154,18 @@
         "question": "A fertiliser factory releases waste into a stream. Samples of water were taken at five points, A, B, C, D and E, along the stream.\n\nPoint along stream | Oxygen concentration (ppm)\nA | 1.5\nB | 2.7\nC | 3.4\nD | 4.4\nE | 4.5\n\nExplain where the biodiversity will be highest in the stream.",
         "marks": 3,
         "answer_points": [
-          "The biodiversity will be highest at point D to E, the points furthest from the factory.",
+          "The biodiversity will be highest at point D to E.",
           "This is because the oxygen concentration is highest there.",
           "So organisms can survive and respire."
         ],
-        "tip": "Name the place, then link it to the oxygen concentration, then to survival or respiration."
+        "tip": "Name the place (D to E, or E), then link it to the oxygen concentration, then to survival or respiration."
       }
     }
   },
   "meta": {
     "status": "draft",
+    "checked_by": "sonnet-science-check",
+    "checked_at": "2026-10-01",
     "written_by": "sonnet-5-5",
     "written_at": "2026-10-01",
     "spec_point_ids": [

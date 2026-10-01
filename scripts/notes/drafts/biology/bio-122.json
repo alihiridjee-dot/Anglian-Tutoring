@@ -81,7 +81,7 @@
             [
               "Water content",
               "More water gives faster decay, up to a point",
-              "Decomposers need water to grow and carry out their reactions"
+              "Decomposers need water to grow and carry out their reactions. Too much water drives out the air, so there is less oxygen"
             ],
             [
               "Oxygen",
@@ -91,10 +91,14 @@
           ]
         },
         {
+          "type": "paragraph",
+          "text": "This sketch shows the shape only, not measured data. The optimum depends on the decomposers, and is about 55 °C here."
+        },
+        {
           "type": "diagram",
           "diagram": {
             "kind": "line-graph",
-            "alt": "A line graph of the rate of decay against temperature. The rate rises slowly at low temperatures, rises steeply to a peak at the optimum temperature, then falls sharply to almost zero as the enzymes denature.",
+            "alt": "A sketch graph of the rate of decay against temperature. The rate rises as the temperature rises, peaks at the optimum of about 55 degrees Celsius, then falls sharply to almost zero at high temperatures as the enzymes denature.",
             "x": {
               "label": "Temperature",
               "min": 0,
@@ -121,19 +125,19 @@
                   ],
                   [
                     10,
-                    0.1
+                    0.15
                   ],
                   [
                     20,
-                    0.25
+                    0.3
                   ],
                   [
                     30,
-                    0.45
+                    0.5
                   ],
                   [
                     40,
-                    0.7
+                    0.72
                   ],
                   [
                     50,
@@ -145,19 +149,15 @@
                   ],
                   [
                     60,
-                    0.7
-                  ],
-                  [
-                    65,
-                    0.3
+                    0.9
                   ],
                   [
                     70,
-                    0.08
+                    0.55
                   ],
                   [
                     80,
-                    0.01
+                    0.05
                   ]
                 ]
               }
@@ -181,7 +181,9 @@
             "Earthworms bring air into the soil, so dead plants decay faster.",
             "Shredding plants gives a larger surface area, so decomposers can feed and respire faster.",
             "In a peat bog, there is little oxygen and the pH is low, so most dead plants do not decay.",
-            "Compost and the remains from a **biogas generator** can be spread on fields as a fertiliser, because they release mineral ions."
+            "Respiration by decomposers releases heat, so a compost heap warms up.",
+            "Compost and the remains from a **biogas generator** can be spread on fields as a fertiliser, because they release mineral ions.",
+            "A biogas generator decays plant material without oxygen (anaerobic decay). It is slower and releases less energy than aerobic decay, and makes methane gas that can be burned as a fuel."
           ]
         },
         {
@@ -193,7 +195,7 @@
           "items": [
             "Food decays when decomposers grow on it.",
             "Preserving food slows decay by removing what the decomposers need.",
-            "Keeping food cold slows the enzymes. Drying removes water. Sealing out air removes oxygen."
+            "Cold slows the enzymes and growth of the decomposers, as in a fridge or freezer. Drying removes water. Vacuum-packing or sealing out air removes oxygen."
           ]
         },
         {
@@ -439,6 +441,8 @@
       "d69dd54c-215c-4082-8b40-3689a3ba673c",
       "9b390923-5232-45c8-b7fc-412718283590",
       "8f827ca4-1c20-4dd1-b93e-c20a0122eee4"
-    ]
+    ],
+    "checked_by": "sonnet-science-check",
+    "checked_at": "2026-10-01"
   }
 }

@@ -183,6 +183,10 @@
           "text": "Animals that keep a constant body temperature, such as seals, lose more heat. They use more food, so less of it becomes biomass."
         },
         {
+          "type": "paragraph",
+          "text": "Because biomass falls at every level, there is too little left to support many more. This limits the length of a food chain."
+        },
+        {
           "type": "key-points",
           "items": [
             "Biomass is lost through uneaten parts, egestion, excretion and respiration.",
@@ -249,8 +253,8 @@
           "right": "\"Energy\" is ignored on its own. Say that seals keep a constant body temperature, so there is more heat loss, so more food or glucose is used."
         },
         {
-          "wrong": "Food chain: toads → beetles → ladybirds → caterpillars → nettles.",
-          "right": "The arrows point the wrong way. Show nettles → caterpillars → ladybirds → beetles → toads, from the organism that is eaten to the one that eats it."
+          "wrong": "The beetle uses energy to maintain its body temperature, so less is passed on.",
+          "right": "\"Maintaining body temperature\" is ignored in this question. Give reasons such as not all of the beetle is eaten or digested, movement, respiration or heat to the surroundings."
         }
       ],
       "worked_example": {
@@ -315,6 +319,8 @@
     "exemplar_ids": [
       "9bdf587c-222b-4056-a128-d874ab8679a3",
       "c060fc0a-7c18-4eed-a8f1-40df1e2fb100"
-    ]
+    ],
+    "checked_by": "sonnet-science-check",
+    "checked_at": "2026-10-01"
   }
 }

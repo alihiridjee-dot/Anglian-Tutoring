@@ -1,0 +1,271 @@
+{
+  "format": 1,
+  "concept_id": "phys-051",
+  "subject": "physics",
+  "title": "Upthrust and floating",
+  "key_idea": "(Separate science) A fluid pushes up on an object in it because pressure increases with depth. This upward force is the upthrust, and it equals the weight of fluid displaced. An object floats when its upthrust equals its weight.",
+  "sections": [
+    {
+      "heading": "Why there is an upthrust",
+      "blocks": [
+        { "type": "paragraph", "text": "(Separate science) This section covers where the upward force on an object in a fluid comes from." },
+        {
+          "type": "definitions",
+          "items": [
+            { "term": "Upthrust", "meaning": "The resultant upward force on an object in a fluid." },
+            { "term": "Displaced fluid", "meaning": "The fluid an object pushes out of the way when it is in the fluid." },
+            { "term": "Immersed", "meaning": "Fully immersed means completely under the fluid. Partially immersed means only part of the object is under the liquid." }
+          ]
+        },
+        {
+          "type": "steps",
+          "items": [
+            { "lead": "Pressure increases with depth.", "text": "The bottom of an object is deeper than its top." },
+            { "lead": "The pressure is bigger at the bottom.", "text": "The pressure on the bottom surface is greater than the pressure on the top surface." },
+            { "lead": "The forces are different.", "text": "The upward force on the bottom is greater than the downward force on the top." },
+            { "lead": "The resultant is the upthrust.", "text": "The difference between these two forces acts upwards." }
+          ]
+        },
+        {
+          "type": "list",
+          "items": [
+            "Upthrust acts on objects fully immersed in a liquid or a gas, and on objects partially immersed in a liquid.",
+            "The upthrust is equal to the weight of fluid displaced.",
+            "A floating object is partially immersed, so it displaces fluid."
+          ]
+        },
+        {
+          "type": "key-points",
+          "items": [
+            "Upthrust comes from the pressure on the bottom of an object being greater than the pressure on the top.",
+            "The upthrust is equal to the weight of fluid displaced."
+          ]
+        }
+      ]
+    },
+    {
+      "heading": "Floating and sinking",
+      "blocks": [
+        { "type": "paragraph", "text": "(Separate science) This section covers how upthrust, weight and density decide whether an object floats or sinks." },
+        {
+          "type": "list",
+          "items": [
+            "An object floats when the upthrust is equal to its weight. The resultant force is zero.",
+            "An object sinks when its weight is greater than the upthrust.",
+            "An object floats when its density is less than the density of the fluid.",
+            "An object sinks when its density is more than the density of the fluid."
+          ]
+        },
+        { "type": "subheading", "text": "Boats, loads and different fluids" },
+        {
+          "type": "list",
+          "items": [
+            "A boat made of dense material floats because its overall density includes the air inside it.",
+            "The overall density of the boat and air is less than the density of water.",
+            "When a load is added, the weight increases. More upthrust is needed, so the boat floats lower and displaces more water.",
+            "In a denser fluid, a smaller volume must be displaced to get the same weight of fluid, so less of a floating object is below the surface."
+          ]
+        },
+        {
+          "type": "diagram",
+          "diagram": {
+            "kind": "predictor",
+            "alt": "Pick an object and a liquid and see whether it floats or sinks.",
+            "prompt": "Pick an object in a liquid",
+            "result_labels": ["Density of the object compared with the liquid", "Upthrust compared with weight", "Result"],
+            "options": [
+              {
+                "label": "Wood in water",
+                "results": ["Less dense (0.82 g/cm³ compared with 1.00 g/cm³)", "Upthrust equals weight", "Floats, partly under the surface"],
+                "explanation": "The wood displaces less water than its own volume, and the weight of that water equals the weight of the wood."
+              },
+              {
+                "label": "Iron in water",
+                "results": ["More dense (7.9 g/cm³ compared with 1.00 g/cm³)", "Weight is greater than upthrust", "Sinks"],
+                "explanation": "Even fully under the water, the weight of the water displaced is less than the weight of the iron."
+              },
+              {
+                "label": "Lump of concrete in water",
+                "results": ["More dense than water", "Weight is greater than upthrust", "Sinks"],
+                "explanation": "The weight of water displaced by the lump is less than the weight of the lump."
+              },
+              {
+                "label": "Concrete boat in water",
+                "results": ["Overall density, including the air, is less than water", "Upthrust equals weight", "Floats"],
+                "explanation": "The boat displaces much more water than the lump, so the upthrust is bigger and equals the weight of the boat."
+              },
+              {
+                "label": "Ball in fresh water",
+                "results": ["Less dense than the fresh water", "Upthrust equals weight", "Floats, more of the ball under the surface"],
+                "explanation": "Weight of ball equals weight of water displaced. Fresh water is less dense, so a larger volume must be displaced."
+              },
+              {
+                "label": "Same ball in sea water",
+                "results": ["Less dense than the sea water", "Upthrust equals weight", "Floats, less of the ball under the surface"],
+                "explanation": "Sea water is more dense, so a smaller volume is displaced to give the same weight of water."
+              }
+            ]
+          }
+        },
+        {
+          "type": "key-points",
+          "items": [
+            "Floating: upthrust equals weight. Sinking: weight is greater than upthrust.",
+            "An object floats if its overall density is less than the density of the fluid.",
+            "A denser fluid gives the same upthrust from a smaller volume displaced."
+          ]
+        }
+      ]
+    }
+  ],
+  "checks": [
+    {
+      "q": "Explain why there is an upthrust on a block in water.",
+      "a": "The pressure at the bottom of the block is greater than the pressure at the top. The force on the bottom is greater than the force on the top, so there is a resultant upward force.",
+      "marks": 2
+    },
+    {
+      "q": "State what is equal to the upthrust on a floating object.",
+      "a": "The weight of the object, which is also equal to the weight of the fluid displaced.",
+      "marks": 1
+    },
+    {
+      "q": "Explain why a concrete boat floats but a lump of concrete sinks.",
+      "a": "The overall density of the boat, including the air, is less than the density of water. The boat displaces more water, so the upthrust equals its weight. The lump has less upthrust than its weight.",
+      "marks": 3
+    }
+  ],
+  "boards": {
+    "aqa": {
+      "spec_codes": ["AQA 4.5.5.1"],
+      "exam_phrases": [
+        "pressure increases with depth",
+        "the pressure on the bottom of the garlic is greater than the pressure on the top of the garlic",
+        "the upwards force on the bottom is greater than the downwards force on the top",
+        "the resultant of these two forces is the upthrust"
+      ],
+      "mistakes": [
+        {
+          "wrong": "There is an upthrust because the liquid pushes the garlic up.",
+          "right": "Explain it with pressure. Pressure increases with depth, so the force on the bottom is greater than the force on the top, and the resultant is the upthrust."
+        },
+        {
+          "wrong": "The upthrust is the weight of the garlic.",
+          "right": "The upthrust is the resultant of the upward force on the bottom and the downward force on the top. The last mark depends on explaining the pressure or force difference."
+        }
+      ],
+      "worked_example": {
+        "exemplar_id": "b99bf34c-e3d7-4d99-af99-2cf1341c3a2f",
+        "source": "AQA jun 2025, Paper 2 (H), Q08.3",
+        "question": "A jar contains oil, vinegar and a piece of garlic. The garlic is floating at the boundary between the two liquids, with oil above and vinegar below. Explain why there is an upthrust on the garlic.",
+        "marks": 4,
+        "answer_points": [
+          "Pressure increases with depth.",
+          "The pressure on the bottom of the garlic (from the vinegar) is greater than the pressure on the top of the garlic (from the oil).",
+          "The upwards force on the bottom is greater than the downwards force on the top.",
+          "The resultant of these two forces is the upthrust."
+        ],
+        "tip": "One mark for each step. The final mark depends on the pressure or force difference being explained."
+      },
+      "extra": [
+        {
+          "heading": "Higher tier content",
+          "blocks": [
+            {
+              "type": "paragraph",
+              "text": "(Higher tier) In this specification, explaining upthrust, floating and sinking is Higher tier only. A partially or totally submerged object has a greater pressure on its bottom surface than on its top surface."
+            }
+          ]
+        }
+      ]
+    },
+    "edexcel": {
+      "spec_codes": ["EDEX 15.15P", "EDEX 15.16P", "EDEX 15.17P"],
+      "exam_phrases": [
+        "the pressure at the bottom of the block is greater than the pressure at the top of the block (for the same area)",
+        "the force on the bottom is greater than the force on the top",
+        "weight of ball = weight of water displaced",
+        "seawater more dense than fresh water",
+        "smaller volume of seawater (needs to be) displaced",
+        "upthrust is equal to the weight of fluid / water displaced"
+      ],
+      "mistakes": [
+        {
+          "wrong": "The ball sinks further in fresh water because the ball is heavier there.",
+          "right": "The weight of the ball does not change. Weight of ball = weight of water displaced. Seawater is more dense, so a smaller volume of seawater is displaced."
+        },
+        {
+          "wrong": "The mass of a piece of wood can be found with the displacement method used for iron.",
+          "right": "The density of wood is less than that of water, so it floats. Less water is displaced than the volume of the wood."
+        }
+      ],
+      "worked_example": {
+        "exemplar_id": "a44bd684-7baa-4e3e-9ad2-81b33dc07bca",
+        "source": "EDEXCEL jun 2023, Paper 2 (H), Q6(c)(ii)",
+        "question": "A ball floats in seawater and the same ball floats in fresh water. There is less of the ball below the surface of the seawater than below the surface of the fresh water. Explain why.",
+        "marks": 3,
+        "answer_points": [
+          "The weight of the ball equals the weight of water displaced.",
+          "Seawater is more dense than fresh water.",
+          "A smaller volume of seawater needs to be displaced.",
+          "This produces the same weight of water displaced, and so the same upthrust."
+        ],
+        "tip": "Any three of the four points score. The reverse argument for fresh water is also accepted."
+      }
+    },
+    "ocr": {
+      "spec_codes": ["OCR P1.3h", "OCR P1.3i"],
+      "exam_phrases": [
+        "upthrust on boat is equal to weight of boat",
+        "weight of water displaced by the boat is equal to the weight of the boat",
+        "(overall) density of the boat includes the air",
+        "(overall) density of the boat (and air) is less than the density of the water",
+        "objects float when upthrust is equal to weight",
+        "objects sink when weight is greater than upthrust"
+      ],
+      "mistakes": [
+        {
+          "wrong": "A concrete boat floats because it is hollow and contains air.",
+          "right": "This earns a maximum of 1 mark. Link the air to the overall density, and say the upthrust equals the weight of the boat."
+        },
+        {
+          "wrong": "A floating boat has an upthrust that is bigger than its weight.",
+          "right": "When the boat floats, the upthrust is equal to its weight, so the resultant force is zero."
+        }
+      ],
+      "worked_example": {
+        "exemplar_id": "34cacf70-3d0f-47c4-96b9-7845029fa1fd",
+        "source": "OCR nov 2020, Paper 3, Q20(d)",
+        "question": "A boat can be made out of concrete. Explain why a concrete boat floats but a lump of concrete sinks.",
+        "marks": 3,
+        "answer_points": [
+          "The overall density of the boat includes the air.",
+          "The overall density of the boat (and air) is less than the density of the water.",
+          "The upthrust on the boat is equal to the weight of the boat.",
+          "The weight of water displaced by the boat is equal to the weight of the boat."
+        ],
+        "tip": "Any three points score. Saying only that the boat is hollow or contains air scores a maximum of 1 mark."
+      }
+    }
+  },
+  "meta": {
+    "status": "draft",
+    "written_by": "sonnet-5-5",
+    "written_at": "2026-10-01",
+    "spec_point_ids": [
+      "085054ef-ce52-4737-8fc5-daa264f2350e",
+      "a003684d-a39e-46cc-b753-4ccc26c5c1cf",
+      "44379e5d-725a-4033-b3c8-339f0cf8fe53",
+      "0aefd7c5-86a6-4a1d-befb-0622b9a15afb",
+      "0fb8b8d4-4cf2-4e42-b809-12326bb36d46"
+    ],
+    "exemplar_ids": [
+      "b99bf34c-e3d7-4d99-af99-2cf1341c3a2f",
+      "976bd948-9eef-494e-ac14-5c1d4af2f279",
+      "a44bd684-7baa-4e3e-9ad2-81b33dc07bca",
+      "c1550ce8-0b66-48df-9b00-4bc5458a095e",
+      "34cacf70-3d0f-47c4-96b9-7845029fa1fd",
+      "a8c2663e-a3ae-4172-aaf0-39b93e843830"
+    ]
+  }
+}

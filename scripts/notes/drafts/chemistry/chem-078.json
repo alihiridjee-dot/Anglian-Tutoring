@@ -99,8 +99,7 @@
           "type": "list",
           "items": [
             "**Catalytic cracking:** uses a catalyst at a high temperature.",
-            "**Steam cracking:** uses steam at a high temperature.",
-            "Cracking is carried out at a high temperature, in the range 300 to 900 °C."
+            "**Steam cracking:** uses steam at a high temperature."
           ]
         },
         {
@@ -163,7 +162,7 @@
     },
     {
       "q": "Explain why large hydrocarbon molecules in the diesel oil fraction are cracked.",
-      "a": "There is a greater demand for smaller molecules. Smaller molecules are more useful (for example better fuels), or can be used to make alkenes and polymers.",
+      "a": "There is a greater demand for smaller molecules. Smaller molecules are more useful, for example better fuels, or are used to make alkenes or polymers.",
       "marks": 2
     },
     {
@@ -194,11 +193,7 @@
         },
         {
           "wrong": "One product of cracking is in high demand.",
-          "right": "Name the product, its use and a linked reason. Ethane is a fuel because it is more flammable, or ethene makes polymers because it is more reactive than alkanes."
-        },
-        {
-          "wrong": "Alkanes are cracked because the molecules are too large.",
-          "right": "Say why smaller molecules are wanted: there is greater demand for them, and they are more useful, for example as fuels or to make alkenes and polymers."
+          "right": "Name the product, its use and a linked reason. Ethane is useful as a fuel because it is more flammable than larger molecules, or ethene is used to make polymers because it is more reactive than alkanes."
         }
       ],
       "worked_example": {
@@ -223,8 +218,7 @@
         "Mr of CH₂ = 12 + (2 × 1) = 14",
         "56 / 14 = 4",
         "formula of Y = 4 × CH₂ = C₄H₈",
-        "formula of X = (C₆H₁₄ + C₄H₈ =) C₁₀H₂₂",
-        "x = 6, y = 14"
+        "formula of X = (C₆H₁₄ + C₄H₈ =) C₁₀H₂₂"
       ],
       "mistakes": [
         {
@@ -299,6 +293,8 @@
       "cec234ee-5d5d-46a3-8cef-5861fa858664",
       "3b26ec81-fd4d-4d9d-be63-bf78ccf8a4e9",
       "0a803438-44c3-4f13-9ecd-d54a2761a3f0"
-    ]
+    ],
+    "checked_by": "sonnet-science-check",
+    "checked_at": "2026-10-01"
   }
 }
