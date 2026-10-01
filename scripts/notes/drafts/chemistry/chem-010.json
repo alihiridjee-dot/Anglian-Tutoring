@@ -1,0 +1,267 @@
+{
+  "format": 1,
+  "concept_id": "chem-010",
+  "subject": "chemistry",
+  "title": "Metals and non-metals",
+  "key_idea": "Elements that react to form positive ions are metals. Elements that do not form positive ions are non-metals. Metals are to the left and towards the bottom of the periodic table. Non-metals are towards the right and top.",
+  "sections": [
+    {
+      "heading": "Where metals and non-metals are",
+      "blocks": [
+        { "type": "paragraph", "text": "The periodic table divides the elements into metals and non-metals. The division follows from the atomic structure of the elements." },
+        {
+          "type": "definitions",
+          "items": [
+            { "term": "Metal", "meaning": "An element that reacts to form positive ions." },
+            { "term": "Non-metal", "meaning": "An element that does not form positive ions." }
+          ]
+        },
+        {
+          "type": "list",
+          "items": [
+            "The majority of elements are metals.",
+            "Metals are found to the left and towards the bottom of the periodic table.",
+            "Non-metals are found towards the right and top of the periodic table.",
+            "Group 1 and Group 2 elements, and the transition elements, are metals. Groups 4 to 0 are towards the right, so they are mostly non-metals. Tin and lead are metals lower down Group 4."
+          ]
+        },
+        { "type": "subheading", "text": "Atomic structure" },
+        {
+          "type": "list",
+          "items": [
+            "Metal atoms typically have few electrons in the outer shell. They lose these electrons to form **positive ions**.",
+            "Non-metal atoms typically have more electrons in the outer shell. They gain electrons to form **negative ions**, or share electrons.",
+            "Sodium (2,8,1) loses one electron to become Na⁺. Chlorine (2,8,7) gains one electron to become Cl⁻."
+          ]
+        },
+        {
+          "type": "key-points",
+          "items": [
+            "Metals form positive ions. Non-metals do not.",
+            "Metals are to the left and towards the bottom. Non-metals are towards the right and top.",
+            "Metal atoms lose outer electrons. Non-metal atoms gain or share them."
+          ]
+        }
+      ]
+    },
+    {
+      "heading": "Properties of metals and non-metals",
+      "blocks": [
+        { "type": "paragraph", "text": "Metals and non-metals differ in their physical properties and in their chemical properties." },
+        {
+          "type": "table",
+          "columns": ["Property", "Metals", "Non-metals"],
+          "rows": [
+            ["Electrical conductivity", "Good conductors of electricity", "Poor conductors (most do not conduct)"],
+            ["Thermal conductivity", "Good conductors of heat", "Poor conductors of heat"],
+            ["Shape", "Malleable (can be bent and shaped) and ductile", "Brittle when solid"],
+            ["Strength", "Usually strong", "Usually weaker"],
+            ["Melting point", "Usually high", "Usually lower"],
+            ["Appearance", "Shiny when polished", "Usually dull"],
+            ["Ions formed", "Positive ions", "Negative ions (or no ions)"],
+            ["Oxides", "Mostly basic", "Most are acidic"]
+          ]
+        },
+        {
+          "type": "list",
+          "items": [
+            "Not every metal fits every property. Gallium is a metal that melts below 100 °C.",
+            "A metal reacting with a non-metal forms an ionic compound, such as magnesium chloride."
+          ]
+        },
+        {
+          "type": "diagram",
+          "diagram": {
+            "kind": "sort",
+            "alt": "Sort each statement into metals or non-metals.",
+            "prompt": "Metal or non-metal?",
+            "groups": ["Metals", "Non-metals"],
+            "items": [
+              { "text": "Conducts electricity well", "group": 0 },
+              { "text": "Can be bent and shaped", "group": 0 },
+              { "text": "Forms positive ions", "group": 0 },
+              { "text": "Found to the left and towards the bottom of the table", "group": 0 },
+              { "text": "Oxide is basic", "group": 0 },
+              { "text": "Does not form positive ions", "group": 1 },
+              { "text": "Found towards the right and top of the table", "group": 1 },
+              { "text": "Gains electrons to form negative ions", "group": 1 },
+              { "text": "Oxide is acidic", "group": 1 }
+            ]
+          }
+        },
+        {
+          "type": "key-points",
+          "items": [
+            "Metals conduct, are malleable and ductile, and are usually strong with high melting points.",
+            "Non-metals are poor conductors and brittle when solid.",
+            "Metals form positive ions. Non-metals form negative ions or no ions."
+          ]
+        }
+      ]
+    },
+    {
+      "heading": "Metals and reactivity",
+      "blocks": [
+        { "type": "paragraph", "text": "A metal is more reactive if its atoms lose their outer electrons more easily. Position in the table links to this." },
+        {
+          "type": "equation",
+          "label": "A metal and a non-metal react",
+          "formula": "4Na + O₂ → 2Na₂O",
+          "where": ["Each sodium atom loses one electron to form Na⁺.", "Each oxygen atom gains two electrons to form O²⁻.", "Two sodium atoms are needed for each oxygen atom."]
+        },
+        { "type": "subheading", "text": "Why metals lower down a group are more reactive" },
+        {
+          "type": "steps",
+          "items": [
+            { "lead": "More shells.", "text": "Atoms lower down a group have more shells of electrons." },
+            { "lead": "Further away.", "text": "The outer electron is further from the nucleus and there is more shielding." },
+            { "lead": "Weaker attraction.", "text": "The attraction between the nucleus and the outer electron is weaker." },
+            { "lead": "Lost more easily.", "text": "The outer electron is lost more easily, so a positive ion forms more easily." }
+          ]
+        },
+        {
+          "type": "key-points",
+          "items": [
+            "Metals react by losing outer electrons to form positive ions.",
+            "Further down a group, the outer electron is further from the nucleus and is lost more easily."
+          ]
+        }
+      ]
+    }
+  ],
+  "checks": [
+    {
+      "q": "Describe where the non-metallic elements are found in the periodic table.",
+      "a": "Towards the right and the top of the periodic table.",
+      "marks": 1
+    },
+    {
+      "q": "Give two physical properties of metals.",
+      "a": "Any two from: conducts electricity, conducts heat, malleable, ductile, shiny, strong, high melting point.",
+      "marks": 2
+    },
+    {
+      "q": "Describe what happens to sodium atoms and to chlorine atoms when sodium reacts with chlorine.",
+      "a": "Each sodium atom loses one electron to form Na⁺. Each chlorine atom gains one electron to form Cl⁻. Both ions have full outer shells.",
+      "marks": 3
+    }
+  ],
+  "boards": {
+    "aqa": {
+      "spec_codes": ["AQA 4.1.2.3", "AQA T 5.1.2.3"],
+      "exam_phrases": [
+        "towards the right and the top (non-metals)",
+        "a metal and a non-metal",
+        "sodium atom loses one electron",
+        "oxygen atom gains two electrons",
+        "to form Na⁺ and O²⁻ / ions with full outer shells",
+        "outer electrons are further from the nucleus, so less strongly attracted",
+        "positive ions are formed more easily"
+      ],
+      "mistakes": [
+        {
+          "wrong": "A physical property of metals is that they form positive ions.",
+          "right": "Forming positive ions is a chemical property, and chemical properties are ignored when physical ones are asked for. Give conducts electricity, malleable, ductile, shiny, strong or a high melting point."
+        },
+        {
+          "wrong": "Calcium reacts more vigorously than magnesium because calcium atoms are larger.",
+          "right": "'Atoms are larger' is ignored. Say the outer electrons are further from the nucleus, so less strongly attracted, so positive ions form more easily."
+        },
+        {
+          "wrong": "Gallium is a metal, so its melting point is high.",
+          "right": "Gallium has a melting point below 100 °C, which is not typical of most metals."
+        }
+      ],
+      "worked_example": {
+        "exemplar_id": "5eca7831-500c-42e9-9ae1-d4c912503803",
+        "source": "AQA jun 2023, Paper 1 (H), Q03.2",
+        "question": "Explain what happens to sodium atoms and to oxygen atoms when sodium reacts with oxygen to produce sodium oxide (Na₂O).\n\nAnswer in terms of electrons.",
+        "marks": 4,
+        "answer_points": [
+          "A sodium atom loses one electron.",
+          "An oxygen atom gains two electrons.",
+          "So two sodium atoms react with each oxygen atom.",
+          "Na⁺ and O²⁻ ions form (sodium ions and oxide ions), with full outer shells."
+        ],
+        "tip": "One mark each. Say what each atom does with its electrons, then give the ratio and the ions formed."
+      }
+    },
+    "edexcel": {
+      "spec_codes": ["EDEX 1.18"],
+      "exam_phrases": [
+        "it is on the left (of the periodic table)",
+        "in group 2 / column 2"
+      ],
+      "mistakes": [
+        {
+          "wrong": "Calcium is a metal because it is in period 4.",
+          "right": "The period does not show it. Say calcium is on the left of the table, in group 2 (column 2)."
+        },
+        {
+          "wrong": "Non-metals are on the left of the periodic table.",
+          "right": "Metals are on the left. Non-metals are towards the right."
+        }
+      ],
+      "worked_example": {
+        "exemplar_id": "6a548b7c-494a-49aa-b4bc-239560a23b54",
+        "source": "EDEXCEL nov 2021, Paper 1 (F), Q2(c)",
+        "question": "State how you know that calcium is a metal from its position in the periodic table.",
+        "marks": 1,
+        "answer_points": [
+          "It is on the left, in Group 2 (column 2)."
+        ],
+        "tip": "Use the position: left of the table, or Group 2."
+      }
+    },
+    "ocr": {
+      "spec_codes": ["OCR C2.2a", "OCR C2.2b"],
+      "exam_phrases": [
+        "it does not conduct electricity (non-metal)",
+        "low density and good electrical conductor",
+        "one electron in the outer shell (metal atom)",
+        "has more protons than electrons (positive ion)",
+        "lithium fluoride contains metal and non-metal elements"
+      ],
+      "mistakes": [
+        {
+          "wrong": "Aluminium is best for pylon cables because it is light and a good conductor.",
+          "right": "The mark needs both properties: low density and good electrical conductor. 'Light' is not allowed for low density, and 'good conductor' alone is ignored."
+        },
+        {
+          "wrong": "Particle D is an ion because it has a different mass number.",
+          "right": "An ion has a different number of protons and electrons. Particle D has more protons than electrons."
+        }
+      ],
+      "worked_example": {
+        "exemplar_id": "46ad3cc7-96ba-4842-af52-45f9fa388ad8",
+        "source": "OCR sample, Paper 3, Q16(b)",
+        "question": "Look at the information about some particles.\n\nParticle A: atomic number 11, mass number 23, 11 electrons, electronic structure 2.8.1.\nParticle D: atomic number 13, mass number 27, 10 electrons, electronic structure 2.8.\n\nParticle A is a metal atom, particle D is an ion.\n\nExplain why.",
+        "marks": 2,
+        "answer_points": [
+          "Particle A has one electron in its outer shell (energy level), so it is a metal.",
+          "Particle D has more protons than electrons, so it is an ion."
+        ],
+        "tip": "One mark for each particle. Use the numbers of outer electrons, protons and electrons."
+      }
+    }
+  },
+  "meta": {
+    "status": "draft",
+    "checked_by": "sonnet-science-check",
+    "checked_at": "2026-10-01",
+    "written_by": "claude-sonnet-5-5",
+    "written_at": "2026-10-01",
+    "spec_point_ids": [
+      "829cede4-d4ca-4f05-ae69-864d682cc1aa",
+      "a29f476b-3520-41da-a7fb-79efdfaaca86",
+      "55b712fe-e1c8-4841-bb91-48869a47dab2",
+      "afa6f85e-7ac3-4f6b-91be-381866768470",
+      "de89cde9-e55b-4b6f-9252-435577e354ec"
+    ],
+    "exemplar_ids": [
+      "5eca7831-500c-42e9-9ae1-d4c912503803",
+      "6a548b7c-494a-49aa-b4bc-239560a23b54",
+      "46ad3cc7-96ba-4842-af52-45f9fa388ad8"
+    ]
+  }
+}
