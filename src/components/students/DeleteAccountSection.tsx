@@ -25,6 +25,9 @@ export function DeleteAccountSection({ studentId, name }: { studentId: string; n
 
   if (deletion) {
     const date = formatDate(deletion.purge_after);
+    // Once a purge has tried and failed, or the date has passed, part of the
+    // account may already be gone; the server refuses an undo, so none is offered.
+    const started = deletion.attempts > 0 || new Date(deletion.purge_after) <= new Date();
     return (
       <section className="premium-card tint-rose rounded-2xl p-5 sm:p-6">
         <SectionHeading title="Delete account">
@@ -35,32 +38,36 @@ export function DeleteAccountSection({ studentId, name }: { studentId: string; n
           deleted for good.
         </p>
         <div className="mt-4 flex flex-wrap items-center gap-2">
-          <button
-            type="button"
-            disabled={undo.isPending}
-            onClick={() =>
-              undo.mutate(
-                { studentId },
-                {
-                  onSuccess: (r) => {
-                    toast.success(`Deletion cancelled. ${name} can sign in again.`);
-                    if (r.plan_error) {
-                      toast.error(`The plan couldn't be restarted: ${r.plan_error}`);
-                    }
+          {started ? (
+            <span className="chip tint-rose text-[10px]">Deletion under way</span>
+          ) : (
+            <button
+              type="button"
+              disabled={undo.isPending}
+              onClick={() =>
+                undo.mutate(
+                  { studentId },
+                  {
+                    onSuccess: (r) => {
+                      toast.success(`Deletion cancelled. ${name} can sign in again.`);
+                      if (r.plan_error) {
+                        toast.error(`The plan couldn't be restarted: ${r.plan_error}`);
+                      }
+                    },
+                    onError: (e) => toast.error(e.message),
                   },
-                  onError: (e) => toast.error(e.message),
-                },
-              )
-            }
-            className="btn-soft inline-flex h-11 items-center gap-1.5 rounded-lg px-3.5 text-sm sm:h-9"
-          >
-            {undo.isPending ? (
-              <Loader2 className="size-4 animate-spin" aria-hidden />
-            ) : (
-              <Undo2 className="size-4" aria-hidden />
-            )}
-            Undo
-          </button>
+                )
+              }
+              className="btn-soft inline-flex h-11 items-center gap-1.5 rounded-lg px-3.5 text-sm sm:h-9"
+            >
+              {undo.isPending ? (
+                <Loader2 className="size-4 animate-spin" aria-hidden />
+              ) : (
+                <Undo2 className="size-4" aria-hidden />
+              )}
+              Undo
+            </button>
+          )}
           {deletion.last_error && (
             <span className="chip tint-amber text-[10px]">{deletion.last_error}</span>
           )}

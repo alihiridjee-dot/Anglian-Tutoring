@@ -5,6 +5,7 @@ import { supabase } from "@/integrations/supabase/client";
 import { toast } from "sonner";
 import { type SubjectV, type BoardV, type LevelV } from "@/lib/curriculum/taxonomy";
 import { createZoomMeeting } from "@/lib/live/zoom.functions";
+import { scheduledInviteText } from "@/lib/live/whatsappShare";
 import { generateSessionBlurb } from "@/lib/live/sessionBlurb.functions";
 import { suggestSpecPoints } from "@/lib/curriculum/suggestSpecPoints.functions";
 
@@ -173,8 +174,13 @@ export function useLiveForm({ userId, taxonomy }: LiveFormProps) {
     setLoading(false);
 
     if (broadcastWhatsApp) {
-      const timeStr = new Date(startsAt).toLocaleString();
-      const inviteText = `📚 *New Anglia Educate Live Session Scheduled!* 📚\n\n🔹 *Session:* ${title}\n🔹 *Subject:* ${taxonomy.subject.toUpperCase()} (${taxonomy.level.toUpperCase()})\n🔹 *Time:* ${timeStr}\n\n👉 *Join here:* ${joinUrl || "Link pending"}`;
+      const inviteText = scheduledInviteText({
+        title,
+        subject: taxonomy.subject,
+        level: taxonomy.level,
+        starts_at: formattedStartsAt,
+        join_url: joinUrl || null,
+      });
 
       try {
         await navigator.clipboard.writeText(inviteText);

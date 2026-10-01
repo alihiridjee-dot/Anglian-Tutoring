@@ -8,6 +8,9 @@ import { supabase } from "@/integrations/supabase/client";
  * and allowed for this student is decided by stripe-checkout, never by this.
  */
 
+/** Days a trial code gives. Mirrors TRIAL_DAYS in supabase/functions/_shared/trialCode.ts. */
+export const TRIAL_DAYS = 14;
+
 const KEY = "trial-code";
 
 /** Keep a code from an emailed link so the plan page can offer it. */

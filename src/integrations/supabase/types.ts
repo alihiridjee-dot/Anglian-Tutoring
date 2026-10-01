@@ -345,6 +345,7 @@ export type Database = {
           answers: Json;
           notes: string | null;
           resource_id: string;
+          stamps: Json;
           student_id: string;
           updated_at: string;
         };
@@ -352,6 +353,7 @@ export type Database = {
           answers?: Json;
           notes?: string | null;
           resource_id: string;
+          stamps?: Json;
           student_id: string;
           updated_at?: string;
         };
@@ -359,6 +361,7 @@ export type Database = {
           answers?: Json;
           notes?: string | null;
           resource_id?: string;
+          stamps?: Json;
           student_id?: string;
           updated_at?: string;
         };
@@ -675,6 +678,122 @@ export type Database = {
             columns: ["spec_point_id"];
             isOneToOne: false;
             referencedRelation: "spec_points";
+            referencedColumns: ["id"];
+          },
+        ];
+      };
+      note_concept_spec_points: {
+        Row: {
+          concept_id: string;
+          is_primary: boolean;
+          spec_point_id: string;
+        };
+        Insert: {
+          concept_id: string;
+          is_primary: boolean;
+          spec_point_id: string;
+        };
+        Update: {
+          concept_id?: string;
+          is_primary?: boolean;
+          spec_point_id?: string;
+        };
+        Relationships: [
+          {
+            foreignKeyName: "note_concept_spec_points_concept_id_fkey";
+            columns: ["concept_id"];
+            isOneToOne: false;
+            referencedRelation: "note_concepts";
+            referencedColumns: ["id"];
+          },
+          {
+            foreignKeyName: "note_concept_spec_points_spec_point_id_fkey";
+            columns: ["spec_point_id"];
+            isOneToOne: false;
+            referencedRelation: "spec_points";
+            referencedColumns: ["id"];
+          },
+        ];
+      };
+      note_concepts: {
+        Row: {
+          chapter: string;
+          created_at: string;
+          higher_only: boolean;
+          id: string;
+          kind: string;
+          level: Database["public"]["Enums"]["level"];
+          scope: string;
+          separate_only: boolean;
+          sort_order: number;
+          subject: Database["public"]["Enums"]["subject"];
+          title: string;
+        };
+        Insert: {
+          chapter: string;
+          created_at?: string;
+          higher_only?: boolean;
+          id: string;
+          kind: string;
+          level?: Database["public"]["Enums"]["level"];
+          scope: string;
+          separate_only?: boolean;
+          sort_order: number;
+          subject: Database["public"]["Enums"]["subject"];
+          title: string;
+        };
+        Update: {
+          chapter?: string;
+          created_at?: string;
+          higher_only?: boolean;
+          id?: string;
+          kind?: string;
+          level?: Database["public"]["Enums"]["level"];
+          scope?: string;
+          separate_only?: boolean;
+          sort_order?: number;
+          subject?: Database["public"]["Enums"]["subject"];
+          title?: string;
+        };
+        Relationships: [];
+      };
+      notes: {
+        Row: {
+          approved_at: string | null;
+          approved_by: string | null;
+          body: Json;
+          concept_id: string;
+          format: number;
+          status: string;
+          updated_at: string;
+          written_by: string;
+        };
+        Insert: {
+          approved_at?: string | null;
+          approved_by?: string | null;
+          body: Json;
+          concept_id: string;
+          format?: number;
+          status?: string;
+          updated_at?: string;
+          written_by: string;
+        };
+        Update: {
+          approved_at?: string | null;
+          approved_by?: string | null;
+          body?: Json;
+          concept_id?: string;
+          format?: number;
+          status?: string;
+          updated_at?: string;
+          written_by?: string;
+        };
+        Relationships: [
+          {
+            foreignKeyName: "notes_concept_id_fkey";
+            columns: ["concept_id"];
+            isOneToOne: true;
+            referencedRelation: "note_concepts";
             referencedColumns: ["id"];
           },
         ];
@@ -1846,6 +1965,7 @@ export type Database = {
         Args: { _endpoint: string; _limit: number; _window: string };
         Returns: boolean;
       };
+      claim_parent_role: { Args: never; Returns: Json };
       curriculum_coverage: {
         Args: never;
         Returns: {
@@ -1895,6 +2015,10 @@ export type Database = {
       grade_mcq_attempt: {
         Args: { _answers: Json; _set_id: string };
         Returns: Json;
+      };
+      homework_points_with_sheet: {
+        Args: { _spec_point_ids: string[] };
+        Returns: string[];
       };
       homework_mark_schemes: {
         Args: { _resource_ids: string[] };
@@ -2014,6 +2138,16 @@ export type Database = {
         Returns: string;
       };
       sweep_stale_homework_drafts: { Args: never; Returns: number };
+      sync_homework_draft: {
+        Args: {
+          _answers?: Json;
+          _client_now?: number;
+          _notes?: string;
+          _resource_id: string;
+          _stamps?: Json;
+        };
+        Returns: Json;
+      };
       tutor_directory: {
         Args: never;
         Returns: {

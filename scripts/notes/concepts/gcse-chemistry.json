@@ -1,0 +1,5347 @@
+{
+  "subject": "chemistry",
+  "level": "gcse",
+  "boards": [
+    "aqa",
+    "aqa_trilogy",
+    "edexcel",
+    "ocr"
+  ],
+  "note": "One revision note per concept. Each GCSE spec point is primary in exactly one concept; non-primary refs are broad points that also need this note.",
+  "concepts": [
+    {
+      "id": "chem-001",
+      "group": "Atomic structure and the periodic table",
+      "title": "Atoms, elements, compounds and formulae",
+      "scope": "What atoms, elements and compounds are, and how chemical symbols and formulae represent them.",
+      "kind": "content",
+      "higher_only": false,
+      "separate_only": false,
+      "spec_points": [
+        {
+          "id": "efd2b452-8762-488c-b898-c995f2193a6d",
+          "board": "aqa",
+          "code": "AQA 4.1.1.1",
+          "primary": true
+        },
+        {
+          "id": "d3a3235b-5b08-49c0-bc09-2b020eb9c8c6",
+          "board": "aqa_trilogy",
+          "code": "AQA T 5.1.1.1",
+          "primary": true
+        },
+        {
+          "id": "4f49a154-64be-4c5c-8cb0-9d6ee8807546",
+          "board": "edexcel",
+          "code": "EDEX 0.1",
+          "primary": true
+        },
+        {
+          "id": "e52bd1ee-69ea-420a-a4dd-3aea6bedd84e",
+          "board": "ocr",
+          "code": "OCR C3.1a",
+          "primary": true
+        }
+      ]
+    },
+    {
+      "id": "chem-002",
+      "group": "Atomic structure and the periodic table",
+      "title": "Mixtures and separation techniques",
+      "scope": "What a mixture is and how filtration, crystallisation, simple and fractional distillation separate mixtures, and how to choose a method.",
+      "kind": "content",
+      "higher_only": false,
+      "separate_only": false,
+      "spec_points": [
+        {
+          "id": "d6e4f3d2-c0bf-4b7f-908b-a4bc43695285",
+          "board": "aqa",
+          "code": "AQA 4.1.1.2",
+          "primary": true
+        },
+        {
+          "id": "6a18b610-93b5-424a-8b1b-0a8fb1589b4e",
+          "board": "aqa_trilogy",
+          "code": "AQA T 5.1.1.2",
+          "primary": true
+        },
+        {
+          "id": "0b74e84d-4c94-4413-aaea-45b7ec778176",
+          "board": "edexcel",
+          "code": "EDEX 2.7",
+          "primary": true
+        },
+        {
+          "id": "f50245d8-f874-4251-b23a-7aa03bddba6a",
+          "board": "edexcel",
+          "code": "EDEX 2.8",
+          "primary": true
+        },
+        {
+          "id": "2856952d-00f1-4464-afe5-d0c16099850d",
+          "board": "ocr",
+          "code": "OCR C2.1f",
+          "primary": true
+        },
+        {
+          "id": "d3e92dbf-2bb4-4948-9ed1-573bda1b9502",
+          "board": "ocr",
+          "code": "OCR C2.1j",
+          "primary": true
+        },
+        {
+          "id": "ee085a0a-38a5-4a45-8f29-35a1f0cd6887",
+          "board": "edexcel",
+          "code": "EDEX 2.11",
+          "primary": false
+        },
+        {
+          "id": "102cdea3-4429-48a0-8d36-c0d40e0460f2",
+          "board": "edexcel",
+          "code": "EDEX 9.34C",
+          "primary": false
+        }
+      ]
+    },
+    {
+      "id": "chem-003",
+      "group": "Atomic structure and the periodic table",
+      "title": "Development of the model of the atom",
+      "scope": "How the atomic model changed from Dalton to Thomson, Rutherford, Bohr and Chadwick as new evidence appeared.",
+      "kind": "content",
+      "higher_only": false,
+      "separate_only": false,
+      "spec_points": [
+        {
+          "id": "17a8d488-aac4-4515-accd-0571a594129f",
+          "board": "aqa",
+          "code": "AQA 4.1.1.3",
+          "primary": true
+        },
+        {
+          "id": "8feec10a-c864-44fd-ad8a-be463ab0729d",
+          "board": "aqa_trilogy",
+          "code": "AQA T 5.1.1.3",
+          "primary": true
+        },
+        {
+          "id": "b3f9c2b8-f219-42c7-b2e7-242b5578b597",
+          "board": "edexcel",
+          "code": "EDEX 1.1",
+          "primary": true
+        },
+        {
+          "id": "cb110cc7-e43d-4e20-89d7-653686456c35",
+          "board": "ocr",
+          "code": "OCR C1.2a",
+          "primary": true
+        }
+      ]
+    },
+    {
+      "id": "chem-004",
+      "group": "Atomic structure and the periodic table",
+      "title": "Subatomic particles and the size of atoms",
+      "scope": "Protons, neutrons and electrons: their charges, masses and positions, why atoms are neutral, and the size of atoms and nuclei.",
+      "kind": "content",
+      "higher_only": false,
+      "separate_only": false,
+      "spec_points": [
+        {
+          "id": "dd72d0ac-7714-49d6-9763-d5d009cd1f10",
+          "board": "aqa",
+          "code": "AQA 4.1.1.4",
+          "primary": true
+        },
+        {
+          "id": "e811bacb-55ba-438d-baa0-c35f5829a08f",
+          "board": "aqa_trilogy",
+          "code": "AQA T 5.1.1.4",
+          "primary": true
+        },
+        {
+          "id": "9ad8836c-233b-49f4-9811-e95fc069fd1e",
+          "board": "edexcel",
+          "code": "EDEX 1.2",
+          "primary": true
+        },
+        {
+          "id": "2848b8bc-9935-4ab1-9f84-8c4da2329061",
+          "board": "edexcel",
+          "code": "EDEX 1.3",
+          "primary": true
+        },
+        {
+          "id": "9ca99ceb-e5df-49d1-afbc-97fc34675848",
+          "board": "edexcel",
+          "code": "EDEX 1.4",
+          "primary": true
+        },
+        {
+          "id": "fb0b0b67-7c29-4562-834a-72bd599477a0",
+          "board": "edexcel",
+          "code": "EDEX 1.5",
+          "primary": true
+        },
+        {
+          "id": "b2c7516c-07a4-4dd4-bfd2-b51d3a4d169d",
+          "board": "edexcel",
+          "code": "EDEX 1.6",
+          "primary": true
+        },
+        {
+          "id": "cf3d8469-eb24-47e5-9ae8-6c404e3694bd",
+          "board": "edexcel",
+          "code": "EDEX 1.30",
+          "primary": true
+        },
+        {
+          "id": "9fb639be-f54b-4933-b3bf-511b06d3c28c",
+          "board": "ocr",
+          "code": "OCR C1.2b",
+          "primary": true
+        },
+        {
+          "id": "4eae3d4b-a7ab-498c-a1ca-5cd296a71d92",
+          "board": "ocr",
+          "code": "OCR C1.2c",
+          "primary": true
+        },
+        {
+          "id": "a996ca63-9f4b-4064-8b58-5e8bc0ac7baf",
+          "board": "ocr",
+          "code": "OCR C1.2d",
+          "primary": true
+        }
+      ]
+    },
+    {
+      "id": "chem-005",
+      "group": "Atomic structure and the periodic table",
+      "title": "Atomic number, mass number and isotopes",
+      "scope": "Using atomic and mass numbers to count protons, neutrons and electrons in atoms and ions, and what isotopes are.",
+      "kind": "content",
+      "higher_only": false,
+      "separate_only": false,
+      "spec_points": [
+        {
+          "id": "e2410861-7383-4287-a130-11dbc7d25820",
+          "board": "aqa",
+          "code": "AQA 4.1.1.5",
+          "primary": true
+        },
+        {
+          "id": "9ea0c1e5-d651-4a61-9558-f9829567a59b",
+          "board": "aqa_trilogy",
+          "code": "AQA T 5.1.1.5",
+          "primary": true
+        },
+        {
+          "id": "b869461b-e7c2-4237-8409-1f1aad047509",
+          "board": "edexcel",
+          "code": "EDEX 1.7",
+          "primary": true
+        },
+        {
+          "id": "4cd044ad-55f0-46f5-b5b7-4f963f2f8dfe",
+          "board": "edexcel",
+          "code": "EDEX 1.8",
+          "primary": true
+        },
+        {
+          "id": "d1e950a2-9a32-4a80-95bb-261662d78d62",
+          "board": "edexcel",
+          "code": "EDEX 1.9",
+          "primary": true
+        },
+        {
+          "id": "87df0f30-3cf0-4441-9e23-b9313e1f0628",
+          "board": "edexcel",
+          "code": "EDEX 1.10",
+          "primary": true
+        },
+        {
+          "id": "40073d4c-37c6-4cf6-8943-27dacb6abb08",
+          "board": "edexcel",
+          "code": "EDEX 1.23",
+          "primary": true
+        },
+        {
+          "id": "25e2f9ab-46f9-46a0-80d5-806242a8c354",
+          "board": "ocr",
+          "code": "OCR C1.2e",
+          "primary": true
+        }
+      ]
+    },
+    {
+      "id": "chem-006",
+      "group": "Atomic structure and the periodic table",
+      "title": "Relative atomic mass",
+      "scope": "Why relative atomic masses are averages and how to calculate one from isotope masses and abundances.",
+      "kind": "content",
+      "higher_only": false,
+      "separate_only": false,
+      "spec_points": [
+        {
+          "id": "ffcbba5f-5d65-44a1-8f17-dc14dc2cdd8a",
+          "board": "aqa",
+          "code": "AQA 4.1.1.6",
+          "primary": true
+        },
+        {
+          "id": "2fed23ea-b382-4f32-a280-93f5e364838b",
+          "board": "aqa_trilogy",
+          "code": "AQA T 5.1.1.6",
+          "primary": true
+        },
+        {
+          "id": "dcf67829-339c-48af-91b9-0a649702eef7",
+          "board": "edexcel",
+          "code": "EDEX 1.11",
+          "primary": true
+        },
+        {
+          "id": "67c7fd14-d2a2-43fc-b2d0-40ad2eb5a18f",
+          "board": "edexcel",
+          "code": "EDEX 1.12",
+          "primary": true
+        },
+        {
+          "id": "45fa3927-17d8-481c-892d-2eb8d6f1f143",
+          "board": "ocr",
+          "code": "OCR C2.1c",
+          "primary": false
+        }
+      ]
+    },
+    {
+      "id": "chem-007",
+      "group": "Atomic structure and the periodic table",
+      "title": "Electronic structure",
+      "scope": "How electrons fill shells for the first 20 elements and how electron arrangement links to group and period.",
+      "kind": "content",
+      "higher_only": false,
+      "separate_only": false,
+      "spec_points": [
+        {
+          "id": "996a7fc1-4566-4298-9494-4afbdc46a9e2",
+          "board": "aqa",
+          "code": "AQA 4.1.1.7",
+          "primary": true
+        },
+        {
+          "id": "4a253143-340b-48a6-891b-d4dcfb6cddb0",
+          "board": "aqa_trilogy",
+          "code": "AQA T 5.1.1.7",
+          "primary": true
+        },
+        {
+          "id": "3e185e86-c87f-4ed4-83e2-6669ccc3e797",
+          "board": "edexcel",
+          "code": "EDEX 1.19",
+          "primary": true
+        },
+        {
+          "id": "56e0c075-571e-4c7d-b720-967cafe4322d",
+          "board": "edexcel",
+          "code": "EDEX 1.20",
+          "primary": true
+        },
+        {
+          "id": "b0f59352-807b-4848-bc2e-f0a4bf08dad2",
+          "board": "ocr",
+          "code": "OCR C2.2c",
+          "primary": true
+        }
+      ]
+    },
+    {
+      "id": "chem-008",
+      "group": "Atomic structure and the periodic table",
+      "title": "Development of the periodic table",
+      "scope": "How Mendeleev arranged the elements, left gaps and predicted new ones, and how atomic number fixed the anomalies.",
+      "kind": "content",
+      "higher_only": false,
+      "separate_only": false,
+      "spec_points": [
+        {
+          "id": "2038cfd8-d8dc-4bf2-9e25-b1094d1609c7",
+          "board": "aqa",
+          "code": "AQA 4.1.2.2",
+          "primary": true
+        },
+        {
+          "id": "ed1494a2-5114-4346-af6e-1c3565f01fa6",
+          "board": "aqa_trilogy",
+          "code": "AQA T 5.1.2.2",
+          "primary": true
+        },
+        {
+          "id": "3175fe29-994a-43d5-8d6a-347559b699ad",
+          "board": "edexcel",
+          "code": "EDEX 1.13",
+          "primary": true
+        },
+        {
+          "id": "b0dc9dcb-81d1-4c9d-8a5d-8c11219a5b67",
+          "board": "edexcel",
+          "code": "EDEX 1.14",
+          "primary": true
+        },
+        {
+          "id": "73f78591-0ac1-45dc-a1a2-f7ab0caf8526",
+          "board": "edexcel",
+          "code": "EDEX 1.15",
+          "primary": true
+        },
+        {
+          "id": "5905de16-addb-4976-a280-f1a15b1b221f",
+          "board": "ocr",
+          "code": "OCR C2.2i",
+          "primary": true
+        }
+      ]
+    },
+    {
+      "id": "chem-009",
+      "group": "Atomic structure and the periodic table",
+      "title": "The modern periodic table",
+      "scope": "How elements are arranged by atomic number into groups and periods, and how position predicts reactions.",
+      "kind": "content",
+      "higher_only": false,
+      "separate_only": false,
+      "spec_points": [
+        {
+          "id": "4dd7d94e-f75e-4e34-95ef-cfc50a81b86f",
+          "board": "aqa",
+          "code": "AQA 4.1.2.1",
+          "primary": true
+        },
+        {
+          "id": "8f409e67-279b-4566-b5df-317d6eb11137",
+          "board": "aqa_trilogy",
+          "code": "AQA T 5.1.2.1",
+          "primary": true
+        },
+        {
+          "id": "f0ea0f7e-1aa2-4625-94a1-0eb7eae524e9",
+          "board": "edexcel",
+          "code": "EDEX 1.16",
+          "primary": true
+        },
+        {
+          "id": "5014d6c1-8483-4831-a31b-74849d839881",
+          "board": "edexcel",
+          "code": "EDEX 1.17",
+          "primary": true
+        },
+        {
+          "id": "27bbdca5-c6d0-459e-a008-d2374be1e24f",
+          "board": "edexcel",
+          "code": "EDEX 6.1",
+          "primary": true
+        },
+        {
+          "id": "88a9c97c-f16f-4cc2-8b19-1dcc0834da77",
+          "board": "ocr",
+          "code": "OCR C2.2h",
+          "primary": true
+        },
+        {
+          "id": "f00a78c7-abc7-470c-b27c-a18250fddf9f",
+          "board": "ocr",
+          "code": "OCR C4.1d",
+          "primary": true
+        }
+      ]
+    },
+    {
+      "id": "chem-010",
+      "group": "Atomic structure and the periodic table",
+      "title": "Metals and non-metals",
+      "scope": "Where metals and non-metals sit in the periodic table and how their properties and ion formation differ.",
+      "kind": "content",
+      "higher_only": false,
+      "separate_only": false,
+      "spec_points": [
+        {
+          "id": "829cede4-d4ca-4f05-ae69-864d682cc1aa",
+          "board": "aqa",
+          "code": "AQA 4.1.2.3",
+          "primary": true
+        },
+        {
+          "id": "a29f476b-3520-41da-a7fb-79efdfaaca86",
+          "board": "aqa_trilogy",
+          "code": "AQA T 5.1.2.3",
+          "primary": true
+        },
+        {
+          "id": "55b712fe-e1c8-4841-bb91-48869a47dab2",
+          "board": "edexcel",
+          "code": "EDEX 1.18",
+          "primary": true
+        },
+        {
+          "id": "afa6f85e-7ac3-4f6b-91be-381866768470",
+          "board": "ocr",
+          "code": "OCR C2.2a",
+          "primary": true
+        },
+        {
+          "id": "de89cde9-e55b-4b6f-9252-435577e354ec",
+          "board": "ocr",
+          "code": "OCR C2.2b",
+          "primary": true
+        }
+      ]
+    },
+    {
+      "id": "chem-011",
+      "group": "Atomic structure and the periodic table",
+      "title": "Group 1: the alkali metals",
+      "scope": "Properties of the alkali metals, their reactions with water, and why reactivity increases down the group.",
+      "kind": "content",
+      "higher_only": false,
+      "separate_only": false,
+      "spec_points": [
+        {
+          "id": "540cdf0f-e27a-415d-bb36-44a994a8e00d",
+          "board": "aqa",
+          "code": "AQA 4.1.2.5",
+          "primary": true
+        },
+        {
+          "id": "ca5a58c6-b4b0-4f50-81b2-bf031b11e5d2",
+          "board": "aqa_trilogy",
+          "code": "AQA T 5.1.2.5",
+          "primary": true
+        },
+        {
+          "id": "ffc9541f-0c4b-48ca-bc85-6150cc480a9b",
+          "board": "edexcel",
+          "code": "EDEX 6.2",
+          "primary": true
+        },
+        {
+          "id": "27e5c31f-b15f-4581-8e3e-bde715e6ee5f",
+          "board": "edexcel",
+          "code": "EDEX 6.3",
+          "primary": true
+        },
+        {
+          "id": "a996b524-30c3-4308-ae0e-8f372f5d7206",
+          "board": "edexcel",
+          "code": "EDEX 6.4",
+          "primary": true
+        },
+        {
+          "id": "073665d8-b5b2-4d30-b72a-5f2a49dfd932",
+          "board": "edexcel",
+          "code": "EDEX 6.5",
+          "primary": true
+        },
+        {
+          "id": "a62e76ed-9d93-4b0e-847a-48db3c96d8c6",
+          "board": "ocr",
+          "code": "OCR C4.1a",
+          "primary": true
+        },
+        {
+          "id": "7a0faa09-f358-4029-939f-a7ec394167a1",
+          "board": "ocr",
+          "code": "OCR C4.1b",
+          "primary": false
+        }
+      ]
+    },
+    {
+      "id": "chem-012",
+      "group": "Atomic structure and the periodic table",
+      "title": "Group 7: the halogens",
+      "scope": "Properties and trends of the halogens, their reactions with metals and hydrogen, and displacement reactions as redox.",
+      "kind": "content",
+      "higher_only": false,
+      "separate_only": false,
+      "spec_points": [
+        {
+          "id": "665cafd1-e446-4c57-86f1-58275725d418",
+          "board": "aqa",
+          "code": "AQA 4.1.2.6",
+          "primary": true
+        },
+        {
+          "id": "73e2aec9-a19e-4621-a9ee-f2dd84435477",
+          "board": "aqa_trilogy",
+          "code": "AQA T 5.1.2.6",
+          "primary": true
+        },
+        {
+          "id": "276f7868-856d-4343-91dc-8cf847b84aec",
+          "board": "edexcel",
+          "code": "EDEX 6.6",
+          "primary": true
+        },
+        {
+          "id": "6dc2627f-b000-4334-813c-64418dcbb7c1",
+          "board": "edexcel",
+          "code": "EDEX 6.7",
+          "primary": true
+        },
+        {
+          "id": "7c311bbd-c59d-4da6-a45c-ef48b427be03",
+          "board": "edexcel",
+          "code": "EDEX 6.9",
+          "primary": true
+        },
+        {
+          "id": "ce2000d7-9d05-4ddb-a1ec-b54f6aca04a9",
+          "board": "edexcel",
+          "code": "EDEX 6.10",
+          "primary": true
+        },
+        {
+          "id": "fb1dcbf2-5143-4f90-8b89-e5780d1852cf",
+          "board": "edexcel",
+          "code": "EDEX 6.11",
+          "primary": true
+        },
+        {
+          "id": "46fff7a9-99f2-478d-b648-3242594811a0",
+          "board": "edexcel",
+          "code": "EDEX 6.12",
+          "primary": true
+        },
+        {
+          "id": "89ff3f3d-2209-471e-8831-95c0faea6d30",
+          "board": "edexcel",
+          "code": "EDEX 6.13",
+          "primary": true
+        },
+        {
+          "id": "7a0faa09-f358-4029-939f-a7ec394167a1",
+          "board": "ocr",
+          "code": "OCR C4.1b",
+          "primary": true
+        },
+        {
+          "id": "a62e76ed-9d93-4b0e-847a-48db3c96d8c6",
+          "board": "ocr",
+          "code": "OCR C4.1a",
+          "primary": false
+        }
+      ]
+    },
+    {
+      "id": "chem-013",
+      "group": "Atomic structure and the periodic table",
+      "title": "Group 0: the noble gases",
+      "scope": "Why the noble gases are unreactive, the trends in their physical properties and how their uses follow from them.",
+      "kind": "content",
+      "higher_only": false,
+      "separate_only": false,
+      "spec_points": [
+        {
+          "id": "df2ccffc-925b-40be-89f5-845bd52d962d",
+          "board": "aqa",
+          "code": "AQA 4.1.2.4",
+          "primary": true
+        },
+        {
+          "id": "0197b84c-94a4-4e6b-9164-9807754ee574",
+          "board": "aqa_trilogy",
+          "code": "AQA T 5.1.2.4",
+          "primary": true
+        },
+        {
+          "id": "71f396a4-bcf9-4d2f-9b6a-c4a2416cc60e",
+          "board": "edexcel",
+          "code": "EDEX 6.14",
+          "primary": true
+        },
+        {
+          "id": "f8f4a0ac-dce6-46fa-8998-da44ea7da596",
+          "board": "edexcel",
+          "code": "EDEX 6.15",
+          "primary": true
+        },
+        {
+          "id": "657f36a0-c356-4330-ae4b-0099cfb40b68",
+          "board": "edexcel",
+          "code": "EDEX 6.16",
+          "primary": true
+        },
+        {
+          "id": "a62e76ed-9d93-4b0e-847a-48db3c96d8c6",
+          "board": "ocr",
+          "code": "OCR C4.1a",
+          "primary": false
+        },
+        {
+          "id": "7a0faa09-f358-4029-939f-a7ec394167a1",
+          "board": "ocr",
+          "code": "OCR C4.1b",
+          "primary": false
+        }
+      ]
+    },
+    {
+      "id": "chem-014",
+      "group": "Atomic structure and the periodic table",
+      "title": "Transition metals",
+      "scope": "Properties of transition metals compared with Group 1: ions of different charge, coloured compounds and catalytic activity.",
+      "kind": "content",
+      "higher_only": false,
+      "separate_only": true,
+      "spec_points": [
+        {
+          "id": "1032bd86-e891-4b89-803f-a1880cd67c02",
+          "board": "aqa",
+          "code": "AQA 4.1.3.1",
+          "primary": true
+        },
+        {
+          "id": "c03e4a69-5ed8-4d94-a9da-7314c7f31695",
+          "board": "aqa",
+          "code": "AQA 4.1.3.2",
+          "primary": true
+        },
+        {
+          "id": "04559104-64e7-48d4-9ae8-d97f5ed97d95",
+          "board": "edexcel",
+          "code": "EDEX 5.1C",
+          "primary": true
+        },
+        {
+          "id": "27b06f7c-d3a6-43f7-b269-6cbfd91baeb8",
+          "board": "ocr",
+          "code": "OCR C4.1c",
+          "primary": true
+        }
+      ]
+    },
+    {
+      "id": "chem-015",
+      "group": "Bonding, structure and properties",
+      "title": "States of matter and changes of state",
+      "scope": "The particle model of solids, liquids and gases, changes of state, predicting states from data and the limits of the model.",
+      "kind": "content",
+      "higher_only": false,
+      "separate_only": false,
+      "spec_points": [
+        {
+          "id": "10f3809a-746c-4ee1-b1eb-61628cd5650c",
+          "board": "aqa",
+          "code": "AQA 4.2.2.1",
+          "primary": true
+        },
+        {
+          "id": "c00f39c0-033f-41c7-a2ce-33a4695593b4",
+          "board": "aqa_trilogy",
+          "code": "AQA T 5.2.2.1",
+          "primary": true
+        },
+        {
+          "id": "fd8fb5c2-4de7-4c85-b6f6-26f655372073",
+          "board": "edexcel",
+          "code": "EDEX 2.1",
+          "primary": true
+        },
+        {
+          "id": "a7ceb39a-4eab-4fcb-9f0e-cf38938f0294",
+          "board": "edexcel",
+          "code": "EDEX 2.2",
+          "primary": true
+        },
+        {
+          "id": "2cf5e26b-ffae-49f1-afe8-101119898e8b",
+          "board": "edexcel",
+          "code": "EDEX 2.3",
+          "primary": true
+        },
+        {
+          "id": "a24c60ba-9269-4011-9235-fb15554b9b24",
+          "board": "edexcel",
+          "code": "EDEX 2.4",
+          "primary": true
+        },
+        {
+          "id": "248a211e-39e5-4b8d-8df9-49a148187cf4",
+          "board": "ocr",
+          "code": "OCR C1.1a",
+          "primary": true
+        },
+        {
+          "id": "16b8521d-c280-476d-b5d4-d468a81db169",
+          "board": "ocr",
+          "code": "OCR C1.1b",
+          "primary": true
+        },
+        {
+          "id": "a5b24eec-1222-4aea-bb32-c14b2f6091ea",
+          "board": "ocr",
+          "code": "OCR C1.1c",
+          "primary": true
+        },
+        {
+          "id": "ed28a94c-ec2a-4c0e-ac90-a049706e330e",
+          "board": "ocr",
+          "code": "OCR C2.3e",
+          "primary": true
+        }
+      ]
+    },
+    {
+      "id": "chem-016",
+      "group": "Bonding, structure and properties",
+      "title": "Chemical bonds and types of structure",
+      "scope": "Overview of ionic, covalent and metallic bonding, how to classify substances by structure, and the limitations of bonding models.",
+      "kind": "content",
+      "higher_only": false,
+      "separate_only": false,
+      "spec_points": [
+        {
+          "id": "c29f3c30-d7b0-4acb-adca-c7c21c5c4e7a",
+          "board": "aqa",
+          "code": "AQA 4.2.1.1",
+          "primary": true
+        },
+        {
+          "id": "0a0cdeb8-9a0e-478b-a7f3-aed7cf9aaf3a",
+          "board": "aqa_trilogy",
+          "code": "AQA T 5.2.1.1",
+          "primary": true
+        },
+        {
+          "id": "2b3f86dc-f48e-4711-a21e-2f4847c0fe5c",
+          "board": "edexcel",
+          "code": "EDEX 1.32",
+          "primary": true
+        },
+        {
+          "id": "27e37939-7d45-4a24-8d5c-4cf5ab71ae41",
+          "board": "edexcel",
+          "code": "EDEX 1.41",
+          "primary": true
+        },
+        {
+          "id": "29692a5d-d366-4fc3-a655-3736e23b93d9",
+          "board": "ocr",
+          "code": "OCR C2.2d",
+          "primary": true
+        },
+        {
+          "id": "0b280586-513f-4bc9-ad42-92175d44f6f5",
+          "board": "ocr",
+          "code": "OCR C2.2e",
+          "primary": true
+        },
+        {
+          "id": "7295ad30-9047-4022-8977-b71e28d29a9a",
+          "board": "ocr",
+          "code": "OCR C2.2g",
+          "primary": true
+        },
+        {
+          "id": "7a952ea4-464c-4ce1-b9c0-4c61dca8e5b8",
+          "board": "ocr",
+          "code": "OCR C2.3f",
+          "primary": true
+        }
+      ]
+    },
+    {
+      "id": "chem-017",
+      "group": "Bonding, structure and properties",
+      "title": "Ionic bonding",
+      "scope": "How metal and non-metal atoms transfer electrons to form ions, shown with dot-and-cross diagrams.",
+      "kind": "content",
+      "higher_only": false,
+      "separate_only": false,
+      "spec_points": [
+        {
+          "id": "c4e82df5-75b6-43d9-ac92-6a3abc67cc38",
+          "board": "aqa",
+          "code": "AQA 4.2.1.2",
+          "primary": true
+        },
+        {
+          "id": "0c1d56d3-8362-4ebc-94bc-87fabb7c6b2f",
+          "board": "aqa_trilogy",
+          "code": "AQA T 5.2.1.2",
+          "primary": true
+        },
+        {
+          "id": "d6ecd4c7-5860-47a8-a979-7fd1030e258c",
+          "board": "edexcel",
+          "code": "EDEX 1.21",
+          "primary": true
+        },
+        {
+          "id": "a5117c51-c1bb-4eec-afed-34461a3aba2c",
+          "board": "edexcel",
+          "code": "EDEX 1.22",
+          "primary": true
+        },
+        {
+          "id": "a94a23cf-8bff-4279-b729-3cc759024047",
+          "board": "edexcel",
+          "code": "EDEX 1.24",
+          "primary": true
+        },
+        {
+          "id": "0b280586-513f-4bc9-ad42-92175d44f6f5",
+          "board": "ocr",
+          "code": "OCR C2.2e",
+          "primary": false
+        },
+        {
+          "id": "a5ca7818-027c-4b03-a613-1403e9c333bc",
+          "board": "ocr",
+          "code": "OCR C2.2f",
+          "primary": false
+        }
+      ]
+    },
+    {
+      "id": "chem-018",
+      "group": "Bonding, structure and properties",
+      "title": "Ionic compounds: structure and formulae",
+      "scope": "The giant ionic lattice and how to work out formulae and names of ionic compounds from their ions.",
+      "kind": "content",
+      "higher_only": false,
+      "separate_only": false,
+      "spec_points": [
+        {
+          "id": "4e5e550e-e760-4063-8ec5-2ff9d9f292c4",
+          "board": "aqa",
+          "code": "AQA 4.2.1.3",
+          "primary": true
+        },
+        {
+          "id": "588c6424-ae3e-45a2-aaca-678805219fd6",
+          "board": "aqa_trilogy",
+          "code": "AQA T 5.2.1.3",
+          "primary": true
+        },
+        {
+          "id": "a609c1f8-85c7-48ef-a40a-92eaace66f76",
+          "board": "edexcel",
+          "code": "EDEX 1.25",
+          "primary": true
+        },
+        {
+          "id": "a4b44fa8-ee6e-40cb-baf7-8551b9829d77",
+          "board": "edexcel",
+          "code": "EDEX 1.26",
+          "primary": true
+        },
+        {
+          "id": "bd7fee4e-e71f-46cd-8665-55bf1183d5a3",
+          "board": "edexcel",
+          "code": "EDEX 1.27",
+          "primary": true
+        },
+        {
+          "id": "2879ddaf-47d3-4a04-b3bf-51423b7ebcd3",
+          "board": "ocr",
+          "code": "OCR C3.1d",
+          "primary": true
+        }
+      ]
+    },
+    {
+      "id": "chem-019",
+      "group": "Bonding, structure and properties",
+      "title": "Properties of ionic compounds",
+      "scope": "Why ionic compounds have high melting points and conduct only when molten or dissolved.",
+      "kind": "content",
+      "higher_only": false,
+      "separate_only": false,
+      "spec_points": [
+        {
+          "id": "7486d348-43df-40e3-ab6f-ca403b5d1c64",
+          "board": "aqa",
+          "code": "AQA 4.2.2.3",
+          "primary": true
+        },
+        {
+          "id": "d369c8b1-14ab-4680-b3d2-83a6fbc0a636",
+          "board": "aqa_trilogy",
+          "code": "AQA T 5.2.2.3",
+          "primary": true
+        },
+        {
+          "id": "57bf982a-99ec-4e01-a087-0edfe8a0de04",
+          "board": "edexcel",
+          "code": "EDEX 1.33",
+          "primary": true
+        },
+        {
+          "id": "7a952ea4-464c-4ce1-b9c0-4c61dca8e5b8",
+          "board": "ocr",
+          "code": "OCR C2.3f",
+          "primary": false
+        }
+      ]
+    },
+    {
+      "id": "chem-020",
+      "group": "Bonding, structure and properties",
+      "title": "Covalent bonding and dot-and-cross diagrams",
+      "scope": "How shared electron pairs form covalent bonds and molecules, drawn as dot-and-cross diagrams.",
+      "kind": "content",
+      "higher_only": false,
+      "separate_only": false,
+      "spec_points": [
+        {
+          "id": "2f570ffe-7536-49ab-8895-532817bd2b6d",
+          "board": "aqa",
+          "code": "AQA 4.2.1.4",
+          "primary": true
+        },
+        {
+          "id": "42fdb98c-30c7-4284-a6a0-cc83c5b858c8",
+          "board": "aqa_trilogy",
+          "code": "AQA T 5.2.1.4",
+          "primary": true
+        },
+        {
+          "id": "ec5258f4-f4a1-4bb2-8d12-57984b16df3a",
+          "board": "edexcel",
+          "code": "EDEX 1.28",
+          "primary": true
+        },
+        {
+          "id": "454dbc77-14c9-49da-940e-e38d0840a31d",
+          "board": "edexcel",
+          "code": "EDEX 1.29",
+          "primary": true
+        },
+        {
+          "id": "894d26cc-c243-4063-bbd5-4b534431a5e6",
+          "board": "edexcel",
+          "code": "EDEX 1.31",
+          "primary": true
+        },
+        {
+          "id": "a5ca7818-027c-4b03-a613-1403e9c333bc",
+          "board": "ocr",
+          "code": "OCR C2.2f",
+          "primary": true
+        },
+        {
+          "id": "0b280586-513f-4bc9-ad42-92175d44f6f5",
+          "board": "ocr",
+          "code": "OCR C2.2e",
+          "primary": false
+        }
+      ]
+    },
+    {
+      "id": "chem-021",
+      "group": "Bonding, structure and properties",
+      "title": "Properties of simple molecular substances",
+      "scope": "Why small molecules have low melting and boiling points and do not conduct, in terms of intermolecular forces.",
+      "kind": "content",
+      "higher_only": false,
+      "separate_only": false,
+      "spec_points": [
+        {
+          "id": "02d65818-dc2b-4dd2-a336-52bcddc0fe93",
+          "board": "aqa",
+          "code": "AQA 4.2.2.4",
+          "primary": true
+        },
+        {
+          "id": "dcfef170-a9a4-461b-a9fc-e68642ae765e",
+          "board": "aqa_trilogy",
+          "code": "AQA T 5.2.2.4",
+          "primary": true
+        },
+        {
+          "id": "d944dcb0-4293-40db-aa06-b3a64dc9eba9",
+          "board": "edexcel",
+          "code": "EDEX 1.34",
+          "primary": true
+        },
+        {
+          "id": "3c9ac078-5a30-4a23-874b-fda5c2eee247",
+          "board": "ocr",
+          "code": "OCR C2.3d",
+          "primary": true
+        },
+        {
+          "id": "7a952ea4-464c-4ce1-b9c0-4c61dca8e5b8",
+          "board": "ocr",
+          "code": "OCR C2.3f",
+          "primary": false
+        }
+      ]
+    },
+    {
+      "id": "chem-022",
+      "group": "Bonding, structure and properties",
+      "title": "Polymer structure",
+      "scope": "How polymers are long chains held by strong covalent bonds, and why they are solids at room temperature.",
+      "kind": "content",
+      "higher_only": false,
+      "separate_only": false,
+      "spec_points": [
+        {
+          "id": "c8db2b2e-2e0e-4bc6-ba80-6c9f692d2f66",
+          "board": "aqa",
+          "code": "AQA 4.2.2.5",
+          "primary": true
+        },
+        {
+          "id": "e4d22474-ae8e-47eb-b1ab-cb51a8a435fe",
+          "board": "aqa_trilogy",
+          "code": "AQA T 5.2.2.5",
+          "primary": true
+        },
+        {
+          "id": "a2be8596-f96e-480d-96a6-a0b13b6cb1a3",
+          "board": "edexcel",
+          "code": "EDEX 1.39",
+          "primary": true
+        },
+        {
+          "id": "29692a5d-d366-4fc3-a655-3736e23b93d9",
+          "board": "ocr",
+          "code": "OCR C2.2d",
+          "primary": false
+        },
+        {
+          "id": "7a952ea4-464c-4ce1-b9c0-4c61dca8e5b8",
+          "board": "ocr",
+          "code": "OCR C2.3f",
+          "primary": false
+        },
+        {
+          "id": "3299dbb5-56d7-4fe9-8f6b-2e7754f93c91",
+          "board": "edexcel",
+          "code": "EDEX 9.17C",
+          "primary": false
+        }
+      ]
+    },
+    {
+      "id": "chem-023",
+      "group": "Bonding, structure and properties",
+      "title": "Giant covalent structures: diamond, graphite and silicon dioxide",
+      "scope": "The structures of diamond, graphite and silicon dioxide and how they explain hardness, high melting points and conductivity.",
+      "kind": "content",
+      "higher_only": false,
+      "separate_only": false,
+      "spec_points": [
+        {
+          "id": "4e62200c-ba34-4919-9573-0f2eb4c625f7",
+          "board": "aqa",
+          "code": "AQA 4.2.2.6",
+          "primary": true
+        },
+        {
+          "id": "5784660f-31a3-410c-806c-5f2d2cc46e00",
+          "board": "aqa_trilogy",
+          "code": "AQA T 5.2.2.6",
+          "primary": true
+        },
+        {
+          "id": "5eb6d190-849d-4325-a21d-e0870cb561b7",
+          "board": "aqa",
+          "code": "AQA 4.2.3.1",
+          "primary": true
+        },
+        {
+          "id": "a6fa7840-39a2-4d07-ac74-44dd53e890bb",
+          "board": "aqa_trilogy",
+          "code": "AQA T 5.2.3.1",
+          "primary": true
+        },
+        {
+          "id": "178f7142-baa6-4e2d-bfb3-c63bb06111cf",
+          "board": "aqa",
+          "code": "AQA 4.2.3.2",
+          "primary": true
+        },
+        {
+          "id": "a9d66b95-8b17-44a9-a0ed-5346bd8557ed",
+          "board": "aqa_trilogy",
+          "code": "AQA T 5.2.3.2",
+          "primary": true
+        },
+        {
+          "id": "ace8ad0a-e801-4995-94b7-92fdd56a79dc",
+          "board": "edexcel",
+          "code": "EDEX 1.35",
+          "primary": true
+        },
+        {
+          "id": "3ad0ac26-2ac9-4410-9f2e-53fedab3e61e",
+          "board": "edexcel",
+          "code": "EDEX 1.36",
+          "primary": true
+        },
+        {
+          "id": "afcae6ec-56c8-4a7f-b8ea-88da3d7a41eb",
+          "board": "edexcel",
+          "code": "EDEX 1.37",
+          "primary": true
+        },
+        {
+          "id": "4906d4e2-45b9-411e-9ae0-f0280b2b05fb",
+          "board": "ocr",
+          "code": "OCR C2.3a",
+          "primary": true
+        },
+        {
+          "id": "73fe3209-43af-4f19-a34b-ce411227df0a",
+          "board": "ocr",
+          "code": "OCR C2.3c",
+          "primary": true
+        },
+        {
+          "id": "7a952ea4-464c-4ce1-b9c0-4c61dca8e5b8",
+          "board": "ocr",
+          "code": "OCR C2.3f",
+          "primary": false
+        }
+      ]
+    },
+    {
+      "id": "chem-024",
+      "group": "Bonding, structure and properties",
+      "title": "Graphene and fullerenes",
+      "scope": "The structures, properties and uses of graphene, buckminsterfullerene and carbon nanotubes.",
+      "kind": "content",
+      "higher_only": false,
+      "separate_only": false,
+      "spec_points": [
+        {
+          "id": "c7499332-da13-4abb-a4ff-215ec24445c9",
+          "board": "aqa",
+          "code": "AQA 4.2.3.3",
+          "primary": true
+        },
+        {
+          "id": "ec3780ed-2b6c-4448-a51b-482ea87e6667",
+          "board": "aqa_trilogy",
+          "code": "AQA T 5.2.3.3",
+          "primary": true
+        },
+        {
+          "id": "43d131a2-f48b-4585-9923-e6f470345f1d",
+          "board": "edexcel",
+          "code": "EDEX 1.38",
+          "primary": true
+        },
+        {
+          "id": "73fe3209-43af-4f19-a34b-ce411227df0a",
+          "board": "ocr",
+          "code": "OCR C2.3c",
+          "primary": false
+        }
+      ]
+    },
+    {
+      "id": "chem-025",
+      "group": "Bonding, structure and properties",
+      "title": "Metallic bonding and properties of metals",
+      "scope": "The sea of delocalised electrons and how it explains high melting points, malleability and conductivity of metals.",
+      "kind": "content",
+      "higher_only": false,
+      "separate_only": false,
+      "spec_points": [
+        {
+          "id": "fd806606-5dab-463d-8414-d169bcd1cfb4",
+          "board": "aqa",
+          "code": "AQA 4.2.1.5",
+          "primary": true
+        },
+        {
+          "id": "a0975565-506c-460b-9225-68e44a63d2fb",
+          "board": "aqa_trilogy",
+          "code": "AQA T 5.2.1.5",
+          "primary": true
+        },
+        {
+          "id": "2f7c1a50-4ba6-4ddf-8ca8-87e5380d86ab",
+          "board": "aqa",
+          "code": "AQA 4.2.2.7",
+          "primary": true
+        },
+        {
+          "id": "430a6725-3188-4a36-b345-252c0a4694df",
+          "board": "aqa_trilogy",
+          "code": "AQA T 5.2.2.7",
+          "primary": true
+        },
+        {
+          "id": "fd46c847-34bf-4602-be5a-bb1620114036",
+          "board": "aqa",
+          "code": "AQA 4.2.2.8",
+          "primary": true
+        },
+        {
+          "id": "500d8147-a961-4a49-af44-a58de85f31ec",
+          "board": "aqa_trilogy",
+          "code": "AQA T 5.2.2.8",
+          "primary": true
+        },
+        {
+          "id": "6c092c30-839a-4dab-a24d-54207aff6a31",
+          "board": "edexcel",
+          "code": "EDEX 1.40",
+          "primary": true
+        },
+        {
+          "id": "d3e10139-92c2-42ea-a408-28c02fecea61",
+          "board": "edexcel",
+          "code": "EDEX 1.42",
+          "primary": true
+        },
+        {
+          "id": "afa6f85e-7ac3-4f6b-91be-381866768470",
+          "board": "ocr",
+          "code": "OCR C2.2a",
+          "primary": false
+        },
+        {
+          "id": "29692a5d-d366-4fc3-a655-3736e23b93d9",
+          "board": "ocr",
+          "code": "OCR C2.2d",
+          "primary": false
+        },
+        {
+          "id": "7a952ea4-464c-4ce1-b9c0-4c61dca8e5b8",
+          "board": "ocr",
+          "code": "OCR C2.3f",
+          "primary": false
+        }
+      ]
+    },
+    {
+      "id": "chem-026",
+      "group": "Bonding, structure and properties",
+      "title": "Nanoparticles",
+      "scope": "The size of nanoparticles, their high surface area to volume ratio, their uses and their possible risks.",
+      "kind": "content",
+      "higher_only": false,
+      "separate_only": true,
+      "spec_points": [
+        {
+          "id": "d473ad67-0ba8-4a56-a007-5cadda261ba9",
+          "board": "aqa",
+          "code": "AQA 4.2.4.1",
+          "primary": true
+        },
+        {
+          "id": "4a2a0b7f-ccc6-4247-b701-9338379ef29e",
+          "board": "aqa",
+          "code": "AQA 4.2.4.2",
+          "primary": true
+        },
+        {
+          "id": "ba33c8ae-1b85-442d-9ee3-b6a153212333",
+          "board": "edexcel",
+          "code": "EDEX 9.35C",
+          "primary": true
+        },
+        {
+          "id": "10f953b7-f6a5-4dba-9448-f48640348fa5",
+          "board": "edexcel",
+          "code": "EDEX 9.36C",
+          "primary": true
+        },
+        {
+          "id": "50f47a76-697d-4881-b5af-bd4dc3526295",
+          "board": "edexcel",
+          "code": "EDEX 9.37C",
+          "primary": true
+        },
+        {
+          "id": "8c6a9639-c48f-406d-a9da-a70eff7e4159",
+          "board": "ocr",
+          "code": "OCR C2.3g",
+          "primary": true
+        },
+        {
+          "id": "d95138f6-5d81-4b2b-ae85-f8c0c77f0cff",
+          "board": "ocr",
+          "code": "OCR C2.3h",
+          "primary": true
+        },
+        {
+          "id": "78501c0c-d655-4542-9961-885d170fe282",
+          "board": "ocr",
+          "code": "OCR C2.3i",
+          "primary": true
+        },
+        {
+          "id": "7250f0e3-f756-441e-87f3-1d9904571bd2",
+          "board": "ocr",
+          "code": "OCR C2.3j",
+          "primary": true
+        }
+      ]
+    },
+    {
+      "id": "chem-027",
+      "group": "Quantitative chemistry",
+      "title": "Word, balanced and ionic equations",
+      "scope": "Writing word equations, balanced symbol equations with state symbols, and balanced ionic equations.",
+      "kind": "content",
+      "higher_only": false,
+      "separate_only": false,
+      "spec_points": [
+        {
+          "id": "f97fcb6a-90dd-45b6-9d0d-8e6c0a21d1c3",
+          "board": "edexcel",
+          "code": "EDEX 0.2",
+          "primary": true
+        },
+        {
+          "id": "d61c8cdc-b0fd-4407-88c2-fad9a62793f7",
+          "board": "edexcel",
+          "code": "EDEX 0.3",
+          "primary": true
+        },
+        {
+          "id": "a6aa1fa3-442f-4812-be9a-21d14bc4ae53",
+          "board": "edexcel",
+          "code": "EDEX 0.4",
+          "primary": true
+        },
+        {
+          "id": "64231796-af61-4542-8c2b-58298e495928",
+          "board": "ocr",
+          "code": "OCR C3.1b",
+          "primary": true
+        },
+        {
+          "id": "e16368f9-ac41-486d-89d6-6feaffb9633e",
+          "board": "ocr",
+          "code": "OCR C3.1c",
+          "primary": true
+        },
+        {
+          "id": "b6cdb4eb-79a9-4d1f-959f-24f489322941",
+          "board": "ocr",
+          "code": "OCR C3.1e",
+          "primary": true
+        },
+        {
+          "id": "b70de8ca-b890-4fb3-96dc-27bad926f525",
+          "board": "ocr",
+          "code": "OCR C3.1f",
+          "primary": true
+        },
+        {
+          "id": "7671f931-e2fc-473e-a2ac-21ef7a621d40",
+          "board": "aqa",
+          "code": "AQA 4.2.2.2",
+          "primary": true
+        },
+        {
+          "id": "64f85bad-cc4d-4935-b584-84fd2ad7e84b",
+          "board": "aqa_trilogy",
+          "code": "AQA T 5.2.2.2",
+          "primary": true
+        }
+      ]
+    },
+    {
+      "id": "chem-028",
+      "group": "Quantitative chemistry",
+      "title": "Conservation of mass",
+      "scope": "The law of conservation of mass, and why mass seems to change when a gas is given off or taken in.",
+      "kind": "content",
+      "higher_only": false,
+      "separate_only": false,
+      "spec_points": [
+        {
+          "id": "6d9966c1-8e06-4eed-826c-4061da842ad1",
+          "board": "aqa",
+          "code": "AQA 4.3.1.1",
+          "primary": true
+        },
+        {
+          "id": "84e4ba2e-36a4-40f2-bea8-e8e62439b683",
+          "board": "aqa_trilogy",
+          "code": "AQA T 5.3.1.1",
+          "primary": true
+        },
+        {
+          "id": "eedf06ce-3b8b-4ca1-8849-3b5841c3b583",
+          "board": "aqa",
+          "code": "AQA 4.3.1.3",
+          "primary": true
+        },
+        {
+          "id": "87053ee4-08f1-4f57-ae48-bc82440c37d6",
+          "board": "aqa_trilogy",
+          "code": "AQA T 5.3.1.3",
+          "primary": true
+        },
+        {
+          "id": "cb73850c-5950-4fdc-99e6-d8f6a883b171",
+          "board": "edexcel",
+          "code": "EDEX 1.47",
+          "primary": true
+        },
+        {
+          "id": "f3e3f0b6-51c3-47d2-b7a1-44260eec5784",
+          "board": "ocr",
+          "code": "OCR C3.1i",
+          "primary": true
+        },
+        {
+          "id": "1e6159b8-5832-428c-94b4-3896cf199adf",
+          "board": "ocr",
+          "code": "OCR C3.1j",
+          "primary": true
+        }
+      ]
+    },
+    {
+      "id": "chem-029",
+      "group": "Quantitative chemistry",
+      "title": "Relative formula mass and percentage by mass",
+      "scope": "Calculating Mr from relative atomic masses and the percentage by mass of an element in a compound.",
+      "kind": "content",
+      "higher_only": false,
+      "separate_only": false,
+      "spec_points": [
+        {
+          "id": "9e257fbc-d158-4b11-8bf1-8be56a4d0b0b",
+          "board": "aqa",
+          "code": "AQA 4.3.1.2",
+          "primary": true
+        },
+        {
+          "id": "d1e872d6-63e0-4ff3-8f90-8d3396927619",
+          "board": "aqa_trilogy",
+          "code": "AQA T 5.3.1.2",
+          "primary": true
+        },
+        {
+          "id": "d6c2e220-83a2-4dd8-bbcd-d3d310642986",
+          "board": "edexcel",
+          "code": "EDEX 1.43",
+          "primary": true
+        },
+        {
+          "id": "45fa3927-17d8-481c-892d-2eb8d6f1f143",
+          "board": "ocr",
+          "code": "OCR C2.1c",
+          "primary": true
+        }
+      ]
+    },
+    {
+      "id": "chem-030",
+      "group": "Quantitative chemistry",
+      "title": "Empirical and molecular formulae",
+      "scope": "Working out empirical formulae from reacting masses or percentages, the link to molecular formulae, and the magnesium oxide experiment.",
+      "kind": "content",
+      "higher_only": false,
+      "separate_only": false,
+      "spec_points": [
+        {
+          "id": "f59f8a0b-501e-46e7-bbb8-8361831c6231",
+          "board": "edexcel",
+          "code": "EDEX 1.44",
+          "primary": true
+        },
+        {
+          "id": "44d67354-e267-44ee-81eb-91d589990745",
+          "board": "edexcel",
+          "code": "EDEX 1.45",
+          "primary": true
+        },
+        {
+          "id": "f398e792-a0b6-43e2-bcb0-0d9037efb5d7",
+          "board": "edexcel",
+          "code": "EDEX 1.46",
+          "primary": true
+        },
+        {
+          "id": "adba84a5-fc3a-4feb-b15b-04a953ff0ee1",
+          "board": "ocr",
+          "code": "OCR C2.1d",
+          "primary": true
+        },
+        {
+          "id": "4e5e550e-e760-4063-8ec5-2ff9d9f292c4",
+          "board": "aqa",
+          "code": "AQA 4.2.1.3",
+          "primary": false
+        },
+        {
+          "id": "588c6424-ae3e-45a2-aaca-678805219fd6",
+          "board": "aqa_trilogy",
+          "code": "AQA T 5.2.1.3",
+          "primary": false
+        }
+      ]
+    },
+    {
+      "id": "chem-031",
+      "group": "Quantitative chemistry",
+      "title": "The mole and the Avogadro constant",
+      "scope": "The mole as a fixed number of particles and converting between mass, moles and number of particles.",
+      "kind": "content",
+      "higher_only": true,
+      "separate_only": false,
+      "spec_points": [
+        {
+          "id": "c64ec80c-c0f4-43d9-9245-c7d4997e9741",
+          "board": "aqa",
+          "code": "AQA 4.3.2.1",
+          "primary": true
+        },
+        {
+          "id": "acb24f2d-64db-4342-ad62-9494d1854b70",
+          "board": "aqa_trilogy",
+          "code": "AQA T 5.3.2.1",
+          "primary": true
+        },
+        {
+          "id": "2b354305-1ba6-4e65-a71d-07e0554d83a0",
+          "board": "edexcel",
+          "code": "EDEX 1.50",
+          "primary": true
+        },
+        {
+          "id": "f1bc04da-f15f-4fef-b187-8a3a8304552c",
+          "board": "edexcel",
+          "code": "EDEX 1.51",
+          "primary": true
+        },
+        {
+          "id": "7203c6f7-6ced-4199-a271-ca8e99cd40d8",
+          "board": "ocr",
+          "code": "OCR C3.1g",
+          "primary": true
+        },
+        {
+          "id": "d092749b-e5b3-4a44-ac49-bef760803c4a",
+          "board": "ocr",
+          "code": "OCR C3.1h",
+          "primary": true
+        }
+      ]
+    },
+    {
+      "id": "chem-032",
+      "group": "Quantitative chemistry",
+      "title": "Reacting masses from equations",
+      "scope": "Using a balanced equation and moles to calculate the mass of a reactant or product.",
+      "kind": "content",
+      "higher_only": true,
+      "separate_only": false,
+      "spec_points": [
+        {
+          "id": "18ddd924-bf38-477a-9482-2304e40544b4",
+          "board": "aqa",
+          "code": "AQA 4.3.2.2",
+          "primary": true
+        },
+        {
+          "id": "5d0298e0-ce75-4871-895e-aba922b1c8ce",
+          "board": "aqa_trilogy",
+          "code": "AQA T 5.3.2.2",
+          "primary": true
+        },
+        {
+          "id": "e7a1720f-19f7-474a-b076-b55511c5201b",
+          "board": "edexcel",
+          "code": "EDEX 1.48",
+          "primary": true
+        },
+        {
+          "id": "6354c1c0-d24c-4f0e-aa05-690c473cff58",
+          "board": "ocr",
+          "code": "OCR C3.1l",
+          "primary": true
+        }
+      ]
+    },
+    {
+      "id": "chem-033",
+      "group": "Quantitative chemistry",
+      "title": "Using moles to balance equations",
+      "scope": "Deducing the balancing numbers (stoichiometry) of an equation from the masses of reactants and products.",
+      "kind": "content",
+      "higher_only": true,
+      "separate_only": false,
+      "spec_points": [
+        {
+          "id": "cf5d06d7-8c7c-47bf-81d8-35e6a79b3fff",
+          "board": "aqa",
+          "code": "AQA 4.3.2.3",
+          "primary": true
+        },
+        {
+          "id": "e408dd49-8508-4e30-95f3-46cb4aee8c90",
+          "board": "aqa_trilogy",
+          "code": "AQA T 5.3.2.3",
+          "primary": true
+        },
+        {
+          "id": "16da3ef0-1947-4911-8ce5-e564bed604c6",
+          "board": "edexcel",
+          "code": "EDEX 1.53",
+          "primary": true
+        },
+        {
+          "id": "f285c0d0-0124-4469-a7df-7dfb0857b680",
+          "board": "ocr",
+          "code": "OCR C3.1k",
+          "primary": true
+        }
+      ]
+    },
+    {
+      "id": "chem-034",
+      "group": "Quantitative chemistry",
+      "title": "Limiting reactants",
+      "scope": "Why the reactant that is used up limits the amount of product, and calculations with an excess reactant.",
+      "kind": "content",
+      "higher_only": true,
+      "separate_only": false,
+      "spec_points": [
+        {
+          "id": "f560f102-8cf7-4174-8fdd-40934a71d926",
+          "board": "aqa",
+          "code": "AQA 4.3.2.4",
+          "primary": true
+        },
+        {
+          "id": "bf18ae89-f962-4974-81a1-d62b773bf1f4",
+          "board": "aqa_trilogy",
+          "code": "AQA T 5.3.2.4",
+          "primary": true
+        },
+        {
+          "id": "3c87b0d7-54da-4932-aaa7-490c045c050c",
+          "board": "edexcel",
+          "code": "EDEX 1.52",
+          "primary": true
+        },
+        {
+          "id": "f285c0d0-0124-4469-a7df-7dfb0857b680",
+          "board": "ocr",
+          "code": "OCR C3.1k",
+          "primary": false
+        }
+      ]
+    },
+    {
+      "id": "chem-035",
+      "group": "Quantitative chemistry",
+      "title": "Concentration in g/dm³",
+      "scope": "Calculating concentration as mass of solute per volume of solution, and what dilute and concentrated mean.",
+      "kind": "content",
+      "higher_only": false,
+      "separate_only": false,
+      "spec_points": [
+        {
+          "id": "801450c1-c607-4de7-a09b-7337a91475c1",
+          "board": "aqa",
+          "code": "AQA 4.3.2.5",
+          "primary": true
+        },
+        {
+          "id": "82d9f92f-3dcb-449e-a9be-0c7a2856d1c7",
+          "board": "aqa_trilogy",
+          "code": "AQA T 5.3.2.5",
+          "primary": true
+        },
+        {
+          "id": "a11b078c-7843-451b-adec-7e3f96489123",
+          "board": "edexcel",
+          "code": "EDEX 1.49",
+          "primary": true
+        },
+        {
+          "id": "77c9e2ff-974f-451b-a68b-4e271c242029",
+          "board": "ocr",
+          "code": "OCR C3.3g",
+          "primary": false
+        },
+        {
+          "id": "be7eb613-d8d6-4e80-8171-e96d5ce8da1b",
+          "board": "ocr",
+          "code": "OCR C5.1a",
+          "primary": false
+        }
+      ]
+    },
+    {
+      "id": "chem-036",
+      "group": "Quantitative chemistry",
+      "title": "Concentration in mol/dm³",
+      "scope": "Calculating concentration in mol/dm³ and converting between g/dm³ and mol/dm³.",
+      "kind": "content",
+      "higher_only": true,
+      "separate_only": true,
+      "spec_points": [
+        {
+          "id": "2c812b33-2a38-4bcc-97d4-f8a67e46c735",
+          "board": "aqa",
+          "code": "AQA 4.3.4",
+          "primary": true
+        },
+        {
+          "id": "379b87e0-c12d-4ef4-8bfe-c3b1fb417654",
+          "board": "edexcel",
+          "code": "EDEX 5.8C",
+          "primary": true
+        },
+        {
+          "id": "be7eb613-d8d6-4e80-8171-e96d5ce8da1b",
+          "board": "ocr",
+          "code": "OCR C5.1a",
+          "primary": true
+        }
+      ]
+    },
+    {
+      "id": "chem-037",
+      "group": "Quantitative chemistry",
+      "title": "Titration calculations",
+      "scope": "Using titration results to calculate an unknown concentration or volume of solution.",
+      "kind": "content",
+      "higher_only": true,
+      "separate_only": true,
+      "spec_points": [
+        {
+          "id": "19496611-84af-48ef-b817-792c74c97d0c",
+          "board": "edexcel",
+          "code": "EDEX 5.10C",
+          "primary": true
+        },
+        {
+          "id": "be26760a-35b6-42e8-89aa-b9bab69676dd",
+          "board": "ocr",
+          "code": "OCR C5.1c",
+          "primary": true
+        },
+        {
+          "id": "2c812b33-2a38-4bcc-97d4-f8a67e46c735",
+          "board": "aqa",
+          "code": "AQA 4.3.4",
+          "primary": false
+        },
+        {
+          "id": "324d052b-e81e-400b-bee3-e0be1dd3c57e",
+          "board": "aqa",
+          "code": "AQA 4.4.2.5",
+          "primary": false
+        }
+      ]
+    },
+    {
+      "id": "chem-038",
+      "group": "Quantitative chemistry",
+      "title": "Percentage yield",
+      "scope": "Why actual yield is less than theoretical yield, and calculating theoretical mass and percentage yield.",
+      "kind": "content",
+      "higher_only": false,
+      "separate_only": true,
+      "spec_points": [
+        {
+          "id": "01670f53-fa96-481a-b63a-aa7ae4be1b6a",
+          "board": "aqa",
+          "code": "AQA 4.3.3.1",
+          "primary": true
+        },
+        {
+          "id": "9a059639-d749-40a6-88e1-00935f0a63ff",
+          "board": "edexcel",
+          "code": "EDEX 5.11C",
+          "primary": true
+        },
+        {
+          "id": "5018c837-a756-4c12-9848-811df7f3cf59",
+          "board": "edexcel",
+          "code": "EDEX 5.12C",
+          "primary": true
+        },
+        {
+          "id": "696104bb-a0a6-4e01-a473-abd24e71dbb5",
+          "board": "ocr",
+          "code": "OCR C5.1g",
+          "primary": true
+        },
+        {
+          "id": "58b930d9-0268-4269-ab2d-ca76dbf432ac",
+          "board": "ocr",
+          "code": "OCR C5.1h",
+          "primary": true
+        }
+      ]
+    },
+    {
+      "id": "chem-039",
+      "group": "Quantitative chemistry",
+      "title": "Atom economy",
+      "scope": "Calculating atom economy and using it with yield, rate and cost to choose a reaction pathway.",
+      "kind": "content",
+      "higher_only": false,
+      "separate_only": true,
+      "spec_points": [
+        {
+          "id": "fbd4227b-c310-4ca1-84ce-fa2709728ede",
+          "board": "aqa",
+          "code": "AQA 4.3.3.2",
+          "primary": true
+        },
+        {
+          "id": "d036b900-3e9f-40cb-b03e-100410f3a409",
+          "board": "edexcel",
+          "code": "EDEX 5.13C",
+          "primary": true
+        },
+        {
+          "id": "5d50c219-a9f8-4713-89e8-cf50f9c76a44",
+          "board": "edexcel",
+          "code": "EDEX 5.14C",
+          "primary": true
+        },
+        {
+          "id": "19859e3f-a3fb-43a2-9c91-844d57ae64be",
+          "board": "edexcel",
+          "code": "EDEX 5.15C",
+          "primary": true
+        },
+        {
+          "id": "93bd6556-1789-477b-bbd6-9109e905ee80",
+          "board": "ocr",
+          "code": "OCR C5.1i",
+          "primary": true
+        },
+        {
+          "id": "b93ea304-8b2e-4557-847b-6a8c86bfba57",
+          "board": "ocr",
+          "code": "OCR C5.1j",
+          "primary": true
+        },
+        {
+          "id": "95a1be17-c6a7-4e96-9120-bb04c5b0e387",
+          "board": "ocr",
+          "code": "OCR C5.1k",
+          "primary": true
+        }
+      ]
+    },
+    {
+      "id": "chem-040",
+      "group": "Quantitative chemistry",
+      "title": "Molar gas volume",
+      "scope": "Using 24 dm³ per mole at room temperature and pressure to calculate volumes of gases in reactions.",
+      "kind": "content",
+      "higher_only": true,
+      "separate_only": true,
+      "spec_points": [
+        {
+          "id": "39761e3f-462b-4016-afd8-90792e6a11a7",
+          "board": "aqa",
+          "code": "AQA 4.3.5",
+          "primary": true
+        },
+        {
+          "id": "27c0f24b-b0c5-4b32-bd0a-dfa8e63bf48d",
+          "board": "edexcel",
+          "code": "EDEX 5.16C",
+          "primary": true
+        },
+        {
+          "id": "d8fb0831-dfda-40df-a1d8-3ad19923caa9",
+          "board": "edexcel",
+          "code": "EDEX 5.17C",
+          "primary": true
+        },
+        {
+          "id": "f22b0093-d724-40a9-b3a6-dc579c433587",
+          "board": "edexcel",
+          "code": "EDEX 5.18C",
+          "primary": true
+        },
+        {
+          "id": "d8fed1e7-b648-49c6-ab82-762347548710",
+          "board": "ocr",
+          "code": "OCR C5.1d",
+          "primary": true
+        },
+        {
+          "id": "befcad6c-e40d-43f3-86e5-a35500eb8cbb",
+          "board": "ocr",
+          "code": "OCR C5.1e",
+          "primary": true
+        }
+      ]
+    },
+    {
+      "id": "chem-041",
+      "group": "Chemical changes",
+      "title": "Oxidation and reduction (oxygen)",
+      "scope": "Metals reacting with oxygen, and oxidation and reduction as gain and loss of oxygen.",
+      "kind": "content",
+      "higher_only": false,
+      "separate_only": false,
+      "spec_points": [
+        {
+          "id": "40b815dc-82d7-4f9a-a36a-29b0d868ddcb",
+          "board": "aqa",
+          "code": "AQA 4.4.1.1",
+          "primary": true
+        },
+        {
+          "id": "4fb80692-6001-450f-934a-31ca07164a8f",
+          "board": "aqa_trilogy",
+          "code": "AQA T 5.4.1.1",
+          "primary": true
+        },
+        {
+          "id": "20930848-f596-495a-8257-f2a678d58091",
+          "board": "edexcel",
+          "code": "EDEX 4.5",
+          "primary": true
+        },
+        {
+          "id": "a2428503-907f-4b58-889f-b790c90285cf",
+          "board": "ocr",
+          "code": "OCR C3.3a",
+          "primary": true
+        }
+      ]
+    },
+    {
+      "id": "chem-042",
+      "group": "Chemical changes",
+      "title": "The reactivity series",
+      "scope": "Ordering metals by their reactions with water and acids, and how reactivity relates to forming positive ions and resisting oxidation.",
+      "kind": "content",
+      "higher_only": false,
+      "separate_only": false,
+      "spec_points": [
+        {
+          "id": "64bb97a5-d18e-41f9-9805-f89e1ce66bbe",
+          "board": "aqa",
+          "code": "AQA 4.4.1.2",
+          "primary": true
+        },
+        {
+          "id": "a03ed155-a7a4-4514-89d1-e8acb13d47b0",
+          "board": "aqa_trilogy",
+          "code": "AQA T 5.4.1.2",
+          "primary": true
+        },
+        {
+          "id": "33128ee9-e1d2-4fee-a764-db8ae59673bb",
+          "board": "edexcel",
+          "code": "EDEX 4.1",
+          "primary": true
+        },
+        {
+          "id": "c29d0393-9c0e-4aa2-bfc0-2838e54eaf2b",
+          "board": "edexcel",
+          "code": "EDEX 4.3",
+          "primary": true
+        },
+        {
+          "id": "c25275aa-7e97-4d06-86de-d9314e2455c6",
+          "board": "edexcel",
+          "code": "EDEX 4.9",
+          "primary": true
+        },
+        {
+          "id": "e92078ad-3c04-4c1e-bb8c-c519a167c521",
+          "board": "ocr",
+          "code": "OCR C4.1e",
+          "primary": true
+        },
+        {
+          "id": "c3dad98e-a9cc-423e-9bf4-a5259f3d2fb4",
+          "board": "ocr",
+          "code": "OCR C4.1f",
+          "primary": true
+        }
+      ]
+    },
+    {
+      "id": "chem-043",
+      "group": "Chemical changes",
+      "title": "Extraction of metals by reduction with carbon",
+      "scope": "Why unreactive metals occur native and how metals below carbon are extracted from ores by reduction.",
+      "kind": "content",
+      "higher_only": false,
+      "separate_only": false,
+      "spec_points": [
+        {
+          "id": "3306eee4-45ff-4bd2-93c2-d27a551a87b2",
+          "board": "aqa",
+          "code": "AQA 4.4.1.3",
+          "primary": true
+        },
+        {
+          "id": "617ba2a3-198f-4e0b-aa06-66c9fcf751a1",
+          "board": "aqa_trilogy",
+          "code": "AQA T 5.4.1.3",
+          "primary": true
+        },
+        {
+          "id": "56c601fb-6a0f-421b-8ff4-45f7963a55cc",
+          "board": "edexcel",
+          "code": "EDEX 4.4",
+          "primary": true
+        },
+        {
+          "id": "e4bf55f5-a0d1-4bd4-80ea-b085b3e788c4",
+          "board": "edexcel",
+          "code": "EDEX 4.6",
+          "primary": true
+        },
+        {
+          "id": "19209296-9744-4519-b0c0-861770ba23e5",
+          "board": "edexcel",
+          "code": "EDEX 4.7",
+          "primary": true
+        },
+        {
+          "id": "ba94b5f8-3a30-44bd-806f-22d4e158aa61",
+          "board": "ocr",
+          "code": "OCR C6.1a",
+          "primary": true
+        }
+      ]
+    },
+    {
+      "id": "chem-044",
+      "group": "Chemical changes",
+      "title": "Redox in terms of electrons",
+      "scope": "Oxidation and reduction as loss and gain of electrons, ionic equations for displacement reactions, and spectator ions.",
+      "kind": "content",
+      "higher_only": true,
+      "separate_only": false,
+      "spec_points": [
+        {
+          "id": "6f9a5c6d-bb04-4e01-bb11-683b2401b162",
+          "board": "aqa",
+          "code": "AQA 4.4.1.4",
+          "primary": true
+        },
+        {
+          "id": "6f5476cc-5fd6-4242-8fe5-6f8fe26ab842",
+          "board": "aqa_trilogy",
+          "code": "AQA T 5.4.1.4",
+          "primary": true
+        },
+        {
+          "id": "93fe4676-e108-4fb0-ab6a-602be0f5abb5",
+          "board": "edexcel",
+          "code": "EDEX 3.28",
+          "primary": true
+        },
+        {
+          "id": "f11f72d1-cdc3-4868-a78d-89a1e8114087",
+          "board": "edexcel",
+          "code": "EDEX 4.2",
+          "primary": true
+        },
+        {
+          "id": "6717bba8-3918-4aff-81c8-a9c3caef83af",
+          "board": "ocr",
+          "code": "OCR C3.3b",
+          "primary": true
+        },
+        {
+          "id": "fdabe1c6-b081-438c-8e72-ccc3f67adbfb",
+          "board": "aqa",
+          "code": "AQA 4.4.2.1",
+          "primary": false
+        },
+        {
+          "id": "3343453e-40ff-4cbd-a839-0d3559754a2b",
+          "board": "aqa_trilogy",
+          "code": "AQA T 5.4.2.1",
+          "primary": false
+        },
+        {
+          "id": "46fff7a9-99f2-478d-b648-3242594811a0",
+          "board": "edexcel",
+          "code": "EDEX 6.12",
+          "primary": false
+        }
+      ]
+    },
+    {
+      "id": "chem-045",
+      "group": "Chemical changes",
+      "title": "Acids, alkalis and the pH scale",
+      "scope": "Hydrogen and hydroxide ions, the pH scale, and the colours of common indicators.",
+      "kind": "content",
+      "higher_only": false,
+      "separate_only": false,
+      "spec_points": [
+        {
+          "id": "1903c6f6-8196-4065-91cf-afb7f23b339a",
+          "board": "aqa",
+          "code": "AQA 4.4.2.4",
+          "primary": true
+        },
+        {
+          "id": "ce6f29ee-aa18-4655-ba80-0496a6ce5c32",
+          "board": "aqa_trilogy",
+          "code": "AQA T 5.4.2.4",
+          "primary": true
+        },
+        {
+          "id": "747345b7-5325-4a00-bfd9-27f050860403",
+          "board": "edexcel",
+          "code": "EDEX 3.1",
+          "primary": true
+        },
+        {
+          "id": "ce5f0a4a-1b58-4d7a-83ee-63fc10328ad3",
+          "board": "edexcel",
+          "code": "EDEX 3.2",
+          "primary": true
+        },
+        {
+          "id": "12198162-52a1-47ca-a499-61591c5c1d11",
+          "board": "edexcel",
+          "code": "EDEX 3.3",
+          "primary": true
+        },
+        {
+          "id": "805fca61-581c-46c7-a0ee-1b2bf4e7a89f",
+          "board": "edexcel",
+          "code": "EDEX 3.4",
+          "primary": true
+        },
+        {
+          "id": "b2eedffa-3fff-4ab9-8285-14261481a556",
+          "board": "ocr",
+          "code": "OCR C3.3c",
+          "primary": true
+        },
+        {
+          "id": "3b4fc45b-851c-422c-a3bb-97bf7263b730",
+          "board": "ocr",
+          "code": "OCR C3.3h",
+          "primary": true
+        },
+        {
+          "id": "24aa70bf-ed4c-451b-bd61-7451545958ca",
+          "board": "ocr",
+          "code": "OCR C3.3i",
+          "primary": true
+        }
+      ]
+    },
+    {
+      "id": "chem-046",
+      "group": "Chemical changes",
+      "title": "Strong and weak acids",
+      "scope": "Strong versus weak acids by degree of ionisation, dilute versus concentrated, and how pH changes by one unit per factor of 10 in hydrogen ion concentration.",
+      "kind": "content",
+      "higher_only": false,
+      "separate_only": false,
+      "spec_points": [
+        {
+          "id": "f36576b6-f47a-460f-bfd1-b8845927c34c",
+          "board": "aqa",
+          "code": "AQA 4.4.2.6",
+          "primary": true
+        },
+        {
+          "id": "1779ec44-3081-4c1d-9fea-7f8dbf6328e9",
+          "board": "aqa_trilogy",
+          "code": "AQA T 5.4.2.5",
+          "primary": true
+        },
+        {
+          "id": "023daad4-b739-473b-8966-2e0116cdaf44",
+          "board": "edexcel",
+          "code": "EDEX 3.5",
+          "primary": true
+        },
+        {
+          "id": "8e1b434b-b590-410b-8de5-ce80c99f3495",
+          "board": "edexcel",
+          "code": "EDEX 3.7",
+          "primary": true
+        },
+        {
+          "id": "272725df-f93a-49a3-a9a1-05bf3c211144",
+          "board": "edexcel",
+          "code": "EDEX 3.8",
+          "primary": true
+        },
+        {
+          "id": "77c9e2ff-974f-451b-a68b-4e271c242029",
+          "board": "ocr",
+          "code": "OCR C3.3g",
+          "primary": true
+        },
+        {
+          "id": "c2d2f1fd-607b-4a13-8578-3e0d58dcc907",
+          "board": "ocr",
+          "code": "OCR C3.3j",
+          "primary": true
+        }
+      ]
+    },
+    {
+      "id": "chem-047",
+      "group": "Chemical changes",
+      "title": "Neutralisation, bases and salts",
+      "scope": "Bases and alkalis, neutralisation as H+ + OH- giving water, and how to name the salt formed.",
+      "kind": "content",
+      "higher_only": false,
+      "separate_only": false,
+      "spec_points": [
+        {
+          "id": "2b381918-1faa-44e1-9cbe-78352890923e",
+          "board": "aqa",
+          "code": "AQA 4.4.2.2",
+          "primary": true
+        },
+        {
+          "id": "8f066a57-607c-4a7f-9a31-a8937e54772e",
+          "board": "aqa_trilogy",
+          "code": "AQA T 5.4.2.2",
+          "primary": true
+        },
+        {
+          "id": "b6f82872-0617-4cba-8391-22543df4c395",
+          "board": "edexcel",
+          "code": "EDEX 3.9",
+          "primary": true
+        },
+        {
+          "id": "17884375-a505-44b2-9aa2-67409b9c5598",
+          "board": "edexcel",
+          "code": "EDEX 3.10",
+          "primary": true
+        },
+        {
+          "id": "09a7333c-6ee1-4f37-a762-8049507af6d0",
+          "board": "edexcel",
+          "code": "EDEX 3.13",
+          "primary": true
+        },
+        {
+          "id": "4bd74017-9a9c-4e3c-8d10-3ae2e9d82f39",
+          "board": "edexcel",
+          "code": "EDEX 3.14",
+          "primary": true
+        },
+        {
+          "id": "0c07baa2-6442-409a-b365-86e326bd2b96",
+          "board": "ocr",
+          "code": "OCR C3.3d",
+          "primary": true
+        },
+        {
+          "id": "5389a49b-c7b2-470b-ac37-9471023dcc2b",
+          "board": "ocr",
+          "code": "OCR C3.3e",
+          "primary": true
+        },
+        {
+          "id": "1903c6f6-8196-4065-91cf-afb7f23b339a",
+          "board": "aqa",
+          "code": "AQA 4.4.2.4",
+          "primary": false
+        },
+        {
+          "id": "ce6f29ee-aa18-4655-ba80-0496a6ce5c32",
+          "board": "aqa_trilogy",
+          "code": "AQA T 5.4.2.4",
+          "primary": false
+        }
+      ]
+    },
+    {
+      "id": "chem-048",
+      "group": "Chemical changes",
+      "title": "Reactions of acids with metals and carbonates",
+      "scope": "The products of acids reacting with metals and carbonates, with balanced equations and the redox view.",
+      "kind": "content",
+      "higher_only": false,
+      "separate_only": false,
+      "spec_points": [
+        {
+          "id": "fdabe1c6-b081-438c-8e72-ccc3f67adbfb",
+          "board": "aqa",
+          "code": "AQA 4.4.2.1",
+          "primary": true
+        },
+        {
+          "id": "3343453e-40ff-4cbd-a839-0d3559754a2b",
+          "board": "aqa_trilogy",
+          "code": "AQA T 5.4.2.1",
+          "primary": true
+        },
+        {
+          "id": "7c23963c-07d6-4b99-b836-08c0934d018f",
+          "board": "edexcel",
+          "code": "EDEX 3.11",
+          "primary": true
+        },
+        {
+          "id": "98b026bf-4be0-42c1-9a41-c3a2c02a17b1",
+          "board": "ocr",
+          "code": "OCR C3.3f",
+          "primary": true
+        }
+      ]
+    },
+    {
+      "id": "chem-049",
+      "group": "Chemical changes",
+      "title": "Required practical: making a soluble salt",
+      "scope": "Preparing a pure, dry soluble salt (eg copper sulfate) from an acid and an insoluble base, and when titration is needed instead.",
+      "kind": "practical",
+      "higher_only": false,
+      "separate_only": false,
+      "spec_points": [
+        {
+          "id": "1c5f1527-3224-422c-bad0-c121fbc9e30f",
+          "board": "aqa",
+          "code": "AQA 4.4.2.3",
+          "primary": true
+        },
+        {
+          "id": "1b092998-2777-487a-94fa-d11b084f75ab",
+          "board": "aqa_trilogy",
+          "code": "AQA T 5.4.2.3",
+          "primary": true
+        },
+        {
+          "id": "3bc4c0e5-3ac1-480c-88a8-02d2bf0e8de8",
+          "board": "edexcel",
+          "code": "EDEX 3.15",
+          "primary": true
+        },
+        {
+          "id": "ce3a2414-1e8c-438f-ad2e-a529bddc2d0b",
+          "board": "edexcel",
+          "code": "EDEX 3.16",
+          "primary": true
+        },
+        {
+          "id": "d999ecc9-d546-4226-88be-04f49b7fe078",
+          "board": "edexcel",
+          "code": "EDEX 3.17",
+          "primary": true
+        },
+        {
+          "id": "0c07baa2-6442-409a-b365-86e326bd2b96",
+          "board": "ocr",
+          "code": "OCR C3.3d",
+          "primary": false
+        }
+      ]
+    },
+    {
+      "id": "chem-050",
+      "group": "Chemical changes",
+      "title": "Solubility rules and making insoluble salts",
+      "scope": "The solubility rules for common compounds, predicting precipitates, and preparing a pure, dry insoluble salt.",
+      "kind": "content",
+      "higher_only": false,
+      "separate_only": false,
+      "spec_points": [
+        {
+          "id": "832483eb-0aff-4234-bb84-013fb02ecb58",
+          "board": "edexcel",
+          "code": "EDEX 3.19",
+          "primary": true
+        },
+        {
+          "id": "69e99340-c1a2-43c6-b300-43c818763c53",
+          "board": "edexcel",
+          "code": "EDEX 3.20",
+          "primary": true
+        },
+        {
+          "id": "5a8432c5-eeff-4ccb-82f4-3d5b6db7db49",
+          "board": "edexcel",
+          "code": "EDEX 3.21",
+          "primary": true
+        }
+      ]
+    },
+    {
+      "id": "chem-051",
+      "group": "Chemical changes",
+      "title": "Practical: pH change during neutralisation",
+      "scope": "Measuring pH with indicator or a pH meter while adding a base such as calcium hydroxide to an acid.",
+      "kind": "practical",
+      "higher_only": false,
+      "separate_only": false,
+      "spec_points": [
+        {
+          "id": "ce284298-8594-43d5-8ace-3415ed022e7d",
+          "board": "edexcel",
+          "code": "EDEX 3.6",
+          "primary": true
+        },
+        {
+          "id": "c6687288-67e5-4295-ae73-ed9243070328",
+          "board": "ocr",
+          "code": "OCR C3.3k",
+          "primary": true
+        },
+        {
+          "id": "1903c6f6-8196-4065-91cf-afb7f23b339a",
+          "board": "aqa",
+          "code": "AQA 4.4.2.4",
+          "primary": false
+        },
+        {
+          "id": "ce6f29ee-aa18-4655-ba80-0496a6ce5c32",
+          "board": "aqa_trilogy",
+          "code": "AQA T 5.4.2.4",
+          "primary": false
+        }
+      ]
+    },
+    {
+      "id": "chem-052",
+      "group": "Chemical changes",
+      "title": "Required practical: acid-alkali titration",
+      "scope": "Carrying out an accurate titration with burette, pipette and indicator to find reacting volumes.",
+      "kind": "practical",
+      "higher_only": false,
+      "separate_only": false,
+      "spec_points": [
+        {
+          "id": "324d052b-e81e-400b-bee3-e0be1dd3c57e",
+          "board": "aqa",
+          "code": "AQA 4.4.2.5",
+          "primary": true
+        },
+        {
+          "id": "c9ea421c-a5bd-4f57-8e01-7e24ff51f9bc",
+          "board": "edexcel",
+          "code": "EDEX 3.18",
+          "primary": true
+        },
+        {
+          "id": "56de391d-7e12-435b-9190-e62c1f555e32",
+          "board": "edexcel",
+          "code": "EDEX 5.9C",
+          "primary": true
+        },
+        {
+          "id": "48a2a981-70ae-4956-917b-5ad097b9cdf3",
+          "board": "ocr",
+          "code": "OCR C5.1b",
+          "primary": true
+        }
+      ]
+    },
+    {
+      "id": "chem-053",
+      "group": "Chemical changes",
+      "title": "The process of electrolysis",
+      "scope": "What electrolytes are and how ions move to the electrodes when a direct current passes through.",
+      "kind": "content",
+      "higher_only": false,
+      "separate_only": false,
+      "spec_points": [
+        {
+          "id": "6de4b9d3-6ff0-41f1-b634-a27928006794",
+          "board": "aqa",
+          "code": "AQA 4.4.3.1",
+          "primary": true
+        },
+        {
+          "id": "0ebb22c3-eee1-4aaf-aabd-dce2bc58e204",
+          "board": "aqa_trilogy",
+          "code": "AQA T 5.4.3.1",
+          "primary": true
+        },
+        {
+          "id": "ba810be2-6e29-4012-980d-c5852586e4f6",
+          "board": "edexcel",
+          "code": "EDEX 3.22",
+          "primary": true
+        },
+        {
+          "id": "1ff5be13-69cd-422d-80f2-fd983244b17b",
+          "board": "edexcel",
+          "code": "EDEX 3.23",
+          "primary": true
+        },
+        {
+          "id": "3ee0e18b-cfff-44e1-8029-fbe3787ce502",
+          "board": "edexcel",
+          "code": "EDEX 3.24",
+          "primary": true
+        },
+        {
+          "id": "7f268fc8-9749-418d-8b87-5d4ca6afa75a",
+          "board": "ocr",
+          "code": "OCR C3.4d",
+          "primary": true
+        }
+      ]
+    },
+    {
+      "id": "chem-054",
+      "group": "Chemical changes",
+      "title": "Electrolysis of molten ionic compounds",
+      "scope": "Predicting the products at each electrode when a molten binary ionic compound is electrolysed.",
+      "kind": "content",
+      "higher_only": false,
+      "separate_only": false,
+      "spec_points": [
+        {
+          "id": "24b3667d-6f02-4295-84bc-b762b2a1b865",
+          "board": "aqa",
+          "code": "AQA 4.4.3.2",
+          "primary": true
+        },
+        {
+          "id": "de3da8fa-7f72-4358-a3ac-93fa2a03071a",
+          "board": "aqa_trilogy",
+          "code": "AQA T 5.4.3.2",
+          "primary": true
+        },
+        {
+          "id": "bba26182-3ebc-49e6-a5ec-ea2c825089f2",
+          "board": "edexcel",
+          "code": "EDEX 3.26",
+          "primary": true
+        },
+        {
+          "id": "c1718ad6-8f98-40f4-8a2a-90acebd84afe",
+          "board": "ocr",
+          "code": "OCR C3.4a",
+          "primary": true
+        },
+        {
+          "id": "3859a627-53ee-4cd2-8986-9cd24550c75e",
+          "board": "ocr",
+          "code": "OCR C3.4b",
+          "primary": true
+        }
+      ]
+    },
+    {
+      "id": "chem-055",
+      "group": "Chemical changes",
+      "title": "Electrolysis of aqueous solutions",
+      "scope": "Why hydrogen or the metal forms at the cathode and oxygen or a halogen at the anode when solutions are electrolysed.",
+      "kind": "content",
+      "higher_only": false,
+      "separate_only": false,
+      "spec_points": [
+        {
+          "id": "b2c37116-8c41-499f-ac6d-557bb818f820",
+          "board": "aqa",
+          "code": "AQA 4.4.3.4",
+          "primary": true
+        },
+        {
+          "id": "061cfa73-9899-4162-802b-ae9509172967",
+          "board": "aqa_trilogy",
+          "code": "AQA T 5.4.3.4",
+          "primary": true
+        },
+        {
+          "id": "fc42e875-9c0d-4639-991e-f1bca921134b",
+          "board": "edexcel",
+          "code": "EDEX 3.25",
+          "primary": true
+        },
+        {
+          "id": "9f5a0c2a-24de-4129-a7cf-54aeb124842a",
+          "board": "ocr",
+          "code": "OCR C3.4c",
+          "primary": true
+        }
+      ]
+    },
+    {
+      "id": "chem-056",
+      "group": "Chemical changes",
+      "title": "Half equations at the electrodes",
+      "scope": "Writing half equations for electrode reactions and recognising reduction at the cathode and oxidation at the anode.",
+      "kind": "content",
+      "higher_only": true,
+      "separate_only": false,
+      "spec_points": [
+        {
+          "id": "48195747-431e-47b6-9d06-662f75d41250",
+          "board": "aqa",
+          "code": "AQA 4.4.3.5",
+          "primary": true
+        },
+        {
+          "id": "1579b7dc-49a3-4e72-bd60-0da6dec0467a",
+          "board": "aqa_trilogy",
+          "code": "AQA T 5.4.3.5",
+          "primary": true
+        },
+        {
+          "id": "552ad8e2-1b5c-4ed7-92cf-1b905e6ee847",
+          "board": "edexcel",
+          "code": "EDEX 3.27",
+          "primary": true
+        },
+        {
+          "id": "a1cc8e24-e9c7-4f2f-97a4-5d7fe82e3917",
+          "board": "edexcel",
+          "code": "EDEX 3.29",
+          "primary": true
+        },
+        {
+          "id": "64231796-af61-4542-8c2b-58298e495928",
+          "board": "ocr",
+          "code": "OCR C3.1b",
+          "primary": false
+        },
+        {
+          "id": "7f268fc8-9749-418d-8b87-5d4ca6afa75a",
+          "board": "ocr",
+          "code": "OCR C3.4d",
+          "primary": false
+        }
+      ]
+    },
+    {
+      "id": "chem-057",
+      "group": "Chemical changes",
+      "title": "Extracting aluminium by electrolysis",
+      "scope": "Why reactive metals are extracted by electrolysis and how aluminium is made from molten aluminium oxide and cryolite.",
+      "kind": "content",
+      "higher_only": false,
+      "separate_only": false,
+      "spec_points": [
+        {
+          "id": "6a3e9328-7bac-46dd-9e4f-8c60cb7ba759",
+          "board": "aqa",
+          "code": "AQA 4.4.3.3",
+          "primary": true
+        },
+        {
+          "id": "d0d11d37-5f02-4318-9ce1-f84c42a4d577",
+          "board": "aqa_trilogy",
+          "code": "AQA T 5.4.3.3",
+          "primary": true
+        },
+        {
+          "id": "7cd964ce-9bf7-46c0-ad3e-62d64f2112d9",
+          "board": "ocr",
+          "code": "OCR C6.1b",
+          "primary": true
+        },
+        {
+          "id": "19209296-9744-4519-b0c0-861770ba23e5",
+          "board": "edexcel",
+          "code": "EDEX 4.7",
+          "primary": false
+        }
+      ]
+    },
+    {
+      "id": "chem-058",
+      "group": "Chemical changes",
+      "title": "Practical: electrolysis of copper sulfate solution",
+      "scope": "Electrolysing copper sulfate with inert and with copper electrodes, and how copper electrodes purify copper.",
+      "kind": "practical",
+      "higher_only": false,
+      "separate_only": false,
+      "spec_points": [
+        {
+          "id": "2aabe9e7-24b9-4c10-a8e8-5ea0d124765a",
+          "board": "edexcel",
+          "code": "EDEX 3.30",
+          "primary": true
+        },
+        {
+          "id": "e4ddeeac-5459-4151-8bf5-b60e26c707ce",
+          "board": "edexcel",
+          "code": "EDEX 3.31",
+          "primary": true
+        },
+        {
+          "id": "de1aed7b-3fca-4a4a-946e-46dd49a6ff46",
+          "board": "ocr",
+          "code": "OCR C3.4e",
+          "primary": true
+        },
+        {
+          "id": "b2c37116-8c41-499f-ac6d-557bb818f820",
+          "board": "aqa",
+          "code": "AQA 4.4.3.4",
+          "primary": false
+        },
+        {
+          "id": "061cfa73-9899-4162-802b-ae9509172967",
+          "board": "aqa_trilogy",
+          "code": "AQA T 5.4.3.4",
+          "primary": false
+        }
+      ]
+    },
+    {
+      "id": "chem-059",
+      "group": "Energy changes",
+      "title": "Exothermic and endothermic reactions",
+      "scope": "How reactions transfer energy to or from the surroundings, with everyday examples of each.",
+      "kind": "content",
+      "higher_only": false,
+      "separate_only": false,
+      "spec_points": [
+        {
+          "id": "6c7a26d7-db6c-4d9f-a19c-85292604c7e5",
+          "board": "aqa",
+          "code": "AQA 4.5.1.1",
+          "primary": true
+        },
+        {
+          "id": "f66f3609-f421-43f7-b036-2e5ff458a849",
+          "board": "aqa_trilogy",
+          "code": "AQA T 5.5.1.1",
+          "primary": true
+        },
+        {
+          "id": "97265012-45e1-4988-8f9f-3b5a4c5130ca",
+          "board": "edexcel",
+          "code": "EDEX 7.10",
+          "primary": true
+        },
+        {
+          "id": "f7f464a9-6cb1-4330-bbcd-4d7631044a11",
+          "board": "edexcel",
+          "code": "EDEX 7.11",
+          "primary": true
+        },
+        {
+          "id": "a77f540b-93d3-446c-8381-522171c2c53e",
+          "board": "edexcel",
+          "code": "EDEX 7.9",
+          "primary": false
+        },
+        {
+          "id": "b7d1e919-98ea-4827-a7d3-fe7d3198aa19",
+          "board": "ocr",
+          "code": "OCR C3.2a",
+          "primary": false
+        }
+      ]
+    },
+    {
+      "id": "chem-060",
+      "group": "Energy changes",
+      "title": "Practical: temperature changes in reactions",
+      "scope": "Measuring temperature changes for dissolving, neutralisation, displacement and precipitation to classify reactions.",
+      "kind": "practical",
+      "higher_only": false,
+      "separate_only": false,
+      "spec_points": [
+        {
+          "id": "a77f540b-93d3-446c-8381-522171c2c53e",
+          "board": "edexcel",
+          "code": "EDEX 7.9",
+          "primary": true
+        },
+        {
+          "id": "b7d1e919-98ea-4827-a7d3-fe7d3198aa19",
+          "board": "ocr",
+          "code": "OCR C3.2a",
+          "primary": true
+        },
+        {
+          "id": "6c7a26d7-db6c-4d9f-a19c-85292604c7e5",
+          "board": "aqa",
+          "code": "AQA 4.5.1.1",
+          "primary": false
+        },
+        {
+          "id": "f66f3609-f421-43f7-b036-2e5ff458a849",
+          "board": "aqa_trilogy",
+          "code": "AQA T 5.5.1.1",
+          "primary": false
+        }
+      ]
+    },
+    {
+      "id": "chem-061",
+      "group": "Energy changes",
+      "title": "Reaction profiles and activation energy",
+      "scope": "Drawing and labelling reaction profiles for exothermic and endothermic reactions and explaining activation energy.",
+      "kind": "content",
+      "higher_only": false,
+      "separate_only": false,
+      "spec_points": [
+        {
+          "id": "92adebb0-f526-47ec-b9c9-6cbc4c860e8d",
+          "board": "aqa",
+          "code": "AQA 4.5.1.2",
+          "primary": true
+        },
+        {
+          "id": "8e59ec1e-e51f-4df1-b7ec-cea679a577b3",
+          "board": "aqa_trilogy",
+          "code": "AQA T 5.5.1.2",
+          "primary": true
+        },
+        {
+          "id": "7a3f4b56-31f4-45bb-801c-8c2a04e2d1d8",
+          "board": "edexcel",
+          "code": "EDEX 7.15",
+          "primary": true
+        },
+        {
+          "id": "4b10c8a6-0f7c-4a5b-9a0d-f4996543c72c",
+          "board": "edexcel",
+          "code": "EDEX 7.16",
+          "primary": true
+        },
+        {
+          "id": "826c903e-afc8-4ef0-9991-fc5e7b5efcb7",
+          "board": "ocr",
+          "code": "OCR C3.2b",
+          "primary": true
+        },
+        {
+          "id": "04a4a65c-6ea9-4b7f-88b9-75d80389b9b6",
+          "board": "ocr",
+          "code": "OCR C3.2c",
+          "primary": true
+        }
+      ]
+    },
+    {
+      "id": "chem-062",
+      "group": "Energy changes",
+      "title": "Bond energies",
+      "scope": "Bond breaking as endothermic and bond making as exothermic, and calculating energy changes from bond energies.",
+      "kind": "content",
+      "higher_only": true,
+      "separate_only": false,
+      "spec_points": [
+        {
+          "id": "998be0f0-ddc4-4c85-9fb5-43ef1f9584f6",
+          "board": "aqa",
+          "code": "AQA 4.5.1.3",
+          "primary": true
+        },
+        {
+          "id": "cc47393d-c40c-4675-b92d-1bd787146d1a",
+          "board": "aqa_trilogy",
+          "code": "AQA T 5.5.1.3",
+          "primary": true
+        },
+        {
+          "id": "8af253c5-da1d-40d9-a3f1-60caf51355b5",
+          "board": "edexcel",
+          "code": "EDEX 7.12",
+          "primary": true
+        },
+        {
+          "id": "0b738aef-0cf7-40a4-a7fd-7ab4b4f27986",
+          "board": "edexcel",
+          "code": "EDEX 7.13",
+          "primary": true
+        },
+        {
+          "id": "f036a177-b9aa-43bb-ba03-1d1393042fae",
+          "board": "edexcel",
+          "code": "EDEX 7.14",
+          "primary": true
+        },
+        {
+          "id": "9fb7bfed-8c43-47a1-bff4-262619b6795c",
+          "board": "ocr",
+          "code": "OCR C3.2d",
+          "primary": true
+        }
+      ]
+    },
+    {
+      "id": "chem-063",
+      "group": "Energy changes",
+      "title": "Practical: combustion of alcohols (calorimetry)",
+      "scope": "Comparing the temperature rise in water produced by burning different alcohols.",
+      "kind": "practical",
+      "higher_only": false,
+      "separate_only": true,
+      "spec_points": [
+        {
+          "id": "53233996-7ee2-4d6e-a51d-f47edcdc689d",
+          "board": "edexcel",
+          "code": "EDEX 9.28C",
+          "primary": true
+        }
+      ]
+    },
+    {
+      "id": "chem-064",
+      "group": "Energy changes",
+      "title": "Hydrogen as a fuel for cars",
+      "scope": "Advantages and disadvantages of using hydrogen rather than petrol as a car fuel.",
+      "kind": "content",
+      "higher_only": false,
+      "separate_only": false,
+      "spec_points": [
+        {
+          "id": "30313bfc-b728-438f-97f4-80e6ba0644af",
+          "board": "edexcel",
+          "code": "EDEX 8.14",
+          "primary": true
+        }
+      ]
+    },
+    {
+      "id": "chem-065",
+      "group": "Energy changes",
+      "title": "Chemical cells and batteries",
+      "scope": "How cells produce a voltage from reactions, what affects the voltage, and why non-rechargeable cells run out.",
+      "kind": "content",
+      "higher_only": false,
+      "separate_only": true,
+      "spec_points": [
+        {
+          "id": "727650ae-083a-482f-9733-67e36d9d45a2",
+          "board": "aqa",
+          "code": "AQA 4.5.2.1",
+          "primary": true
+        },
+        {
+          "id": "d3243dfc-87a1-4547-a759-8d5bcd0cf88d",
+          "board": "edexcel",
+          "code": "EDEX 5.25C",
+          "primary": true
+        },
+        {
+          "id": "5a3ee3fc-9bfa-44b1-aa8d-d455e057eeef",
+          "board": "ocr",
+          "code": "OCR C6.2p",
+          "primary": true
+        }
+      ]
+    },
+    {
+      "id": "chem-066",
+      "group": "Energy changes",
+      "title": "Fuel cells",
+      "scope": "How a hydrogen-oxygen fuel cell works and how it compares with rechargeable batteries.",
+      "kind": "content",
+      "higher_only": false,
+      "separate_only": true,
+      "spec_points": [
+        {
+          "id": "1486a17c-869e-4c3f-81bb-eab95945b0fd",
+          "board": "aqa",
+          "code": "AQA 4.5.2.2",
+          "primary": true
+        },
+        {
+          "id": "ee52c863-a428-47dd-9314-954af15d6a97",
+          "board": "edexcel",
+          "code": "EDEX 5.26C",
+          "primary": true
+        },
+        {
+          "id": "1078bfa3-2350-4d0e-b4e6-70fb393e6b17",
+          "board": "edexcel",
+          "code": "EDEX 5.27C",
+          "primary": true
+        },
+        {
+          "id": "fa7a7652-6b25-422c-ac62-8cfeb2e6f1c3",
+          "board": "ocr",
+          "code": "OCR C6.2q",
+          "primary": true
+        }
+      ]
+    },
+    {
+      "id": "chem-067",
+      "group": "Rates and equilibrium",
+      "title": "Measuring and calculating rates of reaction",
+      "scope": "Calculating mean rate and rate from the gradient of a graph of product or reactant against time.",
+      "kind": "content",
+      "higher_only": false,
+      "separate_only": false,
+      "spec_points": [
+        {
+          "id": "68d3360b-69d0-442e-bd0e-fb919f7dcf15",
+          "board": "aqa",
+          "code": "AQA 4.6.1.1",
+          "primary": true
+        },
+        {
+          "id": "5e7ffb62-ac35-467a-a73a-02f82f1dc7a9",
+          "board": "aqa_trilogy",
+          "code": "AQA T 5.6.1.1",
+          "primary": true
+        },
+        {
+          "id": "74c6d0bf-7dff-4575-be5a-7ecf0b1ef93b",
+          "board": "edexcel",
+          "code": "EDEX 7.5",
+          "primary": true
+        },
+        {
+          "id": "0c3577a4-e237-4f96-ad1e-b8498d75a620",
+          "board": "ocr",
+          "code": "OCR C5.2b",
+          "primary": true
+        }
+      ]
+    },
+    {
+      "id": "chem-068",
+      "group": "Rates and equilibrium",
+      "title": "Practical: investigating rates of reaction",
+      "scope": "Measuring rate by gas volume, mass loss or colour change and turbidity, and investigating the effect of changing conditions.",
+      "kind": "practical",
+      "higher_only": false,
+      "separate_only": false,
+      "spec_points": [
+        {
+          "id": "609f6c01-2b2b-4856-a43c-4d90845cc226",
+          "board": "edexcel",
+          "code": "EDEX 7.1",
+          "primary": true
+        },
+        {
+          "id": "271a6a49-f8a7-467e-9fdd-4429e525dfe7",
+          "board": "edexcel",
+          "code": "EDEX 7.2",
+          "primary": true
+        },
+        {
+          "id": "92d9a9aa-2f34-4e29-abfe-64a71279dd2a",
+          "board": "ocr",
+          "code": "OCR C5.2a",
+          "primary": true
+        },
+        {
+          "id": "e4ad0eda-fd19-4ca3-b59b-e5d8cab4281a",
+          "board": "aqa",
+          "code": "AQA 4.6.1.2",
+          "primary": false
+        },
+        {
+          "id": "3ece84ca-2e10-4585-b1a8-3b08c4abd72f",
+          "board": "aqa_trilogy",
+          "code": "AQA T 5.6.1.2",
+          "primary": false
+        }
+      ]
+    },
+    {
+      "id": "chem-069",
+      "group": "Rates and equilibrium",
+      "title": "Factors affecting the rate of reaction",
+      "scope": "How concentration, pressure, surface area, temperature and catalysts change the rate of reaction.",
+      "kind": "content",
+      "higher_only": false,
+      "separate_only": false,
+      "spec_points": [
+        {
+          "id": "e4ad0eda-fd19-4ca3-b59b-e5d8cab4281a",
+          "board": "aqa",
+          "code": "AQA 4.6.1.2",
+          "primary": true
+        },
+        {
+          "id": "3ece84ca-2e10-4585-b1a8-3b08c4abd72f",
+          "board": "aqa_trilogy",
+          "code": "AQA T 5.6.1.2",
+          "primary": true
+        },
+        {
+          "id": "cecf2303-e9ec-4314-a330-6395a3111473",
+          "board": "ocr",
+          "code": "OCR C5.2c",
+          "primary": true
+        },
+        {
+          "id": "609f6c01-2b2b-4856-a43c-4d90845cc226",
+          "board": "edexcel",
+          "code": "EDEX 7.1",
+          "primary": false
+        },
+        {
+          "id": "f8699284-3cf5-4dca-8025-7609145bb5fa",
+          "board": "edexcel",
+          "code": "EDEX 7.4",
+          "primary": false
+        }
+      ]
+    },
+    {
+      "id": "chem-070",
+      "group": "Rates and equilibrium",
+      "title": "Collision theory and activation energy",
+      "scope": "Explaining the effect of each factor on rate through the frequency and energy of collisions.",
+      "kind": "content",
+      "higher_only": false,
+      "separate_only": false,
+      "spec_points": [
+        {
+          "id": "8bcc374e-ca6f-4c5e-b0ad-d4c9fe382fe6",
+          "board": "aqa",
+          "code": "AQA 4.6.1.3",
+          "primary": true
+        },
+        {
+          "id": "5402515f-1e97-4daf-b083-f72834e5ae92",
+          "board": "aqa_trilogy",
+          "code": "AQA T 5.6.1.3",
+          "primary": true
+        },
+        {
+          "id": "bf96f425-a218-4b76-ba27-73c07f873ee9",
+          "board": "edexcel",
+          "code": "EDEX 7.3",
+          "primary": true
+        },
+        {
+          "id": "f8699284-3cf5-4dca-8025-7609145bb5fa",
+          "board": "edexcel",
+          "code": "EDEX 7.4",
+          "primary": true
+        },
+        {
+          "id": "cb1537ff-ba3c-46da-96b7-11d69a18faa5",
+          "board": "ocr",
+          "code": "OCR C5.2d",
+          "primary": true
+        },
+        {
+          "id": "d667c28a-5049-42d3-85d4-cd3f2d960ba0",
+          "board": "ocr",
+          "code": "OCR C5.2e",
+          "primary": true
+        }
+      ]
+    },
+    {
+      "id": "chem-071",
+      "group": "Rates and equilibrium",
+      "title": "Catalysts and enzymes",
+      "scope": "How catalysts speed up reactions by providing a route with lower activation energy, and enzymes as biological catalysts.",
+      "kind": "content",
+      "higher_only": false,
+      "separate_only": false,
+      "spec_points": [
+        {
+          "id": "c6bc5ed5-dafe-4363-8481-2d3f3ff44ea0",
+          "board": "aqa",
+          "code": "AQA 4.6.1.4",
+          "primary": true
+        },
+        {
+          "id": "2b2fbcac-d757-4928-8046-6f6fb7ba0233",
+          "board": "aqa_trilogy",
+          "code": "AQA T 5.6.1.4",
+          "primary": true
+        },
+        {
+          "id": "5d27928c-64b7-491b-869f-c82b85dc4a76",
+          "board": "edexcel",
+          "code": "EDEX 7.6",
+          "primary": true
+        },
+        {
+          "id": "0c376829-7955-46cb-90cf-1086f7b576a8",
+          "board": "edexcel",
+          "code": "EDEX 7.7",
+          "primary": true
+        },
+        {
+          "id": "8bde2508-cab0-439b-ab27-00fdb7bf35c3",
+          "board": "edexcel",
+          "code": "EDEX 7.8",
+          "primary": true
+        },
+        {
+          "id": "5ffdc83c-dc34-4405-95d7-0ccc8251dc0c",
+          "board": "ocr",
+          "code": "OCR C5.2f",
+          "primary": true
+        },
+        {
+          "id": "cbb5348e-dd1f-45ee-9ac8-4855195d81cb",
+          "board": "ocr",
+          "code": "OCR C5.2g",
+          "primary": true
+        },
+        {
+          "id": "d7f0ada9-04c4-4c75-9171-06d08114553d",
+          "board": "ocr",
+          "code": "OCR C5.2h",
+          "primary": true
+        },
+        {
+          "id": "4a21b81d-5483-4bb1-80c5-003ef0ffcd4e",
+          "board": "ocr",
+          "code": "OCR C5.2i",
+          "primary": true
+        }
+      ]
+    },
+    {
+      "id": "chem-072",
+      "group": "Rates and equilibrium",
+      "title": "Reversible reactions and dynamic equilibrium",
+      "scope": "Reversible reactions, their energy changes in each direction, and dynamic equilibrium in a closed system.",
+      "kind": "content",
+      "higher_only": false,
+      "separate_only": false,
+      "spec_points": [
+        {
+          "id": "383bb202-3f92-4e57-8ba9-5c8a08b48734",
+          "board": "aqa",
+          "code": "AQA 4.6.2.1",
+          "primary": true
+        },
+        {
+          "id": "c238a2f4-c8b0-41f5-afc7-5ff3461fa4f4",
+          "board": "aqa_trilogy",
+          "code": "AQA T 5.6.2.1",
+          "primary": true
+        },
+        {
+          "id": "bda5692a-6270-453c-b32c-33867736f322",
+          "board": "aqa",
+          "code": "AQA 4.6.2.2",
+          "primary": true
+        },
+        {
+          "id": "181e64e3-944b-4ab3-a5f3-31cef8b1edcf",
+          "board": "aqa_trilogy",
+          "code": "AQA T 5.6.2.2",
+          "primary": true
+        },
+        {
+          "id": "2f9ea660-6b06-4b21-bc20-8e445ac5d6a3",
+          "board": "aqa",
+          "code": "AQA 4.6.2.3",
+          "primary": true
+        },
+        {
+          "id": "21aafc25-b384-4d53-add8-5281d69e3fff",
+          "board": "aqa_trilogy",
+          "code": "AQA T 5.6.2.3",
+          "primary": true
+        },
+        {
+          "id": "c3fcfa2f-138b-4538-9829-b65eda8eaf86",
+          "board": "edexcel",
+          "code": "EDEX 4.13",
+          "primary": true
+        },
+        {
+          "id": "87af7ed8-e3c5-4477-82e2-f56e9905ef0e",
+          "board": "edexcel",
+          "code": "EDEX 4.14",
+          "primary": true
+        },
+        {
+          "id": "4409c141-9cd1-4c9f-adc8-2f9d0ea3f540",
+          "board": "ocr",
+          "code": "OCR C5.3a",
+          "primary": true
+        },
+        {
+          "id": "b97805c9-e688-45ca-b482-0d386a68290e",
+          "board": "ocr",
+          "code": "OCR C5.3b",
+          "primary": true
+        }
+      ]
+    },
+    {
+      "id": "chem-073",
+      "group": "Rates and equilibrium",
+      "title": "Le Chatelier's principle",
+      "scope": "How changing concentration, temperature or pressure shifts the position of equilibrium.",
+      "kind": "content",
+      "higher_only": false,
+      "separate_only": false,
+      "spec_points": [
+        {
+          "id": "152551ee-4727-4ade-8f6b-9f122ddeed9d",
+          "board": "aqa",
+          "code": "AQA 4.6.2.4",
+          "primary": true
+        },
+        {
+          "id": "9dcfa9f6-003f-4d26-a2e6-a13a7a3f5225",
+          "board": "aqa_trilogy",
+          "code": "AQA T 5.6.2.4",
+          "primary": true
+        },
+        {
+          "id": "ab67ee14-18d2-4e5d-8823-1100fbf43b44",
+          "board": "aqa",
+          "code": "AQA 4.6.2.5",
+          "primary": true
+        },
+        {
+          "id": "3c51e4d6-b2f6-43b1-ac77-ee9f7986a75a",
+          "board": "aqa_trilogy",
+          "code": "AQA T 5.6.2.5",
+          "primary": true
+        },
+        {
+          "id": "a12350c7-d24b-404b-929f-d3523d103864",
+          "board": "aqa",
+          "code": "AQA 4.6.2.6",
+          "primary": true
+        },
+        {
+          "id": "b6cc8d64-81cc-419b-b7c7-3a4c580a29bc",
+          "board": "aqa_trilogy",
+          "code": "AQA T 5.6.2.6",
+          "primary": true
+        },
+        {
+          "id": "bedde499-ad78-4cbc-9a0d-adedc28a920b",
+          "board": "aqa",
+          "code": "AQA 4.6.2.7",
+          "primary": true
+        },
+        {
+          "id": "61e9dfa8-0fd3-4cd5-9ed0-f8c418087a67",
+          "board": "aqa_trilogy",
+          "code": "AQA T 5.6.2.7",
+          "primary": true
+        },
+        {
+          "id": "2d840086-75b3-44ed-a293-32e7ed51fb22",
+          "board": "edexcel",
+          "code": "EDEX 4.17",
+          "primary": true
+        },
+        {
+          "id": "a68d3ebc-974b-4672-b8a7-399f506734e0",
+          "board": "ocr",
+          "code": "OCR C5.3c",
+          "primary": true
+        },
+        {
+          "id": "bda26440-febe-41b9-b276-f6e1f25ba10f",
+          "board": "aqa",
+          "code": "AQA 4.10.4.1",
+          "primary": false
+        },
+        {
+          "id": "ecb5d54c-7845-4886-a524-1663e53dfc2e",
+          "board": "edexcel",
+          "code": "EDEX 5.21C",
+          "primary": false
+        },
+        {
+          "id": "2b2a586c-0a48-4f51-b44d-ecf16ffd55c2",
+          "board": "ocr",
+          "code": "OCR C6.1d",
+          "primary": false
+        }
+      ]
+    },
+    {
+      "id": "chem-074",
+      "group": "Organic chemistry",
+      "title": "Crude oil, hydrocarbons and alkanes",
+      "scope": "Crude oil as a finite mixture of hydrocarbons, and the formulae and structures of the first four alkanes.",
+      "kind": "content",
+      "higher_only": false,
+      "separate_only": false,
+      "spec_points": [
+        {
+          "id": "1e0e7fef-eb27-4096-9e57-9fa422b873fe",
+          "board": "aqa",
+          "code": "AQA 4.7.1.1",
+          "primary": true
+        },
+        {
+          "id": "f246f5c0-4a15-4d67-84cc-5eb252ccc109",
+          "board": "aqa_trilogy",
+          "code": "AQA T 5.7.1.1",
+          "primary": true
+        },
+        {
+          "id": "5dca5dc6-e90f-4693-88d0-331e17a963e3",
+          "board": "edexcel",
+          "code": "EDEX 8.1",
+          "primary": true
+        },
+        {
+          "id": "dc6121ee-e1b7-4745-b4e9-025d9db2fd5a",
+          "board": "edexcel",
+          "code": "EDEX 8.2",
+          "primary": true
+        },
+        {
+          "id": "e9876bcd-83d9-44d0-9027-52b01ba11a7c",
+          "board": "edexcel",
+          "code": "EDEX 8.15",
+          "primary": true
+        },
+        {
+          "id": "7d8ffdbb-7469-4376-a792-bed51c8f569c",
+          "board": "edexcel",
+          "code": "EDEX 9.10C",
+          "primary": true
+        },
+        {
+          "id": "f8db5365-58c7-49c4-88e9-119c8f230da5",
+          "board": "edexcel",
+          "code": "EDEX 9.11C",
+          "primary": true
+        },
+        {
+          "id": "a8f5c343-2e17-4dbc-b1a4-af679bd52816",
+          "board": "ocr",
+          "code": "OCR C6.2l",
+          "primary": true
+        },
+        {
+          "id": "60a54d21-fd1b-4f1a-b8d8-88a382e6f5bd",
+          "board": "ocr",
+          "code": "OCR C6.2m",
+          "primary": true
+        },
+        {
+          "id": "a0722096-1afb-426f-aa1f-643a27d9db58",
+          "board": "ocr",
+          "code": "OCR C6.2n",
+          "primary": true
+        },
+        {
+          "id": "a73a758c-0020-4740-8bfc-4e66440366c4",
+          "board": "ocr",
+          "code": "OCR C6.2b",
+          "primary": false
+        }
+      ]
+    },
+    {
+      "id": "chem-075",
+      "group": "Organic chemistry",
+      "title": "Homologous series and functional groups",
+      "scope": "What a homologous series is, how functional groups decide reactions, and naming the first four members of each series.",
+      "kind": "content",
+      "higher_only": false,
+      "separate_only": false,
+      "spec_points": [
+        {
+          "id": "a268f223-d95a-4cc2-a45b-71a01706ea15",
+          "board": "edexcel",
+          "code": "EDEX 8.6",
+          "primary": true
+        },
+        {
+          "id": "bad90467-78c7-40e5-91ba-7653fcbcafcc",
+          "board": "edexcel",
+          "code": "EDEX 9.32C",
+          "primary": true
+        },
+        {
+          "id": "897ee218-63f9-4967-a149-4b2b10fe40a9",
+          "board": "ocr",
+          "code": "OCR C2.3b",
+          "primary": true
+        },
+        {
+          "id": "5f60eea2-8024-496d-8b57-9e989bc0be17",
+          "board": "ocr",
+          "code": "OCR C6.2a",
+          "primary": true
+        },
+        {
+          "id": "a73a758c-0020-4740-8bfc-4e66440366c4",
+          "board": "ocr",
+          "code": "OCR C6.2b",
+          "primary": true
+        },
+        {
+          "id": "2a5ce7b1-8f54-4e35-8675-da1d1c366664",
+          "board": "ocr",
+          "code": "OCR C6.2i",
+          "primary": true
+        },
+        {
+          "id": "1e0e7fef-eb27-4096-9e57-9fa422b873fe",
+          "board": "aqa",
+          "code": "AQA 4.7.1.1",
+          "primary": false
+        },
+        {
+          "id": "f246f5c0-4a15-4d67-84cc-5eb252ccc109",
+          "board": "aqa_trilogy",
+          "code": "AQA T 5.7.1.1",
+          "primary": false
+        },
+        {
+          "id": "0c5ec94b-02cf-4330-be7f-64ee077f1cff",
+          "board": "aqa",
+          "code": "AQA 4.7.2.1",
+          "primary": false
+        },
+        {
+          "id": "fb93e348-7890-4820-abb1-d37fad387223",
+          "board": "aqa",
+          "code": "AQA 4.7.2.2",
+          "primary": false
+        },
+        {
+          "id": "9afb99fe-b75d-43fc-a7b1-9e879d359e6a",
+          "board": "aqa",
+          "code": "AQA 4.7.2.3",
+          "primary": false
+        },
+        {
+          "id": "bcff471a-bf72-4e34-ab9d-78a645079e4b",
+          "board": "aqa",
+          "code": "AQA 4.7.2.4",
+          "primary": false
+        },
+        {
+          "id": "a8f5c343-2e17-4dbc-b1a4-af679bd52816",
+          "board": "ocr",
+          "code": "OCR C6.2l",
+          "primary": false
+        }
+      ]
+    },
+    {
+      "id": "chem-076",
+      "group": "Organic chemistry",
+      "title": "Fractional distillation of crude oil",
+      "scope": "How crude oil is separated into fractions and the names and uses of the main fractions.",
+      "kind": "content",
+      "higher_only": false,
+      "separate_only": false,
+      "spec_points": [
+        {
+          "id": "f8b3c81a-fa31-4ded-be46-659e3ea53a20",
+          "board": "aqa",
+          "code": "AQA 4.7.1.2",
+          "primary": true
+        },
+        {
+          "id": "1014d8a8-b447-40d4-ac08-8d963b4c84fb",
+          "board": "aqa_trilogy",
+          "code": "AQA T 5.7.1.2",
+          "primary": true
+        },
+        {
+          "id": "6957305c-5482-4e48-9cec-dc799c902851",
+          "board": "edexcel",
+          "code": "EDEX 8.3",
+          "primary": true
+        },
+        {
+          "id": "da3c248b-9986-4e40-a937-017691f5a839",
+          "board": "edexcel",
+          "code": "EDEX 8.4",
+          "primary": true
+        },
+        {
+          "id": "0b3935ac-0ff4-4070-ab66-4b717c7007ae",
+          "board": "edexcel",
+          "code": "EDEX 8.5",
+          "primary": true
+        },
+        {
+          "id": "f9b7716d-8e48-4c3c-80a0-2e78b6e0bd35",
+          "board": "ocr",
+          "code": "OCR C6.2j",
+          "primary": true
+        },
+        {
+          "id": "88edf1a2-21ea-42d7-8e58-2588ff1622fa",
+          "board": "ocr",
+          "code": "OCR C6.2k",
+          "primary": true
+        }
+      ]
+    },
+    {
+      "id": "chem-077",
+      "group": "Organic chemistry",
+      "title": "Properties and combustion of hydrocarbons",
+      "scope": "How chain length affects boiling point, viscosity and flammability, and the complete combustion of hydrocarbons.",
+      "kind": "content",
+      "higher_only": false,
+      "separate_only": false,
+      "spec_points": [
+        {
+          "id": "5d3e9f33-e123-4585-8601-fd5ebcfcb415",
+          "board": "aqa",
+          "code": "AQA 4.7.1.3",
+          "primary": true
+        },
+        {
+          "id": "1715e037-553e-476c-93f1-dc7cbf42dd4b",
+          "board": "aqa_trilogy",
+          "code": "AQA T 5.7.1.3",
+          "primary": true
+        },
+        {
+          "id": "c17ff4d0-6a75-42ad-8736-22a5845f174d",
+          "board": "edexcel",
+          "code": "EDEX 8.7",
+          "primary": true
+        },
+        {
+          "id": "35e03ef4-e1b5-42e0-95f8-5c04af97b7c1",
+          "board": "edexcel",
+          "code": "EDEX 9.16C",
+          "primary": true
+        },
+        {
+          "id": "15bac1b0-1201-4af2-8a95-bf41e2543c51",
+          "board": "ocr",
+          "code": "OCR C6.2c",
+          "primary": false
+        },
+        {
+          "id": "88edf1a2-21ea-42d7-8e58-2588ff1622fa",
+          "board": "ocr",
+          "code": "OCR C6.2k",
+          "primary": false
+        }
+      ]
+    },
+    {
+      "id": "chem-078",
+      "group": "Organic chemistry",
+      "title": "Cracking",
+      "scope": "Breaking large alkanes into smaller alkanes and alkenes by catalytic or steam cracking, and why it is needed.",
+      "kind": "content",
+      "higher_only": false,
+      "separate_only": false,
+      "spec_points": [
+        {
+          "id": "5b293b36-7e41-4ea1-9b1c-bca44d39d578",
+          "board": "aqa",
+          "code": "AQA 4.7.1.4",
+          "primary": true
+        },
+        {
+          "id": "2665b448-2a57-4167-b40b-12e71191a704",
+          "board": "aqa_trilogy",
+          "code": "AQA T 5.7.1.4",
+          "primary": true
+        },
+        {
+          "id": "22e3c387-f5ff-4a6e-ac18-63ded8dd3599",
+          "board": "edexcel",
+          "code": "EDEX 8.16",
+          "primary": true
+        },
+        {
+          "id": "83d98a1a-1e62-4653-a84c-f3d991ab2c42",
+          "board": "edexcel",
+          "code": "EDEX 8.17",
+          "primary": true
+        },
+        {
+          "id": "2e2fa421-7544-4174-93cd-cf19b4234838",
+          "board": "ocr",
+          "code": "OCR C6.2o",
+          "primary": true
+        }
+      ]
+    },
+    {
+      "id": "chem-079",
+      "group": "Organic chemistry",
+      "title": "Alkenes: structure and reactions",
+      "scope": "The C=C functional group, the bromine water test and addition reactions with hydrogen, water and halogens.",
+      "kind": "content",
+      "higher_only": false,
+      "separate_only": true,
+      "spec_points": [
+        {
+          "id": "0c5ec94b-02cf-4330-be7f-64ee077f1cff",
+          "board": "aqa",
+          "code": "AQA 4.7.2.1",
+          "primary": true
+        },
+        {
+          "id": "fb93e348-7890-4820-abb1-d37fad387223",
+          "board": "aqa",
+          "code": "AQA 4.7.2.2",
+          "primary": true
+        },
+        {
+          "id": "69bd2292-1dc8-457e-8d4b-fa0c072f0253",
+          "board": "edexcel",
+          "code": "EDEX 9.12C",
+          "primary": true
+        },
+        {
+          "id": "fa6725ef-e204-427b-a702-da5d85252b63",
+          "board": "edexcel",
+          "code": "EDEX 9.13C",
+          "primary": true
+        },
+        {
+          "id": "f5eaca34-76cc-4c56-934c-4adaea0aa205",
+          "board": "edexcel",
+          "code": "EDEX 9.14C",
+          "primary": true
+        },
+        {
+          "id": "16f97797-7939-4bb9-963c-da887fda0730",
+          "board": "edexcel",
+          "code": "EDEX 9.15C",
+          "primary": true
+        },
+        {
+          "id": "15bac1b0-1201-4af2-8a95-bf41e2543c51",
+          "board": "ocr",
+          "code": "OCR C6.2c",
+          "primary": true
+        }
+      ]
+    },
+    {
+      "id": "chem-080",
+      "group": "Organic chemistry",
+      "title": "Alcohols",
+      "scope": "Structures and reactions of the first four alcohols, oxidation to carboxylic acids, and making ethanol by fermentation.",
+      "kind": "content",
+      "higher_only": false,
+      "separate_only": true,
+      "spec_points": [
+        {
+          "id": "9afb99fe-b75d-43fc-a7b1-9e879d359e6a",
+          "board": "aqa",
+          "code": "AQA 4.7.2.3",
+          "primary": true
+        },
+        {
+          "id": "12951df6-da00-4d90-b193-b4187cab9e0f",
+          "board": "edexcel",
+          "code": "EDEX 9.26C",
+          "primary": true
+        },
+        {
+          "id": "71f51599-6985-403a-a709-fedb209d58db",
+          "board": "edexcel",
+          "code": "EDEX 9.27C",
+          "primary": true
+        },
+        {
+          "id": "8ce96d5d-902c-428c-9f40-0a4d2d5a03c7",
+          "board": "edexcel",
+          "code": "EDEX 9.31C",
+          "primary": true
+        },
+        {
+          "id": "9dcd1913-456d-4bc9-9c92-c22a3823bf2f",
+          "board": "edexcel",
+          "code": "EDEX 9.33C",
+          "primary": true
+        },
+        {
+          "id": "102cdea3-4429-48a0-8d36-c0d40e0460f2",
+          "board": "edexcel",
+          "code": "EDEX 9.34C",
+          "primary": true
+        },
+        {
+          "id": "a73a758c-0020-4740-8bfc-4e66440366c4",
+          "board": "ocr",
+          "code": "OCR C6.2b",
+          "primary": false
+        },
+        {
+          "id": "15bac1b0-1201-4af2-8a95-bf41e2543c51",
+          "board": "ocr",
+          "code": "OCR C6.2c",
+          "primary": false
+        }
+      ]
+    },
+    {
+      "id": "chem-081",
+      "group": "Organic chemistry",
+      "title": "Carboxylic acids",
+      "scope": "Structures and properties of the first four carboxylic acids as weak acids and their reactions.",
+      "kind": "content",
+      "higher_only": false,
+      "separate_only": true,
+      "spec_points": [
+        {
+          "id": "bcff471a-bf72-4e34-ab9d-78a645079e4b",
+          "board": "aqa",
+          "code": "AQA 4.7.2.4",
+          "primary": true
+        },
+        {
+          "id": "ea3d0b55-eaa3-4d46-b783-f01bbe4c1167",
+          "board": "edexcel",
+          "code": "EDEX 9.29C",
+          "primary": true
+        },
+        {
+          "id": "0b942768-3d0d-42d3-afc8-0421a3df4304",
+          "board": "edexcel",
+          "code": "EDEX 9.30C",
+          "primary": true
+        },
+        {
+          "id": "8ce96d5d-902c-428c-9f40-0a4d2d5a03c7",
+          "board": "edexcel",
+          "code": "EDEX 9.31C",
+          "primary": false
+        },
+        {
+          "id": "a73a758c-0020-4740-8bfc-4e66440366c4",
+          "board": "ocr",
+          "code": "OCR C6.2b",
+          "primary": false
+        },
+        {
+          "id": "15bac1b0-1201-4af2-8a95-bf41e2543c51",
+          "board": "ocr",
+          "code": "OCR C6.2c",
+          "primary": false
+        }
+      ]
+    },
+    {
+      "id": "chem-082",
+      "group": "Organic chemistry",
+      "title": "Addition polymerisation",
+      "scope": "How alkene monomers join to make addition polymers, drawing repeating units, and linking polymer uses to properties.",
+      "kind": "content",
+      "higher_only": false,
+      "separate_only": true,
+      "spec_points": [
+        {
+          "id": "62d81e20-9a8f-4c53-abc1-36387fc00afa",
+          "board": "aqa",
+          "code": "AQA 4.7.3.1",
+          "primary": true
+        },
+        {
+          "id": "3299dbb5-56d7-4fe9-8f6b-2e7754f93c91",
+          "board": "edexcel",
+          "code": "EDEX 9.17C",
+          "primary": true
+        },
+        {
+          "id": "69c5e0f3-2d3b-4d11-b51c-31f53e35bcf8",
+          "board": "edexcel",
+          "code": "EDEX 9.18C",
+          "primary": true
+        },
+        {
+          "id": "be1de134-8963-4875-85f1-5ed1a336aad4",
+          "board": "edexcel",
+          "code": "EDEX 9.19C",
+          "primary": true
+        },
+        {
+          "id": "2fc9b38c-77ab-4d2c-9010-2a2176221b50",
+          "board": "edexcel",
+          "code": "EDEX 9.20C",
+          "primary": true
+        },
+        {
+          "id": "602770e6-a8e0-4573-ba2e-ee2a20498835",
+          "board": "edexcel",
+          "code": "EDEX 9.21C",
+          "primary": true
+        },
+        {
+          "id": "706ff07c-d62c-4f6f-af5a-79d26733cda5",
+          "board": "ocr",
+          "code": "OCR C6.2d",
+          "primary": true
+        },
+        {
+          "id": "f23d933d-83dc-4974-8fc5-9a01cea4a58e",
+          "board": "ocr",
+          "code": "OCR C6.2g",
+          "primary": true
+        }
+      ]
+    },
+    {
+      "id": "chem-083",
+      "group": "Organic chemistry",
+      "title": "Condensation polymerisation",
+      "scope": "How monomers with two functional groups join to form polyesters and lose a small molecule such as water.",
+      "kind": "content",
+      "higher_only": true,
+      "separate_only": true,
+      "spec_points": [
+        {
+          "id": "aa99437b-5679-44b7-9f3c-f5e9a151b61b",
+          "board": "aqa",
+          "code": "AQA 4.7.3.2",
+          "primary": true
+        },
+        {
+          "id": "b36e37b2-fff7-4bc5-8ee0-d5ecdcdb065b",
+          "board": "edexcel",
+          "code": "EDEX 9.22C",
+          "primary": true
+        },
+        {
+          "id": "8bef8df7-556b-4ece-ba75-02049cde1bd3",
+          "board": "ocr",
+          "code": "OCR C6.2e",
+          "primary": true
+        },
+        {
+          "id": "57a756b4-054f-46fd-ab8b-941d6018b4fb",
+          "board": "ocr",
+          "code": "OCR C6.2f",
+          "primary": true
+        }
+      ]
+    },
+    {
+      "id": "chem-084",
+      "group": "Organic chemistry",
+      "title": "Natural polymers: amino acids, proteins and DNA",
+      "scope": "Amino acids forming proteins, and DNA, starch, cellulose as naturally occurring polymers.",
+      "kind": "content",
+      "higher_only": false,
+      "separate_only": true,
+      "spec_points": [
+        {
+          "id": "eb2a06bd-3c57-4c79-baf6-37721222ef66",
+          "board": "aqa",
+          "code": "AQA 4.7.3.3",
+          "primary": true
+        },
+        {
+          "id": "f83fb842-c8e2-4bd9-8e62-d45e6a8e94a0",
+          "board": "aqa",
+          "code": "AQA 4.7.3.4",
+          "primary": true
+        },
+        {
+          "id": "fdcbe390-d22e-41f1-9fcd-3602ea46e4be",
+          "board": "edexcel",
+          "code": "EDEX 9.25C",
+          "primary": true
+        },
+        {
+          "id": "37bbba7a-6877-4a03-9d43-7018c8bfecea",
+          "board": "ocr",
+          "code": "OCR C6.2h",
+          "primary": true
+        }
+      ]
+    },
+    {
+      "id": "chem-085",
+      "group": "Chemical analysis",
+      "title": "Pure substances and melting points",
+      "scope": "What pure means in chemistry, and using sharp melting and boiling points to identify pure substances.",
+      "kind": "content",
+      "higher_only": false,
+      "separate_only": false,
+      "spec_points": [
+        {
+          "id": "c8c0507c-1f56-4854-be8e-7b6fdfd875db",
+          "board": "aqa",
+          "code": "AQA 4.8.1.1",
+          "primary": true
+        },
+        {
+          "id": "c0898c20-533c-441d-8d61-d4e42bab4473",
+          "board": "aqa_trilogy",
+          "code": "AQA T 5.8.1.1",
+          "primary": true
+        },
+        {
+          "id": "79c2bee5-b845-4079-970b-ba7d6f1e3b4e",
+          "board": "edexcel",
+          "code": "EDEX 2.5",
+          "primary": true
+        },
+        {
+          "id": "58b1871e-30f0-4d26-8811-9d0652e0d7f5",
+          "board": "edexcel",
+          "code": "EDEX 2.6",
+          "primary": true
+        },
+        {
+          "id": "b41c46ff-1508-4551-b727-3d573d7df11e",
+          "board": "ocr",
+          "code": "OCR C2.1a",
+          "primary": true
+        },
+        {
+          "id": "03ee2f13-e121-44f0-82fd-9558eaa2f8e8",
+          "board": "ocr",
+          "code": "OCR C2.1b",
+          "primary": true
+        }
+      ]
+    },
+    {
+      "id": "chem-086",
+      "group": "Chemical analysis",
+      "title": "Formulations",
+      "scope": "Formulations as mixtures designed with measured amounts of each component for a purpose.",
+      "kind": "content",
+      "higher_only": false,
+      "separate_only": false,
+      "spec_points": [
+        {
+          "id": "64f7ed63-7eaa-4925-9fd1-6d004298ff2c",
+          "board": "aqa",
+          "code": "AQA 4.8.1.2",
+          "primary": true
+        },
+        {
+          "id": "42e5adeb-921c-48f6-9e1f-7b2d7a75b5fe",
+          "board": "aqa_trilogy",
+          "code": "AQA T 5.8.1.2",
+          "primary": true
+        },
+        {
+          "id": "29a64196-3402-4e57-8b77-ba2bcacb14ab",
+          "board": "ocr",
+          "code": "OCR C2.1e",
+          "primary": true
+        }
+      ]
+    },
+    {
+      "id": "chem-087",
+      "group": "Chemical analysis",
+      "title": "Required practical: chromatography",
+      "scope": "Paper and thin-layer chromatography, stationary and mobile phases, Rf values, and investigating the composition of inks.",
+      "kind": "practical",
+      "higher_only": false,
+      "separate_only": false,
+      "spec_points": [
+        {
+          "id": "9f573028-87b4-4b2f-8bb7-b393a6c169fd",
+          "board": "aqa",
+          "code": "AQA 4.8.1.3",
+          "primary": true
+        },
+        {
+          "id": "80b301e0-b4d1-411e-b5f5-a732d6ffa892",
+          "board": "aqa_trilogy",
+          "code": "AQA T 5.8.1.3",
+          "primary": true
+        },
+        {
+          "id": "0e34ff30-6c64-4f54-8d0d-7d851cb88325",
+          "board": "edexcel",
+          "code": "EDEX 2.9",
+          "primary": true
+        },
+        {
+          "id": "eaf3d61f-d506-4a55-bd8b-0ab715592b86",
+          "board": "edexcel",
+          "code": "EDEX 2.10",
+          "primary": true
+        },
+        {
+          "id": "ee085a0a-38a5-4a45-8f29-35a1f0cd6887",
+          "board": "edexcel",
+          "code": "EDEX 2.11",
+          "primary": true
+        },
+        {
+          "id": "cac20668-1324-4388-821f-31fd3ce3fbc5",
+          "board": "ocr",
+          "code": "OCR C2.1g",
+          "primary": true
+        },
+        {
+          "id": "a6d38c9c-e59b-4f31-a93d-94ddebfa1404",
+          "board": "ocr",
+          "code": "OCR C2.1h",
+          "primary": true
+        },
+        {
+          "id": "93f1352e-3a84-4fc9-8b12-c8868c7637e8",
+          "board": "ocr",
+          "code": "OCR C2.1i",
+          "primary": true
+        },
+        {
+          "id": "6b858862-a4f1-4ddd-b77a-64708462d892",
+          "board": "ocr",
+          "code": "OCR C2.1k",
+          "primary": true
+        }
+      ]
+    },
+    {
+      "id": "chem-088",
+      "group": "Chemical analysis",
+      "title": "Tests for gases",
+      "scope": "The tests for hydrogen, oxygen, carbon dioxide, chlorine and ammonia.",
+      "kind": "content",
+      "higher_only": false,
+      "separate_only": false,
+      "data_note": "taught by ocr but no matching spec point",
+      "spec_points": [
+        {
+          "id": "e4a8f26d-16d3-40b2-920f-10b385e5fbe2",
+          "board": "aqa",
+          "code": "AQA 4.8.2.1",
+          "primary": true
+        },
+        {
+          "id": "b505b333-c057-4724-b302-b4c1168aa1fa",
+          "board": "aqa_trilogy",
+          "code": "AQA T 5.8.2.1",
+          "primary": true
+        },
+        {
+          "id": "92321f88-bb11-4c4b-bbb2-69107e5ad82b",
+          "board": "aqa",
+          "code": "AQA 4.8.2.2",
+          "primary": true
+        },
+        {
+          "id": "85d31a57-b6ca-48a1-a489-29dabdbc3b76",
+          "board": "aqa_trilogy",
+          "code": "AQA T 5.8.2.2",
+          "primary": true
+        },
+        {
+          "id": "6e7f7927-42d3-407e-8735-da85e5ad4283",
+          "board": "aqa",
+          "code": "AQA 4.8.2.3",
+          "primary": true
+        },
+        {
+          "id": "3f57e932-15d4-4e2c-91fb-8b35d7f42c9d",
+          "board": "aqa_trilogy",
+          "code": "AQA T 5.8.2.3",
+          "primary": true
+        },
+        {
+          "id": "6a5fd0ed-7ece-4ea0-bdca-85a50ec82641",
+          "board": "aqa",
+          "code": "AQA 4.8.2.4",
+          "primary": true
+        },
+        {
+          "id": "377eb86a-a2d1-4a8b-b7f1-a1d53dc249aa",
+          "board": "aqa_trilogy",
+          "code": "AQA T 5.8.2.4",
+          "primary": true
+        },
+        {
+          "id": "bc816181-5a63-4592-ac86-96be0f8998c0",
+          "board": "edexcel",
+          "code": "EDEX 3.12",
+          "primary": true
+        },
+        {
+          "id": "f5f52557-92e1-4050-86b6-2fa7d0c26bff",
+          "board": "edexcel",
+          "code": "EDEX 6.8",
+          "primary": true
+        },
+        {
+          "id": "ea5b7b7c-1ce6-4116-ab13-a6153aa3f117",
+          "board": "edexcel",
+          "code": "EDEX 8.23",
+          "primary": true
+        },
+        {
+          "id": "000353ea-a33b-404f-861f-14798005284a",
+          "board": "edexcel",
+          "code": "EDEX 9.4C",
+          "primary": true
+        }
+      ]
+    },
+    {
+      "id": "chem-089",
+      "group": "Chemical analysis",
+      "title": "Flame tests",
+      "scope": "Identifying lithium, sodium, potassium, calcium and copper ions from their flame colours, and how to do the test.",
+      "kind": "content",
+      "higher_only": false,
+      "separate_only": true,
+      "spec_points": [
+        {
+          "id": "35a51cd1-ffbd-44a7-b1db-29d5e217e3b3",
+          "board": "aqa",
+          "code": "AQA 4.8.3.1",
+          "primary": true
+        },
+        {
+          "id": "f017484b-8b66-4403-9fa9-39c49b55d9e1",
+          "board": "edexcel",
+          "code": "EDEX 9.2C",
+          "primary": true
+        },
+        {
+          "id": "7dc9928d-53ef-4881-9cd7-12c3234ae9c1",
+          "board": "ocr",
+          "code": "OCR C4.2c",
+          "primary": true
+        },
+        {
+          "id": "77c8310a-3547-4822-9406-58b71f0f5683",
+          "board": "ocr",
+          "code": "OCR C4.2e",
+          "primary": true
+        }
+      ]
+    },
+    {
+      "id": "chem-090",
+      "group": "Chemical analysis",
+      "title": "Metal hydroxide precipitate tests",
+      "scope": "Identifying metal ions from the colour of precipitates formed with sodium hydroxide solution.",
+      "kind": "content",
+      "higher_only": false,
+      "separate_only": true,
+      "spec_points": [
+        {
+          "id": "a7fca424-ef70-49ad-adc8-39b0088a7285",
+          "board": "aqa",
+          "code": "AQA 4.8.3.2",
+          "primary": true
+        },
+        {
+          "id": "748f9662-e6e7-42fb-b9ee-ff36a381c33a",
+          "board": "edexcel",
+          "code": "EDEX 9.3C",
+          "primary": true
+        },
+        {
+          "id": "13b8b4a0-65ff-4e8d-8f11-c4ebba0a0051",
+          "board": "ocr",
+          "code": "OCR C4.2b",
+          "primary": true
+        },
+        {
+          "id": "636e69ac-a189-496a-ab05-6932c2ce4210",
+          "board": "ocr",
+          "code": "OCR C4.2d",
+          "primary": false
+        }
+      ]
+    },
+    {
+      "id": "chem-091",
+      "group": "Chemical analysis",
+      "title": "Tests for carbonate, halide and sulfate ions",
+      "scope": "Identifying anions using dilute acid, acidified silver nitrate and acidified barium chloride.",
+      "kind": "content",
+      "higher_only": false,
+      "separate_only": true,
+      "spec_points": [
+        {
+          "id": "979c1a78-3995-4925-8c34-bfd7adf3a131",
+          "board": "aqa",
+          "code": "AQA 4.8.3.3",
+          "primary": true
+        },
+        {
+          "id": "abe572b9-b743-4406-92b1-11665d0773d6",
+          "board": "aqa",
+          "code": "AQA 4.8.3.4",
+          "primary": true
+        },
+        {
+          "id": "67bfb815-73c1-403d-8c3d-1f8ffec2f68a",
+          "board": "aqa",
+          "code": "AQA 4.8.3.5",
+          "primary": true
+        },
+        {
+          "id": "b5371ffc-03f9-4c75-9779-b50a808180ca",
+          "board": "edexcel",
+          "code": "EDEX 9.5C",
+          "primary": true
+        },
+        {
+          "id": "13b8b4a0-65ff-4e8d-8f11-c4ebba0a0051",
+          "board": "ocr",
+          "code": "OCR C4.2b",
+          "primary": false
+        },
+        {
+          "id": "636e69ac-a189-496a-ab05-6932c2ce4210",
+          "board": "ocr",
+          "code": "OCR C4.2d",
+          "primary": false
+        }
+      ]
+    },
+    {
+      "id": "chem-092",
+      "group": "Chemical analysis",
+      "title": "Required practical: identifying ions in an unknown salt",
+      "scope": "Combining cation and anion tests to identify an unknown ionic compound, and why each test must be unique.",
+      "kind": "practical",
+      "higher_only": false,
+      "separate_only": true,
+      "spec_points": [
+        {
+          "id": "b1f90e5b-ead6-4945-b5da-8ed550d88ef7",
+          "board": "edexcel",
+          "code": "EDEX 9.1C",
+          "primary": true
+        },
+        {
+          "id": "b9f571b2-aff1-444f-80fd-09ce7a9a33f1",
+          "board": "edexcel",
+          "code": "EDEX 9.7C",
+          "primary": true
+        },
+        {
+          "id": "17540bb7-ffa1-4659-89dc-7166e308d34b",
+          "board": "edexcel",
+          "code": "EDEX 9.6C",
+          "primary": true
+        },
+        {
+          "id": "636e69ac-a189-496a-ab05-6932c2ce4210",
+          "board": "ocr",
+          "code": "OCR C4.2d",
+          "primary": true
+        },
+        {
+          "id": "67bfb815-73c1-403d-8c3d-1f8ffec2f68a",
+          "board": "aqa",
+          "code": "AQA 4.8.3.5",
+          "primary": false
+        }
+      ]
+    },
+    {
+      "id": "chem-093",
+      "group": "Chemical analysis",
+      "title": "Instrumental methods and flame emission spectroscopy",
+      "scope": "Advantages of instrumental analysis and interpreting flame emission spectra and flame photometer data.",
+      "kind": "content",
+      "higher_only": false,
+      "separate_only": true,
+      "spec_points": [
+        {
+          "id": "86e3702d-e0ac-4608-b225-83935cf721cb",
+          "board": "aqa",
+          "code": "AQA 4.8.3.6",
+          "primary": true
+        },
+        {
+          "id": "652c832d-d2fb-4333-bff6-06966ec0848c",
+          "board": "aqa",
+          "code": "AQA 4.8.3.7",
+          "primary": true
+        },
+        {
+          "id": "225a0d81-6676-4c81-9007-bfbaf6988e4c",
+          "board": "edexcel",
+          "code": "EDEX 9.8C",
+          "primary": true
+        },
+        {
+          "id": "68b965f4-05e4-4e90-811c-d944e91ed2e6",
+          "board": "edexcel",
+          "code": "EDEX 9.9C",
+          "primary": true
+        },
+        {
+          "id": "6d63e650-5277-4262-a6e0-458054b06135",
+          "board": "ocr",
+          "code": "OCR C4.2f",
+          "primary": true
+        },
+        {
+          "id": "da8f829d-3bdc-4725-857e-51d41d7430f9",
+          "board": "ocr",
+          "code": "OCR C4.2g",
+          "primary": true
+        }
+      ]
+    },
+    {
+      "id": "chem-094",
+      "group": "The atmosphere",
+      "title": "Earth's atmosphere: composition and evolution",
+      "scope": "Today's atmosphere and how the early volcanic atmosphere changed as oceans formed and plants produced oxygen.",
+      "kind": "content",
+      "higher_only": false,
+      "separate_only": false,
+      "spec_points": [
+        {
+          "id": "a52e1ec1-9101-4b03-8f54-77ede20d5ec4",
+          "board": "aqa",
+          "code": "AQA 4.9.1.1",
+          "primary": true
+        },
+        {
+          "id": "933528f7-1e7b-4851-b0c1-49279481cf77",
+          "board": "aqa_trilogy",
+          "code": "AQA T 5.9.1.1",
+          "primary": true
+        },
+        {
+          "id": "e7e4f4eb-b1a6-48bf-984f-e03a558532df",
+          "board": "aqa",
+          "code": "AQA 4.9.1.2",
+          "primary": true
+        },
+        {
+          "id": "7db57459-7575-4465-86b7-4dc546e8c13d",
+          "board": "aqa_trilogy",
+          "code": "AQA T 5.9.1.2",
+          "primary": true
+        },
+        {
+          "id": "70d41d82-d2fc-4274-a142-0d1e67c48289",
+          "board": "aqa",
+          "code": "AQA 4.9.1.3",
+          "primary": true
+        },
+        {
+          "id": "3835b59d-f6c4-43ca-9222-f5e30e122e2f",
+          "board": "aqa_trilogy",
+          "code": "AQA T 5.9.1.3",
+          "primary": true
+        },
+        {
+          "id": "b8ecfcab-0c9c-450f-8349-3cb57cb87f67",
+          "board": "aqa",
+          "code": "AQA 4.9.1.4",
+          "primary": true
+        },
+        {
+          "id": "df079dc7-9449-4abf-8d8e-a91d4c45d0d0",
+          "board": "aqa_trilogy",
+          "code": "AQA T 5.9.1.4",
+          "primary": true
+        },
+        {
+          "id": "ca3cc010-e6e8-4bb9-a4e1-4b9599cb67bb",
+          "board": "edexcel",
+          "code": "EDEX 8.18",
+          "primary": true
+        },
+        {
+          "id": "354f845d-ac6d-448a-bb0f-d55185655c09",
+          "board": "edexcel",
+          "code": "EDEX 8.19",
+          "primary": true
+        },
+        {
+          "id": "f7c30064-6b3a-4170-9a8d-560cec5eec8c",
+          "board": "edexcel",
+          "code": "EDEX 8.20",
+          "primary": true
+        },
+        {
+          "id": "1a653e70-73f0-4f0e-b1a7-276e63820f11",
+          "board": "edexcel",
+          "code": "EDEX 8.21",
+          "primary": true
+        },
+        {
+          "id": "ee46ce56-7331-4993-ba68-ef5ee1272436",
+          "board": "edexcel",
+          "code": "EDEX 8.22",
+          "primary": true
+        },
+        {
+          "id": "e58fd0a0-5b52-4505-bf06-b7db38084f93",
+          "board": "ocr",
+          "code": "OCR C6.3a",
+          "primary": true
+        },
+        {
+          "id": "0e47f9ed-81f4-45c3-a84f-a7cf831cc831",
+          "board": "ocr",
+          "code": "OCR C6.3b",
+          "primary": true
+        }
+      ]
+    },
+    {
+      "id": "chem-095",
+      "group": "The atmosphere",
+      "title": "Greenhouse gases and the greenhouse effect",
+      "scope": "How carbon dioxide, methane and water vapour absorb and re-emit infrared radiation to keep Earth warm.",
+      "kind": "content",
+      "higher_only": false,
+      "separate_only": false,
+      "spec_points": [
+        {
+          "id": "3ca28f59-1900-473a-b58e-62be5239d960",
+          "board": "aqa",
+          "code": "AQA 4.9.2.1",
+          "primary": true
+        },
+        {
+          "id": "15aa3ad6-febe-43c1-ba20-9b8581a23143",
+          "board": "aqa_trilogy",
+          "code": "AQA T 5.9.2.1",
+          "primary": true
+        },
+        {
+          "id": "1d4028d5-d516-4342-8ffa-25bc87d97cd9",
+          "board": "edexcel",
+          "code": "EDEX 8.24",
+          "primary": true
+        },
+        {
+          "id": "4a1e716e-d7d8-4d01-9611-9a49a3539fba",
+          "board": "ocr",
+          "code": "OCR C6.3c",
+          "primary": true
+        }
+      ]
+    },
+    {
+      "id": "chem-096",
+      "group": "The atmosphere",
+      "title": "Human activity and climate change: the evidence",
+      "scope": "Human activities that add greenhouse gases and how to evaluate the evidence that they cause climate change.",
+      "kind": "content",
+      "higher_only": false,
+      "separate_only": false,
+      "spec_points": [
+        {
+          "id": "845d2dbd-3050-4317-a549-9f8f3d2a1c8a",
+          "board": "aqa",
+          "code": "AQA 4.9.2.2",
+          "primary": true
+        },
+        {
+          "id": "48aa8d21-0525-411f-b6e4-24d0b0393ee0",
+          "board": "aqa_trilogy",
+          "code": "AQA T 5.9.2.2",
+          "primary": true
+        },
+        {
+          "id": "e0ecc22c-d8c1-4527-a2c7-79196fca5d63",
+          "board": "edexcel",
+          "code": "EDEX 8.25",
+          "primary": true
+        },
+        {
+          "id": "ec307a21-3afd-4b82-bf22-d02b1d272a23",
+          "board": "ocr",
+          "code": "OCR C6.3d",
+          "primary": true
+        }
+      ]
+    },
+    {
+      "id": "chem-097",
+      "group": "The atmosphere",
+      "title": "Effects of climate change and the carbon footprint",
+      "scope": "The potential effects of global warming, the carbon footprint and ways to reduce it.",
+      "kind": "content",
+      "higher_only": false,
+      "separate_only": false,
+      "spec_points": [
+        {
+          "id": "2fcfad04-c6be-40b3-8bde-5614bfc50edb",
+          "board": "aqa",
+          "code": "AQA 4.9.2.3",
+          "primary": true
+        },
+        {
+          "id": "a0c3ff3c-2dc6-4df6-b632-e79585145f99",
+          "board": "aqa_trilogy",
+          "code": "AQA T 5.9.2.3",
+          "primary": true
+        },
+        {
+          "id": "e4e508d0-1909-4a14-9b73-5caf38eb9acc",
+          "board": "aqa",
+          "code": "AQA 4.9.2.4",
+          "primary": true
+        },
+        {
+          "id": "060193e8-50ab-46e8-8cf0-46ed19f7561c",
+          "board": "aqa_trilogy",
+          "code": "AQA T 5.9.2.4",
+          "primary": true
+        },
+        {
+          "id": "88132f0d-7963-48dc-b58e-739ff940d55f",
+          "board": "edexcel",
+          "code": "EDEX 8.26",
+          "primary": true
+        },
+        {
+          "id": "804be853-e189-4e16-a6ce-9cf0b20d18c5",
+          "board": "ocr",
+          "code": "OCR C6.3e",
+          "primary": true
+        }
+      ]
+    },
+    {
+      "id": "chem-098",
+      "group": "The atmosphere",
+      "title": "Carbon monoxide and particulates from incomplete combustion",
+      "scope": "How incomplete combustion produces carbon monoxide and soot, and why they are harmful.",
+      "kind": "content",
+      "higher_only": false,
+      "separate_only": false,
+      "spec_points": [
+        {
+          "id": "daa47949-258a-465a-846b-f17871cc9ca9",
+          "board": "aqa",
+          "code": "AQA 4.9.3.1",
+          "primary": true
+        },
+        {
+          "id": "30c1d0d5-2002-4171-b07e-999ee691e6b0",
+          "board": "aqa_trilogy",
+          "code": "AQA T 5.9.3.1",
+          "primary": true
+        },
+        {
+          "id": "5c520aae-a988-47f3-aec2-57aa992cbb9c",
+          "board": "edexcel",
+          "code": "EDEX 8.8",
+          "primary": true
+        },
+        {
+          "id": "15a28432-773a-4abd-834b-da264c925767",
+          "board": "edexcel",
+          "code": "EDEX 8.9",
+          "primary": true
+        },
+        {
+          "id": "00b44334-8727-4976-92f8-a2636ec149b7",
+          "board": "edexcel",
+          "code": "EDEX 8.10",
+          "primary": true
+        },
+        {
+          "id": "abafb2e8-3e18-4a9d-b8b2-3ffbe7494f8b",
+          "board": "ocr",
+          "code": "OCR C6.3f",
+          "primary": true
+        }
+      ]
+    },
+    {
+      "id": "chem-099",
+      "group": "The atmosphere",
+      "title": "Sulfur dioxide, nitrogen oxides and acid rain",
+      "scope": "How sulfur impurities and high engine temperatures produce sulfur dioxide and nitrogen oxides, and their effects including acid rain.",
+      "kind": "content",
+      "higher_only": false,
+      "separate_only": false,
+      "spec_points": [
+        {
+          "id": "dd7c8580-8508-4afa-b080-0ccd4c9ac1e0",
+          "board": "aqa",
+          "code": "AQA 4.9.3.2",
+          "primary": true
+        },
+        {
+          "id": "8af93210-6751-4688-a658-121ae0c36d4f",
+          "board": "aqa_trilogy",
+          "code": "AQA T 5.9.3.2",
+          "primary": true
+        },
+        {
+          "id": "c6930562-5f79-45b1-8726-a6df5e166659",
+          "board": "edexcel",
+          "code": "EDEX 8.11",
+          "primary": true
+        },
+        {
+          "id": "e925ab1a-3dcf-4e1c-bca9-86ad87441d9b",
+          "board": "edexcel",
+          "code": "EDEX 8.12",
+          "primary": true
+        },
+        {
+          "id": "2f419dd2-9360-4320-a2ae-d2a0bcd95671",
+          "board": "edexcel",
+          "code": "EDEX 8.13",
+          "primary": true
+        },
+        {
+          "id": "daa47949-258a-465a-846b-f17871cc9ca9",
+          "board": "aqa",
+          "code": "AQA 4.9.3.1",
+          "primary": false
+        },
+        {
+          "id": "30c1d0d5-2002-4171-b07e-999ee691e6b0",
+          "board": "aqa_trilogy",
+          "code": "AQA T 5.9.3.1",
+          "primary": false
+        },
+        {
+          "id": "abafb2e8-3e18-4a9d-b8b2-3ffbe7494f8b",
+          "board": "ocr",
+          "code": "OCR C6.3f",
+          "primary": false
+        }
+      ]
+    },
+    {
+      "id": "chem-100",
+      "group": "Using resources",
+      "title": "Sustainability: reduce, reuse and recycle",
+      "scope": "Using finite resources sustainably, and the benefits and problems of recycling metals, glass and polymers.",
+      "kind": "content",
+      "higher_only": false,
+      "separate_only": false,
+      "spec_points": [
+        {
+          "id": "3aa2613d-e699-4ce5-820c-8a9240ea2273",
+          "board": "aqa",
+          "code": "AQA 4.10.1.1",
+          "primary": true
+        },
+        {
+          "id": "1aaeaa9e-1550-4cab-8c5d-b6d6d29c7ced",
+          "board": "aqa_trilogy",
+          "code": "AQA T 5.10.1.1",
+          "primary": true
+        },
+        {
+          "id": "df22aa5d-3c18-4599-81d3-74ddc9f80a1d",
+          "board": "aqa",
+          "code": "AQA 4.10.2.2",
+          "primary": true
+        },
+        {
+          "id": "8ef1c1ab-2cf0-49cd-8dbf-92acbb1cc822",
+          "board": "aqa_trilogy",
+          "code": "AQA T 5.10.2.2",
+          "primary": true
+        },
+        {
+          "id": "7760e56c-be6f-44f8-b8db-5ed4d6c66bf8",
+          "board": "edexcel",
+          "code": "EDEX 4.10",
+          "primary": true
+        },
+        {
+          "id": "248e1068-0a94-4238-8bcf-b9f5061e2579",
+          "board": "edexcel",
+          "code": "EDEX 9.23C",
+          "primary": true
+        },
+        {
+          "id": "16d8ecf2-ef7e-4d2f-8599-d8f72e0b5fda",
+          "board": "edexcel",
+          "code": "EDEX 9.24C",
+          "primary": true
+        },
+        {
+          "id": "f5c2e674-a6c7-4e54-8c73-c280bd104955",
+          "board": "ocr",
+          "code": "OCR C6.1m",
+          "primary": true
+        },
+        {
+          "id": "303bf190-cd96-4456-9b31-9407b0a05359",
+          "board": "ocr",
+          "code": "OCR C6.1n",
+          "primary": true
+        }
+      ]
+    },
+    {
+      "id": "chem-101",
+      "group": "Using resources",
+      "title": "Potable water and waste water treatment",
+      "scope": "Making drinking water from fresh water and seawater, and how sewage and waste water are treated.",
+      "kind": "content",
+      "higher_only": false,
+      "separate_only": false,
+      "spec_points": [
+        {
+          "id": "47341575-eaa9-46a0-9e37-255a5c5ec5d9",
+          "board": "aqa",
+          "code": "AQA 4.10.1.2",
+          "primary": true
+        },
+        {
+          "id": "b439969f-0e73-49de-8908-3de5dc8e5482",
+          "board": "aqa_trilogy",
+          "code": "AQA T 5.10.1.2",
+          "primary": true
+        },
+        {
+          "id": "db247606-2c1c-46cf-b11d-18567f2605a3",
+          "board": "aqa",
+          "code": "AQA 4.10.1.3",
+          "primary": true
+        },
+        {
+          "id": "bf14df39-d4d9-4d05-825c-c06dd8833c4e",
+          "board": "aqa_trilogy",
+          "code": "AQA T 5.10.1.3",
+          "primary": true
+        },
+        {
+          "id": "2a022473-21e2-4176-ac4d-8200cafd0381",
+          "board": "edexcel",
+          "code": "EDEX 2.12",
+          "primary": true
+        },
+        {
+          "id": "b968915a-cc31-42d7-ad83-b777fcf0d132",
+          "board": "ocr",
+          "code": "OCR C6.3g",
+          "primary": true
+        }
+      ]
+    },
+    {
+      "id": "chem-102",
+      "group": "Using resources",
+      "title": "Biological methods of metal extraction",
+      "scope": "Phytomining and bioleaching as ways to extract metals such as copper from low-grade ores.",
+      "kind": "content",
+      "higher_only": false,
+      "separate_only": false,
+      "spec_points": [
+        {
+          "id": "66759f9a-3e1e-4887-abf7-6417c2f80f05",
+          "board": "aqa",
+          "code": "AQA 4.10.1.4",
+          "primary": true
+        },
+        {
+          "id": "8b60922b-1b5f-40d7-b245-3eb5bfc7f243",
+          "board": "aqa_trilogy",
+          "code": "AQA T 5.10.1.4",
+          "primary": true
+        },
+        {
+          "id": "aab48e93-fafd-4f66-a85a-f171035e6332",
+          "board": "edexcel",
+          "code": "EDEX 4.8",
+          "primary": true
+        },
+        {
+          "id": "8bcd0e42-2746-4ac2-b564-6e7e6b0a52c7",
+          "board": "ocr",
+          "code": "OCR C6.1c",
+          "primary": true
+        }
+      ]
+    },
+    {
+      "id": "chem-103",
+      "group": "Using resources",
+      "title": "Life cycle assessment",
+      "scope": "The stages of a life cycle assessment and how to interpret and evaluate LCA data for products.",
+      "kind": "content",
+      "higher_only": false,
+      "separate_only": false,
+      "spec_points": [
+        {
+          "id": "1905c47e-c669-414d-88dd-453821ecf659",
+          "board": "aqa",
+          "code": "AQA 4.10.2.1",
+          "primary": true
+        },
+        {
+          "id": "4f686ad1-3d4a-46ae-be2c-22718e0fd287",
+          "board": "aqa_trilogy",
+          "code": "AQA T 5.10.2.1",
+          "primary": true
+        },
+        {
+          "id": "70cceab6-e0a4-4f3b-bd77-a1941855fb3e",
+          "board": "edexcel",
+          "code": "EDEX 4.11",
+          "primary": true
+        },
+        {
+          "id": "315b4ad3-bf20-445f-ae41-fe18cdfc5408",
+          "board": "edexcel",
+          "code": "EDEX 4.12",
+          "primary": true
+        },
+        {
+          "id": "0821824e-4737-433c-83d9-4c07ffc47d65",
+          "board": "ocr",
+          "code": "OCR C6.1k",
+          "primary": true
+        },
+        {
+          "id": "1f794896-5bc5-4d3f-9f0e-50310d0bb847",
+          "board": "ocr",
+          "code": "OCR C6.1l",
+          "primary": true
+        }
+      ]
+    },
+    {
+      "id": "chem-104",
+      "group": "Using resources",
+      "title": "Corrosion and its prevention",
+      "scope": "Rusting as oxidation, the conditions needed, and prevention by barriers, sacrificial protection and electroplating.",
+      "kind": "content",
+      "higher_only": false,
+      "separate_only": true,
+      "spec_points": [
+        {
+          "id": "26dacc94-ac9a-437b-aa08-1e87af0e9bf4",
+          "board": "aqa",
+          "code": "AQA 4.10.3.1",
+          "primary": true
+        },
+        {
+          "id": "0559a253-c2d0-45f7-b59f-b72ffa1a02df",
+          "board": "edexcel",
+          "code": "EDEX 5.2C",
+          "primary": true
+        },
+        {
+          "id": "0c5b7af9-8abf-49ee-a96d-99e17c3a6579",
+          "board": "edexcel",
+          "code": "EDEX 5.3C",
+          "primary": true
+        },
+        {
+          "id": "bd7fc04e-5cda-452e-8d53-aa1eeb89d6a6",
+          "board": "edexcel",
+          "code": "EDEX 5.4C",
+          "primary": true
+        },
+        {
+          "id": "53b7b81b-f889-415e-aff9-9c9f96b4f908",
+          "board": "ocr",
+          "code": "OCR C6.1p",
+          "primary": true
+        },
+        {
+          "id": "31f6a5f8-e320-4d88-89f7-e2896192f7c6",
+          "board": "ocr",
+          "code": "OCR C6.1q",
+          "primary": true
+        }
+      ]
+    },
+    {
+      "id": "chem-105",
+      "group": "Using resources",
+      "title": "Alloys",
+      "scope": "Why alloys are harder than pure metals, common alloys such as steels, brass and bronze, and matching metals to uses.",
+      "kind": "content",
+      "higher_only": false,
+      "separate_only": true,
+      "spec_points": [
+        {
+          "id": "592ff7e3-e429-4c14-baed-ef6fff6e4a39",
+          "board": "aqa",
+          "code": "AQA 4.10.3.2",
+          "primary": true
+        },
+        {
+          "id": "63d3c891-b3a1-47fd-abf5-70b6df46d1a9",
+          "board": "edexcel",
+          "code": "EDEX 5.5C",
+          "primary": true
+        },
+        {
+          "id": "3204745d-b9ae-49d8-b36d-90eb958b4dc3",
+          "board": "edexcel",
+          "code": "EDEX 5.6C",
+          "primary": true
+        },
+        {
+          "id": "970e3d3e-56ea-436e-ab8d-897dab60cdd2",
+          "board": "edexcel",
+          "code": "EDEX 5.7C",
+          "primary": true
+        },
+        {
+          "id": "97440902-fca9-464b-9d40-b635ec4c19ef",
+          "board": "ocr",
+          "code": "OCR C6.1o",
+          "primary": true
+        },
+        {
+          "id": "2f7c1a50-4ba6-4ddf-8ca8-87e5380d86ab",
+          "board": "aqa",
+          "code": "AQA 4.2.2.7",
+          "primary": false
+        },
+        {
+          "id": "430a6725-3188-4a36-b345-252c0a4694df",
+          "board": "aqa_trilogy",
+          "code": "AQA T 5.2.2.7",
+          "primary": false
+        }
+      ]
+    },
+    {
+      "id": "chem-106",
+      "group": "Using resources",
+      "title": "Ceramics, polymers and composites",
+      "scope": "Making and comparing glass, clay ceramics, thermosetting and thermosoftening polymers and composites, and choosing materials for uses.",
+      "kind": "content",
+      "higher_only": false,
+      "separate_only": true,
+      "spec_points": [
+        {
+          "id": "464ff62e-989a-4d7f-b8c1-0ec1187df9b0",
+          "board": "aqa",
+          "code": "AQA 4.10.3.3",
+          "primary": true
+        },
+        {
+          "id": "17e795c8-8269-43e8-8db3-eceb8bd2a8fc",
+          "board": "edexcel",
+          "code": "EDEX 9.38C",
+          "primary": true
+        },
+        {
+          "id": "a718db2c-3b83-4846-b1b5-993ee11c3d85",
+          "board": "edexcel",
+          "code": "EDEX 9.39C",
+          "primary": true
+        },
+        {
+          "id": "f576ac87-5ba7-467b-ae2e-84a94d9c8652",
+          "board": "ocr",
+          "code": "OCR C6.1r",
+          "primary": true
+        },
+        {
+          "id": "59a891ae-b867-40fd-b2f9-f7463e8237b5",
+          "board": "ocr",
+          "code": "OCR C6.1s",
+          "primary": true
+        }
+      ]
+    },
+    {
+      "id": "chem-107",
+      "group": "Using resources",
+      "title": "The Haber process",
+      "scope": "Making ammonia from nitrogen and hydrogen, the conditions used and how unreacted gases are recycled.",
+      "kind": "content",
+      "higher_only": false,
+      "separate_only": true,
+      "spec_points": [
+        {
+          "id": "bda26440-febe-41b9-b276-f6e1f25ba10f",
+          "board": "aqa",
+          "code": "AQA 4.10.4.1",
+          "primary": true
+        },
+        {
+          "id": "9c99e1ee-8497-4cc2-8e44-d8d69962db29",
+          "board": "edexcel",
+          "code": "EDEX 4.15",
+          "primary": true
+        },
+        {
+          "id": "5fa295a2-6573-4c5d-9453-7235129ab4b4",
+          "board": "edexcel",
+          "code": "EDEX 4.16",
+          "primary": true
+        },
+        {
+          "id": "b2c88923-aa9d-4c84-83fd-59da41c29a02",
+          "board": "edexcel",
+          "code": "EDEX 5.19C",
+          "primary": true
+        },
+        {
+          "id": "59eac991-31cf-4140-85d4-8dc9cde5e86b",
+          "board": "ocr",
+          "code": "OCR C6.1g",
+          "primary": true
+        },
+        {
+          "id": "ecb5d54c-7845-4886-a524-1663e53dfc2e",
+          "board": "edexcel",
+          "code": "EDEX 5.21C",
+          "primary": false
+        },
+        {
+          "id": "2b2a586c-0a48-4f51-b44d-ecf16ffd55c2",
+          "board": "ocr",
+          "code": "OCR C6.1d",
+          "primary": false
+        }
+      ]
+    },
+    {
+      "id": "chem-108",
+      "group": "Using resources",
+      "title": "Choosing conditions for industrial processes",
+      "scope": "The compromise between rate, equilibrium yield and cost when choosing temperature, pressure and catalyst.",
+      "kind": "content",
+      "higher_only": false,
+      "separate_only": true,
+      "spec_points": [
+        {
+          "id": "4ce6df3c-fa54-48b1-95da-31c5a13bd335",
+          "board": "edexcel",
+          "code": "EDEX 5.20C",
+          "primary": true
+        },
+        {
+          "id": "ecb5d54c-7845-4886-a524-1663e53dfc2e",
+          "board": "edexcel",
+          "code": "EDEX 5.21C",
+          "primary": true
+        },
+        {
+          "id": "2b2a586c-0a48-4f51-b44d-ecf16ffd55c2",
+          "board": "ocr",
+          "code": "OCR C6.1d",
+          "primary": true
+        },
+        {
+          "id": "d8469878-1705-47dc-952e-2af3684ad182",
+          "board": "ocr",
+          "code": "OCR C6.1e",
+          "primary": true
+        },
+        {
+          "id": "8626db24-5005-4e81-8331-4c241dc3f24f",
+          "board": "ocr",
+          "code": "OCR C6.1f",
+          "primary": true
+        },
+        {
+          "id": "bda26440-febe-41b9-b276-f6e1f25ba10f",
+          "board": "aqa",
+          "code": "AQA 4.10.4.1",
+          "primary": false
+        }
+      ]
+    },
+    {
+      "id": "chem-109",
+      "group": "Using resources",
+      "title": "NPK fertilisers",
+      "scope": "Why plants need nitrogen, phosphorus and potassium, and making fertilisers in the lab and industrially.",
+      "kind": "content",
+      "higher_only": false,
+      "separate_only": true,
+      "spec_points": [
+        {
+          "id": "9d33c66a-664a-40e8-9cc0-6e60a1c64130",
+          "board": "aqa",
+          "code": "AQA 4.10.4.2",
+          "primary": true
+        },
+        {
+          "id": "b8eb4ad6-1262-43f5-82f7-beca22a17e42",
+          "board": "edexcel",
+          "code": "EDEX 5.22C",
+          "primary": true
+        },
+        {
+          "id": "9c8d57e5-6ee6-4bfe-8267-26a13fae3d75",
+          "board": "edexcel",
+          "code": "EDEX 5.23C",
+          "primary": true
+        },
+        {
+          "id": "afd14cf5-74f3-44f3-a84c-34cf07c6a4a3",
+          "board": "edexcel",
+          "code": "EDEX 5.24C",
+          "primary": true
+        },
+        {
+          "id": "7ce72cfd-eb6a-45ce-b196-c888fc11c687",
+          "board": "ocr",
+          "code": "OCR C6.1h",
+          "primary": true
+        },
+        {
+          "id": "9458d8b3-0666-425a-a93f-2f0ebdca321e",
+          "board": "ocr",
+          "code": "OCR C6.1i",
+          "primary": true
+        },
+        {
+          "id": "938bfc60-39a6-47ed-8e68-bd515571da58",
+          "board": "ocr",
+          "code": "OCR C6.1j",
+          "primary": true
+        }
+      ]
+    },
+    {
+      "id": "chem-110",
+      "group": "Working scientifically",
+      "title": "Hazard symbols and risk assessment",
+      "scope": "Reading hazard symbols and evaluating risks and precautions in practical work.",
+      "kind": "skills",
+      "higher_only": false,
+      "separate_only": false,
+      "data_note": "taught by aqa, ocr but no matching spec point",
+      "spec_points": [
+        {
+          "id": "29e0bab4-e33a-42f7-b80f-52713be27e9c",
+          "board": "edexcel",
+          "code": "EDEX 0.5",
+          "primary": true
+        },
+        {
+          "id": "bc7b613c-bda4-4580-a8c7-67275c232bb4",
+          "board": "edexcel",
+          "code": "EDEX 0.6",
+          "primary": true
+        }
+      ]
+    },
+    {
+      "id": "chem-111",
+      "group": "Working scientifically",
+      "title": "Uncertainty in measurements",
+      "scope": "Using the range of repeat results about the mean to estimate uncertainty.",
+      "kind": "skills",
+      "higher_only": false,
+      "separate_only": false,
+      "data_note": "taught by edexcel, ocr but no matching spec point",
+      "spec_points": [
+        {
+          "id": "81eacb10-a1f3-42d1-888f-ab9eec83e404",
+          "board": "aqa",
+          "code": "AQA 4.3.1.4",
+          "primary": true
+        },
+        {
+          "id": "9b619373-4a93-4ade-a84b-55c549b3259a",
+          "board": "aqa_trilogy",
+          "code": "AQA T 5.3.1.4",
+          "primary": true
+        }
+      ]
+    }
+  ]
+}

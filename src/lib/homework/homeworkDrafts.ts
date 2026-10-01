@@ -13,9 +13,12 @@
  * crash, and works with no network. `homework_drafts` is the durable one: it
  * writes a little less often and is what carries a half-finished answer from
  * the school laptop to the phone on the bus home. Neither is authoritative on
- * its own, so {@link mergeDrafts} takes whichever was written last — a student
- * who typed offline on their phone must not have it overwritten by the older
- * copy the server happens to be holding.
+ * its own, so {@link mergeDrafts} reconciles them question by question: each
+ * answer (and the note) carries the time it was last edited, and the newer
+ * edit of each wins. Whole drafts used to win or lose together, so a laptop
+ * tab left open since yesterday blanked the answers typed on the phone with
+ * its next keystroke, and a laptop that had been offline did the same when it
+ * reconnected.
  *
  * Both are keyed per student and per homework, so two people sharing a laptop
  * never see each other's answers. Both are cleared once the submission lands
@@ -32,12 +35,22 @@ type StoredDraft = {
   savedAt: number;
   answers: Record<string, string>;
   notes: string;
+  stamps?: Stamps;
 };
 
 export type HomeworkDraft = { answers: Record<string, string>; notes: string };
 
-/** A draft plus when it was written, which is how the two layers are reconciled. */
-export type TimestampedDraft = HomeworkDraft & { savedAt: number };
+/**
+ * When each answer was last edited, by question id, on this device's clock.
+ * The note is under {@link NOTES}. A field with no stamp was never edited here.
+ */
+export type Stamps = Record<string, number>;
+
+/** The key the note's edit time is kept under. Question ids are uuids, so it can't collide. */
+export const NOTES = "notes";
+
+/** A draft plus when it, and each answer in it, was written: how copies are reconciled. */
+export type TimestampedDraft = HomeworkDraft & { savedAt: number; stamps: Stamps };
 
 function key(userId: string, homeworkId: string): string {
   return `${PREFIX}:${userId}:${homeworkId}`;
@@ -71,18 +84,26 @@ export function loadDraft(userId: string, homeworkId: string): TimestampedDraft 
       savedAt: parsed.savedAt ?? 0,
       answers: parsed.answers ?? {},
       notes: typeof parsed.notes === "string" ? parsed.notes : "",
+      stamps: parsed.stamps && typeof parsed.stamps === "object" ? parsed.stamps : {},
     };
   } catch {
     return null;
   }
 }
 
-/** Persist a draft. An empty draft clears the entry rather than storing blanks. */
-export function saveDraft(userId: string, homeworkId: string, draft: HomeworkDraft): void {
+/**
+ * Persist a draft. An empty draft clears the entry rather than storing blanks,
+ * unless it records an edit: an answer deliberately cleared must stay cleared.
+ */
+export function saveDraft(
+  userId: string,
+  homeworkId: string,
+  draft: HomeworkDraft & { stamps?: Stamps },
+): void {
   const store = available();
   if (!store) return;
   try {
-    if (!hasContent(draft)) {
+    if (!hasContent(draft) && Object.keys(draft.stamps ?? {}).length === 0) {
       store.removeItem(key(userId, homeworkId));
       return;
     }
@@ -90,6 +111,7 @@ export function saveDraft(userId: string, homeworkId: string, draft: HomeworkDra
       savedAt: Date.now(),
       answers: draft.answers,
       notes: draft.notes,
+      stamps: draft.stamps ?? {},
     };
     store.setItem(key(userId, homeworkId), JSON.stringify(payload));
   } catch {
@@ -136,64 +158,59 @@ function hasContent(draft: HomeworkDraft): boolean {
 /**
  * The durable copy, for picking the work back up on another device.
  *
- * Failures are swallowed on purpose. A draft is a safety net, and a net that
- * throws is worse than one with a hole in it: an offline student must keep
+ * One call both ways: `sync_homework_draft` keeps the newer edit of each field
+ * this device sends, and returns the whole merged draft, so the page can take
+ * in what was typed elsewhere. Stamps travel with this device's clock reading,
+ * which the server uses to convert them to its own time and back: two devices
+ * whose clocks disagree still agree on which edit came last.
+ *
+ * Failures come back as null, on purpose. A draft is a safety net, and a net
+ * that throws is worse than one with a hole in it: an offline student must keep
  * typing into a working page, backed by localStorage, rather than watch an
- * error toast every few seconds.
+ * error toast every few seconds. Null also means "already handed in".
  */
-export async function loadServerDraft(homeworkId: string): Promise<TimestampedDraft | null> {
+export async function syncServerDraft(
+  homeworkId: string,
+  draft?: TimestampedDraft | null,
+): Promise<TimestampedDraft | null> {
   try {
-    const { data, error } = await supabase
-      .from("homework_drafts")
-      .select("answers, notes, updated_at")
-      .eq("resource_id", homeworkId)
-      .maybeSingle();
+    const stamps = draft?.stamps ?? {};
+    const { data, error } = await supabase.rpc("sync_homework_draft", {
+      _resource_id: homeworkId,
+      _answers: draft?.answers ?? {},
+      _notes: NOTES in stamps ? (draft?.notes ?? "") : undefined,
+      _stamps: stamps,
+      _client_now: Date.now(),
+    });
     if (error || !data) return null;
+    const row = data as { answers?: Record<string, string>; notes?: string; stamps?: Stamps };
     return {
-      savedAt: new Date(data.updated_at).getTime(),
-      answers: (data.answers as Record<string, string> | null) ?? {},
-      notes: data.notes ?? "",
+      savedAt: Math.max(0, ...Object.values(row.stamps ?? {})),
+      answers: row.answers ?? {},
+      notes: row.notes ?? "",
+      stamps: row.stamps ?? {},
     };
   } catch {
     return null;
   }
 }
 
-export async function saveServerDraft(
-  userId: string,
-  homeworkId: string,
-  draft: HomeworkDraft,
-): Promise<void> {
-  try {
-    if (!hasContent(draft)) {
-      await supabase
-        .from("homework_drafts")
-        .delete()
-        .eq("student_id", userId)
-        .eq("resource_id", homeworkId);
-      return;
-    }
-    await supabase.from("homework_drafts").upsert(
-      {
-        student_id: userId,
-        resource_id: homeworkId,
-        answers: draft.answers,
-        notes: draft.notes || null,
-        updated_at: new Date().toISOString(),
-      },
-      { onConflict: "student_id,resource_id" },
-    );
-  } catch {
-    /* best-effort — localStorage still holds it */
-  }
+/** When a draft's field was last edited. Unstamped fields date from the draft itself. */
+function stampOf(draft: TimestampedDraft, field: string): number {
+  const stamp = draft.stamps?.[field];
+  if (typeof stamp === "number") return stamp;
+  const present = field === NOTES ? draft.notes !== "" : field in draft.answers;
+  return present ? draft.savedAt : -Infinity;
 }
 
 /**
- * Reconcile the two layers.
+ * Reconcile two copies of a draft, field by field: the newer edit of each
+ * answer, and of the note, wins.
  *
- * Last write wins, and the tie goes to the local copy: if both were saved in
- * the same instant it is because the local write is the one that produced the
- * server write, so they hold the same thing anyway.
+ * The tie goes to `local`: if both were stamped in the same instant it is
+ * because one copy produced the other, so they hold the same thing anyway.
+ * Returns `local` itself when `server` adds nothing newer, so a caller holding
+ * it in state can tell nothing changed.
  */
 export function mergeDrafts(
   local: TimestampedDraft | null,
@@ -201,5 +218,35 @@ export function mergeDrafts(
 ): TimestampedDraft | null {
   if (!local) return server;
   if (!server) return local;
-  return server.savedAt > local.savedAt ? server : local;
+
+  let merged: TimestampedDraft | null = null;
+  const take = () =>
+    (merged ??= {
+      ...local,
+      answers: { ...local.answers },
+      stamps: { ...local.stamps },
+    });
+
+  for (const field of new Set([
+    ...Object.keys(server.answers),
+    NOTES,
+    ...Object.keys(server.stamps ?? {}),
+  ])) {
+    const theirs = stampOf(server, field);
+    if (!(theirs > stampOf(local, field))) continue;
+    // Newer, but the same words: nothing to take.
+    if (field === NOTES) {
+      if (server.notes === local.notes) continue;
+      take().notes = server.notes;
+    } else {
+      if (!(field in server.answers) || server.answers[field] === local.answers[field]) continue;
+      take().answers[field] = server.answers[field];
+    }
+    take().stamps[field] = theirs;
+  }
+
+  if (!merged) return local;
+  const done = merged as TimestampedDraft;
+  done.savedAt = Math.max(local.savedAt, server.savedAt);
+  return done;
 }
