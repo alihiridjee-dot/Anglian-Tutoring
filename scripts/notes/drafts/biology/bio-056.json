@@ -1,0 +1,295 @@
+{
+  "format": 1,
+  "concept_id": "bio-056",
+  "subject": "biology",
+  "title": "Limiting factors of photosynthesis",
+  "key_idea": "The rate of photosynthesis is limited by whichever factor is in shortest supply. Light intensity, carbon dioxide concentration, temperature and the amount of chlorophyll can each be the limiting factor. On a graph, a flat line shows that something else is now limiting.",
+  "sections": [
+    {
+      "heading": "What a limiting factor is",
+      "blocks": [
+        { "type": "paragraph", "text": "Photosynthesis only goes as fast as its slowest-supplied need. This section names the factors that can hold it back." },
+        {
+          "type": "definitions",
+          "items": [
+            { "term": "Limiting factor", "meaning": "The factor in shortest supply, which sets the maximum rate of photosynthesis." },
+            { "term": "Rate", "meaning": "How much happens in a set time, for example bubbles of oxygen per second." }
+          ]
+        },
+        {
+          "type": "list",
+          "items": [
+            "**Light intensity**: how bright the light is.",
+            "**Carbon dioxide concentration**: how much carbon dioxide is available.",
+            "**Temperature**.",
+            "The amount of **chlorophyll** in the leaves."
+          ]
+        },
+        {
+          "type": "key-points",
+          "items": [
+            "A limiting factor is the one in shortest supply.",
+            "Four factors to know: light intensity, carbon dioxide, temperature and chlorophyll."
+          ]
+        }
+      ]
+    },
+    {
+      "heading": "Light intensity and carbon dioxide",
+      "blocks": [
+        { "type": "paragraph", "text": "Light provides the energy and carbon dioxide is a reactant. If either is low, photosynthesis is slow." },
+        {
+          "type": "diagram",
+          "diagram": {
+            "kind": "line-graph",
+            "alt": "A line graph of rate of photosynthesis against light intensity. The rate rises steeply at low light intensity, then flattens. The rising part is labelled light is limiting. The flat part is labelled another factor is limiting.",
+            "x": { "label": "Light intensity", "min": 0, "max": 10, "ticks": [0, 2, 4, 6, 8, 10], "unit": "arbitrary units" },
+            "y": { "label": "Rate of photosynthesis" },
+            "series": [
+              { "name": "Rate of photosynthesis", "points": [[0, 0.02], [1, 0.22], [2, 0.42], [3, 0.58], [4, 0.7], [5, 0.76], [6, 0.78], [8, 0.79], [10, 0.79]] }
+            ],
+            "bands": [
+              { "from": 0, "to": 4, "label": "Light is limiting" },
+              { "from": 4, "to": 10, "label": "Another factor is limiting" }
+            ]
+          }
+        },
+        { "type": "subheading", "text": "Light intensity" },
+        {
+          "type": "list",
+          "items": [
+            "At low light intensity, light is the limiting factor. More light gives a faster rate.",
+            "The line then levels off. Extra light makes no difference, because another factor is now limiting."
+          ]
+        },
+        { "type": "subheading", "text": "Carbon dioxide concentration" },
+        {
+          "type": "list",
+          "items": [
+            "Carbon dioxide is a reactant. A low concentration limits the rate.",
+            "More carbon dioxide gives a faster rate, until another factor becomes limiting and the line levels off."
+          ]
+        },
+        {
+          "type": "key-points",
+          "items": [
+            "The rising part of a graph shows the factor on the x axis is limiting.",
+            "The flat part shows another factor is limiting."
+          ]
+        }
+      ]
+    },
+    {
+      "heading": "Temperature and chlorophyll",
+      "blocks": [
+        { "type": "paragraph", "text": "Temperature affects the enzymes that control photosynthesis. Chlorophyll decides how much light the plant can absorb." },
+        { "type": "subheading", "text": "Temperature" },
+        {
+          "type": "list",
+          "items": [
+            "At low temperatures the reactants and enzymes have less kinetic energy, so they collide less often and the rate is low.",
+            "As temperature rises, the particles have more kinetic energy and collide more often, so the rate increases.",
+            "At a very high temperature the enzymes are denatured and photosynthesis stops, or the rate falls."
+          ]
+        },
+        { "type": "subheading", "text": "Chlorophyll" },
+        {
+          "type": "list",
+          "items": [
+            "Chlorophyll absorbs the light for photosynthesis.",
+            "A plant with less chlorophyll absorbs less light, so photosynthesis is slower.",
+            "Yellow leaves can show a shortage of magnesium ions, which are needed to make chlorophyll."
+          ]
+        },
+        {
+          "type": "key-points",
+          "items": [
+            "Warmer means faster, until enzymes are denatured.",
+            "Less chlorophyll means less light absorbed and a slower rate."
+          ]
+        }
+      ]
+    },
+    {
+      "heading": "Measuring and calculating the rate",
+      "blocks": [
+        { "type": "paragraph", "text": "You can measure the rate by counting bubbles of oxygen from pondweed in a set time." },
+        {
+          "type": "equation",
+          "label": "Rate of photosynthesis",
+          "formula": "rate = amount ÷ time",
+          "where": ["amount, for example the number of bubbles or the volume of oxygen in cm³", "time, for example in s or min"]
+        },
+        {
+          "type": "steps",
+          "items": [
+            { "lead": "Data.", "text": "Pondweed releases 10 bubbles in 43 seconds." },
+            { "lead": "Calculate.", "text": "Rate = 10 ÷ 43 = 0.23255..." },
+            { "lead": "Round and add the unit.", "text": "To 3 significant figures the rate is 0.233 bubbles per second." }
+          ]
+        },
+        {
+          "type": "diagram",
+          "diagram": {
+            "kind": "practice",
+            "alt": "Practise calculating a rate of photosynthesis from the time taken to release 10 bubbles.",
+            "question": "Pondweed releases 10 bubbles of oxygen in **{t} seconds**. Calculate the rate of photosynthesis in bubbles per second. Give your answer to 3 significant figures.",
+            "variables": [{ "id": "t", "min": 20, "max": 90, "step": 5 }],
+            "answer": { "formula": "10 / t", "unit": "bubbles per second", "decimals": 3 },
+            "working": [
+              "Rate = amount ÷ time",
+              "Rate = 10 ÷ {t} = **{answer}** bubbles per second"
+            ]
+          }
+        },
+        {
+          "type": "key-points",
+          "items": [
+            "Rate = amount ÷ time. A shorter time for the same amount means a faster rate.",
+            "Always give the unit with the rate."
+          ]
+        }
+      ]
+    }
+  ],
+  "checks": [
+    {
+      "q": "On a graph of rate of photosynthesis against light intensity, the line becomes flat. What does this tell you?",
+      "a": "Light intensity is no longer the limiting factor. Another factor, such as carbon dioxide concentration or temperature, is now limiting the rate.",
+      "marks": 2
+    },
+    {
+      "q": "Explain why the rate of photosynthesis is slow at a low temperature.",
+      "a": "The reactants and enzymes have less kinetic energy, so there are fewer collisions and photosynthesis is slower.",
+      "marks": 2
+    },
+    {
+      "q": "Pondweed releases 10 bubbles in 25 seconds. Calculate the rate of photosynthesis in bubbles per second.",
+      "a": "10 ÷ 25 = 0.4 bubbles per second.",
+      "marks": 2
+    }
+  ],
+  "boards": {
+    "aqa": {
+      "spec_codes": ["AQA 4.2", "AQA T 4.4.1.2"],
+      "exam_phrases": [
+        "rate / photosynthesis is faster / higher",
+        "reactants / particles / molecules / enzymes have greater (kinetic) energy",
+        "(so) collide more frequently",
+        "higher / increase in temperature, or more carbon dioxide",
+        "(so) more photosynthesis, so more glucose / sugar made",
+        "10 / 43 ... bubbles per second",
+        "a shortage of magnesium (ions), so less chlorophyll"
+      ],
+      "mistakes": [
+        {
+          "wrong": "Rate = 0.23 bubbles per second.",
+          "right": "The question asked for 3 significant figures: 10 ÷ 43 = 0.233 bubbles per second. The unit must go with the answer."
+        },
+        {
+          "wrong": "The plants in the greenhouse with the wood burner grow faster because of the burning logs.",
+          "right": "Say what the logs do: they raise the temperature or release carbon dioxide. This gives more photosynthesis, so more glucose is made, and so more protein or cellulose."
+        },
+        {
+          "wrong": "Plants have yellow leaves because they have chlorosis.",
+          "right": "\"Chlorosis\" on its own is ignored. Say a shortage of magnesium (or nitrate or iron) ions means less chlorophyll is made."
+        }
+      ],
+      "worked_example": {
+        "exemplar_id": "8088cbbf-af5e-46cf-9a58-5ffc32c6e04f",
+        "source": "AQA jun 2025, Paper 1 (H), Q04.3",
+        "question": "A student measured the time taken for pondweed to release 10 bubbles at different temperatures. The pondweed took 84 seconds at 10 °C and 25 seconds at 40 °C.\n\nExplain the difference in the rate of photosynthesis at 40 °C compared with the rate of photosynthesis at 10 °C.",
+        "marks": 3,
+        "answer_points": [
+          "The rate of photosynthesis is faster / higher at 40 °C.",
+          "The reactants / particles / molecules / enzymes have greater (kinetic) energy, or they move faster.",
+          "So they collide more frequently (more collisions in a given time)."
+        ],
+        "tip": "One mark for the comparison, one for more kinetic energy and one for more frequent collisions."
+      }
+    },
+    "edexcel": {
+      "spec_codes": ["EDEX 6.3"],
+      "exam_phrases": [
+        "keep the light at the same distance from the pondweed",
+        "count the number of bubbles / measure the oxygen produced",
+        "repeat at different temperatures",
+        "control carbon dioxide concentration / mass of pondweed",
+        "photosynthesis would stop because enzymes would be denatured"
+      ],
+      "mistakes": [
+        {
+          "wrong": "At 60 °C the enzymes in the plant are killed, so photosynthesis stops.",
+          "right": "\"Killed\" is rejected, and saying the plant or plant cells are denatured is ignored. Say photosynthesis stops because the enzymes are denatured."
+        },
+        {
+          "wrong": "Put the pondweed in water at different temperatures and count the bubbles.",
+          "right": "A plan needs three points from four. Also keep the light at the same distance and control the carbon dioxide concentration or the mass of pondweed."
+        }
+      ],
+      "worked_example": {
+        "exemplar_id": "553289e5-36a5-4513-8f0b-5e3d24f11de1",
+        "source": "EDEXCEL jun 2023, Paper 2 (H), Q5(c)",
+        "question": "A student investigated the effect of light intensity on the photosynthesis of pondweed. A light source was placed at different distances from the pondweed. The bubbles produced were counted for 2 minutes.\n\nDevise a plan to show that temperature is a limiting factor in photosynthesis. Use the same apparatus.",
+        "marks": 3,
+        "answer_points": [
+          "Keep the light at the same distance from the pondweed (the same light intensity is accepted).",
+          "Count the number of bubbles, or measure the oxygen (gas) produced.",
+          "Repeat at different temperatures.",
+          "Control the carbon dioxide concentration or the mass (type) of pondweed.",
+          "Any three of these four points score."
+        ],
+        "tip": "Change only the temperature, measure the rate each time, and keep another factor constant."
+      }
+    },
+    "ocr": {
+      "spec_codes": ["OCR 1.4e"],
+      "exam_phrases": [
+        "less / no light for photosynthesis",
+        "so less / no growth / food / glucose production",
+        "cloudiness reduces light for photosynthesis",
+        "more minerals, for photosynthesis / respiration / cell division / chlorophyll production / enzyme action",
+        "increased kinetic energy / molecules move faster"
+      ],
+      "mistakes": [
+        {
+          "wrong": "The cloudy water means the plants get less light.",
+          "right": "Finish the link: less light means less photosynthesis, so less glucose is made and there is less growth."
+        },
+        {
+          "wrong": "The minerals are easier for the plants to take up.",
+          "right": "\"Easier to take up\" is ignored. Say the plants have more minerals available, which they use for things such as proteins, chlorophyll and cell walls."
+        }
+      ],
+      "worked_example": {
+        "exemplar_id": "0f15263a-9e23-467a-94a9-6915389180e7",
+        "source": "OCR jun 2025, Paper 4, Q20(c)",
+        "question": "Carp feed at the bottom of lakes and this stirs up mud into the water.\n\nThe mud contains minerals but makes the water cloudy.\n\nExplain two different effects that this could have on the microscopic plants living in the lake.",
+        "marks": 4,
+        "answer_points": [
+          "Effect 1: there is less or no light for photosynthesis (the cloudy water reduces the light).",
+          "So there is less or no growth, or less food or glucose is produced.",
+          "Effect 2: the plants have more minerals available.",
+          "Minerals are used for photosynthesis, respiration, cell division, chlorophyll production, enzyme action, or to make amino acids and proteins, so there is more growth."
+        ],
+        "tip": "Give one effect of the cloudiness and one effect of the minerals, each with its consequence."
+      }
+    }
+  },
+  "meta": {
+    "status": "draft",
+    "written_by": "sonnet-5-5",
+    "written_at": "2026-10-01",
+    "spec_point_ids": [
+      "a18696a1-44c5-4707-a2c3-04ee3b01f42f",
+      "fb1e6c8e-7c2a-4558-8c8e-2f2fc8a216db",
+      "5b9066b9-8936-4b90-929e-4b24da061f39",
+      "4949f289-1471-4c22-bdeb-555a6aea3bdc"
+    ],
+    "exemplar_ids": [
+      "8088cbbf-af5e-46cf-9a58-5ffc32c6e04f",
+      "553289e5-36a5-4513-8f0b-5e3d24f11de1",
+      "0f15263a-9e23-467a-94a9-6915389180e7"
+    ]
+  }
+}
