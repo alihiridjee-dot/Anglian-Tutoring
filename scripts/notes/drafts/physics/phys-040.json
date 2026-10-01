@@ -44,14 +44,14 @@
             "Emits **gamma radiation**: it is highly penetrating, so it can be detected outside the body.",
             "Low ionising power, so less damage to cells, tissues and organs.",
             "A **short half-life**, of a few hours, so the patient is not radioactive for long.",
-            "Long enough to circulate around the body and be detected."
+            "A half-life long enough to circulate around the body and be detected."
           ]
         },
         {
           "type": "diagram",
           "diagram": {
             "kind": "slider",
-            "alt": "Change the time after injection and see how much of a tracer with a half-life of 15 hours is left.",
+            "alt": "Change the time after injection and see how much of a sodium-24 tracer, with a half-life of 15 hours, is left.",
             "inputs": [
               {
                 "id": "t",
@@ -85,7 +85,7 @@
         },
         {
           "type": "paragraph",
-          "text": "This shows sodium-24, which has a half-life of 15 hours. Its activity falls quickly enough that the surroundings do not stay radioactive for long."
+          "text": "This shows sodium-24, a tracer with a half-life of 15 hours. It lasts long enough for readings to be taken, but not so long that the surroundings stay radioactive."
         },
         {
           "type": "key-points",
@@ -118,7 +118,7 @@
                 "feature": "Radiation used",
                 "values": [
                   "Gamma rays or X-rays",
-                  "Often alpha, which has a short range"
+                  "Such as alpha, which has a short range"
                 ]
               },
               {
@@ -134,13 +134,6 @@
                   "From different directions, at a small area of the body",
                   "Placed next to or inside the tumour"
                 ]
-              },
-              {
-                "feature": "Half-life",
-                "values": [
-                  "The source activity must be checked, as it keeps falling",
-                  "A short half-life means less damage to other tissue"
-                ]
               }
             ]
           }
@@ -150,6 +143,8 @@
           "items": [
             "The radiation kills the cancer cells.",
             "Healthy cells can also be damaged, so the dose is limited.",
+            "The activity of a gamma source keeps falling, so it is checked before use.",
+            "A source inside the body with a short half-life, such as yttrium-90, loses its activity quickly, so there is less damage to other tissue.",
             "Treatments can have side effects, but the benefits can outweigh the risks."
           ]
         },
@@ -179,7 +174,7 @@
           "rows": [
             [
               "Smoke alarm",
-              "An alpha source in the detector. Alpha cannot get out of the detector, and a long half-life means the source does not run out."
+              "An alpha source ionises the air in the detector, so a current flows. Smoke reduces the current and sets off the alarm. Alpha cannot get out of the detector, and a long half-life means the source does not run out."
             ],
             [
               "Irradiating food",
@@ -191,7 +186,7 @@
             ],
             [
               "Gauging thickness",
-              "Radiation passes through a material, such as paper. A change in the count rate shows the thickness has changed."
+              "Radiation passes through a material, such as paper. A change in the count rate shows the thickness has changed. A lower count rate means thicker material."
             ],
             [
               "Detecting leaks",
@@ -249,10 +244,6 @@
         {
           "wrong": "A good tracer is highly ionising so that it damages the diseased cells.",
           "right": "A tracer for diagnosis should have low ionising power, so there is less damage to cells, tissues and organs."
-        },
-        {
-          "wrong": "A long half-life is best for a tracer because it lasts longer.",
-          "right": "The ideal half-life is short, a few hours, because a short half-life means less damage to the body."
         }
       ],
       "worked_example": {
@@ -375,8 +366,8 @@
           "right": "Just saying the food lasts longer is ignored. Say the gamma rays kill bacteria, which slows food decay."
         },
         {
-          "wrong": "Yttrium-90 has a short half-life so it has no side effects.",
-          "right": "A short half-life means the activity decreases quickly, so little radiation is emitted after a few half-lives and there is less damage to tissue. Some side effects are temporary and the benefits outweigh the risks."
+          "wrong": "Patients are treated with yttrium-90 because it has a short half-life.",
+          "right": "A short half-life on its own is ignored. Say the side effects are temporary, the benefits outweigh the risks, or other isotopes have more harmful side effects or longer half-lives."
         }
       ],
       "worked_example": {
@@ -407,7 +398,9 @@
     "exemplar_ids": [
       "97544f5f-97cc-4a92-84e7-2c67e30f9967",
       "9f6f0a72-69dc-46fb-9d6c-248bd578f50f",
-      "c3316a26-cc30-4456-be47-3f8785ef1e2e"
-    ]
+      "f71fa96e-f7aa-479f-a8aa-4c5ea97b1548"
+    ],
+    "checked_by": "sonnet-science-check",
+    "checked_at": "2026-10-01"
   }
 }

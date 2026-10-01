@@ -59,12 +59,6 @@
               "Orbiting the nucleus",
               "-1",
               "Very small"
-            ],
-            [
-              "Positron",
-              "Emitted from some nuclei",
-              "+1",
-              "Very small (same as an electron)"
             ]
           ]
         },
@@ -114,6 +108,10 @@
         {
           "type": "paragraph",
           "text": "An atom of radius 1.0 × 10⁻¹⁰ m with a nucleus of radius 1.0 × 10⁻¹⁵ m gives 10⁻¹⁰ ÷ 10⁻¹⁵ = 10⁵. The atom is 100 000 times wider than its nucleus."
+        },
+        {
+          "type": "subheading",
+          "text": "Length of a line of atoms"
         },
         {
           "type": "equation",
@@ -315,7 +313,7 @@
         "UV/energy absorbed by electrons",
         "electrons change orbit/energy level/shell",
         "electrons emit energy/ move to lower energy level/fall down/de-excite",
-        "ratio = 10-10 / 10-15"
+        "ratio = 10⁻¹⁰ / 10⁻¹⁵"
       ],
       "mistakes": [
         {
@@ -329,6 +327,47 @@
         {
           "wrong": "An atom has no charge because the neutrons are positive and negative.",
           "right": "This is rejected. Neutrons have no charge at all."
+        }
+      ],
+      "extra": [
+        {
+          "heading": "Positrons",
+          "blocks": [
+            {
+              "type": "paragraph",
+              "text": "A positron is a particle emitted from some nuclei. It is the positive equivalent of an electron."
+            },
+            {
+              "type": "table",
+              "columns": [
+                "Particle",
+                "Relative charge",
+                "Relative mass"
+              ],
+              "rows": [
+                [
+                  "Proton",
+                  "+1",
+                  "1"
+                ],
+                [
+                  "Neutron",
+                  "0",
+                  "1"
+                ],
+                [
+                  "Electron",
+                  "-1",
+                  "Very small"
+                ],
+                [
+                  "Positron",
+                  "+1",
+                  "Very small (the same as an electron)"
+                ]
+              ]
+            }
+          ]
         }
       ],
       "worked_example": {
@@ -389,6 +428,8 @@
     "status": "draft",
     "written_by": "sonnet-5-5",
     "written_at": "2026-10-01",
+    "checked_by": "sonnet-science-check",
+    "checked_at": "2026-10-01",
     "spec_point_ids": [
       "e94dd4a0-cddb-4ee8-9714-7f1db1c91e97",
       "f8f2395b-05a1-4711-9ecd-f6b482d40d52",

@@ -214,8 +214,8 @@
       ],
       "mistakes": [
         {
-          "wrong": "Clomifene therapy puts a fertilised egg into the uterus.",
-          "right": "Clomifene is a fertility drug. It makes the pituitary gland release more FSH and LH, so more eggs mature and are released. Placing the embryo in the uterus is IVF."
+          "wrong": "Clomifene is a fertility drug that replaces FSH and LH.",
+          "right": "Clomifene causes the pituitary gland to release more FSH and LH, so more eggs are matured in the follicle. It does not fertilise eggs. Fertilisation outside the body is IVF."
         },
         {
           "wrong": "Answers that explain only IVF, or only clomifene, can reach the top level.",
@@ -294,6 +294,8 @@
       "2791552d-4b99-4955-9e1d-959b2212c6f8",
       "117f1885-3257-42e5-97d7-2994ca20f4a7",
       "7a7cc31b-4b47-4d5a-8d0a-7d3327fe9566"
-    ]
+    ],
+    "checked_by": "sonnet-science-check",
+    "checked_at": "2026-10-01"
   }
 }

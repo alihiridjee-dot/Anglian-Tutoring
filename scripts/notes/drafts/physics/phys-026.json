@@ -265,17 +265,12 @@
       "exam_phrases": [
         "change in temperature",
         "change of state",
-        "no change in temperature (during a change of state)",
-        "particles in a liquid have more (kinetic) energy (than in a solid)"
+        "no change in temperature (during a change of state)"
       ],
       "mistakes": [
         {
           "wrong": "Heating a substance always raises its temperature.",
           "right": "Heating either raises the temperature or produces a change of state. During a change of state the temperature does not change."
-        },
-        {
-          "wrong": "Particles in a liquid have the same kinetic energy as particles in a solid of the same substance.",
-          "right": "Particles in a liquid have more (kinetic) energy than particles in a solid."
         }
       ]
     },
@@ -332,6 +327,8 @@
     "exemplar_ids": [
       "1cf92678-08bd-4447-b537-420412b41df3",
       "76ee8714-93df-4842-8e63-b1bdf8862fac"
-    ]
+    ],
+    "checked_by": "sonnet-science-check",
+    "checked_at": "2026-10-01"
   }
 }

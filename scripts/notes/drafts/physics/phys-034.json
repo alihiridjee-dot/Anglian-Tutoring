@@ -18,7 +18,7 @@
             "New experimental evidence may lead to a model being changed or replaced.",
             "A model is replaced when it cannot explain the new evidence, or when its predictions are shown to be incorrect.",
             "The new model must explain the new evidence, and its predictions must be shown to be correct.",
-            "The atom is an example. Our ideas about it have changed as experiments, equipment and collaboration between scientists improved."
+            "The atom is an example. Our ideas about it have changed as experiments, equipment, collaboration between scientists and peer review improved."
           ]
         },
         {
@@ -97,7 +97,7 @@
         },
         {
           "type": "paragraph",
-          "text": "The plum pudding model did not predict that some alpha particles would be deflected. The actual results were different. They are shown here."
+          "text": "The alpha particle scattering results did not fit the plum pudding model. Each observation points to a conclusion about the atom."
         },
         {
           "type": "table",
@@ -115,7 +115,7 @@
               "The atom has a charged nucleus that repels alpha particles."
             ],
             [
-              "Very few alpha particles were deflected through large angles, some straight back.",
+              "Very few alpha particles were deflected through large angles, a few bouncing straight back.",
               "The nucleus is small, dense and positively charged."
             ]
           ]
@@ -143,7 +143,7 @@
       "blocks": [
         {
           "type": "paragraph",
-          "text": "The nuclear model was then improved in three steps."
+          "text": "The nuclear model was then improved in several steps."
         },
         {
           "type": "list",
@@ -325,6 +325,8 @@
     "status": "draft",
     "written_by": "sonnet-5-5",
     "written_at": "2026-10-01",
+    "checked_by": "sonnet-science-check",
+    "checked_at": "2026-10-01",
     "spec_point_ids": [
       "28077c86-3107-4168-a21c-f60ceba109eb",
       "9b022a6d-24a0-4c24-8d92-c350ec5455d2",

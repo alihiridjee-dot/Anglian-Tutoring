@@ -37,8 +37,19 @@
           "items": [
             "A substance with a high specific heat capacity needs a lot of energy to warm up, and releases a lot as it cools. Water is an example, with c = 4200 J/kg °C.",
             "The temperature change is the final temperature minus the starting temperature.",
-            "To find c: c = ΔE ÷ (m × Δθ).",
-            "To find the temperature change: Δθ = ΔE ÷ (m × c)."
+            "The energy needed depends on the mass, the material and the temperature change.",
+            "Rearrange the equation to find the temperature change, the mass or c."
+          ]
+        },
+        {
+          "type": "equation",
+          "label": "Temperature change",
+          "formula": "temperature change = change in thermal energy ÷ (mass × specific heat capacity)    (Δθ = ΔE ÷ (m c))",
+          "where": [
+            "temperature change, Δθ, in degrees Celsius, °C",
+            "change in thermal energy, ΔE, in joules, J",
+            "mass, m, in kilograms, kg",
+            "specific heat capacity, c, in joules per kilogram per degree Celsius, J/kg °C"
           ]
         },
         {
@@ -46,7 +57,7 @@
           "items": [
             {
               "lead": "Find the temperature change.",
-              "text": "Final minus start. Water heated from 20 °C to 100 °C: Δθ = 80 °C."
+              "text": "Final minus start. Water heated from 25 °C to 85 °C: Δθ = 60 °C."
             },
             {
               "lead": "Check the units.",
@@ -54,11 +65,11 @@
             },
             {
               "lead": "Substitute.",
-              "text": "ΔE = 0.50 × 4200 × 80 for 0.50 kg of water."
+              "text": "ΔE = 1.5 × 4200 × 60 for 1.5 kg of water."
             },
             {
               "lead": "Calculate and give the unit.",
-              "text": "ΔE = 168 000 J."
+              "text": "ΔE = 378 000 J."
             }
           ]
         },
@@ -206,7 +217,7 @@
             },
             {
               "lead": "Calculate.",
-              "text": "Find the temperature change, then use c = ΔE ÷ (m × Δθ)."
+              "text": "Find the temperature change, then calculate c using the equation below."
             }
           ]
         },
@@ -224,8 +235,9 @@
         {
           "type": "list",
           "items": [
-            "Wrap the block or container in insulation. The amount of wasted energy is less, so the temperature increase is greater and the calculated value is more accurate.",
-            "Stir water so that the temperature is the same throughout."
+            "Wrap the block or container in insulation. It transfers energy to the surroundings at a lower rate, so the calculated value is more accurate.",
+            "Stir water so that the temperature is the same throughout.",
+            "The energy transferred by the heater decreases one energy store and increases the thermal energy store of the block or water."
           ]
         },
         {
@@ -306,12 +318,12 @@
         "Δθ = 80 (°C)",
         "c = 26 400 / (0.20 × 30)",
         "J/kg °C",
-        "the amount of wasted energy is less"
+        "the iron block will transfer thermal energy to the surroundings at a lower rate"
       ],
       "mistakes": [
         {
           "wrong": "E = 150 × 4200 × 100 for water heated from 20 °C to 100 °C.",
-          "right": "Use the temperature change: 100 − 20 = 80 °C. Using 20 or 100 on its own scores only 1 mark."
+          "right": "Use the temperature change: 100 − 20 = 80 °C."
         },
         {
           "wrong": "c = 4400 with no unit.",
@@ -323,17 +335,16 @@
         }
       ],
       "worked_example": {
-        "exemplar_id": "dbd1e4dc-1a5d-4ed7-b295-7af4257159e4",
-        "source": "AQA jun 2019, Paper 1 (F), Q8.5",
-        "question": "A student carried out an experiment to determine the specific heat capacity of water. The energy transferred to the water was 26 400 J. The mass of water was 0.20 kg. The temperature increase of the water was 30 °C. Calculate the specific heat capacity of water using the data from this experiment. Give the unit.",
-        "marks": 4,
+        "exemplar_id": "7a395922-2e9e-4582-84c1-103f406e0165",
+        "source": "AQA jun 2020, Paper 1 (F), Q07.6",
+        "question": "A student heated water in an electric kettle. The mass of water in the kettle was 0.50 kg. The temperature of the water increased from 20 °C to 100 °C. The specific heat capacity of water is 4200 J/kg °C. Calculate the energy transferred to the water.",
+        "marks": 3,
         "answer_points": [
-          "26 400 = 0.20 × c × 30",
-          "c = 26 400 ÷ (0.20 × 30)",
-          "c = 4400",
-          "unit: J/kg °C"
+          "Δθ = 80 °C",
+          "E = 0.50 × 4200 × 80",
+          "E = 168 000 J"
         ],
-        "tip": "A correct numerical answer of 4400 scores 3 marks. The unit is the fourth mark."
+        "tip": "Using their own value of Δθ in the calculation still earns the second and third marks."
       }
     },
     "edexcel": {
@@ -436,9 +447,11 @@
       "fdaeda44-cd92-459a-8b95-b7f163bdafdd"
     ],
     "exemplar_ids": [
-      "dbd1e4dc-1a5d-4ed7-b295-7af4257159e4",
+      "7a395922-2e9e-4582-84c1-103f406e0165",
       "bf47e517-af9b-4d14-af3f-8ab150906b2c",
       "b57991f8-69aa-4094-b3f1-0ff115c4c7c0"
-    ]
+    ],
+    "checked_by": "sonnet-science-check",
+    "checked_at": "2026-10-01"
   }
 }

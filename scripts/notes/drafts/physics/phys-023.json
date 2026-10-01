@@ -239,7 +239,7 @@
             "In a solid, particles are touching in a regular arrangement, so a solid is usually very dense.",
             "In a liquid, particles are also touching but are arranged randomly, so a liquid is only slightly less dense than the solid.",
             "In a gas, particles are far apart. The same mass takes up a much larger volume, so a gas is far less dense.",
-            "Density order, lowest first: gas, liquid, solid. Water is an exception, because ice is less dense than liquid water."
+            "Usually the density order, lowest first, is gas, liquid, solid. Water is an exception, because ice is less dense than liquid water."
           ]
         },
         {
@@ -425,7 +425,7 @@
         },
         {
           "wrong": "Choose carbon fibre for the toy boat because it has the highest density.",
-          "right": "A solid boat floats if its density is less than the density of water (1000 kg/m³). Choose pine, which has the lowest density."
+          "right": "A solid boat floats if its density is less than the density of water (1000 kg/m³). Choose pine, which has the lowest density. Oak is also less than 1000 kg/m³, but carbon fibre is not."
         }
       ],
       "worked_example": {
@@ -460,6 +460,8 @@
       "e81ddb52-2189-4365-8d26-6945c496b912",
       "de1c201e-01c6-4b95-adac-7d61e7d866d2",
       "88301efb-885e-43eb-8837-ec8ff453a934"
-    ]
+    ],
+    "checked_by": "sonnet-science-check",
+    "checked_at": "2026-10-01"
   }
 }

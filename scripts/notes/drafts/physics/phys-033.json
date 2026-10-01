@@ -329,6 +329,8 @@
     "status": "draft",
     "written_by": "sonnet-5-5",
     "written_at": "2026-10-01",
+    "checked_by": "sonnet-science-check",
+    "checked_at": "2026-10-01",
     "spec_point_ids": [
       "4214a5da-b95b-420c-a248-d29d6aa0384c",
       "acd7d4d4-03e3-4a81-99e3-435d86d8e979",

@@ -138,7 +138,7 @@
         {
           "type": "key-points",
           "items": [
-            "During a change of state the temperature stays constant.",
+            "While a substance melts or boils, its temperature stays constant.",
             "Solid: regular pattern, vibrating in fixed positions. Liquid: random arrangement, moving freely.",
             "Cooling slows the particles down. The energy changes are in the internal energy note."
           ]
@@ -257,7 +257,7 @@
       ],
       "mistakes": [
         {
-          "wrong": "As the ice melts, the particles move further apart, so the density decreases.",
+          "wrong": "As the ice melts, the particles move further apart.",
           "right": "References to density and spacing are ignored. Describe the arrangement (regular to random) and the movement (vibrating about fixed positions to moving freely)."
         },
         {
@@ -378,6 +378,8 @@
       "58eb63d0-0573-4cdf-87e9-7dc255b216e3",
       "2cce56c7-9b48-4ce9-94fe-73cc8abecf93",
       "6893cbf4-b2b2-48ec-90da-31c14ab520d4"
-    ]
+    ],
+    "checked_by": "sonnet-science-check",
+    "checked_at": "2026-10-01"
   }
 }

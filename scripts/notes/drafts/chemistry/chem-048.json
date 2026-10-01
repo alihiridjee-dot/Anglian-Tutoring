@@ -1,0 +1,349 @@
+{
+  "format": 1,
+  "concept_id": "chem-048",
+  "subject": "chemistry",
+  "title": "Reactions of acids with metals and carbonates",
+  "key_idea": "Acids react with some metals to make a salt and hydrogen. They react with metal carbonates to make a salt, water and carbon dioxide. You can predict the salt from the metal and the acid, and test the gas given off.",
+  "sections": [
+    {
+      "heading": "Acids with metals",
+      "blocks": [
+        { "type": "paragraph", "text": "This section covers what happens when a metal such as magnesium, zinc or iron is added to hydrochloric or sulfuric acid." },
+        {
+          "type": "equation",
+          "label": "Metal with an acid",
+          "formula": "metal + acid → salt + hydrogen",
+          "where": ["hydrochloric acid makes a chloride", "sulfuric acid makes a sulfate"]
+        },
+        {
+          "type": "list",
+          "items": [
+            "Magnesium + hydrochloric acid → magnesium chloride + hydrogen.",
+            "Mg + 2HCl → MgCl₂ + H₂",
+            "Zinc + sulfuric acid → zinc sulfate + hydrogen.",
+            "Zn + H₂SO₄ → ZnSO₄ + H₂",
+            "Iron + hydrochloric acid → iron(II) chloride + hydrogen.",
+            "Fe + 2HCl → FeCl₂ + H₂"
+          ]
+        },
+        { "type": "subheading", "text": "What you see and how to test the gas" },
+        {
+          "type": "list",
+          "items": [
+            "The mixture fizzes (effervescence) as bubbles of gas are given off.",
+            "The metal gets smaller and disappears.",
+            "A colourless solution forms and the temperature increases.",
+            "Test for hydrogen: hold a lit splint at the mouth of the tube. It burns with a **squeaky pop**."
+          ]
+        },
+        {
+          "type": "key-points",
+          "items": [
+            "Metal + acid → salt + hydrogen.",
+            "Hydrogen gives a squeaky pop with a lit splint.",
+            "You need to know magnesium, zinc and iron with hydrochloric and sulfuric acids."
+          ]
+        }
+      ]
+    },
+    {
+      "heading": "Acids with carbonates, oxides and hydroxides",
+      "blocks": [
+        { "type": "paragraph", "text": "Metal carbonates also react with acids. This section compares the four general reactions of acids and their products." },
+        {
+          "type": "equation",
+          "label": "Metal carbonate with an acid",
+          "formula": "metal carbonate + acid → salt + water + carbon dioxide",
+          "where": ["the carbonate disappears as it reacts", "the gas is carbon dioxide"]
+        },
+        {
+          "type": "list",
+          "items": [
+            "Calcium carbonate + hydrochloric acid → calcium chloride + water + carbon dioxide.",
+            "CaCO₃ + 2HCl → CaCl₂ + H₂O + CO₂",
+            "Sodium carbonate + hydrochloric acid → sodium chloride + water + carbon dioxide.",
+            "Na₂CO₃ + 2HCl → 2NaCl + H₂O + CO₂",
+            "Copper carbonate + sulfuric acid → copper sulfate + water + carbon dioxide.",
+            "CuCO₃ + H₂SO₄ → CuSO₄ + H₂O + CO₂"
+          ]
+        },
+        {
+          "type": "paragraph",
+          "text": "Test for carbon dioxide: bubble the gas through limewater. The limewater turns **cloudy**."
+        },
+        {
+          "type": "table",
+          "columns": ["Acid reacts with", "Products", "What you see"],
+          "rows": [
+            ["A metal", "salt + hydrogen", "Fizzing. The metal disappears."],
+            ["A metal oxide", "salt + water", "No gas. The solid disappears. Black copper oxide gives a blue solution."],
+            ["A metal hydroxide", "salt + water", "No gas."],
+            ["A metal carbonate", "salt + water + carbon dioxide", "Fizzing. The carbonate disappears."]
+          ]
+        },
+        {
+          "type": "diagram",
+          "diagram": {
+            "kind": "predictor",
+            "alt": "Pick a metal or carbonate and an acid to see the salt, the gas, the gas test and the equation.",
+            "prompt": "Pick a reaction",
+            "result_labels": ["Salt formed", "Gas given off", "Test for the gas", "Balanced equation"],
+            "options": [
+              {
+                "label": "Magnesium + hydrochloric acid",
+                "results": ["**Magnesium chloride**", "**Hydrogen**", "Lit splint gives a squeaky pop", "Mg + 2HCl → MgCl₂ + H₂"],
+                "scene": { "kind": "tubes", "tubes": [{ "label": "Before", "colour": "colourless" }, { "label": "After", "colour": "colourless", "bubbles": true }] }
+              },
+              {
+                "label": "Zinc + sulfuric acid",
+                "results": ["**Zinc sulfate**", "**Hydrogen**", "Lit splint gives a squeaky pop", "Zn + H₂SO₄ → ZnSO₄ + H₂"],
+                "scene": { "kind": "tubes", "tubes": [{ "label": "Before", "colour": "colourless" }, { "label": "After", "colour": "colourless", "bubbles": true }] }
+              },
+              {
+                "label": "Iron + hydrochloric acid",
+                "results": ["**Iron(II) chloride**", "**Hydrogen**", "Lit splint gives a squeaky pop", "Fe + 2HCl → FeCl₂ + H₂"],
+                "scene": { "kind": "tubes", "tubes": [{ "label": "Before", "colour": "colourless" }, { "label": "After", "colour": "pale-green", "bubbles": true }] }
+              },
+              {
+                "label": "Calcium carbonate + hydrochloric acid",
+                "results": ["**Calcium chloride**", "**Carbon dioxide**", "Limewater turns cloudy", "CaCO₃ + 2HCl → CaCl₂ + H₂O + CO₂"],
+                "scene": { "kind": "tubes", "tubes": [{ "label": "Before", "colour": "colourless" }, { "label": "After", "colour": "colourless", "bubbles": true }] }
+              },
+              {
+                "label": "Sodium carbonate + hydrochloric acid",
+                "results": ["**Sodium chloride**", "**Carbon dioxide**", "Limewater turns cloudy", "Na₂CO₃ + 2HCl → 2NaCl + H₂O + CO₂"],
+                "scene": { "kind": "tubes", "tubes": [{ "label": "Before", "colour": "colourless" }, { "label": "After", "colour": "colourless", "bubbles": true }] }
+              },
+              {
+                "label": "Copper carbonate + sulfuric acid",
+                "results": ["**Copper sulfate**", "**Carbon dioxide**", "Limewater turns cloudy", "CuCO₃ + H₂SO₄ → CuSO₄ + H₂O + CO₂"],
+                "explanation": "Green copper carbonate disappears and a blue solution forms.",
+                "scene": { "kind": "tubes", "tubes": [{ "label": "Before", "colour": "colourless" }, { "label": "After", "colour": "blue", "bubbles": true }] }
+              },
+              {
+                "label": "Magnesium carbonate + sulfuric acid",
+                "results": ["**Magnesium sulfate**", "**Carbon dioxide**", "Limewater turns cloudy", "MgCO₃ + H₂SO₄ → MgSO₄ + H₂O + CO₂"],
+                "scene": { "kind": "tubes", "tubes": [{ "label": "Before", "colour": "colourless" }, { "label": "After", "colour": "colourless", "bubbles": true }] }
+              }
+            ]
+          }
+        },
+        {
+          "type": "key-points",
+          "items": [
+            "Metal carbonate + acid → salt + water + carbon dioxide.",
+            "Carbon dioxide turns limewater cloudy.",
+            "Metal oxides and hydroxides make a salt and water only, with no gas."
+          ]
+        }
+      ]
+    },
+    {
+      "heading": "(Higher tier) Acids with metals as redox reactions",
+      "blocks": [
+        { "type": "paragraph", "text": "(Higher tier) A reaction in which one substance loses electrons and another gains electrons is a redox reaction." },
+        {
+          "type": "definitions",
+          "items": [
+            { "term": "Oxidation", "meaning": "Loss of electrons." },
+            { "term": "Reduction", "meaning": "Gain of electrons." }
+          ]
+        },
+        {
+          "type": "equation",
+          "label": "Magnesium with hydrochloric acid, ionic equation",
+          "formula": "Mg(s) + 2H⁺(aq) → Mg²⁺(aq) + H₂(g)",
+          "where": ["Cl⁻ ions do not change, so they are left out"]
+        },
+        {
+          "type": "list",
+          "items": [
+            "Each magnesium atom becomes an Mg²⁺ ion. It loses two electrons, so magnesium is **oxidised**.",
+            "Each hydrogen ion becomes part of a hydrogen molecule. It gains an electron, so hydrogen ions are **reduced**.",
+            "Both happen in the same reaction, so it is a redox reaction."
+          ]
+        },
+        {
+          "type": "key-points",
+          "items": [
+            "(Higher tier) The metal loses electrons: it is oxidised.",
+            "(Higher tier) The hydrogen ions gain electrons: they are reduced."
+          ]
+        }
+      ]
+    }
+  ],
+  "checks": [
+    {
+      "q": "Name the salt and the gas made when zinc reacts with sulfuric acid.",
+      "a": "Zinc sulfate and hydrogen.",
+      "marks": 2
+    },
+    {
+      "q": "Describe the test for carbon dioxide and the result.",
+      "a": "Bubble the gas through limewater. The limewater turns cloudy.",
+      "marks": 2
+    },
+    {
+      "q": "Write a balanced symbol equation for the reaction of calcium carbonate with hydrochloric acid.",
+      "a": "CaCO₃ + 2HCl → CaCl₂ + H₂O + CO₂",
+      "marks": 2
+    }
+  ],
+  "boards": {
+    "aqa": {
+      "spec_codes": ["AQA 4.4.2.1", "AQA T 5.4.2.1"],
+      "exam_phrases": [
+        "Ba + 2 HCl → BaCl₂ + H₂",
+        "effervescence / fizzing / bubbles",
+        "barium disappears / barium gets smaller",
+        "forms a colourless solution",
+        "temperature increases",
+        "(magnesium atoms are) oxidised",
+        "(because the atoms) lose (two) electrons"
+      ],
+      "mistakes": [
+        {
+          "wrong": "A gas is produced.",
+          "right": "'Produces a gas' is ignored. Describe what you see: effervescence, fizzing or bubbles."
+        },
+        {
+          "wrong": "(Higher tier) The magnesium atoms are oxidised.",
+          "right": "Two marks are given: oxidised, and because the atoms lose (two) electrons. Always give the electron reason."
+        },
+        {
+          "wrong": "Ba + HCl → BaCl + H₂",
+          "right": "Barium chloride is BaCl₂. Ba + 2 HCl → BaCl₂ + H₂. One mark is given for BaCl₂ alone and one for H₂ alone."
+        }
+      ],
+      "worked_example": {
+        "exemplar_id": "ad042274-dc1c-4cb7-8c1f-51aeac5ad2f7",
+        "source": "AQA jun 2023, Paper 1 (H), Q08.5",
+        "question": "Barium (Ba) is an element in Group 2 of the periodic table.\n\nBarium reacts with hydrochloric acid.\n\nWrite a balanced symbol equation for the reaction between barium and hydrochloric acid.",
+        "marks": 3,
+        "answer_points": [
+          "Barium chloride is BaCl₂ (one mark).",
+          "Hydrogen is H₂ (one mark).",
+          "Balanced: Ba + 2 HCl → BaCl₂ + H₂ (one mark)."
+        ],
+        "tip": "Any correct multiple is allowed and state symbols are ignored. Barium is a Group 2 metal, so it forms Ba²⁺ and the chloride is BaCl₂."
+      }
+    },
+    "edexcel": {
+      "spec_codes": ["EDEX 3.11"],
+      "exam_phrases": [
+        "metal + acid → salt + hydrogen",
+        "metal carbonate + acid → metal salt + carbon dioxide + water",
+        "metal oxide + acid → metal salt + water",
+        "bubbles / fizzing / effervescence",
+        "test gas with a lit splint, (lit splint) burns with a squeaky pop",
+        "test using limewater, limewater will turn cloudy",
+        "metal gets smaller / disappears"
+      ],
+      "mistakes": [
+        {
+          "wrong": "Copper oxide fizzes when it reacts with sulfuric acid.",
+          "right": "A metal oxide makes a salt and water, so no gas is produced. The black copper oxide disappears and a blue copper sulfate solution forms."
+        },
+        {
+          "wrong": "Na₂CO₃ + 2HCl → NaCl + H₂O + CO₂",
+          "right": "Balance it: Na₂CO₃ + 2HCl → 2NaCl + H₂O + CO₂. Getting all three formulae right scores 2 of the 3 marks."
+        },
+        {
+          "wrong": "Magnesium carbonate and magnesium both give off hydrogen.",
+          "right": "A carbonate gives carbon dioxide (limewater test). Only the metal gives hydrogen (lit splint test)."
+        }
+      ],
+      "worked_example": {
+        "exemplar_id": "db630b8f-65a4-4f9c-93a1-98be836e17bc",
+        "source": "EDEXCEL jun 2022, Paper 1 (F), Q9(c)",
+        "question": "A student has two separate test tubes containing sulfuric acid.\nThe student adds a spatula measure of magnesium carbonate, MgCO3, to the first test tube and a piece of magnesium to the second test tube.\nExplain what the student would see in each test tube and the tests that they should carry out to identify the gases produced.\nYour answer should include word equations for the reactions that would take place.",
+        "marks": 6,
+        "answer_points": [
+          "Magnesium carbonate: bubbles or fizzing, and the solid gets smaller or disappears.",
+          "Metal carbonate + acid → metal salt + carbon dioxide + water. Magnesium carbonate + sulfuric acid → magnesium sulfate + carbon dioxide + water.",
+          "The gas is carbon dioxide. Test it with limewater, which turns cloudy.",
+          "Magnesium: bubbles or fizzing, and the metal gets smaller or disappears.",
+          "Metal + acid → salt + hydrogen. Magnesium + sulfuric acid → magnesium sulfate + hydrogen.",
+          "The gas is hydrogen. Test it with a lit splint, which burns with a squeaky pop."
+        ],
+        "tip": "A six-mark answer for both tubes: observations, the gas and its test, and a word equation for each."
+      },
+      "extra": [
+        {
+          "heading": "(Higher tier) Ionic equation for an acid with a metal oxide",
+          "blocks": [
+            { "type": "paragraph", "text": "(Higher tier) Edexcel can ask for the ionic equation for a metal oxide reacting with hydrochloric acid. The chloride ions are spectators and are left out." },
+            {
+              "type": "equation",
+              "label": "Magnesium oxide with hydrochloric acid",
+              "formula": "MgO(s) + 2H⁺(aq) → Mg²⁺(aq) + H₂O(l)",
+              "where": ["left side: MgO and 2H⁺", "right side: Mg²⁺ and H₂O"]
+            }
+          ]
+        }
+      ]
+    },
+    "ocr": {
+      "spec_codes": ["OCR C3.3f"],
+      "exam_phrases": [
+        "CaCO₃ + 2HCl → CaCl₂ + CO₂ + H₂O",
+        "Mg + 2HCl → MgCl₂ + H₂",
+        "Ca + 2HCl → CaCl₂ + H₂",
+        "CaCO₃(s) + 2HNO₃(aq) → Ca(NO₃)₂(aq) + CO₂(g) + H₂O(l)",
+        "H₂O (l) and CO₂ (g)"
+      ],
+      "mistakes": [
+        {
+          "wrong": "Ca + HCl → CaCl₂ + H₂, which is balanced.",
+          "right": "The balancing mark depends on correct formulae first. Ca + 2HCl → CaCl₂ + H₂ gets one mark for the reactants and one for the products."
+        },
+        {
+          "wrong": "CaCO₃ and 2HCl → CaCl₂ and CO₂ and H₂O",
+          "right": "'and' or '&' is not allowed instead of '+'."
+        },
+        {
+          "wrong": "H₂SO₄ (aq) + MgCO₃ (s) → MgSO₄ (aq) + H₂O + CO₂, when the question says to include state symbols.",
+          "right": "Include state symbols for the products: H₂O (l) and CO₂ (g). The state symbol mark depends on the formulae being correct."
+        }
+      ],
+      "worked_example": {
+        "exemplar_id": "c14e7e3d-0469-4233-a1b6-7e3b8bd1b1fe",
+        "source": "OCR jun 2025, Paper 3, Q22(a)",
+        "question": "A student reacts solid calcium carbonate, CaCO3, with nitric acid, HNO3.\n\nCalcium nitrate, Ca(NO3)2, carbon dioxide and water are made.\n\nCalcium nitrate is soluble in water.\n\nWrite the balanced symbol equation for the reaction.\n\nInclude state symbols.",
+        "marks": 3,
+        "answer_points": [
+          "Correct formulae: CaCO₃, HNO₃, Ca(NO₃)₂, CO₂ and H₂O.",
+          "Balanced: 2HNO₃ on the left.",
+          "State symbols: CaCO₃(s) + 2HNO₃(aq) → Ca(NO₃)₂(aq) + CO₂(g) + H₂O(l)."
+        ],
+        "tip": "Any correct multiple is allowed. The balancing mark depends on correct formulae."
+      }
+    }
+  },
+  "meta": {
+    "status": "draft",
+    "written_by": "sonnet-5-5",
+    "written_at": "2026-10-01",
+    "spec_point_ids": [
+      "fdabe1c6-b081-438c-8e72-ccc3f67adbfb",
+      "3343453e-40ff-4cbd-a839-0d3559754a2b",
+      "7c23963c-07d6-4b99-b836-08c0934d018f",
+      "98b026bf-4be0-42c1-9a41-c3a2c02a17b1"
+    ],
+    "exemplar_ids": [
+      "ad042274-dc1c-4cb7-8c1f-51aeac5ad2f7",
+      "f862e3a6-a9e2-46f4-b61a-a00034446eb9",
+      "32f8f46f-e2f4-4b5b-9ad8-a0d6c0306d5a",
+      "db630b8f-65a4-4f9c-93a1-98be836e17bc",
+      "cbba62a7-92b2-4a48-a98c-7ea2a21b634f",
+      "74c6d5d6-10a2-47b7-93bc-2f094ee2f80a",
+      "067f246c-cb4e-4f5a-b2c2-a9081df2f26b",
+      "c14e7e3d-0469-4233-a1b6-7e3b8bd1b1fe",
+      "254e7470-0bd9-48f1-a354-a5b92b2a0470",
+      "5fff98c5-9acd-4fc2-bb94-eefea9245f6c",
+      "af9ec295-13af-4ffa-a035-91410209344f",
+      "5110dba6-53d1-4ff4-899d-4984ff7eef9a"
+    ]
+  }
+}

@@ -173,7 +173,7 @@
           "items": [
             "Alpha is the least penetrating and the most ionising. Gamma is the most penetrating and the least ionising.",
             "A neutron (n) can also be emitted from an unstable nucleus.",
-            "A positron (β⁺) is emitted by some nuclei. Alpha, beta (β⁻), positron and gamma radiation are all ionising."
+            "Alpha, beta and gamma radiation are all ionising."
           ]
         },
         {
@@ -250,7 +250,7 @@
       "blocks": [
         {
           "type": "paragraph",
-          "text": "A Geiger-Müller tube detects radiation. Photographic film also detects it, because radiation darkens the film."
+          "text": "A Geiger-Müller tube detects radiation and counts it."
         },
         {
           "type": "subheading",
@@ -361,7 +361,7 @@
     },
     {
       "q": "A source's count rate drops to the background level when a thin sheet of aluminium is placed in front of the detector. It was reduced when paper was added. What does the source emit?",
-      "a": "Alpha and beta radiation. The drop with paper shows alpha. The count falling to background with aluminium shows no gamma.",
+      "a": "Alpha and beta radiation, but no gamma. The drop with paper shows alpha. Radiation passing paper but stopped by aluminium shows beta. The count falling to background with aluminium shows no gamma.",
       "marks": 3
     }
   ],
@@ -449,6 +449,20 @@
           "right": "Continue until the reading reaches the background value or a constant value, after measuring the background without the source."
         }
       ],
+      "extra": [
+        {
+          "heading": "Positrons and photographic film",
+          "blocks": [
+            {
+              "type": "list",
+              "items": [
+                "A positron (β⁺) is also emitted from some unstable nuclei. Alpha, beta (β⁻), positron and gamma radiation are all ionising radiations.",
+                "Photographic film can also be used to detect radiation. Radiation darkens the film, so the film shows where radiation has been, as well as a Geiger-Müller tube counting it."
+              ]
+            }
+          ]
+        }
+      ],
       "worked_example": {
         "exemplar_id": "9f6f0a72-69dc-46fb-9d6c-248bd578f50f",
         "source": "EDEXCEL jun 2019, Paper 1 (H), Q8(a)(ii)",
@@ -491,8 +505,8 @@
           "right": "Particles unqualified is ignored. Say that beta particles cannot penetrate the metal container, so they do not reach the technicians."
         },
         {
-          "wrong": "Alpha radiation is always safer than beta radiation.",
-          "right": "Yes if you say alpha is less penetrating so cannot get through the skin. No if you say alpha is more ionising and causes more damage to cells inside the body."
+          "wrong": "Alpha radiation is safer than beta radiation.",
+          "right": "A bare yes or no scores nothing. Either answer needs a reason. Yes: alpha is less penetrating, so it cannot get through the skin. No: alpha is more ionising, so it causes more damage to cells inside the body."
         }
       ],
       "worked_example": {
@@ -548,6 +562,8 @@
       "2e1246fc-ca2a-44f5-9c95-630a6dd8a840",
       "4a037802-3133-4fa6-b8d1-6ab1f2c5a7e1",
       "9ee57bf9-ac42-4874-a191-53d1b4c95aff"
-    ]
+    ],
+    "checked_by": "sonnet-science-check",
+    "checked_at": "2026-10-01"
   }
 }

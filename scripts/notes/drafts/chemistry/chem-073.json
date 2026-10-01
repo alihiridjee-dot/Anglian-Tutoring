@@ -1,0 +1,443 @@
+{
+  "format": 1,
+  "concept_id": "chem-073",
+  "subject": "chemistry",
+  "title": "Le Chatelier's principle",
+  "key_idea": "(Higher tier) If a change is made to a system at equilibrium, the system responds to counteract the change. This is **Le Chatelier's principle**. It predicts how concentration, temperature and pressure shift the position of equilibrium.",
+  "sections": [
+    {
+      "heading": "Le Chatelier's principle (Higher tier)",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "(Higher tier) The amounts of reactants and products at equilibrium depend on the conditions. Changing a condition changes them."
+        },
+        {
+          "type": "definitions",
+          "items": [
+            {
+              "term": "Le Chatelier's principle",
+              "meaning": "If a change is made to a system at equilibrium, the system responds to counteract the change."
+            },
+            {
+              "term": "Position of equilibrium",
+              "meaning": "The relative amounts of reactants and products at equilibrium."
+            },
+            {
+              "term": "Shift to the right",
+              "meaning": "More products form. Shifting to the left forms more reactants."
+            }
+          ]
+        },
+        {
+          "type": "list",
+          "items": [
+            "A change takes the system out of equilibrium.",
+            "The system responds to **oppose** the change.",
+            "The concentrations change until equilibrium is reached again."
+          ]
+        },
+        {
+          "type": "key-points",
+          "items": [
+            "The system responds to counteract any change made to it.",
+            "Shifting right makes more products. Shifting left makes more reactants."
+          ]
+        }
+      ]
+    },
+    {
+      "heading": "Concentration, temperature and pressure (Higher tier)",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "(Higher tier) Each change has a rule. The Haber process is a standard example."
+        },
+        {
+          "type": "equation",
+          "label": "The Haber process",
+          "formula": "N₂(g) + 3H₂(g) ⇌ 2NH₃(g)",
+          "where": [
+            "the forward reaction is exothermic",
+            "4 molecules of gas on the left, 2 on the right"
+          ]
+        },
+        {
+          "type": "table",
+          "columns": [
+            "Change",
+            "The system responds by",
+            "Effect on the position"
+          ],
+          "rows": [
+            [
+              "Increase the concentration of a reactant",
+              "Using up some of the added reactant",
+              "Shifts right: more products"
+            ],
+            [
+              "Decrease the concentration of a product",
+              "Making more product",
+              "Shifts right: more reactants react"
+            ],
+            [
+              "Increase the temperature",
+              "Favouring the endothermic direction",
+              "Products increase for an endothermic reaction and decrease for an exothermic one"
+            ],
+            [
+              "Decrease the temperature",
+              "Favouring the exothermic direction",
+              "Products decrease for an endothermic reaction and increase for an exothermic one"
+            ],
+            [
+              "Increase the pressure of gases",
+              "Moving to the side with fewer gas molecules",
+              "Shifts towards the smaller number of molecules"
+            ],
+            [
+              "Decrease the pressure of gases",
+              "Moving to the side with more gas molecules",
+              "Shifts towards the larger number of molecules"
+            ]
+          ]
+        },
+        {
+          "type": "list",
+          "items": [
+            "If there are equal numbers of gas molecules on each side, a change in pressure has no effect.",
+            "If there are no gases, such as in a solution, a change in pressure has no effect.",
+            "A **catalyst** does not change the position of equilibrium. It increases the rate of the forward and the reverse reaction equally."
+          ]
+        },
+        {
+          "type": "subheading",
+          "text": "Predicting a shift"
+        },
+        {
+          "type": "steps",
+          "items": [
+            {
+              "lead": "Find the change.",
+              "text": "Is it concentration, temperature or pressure?"
+            },
+            {
+              "lead": "Use the clue.",
+              "text": "For temperature, find which direction is endothermic. For pressure, count the gas molecules on each side."
+            },
+            {
+              "lead": "State the shift.",
+              "text": "Say whether the position shifts left or right, and why: to oppose the change."
+            }
+          ]
+        },
+        {
+          "type": "diagram",
+          "diagram": {
+            "kind": "predictor",
+            "alt": "Pick a change to the Haber process at equilibrium to see how the position of equilibrium shifts.",
+            "prompt": "Pick a change to N₂ + 3H₂ ⇌ 2NH₃ at equilibrium",
+            "result_labels": [
+              "Position of equilibrium",
+              "Amount of ammonia",
+              "Why"
+            ],
+            "options": [
+              {
+                "label": "Add more nitrogen",
+                "results": [
+                  "Shifts **right**",
+                  "Increases",
+                  "The system uses up some of the added nitrogen"
+                ]
+              },
+              {
+                "label": "Remove ammonia",
+                "results": [
+                  "Shifts **right**",
+                  "More ammonia is made",
+                  "The system makes more ammonia to replace what was removed"
+                ]
+              },
+              {
+                "label": "Add more ammonia",
+                "results": [
+                  "Shifts **left**",
+                  "Decreases",
+                  "The system uses up some of the added ammonia"
+                ]
+              },
+              {
+                "label": "Increase the temperature",
+                "results": [
+                  "Shifts **left**",
+                  "Decreases",
+                  "The system favours the endothermic (reverse) direction"
+                ]
+              },
+              {
+                "label": "Decrease the temperature",
+                "results": [
+                  "Shifts **right**",
+                  "Increases",
+                  "The system favours the exothermic (forward) direction"
+                ]
+              },
+              {
+                "label": "Increase the pressure",
+                "results": [
+                  "Shifts **right**",
+                  "Increases",
+                  "There are fewer gas molecules on the right (2) than on the left (4)"
+                ]
+              },
+              {
+                "label": "Decrease the pressure",
+                "results": [
+                  "Shifts **left**",
+                  "Decreases",
+                  "There are more gas molecules on the left (4) than on the right (2)"
+                ]
+              },
+              {
+                "label": "Add a catalyst",
+                "results": [
+                  "**No change**",
+                  "Unchanged at equilibrium",
+                  "The forward and reverse reactions speed up equally"
+                ]
+              }
+            ]
+          }
+        },
+        {
+          "type": "key-points",
+          "items": [
+            "Temperature: a rise favours the endothermic direction, a fall favours the exothermic direction.",
+            "Pressure: a rise shifts to the side with fewer gas molecules.",
+            "A catalyst has no effect on the position of equilibrium."
+          ]
+        }
+      ]
+    },
+    {
+      "heading": "Choosing conditions in industry (Higher tier)",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "(Higher tier) The conditions for the Haber process balance rate, yield and cost."
+        },
+        {
+          "type": "table",
+          "columns": [
+            "Condition",
+            "Effect on rate",
+            "Effect on the equilibrium",
+            "Cost"
+          ],
+          "rows": [
+            [
+              "Higher temperature",
+              "Faster: more frequent collisions, and more particles with the activation energy",
+              "Shifts left, because the forward reaction is exothermic",
+              "Uses more energy"
+            ],
+            [
+              "Higher pressure",
+              "Faster: more frequent collisions",
+              "Shifts right, because there are fewer molecules on the right",
+              "Uses more energy and needs stronger vessels"
+            ],
+            [
+              "Iron catalyst",
+              "Faster",
+              "No effect on the position",
+              "Reduces energy costs"
+            ]
+          ]
+        },
+        {
+          "type": "list",
+          "items": [
+            "The conditions used are about 450 °C, 200 atmospheres and an iron catalyst.",
+            "The temperature chosen is a compromise between the rate and the position of equilibrium.",
+            "The pressure chosen is a compromise between yield, rate and cost."
+          ]
+        },
+        {
+          "type": "key-points",
+          "items": [
+            "A high temperature increases the rate but reduces the yield of an exothermic reaction.",
+            "The conditions used are a compromise between rate, yield and cost."
+          ]
+        }
+      ]
+    }
+  ],
+  "checks": [
+    {
+      "q": "(Higher tier) State Le Chatelier's principle.",
+      "a": "If a change is made to a system at equilibrium, the system responds to counteract the change.",
+      "marks": 1
+    },
+    {
+      "q": "(Higher tier) In the reaction 2SO₂(g) + O₂(g) ⇌ 2SO₃(g), explain the effect of increasing the pressure on the position of equilibrium.",
+      "a": "The position shifts to the right. There are fewer molecules of gas on the right (2) than on the left (3).",
+      "marks": 2
+    },
+    {
+      "q": "(Higher tier) The forward reaction is exothermic. Explain the effect of increasing the temperature on the amount of product at equilibrium.",
+      "a": "The amount of product decreases. The system shifts in the endothermic direction, to the left.",
+      "marks": 2
+    }
+  ],
+  "boards": {
+    "aqa": {
+      "spec_codes": [
+        "AQA 4.6.2.4",
+        "AQA T 5.6.2.4",
+        "AQA 4.6.2.5",
+        "AQA T 5.6.2.5",
+        "AQA 4.6.2.6",
+        "AQA T 5.6.2.6",
+        "AQA 4.6.2.7",
+        "AQA T 5.6.2.7",
+        "AQA 4.10.4.1"
+      ],
+      "exam_phrases": [
+        "equilibrium position moves to the product side",
+        "fewer molecules / moles on the product side",
+        "favours the endothermic reaction / reverse reaction",
+        "(so that) the (increase in the) temperature is reduced",
+        "no effect on equilibrium position; equal numbers of (gas) moles / molecules on each side",
+        "the equilibrium shifts to the side with fewer molecules / moles",
+        "no change in equilibrium position because no gases are present",
+        "increases the rate of the forward and the reverse reaction by the same amount"
+      ],
+      "mistakes": [
+        {
+          "wrong": "The higher pressure increases the rate because the collisions are more energetic.",
+          "right": "More energetic or faster collisions are not accepted. Say there are more collisions per unit time, because there are more molecules per unit volume."
+        },
+        {
+          "wrong": "A higher temperature gives a smaller yield because the forward reaction is exothermic.",
+          "right": "Say that the higher temperature favours the endothermic (reverse) reaction, so the equilibrium shifts to the left. Reference to the forward reaction being exothermic is ignored."
+        },
+        {
+          "wrong": "Increasing the pressure shifts 2HI ⇌ H₂ + I₂ to the right.",
+          "right": "There are equal numbers of gas molecules on each side, so a change in pressure has no effect on the equilibrium position."
+        }
+      ],
+      "worked_example": {
+        "exemplar_id": "7c52525b-a9e1-4836-8d5d-ef2cae309d80",
+        "source": "AQA jun 2018, Paper 2 (H), Q09.4",
+        "question": "A pressure of 100 atmospheres is used instead of atmospheric pressure for the reaction\n\nCO(g) + 2H₂(g) ⇌ CH₃OH(g)\n\nThe higher pressure gives a greater yield of methanol and an increased rate of reaction.\n\nExplain why.",
+        "marks": 4,
+        "answer_points": [
+          "Yield: the equilibrium position moves to the product side (to the right).",
+          "Because there are fewer molecules (moles) on the product side.",
+          "Rate: more collisions per unit time.",
+          "Because there are more molecules per unit volume (the molecules are closer together)."
+        ],
+        "tip": "Two marks are for the yield and two are for the rate. Do not refer to more energetic collisions."
+      }
+    },
+    "edexcel": {
+      "spec_codes": [
+        "EDEX 4.17",
+        "EDEX 5.21C"
+      ],
+      "exam_phrases": [
+        "moves in the exothermic direction",
+        "moves right / forwards / towards ammonia / to the products",
+        "to oppose the temperature reduction / to release heat / to increase the temperature",
+        "shift equilibrium to the right / in the forward direction; increases the yield of product",
+        "decrease in the number of molecules",
+        "less purple / lighter / paler / fades, because less iodine"
+      ],
+      "mistakes": [
+        {
+          "wrong": "The equilibrium moves to oppose the change.",
+          "right": "To oppose the change on its own is ignored. Say it opposes the temperature reduction, or releases heat."
+        },
+        {
+          "wrong": "The mixture goes colourless because all the iodine reacts.",
+          "right": "Going colourless is rejected, and so is all the iodine reacting. Say the mixture becomes less purple because some iodine reacts."
+        },
+        {
+          "wrong": "Increasing the temperature moves the endothermic stage 1 reaction to the left.",
+          "right": "A rise in temperature favours the endothermic direction. Stage 1 is endothermic, so the equilibrium shifts right and the yield of products increases."
+        }
+      ],
+      "worked_example": {
+        "exemplar_id": "3ad3da5f-34c5-4c1e-9ec3-1fba45eb4846",
+        "source": "EDEXCEL jun 2023, Paper 1 (H), Q5(a)(iv)",
+        "question": "Ammonia is manufactured in the Haber process by the reversible reaction between nitrogen and hydrogen.\n\nThe reaction between nitrogen and hydrogen to make ammonia can reach dynamic equilibrium. The reaction gives out heat.\n\nExplain how the position of equilibrium changes if the temperature is decreased.",
+        "marks": 2,
+        "answer_points": [
+          "Any two from:",
+          "The equilibrium moves in the exothermic direction.",
+          "It moves to the right (forwards, towards ammonia and the products).",
+          "To oppose the temperature reduction (to release heat, or to increase the temperature)."
+        ],
+        "tip": "The three points are marked independently. Any two score."
+      }
+    },
+    "ocr": {
+      "spec_codes": [
+        "OCR C5.3c",
+        "OCR C6.1d"
+      ],
+      "exam_phrases": [
+        "(position of equilibrium) moves to the right",
+        "the equilibrium moves in the direction of the endothermic change",
+        "higher temperature favours the endothermic / backward reaction",
+        "equilibrium shifts to the left-hand side / the yield of ammonia is reduced",
+        "(lower pressure) moves the position of equilibrium to the left; there are more moles or molecules on the left-hand side"
+      ],
+      "mistakes": [
+        {
+          "wrong": "The yield of ammonia is lower at 550 °C because the reaction is slower.",
+          "right": "A reduced yield must not be linked to rate. Say a higher temperature favours the endothermic backward reaction, so the equilibrium shifts to the left."
+        },
+        {
+          "wrong": "Using a pressure of 15 atmospheres increases the yield of methanol.",
+          "right": "Lower pressure decreases the yield. The equilibrium shifts to the left, because there are more moles of gas on the left-hand side."
+        }
+      ],
+      "worked_example": {
+        "exemplar_id": "e28e32e7-1369-4a6e-8fc1-b2a1c9ab63cb",
+        "source": "OCR jun 2019, Paper 4, Q18(b)(ii)",
+        "question": "In the Haber process nitrogen gas, N₂, reacts with hydrogen gas. Ammonia, NH₃, is made. The reaction is a reversible reaction.\n\nThe conditions used to make ammonia in the Haber process are a pressure of 200 atmospheres and a temperature of 450 °C. The reaction is an exothermic reaction.\n\nA company making ammonia increases the temperature used to 550 °C.\n\nThe company thinks that the increase in temperature will increase the yield of ammonia.\n\nIs the company correct? Explain your answer.",
+        "marks": 2,
+        "answer_points": [
+          "No. A higher temperature favours the endothermic reaction (the backward reaction).",
+          "So the equilibrium shifts to the left-hand side, and the yield of ammonia is reduced."
+        ],
+        "tip": "The marks are for the explanation. Do not link the lower yield to rate."
+      }
+    }
+  },
+  "meta": {
+    "status": "draft",
+    "written_by": "sonnet-5-5",
+    "written_at": "2026-10-01",
+    "spec_point_ids": [
+      "152551ee-4727-4ade-8f6b-9f122ddeed9d",
+      "9dcfa9f6-003f-4d26-a2e6-a13a7a3f5225",
+      "ab67ee14-18d2-4e5d-8823-1100fbf43b44",
+      "3c51e4d6-b2f6-43b1-ac77-ee9f7986a75a",
+      "a12350c7-d24b-404b-929f-d3523d103864",
+      "b6cc8d64-81cc-419b-b7c7-3a4c580a29bc",
+      "bedde499-ad78-4cbc-9a0d-adedc28a920b",
+      "61e9dfa8-0fd3-4cd5-9ed0-f8c418087a67",
+      "2d840086-75b3-44ed-a293-32e7ed51fb22",
+      "a68d3ebc-974b-4672-b8a7-399f506734e0"
+    ],
+    "exemplar_ids": [
+      "7c52525b-a9e1-4836-8d5d-ef2cae309d80",
+      "3ad3da5f-34c5-4c1e-9ec3-1fba45eb4846",
+      "e28e32e7-1369-4a6e-8fc1-b2a1c9ab63cb"
+    ]
+  }
+}

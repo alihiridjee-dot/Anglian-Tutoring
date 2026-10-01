@@ -70,6 +70,13 @@
                 ]
               },
               {
+                "feature": "Energy per kilogram of fuel",
+                "values": [
+                  "Large",
+                  "Even larger"
+                ]
+              },
+              {
                 "feature": "Conditions",
                 "values": [
                   "Lower temperature and pressure",
@@ -123,6 +130,10 @@
             "The hot fusion gases are hard to contain.",
             "These conditions are difficult to produce on Earth, so a practical and economic power station does not exist yet."
           ]
+        },
+        {
+          "type": "subheading",
+          "text": "Benefits, and a claim that was not believed"
         },
         {
           "type": "list",
@@ -259,8 +270,8 @@
           "right": "Say fuse, not bond. Add the idea of joining to produce a larger nucleus."
         },
         {
-          "wrong": "Fusion does not happen at low temperatures because of the repulsion between beta particles, electrons or neutrons.",
-          "right": "The repulsion is between protons. Beta particles and electrons are not in the nucleus, and neutrons do not repel each other."
+          "wrong": "Fusion is when particles fuse together.",
+          "right": "Saying fuse together only restates the word. Say that smaller nuclei come together to produce a larger nucleus."
         }
       ],
       "worked_example": {
@@ -298,7 +309,7 @@
               "diagram": {
                 "kind": "practice",
                 "alt": "Calculate the decrease in mass in a fusion reaction from the energy released.",
-                "question": "The energy released in one fusion reaction is {E} × 10⁻¹² J. The speed of light is 3.0 × 10⁸ m/s. Calculate the decrease in mass, in units of 10⁻²⁹ kg.",
+                "question": "The energy released in one fusion reaction is {E} × 10⁻¹² J. The speed of light is 3.0 × 10⁸ m/s. Calculate the decrease in mass. Give your answer as a number in units of 10⁻²⁹ kg.",
                 "variables": [
                   {
                     "id": "E",
@@ -314,8 +325,8 @@
                 },
                 "working": [
                   "Rearrange: m = E ÷ c²",
-                  "m = {E} × 10⁻¹² ÷ (3.0 × 10⁸)²",
-                  "m = {E} × 10⁻¹² ÷ 9.0 × 10¹⁶",
+                  "m = ({E} × 10⁻¹²) ÷ (3.0 × 10⁸)²",
+                  "m = ({E} × 10⁻¹²) ÷ (9.0 × 10¹⁶)",
                   "Decrease in mass = {answer} × 10⁻²⁹ kg"
                 ]
               }
@@ -380,6 +391,8 @@
       "c0c4ce41-3791-4a0c-8677-aadac2856665",
       "d036c69f-f7f3-4c3c-82ee-5155427923aa",
       "0b8ee910-4037-445f-b9b5-7f2084802565"
-    ]
+    ],
+    "checked_by": "sonnet-science-check",
+    "checked_at": "2026-10-01"
   }
 }

@@ -1,0 +1,428 @@
+{
+  "format": 1,
+  "concept_id": "chem-072",
+  "subject": "chemistry",
+  "title": "Reversible reactions and dynamic equilibrium",
+  "key_idea": "In a **reversible reaction** the products can react to make the original reactants. If it is exothermic in one direction it is endothermic in the other, with the same energy change. In a closed system it reaches **dynamic equilibrium** when the forward and reverse rates are equal.",
+  "sections": [
+    {
+      "heading": "Reversible reactions",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "Most reactions go one way. In a reversible reaction the products can react to make the reactants again."
+        },
+        {
+          "type": "definitions",
+          "items": [
+            {
+              "term": "Reversible reaction",
+              "meaning": "A reaction in which the products can react to produce the original reactants."
+            },
+            {
+              "term": "⇌",
+              "meaning": "The symbol for a reversible reaction. It has arrows in both directions."
+            }
+          ]
+        },
+        {
+          "type": "equation",
+          "label": "A reversible reaction",
+          "formula": "A + B ⇌ C + D",
+          "where": [
+            "the forward reaction makes C and D from A and B",
+            "the reverse reaction makes A and B from C and D"
+          ]
+        },
+        {
+          "type": "list",
+          "items": [
+            "The direction of a reversible reaction can be changed by changing the conditions.",
+            "Heating and adding water are two ways to change the direction of the copper sulfate reaction below."
+          ]
+        },
+        {
+          "type": "subheading",
+          "text": "Example: hydrated copper sulfate"
+        },
+        {
+          "type": "equation",
+          "label": "Hydrated and anhydrous copper sulfate",
+          "formula": "CuSO₄·5H₂O ⇌ CuSO₄ + 5H₂O",
+          "where": [
+            "CuSO₄·5H₂O is hydrated copper sulfate, a blue solid",
+            "CuSO₄ is anhydrous copper sulfate, a white solid"
+          ]
+        },
+        {
+          "type": "table",
+          "columns": [
+            "Direction",
+            "What you do",
+            "What you see",
+            "Energy"
+          ],
+          "rows": [
+            [
+              "Forward",
+              "Heat the blue crystals",
+              "The solid turns white and steam (water vapour) is given off",
+              "Endothermic: energy is taken in"
+            ],
+            [
+              "Reverse",
+              "Add water to the white solid",
+              "The solid turns blue again",
+              "Exothermic: energy is released"
+            ]
+          ]
+        },
+        {
+          "type": "list",
+          "items": [
+            "Adding water to white anhydrous copper sulfate is a test for water. The colour changes from white to blue.",
+            "When a hydrated solid is heated in an open tube, the mass decreases. Water vapour is made and escapes from the tube."
+          ]
+        },
+        {
+          "type": "key-points",
+          "items": [
+            "A reversible reaction can go in both directions, shown by ⇌.",
+            "Changing the conditions changes the direction.",
+            "Hydrated copper sulfate (blue) and anhydrous copper sulfate (white) is the standard example."
+          ]
+        }
+      ]
+    },
+    {
+      "heading": "Energy changes in reversible reactions",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "The energy change in the two directions is linked."
+        },
+        {
+          "type": "list",
+          "items": [
+            "If the reaction is **exothermic** in one direction, it is **endothermic** in the opposite direction.",
+            "The **same amount of energy** is transferred in each direction.",
+            "In the copper sulfate example, the energy taken in on heating equals the energy released when water is added."
+          ]
+        },
+        {
+          "type": "key-points",
+          "items": [
+            "Exothermic one way means endothermic the other way.",
+            "The amount of energy is the same in both directions."
+          ]
+        }
+      ]
+    },
+    {
+      "heading": "Dynamic equilibrium",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "In a closed system a reversible reaction reaches a balance. This balance is called equilibrium."
+        },
+        {
+          "type": "definitions",
+          "items": [
+            {
+              "term": "Closed system",
+              "meaning": "Apparatus that stops reactants and products escaping, such as a sealed flask."
+            },
+            {
+              "term": "Equilibrium",
+              "meaning": "The state reached when the forward and reverse reactions occur at exactly the same rate."
+            },
+            {
+              "term": "Dynamic",
+              "meaning": "Both the forward and reverse reactions are still happening."
+            }
+          ]
+        },
+        {
+          "type": "list",
+          "items": [
+            "A closed system is needed. If a product escapes, equilibrium cannot be reached.",
+            "At equilibrium the **rates** of the forward and reverse reactions are equal.",
+            "The **concentrations** of reactants and products stay constant. They are not necessarily equal.",
+            "The reactions have not stopped. They carry on at the same rate in both directions."
+          ]
+        },
+        {
+          "type": "diagram",
+          "diagram": {
+            "kind": "line-graph",
+            "alt": "A graph of the rate of the forward and reverse reactions against time. The forward rate starts high and falls. The reverse rate starts at zero and rises. They meet and stay level at equilibrium.",
+            "x": {
+              "label": "Time",
+              "min": 0,
+              "max": 100,
+              "ticks": [
+                0,
+                20,
+                40,
+                60,
+                80,
+                100
+              ]
+            },
+            "y": {
+              "label": "Rate of reaction"
+            },
+            "series": [
+              {
+                "name": "Forward reaction",
+                "points": [
+                  [
+                    0,
+                    0.9
+                  ],
+                  [
+                    10,
+                    0.7
+                  ],
+                  [
+                    20,
+                    0.6
+                  ],
+                  [
+                    40,
+                    0.5
+                  ],
+                  [
+                    60,
+                    0.45
+                  ],
+                  [
+                    100,
+                    0.45
+                  ]
+                ]
+              },
+              {
+                "name": "Reverse reaction",
+                "points": [
+                  [
+                    0,
+                    0
+                  ],
+                  [
+                    10,
+                    0.2
+                  ],
+                  [
+                    20,
+                    0.3
+                  ],
+                  [
+                    40,
+                    0.4
+                  ],
+                  [
+                    60,
+                    0.45
+                  ],
+                  [
+                    100,
+                    0.45
+                  ]
+                ]
+              }
+            ],
+            "bands": [
+              {
+                "from": 60,
+                "to": 100,
+                "label": "Equilibrium: rates equal"
+              }
+            ]
+          }
+        },
+        {
+          "type": "diagram",
+          "diagram": {
+            "kind": "sequence",
+            "alt": "Put the steps by which a reversible reaction reaches equilibrium in order.",
+            "prompt": "Put the steps to equilibrium in order",
+            "steps": [
+              "The reactants are mixed in a closed system",
+              "The forward reaction is fastest and there is no reverse reaction yet",
+              "Products form and the reverse reaction starts",
+              "The forward rate falls and the reverse rate rises",
+              "The forward and reverse rates become equal",
+              "The concentrations stay constant: dynamic equilibrium"
+            ]
+          }
+        },
+        {
+          "type": "key-points",
+          "items": [
+            "Equilibrium needs a closed system.",
+            "At equilibrium the forward and reverse rates are equal and the concentrations do not change.",
+            "It is dynamic: both reactions carry on."
+          ]
+        }
+      ]
+    }
+  ],
+  "checks": [
+    {
+      "q": "What does the symbol ⇌ show?",
+      "a": "The reaction is reversible: the products can react to make the reactants again.",
+      "marks": 1
+    },
+    {
+      "q": "Describe how a reversible reaction reaches equilibrium.",
+      "a": "It happens in a closed system, where reactants and products cannot escape. The forward and reverse reactions have the same rate.",
+      "marks": 2
+    },
+    {
+      "q": "The forward reaction in a reversible reaction is exothermic. State whether the reverse reaction is exothermic or endothermic, and compare the energy changes.",
+      "a": "The reverse reaction is endothermic. The same amount of energy is transferred in each direction.",
+      "marks": 2
+    }
+  ],
+  "boards": {
+    "aqa": {
+      "spec_codes": [
+        "AQA 4.6.2.1",
+        "AQA T 5.6.2.1",
+        "AQA 4.6.2.2",
+        "AQA T 5.6.2.2",
+        "AQA 4.6.2.3",
+        "AQA T 5.6.2.3"
+      ],
+      "exam_phrases": [
+        "the forward and reverse reactions have the same rate",
+        "in apparatus which prevents the escape of reactants and products",
+        "closed system",
+        "the forward and reverse reactions are taking place at (exactly) the same rate",
+        "the mass of each substance does not change",
+        "white to blue (anhydrous copper sulfate with water)",
+        "water vapour was produced; water (vapour) escaped"
+      ],
+      "mistakes": [
+        {
+          "wrong": "The concentrations do not change at dynamic equilibrium because it is a closed system.",
+          "right": "A closed system is ignored in this answer. Say the forward and reverse reactions are taking place at exactly the same rate."
+        },
+        {
+          "wrong": "When water is added to anhydrous copper sulfate the colour changes from blue to white.",
+          "right": "Anhydrous copper sulfate is white and hydrated is blue. The change is white to blue. Blue to white earns only 1 mark."
+        },
+        {
+          "wrong": "The mass of the test tube decreased because the cobalt chloride reacted.",
+          "right": "Say that water vapour was produced and escaped from the tube, so its mass was not measured."
+        }
+      ],
+      "worked_example": {
+        "exemplar_id": "f4d1c91a-24f8-4528-92d6-e0f8f2959fa7",
+        "source": "AQA jun 2022, Paper 2 (H), Q06.4",
+        "question": "The reversible reaction for the production of ammonia is:\n\nN₂(g) + 3H₂(g) ⇌ 2NH₃(g)\n\nDescribe how a reversible chemical reaction is able to reach equilibrium.",
+        "marks": 2,
+        "answer_points": [
+          "The forward and reverse reactions have the same rate.",
+          "In apparatus which prevents the escape of reactants and products (a closed system)."
+        ],
+        "tip": "One mark for each condition."
+      }
+    },
+    "edexcel": {
+      "spec_codes": [
+        "EDEX 4.13",
+        "EDEX 4.14"
+      ],
+      "exam_phrases": [
+        "heat the (hydrated) crystals / solid",
+        "the solid goes white / steam is observed / water produced",
+        "add water / water rejoins / water reacts with the anhydrous solid",
+        "the solid goes blue (again) / heat is released",
+        "both forward and backward reactions take place at the same time",
+        "the rates of the two reactions are equal"
+      ],
+      "mistakes": [
+        {
+          "wrong": "Put the copper sulfate in a closed system and explain the result using Le Chatelier's principle.",
+          "right": "Closed system and Le Chatelier are ignored here. Describe heating the crystals, the colour change, adding water, and the colour change back."
+        },
+        {
+          "wrong": "When the blue crystals are heated they turn blue again.",
+          "right": "Heating hydrated copper sulfate gives a white solid, and steam or water is produced. The solid goes blue again when water is added."
+        }
+      ],
+      "worked_example": {
+        "exemplar_id": "e8c7f52f-b860-4a2a-a8d5-4ca1e30251fd",
+        "source": "EDEXCEL jun 2019, Paper 1 (H), Q6(a)",
+        "question": "Hydrated copper sulfate, CuSO₄·5H₂O, is a blue solid. Anhydrous copper sulfate, CuSO₄, is a white solid.\n\nHeat energy is needed to convert hydrated copper sulfate to anhydrous copper sulfate. This is a reversible reaction.\n\nCuSO₄·5H₂O ⇌ CuSO₄ + 5H₂O\n\nDevise an experiment to show that this is a reversible reaction.",
+        "marks": 4,
+        "answer_points": [
+          "Heat the hydrated crystals (solid).",
+          "The solid goes white, steam is seen, or water is produced.",
+          "Add water to the anhydrous solid (the water rejoins it).",
+          "The solid goes blue again, or heat is released."
+        ],
+        "tip": "The fourth mark does not depend on the third."
+      }
+    },
+    "ocr": {
+      "spec_codes": [
+        "OCR C5.3a",
+        "OCR C5.3b"
+      ],
+      "exam_phrases": [
+        "the rates of the forward and backward reactions are equal",
+        "the forward and backward reactions still happen (so it is dynamic)",
+        "the concentrations of the reactants and products do not change",
+        "rate of forward reaction equals the rate of the backward reaction"
+      ],
+      "mistakes": [
+        {
+          "wrong": "At dynamic equilibrium the concentrations of the reactants and products are the same.",
+          "right": "The same is not allowed. Say the concentrations of the reactants and products do not change."
+        },
+        {
+          "wrong": "At dynamic equilibrium both reactions happen at a constant rate.",
+          "right": "Constant rate is ignored. Say the rates of the forward and backward reactions are equal."
+        }
+      ],
+      "worked_example": {
+        "exemplar_id": "36f613f0-197d-41dd-a153-ccae8bd40eda",
+        "source": "OCR jun 2022, Paper 4, Q21(a)",
+        "question": "Hydrogen gas is made by the reaction between methane, CH₄, and steam. The reaction reaches a dynamic equilibrium.\n\nThis is the equation for the reaction.\n\nCH₄(g) + H₂O(g) ⇌ CO(g) + 3H₂(g)\n\nState what is meant by a dynamic equilibrium.",
+        "marks": 2,
+        "answer_points": [
+          "Any two from:",
+          "The rates of the forward and backward reactions are equal (so it is an equilibrium).",
+          "The forward and backward reactions still happen (so it is dynamic).",
+          "The concentrations of the reactants and products do not change."
+        ],
+        "tip": "Any two of the three statements score."
+      }
+    }
+  },
+  "meta": {
+    "status": "draft",
+    "written_by": "sonnet-5-5",
+    "written_at": "2026-10-01",
+    "spec_point_ids": [
+      "383bb202-3f92-4e57-8ba9-5c8a08b48734",
+      "c238a2f4-c8b0-41f5-afc7-5ff3461fa4f4",
+      "bda5692a-6270-453c-b32c-33867736f322",
+      "181e64e3-944b-4ab3-a5f3-31cef8b1edcf",
+      "2f9ea660-6b06-4b21-bc20-8e445ac5d6a3",
+      "21aafc25-b384-4d53-add8-5281d69e3fff",
+      "c3fcfa2f-138b-4538-9829-b65eda8eaf86",
+      "87af7ed8-e3c5-4477-82e2-f56e9905ef0e",
+      "4409c141-9cd1-4c9f-adc8-2f9d0ea3f540",
+      "b97805c9-e688-45ca-b482-0d386a68290e"
+    ],
+    "exemplar_ids": [
+      "f4d1c91a-24f8-4528-92d6-e0f8f2959fa7",
+      "e8c7f52f-b860-4a2a-a8d5-4ca1e30251fd",
+      "36f613f0-197d-41dd-a153-ccae8bd40eda"
+    ]
+  }
+}

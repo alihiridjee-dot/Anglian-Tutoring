@@ -79,7 +79,7 @@
             ["Energy source", "Hydrogen and oxygen supplied from outside", "Chemicals sealed in the cell; recharged by an external current"],
             ["Time to refuel or recharge", "Faster to refuel", "Slower to recharge"],
             ["Distance before refuelling", "Can travel further", "Shorter range"],
-            ["Voltage", "Constant while reactants are supplied", "Voltage drops as the reactants are used up"],
+            ["Voltage", "Constant while reactants are supplied", "Voltage falls as the cell runs down"],
             ["Disposal", "No toxic chemicals to dispose of", "May release toxic chemicals on disposal"]
           ]
         },

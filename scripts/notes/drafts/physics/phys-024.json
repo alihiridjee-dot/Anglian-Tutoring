@@ -58,8 +58,8 @@
           "items": [
             "Use a displacement method. The object pushes aside its own volume of water.",
             "Measuring cylinder: volume of object = final volume − initial volume.",
-            "Displacement (eureka) can: collect the displaced water and measure its volume in a measuring cylinder.",
-            "For a very small object, add several identical objects together. Divide the change in water level by the number of objects."
+            "Displacement (eureka) can: fill the can to the spout, put the object in, collect the displaced water and measure its volume in a measuring cylinder.",
+            "For a very small object, add several identical objects together. Divide the change in volume by the number of objects."
           ]
         },
         {
@@ -139,8 +139,8 @@
             "variables": [
               {
                 "id": "m",
-                "min": 30,
-                "max": 120,
+                "min": 40,
+                "max": 110,
                 "step": 10
               },
               {
@@ -316,6 +316,8 @@
     "exemplar_ids": [
       "5211ea3c-3275-4a60-98ca-edfc7294b871",
       "b5ba045f-13af-4d86-914e-7f6194bc0108"
-    ]
+    ],
+    "checked_by": "sonnet-science-check",
+    "checked_at": "2026-10-01"
   }
 }

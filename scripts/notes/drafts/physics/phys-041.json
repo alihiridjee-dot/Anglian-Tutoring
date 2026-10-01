@@ -10,7 +10,7 @@
       "blocks": [
         {
           "type": "paragraph",
-          "text": "(Separate science) Fission is the splitting of a large and unstable nucleus, such as uranium-235 or plutonium. This section covers the process step by step."
+          "text": "(Separate science) Fission is the splitting of a large and unstable nucleus, such as uranium-235 or plutonium. It is one nuclear reaction that can be a source of energy. This section covers the process step by step."
         },
         {
           "type": "definitions",
@@ -154,7 +154,7 @@
           "where": [
             "energy released in joules (J)",
             "number of fissions in one second (a number)",
-            "energy per fission in joules (J)"
+            "energy released per fission in joules (J)"
           ]
         },
         {
@@ -192,9 +192,11 @@
           "items": [
             "For: no carbon dioxide is produced, so it does not add to global warming.",
             "For: a large power output from a small amount of fuel, and it saves fossil fuels.",
+            "For: low running costs once the power station is built.",
             "Against: **radioactive waste** stays dangerous for a long time and must be stored safely.",
             "Against: expensive to build and to decommission.",
-            "Against: the risk of an accident, which could expose people to radiation or contaminate an area."
+            "Against: the risk of an accident, which could expose people to radiation or contaminate an area.",
+            "Against: public worry about safety, waste and terrorism."
           ]
         },
         {
@@ -370,6 +372,8 @@
       "72f0aada-69eb-4665-8f2b-dcce84edbf6d",
       "2dcde7fc-faba-4ab0-ad5f-1e6930786b9a",
       "9e56300b-cc07-4f33-8725-a1cb1c949378"
-    ]
+    ],
+    "checked_by": "sonnet-science-check",
+    "checked_at": "2026-10-01"
   }
 }

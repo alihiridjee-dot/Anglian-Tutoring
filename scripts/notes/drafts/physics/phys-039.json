@@ -25,7 +25,7 @@
             },
             {
               "term": "Ionising radiation",
-              "meaning": "Radiation that can damage cells and cause mutations."
+              "meaning": "Radiation that removes electrons from atoms to make ions. It can damage cells and cause mutations."
             }
           ]
         },
@@ -182,8 +182,8 @@
         {
           "type": "list",
           "items": [
-            "A **short** half-life means a higher activity: more radiation is emitted per second.",
-            "So for the same number of nuclei, the source with the shorter half-life is the greater hazard at the start.",
+            "For the same number of nuclei, a **short** half-life means a higher activity: more radiation is emitted per second.",
+            "So the source with the shorter half-life is the greater hazard at the start.",
             "A **long** half-life means the material stays radioactive, and so stays dangerous, for longer."
           ]
         },
@@ -198,7 +198,8 @@
             "Limit the time of exposure.",
             "Use shielding, such as a lead container or a screen.",
             "Wear protective clothing, such as a lead apron, and a radiation badge.",
-            "Keep sources in sealed containers and point them away from people."
+            "Keep sources in sealed containers and point them away from people.",
+            "Limit the dose given to a patient to the smallest that works. Medical staff are exposed again and again, so they take these precautions every time."
           ]
         },
         {
@@ -252,7 +253,7 @@
         },
         {
           "wrong": "Irradiating the water makes the water radioactive.",
-          "right": "Irradiation does not make the water radioactive. Contamination does: the radioactive isotopes enter the water or body, which increases the hazard."
+          "right": "Irradiation does not make the water radioactive. Contamination increases the hazard, because radioactive isotopes enter the water and then the body."
         },
         {
           "wrong": "Alpha contamination inside the body is dangerous because the isotope has a long half-life.",
@@ -307,8 +308,8 @@
       ],
       "mistakes": [
         {
-          "wrong": "Wear goggles or a mask to protect against radiation.",
-          "right": "Goggles and masks are ignored. Name shielding (a lead box or screen), limiting time, distance (tongs) or protective clothing such as lead aprons."
+          "wrong": "Wear goggles to protect against radiation.",
+          "right": "Goggles are not credited. Name shielding (a lead box or screen), limiting time, distance (tongs) or protective clothing such as lead aprons."
         },
         {
           "wrong": "Irradiation makes an object radioactive.",
@@ -351,7 +352,7 @@
       "mistakes": [
         {
           "wrong": "The workers were contaminated because radiation touched them or was breathed in.",
-          "right": "Radiation is not touched or breathed in. Contamination is radioactive material touching the workers or being breathed in. Answers that mix in irradiation ideas are not allowed."
+          "right": "Say radioactive material touched the workers or was breathed in. Saying radiation touched them is an irradiation idea, and mixing in irradiation ideas is not allowed."
         },
         {
           "wrong": "The teacher should wear gloves and goggles.",
@@ -394,6 +395,8 @@
       "8490d86b-253f-4285-9351-d3214fb9ae85",
       "d51abfeb-a56d-4de5-825f-0896b66c829c",
       "61787676-f16c-4205-8cfd-ea17e3f6cb6e"
-    ]
+    ],
+    "checked_by": "sonnet-science-check",
+    "checked_at": "2026-10-01"
   }
 }
