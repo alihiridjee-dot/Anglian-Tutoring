@@ -1,0 +1,242 @@
+{
+  "format": 1,
+  "concept_id": "bio-037",
+  "subject": "biology",
+  "title": "Transpiration and stomata",
+  "key_idea": "Transpiration is the loss of water vapour from the leaves, through the stomata. It pulls water up the xylem from the roots. Guard cells open and close the stomata, which controls gas exchange and water loss.",
+  "sections": [
+    {
+      "heading": "Transpiration",
+      "blocks": [
+        { "type": "paragraph", "text": "Water travels from the soil to the air through the plant. This movement is called the transpiration stream." },
+        {
+          "type": "definitions",
+          "items": [
+            { "term": "Transpiration", "meaning": "The loss of water vapour from a plant, mainly through the stomata of the leaves." },
+            { "term": "Stomata", "meaning": "Pores in the leaf surface, mostly in the lower epidermis. One is called a stoma." }
+          ]
+        },
+        {
+          "type": "diagram",
+          "diagram": {
+            "kind": "sequence",
+            "alt": "Put the journey of water through a plant in order, from the soil to the air.",
+            "prompt": "Put the journey of water in order",
+            "steps": [
+              "Water is absorbed from the soil by osmosis through the root hair cells",
+              "Water moves into the xylem in the root",
+              "Water travels up the xylem to the leaves",
+              "Water evaporates from the surface of the cells in the leaf",
+              "Water vapour is lost through the stomata to the air"
+            ]
+          }
+        },
+        {
+          "type": "list",
+          "items": [
+            "Mineral ions dissolved in the water move up the xylem too.",
+            "Evaporation from the leaves pulls more water up the xylem, so water flows in one direction only.",
+            "Only xylem carries water. Phloem does not."
+          ]
+        },
+        {
+          "type": "key-points",
+          "items": [
+            "Water goes: root hair cells, xylem, leaves, stomata, air.",
+            "Evaporation from the leaves drives the transpiration stream.",
+            "Water moves in one direction in the xylem."
+          ]
+        }
+      ]
+    },
+    {
+      "heading": "Stomata and guard cells",
+      "blocks": [
+        { "type": "paragraph", "text": "Stomata have two jobs. Each stoma is surrounded by a pair of guard cells that open and close it." },
+        {
+          "type": "list",
+          "items": [
+            "Stomata allow gas exchange: carbon dioxide in and oxygen out.",
+            "Stomata allow water vapour to leave, which is transpiration.",
+            "Most stomata are in the lower epidermis, which reduces water loss.",
+            "A water lily has stomata only on its upper surface. The lower surface is in water, not air."
+          ]
+        },
+        { "type": "subheading", "text": "How guard cells open a stoma" },
+        {
+          "type": "diagram",
+          "diagram": {
+            "kind": "flow",
+            "alt": "How a stoma opens. Guard cells photosynthesise and make glucose. Water enters the guard cells by osmosis. They swell and become turgid. The thicker inner wall bends less than the outer wall, so the cells curve and the stoma opens.",
+            "steps": [
+              "Guard cells photosynthesise and make glucose",
+              "Water enters the guard cells by osmosis",
+              "Guard cells swell and become turgid",
+              "Thicker inner wall bends less than the outer wall",
+              "Cells curve and the stoma opens"
+            ]
+          }
+        },
+        {
+          "type": "list",
+          "items": [
+            "At night, or when it is cooler or there is less light, the stomata are almost closed.",
+            "Less water is lost when the stomata are closed."
+          ]
+        },
+        {
+          "type": "key-points",
+          "items": [
+            "Stomata allow gas exchange and water loss.",
+            "Guard cells take in water by osmosis, swell, curve and open the stoma.",
+            "Stomata are almost closed at night, so less water is lost."
+          ]
+        }
+      ]
+    }
+  ],
+  "checks": [
+    {
+      "q": "Describe the transport of water through a plant from the roots to the atmosphere.",
+      "a": "Water is transported in the xylem. It evaporates from the leaves. It is lost through the stomata.",
+      "marks": 3
+    },
+    {
+      "q": "Describe how guard cells open a stoma.",
+      "a": "Water enters the guard cells by osmosis. The cells swell, become turgid and curve, which opens the stoma.",
+      "marks": 2
+    },
+    {
+      "q": "Describe two functions of stomata.",
+      "a": "They allow gas exchange of carbon dioxide and oxygen. They allow water to evaporate from the leaf, which helps transpiration.",
+      "marks": 2
+    }
+  ],
+  "boards": {
+    "aqa": {
+      "spec_codes": ["AQA 2.12", "AQA T 4.2.3.2"],
+      "exam_phrases": [
+        "transported in xylem",
+        "water evaporates (from leaves)",
+        "through the stomata",
+        "guard cells control the opening and closing of the stomata",
+        "water enters (guard) cells by osmosis",
+        "cells swell and curve (to open the stoma)"
+      ],
+      "mistakes": [
+        {
+          "wrong": "Water is transported up the plant by translocation.",
+          "right": "Translocation is not accepted for water. Water moves in the xylem, in the transpiration stream."
+        },
+        {
+          "wrong": "Water is lost by evaporation.",
+          "right": "\"Evaporation\" or \"transpiration\" on its own is ignored. Say water evaporates from the leaves and is lost through the stomata."
+        },
+        {
+          "wrong": "The stomata are closed at night because it is dark.",
+          "right": "\"It's dark\" is ignored. Say the stomata are almost closed because there is less light, or it is cooler."
+        }
+      ],
+      "worked_example": {
+        "exemplar_id": "9588e62e-fc08-41b2-93e4-37491d73aff0",
+        "source": "AQA jun 2021, Paper 1 (H), Q06.1",
+        "question": "This question is about plant transport systems. Describe how water is transported from the soil to the atmosphere through a plant.",
+        "marks": 4,
+        "answer_points": [
+          "Water is absorbed from the soil by osmosis through the root hair cells.",
+          "It travels through the xylem to the leaves.",
+          "It is lost through the stomata to the atmosphere.",
+          "The process is driven by evaporation or transpiration."
+        ],
+        "tip": "Each step is one mark. \"Evaporation\" or \"transpiration\" alone is ignored: name where it happens."
+      }
+    },
+    "edexcel": {
+      "spec_codes": ["EDEX 6.9"],
+      "exam_phrases": [
+        "guard cells take in water by osmosis",
+        "guard cells become turgid / change shape / swell",
+        "water moves through the xylem by transpiration",
+        "water is evaporated / diffused through the stomata",
+        "no stomata on the upper surface to reduce water loss",
+        "stomata on the lower surface allow gas exchange"
+      ],
+      "mistakes": [
+        {
+          "wrong": "Phloem carries water to the leaves.",
+          "right": "Phloem carrying water is rejected. Water and mineral ions move through the xylem."
+        },
+        {
+          "wrong": "The stomata open because the guard cells get bigger.",
+          "right": "Describe the steps: guard cells take in water by osmosis and become turgid, which changes their shape."
+        },
+        {
+          "wrong": "Water lilies have no stomata underneath because they would be wet.",
+          "right": "Say the lower surface is not in contact with air, so gas exchange cannot occur."
+        }
+      ],
+      "worked_example": {
+        "exemplar_id": "3bd5aac3-b647-47a5-810b-617db2d0379c",
+        "source": "EDEXCEL jun 2018, Paper 2 (H), Q3(b)(ii)",
+        "question": "A student observed that the stomata were open. Describe how stomata open.",
+        "marks": 3,
+        "answer_points": [
+          "Guard cells take in water.",
+          "By osmosis.",
+          "The guard cells become turgid, change shape or swell.",
+          "Uneven thickness of the guard cell walls leads to bulging."
+        ],
+        "tip": "Any three points score one mark each."
+      }
+    },
+    "ocr": {
+      "spec_codes": ["OCR 2.2g"],
+      "exam_phrases": [
+        "water evaporates (on surface of spongy mesophyll)",
+        "water (vapour) passes / diffuses through the stomata",
+        "allows gaseous exchange of CO2 and O2",
+        "water enters guard cells by osmosis",
+        "thickened inner part of wall bends less than outer part",
+        "guard cells photosynthesise producing sugar"
+      ],
+      "mistakes": [
+        {
+          "wrong": "Stomata let water enter the leaf.",
+          "right": "\"Let water enter\" is ignored. Stomata allow water to evaporate and leave the leaf, and allow gaseous exchange."
+        },
+        {
+          "wrong": "Transpiration is the movement of water up the plant.",
+          "right": "For what happens in transpiration, say water evaporates from the spongy mesophyll and diffuses out through the stomata."
+        }
+      ],
+      "worked_example": {
+        "exemplar_id": "40e9d8a4-6a7d-41c9-bb67-fedf934d68a7",
+        "source": "OCR nov 2021, Paper 3, Q18(a)",
+        "question": "Explain how guard cells change shape to open stomata.",
+        "marks": 4,
+        "answer_points": [
+          "Guard cells photosynthesise, producing sugar.",
+          "Water enters the guard cells by osmosis.",
+          "The guard cells swell or become turgid.",
+          "The thickened inner part of the wall bends less than the outer part.",
+          "The guard cells curve, forming an opening."
+        ],
+        "tip": "Any four points score one mark each."
+      }
+    }
+  },
+  "meta": {
+    "status": "draft",
+    "written_by": "sonnet-5-5",
+    "written_at": "2026-10-01",
+    "spec_point_ids": [
+      "e9e292ae-1520-4bcf-8606-3e38f778b656",
+      "1f7d302e-b3cc-43fd-8495-c769867d0044"
+    ],
+    "exemplar_ids": [
+      "9588e62e-fc08-41b2-93e4-37491d73aff0",
+      "3bd5aac3-b647-47a5-810b-617db2d0379c",
+      "40e9d8a4-6a7d-41c9-bb67-fedf934d68a7"
+    ]
+  }
+}
