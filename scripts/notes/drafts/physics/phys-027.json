@@ -1,0 +1,444 @@
+{
+  "format": 1,
+  "concept_id": "phys-027",
+  "subject": "physics",
+  "title": "Specific heat capacity",
+  "key_idea": "Specific heat capacity is the energy needed to raise the temperature of 1 kg of a substance by 1 °C. The energy needed depends on the mass, the material and the temperature change: ΔE = m c Δθ.",
+  "sections": [
+    {
+      "heading": "Specific heat capacity and the equation",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "The temperature rise of a system depends on the mass heated, the type of material and the energy supplied. This section covers the definition and the equation."
+        },
+        {
+          "type": "definitions",
+          "items": [
+            {
+              "term": "Specific heat capacity",
+              "meaning": "The energy needed to raise the temperature of 1 kg of a substance by 1 °C."
+            }
+          ]
+        },
+        {
+          "type": "equation",
+          "label": "Change in thermal energy",
+          "formula": "change in thermal energy = mass × specific heat capacity × temperature change    (ΔE = m c Δθ)",
+          "where": [
+            "change in thermal energy, ΔE, in joules, J",
+            "mass, m, in kilograms, kg",
+            "specific heat capacity, c, in joules per kilogram per degree Celsius, J/kg °C",
+            "temperature change, Δθ, in degrees Celsius, °C"
+          ]
+        },
+        {
+          "type": "list",
+          "items": [
+            "A substance with a high specific heat capacity needs a lot of energy to warm up, and releases a lot as it cools. Water is an example, with c = 4200 J/kg °C.",
+            "The temperature change is the final temperature minus the starting temperature.",
+            "To find c: c = ΔE ÷ (m × Δθ).",
+            "To find the temperature change: Δθ = ΔE ÷ (m × c)."
+          ]
+        },
+        {
+          "type": "steps",
+          "items": [
+            {
+              "lead": "Find the temperature change.",
+              "text": "Final minus start. Water heated from 20 °C to 100 °C: Δθ = 80 °C."
+            },
+            {
+              "lead": "Check the units.",
+              "text": "Mass in kg. Convert grams to kilograms and kJ to J first."
+            },
+            {
+              "lead": "Substitute.",
+              "text": "ΔE = 0.50 × 4200 × 80 for 0.50 kg of water."
+            },
+            {
+              "lead": "Calculate and give the unit.",
+              "text": "ΔE = 168 000 J."
+            }
+          ]
+        },
+        {
+          "type": "diagram",
+          "diagram": {
+            "kind": "slider",
+            "alt": "Choose a material, a mass and a temperature rise to see the energy needed, using change in thermal energy = mass x specific heat capacity x temperature change.",
+            "inputs": [
+              {
+                "id": "c",
+                "label": "Material",
+                "choices": [
+                  {
+                    "label": "Water, 4200 J/kg °C",
+                    "value": 4200
+                  },
+                  {
+                    "label": "Seawater, 3800 J/kg °C",
+                    "value": 3800
+                  },
+                  {
+                    "label": "Oil, 1700 J/kg °C",
+                    "value": 1700
+                  },
+                  {
+                    "label": "Brick, 860 J/kg °C",
+                    "value": 860
+                  },
+                  {
+                    "label": "Nickel, 440 J/kg °C",
+                    "value": 440
+                  }
+                ]
+              },
+              {
+                "id": "m",
+                "label": "Mass",
+                "unit": "kg",
+                "min": 0.5,
+                "max": 5,
+                "step": 0.5,
+                "value": 2
+              },
+              {
+                "id": "t",
+                "label": "Temperature rise",
+                "unit": "°C",
+                "min": 5,
+                "max": 80,
+                "step": 5,
+                "value": 40
+              }
+            ],
+            "outputs": [
+              {
+                "label": "Energy needed, ΔE = m c Δθ",
+                "unit": "J",
+                "formula": "m * c * t",
+                "decimals": 0
+              },
+              {
+                "label": "Energy needed",
+                "unit": "kJ",
+                "formula": "m * c * t / 1000",
+                "decimals": 1
+              }
+            ]
+          }
+        },
+        {
+          "type": "diagram",
+          "diagram": {
+            "kind": "practice",
+            "alt": "Calculate the energy needed to heat some water from one temperature to another.",
+            "question": "Calculate the energy needed to heat {m} kg of water from {a} °C to {b} °C. The specific heat capacity of water is 4200 J/kg °C.",
+            "variables": [
+              {
+                "id": "m",
+                "min": 0.5,
+                "max": 3,
+                "step": 0.5
+              },
+              {
+                "id": "a",
+                "min": 10,
+                "max": 30,
+                "step": 5
+              },
+              {
+                "id": "b",
+                "min": 60,
+                "max": 100,
+                "step": 10
+              }
+            ],
+            "answer": {
+              "formula": "m * 4200 * (b - a)",
+              "unit": "J",
+              "decimals": 0
+            },
+            "working": [
+              "Temperature change = {b} − {a} °C.",
+              "ΔE = m × c × Δθ",
+              "ΔE = {m} × 4200 × ({b} − {a})",
+              "ΔE = {answer} J"
+            ]
+          }
+        },
+        {
+          "type": "key-points",
+          "items": [
+            "ΔE = m c Δθ. Mass in kg, c in J/kg °C, Δθ in °C.",
+            "Use the temperature change (final − start), not either temperature on its own.",
+            "A high specific heat capacity means more energy is needed for the same rise."
+          ]
+        }
+      ]
+    },
+    {
+      "heading": "Measuring specific heat capacity",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "You can find c for a solid block or for water by heating it with an electric heater. This section covers the method."
+        },
+        {
+          "type": "steps",
+          "items": [
+            {
+              "lead": "Measure the mass.",
+              "text": "Use a balance. For water, measure the mass of the water."
+            },
+            {
+              "lead": "Measure the starting temperature.",
+              "text": "Use a thermometer."
+            },
+            {
+              "lead": "Heat it.",
+              "text": "Switch the heater on for a set time. Connect it to a joulemeter, or measure the current, the potential difference and the time."
+            },
+            {
+              "lead": "Measure the energy and the final temperature.",
+              "text": "Read the energy from the joulemeter. Record the highest temperature reached."
+            },
+            {
+              "lead": "Calculate.",
+              "text": "Find the temperature change, then use c = ΔE ÷ (m × Δθ)."
+            }
+          ]
+        },
+        {
+          "type": "equation",
+          "label": "Specific heat capacity",
+          "formula": "specific heat capacity = change in thermal energy ÷ (mass × temperature change)    (c = ΔE ÷ (m Δθ))",
+          "where": [
+            "specific heat capacity, c, in joules per kilogram per degree Celsius, J/kg °C",
+            "change in thermal energy, ΔE, in joules, J",
+            "mass, m, in kilograms, kg",
+            "temperature change, Δθ, in degrees Celsius, °C"
+          ]
+        },
+        {
+          "type": "list",
+          "items": [
+            "Wrap the block or container in insulation. The amount of wasted energy is less, so the temperature increase is greater and the calculated value is more accurate.",
+            "Stir water so that the temperature is the same throughout."
+          ]
+        },
+        {
+          "type": "key-points",
+          "items": [
+            "Measure the mass, the energy supplied and the temperature change.",
+            "Insulation reduces the energy transferred to the surroundings."
+          ]
+        }
+      ]
+    },
+    {
+      "heading": "Specific heat capacity and specific latent heat",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "Heating can raise the temperature or change the state. Two quantities describe these two effects."
+        },
+        {
+          "type": "definitions",
+          "items": [
+            {
+              "term": "Specific heat capacity",
+              "meaning": "The energy needed to raise the temperature of 1 kg of a substance by 1 °C. It concerns a change in temperature."
+            },
+            {
+              "term": "Specific latent heat",
+              "meaning": "The energy transferred when 1 kg of a substance changes state, with no change in temperature."
+            },
+            {
+              "term": "Specific latent heat of fusion",
+              "meaning": "The energy transferred when 1 kg of a substance melts or freezes."
+            },
+            {
+              "term": "Specific latent heat of vaporisation",
+              "meaning": "The energy transferred when 1 kg of a substance changes between a liquid and a gas."
+            }
+          ]
+        },
+        {
+          "type": "key-points",
+          "items": [
+            "Specific heat capacity: change in temperature.",
+            "Specific latent heat: change of state, at a constant temperature."
+          ]
+        }
+      ]
+    }
+  ],
+  "checks": [
+    {
+      "q": "Define specific heat capacity.",
+      "a": "The energy needed to raise the temperature of 1 kg of a substance by 1 °C.",
+      "marks": 2
+    },
+    {
+      "q": "Calculate the energy needed to heat 2.0 kg of water from 20 °C to 60 °C. The specific heat capacity of water is 4200 J/kg °C.",
+      "a": "Δθ = 40 °C. ΔE = 2.0 × 4200 × 40 = 336 000 J.",
+      "marks": 3
+    },
+    {
+      "q": "Explain the difference between specific heat capacity and specific latent heat.",
+      "a": "Specific heat capacity concerns a change in temperature, whereas specific latent heat concerns a change of state.",
+      "marks": 2
+    }
+  ],
+  "boards": {
+    "aqa": {
+      "spec_codes": [
+        "AQA 4.1.1.3",
+        "AQA 4.3.2.2",
+        "AQA T 6.1.1.3",
+        "AQA T 6.3.2.2"
+      ],
+      "exam_phrases": [
+        "ΔE = m × c × Δθ",
+        "the energy needed to raise the temperature of 1 kg of the substance by 1 °C",
+        "Δθ = 80 (°C)",
+        "c = 26 400 / (0.20 × 30)",
+        "J/kg °C",
+        "the amount of wasted energy is less"
+      ],
+      "mistakes": [
+        {
+          "wrong": "E = 150 × 4200 × 100 for water heated from 20 °C to 100 °C.",
+          "right": "Use the temperature change: 100 − 20 = 80 °C. Using 20 or 100 on its own scores only 1 mark."
+        },
+        {
+          "wrong": "c = 4400 with no unit.",
+          "right": "The unit is a separate mark. Write c = 4400 J/kg °C."
+        },
+        {
+          "wrong": "Percentage difference = (4410 − 4200) ÷ 4410 × 100 = 4.76 %.",
+          "right": "Divide by the actual value, 4200: (4410 − 4200) ÷ 4200 × 100 = 5 %. 4.76 % is not accepted."
+        }
+      ],
+      "worked_example": {
+        "exemplar_id": "dbd1e4dc-1a5d-4ed7-b295-7af4257159e4",
+        "source": "AQA jun 2019, Paper 1 (F), Q8.5",
+        "question": "A student carried out an experiment to determine the specific heat capacity of water. The energy transferred to the water was 26 400 J. The mass of water was 0.20 kg. The temperature increase of the water was 30 °C. Calculate the specific heat capacity of water using the data from this experiment. Give the unit.",
+        "marks": 4,
+        "answer_points": [
+          "26 400 = 0.20 × c × 30",
+          "c = 26 400 ÷ (0.20 × 30)",
+          "c = 4400",
+          "unit: J/kg °C"
+        ],
+        "tip": "A correct numerical answer of 4400 scores 3 marks. The unit is the fourth mark."
+      }
+    },
+    "edexcel": {
+      "spec_codes": [
+        "EDEX 14.7",
+        "EDEX 14.8",
+        "EDEX 14.11"
+      ],
+      "exam_phrases": [
+        "ΔQ = m × c × Δθ",
+        "specific heat capacity concerns change in temperature",
+        "specific latent heat concerns change of state",
+        "answer to 2 sf",
+        "c = Q / (m × Δθ)",
+        "measure energy input on joulemeter / measure V, I and t"
+      ],
+      "mistakes": [
+        {
+          "wrong": "Using 1500 g as the mass for 1.5 kg of water in ΔQ = m c Δθ.",
+          "right": "Use the mass in kilograms: 1.5 kg. Using grams scores 1 mark."
+        },
+        {
+          "wrong": "Writing 444 150 J when asked for the appropriate number of significant figures.",
+          "right": "Round as well: 440 000 J to 2 significant figures. The significant figures mark is separate."
+        },
+        {
+          "wrong": "The temperature before heating was 80 °C, because Δθ = 80 °C.",
+          "right": "80 °C is the temperature change. Subtract it from the final temperature: 100 − 80 = 20 °C. An answer of 80 scores 2 marks."
+        }
+      ],
+      "worked_example": {
+        "exemplar_id": "bf47e517-af9b-4d14-af3f-8ab150906b2c",
+        "source": "EDEXCEL nov 2021, Paper 2 (H), Q10(a)(i)",
+        "question": "An electric kettle contains 1.41 kg of water at 25 °C. The kettle is switched on. After a while, the water reaches boiling point at 100 °C. The specific heat capacity of water is 4200 J/kg °C. Calculate the amount of thermal energy supplied to the water by the kettle. Give your answer to the appropriate number of significant figures.",
+        "marks": 3,
+        "answer_points": [
+          "ΔQ = m × c × Δθ = 1.41 × 4200 × (100 − 25)",
+          "energy = 444 150 J",
+          "answer to 2 significant figures: 440 000 J"
+        ],
+        "tip": "The significant figures mark is independent. 444 000 (3 significant figures) is also allowed."
+      }
+    },
+    "ocr": {
+      "spec_codes": [
+        "OCR P1.2d",
+        "OCR P1.2e",
+        "OCR P7.1c"
+      ],
+      "exam_phrases": [
+        "Temperature change = 95 − 20 = 75 °C",
+        "Change in thermal energy = 10 × 4200 × 75",
+        "24 kJ = 24 000 J",
+        "specific heat capacity = change in thermal energy ÷ (mass × change in temperature)",
+        "1 kg of material",
+        "(changes state) liquid to gas / gas to liquid"
+      ],
+      "mistakes": [
+        {
+          "wrong": "Specific heat capacity = 24 ÷ (2 × 25) = 0.48 J/kg °C.",
+          "right": "Convert the energy first: 24 kJ = 24 000 J. Then 24 000 ÷ (2 × 25) = 480 J/kg °C."
+        },
+        {
+          "wrong": "Change in thermal energy = 10 × 4200 × 95 for water heated from 20 °C to 95 °C.",
+          "right": "Find the temperature change first: 95 − 20 = 75 °C. Then 10 × 4200 × 75 = 3 150 000 J."
+        },
+        {
+          "wrong": "Specific latent heat of vaporisation is the energy needed to boil a liquid.",
+          "right": "It is the energy transferred when 1 kg of material changes state, liquid to gas or gas to liquid. Include the 1 kg."
+        }
+      ],
+      "worked_example": {
+        "exemplar_id": "b57991f8-69aa-4094-b3f1-0ff115c4c7c0",
+        "source": "OCR jun 2022, Paper 4, Q20(b)(i)",
+        "question": "A student does an experiment to measure the specific heat capacity of a metal block. The energy supplied to the heater is 24 kJ. The starting temperature is 20 °C and the final temperature is 45 °C, a change in temperature of 25 °C. The mass of the block is 2.0 kg. Calculate the specific heat capacity of the metal block.",
+        "marks": 4,
+        "answer_points": [
+          "24 kJ = 24 000 J",
+          "specific heat capacity = change in thermal energy ÷ (mass × change in temperature)",
+          "specific heat capacity = 24 000 ÷ (2 × 25)",
+          "specific heat capacity = 480 J/kg °C"
+        ],
+        "tip": "A correct answer of 480 scores 4 marks. 0.48 or 4.8 × 10 to another power scores 3 marks."
+      }
+    }
+  },
+  "meta": {
+    "status": "draft",
+    "written_by": "sonnet-5-5",
+    "written_at": "2026-10-01",
+    "spec_point_ids": [
+      "920d5b82-0da1-4056-ae3e-efd5805bc95c",
+      "d6e13b88-d99b-4a5b-9920-522afb61d365",
+      "d1817a6e-25eb-4f92-b2b8-1bb55cd68807",
+      "1ea1c06d-78ce-4d31-a3ed-8392b753fd6f",
+      "71d3df6f-f19a-4ca9-a099-8b248d5135bd",
+      "0bdfdf29-1cac-4401-831e-e8c814430fdf",
+      "192fbfa3-cc37-447b-a548-9c21460b0b02",
+      "b1bb38e2-1db1-4d4d-85c2-fcd1e731d44c",
+      "fdaeda44-cd92-459a-8b95-b7f163bdafdd"
+    ],
+    "exemplar_ids": [
+      "dbd1e4dc-1a5d-4ed7-b295-7af4257159e4",
+      "bf47e517-af9b-4d14-af3f-8ab150906b2c",
+      "b57991f8-69aa-4094-b3f1-0ff115c4c7c0"
+    ]
+  }
+}

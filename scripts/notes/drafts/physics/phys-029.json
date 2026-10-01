@@ -84,6 +84,8 @@
             "Mass: use a balance. For water, measure the mass of the empty beaker, then the beaker with water, and subtract.",
             "Energy transferred: use a joulemeter connected to the heater.",
             "Temperature: use a thermometer to find the start and final temperatures.",
+            "Alternatively, find the energy from the potential difference, the current and the time on a stopwatch.",
+            "The electric heater does work. This is the energy that increases the thermal energy of the block or water.",
             "Calculate the temperature change by subtraction."
           ]
         },
@@ -95,10 +97,11 @@
             "prompt": "Put the steps of the method in order.",
             "steps": [
               "Measure the mass of the block or of the water with a balance.",
+              "Insulate the block or beaker, and put the heater and thermometer in place.",
               "Measure the starting temperature and the starting joulemeter reading.",
               "Switch on the heater so the temperature increases.",
               "Switch off and read the joulemeter. The energy transferred is the final minus the starting reading.",
-              "Measure the final temperature and work out the temperature change.",
+              "Measure the highest temperature reached and work out the temperature change.",
               "Calculate c using c = ΔE ÷ (m × Δθ)."
             ]
           }
@@ -114,7 +117,7 @@
       ]
     },
     {
-      "heading": "Improving accuracy and the melting ice graph",
+      "heading": "Improving accuracy",
       "blocks": [
         { "type": "paragraph", "text": "Some of the energy from the heater is wasted. These steps give a more accurate value of c." },
         {
@@ -126,21 +129,11 @@
             "Keep the heater fully in the water or block."
           ]
         },
-        { "type": "subheading", "text": "Temperature-time graph for melting ice" },
-        {
-          "type": "list",
-          "items": [
-            "Heat ice and plot temperature against time.",
-            "The line is flat at 0 °C while the ice melts. This is a change of state, so the temperature does not change.",
-            "When all the ice has melted, the temperature of the water rises."
-          ]
-        },
         {
           "type": "key-points",
           "items": [
             "Insulation and a lid reduce wasted energy.",
-            "Stir, and record the highest temperature reached.",
-            "While ice melts, the temperature stays at 0 °C."
+            "Stir, and record the highest temperature reached."
           ]
         }
       ]
@@ -170,11 +163,9 @@
         "use a top pan balance to measure the mass",
         "use a joulemeter to measure the energy transferred",
         "use a thermometer to measure the initial temperature and the final temperature",
-        "calculate the difference between the initial and final temperature",
         "use the equation E = mcΔθ to determine c",
         "the amount of wasted energy is less",
-        "the temperature increase of the aluminium block is greater",
-        "J/kg °C"
+        "the temperature increase of the aluminium block is greater"
       ],
       "mistakes": [
         {
@@ -186,14 +177,14 @@
           "right": "A top mark answer needs a clear method for the mass of water: mass of the empty beaker, mass of beaker and water, then subtract."
         },
         {
-          "wrong": "The specific heat capacity of water is 4400 J.",
+          "wrong": "The specific heat capacity found is 4400 J.",
           "right": "The unit is J/kg °C. The unit has its own mark."
         }
       ],
       "worked_example": {
         "exemplar_id": "dbd1e4dc-1a5d-4ed7-b295-7af4257159e4",
         "source": "AQA jun 2019, Paper 1 (F), Q8.5",
-        "question": "A student carried out an experiment to determine the specific heat capacity of water. The energy transferred to the water was 26 400 J. The mass of water was 0.20 kg. The temperature increase of the water was 30 °C. Calculate the specific heat capacity of water using the data from this experiment. Give the unit.",
+        "question": "A student carried out an experiment to determine the specific heat capacity of water. The energy transferred to the water was 26 400 J. The mass of water was 0.20 kg. The temperature increase of the water was 30 °C. Calculate the specific heat capacity of water using the data from this experiment. Choose the unit from J/kg, J/kg °C and J/°C.",
         "marks": 4,
         "answer_points": [
           "26 400 = 0.20 × c × 30",
@@ -210,11 +201,9 @@
         "(measurement of) the mass of water",
         "(measurement of) the temperature rise / change",
         "(measurement of) the energy supplied / from the heater",
-        "stir the water before taking a reading of temperature",
         "(continue to) observe temperatures after switching off",
         "record the maximum / highest / peak temperature reached",
-        "reduce heat loss / insulate the beaker / add a cover",
-        "rearrange Q = m × c × Δθ to find c, c = Q / (m × Δθ)"
+        "reduce heat loss / insulate the beaker / add a cover"
       ],
       "mistakes": [
         {
@@ -242,13 +231,31 @@
           "Detail of any of these, for example measure the temperature at the start and end, or take the start and end readings on the joulemeter."
         ],
         "tip": "One mark for each measurement and one mark for detail. Volume or weight of water is accepted. The word amount is ignored."
-      }
+      },
+      "extra": [
+        {
+          "heading": "Temperature-time graph for melting ice",
+          "blocks": [
+            { "type": "paragraph", "text": "The practical also asks for a temperature-time graph for melting ice." },
+            {
+              "type": "list",
+              "items": [
+                "Heat ice and plot temperature against time.",
+                "The line is flat at 0 °C while the ice melts. This is a change of state, so the temperature does not change.",
+                "When all the ice has melted, the temperature of the water rises."
+              ]
+            }
+          ]
+        }
+      ]
     }
   },
   "meta": {
     "status": "draft",
     "written_by": "sonnet-5-5",
     "written_at": "2026-10-01",
+    "checked_by": "sonnet-science-check",
+    "checked_at": "2026-10-01",
     "spec_point_ids": [
       "60e73727-82bc-489c-9aec-4905102a2a7b",
       "920d5b82-0da1-4056-ae3e-efd5805bc95c",

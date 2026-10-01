@@ -32,7 +32,7 @@
             ],
             [
               "Possible causes",
-              "Eyeball too long, or lens too powerful. Light is refracted too much.",
+              "Eyeball too long, cornea too curved, or lens too powerful (cannot be made thin enough). Light is refracted too much.",
               "Eyeball too short, or lens cannot be thickened enough (weak ciliary muscles or an inelastic lens)."
             ],
             [
@@ -60,7 +60,7 @@
           "items": [
             "Short-sighted: far objects blurred, light focuses in front of the retina, concave lens.",
             "Long-sighted: near objects blurred, light focuses behind the retina, convex lens.",
-            "A correct lens makes light focus on the retina."
+            "The correct lens makes light focus on the retina."
           ]
         }
       ]
@@ -94,7 +94,8 @@
           "type": "list",
           "items": [
             "Cone cells in the retina are responsible for colour vision.",
-            "In colour blindness, some cone cells are missing or do not work properly, so some colours cannot be told apart."
+            "In colour blindness, some cone cells are missing or do not work properly, so some colours cannot be told apart.",
+            "There is no cure. Tinted or coloured filter lenses can help some people tell certain colours apart."
           ]
         },
         {
@@ -146,7 +147,7 @@
                   "Some colours cannot be told apart",
                   "Normal focus on the retina",
                   "Faulty or missing cone cells",
-                  "The fault is in the receptor cells, so a focusing lens does not fix it"
+                  "No cure. Tinted filter lenses may help tell some colours apart. A focusing lens does not fix it."
                 ],
                 "explanation": "The problem is in the receptor cells, not in how light is focused."
               }
@@ -238,8 +239,8 @@
           "right": "Refract light rays less is ignored. Say that a diverging lens bends or refracts the light rays outwards, so they focus on the retina."
         },
         {
-          "wrong": "The picture is less clear because the cornea is cloudy.",
-          "right": "In a cataract the lens becomes cloudy, so less light reaches the retina."
+          "wrong": "The picture is less clear because light cannot get to the retina.",
+          "right": "Both points are needed. The lens becomes cloudy, so less light reaches the retina."
         },
         {
           "wrong": "Short-sightedness happens because the eyeball is too short.",
@@ -249,7 +250,7 @@
       "worked_example": {
         "exemplar_id": "17446b7b-638d-41eb-9f2d-a2cb85584e2c",
         "source": "EDEXCEL jun 2022, Paper 1 (F), Q7(b)(ii)",
-        "question": "A person cannot see distant objects clearly. Light entering their eye is focused in front of the retina.\n\nExplain why this person cannot see distant objects clearly and how the problem can be corrected.",
+        "question": "A person cannot see distant objects clearly.\n\nExplain why this person cannot see distant objects clearly and how the problem can be corrected.",
         "marks": 6,
         "answer_points": [
           "The person is short-sighted (has myopia).",
@@ -310,6 +311,8 @@
       "8c860c1c-7bfe-4e8b-aaed-2df9b7221393",
       "17446b7b-638d-41eb-9f2d-a2cb85584e2c",
       "704af92e-4f9b-4d80-add3-8ab145b68493"
-    ]
+    ],
+    "checked_by": "sonnet-science-check",
+    "checked_at": "2026-10-01"
   }
 }

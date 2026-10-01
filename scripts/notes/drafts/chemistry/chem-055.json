@@ -279,7 +279,7 @@
         "hydrogen ions attracted to cathode / negatively charged electrode",
         "(two) hydrogen ions gain (two) electrons / are reduced / form hydrogen molecules",
         "the copper ions are positive so are reduced at the cathode",
-        "hydrogen (burns with a squeaky pop)",
+        "hydrogen / H₂",
         "so that they do not react (with the electrolyte / products)",
         "twice as much hydrogen produced as oxygen"
       ],
@@ -298,14 +298,15 @@
         }
       ],
       "worked_example": {
-        "exemplar_id": "f2b920ab-5418-47cd-aaac-2c682813994e",
-        "source": "EDEXCEL nov 2021, Paper 1 (H), Q5(c)(i)",
-        "question": "In the electrolysis of sodium chloride solution, bubbles of a colourless gas form at the cathode.\n\nThis gas, when mixed with air, burns with a squeaky pop.\n\nIdentify this gas.",
-        "marks": 1,
+        "exemplar_id": "372bdf16-fd7c-4cb3-bd62-19ada72c71eb",
+        "source": "EDEXCEL jun 2019, Paper 1 (H), Q3(a)(ii)",
+        "question": "Water, acidified with sulfuric acid, is decomposed by electrolysis. The water is decomposed to produce hydrogen and oxygen.\n\nThroughout the experiment the volume of hydrogen and the volume of oxygen are measured at two-minute intervals.\n\nTime in minutes: 0, 2, 4, 6, 8\nVolume of hydrogen in cm³: 0, 4, 8, 12, 16\nVolume of oxygen in cm³: 0, 2, 4, 6, 8\n\nDescribe, using the data, what the results show about the volumes of hydrogen and of oxygen produced in this experiment.",
+        "marks": 2,
         "answer_points": [
-          "Hydrogen (H₂)."
+          "The volumes of hydrogen and oxygen increase with time (directly proportional to time).",
+          "The volume of hydrogen is double the volume of oxygen: a 2 : 1 ratio, or twice as much hydrogen as oxygen."
         ],
-        "tip": "Hydrogen forms because sodium is more reactive than hydrogen."
+        "tip": "Refer to the ratio explicitly. Quoting two figures is not enough."
       },
       "extra": [
         {
@@ -367,6 +368,8 @@
     "status": "draft",
     "written_by": "sonnet-5-5",
     "written_at": "2026-10-01",
+    "checked_by": "sonnet-science-check",
+    "checked_at": "2026-10-01",
     "spec_point_ids": [
       "b2c37116-8c41-499f-ac6d-557bb818f820",
       "061cfa73-9899-4162-802b-ae9509172967",
@@ -375,7 +378,7 @@
     ],
     "exemplar_ids": [
       "2a1a8b99-bbb1-481c-b29c-8f8ec58f8e65",
-      "f2b920ab-5418-47cd-aaac-2c682813994e",
+      "372bdf16-fd7c-4cb3-bd62-19ada72c71eb",
       "9f60a13f-8728-41b3-811d-43e1eb28890a"
     ]
   }

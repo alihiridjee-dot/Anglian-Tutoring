@@ -14,8 +14,8 @@
           "items": [
             "A metal that is **less reactive than carbon**, such as iron or copper, can be extracted by heating its oxide with carbon.",
             "A metal that is **more reactive than carbon**, such as aluminium, cannot be reduced by carbon. Its oxide is very stable.",
-            "A metal that reacts with carbon cannot be extracted with carbon either.",
-            "These metals are extracted by electrolysis of a molten compound. Calcium is another example.",
+            "Electrolysis is also used for a metal that reacts with carbon.",
+            "These metals are extracted by electrolysis of a molten compound. Sodium and calcium are other examples.",
             "The metal made by electrolysis is very pure."
           ]
         },
@@ -51,7 +51,7 @@
           "type": "list",
           "items": [
             "The electrolyte is a molten mixture of **aluminium oxide** and **cryolite**.",
-            "Aluminium oxide alone melts at 2045 °C. The mixture melts at 950 °C.",
+            "Aluminium oxide alone has a very high melting point. The mixture has a lower melting point.",
             "The lower melting point means less energy is needed to melt the electrolyte.",
             "The positive electrode (anode) is made of carbon (graphite).",
             "Aluminium ions are positive, so they are attracted to the negative electrode. Aluminium forms there.",
@@ -139,8 +139,8 @@
           "right": "Bauxite and aluminium ore are ignored. The molten mixture contains aluminium oxide and cryolite."
         },
         {
-          "wrong": "The positive electrode corrodes.",
-          "right": "Corroded is ignored in some questions. Say that the carbon electrode reacts with oxygen to form carbon dioxide, so it burns away or is used up."
+          "wrong": "The positive electrode corrodes or wears away.",
+          "right": "Corroded and worn away can be ignored. Say that the carbon electrode reacts with oxygen to form carbon dioxide, so it burns away or is used up."
         }
       ],
       "worked_example": {
@@ -231,6 +231,8 @@
     "status": "draft",
     "written_by": "sonnet-5-5",
     "written_at": "2026-10-01",
+    "checked_by": "sonnet-science-check",
+    "checked_at": "2026-10-01",
     "spec_point_ids": [
       "6a3e9328-7bac-46dd-9e4f-8c60cb7ba759",
       "d0d11d37-5f02-4318-9ce1-f84c42a4d577",

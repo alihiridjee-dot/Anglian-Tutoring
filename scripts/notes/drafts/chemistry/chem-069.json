@@ -1,0 +1,414 @@
+{
+  "format": 1,
+  "concept_id": "chem-069",
+  "subject": "chemistry",
+  "title": "Factors affecting the rate of reaction",
+  "key_idea": "Five factors change the rate of a reaction: concentration of reactants in solution, pressure of reacting gases, surface area of solid reactants, temperature and the presence of a catalyst. Raising any of them increases the rate.",
+  "sections": [
+    {
+      "heading": "The five factors",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "This section covers what each factor is and how it changes the rate. The reasons are in the collision theory note."
+        },
+        {
+          "type": "definitions",
+          "items": [
+            {
+              "term": "Concentration",
+              "meaning": "How much of a substance is dissolved in a given volume of solution."
+            },
+            {
+              "term": "Surface area",
+              "meaning": "The total area of the outside of a solid. Smaller pieces of the same mass have a larger surface area."
+            },
+            {
+              "term": "Catalyst",
+              "meaning": "A substance that changes the rate of a reaction and is not used up."
+            }
+          ]
+        },
+        {
+          "type": "table",
+          "columns": [
+            "Factor",
+            "Change that speeds up the reaction",
+            "Applies to"
+          ],
+          "rows": [
+            [
+              "Concentration",
+              "Use a more concentrated solution",
+              "Reactants in solution"
+            ],
+            [
+              "Pressure",
+              "Increase the pressure",
+              "Reacting gases"
+            ],
+            [
+              "Surface area",
+              "Use smaller pieces, or a powder",
+              "Solid reactants"
+            ],
+            [
+              "Temperature",
+              "Increase the temperature",
+              "All reactions"
+            ],
+            [
+              "Catalyst",
+              "Add a catalyst",
+              "Reactions that have a suitable catalyst"
+            ]
+          ]
+        },
+        {
+          "type": "diagram",
+          "diagram": {
+            "kind": "predictor",
+            "alt": "Pick a change to a reaction to see what happens to the rate.",
+            "prompt": "Pick a change to the reaction",
+            "result_labels": [
+              "Effect on the rate",
+              "When it applies"
+            ],
+            "options": [
+              {
+                "label": "More concentrated acid",
+                "results": [
+                  "**Faster**",
+                  "Reactants in solution"
+                ]
+              },
+              {
+                "label": "Higher pressure of reacting gases",
+                "results": [
+                  "**Faster**",
+                  "Reactions between gases"
+                ]
+              },
+              {
+                "label": "Smaller pieces of solid",
+                "results": [
+                  "**Faster**",
+                  "Solid reactants, with the same mass"
+                ]
+              },
+              {
+                "label": "Higher temperature",
+                "results": [
+                  "**Faster**",
+                  "All reactions"
+                ]
+              },
+              {
+                "label": "Add a catalyst",
+                "results": [
+                  "**Faster**",
+                  "Reactions with a suitable catalyst"
+                ]
+              },
+              {
+                "label": "Lower temperature",
+                "results": [
+                  "**Slower**",
+                  "All reactions"
+                ]
+              },
+              {
+                "label": "Use a larger flask",
+                "results": [
+                  "**Unchanged**",
+                  "A bigger flask does not change any of the five factors"
+                ]
+              }
+            ]
+          }
+        },
+        {
+          "type": "key-points",
+          "items": [
+            "Concentration, pressure, surface area, temperature and a catalyst all change the rate.",
+            "Higher concentration, higher pressure, smaller pieces, higher temperature or a catalyst: faster.",
+            "The size of the flask does not change the rate."
+          ]
+        }
+      ]
+    },
+    {
+      "heading": "Seeing the effect in results",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "Experiments show a faster rate in two ways: a steeper graph and a shorter time."
+        },
+        {
+          "type": "diagram",
+          "diagram": {
+            "kind": "line-graph",
+            "alt": "A graph of volume of gas against time for large and small pieces of solid with the same mass. The line for small pieces is steeper at the start and reaches the top sooner. Both lines end at the same volume.",
+            "x": {
+              "label": "Time",
+              "min": 0,
+              "max": 300,
+              "ticks": [
+                0,
+                50,
+                100,
+                150,
+                200,
+                250,
+                300
+              ],
+              "unit": "s"
+            },
+            "y": {
+              "label": "Volume of gas collected"
+            },
+            "series": [
+              {
+                "name": "Small pieces",
+                "points": [
+                  [
+                    0,
+                    0
+                  ],
+                  [
+                    25,
+                    0.45
+                  ],
+                  [
+                    50,
+                    0.7
+                  ],
+                  [
+                    100,
+                    0.92
+                  ],
+                  [
+                    150,
+                    1
+                  ],
+                  [
+                    300,
+                    1
+                  ]
+                ]
+              },
+              {
+                "name": "Large pieces",
+                "points": [
+                  [
+                    0,
+                    0
+                  ],
+                  [
+                    50,
+                    0.3
+                  ],
+                  [
+                    100,
+                    0.52
+                  ],
+                  [
+                    150,
+                    0.7
+                  ],
+                  [
+                    200,
+                    0.84
+                  ],
+                  [
+                    250,
+                    0.95
+                  ],
+                  [
+                    300,
+                    1
+                  ]
+                ]
+              }
+            ],
+            "markers": [
+              {
+                "x": 25,
+                "label": "Small pieces: steeper, so faster"
+              }
+            ]
+          }
+        },
+        {
+          "type": "list",
+          "items": [
+            "A faster reaction gives a steeper line at the start of a graph.",
+            "A faster reaction takes **less time** to finish, or to make a cross disappear.",
+            "A lower temperature or a lower concentration makes the time taken longer.",
+            "Both lines end at the same height because the same mass of solid reacts."
+          ]
+        },
+        {
+          "type": "subheading",
+          "text": "Fair testing"
+        },
+        {
+          "type": "list",
+          "items": [
+            "Change one factor and keep the others the same.",
+            "To compare particle sizes, use the same mass of the solid, the same volume and concentration of acid, and the same temperature."
+          ]
+        },
+        {
+          "type": "key-points",
+          "items": [
+            "A steeper graph or a shorter time means a faster rate.",
+            "Change only one factor in each experiment."
+          ]
+        }
+      ]
+    }
+  ],
+  "checks": [
+    {
+      "q": "Name the five factors that affect the rate of a chemical reaction.",
+      "a": "Concentration (of solutions), pressure (of gases), surface area (of solids), temperature, and a catalyst.",
+      "marks": 3
+    },
+    {
+      "q": "Magnesium powder reacts with acid faster than magnesium ribbon of the same mass. Give the reason, in terms of the factors.",
+      "a": "The powder has a larger surface area.",
+      "marks": 1
+    },
+    {
+      "q": "A reaction mixture goes cloudy and hides a cross in 40 s. The experiment is repeated at a lower temperature. Predict the effect on the time taken.",
+      "a": "The time taken increases, because the rate is slower.",
+      "marks": 1
+    }
+  ],
+  "boards": {
+    "aqa": {
+      "spec_codes": [
+        "AQA 4.6.1.2",
+        "AQA T 5.6.1.2"
+      ],
+      "exam_phrases": [
+        "when the pressure of the reacting gases is increased, the rate of reaction increases",
+        "at higher pressures the distance between the particles decreases",
+        "the time taken for the cross to disappear decreases (higher temperature)",
+        "use a lower temperature; use sulfuric acid of a lower concentration (to increase the time taken)",
+        "as the concentration of the hydrochloric acid increased, the rate of the reaction increased"
+      ],
+      "mistakes": [
+        {
+          "wrong": "Increasing the temperature of the hydrochloric acid increases the time for the cross to disappear.",
+          "right": "A higher temperature gives a faster rate, so the time for the cross to disappear decreases. A lower concentration increases the time."
+        },
+        {
+          "wrong": "At higher pressure the distance between the particles increases, so the rate increases.",
+          "right": "At higher pressure the distance between the particles decreases, so the frequency of collisions increases. The order is: rate increases, distance decreases, collisions more frequent."
+        }
+      ],
+      "worked_example": {
+        "exemplar_id": "6b4d7eea-2c17-491f-9ae8-62b3badbd623",
+        "source": "AQA jun 2021, Paper 2 (F), Q04.4",
+        "question": "The rate of reaction between gases is affected by changing the pressure.\n\nComplete the sentences.\n\nWhen the pressure of the reacting gases is increased, the rate of reaction ___.\n\nThis is because at higher pressures the distance between the particles ___.\n\nThis means that the frequency of collisions ___.",
+        "marks": 3,
+        "answer_points": [
+          "Increases.",
+          "Decreases.",
+          "Increases."
+        ],
+        "tip": "One mark each. The words must be in this order."
+      }
+    },
+    "edexcel": {
+      "spec_codes": [
+        "EDEX 7.1",
+        "EDEX 7.4"
+      ],
+      "exam_phrases": [
+        "rate is increased",
+        "higher surface area / higher frequency of collisions / more collisions per second",
+        "(rate / reaction) faster, quicker",
+        "reaction takes less time",
+        "slower; slower; unchanged (larger flask)",
+        "crush the large chips in a pestle and mortar; use sieves to separate the sizes"
+      ],
+      "mistakes": [
+        {
+          "wrong": "Smaller marble chips make the reaction faster because the particles have more energy.",
+          "right": "Particles having more energy is rejected for surface area. Say there is a higher surface area, or more collisions per second."
+        },
+        {
+          "wrong": "Smaller chips give more collisions, so a faster reaction.",
+          "right": "More collisions on its own is ignored. Say more frequent collisions, more collisions per second or more chance of collisions."
+        },
+        {
+          "wrong": "Carrying out the reaction in a larger flask makes the rate slower.",
+          "right": "A larger flask leaves the rate unchanged. The more dilute solution and the lower temperature are the changes that make it slower."
+        }
+      ],
+      "worked_example": {
+        "exemplar_id": "72b08153-693b-4752-ae7e-909e5df06e02",
+        "source": "EDEXCEL jun 2024, Paper 2 (H), Q2(c)",
+        "question": "A student investigates the reaction between marble chips and dilute hydrochloric acid. The student measures the total volume of carbon dioxide gas produced each minute, for 10 minutes.\n\nThe student repeats the experiment using the same mass of smaller marble chips. All other conditions remain the same.\n\nExplain the effect on the rate of reaction of using smaller marble chips.",
+        "marks": 2,
+        "answer_points": [
+          "The rate is increased.",
+          "Because the smaller chips have a higher surface area, so there are more collisions per second."
+        ],
+        "tip": "If you say the rate decreased, the whole answer scores 0."
+      }
+    },
+    "ocr": {
+      "spec_codes": [
+        "OCR C5.2c"
+      ],
+      "exam_phrases": [
+        "warm hydrogen peroxide to 30 °C / place in a water bath at 30 °C",
+        "measure volume of (oxygen) gas every 5 minutes",
+        "compare results (to results at room temperature)",
+        "gas made quicker at 30 °C / reaction finishes quicker at 30 °C",
+        "reaction (with magnesium powder) takes less time (than with magnesium ribbon)"
+      ],
+      "mistakes": [
+        {
+          "wrong": "The reaction with magnesium powder is faster. The table shows this.",
+          "right": "The table shows is ignored. Say the reaction with powder takes less time than with ribbon, and quote a result for one experiment."
+        },
+        {
+          "wrong": "Warm the hydrogen peroxide to 30 °C and measure the volume of oxygen every 5 minutes.",
+          "right": "This earns the experiment marks only. Add a comparison with the results at room temperature, or say the gas is made quicker at 30 °C."
+        }
+      ],
+      "worked_example": {
+        "exemplar_id": "56d7161b-0bf5-4e5d-9126-abc4ef29855e",
+        "source": "OCR jun 2022, Paper 4, Q16(f)",
+        "question": "Hydrogen peroxide, H₂O₂, is used as a source of oxygen gas. Hydrogen peroxide decomposes to make oxygen gas, O₂, and water.\n\nThe student thinks the decomposition of hydrogen peroxide will be faster at 30 °C than at room temperature.\n\nDescribe an experiment the student could do, and its results, to show the reaction is faster at 30 °C.",
+        "marks": 3,
+        "answer_points": [
+          "Warm the hydrogen peroxide to 30 °C, for example in a water bath.",
+          "Measure the volume of oxygen gas at regular times, such as every 5 minutes.",
+          "Compare the results with those at room temperature, or state that the gas is made quicker (the reaction finishes sooner) at 30 °C."
+        ],
+        "tip": "The last mark depends on describing an experiment. Measuring the time to collect the gas, or the mass lost every 30 s, is also credited."
+      }
+    }
+  },
+  "meta": {
+    "status": "draft",
+    "written_by": "sonnet-5-5",
+    "written_at": "2026-10-01",
+    "spec_point_ids": [
+      "e4ad0eda-fd19-4ca3-b59b-e5d8cab4281a",
+      "3ece84ca-2e10-4585-b1a8-3b08c4abd72f",
+      "cecf2303-e9ec-4314-a330-6395a3111473"
+    ],
+    "exemplar_ids": [
+      "6b4d7eea-2c17-491f-9ae8-62b3badbd623",
+      "72b08153-693b-4752-ae7e-909e5df06e02",
+      "56d7161b-0bf5-4e5d-9126-abc4ef29855e"
+    ]
+  }
+}

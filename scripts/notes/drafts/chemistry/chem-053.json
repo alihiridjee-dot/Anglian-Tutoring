@@ -71,7 +71,7 @@
             ["OH⁻ (from water)", "Negative", "Anode (positive electrode)"]
           ]
         },
-        { "type": "paragraph", "text": "Which ion is discharged at each electrode is covered in the notes on molten compounds and aqueous solutions. Half equations are in the Higher tier note." },
+        { "type": "paragraph", "text": "Which ion is discharged at each electrode is covered in the notes on molten compounds and aqueous solutions. Half equations are covered in a separate note." },
         {
           "type": "diagram",
           "diagram": {
@@ -226,6 +226,8 @@
     "status": "draft",
     "written_by": "sonnet-5-5",
     "written_at": "2026-10-01",
+    "checked_by": "sonnet-science-check",
+    "checked_at": "2026-10-01",
     "spec_point_ids": [
       "6de4b9d3-6ff0-41f1-b634-a27928006794",
       "0ebb22c3-eee1-4aaf-aabd-dce2bc58e204",

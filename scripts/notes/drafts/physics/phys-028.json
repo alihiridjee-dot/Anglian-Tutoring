@@ -211,7 +211,23 @@
           "Unit: J/kg"
         ],
         "tip": "One mark for each step, including converting 69 kJ to 69 000 J and giving the unit. A unit that matches your number, such as 2300 kJ/kg, is allowed."
-      }
+      },
+      "extra": [
+        {
+          "heading": "Measuring latent heat in an experiment",
+          "blocks": [
+            { "type": "paragraph", "text": "In an experiment on boiling water, the mass that changes state is the fall in mass of the beaker and water. Two sources of error change the value of L." },
+            {
+              "type": "list",
+              "items": [
+                "Mass changed to steam = initial mass − final mass.",
+                "Some energy is transferred to the surroundings. Less energy reaches the water, so the value of L is too high.",
+                "Some water evaporates before it reaches 100 °C. The measured change in mass is too high for the energy supplied, so the value of L is too low."
+              ]
+            }
+          ]
+        }
+      ]
     },
     "edexcel": {
       "spec_codes": ["EDEX 14.9", "EDEX 14.7", "EDEX 14.11"],
@@ -254,8 +270,7 @@
       "spec_codes": ["OCR P1.2f"],
       "exam_phrases": [
         "energy = mass × specific latent heat",
-        "specific latent heat = E ÷ m",
-        "SLH = E ÷ m"
+        "specific latent heat = E ÷ m"
       ],
       "mistakes": [
         {
@@ -289,6 +304,8 @@
     "status": "draft",
     "written_by": "sonnet-5-5",
     "written_at": "2026-10-01",
+    "checked_by": "sonnet-science-check",
+    "checked_at": "2026-10-01",
     "spec_point_ids": [
       "489b9fc2-422a-4a00-8341-769cb1de00b9",
       "db7c1503-b881-470f-8081-2e75a8049eb4",

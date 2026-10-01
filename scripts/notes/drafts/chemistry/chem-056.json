@@ -74,6 +74,7 @@
             ["Anode", "4OH⁻ → O₂ + 2H₂O + 4e⁻", "Oxidation"]
           ]
         },
+        { "type": "paragraph", "text": "The Zn²⁺, Al³⁺ and O²⁻ equations apply to molten compounds. In aqueous solution, H⁺ ions are discharged instead of ions of metals more reactive than hydrogen." },
         {
           "type": "diagram",
           "diagram": {
@@ -231,6 +232,8 @@
     "status": "draft",
     "written_by": "sonnet-5-5",
     "written_at": "2026-10-01",
+    "checked_by": "sonnet-science-check",
+    "checked_at": "2026-10-01",
     "spec_point_ids": [
       "48195747-431e-47b6-9d06-662f75d41250",
       "1579b7dc-49a3-4e72-bd60-0da6dec0467a",

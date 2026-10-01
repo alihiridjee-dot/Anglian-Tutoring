@@ -99,7 +99,7 @@
         },
         {
           "type": "paragraph",
-          "text": "Accommodation is the change in the shape of the lens that lets the eye focus on objects at different distances. The ciliary muscles and suspensory ligaments control it."
+          "text": "(Higher tier) Accommodation is the change in the shape of the lens that lets the eye focus on objects at different distances. The ciliary muscles and suspensory ligaments control it."
         },
         {
           "type": "diagram",
@@ -220,13 +220,14 @@
         "question": "The human eye can focus on objects at different distances. A person's eye forms a clear image of a distant object.\n\nExplain how the person's eye could adjust to form a clear image of a nearer object.",
         "marks": 6,
         "answer_points": [
-          "The ciliary muscles contract, so they have a smaller diameter.",
+          "The ciliary muscles contract.",
+          "So the ciliary muscles have a smaller diameter.",
           "The suspensory ligaments loosen (slacken).",
           "The lens becomes thicker (more curved).",
           "The thicker lens is more convergent, so light rays are refracted (bent) more.",
           "Light rays are focused on the retina."
         ],
-        "tip": "Six marks are available for the points in order: ciliary muscles, smaller diameter, ligaments, lens thicker, more refraction, focused on the retina. Do not write relax for the ligaments."
+        "tip": "Each of the six points earns a mark. Say the suspensory ligaments loosen or slacken. Do not write relax."
       }
     },
     "edexcel": {
@@ -253,7 +254,7 @@
         },
         {
           "wrong": "The pupil gets smaller in bright light.",
-          "right": "This alone gets one mark. For full marks, link the iris: the iris changes shape (circular muscles contract, radial muscles relax), reducing the light entering the eye."
+          "right": "This is only part of the answer. Also say that the iris changes shape (circular muscles contract, radial muscles relax), which reduces the light entering the eye."
         }
       ],
       "worked_example": {
@@ -262,11 +263,13 @@
         "question": "Explain the functions of the two types of cell in the retina that detect light.",
         "marks": 4,
         "answer_points": [
+          "Cone cells.",
           "Cone cells are responsible for colour vision.",
+          "Rod cells.",
           "Rod cells detect the intensity of light.",
           "Both types send impulses to the brain."
         ],
-        "tip": "Four marks are available from naming each cell, giving its function, and saying both send impulses to the brain."
+        "tip": "Four of these five points are needed: name each cell, give its function, and say both send impulses to the brain."
       }
     },
     "ocr": {
@@ -321,6 +324,8 @@
       "5f03b7fb-b868-4f16-be9c-3143d2070927",
       "6f5145ca-b81a-4421-9d2a-ada8da6cff15",
       "b91b23f0-4243-47c4-9b44-44ae5b52372f"
-    ]
+    ],
+    "checked_by": "sonnet-science-check",
+    "checked_at": "2026-10-01"
   }
 }

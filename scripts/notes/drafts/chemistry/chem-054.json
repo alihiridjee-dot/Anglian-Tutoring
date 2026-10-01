@@ -14,7 +14,9 @@
           "items": [
             { "term": "Binary compound", "meaning": "A compound made of two elements, such as lead bromide, PbBr₂." },
             { "term": "Molten", "meaning": "Melted, so the ions are free to move." },
-            { "term": "Inert electrode", "meaning": "An electrode that does not react, so it only carries the current." }
+            { "term": "Inert electrode", "meaning": "An electrode that does not react, so it only carries the current." },
+            { "term": "Cation", "meaning": "A positive ion. It moves to the cathode and forms the metal." },
+            { "term": "Anion", "meaning": "A negative ion. It moves to the anode and forms the non-metal." }
           ]
         },
         {
@@ -281,6 +283,8 @@
     "status": "draft",
     "written_by": "sonnet-5-5",
     "written_at": "2026-10-01",
+    "checked_by": "sonnet-science-check",
+    "checked_at": "2026-10-01",
     "spec_point_ids": [
       "24b3667d-6f02-4295-84bc-b762b2a1b865",
       "de3da8fa-7f72-4358-a3ac-93fa2a03071a",
