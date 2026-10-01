@@ -20,7 +20,14 @@ export type NoteBoard = (typeof NOTE_BOARDS)[number];
 
 export type NoteBlock =
   | { type: "paragraph"; text: string }
+  | { type: "subheading"; text: string }
   | { type: "list"; items: string[] }
+  /** Key words, each with a one-line meaning. Shown as a panel, not buried in prose. */
+  | { type: "definitions"; items: { term: string; meaning: string }[] }
+  /** An equation in its own box. `where` lists each symbol or word with its unit. */
+  | { type: "equation"; label?: string; formula: string; where?: string[] }
+  /** The two to four things to take away from a section. */
+  | { type: "key-points"; items: string[] }
   | { type: "steps"; items: { lead: string; text: string }[] }
   | { type: "table"; columns: string[]; rows: string[][] }
   | { type: "diagram"; diagram: NoteDiagram };
@@ -106,6 +113,11 @@ export interface Note {
 // right. Scientific review is a person's job.
 
 const isStr = (v: unknown): v is string => typeof v === "string" && v.trim().length > 0;
+const words = (s: string) => s.trim().split(/\s+/).length;
+
+/** Prose stays light: short paragraphs, and never a wall of them. */
+export const MAX_PARAGRAPH_WORDS = 45;
+export const MAX_PARAGRAPHS_IN_A_ROW = 2;
 const isStrArr = (v: unknown, min = 1): v is string[] =>
   Array.isArray(v) && v.length >= min && v.every(isStr);
 
@@ -114,9 +126,25 @@ function checkBlock(b: unknown, at: string, errs: string[]) {
   switch (block?.type) {
     case "paragraph":
       if (!isStr(block.text)) errs.push(`${at}: paragraph needs text`);
+      else if (words(block.text) > MAX_PARAGRAPH_WORDS)
+        errs.push(`${at}: paragraph is ${words(block.text)} words; keep it to ${MAX_PARAGRAPH_WORDS} or split it into a list`);
+      break;
+    case "subheading":
+      if (!isStr(block.text)) errs.push(`${at}: subheading needs text`);
       break;
     case "list":
       if (!isStrArr(block.items, 2)) errs.push(`${at}: list needs 2+ items`);
+      break;
+    case "definitions":
+      if (!Array.isArray(block.items) || block.items.length < 1 || !block.items.every((d) => isStr(d?.term) && isStr(d?.meaning)))
+        errs.push(`${at}: definitions need term and meaning`);
+      break;
+    case "equation":
+      if (!isStr(block.formula)) errs.push(`${at}: equation needs a formula`);
+      if (block.where && !isStrArr(block.where)) errs.push(`${at}: equation.where must be a list of strings`);
+      break;
+    case "key-points":
+      if (!isStrArr(block.items, 2) || block.items.length > 4) errs.push(`${at}: key-points need 2–4 items`);
       break;
     case "steps":
       if (!Array.isArray(block.items) || block.items.length < 2 || !block.items.every((s) => isStr(s?.lead) && isStr(s?.text)))
@@ -169,7 +197,17 @@ export function validateNote(n: unknown): string[] {
     note.sections.forEach((s, i) => {
       if (!isStr(s?.heading)) errs.push(`sections[${i}]: heading is required`);
       if (!Array.isArray(s?.blocks) || s.blocks.length < 1) errs.push(`sections[${i}]: needs blocks`);
-      else s.blocks.forEach((b, j) => checkBlock(b, `sections[${i}].blocks[${j}]`, errs));
+      else {
+        s.blocks.forEach((b, j) => checkBlock(b, `sections[${i}].blocks[${j}]`, errs));
+        let run = 0;
+        for (const b of s.blocks) {
+          run = b.type === "paragraph" ? run + 1 : 0;
+          if (run > MAX_PARAGRAPHS_IN_A_ROW) {
+            errs.push(`sections[${i}]: more than ${MAX_PARAGRAPHS_IN_A_ROW} paragraphs in a row; break them up with a list, definitions, an equation or a subheading`);
+            break;
+          }
+        }
+      }
     });
   if (!Array.isArray(note?.checks) || note.checks.length < 2 || !note.checks.every((c) => isStr(c?.q) && isStr(c?.a)))
     errs.push("needs 2+ checks with q and a");
@@ -187,6 +225,7 @@ export function validateNote(n: unknown): string[] {
     l.extra?.forEach((s, i) => s.blocks.forEach((blk, j) => checkBlock(blk, `boards.${b}.extra[${i}].blocks[${j}]`, errs)));
   }
   if (!["draft", "approved"].includes(note?.meta?.status)) errs.push("meta.status must be draft or approved");
+  if (isStr(note?.key_idea) && words(note.key_idea) > 50) errs.push(`key_idea is ${words(note.key_idea)} words; keep it under 50`);
   if (!isStr(note?.meta?.written_by)) errs.push("meta.written_by is required");
   if (!Array.isArray(note?.meta?.spec_point_ids) || note.meta.spec_point_ids.length < 1) errs.push("meta.spec_point_ids required");
   return errs;

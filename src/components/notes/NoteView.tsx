@@ -215,6 +215,48 @@ function Block({ b }: { b: NoteBlock }) {
   switch (b.type) {
     case "paragraph":
       return <p><Inline text={b.text} /></p>;
+    case "subheading":
+      return <h3 className="font-display pt-2 text-lg font-extrabold">{b.text}</h3>;
+    case "definitions":
+      return (
+        <div className="rounded-xl border-[1.5px] border-[color-mix(in_oklab,var(--tint)_30%,transparent)] p-4">
+          <p className="font-display text-base font-extrabold">Key words</p>
+          <dl className="mt-2 space-y-2">
+            {b.items.map((d) => (
+              <div key={d.term} className="sm:flex sm:gap-3">
+                <dt className="shrink-0 font-bold text-[color-mix(in_oklab,var(--tint)_75%,var(--foreground))] sm:w-44">{d.term}</dt>
+                <dd><Inline text={d.meaning} /></dd>
+              </div>
+            ))}
+          </dl>
+        </div>
+      );
+    case "equation":
+      return (
+        <div className="rounded-2xl bg-[color-mix(in_oklab,var(--tint)_11%,var(--card))] px-4 py-4 text-center sm:px-6">
+          {b.label ? <p className="font-display text-sm font-extrabold uppercase tracking-widest text-[color-mix(in_oklab,var(--tint)_75%,var(--foreground))]">{b.label}</p> : null}
+          <p className="font-display mt-1 text-xl font-extrabold sm:text-2xl">{b.formula}</p>
+          {b.where?.length ? (
+            <ul className="mx-auto mt-3 max-w-md space-y-1 text-left text-base">
+              {b.where.map((w, i) => <li key={i}><Inline text={w} /></li>)}
+            </ul>
+          ) : null}
+        </div>
+      );
+    case "key-points":
+      return (
+        <div className="rounded-xl bg-[color-mix(in_oklab,var(--tint)_9%,var(--card))] p-4">
+          <p className="font-display text-base font-extrabold">Key points</p>
+          <ul className="mt-2 space-y-1.5">
+            {b.items.map((t, i) => (
+              <li key={i} className="flex gap-2">
+                <span className="mt-[0.6em] size-1.5 shrink-0 rounded-full bg-[var(--tint)]" aria-hidden />
+                <span><Inline text={t} /></span>
+              </li>
+            ))}
+          </ul>
+        </div>
+      );
     case "list":
       return (
         <ul className="list-disc space-y-2 pl-6">
@@ -239,9 +281,11 @@ function Block({ b }: { b: NoteBlock }) {
   }
 }
 
+const slug = (s: string) => s.toLowerCase().replace(/[^a-z0-9]+/g, "-").replace(/(^-|-$)/g, "");
+
 function Section({ heading, children }: { heading: string; children: ReactNode }) {
   return (
-    <section className="mt-10 space-y-4">
+    <section id={slug(heading)} className="mt-10 scroll-mt-6 space-y-4">
       <h2 className="font-display text-xl font-extrabold sm:text-2xl">{heading}</h2>
       {children}
     </section>
@@ -265,6 +309,24 @@ export function NoteView({ note, board }: { note: Note; board: NoteBoard }) {
             <p className="font-display text-lg font-extrabold">The key idea</p>
             <p className="mt-1"><Inline text={note.key_idea} /></p>
           </div>
+
+          <nav aria-label="In this note" className="mt-6">
+            <p className="font-display text-base font-extrabold">In this note</p>
+            <ol className="mt-2 grid gap-x-6 gap-y-1 sm:grid-cols-2">
+              {[
+                ...note.sections.map((s) => s.heading),
+                ...(layer?.extra?.map((s) => s.heading) ?? []),
+                ...(layer ? ["Exam tips"] : []),
+                ...(layer?.worked_example ? ["Worked example"] : []),
+                "Check your understanding",
+              ].map((h, i) => (
+                <li key={h} className="flex gap-2">
+                  <span className="numeral w-5 shrink-0 text-[var(--tint)]">{i + 1}</span>
+                  <a href={`#${slug(h)}`} className="font-bold underline decoration-[color-mix(in_oklab,var(--tint)_40%,transparent)] decoration-2 underline-offset-4 hover:decoration-[var(--tint)]">{h}</a>
+                </li>
+              ))}
+            </ol>
+          </nav>
 
           {note.sections.map((s) => (
             <Section key={s.heading} heading={s.heading}>

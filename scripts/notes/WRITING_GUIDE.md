@@ -13,12 +13,24 @@ missed the lesson could learn the topic from this note alone.
 
 - **Comprehensive but simple.** Cover everything the spec points ask for, at the
   depth the mark schemes reward, and nothing beyond it.
-- Short sentences. One idea per sentence. Plain words; define a scientific term
-  the first time it is used, in the sentence that uses it.
-- Prose first. Use a list, steps or a table only when the content really is a
-  list, a sequence or a comparison.
-- **Bold** only the terms a student must remember. Two or three per paragraph at
-  most. No other formatting.
+- **Light, not bulky.** A student should be able to scan a section in seconds and
+  see its structure. Paragraphs are one to three short sentences (45 words at
+  most) and never more than two in a row; the validator enforces both.
+- **Bullets over prose.** Facts, features, conditions, examples and comparisons
+  go in a `list`. Prose is only for the "because" that joins facts together.
+- **Signpost.** Open each section with one sentence saying what it covers. Use a
+  `subheading` when a section has two distinct parts.
+- **Key words go in a `definitions` panel** where they are first needed, not in
+  the middle of a paragraph. Meanings are one line each.
+- **Every equation or formula goes in its own `equation` box**, never inside a
+  sentence. Give a `label` ("Magnification", "Percentage change in mass") and a
+  `where` list with each term and its unit. A calculation that follows it is a
+  `steps` block.
+- **End each main section with `key-points`**: two to four lines a student should
+  take away.
+- Short sentences. One idea per sentence. Plain words.
+- **Bold** only the terms a student must remember, at most two per paragraph or
+  bullet. No other formatting.
 - No asides, no jokes, no "remember…" or "top tip". No exclamation marks.
 - UK spelling and GCSE vocabulary (e.g. "partially permeable membrane").
 - Never copy wording from a textbook or revision guide. The sources are the spec
@@ -26,7 +38,8 @@ missed the lesson could learn the topic from this note alone.
 
 ## The shape
 
-1. **key_idea** — two or three sentences a student could repeat back.
+1. **key_idea** — two or three short sentences (under 50 words) a student could
+   repeat back.
 2. **sections** — usually 2 to 4, each with a plain heading ("How osmosis works",
    "Osmosis in plant and animal cells"). Together they teach the whole concept.
 3. **One diagram**, where a picture genuinely helps. Choose the kind that fits:
