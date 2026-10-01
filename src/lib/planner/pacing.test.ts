@@ -14,6 +14,7 @@ import {
   type PacingBand,
 } from "./pacing";
 import { addWeeks, mondayOf, toDateKey, weekKeyToDate } from "@/lib/planner/week";
+import { spineIsForAnotherCourse } from "./roadmap";
 
 const currentMonday = mondayOf(new Date("2026-09-07T00:00:00+01:00"));
 const examMonday = mondayOf(new Date("2027-06-07T00:00:00+01:00")); // ~39 weeks out
@@ -409,5 +410,32 @@ describe("reviews respect acknowledged teaching openings", () => {
     });
     expect(result.bands).toEqual([]);
     expect(result.backlog).toEqual([candidate]);
+  });
+});
+
+describe("spineIsForAnotherCourse (S-29)", () => {
+  const band = (topicId: string): PacingBand => ({
+    topicId,
+    title: topicId,
+    startWeek: "2026-09-07",
+    endWeek: "2026-10-05",
+    weeks: 5,
+  });
+  const course = (...ids: string[]) =>
+    ids.map((topicId) => ({ topicId, title: topicId, points: [] }) as never);
+
+  test("a spine naming none of the course's topics is another course's", () => {
+    expect(spineIsForAnotherCourse([band("aqa1"), band("aqa2")], course("edx1", "edx2"))).toBe(
+      true,
+    );
+  });
+
+  test("one shared topic is enough to call it this course's (an edited curriculum, not a switch)", () => {
+    expect(spineIsForAnotherCourse([band("t1"), band("gone")], course("t1", "t2"))).toBe(false);
+  });
+
+  test("nothing stored, or no curriculum, is never a course change", () => {
+    expect(spineIsForAnotherCourse([], course("t1"))).toBe(false);
+    expect(spineIsForAnotherCourse([band("t1")], [])).toBe(false);
   });
 });

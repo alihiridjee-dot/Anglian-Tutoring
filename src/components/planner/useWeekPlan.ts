@@ -15,6 +15,7 @@ import { getSessionUserId } from "@/lib/auth/session";
 import { ensureHomeworkForPoints } from "@/lib/homework/homeworkQuestions.functions";
 import { ensureMcqForPoints } from "@/lib/mcq/mcq.functions";
 import { courseKey, invalidatePlanner, roadmapQuery } from "@/lib/planner/queries";
+import { weekIsForAnotherCourse } from "@/lib/planner/weekCut";
 
 export type Activity = Map<string, PointActivity & PointWork>;
 export interface WeekPlanState {
@@ -103,9 +104,18 @@ export function useWeekPlan(params: {
        * current week means the automatic lanes have not been through it yet,
        * and `refreshWeek` merges them in around what the person chose.
        */
+      /**
+       * A week saved for another course is re-cut for this one. After a tutor
+       * moves a student to another board or level mid-week, every point in the
+       * week is withheld as off-course, so the student saw "Nothing assigned
+       * this week" until Monday, and the tutor's add, move and catch-up were
+       * refused. `save_weekly_plan` moves the row onto the new course, and the
+       * old course's points with history stay withheld, not deleted.
+       */
+      const otherCourse = !!saved && weekIsForAnotherCourse(saved.plan, { board, level });
       if (
         saved &&
-        saved.plan.source !== "ai" &&
+        (saved.plan.source !== "ai" || otherCourse) &&
         isCurrent &&
         (await getSessionUserId()) === studentId
       ) {
