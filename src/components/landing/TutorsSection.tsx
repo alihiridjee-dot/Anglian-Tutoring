@@ -17,8 +17,7 @@ const TUTORS = [
     ],
     experience:
       "Practising NHS doctor with over a decade of independent tutoring, trusted by families across the region to turn GCSE science into top grades." as
-        | string
-        | null,
+        string | null,
     agencies: [] as { name: string; logo: string }[],
     bio: "Practising NHS Doctor and science tutor of 10+ years, having taught students across the region to excellent GCSE results. Specialises in Biology and Chemistry.",
     fullBio: [
