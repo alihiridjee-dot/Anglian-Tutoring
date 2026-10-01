@@ -78,7 +78,9 @@
             "Fit cavity wall insulation, or add cladding or extra insulation.",
             "Use double glazed windows.",
             "Use double thicknesses of material in the walls.",
-            "Close windows and doors properly, and fit draught excluders."
+            "Close windows and doors properly, and fit draught excluders.",
+            "Paint the outside silver, reflective or white.",
+            "Plant trees around the building as a windbreak."
           ]
         },
         {
@@ -190,16 +192,12 @@
       ],
       "mistakes": [
         {
-          "wrong": "Oil makes the bicycle faster.",
-          "right": "Explain through energy: oil lubricates the wheel, reducing friction and the thermal energy transferred, so more useful energy is available."
+          "wrong": "Oil reduces friction.",
+          "right": "Go on to link it to energy: less thermal energy is transferred, so extra useful energy is available or less input energy is required. Then give efficiency as useful energy transferred divided by total energy supplied."
         },
         {
-          "wrong": "Thicker wires have a higher resistance and carry more current.",
+          "wrong": "Thicker wires have a higher resistance.",
           "right": "Thicker wires have a lower resistance, so less thermal energy is transferred in them and less potential difference is lost across them."
-        },
-        {
-          "wrong": "Paint the shed black to reduce heat loss.",
-          "right": "Use silver, reflective or white paint, or add cladding or extra insulation."
         }
       ],
       "worked_example": {
@@ -224,7 +222,8 @@
         "so efficiency is increased",
         "change the thickness of the cardboard (and repeat)",
         "same volume of water / same starting temperature of water",
-        "make the shape of the car more streamlined to reduce drag"
+        "make the shape of the car more streamlined to reduce drag",
+        "thermal conductivity of metal is higher"
       ],
       "mistakes": [
         {
@@ -232,12 +231,12 @@
           "right": "Keep the same volume and the same starting temperature of water. Change only the thickness."
         },
         {
-          "wrong": "Oil on the crane makes it stronger.",
-          "right": "Oil is a lubricant. It reduces friction, so less energy is transferred to the thermal store and the efficiency increases."
+          "wrong": "A metal box and a cardboard box of the same thickness cool at the same rate.",
+          "right": "Metal has a higher thermal conductivity, so the metal box has the greater rate of cooling."
         },
         {
-          "wrong": "To improve the roller coaster car, make it heavier.",
-          "right": "Reduce friction between the car and the track with lubrication, or make the car more streamlined to reduce drag."
+          "wrong": "The pendulum bob loses energy, so it swings less high.",
+          "right": "Say where the energy goes: friction or air resistance does work, so energy is transferred to the thermal store of the surroundings."
         }
       ],
       "worked_example": {
@@ -258,6 +257,8 @@
   "meta": {
     "status": "draft",
     "written_by": "sonnet-5-5",
+    "checked_by": "sonnet-science-check",
+    "checked_at": "2026-10-01",
     "written_at": "2026-10-01",
     "spec_point_ids": [
       "b3bc72c6-bcd9-4f1e-a18f-109082974b26",

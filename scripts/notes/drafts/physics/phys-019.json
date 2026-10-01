@@ -206,8 +206,8 @@
           "right": "Convert the time to seconds first: 2 minutes = 120 s. E = 3.0 × 0.041 × 120 = 15 J."
         },
         {
-          "wrong": "A volt is a joule per second.",
-          "right": "A volt is a joule per coulomb. Potential difference is the energy transferred per unit charge passed. A joule per second is a watt."
+          "wrong": "A potential difference of 6.0 V is the same as 6.0 joules.",
+          "right": "A potential difference of 6.0 V is 6.0 joules per coulomb. Potential difference is the energy transferred per unit charge passed."
         },
         {
           "wrong": "E = 12 × 600 × 7 for a current of 600 mA over 7 minutes.",
@@ -279,6 +279,8 @@
       "8ca36cc2-a4c7-42fa-ada6-8ffe0202b2f7",
       "aa15fad4-556a-486e-b262-f332f1aacbe7"
     ],
+    "checked_by": "sonnet-science-check",
+    "checked_at": "2026-10-01",
     "exemplar_ids": [
       "fe316077-a58d-4baa-92ac-89b56edb4901",
       "365547a9-a0b5-4b58-bfb1-43153b9ac417",

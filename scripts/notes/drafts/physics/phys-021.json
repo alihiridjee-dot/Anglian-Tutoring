@@ -20,7 +20,8 @@
         {
           "type": "list",
           "items": [
-            "Most objects have equal numbers of positive and negative charges, so their effects cancel and the net charge is zero.",
+            "All matter contains positive and negative charges.",
+            "In most objects the numbers are equal, so their effects cancel and the net charge is zero.",
             "Rubbing makes electrons move from one material to the other.",
             "The material that gains electrons becomes negatively charged.",
             "The material that loses electrons is left with an equal positive charge."
@@ -117,7 +118,8 @@
             "A charged object has a potential difference to an earthed conductor.",
             "When they are close enough, electrons transfer between them and a spark jumps.",
             "A negatively charged student who touches a metal tap gets a shock. Electrons transfer from the student to the tap, which earths the charge.",
-            "Lightning is a spark between a charged cloud and the ground."
+            "Lightning is a spark between a charged cloud and the ground.",
+            "The negative base of a cloud induces a positive charge on the ground. A large potential difference builds up, the air becomes ionised and electrons travel to the ground."
           ]
         },
         { "type": "subheading", "text": "Earthing" },
@@ -273,7 +275,7 @@
           "right": "Protons and positive charges do not move and are not accepted. Electrons are transferred, so the numbers of positive and negative charges are no longer equal."
         },
         {
-          "wrong": "A plastic ruler is not charged because it has no charges.",
+          "wrong": "A plastic ruler is not normally charged because it has no positive or negative charges in it.",
           "right": "It has equal numbers of protons and electrons, so the effects of the positive and negative charges cancel out."
         }
       ],
@@ -294,6 +296,8 @@
     "status": "draft",
     "written_by": "sonnet-5-5",
     "written_at": "2026-10-01",
+    "checked_by": "sonnet-science-check",
+    "checked_at": "2026-10-01",
     "spec_point_ids": [
       "189fa500-7394-4e36-903e-bbee81a0a5b6",
       "dafcb82e-c38f-4a71-96e4-4be7e673ae75",

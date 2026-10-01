@@ -15,7 +15,9 @@
             { "term": "Renewable resource", "meaning": "One that is being, or can be, replenished as it is used." },
             { "term": "Non-renewable resource", "meaning": "One that is finite: it cannot be replaced as fast as it is used." },
             { "term": "Fossil fuels", "meaning": "Coal, oil and gas." },
-            { "term": "Bio-fuel", "meaning": "Fuel made from plant or animal material." }
+            { "term": "Bio-fuel", "meaning": "Fuel made from plant or animal material." },
+            { "term": "Geothermal", "meaning": "Energy from hot rocks underground." },
+            { "term": "Reliable", "meaning": "A resource whose supply is predictable, so it can generate when needed." }
           ]
         },
         {
@@ -28,6 +30,7 @@
             "items": [
               { "text": "Wind", "group": 0 },
               { "text": "Tides", "group": 0 },
+              { "text": "Water waves", "group": 0 },
               { "text": "The Sun (solar)", "group": 0 },
               { "text": "Hydroelectricity", "group": 0 },
               { "text": "Geothermal", "group": 0 },
@@ -44,7 +47,7 @@
           "type": "list",
           "items": [
             "**Transport:** petrol and diesel from oil, bio-fuels, and electricity for electric vehicles.",
-            "**Electricity generation:** fossil fuels, nuclear fuel, wind, hydroelectricity, tides, the Sun and others.",
+            "**Electricity generation:** fossil fuels, nuclear fuel, wind, hydroelectricity, tides, water waves, the Sun and others.",
             "**Heating:** gas and other fuels burned directly, and electricity."
           ]
         },
@@ -68,7 +71,8 @@
           "items": [
             "Wind turbines do not turn when the wind is too weak or too strong.",
             "Solar cells depend on sunlight, and fixed cells are not always pointed at the Sun.",
-            "Fossil fuel and nuclear power stations can run whenever they are needed, but their fuel is finite."
+            "Solar cells need a large area to generate much electricity, and the UK has limited daylight.",
+            "Fossil fuel and nuclear power stations burn or use stored fuel, so they can generate when needed, apart from maintenance. Their fuel is finite."
           ]
         },
         { "type": "subheading", "text": "Environmental impact" },
@@ -77,9 +81,9 @@
           "columns": ["Resource", "Environmental impact"],
           "rows": [
             ["Fossil fuels", "Carbon dioxide increases global warming (the greenhouse effect). Sulfur dioxide and nitrogen oxides cause acid rain. Particulates can harm living organisms."],
-            ["Nuclear fuel", "No carbon dioxide produced. Radioactive waste is produced and needs safe storage."],
+            ["Nuclear fuel", "No carbon dioxide produced. Radioactive waste is produced, stays dangerous for a long time and needs safe storage. There is a risk of accidents."],
             ["Wind", "Visual pollution, noise pollution and danger to birds."],
-            ["Hydroelectricity", "Land is flooded behind the dam, which affects habitats."]
+            ["Hydroelectricity", "Land is flooded behind the dam, causing loss of habitat."]
           ]
         },
         {
@@ -182,7 +186,7 @@
         "radioactive substances",
         "carbon dioxide",
         "increased use of renewables / decrease use of non-renewables",
-        "lack of carbon dioxide emissions"
+        "no carbon emissions"
       ],
       "mistakes": [
         {
@@ -250,6 +254,8 @@
   "meta": {
     "status": "draft",
     "written_by": "sonnet-5-5",
+    "checked_by": "sonnet-science-check",
+    "checked_at": "2026-10-01",
     "written_at": "2026-10-01",
     "spec_point_ids": [
       "a8e6bb33-445e-477e-8e46-2fa0b75aeeee",

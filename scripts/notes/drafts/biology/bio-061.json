@@ -1,0 +1,357 @@
+{
+  "format": 1,
+  "concept_id": "bio-061",
+  "subject": "biology",
+  "title": "Anaerobic respiration and fermentation",
+  "key_idea": "Anaerobic respiration releases energy from glucose without oxygen. Muscles make lactic acid. Plant and yeast cells make ethanol and carbon dioxide. It releases much less energy than aerobic respiration, because the glucose is only partly broken down.",
+  "sections": [
+    {
+      "heading": "Anaerobic respiration in muscles",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "During vigorous exercise the blood cannot supply oxygen fast enough. Muscle cells then respire anaerobically as well as aerobically."
+        },
+        {
+          "type": "definitions",
+          "items": [
+            {
+              "term": "Anaerobic respiration",
+              "meaning": "Respiration without oxygen. It still transfers energy from glucose."
+            },
+            {
+              "term": "Lactic acid",
+              "meaning": "The product of anaerobic respiration in animal muscle cells."
+            }
+          ]
+        },
+        {
+          "type": "equation",
+          "label": "Anaerobic respiration in muscles",
+          "formula": "glucose → lactic acid",
+          "where": [
+            "glucose is the fuel",
+            "lactic acid is the only product, so no carbon dioxide or water is made"
+          ]
+        },
+        {
+          "type": "paragraph",
+          "text": "The oxidation of glucose is incomplete, so much less energy is transferred than in aerobic respiration."
+        },
+        {
+          "type": "key-points",
+          "items": [
+            "Muscles respire anaerobically when they do not have enough oxygen.",
+            "Glucose is broken down to lactic acid, with no carbon dioxide or water.",
+            "Much less energy is transferred, because the glucose is only partly broken down."
+          ]
+        }
+      ]
+    },
+    {
+      "heading": "Anaerobic respiration in plants and yeast",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "Plant cells and yeast cells make different products from animal cells when they respire without oxygen."
+        },
+        {
+          "type": "equation",
+          "label": "Anaerobic respiration in plant and yeast cells",
+          "formula": "glucose → ethanol + carbon dioxide",
+          "where": [
+            "ethanol is an alcohol",
+            "carbon dioxide is a gas"
+          ]
+        },
+        {
+          "type": "paragraph",
+          "text": "Anaerobic respiration in yeast cells is called **fermentation**. It has economic importance."
+        },
+        {
+          "type": "list",
+          "items": [
+            "Bread making: the carbon dioxide makes the dough rise, so the bread is lighter.",
+            "Alcoholic drinks such as beer and wine: yeast ferments sugar to make ethanol.",
+            "Fermentation is controlled by enzymes. It does not work if it is too cold for the enzymes, and the enzymes are denatured if it is too hot."
+          ]
+        },
+        {
+          "type": "diagram",
+          "diagram": {
+            "kind": "predictor",
+            "alt": "Pick a type of cell and its conditions to see what respiration it carries out, what it makes and how much energy is released.",
+            "prompt": "Pick a cell and its conditions",
+            "result_labels": [
+              "Type of respiration",
+              "Products",
+              "Energy released"
+            ],
+            "options": [
+              {
+                "label": "Muscle cell, plenty of oxygen",
+                "results": [
+                  "Aerobic respiration",
+                  "Carbon dioxide and water",
+                  "Much more energy"
+                ],
+                "explanation": "Glucose is broken down completely using oxygen."
+              },
+              {
+                "label": "Muscle cell, not enough oxygen",
+                "results": [
+                  "Anaerobic respiration",
+                  "Lactic acid",
+                  "Much less energy"
+                ],
+                "explanation": "The glucose is only partly broken down, so lactic acid builds up."
+              },
+              {
+                "label": "Yeast cell, no oxygen",
+                "results": [
+                  "Anaerobic respiration (fermentation)",
+                  "Ethanol and carbon dioxide",
+                  "Much less energy"
+                ],
+                "explanation": "Fermentation is used to make bread and alcoholic drinks."
+              },
+              {
+                "label": "Plant cell, no oxygen",
+                "results": [
+                  "Anaerobic respiration",
+                  "Ethanol and carbon dioxide",
+                  "Much less energy"
+                ],
+                "explanation": "Plant cells make the same products as yeast."
+              }
+            ]
+          }
+        },
+        {
+          "type": "key-points",
+          "items": [
+            "Plants and yeast make ethanol and carbon dioxide. Animal muscles make lactic acid.",
+            "Fermentation in yeast makes bread rise and makes alcoholic drinks.",
+            "Fermentation needs enzymes, so temperature matters."
+          ]
+        }
+      ]
+    },
+    {
+      "heading": "Comparing aerobic and anaerobic respiration",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "Exam questions ask you to compare the types of respiration. Learn the oxygen, the products and the energy released."
+        },
+        {
+          "type": "table",
+          "columns": [
+            "Feature",
+            "Aerobic",
+            "Anaerobic in muscles",
+            "Anaerobic in plants and yeast"
+          ],
+          "rows": [
+            [
+              "Oxygen",
+              "Needed",
+              "Not needed",
+              "Not needed"
+            ],
+            [
+              "Products",
+              "Carbon dioxide and water",
+              "Lactic acid",
+              "Ethanol and carbon dioxide"
+            ],
+            [
+              "Energy released",
+              "Much more",
+              "Much less",
+              "Much less"
+            ],
+            [
+              "Glucose breakdown",
+              "Complete",
+              "Incomplete",
+              "Incomplete"
+            ],
+            [
+              "Where",
+              "Mainly in the mitochondria",
+              "In the cytoplasm",
+              "In the cytoplasm"
+            ]
+          ]
+        },
+        {
+          "type": "key-points",
+          "items": [
+            "Anaerobic respiration releases less energy because the glucose is not completely broken down.",
+            "Aerobic makes carbon dioxide and water. Anaerobic never makes water."
+          ]
+        }
+      ]
+    }
+  ],
+  "checks": [
+    {
+      "q": "Write the word equation for anaerobic respiration in muscle cells.",
+      "a": "glucose → lactic acid",
+      "marks": 2
+    },
+    {
+      "q": "Which two substances are made by anaerobic respiration in plant cells?",
+      "a": "Carbon dioxide and ethanol.",
+      "marks": 2
+    },
+    {
+      "q": "Explain why anaerobic respiration is less efficient than aerobic respiration.",
+      "a": "Less energy is released per molecule of glucose, because the glucose is only partly broken down (incomplete oxidation).",
+      "marks": 2
+    }
+  ],
+  "boards": {
+    "aqa": {
+      "spec_codes": [
+        "AQA 4.6",
+        "AQA T 4.4.2.1"
+      ],
+      "exam_phrases": [
+        "glucose → lactic acid",
+        "glucose → ethanol + carbon dioxide",
+        "carbon dioxide and ethanol",
+        "less energy released / transferred (per molecule of glucose)",
+        "incomplete breakdown / oxidation of glucose",
+        "produces carbon dioxide / gas which makes the bread / dough rise",
+        "too cold for enzymes / yeast to work",
+        "enzymes denatured"
+      ],
+      "mistakes": [
+        {
+          "wrong": "Anaerobic respiration produces less energy.",
+          "right": "\"Less energy produced / made / created\" is not accepted. Say less energy is released or transferred."
+        },
+        {
+          "wrong": "Anaerobic respiration releases no energy.",
+          "right": "\"No energy released\" is not accepted. It releases less energy than aerobic respiration."
+        },
+        {
+          "wrong": "No carbon dioxide was produced at 2 °C because the enzymes were denatured.",
+          "right": "\"Denatured\" is not accepted at 2 °C. Say it was too cold for the enzymes or yeast to work, or that there were few or no successful collisions."
+        },
+        {
+          "wrong": "At 75 °C the enzymes were killed.",
+          "right": "\"Enzymes killed\" is not accepted. Say the enzymes were denatured or destroyed, and describe the change in shape of the active site."
+        }
+      ],
+      "worked_example": {
+        "exemplar_id": "eacaef45-18ef-4da6-9957-c465c4448e20",
+        "source": "AQA jun 2025, Paper 1 (H), Q05.6",
+        "question": "An athlete ran on a running machine, reaching maximum intensity of exercise and then stopping. During the exercise the athlete respired aerobically and anaerobically.\n\nExplain why anaerobic respiration is less efficient than aerobic respiration.",
+        "marks": 2,
+        "answer_points": [
+          "Less energy is released or transferred per molecule of glucose (allow: more glucose must be broken down to release the same energy).",
+          "Because the breakdown or oxidation of glucose is incomplete (allow: glucose is only broken down to lactic acid)."
+        ],
+        "tip": "Say energy is released or transferred, never produced, made or created. \"No energy released\" is not accepted."
+      }
+    },
+    "edexcel": {
+      "spec_codes": [
+        "EDEX 8.10"
+      ],
+      "exam_phrases": [
+        "aerobic respiration uses oxygen / anaerobic does not use oxygen",
+        "aerobic respiration releases more energy / anaerobic releases less energy",
+        "aerobic produces carbon dioxide / water / anaerobic respiration produces lactic acid",
+        "aerobic respiration takes place in the mitochondria / anaerobic in the cytoplasm",
+        "will respire anaerobically (more)",
+        "because there is not enough oxygen (in the muscles)",
+        "anaerobic respiration occurs / lactic acid (produced / builds up)"
+      ],
+      "mistakes": [
+        {
+          "wrong": "The athlete produces lactic acid because they are running at 14 km per hour.",
+          "right": "Say they respire anaerobically (more) because there is not enough oxygen in the muscles. Both points are needed for the two marks."
+        },
+        {
+          "wrong": "After intense exercise the pH of the muscles falls because of carbon dioxide.",
+          "right": "The fall in pH is because of lactic acid, which comes from anaerobic respiration."
+        },
+        {
+          "wrong": "Anaerobic respiration releases no energy.",
+          "right": "Anaerobic respiration releases less energy than aerobic respiration. Do not say it releases none."
+        }
+      ],
+      "worked_example": {
+        "exemplar_id": "5595c02a-d638-4a32-b9c5-e91ff28c8e5b",
+        "source": "EDEXCEL jun 2023, Paper 2 (H), Q3(b)(ii)",
+        "question": "Respiration occurs in cells. An athlete runs every day as part of their training.\n\nWhen the athlete is running, their muscle cells use both aerobic respiration and anaerobic respiration.\n\nState two differences between aerobic respiration and anaerobic respiration.",
+        "marks": 2,
+        "answer_points": [
+          "Aerobic respiration uses oxygen, anaerobic respiration does not.",
+          "Aerobic respiration releases more energy, anaerobic releases less.",
+          "Aerobic respiration produces carbon dioxide and water, anaerobic produces lactic acid.",
+          "Aerobic respiration takes place in the mitochondria, anaerobic in the cytoplasm."
+        ],
+        "tip": "Any two of the four points score. ATP is accepted for energy and lactate for lactic acid."
+      }
+    },
+    "ocr": {
+      "spec_codes": [
+        "OCR 1.3c"
+      ],
+      "exam_phrases": [
+        "alcohol produced in yeast (not humans)",
+        "lactic acid produced by humans (not yeast)",
+        "carbon dioxide produced by yeast (not humans)",
+        "anaerobic respiration (can also produce ATP) when oxygen levels are low",
+        "aerobic respiration releases more energy than anaerobic respiration",
+        "glucose used, oxygen used, carbon dioxide and water made"
+      ],
+      "mistakes": [
+        {
+          "wrong": "Yeast makes lactic acid and human muscle cells make alcohol.",
+          "right": "Any incorrect product limits the answer to one mark. Yeast makes alcohol (ethanol) and carbon dioxide. Human muscle cells make lactic acid."
+        },
+        {
+          "wrong": "Anaerobic respiration uses glucose and oxygen and makes lactic acid.",
+          "right": "Anaerobic respiration is not credited if oxygen is named as a reactant. Aerobic respiration is not credited if lactic acid is made."
+        },
+        {
+          "wrong": "Humans have an oxygen debt but yeast does not.",
+          "right": "Oxygen debt and ATP production are ignored when comparing the two. Compare the products: alcohol and carbon dioxide in yeast, lactic acid in humans."
+        }
+      ],
+      "worked_example": {
+        "exemplar_id": "3cfbccbc-ad49-4490-bf32-3caa13561422",
+        "source": "OCR jun 2019, Paper 1, Q22(b)",
+        "question": "Yeast cells can respire anaerobically.\n\nWrite down two ways in which anaerobic respiration in yeast cells is different from anaerobic respiration in human muscle cells.",
+        "marks": 2,
+        "answer_points": [
+          "Alcohol (ethanol) is produced in yeast but not in humans.",
+          "Lactic acid is produced by humans but not by yeast.",
+          "Carbon dioxide is produced by yeast but not by humans."
+        ],
+        "tip": "Any two points. If any incorrect product is stated the answer is limited to one mark. Oxygen debt and ATP are ignored."
+      }
+    }
+  },
+  "meta": {
+    "status": "draft",
+    "written_by": "sonnet-5-5",
+    "written_at": "2026-10-01",
+    "spec_point_ids": [
+      "04d52e95-b605-4c02-8e0c-90780a5c6925",
+      "3d3b702b-262c-4ade-91d6-1456ebdb51bc",
+      "1af85aef-61a7-42e2-850f-8d37fa23dc0f"
+    ],
+    "exemplar_ids": [
+      "eacaef45-18ef-4da6-9957-c465c4448e20",
+      "5595c02a-d638-4a32-b9c5-e91ff28c8e5b",
+      "3cfbccbc-ad49-4490-bf32-3caa13561422"
+    ]
+  }
+}

@@ -42,7 +42,7 @@
             "alt": "Change the current and the resistance of a device and see the power for P = I x V and P = I squared x R.",
             "inputs": [
               { "id": "I", "label": "Current", "unit": "A", "min": 0.5, "max": 10, "step": 0.5, "value": 2 },
-              { "id": "R", "label": "Resistance", "unit": "Ω", "min": 1, "max": 60, "step": 1, "value": 15 }
+              { "id": "R", "label": "Resistance", "unit": "Ω", "min": 1, "max": 25, "step": 1, "value": 15 }
             ],
             "outputs": [
               { "label": "Potential difference, V = I × R", "unit": "V", "formula": "I * R", "decimals": 1 },
@@ -51,7 +51,7 @@
             ]
           }
         },
-        { "type": "paragraph", "text": "Double the current and the power goes up four times, because the current is squared." },
+        { "type": "paragraph", "text": "For the same resistance, double the current and the power goes up four times, because the current is squared." },
         {
           "type": "diagram",
           "diagram": {
@@ -218,8 +218,8 @@
           "right": "Convert 1.9 kW to 1900 W first. I = 1900 / 230 = 8.3 A."
         },
         {
-          "wrong": "Thicker wires waste no energy.",
-          "right": "Thicker wires have a lower resistance, so less thermal energy is transferred in the wires."
+          "wrong": "P = 0.12 × 0.24 = 0.29 W for a lamp with 0.24 V across it and 0.12 A in it.",
+          "right": "A power-of-ten error loses a mark. 0.12 × 0.24 = 0.0288 W, which is 0.029 W."
         }
       ],
       "worked_example": {
@@ -291,6 +291,8 @@
       "15ee130f-7b5f-4413-a4f8-e85e6b1d6774",
       "b70b348d-1d94-45f6-bd19-c8581aeaa335"
     ],
+    "checked_by": "sonnet-science-check",
+    "checked_at": "2026-10-01",
     "exemplar_ids": [
       "02bfab1a-4b1f-4164-ae75-6a9c87186e6b",
       "c2b27ca1-380a-4415-a41e-dd62ddd30116",

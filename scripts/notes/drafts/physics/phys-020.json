@@ -88,7 +88,7 @@
             ]
           }
         },
-        { "type": "paragraph", "text": "Increase the potential difference 16 times and the current falls 16 times. The power lost, which depends on the current squared, falls far more." },
+        { "type": "paragraph", "text": "Increase the potential difference 16 times and the current falls 16 times. The power lost depends on the current squared, so it falls 256 times. The cable resistance here is illustrative." },
         { "type": "paragraph", "text": "Never say that a high potential difference means no energy is lost. It means less energy is lost." },
         { "type": "subheading", "text": "(Higher tier) The transformer equation" },
         {
@@ -169,7 +169,7 @@
         },
         {
           "wrong": "Step-up transformers reduce the resistance of the cables.",
-          "right": "Resistance is ignored in this explanation. The current is reduced, so there is less heating in the transmission cables."
+          "right": "Answers about resistance are ignored. The transformer does not change the cable. It reduces the current, so there is less heating in the transmission cables."
         }
       ],
       "worked_example": {
@@ -237,11 +237,11 @@
       "mistakes": [
         {
           "wrong": "High voltage stops energy being lost.",
-          "right": "Stops power loss and no energy wasted are not allowed. Say less energy is lost, or less heat in the power lines."
+          "right": "Saying it stops power loss, or that no energy is wasted, is not allowed. Say less energy is lost, or less heat in the power lines."
         },
         {
           "wrong": "It makes the National Grid more efficient.",
-          "right": "Ideas about efficiency alone are ignored. Say that the current decreases, so less energy is lost as heat in the power lines."
+          "right": "Efficiency on its own may not score. Say that the current decreases, so less energy is lost as heat in the power lines."
         },
         {
           "wrong": "A transformer that decreases 230 V to 12.1 V is a step-up transformer.",
@@ -266,6 +266,8 @@
     "status": "draft",
     "written_by": "sonnet-5-5",
     "written_at": "2026-10-01",
+    "checked_by": "sonnet-science-check",
+    "checked_at": "2026-10-01",
     "spec_point_ids": [
       "bac89603-adb4-493d-afa7-3891eab71e00",
       "0e6ba1a4-54d2-44aa-aadb-823b6d927f13",

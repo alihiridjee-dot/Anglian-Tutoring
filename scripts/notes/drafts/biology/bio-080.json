@@ -1,0 +1,237 @@
+{
+  "format": 1,
+  "concept_id": "bio-080",
+  "subject": "biology",
+  "title": "Hormones in human reproduction and the menstrual cycle",
+  "key_idea": "At puberty, oestrogen and testosterone cause the secondary sex characteristics to develop. In the menstrual cycle, FSH matures an egg, LH releases it, and oestrogen and progesterone build and maintain the lining of the uterus.",
+  "sections": [
+    {
+      "heading": "Reproductive hormones at puberty",
+      "blocks": [
+        { "type": "paragraph", "text": "During puberty, reproductive hormones cause the secondary sex characteristics to develop. The main hormone differs in females and males." },
+        {
+          "type": "definitions",
+          "items": [
+            { "term": "Hormone", "meaning": "A chemical messenger made in a gland and carried in the blood to a target organ." },
+            { "term": "Secondary sex characteristics", "meaning": "The body changes at puberty, such as breast development in females." },
+            { "term": "Ovulation", "meaning": "The release of an egg from an ovary." }
+          ]
+        },
+        {
+          "type": "list",
+          "items": [
+            "**Oestrogen** is the main female reproductive hormone. It is made in the ovary.",
+            "At puberty eggs begin to mature, and one is released about every 28 days. This is ovulation.",
+            "**Testosterone** is the main male reproductive hormone. It is made in the testes and stimulates sperm production.",
+            "The glands involved in human reproduction are the ovaries and the testes."
+          ]
+        },
+        {
+          "type": "key-points",
+          "items": [
+            "Oestrogen (ovary) is the main female hormone. Testosterone (testes) is the main male hormone.",
+            "Secondary sex characteristics, such as breast development, depend on these hormones.",
+            "From puberty, an egg is released about every 28 days."
+          ]
+        }
+      ]
+    },
+    {
+      "heading": "The four hormones of the menstrual cycle",
+      "blocks": [
+        { "type": "paragraph", "text": "In the menstrual cycle, the lining of the uterus thickens and then breaks down. Four hormones control this. Tap each one to see where it is made and what it does." },
+        {
+          "type": "diagram",
+          "diagram": {
+            "kind": "explorer",
+            "alt": "Tap a reproductive hormone to see where it is made and what it does.",
+            "prompt": "Tap a hormone to learn its job, then test yourself.",
+            "parts": [
+              { "name": "FSH", "detail": "Follicle stimulating hormone. Made in the pituitary gland. It causes an egg to mature in a follicle in the ovary." },
+              { "name": "LH", "detail": "Luteinising hormone. Made in the pituitary gland. It stimulates the release of the egg (ovulation)." },
+              { "name": "Oestrogen", "detail": "Made in the ovary. It causes the lining of the uterus to thicken." },
+              { "name": "Progesterone", "detail": "Made in the ovary, by the empty follicle (corpus luteum), after ovulation. It maintains the lining of the uterus." },
+              { "name": "Testosterone", "detail": "The main male hormone. Made in the testes. It stimulates sperm production." }
+            ]
+          }
+        },
+        {
+          "type": "table",
+          "columns": ["Hormone", "Made in", "Job"],
+          "rows": [
+            ["FSH", "Pituitary gland", "Matures an egg"],
+            ["LH", "Pituitary gland", "Releases the egg (ovulation)"],
+            ["Oestrogen", "Ovary", "Thickens the uterus lining"],
+            ["Progesterone", "Ovary (corpus luteum)", "Maintains the uterus lining"]
+          ]
+        },
+        {
+          "type": "key-points",
+          "items": [
+            "FSH matures an egg. LH releases it.",
+            "Oestrogen thickens the uterus lining. Progesterone maintains it.",
+            "FSH and LH come from the pituitary gland. Oestrogen and progesterone come from the ovary."
+          ]
+        }
+      ]
+    },
+    {
+      "heading": "Stages of the cycle",
+      "blocks": [
+        { "type": "paragraph", "text": "The cycle lasts about 28 days. These stages show where each hormone acts." },
+        {
+          "type": "steps",
+          "items": [
+            { "lead": "Egg matures.", "text": "FSH makes an egg mature in a follicle. The follicle makes oestrogen." },
+            { "lead": "Lining builds.", "text": "Oestrogen makes the lining of the uterus thicken." },
+            { "lead": "Ovulation.", "text": "LH stimulates the release of the egg, around the middle of the cycle." },
+            { "lead": "Lining maintained.", "text": "The empty follicle (corpus luteum) makes progesterone, which maintains the lining." },
+            { "lead": "No fertilised egg.", "text": "The lining breaks down and is shed. This is the period." }
+          ]
+        },
+        { "type": "paragraph", "text": "How the four hormones affect each other is covered in the next note (Higher tier)." },
+        {
+          "type": "key-points",
+          "items": [
+            "Each stage links a hormone to its job.",
+            "If there is no fertilised egg, the uterus lining breaks down."
+          ]
+        }
+      ]
+    }
+  ],
+  "checks": [
+    {
+      "q": "Name the hormone that stimulates the release of an egg, and the gland that makes it.",
+      "a": "LH (luteinising hormone), made in the pituitary gland.",
+      "marks": 2
+    },
+    {
+      "q": "What is the job of progesterone in the menstrual cycle, and where is it made?",
+      "a": "It maintains the lining of the uterus. It is made in the ovary, by the corpus luteum (empty follicle).",
+      "marks": 2
+    },
+    {
+      "q": "A woman makes no FSH. Explain why she may have underdeveloped breasts.",
+      "a": "Without FSH, follicles do not develop, so there is a lack of oestrogen. Breast development depends on oestrogen.",
+      "marks": 2
+    }
+  ],
+  "boards": {
+    "aqa": {
+      "spec_codes": ["AQA 5.12", "AQA T 4.5.3.3"],
+      "exam_phrases": [
+        "FSH stimulates maturation of egg / ovum / follicle",
+        "LH stimulates ovulation / release of the egg",
+        "oestrogen and progesterone maintain the uterus lining",
+        "breast development is dependent on oestrogen",
+        "(female) secondary sexual characteristics are dependent on oestrogen",
+        "progesterone is secreted by the (empty) follicle / corpus luteum",
+        "FSH and LH are produced by the pituitary; oestrogen and progesterone by the ovaries",
+        "ovary / ovaries; testis / testes"
+      ],
+      "mistakes": [
+        {
+          "wrong": "LH makes the egg mature.",
+          "right": "FSH stimulates maturation of the egg. LH stimulates ovulation, which is the release of the egg."
+        },
+        {
+          "wrong": "Oestrogen and progesterone are made in the pituitary gland.",
+          "right": "FSH and LH are produced by the pituitary. Oestrogen and progesterone are produced by the ovaries."
+        },
+        {
+          "wrong": "Without FSH the breasts do not develop, because FSH makes breasts grow.",
+          "right": "Lack of FSH means follicles do not develop, so there is a lack of oestrogen. Breast development is dependent on oestrogen."
+        }
+      ],
+      "worked_example": {
+        "exemplar_id": "fff7142a-f10c-4c30-8dd6-3f115e7d52a1",
+        "source": "AQA jun 2023, Paper 2 (H), Q07.3",
+        "question": "A 27-year-old woman was infertile. A doctor tested a sample of the woman's blood. The test did not detect any follicle stimulating hormone (FSH) in the woman's blood. Before treatment with FSH, the woman had underdeveloped breasts. Explain why the lack of FSH in the woman's blood caused underdeveloped breasts.",
+        "marks": 2,
+        "answer_points": [
+          "Lack of FSH causes a lack of oestrogen production, because follicles do not develop or mature (1).",
+          "Breast development, like other female secondary sexual characteristics, is dependent on oestrogen (1)."
+        ],
+        "tip": "Link FSH to oestrogen first, then oestrogen to breast development."
+      }
+    },
+    "edexcel": {
+      "spec_codes": ["EDEX 7.4"],
+      "exam_phrases": [
+        "after ovulation / after the egg has been released",
+        "the corpus luteum produces progesterone",
+        "to maintain the lining of the uterus",
+        "uterus (lining) thickens / is maintained",
+        "blood vessels in the uterus lining increase in number / size",
+        "follicle ruptures / ovulation / egg is released",
+        "FSH stimulates the follicles to mature"
+      ],
+      "mistakes": [
+        {
+          "wrong": "Progesterone is released by the pituitary gland.",
+          "right": "Progesterone is produced by the corpus luteum. The pituitary gland releases LH and FSH, not progesterone. The uterus does not release any hormones: it is where progesterone acts."
+        },
+        {
+          "wrong": "FSH causes ovulation.",
+          "right": "LH causes ovulation. FSH stimulates the follicles to mature."
+        }
+      ],
+      "worked_example": {
+        "exemplar_id": "730c5f1c-1340-4f18-a003-fb7ad769ad8b",
+        "source": "EDEXCEL jun 2019, Paper 2 (H), Q7(a)(iv)",
+        "question": "During clomifene therapy, the woman has a blood test on day 20 of the menstrual cycle. The blood test shows a high level of progesterone. Explain the cause of this high level of progesterone on day 20 of the menstrual cycle.",
+        "marks": 2,
+        "answer_points": [
+          "Day 20 is after ovulation, after the egg has been released (1).",
+          "So the corpus luteum produces progesterone (1).",
+          "This is to maintain the lining of the uterus (1). Any two of these three points score."
+        ],
+        "tip": "Link the timing, the source and the job of the hormone."
+      }
+    },
+    "ocr": {
+      "spec_codes": ["OCR 3.2c"],
+      "exam_phrases": [
+        "oestrogen thickens / repairs (the lining of) the uterus",
+        "progesterone maintains the lining of the uterus / stops the lining breaking down",
+        "progesterone is produced by the corpus luteum / (empty) follicle / yellow body",
+        "FSH causes the growth of a follicle",
+        "lining breaks down / is shed"
+      ],
+      "mistakes": [
+        {
+          "wrong": "Oestrogen maintains the lining of the uterus.",
+          "right": "For oestrogen, \"maintains the uterus lining\" is ignored. Say oestrogen thickens or repairs the lining."
+        },
+        {
+          "wrong": "Progesterone thickens the lining of the uterus.",
+          "right": "For progesterone, \"thickens the lining\" is ignored. Say it maintains the lining or stops it breaking down."
+        },
+        {
+          "wrong": "With less oestrogen the uterus lining will become thinner.",
+          "right": "Say the lining will not thicken or will not build up. \"Become thinner\" is ignored."
+        }
+      ],
+      "worked_example": {
+        "exemplar_id": "101d9491-43f8-4108-8713-62f49f806468",
+        "source": "OCR jun 2019, Paper 1, Q19(c)(i)",
+        "question": "Different hormones control the human menstrual cycle. Complete the sentences to describe how the menstrual cycle is controlled. Use words from the list. Each word can be used once, more than once, or not at all. fetus, follicle, FSH, oestrogen, progesterone. The hormone released by the pituitary gland is called ____. This hormone acts on the ovary and causes the growth of a ____. The hormone that maintains the lining of the uterus is called ____.",
+        "marks": 3,
+        "answer_points": [
+          "FSH is released by the pituitary gland (1).",
+          "It acts on the ovary and causes the growth of a follicle (1).",
+          "Progesterone maintains the lining of the uterus (1)."
+        ],
+        "tip": "Match each hormone to its gland first, then to its job."
+      }
+    }
+  },
+  "meta": {
+    "status": "draft",
+    "written_by": "sonnet-5-5",
+    "written_at": "2026-10-01",
+    "spec_point_ids": ["4b1c3a48-81f8-4d91-b2c3-223bd361bd3c", "41029671-1890-43aa-af24-23f3ddbbb0ca", "2c2f34f6-9471-4bcf-bf3b-cdb35039760f", "9d6aa056-2c38-4750-88d7-3ba3c0009b7c"],
+    "exemplar_ids": ["fff7142a-f10c-4c30-8dd6-3f115e7d52a1", "730c5f1c-1340-4f18-a003-fb7ad769ad8b", "101d9491-43f8-4108-8713-62f49f806468", "d074ae92-fbd2-4629-bca8-0682cf3b6d85", "a5703912-2abd-424c-a783-840c0ac98dbb", "eb842d6e-5bae-448b-b5fd-dcb561c69243", "61a35a4b-fc84-4c3b-bade-4e0df72f10e2", "5918bfa7-fd8f-435c-8912-95effa3066c1", "62cca1d6-61a8-4993-9ede-8844866ed451", "af582fba-25ee-4799-8010-5cca624e6f79", "41d3d8d5-4aed-40b9-8cf2-f87dd0722b66", "22d5b8bc-8cc2-4330-a79f-0c4fbcd90aeb", "2e9990fe-7c54-463b-84e8-e45b75bb7cf5", "a0dacce4-3b0e-4f55-9294-4972b8a70efb"]
+  }
+}

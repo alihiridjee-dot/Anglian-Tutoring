@@ -65,7 +65,7 @@
             "rows": [
               { "feature": "Field lines", "values": ["Straight lines that point directly towards or away from the sphere.", "Straight, parallel and equally spaced lines."] },
               { "feature": "Direction", "values": ["Away from a positive sphere. Towards a negative sphere.", "From the positive plate to the negative plate."] },
-              { "feature": "Strength", "values": ["Strongest close to the sphere, where the lines are closest together.", "The same everywhere between the plates, because the lines are equally spaced."] }
+              { "feature": "Strength", "values": ["Strongest close to the sphere, where the lines are closest together.", "The same everywhere between the plates (away from the edges), because the lines are equally spaced."] }
             ]
           }
         },
@@ -216,7 +216,7 @@
         "both show direction of field (lines) / forces",
         "opposite charges attract",
         "high voltages can cause electric shocks / electrocution",
-        "the arrows / field lines go from North to South (as opposed to positive to negative)"
+        "they have a similar shape field (pattern)"
       ],
       "mistakes": [
         {
@@ -248,6 +248,8 @@
     "status": "draft",
     "written_by": "sonnet-5-5",
     "written_at": "2026-10-01",
+    "checked_by": "sonnet-science-check",
+    "checked_at": "2026-10-01",
     "spec_point_ids": [
       "0fd5d872-2e66-4ae9-84ed-a6061a88d118",
       "7f53d359-af24-4ad6-9ecc-654fabdc9f03",

@@ -56,7 +56,7 @@
           "items": [
             { "lead": "Find the useful output.", "text": "A cooker supplies 130 000 J, but only 96 000 J heats the milk." },
             { "lead": "Substitute.", "text": "efficiency = 96 000 ÷ 130 000" },
-            { "lead": "Evaluate.", "text": "efficiency = 0.74, or 74%." }
+            { "lead": "Evaluate.", "text": "efficiency = 0.74 (to 2 decimal places), or 74%." }
           ]
         },
         { "type": "paragraph", "text": "Change the input energy and the useful output to see the efficiency and the wasted energy." },
@@ -67,7 +67,7 @@
             "alt": "Change the total input energy and the useful output energy to see the efficiency and the wasted energy.",
             "inputs": [
               { "id": "Ein", "label": "Total input energy", "unit": "J", "min": 100, "max": 500, "step": 10, "value": 250 },
-              { "id": "Eout", "label": "Useful output energy", "unit": "J", "min": 10, "max": 100, "step": 5, "value": 60 }
+              { "id": "Eout", "label": "Useful output energy", "unit": "J", "min": 10, "max": 90, "step": 5, "value": 60 }
             ],
             "outputs": [
               { "label": "Efficiency (decimal)", "formula": "Eout / Ein", "decimals": 2 },
@@ -98,7 +98,7 @@
         {
           "type": "list",
           "items": [
-            "Total input = useful output ÷ efficiency. A 55% efficient oven that transfers 42 000 J needs 42 000 ÷ 0.55 = 76 000 J.",
+            "Total input = useful output ÷ efficiency. An 80% efficient heater that transfers 40 000 J usefully needs 40 000 ÷ 0.8 = 50 000 J.",
             "Wasted energy = total input − useful output.",
             "If energy is given in MJ, the efficiency is the same without converting to joules."
           ]
@@ -199,7 +199,15 @@
           "Useful power output = 0.18 (W)"
         ],
         "tip": "One mark for the substitution, one for the rearrangement and one for the answer."
-      }
+      },
+      "extra": [
+        {
+          "heading": "Tier note",
+          "blocks": [
+            { "type": "paragraph", "text": "(Higher tier) Describing ways to increase the efficiency of an energy transfer is Higher tier content on this specification." }
+          ]
+        }
+      ]
     },
     "edexcel": {
       "spec_codes": ["EDEX 3.11", "EDEX 3.12", "EDEX 8.15"],
@@ -218,7 +226,7 @@
         },
         {
           "wrong": "42 000 / 0.55 = 764 J.",
-          "right": "Check the power of ten. 42 000 / 0.55 = 76 000 J. A power of ten error loses marks."
+          "right": "Check the power of ten. 42 000 / 0.55 = 76 364, which is 76 000 J. An answer of 764 J loses the evaluation mark."
         },
         {
           "wrong": "The efficiency is less than 1 because the engine destroys some of the energy.",
@@ -279,6 +287,8 @@
   "meta": {
     "status": "draft",
     "written_by": "sonnet-5-5",
+    "checked_by": "sonnet-science-check",
+    "checked_at": "2026-10-01",
     "written_at": "2026-10-01",
     "spec_point_ids": [
       "9f864548-6e12-42e3-a09b-126d9842d5f1",
