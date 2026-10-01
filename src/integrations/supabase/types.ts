@@ -619,7 +619,7 @@ export type Database = {
       mcq_sets: {
         Row: {
           created_at: string;
-          created_by: string;
+          created_by: string | null;
           description: string | null;
           due_at: string | null;
           id: string;
@@ -634,7 +634,7 @@ export type Database = {
         };
         Insert: {
           created_at?: string;
-          created_by: string;
+          created_by?: string | null;
           description?: string | null;
           due_at?: string | null;
           id?: string;
@@ -649,7 +649,7 @@ export type Database = {
         };
         Update: {
           created_at?: string;
-          created_by?: string;
+          created_by?: string | null;
           description?: string | null;
           due_at?: string | null;
           id?: string;
@@ -901,7 +901,7 @@ export type Database = {
         Row: {
           board: Database["public"]["Enums"]["board"] | null;
           created_at: string;
-          created_by: string;
+          created_by: string | null;
           description: string | null;
           due_at: string | null;
           duration_seconds: number | null;
@@ -926,7 +926,7 @@ export type Database = {
         Insert: {
           board?: Database["public"]["Enums"]["board"] | null;
           created_at?: string;
-          created_by: string;
+          created_by?: string | null;
           description?: string | null;
           due_at?: string | null;
           duration_seconds?: number | null;
@@ -951,7 +951,7 @@ export type Database = {
         Update: {
           board?: Database["public"]["Enums"]["board"] | null;
           created_at?: string;
-          created_by?: string;
+          created_by?: string | null;
           description?: string | null;
           due_at?: string | null;
           duration_seconds?: number | null;
@@ -1870,7 +1870,7 @@ export type Database = {
       ensure_generated_homework: {
         Args: {
           _board?: Database["public"]["Enums"]["board"];
-          _created_by: string;
+          _created_by?: string;
           _level: Database["public"]["Enums"]["level"];
           _questions: Json;
           _spec_point_id: string;
@@ -1880,7 +1880,7 @@ export type Database = {
         Returns: string;
       };
       ensure_generated_mcq_set: {
-        Args: { _created_by: string; _questions: Json; _spec_point_id: string };
+        Args: { _created_by?: string; _questions: Json; _spec_point_id: string };
         Returns: string;
       };
       expire_stale_chat_threads: { Args: never; Returns: number };

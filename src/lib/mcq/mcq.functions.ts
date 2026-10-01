@@ -51,6 +51,8 @@ async function findSharedSet(pointId: string, userId: string): Promise<string | 
   const id = await libraryRequest("rpc/ensure_generated_mcq_set", {
     _spec_point_id: pointId,
     _questions: null,
+    // Ignored since 20261001120000 (a library quiz has no owner); still sent so
+    // this code and that migration can go live in either order.
     _created_by: userId,
   });
   return typeof id === "string" ? id : null;
@@ -118,6 +120,7 @@ async function ensureSharedSets(
           correct_index: q.correct_index,
           explanation: q.explanation.trim(),
         })),
+        // Ignored since 20261001120000, as above.
         _created_by: userId,
       });
       if (typeof setId !== "string") throw new Error("The quiz could not be saved");
