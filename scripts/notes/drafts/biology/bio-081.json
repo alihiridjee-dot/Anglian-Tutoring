@@ -1,0 +1,250 @@
+{
+  "format": 1,
+  "concept_id": "bio-081",
+  "subject": "biology",
+  "title": "Hormone interactions in the menstrual cycle",
+  "key_idea": "(Higher tier) The four hormones act on each other. FSH stimulates oestrogen, high oestrogen stimulates LH, and LH causes ovulation. Oestrogen and progesterone then inhibit FSH and LH, so no more eggs mature.",
+  "sections": [
+    {
+      "heading": "How the hormones interact",
+      "blocks": [
+        { "type": "paragraph", "text": "(Higher tier) Each hormone either stimulates or inhibits another. The basic job of each hormone is in the previous note." },
+        {
+          "type": "definitions",
+          "items": [
+            { "term": "Stimulates", "meaning": "Makes another hormone or process increase." },
+            { "term": "Inhibits", "meaning": "Makes another hormone or process decrease." }
+          ]
+        },
+        {
+          "type": "table",
+          "columns": ["Hormone", "Stimulates", "Inhibits"],
+          "rows": [
+            ["FSH", "Egg maturing in a follicle; oestrogen from the ovaries", "No other hormone in this chain"],
+            ["Oestrogen", "Thickening of the uterus lining; LH", "FSH"],
+            ["LH", "Ovulation (release of the egg)", "No other hormone in this chain"],
+            ["Progesterone", "Maintenance of the uterus lining", "FSH and LH"]
+          ]
+        },
+        {
+          "type": "diagram",
+          "diagram": {
+            "kind": "sequence",
+            "alt": "Put the hormone interactions of the menstrual cycle in order.",
+            "prompt": "Put the hormone interactions in the correct order.",
+            "steps": [
+              "FSH from the pituitary makes an egg mature and stimulates oestrogen",
+              "Oestrogen thickens the lining of the uterus",
+              "High oestrogen inhibits FSH and stimulates LH",
+              "The LH surge causes ovulation",
+              "The empty follicle (corpus luteum) makes progesterone",
+              "Progesterone maintains the lining and inhibits FSH and LH",
+              "If there is no pregnancy, progesterone falls and the lining breaks down"
+            ]
+          }
+        },
+        {
+          "type": "key-points",
+          "items": [
+            "FSH stimulates oestrogen. High oestrogen stimulates LH.",
+            "LH causes ovulation.",
+            "Oestrogen inhibits FSH. Progesterone inhibits FSH and LH."
+          ]
+        }
+      ]
+    },
+    {
+      "heading": "Reading hormone graphs",
+      "blocks": [
+        { "type": "paragraph", "text": "(Higher tier) Graphs show each hormone level across the cycle. This graph shows the typical shapes, not exact values." },
+        {
+          "type": "diagram",
+          "diagram": {
+            "kind": "line-graph",
+            "alt": "Hormone levels over a 28 day cycle. FSH is moderate early on. Oestrogen rises to a peak, then LH surges sharply and ovulation follows. Progesterone rises after ovulation and falls at the end of the cycle.",
+            "x": { "label": "Day of the cycle", "min": 0, "max": 28, "ticks": [0, 7, 14, 21, 28], "unit": "days" },
+            "y": { "label": "Relative hormone level" },
+            "series": [
+              { "name": "FSH", "points": [[0, 0.4], [4, 0.45], [8, 0.35], [12, 0.3], [14, 0.4], [16, 0.15], [21, 0.1], [28, 0.2]] },
+              { "name": "LH", "points": [[0, 0.1], [10, 0.12], [12, 0.25], [14, 1], [16, 0.25], [21, 0.12], [28, 0.1]] },
+              { "name": "Oestrogen", "points": [[0, 0.1], [5, 0.2], [10, 0.55], [13, 0.9], [15, 0.35], [21, 0.55], [25, 0.3], [28, 0.12]] },
+              { "name": "Progesterone", "points": [[0, 0.05], [13, 0.05], [15, 0.15], [21, 0.8], [25, 0.4], [28, 0.08]] }
+            ],
+            "markers": [{ "x": 14, "label": "Ovulation" }]
+          }
+        },
+        {
+          "type": "list",
+          "items": [
+            "Before ovulation: FSH is present, and oestrogen rises to a peak.",
+            "High oestrogen is followed by the LH surge, then ovulation.",
+            "After ovulation: progesterone is high and FSH and LH are low, because progesterone inhibits them.",
+            "If there is no pregnancy, progesterone falls and the uterus lining breaks down."
+          ]
+        },
+        {
+          "type": "key-points",
+          "items": [
+            "The LH surge comes straight after the oestrogen peak.",
+            "Progesterone is high after ovulation and keeps FSH and LH low."
+          ]
+        }
+      ]
+    },
+    {
+      "heading": "If the woman becomes pregnant",
+      "blocks": [
+        { "type": "paragraph", "text": "(Higher tier) If an egg is fertilised, the lining of the uterus must be kept. The hormone levels stay different from a normal cycle." },
+        {
+          "type": "list",
+          "items": [
+            "Progesterone levels stay high to maintain the lining of the uterus.",
+            "Oestrogen levels stay high and also maintain the lining.",
+            "Progesterone inhibits FSH and LH, and oestrogen inhibits FSH, so they stay low.",
+            "No egg matures and no ovulation occurs."
+          ]
+        },
+        {
+          "type": "key-points",
+          "items": [
+            "In pregnancy, progesterone and oestrogen stay high.",
+            "FSH and LH stay low, so no more eggs are released."
+          ]
+        }
+      ]
+    }
+  ],
+  "checks": [
+    {
+      "q": "What effect does a high level of oestrogen have on FSH and on LH?",
+      "a": "It inhibits FSH and stimulates LH.",
+      "marks": 2
+    },
+    {
+      "q": "Explain why progesterone is high after ovulation and what it does to FSH and LH.",
+      "a": "The empty follicle (corpus luteum) produces progesterone after ovulation. It maintains the uterus lining and inhibits FSH and LH.",
+      "marks": 3
+    },
+    {
+      "q": "Explain how FSH, oestrogen and LH lead to ovulation.",
+      "a": "FSH makes an egg mature and stimulates oestrogen. High oestrogen stimulates LH, and the LH surge causes the egg to be released.",
+      "marks": 3
+    }
+  ],
+  "boards": {
+    "aqa": {
+      "spec_codes": ["AQA 5.12", "AQA T 4.5.3.3"],
+      "exam_phrases": [
+        "FSH stimulates maturation of egg / ovum / follicle",
+        "oestrogen inhibits FSH production and stimulates LH production",
+        "LH stimulates ovulation",
+        "progesterone inhibits FSH and LH production",
+        "oestrogen and progesterone maintain the uterus lining",
+        "FSH stimulates oestrogen from the ovaries",
+        "progesterone is secreted by the (empty) follicle / corpus luteum"
+      ],
+      "mistakes": [
+        {
+          "wrong": "Oestrogen stimulates FSH.",
+          "right": "Oestrogen inhibits FSH production and stimulates LH production."
+        },
+        {
+          "wrong": "Progesterone stimulates LH, which causes ovulation.",
+          "right": "Progesterone inhibits FSH and LH production. LH, stimulated by oestrogen, causes ovulation."
+        },
+        {
+          "wrong": "On day 14 LH is released, then on day 21 progesterone is released.",
+          "right": "Reference to days of the cycle is ignored. Say what each hormone does, in the correct order, and where it is produced."
+        }
+      ],
+      "worked_example": {
+        "exemplar_id": "cf7d1ce0-15e0-4fd2-8b1a-6c9dcb21889d",
+        "source": "AQA jun 2021, Paper 2 (H), Q06.4",
+        "question": "The endocrine system coordinates many internal functions of the body. Describe how hormones control the menstrual cycle.",
+        "marks": 5,
+        "answer_points": [
+          "FSH, released from the pituitary, stimulates maturation of an egg or follicle (1).",
+          "Oestrogen, released from the ovary, inhibits FSH production and stimulates LH production (1).",
+          "LH, released from the pituitary, stimulates ovulation, the release of the egg (1).",
+          "Progesterone, released from the ovary (corpus luteum), inhibits FSH and LH production (1).",
+          "Oestrogen and progesterone maintain the uterus lining (1)."
+        ],
+        "tip": "One mark per hormone. Say where it is released from and what it stimulates or inhibits."
+      }
+    },
+    "edexcel": {
+      "spec_codes": ["EDEX 7.5"],
+      "exam_phrases": [
+        "FSH causes the egg / follicle to mature",
+        "FSH stimulates oestrogen",
+        "high levels of oestrogen",
+        "LH surge causes the egg to be released",
+        "oestrogen inhibits FSH",
+        "progesterone inhibits FSH / LH",
+        "progesterone levels remain high to maintain the lining of the uterus"
+      ],
+      "mistakes": [
+        {
+          "wrong": "There are four hormones: oestrogen, progesterone, FSH and LH.",
+          "right": "Listing hormones scores only at Level 1. Link at least three hormones to their role and the gland that releases them, in a logical order."
+        },
+        {
+          "wrong": "LH controls ovulation and the uterus thickening.",
+          "right": "LH causes ovulation. Oestrogen, from the ovaries, causes the lining of the uterus to thicken."
+        }
+      ],
+      "worked_example": {
+        "exemplar_id": "32540e13-af55-45c6-b305-42b73e18af07",
+        "source": "EDEXCEL nov 2020, Paper 2 (H), Q9(c)",
+        "question": "Explain how hormones control the menstrual cycle.",
+        "marks": 6,
+        "answer_points": [
+          "FSH, released from the pituitary gland, causes the egg to develop in the follicle.",
+          "Oestrogen is released from the ovaries and its level rises. It causes the lining of the uterus to build up.",
+          "High levels of oestrogen cause a surge of LH, also released from the pituitary gland.",
+          "LH causes ovulation, the release of an egg from the ovary.",
+          "Progesterone is produced by the corpus luteum and maintains the lining of the uterus.",
+          "If an egg is fertilised, oestrogen and progesterone levels remain high to maintain the lining."
+        ],
+        "tip": "Link at least three hormones to their role and where they are released, in a logical order."
+      }
+    },
+    "ocr": {
+      "spec_codes": ["OCR 3.2d"],
+      "exam_phrases": [
+        "oestrogen, FSH and LH peak immediately before ovulation",
+        "oestrogen thickens / repairs (the lining of) the uterus",
+        "oestrogen inhibits FSH / LH",
+        "progesterone maintains the lining / stops the lining breaking down",
+        "progesterone inhibits the release of FSH / the development of a follicle"
+      ],
+      "mistakes": [
+        {
+          "wrong": "Progesterone thickens the lining of the uterus.",
+          "right": "\"Thickens the lining\" is ignored for progesterone. Say it maintains the lining, or stops it breaking down."
+        },
+        {
+          "wrong": "Progesterone has no effect on the other hormones.",
+          "right": "A higher-level answer says progesterone inhibits the release of FSH, so the development of a follicle in the ovary is inhibited and egg production slows."
+        }
+      ],
+      "worked_example": {
+        "exemplar_id": "7429d96c-91b2-4044-9c51-936000055bcc",
+        "source": "OCR jun 2019, Paper 3, Q19(a)(ii)",
+        "question": "Name two hormones that peak immediately before ovulation.",
+        "marks": 1,
+        "answer_points": [
+          "Any two from: oestrogen, FSH, LH."
+        ],
+        "tip": "This is one mark for two named hormones. Learn that all three of these peak just before ovulation."
+      }
+    }
+  },
+  "meta": {
+    "status": "draft",
+    "written_by": "sonnet-5-5",
+    "written_at": "2026-10-01",
+    "spec_point_ids": ["3acdfdb1-e62e-43f5-aff8-8156ece1f9b2", "e79c9102-51c9-448d-bf56-cf588bd58785"],
+    "exemplar_ids": ["cf7d1ce0-15e0-4fd2-8b1a-6c9dcb21889d", "32540e13-af55-45c6-b305-42b73e18af07", "7429d96c-91b2-4044-9c51-936000055bcc", "d074ae92-fbd2-4629-bca8-0682cf3b6d85", "407b6a94-65d9-43cb-882d-e420c884eaf7", "dbeec3b5-fedb-42ed-b541-bf205e919948", "af582fba-25ee-4799-8010-5cca624e6f79", "62cca1d6-61a8-4993-9ede-8844866ed451"]
+  }
+}

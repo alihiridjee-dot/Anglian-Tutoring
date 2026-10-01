@@ -1,0 +1,299 @@
+{
+  "format": 1,
+  "concept_id": "chem-040",
+  "subject": "chemistry",
+  "title": "Molar gas volume",
+  "key_idea": "Equal amounts in moles of any gas occupy the same volume at the same temperature and pressure. At room temperature and pressure, one mole of any gas occupies 24 dm³. Use this to link moles, mass and volume of gases.",
+  "sections": [
+    {
+      "heading": "The molar volume of a gas",
+      "blocks": [
+        { "type": "paragraph", "text": "(Higher tier, chemistry only) Gas volumes depend on temperature and pressure, so they are compared under the same conditions." },
+        {
+          "type": "definitions",
+          "items": [
+            { "term": "Molar volume", "meaning": "The volume occupied by one mole of molecules of any gas at room temperature and pressure." },
+            { "term": "Room temperature and pressure", "meaning": "20 °C and 1 atmosphere pressure." }
+          ]
+        },
+        {
+          "type": "list",
+          "items": [
+            "Equal amounts in moles of gases occupy the same volume under the same conditions of temperature and pressure.",
+            "The volume of one mole of any gas at room temperature and pressure is **24 dm³**.",
+            "24 dm³ is the same as 24 000 cm³."
+          ]
+        },
+        {
+          "type": "equation",
+          "label": "Volume of a gas",
+          "formula": "volume = moles × 24",
+          "where": ["volume is in dm³ (use 24 000 for cm³)", "moles is the amount of gas in mol"]
+        },
+        {
+          "type": "equation",
+          "label": "Moles of a gas",
+          "formula": "moles = volume ÷ 24",
+          "where": ["moles is the amount of gas in mol", "volume is in dm³ (divide cm³ by 1000)"]
+        },
+        {
+          "type": "key-points",
+          "items": [
+            "One mole of any gas occupies 24 dm³ at room temperature and pressure.",
+            "Volume (dm³) = moles × 24. Moles = volume (dm³) ÷ 24."
+          ]
+        }
+      ]
+    },
+    {
+      "heading": "Volume of a gas from its mass",
+      "blocks": [
+        { "type": "paragraph", "text": "Change the mass of a gas to moles using its Mr, then change moles to a volume." },
+        {
+          "type": "steps",
+          "items": [
+            { "lead": "Mr.", "text": "Work out the relative formula mass of the gas." },
+            { "lead": "Moles.", "text": "Moles = mass ÷ Mr." },
+            { "lead": "Volume.", "text": "Volume = moles × 24 dm³, or × 24 000 for cm³." }
+          ]
+        },
+        { "type": "paragraph", "text": "Example: the volume of 4.4 g of CO₂ at room temperature and pressure. Mr of CO₂ = 44. Moles = 4.4 ÷ 44 = 0.10 mol. Volume = 0.10 × 24 = 2.4 dm³ (2400 cm³)." },
+        {
+          "type": "diagram",
+          "diagram": {
+            "kind": "practice",
+            "alt": "Practise calculating the volume of methane from its mass at room temperature and pressure.",
+            "question": "Calculate the volume of **{m}** g of methane, CH₄, at room temperature and pressure. Mr of CH₄ = 16. One mole of any gas occupies 24 dm³.",
+            "variables": [
+              { "id": "m", "min": 4, "max": 40, "step": 4 }
+            ],
+            "answer": { "formula": "m / 16 * 24", "unit": "dm³", "decimals": 1 },
+            "working": [
+              "Moles = mass ÷ Mr = {m} ÷ 16.",
+              "Volume = moles × 24 = **{answer}** dm³."
+            ]
+          }
+        },
+        {
+          "type": "key-points",
+          "items": [
+            "Mass → moles (÷ Mr) → volume (× 24).",
+            "Check the unit asked for. Multiply dm³ by 1000 to give cm³."
+          ]
+        }
+      ]
+    },
+    {
+      "heading": "Gas volumes in reactions",
+      "blocks": [
+        { "type": "paragraph", "text": "(Higher tier, chemistry only) The balanced equation gives the ratio of moles. For gases at the same temperature and pressure, it also gives the ratio of volumes." },
+        {
+          "type": "list",
+          "items": [
+            "In 2H₂(g) + O₂(g) → 2H₂O(g), 20 cm³ of hydrogen reacts with 10 cm³ of oxygen.",
+            "Use the ratio directly when every volume is a gas at the same temperature and pressure.",
+            "If one substance is a solid or a liquid, go through moles: mass → moles → ratio → volume."
+          ]
+        },
+        { "type": "subheading", "text": "From a mass of solid to a volume of gas" },
+        {
+          "type": "steps",
+          "items": [
+            { "lead": "Moles.", "text": "Moles of the substance you know = mass ÷ Mr." },
+            { "lead": "Ratio.", "text": "Use the equation to find the moles of the gas." },
+            { "lead": "Volume.", "text": "Volume = moles of gas × 24 dm³." }
+          ]
+        },
+        { "type": "paragraph", "text": "Example: 6.5 g of zinc (Ar = 65) in Zn + H₂SO₄ → ZnSO₄ + H₂. Moles of Zn = 0.10 mol, so moles of H₂ = 0.10 mol. Volume = 0.10 × 24 = 2.4 dm³." },
+        {
+          "type": "diagram",
+          "diagram": {
+            "kind": "practice",
+            "alt": "Practise calculating the volume of carbon dioxide made by heating calcium carbonate.",
+            "question": "CaCO₃ → CaO + CO₂. **{m}** g of calcium carbonate (Mr = 100) is heated until it all decomposes. Calculate the volume of carbon dioxide made at room temperature and pressure, in dm³.",
+            "variables": [
+              { "id": "m", "min": 5, "max": 50, "step": 5 }
+            ],
+            "answer": { "formula": "m / 100 * 24", "unit": "dm³", "decimals": 1 },
+            "working": [
+              "Moles of CaCO₃ = {m} ÷ 100.",
+              "1 mol of CaCO₃ makes 1 mol of CO₂, so the moles of CO₂ are the same.",
+              "Volume = moles × 24 = **{answer}** dm³."
+            ]
+          }
+        },
+        { "type": "subheading", "text": "From a volume of gas to a mass" },
+        {
+          "type": "list",
+          "items": [
+            "Moles of gas = volume (dm³) ÷ 24.",
+            "Use the equation ratio to find the moles of the other substance.",
+            "Mass = moles × Mr."
+          ]
+        },
+        {
+          "type": "key-points",
+          "items": [
+            "Gases at the same temperature and pressure react in the ratio of the numbers in the equation.",
+            "For a solid or liquid, go through moles: mass → moles → ratio → volume."
+          ]
+        }
+      ]
+    }
+  ],
+  "checks": [
+    {
+      "q": "What is the volume of 0.50 mol of oxygen gas at room temperature and pressure?",
+      "a": "0.50 × 24 = 12 dm³.",
+      "marks": 1
+    },
+    {
+      "q": "Calculate the volume, in cm³, of 1.6 g of oxygen gas, O₂, at room temperature and pressure. Mr of O₂ = 32.",
+      "a": "Moles = 1.6 ÷ 32 = 0.050 mol. Volume = 0.050 × 24 000 = 1200 cm³.",
+      "marks": 3
+    },
+    {
+      "q": "2H₂ + O₂ → 2H₂O. What volume of oxygen reacts with 60 cm³ of hydrogen, with all gas volumes at the same temperature and pressure?",
+      "a": "The ratio H₂ : O₂ is 2 : 1, so 60 ÷ 2 = 30 cm³ of oxygen.",
+      "marks": 2
+    }
+  ],
+  "boards": {
+    "aqa": {
+      "spec_codes": ["AQA 4.3.5"],
+      "exam_phrases": [
+        "(conversion 24 dm3 =) 24 000 cm3",
+        "(Mr = (3 × 12) + (6 × 1) =) 42",
+        "(moles =) 2.1 / 42 = 0.05",
+        "(volume =) 24 000 × 0.05",
+        "(moles Cl2 = 1250 × 2 =) 2500",
+        "(volume Cl2 =) 2500 × 24",
+        "ratio of O2:CO2 = 5:3"
+      ],
+      "mistakes": [
+        {
+          "wrong": "Volume of 2.1 g of C₃H₆ = 0.05 × 24 = 1.2 cm³.",
+          "right": "0.05 × 24 gives dm³. Convert to cm³ by using 24 000 cm³ per mole: 0.05 × 24 000 = 1200 cm³. Use of no conversion loses the final mark."
+        },
+        {
+          "wrong": "Moles of chlorine = moles of TiO₂ = 1250.",
+          "right": "Use the ratio in the equation. TiO₂ + 2Cl₂ means moles of Cl₂ = 1250 × 2 = 2500."
+        },
+        {
+          "wrong": "Moles of TiO₂ = 100 ÷ 80, using 100 kg as the mass.",
+          "right": "Convert kg to g first: 100 kg = 100 000 g. Moles = 100 000 ÷ 80 = 1250."
+        }
+      ],
+      "worked_example": {
+        "exemplar_id": "a0305ce2-2dab-4d3a-b69d-d01636abe699",
+        "source": "AQA jun 2025, Paper 2 (H), Q05.7",
+        "question": "C₃H₆ is a gas at room temperature and pressure. The volume of one mole of any gas at room temperature and pressure is 24 dm³. Relative atomic masses (Ar): H = 1, C = 12.\n\nCalculate the volume of 2.1 g of C₃H₆ at room temperature and pressure. Give your answer in cm³.",
+        "marks": 5,
+        "answer_points": [
+          "Conversion: 24 dm³ = 24 000 cm³.",
+          "Mr of C₃H₆ = (3 × 12) + (6 × 1) = 42.",
+          "Moles = 2.1 ÷ 42 = 0.05 mol.",
+          "Volume = 24 000 × 0.05.",
+          "= 1200 cm³."
+        ],
+        "tip": "One mark each. The conversion from dm³ to cm³ can be done at any point in the method."
+      }
+    },
+    "edexcel": {
+      "spec_codes": ["EDEX 5.16C", "EDEX 5.17C", "EDEX 5.18C"],
+      "exam_phrases": [
+        "moles NO = 1000/30",
+        "moles O2 = moles NO /2",
+        "volume O2 = moles x 24",
+        "volume air = volume O2 x 100/20",
+        "no moles H2: 1800/24 = 75",
+        "no moles CO2: 75/4 = 18.75",
+        "mass of CO2: 18.75 x 44 g = 825 (g)"
+      ],
+      "mistakes": [
+        {
+          "wrong": "Air contains 20% oxygen, so the volume of air = 400 × 20 ÷ 100 = 80 dm³.",
+          "right": "The oxygen is only 20% of the air, so the air is larger: 400 × 100 ÷ 20 = 2000 dm³."
+        },
+        {
+          "wrong": "Mass of CO₂ from 75 mol of H₂ = 75 × 44 = 3300 g.",
+          "right": "Use the ratio. CH₄ + 2H₂O → 4H₂ + CO₂ gives 4 H₂ for each CO₂, so moles of CO₂ = 75 ÷ 4 = 18.75, and the mass is 18.75 × 44 = 825 g."
+        },
+        {
+          "wrong": "Moles of CO₂ = 75 × 4 = 300 mol, giving 13 200 g.",
+          "right": "The ratio is the wrong way round. There are fewer moles of CO₂ than of H₂, so divide by 4."
+        }
+      ],
+      "worked_example": {
+        "exemplar_id": "737153dd-ee57-4948-b6d7-92b218272ffb",
+        "source": "EDEXCEL jun 2019, Paper 1 (H), Q10(b)",
+        "question": "In one stage of the production of nitric acid, nitrogen oxide, NO, is reacted with oxygen to make nitrogen dioxide, NO₂.\n\n2NO + O₂ → 2NO₂\n\nCalculate the minimum volume of air, measured at room temperature and pressure, required to react with 1000 g nitrogen oxide to form nitrogen dioxide.\n\nAssume that the air contains 20% oxygen by volume.\n(relative atomic masses: N = 14, O = 16\n1 mol of gas occupies 24 dm³ at room temperature and pressure)",
+        "marks": 4,
+        "answer_points": [
+          "Moles of NO = 1000 ÷ 30 = 33.3 mol.",
+          "Moles of O₂ = moles of NO ÷ 2 = 16.67 mol.",
+          "Volume of O₂ = 16.67 × 24 = 400 dm³.",
+          "Volume of air = 400 × 100 ÷ 20 = 2000 dm³."
+        ],
+        "tip": "A correct answer of 2000 dm³ scores all four marks. Stopping at 400 dm³ of oxygen loses the last mark."
+      }
+    },
+    "ocr": {
+      "spec_codes": ["OCR C5.1d", "OCR C5.1e"],
+      "exam_phrases": [
+        "moles of CO2 = 187 / 44.0 = 4.25",
+        "moles of CO = moles of CO2",
+        "volume of CO = moles x 24",
+        "Mr of H2 = 2.0",
+        "moles of H2 = 0.008 / 2 = 0.004",
+        "volume of H2 = 0.004 x 24 / 0.096 dm³",
+        "volume = mol x 24 / 0.05 x 24 = 1.2 (dm³)"
+      ],
+      "mistakes": [
+        {
+          "wrong": "Moles of H₂ = 0.008 ÷ 1.0 = 0.008.",
+          "right": "Hydrogen gas is H₂, so Mr = 2.0. Moles = 0.008 ÷ 2 = 0.004."
+        },
+        {
+          "wrong": "Volume of H₂ = 0.004 × 24 = 0.096 cm³.",
+          "right": "0.004 × 24 gives 0.096 dm³. The question asks for cm³, so multiply by 1000 to give 96 cm³."
+        },
+        {
+          "wrong": "Moles of CO = 4.25 ÷ 2, because the equation has 2CO + 2NO.",
+          "right": "The ratio 2CO : 2CO₂ is 1 : 1, so moles of CO = moles of CO₂ = 4.25."
+        }
+      ],
+      "worked_example": {
+        "exemplar_id": "98b71828-ccf9-48c2-83cf-42866f2597fc",
+        "source": "OCR jun 2022, Paper 4, Q18(g)(ii)",
+        "question": "The equation shows the reaction that takes place in a catalytic converter.\n2CO + 2NO → N₂ + 2CO₂\n\nDuring a car journey, 187 g of carbon dioxide is made by the catalytic converter.\n\nCalculate the volume of carbon monoxide, in dm³, removed from the exhaust gases.\n\nRelative atomic mass (Ar): C = 12.0   O = 16.0\nOne mole of any gas occupies 24 dm³ at room temperature and pressure.",
+        "marks": 4,
+        "answer_points": [
+          "Moles of CO₂ = 187 ÷ 44.0 = 4.25 mol.",
+          "Moles of CO = moles of CO₂ = 4.25 mol (a 1 : 1 ratio).",
+          "Volume of CO = 4.25 × 24.",
+          "= 102 dm³."
+        ],
+        "tip": "An answer of 102 dm³ scores all four marks. Find moles from the mass, use the ratio, then multiply by 24."
+      }
+    }
+  },
+  "meta": {
+    "status": "draft",
+    "written_by": "sonnet-5-5",
+    "written_at": "2026-10-01",
+    "spec_point_ids": [
+      "39761e3f-462b-4016-afd8-90792e6a11a7",
+      "27c0f24b-b0c5-4b32-bd0a-dfa8e63bf48d",
+      "d8fb0831-dfda-40df-a1d8-3ad19923caa9",
+      "f22b0093-d724-40a9-b3a6-dc579c433587",
+      "d8fed1e7-b648-49c6-ab82-762347548710",
+      "befcad6c-e40d-43f3-86e5-a35500eb8cbb"
+    ],
+    "exemplar_ids": [
+      "a0305ce2-2dab-4d3a-b69d-d01636abe699",
+      "737153dd-ee57-4948-b6d7-92b218272ffb",
+      "98b71828-ccf9-48c2-83cf-42866f2597fc"
+    ]
+  }
+}

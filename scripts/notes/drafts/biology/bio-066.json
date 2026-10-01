@@ -1,0 +1,417 @@
+{
+  "format": 1,
+  "concept_id": "bio-066",
+  "subject": "biology",
+  "title": "The nervous system",
+  "key_idea": "The **nervous system** lets the body detect a stimulus and respond quickly. Receptors send **electrical impulses** along neurones to the central nervous system. It coordinates the response and sends impulses to effectors. Neurones are joined by **synapses**, where a chemical carries the signal.",
+  "sections": [
+    {
+      "heading": "Parts of the nervous system",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "The nervous system lets humans react to their surroundings and coordinate their behaviour. This section covers the main parts and the order they work in."
+        },
+        {
+          "type": "definitions",
+          "items": [
+            {
+              "term": "Stimulus",
+              "meaning": "A change in the surroundings that is detected."
+            },
+            {
+              "term": "Receptor",
+              "meaning": "A cell that detects a stimulus. Receptors are found in sense organs."
+            },
+            {
+              "term": "Central nervous system (CNS)",
+              "meaning": "The brain and the spinal cord. It coordinates the response."
+            },
+            {
+              "term": "Effector",
+              "meaning": "A muscle or a gland that carries out the response."
+            },
+            {
+              "term": "Neurone",
+              "meaning": "A nerve cell that carries information as electrical impulses."
+            }
+          ]
+        },
+        {
+          "type": "list",
+          "items": [
+            "Light is detected by receptors in the **eye**.",
+            "Chemicals (taste) are detected by receptors in the **tongue**.",
+            "Sound is detected by receptors in the **ear**.",
+            "Muscles respond by contracting. Glands respond by secreting hormones."
+          ]
+        },
+        {
+          "type": "diagram",
+          "diagram": {
+            "kind": "flow",
+            "alt": "A flow diagram of the nervous pathway: stimulus, receptor, sensory neurone, central nervous system, motor neurone, effector, response.",
+            "steps": [
+              "Stimulus",
+              "Receptor",
+              "Sensory neurone",
+              "CNS (coordinator)",
+              "Motor neurone",
+              "Effector",
+              "Response"
+            ]
+          }
+        },
+        {
+          "type": "key-points",
+          "items": [
+            "Information passes from receptor to CNS to effector.",
+            "The CNS is the brain and spinal cord.",
+            "Information travels along neurones as electrical impulses."
+          ]
+        }
+      ]
+    },
+    {
+      "heading": "Neurones",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "Three types of neurone carry impulses through the pathway. Each has a different job."
+        },
+        {
+          "type": "table",
+          "columns": [
+            "Neurone",
+            "Carries impulses",
+            "Job"
+          ],
+          "rows": [
+            [
+              "**Sensory neurone**",
+              "From a receptor to the CNS",
+              "Takes information about a stimulus into the CNS."
+            ],
+            [
+              "**Relay neurone**",
+              "Inside the CNS (brain or spinal cord)",
+              "Connects a sensory neurone to a motor neurone."
+            ],
+            [
+              "**Motor neurone**",
+              "From the CNS to an effector",
+              "Tells a muscle to contract or a gland to secrete."
+            ]
+          ]
+        },
+        {
+          "type": "subheading",
+          "text": "How a motor neurone is adapted"
+        },
+        {
+          "type": "list",
+          "items": [
+            "It is **long**, so it carries impulses a long way from the CNS to a muscle.",
+            "It has **branches**, so it can reach several muscle cells.",
+            "It has an insulating fatty sheath (the **myelin sheath**), so impulses travel faster.",
+            "It has many mitochondria, which release energy by respiration for the impulse to travel.",
+            "It is narrow, so many neurones fit in a small space."
+          ]
+        },
+        {
+          "type": "equation",
+          "label": "Speed of an impulse",
+          "formula": "speed = distance ÷ time",
+          "where": [
+            "speed, in metres per second (m/s)",
+            "distance, in metres (m)",
+            "time, in seconds (s)"
+          ]
+        },
+        {
+          "type": "diagram",
+          "diagram": {
+            "kind": "practice",
+            "alt": "A practice question: calculate how long an impulse takes to travel along a neurone, in milliseconds.",
+            "question": "A nerve impulse travels at {v} m/s along a neurone that is {d} m long. Calculate the time taken, in milliseconds.",
+            "variables": [
+              {
+                "id": "v",
+                "min": 50,
+                "max": 100,
+                "step": 50
+              },
+              {
+                "id": "d",
+                "min": 0.5,
+                "max": 1.5,
+                "step": 0.1
+              }
+            ],
+            "answer": {
+              "formula": "d / v * 1000",
+              "unit": "ms",
+              "decimals": 1
+            },
+            "working": [
+              "Rearrange the equation: time = distance ÷ speed.",
+              "time = {d} ÷ {v} seconds.",
+              "Multiply by 1000 to change seconds to milliseconds. The answer is {answer} ms."
+            ]
+          }
+        },
+        {
+          "type": "key-points",
+          "items": [
+            "Sensory, relay, motor: receptor to CNS, inside the CNS, CNS to effector.",
+            "A motor neurone is long and often has an insulating sheath.",
+            "Impulses are fast: tens of metres per second."
+          ]
+        }
+      ]
+    },
+    {
+      "heading": "Synapses and chemical messengers",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "Neurones do not touch. A small gap called a synapse separates them. An electrical impulse cannot cross it, so a chemical carries the message."
+        },
+        {
+          "type": "steps",
+          "items": [
+            {
+              "lead": "Impulse arrives.",
+              "text": "An electrical impulse reaches the end of the first neurone."
+            },
+            {
+              "lead": "Chemical released.",
+              "text": "The impulse causes the release of a chemical, a **neurotransmitter**."
+            },
+            {
+              "lead": "Diffusion.",
+              "text": "The neurotransmitter diffuses across the gap."
+            },
+            {
+              "lead": "New impulse.",
+              "text": "It binds to receptors on the next neurone and triggers an electrical impulse there."
+            }
+          ]
+        },
+        {
+          "type": "list",
+          "items": [
+            "In a neurone, information is carried as an **electrical impulse**.",
+            "Across a synapse, information is carried as a **chemical** that diffuses.",
+            "A drug that stops neurotransmitters binding to receptors stops the impulse in the next neurone. Some painkillers work this way, so the pain is not felt."
+          ]
+        },
+        {
+          "type": "subheading",
+          "text": "Nervous and hormonal control"
+        },
+        {
+          "type": "list",
+          "items": [
+            "The nervous system uses electrical impulses along neurones. The response is fast and short-lived.",
+            "The endocrine (hormonal) system uses hormones carried in the blood. The response is slower and lasts longer."
+          ]
+        },
+        {
+          "type": "key-points",
+          "items": [
+            "A synapse is a gap between two neurones.",
+            "Electrical impulse, then chemical across the gap, then electrical impulse.",
+            "Nerves are faster than hormones."
+          ]
+        }
+      ]
+    }
+  ],
+  "checks": [
+    {
+      "q": "Name the two parts of the central nervous system.",
+      "a": "The brain and the spinal cord.",
+      "marks": 2
+    },
+    {
+      "q": "Describe how information is passed across a synapse.",
+      "a": "The impulse causes the release of a neurotransmitter. It diffuses across the gap and triggers an electrical impulse in the next neurone.",
+      "marks": 3
+    },
+    {
+      "q": "A nerve impulse travels at 100 m/s along a neurone 1.2 m long. Calculate the time taken in milliseconds.",
+      "a": "time = 1.2 ÷ 100 = 0.012 s, which is 12 ms.",
+      "marks": 2
+    }
+  ],
+  "boards": {
+    "aqa": {
+      "spec_codes": [
+        "AQA 5.2",
+        "AQA T 4.5.2"
+      ],
+      "exam_phrases": [
+        "as an electrical impulse",
+        "(across the synapse) as diffusion / movement of a chemical / neurotransmitter",
+        "receptor detects the stimulus",
+        "sensory, relay and motor neurones",
+        "chemical crosses synapses between neurones",
+        "long, to carry the impulse from the CNS / coordinator to the muscle(s) / effector",
+        "insulation or fatty sheath, so the impulse travels faster"
+      ],
+      "mistakes": [
+        {
+          "wrong": "Information is passed along the neurone as a message.",
+          "right": "Messages and information are ignored. Say that an electrical impulse (or electrical signal) travels along the neurone."
+        },
+        {
+          "wrong": "Mitochondria in a motor neurone make energy for the impulse.",
+          "right": "Energy produced, made or created is not accepted. Say that mitochondria respire, or release energy, to allow the impulse to travel."
+        },
+        {
+          "wrong": "A motor neurone is long to carry messages.",
+          "right": "Carrying messages unqualified is ignored. Say it carries the impulse from the CNS to a muscle or effector."
+        }
+      ],
+      "worked_example": {
+        "exemplar_id": "5d8d123f-4509-45a8-8134-eba903d1ade3",
+        "source": "AQA jun 2024, Paper 2 (F), Q03.8",
+        "question": "Motor neurones are involved in reactions.\n\nExplain one way the motor neurone cell is adapted for its function.",
+        "marks": 3,
+        "answer_points": [
+          "It is long.",
+          "To carry the impulse (signal).",
+          "From the CNS (brain or spinal cord) to a muscle or effector."
+        ],
+        "tip": "Each approach is worth three linked marks: the feature, what it does, and why it helps. Other features that score are branches, many mitochondria, an insulating sheath and being narrow."
+      }
+    },
+    "edexcel": {
+      "spec_codes": [
+        "EDEX 2.13"
+      ],
+      "exam_phrases": [
+        "transmit electrical impulses from receptors to the CNS",
+        "the synapse is a gap between neurones",
+        "(electrical) impulse stimulates the release of a chemical / neurotransmitter",
+        "(neurotransmitter) diffuses across the synapse",
+        "stimulates an (electrical) impulse in the next neurone",
+        "myelination speeds up impulses and insulates the axon",
+        "neurotransmitters bind to receptors on the next neurone"
+      ],
+      "mistakes": [
+        {
+          "wrong": "Sensory neurones detect stimuli.",
+          "right": "Detect stimuli is ignored. Say that sensory neurones transmit electrical impulses from receptors (sense organs) to the CNS."
+        },
+        {
+          "wrong": "The impulse jumps across the synapse to the next neurone.",
+          "right": "Describe the chain: the impulse triggers release of a neurotransmitter, which diffuses across the synapse and triggers a new impulse in the next neurone."
+        },
+        {
+          "wrong": "Motor neurones are myelinated so they can carry impulses.",
+          "right": "Myelination speeds up impulses by insulating the axon. Motor neurones carry information from the CNS to effectors over a greater distance, so speed matters."
+        }
+      ],
+      "worked_example": {
+        "exemplar_id": "7a3f0f7a-c049-4815-bd7e-8d43f71f7b28",
+        "source": "EDEXCEL jun 2019, Paper 1 (H), Q10(c)",
+        "question": "Explain how impulses are transmitted at synapses.",
+        "marks": 4,
+        "answer_points": [
+          "A synapse is a gap between neurones.",
+          "The (electrical) impulse stimulates the release of a chemical.",
+          "The chemical is a neurotransmitter, which diffuses across the gap (synapse).",
+          "It stimulates an (electrical) impulse in the next neurone."
+        ],
+        "tip": "Five points are available and the question is worth four marks. Name the neurotransmitter step and say that it diffuses."
+      },
+      "extra": [
+        {
+          "heading": "Parts of a neurone",
+          "blocks": [
+            {
+              "type": "definitions",
+              "items": [
+                {
+                  "term": "Dendron",
+                  "meaning": "A fibre that carries impulses towards the cell body of a neurone."
+                },
+                {
+                  "term": "Axon",
+                  "meaning": "A long fibre that carries impulses away from the cell body."
+                },
+                {
+                  "term": "Myelin sheath",
+                  "meaning": "A fatty layer around an axon that insulates it and speeds up impulses."
+                }
+              ]
+            },
+            {
+              "type": "paragraph",
+              "text": "Most neurones in the brain are unmyelinated. They connect to other neurones nearby. Motor neurones are myelinated because they send impulses further, from the CNS to effectors."
+            }
+          ]
+        }
+      ]
+    },
+    "ocr": {
+      "spec_codes": [
+        "OCR 3.1a",
+        "OCR 3.1b"
+      ],
+      "exam_phrases": [
+        "diffuses across the gap / synapse",
+        "triggers a nerve impulse / electrical signal in the next neurone",
+        "sensory receptors detect the stimulus and generate a nerve impulse",
+        "endocrine system uses chemical messengers / hormones but the nervous system uses electrical messages / nerve impulses",
+        "endocrine is slower acting",
+        "endocrine responses are longer-lived",
+        "endocrine communicates via the blood but the nervous system uses neurones"
+      ],
+      "mistakes": [
+        {
+          "wrong": "The neurotransmitter sends a signal across the synapse.",
+          "right": "Signal or message instead of impulse is ignored. Say the neurotransmitter diffuses across the gap and triggers a nerve impulse in the next neurone."
+        },
+        {
+          "wrong": "Hormones work faster than nerves.",
+          "right": "The endocrine system is slower acting and its responses last longer. The nervous system is faster and shorter-lived."
+        },
+        {
+          "wrong": "Blocked sensory receptors mean the fly is carrying out a reflex action.",
+          "right": "Reflex action is ignored when the question asks about receptors. Say receptors cannot detect the stimulus or generate a nerve impulse."
+        }
+      ],
+      "worked_example": {
+        "exemplar_id": "18d8c02f-68c6-401b-945f-0e1d96d0d07d",
+        "source": "OCR jun 2023, Paper 3, Q23(b)",
+        "question": "Hormones are part of the endocrine system.\n\nDescribe two differences between the endocrine system and the nervous system.",
+        "marks": 2,
+        "answer_points": [
+          "The endocrine system uses hormones (chemical messengers) but the nervous system uses nerve impulses (electrical messages).",
+          "The endocrine system is slower acting. Its responses are longer-lived. It communicates via the blood but the nervous system uses neurones."
+        ],
+        "tip": "Any two differences from the list score. The slower-acting and longer-lived points can be given the other way round for the nervous system."
+      }
+    }
+  },
+  "meta": {
+    "status": "draft",
+    "written_by": "sonnet-5-5",
+    "written_at": "2026-10-01",
+    "spec_point_ids": [
+      "ebd97964-4df8-466c-a643-33797fb23ce6",
+      "e3c47ee5-13ee-4efd-af2b-5e3ef87cc7d8",
+      "aa916ef6-f3af-40f6-a287-bb1c8eba668f",
+      "21effacc-c360-4170-b045-3eb75ff6dee3",
+      "d1d58c20-6ce8-4a6a-befc-81e9556e49f3"
+    ],
+    "exemplar_ids": [
+      "5d8d123f-4509-45a8-8134-eba903d1ade3",
+      "7a3f0f7a-c049-4815-bd7e-8d43f71f7b28",
+      "18d8c02f-68c6-401b-945f-0e1d96d0d07d"
+    ]
+  }
+}

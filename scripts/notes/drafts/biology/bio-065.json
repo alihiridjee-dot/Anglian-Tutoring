@@ -8,12 +8,21 @@
     {
       "heading": "Why a constant internal environment matters",
       "blocks": [
-        { "type": "paragraph", "text": "Conditions inside and outside the body keep changing. This section covers what homeostasis is, what it controls and why it matters." },
+        {
+          "type": "paragraph",
+          "text": "Conditions inside and outside the body keep changing. This section covers what homeostasis is, what it controls and why it matters."
+        },
         {
           "type": "definitions",
           "items": [
-            { "term": "Homeostasis", "meaning": "The regulation of the internal conditions of a cell or organism to maintain optimum conditions for function, in response to internal and external changes." },
-            { "term": "Optimum", "meaning": "The condition at which cells and enzymes work best." }
+            {
+              "term": "Homeostasis",
+              "meaning": "The regulation of the internal conditions of a cell or organism to maintain optimum conditions for function, in response to internal and external changes."
+            },
+            {
+              "term": "Optimum",
+              "meaning": "The condition at which cells and enzymes work best."
+            }
           ]
         },
         {
@@ -25,7 +34,10 @@
             "It is automatic. You do not have to think about it."
           ]
         },
-        { "type": "subheading", "text": "Conditions the body controls" },
+        {
+          "type": "subheading",
+          "text": "Conditions the body controls"
+        },
         {
           "type": "list",
           "items": [
@@ -35,7 +47,10 @@
             "Other conditions that are also controlled include pH, ions (salts), carbon dioxide and oxygen."
           ]
         },
-        { "type": "paragraph", "text": "Water balance matters because water moves in and out of animal cells by osmosis. Too much or too little water in the blood changes the cells, so water levels are controlled too." },
+        {
+          "type": "paragraph",
+          "text": "Water balance matters because water moves in and out of animal cells by osmosis. Too much or too little water in the blood changes the cells, so water levels are controlled too."
+        },
         {
           "type": "key-points",
           "items": [
@@ -49,14 +64,29 @@
     {
       "heading": "How control systems work",
       "blocks": [
-        { "type": "paragraph", "text": "Every automatic control system uses the same three parts. They pass information in a fixed order." },
+        {
+          "type": "paragraph",
+          "text": "Every automatic control system uses the same three parts. They pass information in a fixed order."
+        },
         {
           "type": "definitions",
           "items": [
-            { "term": "Stimulus", "meaning": "A change in the environment that is detected." },
-            { "term": "Receptor", "meaning": "A cell that detects a stimulus." },
-            { "term": "Coordination centre", "meaning": "Receives and processes information from receptors. Examples are the brain, the spinal cord and the pancreas." },
-            { "term": "Effector", "meaning": "A muscle or a gland that brings about the response." }
+            {
+              "term": "Stimulus",
+              "meaning": "A change in the environment that is detected."
+            },
+            {
+              "term": "Receptor",
+              "meaning": "A cell that detects a stimulus."
+            },
+            {
+              "term": "Coordination centre",
+              "meaning": "Receives and processes information from receptors. Examples are the brain, the spinal cord and the pancreas."
+            },
+            {
+              "term": "Effector",
+              "meaning": "A muscle or a gland that brings about the response."
+            }
           ]
         },
         {
@@ -96,7 +126,10 @@
     {
       "heading": "Controlling body temperature",
       "blocks": [
-        { "type": "paragraph", "text": "Temperature is the standard example of a control system. If the body is too hot, it loses heat. If it is too cold, it makes heat." },
+        {
+          "type": "paragraph",
+          "text": "Temperature is the standard example of a control system. If the body is too hot, it loses heat. If it is too cold, it makes heat."
+        },
         {
           "type": "list",
           "items": [
@@ -107,7 +140,10 @@
             "When the body is cold, muscles can contract rapidly in shivering to release heat."
           ]
         },
-        { "type": "paragraph", "text": "Temperature affects the reactions in cells. A warmer body means faster reactions, more respiration and more oxygen used. Too high a temperature denatures enzymes." },
+        {
+          "type": "paragraph",
+          "text": "Temperature affects the reactions in cells. A warmer body means faster reactions, more respiration and more oxygen used. Too high a temperature denatures enzymes."
+        },
         {
           "type": "key-points",
           "items": [
@@ -138,7 +174,10 @@
   ],
   "boards": {
     "aqa": {
-      "spec_codes": ["AQA 5.1", "AQA T 4.5.1"],
+      "spec_codes": [
+        "AQA 5.1",
+        "AQA T 4.5.1"
+      ],
       "exam_phrases": [
         "regulation / control / maintenance of internal conditions",
         "for optimum conditions for cell(s) / enzyme(s) (activity)",
@@ -176,7 +215,10 @@
       }
     },
     "edexcel": {
-      "spec_codes": ["EDEX 7.9", "EDEX 7.10B"],
+      "spec_codes": [
+        "EDEX 7.9",
+        "EDEX 7.10B"
+      ],
       "exam_phrases": [
         "(internal) temperature is kept at the optimum / 37 °C",
         "for enzyme action / (chemical) reactions to take place",
@@ -214,7 +256,9 @@
       }
     },
     "ocr": {
-      "spec_codes": ["OCR 3.3a"],
+      "spec_codes": [
+        "OCR 3.3a"
+      ],
       "exam_phrases": [
         "negative feedback process",
         "(receptors) detect variable",
