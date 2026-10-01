@@ -16,10 +16,12 @@ const session = {
   join_url: "https://zoom.us/j/1",
 };
 const textOf = (link: string) => decodeURIComponent(new URL(link).searchParams.get("text")!);
-// ICU words the joint differently by runtime ("Thu 8 Oct, 16:00" or "… at 16:00"),
-// so check the parts that matter: the day, the UK hour and the label.
+// ICU words the date and the joint differently by runtime ("Thu 8 Oct, 16:00",
+// "Thu, 8 Oct, 16:00" or "… at 16:00"), so check the parts that matter: the
+// day, the UK hour and the label.
 const saysUkTime = (text: string, day: string, hour: string) => {
-  expect(text).toContain(day);
+  const [weekday, ...date] = day.split(" ");
+  expect(text).toMatch(new RegExp(`${weekday},? ${date.join(" ")}`));
   expect(text).toContain(`${hour} (UK time)`);
 };
 
