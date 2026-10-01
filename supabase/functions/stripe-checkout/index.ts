@@ -153,8 +153,71 @@ type Payload =
   | InvoicesPayload;
 
 const VALID_SUBJECTS = ["biology", "chemistry", "physics"];
-const VALID_BOARDS = ["edexcel", "aqa", "ocr"];
 const MAX_SUBJECTS = 3;
+
+/** What families read when something fails that isn't theirs to fix. */
+const GENERIC_ERROR =
+  "Something went wrong on our side. Please try again, or contact us if it keeps happening.";
+
+/**
+ * Whether we teach each subject with its board, at the student's level, read
+ * from the curriculum itself. A hard-coded edexcel/aqa/ocr list refused
+ * Cambridge, which onboarding and first checkout both accept; coverage also
+ * keeps a board we hold no curriculum for from being bought.
+ */
+async function assertOffered(
+  db: ReturnType<typeof admin>,
+  level: string | null,
+  wanted: { subject: string; board: string }[],
+) {
+  const { data, error } = await db.rpc("curriculum_coverage");
+  if (error) throw new Error(`curriculum_coverage: ${error.message}`);
+  const rows = (data ?? []) as { level: string; board: string; subject: string }[];
+  for (const w of wanted) {
+    const taught = rows.some(
+      (c) => c.subject === w.subject && c.board === w.board && (!level || c.level === level),
+    );
+    if (!taught) throw new HttpError(400, "That subject or exam board isn't one we offer.");
+  }
+}
+
+/**
+ * One plan change per student at a time. add_subjects, remove_subjects and
+ * change_cadence each read the enrolments, price from them and write them back;
+ * two at once (a parent and child adding different subjects) priced and wrote
+ * from the same read, ending up paying for 2, enrolled in 3, with access to 2.
+ * The lease lapses after two minutes if a run dies holding it.
+ */
+async function takeLease(db: ReturnType<typeof admin>, studentId: string) {
+  const { data: taken, error } = await db.rpc("take_billing_lease", { _student_id: studentId });
+  if (error) throw new Error(`take_billing_lease: ${error.message}`);
+  if (!taken) {
+    throw new HttpError(409, "Another change to this plan is in progress. Try again in a moment.");
+  }
+}
+
+async function releaseLease(db: ReturnType<typeof admin>, studentId: string) {
+  const { error } = await db.rpc("release_billing_lease", { _student_id: studentId });
+  if (error) console.error("stripe-checkout: release_billing_lease", error.message);
+}
+
+/**
+ * Write the enrolment rows and the access grant (enrolled_courses) together,
+ * recomputed from the rows under a per-student lock, so they can't drift.
+ */
+async function applyEnrolmentChange(
+  db: ReturnType<typeof admin>,
+  studentId: string,
+  add: { subject: string; board: string }[],
+  remove: string[],
+) {
+  const { error } = await db.rpc("apply_enrolment_change", {
+    _student_id: studentId,
+    _add: add,
+    _remove: remove,
+  });
+  if (error) throw new Error(`apply_enrolment_change: ${error.message}`);
+}
 
 /** Billing cadence of a tier, or null if it isn't one of ours. */
 function tierCadence(tier: string | null | undefined): string | null {
@@ -239,20 +302,23 @@ async function handleCheckout(req: Request, payload: CheckoutPayload) {
   // same way add_subjects / remove_subjects / change_cadence already derive it.
   const cadence = tierCadence(payload.tier);
   if (!cadence) throw new HttpError(404, `No active plan called "${payload.tier}".`);
-  const { data: enrolRows } = await db
+  const { data: enrolRows, error: enrolError } = await db
     .from("student_enrolments")
     .select("subject")
     .eq("student_id", beneficiary);
-  const enrolledCount = Math.min(Math.max((enrolRows ?? []).length, 1), MAX_SUBJECTS);
+  if (enrolError) throw new Error(`student_enrolments: ${enrolError.message}`);
+  // A student who skipped choosing subjects was clamped up to one and sold a
+  // one-subject plan for an account with nothing in it.
+  if ((enrolRows ?? []).length === 0) {
+    throw new HttpError(409, "Pick at least one subject first.");
+  }
+  const enrolledCount = Math.min((enrolRows ?? []).length, MAX_SUBJECTS);
   const enforcedTier = `${cadence}_${enrolledCount}`;
 
   const pkg = await resolvePackage(db, enforcedTier, await studentLevel(db, beneficiary));
   if (!pkg) throw new HttpError(404, `No active plan called "${enforcedTier}".`);
   if (!pkg.stripe_price_id) {
-    throw new HttpError(
-      500,
-      `The "${pkg.name}" plan has no Stripe price attached yet. Run scripts/stripe-seed.ts.`,
-    );
+    throw new Error(`The "${pkg.name}" plan has no Stripe price. Run scripts/stripe-seed.ts.`);
   }
 
   const trial = payload.trial_code
@@ -470,87 +536,80 @@ async function handleAddSubjects(req: Request, payload: AddSubjectsPayload) {
   const requested = Array.isArray(payload.subjects) ? payload.subjects : [];
   if (requested.length === 0) throw new HttpError(400, "Pick at least one subject to add.");
   for (const r of requested) {
-    if (!VALID_SUBJECTS.includes(r.subject) || !VALID_BOARDS.includes(r.board)) {
+    if (!VALID_SUBJECTS.includes(r.subject)) {
       throw new HttpError(400, "That subject or exam board isn't one we offer.");
     }
   }
 
-  await assertCanUpgrade(user.id, payload.student_id);
-
   const { data: row } = await db
     .from("subscriptions")
-    .select("stripe_subscription_id, status, plan, cancel_at_period_end")
+    .select("user_id, stripe_subscription_id, status, plan, cancel_at_period_end")
     .eq("student_id", payload.student_id)
     .maybeSingle();
+  await assertCanUpgrade(user.id, payload.student_id, row?.user_id);
   if (!row?.stripe_subscription_id) throw new HttpError(404, "No active plan to add to.");
   const live = row.status === "active" || row.status === "trialing";
   if (!live || row.cancel_at_period_end) {
     throw new HttpError(409, "Resume the plan before adding subjects to it.");
   }
+  const level = await studentLevel(db, payload.student_id);
+  await assertOffered(db, level, requested);
 
-  const cadence = tierCadence(row.plan);
-  if (!cadence) throw new HttpError(409, "This plan can't be upgraded automatically — contact us.");
+  await takeLease(db, payload.student_id);
+  try {
+    const cadence = tierCadence(row.plan);
+    if (!cadence)
+      throw new HttpError(409, "This plan can't be upgraded automatically — contact us.");
 
-  // Only genuinely new subjects count. Dedupe against what they already study so
-  // a double-submit can't double-charge or push the count past the max.
-  const { data: existingRows } = await db
-    .from("student_enrolments")
-    .select("subject")
-    .eq("student_id", payload.student_id);
-  const existing = new Set((existingRows ?? []).map((r) => r.subject));
-  const toAdd = requested.filter((r) => !existing.has(r.subject));
-  if (toAdd.length === 0) throw new HttpError(409, "Those subjects are already on the plan.");
+    // Only genuinely new subjects count. Dedupe against what they already study so
+    // a double-submit can't double-charge or push the count past the max.
+    const { data: existingRows, error: existingError } = await db
+      .from("student_enrolments")
+      .select("subject")
+      .eq("student_id", payload.student_id);
+    if (existingError) throw new Error(`student_enrolments: ${existingError.message}`);
+    const existing = new Set((existingRows ?? []).map((r) => r.subject));
+    const toAdd = requested.filter((r) => !existing.has(r.subject));
+    if (toAdd.length === 0) throw new HttpError(409, "Those subjects are already on the plan.");
 
-  const newCount = existing.size + toAdd.length;
-  if (newCount > MAX_SUBJECTS) {
-    throw new HttpError(409, `A plan covers at most ${MAX_SUBJECTS} subjects.`);
+    const newCount = existing.size + toAdd.length;
+    if (newCount > MAX_SUBJECTS) {
+      throw new HttpError(409, `A plan covers at most ${MAX_SUBJECTS} subjects.`);
+    }
+
+    // Ladder up within the student's own price list: the tier vocabulary is
+    // shared across levels, so the level has to be reapplied here or an upgrade
+    // would silently move them onto general pricing.
+    const newTier = `${cadence}_${newCount}`;
+    const pkg = await resolvePackage(db, newTier, level);
+    if (!pkg?.stripe_price_id) throw new Error(`The ${newTier} plan has no Stripe price.`);
+
+    // Swap the single subscription item to the higher-count price and invoice the
+    // prorated difference now. metadata.tier is updated so the webhook (which reads
+    // it) writes the same plan we mirror below.
+    const stripeSub = await stripe.subscriptions.retrieve(row.stripe_subscription_id);
+    const itemId = stripeSub.items.data[0]?.id;
+    if (!itemId) throw new HttpError(500, "Couldn't find the subscription item to upgrade.");
+
+    const updated = await stripe.subscriptions.update(row.stripe_subscription_id, {
+      items: [{ id: itemId, price: pkg.stripe_price_id }],
+      proration_behavior: "always_invoice",
+      metadata: { ...stripeSub.metadata, tier: newTier },
+    });
+
+    // Enrol the student in the new subjects and grow the RLS grant, together.
+    await applyEnrolmentChange(db, payload.student_id, toAdd, []);
+
+    // Mirror plan immediately so the UI reflects the upgrade before the webhook.
+    await db
+      .from("subscriptions")
+      .update({ plan: newTier, updated_at: new Date().toISOString() })
+      .eq("stripe_subscription_id", row.stripe_subscription_id);
+
+    return { ok: true, plan: newTier, added: toAdd.map((r) => r.subject), status: updated.status };
+  } finally {
+    await releaseLease(db, payload.student_id);
   }
-
-  // Ladder up within the student's own price list: the tier vocabulary is
-  // shared across levels, so the level has to be reapplied here or an upgrade
-  // would silently move them onto general pricing.
-  const newTier = `${cadence}_${newCount}`;
-  const pkg = await resolvePackage(db, newTier, await studentLevel(db, payload.student_id));
-  if (!pkg?.stripe_price_id) {
-    throw new HttpError(500, `The ${newTier} plan has no Stripe price attached yet.`);
-  }
-
-  // Swap the single subscription item to the higher-count price and invoice the
-  // prorated difference now. metadata.tier is updated so the webhook (which reads
-  // it) writes the same plan we mirror below.
-  const stripeSub = await stripe.subscriptions.retrieve(row.stripe_subscription_id);
-  const itemId = stripeSub.items.data[0]?.id;
-  if (!itemId) throw new HttpError(500, "Couldn't find the subscription item to upgrade.");
-
-  const updated = await stripe.subscriptions.update(row.stripe_subscription_id, {
-    items: [{ id: itemId, price: pkg.stripe_price_id }],
-    proration_behavior: "always_invoice",
-    metadata: { ...stripeSub.metadata, tier: newTier },
-  });
-
-  // Enrol the student in the new subjects and grow the RLS grant. Do the grant
-  // last: an enrolment row without matching enrolled_courses is harmless (no
-  // access), the reverse would hand out access to a subject with no board set.
-  const { error: enrErr } = await db.from("student_enrolments").upsert(
-    toAdd.map((r) => ({ student_id: payload.student_id, subject: r.subject, board: r.board })),
-    { onConflict: "student_id,subject" },
-  );
-  if (enrErr) throw new HttpError(500, `Couldn't record the new enrolment: ${enrErr.message}`);
-
-  const nextCourses = [...existing, ...toAdd.map((r) => r.subject)];
-  const { error: profErr } = await db
-    .from("profiles")
-    .update({ enrolled_courses: nextCourses })
-    .eq("id", payload.student_id);
-  if (profErr) throw new HttpError(500, `Couldn't update access: ${profErr.message}`);
-
-  // Mirror plan immediately so the UI reflects the upgrade before the webhook.
-  await db
-    .from("subscriptions")
-    .update({ plan: newTier, updated_at: new Date().toISOString() })
-    .eq("stripe_subscription_id", row.stripe_subscription_id);
-
-  return { ok: true, plan: newTier, added: toAdd.map((r) => r.subject), status: updated.status };
 }
 
 /**
@@ -595,68 +654,60 @@ async function handleRemoveSubjects(req: Request, payload: RemoveSubjectsPayload
     throw new HttpError(409, "Resume the plan before changing the subjects on it.");
   }
 
-  const cadence = tierCadence(row.plan);
-  if (!cadence) throw new HttpError(409, "This plan can't be changed automatically — contact us.");
+  await takeLease(db, payload.student_id);
+  try {
+    const cadence = tierCadence(row.plan);
+    if (!cadence)
+      throw new HttpError(409, "This plan can't be changed automatically — contact us.");
 
-  const { data: existingRows } = await db
-    .from("student_enrolments")
-    .select("subject")
-    .eq("student_id", payload.student_id);
-  const existing = (existingRows ?? []).map((r) => r.subject);
-  const toRemove = requested.filter((s) => existing.includes(s));
-  if (toRemove.length === 0) throw new HttpError(409, "That subject isn't on the plan.");
+    const { data: existingRows, error: existingError } = await db
+      .from("student_enrolments")
+      .select("subject")
+      .eq("student_id", payload.student_id);
+    if (existingError) throw new Error(`student_enrolments: ${existingError.message}`);
+    const existing = (existingRows ?? []).map((r) => r.subject);
+    const toRemove = requested.filter((s) => existing.includes(s));
+    if (toRemove.length === 0) throw new HttpError(409, "That subject isn't on the plan.");
 
-  const remaining = existing.filter((s) => !toRemove.includes(s));
-  if (remaining.length === 0) {
-    throw new HttpError(
-      409,
-      "That would leave the plan with no subjects — cancel the plan instead.",
-    );
+    const remaining = existing.filter((s) => !toRemove.includes(s));
+    if (remaining.length === 0) {
+      throw new HttpError(
+        409,
+        "That would leave the plan with no subjects — cancel the plan instead.",
+      );
+    }
+
+    const newTier = `${cadence}_${remaining.length}`;
+    const pkg = await resolvePackage(db, newTier, await studentLevel(db, payload.student_id));
+    if (!pkg?.stripe_price_id) throw new Error(`The ${newTier} plan has no Stripe price.`);
+
+    const stripeSub = await stripe.subscriptions.retrieve(row.stripe_subscription_id);
+    const itemId = stripeSub.items.data[0]?.id;
+    if (!itemId) throw new HttpError(500, "Couldn't find the subscription item to change.");
+
+    await stripe.subscriptions.update(row.stripe_subscription_id, {
+      items: [{ id: itemId, price: pkg.stripe_price_id }],
+      // Credit the unused portion against the next invoice rather than invoicing
+      // now — see the note above.
+      proration_behavior: "create_prorations",
+      metadata: { ...stripeSub.metadata, tier: newTier },
+    });
+
+    // Un-enrol and shrink the grant together, so the material locks the moment
+    // the money stops. The enrolment row carries the board, so it has to go
+    // rather than linger: a stale row would make add_subjects reject re-adding
+    // the subject later as "already on the plan".
+    await applyEnrolmentChange(db, payload.student_id, [], toRemove);
+
+    await db
+      .from("subscriptions")
+      .update({ plan: newTier, updated_at: new Date().toISOString() })
+      .eq("stripe_subscription_id", row.stripe_subscription_id);
+
+    return { ok: true, plan: newTier, removed: toRemove, remaining };
+  } finally {
+    await releaseLease(db, payload.student_id);
   }
-
-  const newTier = `${cadence}_${remaining.length}`;
-  const pkg = await resolvePackage(db, newTier, await studentLevel(db, payload.student_id));
-  if (!pkg?.stripe_price_id) {
-    throw new HttpError(500, `The ${newTier} plan has no Stripe price attached yet.`);
-  }
-
-  const stripeSub = await stripe.subscriptions.retrieve(row.stripe_subscription_id);
-  const itemId = stripeSub.items.data[0]?.id;
-  if (!itemId) throw new HttpError(500, "Couldn't find the subscription item to change.");
-
-  await stripe.subscriptions.update(row.stripe_subscription_id, {
-    items: [{ id: itemId, price: pkg.stripe_price_id }],
-    // Credit the unused portion against the next invoice rather than invoicing
-    // now — see the note above.
-    proration_behavior: "create_prorations",
-    metadata: { ...stripeSub.metadata, tier: newTier },
-  });
-
-  // Revoke the grant FIRST, then delete the enrolment — the exact inverse of the
-  // add path's ordering, and for the same reason: the transient state must be
-  // "enrolled but no access" (harmless), never "access with no enrolment".
-  const { error: profErr } = await db
-    .from("profiles")
-    .update({ enrolled_courses: remaining })
-    .eq("id", payload.student_id);
-  if (profErr) throw new HttpError(500, `Couldn't update access: ${profErr.message}`);
-
-  // The enrolment row carries the board, so it has to go rather than linger:
-  // a stale row would make add_subjects reject re-adding the subject later as
-  // "already on the plan".
-  const { error: enrErr } = await db
-    .from("student_enrolments")
-    .delete()
-    .eq("student_id", payload.student_id)
-    .in("subject", toRemove);
-  if (enrErr) throw new HttpError(500, `Couldn't remove the enrolment: ${enrErr.message}`);
-
-  await db
-    .from("subscriptions")
-    .update({ plan: newTier, updated_at: new Date().toISOString() })
-    .eq("stripe_subscription_id", row.stripe_subscription_id);
-
-  return { ok: true, plan: newTier, removed: toRemove, remaining };
 }
 
 /**
@@ -754,74 +805,79 @@ async function handleChangeCadence(req: Request, payload: ChangeCadencePayload) 
     throw new HttpError(409, "Resume the plan before changing how often you're billed.");
   }
 
-  // Coverage is whatever they're actually enrolled in — never a client-supplied
-  // count, so a switch can't quietly buy or drop a subject.
-  const { data: enrolRows } = await db
-    .from("student_enrolments")
-    .select("subject")
-    .eq("student_id", payload.student_id);
-  const count = Math.min(Math.max((enrolRows ?? []).length, 1), MAX_SUBJECTS);
+  // A preview changes nothing, so it doesn't wait on (or hold up) a real change.
+  if (!payload.preview) await takeLease(db, payload.student_id);
+  try {
+    // Coverage is whatever they're actually enrolled in — never a client-supplied
+    // count, so a switch can't quietly buy or drop a subject.
+    const { data: enrolRows, error: enrolError } = await db
+      .from("student_enrolments")
+      .select("subject")
+      .eq("student_id", payload.student_id);
+    if (enrolError) throw new Error(`student_enrolments: ${enrolError.message}`);
+    const count = Math.min(Math.max((enrolRows ?? []).length, 1), MAX_SUBJECTS);
 
-  const newTier = `${cadence}_${count}`;
-  if (newTier === row.plan) throw new HttpError(409, "That's already the current plan.");
+    const newTier = `${cadence}_${count}`;
+    if (newTier === row.plan) throw new HttpError(409, "That's already the current plan.");
 
-  const pkg = await resolvePackage(db, newTier, await studentLevel(db, payload.student_id));
-  if (!pkg?.stripe_price_id) {
-    throw new HttpError(500, `The ${newTier} plan has no Stripe price attached yet.`);
-  }
+    const pkg = await resolvePackage(db, newTier, await studentLevel(db, payload.student_id));
+    if (!pkg?.stripe_price_id) throw new Error(`The ${newTier} plan has no Stripe price.`);
 
-  const stripeSub = await stripe.subscriptions.retrieve(row.stripe_subscription_id);
-  const itemId = stripeSub.items.data[0]?.id;
-  if (!itemId) throw new HttpError(500, "Couldn't find the subscription item to change.");
+    const stripeSub = await stripe.subscriptions.retrieve(row.stripe_subscription_id);
+    const itemId = stripeSub.items.data[0]?.id;
+    if (!itemId) throw new HttpError(500, "Couldn't find the subscription item to change.");
 
-  const quote = await previewItemSwap(
-    stripe,
-    row.stripe_subscription_id,
-    itemId,
-    pkg.stripe_price_id,
-  );
+    const quote = await previewItemSwap(
+      stripe,
+      row.stripe_subscription_id,
+      itemId,
+      pkg.stripe_price_id,
+    );
 
-  if (payload.preview) {
+    if (payload.preview) {
+      return {
+        ok: true,
+        preview: true,
+        plan: newTier,
+        plan_name: pkg.name,
+        subjects: count,
+        amount_due_now: quote?.amount_due ?? null,
+        currency: quote?.currency ?? "gbp",
+      };
+    }
+
+    // A cadence change resets the billing period, so the proration is invoiced
+    // now rather than parked on a future bill: the family is starting a new week
+    // / month / term today and the invoice should say so.
+    const updated = await stripe.subscriptions.update(row.stripe_subscription_id, {
+      items: [{ id: itemId, price: pkg.stripe_price_id }],
+      proration_behavior: "always_invoice",
+      metadata: { ...stripeSub.metadata, tier: newTier },
+    });
+
+    const periodEndTs =
+      updated.current_period_end ??
+      (updated.items?.data?.[0] as { current_period_end?: number } | undefined)?.current_period_end;
+    await db
+      .from("subscriptions")
+      .update({
+        plan: newTier,
+        current_period_end: periodEndTs ? new Date(periodEndTs * 1000).toISOString() : null,
+        updated_at: new Date().toISOString(),
+      })
+      .eq("stripe_subscription_id", row.stripe_subscription_id);
+
     return {
       ok: true,
-      preview: true,
       plan: newTier,
       plan_name: pkg.name,
       subjects: count,
       amount_due_now: quote?.amount_due ?? null,
       currency: quote?.currency ?? "gbp",
     };
+  } finally {
+    if (!payload.preview) await releaseLease(db, payload.student_id);
   }
-
-  // A cadence change resets the billing period, so the proration is invoiced
-  // now rather than parked on a future bill: the family is starting a new week
-  // / month / term today and the invoice should say so.
-  const updated = await stripe.subscriptions.update(row.stripe_subscription_id, {
-    items: [{ id: itemId, price: pkg.stripe_price_id }],
-    proration_behavior: "always_invoice",
-    metadata: { ...stripeSub.metadata, tier: newTier },
-  });
-
-  const periodEndTs =
-    updated.current_period_end ??
-    (updated.items?.data?.[0] as { current_period_end?: number } | undefined)?.current_period_end;
-  await db
-    .from("subscriptions")
-    .update({
-      plan: newTier,
-      current_period_end: periodEndTs ? new Date(periodEndTs * 1000).toISOString() : null,
-      updated_at: new Date().toISOString(),
-    })
-    .eq("stripe_subscription_id", row.stripe_subscription_id);
-
-  return {
-    ok: true,
-    plan: newTier,
-    plan_name: pkg.name,
-    subjects: count,
-    amount_due_now: quote?.amount_due ?? null,
-    currency: quote?.currency ?? "gbp",
-  };
 }
 
 /**
@@ -902,9 +958,12 @@ Deno.serve(async (req) => {
       headers: { ...corsHeaders, "Content-Type": "application/json" },
     });
   } catch (err) {
+    // Only our own HttpErrors are written for families to read. Anything else —
+    // Stripe's text ("No such customer: 'cus_…'"), a database constraint, an ops
+    // hint — is logged here in full and replaced with a plain message.
     const status = err instanceof HttpError ? err.status : 500;
-    const message = err instanceof Error ? err.message : "Unexpected error.";
-    console.error("stripe-checkout:", message);
+    const message = err instanceof HttpError ? err.message : GENERIC_ERROR;
+    console.error("stripe-checkout:", err instanceof HttpError ? err.message : err);
     return new Response(JSON.stringify({ error: message }), {
       status,
       headers: { ...corsHeaders, "Content-Type": "application/json" },
