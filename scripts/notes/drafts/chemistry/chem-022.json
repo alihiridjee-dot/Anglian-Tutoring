@@ -3,7 +3,7 @@
   "concept_id": "chem-022",
   "subject": "chemistry",
   "title": "Polymer structure",
-  "key_idea": "Polymers have very large molecules made of long chains of atoms. Atoms in the chains are joined by strong covalent bonds. The intermolecular forces between the chains are relatively strong, so polymers are solids at room temperature.",
+  "key_idea": "Polymers have very large molecules made of long chains of atoms. Atoms in the chains are joined by strong covalent bonds. The intermolecular forces between the chains are weak compared with covalent bonds, but stronger than in small molecules, so polymers are solids at room temperature.",
   "sections": [
     {
       "heading": "What a polymer is",
@@ -55,8 +55,8 @@
           "items": [
             "Within each chain, atoms are joined by strong **covalent bonds**.",
             "Between the chains there are **intermolecular forces**.",
-            "The covalent bonds are strong. The intermolecular forces are weak compared with covalent bonds.",
-            "Because the molecules are so large, the intermolecular forces are relatively strong compared with those between small molecules."
+            "The intermolecular forces are weak compared with the covalent bonds.",
+            "Because the molecules are so large, the intermolecular forces are stronger than those between small molecules."
           ]
         },
         {
@@ -135,7 +135,7 @@
         {
           "type": "key-points",
           "items": [
-            "Covalent bonds in the chains are strong. Intermolecular forces between chains are weaker.",
+            "Covalent bonds in the chains are strong. Intermolecular forces between chains are weak in comparison.",
             "Polymers have larger molecules than small molecules, so stronger intermolecular forces.",
             "Do not write about covalent bonds breaking when a polymer melts."
           ]
@@ -155,7 +155,8 @@
             "Polymers with no cross-links have chains held only by intermolecular forces.",
             "The chains can slide over each other, so these polymers stretch and are flexible.",
             "Cross-links are covalent bonds between chains. They hold the chains firmly, so the polymer is rigid and strong.",
-            "Some polymers with cross-links do not melt when heated, because too much energy is needed to overcome the cross-links."
+            "Polymers with cross-links that do not melt when heated are called **thermosetting** polymers. Too much energy is needed to overcome the cross-links.",
+            "Polymers do not conduct electricity. Compared with ionic compounds and metals, they have low melting points."
           ]
         },
         {
@@ -236,7 +237,6 @@
       ],
       "exam_phrases": [
         "large molecules containing chains of carbon atoms",
-        "poly(ethene)",
         "a substance of high average relative molecular mass",
         "made up of small repeating units"
       ],
@@ -259,7 +259,7 @@
       "exam_phrases": [
         "polymer chains without cross-links can slide or move over each other",
         "intermolecular forces holding polymer chains together are weaker than cross-links",
-        "polymers have low melting points",
+        "polymers have low melting points (compared with ionic compounds and metals)",
         "polymers do not conduct electricity",
         "polymers can be flexible",
         "plastic bottle polymer has strong cross-links"
@@ -306,6 +306,8 @@
       "2f25c8bc-facc-4d29-a9e4-558c52aa1d13",
       "635bdb41-9780-4212-a307-ce1ca889bef6",
       "c79d17b2-fbee-4176-8ead-7a811809bc5a"
-    ]
+    ],
+    "checked_by": "sonnet-science-check",
+    "checked_at": "2026-10-01"
   }
 }

@@ -8,12 +8,21 @@
     {
       "heading": "Giant covalent structures",
       "blocks": [
-        { "type": "paragraph", "text": "This section covers what all giant covalent structures have in common." },
+        {
+          "type": "paragraph",
+          "text": "This section covers what all giant covalent structures have in common."
+        },
         {
           "type": "definitions",
           "items": [
-            { "term": "Giant covalent structure", "meaning": "A huge network of atoms, each joined to its neighbours by strong covalent bonds." },
-            { "term": "Allotropes", "meaning": "Different forms of the same element in the same state, such as diamond and graphite." }
+            {
+              "term": "Giant covalent structure",
+              "meaning": "A huge network of atoms, each joined to its neighbours by strong covalent bonds."
+            },
+            {
+              "term": "Allotropes",
+              "meaning": "Different forms of the same element in the same state, such as diamond and graphite."
+            }
           ]
         },
         {
@@ -22,7 +31,8 @@
             "Giant covalent substances are solids with very high melting points.",
             "All the atoms are linked to other atoms by strong covalent bonds.",
             "These bonds must be overcome to melt or boil the substance. Many bonds must be broken, so a lot of energy is needed.",
-            "Diamond and graphite are forms of carbon. Silicon dioxide (silica, SiO₂) is a compound of silicon and oxygen."
+            "Diamond and graphite are forms of carbon. Silicon dioxide (silica, SiO₂) is a compound of silicon and oxygen.",
+            "Fullerenes and graphene are other forms of carbon, covered in their own note."
           ]
         },
         {
@@ -37,7 +47,10 @@
     {
       "heading": "Diamond",
       "blocks": [
-        { "type": "paragraph", "text": "In diamond, every carbon atom is bonded in the same way, in a rigid three-dimensional network." },
+        {
+          "type": "paragraph",
+          "text": "In diamond, every carbon atom is bonded in the same way, in a rigid three-dimensional network."
+        },
         {
           "type": "list",
           "items": [
@@ -60,7 +73,10 @@
     {
       "heading": "Graphite and silicon dioxide",
       "blocks": [
-        { "type": "paragraph", "text": "Graphite has a different arrangement of the same carbon atoms, so its properties are different." },
+        {
+          "type": "paragraph",
+          "text": "Graphite has a different arrangement of the same carbon atoms, so its properties are different."
+        },
         {
           "type": "list",
           "items": [
@@ -72,16 +88,28 @@
         },
         {
           "type": "table",
-          "columns": ["Property of graphite", "Explanation"],
+          "columns": [
+            "Property of graphite",
+            "Explanation"
+          ],
           "rows": [
-            ["Conducts electricity", "Delocalised electrons can move through the structure and carry charge."],
-            ["Soft and slippery", "Weak forces between the layers, so the layers can slide over each other."],
-            ["High melting point", "Many strong covalent bonds within the layers need a lot of energy to break."]
+            [
+              "Conducts electricity",
+              "Delocalised electrons can move through the structure and carry charge."
+            ],
+            [
+              "Soft and slippery",
+              "Weak forces between the layers, so the layers can slide over each other."
+            ],
+            [
+              "High melting point",
+              "Many strong covalent bonds within the layers need a lot of energy to break."
+            ]
           ]
         },
         {
           "type": "paragraph",
-          "text": "Silicon dioxide is also a giant covalent structure. It has a very high melting point because of its giant structure and strong covalent bonds."
+          "text": "Silicon dioxide is also a giant covalent structure. Each silicon atom forms four bonds and each oxygen atom forms two. It has a very high melting point because of its giant structure and strong covalent bonds."
         },
         {
           "type": "diagram",
@@ -89,18 +117,52 @@
             "kind": "sort",
             "alt": "Sort each statement into diamond, graphite or both.",
             "prompt": "Which substance does each statement describe?",
-            "groups": ["Diamond only", "Graphite only", "Both"],
+            "groups": [
+              "Diamond only",
+              "Graphite only",
+              "Both"
+            ],
             "items": [
-              { "text": "Each carbon atom forms four covalent bonds", "group": 0 },
-              { "text": "Does not conduct electricity", "group": 0 },
-              { "text": "Used in cutting tools", "group": 0 },
-              { "text": "Each carbon atom forms three covalent bonds", "group": 1 },
-              { "text": "Has delocalised electrons", "group": 1 },
-              { "text": "Layers that can slide over each other", "group": 1 },
-              { "text": "Used as a lubricant and for electrodes", "group": 1 },
-              { "text": "Giant covalent structure", "group": 2 },
-              { "text": "Very high melting point", "group": 2 },
-              { "text": "A form of carbon", "group": 2 }
+              {
+                "text": "Each carbon atom forms four covalent bonds",
+                "group": 0
+              },
+              {
+                "text": "Does not conduct electricity",
+                "group": 0
+              },
+              {
+                "text": "Used in cutting tools",
+                "group": 0
+              },
+              {
+                "text": "Each carbon atom forms three covalent bonds",
+                "group": 1
+              },
+              {
+                "text": "Has delocalised electrons",
+                "group": 1
+              },
+              {
+                "text": "Layers that can slide over each other",
+                "group": 1
+              },
+              {
+                "text": "Used as a lubricant and for electrodes",
+                "group": 1
+              },
+              {
+                "text": "Giant covalent structure",
+                "group": 2
+              },
+              {
+                "text": "Very high melting point",
+                "group": 2
+              },
+              {
+                "text": "A form of carbon",
+                "group": 2
+              }
             ]
           }
         },
@@ -117,19 +179,55 @@
     {
       "heading": "Uses linked to structure",
       "blocks": [
-        { "type": "paragraph", "text": "The structure of each substance explains what it is used for." },
+        {
+          "type": "paragraph",
+          "text": "The structure of each substance explains what it is used for."
+        },
         {
           "type": "diagram",
           "diagram": {
             "kind": "compare",
             "alt": "Diamond compared with graphite.",
-            "items": ["Diamond", "Graphite"],
+            "items": [
+              "Diamond",
+              "Graphite"
+            ],
             "rows": [
-              { "feature": "Bonds per carbon atom", "values": ["Four", "Three"] },
-              { "feature": "Structure", "values": ["Rigid giant covalent network", "Layers of hexagonal rings"] },
-              { "feature": "Electrical conductivity", "values": ["None", "Good, from delocalised electrons"] },
-              { "feature": "Hardness", "values": ["Very hard", "Soft and slippery"] },
-              { "feature": "Use", "values": ["Cutting tools", "Electrodes and lubricant"] }
+              {
+                "feature": "Bonds per carbon atom",
+                "values": [
+                  "Four",
+                  "Three"
+                ]
+              },
+              {
+                "feature": "Structure",
+                "values": [
+                  "Rigid giant covalent network",
+                  "Layers of hexagonal rings"
+                ]
+              },
+              {
+                "feature": "Electrical conductivity",
+                "values": [
+                  "None",
+                  "Good, from delocalised electrons"
+                ]
+              },
+              {
+                "feature": "Hardness",
+                "values": [
+                  "Very hard",
+                  "Soft and slippery"
+                ]
+              },
+              {
+                "feature": "Use",
+                "values": [
+                  "Cutting tools",
+                  "Electrodes and lubricant"
+                ]
+              }
             ]
           }
         },
@@ -162,7 +260,14 @@
   ],
   "boards": {
     "aqa": {
-      "spec_codes": ["AQA 4.2.2.6", "AQA 4.2.3.1", "AQA 4.2.3.2", "AQA T 5.2.2.6", "AQA T 5.2.3.1", "AQA T 5.2.3.2"],
+      "spec_codes": [
+        "AQA 4.2.2.6",
+        "AQA 4.2.3.1",
+        "AQA 4.2.3.2",
+        "AQA T 5.2.2.6",
+        "AQA T 5.2.3.1",
+        "AQA T 5.2.3.2"
+      ],
       "exam_phrases": [
         "(covalent) bonds are strong",
         "(many covalent) bonds must be broken",
@@ -182,8 +287,8 @@
           "right": "Heat and high temperature are ignored. Say a lot of energy is needed to break (overcome) the bonds."
         },
         {
-          "wrong": "Silicon dioxide has a high melting point because it has strong ionic bonds.",
-          "right": "Silicon dioxide has a giant structure with strong covalent bonds. Ionic bonds do not score."
+          "wrong": "Graphite is slippery because the covalent bonds between its layers are weak.",
+          "right": "There are no covalent bonds between the layers. Say there are weak forces between the layers, so the layers can slide over each other."
         }
       ],
       "worked_example": {
@@ -200,7 +305,11 @@
       }
     },
     "edexcel": {
-      "spec_codes": ["EDEX 1.35", "EDEX 1.36", "EDEX 1.37"],
+      "spec_codes": [
+        "EDEX 1.35",
+        "EDEX 1.36",
+        "EDEX 1.37"
+      ],
       "exam_phrases": [
         "strong (covalent) bonds between all carbon atoms",
         "giant (covalent) lattice",
@@ -233,7 +342,11 @@
       }
     },
     "ocr": {
-      "spec_codes": ["OCR C2.3a", "OCR C2.3c", "OCR C2.3f"],
+      "spec_codes": [
+        "OCR C2.3a",
+        "OCR C2.3c",
+        "OCR C2.3f"
+      ],
       "exam_phrases": [
         "many strong (covalent) bonds",
         "a lot of energy needed to break the bonds",
@@ -295,6 +408,8 @@
       "a570212f-817f-49d8-ae2f-77f5caf99a8b",
       "eb4b5d88-8401-4618-b1d9-0b565a44f7d0",
       "39f3a9f0-8a15-4543-8cd1-76409699c03a"
-    ]
+    ],
+    "checked_by": "sonnet-science-check",
+    "checked_at": "2026-10-01"
   }
 }

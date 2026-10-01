@@ -174,7 +174,7 @@
         "little energy needed (to overcome forces)",
         "simple molecular",
         "weak intermolecular forces",
-        "more energy to break bonds in silicon dioxide than intermolecular forces in ammonia"
+        "simple molecular / has weak intermolecular forces"
       ],
       "mistakes": [
         {
@@ -234,6 +234,8 @@
     "status": "draft",
     "written_by": "sonnet-5-5",
     "written_at": "2026-10-01",
+    "checked_by": "sonnet-science-check",
+    "checked_at": "2026-10-01",
     "spec_point_ids": [
       "02d65818-dc2b-4dd2-a336-52bcddc0fe93",
       "dcfef170-a9a4-461b-a9fc-e68642ae765e",

@@ -25,6 +25,15 @@
             "The sharing of delocalised electrons gives strong **metallic bonds**."
           ]
         },
+        { "type": "subheading", "text": "Typical properties of metals" },
+        {
+          "type": "list",
+          "items": [
+            "Most metals are shiny solids with high melting points and high density.",
+            "Metals are good conductors of electricity.",
+            "Most non-metals have low boiling points and are poor conductors of electricity."
+          ]
+        },
         {
           "type": "key-points",
           "items": [
@@ -226,19 +235,21 @@
       "worked_example": {
         "exemplar_id": "f71f6603-6911-4a41-bfda-4da5de686544",
         "source": "OCR jun 2022, Paper 1, Q18(b)(i)",
-        "question": "Describe the structure and bonding in a metal.\n\nYou can include a labelled diagram in your answer.",
+        "question": "Describe the structure and bonding in a metal.",
         "marks": 3,
         "answer_points": [
           "Positive (metal) ions.",
           "The ions are surrounded by a sea of electrons.",
           "There are strong forces of attraction between the ions and the electrons."
         ],
-        "tip": "A diagram must show close-packed metal ions in a regular arrangement, labelled positive, with electrons among them."
+        "tip": "Name the particles (positive ions and electrons), then describe the attraction between them. Do not mention ionic or covalent bonding."
       }
     }
   },
   "meta": {
     "status": "draft",
+    "checked_by": "sonnet-science-check",
+    "checked_at": "2026-10-01",
     "written_by": "sonnet-5-5",
     "written_at": "2026-10-01",
     "spec_point_ids": [

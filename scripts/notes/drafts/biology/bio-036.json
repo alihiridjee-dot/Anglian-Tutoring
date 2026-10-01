@@ -1,0 +1,263 @@
+{
+  "format": 1,
+  "concept_id": "bio-036",
+  "subject": "biology",
+  "title": "Root hair cells, xylem and phloem",
+  "key_idea": "Root hair cells take in water by osmosis and mineral ions by active transport. Xylem carries water and mineral ions up from the roots. Phloem carries dissolved sugars from the leaves to the rest of the plant. Each is adapted to its job.",
+  "sections": [
+    {
+      "heading": "Root hair cells",
+      "blocks": [
+        { "type": "paragraph", "text": "Root hair cells are in the roots. They take in water and mineral ions from the soil." },
+        {
+          "type": "definitions",
+          "items": [
+            { "term": "Osmosis", "meaning": "The movement of water across a partially permeable membrane." },
+            { "term": "Active transport", "meaning": "Moving substances against a concentration gradient, using energy from respiration." }
+          ]
+        },
+        {
+          "type": "list",
+          "items": [
+            "Water is taken in by **osmosis**.",
+            "Mineral ions (such as nitrate) are taken in by **active transport**, from a low concentration in the soil to a higher concentration in the cell.",
+            "A long, thin projection gives a large surface area for absorption.",
+            "A thin cell wall means the water and mineral ions have a short distance to travel.",
+            "Many mitochondria release energy for active transport.",
+            "No chloroplasts: roots grow underground where there is no light, so they cannot photosynthesise."
+          ]
+        },
+        {
+          "type": "key-points",
+          "items": [
+            "Water enters root hair cells by osmosis. Mineral ions enter by active transport.",
+            "A large surface area increases the rate of absorption.",
+            "Active transport needs energy from many mitochondria."
+          ]
+        }
+      ]
+    },
+    {
+      "heading": "Xylem and phloem",
+      "blocks": [
+        { "type": "paragraph", "text": "Xylem and phloem are the plant's transport tissues. They run through the roots, stem and leaves." },
+        {
+          "type": "diagram",
+          "diagram": {
+            "kind": "compare",
+            "alt": "Xylem compared with phloem.",
+            "items": ["Xylem", "Phloem"],
+            "rows": [
+              { "feature": "Transports", "values": ["Water and mineral ions", "Dissolved sugars (sucrose)"] },
+              { "feature": "Direction", "values": ["Upwards: roots to stem and leaves", "Up and down: from the leaves to the rest of the plant"] },
+              { "feature": "Cells", "values": ["Dead", "Living"] },
+              { "feature": "Structure", "values": ["Hollow tubes strengthened with lignin, no end walls", "Tubes of elongated cells with pores in the end walls"] },
+              { "feature": "Process", "values": ["Transpiration stream", "Translocation"] }
+            ]
+          }
+        },
+        { "type": "subheading", "text": "Xylem adaptations" },
+        {
+          "type": "list",
+          "items": [
+            "Hollow tubes, with no cytoplasm and no end walls, so there is no obstruction and water flows easily.",
+            "Walls strengthened with **lignin**, to hold the tubes open.",
+            "Made of dead cells."
+          ]
+        },
+        { "type": "subheading", "text": "Phloem adaptations" },
+        {
+          "type": "list",
+          "items": [
+            "Tubes of elongated living cells.",
+            "Pores in the end walls, so cell sap can move from one cell to the next.",
+            "Sugars are made in the leaves. They move up and down so every cell can respire and the meristems can grow.",
+            "Sugars can also be stored as starch, fat or oil."
+          ]
+        },
+        {
+          "type": "diagram",
+          "diagram": {
+            "kind": "sort",
+            "alt": "Sort each statement into xylem, phloem or both.",
+            "prompt": "Xylem, phloem or both?",
+            "groups": ["Xylem", "Phloem", "Both"],
+            "items": [
+              { "text": "Transports water and mineral ions", "group": 0 },
+              { "text": "Transports dissolved sugars", "group": 1 },
+              { "text": "Made of dead cells with lignin", "group": 0 },
+              { "text": "Pores in the end walls", "group": 1 },
+              { "text": "Tubular", "group": 2 },
+              { "text": "Moves substances up and down the plant", "group": 1 },
+              { "text": "Part of the transpiration stream", "group": 0 },
+              { "text": "Found in roots, stems and leaves", "group": 2 }
+            ]
+          }
+        },
+        {
+          "type": "key-points",
+          "items": [
+            "Xylem: dead, hollow tubes with lignin. It carries water and mineral ions upwards.",
+            "Phloem: living cells with pores in the end walls. It carries dissolved sugars up and down.",
+            "If roots are damaged, less water and fewer mineral ions are absorbed, so photosynthesis and growth fall."
+          ]
+        }
+      ]
+    }
+  ],
+  "checks": [
+    {
+      "q": "Give two ways a root hair cell is adapted to absorb water and mineral ions.",
+      "a": "Any two from: long, thin projection giving a large surface area; thin cell wall so a short distance to travel; many mitochondria to release energy for active transport.",
+      "marks": 2
+    },
+    {
+      "q": "Explain one way that xylem is adapted for its function.",
+      "a": "It is made of hollow tubes, so there is no obstruction to water flow. Or it has lignin, to hold the tubes open.",
+      "marks": 2
+    },
+    {
+      "q": "Describe two differences between xylem and phloem.",
+      "a": "Any two from: xylem transports water and mineral ions but phloem transports dissolved sugars; xylem is dead cells but phloem is living cells; xylem moves substances upwards but phloem moves them up and down; phloem has pores in its end walls but xylem does not.",
+      "marks": 2
+    }
+  ],
+  "boards": {
+    "aqa": {
+      "spec_codes": ["AQA 2.12", "AQA T 4.2.3.2", "AQA T 4.2.3.1"],
+      "exam_phrases": [
+        "xylem is made of dead cells and phloem is made of living cells",
+        "phloem cells have pores in their end walls",
+        "xylem transports water / mineral ions and phloem transports (dissolved) sugars",
+        "composed of hollow tubes so no obstruction to water flow",
+        "has lignin to hold tubes open",
+        "xylem transports unidirectionally and phloem transports bidirectionally"
+      ],
+      "mistakes": [
+        {
+          "wrong": "Water is transported through the plant by translocation.",
+          "right": "Translocation is the movement of dissolved sugars in the phloem. Water moves in the xylem."
+        },
+        {
+          "wrong": "Xylem has thick walls so it is strong.",
+          "right": "\"Thick walls\" is ignored. Say xylem has lignin to hold the tubes open or strengthen them."
+        },
+        {
+          "wrong": "Phloem transports glucose and ions.",
+          "right": "Glucose, ions and minerals in translocation are ignored. Say phloem transports dissolved sugars or sucrose."
+        }
+      ],
+      "worked_example": {
+        "exemplar_id": "6cc326cd-fb46-4835-a5b9-aab44395b278",
+        "source": "AQA jun 2021, Paper 1 (H), Q06.6",
+        "question": "Compare the structure and function of xylem tissue and phloem tissue.",
+        "marks": 6,
+        "answer_points": [
+          "Structure: xylem is made of dead cells and phloem is made of living cells.",
+          "Structure: phloem cells have pores in their end walls. Xylem cells do not.",
+          "Structure: xylem is hollow, with no cytoplasm. Phloem contains cytoplasm.",
+          "Structure: xylem contains lignin. Phloem does not.",
+          "Structure: both are made of cells and both are tubular.",
+          "Function: xylem transports water and mineral ions. Phloem transports dissolved sugars.",
+          "Function: xylem is involved in transpiration and phloem in translocation.",
+          "Function: xylem transports in one direction (upwards). Phloem transports in both directions.",
+          "Function: both transport liquids throughout the plant."
+        ],
+        "tip": "For the top level you must refer to both structure and function, and make clear how they are similar or different."
+      }
+    },
+    "edexcel": {
+      "spec_codes": ["EDEX 6.7", "EDEX 6.8"],
+      "exam_phrases": [
+        "increases the surface area for absorption of water / mineral ions",
+        "thin cell wall so the distance is shorter",
+        "contains many mitochondria to release energy for active transport",
+        "xylem: dead cells, lignified walls, hollow tube",
+        "phloem: living cells, sieve tubes, carries sucrose",
+        "by active transport against the concentration gradient"
+      ],
+      "mistakes": [
+        {
+          "wrong": "Nitrate ions are absorbed by osmosis.",
+          "right": "Osmosis is rejected for ions. Say active transport (low to high concentration, using energy), or diffusion down the concentration gradient."
+        },
+        {
+          "wrong": "Phloem carries water to the leaves.",
+          "right": "Phloem carrying water is rejected. Water travels in the xylem. Phloem carries sucrose."
+        },
+        {
+          "wrong": "Root hair cells have chloroplasts to make food.",
+          "right": "Roots grow underground where there is no light, so they cannot photosynthesise and have no chloroplasts."
+        }
+      ],
+      "worked_example": {
+        "exemplar_id": "3c414913-d64f-4700-b649-df1aa988c4c7",
+        "source": "EDEXCEL jun 2024, Paper 2 (H), Q7(b)(ii)",
+        "question": "Sunflower plants grew and flowered. Explain how water moves through the stem of the sunflower plant to the leaves.",
+        "marks": 3,
+        "answer_points": [
+          "Water travels through the xylem, from the root to the leaf.",
+          "Through a hollow tube.",
+          "With lignified walls, or walls made of dead cells.",
+          "By transpiration.",
+          "Water is evaporated or diffused through the stomata."
+        ],
+        "tip": "Any three points score one mark each. Phloem carrying water is rejected."
+      }
+    },
+    "ocr": {
+      "spec_codes": ["OCR 2.2f", "OCR 2.2h"],
+      "exam_phrases": [
+        "root hairs absorb water",
+        "root hairs absorb minerals",
+        "plant might wilt / grow slower / less photosynthesis",
+        "xylem transports water / mineral ions",
+        "phloem transports sugars",
+        "less sugar translocated to other parts"
+      ],
+      "mistakes": [
+        {
+          "wrong": "Xylem transports sugars up and down the plant.",
+          "right": "Xylem transports water and mineral ions, one way (upwards). Sugars are transported in the phloem."
+        },
+        {
+          "wrong": "Root hairs must be kept undamaged so the plant survives.",
+          "right": "\"Plant survival\" is ignored. Say root hairs absorb water and minerals, so the plant might wilt, grow slower or photosynthesise less."
+        },
+        {
+          "wrong": "Greenfly damage plants by taking water and minerals from the xylem.",
+          "right": "Greenfly pierce the phloem and remove sugar. Less is left for growth and for respiration."
+        }
+      ],
+      "worked_example": {
+        "exemplar_id": "bdaaf491-dc6e-4d6f-8bf2-8f4f206f2501",
+        "source": "OCR nov 2021, Paper 1, Q18(c)",
+        "question": "A gardener digs up a bush and then plants it in a different position in their garden. They try to dig up the bush with as much soil as possible so that the root hairs are not damaged. Explain why the gardener tries to prevent the root hairs being damaged.",
+        "marks": 3,
+        "answer_points": [
+          "Root hairs absorb water.",
+          "Root hairs absorb minerals.",
+          "The plant might wilt, grow slower or photosynthesise less."
+        ],
+        "tip": "\"Plant survival\" is ignored. Give the effect on the plant."
+      }
+    }
+  },
+  "meta": {
+    "status": "draft",
+    "written_by": "sonnet-5-5",
+    "written_at": "2026-10-01",
+    "spec_point_ids": [
+      "05715453-6cf9-46f5-9d39-4037b81752e1",
+      "17bff5bc-2bf0-471f-a40e-2ce7a804812a",
+      "0338186a-8610-4356-8882-8a76c0c27390",
+      "ca385f96-1f6a-43f5-8cf1-f66c3ca21e38",
+      "5036424d-654b-43bb-a3b5-b2ab34feb2f5"
+    ],
+    "exemplar_ids": [
+      "6cc326cd-fb46-4835-a5b9-aab44395b278",
+      "3c414913-d64f-4700-b649-df1aa988c4c7",
+      "bdaaf491-dc6e-4d6f-8bf2-8f4f206f2501"
+    ]
+  }
+}

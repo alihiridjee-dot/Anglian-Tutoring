@@ -23,7 +23,8 @@
             "The atoms form hexagonal rings in a single layer.",
             "One electron from each carbon atom is delocalised.",
             "The delocalised electrons can move through the structure and carry charge, so graphene conducts electricity.",
-            "The covalent bonds are strong, so graphene is very strong."
+            "The covalent bonds are strong, so graphene is very strong.",
+            "Graphene has a giant covalent structure, so many strong bonds must be broken to melt it. It has a very high melting point."
           ]
         },
         {
@@ -46,7 +47,8 @@
             "They may also contain rings with five or seven carbon atoms.",
             "The first fullerene discovered was **buckminsterfullerene (C60)**. It has a spherical shape.",
             "**Carbon nanotubes** are cylindrical fullerenes. They have a very high length to diameter ratio.",
-            "A carbon nanotube has bonding like graphene, so it also has delocalised electrons and conducts electricity."
+            "A carbon nanotube has bonding like graphene, so it also has delocalised electrons and conducts electricity.",
+            "A fullerene has a molecular structure, with weak forces between its molecules. It has a lower melting point than graphene."
           ]
         },
         {
@@ -214,6 +216,8 @@
   },
   "meta": {
     "status": "draft",
+    "checked_by": "sonnet-science-check",
+    "checked_at": "2026-10-01",
     "written_by": "sonnet-5-5",
     "written_at": "2026-10-01",
     "spec_point_ids": [
