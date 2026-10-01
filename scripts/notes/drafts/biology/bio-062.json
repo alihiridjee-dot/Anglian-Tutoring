@@ -159,7 +159,7 @@
         {
           "type": "list",
           "items": [
-            "Hydrogencarbonate indicator in a sealed tube with organisms. Carbon dioxide from respiration changes its colour, for example germinating peas respire and dried peas do not.",
+            "Hydrogencarbonate indicator in a sealed tube with organisms. Carbon dioxide from respiration changes its colour, for example germinating peas respire much faster than dried peas.",
             "Fermentation in yeast. Collect the volume of carbon dioxide released in a set time, such as 10 minutes, at different temperatures.",
             "Keep the flask at a constant temperature in a water bath. An electric heater, incubator or electric water bath is an alternative to a Bunsen burner.",
             "If a Bunsen burner is used, wear goggles, tie back long hair and secure loose clothing."
@@ -209,8 +209,8 @@
       ],
       "mistakes": [
         {
-          "wrong": "A control is the same test tube with fewer organisms.",
-          "right": "A control has the same test tube, gauze, bung and indicator, but without any living organisms, or with an inert mass such as stones, dead peas or glass beads."
+          "wrong": "A control is the same test tube and gauze with no living organisms, and no indicator.",
+          "right": "A control has the same test tube, gauze and bung **with** indicator, but without any living organisms, or with an inert mass such as stones, dead peas or glass beads."
         },
         {
           "wrong": "Keep the time the same so that the results are comparable.",
@@ -281,6 +281,8 @@
     "exemplar_ids": [
       "39a96123-4f41-4554-b707-676a7b9ee1ea",
       "94ae723f-c3e0-42a7-b16e-45ea024765e8"
-    ]
+    ],
+    "checked_by": "sonnet-science-check",
+    "checked_at": "2026-10-01"
   }
 }

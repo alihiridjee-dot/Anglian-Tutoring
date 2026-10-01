@@ -1,0 +1,282 @@
+{
+  "format": 1,
+  "concept_id": "bio-069",
+  "subject": "biology",
+  "title": "Studying the brain and treating nervous system damage",
+  "key_idea": "Scientists study the brain using patients with damage, electrical stimulation and scans such as CT and PET. The skull and the brain's complexity make it hard to study. Brain and spinal damage is hard to treat because nerves do not repair. (Separate science)",
+  "sections": [
+    {
+      "heading": "How scientists investigate the brain",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "(Separate science) The brain sits inside the skull, so scientists cannot just look at it working. This section covers the methods used and why each has limits."
+        },
+        {
+          "type": "list",
+          "items": [
+            "**Studying patients** with brain damage, for example after an accident. Scientists link the damaged area to the problem the person has.",
+            "**Electrical stimulation**: stimulating a small part of the brain and observing what the person does or feels.",
+            "**CT scans**: show the structure of the brain without opening the skull.",
+            "**PET scans**: show which parts of the brain are active, so they can be linked to a function.",
+            "**Animal experiments**: part of an animal's brain is damaged, or removed, and the animal is observed."
+          ]
+        },
+        {
+          "type": "subheading",
+          "text": "Why it is difficult"
+        },
+        {
+          "type": "list",
+          "items": [
+            "The brain is protected by the skull, so it is difficult to reach.",
+            "The brain is very complex. It has a very large number of neurones with many connections, and several areas may be involved in one function.",
+            "Results from animals may be different to humans.",
+            "There are **ethical issues**, such as harming or killing animals for experiments.",
+            "It can be hard to find patients who are willing to take part, and testing could cause harm.",
+            "Case studies are hard to interpret. A single patient may not show a reliable pattern."
+          ]
+        },
+        {
+          "type": "key-points",
+          "items": [
+            "Scans let scientists see inside the skull without surgery.",
+            "PET and similar scans link a brain region to a function.",
+            "Complexity, access and ethics all limit what we can learn."
+          ]
+        }
+      ]
+    },
+    {
+      "heading": "Why brain and spinal damage is hard to treat",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "(Separate science) Damage to the brain or spinal cord is often permanent. Diseases of the brain are also hard to treat."
+        },
+        {
+          "type": "list",
+          "items": [
+            "The skull protects the brain, so it is difficult to access a tumour.",
+            "Nerves in the brain and spinal cord do not repair or regenerate, so damage is often irreversible.",
+            "Surgery risks damaging healthy parts of the brain. Treatments can have side effects.",
+            "After spinal damage, impulses cannot pass the injury, so signals do not reach the rest of the body."
+          ]
+        },
+        {
+          "type": "subheading",
+          "text": "Testing new treatments"
+        },
+        {
+          "type": "list",
+          "items": [
+            "A trial with a small number of patients may not show the treatment works for everyone.",
+            "A short trial cannot show whether an improvement lasts.",
+            "A new cell count in a scan does not prove that symptoms have improved.",
+            "Risks and possible damage must be assessed before a treatment is offered to all patients."
+          ]
+        },
+        {
+          "type": "diagram",
+          "diagram": {
+            "kind": "sort",
+            "alt": "A self-test: sort the difficulties into those that make the brain hard to investigate and those that make damage hard to treat.",
+            "prompt": "Sort each difficulty into the right group.",
+            "groups": [
+              "Hard to investigate",
+              "Hard to treat"
+            ],
+            "items": [
+              {
+                "text": "Experiments on live animals raise ethical issues",
+                "group": 0
+              },
+              {
+                "text": "Animal brains may differ from human brains",
+                "group": 0
+              },
+              {
+                "text": "Many connected areas may be involved in one function",
+                "group": 0
+              },
+              {
+                "text": "It is hard to find patients willing to take part",
+                "group": 0
+              },
+              {
+                "text": "The skull makes a tumour difficult to reach",
+                "group": 1
+              },
+              {
+                "text": "Nerves do not repair or regenerate",
+                "group": 1
+              },
+              {
+                "text": "Surgery risks damaging healthy brain tissue",
+                "group": 1
+              },
+              {
+                "text": "A small, short trial cannot show a treatment is safe long term",
+                "group": 1
+              }
+            ]
+          }
+        },
+        {
+          "type": "key-points",
+          "items": [
+            "Nerves in the brain and spinal cord do not repair.",
+            "The skull and the risk of damage make surgery difficult.",
+            "New treatments need larger and longer trials."
+          ]
+        }
+      ]
+    }
+  ],
+  "checks": [
+    {
+      "q": "Give two reasons why it is difficult to treat a brain tumour.",
+      "a": "Any two from: the brain is protected by the skull so it is difficult to access; nerves do not repair or regenerate; the risk of damage to healthy parts of the brain.",
+      "marks": 2
+    },
+    {
+      "q": "Give one ethical issue with studying the brain using animals.",
+      "a": "Damaging, harming or killing live animals for experiments.",
+      "marks": 1
+    },
+    {
+      "q": "State one way a scan helps scientists investigate brain function.",
+      "a": "It lets them see which part of the brain is active without opening the skull.",
+      "marks": 1
+    }
+  ],
+  "boards": {
+    "aqa": {
+      "spec_codes": [
+        "AQA 5.4"
+      ],
+      "exam_phrases": [
+        "can ask people to do different tasks (while taking the scan)",
+        "to see which part of the brain is active / inactive",
+        "to compare with a person without brain damage",
+        "to see (exactly) where the damage is"
+      ],
+      "mistakes": [
+        {
+          "wrong": "A traditional MRI scanner can be used for anyone.",
+          "right": "A traditional MRI scanner cannot be used if people cannot stay still. A functional MRI (fMRI) scanner allows the person to move."
+        },
+        {
+          "wrong": "An fMRI scan only shows what the brain looks like.",
+          "right": "It shows which part of the brain is active or inactive, so the person can be asked to do a task while it is scanned."
+        }
+      ],
+      "worked_example": {
+        "exemplar_id": "e5ec2cf9-b6af-4dbe-b91a-fda275cc8f7f",
+        "source": "AQA jun 2020, Paper 2 (H), Q06.3",
+        "question": "In most MRI scanners the person being scanned needs to stay completely still. A functional MRI (fMRI) scanner allows a person to move while the scanner makes images of the person's brain activity.\n\nSuggest how the fMRI scanner could help to find out more about the brain damage a person has.",
+        "marks": 3,
+        "answer_points": [
+          "The person can be asked to do different tasks while the scan is taken.",
+          "This shows which part of the brain is active or inactive.",
+          "It can be compared with a person without brain damage, to see exactly where the damage is."
+        ],
+        "tip": "Any three points score. The scanner is also useful for people who cannot stay still."
+      }
+    },
+    "edexcel": {
+      "spec_codes": [
+        "EDEX 2.11B",
+        "EDEX 2.12B"
+      ],
+      "exam_phrases": [
+        "CT / PET scanning",
+        "the brain is protected by the skull",
+        "it is difficult to access",
+        "nerves do not repair / regenerate",
+        "the risk of damage to the brain",
+        "must not damage healthy cells / can cause side effects"
+      ],
+      "mistakes": [
+        {
+          "wrong": "Another way a brain tumour can be detected is an eye test.",
+          "right": "If the question already gives eye tests, give another method: CT or PET scanning. MRI or X-ray is also accepted."
+        },
+        {
+          "wrong": "A brain tumour is easy to treat because damaged nerves repair themselves.",
+          "right": "Nerves do not repair or regenerate. A brain tumour is difficult to treat because of this, the skull, and the risk of damaging the brain."
+        }
+      ],
+      "worked_example": {
+        "exemplar_id": "fad849ad-e077-4d64-8cfa-30c933bf02f7",
+        "source": "EDEXCEL nov 2021, Paper 1 (H), Q1(b)(ii)",
+        "question": "Eye tests can detect some brain tumours.\n\nDescribe why a brain tumour is difficult to treat.",
+        "marks": 2,
+        "answer_points": [
+          "The brain is protected by the skull (bone), so it is difficult to access.",
+          "Nerves do not repair or regenerate, and there is a risk of damage to the brain (healthy cells)."
+        ],
+        "tip": "A description including two points scores both marks. Any two from the four points are enough."
+      }
+    },
+    "ocr": {
+      "spec_codes": [
+        "OCR 3.1g",
+        "OCR 3.1h"
+      ],
+      "exam_phrases": [
+        "ethical issues with experimenting on (live) animals",
+        "results in animals may be different to humans",
+        "the brain is very complex / many different connections",
+        "some areas of the brain are difficult to reach",
+        "difficult to get research subjects willing to give consent",
+        "could cause further harm to people with the disease",
+        "study size was small (a trial on a larger group is needed)",
+        "need to study for a longer time"
+      ],
+      "mistakes": [
+        {
+          "wrong": "It is unethical to study the brain.",
+          "right": "This is ignored. Name the issue, such as experimenting on or harming live animals."
+        },
+        {
+          "wrong": "Consent is needed from patients.",
+          "right": "This is ignored. Say it is difficult to get research subjects who are willing to participate or give consent."
+        },
+        {
+          "wrong": "The treatment may have long term effects.",
+          "right": "This is ignored. Say the treatment may have side effects, or that it must be shown to be safe and effective in the long term."
+        }
+      ],
+      "worked_example": {
+        "exemplar_id": "b7dd8c08-cb69-4511-bf2f-197325d1f89a",
+        "source": "OCR jun 2025, Paper 3, Q23(c)",
+        "question": "Parkinson's disease results in a reduction in dopamine in neurones deep in the brain. To try to identify the cause of the disease, scientists use two methods:\n• animals have part of their brain deliberately damaged and are then observed\n• the brains of people with the disease are studied.\n\nExplain any difficulties scientists may encounter when using these two methods for studying Parkinson's disease.",
+        "marks": 4,
+        "answer_points": [
+          "There are ethical issues with experimenting on live animals.",
+          "Results in animals may be different to humans.",
+          "The brain is very complex, with many different connections, and some areas are difficult to reach.",
+          "It is difficult to get research subjects willing to take part, and it could cause further harm to people with the disease."
+        ],
+        "tip": "Any four points score one mark each."
+      }
+    }
+  },
+  "meta": {
+    "status": "draft",
+    "written_by": "sonnet-5-5",
+    "written_at": "2026-10-01",
+    "spec_point_ids": [
+      "01a79f20-538d-4f86-93a0-c769a91da33f",
+      "c25e9778-86a9-423d-8419-07ba9cd5c84e",
+      "32681abe-c8b7-494e-acff-0ad49591cc31",
+      "506b1081-5541-4895-9f36-3663f9c008ec"
+    ],
+    "exemplar_ids": [
+      "e5ec2cf9-b6af-4dbe-b91a-fda275cc8f7f",
+      "fad849ad-e077-4d64-8cfa-30c933bf02f7",
+      "b7dd8c08-cb69-4511-bf2f-197325d1f89a"
+    ]
+  }
+}

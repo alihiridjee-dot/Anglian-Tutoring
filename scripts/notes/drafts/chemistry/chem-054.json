@@ -132,7 +132,7 @@
           "items": [
             "Metal ions are positively charged, so they are attracted to the negative electrode.",
             "Non-metal ions are negatively charged, so they are attracted to the positive electrode.",
-            "Hydrogen and oxygen cannot form from a molten binary compound, because it contains no hydrogen or oxygen.",
+            "A molten metal halide, such as potassium bromide, contains only a metal and a halogen. Hydrogen and oxygen cannot form from it.",
             "Hydrogen can form instead of a metal only when the compound is in solution, because water supplies hydrogen ions."
           ]
         },
@@ -221,7 +221,7 @@
       "mistakes": [
         {
           "wrong": "The electrolysis of molten potassium bromide gives hydrogen and oxygen.",
-          "right": "Neither hydrogen nor oxygen can be a product of a molten binary salt. The products are potassium and bromine."
+          "right": "Neither hydrogen nor oxygen can be a product of molten potassium bromide. The products are potassium and bromine."
         },
         {
           "wrong": "Bromine is produced at the cathode when molten lead bromide is electrolysed.",

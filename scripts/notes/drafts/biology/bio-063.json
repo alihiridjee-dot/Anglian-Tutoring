@@ -111,8 +111,8 @@
           "items": [
             "Heart rate stays high, then slowly falls back to its resting rate.",
             "Breathing stays fast and deep, then slowly returns to normal.",
-            "The extra oxygen breathed in pays back the oxygen debt, by reacting with the lactic acid.",
-            "(Higher tier) Blood flowing through the muscles carries lactic acid to the liver, where some is converted back into glucose."
+            "The extra oxygen breathed in pays back the oxygen debt, by reacting with the lactic acid and removing it from the cells.",
+            "(Higher tier) Blood flowing through the muscles carries lactic acid to the liver, where some is converted back into glucose. The oxygen debt itself is the oxygen needed to remove the lactic acid."
           ]
         },
         {
@@ -165,8 +165,8 @@
               "decimals": 1
             },
             "working": [
-              "Increase to lose = {h} − {r}",
-              "Time = (increase to lose) ÷ {k} = **{answer}** minutes"
+              "Beats to lose = {h} − {r}",
+              "Time = (beats to lose) ÷ {k} = **{answer}** minutes"
             ]
           }
         },
@@ -190,10 +190,10 @@
         {
           "type": "list",
           "items": [
-            "Use a group of people, with at least 5 in each group you compare.",
+            "Use a group of people, with at least 5 in each group you compare, or have each person do every type of exercise.",
             "Record each person's heart rate before and after exercise, and calculate the increase for each person.",
             "Calculate the mean increase for each type or intensity of exercise, then compare them.",
-            "Control the variables: age, sex, level of activity, time spent exercising and the type of exercise.",
+            "Control the variables: age, sex, level of activity, time spent exercising, type of exercise, caffeine or drug intake, and health.",
             "Let each person return to their resting heart rate before the next exercise."
           ]
         },
@@ -238,8 +238,8 @@
         "deeper breathing / increased heart rate",
         "(anaerobic respiration) produces lactic acid",
         "oxygen debt",
-        "(so more) oxygen is required to oxidise / break down lactic acid",
-        "lactic acid is converted back into glucose (in the liver)"
+        "oxygen debt is the amount of oxygen needed to break down lactic acid",
+        "(Higher tier) lactic acid is converted back into glucose"
       ],
       "mistakes": [
         {
@@ -274,7 +274,7 @@
           "Insufficient oxygen is supplied during prolonged vigorous exercise, so lactic acid is formed by anaerobic respiration and an oxygen debt is created.",
           "Lactic acid causes the muscles to become fatigued, so they stop contracting efficiently.",
           "After exercise, heart rate and breathing rate stay high and fall slowly, to pay back the oxygen debt.",
-          "The oxygen debt is the oxygen needed to break down the lactic acid. Some lactic acid is transported to the liver and converted back into glucose."
+          "The oxygen debt is the oxygen needed to break down the lactic acid. (Higher tier) Some lactic acid is transported to the liver and converted back into glucose."
         ],
         "tip": "A six-mark answer links changes during exercise and after it, and must include lactic acid and its removal."
       }
@@ -290,6 +290,8 @@
     ],
     "exemplar_ids": [
       "2ce023bd-f852-455a-8ea6-cc58f6f2eeb5"
-    ]
+    ],
+    "checked_by": "sonnet-science-check",
+    "checked_at": "2026-10-01"
   }
 }
