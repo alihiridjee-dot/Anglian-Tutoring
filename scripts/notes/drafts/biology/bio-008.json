@@ -184,7 +184,7 @@
           "The nucleus divides and the cytoplasm and cell membrane divide, forming two cells.",
           "The set of chromosomes in each new cell is identical to the other."
         ],
-        "tip": "One mark for each stage in order, and one for saying the two sets are identical."
+        "tip": "One mark for each of the four points. Say the chromosomes are replicated and pulled apart, the cell divides, and the two sets are identical."
       }
     },
     "edexcel": {
@@ -334,6 +334,13 @@
                 ["G2", "Growth and preparation for cell division"],
                 ["M", "Mitosis: the chromosomes move, then the cell divides into two"]
               ]
+            },
+            {
+              "type": "list",
+              "items": [
+                "Plant stems grow because **meristem** cells divide by mitosis.",
+                "Meiosis is not accepted for growth."
+              ]
             }
           ]
         }
@@ -342,6 +349,8 @@
   },
   "meta": {
     "status": "draft",
+    "checked_by": "sonnet-science-check",
+    "checked_at": "2026-10-01",
     "written_by": "writer-c",
     "written_at": "2026-10-01",
     "spec_point_ids": [

@@ -7,7 +7,9 @@ import { NOTE_BOARDS, type NoteBoard } from "@/lib/notes/noteFormat";
 export const Route = createFileRoute("/notes-preview/$conceptId")({
   validateSearch: (search: Record<string, unknown>): { set: string; board: NoteBoard } => ({
     set: typeof search.set === "string" ? search.set : "drafts",
-    board: (NOTE_BOARDS as readonly string[]).includes(search.board as string) ? (search.board as NoteBoard) : "aqa",
+    board: (NOTE_BOARDS as readonly string[]).includes(search.board as string)
+      ? (search.board as NoteBoard)
+      : "aqa",
   }),
   beforeLoad: () => {
     if (!import.meta.env.DEV) throw notFound();
@@ -34,7 +36,9 @@ function DraftNote() {
     <div className="page-aurora relative min-h-screen">
       <div className="mx-auto max-w-4xl space-y-6 px-4 py-8 sm:py-12">
         <div className="flex flex-wrap items-center gap-2">
-          <Link to="/notes-preview" className="chip">All drafts</Link>
+          <Link to="/notes-preview" className="chip">
+            All drafts
+          </Link>
           <span className="chip chip-solid tint-amber">Draft — {note.meta.status}</span>
           <span className="ml-auto flex flex-wrap gap-2" role="group" aria-label="Exam board">
             {boards.map((b) => (

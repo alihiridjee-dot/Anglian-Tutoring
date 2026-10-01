@@ -86,6 +86,21 @@
             ["3 cm", "54 cm²", "27 cm³", "2 : 1"]
           ]
         },
+        {
+          "type": "diagram",
+          "diagram": {
+            "kind": "practice",
+            "alt": "Practise calculating the surface area to volume ratio of a cube. The side length changes each time.",
+            "question": "A cube has sides of **{s} cm**. Calculate its surface area to volume ratio. Give your answer in the form ___ : 1.",
+            "variables": [{ "id": "s", "min": 1, "max": 6, "step": 1 }],
+            "answer": { "formula": "6 * s * s / (s * s * s)", "unit": ": 1", "decimals": 1 },
+            "working": [
+              "Surface area = 6 × {s} × {s}",
+              "Volume = {s} × {s} × {s}",
+              "Ratio = surface area ÷ volume = **{answer} : 1**"
+            ]
+          }
+        },
         { "type": "subheading", "text": "For a block that is not a cube" },
         {
           "type": "equation",
@@ -321,7 +336,7 @@
       },
       "extra": [
         {
-          "heading": "Fick's law",
+          "heading": "Fick's law (Higher tier)",
           "blocks": [
             { "type": "paragraph", "text": "Fick's law links the rate of diffusion to three factors." },
             {
@@ -382,6 +397,8 @@
   },
   "meta": {
     "status": "draft",
+    "checked_by": "sonnet-science-check",
+    "checked_at": "2026-10-01",
     "written_by": "writer-c",
     "written_at": "2026-10-01",
     "spec_point_ids": [

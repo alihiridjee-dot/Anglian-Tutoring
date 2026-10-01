@@ -12,7 +12,11 @@ export const Route = createFileRoute("/notes-preview/")({
   component: DraftList,
 });
 
-const SET_LABEL: Record<string, string> = { drafts: "Drafts", "trial/a": "Writer A", "trial/b": "Writer B" };
+const SET_LABEL: Record<string, string> = {
+  drafts: "Drafts",
+  "trial/a": "Writer A",
+  "trial/b": "Writer B",
+};
 
 function DraftList() {
   const sets = [...new Set(draftNotes.map((d) => d.set))].sort();

@@ -63,7 +63,7 @@
           "type": "steps",
           "items": [
             { "lead": "Prepare the potato.", "text": "Use the same potato. Remove the skin, because water cannot move through it. Cut equal pieces, for example with a cork borer." },
-            { "lead": "Prepare the solutions.", "text": "Label a tube for each concentration, at least five, including 0.0 mol/dm³ (distilled water). Use the same volume in each, enough to cover the piece." },
+            { "lead": "Prepare the solutions.", "text": "Label a tube for each concentration (at least three, ideally five), including 0.0 mol/dm³ (distilled water). Use the same volume in each, enough to cover the piece." },
             { "lead": "Weigh the pieces.", "text": "Dry each piece on a paper towel. Weigh it and record the starting mass." },
             { "lead": "Start.", "text": "Put one piece in each tube, fully submerged, all at the same temperature." },
             { "lead": "Wait.", "text": "Leave them for the same time, at least 10 minutes. Longer gives larger changes." },
@@ -147,7 +147,7 @@
           "type": "list",
           "items": [
             "Use more concentrations, so the point of no change can be found more precisely.",
-            "Use a balance with a smaller resolution, to measure small changes in mass.",
+            "Use a balance that reads to more decimal places, to measure small changes in mass.",
             "Use the same potato, skin removed, with pieces of the same size.",
             "Keep the time in the solution and the temperature the same.",
             "Repeat readings to spot anomalous results."
@@ -311,6 +311,8 @@
   },
   "meta": {
     "status": "draft",
+    "checked_by": "sonnet-science-check",
+    "checked_at": "2026-10-01",
     "written_by": "writer-c",
     "written_at": "2026-10-01",
     "spec_point_ids": [

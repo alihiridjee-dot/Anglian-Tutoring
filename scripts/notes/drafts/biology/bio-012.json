@@ -78,7 +78,7 @@
             [
               "More concentrated than the cell",
               "Water leaves. The cell is **plasmolysed** and limp.",
-              "Water leaves. The cell shrinks and shrivels."
+              "Water leaves. The cell shrinks and shrivels (it crenates)."
             ]
           ]
         },
@@ -307,11 +307,11 @@
         {
           "heading": "The visking tubing model",
           "blocks": [
-            { "type": "paragraph", "text": "Visking tubing is an artificial partially permeable membrane. Place a bag of starch solution in water and watch what moves." },
+            { "type": "paragraph", "text": "Visking tubing is an artificial partially permeable membrane. Place a bag of concentrated sucrose solution in water and watch what moves." },
             {
               "type": "list",
               "items": [
-                "Starch molecules are too large to pass through the tubing.",
+                "Sucrose molecules are too large to pass through the tubing.",
                 "Water moves into the bag by osmosis.",
                 "The liquid level rises in a tube joined to the bag."
               ]
@@ -323,6 +323,8 @@
   },
   "meta": {
     "status": "draft",
+    "checked_by": "sonnet-science-check",
+    "checked_at": "2026-10-01",
     "written_by": "writer-c",
     "written_at": "2026-10-01",
     "spec_point_ids": [

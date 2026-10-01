@@ -25,16 +25,32 @@ const key = process.env.SUPABASE_SERVICE_ROLE_KEY;
 if (!url || !key) throw new Error("SUPABASE_URL and SUPABASE_SERVICE_ROLE_KEY must be set");
 
 const [subject, which] = process.argv.slice(2);
-if (!subject || !which) throw new Error('Usage: build-sources.ts <subject> <"Group name" | concept id>');
+if (!subject || !which)
+  throw new Error('Usage: build-sources.ts <subject> <"Group name" | concept id>');
 
 const here = dirname(fileURLToPath(import.meta.url));
 const map = JSON.parse(readFileSync(join(here, "concepts", `gcse-${subject}.json`), "utf8"));
 type Ref = { id: string; board: string; code: string; primary: boolean };
-type Concept = { id: string; group: string; title: string; scope: string; kind: string; higher_only: boolean; separate_only: boolean; data_note?: string; spec_points: Ref[] };
-const concepts: Concept[] = map.concepts.filter((c: Concept) => c.id === which || c.group === which);
+type Concept = {
+  id: string;
+  group: string;
+  title: string;
+  scope: string;
+  kind: string;
+  higher_only: boolean;
+  separate_only: boolean;
+  data_note?: string;
+  spec_points: Ref[];
+};
+const concepts: Concept[] = map.concepts.filter(
+  (c: Concept) => c.id === which || c.group === which,
+);
 if (!concepts.length) throw new Error(`No concept or group called ${which}`);
 
-const headers = { apikey: key, ...(key.startsWith("sb_secret_") ? {} : { Authorization: `Bearer ${key}` }) };
+const headers = {
+  apikey: key,
+  ...(key.startsWith("sb_secret_") ? {} : { Authorization: `Bearer ${key}` }),
+};
 async function get(path: string) {
   const res = await fetch(`${url}/rest/v1/${path}`, { headers });
   if (!res.ok) throw new Error(`GET ${path} failed: ${res.status} ${await res.text()}`);
@@ -49,7 +65,9 @@ mkdirSync(outDir, { recursive: true });
 for (const c of concepts) {
   const ids = c.spec_points.map((r) => r.id);
   const points = await get(`spec_points?select=id,code,title,description&id=${inList(ids)}`);
-  const links = await get(`exam_exemplar_spec_points?select=exemplar_id,spec_point_id&spec_point_id=${inList(ids)}`);
+  const links = await get(
+    `exam_exemplar_spec_points?select=exemplar_id,spec_point_id&spec_point_id=${inList(ids)}`,
+  );
   const exIds = [...new Set(links.map((l: { exemplar_id: string }) => l.exemplar_id))] as string[];
   const exemplars = exIds.length
     ? await get(
@@ -65,8 +83,18 @@ for (const c of concepts) {
   for (const r of c.spec_points) {
     const b = board(r.board);
     const p = points.find((x: { id: string }) => x.id === r.id);
-    const slot = (byBoard[b] ??= { spec_points: [], questions: [] }) as { spec_points: unknown[]; questions: unknown[] };
-    slot.spec_points.push({ id: r.id, code: r.code, course: r.board, primary: r.primary, title: p?.title, description: p?.description });
+    const slot = (byBoard[b] ??= { spec_points: [], questions: [] }) as {
+      spec_points: unknown[];
+      questions: unknown[];
+    };
+    slot.spec_points.push({
+      id: r.id,
+      code: r.code,
+      course: r.board,
+      primary: r.primary,
+      title: p?.title,
+      description: p?.description,
+    });
   }
   for (const e of usable) {
     const b = board(e.board);
@@ -83,10 +111,13 @@ for (const c of concepts) {
     });
   }
   // Most marks first: the richest mark schemes are the most useful to write from.
-  for (const s of Object.values(byBoard) as { questions: { marks: number }[] }[]) s.questions.sort((a, b) => b.marks - a.marks);
+  for (const s of Object.values(byBoard) as { questions: { marks: number }[] }[])
+    s.questions.sort((a, b) => b.marks - a.marks);
 
   const pack = { concept: { ...c, spec_points: undefined }, boards: byBoard };
   writeFileSync(join(outDir, `${c.id}.json`), JSON.stringify(pack, null, 2));
-  const counts = Object.entries(byBoard).map(([b, s]) => `${b} ${(s as { questions: unknown[] }).questions.length}q`).join(", ");
+  const counts = Object.entries(byBoard)
+    .map(([b, s]) => `${b} ${(s as { questions: unknown[] }).questions.length}q`)
+    .join(", ");
   console.log(`${c.id} ${c.title}: ${counts}`);
 }

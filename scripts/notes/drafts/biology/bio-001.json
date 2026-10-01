@@ -193,7 +193,7 @@
       "mistakes": [
         {
           "wrong": "Bacterial cells do not have ribosomes.",
-          "right": "Bacterial cells do have ribosomes. They are smaller than the ribosomes in plant and animal cells. This idea is not accepted."
+          "right": "Bacterial cells do have ribosomes. They are smaller than the ribosomes in plant and animal cells. \"No ribosomes\" is not accepted."
         },
         {
           "wrong": "A eukaryotic cell does not have a cell wall.",
@@ -289,7 +289,7 @@
         },
         {
           "wrong": "Bacterial cells have mitochondria.",
-          "right": "Mitochondria are in animal cells only. Bacterial cells have no nucleus and no mitochondria, but they do have plasmids."
+          "right": "Mitochondria are found in eukaryotic cells only. Bacterial cells have no nucleus and no mitochondria, but they do have plasmids."
         }
       ],
       "worked_example": {
@@ -310,6 +310,8 @@
   },
   "meta": {
     "status": "draft",
+    "checked_by": "sonnet-science-check",
+    "checked_at": "2026-10-01",
     "written_by": "writer-c",
     "written_at": "2026-10-01",
     "spec_point_ids": [

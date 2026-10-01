@@ -8,7 +8,9 @@
  */
 import type { Note } from "./noteFormat";
 
-const files = import.meta.glob<Note>("/scripts/notes/{drafts,trial}/**/*.json", { import: "default" });
+const files = import.meta.glob<Note>("/scripts/notes/{drafts,trial}/**/*.json", {
+  import: "default",
+});
 
 export interface DraftRef {
   set: string;

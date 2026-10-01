@@ -51,11 +51,24 @@ grant usage on schema private, auth to authenticated, anon, service_role;
 grant execute on all functions in schema private, auth to authenticated, anon, service_role;
 `);
 
-await db.exec(await readFile(new URL("../supabase/migrations/20261001164835_revision_notes.sql", import.meta.url), "utf8"));
-await db.exec(`grant all on all tables in schema public to service_role; alter role service_role bypassrls;`);
+await db.exec(
+  await readFile(
+    new URL("../supabase/migrations/20261001164835_revision_notes.sql", import.meta.url),
+    "utf8",
+  ),
+);
+await db.exec(
+  `grant all on all tables in schema public to service_role; alter role service_role bypassrls;`,
+);
 
-async function as<T = Record<string, unknown>>(user: string | null, sql: string, params: unknown[] = []) {
-  await db.exec(`set role ${user ? "authenticated" : "anon"}; select set_config('request.jwt.claim.sub', '${user ?? ""}', false);`);
+async function as<T = Record<string, unknown>>(
+  user: string | null,
+  sql: string,
+  params: unknown[] = [],
+) {
+  await db.exec(
+    `set role ${user ? "authenticated" : "anon"}; select set_config('request.jwt.claim.sub', '${user ?? ""}', false);`,
+  );
   try {
     return (await db.query<T>(sql, params)).rows;
   } finally {
@@ -90,10 +103,21 @@ insert into public.notes (concept_id, body, written_by, status, approved_at) val
 await db.exec("reset role");
 
 // A student who has paid for Biology sees Biology concepts and approved Biology notes only.
-const ids = (rows: { concept_id?: string; id?: string }[]) => rows.map((r) => r.concept_id ?? r.id).sort();
-assert.deepEqual(ids(await as(bioStudent, "select id from public.note_concepts")), ["bio-001", "bio-002"]);
-assert.deepEqual(ids(await as(bioStudent, "select concept_id from public.notes")), ["bio-001"], "draft and unpaid notes are hidden");
-assert.deepEqual(ids(await as(bioStudent, "select concept_id from public.note_concept_spec_points")), ["bio-001"]);
+const ids = (rows: { concept_id?: string; id?: string }[]) =>
+  rows.map((r) => r.concept_id ?? r.id).sort();
+assert.deepEqual(ids(await as(bioStudent, "select id from public.note_concepts")), [
+  "bio-001",
+  "bio-002",
+]);
+assert.deepEqual(
+  ids(await as(bioStudent, "select concept_id from public.notes")),
+  ["bio-001"],
+  "draft and unpaid notes are hidden",
+);
+assert.deepEqual(
+  ids(await as(bioStudent, "select concept_id from public.note_concept_spec_points")),
+  ["bio-001"],
+);
 
 // A parent sees what their child has paid for (my_content_subjects covers both).
 assert.deepEqual(ids(await as(parentOfBio, "select concept_id from public.notes")), ["bio-001"]);
@@ -104,18 +128,57 @@ assert.equal((await as(unpaidStudent, "select * from public.note_concepts")).len
 await fails(as(null, "select * from public.notes"), "anon has no grant");
 
 // Students cannot write, approve or delete.
-await fails(as(bioStudent, "insert into public.notes (concept_id, body, written_by) values ('bio-002', '{}', 'me')"), "student insert");
-assert.equal((await as(bioStudent, "update public.notes set status = 'approved', approved_at = now() where concept_id = 'bio-002' returning *")).length, 0, "student cannot approve");
-assert.equal((await as(bioStudent, "delete from public.notes where concept_id = 'bio-001' returning *")).length, 0, "student cannot delete");
+await fails(
+  as(
+    bioStudent,
+    "insert into public.notes (concept_id, body, written_by) values ('bio-002', '{}', 'me')",
+  ),
+  "student insert",
+);
+assert.equal(
+  (
+    await as(
+      bioStudent,
+      "update public.notes set status = 'approved', approved_at = now() where concept_id = 'bio-002' returning *",
+    )
+  ).length,
+  0,
+  "student cannot approve",
+);
+assert.equal(
+  (await as(bioStudent, "delete from public.notes where concept_id = 'bio-001' returning *"))
+    .length,
+  0,
+  "student cannot delete",
+);
 
 // A tutor sees drafts and can approve one.
-assert.deepEqual(ids(await as(tutor, "select concept_id from public.notes")), ["bio-001", "bio-002", "chem-001"]);
-const approved = await as(tutor, `update public.notes set status = 'approved', approved_at = now(), approved_by = '${tutor}' where concept_id = 'bio-002' returning concept_id`);
+assert.deepEqual(ids(await as(tutor, "select concept_id from public.notes")), [
+  "bio-001",
+  "bio-002",
+  "chem-001",
+]);
+const approved = await as(
+  tutor,
+  `update public.notes set status = 'approved', approved_at = now(), approved_by = '${tutor}' where concept_id = 'bio-002' returning concept_id`,
+);
 assert.equal(approved.length, 1);
-assert.deepEqual(ids(await as(bioStudent, "select concept_id from public.notes")), ["bio-001", "bio-002"], "approved note is now visible");
+assert.deepEqual(
+  ids(await as(bioStudent, "select concept_id from public.notes")),
+  ["bio-001", "bio-002"],
+  "approved note is now visible",
+);
 
 // Approval and its timestamp move together.
-await fails(asServer("update public.notes set status = 'approved', approved_at = null where concept_id = 'chem-001'"), "approved without a time");
-await fails(asServer("update public.notes set status = 'draft' where concept_id = 'chem-001'"), "draft with an approval time");
+await fails(
+  asServer(
+    "update public.notes set status = 'approved', approved_at = null where concept_id = 'chem-001'",
+  ),
+  "approved without a time",
+);
+await fails(
+  asServer("update public.notes set status = 'draft' where concept_id = 'chem-001'"),
+  "draft with an approval time",
+);
 
 console.log("revision notes: all access checks pass");

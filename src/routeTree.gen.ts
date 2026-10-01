@@ -58,6 +58,7 @@ import { Route as DemoStudentDashboardRouteImport } from './routes/demo/student/
 import { Route as DemoStudentCurriculumRouteImport } from './routes/demo/student/curriculum'
 import { Route as DemoParentDashboardRouteImport } from './routes/demo/parent/dashboard'
 import { Route as AuthenticatedStudentsStudentIdRouteImport } from './routes/_authenticated/students_.$studentId'
+import { Route as AuthenticatedNotesConceptIdRouteImport } from './routes/_authenticated/notes_.$conceptId'
 import { Route as AuthenticatedMcqSetIdRouteImport } from './routes/_authenticated/mcq.$setId'
 import { Route as AuthenticatedHomeworkHomeworkIdRouteImport } from './routes/_authenticated/homework_.$homeworkId'
 import { Route as DemoStudentMcqSetIdRouteImport } from './routes/demo/student/mcq.$setId'
@@ -312,6 +313,12 @@ const AuthenticatedStudentsStudentIdRoute =
     path: '/students/$studentId',
     getParentRoute: () => AuthenticatedRouteRoute,
   } as any)
+const AuthenticatedNotesConceptIdRoute =
+  AuthenticatedNotesConceptIdRouteImport.update({
+    id: '/notes_/$conceptId',
+    path: '/notes/$conceptId',
+    getParentRoute: () => AuthenticatedRouteRoute,
+  } as any)
 const AuthenticatedMcqSetIdRoute = AuthenticatedMcqSetIdRouteImport.update({
   id: '/mcq/$setId',
   path: '/mcq/$setId',
@@ -375,6 +382,7 @@ export interface FileRoutesByFullPath {
   '/onboarding/': typeof OnboardingIndexRoute
   '/homework/$homeworkId': typeof AuthenticatedHomeworkHomeworkIdRoute
   '/mcq/$setId': typeof AuthenticatedMcqSetIdRoute
+  '/notes/$conceptId': typeof AuthenticatedNotesConceptIdRoute
   '/students/$studentId': typeof AuthenticatedStudentsStudentIdRoute
   '/demo/parent/dashboard': typeof DemoParentDashboardRoute
   '/demo/student/curriculum': typeof DemoStudentCurriculumRoute
@@ -428,6 +436,7 @@ export interface FileRoutesByTo {
   '/onboarding': typeof OnboardingIndexRoute
   '/homework/$homeworkId': typeof AuthenticatedHomeworkHomeworkIdRoute
   '/mcq/$setId': typeof AuthenticatedMcqSetIdRoute
+  '/notes/$conceptId': typeof AuthenticatedNotesConceptIdRoute
   '/students/$studentId': typeof AuthenticatedStudentsStudentIdRoute
   '/demo/parent/dashboard': typeof DemoParentDashboardRoute
   '/demo/student/curriculum': typeof DemoStudentCurriculumRoute
@@ -484,6 +493,7 @@ export interface FileRoutesById {
   '/onboarding/': typeof OnboardingIndexRoute
   '/_authenticated/homework_/$homeworkId': typeof AuthenticatedHomeworkHomeworkIdRoute
   '/_authenticated/mcq/$setId': typeof AuthenticatedMcqSetIdRoute
+  '/_authenticated/notes_/$conceptId': typeof AuthenticatedNotesConceptIdRoute
   '/_authenticated/students_/$studentId': typeof AuthenticatedStudentsStudentIdRoute
   '/demo/parent/dashboard': typeof DemoParentDashboardRoute
   '/demo/student/curriculum': typeof DemoStudentCurriculumRoute
@@ -540,6 +550,7 @@ export interface FileRouteTypes {
     | '/onboarding/'
     | '/homework/$homeworkId'
     | '/mcq/$setId'
+    | '/notes/$conceptId'
     | '/students/$studentId'
     | '/demo/parent/dashboard'
     | '/demo/student/curriculum'
@@ -593,6 +604,7 @@ export interface FileRouteTypes {
     | '/onboarding'
     | '/homework/$homeworkId'
     | '/mcq/$setId'
+    | '/notes/$conceptId'
     | '/students/$studentId'
     | '/demo/parent/dashboard'
     | '/demo/student/curriculum'
@@ -648,6 +660,7 @@ export interface FileRouteTypes {
     | '/onboarding/'
     | '/_authenticated/homework_/$homeworkId'
     | '/_authenticated/mcq/$setId'
+    | '/_authenticated/notes_/$conceptId'
     | '/_authenticated/students_/$studentId'
     | '/demo/parent/dashboard'
     | '/demo/student/curriculum'
@@ -1025,6 +1038,13 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof AuthenticatedStudentsStudentIdRouteImport
       parentRoute: typeof AuthenticatedRouteRoute
     }
+    '/_authenticated/notes_/$conceptId': {
+      id: '/_authenticated/notes_/$conceptId'
+      path: '/notes/$conceptId'
+      fullPath: '/notes/$conceptId'
+      preLoaderRoute: typeof AuthenticatedNotesConceptIdRouteImport
+      parentRoute: typeof AuthenticatedRouteRoute
+    }
     '/_authenticated/mcq/$setId': {
       id: '/_authenticated/mcq/$setId'
       path: '/mcq/$setId'
@@ -1077,6 +1097,7 @@ interface AuthenticatedRouteRouteChildren {
   AuthenticatedVideosRoute: typeof AuthenticatedVideosRoute
   AuthenticatedHomeworkHomeworkIdRoute: typeof AuthenticatedHomeworkHomeworkIdRoute
   AuthenticatedMcqSetIdRoute: typeof AuthenticatedMcqSetIdRoute
+  AuthenticatedNotesConceptIdRoute: typeof AuthenticatedNotesConceptIdRoute
   AuthenticatedStudentsStudentIdRoute: typeof AuthenticatedStudentsStudentIdRoute
 }
 
@@ -1101,6 +1122,7 @@ const AuthenticatedRouteRouteChildren: AuthenticatedRouteRouteChildren = {
   AuthenticatedVideosRoute: AuthenticatedVideosRoute,
   AuthenticatedHomeworkHomeworkIdRoute: AuthenticatedHomeworkHomeworkIdRoute,
   AuthenticatedMcqSetIdRoute: AuthenticatedMcqSetIdRoute,
+  AuthenticatedNotesConceptIdRoute: AuthenticatedNotesConceptIdRoute,
   AuthenticatedStudentsStudentIdRoute: AuthenticatedStudentsStudentIdRoute,
 }
 
