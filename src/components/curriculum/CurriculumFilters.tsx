@@ -1,5 +1,6 @@
 import { Link } from "@tanstack/react-router";
 import { type Entitlements } from "@/hooks/data/useEntitlements";
+import { useEnrolments } from "@/hooks/data/useEnrolments";
 import {
   SUBJECTS,
   BOARDS,
@@ -8,7 +9,8 @@ import {
   type BoardV,
   type LevelV,
 } from "@/lib/curriculum/taxonomy";
-import { Sparkles, GraduationCap, Lock } from "lucide-react";
+import { Sparkles, Lock } from "lucide-react";
+import { CourseChip } from "@/components/CourseBadge";
 import { inputCls, labelOf } from "@/components/curriculum/styles";
 
 /**
@@ -31,17 +33,23 @@ export function StudentSubjectPicker({
   level: LevelV;
   entitlements: Entitlements;
 }) {
-  const { isEntitled, lockedSubjects } = entitlements;
+  const { isEntitled, lockedSubjects, boardBySubject } = entitlements;
+  // Read the course from the cached profile query, not the page's filter state:
+  // that starts on its gcse/edexcel defaults and only snaps across a render later.
+  const { level: ownLevel } = useEnrolments();
   return (
     <div>
       <div className="flex items-center justify-between mb-3 gap-3 flex-wrap">
         <label className="text-[10px] uppercase tracking-widest text-muted-foreground font-semibold">
           Your subjects
         </label>
-        <span className="inline-flex items-center gap-1.5 text-[11px] font-medium text-muted-foreground">
-          <GraduationCap className="w-3.5 h-3.5" />
-          {labelOf(LEVELS, level)} · {labelOf(BOARDS, board)}
-        </span>
+        <CourseChip
+          icon
+          parts={[
+            labelOf(LEVELS, ownLevel ?? level),
+            labelOf(BOARDS, boardBySubject[subject] ?? board),
+          ]}
+        />
       </div>
 
       <div className="flex flex-wrap gap-2">
