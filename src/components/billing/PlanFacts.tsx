@@ -8,6 +8,8 @@ import {
 } from "lucide-react";
 import type { LucideIcon } from "lucide-react";
 import type { CourseSummary } from "@/lib/curriculum/courseSummary";
+import { SUBJECT_TINT } from "@/lib/curriculum/subjectTheme";
+import { CourseChip } from "@/components/CourseBadge";
 
 interface FactTileProps {
   icon: LucideIcon;
@@ -143,15 +145,11 @@ export function PlanFacts({
           value={
             <div className="flex flex-wrap gap-1.5 pt-0.5">
               {perSubject.map((s) => (
-                <span
+                <CourseChip
                   key={s.subject}
-                  className="inline-flex items-center gap-1.5 rounded-full border border-border bg-card px-2.5 py-1 text-xs font-semibold"
-                >
-                  {s.subjectLabel}
-                  <span className="text-[10px] font-medium text-muted-foreground">
-                    {s.boardLabel}
-                  </span>
-                </span>
+                  tint={SUBJECT_TINT[s.subject] ?? "tint-primary"}
+                  parts={[s.subjectLabel, s.boardLabel]}
+                />
               ))}
             </div>
           }

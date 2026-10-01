@@ -11,6 +11,8 @@ import { LiveSessionsBanner } from "@/components/live/LiveSessionsBanner";
 import { WeeklyPlanPanel } from "@/components/planner/WeeklyPlanPanel";
 import { useViewerId } from "@/hooks/useViewer";
 import { boardLabel, levelLabel, subjectLabel } from "@/lib/curriculum/courseSummary";
+import { SUBJECT_TINT } from "@/lib/curriculum/subjectTheme";
+import { CourseChip } from "@/components/CourseBadge";
 
 /**
  * @param afterContent Rendered inside the layout, below the dashboard's own
@@ -123,20 +125,13 @@ export function EnrolmentSummary({
 
   return (
     <div className="flex flex-wrap items-center gap-1.5">
-      {level && (
-        <span className="text-[11px] font-bold uppercase tracking-wide px-2 py-1 rounded-md bg-accent/25 text-primary-foreground border border-accent/30">
-          {levelLabel(level)}
-        </span>
-      )}
+      <CourseChip icon parts={[levelLabel(level)]} />
       {enrolments.map((e) => (
-        <span
+        <CourseChip
           key={e.subject}
-          className="inline-flex items-center gap-1.5 text-[11px] sm:text-xs font-medium px-2.5 py-1 rounded-md bg-white/10 border border-white/10 text-primary-foreground/90"
-        >
-          {subjectLabel(e.subject)}
-          <span className="text-primary-foreground/50">·</span>
-          <span className="text-primary-foreground/70">{boardLabel(e.board)}</span>
-        </span>
+          tint={SUBJECT_TINT[e.subject] ?? "tint-primary"}
+          parts={[subjectLabel(e.subject), boardLabel(e.board)]}
+        />
       ))}
     </div>
   );
