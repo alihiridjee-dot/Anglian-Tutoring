@@ -73,7 +73,67 @@ function subscriptionRow(sub: Stripe.Subscription) {
   };
 }
 
-async function upsertSubscription(sub: Stripe.Subscription) {
+/**
+ * Stripe statuses of a plan worth keeping: paid for, or one the family can
+ * still put right (a failed renewal, a pause). A second subscription for a
+ * student who has one of these is a duplicate, not a replacement.
+ */
+const KEEPABLE_STATUSES = new Set(["active", "trialing", "past_due", "unpaid", "paused"]);
+
+const isMissing = (err: unknown) => (err as { code?: string })?.code === "resource_missing";
+
+/**
+ * Cancel a second subscription for a student who already has a plan, and
+ * refund what it took. stripe-checkout refuses a second Checkout when it can
+ * see the first; this catches what it can't, such as two Checkouts opened in
+ * the same instant. Every step is safe to repeat: Stripe resends events, and
+ * the duplicate produces several (completed, created, deleted after the cancel).
+ */
+async function refundDuplicate(sub: Stripe.Subscription, keptId: string) {
+  console.error(
+    `stripe-webhook: ${sub.id} duplicates ${keptId} for student ${sub.metadata?.student_id}; cancelling and refunding it`,
+  );
+  if (sub.status !== "canceled" && sub.status !== "incomplete_expired") {
+    await stripe.subscriptions.cancel(sub.id);
+  }
+
+  const invoiceId =
+    typeof sub.latest_invoice === "string" ? sub.latest_invoice : sub.latest_invoice?.id;
+  if (!invoiceId) return;
+  const invoice = await stripe.invoices.retrieve(invoiceId);
+  const paymentIntent =
+    typeof invoice.payment_intent === "string"
+      ? invoice.payment_intent
+      : invoice.payment_intent?.id;
+  // A trial took nothing, so there is nothing to give back.
+  if (!paymentIntent || invoice.amount_paid <= 0) return;
+
+  const { data: refunds } = await stripe.refunds.list({ payment_intent: paymentIntent, limit: 1 });
+  if (refunds.length > 0) return;
+  await stripe.refunds.create(
+    { payment_intent: paymentIntent, reason: "duplicate", metadata: { duplicate_of: keptId } },
+    { idempotencyKey: `refund-duplicate-${sub.id}` },
+  );
+}
+
+/**
+ * Write a subscription's state to public.subscriptions.
+ *
+ * Reads the subscription back from Stripe rather than trusting the event's
+ * copy: events arrive out of order and Stripe retries failed ones for days,
+ * so writing a snapshot could put back a status the subscription has since
+ * left (an old "active" over a newer "past_due"). `snapshot` is used only if
+ * Stripe no longer has the subscription at all.
+ */
+async function upsertSubscription(subscriptionId: string, snapshot?: Stripe.Subscription) {
+  let sub: Stripe.Subscription;
+  try {
+    sub = await stripe.subscriptions.retrieve(subscriptionId);
+  } catch (err) {
+    if (!snapshot || !isMissing(err)) throw err;
+    sub = snapshot;
+  }
+
   const row = subscriptionRow(sub);
   if (!row) {
     // Without metadata we cannot tell who this covers, and guessing would mean
@@ -82,9 +142,30 @@ async function upsertSubscription(sub: Stripe.Subscription) {
     return;
   }
 
-  // student_id is unique: one live subscription per student, whoever pays. A
-  // parent buying a plan for a child who already had their own replaces it
-  // rather than stacking a second.
+  // student_id is unique: one plan per student, whoever pays. A new
+  // subscription replaces the row only once the one it holds has ended — a
+  // parent buying for a child whose own plan lapsed, say. While that plan is
+  // still worth keeping, the newcomer is a duplicate: overwriting the row would
+  // leave the first one billing with nothing in the app pointing at it.
+  const { data: tracked, error: trackedError } = await db
+    .from("subscriptions")
+    .select("stripe_subscription_id")
+    .eq("student_id", row.student_id)
+    .maybeSingle();
+  if (trackedError) throw new Error(`subscriptions read failed: ${trackedError.message}`);
+  if (tracked?.stripe_subscription_id && tracked.stripe_subscription_id !== sub.id) {
+    const kept = await stripe.subscriptions
+      .retrieve(tracked.stripe_subscription_id)
+      .catch((err: unknown) => {
+        if (isMissing(err)) return null;
+        throw err;
+      });
+    if (kept && KEEPABLE_STATUSES.has(kept.status)) {
+      await refundDuplicate(sub, kept.id);
+      return;
+    }
+  }
+
   const { error } = await db.from("subscriptions").upsert(row, { onConflict: "student_id" });
   // 23503: the student's profile is gone. The account was deleted and this is
   // Stripe reporting the cancellation that went with it — there is no row left
@@ -121,13 +202,13 @@ Deno.serve(async (req) => {
       case "checkout.session.completed": {
         const session = event.data.object as Stripe.Checkout.Session;
         // The session tells us a payment happened; the subscription carries the
-        // authoritative status and period end, so fetch it rather than infer.
+        // authoritative status and period end, which upsertSubscription fetches.
         if (session.subscription) {
           const id =
             typeof session.subscription === "string"
               ? session.subscription
               : session.subscription.id;
-          await upsertSubscription(await stripe.subscriptions.retrieve(id));
+          await upsertSubscription(id);
         }
         // A free-trial code is spent once its Checkout completes (see
         // stripe-checkout/trialCodes.ts).
@@ -147,7 +228,8 @@ Deno.serve(async (req) => {
         // 'deleted' still upserts: the row's status becomes 'canceled', which
         // fails the access check. Removing the row would lose the billing
         // history, so we keep it and let status gate access instead.
-        await upsertSubscription(event.data.object as Stripe.Subscription);
+        const snapshot = event.data.object as Stripe.Subscription;
+        await upsertSubscription(snapshot.id, snapshot);
         break;
       }
 
