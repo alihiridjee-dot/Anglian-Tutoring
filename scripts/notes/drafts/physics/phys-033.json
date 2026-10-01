@@ -261,16 +261,12 @@
         "different number of neutrons",
         "same atomic number",
         "different mass number",
-        "must have both numbers in a column correct"
+        "7 neutrons and 6 electrons"
       ],
       "mistakes": [
         {
-          "wrong": "Carbon-14 has 14 neutrons.",
-          "right": "14 is the mass number. Neutrons = 14 - 6 = 8."
-        },
-        {
-          "wrong": "Strontium-90 has 90 protons.",
-          "right": "90 is the mass number. The number of protons is the atomic number, 38. The number of neutrons is 52."
+          "wrong": "A similarity between fluorine-19 and a radioactive isotope of fluorine is the same number of neutrons.",
+          "right": "The neutrons are what differ. The marks are for the same number of protons (the same atomic number) and a different number of neutrons (a different mass number)."
         },
         {
           "wrong": "Carbon-13 has 6 neutrons and carbon-14 has 8 neutrons.",
@@ -298,10 +294,9 @@
       "exam_phrases": [
         "(same) number of protons",
         "(different) number of neutrons",
-        "ALLOW mass number",
-        "ALLOW different number of nucleons",
-        "Isotopes",
-        "Different numbers of neutrons"
+        "mass number",
+        "different number of nucleons",
+        "different numbers of neutrons"
       ],
       "mistakes": [
         {
@@ -349,8 +344,7 @@
       "7f8c72c0-a02d-4629-be56-ef989267864e",
       "803cf3fb-7b3c-4005-9965-4bbd4765e4df",
       "8afedb73-a551-4a93-bf08-917edcb6c784",
-      "7b6ff230-baf9-4946-8e40-8f3069de4c70",
-      "12cd7da9-0d72-49b8-ab94-1096a72cd2fb"
+      "7b6ff230-baf9-4946-8e40-8f3069de4c70"
     ]
   }
 }
