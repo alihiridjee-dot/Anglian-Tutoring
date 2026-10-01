@@ -1,0 +1,392 @@
+{
+  "format": 1,
+  "concept_id": "bio-114",
+  "subject": "biology",
+  "title": "Ecosystems, communities and interdependence",
+  "key_idea": "An **ecosystem** is a community of living organisms interacting with the non-living parts of their environment. Organisms **compete** for resources and depend on each other for food, shelter and pollination. In a **stable community** population sizes stay fairly constant.",
+  "sections": [
+    {
+      "heading": "Levels of organisation",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "Ecology studies how living things fit into their surroundings. This section covers the levels from a single organism up to a whole ecosystem."
+        },
+        {
+          "type": "definitions",
+          "items": [
+            {
+              "term": "Organism",
+              "meaning": "One individual living thing."
+            },
+            {
+              "term": "Population",
+              "meaning": "All the organisms of one species living in an area."
+            },
+            {
+              "term": "Community",
+              "meaning": "All the populations of different species living in the same area."
+            },
+            {
+              "term": "Habitat",
+              "meaning": "The place where an organism lives."
+            },
+            {
+              "term": "Ecosystem",
+              "meaning": "The interaction of a community of living organisms (biotic) with the non-living (abiotic) parts of their environment."
+            }
+          ]
+        },
+        {
+          "type": "list",
+          "items": [
+            "Organisms need a supply of materials from their surroundings and from the other living organisms there.",
+            "These materials let them survive and reproduce.",
+            "A pond, a woodland and a lawn are all ecosystems."
+          ]
+        },
+        {
+          "type": "diagram",
+          "diagram": {
+            "kind": "sequence",
+            "alt": "Put the levels of organisation in order, from a single organism up to a whole ecosystem.",
+            "prompt": "Put these levels of organisation in order, from smallest to largest.",
+            "steps": [
+              "Organism",
+              "Population",
+              "Community",
+              "Ecosystem"
+            ]
+          }
+        },
+        {
+          "type": "key-points",
+          "items": [
+            "A population is one species. A community is all the species in an area.",
+            "An ecosystem is the community plus its non-living surroundings."
+          ]
+        }
+      ]
+    },
+    {
+      "heading": "Competition and interdependence",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "Organisms in a community share limited resources. This section covers what they compete for and how they depend on each other."
+        },
+        {
+          "type": "definitions",
+          "items": [
+            {
+              "term": "Competition",
+              "meaning": "When organisms need the same limited resource, so there is not enough for all of them."
+            },
+            {
+              "term": "Interdependence",
+              "meaning": "Each species depends on other species for things such as food, shelter, pollination and seed dispersal."
+            }
+          ]
+        },
+        {
+          "type": "subheading",
+          "text": "What organisms compete for"
+        },
+        {
+          "type": "table",
+          "columns": [
+            "Organisms",
+            "Compete for"
+          ],
+          "rows": [
+            [
+              "Plants",
+              "Light, space, water and mineral ions from the soil"
+            ],
+            [
+              "Animals",
+              "Food, mates and territory"
+            ]
+          ]
+        },
+        {
+          "type": "subheading",
+          "text": "Interdependence"
+        },
+        {
+          "type": "list",
+          "items": [
+            "If one species is removed, it can affect the whole community.",
+            "For example, if a predator is removed its prey may increase, and then eat too much of their own food.",
+            "Animals that are predators can control the size of a prey population.",
+            "Some species provide shelter or spread pollen and seeds for others."
+          ]
+        },
+        {
+          "type": "subheading",
+          "text": "Stable communities"
+        },
+        {
+          "type": "paragraph",
+          "text": "In a **stable community** all the species and environmental factors are in balance. Population sizes stay fairly constant."
+        },
+        {
+          "type": "paragraph",
+          "text": "A garden is not stable, because organisms are always being added or removed."
+        },
+        {
+          "type": "key-points",
+          "items": [
+            "Plants compete for light, space, water and mineral ions. Animals compete for food, mates and territory.",
+            "Interdependence means removing one species can affect the whole community.",
+            "A stable community has fairly constant population sizes."
+          ]
+        }
+      ]
+    },
+    {
+      "heading": "Parasitism and mutualism",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "Some species depend on each other in a close, long-term relationship. This section covers two kinds: parasitism and mutualism."
+        },
+        {
+          "type": "definitions",
+          "items": [
+            {
+              "term": "Parasite",
+              "meaning": "An organism that lives on or in another organism (the host) and feeds on it, harming it."
+            },
+            {
+              "term": "Host",
+              "meaning": "The organism a parasite lives on or in."
+            },
+            {
+              "term": "Mutualism",
+              "meaning": "A relationship where both organisms benefit."
+            }
+          ]
+        },
+        {
+          "type": "diagram",
+          "diagram": {
+            "kind": "compare",
+            "alt": "A comparison of parasitism and mutualism by who benefits and who is harmed.",
+            "items": [
+              "Parasitism",
+              "Mutualism"
+            ],
+            "rows": [
+              {
+                "feature": "Who benefits?",
+                "values": [
+                  "The parasite",
+                  "Both organisms"
+                ]
+              },
+              {
+                "feature": "Who is harmed?",
+                "values": [
+                  "The host",
+                  "Neither"
+                ]
+              },
+              {
+                "feature": "Example",
+                "values": [
+                  "Mites feeding on the blood of a slug. Mistletoe growing on a tree.",
+                  "A fly that feeds on algae and has gut bacteria that digest the algae. The bacteria live in the fly's acidic gut."
+                ]
+              }
+            ]
+          }
+        },
+        {
+          "type": "list",
+          "items": [
+            "A parasite gains food or water from the host, and the host is damaged.",
+            "In mutualism each partner gets something it needs, such as food or a place to live.",
+            "Both relationships are examples of interdependence."
+          ]
+        },
+        {
+          "type": "key-points",
+          "items": [
+            "A parasite lives on or in a host and harms it.",
+            "In mutualism both organisms benefit."
+          ]
+        }
+      ]
+    }
+  ],
+  "checks": [
+    {
+      "q": "Give two factors that plants compete for in a habitat.",
+      "a": "Any two from: (sun)light, water, ions / minerals / salts, space.",
+      "marks": 2
+    },
+    {
+      "q": "Explain what is meant by the term parasite.",
+      "a": "An organism that lives on or in a host organism and feeds on it. It benefits at the expense of (harms) its host.",
+      "marks": 2
+    },
+    {
+      "q": "Explain why a garden is not a stable community.",
+      "a": "Organisms / species are always being added or removed, so population sizes are not fairly constant.",
+      "marks": 2
+    }
+  ],
+  "boards": {
+    "aqa": {
+      "spec_codes": [
+        "AQA 7.1",
+        "AQA T 4.7.1.1"
+      ],
+      "exam_phrases": [
+        "organisms / species are always being added / removed",
+        "so population sizes not (fairly) constant",
+        "may be a predator therefore control prey population",
+        "may be prey so provide energy to predator",
+        "may maintain biodiversity",
+        "many seeds mean many new plants so will out-compete other species",
+        "competition for light / water / ions / minerals / space"
+      ],
+      "mistakes": [
+        {
+          "wrong": "Weeds and crop plants compete for sun.",
+          "right": "\"Sun\" on its own is ignored. Write (sun)light."
+        },
+        {
+          "wrong": "Plants compete for nutrients and food.",
+          "right": "Nutrients and food are ignored here. Name what plants compete for: light, water, ions / minerals / salts or space."
+        },
+        {
+          "wrong": "Plants compete for carbon dioxide.",
+          "right": "Carbon dioxide is ignored. Choose from light, water, mineral ions, oxygen in the soil or space."
+        },
+        {
+          "wrong": "An animal species is important because it is prey and provides food for a predator.",
+          "right": "\"Provide food to predator\" is ignored. Say prey provide energy to the predator."
+        }
+      ],
+      "worked_example": {
+        "exemplar_id": "cee99778-6b72-4e9f-b7dc-2aa720ea18a6",
+        "source": "AQA jun 2024, Paper 2 (F), Q03.4",
+        "question": "Genetic engineering can also be used in agriculture. Weeds are a problem for farmers because the weeds compete with crop plants.\n\nGive three factors that the weeds and crop plants compete for.",
+        "marks": 3,
+        "answer_points": [
+          "(Sun)light.",
+          "Water.",
+          "Ions / minerals / salts.",
+          "Oxygen in the soil.",
+          "Space."
+        ],
+        "tip": "Any three score one mark each. A named example, such as a named mineral ion, is allowed."
+      }
+    },
+    "edexcel": {
+      "spec_codes": [
+        "EDEX 9.1",
+        "EDEX 9.3",
+        "EDEX 9.4"
+      ],
+      "exam_phrases": [
+        "parasites live in / on their host",
+        "parasites feed off their host",
+        "the tree is the host",
+        "the mistletoe gains nutrients / water from the tree",
+        "the tree is damaged by the mistletoe",
+        "competition between species for resources",
+        "signal crayfish may carry microorganisms / parasites which cause disease in the indigenous population"
+      ],
+      "mistakes": [
+        {
+          "wrong": "A parasite is an animal that kills and eats other animals.",
+          "right": "A parasite lives in or on its host and feeds off it. Both points are needed for 2 marks."
+        },
+        {
+          "wrong": "The mistletoe and the tree both gain from living together.",
+          "right": "The mistletoe gains nutrients or water, and the tree is damaged. Any indication of harm is accepted."
+        },
+        {
+          "wrong": "Signal crayfish reduce the native crayfish only by eating them.",
+          "right": "A different reason is needed: competition between species for resources, or signal crayfish carrying parasites or microorganisms that cause disease."
+        }
+      ],
+      "worked_example": {
+        "exemplar_id": "adb24a42-e6ba-4632-9c20-8e007aedd573",
+        "source": "EDEXCEL nov 2021, Paper 2 (F), Q2(c)(ii)",
+        "question": "Tiny white animals called mites live on the skin of a slug. The mites feed on blood.\n\nExplain why these mites are classed as parasites.",
+        "marks": 2,
+        "answer_points": [
+          "Parasites live in or on their host. The mites live on the slug, which is the host.",
+          "Parasites feed off their host. The mites feed on the slug by sucking its blood."
+        ],
+        "tip": "One mark for living on or in the host and one for feeding on it."
+      }
+    },
+    "ocr": {
+      "spec_codes": [
+        "OCR 4.1e",
+        "OCR 4.1g"
+      ],
+      "exam_phrases": [
+        "an organism that lives on / in a (host) organism",
+        "parasite benefits at the expense of its host",
+        "an organism that feeds on a living organism",
+        "an organism that causes harm to a living organism",
+        "competition for water / minerals / light / space",
+        "buddleia outcompetes other plants",
+        "buddleia has reduced biodiversity"
+      ],
+      "mistakes": [
+        {
+          "wrong": "A parasite is an organism that feeds on another organism.",
+          "right": "This is ignored unless qualified. Say it feeds on a living organism, or causes it harm, or lives on or in a host."
+        },
+        {
+          "wrong": "The invading plant is only harmful, because it makes other plants decrease.",
+          "right": "A top answer gives both sides: it is a food source and shelter for other species (a \"friend\") and it outcompetes other plants (a \"pest\")."
+        },
+        {
+          "wrong": "Other plants decrease because the new plant uses all the food.",
+          "right": "Name the resource. Competition is for water, minerals, light or space."
+        }
+      ],
+      "worked_example": {
+        "exemplar_id": "87a08034-9302-4a87-bb3f-578daf7aa7a3",
+        "source": "OCR jun 2023, Paper 2, Q19(b)",
+        "question": "Many people grow buddleia bushes in their gardens. Buddleia flowers attract butterflies that feed on nectar. Birds and bats feed on butterflies. Foxes and badgers can live under the cover of the bushes. Buddleia bushes spread and grow very quickly. In some areas this has caused the numbers of other plants to decrease. In these areas, scientists have seen large numbers of butterflies. However, they only see the more common types of butterflies and not rare ones.\n\nSome scientists say buddleia are 'pests' but others say they are 'friends'. Use information from the passage to explain these different opinions about buddleia. In your answer use ideas about interdependence, competition and biodiversity.",
+        "marks": 6,
+        "answer_points": [
+          "Friend: butterflies depend on buddleia for food, and birds and bats depend on butterflies.",
+          "Friend: foxes and badgers depend on buddleia for cover, and without it they would be more vulnerable to weather and predators.",
+          "Buddleia are the producers in the food chains.",
+          "Pest: buddleia outcompetes other plants, which lack light, water, minerals or space, so their numbers decrease.",
+          "Pest: buddleia has reduced biodiversity, because there is less variety of types of butterflies and plants."
+        ],
+        "tip": "Marked by level. The top level needs both positive and negative actions of buddleia, each explained, in a clear logical order."
+      }
+    }
+  },
+  "meta": {
+    "status": "draft",
+    "written_by": "sonnet-5-5",
+    "written_at": "2026-10-01",
+    "spec_point_ids": [
+      "42dc92c3-c385-417c-8f22-969105addc28",
+      "5c0f54bf-6ece-4db7-80fb-2a9cee3b03a1",
+      "0b3558ff-6420-478f-9433-9c5af0d3a148",
+      "12c67f09-2587-4ac9-a474-89559bccdbb0",
+      "fbe35e76-933d-4f5b-87b2-1c688bcbf496",
+      "b2ccac28-7033-4913-a3c7-1a62edc8c9bb",
+      "23cf7849-fce5-45ef-8683-33fb05babd79"
+    ],
+    "exemplar_ids": [
+      "cee99778-6b72-4e9f-b7dc-2aa720ea18a6",
+      "adb24a42-e6ba-4632-9c20-8e007aedd573",
+      "87a08034-9302-4a87-bb3f-578daf7aa7a3"
+    ]
+  }
+}

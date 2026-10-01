@@ -58,9 +58,9 @@
             "prompt": "Put the titration method in order",
             "steps": [
               "Rinse the burette with the acid and the pipette with the alkali",
+              "Fill the burette with acid and record the initial reading",
               "Use a pipette and filler to put 25.0 cm³ of alkali into a conical flask",
               "Add a few drops of indicator and stand the flask on a white tile",
-              "Fill the burette with acid and record the initial reading",
               "Add acid from the burette, swirling the flask",
               "Add the acid drop by drop near the end-point, until the indicator just changes colour",
               "Record the final burette reading",
@@ -96,6 +96,7 @@
             "Swirl the flask while adding the acid, to mix the reactants.",
             "Use a white tile to see the end-point more clearly.",
             "Add slowly near the end-point, so you do not overshoot.",
+            "Remove the funnel from the burette before starting, so no extra drop falls in.",
             "Rinse the burette with the acid first. Water would dilute the acid and give an inaccurate result.",
             "Repeat the titration and take a mean of the concordant results."
           ]
@@ -115,8 +116,8 @@
             "question": "A rough titration needed {r} cm³ of acid. Two accurate titrations needed {a} cm³ and {b} cm³. Calculate the mean titre using the accurate titrations only.",
             "variables": [
               { "id": "r", "min": 25.0, "max": 27.0, "step": 0.1 },
-              { "id": "a", "min": 23.5, "max": 24.5, "step": 0.1 },
-              { "id": "b", "min": 23.5, "max": 24.5, "step": 0.1 }
+              { "id": "a", "min": 24.0, "max": 24.1, "step": 0.1 },
+              { "id": "b", "min": 24.0, "max": 24.1, "step": 0.1 }
             ],
             "answer": { "formula": "(a + b) / 2", "unit": "cm³", "decimals": 2 },
             "working": [
@@ -168,7 +169,7 @@
       "mistakes": [
         {
           "wrong": "Add universal indicator to the alkali in the flask.",
-          "right": "Universal indicator is not accepted. Name a single indicator: methyl orange, phenolphthalein or litmus."
+          "right": "Universal indicator is not accepted as the indicator to add. Name a single indicator: methyl orange, phenolphthalein or litmus."
         },
         {
           "wrong": "The mean of 8.95, 9.00, 8.85 and 8.45 cm³ is 8.81 cm³.",
@@ -286,6 +287,8 @@
     }
   },
   "meta": {
+    "checked_by": "sonnet-science-check",
+    "checked_at": "2026-10-01",
     "status": "draft",
     "written_by": "sonnet-5-5",
     "written_at": "2026-10-01",

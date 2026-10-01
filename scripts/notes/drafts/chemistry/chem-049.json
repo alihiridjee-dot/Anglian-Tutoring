@@ -24,10 +24,12 @@
           "items": [
             "The acid gives the type of salt: chlorides from hydrochloric acid, nitrates from nitric acid, sulfates from sulfuric acid.",
             "The solid gives the metal.",
-            "Copper oxide + sulfuric acid → copper sulfate + water. The black powder disappears and the mixture turns blue.",
-            "Copper carbonate + sulfuric acid → copper sulfate + water + carbon dioxide. The green solid disappears, the mixture fizzes and a blue solution forms."
+            "With copper oxide, the black powder disappears and the mixture turns blue.",
+            "With copper carbonate, the green solid disappears, the mixture fizzes and a blue solution forms."
           ]
         },
+        { "type": "equation", "label": "Copper oxide with sulfuric acid", "formula": "copper oxide + sulfuric acid → copper sulfate + water" },
+        { "type": "equation", "label": "Copper carbonate with sulfuric acid", "formula": "copper carbonate + sulfuric acid → copper sulfate + water + carbon dioxide" },
         {
           "type": "definitions",
           "items": [
@@ -110,6 +112,7 @@
           "items": [
             "Titrate the acid with the alkali, using an indicator, to find the volumes that react exactly.",
             "Mix the same volumes again in the correct proportions, **without the indicator**. An indicator would contaminate the salt.",
+            "The solution left is only salt and water.",
             "Evaporate to concentrate the solution, leave to cool and crystallise, then dry the crystals.",
             "A pH probe can be used instead of an indicator. It does not contaminate the solution."
           ]
@@ -156,7 +159,7 @@
       "mistakes": [
         {
           "wrong": "Heat the solution with a Bunsen burner until all the liquid is gone.",
-          "right": "Heat gently or partially evaporate, then leave to crystallise. Heating to dryness only scores one mark."
+          "right": "Heat gently or partially evaporate, then leave to crystallise. Heating to dryness scores at most one mark, and only if no other mark is earned."
         },
         {
           "wrong": "Add calcium carbonate to hydrochloric acid to make copper sulfate.",
@@ -253,7 +256,7 @@
       "worked_example": {
         "exemplar_id": "232a6150-be82-4dac-852b-9453cf5c806b",
         "source": "OCR sample null, Paper 3, Q21(b)",
-        "question": "Zinc nitrate can be made by reacting zinc oxide with nitric acid, HNO3.\n\nPaul suggests this method for preparing zinc nitrate.\n\n1. Measure 50cm3 of dilute nitric acid into a beaker.\n\n2. Add one spatulaful of zinc oxide.\n\n3. Heat the mixture until crystals of zinc nitrate are made.\n\nPaul’s method will not make a pure dry sample of zinc nitrate.\n\nWhat improvements should Paul make to the method to make sure that:\n\n the reaction is complete\n the zinc nitrate can be separated from the nitric acid and the zinc oxide?\n\nExplain your answer.",
+        "question": "Zinc nitrate can be made by reacting zinc oxide with nitric acid, HNO3.\n\nPaul suggests this method for preparing zinc nitrate.\n\n1. Measure 50cm3 of dilute nitric acid into a beaker.\n\n2. Add one spatulaful of zinc oxide.\n\n3. Heat the mixture until crystals of zinc nitrate are made.\n\nPaul’s method will not make a pure dry sample of zinc nitrate.\n\nWhat improvements should Paul make to the method to make sure that:\n\n• the reaction is complete\n• the zinc nitrate can be separated from the nitric acid and the zinc oxide?\n\nExplain your answer.",
         "marks": 4,
         "answer_points": [
           "An excess of zinc oxide must be added.",
@@ -269,6 +272,8 @@
     "status": "draft",
     "written_by": "sonnet-5-5",
     "written_at": "2026-10-01",
+    "checked_by": "sonnet-science-check",
+    "checked_at": "2026-10-01",
     "spec_point_ids": [
       "1c5f1527-3224-422c-bad0-c121fbc9e30f",
       "1b092998-2777-487a-94fa-d11b084f75ab",

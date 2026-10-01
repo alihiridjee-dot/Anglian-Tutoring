@@ -3,7 +3,7 @@
   "concept_id": "chem-047",
   "subject": "chemistry",
   "title": "Neutralisation, bases and salts",
-  "key_idea": "A base reacts with an acid to form a salt and water only. In neutralisation, hydrogen ions from the acid react with hydroxide ions from the alkali to make water. The acid gives the first part of the salt's name ending and the base gives the metal.",
+  "key_idea": "A base reacts with an acid to form a salt and water only. In neutralisation, hydrogen ions from the acid react with hydroxide ions from the alkali to make water. The base gives the first part of the salt's name and the acid gives its ending.",
   "sections": [
     {
       "heading": "Acids, bases and alkalis",
@@ -207,7 +207,7 @@
       "worked_example": {
         "exemplar_id": "d1df8ea2-126a-41ba-b4ae-2ecf08341915",
         "source": "AQA jun 2020, Paper 1 (H), Q04.7",
-        "question": "Sulfuric acid and sodium hydroxide react to produce sodium sulfate.\n\nComplete the symbol equation for the preparation of sodium sulfate.\n\nYou should balance the equation.\n\nNaOH + H2SO4 → ___ + ___",
+        "question": "Sulfuric acid and sodium hydroxide react to produce sodium sulfate.\n\nComplete the symbol equation for the preparation of sodium sulfate.\n\nYou should balance the equation.\n\nNaOH + H₂SO₄ → ___ + ___",
         "marks": 2,
         "answer_points": [
           "Products are Na₂SO₄ and H₂O (one mark for these alone).",
@@ -250,7 +250,7 @@
           "Hydrogen ions (H⁺) react with hydroxide ions (OH⁻).",
           "To form water."
         ],
-        "tip": "One mark for each. Writing acid + alkali → salt + water, or H⁺ + OH⁻ → H₂O, can also score."
+        "tip": "One mark for each point. Writing H⁺ + OH⁻ → H₂O can score the second and third marks."
       }
     },
     "ocr": {
@@ -294,6 +294,8 @@
     "status": "draft",
     "written_by": "sonnet-5-5",
     "written_at": "2026-10-01",
+    "checked_by": "sonnet-science-check",
+    "checked_at": "2026-10-01",
     "spec_point_ids": [
       "2b381918-1faa-44e1-9cbe-78352890923e",
       "8f066a57-607c-4a7f-9a31-a8937e54772e",

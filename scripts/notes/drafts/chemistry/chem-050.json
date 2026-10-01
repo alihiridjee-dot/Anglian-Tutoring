@@ -141,7 +141,7 @@
           "items": [
             "Filtering separates the solid precipitate from the solution.",
             "Washing with distilled water removes traces of the other solution, so the salt is pure.",
-            "Drying can be done in a warm place, an oven or with filter paper. Do not use crystallisation.",
+            "Drying can be done by leaving the solid in a warm place or on a windowsill, or by patting it dry with filter paper. Do not crystallise the precipitate.",
             "The other salt stays dissolved in the filtrate. Pour the filtrate into an evaporating basin and heat to evaporate the water to get it as a solid."
           ]
         },
@@ -181,7 +181,7 @@
         "green precipitate (iron(II) hydroxide)",
         "filter (the mixture)",
         "wash / rinse the solid with distilled water",
-        "leave in a warm place / put in an oven",
+        "leave in a warm place / on a windowsill",
         "pour the filtrate into an evaporating basin and heat to evaporate the water"
       ],
       "mistakes": [
@@ -217,6 +217,8 @@
     }
   },
   "meta": {
+    "checked_by": "sonnet-science-check",
+    "checked_at": "2026-10-01",
     "status": "draft",
     "written_by": "sonnet-5-5",
     "written_at": "2026-10-01",

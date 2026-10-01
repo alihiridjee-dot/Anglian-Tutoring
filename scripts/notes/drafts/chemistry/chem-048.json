@@ -15,24 +15,19 @@
           "formula": "metal + acid → salt + hydrogen",
           "where": ["hydrochloric acid makes a chloride", "sulfuric acid makes a sulfate"]
         },
-        {
-          "type": "list",
-          "items": [
-            "Magnesium + hydrochloric acid → magnesium chloride + hydrogen.",
-            "Mg + 2HCl → MgCl₂ + H₂",
-            "Zinc + sulfuric acid → zinc sulfate + hydrogen.",
-            "Zn + H₂SO₄ → ZnSO₄ + H₂",
-            "Iron + hydrochloric acid → iron(II) chloride + hydrogen.",
-            "Fe + 2HCl → FeCl₂ + H₂"
-          ]
-        },
+        { "type": "equation", "label": "Magnesium with hydrochloric acid", "formula": "magnesium + hydrochloric acid → magnesium chloride + hydrogen" },
+        { "type": "equation", "formula": "Mg + 2HCl → MgCl₂ + H₂" },
+        { "type": "equation", "label": "Zinc with sulfuric acid", "formula": "zinc + sulfuric acid → zinc sulfate + hydrogen" },
+        { "type": "equation", "formula": "Zn + H₂SO₄ → ZnSO₄ + H₂" },
+        { "type": "equation", "label": "Iron with hydrochloric acid", "formula": "iron + hydrochloric acid → iron(II) chloride + hydrogen" },
+        { "type": "equation", "formula": "Fe + 2HCl → FeCl₂ + H₂" },
         { "type": "subheading", "text": "What you see and how to test the gas" },
         {
           "type": "list",
           "items": [
             "The mixture fizzes (effervescence) as bubbles of gas are given off.",
             "The metal gets smaller and disappears.",
-            "A colourless solution forms and the temperature increases.",
+            "The temperature increases. Magnesium and zinc form a colourless solution. Iron forms a pale green solution.",
             "Test for hydrogen: hold a lit splint at the mouth of the tube. It burns with a **squeaky pop**."
           ]
         },
@@ -56,17 +51,12 @@
           "formula": "metal carbonate + acid → salt + water + carbon dioxide",
           "where": ["the carbonate disappears as it reacts", "the gas is carbon dioxide"]
         },
-        {
-          "type": "list",
-          "items": [
-            "Calcium carbonate + hydrochloric acid → calcium chloride + water + carbon dioxide.",
-            "CaCO₃ + 2HCl → CaCl₂ + H₂O + CO₂",
-            "Sodium carbonate + hydrochloric acid → sodium chloride + water + carbon dioxide.",
-            "Na₂CO₃ + 2HCl → 2NaCl + H₂O + CO₂",
-            "Copper carbonate + sulfuric acid → copper sulfate + water + carbon dioxide.",
-            "CuCO₃ + H₂SO₄ → CuSO₄ + H₂O + CO₂"
-          ]
-        },
+        { "type": "equation", "label": "Calcium carbonate with hydrochloric acid", "formula": "calcium carbonate + hydrochloric acid → calcium chloride + water + carbon dioxide" },
+        { "type": "equation", "formula": "CaCO₃ + 2HCl → CaCl₂ + H₂O + CO₂" },
+        { "type": "equation", "label": "Sodium carbonate with hydrochloric acid", "formula": "sodium carbonate + hydrochloric acid → sodium chloride + water + carbon dioxide" },
+        { "type": "equation", "formula": "Na₂CO₃ + 2HCl → 2NaCl + H₂O + CO₂" },
+        { "type": "equation", "label": "Copper carbonate with sulfuric acid", "formula": "copper carbonate + sulfuric acid → copper sulfate + water + carbon dioxide" },
+        { "type": "equation", "formula": "CuCO₃ + H₂SO₄ → CuSO₄ + H₂O + CO₂" },
         {
           "type": "paragraph",
           "text": "Test for carbon dioxide: bubble the gas through limewater. The limewater turns **cloudy**."
@@ -76,7 +66,7 @@
           "columns": ["Acid reacts with", "Products", "What you see"],
           "rows": [
             ["A metal", "salt + hydrogen", "Fizzing. The metal disappears."],
-            ["A metal oxide", "salt + water", "No gas. The solid disappears. Black copper oxide gives a blue solution."],
+            ["A metal oxide", "salt + water", "No gas. The solid disappears. Black copper oxide and sulfuric acid give a blue solution."],
             ["A metal hydroxide", "salt + water", "No gas."],
             ["A metal carbonate", "salt + water + carbon dioxide", "Fizzing. The carbonate disappears."]
           ]
@@ -250,8 +240,8 @@
           "right": "Balance it: Na₂CO₃ + 2HCl → 2NaCl + H₂O + CO₂. Getting all three formulae right scores 2 of the 3 marks."
         },
         {
-          "wrong": "Magnesium carbonate and magnesium both give off hydrogen.",
-          "right": "A carbonate gives carbon dioxide (limewater test). Only the metal gives hydrogen (lit splint test)."
+          "wrong": "CuCO₃ + H₂SO₄ → CuSO⁴ + CO₂ + H₂O, with the 4 written as a superscript.",
+          "right": "Superscript numbers in formulae are rejected. Write subscripts: CuSO₄. The left side is CuCO₃ + H₂SO₄."
         }
       ],
       "worked_example": {
@@ -296,7 +286,7 @@
       "mistakes": [
         {
           "wrong": "Ca + HCl → CaCl₂ + H₂, which is balanced.",
-          "right": "The balancing mark depends on correct formulae first. Ca + 2HCl → CaCl₂ + H₂ gets one mark for the reactants and one for the products."
+          "right": "It is not balanced. Ca + 2HCl → CaCl₂ + H₂ scores one mark for both correct reactants and one for both correct products."
         },
         {
           "wrong": "CaCO₃ and 2HCl → CaCl₂ and CO₂ and H₂O",
@@ -325,6 +315,8 @@
     "status": "draft",
     "written_by": "sonnet-5-5",
     "written_at": "2026-10-01",
+    "checked_by": "sonnet-science-check",
+    "checked_at": "2026-10-01",
     "spec_point_ids": [
       "fdabe1c6-b081-438c-8e72-ccc3f67adbfb",
       "3343453e-40ff-4cbd-a839-0d3559754a2b",

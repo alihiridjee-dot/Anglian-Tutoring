@@ -90,9 +90,9 @@
           "type": "diagram",
           "diagram": {
             "kind": "line-graph",
-            "alt": "A curve showing pH rising from low to above 7 as portions of base are added, then levelling off.",
+            "alt": "A sketch (shape only, not real data) of a curve showing pH rising from low to above 7 as portions of base are added, then levelling off.",
             "x": { "label": "Portions of base added", "min": 0, "max": 10, "ticks": [0, 2, 4, 6, 8, 10] },
-            "y": { "label": "pH (shape only)" },
+            "y": { "label": "pH (sketch of the shape, not real data)" },
             "series": [
               { "name": "pH", "points": [[0, 0.1], [2, 0.18], [4, 0.3], [6, 0.55], [7, 0.78], [8, 0.86], [10, 0.88]] }
             ]
@@ -190,10 +190,10 @@
         "question": "Sulfuric acid and sodium hydroxide react to produce sodium sulfate.\n\nSulfuric acid is gradually added to sodium hydroxide solution.\n\nThe pH of the mixture changes as the sulfuric acid is added until in excess.\n\nSuggest the pH at:\n• the start before sulfuric acid is added\n• the end when sulfuric acid is in excess.",
         "marks": 2,
         "answer_points": [
-          "At the start: a value in the range 12–14, because it is a strong alkali.",
-          "At the end: a value in the range 0–3, because the acid is in excess."
+          "At the start: a value in the range 12–14.",
+          "At the end: a value in the range 0–3."
         ],
-        "tip": "The values must be in this order: high first, then low."
+        "tip": "Give the start value first, then the end value. The start is the high value and the end is the low value."
       }
     },
     "edexcel": {
@@ -277,6 +277,8 @@
     }
   },
   "meta": {
+    "checked_by": "sonnet-science-check",
+    "checked_at": "2026-10-01",
     "status": "draft",
     "written_by": "sonnet-5-5",
     "written_at": "2026-10-01",
