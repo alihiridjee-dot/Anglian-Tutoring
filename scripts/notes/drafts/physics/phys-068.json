@@ -1,0 +1,439 @@
+{
+  "format": 1,
+  "concept_id": "phys-068",
+  "subject": "physics",
+  "title": "Reflection of waves",
+  "key_idea": "A wave at a boundary can be reflected, absorbed or transmitted. Reflection obeys one law: the angle of incidence equals the angle of reflection, measured from the normal. Smooth surfaces give a clear image and rough surfaces scatter the rays.",
+  "sections": [
+    {
+      "heading": "What happens at a boundary",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "A boundary is where one material meets another, such as air and glass. A wave arriving there can do three things, often all at once."
+        },
+        {
+          "type": "definitions",
+          "items": [
+            {
+              "term": "Reflection",
+              "meaning": "The wave bounces back from the boundary into the first material."
+            },
+            {
+              "term": "Absorption",
+              "meaning": "The wave transfers its energy to the second material, so it does not carry on."
+            },
+            {
+              "term": "Transmission",
+              "meaning": "The wave carries on through the second material."
+            }
+          ]
+        },
+        {
+          "type": "list",
+          "items": [
+            "Light is reflected from a mirror, absorbed by a black surface and transmitted by clear glass.",
+            "Sound is reflected from a hard wall to make an echo.",
+            "Soft materials such as carpets and curtains absorb more sound energy, so less sound is reflected back into the room.",
+            "A wave that is transmitted may also change direction. This is refraction, covered in its own note."
+          ]
+        },
+        {
+          "type": "table",
+          "columns": [
+            "Material",
+            "What it mostly does to sound"
+          ],
+          "rows": [
+            [
+              "Painted wall or wood floor",
+              "Reflects most of the sound back into the room."
+            ],
+            [
+              "Carpet or curtains",
+              "Absorb a large share of the sound energy."
+            ]
+          ]
+        },
+        {
+          "type": "key-points",
+          "items": [
+            "At a boundary a wave can be reflected, absorbed or transmitted.",
+            "Materials that absorb more reflect less, so a room with carpets and curtains is quieter.",
+            "A reflected sound is an echo."
+          ]
+        }
+      ]
+    },
+    {
+      "heading": "The law of reflection",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "A ray is a straight line showing the direction a wave travels. The angles are measured from the normal, not from the surface."
+        },
+        {
+          "type": "definitions",
+          "items": [
+            {
+              "term": "Normal",
+              "meaning": "A line drawn at 90° to the surface, at the point where the ray hits."
+            },
+            {
+              "term": "Angle of incidence",
+              "meaning": "The angle between the incoming ray and the normal."
+            },
+            {
+              "term": "Angle of reflection",
+              "meaning": "The angle between the reflected ray and the normal."
+            }
+          ]
+        },
+        {
+          "type": "equation",
+          "label": "Law of reflection",
+          "formula": "angle of incidence = angle of reflection",
+          "where": [
+            "angle of incidence, in degrees (°)",
+            "angle of reflection, in degrees (°)"
+          ]
+        },
+        {
+          "type": "subheading",
+          "text": "Drawing a ray diagram"
+        },
+        {
+          "type": "steps",
+          "items": [
+            {
+              "lead": "Draw the mirror.",
+              "text": "Use a ruler for the surface."
+            },
+            {
+              "lead": "Draw the normal.",
+              "text": "Make it at 90° to the mirror, where the ray hits."
+            },
+            {
+              "lead": "Draw the incident ray.",
+              "text": "Draw it to the point on the mirror and measure its angle from the normal."
+            },
+            {
+              "lead": "Draw the reflected ray.",
+              "text": "Draw it on the other side of the normal at the same angle."
+            },
+            {
+              "lead": "Label.",
+              "text": "Mark the angle of incidence and angle of reflection, and add arrows."
+            }
+          ]
+        },
+        {
+          "type": "paragraph",
+          "text": "A common trap is a ray described by its angle to the mirror. Take it away from 90° to get the angle from the normal."
+        },
+        {
+          "type": "diagram",
+          "diagram": {
+            "kind": "practice",
+            "alt": "A ray hits a plane mirror at a given angle to the surface. Work out the angle of reflection.",
+            "question": "A ray of light hits a plane mirror. The ray makes an angle of {s}° with the surface of the mirror. Calculate the angle of reflection.",
+            "variables": [
+              {
+                "id": "s",
+                "min": 10,
+                "max": 80,
+                "step": 5
+              }
+            ],
+            "answer": {
+              "formula": "90 - s",
+              "unit": "°",
+              "decimals": 0
+            },
+            "working": [
+              "The normal is at 90° to the surface.",
+              "angle of incidence = 90° − {s}° = {answer}°",
+              "angle of reflection = angle of incidence = {answer}°"
+            ]
+          }
+        },
+        {
+          "type": "key-points",
+          "items": [
+            "Angle of incidence = angle of reflection, both measured from the normal.",
+            "The normal is at 90° to the surface.",
+            "The angle to the surface is 90° minus the angle to the normal."
+          ]
+        }
+      ]
+    },
+    {
+      "heading": "Specular and diffuse reflection",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "The surface decides what the reflected rays look like. Both kinds of reflection obey the law of reflection for every single ray."
+        },
+        {
+          "type": "definitions",
+          "items": [
+            {
+              "term": "Specular reflection",
+              "meaning": "Reflection from a smooth surface. Parallel rays stay parallel and give a clear image."
+            },
+            {
+              "term": "Diffuse reflection",
+              "meaning": "Reflection from a rough surface. The normal points in different directions, so the rays scatter."
+            }
+          ]
+        },
+        {
+          "type": "list",
+          "items": [
+            "A mirror, a still pond or a shiny metal ball gives specular reflection and a clear image.",
+            "A mirror covered in tiny water drops gives diffuse reflection. The image is blurred.",
+            "Paper looks the same from any angle because it reflects light in all directions."
+          ]
+        },
+        {
+          "type": "diagram",
+          "diagram": {
+            "kind": "sort",
+            "alt": "Sort descriptions into specular and diffuse reflection.",
+            "prompt": "Sort each description into specular or diffuse reflection.",
+            "groups": [
+              "Specular reflection",
+              "Diffuse reflection"
+            ],
+            "items": [
+              {
+                "text": "Smooth, shiny surface",
+                "group": 0
+              },
+              {
+                "text": "Parallel rays reflect as parallel rays",
+                "group": 0
+              },
+              {
+                "text": "Gives a clear image",
+                "group": 0
+              },
+              {
+                "text": "Rough surface",
+                "group": 1
+              },
+              {
+                "text": "Rays scatter in many directions",
+                "group": 1
+              },
+              {
+                "text": "Gives a blurred or no image",
+                "group": 1
+              },
+              {
+                "text": "A mirror covered in water drops",
+                "group": 1
+              },
+              {
+                "text": "A still, flat water surface",
+                "group": 0
+              }
+            ]
+          }
+        },
+        {
+          "type": "key-points",
+          "items": [
+            "A smooth surface gives specular reflection and a clear image.",
+            "A rough surface gives diffuse reflection, with rays scattered.",
+            "Every ray still obeys angle of incidence = angle of reflection."
+          ]
+        }
+      ]
+    }
+  ],
+  "checks": [
+    {
+      "q": "State the law of reflection.",
+      "a": "The angle of incidence is equal to the angle of reflection. Both are measured from the normal.",
+      "marks": 1
+    },
+    {
+      "q": "A ray hits a plane mirror and makes an angle of 30° with the mirror. What is the angle of reflection?",
+      "a": "The angle of incidence is 90° − 30° = 60°, so the angle of reflection is 60°.",
+      "marks": 2
+    },
+    {
+      "q": "Explain why a smooth metal ball gives a clear image but a wrinkled foil sheet does not.",
+      "a": "The smooth ball gives specular reflection: parallel rays stay parallel. The wrinkled foil gives diffuse reflection: the rays are reflected in many different directions.",
+      "marks": 2
+    }
+  ],
+  "boards": {
+    "aqa": {
+      "spec_codes": [
+        "AQA 4.6.1.3"
+      ],
+      "exam_phrases": [
+        "random",
+        "the student's eye / head might not be in the same position each time",
+        "the centre of the ray may not have been marked correctly",
+        "the mirror / ray box may not have been (re)placed correctly",
+        "parallax",
+        "protractor not in the correct position"
+      ],
+      "mistakes": [
+        {
+          "wrong": "The variation was caused by the student measuring the angles incorrectly.",
+          "right": "Incorrect measurement of the angles is not enough. Give a specific cause, such as the eye not in the same position each time, or the centre of the ray not marked correctly."
+        },
+        {
+          "wrong": "The variation in the repeat readings was a systematic error.",
+          "right": "Readings that vary from test to test with no pattern are caused by random error."
+        }
+      ],
+      "worked_example": {
+        "exemplar_id": "6962f64d-d012-494a-9295-032ac35266f5",
+        "source": "AQA jun 2023, Paper 2 (H), Q07.3",
+        "question": "A student measured the angle of reflection of a ray of light from a plane mirror for different angles of incidence. For an angle of incidence of 30°, three tests gave angles of reflection of 28°, 29° and 32°.\n\nWhat type of error caused the variation in the results for the angle of reflection?\n\nSuggest one cause of this error.",
+        "marks": 2,
+        "answer_points": [
+          "Random (error).",
+          "Any one cause: the student's eye or head was not in the same position each time (parallax); the centre of the ray was not marked correctly; the mirror or ray box was not placed correctly each time."
+        ],
+        "tip": "One mark for the type of error and one for a specific cause."
+      }
+    },
+    "edexcel": {
+      "spec_codes": [
+        "EDEX 4.9P",
+        "EDEX 5.1P",
+        "EDEX 5.2P"
+      ],
+      "exam_phrases": [
+        "(the surface) is like a mirror / smooth / shiny",
+        "the angle of incidence is equal to the angle of reflection",
+        "rays are reflected in different directions / randomly",
+        "blurred / fuzzy / distorted",
+        "reflection is specular / diffuse",
+        "(coefficient of) absorption is greater",
+        "less of the incident energy / sound is reflected"
+      ],
+      "mistakes": [
+        {
+          "wrong": "Carpets and curtains make a room quieter because they insulate it.",
+          "right": "References to insulation are ignored. Say that carpets and curtains absorb more of the sound energy, so less sound is reflected back into the room."
+        },
+        {
+          "wrong": "The transmitted energy is 18 J.",
+          "right": "The 18 is a percentage. 18% of 0.25 J = 0.045 J."
+        },
+        {
+          "wrong": "The ball gives a clear image because light is reflected from it.",
+          "right": "Say the surface is smooth or like a mirror, and that for each ray the angle of incidence equals the angle of reflection."
+        }
+      ],
+      "worked_example": {
+        "exemplar_id": "ca1c0615-90b3-449a-bf95-7f427ed4bab1",
+        "source": "EDEXCEL jun 2024, Paper 1 (F), Q2(d)",
+        "question": "Two mirrors in a bathroom reflect light. Mirror R has a dry surface. Mirror S has lots of small drops of water on the surface.\n\nA person looks into each mirror.\n\nExplain the difference between the image seen in mirror R and the image seen in mirror S.",
+        "marks": 2,
+        "answer_points": [
+          "The image in mirror S is blurred, fuzzy or distorted (the image in mirror R is clear).",
+          "The rays are reflected in different directions (randomly) from mirror S, because its surface is diffuse. Mirror R is specular and its reflected rays are parallel."
+        ],
+        "tip": "The reverse argument for mirror R is also accepted."
+      },
+      "extra": [
+        {
+          "heading": "Total internal reflection and the critical angle",
+          "blocks": [
+            {
+              "type": "paragraph",
+              "text": "Light inside glass, water or plastic meets the boundary with air. Sometimes it is not refracted out and is reflected back instead."
+            },
+            {
+              "type": "definitions",
+              "items": [
+                {
+                  "term": "Critical angle",
+                  "meaning": "The angle of incidence in the denser material at which the refracted ray travels along the boundary."
+                },
+                {
+                  "term": "Total internal reflection",
+                  "meaning": "All the light is reflected back inside the denser material."
+                }
+              ]
+            },
+            {
+              "type": "list",
+              "items": [
+                "It happens when light travels from a denser material towards a less dense one, such as glass to air.",
+                "The angle of incidence must be greater than the critical angle.",
+                "Below the critical angle, most of the light is refracted out and a little is reflected."
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    "ocr": {
+      "spec_codes": [
+        "OCR P5.1g",
+        "OCR P5.3d"
+      ],
+      "exam_phrases": [
+        "The sound reflects / echoes (from the cliff)",
+        "The amplitude of the sound decreases with distance",
+        "some of the energy is absorbed",
+        "angle of incidence = angle of reflection",
+        "draw the normal at 90 degrees to the mirror",
+        "measure the angle between the normal and the incident ray",
+        "repeat for different angles of incidence"
+      ],
+      "mistakes": [
+        {
+          "wrong": "The sound bounces off the cliff.",
+          "right": "Bounces is ignored. Say the sound reflects, or echoes, from the cliff."
+        },
+        {
+          "wrong": "The second clap is quieter because some energy is lost.",
+          "right": "Just energy lost is ignored. Say the amplitude decreases with distance, or that some of the sound is absorbed by the cliff or air."
+        },
+        {
+          "wrong": "I measured the angle between the ray and the mirror.",
+          "right": "Measure the angle between the normal and the incident ray, and between the normal and the reflected ray."
+        }
+      ],
+      "worked_example": {
+        "exemplar_id": "0d6f07bd-ee41-4343-8835-644fd8013e24",
+        "source": "OCR jun 2022, Paper 4, Q18(a)(i)",
+        "question": "A student is trying to calculate how far away they are from a large cliff.\n\nThe student claps loudly once. After a short time, they hear a second clap. The second clap is quieter.\n\nExplain why they hear the second clap and why the second clap is quieter.",
+        "marks": 2,
+        "answer_points": [
+          "The sound reflects (echoes) from the cliff.",
+          "The amplitude of the sound decreases with distance, or some of the sound energy is absorbed by the cliff or the air."
+        ],
+        "tip": "One mark for the echo and one for the reason the echo is quieter."
+      }
+    }
+  },
+  "meta": {
+    "status": "draft",
+    "written_by": "sonnet-5-5",
+    "written_at": "2026-10-01",
+    "spec_point_ids": [
+      "a884de6f-c06d-44d3-970a-b46ddef6cb24",
+      "253f581d-07e9-4825-a37d-7805a76df70b",
+      "cb2769f2-4515-42c7-8787-537e9ef1b056",
+      "acda7ec6-65d1-4482-8000-ac995c9fc6b6",
+      "d08bb6ac-395d-4c7b-871c-f97481f32b4e",
+      "e9debc07-7a09-40b8-b08e-ba242db021e8"
+    ],
+    "exemplar_ids": [
+      "6962f64d-d012-494a-9295-032ac35266f5",
+      "ca1c0615-90b3-449a-bf95-7f427ed4bab1",
+      "0d6f07bd-ee41-4343-8835-644fd8013e24"
+    ]
+  }
+}

@@ -1,0 +1,360 @@
+{
+  "format": 1,
+  "concept_id": "phys-064",
+  "subject": "physics",
+  "title": "Changes in momentum and safety features",
+  "key_idea": "(Higher tier) Force equals the rate of change of momentum. Safety features such as air bags and crash mats make the stopping time longer. The momentum changes at a lower rate, so the force on a person is smaller.",
+  "sections": [
+    {
+      "heading": "Force and rate of change of momentum",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "(Higher tier) When a force acts on a moving object, its momentum changes. This section links force, acceleration and change in momentum."
+        },
+        {
+          "type": "list",
+          "items": [
+            "Newton's second law gives force = mass × acceleration, F = m a.",
+            "Acceleration is the change in velocity divided by the time taken, a = (v − u) ÷ t.",
+            "Putting these together gives force = change in momentum ÷ time."
+          ]
+        },
+        {
+          "type": "equation",
+          "label": "Force and change in momentum",
+          "formula": "F = m Δv ÷ Δt   (also written F = (m v − m u) ÷ t)",
+          "where": [
+            "F is the force, in newtons, N",
+            "m is the mass, in kilograms, kg",
+            "Δv is the change in velocity, in metres per second, m/s (v is the final velocity and u is the initial velocity)",
+            "Δt is the time taken, in seconds, s"
+          ]
+        },
+        {
+          "type": "paragraph",
+          "text": "The term m Δv is the change in momentum. So the force equals the rate of change of momentum."
+        },
+        {
+          "type": "list",
+          "items": [
+            "Convert times to seconds first. For example, 180 ms = 0.18 s.",
+            "If an object reverses direction, add the two velocities to find the change. A ball arriving at 8 m/s and leaving at 15 m/s the other way has Δv = 23.2 m/s."
+          ]
+        },
+        {
+          "type": "diagram",
+          "diagram": {
+            "kind": "practice",
+            "alt": "Calculate the average force on a person who lands and stops.",
+            "question": "A gymnast of mass {m} kg lands on a mat at {v} m/s and comes to rest in {t} s. Calculate the average force on the gymnast.",
+            "variables": [
+              {
+                "id": "m",
+                "min": 40,
+                "max": 60,
+                "step": 10
+              },
+              {
+                "id": "v",
+                "min": 3,
+                "max": 5,
+                "step": 1
+              },
+              {
+                "id": "t",
+                "min": 0.1,
+                "max": 0.3,
+                "step": 0.1
+              }
+            ],
+            "answer": {
+              "formula": "m * v / t",
+              "unit": "N",
+              "decimals": 0
+            },
+            "working": [
+              "change in momentum = {m} × {v} kg m/s",
+              "force = change in momentum ÷ time",
+              "force = {m} × {v} ÷ {t}",
+              "force = {answer} N"
+            ]
+          }
+        },
+        {
+          "type": "key-points",
+          "items": [
+            "Force = change in momentum ÷ time.",
+            "A force is the rate of change of momentum.",
+            "Change milliseconds to seconds before you substitute."
+          ]
+        }
+      ]
+    },
+    {
+      "heading": "How safety features reduce the force",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "(Higher tier) Safety features do not remove the change in momentum. They spread it over a longer time."
+        },
+        {
+          "type": "list",
+          "items": [
+            "Air bags and seat belts in cars.",
+            "Crash mats in a gym.",
+            "Cycle helmets.",
+            "Cushioned surfaces in playgrounds.",
+            "Crumple zones, flexible bumpers and protective pads."
+          ]
+        },
+        {
+          "type": "steps",
+          "items": [
+            {
+              "lead": "Same change in momentum.",
+              "text": "The person's momentum still has to fall to zero."
+            },
+            {
+              "lead": "Longer time.",
+              "text": "The safety feature increases the time taken to stop."
+            },
+            {
+              "lead": "Lower rate of change.",
+              "text": "The rate of change of momentum decreases, so the deceleration is less."
+            },
+            {
+              "lead": "Smaller force.",
+              "text": "The force on the person is reduced, so there is less risk of injury."
+            }
+          ]
+        },
+        {
+          "type": "paragraph",
+          "text": "Try the slider. It shows the average force on a 50 kg person who lands and stops."
+        },
+        {
+          "type": "diagram",
+          "diagram": {
+            "kind": "slider",
+            "alt": "Change the landing speed and the stopping time of a 50 kg person to see the change in momentum and the average force.",
+            "inputs": [
+              {
+                "id": "v",
+                "label": "Landing speed",
+                "unit": "m/s",
+                "min": 2,
+                "max": 6,
+                "step": 0.5,
+                "value": 4
+              },
+              {
+                "id": "t",
+                "label": "Time to stop",
+                "unit": "s",
+                "min": 0.05,
+                "max": 0.5,
+                "step": 0.05,
+                "value": 0.1
+              }
+            ],
+            "outputs": [
+              {
+                "label": "Change in momentum",
+                "unit": "kg m/s",
+                "formula": "50 * v",
+                "decimals": 0
+              },
+              {
+                "label": "Average force",
+                "unit": "N",
+                "formula": "50 * v / t",
+                "decimals": 0,
+                "bar": true
+              }
+            ]
+          }
+        },
+        {
+          "type": "list",
+          "items": [
+            "Doubling the stopping time halves the force.",
+            "A longer stopping time also reduces the deceleration."
+          ]
+        },
+        {
+          "type": "key-points",
+          "items": [
+            "Safety features increase the time taken to stop.",
+            "The change in momentum is the same, so the rate of change decreases and the force is reduced.",
+            "A smaller force means less risk of injury."
+          ]
+        }
+      ]
+    }
+  ],
+  "checks": [
+    {
+      "q": "State the equation that links force to change in momentum.",
+      "a": "Force = change in momentum ÷ time (F = mΔv ÷ Δt).",
+      "marks": 1
+    },
+    {
+      "q": "Explain how an air bag reduces the chance of injury to a driver.",
+      "a": "It increases the time taken for the driver to stop. So the rate of change of momentum decreases, which means the force on the driver is reduced.",
+      "marks": 3
+    },
+    {
+      "q": "A ball of mass 0.50 kg stops in 0.20 s from a velocity of 6.0 m/s. Calculate the average force.",
+      "a": "Force = 0.50 × 6.0 ÷ 0.20 = 15 N.",
+      "marks": 2
+    }
+  ],
+  "boards": {
+    "aqa": {
+      "spec_codes": [
+        "AQA 4.5.7.3"
+      ],
+      "exam_phrases": [
+        "increases the time taken (for the driver to come to a stop)",
+        "the rate of change of momentum decreases",
+        "the force (on the driver) is reduced",
+        "the change of momentum is the same but over a greater time",
+        "F = 700 / 0.28",
+        "180 ms = 0.18 s"
+      ],
+      "mistakes": [
+        {
+          "wrong": "The air bag slows down time.",
+          "right": "Slows down time is not accepted. Say the air bag increases the time taken for the collision or for the driver to stop."
+        },
+        {
+          "wrong": "The flexible bumper reduces the impact.",
+          "right": "Reduces impact is insufficient. Say it increases the time of the collision, so the rate of change of momentum decreases, reducing the force on the people."
+        },
+        {
+          "wrong": "800 = 32 × v ÷ 180, so v = 4500 m/s.",
+          "right": "Convert 180 ms to 0.18 s first. Then v = 800 × 0.18 ÷ 32 = 4.5 m/s. An answer of 4500 scores 3 marks out of 4."
+        }
+      ],
+      "worked_example": {
+        "exemplar_id": "0f15e369-42f0-4568-a3c6-fbf0c7b0f680",
+        "source": "AQA jun 2025, Paper 2 (H), Q06.2",
+        "question": "Cars have air bags that inflate to protect the driver if the car stops very suddenly.\n\nExplain how air bags reduce the chance of injury to the driver.",
+        "marks": 3,
+        "answer_points": [
+          "The air bag increases the time taken for the driver to come to a stop.",
+          "So the rate of change of momentum decreases (the deceleration of the driver is less).",
+          "So the force on the driver is reduced."
+        ],
+        "tip": "For the first two marks, the change of momentum is the same but over a greater time is also allowed."
+      },
+      "extra": [
+        {
+          "heading": "Separate science",
+          "blocks": [
+            {
+              "type": "paragraph",
+              "text": "This content is for Separate science only on this course."
+            }
+          ]
+        }
+      ]
+    },
+    "edexcel": {
+      "spec_codes": [
+        "EDEX 2.26"
+      ],
+      "exam_phrases": [
+        "F = (mv − mu) / t",
+        "F = ∆p / t",
+        "F = m∆v / t",
+        "conversion of time to s",
+        "0.075 × (15.0 + 8.2) / 0.012",
+        "with a consistent equation linking chosen factor to force"
+      ],
+      "mistakes": [
+        {
+          "wrong": "A ball arrives at 8.2 m/s and leaves at 15 m/s the other way, so Δv = 15 − 8.2 = 6.8 m/s.",
+          "right": "The ball reverses direction, so add the velocities: Δv = 15 + 8.2 = 23.2 m/s. Using 6.8 gives 42.5 N, which scores 2 marks at most. The answer is 145 N."
+        },
+        {
+          "wrong": "The ball is in contact for 12 ms, so t = 12 in the equation.",
+          "right": "Convert to seconds: 12 ms = 0.012 s. The right digits with the wrong power of ten score 2 marks at most."
+        },
+        {
+          "wrong": "The weight of the car affects the force in the collision.",
+          "right": "Weight is not accepted. Name the mass, velocity, acceleration or momentum, and link it to the force with an equation such as F = ma."
+        }
+      ],
+      "worked_example": {
+        "exemplar_id": "f7db3661-6211-4089-a29c-d130a6df98bc",
+        "source": "EDEXCEL jun 2024, Paper 1 (H), Q9(b)",
+        "question": "A gymnast lands on a mat and comes to rest.\n\nThe gymnast has a mass of 53 kg.\n\nThe gymnast lands on the mat with a velocity of 4.0 m/s.\n\nThe average force exerted by the mat on the gymnast is 3500 N.\n\nCalculate the time taken for the gymnast to come to rest.\n\nGive your answer to an appropriate number of significant figures.\n\nUse the equation\nforce = change in momentum / time",
+        "marks": 3,
+        "answer_points": [
+          "3500 = 53 × 4 ÷ time (the change in momentum is 53 × 4 = 212 kg m/s)",
+          "time = 212 ÷ 3500 = 0.06057 s",
+          "time = 0.061 s (2 significant figures)"
+        ],
+        "tip": "One mark for the substitution or rearrangement, one for the evaluation and one for rounding the calculated value to 2 significant figures."
+      }
+    },
+    "ocr": {
+      "spec_codes": [
+        "OCR P2.2l"
+      ],
+      "exam_phrases": [
+        "Acceleration will increase",
+        "Force = mass × acceleration",
+        "So greater force (acting on occupants)",
+        "this could lead to injury",
+        "Rate of change of momentum is greater",
+        "Force = rate of change of momentum"
+      ],
+      "mistakes": [
+        {
+          "wrong": "If the time taken to stop is much smaller, the force on the people is smaller.",
+          "right": "A much smaller time means a greater acceleration, so by F = ma there is a greater force on the occupants. This could lead to injury."
+        },
+        {
+          "wrong": "The momentum of the van increases in a crash, which injures the people.",
+          "right": "The momentum of the van falls to zero in a much shorter time. The rate of change of momentum is greater, so the force is greater."
+        }
+      ],
+      "worked_example": {
+        "exemplar_id": "2e251c3a-c2f3-4007-a70e-892adb18c7c9",
+        "source": "OCR nov 2021, Paper 4, Q22(c)",
+        "question": "A van travels along a road at a constant speed.\n\nIf the van crashes, the time taken to stop is much smaller.\n\nExplain why this is dangerous for the people in the van.",
+        "marks": 2,
+        "answer_points": [
+          "The acceleration will increase, and force = mass × acceleration, so there is a greater force on the occupants.",
+          "This could lead to injury of the people in the van."
+        ],
+        "tip": "Any two points score the 2 marks. Force = rate of change of momentum is also allowed."
+      }
+    }
+  },
+  "meta": {
+    "status": "draft",
+    "written_by": "sonnet-5-5",
+    "written_at": "2026-10-01",
+    "spec_point_ids": [
+      "0f07791b-ea02-4ad6-8638-aa6b4ca08e7a",
+      "870627e7-eeb1-4dea-b5a9-01cd726eb64c"
+    ],
+    "exemplar_ids": [
+      "0f15e369-42f0-4568-a3c6-fbf0c7b0f680",
+      "19cd6152-4dea-48b6-a44d-3ed8f9ee4293",
+      "2340b55c-fdb6-4b49-b6c4-5b9a69b2e0d0",
+      "2e251c3a-c2f3-4007-a70e-892adb18c7c9",
+      "35f000b8-930c-4b56-8d6f-d8842916f01d",
+      "5dbf1e42-8ed7-4585-8472-9e0669192b00",
+      "82cdc89c-5f2f-4bbc-b54b-a84fc243bb49",
+      "a0750893-5175-4e4f-8cc4-1558fd1a8b7a",
+      "aefb9da9-2b84-4ba4-9d86-84f5ad2239e5",
+      "bcbd01bd-c753-4f91-acc2-3cf6cb45a144",
+      "f7db3661-6211-4089-a29c-d130a6df98bc"
+    ]
+  }
+}

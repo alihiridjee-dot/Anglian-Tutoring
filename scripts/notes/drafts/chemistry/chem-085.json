@@ -117,12 +117,12 @@
                     0.15
                   ],
                   [
-                    3,
-                    0.42
+                    2,
+                    0.38
                   ],
                   [
                     6,
-                    0.6
+                    0.5
                   ],
                   [
                     10,
@@ -165,7 +165,7 @@
             },
             {
               "lead": "Check for a range",
-              "text": "A single value, or a very narrow one, means the sample is pure. A wider range means it is impure."
+              "text": "A single value means the sample is pure. A range of values means it is impure."
             },
             {
               "lead": "Compare with the data book",
@@ -273,8 +273,8 @@
           "right": "The result must be a specific temperature: boils at 100 °C or freezes at 0 °C. The result mark depends on a correct test."
         },
         {
-          "wrong": "Substance B is pure because it has the highest melting point.",
-          "right": "B is pure because it has a specific melting point. The other substances melted over a range of temperatures."
+          "wrong": "Substance B is pure.",
+          "right": "Give a reason as well: B has a specific melting point, while the other substances melted over a range of temperatures. The reason mark depends on choosing B."
         }
       ],
       "worked_example": {
@@ -398,6 +398,8 @@
       "4f61feb5-1c94-4e3f-beba-dacecb647287",
       "bc6c7407-38de-424f-b145-05aa0a64a7cb",
       "348239c4-b3c0-40d4-add4-bc5dbfb64fbf"
-    ]
+    ],
+    "checked_by": "sonnet-science-check",
+    "checked_at": "2026-10-01"
   }
 }

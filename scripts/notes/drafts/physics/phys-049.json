@@ -103,7 +103,7 @@
           "items": [
             { "lead": "Find one moment.", "text": "A 650 N load is 0.75 m from the pivot: moment = 650 × 0.75 = 487.5 N m." },
             { "lead": "Balance it.", "text": "A 160 N effort must give the same moment: 160 × d = 487.5." },
-            { "lead": "Rearrange.", "text": "d = 487.5 ÷ 160 = 3.0 m." }
+            { "lead": "Rearrange.", "text": "d = 487.5 ÷ 160 = 3.05 m, which is about 3 m." }
           ]
         },
         {
@@ -152,7 +152,8 @@
             "Meshed gears have teeth that fit together.",
             "A force on one gear causes a moment about the pivot of the next gear, so it turns.",
             "The second gear turns in the opposite direction.",
-            "The smaller gear, with fewer teeth, turns faster than the larger gear."
+            "The smaller gear, with fewer teeth, turns faster than the larger gear.",
+            "A small gear driving a large gear gives a bigger moment on the large gear, so the pair works as a force multiplier."
           ]
         },
         {
@@ -160,8 +161,16 @@
           "label": "Meshed gears",
           "formula": "turns of gear A × teeth on gear A = turns of gear B × teeth on gear B",
           "where": [
-            "The same number of teeth pass the meshing point on both gears.",
-            "A gear with 20 teeth meshed with a gear with 60 teeth turns three times for each turn of the larger gear."
+            "Turns is the number of complete turns of that gear.",
+            "Teeth is the number of teeth on that gear. The same number of teeth pass the meshing point on both gears."
+          ]
+        },
+        {
+          "type": "steps",
+          "items": [
+            { "lead": "Example.", "text": "A gear with 20 teeth turns a gear with 60 teeth, and the large gear makes 2 turns." },
+            { "lead": "Substitute.", "text": "turns of small gear × 20 = 2 × 60" },
+            { "lead": "Evaluate.", "text": "turns of small gear = 120 ÷ 20 = 6 turns" }
           ]
         },
         {
@@ -230,7 +239,7 @@
         "for (a system in) equilibrium",
         "the effort is at a bigger distance from fulcrum (than the load)",
         "(magnitudes of) moments are the same",
-        "the bigger the distance to the pivot, the less force you need to provide the same moment"
+        "distance moved by chain around large gear = distance moved by chain around small gear"
       ],
       "mistakes": [
         {
@@ -242,8 +251,8 @@
           "right": "The unit of a moment is N m, not J. The unit is an independent mark."
         },
         {
-          "wrong": "The effort is smaller because a wheelbarrow makes it easier to lift.",
-          "right": "Link the effort to the distance. The effort is at a bigger distance from the fulcrum than the load, so the moments can be equal."
+          "wrong": "The effort is at a bigger distance.",
+          "right": "Say from where. The effort is at a bigger distance from the fulcrum (or pivot or wheel) than the load. Both parts earn a mark."
         }
       ],
       "worked_example": {
@@ -254,10 +263,9 @@
         "answer_points": [
           "Moment of the load = 650 × 0.75 = 487.5 N m",
           "160 × distance = 487.5",
-          "distance = 487.5 ÷ 160",
-          "distance = 3.0 m"
+          "distance = 487.5 ÷ 160 = 3.05 m, which rounds to 3 m (490 ÷ 160 gives 3.1 m)"
         ],
-        "tip": "Marks are for substitution, rearrangement and evaluation. Any value that rounds to 3 is accepted, and a power of ten error loses marks."
+        "tip": "Marks are for substitution, rearrangement and evaluation. Any value that rounds to 3 is accepted, and a power of ten error loses marks. Full marks for the correct answer without working."
       }
     },
     "ocr": {

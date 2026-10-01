@@ -28,6 +28,16 @@
           ]
         },
         {
+          "type": "equation",
+          "label": "Force from pressure (rearranged)",
+          "formula": "F = p × A",
+          "where": [
+            "F is the force in newtons (N).",
+            "p is pressure in pascals (Pa).",
+            "A is the area in square metres (m²)."
+          ]
+        },
+        {
           "type": "list",
           "items": [
             "The same force on a smaller area gives a larger pressure.",
@@ -159,8 +169,7 @@
       "spec_codes": ["AQA 4.5.5.1"],
       "exam_phrases": [
         "pascals or Pa",
-        "N/m²",
-        "increase in depth = 1.2 (m)"
+        "N/m²"
       ],
       "mistakes": [
         {
@@ -168,8 +177,8 @@
           "right": "Write Pa with a capital P. 'pa' is not accepted. N/m² is also allowed."
         },
         {
-          "wrong": "A swimmer goes from 0.50 m to 1.70 m, so the pressure increase is 1.70 × 1030 × 9.8.",
-          "right": "Use the increase in depth, 1.70 − 0.50 = 1.2 m. The increase in pressure is 1.2 × 1030 × 9.8 = 12 112.8 Pa."
+          "wrong": "A piston has a force of 60 N and a pressure of 120 000 Pa, so the area is 0.0005 m² when standard form is asked for.",
+          "right": "Give the answer in the form asked for: 5.0 × 10⁻⁴ m². The standard form and the unit are separate marks."
         }
       ],
       "worked_example": {
@@ -191,7 +200,7 @@
           "blocks": [
             {
               "type": "paragraph",
-              "text": "(Higher tier) In this specification the equation for the pressure due to a column of liquid is Higher tier only. Pressure from force and area is for all students."
+              "text": "(Higher tier) For this course, the pressure due to a column of liquid, p = h × ρ × g, and how it changes with depth and density are Higher tier only. Pressure from force and area is for all students."
             }
           ]
         }
@@ -217,8 +226,8 @@
           "right": "The question asks for 2 significant figures. Round 576 N to 580 N. The rounding is the third mark."
         },
         {
-          "wrong": "The drawing pin goes into the wood because the point is sharper.",
-          "right": "Compare pressures using force and area. The force is the same, the pointed end has a very small area so the pressure is large."
+          "wrong": "The drawing pin goes into the wood because there is more force at the tip than at the head.",
+          "right": "The force is the same at the tip and the head. The pointed end has a very small area, so the pressure is large."
         }
       ],
       "worked_example": {
@@ -251,9 +260,9 @@
     "ocr": {
       "spec_codes": ["OCR P2.3n", "OCR P2.3o", "OCR P1.3j"],
       "exam_phrases": [
-        "pressure = force ÷ area",
-        "pressure due to a column of liquid = height of column x density of liquid x g",
-        "g = 10 (N/kg)"
+        "pressure increases as depth increases",
+        "each 10 metres of depth increases pressure by 1 (standard unit)",
+        "linear relationship"
       ],
       "mistakes": [
         {
@@ -268,14 +277,14 @@
       "worked_example": {
         "exemplar_id": "57699e5a-0305-4626-bde3-5f90f46e5be2",
         "source": "OCR jun 2019, Paper 3, Q22(c)",
-        "question": "Calculate the pressure at the bottom of a 0.5 m tall measuring cylinder filled with a liquid. Density of the liquid = 1100 kg/m³. Use g = 10 N/kg.",
+        "question": "Calculate the pressure at the bottom of a 0.5 m tall measuring cylinder filled with a liquid. Density of the liquid = 1100 kg/m³.",
         "marks": 3,
         "answer_points": [
-          "Pressure due to a column of liquid = height × density × g",
+          "Pressure due to a column of liquid = height × density × g, with g = 10 N/kg",
           "p = 0.5 × 1100 × 10",
           "p = 5500 Pa"
         ],
-        "tip": "A correct answer of 5500 Pa scores all 3 marks. Using g = 9.8 N/kg and getting 5390 Pa also scores 3 marks."
+        "tip": "A correct answer of 5500 Pa scores all 3 marks. Using g = 9.8 N/kg and getting 5390 Pa also scores 3 marks. Here g is not given, so recall that it is 10 N/kg."
       },
       "extra": [
         {
@@ -284,9 +293,10 @@
             {
               "type": "list",
               "items": [
-                "In a simple hydraulic system, a force on one piston creates a pressure in the fluid.",
-                "The pressure acts at right angles on the area of another piston, so p = F ÷ A is used on each piston.",
-                "A larger area at the second piston gives a larger force."
+                "In a simple hydraulic system, a force on one piston creates a pressure in the liquid.",
+                "The liquid cannot be compressed, so the same pressure acts at right angles on the other piston.",
+                "The force on the second piston is pressure × its area, using F = p × A.",
+                "A larger area at the second piston gives a larger force, so the system is a force multiplier."
               ]
             }
           ]

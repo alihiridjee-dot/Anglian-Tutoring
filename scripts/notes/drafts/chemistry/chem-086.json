@@ -227,7 +227,7 @@
           "right": "A formulation is designed as a useful product and mixed in carefully measured quantities."
         },
         {
-          "wrong": "Percentage of methanol = 23.3 ÷ 265.5 × 100, using only the mass of ethanol.",
+          "wrong": "Percentage of methanol = 23.3 ÷ 265.5 × 100, dividing by the mass of ethanol only.",
           "right": "Divide by the total mass of every component: 23.3 ÷ (265.5 + 23.3 + 3.0 + 1.5) × 100 = 7.9%."
         }
       ],
@@ -240,7 +240,7 @@
           "It is not a useful product (it is not designed for a specific purpose).",
           "It is not mixed in carefully measured quantities (it is not the same composition all the time)."
         ],
-        "tip": "Name the mixture as a mixture first; the marks are for what a formulation has that crude oil lacks."
+        "tip": "Each reason is a separate mark: not a useful product, and not mixed in carefully measured quantities."
       }
     },
     "ocr": {
@@ -287,6 +287,8 @@
       "23d723a4-c61a-49c1-a487-7a848d29bd04",
       "97488cec-32a2-4e3e-8a31-12a2530f9590",
       "a05f428e-54b3-4786-b3eb-e963fc89490d"
-    ]
+    ],
+    "checked_by": "sonnet-science-check",
+    "checked_at": "2026-10-01"
   }
 }

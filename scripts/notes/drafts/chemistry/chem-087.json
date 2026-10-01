@@ -65,7 +65,7 @@
             "Draw the start line in **pencil**, because ink would dissolve in the solvent and run.",
             "The spot must start above the level of the solvent, or it would dissolve into the beaker.",
             "Put a lid on the beaker so the solvent does not evaporate.",
-            "If a spot stays on the start line, use a different solvent so that it dissolves."
+            "If the ink stays on the start line, use a different solvent so that it dissolves."
           ]
         },
         {
@@ -89,7 +89,7 @@
           "type": "key-points",
           "items": [
             "Pencil start line, spot above the solvent, lid on.",
-            "Mark the solvent front before it dries."
+            "Mark the solvent front, then leave the paper to dry."
           ]
         }
       ]
@@ -121,7 +121,7 @@
         },
         {
           "type": "paragraph",
-          "text": "Rf has no units and is always less than 1."
+          "text": "Rf has no units and is always between 0 and 1."
         },
         {
           "type": "steps",
@@ -141,8 +141,28 @@
           ]
         },
         {
+          "type": "equation",
+          "formula": "distance moved by substance = Rf × distance moved by solvent",
+          "label": "Distance moved by the substance",
+          "where": [
+            "distance moved by substance in centimetres (cm)",
+            "Rf, no units",
+            "distance moved by solvent in centimetres (cm)"
+          ]
+        },
+        {
+          "type": "equation",
+          "formula": "distance moved by solvent = distance moved by substance ÷ Rf",
+          "label": "Distance moved by the solvent",
+          "where": [
+            "distance moved by solvent in centimetres (cm)",
+            "distance moved by substance in centimetres (cm)",
+            "Rf, no units"
+          ]
+        },
+        {
           "type": "paragraph",
-          "text": "To find the solvent distance from an Rf value, rearrange: solvent distance = spot distance ÷ Rf. For example, a spot that moved 3.2 cm with Rf 0.40 means the solvent moved 8.0 cm."
+          "text": "For example, a spot that moved 3.2 cm with Rf 0.40 means the solvent moved 3.2 ÷ 0.40 = 8.0 cm."
         },
         {
           "type": "diagram",
@@ -262,7 +282,7 @@
         "use a different solvent so that the ink will dissolve",
         "longer paper / different paper (to make the Rf value more accurate)",
         "distance = Rf × solvent front distance",
-        "3.60 / 9.20 = 0.39 (rounded to 2 dp)"
+        "(because the ink) does not dissolve in water"
       ],
       "mistakes": [
         {
@@ -368,7 +388,8 @@
                 "TLC uses a liquid solvent as the mobile phase. It is used to separate solids.",
                 "The mobile phase can be an aqueous or a non-aqueous solvent.",
                 "Colourless spots are found using a **locating agent**, a stain or UV light.",
-                "Gas chromatography separates gases in a mixture. It shows the amounts of each compound, which TLC does not."
+                "Gas chromatography separates gases in a mixture. It shows the amounts of each compound, which TLC does not.",
+                "Choose a solvent that dissolves all the substances being separated."
               ]
             }
           ]
@@ -410,6 +431,8 @@
       "82dfd23a-c330-432b-a281-7c277decbe9d",
       "1a0723fe-d28e-4c57-8652-f8efc5389a89",
       "5a37df87-c440-424c-a308-b47b7cc49184"
-    ]
+    ],
+    "checked_by": "sonnet-science-check",
+    "checked_at": "2026-10-01"
   }
 }

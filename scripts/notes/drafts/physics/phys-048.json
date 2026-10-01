@@ -373,6 +373,8 @@
     "exemplar_ids": [
       "1797b6c5-0c6a-4917-9269-f462bee4266d",
       "a67fb030-0655-40fd-b507-12400c0e21a1"
-    ]
+    ],
+    "checked_by": "sonnet-science-check",
+    "checked_at": "2026-10-01"
   }
 }
