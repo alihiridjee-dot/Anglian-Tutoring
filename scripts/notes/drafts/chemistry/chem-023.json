@@ -1,0 +1,300 @@
+{
+  "format": 1,
+  "concept_id": "chem-023",
+  "subject": "chemistry",
+  "title": "Giant covalent structures: diamond, graphite and silicon dioxide",
+  "key_idea": "In a giant covalent structure, all the atoms are joined to their neighbours by strong covalent bonds. These bonds must be overcome to melt the substance, so melting points are very high. Diamond, graphite and silicon dioxide are examples.",
+  "sections": [
+    {
+      "heading": "Giant covalent structures",
+      "blocks": [
+        { "type": "paragraph", "text": "This section covers what all giant covalent structures have in common." },
+        {
+          "type": "definitions",
+          "items": [
+            { "term": "Giant covalent structure", "meaning": "A huge network of atoms, each joined to its neighbours by strong covalent bonds." },
+            { "term": "Allotropes", "meaning": "Different forms of the same element in the same state, such as diamond and graphite." }
+          ]
+        },
+        {
+          "type": "list",
+          "items": [
+            "Giant covalent substances are solids with very high melting points.",
+            "All the atoms are linked to other atoms by strong covalent bonds.",
+            "These bonds must be overcome to melt or boil the substance. Many bonds must be broken, so a lot of energy is needed.",
+            "Diamond and graphite are forms of carbon. Silicon dioxide (silica, SiO₂) is a compound of silicon and oxygen."
+          ]
+        },
+        {
+          "type": "key-points",
+          "items": [
+            "Giant covalent structures have strong covalent bonds throughout.",
+            "Many strong bonds must be broken to melt them, so melting points are very high."
+          ]
+        }
+      ]
+    },
+    {
+      "heading": "Diamond",
+      "blocks": [
+        { "type": "paragraph", "text": "In diamond, every carbon atom is bonded in the same way, in a rigid three-dimensional network." },
+        {
+          "type": "list",
+          "items": [
+            "Each carbon atom forms **four covalent bonds** with four other carbon atoms.",
+            "The structure is giant covalent, with strong bonds in all directions.",
+            "It is very hard, because the bonds are strong and the network is rigid.",
+            "It has a very high melting point, because a lot of energy is needed to break so many strong bonds.",
+            "It does not conduct electricity, because all four outer electrons are used in bonding. No electrons are free to move."
+          ]
+        },
+        {
+          "type": "key-points",
+          "items": [
+            "Diamond: four bonds per carbon atom, giant covalent.",
+            "Very hard, very high melting point, does not conduct electricity."
+          ]
+        }
+      ]
+    },
+    {
+      "heading": "Graphite and silicon dioxide",
+      "blocks": [
+        { "type": "paragraph", "text": "Graphite has a different arrangement of the same carbon atoms, so its properties are different." },
+        {
+          "type": "list",
+          "items": [
+            "Each carbon atom forms **three covalent bonds** with three other carbon atoms.",
+            "The atoms form layers of hexagonal rings. There are no covalent bonds between the layers.",
+            "One electron from each carbon atom is **delocalised**.",
+            "Graphite is similar to metals in that it has delocalised electrons."
+          ]
+        },
+        {
+          "type": "table",
+          "columns": ["Property of graphite", "Explanation"],
+          "rows": [
+            ["Conducts electricity", "Delocalised electrons can move through the structure and carry charge."],
+            ["Soft and slippery", "Weak forces between the layers, so the layers can slide over each other."],
+            ["High melting point", "Many strong covalent bonds within the layers need a lot of energy to break."]
+          ]
+        },
+        {
+          "type": "paragraph",
+          "text": "Silicon dioxide is also a giant covalent structure. It has a very high melting point because of its giant structure and strong covalent bonds."
+        },
+        {
+          "type": "diagram",
+          "diagram": {
+            "kind": "sort",
+            "alt": "Sort each statement into diamond, graphite or both.",
+            "prompt": "Which substance does each statement describe?",
+            "groups": ["Diamond only", "Graphite only", "Both"],
+            "items": [
+              { "text": "Each carbon atom forms four covalent bonds", "group": 0 },
+              { "text": "Does not conduct electricity", "group": 0 },
+              { "text": "Used in cutting tools", "group": 0 },
+              { "text": "Each carbon atom forms three covalent bonds", "group": 1 },
+              { "text": "Has delocalised electrons", "group": 1 },
+              { "text": "Layers that can slide over each other", "group": 1 },
+              { "text": "Used as a lubricant and for electrodes", "group": 1 },
+              { "text": "Giant covalent structure", "group": 2 },
+              { "text": "Very high melting point", "group": 2 },
+              { "text": "A form of carbon", "group": 2 }
+            ]
+          }
+        },
+        {
+          "type": "key-points",
+          "items": [
+            "Graphite: three bonds per carbon atom, layers of hexagonal rings, one delocalised electron per atom.",
+            "Graphite conducts because of delocalised electrons. It is slippery because layers slide.",
+            "Silicon dioxide has a giant structure with strong covalent bonds."
+          ]
+        }
+      ]
+    },
+    {
+      "heading": "Uses linked to structure",
+      "blocks": [
+        { "type": "paragraph", "text": "The structure of each substance explains what it is used for." },
+        {
+          "type": "diagram",
+          "diagram": {
+            "kind": "compare",
+            "alt": "Diamond compared with graphite.",
+            "items": ["Diamond", "Graphite"],
+            "rows": [
+              { "feature": "Bonds per carbon atom", "values": ["Four", "Three"] },
+              { "feature": "Structure", "values": ["Rigid giant covalent network", "Layers of hexagonal rings"] },
+              { "feature": "Electrical conductivity", "values": ["None", "Good, from delocalised electrons"] },
+              { "feature": "Hardness", "values": ["Very hard", "Soft and slippery"] },
+              { "feature": "Use", "values": ["Cutting tools", "Electrodes and lubricant"] }
+            ]
+          }
+        },
+        {
+          "type": "key-points",
+          "items": [
+            "Diamond is used in cutting tools because it is very hard.",
+            "Graphite is used for electrodes because it conducts electricity, and as a lubricant because its layers slide."
+          ]
+        }
+      ]
+    }
+  ],
+  "checks": [
+    {
+      "q": "Describe the structure and bonding of diamond.",
+      "a": "Each carbon atom forms four covalent bonds with other carbon atoms, in a giant covalent structure.",
+      "marks": 3
+    },
+    {
+      "q": "Explain why diamond has a very high melting point.",
+      "a": "It has a giant covalent structure with strong covalent bonds. Many bonds must be broken, so a lot of energy is needed.",
+      "marks": 3
+    },
+    {
+      "q": "Explain why graphite conducts electricity.",
+      "a": "Each carbon atom has one delocalised electron. The delocalised electrons move through the structure and carry electrical charge.",
+      "marks": 2
+    }
+  ],
+  "boards": {
+    "aqa": {
+      "spec_codes": ["AQA 4.2.2.6", "AQA 4.2.3.1", "AQA 4.2.3.2", "AQA T 5.2.2.6", "AQA T 5.2.3.1", "AQA T 5.2.3.2"],
+      "exam_phrases": [
+        "(covalent) bonds are strong",
+        "(many covalent) bonds must be broken",
+        "a lot of energy is required",
+        "giant structure / macromolecule",
+        "delocalised electrons carry electrical charge through the structure",
+        "weak (intermolecular) forces between layers",
+        "so the layers can slide over each other"
+      ],
+      "mistakes": [
+        {
+          "wrong": "Diamond has a high melting point because of strong intermolecular forces.",
+          "right": "A maximum of 2 marks is available for incorrect reference to particles or bonds. Say covalent bonds, giant structure, and a lot of energy is needed to break them."
+        },
+        {
+          "wrong": "Diamond has a high melting point because it needs a high temperature or lots of heat.",
+          "right": "Heat and high temperature are ignored. Say a lot of energy is needed to break (overcome) the bonds."
+        },
+        {
+          "wrong": "Silicon dioxide has a high melting point because it has strong ionic bonds.",
+          "right": "Silicon dioxide has a giant structure with strong covalent bonds. Ionic bonds do not score."
+        }
+      ],
+      "worked_example": {
+        "exemplar_id": "2d70ad0c-6db2-4528-a1b6-ef7bd85c9c2f",
+        "source": "AQA jun 2022, Paper 1 (H), Q03.2",
+        "question": "Diamond is a form of carbon with a giant covalent structure.\n\nExplain why diamond has a very high melting point.",
+        "marks": 3,
+        "answer_points": [
+          "The covalent bonds are strong.",
+          "Many covalent bonds must be broken.",
+          "So a lot of energy is required."
+        ],
+        "tip": "One mark each. Write about covalent bonds being broken, never intermolecular forces."
+      }
+    },
+    "edexcel": {
+      "spec_codes": ["EDEX 1.35", "EDEX 1.36", "EDEX 1.37"],
+      "exam_phrases": [
+        "strong (covalent) bonds between all carbon atoms",
+        "giant (covalent) lattice",
+        "requires a very high amount of energy to overcome",
+        "weak forces between layers",
+        "layers can slide",
+        "delocalised electrons move to carry current",
+        "no free electrons available for electrical conductivity"
+      ],
+      "mistakes": [
+        {
+          "wrong": "Graphite conducts electricity because ions move through it.",
+          "right": "Ions are rejected. Say electrons move through graphite, because they are delocalised (free, a sea of electrons)."
+        },
+        {
+          "wrong": "Graphite conducts because of electrons in the outer shell.",
+          "right": "Electrons in bonds or in the outer shell scores only the first mark. Say the electrons are delocalised or free, so they can move."
+        }
+      ],
+      "worked_example": {
+        "exemplar_id": "f3c66ed6-53d9-489d-aea8-ed80671bbc70",
+        "source": "EDEXCEL jun 2022, Paper 1 (F), Q6(c)(iii)",
+        "question": "Graphite electrodes are used in the electrolysis of sodium sulfate solution.\n\nGraphite is used because it is inert and conducts electricity.\n\nExplain, in terms of its structure, how graphite conducts electricity.",
+        "marks": 2,
+        "answer_points": [
+          "Electrons.",
+          "The electrons move through graphite (they are delocalised / free / a sea of electrons)."
+        ],
+        "tip": "Name electrons, then say they move. Ions are rejected."
+      }
+    },
+    "ocr": {
+      "spec_codes": ["OCR C2.3a", "OCR C2.3c", "OCR C2.3f"],
+      "exam_phrases": [
+        "many strong (covalent) bonds",
+        "a lot of energy needed to break the bonds",
+        "each carbon atom forms 4 bonds",
+        "delocalised electrons / sea of electrons",
+        "weak forces between layers",
+        "layers can slide / slip over each other"
+      ],
+      "mistakes": [
+        {
+          "wrong": "Diamond is hard because it has strong ionic bonds.",
+          "right": "Ionic and intermolecular forces are not allowed. Say many strong covalent bonds, and a lot of energy is needed to break them."
+        },
+        {
+          "wrong": "Graphite has a high melting point because of strong intermolecular forces.",
+          "right": "A reference to intermolecular forces scores 0. Say it has many strong covalent bonds, which take a large amount of energy to break."
+        },
+        {
+          "wrong": "Graphite conducts because ions can carry the charge.",
+          "right": "A reference to ions scores 0. Say there are delocalised (free) electrons that can move or carry a charge."
+        }
+      ],
+      "worked_example": {
+        "exemplar_id": "09c2e088-7404-48df-b824-dab48f5492d8",
+        "source": "OCR nov 2021, Paper 3, Q16(b)(ii)",
+        "question": "Graphite can be used as a lubricant because it is slippery.\n\nExplain why graphite is slippery.\n\nUse ideas about structure and bonding in graphite in your answer.",
+        "marks": 2,
+        "answer_points": [
+          "Graphite forms layers of (covalently bonded) carbon atoms.",
+          "There are weak forces between the layers (weak intermolecular forces).",
+          "The layers can slide or slip over each other."
+        ],
+        "tip": "Any two of the three points score. Do not mention ionic bonds."
+      }
+    }
+  },
+  "meta": {
+    "status": "draft",
+    "written_by": "sonnet-5-5",
+    "written_at": "2026-10-01",
+    "spec_point_ids": [
+      "4e62200c-ba34-4919-9573-0f2eb4c625f7",
+      "5784660f-31a3-410c-806c-5f2d2cc46e00",
+      "5eb6d190-849d-4325-a21d-e0870cb561b7",
+      "a6fa7840-39a2-4d07-ac74-44dd53e890bb",
+      "178f7142-baa6-4e2d-bfb3-c63bb06111cf",
+      "a9d66b95-8b17-44a9-a0ed-5346bd8557ed",
+      "ace8ad0a-e801-4995-94b7-92fdd56a79dc",
+      "3ad0ac26-2ac9-4410-9f2e-53fedab3e61e",
+      "afcae6ec-56c8-4a7f-b8ea-88da3d7a41eb",
+      "4906d4e2-45b9-411e-9ae0-f0280b2b05fb",
+      "73fe3209-43af-4f19-a34b-ce411227df0a",
+      "7a952ea4-464c-4ce1-b9c0-4c61dca8e5b8"
+    ],
+    "exemplar_ids": [
+      "2d70ad0c-6db2-4528-a1b6-ef7bd85c9c2f",
+      "f3c66ed6-53d9-489d-aea8-ed80671bbc70",
+      "09c2e088-7404-48df-b824-dab48f5492d8",
+      "a570212f-817f-49d8-ae2f-77f5caf99a8b",
+      "eb4b5d88-8401-4618-b1d9-0b565a44f7d0",
+      "39f3a9f0-8a15-4543-8cd1-76409699c03a"
+    ]
+  }
+}

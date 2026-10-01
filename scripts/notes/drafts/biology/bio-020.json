@@ -1,0 +1,264 @@
+{
+  "format": 1,
+  "concept_id": "bio-020",
+  "subject": "biology",
+  "title": "Enzymes and the lock-and-key model",
+  "key_idea": "Enzymes are biological catalysts. They speed up reactions in living things without being used up. Each enzyme has an active site with a shape that fits only its own substrate, which is explained by the lock-and-key model.",
+  "sections": [
+    {
+      "heading": "Enzymes as biological catalysts",
+      "blocks": [
+        { "type": "paragraph", "text": "Reactions in living cells would be far too slow without enzymes. This section covers what enzymes are and what they do." },
+        {
+          "type": "definitions",
+          "items": [
+            { "term": "Catalyst", "meaning": "A substance that speeds up a reaction and is not used up." },
+            { "term": "Enzyme", "meaning": "A protein that acts as a biological catalyst, speeding up reactions in living organisms." },
+            { "term": "Substrate", "meaning": "The molecule that an enzyme acts on." },
+            { "term": "Product", "meaning": "The molecule or molecules made in the reaction." },
+            { "term": "Active site", "meaning": "The part of the enzyme where the substrate binds." }
+          ]
+        },
+        {
+          "type": "list",
+          "items": [
+            "Enzymes are made of protein, which is made of amino acids.",
+            "Each enzyme catalyses one specific reaction, because of the shape of its active site.",
+            "Enzymes break large molecules down, as in digestion. They also build large molecules up from small ones.",
+            "Carbohydrases, proteases and lipases are enzymes that break down carbohydrates, proteins and lipids."
+          ]
+        },
+        {
+          "type": "key-points",
+          "items": [
+            "An enzyme is a biological catalyst. It speeds up a reaction and is not used up.",
+            "Enzymes are proteins.",
+            "Each enzyme catalyses a specific reaction."
+          ]
+        }
+      ]
+    },
+    {
+      "heading": "The lock-and-key model",
+      "blocks": [
+        { "type": "paragraph", "text": "The lock-and-key model explains how an enzyme works. The substrate is the key and the active site is the lock." },
+        {
+          "type": "diagram",
+          "diagram": {
+            "kind": "sequence",
+            "alt": "Put the stages of the lock-and-key model in order.",
+            "prompt": "Put the lock-and-key stages in order",
+            "steps": [
+              "The substrate meets the enzyme",
+              "The substrate binds to the active site because their shapes are complementary",
+              "The reaction happens and the substrate is broken down into products",
+              "The products are released",
+              "The enzyme is unchanged and can be used again"
+            ]
+          }
+        },
+        {
+          "type": "paragraph",
+          "text": "Complementary means the shapes fit together exactly. They are not the same shape."
+        },
+        { "type": "subheading", "text": "Why enzymes are specific" },
+        {
+          "type": "list",
+          "items": [
+            "Each enzyme has an active site with one particular shape.",
+            "Only a substrate with a complementary shape fits into the active site.",
+            "A substrate with the wrong shape cannot bind, so no reaction takes place.",
+            "For example, amylase breaks down starch. It cannot break down protein, because protein does not fit its active site."
+          ]
+        },
+        {
+          "type": "key-points",
+          "items": [
+            "The substrate fits the active site because their shapes are complementary.",
+            "The substrate is broken down and the products are released. The enzyme is not used up.",
+            "A different substrate does not fit, so the enzyme is specific."
+          ]
+        }
+      ]
+    },
+    {
+      "heading": "Enzymes in the exam",
+      "blocks": [
+        { "type": "paragraph", "text": "Exam questions use the model to explain why an enzyme will or will not work. Always name the active site and the substrate." },
+        {
+          "type": "table",
+          "columns": ["Question", "What to say"],
+          "rows": [
+            ["How does amylase break down starch?", "Starch binds to the active site. The shapes are complementary. Bonds are broken to give smaller molecules."],
+            ["Why will urease not break down starch?", "Enzymes are specific. Starch does not fit the active site, so no reaction takes place."],
+            ["What happens when an enzyme gets too hot?", "It is denatured. The shape of the active site changes (covered in the next note)."]
+          ]
+        },
+        {
+          "type": "key-points",
+          "items": [
+            "Say the substrate binds to the active site, not that the enzyme binds to the substrate alone.",
+            "Use the words complementary, specific and active site."
+          ]
+        }
+      ]
+    }
+  ],
+  "checks": [
+    {
+      "q": "What is an enzyme?",
+      "a": "A biological catalyst, which speeds up reactions in living organisms. It is a protein.",
+      "marks": 1
+    },
+    {
+      "q": "Why does each type of lipase act on only one type of lipid molecule?",
+      "a": "Each active site has a specific shape, so only one type of lipid molecule fits.",
+      "marks": 1
+    },
+    {
+      "q": "Explain how amylase breaks down starch, in terms of the lock-and-key model.",
+      "a": "Starch binds to the active site, because the shape of the active site and the starch are complementary. A reaction occurs, breaking the bonds between the starch molecules to produce smaller molecules.",
+      "marks": 3
+    }
+  ],
+  "boards": {
+    "aqa": {
+      "spec_codes": ["AQA 2.3"],
+      "exam_phrases": [
+        "starch / substrate binds to active site",
+        "the shape of the active site and the substrate are complementary",
+        "a chemical reaction occurs to produce smaller molecules",
+        "(so) substrate is broken down (into products)",
+        "(so) products are released",
+        "enzyme is not used up / not changed",
+        "each active site has a specific shape",
+        "(chemical which) catalyses / speeds up reactions in living organisms"
+      ],
+      "mistakes": [
+        {
+          "wrong": "The enzyme and substrate have the same shape.",
+          "right": "\"Same shape\" is not accepted. Say the shapes are complementary, or that they fit together exactly."
+        },
+        {
+          "wrong": "The substrate has an active site.",
+          "right": "This is not accepted. The active site is part of the enzyme."
+        },
+        {
+          "wrong": "The starch fits the active site.",
+          "right": "\"Starch fits\" on its own is ignored for the first mark. Say the starch (substrate) binds to the active site."
+        },
+        {
+          "wrong": "Products are formed.",
+          "right": "\"Products are formed\" unqualified is ignored. Say the substrate is broken down or splits into products."
+        }
+      ],
+      "worked_example": {
+        "exemplar_id": "e030fbf1-237a-41d5-8961-46b1e09f2b28",
+        "source": "AQA jun 2021, Paper 1 (H), Q05.3",
+        "question": "Amylase is an enzyme that breaks down starch.\n\nExplain how amylase breaks down starch.\n\nAnswer in terms of the 'lock and key theory'.",
+        "marks": 3,
+        "answer_points": [
+          "Starch (the substrate) binds to the active site.",
+          "Because the shape of the active site and the shape of the substrate are complementary.",
+          "A chemical reaction occurs to produce smaller molecules, or the bonds between the starch molecules are broken to produce smaller molecules (allow maltose or sugars)."
+        ],
+        "tip": "Three separate marks. Saying that the starch only fits the active site does not score the first mark. Say that it binds."
+      }
+    },
+    "edexcel": {
+      "spec_codes": ["EDEX 1.7", "EDEX 1.12"],
+      "exam_phrases": [
+        "enzymes are specific",
+        "their shape is complementary to their substrate",
+        "starch will not fit into the active site (of urease)",
+        "so no reaction can take place",
+        "starch fits into the active site",
+        "bonds (between glucose molecules in starch) broken",
+        "polymer broken down into monomers",
+        "enzymes speed up biological processes"
+      ],
+      "mistakes": [
+        {
+          "wrong": "Hydrogen peroxide is the active site.",
+          "right": "Hydrogen peroxide is the substrate. The active site is part of the enzyme (catalase). The products are oxygen and water."
+        },
+        {
+          "wrong": "Enzymes are called biological catalysts because they slow down biological processes.",
+          "right": "Enzymes speed up biological processes. They do not slow them down, denature them or stop them."
+        },
+        {
+          "wrong": "Carbohydrase breaks down fat.",
+          "right": "Carbohydrase does not break down fat. Lipase breaks down fat, amylase breaks down starch and protease breaks down protein."
+        }
+      ],
+      "worked_example": {
+        "exemplar_id": "515f7ba1-3d19-424f-b35e-90f43c21d920",
+        "source": "EDEXCEL nov 2021, Paper 2 (H), Q4(e)",
+        "question": "Urease is an enzyme that breaks down urea into smaller molecules.\n\nExplain why urease will not break down starch into smaller molecules.",
+        "marks": 3,
+        "answer_points": [
+          "Enzymes are specific.",
+          "Their shape is complementary to their substrate.",
+          "So starch will not fit into the active site (of urease).",
+          "So no reaction can take place."
+        ],
+        "tip": "Any three of the four points score one mark each. Write them as a linked chain."
+      }
+    },
+    "ocr": {
+      "spec_codes": ["OCR 1.2g"],
+      "exam_phrases": [
+        "enzymes are specific (to one substrate)",
+        "active site has a particular / specific shape",
+        "active site is complementary to the substrate",
+        "only starch will fit / bind into the active site",
+        "enzyme substrate complexes cannot form",
+        "the active site of the enzyme changes shape / the substrate no longer fits",
+        "(enzyme) will denature"
+      ],
+      "mistakes": [
+        {
+          "wrong": "The active site has the same shape as hydrogen peroxide.",
+          "right": "\"Same shape\" is not allowed. Say the active site has a complementary shape to hydrogen peroxide."
+        },
+        {
+          "wrong": "Enzymes are killed by high temperatures.",
+          "right": "\"Kills enzymes\" or \"enzymes die\" is not allowed. Enzymes are not alive. Say the enzyme is denatured or the active site changes shape."
+        },
+        {
+          "wrong": "The enzyme is denatured, and amylase only fits starch.",
+          "right": "Denaturing is not the reason an enzyme cannot break down the wrong substrate. In a specificity answer, denaturing negates the marks for the shape, fit and binding points. Use the active site and substrate fit."
+        }
+      ],
+      "worked_example": {
+        "exemplar_id": "f69ab95c-9bf1-4dce-91e2-e43d5a83094d",
+        "source": "OCR jun 2025, Paper 1, Q18(b)",
+        "question": "Explain why the enzyme amylase cannot break down the substrate protein.\n\nInclude ideas about the active site.",
+        "marks": 3,
+        "answer_points": [
+          "Enzymes are specific.",
+          "The active site has a particular shape, which is complementary to the substrate.",
+          "Only starch will fit or bind into the active site of amylase.",
+          "Protein will not fit or bind into the active site.",
+          "Enzyme-substrate complexes cannot form."
+        ],
+        "tip": "Any three points score one mark each. Mentioning lock and key is allowed. Denaturing negates the shape, fit and binding points."
+      }
+    }
+  },
+  "meta": {
+    "status": "draft",
+    "written_by": "sonnet-5-5",
+    "written_at": "2026-10-01",
+    "spec_point_ids": [
+      "120da19d-3949-41c9-a63b-e1ffb407cfc6",
+      "7d51f483-b22a-473b-969a-818aaff2f264",
+      "ace0e3f4-fad5-467e-be20-8b0a94ba6469"
+    ],
+    "exemplar_ids": [
+      "e030fbf1-237a-41d5-8961-46b1e09f2b28",
+      "515f7ba1-3d19-424f-b35e-90f43c21d920",
+      "f69ab95c-9bf1-4dce-91e2-e43d5a83094d"
+    ]
+  }
+}

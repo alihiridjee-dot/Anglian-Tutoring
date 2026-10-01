@@ -1,0 +1,396 @@
+{
+  "format": 1,
+  "concept_id": "chem-018",
+  "subject": "chemistry",
+  "title": "Ionic compounds: structure and formulae",
+  "key_idea": "An ionic compound is a giant structure of ions in a regular lattice. Strong electrostatic forces act between oppositely charged ions in all directions. The formula shows the simplest ratio of ions, so that the total charge is zero.",
+  "sections": [
+    {
+      "heading": "The giant ionic lattice",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "This section describes the structure of an ionic compound such as sodium chloride and how it is represented."
+        },
+        {
+          "type": "definitions",
+          "items": [
+            {
+              "term": "Giant structure",
+              "meaning": "A huge number of particles joined in a repeating pattern."
+            },
+            {
+              "term": "Lattice",
+              "meaning": "A regular arrangement of particles."
+            },
+            {
+              "term": "Ionic bonding",
+              "meaning": "Strong electrostatic forces of attraction between oppositely charged ions, acting in all directions."
+            }
+          ]
+        },
+        {
+          "type": "list",
+          "items": [
+            "Positive and negative ions alternate in a regular pattern.",
+            "Each ion is attracted to all the oppositely charged ions around it.",
+            "The forces act in all directions through the lattice.",
+            "The structure is not made of separate molecules."
+          ]
+        },
+        {
+          "type": "subheading",
+          "text": "Representing the structure"
+        },
+        {
+          "type": "list",
+          "items": [
+            "A dot and cross diagram shows the electron transfer but not the arrangement of ions in the lattice.",
+            "A 2D diagram shows a single layer of ions, not the 3D structure.",
+            "A ball and stick model shows the 3D lattice. The sticks suggest bonds between pairs of ions, and the ions are drawn spaced apart.",
+            "A diagram of the lattice can be used to show that a compound is ionic: a regular pattern of two types of ion."
+          ]
+        },
+        {
+          "type": "key-points",
+          "items": [
+            "An ionic compound is a giant lattice of oppositely charged ions.",
+            "Electrostatic forces act in all directions between the ions. This is ionic bonding.",
+            "Every model of the lattice has limitations."
+          ]
+        }
+      ]
+    },
+    {
+      "heading": "Working out formulae",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "The formula of an ionic compound gives the simplest ratio of ions. The charges must add up to zero."
+        },
+        {
+          "type": "subheading",
+          "text": "From a model or diagram"
+        },
+        {
+          "type": "steps",
+          "items": [
+            {
+              "lead": "Count.",
+              "text": "Count each type of ion in the part of the structure shown."
+            },
+            {
+              "lead": "Ratio.",
+              "text": "Write the numbers as a ratio."
+            },
+            {
+              "lead": "Simplify.",
+              "text": "Divide by the largest number that goes into both. This is the empirical formula."
+            }
+          ]
+        },
+        {
+          "type": "subheading",
+          "text": "From the ions"
+        },
+        {
+          "type": "table",
+          "columns": [
+            "Positive ions",
+            "Negative ions"
+          ],
+          "rows": [
+            [
+              "Group 1: Na⁺, K⁺, Li⁺",
+              "Halides: Cl⁻, Br⁻, I⁻, F⁻"
+            ],
+            [
+              "Group 2: Mg²⁺, Ca²⁺, Ba²⁺",
+              "Oxide O²⁻, sulfide S²⁻"
+            ],
+            [
+              "Aluminium Al³⁺",
+              "Hydroxide OH⁻, nitrate NO₃⁻"
+            ],
+            [
+              "Ammonium NH₄⁺, hydrogen H⁺",
+              "Carbonate CO₃²⁻, sulfate SO₄²⁻, phosphate PO₄³⁻"
+            ]
+          ]
+        },
+        {
+          "type": "steps",
+          "items": [
+            {
+              "lead": "Write the ions.",
+              "text": "For example Ca²⁺ and OH⁻."
+            },
+            {
+              "lead": "Balance the charges.",
+              "text": "Two OH⁻ are needed to balance one Ca²⁺."
+            },
+            {
+              "lead": "Write the formula.",
+              "text": "Ca(OH)₂. Use brackets round a group of atoms when you need more than one."
+            }
+          ]
+        },
+        {
+          "type": "diagram",
+          "diagram": {
+            "kind": "predictor",
+            "alt": "Pick a pair of ions to see the formula and name of the compound.",
+            "prompt": "Pick the ions",
+            "result_labels": [
+              "Ratio of ions",
+              "Formula",
+              "Name"
+            ],
+            "options": [
+              {
+                "label": "Na⁺ and Cl⁻",
+                "results": [
+                  "1 : 1",
+                  "**NaCl**",
+                  "Sodium chloride"
+                ]
+              },
+              {
+                "label": "Mg²⁺ and Cl⁻",
+                "results": [
+                  "1 : 2",
+                  "**MgCl₂**",
+                  "Magnesium chloride"
+                ]
+              },
+              {
+                "label": "Na⁺ and O²⁻",
+                "results": [
+                  "2 : 1",
+                  "**Na₂O**",
+                  "Sodium oxide"
+                ]
+              },
+              {
+                "label": "Al³⁺ and O²⁻",
+                "results": [
+                  "2 : 3",
+                  "**Al₂O₃**",
+                  "Aluminium oxide"
+                ]
+              },
+              {
+                "label": "Ca²⁺ and OH⁻",
+                "results": [
+                  "1 : 2",
+                  "**Ca(OH)₂**",
+                  "Calcium hydroxide"
+                ]
+              },
+              {
+                "label": "Mg²⁺ and NO₃⁻",
+                "results": [
+                  "1 : 2",
+                  "**Mg(NO₃)₂**",
+                  "Magnesium nitrate"
+                ]
+              },
+              {
+                "label": "Na⁺ and CO₃²⁻",
+                "results": [
+                  "2 : 1",
+                  "**Na₂CO₃**",
+                  "Sodium carbonate"
+                ]
+              },
+              {
+                "label": "NH₄⁺ and SO₄²⁻",
+                "results": [
+                  "2 : 1",
+                  "**(NH₄)₂SO₄**",
+                  "Ammonium sulfate"
+                ]
+              }
+            ]
+          }
+        },
+        {
+          "type": "key-points",
+          "items": [
+            "The total positive charge equals the total negative charge.",
+            "Use brackets for a group of atoms when more than one is needed."
+          ]
+        }
+      ]
+    },
+    {
+      "heading": "Naming ionic compounds",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "The name comes from the two ions. The metal (or ammonium) comes first. The ending of the second part tells you what it contains."
+        },
+        {
+          "type": "list",
+          "items": [
+            "**-ide** is used when the negative ion is a single element: chloride, oxide, sulfide. Hydroxide also ends in -ide.",
+            "**-ate** is used when the negative ion contains oxygen as well: sulfate, nitrate, carbonate, phosphate.",
+            "Sodium chloride is NaCl. Sodium sulfate is Na₂SO₄."
+          ]
+        },
+        {
+          "type": "key-points",
+          "items": [
+            "-ide means one element (or hydroxide). -ate means the ion also contains oxygen.",
+            "Name the positive ion first."
+          ]
+        }
+      ]
+    }
+  ],
+  "checks": [
+    {
+      "q": "Describe the structure of an ionic compound such as sodium chloride.",
+      "a": "A giant lattice (regular arrangement) of positive and negative ions, held together by strong electrostatic forces of attraction between oppositely charged ions that act in all directions.",
+      "marks": 3
+    },
+    {
+      "q": "Write the formula of aluminium oxide. The ions are Al³⁺ and O²⁻.",
+      "a": "Al₂O₃",
+      "marks": 1
+    },
+    {
+      "q": "The solid contains only NH₄⁺ and NO₃⁻ ions. Give its formula and name.",
+      "a": "NH₄NO₃, ammonium nitrate.",
+      "marks": 2
+    }
+  ],
+  "boards": {
+    "aqa": {
+      "spec_codes": [
+        "AQA 4.2.1.3",
+        "AQA T 5.2.1.3"
+      ],
+      "exam_phrases": [
+        "strong electrostatic forces (of attraction)",
+        "between oppositely charged ions",
+        "(which) act in all directions (in the giant structure)",
+        "(so) need a lot of energy to break the many strong bonds",
+        "giant (ionic) lattice",
+        "electrostatic attractions"
+      ],
+      "mistakes": [
+        {
+          "wrong": "Aluminium oxide has a high melting point because it has strong ionic bonds.",
+          "right": "'Strong ionic bonds' is ignored for the first mark. Say strong electrostatic forces of attraction between oppositely charged ions."
+        },
+        {
+          "wrong": "A lot of energy is needed to break the bond between one pair of ions.",
+          "right": "The forces act in all directions in the giant structure. Many strong bonds must be broken, so a lot of energy is needed."
+        }
+      ],
+      "worked_example": {
+        "exemplar_id": "436fd64d-6667-45fb-8d3a-142480f4d47e",
+        "source": "AQA jun 2025, Paper 1 (H), Q6.1",
+        "question": "Aluminium is extracted by the electrolysis of a molten mixture. The mixture contains aluminium oxide and one other substance. Aluminium oxide is an ionic compound.\n\nExplain why aluminium oxide has a very high melting point.",
+        "marks": 4,
+        "answer_points": [
+          "Strong electrostatic forces of attraction.",
+          "Between oppositely charged ions (Al³⁺ and O²⁻).",
+          "Which act in all directions in the giant structure.",
+          "So a lot of energy is needed to break the many strong bonds."
+        ],
+        "tip": "One mark each. Name the forces, say between what, say they act in all directions, then link to energy."
+      }
+    },
+    "edexcel": {
+      "spec_codes": [
+        "EDEX 1.25",
+        "EDEX 1.26",
+        "EDEX 1.27"
+      ],
+      "exam_phrases": [
+        "NaCl",
+        "NH₄NO₃, ammonium nitrate",
+        "Ba²⁺ (barium ion)",
+        "Al³⁺ + PO₄³⁻ → AlPO₄",
+        "lattice of positive and negative ions",
+        "strong electrostatic forces of attraction / ionic bonds"
+      ],
+      "mistakes": [
+        {
+          "wrong": "The solid is called ammonia nitrate.",
+          "right": "Ammonia nitrate is rejected. The ion is ammonium, so the name is ammonium nitrate."
+        },
+        {
+          "wrong": "The barium ion in BaCl₂ is Ba₂.",
+          "right": "A subscript is rejected for the charge. Write Ba²⁺ (or Ba+2)."
+        },
+        {
+          "wrong": "The formula of sodium chloride is Na⁺ + Cl⁻.",
+          "right": "Na⁺ + Cl⁻ is rejected as a final answer. Write the formula NaCl."
+        }
+      ],
+      "worked_example": {
+        "exemplar_id": "601ab77e-5823-46b8-842c-5095b8521ce7",
+        "source": "EDEXCEL jun 2022, Paper 2 (F), Q4(b)(v)",
+        "question": "The solid used in an experiment contained only NH₄⁺ ions and NO₃⁻ ions.\n\nGive the formula and the name of the solid.",
+        "marks": 2,
+        "answer_points": [
+          "Formula: NH₄NO₃",
+          "Name: ammonium nitrate"
+        ],
+        "tip": "Use capital letters and write the 4 and the 3 as subscripts."
+      }
+    },
+    "ocr": {
+      "spec_codes": [
+        "OCR C3.1d"
+      ],
+      "exam_phrases": [
+        "PbBr₂ (Pb²⁺ and Br⁻)",
+        "Al³⁺ (aluminium ion, in AlCl₃)",
+        "Na⁺ and OH⁻ (sodium hydroxide)",
+        "H⁺ (hydrogen ion in sulfuric acid)"
+      ],
+      "mistakes": [
+        {
+          "wrong": "Lead bromide is PbBr.",
+          "right": "Pb²⁺ needs two Br⁻ to balance the charge, so the formula is PbBr₂."
+        },
+        {
+          "wrong": "The aluminium ion in AlCl₃ is Al⁺.",
+          "right": "Three Cl⁻ ions need three positive charges to balance them, so the ion is Al³⁺."
+        }
+      ],
+      "worked_example": {
+        "exemplar_id": "26b0e228-35e8-4f8c-8d3a-dbe16803c012",
+        "source": "OCR nov 2020, Paper 1, Q18(a)(iii)",
+        "question": "Electrolysis can be used to separate the elements in some compounds using electricity.\n\nMolten lead bromide contains lead ions, Pb2+, and bromide ions, Br−.\n\nWhat is the formula for lead bromide?\n\nTick (✓) one box.\n\nPbBr\nPbBr2\nPb2Br\nPb2Br2",
+        "marks": 1,
+        "answer_points": [
+          "PbBr₂"
+        ],
+        "tip": "Balance the charges: one Pb²⁺ needs two Br⁻."
+      }
+    }
+  },
+  "meta": {
+    "status": "draft",
+    "written_by": "sonnet-5-5",
+    "written_at": "2026-10-01",
+    "spec_point_ids": [
+      "4e5e550e-e760-4063-8ec5-2ff9d9f292c4",
+      "588c6424-ae3e-45a2-aaca-678805219fd6",
+      "a609c1f8-85c7-48ef-a40a-92eaace66f76",
+      "a4b44fa8-ee6e-40cb-baf7-8551b9829d77",
+      "bd7fee4e-e71f-46cd-8665-55bf1183d5a3",
+      "2879ddaf-47d3-4a04-b3bf-51423b7ebcd3"
+    ],
+    "exemplar_ids": [
+      "436fd64d-6667-45fb-8d3a-142480f4d47e",
+      "601ab77e-5823-46b8-842c-5095b8521ce7",
+      "26b0e228-35e8-4f8c-8d3a-dbe16803c012"
+    ]
+  }
+}

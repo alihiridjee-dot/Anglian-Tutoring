@@ -1,0 +1,376 @@
+{
+  "format": 1,
+  "concept_id": "chem-020",
+  "subject": "chemistry",
+  "title": "Covalent bonding and dot-and-cross diagrams",
+  "key_idea": "When atoms share pairs of electrons, they form covalent bonds. These bonds are strong. Covalent bonding joins non-metal atoms into small molecules, very large molecules such as polymers, or giant structures such as diamond.",
+  "sections": [
+    {
+      "heading": "Covalent bonds and molecules",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "This section explains how atoms share electrons and what substances result."
+        },
+        {
+          "type": "definitions",
+          "items": [
+            {
+              "term": "Covalent bond",
+              "meaning": "A shared pair of electrons between two atoms."
+            },
+            {
+              "term": "Molecule",
+              "meaning": "Two or more atoms joined together by covalent bonds."
+            }
+          ]
+        },
+        {
+          "type": "list",
+          "items": [
+            "Covalent bonding occurs in most non-metal elements and in compounds of non-metals.",
+            "Each shared pair gives both atoms a full outer shell.",
+            "The bonds between atoms are strong.",
+            "Hydrogen chloride is covalent: two non-metals share electrons to form molecules with no overall charge."
+          ]
+        },
+        {
+          "type": "subheading",
+          "text": "Three kinds of covalent substance"
+        },
+        {
+          "type": "list",
+          "items": [
+            "**Small molecules**, such as water, methane and chlorine.",
+            "**Very large molecules**, such as polymers.",
+            "**Giant covalent structures**, such as diamond and silicon dioxide."
+          ]
+        },
+        {
+          "type": "key-points",
+          "items": [
+            "A covalent bond is a shared pair of electrons.",
+            "Covalent bonds join non-metal atoms into small molecules, polymers or giant structures."
+          ]
+        }
+      ]
+    },
+    {
+      "heading": "Dot and cross diagrams",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "A dot and cross diagram shows only the outer shell electrons. The shared pairs are in the overlap between the atoms."
+        },
+        {
+          "type": "steps",
+          "items": [
+            {
+              "lead": "Outer electrons.",
+              "text": "Work out how many outer electrons each atom has from its group number."
+            },
+            {
+              "lead": "Draw the atoms.",
+              "text": "Show the outer shells overlapping where electrons will be shared."
+            },
+            {
+              "lead": "Share.",
+              "text": "Place one dot and one cross in each overlap, so each atom reaches a full outer shell."
+            },
+            {
+              "lead": "Check.",
+              "text": "Every atom has a full outer shell. Only outer electrons are drawn."
+            }
+          ]
+        },
+        {
+          "type": "diagram",
+          "diagram": {
+            "kind": "predictor",
+            "alt": "Pick a molecule to see its covalent bonds.",
+            "prompt": "Pick a molecule",
+            "result_labels": [
+              "Outer electrons",
+              "Covalent bonds between atoms",
+              "Non-bonding pairs of outer electrons"
+            ],
+            "options": [
+              {
+                "label": "Hydrogen, H₂",
+                "results": [
+                  "H has 1",
+                  "**1 single bond** (H–H)",
+                  "None"
+                ]
+              },
+              {
+                "label": "Chlorine, Cl₂",
+                "results": [
+                  "Cl has 7",
+                  "**1 single bond** (Cl–Cl)",
+                  "3 on each chlorine atom"
+                ]
+              },
+              {
+                "label": "Oxygen, O₂",
+                "results": [
+                  "O has 6",
+                  "**1 double bond** (O=O)",
+                  "2 on each oxygen atom"
+                ]
+              },
+              {
+                "label": "Nitrogen, N₂",
+                "results": [
+                  "N has 5",
+                  "**1 triple bond** (N≡N)",
+                  "1 on each nitrogen atom"
+                ]
+              },
+              {
+                "label": "Hydrogen chloride, HCl",
+                "results": [
+                  "H has 1, Cl has 7",
+                  "**1 single bond** (H–Cl)",
+                  "3 on the chlorine atom"
+                ]
+              },
+              {
+                "label": "Water, H₂O",
+                "results": [
+                  "H has 1, O has 6",
+                  "**2 single bonds** (H–O–H)",
+                  "2 on the oxygen atom"
+                ]
+              },
+              {
+                "label": "Ammonia, NH₃",
+                "results": [
+                  "H has 1, N has 5",
+                  "**3 single bonds** (three N–H)",
+                  "1 on the nitrogen atom"
+                ]
+              },
+              {
+                "label": "Methane, CH₄",
+                "results": [
+                  "H has 1, C has 4",
+                  "**4 single bonds** (four C–H)",
+                  "None"
+                ]
+              },
+              {
+                "label": "Carbon dioxide, CO₂",
+                "results": [
+                  "C has 4, O has 6",
+                  "**2 double bonds** (O=C=O)",
+                  "2 on each oxygen atom"
+                ]
+              }
+            ]
+          }
+        },
+        {
+          "type": "list",
+          "items": [
+            "A single line represents a single bond (one shared pair). A double line is two shared pairs.",
+            "You can work out the molecular formula from a diagram by counting the atoms of each element."
+          ]
+        },
+        {
+          "type": "key-points",
+          "items": [
+            "Draw only the outer shell. Each overlap holds one shared pair, shown as a dot and a cross.",
+            "A line in a diagram stands for one shared pair."
+          ]
+        }
+      ]
+    },
+    {
+      "heading": "Limitations of models",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "Dot and cross diagrams and ball and stick models each show only some features of a molecule."
+        },
+        {
+          "type": "table",
+          "columns": [
+            "Model",
+            "Limitations"
+          ],
+          "rows": [
+            [
+              "Dot and cross diagram",
+              "Does not show the shape. It is only two-dimensional."
+            ],
+            [
+              "Ball and stick model",
+              "Not to scale. Electrons and shells are not shown. The atoms look separated by sticks."
+            ],
+            [
+              "2D diagram",
+              "Not three-dimensional, so the arrangement in space is incorrect."
+            ]
+          ]
+        },
+        {
+          "type": "key-points",
+          "items": [
+            "Dot and cross diagrams show electrons but not shape.",
+            "Ball and stick models show the shape but not the electrons or the true size."
+          ]
+        }
+      ]
+    }
+  ],
+  "checks": [
+    {
+      "q": "Describe what is meant by a covalent bond.",
+      "a": "A shared pair of electrons between two atoms.",
+      "marks": 2
+    },
+    {
+      "q": "How many covalent bonds are there in a molecule of methane, CH₄, and what does each bond contain?",
+      "a": "Four single covalent bonds. Each is a shared pair of electrons.",
+      "marks": 2
+    },
+    {
+      "q": "Give one limitation of using a dot and cross diagram to represent an ammonia molecule.",
+      "a": "It does not show the shape of the molecule (it is only two-dimensional).",
+      "marks": 1
+    }
+  ],
+  "boards": {
+    "aqa": {
+      "spec_codes": [
+        "AQA 4.2.1.4",
+        "AQA T 5.2.1.4"
+      ],
+      "exam_phrases": [
+        "hydrogen chloride is covalent (two non-metals, sharing electrons, molecules)",
+        "sodium chloride is ionic (metal and non-metal, transferring electrons)",
+        "does not show the shape",
+        "only two-dimensional",
+        "not to scale / electrons or shells not shown",
+        "it has a giant structure / it has strong covalent bonds"
+      ],
+      "mistakes": [
+        {
+          "wrong": "A limitation of a ball and stick model of water is that water is a liquid.",
+          "right": "Properties of water are ignored. Say the model is not to scale, is not three-dimensional, or does not show electrons or shells."
+        },
+        {
+          "wrong": "A dot and cross diagram of ammonia shows the shape of the molecule.",
+          "right": "A dot and cross diagram does not show the shape. It is only two-dimensional."
+        },
+        {
+          "wrong": "Silicon dioxide has a very high melting point because it has weak intermolecular forces.",
+          "right": "Silicon dioxide has a giant structure and strong covalent bonds. It does not have weak intermolecular forces."
+        }
+      ],
+      "worked_example": {
+        "exemplar_id": "ad30fe29-b5fc-44a4-95bd-8918240b7e58",
+        "source": "AQA jun 2019, Paper 1 (H), Q06.4",
+        "question": "This question is about sodium. Chlorine reacts with sodium and with hydrogen.\n\nCompare the structure and bonding in sodium chloride and hydrogen chloride.",
+        "marks": 6,
+        "answer_points": [
+          "Sodium chloride is ionic (metal and non-metal, electrons transferred, Na⁺ and Cl⁻ ions). Hydrogen chloride is covalent (two non-metals, electrons shared, molecules with no overall charge).",
+          "Sodium chloride has a giant lattice with strong electrostatic forces acting in all directions. Hydrogen chloride has small simple molecules with weak intermolecular forces.",
+          "Similarities: both have strong bonds and full outer shells. Electrostatic forces act in sodium chloride and intermolecular forces in hydrogen chloride."
+        ],
+        "tip": "A six-mark answer marked by level. Compare both the bonding and the structure of both substances. Do not write about melting points."
+      }
+    },
+    "edexcel": {
+      "spec_codes": [
+        "EDEX 1.28",
+        "EDEX 1.29",
+        "EDEX 1.31"
+      ],
+      "exam_phrases": [
+        "shared electron(s)",
+        "a pair of / two (electrons)",
+        "(two or more) atoms joined together by a covalent bond / shared pair of electrons",
+        "atoms share a pair of electrons",
+        "(electrostatic) force between oppositely charged ions",
+        "covalent bonds between non-metals"
+      ],
+      "mistakes": [
+        {
+          "wrong": "A covalent bond is formed when an atom gains two electrons.",
+          "right": "Reference to ionic bonding or ions scores 0. Say a pair of electrons is shared."
+        },
+        {
+          "wrong": "In ionic bonding, electrons are transferred from a non-metal to a metal.",
+          "right": "This is rejected. Electrons are transferred from the metal to the non-metal."
+        },
+        {
+          "wrong": "A molecule is made of compound atoms.",
+          "right": "'Compound atoms' is ignored. A molecule is two or more atoms joined together by a covalent bond (a shared pair of electrons)."
+        }
+      ],
+      "worked_example": {
+        "exemplar_id": "cd6c9cd8-7bcc-40b0-9da7-353c2ef5537e",
+        "source": "EDEXCEL jun 2023, Paper 1 (F), Q6(d)",
+        "question": "Sodium reacts with chlorine to form sodium chloride, which contains ionic bonds.\nHydrogen reacts with chlorine to form hydrogen chloride, which contains covalent bonds.\n\nDescribe the differences between an ionic bond and a covalent bond.",
+        "marks": 4,
+        "answer_points": [
+          "Ionic (2 marks): an electrostatic force between oppositely charged ions (anions and cations).",
+          "Covalent (2 marks): atoms share a pair of electrons.",
+          "Other credit, 1 mark each side: ionic bonds are between metals and non-metals, with electrons transferred from the metal to the non-metal. Covalent bonds form molecules and are between non-metals."
+        ],
+        "tip": "Two marks for each type of bond. Do not say electrons are transferred from a non-metal to a metal."
+      }
+    },
+    "ocr": {
+      "spec_codes": [
+        "OCR C2.2f",
+        "OCR C2.2e"
+      ],
+      "exam_phrases": [
+        "a covalent bond is a shared pair of electrons (between atoms)",
+        "strong electrostatic attraction between oppositely charged ions",
+        "lots of energy is required to overcome the forces"
+      ],
+      "mistakes": [
+        {
+          "wrong": "A covalent bond is when one atom gives an electron to another atom.",
+          "right": "That describes ionic bonding. A covalent bond is a shared pair of electrons between atoms."
+        },
+        {
+          "wrong": "The ions in sodium chloride are held together by shared pairs of electrons.",
+          "right": "Ions are held together by strong electrostatic attraction between oppositely charged ions. Sharing electrons is covalent bonding."
+        }
+      ],
+      "worked_example": {
+        "exemplar_id": "79ec2392-aeb3-4ead-bc1a-464e566e2343",
+        "source": "OCR jun 2024, Paper 1, Q18(b)(i)",
+        "question": "Plastics are polymers. Polymers have covalent bonds between the atoms.\n\nExplain what a covalent bond is in terms of electrons.",
+        "marks": 1,
+        "answer_points": [
+          "A covalent bond is a shared pair of electrons between atoms."
+        ],
+        "tip": "One mark. Say 'shared pair of electrons'."
+      }
+    }
+  },
+  "meta": {
+    "status": "draft",
+    "written_by": "sonnet-5-5",
+    "written_at": "2026-10-01",
+    "spec_point_ids": [
+      "2f570ffe-7536-49ab-8895-532817bd2b6d",
+      "42fdb98c-30c7-4284-a6a0-cc83c5b858c8",
+      "ec5258f4-f4a1-4bb2-8d12-57984b16df3a",
+      "454dbc77-14c9-49da-940e-e38d0840a31d",
+      "894d26cc-c243-4063-bbd5-4b534431a5e6",
+      "a5ca7818-027c-4b03-a613-1403e9c333bc"
+    ],
+    "exemplar_ids": [
+      "ad30fe29-b5fc-44a4-95bd-8918240b7e58",
+      "cd6c9cd8-7bcc-40b0-9da7-353c2ef5537e",
+      "79ec2392-aeb3-4ead-bc1a-464e566e2343"
+    ]
+  }
+}
