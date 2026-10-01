@@ -130,7 +130,10 @@ for (const stem of stems) {
     const drawn = DRAWN.test(String(r.prompt ?? "")) &&
       !(/tick/i.test(String(r.prompt)) && Array.isArray(r.options) && r.options.length >= 2);
 
-    if (/^\s*guidance:/i.test(String(r.mark_scheme ?? ""))) { checks.push("guidance_only"); score += 5; }
+    // Guidance with no answer anywhere: every line is guidance or its continuation.
+    // A scheme that opens with general guidance and then gives answers is fine.
+    const msLines = String(r.mark_scheme ?? "").split("\n").filter((l) => l.trim());
+    if (msLines.length && msLines.every((l) => /^\s*guidance:/i.test(l))) { checks.push("guidance_only"); score += 5; }
 
     // A drawn answer (lines, ticks, a filled table) is never in the PDF text, so a
     // miss there says nothing; drawn_answer sends it to be read off the page.
