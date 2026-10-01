@@ -47,6 +47,7 @@ import { Route as AuthenticatedCurriculumRouteImport } from './routes/_authentic
 import { Route as AuthenticatedBillingRouteImport } from './routes/_authenticated/billing'
 import { Route as DemoStudentRouteRouteImport } from './routes/demo/student/route'
 import { Route as DemoParentRouteRouteImport } from './routes/demo/parent/route'
+import { Route as NotesPreviewCompareConceptIdRouteImport } from './routes/notes-preview/compare.$conceptId'
 import { Route as DemoStudentVideosRouteImport } from './routes/demo/student/videos'
 import { Route as DemoStudentPlannerRouteImport } from './routes/demo/student/planner'
 import { Route as DemoStudentMessagesRouteImport } from './routes/demo/student/messages'
@@ -254,6 +255,12 @@ const DemoParentRouteRoute = DemoParentRouteRouteImport.update({
   path: '/demo/parent',
   getParentRoute: () => rootRouteImport,
 } as any)
+const NotesPreviewCompareConceptIdRoute =
+  NotesPreviewCompareConceptIdRouteImport.update({
+    id: '/notes-preview/compare/$conceptId',
+    path: '/notes-preview/compare/$conceptId',
+    getParentRoute: () => rootRouteImport,
+  } as any)
 const DemoStudentVideosRoute = DemoStudentVideosRouteImport.update({
   id: '/videos',
   path: '/videos',
@@ -378,6 +385,7 @@ export interface FileRoutesByFullPath {
   '/demo/student/messages': typeof DemoStudentMessagesRoute
   '/demo/student/planner': typeof DemoStudentPlannerRoute
   '/demo/student/videos': typeof DemoStudentVideosRoute
+  '/notes-preview/compare/$conceptId': typeof NotesPreviewCompareConceptIdRoute
   '/demo/student/homework/$homeworkId': typeof DemoStudentHomeworkHomeworkIdRoute
   '/demo/student/mcq/$setId': typeof DemoStudentMcqSetIdRoute
 }
@@ -430,6 +438,7 @@ export interface FileRoutesByTo {
   '/demo/student/messages': typeof DemoStudentMessagesRoute
   '/demo/student/planner': typeof DemoStudentPlannerRoute
   '/demo/student/videos': typeof DemoStudentVideosRoute
+  '/notes-preview/compare/$conceptId': typeof NotesPreviewCompareConceptIdRoute
   '/demo/student/homework/$homeworkId': typeof DemoStudentHomeworkHomeworkIdRoute
   '/demo/student/mcq/$setId': typeof DemoStudentMcqSetIdRoute
 }
@@ -485,6 +494,7 @@ export interface FileRoutesById {
   '/demo/student/messages': typeof DemoStudentMessagesRoute
   '/demo/student/planner': typeof DemoStudentPlannerRoute
   '/demo/student/videos': typeof DemoStudentVideosRoute
+  '/notes-preview/compare/$conceptId': typeof NotesPreviewCompareConceptIdRoute
   '/demo/student/homework_/$homeworkId': typeof DemoStudentHomeworkHomeworkIdRoute
   '/demo/student/mcq/$setId': typeof DemoStudentMcqSetIdRoute
 }
@@ -540,6 +550,7 @@ export interface FileRouteTypes {
     | '/demo/student/messages'
     | '/demo/student/planner'
     | '/demo/student/videos'
+    | '/notes-preview/compare/$conceptId'
     | '/demo/student/homework/$homeworkId'
     | '/demo/student/mcq/$setId'
   fileRoutesByTo: FileRoutesByTo
@@ -592,6 +603,7 @@ export interface FileRouteTypes {
     | '/demo/student/messages'
     | '/demo/student/planner'
     | '/demo/student/videos'
+    | '/notes-preview/compare/$conceptId'
     | '/demo/student/homework/$homeworkId'
     | '/demo/student/mcq/$setId'
   id:
@@ -646,6 +658,7 @@ export interface FileRouteTypes {
     | '/demo/student/messages'
     | '/demo/student/planner'
     | '/demo/student/videos'
+    | '/notes-preview/compare/$conceptId'
     | '/demo/student/homework_/$homeworkId'
     | '/demo/student/mcq/$setId'
   fileRoutesById: FileRoutesById
@@ -664,6 +677,7 @@ export interface RootRouteChildren {
   NotesPreviewConceptIdRoute: typeof NotesPreviewConceptIdRoute
   DemoIndexRoute: typeof DemoIndexRoute
   NotesPreviewIndexRoute: typeof NotesPreviewIndexRoute
+  NotesPreviewCompareConceptIdRoute: typeof NotesPreviewCompareConceptIdRoute
 }
 
 declare module '@tanstack/react-router' {
@@ -934,6 +948,13 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof DemoParentRouteRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/notes-preview/compare/$conceptId': {
+      id: '/notes-preview/compare/$conceptId'
+      path: '/notes-preview/compare/$conceptId'
+      fullPath: '/notes-preview/compare/$conceptId'
+      preLoaderRoute: typeof NotesPreviewCompareConceptIdRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/demo/student/videos': {
       id: '/demo/student/videos'
       path: '/videos'
@@ -1165,6 +1186,7 @@ const rootRouteChildren: RootRouteChildren = {
   NotesPreviewConceptIdRoute: NotesPreviewConceptIdRoute,
   DemoIndexRoute: DemoIndexRoute,
   NotesPreviewIndexRoute: NotesPreviewIndexRoute,
+  NotesPreviewCompareConceptIdRoute: NotesPreviewCompareConceptIdRoute,
 }
 export const routeTree = rootRouteImport
   ._addFileChildren(rootRouteChildren)

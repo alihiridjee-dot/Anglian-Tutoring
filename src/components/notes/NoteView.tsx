@@ -86,6 +86,12 @@ function LineGraph({ d }: { d: LineGraphDiagram }) {
           <line x1={X0} y1={Y0} x2={X1} y2={Y0} stroke="var(--foreground)" strokeOpacity=".3" strokeWidth="1.5" />
           <line x1={X0} y1={TOP - 10} x2={X0} y2={Y0} stroke="var(--foreground)" strokeOpacity=".3" strokeWidth="1.5" />
           <text x={14} y={(TOP + Y0) / 2} transform={`rotate(-90 14 ${(TOP + Y0) / 2})`} textAnchor="middle" fontSize="12" fontWeight="700" fill="var(--foreground)">{d.y.label}</text>
+          {d.y.zero != null ? (
+            <g>
+              <line x1={X0} y1={sy(d.y.zero)} x2={X1} y2={sy(d.y.zero)} stroke="var(--foreground)" strokeOpacity=".45" strokeDasharray="6 4" />
+              <text x={X1} y={sy(d.y.zero) - 6} textAnchor="end" fontSize="12" fontWeight="800" fill="var(--foreground)">0</text>
+            </g>
+          ) : null}
           {d.markers?.map((m) => (
             <g key={m.label}>
               <line x1={sx(m.x)} y1={TOP - 6} x2={sx(m.x)} y2={Y0} stroke="var(--foreground)" strokeOpacity=".3" strokeDasharray="4 4" />
@@ -102,7 +108,7 @@ function LineGraph({ d }: { d: LineGraphDiagram }) {
           ))}
           {d.x.ticks.map((t) => (
             <text key={t} x={sx(t)} y={Y0 + 18} textAnchor="middle" fontSize="12" fontWeight="700" fill="var(--foreground)">
-              {t}{d.x.unit ?? ""}
+              {t}
             </text>
           ))}
           {!d.bands?.length ? null : d.bands.map((b) => (
@@ -111,7 +117,10 @@ function LineGraph({ d }: { d: LineGraphDiagram }) {
         </svg>
       </div>
       <figcaption className="flex flex-wrap items-center gap-x-4 gap-y-2 text-sm font-bold">
-        <span>{d.x.label}</span>
+        <span>
+          {d.x.label}
+          {d.x.unit && !d.x.label.includes(d.x.unit) ? ` (${d.x.unit})` : ""}
+        </span>
         {d.series.length > 1
           ? d.series.map((s, i) => (
               <button

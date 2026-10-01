@@ -30,7 +30,8 @@ export interface LineGraphDiagram {
   kind: "line-graph";
   alt: string;
   x: { label: string; min: number; max: number; ticks: number[]; unit?: string };
-  y: { label: string };
+  /** `zero` (0–1) draws a labelled zero line, for quantities that go negative, e.g. change in mass. */
+  y: { label: string; zero?: number };
   series: { name: string; points: [number, number][] }[];
   markers?: { x: number; label: string }[];
   bands?: { from: number; to: number; label: string }[];
@@ -140,6 +141,7 @@ function checkDiagram(d: NoteDiagram, at: string, errs: string[]) {
     const { x, series } = d;
     if (!x || !(x.max > x.min) || !Array.isArray(x.ticks) || !isStr(x.label)) errs.push(`${at}: line-graph needs x {label, min < max, ticks}`);
     if (!isStr(d.y?.label)) errs.push(`${at}: line-graph needs y.label`);
+    if (d.y?.zero != null && !(d.y.zero >= 0 && d.y.zero <= 1)) errs.push(`${at}: y.zero must be between 0 and 1`);
     if (!Array.isArray(series) || series.length < 1 || series.length > 5) errs.push(`${at}: line-graph needs 1–5 series`);
     else
       for (const s of series) {

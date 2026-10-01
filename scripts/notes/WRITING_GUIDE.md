@@ -31,7 +31,9 @@ missed the lesson could learn the topic from this note alone.
    "Osmosis in plant and animal cells"). Together they teach the whole concept.
 3. **One diagram**, where a picture genuinely helps. Choose the kind that fits:
    - `line-graph` for something that changes along an axis. y is 0–1 (shape, not
-     data); label x with real units. Up to 5 series.
+     data); label x with real units (put the unit in `x.unit`, not in the ticks).
+     For a quantity that goes negative (change in mass), set `y.zero` to where
+     zero sits on the 0–1 scale. Up to 5 series.
    - `flow` for a process or a cycle (`loop: true`), 2 to 7 short boxes.
    - `compare` for two to four things set side by side.
    Leave it out if no diagram earns its place. Never more than two.
