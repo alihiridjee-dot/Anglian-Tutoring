@@ -37,7 +37,7 @@ create policy "resources bucket read scoped" on storage.objects
       )
     )
   );
--- Roll back 20260928090100_withhold_homework_mark_schemes.sql first: the app
+-- Roll back 20261001111025_withhold_homework_mark_schemes.sql first: the app
 -- reads schemes through this function once the column is withheld.
 drop function if exists public.homework_mark_schemes(uuid[]);
 

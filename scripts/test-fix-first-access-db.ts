@@ -283,7 +283,7 @@ await asAdmin(async () =>
   db.exec(
     await readFile(
       new URL(
-        "../supabase/migrations/20260928090100_withhold_homework_mark_schemes.sql",
+        "../supabase/migrations/20261001111025_withhold_homework_mark_schemes.sql",
         import.meta.url,
       ),
       "utf8",
@@ -453,7 +453,7 @@ assert.equal(
 await asAdmin(async () => {
   await db.query("delete from resources where created_by is null");
   for (const f of [
-    "20260928090100_withhold_homework_mark_schemes",
+    "20261001111025_withhold_homework_mark_schemes",
     "20261001104228_fix_first_access_rules",
   ])
     await db.exec(

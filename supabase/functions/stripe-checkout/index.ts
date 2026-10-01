@@ -37,7 +37,12 @@ import Stripe from "https://esm.sh/stripe@17.5.0?target=deno";
 import { corsHeaders, HttpError } from "../_shared/http.ts";
 import { admin, stripeClient } from "../_shared/clients.ts";
 import { requireUser, assertCanManage, assertCanUpgrade } from "./auth.ts";
-import { householdCustomerIds, resolveCustomer, assertNoLiveSubscription } from "./customers.ts";
+import {
+  householdCustomerIds,
+  resolveCustomer,
+  assertNoLiveSubscription,
+  expireOpenCheckouts,
+} from "./customers.ts";
 import { checkTrialCode, claimTrialCode } from "./trialCodes.ts";
 import { TRIAL_DAYS } from "../_shared/trialCode.ts";
 
@@ -219,6 +224,10 @@ async function handleCheckout(req: Request, payload: CheckoutPayload) {
     if (!link) throw new HttpError(403, "You aren't linked to that student.");
   }
 
+  // Expire any other open Checkout for this student first, then check for a
+  // live plan. In that order, a session paid just before it could be expired
+  // has already created its subscription, and the check below sees it.
+  await expireOpenCheckouts(stripe, beneficiary);
   await assertNoLiveSubscription(stripe, db, beneficiary);
 
   // The subject COUNT is what's priced, so it must come from what the student is
@@ -316,6 +325,71 @@ async function handlePortal(req: Request, payload: PortalPayload) {
  * the student originally paid for, and the student who is paying keeps control
  * of their own card either way.
  */
+/**
+ * Bill the rest of the current period when a pause swallowed a renewal.
+ *
+ * Under pause_collection "void", a renewal that falls inside the pause still
+ * moves the billing period forward, and its invoice is voided. Clearing the
+ * pause alone then restores access for that whole period without charging for
+ * it: pause the day before renewal, resume the day after, and a month is free.
+ * Re-anchoring the cycle doesn't help — on flexible billing mode, which this
+ * account uses, a reset to "now" raises no invoice unless it is prorated, and a
+ * proration would credit the voided period as if it had been paid.
+ *
+ * So charge the days left in the current period, pro rata, from today. Paused
+ * days stay free; the family pays for exactly the time they get back. Proven
+ * against Stripe test clocks (resume two days after renewal: £9.35 of £10).
+ *
+ * Keyed on the voided invoice, so a double-clicked Resume charges once. A
+ * failure here is logged rather than thrown: the family has already been
+ * resumed, and refusing now would leave them resumed with an error on screen.
+ */
+async function chargeSkippedRenewal(stripe: Stripe, before: Stripe.Subscription) {
+  const latest = before.latest_invoice as Stripe.Invoice | string | null;
+  if (!before.pause_collection || typeof latest !== "object" || latest?.status !== "void") return;
+
+  // Period bounds live on the subscription or its items depending on the
+  // Stripe API version, so read both.
+  type Periodic = { current_period_start?: number; current_period_end?: number };
+  const now = Math.floor(Date.now() / 1000);
+  let amount = 0;
+  let currency = "gbp";
+  for (const item of before.items.data) {
+    const start =
+      (item as Periodic).current_period_start ?? (before as Periodic).current_period_start;
+    const end = (item as Periodic).current_period_end ?? (before as Periodic).current_period_end;
+    if (!start || !end || end <= now) continue;
+    const full = (item.price.unit_amount ?? 0) * (item.quantity ?? 1);
+    amount += Math.round((full * (end - now)) / (end - start));
+    currency = item.price.currency;
+  }
+  if (amount <= 0) return;
+
+  const customer = typeof before.customer === "string" ? before.customer : before.customer.id;
+  try {
+    await stripe.invoiceItems.create(
+      {
+        customer,
+        subscription: before.id,
+        amount,
+        currency,
+        description: "Rest of the current period, after resuming",
+      },
+      { idempotencyKey: `resume-catch-up-item-${latest.id}` },
+    );
+    const invoice = await stripe.invoices.create(
+      { customer, subscription: before.id, auto_advance: true },
+      { idempotencyKey: `resume-catch-up-invoice-${latest.id}` },
+    );
+    await stripe.invoices.finalizeInvoice(invoice.id);
+    // A declined card leaves the invoice open for Stripe's retries and the
+    // subscription past_due, which Billing already sends to the card update.
+    await stripe.invoices.pay(invoice.id).catch(() => {});
+  } catch (err) {
+    console.error("[stripe-checkout] resume catch-up charge failed", before.id, err);
+  }
+}
+
 async function handleManage(req: Request, payload: ManagePayload) {
   const user = await requireUser(req);
   const db = admin();
@@ -346,12 +420,15 @@ async function handleManage(req: Request, payload: ManagePayload) {
         pause_collection: { behavior: "void" },
       });
       break;
-    case "resume":
+    case "resume": {
+      const current = await stripe.subscriptions.retrieve(id, { expand: ["latest_invoice"] });
       sub = await stripe.subscriptions.update(id, {
         pause_collection: "",
         cancel_at_period_end: false,
       });
+      await chargeSkippedRenewal(stripe, current);
       break;
+    }
   }
 
   // Mirror the new state immediately rather than waiting for the webhook, so

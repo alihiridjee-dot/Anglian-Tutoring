@@ -1,4 +1,4 @@
-/** Isolated PostgreSQL regression checks for 20261001150000_fix_first_extras.
+/** Isolated PostgreSQL regression checks for 20261001111430_fix_first_extras.
  * No production data is read or written.
  *
  *   PGLITE_MODULE=/path/to/@electric-sql/pglite/dist/index.js bun scripts/test-fix-first-extras-db.ts
@@ -317,7 +317,7 @@ assert.equal(
 await db.exec("rollback");
 
 // ── This migration, twice ─────────────────────────────────────────────────
-const up = await file("migrations/20261001150000_fix_first_extras.sql");
+const up = await file("migrations/20261001111430_fix_first_extras.sql");
 await db.exec(up);
 await db.exec(up);
 
@@ -391,7 +391,7 @@ assert.equal(
 );
 
 // ── The rollback ──────────────────────────────────────────────────────────
-await db.exec(await file("rollbacks/20261001150000_fix_first_extras.down.sql"));
+await db.exec(await file("rollbacks/20261001111430_fix_first_extras.down.sql"));
 const policies = (
   await db.query<{ policyname: string }>(
     "select policyname from pg_policies where tablename = 'chat_threads' and cmd = 'UPDATE'",
