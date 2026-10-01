@@ -1,0 +1,452 @@
+{
+  "format": 1,
+  "concept_id": "bio-118",
+  "subject": "biology",
+  "title": "Required practical: sampling with quadrats and transects",
+  "key_idea": "Ecologists sample a habitat because they cannot count every organism. **Random quadrats** estimate the population size of a species. A **transect** shows how distribution changes along a line, for example away from a woodland.",
+  "sections": [
+    {
+      "heading": "Sampling with random quadrats",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "A habitat is usually too large to count every organism. Instead, scientists count a sample. This section covers how to take a fair random sample."
+        },
+        {
+          "type": "definitions",
+          "items": [
+            {
+              "term": "Quadrat",
+              "meaning": "A square frame, often 1 m by 1 m or 0.25 m², that marks out a known area to sample."
+            },
+            {
+              "term": "Abundance",
+              "meaning": "How many individuals of a species there are in an area."
+            },
+            {
+              "term": "Distribution",
+              "meaning": "Where in a habitat a species is found."
+            },
+            {
+              "term": "Random sample",
+              "meaning": "A sample where every part of the area has an equal chance of being chosen."
+            }
+          ]
+        },
+        {
+          "type": "diagram",
+          "diagram": {
+            "kind": "sequence",
+            "alt": "Put the steps for estimating a population with random quadrats in order.",
+            "prompt": "Put the steps for estimating a population size in order.",
+            "steps": [
+              "Mark out the whole area and measure its length and width",
+              "Place a quadrat at random coordinates",
+              "Count the organisms in the quadrat",
+              "Repeat with a large number of quadrats",
+              "Calculate the mean number per quadrat",
+              "Scale up to the area of the whole field"
+            ]
+          }
+        },
+        {
+          "type": "list",
+          "items": [
+            "Choose positions at random, for example with random coordinates from a calculator. This avoids bias.",
+            "Use a large number of quadrats, such as 10 or more, so the sample is representative.",
+            "Use the same size of quadrat each time.",
+            "Sampling only one part, such as the centre, may miss plants that grow elsewhere."
+          ]
+        },
+        {
+          "type": "key-points",
+          "items": [
+            "A quadrat marks a known area. Place it at random, many times.",
+            "A larger number of random samples gives a more representative result."
+          ]
+        }
+      ]
+    },
+    {
+      "heading": "Estimating population size",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "Use the mean count per quadrat, and the area of the whole habitat, to estimate the population."
+        },
+        {
+          "type": "subheading",
+          "text": "Mean, median and mode"
+        },
+        {
+          "type": "list",
+          "items": [
+            "**Mean:** add up all the counts and divide by the number of quadrats.",
+            "**Median:** the middle value when the counts are put in order.",
+            "**Mode:** the value that occurs most often."
+          ]
+        },
+        {
+          "type": "equation",
+          "label": "Mean number per quadrat",
+          "formula": "mean = total number of organisms counted ÷ number of quadrats",
+          "where": [
+            "total number counted, in organisms",
+            "number of quadrats"
+          ]
+        },
+        {
+          "type": "equation",
+          "label": "Estimated population size",
+          "formula": "population size = mean number per m² × total area of the habitat",
+          "where": [
+            "mean number per m², in organisms per m²",
+            "total area, in m² (length × width)"
+          ]
+        },
+        {
+          "type": "paragraph",
+          "text": "If a quadrat is not 1 m², first convert the mean count into the number per m²."
+        },
+        {
+          "type": "diagram",
+          "diagram": {
+            "kind": "practice",
+            "alt": "Estimate the size of a population from the mean number per square metre and the area of a rectangular field.",
+            "question": "A quadrat of area 1 m² is placed at random many times in a rectangular field measuring {L} m by {W} m. The mean number of ragwort plants per quadrat is {m}. Estimate the number of ragwort plants in the field.",
+            "variables": [
+              {
+                "id": "m",
+                "min": 2,
+                "max": 8,
+                "step": 0.5
+              },
+              {
+                "id": "L",
+                "min": 20,
+                "max": 60,
+                "step": 10
+              },
+              {
+                "id": "W",
+                "min": 10,
+                "max": 40,
+                "step": 5
+              }
+            ],
+            "answer": {
+              "formula": "m * L * W",
+              "unit": "plants",
+              "decimals": 0
+            },
+            "working": [
+              "Area of the field = {L} × {W} m²",
+              "Population size = mean per m² × area = {m} × {L} × {W}",
+              "Population size = {answer} plants"
+            ]
+          }
+        },
+        {
+          "type": "key-points",
+          "items": [
+            "Mean per quadrat, then multiply by the total area.",
+            "Use length × width to find the area of a rectangular field."
+          ]
+        }
+      ]
+    },
+    {
+      "heading": "Using a transect to investigate distribution",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "A random sample shows how many organisms there are. A transect shows how their numbers change from place to place."
+        },
+        {
+          "type": "table",
+          "columns": [
+            "Feature",
+            "Random quadrats",
+            "Transect"
+          ],
+          "rows": [
+            [
+              "Used for",
+              "Estimating how many of a species there are in an area",
+              "Investigating how distribution changes along a line, such as away from a woodland"
+            ],
+            [
+              "Quadrat positions",
+              "Chosen at random",
+              "At regular intervals along a line"
+            ],
+            [
+              "Factor measured",
+              "Not needed",
+              "Measure the factor, such as light intensity, at each quadrat"
+            ]
+          ]
+        },
+        {
+          "type": "steps",
+          "items": [
+            {
+              "lead": "Lay a line.",
+              "text": "Place a tape measure in a straight line from the edge of the woodland out into the field."
+            },
+            {
+              "lead": "Place a quadrat.",
+              "text": "Put a quadrat against the tape at regular intervals."
+            },
+            {
+              "lead": "Count.",
+              "text": "Count the organisms of the species in each quadrat."
+            },
+            {
+              "lead": "Measure the factor.",
+              "text": "Measure the abiotic factor, such as light intensity, at each quadrat."
+            },
+            {
+              "lead": "Compare.",
+              "text": "See whether the number of organisms changes as the factor changes."
+            }
+          ]
+        },
+        {
+          "type": "key-points",
+          "items": [
+            "A transect samples along a line to show how distribution changes.",
+            "Measure the factor at every quadrat so the results can be compared."
+          ]
+        }
+      ]
+    }
+  ],
+  "checks": [
+    {
+      "q": "Describe how a quadrat is used to estimate the population of a plant species in a field.",
+      "a": "Place the quadrat at random positions (for example using random coordinates). Count the plants in each quadrat. Use a large number of quadrats and calculate the mean per quadrat (or per m²). Multiply by the area of the field.",
+      "marks": 4
+    },
+    {
+      "q": "A field is 40 m by 25 m. The mean number of daisies per m² is 3. Estimate the population of daisies.",
+      "a": "Area = 40 × 25 = 1000 m². Population = 3 × 1000 = 3000 daisies.",
+      "marks": 2
+    },
+    {
+      "q": "Describe how a transect could be used to investigate the effect of light intensity on the distribution of a plant.",
+      "a": "Lay a line from the edge of the woodland. Place a quadrat at regular distances along it and count the plants in each. Measure the light intensity at each quadrat. Compare the numbers with the light intensity.",
+      "marks": 4
+    }
+  ],
+  "boards": {
+    "aqa": {
+      "spec_codes": [
+        "AQA 7.4",
+        "AQA T 4.7.2.1"
+      ],
+      "exam_phrases": [
+        "quadrats are placed randomly",
+        "random coordinates from a calculator",
+        "suitable number of quadrats (10 or more or a large number)",
+        "count number of plants (in each quadrat)",
+        "calculation of mean per quadrat or per unit area",
+        "determination of area of field (length x width)",
+        "population = mean per m² x area of field",
+        "transect running through areas of different light intensity",
+        "for each quadrat measure light intensity"
+      ],
+      "mistakes": [
+        {
+          "wrong": "Place one quadrat in a shady area and one in a sunny area.",
+          "right": "A large number of quadrats is needed, placed randomly or at intervals along a transect, so that the outcome is valid."
+        },
+        {
+          "wrong": "Place the quadrats in places where the plants are growing.",
+          "right": "Placing must be random. Give a method, such as random coordinates from a calculator, or a throw over the shoulder."
+        },
+        {
+          "wrong": "Count the plants in one quadrat to get the population of the field.",
+          "right": "Find the mean per quadrat or per m², then multiply by the area of the field, which is length × width."
+        }
+      ],
+      "worked_example": {
+        "exemplar_id": "6837c0a6-4bcb-4c32-ad66-d61f4e41f0de",
+        "source": "AQA jun 2019, Paper 2 (H), Q07.1",
+        "question": "Ragwort is a weed that grows on farmland. Ragwort is poisonous to horses.\n\nPlan an investigation to estimate the size of a population of ragwort growing in a rectangular field on a farm.",
+        "marks": 4,
+        "answer_points": [
+          "Use a quadrat of known area, for example 1 m × 1 m or 0.25 m².",
+          "Place the quadrats randomly, using a method such as random coordinates from a calculator.",
+          "Use a suitable number of quadrats, such as 10 or more.",
+          "Count the number of plants in each quadrat.",
+          "Calculate the mean per quadrat or per unit area.",
+          "Work out the area of the field (length × width).",
+          "Population = mean per m² × area of the field."
+        ],
+        "tip": "Marked by level. A valid plan has all the key steps in a logical order."
+      }
+    },
+    "edexcel": {
+      "spec_codes": [
+        "EDEX 9.5",
+        "EDEX 9.6"
+      ],
+      "exam_phrases": [
+        "place a line (at 90°) from the edge of the forest",
+        "place a quadrat against the line",
+        "count / record the number of species / plants (in the quadrat)",
+        "measure the light (intensity)",
+        "move along the line / repeat at different distances",
+        "use a light meter / lux meter",
+        "multiplication factor to make the estimate"
+      ],
+      "mistakes": [
+        {
+          "wrong": "Place a quadrant along the tape measure.",
+          "right": "\"Quadrant\" is rejected. The apparatus is a quadrat."
+        },
+        {
+          "wrong": "Count the slugs in the quadrat. This is the population of slugs in the garden.",
+          "right": "A multiplication factor is needed to scale up the count from the sampled area to the whole garden."
+        }
+      ],
+      "worked_example": {
+        "exemplar_id": "4602cadc-a82c-49ec-9c77-4c32aca8104c",
+        "source": "EDEXCEL jun 2023, Paper 2 (F), Q6(d)",
+        "question": "A scientist observes that trees at the edge of a forest shade part of a field.\n\nDescribe how a belt transect could be used to see how light intensity affects the biodiversity of plants growing in the field.",
+        "marks": 3,
+        "answer_points": [
+          "Place a line (at 90°) from the edge of the forest.",
+          "Place a quadrat against the line.",
+          "Count or record the number of species (or plants) in the quadrat.",
+          "Measure the light intensity.",
+          "Move along the line, or repeat at different distances from the forest."
+        ],
+        "tip": "Any three score one mark each."
+      }
+    },
+    "ocr": {
+      "spec_codes": [
+        "OCR 6.1a",
+        "OCR 7.6"
+      ],
+      "exam_phrases": [
+        "position at random",
+        "random number generator / grid references / co-ordinates",
+        "count the number (of plants in a quadrat)",
+        "repeat / use of several quadrats",
+        "mean = divide (total) number by number of quadrats",
+        "scaling up to the number in 1 m²",
+        "capture some butterflies, mark and release them",
+        "key to identify species of plants",
+        "only sampled in the centre of the marsh / less representative"
+      ],
+      "mistakes": [
+        {
+          "wrong": "The gardener uses a transect line to estimate the number of plants per m².",
+          "right": "A transect line is not allowed here. Use a quadrat, positioned at random."
+        },
+        {
+          "wrong": "Count the percentage cover of the plants in the quadrat.",
+          "right": "Percentage cover is ignored when the question asks for the number. Count the number of plants in the quadrat."
+        },
+        {
+          "wrong": "Five quadrats placed close together in the centre give a good sample.",
+          "right": "This samples less area and is not random. The centre may have different plants from the edges, so the results are less representative."
+        }
+      ],
+      "worked_example": {
+        "exemplar_id": "882e3d58-44d4-4ea1-a2d4-bea2a1ae5ee4",
+        "source": "OCR jun 2025, Paper 2, Q23(a)",
+        "question": "Some students investigate the number of dandelion plants growing in three different parts of a football pitch. The students sample the pitch to find the mean number of dandelion plants per m² in each part.\n\nExplain how the students use a quadrat to find the mean number of dandelion plants per m² in a part of the pitch.",
+        "marks": 3,
+        "answer_points": [
+          "Position the quadrat at random in that part of the pitch (random number generator, grid references or co-ordinates).",
+          "Count the number of dandelions in the quadrat.",
+          "Repeat with several quadrats.",
+          "Mean = total number of dandelions divided by the number of quadrats."
+        ],
+        "tip": "Any three points score one mark each. A transect line is not accepted for the quadrat point."
+      },
+      "extra": [
+        {
+          "heading": "Capture-recapture for animals",
+          "blocks": [
+            {
+              "type": "paragraph",
+              "text": "Animals move, so quadrats do not work well. Capture-recapture estimates the size of an animal population."
+            },
+            {
+              "type": "steps",
+              "items": [
+                {
+                  "lead": "Capture.",
+                  "text": "Catch a sample of animals, for example butterflies in nets."
+                },
+                {
+                  "lead": "Mark and release.",
+                  "text": "Mark each animal harmlessly and release it."
+                },
+                {
+                  "lead": "Recapture.",
+                  "text": "After a period of time catch a second sample. Count how many are marked."
+                },
+                {
+                  "lead": "Calculate.",
+                  "text": "Use the equation to estimate the population."
+                }
+              ]
+            },
+            {
+              "type": "equation",
+              "label": "Population size (capture-recapture)",
+              "formula": "population size = (number marked in first sample × size of second sample) ÷ number recaptured",
+              "where": [
+                "number marked in first sample, in animals",
+                "size of second sample, in animals",
+                "number recaptured (marked animals in the second sample), in animals"
+              ]
+            },
+            {
+              "type": "paragraph",
+              "text": "For example, 20 marked, a second sample of 30 and 5 recaptured gives 20 × 30 ÷ 5 = 120 animals."
+            },
+            {
+              "type": "list",
+              "items": [
+                "Plants do not move, so they are easy to count with quadrats.",
+                "Animals can move away, or be counted twice, or be missed if they burrow.",
+                "A pooter or a pitfall trap can be used to catch small animals."
+              ]
+            }
+          ]
+        }
+      ]
+    }
+  },
+  "meta": {
+    "status": "draft",
+    "written_by": "sonnet-5-5",
+    "written_at": "2026-10-01",
+    "spec_point_ids": [
+      "e9360c59-9dd0-4970-948b-a88733144caf",
+      "872079da-e686-47aa-b1c6-3952b0e6cf47",
+      "3f5c6e75-11d5-4477-a4a8-32ff16064fff",
+      "914df6d7-53f0-42a8-bd3d-bae2df31b215",
+      "4be6be53-c76c-4a0a-b0de-ca6ed0091c80"
+    ],
+    "exemplar_ids": [
+      "6837c0a6-4bcb-4c32-ad66-d61f4e41f0de",
+      "4602cadc-a82c-49ec-9c77-4c32aca8104c",
+      "882e3d58-44d4-4ea1-a2d4-bea2a1ae5ee4",
+      "4ebd0258-e110-484c-9595-b23a3da7a5f4",
+      "1ce11988-e790-47c4-8a34-f511e08d79a2",
+      "c1635c9c-2c0a-49b1-812b-c06f4602545a",
+      "bbb7d64a-0edf-4cf7-aedc-b2fb0eb1aa74",
+      "fe348284-a98c-40fe-aa47-b1b66e21c52d",
+      "d577d350-3456-4ba5-9303-3367d60f7ac7",
+      "68164a6e-701f-4f59-ac62-66a24739909c"
+    ]
+  }
+}

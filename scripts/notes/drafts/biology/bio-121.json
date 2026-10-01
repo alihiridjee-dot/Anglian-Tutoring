@@ -1,0 +1,192 @@
+{
+  "format": 1,
+  "concept_id": "bio-121",
+  "subject": "biology",
+  "title": "The nitrogen cycle",
+  "key_idea": "Plants need **nitrates** from the soil to make proteins. Bacteria move nitrogen between the air, the soil and living things. Farmers add nitrates with fertilisers, manure and crop rotation.",
+  "sections": [
+    {
+      "heading": "Why plants need nitrates",
+      "blocks": [
+        { "type": "paragraph", "text": "Plants cannot use nitrogen gas from the air. They take in nitrate ions from the soil through their roots." },
+        {
+          "type": "list",
+          "items": [
+            "Nitrates are used to make proteins (from amino acids) and chlorophyll.",
+            "Proteins are needed for growth, so more nitrate in the soil improves crop yield.",
+            "A low nitrate concentration in the soil gives poor plant growth."
+          ]
+        },
+        {
+          "type": "key-points",
+          "items": [
+            "Plants take up nitrates from the soil.",
+            "Nitrates are used to make proteins, which are needed for growth."
+          ]
+        }
+      ]
+    },
+    {
+      "heading": "The role of bacteria",
+      "blocks": [
+        { "type": "paragraph", "text": "Four groups of microorganisms keep nitrogen cycling between the air, the soil and living things." },
+        {
+          "type": "definitions",
+          "items": [
+            { "term": "Decomposers", "meaning": "Bacteria and fungi that break down waste matter and dead organisms, releasing ammonia." },
+            { "term": "Nitrifying bacteria", "meaning": "Bacteria that convert ammonia into nitrites and then nitrates." },
+            { "term": "Nitrogen-fixing bacteria", "meaning": "Bacteria that convert nitrogen gas from the air into nitrates or ammonia." },
+            { "term": "Denitrifying bacteria", "meaning": "Bacteria that convert nitrates back into nitrogen gas." }
+          ]
+        },
+        {
+          "type": "list",
+          "items": [
+            "Some nitrogen-fixing bacteria live in colonies in **root nodules** on peas and beans. This is a mutualistic relationship.",
+            "Other nitrogen-fixing bacteria live in the soil.",
+            "Plants take up the nitrates. Animals get nitrogen compounds by eating plants or other animals."
+          ]
+        },
+        {
+          "type": "diagram",
+          "diagram": {
+            "kind": "sort",
+            "alt": "Sort each statement into the type of bacteria it describes: nitrogen-fixing, nitrifying or denitrifying.",
+            "prompt": "Which bacteria does each statement describe?",
+            "groups": ["Nitrogen-fixing bacteria", "Nitrifying bacteria", "Denitrifying bacteria"],
+            "items": [
+              { "text": "Convert nitrogen gas into nitrates or ammonia", "group": 0 },
+              { "text": "Live in root nodules on peas and beans", "group": 0 },
+              { "text": "Convert ammonia into nitrites and nitrates", "group": 1 },
+              { "text": "Make the nitrates that plants take up from decomposed waste", "group": 1 },
+              { "text": "Convert nitrates back into nitrogen gas", "group": 2 },
+              { "text": "Release nitrogen into the atmosphere", "group": 2 }
+            ]
+          }
+        },
+        {
+          "type": "key-points",
+          "items": [
+            "Decomposers release ammonia. Nitrifying bacteria turn it into nitrates.",
+            "Nitrogen-fixing bacteria turn nitrogen gas into nitrates or ammonia.",
+            "Denitrifying bacteria turn nitrates back into nitrogen gas."
+          ]
+        }
+      ]
+    },
+    {
+      "heading": "Increasing nitrates in the soil",
+      "blocks": [
+        { "type": "paragraph", "text": "Crops remove nitrates from the soil as they grow. Farmers and gardeners replace them in several ways." },
+        {
+          "type": "table",
+          "columns": ["Method", "How it increases nitrates"],
+          "rows": [
+            ["Artificial fertilisers", "Add nitrate compounds directly to the soil"],
+            ["Manure, slurry and compost", "Decomposers break down the waste and dead matter, so the nitrogen compounds return to the soil"],
+            ["Crop rotation", "A leguminous crop such as peas or beans is grown in some years. Nitrogen-fixing bacteria in its root nodules fix nitrogen gas from the air"],
+            ["Bacteria in the soil", "Nitrogen-fixing and nitrifying bacteria make nitrates naturally"]
+          ]
+        },
+        { "type": "paragraph", "text": "Crop rotation reduces the need to add nitrate fertilisers. Excess fertiliser can be washed into lakes and rivers, where it causes eutrophication." },
+        {
+          "type": "key-points",
+          "items": [
+            "Fertilisers, manure, compost and crop rotation all increase nitrates in the soil.",
+            "Leguminous crops have nitrogen-fixing bacteria in root nodules, so rotation reduces the need for fertilisers."
+          ]
+        }
+      ]
+    }
+  ],
+  "checks": [
+    {
+      "q": "Explain why increased nitrate levels in the soil improve crop yield.",
+      "a": "Nitrates are needed to make proteins (amino acids), which are needed for growth.",
+      "marks": 2
+    },
+    {
+      "q": "Explain the role of denitrifying bacteria in the nitrogen cycle.",
+      "a": "They convert nitrates back into nitrogen gas in the atmosphere.",
+      "marks": 2
+    },
+    {
+      "q": "Explain how crop rotation increases nitrate levels in the soil.",
+      "a": "Leguminous crops, such as peas or beans, are planted. They have nitrogen-fixing bacteria in their root nodules, which fix nitrogen gas from the air.",
+      "marks": 3
+    }
+  ],
+  "boards": {
+    "edexcel": {
+      "spec_codes": ["EDEX 9.15"],
+      "exam_phrases": [
+        "nitrates are needed to make proteins / amino acids which are needed for growth",
+        "decomposers break down waste matter (into ammonia)",
+        "nitrifying bacteria convert ammonia / make nitrites / nitrates",
+        "nitrogen fixing bacteria convert nitrogen into nitrates",
+        "denitrifying bacteria convert nitrates back into (atmospheric) nitrogen",
+        "nitrogen-fixing bacteria live in colonies / root nodules on the roots"
+      ],
+      "mistakes": [
+        {
+          "wrong": "Peas and beans produce nitrates, so they are used in crop rotation.",
+          "right": "\"Produce nitrates\" is ignored. Write that they have nitrogen-fixing bacteria in their root nodules, which fix nitrogen gas from the air."
+        },
+        {
+          "wrong": "The bacteria live in the roots of pea and bean plants.",
+          "right": "\"Live in the roots\" is ignored. Write that they live in colonies or root nodules on the roots."
+        },
+        {
+          "wrong": "Denitrifying bacteria make nitrates from nitrogen.",
+          "right": "Denitrifying bacteria convert nitrates back into atmospheric nitrogen. Making nitrates is the job of nitrifying and nitrogen-fixing bacteria."
+        },
+        {
+          "wrong": "Eutrophication happens because nutrients build up in the water.",
+          "right": "\"Nutrients\" and \"nitrogen\" are ignored. Name the cause, such as fertiliser run-off or sewage, and say that nitrates build up in the water."
+        }
+      ],
+      "worked_example": {
+        "exemplar_id": "55090dc0-b2d6-4aad-bbf2-50bb55a82c62",
+        "source": "EDEXCEL jun 2019, Paper 2 (H), Q10(c)",
+        "question": "Nitrogen is cycled through the environment.\n\nDescribe the roles of bacteria in the nitrogen cycle.",
+        "marks": 4,
+        "answer_points": [
+          "Decomposers break down waste matter, or dead organisms, into ammonia.",
+          "Nitrifying bacteria convert ammonia into nitrites and nitrates.",
+          "Nitrogen-fixing bacteria convert nitrogen gas into nitrates.",
+          "Denitrifying bacteria convert nitrates back into nitrogen."
+        ],
+        "tip": "One mark for each type of bacteria, with what it converts."
+      }
+    },
+    "ocr": {
+      "spec_codes": ["OCR 4.1a"],
+      "exam_phrases": [
+        "minerals",
+        "washes minerals into the lake"
+      ],
+      "mistakes": [
+        {
+          "wrong": "Plant roots get nitrogen gas from compost in the soil.",
+          "right": "Plants cannot use nitrogen gas. Compost gives the roots minerals."
+        },
+        {
+          "wrong": "Run-off brings nutrients into the lake.",
+          "right": "\"Nutrients\" is ignored. Write minerals, or name a mineral."
+        }
+      ]
+    }
+  },
+  "meta": {
+    "status": "draft",
+    "written_by": "sonnet-5-5",
+    "written_at": "2026-10-01",
+    "spec_point_ids": [
+      "9c6bdc5e-c134-4aa2-b450-44beee7f0b81",
+      "25ac4b5c-b102-4fca-87f4-b78e48b455e2"
+    ],
+    "exemplar_ids": [
+      "55090dc0-b2d6-4aad-bbf2-50bb55a82c62"
+    ]
+  }
+}

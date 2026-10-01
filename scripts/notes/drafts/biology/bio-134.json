@@ -1,0 +1,253 @@
+{
+  "format": 1,
+  "concept_id": "bio-134",
+  "subject": "biology",
+  "title": "Handling data, variables and practical safety",
+  "key_idea": "A fair test changes one variable, measures one and keeps the rest the same. Repeats show how reliable results are, and means and percentage change summarise them. Graphs should be drawn with the right axes. Hazards need sensible precautions.",
+  "sections": [
+    {
+      "heading": "Variables and fair tests",
+      "blocks": [
+        { "type": "paragraph", "text": "A fair test changes only one thing. This section covers the three types of variable and how a control makes results meaningful." },
+        {
+          "type": "definitions",
+          "items": [
+            { "term": "Independent variable", "meaning": "The one thing you change." },
+            { "term": "Dependent variable", "meaning": "The thing you measure." },
+            { "term": "Control variable", "meaning": "A factor you keep the same, so that it cannot affect the result." },
+            { "term": "Control", "meaning": "A treatment with nothing added, used to compare with the other treatments." }
+          ]
+        },
+        {
+          "type": "diagram",
+          "diagram": {
+            "kind": "sort",
+            "alt": "Sort the features of a duckweed investigation into independent, dependent and control variables.",
+            "prompt": "A student investigates how the pH of pondwater affects duckweed. Sort each feature.",
+            "groups": ["Independent variable", "Dependent variable", "Control variable"],
+            "items": [
+              { "text": "The pH of the pondwater (4.5, 6.5, 8.5)", "group": 0 },
+              { "text": "The number of duckweed plants after 10 days", "group": 1 },
+              { "text": "Five duckweed plants put in each beaker at the start", "group": 2 },
+              { "text": "10 days in the same conditions", "group": 2 }
+            ]
+          }
+        },
+        { "type": "subheading", "text": "Keeping the test fair" },
+        {
+          "type": "list",
+          "items": [
+            "When different volumes of a solution are added, top up with clean water so the total volume stays the same.",
+            "Use the same field or the same plants for each treatment, divided into groups. Different fields may have different soil, minerals or light.",
+            "Include a treatment with nothing added, so the other treatments can be compared with no treatment."
+          ]
+        },
+        {
+          "type": "key-points",
+          "items": [
+            "Change one variable, measure one variable, control the rest.",
+            "Keep the total volume the same when diluting.",
+            "A control gives a comparison."
+          ]
+        }
+      ]
+    },
+    {
+      "heading": "Reliable and accurate results",
+      "blocks": [
+        { "type": "paragraph", "text": "Exam questions ask whether data can be trusted and how to improve an investigation." },
+        {
+          "type": "definitions",
+          "items": [
+            { "term": "Repeatable", "meaning": "The same person gets similar results when they repeat the experiment." },
+            { "term": "Reproducible", "meaning": "Another person, or different equipment or a different method, gets similar results." },
+            { "term": "Anomalous result", "meaning": "A result that does not fit the pattern, also called an outlier." }
+          ]
+        },
+        { "type": "subheading", "text": "Ways to improve an investigation" },
+        {
+          "type": "list",
+          "items": [
+            "Repeat the experiment or take repeat readings, to check the results are similar and to find a mean.",
+            "Repeat an anomalous result and leave the odd one out of the mean.",
+            "To check that a best value is correct, test a greater range of values, or smaller intervals around the best value.",
+            "Use a measuring method that does not depend on judgement, such as a colorimeter, or have the same person make all the observations.",
+            "Record units in the table headings, and put results in rank order."
+          ]
+        },
+        {
+          "type": "key-points",
+          "items": [
+            "Repeatable: the same person repeats it. Reproducible: someone else, or a different method.",
+            "Repeat anomalous results.",
+            "Use smaller intervals around the best value to make it more accurate."
+          ]
+        }
+      ]
+    },
+    {
+      "heading": "Processing and presenting data",
+      "blocks": [
+        { "type": "paragraph", "text": "Calculate a mean from repeats, and use percentage change to compare values from different starting points." },
+        {
+          "type": "equation",
+          "label": "Mean",
+          "formula": "mean = total of the values ÷ number of values",
+          "where": ["values are the repeat readings, in the unit measured"]
+        },
+        {
+          "type": "diagram",
+          "diagram": {
+            "kind": "practice",
+            "alt": "Calculate the mean mass of DNA collected from three tests.",
+            "question": "Three tests collect {a} mg, {b} mg and {c} mg of DNA. Calculate the mean mass collected. Give your answer to 1 decimal place.",
+            "variables": [
+              { "id": "a", "min": 30, "max": 36, "step": 0.1 },
+              { "id": "b", "min": 30, "max": 36, "step": 0.1 },
+              { "id": "c", "min": 30, "max": 36, "step": 0.1 }
+            ],
+            "answer": { "formula": "(a + b + c) / 3", "unit": "mg", "decimals": 1 },
+            "working": [
+              "Total = {a} + {b} + {c}",
+              "Mean = total ÷ 3 = {answer} mg"
+            ]
+          }
+        },
+        {
+          "type": "equation",
+          "label": "Percentage decrease",
+          "formula": "percentage decrease = (decrease ÷ starting value) × 100",
+          "where": ["decrease = starting value − final value", "starting value and final value in the same unit"]
+        },
+        {
+          "type": "steps",
+          "items": [
+            { "lead": "Decrease.", "text": "Migraine days per patient fall from 9.1 to 4.4. The decrease is 9.1 − 4.4 = 4.7." },
+            { "lead": "Calculate.", "text": "4.7 ÷ 9.1 × 100 = 51.6% (1 decimal place)." }
+          ]
+        },
+        { "type": "subheading", "text": "Drawing a graph" },
+        {
+          "type": "list",
+          "items": [
+            "Use a line graph (or scatter graph) when both variables are numbers, not a bar chart or histogram.",
+            "Put the independent variable, such as time, on the x axis and the dependent variable, such as pH, on the y axis.",
+            "With several sets of results, such as three temperatures, draw one line for each set."
+          ]
+        },
+        {
+          "type": "key-points",
+          "items": [
+            "Mean = total ÷ number of values.",
+            "Percentage decrease = decrease ÷ starting value × 100.",
+            "Line graph, with the independent variable on the x axis."
+          ]
+        }
+      ]
+    },
+    {
+      "heading": "Conclusions and safety",
+      "blocks": [
+        { "type": "paragraph", "text": "A conclusion must match the data. A safe practical uses a precaution that matches the hazard." },
+        { "type": "subheading", "text": "Drawing conclusions" },
+        {
+          "type": "list",
+          "items": [
+            "Compare every treatment with the others and with the control.",
+            "A lower disease rating means less disease, so a treatment with a lower rating worked better.",
+            "Say whether each factor works on its own, and whether the combination works best."
+          ]
+        },
+        { "type": "subheading", "text": "Safety" },
+        {
+          "type": "table",
+          "columns": ["Hazard", "Precaution", "Reason"],
+          "rows": [
+            ["Chemicals, such as ethanol or protease", "Wear a face mask or goggles", "To stop them being inhaled or entering the eyes"],
+            ["Chemicals on the skin", "Wear gloves", "To stop the chemicals touching the skin"],
+            ["Hot solutions or tubes", "Use tongs", "The solution or tube may be hot"],
+            ["Ethanol", "Turn the Bunsen burner off", "Ethanol is flammable"]
+          ]
+        },
+        {
+          "type": "key-points",
+          "items": [
+            "Base a conclusion on the data, including the control.",
+            "State the precaution and why it is needed.",
+            "Ethanol is flammable, so keep it away from a flame."
+          ]
+        }
+      ]
+    }
+  ],
+  "checks": [
+    {
+      "q": "A student investigates how pH affects duckweed growth. Name the independent variable and the dependent variable.",
+      "a": "Independent: the pH of the pondwater. Dependent: the number of duckweed plants after 10 days.",
+      "marks": 2
+    },
+    {
+      "q": "Describe how a student could find out whether their data is repeatable and reproducible.",
+      "a": "Repeatable: repeat the experiment or take repeat readings. Reproducible: another person does the experiment, or use different equipment or a different method. Check that the results are similar.",
+      "marks": 3
+    },
+    {
+      "q": "A student wants to be sure that pH 6.5 is the best pH for growth. How should they extend the experiment?",
+      "a": "Test other pH values, with smaller intervals around pH 6.5.",
+      "marks": 2
+    }
+  ],
+  "boards": {
+    "ocr": {
+      "spec_codes": ["OCR 7.9"],
+      "exam_phrases": [
+        "repeat the experiment / take repeat readings",
+        "another student / person conducts the experiment",
+        "use different equipment / use a different method",
+        "to see if the results are the same / similar",
+        "include other / greater range / smaller intervals of pH values",
+        "keep the total / overall volume the same",
+        "include the units",
+        "wear face mask / goggles",
+        "turn Bunsen off as ethanol is flammable"
+      ],
+      "mistakes": [
+        {
+          "wrong": "Draw a bar chart of the results.",
+          "right": "A bar chart or histogram is not allowed here. Draw a line or scatter graph, with time on the x axis and pH on the y axis."
+        },
+        {
+          "wrong": "To extend the experiment, just repeat the readings.",
+          "right": "\"Just repeat readings\" is ignored. Include a greater range or smaller intervals of values, around the best value."
+        },
+        {
+          "wrong": "To check the data is repeatable and reproducible, compare the results.",
+          "right": "\"Compare the results\" is ignored. Repeat the experiment, or have another person do it, to see if the results are the same or similar."
+        },
+        {
+          "wrong": "Wear a lab coat in case of glass breakages.",
+          "right": "Lab coats and glass breakages are ignored. Give a precaution that matches the hazard, such as goggles for chemicals entering the eyes."
+        }
+      ],
+      "worked_example": {
+        "exemplar_id": "88aee3da-732f-4fff-b19e-09b5bb0606fb",
+        "source": "OCR jun 2024, Paper 4, Q20(b)",
+        "question": "Some students investigate the effect of temperature on the decomposition of milk. Bacteria in milk have enzymes that convert sugar into lactic acid.\n\nThis is the method the students use:\n• Pour 20 cm³ of milk into 3 different beakers.\n• Keep each beaker in a water bath at a different temperature: 15 °C, 25 °C and 35 °C.\n• Measure the pH of the milk at different times over 4 days.\n\nThe table shows their results.\n\nTemperature (°C) | pH of milk at the start | after 12 hours | after 24 hours | after 48 hours | after 72 hours\n15 | 6.5 | 6.4 | 6.3 | 6.1 | 5.8\n25 | 6.5 | 6.3 | 6.2 | 5.9 | 5.5\n35 | 6.5 | 6.3 | 6.1 | 5.5 | 4.9\n\nDescribe how the students should display their results in a graph.",
+        "marks": 3,
+        "answer_points": [
+          "Draw a line graph (or scatter graph).",
+          "Put time on the x axis and pH on the y axis.",
+          "Draw three lines, one for each temperature."
+        ],
+        "tip": "Any three points score. A bar chart or histogram is not allowed, and temperature must not be on either axis."
+      }
+    }
+  },
+  "meta": {
+    "status": "draft",
+    "written_by": "sonnet-5-5",
+    "written_at": "2026-10-01",
+    "spec_point_ids": ["0b5e1551-c057-405c-bdf7-cfd47f89b5ee"],
+    "exemplar_ids": ["88aee3da-732f-4fff-b19e-09b5bb0606fb"]
+  }
+}

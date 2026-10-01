@@ -62,6 +62,15 @@
           ]
         },
         { "type": "paragraph", "text": "Plants grow faster and better when they get the minerals they need. Less crop is lost when pests are killed. Both raise the yield." },
+        { "type": "subheading", "text": "Disadvantages of fertilisers and pesticides" },
+        {
+          "type": "list",
+          "items": [
+            "Fertiliser run-off pollutes water.",
+            "Pesticides can kill other insects and plants, not only the pest, which reduces biodiversity and damages food chains.",
+            "Chemicals can build up in the environment, and pests can become resistant to them."
+          ]
+        },
         { "type": "subheading", "text": "Testing a fertiliser" },
         {
           "type": "list",
@@ -258,7 +267,7 @@
         "Disease / predators",
         "wrasse feed / eat / kill parasites",
         "more food / energy is available (for growth)",
-        "control (using) the same field and divide it into two"
+        "Add fertilisers / Spray with pesticides"
       ],
       "mistakes": [
         {
@@ -298,6 +307,8 @@
       "d0f9e733-b1e7-46eb-b55d-55545e0d4baf",
       "34f7caba-444c-48fb-9f16-1cc58391b435"
     ],
+    "checked_by": "sonnet-science-check",
+    "checked_at": "2026-10-01",
     "exemplar_ids": [
       "22171df9-e142-418e-bade-0b7e39713f17",
       "09d11110-7d4c-4b88-9ab8-9f1b667be675",
