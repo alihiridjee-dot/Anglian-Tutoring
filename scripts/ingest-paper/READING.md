@@ -27,6 +27,11 @@ cancelled May papers were sat in November, so the paper says May and its mark
 scheme says November — the mark scheme is when it was actually sat, but check
 that it really is that paper's scheme before trusting it.
 
+A sample or specimen paper was never sat, so it has no sitting and no year: file
+it as `sample` with the year `unknown`, `ocr-biology-gcse-unknown-sample-p1`.
+Only when the documents themselves say sample or specimen — a paper whose date
+is merely missing is still checked against its mark scheme.
+
 ## 2. Get the text
 
     python3 scripts/ingest-paper/split_paper.py QP.pdf MS.pdf --text

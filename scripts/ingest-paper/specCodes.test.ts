@@ -57,6 +57,12 @@ describe("parsePaperStem", () => {
     expect(parsePaperStem("edexcel-chemistry-igcse-2021-nov-p1C")?.series).toBe("nov");
   });
 
+  test("files a sample paper, which was never sat, under its own sitting", () => {
+    const paper = parsePaperStem("ocr-biology-gcse-unknown-sample-p1");
+    expect(paper?.series).toBe("sample");
+    expect(paper?.year).toBeNull();
+  });
+
   test("keeps an unknown sitting or year as null, for the loader to refuse", () => {
     const paper = parsePaperStem("aqa-biology-gcse-unknown-unknown-p1F");
     expect(paper?.year).toBeNull();

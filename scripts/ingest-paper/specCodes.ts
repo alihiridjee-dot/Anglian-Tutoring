@@ -8,8 +8,10 @@
 /**
  * The sittings a paper can belong to, as `exam_exemplars.series` stores them:
  * January, February/March, May/June (summer) and October/November (autumn).
+ * `sample` is a board's sample or specimen paper, which was never sat; it has
+ * no year either, so its name reads `ocr-biology-gcse-unknown-sample-p1`.
  */
-export const SERIES = ["jan", "mar", "jun", "nov"] as const;
+export const SERIES = ["jan", "mar", "jun", "nov", "sample"] as const;
 export type Series = (typeof SERIES)[number];
 
 /**
@@ -30,7 +32,7 @@ export type Series = (typeof SERIES)[number];
  * not one paper in two tiers.
  */
 export const PAPER_STEM =
-  /^([a-z_]+)-([a-z-]+)-(gcse|gcse_trilogy|igcse|alevel)-(\d{4}|unknown)-(jan|mar|jun|nov|unknown)-p(\d{1,2})([A-Z]{0,2})$/;
+  /^([a-z_]+)-([a-z-]+)-(gcse|gcse_trilogy|igcse|alevel)-(\d{4}|unknown)-(jan|mar|jun|nov|sample|unknown)-p(\d{1,2})([A-Z]{0,2})$/;
 
 export type Paper = {
   board: string;
