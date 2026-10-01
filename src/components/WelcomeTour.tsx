@@ -1,6 +1,7 @@
 import { useCallback, useEffect, useMemo, useRef, useState } from "react";
 import { useQuery, useQueryClient } from "@tanstack/react-query";
 import { useRouter, useRouterState } from "@tanstack/react-router";
+import { CourseChip } from "@/components/CourseBadge";
 import { GuideOverlay } from "@/components/StudentGuide";
 import { useViewer } from "@/hooks/useViewer";
 import { useEnrolments } from "@/hooks/data/useEnrolments";
@@ -161,15 +162,21 @@ export function WelcomeTour({ locked }: { locked: boolean }) {
         <p key={paragraph}>{paragraph}</p>
       ))}
       {step.visual === "course" && course.perSubject.length > 0 && (
-        <ul className="flex flex-wrap gap-2" aria-label="Your course">
-          {course.levelLabel && <li className="chip pop-in tint-primary">{course.levelLabel}</li>}
+        // Drawn as the dashboard ribbon draws the course, so it's recognised there.
+        <ul className="flex flex-wrap gap-1.5" aria-label="Your course">
+          <li className="pop-in">
+            <CourseChip icon parts={[course.levelLabel]} />
+          </li>
           {course.perSubject.map((s, i) => (
             <li
               key={s.subject}
-              className={`chip pop-in ${SUBJECT_TINT[s.subject] ?? "tint-slate"}`}
+              className="pop-in"
               style={{ "--pop-delay": `${(i + 1) * 90}ms` } as React.CSSProperties}
             >
-              {s.subjectLabel} · {s.boardLabel}
+              <CourseChip
+                tint={SUBJECT_TINT[s.subject] ?? "tint-primary"}
+                parts={[s.subjectLabel, s.boardLabel]}
+              />
             </li>
           ))}
         </ul>
