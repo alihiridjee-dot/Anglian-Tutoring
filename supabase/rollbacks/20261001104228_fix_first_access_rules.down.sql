@@ -1,4 +1,4 @@
--- Rollback for 20260928090000_fix_first_access_rules.sql. Restores the live
+-- Rollback for 20261001104228_fix_first_access_rules.sql. Restores the live
 -- definitions as they stood on 2026-09-28. This reopens every hole the
 -- migration closed; only use it if the migration itself breaks something.
 

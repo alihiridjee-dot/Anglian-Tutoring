@@ -1,7 +1,7 @@
 -- #10, second step: withdraw homework_questions.mark_scheme from browser reads.
 --
 -- Apply only after the app that reads mark schemes through
--- homework_mark_schemes() (20260928090000_fix_first_access_rules.sql) is
+-- homework_mark_schemes() (20261001104228_fix_first_access_rules.sql) is
 -- live. The app before it selects this column directly and would be refused.
 --
 -- Revoking one column is a no-op while a table-wide SELECT grant exists, so

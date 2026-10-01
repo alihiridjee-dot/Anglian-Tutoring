@@ -152,7 +152,7 @@ await db.exec(`grant select (id, resource_id, position, prompt, marks, answer_ty
 
 await db.exec(
   await readFile(
-    new URL("../supabase/migrations/20260928090000_fix_first_access_rules.sql", import.meta.url),
+    new URL("../supabase/migrations/20261001104228_fix_first_access_rules.sql", import.meta.url),
     "utf8",
   ),
 );
@@ -454,7 +454,7 @@ await asAdmin(async () => {
   await db.query("delete from resources where created_by is null");
   for (const f of [
     "20260928090100_withhold_homework_mark_schemes",
-    "20260928090000_fix_first_access_rules",
+    "20261001104228_fix_first_access_rules",
   ])
     await db.exec(
       await readFile(new URL(`../supabase/rollbacks/${f}.down.sql`, import.meta.url), "utf8"),
