@@ -262,7 +262,7 @@ export const ensureHomeworkForPoints = createServerFn({ method: "POST" })
           _subject: data.subject,
           _level: data.level,
           _board: generation.point.board,
-          // Ignored since 20261001150000: a library sheet has no owner. Still
+          // Ignored since 20261001111430: a library sheet has no owner. Still
           // sent so this code and that migration can go live in either order.
           _created_by: userId,
           _questions: questions.map((q) => ({
