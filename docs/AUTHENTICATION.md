@@ -105,8 +105,12 @@ interface GuardState {
 The guard puts it on the route context as `viewer`. Everything below reads it
 from there and **nothing asks the network who the caller is again**:
 
-- Route guards — `guardStudentSection`, `redirectToRoleHome`, `guardStudentHome`,
-  `guardParentOnly` in `src/lib/auth/routeGuards.ts` — read `context.viewer`.
+- Route guards — `guardStudentSection`, `guardStudentHome`, `guardParentOnly`
+  in `src/lib/auth/routeGuards.ts` — read `context.viewer`. So does
+  `roleHomePath`, which `/dashboard` renders a `<Navigate>` to. It must not
+  redirect from `beforeLoad`: a guard slower than the router's one-second
+  pending delay has already put the match on screen, and this router version
+  renders a redirected match by throwing `undefined`, which blanks the page.
 - Components use `useViewer()` / `useViewerId()` from `src/hooks/useViewer.ts`.
   Both return null in the showcase.
 
