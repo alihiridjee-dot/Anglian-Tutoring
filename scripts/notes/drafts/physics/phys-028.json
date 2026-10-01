@@ -3,7 +3,7 @@
   "concept_id": "phys-028",
   "subject": "physics",
   "title": "Specific latent heat",
-  "key_idea": "A change of state needs energy, but the temperature does not change while it happens. The energy changes the **internal energy** of the substance. The **specific latent heat** is the energy needed to change the state of 1 kg, and E = mL.",
+  "key_idea": "A change of state needs energy, but the temperature does not change while it happens. The energy changes the **internal energy** of the substance. The **specific latent heat** is the energy needed to change the state of 1 kg. Energy equals mass multiplied by specific latent heat.",
   "sections": [
     {
       "heading": "Latent heat and changes of state",
@@ -14,6 +14,7 @@
           "items": [
             { "term": "Latent heat", "meaning": "The energy needed for a substance to change state." },
             { "term": "Internal energy", "meaning": "The total kinetic energy and potential energy of all the particles in a substance." },
+            { "term": "Specific heat capacity", "meaning": "The energy needed to raise the temperature of 1 kg of a substance by 1 °C." },
             { "term": "Specific latent heat", "meaning": "The energy needed to change the state of 1 kg of a substance with no change in temperature." },
             { "term": "Specific latent heat of fusion", "meaning": "The specific latent heat for a change from solid to liquid." },
             { "term": "Specific latent heat of vaporisation", "meaning": "The specific latent heat for a change from liquid to vapour." }
@@ -110,7 +111,17 @@
             "Convert the mass to kilograms and the energy to joules before you substitute.",
             "Only the mass that changes state counts.",
             "Do not use a temperature in this equation.",
-            "To find L, rearrange to L = E ÷ m. To find the mass, rearrange to m = E ÷ L."
+            "To find L or the mass, rearrange the equation."
+          ]
+        },
+        {
+          "type": "equation",
+          "label": "Rearranged to find L or m",
+          "formula": "L = E ÷ m   or   m = E ÷ L",
+          "where": [
+            "L = specific latent heat, in joules per kilogram (J/kg)",
+            "E = energy transferred, in joules (J)",
+            "m = mass that changes state, in kilograms (kg)"
           ]
         },
         {
@@ -139,9 +150,9 @@
         {
           "type": "key-points",
           "items": [
-            "E = mL. L is in J/kg, so the mass must be in kg.",
+            "L is in J/kg, so the mass must be in kg and the energy in J.",
             "Only the mass that changes state is used, and no temperature.",
-            "Rearrange to L = E ÷ m or m = E ÷ L when needed."
+            "Rearrange the equation to find L or the mass when needed."
           ]
         }
       ]
@@ -168,8 +179,6 @@
     "aqa": {
       "spec_codes": ["AQA 4.3.2.3", "AQA T 6.3.2.3"],
       "exam_phrases": [
-        "E = m × L",
-        "J/kg",
         "the kinetic energy (and the potential energy) of the particles increases",
         "internal energy is the sum of kinetic and potential energy (of the particles)",
         "less energy was transferred to the water, so the student's value of L was too high",
@@ -211,7 +220,6 @@
         "specific heat capacity concerns change in temperature",
         "specific latent heat concerns change of state",
         "specific latent heat is related to no change in temperature",
-        "any named change of state, e.g. melting / freezing / evaporating / boiling",
         "specific heat capacity concerns heating up / cooling"
       ],
       "mistakes": [
@@ -247,8 +255,7 @@
       "exam_phrases": [
         "energy = mass × specific latent heat",
         "specific latent heat = E ÷ m",
-        "0.2 × 2 260 000 = 452 000 (J)",
-        "380 000 (J/kg)"
+        "SLH = E ÷ m"
       ],
       "mistakes": [
         {

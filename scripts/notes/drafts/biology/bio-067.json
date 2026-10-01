@@ -205,8 +205,8 @@
       ],
       "mistakes": [
         {
-          "wrong": "A reflex action is an action that is quick.",
-          "right": "Action and quick are ignored. Say it is a response or reaction, and that it is automatic, involuntary or not conscious."
+          "wrong": "A reflex action is an action that protects you.",
+          "right": "The word action is ignored. Say it is a response or reaction, and that it is automatic, involuntary or not under conscious control."
         },
         {
           "wrong": "The receptor in the finger detects pain.",
@@ -335,6 +335,8 @@
       "c4c9ce36-77a1-4969-86e8-a8517c8f2f24",
       "68ea843a-2ea4-496b-9089-f67172a61928",
       "23751969-6171-47c0-84a3-e2bb77caaa30"
-    ]
+    ],
+    "checked_by": "sonnet-science-check",
+    "checked_at": "2026-10-01"
   }
 }

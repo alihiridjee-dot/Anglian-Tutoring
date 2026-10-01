@@ -114,8 +114,7 @@
           "items": [
             "The brain processes information from the eyes in the cerebral hemispheres.",
             "Voluntary movement is controlled by the cerebral cortex (the motor cortex).",
-            "The cerebellum coordinates that movement, so it is smooth and balanced.",
-            "Anaesthetics slow breathing and heart rate because they act on the medulla."
+            "The cerebellum coordinates that movement, so it is smooth and balanced."
           ]
         },
         {
@@ -123,7 +122,7 @@
           "items": [
             "Match the symptom to the region that does that job.",
             "The cerebral cortex is for conscious thought. The medulla works without thought.",
-            "Damage to a region affects only the jobs of that region."
+            "Damage to a region affects the jobs that region does."
           ]
         }
       ]
@@ -259,6 +258,8 @@
       "be18b959-6d41-43a8-845c-743afede4901",
       "a24fb923-1427-4b80-b8d0-5fe19db0e182",
       "9d1f167c-9a37-4561-872a-3edd0e1cd75c"
-    ]
+    ],
+    "checked_by": "sonnet-science-check",
+    "checked_at": "2026-10-01"
   }
 }

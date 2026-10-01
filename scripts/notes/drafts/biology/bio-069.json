@@ -17,7 +17,7 @@
           "items": [
             "**Studying patients** with brain damage, for example after an accident. Scientists link the damaged area to the problem the person has.",
             "**Electrical stimulation**: stimulating a small part of the brain and observing what the person does or feels.",
-            "**CT scans**: show the structure of the brain without opening the skull.",
+            "**CT and MRI scans**: show the structure of the brain without opening the skull.",
             "**PET scans**: show which parts of the brain are active, so they can be linked to a function.",
             "**Animal experiments**: part of an animal's brain is damaged, or removed, and the animal is observed."
           ]
@@ -182,7 +182,26 @@
           "It can be compared with a person without brain damage, to see exactly where the damage is."
         ],
         "tip": "Any three points score. The scanner is also useful for people who cannot stay still."
-      }
+      },
+      "extra": [
+        {
+          "heading": "fMRI scans (Higher tier)",
+          "blocks": [
+            {
+              "type": "paragraph",
+              "text": "(Higher tier) A traditional MRI scanner needs the person to stay completely still. A functional MRI (fMRI) scanner lets the person move while it images brain activity."
+            },
+            {
+              "type": "list",
+              "items": [
+                "The person can be asked to do different tasks during the scan.",
+                "It shows which part of the brain is active or inactive.",
+                "The scan can be compared with a person without brain damage, to see exactly where the damage is."
+              ]
+            }
+          ]
+        }
+      ]
     },
     "edexcel": {
       "spec_codes": [
@@ -277,6 +296,8 @@
       "e5ec2cf9-b6af-4dbe-b91a-fda275cc8f7f",
       "fad849ad-e077-4d64-8cfa-30c933bf02f7",
       "b7dd8c08-cb69-4511-bf2f-197325d1f89a"
-    ]
+    ],
+    "checked_by": "sonnet-science-check",
+    "checked_at": "2026-10-01"
   }
 }
