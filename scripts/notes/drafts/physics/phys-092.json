@@ -1,0 +1,306 @@
+{
+  "format": 1,
+  "concept_id": "phys-092",
+  "subject": "physics",
+  "title": "The Big Bang and Steady State theories",
+  "key_idea": "The Big Bang theory says the Universe began from a very small, extremely hot, dense region and is expanding. The Steady State theory says it has no beginning and new matter forms continually. Red-shift and CMB radiation support the Big Bang, which is the accepted model.",
+  "sections": [
+    {
+      "heading": "Two theories of the origin of the Universe",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "(Separate science) The Big Bang and Steady State theories are two models for how the Universe began and how it has changed."
+        },
+        {
+          "type": "definitions",
+          "items": [
+            {
+              "term": "Big Bang theory",
+              "meaning": "The Universe began from a very small region that was extremely hot and dense, and has been expanding since."
+            },
+            {
+              "term": "Steady State theory",
+              "meaning": "The Universe has no beginning. It is expanding, and new matter forms continually."
+            },
+            {
+              "term": "CMB radiation",
+              "meaning": "Cosmic microwave background radiation: microwave radiation detected from all over the sky."
+            }
+          ]
+        },
+        {
+          "type": "diagram",
+          "diagram": {
+            "kind": "compare",
+            "alt": "The Big Bang theory and the Steady State theory compared.",
+            "items": [
+              "Big Bang",
+              "Steady State"
+            ],
+            "rows": [
+              {
+                "feature": "Beginning",
+                "values": [
+                  "The Universe had a beginning",
+                  "The Universe has no beginning"
+                ]
+              },
+              {
+                "feature": "Expansion",
+                "values": [
+                  "The Universe is expanding",
+                  "The Universe is expanding"
+                ]
+              },
+              {
+                "feature": "New matter",
+                "values": [
+                  "No continual formation of new matter",
+                  "New matter forms continually"
+                ]
+              },
+              {
+                "feature": "Red-shift",
+                "values": [
+                  "Accounts for it",
+                  "Accounts for it"
+                ]
+              },
+              {
+                "feature": "Currently accepted",
+                "values": [
+                  "Yes: more evidence supports it",
+                  "No"
+                ]
+              }
+            ]
+          }
+        },
+        {
+          "type": "key-points",
+          "items": [
+            "Both theories say the Universe is expanding.",
+            "The Big Bang has a beginning. The Steady State has none, and needs new matter to form continually."
+          ]
+        }
+      ]
+    },
+    {
+      "heading": "Evidence and the accepted model",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "Evidence decides which theory scientists accept."
+        },
+        {
+          "type": "list",
+          "items": [
+            "**Red-shift** shows distant galaxies are moving away, so the Universe is expanding. Both theories account for this.",
+            "The increase of speed with distance, followed backwards, points to a beginning at a single point.",
+            "**CMB radiation** is microwave radiation left over from the beginning. It is detected from all over the sky.",
+            "The radiation is microwaves because of cooling.",
+            "The Big Bang theory has more evidence supporting it than the Steady State theory, so it is the currently accepted model."
+          ]
+        },
+        {
+          "type": "diagram",
+          "diagram": {
+            "kind": "sort",
+            "alt": "Sort the evidence by which theory it supports.",
+            "prompt": "Which theory does each piece of evidence support?",
+            "groups": [
+              "Explained by both theories",
+              "Supports the Big Bang over Steady State"
+            ],
+            "items": [
+              {
+                "text": "Distant galaxies show red-shift",
+                "group": 0
+              },
+              {
+                "text": "Galaxies are moving away from us",
+                "group": 0
+              },
+              {
+                "text": "The Universe is expanding",
+                "group": 0
+              },
+              {
+                "text": "Microwave radiation is detected from all over the sky",
+                "group": 1
+              },
+              {
+                "text": "Radiation left over from an initial explosion is still present",
+                "group": 1
+              }
+            ]
+          }
+        },
+        {
+          "type": "key-points",
+          "items": [
+            "Red-shift supports expansion, and both theories account for it.",
+            "The discovery of CMB radiation led to the Big Bang becoming the accepted model."
+          ]
+        }
+      ]
+    },
+    {
+      "heading": "Why theories change",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "Scientists change theories when new observations do not fit the current model."
+        },
+        {
+          "type": "list",
+          "items": [
+            "The Big Bang model first suggested that gravity would slow the rate at which galaxies move apart.",
+            "Since 1998, observations suggest that distant galaxies are moving away at an increasingly fast rate.",
+            "There is still much about the Universe that is not understood, such as dark mass and dark energy."
+          ]
+        },
+        {
+          "type": "key-points",
+          "items": [
+            "New evidence that does not fit a theory leads scientists to change it.",
+            "Observations of supernovae suggest the expansion is speeding up."
+          ]
+        }
+      ]
+    }
+  ],
+  "checks": [
+    {
+      "q": "Give one similarity and one difference between the Big Bang theory and the Steady State theory.",
+      "a": "Similarity: both say the Universe is expanding. Difference: the Steady State theory has no beginning and needs continual formation of new matter, but the Big Bang theory has a beginning.",
+      "marks": 2
+    },
+    {
+      "q": "Explain how the presence of CMB radiation provides evidence for the Big Bang theory.",
+      "a": "The Big Bang theory has a beginning or initial explosion. This released radiation, which is still present.",
+      "marks": 2
+    },
+    {
+      "q": "Explain why the Big Bang theory is the currently accepted model.",
+      "a": "More evidence supports the Big Bang theory than the Steady State theory, including red-shift and the discovery of CMB radiation.",
+      "marks": 2
+    }
+  ],
+  "boards": {
+    "aqa": {
+      "spec_codes": [
+        "AQA 4.8.2"
+      ],
+      "exam_phrases": [
+        "very dense and extremely hot",
+        "(extremely) hot and dense",
+        "expanding at an ever greater rate",
+        "new observations / evidence that does not fit into the current theory / model"
+      ],
+      "mistakes": [
+        {
+          "wrong": "The Big Bang theory says the Universe began very small.",
+          "right": "'Very small' is ignored on its own. Describe the early Universe as extremely hot and dense."
+        },
+        {
+          "wrong": "New observations suggest the expansion of the Universe is slowing down.",
+          "right": "The new observations suggest distant galaxies are moving away at an increasingly fast rate: expanding at an ever greater rate."
+        }
+      ]
+    },
+    "edexcel": {
+      "spec_codes": [
+        "EDEX 7.8P",
+        "EDEX 7.9P",
+        "EDEX 7.10P",
+        "EDEX 7.14P",
+        "EDEX 7.15P"
+      ],
+      "exam_phrases": [
+        "(both have) an expanding Universe",
+        "the Steady State theory has no beginning",
+        "the Steady State theory requires the continual formation of new matter",
+        "the Big Bang theory has a beginning / initial explosion",
+        "that releases radiation",
+        "microwave radiation left over from the beginning",
+        "detected from all over the sky"
+      ],
+      "mistakes": [
+        {
+          "wrong": "Both theories say the Universe had a beginning.",
+          "right": "Only the Big Bang has a beginning. The similarity is that both have an expanding Universe."
+        },
+        {
+          "wrong": "CMB radiation shows the Universe is expanding.",
+          "right": "Red-shift shows expansion. CMB radiation is evidence for the Big Bang because the initial explosion released radiation that is still present."
+        }
+      ],
+      "worked_example": {
+        "exemplar_id": "09b47cac-2d29-441e-9189-93be448766f2",
+        "source": "EDEXCEL jun 2019, Paper 1 (H), Q10(b)",
+        "marks": 6,
+        "question": "The Big Bang theory gives an explanation for the origin of the Universe.\n\nExplain how evidence supports the ideas that\n● the Universe is expanding\n● the Universe began at a single point.",
+        "answer_points": [
+          "Expansion: light from distant galaxies is red-shifted, so its observed wavelength is longer.",
+          "This shows the sources are moving away. (Nearly) all galaxies show this, an example of the Doppler effect.",
+          "Beginning at a point: the increase of recessional velocities with distance, extrapolated back.",
+          "CMB radiation is microwave radiation left over from the beginning.",
+          "It is microwaves because of cooling, and is detected from all over the sky."
+        ],
+        "tip": "A six-mark level-marked answer. Higher levels need accurate, detailed and logically structured physics for both ideas."
+      }
+    },
+    "ocr": {
+      "spec_codes": [
+        "OCR P8.3b"
+      ],
+      "exam_phrases": [
+        "the Big Bang is a model of how the Universe began",
+        "red shift",
+        "the light has a longer wavelength when it reaches Earth than when it was emitted",
+        "distant galaxies are moving away faster so the Universe is expanding"
+      ],
+      "mistakes": [
+        {
+          "wrong": "Distant galaxies are moving away faster, so the Universe is contracting.",
+          "right": "Galaxies moving apart means the Universe is expanding."
+        },
+        {
+          "wrong": "Light from distant galaxies has a longer wavelength. This is called CMBR.",
+          "right": "An increase in wavelength of light from galaxies is called red shift. CMBR is the radiation left over from the Big Bang."
+        }
+      ],
+      "worked_example": {
+        "exemplar_id": "8fcc90e5-fc71-4be9-afd3-42b4a443a866",
+        "source": "OCR nov 2020, Paper 2, Q16(c)",
+        "marks": 3,
+        "question": "Use the words from the list to complete the sentences about the Universe.\n\nBig-Bang   Contracting   CMBR   Expanding   LDR   Red giant   Red shift   Solar system\n\nYou may use each word once, more than once, or not at all.\n\nThe ______ is a model of how the universe began.\n\nLight from distant galaxies has a longer wavelength when it reaches Earth than when it was emitted. This is called ______.\n\nDistant galaxies are moving away faster so the universe is ______.",
+        "answer_points": [
+          "Big Bang.",
+          "Red shift.",
+          "Expanding."
+        ],
+        "tip": "One mark for each correct word."
+      }
+    }
+  },
+  "meta": {
+    "status": "draft",
+    "written_by": "sonnet-5-5",
+    "written_at": "2026-10-01",
+    "spec_point_ids": [
+      "f23c4643-d1eb-4f0f-abfb-9167cde2bbe7",
+      "f22d0375-1847-431d-863a-2ab86d52c7fb",
+      "f7996ee5-a9b3-4fb6-bfb0-f964fb2ed5e5",
+      "8e85a705-88e4-4e95-a1e2-2e1a7801de27",
+      "129e25a8-dd33-4462-a8af-81af23a460b6",
+      "8e06742b-41a0-48a2-8a51-04efb5258dfe"
+    ],
+    "exemplar_ids": [
+      "09b47cac-2d29-441e-9189-93be448766f2",
+      "8fcc90e5-fc71-4be9-afd3-42b4a443a866"
+    ]
+  }
+}
