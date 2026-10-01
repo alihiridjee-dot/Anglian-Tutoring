@@ -144,12 +144,16 @@ export function useWeeklyCheckin({
     );
 
   const report = async (ok: boolean) => {
+    // Until the saved check-in has been read, there is nothing to save against.
+    if (!loaded) return;
     setBusy(ok ? "confident" : "practice");
+    const text = reflection.trim();
     try {
       await saveCheckin({
         planId: plan.id,
         coveredOk: ok,
-        reflection: reflection.trim() || null,
+        // The reflection only if it changed: otherwise leave what is saved.
+        ...(text !== sentReflection && { reflection: text || null }),
         coverage: coverageSnapshot(),
         studentId,
       });
@@ -177,13 +181,7 @@ export function useWeeklyCheckin({
     if (!loaded || text === sentReflection) return;
     setNoteState("saving");
     try {
-      await saveCheckin({
-        planId: plan.id,
-        coveredOk,
-        reflection: text || null,
-        coverage: coverageSnapshot(),
-        studentId,
-      });
+      await saveCheckin({ planId: plan.id, reflection: text || null, studentId });
       setSentReflection(text);
       setNoteState(text ? "sent" : "idle");
     } catch {
@@ -193,6 +191,9 @@ export function useWeeklyCheckin({
   };
 
   return {
+    /** The saved check-in couldn't be read; `retry` asks again. */
+    error: checkin.error,
+    retry: () => void checkin.refetch(),
     coveredOk,
     reflection,
     setReflection,
