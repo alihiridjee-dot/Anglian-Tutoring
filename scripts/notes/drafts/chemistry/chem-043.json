@@ -40,6 +40,13 @@
       "blocks": [
         { "type": "paragraph", "text": "This section covers how a metal oxide is reduced by heating it with carbon." },
         {
+          "type": "definitions",
+          "items": [
+            { "term": "Reduction", "meaning": "The loss of oxygen from a compound." },
+            { "term": "Oxidation", "meaning": "The gain of oxygen by a substance." }
+          ]
+        },
+        {
           "type": "list",
           "items": [
             "Extraction of a metal from its ore involves **reduction**: the oxide loses oxygen.",
@@ -65,7 +72,7 @@
           "items": [
             "In 2CuO + C → 2Cu + CO₂, copper oxide is reduced and carbon is oxidised.",
             "In SnO₂ + C → Sn + CO₂, tin oxide is reduced. Tin is less reactive than carbon, so carbon can be used.",
-            "Carbon is cheap and can be obtained by heating coal."
+            "Heating with carbon is cheaper than electrolysis."
           ]
         },
         {
@@ -90,7 +97,7 @@
             "result_labels": ["Found in the Earth as", "Compared with carbon", "Method of extraction"],
             "options": [
               { "label": "Gold", "results": ["The metal itself", "Very unreactive", "No extraction needed"] },
-              { "label": "Copper", "results": ["An ore containing copper oxide", "Less reactive than carbon", "Heat the oxide with **carbon**"] },
+              { "label": "Copper", "results": ["Usually an ore containing a copper compound; sometimes the metal itself", "Less reactive than carbon", "Heat the oxide with **carbon**"] },
               { "label": "Iron", "results": ["An ore containing iron oxide", "Less reactive than carbon", "Heat the oxide with **carbon**"] },
               { "label": "Zinc", "results": ["A compound in an ore", "Less reactive than carbon", "Heat the oxide with **carbon**"] },
               { "label": "Tin", "results": ["An ore containing tin oxide", "Less reactive than carbon", "Heat the oxide with **carbon**"] },
@@ -142,6 +149,7 @@
         "carbon is more reactive (than nickel)",
         "carbon will displace / replace nickel (from nickel oxide)",
         "carbon will remove oxygen (from nickel oxide)",
+        "tin oxide is reduced because it loses oxygen",
         "iron is less reactive than carbon",
         "aluminium is more reactive than carbon, so carbon cannot displace aluminium",
         "most metals are found in the Earth as compounds",
@@ -149,8 +157,8 @@
       ],
       "mistakes": [
         {
-          "wrong": "Carbon can be used because it is very reactive.",
-          "right": "Compare the two metals. Carbon is more reactive than nickel, so it displaces nickel or removes oxygen from the oxide."
+          "wrong": "Reduction is the gain of oxygen.",
+          "right": "Reduction is the loss of oxygen. Tin oxide is reduced because it loses oxygen."
         },
         {
           "wrong": "Aluminium costs more than carbon because it uses a lot of electricity.",
@@ -182,7 +190,7 @@
         "aluminium oxide does not react with carbon",
         "electrolysis is expensive / needs a large amount of electricity",
         "iron is less reactive (than carbon)",
-        "electrolysis"
+        "carbon is less reactive than aluminium"
       ],
       "mistakes": [
         {
@@ -218,7 +226,7 @@
         "aluminium is above carbon in the reactivity series, so cannot be obtained by reaction of the oxide with carbon",
         "copper is below carbon in the reactivity series",
         "iron oxide + carbon → iron + carbon dioxide",
-        "2CuO + C → 2Cu + CO2"
+        "2CuO + C → 2Cu + CO₂"
       ],
       "mistakes": [
         {
@@ -230,8 +238,8 @@
           "right": "Aluminium is very reactive is ignored. Say aluminium is higher in the reactivity series than carbon, so carbon cannot displace it."
         },
         {
-          "wrong": "2CuO and C → 2Cu and CO2",
-          "right": "And and & are not allowed instead of +. Write 2CuO + C → 2Cu + CO2."
+          "wrong": "2CuO and C → 2Cu and CO₂",
+          "right": "And and & are not allowed instead of +. Write 2CuO + C → 2Cu + CO₂."
         }
       ],
       "worked_example": {
@@ -251,6 +259,8 @@
     "status": "draft",
     "written_by": "sonnet-5-5",
     "written_at": "2026-10-01",
+    "checked_by": "sonnet-science-check",
+    "checked_at": "2026-10-01",
     "spec_point_ids": [
       "3306eee4-45ff-4bd2-93c2-d27a551a87b2",
       "617ba2a3-198f-4e0b-aa06-66c9fcf751a1",

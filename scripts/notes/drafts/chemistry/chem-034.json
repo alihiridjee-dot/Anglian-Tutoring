@@ -48,7 +48,7 @@
     {
       "heading": "Finding the limiting reactant",
       "blocks": [
-        { "type": "paragraph", "text": "Compare the amounts in moles, not the masses. The balanced equation tells you how many moles of one reactant react with each mole of another." },
+        { "type": "paragraph", "text": "(Higher tier) Compare the amounts in moles, not the masses. The balanced equation tells you how many moles of one reactant react with each mole of another." },
         {
           "type": "equation",
           "label": "Amount in moles",
@@ -152,12 +152,12 @@
     {
       "heading": "Using masses to find an equation",
       "blocks": [
-        { "type": "paragraph", "text": "The masses of reactants and products give the moles of each. The ratio of the moles is the ratio of the numbers in the balanced equation." },
+        { "type": "paragraph", "text": "(Higher tier) The masses of reactants and products give the moles of each. The ratio of the moles is the ratio of the numbers in the balanced equation." },
         {
           "type": "steps",
           "items": [
             { "lead": "Moles.", "text": "Convert each mass to moles." },
-            { "lead": "Ratio.", "text": "Divide by the smallest number of moles to find the simplest whole-number ratio." },
+            { "lead": "Ratio.", "text": "Divide by the smallest number of moles. If the ratio is not whole numbers, multiply to make it whole." },
             { "lead": "Equation.", "text": "Use the ratio as the numbers in front of the formulae." }
           ]
         },
@@ -166,7 +166,7 @@
           "type": "list",
           "items": [
             "Moles of Al = 2.7 ÷ 27 = 0.10 mol. Moles of Cu = 9.525 ÷ 63.5 = 0.15 mol.",
-            "The ratio Al : Cu is 0.10 : 0.15, which is 2 : 3.",
+            "The ratio Al : Cu is 0.10 : 0.15, which is 1 : 1.5. Multiply by 2 to get 2 : 3.",
             "So the equation is 2Al + 3CuCl₂ → 3Cu + 2AlCl₃."
           ]
         },
@@ -219,8 +219,8 @@
           "right": "'Fewer collisions' alone is ignored. Say there are fewer particles, so the collisions are less frequent."
         },
         {
-          "wrong": "1.00 kg of aluminium is less than 3.00 kg of iron oxide, so aluminium is limiting.",
-          "right": "Masses cannot be compared directly. Work out the moles of each, then use the 2 : 1 ratio from the equation to compare."
+          "wrong": "Iron oxide is limiting because 18.75 mol of Fe₂O₃ is fewer moles than 37.0 mol of Al.",
+          "right": "Use the 2 : 1 ratio in the equation. 18.75 mol of Fe₂O₃ needs 2 × 18.75 = 37.5 mol of Al, but only 37.0 mol is present, so aluminium is limiting."
         }
       ],
       "worked_example": {
@@ -288,7 +288,7 @@
         },
         {
           "wrong": "Moles of acid = 35.0 × 0.075 = 2.625.",
-          "right": "Convert cm³ to dm³ first by dividing by 1000. Using cm³ instead of dm³ loses a mark."
+          "right": "Convert cm³ to dm³ first by dividing by 1000. Using cm³ instead of dm³ gives only 1 mark for the two moles calculations."
         }
       ],
       "worked_example": {
@@ -309,6 +309,8 @@
     "status": "draft",
     "written_by": "sonnet-5-5",
     "written_at": "2026-10-01",
+    "checked_by": "sonnet-science-check",
+    "checked_at": "2026-10-01",
     "spec_point_ids": [
       "f560f102-8cf7-4174-8fdd-40934a71d926",
       "bf18ae89-f962-4974-81a1-d62b773bf1f4",

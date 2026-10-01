@@ -173,7 +173,7 @@
             "In Mg + 2HCl → MgCl₂ + H₂ the magnesium atoms lose two electrons, so they are oxidised.",
             "The hydrogen ions gain electrons, so they are reduced: 2H⁺ + 2e⁻ → H₂.",
             "In Cl₂ + 2Br⁻ → 2Cl⁻ + Br₂ chlorine gains electrons and is reduced. Bromide ions lose electrons and are oxidised.",
-            "A reaction in which no particle gains or loses electrons is not redox. Copper in CuO and in CuSO₄ is Cu²⁺ both times, so it is neither oxidised nor reduced."
+            "A reaction in which no particle gains or loses electrons is not redox. When CuO reacts with sulfuric acid to form CuSO₄, copper is Cu²⁺ both times, so it is neither oxidised nor reduced."
           ]
         },
         {
@@ -215,10 +215,10 @@
         "magnesium (atoms) are oxidised because they lose electrons",
         "zinc (ions) are reduced because they gain electrons",
         "reduction is gain of electrons",
-        "Fe3+ + 3e– → Fe",
-        "Na → Na+ + e–",
-        "Mg(s) + Zn2+(aq) → Mg2+(aq) + Zn(s)",
-        "(H+ ions) gain electrons"
+        "Fe³⁺ + 3e⁻ → Fe",
+        "Na → Na⁺ + e⁻",
+        "Mg(s) + Zn²⁺(aq) → Mg²⁺(aq) + Zn(s)",
+        "(H⁺ ions) gain electrons"
       ],
       "mistakes": [
         {
@@ -297,8 +297,8 @@
         "atoms lose electrons to form positive ions",
         "atoms are reduced to form negative ions",
         "atoms gain electrons to form negative ions",
-        "2Br– → Br2 + 2e–",
-        "Cl2 + 2e– → 2Cl–"
+        "2Br⁻ → Br₂ + 2e⁻",
+        "Cl₂ + 2e⁻ → 2Cl⁻"
       ],
       "mistakes": [
         {
@@ -327,6 +327,8 @@
     "status": "draft",
     "written_by": "sonnet-5-5",
     "written_at": "2026-10-01",
+    "checked_by": "sonnet-science-check",
+    "checked_at": "2026-10-01",
     "spec_point_ids": [
       "6f9a5c6d-bb04-4e01-bb11-683b2401b162",
       "6f5476cc-5fd6-4242-8fe5-6f8fe26ab842",

@@ -1,0 +1,422 @@
+{
+  "format": 1,
+  "concept_id": "phys-032",
+  "subject": "physics",
+  "title": "Structure of the atom",
+  "key_idea": "An atom has a tiny, positively charged **nucleus** of protons and neutrons, with negatively charged electrons around it. Almost all the mass is in the nucleus. Electrons sit at set energy levels and move when they absorb or emit electromagnetic radiation.",
+  "sections": [
+    {
+      "heading": "What an atom is made of",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "Every atom has a central nucleus surrounded by electrons. This section covers the three particles, their charges and masses, and why an atom has no overall charge."
+        },
+        {
+          "type": "definitions",
+          "items": [
+            {
+              "term": "Nucleus",
+              "meaning": "The tiny, positively charged centre of the atom, made of protons and neutrons."
+            },
+            {
+              "term": "Proton",
+              "meaning": "A positively charged particle in the nucleus."
+            },
+            {
+              "term": "Neutron",
+              "meaning": "A particle in the nucleus with no charge."
+            },
+            {
+              "term": "Electron",
+              "meaning": "A negatively charged particle that orbits the nucleus."
+            }
+          ]
+        },
+        {
+          "type": "table",
+          "columns": [
+            "Particle",
+            "Where it is",
+            "Relative charge",
+            "Relative mass"
+          ],
+          "rows": [
+            [
+              "Proton",
+              "In the nucleus",
+              "+1",
+              "1"
+            ],
+            [
+              "Neutron",
+              "In the nucleus",
+              "0",
+              "1"
+            ],
+            [
+              "Electron",
+              "Orbiting the nucleus",
+              "-1",
+              "Very small"
+            ],
+            [
+              "Positron",
+              "Emitted from some nuclei",
+              "+1",
+              "Very small (same as an electron)"
+            ]
+          ]
+        },
+        {
+          "type": "list",
+          "items": [
+            "The nucleus is positively charged because it holds the protons.",
+            "Almost all of the mass of an atom is in the nucleus, because electrons have a very small mass.",
+            "In an atom the number of protons equals the number of electrons.",
+            "The positive and negative charges balance, so an atom has no overall charge."
+          ]
+        },
+        {
+          "type": "key-points",
+          "items": [
+            "The nucleus holds the protons and neutrons and is positively charged.",
+            "Electrons are negatively charged and have a very small mass.",
+            "Protons and electrons are equal in number, so atoms are neutral."
+          ]
+        }
+      ]
+    },
+    {
+      "heading": "The size of an atom",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "Atoms are very small, and the nucleus is far smaller still. Most of an atom is empty space."
+        },
+        {
+          "type": "list",
+          "items": [
+            "An atom has a radius of about 1 × 10⁻¹⁰ m. This is the typical size of atoms and small molecules.",
+            "The radius of the nucleus is less than 1/10 000 of the radius of the atom.",
+            "The nucleus has almost all of the mass, in a very small volume."
+          ]
+        },
+        {
+          "type": "equation",
+          "label": "Ratio of atom to nucleus",
+          "formula": "ratio = radius of atom ÷ radius of nucleus",
+          "where": [
+            "The radii are in the same unit, for example metres (m).",
+            "The ratio has no unit."
+          ]
+        },
+        {
+          "type": "paragraph",
+          "text": "An atom of radius 1.0 × 10⁻¹⁰ m with a nucleus of radius 1.0 × 10⁻¹⁵ m gives 10⁻¹⁰ ÷ 10⁻¹⁵ = 10⁵. The atom is 100 000 times wider than its nucleus."
+        },
+        {
+          "type": "equation",
+          "label": "Diameter",
+          "formula": "diameter = 2 × radius",
+          "where": [
+            "diameter and radius are in metres (m)."
+          ]
+        },
+        {
+          "type": "equation",
+          "label": "Length of a line of atoms",
+          "formula": "length = number of atoms × diameter of one atom",
+          "where": [
+            "length and diameter are in metres (m)."
+          ]
+        },
+        {
+          "type": "diagram",
+          "diagram": {
+            "kind": "practice",
+            "alt": "Calculate the length of a line of atoms.",
+            "question": "An atom has a radius of 0.10 nm. A molecule is made of {n} of these atoms in a straight line. Calculate the length of the molecule in nanometres.",
+            "variables": [
+              {
+                "id": "n",
+                "min": 10,
+                "max": 100,
+                "step": 10
+              }
+            ],
+            "answer": {
+              "formula": "n * 2 * 0.1",
+              "unit": "nm",
+              "decimals": 1
+            },
+            "working": [
+              "Diameter of one atom = 2 × 0.10 = 0.20 nm",
+              "Length = {n} × 0.20",
+              "Length = {answer} nm"
+            ]
+          }
+        },
+        {
+          "type": "key-points",
+          "items": [
+            "An atom has a radius of about 1 × 10⁻¹⁰ m.",
+            "The nucleus has a radius less than 1/10 000 of the atom.",
+            "Use the diameter, which is twice the radius, to find the length of a line of atoms."
+          ]
+        }
+      ]
+    },
+    {
+      "heading": "Energy levels and ions",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "Electrons are arranged at different distances from the nucleus. These distances are different energy levels."
+        },
+        {
+          "type": "definitions",
+          "items": [
+            {
+              "term": "Energy level",
+              "meaning": "A set distance from the nucleus at which an electron can orbit."
+            },
+            {
+              "term": "Excited electron",
+              "meaning": "An electron that has absorbed energy and moved to a higher energy level."
+            },
+            {
+              "term": "Ion",
+              "meaning": "An atom that has lost or gained electrons, so it has an overall charge."
+            }
+          ]
+        },
+        {
+          "type": "diagram",
+          "diagram": {
+            "kind": "compare",
+            "alt": "Compare an electron absorbing radiation with an electron emitting radiation.",
+            "items": [
+              "Absorbs radiation",
+              "Emits radiation"
+            ],
+            "rows": [
+              {
+                "feature": "Energy of the electron",
+                "values": [
+                  "Increases",
+                  "Decreases"
+                ]
+              },
+              {
+                "feature": "Electron moves",
+                "values": [
+                  "Further from the nucleus",
+                  "Closer to the nucleus"
+                ]
+              },
+              {
+                "feature": "New energy level",
+                "values": [
+                  "Higher",
+                  "Lower"
+                ]
+              }
+            ]
+          }
+        },
+        {
+          "type": "list",
+          "items": [
+            "An electron absorbs electromagnetic radiation to move to a higher energy level.",
+            "An electron emits electromagnetic radiation when it falls to a lower energy level.",
+            "If an outer electron absorbs enough energy it leaves the atom. This is called ionisation.",
+            "An atom that loses outer electrons becomes a positive ion.",
+            "Changes in atoms and nuclei can generate and absorb radiation over a wide frequency range. Gamma rays come from the nucleus."
+          ]
+        },
+        {
+          "type": "key-points",
+          "items": [
+            "Electrons move up an energy level by absorbing radiation and down by emitting it.",
+            "Losing an outer electron makes a positive ion.",
+            "The emitted or absorbed radiation can be from any part of the electromagnetic spectrum."
+          ]
+        }
+      ]
+    }
+  ],
+  "checks": [
+    {
+      "q": "Give the relative charge and position of a proton, a neutron and an electron.",
+      "a": "Proton: +1, in the nucleus. Neutron: 0, in the nucleus. Electron: -1, orbiting the nucleus.",
+      "marks": 3
+    },
+    {
+      "q": "Explain why an atom has no overall charge.",
+      "a": "It has the same number of protons and electrons. The positive and negative charges balance.",
+      "marks": 2
+    },
+    {
+      "q": "Describe what happens to an electron when it absorbs electromagnetic radiation, and what happens when it emits it.",
+      "a": "When it absorbs radiation it moves to a higher energy level, further from the nucleus. When it emits radiation it moves to a lower energy level, closer to the nucleus.",
+      "marks": 2
+    }
+  ],
+  "boards": {
+    "aqa": {
+      "spec_codes": [
+        "AQA 4.4.1.1",
+        "AQA T 6.4.1.1"
+      ],
+      "exam_phrases": [
+        "to move to a higher energy level an electron absorbs energy from electromagnetic radiation",
+        "to move to a lower energy level an electron emits energy in the form of electromagnetic radiation",
+        "diameter = 0.18/6000",
+        "same number of electrons",
+        "same number of protons"
+      ],
+      "mistakes": [
+        {
+          "wrong": "An electron moves to a higher energy level when it emits radiation.",
+          "right": "It is the other way round. An electron absorbs electromagnetic radiation to move up and emits it to move down."
+        },
+        {
+          "wrong": "An electron changes energy level by emitting or absorbing radiation.",
+          "right": "This earns only one mark. Say which happens for the move up (absorbs) and which for the move down (emits)."
+        }
+      ],
+      "worked_example": {
+        "exemplar_id": "edcff7ae-2e96-47f0-881e-aad89bd8110c",
+        "source": "AQA jun 2023, Paper 1 (H), Q08.6",
+        "question": "Explain how an electron can move up and down between energy levels in an atom.",
+        "marks": 2,
+        "answer_points": [
+          "To move to a higher energy level an electron absorbs energy from electromagnetic radiation.",
+          "To move to a lower energy level an electron emits energy in the form of electromagnetic radiation."
+        ],
+        "tip": "One mark for each direction. Absorbing energy by collision with another electron is also accepted for the move up."
+      }
+    },
+    "edexcel": {
+      "spec_codes": [
+        "EDEX 5.24",
+        "EDEX 6.1",
+        "EDEX 6.2",
+        "EDEX 6.5",
+        "EDEX 6.6",
+        "EDEX 6.7",
+        "EDEX 6.8",
+        "EDEX 6.9",
+        "EDEX 10.1"
+      ],
+      "exam_phrases": [
+        "same number / amount of electrons and protons",
+        "UV/energy absorbed by electrons",
+        "electrons change orbit/energy level/shell",
+        "electrons emit energy/ move to lower energy level/fall down/de-excite",
+        "ratio = 10-10 / 10-15"
+      ],
+      "mistakes": [
+        {
+          "wrong": "An atom has no charge because the neutrons are neutral.",
+          "right": "Neutrons are ignored here. The answer is the same number of electrons and protons."
+        },
+        {
+          "wrong": "The ratio of the radius of the atom to the radius of the nucleus is 10⁻¹⁵ : 10⁻¹⁰.",
+          "right": "This is the ratio the wrong way round and earns only 1 mark. The atom is larger, so the ratio is 10⁻¹⁰ ÷ 10⁻¹⁵ = 10⁵."
+        },
+        {
+          "wrong": "An atom has no charge because the neutrons are positive and negative.",
+          "right": "This is rejected. Neutrons have no charge at all."
+        }
+      ],
+      "worked_example": {
+        "exemplar_id": "85665a21-8587-4000-bbd8-b07ff24ed510",
+        "source": "EDEXCEL jun 2023, Paper 1 (F), Q4(a)(ii)",
+        "question": "An atom has a central nucleus containing neutrons and protons. Electrons orbit the nucleus.\nAn atom has a radius of 1.0 × 10⁻¹⁰ m.\nA nucleus has a radius of 1.0 × 10⁻¹⁵ m.\n\nCalculate the ratio of the radius of the atom to the radius of the nucleus.",
+        "marks": 2,
+        "answer_points": [
+          "Substitution: ratio = 10⁻¹⁰ / 10⁻¹⁵ (or 10⁻¹⁰ : 10⁻¹⁵)",
+          "Evaluation: 10⁵ (or 100 000 : 1)"
+        ],
+        "tip": "Equivalent ratios such as 1 × 10⁵ : 1 are accepted. The correct answer with no working scores full marks."
+      }
+    },
+    "ocr": {
+      "spec_codes": [
+        "OCR P1.1b",
+        "OCR P1.1c",
+        "OCR P6.1h",
+        "OCR P6.1i"
+      ],
+      "exam_phrases": [
+        "Positively (charged nucleus)",
+        "Negatively (charged electrons)",
+        "Almost all of the mass of an atom is in the nucleus",
+        "Electrons move from a higher energy level to a lower energy level and emit light",
+        "Electron absorbs or gains energy",
+        "Electron escapes / leaves the atom"
+      ],
+      "mistakes": [
+        {
+          "wrong": "Molecule length = 20 × 1.0 × 10⁻¹⁰ = 2.0 × 10⁻⁹ m, using the radius.",
+          "right": "The radius is not doubled to a diameter, so this earns only 1 mark. Length = 2 × 1.0 × 10⁻¹⁰ × 20 = 4.0 × 10⁻⁹ m."
+        },
+        {
+          "wrong": "The molecule is 40 × 10⁻¹⁰ m long.",
+          "right": "This is not standard form and earns only 1 mark. Write 4.0 × 10⁻⁹ m."
+        },
+        {
+          "wrong": "When an electron absorbs radiation it only moves to a higher energy level.",
+          "right": "Two effects are credited: the electron becomes excited and moves to a higher level, or it escapes from the atom, which makes the atom an ion."
+        }
+      ],
+      "worked_example": {
+        "exemplar_id": "86d18641-8108-4af5-81ab-b09ceb5eb9f6",
+        "source": "OCR jun 2025, Paper 3, Q18(c)",
+        "question": "A typical atom has a radius of 1.0 × 10⁻¹⁰ m.\n\nA molecule consists of 20 of these atoms in a long line.\n\nCalculate the length of this molecule.\n\nWrite your answer in standard form.",
+        "marks": 2,
+        "answer_points": [
+          "Molecule length = 2 × 1.0 × 10⁻¹⁰ × 20",
+          "Molecule length = 4.0 × 10⁻⁹ m"
+        ],
+        "tip": "The 2 turns the radius into a diameter. The correct answer on the answer line scores both marks."
+      }
+    }
+  },
+  "meta": {
+    "status": "draft",
+    "written_by": "sonnet-5-5",
+    "written_at": "2026-10-01",
+    "spec_point_ids": [
+      "e94dd4a0-cddb-4ee8-9714-7f1db1c91e97",
+      "f8f2395b-05a1-4711-9ecd-f6b482d40d52",
+      "2669d044-8bfe-46d7-86a9-fc41f1e56a8f",
+      "0bd098e7-c366-4cf6-9fa5-4f00783e8117",
+      "eb50039f-fb32-4f23-ae2f-2463b7fa1885",
+      "80eeea29-99dc-4c48-93c4-cd7be19b6bf6",
+      "66bb9849-8279-42a6-a482-736141ee44fa",
+      "a1bfa499-100c-4e3f-ae67-9e4fc9d6ad28",
+      "17c04418-ed9a-4f29-8f1a-1cf4cdf6b090",
+      "f818c42e-8c10-46f5-a117-95acb1de47dc",
+      "7fffd8f3-0534-42f6-9b0d-e57936dc3103",
+      "24564680-80fa-476a-9ba7-8e2b5f448cc2",
+      "5ecf9c05-e7f3-4906-8fd5-f0e7c5bb1d4f",
+      "d97e9e6c-b7da-41f1-b2a4-7b58ac37f119",
+      "7c3c1df5-650f-4133-8cb9-58a044ede6a7"
+    ],
+    "exemplar_ids": [
+      "edcff7ae-2e96-47f0-881e-aad89bd8110c",
+      "85665a21-8587-4000-bbd8-b07ff24ed510",
+      "86d18641-8108-4af5-81ab-b09ceb5eb9f6",
+      "a875233f-3e4a-452f-829b-600657c78a22",
+      "5480bf8a-6868-49e3-ada6-95853e09e53e",
+      "aea7ce20-fb82-4661-9ad4-916d297748bc",
+      "0aa843c4-885d-4e59-b40a-1b579d9fe398",
+      "6f13d2a3-eefc-4b17-a65c-fdeda136088e",
+      "6a5d18e9-f459-4678-93c7-83b95218c823",
+      "64d3b5b1-669c-4a17-a30c-be7ead1fe4e4"
+    ]
+  }
+}

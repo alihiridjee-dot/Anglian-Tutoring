@@ -150,7 +150,7 @@
           "type": "list",
           "items": [
             "Starch is broken down to glucose by amylase, a carbohydrase. The starch fits the active site and the bonds between glucose molecules are broken.",
-            "Proteins are broken down to amino acids.",
+            "Proteins are broken down to amino acids by protease enzymes.",
             "Lipids are broken down by lipase to fatty acids and glycerol. The fatty acids are acidic, so the pH falls.",
             "Glucose, amino acids, fatty acids and glycerol move into cells from the blood.",
             "Excess amino acids are broken down to form urea, which is excreted."
@@ -177,7 +177,7 @@
           "type": "list",
           "items": [
             "A swimming fish has a higher metabolic rate than a resting fish, because movement needs more energy and so more respiration.",
-            "Thyroxine increases metabolic rate. More respiration releases more energy as heat, so body temperature rises."
+            "The mean metabolic rate of humans falls with age, for example from 53 to 36 kJ/m²/hour in males between 5 and 45 years old."
           ]
         },
         {
@@ -259,8 +259,7 @@
         "urea / glycogen / starch / cellulose",
         "glucose / amino acids / fatty acids / glycerol / water / mineral ions move into cells",
         "respiration releases energy / is exothermic",
-        "(thyroxine) increases (basal) metabolic rate",
-        "(so) less glucose for respiration, so less energy released / transferred"
+        "(increased) movement needs (more) energy, so more respiration takes place"
       ],
       "mistakes": [
         {
@@ -317,8 +316,8 @@
           "right": "Say lipase digests the fat, forming fatty acids (and glycerol), and that the fatty acids are acidic, so they lower the pH."
         },
         {
-          "wrong": "Fat is digested to fatty acids only.",
-          "right": "Fats are digested by an enzyme, lipase, into glycerol and fatty acids. Name both products."
+          "wrong": "Fat is digested to fatty acids only, when describing how fat is digested.",
+          "right": "Fats are digested by an enzyme, lipase, into glycerol and fatty acids. When describing digestion, name both products."
         }
       ],
       "worked_example": {
@@ -392,6 +391,8 @@
       "ac329d10-9ebf-4d7e-a7ba-eab99f76a15a",
       "51b24e35-7391-463a-9a0e-d05ff1375329",
       "efba3ddd-6c4c-486f-a736-dbf37a2b6846"
-    ]
+    ],
+    "checked_by": "sonnet-science-check",
+    "checked_at": "2026-10-01"
   }
 }

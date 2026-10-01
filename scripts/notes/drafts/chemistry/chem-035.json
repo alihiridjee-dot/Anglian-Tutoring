@@ -80,7 +80,7 @@
             "alt": "Practise calculating a concentration in g/dm³ from a mass and a volume in cm³.",
             "question": "**{m}** g of solute is dissolved in water to make **{v}** cm³ of solution. Calculate the concentration in g/dm³.",
             "variables": [
-              { "id": "m", "min": 5, "max": 50, "step": 5 },
+              { "id": "m", "min": 5, "max": 30, "step": 5 },
               { "id": "v", "min": 100, "max": 500, "step": 50 }
             ],
             "answer": { "formula": "m / (v / 1000)", "unit": "g/dm³", "decimals": 1 },
@@ -102,7 +102,7 @@
     {
       "heading": "Mass of solute and volume of solution",
       "blocks": [
-        { "type": "paragraph", "text": "Rearrange the equation to find the mass of solute in a volume of solution, or the volume that holds a given mass." },
+        { "type": "paragraph", "text": "(Higher tier) Rearrange the equation to find the mass of solute in a volume of solution, or the volume that holds a given mass." },
         {
           "type": "equation",
           "label": "Mass of solute",
@@ -117,7 +117,7 @@
         },
         {
           "type": "paragraph",
-          "text": "Example: the mass of solute in 25 cm³ of a 21 g/dm³ solution is 21 × (25 ÷ 1000) = 0.525 g."
+          "text": "Example: the mass of solute in 50 cm³ of a 12 g/dm³ solution is 12 × (50 ÷ 1000) = 0.60 g."
         },
         {
           "type": "diagram",
@@ -219,8 +219,8 @@
           "right": "28.4 ÷ 250 gives g per cm³. Convert the volume to dm³ first: 28.4 ÷ 0.250 = 113.6, which is 114 g/dm³. Leaving the volume in cm³ scores 2 of the 3 marks."
         },
         {
-          "wrong": "Rounding 113.6 to 0.11 or 113 for 3 significant figures.",
-          "right": "113.6 to 3 significant figures is 114. Rounding it incorrectly loses the first mark."
+          "wrong": "113.6 is 113 to 3 significant figures.",
+          "right": "113.6 to 3 significant figures is 114. Rounding it incorrectly loses a mark."
         },
         {
           "wrong": "The volume of 12 g/dm³ solution holding 9.0 g is 12 × 1000 ÷ 9 = 1333 cm³.",
@@ -274,7 +274,7 @@
           "Mass = concentration × volume = 21 × 0.025 = 0.525 g.",
           "= 0.53 g (2 significant figures)."
         ],
-        "tip": "An answer of 0.53 g scores all 3 marks. 0.525 g without the rounding scores 2."
+        "tip": "An answer of 0.53 g scores all 3 marks. 0.525 g without working scores 2."
       }
     }
   },
@@ -282,6 +282,8 @@
     "status": "draft",
     "written_by": "sonnet-5-5",
     "written_at": "2026-10-01",
+    "checked_by": "sonnet-science-check",
+    "checked_at": "2026-10-01",
     "spec_point_ids": [
       "801450c1-c607-4de7-a09b-7337a91475c1",
       "82d9f92f-3dcb-449e-a9be-0c7a2856d1c7",
