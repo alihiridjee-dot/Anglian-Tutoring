@@ -1,6 +1,8 @@
 import { useState } from "react";
 import { useQuery, useQueryClient } from "@tanstack/react-query";
+import { Video } from "lucide-react";
 import { EmptyState, ErrorNote, Spinner } from "@/components/Shared";
+import { Sparkles, Squiggle } from "@/components/Doodles";
 import { useNow } from "@/hooks/useNow";
 import { AppLayout } from "@/components/AppLayout";
 import { FilterBar, type Filters } from "@/components/FilterBar";
@@ -70,7 +72,27 @@ export function Live() {
       {/* Students get a live countdown to their next session up top. */}
       {!isTutor && <NextSessionCountdown />}
 
-      <FilterBar value={filters} onChange={setFilters} />
+      {/* Tutors see every session across every subject, so they keep the
+          filter. A student's list is already scoped to their own subjects by
+          RLS, and a subject/board/level picker would frame these as classes
+          run for everyone — so they get a heading instead. */}
+      {isTutor ? (
+        <FilterBar value={filters} onChange={setFilters} />
+      ) : (
+        <div className="mb-6 flex items-center gap-3">
+          <span className="icon-tile size-10 shrink-0 sm:size-11">
+            <Video className="size-5 sm:size-6" aria-hidden />
+          </span>
+          <h2 className="text-xl font-extrabold sm:text-2xl">
+            Live sessions, delivered{" "}
+            <span className="relative inline-block whitespace-nowrap">
+              for you
+              <Squiggle className="absolute -bottom-2 left-0" />
+            </span>
+            <Sparkles className="ml-1.5 inline-block size-6 -translate-y-2" />
+          </h2>
+        </div>
+      )}
 
       {/* Upcoming / Previous tab switch */}
       <LiveTabs

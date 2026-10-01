@@ -1,19 +1,36 @@
-import { ErrorNote } from "@/components/Shared";
+import { EmptyState, ErrorNote } from "@/components/Shared";
 import { useQuery, useQueryClient } from "@tanstack/react-query";
-import { courseKey, progressQuery, invalidatePlanner } from "@/lib/planner/queries";
+import { progressQuery, invalidatePlanner } from "@/lib/planner/queries";
 import { Spinner } from "@/components/Shared";
 import { useEffect, useMemo, useState } from "react";
 import { toast } from "sonner";
-import { Loader2, ClipboardList, ListChecks, History, ChevronDown, RotateCcw } from "lucide-react";
-import { ScheduleDAL, type CoveredTopic } from "@/lib/planner/scheduleDal";
+import { Loader2, ListChecks, Check, ChevronDown, RotateCcw } from "lucide-react";
+import { type ProgressPoint, type TopicProgress } from "@/lib/planner/scheduleDal";
 import { WeeklyPlanDAL } from "@/lib/planner/weeklyPlanDal";
-import { STRONG_THRESHOLD } from "@/lib/planner/coverage";
+import { isDueBy, retrievability } from "@/lib/planner/scheduler";
 import { type Enrolment } from "@/lib/profile/enrolment";
 import { type SubjectV, type BoardV, type LevelV } from "@/lib/curriculum/taxonomy";
 import { currentWeekKey } from "@/lib/planner/week";
 import { subjectLabel } from "@/lib/curriculum/courseSummary";
+import { useNow } from "@/hooks/useNow";
 
-/** Practised specification points and their best homework/quiz marks, grouped by topic. */
+/** A point is done once it has a homework or quiz mark behind it. */
+const isDone = (p: ProgressPoint) =>
+  p.lastReviewedAt != null && (p.homeworkScore != null || p.quizScore != null);
+
+/**
+ * A review is due when a practised point's memory card has come round again —
+ * the same rule the planner's memory stats count as "due now". Never-practised
+ * points have no card to review, so they are new work, not a review.
+ */
+const isReviewDue = (p: ProgressPoint, now: Date) =>
+  retrievability(p.card, now) !== null && isDueBy(p.card, now);
+
+/**
+ * Every topic and specification point in the course as one scrollable table:
+ * a tick for each point the student has done, and how many reviews each topic
+ * has due. Topics collapse so the whole course fits on a screen.
+ */
 export function CoveredLedger({
   studentId,
   enrolments,
@@ -52,17 +69,12 @@ export function CoveredLedger({
     board: (active?.board ?? "aqa") as BoardV,
     level,
   };
-  const history = useQuery({
-    queryKey: [...courseKey(params), "history"],
-    queryFn: async () =>
-      ScheduleDAL.getCoveredLedger({
-        ...params,
-        progress: await queryClient.fetchQuery(progressQuery(params)),
-      }),
-    enabled: !!active,
-  });
-  const data = history.data ?? [];
-  const loading = history.isLoading;
+  // The planner's own progress read: refetched whenever a homework or quiz
+  // lands (invalidatePlanner), so ticks and due counts follow the work.
+  const progress = useQuery({ ...progressQuery(params), enabled: !!active });
+  const data = progress.data ?? [];
+  // Reviews come due with the clock, not only with new work.
+  const now = new Date(useNow(60_000));
   const [expanded, setExpanded] = useState<Set<string>>(new Set());
   const [retaking, setRetaking] = useState<string | null>(null);
 
@@ -74,7 +86,7 @@ export function CoveredLedger({
       return next;
     });
 
-  const retake = async (topic: CoveredTopic) => {
+  const retake = async (topic: TopicProgress) => {
     if (!active) return;
     setRetaking(topic.topicId);
     try {
@@ -100,25 +112,35 @@ export function CoveredLedger({
   };
 
   if (!active) return null;
-  if (history.error)
-    return <ErrorNote error={history.error} onRetry={() => void history.refetch()} />;
+  if (progress.error)
+    return <ErrorNote error={progress.error} onRetry={() => void progress.refetch()} />;
 
-  const total = data.reduce((n, t) => n + t.points.length, 0);
+  const points = data.flatMap((t) => t.points);
+  const doneTotal = points.filter(isDone).length;
+  const dueTotal = points.filter((p) => isReviewDue(p, now)).length;
 
   return (
-    <div className="rounded-2xl premium-card p-4 sm:p-5 shadow-sm mt-6">
-      <div className="flex flex-wrap items-center justify-between gap-3 mb-4">
+    <div className="tint-emerald rounded-2xl premium-card shadow-sm mt-6 overflow-hidden">
+      <div className="flex flex-wrap items-center justify-between gap-3 p-4 sm:p-5">
         <div className="flex items-center gap-2.5">
-          <div className="w-9 h-9 rounded-xl bg-emerald-500/10 text-emerald-600 dark:text-emerald-400 flex items-center justify-center shrink-0">
-            <History className="w-5 h-5" />
-          </div>
+          <span className="icon-tile size-9 shrink-0">
+            <ListChecks className="size-5" aria-hidden />
+          </span>
           <div>
-            <h2 className="font-display text-base font-bold tracking-tight">Covered so far</h2>
-            <p className="text-xs text-muted-foreground">
-              {total > 0
-                ? `${total} spec ${total === 1 ? "point" : "points"} practised, and how each went.`
-                : "What you've practised will build up here."}
-            </p>
+            <h2 className="text-lg font-bold tracking-tight">Course checklist</h2>
+            {points.length > 0 && (
+              <div className="mt-1.5 flex flex-wrap gap-2">
+                <span className="chip text-sm!">
+                  <Check className="size-4" strokeWidth={3} aria-hidden />
+                  {doneTotal} of {points.length} done
+                </span>
+                {dueTotal > 0 && (
+                  <span className="chip tint-amber text-sm!">
+                    {dueTotal} {dueTotal === 1 ? "review" : "reviews"} due
+                  </span>
+                )}
+              </div>
+            )}
           </div>
         </div>
         {subject == null && ordered.length > 1 && (
@@ -141,108 +163,149 @@ export function CoveredLedger({
         )}
       </div>
 
-      {loading ? (
+      {progress.isLoading ? (
         <Spinner className="py-8" />
-      ) : total === 0 ? (
-        <p className="rounded-xl border border-dashed border-border p-6 text-center text-sm text-muted-foreground">
-          Nothing logged yet — do some homework or a quiz and it'll show up here with your mark.
-        </p>
+      ) : points.length === 0 ? (
+        <div className="px-4 pb-4 sm:px-5 sm:pb-5">
+          <EmptyState
+            mascot="owl"
+            mood="sleepy"
+            title="No spec points yet"
+            body="This course has no topics loaded."
+          />
+        </div>
       ) : (
-        <div className="space-y-2.5">
-          {data.map((t) => {
-            const isOpen = expanded.has(t.topicId);
-            const strongCount = t.points.filter(
-              (p) =>
-                (p.homeworkScore ?? 0) >= STRONG_THRESHOLD ||
-                (p.quizScore ?? 0) >= STRONG_THRESHOLD,
-            ).length;
-            return (
-              <div
-                key={t.topicId}
-                className="rounded-xl border border-border bg-muted/20 overflow-hidden"
-              >
-                <button
-                  type="button"
-                  onClick={() => toggle(t.topicId)}
-                  className="w-full flex items-center gap-2.5 px-3.5 py-3 text-left hover:bg-muted/40 transition"
-                  aria-expanded={isOpen}
-                >
-                  <div className="flex-1 min-w-0">
-                    <h3 className="text-sm font-bold">{t.title}</h3>
-                    <p className="text-[11px] text-muted-foreground">
-                      {t.points.length} {t.points.length === 1 ? "point" : "points"} practised ·{" "}
-                      {strongCount} going well
-                    </p>
-                  </div>
-                  <ChevronDown
-                    className={`w-4 h-4 text-muted-foreground shrink-0 transition-transform ${
-                      isOpen ? "rotate-180" : ""
-                    }`}
-                  />
-                </button>
-                {isOpen && (
-                  <div className="px-3.5 pb-3.5 pt-0.5 border-t border-border space-y-1.5">
-                    {t.points.map((p) => (
-                      <div
-                        key={p.id}
-                        className="flex items-center gap-3 rounded-lg premium-card p-2.5"
+        <div className="scroll-slim max-h-[34rem] overflow-y-auto border-t border-border">
+          <table className="w-full text-sm">
+            <thead className="sticky top-0 z-10 bg-muted text-muted-foreground text-xs tracking-widest uppercase">
+              <tr>
+                <th className="px-3 sm:px-5 py-3 text-left">
+                  <span className="sm:hidden">Topic</span>
+                  <span className="hidden sm:inline">Topic / spec point</span>
+                </th>
+                <th className="w-14 px-1 py-3 text-center sm:w-20 sm:px-2">Done</th>
+                <th className="w-14 px-2 py-3 text-center whitespace-nowrap sm:w-36 sm:px-5">
+                  <span className="sm:hidden">Due</span>
+                  <span className="hidden sm:inline">Reviews due</span>
+                </th>
+              </tr>
+            </thead>
+            {data.map((t) => {
+              const isOpen = expanded.has(t.topicId);
+              const done = t.points.filter(isDone).length;
+              const due = t.points.filter((p) => isReviewDue(p, now)).length;
+              return (
+                <tbody key={t.topicId} className="border-b border-foreground/20 last:border-b-0">
+                  <tr
+                    onClick={() => toggle(t.topicId)}
+                    className="cursor-pointer hover:bg-muted/30"
+                  >
+                    <td className="px-3 sm:px-5 py-3">
+                      <button
+                        type="button"
+                        aria-expanded={isOpen}
+                        className="flex w-full items-center gap-2 text-left"
                       >
-                        <div className="flex-1 min-w-0">
-                          <span className="text-[11px] font-semibold text-muted-foreground mr-1.5">
+                        <ChevronDown
+                          className={`size-4 shrink-0 text-muted-foreground transition-transform ${
+                            isOpen ? "" : "-rotate-90"
+                          }`}
+                          aria-hidden
+                        />
+                        <span className="min-w-0 font-medium">{t.title}</span>
+                      </button>
+                    </td>
+                    {/* A finished topic gets the tick; any other shows how far
+                        through it is — green once started, neutral at zero. */}
+                    <td className="px-1 py-3 text-center sm:px-2">
+                      {t.points.length > 0 && done === t.points.length ? (
+                        <Tick done />
+                      ) : (
+                        <span className={`chip numeral ${done === 0 ? "tint-slate" : ""}`}>
+                          {done}/{t.points.length}
+                        </span>
+                      )}
+                    </td>
+                    <td className="px-2 py-3 text-center sm:px-5">
+                      {due > 0 ? (
+                        <span className="chip tint-amber numeral">{due}</span>
+                      ) : (
+                        <span className="text-muted-foreground">—</span>
+                      )}
+                    </td>
+                  </tr>
+                  {isOpen &&
+                    t.points.map((p) => (
+                      <tr key={p.id} className="bg-muted/20">
+                        <td className="py-2.5 pr-2 pl-9 sm:pr-5 sm:pl-11">
+                          <span className="mr-1.5 text-[11px] font-bold whitespace-nowrap text-muted-foreground">
                             {p.code}
                           </span>
-                          <span className="text-sm">{p.title}</span>
-                        </div>
-                        <div className="flex items-center gap-1.5 shrink-0">
-                          {p.homeworkScore != null && (
-                            <ScoreChip icon="homework" score={p.homeworkScore} />
+                          {p.title}
+                        </td>
+                        <td className="px-1 py-2.5 text-center sm:px-2">
+                          <Tick done={isDone(p)} title={markTitle(p)} />
+                        </td>
+                        <td className="px-2 py-2.5 text-center sm:px-5">
+                          {isReviewDue(p, now) && (
+                            <span className="chip tint-amber text-[10px]">Due</span>
                           )}
-                          {p.quizScore != null && <ScoreChip icon="quiz" score={p.quizScore} />}
-                        </div>
-                      </div>
+                        </td>
+                      </tr>
                     ))}
-                    <button
-                      type="button"
-                      onClick={() => retake(t)}
-                      disabled={retaking === t.topicId}
-                      className="mt-1 inline-flex items-center gap-1.5 h-11 sm:h-8 px-3 rounded-lg border border-border text-xs font-semibold text-muted-foreground hover:text-primary hover:border-primary/40 disabled:opacity-50"
-                      title="Bring this whole topic back into this week to revise it again"
-                    >
-                      {retaking === t.topicId ? (
-                        <Loader2 className="w-3.5 h-3.5 animate-spin" />
-                      ) : (
-                        <RotateCcw className="w-3.5 h-3.5" />
-                      )}
-                      Retake this topic
-                    </button>
-                  </div>
-                )}
-              </div>
-            );
-          })}
+                  {isOpen && done > 0 && (
+                    <tr className="bg-muted/20">
+                      <td colSpan={3} className="pt-1 pr-4 pb-3 pl-9 sm:pl-11">
+                        <button
+                          type="button"
+                          onClick={() => retake(t)}
+                          disabled={retaking === t.topicId}
+                          className="inline-flex items-center gap-1.5 h-11 sm:h-8 px-3 rounded-lg border border-border text-xs font-semibold text-muted-foreground hover:text-primary hover:border-primary/40 disabled:opacity-50"
+                          title="Bring this whole topic back into this week to revise it again"
+                        >
+                          {retaking === t.topicId ? (
+                            <Loader2 className="w-3.5 h-3.5 animate-spin" />
+                          ) : (
+                            <RotateCcw className="w-3.5 h-3.5" />
+                          )}
+                          Retake this topic
+                        </button>
+                      </td>
+                    </tr>
+                  )}
+                </tbody>
+              );
+            })}
+          </table>
         </div>
       )}
     </div>
   );
 }
 
-function ScoreChip({ icon, score }: { icon: "homework" | "quiz"; score: number }) {
-  const strong = score >= STRONG_THRESHOLD;
+/** Best marks behind a done point, shown on hover over its tick. */
+function markTitle(p: ProgressPoint) {
+  const marks = [
+    p.homeworkScore != null ? `Homework best ${p.homeworkScore}%` : null,
+    p.quizScore != null ? `Quiz best ${p.quizScore}%` : null,
+  ].filter(Boolean);
+  return marks.length > 0 ? marks.join(" · ") : undefined;
+}
+
+/** A read-only checkbox: filled in the card's tint once the work is done. */
+function Tick({ done, title }: { done: boolean; title?: string }) {
   return (
     <span
-      className={`inline-flex items-center gap-1 h-6 px-2 rounded-md border text-[11px] font-medium ${
-        strong
-          ? "bg-emerald-500/10 border-emerald-500/30 text-emerald-700 dark:text-emerald-300"
-          : "bg-amber-500/10 border-amber-500/30 text-amber-700 dark:text-amber-300"
+      role="img"
+      aria-label={done ? "Done" : "Not done"}
+      title={title}
+      className={`inline-flex size-5 items-center justify-center rounded-[6px] border-[1.5px] ${
+        done
+          ? "border-[color:var(--tint)] bg-[color:var(--tint)] text-white"
+          : "border-border bg-card"
       }`}
-      title={`${icon === "homework" ? "Homework" : "Quiz"}: best ${score}%`}
     >
-      {icon === "homework" ? (
-        <ClipboardList className="w-3 h-3" />
-      ) : (
-        <ListChecks className="w-3 h-3" />
-      )}
-      <span className="tabular-nums font-semibold">{score}%</span>
+      {done && <Check className="size-3.5" strokeWidth={3} aria-hidden />}
     </span>
   );
 }
