@@ -1,7 +1,16 @@
 import { useMemo, useState, type ReactNode } from "react";
 import { evaluate, parseFormula } from "@/lib/notes/formula";
 import { Explorer, Practice, Punnett, Sequence, Sort } from "@/components/notes/NoteInteractives";
-import { ElectrolysisCell, ParticlesScene, RoadScene, WaveScene } from "@/components/notes/NoteScenes";
+import { ParticlesScene, RoadScene, WaveScene } from "@/components/notes/NoteScenes";
+import {
+  CircuitView,
+  DiffusionView,
+  EnzymeView,
+  GasSyringeView,
+  HalfLifeView,
+  PhScaleView,
+  PredictorSceneView,
+} from "@/components/notes/SceneLibrary";
 import { BookOpen, Eye, EyeOff, ArrowRight, RotateCcw } from "lucide-react";
 import { PageHeader } from "@/components/Shared";
 import { SUBJECT_LABEL, SUBJECT_TINT } from "@/lib/curriculum/subjectTheme";
@@ -229,7 +238,7 @@ function Predictor({ d }: { d: PredictorDiagram }) {
           </button>
         ))}
       </div>
-      {o.scene ? <div className="mt-4"><ElectrolysisCell s={o.scene} /></div> : null}
+      {o.scene ? <div className="mt-4"><PredictorSceneView s={o.scene} /></div> : null}
       <dl className="mt-4 divide-y divide-border rounded-xl bg-[color-mix(in_oklab,var(--tint)_7%,var(--card))] px-4" aria-live="polite">
         {d.result_labels.map((label, n) => (
           <div key={label} className="py-3 sm:flex sm:gap-4">
@@ -258,12 +267,37 @@ function share(d: SliderDiagram, id: string, vals: Record<string, number>) {
   return (vals[id] - inp.min) / (inp.max - inp.min);
 }
 
+/** The largest value an input can take (a slider's max, or its biggest choice). */
+function topOf(d: SliderDiagram, id: string) {
+  const inp = d.inputs.find((i) => i.id === id);
+  if (!inp) return 1;
+  return "choices" in inp ? Math.max(...inp.choices.map((c) => c.value)) : inp.max;
+}
+
 function SliderSceneView({ d, vals, results }: { d: SliderDiagram; vals: Record<string, number>; results: number[] }) {
   const s = d.scene!;
-  if (s.kind === "road") return <RoadScene thinking={results[s.thinking]} braking={results[s.braking]} />;
-  if (s.kind === "wave") return <WaveScene amplitude={share(d, s.amplitude, vals)} frequency={share(d, s.frequency, vals)} />;
-  const t = d.inputs.find((i) => i.id === s.temperature);
-  return <ParticlesScene temperature={vals[s.temperature]} melting={s.melting} boiling={s.boiling} unit={t && !("choices" in t) ? t.unit : undefined} />;
+  switch (s.kind) {
+    case "road":
+      return <RoadScene thinking={results[s.thinking]} braking={results[s.braking]} />;
+    case "wave":
+      return <WaveScene amplitude={share(d, s.amplitude, vals)} frequency={share(d, s.frequency, vals)} />;
+    case "particles": {
+      const t = d.inputs.find((i) => i.id === s.temperature);
+      return <ParticlesScene temperature={vals[s.temperature]} melting={s.melting} boiling={s.boiling} unit={t && !("choices" in t) ? t.unit : undefined} />;
+    }
+    case "half-life":
+      return <HalfLifeView time={vals[s.time]} halfLife={s.half_life} />;
+    case "gas-syringe":
+      return <GasSyringeView volume={results[s.volume]} max={s.max} rate={s.rate != null ? results[s.rate] : undefined} />;
+    case "circuit":
+      return <CircuitView arrangement={s.arrangement} brightness={results[s.brightness]} max={s.max} />;
+    case "enzyme":
+      return <EnzymeView value={vals[s.condition]} optimum={s.optimum} denaturesAt={s.denatures_at} />;
+    case "diffusion":
+      return <DiffusionView left={vals[s.left]} right={vals[s.right]} top={Math.max(topOf(d, s.left), topOf(d, s.right))} membrane={s.membrane} />;
+    case "ph":
+      return <PhScaleView ph={vals[s.ph]} />;
+  }
 }
 
 function Slider({ d }: { d: SliderDiagram }) {

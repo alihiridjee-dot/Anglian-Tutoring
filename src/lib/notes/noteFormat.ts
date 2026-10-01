@@ -80,7 +80,34 @@ export interface PredictorDiagram {
  * An illustrated scene drawn above a predictor's result. If one option has a
  * scene, every option must. Scenes are drawn by the app; a note only fills them in.
  */
-export type PredictorScene = ElectrolysisScene;
+export type PredictorScene = ElectrolysisScene | TubesScene | FlameScene | EnergyProfileScene;
+
+/** Colours a tube, flame or indicator can be. The app owns the exact shades. */
+export const SCENE_COLOURS = [
+  "colourless", "white", "cream", "pale-yellow", "yellow", "orange", "orange-red", "brick-red", "red",
+  "crimson", "pink", "purple", "lilac", "blue", "pale-blue", "blue-black", "green", "pale-green",
+  "green-blue", "brown", "black", "grey",
+] as const;
+export type SceneColour = (typeof SCENE_COLOURS)[number];
+
+/** Test tubes side by side: food tests, indicators, precipitate tests for ions. */
+export interface TubesScene {
+  kind: "tubes";
+  tubes: { label: string; colour: SceneColour; precipitate?: SceneColour; bubbles?: boolean }[];
+}
+
+/** A Bunsen flame in a colour: flame tests for metal ions. */
+export interface FlameScene {
+  kind: "flame";
+  colour: SceneColour;
+}
+
+/** A reaction profile: energy of reactants and products, activation energy, optional catalyst path. */
+export interface EnergyProfileScene {
+  kind: "energy-profile";
+  direction: "exothermic" | "endothermic";
+  catalyst?: boolean;
+}
 
 /** An electrolysis cell with inert electrodes. */
 export interface ElectrolysisScene {
@@ -100,7 +127,19 @@ export type SliderScene =
   /** A moving transverse wave: amplitude and frequency are input ids. */
   | { kind: "wave"; amplitude: string; frequency: string }
   /** Particles in a box that change state as `temperature` (an input id) crosses the melting and boiling points. */
-  | { kind: "particles"; temperature: string; melting: number; boiling: number };
+  | { kind: "particles"; temperature: string; melting: number; boiling: number }
+  /** 100 nuclei; at `time` (input id) a fraction 1 − ½^(time/half_life) has decayed. Same units for both. */
+  | { kind: "half-life"; time: string; half_life: number }
+  /** A flask fizzing into a gas syringe; `volume` (output index) of `max` cm³ collected, `rate` (output index, optional) sets the fizz. */
+  | { kind: "gas-syringe"; volume: number; max: number; rate?: number }
+  /** Two bulbs in series or parallel, glowing with `brightness` (output index) out of `max`. */
+  | { kind: "circuit"; arrangement: "series" | "parallel"; brightness: number; max: number }
+  /** An enzyme and substrate; the active site distorts as `condition` (input id) moves from `optimum`, and denatures beyond `denatures_at` away. */
+  | { kind: "enzyme"; condition: string; optimum: number; denatures_at: number }
+  /** Two regions separated by a membrane; `left` and `right` (input ids) set the concentrations. */
+  | { kind: "diffusion"; left: string; right: string; membrane?: string }
+  /** The universal indicator scale with a marker at `ph` (input id, 0–14). */
+  | { kind: "ph"; ph: string };
 
 /** A number input: a slider between min and max, or a set of named choices. */
 export type SliderInput =
@@ -336,7 +375,7 @@ function checkDiagram(d: NoteDiagram, at: string, errs: string[]) {
     if (Array.isArray(d.options)) {
       const withScene = d.options.filter((o) => o?.scene).length;
       if (withScene && withScene !== d.options.length) errs.push(`${at}: if one option has a scene, every option needs one`);
-      for (const o of d.options) if (o?.scene) checkElectrolysis(o.scene, `${at} option "${o.label}"`, errs);
+      for (const o of d.options) if (o?.scene) checkPredictorScene(o.scene, `${at} option "${o.label}"`, errs);
     }
   } else if (d?.kind === "slider") {
     checkSlider(d, at, errs);
@@ -400,11 +439,24 @@ function checkPractice(d: PracticeDiagram, at: string, errs: string[]) {
   }
 }
 
-function checkElectrolysis(s: ElectrolysisScene, at: string, errs: string[]) {
-  if (s.kind !== "electrolysis") { errs.push(`${at}: unknown scene ${JSON.stringify(s.kind)}`); return; }
-  if (!Array.isArray(s.ions) || s.ions.length !== 2 || !s.ions.every(isStr)) errs.push(`${at}: electrolysis scene needs two ions`);
-  if (!isStr(s.negative?.product) || !["gas", "metal"].includes(s.negative?.form)) errs.push(`${at}: negative electrode needs a product and form gas or metal`);
-  if (!isStr(s.positive?.product) || !["gas", "solution"].includes(s.positive?.form)) errs.push(`${at}: positive electrode needs a product and form gas or solution`);
+const isColour = (c: unknown) => (SCENE_COLOURS as readonly unknown[]).includes(c);
+
+function checkPredictorScene(s: PredictorScene, at: string, errs: string[]) {
+  if (s.kind === "electrolysis") {
+    if (!Array.isArray(s.ions) || s.ions.length !== 2 || !s.ions.every(isStr)) errs.push(`${at}: electrolysis scene needs two ions`);
+    if (!isStr(s.negative?.product) || !["gas", "metal"].includes(s.negative?.form)) errs.push(`${at}: negative electrode needs a product and form gas or metal`);
+    if (!isStr(s.positive?.product) || !["gas", "solution"].includes(s.positive?.form)) errs.push(`${at}: positive electrode needs a product and form gas or solution`);
+  } else if (s.kind === "tubes") {
+    if (!Array.isArray(s.tubes) || s.tubes.length < 1 || s.tubes.length > 6) errs.push(`${at}: tubes scene needs 1–6 tubes`);
+    else for (const t of s.tubes) {
+      if (!isStr(t?.label) || !isColour(t.colour)) errs.push(`${at}: every tube needs a label and a colour from SCENE_COLOURS`);
+      if (t?.precipitate != null && !isColour(t.precipitate)) errs.push(`${at}: precipitate colour must be one of SCENE_COLOURS`);
+    }
+  } else if (s.kind === "flame") {
+    if (!isColour(s.colour)) errs.push(`${at}: flame colour must be one of SCENE_COLOURS`);
+  } else if (s.kind === "energy-profile") {
+    if (!["exothermic", "endothermic"].includes(s.direction)) errs.push(`${at}: energy profile direction must be exothermic or endothermic`);
+  } else errs.push(`${at}: unknown scene ${JSON.stringify((s as { kind?: unknown }).kind)}`);
 }
 
 function checkSlider(d: SliderDiagram, at: string, errs: string[]) {
@@ -451,6 +503,24 @@ function checkSlider(d: SliderDiagram, at: string, errs: string[]) {
   } else if (sc.kind === "particles") {
     if (!sliderIds.has(sc.temperature)) errs.push(`${at}: particles scene needs a temperature slider id`);
     if (!(sc.boiling > sc.melting)) errs.push(`${at}: particles scene needs melting < boiling`);
+  } else if (sc.kind === "half-life") {
+    if (!sliderIds.has(sc.time)) errs.push(`${at}: half-life scene needs a time slider id`);
+    if (!(sc.half_life > 0)) errs.push(`${at}: half-life must be positive`);
+  } else if (sc.kind === "gas-syringe") {
+    if (!isOut(sc.volume) || (sc.rate != null && !isOut(sc.rate))) errs.push(`${at}: gas-syringe scene needs a volume (and optional rate) output index`);
+    if (!(sc.max > 0)) errs.push(`${at}: gas-syringe max must be positive`);
+  } else if (sc.kind === "circuit") {
+    if (!["series", "parallel"].includes(sc.arrangement)) errs.push(`${at}: circuit arrangement must be series or parallel`);
+    if (!isOut(sc.brightness) || !(sc.max > 0)) errs.push(`${at}: circuit scene needs a brightness output index and max > 0`);
+  } else if (sc.kind === "enzyme") {
+    if (!ids.has(sc.condition)) errs.push(`${at}: enzyme scene needs a condition input id`);
+    if (!(sc.denatures_at > 0)) errs.push(`${at}: enzyme denatures_at must be positive`);
+  } else if (sc.kind === "diffusion") {
+    if (!ids.has(sc.left) || !ids.has(sc.right)) errs.push(`${at}: diffusion scene needs left and right input ids`);
+  } else if (sc.kind === "ph") {
+    const p = d.inputs.find((i) => i.id === sc.ph);
+    if (!p) errs.push(`${at}: ph scene needs a ph input id`);
+    else if (!("choices" in p) && (p.min < 0 || p.max > 14)) errs.push(`${at}: the pH slider must stay within 0–14`);
   } else errs.push(`${at}: unknown scene ${JSON.stringify((sc as { kind?: unknown }).kind)}`);
 }
 

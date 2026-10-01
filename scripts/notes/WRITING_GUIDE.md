@@ -75,6 +75,20 @@ missed the lesson could learn the topic from this note alone.
      For named parts with functions: cell structures, the heart, the eye, the
      kidney. 3 to 12 parts, each detail one or two sentences.
 
+   **Scenes** make an interactive visual: an illustrated picture the app draws,
+   which you only fill in. Use one whenever it fits the topic (see
+   `scripts/notes/trial/templates/` for real JSON):
+   - on a `predictor` option (every option then needs one):
+     `electrolysis` (cell with products), `tubes` (test tubes with colours,
+     precipitates, bubbles: food tests, indicators, ion tests), `flame` (flame
+     tests), `energy-profile` (exothermic / endothermic, optional catalyst path).
+     Colours must be from `SCENE_COLOURS` in noteFormat.ts.
+   - on a `slider`: `road` (stopping distance), `wave` (amplitude, frequency),
+     `particles` (states of matter vs temperature), `half-life` (decaying nuclei
+     vs time), `gas-syringe` (gas collected: rates), `circuit` (bulbs in series or
+     parallel), `enzyme` (active site vs temperature or pH), `diffusion`
+     (concentrations either side of a membrane), `ph` (universal indicator scale).
+
    Choosing: give each note **one interactive** wherever one genuinely fits,
    picking the template that matches what students are examined on (recall a
    sequence → `sequence`; apply an equation → `practice` or `slider`; predict an
