@@ -364,7 +364,7 @@ function ThisWeekTab({
   return (
     <div className="space-y-4">
       {/* Learning this week — core topic and focused topics, the shared panel. */}
-      <section>
+      <section data-guide="planner-week">
         <div className="flex flex-wrap items-center justify-between gap-2 mb-2.5">
           <h2 className="flex items-center gap-1.5 font-display text-sm font-bold tracking-tight">
             <CalendarDays className="w-4 h-4 text-primary" />

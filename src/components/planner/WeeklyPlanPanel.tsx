@@ -99,7 +99,7 @@ export function WeeklyPlanPanel({
   if (week.error) return <ErrorNote error={week.error} onRetry={() => void week.reload()} />;
   return (
     <>
-      <div className="rounded-2xl premium-card p-4 sm:p-5 shadow-sm mb-4">
+      <div data-guide="week-plan" className="rounded-2xl premium-card p-4 sm:p-5 shadow-sm mb-4">
         <div className="flex flex-wrap items-center justify-between gap-3 mb-4">
           <div className="flex items-center gap-2.5">
             <span className="icon-tile inline-flex w-9 h-9 shrink-0">

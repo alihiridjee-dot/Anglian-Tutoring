@@ -835,6 +835,7 @@ export type Database = {
           role: Database["public"]["Enums"]["profile_role"];
           school: string | null;
           student_invite_code: string | null;
+          welcome_tour_seen_at: string | null;
         };
         Insert: {
           avatar_path?: string | null;
@@ -848,6 +849,7 @@ export type Database = {
           role?: Database["public"]["Enums"]["profile_role"];
           school?: string | null;
           student_invite_code?: string | null;
+          welcome_tour_seen_at?: string | null;
         };
         Update: {
           avatar_path?: string | null;
@@ -861,6 +863,7 @@ export type Database = {
           role?: Database["public"]["Enums"]["profile_role"];
           school?: string | null;
           student_invite_code?: string | null;
+          welcome_tour_seen_at?: string | null;
         };
         Relationships: [];
       };
