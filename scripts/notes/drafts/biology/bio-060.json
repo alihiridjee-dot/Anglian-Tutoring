@@ -8,17 +8,35 @@
     {
       "heading": "What respiration is",
       "blocks": [
-        { "type": "paragraph", "text": "Every living cell needs energy all the time. Respiration is how cells get it from glucose." },
+        {
+          "type": "paragraph",
+          "text": "Every living cell needs energy all the time. Respiration is how cells get it from glucose."
+        },
         {
           "type": "definitions",
           "items": [
-            { "term": "Respiration", "meaning": "A chemical reaction in cells that transfers energy from glucose. It happens continuously in all living cells." },
-            { "term": "Exothermic", "meaning": "A reaction that transfers energy to the surroundings, often as heat." },
-            { "term": "Aerobic", "meaning": "Using oxygen." },
-            { "term": "ATP", "meaning": "The molecule cells use to store and supply the energy from respiration." }
+            {
+              "term": "Respiration",
+              "meaning": "A chemical reaction in cells that transfers energy from glucose. It happens continuously in all living cells."
+            },
+            {
+              "term": "Exothermic",
+              "meaning": "A reaction that transfers energy to the surroundings, often as heat."
+            },
+            {
+              "term": "Aerobic",
+              "meaning": "Using oxygen."
+            },
+            {
+              "term": "ATP",
+              "meaning": "The molecule cells use to store and supply the energy from respiration."
+            }
           ]
         },
-        { "type": "subheading", "text": "What the energy is used for" },
+        {
+          "type": "subheading",
+          "text": "What the energy is used for"
+        },
         {
           "type": "list",
           "items": [
@@ -28,7 +46,10 @@
             "Active transport and cell division."
           ]
         },
-        { "type": "paragraph", "text": "Plants respire too. Plant cells also need energy for active transport, protein synthesis and cell division." },
+        {
+          "type": "paragraph",
+          "text": "Plants respire too. Plant cells also need energy for active transport, protein synthesis and cell division."
+        },
         {
           "type": "key-points",
           "items": [
@@ -42,18 +63,30 @@
     {
       "heading": "The aerobic respiration equation",
       "blocks": [
-        { "type": "paragraph", "text": "Aerobic respiration breaks glucose down completely, using oxygen. Most of it happens in the mitochondria." },
+        {
+          "type": "paragraph",
+          "text": "Aerobic respiration breaks glucose down completely, using oxygen. Most of it happens in the mitochondria."
+        },
         {
           "type": "equation",
           "label": "Aerobic respiration in words",
           "formula": "glucose + oxygen → carbon dioxide + water",
-          "where": ["glucose is the fuel", "oxygen comes from the air you breathe", "carbon dioxide and water are the waste products"]
+          "where": [
+            "glucose is the fuel",
+            "oxygen comes from the air you breathe",
+            "carbon dioxide and water are the waste products"
+          ]
         },
         {
           "type": "equation",
           "label": "Aerobic respiration in symbols",
           "formula": "C₆H₁₂O₆ + 6O₂ → 6CO₂ + 6H₂O",
-          "where": ["C₆H₁₂O₆ is glucose", "O₂ is oxygen", "CO₂ is carbon dioxide", "H₂O is water"]
+          "where": [
+            "C₆H₁₂O₆ is glucose",
+            "O₂ is oxygen",
+            "CO₂ is carbon dioxide",
+            "H₂O is water"
+          ]
         },
         {
           "type": "diagram",
@@ -61,14 +94,36 @@
             "kind": "sort",
             "alt": "Sort each substance by whether aerobic respiration uses it, makes it, or does not involve it.",
             "prompt": "Sort the substances for aerobic respiration",
-            "groups": ["Used up (reactants)", "Made (products)", "Not part of aerobic respiration"],
+            "groups": [
+              "Used up (reactants)",
+              "Made (products)",
+              "Not part of aerobic respiration"
+            ],
             "items": [
-              { "text": "Glucose", "group": 0 },
-              { "text": "Oxygen", "group": 0 },
-              { "text": "Carbon dioxide", "group": 1 },
-              { "text": "Water", "group": 1 },
-              { "text": "Lactic acid", "group": 2 },
-              { "text": "Ethanol", "group": 2 }
+              {
+                "text": "Glucose",
+                "group": 0
+              },
+              {
+                "text": "Oxygen",
+                "group": 0
+              },
+              {
+                "text": "Carbon dioxide",
+                "group": 1
+              },
+              {
+                "text": "Water",
+                "group": 1
+              },
+              {
+                "text": "Lactic acid",
+                "group": 2
+              },
+              {
+                "text": "Ethanol",
+                "group": 2
+              }
             ]
           }
         },
@@ -85,7 +140,10 @@
     {
       "heading": "Where respiration happens and why it matters",
       "blocks": [
-        { "type": "paragraph", "text": "Cells that need a lot of energy have many mitochondria, so they can respire faster." },
+        {
+          "type": "paragraph",
+          "text": "Cells that need a lot of energy have many mitochondria, so they can respire faster."
+        },
         {
           "type": "list",
           "items": [
@@ -125,7 +183,10 @@
   ],
   "boards": {
     "aqa": {
-      "spec_codes": ["AQA 4.5", "AQA T 4.4.2.1"],
+      "spec_codes": [
+        "AQA 4.5",
+        "AQA T 4.4.2.1"
+      ],
       "exam_phrases": [
         "(more) respiration (in mitochondria)",
         "(which) releases more energy",
@@ -145,8 +206,8 @@
           "right": "Anaerobic respiration is not accepted here. Mitochondria are the site of aerobic respiration, which releases more energy for the muscle to contract."
         },
         {
-          "wrong": "Oxygen provides energy for respiration.",
-          "right": "\"Provides more energy for respiration\" is not accepted. Oxygen is used in respiration to release or transfer energy."
+          "wrong": "Heart cells have many mitochondria because mitochondria provide more energy for respiration.",
+          "right": "\"Provides more energy for respiration\" is not accepted. Mitochondria are where respiration happens, and respiration releases the energy."
         },
         {
           "wrong": "The energy from respiration is used for metabolism and growth.",
@@ -167,7 +228,9 @@
       }
     },
     "edexcel": {
-      "spec_codes": ["EDEX 8.9"],
+      "spec_codes": [
+        "EDEX 8.9"
+      ],
       "exam_phrases": [
         "to release energy",
         "for metabolic processes / chemical reactions",
@@ -184,10 +247,6 @@
         {
           "wrong": "The athlete breathes faster to get more energy.",
           "right": "Breathing faster absorbs more oxygen, so more respiration can occur and more energy is released. Or it removes more carbon dioxide from the extra respiration."
-        },
-        {
-          "wrong": "Only the germinating peas gave off carbon dioxide because dried peas are not alive.",
-          "right": "Say the germinating peas were respiring (aerobically), which produces carbon dioxide. The dried peas do not respire."
         }
       ],
       "worked_example": {
@@ -204,7 +263,10 @@
       }
     },
     "ocr": {
-      "spec_codes": ["OCR 1.3a", "OCR 1.3b"],
+      "spec_codes": [
+        "OCR 1.3a",
+        "OCR 1.3b"
+      ],
       "exam_phrases": [
         "respiration is a universal chemical process",
         "all organisms need to respire",
