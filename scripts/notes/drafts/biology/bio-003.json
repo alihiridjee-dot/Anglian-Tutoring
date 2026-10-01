@@ -1,0 +1,278 @@
+{
+  "format": 1,
+  "concept_id": "bio-003",
+  "subject": "biology",
+  "title": "Cell specialisation and differentiation",
+  "key_idea": "As an organism develops, cells **differentiate**: they gain the structures they need for one particular job. A specialised cell is adapted to its function, and having specialised cells makes the whole organism more efficient.",
+  "sections": [
+    {
+      "heading": "How cells become specialised",
+      "blocks": [
+        { "type": "paragraph", "text": "A new organism starts as unspecialised cells. This section covers how they change and why it matters." },
+        {
+          "type": "definitions",
+          "items": [
+            { "term": "Differentiation", "meaning": "The process by which an unspecialised cell becomes a specialised cell." },
+            { "term": "Specialised cell", "meaning": "A cell with the structures it needs to carry out one particular function." },
+            { "term": "Adaptation", "meaning": "A feature of a cell that helps it do its job." }
+          ]
+        },
+        {
+          "type": "list",
+          "items": [
+            "As a cell differentiates, it gains different sub-cellular structures for its function.",
+            "Most types of animal cell differentiate at an early stage.",
+            "Many plant cells keep the ability to differentiate throughout life.",
+            "In mature animals, cell division is mainly for repair and replacement."
+          ]
+        },
+        { "type": "subheading", "text": "Why differentiation matters" },
+        {
+          "type": "list",
+          "items": [
+            "Different cells can do different jobs.",
+            "This makes the organism more efficient."
+          ]
+        },
+        {
+          "type": "key-points",
+          "items": [
+            "The word for an unspecialised cell becoming specialised is **differentiation**.",
+            "Differentiated cells do different jobs, so the organism works more efficiently.",
+            "Animal cells mostly differentiate early. Many plant cells can differentiate throughout life."
+          ]
+        }
+      ]
+    },
+    {
+      "heading": "Specialised animal cells",
+      "blocks": [
+        { "type": "paragraph", "text": "For each cell, learn the adaptation and say how it helps the cell do its job." },
+        {
+          "type": "table",
+          "columns": ["Cell", "Adaptation", "How it helps"],
+          "rows": [
+            ["Sperm cell", "Tail", "Swims to the egg"],
+            ["Sperm cell", "Many mitochondria", "Release energy for swimming"],
+            ["Sperm cell", "Acrosome containing enzymes", "Digests the outer layer of the egg so the sperm can enter"],
+            ["Sperm cell", "Streamlined shape", "Swims faster"],
+            ["Sperm and egg cells", "Haploid nucleus (23 chromosomes)", "Gives 46 chromosomes in the fertilised cell"],
+            ["Egg cell", "Nutrients in the cytoplasm", "Feeds the early embryo"],
+            ["Nerve cell", "Long axon and branched ends (dendrites)", "Carries electrical impulses a long way and connects to other cells"],
+            ["Muscle cell", "Protein fibres that shorten", "Contract to cause movement"],
+            ["Muscle cell", "Many mitochondria", "Release energy for contraction"],
+            ["Ciliated cell", "Cilia on the surface", "Move mucus in the trachea and the egg in the oviduct"]
+          ]
+        },
+        {
+          "type": "key-points",
+          "items": [
+            "Sperm cells swim to the egg and carry chromosomes for fertilisation.",
+            "Cells that need a lot of energy have many mitochondria.",
+            "Always link an adaptation to its job: \"has a tail, so it can swim\"."
+          ]
+        }
+      ]
+    },
+    {
+      "heading": "Specialised plant cells",
+      "blocks": [
+        { "type": "paragraph", "text": "Plant cells are specialised for taking in and transporting water and food." },
+        {
+          "type": "table",
+          "columns": ["Cell", "Adaptation", "How it helps"],
+          "rows": [
+            ["Root hair cell", "Long, hair-like projection", "Large surface area to absorb water and mineral ions"],
+            ["Root hair cell", "Thin cell wall", "Short distance for water to move in"],
+            ["Root hair cell", "Many mitochondria", "Release energy for active transport of mineral ions"],
+            ["Xylem cell", "Hollow tube with no end walls", "Water and mineral ions flow through easily"],
+            ["Xylem cell", "Walls strengthened with lignin", "Supports the plant and stops the tube collapsing"],
+            ["Phloem cell", "Sieve plates: pores in the end walls", "Dissolved sugars move from cell to cell"]
+          ]
+        },
+        {
+          "type": "diagram",
+          "diagram": {
+            "kind": "explorer",
+            "alt": "Tap each specialised cell to see its function and main adaptations, then test yourself. The cells are the sperm cell, egg cell, nerve cell, muscle cell, ciliated cell, root hair cell, xylem cell and phloem cell.",
+            "prompt": "Specialised cells",
+            "parts": [
+              { "name": "Sperm cell", "detail": "Swims to the egg and carries chromosomes for fertilisation. It has a tail, many mitochondria, enzymes in the acrosome and a streamlined head." },
+              { "name": "Egg cell", "detail": "Is fertilised by a sperm. It has a haploid nucleus and nutrients in its cytoplasm for the early embryo." },
+              { "name": "Nerve cell", "detail": "Carries electrical impulses. It has a long axon and branched ends that connect to other cells." },
+              { "name": "Muscle cell", "detail": "Contracts to cause movement. It has protein fibres that shorten and many mitochondria." },
+              { "name": "Ciliated cell", "detail": "Moves substances along. Its cilia sweep mucus in the trachea and the egg in the oviduct." },
+              { "name": "Root hair cell", "detail": "Absorbs water and mineral ions. Its hair-like projection gives a large surface area, and it has many mitochondria." },
+              { "name": "Xylem cell", "detail": "Carries water and mineral ions up the plant. It is a hollow tube with no end walls and strong walls." },
+              { "name": "Phloem cell", "detail": "Carries dissolved sugars around the plant. Pores in its end walls let the sugars pass through." }
+            ]
+          }
+        },
+        {
+          "type": "key-points",
+          "items": [
+            "Root hair cells have a large surface area to absorb water and mineral ions.",
+            "Xylem cells are hollow tubes. Phloem cells have pores in their end walls.",
+            "Root hair cells have no chloroplasts because roots are underground and there is no light."
+          ]
+        }
+      ]
+    }
+  ],
+  "checks": [
+    {
+      "q": "Name the process by which an unspecialised cell becomes a specialised cell.",
+      "a": "Differentiation.",
+      "marks": 1
+    },
+    {
+      "q": "Describe two ways a sperm cell is adapted to its function.",
+      "a": "Any two from: it has a tail to swim; many mitochondria to release energy; enzymes to digest the egg's outer layer; a streamlined shape; a haploid nucleus with 23 chromosomes.",
+      "marks": 2
+    },
+    {
+      "q": "Explain how a root hair cell is adapted to absorb water and mineral ions.",
+      "a": "It has a long hair-like projection, giving a large surface area, so it can absorb a lot of water and mineral ions. It has many mitochondria to release energy for active transport.",
+      "marks": 3
+    }
+  ],
+  "boards": {
+    "aqa": {
+      "spec_codes": ["AQA 1.3", "AQA T 4.1.1.3", "AQA T 4.1.1.4"],
+      "exam_phrases": [
+        "differentiation",
+        "has a tail so it can swim",
+        "has (many) mitochondria to release energy",
+        "has enzymes to penetrate into the egg",
+        "large surface area so it can absorb water / minerals",
+        "repair of tissues or replacement of cells"
+      ],
+      "mistakes": [
+        {
+          "wrong": "Unspecialised cells become specialised by specialisation.",
+          "right": "The process is called differentiation. \"Specialisation\" is ignored as the name of the process."
+        },
+        {
+          "wrong": "Sperm cells have mitochondria to make energy for swimming.",
+          "right": "Mitochondria release energy. Energy made, produced or created is not accepted."
+        },
+        {
+          "wrong": "Cell division in a fully grown animal is for growth.",
+          "right": "Growth is ignored. Say cell division is for repair of tissues or replacement of cells."
+        },
+        {
+          "wrong": "A root hair cell has a hair so it can take in minerals.",
+          "right": "Name the adaptation and link it: a large (long) surface area, so it can absorb a lot of water and mineral ions."
+        }
+      ],
+      "worked_example": {
+        "exemplar_id": "9a7d66db-09c3-49ef-a48f-3feb1cf8f386",
+        "source": "AQA jun 2023, Paper 1 (F), Q01.2",
+        "question": "Explain one way a sperm cell is adapted for its function.",
+        "marks": 2,
+        "answer_points": [
+          "It has a tail, so it can swim.",
+          "OR it has many mitochondria, to release energy for the sperm to swim.",
+          "OR it has enzymes, to penetrate into the egg.",
+          "OR it is streamlined, to swim faster.",
+          "OR it has 23 chromosomes, to produce 46 chromosomes in the fertilised cell."
+        ],
+        "tip": "One mark for a correct adaptation and one for the linked explanation. Do not write that energy is made or produced."
+      }
+    },
+    "edexcel": {
+      "spec_codes": ["EDEX 1.2", "EDEX 2.6"],
+      "exam_phrases": [
+        "tail / flagellum",
+        "acrosome / sac with enzymes",
+        "(many) mitochondria release more energy / faster rate of respiration",
+        "haploid / has 23 chromosomes",
+        "stem cells divide by mitosis",
+        "cells differentiate / become specialised cells"
+      ],
+      "mistakes": [
+        {
+          "wrong": "Stem cells divide by meiosis to make the cells of an embryo.",
+          "right": "Meiosis is rejected. Stem cells divide by mitosis, and the cells then differentiate."
+        },
+        {
+          "wrong": "Cell elongation is needed for animal growth.",
+          "right": "Elongation is part of plant growth, not animal growth. Animal growth needs cell division and differentiation."
+        },
+        {
+          "wrong": "A bigger middle section makes the sperm swim faster.",
+          "right": "Explain why: the middle section contains mitochondria, so a larger one has more mitochondria, which release more energy (a faster rate of respiration), so the sperm swims faster or further."
+        }
+      ],
+      "worked_example": {
+        "exemplar_id": "afa391fd-e8b5-441d-8ff7-bbb7edd5dd41",
+        "source": "EDEXCEL jun 2019, Paper 1 (F), Q6(b)(ii)",
+        "question": "Sperm B has a larger middle section than sperm A. Explain why sperm B will be more likely to fertilise an egg than sperm A if they were both released at the same time.",
+        "marks": 3,
+        "answer_points": [
+          "The middle section contains mitochondria.",
+          "So sperm B has more mitochondria.",
+          "Sperm B can release more energy (it has a faster rate of respiration).",
+          "Sperm B swims faster or a greater distance."
+        ],
+        "tip": "Any three score one mark each. Build the chain: middle section, mitochondria, energy, swimming."
+      }
+    },
+    "ocr": {
+      "spec_codes": ["OCR 2.1c"],
+      "exam_phrases": [
+        "they have differentiated",
+        "have a specific job to do",
+        "differentiated cells can do different jobs / functions",
+        "allowing organisms to become more efficient",
+        "stem cells are undifferentiated / unspecialised",
+        "can differentiate into the type of cell needed"
+      ],
+      "mistakes": [
+        {
+          "wrong": "Differentiation is important because it makes more cells.",
+          "right": "Say that differentiated cells can do different jobs, which allows the organism to become more efficient or more complex."
+        },
+        {
+          "wrong": "Stem cells can produce white blood cells.",
+          "right": "\"Can produce\" is ignored. Say stem cells are unspecialised (undifferentiated) and can differentiate into white blood cells."
+        },
+        {
+          "wrong": "Guard cells are specialised because they are in a leaf.",
+          "right": "Say they have differentiated and have a specific job to do, such as opening and closing the stomata."
+        }
+      ],
+      "worked_example": {
+        "exemplar_id": "8b67b8a8-0eab-48bf-94c0-179136888a54",
+        "source": "OCR nov 2021, Paper 1, Q18(b)(i)",
+        "question": "Cell differentiation occurs during growth in multicellular organisms. Explain why cell differentiation is important.",
+        "marks": 2,
+        "answer_points": [
+          "Differentiated cells can do different jobs or functions.",
+          "This allows the organism to become more efficient (or more complex)."
+        ],
+        "tip": "If no other mark is scored, credit is given for saying that it makes specialised cells."
+      }
+    }
+  },
+  "meta": {
+    "status": "draft",
+    "checked_by": "sonnet-science-check",
+    "checked_at": "2026-10-01",
+    "written_by": "Claude Sonnet 5.5",
+    "written_at": "2026-10-01",
+    "spec_point_ids": [
+      "3732f98e-af91-4f60-871a-01ccbe0da4d0",
+      "cfe6fb9a-cd41-400a-b14f-fdf1767763b8",
+      "3dcb466b-563c-45e2-a0da-509a32d3a41a",
+      "3bdfee1d-fd1d-4e9d-9de2-12a9b392d99b",
+      "f810d40d-fdc2-4313-9361-ec78a458286d",
+      "a2b4c8f1-c388-46fd-8142-51c8c9210657"
+    ],
+    "exemplar_ids": [
+      "9a7d66db-09c3-49ef-a48f-3feb1cf8f386",
+      "afa391fd-e8b5-441d-8ff7-bbb7edd5dd41",
+      "8b67b8a8-0eab-48bf-94c0-179136888a54"
+    ]
+  }
+}

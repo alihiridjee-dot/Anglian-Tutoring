@@ -100,15 +100,31 @@ export function weeksBetween(a: Date, b: Date): number {
 
 /**
  * The exam anchor: the first Monday on/after 1 June of the exam year. UK summer
- * series sits in May–June, so if we're already past mid-June we point at next
- * year's series.
+ * series sits in May–June, so once this year's exam Monday has come, we point
+ * at next year's series. It used to wait until mid-June, so a first visit in
+ * between set an exam date already gone: no teaching weeks, "0 weeks to go",
+ * and every tutor pin refused by the exam-date check.
  */
 export function examMondayFor(today: Date = new Date()): Date {
   const calendarYear = Number(toDateKey(today).slice(0, 4));
-  const midJune = weekKeyToDate(`${calendarYear}-06-15`);
-  const year = today <= midJune ? calendarYear : calendarYear + 1;
-  const june1 = weekKeyToDate(`${year}-06-01`);
-  return mondayOf(june1) < june1 ? addWeeks(mondayOf(june1), 1) : mondayOf(june1);
+  const firstMondayOfJune = (year: number) => {
+    const june1 = weekKeyToDate(`${year}-06-01`);
+    return mondayOf(june1) < june1 ? addWeeks(mondayOf(june1), 1) : mondayOf(june1);
+  };
+  const thisYear = firstMondayOfJune(calendarYear);
+  return mondayOf(today) < thisYear ? thisYear : firstMondayOfJune(calendarYear + 1);
+}
+
+/**
+ * The Monday a student's programme starts on, from their first visit. From
+ * Saturday (UK time) that is next Monday: anchoring a first visit late on a
+ * Sunday to the week that is ending turned its points into catch-up a few
+ * minutes later.
+ */
+export function programStartFor(now: Date = new Date()): Date {
+  const monday = mondayOf(now);
+  const day = Math.round((weekKeyToDate(toDateKey(now)).getTime() - monday.getTime()) / 86_400_000);
+  return day >= 5 ? addWeeks(monday, 1) : monday;
 }
 
 /**

@@ -3,6 +3,8 @@ import {
   projectReviews,
   reviewBudget,
   REVIEW_SHARE,
+  examMondayFor,
+  programStartFor,
   mondayOnOrAfter,
   computePacing,
   diffPacing,
@@ -535,5 +537,40 @@ describe("weekly review budget (S-28)", () => {
     expect(r.backlog.map((c) => c.specPointId)).toEqual(
       overdue.slice(6, 10).map((c) => c.specPointId),
     );
+  });
+});
+
+describe("default exam date (S-32)", () => {
+  const exam = (iso: string) => toDateKey(examMondayFor(new Date(iso)));
+
+  test("once this year's exam Monday has come, the default is next year's", () => {
+    // 1 June 2026 is a Monday; 10 June is after it.
+    expect(exam("2026-06-10T12:00:00Z")).toBe("2027-06-07");
+    // 2027's first Monday of June is the 7th; the 8th is after it.
+    expect(exam("2027-06-08T12:00:00Z")).toBe("2028-06-05");
+    // On the exam Monday itself, this year's series has begun.
+    expect(exam("2027-06-07T09:00:00+01:00")).toBe("2028-06-05");
+  });
+
+  test("before it, this year's series stands", () => {
+    expect(exam("2027-06-06T20:00:00+01:00")).toBe("2027-06-07");
+    expect(exam("2026-09-07T12:00:00Z")).toBe("2027-06-07");
+    expect(exam("2027-01-15T12:00:00Z")).toBe("2027-06-07");
+  });
+});
+
+describe("programme start from a first visit (M-9)", () => {
+  const start = (iso: string) => toDateKey(programStartFor(new Date(iso)));
+
+  test("Monday to Friday anchors to this week", () => {
+    expect(start("2026-10-05T09:00:00+01:00")).toBe("2026-10-05"); // Monday
+    expect(start("2026-10-09T23:30:00+01:00")).toBe("2026-10-05"); // Friday night
+  });
+
+  test("from Saturday (UK time) it starts next Monday", () => {
+    expect(start("2026-10-10T00:05:00+01:00")).toBe("2026-10-12"); // Saturday
+    expect(start("2026-10-11T23:30:00+01:00")).toBe("2026-10-12"); // late Sunday
+    // Friday 23:30 in London is already Saturday in Dubai; London decides.
+    expect(start("2026-10-09T22:30:00Z")).toBe("2026-10-05");
   });
 });

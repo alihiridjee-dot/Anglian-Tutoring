@@ -55,11 +55,13 @@ export function HomeworkPage() {
   // have settled — querying with a half-known identity would filter wrongly.
   const identityReady = demo || (!rolesLoading && !enrolmentsLoading);
 
+  // A tutor's library pages itself (HomeworkLibrary), so only a student's
+  // list is read here.
   const { data: homework = [], isPending: homeworkPending } = useHomework({
     isTutor,
     subjects: enrolledCourses,
     level,
-    enabled: identityReady,
+    enabled: identityReady && !isTutor,
   });
   // Only a student has submissions to fetch, and only the demo one has them
   // without a userId.
@@ -87,14 +89,7 @@ export function HomeworkPage() {
         </p>
         {userId && <SetHomeworkPanel userId={userId} />}
         <MarkingQueue />
-        {userId && (
-          <HomeworkLibrary
-            homework={homework}
-            loading={loading}
-            userId={userId}
-            onChanged={reload}
-          />
-        )}
+        {userId && <HomeworkLibrary userId={userId} onChanged={reload} />}
       </AppLayout>
     );
   }
@@ -145,8 +140,9 @@ function StudentHomework({
   // row (legacy accounts) has nothing to contradict, so nothing is filtered.
   const items: HomeworkItem[] = useMemo(() => {
     const boardOf = new Map(enrolments.map((e) => [e.subject, e.board]));
+    const enrolledAt = new Map(enrolments.map((e) => [e.subject, e.enrolledAt]));
     return homework
-      .map((hw) => ({ hw, submission: submissions[hw.id] }))
+      .map((hw) => ({ hw, submission: submissions[hw.id], enrolledAt: enrolledAt.get(hw.subject) }))
       .filter(({ hw, submission }) => {
         const board = boardOf.get(hw.subject);
         return !!submission || !hw.board || !board || hw.board === board;

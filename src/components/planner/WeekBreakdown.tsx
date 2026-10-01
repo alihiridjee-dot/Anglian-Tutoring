@@ -22,6 +22,7 @@ export function WeekBreakdown({
     (p) => laneOf(p.origin) === "core" && (returningIds.has(p.spec_point_id) || p.carried_from),
   ).length;
   const learningCount = points.filter((p) => laneOf(p.origin) === "core").length - returningCount;
+  const tutorCount = points.filter((p) => laneOf(p.origin) === "tutor").length;
   const manualCount = points.filter((p) => laneOf(p.origin) === "yours").length;
   return (
     <div id={id} className="flex items-center min-w-0 max-w-full overflow-x-auto scroll-none">
@@ -46,6 +47,16 @@ export function WeekBreakdown({
             description:
               "Unfinished points from earlier weeks, brought back into this week’s plan.",
           },
+          ...(tutorCount
+            ? [
+                {
+                  label: "From your tutor",
+                  count: tutorCount,
+                  tint: "tint-accent",
+                  description: "Points your tutor added to your plan this week.",
+                },
+              ]
+            : []),
           ...(manualCount
             ? [
                 {

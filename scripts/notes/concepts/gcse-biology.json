@@ -1,0 +1,4975 @@
+{
+  "subject": "biology",
+  "level": "gcse",
+  "boards": [
+    "aqa",
+    "aqa_trilogy",
+    "edexcel",
+    "ocr"
+  ],
+  "note": "One revision note per concept. Each GCSE spec point is primary in exactly one concept; non-primary refs are broad points that also need this note.",
+  "concepts": [
+    {
+      "id": "bio-001",
+      "group": "Cell biology",
+      "title": "Eukaryotic and prokaryotic cells",
+      "scope": "Compares eukaryotic (animal, plant) and prokaryotic (bacterial) cells, including plasmids, size and order of magnitude.",
+      "kind": "content",
+      "higher_only": false,
+      "separate_only": false,
+      "spec_points": [
+        {
+          "id": "833ed39f-936a-4592-8787-322e9e113dbe",
+          "board": "aqa",
+          "code": "AQA 1.1",
+          "primary": true
+        },
+        {
+          "id": "d9a8fe0a-e252-40ac-9cca-6d0c6d81bcd9",
+          "board": "aqa_trilogy",
+          "code": "AQA T 4.1.1.1",
+          "primary": true
+        },
+        {
+          "id": "61ce3dc3-baa2-4347-bb54-b2c56863dc1b",
+          "board": "edexcel",
+          "code": "EDEX 1.1",
+          "primary": true
+        },
+        {
+          "id": "a28124fb-33a5-4fb8-9129-f93791c12b6a",
+          "board": "ocr",
+          "code": "OCR 1.1b",
+          "primary": false
+        }
+      ]
+    },
+    {
+      "id": "bio-002",
+      "group": "Cell biology",
+      "title": "Animal and plant cell structures",
+      "scope": "The sub-cellular structures of animal and plant cells (nucleus, membrane, mitochondria, ribosomes, chloroplasts, wall, vacuole) and their functions.",
+      "kind": "content",
+      "higher_only": false,
+      "separate_only": false,
+      "spec_points": [
+        {
+          "id": "4bd13b5d-c82c-4992-88f3-8d8e51f5d293",
+          "board": "aqa",
+          "code": "AQA 1.2",
+          "primary": true
+        },
+        {
+          "id": "691af171-cd32-41fa-bdbd-e064821b727f",
+          "board": "aqa_trilogy",
+          "code": "AQA T 4.1.1.2",
+          "primary": true
+        },
+        {
+          "id": "a28124fb-33a5-4fb8-9129-f93791c12b6a",
+          "board": "ocr",
+          "code": "OCR 1.1b",
+          "primary": true
+        },
+        {
+          "id": "61ce3dc3-baa2-4347-bb54-b2c56863dc1b",
+          "board": "edexcel",
+          "code": "EDEX 1.1",
+          "primary": false
+        }
+      ]
+    },
+    {
+      "id": "bio-003",
+      "group": "Cell biology",
+      "title": "Cell specialisation and differentiation",
+      "scope": "How cells differentiate and how specialised cells such as sperm, egg, nerve, muscle, root hair, xylem and phloem cells are adapted to their functions.",
+      "kind": "content",
+      "higher_only": false,
+      "separate_only": false,
+      "spec_points": [
+        {
+          "id": "3732f98e-af91-4f60-871a-01ccbe0da4d0",
+          "board": "aqa",
+          "code": "AQA 1.3",
+          "primary": true
+        },
+        {
+          "id": "cfe6fb9a-cd41-400a-b14f-fdf1767763b8",
+          "board": "aqa_trilogy",
+          "code": "AQA T 4.1.1.3",
+          "primary": true
+        },
+        {
+          "id": "3dcb466b-563c-45e2-a0da-509a32d3a41a",
+          "board": "aqa_trilogy",
+          "code": "AQA T 4.1.1.4",
+          "primary": true
+        },
+        {
+          "id": "3bdfee1d-fd1d-4e9d-9de2-12a9b392d99b",
+          "board": "edexcel",
+          "code": "EDEX 1.2",
+          "primary": true
+        },
+        {
+          "id": "f810d40d-fdc2-4313-9361-ec78a458286d",
+          "board": "edexcel",
+          "code": "EDEX 2.6",
+          "primary": true
+        },
+        {
+          "id": "a2b4c8f1-c388-46fd-8142-51c8c9210657",
+          "board": "ocr",
+          "code": "OCR 2.1c",
+          "primary": true
+        },
+        {
+          "id": "6040771d-a07a-4ab4-b959-938c26572284",
+          "board": "edexcel",
+          "code": "EDEX 2.5",
+          "primary": false
+        }
+      ]
+    },
+    {
+      "id": "bio-004",
+      "group": "Cell biology",
+      "title": "Growth and percentile charts",
+      "scope": "Growth by cell division, elongation and differentiation in plants and animals, and using percentile charts to monitor growth.",
+      "kind": "content",
+      "higher_only": false,
+      "separate_only": false,
+      "spec_points": [
+        {
+          "id": "6040771d-a07a-4ab4-b959-938c26572284",
+          "board": "edexcel",
+          "code": "EDEX 2.5",
+          "primary": true
+        },
+        {
+          "id": "7c8dcadf-538e-4a14-a9d1-adda7d7aa97f",
+          "board": "edexcel",
+          "code": "EDEX 2.7",
+          "primary": true
+        }
+      ]
+    },
+    {
+      "id": "bio-005",
+      "group": "Cell biology",
+      "title": "Light and electron microscopes",
+      "scope": "How light and electron microscopes compare in magnification and resolution, staining, and how electron microscopy improved understanding of sub-cellular structures.",
+      "kind": "content",
+      "higher_only": false,
+      "separate_only": false,
+      "spec_points": [
+        {
+          "id": "7bf45d21-74fd-4a2b-a9cc-49fee839f9a9",
+          "board": "aqa_trilogy",
+          "code": "AQA T 4.1.1.5",
+          "primary": true
+        },
+        {
+          "id": "0f44c7ec-ab70-40a8-b5e8-92388154e405",
+          "board": "edexcel",
+          "code": "EDEX 1.3",
+          "primary": true
+        },
+        {
+          "id": "72ee3590-7d6d-47ff-9a34-07e9e53b859c",
+          "board": "ocr",
+          "code": "OCR 1.1a",
+          "primary": true
+        },
+        {
+          "id": "557bf585-96c4-4eb2-90c6-aecc2bda386b",
+          "board": "ocr",
+          "code": "OCR 1.1c",
+          "primary": true
+        },
+        {
+          "id": "6d5e3b85-92a8-4504-b4c7-ec63c293aea1",
+          "board": "aqa",
+          "code": "AQA 1.4",
+          "primary": false
+        }
+      ]
+    },
+    {
+      "id": "bio-006",
+      "group": "Cell biology",
+      "title": "Magnification calculations and units",
+      "scope": "Using magnification = image size / actual size, converting between mm, um and nm, and using standard form and estimation for cell sizes.",
+      "kind": "content",
+      "higher_only": false,
+      "separate_only": false,
+      "spec_points": [
+        {
+          "id": "6d5e3b85-92a8-4504-b4c7-ec63c293aea1",
+          "board": "aqa",
+          "code": "AQA 1.4",
+          "primary": true
+        },
+        {
+          "id": "fa0bba27-ee0b-4783-ab88-954822ee4545",
+          "board": "edexcel",
+          "code": "EDEX 1.4",
+          "primary": true
+        },
+        {
+          "id": "e501296b-de8d-42d0-a0d4-2a67f325d649",
+          "board": "edexcel",
+          "code": "EDEX 1.5",
+          "primary": true
+        },
+        {
+          "id": "7bf45d21-74fd-4a2b-a9cc-49fee839f9a9",
+          "board": "aqa_trilogy",
+          "code": "AQA T 4.1.1.5",
+          "primary": false
+        },
+        {
+          "id": "72ee3590-7d6d-47ff-9a34-07e9e53b859c",
+          "board": "ocr",
+          "code": "OCR 1.1a",
+          "primary": false
+        },
+        {
+          "id": "404277f5-3df5-4fbb-ac3f-c9814593e014",
+          "board": "edexcel",
+          "code": "EDEX 1.6",
+          "primary": false
+        },
+        {
+          "id": "f8e8ae2f-db6d-42f4-92ba-61867e1a115c",
+          "board": "ocr",
+          "code": "OCR 7.1",
+          "primary": false
+        }
+      ]
+    },
+    {
+      "id": "bio-007",
+      "group": "Cell biology",
+      "title": "Required practical: using a light microscope",
+      "scope": "Preparing slides and observing cells with a light microscope, making labelled drawings and calculating magnification.",
+      "kind": "practical",
+      "higher_only": false,
+      "separate_only": false,
+      "spec_points": [
+        {
+          "id": "404277f5-3df5-4fbb-ac3f-c9814593e014",
+          "board": "edexcel",
+          "code": "EDEX 1.6",
+          "primary": true
+        },
+        {
+          "id": "f8e8ae2f-db6d-42f4-92ba-61867e1a115c",
+          "board": "ocr",
+          "code": "OCR 7.1",
+          "primary": true
+        },
+        {
+          "id": "6d5e3b85-92a8-4504-b4c7-ec63c293aea1",
+          "board": "aqa",
+          "code": "AQA 1.4",
+          "primary": false
+        },
+        {
+          "id": "7bf45d21-74fd-4a2b-a9cc-49fee839f9a9",
+          "board": "aqa_trilogy",
+          "code": "AQA T 4.1.1.5",
+          "primary": false
+        }
+      ]
+    },
+    {
+      "id": "bio-008",
+      "group": "Cell biology",
+      "title": "Chromosomes, mitosis and the cell cycle",
+      "scope": "Chromosomes and genes, the stages of the cell cycle and mitosis, and its role in growth, repair and asexual reproduction producing identical diploid cells.",
+      "kind": "content",
+      "higher_only": false,
+      "separate_only": false,
+      "spec_points": [
+        {
+          "id": "e71edf1c-e0c9-4710-915f-cfc70ccd5462",
+          "board": "aqa",
+          "code": "AQA 1.6",
+          "primary": true
+        },
+        {
+          "id": "1e297de4-1be5-4f04-b79a-418b26fbf17f",
+          "board": "aqa",
+          "code": "AQA 1.7",
+          "primary": true
+        },
+        {
+          "id": "6d6ad388-b9fb-4311-ad4f-01ae2b19e2ce",
+          "board": "aqa_trilogy",
+          "code": "AQA T 4.1.2.1",
+          "primary": true
+        },
+        {
+          "id": "0abff3af-ce6e-4bfc-af13-a2e7627f57e1",
+          "board": "aqa_trilogy",
+          "code": "AQA T 4.1.2.2",
+          "primary": true
+        },
+        {
+          "id": "a0d1dcdf-1ee2-4ffc-864d-5142b408d2fa",
+          "board": "edexcel",
+          "code": "EDEX 2.1",
+          "primary": true
+        },
+        {
+          "id": "3abb7067-bb34-414c-96a3-986fcee62d91",
+          "board": "edexcel",
+          "code": "EDEX 2.2",
+          "primary": true
+        },
+        {
+          "id": "876e9400-2083-4d5a-8625-3e8f4839b608",
+          "board": "edexcel",
+          "code": "EDEX 2.3",
+          "primary": true
+        },
+        {
+          "id": "34aebdc3-ae72-41bc-a415-7f4ffedd65e3",
+          "board": "ocr",
+          "code": "OCR 2.1b",
+          "primary": true
+        }
+      ]
+    },
+    {
+      "id": "bio-009",
+      "group": "Cell biology",
+      "title": "Stem cells",
+      "scope": "What stem cells are, where they are found (embryos, adult bone marrow, plant meristems) and the difference between embryonic and adult stem cells.",
+      "kind": "content",
+      "higher_only": false,
+      "separate_only": false,
+      "spec_points": [
+        {
+          "id": "3aa45ae9-539e-420f-b159-87d290f80661",
+          "board": "aqa",
+          "code": "AQA 1.8",
+          "primary": true
+        },
+        {
+          "id": "c9115294-5494-480a-9eda-a76df6ae718c",
+          "board": "aqa_trilogy",
+          "code": "AQA T 4.1.2.3",
+          "primary": true
+        },
+        {
+          "id": "1ae21a56-3a62-405c-bfac-f21465b0652a",
+          "board": "edexcel",
+          "code": "EDEX 2.8",
+          "primary": true
+        },
+        {
+          "id": "ea0641d7-76f3-4b91-a26f-57bad56a1995",
+          "board": "ocr",
+          "code": "OCR 2.1d",
+          "primary": true
+        },
+        {
+          "id": "fbb7a487-aba5-48cd-9d8d-c2ede287f634",
+          "board": "ocr",
+          "code": "OCR 2.1e",
+          "primary": true
+        },
+        {
+          "id": "279be9a0-731b-4c78-b84b-ef157779210f",
+          "board": "ocr",
+          "code": "OCR 2.1f",
+          "primary": true
+        }
+      ]
+    },
+    {
+      "id": "bio-010",
+      "group": "Cell biology",
+      "title": "Stem cells in medicine and plant cloning",
+      "scope": "Uses of stem cells in treating disease, therapeutic cloning, meristems for cloning plants, and the benefits, risks and ethical issues.",
+      "kind": "content",
+      "higher_only": false,
+      "separate_only": false,
+      "spec_points": [
+        {
+          "id": "e457157c-a4c2-4ccd-80d8-735e441e864f",
+          "board": "aqa",
+          "code": "AQA 1.9",
+          "primary": true
+        },
+        {
+          "id": "02ec7f9b-593e-4ed2-98cc-bc334c8602e5",
+          "board": "edexcel",
+          "code": "EDEX 2.9",
+          "primary": true
+        },
+        {
+          "id": "c6088a6a-3ff8-4c4c-94a3-4003caa88e92",
+          "board": "ocr",
+          "code": "OCR 6.3v",
+          "primary": true
+        },
+        {
+          "id": "c9115294-5494-480a-9eda-a76df6ae718c",
+          "board": "aqa_trilogy",
+          "code": "AQA T 4.1.2.3",
+          "primary": false
+        }
+      ]
+    },
+    {
+      "id": "bio-011",
+      "group": "Cell biology",
+      "title": "Diffusion",
+      "scope": "Diffusion of substances into and out of cells and the factors that affect its rate (concentration gradient, temperature, surface area, distance).",
+      "kind": "content",
+      "higher_only": false,
+      "separate_only": false,
+      "spec_points": [
+        {
+          "id": "c0f5e28f-e4e1-4183-8bc5-3714830e0c46",
+          "board": "aqa",
+          "code": "AQA 1.10",
+          "primary": true
+        },
+        {
+          "id": "98f298dc-0091-411a-95ea-e8f109513b36",
+          "board": "aqa_trilogy",
+          "code": "AQA T 4.1.3.1",
+          "primary": true
+        },
+        {
+          "id": "467e4a86-a73b-41e1-8046-18c9c61f76ae",
+          "board": "edexcel",
+          "code": "EDEX 8.4B",
+          "primary": true
+        },
+        {
+          "id": "86fd14d8-fc24-4fe3-97eb-ddfdd03c0b83",
+          "board": "edexcel",
+          "code": "EDEX 1.15",
+          "primary": false
+        },
+        {
+          "id": "b7b2f691-01d8-4241-9c7a-d4815edd4622",
+          "board": "ocr",
+          "code": "OCR 2.1a",
+          "primary": false
+        }
+      ]
+    },
+    {
+      "id": "bio-012",
+      "group": "Cell biology",
+      "title": "Osmosis",
+      "scope": "Osmosis as the movement of water across a partially permeable membrane, water potential, and its effects on plant and animal cells.",
+      "kind": "content",
+      "higher_only": false,
+      "separate_only": false,
+      "spec_points": [
+        {
+          "id": "4334d423-b85f-4557-a19c-b9597d5aaa7b",
+          "board": "aqa",
+          "code": "AQA 1.11",
+          "primary": true
+        },
+        {
+          "id": "9162cfab-b880-4b20-b59e-118950e16986",
+          "board": "aqa_trilogy",
+          "code": "AQA T 4.1.3.2",
+          "primary": true
+        },
+        {
+          "id": "b7b2f691-01d8-4241-9c7a-d4815edd4622",
+          "board": "ocr",
+          "code": "OCR 2.1a",
+          "primary": true
+        },
+        {
+          "id": "86fd14d8-fc24-4fe3-97eb-ddfdd03c0b83",
+          "board": "edexcel",
+          "code": "EDEX 1.15",
+          "primary": false
+        },
+        {
+          "id": "a935fbbe-b68f-4021-ad5f-27751d2117ff",
+          "board": "ocr",
+          "code": "OCR 3.3f",
+          "primary": false
+        },
+        {
+          "id": "764bc65b-093c-492c-9299-45ff6cf3ce6a",
+          "board": "edexcel",
+          "code": "EDEX 7.10B",
+          "primary": false
+        },
+        {
+          "id": "3db3bfea-0af0-42f4-9e96-4a91a32e659f",
+          "board": "edexcel",
+          "code": "EDEX 1.16",
+          "primary": false
+        },
+        {
+          "id": "1ffb6f36-bb2f-4b46-b633-ff85101cd3c4",
+          "board": "ocr",
+          "code": "OCR 7.2",
+          "primary": false
+        }
+      ]
+    },
+    {
+      "id": "bio-013",
+      "group": "Cell biology",
+      "title": "Required practical: osmosis in plant tissue",
+      "scope": "Investigating the effect of solution concentration on the mass of potato pieces and calculating percentage change in mass.",
+      "kind": "practical",
+      "higher_only": false,
+      "separate_only": false,
+      "spec_points": [
+        {
+          "id": "3db3bfea-0af0-42f4-9e96-4a91a32e659f",
+          "board": "edexcel",
+          "code": "EDEX 1.16",
+          "primary": true
+        },
+        {
+          "id": "7b945151-4e26-455b-b86c-b2d0b0b4d77f",
+          "board": "edexcel",
+          "code": "EDEX 1.17",
+          "primary": true
+        },
+        {
+          "id": "1ffb6f36-bb2f-4b46-b633-ff85101cd3c4",
+          "board": "ocr",
+          "code": "OCR 7.2",
+          "primary": true
+        },
+        {
+          "id": "4334d423-b85f-4557-a19c-b9597d5aaa7b",
+          "board": "aqa",
+          "code": "AQA 1.11",
+          "primary": false
+        },
+        {
+          "id": "9162cfab-b880-4b20-b59e-118950e16986",
+          "board": "aqa_trilogy",
+          "code": "AQA T 4.1.3.2",
+          "primary": false
+        }
+      ]
+    },
+    {
+      "id": "bio-014",
+      "group": "Cell biology",
+      "title": "Active transport",
+      "scope": "Moving substances against a concentration gradient using energy from respiration, e.g. mineral ions into root hairs and glucose into gut cells, compared with diffusion and osmosis.",
+      "kind": "content",
+      "higher_only": false,
+      "separate_only": false,
+      "spec_points": [
+        {
+          "id": "aa4531e6-a8c0-425f-be01-cb3db3dfd609",
+          "board": "aqa",
+          "code": "AQA 1.12",
+          "primary": true
+        },
+        {
+          "id": "42d3ab58-666a-4490-8379-92ee10955d43",
+          "board": "aqa_trilogy",
+          "code": "AQA T 4.1.3.3",
+          "primary": true
+        },
+        {
+          "id": "86fd14d8-fc24-4fe3-97eb-ddfdd03c0b83",
+          "board": "edexcel",
+          "code": "EDEX 1.15",
+          "primary": true
+        },
+        {
+          "id": "b7b2f691-01d8-4241-9c7a-d4815edd4622",
+          "board": "ocr",
+          "code": "OCR 2.1a",
+          "primary": false
+        },
+        {
+          "id": "17bff5bc-2bf0-471f-a40e-2ce7a804812a",
+          "board": "edexcel",
+          "code": "EDEX 6.7",
+          "primary": false
+        },
+        {
+          "id": "ca385f96-1f6a-43f5-8cf1-f66c3ca21e38",
+          "board": "ocr",
+          "code": "OCR 2.2f",
+          "primary": false
+        }
+      ]
+    },
+    {
+      "id": "bio-015",
+      "group": "Cell biology",
+      "title": "Exchange surfaces and surface area to volume ratio",
+      "scope": "Why multicellular organisms need exchange surfaces and transport systems, calculating SA:V, Fick's law, and the substances organisms exchange.",
+      "kind": "content",
+      "higher_only": false,
+      "separate_only": false,
+      "spec_points": [
+        {
+          "id": "979cae12-1b47-4466-a056-3f32560f414d",
+          "board": "aqa",
+          "code": "AQA 1.13",
+          "primary": true
+        },
+        {
+          "id": "5b20b2fb-6b7d-4a34-80b5-c0e9d3f7d61f",
+          "board": "edexcel",
+          "code": "EDEX 8.2",
+          "primary": true
+        },
+        {
+          "id": "dd4fa697-a501-46f9-8902-2c2949f499d8",
+          "board": "edexcel",
+          "code": "EDEX 8.5B",
+          "primary": true
+        },
+        {
+          "id": "a93cee80-af5b-46ed-b2b4-a29383473029",
+          "board": "ocr",
+          "code": "OCR 2.2a",
+          "primary": true
+        },
+        {
+          "id": "a2be5d4d-feee-4e41-9e53-6ceaa2dc6e36",
+          "board": "ocr",
+          "code": "OCR 2.2b",
+          "primary": true
+        },
+        {
+          "id": "7277d655-ac69-4187-86a3-e203de2f690c",
+          "board": "edexcel",
+          "code": "EDEX 8.1",
+          "primary": true
+        },
+        {
+          "id": "329f9f7d-d630-437c-9840-12a4b0456350",
+          "board": "edexcel",
+          "code": "EDEX 8.3",
+          "primary": false
+        }
+      ]
+    },
+    {
+      "id": "bio-016",
+      "group": "Cell biology",
+      "title": "Culturing microorganisms and aseptic technique",
+      "scope": "Bacterial growth by binary fission, aseptic technique for culturing microorganisms, calculating bacterial numbers and areas of inhibition zones.",
+      "kind": "content",
+      "higher_only": false,
+      "separate_only": true,
+      "spec_points": [
+        {
+          "id": "1ecc7050-672e-436c-8309-68342e32789e",
+          "board": "aqa",
+          "code": "AQA 1.5",
+          "primary": true
+        },
+        {
+          "id": "74d87d71-5c60-4cfb-b017-236a09fb92ae",
+          "board": "edexcel",
+          "code": "EDEX 5.17B",
+          "primary": true
+        },
+        {
+          "id": "6fa5f4cb-8093-4c37-b93f-b54f2f4fcfad",
+          "board": "edexcel",
+          "code": "EDEX 5.19B",
+          "primary": true
+        },
+        {
+          "id": "1c9ed8d2-e8cc-444a-8851-203a3b83628c",
+          "board": "ocr",
+          "code": "OCR 6.3p",
+          "primary": true
+        },
+        {
+          "id": "923bf86f-f792-43f9-a799-09572a47aeea",
+          "board": "edexcel",
+          "code": "EDEX 5.18B",
+          "primary": false
+        },
+        {
+          "id": "7693ca24-604e-4a0d-a4a2-519e43ef39ab",
+          "board": "ocr",
+          "code": "OCR 7.7",
+          "primary": false
+        }
+      ]
+    },
+    {
+      "id": "bio-017",
+      "group": "Cell biology",
+      "title": "Required practical: effect of antiseptics and antibiotics on bacteria",
+      "scope": "Investigating how antiseptics, antibiotics or plant extracts affect bacterial growth by measuring clear zones on agar plates.",
+      "kind": "practical",
+      "higher_only": false,
+      "separate_only": true,
+      "spec_points": [
+        {
+          "id": "923bf86f-f792-43f9-a799-09572a47aeea",
+          "board": "edexcel",
+          "code": "EDEX 5.18B",
+          "primary": true
+        },
+        {
+          "id": "7693ca24-604e-4a0d-a4a2-519e43ef39ab",
+          "board": "ocr",
+          "code": "OCR 7.7",
+          "primary": true
+        },
+        {
+          "id": "1ecc7050-672e-436c-8309-68342e32789e",
+          "board": "aqa",
+          "code": "AQA 1.5",
+          "primary": false
+        },
+        {
+          "id": "6fa5f4cb-8093-4c37-b93f-b54f2f4fcfad",
+          "board": "edexcel",
+          "code": "EDEX 5.19B",
+          "primary": false
+        }
+      ]
+    },
+    {
+      "id": "bio-018",
+      "group": "Organisation",
+      "title": "Levels of organisation",
+      "scope": "How cells, tissues, organs and organ systems are organised in multicellular organisms.",
+      "kind": "content",
+      "higher_only": false,
+      "separate_only": false,
+      "spec_points": [
+        {
+          "id": "630f6f04-55e3-4352-85df-1a98bd839364",
+          "board": "aqa",
+          "code": "AQA 2.1",
+          "primary": true
+        },
+        {
+          "id": "294f73f0-3f53-43d0-8deb-fa399f6d591d",
+          "board": "aqa_trilogy",
+          "code": "AQA T 4.2.1",
+          "primary": true
+        }
+      ]
+    },
+    {
+      "id": "bio-019",
+      "group": "Organisation",
+      "title": "The human digestive system",
+      "scope": "The organs of the digestive system and how they work together to digest and absorb food.",
+      "kind": "content",
+      "higher_only": false,
+      "separate_only": false,
+      "spec_points": [
+        {
+          "id": "82cd7442-3455-4be9-87fc-894abcf02e5d",
+          "board": "aqa",
+          "code": "AQA 2.2",
+          "primary": true
+        },
+        {
+          "id": "c874b05f-5fb0-4430-b94e-f1edc32f9be2",
+          "board": "aqa_trilogy",
+          "code": "AQA T 4.2.2.1",
+          "primary": true
+        }
+      ]
+    },
+    {
+      "id": "bio-020",
+      "group": "Organisation",
+      "title": "Enzymes and the lock-and-key model",
+      "scope": "Enzymes as biological catalysts, the active site, specificity and the lock-and-key model.",
+      "kind": "content",
+      "higher_only": false,
+      "separate_only": false,
+      "spec_points": [
+        {
+          "id": "120da19d-3949-41c9-a63b-e1ffb407cfc6",
+          "board": "aqa",
+          "code": "AQA 2.3",
+          "primary": true
+        },
+        {
+          "id": "7d51f483-b22a-473b-969a-818aaff2f264",
+          "board": "edexcel",
+          "code": "EDEX 1.7",
+          "primary": true
+        },
+        {
+          "id": "ace0e3f4-fad5-467e-be20-8b0a94ba6469",
+          "board": "ocr",
+          "code": "OCR 1.2g",
+          "primary": true
+        },
+        {
+          "id": "6f843388-c13f-4bd9-94ff-34677e0e9fa3",
+          "board": "edexcel",
+          "code": "EDEX 1.12",
+          "primary": false
+        }
+      ]
+    },
+    {
+      "id": "bio-021",
+      "group": "Organisation",
+      "title": "Factors affecting enzyme activity",
+      "scope": "How temperature, pH and substrate concentration affect enzyme activity, denaturation, and calculating rates of enzyme reactions.",
+      "kind": "content",
+      "higher_only": false,
+      "separate_only": false,
+      "spec_points": [
+        {
+          "id": "de188d30-d767-4c9b-b53d-b5d546469476",
+          "board": "aqa",
+          "code": "AQA 2.5",
+          "primary": true
+        },
+        {
+          "id": "0162eebf-2203-4888-ad39-dcf62aec3b66",
+          "board": "edexcel",
+          "code": "EDEX 1.8",
+          "primary": true
+        },
+        {
+          "id": "e0b529e3-db13-4545-afa7-8edfe8becc85",
+          "board": "edexcel",
+          "code": "EDEX 1.9",
+          "primary": true
+        },
+        {
+          "id": "019d89d3-91a5-41d7-81ec-221fb757c80c",
+          "board": "edexcel",
+          "code": "EDEX 1.11",
+          "primary": true
+        },
+        {
+          "id": "ace0e3f4-fad5-467e-be20-8b0a94ba6469",
+          "board": "ocr",
+          "code": "OCR 1.2g",
+          "primary": false
+        },
+        {
+          "id": "c874b05f-5fb0-4430-b94e-f1edc32f9be2",
+          "board": "aqa_trilogy",
+          "code": "AQA T 4.2.2.1",
+          "primary": false
+        }
+      ]
+    },
+    {
+      "id": "bio-022",
+      "group": "Organisation",
+      "title": "Required practical: effect of pH on amylase",
+      "scope": "Investigating how pH affects the rate at which amylase breaks down starch, using iodine and continuous sampling.",
+      "kind": "practical",
+      "higher_only": false,
+      "separate_only": false,
+      "spec_points": [
+        {
+          "id": "82a928db-f5de-4bed-9b60-5b76834c399c",
+          "board": "edexcel",
+          "code": "EDEX 1.10",
+          "primary": true
+        },
+        {
+          "id": "3309e2ec-798f-4f59-a638-f9dba7f0248f",
+          "board": "ocr",
+          "code": "OCR 1.2f",
+          "primary": true
+        },
+        {
+          "id": "d1524cd4-fd59-4ec8-9873-6eb3c435a75e",
+          "board": "ocr",
+          "code": "OCR 7.4",
+          "primary": true
+        },
+        {
+          "id": "de188d30-d767-4c9b-b53d-b5d546469476",
+          "board": "aqa",
+          "code": "AQA 2.5",
+          "primary": false
+        },
+        {
+          "id": "c874b05f-5fb0-4430-b94e-f1edc32f9be2",
+          "board": "aqa_trilogy",
+          "code": "AQA T 4.2.2.1",
+          "primary": false
+        }
+      ]
+    },
+    {
+      "id": "bio-023",
+      "group": "Organisation",
+      "title": "Digestive enzymes",
+      "scope": "Carbohydrases, proteases and lipases, where they are made and what they produce, plus bile and the use of digestion products to build new molecules.",
+      "kind": "content",
+      "higher_only": false,
+      "separate_only": false,
+      "spec_points": [
+        {
+          "id": "e328616e-f0da-41cd-b7a9-e32deffb13e5",
+          "board": "aqa",
+          "code": "AQA 2.4",
+          "primary": true
+        },
+        {
+          "id": "6f843388-c13f-4bd9-94ff-34677e0e9fa3",
+          "board": "edexcel",
+          "code": "EDEX 1.12",
+          "primary": true
+        },
+        {
+          "id": "c874b05f-5fb0-4430-b94e-f1edc32f9be2",
+          "board": "aqa_trilogy",
+          "code": "AQA T 4.2.2.1",
+          "primary": false
+        },
+        {
+          "id": "ea6e9475-512a-46b7-b02a-0759bad1ae78",
+          "board": "ocr",
+          "code": "OCR 1.3d",
+          "primary": false
+        },
+        {
+          "id": "1d5df90a-3540-48b6-b263-7674c2f563e6",
+          "board": "ocr",
+          "code": "OCR 1.3e",
+          "primary": false
+        },
+        {
+          "id": "ca0f2e01-8c2b-4bcd-9421-fd9736e23797",
+          "board": "ocr",
+          "code": "OCR 1.3f",
+          "primary": false
+        }
+      ]
+    },
+    {
+      "id": "bio-024",
+      "group": "Organisation",
+      "title": "Required practical: food tests",
+      "scope": "Using iodine, Benedict's, biuret and the emulsion (or Sudan III) test to identify starch, sugars, proteins and lipids.",
+      "kind": "practical",
+      "higher_only": false,
+      "separate_only": false,
+      "spec_points": [
+        {
+          "id": "0fd10bd0-40f0-46b1-a99e-db67016da703",
+          "board": "edexcel",
+          "code": "EDEX 1.13B",
+          "primary": true
+        },
+        {
+          "id": "ad90945e-a5b4-4dfc-bf6e-135f086e2387",
+          "board": "ocr",
+          "code": "OCR 7.3",
+          "primary": true
+        },
+        {
+          "id": "82cd7442-3455-4be9-87fc-894abcf02e5d",
+          "board": "aqa",
+          "code": "AQA 2.2",
+          "primary": false
+        },
+        {
+          "id": "c874b05f-5fb0-4430-b94e-f1edc32f9be2",
+          "board": "aqa_trilogy",
+          "code": "AQA T 4.2.2.1",
+          "primary": false
+        }
+      ]
+    },
+    {
+      "id": "bio-025",
+      "group": "Organisation",
+      "title": "Measuring energy in food (calorimetry)",
+      "scope": "Measuring the energy content of food by burning it and heating water, and calculating energy per gram.",
+      "kind": "practical",
+      "higher_only": false,
+      "separate_only": true,
+      "spec_points": [
+        {
+          "id": "b10e319c-0883-46bf-b0fc-823af115eae6",
+          "board": "edexcel",
+          "code": "EDEX 1.14B",
+          "primary": true
+        }
+      ]
+    },
+    {
+      "id": "bio-026",
+      "group": "Organisation",
+      "title": "The lungs and gas exchange",
+      "scope": "The structure of the breathing system and how alveoli are adapted for gas exchange by diffusion.",
+      "kind": "content",
+      "higher_only": false,
+      "separate_only": false,
+      "spec_points": [
+        {
+          "id": "fa537cb3-6883-4a41-9632-c731ed800246",
+          "board": "aqa_trilogy",
+          "code": "AQA T 4.2.2.2",
+          "primary": true
+        },
+        {
+          "id": "329f9f7d-d630-437c-9840-12a4b0456350",
+          "board": "edexcel",
+          "code": "EDEX 8.3",
+          "primary": true
+        },
+        {
+          "id": "e0fa0fc3-5266-46ac-a96a-b939bad1f87d",
+          "board": "aqa",
+          "code": "AQA 2.6",
+          "primary": false
+        },
+        {
+          "id": "3d0486b8-d339-49e4-a312-069003a381c3",
+          "board": "ocr",
+          "code": "OCR 2.2c",
+          "primary": false
+        },
+        {
+          "id": "979cae12-1b47-4466-a056-3f32560f414d",
+          "board": "aqa",
+          "code": "AQA 1.13",
+          "primary": false
+        }
+      ]
+    },
+    {
+      "id": "bio-027",
+      "group": "Organisation",
+      "title": "The heart and double circulation",
+      "scope": "The structure of the heart, its chambers, valves and major vessels, the double circulatory system and the pacemaker.",
+      "kind": "content",
+      "higher_only": false,
+      "separate_only": false,
+      "spec_points": [
+        {
+          "id": "e0fa0fc3-5266-46ac-a96a-b939bad1f87d",
+          "board": "aqa",
+          "code": "AQA 2.6",
+          "primary": true
+        },
+        {
+          "id": "8ff3ac10-2893-4b41-99c8-e23944938b04",
+          "board": "edexcel",
+          "code": "EDEX 8.8",
+          "primary": true
+        },
+        {
+          "id": "3d0486b8-d339-49e4-a312-069003a381c3",
+          "board": "ocr",
+          "code": "OCR 2.2c",
+          "primary": true
+        },
+        {
+          "id": "fa537cb3-6883-4a41-9632-c731ed800246",
+          "board": "aqa_trilogy",
+          "code": "AQA T 4.2.2.2",
+          "primary": false
+        },
+        {
+          "id": "57209c99-4e8b-4f41-9cb3-1c4070056482",
+          "board": "ocr",
+          "code": "OCR 2.2d",
+          "primary": false
+        }
+      ]
+    },
+    {
+      "id": "bio-028",
+      "group": "Organisation",
+      "title": "Cardiac output",
+      "scope": "Calculating cardiac output from stroke volume and heart rate.",
+      "kind": "content",
+      "higher_only": false,
+      "separate_only": false,
+      "spec_points": [
+        {
+          "id": "1f7c5270-8833-44b9-964e-fd60583ea125",
+          "board": "edexcel",
+          "code": "EDEX 8.12",
+          "primary": true
+        }
+      ]
+    },
+    {
+      "id": "bio-029",
+      "group": "Organisation",
+      "title": "Blood vessels",
+      "scope": "How the structures of arteries, veins and capillaries relate to their functions.",
+      "kind": "content",
+      "higher_only": false,
+      "separate_only": false,
+      "spec_points": [
+        {
+          "id": "732961bd-de3e-4121-a47e-f0e5b4c44eca",
+          "board": "edexcel",
+          "code": "EDEX 8.7",
+          "primary": true
+        },
+        {
+          "id": "57209c99-4e8b-4f41-9cb3-1c4070056482",
+          "board": "ocr",
+          "code": "OCR 2.2d",
+          "primary": true
+        },
+        {
+          "id": "e0fa0fc3-5266-46ac-a96a-b939bad1f87d",
+          "board": "aqa",
+          "code": "AQA 2.6",
+          "primary": false
+        },
+        {
+          "id": "fa537cb3-6883-4a41-9632-c731ed800246",
+          "board": "aqa_trilogy",
+          "code": "AQA T 4.2.2.2",
+          "primary": false
+        }
+      ]
+    },
+    {
+      "id": "bio-030",
+      "group": "Organisation",
+      "title": "Blood",
+      "scope": "The components of blood (plasma, red cells, white cells, platelets) and how they are adapted to their functions.",
+      "kind": "content",
+      "higher_only": false,
+      "separate_only": false,
+      "spec_points": [
+        {
+          "id": "c44181b6-c167-42b9-87f4-8f9b612f6bd9",
+          "board": "aqa",
+          "code": "AQA 2.7",
+          "primary": true
+        },
+        {
+          "id": "ef3220ed-8a9b-4cfd-9897-9b0fdc6bd50a",
+          "board": "aqa_trilogy",
+          "code": "AQA T 4.2.2.3",
+          "primary": true
+        },
+        {
+          "id": "985466d4-cded-45e6-bfe8-59b044fb14a5",
+          "board": "edexcel",
+          "code": "EDEX 8.6",
+          "primary": true
+        },
+        {
+          "id": "fc670465-814a-4d71-86d6-1fceda0f7b0a",
+          "board": "ocr",
+          "code": "OCR 2.2e",
+          "primary": true
+        },
+        {
+          "id": "14fd819d-6a09-497d-ba81-cbec4f457cc4",
+          "board": "ocr",
+          "code": "OCR 6.3j",
+          "primary": false
+        }
+      ]
+    },
+    {
+      "id": "bio-031",
+      "group": "Organisation",
+      "title": "Coronary heart disease and its treatments",
+      "scope": "How fatty deposits cause coronary heart disease and the evaluation of treatments: statins, stents, bypass, valve replacement, transplants and lifestyle changes.",
+      "kind": "content",
+      "higher_only": false,
+      "separate_only": false,
+      "spec_points": [
+        {
+          "id": "846f60ce-9563-4483-a0bc-88e53cc49953",
+          "board": "aqa",
+          "code": "AQA 2.8",
+          "primary": true
+        },
+        {
+          "id": "b934cd92-ae66-47d6-9f13-33d2bc1bf93b",
+          "board": "aqa_trilogy",
+          "code": "AQA T 4.2.2.4",
+          "primary": true
+        },
+        {
+          "id": "37edcc45-e413-42ee-9c71-f3db6105eb0b",
+          "board": "edexcel",
+          "code": "EDEX 5.25",
+          "primary": true
+        },
+        {
+          "id": "a01005e5-d61c-4a1f-976e-be6521d91ea6",
+          "board": "ocr",
+          "code": "OCR 6.3s",
+          "primary": true
+        }
+      ]
+    },
+    {
+      "id": "bio-032",
+      "group": "Organisation",
+      "title": "Health and disease",
+      "scope": "What health means, communicable versus non-communicable disease, and how diseases interact (e.g. HIV and TB, HPV and cervical cancer).",
+      "kind": "content",
+      "higher_only": false,
+      "separate_only": false,
+      "spec_points": [
+        {
+          "id": "c89c8a72-4d4c-4e9b-8cda-f9315692c4ab",
+          "board": "aqa_trilogy",
+          "code": "AQA T 4.2.2.5",
+          "primary": true
+        },
+        {
+          "id": "5081bd49-f175-434e-b11e-fbedabaea0cb",
+          "board": "edexcel",
+          "code": "EDEX 5.1",
+          "primary": true
+        },
+        {
+          "id": "65cce6dc-b210-4d7e-b071-042b64aa4322",
+          "board": "edexcel",
+          "code": "EDEX 5.2",
+          "primary": true
+        },
+        {
+          "id": "435e2a61-be07-491e-a08f-b9de289f24e9",
+          "board": "edexcel",
+          "code": "EDEX 5.3",
+          "primary": true
+        },
+        {
+          "id": "4bde8a14-c2a0-41b0-9052-7f0b822e4afe",
+          "board": "ocr",
+          "code": "OCR 6.3a",
+          "primary": true
+        },
+        {
+          "id": "ef79c620-14b8-4f9c-8af6-4a5e1d5f5a6a",
+          "board": "ocr",
+          "code": "OCR 6.3b",
+          "primary": true
+        },
+        {
+          "id": "98267df3-c7a8-4fec-9667-42ab4b327e71",
+          "board": "ocr",
+          "code": "OCR 6.3c",
+          "primary": true
+        },
+        {
+          "id": "d6274049-3ffc-40a8-aa55-0d480fa77f5a",
+          "board": "aqa",
+          "code": "AQA 2.9",
+          "primary": false
+        }
+      ]
+    },
+    {
+      "id": "bio-033",
+      "group": "Organisation",
+      "title": "Risk factors and lifestyle in non-communicable disease",
+      "scope": "How lifestyle factors such as diet, exercise, smoking and alcohol interact to cause non-communicable diseases, including BMI and waist-to-hip calculations and their costs.",
+      "kind": "content",
+      "higher_only": false,
+      "separate_only": false,
+      "spec_points": [
+        {
+          "id": "d6274049-3ffc-40a8-aa55-0d480fa77f5a",
+          "board": "aqa",
+          "code": "AQA 2.9",
+          "primary": true
+        },
+        {
+          "id": "f90c2303-7bcc-4e52-a217-dc0525fc2e12",
+          "board": "aqa_trilogy",
+          "code": "AQA T 4.2.2.6",
+          "primary": true
+        },
+        {
+          "id": "58134996-9263-4b93-95dc-c40774050ddd",
+          "board": "edexcel",
+          "code": "EDEX 5.23",
+          "primary": true
+        },
+        {
+          "id": "277b4067-e95a-41e9-b6ca-7d56f1f252ef",
+          "board": "edexcel",
+          "code": "EDEX 5.24",
+          "primary": true
+        },
+        {
+          "id": "39af4d98-a044-4727-ac7d-123b5ccdba61",
+          "board": "ocr",
+          "code": "OCR 6.3r",
+          "primary": true
+        },
+        {
+          "id": "b13c8b98-f4a8-47a6-90b2-5f85d688a5ba",
+          "board": "ocr",
+          "code": "OCR 6.3t",
+          "primary": true
+        }
+      ]
+    },
+    {
+      "id": "bio-034",
+      "group": "Organisation",
+      "title": "Cancer",
+      "scope": "Cancer as uncontrolled cell division, benign and malignant tumours, and risk factors.",
+      "kind": "content",
+      "higher_only": false,
+      "separate_only": false,
+      "spec_points": [
+        {
+          "id": "7d777dae-a597-420b-9f43-e209a6e74832",
+          "board": "aqa",
+          "code": "AQA 2.10",
+          "primary": true
+        },
+        {
+          "id": "aed7d436-410e-462e-a58a-5996f7e79b69",
+          "board": "aqa_trilogy",
+          "code": "AQA T 4.2.2.7",
+          "primary": true
+        },
+        {
+          "id": "5918bd7b-5233-415f-b8cb-505bef8c336e",
+          "board": "edexcel",
+          "code": "EDEX 2.4",
+          "primary": true
+        },
+        {
+          "id": "f7e5a956-8295-4e05-819d-1b2fdf44fd94",
+          "board": "ocr",
+          "code": "OCR 6.3u",
+          "primary": true
+        }
+      ]
+    },
+    {
+      "id": "bio-035",
+      "group": "Organisation",
+      "title": "Plant tissues and leaf structure",
+      "scope": "The tissues in a leaf (epidermis, palisade and spongy mesophyll, xylem, phloem, meristem) and how the leaf is adapted for photosynthesis and gas exchange.",
+      "kind": "content",
+      "higher_only": false,
+      "separate_only": false,
+      "spec_points": [
+        {
+          "id": "f51dc2ce-6e74-4fb1-963d-3ea9e188789d",
+          "board": "aqa",
+          "code": "AQA 2.11",
+          "primary": true
+        },
+        {
+          "id": "a0967e45-1e5e-4ba3-9b36-81325cac2933",
+          "board": "aqa_trilogy",
+          "code": "AQA T 4.2.3.1",
+          "primary": true
+        },
+        {
+          "id": "6078adea-249a-4553-bb0a-5b0f42d4d6df",
+          "board": "edexcel",
+          "code": "EDEX 6.11B",
+          "primary": true
+        }
+      ]
+    },
+    {
+      "id": "bio-036",
+      "group": "Organisation",
+      "title": "Root hair cells, xylem and phloem",
+      "scope": "How root hair cells take up water and minerals and how xylem and phloem are adapted for transport in the plant.",
+      "kind": "content",
+      "higher_only": false,
+      "separate_only": false,
+      "spec_points": [
+        {
+          "id": "05715453-6cf9-46f5-9d39-4037b81752e1",
+          "board": "aqa",
+          "code": "AQA 2.12",
+          "primary": true
+        },
+        {
+          "id": "17bff5bc-2bf0-471f-a40e-2ce7a804812a",
+          "board": "edexcel",
+          "code": "EDEX 6.7",
+          "primary": true
+        },
+        {
+          "id": "0338186a-8610-4356-8882-8a76c0c27390",
+          "board": "edexcel",
+          "code": "EDEX 6.8",
+          "primary": true
+        },
+        {
+          "id": "ca385f96-1f6a-43f5-8cf1-f66c3ca21e38",
+          "board": "ocr",
+          "code": "OCR 2.2f",
+          "primary": true
+        },
+        {
+          "id": "5036424d-654b-43bb-a3b5-b2ab34feb2f5",
+          "board": "ocr",
+          "code": "OCR 2.2h",
+          "primary": true
+        },
+        {
+          "id": "39deadc2-70b2-4466-bcb8-b34c34abf5c1",
+          "board": "aqa_trilogy",
+          "code": "AQA T 4.2.3.2",
+          "primary": false
+        },
+        {
+          "id": "a0967e45-1e5e-4ba3-9b36-81325cac2933",
+          "board": "aqa_trilogy",
+          "code": "AQA T 4.2.3.1",
+          "primary": false
+        }
+      ]
+    },
+    {
+      "id": "bio-037",
+      "group": "Organisation",
+      "title": "Transpiration and stomata",
+      "scope": "Transpiration as water loss from leaves and movement through the xylem, and how guard cells open and close stomata.",
+      "kind": "content",
+      "higher_only": false,
+      "separate_only": false,
+      "spec_points": [
+        {
+          "id": "e9e292ae-1520-4bcf-8606-3e38f778b656",
+          "board": "edexcel",
+          "code": "EDEX 6.9",
+          "primary": true
+        },
+        {
+          "id": "1f7d302e-b3cc-43fd-8495-c769867d0044",
+          "board": "ocr",
+          "code": "OCR 2.2g",
+          "primary": true
+        },
+        {
+          "id": "05715453-6cf9-46f5-9d39-4037b81752e1",
+          "board": "aqa",
+          "code": "AQA 2.12",
+          "primary": false
+        },
+        {
+          "id": "39deadc2-70b2-4466-bcb8-b34c34abf5c1",
+          "board": "aqa_trilogy",
+          "code": "AQA T 4.2.3.2",
+          "primary": false
+        }
+      ]
+    },
+    {
+      "id": "bio-038",
+      "group": "Organisation",
+      "title": "Factors affecting transpiration and the potometer",
+      "scope": "How light, temperature, air movement and humidity affect transpiration rate and how to measure water uptake with a potometer.",
+      "kind": "content",
+      "higher_only": false,
+      "separate_only": false,
+      "spec_points": [
+        {
+          "id": "39deadc2-70b2-4466-bcb8-b34c34abf5c1",
+          "board": "aqa_trilogy",
+          "code": "AQA T 4.2.3.2",
+          "primary": true
+        },
+        {
+          "id": "83f00c44-b5ed-475c-95d7-f78e57b411bb",
+          "board": "edexcel",
+          "code": "EDEX 6.12",
+          "primary": true
+        },
+        {
+          "id": "7a878e43-b5e0-44b8-a628-3afb86d6779f",
+          "board": "edexcel",
+          "code": "EDEX 6.13",
+          "primary": true
+        },
+        {
+          "id": "1cad6204-b711-4745-b91f-04b53be4f5b4",
+          "board": "ocr",
+          "code": "OCR 2.2i",
+          "primary": true
+        },
+        {
+          "id": "f9f253c2-dd6e-4ef8-8d7a-5452ae4e5f6e",
+          "board": "ocr",
+          "code": "OCR 2.2j",
+          "primary": true
+        },
+        {
+          "id": "05715453-6cf9-46f5-9d39-4037b81752e1",
+          "board": "aqa",
+          "code": "AQA 2.12",
+          "primary": false
+        }
+      ]
+    },
+    {
+      "id": "bio-039",
+      "group": "Organisation",
+      "title": "Translocation",
+      "scope": "Movement of dissolved sugars from source to sink through the phloem.",
+      "kind": "content",
+      "higher_only": false,
+      "separate_only": false,
+      "spec_points": [
+        {
+          "id": "e0f7a2a0-2c27-4ea5-8352-ce84f3c40824",
+          "board": "aqa",
+          "code": "AQA 2.13",
+          "primary": true
+        },
+        {
+          "id": "b851c0f1-16fe-4d4d-8bc0-be53eb42a326",
+          "board": "edexcel",
+          "code": "EDEX 6.10",
+          "primary": true
+        },
+        {
+          "id": "1f7d302e-b3cc-43fd-8495-c769867d0044",
+          "board": "ocr",
+          "code": "OCR 2.2g",
+          "primary": false
+        },
+        {
+          "id": "5036424d-654b-43bb-a3b5-b2ab34feb2f5",
+          "board": "ocr",
+          "code": "OCR 2.2h",
+          "primary": false
+        },
+        {
+          "id": "39deadc2-70b2-4466-bcb8-b34c34abf5c1",
+          "board": "aqa_trilogy",
+          "code": "AQA T 4.2.3.2",
+          "primary": false
+        }
+      ]
+    },
+    {
+      "id": "bio-040",
+      "group": "Infection and response",
+      "title": "Pathogens and how disease spreads",
+      "scope": "The four types of pathogen and how communicable diseases spread and can be prevented in animals and plants.",
+      "kind": "content",
+      "higher_only": false,
+      "separate_only": false,
+      "spec_points": [
+        {
+          "id": "1a607c00-7c89-4589-ad0d-7c9e02fb3212",
+          "board": "aqa",
+          "code": "AQA 3.1",
+          "primary": true
+        },
+        {
+          "id": "aa46379b-0f22-47fa-b631-c37f2979f91e",
+          "board": "aqa_trilogy",
+          "code": "AQA T 4.3.1.1",
+          "primary": true
+        },
+        {
+          "id": "12e841c0-f507-4e3c-87d6-345e63d45a71",
+          "board": "edexcel",
+          "code": "EDEX 5.4",
+          "primary": true
+        },
+        {
+          "id": "50d5d4ee-65dc-4af7-9dc0-5f4a22ff3418",
+          "board": "edexcel",
+          "code": "EDEX 5.6",
+          "primary": true
+        },
+        {
+          "id": "d89d53c6-407c-4fef-9c01-c05e9a90991b",
+          "board": "ocr",
+          "code": "OCR 6.3d",
+          "primary": true
+        },
+        {
+          "id": "e9d0e5e3-3a24-4d65-b27d-492d4fc5ade1",
+          "board": "ocr",
+          "code": "OCR 6.3e",
+          "primary": true
+        }
+      ]
+    },
+    {
+      "id": "bio-041",
+      "group": "Infection and response",
+      "title": "Viral diseases",
+      "scope": "Viral diseases such as measles, HIV and tobacco mosaic virus: symptoms, spread and control.",
+      "kind": "content",
+      "higher_only": false,
+      "separate_only": false,
+      "spec_points": [
+        {
+          "id": "d3f3d97c-c0c8-4d9c-b488-2adce13af8a2",
+          "board": "aqa",
+          "code": "AQA 3.2",
+          "primary": true
+        },
+        {
+          "id": "67c7ee95-6f13-4c17-9599-5a7b65318841",
+          "board": "aqa_trilogy",
+          "code": "AQA T 4.3.1.2",
+          "primary": true
+        },
+        {
+          "id": "e09c64b5-8af5-4f69-8ee8-742d86236ed2",
+          "board": "edexcel",
+          "code": "EDEX 5.5",
+          "primary": false
+        },
+        {
+          "id": "bde5f09a-6319-4d45-83b3-228dca9ff695",
+          "board": "ocr",
+          "code": "OCR 6.3f",
+          "primary": false
+        }
+      ]
+    },
+    {
+      "id": "bio-042",
+      "group": "Infection and response",
+      "title": "Bacterial diseases",
+      "scope": "Bacterial diseases such as salmonella, gonorrhoea, cholera, tuberculosis and Helicobacter: symptoms, spread and control.",
+      "kind": "content",
+      "higher_only": false,
+      "separate_only": false,
+      "spec_points": [
+        {
+          "id": "a97a8222-0573-4541-ba4e-6e4be8ca1383",
+          "board": "aqa_trilogy",
+          "code": "AQA T 4.3.1.3",
+          "primary": true
+        },
+        {
+          "id": "e09c64b5-8af5-4f69-8ee8-742d86236ed2",
+          "board": "edexcel",
+          "code": "EDEX 5.5",
+          "primary": true
+        },
+        {
+          "id": "d3f3d97c-c0c8-4d9c-b488-2adce13af8a2",
+          "board": "aqa",
+          "code": "AQA 3.2",
+          "primary": false
+        },
+        {
+          "id": "bde5f09a-6319-4d45-83b3-228dca9ff695",
+          "board": "ocr",
+          "code": "OCR 6.3f",
+          "primary": false
+        },
+        {
+          "id": "0868beb0-22bd-4bba-991c-8d308f420c51",
+          "board": "edexcel",
+          "code": "EDEX 5.8",
+          "primary": false
+        }
+      ]
+    },
+    {
+      "id": "bio-043",
+      "group": "Infection and response",
+      "title": "Fungal and protist diseases",
+      "scope": "Fungal and protist diseases such as rose black spot, ash dieback and malaria, and how their spread is controlled.",
+      "kind": "content",
+      "higher_only": false,
+      "separate_only": false,
+      "spec_points": [
+        {
+          "id": "de9beb9c-d805-4e37-8eb6-b24988d14723",
+          "board": "aqa_trilogy",
+          "code": "AQA T 4.3.1.4",
+          "primary": true
+        },
+        {
+          "id": "81db5518-a49f-4058-8e56-300d76a72419",
+          "board": "aqa_trilogy",
+          "code": "AQA T 4.3.1.5",
+          "primary": true
+        },
+        {
+          "id": "d3f3d97c-c0c8-4d9c-b488-2adce13af8a2",
+          "board": "aqa",
+          "code": "AQA 3.2",
+          "primary": false
+        },
+        {
+          "id": "e09c64b5-8af5-4f69-8ee8-742d86236ed2",
+          "board": "edexcel",
+          "code": "EDEX 5.5",
+          "primary": false
+        },
+        {
+          "id": "bde5f09a-6319-4d45-83b3-228dca9ff695",
+          "board": "ocr",
+          "code": "OCR 6.3f",
+          "primary": false
+        }
+      ]
+    },
+    {
+      "id": "bio-044",
+      "group": "Infection and response",
+      "title": "Sexually transmitted infections",
+      "scope": "How STIs such as chlamydia and HIV are spread and how their spread is reduced.",
+      "kind": "content",
+      "higher_only": false,
+      "separate_only": false,
+      "spec_points": [
+        {
+          "id": "0868beb0-22bd-4bba-991c-8d308f420c51",
+          "board": "edexcel",
+          "code": "EDEX 5.8",
+          "primary": true
+        },
+        {
+          "id": "bde5f09a-6319-4d45-83b3-228dca9ff695",
+          "board": "ocr",
+          "code": "OCR 6.3f",
+          "primary": true
+        },
+        {
+          "id": "d3f3d97c-c0c8-4d9c-b488-2adce13af8a2",
+          "board": "aqa",
+          "code": "AQA 3.2",
+          "primary": false
+        },
+        {
+          "id": "67c7ee95-6f13-4c17-9599-5a7b65318841",
+          "board": "aqa_trilogy",
+          "code": "AQA T 4.3.1.2",
+          "primary": false
+        },
+        {
+          "id": "a97a8222-0573-4541-ba4e-6e4be8ca1383",
+          "board": "aqa_trilogy",
+          "code": "AQA T 4.3.1.3",
+          "primary": false
+        }
+      ]
+    },
+    {
+      "id": "bio-045",
+      "group": "Infection and response",
+      "title": "Viral life cycles: lytic and lysogenic",
+      "scope": "How viruses reproduce by the lytic and lysogenic pathways.",
+      "kind": "content",
+      "higher_only": false,
+      "separate_only": true,
+      "spec_points": [
+        {
+          "id": "383f28b5-cbc1-472e-a45e-ba627aa98548",
+          "board": "edexcel",
+          "code": "EDEX 5.7B",
+          "primary": true
+        }
+      ]
+    },
+    {
+      "id": "bio-046",
+      "group": "Infection and response",
+      "title": "Non-specific human defences",
+      "scope": "The body's physical and chemical barriers to pathogens: skin, mucus, cilia, stomach acid and lysozymes.",
+      "kind": "content",
+      "higher_only": false,
+      "separate_only": false,
+      "spec_points": [
+        {
+          "id": "e98602bf-c0f9-4ff6-87e0-e7e4e8b0a6b5",
+          "board": "aqa_trilogy",
+          "code": "AQA T 4.3.1.6",
+          "primary": true
+        },
+        {
+          "id": "18b3fbda-0f46-4171-bc88-7f79cfd7280b",
+          "board": "edexcel",
+          "code": "EDEX 5.12",
+          "primary": true
+        },
+        {
+          "id": "291355c2-1ce8-4efa-bedc-2aa01c875b93",
+          "board": "ocr",
+          "code": "OCR 6.3k",
+          "primary": true
+        },
+        {
+          "id": "938347af-0376-4542-a456-b7df30e25498",
+          "board": "aqa",
+          "code": "AQA 3.3",
+          "primary": false
+        }
+      ]
+    },
+    {
+      "id": "bio-047",
+      "group": "Infection and response",
+      "title": "The immune system and white blood cells",
+      "scope": "How white blood cells defend the body by phagocytosis, antibodies and antitoxins, and how memory lymphocytes give immunity.",
+      "kind": "content",
+      "higher_only": false,
+      "separate_only": false,
+      "spec_points": [
+        {
+          "id": "938347af-0376-4542-a456-b7df30e25498",
+          "board": "aqa",
+          "code": "AQA 3.3",
+          "primary": true
+        },
+        {
+          "id": "f612518f-3ed5-4979-b71f-f885605f2dd9",
+          "board": "edexcel",
+          "code": "EDEX 5.13",
+          "primary": true
+        },
+        {
+          "id": "14fd819d-6a09-497d-ba81-cbec4f457cc4",
+          "board": "ocr",
+          "code": "OCR 6.3j",
+          "primary": true
+        },
+        {
+          "id": "19910011-e3b6-4595-9037-c1e1a6e3da6f",
+          "board": "ocr",
+          "code": "OCR 6.3l",
+          "primary": true
+        },
+        {
+          "id": "e98602bf-c0f9-4ff6-87e0-e7e4e8b0a6b5",
+          "board": "aqa_trilogy",
+          "code": "AQA T 4.3.1.6",
+          "primary": false
+        }
+      ]
+    },
+    {
+      "id": "bio-048",
+      "group": "Infection and response",
+      "title": "Vaccination",
+      "scope": "How vaccines trigger immunity and the advantages and disadvantages of vaccination programmes, including herd immunity.",
+      "kind": "content",
+      "higher_only": false,
+      "separate_only": false,
+      "spec_points": [
+        {
+          "id": "c390de44-fee0-4bdc-b46f-1491f9ec20f8",
+          "board": "aqa",
+          "code": "AQA 3.4",
+          "primary": true
+        },
+        {
+          "id": "9bc43e3e-dbf6-4aa3-ae55-d3b308e16550",
+          "board": "aqa_trilogy",
+          "code": "AQA T 4.3.1.7",
+          "primary": true
+        },
+        {
+          "id": "561018dc-0845-4f61-8317-c30ccc351415",
+          "board": "edexcel",
+          "code": "EDEX 5.14",
+          "primary": true
+        },
+        {
+          "id": "6cb4b201-e80c-46d1-81d3-d62021e12c58",
+          "board": "edexcel",
+          "code": "EDEX 5.15B",
+          "primary": true
+        },
+        {
+          "id": "dd84cb13-9250-4270-95ca-cf94db292195",
+          "board": "ocr",
+          "code": "OCR 6.3o",
+          "primary": false
+        }
+      ]
+    },
+    {
+      "id": "bio-049",
+      "group": "Infection and response",
+      "title": "Antibiotics and painkillers",
+      "scope": "Why antibiotics kill bacteria but not viruses, the role of painkillers, antivirals and antiseptics in treating and preventing disease.",
+      "kind": "content",
+      "higher_only": false,
+      "separate_only": false,
+      "spec_points": [
+        {
+          "id": "d96f39cd-ff37-42f5-a7c4-4ab82e5d93c1",
+          "board": "aqa",
+          "code": "AQA 3.5",
+          "primary": true
+        },
+        {
+          "id": "9316cc03-c9d2-4de1-8075-1cabad1438f8",
+          "board": "aqa_trilogy",
+          "code": "AQA T 4.3.1.8",
+          "primary": true
+        },
+        {
+          "id": "60a614c2-f9e2-464c-b5d5-ca2881765775",
+          "board": "edexcel",
+          "code": "EDEX 5.16",
+          "primary": true
+        },
+        {
+          "id": "dd84cb13-9250-4270-95ca-cf94db292195",
+          "board": "ocr",
+          "code": "OCR 6.3o",
+          "primary": true
+        }
+      ]
+    },
+    {
+      "id": "bio-050",
+      "group": "Infection and response",
+      "title": "Discovery and development of drugs",
+      "scope": "Where drugs come from and how new medicines are tested through preclinical and clinical trials, including double-blind trials and placebos.",
+      "kind": "content",
+      "higher_only": false,
+      "separate_only": false,
+      "spec_points": [
+        {
+          "id": "cee79d09-9581-4a06-bc7c-4b5fc0cbe388",
+          "board": "aqa",
+          "code": "AQA 3.6",
+          "primary": true
+        },
+        {
+          "id": "3c61086a-50fb-418b-9e70-1d0f6c9cda5f",
+          "board": "aqa_trilogy",
+          "code": "AQA T 4.3.1.9",
+          "primary": true
+        },
+        {
+          "id": "7c5c115d-7729-4f66-b087-dd9bb91f08e4",
+          "board": "edexcel",
+          "code": "EDEX 5.20",
+          "primary": true
+        },
+        {
+          "id": "5932e7cc-2245-4ecc-9bb3-a88511eb5357",
+          "board": "ocr",
+          "code": "OCR 6.3q",
+          "primary": true
+        }
+      ]
+    },
+    {
+      "id": "bio-051",
+      "group": "Infection and response",
+      "title": "Producing monoclonal antibodies",
+      "scope": "How monoclonal antibodies are made by fusing lymphocytes with tumour cells to form hybridoma cells.",
+      "kind": "content",
+      "higher_only": false,
+      "separate_only": true,
+      "spec_points": [
+        {
+          "id": "84010b35-395b-455d-89bd-5e9c62144a9a",
+          "board": "aqa",
+          "code": "AQA 3.7",
+          "primary": true
+        },
+        {
+          "id": "b35ef88d-061c-4ae3-854d-28985b507f36",
+          "board": "edexcel",
+          "code": "EDEX 5.21B",
+          "primary": true
+        },
+        {
+          "id": "534a7b46-6b0e-4533-833a-1bfc332c0d65",
+          "board": "ocr",
+          "code": "OCR 6.3m",
+          "primary": true
+        }
+      ]
+    },
+    {
+      "id": "bio-052",
+      "group": "Infection and response",
+      "title": "Uses of monoclonal antibodies",
+      "scope": "Using monoclonal antibodies in pregnancy tests, diagnosis, research and treating cancer, and their side effects.",
+      "kind": "content",
+      "higher_only": false,
+      "separate_only": true,
+      "spec_points": [
+        {
+          "id": "56e8c886-f9ea-4397-bacb-1020a9d19664",
+          "board": "aqa",
+          "code": "AQA 3.8",
+          "primary": true
+        },
+        {
+          "id": "e674e909-4d71-4f1a-95cf-f51a801963f9",
+          "board": "edexcel",
+          "code": "EDEX 5.22B",
+          "primary": true
+        },
+        {
+          "id": "883de55c-22b3-417e-a27e-914987927c1e",
+          "board": "ocr",
+          "code": "OCR 6.3n",
+          "primary": true
+        }
+      ]
+    },
+    {
+      "id": "bio-053",
+      "group": "Infection and response",
+      "title": "Detecting and identifying plant diseases",
+      "scope": "Signs of plant disease and ion deficiencies, and how plant diseases are identified in the field and the lab.",
+      "kind": "content",
+      "higher_only": false,
+      "separate_only": true,
+      "spec_points": [
+        {
+          "id": "8d106ece-5df4-414a-941f-02cc64ddab68",
+          "board": "aqa",
+          "code": "AQA 3.9",
+          "primary": true
+        },
+        {
+          "id": "37172548-0b1e-4358-be07-86fe493abe27",
+          "board": "edexcel",
+          "code": "EDEX 5.11B",
+          "primary": true
+        },
+        {
+          "id": "9c10a53f-af12-4171-a415-a8a7776dc71c",
+          "board": "ocr",
+          "code": "OCR 6.3i",
+          "primary": true
+        }
+      ]
+    },
+    {
+      "id": "bio-054",
+      "group": "Infection and response",
+      "title": "Plant defence responses",
+      "scope": "Physical, chemical and mechanical defences plants use against pathogens and pests.",
+      "kind": "content",
+      "higher_only": false,
+      "separate_only": true,
+      "spec_points": [
+        {
+          "id": "66088360-623b-4a73-9c47-39e01d9c56a0",
+          "board": "aqa",
+          "code": "AQA 3.10",
+          "primary": true
+        },
+        {
+          "id": "729e04ae-f4d2-4a88-b93f-0438eabc80d6",
+          "board": "edexcel",
+          "code": "EDEX 5.9B",
+          "primary": true
+        },
+        {
+          "id": "407c08e9-6fa5-4387-ba47-1e24bc5108b8",
+          "board": "edexcel",
+          "code": "EDEX 5.10B",
+          "primary": true
+        },
+        {
+          "id": "c4d1e449-216c-41d4-8d1a-daca738afc06",
+          "board": "ocr",
+          "code": "OCR 6.3g",
+          "primary": true
+        },
+        {
+          "id": "6e24ac44-afa6-485f-8aab-5e894d45654c",
+          "board": "ocr",
+          "code": "OCR 6.3h",
+          "primary": true
+        }
+      ]
+    },
+    {
+      "id": "bio-055",
+      "group": "Bioenergetics",
+      "title": "Photosynthesis",
+      "scope": "The photosynthesis equation, photosynthesis as an endothermic reaction in chloroplasts, and plants and algae as producers of biomass.",
+      "kind": "content",
+      "higher_only": false,
+      "separate_only": false,
+      "spec_points": [
+        {
+          "id": "80d6e1be-7282-4d95-9516-5c5c1cfda9aa",
+          "board": "aqa",
+          "code": "AQA 4.1",
+          "primary": true
+        },
+        {
+          "id": "1d08495f-244d-4940-900a-310c917d0ba1",
+          "board": "aqa_trilogy",
+          "code": "AQA T 4.4.1.1",
+          "primary": true
+        },
+        {
+          "id": "00eff3ab-d165-491c-84e7-8f6f2697bafc",
+          "board": "edexcel",
+          "code": "EDEX 6.1",
+          "primary": true
+        },
+        {
+          "id": "9be7c105-082e-4459-b165-4bb7a58c2a89",
+          "board": "edexcel",
+          "code": "EDEX 6.2",
+          "primary": true
+        },
+        {
+          "id": "5883bb36-6c30-472e-8980-2c471e07cda9",
+          "board": "ocr",
+          "code": "OCR 1.4a",
+          "primary": true
+        },
+        {
+          "id": "97251274-e175-4d62-b632-20b416d67a37",
+          "board": "ocr",
+          "code": "OCR 1.4b",
+          "primary": true
+        },
+        {
+          "id": "52dbc783-67d9-40c7-8529-8eda3e98b77f",
+          "board": "ocr",
+          "code": "OCR 1.4c",
+          "primary": true
+        }
+      ]
+    },
+    {
+      "id": "bio-056",
+      "group": "Bioenergetics",
+      "title": "Limiting factors of photosynthesis",
+      "scope": "How light intensity, carbon dioxide concentration, temperature and chlorophyll limit the rate of photosynthesis, read from graphs.",
+      "kind": "content",
+      "higher_only": false,
+      "separate_only": false,
+      "spec_points": [
+        {
+          "id": "a18696a1-44c5-4707-a2c3-04ee3b01f42f",
+          "board": "aqa",
+          "code": "AQA 4.2",
+          "primary": true
+        },
+        {
+          "id": "fb1e6c8e-7c2a-4558-8c8e-2f2fc8a216db",
+          "board": "aqa_trilogy",
+          "code": "AQA T 4.4.1.2",
+          "primary": true
+        },
+        {
+          "id": "5b9066b9-8936-4b90-929e-4b24da061f39",
+          "board": "edexcel",
+          "code": "EDEX 6.3",
+          "primary": true
+        },
+        {
+          "id": "4949f289-1471-4c22-bdeb-555a6aea3bdc",
+          "board": "ocr",
+          "code": "OCR 1.4e",
+          "primary": true
+        }
+      ]
+    },
+    {
+      "id": "bio-057",
+      "group": "Bioenergetics",
+      "title": "Interacting limiting factors and the inverse square law",
+      "scope": "How limiting factors interact, the inverse square law for light intensity, and using limiting factors to manage greenhouses economically.",
+      "kind": "content",
+      "higher_only": true,
+      "separate_only": false,
+      "spec_points": [
+        {
+          "id": "6d5b8f89-d9dc-419a-8890-30a6f5fefe9e",
+          "board": "aqa",
+          "code": "AQA 4.3",
+          "primary": true
+        },
+        {
+          "id": "f2cc1675-4cd0-4b8a-8f9e-38c2cce050be",
+          "board": "edexcel",
+          "code": "EDEX 6.4",
+          "primary": true
+        },
+        {
+          "id": "8c2be34a-9849-45d6-a7bb-9b83610343e7",
+          "board": "edexcel",
+          "code": "EDEX 6.6",
+          "primary": true
+        },
+        {
+          "id": "8c944ae2-6639-4f6b-9bee-286e2b43b190",
+          "board": "ocr",
+          "code": "OCR 1.4f",
+          "primary": true
+        }
+      ]
+    },
+    {
+      "id": "bio-058",
+      "group": "Bioenergetics",
+      "title": "Required practical: light intensity and rate of photosynthesis",
+      "scope": "Investigating how light intensity affects the rate of photosynthesis using pondweed or algal balls.",
+      "kind": "practical",
+      "higher_only": false,
+      "separate_only": false,
+      "spec_points": [
+        {
+          "id": "e9ff977e-1759-4f91-afa4-19f85173f244",
+          "board": "edexcel",
+          "code": "EDEX 6.5",
+          "primary": true
+        },
+        {
+          "id": "bfae2578-398a-4777-b2fb-a155cd234439",
+          "board": "ocr",
+          "code": "OCR 1.4d",
+          "primary": true
+        },
+        {
+          "id": "ea7b985d-dff3-4758-9259-016eb7cb91f7",
+          "board": "ocr",
+          "code": "OCR 7.5",
+          "primary": true
+        },
+        {
+          "id": "a18696a1-44c5-4707-a2c3-04ee3b01f42f",
+          "board": "aqa",
+          "code": "AQA 4.2",
+          "primary": false
+        },
+        {
+          "id": "fb1e6c8e-7c2a-4558-8c8e-2f2fc8a216db",
+          "board": "aqa_trilogy",
+          "code": "AQA T 4.4.1.2",
+          "primary": false
+        },
+        {
+          "id": "6d5b8f89-d9dc-419a-8890-30a6f5fefe9e",
+          "board": "aqa",
+          "code": "AQA 4.3",
+          "primary": false
+        }
+      ]
+    },
+    {
+      "id": "bio-059",
+      "group": "Bioenergetics",
+      "title": "Uses of glucose from photosynthesis",
+      "scope": "How plants use glucose for respiration, starch, fats and oils, cellulose and amino acids.",
+      "kind": "content",
+      "higher_only": false,
+      "separate_only": false,
+      "spec_points": [
+        {
+          "id": "ede48bc7-9830-43c5-950d-b9119f54207b",
+          "board": "aqa",
+          "code": "AQA 4.4",
+          "primary": true
+        },
+        {
+          "id": "b8dee717-7e62-4e86-939f-4e3726cd34c7",
+          "board": "aqa_trilogy",
+          "code": "AQA T 4.4.1.3",
+          "primary": true
+        }
+      ]
+    },
+    {
+      "id": "bio-060",
+      "group": "Bioenergetics",
+      "title": "Aerobic respiration",
+      "scope": "Respiration as a continuous exothermic reaction supplying energy (ATP) for living processes, and the aerobic respiration equation.",
+      "kind": "content",
+      "higher_only": false,
+      "separate_only": false,
+      "spec_points": [
+        {
+          "id": "bb0f9ff1-64dc-4396-9e0e-0c2542576f5b",
+          "board": "aqa",
+          "code": "AQA 4.5",
+          "primary": true
+        },
+        {
+          "id": "888a0273-6824-40d3-94e5-777b04ad7690",
+          "board": "aqa_trilogy",
+          "code": "AQA T 4.4.2.1",
+          "primary": true
+        },
+        {
+          "id": "01af95ca-a6f9-47b3-b290-698616837205",
+          "board": "edexcel",
+          "code": "EDEX 8.9",
+          "primary": true
+        },
+        {
+          "id": "45c0e962-0878-49fa-a497-8120f4d79318",
+          "board": "ocr",
+          "code": "OCR 1.3a",
+          "primary": true
+        },
+        {
+          "id": "b3e23b05-8553-4dce-a89e-8e46dd544fb6",
+          "board": "ocr",
+          "code": "OCR 1.3b",
+          "primary": true
+        }
+      ]
+    },
+    {
+      "id": "bio-061",
+      "group": "Bioenergetics",
+      "title": "Anaerobic respiration and fermentation",
+      "scope": "Anaerobic respiration in muscles and in plants and yeast, comparing its products and energy yield with aerobic respiration.",
+      "kind": "content",
+      "higher_only": false,
+      "separate_only": false,
+      "spec_points": [
+        {
+          "id": "04d52e95-b605-4c02-8e0c-90780a5c6925",
+          "board": "aqa",
+          "code": "AQA 4.6",
+          "primary": true
+        },
+        {
+          "id": "3d3b702b-262c-4ade-91d6-1456ebdb51bc",
+          "board": "edexcel",
+          "code": "EDEX 8.10",
+          "primary": true
+        },
+        {
+          "id": "1af85aef-61a7-42e2-850f-8d37fa23dc0f",
+          "board": "ocr",
+          "code": "OCR 1.3c",
+          "primary": true
+        },
+        {
+          "id": "888a0273-6824-40d3-94e5-777b04ad7690",
+          "board": "aqa_trilogy",
+          "code": "AQA T 4.4.2.1",
+          "primary": false
+        }
+      ]
+    },
+    {
+      "id": "bio-062",
+      "group": "Bioenergetics",
+      "title": "Required practical: rate of respiration",
+      "scope": "Measuring the rate of respiration of small organisms using a respirometer.",
+      "kind": "practical",
+      "higher_only": false,
+      "separate_only": false,
+      "spec_points": [
+        {
+          "id": "0dc1f36d-aa7f-4a05-976a-13aff1cb2c08",
+          "board": "edexcel",
+          "code": "EDEX 8.11",
+          "primary": true
+        },
+        {
+          "id": "7c9edb35-2540-4227-8841-f0cd89518a7b",
+          "board": "ocr",
+          "code": "OCR 7.8",
+          "primary": true
+        }
+      ]
+    },
+    {
+      "id": "bio-063",
+      "group": "Bioenergetics",
+      "title": "Response to exercise",
+      "scope": "How heart rate, breathing rate and breath volume change during exercise, oxygen debt and lactic acid.",
+      "kind": "content",
+      "higher_only": false,
+      "separate_only": false,
+      "spec_points": [
+        {
+          "id": "3d7fca5c-6022-4474-893f-ef17ae6dfc34",
+          "board": "aqa",
+          "code": "AQA 4.7",
+          "primary": true
+        },
+        {
+          "id": "80d915f3-2bae-416c-9a93-128f504cb295",
+          "board": "aqa_trilogy",
+          "code": "AQA T 4.4.2.2",
+          "primary": true
+        }
+      ]
+    },
+    {
+      "id": "bio-064",
+      "group": "Bioenergetics",
+      "title": "Metabolism",
+      "scope": "Metabolism as the sum of all reactions, including building and breaking down carbohydrates, proteins and lipids from their monomers.",
+      "kind": "content",
+      "higher_only": false,
+      "separate_only": false,
+      "spec_points": [
+        {
+          "id": "7073e13a-b626-4532-9ec0-5fd65aa494d1",
+          "board": "aqa",
+          "code": "AQA 4.8",
+          "primary": true
+        },
+        {
+          "id": "6052ddc4-1d05-4482-9b42-ef95e2e27014",
+          "board": "aqa_trilogy",
+          "code": "AQA T 4.4.2.3",
+          "primary": true
+        },
+        {
+          "id": "ea6e9475-512a-46b7-b02a-0759bad1ae78",
+          "board": "ocr",
+          "code": "OCR 1.3d",
+          "primary": true
+        },
+        {
+          "id": "1d5df90a-3540-48b6-b263-7674c2f563e6",
+          "board": "ocr",
+          "code": "OCR 1.3e",
+          "primary": true
+        },
+        {
+          "id": "ca0f2e01-8c2b-4bcd-9421-fd9736e23797",
+          "board": "ocr",
+          "code": "OCR 1.3f",
+          "primary": true
+        },
+        {
+          "id": "6f843388-c13f-4bd9-94ff-34677e0e9fa3",
+          "board": "edexcel",
+          "code": "EDEX 1.12",
+          "primary": false
+        }
+      ]
+    },
+    {
+      "id": "bio-065",
+      "group": "Homeostasis and response",
+      "title": "Principles of homeostasis",
+      "scope": "Why a constant internal environment matters and how control systems use receptors, coordination centres and effectors.",
+      "kind": "content",
+      "higher_only": false,
+      "separate_only": false,
+      "spec_points": [
+        {
+          "id": "e7ad55be-d351-4218-9f32-36b91443c6fb",
+          "board": "aqa",
+          "code": "AQA 5.1",
+          "primary": true
+        },
+        {
+          "id": "d6c30671-27aa-4151-87a1-afa8e05110f8",
+          "board": "aqa_trilogy",
+          "code": "AQA T 4.5.1",
+          "primary": true
+        },
+        {
+          "id": "3eda23ba-f63f-4671-a3e7-dba172b13bc7",
+          "board": "edexcel",
+          "code": "EDEX 7.9",
+          "primary": true
+        },
+        {
+          "id": "764bc65b-093c-492c-9299-45ff6cf3ce6a",
+          "board": "edexcel",
+          "code": "EDEX 7.10B",
+          "primary": true
+        },
+        {
+          "id": "09e91686-db9f-4fbf-9f4d-5e572446b040",
+          "board": "ocr",
+          "code": "OCR 3.3a",
+          "primary": true
+        }
+      ]
+    },
+    {
+      "id": "bio-066",
+      "group": "Homeostasis and response",
+      "title": "The nervous system",
+      "scope": "The structure of the nervous system, neurones and synapses, and how a stimulus leads to a coordinated response.",
+      "kind": "content",
+      "higher_only": false,
+      "separate_only": false,
+      "spec_points": [
+        {
+          "id": "ebd97964-4df8-466c-a643-33797fb23ce6",
+          "board": "aqa",
+          "code": "AQA 5.2",
+          "primary": true
+        },
+        {
+          "id": "e3c47ee5-13ee-4efd-af2b-5e3ef87cc7d8",
+          "board": "aqa_trilogy",
+          "code": "AQA T 4.5.2",
+          "primary": true
+        },
+        {
+          "id": "aa916ef6-f3af-40f6-a287-bb1c8eba668f",
+          "board": "edexcel",
+          "code": "EDEX 2.13",
+          "primary": true
+        },
+        {
+          "id": "21effacc-c360-4170-b045-3eb75ff6dee3",
+          "board": "ocr",
+          "code": "OCR 3.1a",
+          "primary": true
+        },
+        {
+          "id": "d1d58c20-6ce8-4a6a-befc-81e9556e49f3",
+          "board": "ocr",
+          "code": "OCR 3.1b",
+          "primary": true
+        }
+      ]
+    },
+    {
+      "id": "bio-067",
+      "group": "Homeostasis and response",
+      "title": "Reflex actions",
+      "scope": "The reflex arc and why reflexes are rapid and automatic.",
+      "kind": "content",
+      "higher_only": false,
+      "separate_only": false,
+      "spec_points": [
+        {
+          "id": "eed4599d-9630-4fe7-ae5c-57fc4e605b62",
+          "board": "aqa",
+          "code": "AQA 5.3",
+          "primary": true
+        },
+        {
+          "id": "0b5028c4-a1b7-4159-96e8-607e904d44dd",
+          "board": "edexcel",
+          "code": "EDEX 2.14",
+          "primary": true
+        },
+        {
+          "id": "6cfd03b8-f313-43a8-9efd-f70396fbac1a",
+          "board": "ocr",
+          "code": "OCR 3.1c",
+          "primary": true
+        },
+        {
+          "id": "e3c47ee5-13ee-4efd-af2b-5e3ef87cc7d8",
+          "board": "aqa_trilogy",
+          "code": "AQA T 4.5.2",
+          "primary": false
+        }
+      ]
+    },
+    {
+      "id": "bio-068",
+      "group": "Homeostasis and response",
+      "title": "The brain",
+      "scope": "The main regions of the brain (cerebral cortex, cerebellum, medulla, hypothalamus, pituitary) and their functions.",
+      "kind": "content",
+      "higher_only": false,
+      "separate_only": true,
+      "spec_points": [
+        {
+          "id": "f58bc249-3dbc-4aae-9657-c4db66dd679a",
+          "board": "aqa",
+          "code": "AQA 5.4",
+          "primary": true
+        },
+        {
+          "id": "2165af56-c1af-48b4-b00c-950f388e2dd6",
+          "board": "edexcel",
+          "code": "EDEX 2.10B",
+          "primary": true
+        },
+        {
+          "id": "da2442dd-c10b-4858-86e4-40028bc1852c",
+          "board": "ocr",
+          "code": "OCR 3.1f",
+          "primary": true
+        }
+      ]
+    },
+    {
+      "id": "bio-069",
+      "group": "Homeostasis and response",
+      "title": "Studying the brain and treating nervous system damage",
+      "scope": "How scientists investigate brain function (patients, electrical stimulation, CT and PET scans) and why brain and spinal damage is hard to treat.",
+      "kind": "content",
+      "higher_only": false,
+      "separate_only": true,
+      "spec_points": [
+        {
+          "id": "01a79f20-538d-4f86-93a0-c769a91da33f",
+          "board": "edexcel",
+          "code": "EDEX 2.11B",
+          "primary": true
+        },
+        {
+          "id": "c25e9778-86a9-423d-8419-07ba9cd5c84e",
+          "board": "edexcel",
+          "code": "EDEX 2.12B",
+          "primary": true
+        },
+        {
+          "id": "32681abe-c8b7-494e-acff-0ad49591cc31",
+          "board": "ocr",
+          "code": "OCR 3.1g",
+          "primary": true
+        },
+        {
+          "id": "506b1081-5541-4895-9f36-3663f9c008ec",
+          "board": "ocr",
+          "code": "OCR 3.1h",
+          "primary": true
+        },
+        {
+          "id": "f58bc249-3dbc-4aae-9657-c4db66dd679a",
+          "board": "aqa",
+          "code": "AQA 5.4",
+          "primary": false
+        }
+      ]
+    },
+    {
+      "id": "bio-070",
+      "group": "Homeostasis and response",
+      "title": "The eye",
+      "scope": "The structure of the eye, accommodation and the pupil reflex.",
+      "kind": "content",
+      "higher_only": false,
+      "separate_only": true,
+      "spec_points": [
+        {
+          "id": "c284b080-5203-45bf-ab28-fe85ee7ebb1e",
+          "board": "aqa",
+          "code": "AQA 5.5",
+          "primary": true
+        },
+        {
+          "id": "7ff8f794-7173-489d-a515-f773ef6a19fd",
+          "board": "edexcel",
+          "code": "EDEX 2.15B",
+          "primary": true
+        },
+        {
+          "id": "dfa2621f-37a3-45d1-aa0a-a8a2ad23ddb7",
+          "board": "ocr",
+          "code": "OCR 3.1d",
+          "primary": true
+        }
+      ]
+    },
+    {
+      "id": "bio-071",
+      "group": "Homeostasis and response",
+      "title": "Eye defects and their correction",
+      "scope": "Short- and long-sightedness, cataracts and colour blindness, and how lenses and surgery correct them.",
+      "kind": "content",
+      "higher_only": false,
+      "separate_only": true,
+      "spec_points": [
+        {
+          "id": "46acb3ca-17c6-4c17-aba4-ab7bd479729b",
+          "board": "edexcel",
+          "code": "EDEX 2.16B",
+          "primary": true
+        },
+        {
+          "id": "206ac230-8bf9-4b2d-8e92-fe8f5df1139d",
+          "board": "edexcel",
+          "code": "EDEX 2.17B",
+          "primary": true
+        },
+        {
+          "id": "827488c1-9494-4094-a04d-adc254f12e8d",
+          "board": "ocr",
+          "code": "OCR 3.1e",
+          "primary": true
+        },
+        {
+          "id": "c284b080-5203-45bf-ab28-fe85ee7ebb1e",
+          "board": "aqa",
+          "code": "AQA 5.5",
+          "primary": false
+        }
+      ]
+    },
+    {
+      "id": "bio-072",
+      "group": "Homeostasis and response",
+      "title": "Control of body temperature",
+      "scope": "How the hypothalamus and skin control body temperature by sweating, shivering, vasodilation and vasoconstriction.",
+      "kind": "content",
+      "higher_only": false,
+      "separate_only": true,
+      "spec_points": [
+        {
+          "id": "a5e44b65-54ec-4de8-9c99-23114844df03",
+          "board": "aqa",
+          "code": "AQA 5.6",
+          "primary": true
+        },
+        {
+          "id": "dd1be3e7-8505-4149-98f5-98a5ae0c9f56",
+          "board": "edexcel",
+          "code": "EDEX 7.11B",
+          "primary": true
+        },
+        {
+          "id": "c7a2b6bd-e27d-4590-9599-951f36058b5c",
+          "board": "edexcel",
+          "code": "EDEX 7.12B",
+          "primary": true
+        },
+        {
+          "id": "2b436bed-efb7-4b48-950d-55b23f08b799",
+          "board": "ocr",
+          "code": "OCR 3.3b",
+          "primary": true
+        },
+        {
+          "id": "764bc65b-093c-492c-9299-45ff6cf3ce6a",
+          "board": "edexcel",
+          "code": "EDEX 7.10B",
+          "primary": false
+        }
+      ]
+    },
+    {
+      "id": "bio-073",
+      "group": "Homeostasis and response",
+      "title": "The endocrine system",
+      "scope": "The endocrine glands, the hormones they release and how hormones travel in the blood to target organs, compared with nerves.",
+      "kind": "content",
+      "higher_only": false,
+      "separate_only": false,
+      "spec_points": [
+        {
+          "id": "0d14c5e3-5196-4800-92e0-029cfc09920f",
+          "board": "aqa",
+          "code": "AQA 5.7",
+          "primary": true
+        },
+        {
+          "id": "59420b52-2dd0-4fdf-ad29-e6ee5f53339b",
+          "board": "aqa_trilogy",
+          "code": "AQA T 4.5.3.1",
+          "primary": true
+        },
+        {
+          "id": "edc7ff15-c6e6-4e33-946a-ec87f87fab88",
+          "board": "edexcel",
+          "code": "EDEX 7.1",
+          "primary": true
+        },
+        {
+          "id": "b3778f2a-a848-4fbf-9f9b-2701e614d89f",
+          "board": "ocr",
+          "code": "OCR 3.2a",
+          "primary": true
+        }
+      ]
+    },
+    {
+      "id": "bio-074",
+      "group": "Homeostasis and response",
+      "title": "Control of blood glucose",
+      "scope": "How the pancreas uses insulin and glucagon to keep blood glucose concentration constant by negative feedback.",
+      "kind": "content",
+      "higher_only": false,
+      "separate_only": false,
+      "spec_points": [
+        {
+          "id": "a0581644-7bb1-4117-a4f1-082ebc1acf64",
+          "board": "aqa",
+          "code": "AQA 5.8",
+          "primary": true
+        },
+        {
+          "id": "85daac87-9957-46c2-834d-d08d1f48dc0c",
+          "board": "aqa_trilogy",
+          "code": "AQA T 4.5.3.2",
+          "primary": true
+        },
+        {
+          "id": "f4bc15a9-3701-4cb8-bd82-274b5907161f",
+          "board": "edexcel",
+          "code": "EDEX 7.13",
+          "primary": true
+        },
+        {
+          "id": "51c0c057-1c54-42e4-8869-8361fa783e67",
+          "board": "edexcel",
+          "code": "EDEX 7.14",
+          "primary": true
+        },
+        {
+          "id": "da98128a-8dc2-488c-b6bb-764fcc21f33e",
+          "board": "ocr",
+          "code": "OCR 3.3c",
+          "primary": true
+        },
+        {
+          "id": "f80eca9d-a954-4adf-9a53-ec5614c9310d",
+          "board": "ocr",
+          "code": "OCR 3.3d",
+          "primary": true
+        }
+      ]
+    },
+    {
+      "id": "bio-075",
+      "group": "Homeostasis and response",
+      "title": "Diabetes",
+      "scope": "The causes and treatments of type 1 and type 2 diabetes and the link between obesity, BMI and type 2 diabetes.",
+      "kind": "content",
+      "higher_only": false,
+      "separate_only": false,
+      "spec_points": [
+        {
+          "id": "2379c612-83c0-49b3-b6cd-2c4c72bb525d",
+          "board": "aqa",
+          "code": "AQA 5.9",
+          "primary": true
+        },
+        {
+          "id": "3e79cc14-db30-458a-b9cd-c583fdd1f5a6",
+          "board": "edexcel",
+          "code": "EDEX 7.15",
+          "primary": true
+        },
+        {
+          "id": "ab9d2a9c-5f3b-444b-96a1-d85a95c71cbf",
+          "board": "edexcel",
+          "code": "EDEX 7.16",
+          "primary": true
+        },
+        {
+          "id": "8be68259-ce78-467e-a689-4435e226ee57",
+          "board": "edexcel",
+          "code": "EDEX 7.17",
+          "primary": true
+        },
+        {
+          "id": "cbbd3fd8-4c66-4259-a06c-98de94ac6516",
+          "board": "ocr",
+          "code": "OCR 3.3e",
+          "primary": true
+        },
+        {
+          "id": "85daac87-9957-46c2-834d-d08d1f48dc0c",
+          "board": "aqa_trilogy",
+          "code": "AQA T 4.5.3.2",
+          "primary": false
+        }
+      ]
+    },
+    {
+      "id": "bio-076",
+      "group": "Homeostasis and response",
+      "title": "Water and nitrogen balance",
+      "scope": "Why water, ion and urea levels must be controlled, how urea is made from excess amino acids, and the effect of osmotic changes on body cells.",
+      "kind": "content",
+      "higher_only": false,
+      "separate_only": true,
+      "spec_points": [
+        {
+          "id": "54150b15-fab5-4ca6-874e-57abd8434cee",
+          "board": "aqa",
+          "code": "AQA 5.10",
+          "primary": true
+        },
+        {
+          "id": "0dfddd94-f250-49c4-9e34-41bb6ebc890b",
+          "board": "edexcel",
+          "code": "EDEX 7.22B",
+          "primary": true
+        },
+        {
+          "id": "5996e7d1-4ad7-451d-8788-94f16c46d762",
+          "board": "ocr",
+          "code": "OCR 3.3g",
+          "primary": true
+        },
+        {
+          "id": "a935fbbe-b68f-4021-ad5f-27751d2117ff",
+          "board": "ocr",
+          "code": "OCR 3.3f",
+          "primary": true
+        },
+        {
+          "id": "bfa453c8-62b1-4a6f-b61b-d7e3735ce4d8",
+          "board": "ocr",
+          "code": "OCR 3.3j",
+          "primary": true
+        },
+        {
+          "id": "764bc65b-093c-492c-9299-45ff6cf3ce6a",
+          "board": "edexcel",
+          "code": "EDEX 7.10B",
+          "primary": false
+        }
+      ]
+    },
+    {
+      "id": "bio-077",
+      "group": "Homeostasis and response",
+      "title": "The kidney and the nephron",
+      "scope": "The urinary system and how the nephron filters blood and selectively reabsorbs glucose, ions and water.",
+      "kind": "content",
+      "higher_only": false,
+      "separate_only": true,
+      "spec_points": [
+        {
+          "id": "d3519732-063c-4ce3-af43-afa0a2c04120",
+          "board": "edexcel",
+          "code": "EDEX 7.18B",
+          "primary": true
+        },
+        {
+          "id": "f3da0cc0-2031-4473-b9cf-8bf5cf85451e",
+          "board": "edexcel",
+          "code": "EDEX 7.19B",
+          "primary": true
+        },
+        {
+          "id": "8429e121-003e-49a0-aeb2-18841aaa6bce",
+          "board": "ocr",
+          "code": "OCR 3.3h",
+          "primary": true
+        },
+        {
+          "id": "54150b15-fab5-4ca6-874e-57abd8434cee",
+          "board": "aqa",
+          "code": "AQA 5.10",
+          "primary": false
+        },
+        {
+          "id": "5996e7d1-4ad7-451d-8788-94f16c46d762",
+          "board": "ocr",
+          "code": "OCR 3.3g",
+          "primary": false
+        }
+      ]
+    },
+    {
+      "id": "bio-078",
+      "group": "Homeostasis and response",
+      "title": "ADH and the control of water content",
+      "scope": "How ADH from the pituitary changes collecting duct permeability to control blood water content by negative feedback.",
+      "kind": "content",
+      "higher_only": false,
+      "separate_only": true,
+      "spec_points": [
+        {
+          "id": "31134818-3827-42aa-bf53-498ecc93b236",
+          "board": "edexcel",
+          "code": "EDEX 7.20B",
+          "primary": true
+        },
+        {
+          "id": "438f47d8-5ca7-46f2-8a2d-efa03f2e297a",
+          "board": "ocr",
+          "code": "OCR 3.3i",
+          "primary": true
+        },
+        {
+          "id": "54150b15-fab5-4ca6-874e-57abd8434cee",
+          "board": "aqa",
+          "code": "AQA 5.10",
+          "primary": false
+        }
+      ]
+    },
+    {
+      "id": "bio-079",
+      "group": "Homeostasis and response",
+      "title": "Treating kidney failure: dialysis and transplants",
+      "scope": "How dialysis works and the advantages and disadvantages of dialysis and kidney transplants.",
+      "kind": "content",
+      "higher_only": false,
+      "separate_only": true,
+      "spec_points": [
+        {
+          "id": "ca3aac33-9cb9-4fee-81ed-302a157fe2cd",
+          "board": "aqa",
+          "code": "AQA 5.11",
+          "primary": true
+        },
+        {
+          "id": "aacbfa4b-8173-4d2c-8a04-15ed8ebb1adf",
+          "board": "edexcel",
+          "code": "EDEX 7.21B",
+          "primary": true
+        }
+      ]
+    },
+    {
+      "id": "bio-080",
+      "group": "Homeostasis and response",
+      "title": "Hormones in human reproduction and the menstrual cycle",
+      "scope": "Puberty hormones (oestrogen, testosterone) and the roles of FSH, LH, oestrogen and progesterone in the menstrual cycle.",
+      "kind": "content",
+      "higher_only": false,
+      "separate_only": false,
+      "spec_points": [
+        {
+          "id": "4b1c3a48-81f8-4d91-b2c3-223bd361bd3c",
+          "board": "aqa",
+          "code": "AQA 5.12",
+          "primary": true
+        },
+        {
+          "id": "41029671-1890-43aa-af24-23f3ddbbb0ca",
+          "board": "aqa_trilogy",
+          "code": "AQA T 4.5.3.3",
+          "primary": true
+        },
+        {
+          "id": "2c2f34f6-9471-4bcf-bf3b-cdb35039760f",
+          "board": "edexcel",
+          "code": "EDEX 7.4",
+          "primary": true
+        },
+        {
+          "id": "9d6aa056-2c38-4750-88d7-3ba3c0009b7c",
+          "board": "ocr",
+          "code": "OCR 3.2c",
+          "primary": true
+        }
+      ]
+    },
+    {
+      "id": "bio-081",
+      "group": "Homeostasis and response",
+      "title": "Hormone interactions in the menstrual cycle",
+      "scope": "How FSH, LH, oestrogen and progesterone stimulate and inhibit each other to control ovulation, read from hormone graphs.",
+      "kind": "content",
+      "higher_only": true,
+      "separate_only": false,
+      "spec_points": [
+        {
+          "id": "3acdfdb1-e62e-43f5-aff8-8156ece1f9b2",
+          "board": "edexcel",
+          "code": "EDEX 7.5",
+          "primary": true
+        },
+        {
+          "id": "e79c9102-51c9-448d-bf56-cf588bd58785",
+          "board": "ocr",
+          "code": "OCR 3.2d",
+          "primary": true
+        },
+        {
+          "id": "4b1c3a48-81f8-4d91-b2c3-223bd361bd3c",
+          "board": "aqa",
+          "code": "AQA 5.12",
+          "primary": false
+        },
+        {
+          "id": "41029671-1890-43aa-af24-23f3ddbbb0ca",
+          "board": "aqa_trilogy",
+          "code": "AQA T 4.5.3.3",
+          "primary": false
+        }
+      ]
+    },
+    {
+      "id": "bio-082",
+      "group": "Homeostasis and response",
+      "title": "Contraception",
+      "scope": "How hormonal and non-hormonal contraceptives work, and evaluating them for effectiveness, safety and ethics.",
+      "kind": "content",
+      "higher_only": false,
+      "separate_only": false,
+      "spec_points": [
+        {
+          "id": "6c567f79-6945-433d-aeaa-c6ed18998917",
+          "board": "aqa",
+          "code": "AQA 5.13",
+          "primary": true
+        },
+        {
+          "id": "df50ad2c-da23-4cb7-b833-20dffca35f73",
+          "board": "aqa_trilogy",
+          "code": "AQA T 4.5.3.4",
+          "primary": true
+        },
+        {
+          "id": "a6e64392-27ff-4ca2-b4e2-c29a73a65219",
+          "board": "edexcel",
+          "code": "EDEX 7.6",
+          "primary": true
+        },
+        {
+          "id": "2917b16c-7d97-4221-8a48-f10e38bb91cb",
+          "board": "edexcel",
+          "code": "EDEX 7.7",
+          "primary": true
+        },
+        {
+          "id": "935dc7bf-6931-4d3e-956b-7569255a24fd",
+          "board": "ocr",
+          "code": "OCR 3.2e",
+          "primary": true
+        }
+      ]
+    },
+    {
+      "id": "bio-083",
+      "group": "Homeostasis and response",
+      "title": "Using hormones to treat infertility",
+      "scope": "Fertility drugs (FSH, LH, clomifene) and IVF, and their benefits, risks and ethics.",
+      "kind": "content",
+      "higher_only": true,
+      "separate_only": false,
+      "spec_points": [
+        {
+          "id": "7abd4d23-ce71-4f35-8ac9-e320d3a1ff1b",
+          "board": "aqa_trilogy",
+          "code": "AQA T 4.5.3.5",
+          "primary": true
+        },
+        {
+          "id": "e2ebde7b-4d45-4f3b-b98f-befd05f0a446",
+          "board": "edexcel",
+          "code": "EDEX 7.8",
+          "primary": true
+        },
+        {
+          "id": "5c22615d-d1b8-40b7-81bc-403fdb89bc56",
+          "board": "ocr",
+          "code": "OCR 3.2f",
+          "primary": true
+        },
+        {
+          "id": "6c567f79-6945-433d-aeaa-c6ed18998917",
+          "board": "aqa",
+          "code": "AQA 5.13",
+          "primary": false
+        }
+      ]
+    },
+    {
+      "id": "bio-084",
+      "group": "Homeostasis and response",
+      "title": "Adrenaline, thyroxine and negative feedback",
+      "scope": "Adrenaline in the fight-or-flight response and thyroxine control of metabolic rate as an example of negative feedback.",
+      "kind": "content",
+      "higher_only": true,
+      "separate_only": false,
+      "spec_points": [
+        {
+          "id": "8bf1c8fa-3e11-431f-a2e7-7d8e06924912",
+          "board": "aqa",
+          "code": "AQA 5.14",
+          "primary": true
+        },
+        {
+          "id": "a4f9af00-299a-44bf-9f66-14b89f4597b7",
+          "board": "aqa_trilogy",
+          "code": "AQA T 4.5.3.6",
+          "primary": true
+        },
+        {
+          "id": "212f927a-2cf1-4c48-811b-a4c27cc0fb20",
+          "board": "edexcel",
+          "code": "EDEX 7.2",
+          "primary": true
+        },
+        {
+          "id": "3212b8a2-6e11-4f84-8676-f93f9c56fcaf",
+          "board": "edexcel",
+          "code": "EDEX 7.3",
+          "primary": true
+        },
+        {
+          "id": "821e62e3-61d2-40d2-a8bc-a98fd0752486",
+          "board": "ocr",
+          "code": "OCR 3.2b",
+          "primary": true
+        }
+      ]
+    },
+    {
+      "id": "bio-085",
+      "group": "Homeostasis and response",
+      "title": "Plant hormones and tropisms",
+      "scope": "How auxin causes phototropism and gravitropism, and the roles of gibberellins and ethene in plant growth.",
+      "kind": "content",
+      "higher_only": false,
+      "separate_only": true,
+      "spec_points": [
+        {
+          "id": "8bf36646-c41e-417b-9272-c363b7f1f3af",
+          "board": "aqa",
+          "code": "AQA 5.15",
+          "primary": true
+        },
+        {
+          "id": "8094b288-066f-496b-8e92-21797758dcf0",
+          "board": "edexcel",
+          "code": "EDEX 6.15B",
+          "primary": true
+        },
+        {
+          "id": "e938ff97-171d-4e5d-9deb-39dcacc2a6e5",
+          "board": "ocr",
+          "code": "OCR 3.2g",
+          "primary": true
+        },
+        {
+          "id": "15c8430a-c762-4f89-b7d9-63450cebc60e",
+          "board": "ocr",
+          "code": "OCR 3.2h",
+          "primary": true
+        }
+      ]
+    },
+    {
+      "id": "bio-086",
+      "group": "Homeostasis and response",
+      "title": "Uses of plant hormones",
+      "scope": "Commercial uses of auxins, gibberellins and ethene: weedkillers, rooting powders, seedless fruit, germination and fruit ripening.",
+      "kind": "content",
+      "higher_only": false,
+      "separate_only": true,
+      "spec_points": [
+        {
+          "id": "aa1ce410-a47a-4103-975c-379f67bae908",
+          "board": "aqa",
+          "code": "AQA 5.16",
+          "primary": true
+        },
+        {
+          "id": "7f5d2497-ab99-4fa3-8856-736dc5764187",
+          "board": "edexcel",
+          "code": "EDEX 6.16B",
+          "primary": true
+        },
+        {
+          "id": "1927aa68-f751-4f89-bd6d-a7d2731cd0cb",
+          "board": "ocr",
+          "code": "OCR 3.2i",
+          "primary": true
+        }
+      ]
+    },
+    {
+      "id": "bio-087",
+      "group": "Inheritance, variation and evolution",
+      "title": "Sexual and asexual reproduction",
+      "scope": "How sexual reproduction (gametes, meiosis, variation) differs from asexual reproduction (mitosis, clones).",
+      "kind": "content",
+      "higher_only": false,
+      "separate_only": false,
+      "spec_points": [
+        {
+          "id": "90fe6b7d-029c-4e3c-9aa2-3b2100ac55b2",
+          "board": "aqa",
+          "code": "AQA 6.1",
+          "primary": true
+        },
+        {
+          "id": "0cdea175-4fb8-45c7-b73c-f2be462c54c3",
+          "board": "aqa_trilogy",
+          "code": "AQA T 4.6.1.1",
+          "primary": true
+        },
+        {
+          "id": "78337f75-8a34-406c-9300-46f87d66c75e",
+          "board": "edexcel",
+          "code": "EDEX 3.1B",
+          "primary": false
+        },
+        {
+          "id": "b19fc5b3-a389-472e-aa5a-355a03cbeee3",
+          "board": "edexcel",
+          "code": "EDEX 3.2B",
+          "primary": false
+        },
+        {
+          "id": "d65313c5-4ab5-4b9f-8e03-f9e88613b80b",
+          "board": "ocr",
+          "code": "OCR 5.1f",
+          "primary": false
+        }
+      ]
+    },
+    {
+      "id": "bio-088",
+      "group": "Inheritance, variation and evolution",
+      "title": "Advantages and disadvantages of sexual and asexual reproduction",
+      "scope": "Comparing the two types of reproduction and organisms such as malaria parasites, fungi and strawberry plants that use both.",
+      "kind": "content",
+      "higher_only": false,
+      "separate_only": true,
+      "spec_points": [
+        {
+          "id": "fed78ab4-3d06-4d86-96c4-b3613d3e57fc",
+          "board": "aqa",
+          "code": "AQA 6.3",
+          "primary": true
+        },
+        {
+          "id": "78337f75-8a34-406c-9300-46f87d66c75e",
+          "board": "edexcel",
+          "code": "EDEX 3.1B",
+          "primary": true
+        },
+        {
+          "id": "b19fc5b3-a389-472e-aa5a-355a03cbeee3",
+          "board": "edexcel",
+          "code": "EDEX 3.2B",
+          "primary": true
+        },
+        {
+          "id": "d65313c5-4ab5-4b9f-8e03-f9e88613b80b",
+          "board": "ocr",
+          "code": "OCR 5.1f",
+          "primary": true
+        }
+      ]
+    },
+    {
+      "id": "bio-089",
+      "group": "Inheritance, variation and evolution",
+      "title": "Meiosis",
+      "scope": "How meiosis halves the chromosome number to make four genetically different haploid gametes, and how fertilisation restores the diploid number.",
+      "kind": "content",
+      "higher_only": false,
+      "separate_only": false,
+      "spec_points": [
+        {
+          "id": "e56ab7e6-d60b-4903-aa8d-33315b2dfdc3",
+          "board": "aqa",
+          "code": "AQA 6.2",
+          "primary": true
+        },
+        {
+          "id": "58ad3e91-1a88-491c-bc48-4f44b77718f4",
+          "board": "aqa_trilogy",
+          "code": "AQA T 4.6.1.2",
+          "primary": true
+        },
+        {
+          "id": "e259e014-7392-40ba-8a3b-f8a990a41ec6",
+          "board": "edexcel",
+          "code": "EDEX 3.3",
+          "primary": true
+        },
+        {
+          "id": "f3da84d2-34c6-4b7e-8ccc-cd75e77cb7be",
+          "board": "ocr",
+          "code": "OCR 5.1g",
+          "primary": true
+        },
+        {
+          "id": "c884079c-723b-48e3-be48-8a5dc2016c8f",
+          "board": "ocr",
+          "code": "OCR 5.1h",
+          "primary": true
+        }
+      ]
+    },
+    {
+      "id": "bio-090",
+      "group": "Inheritance, variation and evolution",
+      "title": "DNA and the genome",
+      "scope": "DNA as a double-helix polymer in chromosomes, genes as sections coding for proteins, and the genome as all of an organism's genetic material.",
+      "kind": "content",
+      "higher_only": false,
+      "separate_only": false,
+      "spec_points": [
+        {
+          "id": "64a641fd-ee7a-48cc-b61b-4895fbec3c1d",
+          "board": "aqa",
+          "code": "AQA 6.4",
+          "primary": true
+        },
+        {
+          "id": "c8782603-8ea9-49a5-bbe9-11bccf380c79",
+          "board": "aqa_trilogy",
+          "code": "AQA T 4.6.1.3",
+          "primary": true
+        },
+        {
+          "id": "b4155de7-0a37-413c-99ee-82e66632eb31",
+          "board": "edexcel",
+          "code": "EDEX 3.4",
+          "primary": true
+        },
+        {
+          "id": "82de3d09-2701-4042-9c58-b38e70b7dd04",
+          "board": "edexcel",
+          "code": "EDEX 3.5",
+          "primary": true
+        },
+        {
+          "id": "e8f018f2-cfe0-4f04-808b-ae5ac7db5c25",
+          "board": "ocr",
+          "code": "OCR 1.2a",
+          "primary": true
+        },
+        {
+          "id": "cf96bdaa-e8b4-429d-9a9a-3ce93dffee4e",
+          "board": "ocr",
+          "code": "OCR 1.2b",
+          "primary": true
+        },
+        {
+          "id": "91f565a4-4a1f-442f-8455-d5d64be179af",
+          "board": "ocr",
+          "code": "OCR 5.1b",
+          "primary": true
+        }
+      ]
+    },
+    {
+      "id": "bio-091",
+      "group": "Inheritance, variation and evolution",
+      "title": "DNA structure and the genetic code",
+      "scope": "Nucleotides (sugar, phosphate, base), complementary base pairing, and how a triplet of bases codes for an amino acid that sets protein shape.",
+      "kind": "content",
+      "higher_only": false,
+      "separate_only": false,
+      "spec_points": [
+        {
+          "id": "d185a254-38b1-4eca-921c-2e250a18e7df",
+          "board": "ocr",
+          "code": "OCR 1.2c",
+          "primary": true
+        },
+        {
+          "id": "d8964e83-1011-42d7-a53a-6d19222dd09f",
+          "board": "ocr",
+          "code": "OCR 1.2e",
+          "primary": true
+        },
+        {
+          "id": "95f9d46b-2c54-4a73-857b-7e152a880cf5",
+          "board": "edexcel",
+          "code": "EDEX 3.7B",
+          "primary": true
+        },
+        {
+          "id": "388de71a-6ae6-485c-90f7-1939b21ac8b5",
+          "board": "aqa",
+          "code": "AQA 6.5",
+          "primary": false
+        },
+        {
+          "id": "b4155de7-0a37-413c-99ee-82e66632eb31",
+          "board": "edexcel",
+          "code": "EDEX 3.4",
+          "primary": false
+        }
+      ]
+    },
+    {
+      "id": "bio-092",
+      "group": "Inheritance, variation and evolution",
+      "title": "Protein synthesis",
+      "scope": "Transcription of DNA into mRNA and translation at ribosomes using tRNA to build a protein.",
+      "kind": "content",
+      "higher_only": false,
+      "separate_only": true,
+      "spec_points": [
+        {
+          "id": "388de71a-6ae6-485c-90f7-1939b21ac8b5",
+          "board": "aqa",
+          "code": "AQA 6.5",
+          "primary": true
+        },
+        {
+          "id": "995b4e16-b612-48bb-9cc0-48c0c570417f",
+          "board": "edexcel",
+          "code": "EDEX 3.8B",
+          "primary": true
+        },
+        {
+          "id": "a72c0a4f-26b5-44ae-8aed-fada81c9cc2f",
+          "board": "ocr",
+          "code": "OCR 1.2d",
+          "primary": true
+        },
+        {
+          "id": "95f9d46b-2c54-4a73-857b-7e152a880cf5",
+          "board": "edexcel",
+          "code": "EDEX 3.7B",
+          "primary": false
+        },
+        {
+          "id": "d8964e83-1011-42d7-a53a-6d19222dd09f",
+          "board": "ocr",
+          "code": "OCR 1.2e",
+          "primary": false
+        }
+      ]
+    },
+    {
+      "id": "bio-093",
+      "group": "Inheritance, variation and evolution",
+      "title": "Genetic variants and mutations",
+      "scope": "How mutations in coding and non-coding DNA can change a protein or how much of it is made, and so affect phenotype.",
+      "kind": "content",
+      "higher_only": false,
+      "separate_only": true,
+      "spec_points": [
+        {
+          "id": "2f766f63-874a-499f-b946-2624736d2ea3",
+          "board": "edexcel",
+          "code": "EDEX 3.9B",
+          "primary": true
+        },
+        {
+          "id": "c5d4b9b9-1006-4899-a305-1f261df2297e",
+          "board": "edexcel",
+          "code": "EDEX 3.10B",
+          "primary": true
+        },
+        {
+          "id": "536d0648-76a2-407d-ba71-9ddf9fc52ffa",
+          "board": "ocr",
+          "code": "OCR 5.1e",
+          "primary": true
+        },
+        {
+          "id": "388de71a-6ae6-485c-90f7-1939b21ac8b5",
+          "board": "aqa",
+          "code": "AQA 6.5",
+          "primary": false
+        },
+        {
+          "id": "d3a949fe-b688-4d4f-82af-c38833f45d9f",
+          "board": "aqa",
+          "code": "AQA 6.9",
+          "primary": false
+        }
+      ]
+    },
+    {
+      "id": "bio-094",
+      "group": "Inheritance, variation and evolution",
+      "title": "Practical: extracting DNA from fruit",
+      "scope": "Extracting DNA from fruit using crushing, detergent, salt and cold ethanol.",
+      "kind": "practical",
+      "higher_only": false,
+      "separate_only": false,
+      "spec_points": [
+        {
+          "id": "42e8667b-ce44-42cd-bfea-8065d3c5ecdf",
+          "board": "edexcel",
+          "code": "EDEX 3.6",
+          "primary": true
+        }
+      ]
+    },
+    {
+      "id": "bio-095",
+      "group": "Inheritance, variation and evolution",
+      "title": "Genetic inheritance and key terms",
+      "scope": "Gene, allele, dominant, recessive, homozygous, heterozygous, genotype and phenotype, and that most characteristics are controlled by many genes.",
+      "kind": "content",
+      "higher_only": false,
+      "separate_only": false,
+      "spec_points": [
+        {
+          "id": "13209da7-ba4e-4fa2-bd27-1f962c33397b",
+          "board": "aqa",
+          "code": "AQA 6.6",
+          "primary": true
+        },
+        {
+          "id": "2291e88f-04ed-4861-97d4-ae618f3250d6",
+          "board": "aqa_trilogy",
+          "code": "AQA T 4.6.1.4",
+          "primary": true
+        },
+        {
+          "id": "ded0775e-4942-4194-874d-8237e78fc29e",
+          "board": "edexcel",
+          "code": "EDEX 3.12",
+          "primary": true
+        },
+        {
+          "id": "91292207-3e32-4030-9142-a90fcf5b1e24",
+          "board": "edexcel",
+          "code": "EDEX 3.13",
+          "primary": true
+        },
+        {
+          "id": "a0f91049-eb4b-4b5e-b63f-765432721f87",
+          "board": "ocr",
+          "code": "OCR 5.1a",
+          "primary": true
+        },
+        {
+          "id": "f6d3bfdf-338d-4aec-bef7-87d5c4fbb8fd",
+          "board": "ocr",
+          "code": "OCR 5.1i",
+          "primary": true
+        },
+        {
+          "id": "5d501197-7c22-4089-b847-57768c9be2c3",
+          "board": "edexcel",
+          "code": "EDEX 3.19",
+          "primary": true
+        },
+        {
+          "id": "992317ea-44bc-49e3-b78c-c7e6494e5bef",
+          "board": "ocr",
+          "code": "OCR 5.1l",
+          "primary": true
+        }
+      ]
+    },
+    {
+      "id": "bio-096",
+      "group": "Inheritance, variation and evolution",
+      "title": "Genetic crosses and Punnett squares",
+      "scope": "Using genetic diagrams, Punnett squares and family pedigrees to predict outcomes of monohybrid crosses as ratios, probabilities and percentages.",
+      "kind": "content",
+      "higher_only": false,
+      "separate_only": false,
+      "spec_points": [
+        {
+          "id": "b05dce89-aa59-4cbf-9e38-1dcb89efe429",
+          "board": "aqa",
+          "code": "AQA 6.7",
+          "primary": true
+        },
+        {
+          "id": "e97c4ffc-896d-4789-ba5b-46a1ee1761f9",
+          "board": "edexcel",
+          "code": "EDEX 3.14",
+          "primary": true
+        },
+        {
+          "id": "ad3afedb-82ce-41ea-885b-54048ef31151",
+          "board": "edexcel",
+          "code": "EDEX 3.16",
+          "primary": true
+        },
+        {
+          "id": "00ee68c9-62b7-436f-92c1-b79f7ae60d91",
+          "board": "ocr",
+          "code": "OCR 5.1j",
+          "primary": true
+        },
+        {
+          "id": "2291e88f-04ed-4861-97d4-ae618f3250d6",
+          "board": "aqa_trilogy",
+          "code": "AQA T 4.6.1.4",
+          "primary": false
+        },
+        {
+          "id": "bd48148e-9191-4133-9fc0-c7011b8981db",
+          "board": "aqa_trilogy",
+          "code": "AQA T 4.6.1.5",
+          "primary": false
+        }
+      ]
+    },
+    {
+      "id": "bio-097",
+      "group": "Inheritance, variation and evolution",
+      "title": "Inherited disorders",
+      "scope": "Polydactyly and cystic fibrosis as inherited disorders, and the issues raised by embryo screening.",
+      "kind": "content",
+      "higher_only": false,
+      "separate_only": false,
+      "spec_points": [
+        {
+          "id": "bd48148e-9191-4133-9fc0-c7011b8981db",
+          "board": "aqa_trilogy",
+          "code": "AQA T 4.6.1.5",
+          "primary": true
+        },
+        {
+          "id": "b05dce89-aa59-4cbf-9e38-1dcb89efe429",
+          "board": "aqa",
+          "code": "AQA 6.7",
+          "primary": false
+        }
+      ]
+    },
+    {
+      "id": "bio-098",
+      "group": "Inheritance, variation and evolution",
+      "title": "Sex determination",
+      "scope": "How the X and Y chromosomes determine sex, shown with a genetic cross.",
+      "kind": "content",
+      "higher_only": false,
+      "separate_only": false,
+      "spec_points": [
+        {
+          "id": "b6e6a435-8272-4a73-a08e-ba11fea8aeef",
+          "board": "aqa",
+          "code": "AQA 6.8",
+          "primary": true
+        },
+        {
+          "id": "96271803-3be3-4a8f-bf3d-1fde7a9a342a",
+          "board": "aqa_trilogy",
+          "code": "AQA T 4.6.1.6",
+          "primary": true
+        },
+        {
+          "id": "11efcabd-7ede-47f0-a514-63e342424890",
+          "board": "edexcel",
+          "code": "EDEX 3.15",
+          "primary": true
+        },
+        {
+          "id": "e9aa02e4-d588-4ab1-aa87-d3a5e985f79e",
+          "board": "ocr",
+          "code": "OCR 5.1k",
+          "primary": true
+        }
+      ]
+    },
+    {
+      "id": "bio-099",
+      "group": "Inheritance, variation and evolution",
+      "title": "Codominance and multiple alleles: ABO blood groups",
+      "scope": "How ABO blood groups are inherited through codominance and multiple alleles.",
+      "kind": "content",
+      "higher_only": false,
+      "separate_only": true,
+      "spec_points": [
+        {
+          "id": "c18a85fa-e583-4939-838f-c305f62b00d1",
+          "board": "edexcel",
+          "code": "EDEX 3.17B",
+          "primary": true
+        }
+      ]
+    },
+    {
+      "id": "bio-100",
+      "group": "Inheritance, variation and evolution",
+      "title": "Sex-linked genetic disorders",
+      "scope": "How sex-linked disorders such as colour blindness and haemophilia are inherited on the X chromosome.",
+      "kind": "content",
+      "higher_only": false,
+      "separate_only": true,
+      "spec_points": [
+        {
+          "id": "0331eb10-f5ad-4ab2-83c4-75c818a170ac",
+          "board": "edexcel",
+          "code": "EDEX 3.18B",
+          "primary": true
+        }
+      ]
+    },
+    {
+      "id": "bio-101",
+      "group": "Inheritance, variation and evolution",
+      "title": "Mendel and the history of genetics",
+      "scope": "Mendel's pea plant experiments and how understanding of inheritance developed.",
+      "kind": "content",
+      "higher_only": false,
+      "separate_only": true,
+      "data_note": "taught by AQA (separate Biology 4.6.3.3) but no matching spec point",
+      "spec_points": [
+        {
+          "id": "ce998243-cf18-4d55-adc8-f503d017ecd0",
+          "board": "edexcel",
+          "code": "EDEX 3.11B",
+          "primary": true
+        },
+        {
+          "id": "6caa0ec9-cb4c-424a-8022-910b00f07310",
+          "board": "ocr",
+          "code": "OCR 5.1m",
+          "primary": true
+        }
+      ]
+    },
+    {
+      "id": "bio-102",
+      "group": "Inheritance, variation and evolution",
+      "title": "The Human Genome Project and genomics in medicine",
+      "scope": "Outcomes of the Human Genome Project and how genome knowledge helps predict and treat disease.",
+      "kind": "content",
+      "higher_only": false,
+      "separate_only": false,
+      "spec_points": [
+        {
+          "id": "4af3fb2c-bd6e-47f6-b637-51854983ce03",
+          "board": "edexcel",
+          "code": "EDEX 3.21",
+          "primary": true
+        },
+        {
+          "id": "5fb6fbf3-0f14-43f2-8ec7-89ab145a7c13",
+          "board": "ocr",
+          "code": "OCR 6.3x",
+          "primary": true
+        },
+        {
+          "id": "64a641fd-ee7a-48cc-b61b-4895fbec3c1d",
+          "board": "aqa",
+          "code": "AQA 6.4",
+          "primary": false
+        },
+        {
+          "id": "c8782603-8ea9-49a5-bbe9-11bccf380c79",
+          "board": "aqa_trilogy",
+          "code": "AQA T 4.6.1.3",
+          "primary": false
+        }
+      ]
+    },
+    {
+      "id": "bio-103",
+      "group": "Inheritance, variation and evolution",
+      "title": "Variation",
+      "scope": "Genetic and environmental causes of variation, continuous and discontinuous variation, and how mutations create new variants.",
+      "kind": "content",
+      "higher_only": false,
+      "separate_only": false,
+      "spec_points": [
+        {
+          "id": "d3a949fe-b688-4d4f-82af-c38833f45d9f",
+          "board": "aqa",
+          "code": "AQA 6.9",
+          "primary": true
+        },
+        {
+          "id": "883137eb-ae3b-4a66-83c4-72e21c0a847f",
+          "board": "aqa_trilogy",
+          "code": "AQA T 4.6.2.1",
+          "primary": true
+        },
+        {
+          "id": "45d655bf-b342-4801-b9bc-480584dd13cc",
+          "board": "edexcel",
+          "code": "EDEX 3.20",
+          "primary": true
+        },
+        {
+          "id": "dc82f460-63cc-44cd-909a-d41b1ed2e9d5",
+          "board": "edexcel",
+          "code": "EDEX 3.22",
+          "primary": true
+        },
+        {
+          "id": "7706cbe2-b380-4b15-9633-c81f590c7871",
+          "board": "edexcel",
+          "code": "EDEX 3.23",
+          "primary": true
+        },
+        {
+          "id": "c7d239df-7c99-4150-889b-d0c9e30902fb",
+          "board": "ocr",
+          "code": "OCR 5.1c",
+          "primary": true
+        },
+        {
+          "id": "92f2b766-780e-4191-b2c1-d9c081d90f44",
+          "board": "ocr",
+          "code": "OCR 5.1d",
+          "primary": true
+        },
+        {
+          "id": "4b4ff09d-53ab-4997-950a-e1318150127a",
+          "board": "ocr",
+          "code": "OCR 5.2a",
+          "primary": true
+        }
+      ]
+    },
+    {
+      "id": "bio-104",
+      "group": "Inheritance, variation and evolution",
+      "title": "Evolution by natural selection",
+      "scope": "How variation, competition, survival and inheritance lead to natural selection and change in a population over time.",
+      "kind": "content",
+      "higher_only": false,
+      "separate_only": false,
+      "spec_points": [
+        {
+          "id": "63498023-b745-4ae3-a378-e1baa57b19ab",
+          "board": "aqa",
+          "code": "AQA 6.10",
+          "primary": true
+        },
+        {
+          "id": "1fa75109-f690-4497-94b2-84bf3ec23982",
+          "board": "aqa_trilogy",
+          "code": "AQA T 4.6.2.2",
+          "primary": true
+        },
+        {
+          "id": "e977b08d-59f3-46bd-83d2-782782ec145b",
+          "board": "edexcel",
+          "code": "EDEX 4.2",
+          "primary": true
+        },
+        {
+          "id": "12e2c8e9-a7e9-4383-b2e7-71514d910ce8",
+          "board": "ocr",
+          "code": "OCR 5.2c",
+          "primary": true
+        },
+        {
+          "id": "d5b100b3-acb9-45cc-86f6-53200d238e22",
+          "board": "ocr",
+          "code": "OCR 5.2d",
+          "primary": true
+        }
+      ]
+    },
+    {
+      "id": "bio-105",
+      "group": "Inheritance, variation and evolution",
+      "title": "Darwin, Wallace and speciation",
+      "scope": "The work of Darwin and Wallace, how the theory was received, and how new species form by isolation and natural selection.",
+      "kind": "content",
+      "higher_only": false,
+      "separate_only": true,
+      "spec_points": [
+        {
+          "id": "662115dd-4ac8-4dcb-8166-3575e32894ec",
+          "board": "aqa",
+          "code": "AQA 6.14",
+          "primary": true
+        },
+        {
+          "id": "a0492961-22a3-4f60-83d6-156e00a2c714",
+          "board": "edexcel",
+          "code": "EDEX 4.1B",
+          "primary": true
+        },
+        {
+          "id": "2ad6a79e-f821-4aaa-97a4-4eb2960e6028",
+          "board": "ocr",
+          "code": "OCR 5.2f",
+          "primary": true
+        }
+      ]
+    },
+    {
+      "id": "bio-106",
+      "group": "Inheritance, variation and evolution",
+      "title": "Evidence for evolution: fossils and extinction",
+      "scope": "How fossils form, what they show about evolution, the pentadactyl limb as evidence, and causes of extinction.",
+      "kind": "content",
+      "higher_only": false,
+      "separate_only": false,
+      "spec_points": [
+        {
+          "id": "5c4daadf-9ab0-403e-ba8f-b01ef03b282b",
+          "board": "aqa",
+          "code": "AQA 6.15",
+          "primary": true
+        },
+        {
+          "id": "859287e2-21c4-4292-9605-5da99c5d8250",
+          "board": "aqa_trilogy",
+          "code": "AQA T 4.6.3.1",
+          "primary": true
+        },
+        {
+          "id": "124677d4-abf7-4898-93ec-95a5e0c5ae4a",
+          "board": "aqa_trilogy",
+          "code": "AQA T 4.6.3.2",
+          "primary": true
+        },
+        {
+          "id": "47211712-9b16-4283-9ffc-52f535143a7a",
+          "board": "aqa_trilogy",
+          "code": "AQA T 4.6.3.3",
+          "primary": true
+        },
+        {
+          "id": "4c5845fe-8e7a-43ab-a9fc-cc33518e2406",
+          "board": "ocr",
+          "code": "OCR 5.2e",
+          "primary": true
+        },
+        {
+          "id": "f7a3600b-9d7d-4d50-8217-23e7ae146034",
+          "board": "edexcel",
+          "code": "EDEX 4.6B",
+          "primary": true
+        }
+      ]
+    },
+    {
+      "id": "bio-107",
+      "group": "Inheritance, variation and evolution",
+      "title": "Evidence for human evolution",
+      "scope": "Fossil evidence (Ardi, Lucy, Leakey's finds) and stone tools as evidence for human evolution, and how they are dated.",
+      "kind": "content",
+      "higher_only": false,
+      "separate_only": false,
+      "spec_points": [
+        {
+          "id": "16559564-a873-45de-a439-10a93e811886",
+          "board": "edexcel",
+          "code": "EDEX 4.4",
+          "primary": true
+        },
+        {
+          "id": "ab94d4d3-53b4-4300-b044-677b12e7d22d",
+          "board": "edexcel",
+          "code": "EDEX 4.5",
+          "primary": true
+        }
+      ]
+    },
+    {
+      "id": "bio-108",
+      "group": "Inheritance, variation and evolution",
+      "title": "Antibiotic-resistant bacteria",
+      "scope": "How resistant strains of bacteria evolve by natural selection, why this supports evolution, and how to reduce resistance.",
+      "kind": "content",
+      "higher_only": false,
+      "separate_only": false,
+      "spec_points": [
+        {
+          "id": "dddfa641-fc04-49bb-9d10-aa1a6481c644",
+          "board": "aqa",
+          "code": "AQA 6.16",
+          "primary": true
+        },
+        {
+          "id": "0b91c11a-8500-48bb-b5de-a172fba6ccad",
+          "board": "aqa_trilogy",
+          "code": "AQA T 4.6.3.4",
+          "primary": true
+        },
+        {
+          "id": "83fe871b-afbd-46c1-b6cb-7c6bcf83af60",
+          "board": "edexcel",
+          "code": "EDEX 4.3",
+          "primary": true
+        },
+        {
+          "id": "4c5845fe-8e7a-43ab-a9fc-cc33518e2406",
+          "board": "ocr",
+          "code": "OCR 5.2e",
+          "primary": false
+        }
+      ]
+    },
+    {
+      "id": "bio-109",
+      "group": "Inheritance, variation and evolution",
+      "title": "Classification of living organisms",
+      "scope": "The Linnaean system, binomial names, the three-domain system and how DNA analysis and evolutionary trees changed classification.",
+      "kind": "content",
+      "higher_only": false,
+      "separate_only": false,
+      "spec_points": [
+        {
+          "id": "42d420e3-b9e1-4307-88d1-1e65d257e6f1",
+          "board": "aqa",
+          "code": "AQA 6.17",
+          "primary": true
+        },
+        {
+          "id": "ce82ece4-5f33-42d5-9cde-1c02f52088e2",
+          "board": "aqa_trilogy",
+          "code": "AQA T 4.6.4",
+          "primary": true
+        },
+        {
+          "id": "a08af470-9c76-47d3-877f-ac0c5f3fbd80",
+          "board": "edexcel",
+          "code": "EDEX 4.7",
+          "primary": true
+        },
+        {
+          "id": "8f8fe959-8257-442f-9b75-dd351b68466a",
+          "board": "ocr",
+          "code": "OCR 5.2b",
+          "primary": true
+        }
+      ]
+    },
+    {
+      "id": "bio-110",
+      "group": "Inheritance, variation and evolution",
+      "title": "Selective breeding",
+      "scope": "How humans breed plants and animals for desired characteristics, and the benefits and risks such as inbreeding.",
+      "kind": "content",
+      "higher_only": false,
+      "separate_only": false,
+      "spec_points": [
+        {
+          "id": "3868e1ad-67e9-488c-897b-7d04b5b0990b",
+          "board": "aqa",
+          "code": "AQA 6.11",
+          "primary": true
+        },
+        {
+          "id": "aec8f10a-c479-498a-bfe5-040e61d3200f",
+          "board": "aqa_trilogy",
+          "code": "AQA T 4.6.2.3",
+          "primary": true
+        },
+        {
+          "id": "fcdd86c3-5d39-4408-b0f6-9866fbeb95e5",
+          "board": "edexcel",
+          "code": "EDEX 4.8",
+          "primary": true
+        },
+        {
+          "id": "db5733f2-62f3-4022-b156-af2559927d0c",
+          "board": "ocr",
+          "code": "OCR 6.2c",
+          "primary": true
+        }
+      ]
+    },
+    {
+      "id": "bio-111",
+      "group": "Inheritance, variation and evolution",
+      "title": "Genetic engineering",
+      "scope": "Modifying an organism's genome using restriction enzymes, ligase, sticky ends and plasmid vectors, with examples such as insulin-producing bacteria.",
+      "kind": "content",
+      "higher_only": false,
+      "separate_only": false,
+      "spec_points": [
+        {
+          "id": "e47e1787-ae3f-4ea4-bd60-864917265b60",
+          "board": "aqa",
+          "code": "AQA 6.12",
+          "primary": true
+        },
+        {
+          "id": "bd6ac9e8-038e-488d-b404-d6627d252bd9",
+          "board": "aqa_trilogy",
+          "code": "AQA T 4.6.2.4",
+          "primary": true
+        },
+        {
+          "id": "57ff6100-014d-48c9-8a81-63d1d81cbeb1",
+          "board": "edexcel",
+          "code": "EDEX 4.10",
+          "primary": true
+        },
+        {
+          "id": "a70fad16-3291-4200-9e31-a21e0ada5b2f",
+          "board": "edexcel",
+          "code": "EDEX 4.11",
+          "primary": true
+        },
+        {
+          "id": "ac85dc96-babf-4f59-be05-308d7371bf14",
+          "board": "ocr",
+          "code": "OCR 6.2d",
+          "primary": true
+        },
+        {
+          "id": "4939d756-2ac4-4f66-a569-7693651bcaeb",
+          "board": "ocr",
+          "code": "OCR 6.2e",
+          "primary": true
+        }
+      ]
+    },
+    {
+      "id": "bio-112",
+      "group": "Inheritance, variation and evolution",
+      "title": "Benefits and risks of genetic modification",
+      "scope": "Evaluating GM crops (e.g. Bt crops), gene therapy and other uses of gene technology in agriculture and medicine.",
+      "kind": "content",
+      "higher_only": false,
+      "separate_only": false,
+      "spec_points": [
+        {
+          "id": "05138f3f-96e9-473c-a618-42d3abdd19a4",
+          "board": "edexcel",
+          "code": "EDEX 4.12B",
+          "primary": true
+        },
+        {
+          "id": "976ab6bb-54d5-4a7d-9341-9ac517d142e0",
+          "board": "edexcel",
+          "code": "EDEX 4.14",
+          "primary": true
+        },
+        {
+          "id": "5bc74106-a4bf-4b69-8787-4a6a3f767555",
+          "board": "ocr",
+          "code": "OCR 6.2f",
+          "primary": true
+        },
+        {
+          "id": "4fe4ab2c-e05b-414c-aa25-be3915c5254c",
+          "board": "ocr",
+          "code": "OCR 6.3w",
+          "primary": true
+        },
+        {
+          "id": "e47e1787-ae3f-4ea4-bd60-864917265b60",
+          "board": "aqa",
+          "code": "AQA 6.12",
+          "primary": false
+        },
+        {
+          "id": "bd6ac9e8-038e-488d-b404-d6627d252bd9",
+          "board": "aqa_trilogy",
+          "code": "AQA T 4.6.2.4",
+          "primary": false
+        }
+      ]
+    },
+    {
+      "id": "bio-113",
+      "group": "Inheritance, variation and evolution",
+      "title": "Cloning and tissue culture",
+      "scope": "Cloning plants by cuttings and tissue culture, and cloning animals by embryo transplants and adult cell cloning, with their benefits and risks.",
+      "kind": "content",
+      "higher_only": false,
+      "separate_only": true,
+      "spec_points": [
+        {
+          "id": "ee093666-8637-4caa-a722-d52bc568b841",
+          "board": "aqa",
+          "code": "AQA 6.13",
+          "primary": true
+        },
+        {
+          "id": "0c1e6ef6-b9d6-4532-ad24-978840609648",
+          "board": "edexcel",
+          "code": "EDEX 4.9B",
+          "primary": true
+        }
+      ]
+    },
+    {
+      "id": "bio-114",
+      "group": "Ecology",
+      "title": "Ecosystems, communities and interdependence",
+      "scope": "Levels of organisation from individual to ecosystem, competition, interdependence, stable communities, parasitism and mutualism.",
+      "kind": "content",
+      "higher_only": false,
+      "separate_only": false,
+      "spec_points": [
+        {
+          "id": "42dc92c3-c385-417c-8f22-969105addc28",
+          "board": "aqa",
+          "code": "AQA 7.1",
+          "primary": true
+        },
+        {
+          "id": "5c0f54bf-6ece-4db7-80fb-2a9cee3b03a1",
+          "board": "aqa_trilogy",
+          "code": "AQA T 4.7.1.1",
+          "primary": true
+        },
+        {
+          "id": "0b3558ff-6420-478f-9433-9c5af0d3a148",
+          "board": "edexcel",
+          "code": "EDEX 9.1",
+          "primary": true
+        },
+        {
+          "id": "12c67f09-2587-4ac9-a474-89559bccdbb0",
+          "board": "edexcel",
+          "code": "EDEX 9.3",
+          "primary": true
+        },
+        {
+          "id": "fbe35e76-933d-4f5b-87b2-1c688bcbf496",
+          "board": "edexcel",
+          "code": "EDEX 9.4",
+          "primary": true
+        },
+        {
+          "id": "b2ccac28-7033-4913-a3c7-1a62edc8c9bb",
+          "board": "ocr",
+          "code": "OCR 4.1e",
+          "primary": true
+        },
+        {
+          "id": "23cf7849-fce5-45ef-8683-33fb05babd79",
+          "board": "ocr",
+          "code": "OCR 4.1g",
+          "primary": true
+        }
+      ]
+    },
+    {
+      "id": "bio-115",
+      "group": "Ecology",
+      "title": "Abiotic and biotic factors",
+      "scope": "How non-living factors (light, temperature, water, pH, CO2, oxygen) and living factors (food, predators, pathogens, competition) affect communities.",
+      "kind": "content",
+      "higher_only": false,
+      "separate_only": false,
+      "spec_points": [
+        {
+          "id": "802d4d7e-cf2b-4402-9ab6-f6089bcd0ffa",
+          "board": "aqa",
+          "code": "AQA 7.2",
+          "primary": true
+        },
+        {
+          "id": "91dd4ed9-0b8d-4b2b-ab06-772c4eac7f43",
+          "board": "aqa_trilogy",
+          "code": "AQA T 4.7.1.2",
+          "primary": true
+        },
+        {
+          "id": "5e019bea-f675-4416-a0ef-318a44edb48d",
+          "board": "aqa_trilogy",
+          "code": "AQA T 4.7.1.3",
+          "primary": true
+        },
+        {
+          "id": "12046831-46f9-42a8-969f-6a006b9a7d67",
+          "board": "edexcel",
+          "code": "EDEX 9.2",
+          "primary": true
+        },
+        {
+          "id": "9914eeee-d212-4dfb-9e1e-a4de5e7ed333",
+          "board": "ocr",
+          "code": "OCR 4.1f",
+          "primary": true
+        }
+      ]
+    },
+    {
+      "id": "bio-116",
+      "group": "Ecology",
+      "title": "Adaptations",
+      "scope": "Structural, behavioural and functional adaptations, extremophiles, and how plants are adapted to extreme environments.",
+      "kind": "content",
+      "higher_only": false,
+      "separate_only": false,
+      "spec_points": [
+        {
+          "id": "9733dcba-040f-4cdc-b776-2a4aebde680d",
+          "board": "aqa",
+          "code": "AQA 7.3",
+          "primary": true
+        },
+        {
+          "id": "af5cc197-0780-42f9-8216-c7fdfd75a219",
+          "board": "aqa_trilogy",
+          "code": "AQA T 4.7.1.4",
+          "primary": true
+        },
+        {
+          "id": "ca8ba68e-f9a7-4104-9b07-a37d92a4670b",
+          "board": "edexcel",
+          "code": "EDEX 6.14B",
+          "primary": true
+        }
+      ]
+    },
+    {
+      "id": "bio-117",
+      "group": "Ecology",
+      "title": "Food chains and predator-prey cycles",
+      "scope": "Producers and consumers in food chains and how predator and prey populations rise and fall in cycles.",
+      "kind": "content",
+      "higher_only": false,
+      "separate_only": false,
+      "spec_points": [
+        {
+          "id": "08aa2ba9-2abe-4388-88a6-89587ddd6fc6",
+          "board": "aqa_trilogy",
+          "code": "AQA T 4.7.2.1",
+          "primary": true
+        },
+        {
+          "id": "e9360c59-9dd0-4970-948b-a88733144caf",
+          "board": "aqa",
+          "code": "AQA 7.4",
+          "primary": false
+        },
+        {
+          "id": "cb63e6bb-aa28-4980-8eb9-0db87358ad75",
+          "board": "ocr",
+          "code": "OCR 4.1h",
+          "primary": false
+        },
+        {
+          "id": "23cf7849-fce5-45ef-8683-33fb05babd79",
+          "board": "ocr",
+          "code": "OCR 4.1g",
+          "primary": false
+        },
+        {
+          "id": "fdc5f7b9-4bf9-4c50-9c82-2e700d379cc4",
+          "board": "edexcel",
+          "code": "EDEX 9.7B",
+          "primary": false
+        }
+      ]
+    },
+    {
+      "id": "bio-118",
+      "group": "Ecology",
+      "title": "Required practical: sampling with quadrats and transects",
+      "scope": "Using random quadrats, belt transects and capture-recapture to estimate population size and investigate distribution of organisms.",
+      "kind": "practical",
+      "higher_only": false,
+      "separate_only": false,
+      "spec_points": [
+        {
+          "id": "e9360c59-9dd0-4970-948b-a88733144caf",
+          "board": "aqa",
+          "code": "AQA 7.4",
+          "primary": true
+        },
+        {
+          "id": "872079da-e686-47aa-b1c6-3952b0e6cf47",
+          "board": "edexcel",
+          "code": "EDEX 9.5",
+          "primary": true
+        },
+        {
+          "id": "3f5c6e75-11d5-4477-a4a8-32ff16064fff",
+          "board": "edexcel",
+          "code": "EDEX 9.6",
+          "primary": true
+        },
+        {
+          "id": "914df6d7-53f0-42a8-bd3d-bae2df31b215",
+          "board": "ocr",
+          "code": "OCR 6.1a",
+          "primary": true
+        },
+        {
+          "id": "4be6be53-c76c-4a0a-b0de-ca6ed0091c80",
+          "board": "ocr",
+          "code": "OCR 7.6",
+          "primary": true
+        },
+        {
+          "id": "08aa2ba9-2abe-4388-88a6-89587ddd6fc6",
+          "board": "aqa_trilogy",
+          "code": "AQA T 4.7.2.1",
+          "primary": false
+        }
+      ]
+    },
+    {
+      "id": "bio-119",
+      "group": "Ecology",
+      "title": "The carbon cycle",
+      "scope": "How carbon cycles through photosynthesis, respiration, combustion and decomposition by microorganisms.",
+      "kind": "content",
+      "higher_only": false,
+      "separate_only": false,
+      "spec_points": [
+        {
+          "id": "42fa6cb6-43c4-429e-8c20-13f176496e10",
+          "board": "aqa",
+          "code": "AQA 7.5",
+          "primary": true
+        },
+        {
+          "id": "e20f41ea-7788-440a-84ad-f0d1bc8682be",
+          "board": "aqa_trilogy",
+          "code": "AQA T 4.7.2.2",
+          "primary": true
+        },
+        {
+          "id": "74455c4d-ab71-4d11-a174-2ff3eed278da",
+          "board": "edexcel",
+          "code": "EDEX 9.12",
+          "primary": true
+        },
+        {
+          "id": "a8efd256-a9f4-4ba7-9c50-d6b0d846317c",
+          "board": "edexcel",
+          "code": "EDEX 9.13",
+          "primary": true
+        },
+        {
+          "id": "2b7da137-0d4b-4a78-95de-e94646a9548e",
+          "board": "ocr",
+          "code": "OCR 4.1b",
+          "primary": true
+        },
+        {
+          "id": "e38c4fde-704d-49db-af8d-cc81020f70ca",
+          "board": "ocr",
+          "code": "OCR 4.1c",
+          "primary": false
+        }
+      ]
+    },
+    {
+      "id": "bio-120",
+      "group": "Ecology",
+      "title": "The water cycle and potable water",
+      "scope": "The water cycle and its importance to living things, and producing potable water by desalination in areas of drought.",
+      "kind": "content",
+      "higher_only": false,
+      "separate_only": false,
+      "spec_points": [
+        {
+          "id": "90544310-d6c3-4c49-8fd4-bb5317278687",
+          "board": "edexcel",
+          "code": "EDEX 9.14",
+          "primary": true
+        },
+        {
+          "id": "e38c4fde-704d-49db-af8d-cc81020f70ca",
+          "board": "ocr",
+          "code": "OCR 4.1c",
+          "primary": true
+        },
+        {
+          "id": "42fa6cb6-43c4-429e-8c20-13f176496e10",
+          "board": "aqa",
+          "code": "AQA 7.5",
+          "primary": false
+        },
+        {
+          "id": "e20f41ea-7788-440a-84ad-f0d1bc8682be",
+          "board": "aqa_trilogy",
+          "code": "AQA T 4.7.2.2",
+          "primary": false
+        }
+      ]
+    },
+    {
+      "id": "bio-121",
+      "group": "Ecology",
+      "title": "The nitrogen cycle",
+      "scope": "How nitrogen is made available to plants by bacteria, fertilisers and crop rotation.",
+      "kind": "content",
+      "higher_only": false,
+      "separate_only": false,
+      "spec_points": [
+        {
+          "id": "9c6bdc5e-c134-4aa2-b450-44beee7f0b81",
+          "board": "edexcel",
+          "code": "EDEX 9.15",
+          "primary": true
+        },
+        {
+          "id": "25ac4b5c-b102-4fca-87f4-b78e48b455e2",
+          "board": "ocr",
+          "code": "OCR 4.1a",
+          "primary": true
+        }
+      ]
+    },
+    {
+      "id": "bio-122",
+      "group": "Ecology",
+      "title": "Decomposition and rate of decay",
+      "scope": "How temperature, water and oxygen affect the rate of decay, compost and biogas, food preservation, and calculating rates of decay.",
+      "kind": "content",
+      "higher_only": false,
+      "separate_only": true,
+      "spec_points": [
+        {
+          "id": "327f9481-a4f4-4aef-96b7-e5367376e6cb",
+          "board": "aqa",
+          "code": "AQA 7.6",
+          "primary": true
+        },
+        {
+          "id": "f52db4cd-aefb-4424-959d-411f92aa1fdf",
+          "board": "edexcel",
+          "code": "EDEX 9.17B",
+          "primary": true
+        },
+        {
+          "id": "7fa66e0d-13e6-47b4-839d-51c88617fa07",
+          "board": "edexcel",
+          "code": "EDEX 9.18B",
+          "primary": true
+        },
+        {
+          "id": "8663a286-e6d2-4bdd-8c08-427d9a4e9868",
+          "board": "edexcel",
+          "code": "EDEX 9.19B",
+          "primary": true
+        },
+        {
+          "id": "ff9e991c-ca53-43b5-b7c5-194dc7ffb5a5",
+          "board": "ocr",
+          "code": "OCR 4.1d",
+          "primary": true
+        }
+      ]
+    },
+    {
+      "id": "bio-123",
+      "group": "Ecology",
+      "title": "Environmental change and species distribution",
+      "scope": "How changes in temperature, water availability and atmospheric gases change where organisms live, and evaluating the evidence.",
+      "kind": "content",
+      "higher_only": false,
+      "separate_only": true,
+      "spec_points": [
+        {
+          "id": "a468689e-be17-4d0c-8f07-31f85ea79149",
+          "board": "aqa",
+          "code": "AQA 7.7",
+          "primary": true
+        },
+        {
+          "id": "d66cb221-db69-4e8f-b613-3effbfbb1b74",
+          "board": "ocr",
+          "code": "OCR 6.1d",
+          "primary": true
+        }
+      ]
+    },
+    {
+      "id": "bio-124",
+      "group": "Ecology",
+      "title": "Indicator species",
+      "scope": "Using indicator species such as lichens, freshwater invertebrates and blackspot fungus to assess pollution levels.",
+      "kind": "content",
+      "higher_only": false,
+      "separate_only": true,
+      "spec_points": [
+        {
+          "id": "89c51c10-51a7-450f-a8d0-3a9ef7911de6",
+          "board": "edexcel",
+          "code": "EDEX 9.16B",
+          "primary": true
+        }
+      ]
+    },
+    {
+      "id": "bio-125",
+      "group": "Ecology",
+      "title": "Biodiversity, pollution and waste",
+      "scope": "Why biodiversity matters and how human population growth, pollution, eutrophication, fish farming and invasive species threaten it.",
+      "kind": "content",
+      "higher_only": false,
+      "separate_only": false,
+      "spec_points": [
+        {
+          "id": "bae8c6e7-e59c-43bb-9645-5f54e8ba41e2",
+          "board": "aqa",
+          "code": "AQA 7.8",
+          "primary": true
+        },
+        {
+          "id": "7fae4fd3-43bc-4f2f-bcf5-a32d232e24f0",
+          "board": "aqa_trilogy",
+          "code": "AQA T 4.7.3.1",
+          "primary": true
+        },
+        {
+          "id": "34c317f8-2111-4010-b9a5-56bcd09b10fa",
+          "board": "aqa_trilogy",
+          "code": "AQA T 4.7.3.2",
+          "primary": true
+        },
+        {
+          "id": "7c992608-d1cb-4485-b6cd-d95bae992b2d",
+          "board": "edexcel",
+          "code": "EDEX 9.9",
+          "primary": true
+        },
+        {
+          "id": "133ea741-e9e3-4d35-9ff6-adcc111b277d",
+          "board": "ocr",
+          "code": "OCR 6.1b",
+          "primary": true
+        }
+      ]
+    },
+    {
+      "id": "bio-126",
+      "group": "Ecology",
+      "title": "Land use and deforestation",
+      "scope": "How building, farming, peat bog destruction and tropical deforestation reduce biodiversity and add carbon dioxide to the air.",
+      "kind": "content",
+      "higher_only": false,
+      "separate_only": false,
+      "spec_points": [
+        {
+          "id": "59766875-7065-43a7-8f85-f941dba48a2c",
+          "board": "aqa_trilogy",
+          "code": "AQA T 4.7.3.3",
+          "primary": true
+        },
+        {
+          "id": "f4608979-2a30-4f18-9700-87662ba8adca",
+          "board": "aqa_trilogy",
+          "code": "AQA T 4.7.3.4",
+          "primary": true
+        },
+        {
+          "id": "bae8c6e7-e59c-43bb-9645-5f54e8ba41e2",
+          "board": "aqa",
+          "code": "AQA 7.8",
+          "primary": false
+        }
+      ]
+    },
+    {
+      "id": "bio-127",
+      "group": "Ecology",
+      "title": "Global warming",
+      "scope": "How rising carbon dioxide and methane levels cause global warming and its biological consequences.",
+      "kind": "content",
+      "higher_only": false,
+      "separate_only": false,
+      "spec_points": [
+        {
+          "id": "71a93be3-b8d4-49fa-856e-3f4b38456027",
+          "board": "aqa",
+          "code": "AQA 7.9",
+          "primary": true
+        },
+        {
+          "id": "3068b47b-b814-4c5c-a649-2481ebfb13bf",
+          "board": "aqa_trilogy",
+          "code": "AQA T 4.7.3.5",
+          "primary": true
+        }
+      ]
+    },
+    {
+      "id": "bio-128",
+      "group": "Ecology",
+      "title": "Maintaining biodiversity",
+      "scope": "Conservation measures such as breeding programmes, habitat protection, reforestation and ecotourism, and the challenges involved.",
+      "kind": "content",
+      "higher_only": false,
+      "separate_only": false,
+      "spec_points": [
+        {
+          "id": "5e5a4219-5fbb-4b1c-81b6-dded7c0e89e5",
+          "board": "aqa",
+          "code": "AQA 7.10",
+          "primary": true
+        },
+        {
+          "id": "5ee55e77-1442-4b3b-96c3-103d0a2d347f",
+          "board": "aqa_trilogy",
+          "code": "AQA T 4.7.3.6",
+          "primary": true
+        },
+        {
+          "id": "72a447ff-73b9-4764-a444-5304e7636c49",
+          "board": "edexcel",
+          "code": "EDEX 9.10",
+          "primary": true
+        },
+        {
+          "id": "65aa2855-3de3-4a6e-9805-e440b3ac3fa6",
+          "board": "ocr",
+          "code": "OCR 6.1c",
+          "primary": true
+        }
+      ]
+    },
+    {
+      "id": "bio-129",
+      "group": "Ecology",
+      "title": "Trophic levels and pyramids of biomass",
+      "scope": "Trophic levels, constructing pyramids of biomass and how biomass is lost through respiration, egestion and excretion.",
+      "kind": "content",
+      "higher_only": false,
+      "separate_only": true,
+      "spec_points": [
+        {
+          "id": "dae1f22e-6b50-4c41-b9de-19643a4465d0",
+          "board": "aqa",
+          "code": "AQA 7.11",
+          "primary": true
+        },
+        {
+          "id": "fdc5f7b9-4bf9-4c50-9c82-2e700d379cc4",
+          "board": "edexcel",
+          "code": "EDEX 9.7B",
+          "primary": true
+        },
+        {
+          "id": "cb63e6bb-aa28-4980-8eb9-0db87358ad75",
+          "board": "ocr",
+          "code": "OCR 4.1h",
+          "primary": true
+        },
+        {
+          "id": "a77d6af8-ddad-4b1b-ab5c-432b30720118",
+          "board": "ocr",
+          "code": "OCR 4.1i",
+          "primary": true
+        },
+        {
+          "id": "1d65868a-a9ff-4661-af80-a1ea224817ce",
+          "board": "ocr",
+          "code": "OCR 4.1j",
+          "primary": false
+        }
+      ]
+    },
+    {
+      "id": "bio-130",
+      "group": "Ecology",
+      "title": "Efficiency of biomass transfer",
+      "scope": "Calculating the efficiency of biomass and energy transfer between trophic levels and why this limits food chain length.",
+      "kind": "content",
+      "higher_only": false,
+      "separate_only": true,
+      "spec_points": [
+        {
+          "id": "2fa5b0a6-fc4c-4aad-a619-ba5ad74c0aa0",
+          "board": "aqa",
+          "code": "AQA 7.12",
+          "primary": true
+        },
+        {
+          "id": "af2fb38b-4635-4ccf-b21d-f7c9c3f44ad9",
+          "board": "edexcel",
+          "code": "EDEX 9.8B",
+          "primary": true
+        },
+        {
+          "id": "1d65868a-a9ff-4661-af80-a1ea224817ce",
+          "board": "ocr",
+          "code": "OCR 4.1j",
+          "primary": true
+        }
+      ]
+    },
+    {
+      "id": "bio-131",
+      "group": "Ecology",
+      "title": "Food security",
+      "scope": "Biological factors that threaten food security, such as population growth, changing diets, new pests and pathogens, and climate change.",
+      "kind": "content",
+      "higher_only": false,
+      "separate_only": true,
+      "spec_points": [
+        {
+          "id": "f4b23ceb-38f9-47ac-917e-7594c60e6d2a",
+          "board": "aqa",
+          "code": "AQA 7.13",
+          "primary": true
+        },
+        {
+          "id": "668dba0c-0c82-4d69-8349-32adfb42f1b0",
+          "board": "edexcel",
+          "code": "EDEX 9.11B",
+          "primary": true
+        },
+        {
+          "id": "268b5b65-3fe0-45d8-971e-5126cf52b828",
+          "board": "ocr",
+          "code": "OCR 6.2a",
+          "primary": true
+        }
+      ]
+    },
+    {
+      "id": "bio-132",
+      "group": "Ecology",
+      "title": "Farming techniques and sustainable food production",
+      "scope": "Intensive farming, fertilisers, pesticides, biological control, hydroponics and sustainable fisheries (quotas, net size).",
+      "kind": "content",
+      "higher_only": false,
+      "separate_only": true,
+      "spec_points": [
+        {
+          "id": "9b1fdb3f-09bd-4656-9951-5388ae777ca6",
+          "board": "aqa",
+          "code": "AQA 7.14",
+          "primary": true
+        },
+        {
+          "id": "d0f9e733-b1e7-46eb-b55d-55545e0d4baf",
+          "board": "edexcel",
+          "code": "EDEX 4.13B",
+          "primary": true
+        },
+        {
+          "id": "34f7caba-444c-48fb-9f16-1cc58391b435",
+          "board": "ocr",
+          "code": "OCR 6.2b",
+          "primary": true
+        }
+      ]
+    },
+    {
+      "id": "bio-133",
+      "group": "Ecology",
+      "title": "Biotechnology and food production",
+      "scope": "Using biotechnology such as mycoprotein and GM crops to feed a growing human population.",
+      "kind": "content",
+      "higher_only": false,
+      "separate_only": true,
+      "spec_points": [
+        {
+          "id": "90ee36a4-042e-4ddf-bea8-09c0309946a0",
+          "board": "aqa",
+          "code": "AQA 7.15",
+          "primary": true
+        },
+        {
+          "id": "12d05f6d-0a4f-4f26-a25f-78824c8a97bb",
+          "board": "ocr",
+          "code": "OCR 6.2g",
+          "primary": true
+        },
+        {
+          "id": "05138f3f-96e9-473c-a618-42d3abdd19a4",
+          "board": "edexcel",
+          "code": "EDEX 4.12B",
+          "primary": false
+        }
+      ]
+    },
+    {
+      "id": "bio-134",
+      "group": "Working scientifically / practical skills",
+      "title": "Handling data, variables and practical safety",
+      "scope": "Identifying variables, planning fair tests, processing and presenting data, and working safely in biology practicals.",
+      "kind": "skills",
+      "higher_only": false,
+      "separate_only": false,
+      "data_note": "taught by AQA and Edexcel (working scientifically and maths skills) but no matching spec point",
+      "spec_points": [
+        {
+          "id": "0b5e1551-c057-405c-bdf7-cfd47f89b5ee",
+          "board": "ocr",
+          "code": "OCR 7.9",
+          "primary": true
+        }
+      ]
+    }
+  ]
+}
