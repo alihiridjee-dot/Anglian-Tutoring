@@ -29,6 +29,21 @@ import { blockedBy, indexOverrides, type PlanOverride } from "./overrides";
 import { type PlanPoint, type WithheldPlanPoint } from "./weeklyPlanDal";
 
 /** Assessment-backed cards supply one next review per point. */
+/**
+ * Whether a stored spine was cut for another course: it teaches topics, and
+ * none of them is on the student's course now. Topics belong to one
+ * subject/board/level, so a board or level change leaves the stored spine
+ * describing the old course entirely. Under a custom topic order the roadmap
+ * returned that spine as it stood, so every topic of the new course was
+ * "unscheduled" and no week ever taught again (S-29).
+ */
+export function spineIsForAnotherCourse(pacing: PacingBand[], progress: TopicProgress[]): boolean {
+  const taught = pacing.filter(isTeachBand);
+  if (taught.length === 0 || progress.length === 0) return false;
+  const onCourse = new Set(progress.map((t) => t.topicId));
+  return !taught.some((b) => onCourse.has(b.topicId));
+}
+
 export function focusInputs(progress: TopicProgress[]): {
   candidates: FocusCandidate[];
 } {
