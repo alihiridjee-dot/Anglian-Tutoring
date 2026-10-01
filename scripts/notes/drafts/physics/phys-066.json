@@ -1,0 +1,521 @@
+{
+  "format": 1,
+  "concept_id": "phys-066",
+  "subject": "physics",
+  "title": "Wave properties and the wave equation",
+  "key_idea": "A wave is described by its **amplitude**, **wavelength**, **frequency** and **period**. Wave speed is found from **v = f × λ**, or from distance ÷ time. The period is 1 ÷ the frequency.",
+  "sections": [
+    {
+      "heading": "Describing a wave",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "These words describe any wave. Learn each meaning exactly."
+        },
+        {
+          "type": "definitions",
+          "items": [
+            {
+              "term": "Amplitude",
+              "meaning": "The maximum displacement of a point on a wave away from its undisturbed position."
+            },
+            {
+              "term": "Wavelength",
+              "meaning": "The distance from a point on one wave to the equivalent point on the adjacent wave."
+            },
+            {
+              "term": "Frequency",
+              "meaning": "The number of waves passing a point each second. It is measured in hertz, Hz."
+            },
+            {
+              "term": "Period",
+              "meaning": "The time taken for one complete wave to pass a point."
+            },
+            {
+              "term": "Wave speed",
+              "meaning": "The speed at which energy is transferred, or the wave moves, through the medium."
+            },
+            {
+              "term": "Wavefront",
+              "meaning": "A line joining points on a wave that are at the same stage, such as all the peaks."
+            }
+          ]
+        },
+        {
+          "type": "list",
+          "items": [
+            "Amplitude is measured from the undisturbed position to a peak, not from a trough to a peak.",
+            "Wavelength can be measured from peak to peak, or trough to trough.",
+            "1 Hz is one wave per second."
+          ]
+        },
+        {
+          "type": "key-points",
+          "items": [
+            "Amplitude is the maximum displacement from the undisturbed position.",
+            "Wavelength is the distance between equivalent points on adjacent waves.",
+            "Frequency is the number of waves passing a point each second."
+          ]
+        }
+      ]
+    },
+    {
+      "heading": "Frequency and period",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "Frequency and period are linked. A high frequency means a short period."
+        },
+        {
+          "type": "equation",
+          "label": "Period",
+          "formula": "period = 1 ÷ frequency   (T = 1 ÷ f)",
+          "where": [
+            "period, T, is in seconds, s",
+            "frequency, f, is in hertz, Hz"
+          ]
+        },
+        {
+          "type": "list",
+          "items": [
+            "A wave of frequency 5000 Hz has a period of 1 ÷ 5000 = 0.0002 s.",
+            "Change kilohertz to hertz first. 8.0 kHz = 8000 Hz.",
+            "Change gigahertz to hertz first. 1 GHz = 1 000 000 000 Hz."
+          ]
+        },
+        {
+          "type": "key-points",
+          "items": [
+            "Period = 1 ÷ frequency.",
+            "Convert kHz and GHz to Hz before you calculate."
+          ]
+        }
+      ]
+    },
+    {
+      "heading": "The wave equation",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "All waves obey the wave equation. It links wave speed, frequency and wavelength."
+        },
+        {
+          "type": "equation",
+          "label": "Wave equation",
+          "formula": "wave speed = frequency × wavelength   (v = f λ)",
+          "where": [
+            "wave speed, v, is in metres per second, m/s",
+            "frequency, f, is in hertz, Hz",
+            "wavelength, λ, is in metres, m"
+          ]
+        },
+        {
+          "type": "equation",
+          "label": "Wave speed from distance and time",
+          "formula": "wave speed = distance ÷ time   (v = x ÷ t)",
+          "where": [
+            "wave speed, v, is in metres per second, m/s",
+            "distance, x, is in metres, m",
+            "time, t, is in seconds, s"
+          ]
+        },
+        {
+          "type": "steps",
+          "items": [
+            {
+              "lead": "Convert.",
+              "text": "Put every quantity in m/s, Hz and m. For example, 4.5 km/s = 4500 m/s."
+            },
+            {
+              "lead": "Substitute.",
+              "text": "Write the equation with the numbers in it."
+            },
+            {
+              "lead": "Rearrange.",
+              "text": "To find the wavelength, divide the wave speed by the frequency."
+            },
+            {
+              "lead": "Give the unit.",
+              "text": "State m, Hz or m/s with the answer."
+            }
+          ]
+        },
+        {
+          "type": "subheading",
+          "text": "Worked example"
+        },
+        {
+          "type": "paragraph",
+          "text": "A sound wave has a frequency of 220 Hz. The speed of sound in air is 330 m/s. Calculate the wavelength."
+        },
+        {
+          "type": "steps",
+          "items": [
+            {
+              "lead": "Rearrange.",
+              "text": "λ = v ÷ f"
+            },
+            {
+              "lead": "Substitute.",
+              "text": "λ = 330 ÷ 220"
+            },
+            {
+              "lead": "Answer.",
+              "text": "λ = 1.5 m"
+            }
+          ]
+        },
+        {
+          "type": "diagram",
+          "diagram": {
+            "kind": "practice",
+            "alt": "Calculate a wave speed from a frequency and a wavelength.",
+            "question": "A water wave in a ripple tank has a frequency of {f} Hz and a wavelength of {l} m. Calculate the wave speed.",
+            "variables": [
+              {
+                "id": "f",
+                "min": 1,
+                "max": 5,
+                "step": 1
+              },
+              {
+                "id": "l",
+                "min": 0.05,
+                "max": 0.25,
+                "step": 0.05
+              }
+            ],
+            "answer": {
+              "formula": "f * l",
+              "unit": "m/s",
+              "decimals": 2
+            },
+            "working": [
+              "wave speed = frequency × wavelength",
+              "wave speed = {f} × {l}",
+              "wave speed = {answer} m/s"
+            ]
+          }
+        },
+        {
+          "type": "paragraph",
+          "text": "Try the slider. It shows water ripples with a wave speed of 0.25 m/s. Change the frequency and the amplitude."
+        },
+        {
+          "type": "diagram",
+          "diagram": {
+            "kind": "slider",
+            "alt": "Change the frequency and amplitude of water ripples travelling at 0.25 m/s to see the wavelength and period.",
+            "inputs": [
+              {
+                "id": "f",
+                "label": "Frequency",
+                "unit": "Hz",
+                "min": 2,
+                "max": 10,
+                "step": 1,
+                "value": 4
+              },
+              {
+                "id": "A",
+                "label": "Amplitude",
+                "unit": "cm",
+                "min": 1,
+                "max": 5,
+                "step": 0.5,
+                "value": 2
+              }
+            ],
+            "outputs": [
+              {
+                "label": "Wavelength",
+                "unit": "cm",
+                "formula": "0.25 / f * 100",
+                "decimals": 1
+              },
+              {
+                "label": "Period",
+                "unit": "s",
+                "formula": "1 / f",
+                "decimals": 2
+              }
+            ],
+            "scene": {
+              "kind": "wave",
+              "amplitude": "A",
+              "frequency": "f"
+            }
+          }
+        },
+        {
+          "type": "list",
+          "items": [
+            "Wave speed stays the same, so a higher frequency gives a shorter wavelength.",
+            "The amplitude does not change the wavelength, the frequency or the period."
+          ]
+        },
+        {
+          "type": "key-points",
+          "items": [
+            "v = f × λ, with the speed in m/s, the frequency in Hz and the wavelength in m.",
+            "Rearrange before you substitute, or substitute and then rearrange. Show both steps.",
+            "Convert km/s, kHz, GHz and nm to m/s, Hz and m first."
+          ]
+        }
+      ]
+    },
+    {
+      "heading": "Measuring wave speeds",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "The speed of a wave is found by measuring its frequency and wavelength, or by timing it over a distance."
+        },
+        {
+          "type": "subheading",
+          "text": "Ripples in a ripple tank"
+        },
+        {
+          "type": "steps",
+          "items": [
+            {
+              "lead": "Wavelength.",
+              "text": "Place a metre rule at the side of the screen, perpendicular to the wavefronts. Measure the length of several waves and divide by the number of waves."
+            },
+            {
+              "lead": "Frequency.",
+              "text": "Count the number of waves that pass a given point. Time them with a stop clock and divide the number of waves by the time."
+            },
+            {
+              "lead": "Speed.",
+              "text": "Calculate the wave speed using v = f × λ."
+            }
+          ]
+        },
+        {
+          "type": "subheading",
+          "text": "The speed of sound in air"
+        },
+        {
+          "type": "list",
+          "items": [
+            "Make a sound, such as a hammer hitting a metal plate.",
+            "Two microphones connected to an electronic timer measure the time for the sound to travel between them.",
+            "Repeat the measurement several times and take a mean time.",
+            "Calculate speed = distance between the microphones ÷ mean time."
+          ]
+        },
+        {
+          "type": "paragraph",
+          "text": "(Separate science) When a sound wave passes from one medium to another, its speed, frequency and wavelength change in a way that v = f λ links. For example, if the speed increases and the frequency stays the same, the wavelength increases."
+        },
+        {
+          "type": "key-points",
+          "items": [
+            "Measure the wavelength and the frequency of ripples, then use v = f λ.",
+            "Time a sound over a known distance, repeat and take a mean."
+          ]
+        }
+      ]
+    }
+  ],
+  "checks": [
+    {
+      "q": "Describe what is meant by the wavelength of a wave.",
+      "a": "The distance from a point on one wave to the equivalent point on the adjacent wave.",
+      "marks": 1
+    },
+    {
+      "q": "A wave has a frequency of 2.5 Hz. Calculate its period.",
+      "a": "period = 1 ÷ 2.5 = 0.40 s.",
+      "marks": 2
+    },
+    {
+      "q": "A water wave has a speed of 0.125 m/s and a frequency of 2.5 Hz. Calculate the wavelength.",
+      "a": "wavelength = 0.125 ÷ 2.5 = 0.050 m.",
+      "marks": 3
+    }
+  ],
+  "boards": {
+    "aqa": {
+      "spec_codes": [
+        "AQA 4.6.1.2",
+        "AQA T 6.6.1.2"
+      ],
+      "exam_phrases": [
+        "λ = 0.125 / 2.5",
+        "4500 = 3.6 × λ",
+        "count the number of waves that pass a given point",
+        "time how long it takes for the waves to pass that point using a stop clock",
+        "frequency is number of waves divided by time taken",
+        "period = 1 / 5000"
+      ],
+      "mistakes": [
+        {
+          "wrong": "4.5 = 3.6 × λ, so λ = 1.25 m.",
+          "right": "Convert 4.5 km/s to 4500 m/s first. Then λ = 4500 ÷ 3.6 = 1250 m."
+        },
+        {
+          "wrong": "The distance between the centres of two compressions is the amplitude, and the number of waves each second is the speed.",
+          "right": "The distance between compressions is the wavelength, and the number of waves passing a point each second is the frequency. The order matters."
+        },
+        {
+          "wrong": "λ = 4.80 × 10⁻⁷ nm.",
+          "right": "4.80 × 10⁻⁷ is in metres. Convert to nanometres: λ = 480 nm."
+        }
+      ],
+      "worked_example": {
+        "exemplar_id": "bcbed736-f54e-422d-9a80-9c6a0a7ae907",
+        "source": "AQA jun 2024, Paper 2 (H), Q04.5",
+        "question": "An S-wave has a frequency of 3.6 Hz. The S-wave has a speed of 4.5 km/s.\n\nCalculate the wavelength of this S-wave.\n\nUse the Physics Equations Sheet.",
+        "marks": 3,
+        "answer_points": [
+          "4500 = 3.6 × λ",
+          "λ = 4500 ÷ 3.6",
+          "λ = 1250 m"
+        ],
+        "tip": "A correct substitution or rearrangement with an unconverted speed can still score marks. An answer of 1300 m is also allowed."
+      },
+      "extra": [
+        {
+          "heading": "Required practical",
+          "blocks": [
+            {
+              "type": "paragraph",
+              "text": "Make observations to identify the suitability of apparatus to measure the frequency, wavelength and speed of waves in a ripple tank and waves in a solid, and take appropriate measurements."
+            }
+          ]
+        }
+      ]
+    },
+    "edexcel": {
+      "spec_codes": [
+        "EDEX 4.3",
+        "EDEX 4.4",
+        "EDEX 4.6"
+      ],
+      "exam_phrases": [
+        "converts 7 km/s to 7000 m/s",
+        "v = f × λ",
+        "λ = v/f",
+        "(f =) 0.8 / 4.0 = 0.2 (Hz)",
+        "unit Hz / s⁻¹",
+        "division of time by 2"
+      ],
+      "mistakes": [
+        {
+          "wrong": "2.45 GHz = 2.45 Hz, so λ = 3.00 × 10⁸ ÷ 2.45 = 1.2 × 10⁸ m.",
+          "right": "Convert 2.45 GHz to 2.45 × 10⁹ Hz. Then λ = 3.00 × 10⁸ ÷ 2.45 × 10⁹ = 0.12 m. A power of ten error gains 2 marks."
+        },
+        {
+          "wrong": "f = 0.8 ÷ 4.0 = 0.2.",
+          "right": "The unit is a separate mark. Write 0.2 Hz (or s⁻¹)."
+        },
+        {
+          "wrong": "The pulse returns after 18 ms, so the distance to the prey is 330 × 0.018 = 5.9 m.",
+          "right": "The pulse travels to the prey and back. Divide the time by 2, or halve the distance: the distance to the prey is 3.0 m."
+        }
+      ],
+      "worked_example": {
+        "exemplar_id": "bb9b7714-f7c0-42f7-92c7-e3a932609245",
+        "source": "EDEXCEL jun 2023, Paper 1 (F), Q5(c)",
+        "question": "In a swimming pool, a wave is produced with a wavelength of 4.0 m and a velocity of 0.8 m / s.\n\nCalculate the frequency of the wave.\n\nState the unit of frequency.\n\nUse the equation\n\nv = f × λ",
+        "marks": 3,
+        "answer_points": [
+          "0.8 = f × 4.0",
+          "f = 0.8 ÷ 4.0 = 0.2",
+          "unit: Hz (or s⁻¹, or per second)"
+        ],
+        "tip": "The unit is an independent mark, so it can be scored even if the calculation is wrong."
+      },
+      "extra": [
+        {
+          "heading": "Echoes and the distance to an object",
+          "blocks": [
+            {
+              "type": "list",
+              "items": [
+                "A pulse that reflects from an object travels there and back.",
+                "Use distance = speed × time for the whole journey, then divide by 2."
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    "ocr": {
+      "spec_codes": [
+        "OCR P5.1a",
+        "OCR P5.1b",
+        "OCR P5.1c",
+        "OCR P5.1d"
+      ],
+      "exam_phrases": [
+        "Rearrangement: Wavelength = wave speed ÷ frequency",
+        "(λ =) v ÷ f",
+        "(λ =) 330 ÷ 440",
+        "(Wavelength =) 0.75 (m)",
+        "correct substitution into given equation",
+        "Mean = (6.7 + 6.3 + 6.7 + 6.6) ÷ 4"
+      ],
+      "mistakes": [
+        {
+          "wrong": "Wavelength = 330 × 440.",
+          "right": "Rearrange the equation first. Wavelength = wave speed ÷ frequency = 330 ÷ 440 = 0.75 m."
+        },
+        {
+          "wrong": "330 = 440 × λ is my answer.",
+          "right": "A correct substitution into the given equation only scores 1 mark. Rearrange to λ = 330 ÷ 440 and give 0.75 m."
+        },
+        {
+          "wrong": "λ = 500 ÷ 330 = 1.5 m.",
+          "right": "Divide the wave speed by the frequency: 330 ÷ 500 = 0.66 m."
+        }
+      ],
+      "worked_example": {
+        "exemplar_id": "d969ef8f-a29a-414e-9206-ef6ac6cf6518",
+        "source": "OCR nov 2021, Paper 2, Q18(a)",
+        "question": "A musician plays a guitar.\n\nThis makes a sound wave in the air.\n\nThe frequency of the sound wave is 440 Hz.\n\nThe speed of sound is 330 m / s.\n\nCalculate the wavelength of the sound wave.\n\nUse the equation: wave speed = frequency × wavelength",
+        "marks": 3,
+        "answer_points": [
+          "Rearrangement: wavelength = wave speed ÷ frequency",
+          "λ = 330 ÷ 440",
+          "λ = 0.75 m"
+        ],
+        "tip": "A correct answer of 0.75 m scores 3 marks. A correct substitution into the given equation scores 1 mark."
+      }
+    }
+  },
+  "meta": {
+    "status": "draft",
+    "written_by": "sonnet-5-5",
+    "written_at": "2026-10-01",
+    "spec_point_ids": [
+      "4d1bfc69-2378-4fc1-9976-243664fd704d",
+      "bed3b232-a39e-4fd1-baa1-9ce4b6a4caf9",
+      "8a3a5464-2a44-41d0-8cdd-9c70cabf7dda",
+      "f2452e32-932c-4896-a124-cd4eb9223d44",
+      "e779cfa1-566b-4495-8da7-175ef3bb1c60",
+      "1a5298c9-2b21-4dfd-b1a0-ac35f0165503",
+      "b6678b3e-a443-430c-8920-b07f45f837c5",
+      "ce653765-11e8-4574-8418-4d50cd59e0eb",
+      "2a167b23-84fb-43cd-8f76-1617523da3e5"
+    ],
+    "exemplar_ids": [
+      "0b95d22e-38b9-452d-b580-87c6cc908d7b",
+      "15a8564f-c576-4b90-865e-4def68741a8f",
+      "171026e7-8bc7-4a92-bae0-954f39fa1654",
+      "1902e0b9-8f71-4f83-a383-90b2d567bf40",
+      "1fb69c66-75c8-4291-af9e-857ecba9c5d6",
+      "4024f215-6bbb-43c0-9f71-58f9d9709b55",
+      "5a2ee4b1-7e84-429a-b72d-f25b8dfe567e",
+      "ace78d15-fd7d-4735-aa9e-1f387673fd94",
+      "b6bea790-b7b5-4173-8272-966c680ffec9",
+      "bb9b7714-f7c0-42f7-92c7-e3a932609245",
+      "bcbed736-f54e-422d-9a80-9c6a0a7ae907",
+      "c65749e7-9afa-47da-80d1-f841abd12cfd",
+      "c6f5cd70-1a51-496d-ac46-52bb1cbdc5eb",
+      "d969ef8f-a29a-414e-9206-ef6ac6cf6518"
+    ]
+  }
+}

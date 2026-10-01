@@ -8,7 +8,10 @@
     {
       "heading": "A simple model of the atmosphere",
       "blocks": [
-        { "type": "paragraph", "text": "(Separate science) This section covers what the atmosphere is and how it creates pressure." },
+        {
+          "type": "paragraph",
+          "text": "(Separate science) This section covers what the atmosphere is and how it creates pressure."
+        },
         {
           "type": "list",
           "items": [
@@ -30,13 +33,25 @@
     {
       "heading": "Pressure and height",
       "blocks": [
-        { "type": "paragraph", "text": "(Separate science) This section explains why atmospheric pressure is lower at greater height." },
+        {
+          "type": "paragraph",
+          "text": "(Separate science) This section explains why atmospheric pressure is lower at greater height."
+        },
         {
           "type": "steps",
           "items": [
-            { "lead": "Go higher.", "text": "The height of the surface above the ground increases." },
-            { "lead": "There is less air above.", "text": "The number of air particles above the surface decreases, so the weight of air above it decreases." },
-            { "lead": "The pressure falls.", "text": "Atmospheric pressure decreases as height increases." }
+            {
+              "lead": "Go higher.",
+              "text": "The height of the surface above the ground increases."
+            },
+            {
+              "lead": "There is less air above.",
+              "text": "The number of air particles above the surface decreases, so the weight of air above it decreases."
+            },
+            {
+              "lead": "The pressure falls.",
+              "text": "Atmospheric pressure decreases as height increases."
+            }
           ]
         },
         {
@@ -44,10 +59,53 @@
           "diagram": {
             "kind": "line-graph",
             "alt": "A sketch showing atmospheric pressure falling as height above the Earth's surface increases. It shows the shape only.",
-            "x": { "label": "Height above the Earth's surface", "min": 0, "max": 10, "ticks": [0, 2, 4, 6, 8, 10], "unit": "km" },
-            "y": { "label": "Atmospheric pressure" },
+            "x": {
+              "label": "Height above the Earth's surface",
+              "min": 0,
+              "max": 10,
+              "ticks": [
+                0,
+                2,
+                4,
+                6,
+                8,
+                10
+              ],
+              "unit": "km"
+            },
+            "y": {
+              "label": "Atmospheric pressure (sketch)"
+            },
             "series": [
-              { "name": "Atmospheric pressure", "points": [[0, 0.95], [2, 0.78], [4, 0.62], [6, 0.48], [8, 0.36], [10, 0.27]] }
+              {
+                "name": "Atmospheric pressure",
+                "points": [
+                  [
+                    0,
+                    0.95
+                  ],
+                  [
+                    2,
+                    0.78
+                  ],
+                  [
+                    4,
+                    0.62
+                  ],
+                  [
+                    6,
+                    0.48
+                  ],
+                  [
+                    8,
+                    0.36
+                  ],
+                  [
+                    10,
+                    0.27
+                  ]
+                ]
+              }
             ]
           }
         },
@@ -89,7 +147,9 @@
   ],
   "boards": {
     "aqa": {
-      "spec_codes": ["AQA 4.5.5.2"],
+      "spec_codes": [
+        "AQA 4.5.5.2"
+      ],
       "exam_phrases": [
         "the density of the air decreases",
         "the mass of air above the student decreases",
@@ -102,8 +162,8 @@
           "right": "There is less air above. The mass of air above the student decreases and the density of the air decreases."
         },
         {
-          "wrong": "The pressure on the skydiver increases as the skydiver falls because there is less air above.",
-          "right": "There is a greater weight of air above the skydiver as the distance fallen increases, so the pressure increases (pressure = F ÷ A)."
+          "wrong": "The pressure on the skydiver increases because the air is denser.",
+          "right": "Density alone earns one mark. Add that there are more frequent collisions of air particles with the skydiver, so the pressure increases."
         }
       ],
       "worked_example": {
@@ -132,19 +192,22 @@
       ]
     },
     "edexcel": {
-      "spec_codes": ["EDEX 15.7P"],
+      "spec_codes": [
+        "EDEX 15.7P"
+      ],
       "exam_phrases": [
         "it gets bigger",
         "density of air decreases / fewer (air) particles",
         "pressure (outside the balloon) decreases",
         "pressure inside (balloon) is greater than pressure outside",
         "height of atmosphere (above aeroplane)",
-        "density of atmosphere"
+        "density of atmosphere",
+        "the temperature (of the atmosphere)"
       ],
       "mistakes": [
         {
-          "wrong": "As the balloon rises it gets smaller because the air outside is squeezing it.",
-          "right": "It gets bigger. The pressure outside decreases, so the pressure inside the balloon is greater than the pressure outside."
+          "wrong": "The balloon gets bigger because the pressure decreases.",
+          "right": "Say which pressure. The pressure outside the balloon decreases, so the pressure inside the balloon is greater than the pressure outside."
         },
         {
           "wrong": "Pressure falls from 104 kPa to 74 kPa, so the percentage change is 30 ÷ 74 × 100 = 41%.",
@@ -166,7 +229,10 @@
       }
     },
     "ocr": {
-      "spec_codes": ["OCR P1.3f", "OCR P1.3g"],
+      "spec_codes": [
+        "OCR P1.3f",
+        "OCR P1.3g"
+      ],
       "exam_phrases": [
         "it decreases / reduces / goes down (with increased height)",
         "there is less atmosphere / air above (pushing down)",
@@ -235,6 +301,8 @@
       "0d56b81d-2de8-45c3-9d5c-5f3df1665ce0",
       "0ad44552-a078-4420-b4d0-13182fd1de17",
       "7240386d-3e10-49cb-b56a-0740fe3ab53f"
-    ]
+    ],
+    "checked_by": "sonnet-science-check",
+    "checked_at": "2026-10-01"
   }
 }

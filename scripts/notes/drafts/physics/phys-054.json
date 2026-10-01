@@ -3,18 +3,30 @@
   "concept_id": "phys-054",
   "subject": "physics",
   "title": "Acceleration and velocity–time graphs",
-  "key_idea": "Acceleration is the change in velocity per second, **a = Δv ÷ t**. For uniform acceleration, **v² − u² = 2as**. On a velocity–time graph the gradient is the acceleration and the area under the line is the distance travelled.",
+  "key_idea": "Acceleration is how quickly velocity changes: the change in velocity divided by the time taken. On a velocity–time graph the gradient is the acceleration and the area under the line is the distance travelled.",
   "sections": [
     {
       "heading": "Acceleration",
       "blocks": [
-        { "type": "paragraph", "text": "This section covers how to calculate acceleration from a change in velocity." },
+        {
+          "type": "paragraph",
+          "text": "This section covers how to calculate acceleration from a change in velocity."
+        },
         {
           "type": "definitions",
           "items": [
-            { "term": "Acceleration", "meaning": "How quickly the velocity of an object changes." },
-            { "term": "Deceleration", "meaning": "An object that slows down is decelerating." },
-            { "term": "Uniform acceleration", "meaning": "An acceleration that stays the same." }
+            {
+              "term": "Acceleration",
+              "meaning": "How quickly the velocity of an object changes."
+            },
+            {
+              "term": "Deceleration",
+              "meaning": "An object that slows down is decelerating."
+            },
+            {
+              "term": "Uniform acceleration",
+              "meaning": "An acceleration that stays the same."
+            }
           ]
         },
         {
@@ -31,17 +43,25 @@
         {
           "type": "list",
           "items": [
-            "Change in velocity = final velocity − initial velocity.",
             "Use the change in velocity, not the final velocity alone.",
-            "A slowing object has a negative acceleration, which is called deceleration."
+            "An object that slows down has a negative acceleration. This is called deceleration."
           ]
         },
         {
           "type": "steps",
           "items": [
-            { "lead": "Find the change in velocity.", "text": "A train goes from 16 m/s to 25 m/s: Δv = 25 − 16 = 9 m/s." },
-            { "lead": "Substitute.", "text": "The change takes 150 s: a = 9 ÷ 150" },
-            { "lead": "Evaluate.", "text": "a = 0.06 m/s²" }
+            {
+              "lead": "Find the change in velocity.",
+              "text": "A train goes from 16 m/s to 25 m/s: Δv = 25 − 16 = 9 m/s."
+            },
+            {
+              "lead": "Substitute.",
+              "text": "The change takes 150 s: a = 9 ÷ 150"
+            },
+            {
+              "lead": "Evaluate.",
+              "text": "a = 0.06 m/s²"
+            }
           ]
         },
         {
@@ -51,11 +71,30 @@
             "alt": "Calculate acceleration from the initial velocity, the final velocity and the time.",
             "question": "A train accelerates from {u} m/s to {v} m/s in {t} s. Calculate the acceleration.",
             "variables": [
-              { "id": "u", "min": 2, "max": 10, "step": 2 },
-              { "id": "v", "min": 20, "max": 30, "step": 2 },
-              { "id": "t", "min": 5, "max": 25, "step": 5 }
+              {
+                "id": "u",
+                "min": 2,
+                "max": 10,
+                "step": 2
+              },
+              {
+                "id": "v",
+                "min": 20,
+                "max": 30,
+                "step": 2
+              },
+              {
+                "id": "t",
+                "min": 20,
+                "max": 60,
+                "step": 5
+              }
             ],
-            "answer": { "formula": "(v - u) / t", "unit": "m/s²", "decimals": 2 },
+            "answer": {
+              "formula": "(v - u) / t",
+              "unit": "m/s²",
+              "decimals": 2
+            },
             "working": [
               "Δv = v − u = {v} − {u}",
               "a = Δv ÷ t = ({v} − {u}) ÷ {t}",
@@ -66,7 +105,7 @@
         {
           "type": "key-points",
           "items": [
-            "a = (v − u) ÷ t, with a in m/s².",
+            "Acceleration is the change in velocity divided by the time taken, in m/s².",
             "Always use the change in velocity.",
             "A negative acceleration means the object is decelerating."
           ]
@@ -74,9 +113,12 @@
       ]
     },
     {
-      "heading": "The equation v² − u² = 2as",
+      "heading": "Acceleration and distance",
       "blocks": [
-        { "type": "paragraph", "text": "This section covers the equation for uniform acceleration that links velocity, acceleration and distance." },
+        {
+          "type": "paragraph",
+          "text": "This section covers the equation for uniform acceleration that links velocity, acceleration and distance."
+        },
         {
           "type": "equation",
           "label": "Uniform acceleration",
@@ -85,7 +127,7 @@
             "v is the final velocity in metres per second (m/s).",
             "u is the initial velocity in metres per second (m/s).",
             "a is the acceleration in metres per second squared (m/s²).",
-            "s is the distance in metres (m). Some papers use x for the distance."
+            "s is the distance in metres (m), sometimes written x."
           ]
         },
         {
@@ -100,9 +142,18 @@
         {
           "type": "steps",
           "items": [
-            { "lead": "Write the equation.", "text": "v² − u² = 2 × a × s" },
-            { "lead": "Substitute.", "text": "A car starts from rest and accelerates at 5.0 m/s² over 45 m: v² − 0² = 2 × 5.0 × 45" },
-            { "lead": "Square root.", "text": "v² = 450, so v = 21 m/s to 2 significant figures." }
+            {
+              "lead": "Write the equation.",
+              "text": "v² − u² = 2 × a × s"
+            },
+            {
+              "lead": "Substitute.",
+              "text": "A car starts from rest and accelerates at 5.0 m/s² over 45 m: v² − 0² = 2 × 5.0 × 45"
+            },
+            {
+              "lead": "Square root.",
+              "text": "v² = 450, so v = 21 m/s to 2 significant figures."
+            }
           ]
         },
         {
@@ -111,20 +162,55 @@
             "kind": "slider",
             "alt": "Change the initial velocity, acceleration and distance to see the final velocity.",
             "inputs": [
-              { "id": "u", "label": "Initial velocity", "unit": "m/s", "min": 0, "max": 10, "step": 1, "value": 0 },
-              { "id": "a", "label": "Acceleration", "unit": "m/s²", "min": 1, "max": 5, "step": 0.5, "value": 5 },
-              { "id": "s", "label": "Distance", "unit": "m", "min": 10, "max": 100, "step": 5, "value": 45 }
+              {
+                "id": "u",
+                "label": "Initial velocity",
+                "unit": "m/s",
+                "min": 0,
+                "max": 10,
+                "step": 1,
+                "value": 0
+              },
+              {
+                "id": "a",
+                "label": "Acceleration",
+                "unit": "m/s²",
+                "min": 1,
+                "max": 5,
+                "step": 0.5,
+                "value": 5
+              },
+              {
+                "id": "s",
+                "label": "Distance",
+                "unit": "m",
+                "min": 10,
+                "max": 100,
+                "step": 5,
+                "value": 45
+              }
             ],
             "outputs": [
-              { "label": "v² − u²", "unit": "m²/s²", "formula": "2 * a * s", "decimals": 0 },
-              { "label": "Final velocity", "unit": "m/s", "formula": "sqrt(u^2 + 2 * a * s)", "decimals": 1, "bar": true }
+              {
+                "label": "v² − u²",
+                "unit": "m²/s²",
+                "formula": "2 * a * s",
+                "decimals": 0
+              },
+              {
+                "label": "Final velocity",
+                "unit": "m/s",
+                "formula": "sqrt(u^2 + 2 * a * s)",
+                "decimals": 1,
+                "bar": true
+              }
             ]
           }
         },
         {
           "type": "key-points",
           "items": [
-            "v² − u² = 2as applies to uniform acceleration.",
+            "The equation linking v, u, a and s applies to uniform acceleration only.",
             "Starting from rest means u = 0. Coming to rest means v = 0.",
             "Take the square root to find a velocity."
           ]
@@ -134,22 +220,40 @@
     {
       "heading": "Velocity–time graphs",
       "blocks": [
-        { "type": "paragraph", "text": "This section covers what the gradient and the area of a velocity–time graph tell you." },
+        {
+          "type": "paragraph",
+          "text": "This section covers what the gradient and the area of a velocity–time graph tell you."
+        },
         {
           "type": "table",
-          "columns": ["Line on the graph", "What it shows"],
+          "columns": [
+            "Line on the graph",
+            "What it shows"
+          ],
           "rows": [
-            ["Horizontal line", "Constant velocity. The acceleration is zero."],
-            ["Straight line sloping up", "Constant (uniform) acceleration."],
-            ["Steeper straight line", "A bigger acceleration."],
-            ["Straight line sloping down", "Deceleration."]
+            [
+              "Horizontal line",
+              "Constant velocity. The acceleration is zero."
+            ],
+            [
+              "Straight line sloping up",
+              "Constant (uniform) acceleration."
+            ],
+            [
+              "Steeper straight line",
+              "A bigger acceleration."
+            ],
+            [
+              "Straight line sloping down",
+              "Deceleration."
+            ]
           ]
         },
         {
           "type": "list",
           "items": [
             "The acceleration is the gradient of the velocity–time graph.",
-            "Gradient = change in velocity ÷ change in time.",
+            "To find the acceleration, divide the change in velocity by the change in time between two points on the line.",
             "The distance travelled is the area between the graph line and the time axis.",
             "For a straight line, split the area into a rectangle and a triangle, or count squares.",
             "Comparing two lines: the steeper line has the greater acceleration."
@@ -185,12 +289,15 @@
   ],
   "boards": {
     "aqa": {
-      "spec_codes": ["AQA 4.5.6.1", "AQA T 6.5.4.1"],
+      "spec_codes": [
+        "AQA 4.5.6.1",
+        "AQA T 6.5.4.1"
+      ],
       "exam_phrases": [
-        "25 – 16 = 9 (m/s)",
-        "v² – 0² = 2 × 5.0 × 45",
-        "v = √450",
-        "u = √(19² − (2 × 2 × 84))"
+        "an object that slows down is decelerating",
+        "the acceleration is the gradient of the velocity–time graph",
+        "the distance travelled is the area under the velocity–time graph",
+        "uniform acceleration"
       ],
       "mistakes": [
         {
@@ -235,13 +342,16 @@
       ]
     },
     "edexcel": {
-      "spec_codes": ["EDEX 2.8", "EDEX 2.9", "EDEX 2.10"],
+      "spec_codes": [
+        "EDEX 2.8",
+        "EDEX 2.9",
+        "EDEX 2.10"
+      ],
       "exam_phrases": [
-        "a = (v² − u²) / 2x",
-        "(a = (v – u) / t)",
-        "t = (v − u) / a",
-        "accept – 8(.04)",
-        "ignore sign"
+        "compare acceleration from gradients",
+        "acceleration from the gradient (uniform acceleration only)",
+        "distance travelled using the area between the graph line and the time axis",
+        "deceleration"
       ],
       "mistakes": [
         {
@@ -249,21 +359,21 @@
           "right": "Use a = (v − u) ÷ t, so t = (v − u) ÷ a = (24 − 7.6) ÷ 3.0 = 5.5 s. Using t = d ÷ (v − u) scores no marks."
         },
         {
-          "wrong": "A car comes to rest from 15 m/s in 14 m, so v = 15 m/s and u = 0.",
-          "right": "The car comes to rest, so v = 0 and u = 15 m/s. a = (0² − 15²) ÷ (2 × 14), a deceleration of 8.0 m/s²."
+          "wrong": "a = 225 ÷ 28 and stop there.",
+          "right": "This earns 2 of the 3 marks. Work it out: the deceleration is 8(.04) m/s²."
         }
       ],
       "worked_example": {
         "exemplar_id": "9127f2f5-fc8b-4360-9fd4-040db31213af",
         "source": "EDEXCEL jun 2018, Paper 1 (H), Q6(d)",
-        "question": "A car travelling at 15 m/s comes to rest in a distance of 14 m when the brakes are applied. Calculate the deceleration of the car. Use v² − u² = 2ax.",
+        "question": "A car travelling at 15 m/s comes to rest in a distance of 14 m when the brakes are applied. Calculate the deceleration of the car. Use an equation selected from the list of equations.",
         "marks": 3,
         "answer_points": [
           "Rearrange: a = (v² − u²) ÷ 2x",
           "Substitute: a = (−)15² ÷ (2 × 14)",
-          "Deceleration = 8.0 m/s² (8.04)"
+          "Deceleration = 8(.04) m/s²"
         ],
-        "tip": "Rearrangement and substitution can be in either order. 225 ÷ 28 scores 2 marks. A negative sign is accepted."
+        "tip": "Choose the equation that links velocities, acceleration and distance. Rearrangement and substitution can be in either order. 225 ÷ 28 scores 2 marks. A negative sign is accepted."
       },
       "extra": [
         {
@@ -278,20 +388,25 @@
       ]
     },
     "ocr": {
-      "spec_codes": ["OCR P2.1e", "OCR P2.1f", "OCR P2.1h"],
+      "spec_codes": [
+        "OCR P2.1e",
+        "OCR P2.1f",
+        "OCR P2.1h"
+      ],
       "exam_phrases": [
-        "u = 0",
-        "(time =) change in velocity ÷ acceleration",
-        "(distance =) (final velocity² – initial velocity²) ÷ 2 × acceleration"
+        "relate changes in motion to velocity–time graphs",
+        "interpret lines and slopes",
+        "interpret the enclosed area in a velocity–time graph",
+        "uniform acceleration"
       ],
       "mistakes": [
         {
-          "wrong": "Car B brakes to a stop from 18 m/s, so u = 0 and v = 18.",
-          "right": "The car stops, so v = 0 and u = 18 m/s. With a = −6 m/s², s = (0² − 18²) ÷ (2 × −6) = 27 m."
+          "wrong": "Copy v² − u² = 2as from the equation sheet and stop.",
+          "right": "The equation itself earns no mark. Put u = 0, rearrange and substitute: a = v² ÷ 2s."
         },
         {
-          "wrong": "A boy falls 3.2 m: v² = 2 × 10 × 3.2 = 64, so v = 64 m/s.",
-          "right": "Take the square root. v = √64 = 8 m/s."
+          "wrong": "Substitute 0 − 18² = 2 × −6 × s and stop.",
+          "right": "Substituting into the unrearranged equation earns 1 mark. Rearrange and work out s = 27 m for all 3 marks."
         }
       ],
       "worked_example": {
@@ -330,6 +445,8 @@
       "2b7a5a67-575a-45be-8e93-12fa2558b145",
       "34343219-c774-467e-9d3b-e5d733e23867",
       "ea03c923-bc34-4373-93c9-41765561d52e"
-    ]
+    ],
+    "checked_by": "sonnet-science-check",
+    "checked_at": "2026-10-01"
   }
 }
