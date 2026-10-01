@@ -89,11 +89,15 @@ export function StudentDashboard({
         )
       )}
 
-      {/* "This Week" hub — the curriculum focus the tutor set for the current
-          Mon–Sun week, plus curated videos and links to homework, MCQs and live
-          sessions. Live strip suppressed here since it now has its own banner. */}
+      {/* "From your tutor" — the spec points the tutor pinned into this student's
+          week, with their videos. Live strip suppressed here since it now has its
+          own banner. */}
       <div data-tour="tutor-focus">
-        <WeeklyFocusCard subjects={enrolledCourses} showLive={false} />
+        <WeeklyFocusCard
+          studentId={effectiveStudentId}
+          subjects={enrolledCourses}
+          showLive={false}
+        />
       </div>
 
       {afterContent}

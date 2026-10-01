@@ -5,7 +5,6 @@ import { toast } from "sonner";
 import { Field, inputCls, submitBtn } from "./Field";
 import { TaxonomyFields } from "./TaxonomyFields";
 import { SpecPointSelect } from "./SpecPointSelect";
-import { UseWeeklyFocusButton } from "./UseWeeklyFocusButton";
 import { type SubjectV, type BoardV, type LevelV } from "@/lib/curriculum/taxonomy";
 
 interface VideoFormProps {
@@ -53,7 +52,7 @@ export function VideoForm({ userId, taxonomy }: VideoFormProps) {
 
     // Link the video to the chosen curriculum points (same M2M as live sessions
     // and homework) so it surfaces on each spec point's page and in the student
-    // "This Week" related-videos strip when a point is in focus.
+    // "From your tutor" card when the tutor pins one of its points.
     if (specPointIds.length > 0) {
       const { error: linkError } = await supabase
         .from("resource_spec_points")
@@ -103,14 +102,6 @@ export function VideoForm({ userId, taxonomy }: VideoFormProps) {
         />
       </Field>
       <TaxonomyFields {...taxonomy} />
-
-      <UseWeeklyFocusButton
-        subject={taxonomy.subject}
-        board={taxonomy.board}
-        level={taxonomy.level}
-        value={specPointIds}
-        onApply={setSpecPointIds}
-      />
 
       <SpecPointSelect
         subject={taxonomy.subject}
