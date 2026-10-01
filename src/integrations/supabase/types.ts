@@ -1926,6 +1926,10 @@ export type Database = {
           parent_id: string;
         }[];
       };
+      live_session_join_urls: {
+        Args: { _ids: string[] };
+        Returns: { id: string; join_url: string }[];
+      };
       delete_chat_thread: {
         Args: { p_thread_id: string };
         Returns: undefined;
