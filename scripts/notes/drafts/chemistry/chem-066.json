@@ -8,12 +8,21 @@
     {
       "heading": "How a hydrogen fuel cell works",
       "blocks": [
-        { "type": "paragraph", "text": "(Separate science) This section covers what goes into a fuel cell and what comes out." },
+        {
+          "type": "paragraph",
+          "text": "(Separate science) This section covers what goes into a fuel cell and what comes out."
+        },
         {
           "type": "definitions",
           "items": [
-            { "term": "Fuel cell", "meaning": "A cell supplied with a fuel, such as hydrogen, and oxygen or air from an external source, which reacts to produce a potential difference." },
-            { "term": "Oxidised", "meaning": "Reacted with oxygen, or losing electrons." }
+            {
+              "term": "Fuel cell",
+              "meaning": "A cell supplied with a fuel, such as hydrogen, and oxygen or air from an external source, which reacts to produce a potential difference."
+            },
+            {
+              "term": "Oxidised",
+              "meaning": "Reacted with oxygen, or losing electrons."
+            }
           ]
         },
         {
@@ -35,10 +44,13 @@
             "H₂O is water, the only product"
           ]
         },
-        { "type": "paragraph", "text": "(Higher tier) At each electrode a half equation shows what happens. These are for an acidic electrolyte." },
+        {
+          "type": "paragraph",
+          "text": "(Higher tier) At each electrode a half equation shows what happens. These are for an acidic electrolyte."
+        },
         {
           "type": "equation",
-          "label": "Negative electrode (hydrogen oxidised)",
+          "label": "Negative electrode (anode): hydrogen oxidised",
           "formula": "H₂ → 2H⁺ + 2e⁻",
           "where": [
             "hydrogen loses electrons"
@@ -46,7 +58,7 @@
         },
         {
           "type": "equation",
-          "label": "Positive electrode",
+          "label": "Positive electrode (cathode): oxygen reduced",
           "formula": "O₂ + 4H⁺ + 4e⁻ → 2H₂O",
           "where": [
             "oxygen reacts with hydrogen ions and electrons to form water"
@@ -56,7 +68,7 @@
           "type": "list",
           "items": [
             "(Higher tier) For an alkaline electrolyte the half equations are H₂ + 2OH⁻ → 2H₂O + 2e⁻ and O₂ + 2H₂O + 4e⁻ → 4OH⁻.",
-            "Doubling the first half equation and adding the second gives the overall reaction."
+            "Doubling the first half equation and adding the second gives the overall reaction, for either electrolyte."
           ]
         },
         {
@@ -71,16 +83,43 @@
     {
       "heading": "Fuel cells compared with rechargeable cells",
       "blocks": [
-        { "type": "paragraph", "text": "(Separate science) Hydrogen fuel cells offer a possible alternative to rechargeable cells and batteries, for example to power cars." },
+        {
+          "type": "paragraph",
+          "text": "(Separate science) Hydrogen fuel cells offer a possible alternative to rechargeable cells and batteries, for example to power cars."
+        },
         {
           "type": "table",
-          "columns": ["Feature", "Hydrogen fuel cell", "Rechargeable cell"],
+          "columns": [
+            "Feature",
+            "Hydrogen fuel cell",
+            "Rechargeable cell"
+          ],
           "rows": [
-            ["Energy source", "Hydrogen and oxygen supplied from outside", "Chemicals sealed in the cell; recharged by an external current"],
-            ["Time to refuel or recharge", "Faster to refuel", "Slower to recharge"],
-            ["Distance before refuelling", "Can travel further", "Shorter range"],
-            ["Voltage", "Constant while reactants are supplied", "Voltage falls as the cell runs down"],
-            ["Disposal", "No toxic chemicals to dispose of", "May release toxic chemicals on disposal"]
+            [
+              "Energy source",
+              "Hydrogen and oxygen supplied from outside",
+              "Chemicals sealed in the cell; recharged by an external current"
+            ],
+            [
+              "Time to refuel or recharge",
+              "Faster to refuel",
+              "Slower to recharge"
+            ],
+            [
+              "Distance before refuelling",
+              "Can travel further",
+              "Shorter range"
+            ],
+            [
+              "Voltage",
+              "Constant while reactants are supplied",
+              "Voltage falls as the reactants are used up"
+            ],
+            [
+              "Disposal",
+              "No toxic chemicals to dispose of",
+              "May release toxic chemicals on disposal"
+            ]
           ]
         },
         {
@@ -89,16 +128,47 @@
             "kind": "sort",
             "alt": "Sort statements into advantages and disadvantages of a hydrogen fuel cell compared with a rechargeable cell.",
             "prompt": "Sort each statement into an advantage or a disadvantage of a hydrogen fuel cell.",
-            "groups": ["Advantage", "Disadvantage"],
+            "groups": [
+              "Advantage",
+              "Disadvantage"
+            ],
             "items": [
-              { "text": "It is faster to refuel than to recharge", "group": 0 },
-              { "text": "It can travel further before refuelling", "group": 0 },
-              { "text": "The only product is water", "group": 0 },
-              { "text": "There are no toxic chemicals to dispose of at the end of its life", "group": 0 },
-              { "text": "Hydrogen is made from fossil fuels, which are not renewable", "group": 1 },
-              { "text": "Hydrogen is difficult to store", "group": 1 },
-              { "text": "Hydrogen is flammable and can be explosive", "group": 1 },
-              { "text": "There are not many hydrogen filling stations", "group": 1 }
+              {
+                "text": "It is faster to refuel than to recharge",
+                "group": 0
+              },
+              {
+                "text": "It can travel further before refuelling",
+                "group": 0
+              },
+              {
+                "text": "The only product is water",
+                "group": 0
+              },
+              {
+                "text": "There are no toxic chemicals to dispose of at the end of its life",
+                "group": 0
+              },
+              {
+                "text": "Hydrogen is made from fossil fuels, which are not renewable",
+                "group": 1
+              },
+              {
+                "text": "Hydrogen is difficult to store",
+                "group": 1
+              },
+              {
+                "text": "Hydrogen is flammable and can be explosive",
+                "group": 1
+              },
+              {
+                "text": "There are not many hydrogen filling stations",
+                "group": 1
+              },
+              {
+                "text": "Fuel cells are expensive to manufacture",
+                "group": 1
+              }
             ]
           }
         },
@@ -106,6 +176,7 @@
           "type": "list",
           "items": [
             "Hydrogen can be renewable if it is made by electrolysis using renewable energy.",
+            "The fuel cell reaction itself makes only water, not carbon dioxide. Any carbon dioxide comes from making the hydrogen, for example from fossil fuels.",
             "A fuel cell keeps working as long as hydrogen and oxygen are supplied. A non-rechargeable cell stops when a reactant is used up.",
             "When data is given, compare the values. Do not only restate them.",
             "Finish an evaluation with a judgement and a reason."
@@ -115,7 +186,7 @@
           "type": "key-points",
           "items": [
             "Advantages: faster refuelling, longer range, only water produced, no toxic disposal.",
-            "Disadvantages: hydrogen is flammable, hard to store, often made from fossil fuels and few filling stations exist."
+            "Disadvantages: hydrogen is flammable, hard to store, often made from fossil fuels, and few filling stations exist. Fuel cells are also expensive to manufacture."
           ]
         }
       ]
@@ -140,7 +211,9 @@
   ],
   "boards": {
     "aqa": {
-      "spec_codes": ["AQA 4.5.2.2"],
+      "spec_codes": [
+        "AQA 4.5.2.2"
+      ],
       "exam_phrases": [
         "hydrogen is oxidised (to produce water)",
         "hydrogen loses electrons",
@@ -174,7 +247,10 @@
       }
     },
     "edexcel": {
-      "spec_codes": ["EDEX 5.26C", "EDEX 5.27C"],
+      "spec_codes": [
+        "EDEX 5.26C",
+        "EDEX 5.27C"
+      ],
       "exam_phrases": [
         "hydrogen + oxygen → water",
         "2H₂ + O₂ → 2H₂O",
@@ -211,13 +287,15 @@
       }
     },
     "ocr": {
-      "spec_codes": ["OCR C6.2q"],
+      "spec_codes": [
+        "OCR C6.2q"
+      ],
       "exam_phrases": [
         "refuelling time (for a fuel cell) is less",
-        "fuel cell emits less CO₂",
+        "fuel cell emits less CO₂ (a comparison of the figures)",
         "mass (of car) is less with a fuel cell",
         "cost of refuelling is more",
-        "must be a comparison"
+        "fuel cell takes 356 minutes less to refuel"
       ],
       "mistakes": [
         {
@@ -241,7 +319,7 @@
           "The mass of the car is less (1200 kg compared with 1550 kg).",
           "And a disadvantage: the cost of refuelling is more (£4.20 compared with £3.20)."
         ],
-        "tip": "Two advantages and one disadvantage, one mark each. Each must be a comparison, not a restatement of the data."
+        "tip": "Two advantages and one disadvantage, one mark each. Each must be a comparison, not a restatement of the data. The fuel cell reaction itself makes only water; any CO₂ in a table like this comes from making the hydrogen or the electricity."
       }
     }
   },
@@ -259,6 +337,8 @@
       "cb91103b-52eb-470f-a714-4915e8666498",
       "5c6fd271-2851-4c54-9689-810ddd848783",
       "27ab86f3-fc58-4c28-9014-e030aa76d66d"
-    ]
+    ],
+    "checked_by": "sonnet-science-check",
+    "checked_at": "2026-10-01"
   }
 }

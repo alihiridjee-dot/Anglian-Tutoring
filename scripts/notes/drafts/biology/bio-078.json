@@ -241,7 +241,7 @@
       "worked_example": {
         "exemplar_id": "2f905652-12db-4a97-86bb-9618c52b42a1",
         "source": "OCR nov 2020, Paper 3, Q22(b)(iii)",
-        "question": "ADH is a protein hormone made up of amino acids.\n\nAlcohol inhibits ADH production.\n\nAfter the alcohol has been removed from person A’s body, control mechanisms will correct the excess loss of water caused by the alcohol.\n\nDescribe these control mechanisms.",
+        "question": "ADH is a protein hormone made up of amino acids.\n\nAlcohol inhibits ADH production.\n\nAfter the alcohol has been removed from a person’s body, control mechanisms will correct the excess loss of water caused by the alcohol.\n\nDescribe these control mechanisms.",
         "marks": 2,
         "answer_points": [
           "(Low) water potential or decreased water levels are detected by the hypothalamus (ignore: brain).",

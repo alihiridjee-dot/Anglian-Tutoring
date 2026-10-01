@@ -8,7 +8,10 @@
     {
       "heading": "Hydrogen and petrol compared",
       "blocks": [
-        { "type": "paragraph", "text": "This section covers the main differences between hydrogen and petrol as fuels for cars." },
+        {
+          "type": "paragraph",
+          "text": "This section covers the main differences between hydrogen and petrol as fuels for cars."
+        },
         {
           "type": "equation",
           "label": "Hydrogen reacting with oxygen",
@@ -23,14 +26,53 @@
           "diagram": {
             "kind": "compare",
             "alt": "Petrol and hydrogen compared as car fuels.",
-            "items": ["Petrol", "Hydrogen"],
+            "items": [
+              "Petrol",
+              "Hydrogen"
+            ],
             "rows": [
-              { "feature": "Product when used", "values": ["Carbon dioxide and water", "Water only"] },
-              { "feature": "State at room temperature", "values": ["Liquid", "Gas"] },
-              { "feature": "Storage", "values": ["Easy to store in a tank", "Large volume, so difficult to store"] },
-              { "feature": "Source", "values": ["Crude oil, which is not renewable", "Often made from fossil fuels; renewable if made using renewable energy"] },
-              { "feature": "Filling stations", "values": ["Widely available", "Not many"] },
-              { "feature": "Hazard", "values": ["Flammable", "Flammable and explosive"] }
+              {
+                "feature": "Product when used",
+                "values": [
+                  "Carbon dioxide and water",
+                  "Water only"
+                ]
+              },
+              {
+                "feature": "State at room temperature",
+                "values": [
+                  "Liquid",
+                  "Gas"
+                ]
+              },
+              {
+                "feature": "Storage",
+                "values": [
+                  "Easy to store in a tank",
+                  "Large volume, so difficult to store"
+                ]
+              },
+              {
+                "feature": "Source",
+                "values": [
+                  "Crude oil, which is not renewable",
+                  "Often made from fossil fuels; renewable if made using renewable energy"
+                ]
+              },
+              {
+                "feature": "Filling stations",
+                "values": [
+                  "Widely available",
+                  "Not many"
+                ]
+              },
+              {
+                "feature": "Hazard",
+                "values": [
+                  "Flammable",
+                  "Flammable and explosive"
+                ]
+              }
             ]
           }
         },
@@ -46,23 +88,49 @@
     {
       "heading": "Advantages and disadvantages",
       "blocks": [
-        { "type": "paragraph", "text": "An evaluation gives advantages and disadvantages, then a conclusion with a reason." },
+        {
+          "type": "paragraph",
+          "text": "An evaluation gives advantages and disadvantages, then a conclusion with a reason."
+        },
         {
           "type": "diagram",
           "diagram": {
             "kind": "sort",
             "alt": "Sort statements into advantages and disadvantages of hydrogen as a car fuel.",
             "prompt": "Sort each statement into an advantage or a disadvantage of using hydrogen rather than petrol.",
-            "groups": ["Advantage of hydrogen", "Disadvantage of hydrogen"],
+            "groups": [
+              "Advantage of hydrogen",
+              "Disadvantage of hydrogen"
+            ],
             "items": [
-              { "text": "The only product is water", "group": 0 },
-              { "text": "It does not release carbon dioxide when the car is used", "group": 0 },
-              { "text": "It can be renewable if made by electrolysis using renewable energy", "group": 0 },
-              { "text": "It is a gas, so a large volume is needed and it is difficult to store", "group": 1 },
-              { "text": "It is flammable and can be explosive", "group": 1 },
-              { "text": "It is often made from fossil fuels, which are not renewable", "group": 1 },
-              { "text": "There are not many hydrogen filling stations", "group": 1 },
-              { "text": "Fuel cells are expensive to manufacture", "group": 1 }
+              {
+                "text": "The only product is water",
+                "group": 0
+              },
+              {
+                "text": "It can be renewable if made by electrolysis using renewable energy",
+                "group": 0
+              },
+              {
+                "text": "It is a gas, so a large volume is needed and it is difficult to store",
+                "group": 1
+              },
+              {
+                "text": "It is flammable and can be explosive",
+                "group": 1
+              },
+              {
+                "text": "It is often made from fossil fuels, which are not renewable",
+                "group": 1
+              },
+              {
+                "text": "There are not many hydrogen filling stations",
+                "group": 1
+              },
+              {
+                "text": "Fuel cells are expensive to manufacture",
+                "group": 1
+              }
             ]
           }
         },
@@ -104,7 +172,9 @@
   ],
   "boards": {
     "edexcel": {
-      "spec_codes": ["EDEX 8.14"],
+      "spec_codes": [
+        "EDEX 8.14"
+      ],
       "exam_phrases": [
         "water is the (only) product",
         "storage of hydrogen is difficult because it is a gas",
@@ -132,6 +202,8 @@
     "spec_point_ids": [
       "30313bfc-b728-438f-97f4-80e6ba0644af"
     ],
-    "exemplar_ids": []
+    "exemplar_ids": [],
+    "checked_by": "sonnet-science-check",
+    "checked_at": "2026-10-01"
   }
 }
