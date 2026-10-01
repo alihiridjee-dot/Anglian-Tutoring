@@ -1,0 +1,238 @@
+{
+  "format": 1,
+  "concept_id": "bio-043",
+  "subject": "biology",
+  "title": "Fungal and protist diseases",
+  "key_idea": "Fungal diseases such as rose black spot damage leaves, so the plant photosynthesises less and grows slowly. Malaria is caused by a protist and is passed on by a vector, the mosquito. Controlling the vector, or avoiding bites, controls malaria.",
+  "sections": [
+    {
+      "heading": "Fungal diseases of plants",
+      "blocks": [
+        { "type": "paragraph", "text": "Some plant diseases are caused by fungi. This section covers rose black spot and why it slows the growth of a plant." },
+        {
+          "type": "list",
+          "items": [
+            "Rose black spot is a fungal disease. Purple or black spots develop on the leaves.",
+            "The leaves often turn yellow and drop early.",
+            "It is spread in the environment by water or wind.",
+            "Other fungal plant diseases are barley powdery mildew and Chalara ash dieback."
+          ]
+        },
+        { "type": "subheading", "text": "Why infected plants grow slowly" },
+        {
+          "type": "steps",
+          "items": [
+            { "lead": "Leaves damaged.", "text": "There are fewer chloroplasts or less chlorophyll, so less light is absorbed." },
+            { "lead": "Less photosynthesis.", "text": "The plant makes less glucose." },
+            { "lead": "Slower growth.", "text": "Less glucose means less energy and fewer materials, such as proteins, to grow with." }
+          ]
+        },
+        { "type": "subheading", "text": "Treating and controlling it" },
+        {
+          "type": "list",
+          "items": [
+            "Use a **fungicide**. An insecticide or herbicide will not work.",
+            "Remove and destroy the affected leaves, or remove the infected plant.",
+            "Isolate the infected plant, or spread plants out more so the fungus has less chance to spread."
+          ]
+        },
+        {
+          "type": "key-points",
+          "items": [
+            "Rose black spot is caused by a fungus and spreads by water or wind.",
+            "Damaged leaves mean less photosynthesis, so the plant grows slowly.",
+            "Fungicides and removing infected leaves control the spread."
+          ]
+        }
+      ]
+    },
+    {
+      "heading": "Malaria, a protist disease",
+      "blocks": [
+        { "type": "paragraph", "text": "Malaria is caused by a protist. The protist's life cycle includes the mosquito, which is a vector." },
+        {
+          "type": "definitions",
+          "items": [
+            { "term": "Protist", "meaning": "A type of pathogen. The protist that causes malaria is passed from person to person by mosquitos." },
+            { "term": "Vector", "meaning": "An organism that passes a pathogen from one person to another." }
+          ]
+        },
+        {
+          "type": "diagram",
+          "diagram": {
+            "kind": "flow",
+            "alt": "The malaria cycle. A mosquito bites an infected person and takes in the protist. The protist is carried in the mosquito. The mosquito bites a healthy person and passes on the protist. The person develops malaria. The cycle repeats when another mosquito bites them.",
+            "steps": [
+              "Mosquito bites a person with malaria and takes in the protist",
+              "The mosquito carries the protist as a vector",
+              "The mosquito bites a healthy person and passes on the protist",
+              "The person develops malaria"
+            ],
+            "loop": true
+          }
+        },
+        {
+          "type": "list",
+          "items": [
+            "Malaria causes recurrent episodes of fever.",
+            "It can be fatal."
+          ]
+        },
+        {
+          "type": "key-points",
+          "items": [
+            "Malaria is caused by a protist, passed on by mosquito bites.",
+            "The mosquito is the vector.",
+            "Symptoms are recurrent episodes of fever, and it can be fatal."
+          ]
+        }
+      ]
+    },
+    {
+      "heading": "Controlling malaria",
+      "blocks": [
+        { "type": "paragraph", "text": "Control the vector, or stop people being bitten. Each method has a reason that you must link to it." },
+        {
+          "type": "table",
+          "columns": ["Method", "Why it works"],
+          "rows": [
+            ["Drain swamps, or destroy breeding grounds", "Mosquitos cannot breed, so there are fewer of them."],
+            ["Insecticides", "Kill the mosquitos, which are the vector."],
+            ["Mosquito nets, long clothing, insect repellent", "People are less likely to be bitten."],
+            ["Release sterile male mosquitos", "Fewer eggs are fertilised, so there are fewer mosquitos to bite people or pass on the protist."],
+            ["Anti-malarial tablets", "Kill the pathogen (the protist)."],
+            ["Vaccine (being developed)", "Makes people immune, so there are fewer infected people to pass the pathogen on to mosquitos."]
+          ]
+        },
+        {
+          "type": "key-points",
+          "items": [
+            "Prevent the vector breeding, kill it, or avoid being bitten.",
+            "Always give the reason: for example, nets stop people being bitten."
+          ]
+        }
+      ]
+    }
+  ],
+  "checks": [
+    {
+      "q": "What type of pathogen causes malaria, and what term describes the mosquito?",
+      "a": "A protist. The mosquito is a vector.",
+      "marks": 2
+    },
+    {
+      "q": "Explain how releasing sterile male mosquitos reduces the spread of malaria.",
+      "a": "It reduces breeding (fewer eggs are fertilised), so there are fewer mosquitos to bite people or pass on the protist.",
+      "marks": 2
+    },
+    {
+      "q": "Suggest one way a gardener could reduce the spread of rose black spot to other plants.",
+      "a": "Remove any infected parts of the plant (or the infected plant), use a fungicide, or spread the plants out more.",
+      "marks": 1
+    }
+  ],
+  "boards": {
+    "aqa": {
+      "spec_codes": ["AQA T 4.3.1.4", "AQA T 4.3.1.5", "AQA 3.2"],
+      "exam_phrases": [
+        "fungus",
+        "protist",
+        "vector",
+        "by mosquito bites",
+        "reduces breeding / reproduction (in mosquitos)",
+        "fewer mosquitos to pass on pathogen / protist",
+        "drain water from swamps",
+        "remove any infected parts of the plant / use a fungicide",
+        "less light absorbed / less photosynthesis / less glucose made"
+      ],
+      "mistakes": [
+        {
+          "wrong": "Insecticides kill insects, so people do not get malaria.",
+          "right": "\"Kill insects\" unqualified is ignored. Say insecticides kill mosquitos, the vector."
+        },
+        {
+          "wrong": "Use an insecticide or pesticide on rose black spot.",
+          "right": "Rose black spot is fungal. Say use a fungicide. Pesticide is ignored, and insecticides and herbicides are not accepted."
+        },
+        {
+          "wrong": "Fewer mosquitos means fewer mosquitos to pass on malaria.",
+          "right": "\"Pass on malaria / disease\" is ignored. Say fewer mosquitos to bite people, or to pass on the pathogen or protist."
+        }
+      ],
+      "worked_example": {
+        "exemplar_id": "aaed64ca-1870-4191-826a-705e6bb8800c",
+        "source": "AQA jun 2025, Paper 1 (F), Q02.9",
+        "question": "Apple scab is a disease of apple trees. Apple scab is caused by a fungus. Infection with apple scab fungus decreases the number of chloroplasts in the leaves. Explain why apple trees with apple scab fungus produce smaller apples than apple trees that are not infected.",
+        "marks": 3,
+        "answer_points": [
+          "Less or no light absorbed.",
+          "So less or no photosynthesis (allow: chloroplasts / chlorophyll are needed for photosynthesis).",
+          "So less or no glucose / sugar is made (allow: less protein, fat, starch or cellulose is made)."
+        ],
+        "tip": "Build the chain in order: light absorbed, photosynthesis, glucose."
+      }
+    },
+    "edexcel": {
+      "spec_codes": ["EDEX 5.5"],
+      "exam_phrases": [
+        "a protist",
+        "malaria is not caused by a bacterium",
+        "malaria is not caused by a fungus or a virus"
+      ],
+      "mistakes": [
+        {
+          "wrong": "Malaria is caused by a bacterium.",
+          "right": "Malaria is caused by a protist, not a bacterium."
+        },
+        {
+          "wrong": "Malaria is caused by a fungus or a virus.",
+          "right": "Malaria is not caused by a fungus or a virus. It is caused by a protist."
+        }
+      ]
+    },
+    "ocr": {
+      "spec_codes": ["OCR 6.3f"],
+      "exam_phrases": [
+        "caused by a fungus: barley powdery mildew",
+        "Crown gall disease: bacterium",
+        "Tobacco mosaic disease: virus"
+      ],
+      "mistakes": [
+        {
+          "wrong": "Barley powdery mildew is caused by a bacterium or a virus.",
+          "right": "Barley powdery mildew is caused by a fungus."
+        },
+        {
+          "wrong": "Crown gall disease is caused by a fungus.",
+          "right": "Crown gall disease is caused by a bacterium."
+        }
+      ],
+      "worked_example": {
+        "exemplar_id": "c61da3fc-84ca-42d6-acc0-8051a040bb6b",
+        "source": "OCR jun 2019, Paper 2, Q21(a)",
+        "question": "Animals and plants can get different types of diseases. Write each of these four diseases in the correct column of a table with the columns: communicable disease caused by a bacterium, communicable disease caused by a fungus, communicable disease caused by a virus, and non-communicable disease. The diseases are: AIDS, type 2 diabetes, crown gall disease, barley powdery mildew.",
+        "marks": 3,
+        "answer_points": [
+          "Caused by a bacterium: crown gall disease.",
+          "Caused by a fungus: barley powdery mildew.",
+          "Caused by a virus: AIDS.",
+          "Non-communicable disease: type 2 diabetes."
+        ],
+        "tip": "Four correct placements score 3 marks, two or three correct score 2 marks, and one correct scores 1 mark."
+      }
+    }
+  },
+  "meta": {
+    "status": "draft",
+    "written_by": "sonnet-5-5",
+    "written_at": "2026-10-01",
+    "spec_point_ids": [
+      "de9beb9c-d805-4e37-8eb6-b24988d14723",
+      "81db5518-a49f-4058-8e56-300d76a72419"
+    ],
+    "exemplar_ids": [
+      "aaed64ca-1870-4191-826a-705e6bb8800c",
+      "c61da3fc-84ca-42d6-acc0-8051a040bb6b"
+    ]
+  }
+}

@@ -1,0 +1,243 @@
+{
+  "format": 1,
+  "concept_id": "bio-042",
+  "subject": "biology",
+  "title": "Bacterial diseases",
+  "key_idea": "Bacteria cause disease by reproducing rapidly and releasing toxins that damage tissues. Salmonella spreads in food and gonorrhoea by sexual contact. Spread is controlled by hygiene, vaccination, condoms and antibiotics, but some bacteria are now resistant.",
+  "sections": [
+    {
+      "heading": "Salmonella food poisoning",
+      "blocks": [
+        { "type": "paragraph", "text": "Salmonella bacteria are swallowed in food, or on food prepared in unhygienic conditions. This section covers the symptoms and the control of spread." },
+        {
+          "type": "list",
+          "items": [
+            "Symptoms: fever, abdominal cramps, vomiting and diarrhoea.",
+            "The symptoms are caused by the bacteria and by the **toxins** they release.",
+            "Salmonella can be passed from chickens to humans through chicken and eggs."
+          ]
+        },
+        { "type": "subheading", "text": "Controlling the spread" },
+        {
+          "type": "list",
+          "items": [
+            "In the UK, poultry are vaccinated against salmonella. Fewer bacteria are in the chicken and eggs, so fewer bacteria are eaten by humans.",
+            "Farmers can also keep infected chickens isolated, not sell infected chickens or eggs, or give chickens antibiotics.",
+            "A person with mild infection should wash hands after using the toilet or being sick, and before handling food.",
+            "They should also isolate themselves, disinfect clothes and surfaces, and not share utensils or towels."
+          ]
+        },
+        {
+          "type": "key-points",
+          "items": [
+            "Salmonella is spread in food. Toxins and the bacteria cause fever, cramps, vomiting and diarrhoea.",
+            "Vaccinating chickens means fewer bacteria reach humans.",
+            "Good hygiene stops one person passing it to another."
+          ]
+        }
+      ]
+    },
+    {
+      "heading": "Gonorrhoea",
+      "blocks": [
+        { "type": "paragraph", "text": "Gonorrhoea is a sexually transmitted disease caused by a bacterium. This section covers its symptoms, spread and treatment." },
+        {
+          "type": "list",
+          "items": [
+            "Symptoms: a thick yellow or green discharge from the vagina or penis, and pain on urinating.",
+            "It is spread by sexual contact.",
+            "It was easily treated with the antibiotic penicillin, until many resistant strains appeared.",
+            "The spread is controlled by treatment with antibiotics, or by using a barrier method of contraception such as a condom.",
+            "Avoiding sexual intercourse also stops the spread."
+          ]
+        },
+        {
+          "type": "diagram",
+          "diagram": {
+            "kind": "sort",
+            "alt": "Sort each statement into Salmonella food poisoning or gonorrhoea.",
+            "prompt": "Which bacterial disease does each statement describe?",
+            "groups": ["Salmonella", "Gonorrhoea"],
+            "items": [
+              { "text": "Spread in food prepared in unhygienic conditions", "group": 0 },
+              { "text": "Poultry are vaccinated to control it", "group": 0 },
+              { "text": "Causes fever, abdominal cramps, vomiting and diarrhoea", "group": 0 },
+              { "text": "Controlled by washing hands after using the toilet", "group": 0 },
+              { "text": "Spread by sexual contact", "group": 1 },
+              { "text": "Thick yellow or green discharge and pain on urinating", "group": 1 },
+              { "text": "Controlled by using a condom", "group": 1 },
+              { "text": "Penicillin no longer works on many strains", "group": 1 }
+            ]
+          }
+        },
+        {
+          "type": "key-points",
+          "items": [
+            "Gonorrhoea is spread by sexual contact.",
+            "Many strains are now resistant to penicillin.",
+            "Condoms and antibiotics control the spread."
+          ]
+        }
+      ]
+    },
+    {
+      "heading": "Other bacterial diseases",
+      "blocks": [
+        { "type": "paragraph", "text": "You may also be asked about cholera, tuberculosis and stomach ulcers. Each one is caused by bacteria." },
+        {
+          "type": "list",
+          "items": [
+            "**Tuberculosis (TB):** spread through the air in droplets from coughs and sneezes. Spread is reduced by covering the mouth, avoiding close contact and cramped living conditions, vaccination and treating infected people with antibiotics.",
+            "**Cholera:** spread in contaminated water.",
+            "**Stomach ulcers:** caused by the bacterium *Helicobacter pylori*. They are treated with antibiotics and an alkaline medicine, which neutralises acid and reduces the symptoms.",
+            "**Chlamydia:** a sexually transmitted infection caused by a bacterium. Its spread is reduced by avoiding sexual contact, using a condom, screening and antibiotics."
+          ]
+        },
+        {
+          "type": "key-points",
+          "items": [
+            "Name the route (air, water, food or sexual contact) and match the control to it.",
+            "Antibiotics treat bacterial infections, but resistant strains can survive.",
+            "Helicobacter causes stomach ulcers. The alkaline medicine neutralises acid."
+          ]
+        }
+      ]
+    }
+  ],
+  "checks": [
+    {
+      "q": "How do Salmonella bacteria in food cause the symptoms of vomiting and diarrhoea?",
+      "a": "The bacteria release (produce) toxins (poisons).",
+      "marks": 1
+    },
+    {
+      "q": "Explain how vaccinating chickens reduces the number of cases of salmonella food poisoning.",
+      "a": "There are fewer bacteria in the chicken or eggs, so fewer bacteria are eaten by humans.",
+      "marks": 2
+    },
+    {
+      "q": "Give two ways to control the spread of gonorrhoea.",
+      "a": "Use a condom (a barrier method of contraception). Treat with antibiotics. Avoid sexual intercourse.",
+      "marks": 2
+    }
+  ],
+  "boards": {
+    "aqa": {
+      "spec_codes": ["AQA T 4.3.1.3", "AQA 3.2"],
+      "exam_phrases": [
+        "(bacteria) release / produce toxins",
+        "toxins / poisons (secreted by bacteria)",
+        "fever / abdominal / stomach cramps",
+        "(yellow / green / white / beige) discharge from vagina / penis",
+        "pain on urinating",
+        "use of a barrier method of contraception / use of a condom",
+        "wash hands after using the toilet"
+      ],
+      "mistakes": [
+        {
+          "wrong": "The bacteria release toxins.",
+          "right": "\"Toxins\" unqualified is ignored when asked how the symptoms are caused. Say the bacteria release or produce toxins (poisons)."
+        },
+        {
+          "wrong": "A symptom of gonorrhoea is pain.",
+          "right": "\"Pain\" unqualified is ignored. Say pain on urinating, or a yellow or green discharge from the vagina or penis."
+        },
+        {
+          "wrong": "Use protection or practise safe sex to control gonorrhoea.",
+          "right": "\"Use protection\" and \"safe sex\" are ignored. Say use a condom or a barrier method of contraception, or avoid sexual intercourse."
+        },
+        {
+          "wrong": "A symptom of salmonella is vomiting.",
+          "right": "If vomiting and diarrhoea are excluded, give another symptom: fever or abdominal (stomach) cramps."
+        }
+      ],
+      "worked_example": {
+        "exemplar_id": "09b142de-541c-4853-a5af-9a3a24fa2d3f",
+        "source": "AQA jun 2020, Paper 1 (H), Q04.3",
+        "question": "Salmonella food poisoning is caused by bacteria. In the UK, chickens are vaccinated against Salmonella bacteria to reduce the number of cases of food poisoning in humans. Explain how vaccinating chickens reduces the number of cases of salmonella food poisoning.",
+        "marks": 2,
+        "answer_points": [
+          "Fewer bacteria / pathogens in chicken / eggs / food.",
+          "So fewer bacteria are ingested (eaten) by humans.",
+          "Alternative: fewer bacteria ingested by humans, so fewer toxins produced."
+        ],
+        "tip": "Immunity unqualified is ignored. Describe the effect on the number of bacteria reaching humans."
+      }
+    },
+    "edexcel": {
+      "spec_codes": ["EDEX 5.5", "EDEX 5.8"],
+      "exam_phrases": [
+        "Helicobacter / Helicobacter pylori",
+        "to neutralise acid / reduce acidity",
+        "chlamydia: a bacterium",
+        "spread of TB is airborne droplets / TB is spread through the air",
+        "vaccination / immunisation: to provide immunity",
+        "treat infected people with antibiotics"
+      ],
+      "mistakes": [
+        {
+          "wrong": "The alkaline medicine is used to make the stomach more alkaline.",
+          "right": "\"To make it more alkaline\" is ignored. Say it neutralises acid or reduces acidity (accept to increase pH)."
+        },
+        {
+          "wrong": "Chlamydia is communicable because it is caused by a virus.",
+          "right": "\"Caused by a virus\" is ignored. Chlamydia is communicable because it is passed from person to person, or caused by bacteria."
+        }
+      ],
+      "worked_example": {
+        "exemplar_id": "070b67a3-03bf-4ff0-b20d-0e9cbf27738b",
+        "source": "EDEXCEL jun 2024, Paper 1 (H), Q10(a)(ii)",
+        "question": "Stomach ulcers can be caused by bacteria. People with a stomach ulcer are treated with antibiotics and an alkaline medicine to reduce symptoms. Give a reason why the alkaline medicine is used.",
+        "marks": 1,
+        "answer_points": [
+          "To neutralise acid, or reduce acidity (accept: the stomach contains acid, or to increase pH)."
+        ],
+        "tip": "Saying it makes the stomach more alkaline is ignored. Link it to the acid."
+      }
+    },
+    "ocr": {
+      "spec_codes": ["OCR 6.3f"],
+      "exam_phrases": [
+        "Crown gall disease: bacterium",
+        "Tobacco mosaic disease: virus",
+        "barley powdery mildew: caused by a fungus",
+        "AIDS: caused by a virus"
+      ],
+      "mistakes": [
+        {
+          "wrong": "Barley powdery mildew is caused by a bacterium.",
+          "right": "Barley powdery mildew is caused by a fungus. Crown gall disease is the plant disease caused by a bacterium."
+        },
+        {
+          "wrong": "Tobacco mosaic disease is caused by a bacterium.",
+          "right": "Tobacco mosaic disease is caused by a virus."
+        }
+      ],
+      "worked_example": {
+        "exemplar_id": "8858b191-3c08-4a5d-84a1-df8e73003114",
+        "source": "OCR jun 2024, Paper 2, Q18(a)",
+        "question": "Diseases in plants are caused by different types of pathogens. Which type of pathogen causes each of these diseases? Use words from the list: bacteria, fungi, protists, virus. Tobacco mosaic disease. Crown gall disease.",
+        "marks": 2,
+        "answer_points": [
+          "Tobacco mosaic disease: virus.",
+          "Crown gall disease: bacteria."
+        ],
+        "tip": "Learn the type of pathogen for each named disease in the specification."
+      }
+    }
+  },
+  "meta": {
+    "status": "draft",
+    "written_by": "sonnet-5-5",
+    "written_at": "2026-10-01",
+    "spec_point_ids": [
+      "a97a8222-0573-4541-ba4e-6e4be8ca1383",
+      "e09c64b5-8af5-4f69-8ee8-742d86236ed2"
+    ],
+    "exemplar_ids": [
+      "09b142de-541c-4853-a5af-9a3a24fa2d3f",
+      "070b67a3-03bf-4ff0-b20d-0e9cbf27738b",
+      "8858b191-3c08-4a5d-84a1-df8e73003114"
+    ]
+  }
+}
