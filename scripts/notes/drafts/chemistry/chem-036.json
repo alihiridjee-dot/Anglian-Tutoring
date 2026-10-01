@@ -32,10 +32,10 @@
             "alt": "Practise calculating a concentration in mol/dm³ from moles of solute and a volume in cm³.",
             "question": "**{n}** mol of solute is dissolved in water to make **{v}** cm³ of solution. Calculate the concentration in mol/dm³.",
             "variables": [
-              { "id": "n", "min": 0.05, "max": 0.5, "step": 0.05 },
+              { "id": "n", "min": 0.02, "max": 0.2, "step": 0.02 },
               { "id": "v", "min": 100, "max": 500, "step": 50 }
             ],
-            "answer": { "formula": "n / (v / 1000)", "unit": "mol/dm³", "decimals": 2 },
+            "answer": { "formula": "n / (v / 1000)", "unit": "mol/dm³", "decimals": 3 },
             "working": [
               "Volume in dm³ = {v} ÷ 1000.",
               "Concentration = moles ÷ volume = {n} ÷ ({v} ÷ 1000) = **{answer}** mol/dm³."
@@ -201,16 +201,16 @@
       ],
       "mistakes": [
         {
-          "wrong": "Concentration of H₂SO₄ = 0.250 ÷ 98 = 0.00255 g/dm³.",
-          "right": "To go from mol/dm³ to g/dm³, multiply by Mr: 98 × 0.250 = 24.5 g/dm³."
+          "wrong": "Concentration of H₂SO₄ = 98 × 0.250 = 2.45 g/dm³ (or 24500 g/dm³).",
+          "right": "Check the size of the answer. 98 × 0.250 = 24.5 g/dm³. A slip in the decimal place scores only 1 of the 2 marks."
         },
         {
-          "wrong": "Moles of CuSO₄ in 50.00 cm³ = 15.95 ÷ 159.5 = 0.1 mol.",
-          "right": "0.1 mol/dm³ is a concentration. Multiply by the volume in dm³ (50 ÷ 1000) to get 0.005 mol."
+          "wrong": "Moles of H₂SO₄ = 2 × moles of NaOH, giving 0.388 mol/dm³.",
+          "right": "The equation is H₂SO₄ + 2NaOH, so the acid has half the moles of the alkali. Multiply by ½ to give 0.097 mol/dm³."
         },
         {
-          "wrong": "Concentration of H₂SO₄ = 24.25 × 0.200 ÷ 25.00 = 0.194 mol/dm³.",
-          "right": "H₂SO₄ + 2NaOH needs ½ × moles of alkali. Multiply by ½ (or divide by 2) to give 0.097 mol/dm³."
+          "wrong": "Concentration of H₂SO₄ = 24.25 × 0.200 ÷ 25.00 = 0.194 mol/dm³, with no ½.",
+          "right": "Use the ratio in the equation. Moles of acid = ½ × moles of alkali, which gives 0.097 mol/dm³."
         }
       ],
       "worked_example": {
@@ -239,14 +239,32 @@
           "right": "Convert the volume from cm³ to dm³ first (divide by 1000), or convert the concentration to g/cm³."
         },
         {
-          "wrong": "Moles = concentration ÷ volume.",
-          "right": "Moles = concentration × volume. Divide moles by volume to find the concentration."
+          "wrong": "To make 0.100 mol/dm³, dissolve 10.6 g in 1.0 dm³ of water.",
+          "right": "The concentration depends on the volume of the solution, not the volume of water. Dissolve the solute in water, then make up to 1.0 dm³ of solution."
+        },
+        {
+          "wrong": "0.100 mol/dm³ of sodium carbonate needs 106 g in 1.0 dm³.",
+          "right": "106 g is 1 mol, which gives 1.00 mol/dm³. For 0.100 mol, the mass is 0.100 × 106 = 10.6 g."
         }
-      ]
+      ],
+      "worked_example": {
+        "exemplar_id": "4162592d-3e36-4162-8a2b-6832377af7d8",
+        "source": "OCR sample, Paper 4, Q12",
+        "question": "Which of the following procedures is the most suitable for preparing a 0.100 mol/dm³ solution of sodium carbonate?\n\nThe relative formula mass, Mr, of sodium carbonate is 106.\n\nA  Dissolving 10.6 g of sodium carbonate in water to make 1.0 dm³ of solution.\nB  Dissolving 10.6 g of sodium carbonate in 0.10 dm³ of water.\nC  Dissolving 10.6 g of sodium carbonate in 1.0 dm³ of water.\nD  Dissolving 106 g of sodium carbonate in water to make 1.0 dm³ of solution.",
+        "marks": 1,
+        "answer_points": [
+          "Moles needed in 1.0 dm³ = 0.100 × 1.0 = 0.100 mol.",
+          "Mass needed = 0.100 × 106 = 10.6 g.",
+          "The mass is dissolved in water and made up to 1.0 dm³ of solution, so the answer is A."
+        ],
+        "tip": "The volume that counts is the volume of the solution, not the volume of water added."
+      }
     }
   },
   "meta": {
     "status": "draft",
+    "checked_by": "sonnet-science-check",
+    "checked_at": "2026-10-01",
     "written_by": "sonnet-5-5",
     "written_at": "2026-10-01",
     "spec_point_ids": [
@@ -256,7 +274,8 @@
     ],
     "exemplar_ids": [
       "aa9dd085-1780-4621-95db-b8a60641acc3",
-      "0530259e-61aa-42d0-b3ca-5eee5076243c"
+      "0530259e-61aa-42d0-b3ca-5eee5076243c",
+      "4162592d-3e36-4162-8a2b-6832377af7d8"
     ]
   }
 }

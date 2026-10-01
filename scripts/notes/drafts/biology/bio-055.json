@@ -21,13 +21,13 @@
           "type": "equation",
           "label": "Word equation for photosynthesis",
           "formula": "carbon dioxide + water → glucose + oxygen",
-          "where": ["carbon dioxide and water are the reactants", "glucose and oxygen are the products", "light energy is needed, shown above the arrow"]
+          "where": ["carbon dioxide and water are the reactants", "glucose and oxygen are the products", "light energy is needed, and chlorophyll absorbs it (both are written above the arrow)"]
         },
         {
           "type": "equation",
           "label": "Symbol equation for photosynthesis",
           "formula": "6CO₂ + 6H₂O → C₆H₁₂O₆ + 6O₂",
-          "where": ["CO₂ is carbon dioxide", "H₂O is water", "C₆H₁₂O₆ is glucose", "O₂ is oxygen"]
+          "where": ["CO₂ is carbon dioxide", "H₂O is water", "C₆H₁₂O₆ is glucose", "O₂ is oxygen", "the reaction is endothermic, with light and chlorophyll above the arrow"]
         },
         { "type": "paragraph", "text": "Sort each substance below by whether photosynthesis takes it in or makes it." },
         {
@@ -72,8 +72,7 @@
             "Photosynthesis is an **endothermic** reaction.",
             "The energy is transferred from the environment to the chloroplasts by **light**.",
             "Chlorophyll in the chloroplasts absorbs (traps) the light.",
-            "Algae also photosynthesise, because they have chlorophyll.",
-            "The light energy is stored in the glucose that is made."
+            "Algae also photosynthesise, because they have chlorophyll."
           ]
         },
         {
@@ -184,8 +183,8 @@
           "right": "This is only one mark. A \"describe\" answer needs two points from: chlorophyll or chloroplasts, photosynthesis, absorbing light, and water reacting with carbon dioxide."
         },
         {
-          "wrong": "In the tube kept in the light, photosynthesis produced carbon dioxide, so the indicator stayed green.",
-          "right": "Photosynthesis uses up carbon dioxide. In the dark tube, photosynthesis did not take place and respiration produced carbon dioxide."
+          "wrong": "In the tube kept in the dark, photosynthesis produced carbon dioxide, so the indicator changed colour.",
+          "right": "Photosynthesis did not take place in the dark. Respiration produced the carbon dioxide. In the light, photosynthesis used up carbon dioxide."
         }
       ],
       "worked_example": {
@@ -235,9 +234,9 @@
       },
       "extra": [
         {
-          "heading": "The two stages (OCR)",
+          "heading": "The two stages of photosynthesis",
           "blocks": [
-            { "type": "paragraph", "text": "OCR mark schemes credit a short description of how the reaction happens in two stages." },
+            { "type": "paragraph", "text": "Photosynthesis happens in two stages. This section gives a short description of each." },
             {
               "type": "list",
               "items": [
@@ -269,6 +268,8 @@
       "37a795eb-646c-4b5a-92a8-6a5722f65733",
       "31a9fa3e-2215-4bc8-b883-90abf4810088",
       "d2d9b868-83f3-435f-92e4-40da0549fe55"
-    ]
+    ],
+    "checked_by": "sonnet-science-check",
+    "checked_at": "2026-10-01"
   }
 }

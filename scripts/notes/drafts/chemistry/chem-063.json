@@ -1,0 +1,232 @@
+{
+  "format": 1,
+  "concept_id": "chem-063",
+  "subject": "chemistry",
+  "title": "Practical: combustion of alcohols (calorimetry)",
+  "key_idea": "Burn an alcohol under a beaker of water and measure the temperature rise and the mass of alcohol used. Comparing alcohols needs a fair test. Much of the heat escapes, so the temperature rise is less than the theoretical value.",
+  "sections": [
+    {
+      "heading": "The method",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "(Separate science) This practical compares the temperature rise in water when different alcohols burn: ethanol, propanol, butanol and pentanol."
+        },
+        {
+          "type": "diagram",
+          "diagram": {
+            "kind": "sequence",
+            "alt": "The steps for burning an alcohol to heat water, in order.",
+            "prompt": "Put the steps of the method in the correct order.",
+            "steps": [
+              "Add a known volume of water, such as 100 cm³, to a beaker.",
+              "Measure the mass of the spirit burner containing the alcohol.",
+              "Measure the initial temperature of the water.",
+              "Place the burner under the beaker and light the wick.",
+              "Heat the water until the temperature has risen by a set amount, stirring with the thermometer.",
+              "Extinguish the flame.",
+              "Measure the mass of the burner again and subtract to find the mass of alcohol burned."
+            ]
+          }
+        },
+        {
+          "type": "list",
+          "items": [
+            "To compare alcohols fairly, keep the same volume of water, the same size of wick and the same distance from the flame to the beaker.",
+            "Also keep the same temperature rise and the same size and type of beaker.",
+            "The mass of alcohol burned is the result you measure, so do not keep it the same."
+          ]
+        },
+        {
+          "type": "key-points",
+          "items": [
+            "Measure the mass of the burner before and after, and the temperature rise of a known volume of water.",
+            "Control the volume of water, wick size and distance from the flame."
+          ]
+        }
+      ]
+    },
+    {
+      "heading": "Results and calculations",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "(Separate science) The mass burned is the difference between the two mass readings."
+        },
+        {
+          "type": "equation",
+          "label": "Mass of alcohol burned",
+          "formula": "mass burned = initial mass of burner − final mass of burner",
+          "where": [
+            "mass burned is in g",
+            "initial and final masses are the readings of the burner and alcohol, in g"
+          ]
+        },
+        {
+          "type": "equation",
+          "label": "Mass of alcohol per degree",
+          "formula": "mass per °C = mass burned ÷ temperature rise",
+          "where": [
+            "mass per °C is in g/°C",
+            "mass burned is in g",
+            "temperature rise is in °C"
+          ]
+        },
+        {
+          "type": "steps",
+          "items": [
+            {
+              "lead": "Mass burned.",
+              "text": "A burner reads 134.67 g at the start and 133.59 g at the end. Mass burned = 134.67 − 133.59 = 1.08 g."
+            },
+            {
+              "lead": "Temperature rise.",
+              "text": "The water was heated through 30 °C."
+            },
+            {
+              "lead": "Divide.",
+              "text": "Mass per °C = 1.08 ÷ 30 = 0.036 g/°C."
+            }
+          ]
+        },
+        {
+          "type": "diagram",
+          "diagram": {
+            "kind": "practice",
+            "alt": "Work out the mass of alcohol needed to raise the temperature of water by 1 degree.",
+            "question": "A spirit burner and alcohol have a mass of {m1} g before heating and {m2} g after. The temperature of the water rises by {rise} °C. Calculate the mass of alcohol needed to raise the temperature by 1 °C, to 3 decimal places.",
+            "variables": [
+              {
+                "id": "m1",
+                "min": 135,
+                "max": 135.9,
+                "step": 0.1
+              },
+              {
+                "id": "m2",
+                "min": 134,
+                "max": 134.5,
+                "step": 0.1
+              },
+              {
+                "id": "rise",
+                "min": 20,
+                "max": 30,
+                "step": 10
+              }
+            ],
+            "answer": {
+              "formula": "(m1 - m2) / rise",
+              "unit": "g/°C",
+              "decimals": 3
+            },
+            "working": [
+              "Mass burned = {m1} − {m2}",
+              "Mass per °C = mass burned ÷ {rise} = {answer} g/°C"
+            ]
+          }
+        },
+        {
+          "type": "key-points",
+          "items": [
+            "Mass burned = initial mass − final mass.",
+            "Divide by the temperature rise to find the mass needed for each degree."
+          ]
+        }
+      ]
+    },
+    {
+      "heading": "Why the temperature rise is lower than expected",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "(Separate science) Not all the heat from the burning alcohol reaches the water."
+        },
+        {
+          "type": "list",
+          "items": [
+            "Heat is lost to the air, and the beaker or can absorbs some heat.",
+            "The alcohol may not burn completely.",
+            "Improve the method with a lid, a draught shield or insulation round the beaker.",
+            "Using a metal calorimeter instead of a glass beaker, or moving the beaker closer to the burner, also transfers more heat to the water."
+          ]
+        },
+        {
+          "type": "key-points",
+          "items": [
+            "Heat is lost to the surroundings, so the actual temperature rise is less than the theoretical rise.",
+            "A lid or draught shield means more heat goes to the water."
+          ]
+        }
+      ]
+    }
+  ],
+  "checks": [
+    {
+      "q": "(Separate science) Give two variables to keep the same when comparing the temperature rise from burning different alcohols.",
+      "a": "Any two from: volume of water, size of wick, distance from the flame to the beaker, temperature increase, size or type of beaker.",
+      "marks": 2
+    },
+    {
+      "q": "(Separate science) A burner has a mass of 152.62 g before and 152.23 g after heating. Calculate the mass of alcohol burned.",
+      "a": "152.62 − 152.23 = 0.39 g.",
+      "marks": 1
+    },
+    {
+      "q": "(Separate science) Why is the actual temperature rise less than the theoretical value?",
+      "a": "Heat is lost or escapes to the surroundings.",
+      "marks": 1
+    }
+  ],
+  "boards": {
+    "edexcel": {
+      "spec_codes": [
+        "EDEX 9.28C"
+      ],
+      "exam_phrases": [
+        "heat / energy is lost / escapes",
+        "add a lid / use a draught shield",
+        "so more heat / energy goes to the water / less heat / energy escapes",
+        "distance from beaker to flame / wick / burner",
+        "size of wick; volume of water; temperature increase of water",
+        "152.62 − 152.23 = 0.39 (mass of alcohol used)"
+      ],
+      "mistakes": [
+        {
+          "wrong": "Use a polystyrene beaker so that more heat reaches the water.",
+          "right": "A polystyrene beaker is rejected. Use a metal calorimeter instead of glass, a lid or draught shield, insulation round the sides, or move the beaker closer."
+        },
+        {
+          "wrong": "Keep the mass of fuel the same when comparing alcohols.",
+          "right": "The mass of fuel is ignored as a variable to keep the same. Keep the volume of water, size of wick, and distance from beaker to flame the same."
+        },
+        {
+          "wrong": "0.36 g ÷ 20 °C = 0.018 g per °C.",
+          "right": "Give the answer to the number of decimal places asked. To 2 decimal places the answer is 0.02 g per °C."
+        }
+      ],
+      "worked_example": {
+        "exemplar_id": "59a51482-317b-41a5-ad89-c41271c1d10b",
+        "source": "EDEXCEL jun 2018, Paper 2 (F), Q10(a)(ii)",
+        "question": "Ethanol can be used as a liquid fuel.\n\nA student investigates how much heat energy is released when a known mass of ethanol is burned.\n\nA known volume of water is placed in a metal can. The temperature of the water is measured. The ethanol is ignited and placed under the beaker so that the flame is touching the beaker. The water is heated by the flame. The flame is extinguished. The final temperature of the water is measured.\n\nThe theoretical temperature rise for burning a given mass of ethanol is 82.4 °C.\n\nIn the experiment the actual temperature rise for burning this mass of ethanol was only 34.8 °C.\n\nOne reason why the temperature rise is less than expected is that the ethanol does not burn completely.\n\nExplain how the method described above could be improved to give a temperature rise closer to the theoretical value.",
+        "marks": 2,
+        "answer_points": [
+          "Add a lid, or use a draught shield (any suitable insulating material is allowed).",
+          "So more heat energy goes to the water, or less heat energy escapes."
+        ],
+        "tip": "The second mark depends on the first. Say what you add and why it helps."
+      }
+    }
+  },
+  "meta": {
+    "status": "draft",
+    "written_by": "sonnet-5-5",
+    "written_at": "2026-10-01",
+    "spec_point_ids": [
+      "53233996-7ee2-4d6e-a51d-f47edcdc689d"
+    ],
+    "exemplar_ids": [
+      "59a51482-317b-41a5-ad89-c41271c1d10b"
+    ]
+  }
+}

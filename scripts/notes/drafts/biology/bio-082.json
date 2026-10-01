@@ -1,0 +1,258 @@
+{
+  "format": 1,
+  "concept_id": "bio-082",
+  "subject": "biology",
+  "title": "Contraception",
+  "key_idea": "Contraception lowers the chance of pregnancy. Hormonal methods inhibit FSH and LH so no egg matures or is released. Non-hormonal methods block or kill sperm, or stop an embryo implanting. Each method has advantages and disadvantages to weigh up.",
+  "sections": [
+    {
+      "heading": "Hormonal contraception",
+      "blocks": [
+        { "type": "paragraph", "text": "Hormonal methods use oestrogen and progesterone, or progesterone alone, to stop eggs maturing or being released." },
+        {
+          "type": "list",
+          "items": [
+            "The oral contraceptive (the pill) contains hormones that inhibit FSH production, so no eggs mature.",
+            "An injection, implant or skin patch releases progesterone slowly into the blood. It inhibits the maturation and release of eggs for weeks, months or years.",
+            "Some intrauterine devices (IUDs or IUSs) release a hormone."
+          ]
+        },
+        { "type": "subheading", "text": "How the hormones work (Higher tier)" },
+        {
+          "type": "list",
+          "items": [
+            "Oestrogen inhibits FSH. With no FSH, the follicle cannot mature, so there is no egg to fertilise.",
+            "Progesterone inhibits LH. With no LH, ovulation does not happen.",
+            "Progesterone also thickens the mucus at the cervix, so sperm find it harder to reach the egg.",
+            "The thickness of the uterus lining changes, so implantation is less likely."
+          ]
+        },
+        {
+          "type": "key-points",
+          "items": [
+            "Hormonal contraception inhibits FSH, so eggs do not mature.",
+            "(Higher tier) Inhibiting LH prevents ovulation.",
+            "Injection, implant and patch release hormone slowly."
+          ]
+        }
+      ]
+    },
+    {
+      "heading": "Non-hormonal contraception",
+      "blocks": [
+        { "type": "paragraph", "text": "Non-hormonal methods stop sperm meeting an egg, or stop an embryo implanting. Sort each method by how it works." },
+        {
+          "type": "diagram",
+          "diagram": {
+            "kind": "sort",
+            "alt": "Sort contraceptive methods by how they work.",
+            "prompt": "How does each method prevent pregnancy?",
+            "groups": ["Hormones inhibit eggs", "Barrier stops sperm reaching egg", "Other"],
+            "items": [
+              { "text": "Contraceptive pill", "group": 0 },
+              { "text": "Implant or skin patch", "group": 0 },
+              { "text": "Condom", "group": 1 },
+              { "text": "Diaphragm", "group": 1 },
+              { "text": "Spermicidal cream (kills sperm)", "group": 2 },
+              { "text": "Surgical sterilisation", "group": 2 },
+              { "text": "Abstaining when an egg may be in the oviduct", "group": 2 }
+            ]
+          }
+        },
+        {
+          "type": "list",
+          "items": [
+            "**Barrier methods**, such as condoms and diaphragms, stop sperm reaching an egg.",
+            "A **spermicide** kills or disables sperm.",
+            "An intrauterine device (IUD) prevents an embryo implanting. It can also release copper ions or a hormone, which thicken the mucus so sperm cannot pass.",
+            "Abstaining from intercourse when an egg may be in the oviduct means no egg is available to fertilise.",
+            "Surgical sterilisation (vasectomy for men, tubal ligation for women) stops sperm or eggs passing."
+          ]
+        },
+        {
+          "type": "key-points",
+          "items": [
+            "Barrier methods and spermicides work on the sperm.",
+            "An IUD prevents implantation.",
+            "Sterilisation is surgical and not easily reversed."
+          ]
+        }
+      ]
+    },
+    {
+      "heading": "Evaluating contraceptive methods",
+      "blocks": [
+        { "type": "paragraph", "text": "Exam questions ask you to compare methods. Use points for and against, then give a judgement." },
+        {
+          "type": "table",
+          "columns": ["Method", "Advantages", "Disadvantages"],
+          "rows": [
+            ["Pill", "Very reliable, easy to take, no need to rely on a partner", "Side effects, must be taken every day, no protection from STIs"],
+            ["Implant or patch", "No need to remember each day, reversible", "Needs a doctor or nurse to fit it, and an implant needs replacing after about 3 years"],
+            ["Condom", "Protects from STIs, easy to use, does not affect fertility", "Can split, less reliable than hormonal methods, latex allergy"],
+            ["Sterilisation", "Long lasting", "Surgery has risks, such as infection, and it is not easily reversed"]
+          ]
+        },
+        {
+          "type": "steps",
+          "items": [
+            { "lead": "Advantages.", "text": "Give specific points, such as very reliable or protects against STIs." },
+            { "lead": "Disadvantages.", "text": "Give specific points, such as side effects or no STI protection." },
+            { "lead": "Compare.", "text": "Compare named methods, using any data given." },
+            { "lead": "Judge.", "text": "Finish with a clear judgement linked to your reasons." }
+          ]
+        },
+        { "type": "paragraph", "text": "Science can show how well a method works. It cannot decide whether it is right to use it, because personal, social and ethical views also matter." },
+        {
+          "type": "key-points",
+          "items": [
+            "Compare reliability, side effects, STI protection and convenience.",
+            "Use data and named methods in an evaluation.",
+            "Science alone cannot answer the ethical issues."
+          ]
+        }
+      ]
+    }
+  ],
+  "checks": [
+    {
+      "q": "Explain how the contraceptive pill prevents pregnancy.",
+      "a": "It contains hormones that inhibit FSH, so eggs do not mature. (Higher tier: progesterone also inhibits LH, so ovulation does not happen.)",
+      "marks": 2
+    },
+    {
+      "q": "Give one advantage and one disadvantage of a condom compared with the contraceptive pill.",
+      "a": "Advantage: it protects against STIs. Disadvantage: it can split, or it is less reliable.",
+      "marks": 2
+    },
+    {
+      "q": "Name two methods of contraception that use hormones.",
+      "a": "Any two from: the pill (oral contraceptive), injection, implant, skin patch, some IUDs.",
+      "marks": 2
+    }
+  ],
+  "boards": {
+    "aqa": {
+      "spec_codes": ["AQA 5.13", "AQA T 4.5.3.4"],
+      "exam_phrases": [
+        "to inhibit / reduce / prevent FSH (release)",
+        "(lack of FSH) so no eggs mature / develop",
+        "(lack of LH) so no eggs released or so prevents ovulation",
+        "(progesterone) thickens (cervical) mucus",
+        "slow release of progesterone / hormone into blood",
+        "prevents sperm reaching egg",
+        "prevents implantation",
+        "kills sperm"
+      ],
+      "mistakes": [
+        {
+          "wrong": "An advantage of the pill is that you do not get pregnant.",
+          "right": "\"You do not get pregnant\" is ignored. Give a specific advantage, such as very reliable, easy to take, or no need to rely on a partner."
+        },
+        {
+          "wrong": "The contraceptive pill is a barrier that stops sperm reaching the egg.",
+          "right": "The pill contains hormones to stop eggs maturing. A diaphragm is the barrier that prevents sperm reaching the egg. Spermicidal cream kills sperm."
+        },
+        {
+          "wrong": "The pill protects against sexually transmitted infections.",
+          "right": "The pill does not protect against STIs. That is a disadvantage compared with a barrier method such as a condom."
+        }
+      ],
+      "worked_example": {
+        "exemplar_id": "83f1e189-d4fd-4260-9a50-5ec09a0a53a0",
+        "source": "AQA jun 2022, Paper 2 (F), Q05.4",
+        "question": "If a man and a woman have sexual intercourse and do not want to produce a baby, they may use contraception. Explain how different methods of contraception prevent pregnancy.",
+        "marks": 6,
+        "answer_points": [
+          "The pill, injection, implant or skin patch contain hormones (oestrogen or progesterone) to prevent an egg or follicle maturing, or to prevent ovulation.",
+          "A condom prevents sperm reaching the egg, or entering the woman's body.",
+          "A diaphragm prevents sperm reaching the egg, womb or oviduct.",
+          "An IUD prevents implantation, or releases a hormone or copper ions to prevent ovulation or thicken mucus so sperm cannot pass.",
+          "A spermicide kills sperm.",
+          "Sterilisation prevents the passage of sperm or egg. With the rhythm method, there is no egg available for fertilisation."
+        ],
+        "tip": "Name each method and say how it prevents pregnancy. Link every method to its reason."
+      }
+    },
+    "edexcel": {
+      "spec_codes": ["EDEX 7.6", "EDEX 7.7"],
+      "exam_phrases": [
+        "inhibits the production of FSH",
+        "(no FSH means) no eggs will be matured",
+        "progesterone inhibits LH",
+        "prevents ovulation",
+        "thickens cervical mucus to prevent the sperm reaching the egg",
+        "thins the lining of the uterus so less chance of implanting",
+        "stops the sperm and the egg from meeting, so there will be no fertilisation"
+      ],
+      "mistakes": [
+        {
+          "wrong": "Oestrogen inhibits LH.",
+          "right": "Oestrogen inhibits FSH, so the egg or follicle cannot mature. Progesterone inhibits LH (or FSH)."
+        },
+        {
+          "wrong": "The pill prevents the production of eggs.",
+          "right": "\"Prevents production of eggs\" is ignored. Say it inhibits FSH or LH, which prevents maturation of a follicle or ovulation."
+        },
+        {
+          "wrong": "A condom is better than other methods because it is a condom.",
+          "right": "Give a specific advantage, such as protection from STIs, easy to use, or does not affect fertility, and a specific disadvantage, such as it can split or a latex allergy."
+        }
+      ],
+      "worked_example": {
+        "exemplar_id": "072b8f39-6232-404e-89b3-70bfdcf81c5f",
+        "source": "EDEXCEL nov 2021, Paper 2 (H), Q6(b)(ii)",
+        "question": "The combined contraceptive pill contains the hormones oestrogen and progesterone. Explain how high levels of oestrogen and progesterone in the combined contraceptive pill work together to prevent pregnancy.",
+        "marks": 4,
+        "answer_points": [
+          "Oestrogen inhibits the production of FSH (1).",
+          "FSH causes eggs to mature in the follicle, so with no FSH no eggs are matured (1).",
+          "High levels of progesterone inhibit the production of LH (1).",
+          "LH causes ovulation, so with no LH ovulation is prevented. If eggs are not matured and released they cannot be fertilised (1)."
+        ],
+        "tip": "Four linked points score four marks. Thicker cervical mucus preventing sperm reaching the egg can score two."
+      }
+    },
+    "ocr": {
+      "spec_codes": ["OCR 3.2e"],
+      "exam_phrases": [
+        "treatment contains oestrogen / progesterone / both",
+        "inhibits LH, which controls ovulation",
+        "inhibits FSH, which matures eggs",
+        "prevents ovulation",
+        "prevents egg maturing",
+        "thickens mucus"
+      ],
+      "mistakes": [
+        {
+          "wrong": "An IUD is a hormonal method of contraception.",
+          "right": "OCR counts the IUD as non-hormonal. Hormonal and non-hormonal together is allowed, but hormonal on its own is not."
+        },
+        {
+          "wrong": "The implant is more successful because it works better.",
+          "right": "Use the data. Fewer women get pregnant with the implant in a year, and it removes user error because you do not have to remember to take a pill."
+        }
+      ],
+      "worked_example": {
+        "exemplar_id": "a3befdca-b968-4d12-87c9-7dd94f809984",
+        "source": "OCR jun 2019, Paper 3, Q19(b)",
+        "question": "Explain how hormones can be used by women for contraception.",
+        "marks": 4,
+        "answer_points": [
+          "The treatment contains oestrogen, progesterone, or both.",
+          "It inhibits LH, which controls ovulation, so ovulation is prevented (2 marks).",
+          "It inhibits FSH, which matures eggs, so the egg does not mature (2 marks).",
+          "It thickens mucus. Any four points score."
+        ],
+        "tip": "Naming the hormone and its effect together can score two marks."
+      }
+    }
+  },
+  "meta": {
+    "status": "draft",
+    "written_by": "sonnet-5-5",
+    "written_at": "2026-10-01",
+    "spec_point_ids": ["6c567f79-6945-433d-aeaa-c6ed18998917", "df50ad2c-da23-4cb7-b833-20dffca35f73", "a6e64392-27ff-4ca2-b4e2-c29a73a65219", "2917b16c-7d97-4221-8a48-f10e38bb91cb", "935dc7bf-6931-4d3e-956b-7569255a24fd"],
+    "exemplar_ids": ["83f1e189-d4fd-4260-9a50-5ec09a0a53a0", "072b8f39-6232-404e-89b3-70bfdcf81c5f", "a3befdca-b968-4d12-87c9-7dd94f809984", "1f9aa6be-12c9-4f45-b93a-b7977b7afa7e", "eb548829-10ed-4b46-a3ba-2f73de3e0e90", "dfd43f15-b448-4cbf-b344-875a98bd6544", "5a69a062-d3a8-40ce-9349-81b13182739b", "c0f011fa-ebab-40fc-b09e-fb822f8b1107", "3a199e89-e6de-4880-8a43-894214a26f10", "a6c448bb-09ac-418f-8f06-3238096f076a", "0b0ea9aa-ea16-41d8-b760-2e87cbd5c70a", "ad23ef11-549c-4c9d-b0a5-2690845ec7ac", "eb64b69c-0a4f-45a5-aaeb-13cdfe773939", "a79a407b-fb32-4874-a762-1656cef0d29b", "09f68c60-5355-4e2f-a803-ede5bd750059"]
+  }
+}

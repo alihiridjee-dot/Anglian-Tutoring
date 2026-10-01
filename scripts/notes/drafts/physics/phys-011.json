@@ -8,15 +8,27 @@
     {
       "heading": "What current is",
       "blocks": [
-        { "type": "paragraph", "text": "Current is a flow of electrical charge. In a metal wire the charge that flows is made of electrons." },
+        {
+          "type": "paragraph",
+          "text": "Current is a flow of electrical charge. In a metal wire the charge that flows is made of electrons."
+        },
         {
           "type": "definitions",
           "items": [
-            { "term": "Electric current", "meaning": "The rate of flow of electrical charge. Measured in amperes (A)." },
-            { "term": "Charge flow", "meaning": "The amount of charge that passes a point. Measured in coulombs (C)." }
+            {
+              "term": "Electric current",
+              "meaning": "The rate of flow of electrical charge. Measured in amperes (A)."
+            },
+            {
+              "term": "Charge flow",
+              "meaning": "The amount of charge that passes a point. Measured in coulombs (C)."
+            }
           ]
         },
-        { "type": "subheading", "text": "Conditions for charge to flow" },
+        {
+          "type": "subheading",
+          "text": "Conditions for charge to flow"
+        },
         {
           "type": "list",
           "items": [
@@ -25,7 +37,10 @@
             "If either is missing, there is no current in the circuit."
           ]
         },
-        { "type": "subheading", "text": "Current in a single loop" },
+        {
+          "type": "subheading",
+          "text": "Current in a single loop"
+        },
         {
           "type": "list",
           "items": [
@@ -47,27 +62,48 @@
     {
       "heading": "Calculating charge flow",
       "blocks": [
-        { "type": "paragraph", "text": "Charge flow, current and time are linked by one equation. Use it for any current that stays steady." },
+        {
+          "type": "paragraph",
+          "text": "Charge flow, current and time are linked by one equation. Use it for any current that stays steady."
+        },
         {
           "type": "equation",
           "label": "Charge flow",
           "formula": "Q = I × t",
-          "where": ["Q = charge flow, in coulombs (C)", "I = current, in amperes (A)", "t = time, in seconds (s)"]
+          "where": [
+            "Q = charge flow, in coulombs (C)",
+            "I = current, in amperes (A)",
+            "t = time, in seconds (s)"
+          ]
         },
-        { "type": "paragraph", "text": "Rearrange the equation to find current or time." },
+        {
+          "type": "paragraph",
+          "text": "Rearrange the equation to find current or time."
+        },
         {
           "type": "equation",
           "label": "Current",
           "formula": "I = Q ÷ t",
-          "where": ["I = current, in amperes (A)", "Q = charge flow, in coulombs (C)", "t = time, in seconds (s)"]
+          "where": [
+            "I = current, in amperes (A)",
+            "Q = charge flow, in coulombs (C)",
+            "t = time, in seconds (s)"
+          ]
         },
         {
           "type": "equation",
           "label": "Time",
           "formula": "t = Q ÷ I",
-          "where": ["t = time, in seconds (s)", "Q = charge flow, in coulombs (C)", "I = current, in amperes (A)"]
+          "where": [
+            "t = time, in seconds (s)",
+            "Q = charge flow, in coulombs (C)",
+            "I = current, in amperes (A)"
+          ]
         },
-        { "type": "subheading", "text": "Convert units first" },
+        {
+          "type": "subheading",
+          "text": "Convert units first"
+        },
         {
           "type": "list",
           "items": [
@@ -79,9 +115,18 @@
         {
           "type": "steps",
           "items": [
-            { "lead": "Convert.", "text": "A current of 15 A flows for 2 minutes. t = 2 × 60 = 120 s." },
-            { "lead": "Substitute.", "text": "Q = I × t = 15 × 120." },
-            { "lead": "Calculate.", "text": "Q = 1800 C." }
+            {
+              "lead": "Convert.",
+              "text": "A current of 15 A flows for 2 minutes. t = 2 × 60 = 120 s."
+            },
+            {
+              "lead": "Substitute.",
+              "text": "Q = I × t = 15 × 120."
+            },
+            {
+              "lead": "Calculate.",
+              "text": "Q = 1800 C."
+            }
           ]
         },
         {
@@ -91,10 +136,24 @@
             "alt": "Calculate the charge flow from a current and a time, with new numbers each time.",
             "question": "A current of {I} A flows in a wire for {t} seconds. Calculate the charge flow.",
             "variables": [
-              { "id": "I", "min": 0.5, "max": 5, "step": 0.5 },
-              { "id": "t", "min": 10, "max": 120, "step": 10 }
+              {
+                "id": "I",
+                "min": 0.5,
+                "max": 5,
+                "step": 0.5
+              },
+              {
+                "id": "t",
+                "min": 10,
+                "max": 120,
+                "step": 10
+              }
             ],
-            "answer": { "formula": "I * t", "unit": "C", "decimals": 1 },
+            "answer": {
+              "formula": "I * t",
+              "unit": "C",
+              "decimals": 1
+            },
             "working": [
               "Q = I × t",
               "Q = {I} × {t}",
@@ -132,13 +191,16 @@
   ],
   "boards": {
     "aqa": {
-      "spec_codes": ["AQA 4.2.1.2", "AQA T 6.2.1.2"],
+      "spec_codes": [
+        "AQA 4.2.1.2",
+        "AQA T 6.2.1.2"
+      ],
       "exam_phrases": [
-        "the flow of electrical charge",
+        "charge",
         "charge flow = current × time",
         "Q = It",
         "t = 300 (s)",
-        "I = 0.050 (A)",
+        "t = 86 400 (s)",
         "coulombs / C"
       ],
       "mistakes": [
@@ -149,10 +211,6 @@
         {
           "wrong": "The charge flow through a lamp with a current of 200 mA is 200 × 15 = 3000 C.",
           "right": "Convert the current first: 200 mA = 0.2 A. Then charge flow = 0.2 × 15 = 3.0 C."
-        },
-        {
-          "wrong": "Electrical current is a flow of energy.",
-          "right": "Electrical current is a flow of charge."
         }
       ],
       "worked_example": {
@@ -170,7 +228,11 @@
       }
     },
     "edexcel": {
-      "spec_codes": ["EDEX 10.8", "EDEX 10.9", "EDEX 10.10"],
+      "spec_codes": [
+        "EDEX 10.8",
+        "EDEX 10.9",
+        "EDEX 10.10"
+      ],
       "exam_phrases": [
         "electrons",
         "substitution (Q) = 0.21 × 300",
@@ -180,10 +242,6 @@
         "time = charge / current"
       ],
       "mistakes": [
-        {
-          "wrong": "The current in the lamp is a flow of ions.",
-          "right": "In a metal conductor the current is a flow of electrons."
-        },
         {
           "wrong": "Charge = 2.5 × 8 = 20 C for 8 minutes at 2.5 A.",
           "right": "Convert 8 minutes to seconds: 2.5 × 8 × 60 = 1200 C. The unconverted answer of 20 C scores 1 mark only."
@@ -207,7 +265,11 @@
       }
     },
     "ocr": {
-      "spec_codes": ["OCR P3.1e", "OCR P3.1f", "OCR P3.1g"],
+      "spec_codes": [
+        "OCR P3.1e",
+        "OCR P3.1f",
+        "OCR P3.1g"
+      ],
       "exam_phrases": [
         "potential difference",
         "closed or complete circuit",
@@ -269,6 +331,8 @@
       "62820b64-5006-47ef-96dc-16a76d54f35a",
       "e2fd9564-1b39-4c74-908d-2e0c1a7007e4",
       "5b3a7967-fc9d-472e-9ef0-98c1762b4a7f"
-    ]
+    ],
+    "checked_by": "sonnet-science-check",
+    "checked_at": "2026-10-01"
   }
 }

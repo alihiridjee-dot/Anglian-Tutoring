@@ -43,7 +43,8 @@
             "Light is detected by receptors in the **eye**.",
             "Chemicals (taste) are detected by receptors in the **tongue**.",
             "Sound is detected by receptors in the **ear**.",
-            "Muscles respond by contracting. Glands respond by secreting hormones."
+            "Muscles respond by contracting. Glands respond by secreting hormones.",
+            "Reflex actions use the same pathway but do not involve the conscious part of the brain. They are covered separately."
           ]
         },
         {
@@ -129,6 +130,10 @@
           ]
         },
         {
+          "type": "paragraph",
+          "text": "Convert units first. A distance in mm must be changed to m, and a time in s changed to ms by multiplying by 1000."
+        },
+        {
           "type": "diagram",
           "diagram": {
             "kind": "practice",
@@ -165,7 +170,7 @@
           "items": [
             "Sensory, relay, motor: receptor to CNS, inside the CNS, CNS to effector.",
             "A motor neurone is long and often has an insulating sheath.",
-            "Impulses are fast: tens of metres per second."
+            "Impulses are fast: up to about 100 m/s."
           ]
         }
       ]
@@ -254,16 +259,16 @@
       "exam_phrases": [
         "as an electrical impulse",
         "(across the synapse) as diffusion / movement of a chemical / neurotransmitter",
-        "receptor detects the stimulus",
+        "stimulus is detected by the receptor",
         "sensory, relay and motor neurones",
-        "chemical crosses synapses between neurones",
+        "crosses synapses (as a chemical)",
         "long, to carry the impulse from the CNS / coordinator to the muscle(s) / effector",
         "insulation or fatty sheath, so the impulse travels faster"
       ],
       "mistakes": [
         {
-          "wrong": "Information is passed along the neurone as a message.",
-          "right": "Messages and information are ignored. Say that an electrical impulse (or electrical signal) travels along the neurone."
+          "wrong": "Information is passed along the neurone as a signal.",
+          "right": "Signal and message are ignored. Say that an electrical impulse travels along the neurone."
         },
         {
           "wrong": "Mitochondria in a motor neurone make energy for the impulse.",
@@ -380,7 +385,7 @@
           "right": "The endocrine system is slower acting and its responses last longer. The nervous system is faster and shorter-lived."
         },
         {
-          "wrong": "Blocked sensory receptors mean the fly is carrying out a reflex action.",
+          "wrong": "Blocked sensory receptors mean a reflex action is taking place.",
           "right": "Reflex action is ignored when the question asks about receptors. Say receptors cannot detect the stimulus or generate a nerve impulse."
         }
       ],
@@ -412,6 +417,8 @@
       "5d8d123f-4509-45a8-8134-eba903d1ade3",
       "7a3f0f7a-c049-4815-bd7e-8d43f71f7b28",
       "18d8c02f-68c6-401b-945f-0e1d96d0d07d"
-    ]
+    ],
+    "checked_by": "sonnet-science-check",
+    "checked_at": "2026-10-01"
   }
 }

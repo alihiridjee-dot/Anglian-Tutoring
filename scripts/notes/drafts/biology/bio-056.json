@@ -8,7 +8,7 @@
     {
       "heading": "What a limiting factor is",
       "blocks": [
-        { "type": "paragraph", "text": "Photosynthesis only goes as fast as its slowest-supplied need. This section names the factors that can hold it back." },
+        { "type": "paragraph", "text": "Photosynthesis only goes as fast as its scarcest need allows. This section names the factors that can hold it back." },
         {
           "type": "definitions",
           "items": [
@@ -46,11 +46,11 @@
             "x": { "label": "Light intensity", "min": 0, "max": 10, "ticks": [0, 2, 4, 6, 8, 10], "unit": "arbitrary units" },
             "y": { "label": "Rate of photosynthesis" },
             "series": [
-              { "name": "Rate of photosynthesis", "points": [[0, 0.02], [1, 0.22], [2, 0.42], [3, 0.58], [4, 0.7], [5, 0.76], [6, 0.78], [8, 0.79], [10, 0.79]] }
+              { "name": "Rate of photosynthesis", "points": [[0, 0.02], [1, 0.22], [2, 0.42], [3, 0.6], [4, 0.72], [5, 0.78], [6, 0.79], [8, 0.79], [10, 0.79]] }
             ],
             "bands": [
-              { "from": 0, "to": 4, "label": "Light is limiting" },
-              { "from": 4, "to": 10, "label": "Another factor is limiting" }
+              { "from": 0, "to": 5, "label": "Light is limiting" },
+              { "from": 5, "to": 10, "label": "Another factor is limiting" }
             ]
           }
         },
@@ -98,7 +98,8 @@
           "items": [
             "Chlorophyll absorbs the light for photosynthesis.",
             "A plant with less chlorophyll absorbs less light, so photosynthesis is slower.",
-            "Yellow leaves can show a shortage of magnesium ions, which are needed to make chlorophyll."
+            "Yellow leaves can show a shortage of magnesium ions, which are needed to make chlorophyll.",
+            "A shortage of nitrate or iron ions can have the same effect."
           ]
         },
         {
@@ -113,7 +114,7 @@
     {
       "heading": "Measuring and calculating the rate",
       "blocks": [
-        { "type": "paragraph", "text": "You can measure the rate by counting bubbles of oxygen from pondweed in a set time." },
+        { "type": "paragraph", "text": "You can measure the rate by counting bubbles of oxygen from pondweed in a set time. To change light intensity, move the lamp closer to or further from the pondweed." },
         {
           "type": "equation",
           "label": "Rate of photosynthesis",
@@ -178,7 +179,6 @@
         "(so) collide more frequently",
         "higher / increase in temperature, or more carbon dioxide",
         "(so) more photosynthesis, so more glucose / sugar made",
-        "10 / 43 ... bubbles per second",
         "a shortage of magnesium (ions), so less chlorophyll"
       ],
       "mistakes": [
@@ -206,7 +206,37 @@
           "So they collide more frequently (more collisions in a given time)."
         ],
         "tip": "One mark for the comparison, one for more kinetic energy and one for more frequent collisions."
-      }
+      },
+      "extra": [
+        {
+          "heading": "Interacting factors and greenhouses (Higher tier)",
+          "blocks": [
+            { "type": "paragraph", "text": "(Higher tier) Any one factor may be the limiting factor, and which one it is can change. This section covers graphs with more than one factor, light distance and greenhouses." },
+            {
+              "type": "list",
+              "items": [
+                "On a graph with two or three factors, the factor that is lowest sets the rate.",
+                "Raising a factor that is not limiting has no effect on the rate.",
+                "Light intensity gets weaker as the lamp moves away: this is an inverse square relationship."
+              ]
+            },
+            {
+              "type": "equation",
+              "label": "Light intensity and distance (Higher tier)",
+              "formula": "light intensity ∝ 1 ÷ distance²",
+              "where": ["distance is from the lamp to the plant", "doubling the distance divides the light intensity by 4"]
+            },
+            {
+              "type": "list",
+              "items": [
+                "Growers can add heat, light or carbon dioxide in a greenhouse to raise the rate.",
+                "Each one has a cost, for heating, lighting or carbon dioxide.",
+                "The extra costs might be more than the extra money from selling the crop, so the best conditions are not always the maximum ones."
+              ]
+            }
+          ]
+        }
+      ]
     },
     "edexcel": {
       "spec_codes": ["EDEX 6.3"],
@@ -290,6 +320,8 @@
       "8088cbbf-af5e-46cf-9a58-5ffc32c6e04f",
       "553289e5-36a5-4513-8f0b-5e3d24f11de1",
       "0f15263a-9e23-467a-94a9-6915389180e7"
-    ]
+    ],
+    "checked_by": "sonnet-science-check",
+    "checked_at": "2026-10-01"
   }
 }

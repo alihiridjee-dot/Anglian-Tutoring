@@ -29,8 +29,8 @@
               "Leave the pondweed for a few minutes to equilibrate",
               "Count the bubbles of oxygen in a set time",
               "Repeat the count and calculate a mean",
-              "Move the lamp to a new distance",
-              "Repeat for each distance and calculate the light intensity"
+              "Move the lamp to a new distance and leave the pondweed to equilibrate again",
+              "Repeat for each distance, then calculate the light intensity at each"
             ]
           }
         },
@@ -189,7 +189,7 @@
       "mistakes": [
         {
           "wrong": "Repeat the investigation to improve the quality of the results.",
-          "right": "Repeating on its own earns one mark. Add that you repeat at each light intensity and calculate a mean."
+          "right": "Repeating and calculating a mean earn separate marks. Say that you repeat at each light intensity, then calculate a mean."
         },
         {
           "wrong": "To test temperature, change the temperature of the water and count the bubbles.",
@@ -221,7 +221,7 @@
               "items": [
                 "Algae are held in small balls and placed in an indicator solution.",
                 "The light intensity is changed, for example by moving a lamp to different distances.",
-                "The indicator changes colour, which shows the effect on photosynthesis."
+                "Photosynthesis uses up carbon dioxide, so the indicator changes colour. The faster the colour change, the faster the rate of photosynthesis."
               ]
             }
           ]
@@ -285,6 +285,8 @@
     "status": "draft",
     "written_by": "sonnet-5-5",
     "written_at": "2026-10-01",
+    "checked_by": "sonnet-science-check",
+    "checked_at": "2026-10-01",
     "spec_point_ids": [
       "e9ff977e-1759-4f91-afa4-19f85173f244",
       "bfae2578-398a-4777-b2fb-a155cd234439",

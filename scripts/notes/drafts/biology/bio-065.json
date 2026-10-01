@@ -136,7 +136,7 @@
             "When the body is hot, glands release **sweat** onto the skin.",
             "The sweat evaporates. This transfers heat from the body and cools it.",
             "More sweat is lost on a hot day than on a cold day.",
-            "Animals without sweat glands can cool another way. A pant causes water loss and evaporation, which cools the animal.",
+            "Animals without sweat glands can cool another way. Panting causes water loss and evaporation, which cools the animal.",
             "When the body is cold, muscles can contract rapidly in shivering to release heat."
           ]
         },
@@ -312,6 +312,8 @@
       "ddba1045-a41a-4d4b-b014-8436637c9469",
       "3bf4ca4f-b741-4f3e-ba0f-47c99ee71630",
       "da2dabea-4474-44ff-b6e4-b3db825e6679"
-    ]
+    ],
+    "checked_by": "sonnet-science-check",
+    "checked_at": "2026-10-01"
   }
 }

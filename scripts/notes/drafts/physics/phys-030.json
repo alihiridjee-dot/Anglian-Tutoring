@@ -138,7 +138,7 @@
   "checks": [
     {
       "q": "Explain how gas particles exert a pressure on the walls of a container.",
-      "a": "The particles are in constant random motion and collide with the walls. Each collision exerts a force on the wall.",
+      "a": "The particles are in constant random motion and collide with the walls. Each collision exerts a force on the wall. Many collisions every second give a steady pressure.",
       "marks": 3
     },
     {
@@ -171,7 +171,7 @@
         },
         {
           "wrong": "The gas is hotter, so the pressure goes up.",
-          "right": "Explain it with particles: higher kinetic energy, more frequent collisions with the walls and a greater force. The pressure mark needs at least one other mark."
+          "right": "Explain it with particles: higher kinetic energy, more frequent collisions with the walls and a greater force."
         },
         {
           "wrong": "All the particles in a gas move at the same speed.",
@@ -201,17 +201,12 @@
         "particles move faster at a higher temperature",
         "greater velocity / speed means greater kinetic energy",
         "particles hit the container more frequently",
-        "bigger pressure because p = F / A",
-        "933 (K)"
+        "bigger pressure because p = F / A"
       ],
       "mistakes": [
         {
           "wrong": "The melting point of aluminium is 660 °C, which is −933 K.",
           "right": "Add 273: 660 + 273 = 933 K. A negative value is not accepted."
-        },
-        {
-          "wrong": "A temperature of −4 °C is −4 − 273 = −277 K.",
-          "right": "Add 273 to a Celsius temperature: −4 + 273 = 269 K."
         },
         {
           "wrong": "When the gas is heated, the pressure is higher.",
@@ -225,7 +220,8 @@
         "marks": 3,
         "answer_points": [
           "The gas particles are continually in motion.",
-          "They collide with (hit or bombard) the sides of the container.",
+          "They collide with, hit or bombard...",
+          "...the sides (walls) of the container.",
           "The gas particles exert a force on the side of the container."
         ],
         "tip": "Any three of these four points score the three marks."
@@ -249,10 +245,6 @@
         {
           "wrong": "When warm air in a sealed bottle is put in icy water, the mass of the air decreases.",
           "right": "The mass of the air stays the same. The speed of the molecules, the force on the walls and the pressure all decrease."
-        },
-        {
-          "wrong": "The molecules hit the walls with a bigger force, so the pressure is greater.",
-          "right": "Link the force to the area: a bigger force over the same area equals a greater pressure."
         }
       ],
       "worked_example": {
@@ -273,6 +265,8 @@
     "status": "draft",
     "written_by": "sonnet-5-5",
     "written_at": "2026-10-01",
+    "checked_by": "sonnet-science-check",
+    "checked_at": "2026-10-01",
     "spec_point_ids": [
       "a1c6178c-4bae-4d8e-a0ec-1148f48c4c69",
       "6dca44f0-361d-4f15-b172-c9acf2837a69",

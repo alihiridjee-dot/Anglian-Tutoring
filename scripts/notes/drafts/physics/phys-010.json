@@ -8,24 +8,83 @@
     {
       "heading": "Circuit symbols",
       "blocks": [
-        { "type": "paragraph", "text": "A circuit diagram uses a standard symbol for each component, joined by straight lines for wires. This section covers the symbols you need to recognise and draw." },
+        {
+          "type": "paragraph",
+          "text": "A circuit diagram uses a standard symbol for each component, joined by straight lines for wires. This section covers the symbols you need to recognise and draw."
+        },
         {
           "type": "table",
-          "columns": ["Component", "Symbol", "What it does"],
+          "columns": [
+            "Component",
+            "Symbol",
+            "What it does"
+          ],
           "rows": [
-            ["Cell", "One long line and one short line", "Supplies energy to the circuit. The long line is the positive terminal."],
-            ["Battery", "Two or more cells joined end to end", "Supplies energy. Cells in series add their potential differences."],
-            ["Switch", "A gap in the wire with a hinged contact", "Opens or closes the circuit."],
-            ["Fixed resistor", "A rectangle on the wire", "Has a constant resistance."],
-            ["Variable resistor", "A rectangle with an arrow through it", "Resistance can be changed by hand."],
-            ["Filament lamp", "A circle with a cross inside", "Transfers energy as light."],
-            ["Motor", "A circle with an M inside", "Transfers energy as movement."],
-            ["Diode", "A triangle pointing at a bar", "Lets current pass in one direction only."],
-            ["LED", "A diode symbol with two arrows pointing away", "A light emitting diode. Gives out light."],
-            ["Thermistor", "A rectangle with a bent line through it", "Resistance changes with temperature."],
-            ["LDR", "A rectangle with two arrows pointing in", "Resistance changes with light intensity."],
-            ["Ammeter", "A circle with an A inside", "Measures current."],
-            ["Voltmeter", "A circle with a V inside", "Measures potential difference."]
+            [
+              "Cell",
+              "One long line and one short line",
+              "Supplies energy to the circuit. The long line is the positive terminal."
+            ],
+            [
+              "Battery",
+              "Two or more cells joined end to end",
+              "Supplies energy. Cells in series add their potential differences."
+            ],
+            [
+              "Switch",
+              "A gap in the wire with a hinged contact",
+              "Opens or closes the circuit."
+            ],
+            [
+              "Fixed resistor",
+              "A rectangle on the wire",
+              "Has a constant resistance."
+            ],
+            [
+              "Variable resistor",
+              "A rectangle with an arrow through it",
+              "Resistance can be changed by hand."
+            ],
+            [
+              "Filament lamp",
+              "A circle with a cross inside",
+              "Transfers energy as light."
+            ],
+            [
+              "Motor",
+              "A circle with an M inside",
+              "Transfers energy as movement."
+            ],
+            [
+              "Diode",
+              "A triangle pointing at a bar",
+              "Lets current pass in one direction only: the direction the triangle points."
+            ],
+            [
+              "LED",
+              "A diode symbol in a circle with two arrows pointing away",
+              "A light emitting diode. Gives out light."
+            ],
+            [
+              "Thermistor",
+              "A rectangle with a bent line through it",
+              "Resistance changes with temperature."
+            ],
+            [
+              "LDR",
+              "A rectangle in a circle with two arrows pointing in",
+              "Resistance changes with light intensity."
+            ],
+            [
+              "Ammeter",
+              "A circle with an A inside",
+              "Measures current."
+            ],
+            [
+              "Voltmeter",
+              "A circle with a V inside",
+              "Measures potential difference."
+            ]
           ]
         },
         {
@@ -49,12 +108,21 @@
     {
       "heading": "Measuring current and potential difference",
       "blocks": [
-        { "type": "paragraph", "text": "Two meters test a circuit. Each one is connected in a different way." },
+        {
+          "type": "paragraph",
+          "text": "Two meters test a circuit. Each one is connected in a different way."
+        },
         {
           "type": "definitions",
           "items": [
-            { "term": "Ammeter", "meaning": "Measures the current, in amperes (A), in a component." },
-            { "term": "Voltmeter", "meaning": "Measures the potential difference, in volts (V), across a component." }
+            {
+              "term": "Ammeter",
+              "meaning": "Measures the current, in amperes (A), in a component."
+            },
+            {
+              "term": "Voltmeter",
+              "meaning": "Measures the potential difference, in volts (V), across a component."
+            }
           ]
         },
         {
@@ -71,14 +139,35 @@
             "kind": "sort",
             "alt": "Sort each statement into ammeter or voltmeter.",
             "prompt": "Ammeter or voltmeter?",
-            "groups": ["Ammeter", "Voltmeter"],
+            "groups": [
+              "Ammeter",
+              "Voltmeter"
+            ],
             "items": [
-              { "text": "Connected in series with the component", "group": 0 },
-              { "text": "Measures current", "group": 0 },
-              { "text": "Reading is in amperes (A)", "group": 0 },
-              { "text": "Connected in parallel with the component", "group": 1 },
-              { "text": "Measures potential difference", "group": 1 },
-              { "text": "Reading is in volts (V)", "group": 1 }
+              {
+                "text": "Connected in series with the component",
+                "group": 0
+              },
+              {
+                "text": "Measures current",
+                "group": 0
+              },
+              {
+                "text": "Reading is in amperes (A)",
+                "group": 0
+              },
+              {
+                "text": "Connected in parallel with the component",
+                "group": 1
+              },
+              {
+                "text": "Measures potential difference",
+                "group": 1
+              },
+              {
+                "text": "Reading is in volts (V)",
+                "group": 1
+              }
             ]
           }
         },
@@ -95,8 +184,14 @@
     {
       "heading": "Using a circuit to test a component",
       "blocks": [
-        { "type": "paragraph", "text": "A test circuit measures the current in a component and the potential difference across it. The same circuit works for a lamp or a fixed resistor." },
-        { "type": "subheading", "text": "Testing a different component" },
+        {
+          "type": "paragraph",
+          "text": "A test circuit measures the current in a component and the potential difference across it. The same circuit works for a lamp or a fixed resistor."
+        },
+        {
+          "type": "subheading",
+          "text": "Testing a different component"
+        },
         {
           "type": "list",
           "items": [
@@ -105,8 +200,14 @@
             "Repeat the experiment to check the results."
           ]
         },
-        { "type": "subheading", "text": "Changing the potential difference smoothly" },
-        { "type": "paragraph", "text": "A power supply with fixed settings only gives whole numbers of volts. A component added to the circuit can make the potential difference across the lamp change continuously." },
+        {
+          "type": "subheading",
+          "text": "Changing the potential difference smoothly"
+        },
+        {
+          "type": "paragraph",
+          "text": "A power supply with fixed settings only gives whole numbers of volts. A component added to the circuit can make the potential difference across the lamp change continuously."
+        },
         {
           "type": "list",
           "items": [
@@ -143,31 +244,46 @@
   ],
   "boards": {
     "aqa": {
-      "spec_codes": ["AQA 4.2.1.1", "AQA T 6.2.1.1"],
+      "spec_codes": [
+        "AQA 4.2.1.1",
+        "AQA T 6.2.1.1"
+      ],
       "exam_phrases": [
-        "There is a current in the circuit.",
-        "A magnetic field is created around the electromagnet.",
-        "Use each letter once."
+        "ammeter in series with the resistor",
+        "voltmeter in parallel with the resistor",
+        "current",
+        "potential difference",
+        "allow p.d. or voltage",
+        "an LED / diode only allows current through in one direction"
       ],
       "mistakes": [
         {
-          "wrong": "In a sequence question, I put the resultant force on the iron arm before the magnetic field is created.",
-          "right": "Order the events by cause. There is a current in the circuit first, then a magnetic field is created, then a force acts on the iron arm. Only 1 mark is allowed for swapping the middle two."
+          "wrong": "The ammeter measures potential difference and the voltmeter measures current.",
+          "right": "The ammeter measures current. The voltmeter measures potential difference. Give them in that order."
         },
         {
-          "wrong": "A circuit diagram can be drawn with any shape for each component.",
-          "right": "Circuit diagrams use standard symbols. Learn the symbol for each component."
+          "wrong": "The ammeter is connected in parallel with the resistor and the voltmeter in series.",
+          "right": "The ammeter is in series with the resistor. The voltmeter is in parallel with the resistor."
+        },
+        {
+          "wrong": "An LED lets current through in both directions.",
+          "right": "An LED only allows current through in one direction. It has a large resistance in the reverse direction."
         }
       ]
     },
     "edexcel": {
-      "spec_codes": ["EDEX 10.2", "EDEX 10.4", "EDEX 10.7", "EDEX 10.16"],
+      "spec_codes": [
+        "EDEX 10.2",
+        "EDEX 10.4",
+        "EDEX 10.7",
+        "EDEX 10.16"
+      ],
       "exam_phrases": [
         "ammeter in series with component, voltmeter in parallel",
         "potential difference / voltage",
         "current (in the circuit)",
-        "add a variable resistor with in series (with the lamp / power supply)",
-        "add a potential divider with in parallel with power supply"
+        "add a variable resistor in series with the lamp / power supply",
+        "add a potential divider in parallel with the power supply"
       ],
       "mistakes": [
         {
@@ -197,7 +313,11 @@
       }
     },
     "ocr": {
-      "spec_codes": ["OCR P3.2b", "OCR P3.2k", "OCR P3.2a"],
+      "spec_codes": [
+        "OCR P3.2b",
+        "OCR P3.2k",
+        "OCR P3.2a"
+      ],
       "exam_phrases": [
         "Ammeter",
         "Voltmeter",
@@ -249,7 +369,6 @@
       "13d699ff-45da-4bfa-b3d0-853bfef69c47"
     ],
     "exemplar_ids": [
-      "382395d7-4572-45fc-ac2d-c5beeca14818",
       "0d2734c3-fe7f-417d-a0e7-c749e28c8bf0",
       "02d778ff-a56f-4799-8ed5-69069b84ae04",
       "e3a54324-36a7-4673-9af4-4af3299af19e",
@@ -257,6 +376,8 @@
       "6102753a-0d37-4411-bd16-eb6f5b156657",
       "65ff13ab-11cb-423e-8431-66b7768c53fb",
       "95ba9a1c-7409-4d77-b13b-c1b73ecdfa0b"
-    ]
+    ],
+    "checked_by": "sonnet-science-check",
+    "checked_at": "2026-10-01"
   }
 }

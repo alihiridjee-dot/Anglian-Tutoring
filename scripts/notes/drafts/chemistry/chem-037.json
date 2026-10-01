@@ -8,7 +8,7 @@
     {
       "heading": "Carrying out a titration",
       "blocks": [
-        { "type": "paragraph", "text": "(Higher tier, chemistry only) A titration measures the volume of one solution that reacts completely with a fixed volume of another. An indicator shows when the reaction is complete." },
+        { "type": "paragraph", "text": "(Chemistry only) A titration measures the volume of one solution that reacts completely with a fixed volume of another. An indicator shows when the reaction is complete." },
         {
           "type": "definitions",
           "items": [
@@ -20,7 +20,7 @@
         {
           "type": "steps",
           "items": [
-            { "lead": "Flask.", "text": "Measure a fixed volume of one solution (for example 25.0 cm³ of alkali) into a conical flask." },
+            { "lead": "Flask.", "text": "Use a pipette to measure a fixed volume of one solution (for example 25.0 cm³ of alkali) into a conical flask." },
             { "lead": "Indicator.", "text": "Add a few drops of indicator." },
             { "lead": "Burette.", "text": "Add the other solution (the acid) from the burette until the colour of the indicator changes." },
             { "lead": "Read.", "text": "Read the volume from the burette. Repeat until the results are concordant." }
@@ -38,7 +38,7 @@
     {
       "heading": "Titration calculations",
       "blocks": [
-        { "type": "paragraph", "text": "Every titration calculation follows the same steps. Volumes in cm³ must be divided by 1000 to give dm³." },
+        { "type": "paragraph", "text": "(Higher tier) Every titration calculation follows the same steps. Volumes in cm³ must be divided by 1000 to give dm³." },
         {
           "type": "equation",
           "label": "Moles of a solution",
@@ -55,13 +55,13 @@
           ]
         },
         { "type": "subheading", "text": "Worked example" },
-        { "type": "paragraph", "text": "25.00 cm³ of dilute sulfuric acid reacts with 24.25 cm³ of 0.200 mol/dm³ sodium hydroxide. H₂SO₄ + 2NaOH → Na₂SO₄ + 2H₂O. Calculate the concentration of the acid." },
+        { "type": "paragraph", "text": "25.0 cm³ of dilute sulfuric acid reacts with 20.0 cm³ of 0.150 mol/dm³ sodium hydroxide. H₂SO₄ + 2NaOH → Na₂SO₄ + 2H₂O. Calculate the concentration of the acid." },
         {
           "type": "steps",
           "items": [
-            { "lead": "Moles of NaOH.", "text": "24.25 ÷ 1000 × 0.200 = 0.00485 mol." },
-            { "lead": "Ratio.", "text": "1 mol H₂SO₄ reacts with 2 mol NaOH, so moles of H₂SO₄ = 0.00485 ÷ 2 = 0.002425 mol." },
-            { "lead": "Concentration.", "text": "0.002425 ÷ (25.00 ÷ 1000) = 0.097 mol/dm³." }
+            { "lead": "Moles of NaOH.", "text": "20.0 ÷ 1000 × 0.150 = 0.00300 mol." },
+            { "lead": "Ratio.", "text": "1 mol H₂SO₄ reacts with 2 mol NaOH, so moles of H₂SO₄ = 0.00300 ÷ 2 = 0.00150 mol." },
+            { "lead": "Concentration.", "text": "0.00150 ÷ (25.0 ÷ 1000) = 0.0600 mol/dm³." }
           ]
         },
         {
@@ -264,7 +264,7 @@
       "worked_example": {
         "exemplar_id": "def4f365-9eb0-44da-a2f7-167aa1e7b348",
         "source": "OCR jun 2023, Paper 4, Q23(b)(ii)",
-        "question": "A student uses a potassium hydroxide solution with a concentration of 0.100 mol / dm³ to neutralise 25.0 cm³ of dilute sulfuric acid. The average titre of potassium hydroxide solution is 24.0 cm³.\n\nThis is the equation for the reaction.\n\n2KOH + H₂SO₄ → K₂SO₄ + 2H₂O\n\nCalculate the concentration of sulfuric acid in g / dm³.\n\nRelative atomic mass (Ar): H = 1.0   O = 16.0   S = 32.0",
+        "question": "A student uses a potassium hydroxide solution with a concentration of 0.100 mol / dm³ to neutralise 25.0 cm³ of dilute sulfuric acid.\n\nThe student's titres were 24.1, 25.1, 23.9 and 24.0 cm³. The average titre of the concordant results is 24.0 cm³.\n\nThis is the equation for the reaction.\n\n2KOH + H₂SO₄ → K₂SO₄ + 2H₂O\n\nCalculate the concentration of sulfuric acid in g / dm³.\n\nRelative atomic mass (Ar): H = 1.0   O = 16.0   S = 32.0",
         "marks": 5,
         "answer_points": [
           "Moles of KOH = 0.100 × 24.0 ÷ 1000 = 0.0024 mol.",
@@ -279,6 +279,8 @@
   },
   "meta": {
     "status": "draft",
+    "checked_by": "sonnet-science-check",
+    "checked_at": "2026-10-01",
     "written_by": "sonnet-5-5",
     "written_at": "2026-10-01",
     "spec_point_ids": [

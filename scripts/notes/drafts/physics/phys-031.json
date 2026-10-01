@@ -43,6 +43,12 @@
           ]
         },
         {
+          "type": "definitions",
+          "items": [
+            { "term": "Pressure", "meaning": "The total force on a surface for every unit of area, p = F ÷ A." }
+          ]
+        },
+        {
           "type": "equation",
           "label": "Pressure and volume of a fixed mass of gas at constant temperature",
           "formula": "p × V = constant",
@@ -223,8 +229,8 @@
           "right": "Ignore friction. Work is done in compressing the air, which increases the kinetic energy of the air particles."
         },
         {
-          "wrong": "Using 4.8 litres as 4800 in a pressure and volume calculation.",
-          "right": "A power-of-ten error loses marks. Keep the same unit for V₁ and V₂."
+          "wrong": "Substituting correctly but giving the volume as 12 litres instead of 1.2 litres.",
+          "right": "A power-of-ten error loses a mark. Check the size: the pressure is four times larger, so the volume is a quarter of 4.8 litres. Keep the same unit for V₁ and V₂."
         }
       ],
       "worked_example": {
@@ -274,7 +280,7 @@
           "The rate of collisions with the sides of the container decreases, so there are fewer collisions.",
           "The collisions are less frequent, with more time between them."
         ],
-        "tip": "Do not write the reverse argument or use the words less likely."
+        "tip": "A reverse argument is ignored, and so is the phrase less likely. Say fewer or less frequent collisions."
       }
     }
   },
@@ -282,6 +288,8 @@
     "status": "draft",
     "written_by": "sonnet-5-5",
     "written_at": "2026-10-01",
+    "checked_by": "sonnet-science-check",
+    "checked_at": "2026-10-01",
     "spec_point_ids": [
       "74f5ee80-2911-4c81-8ca5-c0fb92292aa2",
       "98b26a14-d04e-45be-9b21-aae970dfea06",
