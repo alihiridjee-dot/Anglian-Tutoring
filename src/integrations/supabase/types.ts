@@ -1894,7 +1894,7 @@ export type Database = {
         Returns: number;
       };
       grade_mcq_attempt: {
-        Args: { _answers: Json; _set_id: string };
+        Args: { _answers: Json; _attempt_id?: string; _set_id: string };
         Returns: Json;
       };
       homework_mark_schemes: {

@@ -10,6 +10,7 @@ import {
   saveDraft,
   saveServerDraft,
 } from "@/lib/homework/homeworkDrafts";
+import { isAlreadySubmitted, startMarking } from "@/lib/homework/startMarking";
 import type { HomeworkQuestion, HomeworkAnswer } from "@/hooks/data/useHomeworkQuestions";
 
 /**
@@ -241,16 +242,15 @@ export function AnswerForm({
         _answers: payload,
         _notes: notes || undefined,
       });
-      if (error) throw error;
+      // "Already submitted" means an earlier try got through and only its
+      // reply was lost: the work is in, which is what the student wanted. The
+      // sheet reloads with the submission and starts its marking from there.
+      if (error && !isAlreadySubmitted(error)) throw error;
 
       // Start the marking, but never wait on it or surface its failure. The
       // work is safely handed in either way; a submission that goes unmarked
       // simply waits for a tutor, which is what used to happen to all of them.
-      if (submissionId) {
-        void supabase.functions
-          .invoke("mark-homework", { body: { submissionId } })
-          .catch(() => undefined);
-      }
+      if (submissionId) startMarking(submissionId);
 
       toast.success("Homework submitted");
       clearDraft(userId, hw.id);
