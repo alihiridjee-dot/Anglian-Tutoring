@@ -108,7 +108,10 @@
         {
           "type": "equation",
           "label": "Conservation of momentum",
-          "formula": "total momentum before = total momentum after"
+          "formula": "total momentum before = total momentum after",
+          "where": [
+            "total momentum is in kilograms metre per second, kg m/s"
+          ]
         },
         {
           "type": "subheading",
@@ -120,6 +123,7 @@
             "When two objects collide, momentum is transferred from one object to the other.",
             "The momentum of one object decreases and the momentum of the other increases.",
             "The total momentum does not change.",
+            "The total momentum is shared between the objects after the collision.",
             "Objects with equal and opposite momentum before a collision have a total momentum of zero. If they stop in the collision, the total after is still zero."
           ]
         },
@@ -133,6 +137,30 @@
             "Two objects at rest have a total momentum of zero.",
             "When they push apart, one moves one way and the other moves the opposite way.",
             "Their momenta are equal and opposite, so the total is still zero."
+          ]
+        },
+        {
+          "type": "subheading",
+          "text": "Explaining a collision in words"
+        },
+        {
+          "type": "list",
+          "items": [
+            "State that total momentum is conserved in the collision.",
+            "The momentum of one object increases and the momentum of the other decreases.",
+            "Use momentum = mass × velocity. If the mass is constant, a change in momentum means a change in velocity."
+          ]
+        },
+        {
+          "type": "subheading",
+          "text": "Investigating collisions"
+        },
+        {
+          "type": "list",
+          "items": [
+            "Use trolleys on a runway, with light gates, data loggers or ticker timers to record the velocities.",
+            "Measure the mass of each trolley, and the velocities before and after the collision.",
+            "Calculate the total momentum before and after to check that they match."
           ]
         },
         {
@@ -214,7 +242,7 @@
                 "unit": "kg",
                 "min": 40,
                 "max": 80,
-                "step": 5,
+                "step": 10,
                 "value": 60
               },
               {
@@ -223,7 +251,7 @@
                 "unit": "m/s",
                 "min": 1,
                 "max": 6,
-                "step": 0.5,
+                "step": 1,
                 "value": 3
               },
               {
@@ -232,7 +260,7 @@
                 "unit": "kg",
                 "min": 40,
                 "max": 80,
-                "step": 5,
+                "step": 10,
                 "value": 40
               }
             ],
@@ -257,30 +285,6 @@
               }
             ]
           }
-        },
-        {
-          "type": "subheading",
-          "text": "Explaining a collision in words"
-        },
-        {
-          "type": "list",
-          "items": [
-            "State that total momentum is conserved in the collision.",
-            "The momentum of one object increases, so the momentum of the other decreases.",
-            "Use momentum = mass × velocity. If the mass is constant, a change in momentum means a change in velocity."
-          ]
-        },
-        {
-          "type": "subheading",
-          "text": "Investigating collisions"
-        },
-        {
-          "type": "list",
-          "items": [
-            "Use trolleys on a runway, with light gates, data loggers or ticker timers to record the velocities.",
-            "Measure the mass of each trolley, and the velocities before and after the collision.",
-            "Calculate the total momentum before and after to check that they match."
-          ]
         },
         {
           "type": "key-points",
@@ -333,7 +337,7 @@
         },
         {
           "wrong": "0.216 = 180 × v, so v = 0.0012 m/s.",
-          "right": "Convert the mass first: 180 g = 0.180 kg. Then 0.216 = 0.180 × v, so v = 1.2 m/s."
+          "right": "Convert the mass first: 180 g = 0.180 kg, which earns its own mark. Then 0.216 = 0.180 × v, so v = 1.2 m/s."
         },
         {
           "wrong": "The bumper cars stop because they hit each other at the same speed.",
@@ -343,7 +347,7 @@
       "worked_example": {
         "exemplar_id": "8ac8e04f-fea5-4aac-963c-54f9bc304741",
         "source": "AQA jun 2022, Paper 2 (H), Q03.2",
-        "question": "A toy train collides with a stationary carriage on the track.\n\nExplain why the velocity of the train after the collision is less than it was before the collision.\n\nUse ideas about momentum in your answer.",
+        "question": "A train collides with a stationary carriage on the track.\n\nExplain why the velocity of the train after the collision is less than it was before the collision.\n\nUse ideas about momentum in your answer.",
         "marks": 4,
         "answer_points": [
           "Total momentum is conserved in the collision.",
@@ -362,10 +366,10 @@
       "exam_phrases": [
         "p = m × v",
         "momentum = mass × velocity",
-        "6.6 (× 10⁻²⁶) × 480",
-        "3.2 × 10⁻²³ (kg m/s)",
+        "action and reaction are equal and opposite",
+        "time of collision same for both",
         "no overall change in momentum",
-        "transfer of momentum between Q and R"
+        "transfer of momentum between the objects"
       ],
       "mistakes": [
         {
@@ -377,8 +381,8 @@
           "right": "There is no overall change in momentum. Momentum is transferred between the two objects, so the change in momentum of one is equal and opposite to the change of the other."
         },
         {
-          "wrong": "The forces are equal and opposite, so momentum is conserved.",
-          "right": "Link the steps. The forces are equal and opposite for the same time, so the changes in momentum are equal and opposite, so there is no overall change."
+          "wrong": "The answer is 3.168 × 10⁻²³ kg m/s, which is wrong because I did not round.",
+          "right": "Numbers that round to 3.2 × 10⁻²³ are allowed, such as 3.168 × 10⁻²³ kg m/s."
         }
       ],
       "worked_example": {
@@ -400,9 +404,25 @@
             {
               "type": "list",
               "items": [
-                "(Higher tier) In a collision, the force of R on Q is equal and opposite to the force of Q on R.",
-                "The time of the collision is the same for both objects.",
-                "So the change in momentum of Q is equal and opposite to the change in momentum of R."
+                "(Higher tier) In a collision between two objects, the force of the first on the second is equal and opposite to the force of the second on the first (Newton's third law).",
+                "The time of the collision is the same for both objects."
+              ]
+            },
+            {
+              "type": "equation",
+              "label": "Newton's second law",
+              "formula": "force = change in momentum ÷ time",
+              "where": [
+                "force is in newtons, N",
+                "change in momentum is in kilograms metre per second, kg m/s",
+                "time is in seconds, s"
+              ]
+            },
+            {
+              "type": "list",
+              "items": [
+                "Equal and opposite forces for the same time give equal and opposite changes in momentum.",
+                "So there is no overall change in momentum."
               ]
             }
           ]
@@ -415,16 +435,13 @@
       ],
       "exam_phrases": [
         "Momentum before = momentum after",
-        "80 = 50 VB",
-        "0 = (40 × 2) + 50 VB",
-        "momentum = mass × velocity",
-        "ignore sign",
-        "(−)1.6 (m/s)"
+        "momentum and kinetic energy (conserved in an elastic collision)",
+        "0 = (40 × 2) + 50 vB"
       ],
       "mistakes": [
         {
-          "wrong": "The skaters start at rest, so the momentum is zero and skater B does not move.",
-          "right": "The total before is zero, so the total after is zero. Skater B's momentum is equal and opposite to skater A's: 0 = (40 × 2) + 50 vB."
+          "wrong": "Mass is conserved in a collision.",
+          "right": "The two quantities conserved in an elastic collision are momentum and kinetic energy. Mass is ignored."
         },
         {
           "wrong": "Skater B has a velocity of −1.6 m/s, so I must have made a mistake.",
@@ -446,7 +463,21 @@
           "vB = 1.6 m/s (the sign is ignored)."
         ],
         "tip": "A correct answer of 1.6 m/s scores 3 marks. Writing 0 = (40 × 2) + 50 vB is also allowed."
-      }
+      },
+      "extra": [
+        {
+          "heading": "Elastic collisions",
+          "blocks": [
+            {
+              "type": "list",
+              "items": [
+                "In an elastic collision, both momentum and kinetic energy are conserved.",
+                "Momentum is conserved in every collision, whether or not kinetic energy is conserved."
+              ]
+            }
+          ]
+        }
+      ]
     }
   },
   "meta": {
@@ -470,7 +501,10 @@
       "a639ac80-4e16-432d-899f-aecb377a2828",
       "a84e8349-3881-4e57-9726-fa8a3225a0dd",
       "d742749b-35f2-4452-a86c-4afd857b1bb8",
-      "e96bcaf8-063b-4c44-97f0-b867099cbefb"
-    ]
+      "e96bcaf8-063b-4c44-97f0-b867099cbefb",
+      "f562ae77-cda2-4aa3-995e-366cd05edf00"
+    ],
+    "checked_by": "sonnet-science-check",
+    "checked_at": "2026-10-01"
   }
 }

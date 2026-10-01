@@ -103,14 +103,14 @@
               {
                 "id": "v",
                 "min": 10,
-                "max": 30,
+                "max": 35,
                 "step": 5
               },
               {
                 "id": "t",
-                "min": 0.4,
-                "max": 1.2,
-                "step": 0.2
+                "min": 0.2,
+                "max": 0.9,
+                "step": 0.1
               }
             ],
             "answer": {
@@ -132,8 +132,8 @@
         {
           "type": "list",
           "items": [
-            "A simple method is for one student to drop a ruler and another to catch it. The distance the ruler falls shows the reaction time.",
-            "Repeat the test several times and take an average to reduce the effect of chance.",
+            "A simple method is for one student to drop a ruler and another to catch it. The distance the ruler falls before it is caught shows the reaction time: a longer distance means a longer reaction time.",
+            "Repeat the test several times and take a mean to reduce the effect of chance.",
             "Compare the results with and without a distraction to see its effect on reaction time."
           ]
         },
@@ -178,26 +178,26 @@
                 "id": "v",
                 "label": "Speed",
                 "unit": "m/s",
-                "min": 5,
-                "max": 31,
+                "min": 10,
+                "max": 35,
                 "step": 1,
-                "value": 13
+                "value": 20
               },
               {
                 "id": "t",
                 "label": "Driver",
                 "choices": [
                   {
-                    "label": "Alert (0.6 s)",
+                    "label": "Alert (0.3 s)",
+                    "value": 0.3
+                  },
+                  {
+                    "label": "Tired (0.6 s)",
                     "value": 0.6
                   },
                   {
-                    "label": "Tired (1.0 s)",
-                    "value": 1.0
-                  },
-                  {
-                    "label": "On a phone (1.5 s)",
-                    "value": 1.5
+                    "label": "On a phone (0.9 s)",
+                    "value": 0.9
                   }
                 ]
               },
@@ -258,8 +258,24 @@
           ]
         },
         {
-          "type": "paragraph",
-          "text": "(Separate science) You may be asked to estimate how the stopping distance of a vehicle changes over a range of typical speeds."
+          "type": "list",
+          "items": [
+            "You may be asked to estimate how the stopping distance of a vehicle changes over a range of typical speeds.",
+            "(Separate science) You may be asked to interpret graphs of speed against stopping distance for a range of vehicles."
+          ]
+        },
+        {
+          "type": "subheading",
+          "text": "Implications for safety"
+        },
+        {
+          "type": "list",
+          "items": [
+            "Leave a bigger gap to the vehicle in front on wet or icy roads.",
+            "Keep tyres and brakes in good condition.",
+            "Do not drive when tired or after drinking alcohol or taking drugs.",
+            "Do not use a mobile phone while driving."
+          ]
         },
         {
           "type": "key-points",
@@ -339,25 +355,29 @@
         "EDEX 2.32P"
       ],
       "exam_phrases": [
-        "distance travelled = average speed × time",
-        "46 = 31 × t",
-        "evaluation given to 2 sf",
         "increased reaction time",
         "increased thinking distance",
-        "worn tyres cause increased stopping distance"
+        "worn tyres cause increased stopping distance",
+        "tired driver causes increased stopping distance",
+        "effect of drugs",
+        "state of brakes"
       ],
       "mistakes": [
         {
-          "wrong": "46 ÷ 31 = 1.4 s, because I stopped writing after the first decimal place.",
+          "wrong": "t = 1.4 s.",
           "right": "46 ÷ 31 = 1.483... s, which is 1.5 s to 2 significant figures. An answer of 1.4 scores 2 marks, not 3."
         },
         {
-          "wrong": "Reaction time = 31 ÷ 46 = 0.67 s.",
-          "right": "Divide the distance by the speed, 46 ÷ 31. Dividing the other way scores 2 marks at most."
+          "wrong": "1.50 s is a better answer than 1.5 s.",
+          "right": "The question asked for 2 significant figures. 1.50 scores 2 marks, so write 1.5 s."
         },
         {
-          "wrong": "The answer is 1.50 s, which is more accurate than 1.5 s.",
-          "right": "The question asked for 2 significant figures. 1.50 scores 2 marks, so write 1.5 s."
+          "wrong": "Worn tyres and a tired driver.",
+          "right": "Naming factors alone stays at a low level. Link each to its effect: worn tyres cause increased stopping distance, and a tired driver causes increased stopping distance."
+        },
+        {
+          "wrong": "Reaction time = 31 ÷ 46 = 0.67 s.",
+          "right": "Divide the distance by the speed, 46 ÷ 31. Dividing the wrong way round loses a mark."
         }
       ],
       "worked_example": {
@@ -380,12 +400,12 @@
         "OCR P8.1f"
       ],
       "exam_phrases": [
-        "(Reaction) time = (Thinking) distance ÷ Speed",
         "Thinking distance unchanged",
-        "Stopping distance = thinking distance + braking distance",
         "Friction/force between tyres and road reduced",
         "Braking distance becomes greater",
-        "less friction / smaller deceleration"
+        "less friction / smaller deceleration",
+        "larger KE to dissipate",
+        "Initial kinetic energy is the same"
       ],
       "mistakes": [
         {
@@ -441,6 +461,8 @@
       "9061ba10-fa10-485b-ab98-e54ee3e9323e",
       "ae23d552-ebea-4dd6-9934-2d245366c2e5",
       "ce75c31d-5c9c-4900-bb4e-3cefa8ed8e43"
-    ]
+    ],
+    "checked_by": "sonnet-science-check",
+    "checked_at": "2026-10-01"
   }
 }

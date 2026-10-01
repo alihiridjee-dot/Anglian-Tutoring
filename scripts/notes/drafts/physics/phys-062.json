@@ -107,7 +107,7 @@
                 "unit": "N",
                 "min": 3000,
                 "max": 9000,
-                "step": 500,
+                "step": 1500,
                 "value": 6000
               }
             ],
@@ -116,7 +116,7 @@
                 "label": "Deceleration",
                 "unit": "m/s²",
                 "formula": "F / 1200",
-                "decimals": 1
+                "decimals": 2
               },
               {
                 "label": "Kinetic energy to remove",
@@ -209,6 +209,13 @@
           "text": "Estimating the force on a car"
         },
         {
+          "type": "list",
+          "items": [
+            "Typical car speeds are about 13 m/s in a town and about 30 m/s on a motorway.",
+            "Typical emergency decelerations are a few m/s², up to about 6 m/s²."
+          ]
+        },
+        {
           "type": "steps",
           "items": [
             {
@@ -295,9 +302,8 @@
         "frictional / braking force is greater (for the faster car)",
         "the faster car has more kinetic energy",
         "more work done (by the brakes to stop the faster car)",
-        "the risk of the brakes overheating is greater",
-        "braking distance = (speed)² ÷ (2 × deceleration)",
-        "ignore minus signs throughout"
+        "more energy is transferred (by the brakes)",
+        "the risk of the brakes overheating is greater"
       ],
       "mistakes": [
         {
@@ -309,8 +315,8 @@
           "right": "A braking distance is a length. Choose m from the box. The unit is a separate mark."
         },
         {
-          "wrong": "The car travelled 14 m in 0.70 s, so its minimum braking distance is 14 m.",
-          "right": "The 14 m is the distance between the two images. Find the speed first, 14 ÷ 0.70 = 20 m/s, then use 20² = 2 × 6.25 × s to get s = 32 m."
+          "wrong": "The faster car's brakes are more likely to overheat.",
+          "right": "The overheating mark depends on an earlier point. First say the faster car has more kinetic energy or a greater braking force, so more work is done by the brakes."
         }
       ],
       "worked_example": {
@@ -347,24 +353,17 @@
       ],
       "exam_phrases": [
         "use of F = ma",
-        "F = (mv − mu)/t",
-        "with spring, time for contact greater, less impact force",
-        "times repeated and average taken",
-        "same starting position / same angle of slope",
-        "release without pushing"
+        "mass needed and times during impact",
+        "with spring, time for contact greater, less impact force"
       ],
       "mistakes": [
         {
-          "wrong": "Release each trolley once and compare how hard they hit the wall.",
-          "right": "Repeat the times and take an average. Keep the starting position and the angle of the slope the same, and release without pushing."
+          "wrong": "To find the force, I only need to measure the speed.",
+          "right": "Use F = ma. The mass is needed as well, and the time over which the speed changes, to find the acceleration."
         },
         {
-          "wrong": "The force is found from F = ma, so only the speed needs to be measured.",
-          "right": "The mass of the trolley and the times during impact are needed as well, so the force can be found from the changes in velocity and the time."
-        },
-        {
-          "wrong": "I would use the spring and use F = ma.",
-          "right": "Two separate statements stay at a low level. Link them: the spring increases the contact time, so the force is less."
+          "wrong": "I would use a spring, and use F = ma.",
+          "right": "Two separate statements stay at a low level. Link them: the spring makes the time for contact greater, so the impact force is less."
         }
       ]
     },
@@ -378,7 +377,7 @@
         "Lorry has more KE than a car at the same velocity",
         "Higher rate of dissipation of energy to surrounding air",
         "Brakes less likely to overheat",
-        "Force = mass × acceleration",
+        "Acceleration will increase",
         "So greater force (acting on occupants)",
         "this could lead to injury"
       ],
@@ -389,7 +388,7 @@
         },
         {
           "wrong": "A car has a mass of about 50 kg, so F = 50 × 6 = 300 N.",
-          "right": "Use a sensible mass. An estimate between 400 kg and 3500 kg is allowed, such as 1500 kg, giving 1500 × 6 = 9000 N."
+          "right": "Use a sensible mass. An estimate between 400 kg and 3500 kg is allowed, such as 1500 kg, giving 1500 × 6 = 9000 N. A mass outside this range loses a mark."
         },
         {
           "wrong": "Lorries have larger brake discs because lorries are bigger.",
@@ -430,6 +429,8 @@
       "bef0305e-0e0b-480a-98a8-696802f64ce6",
       "c3cfbf60-f2ec-47ef-8409-f21d1a970b1d",
       "c4eb2704-2047-4904-a75f-6c154d296c8a"
-    ]
+    ],
+    "checked_by": "sonnet-science-check",
+    "checked_at": "2026-10-01"
   }
 }
