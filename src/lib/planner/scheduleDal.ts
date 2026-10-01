@@ -32,22 +32,6 @@ import {
 } from "./assessability";
 import { selectIn, selectInSafe, selectInHistory } from "../platform/db/chunked";
 
-/** One covered spec point, with how it went, for the "covered so far" ledger. */
-export interface CoveredPoint {
-  id: string;
-  code: string;
-  title: string;
-  homeworkScore: number | null;
-  quizScore: number | null;
-  lastReviewed: string;
-}
-/** Covered points grouped under their topic. */
-export interface CoveredTopic {
-  topicId: string;
-  title: string;
-  points: CoveredPoint[];
-}
-
 /** One spec point's standing for the programme's expandable topic breakdown. */
 export interface ProgressPoint {
   id: string;
@@ -287,38 +271,6 @@ export class ScheduleDAL {
       }
     }
     return { events, sources };
-  }
-
-  /**
-   * "Covered so far" — every spec point the student has actually practised
-   * (has a homework or MCQ result on), with their best mark from each, grouped
-   * by topic in curriculum order. Confidence-only ratings don't count as covered.
-   * Drives the practice-history ledger.
-   */
-  static async getCoveredLedger(params: {
-    studentId: string;
-    subject: SubjectV;
-    board: BoardV;
-    level: LevelV;
-    progress?: TopicProgress[];
-  }): Promise<CoveredTopic[]> {
-    const progress = params.progress ?? (await this.getTopicProgress(params));
-    return progress
-      .map((t) => ({
-        topicId: t.topicId,
-        title: t.title,
-        points: t.points
-          .filter((p) => p.lastReviewedAt && (p.homeworkScore != null || p.quizScore != null))
-          .map((p) => ({
-            id: p.id,
-            code: p.code,
-            title: p.title,
-            homeworkScore: p.homeworkScore,
-            quizScore: p.quizScore,
-            lastReviewed: p.lastReviewedAt!,
-          })),
-      }))
-      .filter((t) => t.points.length > 0);
   }
 
   /** Assessed marks and reconstructed memory per point. A topic is settled
