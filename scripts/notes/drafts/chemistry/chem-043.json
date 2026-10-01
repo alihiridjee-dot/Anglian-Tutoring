@@ -1,0 +1,268 @@
+{
+  "format": 1,
+  "concept_id": "chem-043",
+  "subject": "chemistry",
+  "title": "Extraction of metals by reduction with carbon",
+  "key_idea": "Unreactive metals such as gold are found as the metal itself. Most metals are found as compounds in ores and must be extracted. Metals less reactive than carbon are extracted from their oxides by reduction with carbon.",
+  "sections": [
+    {
+      "heading": "Metals in the Earth",
+      "blocks": [
+        { "type": "paragraph", "text": "This section covers how metals are found in the Earth's crust and why most need a chemical reaction to extract them." },
+        {
+          "type": "definitions",
+          "items": [
+            { "term": "Ore", "meaning": "A rock in the Earth's crust that contains a metal compound, from which the metal can be extracted." },
+            { "term": "Extraction", "meaning": "A chemical reaction that separates a metal from its compound." }
+          ]
+        },
+        {
+          "type": "list",
+          "items": [
+            "Unreactive metals such as **gold** are found in the Earth as the metal itself, the uncombined element.",
+            "Silver, platinum and copper can also be found as the metal itself.",
+            "Most metals are found as **compounds**, for example oxides, in ores.",
+            "Reactive metals are too reactive to exist as uncombined elements.",
+            "Extracting a metal from its compound needs a chemical reaction."
+          ]
+        },
+        {
+          "type": "key-points",
+          "items": [
+            "Unreactive metals such as gold are found uncombined.",
+            "Most metals are found as compounds and must be extracted by a chemical reaction."
+          ]
+        }
+      ]
+    },
+    {
+      "heading": "Reduction with carbon",
+      "blocks": [
+        { "type": "paragraph", "text": "This section covers how a metal oxide is reduced by heating it with carbon." },
+        {
+          "type": "list",
+          "items": [
+            "Extraction of a metal from its ore involves **reduction**: the oxide loses oxygen.",
+            "Carbon is more reactive than the metal, so carbon removes oxygen from the oxide.",
+            "Carbon displaces the metal. The carbon is oxidised, because it gains oxygen.",
+            "This works only for metals **less reactive than carbon**."
+          ]
+        },
+        {
+          "type": "equation",
+          "label": "Word equation for iron",
+          "formula": "iron oxide + carbon → iron + carbon dioxide",
+          "where": ["iron oxide: reduced, because it loses oxygen", "carbon: oxidised, because it gains oxygen"]
+        },
+        {
+          "type": "equation",
+          "label": "Symbol equation for copper",
+          "formula": "2CuO + C → 2Cu + CO₂",
+          "where": ["CuO: copper oxide", "C: carbon", "CO₂: carbon dioxide"]
+        },
+        {
+          "type": "list",
+          "items": [
+            "In 2CuO + C → 2Cu + CO₂, copper oxide is reduced and carbon is oxidised.",
+            "In SnO₂ + C → Sn + CO₂, tin oxide is reduced. Tin is less reactive than carbon, so carbon can be used.",
+            "Carbon is cheap and can be obtained by heating coal."
+          ]
+        },
+        {
+          "type": "key-points",
+          "items": [
+            "Heating a metal oxide with carbon removes the oxygen, so the oxide is reduced.",
+            "Carbon can only be used for metals below carbon in the reactivity series."
+          ]
+        }
+      ]
+    },
+    {
+      "heading": "Choosing the method of extraction",
+      "blocks": [
+        { "type": "paragraph", "text": "The method depends on where the metal sits compared with carbon in the reactivity series." },
+        {
+          "type": "diagram",
+          "diagram": {
+            "kind": "predictor",
+            "alt": "Choose a metal to see how it is found and how it is extracted.",
+            "prompt": "Pick a metal",
+            "result_labels": ["Found in the Earth as", "Compared with carbon", "Method of extraction"],
+            "options": [
+              { "label": "Gold", "results": ["The metal itself", "Very unreactive", "No extraction needed"] },
+              { "label": "Copper", "results": ["An ore containing copper oxide", "Less reactive than carbon", "Heat the oxide with **carbon**"] },
+              { "label": "Iron", "results": ["An ore containing iron oxide", "Less reactive than carbon", "Heat the oxide with **carbon**"] },
+              { "label": "Zinc", "results": ["A compound in an ore", "Less reactive than carbon", "Heat the oxide with **carbon**"] },
+              { "label": "Tin", "results": ["An ore containing tin oxide", "Less reactive than carbon", "Heat the oxide with **carbon**"] },
+              { "label": "Aluminium", "results": ["An ore containing aluminium oxide", "More reactive than carbon", "**Electrolysis**, because carbon cannot displace aluminium"] },
+              { "label": "Calcium", "results": ["A compound in an ore", "More reactive than carbon", "**Electrolysis**, because carbon cannot displace calcium"] }
+            ]
+          }
+        },
+        {
+          "type": "list",
+          "items": [
+            "Metals above carbon cannot be reduced by carbon. Carbon cannot remove their oxygen.",
+            "They are extracted by electrolysis of the molten compound.",
+            "Electrolysis uses a lot of energy, so it is more expensive than heating with carbon.",
+            "(Edexcel) Aluminium is extracted by electrolysis. Iron is extracted by heating iron oxide with carbon, which is cheaper."
+          ]
+        },
+        {
+          "type": "key-points",
+          "items": [
+            "Below carbon: heat the oxide with carbon.",
+            "Above carbon: electrolysis, which needs more energy and costs more."
+          ]
+        }
+      ]
+    }
+  ],
+  "checks": [
+    {
+      "q": "Explain why gold is found in the Earth as the metal itself.",
+      "a": "Gold is very unreactive, so it does not combine with other elements.",
+      "marks": 1
+    },
+    {
+      "q": "Zinc oxide is heated with carbon. Which substance is reduced? Give a reason.",
+      "a": "Zinc oxide, because it loses oxygen.",
+      "marks": 2
+    },
+    {
+      "q": "Why can carbon be used to extract tin from tin oxide?",
+      "a": "Carbon is more reactive than tin, so it removes the oxygen from tin oxide.",
+      "marks": 2
+    }
+  ],
+  "boards": {
+    "aqa": {
+      "spec_codes": ["AQA 4.4.1.3", "AQA T 5.4.1.3"],
+      "exam_phrases": [
+        "carbon is more reactive (than nickel)",
+        "carbon will displace / replace nickel (from nickel oxide)",
+        "carbon will remove oxygen (from nickel oxide)",
+        "iron is less reactive than carbon",
+        "aluminium is more reactive than carbon, so carbon cannot displace aluminium",
+        "most metals are found in the Earth as compounds",
+        "aluminium is obtained by electrolysis, so more energy is needed"
+      ],
+      "mistakes": [
+        {
+          "wrong": "Carbon can be used because it is very reactive.",
+          "right": "Compare the two metals. Carbon is more reactive than nickel, so it displaces nickel or removes oxygen from the oxide."
+        },
+        {
+          "wrong": "Aluminium costs more than carbon because it uses a lot of electricity.",
+          "right": "References to electricity are ignored. Say more energy is needed, because aluminium is obtained by electrolysis."
+        },
+        {
+          "wrong": "Platinum is used in jewellery because it is hard and strong.",
+          "right": "Hardness, strength and cost are ignored. Say it is unreactive or does not tarnish, or give its appearance or that it is easily shaped."
+        }
+      ],
+      "worked_example": {
+        "exemplar_id": "62acbf4d-16f8-4741-ada7-4d4cd8a98b0e",
+        "source": "AQA jun 2018, Paper 1 (F), Q09.4",
+        "question": "Nickel is extracted from nickel oxide by reduction with carbon.\n\nExplain why carbon can be used to extract nickel from nickel oxide.",
+        "marks": 2,
+        "answer_points": [
+          "Carbon is more reactive than nickel.",
+          "So carbon will displace (replace) nickel from nickel oxide, or carbon will remove oxygen from nickel oxide."
+        ],
+        "tip": "The converse is allowed: nickel is less reactive than carbon. The second mark follows from the first."
+      }
+    },
+    "edexcel": {
+      "spec_codes": ["EDEX 4.4", "EDEX 4.6", "EDEX 4.7"],
+      "exam_phrases": [
+        "aluminium is high in reactivity / aluminium oxide is (very) stable",
+        "aluminium (oxide) cannot be reduced by carbon",
+        "carbon cannot displace aluminium",
+        "aluminium oxide does not react with carbon",
+        "electrolysis is expensive / needs a large amount of electricity",
+        "iron is less reactive (than carbon)",
+        "electrolysis"
+      ],
+      "mistakes": [
+        {
+          "wrong": "Aluminium has to be extracted by electrolysis because it is more reactive.",
+          "right": "Aluminium is more reactive on its own is ignored. Say aluminium oxide cannot be reduced by carbon, or carbon cannot displace aluminium."
+        },
+        {
+          "wrong": "Electrolysis is used for iron because it is a better method.",
+          "right": "Iron is less reactive than carbon, so heating with carbon works. Electrolysis is more expensive and needs a large amount of electricity."
+        },
+        {
+          "wrong": "To obtain copper, burn copper oxide.",
+          "right": "Burn and combust are rejected. Heat the oxide strongly with carbon (or pass hydrogen over the heated oxide)."
+        }
+      ],
+      "worked_example": {
+        "exemplar_id": "9d49c437-807a-4b13-87cd-d5c4598ff372",
+        "source": "EDEXCEL jun 2018, Paper 1 (H), Q3(b)",
+        "question": "Most metals are extracted from ores found in the Earth's crust. The method used to extract a metal from its ore is linked to the reactivity of the metal.\n\nPart of the reactivity series is: calcium (most reactive), aluminium, zinc, iron, copper, gold (least reactive).\n\nAluminium cannot be extracted by heating its oxide with carbon. Aluminium has to be extracted from its oxide by electrolysis.\n\nExplain why.",
+        "marks": 2,
+        "answer_points": [
+          "Aluminium is high in reactivity, or aluminium oxide is very stable.",
+          "Aluminium (oxide) cannot be reduced by carbon."
+        ],
+        "tip": "Carbon is less reactive than aluminium is allowed. Saying only that aluminium is more reactive is ignored."
+      }
+    },
+    "ocr": {
+      "spec_codes": ["OCR C6.1a"],
+      "exam_phrases": [
+        "(by reacting with) carbon",
+        "carbon is more reactive than iron / by displacement",
+        "aluminium is above carbon in the reactivity series, so cannot be obtained by reaction of the oxide with carbon",
+        "copper is below carbon in the reactivity series",
+        "iron oxide + carbon → iron + carbon dioxide",
+        "2CuO + C → 2Cu + CO2"
+      ],
+      "mistakes": [
+        {
+          "wrong": "Carbon is used because it is highly reactive.",
+          "right": "Highly reactive is ignored. Say carbon is more reactive than zinc, or is above zinc in the reactivity series, so it displaces zinc."
+        },
+        {
+          "wrong": "Aluminium cannot be extracted with carbon because it is very reactive.",
+          "right": "Aluminium is very reactive is ignored. Say aluminium is higher in the reactivity series than carbon, so carbon cannot displace it."
+        },
+        {
+          "wrong": "2CuO and C → 2Cu and CO2",
+          "right": "And and & are not allowed instead of +. Write 2CuO + C → 2Cu + CO2."
+        }
+      ],
+      "worked_example": {
+        "exemplar_id": "5e706c7c-fdef-4126-8ed0-ce702dc5b978",
+        "source": "OCR jun 2023, Paper 2, Q17(d)",
+        "question": "Iron is a transition metal.\n\nThe reactivity series of some metals, with carbon included, is: sodium (most reactive), calcium, magnesium, carbon, zinc, iron, copper (least reactive).\n\nIron can be extracted from the compound iron oxide.\n\nHow is iron extracted from iron oxide? Explain your answer.\n\nUse the information in the list.",
+        "marks": 2,
+        "answer_points": [
+          "By reacting (heating) the iron oxide with carbon.",
+          "Because carbon is more reactive than iron, so it displaces iron."
+        ],
+        "tip": "Use only the elements in the list."
+      }
+    }
+  },
+  "meta": {
+    "status": "draft",
+    "written_by": "sonnet-5-5",
+    "written_at": "2026-10-01",
+    "spec_point_ids": [
+      "3306eee4-45ff-4bd2-93c2-d27a551a87b2",
+      "617ba2a3-198f-4e0b-aa06-66c9fcf751a1",
+      "56c601fb-6a0f-421b-8ff4-45f7963a55cc",
+      "e4bf55f5-a0d1-4bd4-80ea-b085b3e788c4",
+      "19209296-9744-4519-b0c0-861770ba23e5",
+      "ba94b5f8-3a30-44bd-806f-22d4e158aa61"
+    ],
+    "exemplar_ids": [
+      "62acbf4d-16f8-4741-ada7-4d4cd8a98b0e",
+      "9d49c437-807a-4b13-87cd-d5c4598ff372",
+      "5e706c7c-fdef-4126-8ed0-ce702dc5b978"
+    ]
+  }
+}

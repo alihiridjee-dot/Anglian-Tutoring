@@ -1,0 +1,286 @@
+{
+  "format": 1,
+  "concept_id": "bio-062",
+  "subject": "biology",
+  "title": "Required practical: rate of respiration",
+  "key_idea": "A respirometer measures the rate of respiration of small organisms. The organisms use up oxygen and the carbon dioxide they make is absorbed by soda lime. The gas volume falls, and a coloured liquid moves to show how fast they respire.",
+  "sections": [
+    {
+      "heading": "The respirometer",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "A simple respirometer holds small living organisms in a sealed tube. It measures how fast they use oxygen."
+        },
+        {
+          "type": "definitions",
+          "items": [
+            {
+              "term": "Respirometer",
+              "meaning": "Apparatus that measures the rate of respiration of small organisms."
+            },
+            {
+              "term": "Soda lime",
+              "meaning": "A chemical that absorbs the carbon dioxide made by the organisms."
+            }
+          ]
+        },
+        {
+          "type": "list",
+          "items": [
+            "The organisms use oxygen in aerobic respiration and make carbon dioxide.",
+            "The soda lime absorbs the carbon dioxide, so the carbon dioxide does not replace the oxygen used.",
+            "The volume of gas in the tube falls, so a drop of coloured liquid in a capillary tube moves towards the organisms.",
+            "The faster the organisms respire, the further the liquid moves in a set time."
+          ]
+        },
+        {
+          "type": "key-points",
+          "items": [
+            "Small living organisms, such as germinating seeds or woodlice, are sealed in the tube.",
+            "Soda lime removes the carbon dioxide, so the movement of liquid shows oxygen being used.",
+            "A greater distance moved in the same time means a faster rate of respiration."
+          ]
+        }
+      ]
+    },
+    {
+      "heading": "The method",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "Follow the same steps every time, so that results from different organisms or temperatures can be compared."
+        },
+        {
+          "type": "diagram",
+          "diagram": {
+            "kind": "sequence",
+            "alt": "Put the steps of the respirometer method in the correct order.",
+            "prompt": "Put the respirometer method in order",
+            "steps": [
+              "Put soda lime in the bottom of the tube, with a known mass of organisms held above it on gauze",
+              "Seal the tube with a bung and connect it to the capillary tube with a drop of coloured liquid",
+              "Leave the apparatus at a constant temperature, for example in a water bath",
+              "Record the starting position of the liquid",
+              "Record the position of the liquid again after a set time",
+              "Calculate the distance moved and the rate, and repeat to find a mean"
+            ]
+          }
+        },
+        {
+          "type": "key-points",
+          "items": [
+            "The organisms are held on gauze so they do not touch the soda lime.",
+            "Keep the temperature constant, because temperature changes the rate of respiration.",
+            "Repeat the investigation and calculate a mean."
+          ]
+        }
+      ]
+    },
+    {
+      "heading": "Calculating the rate and controlling variables",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "The rate is how far the liquid moves in each minute."
+        },
+        {
+          "type": "equation",
+          "label": "Rate of oxygen uptake",
+          "formula": "rate = distance moved ÷ time",
+          "where": [
+            "rate, in mm per minute",
+            "distance moved by the liquid, in mm",
+            "time, in minutes"
+          ]
+        },
+        {
+          "type": "diagram",
+          "diagram": {
+            "kind": "practice",
+            "alt": "Practise calculating the rate of oxygen uptake from the distance the liquid moves.",
+            "question": "In a respirometer the coloured liquid moved **{d} mm** in **{t} minutes**. Calculate the rate of oxygen uptake in mm per minute. Give your answer to 1 decimal place.",
+            "variables": [
+              {
+                "id": "d",
+                "min": 10,
+                "max": 80,
+                "step": 1
+              },
+              {
+                "id": "t",
+                "min": 5,
+                "max": 10,
+                "step": 5
+              }
+            ],
+            "answer": {
+              "formula": "d / t",
+              "unit": "mm per minute",
+              "decimals": 1
+            },
+            "working": [
+              "Rate = distance moved ÷ time",
+              "Rate = {d} ÷ {t} = **{answer}** mm per minute"
+            ]
+          }
+        },
+        {
+          "type": "subheading",
+          "text": "Variables to control and a control tube"
+        },
+        {
+          "type": "list",
+          "items": [
+            "Use the same mass of each organism, so the results are comparable.",
+            "Use the same volume and concentration of indicator, if one is used.",
+            "Keep the temperature the same, and use the same size of tube.",
+            "Repeat the experiment.",
+            "A control uses the same apparatus with no living organisms, or with an inert mass such as glass beads."
+          ]
+        },
+        {
+          "type": "key-points",
+          "items": [
+            "Rate = distance moved ÷ time.",
+            "Control the mass of organisms, the temperature and the size of tube.",
+            "A control has the same apparatus but no living organisms."
+          ]
+        }
+      ]
+    },
+    {
+      "heading": "Other ways to follow respiration",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "Respiration can also be followed by the carbon dioxide that organisms make."
+        },
+        {
+          "type": "list",
+          "items": [
+            "Hydrogencarbonate indicator in a sealed tube with organisms. Carbon dioxide from respiration changes its colour, for example germinating peas respire and dried peas do not.",
+            "Fermentation in yeast. Collect the volume of carbon dioxide released in a set time, such as 10 minutes, at different temperatures.",
+            "Keep the flask at a constant temperature in a water bath. An electric heater, incubator or electric water bath is an alternative to a Bunsen burner.",
+            "If a Bunsen burner is used, wear goggles, tie back long hair and secure loose clothing."
+          ]
+        },
+        {
+          "type": "key-points",
+          "items": [
+            "Carbon dioxide production is another measure of the rate of respiration.",
+            "Keep the temperature constant and take sensible safety precautions."
+          ]
+        }
+      ]
+    }
+  ],
+  "checks": [
+    {
+      "q": "What is the job of the soda lime in a respirometer?",
+      "a": "It absorbs the carbon dioxide made by the organisms, so the change in gas volume is due to oxygen being used.",
+      "marks": 2
+    },
+    {
+      "q": "State two variables you should control to compare the respiration of different organisms in a respirometer.",
+      "a": "Any two from: the mass of the organisms; the temperature; the size or volume of the tube; the volume or concentration of indicator.",
+      "marks": 2
+    },
+    {
+      "q": "Describe a suitable control for a respiration investigation using organisms in a sealed tube.",
+      "a": "The same tube, gauze and bung with indicator, but with no living organisms, or with an inert mass such as glass beads.",
+      "marks": 2
+    }
+  ],
+  "boards": {
+    "edexcel": {
+      "spec_codes": [
+        "EDEX 8.11"
+      ],
+      "exam_phrases": [
+        "same mass of organisms",
+        "same volume of indicator",
+        "same concentration of indicator",
+        "same temperature",
+        "same volume / size of test tube",
+        "repeat the experiment",
+        "use a control",
+        "without any (live) organisms / with a mass of inert object e.g. glass beads"
+      ],
+      "mistakes": [
+        {
+          "wrong": "A control is the same test tube with fewer organisms.",
+          "right": "A control has the same test tube, gauze, bung and indicator, but without any living organisms, or with an inert mass such as stones, dead peas or glass beads."
+        },
+        {
+          "wrong": "Keep the time the same so that the results are comparable.",
+          "right": "References to time are ignored when the time is already stated in the question. Give another variable: the same mass of organisms, volume of indicator, temperature or size of tube."
+        }
+      ],
+      "worked_example": {
+        "exemplar_id": "39a96123-4f41-4554-b707-676a7b9ee1ea",
+        "source": "EDEXCEL jun 2019, Paper 2 (F), Q9(a)(i)",
+        "question": "A student investigated respiration in three different organisms.\n\nRed hydrogencarbonate indicator was placed in each of three test tubes. Gauze was placed in each test tube to hold the organisms.\n\nIn test tube 1 the student placed four germinating peas. In test tube 2 the student placed four dried peas. In test tube 3 the student placed four mealworms.\n\nBungs were added to each of the test tubes. The three test tubes were left for one hour.\n\nState two ways this method could be improved to make the results for these three organisms more comparable.",
+        "marks": 2,
+        "answer_points": [
+          "Any two from: same concentration of indicator; same mass of organisms; same volume of indicator; same temperature; same volume or size of test tube; repeat the experiment; use a control.",
+          "Weight is accepted for mass.",
+          "Do not give the time, because it is already in the question."
+        ],
+        "tip": "One mark for each improvement, up to two. Make each one a variable to keep the same, or a repeat or control."
+      }
+    },
+    "ocr": {
+      "spec_codes": [
+        "OCR 7.8"
+      ],
+      "exam_phrases": [
+        "electric heater",
+        "electric incubator / electric (water) bath",
+        "wear goggles",
+        "tie (long) hair back",
+        "secure loose clothing",
+        "use gauze under flask / use heatproof mat",
+        "wear gloves"
+      ],
+      "mistakes": [
+        {
+          "wrong": "Wear a face mask to stay safe when heating the water bath.",
+          "right": "\"Face mask\" is ignored. Give a precaution such as wearing goggles, tying long hair back, securing loose clothing, wearing gloves or using a heatproof mat."
+        },
+        {
+          "wrong": "Be careful not to touch the hot equipment.",
+          "right": "\"Do not touch hot equipment\" is ignored. Name a specific precaution."
+        },
+        {
+          "wrong": "Keep the flask at a constant temperature using a Bunsen burner.",
+          "right": "The Bunsen burner is the method already given. Another way is an electric heater, electric incubator or electric water bath."
+        }
+      ],
+      "worked_example": {
+        "exemplar_id": "94ae723f-c3e0-42a7-b16e-45ea024765e8",
+        "source": "OCR nov 2020, Paper 1, Q17(a)(ii)",
+        "question": "Fermentation involves enzymes breaking down sugar and releasing carbon dioxide gas. The volume of carbon dioxide released can be used to measure how fast these enzymes are working.\n\nA student investigates if fermentation works faster at 25 °C or 30 °C. She measures the volume of carbon dioxide released in 10 minutes.\n\nShe chooses to use a Bunsen burner and water bath to keep the flask at a constant temperature.\n\nGive one safety precaution she should take.",
+        "marks": 1,
+        "answer_points": [
+          "Wear goggles, or tie (long) hair back, or secure loose clothing.",
+          "Also allowed: wear gloves, use gauze under the flask, or use a heatproof mat."
+        ],
+        "tip": "One precaution is enough for the mark. \"Face mask\" and \"do not touch hot equipment\" are ignored."
+      }
+    }
+  },
+  "meta": {
+    "status": "draft",
+    "written_by": "sonnet-5-5",
+    "written_at": "2026-10-01",
+    "spec_point_ids": [
+      "0dc1f36d-aa7f-4a05-976a-13aff1cb2c08",
+      "7c9edb35-2540-4227-8841-f0cd89518a7b"
+    ],
+    "exemplar_ids": [
+      "39a96123-4f41-4554-b707-676a7b9ee1ea",
+      "94ae723f-c3e0-42a7-b16e-45ea024765e8"
+    ]
+  }
+}
