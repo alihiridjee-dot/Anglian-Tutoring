@@ -7,6 +7,7 @@ import { FilterBar, type Filters } from "@/components/FilterBar";
 import { toast } from "sonner";
 import { ClipboardCheck, Clock, Inbox, Loader2, MessageSquare } from "lucide-react";
 import { AnswerMarkingList } from "./AnswerMarking";
+import { ErrorNote } from "@/components/Shared";
 import { useAnswerMarking } from "@/hooks/data/useAnswerMarking";
 import type { SubjectV, BoardV, LevelV } from "@/lib/curriculum/taxonomy";
 import { subjectLabel } from "@/lib/curriculum/courseSummary";
@@ -296,7 +297,10 @@ function MarkSubmissionCard({
 
   // Built-in homework: the questions and this student's answers, loaded only
   // once the card is open.
-  const marking = useAnswerMarking(sub.resource?.id, sub.id, open);
+  const marking = useAnswerMarking(sub.resource?.id, sub.id, open, {
+    submittedAt: sub.submitted_at,
+    graded: !!sub.graded_at,
+  });
 
   // The awarded total is the honest source for score_pct, so keep the field in
   // step with the per-question marks until the tutor overrides it by hand.
@@ -307,7 +311,8 @@ function MarkSubmissionCard({
   }, [pctTouched, marking.hasQuestions, marking.scorePct]);
 
   // Same for the overall comment: offered, not imposed. A tutor who has written
-  // their own keeps it.
+  // their own keeps it, and one who emptied the box keeps it empty. (The hook
+  // offers no summary once the work is published.)
   const [feedbackTouched, setFeedbackTouched] = useState(false);
   useEffect(() => {
     if (feedbackTouched || !marking.summary || feedback.trim() !== "") return;
@@ -322,28 +327,12 @@ function MarkSubmissionCard({
     }
     setSaving(true);
     try {
-      // Per-question marks first: if one is out of range the overall mark isn't
-      // written either, so the two can't disagree.
-      if (marking.hasQuestions) await marking.saveMarks();
-
-      const { error } = await supabase
-        .from("homework_submissions")
-        .update({
-          // Derived, not typed. The marks are the mark; a grade box a tutor
-          // filled in by hand was a second source of truth that could — and
-          // did — disagree with the percentage printed next to it.
-          grade: pct != null ? String(gradeFromPct(pct)) : null,
-          score_pct: pct,
-          feedback: feedback.trim() || null,
-          graded_by: graderId,
-          graded_at: new Date().toISOString(),
-          // Publishing by hand is also the record that a person looked at it,
-          // which is the difference between a checked mark and one that ran out
-          // of clock.
-          tutor_reviewed_at: new Date().toISOString(),
-        })
-        .eq("id", sub.id);
-      if (error) throw error;
+      // Every answer's marks and the overall mark in one write, so they can't
+      // disagree and the timer can't publish over half of it. The grade is
+      // derived from the score on the server, by the rule gradeFromPct shows
+      // below; the write also records that a person looked at it, which is the
+      // difference between a checked mark and one that ran out of clock.
+      await marking.confirm(pct, feedback.trim() || null);
       toast.success(`Marked ${studentName}'s submission`);
       void invalidatePlanner(plannerQueryClient, sub.student_id);
       onSaved();
@@ -407,6 +396,8 @@ function MarkSubmissionCard({
               <p className="inline-flex items-center gap-2 text-sm text-muted-foreground">
                 <Loader2 className="w-3.5 h-3.5 animate-spin" /> Loading answers…
               </p>
+            ) : marking.error ? (
+              <ErrorNote error={marking.error} onRetry={marking.retry} />
             ) : marking.hasQuestions ? (
               // Built-in homework: the answers themselves are the work, and any
               // photos are shown inline against the question they belong to.
@@ -475,7 +466,10 @@ function MarkSubmissionCard({
             </span>
             <textarea
               value={feedback}
-              onChange={(e) => setFeedback(e.target.value)}
+              onChange={(e) => {
+                setFeedbackTouched(true);
+                setFeedback(e.target.value);
+              }}
               placeholder="Feedback the student will see on their dashboard…"
               className="mt-1 w-full min-h-28 rounded-lg premium-input px-3 py-2 text-sm"
             />
@@ -489,7 +483,7 @@ function MarkSubmissionCard({
             )}
             <button
               onClick={save}
-              disabled={saving}
+              disabled={saving || marking.loading || !!marking.error}
               className="ml-auto inline-flex items-center gap-2 h-11 sm:h-10 px-5 rounded-lg btn-solid text-sm font-semibold hover:opacity-90 disabled:opacity-60"
             >
               {saving ? (

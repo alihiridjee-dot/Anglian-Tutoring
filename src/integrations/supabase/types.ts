@@ -1843,6 +1843,15 @@ export type Database = {
         Args: { _endpoint: string; _limit: number; _window: string };
         Returns: boolean;
       };
+      confirm_homework_marks: {
+        Args: {
+          _feedback: string | null;
+          _marks: Json;
+          _score_pct: number | null;
+          _submission_id: string;
+        };
+        Returns: undefined;
+      };
       curriculum_coverage: {
         Args: never;
         Returns: {
