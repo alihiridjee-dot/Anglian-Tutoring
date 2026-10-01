@@ -29,7 +29,7 @@
             ],
             [
               "Carbon dioxide, water vapour and noble gases",
-              "Small proportions (about 1% in total)"
+              "Small proportions (carbon dioxide is about 0.04%)"
             ]
           ]
         },
@@ -138,7 +138,8 @@
           "items": [
             "Limestone contains carbon from carbonates that formed sediments.",
             "Coal, crude oil and natural gas are fossil fuels that contain carbon.",
-            "Natural gas formed from plankton that died and were covered by sediments.",
+            "Coal formed from plant remains that were buried.",
+            "Crude oil and natural gas formed from plankton that died and were covered by sediments.",
             "Heat and pressure over millions of years turned the remains into deposits."
           ]
         },
@@ -313,8 +314,8 @@
           "right": "Give the cause as well. Algae and plants evolved and used carbon dioxide in photosynthesis, which released oxygen. The oceans also took in carbon dioxide."
         },
         {
-          "wrong": "Nitrogen increased because of photosynthesis.",
-          "right": "Nitrogen increased because of emission from volcanoes (denitrifying bacteria is also allowed). Photosynthesis explains oxygen."
+          "wrong": "Nitrogen increased.",
+          "right": "Give the cause as well: emission from volcanoes (denitrifying bacteria is also allowed). Each change needs its own cause to earn the mark."
         },
         {
           "wrong": "Natural gas was formed when dinosaurs died.",
@@ -382,7 +383,7 @@
           "blocks": [
             {
               "type": "paragraph",
-              "text": "Edexcel asks you to interpret evidence about the early atmosphere. Rocks give some."
+              "text": "Questions may ask you to interpret evidence about the early atmosphere. Rocks give some."
             },
             {
               "type": "list",
@@ -456,6 +457,8 @@
       "ca9cd955-86d8-4404-ae11-50382ebbae5b",
       "d637a8a5-2dd3-4efb-ac0f-95601c19a8a9",
       "24445ba1-44ae-47e4-9a20-95ca5cb02f4b"
-    ]
+    ],
+    "checked_by": "sonnet-science-check",
+    "checked_at": "2026-10-01"
   }
 }

@@ -53,6 +53,19 @@
           ]
         },
         {
+          "type": "subheading",
+          "text": "Reducing methane"
+        },
+        {
+          "type": "list",
+          "items": [
+            "Reduce livestock farming and the number of rice (paddy) fields.",
+            "Reduce the amount of rubbish going to landfill.",
+            "Use methane from landfill as an energy source.",
+            "Reduce fossil fuel use and the destruction of peat bogs."
+          ]
+        },
+        {
           "type": "diagram",
           "diagram": {
             "kind": "sort",
@@ -150,7 +163,8 @@
             "Evidence compares the change in atmospheric carbon dioxide, fossil fuel use and temperature.",
             "Many scientists believe human activities will cause the Earth's temperature to rise, based on peer-reviewed evidence.",
             "It is difficult to model such a complex system, so models are simplified.",
-            "Opinions in the media may be based on only part of the evidence and may be biased."
+            "Opinions in the media may be based on only part of the evidence and may be biased.",
+            "Possible effects of global warming include melting ice and rising sea levels."
           ]
         },
         {
@@ -369,6 +383,8 @@
       "7dbb639f-0b01-450d-ac34-a760975f929f",
       "5e26b255-e471-4c79-a342-3a5fe148f5a4",
       "e60126bb-82a1-4661-a91e-24a76bed96a8"
-    ]
+    ],
+    "checked_by": "sonnet-science-check",
+    "checked_at": "2026-10-01"
   }
 }

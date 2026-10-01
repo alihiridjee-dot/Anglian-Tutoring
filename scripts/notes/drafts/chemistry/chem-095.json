@@ -148,10 +148,6 @@
           "right": "References to the ozone layer are ignored. Explain with radiation: short wavelength radiation enters, is re-emitted as longer wavelength radiation, and is absorbed by greenhouse gases."
         },
         {
-          "wrong": "The Sun's radiation is absorbed by methane in the atmosphere.",
-          "right": "The short wavelength radiation passes through. It is absorbed by the Earth and re-emitted as longer wavelength radiation, which is absorbed by the greenhouse gas."
-        },
-        {
           "wrong": "Methane keeps the moon warm.",
           "right": "A bare statement earns nothing. If no other mark is given, one mark is allowed for saying methane absorbs longer wavelength (infrared) radiation."
         }
@@ -182,8 +178,8 @@
       ],
       "mistakes": [
         {
-          "wrong": "Only carbon dioxide is produced when diesel burns completely.",
-          "right": "Water is also produced. Either carbon dioxide or water earns the first mark, and the formula is allowed."
+          "wrong": "Writing the formula CO₂ instead of the name 'carbon dioxide' loses the mark.",
+          "right": "The formula is allowed. 'Traps the heat' is also allowed for the gases absorbing heat radiated from the Earth."
         },
         {
           "wrong": "Carbon dioxide causes the greenhouse effect.",
@@ -254,6 +250,8 @@
       "71e1a651-bb7b-416b-8873-9b0e5ca54882",
       "e326646d-620a-471b-8c3e-ddc095d7b494",
       "acfceb21-5a22-45e6-a60f-e31384182efb"
-    ]
+    ],
+    "checked_by": "sonnet-science-check",
+    "checked_at": "2026-10-01"
   }
 }
