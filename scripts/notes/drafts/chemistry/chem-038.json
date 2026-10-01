@@ -8,21 +8,39 @@
     {
       "heading": "Actual yield and theoretical yield",
       "blocks": [
-        { "type": "paragraph", "text": "(Chemistry only) No atoms are gained or lost in a chemical reaction. Even so, it is not always possible to obtain the calculated amount of a product." },
+        {
+          "type": "paragraph",
+          "text": "(Chemistry only) No atoms are gained or lost in a chemical reaction. Even so, it is not always possible to obtain the calculated amount of a product."
+        },
         {
           "type": "definitions",
           "items": [
-            { "term": "Yield", "meaning": "The amount of product obtained from a reaction." },
-            { "term": "Actual yield", "meaning": "The mass of product actually formed in the experiment." },
-            { "term": "Theoretical yield", "meaning": "The maximum mass of product, calculated from the balanced equation, if all the reactant formed product with no losses." },
-            { "term": "Percentage yield", "meaning": "The actual yield as a percentage of the theoretical yield." }
+            {
+              "term": "Yield",
+              "meaning": "The amount of product obtained from a reaction."
+            },
+            {
+              "term": "Actual yield",
+              "meaning": "The mass of product actually formed in the experiment."
+            },
+            {
+              "term": "Theoretical yield",
+              "meaning": "The maximum mass of product, calculated from the balanced equation, if all the reactant formed product with no losses."
+            },
+            {
+              "term": "Percentage yield",
+              "meaning": "The actual yield as a percentage of the theoretical yield."
+            }
           ]
         },
-        { "type": "subheading", "text": "Why the actual yield is less than the theoretical yield" },
+        {
+          "type": "subheading",
+          "text": "Why the actual yield is less than the theoretical yield"
+        },
         {
           "type": "list",
           "items": [
-            "The reaction may be **incomplete**. It may not go to completion because it is reversible, and some reactant is left over.",
+            "The reaction may be **incomplete**. It may not go to completion, for example because it is reversible, so some reactant is left over.",
             "Some product may be lost during the experiment. For example, it is left in the apparatus or lost when it is separated from the reaction mixture.",
             "Some reactants may take part in **side reactions**, which are unwanted competing reactions."
           ]
@@ -39,14 +57,23 @@
     {
       "heading": "Calculating percentage yield",
       "blocks": [
-        { "type": "paragraph", "text": "Use the same units for both masses. The answer is a percentage, so multiply by 100." },
+        {
+          "type": "paragraph",
+          "text": "Use the same units for both masses. The answer is a percentage, so multiply by 100."
+        },
         {
           "type": "equation",
           "label": "Percentage yield",
           "formula": "percentage yield = actual yield ÷ theoretical yield × 100",
-          "where": ["actual yield is the mass of product actually made, in g", "theoretical yield is the maximum mass of product, in g"]
+          "where": [
+            "actual yield is the mass of product actually made, in g",
+            "theoretical yield is the maximum mass of product, in g"
+          ]
         },
-        { "type": "paragraph", "text": "Example: an extraction should give a maximum of 31.8 kg of aluminium. Only 28.4 kg is produced. Percentage yield = 28.4 ÷ 31.8 × 100 = 89.3%." },
+        {
+          "type": "paragraph",
+          "text": "Example: an extraction should give a maximum of 31.8 kg of aluminium. Only 28.4 kg is produced. Percentage yield = 28.4 ÷ 31.8 × 100 = 89.3%."
+        },
         {
           "type": "diagram",
           "diagram": {
@@ -54,17 +81,34 @@
             "alt": "Practise calculating a percentage yield from an actual yield and a theoretical yield.",
             "question": "A reaction should make a maximum of **{t}** g of product. The student obtains **{a}** g. Calculate the percentage yield.",
             "variables": [
-              { "id": "t", "min": 20, "max": 40, "step": 5 },
-              { "id": "a", "min": 10, "max": 19, "step": 1 }
+              {
+                "id": "t",
+                "min": 20,
+                "max": 40,
+                "step": 2.5
+              },
+              {
+                "id": "a",
+                "min": 12,
+                "max": 19,
+                "step": 0.5
+              }
             ],
-            "answer": { "formula": "a / t * 100", "unit": "%", "decimals": 1 },
+            "answer": {
+              "formula": "a / t * 100",
+              "unit": "%",
+              "decimals": 1
+            },
             "working": [
               "Percentage yield = actual yield ÷ theoretical yield × 100.",
               "{a} ÷ {t} × 100 = **{answer}** %."
             ]
           }
         },
-        { "type": "subheading", "text": "Rearranging" },
+        {
+          "type": "subheading",
+          "text": "Rearranging"
+        },
         {
           "type": "list",
           "items": [
@@ -85,16 +129,31 @@
     {
       "heading": "Calculating the theoretical yield",
       "blocks": [
-        { "type": "paragraph", "text": "(Higher tier) The theoretical mass of a product comes from a given mass of reactant and the balanced equation." },
+        {
+          "type": "paragraph",
+          "text": "(Higher tier) The theoretical mass of a product comes from a given mass of reactant and the balanced equation."
+        },
         {
           "type": "steps",
           "items": [
-            { "lead": "Moles.", "text": "Moles of reactant = mass ÷ Mr." },
-            { "lead": "Ratio.", "text": "Use the equation to find the moles of product." },
-            { "lead": "Mass.", "text": "Mass of product = moles × Mr of the product." }
+            {
+              "lead": "Moles.",
+              "text": "Moles of reactant = mass ÷ Mr."
+            },
+            {
+              "lead": "Ratio.",
+              "text": "Use the equation to find the moles of product."
+            },
+            {
+              "lead": "Mass.",
+              "text": "Mass of product = moles × Mr of the product."
+            }
           ]
         },
-        { "type": "paragraph", "text": "Example: 6.00 g of HNO₃ makes NH₄NO₃ (HNO₃ + NH₃ → NH₄NO₃, ratio 1 : 1). Mr: HNO₃ = 63.0, NH₄NO₃ = 80.0." },
+        {
+          "type": "paragraph",
+          "text": "Example: 6.00 g of HNO₃ makes NH₄NO₃ (HNO₃ + NH₃ → NH₄NO₃, ratio 1 : 1). Mr: HNO₃ = 63.0, NH₄NO₃ = 80.0."
+        },
         {
           "type": "list",
           "items": [
@@ -110,9 +169,18 @@
             "alt": "Practise calculating the theoretical mass of magnesium oxide from a mass of magnesium.",
             "question": "2Mg + O₂ → 2MgO. **{m}** g of magnesium burns in excess oxygen. Calculate the theoretical yield of magnesium oxide. Ar: Mg = 24; Mr: MgO = 40.",
             "variables": [
-              { "id": "m", "min": 2.4, "max": 12, "step": 2.4 }
+              {
+                "id": "m",
+                "min": 2.4,
+                "max": 12,
+                "step": 2.4
+              }
             ],
-            "answer": { "formula": "m / 24 * 40", "unit": "g", "decimals": 1 },
+            "answer": {
+              "formula": "m / 24 * 40",
+              "unit": "g",
+              "decimals": 1
+            },
             "working": [
               "Moles of Mg = {m} ÷ 24.",
               "2 mol Mg makes 2 mol MgO, so the moles of MgO are the same.",
@@ -149,7 +217,9 @@
   ],
   "boards": {
     "aqa": {
-      "spec_codes": ["AQA 4.3.3.1"],
+      "spec_codes": [
+        "AQA 4.3.3.1"
+      ],
       "exam_phrases": [
         "(moles ZnI2 = 0.025, theoretical mass ZnI2 = 0.025 x 319 =) 7.975 (g)",
         "(% yield =) 6.29 / 7.975 x 100",
@@ -187,7 +257,10 @@
       }
     },
     "edexcel": {
-      "spec_codes": ["EDEX 5.11C", "EDEX 5.12C"],
+      "spec_codes": [
+        "EDEX 5.11C",
+        "EDEX 5.12C"
+      ],
       "exam_phrases": [
         "45.26/60.00 = 0.7543",
         "(0.7543) x 100 = 75.43",
@@ -225,7 +298,10 @@
       }
     },
     "ocr": {
-      "spec_codes": ["OCR C5.1g", "OCR C5.1h"],
+      "spec_codes": [
+        "OCR C5.1g",
+        "OCR C5.1h"
+      ],
       "exam_phrases": [
         "Mr of HNO3 = 63.0 OR NH4NO3 = 80.0",
         "mass of ammonium nitrate = 80.0 x 6.00 / 63.0",
@@ -277,6 +353,8 @@
       "f7d07c8d-2d3b-409e-9ed3-2617a6459bb3",
       "6939ec65-a157-4153-bad3-23ca218864d6",
       "4c817937-10d2-4bb3-bf75-5f27390970c0"
-    ]
+    ],
+    "checked_by": "sonnet-science-check",
+    "checked_at": "2026-10-01"
   }
 }

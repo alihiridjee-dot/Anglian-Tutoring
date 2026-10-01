@@ -8,12 +8,21 @@
     {
       "heading": "What atom economy means",
       "blocks": [
-        { "type": "paragraph", "text": "(Chemistry only) Most reactions make a useful product and also by-products. Atom economy shows how much of the reactants become the product you want." },
+        {
+          "type": "paragraph",
+          "text": "(Chemistry only) Most reactions make a useful product and also by-products. Atom economy shows how much of the reactants become the product you want."
+        },
         {
           "type": "definitions",
           "items": [
-            { "term": "Atom economy", "meaning": "A measure of the amount of starting materials that end up as useful products." },
-            { "term": "Desired product", "meaning": "The product the reaction is carried out to make." }
+            {
+              "term": "Atom economy",
+              "meaning": "A measure of the amount of starting materials that end up as useful products."
+            },
+            {
+              "term": "Desired product",
+              "meaning": "The product the reaction is carried out to make."
+            }
           ]
         },
         {
@@ -36,27 +45,45 @@
     {
       "heading": "Calculating atom economy",
       "blocks": [
-        { "type": "paragraph", "text": "Use the balanced equation. Multiply each relative formula mass by the number in front of that formula." },
+        {
+          "type": "paragraph",
+          "text": "Use the balanced equation. Multiply each relative formula mass by the number in front of that formula."
+        },
         {
           "type": "equation",
           "label": "Percentage atom economy",
           "formula": "atom economy = Mr of desired product ÷ sum of Mr of all reactants × 100",
-          "where": ["Mr of desired product is the relative formula mass from the equation", "sum of Mr of all reactants is the total from the equation"]
+          "where": [
+            "Mr of desired product is the relative formula mass from the equation",
+            "sum of Mr of all reactants is the total from the equation"
+          ]
         },
         {
           "type": "steps",
           "items": [
-            { "lead": "Reactants.", "text": "Add up the Mr of all the reactants in the equation." },
-            { "lead": "Desired product.", "text": "Find the Mr of the product you want, allowing for the number in front." },
-            { "lead": "Divide.", "text": "Divide the Mr of the desired product by the total Mr of the reactants, then multiply by 100." }
+            {
+              "lead": "Reactants.",
+              "text": "Add up the Mr of all the reactants in the equation."
+            },
+            {
+              "lead": "Desired product.",
+              "text": "Find the Mr of the product you want, allowing for the number in front."
+            },
+            {
+              "lead": "Divide.",
+              "text": "Divide the Mr of the desired product by the total Mr of the reactants, then multiply by 100."
+            }
           ]
         },
-        { "type": "paragraph", "text": "Example: CaCO₃ → CaO + CO₂. The desired product is CaO. Mr: CaCO₃ = 100, CaO = 56. Atom economy = 56 ÷ 100 × 100 = 56%." },
+        {
+          "type": "paragraph",
+          "text": "Example: CaCO₃ → CaO + CO₂. The desired product is CaO. Mr: CaCO₃ = 100, CaO = 56. Atom economy = 56 ÷ 100 × 100 = 56%."
+        },
         {
           "type": "list",
           "items": [
-            "The total Mr of all the reactants equals the total Mr of all the products, because no atoms are lost.",
-            "So the total Mr of the products can be used in the denominator instead.",
+            "For a balanced equation, the total Mr of the reactants equals the total Mr of the products, because no atoms are lost.",
+            "So dividing by the total Mr of all the products gives the same answer as dividing by the total Mr of all the reactants.",
             "Give the answer to the number of significant figures asked for."
           ]
         },
@@ -67,10 +94,24 @@
             "alt": "Practise calculating a percentage atom economy from relative formula masses.",
             "question": "In a reaction, the desired product has an Mr of **{d}**. The sum of the Mr of all the reactants in the equation is **{r}**. Calculate the percentage atom economy.",
             "variables": [
-              { "id": "d", "min": 40, "max": 120, "step": 10 },
-              { "id": "r", "min": 130, "max": 200, "step": 10 }
+              {
+                "id": "d",
+                "min": 40,
+                "max": 120,
+                "step": 10
+              },
+              {
+                "id": "r",
+                "min": 130,
+                "max": 200,
+                "step": 10
+              }
             ],
-            "answer": { "formula": "d / r * 100", "unit": "%", "decimals": 1 },
+            "answer": {
+              "formula": "d / r * 100",
+              "unit": "%",
+              "decimals": 1
+            },
             "working": [
               "Atom economy = Mr of desired product ÷ sum of Mr of all reactants × 100.",
               "{d} ÷ {r} × 100 = **{answer}** %."
@@ -89,21 +130,48 @@
     {
       "heading": "Choosing a reaction pathway",
       "blocks": [
-        { "type": "paragraph", "text": "(Higher tier) Atom economy is only one factor. A pathway is chosen using data such as atom economy, yield, rate, equilibrium position and usefulness of by-products." },
+        {
+          "type": "paragraph",
+          "text": "(Higher tier) Atom economy is only one factor. A pathway is chosen using data such as atom economy, yield, rate, equilibrium position and usefulness of by-products."
+        },
         {
           "type": "diagram",
           "diagram": {
             "kind": "compare",
             "alt": "Atom economy compared with percentage yield.",
-            "items": ["Atom economy", "Percentage yield"],
+            "items": [
+              "Atom economy",
+              "Percentage yield"
+            ],
             "rows": [
-              { "feature": "Compares", "values": ["Mr of desired product with Mr of all reactants", "Actual mass of product with theoretical mass"] },
-              { "feature": "Found from", "values": ["The balanced equation only", "The results of an experiment"] },
-              { "feature": "Shows", "values": ["How much of the reactants becomes useful product", "How much product was actually obtained"] }
+              {
+                "feature": "Compares",
+                "values": [
+                  "Mr of desired product with Mr of all reactants",
+                  "Actual mass of product with theoretical mass"
+                ]
+              },
+              {
+                "feature": "Found from",
+                "values": [
+                  "The balanced equation only",
+                  "The results of an experiment"
+                ]
+              },
+              {
+                "feature": "Shows",
+                "values": [
+                  "How much of the reactants becomes useful product",
+                  "How much product was actually obtained"
+                ]
+              }
             ]
           }
         },
-        { "type": "subheading", "text": "Other factors to consider" },
+        {
+          "type": "subheading",
+          "text": "Other factors to consider"
+        },
         {
           "type": "list",
           "items": [
@@ -143,7 +211,9 @@
   ],
   "boards": {
     "aqa": {
-      "spec_codes": ["AQA 4.3.3.2"],
+      "spec_codes": [
+        "AQA 4.3.3.2"
+      ],
       "exam_phrases": [
         "(total Mr = 170 + 150) = 320",
         "(% atom economy =) 235 × 100 / 320",
@@ -180,7 +250,11 @@
       }
     },
     "edexcel": {
-      "spec_codes": ["EDEX 5.13C", "EDEX 5.14C", "EDEX 5.15C"],
+      "spec_codes": [
+        "EDEX 5.13C",
+        "EDEX 5.14C",
+        "EDEX 5.15C"
+      ],
       "exam_phrases": [
         "total mass: 2x223 + 12 (= 458)",
         "mass of useful products: 2 x 207 = 414",
@@ -217,7 +291,11 @@
       }
     },
     "ocr": {
-      "spec_codes": ["OCR C5.1i", "OCR C5.1j", "OCR C5.1k"],
+      "spec_codes": [
+        "OCR C5.1i",
+        "OCR C5.1j",
+        "OCR C5.1k"
+      ],
       "exam_phrases": [
         "atom economy = total Mr of desired products / total Mr of all products x 100",
         "atom economy = total Mr of desired products / total Mr of all reactants x 100",
@@ -277,6 +355,8 @@
       "96896bd0-7944-4bdf-89ae-e9879a69c495",
       "0432e78b-4ca6-4866-b101-66939ca37d42",
       "30c2a072-5460-4af5-a19a-922a28431b1b"
-    ]
+    ],
+    "checked_by": "sonnet-science-check",
+    "checked_at": "2026-10-01"
   }
 }

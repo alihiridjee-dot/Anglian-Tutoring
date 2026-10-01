@@ -154,6 +154,12 @@
           ],
           "rows": [
             [
+              "Reactants",
+              "Glucose and oxygen",
+              "Glucose",
+              "Glucose"
+            ],
+            [
               "Oxygen",
               "Needed",
               "Not needed",
@@ -166,7 +172,7 @@
               "Ethanol and carbon dioxide"
             ],
             [
-              "Energy released",
+              "Energy (ATP) released",
               "Much more",
               "Much less",
               "Much less"
@@ -352,6 +358,8 @@
       "eacaef45-18ef-4da6-9957-c465c4448e20",
       "5595c02a-d638-4a32-b9c5-e91ff28c8e5b",
       "3cfbccbc-ad49-4490-bf32-3caa13561422"
-    ]
+    ],
+    "checked_by": "sonnet-science-check",
+    "checked_at": "2026-10-01"
   }
 }

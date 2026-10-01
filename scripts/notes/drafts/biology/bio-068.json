@@ -1,0 +1,264 @@
+{
+  "format": 1,
+  "concept_id": "bio-068",
+  "subject": "biology",
+  "title": "The brain",
+  "key_idea": "The brain is the coordination centre for most of the body. Different regions have different jobs: the cerebral cortex handles thought, memory and language, the cerebellum balance and coordination, and the medulla heart rate and breathing. (Separate science)",
+  "sections": [
+    {
+      "heading": "Regions of the brain and their jobs",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "(Separate science) The brain is part of the central nervous system. This section covers the main regions and what each one controls."
+        },
+        {
+          "type": "definitions",
+          "items": [
+            {
+              "term": "Cerebral cortex",
+              "meaning": "The outer layer of the cerebrum, or cerebral hemispheres. It is the part used for conscious thought."
+            },
+            {
+              "term": "Cerebellum",
+              "meaning": "The region at the back of the brain that controls balance and coordinates movement."
+            },
+            {
+              "term": "Medulla oblongata",
+              "meaning": "The region joined to the spinal cord that controls unconscious activities."
+            },
+            {
+              "term": "Hypothalamus",
+              "meaning": "A region that monitors and controls body temperature and water balance."
+            },
+            {
+              "term": "Pituitary gland",
+              "meaning": "An endocrine gland in the brain that releases hormones."
+            }
+          ]
+        },
+        {
+          "type": "diagram",
+          "diagram": {
+            "kind": "explorer",
+            "alt": "A self-test: tap each region of the brain to learn its job, then test yourself.",
+            "prompt": "Tap a region of the brain to see what it controls.",
+            "parts": [
+              {
+                "name": "Cerebral cortex",
+                "detail": "Controls conscious thought, such as making decisions. It also deals with memory, language, learning and voluntary movement. It processes vision."
+              },
+              {
+                "name": "Cerebellum",
+                "detail": "Controls balance and coordinates conscious movement."
+              },
+              {
+                "name": "Medulla oblongata",
+                "detail": "Controls heart rate and breathing rate. These activities are unconscious and automatic."
+              },
+              {
+                "name": "Hypothalamus",
+                "detail": "Monitors body temperature and water balance, and controls the pituitary gland."
+              },
+              {
+                "name": "Pituitary gland",
+                "detail": "An endocrine gland. It releases hormones into the blood."
+              }
+            ]
+          }
+        },
+        {
+          "type": "key-points",
+          "items": [
+            "Cerebral cortex: thinking, decisions, memory, language, vision.",
+            "Cerebellum: balance and coordination.",
+            "Medulla: heart rate and breathing."
+          ]
+        }
+      ]
+    },
+    {
+      "heading": "Linking damage to function",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "Damage to one region affects the job that region does. Exam questions often give a symptom and ask which region is involved."
+        },
+        {
+          "type": "table",
+          "columns": [
+            "Symptom",
+            "Region damaged"
+          ],
+          "rows": [
+            [
+              "Difficulty controlling balance",
+              "Cerebellum"
+            ],
+            [
+              "Memory, language or decision-making problems",
+              "Cerebral cortex"
+            ],
+            [
+              "Loss of sight, if the back of the cerebral hemispheres (occipital lobe) is damaged",
+              "Cerebral cortex (cerebral hemispheres)"
+            ],
+            [
+              "Heart rate and breathing rate affected",
+              "Medulla"
+            ]
+          ]
+        },
+        {
+          "type": "list",
+          "items": [
+            "The brain processes information from the eyes in the cerebral hemispheres.",
+            "Voluntary movement is controlled by the cerebral cortex (the motor cortex).",
+            "The cerebellum coordinates that movement, so it is smooth and balanced.",
+            "Anaesthetics slow breathing and heart rate because they act on the medulla."
+          ]
+        },
+        {
+          "type": "key-points",
+          "items": [
+            "Match the symptom to the region that does that job.",
+            "The cerebral cortex is for conscious thought. The medulla works without thought.",
+            "Damage to a region affects only the jobs of that region."
+          ]
+        }
+      ]
+    }
+  ],
+  "checks": [
+    {
+      "q": "Which part of the brain controls balance?",
+      "a": "The cerebellum.",
+      "marks": 1
+    },
+    {
+      "q": "Name the part of the brain that controls heart rate and breathing rate.",
+      "a": "The medulla (oblongata).",
+      "marks": 1
+    },
+    {
+      "q": "A person has a head injury and has problems with memory and language. Which part of the brain is most likely to be damaged?",
+      "a": "The cerebral cortex (cerebrum).",
+      "marks": 1
+    }
+  ],
+  "boards": {
+    "aqa": {
+      "spec_codes": [
+        "AQA 5.4"
+      ],
+      "exam_phrases": [
+        "cerebral cortex (allow cerebrum / cerebral hemispheres)",
+        "cerebellum",
+        "balance"
+      ],
+      "mistakes": [
+        {
+          "wrong": "The cerebellum is the part of the brain that makes a decision.",
+          "right": "The part that makes decisions is the cerebral cortex. Cerebrum and cerebral hemispheres are also allowed."
+        },
+        {
+          "wrong": "The cerebral cortex controls balance when riding a bicycle.",
+          "right": "Balance is controlled by the cerebellum."
+        }
+      ],
+      "worked_example": {
+        "exemplar_id": "be18b959-6d41-43a8-845c-743afede4901",
+        "source": "AQA jun 2020, Paper 2 (H), Q06.2",
+        "question": "Name the part of the brain that is responsible for making a decision.",
+        "marks": 1,
+        "answer_points": [
+          "The cerebral cortex."
+        ],
+        "tip": "Cerebrum and cerebral hemisphere(s) are also allowed."
+      }
+    },
+    "edexcel": {
+      "spec_codes": [
+        "EDEX 2.10B"
+      ],
+      "exam_phrases": [
+        "the occipital lobe is in the cerebral hemispheres",
+        "damage to the occipital lobe affects (eye)sight / vision",
+        "being able to see",
+        "answer in standard form: 1.84 × 10⁸"
+      ],
+      "mistakes": [
+        {
+          "wrong": "The occipital lobe is part of the cerebellum.",
+          "right": "The occipital lobe is not in the medulla oblongata, the cerebellum or the hypothalamus. It is in the cerebral hemispheres."
+        },
+        {
+          "wrong": "The difference is 18.4 × 10⁷.",
+          "right": "Standard form needs one digit before the decimal point: 1.84 × 10⁸. The answer 18.4 × 10⁷ gets only 1 of the 2 marks."
+        }
+      ],
+      "worked_example": {
+        "exemplar_id": "a24fb923-1427-4b80-b8d0-5fe19db0e182",
+        "source": "EDEXCEL jun 2019, Paper 1 (H), Q10(a)(i)",
+        "question": "A rat brain has 2.0 × 10⁸ neurones and a frog brain has 1.6 × 10⁷ neurones.\n\nCalculate the difference between the number of neurones in the brain of the rat and the brain of the frog. Give your answer in standard form.",
+        "marks": 2,
+        "answer_points": [
+          "Subtract: 2.0 × 10⁸ − 1.6 × 10⁷ = 184 000 000.",
+          "In standard form this is 1.84 × 10⁸ (1.8 × 10⁸ is accepted)."
+        ],
+        "tip": "A correct answer with no working scores both marks. 18.4 × 10⁷ or 18 × 10⁷ scores 1 mark."
+      }
+    },
+    "ocr": {
+      "spec_codes": [
+        "OCR 3.1f"
+      ],
+      "exam_phrases": [
+        "cerebellum: coordinates conscious movement",
+        "cerebrum: responsible for learning, language and memory",
+        "medulla: controls heart rate and breathing rate",
+        "cerebral cortex / cerebrum controls voluntary movement",
+        "cerebrum processes vision",
+        "the cerebellum controls balance / co-ordination"
+      ],
+      "mistakes": [
+        {
+          "wrong": "The cerebrum controls heart rate and breathing rate.",
+          "right": "Heart rate and breathing rate are controlled by the medulla."
+        },
+        {
+          "wrong": "The cerebellum is responsible for learning, language and memory.",
+          "right": "These are functions of the cerebrum. The cerebellum coordinates conscious movement and balance."
+        }
+      ],
+      "worked_example": {
+        "exemplar_id": "9d1f167c-9a37-4561-872a-3edd0e1cd75c",
+        "source": "OCR jun 2023, Paper 4, Q17(c)",
+        "question": "Gillespie syndrome is a rare genetic disorder. People with Gillespie syndrome have eyes with no iris and damage to their cerebellum.\n\nPerson D is very sensitive to bright light and has difficulty controlling their balance.\n\nExplain why this is.",
+        "marks": 4,
+        "answer_points": [
+          "Person D has Gillespie syndrome.",
+          "They have their iris missing and damage to their cerebellum.",
+          "The iris controls the amount of light entering the eye (the pupil).",
+          "The cerebellum controls balance and coordination."
+        ],
+        "tip": "One mark for each point. Link each symptom to the structure that is damaged."
+      }
+    }
+  },
+  "meta": {
+    "status": "draft",
+    "written_by": "sonnet-5-5",
+    "written_at": "2026-10-01",
+    "spec_point_ids": [
+      "f58bc249-3dbc-4aae-9657-c4db66dd679a",
+      "2165af56-c1af-48b4-b00c-950f388e2dd6",
+      "da2442dd-c10b-4858-86e4-40028bc1852c"
+    ],
+    "exemplar_ids": [
+      "be18b959-6d41-43a8-845c-743afede4901",
+      "a24fb923-1427-4b80-b8d0-5fe19db0e182",
+      "9d1f167c-9a37-4561-872a-3edd0e1cd75c"
+    ]
+  }
+}
