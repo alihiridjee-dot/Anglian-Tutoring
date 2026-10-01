@@ -1,0 +1,239 @@
+{
+  "format": 1,
+  "concept_id": "bio-052",
+  "subject": "biology",
+  "title": "Uses of monoclonal antibodies",
+  "key_idea": "Monoclonal antibodies bind only to their specific antigen. This lets them detect a hormone in a pregnancy test, locate or identify pathogens and cancer cells, and carry a drug or toxin to cancer cells.",
+  "sections": [
+    {
+      "heading": "Why they are useful",
+      "blocks": [
+        { "type": "paragraph", "text": "A monoclonal antibody has a shape that is complementary to one antigen only. It binds to that antigen and to nothing else." },
+        {
+          "type": "list",
+          "items": [
+            "A different antigen has a different shape, so the antibody does not bind to it.",
+            "A coloured bead, a fluorescent dye, a drug, a toxin or a radioactive substance can be attached to the antibody.",
+            "The attached substance is then carried to the antigen and stays there."
+          ]
+        },
+        {
+          "type": "key-points",
+          "items": [
+            "Monoclonal antibodies are specific. They bind only to their complementary antigen.",
+            "Something can be attached to the antibody to be carried to the target."
+          ]
+        }
+      ]
+    },
+    {
+      "heading": "Pregnancy tests, diagnosis and research",
+      "blocks": [
+        { "type": "paragraph", "text": "Monoclonal antibodies can be used to detect a molecule or pathogen. The test shows a colour or a dye when the antigen is present." },
+        { "type": "subheading", "text": "Pregnancy test" },
+        {
+          "type": "list",
+          "items": [
+            "The test detects a hormone (hCG) in urine.",
+            "The hormone binds to antibodies on the test, which have a coloured bead attached.",
+            "Immobile (fixed) antibodies in the test window hold the bound hormone, so a coloured line appears."
+          ]
+        },
+        { "type": "subheading", "text": "Diagnosis and research" },
+        {
+          "type": "list",
+          "items": [
+            "To see pathogens, a fluorescent dye is bound to the antibodies. They are put on a slide of the sample and rinsed.",
+            "The antibodies bind to the pathogens, which show up under the microscope.",
+            "Antibodies can be used to locate cancer cells or blood clots, or to detect the A antigen on red blood cells to identify a blood group.",
+            "Antibodies can also be used to identify pathogens, develop vaccines and test drugs."
+          ]
+        },
+        {
+          "type": "key-points",
+          "items": [
+            "A pregnancy test uses antibodies that bind to a hormone in urine and show a coloured line.",
+            "A fluorescent dye on the antibody shows where pathogens or target cells are."
+          ]
+        }
+      ]
+    },
+    {
+      "heading": "Treating cancer and disease",
+      "blocks": [
+        { "type": "paragraph", "text": "Monoclonal antibodies can deliver treatment straight to the cells that need it." },
+        {
+          "type": "diagram",
+          "diagram": {
+            "kind": "sort",
+            "alt": "Sort each description into the use of monoclonal antibodies it belongs to: pregnancy testing, diagnosis, or treatment.",
+            "prompt": "Which use does each description belong to?",
+            "groups": ["Pregnancy testing", "Diagnosis", "Treatment"],
+            "items": [
+              { "text": "Binds to a hormone in urine", "group": 0 },
+              { "text": "A coloured bead makes a line appear", "group": 0 },
+              { "text": "A fluorescent dye shows pathogens on a slide", "group": 1 },
+              { "text": "Locates cancer cells in the body", "group": 1 },
+              { "text": "Carries a toxin, drug or radioactive substance to cancer cells", "group": 2 },
+              { "text": "Binds to a donor organ's cells so white blood cells cannot attack them", "group": 2 }
+            ]
+          }
+        },
+        {
+          "type": "list",
+          "items": [
+            "To treat cancer, the antibody is attached to a radioactive substance, a toxin or a drug.",
+            "The antibody only attaches to antigens on cancer cells, so the substance stops them growing or dividing, or kills them.",
+            "Some antibodies instead interrupt the cell cycle or help the immune system to kill the cancer cells.",
+            "After a transplant, an antibody can bind to antigens on the donor cells. White blood cells' antibodies then cannot bind to them.",
+            "Monoclonal antibodies are not used as widely as first hoped, because they cause more side effects than expected."
+          ]
+        },
+        {
+          "type": "key-points",
+          "items": [
+            "In treatment, the antibody carries a drug, toxin or radioactive substance to the target cells.",
+            "It only binds to its target, so healthy cells are less affected."
+          ]
+        }
+      ]
+    }
+  ],
+  "checks": [
+    {
+      "q": "Explain why a monoclonal antibody for a hormone does not bind to other molecules in urine.",
+      "a": "The antibody is complementary in shape to the hormone only. Other molecules have a different shape.",
+      "marks": 2
+    },
+    {
+      "q": "Describe how monoclonal antibodies can be used to treat cancer.",
+      "a": "The antibody is attached to a radioactive substance, toxin or drug. It binds only to antigens on cancer cells, so the substance stops the cancer cells growing or kills them.",
+      "marks": 3
+    },
+    {
+      "q": "Give two uses of monoclonal antibodies.",
+      "a": "Any two from: pregnancy testing, detecting diseases or cancer, treating disease or cancer.",
+      "marks": 2
+    }
+  ],
+  "boards": {
+    "aqa": {
+      "spec_codes": ["AQA 3.8"],
+      "exam_phrases": [
+        "bind fluorescent dye to mAbs",
+        "mAbs will bind to pathogens and show up under the microscope",
+        "monoclonal antibody is attached to radioactive substance / toxin / drug / chemical",
+        "monoclonal antibody will (only) attach to / target (antigen on) cancer cells",
+        "stop them growing / dividing",
+        "monoclonal antibodies are complementary (in shape) to (liver) antigen"
+      ],
+      "mistakes": [
+        {
+          "wrong": "Add the monoclonal antibodies and the dye to the slide.",
+          "right": "Adding them unbound is ignored. The dye is bound to the antibody first, then the fluorescent antibodies are put on the slide."
+        },
+        {
+          "wrong": "The monoclonal antibody is the same shape as the antigen.",
+          "right": "This is not accepted. The antibody is complementary in shape to the antigen."
+        },
+        {
+          "wrong": "The antibodies released by phagocytes cannot bind to the donor cells.",
+          "right": "Phagocytes do not release antibodies. Say antibodies released by white blood cells (lymphocytes) cannot bind to the cells."
+        }
+      ],
+      "worked_example": {
+        "exemplar_id": "db3da9c7-f0db-4491-b8df-4b6e2f69906d",
+        "source": "AQA jun 2019, Paper 1 (H), Q08.8",
+        "question": "A monoclonal antibody has been produced to treat pancreatic cancer.\n\nExplain how the monoclonal antibody works to treat pancreatic cancer.",
+        "marks": 3,
+        "answer_points": [
+          "The monoclonal antibody is attached to a radioactive substance, toxin, drug or chemical.",
+          "The monoclonal antibody will only attach to (target) antigens on cancer cells or the tumour.",
+          "So the radioactive substance, toxin, drug or chemical stops the cancer cells growing or dividing, or kills them."
+        ],
+        "tip": "A second route also scores: the antibody interrupts the cell cycle or aids the immune response, only targets cancer cells, and so stops them growing or helps the immune system destroy them."
+      }
+    },
+    "edexcel": {
+      "spec_codes": ["EDEX 5.22B"],
+      "exam_phrases": [
+        "(pregnancy test detects) a hormone in urine",
+        "(hormone / antigen) binds to the antibody (on the test)",
+        "which have a coloured (bead) attached to them",
+        "there are immobile antibodies (in the test window)",
+        "the shape of the antibody is complementary to the A antigen",
+        "it will not bind to the B antigen"
+      ],
+      "mistakes": [
+        {
+          "wrong": "The pregnancy test detects pregnancy.",
+          "right": "Say what is detected: a hormone (hCG) in urine, which binds to antibodies that have a coloured bead attached."
+        },
+        {
+          "wrong": "The antibody does not react with blood group B because it does not match.",
+          "right": "Explain: the shape of the antibody is complementary to the A antigen, the B antigen has a different shape, so the antibody will not bind to it."
+        }
+      ],
+      "worked_example": {
+        "exemplar_id": "4fb08ca5-dbf9-4351-b431-e85646bdf026",
+        "source": "EDEXCEL jun 2023, Paper 1 (H), Q10(c)",
+        "question": "Monoclonal antibodies can be used in the diagnosis of genetic disorders and pregnancy testing.\n\nDescribe how a pregnancy test uses monoclonal antibodies to show that a woman is pregnant.",
+        "marks": 4,
+        "answer_points": [
+          "The pregnancy test detects a hormone (hCG) in urine.",
+          "The hormone binds to the antibody on the test.",
+          "These antibodies have a coloured bead attached to them.",
+          "A line appears because there are immobile antibodies in the test window."
+        ],
+        "tip": "Any four points score one mark each. Accepted: the antibodies move up the strip and colour appears."
+      }
+    },
+    "ocr": {
+      "spec_codes": ["OCR 6.3n"],
+      "exam_phrases": [
+        "pregnancy testing",
+        "detecting diseases / cancer",
+        "treating disease / cancer",
+        "pathogen identification",
+        "drug testing"
+      ],
+      "mistakes": [
+        {
+          "wrong": "Monoclonal antibodies are used in medicine.",
+          "right": "Be specific. Name a use: pregnancy testing, detecting diseases or cancer, or treating disease or cancer."
+        },
+        {
+          "wrong": "They treat cancer by killing all the cells in the body.",
+          "right": "The antibody is specific. It carries the substance to the cancer cells only."
+        }
+      ],
+      "worked_example": {
+        "exemplar_id": "42bc5ad0-2303-4a37-b369-665cbd59d2e2",
+        "source": "OCR nov 2020, Paper 4, Q20(b)(i)",
+        "question": "Large quantities of one type of antibody can be made. These antibodies are called monoclonal antibodies.\n\nGive two uses of monoclonal antibodies.",
+        "marks": 2,
+        "answer_points": [
+          "Pregnancy testing.",
+          "Detecting diseases or cancer.",
+          "Treating disease or cancer."
+        ],
+        "tip": "Any two of these score one mark each. Specific diseases, pathogen identification, vaccine development and drug testing are also allowed."
+      }
+    }
+  },
+  "meta": {
+    "status": "draft",
+    "written_by": "sonnet-5-5",
+    "written_at": "2026-10-01",
+    "spec_point_ids": [
+      "56e8c886-f9ea-4397-bacb-1020a9d19664",
+      "e674e909-4d71-4f1a-95cf-f51a801963f9",
+      "883de55c-22b3-417e-a27e-914987927c1e"
+    ],
+    "exemplar_ids": [
+      "db3da9c7-f0db-4491-b8df-4b6e2f69906d",
+      "4fb08ca5-dbf9-4351-b431-e85646bdf026",
+      "42bc5ad0-2303-4a37-b369-665cbd59d2e2"
+    ]
+  }
+}

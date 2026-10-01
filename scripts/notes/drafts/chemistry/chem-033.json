@@ -1,0 +1,365 @@
+{
+  "format": 1,
+  "concept_id": "chem-033",
+  "subject": "chemistry",
+  "title": "Using moles to balance equations",
+  "key_idea": "The balancing numbers in an equation are the simplest whole number ratio of the moles of reactants and products. Convert each mass to moles, divide by the smallest, and the ratio gives the balancing numbers.",
+  "sections": [
+    {
+      "heading": "Finding balancing numbers from masses",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "(Higher tier) Experimental masses can show how many moles of each substance react. That ratio gives the balancing numbers."
+        },
+        {
+          "type": "equation",
+          "label": "Moles from a mass",
+          "formula": "number of moles = mass ÷ Mr",
+          "where": [
+            "mass is in grams (g).",
+            "Mr is the relative formula mass, or Ar for an atom."
+          ]
+        },
+        {
+          "type": "steps",
+          "items": [
+            {
+              "lead": "Find the masses.",
+              "text": "If a mass is not given, subtract. Mass of product = mass of the compound − mass of the metal."
+            },
+            {
+              "lead": "Convert to moles.",
+              "text": "Divide each mass by its Mr or Ar."
+            },
+            {
+              "lead": "Make a whole number ratio.",
+              "text": "Divide by the smallest number of moles. Multiply up if the ratio is not whole, such as 1 : 1.5 becomes 2 : 3."
+            },
+            {
+              "lead": "Write the equation.",
+              "text": "Use the ratio as the balancing numbers, with the correct formulae."
+            }
+          ]
+        },
+        {
+          "type": "equation",
+          "label": "Worked example: 0.015 mol of iron reacts with 0.010 mol of oxygen gas",
+          "formula": "3Fe + 2O₂ → Fe₃O₄",
+          "where": [
+            "Ratio Fe : O₂ = 0.015 : 0.010 = 3 : 2.",
+            "That is 3 Fe atoms to 4 O atoms, so the oxide is Fe₃O₄.",
+            "Balancing numbers: 3 and 2 on the left, 1 on the right."
+          ]
+        },
+        {
+          "type": "list",
+          "items": [
+            "Oxygen gas is O₂. A ratio of 2 molecules of O₂ means 4 oxygen atoms in the formula.",
+            "Check the equation balances, with the same atoms on both sides.",
+            "A balanced equation with the wrong formula loses marks. Work out the formula from the ratio of atoms."
+          ]
+        },
+        {
+          "type": "diagram",
+          "diagram": {
+            "kind": "practice",
+            "alt": "Find the mole ratio of chlorine atoms to iron atoms from masses.",
+            "question": "{fe} g of iron (Ar = 56) reacts with {cl} g of chlorine atoms (Ar = 35.5). Calculate the ratio of moles of chlorine atoms to moles of iron atoms. Give the number of chlorine atoms for every 1 iron atom, to 2 decimal places.",
+            "variables": [
+              {
+                "id": "fe",
+                "min": 2.8,
+                "max": 11.2,
+                "step": 2.8
+              },
+              {
+                "id": "cl",
+                "min": 3.55,
+                "max": 21.3,
+                "step": 3.55
+              }
+            ],
+            "answer": {
+              "formula": "(cl / 35.5) / (fe / 56)",
+              "decimals": 2
+            },
+            "working": [
+              "Moles of Fe = {fe} ÷ 56",
+              "Moles of Cl atoms = {cl} ÷ 35.5",
+              "Moles of Cl ÷ moles of Fe = {answer}"
+            ]
+          }
+        },
+        {
+          "type": "key-points",
+          "items": [
+            "Convert each mass to moles, then divide by the smallest to get a whole number ratio.",
+            "The ratio gives the balancing numbers, or the formula of the product."
+          ]
+        }
+      ]
+    },
+    {
+      "heading": "Deciding between two equations",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "A question may give two possible equations and the masses from an experiment. Work out the ratio from the masses and match it to an equation."
+        },
+        {
+          "type": "steps",
+          "items": [
+            {
+              "lead": "Moles of each substance.",
+              "text": "2.24 g of iron ÷ 56 = 0.04 mol. 3.81 g of copper ÷ 63.5 = 0.06 mol."
+            },
+            {
+              "lead": "Ratio.",
+              "text": "Fe : Cu = 0.04 : 0.06 = 2 : 3."
+            },
+            {
+              "lead": "Match.",
+              "text": "Equation 2, 2Fe + 3Cu(NO₃)₂ → 2Fe(NO₃)₃ + 3Cu, has Fe : Cu = 2 : 3."
+            }
+          ]
+        },
+        {
+          "type": "list",
+          "items": [
+            "Another method finds the expected mass for each equation and compares it with the measured mass.",
+            "Stating the equation without a calculation scores 0.",
+            "Use the formula mass of the substance, such as 63.5 for copper atoms, not for a compound."
+          ]
+        },
+        {
+          "type": "diagram",
+          "diagram": {
+            "kind": "practice",
+            "alt": "Find how many moles of one substance react with each mole of another.",
+            "question": "{a} mol of a metal reacts with {b} mol of oxygen gas, O₂. How many moles of O₂ react with each 1 mol of the metal? Give your answer to 2 decimal places.",
+            "variables": [
+              {
+                "id": "a",
+                "min": 0.03,
+                "max": 0.15,
+                "step": 0.03
+              },
+              {
+                "id": "b",
+                "min": 0.02,
+                "max": 0.12,
+                "step": 0.02
+              }
+            ],
+            "answer": {
+              "formula": "b / a",
+              "decimals": 2
+            },
+            "working": [
+              "Ratio of metal : O₂ = {a} : {b}",
+              "Divide both by {a}: moles of O₂ for each 1 mol of metal = {b} ÷ {a} = {answer}"
+            ]
+          }
+        },
+        {
+          "type": "key-points",
+          "items": [
+            "Work out the mole ratio from the data, then choose the equation with that ratio.",
+            "Always show the calculation. The name of the equation alone scores nothing."
+          ]
+        }
+      ]
+    },
+    {
+      "heading": "Limiting reactants",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "A reaction stops when one reactant is used up. That reactant limits how much product forms."
+        },
+        {
+          "type": "definitions",
+          "items": [
+            {
+              "term": "Limiting reactant",
+              "meaning": "The reactant that is used up first, so the reaction stops."
+            },
+            {
+              "term": "Excess reactant",
+              "meaning": "A reactant that is left over when the reaction stops."
+            }
+          ]
+        },
+        {
+          "type": "list",
+          "items": [
+            "In CaCO₃ + 2HCl → CaCl₂ + H₂O + CO₂, 2 mol of HCl react with 1 mol of CaCO₃.",
+            "0.5 mol of each: only 0.25 mol of CaCO₃ is needed for 0.5 mol of HCl, so CaCO₃ is in excess.",
+            "Marble chips left over at the end show that the acid was the limiting reactant."
+          ]
+        },
+        {
+          "type": "key-points",
+          "items": [
+            "The limiting reactant is used up first and sets the amount of product.",
+            "Compare moles using the equation ratio to find which reactant is in excess."
+          ]
+        }
+      ]
+    }
+  ],
+  "checks": [
+    {
+      "q": "0.12 mol of iron reacts with 0.18 mol of chlorine gas, Cl₂, to make iron chloride. Give the balanced equation.",
+      "a": "Fe : Cl₂ = 0.12 : 0.18 = 2 : 3, so 2Fe + 3Cl₂ → 2FeCl₃.",
+      "marks": 2
+    },
+    {
+      "q": "2.54 g of copper and 0.72 g of water form when copper oxide reacts with hydrogen. Use moles to decide if the equation is CuO + H₂ → Cu + H₂O or Cu₂O + H₂ → 2Cu + H₂O. (Ar: Cu = 63.5; Mr: H₂O = 18)",
+      "a": "Moles of Cu = 2.54 ÷ 63.5 = 0.04. Moles of H₂O = 0.72 ÷ 18 = 0.04. The ratio is 1 : 1, so CuO + H₂ → Cu + H₂O.",
+      "marks": 3
+    },
+    {
+      "q": "What is meant by a limiting reactant?",
+      "a": "The reactant that is used up first, so the reaction stops.",
+      "marks": 1
+    }
+  ],
+  "boards": {
+    "aqa": {
+      "spec_codes": [
+        "AQA 4.3.2.3",
+        "AQA T 5.3.2.3"
+      ],
+      "exam_phrases": [
+        "3:2 ratio Fe : O₂ (molecules) or 3:4 ratio Fe : O (atoms)",
+        "(ratio Fe : H₂O) 3:4",
+        "(formula) Fe₃O₄",
+        "allow multiples (balanced equation)",
+        "allow correct use of an incorrectly determined formula",
+        "moles Cu = 2.54/63.5 = 0.04; ratio = 1:1 so equation 2 is correct"
+      ],
+      "mistakes": [
+        {
+          "wrong": "3 Fe + 2 O₂ → Fe₃O₂ from the ratio 3 : 2.",
+          "right": "The ratio 3 : 2 is Fe : O₂ molecules. Each O₂ has 2 atoms, so 3 Fe : 4 O atoms, giving Fe₃O₄."
+        },
+        {
+          "wrong": "Moles of chlorine = 8.52 ÷ 71 = 0.12, so Fe : Cl = 0.08 : 0.12 = 2 : 3.",
+          "right": "Match the particle to the Mr. 71 is for Cl₂ molecules, so 0.12 mol is moles of Cl₂. For chlorine atoms use 8.52 ÷ 35.5 = 0.24, so Fe : Cl = 1 : 3. Both routes are allowed if used consistently."
+        },
+        {
+          "wrong": "Fe : H₂O = 0.120 : 0.160, written as 12 : 16 in the equation.",
+          "right": "Give the simplest whole number ratio, 3 : 4. Then 3 Fe + 4 H₂O → Fe₃O₄ + 4 H₂."
+        }
+      ],
+      "worked_example": {
+        "exemplar_id": "aa9090a4-ef72-4ee6-b35e-cc0ca81b3ab3",
+        "source": "AQA jun 2025, Paper 1 (H), Q06.5",
+        "question": "Iron reacts with steam (H₂O) to produce an oxide of iron and hydrogen gas.\n\n0.120 moles of iron reacts with 0.160 moles of steam.\n\nDetermine the balanced equation for the reaction.\n\nYou should determine:\n• the simplest whole number mole ratio of Fe : H₂O\n• the formula of the iron oxide produced.",
+        "marks": 4,
+        "answer_points": [
+          "Mole ratio Fe : H₂O = 3 : 4 (1)",
+          "Formula of the iron oxide = Fe₃O₄ (1)",
+          "3Fe + 4H₂O → Fe₃O₄ + 4H₂ (2)"
+        ],
+        "tip": "One mark of the two for the equation is for correct formulae, and one for balancing. A correct use of an incorrectly determined formula is allowed."
+      }
+    },
+    "edexcel": {
+      "spec_codes": [
+        "EDEX 1.53"
+      ],
+      "exam_phrases": [
+        "moles Fe = 2.24/56.0 = 0.04",
+        "moles Cu = 3.81/63.5 = 0.06",
+        "ratio moles Fe : moles Cu = 2 : 3 or 1 : 1.5 and so equation 2",
+        "must state Equation 2 to score",
+        "stating Equation 2, with no calculation to justify, scores 0",
+        "expected mass Cu equation 1 = 0.04 × 63.5 = 2.54 g"
+      ],
+      "mistakes": [
+        {
+          "wrong": "Equation 2 is correct.",
+          "right": "Stating the equation with no calculation scores 0. Show the moles of each substance and the ratio."
+        },
+        {
+          "wrong": "Moles of '2Fe' = 2.24 ÷ 112 = 0.02, and moles of '3Cu' = 3.81 ÷ 190.5 = 0.02.",
+          "right": "This scores 0 unless you go on to show they are the same, so equation 2. Divide by the Ar of one atom, then compare with the equation ratio."
+        },
+        {
+          "wrong": "Moles of iron : moles of lead = 0.08 : 0.12 = 1 : 1.5, so equation 1.",
+          "right": "Equation 1 has Fe : Pb = 1 : 1. A ratio of 1 : 1.5, or 2 : 3, matches equation 2."
+        }
+      ],
+      "worked_example": {
+        "exemplar_id": "0c0a0cb0-a936-4ff4-ac24-5763acd6d0f3",
+        "source": "EDEXCEL jun 2024, Paper 1 (H), Q9(c)",
+        "question": "Iron is more reactive than copper. Iron will displace copper from copper nitrate solution.\n\nTwo possible balanced equations for the reaction are\n\nEquation 1: Fe + Cu(NO₃)₂ → Fe(NO₃)₂ + Cu\n\nEquation 2: 2Fe + 3Cu(NO₃)₂ → 2Fe(NO₃)₃ + 3Cu\n\nIt was found that 2.24 g of iron reacted with excess copper nitrate solution to form 3.81 g of copper.\n\nCarry out a calculation, using the information above, to show which equation represents the reaction taking place.\n\n(relative atomic masses: Fe = 56.0, Cu = 63.5)",
+        "marks": 3,
+        "answer_points": [
+          "Moles of Fe = 2.24 ÷ 56.0 = 0.04 (1)",
+          "Moles of Cu = 3.81 ÷ 63.5 = 0.06 (1)",
+          "Ratio Fe : Cu = 2 : 3 (or 1 : 1.5), so it is Equation 2 (1)"
+        ],
+        "tip": "You must state Equation 2 to score the last mark. Other methods compare an expected mass of copper with 3.81 g."
+      }
+    },
+    "ocr": {
+      "spec_codes": [
+        "OCR C3.1k"
+      ],
+      "exam_phrases": [
+        "moles of chromium = 10.40 / 52.0 = 0.2",
+        "moles of nickel = 17.61 / 58.7 = 0.3",
+        "idea that ratio is 2:3 / ratio isn't 1:1 so equation 2",
+        "the reactant that is used up first / has fewer moles",
+        "reaction stops once limiting reactant is consumed or used up",
+        "idea that marble chips are left over at the end of the reaction / marble chips are in excess"
+      ],
+      "mistakes": [
+        {
+          "wrong": "Moles of Cr = 0.2 and moles of Ni = 0.3, so equation 1.",
+          "right": "The third mark depends on correct reasoning. A ratio of 2 : 3 matches equation 2. Equation 1 has a 1 : 1 ratio."
+        },
+        {
+          "wrong": "The acid was the limiting reactant because it was used up first.",
+          "right": "This is ignored when the question asks how a student could tell. Say that marble chips are left over at the end, so they were in excess."
+        },
+        {
+          "wrong": "There were too many marble chips for the acid to dissolve.",
+          "right": "This is ignored. Say that all the acid was used up, so the acid was the limiting reactant."
+        }
+      ],
+      "worked_example": {
+        "exemplar_id": "9e238429-c8d9-4879-ac7e-507f873394bc",
+        "source": "OCR nov 2020, Paper 4, Q22(c)",
+        "question": "Chromium metal, Cr, reacts with nickel sulfate solution, NiSO₄. Solid nickel is made.\n\nTwo possible equations for this reaction are:\n\nEquation 1: Cr + NiSO₄ → CrSO₄ + Ni\n\nEquation 2: 2Cr + 3NiSO₄ → Cr₂(SO₄)₃ + 3Ni\n\n10.40 g of chromium metal reacts with excess nickel sulfate solution to make 17.61 g of nickel.\n\nDeduce which equation, 1 or 2, represents the reaction which takes place.\n\nAr: Cr = 52.0, Ni = 58.7",
+        "marks": 3,
+        "answer_points": [
+          "Moles of chromium = 10.40 ÷ 52.0 = 0.2 (1)",
+          "Moles of nickel = 17.61 ÷ 58.7 = 0.3 (1)",
+          "The ratio is 2 : 3, not 1 : 1, so it is equation 2 (1)"
+        ],
+        "tip": "The final mark depends on correct mathematical reasoning. Other calculation methods are allowed."
+      }
+    }
+  },
+  "meta": {
+    "status": "draft",
+    "written_by": "sonnet-5-5",
+    "written_at": "2026-10-01",
+    "spec_point_ids": [
+      "cf5d06d7-8c7c-47bf-81d8-35e6a79b3fff",
+      "e408dd49-8508-4e30-95f3-46cb4aee8c90",
+      "16da3ef0-1947-4911-8ce5-e564bed604c6",
+      "f285c0d0-0124-4469-a7df-7dfb0857b680"
+    ],
+    "exemplar_ids": [
+      "aa9090a4-ef72-4ee6-b35e-cc0ca81b3ab3",
+      "0c0a0cb0-a936-4ff4-ac24-5763acd6d0f3",
+      "9e238429-c8d9-4879-ac7e-507f873394bc"
+    ]
+  }
+}

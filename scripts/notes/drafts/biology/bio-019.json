@@ -8,7 +8,10 @@
     {
       "heading": "The organs and what they do",
       "blocks": [
-        { "type": "paragraph", "text": "The digestive system is an example of an organ system. This section covers each organ and its job." },
+        {
+          "type": "paragraph",
+          "text": "The digestive system is an example of an organ system. This section covers each organ and its job."
+        },
         {
           "type": "diagram",
           "diagram": {
@@ -16,14 +19,30 @@
             "alt": "Tap an organ of the digestive system to learn its job, then test yourself.",
             "prompt": "Organs of the digestive system",
             "parts": [
-              { "name": "Salivary glands", "detail": "Make amylase, which starts to break down starch." },
-              { "name": "Oesophagus", "detail": "The tube that carries food from the mouth to the stomach." },
-              { "name": "Stomach", "detail": "Makes protease and hydrochloric acid. The acid gives the right pH for the protease and kills microorganisms." },
-              { "name": "Liver", "detail": "Makes bile." },
-              { "name": "Gall bladder", "detail": "Stores bile until it is released into the small intestine." },
-              { "name": "Pancreas", "detail": "Makes amylase, protease and lipase and releases them into the small intestine." },
-              { "name": "Small intestine", "detail": "Makes enzymes and finishes digestion. Most digested food molecules are absorbed into the blood here." },
-              { "name": "Large intestine", "detail": "Absorbs water from the food that was not digested." }
+              {
+                "name": "Salivary glands",
+                "detail": "Make amylase, which starts to break down starch."
+              },
+              {
+                "name": "Stomach",
+                "detail": "Makes protease and hydrochloric acid. The acid gives the right pH for the protease and kills microorganisms."
+              },
+              {
+                "name": "Liver",
+                "detail": "Makes bile. Bile is alkaline, so it neutralises acid from the stomach. It also emulsifies fat into small droplets, giving a larger surface area for lipase."
+              },
+              {
+                "name": "Gall bladder",
+                "detail": "Stores bile until it is released into the small intestine."
+              },
+              {
+                "name": "Pancreas",
+                "detail": "Makes amylase, protease and lipase and releases them into the small intestine."
+              },
+              {
+                "name": "Small intestine",
+                "detail": "Makes enzymes and finishes digestion. Most digested food molecules are absorbed into the blood here."
+              }
             ]
           }
         },
@@ -40,24 +59,52 @@
     {
       "heading": "Digestion and absorption",
       "blocks": [
-        { "type": "paragraph", "text": "Food molecules are too large to pass into the blood. Digestion breaks them into small soluble molecules that can be absorbed." },
+        {
+          "type": "paragraph",
+          "text": "Food molecules are too large to pass into the blood. Digestion breaks them into small soluble molecules that can be absorbed."
+        },
         {
           "type": "definitions",
           "items": [
-            { "term": "Digestion", "meaning": "Breaking down large food molecules into small soluble molecules, using enzymes." },
-            { "term": "Absorption", "meaning": "Small soluble molecules moving from the small intestine into the blood." }
+            {
+              "term": "Digestion",
+              "meaning": "Breaking down large food molecules into small soluble molecules, using enzymes."
+            },
+            {
+              "term": "Absorption",
+              "meaning": "Small soluble molecules moving from the small intestine into the blood."
+            }
           ]
         },
         {
           "type": "table",
-          "columns": ["Food molecule", "Broken down by", "Into"],
+          "columns": [
+            "Food molecule",
+            "Broken down by",
+            "Into"
+          ],
           "rows": [
-            ["Carbohydrates, such as starch", "Carbohydrases, such as amylase", "Simple sugars"],
-            ["Proteins", "Proteases", "Amino acids"],
-            ["Lipids (fats)", "Lipases", "Glycerol and fatty acids"]
+            [
+              "Carbohydrates, such as starch",
+              "Carbohydrases, such as amylase",
+              "Simple sugars"
+            ],
+            [
+              "Proteins",
+              "Proteases",
+              "Amino acids"
+            ],
+            [
+              "Lipids (fats)",
+              "Lipases",
+              "Glycerol and fatty acids"
+            ]
           ]
         },
-        { "type": "paragraph", "text": "The next notes cover the enzymes in detail. The small molecules produced are carried in the blood to the cells that need them." },
+        {
+          "type": "paragraph",
+          "text": "The next notes cover the enzymes in detail. The products of digestion are used to build new carbohydrates, lipids and proteins. Some glucose is used in respiration."
+        },
         {
           "type": "key-points",
           "items": [
@@ -71,8 +118,14 @@
     {
       "heading": "The stomach and the small intestine",
       "blocks": [
-        { "type": "paragraph", "text": "Two organs are examined more than the rest. Know why each one is suited to its job." },
-        { "type": "subheading", "text": "The stomach" },
+        {
+          "type": "paragraph",
+          "text": "Two organs are examined more than the rest. Know why each one is suited to its job."
+        },
+        {
+          "type": "subheading",
+          "text": "The stomach"
+        },
         {
           "type": "list",
           "items": [
@@ -81,7 +134,10 @@
             "The acid also kills microorganisms in the food."
           ]
         },
-        { "type": "subheading", "text": "The small intestine" },
+        {
+          "type": "subheading",
+          "text": "The small intestine"
+        },
         {
           "type": "list",
           "items": [
@@ -121,15 +177,16 @@
   ],
   "boards": {
     "aqa": {
-      "spec_codes": ["AQA 2.2", "AQA T 4.2.2.1"],
+      "spec_codes": [
+        "AQA 2.2",
+        "AQA T 4.2.2.1"
+      ],
       "exam_phrases": [
         "salivary glands, pancreas and small intestine",
         "(hydrochloric) acid provides the correct pH for protease (in the stomach)",
-        "optimum / best condition for enzyme / protease to act",
         "(protease) produced in the stomach / pancreas / small intestine",
         "(bile) produced by the liver",
         "(villi) have microvilli to increase surface area",
-        "capillaries are close to the surface so there is a short pathway",
         "good blood supply to maintain a diffusion gradient"
       ],
       "mistakes": [
@@ -146,8 +203,8 @@
           "right": "\"Intestine\" on its own is ignored. Say the small intestine."
         },
         {
-          "wrong": "The villi make the wall thick so it is strong.",
-          "right": "The wall of a villus is one cell thick, or thin, so the pathway is short."
+          "wrong": "Amylase is made in the salivary glands.",
+          "right": "The salivary glands are not the only source. Amylase is made in the salivary glands, the pancreas and the small intestine."
         }
       ],
       "worked_example": {
@@ -172,6 +229,10 @@
       "82cd7442-3455-4be9-87fc-894abcf02e5d",
       "c874b05f-5fb0-4430-b94e-f1edc32f9be2"
     ],
-    "exemplar_ids": ["f925ad12-fc55-4b31-8295-3b009f471c25"]
+    "exemplar_ids": [
+      "f925ad12-fc55-4b31-8295-3b009f471c25"
+    ],
+    "checked_by": "sonnet-science-check",
+    "checked_at": "2026-10-01"
   }
 }

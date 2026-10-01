@@ -8,15 +8,43 @@
     {
       "heading": "The four food tests",
       "blocks": [
-        { "type": "paragraph", "text": "Each test uses one reagent and gives a colour change for a positive result. Learn the table, then use the predictor to check it." },
+        {
+          "type": "paragraph",
+          "text": "Each test uses one reagent and gives a colour change for a positive result. Learn the table, then use the predictor to check it."
+        },
         {
           "type": "table",
-          "columns": ["Nutrient", "Reagent", "Positive result", "Negative result"],
+          "columns": [
+            "Nutrient",
+            "Reagent",
+            "Positive result",
+            "Negative result"
+          ],
           "rows": [
-            ["Starch", "Iodine solution", "Orange-brown to blue-black", "Stays orange or brown"],
-            ["Sugar (glucose, a reducing sugar)", "Benedict's solution, heated", "Blue to green, yellow, orange or brick red", "Stays blue"],
-            ["Protein", "Biuret solution", "Blue to purple or lilac", "Stays blue"],
-            ["Lipid (fat)", "Ethanol, then water", "A white cloudy emulsion forms", "Stays clear"]
+            [
+              "Starch",
+              "Iodine solution",
+              "Orange-brown to blue-black",
+              "Stays orange or brown"
+            ],
+            [
+              "Sugar (glucose, a reducing sugar)",
+              "Benedict's solution, heated",
+              "Blue to green, yellow, orange or brick red",
+              "Stays blue"
+            ],
+            [
+              "Protein",
+              "Biuret solution",
+              "Blue to purple or lilac",
+              "Stays blue"
+            ],
+            [
+              "Lipid (fat)",
+              "Ethanol, then water",
+              "A white cloudy emulsion forms",
+              "Stays clear"
+            ]
           ]
         },
         {
@@ -25,62 +53,122 @@
             "kind": "predictor",
             "alt": "Pick a nutrient to see the reagent used and the colours seen before and after the test.",
             "prompt": "Pick a nutrient in the food",
-            "result_labels": ["Reagent", "How to do the test", "Positive result"],
+            "result_labels": [
+              "Reagent",
+              "How to do the test",
+              "Positive result"
+            ],
             "options": [
               {
                 "label": "Starch",
-                "results": ["Iodine solution", "Add iodine solution to the food", "Orange-brown to blue-black"],
+                "results": [
+                  "Iodine solution",
+                  "Add iodine solution to the food",
+                  "Orange-brown to blue-black"
+                ],
                 "scene": {
                   "kind": "tubes",
                   "tubes": [
-                    { "label": "Before", "colour": "orange" },
-                    { "label": "Starch present", "colour": "blue-black" }
+                    {
+                      "label": "Before",
+                      "colour": "orange"
+                    },
+                    {
+                      "label": "Starch present",
+                      "colour": "blue-black"
+                    }
                   ]
                 }
               },
               {
                 "label": "Sugar (glucose)",
-                "results": ["Benedict's solution", "Add Benedict's solution and heat in a water bath", "Blue to green, yellow, orange or brick red"],
+                "results": [
+                  "Benedict's solution",
+                  "Add Benedict's solution and heat in a water bath",
+                  "Blue to green, yellow, orange or brick red"
+                ],
                 "scene": {
                   "kind": "tubes",
                   "tubes": [
-                    { "label": "Before", "colour": "blue" },
-                    { "label": "A little sugar", "colour": "green" },
-                    { "label": "A lot of sugar", "colour": "brick-red" }
+                    {
+                      "label": "Before",
+                      "colour": "blue"
+                    },
+                    {
+                      "label": "A little sugar",
+                      "colour": "green"
+                    },
+                    {
+                      "label": "A lot of sugar",
+                      "colour": "brick-red"
+                    }
                   ]
                 }
               },
               {
                 "label": "Protein",
-                "results": ["Biuret solution", "Add Biuret solution to the food. Do not heat", "Blue to purple or lilac"],
+                "results": [
+                  "Biuret solution",
+                  "Add Biuret solution to the food. Do not heat",
+                  "Blue to purple or lilac"
+                ],
                 "scene": {
                   "kind": "tubes",
                   "tubes": [
-                    { "label": "Before", "colour": "blue" },
-                    { "label": "Protein present", "colour": "purple" }
+                    {
+                      "label": "Before",
+                      "colour": "blue"
+                    },
+                    {
+                      "label": "Protein present",
+                      "colour": "purple"
+                    }
                   ]
                 }
               },
               {
                 "label": "Lipid (fat)",
-                "results": ["Ethanol", "Mix the food in ethanol, then pour the liquid into water", "A white cloudy emulsion forms"],
+                "results": [
+                  "Ethanol",
+                  "Mix the food in ethanol, then pour the liquid into water",
+                  "A white cloudy emulsion forms"
+                ],
                 "scene": {
                   "kind": "tubes",
                   "tubes": [
-                    { "label": "Before", "colour": "colourless" },
-                    { "label": "Lipid present", "colour": "white" }
+                    {
+                      "label": "Before",
+                      "colour": "colourless"
+                    },
+                    {
+                      "label": "Lipid present",
+                      "colour": "white"
+                    }
                   ]
                 }
               },
               {
                 "label": "None of these",
-                "results": ["Any of the reagents", "Carry out each test", "No colour change"],
+                "results": [
+                  "Any of the reagents",
+                  "Carry out each test",
+                  "No colour change"
+                ],
                 "scene": {
                   "kind": "tubes",
                   "tubes": [
-                    { "label": "Iodine", "colour": "orange" },
-                    { "label": "Benedict's", "colour": "blue" },
-                    { "label": "Biuret", "colour": "blue" }
+                    {
+                      "label": "Iodine",
+                      "colour": "orange"
+                    },
+                    {
+                      "label": "Benedict's",
+                      "colour": "blue"
+                    },
+                    {
+                      "label": "Biuret",
+                      "colour": "blue"
+                    }
                   ]
                 }
               }
@@ -100,15 +188,33 @@
     {
       "heading": "Carrying out the tests",
       "blocks": [
-        { "type": "paragraph", "text": "Prepare a sample of the food first. Then test a separate portion for each nutrient." },
+        {
+          "type": "paragraph",
+          "text": "Prepare a sample of the food first. Then test a separate portion for each nutrient."
+        },
         {
           "type": "steps",
           "items": [
-            { "lead": "Prepare.", "text": "Grind up the food and mix it with water. Put some of the mixture in a test tube." },
-            { "lead": "Starch.", "text": "Add a few drops of iodine solution. Black, blue-black or dark blue means starch is present." },
-            { "lead": "Sugar.", "text": "Add Benedict's solution. Heat in a water bath at 60 °C or above. Look for a colour change from blue." },
-            { "lead": "Protein.", "text": "Add Biuret solution, or copper sulfate and sodium hydroxide solutions. Purple or lilac means protein is present." },
-            { "lead": "Lipid.", "text": "Mix the food with ethanol. Pour the liquid into water. A white emulsion means lipid is present." }
+            {
+              "lead": "Prepare.",
+              "text": "Grind up the food and mix it with water. Put some of the mixture in a test tube."
+            },
+            {
+              "lead": "Starch.",
+              "text": "Add a few drops of iodine solution. Black, blue-black or dark blue means starch is present."
+            },
+            {
+              "lead": "Sugar.",
+              "text": "Add Benedict's solution. Heat in a water bath at 60 °C or above. Look for a colour change from blue."
+            },
+            {
+              "lead": "Protein.",
+              "text": "Add Biuret solution, or copper sulfate and sodium hydroxide solutions. Purple or lilac means protein is present."
+            },
+            {
+              "lead": "Lipid.",
+              "text": "Mix the food with ethanol. Pour the liquid into water. A white emulsion means lipid is present."
+            }
           ]
         },
         {
@@ -124,17 +230,26 @@
     {
       "heading": "Safety and interpreting results",
       "blocks": [
-        { "type": "paragraph", "text": "Exam questions ask about risks and about what the colours show." },
-        { "type": "subheading", "text": "Safety" },
+        {
+          "type": "paragraph",
+          "text": "Exam questions ask about risks and about what the colours show."
+        },
+        {
+          "type": "subheading",
+          "text": "Safety"
+        },
         {
           "type": "list",
           "items": [
             "Wear eye protection. Benedict's solution can spit when heated, so point the tube away from faces.",
-            "Benedict's solution and iodine solution are irritants. Wear gloves and wash spills immediately.",
+            "Benedict's solution is an irritant to skin, and Biuret solution contains sodium hydroxide, which can burn. Wear gloves and wash spills immediately.",
             "Use a water bath and tongs, and wait for equipment to cool, to avoid burns and scalds."
           ]
         },
-        { "type": "subheading", "text": "Interpreting results" },
+        {
+          "type": "subheading",
+          "text": "Interpreting results"
+        },
         {
           "type": "list",
           "items": [
@@ -173,7 +288,10 @@
   ],
   "boards": {
     "aqa": {
-      "spec_codes": ["AQA 2.2", "AQA T 4.2.2.1"],
+      "spec_codes": [
+        "AQA 2.2",
+        "AQA T 4.2.2.1"
+      ],
       "exam_phrases": [
         "iodine (solution) tests for starch",
         "iodine turns blue-black / black / dark blue (if starch is present)",
@@ -217,7 +335,9 @@
       }
     },
     "edexcel": {
-      "spec_codes": ["EDEX 1.13B"],
+      "spec_codes": [
+        "EDEX 1.13B"
+      ],
       "exam_phrases": [
         "add Benedict's solution",
         "heat / boil / put in a water bath",
@@ -255,7 +375,9 @@
       }
     },
     "ocr": {
-      "spec_codes": ["OCR 7.3"],
+      "spec_codes": [
+        "OCR 7.3"
+      ],
       "exam_phrases": [
         "use / add Benedict's (reagent) and heat",
         "use the iodine test for starch and the Benedict's test for sugar",
@@ -267,8 +389,8 @@
       ],
       "mistakes": [
         {
-          "wrong": "Add Benedict's reagent and look for a colour change.",
-          "right": "For a description of the test, the marks are for adding Benedict's reagent and heating. A colour change on its own is ignored."
+          "wrong": "The Biuret solution stays blue, so the food contains protein.",
+          "right": "Blue means no protein is present. The sample turns purple if protein is present."
         },
         {
           "wrong": "A food with more glucose takes less time to change colour.",
@@ -305,6 +427,8 @@
       "731a0901-151b-4b3e-8cb9-5ab3c43aed0a",
       "edd9c9b9-621f-4bf5-9d4d-17491498c280",
       "a09c53e2-d393-4a81-8cfd-f62e87028c24"
-    ]
+    ],
+    "checked_by": "sonnet-science-check",
+    "checked_at": "2026-10-01"
   }
 }

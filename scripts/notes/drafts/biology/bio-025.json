@@ -8,19 +8,43 @@
     {
       "heading": "How a calorimeter works",
       "blocks": [
-        { "type": "paragraph", "text": "A calorimeter transfers the energy released when food burns to a known mass of water. This section covers the apparatus and what each part does." },
+        {
+          "type": "paragraph",
+          "text": "A calorimeter transfers the energy released when food burns to a known mass of water. This section covers the apparatus and what each part does."
+        },
         {
           "type": "table",
-          "columns": ["Part", "What it does"],
+          "columns": [
+            "Part",
+            "What it does"
+          ],
           "rows": [
-            ["Burning food", "Releases heat energy, which heats the water"],
-            ["Water", "Absorbs the energy. The mass of water is known."],
-            ["Thermometer", "Measures the start and end temperature of the water"],
-            ["Stirrer", "Spreads the heat evenly, so all the water is at the same temperature"],
-            ["Lid", "Acts as an insulator. It reduces heat loss and stops water evaporating."]
+            [
+              "Burning food",
+              "Releases heat energy, which heats the water"
+            ],
+            [
+              "Water",
+              "Absorbs the energy. The mass of water is known."
+            ],
+            [
+              "Thermometer",
+              "Measures the start and end temperature of the water"
+            ],
+            [
+              "Stirrer",
+              "Spreads the heat evenly, so all the water is at the same temperature"
+            ],
+            [
+              "Lid",
+              "Acts as an insulator. It reduces heat loss and stops water evaporating."
+            ]
           ]
         },
-        { "type": "paragraph", "text": "A bomb calorimeter works in the same way. The food sample is burnt and the temperature rise of the water is measured." },
+        {
+          "type": "paragraph",
+          "text": "A bomb calorimeter works in the same way. The food sample is burnt and the temperature rise of the water is measured."
+        },
         {
           "type": "key-points",
           "items": [
@@ -34,7 +58,10 @@
     {
       "heading": "The method",
       "blocks": [
-        { "type": "paragraph", "text": "Follow the steps in order. The same steps are used for every food so that the foods can be compared." },
+        {
+          "type": "paragraph",
+          "text": "Follow the steps in order. The same steps are used for every food so that the foods can be compared."
+        },
         {
           "type": "diagram",
           "diagram": {
@@ -51,7 +78,10 @@
             ]
           }
         },
-        { "type": "subheading", "text": "To compare foods fairly" },
+        {
+          "type": "subheading",
+          "text": "To compare foods fairly"
+        },
         {
           "type": "list",
           "items": [
@@ -76,19 +106,36 @@
     {
       "heading": "Calculating the energy",
       "blocks": [
-        { "type": "paragraph", "text": "Use the temperature change and the mass of water to find the energy in joules." },
+        {
+          "type": "paragraph",
+          "text": "Use the temperature change and the mass of water to find the energy in joules."
+        },
         {
           "type": "equation",
           "label": "Energy transferred to the water",
           "formula": "energy = mass of water × 4.2 × temperature change",
-          "where": ["energy, in J", "mass of water, in g", "4.2 is the energy needed to heat 1 g of water by 1 °C, in J", "temperature change, in °C"]
+          "where": [
+            "energy, in J",
+            "mass of water, in g",
+            "4.2 is the energy needed to heat 1 g of water by 1 °C, in J",
+            "temperature change, in °C"
+          ]
         },
         {
           "type": "steps",
           "items": [
-            { "lead": "Temperature change.", "text": "A piece of cheese heats 25 g of water from 21 °C to 85 °C. The change is 85 − 21 = 64 °C." },
-            { "lead": "Calculate.", "text": "25 × 4.2 × 64 = 6720." },
-            { "lead": "Unit.", "text": "The energy is 6720 J." }
+            {
+              "lead": "Temperature change.",
+              "text": "A piece of cheese heats 25 g of water from 21 °C to 85 °C. The change is 85 − 21 = 64 °C."
+            },
+            {
+              "lead": "Calculate.",
+              "text": "25 × 4.2 × 64 = 6720."
+            },
+            {
+              "lead": "Unit.",
+              "text": "The energy is 6720 J."
+            }
           ]
         },
         {
@@ -98,22 +145,60 @@
             "alt": "Practise calculating the energy in food from the mass of water and the temperature change.",
             "question": "A food sample heats **{m} g** of water by **{t} °C**. Calculate the energy transferred to the water in joules, using energy = mass of water × 4.2 × temperature change.",
             "variables": [
-              { "id": "m", "min": 20, "max": 100, "step": 5 },
-              { "id": "t", "min": 10, "max": 70, "step": 5 }
+              {
+                "id": "m",
+                "min": 20,
+                "max": 50,
+                "step": 5
+              },
+              {
+                "id": "t",
+                "min": 10,
+                "max": 60,
+                "step": 5
+              }
             ],
-            "answer": { "formula": "m * 4.2 * t", "unit": "J", "decimals": 0 },
+            "answer": {
+              "formula": "m * 4.2 * t",
+              "unit": "J",
+              "decimals": 0
+            },
             "working": [
               "Energy = mass of water × 4.2 × temperature change",
               "Energy = {m} × 4.2 × {t} = **{answer}** J"
             ]
           }
         },
-        { "type": "subheading", "text": "Energy per gram" },
+        {
+          "type": "subheading",
+          "text": "Energy per gram"
+        },
         {
           "type": "equation",
           "label": "Energy per gram of food",
           "formula": "energy per gram = energy transferred ÷ mass of food",
-          "where": ["energy transferred, in J", "mass of food burnt, in g", "energy per gram, in J/g"]
+          "where": [
+            "energy transferred, in J",
+            "mass of food burnt, in g",
+            "energy per gram, in J/g"
+          ]
+        },
+        {
+          "type": "steps",
+          "items": [
+            {
+              "lead": "Energy.",
+              "text": "Burning 0.5 g of cheese transfers 6720 J to the water."
+            },
+            {
+              "lead": "Divide.",
+              "text": "6720 ÷ 0.5 = 13440."
+            },
+            {
+              "lead": "Unit.",
+              "text": "The energy per gram is 13 440 J/g."
+            }
+          ]
         },
         {
           "type": "key-points",
@@ -128,7 +213,10 @@
     {
       "heading": "Explaining differences in results",
       "blocks": [
-        { "type": "paragraph", "text": "Exam questions ask why two foods or two results are different." },
+        {
+          "type": "paragraph",
+          "text": "Exam questions ask why two foods or two results are different."
+        },
         {
           "type": "list",
           "items": [
@@ -167,7 +255,9 @@
   ],
   "boards": {
     "edexcel": {
-      "spec_codes": ["EDEX 1.14B"],
+      "spec_codes": [
+        "EDEX 1.14B"
+      ],
       "exam_phrases": [
         "use the thermometer to measure the start and end temperature of the water",
         "subtract the initial temperature from the final temperature",
@@ -213,7 +303,13 @@
     "status": "draft",
     "written_by": "sonnet-5-5",
     "written_at": "2026-10-01",
-    "spec_point_ids": ["b10e319c-0883-46bf-b0fc-823af115eae6"],
-    "exemplar_ids": ["f7a7f09c-9e5f-43d4-adba-aea2e28d4c2b"]
+    "spec_point_ids": [
+      "b10e319c-0883-46bf-b0fc-823af115eae6"
+    ],
+    "exemplar_ids": [
+      "f7a7f09c-9e5f-43d4-adba-aea2e28d4c2b"
+    ],
+    "checked_by": "sonnet-science-check",
+    "checked_at": "2026-10-01"
   }
 }

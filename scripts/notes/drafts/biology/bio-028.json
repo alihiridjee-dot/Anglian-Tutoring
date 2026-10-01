@@ -62,9 +62,21 @@
         },
         { "type": "subheading", "text": "Rearranging the equation" },
         {
+          "type": "equation",
+          "label": "Heart rate",
+          "formula": "heart rate = cardiac output ÷ stroke volume",
+          "where": ["heart rate, in beats per minute", "cardiac output, in cm³ per minute", "stroke volume, in cm³"]
+        },
+        {
+          "type": "equation",
+          "label": "Stroke volume",
+          "formula": "stroke volume = cardiac output ÷ heart rate",
+          "where": ["stroke volume, in cm³", "cardiac output, in cm³ per minute", "heart rate, in beats per minute"]
+        },
+        {
           "type": "steps",
           "items": [
-            { "lead": "Heart rate.", "text": "A person has a cardiac output of 4.9 litres per minute and a stroke volume of 70 ml. Heart rate = cardiac output ÷ stroke volume." },
+            { "lead": "Heart rate.", "text": "A person has a cardiac output of 4.9 litres per minute and a stroke volume of 70 ml. Calculate the heart rate." },
             { "lead": "Units.", "text": "Convert 4.9 litres to 4900 ml." },
             { "lead": "Calculate.", "text": "4900 ÷ 70 = 70 beats per minute." }
           ]
@@ -205,6 +217,8 @@
     "status": "draft",
     "written_by": "sonnet-5-5",
     "written_at": "2026-10-01",
+    "checked_by": "sonnet-science-check",
+    "checked_at": "2026-10-01",
     "spec_point_ids": ["1f7c5270-8833-44b9-964e-fd60583ea125"],
     "exemplar_ids": ["28c9872d-5954-498f-8183-0acc83dfdfa2"]
   }

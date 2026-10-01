@@ -56,8 +56,7 @@
           "type": "list",
           "items": [
             "A leaf is an organ. A root is an organ. The stem is an organ.",
-            "Spongy mesophyll and xylem are tissues.",
-            "Roots, stems and leaves together form the plant organ system for transport."
+            "Spongy mesophyll and xylem are tissues."
           ]
         },
         {
@@ -142,7 +141,7 @@
       "worked_example": {
         "exemplar_id": "0e397f32-b50c-4580-aa5f-9f5ce923ba8d",
         "source": "AQA jun 2019, Paper 1 (F), Q3.1",
-        "question": "Write the biological structures from the box in the correct size order.\n\ncell   nucleus   organ   tissue\n\nSmallest\nLargest",
+        "question": "Write the biological structures from the box in the correct size order.\n\ncell   nucleus   organ   tissue\n\nSmallest\n\nLargest",
         "marks": 3,
         "answer_points": [
           "Smallest: nucleus",
@@ -157,6 +156,8 @@
   "meta": {
     "status": "draft",
     "written_by": "sonnet-5-5",
+    "checked_by": "sonnet-science-check",
+    "checked_at": "2026-10-01",
     "written_at": "2026-10-01",
     "spec_point_ids": [
       "630f6f04-55e3-4352-85df-1a98bd839364",
