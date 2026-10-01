@@ -109,7 +109,7 @@ export function Live() {
         // timetable, and a failed request hasn't read it.
         <ErrorNote error={error} onRetry={() => void refetch()} />
       ) : tab === "upcoming" ? (
-        <div className="grid gap-3">
+        <div data-guide="live-list" className="grid gap-3">
           {upcoming.length === 0 ? (
             <EmptyState
               mascot="owl"

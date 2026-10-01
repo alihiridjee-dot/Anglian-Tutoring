@@ -188,7 +188,7 @@ export function ParentBillingSection({
   }
 
   return (
-    <div>
+    <div data-guide="parent-billing">
       <div className="flex items-center gap-3 mb-5">
         <CreditCard className="w-5 h-5 text-primary" />
         <h2 className="font-display text-xl font-bold text-foreground">Billing &amp; plans</h2>

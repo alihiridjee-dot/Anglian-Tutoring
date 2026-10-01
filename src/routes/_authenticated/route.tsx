@@ -4,6 +4,7 @@ import { whenHydrated } from "@/lib/auth/hydration";
 import { loadGuardState } from "@/lib/auth/guardState";
 import { UserRole } from "@/types/user";
 import { PaywallOverlay } from "@/components/billing/PaywallOverlay";
+import { WelcomeTour } from "@/components/WelcomeTour";
 import { AuthedRouteError, RoutePending } from "@/components/RouteFallbacks";
 
 /**
@@ -89,6 +90,8 @@ function AuthenticatedLayout() {
     <>
       <Outlet />
       {locked && <PaywallOverlay />}
+      {/* Here rather than in a page, so it stays mounted as it moves between them. */}
+      <WelcomeTour locked={locked} />
     </>
   );
 }
