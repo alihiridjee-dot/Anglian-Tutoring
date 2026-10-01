@@ -52,7 +52,7 @@
             ],
             [
               "Removing nitrogen monoxide and carbon monoxide from car exhausts",
-              "A catalytic converter"
+              "The metal catalyst in a catalytic converter"
             ]
           ]
         },
@@ -113,7 +113,7 @@
               {
                 "label": "Exothermic, no catalyst",
                 "results": [
-                  "Highest",
+                  "Higher",
                   "Lower energy",
                   "Slower"
                 ],
@@ -138,7 +138,7 @@
               {
                 "label": "Endothermic, no catalyst",
                 "results": [
-                  "Highest",
+                  "Higher",
                   "Higher energy",
                   "Slower"
                 ],
@@ -170,7 +170,8 @@
             "This pathway has a **lower activation energy**.",
             "A greater proportion of collisions then have enough energy to react, so the rate increases.",
             "The reactants and products are the same, so the energy change of the reaction is the same.",
-            "On a reaction profile, the catalysed line has a lower peak and starts and ends at the same levels."
+            "On a reaction profile, the catalysed line has a lower peak and starts and ends at the same levels.",
+            "(Higher tier) A catalyst does not change the position of equilibrium. It speeds up the forward and reverse reactions equally."
           ]
         },
         {
@@ -236,7 +237,7 @@
         "(a substance that) increases the rate of reaction",
         "and is not used up during the reaction",
         "increases the rate of the reaction",
-        "equilibrium position stays the same (Higher tier)"
+        "(equilibrium position) does not change (Higher tier)"
       ],
       "mistakes": [
         {
@@ -318,10 +319,7 @@
         "substance that speeds up a reaction",
         "(but) is not used up in the reaction / not chemically changed",
         "provides an alternative (reaction) pathway",
-        "with a lower activation energy",
-        "stays the same (mass of the catalyst)",
-        "iron (the catalyst in the Haber process)",
-        "measure the mass of the catalyst before and after"
+        "with a lower activation energy"
       ],
       "mistakes": [
         {
@@ -365,6 +363,8 @@
       "497ad19b-0962-4a44-9b15-2c49f5086c08",
       "6b90e987-3dc3-497b-ba43-36e42ecc782c",
       "2f731c3b-a532-4305-899d-ec8e04d8aa58"
-    ]
+    ],
+    "checked_by": "sonnet-science-check",
+    "checked_at": "2026-10-01"
   }
 }

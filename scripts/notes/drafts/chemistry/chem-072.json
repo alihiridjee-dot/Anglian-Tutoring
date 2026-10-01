@@ -81,7 +81,8 @@
           "type": "list",
           "items": [
             "Adding water to white anhydrous copper sulfate is a test for water. The colour changes from white to blue.",
-            "When a hydrated solid is heated in an open tube, the mass decreases. Water vapour is made and escapes from the tube."
+            "When a hydrated solid is heated in an open tube, the mass decreases. Water vapour is made and escapes from the tube.",
+            "Hydrated cobalt chloride also loses water when heated. Its mass falls because water vapour escapes."
           ]
         },
         {
@@ -307,7 +308,7 @@
       "mistakes": [
         {
           "wrong": "The concentrations do not change at dynamic equilibrium because it is a closed system.",
-          "right": "A closed system is ignored in this answer. Say the forward and reverse reactions are taking place at exactly the same rate."
+          "right": "When explaining why the concentrations do not change, a closed system is ignored. Say the forward and reverse reactions are taking place at exactly the same rate."
         },
         {
           "wrong": "When water is added to anhydrous copper sulfate the colour changes from blue to white.",
@@ -423,6 +424,8 @@
       "f4d1c91a-24f8-4528-92d6-e0f8f2959fa7",
       "e8c7f52f-b860-4a2a-a8d5-4ca1e30251fd",
       "36f613f0-197d-41dd-a153-ccae8bd40eda"
-    ]
+    ],
+    "checked_by": "sonnet-science-check",
+    "checked_at": "2026-10-01"
   }
 }

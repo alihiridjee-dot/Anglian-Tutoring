@@ -106,7 +106,6 @@
           "type": "list",
           "items": [
             "If there are equal numbers of gas molecules on each side, a change in pressure has no effect.",
-            "If there are no gases, such as in a solution, a change in pressure has no effect.",
             "A **catalyst** does not change the position of equilibrium. It increases the rate of the forward and the reverse reaction equally."
           ]
         },
@@ -139,7 +138,7 @@
             "prompt": "Pick a change to N₂ + 3H₂ ⇌ 2NH₃ at equilibrium",
             "result_labels": [
               "Position of equilibrium",
-              "Amount of ammonia",
+              "What happens to ammonia",
               "Why"
             ],
             "options": [
@@ -147,7 +146,7 @@
                 "label": "Add more nitrogen",
                 "results": [
                   "Shifts **right**",
-                  "Increases",
+                  "More ammonia is made",
                   "The system uses up some of the added nitrogen"
                 ]
               },
@@ -155,7 +154,7 @@
                 "label": "Remove ammonia",
                 "results": [
                   "Shifts **right**",
-                  "More ammonia is made",
+                  "More ammonia is made to replace it",
                   "The system makes more ammonia to replace what was removed"
                 ]
               },
@@ -163,7 +162,7 @@
                 "label": "Add more ammonia",
                 "results": [
                   "Shifts **left**",
-                  "Decreases",
+                  "Some of the added ammonia is used up",
                   "The system uses up some of the added ammonia"
                 ]
               },
@@ -171,7 +170,7 @@
                 "label": "Increase the temperature",
                 "results": [
                   "Shifts **left**",
-                  "Decreases",
+                  "Less ammonia at equilibrium",
                   "The system favours the endothermic (reverse) direction"
                 ]
               },
@@ -179,7 +178,7 @@
                 "label": "Decrease the temperature",
                 "results": [
                   "Shifts **right**",
-                  "Increases",
+                  "More ammonia at equilibrium",
                   "The system favours the exothermic (forward) direction"
                 ]
               },
@@ -187,7 +186,7 @@
                 "label": "Increase the pressure",
                 "results": [
                   "Shifts **right**",
-                  "Increases",
+                  "More ammonia at equilibrium",
                   "There are fewer gas molecules on the right (2) than on the left (4)"
                 ]
               },
@@ -195,7 +194,7 @@
                 "label": "Decrease the pressure",
                 "results": [
                   "Shifts **left**",
-                  "Decreases",
+                  "Less ammonia at equilibrium",
                   "There are more gas molecules on the left (4) than on the right (2)"
                 ]
               },
@@ -203,7 +202,7 @@
                 "label": "Add a catalyst",
                 "results": [
                   "**No change**",
-                  "Unchanged at equilibrium",
+                  "Same amount at equilibrium, reached sooner",
                   "The forward and reverse reactions speed up equally"
                 ]
               }
@@ -261,7 +260,8 @@
           "items": [
             "The conditions used are about 450 °C, 200 atmospheres and an iron catalyst.",
             "The temperature chosen is a compromise between the rate and the position of equilibrium.",
-            "The pressure chosen is a compromise between yield, rate and cost."
+            "The pressure chosen is a compromise between yield, rate and cost.",
+            "On cooling, the ammonia liquefies and is removed. The unreacted nitrogen and hydrogen are recycled."
           ]
         },
         {
@@ -311,8 +311,7 @@
         "(so that) the (increase in the) temperature is reduced",
         "no effect on equilibrium position; equal numbers of (gas) moles / molecules on each side",
         "the equilibrium shifts to the side with fewer molecules / moles",
-        "no change in equilibrium position because no gases are present",
-        "increases the rate of the forward and the reverse reaction by the same amount"
+        "(increases) the rate of the forward and the reverse reaction equally"
       ],
       "mistakes": [
         {
@@ -352,8 +351,7 @@
         "moves right / forwards / towards ammonia / to the products",
         "to oppose the temperature reduction / to release heat / to increase the temperature",
         "shift equilibrium to the right / in the forward direction; increases the yield of product",
-        "decrease in the number of molecules",
-        "less purple / lighter / paler / fades, because less iodine"
+        "decrease in the number of molecules"
       ],
       "mistakes": [
         {
@@ -361,12 +359,8 @@
           "right": "To oppose the change on its own is ignored. Say it opposes the temperature reduction, or releases heat."
         },
         {
-          "wrong": "The mixture goes colourless because all the iodine reacts.",
-          "right": "Going colourless is rejected, and so is all the iodine reacting. Say the mixture becomes less purple because some iodine reacts."
-        },
-        {
-          "wrong": "Increasing the temperature moves the endothermic stage 1 reaction to the left.",
-          "right": "A rise in temperature favours the endothermic direction. Stage 1 is endothermic, so the equilibrium shifts right and the yield of products increases."
+          "wrong": "To show how temperature affects the equilibrium in a sealed tube, heat the tube in the kettle.",
+          "right": "Placing the tube in the kettle is rejected. Put the tube into hot water from the kettle, then into cold water or ice, and describe the colour getting darker then lighter."
         }
       ],
       "worked_example": {
@@ -438,6 +432,8 @@
       "7c52525b-a9e1-4836-8d5d-ef2cae309d80",
       "3ad3da5f-34c5-4c1e-9ec3-1fba45eb4846",
       "e28e32e7-1369-4a6e-8fc1-b2a1c9ab63cb"
-    ]
+    ],
+    "checked_by": "sonnet-science-check",
+    "checked_at": "2026-10-01"
   }
 }
