@@ -18,6 +18,7 @@ import { Route as OnboardingRouteRouteImport } from './routes/onboarding/route'
 import { Route as AuthenticatedRouteRouteImport } from './routes/_authenticated/route'
 import { Route as IndexRouteImport } from './routes/index'
 import { Route as OnboardingIndexRouteImport } from './routes/onboarding/index'
+import { Route as NotesPreviewIndexRouteImport } from './routes/notes-preview/index'
 import { Route as DemoIndexRouteImport } from './routes/demo/index'
 import { Route as OnboardingSubjectsRouteImport } from './routes/onboarding/subjects'
 import { Route as OnboardingSchoolRouteImport } from './routes/onboarding/school'
@@ -25,6 +26,7 @@ import { Route as OnboardingPlanRouteImport } from './routes/onboarding/plan'
 import { Route as OnboardingLearningRouteImport } from './routes/onboarding/learning'
 import { Route as OnboardingConfidenceRouteImport } from './routes/onboarding/confidence'
 import { Route as OnboardingBoardRouteImport } from './routes/onboarding/board'
+import { Route as NotesPreviewConceptIdRouteImport } from './routes/notes-preview/$conceptId'
 import { Route as AuthenticatedVideosRouteImport } from './routes/_authenticated/videos'
 import { Route as AuthenticatedTutorRouteImport } from './routes/_authenticated/tutor'
 import { Route as AuthenticatedStudentsRouteImport } from './routes/_authenticated/students'
@@ -104,6 +106,11 @@ const OnboardingIndexRoute = OnboardingIndexRouteImport.update({
   path: '/',
   getParentRoute: () => OnboardingRouteRoute,
 } as any)
+const NotesPreviewIndexRoute = NotesPreviewIndexRouteImport.update({
+  id: '/notes-preview/',
+  path: '/notes-preview/',
+  getParentRoute: () => rootRouteImport,
+} as any)
 const DemoIndexRoute = DemoIndexRouteImport.update({
   id: '/demo/',
   path: '/demo/',
@@ -138,6 +145,11 @@ const OnboardingBoardRoute = OnboardingBoardRouteImport.update({
   id: '/board',
   path: '/board',
   getParentRoute: () => OnboardingRouteRoute,
+} as any)
+const NotesPreviewConceptIdRoute = NotesPreviewConceptIdRouteImport.update({
+  id: '/notes-preview/$conceptId',
+  path: '/notes-preview/$conceptId',
+  getParentRoute: () => rootRouteImport,
 } as any)
 const AuthenticatedVideosRoute = AuthenticatedVideosRouteImport.update({
   id: '/videos',
@@ -344,6 +356,7 @@ export interface FileRoutesByFullPath {
   '/students': typeof AuthenticatedStudentsRoute
   '/tutor': typeof AuthenticatedTutorRoute
   '/videos': typeof AuthenticatedVideosRoute
+  '/notes-preview/$conceptId': typeof NotesPreviewConceptIdRoute
   '/onboarding/board': typeof OnboardingBoardRoute
   '/onboarding/confidence': typeof OnboardingConfidenceRoute
   '/onboarding/learning': typeof OnboardingLearningRoute
@@ -351,6 +364,7 @@ export interface FileRoutesByFullPath {
   '/onboarding/school': typeof OnboardingSchoolRoute
   '/onboarding/subjects': typeof OnboardingSubjectsRoute
   '/demo/': typeof DemoIndexRoute
+  '/notes-preview/': typeof NotesPreviewIndexRoute
   '/onboarding/': typeof OnboardingIndexRoute
   '/homework/$homeworkId': typeof AuthenticatedHomeworkHomeworkIdRoute
   '/mcq/$setId': typeof AuthenticatedMcqSetIdRoute
@@ -394,6 +408,7 @@ export interface FileRoutesByTo {
   '/students': typeof AuthenticatedStudentsRoute
   '/tutor': typeof AuthenticatedTutorRoute
   '/videos': typeof AuthenticatedVideosRoute
+  '/notes-preview/$conceptId': typeof NotesPreviewConceptIdRoute
   '/onboarding/board': typeof OnboardingBoardRoute
   '/onboarding/confidence': typeof OnboardingConfidenceRoute
   '/onboarding/learning': typeof OnboardingLearningRoute
@@ -401,6 +416,7 @@ export interface FileRoutesByTo {
   '/onboarding/school': typeof OnboardingSchoolRoute
   '/onboarding/subjects': typeof OnboardingSubjectsRoute
   '/demo': typeof DemoIndexRoute
+  '/notes-preview': typeof NotesPreviewIndexRoute
   '/onboarding': typeof OnboardingIndexRoute
   '/homework/$homeworkId': typeof AuthenticatedHomeworkHomeworkIdRoute
   '/mcq/$setId': typeof AuthenticatedMcqSetIdRoute
@@ -447,6 +463,7 @@ export interface FileRoutesById {
   '/_authenticated/students': typeof AuthenticatedStudentsRoute
   '/_authenticated/tutor': typeof AuthenticatedTutorRoute
   '/_authenticated/videos': typeof AuthenticatedVideosRoute
+  '/notes-preview/$conceptId': typeof NotesPreviewConceptIdRoute
   '/onboarding/board': typeof OnboardingBoardRoute
   '/onboarding/confidence': typeof OnboardingConfidenceRoute
   '/onboarding/learning': typeof OnboardingLearningRoute
@@ -454,6 +471,7 @@ export interface FileRoutesById {
   '/onboarding/school': typeof OnboardingSchoolRoute
   '/onboarding/subjects': typeof OnboardingSubjectsRoute
   '/demo/': typeof DemoIndexRoute
+  '/notes-preview/': typeof NotesPreviewIndexRoute
   '/onboarding/': typeof OnboardingIndexRoute
   '/_authenticated/homework_/$homeworkId': typeof AuthenticatedHomeworkHomeworkIdRoute
   '/_authenticated/mcq/$setId': typeof AuthenticatedMcqSetIdRoute
@@ -500,6 +518,7 @@ export interface FileRouteTypes {
     | '/students'
     | '/tutor'
     | '/videos'
+    | '/notes-preview/$conceptId'
     | '/onboarding/board'
     | '/onboarding/confidence'
     | '/onboarding/learning'
@@ -507,6 +526,7 @@ export interface FileRouteTypes {
     | '/onboarding/school'
     | '/onboarding/subjects'
     | '/demo/'
+    | '/notes-preview/'
     | '/onboarding/'
     | '/homework/$homeworkId'
     | '/mcq/$setId'
@@ -550,6 +570,7 @@ export interface FileRouteTypes {
     | '/students'
     | '/tutor'
     | '/videos'
+    | '/notes-preview/$conceptId'
     | '/onboarding/board'
     | '/onboarding/confidence'
     | '/onboarding/learning'
@@ -557,6 +578,7 @@ export interface FileRouteTypes {
     | '/onboarding/school'
     | '/onboarding/subjects'
     | '/demo'
+    | '/notes-preview'
     | '/onboarding'
     | '/homework/$homeworkId'
     | '/mcq/$setId'
@@ -602,6 +624,7 @@ export interface FileRouteTypes {
     | '/_authenticated/students'
     | '/_authenticated/tutor'
     | '/_authenticated/videos'
+    | '/notes-preview/$conceptId'
     | '/onboarding/board'
     | '/onboarding/confidence'
     | '/onboarding/learning'
@@ -609,6 +632,7 @@ export interface FileRouteTypes {
     | '/onboarding/school'
     | '/onboarding/subjects'
     | '/demo/'
+    | '/notes-preview/'
     | '/onboarding/'
     | '/_authenticated/homework_/$homeworkId'
     | '/_authenticated/mcq/$setId'
@@ -637,7 +661,9 @@ export interface RootRouteChildren {
   ResetPasswordRoute: typeof ResetPasswordRoute
   DemoParentRouteRoute: typeof DemoParentRouteRouteWithChildren
   DemoStudentRouteRoute: typeof DemoStudentRouteRouteWithChildren
+  NotesPreviewConceptIdRoute: typeof NotesPreviewConceptIdRoute
   DemoIndexRoute: typeof DemoIndexRoute
+  NotesPreviewIndexRoute: typeof NotesPreviewIndexRoute
 }
 
 declare module '@tanstack/react-router' {
@@ -705,6 +731,13 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof OnboardingIndexRouteImport
       parentRoute: typeof OnboardingRouteRoute
     }
+    '/notes-preview/': {
+      id: '/notes-preview/'
+      path: '/notes-preview'
+      fullPath: '/notes-preview/'
+      preLoaderRoute: typeof NotesPreviewIndexRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/demo/': {
       id: '/demo/'
       path: '/demo'
@@ -753,6 +786,13 @@ declare module '@tanstack/react-router' {
       fullPath: '/onboarding/board'
       preLoaderRoute: typeof OnboardingBoardRouteImport
       parentRoute: typeof OnboardingRouteRoute
+    }
+    '/notes-preview/$conceptId': {
+      id: '/notes-preview/$conceptId'
+      path: '/notes-preview/$conceptId'
+      fullPath: '/notes-preview/$conceptId'
+      preLoaderRoute: typeof NotesPreviewConceptIdRouteImport
+      parentRoute: typeof rootRouteImport
     }
     '/_authenticated/videos': {
       id: '/_authenticated/videos'
@@ -1122,7 +1162,9 @@ const rootRouteChildren: RootRouteChildren = {
   ResetPasswordRoute: ResetPasswordRoute,
   DemoParentRouteRoute: DemoParentRouteRouteWithChildren,
   DemoStudentRouteRoute: DemoStudentRouteRouteWithChildren,
+  NotesPreviewConceptIdRoute: NotesPreviewConceptIdRoute,
   DemoIndexRoute: DemoIndexRoute,
+  NotesPreviewIndexRoute: NotesPreviewIndexRoute,
 }
 export const routeTree = rootRouteImport
   ._addFileChildren(rootRouteChildren)

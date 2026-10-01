@@ -1,0 +1,318 @@
+import { useState, type ReactNode } from "react";
+import { BookOpen, Eye, ArrowRight, RotateCcw } from "lucide-react";
+import { PageHeader } from "@/components/Shared";
+import { SUBJECT_LABEL, SUBJECT_TINT } from "@/lib/curriculum/subjectTheme";
+import {
+  inlineRuns,
+  type CompareDiagram,
+  type FlowDiagram,
+  type LineGraphDiagram,
+  type Note,
+  type NoteBlock,
+  type NoteBoard,
+  type NoteDiagram,
+} from "@/lib/notes/noteFormat";
+
+const BOARD_LABEL: Record<NoteBoard, string> = { aqa: "AQA", edexcel: "Edexcel", ocr: "OCR" };
+
+/** Text with **bold** runs. */
+function Inline({ text }: { text: string }) {
+  return (
+    <>
+      {inlineRuns(text).map((r, i) => (r.bold ? <b key={i}>{r.text}</b> : <span key={i}>{r.text}</span>))}
+    </>
+  );
+}
+
+export function Reveal({ q, a, marks }: { q: string; a: ReactNode; marks?: number }) {
+  const [open, setOpen] = useState(false);
+  return (
+    <div className="premium-card planner-point-row p-4">
+      <div className="flex items-start justify-between gap-3">
+        <p className="font-bold">
+          <Inline text={q} />
+        </p>
+        {marks ? (
+          <span className="chip shrink-0">
+            {marks} {marks === 1 ? "mark" : "marks"}
+          </span>
+        ) : null}
+      </div>
+      {open ? (
+        <div className="mt-3">{a}</div>
+      ) : (
+        <button onClick={() => setOpen(true)} className="btn-premium mt-3 inline-flex items-center gap-2 px-3 py-1.5 text-sm">
+          <Eye className="size-4" aria-hidden /> Show answer
+        </button>
+      )}
+    </div>
+  );
+}
+
+// ── Diagrams ────────────────────────────────────────────────────────────────
+
+const SERIES_TINTS = ["tint-primary", "tint-rose", "tint-amber", "tint-chem", "tint-emerald"];
+
+function LineGraph({ d }: { d: LineGraphDiagram }) {
+  const [active, setActive] = useState<string | null>(null);
+  const X0 = 44, X1 = 600, TOP = 30, Y0 = 200, H = Y0 - TOP;
+  const sx = (x: number) => X0 + ((x - d.x.min) / (d.x.max - d.x.min)) * (X1 - X0);
+  const sy = (y: number) => Y0 - y * H;
+  const curve = (pts: [number, number][]) => {
+    const p = pts.map(([x, y]) => [sx(x), sy(y)]);
+    let s = `M ${p[0][0]} ${p[0][1]}`;
+    for (let i = 0; i < p.length - 1; i++) {
+      const a = p[i - 1] ?? p[i], b = p[i], c = p[i + 1], e = p[i + 2] ?? c;
+      s += ` C ${b[0] + (c[0] - a[0]) / 6} ${b[1] + (c[1] - a[1]) / 6}, ${c[0] - (e[0] - b[0]) / 6} ${c[1] - (e[1] - b[1]) / 6}, ${c[0]} ${c[1]}`;
+    }
+    return s;
+  };
+  // Label each line at its highest point, nudged down if it would sit on another label.
+  const placed: { x: number; y: number }[] = [];
+  const labels = d.series.map((s) => {
+    const [px, py] = s.points.reduce((m, p) => (p[1] > m[1] ? p : m));
+    let x = Math.min(Math.max(sx(px), X0 + 30), X1 - 40), y = sy(py) - 8;
+    while (placed.some((q) => Math.abs(q.x - x) < 80 && Math.abs(q.y - y) < 16)) y += 16;
+    placed.push({ x, y });
+    return { x, y };
+  });
+  const bandsY = Y0 + 44;
+  const height = d.bands?.length ? bandsY + 14 : Y0 + 30;
+
+  return (
+    <figure className="space-y-3">
+      <div className="-mx-1 overflow-x-auto px-1">
+        <svg viewBox={`0 0 640 ${height}`} className="w-full min-w-[520px]" role="img" aria-label={d.alt}>
+          <line x1={X0} y1={Y0} x2={X1} y2={Y0} stroke="var(--foreground)" strokeOpacity=".3" strokeWidth="1.5" />
+          <line x1={X0} y1={TOP - 10} x2={X0} y2={Y0} stroke="var(--foreground)" strokeOpacity=".3" strokeWidth="1.5" />
+          <text x={14} y={(TOP + Y0) / 2} transform={`rotate(-90 14 ${(TOP + Y0) / 2})`} textAnchor="middle" fontSize="12" fontWeight="700" fill="var(--foreground)">{d.y.label}</text>
+          {d.markers?.map((m) => (
+            <g key={m.label}>
+              <line x1={sx(m.x)} y1={TOP - 6} x2={sx(m.x)} y2={Y0} stroke="var(--foreground)" strokeOpacity=".3" strokeDasharray="4 4" />
+              <text x={sx(m.x)} y={TOP - 12} textAnchor="middle" fontSize="12" fontWeight="800" fill="var(--foreground)">{m.label}</text>
+            </g>
+          ))}
+          {d.series.map((s, i) => (
+            <g key={s.name} className={SERIES_TINTS[i]} opacity={active && active !== s.name ? 0.15 : 1} style={{ transition: "opacity .2s" }}>
+              <path d={curve(s.points)} fill="none" stroke="var(--tint)" strokeWidth={active === s.name ? 4 : 3} strokeLinecap="round" />
+              {d.series.length > 1 ? (
+                <text x={labels[i].x} y={labels[i].y} textAnchor="middle" fontSize="13" fontWeight="800" fill="var(--tint)">{s.name}</text>
+              ) : null}
+            </g>
+          ))}
+          {d.x.ticks.map((t) => (
+            <text key={t} x={sx(t)} y={Y0 + 18} textAnchor="middle" fontSize="12" fontWeight="700" fill="var(--foreground)">
+              {t}{d.x.unit ?? ""}
+            </text>
+          ))}
+          {!d.bands?.length ? null : d.bands.map((b) => (
+            <text key={b.label} x={(sx(b.from) + sx(b.to)) / 2} y={bandsY} textAnchor="middle" fontSize="12" fontWeight="800" fill="var(--foreground)" opacity=".75">{b.label}</text>
+          ))}
+        </svg>
+      </div>
+      <figcaption className="flex flex-wrap items-center gap-x-4 gap-y-2 text-sm font-bold">
+        <span>{d.x.label}</span>
+        {d.series.length > 1
+          ? d.series.map((s, i) => (
+              <button
+                key={s.name}
+                onClick={() => setActive(active === s.name ? null : s.name)}
+                aria-pressed={active === s.name}
+                className={`${SERIES_TINTS[i]} inline-flex items-center gap-1.5 rounded-md px-1.5 py-0.5 hover:bg-[color-mix(in_oklab,var(--tint)_12%,transparent)] ${active === s.name ? "bg-[color-mix(in_oklab,var(--tint)_16%,transparent)]" : ""}`}
+              >
+                <span className="h-1 w-4 rounded-full bg-[var(--tint)]" aria-hidden />
+                {s.name}
+              </button>
+            ))
+          : null}
+      </figcaption>
+    </figure>
+  );
+}
+
+function Flow({ d }: { d: FlowDiagram }) {
+  return (
+    <figure aria-label={d.alt} className="space-y-2">
+      <ol className="flex flex-col items-stretch gap-2 sm:flex-row sm:flex-wrap sm:items-center">
+        {d.steps.map((s, i) => (
+          <li key={i} className="flex flex-col items-center gap-2 sm:flex-row">
+            <span className="rounded-xl border-[1.5px] border-[color-mix(in_oklab,var(--tint)_40%,transparent)] bg-[color-mix(in_oklab,var(--tint)_8%,var(--card))] px-3 py-2 text-center text-base font-bold">
+              <Inline text={s} />
+            </span>
+            {i < d.steps.length - 1 ? <ArrowRight className="size-5 shrink-0 rotate-90 text-[var(--tint)] sm:rotate-0" aria-hidden /> : null}
+          </li>
+        ))}
+      </ol>
+      {d.loop ? (
+        <p className="flex items-center gap-2 text-sm font-bold">
+          <RotateCcw className="size-4 text-[var(--tint)]" aria-hidden /> Then back to the start: the cycle repeats.
+        </p>
+      ) : null}
+    </figure>
+  );
+}
+
+function Table({ columns, rows }: { columns: string[]; rows: string[][] }) {
+  return (
+    <>
+      <table className="hidden w-full border-collapse text-left text-base sm:table">
+        <thead>
+          <tr className="border-b-2 border-[color-mix(in_oklab,var(--tint)_40%,transparent)]">
+            {columns.map((c) => (
+              <th key={c} className="font-display py-2 pr-4 font-extrabold">{c}</th>
+            ))}
+          </tr>
+        </thead>
+        <tbody className="[&_td]:py-3 [&_td]:pr-4 [&_td]:align-top [&_tr]:border-b [&_tr]:border-border">
+          {rows.map((r, i) => (
+            <tr key={i}>
+              {r.map((cell, j) => (
+                <td key={j} className={j === 0 ? "font-bold" : undefined}><Inline text={cell} /></td>
+              ))}
+            </tr>
+          ))}
+        </tbody>
+      </table>
+      {/* On a phone a table becomes stacked blocks, so nothing scrolls sideways. */}
+      <div className="divide-y divide-border sm:hidden">
+        {rows.map((r, i) => (
+          <div key={i} className="py-3">
+            <p className="font-display text-lg font-extrabold"><Inline text={r[0]} /></p>
+            {r.slice(1).map((cell, j) => (
+              <p key={j}>
+                <b>{columns[j + 1]}:</b> <Inline text={cell} />
+              </p>
+            ))}
+          </div>
+        ))}
+      </div>
+    </>
+  );
+}
+
+function Compare({ d }: { d: CompareDiagram }) {
+  return <Table columns={["", ...d.items]} rows={d.rows.map((r) => [r.feature, ...r.values])} />;
+}
+
+function Diagram({ d }: { d: NoteDiagram }) {
+  if (d.kind === "line-graph") return <LineGraph d={d} />;
+  if (d.kind === "flow") return <Flow d={d} />;
+  return <Compare d={d} />;
+}
+
+// ── Blocks ──────────────────────────────────────────────────────────────────
+
+function Block({ b }: { b: NoteBlock }) {
+  switch (b.type) {
+    case "paragraph":
+      return <p><Inline text={b.text} /></p>;
+    case "list":
+      return (
+        <ul className="list-disc space-y-2 pl-6">
+          {b.items.map((t, i) => <li key={i}><Inline text={t} /></li>)}
+        </ul>
+      );
+    case "steps":
+      return (
+        <ol className="space-y-4">
+          {b.items.map((s, i) => (
+            <li key={i} className="flex gap-3">
+              <span className="numeral icon-tile size-8 shrink-0 text-sm">{i + 1}</span>
+              <p><b>{s.lead}</b> <Inline text={s.text} /></p>
+            </li>
+          ))}
+        </ol>
+      );
+    case "table":
+      return <Table columns={b.columns} rows={b.rows} />;
+    case "diagram":
+      return <Diagram d={b.diagram} />;
+  }
+}
+
+function Section({ heading, children }: { heading: string; children: ReactNode }) {
+  return (
+    <section className="mt-10 space-y-4">
+      <h2 className="font-display text-xl font-extrabold sm:text-2xl">{heading}</h2>
+      {children}
+    </section>
+  );
+}
+
+// ── The note ────────────────────────────────────────────────────────────────
+
+export function NoteView({ note, board }: { note: Note; board: NoteBoard }) {
+  const layer = note.boards[board];
+  const tint = SUBJECT_TINT[note.subject];
+  const eyebrow = [`GCSE ${SUBJECT_LABEL[note.subject]}`, BOARD_LABEL[board], ...(layer?.spec_codes ?? [])].join(" · ");
+
+  return (
+    <div className={`${tint} space-y-6`}>
+      <PageHeader eyebrow={eyebrow} title={note.title} icon={BookOpen} />
+
+      <article className="premium-card px-5 py-6 text-[1.0625rem] leading-relaxed sm:px-8 sm:py-8">
+        <div className="max-w-[68ch]">
+          <div className="rounded-xl bg-[color-mix(in_oklab,var(--tint)_9%,var(--card))] p-4 sm:p-5">
+            <p className="font-display text-lg font-extrabold">The key idea</p>
+            <p className="mt-1"><Inline text={note.key_idea} /></p>
+          </div>
+
+          {note.sections.map((s) => (
+            <Section key={s.heading} heading={s.heading}>
+              {s.blocks.map((b, i) => <Block key={i} b={b} />)}
+            </Section>
+          ))}
+
+          {layer?.extra?.map((s) => (
+            <Section key={s.heading} heading={s.heading}>
+              {s.blocks.map((b, i) => <Block key={i} b={b} />)}
+            </Section>
+          ))}
+
+          {layer ? (
+            <Section heading="Exam tips">
+              <p>These phrases come from {BOARD_LABEL[board]} mark schemes. Use them as written:</p>
+              <ul className="list-disc space-y-2 pl-6">
+                {layer.exam_phrases.map((p, i) => <li key={i}><Inline text={p} /></li>)}
+              </ul>
+              {layer.mistakes.length ? (
+                <>
+                  <p>Common ways students lose marks:</p>
+                  <ul className="list-disc space-y-2 pl-6">
+                    {layer.mistakes.map((m, i) => (
+                      <li key={i}><Inline text={m.wrong} /> <Inline text={m.right} /></li>
+                    ))}
+                  </ul>
+                </>
+              ) : null}
+            </Section>
+          ) : null}
+
+          {layer?.worked_example ? (
+            <Section heading="Worked example">
+              <p><b>{layer.worked_example.source}.</b></p>
+              <Reveal
+                q={layer.worked_example.question}
+                marks={layer.worked_example.marks}
+                a={
+                  <ol className="list-decimal space-y-1.5 pl-6">
+                    {layer.worked_example.answer_points.map((p, i) => <li key={i}><Inline text={p} /></li>)}
+                  </ol>
+                }
+              />
+              {layer.worked_example.tip ? <p><Inline text={layer.worked_example.tip} /></p> : null}
+            </Section>
+          ) : null}
+
+          <Section heading="Check your understanding">
+            <div className="grid gap-3">
+              {note.checks.map((c, i) => (
+                <Reveal key={i} q={c.q} marks={c.marks} a={<p><Inline text={c.a} /></p>} />
+              ))}
+            </div>
+          </Section>
+        </div>
+      </article>
+    </div>
+  );
+}
