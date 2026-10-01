@@ -1,0 +1,363 @@
+{
+  "format": 1,
+  "concept_id": "phys-079",
+  "subject": "physics",
+  "title": "Required practical: infrared radiation and surfaces",
+  "key_idea": "Matt black surfaces are the best absorbers and emitters of infrared radiation. Shiny, white and silver surfaces are the poorest. In the practical you change only the surface, so any difference in temperature is down to the surface.",
+  "sections": [
+    {
+      "heading": "Absorbing and emitting infrared",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "Every object emits infrared radiation, and absorbs it from its surroundings. This section covers how the nature of a surface changes how much is absorbed or emitted."
+        },
+        {
+          "type": "definitions",
+          "items": [
+            {
+              "term": "Infrared radiation",
+              "meaning": "Electromagnetic radiation that a hot object emits. Hotter objects emit it at a greater rate."
+            },
+            {
+              "term": "Absorber",
+              "meaning": "A surface that takes in infrared radiation and warms up."
+            },
+            {
+              "term": "Emitter",
+              "meaning": "A surface that gives out infrared radiation and cools down."
+            }
+          ]
+        },
+        {
+          "type": "subheading",
+          "text": "What the surface does"
+        },
+        {
+          "type": "list",
+          "items": [
+            "Black surfaces are good absorbers and good emitters of infrared radiation.",
+            "White and silver surfaces are poor absorbers and poor emitters.",
+            "Matt surfaces absorb more infrared than shiny surfaces of the same colour.",
+            "A matt black surface is the best absorber. A shiny white or silver surface is the poorest."
+          ]
+        },
+        {
+          "type": "paragraph",
+          "text": "Pick a surface to see how it behaves."
+        },
+        {
+          "type": "diagram",
+          "diagram": {
+            "kind": "predictor",
+            "alt": "Pick a surface to see how well it absorbs and emits infrared radiation, and how fast a hot object with that surface cools.",
+            "prompt": "Pick a surface",
+            "result_labels": [
+              "Absorbs infrared",
+              "Emits infrared",
+              "A flask of hot water with this surface"
+            ],
+            "options": [
+              {
+                "label": "Matt black",
+                "results": [
+                  "Best absorber",
+                  "Best emitter",
+                  "Cools fastest"
+                ],
+                "explanation": "Black and matt: both help."
+              },
+              {
+                "label": "Shiny black",
+                "results": [
+                  "Poorer absorber than matt black",
+                  "Poorer emitter than matt black",
+                  "Cools more slowly than matt black"
+                ],
+                "explanation": "Black helps, but shiny reduces it."
+              },
+              {
+                "label": "Matt white",
+                "results": [
+                  "Poorer absorber than matt black",
+                  "Poorer emitter than matt black",
+                  "Cools more slowly than matt black"
+                ],
+                "explanation": "Matt helps, but white is a poor absorber and emitter."
+              },
+              {
+                "label": "Shiny silver",
+                "results": [
+                  "Poorest absorber",
+                  "Poorest emitter",
+                  "Cools slowest"
+                ],
+                "explanation": "Shiny and light: the poorest at both."
+              }
+            ]
+          }
+        },
+        {
+          "type": "key-points",
+          "items": [
+            "Black and matt surfaces absorb and emit the most infrared.",
+            "Shiny and white or silver surfaces absorb and emit the least.",
+            "Write about infrared radiation, not heat."
+          ]
+        }
+      ]
+    },
+    {
+      "heading": "Planning the investigation",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "You change the surface and measure the temperature. Everything else must stay the same so the surface is the only reason for a difference."
+        },
+        {
+          "type": "table",
+          "columns": [
+            "Variable",
+            "In this investigation"
+          ],
+          "rows": [
+            [
+              "Independent",
+              "The surface: its colour or how shiny it is."
+            ],
+            [
+              "Dependent",
+              "The temperature of the water, or the infrared reading from a detector."
+            ],
+            [
+              "Control",
+              "Distance from the heater or detector, volume of water, starting temperature, shape and size of container, time."
+            ]
+          ]
+        },
+        {
+          "type": "subheading",
+          "text": "Method for emission"
+        },
+        {
+          "type": "steps",
+          "items": [
+            {
+              "lead": "Heat the water.",
+              "text": "Add an equal volume of hot water to each flask or cube, one for each surface."
+            },
+            {
+              "lead": "Measure the start.",
+              "text": "Put a thermometer in each and record the starting temperature."
+            },
+            {
+              "lead": "Time it.",
+              "text": "Start a stopclock and record each temperature after 10 minutes."
+            },
+            {
+              "lead": "Compare.",
+              "text": "Calculate the change in temperature for each surface and compare."
+            }
+          ]
+        },
+        {
+          "type": "list",
+          "items": [
+            "An infrared detector can be used instead of a thermometer. Place it the same distance from each surface.",
+            "To compare absorption, place identical flasks painted different colours the same distance from an infrared lamp and record how the temperature rises."
+          ]
+        },
+        {
+          "type": "key-points",
+          "items": [
+            "Change one variable: the surface.",
+            "Keep distance, volume of water and starting temperature the same.",
+            "Use the same distance from the infrared detector each time."
+          ]
+        }
+      ]
+    },
+    {
+      "heading": "Explaining and calculating results",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "A hot object loses energy by emitting infrared. A cool object warms up while it absorbs more than it emits."
+        },
+        {
+          "type": "list",
+          "items": [
+            "A cube warms because it absorbs infrared from the heater.",
+            "As its temperature rises it emits infrared at a greater rate.",
+            "At constant temperature it emits infrared at the same rate that it absorbs it."
+          ]
+        },
+        {
+          "type": "equation",
+          "label": "Average rate of change of temperature",
+          "formula": "average rate = change in temperature ÷ time taken",
+          "where": [
+            "average rate is in °C per second (°C/s) or °C per minute.",
+            "change in temperature is in °C.",
+            "time taken is in seconds (s) or minutes."
+          ]
+        },
+        {
+          "type": "steps",
+          "items": [
+            {
+              "lead": "Convert the time.",
+              "text": "A cube warms from 18 °C to 63 °C in 2.0 minutes. 2.0 min = 120 s."
+            },
+            {
+              "lead": "Substitute.",
+              "text": "rate = (63 − 18) ÷ 120"
+            },
+            {
+              "lead": "Evaluate.",
+              "text": "rate = 0.375 °C/s."
+            }
+          ]
+        },
+        {
+          "type": "diagram",
+          "diagram": {
+            "kind": "practice",
+            "alt": "Calculate the average rate of change of temperature of a cube from its start and end temperatures.",
+            "question": "A cube is warmed by an infrared heater. Its temperature rises from {T1} °C to {T2} °C in {t} minutes. Calculate the average rate of change of temperature in °C per minute.",
+            "variables": [
+              {
+                "id": "T1",
+                "min": 18,
+                "max": 22,
+                "step": 2
+              },
+              {
+                "id": "T2",
+                "min": 60,
+                "max": 80,
+                "step": 10
+              },
+              {
+                "id": "t",
+                "min": 2,
+                "max": 10,
+                "step": 2
+              }
+            ],
+            "answer": {
+              "formula": "(T2 - T1) / t",
+              "unit": "°C/min",
+              "decimals": 2
+            },
+            "working": [
+              "rate = change in temperature ÷ time",
+              "rate = ({T2} − {T1}) ÷ {t}",
+              "rate = {answer} °C/min"
+            ]
+          }
+        },
+        {
+          "type": "key-points",
+          "items": [
+            "Temperature rises while the surface absorbs more infrared than it emits.",
+            "It stops rising when emission equals absorption.",
+            "Convert minutes to seconds if the answer is needed per second."
+          ]
+        }
+      ]
+    }
+  ],
+  "checks": [
+    {
+      "q": "State which of these surfaces is the best absorber of infrared radiation: matt black, shiny black, matt white, shiny silver.",
+      "a": "Matt black.",
+      "marks": 1
+    },
+    {
+      "q": "State two variables that should be kept the same when comparing how surfaces emit infrared.",
+      "a": "Any two from: the distance from the infrared detector, the volume of water, the starting temperature, the time.",
+      "marks": 2
+    },
+    {
+      "q": "A flask of water cools from 90 °C to 60 °C in 6.0 minutes. Calculate the average rate of change of temperature.",
+      "a": "Rate = (90 − 60) ÷ 6.0 = 5.0 °C/min.",
+      "marks": 2
+    }
+  ],
+  "boards": {
+    "aqa": {
+      "spec_codes": [
+        "AQA 4.6.2.2",
+        "AQA T 6.6.2.2"
+      ],
+      "exam_phrases": [
+        "black surfaces are good absorbers (and emitters of infrared)",
+        "white surfaces are poor absorbers (and emitters of infrared)",
+        "matt surfaces absorb more (infrared) than shiny surfaces of the same colour",
+        "each cube emits infrared at the same rate that it absorbs infrared",
+        "add an equal volume of (hot) water to each flask",
+        "the distance between the IR detector and the flask should be the same each time"
+      ],
+      "mistakes": [
+        {
+          "wrong": "The black cube absorbs more heat than the white cube.",
+          "right": "Write about infrared radiation: black surfaces are good absorbers and emitters of infrared radiation. References to heat are ignored."
+        },
+        {
+          "wrong": "The temperature stops rising because the cube cannot absorb any more.",
+          "right": "At constant temperature each cube emits infrared at the same rate that it absorbs infrared."
+        },
+        {
+          "wrong": "A black surface always emits more infrared than a white surface.",
+          "right": "Surface finish matters too. With a detector reading to 1 °C, shiny black and matt white both read 66 °C, so this cannot be concluded."
+        }
+      ],
+      "worked_example": {
+        "exemplar_id": "38d5909b-6c24-4c45-aba6-c814bc66f358",
+        "source": "AQA jun 2025, Paper 2 (H), Q5.5",
+        "question": "A student investigated how the colour of an object affects the rate of change of temperature of the object. The student made two observations:\n1. The rate of change of temperature was initially greater for the black cube than for the white cube.\n2. After a few minutes, both cubes stopped changing temperature.\n\nExplain the student's observations. You should refer to the absorption and emission of radiation from the surfaces of the cubes.",
+        "marks": 4,
+        "answer_points": [
+          "Black surfaces are good absorbers (and emitters of infrared).",
+          "White surfaces are poor absorbers (and emitters of infrared).",
+          "As the temperature of the cubes increases, the cubes emit infrared at a greater rate.",
+          "At constant temperature, each cube emits infrared at the same rate that it absorbs infrared."
+        ],
+        "tip": "One mark for each point. References to heat are ignored."
+      }
+    },
+    "edexcel": {
+      "spec_codes": [
+        "EDEX 5.19P"
+      ],
+      "exam_phrases": [
+        "cools more slowly",
+        "distance / separation",
+        "time (exposure)",
+        "poor conductor / reduces energy loss / (good) insulator"
+      ],
+      "mistakes": [
+        {
+          "wrong": "The silver can loses heat more slowly, so its curve is lower.",
+          "right": "Describe the curve, not the process. It starts at the same point and stays above the black curve, because the silver can cools more slowly."
+        },
+        {
+          "wrong": "The curve for the silver can starts at a lower temperature.",
+          "right": "It starts at the same point as the first curve. It then falls less steeply."
+        }
+      ]
+    }
+  },
+  "meta": {
+    "status": "draft",
+    "written_by": "sonnet-5-5",
+    "written_at": "2026-10-01",
+    "spec_point_ids": [
+      "9c02dcdb-ea91-4850-b402-0e26e063f32a"
+    ],
+    "exemplar_ids": [
+      "38d5909b-6c24-4c45-aba6-c814bc66f358"
+    ]
+  }
+}
