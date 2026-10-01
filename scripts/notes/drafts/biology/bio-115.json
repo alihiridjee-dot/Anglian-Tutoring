@@ -1,0 +1,398 @@
+{
+  "format": 1,
+  "concept_id": "bio-115",
+  "subject": "biology",
+  "title": "Abiotic and biotic factors",
+  "key_idea": "**Abiotic** factors are the non-living conditions in an environment, such as light and temperature. **Biotic** factors are the living things that affect a community, such as predators and pathogens. A change in either can change the size of populations.",
+  "sections": [
+    {
+      "heading": "Abiotic factors",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "Abiotic factors are the non-living parts of the environment. This section covers the ones in the specification and how each affects a community."
+        },
+        {
+          "type": "definitions",
+          "items": [
+            {
+              "term": "Abiotic factor",
+              "meaning": "A non-living factor that can affect a community."
+            },
+            {
+              "term": "Biotic factor",
+              "meaning": "A living factor that can affect a community."
+            }
+          ]
+        },
+        {
+          "type": "table",
+          "columns": [
+            "Abiotic factor",
+            "How it can affect organisms"
+          ],
+          "rows": [
+            [
+              "Light intensity",
+              "Plants need light for photosynthesis, so less light means less growth and fewer plants."
+            ],
+            [
+              "Temperature",
+              "Affects how fast organisms grow and reproduce, and which species can live in an area."
+            ],
+            [
+              "Moisture levels",
+              "Organisms need water. Dry conditions reduce the number of plants and animals that can live there."
+            ],
+            [
+              "Soil pH and mineral content",
+              "Plants take in mineral ions from the soil to grow. The pH of the soil affects which plants can grow."
+            ],
+            [
+              "Wind intensity and direction",
+              "Affects water loss from plants and the spread of seeds and pollen."
+            ],
+            [
+              "Carbon dioxide level (for plants)",
+              "Plants need carbon dioxide for photosynthesis."
+            ],
+            [
+              "Oxygen level (for aquatic animals)",
+              "Aquatic animals need dissolved oxygen to respire."
+            ]
+          ]
+        },
+        {
+          "type": "paragraph",
+          "text": "To show that an abiotic factor has an effect, compare how many organisms live where the factor is high and where it is low."
+        },
+        {
+          "type": "key-points",
+          "items": [
+            "Abiotic factors are non-living: light, temperature, moisture, soil pH and minerals, wind, carbon dioxide and oxygen.",
+            "Say how the factor changes the survival, growth or numbers of the organism."
+          ]
+        }
+      ]
+    },
+    {
+      "heading": "Biotic factors",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "Biotic factors are the living things in an environment. This section covers the four biotic factors in the specification."
+        },
+        {
+          "type": "list",
+          "items": [
+            "**Availability of food:** less food means fewer animals survive and breed.",
+            "**New predators arriving:** more prey are eaten, so the prey population falls.",
+            "**New pathogens:** disease can kill many organisms in a population.",
+            "**One species outcompeting another:** the numbers of the weaker species may no longer be enough to breed."
+          ]
+        },
+        {
+          "type": "diagram",
+          "diagram": {
+            "kind": "sort",
+            "alt": "Sort each factor into abiotic or biotic.",
+            "prompt": "Is each factor abiotic or biotic?",
+            "groups": [
+              "Abiotic",
+              "Biotic"
+            ],
+            "items": [
+              {
+                "text": "Light intensity",
+                "group": 0
+              },
+              {
+                "text": "Temperature",
+                "group": 0
+              },
+              {
+                "text": "Soil pH",
+                "group": 0
+              },
+              {
+                "text": "Moisture levels",
+                "group": 0
+              },
+              {
+                "text": "Wind direction",
+                "group": 0
+              },
+              {
+                "text": "Availability of food",
+                "group": 1
+              },
+              {
+                "text": "New predators arriving",
+                "group": 1
+              },
+              {
+                "text": "New pathogens",
+                "group": 1
+              },
+              {
+                "text": "Rabbits eating the plants",
+                "group": 1
+              },
+              {
+                "text": "One species outcompeting another",
+                "group": 1
+              }
+            ]
+          }
+        },
+        {
+          "type": "key-points",
+          "items": [
+            "Biotic factors are living: food, predators, pathogens and competition.",
+            "A new predator, pathogen or competitor can reduce a population."
+          ]
+        }
+      ]
+    },
+    {
+      "heading": "How a change affects a community",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "A change in one factor often leads to a chain of effects. Link each step in your answer."
+        },
+        {
+          "type": "subheading",
+          "text": "Example: a plant shaded by taller plants"
+        },
+        {
+          "type": "list",
+          "items": [
+            "Taller plants absorb most of the light, so there is less light for the plants below.",
+            "Less light means less photosynthesis, so less glucose for growth.",
+            "Where there are fewer trees, more light and more water or minerals reach the soil, so there is less competition and more plant species can grow."
+          ]
+        },
+        {
+          "type": "subheading",
+          "text": "Example: a new species arrives"
+        },
+        {
+          "type": "list",
+          "items": [
+            "A moth that feeds on oak leaves competes with aphids for the same food.",
+            "Aphids have less food, so the number of aphids decreases.",
+            "Species further along the food chain, such as ladybirds, may then also decrease."
+          ]
+        },
+        {
+          "type": "key-points",
+          "items": [
+            "Link the factor, the effect on the organism, and the change in numbers.",
+            "Use competition, food, predation or disease to explain a change in a population."
+          ]
+        }
+      ]
+    }
+  ],
+  "checks": [
+    {
+      "q": "Give two abiotic factors that could affect the size of an earthworm population.",
+      "a": "Any two from: water / moisture, oxygen / air in the soil, pH of the soil, minerals / ions, temperature, type of soil.",
+      "marks": 2
+    },
+    {
+      "q": "Give two biotic factors that could affect the size of an earthworm population.",
+      "a": "Any two from: food, predators, disease / pathogens.",
+      "marks": 2
+    },
+    {
+      "q": "Explain why there are more plant species growing in an area with no trees.",
+      "a": "More light (and water / minerals) reaches the soil, so there is less competition. More photosynthesis makes more glucose for growth.",
+      "marks": 3
+    }
+  ],
+  "boards": {
+    "aqa": {
+      "spec_codes": [
+        "AQA 7.2",
+        "AQA T 4.7.1.2",
+        "AQA T 4.7.1.3"
+      ],
+      "exam_phrases": [
+        "light intensity",
+        "moisture levels",
+        "pH (of soil)",
+        "minerals / ions (in soil)",
+        "wind (intensity / direction)",
+        "predators / consumers",
+        "disease / pathogens",
+        "(less trees means) more light so (more) photosynthesis so (more) glucose (for growth)",
+        "reduced competition"
+      ],
+      "mistakes": [
+        {
+          "wrong": "An abiotic factor that affects the earthworms is nutrients.",
+          "right": "Nutrients are ignored. Name the factor: water, oxygen, pH, minerals or ions, or temperature."
+        },
+        {
+          "wrong": "The daisies grow better where there is more sun.",
+          "right": "\"Sun\" is ignored. Write light (intensity), or shade for 1 mark."
+        },
+        {
+          "wrong": "Abiotic factors affecting the daisies are space and the weather.",
+          "right": "Availability of space and weather are ignored. Give light, temperature, type of soil, pH, minerals or ions, wind or oxygen in soil."
+        }
+      ],
+      "worked_example": {
+        "exemplar_id": "b12d78cd-edfe-4a25-a926-163d2439871c",
+        "source": "AQA jun 2022, Paper 2 (H), Q02.1",
+        "question": "Earthworms live in soil, feed on dead and decaying plant matter, have soft, moist skin, and exchange gases through their skin.\n\nGive two abiotic factors and two biotic factors that could affect the size of an earthworm population.",
+        "marks": 4,
+        "answer_points": [
+          "Abiotic (any two): water / moisture, oxygen / air in the soil, pH of the soil, minerals / ions, temperature, size of soil particles or type of soil.",
+          "Biotic (any two): food (or the amount of dead and decaying matter in the soil), predators, disease / pathogens / microorganisms."
+        ],
+        "tip": "Two marks for abiotic and two for biotic. Four correct factors in the wrong categories still score 2 marks."
+      }
+    },
+    "edexcel": {
+      "spec_codes": [
+        "EDEX 9.2"
+      ],
+      "exam_phrases": [
+        "measure the temperature with a thermometer",
+        "measure the light levels using a light meter",
+        "humidity using a humidity meter / sensor",
+        "rainfall using a measuring cylinder",
+        "outcompeted (by nettles)",
+        "by nettles absorbing (most of) the light",
+        "so can't photosynthesise (sufficiently)",
+        "the moths eat the aphid's food"
+      ],
+      "mistakes": [
+        {
+          "wrong": "The grass does not grow among nettles because the nettles are taller.",
+          "right": "Explain the competition: the nettles absorb most of the light, so the grass cannot photosynthesise enough."
+        },
+        {
+          "wrong": "The moths will reduce the number of aphids by eating them.",
+          "right": "The moths feed on oak leaves. They eat the aphids' food, so there is less food for the aphids and their number decreases."
+        }
+      ],
+      "worked_example": {
+        "exemplar_id": "795ae571-56ba-4bf7-b2d8-d6696ec6a1f1",
+        "source": "EDEXCEL jun 2024, Paper 2 (H), Q5(a)(ii)",
+        "question": "A scientist decided to study the variety of living organisms in a garden. The scientist also measured abiotic factors in the garden. The pH of the soil was measured using a pH meter.\n\nDescribe how three other abiotic factors could be measured in the garden.",
+        "marks": 3,
+        "answer_points": [
+          "Temperature with a thermometer.",
+          "Light levels using a light meter (lux meter).",
+          "Water in the soil using a water meter or sensor, or from the wet and dry mass of a soil sample.",
+          "Rainfall using a measuring cylinder or beaker.",
+          "Humidity using a humidity meter or sensor.",
+          "Depth of the soil using a ruler.",
+          "Wind direction or strength using a wind sock or wind meter."
+        ],
+        "tip": "Any three scores one mark each. Name the factor and the instrument."
+      },
+      "extra": [
+        {
+          "heading": "Measuring abiotic factors",
+          "blocks": [
+            {
+              "type": "table",
+              "columns": [
+                "Abiotic factor",
+                "How to measure it"
+              ],
+              "rows": [
+                [
+                  "Temperature",
+                  "Thermometer"
+                ],
+                [
+                  "Light",
+                  "Light meter (lux meter)"
+                ],
+                [
+                  "Soil water",
+                  "Water meter or sensor"
+                ],
+                [
+                  "Rainfall",
+                  "Measuring cylinder or beaker"
+                ],
+                [
+                  "Humidity",
+                  "Humidity meter or sensor"
+                ],
+                [
+                  "Soil pH",
+                  "pH meter"
+                ],
+                [
+                  "Wind",
+                  "Wind sock or wind meter"
+                ]
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    "ocr": {
+      "spec_codes": [
+        "OCR 4.1f"
+      ],
+      "exam_phrases": [
+        "acid rain will reduce the number of seeds that germinate",
+        "small volumes of acid have little effect",
+        "rapid drop in germination between the third and fourth flask",
+        "germination at the highest volume of acid is still possible"
+      ],
+      "mistakes": [
+        {
+          "wrong": "Acid rain stops seeds germinating.",
+          "right": "Some seeds still germinated at the highest volume of acid. Say acid rain reduces the number that germinate."
+        },
+        {
+          "wrong": "Germination falls steadily as acid is added.",
+          "right": "Small volumes of acid had little effect, then there was a rapid drop in germination between the third and fourth flask."
+        }
+      ],
+      "worked_example": {
+        "exemplar_id": "0a5c2031-6679-4239-9129-1d73d8f6feec",
+        "source": "OCR jun 2018, Paper 4, Q21(d)",
+        "question": "A student investigates the effect of acid rain on seed growth. She puts 20 mustard seeds on wet cotton wool in each of five flasks. Each flask has 20 cm³ of liquid made of different volumes of water and dilute sulfuric acid. After 8 days she counts how many seeds have germinated.\n\nVolume of water (cm³) | Volume of dilute sulfuric acid (cm³) | Number of seeds that germinated\n20 | 0 | 18\n16 | 4 | 15\n8 | 12 | 13\n4 | 16 | 6\n0 | 20 | 2\n\nExplain what this experiment shows about the effect of acid rain on seed germination.",
+        "marks": 2,
+        "answer_points": [
+          "Acid rain reduces the number of seeds that germinate.",
+          "Small volumes of acid have little effect, with a rapid drop in germination between the third and fourth flask.",
+          "Some germination is still possible at the highest volume of acid, so the acid would have to be more concentrated to stop germination."
+        ],
+        "tip": "Any two points score. Use the data from the table to support the answer."
+      }
+    }
+  },
+  "meta": {
+    "status": "draft",
+    "written_by": "sonnet-5-5",
+    "written_at": "2026-10-01",
+    "spec_point_ids": [
+      "802d4d7e-cf2b-4402-9ab6-f6089bcd0ffa",
+      "91dd4ed9-0b8d-4b2b-ab06-772c4eac7f43",
+      "5e019bea-f675-4416-a0ef-318a44edb48d",
+      "12046831-46f9-42a8-969f-6a006b9a7d67",
+      "9914eeee-d212-4dfb-9e1e-a4de5e7ed333"
+    ],
+    "exemplar_ids": [
+      "b12d78cd-edfe-4a25-a926-163d2439871c",
+      "795ae571-56ba-4bf7-b2d8-d6696ec6a1f1",
+      "0a5c2031-6679-4239-9129-1d73d8f6feec",
+      "66bf96a7-75ec-49f9-a34e-ca2f96d8f256",
+      "654afbfd-d4f9-41b1-bd72-c7c4ad342998",
+      "bf1533e2-6eab-4224-a42f-d4470c2676ac"
+    ]
+  }
+}
