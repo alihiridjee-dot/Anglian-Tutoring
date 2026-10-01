@@ -73,7 +73,7 @@
             ],
             [
               "Iron(III), Fe³⁺",
-              "Brown precipitate",
+              "Brown (red-brown) precipitate",
               "Precipitate stays"
             ]
           ]
@@ -201,7 +201,7 @@
               {
                 "label": "Iron(III), Fe³⁺",
                 "results": [
-                  "**Brown** precipitate",
+                  "**Brown** (red-brown) precipitate",
                   "The precipitate does not dissolve"
                 ],
                 "scene": {
@@ -264,7 +264,7 @@
           "type": "key-points",
           "items": [
             "A white precipitate on its own does not identify the ion.",
-            "Only aluminium hydroxide dissolves in excess sodium hydroxide."
+            "Of aluminium, calcium and magnesium, only aluminium hydroxide dissolves in excess sodium hydroxide."
           ]
         }
       ]
@@ -347,10 +347,6 @@
         {
           "wrong": "Add an alkaline solution to the two solutions.",
           "right": "'Alkaline solution' alone is ignored. Name it: sodium hydroxide (or potassium hydroxide) solution."
-        },
-        {
-          "wrong": "Iron(III) ions give a green precipitate with sodium hydroxide.",
-          "right": "Iron(III) ions give a red-brown precipitate."
         }
       ],
       "worked_example": {
@@ -402,8 +398,8 @@
           "right": "More than one cation gives a white precipitate, for example Al³⁺, Ca²⁺, Mg²⁺, Zn²⁺ and Pb²⁺. The test does not identify the cation on its own."
         },
         {
-          "wrong": "Copper(II) ions turn the solution blue when sodium hydroxide is added.",
-          "right": "Copper(II) ions give a blue precipitate (a blue solid)."
+          "wrong": "A white precipitate could mean the cation is sodium.",
+          "right": "Name only cations that give a white precipitate, such as Al³⁺, Ca²⁺, Mg²⁺, Zn²⁺ and Pb²⁺. Incorrect cations are not allowed."
         }
       ],
       "worked_example": {
@@ -455,6 +451,8 @@
       "3a96e1de-5934-4d5e-a362-7d5b6dc2f8b4",
       "06319414-cac8-42dd-92e6-fdc7b4f1658e",
       "454cd28f-3e14-4bf8-90d8-36a11c743ed8"
-    ]
+    ],
+    "checked_by": "sonnet-science-check",
+    "checked_at": "2026-10-01"
   }
 }

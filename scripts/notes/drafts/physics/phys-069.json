@@ -274,7 +274,7 @@
           "right": "Two more marks need the wavefront: the edge entering the glass slows first, while the part still in the air continues at the higher speed."
         },
         {
-          "wrong": "The wave fronts do not refract because they are not moving.",
+          "wrong": "The wavefronts do not refract because the wave does not slow down.",
           "right": "Wavefronts parallel to the boundary do not turn because every point enters the new material, and slows down, at the same time."
         }
       ],

@@ -31,7 +31,7 @@
           "items": [
             "Upthrust acts on objects fully immersed in a liquid or a gas, and on objects partially immersed in a liquid.",
             "The upthrust is equal to the weight of fluid displaced.",
-            "A floating object is partially immersed, so it displaces fluid."
+            "A floating object displaces a weight of fluid equal to its own weight."
           ]
         },
         {
@@ -150,8 +150,8 @@
           "right": "Explain it with pressure. Pressure increases with depth, so the force on the bottom is greater than the force on the top, and the resultant is the upthrust."
         },
         {
-          "wrong": "The upthrust is the weight of the garlic.",
-          "right": "The upthrust is the resultant of the upward force on the bottom and the downward force on the top. The last mark depends on explaining the pressure or force difference."
+          "wrong": "The resultant of the forces on the garlic is the upthrust.",
+          "right": "Say first that the pressure and force on the bottom are greater than on the top. The mark for the resultant is dependent on that explanation."
         }
       ],
       "worked_example": {
@@ -191,12 +191,12 @@
       ],
       "mistakes": [
         {
-          "wrong": "The ball sinks further in fresh water because the ball is heavier there.",
-          "right": "The weight of the ball does not change. Weight of ball = weight of water displaced. Seawater is more dense, so a smaller volume of seawater is displaced."
+          "wrong": "More of the ball is under the surface in fresh water because the upthrust is bigger there.",
+          "right": "The upthrust is the same in both liquids. Weight of ball = weight of water displaced. Seawater is more dense, so a smaller volume of seawater is displaced to produce the same upthrust."
         },
         {
-          "wrong": "The mass of a piece of wood can be found with the displacement method used for iron.",
-          "right": "The density of wood is less than that of water, so it floats. Less water is displaced than the volume of the wood."
+          "wrong": "The wood displaces water equal to its own volume, so the displacement method works.",
+          "right": "The density of wood is less than that of water, so it floats. Less water is displaced than the volume of the wood, so the volume reading is wrong."
         }
       ],
       "worked_example": {
@@ -250,6 +250,8 @@
   },
   "meta": {
     "status": "draft",
+    "checked_by": "sonnet-science-check",
+    "checked_at": "2026-10-01",
     "written_by": "sonnet-5-5",
     "written_at": "2026-10-01",
     "spec_point_ids": [

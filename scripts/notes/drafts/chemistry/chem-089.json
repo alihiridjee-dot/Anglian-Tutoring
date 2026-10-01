@@ -30,7 +30,7 @@
           "rows": [
             [
               "Lithium, Li⁺",
-              "Crimson (deep red)"
+              "Crimson"
             ],
             [
               "Sodium, Na⁺",
@@ -46,7 +46,7 @@
             ],
             [
               "Copper, Cu²⁺",
-              "Green (blue-green)"
+              "Green"
             ]
           ]
         },
@@ -138,7 +138,7 @@
             "steps": [
               "Clean the wire with hydrochloric acid, then hold it in a roaring flame until the flame is colourless",
               "Dip the clean wire into the sample",
-              "Hold the wire in the edge of a blue Bunsen flame",
+              "Hold the wire in the hottest part of a blue Bunsen flame",
               "Observe and record the flame colour"
             ]
           }
@@ -218,16 +218,12 @@
       ],
       "mistakes": [
         {
-          "wrong": "The calcium flame colour was not distinct because the solution was too dilute.",
-          "right": "The wire was not cleaned between tests, so copper sulfate was still present and the colours were mixed or masked."
+          "wrong": "To describe a flame test: clean the wire, put the sample on it and hold it in the flame.",
+          "right": "References to cleaning are ignored in this answer. The marks are for putting the sample on the (metal) wire and holding the wire in the blue (non-luminous) flame."
         },
         {
           "wrong": "It is difficult to identify the ions in fireworks because the flame colours are hard to tell apart.",
           "right": "'Hard to distinguish' is ignored. The flame colours are masked: they mix or blend, and you can only see one colour."
-        },
-        {
-          "wrong": "Sodium ions give an orange flame.",
-          "right": "Sodium ions give a yellow flame. Orange-red is the colour for calcium."
         }
       ],
       "worked_example": {
@@ -255,7 +251,7 @@
         "to clean the wire / to prevent contamination of sample",
         "so that the solid vaporises more easily / sticks onto the wire",
         "if flame is yellow - sodium ... lilac - potassium ... orange-red - calcium",
-        "use a (nichrome) wire instead of a wooden splint"
+        "red flame - lithium ... blue-green flame - copper"
       ],
       "mistakes": [
         {
@@ -274,7 +270,7 @@
       "worked_example": {
         "exemplar_id": "235f8d71-8b39-44f6-bf07-50aa380bc62b",
         "source": "EDEXCEL jun 2022, Paper 2 (H), Q4(b)(ii)",
-        "question": "A teacher does flame tests on three compounds, P, Q and R.\n\nCompound | Flame colour\nP | red\nQ | lilac\nR | blue-green\n\nUse the table to identify the metal ions in compounds P, Q and R.",
+        "question": "The table shows the results of flame tests on three compounds, P, Q and R.\n\nCompound | Flame colour\nP | red\nQ | lilac\nR | blue-green\n\nUse the table to identify the metal ions in compounds P, Q and R.",
         "marks": 3,
         "answer_points": [
           "P: lithium (Li⁺). Strontium is also allowed.",
@@ -352,6 +348,8 @@
       "0b2eb425-13c7-4802-a51c-96705e17cb70",
       "189c7a0c-f2dc-40c2-bc83-a09bda625634",
       "4bb56669-1f98-43c3-8d61-837b235a9008"
-    ]
+    ],
+    "checked_by": "sonnet-science-check",
+    "checked_at": "2026-10-01"
   }
 }
