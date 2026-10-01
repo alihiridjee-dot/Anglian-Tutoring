@@ -530,7 +530,9 @@ function ProfilePage() {
 
   return (
     <AppLayout title="Profile">
-      <div className="max-w-2xl space-y-6">
+      {/* Keyed by account: if someone else signs in on this tab, the forms start
+          again empty rather than keep (and save) the last person's details. */}
+      <div key={user?.id ?? "nobody"} className="max-w-2xl space-y-6">
         <PhotoCard currentEmail={user?.email ?? null} />
         <DetailsCard />
         <EmailCard currentEmail={user?.email ?? null} />
