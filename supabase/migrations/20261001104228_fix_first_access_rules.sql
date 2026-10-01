@@ -297,7 +297,7 @@ alter table public.student_program_plan
 -- column from browser reads and hand it out through a function that checks.
 --
 -- This migration only adds the function. Withdrawing the column is the
--- separate 20260928090100_withhold_homework_mark_schemes.sql, applied once
+-- separate 20261001111025_withhold_homework_mark_schemes.sql, applied once
 -- the app that reads through this function is live: the app before it still
 -- selects the column, and would break in between.
 
