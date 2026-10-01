@@ -62,6 +62,9 @@ export function WeeklyPlanPanel({
     weekStart,
     isCurrent,
     withCoverage: showReview,
+    // A student with a level but no enrolment rows has no course to plan: the
+    // fallback subject above must never be generated, saved or paid for.
+    enabled: !!active,
   });
 
   // Pull a past-week point back into this week's plan, in the lane it was in —
@@ -88,6 +91,8 @@ export function WeeklyPlanPanel({
           carriedFrom: weekStart,
         });
       }
+      // The current week (cached for a minute) and the backlog both changed.
+      await week.reload();
       toast.success(`Added “${point.code}” back into this week.`);
     } catch (e) {
       toast.error(e instanceof Error ? e.message : "Couldn't add that back — try again.");

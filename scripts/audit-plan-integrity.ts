@@ -96,6 +96,7 @@ const planOf = new Map(plans.map((p) => [p.id, p]));
 const pointOf = new Map(specPoints.map((p) => [p.id, p]));
 const topicOf = new Map(topics.map((t) => [t.id, t]));
 const reachCache = new Map<string, Map<string, string>>();
+const reviewReachCache = new Map<string, Map<string, string>>();
 
 type Finding = {
   student: string;
@@ -209,6 +210,14 @@ for (const row of points) {
     reach = spineReach(programme?.pacing ?? []);
     reachCache.set(key, reach);
   }
+  // Reviews open with a topic's review start, as the app and the trigger read
+  // it. Without this the script judged focus rows by the teach band alone,
+  // flagged valid reordered reviews and exited 1, burying real violations.
+  let reviewReach = reviewReachCache.get(key);
+  if (!reviewReach) {
+    reviewReach = spineReach(programme?.pacing ?? [], true);
+    reviewReachCache.set(key, reviewReach);
+  }
 
   const evidence = await evidenceFor(plan);
   const point = pointOf.get(row.spec_point_id);
@@ -226,7 +235,7 @@ for (const row of points) {
         ? topic.subject === plan.subject && topic.board === plan.board && topic.level === plan.level
         : undefined,
     },
-    { reach, weekStart: plan.week_start, examDate: programme?.exam_date },
+    { reach, reviewReach, weekStart: plan.week_start, examDate: programme?.exam_date },
   );
   if (verdict.ok) continue;
 
