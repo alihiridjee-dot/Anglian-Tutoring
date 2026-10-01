@@ -24,11 +24,25 @@
           "where": ["R_total = total resistance, in ohms (Ω)", "R₁, R₂ = resistance of each component, in ohms (Ω)"]
         },
         {
+          "type": "equation",
+          "label": "Potential difference, current and resistance",
+          "formula": "V = I × R",
+          "where": ["V = potential difference, in volts (V)", "I = current, in amperes (A)", "R = resistance, in ohms (Ω)"]
+        },
+        {
           "type": "steps",
           "items": [
-            { "lead": "Share the supply.", "text": "A 3.0 V battery is connected in series to a 22 Ω resistor and a resistor X." },
-            { "lead": "Use the sum.", "text": "The potential difference across X is 2.1 V." },
+            { "lead": "Know the rule.", "text": "In series the supply potential difference is shared between the components." },
+            { "lead": "Write down what you know.", "text": "A 3.0 V battery is connected in series to a 22 Ω resistor and a resistor X. The potential difference across X is 2.1 V." },
             { "lead": "Subtract.", "text": "Across the 22 Ω resistor: 3.0 − 2.1 = 0.9 V." }
+          ]
+        },
+        { "type": "subheading", "text": "Measuring instruments" },
+        {
+          "type": "list",
+          "items": [
+            "An **ammeter** is connected in series with the component, so the same current passes through it.",
+            "A **voltmeter** is connected in parallel across the component."
           ]
         },
         {
@@ -60,7 +74,7 @@
               { "id": "R2", "min": 10, "max": 50, "step": 10 },
               { "id": "V", "min": 6, "max": 12, "step": 3 }
             ],
-            "answer": { "formula": "V / (R1 + R2)", "unit": "A", "decimals": 2 },
+            "answer": { "formula": "V / (R1 + R2)", "unit": "A", "decimals": 3 },
             "working": [
               "Total resistance = {R1} + {R2}",
               "I = V ÷ R = {V} ÷ (total resistance)",
@@ -81,7 +95,7 @@
     {
       "heading": "Parallel circuits",
       "blocks": [
-        { "type": "paragraph", "text": "In a parallel circuit the components are on separate branches. There is more than one path for the current." },
+        { "type": "paragraph", "text": "In a parallel circuit the components are on separate branches. There is more than one path for the current. Some circuits have both series and parallel parts." },
         {
           "type": "list",
           "items": [
@@ -94,7 +108,7 @@
           "type": "list",
           "items": [
             "Current is conserved at a junction. The current going in equals the current coming out.",
-            "In wires F, G and H at a junction, a current of 6.0 A in F and 3.5 A in G leaves 6.0 − 3.5 = 2.5 A in H."
+            "For example, 6.0 A flows into a junction and 3.5 A flows out along one wire. The current in the other wire is 6.0 − 3.5 = 2.5 A."
           ]
         },
         {
@@ -200,12 +214,12 @@
         "(and) voltage stays the same",
         "fewer paths for the current",
         "effective resistance = sum of individual resistances",
-        "resistors must be connected in parallel"
+        "fewer paths for the current"
       ],
       "mistakes": [
         {
           "wrong": "The current in wire H is 6.0 + 3.5 = 9.5 A.",
-          "right": "Current is conserved at a junction. With 6.0 A in F and 3.5 A in G, the current in H is 2.5 A."
+          "right": "Current is conserved at a junction. The current in H is 2.5 A, found by subtracting 3.5 A from 6.0 A, not by adding."
         },
         {
           "wrong": "The voltage across the 22 Ω resistor is 2.1 V.",
@@ -233,8 +247,7 @@
       "spec_codes": ["OCR P3.2a", "OCR P3.2i", "OCR P3.2j", "OCR P3.2m"],
       "exam_phrases": [
         "resistance = voltage ÷ current",
-        "19",
-        "ALLOW ECF"
+        "resistance = potential difference ÷ current"
       ],
       "mistakes": [
         {
@@ -242,8 +255,8 @@
           "right": "Resistors in series have a bigger total than any one of them. The maximum is when all four are in series: the resistances add."
         },
         {
-          "wrong": "A pair of resistors in parallel has the greatest total resistance.",
-          "right": "A pair in parallel has the smallest total resistance. The pair in series has the greatest."
+          "wrong": "B and D have the same resistance, with no working shown.",
+          "right": "Name the pair and show the resistance of each using resistance = voltage ÷ current. Both parts are needed for the mark."
         }
       ],
       "worked_example": {
@@ -263,6 +276,8 @@
     "status": "draft",
     "written_by": "sonnet-5-5",
     "written_at": "2026-10-01",
+    "checked_by": "sonnet-science-check",
+    "checked_at": "2026-10-01",
     "spec_point_ids": [
       "dd2dfc70-cca6-469a-ae6b-c4c7ce98c051",
       "487305da-ab95-4fe7-93b1-5d565e3bed14",

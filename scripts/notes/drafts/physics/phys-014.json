@@ -8,13 +8,17 @@
     {
       "heading": "Investigating the resistance of a wire",
       "blocks": [
-        { "type": "paragraph", "text": "This practical finds how the resistance of a wire depends on its length, at constant temperature." },
+        {
+          "type": "paragraph",
+          "text": "This practical finds how the resistance of a wire depends on its length, at constant temperature."
+        },
         {
           "type": "list",
           "items": [
             "Equipment: power supply, ammeter, voltmeter, variable resistor, the wire fixed to a ruler, and crocodile clips.",
             "The ammeter is in series with the wire. The voltmeter is in parallel with the wire.",
-            "The **independent variable** is the length of wire. The **dependent variable** is its resistance."
+            "The **independent variable** is the length of wire. The **dependent variable** is its resistance.",
+            "Result: resistance increases as the length of wire increases. Doubling the length approximately doubles the resistance, so the graph is a straight line through the origin."
           ]
         },
         {
@@ -35,12 +39,19 @@
             ]
           }
         },
-        { "type": "subheading", "text": "Calculating resistance" },
+        {
+          "type": "subheading",
+          "text": "Calculating resistance"
+        },
         {
           "type": "equation",
           "label": "Resistance",
           "formula": "R = V ÷ I",
-          "where": ["R = resistance, in ohms (Ω)", "V = potential difference, in volts (V)", "I = current, in amperes (A)"]
+          "where": [
+            "R = resistance, in ohms (Ω)",
+            "V = potential difference, in volts (V)",
+            "I = current, in amperes (A)"
+          ]
         },
         {
           "type": "diagram",
@@ -49,10 +60,24 @@
             "alt": "Calculate the resistance of a wire from a voltmeter and ammeter reading.",
             "question": "The voltmeter reads {V} V and the ammeter reads {I} A for a length of wire. Calculate the resistance of the wire.",
             "variables": [
-              { "id": "V", "min": 0.5, "max": 3, "step": 0.5 },
-              { "id": "I", "min": 0.2, "max": 1, "step": 0.1 }
+              {
+                "id": "V",
+                "min": 0.5,
+                "max": 3,
+                "step": 0.5
+              },
+              {
+                "id": "I",
+                "min": 0.2,
+                "max": 1,
+                "step": 0.1
+              }
             ],
-            "answer": { "formula": "V / I", "unit": "Ω", "decimals": 1 },
+            "answer": {
+              "formula": "V / I",
+              "unit": "Ω",
+              "decimals": 1
+            },
             "working": [
               "R = V ÷ I",
               "R = {V} ÷ {I}",
@@ -60,7 +85,10 @@
             ]
           }
         },
-        { "type": "subheading", "text": "Keeping the test fair and safe" },
+        {
+          "type": "subheading",
+          "text": "Keeping the test fair and safe"
+        },
         {
           "type": "list",
           "items": [
@@ -83,7 +111,10 @@
     {
       "heading": "Investigating I–V characteristics",
       "blocks": [
-        { "type": "paragraph", "text": "The same meters give the I–V graph of a component such as a filament lamp, a diode or a resistor." },
+        {
+          "type": "paragraph",
+          "text": "The same meters give the I–V graph of a component such as a filament lamp, a diode or a resistor."
+        },
         {
           "type": "list",
           "items": [
@@ -98,7 +129,7 @@
           "type": "list",
           "items": [
             "To test a fixed resistor instead of a lamp, swap the component and measure the current for different potential differences.",
-            "To find the resistance of resistors in parallel, measure the potential difference across them and the current in the circuit.",
+            "A variable resistor in series with the lamp gives a continuously variable potential difference.",
             "A data logger collects many pairs of readings in a short time and measures current and potential difference at the same time."
           ]
         },
@@ -132,7 +163,12 @@
   ],
   "boards": {
     "aqa": {
-      "spec_codes": ["AQA 4.2.1.3", "AQA T 6.2.1.3", "AQA 4.2.1.4", "AQA T 6.2.1.4"],
+      "spec_codes": [
+        "AQA 4.2.1.3",
+        "AQA T 6.2.1.3",
+        "AQA 4.2.1.4",
+        "AQA T 6.2.1.4"
+      ],
       "exam_phrases": [
         "length varied by moving crocodile clips",
         "current measured with ammeter",
@@ -140,8 +176,8 @@
         "use V = IR to calculate resistance",
         "repeat readings of current and pd for each length and mean values calculated",
         "ensure values of current are low to minimise heating of wire",
-        "may cause wire to melt / overheat",
-        "to keep the current the same"
+        "ensure circuit is disconnected between readings",
+        "remove any anomalous readings"
       ],
       "mistakes": [
         {
@@ -171,16 +207,19 @@
       }
     },
     "edexcel": {
-      "spec_codes": ["EDEX 10.17", "EDEX 10.21"],
+      "spec_codes": [
+        "EDEX 10.17",
+        "EDEX 10.21"
+      ],
       "exam_phrases": [
-        "power supply, ammeter, voltmeter, filament lamp, means of varying potential difference",
         "measure current with ammeter",
         "measure potential difference with voltmeter",
         "calculate the resistance",
-        "(collect data in a) short time",
-        "simultaneous measurement (of current and voltage)",
-        "greater number of / more data pairs collected",
-        "metre rule / crocodile clip"
+        "metre rule / crocodile clip",
+        "(variable) resistor increases the resistance (of the circuit)",
+        "keeps the current constant / smaller",
+        "current increases the temperature of the wire",
+        "(collect data in a) short time"
       ],
       "mistakes": [
         {
@@ -197,20 +236,22 @@
         }
       ],
       "worked_example": {
-        "exemplar_id": "af05081f-55c8-4450-809f-68068891d334",
-        "source": "EDEXCEL jun 2024, Paper 2 (H), Q8(b)(i)",
-        "question": "A student investigates how current varies with potential difference across a filament lamp.\n\nThe student uses a power supply, a variable resistor, the filament lamp and two meters.\n\nAnother student repeats the investigation using a data logger.\n\nThe data logger records observations using sensors instead of meters. The sensors are connected to a computer to collect and display the observations.\n\nThe data logger collects 555 pairs of data in 2 minutes.\n\nSuggest one advantage of using a data logger instead of meters in this investigation.",
-        "marks": 1,
+        "exemplar_id": "f4481dfd-e4fe-44e8-a9e4-b120a9afe29f",
+        "source": "EDEXCEL jun 2023, Paper 2 (F), Q8(c)(iv)",
+        "question": "Students determine the resistance of a piece of iron wire. Their circuit has a power supply, an ammeter, a voltmeter and a variable resistor.\n\nThe variable resistor is used to prevent the iron wire from becoming too hot.\n\nExplain how the variable resistor is used to prevent the iron wire from becoming too hot.",
+        "marks": 2,
         "answer_points": [
-          "It collects the data in a short time (it saves time).",
-          "Or: it measures current and voltage simultaneously.",
-          "Or: it collects a greater number of data pairs, which improves reliability."
+          "The variable resistor increases the resistance of the circuit.",
+          "So the current is kept constant (or smaller).",
+          "Because the current heats up the wire (this can replace one of the other points)."
         ],
-        "tip": "One advantage is enough. Accuracy and precision are ignored."
+        "tip": "Any two linked points score. Adjusting the variable resistor to keep the current constant or small gets both marks."
       }
     },
     "ocr": {
-      "spec_codes": ["OCR P3.2f"],
+      "spec_codes": [
+        "OCR P3.2f"
+      ],
       "exam_phrases": [
         "Change lamp for a (fixed) resistor",
         "Measure current for different potential differences",
@@ -262,7 +303,10 @@
       "c0e5817a-c56f-4424-9175-411299ad70a5",
       "95ba9a1c-7409-4d77-b13b-c1b73ecdfa0b",
       "37ba9fde-e1b2-42bd-92bc-c3e04e956416",
-      "e3a54324-36a7-4673-9af4-4af3299af19e"
-    ]
+      "f4481dfd-e4fe-44e8-a9e4-b120a9afe29f",
+      "0d2734c3-fe7f-417d-a0e7-c749e28c8bf0"
+    ],
+    "checked_by": "sonnet-science-check",
+    "checked_at": "2026-10-01"
   }
 }

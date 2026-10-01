@@ -63,12 +63,12 @@
             "prompt": "Pick a solution",
             "result_labels": ["Type of solution", "Ion present in excess", "Universal indicator"],
             "options": [
-              { "label": "pH 1", "results": ["Strongly acidic", "**H⁺** ions", "Red"], "scene": { "kind": "tubes", "tubes": [{ "label": "pH 1", "colour": "red" }] } },
+              { "label": "pH 1", "results": ["Very acidic", "**H⁺** ions", "Red"], "scene": { "kind": "tubes", "tubes": [{ "label": "pH 1", "colour": "red" }] } },
               { "label": "pH 3", "results": ["Acidic", "**H⁺** ions", "Orange"], "scene": { "kind": "tubes", "tubes": [{ "label": "pH 3", "colour": "orange" }] } },
-              { "label": "pH 5", "results": ["Weakly acidic", "**H⁺** ions", "Yellow"], "scene": { "kind": "tubes", "tubes": [{ "label": "pH 5", "colour": "yellow" }] } },
+              { "label": "pH 5", "results": ["Slightly acidic", "**H⁺** ions", "Yellow"], "scene": { "kind": "tubes", "tubes": [{ "label": "pH 5", "colour": "yellow" }] } },
               { "label": "pH 7", "results": ["Neutral", "Equal numbers of H⁺ and OH⁻ ions", "Green"], "scene": { "kind": "tubes", "tubes": [{ "label": "pH 7", "colour": "green" }] } },
               { "label": "pH 11", "results": ["Alkaline", "**OH⁻** ions", "Blue"], "scene": { "kind": "tubes", "tubes": [{ "label": "pH 11", "colour": "blue" }] } },
-              { "label": "pH 14", "results": ["Strongly alkaline", "**OH⁻** ions", "Purple"], "scene": { "kind": "tubes", "tubes": [{ "label": "pH 14", "colour": "purple" }] } }
+              { "label": "pH 14", "results": ["Very alkaline", "**OH⁻** ions", "Purple"], "scene": { "kind": "tubes", "tubes": [{ "label": "pH 14", "colour": "purple" }] } }
             ]
           }
         },
@@ -210,7 +210,7 @@
           "Observe (look at) the colour produced on the universal indicator paper.",
           "Compare it to a pH chart (scale)."
         ],
-        "tip": "Both marks are for the method. Do not link a colour to acidity: that is ignored."
+        "tip": "Both marks are for the method. A colour wrongly linked to acidity is ignored."
       }
     },
     "ocr": {
@@ -254,6 +254,8 @@
   "meta": {
     "status": "draft",
     "written_by": "sonnet-5-5",
+    "checked_by": "sonnet-science-check",
+    "checked_at": "2026-10-01",
     "written_at": "2026-10-01",
     "spec_point_ids": [
       "1903c6f6-8196-4065-91cf-afb7f23b339a",

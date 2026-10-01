@@ -3,12 +3,12 @@
   "concept_id": "chem-046",
   "subject": "chemistry",
   "title": "Strong and weak acids",
-  "key_idea": "A strong acid is completely ionised in water and a weak acid is only partially ionised. Strength is not the same as concentration. Each fall of one pH unit means ten times more hydrogen ions.",
+  "key_idea": "(Higher tier) A strong acid is completely ionised in water and a weak acid is only partially ionised. Strength is not the same as concentration. Each fall of one pH unit means ten times more hydrogen ions.",
   "sections": [
     {
       "heading": "Strong and weak acids",
       "blocks": [
-        { "type": "paragraph", "text": "This section covers strength: how far an acid ionises in water. Some boards test this in the Higher tier only." },
+        { "type": "paragraph", "text": "(Higher tier) This section covers strength: how far an acid ionises in water. This topic is examined in the Higher tier papers." },
         {
           "type": "definitions",
           "items": [
@@ -53,7 +53,7 @@
     {
       "heading": "Dilute and concentrated",
       "blocks": [
-        { "type": "paragraph", "text": "Concentration describes how much acid is dissolved in a given volume. It is a different idea from strength." },
+        { "type": "paragraph", "text": "(Higher tier) Concentration describes how much acid is dissolved in a given volume. It is a different idea from strength." },
         {
           "type": "definitions",
           "items": [
@@ -67,6 +67,7 @@
             "Concentration is measured in mol/dm³, the amount of acid per unit volume.",
             "A strong acid can be made into a concentrated solution or a dilute solution.",
             "Dilute hydrochloric acid is both strong and dilute. It is completely ionised and has a small amount of acid per unit volume.",
+            "A weak acid can also be concentrated or dilute.",
             "Adding water dilutes an acid. The concentration of hydrogen ions decreases and the pH increases."
           ]
         },
@@ -82,31 +83,31 @@
     {
       "heading": "pH and hydrogen ion concentration",
       "blocks": [
-        { "type": "paragraph", "text": "(Whole numbers of pH only.) The pH depends on the concentration of hydrogen ions." },
+        { "type": "paragraph", "text": "(Higher tier) The pH depends on the concentration of hydrogen ions. Only whole-number changes in pH are needed." },
         {
           "type": "list",
           "items": [
             "The higher the concentration of H⁺ ions, the lower the pH.",
             "As the pH **decreases by one unit**, the hydrogen ion concentration **increases by a factor of 10**.",
             "As the pH increases by one unit, the hydrogen ion concentration decreases by a factor of 10.",
-            "Both strength and concentration change the pH. A more concentrated or stronger acid has a lower pH."
+            "Both strength and concentration change the pH. A more concentrated acid has a lower pH. At the same concentration, a stronger acid has a lower pH."
           ]
         },
         {
           "type": "equation",
           "label": "Change in hydrogen ion concentration",
           "formula": "factor = 10 ^ (change in pH)",
-          "where": ["change in pH: a whole number of pH units", "factor: how many times the H⁺ concentration changes"]
+          "where": ["change in pH: the number of whole pH units the pH changes by", "factor: how many times the H⁺ concentration changes. A fall in pH means a rise in H⁺ concentration, and a rise in pH means a fall"]
         },
         {
           "type": "diagram",
           "diagram": {
             "kind": "slider",
-            "alt": "Move the pH to see how many times more hydrogen ions an acid has than neutral water.",
-            "inputs": [{ "id": "p", "label": "pH of the acid", "min": 0, "max": 7, "step": 1, "value": 3 }],
+            "alt": "Move the pH of a strong acid to see how its hydrogen ion concentration compares with a solution of pH 7.",
+            "inputs": [{ "id": "p", "label": "pH of the strong acid", "min": 3, "max": 7, "step": 1, "value": 3 }],
             "outputs": [
-              { "label": "Times more H⁺ ions than neutral water (pH 7)", "unit": "×", "formula": "10^(7 - p)", "decimals": 0 },
-              { "label": "pH after diluting by a factor of 10", "formula": "min(7, p + 1)", "decimals": 0 }
+              { "label": "H⁺ concentration compared with pH 7", "unit": "×", "formula": "10^(7 - p)", "decimals": 0 },
+              { "label": "pH after diluting the strong acid 10 times", "formula": "min(7, p + 1)", "decimals": 0 }
             ],
             "scene": { "kind": "ph", "ph": "p" }
           }
@@ -181,7 +182,7 @@
           "Strong because it is completely ionised (dissociated) in aqueous solution.",
           "Dilute because it contains a small amount of acid per unit volume."
         ],
-        "tip": "One mark for each word. Do not mention pH in the strong part."
+        "tip": "One mark for each word. Say small amount of acid per unit volume for dilute. References to pH are ignored."
       }
     },
     "edexcel": {
@@ -220,7 +221,7 @@
           "Strong acid: the acid is fully dissociated (ionised).",
           "Forming hydrogen ions (H⁺)."
         ],
-        "tip": "Two marks for each term. The second mark for dilute depends on the first. Ignore references to pH."
+        "tip": "Two marks for each term. The second mark for dilute depends on the first. References to pH are ignored."
       }
     },
     "ocr": {
@@ -236,7 +237,7 @@
       "mistakes": [
         {
           "wrong": "Strong acids have many H⁺ ions and weak acids have few H⁺ ions.",
-          "right": "Many or few H⁺ ions, or a high or low concentration of H⁺ ions, is not allowed. Say strong acids are fully ionised and weak acids are partially ionised."
+          "right": "Many or few H⁺ ions, or a high or low concentration of H⁺ ions, is not allowed in a definition. Say strong acids are fully ionised and weak acids are partially ionised."
         },
         {
           "wrong": "A strong acid is more ionised than a weak acid.",
@@ -264,6 +265,8 @@
   "meta": {
     "status": "draft",
     "written_by": "sonnet-5-5",
+    "checked_by": "sonnet-science-check",
+    "checked_at": "2026-10-01",
     "written_at": "2026-10-01",
     "spec_point_ids": [
       "f36576b6-f47a-460f-bfd1-b8845927c34c",

@@ -50,7 +50,7 @@
           "type": "equation",
           "label": "Metal and water",
           "formula": "metal + water → metal hydroxide + hydrogen",
-          "where": ["metal: for example potassium, sodium, lithium, calcium", "hydrogen: a gas, which gives a squeaky pop with a lighted splint"]
+          "where": ["metal: for example potassium, sodium, lithium, calcium", "metal hydroxide: dissolves to make an alkaline solution", "hydrogen: a gas, which gives a squeaky pop with a lighted splint"]
         },
         {
           "type": "equation",
@@ -83,13 +83,13 @@
               },
               {
                 "label": "Calcium",
-                "results": ["Bubbles steadily and forms calcium hydroxide", "Reacts vigorously", "High"],
-                "scene": { "kind": "tubes", "tubes": [{ "label": "Water", "colour": "colourless", "bubbles": true }, { "label": "Acid", "colour": "colourless", "bubbles": true }] }
+                "results": ["Bubbles steadily; the solution turns cloudy as calcium hydroxide forms", "Reacts vigorously", "High"],
+                "scene": { "kind": "tubes", "tubes": [{ "label": "Water", "colour": "colourless", "precipitate": "white", "bubbles": true }, { "label": "Acid", "colour": "colourless", "bubbles": true }] }
               },
               {
                 "label": "Magnesium",
-                "results": ["Very slow reaction", "Steady bubbles; the metal gets smaller and the temperature rises", "Medium"],
-                "scene": { "kind": "tubes", "tubes": [{ "label": "Water", "colour": "colourless" }, { "label": "Acid", "colour": "colourless", "bubbles": true }] }
+                "results": ["Very slow reaction: only a few tiny bubbles", "Steady bubbles; the metal gets smaller and the temperature rises", "Medium"],
+                "scene": { "kind": "tubes", "tubes": [{ "label": "Water", "colour": "colourless", "bubbles": true }, { "label": "Acid", "colour": "colourless", "bubbles": true }] }
               },
               {
                 "label": "Zinc",
@@ -98,8 +98,8 @@
               },
               {
                 "label": "Iron",
-                "results": ["No reaction", "Bubbles very slowly", "Low"],
-                "scene": { "kind": "tubes", "tubes": [{ "label": "Water", "colour": "colourless" }, { "label": "Acid", "colour": "colourless", "bubbles": true }] }
+                "results": ["No reaction", "Bubbles very slowly; a pale green solution forms", "Low"],
+                "scene": { "kind": "tubes", "tubes": [{ "label": "Water", "colour": "colourless" }, { "label": "Acid", "colour": "pale-green", "bubbles": true }] }
               },
               {
                 "label": "Copper",
@@ -135,9 +135,9 @@
           "type": "list",
           "items": [
             "A more reactive metal forms its positive ion more easily.",
-            "In a more reactive metal the outer electrons are further from the nucleus.",
-            "They are less strongly attracted to the nucleus, so they are lost more easily.",
-            "Calcium is more reactive than magnesium because its outer electrons are further from the nucleus."
+            "Compare calcium with magnesium in the same group. Calcium is more reactive.",
+            "Calcium's outer electrons are further from the nucleus.",
+            "They are less strongly attracted to the nucleus, so they are lost more easily and positive ions form more easily."
           ]
         },
         {
@@ -166,7 +166,7 @@
             "Magnesium reacts with copper sulfate solution. It displaces copper: magnesium + copper sulfate → magnesium sulfate + copper.",
             "Copper does not react with magnesium sulfate solution, because it is less reactive.",
             "Signs of a reaction: the solution changes colour, the metal changes colour, or the temperature changes.",
-            "A metal that displaces more metals is more reactive. A metal that displaces none is the least reactive."
+            "Of the metals tested, the one that displaces most is the most reactive. The one that does not react at all is the least reactive."
           ]
         },
         { "type": "paragraph", "text": "To compare metals fairly, change only the metal and keep everything else the same." },
@@ -244,7 +244,8 @@
         "marks": 3,
         "answer_points": [
           "Order, most reactive first: magnesium, iron, copper.",
-          "Any two from: magnesium reacts with both copper chloride solution and iron chloride solution.",
+          "Any two from the following reasons.",
+          "Magnesium reacts with both copper chloride solution and iron chloride solution.",
           "Iron only reacts with copper chloride solution.",
           "Copper does not react with either magnesium chloride solution or iron chloride solution."
         ],
@@ -271,8 +272,8 @@
           "right": "Both also form a hydroxide."
         },
         {
-          "wrong": "Metals are listed from most reactive to least reactive when the question asks for least to most.",
-          "right": "Read which way round the order is asked for. Only two metals in the correct order score 1 mark."
+          "wrong": "Copper, silver and gold react slowly with cold water.",
+          "right": "Copper, silver and gold do not react with cold water. Calcium is the metal that does react."
         }
       ],
       "worked_example": {
@@ -291,9 +292,9 @@
       "spec_codes": ["OCR C4.1e", "OCR C4.1f"],
       "exam_phrases": [
         "idea that more reactive metals displace less reactive metals",
-        "D has most (displacement) reactions and C does not react",
+        "the metal with the most (displacement) reactions is most reactive; the metal that does not react is least reactive",
         "solution changed colour / metal changed colour / temperature change",
-        "hydrogen (H2)",
+        "hydrogen (H₂)",
         "lighted splint; squeaky pop",
         "rubidium + water → rubidium hydroxide + hydrogen",
         "any time less than 6 s (rubidium)"
@@ -305,7 +306,7 @@
         },
         {
           "wrong": "The gas is H.",
-          "right": "H is not allowed. The gas is hydrogen, H2."
+          "right": "H is not allowed. The gas is hydrogen, H₂."
         },
         {
           "wrong": "Rubidium would take longer than potassium to react with water.",
@@ -329,6 +330,8 @@
     "status": "draft",
     "written_by": "sonnet-5-5",
     "written_at": "2026-10-01",
+    "checked_by": "sonnet-science-check",
+    "checked_at": "2026-10-01",
     "spec_point_ids": [
       "64bb97a5-d18e-41f9-9805-f89e1ce66bbe",
       "a03ed155-a7a4-4514-89d1-e8acb13d47b0",
