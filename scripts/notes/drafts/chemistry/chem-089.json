@@ -1,0 +1,357 @@
+{
+  "format": 1,
+  "concept_id": "chem-089",
+  "subject": "chemistry",
+  "title": "Flame tests",
+  "key_idea": "(Separate science) A flame test identifies some metal ions from the colour they give a flame. Lithium is crimson, sodium yellow, potassium lilac, calcium orange-red and copper green. A mixture of ions can mask some colours.",
+  "sections": [
+    {
+      "heading": "Flame colours of metal ions",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "(Separate science) This section covers the flame colour of each metal ion you need to know."
+        },
+        {
+          "type": "definitions",
+          "items": [
+            {
+              "term": "Flame test",
+              "meaning": "A test that identifies some metal ions (cations) from the colour they give a Bunsen flame."
+            }
+          ]
+        },
+        {
+          "type": "table",
+          "columns": [
+            "Metal ion",
+            "Flame colour"
+          ],
+          "rows": [
+            [
+              "Lithium, Li⁺",
+              "Crimson (deep red)"
+            ],
+            [
+              "Sodium, Na⁺",
+              "Yellow"
+            ],
+            [
+              "Potassium, K⁺",
+              "Lilac"
+            ],
+            [
+              "Calcium, Ca²⁺",
+              "Orange-red"
+            ],
+            [
+              "Copper, Cu²⁺",
+              "Green (blue-green)"
+            ]
+          ]
+        },
+        {
+          "type": "diagram",
+          "diagram": {
+            "kind": "predictor",
+            "alt": "Pick a metal ion to see its flame colour.",
+            "prompt": "Pick a metal ion",
+            "result_labels": [
+              "Flame colour"
+            ],
+            "options": [
+              {
+                "label": "Lithium, Li⁺",
+                "results": [
+                  "**Crimson**"
+                ],
+                "scene": {
+                  "kind": "flame",
+                  "colour": "crimson"
+                }
+              },
+              {
+                "label": "Sodium, Na⁺",
+                "results": [
+                  "**Yellow**"
+                ],
+                "scene": {
+                  "kind": "flame",
+                  "colour": "yellow"
+                }
+              },
+              {
+                "label": "Potassium, K⁺",
+                "results": [
+                  "**Lilac**"
+                ],
+                "scene": {
+                  "kind": "flame",
+                  "colour": "lilac"
+                }
+              },
+              {
+                "label": "Calcium, Ca²⁺",
+                "results": [
+                  "**Orange-red**"
+                ],
+                "scene": {
+                  "kind": "flame",
+                  "colour": "orange-red"
+                }
+              },
+              {
+                "label": "Copper, Cu²⁺",
+                "results": [
+                  "**Green**"
+                ],
+                "scene": {
+                  "kind": "flame",
+                  "colour": "green"
+                }
+              }
+            ]
+          }
+        },
+        {
+          "type": "key-points",
+          "items": [
+            "Five ions to know: lithium, sodium, potassium, calcium and copper.",
+            "Flame colours of other metal ions are not required."
+          ]
+        }
+      ]
+    },
+    {
+      "heading": "How to do a flame test",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "This section covers the method and why each step matters."
+        },
+        {
+          "type": "diagram",
+          "diagram": {
+            "kind": "sequence",
+            "alt": "Put the steps of a flame test in order.",
+            "prompt": "Put the steps of a flame test in order",
+            "steps": [
+              "Clean the wire with hydrochloric acid, then hold it in a roaring flame until the flame is colourless",
+              "Dip the clean wire into the sample",
+              "Hold the wire in the edge of a blue Bunsen flame",
+              "Observe and record the flame colour"
+            ]
+          }
+        },
+        {
+          "type": "list",
+          "items": [
+            "Clean the wire between samples, so earlier samples do not contaminate the colour.",
+            "Wet the wire, for example with acid, so the solid sticks and vaporises more easily.",
+            "Hold the sample in the hottest part of the flame, the tip of the blue cone, for a bright colour.",
+            "A wooden splint can be used instead of a wire, but it can burn and change the flame colour."
+          ]
+        },
+        {
+          "type": "key-points",
+          "items": [
+            "Clean wire, sample on the wire, blue flame, note the colour.",
+            "Contamination gives the wrong colour."
+          ]
+        }
+      ]
+    },
+    {
+      "heading": "Mixtures of ions",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "This section covers why a flame test can be hard to read."
+        },
+        {
+          "type": "list",
+          "items": [
+            "If a sample contains a mixture of ions, some flame colours can be **masked**.",
+            "A flame test identifies metal ions (cations), not the negative ions.",
+            "A flame test on a dirty wire shows a blend of colours."
+          ]
+        },
+        {
+          "type": "key-points",
+          "items": [
+            "A mixture of ions can mask flame colours.",
+            "A flame test shows the metal ion only."
+          ]
+        }
+      ]
+    }
+  ],
+  "checks": [
+    {
+      "q": "Name the metal ion that gives a lilac flame.",
+      "a": "Potassium (K⁺)",
+      "marks": 1
+    },
+    {
+      "q": "Why must the wire be cleaned between flame tests?",
+      "a": "Otherwise the previous sample is still on the wire, so the colours mix (are masked).",
+      "marks": 2
+    },
+    {
+      "q": "Describe how to do a flame test using a metal wire and a Bunsen burner.",
+      "a": "Put the sample on a (clean) wire. Hold the wire in the blue (non-luminous) flame and observe the flame colour.",
+      "marks": 2
+    }
+  ],
+  "boards": {
+    "aqa": {
+      "spec_codes": [
+        "AQA 4.8.3.1"
+      ],
+      "exam_phrases": [
+        "put sample on (metal) wire",
+        "hold wire in (blue / non-luminous) flame",
+        "(test) flame test ... (result) yellow (flame)",
+        "lilac (flame)",
+        "did not clean the metal wire (between tests)",
+        "(flame) colours are mixed / blended / masked"
+      ],
+      "mistakes": [
+        {
+          "wrong": "The calcium flame colour was not distinct because the solution was too dilute.",
+          "right": "The wire was not cleaned between tests, so copper sulfate was still present and the colours were mixed or masked."
+        },
+        {
+          "wrong": "It is difficult to identify the ions in fireworks because the flame colours are hard to tell apart.",
+          "right": "'Hard to distinguish' is ignored. The flame colours are masked: they mix or blend, and you can only see one colour."
+        },
+        {
+          "wrong": "Sodium ions give an orange flame.",
+          "right": "Sodium ions give a yellow flame. Orange-red is the colour for calcium."
+        }
+      ],
+      "worked_example": {
+        "exemplar_id": "c5488ff9-8a2f-41d0-a1d1-cddcca0f141e",
+        "source": "AQA jun 2019, Paper 2 (F), Q09.1",
+        "question": "Lithium carbonate is used in medicines and contains lithium ions and carbonate ions.\n\nA student tested a tablet for lithium ions and for carbonate ions using:\na metal wire\ndilute hydrochloric acid\nlimewater.\n\nPlan an investigation to show the presence of lithium ions and of carbonate ions in the tablet.\n\nYou should include the results of the tests for the ions.",
+        "marks": 6,
+        "answer_points": [
+          "Lithium: crush the tablet, or dissolve it in water or acid.",
+          "Clean the wire, place the tablet sample on the wire and put it in a blue (roaring, non-luminous) flame.",
+          "Observe the flame colour: a crimson flame shows lithium ions.",
+          "Carbonate: add dilute hydrochloric acid to the tablet and see the fizzing (effervescence).",
+          "Bubble the gas through limewater: the limewater turns cloudy, which shows carbonate ions."
+        ],
+        "tip": "A levelled question: give both tests, in a clear order, with both results."
+      }
+    },
+    "edexcel": {
+      "spec_codes": [
+        "EDEX 9.2C"
+      ],
+      "exam_phrases": [
+        "(dip) flame test wire into dilute hydrochloric acid, then into the substance",
+        "hold (the wire) in the flame / at the tip of the (blue) cone, as it is hotter",
+        "to clean the wire / to prevent contamination of sample",
+        "so that the solid vaporises more easily / sticks onto the wire",
+        "if flame is yellow - sodium ... lilac - potassium ... orange-red - calcium",
+        "use a (nichrome) wire instead of a wooden splint"
+      ],
+      "mistakes": [
+        {
+          "wrong": "Hold the wire above the Bunsen flame.",
+          "right": "Hold the wire in the flame, at the tip of the blue cone, because it is hotter. This gives a bright flame colour."
+        },
+        {
+          "wrong": "The second dip in hydrochloric acid cleans the wire again.",
+          "right": "The wire is cleaned at the start. The second dip is so that the solid vaporises more easily and sticks onto the wire."
+        },
+        {
+          "wrong": "A wooden splint soaked briefly in water is a good way to hold the sample.",
+          "right": "A wooden splint can burn and interfere with the flame colour. Use a (nichrome) metal wire instead."
+        }
+      ],
+      "worked_example": {
+        "exemplar_id": "235f8d71-8b39-44f6-bf07-50aa380bc62b",
+        "source": "EDEXCEL jun 2022, Paper 2 (H), Q4(b)(ii)",
+        "question": "A teacher does flame tests on three compounds, P, Q and R.\n\nCompound | Flame colour\nP | red\nQ | lilac\nR | blue-green\n\nUse the table to identify the metal ions in compounds P, Q and R.",
+        "marks": 3,
+        "answer_points": [
+          "P: lithium (Li⁺). Strontium is also allowed.",
+          "Q: potassium (K⁺).",
+          "R: copper (Cu²⁺)."
+        ],
+        "tip": "One mark for each ion. Charges are ignored, even if incorrect."
+      }
+    },
+    "ocr": {
+      "spec_codes": [
+        "OCR C4.2c",
+        "OCR C4.2e"
+      ],
+      "exam_phrases": [
+        "Use a flame test wire",
+        "Moisten wire and dip into sample",
+        "Introduce sample into blue flame of Bunsen burner",
+        "Test – flame test; Result – yellow or orange (flame)",
+        "A red flame indicates lithium ions",
+        "moisten splint with water, dip into solid, put in blue Bunsen flame"
+      ],
+      "mistakes": [
+        {
+          "wrong": "Sodium ions must give a yellow flame, so an orange flame means the ion is not sodium.",
+          "right": "A yellow or orange flame is accepted for sodium ions. The result mark depends on naming the flame test."
+        },
+        {
+          "wrong": "Dip the dry wire into the sample.",
+          "right": "Moisten the wire first, then dip it into the sample."
+        },
+        {
+          "wrong": "Put the sample into the yellow flame of the Bunsen burner.",
+          "right": "Introduce the sample into the blue flame of the Bunsen burner."
+        }
+      ],
+      "worked_example": {
+        "exemplar_id": "4b5429af-6610-42a2-be4d-78aaab42d184",
+        "source": "OCR sample null, Paper 2, Q16(b)",
+        "question": "Chemical tests are used to identify gases, anions and cations.\n\nFahmida uses the flame test to identify the cations in a solid.\n\nDescribe how Fahmida should do a flame test.",
+        "marks": 3,
+        "answer_points": [
+          "Use a flame test wire (a wooden splint is also allowed).",
+          "Moisten the wire and dip it into the sample.",
+          "Introduce the sample into the blue flame of a Bunsen burner."
+        ],
+        "tip": "One mark for each stage: wire, moisten and dip, blue flame."
+      }
+    }
+  },
+  "meta": {
+    "status": "draft",
+    "written_by": "sonnet-5-5",
+    "written_at": "2026-10-01",
+    "spec_point_ids": [
+      "35a51cd1-ffbd-44a7-b1db-29d5e217e3b3",
+      "f017484b-8b66-4403-9fa9-39c49b55d9e1",
+      "7dc9928d-53ef-4881-9cd7-12c3234ae9c1",
+      "77c8310a-3547-4822-9406-58b71f0f5683"
+    ],
+    "exemplar_ids": [
+      "c5488ff9-8a2f-41d0-a1d1-cddcca0f141e",
+      "797ebf8b-1d1b-43cb-ba18-4bb8ba8f5eac",
+      "809a9a79-515e-4106-8766-8084b905d26a",
+      "d2db638b-e36f-4f51-955c-74987c88ef6d",
+      "349e73b7-5e88-4eec-9f74-cb97e1a14a0d",
+      "c4fc402f-4943-430a-8723-f29ad5c64298",
+      "235f8d71-8b39-44f6-bf07-50aa380bc62b",
+      "765008fe-a0d2-4042-bf36-e41b75bb5dbd",
+      "492865cc-e8dd-42da-8cc2-3dc65760f616",
+      "6a87c824-b9c3-4126-9eba-e826547f5561",
+      "a32e8fd0-a367-454d-b9e5-a41256f12721",
+      "4c6e28fa-c22e-4fda-9352-c363c9a75c46",
+      "4b5429af-6610-42a2-be4d-78aaab42d184",
+      "0b2eb425-13c7-4802-a51c-96705e17cb70",
+      "189c7a0c-f2dc-40c2-bc83-a09bda625634",
+      "4bb56669-1f98-43c3-8d61-837b235a9008"
+    ]
+  }
+}

@@ -35,7 +35,7 @@
         },
         {
           "type": "paragraph",
-          "text": "This means no force is needed to keep an object moving at a steady velocity. When a vehicle travels at a steady speed, the resistive forces balance the driving force."
+          "text": "This means no resultant force is needed to keep an object moving at a steady velocity. When a vehicle travels at a steady speed, the resistive forces balance the driving force."
         },
         {
           "type": "key-points",
@@ -117,7 +117,7 @@
               {
                 "label": "Car going round a bend at a steady speed",
                 "results": [
-                  "Not zero: it acts towards the centre of the bend",
+                  "Not zero: it acts sideways, at an angle to the motion",
                   "The direction changes, so the velocity changes"
                 ],
                 "explanation": "A resultant force can change direction as well as speed."
@@ -161,10 +161,11 @@
       ],
       "exam_phrases": [
         "resistive force acts on the ball",
+        "friction or air resistance",
         "resultant force in the opposite direction to the velocity",
+        "as velocity decreases the drag decreases",
         "until drag is equal to weight",
-        "until the resultant force is zero",
-        "allow resistive / frictional force for drag"
+        "until the resultant force is zero"
       ],
       "mistakes": [
         {
@@ -172,18 +173,18 @@
           "right": "As the velocity decreases, the drag decreases. The stone slows until drag equals weight, then moves at a constant velocity."
         },
         {
-          "wrong": "Upthrust makes the stone slow down.",
-          "right": "Ignore upthrust. Explain it with drag and weight."
+          "wrong": "Upthrust is the force that makes the stone slow down.",
+          "right": "Upthrust is ignored in this explanation. Use drag and weight: drag is greater than weight, then drag becomes equal to weight."
         },
         {
-          "wrong": "A resultant force is needed to keep the stone moving.",
-          "right": "No resultant force is needed. At constant velocity the resultant force is zero."
+          "wrong": "The bowling ball slows down because nothing is pushing it forward.",
+          "right": "It slows because a resistive force (friction or air resistance) acts on it, giving a resultant force opposite to its velocity."
         }
       ],
       "worked_example": {
         "exemplar_id": "40821b73-ff94-4b15-8960-21ecef57908e",
         "source": "AQA jun 2023, Paper 2 (H), Q06.3",
-        "question": "A stone has entered water. As the stone moves through the water, it slows to a constant velocity.\n\nExplain why the stone slows to a constant velocity as it moves through the water.",
+        "question": "The stone has just entered the water. As the stone moves through the water, it slows to a constant velocity.\n\nExplain why the stone slows to a constant velocity as it moves through the water.",
         "marks": 4,
         "answer_points": [
           "Drag is greater than weight",
@@ -206,11 +207,7 @@
       "mistakes": [
         {
           "wrong": "The acceleration is constant.",
-          "right": "Constant is ignored. At constant velocity the acceleration is zero."
-        },
-        {
-          "wrong": "The cupcake case is falling, so it must be accelerating downwards.",
-          "right": "Falling at a constant velocity means the forces balance. The acceleration is zero."
+          "right": "Writing 'constant' is ignored and scores nothing. At constant velocity the acceleration is zero."
         }
       ],
       "worked_example": {
@@ -272,6 +269,8 @@
       "40821b73-ff94-4b15-8960-21ecef57908e",
       "66373386-6554-4fb7-9f8a-cf1bd45f909c",
       "8ab45c3e-daaa-4783-9b1a-ca0ba665f333"
-    ]
+    ],
+    "checked_by": "sonnet-science-check",
+    "checked_at": "2026-10-01"
   }
 }

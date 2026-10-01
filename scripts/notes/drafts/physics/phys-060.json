@@ -25,7 +25,7 @@
             },
             {
               "term": "Acceleration",
-              "meaning": "A change in velocity. It happens when the speed or the direction changes."
+              "meaning": "How quickly the velocity changes. It happens when the speed or the direction changes."
             }
           ]
         },
@@ -197,8 +197,8 @@
           "right": "Acceleration does not change the speed here. It changes the direction, and that changes the velocity."
         },
         {
-          "wrong": "The velocity is constant because the speed is constant.",
-          "right": "Velocity includes direction. The direction changes, so the velocity changes."
+          "wrong": "The velocity changes because the direction changes.",
+          "right": "This is only the last mark. First say a gravitational (resultant) force acts on the satellite, so it accelerates towards the centre of the orbit."
         }
       ],
       "worked_example": {
@@ -215,11 +215,11 @@
       },
       "extra": [
         {
-          "heading": "Higher tier orbit content",
+          "heading": "Orbits (Higher tier, Separate science)",
           "blocks": [
             {
               "type": "paragraph",
-              "text": "(Higher tier) Changing velocity with unchanged speed in an orbit is examined on the Higher tier. This is Physics only."
+              "text": "(Higher tier) For circular orbits, explain qualitatively how the force of gravity leads to a changing velocity but an unchanged speed."
             },
             {
               "type": "paragraph",
@@ -249,8 +249,8 @@
           "right": "The velocity is changing because the direction is changing, so the satellite is accelerating."
         },
         {
-          "wrong": "The velocity is constant because the speed is constant.",
-          "right": "Velocity is a vector. A change of direction means the velocity is not constant."
+          "wrong": "There is no force on the satellite because it moves at a constant speed.",
+          "right": "There is a resultant (unbalanced) force on the satellite, which changes its velocity."
         }
       ],
       "worked_example": {
@@ -315,6 +315,8 @@
       "6c58adf7-7bce-4d21-a531-9b7955ad3794",
       "7db079a4-4798-401f-9f1f-9e5ef8df3c89",
       "c68a154a-5a9f-47db-8c17-25900ad5c004"
-    ]
+    ],
+    "checked_by": "sonnet-science-check",
+    "checked_at": "2026-10-01"
   }
 }

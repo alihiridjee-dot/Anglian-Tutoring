@@ -1,0 +1,435 @@
+{
+  "format": 1,
+  "concept_id": "phys-062",
+  "subject": "physics",
+  "title": "Braking forces and large decelerations",
+  "key_idea": "Brakes stop a vehicle by doing work against its motion, which removes kinetic energy and heats the brakes. A greater speed needs a greater braking force to stop in the same distance. Large decelerations are dangerous because of overheating, loss of control and large forces on people.",
+  "sections": [
+    {
+      "heading": "How brakes stop a vehicle",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "This section explains where the energy goes when a vehicle brakes."
+        },
+        {
+          "type": "list",
+          "items": [
+            "The brakes apply a friction force between the brake and the wheel.",
+            "This friction force does work, which reduces the kinetic energy of the vehicle.",
+            "The energy is transferred to the thermal store of the brakes, so their temperature increases.",
+            "The greater the speed, the greater the braking force needed to stop in a certain distance.",
+            "The greater the braking force, the greater the deceleration."
+          ]
+        },
+        {
+          "type": "equation",
+          "label": "Kinetic energy",
+          "formula": "kinetic energy = ½ × mass × speed²",
+          "where": [
+            "kinetic energy is in joules, J",
+            "mass is in kilograms, kg",
+            "speed is in metres per second, m/s"
+          ]
+        },
+        {
+          "type": "equation",
+          "label": "Work done",
+          "formula": "work done = force × distance",
+          "where": [
+            "work done is in joules, J",
+            "force is in newtons, N",
+            "distance is in metres, m"
+          ]
+        },
+        {
+          "type": "paragraph",
+          "text": "To stop a vehicle, the work done by the brakes must equal its initial kinetic energy."
+        },
+        {
+          "type": "key-points",
+          "items": [
+            "Brakes do work, which removes kinetic energy and heats the brakes.",
+            "A greater braking force gives a greater deceleration.",
+            "A greater speed needs a greater braking force to stop in the same distance."
+          ]
+        }
+      ]
+    },
+    {
+      "heading": "Braking distance and speed (Separate science)",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "(Separate science) The work done by the brakes equals the initial kinetic energy. This shows how braking distance depends on speed."
+        },
+        {
+          "type": "list",
+          "items": [
+            "Work done = braking force × braking distance.",
+            "Kinetic energy = ½ × mass × speed². It depends on the speed squared.",
+            "So for the same braking force, braking distance depends on speed squared.",
+            "Doubling the speed makes the kinetic energy four times greater, so the braking distance is four times greater."
+          ]
+        },
+        {
+          "type": "equation",
+          "label": "Braking distance",
+          "formula": "braking distance = speed² ÷ (2 × deceleration)",
+          "where": [
+            "braking distance is in metres, m",
+            "speed is the initial speed, in metres per second, m/s",
+            "deceleration is in metres per second squared, m/s²"
+          ]
+        },
+        {
+          "type": "paragraph",
+          "text": "Use the slider to see how speed and braking force change the deceleration, the energy to remove and the braking distance of a car of mass 1200 kg."
+        },
+        {
+          "type": "diagram",
+          "diagram": {
+            "kind": "slider",
+            "alt": "Change the speed and the braking force of a 1200 kg car to see its deceleration, kinetic energy and braking distance.",
+            "inputs": [
+              {
+                "id": "v",
+                "label": "Speed",
+                "unit": "m/s",
+                "min": 5,
+                "max": 30,
+                "step": 1,
+                "value": 15
+              },
+              {
+                "id": "F",
+                "label": "Braking force",
+                "unit": "N",
+                "min": 3000,
+                "max": 9000,
+                "step": 500,
+                "value": 6000
+              }
+            ],
+            "outputs": [
+              {
+                "label": "Deceleration",
+                "unit": "m/s²",
+                "formula": "F / 1200",
+                "decimals": 1
+              },
+              {
+                "label": "Kinetic energy to remove",
+                "unit": "kJ",
+                "formula": "0.5 * 1200 * v^2 / 1000",
+                "decimals": 0
+              },
+              {
+                "label": "Braking distance",
+                "unit": "m",
+                "formula": "0.5 * 1200 * v^2 / F",
+                "decimals": 1
+              }
+            ]
+          }
+        },
+        {
+          "type": "diagram",
+          "diagram": {
+            "kind": "practice",
+            "alt": "Calculate a braking distance from a speed and a deceleration.",
+            "question": "A car is travelling at {v} m/s. The driver applies the brakes and the car decelerates at a constant {a} m/s². Calculate the braking distance.",
+            "variables": [
+              {
+                "id": "v",
+                "min": 10,
+                "max": 30,
+                "step": 5
+              },
+              {
+                "id": "a",
+                "min": 3,
+                "max": 7,
+                "step": 2
+              }
+            ],
+            "answer": {
+              "formula": "v^2 / (2 * a)",
+              "unit": "m",
+              "decimals": 1
+            },
+            "working": [
+              "braking distance = speed² ÷ (2 × deceleration)",
+              "braking distance = {v}² ÷ (2 × {a})",
+              "braking distance = {answer} m"
+            ]
+          }
+        },
+        {
+          "type": "key-points",
+          "items": [
+            "Braking distance depends on speed squared for a given braking force.",
+            "Doubling the speed makes the braking distance four times greater.",
+            "The work done by the brakes equals the initial kinetic energy."
+          ]
+        }
+      ]
+    },
+    {
+      "heading": "Dangers of large decelerations",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "A large deceleration needs a large braking force, in a short time or distance. This causes three dangers."
+        },
+        {
+          "type": "list",
+          "items": [
+            "The brakes can overheat, because more work is done and more energy is transferred to them.",
+            "The driver can lose control of the vehicle.",
+            "A large force acts on the people in the vehicle, which can cause injury."
+          ]
+        },
+        {
+          "type": "equation",
+          "label": "Force",
+          "formula": "force = mass × acceleration",
+          "where": [
+            "force is in newtons, N",
+            "mass is in kilograms, kg",
+            "acceleration is in metres per second squared, m/s²"
+          ]
+        },
+        {
+          "type": "paragraph",
+          "text": "A deceleration is a negative acceleration. A bigger deceleration means a bigger force on the car and on the people inside it."
+        },
+        {
+          "type": "subheading",
+          "text": "Estimating the force on a car"
+        },
+        {
+          "type": "steps",
+          "items": [
+            {
+              "lead": "Estimate the mass.",
+              "text": "A typical car has a mass of about 1500 kg."
+            },
+            {
+              "lead": "Use the deceleration.",
+              "text": "In an emergency stop a car might decelerate at about 6 m/s²."
+            },
+            {
+              "lead": "Calculate.",
+              "text": "force = 1500 × 6 = 9000 N."
+            }
+          ]
+        },
+        {
+          "type": "diagram",
+          "diagram": {
+            "kind": "practice",
+            "alt": "Calculate the force needed to decelerate a car.",
+            "question": "A car of mass {m} kg decelerates at {a} m/s² when the driver brakes. Calculate the force acting on the car.",
+            "variables": [
+              {
+                "id": "m",
+                "min": 800,
+                "max": 2000,
+                "step": 200
+              },
+              {
+                "id": "a",
+                "min": 4,
+                "max": 8,
+                "step": 1
+              }
+            ],
+            "answer": {
+              "formula": "m * a",
+              "unit": "N",
+              "decimals": 0
+            },
+            "working": [
+              "force = mass × acceleration",
+              "force = {m} × {a}",
+              "force = {answer} N"
+            ]
+          }
+        },
+        {
+          "type": "key-points",
+          "items": [
+            "Large decelerations can overheat the brakes and cause a loss of control.",
+            "A large deceleration means a large force on the people in the vehicle.",
+            "Estimate a force with F = ma, using a sensible mass for the vehicle."
+          ]
+        }
+      ]
+    }
+  ],
+  "checks": [
+    {
+      "q": "Describe what happens to the kinetic energy of a car when the brakes are applied.",
+      "a": "The friction force between the brakes and the wheel does work. This reduces the kinetic energy and the temperature of the brakes increases.",
+      "marks": 2
+    },
+    {
+      "q": "A car is travelling at 12 m/s and decelerates at a constant 3.0 m/s². Calculate the braking distance.",
+      "a": "braking distance = 12² ÷ (2 × 3.0) = 24 m.",
+      "marks": 2
+    },
+    {
+      "q": "Give two dangers of a large deceleration.",
+      "a": "Any two from: the brakes overheat; the driver loses control; a large force acts on the people in the vehicle, which could cause injury.",
+      "marks": 2
+    }
+  ],
+  "boards": {
+    "aqa": {
+      "spec_codes": [
+        "AQA 4.5.6.3",
+        "AQA T 6.5.4.3"
+      ],
+      "exam_phrases": [
+        "frictional / braking force is greater (for the faster car)",
+        "the faster car has more kinetic energy",
+        "more work done (by the brakes to stop the faster car)",
+        "the risk of the brakes overheating is greater",
+        "braking distance = (speed)² ÷ (2 × deceleration)",
+        "ignore minus signs throughout"
+      ],
+      "mistakes": [
+        {
+          "wrong": "The brakes of the faster car get more heating.",
+          "right": "More heating is ignored. Say the faster car has more kinetic energy, so more work is done by the brakes, so the risk of overheating is greater."
+        },
+        {
+          "wrong": "Braking distance = 24 kg.",
+          "right": "A braking distance is a length. Choose m from the box. The unit is a separate mark."
+        },
+        {
+          "wrong": "The car travelled 14 m in 0.70 s, so its minimum braking distance is 14 m.",
+          "right": "The 14 m is the distance between the two images. Find the speed first, 14 ÷ 0.70 = 20 m/s, then use 20² = 2 × 6.25 × s to get s = 32 m."
+        }
+      ],
+      "worked_example": {
+        "exemplar_id": "0dbaa8f0-e157-4fbf-a48c-bad27a87f259",
+        "source": "AQA jun 2025, Paper 2 (F), Q7.3",
+        "question": "Two identical cars were driven along a straight, level road. One car had a greater speed than the other car. The driver of each car applied the brakes until the cars stopped. Both cars travelled the same distance while braking.\n\nExplain how braking from a greater speed affected the risk of the brakes overheating.",
+        "marks": 3,
+        "answer_points": [
+          "The faster car has more kinetic energy (or the frictional / braking force is greater).",
+          "So more work is done by the brakes to stop the faster car (more energy is transferred).",
+          "So the risk of the brakes overheating is greater for the faster car."
+        ],
+        "tip": "The third mark depends on one of the first two. More heating on its own is ignored."
+      },
+      "extra": [
+        {
+          "heading": "Estimating forces (Higher tier)",
+          "blocks": [
+            {
+              "type": "list",
+              "items": [
+                "(Higher tier) Estimate the force on a road vehicle with F = ma.",
+                "Use a sensible mass for the vehicle and a deceleration typical of an emergency stop."
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    "edexcel": {
+      "spec_codes": [
+        "EDEX 2.31",
+        "EDEX 2.33P"
+      ],
+      "exam_phrases": [
+        "use of F = ma",
+        "F = (mv − mu)/t",
+        "with spring, time for contact greater, less impact force",
+        "times repeated and average taken",
+        "same starting position / same angle of slope",
+        "release without pushing"
+      ],
+      "mistakes": [
+        {
+          "wrong": "Release each trolley once and compare how hard they hit the wall.",
+          "right": "Repeat the times and take an average. Keep the starting position and the angle of the slope the same, and release without pushing."
+        },
+        {
+          "wrong": "The force is found from F = ma, so only the speed needs to be measured.",
+          "right": "The mass of the trolley and the times during impact are needed as well, so the force can be found from the changes in velocity and the time."
+        },
+        {
+          "wrong": "I would use the spring and use F = ma.",
+          "right": "Two separate statements stay at a low level. Link them: the spring increases the contact time, so the force is less."
+        }
+      ]
+    },
+    "ocr": {
+      "spec_codes": [
+        "OCR P8.1g",
+        "OCR P8.1h",
+        "OCR P8.1i"
+      ],
+      "exam_phrases": [
+        "Lorry has more KE than a car at the same velocity",
+        "Higher rate of dissipation of energy to surrounding air",
+        "Brakes less likely to overheat",
+        "Force = mass × acceleration",
+        "So greater force (acting on occupants)",
+        "this could lead to injury"
+      ],
+      "mistakes": [
+        {
+          "wrong": "The new brakes stop the car in a tenth of the time, so they are ten times safer.",
+          "right": "A stopping time ten times shorter means ten times the force on the people in the car, so it can lead to injury. The driver's claim cannot be quantified."
+        },
+        {
+          "wrong": "A car has a mass of about 50 kg, so F = 50 × 6 = 300 N.",
+          "right": "Use a sensible mass. An estimate between 400 kg and 3500 kg is allowed, such as 1500 kg, giving 1500 × 6 = 9000 N."
+        },
+        {
+          "wrong": "Lorries have larger brake discs because lorries are bigger.",
+          "right": "A lorry has more kinetic energy than a car at the same velocity. Larger discs absorb more energy and dissipate it faster to the air, so the brakes are less likely to overheat."
+        }
+      ],
+      "worked_example": {
+        "exemplar_id": "4ed13838-9ee5-4d8d-b482-179b3b42b1c0",
+        "source": "OCR jun 2024, Paper 4, Q20(b)(ii)",
+        "question": "Car B brakes and comes to a stop.\n\nEstimate the force acting on car B when it decelerates at 6 m / s².\nUse the equation: force = mass × acceleration\nFor the mass in the equation, use an estimate of the mass of car B.",
+        "marks": 3,
+        "answer_points": [
+          "Estimate the mass of the car as 1500 kg.",
+          "F = 1500 × 6",
+          "F = 9000 N"
+        ],
+        "tip": "Any answer from 2400 N to 21 000 N scores 3 marks. A mass estimate from 400 kg to 3500 kg is allowed."
+      }
+    }
+  },
+  "meta": {
+    "status": "draft",
+    "written_by": "sonnet-5-5",
+    "written_at": "2026-10-01",
+    "spec_point_ids": [
+      "546e3039-b117-414a-94f0-5840ea154fe4",
+      "f6967825-2875-4355-a6ed-cd593e372ef6",
+      "50b4142b-8ac0-413d-b154-a1accbf91777",
+      "4dedfab0-012d-4ab2-94af-5805a9952b40",
+      "ead44384-f3cb-4fca-bd83-639a9b31b077"
+    ],
+    "exemplar_ids": [
+      "0dbaa8f0-e157-4fbf-a48c-bad27a87f259",
+      "2340b55c-fdb6-4b49-b6c4-5b9a69b2e0d0",
+      "2e251c3a-c2f3-4007-a70e-892adb18c7c9",
+      "4ed13838-9ee5-4d8d-b482-179b3b42b1c0",
+      "6af8d4c3-e337-428a-82c2-6c1c75309417",
+      "bef0305e-0e0b-480a-98a8-696802f64ce6",
+      "c3cfbf60-f2ec-47ef-8409-f21d1a970b1d",
+      "c4eb2704-2047-4904-a75f-6c154d296c8a"
+    ]
+  }
+}

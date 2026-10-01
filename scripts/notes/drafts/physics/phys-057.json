@@ -3,7 +3,7 @@
   "concept_id": "phys-057",
   "subject": "physics",
   "title": "Newton's second law and inertia",
-  "key_idea": "The resultant force on an object equals its mass times its acceleration, F = m × a. Acceleration is proportional to force and inversely proportional to mass. Inertial mass measures how hard it is to change an object's velocity.",
+  "key_idea": "The resultant force on an object equals its mass times its acceleration, F = m × a. Acceleration is proportional to force and inversely proportional to mass. (Higher tier) Inertial mass measures how hard it is to change an object's velocity.",
   "sections": [
     {
       "heading": "Newton's second law",
@@ -109,6 +109,20 @@
           ]
         },
         {
+          "type": "paragraph",
+          "text": "Sometimes you must find the acceleration first, using the change in velocity."
+        },
+        {
+          "type": "equation",
+          "label": "Acceleration from a change in velocity",
+          "formula": "a = Δv / t",
+          "where": [
+            "a: acceleration in metres per second squared, m/s²",
+            "Δv: change in velocity in metres per second, m/s",
+            "t: time taken in seconds, s"
+          ]
+        },
+        {
           "type": "subheading",
           "text": "Worked calculation"
         },
@@ -206,7 +220,7 @@
           "items": [
             "A large inertial mass needs a large force for the same acceleration.",
             "A small inertial mass changes velocity easily.",
-            "A lighter child needs less force to be slowed in a crash, so a narrower seatbelt can be used."
+            "A child has a smaller inertial mass than an adult, so less force is needed for the same deceleration in a crash."
           ]
         },
         {
@@ -244,24 +258,22 @@
         "AQA T 6.5.4.2"
       ],
       "exam_phrases": [
-        "0.375 = 0.60 × a",
-        "m = 1800 ÷ 25",
-        "0.63 = m × 2.1",
-        "F = 75 × 60",
-        "Give your answer to 2 significant figures"
+        "resultant force = mass × acceleration",
+        "a measure of how difficult it is to change the velocity of an object",
+        "the ratio of force over acceleration"
       ],
       "mistakes": [
-        {
-          "wrong": "The mass is 1800 × 25 = 45 000 kg.",
-          "right": "Rearrange first. Mass = force ÷ acceleration, so m = 1800 ÷ 25 = 72 kg."
-        },
         {
           "wrong": "The acceleration is 0.625 m/s², so I have finished.",
           "right": "Round to the significant figures asked for: 0.63 m/s². The rounding is a separate mark."
         },
         {
-          "wrong": "The resultant force on a decelerating person must be given as a positive number only.",
-          "right": "A negative force is allowed for a deceleration. F = 75 × 60 = 4500 N, and −4500 N is accepted."
+          "wrong": "A force of −4500 N must be wrong because forces cannot be negative.",
+          "right": "A negative sign shows the force acts against the motion. −4500 N is accepted, as is 4500 N."
+        },
+        {
+          "wrong": "The mass of the trolley must be written as 0.30 kg exactly.",
+          "right": "0.3 kg is also accepted."
         }
       ],
       "worked_example": {
@@ -288,6 +300,13 @@
             {
               "type": "paragraph",
               "text": "Recognise and use the symbol ∝ for proportional, and ~ for an approximate value."
+            },
+            {
+              "type": "list",
+              "items": [
+                "Estimate the forces in large accelerations for everyday road transport, for example a 1500 kg car at 6 m/s² needs about 9000 N.",
+                "Required practical: change the force on an object of constant mass, then change the mass with a constant force, and measure the acceleration."
+              ]
             }
           ]
         }
@@ -299,12 +318,9 @@
         "EDEX 2.22"
       ],
       "exam_phrases": [
-        "substitution (F =) 0.10 × 2.0",
-        "evaluation 0.2(0)",
-        "unit N, newtons",
-        "identification of equation and substitution",
-        "rearrangement and evaluation",
-        "450 = m × 0.35"
+        "a measure of how difficult it is to change the velocity of an object",
+        "the ratio of force over acceleration",
+        "newtons"
       ],
       "mistakes": [
         {
@@ -316,8 +332,8 @@
           "right": "A power of ten wrong scores 1 mark at most. 0.10 × 2.0 = 0.20 N."
         },
         {
-          "wrong": "The inertial mass is 450 × 0.35 = 157.5 kg.",
-          "right": "Inertial mass is force over acceleration: 450 / 0.35 = 1300 kg."
+          "wrong": "F = 0.20, so the answer is complete without a unit.",
+          "right": "The unit is a separate mark. Write N or newtons."
         }
       ],
       "worked_example": {
@@ -341,16 +357,11 @@
       ],
       "exam_phrases": [
         "F = ma / force = mass x acceleration",
-        "4000 ÷ 5",
         "reducing mass means the same engine force will cause greater acceleration",
         "Mass / inertia of child is lower",
         "Less force is needed (for the same deceleration)"
       ],
       "mistakes": [
-        {
-          "wrong": "The mass is 4000 × 5 = 20 000 kg.",
-          "right": "Divide, do not multiply: mass = 4000 ÷ 5 = 800 kg."
-        },
         {
           "wrong": "A lighter car needs less force for the same acceleration.",
           "right": "Start with F = ma. With the same engine force, a smaller mass gives a greater acceleration."
@@ -410,6 +421,8 @@
       "a63b8eb2-767a-45d5-9f60-cea5afdd560a",
       "d21aa28f-faa1-4d9a-a50a-945767ac2b3e",
       "3c22ba54-07f1-4f7d-9dfd-9a370eae6de4"
-    ]
+    ],
+    "checked_by": "sonnet-science-check",
+    "checked_at": "2026-10-01"
   }
 }
