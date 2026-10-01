@@ -66,7 +66,6 @@ export const pageGuides: Record<string, GuideStep[]> = {
     ),
   ],
   "Live Sessions": [
-    filters,
     at(
       "live-tabs",
       "Coming up or catching up?",
