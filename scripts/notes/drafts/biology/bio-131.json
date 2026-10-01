@@ -101,6 +101,17 @@
           "text": "Fertilisers, animal feed, pesticides, irrigation and equipment cost money. Farmers who cannot afford them may produce less."
         },
         {
+          "type": "subheading",
+          "text": "Sustainability"
+        },
+        {
+          "type": "list",
+          "items": [
+            "Food must be produced in a **sustainable** way, so that future generations can also be fed.",
+            "Methods that damage the soil, use up water or destroy habitats reduce food security in the long term."
+          ]
+        },
+        {
           "type": "diagram",
           "diagram": {
             "kind": "predictor",
@@ -413,6 +424,8 @@
       "dff5d7da-ad76-496d-a96b-1f5a4dc696a4",
       "227b599e-12fa-4c01-be12-7cc16f4735c4",
       "d9775ce8-ea52-4775-9f81-a9192d6cc3e0"
-    ]
+    ],
+    "checked_by": "sonnet-science-check",
+    "checked_at": "2026-10-01"
   }
 }

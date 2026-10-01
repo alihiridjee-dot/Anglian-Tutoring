@@ -1,0 +1,292 @@
+{
+  "format": 1,
+  "concept_id": "chem-086",
+  "subject": "chemistry",
+  "title": "Formulations",
+  "key_idea": "A formulation is a mixture designed as a useful product. Each chemical in it has a particular purpose. The components are mixed in carefully measured quantities, so the product always has the properties it needs.",
+  "sections": [
+    {
+      "heading": "What a formulation is",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "This section covers what makes a mixture a formulation and where formulations are used."
+        },
+        {
+          "type": "definitions",
+          "items": [
+            {
+              "term": "Formulation",
+              "meaning": "A mixture designed as a useful product, made by mixing carefully measured quantities of its components."
+            },
+            {
+              "term": "Component",
+              "meaning": "One of the chemicals in a mixture."
+            }
+          ]
+        },
+        {
+          "type": "list",
+          "items": [
+            "Many products are complex mixtures in which each chemical has a **particular purpose**.",
+            "Fuels, cleaning agents, paints and medicines are formulations.",
+            "Alloys, fertilisers and foods are formulations too.",
+            "You do not need to know the names of the components in a branded product."
+          ]
+        },
+        {
+          "type": "key-points",
+          "items": [
+            "A formulation is a mixture designed for a purpose.",
+            "Each component does a particular job."
+          ]
+        }
+      ]
+    },
+    {
+      "heading": "Why the amounts matter",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "This section covers how a formulation differs from an ordinary mixture."
+        },
+        {
+          "type": "list",
+          "items": [
+            "The components are mixed in **carefully measured quantities**.",
+            "This gives the product the properties it needs.",
+            "The composition is the same every time the product is made.",
+            "Crude oil is a mixture, but it is not a formulation: it is not designed for a purpose."
+          ]
+        },
+        {
+          "type": "diagram",
+          "diagram": {
+            "kind": "compare",
+            "alt": "Comparing an ordinary mixture such as crude oil with a formulation.",
+            "items": [
+              "Ordinary mixture (crude oil)",
+              "Formulation"
+            ],
+            "rows": [
+              {
+                "feature": "Designed for a specific purpose",
+                "values": [
+                  "No",
+                  "Yes"
+                ]
+              },
+              {
+                "feature": "Useful product",
+                "values": [
+                  "Not as it is",
+                  "Yes"
+                ]
+              },
+              {
+                "feature": "Quantities of components",
+                "values": [
+                  "Not carefully measured",
+                  "Carefully measured"
+                ]
+              },
+              {
+                "feature": "Composition each time",
+                "values": [
+                  "Can vary",
+                  "The same"
+                ]
+              }
+            ]
+          }
+        },
+        {
+          "type": "key-points",
+          "items": [
+            "Measured amounts give the required properties.",
+            "A formulation is a mixture, but not every mixture is a formulation."
+          ]
+        }
+      ]
+    },
+    {
+      "heading": "Percentage by mass of a component",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "This section covers how to find how much of a formulation is one component."
+        },
+        {
+          "type": "equation",
+          "formula": "percentage by mass = (mass of component ÷ total mass of the formulation) × 100",
+          "label": "Percentage by mass",
+          "where": [
+            "mass of component in grams (g)",
+            "total mass of the formulation in grams (g)"
+          ]
+        },
+        {
+          "type": "steps",
+          "items": [
+            {
+              "lead": "Add the masses",
+              "text": "Find the total mass of all the components."
+            },
+            {
+              "lead": "Divide",
+              "text": "Divide the mass of the component by the total mass."
+            },
+            {
+              "lead": "Multiply",
+              "text": "Multiply by 100 to give a percentage."
+            }
+          ]
+        },
+        {
+          "type": "paragraph",
+          "text": "For example, 30 g of one component in a 200 g sample is 30 ÷ 200 × 100 = 15%."
+        },
+        {
+          "type": "diagram",
+          "diagram": {
+            "kind": "practice",
+            "alt": "Calculate the percentage by mass of a component, with new numbers each time.",
+            "question": "A sample of a formulation has a mass of {total} g. It contains {part} g of one component. Calculate the percentage by mass of that component.",
+            "variables": [
+              {
+                "id": "part",
+                "min": 10,
+                "max": 40,
+                "step": 5
+              },
+              {
+                "id": "total",
+                "min": 100,
+                "max": 350,
+                "step": 50
+              }
+            ],
+            "answer": {
+              "formula": "part / total * 100",
+              "unit": "%",
+              "decimals": 1
+            },
+            "working": [
+              "Percentage by mass = mass of component ÷ total mass × 100",
+              "= {part} ÷ {total} × 100",
+              "= {answer} %"
+            ]
+          }
+        },
+        {
+          "type": "key-points",
+          "items": [
+            "Divide by the total mass of all the components.",
+            "Multiply by 100 for a percentage."
+          ]
+        }
+      ]
+    }
+  ],
+  "checks": [
+    {
+      "q": "What is a formulation?",
+      "a": "A mixture that has been designed as a useful product, made by mixing the components in carefully measured quantities.",
+      "marks": 2
+    },
+    {
+      "q": "Give two reasons why crude oil is not a formulation.",
+      "a": "It is not a useful product (not designed for a specific purpose). It is not mixed in carefully measured quantities.",
+      "marks": 2
+    },
+    {
+      "q": "A 200 g sample of a cleaning product contains 30 g of one component. Calculate the percentage by mass of that component.",
+      "a": "30 ÷ 200 × 100 = 15%",
+      "marks": 2
+    }
+  ],
+  "boards": {
+    "aqa": {
+      "spec_codes": [
+        "AQA 4.8.1.2",
+        "AQA T 5.8.1.2"
+      ],
+      "exam_phrases": [
+        "(crude oil is a mixture but) not a useful product",
+        "(crude oil is) not designed for a specific purpose",
+        "(and) not mixed in carefully measured quantities",
+        "not the same composition all the time"
+      ],
+      "mistakes": [
+        {
+          "wrong": "Crude oil is not a formulation because it is not a mixture.",
+          "right": "Crude oil is a mixture, but it is not a useful product and not designed for a specific purpose."
+        },
+        {
+          "wrong": "A formulation is any mixture.",
+          "right": "A formulation is designed as a useful product and mixed in carefully measured quantities."
+        },
+        {
+          "wrong": "Percentage of methanol = 23.3 ÷ 265.5 × 100, using only the mass of ethanol.",
+          "right": "Divide by the total mass of every component: 23.3 ÷ (265.5 + 23.3 + 3.0 + 1.5) × 100 = 7.9%."
+        }
+      ],
+      "worked_example": {
+        "exemplar_id": "0e939e18-424d-4198-840d-3dee7a2c1e27",
+        "source": "AQA jun 2023, Paper 2 (H), Q03.1",
+        "question": "Crude oil is a mixture of many different compounds.\n\nGive two reasons why crude oil is not a formulation.",
+        "marks": 2,
+        "answer_points": [
+          "It is not a useful product (it is not designed for a specific purpose).",
+          "It is not mixed in carefully measured quantities (it is not the same composition all the time)."
+        ],
+        "tip": "Name the mixture as a mixture first; the marks are for what a formulation has that crude oil lacks."
+      }
+    },
+    "ocr": {
+      "spec_codes": [
+        "OCR C2.1e"
+      ],
+      "exam_phrases": [
+        "A formulation has a specific / consistent proportion of components",
+        "Formulation (the name for a mixture where substances are combined in exact amounts)"
+      ],
+      "mistakes": [
+        {
+          "wrong": "A formulation is the same as any other mixture.",
+          "right": "A formulation has a specific, consistent proportion of components."
+        },
+        {
+          "wrong": "The amounts of each component in a formulation can change from batch to batch.",
+          "right": "The proportions of the components are specific and consistent, so each batch is the same."
+        }
+      ],
+      "worked_example": {
+        "exemplar_id": "97488cec-32a2-4e3e-8a31-12a2530f9590",
+        "source": "OCR nov 2021, Paper 3, Q21(b)",
+        "question": "When a painkiller is sold to the public, it is sold as a formulation, not as a pure substance.\n\nExplain how a formulation and a mixture are different.",
+        "marks": 1,
+        "answer_points": [
+          "A formulation has a specific, consistent proportion of components."
+        ],
+        "tip": "One mark: the idea of fixed, exact proportions is what separates a formulation from a mixture."
+      }
+    }
+  },
+  "meta": {
+    "status": "draft",
+    "written_by": "sonnet-5-5",
+    "written_at": "2026-10-01",
+    "spec_point_ids": [
+      "64f7ed63-7eaa-4925-9fd1-6d004298ff2c",
+      "42e5adeb-921c-48f6-9e1f-7b2d7a75b5fe",
+      "29a64196-3402-4e57-8b77-ba2bcacb14ab"
+    ],
+    "exemplar_ids": [
+      "0e939e18-424d-4198-840d-3dee7a2c1e27",
+      "23d723a4-c61a-49c1-a487-7a848d29bd04",
+      "97488cec-32a2-4e3e-8a31-12a2530f9590",
+      "a05f428e-54b3-4786-b3eb-e963fc89490d"
+    ]
+  }
+}

@@ -258,7 +258,7 @@
         "answer_points": [
           "Reasons: tropical rainforests are cleared for land to raise cattle, plant rice or plant crops such as coffee.",
           "Land is also cleared for mining, or to grow biofuels or palm oil.",
-          "Forests are cut down for wood for building or paper.",
+          "Temperate forests are cut down for wood for building or paper.",
           "Effects: fewer trees take in carbon dioxide for photosynthesis.",
           "Decay by respiring microorganisms and burning waste wood release carbon dioxide.",
           "The build-up of carbon dioxide causes the greenhouse effect and global warming.",
@@ -278,6 +278,8 @@
     ],
     "exemplar_ids": [
       "fc093c93-efdc-4e75-8916-00a9b1899609"
-    ]
+    ],
+    "checked_by": "sonnet-science-check",
+    "checked_at": "2026-10-01"
   }
 }

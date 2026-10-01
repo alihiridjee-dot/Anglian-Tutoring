@@ -45,6 +45,14 @@
               "6 m/s"
             ],
             [
+              "Wind (a breezy day)",
+              "5 m/s"
+            ],
+            [
+              "Car on a main road",
+              "25 m/s"
+            ],
+            [
               "Sound in air",
               "330 m/s"
             ]
@@ -54,7 +62,7 @@
           "type": "list",
           "items": [
             "A cyclist is about **four times** faster than a walker.",
-            "The speed of the wind and the speed of sound also vary. 330 m/s is the typical value for sound in air.",
+            "The speed of the wind also varies. So does the speed of sound, but 330 m/s is the typical value in air.",
             "How fast a person walks, runs or cycles depends on age, terrain, fitness and distance travelled.",
             "Cars, trains and aeroplanes travel faster than people on foot or on a bike."
           ]
@@ -102,6 +110,10 @@
                     "value": 6
                   },
                   {
+                    "label": "Car (25 m/s)",
+                    "value": 25
+                  },
+                  {
                     "label": "Sound in air (330 m/s)",
                     "value": 330
                   }
@@ -128,7 +140,7 @@
                 "label": "Time taken",
                 "unit": "minutes",
                 "formula": "s / v / 60",
-                "decimals": 1
+                "decimals": 2
               }
             ]
           }
@@ -257,17 +269,16 @@
         "330 m/s",
         "about four times faster",
         "athlete's swimming speed = typical walking speed",
-        "3.0 (m/s) for a person running",
-        "13 200 = 330 × t"
+        "3.0 (m/s) for a person running"
       ],
       "mistakes": [
         {
-          "wrong": "The speed of sound is 330 m/s, so 13 200 m takes 330 ÷ 13 200 s.",
-          "right": "Time = distance ÷ speed. Write 13 200 = 330 × t, then t = 13 200 / 330 = 40 s."
+          "wrong": "A swimmer at 1.5 m/s is faster than a typical walker.",
+          "right": "A typical walking speed is 1.5 m/s, so the swimming speed is equal to it."
         },
         {
-          "wrong": "A cyclist is only about twice as fast as a walker.",
-          "right": "A cycling speed of 6 m/s is about four times faster than a typical walking speed of 1.5 m/s."
+          "wrong": "A typical person runs at about 1.5 m/s.",
+          "right": "1.5 m/s is a walking speed. A typical running speed is about 3 m/s."
         }
       ],
       "worked_example": {
@@ -335,7 +346,7 @@
       ],
       "exam_phrases": [
         "Estimate for time = 2 – 12 seconds",
-        "Acceleration = 6 ÷ their estimate of time",
+        "their estimate of time",
         "0.5 – 3(.0) m / s²"
       ],
       "mistakes": [
@@ -351,7 +362,7 @@
       "worked_example": {
         "exemplar_id": "1ff35a4a-84ae-45d8-992f-5933c20b74ce",
         "source": "OCR jun 2022, Paper 2, Q17(e)",
-        "question": "Student D pedals a bicycle on a level surface.\nThey start from rest and reach a velocity of 6 m/s.\n\nEstimate the acceleration of student D on the bicycle.\nUse the equation: acceleration = change in velocity / time",
+        "question": "Student D pedals the bicycle on a level surface.\nThey start from rest and reach a velocity of 6 m/s.\n\nEstimate the acceleration of student D on the bicycle.\nUse the equation: acceleration = change in velocity / time",
         "marks": 3,
         "answer_points": [
           "Estimate a sensible time, between 2 and 12 s",
@@ -376,6 +387,8 @@
       "61630483-28f6-4522-8118-e6ffa4df5246",
       "4528cbe2-5790-4d01-8328-349751a3517c",
       "1ff35a4a-84ae-45d8-992f-5933c20b74ce"
-    ]
+    ],
+    "checked_by": "sonnet-science-check",
+    "checked_at": "2026-10-01"
   }
 }

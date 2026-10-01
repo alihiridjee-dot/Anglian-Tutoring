@@ -30,6 +30,14 @@
           ]
         },
         {
+          "type": "paragraph",
+          "text": "The Earth's surface gives out heat energy. Greenhouse gases in the atmosphere trap some of it, which keeps the Earth warm. More greenhouse gases trap more heat, so the average temperature rises."
+        },
+        {
+          "type": "subheading",
+          "text": "Where the extra gases come from"
+        },
+        {
           "type": "table",
           "columns": [
             "Gas",
@@ -42,7 +50,7 @@
             ],
             [
               "Methane",
-              "Farming cows. Decay of peat. Rotting vegetables in landfill."
+              "Farming cows. Rice paddy fields. Rotting vegetables in landfill."
             ]
           ]
         },
@@ -185,9 +193,7 @@
         "(due to) less photosynthesis",
         "ice caps melting",
         "rise in sea levels",
-        "change in species distribution",
-        "carbon dioxide is released (from the peat bog)",
-        "methane is released (from the peat bog)"
+        "change in species distribution"
       ],
       "mistakes": [
         {
@@ -235,6 +241,8 @@
     ],
     "exemplar_ids": [
       "d9dee04f-fab4-4504-b12d-595bb71a91be"
-    ]
+    ],
+    "checked_by": "sonnet-science-check",
+    "checked_at": "2026-10-01"
   }
 }

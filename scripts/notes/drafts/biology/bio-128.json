@@ -198,8 +198,7 @@
         "(reintroducing) wider field margins",
         "plant a variety of crops",
         "more / different types of food available",
-        "more / different types of habitat / shelter or nest sites available",
-        "loss of (specialised) habitat, (so) lack of food, (so) lack of shelter"
+        "more / different types of habitat / shelter or nest sites available"
       ],
       "mistakes": [
         {
@@ -244,16 +243,14 @@
         "increase numbers of endangered species / prevent extinction",
         "controlled breeding programmes / reduction in poaching / maintaining habitats",
         "removes carbon dioxide and releases oxygen",
-        "provides habitats",
         "maintains the food web",
         "maintains genetic diversity",
-        "allows re-introduction of animals into the wild",
         "generating income to fund conservation projects through zoos / animal parks / ecotourism"
       ],
       "mistakes": [
         {
-          "wrong": "Trees clean the air.",
-          "right": "Name the gases. Trees take in carbon dioxide and release oxygen. Level 3 needs both named atmospheric gases."
+          "wrong": "Trees improve the air.",
+          "right": "Name the gases. Trees take in carbon dioxide and release oxygen. Top-level answers need both named atmospheric gases."
         },
         {
           "wrong": "Animal conservation saves animals.",
@@ -327,8 +324,7 @@
         "the elephants are protected (from hunting)",
         "they receive money / employment due to the tourists",
         "salt marshes are rare habitats",
-        "they contain plants that do not live anywhere else",
-        "loss of habitat for the animals that live there"
+        "they contain plants that do not live anywhere else"
       ],
       "mistakes": [
         {
@@ -336,12 +332,8 @@
           "right": "Include both ideas: people see threatened habitats, species or nature, and it raises money, jobs or profit. It can also be in a way that conserves the habitat."
         },
         {
-          "wrong": "A disadvantage of relocating elephants is that they are not adapted to the new location.",
-          "right": "This is ignored. Say it is expensive or difficult to transport them, they may be distressed or families split up, or they may spread disease or eat crops in the new place."
-        },
-        {
-          "wrong": "Ecotourism benefits elephants because they get money.",
-          "right": "The elephants benefit by being protected from hunting, or having their habitats protected. The local people benefit by receiving money or employment from the tourists."
+          "wrong": "A disadvantage of relocating elephants is that they are not adapted to the new location, or that they disrupt food chains.",
+          "right": "This is ignored, as is saying they will not survive. Say it is expensive or difficult to transport them, they may be distressed or families split up, or they may spread disease or eat crops in the new place."
         }
       ],
       "worked_example": {
@@ -411,6 +403,8 @@
       "83a2c2ff-5838-4580-97da-bc9d0f47a150",
       "8dd4856e-28cd-4352-a652-326d63900b62",
       "595a5354-9379-4179-a67d-c345cd486989"
-    ]
+    ],
+    "checked_by": "sonnet-science-check",
+    "checked_at": "2026-10-01"
   }
 }

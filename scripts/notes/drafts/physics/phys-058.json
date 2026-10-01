@@ -281,8 +281,8 @@
           "right": "Transfer mass between the trolley and the hanger, so the total mass does not change."
         },
         {
-          "wrong": "Friction is the same each time, so I can ignore it.",
-          "right": "Compensate for friction. Raise one end of the runway so the trolley rolls at a constant speed."
+          "wrong": "Raise the runway until the trolley starts to accelerate down it.",
+          "right": "Raise one end of the runway until the trolley, not attached to the hanger, rolls at a constant speed or just starts to move. Then the force of gravity on the trolley balances friction."
         },
         {
           "wrong": "I increase the force by adding weights to the trolley.",
@@ -313,6 +313,8 @@
     "exemplar_ids": [
       "c0efcac0-9ebf-45ac-a9f7-f05d87063de8",
       "76c374e3-778b-4a08-8939-d358de72609b"
-    ]
+    ],
+    "checked_by": "sonnet-science-check",
+    "checked_at": "2026-10-01"
   }
 }

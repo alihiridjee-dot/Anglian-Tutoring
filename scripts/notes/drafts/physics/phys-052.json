@@ -1,0 +1,240 @@
+{
+  "format": 1,
+  "concept_id": "phys-052",
+  "subject": "physics",
+  "title": "Atmospheric pressure",
+  "key_idea": "(Separate science) The atmosphere is a thin layer of air around the Earth. Air particles colliding with a surface create atmospheric pressure. Pressure decreases with height because there is less air above.",
+  "sections": [
+    {
+      "heading": "A simple model of the atmosphere",
+      "blocks": [
+        { "type": "paragraph", "text": "(Separate science) This section covers what the atmosphere is and how it creates pressure." },
+        {
+          "type": "list",
+          "items": [
+            "The atmosphere is a layer of air around the Earth.",
+            "The layer is thin compared with the size of the Earth.",
+            "Air particles collide with every surface in the atmosphere.",
+            "These collisions create atmospheric pressure."
+          ]
+        },
+        {
+          "type": "key-points",
+          "items": [
+            "The atmosphere is a thin layer of air around the Earth.",
+            "Atmospheric pressure is caused by air particles colliding with a surface."
+          ]
+        }
+      ]
+    },
+    {
+      "heading": "Pressure and height",
+      "blocks": [
+        { "type": "paragraph", "text": "(Separate science) This section explains why atmospheric pressure is lower at greater height." },
+        {
+          "type": "steps",
+          "items": [
+            { "lead": "Go higher.", "text": "The height of the surface above the ground increases." },
+            { "lead": "There is less air above.", "text": "The number of air particles above the surface decreases, so the weight of air above it decreases." },
+            { "lead": "The pressure falls.", "text": "Atmospheric pressure decreases as height increases." }
+          ]
+        },
+        {
+          "type": "diagram",
+          "diagram": {
+            "kind": "line-graph",
+            "alt": "A sketch showing atmospheric pressure falling as height above the Earth's surface increases. It shows the shape only.",
+            "x": { "label": "Height above the Earth's surface", "min": 0, "max": 10, "ticks": [0, 2, 4, 6, 8, 10], "unit": "km" },
+            "y": { "label": "Atmospheric pressure" },
+            "series": [
+              { "name": "Atmospheric pressure", "points": [[0, 0.95], [2, 0.78], [4, 0.62], [6, 0.48], [8, 0.36], [10, 0.27]] }
+            ]
+          }
+        },
+        {
+          "type": "list",
+          "items": [
+            "A walker climbing a hill has less air above them at the top, so the pressure is lower.",
+            "A balloon rising through the atmosphere meets a lower pressure outside it.",
+            "A skydiver falling towards the ground has more air above them, so the pressure on them increases."
+          ]
+        },
+        {
+          "type": "key-points",
+          "items": [
+            "As height increases there is less air above a surface.",
+            "So atmospheric pressure decreases with an increase in height.",
+            "Falling towards the ground, the weight of air above increases and so the pressure increases."
+          ]
+        }
+      ]
+    }
+  ],
+  "checks": [
+    {
+      "q": "Explain why atmospheric pressure decreases as a student climbs a mountain.",
+      "a": "There is less air above the student, so the mass of air above decreases. Fewer air particles are above them.",
+      "marks": 2
+    },
+    {
+      "q": "A helium balloon rises through the atmosphere. Describe what happens to its size and explain why.",
+      "a": "It gets bigger. The pressure outside the balloon decreases because there are fewer air particles above, so the pressure inside is greater than outside.",
+      "marks": 3
+    },
+    {
+      "q": "State what causes atmospheric pressure.",
+      "a": "Air particles colliding with a surface.",
+      "marks": 1
+    }
+  ],
+  "boards": {
+    "aqa": {
+      "spec_codes": ["AQA 4.5.5.2"],
+      "exam_phrases": [
+        "the density of the air decreases",
+        "the mass of air above the student decreases",
+        "greater weight of air above the skydiver",
+        "more frequent collisions of air particles with skydiver"
+      ],
+      "mistakes": [
+        {
+          "wrong": "Atmospheric pressure decreases as the student climbs because there is more air above them.",
+          "right": "There is less air above. The mass of air above the student decreases and the density of the air decreases."
+        },
+        {
+          "wrong": "The pressure on the skydiver increases as the skydiver falls because there is less air above.",
+          "right": "There is a greater weight of air above the skydiver as the distance fallen increases, so the pressure increases (pressure = F ÷ A)."
+        }
+      ],
+      "worked_example": {
+        "exemplar_id": "84ffbd87-4919-4132-9165-e8c435a4c528",
+        "source": "AQA jun 2025, Paper 2 (H), Q05.4",
+        "question": "In a world record attempt, a skydiver jumped from a height of 40 km above the Earth. Explain why the atmospheric pressure acting on the skydiver increased as the skydiver fell.",
+        "marks": 2,
+        "answer_points": [
+          "There is a greater weight of air above the skydiver as the distance fallen increases.",
+          "Pressure = force ÷ area, so the pressure increases.",
+          "OR the density of the air around the skydiver increases as the skydiver falls.",
+          "OR there are more frequent collisions of air particles with the skydiver, so the pressure increases."
+        ],
+        "tip": "Give either the weight of air route or the density and collisions route. Two marks in total."
+      },
+      "extra": [
+        {
+          "heading": "Density of the atmosphere",
+          "blocks": [
+            {
+              "type": "paragraph",
+              "text": "The atmosphere gets less dense with increasing altitude. The air is thinner higher up."
+            }
+          ]
+        }
+      ]
+    },
+    "edexcel": {
+      "spec_codes": ["EDEX 15.7P"],
+      "exam_phrases": [
+        "it gets bigger",
+        "density of air decreases / fewer (air) particles",
+        "pressure (outside the balloon) decreases",
+        "pressure inside (balloon) is greater than pressure outside",
+        "height of atmosphere (above aeroplane)",
+        "density of atmosphere"
+      ],
+      "mistakes": [
+        {
+          "wrong": "As the balloon rises it gets smaller because the air outside is squeezing it.",
+          "right": "It gets bigger. The pressure outside decreases, so the pressure inside the balloon is greater than the pressure outside."
+        },
+        {
+          "wrong": "Pressure falls from 104 kPa to 74 kPa, so the percentage change is 30 ÷ 74 × 100 = 41%.",
+          "right": "Divide by the starting value at sea level: (104 − 74) ÷ 104 × 100 = 29%, a decrease. Dividing by 74 earns only 1 mark."
+        }
+      ],
+      "worked_example": {
+        "exemplar_id": "eef66e11-5a52-4539-80a3-5516cb533aba",
+        "source": "EDEXCEL jun 2019, Paper 2 (F), Q2(b)",
+        "question": "A balloon is filled with helium when it is on the ground. The balloon is released and it rises through the atmosphere. Explain what happens to the size of the balloon as it rises through the atmosphere.",
+        "marks": 3,
+        "answer_points": [
+          "As the balloon rises it gets bigger.",
+          "The density of air decreases, so there are fewer air particles in the atmosphere.",
+          "The pressure outside the balloon decreases.",
+          "The pressure inside the balloon is greater than the pressure outside."
+        ],
+        "tip": "One mark for 'gets bigger' and then any two reasons. The two reason marks can be earned even if the first is missed."
+      }
+    },
+    "ocr": {
+      "spec_codes": ["OCR P1.3f", "OCR P1.3g"],
+      "exam_phrases": [
+        "it decreases / reduces / goes down (with increased height)",
+        "there is less atmosphere / air above (pushing down)",
+        "fewer particles above it",
+        "density is uniform"
+      ],
+      "mistakes": [
+        {
+          "wrong": "Atmospheric pressure decreases with height because gravity gets weaker or the density decreases.",
+          "right": "Gravity and density are ignored. Say that there is less air above, or fewer particles above."
+        },
+        {
+          "wrong": "In the simple model of the atmosphere, the thickness of the atmosphere is large compared to the diameter of the Earth.",
+          "right": "The thickness is very small compared with the diameter of the Earth."
+        },
+        {
+          "wrong": "In the simple model, the density of the air decreases as you go higher.",
+          "right": "The simple model assumes the density is uniform."
+        }
+      ],
+      "worked_example": {
+        "exemplar_id": "0d56b81d-2de8-45c3-9d5c-5f3df1665ce0",
+        "source": "OCR jun 2023, Paper 3, Q17(c)",
+        "question": "Explain how and why atmospheric pressure changes with height above the surface of the Earth.",
+        "marks": 2,
+        "answer_points": [
+          "It decreases with increased height.",
+          "There is less atmosphere (air) above, pushing down."
+        ],
+        "tip": "One mark for the change and one for the reason. 'Fewer particles above it' is allowed. Gravity and density are ignored."
+      },
+      "extra": [
+        {
+          "heading": "The simple model of the atmosphere",
+          "blocks": [
+            {
+              "type": "list",
+              "items": [
+                "The atmosphere is a single layer of gas that covers the Earth.",
+                "It covers the Earth to a height of about 700 km.",
+                "The density of the air is uniform.",
+                "Knowledge of layers is not expected."
+              ]
+            }
+          ]
+        }
+      ]
+    }
+  },
+  "meta": {
+    "status": "draft",
+    "written_by": "sonnet-5-5",
+    "written_at": "2026-10-01",
+    "spec_point_ids": [
+      "6c302e10-72be-40fc-a6af-ccab7739ad92",
+      "e73c19b1-78f7-40ed-88ea-980d46e20325",
+      "afe7d547-4425-49ac-9619-eb07d0290fe3",
+      "2c66de50-f110-4c7d-b807-3066dac4aa5c"
+    ],
+    "exemplar_ids": [
+      "84ffbd87-4919-4132-9165-e8c435a4c528",
+      "83fa88f0-9275-49e2-a746-33f1dadfc741",
+      "eef66e11-5a52-4539-80a3-5516cb533aba",
+      "a9a43cdf-6371-4db6-98e5-ebf9b2827bec",
+      "5dedf954-9312-4de9-b9d2-cbb321c047f0",
+      "0d56b81d-2de8-45c3-9d5c-5f3df1665ce0",
+      "0ad44552-a078-4420-b4d0-13182fd1de17",
+      "7240386d-3e10-49cb-b56a-0740fe3ab53f"
+    ]
+  }
+}

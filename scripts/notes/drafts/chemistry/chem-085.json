@@ -1,0 +1,403 @@
+{
+  "format": 1,
+  "concept_id": "chem-085",
+  "subject": "chemistry",
+  "title": "Pure substances and melting points",
+  "key_idea": "In chemistry, a pure substance is a single element or compound, not mixed with any other substance. A pure substance melts and boils at specific temperatures. A mixture melts over a range of temperatures, so melting point data can tell them apart.",
+  "sections": [
+    {
+      "heading": "What pure means in chemistry",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "This section covers the scientific meaning of pure and how it differs from everyday use."
+        },
+        {
+          "type": "definitions",
+          "items": [
+            {
+              "term": "Pure substance",
+              "meaning": "A single element or compound, not mixed with any other substance."
+            },
+            {
+              "term": "Mixture",
+              "meaning": "Two or more substances together, not chemically joined."
+            },
+            {
+              "term": "Impurity",
+              "meaning": "A substance mixed in with a pure substance."
+            }
+          ]
+        },
+        {
+          "type": "list",
+          "items": [
+            "In everyday language, **pure** can mean nothing has been added, for example pure milk.",
+            "In chemistry, a pure substance contains only one element or compound.",
+            "Air is a mixture, because it contains several gases.",
+            "Drinking water is not pure water, because it contains dissolved ions such as calcium and sodium."
+          ]
+        },
+        {
+          "type": "key-points",
+          "items": [
+            "Chemistry: pure means one element or compound only.",
+            "Everyday: pure often means nothing has been added."
+          ]
+        }
+      ]
+    },
+    {
+      "heading": "Melting and boiling points",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "This section covers how melting and boiling points show whether a substance is pure."
+        },
+        {
+          "type": "list",
+          "items": [
+            "A pure substance melts and boils at **specific temperatures**.",
+            "Its melting point is sharp: it melts at one temperature.",
+            "A mixture melts over a **range of temperatures**.",
+            "Impurities lower the melting point of a substance.",
+            "Impurities raise the boiling point of a substance.",
+            "Pure water boils at 100 °C and freezes at 0 °C."
+          ]
+        },
+        {
+          "type": "diagram",
+          "diagram": {
+            "kind": "line-graph",
+            "alt": "Heating curves. A pure substance stays at one temperature while it melts. A mixture keeps warming slowly while it melts over a range.",
+            "x": {
+              "label": "Time",
+              "min": 0,
+              "max": 10,
+              "ticks": [
+                0,
+                2,
+                4,
+                6,
+                8,
+                10
+              ],
+              "unit": "min"
+            },
+            "y": {
+              "label": "Temperature"
+            },
+            "series": [
+              {
+                "name": "Pure substance",
+                "points": [
+                  [
+                    0,
+                    0.15
+                  ],
+                  [
+                    3,
+                    0.5
+                  ],
+                  [
+                    6,
+                    0.5
+                  ],
+                  [
+                    10,
+                    0.9
+                  ]
+                ]
+              },
+              {
+                "name": "Mixture",
+                "points": [
+                  [
+                    0,
+                    0.15
+                  ],
+                  [
+                    3,
+                    0.42
+                  ],
+                  [
+                    6,
+                    0.6
+                  ],
+                  [
+                    10,
+                    0.9
+                  ]
+                ]
+              }
+            ],
+            "bands": [
+              {
+                "from": 3,
+                "to": 6,
+                "label": "Melting"
+              }
+            ]
+          }
+        },
+        {
+          "type": "key-points",
+          "items": [
+            "Pure: one sharp melting point.",
+            "Mixture: melts over a range, at a lower temperature than the pure substance."
+          ]
+        }
+      ]
+    },
+    {
+      "heading": "Using melting point data",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "This section covers how to decide from data whether a sample is pure."
+        },
+        {
+          "type": "steps",
+          "items": [
+            {
+              "lead": "Find the value",
+              "text": "Look at the melting point of each sample in the table."
+            },
+            {
+              "lead": "Check for a range",
+              "text": "A single value, or a very narrow one, means the sample is pure. A wider range means it is impure."
+            },
+            {
+              "lead": "Compare with the data book",
+              "text": "A pure sample melts at the data book value. It cannot melt above it."
+            },
+            {
+              "lead": "Give a reason",
+              "text": "Say the sample has a sharp melting point, or that it melts over a range."
+            }
+          ]
+        },
+        {
+          "type": "diagram",
+          "diagram": {
+            "kind": "sort",
+            "alt": "Sort each statement into pure substance or mixture.",
+            "prompt": "Sort each statement: pure substance or mixture?",
+            "groups": [
+              "Pure substance",
+              "Mixture"
+            ],
+            "items": [
+              {
+                "text": "Melts at one sharp temperature",
+                "group": 0
+              },
+              {
+                "text": "Melts gradually over a range of temperatures",
+                "group": 1
+              },
+              {
+                "text": "Melting point 61 °C (a single value)",
+                "group": 0
+              },
+              {
+                "text": "Melting point 52 to 54 °C",
+                "group": 1
+              },
+              {
+                "text": "Boils at exactly 100 °C (water)",
+                "group": 0
+              },
+              {
+                "text": "Melts at a lower temperature than the data book value",
+                "group": 1
+              },
+              {
+                "text": "Contains only one compound",
+                "group": 0
+              },
+              {
+                "text": "Contains two or more substances mixed together",
+                "group": 1
+              }
+            ]
+          }
+        },
+        {
+          "type": "key-points",
+          "items": [
+            "Look for a sharp value or a range.",
+            "A pure sample cannot melt above the pure value; impurities lower it."
+          ]
+        }
+      ]
+    }
+  ],
+  "checks": [
+    {
+      "q": "A solid melts between 78 °C and 82 °C. Is it pure? Explain.",
+      "a": "No. A pure substance has a sharp (specific) melting point. This solid melts over a range of temperatures.",
+      "marks": 2
+    },
+    {
+      "q": "What does pure mean in chemistry?",
+      "a": "A single element or compound, not mixed with any other substance.",
+      "marks": 1
+    },
+    {
+      "q": "Describe a test to show that a sample of water is pure.",
+      "a": "Boil it and check that it boils at 100 °C. Or freeze it and check that it freezes at 0 °C.",
+      "marks": 2
+    }
+  ],
+  "boards": {
+    "aqa": {
+      "spec_codes": [
+        "AQA 4.8.1.1",
+        "AQA T 5.8.1.1"
+      ],
+      "exam_phrases": [
+        "(substance) has a specific melting point",
+        "melted over a range of temperatures",
+        "(pure water) boils at 100 °C",
+        "(pure water) freezes at 0 °C",
+        "determine the boiling point"
+      ],
+      "mistakes": [
+        {
+          "wrong": "To test whether water is pure, filter it.",
+          "right": "Filtering is not accepted. Boil the water and check that it boils at 100 °C, or freeze it and check that it freezes at 0 °C."
+        },
+        {
+          "wrong": "Water is pure if it boils.",
+          "right": "The result must be a specific temperature: boils at 100 °C or freezes at 0 °C. The result mark depends on a correct test."
+        },
+        {
+          "wrong": "Substance B is pure because it has the highest melting point.",
+          "right": "B is pure because it has a specific melting point. The other substances melted over a range of temperatures."
+        }
+      ],
+      "worked_example": {
+        "exemplar_id": "14f95502-f33c-41fc-872b-4ec1a2673fa0",
+        "source": "AQA jun 2021, Paper 2 (H), Q03.3",
+        "question": "A 250 g sample of water has a boiling point of 100.60 °C. The boiling point of pure water in a data book is 100.00 °C. Each 1% of impurity increases the boiling point of water by 0.12 °C.\n\nCalculate the mass of the impurity in the sample of water.",
+        "marks": 3,
+        "answer_points": [
+          "Increase in boiling point = 100.60 − 100.00 = 0.60 °C.",
+          "Percentage impurity = 0.60 ÷ 0.12 = 5 (%).",
+          "Mass of impurity = 5 ÷ 100 × 250 = 12.5 g."
+        ],
+        "tip": "One mark for each step: find the percentage first, then the mass."
+      }
+    },
+    "edexcel": {
+      "spec_codes": [
+        "EDEX 2.5",
+        "EDEX 2.6"
+      ],
+      "exam_phrases": [
+        "pure water contains only water (molecules) / only one substance",
+        "impure water contains more than one substance",
+        "B has a sharp / single melting point",
+        "A and C have melting points over a range",
+        "(the melting points) vary / gradual change / not sharp / not exact"
+      ],
+      "mistakes": [
+        {
+          "wrong": "Sample A is impure because it has two melting points, 160 °C and 164 °C.",
+          "right": "'Different melting points' is ignored. Say that A melts over a range of temperatures, which is lower than the sharp melting point of the pure sample."
+        },
+        {
+          "wrong": "B is pure because it has an accurate or precise melting point.",
+          "right": "'Accurate' and 'precise' are ignored. Say B has a sharp, single, specific melting point."
+        },
+        {
+          "wrong": "Pure substances contain only one element.",
+          "right": "This is rejected. A pure substance contains only one substance, which may be an element or a compound."
+        },
+        {
+          "wrong": "The water is not pure because its pH is 7.",
+          "right": "References to pH are ignored. Name an impurity from the label, such as dissolved solids, calcium ions or sodium ions."
+        }
+      ],
+      "worked_example": {
+        "exemplar_id": "4b05453c-c033-4f6b-9d8b-bb872fd8f261",
+        "source": "EDEXCEL jun 2023, Paper 1 (H), Q9(a)(ii)",
+        "question": "The melting points of three samples of S are shown in the table.\n\nSample | Melting point in °C\nA | 160–164\nB | 166\nC | 163–165\n\nState whether each of these samples, A, B and C, is pure or impure and justify your answers using the information in the table.",
+        "marks": 3,
+        "answer_points": [
+          "B is pure; A and C are impure.",
+          "B has a sharp (single) melting point.",
+          "A and C melt over a range of temperatures, or at lower temperatures than B."
+        ],
+        "tip": "The marks are independent: you can score the reasons even if the pure or impure decisions are wrong."
+      }
+    },
+    "ocr": {
+      "spec_codes": [
+        "OCR C2.1a",
+        "OCR C2.1b"
+      ],
+      "exam_phrases": [
+        "pure samples do not have a range of mpt",
+        "pure samples have a specific melting point",
+        "impurities lower the melting point",
+        "if impure boiling point is elevated",
+        "pure samples cannot have melting point above (the pure value)",
+        "measure its melting point or boiling point"
+      ],
+      "mistakes": [
+        {
+          "wrong": "Sample 4 is the purest because it melts at 120 to 122 °C, which includes the pure value of 120 °C.",
+          "right": "Pure samples melt at one temperature, not over a range, and cannot melt above the pure value. Sample 2 (a single value close to 120 °C) is the most likely to be pure."
+        },
+        {
+          "wrong": "An impure sample has a higher melting point than the pure substance.",
+          "right": "Impurities lower the melting point. An impure sample melts below the pure value, or over a range."
+        },
+        {
+          "wrong": "Succinic acid is a solid at 25 °C because its boiling point is 235 °C.",
+          "right": "The boiling point is ignored. It is a solid because its melting point (184 °C) is above 25 °C."
+        }
+      ],
+      "worked_example": {
+        "exemplar_id": "9c7705ee-011b-454e-b2ec-900500bcec82",
+        "source": "OCR jun 2018, Paper 1, Q18(c)(ii)",
+        "question": "A student separates two solid substances, A and B. She wants to check that they are pure.\n\nThe student measures the melting points of four samples of solid A.\n\nSample | Melting point (°C)\n1 | 115\n2 | 119\n3 | 114–118\n4 | 120–122\n\nShe knows that a pure sample of solid A has a melting point of 120 °C.\n\nShe concludes that sample 4 is the purest sample of solid A.\n\nDo the results support her conclusion?\n\nExplain your answer using evidence from the table.",
+        "marks": 3,
+        "answer_points": [
+          "No: the results do not support her conclusion.",
+          "Pure samples do not have a range of melting points.",
+          "Sample 4 has a range that is higher than 120 °C. A pure sample cannot melt above 120 °C.",
+          "Sample 2 is likely to be the most pure."
+        ],
+        "tip": "The 'No' gets no mark by itself. Two marks are for the idea of a range or an impossible value, and one is for naming the purest sample."
+      }
+    }
+  },
+  "meta": {
+    "status": "draft",
+    "written_by": "sonnet-5-5",
+    "written_at": "2026-10-01",
+    "spec_point_ids": [
+      "c8c0507c-1f56-4854-be8e-7b6fdfd875db",
+      "c0898c20-533c-441d-8d61-d4e42bab4473",
+      "79c2bee5-b845-4079-970b-ba7d6f1e3b4e",
+      "58b1871e-30f0-4d26-8811-9d0652e0d7f5",
+      "b41c46ff-1508-4551-b727-3d573d7df11e",
+      "03ee2f13-e121-44f0-82fd-9558eaa2f8e8"
+    ],
+    "exemplar_ids": [
+      "14f95502-f33c-41fc-872b-4ec1a2673fa0",
+      "f3e21247-4e36-4db6-a3dc-0b035dc7fd14",
+      "c400227b-f849-4693-9dd9-04c9525b0f59",
+      "4b05453c-c033-4f6b-9d8b-bb872fd8f261",
+      "c2cf2594-42bb-40bf-b2ed-e7c33e5dc8dd",
+      "bf908ed9-4d66-4c20-b03a-c7c50b4997b2",
+      "9c7705ee-011b-454e-b2ec-900500bcec82",
+      "4f61feb5-1c94-4e3f-beba-dacecb647287",
+      "bc6c7407-38de-424f-b145-05aa0a64a7cb",
+      "348239c4-b3c0-40d4-add4-bc5dbfb64fbf"
+    ]
+  }
+}

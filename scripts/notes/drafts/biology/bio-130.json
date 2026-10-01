@@ -236,8 +236,8 @@
           "right": "\"Less energy lost\" on its own is ignored. Say less energy is lost as heat, and less energy is lost in movement."
         },
         {
-          "wrong": "Biomass is lost as waste.",
-          "right": "Waste on its own is ignored. Name it, for example carbon dioxide from respiration or urea from excretion."
+          "wrong": "Some of the insects' biomass is lost as energy.",
+          "right": "References to loss of energy are ignored when the question asks about biomass. Name what is lost: carbon dioxide from respiration, urea from excretion, or parts not absorbed or digested."
         },
         {
           "wrong": "The percentage of biomass lost is 98.81%.",
@@ -402,6 +402,8 @@
     "exemplar_ids": [
       "4f825a34-cc23-4ae9-aa40-37bfcd9ea09b",
       "77dfe0f0-2b36-4269-a803-a6bcf2b263f1"
-    ]
+    ],
+    "checked_by": "sonnet-science-check",
+    "checked_at": "2026-10-01"
   }
 }
