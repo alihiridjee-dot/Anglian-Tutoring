@@ -38,7 +38,7 @@
             "Glucose and oxygen are used for aerobic respiration, which releases energy for growth.",
             "Bubbles of air supply oxygen and move materials around the fermenter.",
             "Moving materials around gives the fungus enough food, enough oxygen and a suitable temperature, and removes carbon dioxide.",
-            "A cooling coil keeps the temperature constant, so the fungus grows faster."
+            "A suitable temperature is kept so the fungus grows faster."
           ]
         },
         { "type": "subheading", "text": "Protein content" },
@@ -86,7 +86,7 @@
           "items": [
             "Resistance to disease, pests, frost or drought.",
             "Taste, flavour and colour.",
-            "Yield. A larger yield needs less land, which could reduce the destruction of forests."
+            "Yield, so more food can be produced."
           ]
         },
         { "type": "paragraph", "text": "Sort the points below into advantages and disadvantages of crops modified to resist insect pests." },
@@ -119,7 +119,7 @@
         {
           "type": "key-points",
           "items": [
-            "GM crops can have a larger yield and resistance to pests, so less land and fewer chemicals are needed.",
+            "GM crops can have a larger yield and resistance to pests, so more food is produced and fewer chemicals are needed.",
             "Concerns include gene transfer to other plants, resistance developing and cost.",
             "In a discussion question, give both advantages and disadvantages."
           ]
@@ -189,7 +189,7 @@
         "kills insects / pests (which feed on the crops)",
         "less damage to the crops / increased crop yield",
         "no need to use insecticides / pesticides",
-        "less land is needed to grow GM crops",
+        "so more food for people / more profit",
         "risk of GM plants cross-pollinating with other plants",
         "insects develop resistance to the toxin",
         "genetically modified seeds could be more expensive to buy",
@@ -261,6 +261,8 @@
     }
   },
   "meta": {
+    "checked_by": "sonnet-science-check",
+    "checked_at": "2026-10-01",
     "status": "draft",
     "written_by": "sonnet-5-5",
     "written_at": "2026-10-01",
