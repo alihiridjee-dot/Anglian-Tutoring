@@ -84,10 +84,10 @@ const isMissing = (err: unknown) => (err as { code?: string })?.code === "resour
 
 /**
  * Cancel a second subscription for a student who already has a plan, and
- * refund what it took. stripe-checkout stops most of these before they are
- * paid (checkoutHolds.ts); this catches two Checkouts opened in the same
- * instant. Every step is safe to repeat: Stripe resends events, and the
- * duplicate produces several (completed, created, deleted after the cancel).
+ * refund what it took. stripe-checkout refuses a second Checkout when it can
+ * see the first; this catches what it can't, such as two Checkouts opened in
+ * the same instant. Every step is safe to repeat: Stripe resends events, and
+ * the duplicate produces several (completed, created, deleted after the cancel).
  */
 async function refundDuplicate(sub: Stripe.Subscription, keptId: string) {
   console.error(
@@ -210,14 +210,6 @@ Deno.serve(async (req) => {
               : session.subscription.id;
           await upsertSubscription(id);
         }
-        // The student's open Checkout is done with (stripe-checkout/checkoutHolds.ts).
-        // Bookkeeping only, so a failure is logged rather than retried.
-        const { error: holdError } = await db
-          .from("checkout_holds")
-          .delete()
-          .eq("checkout_session_id", session.id);
-        if (holdError)
-          console.error(`stripe-webhook: clearing the checkout hold failed: ${holdError.message}`);
         // A free-trial code is spent once its Checkout completes (see
         // stripe-checkout/trialCodes.ts).
         if (session.metadata?.trial_code) {

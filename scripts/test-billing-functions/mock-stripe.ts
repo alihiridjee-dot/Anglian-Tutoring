@@ -13,6 +13,8 @@ export const STRIPE = {
   customers: new Map<string, any>(),
   n: 0,
   calls: [] as string[],
+  /** How many upcoming subscriptions.retrieve calls fail as if Stripe were down. */
+  failRetrieves: 0,
 };
 
 export function resetStripe() {
@@ -23,6 +25,22 @@ export function resetStripe() {
   STRIPE.customers.clear();
   STRIPE.n = 0;
   STRIPE.calls = [];
+  STRIPE.failRetrieves = 0;
+}
+
+/** Open a Checkout Session as stripe-checkout would, for completeSession to pay. */
+export function openSession(metadata: Record<string, string>, trialDays?: number) {
+  const id = `cs_${++STRIPE.n}`;
+  STRIPE.sessions.set(id, {
+    id,
+    status: "open",
+    customer: `cus_${metadata.payer_id}`,
+    created: now(),
+    line_items: [{ price: "price_m1" }],
+    metadata,
+    subscription_data: { metadata, ...(trialDays ? { trial_period_days: trialDays } : {}) },
+  });
+  return id;
 }
 
 const clone = <T>(x: T): T => JSON.parse(JSON.stringify(x));
@@ -84,6 +102,12 @@ export default class Stripe {
   subscriptions = {
     retrieve: async (id: string) => {
       STRIPE.calls.push(`subscriptions.retrieve ${id}`);
+      if (STRIPE.failRetrieves > 0) {
+        STRIPE.failRetrieves--;
+        throw Object.assign(new Error("An error occurred with our connection to Stripe."), {
+          code: "api_connection_error",
+        });
+      }
       const s = STRIPE.subs.get(id);
       if (!s) throw missing(`subscription: '${id}'`);
       return clone(s);

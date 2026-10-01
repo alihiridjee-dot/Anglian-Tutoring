@@ -19,7 +19,6 @@ export function resetDb() {
   DB.unique = {
     subscriptions: [["student_id"]],
     stripe_customers: [["user_id"], ["stripe_customer_id"]],
-    checkout_holds: [["student_id"]],
   };
   DB.broken = {};
   DB.users = {};
