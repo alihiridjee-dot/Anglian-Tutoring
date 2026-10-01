@@ -8,7 +8,7 @@
     {
       "heading": "The apparatus and the indicator",
       "blocks": [
-        { "type": "paragraph", "text": "This section covers what each piece of apparatus does and which indicators to use. Titrations here use strong acids and strong alkalis, such as hydrochloric, sulfuric or nitric acid with sodium hydroxide." },
+        { "type": "paragraph", "text": "This section covers what each piece of apparatus does and which indicators to use. The acids used are hydrochloric, sulfuric or nitric acid, with an alkali such as sodium hydroxide." },
         {
           "type": "definitions",
           "items": [
@@ -193,10 +193,10 @@
       },
       "extra": [
         {
-          "heading": "(Separate science) and (Higher tier) in AQA",
+          "heading": "(Separate science) and (Higher tier) content",
           "blocks": [
-            { "type": "paragraph", "text": "(Separate science) AQA assesses titration in GCSE Chemistry, not in Combined Science: Trilogy." },
-            { "type": "paragraph", "text": "(Higher tier) AQA also asks for calculations of concentration in mol/dm³ and g/dm³ from titration results. This note covers the practical technique only." }
+            { "type": "paragraph", "text": "(Separate science) Titration is assessed in the GCSE Chemistry course only, not in the combined science course." },
+            { "type": "paragraph", "text": "(Higher tier) You may also be asked for calculations of concentration in mol/dm³ and g/dm³ from titration results. This note covers the practical technique only." }
           ]
         }
       ]

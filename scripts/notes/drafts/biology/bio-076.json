@@ -15,7 +15,7 @@
           "rows": [
             ["Food and drink", "The skin, as sweat"],
             ["Respiration in cells", "The lungs, when breathing out"],
-            ["Nothing else", "Faeces and urine"]
+            ["No other source", "Faeces and urine"]
           ]
         },
         {
@@ -90,7 +90,7 @@
           "type": "definitions",
           "items": [
             { "term": "Urea", "meaning": "A waste substance made when excess amino acids are broken down in the liver." },
-            { "term": "Filtration", "meaning": "The kidneys filter the blood and remove small molecules such as urea, glucose and water." }
+            { "term": "Filtration", "meaning": "Small molecules such as urea, glucose and water are forced out of the blood in the kidney. Useful ones are reabsorbed later." }
           ]
         },
         {
@@ -262,6 +262,8 @@
     "status": "draft",
     "written_by": "sonnet-5-5",
     "written_at": "2026-10-01",
+    "checked_by": "sonnet-science-check",
+    "checked_at": "2026-10-01",
     "spec_point_ids": [
       "54150b15-fab5-4ca6-874e-57abd8434cee",
       "0dfddd94-f250-49c4-9e34-41bb6ebc890b",

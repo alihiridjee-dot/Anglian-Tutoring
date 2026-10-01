@@ -100,7 +100,7 @@
               {
                 "label": "A disease that reduces the amount of ADH made",
                 "results": [
-                  "Tends to fall, because too much water is lost",
+                  "Tends to fall, because extra water is lost in the urine",
                   "Less ADH than normal",
                   "Less water is reabsorbed from the kidney tubule",
                   "Large volume and low concentration"
@@ -121,8 +121,8 @@
   ],
   "checks": [
     {
-      "q": "Where is ADH made and released?",
-      "a": "It is released into the blood by the pituitary gland.",
+      "q": "Which gland releases ADH into the blood?",
+      "a": "The pituitary gland.",
       "marks": 1
     },
     {
@@ -150,8 +150,8 @@
       ],
       "mistakes": [
         {
-          "wrong": "ADH makes the kidneys produce less urine.",
-          "right": "\"Less urine\" on its own is ignored. Say ADH increases the permeability of the kidney tubules to water, so more water is reabsorbed into the blood."
+          "wrong": "In the desert the man's kidneys make less urine, so he loses less water.",
+          "right": "Reference to urine is ignored for the reabsorption mark. Say ADH increases the permeability of the kidney tubules to water, so more water is reabsorbed back into the blood."
         },
         {
           "wrong": "When the blood is more dilute, more ADH is released.",
@@ -257,6 +257,8 @@
     "status": "draft",
     "written_by": "sonnet-5-5",
     "written_at": "2026-10-01",
+    "checked_by": "sonnet-science-check",
+    "checked_at": "2026-10-01",
     "spec_point_ids": [
       "31134818-3827-42aa-bf53-498ecc93b236",
       "438f47d8-5ca7-46f2-8a2d-efa03f2e297a"

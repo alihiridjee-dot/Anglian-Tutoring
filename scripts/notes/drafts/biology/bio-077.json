@@ -15,7 +15,8 @@
             "The **kidneys** filter the blood and make urine.",
             "The **ureters** carry urine from the kidneys to the bladder.",
             "The **bladder** stores the urine.",
-            "The **urethra** carries urine out of the body."
+            "The **urethra** carries urine out of the body.",
+            "The renal artery brings blood to each kidney. The renal vein takes the filtered blood away."
           ]
         },
         {
@@ -84,7 +85,7 @@
               "The filtrate collects in the Bowman's capsule",
               "In the proximal convoluted tubule all the glucose is reabsorbed",
               "In the loop of Henlé water and ions are exchanged",
-              "The second coiled tubule carries the filtrate on",
+              "The second coiled tubule (distal convoluted tubule) carries the filtrate on",
               "In the collecting duct water is reabsorbed and urine forms"
             ]
           }
@@ -231,6 +232,8 @@
     "status": "draft",
     "written_by": "sonnet-5-5",
     "written_at": "2026-10-01",
+    "checked_by": "sonnet-science-check",
+    "checked_at": "2026-10-01",
     "spec_point_ids": [
       "d3519732-063c-4ce3-af43-afa0a2c04120",
       "f3da0cc0-2031-4473-b9cf-8bf5cf85451e",
