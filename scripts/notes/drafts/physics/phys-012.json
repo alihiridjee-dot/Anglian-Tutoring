@@ -1,0 +1,295 @@
+{
+  "format": 1,
+  "concept_id": "phys-012",
+  "subject": "physics",
+  "title": "Potential difference, current and resistance",
+  "key_idea": "Current depends on the potential difference across a component and on its resistance. The greater the resistance, the smaller the current for a given potential difference. Potential difference = current × resistance.",
+  "sections": [
+    {
+      "heading": "How current, potential difference and resistance link",
+      "blocks": [
+        { "type": "paragraph", "text": "The current in a component depends on two things: the potential difference across it and its resistance." },
+        {
+          "type": "definitions",
+          "items": [
+            { "term": "Potential difference", "meaning": "The energy transferred per unit of charge between two points. Measured in volts (V). Voltage means the same." },
+            { "term": "Resistance", "meaning": "How much a component opposes current. Measured in ohms (Ω)." }
+          ]
+        },
+        {
+          "type": "list",
+          "items": [
+            "A bigger potential difference across a component gives a bigger current.",
+            "A bigger resistance gives a smaller current for the same potential difference.",
+            "For some resistors the resistance stays constant. In others it changes as the current changes."
+          ]
+        },
+        {
+          "type": "key-points",
+          "items": [
+            "Current increases when potential difference increases.",
+            "Current decreases when resistance increases.",
+            "Potential difference is measured in volts, current in amperes and resistance in ohms."
+          ]
+        }
+      ]
+    },
+    {
+      "heading": "Using V = I × R",
+      "blocks": [
+        { "type": "paragraph", "text": "One equation links the three quantities. Rearrange it to find whichever one is missing." },
+        {
+          "type": "equation",
+          "label": "Potential difference",
+          "formula": "V = I × R",
+          "where": ["V = potential difference, in volts (V)", "I = current, in amperes (A)", "R = resistance, in ohms (Ω)"]
+        },
+        {
+          "type": "equation",
+          "label": "Resistance",
+          "formula": "R = V ÷ I",
+          "where": ["R = resistance, in ohms (Ω)", "V = potential difference, in volts (V)", "I = current, in amperes (A)"]
+        },
+        {
+          "type": "equation",
+          "label": "Current",
+          "formula": "I = V ÷ R",
+          "where": ["I = current, in amperes (A)", "V = potential difference, in volts (V)", "R = resistance, in ohms (Ω)"]
+        },
+        {
+          "type": "steps",
+          "items": [
+            { "lead": "Convert.", "text": "A resistor has a current of 20 mA and a potential difference of 4.0 V. I = 20 ÷ 1000 = 0.02 A." },
+            { "lead": "Substitute.", "text": "R = V ÷ I = 4.0 ÷ 0.02." },
+            { "lead": "Calculate.", "text": "R = 200 Ω." }
+          ]
+        },
+        { "type": "paragraph", "text": "Milliamperes (mA) must be converted to amperes before substituting. Divide by 1000." },
+        {
+          "type": "diagram",
+          "diagram": {
+            "kind": "slider",
+            "alt": "Change the potential difference and the resistance to see the current.",
+            "inputs": [
+              { "id": "V", "label": "Potential difference", "unit": "V", "min": 1, "max": 12, "step": 0.5, "value": 6 },
+              {
+                "id": "R",
+                "label": "Resistance",
+                "choices": [
+                  { "label": "2 Ω", "value": 2 },
+                  { "label": "5 Ω", "value": 5 },
+                  { "label": "10 Ω", "value": 10 },
+                  { "label": "20 Ω", "value": 20 },
+                  { "label": "50 Ω", "value": 50 },
+                  { "label": "100 Ω", "value": 100 }
+                ]
+              }
+            ],
+            "outputs": [
+              { "label": "Current", "unit": "A", "formula": "V / R", "decimals": 3 },
+              { "label": "Current in milliamperes", "unit": "mA", "formula": "V / R * 1000", "decimals": 0 }
+            ]
+          }
+        },
+        {
+          "type": "diagram",
+          "diagram": {
+            "kind": "practice",
+            "alt": "Calculate resistance from a potential difference and a current in milliamperes.",
+            "question": "The current in a resistor is {I} mA when the potential difference across it is {V} V. Calculate the resistance.",
+            "variables": [
+              { "id": "V", "min": 2, "max": 12, "step": 1 },
+              { "id": "I", "min": 10, "max": 100, "step": 10 }
+            ],
+            "answer": { "formula": "V / (I / 1000)", "unit": "Ω", "decimals": 1 },
+            "working": [
+              "I = {I} ÷ 1000 A",
+              "R = V ÷ I, using V = {V} V and I in amperes",
+              "R = {answer} Ω"
+            ]
+          }
+        },
+        {
+          "type": "key-points",
+          "items": [
+            "V = I × R. Rearrange to R = V ÷ I or I = V ÷ R.",
+            "Convert mA to A before substituting.",
+            "Give the unit: ohms, Ω."
+          ]
+        }
+      ]
+    },
+    {
+      "heading": "Changing the current with a variable resistor",
+      "blocks": [
+        { "type": "paragraph", "text": "A variable resistor has a resistance that can be changed by hand. It is used to control the current in a circuit." },
+        {
+          "type": "list",
+          "items": [
+            "Increasing its resistance increases the resistance of the circuit, so the current is smaller.",
+            "Decreasing its resistance makes the current larger.",
+            "It keeps the current small, which stops a wire getting too hot. A current heats the wire."
+          ]
+        },
+        {
+          "type": "key-points",
+          "items": [
+            "A variable resistor changes the resistance of the circuit, and so changes the current.",
+            "Higher resistance means a smaller current."
+          ]
+        }
+      ]
+    }
+  ],
+  "checks": [
+    {
+      "q": "What happens to the current in a circuit when the resistance is increased and the potential difference stays the same?",
+      "a": "The current decreases.",
+      "marks": 1
+    },
+    {
+      "q": "Component X has a resistance of 6.0 Ω. A current of 4.0 A flows through it. Calculate the potential difference across X.",
+      "a": "V = I × R = 4.0 × 6.0 = 24 V.",
+      "marks": 3
+    },
+    {
+      "q": "The current is 450 mA when the potential difference is 2.7 V. Calculate the resistance.",
+      "a": "I = 0.45 A. R = V ÷ I = 2.7 ÷ 0.45 = 6.0 Ω.",
+      "marks": 4
+    }
+  ],
+  "boards": {
+    "aqa": {
+      "spec_codes": ["AQA 4.2.1.3", "AQA T 6.2.1.3"],
+      "exam_phrases": [
+        "I = 0.45 (A)",
+        "2.7 = 0.45 × R",
+        "R = 2.7 / 0.45",
+        "R = 6 (Ω)",
+        "use V = IR to calculate resistance",
+        "potential difference / voltage"
+      ],
+      "mistakes": [
+        {
+          "wrong": "R = 2.7 ÷ 450 = 0.006 Ω.",
+          "right": "The current was in mA. Convert first: 450 mA = 0.45 A, so R = 2.7 ÷ 0.45 = 6 Ω."
+        },
+        {
+          "wrong": "For a charge of 0.16 C in 4.0 ms, I = 0.16 ÷ 4.0 = 0.04 A.",
+          "right": "Convert the time: 4.0 ms = 4.0 × 10⁻³ s. I = 0.16 ÷ (4.0 × 10⁻³) = 40 A. Then use V = IR to find R."
+        }
+      ],
+      "worked_example": {
+        "exemplar_id": "8a543a5e-266b-4748-906b-0c95afd90fa7",
+        "source": "AQA jun 2025, Paper 1 (H), Q03.2",
+        "question": "A student investigated the resistance of a resistor. The student added a variable resistor to the circuit, used the variable resistor to change the readings on the ammeter and the voltmeter, and recorded several different pairs of readings from the ammeter and the voltmeter. When the reading on the ammeter was 450 mA, the reading on the voltmeter was 2.7 V.\n\nCalculate the resistance of the resistor.",
+        "marks": 4,
+        "answer_points": [
+          "Convert the current: I = 0.45 A.",
+          "Substitute: 2.7 = 0.45 × R.",
+          "Rearrange: R = 2.7 ÷ 0.45.",
+          "R = 6 Ω."
+        ],
+        "tip": "Later marks can still be scored if the current is not converted, but the answer will be wrong."
+      }
+    },
+    "edexcel": {
+      "spec_codes": ["EDEX 10.12", "EDEX 10.13"],
+      "exam_phrases": [
+        "recall and substitution into V = IR",
+        "(R =) V / I",
+        "(variable) resistor increases the resistance (of the circuit)",
+        "keeps the current constant / small(er)",
+        "current increases temperature of the (iron) wire",
+        "reduces current / limits the current"
+      ],
+      "mistakes": [
+        {
+          "wrong": "The variable resistor slows the current down.",
+          "right": "'Slows the current' is ignored. Say it reduces or limits the current."
+        },
+        {
+          "wrong": "R = 4.5 ÷ 51 = 0.088 Ω for 4.5 V and 51 mA.",
+          "right": "A value of 0.088 or 8.8 only scores 1 mark. Convert 51 mA to 0.051 A, so R = 4.5 ÷ 0.051 = 88 Ω."
+        },
+        {
+          "wrong": "A variable resistor is used because it makes the wire cooler.",
+          "right": "Link the steps: it increases the resistance, so the current is smaller, because the current heats the wire."
+        }
+      ],
+      "worked_example": {
+        "exemplar_id": "f4481dfd-e4fe-44e8-a9e4-b120a9afe29f",
+        "source": "EDEXCEL jun 2023, Paper 2 (F), Q8(c)(iv)",
+        "question": "A variable resistor is in a circuit with a piece of iron wire. It is used to prevent the iron wire from becoming too hot.\n\nExplain how the variable resistor is used to prevent the iron wire from becoming too hot.",
+        "marks": 2,
+        "answer_points": [
+          "The variable resistor increases the resistance of the circuit.",
+          "So the current stays constant or small(er).",
+          "Because a current increases the temperature of the wire."
+        ],
+        "tip": "Any two of the three linked points score the two marks."
+      }
+    },
+    "ocr": {
+      "spec_codes": ["OCR P3.2c", "OCR P3.2d"],
+      "exam_phrases": [
+        "resistance = potential difference ÷ current",
+        "R = V ÷ I",
+        "(V =) IR",
+        "20(mA) = 0.02(A)",
+        "ohm(s) or V/A",
+        "3 sig. figs"
+      ],
+      "mistakes": [
+        {
+          "wrong": "R = 4.0 ÷ 20 = 0.2 for 20 mA and 4.0 V.",
+          "right": "Convert mA to A first: 0.02 A. R = 4.0 ÷ 0.02 = 200 Ω. The unit mark is awarded separately."
+        },
+        {
+          "wrong": "Resistance of the lamp at 4.0 V is 4.0 ÷ 2.7 = 1.5 Ω.",
+          "right": "Take the current from the same row as the potential difference. At 4.0 V the current is 3.2, so R = 4.0 ÷ 3.2 = 1.25 Ω."
+        },
+        {
+          "wrong": "R = 2.0 ÷ 0.15 = 13.33333 Ω, given to 3 significant figures.",
+          "right": "Round to 3 significant figures: 13.3 Ω. The significant figures are a separate mark."
+        }
+      ],
+      "worked_example": {
+        "exemplar_id": "9db941ac-2ca8-4d21-b0a6-d57e1e81e734",
+        "source": "OCR jun 2019, Paper 1, Q17(b)",
+        "question": "A student sets up a circuit to find out the resistance of an unknown resistor.\n\nThe student finds that the current is 20 mA when the potential difference is 4.0 V.\n\nCalculate the resistance of the unknown resistor.\n\nInclude the unit for resistance in your answer.\n\nUse the equation: resistance = potential difference ÷ current.",
+        "marks": 4,
+        "answer_points": [
+          "Convert the current: 20 mA = 0.02 A.",
+          "R = 4.0 ÷ 0.02.",
+          "R = 200.",
+          "Unit: Ω (ohms)."
+        ],
+        "tip": "The unit is marked on its own. Ω, ohm(s) or V/A are allowed."
+      }
+    }
+  },
+  "meta": {
+    "status": "draft",
+    "written_by": "sonnet-5-5",
+    "written_at": "2026-10-01",
+    "spec_point_ids": [
+      "2e51af61-1a73-4c93-ae6d-8011527f575b",
+      "78532d25-a71d-4104-870b-53ed107e033e",
+      "61b23f25-c76a-4a27-8443-720cd256db9a",
+      "4e397086-a947-4d70-a19f-85084f6f8327",
+      "73e872b9-8062-4c28-b669-acf68989786f",
+      "01f4a5e2-b552-4cdc-886c-1a551611e3a4"
+    ],
+    "exemplar_ids": [
+      "8a543a5e-266b-4748-906b-0c95afd90fa7",
+      "5cc5e609-fa51-4a03-8fdb-5d8ac4012c48",
+      "f4481dfd-e4fe-44e8-a9e4-b120a9afe29f",
+      "c12070fc-5b88-4bd9-a19d-5f2890e7debe",
+      "9db941ac-2ca8-4d21-b0a6-d57e1e81e734",
+      "abe38cfe-5784-4361-9649-4655f6a4351e",
+      "cc6675fe-a95e-406d-a3ad-18be818bd2a6",
+      "741ee8d7-5faf-4cdb-ba79-071ca3c315fa"
+    ]
+  }
+}

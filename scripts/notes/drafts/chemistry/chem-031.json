@@ -48,7 +48,7 @@
       "blocks": [
         {
           "type": "paragraph",
-          "text": "The mass of a sample, its Mr and the amount in moles are linked by one equation."
+          "text": "(Higher tier) The mass of a sample, its Mr and the amount in moles are linked by one equation."
         },
         {
           "type": "equation",
@@ -130,7 +130,7 @@
       "blocks": [
         {
           "type": "paragraph",
-          "text": "Multiply moles by the Avogadro constant to find the number of particles. Answers are usually in standard form."
+          "text": "(Higher tier) Multiply moles by the Avogadro constant to find the number of particles. Answers are usually in standard form."
         },
         {
           "type": "equation",
@@ -162,7 +162,7 @@
           "type": "list",
           "items": [
             "To go the other way, divide the number of particles by 6.02 × 10²³ to get moles.",
-            "Mass of one atom = Ar ÷ 6.02 × 10²³ grams. For chromium (Ar = 52.0) this is 8.64 × 10⁻²³ g.",
+            "Mass of one atom = Ar ÷ (6.02 × 10²³) grams. For chromium (Ar = 52.0) this is 8.64 × 10⁻²³ g.",
             "Be clear what the particle is. A mole of oxygen molecules, O₂, has twice as many oxygen atoms as molecules."
           ]
         },
@@ -171,7 +171,7 @@
           "diagram": {
             "kind": "practice",
             "alt": "Calculate the number of particles from moles.",
-            "question": "Calculate the number of atoms in {n} mol of an element. Give your answer in units of 10²³ atoms. (Avogadro constant = 6.02 × 10²³ per mole)",
+            "question": "Calculate the number of atoms in {n} mol of an element. Give your answer as a number to be multiplied by 10²³, so 7.5 means 7.5 × 10²³ atoms. (Avogadro constant = 6.02 × 10²³ per mole)",
             "variables": [
               {
                 "id": "n",
@@ -285,8 +285,8 @@
           "right": "Convert milligrams to grams first: 74 mg = 0.074 g. Using 74 directly gives an answer 1000 times too big and loses marks."
         },
         {
-          "wrong": "Answer written as 15 × 10²⁰ for 2 significant figures.",
-          "right": "Standard form needs one digit before the decimal point. Write 1.5 × 10²¹."
+          "wrong": "Number of gold atoms in 3.94 g = 3.94 ÷ 197 = 0.02 atoms.",
+          "right": "0.02 is the number of moles, not atoms. Multiply by 6.02 × 10²³ to get 1.2 × 10²² atoms."
         }
       ],
       "worked_example": {
@@ -359,6 +359,8 @@
       "493e21c8-5271-43f9-aef5-8d466a4f3502",
       "59e5b12b-da60-4f9b-b350-acb37c384080",
       "c5c0050f-d3de-4d43-a194-1e50cc8b1e0d"
-    ]
+    ],
+    "checked_by": "sonnet-science-check",
+    "checked_at": "2026-10-01"
   }
 }

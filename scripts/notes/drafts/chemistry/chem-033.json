@@ -65,28 +65,22 @@
           "diagram": {
             "kind": "practice",
             "alt": "Find the mole ratio of chlorine atoms to iron atoms from masses.",
-            "question": "{fe} g of iron (Ar = 56) reacts with {cl} g of chlorine atoms (Ar = 35.5). Calculate the ratio of moles of chlorine atoms to moles of iron atoms. Give the number of chlorine atoms for every 1 iron atom, to 2 decimal places.",
+            "question": "{fe} g of iron (Ar = 56) reacts with 10.65 g of chlorine atoms (Ar = 35.5). Calculate the ratio of moles of chlorine atoms to moles of iron atoms. Give the number of chlorine atoms for every 1 iron atom, to 2 decimal places.",
             "variables": [
               {
                 "id": "fe",
-                "min": 2.8,
+                "min": 5.6,
                 "max": 11.2,
                 "step": 2.8
-              },
-              {
-                "id": "cl",
-                "min": 3.55,
-                "max": 21.3,
-                "step": 3.55
               }
             ],
             "answer": {
-              "formula": "(cl / 35.5) / (fe / 56)",
+              "formula": "(10.65 / 35.5) / (fe / 56)",
               "decimals": 2
             },
             "working": [
               "Moles of Fe = {fe} ÷ 56",
-              "Moles of Cl atoms = {cl} ÷ 35.5",
+              "Moles of Cl atoms = 10.65 ÷ 35.5 = 0.30",
               "Moles of Cl ÷ moles of Fe = {answer}"
             ]
           }
@@ -105,7 +99,7 @@
       "blocks": [
         {
           "type": "paragraph",
-          "text": "A question may give two possible equations and the masses from an experiment. Work out the ratio from the masses and match it to an equation."
+          "text": "(Higher tier) A question may give two possible equations and the masses from an experiment. Work out the ratio from the masses and match it to an equation."
         },
         {
           "type": "steps",
@@ -120,7 +114,7 @@
             },
             {
               "lead": "Match.",
-              "text": "Equation 2, 2Fe + 3Cu(NO₃)₂ → 2Fe(NO₃)₃ + 3Cu, has Fe : Cu = 2 : 3."
+              "text": "Equation 1, Fe + Cu(NO₃)₂ → Fe(NO₃)₂ + Cu, has Fe : Cu = 1 : 1. Equation 2, 2Fe + 3Cu(NO₃)₂ → 2Fe(NO₃)₃ + 3Cu, has Fe : Cu = 2 : 3. The data match equation 2."
             }
           ]
         },
@@ -129,7 +123,7 @@
           "items": [
             "Another method finds the expected mass for each equation and compares it with the measured mass.",
             "Stating the equation without a calculation scores 0.",
-            "Use the formula mass of the substance, such as 63.5 for copper atoms, not for a compound."
+            "Use the Ar of an atom, such as 63.5 for copper, and the Mr for a compound."
           ]
         },
         {
@@ -137,28 +131,22 @@
           "diagram": {
             "kind": "practice",
             "alt": "Find how many moles of one substance react with each mole of another.",
-            "question": "{a} mol of a metal reacts with {b} mol of oxygen gas, O₂. How many moles of O₂ react with each 1 mol of the metal? Give your answer to 2 decimal places.",
+            "question": "{a} mol of a metal reacts with 0.06 mol of oxygen gas, O₂. How many moles of O₂ react with each 1 mol of the metal? Give your answer to 2 decimal places.",
             "variables": [
               {
                 "id": "a",
-                "min": 0.03,
-                "max": 0.15,
-                "step": 0.03
-              },
-              {
-                "id": "b",
-                "min": 0.02,
+                "min": 0.04,
                 "max": 0.12,
-                "step": 0.02
+                "step": 0.04
               }
             ],
             "answer": {
-              "formula": "b / a",
+              "formula": "0.06 / a",
               "decimals": 2
             },
             "working": [
-              "Ratio of metal : O₂ = {a} : {b}",
-              "Divide both by {a}: moles of O₂ for each 1 mol of metal = {b} ÷ {a} = {answer}"
+              "Ratio of metal : O₂ = {a} : 0.06",
+              "Divide both by {a}: moles of O₂ for each 1 mol of metal = 0.06 ÷ {a} = {answer}"
             ]
           }
         },
@@ -176,7 +164,7 @@
       "blocks": [
         {
           "type": "paragraph",
-          "text": "A reaction stops when one reactant is used up. That reactant limits how much product forms."
+          "text": "(Higher tier) A reaction stops when one reactant is used up. That reactant limits how much product forms."
         },
         {
           "type": "definitions",
@@ -194,9 +182,11 @@
         {
           "type": "list",
           "items": [
+            "When the limiting reactant is used up, the reaction stops and no more product forms.",
             "In CaCO₃ + 2HCl → CaCl₂ + H₂O + CO₂, 2 mol of HCl react with 1 mol of CaCO₃.",
             "0.5 mol of each: only 0.25 mol of CaCO₃ is needed for 0.5 mol of HCl, so CaCO₃ is in excess.",
-            "Marble chips left over at the end show that the acid was the limiting reactant."
+            "Marble chips left over at the end show that the acid was the limiting reactant.",
+            "Calculations that use a limiting reactant are covered in the note on limiting reactants."
           ]
         },
         {
@@ -247,7 +237,7 @@
         },
         {
           "wrong": "Moles of chlorine = 8.52 ÷ 71 = 0.12, so Fe : Cl = 0.08 : 0.12 = 2 : 3.",
-          "right": "Match the particle to the Mr. 71 is for Cl₂ molecules, so 0.12 mol is moles of Cl₂. For chlorine atoms use 8.52 ÷ 35.5 = 0.24, so Fe : Cl = 1 : 3. Both routes are allowed if used consistently."
+          "right": "0.12 is the moles of Cl₂ molecules, so the ratio is Fe : Cl₂ = 0.08 : 0.12 = 2 : 3, not Fe : Cl. For chlorine atoms use 8.52 ÷ 35.5 = 0.24, so Fe : Cl = 1 : 3. Both routes are allowed if used consistently."
         },
         {
           "wrong": "Fe : H₂O = 0.120 : 0.160, written as 12 : 16 in the equation.",
@@ -360,6 +350,8 @@
       "aa9090a4-ef72-4ee6-b35e-cc0ca81b3ab3",
       "0c0a0cb0-a936-4ff4-ac24-5763acd6d0f3",
       "9e238429-c8d9-4879-ac7e-507f873394bc"
-    ]
+    ],
+    "checked_by": "sonnet-science-check",
+    "checked_at": "2026-10-01"
   }
 }

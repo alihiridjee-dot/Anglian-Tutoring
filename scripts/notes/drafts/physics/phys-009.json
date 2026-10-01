@@ -1,0 +1,268 @@
+{
+  "format": 1,
+  "concept_id": "phys-009",
+  "subject": "physics",
+  "title": "Energy resources",
+  "key_idea": "Energy resources are **renewable** if they are replenished as they are used, and **non-renewable** if they are finite. They are used for transport, electricity generation and heating. Each has different reliability and environmental effects, and their use changes over time.",
+  "sections": [
+    {
+      "heading": "The main energy resources",
+      "blocks": [
+        { "type": "paragraph", "text": "This section covers the energy resources available on Earth and the difference between renewable and non-renewable." },
+        {
+          "type": "definitions",
+          "items": [
+            { "term": "Renewable resource", "meaning": "One that is being, or can be, replenished as it is used." },
+            { "term": "Non-renewable resource", "meaning": "One that is finite: it cannot be replaced as fast as it is used." },
+            { "term": "Fossil fuels", "meaning": "Coal, oil and gas." },
+            { "term": "Bio-fuel", "meaning": "Fuel made from plant or animal material." }
+          ]
+        },
+        {
+          "type": "diagram",
+          "diagram": {
+            "kind": "sort",
+            "alt": "Sort each energy resource into renewable or non-renewable.",
+            "prompt": "Renewable or non-renewable?",
+            "groups": ["Renewable", "Non-renewable"],
+            "items": [
+              { "text": "Wind", "group": 0 },
+              { "text": "Tides", "group": 0 },
+              { "text": "The Sun (solar)", "group": 0 },
+              { "text": "Hydroelectricity", "group": 0 },
+              { "text": "Geothermal", "group": 0 },
+              { "text": "Bio-fuel", "group": 0 },
+              { "text": "Coal", "group": 1 },
+              { "text": "Oil", "group": 1 },
+              { "text": "Natural gas", "group": 1 },
+              { "text": "Nuclear fuel (uranium)", "group": 1 }
+            ]
+          }
+        },
+        { "type": "subheading", "text": "What the resources are used for" },
+        {
+          "type": "list",
+          "items": [
+            "**Transport:** petrol and diesel from oil, bio-fuels, and electricity for electric vehicles.",
+            "**Electricity generation:** fossil fuels, nuclear fuel, wind, hydroelectricity, tides, the Sun and others.",
+            "**Heating:** gas and other fuels burned directly, and electricity."
+          ]
+        },
+        {
+          "type": "key-points",
+          "items": [
+            "Renewable resources are replenished as they are used.",
+            "Non-renewable resources are finite: fossil fuels and nuclear fuel.",
+            "The uses are transport, electricity generation and heating."
+          ]
+        }
+      ]
+    },
+    {
+      "heading": "Reliability and environmental impact",
+      "blocks": [
+        { "type": "paragraph", "text": "Resources differ in how reliably they supply energy and in the harm they cause." },
+        { "type": "subheading", "text": "Reliability" },
+        {
+          "type": "list",
+          "items": [
+            "Wind turbines do not turn when the wind is too weak or too strong.",
+            "Solar cells depend on sunlight, and fixed cells are not always pointed at the Sun.",
+            "Fossil fuel and nuclear power stations can run whenever they are needed, but their fuel is finite."
+          ]
+        },
+        { "type": "subheading", "text": "Environmental impact" },
+        {
+          "type": "table",
+          "columns": ["Resource", "Environmental impact"],
+          "rows": [
+            ["Fossil fuels", "Carbon dioxide increases global warming (the greenhouse effect). Sulfur dioxide and nitrogen oxides cause acid rain. Particulates can harm living organisms."],
+            ["Nuclear fuel", "No carbon dioxide produced. Radioactive waste is produced and needs safe storage."],
+            ["Wind", "Visual pollution, noise pollution and danger to birds."],
+            ["Hydroelectricity", "Land is flooded behind the dam, which affects habitats."]
+          ]
+        },
+        {
+          "type": "key-points",
+          "items": [
+            "Wind and solar are less reliable than fossil fuel and nuclear power stations.",
+            "Burning fossil fuels releases carbon dioxide, which increases global warming.",
+            "Nuclear power produces no carbon dioxide but does produce radioactive waste."
+          ]
+        }
+      ]
+    },
+    {
+      "heading": "Patterns and trends in use",
+      "blocks": [
+        { "type": "paragraph", "text": "The mix of energy resources changes over time. Renewables now provide a growing fraction of electricity in many countries." },
+        {
+          "type": "list",
+          "items": [
+            "Fossil fuels may run out, become costly or be in short supply.",
+            "Burning fossil fuels increases global warming and acid rain, so use of non-renewables is reduced.",
+            "Governments encourage solar panels with grants, and the technology is now cheaper and more efficient.",
+            "People install solar panels to reduce energy bills or sell electricity back to the National Grid."
+          ]
+        },
+        {
+          "type": "paragraph",
+          "text": "Some governments close coal-fired power stations and plan nuclear ones. Nuclear power helps meet demand with less carbon dioxide."
+        },
+        {
+          "type": "key-points",
+          "items": [
+            "Use of renewables is increasing and use of non-renewables is decreasing in many countries.",
+            "Reasons include cost, grants, finite fossil fuels and environmental damage.",
+            "Give a named effect, such as global warming, not just 'pollution'."
+          ]
+        }
+      ]
+    }
+  ],
+  "checks": [
+    {
+      "q": "Describe the difference between renewable and non-renewable energy resources.",
+      "a": "A renewable resource is replenished as it is used. A non-renewable resource is finite.",
+      "marks": 2
+    },
+    {
+      "q": "Suggest two reasons why wind power could not meet the UK demand for electricity on one day.",
+      "a": "Wind is unreliable, or it was not windy. Wind turbines do not turn when the wind is too strong or too weak, or there are not enough turbines.",
+      "marks": 2
+    },
+    {
+      "q": "State one harmful waste product from burning oil and one from nuclear fuel.",
+      "a": "Burning oil: carbon dioxide. Nuclear fuel: radioactive substances (nuclear waste).",
+      "marks": 2
+    }
+  ],
+  "boards": {
+    "aqa": {
+      "spec_codes": ["AQA 4.1.3", "AQA T 6.1.3"],
+      "exam_phrases": [
+        "(an energy resource that is) replenished (as it is used)",
+        "(an energy resource that is) finite",
+        "wind is unreliable",
+        "wind turbines don't turn when the wind is too strong / weak",
+        "carbon dioxide increases global warming",
+        "visual pollution"
+      ],
+      "mistakes": [
+        {
+          "wrong": "Renewable resources have an infinite supply and never run out.",
+          "right": "Say that a renewable resource is replenished as it is used, and a non-renewable resource is finite or has a limited supply."
+        },
+        {
+          "wrong": "Fossil fuels cause pollution.",
+          "right": "Name the impact and its effect: carbon dioxide increases global warming, or sulfur dioxide increases acid rain."
+        },
+        {
+          "wrong": "Wind could not meet the demand because of the weather.",
+          "right": "Weather conditions unqualified are ignored. Say it was not windy, or the turbines do not turn when the wind is too strong or too weak."
+        }
+      ],
+      "worked_example": {
+        "exemplar_id": "cd20cf5d-feec-44c3-8e28-504edd6ac784",
+        "source": "AQA jun 2022, Paper 1 (H), Q01.2",
+        "question": "On one day the demand for electricity in the UK was 34 000 MW.\n\nSuggest two reasons why wind power was not able to meet this demand.",
+        "marks": 2,
+        "answer_points": [
+          "Wind is unreliable (it was not windy on that day)",
+          "Wind turbines do not turn when the wind is too strong or too weak",
+          "There are not enough wind turbines in the UK"
+        ],
+        "tip": "Any two of these points score the 2 marks."
+      }
+    },
+    "edexcel": {
+      "spec_codes": ["EDEX 3.13", "EDEX 3.14", "EDEX 6.36P"],
+      "exam_phrases": [
+        "oil, (natural) gas, coal, nuclear / uranium",
+        "radioactive substances",
+        "carbon dioxide",
+        "increased use of renewables / decrease use of non-renewables",
+        "lack of carbon dioxide emissions"
+      ],
+      "mistakes": [
+        {
+          "wrong": "Two non-renewable sources are fossil fuels and coal.",
+          "right": "Coal is a fossil fuel, so that scores 1 mark. Give two different sources, such as fossil fuel and nuclear."
+        },
+        {
+          "wrong": "Burning oil and nuclear fuel both produce pollution.",
+          "right": "Name the waste. Nuclear fuel produces radioactive substances (nuclear waste) and burning oil produces carbon dioxide."
+        },
+        {
+          "wrong": "Nuclear fuel is a renewable resource.",
+          "right": "Nuclear fuel (uranium) is a non-renewable energy source."
+        }
+      ],
+      "worked_example": {
+        "exemplar_id": "bb32c6d5-6984-4c96-9168-3bfb3b035ca7",
+        "source": "EDEXCEL nov 2020, Paper 1 (F), Q7(c)",
+        "question": "Both using nuclear fuel and burning oil produce harmful waste products.\n\nState one harmful waste product from each process.",
+        "marks": 2,
+        "answer_points": [
+          "Using nuclear fuel: radioactive substances (nuclear waste)",
+          "Burning oil: carbon dioxide (or greenhouse gases, a named pollutant, or toxic gases)"
+        ],
+        "tip": "One mark for each process."
+      }
+    },
+    "ocr": {
+      "spec_codes": ["OCR P8.2a", "OCR P8.2b"],
+      "exam_phrases": [
+        "fossil fuel may run out / is non-renewable / be in short supply / become very costly",
+        "(increased) greenhouse gases / global warming / carbon dioxide / climate change / acid rain",
+        "to reduce reliance on / use of fossil fuels",
+        "to reduce energy bills / sell electricity (back to national grid)",
+        "no carbon dioxide produced",
+        "radioactive / nuclear waste produced"
+      ],
+      "mistakes": [
+        {
+          "wrong": "Fossil fuels are bad for the environment.",
+          "right": "Just pollution or bad for the environment is ignored. Name the damage, such as global warming, climate change or acid rain."
+        },
+        {
+          "wrong": "More people use solar panels because people are more green.",
+          "right": "That is ignored. Give a reason such as lower energy bills, grants, cheaper panels or reduced use of fossil fuels."
+        },
+        {
+          "wrong": "Nuclear power is bad because it is dangerous.",
+          "right": "Just dangerous is ignored. Say radioactive waste is produced, there is a danger of exposure to radiation, or it is expensive to build."
+        }
+      ],
+      "worked_example": {
+        "exemplar_id": "c5104231-d1d3-4459-bdec-43567165c2f8",
+        "source": "OCR jun 2018, Paper 4, Q16(b)(i)",
+        "question": "Scientists are researching the World's energy use for the future.\nThe future demand for fossil fuels is expected to increase.\n\nGive two reasons why scientists are worried about this increase in demand.",
+        "marks": 2,
+        "answer_points": [
+          "Fossil fuel may run out / is non-renewable / may be in short supply / may become very costly",
+          "A named damage to the environment, for example greenhouse gases, global warming, carbon dioxide, climate change or acid rain"
+        ],
+        "tip": "One mark for the supply problem and one for a named environmental damage."
+      }
+    }
+  },
+  "meta": {
+    "status": "draft",
+    "written_by": "sonnet-5-5",
+    "written_at": "2026-10-01",
+    "spec_point_ids": [
+      "a8e6bb33-445e-477e-8e46-2fa0b75aeeee",
+      "0b389449-9047-4c4b-a6e7-6927800f4b38",
+      "05a699fd-733d-450c-90cb-10b67b2d72ae",
+      "ac11c711-ff80-41a2-9ee8-486ce6b099ef",
+      "0ff38e29-b320-4403-9dd3-9f733db4b374",
+      "d6f49ba1-3f91-4da3-87cf-fc29c8f6ae29"
+    ],
+    "exemplar_ids": [
+      "cd20cf5d-feec-44c3-8e28-504edd6ac784",
+      "bb32c6d5-6984-4c96-9168-3bfb3b035ca7",
+      "c5104231-d1d3-4459-bdec-43567165c2f8"
+    ]
+  }
+}

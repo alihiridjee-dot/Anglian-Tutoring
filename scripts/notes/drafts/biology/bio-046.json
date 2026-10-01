@@ -8,13 +8,25 @@
     {
       "heading": "Keeping pathogens out",
       "blocks": [
-        { "type": "paragraph", "text": "These defences work against any pathogen, so they are non-specific. This section covers the physical barriers." },
+        {
+          "type": "paragraph",
+          "text": "These defences work against any pathogen, so they are non-specific. This section covers the physical barriers."
+        },
         {
           "type": "definitions",
           "items": [
-            { "term": "Non-specific defence", "meaning": "A defence that works against all pathogens, not one particular type." },
-            { "term": "Mucus", "meaning": "A sticky substance that traps pathogens." },
-            { "term": "Cilia", "meaning": "Tiny hair-like structures on the lining cells of the airways. They move mucus along." }
+            {
+              "term": "Non-specific defence",
+              "meaning": "A defence that works against all pathogens, not one particular type."
+            },
+            {
+              "term": "Mucus",
+              "meaning": "A sticky substance that traps pathogens."
+            },
+            {
+              "term": "Cilia",
+              "meaning": "Tiny hair-like structures on the lining cells of the airways. They move mucus along."
+            }
           ]
         },
         {
@@ -23,7 +35,7 @@
             "**Skin:** a tough, dry, dead outer layer that acts as a barrier. It is waterproof, so pathogens cannot get through.",
             "**Skin oil (sebum):** oil on the skin surface repels pathogens.",
             "**Scabs:** platelets help to form blood clots and scabs over cuts. These stop pathogens entering.",
-            "**Nose, trachea and bronchi:** these produce sticky mucus, which traps pathogens. Cilia move the mucus away from the lungs, towards the throat."
+            "**Nose, trachea and bronchi:** goblet cells in the lining release sticky mucus, which traps pathogens. Cilia move the mucus away from the lungs, towards the throat."
           ]
         },
         {
@@ -39,7 +51,10 @@
     {
       "heading": "Chemical defences",
       "blocks": [
-        { "type": "paragraph", "text": "Some defences use chemicals to kill pathogens. They are found in the stomach, the eyes and the skin." },
+        {
+          "type": "paragraph",
+          "text": "Some defences use chemicals to kill pathogens. They are found in the stomach, the eyes and the skin."
+        },
         {
           "type": "list",
           "items": [
@@ -55,11 +70,26 @@
             "alt": "Tap a part of the body to learn how it defends against pathogens.",
             "prompt": "Tap a part of the body to see how it defends against pathogens.",
             "parts": [
-              { "name": "Skin", "detail": "A tough, dry, dead outer layer acts as a barrier. Oil repels pathogens and glands secrete lysozymes." },
-              { "name": "Nose", "detail": "Produces sticky mucus that traps pathogens." },
-              { "name": "Trachea and bronchi", "detail": "Mucus traps pathogens. Cilia move the mucus away from the lungs." },
-              { "name": "Stomach", "detail": "Hydrochloric acid kills pathogens in food and in swallowed mucus." },
-              { "name": "Eyes", "detail": "Tears wash pathogens away and contain lysozymes that kill bacteria." }
+              {
+                "name": "Skin",
+                "detail": "A tough, dry, dead outer layer acts as a barrier. Oil repels pathogens and glands secrete lysozymes."
+              },
+              {
+                "name": "Nose",
+                "detail": "Produces sticky mucus that traps pathogens."
+              },
+              {
+                "name": "Trachea and bronchi",
+                "detail": "Mucus traps pathogens. Cilia move the mucus away from the lungs."
+              },
+              {
+                "name": "Stomach",
+                "detail": "Hydrochloric acid kills pathogens in food and in swallowed mucus."
+              },
+              {
+                "name": "Eyes",
+                "detail": "Tears wash pathogens away and contain lysozymes that kill bacteria."
+              }
             ]
           }
         },
@@ -93,7 +123,10 @@
   ],
   "boards": {
     "aqa": {
-      "spec_codes": ["AQA T 4.3.1.6", "AQA 3.3"],
+      "spec_codes": [
+        "AQA T 4.3.1.6",
+        "AQA 3.3"
+      ],
       "exam_phrases": [
         "skin (acts as a barrier)",
         "mucus in trachea / bronchi",
@@ -114,7 +147,7 @@
         },
         {
           "wrong": "The skin defends the body because scabs and clots form.",
-          "right": "Scabs and clots are ignored for this question. Say the skin is a physical barrier that stops pathogens entering, or that it produces oil or sweat."
+          "right": "Scabs and clots are ignored when asked how the skin defends the body. Say the skin is a physical barrier that stops pathogens entering, or that it produces oil (sebum) or sweat."
         }
       ],
       "worked_example": {
@@ -134,7 +167,9 @@
       }
     },
     "edexcel": {
-      "spec_codes": ["EDEX 5.12"],
+      "spec_codes": [
+        "EDEX 5.12"
+      ],
       "exam_phrases": [
         "to move / waft mucus",
         "mucus traps pathogens",
@@ -149,8 +184,8 @@
           "right": "\"Stop bacteria entering\" and \"trap bacteria\" are ignored for the function of cilia. Say cilia move or waft the mucus."
         },
         {
-          "wrong": "Lysozymes are chemicals found in the stomach.",
-          "right": "Lysozymes are enzymes in tears, saliva and mucus that kill some bacteria. It is hydrochloric acid that is in the stomach."
+          "wrong": "Mucus and skin are physical barriers, so that answer covers both physical barriers and chemical defences.",
+          "right": "A top-level answer needs more than one physical barrier and more than one chemical defence, such as lysozymes and hydrochloric acid, with what each one does."
         }
       ],
       "worked_example": {
@@ -170,7 +205,9 @@
       }
     },
     "ocr": {
-      "spec_codes": ["OCR 6.3k"],
+      "spec_codes": [
+        "OCR 6.3k"
+      ],
       "exam_phrases": [
         "skin forms a barrier",
         "enzymes in tears",
@@ -218,6 +255,8 @@
       "a915096f-4270-4304-bcfc-e5d1749ac5f3",
       "d6d1be55-d658-4fa7-b322-66a186b343d8",
       "f9439e60-e00f-488e-ad56-570011c37435"
-    ]
+    ],
+    "checked_by": "sonnet-science-check",
+    "checked_at": "2026-10-01"
   }
 }

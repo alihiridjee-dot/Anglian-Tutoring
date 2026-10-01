@@ -1,0 +1,296 @@
+{
+  "format": 1,
+  "concept_id": "chem-035",
+  "subject": "chemistry",
+  "title": "Concentration in g/dm³",
+  "key_idea": "Concentration is the mass of solute in a given volume of solution, measured in g/dm³. A concentrated solution has a high ratio of solute to volume. A dilute solution has a low ratio.",
+  "sections": [
+    {
+      "heading": "What concentration means",
+      "blocks": [
+        { "type": "paragraph", "text": "Many reactions take place in solution. The concentration tells you how much solute is dissolved in each unit of volume." },
+        {
+          "type": "definitions",
+          "items": [
+            { "term": "Solute", "meaning": "The substance that dissolves." },
+            { "term": "Solution", "meaning": "The solute dissolved in a liquid, such as water." },
+            { "term": "Concentration", "meaning": "The mass of solute in a given volume of solution, for example in grams per dm³ (g/dm³)." },
+            { "term": "Concentrated solution", "meaning": "A solution with a high ratio of solute to volume of solution." },
+            { "term": "Dilute solution", "meaning": "A solution with a low ratio of solute to volume of solution." }
+          ]
+        },
+        {
+          "type": "list",
+          "items": [
+            "More solute in the same volume gives a more concentrated solution.",
+            "Adding water makes a solution more dilute. The mass of solute stays the same, but the volume is larger.",
+            "To make an acid solution more concentrated (lower pH), add more acid or use less water."
+          ]
+        },
+        { "type": "subheading", "text": "Dilute and concentrated are not strong and weak" },
+        {
+          "type": "list",
+          "items": [
+            "Dilute and concentrated describe the amount of acid in a given volume.",
+            "Strong and weak describe how much of the acid is ionised in solution.",
+            "A strong acid can be made into a concentrated solution or a dilute solution."
+          ]
+        },
+        {
+          "type": "key-points",
+          "items": [
+            "Concentration = how much solute is in a given volume of solution.",
+            "Concentrated means a high ratio of solute to volume. Dilute means a low ratio.",
+            "Dilute and concentrated are not the same as weak and strong."
+          ]
+        }
+      ]
+    },
+    {
+      "heading": "Calculating concentration",
+      "blocks": [
+        { "type": "paragraph", "text": "The volume must be in dm³. Volumes in the question are usually in cm³, so convert first." },
+        {
+          "type": "equation",
+          "label": "Concentration",
+          "formula": "concentration = mass of solute ÷ volume of solution",
+          "where": ["concentration is in grams per dm³ (g/dm³)", "mass of solute is in grams (g)", "volume of solution is in dm³"]
+        },
+        {
+          "type": "list",
+          "items": [
+            "1 dm³ = 1000 cm³.",
+            "To change cm³ to dm³, divide by 1000.",
+            "To change mg to g, divide by 1000."
+          ]
+        },
+        { "type": "subheading", "text": "Worked example" },
+        { "type": "paragraph", "text": "45 g of glucose is dissolved in water to make 150 cm³ of solution. Calculate the concentration in g/dm³." },
+        {
+          "type": "steps",
+          "items": [
+            { "lead": "Convert.", "text": "150 cm³ ÷ 1000 = 0.15 dm³." },
+            { "lead": "Divide.", "text": "45 ÷ 0.15 = 300 g/dm³." }
+          ]
+        },
+        {
+          "type": "diagram",
+          "diagram": {
+            "kind": "practice",
+            "alt": "Practise calculating a concentration in g/dm³ from a mass and a volume in cm³.",
+            "question": "**{m}** g of solute is dissolved in water to make **{v}** cm³ of solution. Calculate the concentration in g/dm³.",
+            "variables": [
+              { "id": "m", "min": 5, "max": 50, "step": 5 },
+              { "id": "v", "min": 100, "max": 500, "step": 50 }
+            ],
+            "answer": { "formula": "m / (v / 1000)", "unit": "g/dm³", "decimals": 1 },
+            "working": [
+              "Volume in dm³ = {v} ÷ 1000.",
+              "Concentration = mass ÷ volume = {m} ÷ ({v} ÷ 1000) = **{answer}** g/dm³."
+            ]
+          }
+        },
+        {
+          "type": "key-points",
+          "items": [
+            "Concentration (g/dm³) = mass (g) ÷ volume (dm³).",
+            "Always convert cm³ to dm³ by dividing by 1000."
+          ]
+        }
+      ]
+    },
+    {
+      "heading": "Mass of solute and volume of solution",
+      "blocks": [
+        { "type": "paragraph", "text": "Rearrange the equation to find the mass of solute in a volume of solution, or the volume that holds a given mass." },
+        {
+          "type": "equation",
+          "label": "Mass of solute",
+          "formula": "mass = concentration × volume",
+          "where": ["mass is in grams (g)", "concentration is in g/dm³", "volume is in dm³"]
+        },
+        {
+          "type": "equation",
+          "label": "Volume of solution",
+          "formula": "volume = mass ÷ concentration",
+          "where": ["volume is in dm³ (multiply by 1000 for cm³)", "mass is in grams (g)", "concentration is in g/dm³"]
+        },
+        {
+          "type": "paragraph",
+          "text": "Example: the mass of solute in 25 cm³ of a 21 g/dm³ solution is 21 × (25 ÷ 1000) = 0.525 g."
+        },
+        {
+          "type": "diagram",
+          "diagram": {
+            "kind": "practice",
+            "alt": "Practise calculating the mass of solute in a volume of solution of known concentration.",
+            "question": "A solution has a concentration of **{c}** g/dm³. Calculate the mass of solute in **{v}** cm³ of this solution.",
+            "variables": [
+              { "id": "c", "min": 10, "max": 100, "step": 10 },
+              { "id": "v", "min": 100, "max": 800, "step": 50 }
+            ],
+            "answer": { "formula": "c * v / 1000", "unit": "g", "decimals": 1 },
+            "working": [
+              "Volume in dm³ = {v} ÷ 1000.",
+              "Mass = concentration × volume = {c} × ({v} ÷ 1000) = **{answer}** g."
+            ]
+          }
+        },
+        {
+          "type": "key-points",
+          "items": [
+            "Mass = concentration × volume (in dm³).",
+            "Volume = mass ÷ concentration. Multiply by 1000 to give cm³.",
+            "Check the units before and after: dm³ in the equation, cm³ only if asked."
+          ]
+        }
+      ]
+    }
+  ],
+  "checks": [
+    {
+      "q": "12 g of salt is dissolved in water to make 400 cm³ of solution. Calculate the concentration in g/dm³.",
+      "a": "400 cm³ = 0.4 dm³. 12 ÷ 0.4 = 30 g/dm³.",
+      "marks": 2
+    },
+    {
+      "q": "Calculate the mass of solute in 250 cm³ of a solution with a concentration of 40 g/dm³.",
+      "a": "250 cm³ = 0.25 dm³. Mass = 40 × 0.25 = 10 g.",
+      "marks": 2
+    },
+    {
+      "q": "What is the difference between a dilute and a concentrated solution of an acid?",
+      "a": "A dilute solution has a low ratio of acid to the volume of solution. A concentrated solution has a high ratio of acid to the volume of solution.",
+      "marks": 1
+    }
+  ],
+  "boards": {
+    "aqa": {
+      "spec_codes": ["AQA 4.3.2.5", "AQA T 5.3.2.5"],
+      "exam_phrases": [
+        "(conversion) (800 cm3 = 800/1000 =) 0.8 (dm3)",
+        "(mass =) 0.8 × 258 (g)",
+        "(conversion of cm3 to dm3) (250 cm3 =) 250/1000 or 0.25 (dm3)",
+        "(conversion of mg to g) (125 mg =) 125/1000 or 0.125 (g)",
+        "(conversion 10 cm3 =) 0.01 dm3",
+        "(mean concentration =) 0.3475 / 0.01"
+      ],
+      "mistakes": [
+        {
+          "wrong": "Mass = 800 × 258 = 206 400 g.",
+          "right": "The volume must be in dm³. 800 cm³ = 0.8 dm³, so the mass is 0.8 × 258 = 206.4 g. A calculation with no volume conversion loses the conversion mark."
+        },
+        {
+          "wrong": "River water has 125 mg per dm³, so 250 cm³ has 0.25 × 125 = 31 g.",
+          "right": "Convert mg to g as well as cm³ to dm³. 125 mg = 0.125 g, so the mass is 0.25 × 0.125 = 0.031 g."
+        },
+        {
+          "wrong": "Mass = 206.4 g, so the answer is 206.4 g to 3 significant figures.",
+          "right": "Round to the number of significant figures asked for. To 3 significant figures, 206.4 g is 206 g."
+        }
+      ],
+      "worked_example": {
+        "exemplar_id": "1538b157-0911-4b2a-91a8-7abcf6ac3f37",
+        "source": "AQA jun 2021, Paper 2 (F), Q06.4",
+        "question": "A solution of potash alum has a concentration of 258 g/dm³.\n\nCalculate the mass of potash alum needed to make 800 cm³ of a solution of potash alum with a concentration of 258 g/dm³.\n\nGive your answer to 3 significant figures.",
+        "marks": 4,
+        "answer_points": [
+          "Convert the volume: 800 cm³ = 800 ÷ 1000 = 0.8 dm³.",
+          "Mass = 0.8 × 258 g.",
+          "= 206.4 g.",
+          "= 206 g (3 significant figures)."
+        ],
+        "tip": "Marks are for the volume conversion, the multiplication, the unrounded value and the rounding."
+      }
+    },
+    "edexcel": {
+      "spec_codes": ["EDEX 1.49"],
+      "exam_phrases": [
+        "250 (cm3) / 1000 (= 0.250 (dm3))",
+        "28.4 / 0.250 (= 113.6)",
+        "using volume = mass / concentration",
+        "volume = 9.0/12 (dm3)",
+        "converting volume to cm3 = 0.75 x 1000",
+        "0.025 x 83 = 2.075"
+      ],
+      "mistakes": [
+        {
+          "wrong": "Concentration = 28.4 ÷ 250 = 0.114 g/dm³.",
+          "right": "28.4 ÷ 250 gives g per cm³. Convert the volume to dm³ first: 28.4 ÷ 0.250 = 113.6, which is 114 g/dm³. Leaving the volume in cm³ scores 2 of the 3 marks."
+        },
+        {
+          "wrong": "Rounding 113.6 to 0.11 or 113 for 3 significant figures.",
+          "right": "113.6 to 3 significant figures is 114. Rounding it incorrectly loses the first mark."
+        },
+        {
+          "wrong": "The volume of 12 g/dm³ solution holding 9.0 g is 12 × 1000 ÷ 9 = 1333 cm³.",
+          "right": "Use volume = mass ÷ concentration = 9.0 ÷ 12 = 0.75 dm³. Then multiply by 1000 to give 750 cm³."
+        }
+      ],
+      "worked_example": {
+        "exemplar_id": "756dba57-5cbc-4516-be31-d9746a7b27c9",
+        "source": "EDEXCEL nov 2020, Paper 1 (H), Q2(b)",
+        "question": "The sodium sulfate solution was made by dissolving 28.4 g of sodium sulfate in water to make 250 cm³ of solution.\n\nCalculate the concentration of this solution in g dm⁻³.\n\nGive your answer to three significant figures.",
+        "marks": 3,
+        "answer_points": [
+          "Volume = 250 ÷ 1000 = 0.250 dm³.",
+          "Concentration = 28.4 ÷ 0.250 = 113.6 g dm⁻³.",
+          "= 114 g dm⁻³ (3 significant figures)."
+        ],
+        "tip": "A correct final answer of 114 scores all three marks. The answer 0.114 scores 2."
+      }
+    },
+    "ocr": {
+      "spec_codes": ["OCR C3.3g", "OCR C5.1a"],
+      "exam_phrases": [
+        "a dilute solution has a low ratio of acid to volume of solution",
+        "a strong acid can be made into a concentrated solution or a dilute solution",
+        "25 ÷ 1000 = 0.025 dm³",
+        "mass = concentration x volume = 21 x 0.025",
+        "using a higher ratio of acid to water / using less water",
+        "increase the concentration (of H⁺ ions)"
+      ],
+      "mistakes": [
+        {
+          "wrong": "A strong acid must be concentrated.",
+          "right": "Strong and weak describe ionisation. A strong acid can be made into a concentrated solution or a dilute solution."
+        },
+        {
+          "wrong": "To lower the pH of an acid solution, evaporate some of the water.",
+          "right": "Evaporating water from the current solution is ignored. Add more acid, or make a new solution with a higher ratio of acid to water."
+        },
+        {
+          "wrong": "Mass of barium chloride = 21 × 25 = 525 g.",
+          "right": "Convert 25 cm³ to 0.025 dm³ first. Mass = 21 × 0.025 = 0.525 g, which is 0.53 g to 2 significant figures."
+        }
+      ],
+      "worked_example": {
+        "exemplar_id": "a3f5d9c6-017c-4c7e-b29a-ca596ba947b0",
+        "source": "OCR jun 2023, Paper 2, Q22(d)",
+        "question": "Barium chloride solutions with concentrations of 21 g / dm³ are suitable for experiments in school.\n\nCalculate the mass of barium chloride that should be dissolved in 25 cm³ of water to make a solution with a concentration of 21 g / dm³.\n\nUse the equation:\n\nconcentration = mass / volume\n\nGive your answer to 2 significant figures.",
+        "marks": 3,
+        "answer_points": [
+          "Convert the volume: 25 ÷ 1000 = 0.025 dm³.",
+          "Mass = concentration × volume = 21 × 0.025 = 0.525 g.",
+          "= 0.53 g (2 significant figures)."
+        ],
+        "tip": "An answer of 0.53 g scores all 3 marks. 0.525 g without the rounding scores 2."
+      }
+    }
+  },
+  "meta": {
+    "status": "draft",
+    "written_by": "sonnet-5-5",
+    "written_at": "2026-10-01",
+    "spec_point_ids": [
+      "801450c1-c607-4de7-a09b-7337a91475c1",
+      "82d9f92f-3dcb-449e-a9be-0c7a2856d1c7",
+      "a11b078c-7843-451b-adec-7e3f96489123"
+    ],
+    "exemplar_ids": [
+      "1538b157-0911-4b2a-91a8-7abcf6ac3f37",
+      "756dba57-5cbc-4516-be31-d9746a7b27c9",
+      "a3f5d9c6-017c-4c7e-b29a-ca596ba947b0"
+    ]
+  }
+}

@@ -8,26 +8,44 @@
     {
       "heading": "Fungal diseases of plants",
       "blocks": [
-        { "type": "paragraph", "text": "Some plant diseases are caused by fungi. This section covers rose black spot and why it slows the growth of a plant." },
+        {
+          "type": "paragraph",
+          "text": "Some plant diseases are caused by fungi. This section covers rose black spot and why it slows the growth of a plant."
+        },
         {
           "type": "list",
           "items": [
             "Rose black spot is a fungal disease. Purple or black spots develop on the leaves.",
             "The leaves often turn yellow and drop early.",
             "It is spread in the environment by water or wind.",
-            "Other fungal plant diseases are barley powdery mildew and Chalara ash dieback."
+            "Other fungal plant diseases are barley powdery mildew and Chalara ash dieback, which damages the leaves and bark of ash trees and can kill them."
           ]
         },
-        { "type": "subheading", "text": "Why infected plants grow slowly" },
+        {
+          "type": "subheading",
+          "text": "Why infected plants grow slowly"
+        },
         {
           "type": "steps",
           "items": [
-            { "lead": "Leaves damaged.", "text": "There are fewer chloroplasts or less chlorophyll, so less light is absorbed." },
-            { "lead": "Less photosynthesis.", "text": "The plant makes less glucose." },
-            { "lead": "Slower growth.", "text": "Less glucose means less energy and fewer materials, such as proteins, to grow with." }
+            {
+              "lead": "Leaves damaged.",
+              "text": "There are fewer chloroplasts or less chlorophyll, so less light is absorbed."
+            },
+            {
+              "lead": "Less photosynthesis.",
+              "text": "The plant makes less glucose."
+            },
+            {
+              "lead": "Slower growth.",
+              "text": "Less glucose means less energy and fewer materials, such as proteins, to grow with."
+            }
           ]
         },
-        { "type": "subheading", "text": "Treating and controlling it" },
+        {
+          "type": "subheading",
+          "text": "Treating and controlling it"
+        },
         {
           "type": "list",
           "items": [
@@ -49,12 +67,21 @@
     {
       "heading": "Malaria, a protist disease",
       "blocks": [
-        { "type": "paragraph", "text": "Malaria is caused by a protist. The protist's life cycle includes the mosquito, which is a vector." },
+        {
+          "type": "paragraph",
+          "text": "Malaria is caused by a protist. The protist's life cycle includes the mosquito, which is a vector."
+        },
         {
           "type": "definitions",
           "items": [
-            { "term": "Protist", "meaning": "A type of pathogen. The protist that causes malaria is passed from person to person by mosquitos." },
-            { "term": "Vector", "meaning": "An organism that passes a pathogen from one person to another." }
+            {
+              "term": "Protist",
+              "meaning": "A type of pathogen. The protist that causes malaria is passed from person to person by mosquitos."
+            },
+            {
+              "term": "Vector",
+              "meaning": "An organism that passes a pathogen from one person to another."
+            }
           ]
         },
         {
@@ -75,6 +102,7 @@
           "type": "list",
           "items": [
             "Malaria causes recurrent episodes of fever.",
+            "It damages the blood and liver.",
             "It can be fatal."
           ]
         },
@@ -91,17 +119,41 @@
     {
       "heading": "Controlling malaria",
       "blocks": [
-        { "type": "paragraph", "text": "Control the vector, or stop people being bitten. Each method has a reason that you must link to it." },
+        {
+          "type": "paragraph",
+          "text": "Control the vector, or stop people being bitten. Each method has a reason that you must link to it."
+        },
         {
           "type": "table",
-          "columns": ["Method", "Why it works"],
+          "columns": [
+            "Method",
+            "Why it works"
+          ],
           "rows": [
-            ["Drain swamps, or destroy breeding grounds", "Mosquitos cannot breed, so there are fewer of them."],
-            ["Insecticides", "Kill the mosquitos, which are the vector."],
-            ["Mosquito nets, long clothing, insect repellent", "People are less likely to be bitten."],
-            ["Release sterile male mosquitos", "Fewer eggs are fertilised, so there are fewer mosquitos to bite people or pass on the protist."],
-            ["Anti-malarial tablets", "Kill the pathogen (the protist)."],
-            ["Vaccine (being developed)", "Makes people immune, so there are fewer infected people to pass the pathogen on to mosquitos."]
+            [
+              "Drain swamps, or destroy breeding grounds",
+              "Mosquitos cannot breed, so there are fewer of them."
+            ],
+            [
+              "Insecticides",
+              "Kill the mosquitos, which are the vector."
+            ],
+            [
+              "Mosquito nets, long clothing, insect repellent",
+              "People are less likely to be bitten."
+            ],
+            [
+              "Release sterile male mosquitos",
+              "Fewer eggs are fertilised, so there are fewer mosquitos to bite people or pass on the protist."
+            ],
+            [
+              "Anti-malarial tablets",
+              "Kill the pathogen (the protist)."
+            ],
+            [
+              "Vaccine (being developed)",
+              "Makes people immune, so there are fewer infected people to pass the pathogen on to mosquitos."
+            ]
           ]
         },
         {
@@ -133,7 +185,11 @@
   ],
   "boards": {
     "aqa": {
-      "spec_codes": ["AQA T 4.3.1.4", "AQA T 4.3.1.5", "AQA 3.2"],
+      "spec_codes": [
+        "AQA T 4.3.1.4",
+        "AQA T 4.3.1.5",
+        "AQA 3.2"
+      ],
       "exam_phrases": [
         "fungus",
         "protist",
@@ -173,7 +229,9 @@
       }
     },
     "edexcel": {
-      "spec_codes": ["EDEX 5.5"],
+      "spec_codes": [
+        "EDEX 5.5"
+      ],
       "exam_phrases": [
         "a protist",
         "malaria is not caused by a bacterium",
@@ -188,10 +246,23 @@
           "wrong": "Malaria is caused by a fungus or a virus.",
           "right": "Malaria is not caused by a fungus or a virus. It is caused by a protist."
         }
-      ]
+      ],
+      "worked_example": {
+        "exemplar_id": "95a71a33-314b-4d4e-83ce-4e3d1a3a8f6d",
+        "source": "EDEXCEL jun 2024, Paper 1 (H), Q3(a)(i)",
+        "question": "Malaria is a disease that causes damage to the blood and liver. Which type of pathogen causes malaria? Choose from: a bacterium, a fungus, a protist, a virus.",
+        "marks": 1,
+        "answer_points": [
+          "A protist.",
+          "Not a bacterium, a fungus or a virus."
+        ],
+        "tip": "Only a protist scores the mark."
+      }
     },
     "ocr": {
-      "spec_codes": ["OCR 6.3f"],
+      "spec_codes": [
+        "OCR 6.3f"
+      ],
       "exam_phrases": [
         "caused by a fungus: barley powdery mildew",
         "Crown gall disease: bacterium",
@@ -232,7 +303,10 @@
     ],
     "exemplar_ids": [
       "aaed64ca-1870-4191-826a-705e6bb8800c",
-      "c61da3fc-84ca-42d6-acc0-8051a040bb6b"
-    ]
+      "c61da3fc-84ca-42d6-acc0-8051a040bb6b",
+      "95a71a33-314b-4d4e-83ce-4e3d1a3a8f6d"
+    ],
+    "checked_by": "sonnet-science-check",
+    "checked_at": "2026-10-01"
   }
 }

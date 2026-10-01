@@ -64,7 +64,8 @@
           "items": [
             "Find the number that divides exactly into every number of atoms.",
             "Divide each number by it.",
-            "Butane, C₄H₁₀: divide both numbers by 2 to get C₂H₅."
+            "Butane, C₄H₁₀: divide both numbers by 2 to get C₂H₅.",
+            "From a model or diagram, count the atoms of each element in one molecule, then simplify the ratio in the same way."
           ]
         },
         {
@@ -182,9 +183,9 @@
               },
               {
                 "id": "ar",
-                "min": 12,
+                "min": 24,
                 "max": 64,
-                "step": 4
+                "step": 8
               }
             ],
             "answer": {
@@ -328,7 +329,9 @@
               "items": [
                 "You can work out the empirical formula of an ionic compound from a model or diagram that shows its ions.",
                 "Count the ions of each type, then write the simplest whole number ratio. Sodium chloride has equal numbers of Na⁺ and Cl⁻ ions, so its formula is NaCl.",
-                "A diagram shows only part of a giant structure. This is one limit of dot and cross, ball and stick, and 2D or 3D diagrams."
+                "A diagram shows only part of a giant structure, because the lattice continues in all directions.",
+                "Dot and cross diagrams show the outer electrons but not the shape of the lattice. Ball and stick models show the arrangement but suggest the ions are small and spaced apart, with sticks that are not real bonds.",
+                "A 2D diagram cannot show the full 3D structure. A 3D diagram is harder to draw and read, and also shows only a few ions."
               ]
             }
           ]
@@ -356,7 +359,7 @@
         },
         {
           "wrong": "24.0/1.20 : 35.5/3.55 = 20 : 10, giving Mg₂Cl.",
-          "right": "Fractions are inverted. Divide the mass by the Ar, such as 1.20 ÷ 24.0. The inverted fractions do not score the ratio mark."
+          "right": "The fractions are inverted. Divide the mass by the Ar, such as 1.20 ÷ 24.0. The inverted fractions do not score the dividing mark, though a ratio and formula correctly followed through can still score."
         },
         {
           "wrong": "Continue heating the magnesium until it no longer glows or it all turns white.",
@@ -381,11 +384,11 @@
         "OCR C2.1d"
       ],
       "exam_phrases": [
-        "empirical formula of decene (C₁₀H₂₀) is CH₂",
-        "empirical formula of hydrogen peroxide (H₂O₂) is HO",
-        "empirical formula of butane (C₄H₁₀) is C₂H₅",
-        "molecular formula from empirical formula CH₂O and Mr 180",
-        "simplest whole number ratio of atoms"
+        "relative numbers of atoms present",
+        "empirical formula of decene (C₁₀H₂₀): CH₂",
+        "empirical formula of hydrogen peroxide (H₂O₂): HO",
+        "empirical formula of butane (C₄H₁₀): C₂H₅",
+        "molecular formula from empirical formula CH₂O and Mr 180.0"
       ],
       "mistakes": [
         {
@@ -411,7 +414,7 @@
           "180.0 ÷ 30.0 = 6",
           "Molecular formula = C₆H₁₂O₆"
         ],
-        "tip": "This is a multiple-choice question in the paper. The method is the same without the options."
+        "tip": "In the exam this is a multiple-choice question. The method is the same without the options."
       }
     }
   },
@@ -429,6 +432,8 @@
       "b07f9c00-b393-43c7-bade-ede562a5387e",
       "5a2df7d2-57b3-4a5b-9b48-6958815a0e52",
       "aebbf1ca-0a9c-4259-afa2-6fbd9d99de79"
-    ]
+    ],
+    "checked_by": "sonnet-science-check",
+    "checked_at": "2026-10-01"
   }
 }

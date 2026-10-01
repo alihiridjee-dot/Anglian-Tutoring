@@ -8,14 +8,29 @@
     {
       "heading": "How white blood cells defend the body",
       "blocks": [
-        { "type": "paragraph", "text": "If a pathogen gets past the barriers, the immune system tries to destroy it. White blood cells do this in three ways." },
+        {
+          "type": "paragraph",
+          "text": "If a pathogen gets past the barriers, the immune system tries to destroy it. White blood cells do this in three ways."
+        },
         {
           "type": "definitions",
           "items": [
-            { "term": "Antigen", "meaning": "A chemical on the surface of a pathogen that the body detects as foreign." },
-            { "term": "Antibody", "meaning": "A protein made by white blood cells (lymphocytes) that attaches to an antigen." },
-            { "term": "Antitoxin", "meaning": "A protein that neutralises a toxin made by a pathogen." },
-            { "term": "Phagocytosis", "meaning": "A white blood cell (phagocyte) engulfs a pathogen and digests it." }
+            {
+              "term": "Antigen",
+              "meaning": "A chemical on the surface of a pathogen that the body detects as foreign."
+            },
+            {
+              "term": "Antibody",
+              "meaning": "A protein made by white blood cells (lymphocytes) that attaches to an antigen."
+            },
+            {
+              "term": "Antitoxin",
+              "meaning": "A protein that neutralises a toxin made by a pathogen."
+            },
+            {
+              "term": "Phagocytosis",
+              "meaning": "A white blood cell (phagocyte) engulfs a pathogen and digests it."
+            }
           ]
         },
         {
@@ -34,6 +49,19 @@
           ]
         },
         {
+          "type": "subheading",
+          "text": "How white blood cells are adapted"
+        },
+        {
+          "type": "list",
+          "items": [
+            "They can change shape to squeeze out of capillaries and reach infected tissue.",
+            "Phagocytes make enzymes that digest the pathogens they engulf.",
+            "Lymphocytes make antibodies, which are proteins.",
+            "All white blood cells have a nucleus. They divide by mitosis after detecting a pathogen."
+          ]
+        },
+        {
           "type": "key-points",
           "items": [
             "White blood cells engulf pathogens, produce antibodies and produce antitoxins.",
@@ -46,7 +74,10 @@
     {
       "heading": "The immune response and memory cells",
       "blocks": [
-        { "type": "paragraph", "text": "The first infection by a pathogen is slow to deal with. After it, memory cells make the next response much faster." },
+        {
+          "type": "paragraph",
+          "text": "The first infection by a pathogen is slow to deal with. After it, memory cells make the next response much faster."
+        },
         {
           "type": "diagram",
           "diagram": {
@@ -101,7 +132,10 @@
   ],
   "boards": {
     "aqa": {
-      "spec_codes": ["AQA 3.3", "AQA T 4.3.1.6"],
+      "spec_codes": [
+        "AQA 3.3",
+        "AQA T 4.3.1.6"
+      ],
       "exam_phrases": [
         "engulf pathogens",
         "produce antibodies",
@@ -123,7 +157,7 @@
         },
         {
           "wrong": "A vaccine works because the person is immune.",
-          "right": "Describe both responses: white blood cells produce specific antibodies and memory cells to the vaccine. If the pathogen enters later, the correct antibodies are produced faster, or in greater numbers, so it is destroyed faster."
+          "right": "Describe both responses. White blood cells produce specific antibodies and memory cells after the vaccine. If the pathogen enters later, the correct antibodies are produced sooner and in greater numbers, so it is destroyed faster."
         }
       ],
       "worked_example": {
@@ -140,7 +174,9 @@
       }
     },
     "edexcel": {
-      "spec_codes": ["EDEX 5.13"],
+      "spec_codes": [
+        "EDEX 5.13"
+      ],
       "exam_phrases": [
         "antigens are on the bacteria, detected by WBCs / phagocytes",
         "antibodies are produced by lymphocytes",
@@ -152,11 +188,11 @@
       "mistakes": [
         {
           "wrong": "The immune system produces antigens to destroy the pathogen.",
-          "right": "Antigens are rejected as a response. The pathogen has antigens, and the body produces antibodies."
+          "right": "\"Antigens\" is rejected as a way the immune system responds. The pathogen has antigens, and the body responds by producing antibodies."
         },
         {
           "wrong": "White blood cells defend the body.",
-          "right": "\"WBC\" on its own does not score. Say what they do: lymphocytes produce antibodies, phagocytes engulf pathogens, memory cells give a secondary response."
+          "right": "\"WBC\" on its own is ignored. Say what they do: lymphocytes produce antibodies, phagocytes engulf pathogens, memory cells give a secondary response."
         }
       ],
       "worked_example": {
@@ -176,7 +212,10 @@
       }
     },
     "ocr": {
-      "spec_codes": ["OCR 6.3j", "OCR 6.3l"],
+      "spec_codes": [
+        "OCR 6.3j",
+        "OCR 6.3l"
+      ],
       "exam_phrases": [
         "antigens",
         "white blood cells produce antibodies",
@@ -227,6 +266,8 @@
       "6693ebed-02cc-45ee-b3f5-9737f75d4617",
       "7a0393aa-e533-4144-8d3b-13ab3ec1f8a4",
       "ec77e3f2-32a7-4c04-be4f-931e8626ce79"
-    ]
+    ],
+    "checked_by": "sonnet-science-check",
+    "checked_at": "2026-10-01"
   }
 }

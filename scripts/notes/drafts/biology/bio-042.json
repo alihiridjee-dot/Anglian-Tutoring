@@ -83,14 +83,15 @@
     {
       "heading": "Other bacterial diseases",
       "blocks": [
-        { "type": "paragraph", "text": "You may also be asked about cholera, tuberculosis and stomach ulcers. Each one is caused by bacteria." },
+        { "type": "paragraph", "text": "You may also be asked about cholera, tuberculosis, stomach ulcers, chlamydia and crown gall. Each one is caused by bacteria." },
         {
           "type": "list",
           "items": [
             "**Tuberculosis (TB):** spread through the air in droplets from coughs and sneezes. Spread is reduced by covering the mouth, avoiding close contact and cramped living conditions, vaccination and treating infected people with antibiotics.",
             "**Cholera:** spread in contaminated water.",
-            "**Stomach ulcers:** caused by the bacterium *Helicobacter pylori*. They are treated with antibiotics and an alkaline medicine, which neutralises acid and reduces the symptoms.",
-            "**Chlamydia:** a sexually transmitted infection caused by a bacterium. Its spread is reduced by avoiding sexual contact, using a condom, screening and antibiotics."
+            "**Stomach ulcers:** caused by the bacterium Helicobacter pylori. They are treated with antibiotics and an alkaline medicine, which neutralises acid and reduces the symptoms.",
+            "**Chlamydia:** a sexually transmitted infection caused by a bacterium. Its spread is reduced by avoiding sexual contact, using a condom, screening and antibiotics.",
+            "**Crown gall disease:** a plant disease caused by a bacterium."
           ]
         },
         {
@@ -135,8 +136,8 @@
       ],
       "mistakes": [
         {
-          "wrong": "The bacteria release toxins.",
-          "right": "\"Toxins\" unqualified is ignored when asked how the symptoms are caused. Say the bacteria release or produce toxins (poisons)."
+          "wrong": "Toxins cause the vomiting and diarrhoea.",
+          "right": "\"Toxins\" unqualified is ignored. Say the bacteria release or produce toxins (poisons)."
         },
         {
           "wrong": "A symptom of gonorrhoea is pain.",
@@ -228,6 +229,8 @@
   },
   "meta": {
     "status": "draft",
+    "checked_by": "sonnet-science-check",
+    "checked_at": "2026-10-01",
     "written_by": "sonnet-5-5",
     "written_at": "2026-10-01",
     "spec_point_ids": [

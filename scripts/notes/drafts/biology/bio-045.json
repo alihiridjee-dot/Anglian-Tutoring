@@ -8,13 +8,25 @@
     {
       "heading": "The lytic pathway",
       "blocks": [
-        { "type": "paragraph", "text": "In the lytic pathway a virus reproduces straight away and destroys the host cell. This section covers the stages in order." },
+        {
+          "type": "paragraph",
+          "text": "In the lytic pathway a virus reproduces straight away and destroys the host cell. This section covers the stages in order."
+        },
         {
           "type": "definitions",
           "items": [
-            { "term": "Host cell", "meaning": "The living cell a virus infects. Viruses cannot replicate outside a host." },
-            { "term": "Lysis", "meaning": "The host cell bursts open, releasing the new virus particles." },
-            { "term": "Lytic pathway", "meaning": "The virus uses the host cell to make new viruses, then lyses the cell." }
+            {
+              "term": "Host cell",
+              "meaning": "The living cell a virus infects. Viruses cannot replicate outside a host."
+            },
+            {
+              "term": "Lysis",
+              "meaning": "The host cell bursts open, releasing the new virus particles."
+            },
+            {
+              "term": "Lytic pathway",
+              "meaning": "The virus uses the host cell to make new viruses, then lyses the cell."
+            }
           ]
         },
         {
@@ -32,7 +44,10 @@
             ]
           }
         },
-        { "type": "subheading", "text": "How this spreads infection" },
+        {
+          "type": "subheading",
+          "text": "How this spreads infection"
+        },
         {
           "type": "list",
           "items": [
@@ -55,7 +70,10 @@
     {
       "heading": "The lysogenic pathway",
       "blocks": [
-        { "type": "paragraph", "text": "In the lysogenic pathway the virus does not destroy the cell at once. Its genetic material is inserted into the genome of the host." },
+        {
+          "type": "paragraph",
+          "text": "In the lysogenic pathway the virus does not destroy the cell at once. Its genetic material is inserted into the genome of the host."
+        },
         {
           "type": "list",
           "items": [
@@ -67,11 +85,40 @@
         },
         {
           "type": "table",
-          "columns": ["Feature", "Lytic pathway", "Lysogenic pathway"],
+          "columns": [
+            "Feature",
+            "Lytic pathway",
+            "Lysogenic pathway"
+          ],
           "rows": [
-            ["Viral genetic material", "Used straight away to make new viruses", "Inserted into the genome of the host"],
-            ["New viruses made", "Straight away", "Not at first"],
-            ["Host cell", "Lysed", "Survives and divides"]
+            [
+              "Viral genetic material",
+              "Used straight away to make new viruses",
+              "Inserted into the genome of the host"
+            ],
+            [
+              "New viruses made",
+              "Straight away",
+              "Not at first"
+            ],
+            [
+              "Host cell",
+              "Lysed",
+              "Survives and divides"
+            ]
+          ]
+        },
+        {
+          "type": "subheading",
+          "text": "Bacteriophages"
+        },
+        {
+          "type": "list",
+          "items": [
+            "A **bacteriophage** is a virus that infects bacterial cells.",
+            "Used through the lytic pathway, it kills bacteria, so it could be an alternative to antibiotics.",
+            "This could reduce the problem of antibiotic resistance.",
+            "Bacteriophages do not affect animal cells, and they replicate themselves."
           ]
         },
         {
@@ -79,7 +126,7 @@
           "items": [
             "Lysogenic: viral genetic material is inserted into the host genome.",
             "Lytic: viruses are made at once and the host cell lyses.",
-            "A bacteriophage is a virus that infects bacterial cells."
+            "Bacteriophages infect bacterial cells and can kill them by lysis."
           ]
         }
       ]
@@ -97,14 +144,16 @@
       "marks": 1
     },
     {
-      "q": "Give one reason why a bacteriophage could be used as an alternative to antibiotics.",
-      "a": "It kills bacteria, which reduces the problem of antibiotic resistance. It does not affect animal cells, and it replicates itself.",
-      "marks": 1
+      "q": "Explain how the lytic pathway spreads infection through a population.",
+      "a": "Many virus particles are produced from one infected cell. They leave the host and are released into body fluids. They spread through airborne droplets or contact to another host.",
+      "marks": 3
     }
   ],
   "boards": {
     "edexcel": {
-      "spec_codes": ["EDEX 5.7B"],
+      "spec_codes": [
+        "EDEX 5.7B"
+      ],
       "exam_phrases": [
         "virus inserts its genetic material into the host cell",
         "uses the host cell machinery / organelles / resources",
@@ -123,8 +172,8 @@
           "right": "\"The host lyses\" is ignored. Say the cell lyses (or the host cell bursts) to release the viruses."
         },
         {
-          "wrong": "A virus pathway where the genetic material joins the host genome is lytic.",
-          "right": "That is the lysogenic pathway. In the lytic pathway the viruses are made at once and the cell lyses."
+          "wrong": "In the lytic pathway the viral genetic material joins the host genome and waits.",
+          "right": "That is lysogenic. A lytic answer uses the host cell machinery at once, assembles new viruses and lyses the cell, with no lysogenic steps."
         }
       ],
       "worked_example": {
@@ -146,7 +195,13 @@
     "status": "draft",
     "written_by": "sonnet-5-5",
     "written_at": "2026-10-01",
-    "spec_point_ids": ["383f28b5-cbc1-472e-a45e-ba627aa98548"],
-    "exemplar_ids": ["02dd7fa2-3ea6-4377-b7c7-4953b6956e27"]
+    "spec_point_ids": [
+      "383f28b5-cbc1-472e-a45e-ba627aa98548"
+    ],
+    "exemplar_ids": [
+      "02dd7fa2-3ea6-4377-b7c7-4953b6956e27"
+    ],
+    "checked_by": "sonnet-science-check",
+    "checked_at": "2026-10-01"
   }
 }

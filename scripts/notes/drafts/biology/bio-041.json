@@ -8,7 +8,10 @@
     {
       "heading": "Measles",
       "blocks": [
-        { "type": "paragraph", "text": "Measles is a viral disease of people. This section covers its symptoms, how it spreads and how it is controlled." },
+        {
+          "type": "paragraph",
+          "text": "Measles is a viral disease of people. This section covers its symptoms, how it spreads and how it is controlled."
+        },
         {
           "type": "list",
           "items": [
@@ -18,7 +21,10 @@
             "Most young children are vaccinated against measles for this reason."
           ]
         },
-        { "type": "subheading", "text": "Controlling the spread" },
+        {
+          "type": "subheading",
+          "text": "Controlling the spread"
+        },
         {
           "type": "list",
           "items": [
@@ -41,13 +47,25 @@
     {
       "heading": "HIV and AIDS",
       "blocks": [
-        { "type": "paragraph", "text": "HIV is a virus that attacks the body's immune cells. This section covers how it spreads and how it leads to AIDS." },
+        {
+          "type": "paragraph",
+          "text": "HIV is a virus that attacks the body's immune cells. This section covers how it spreads and how it leads to AIDS."
+        },
         {
           "type": "definitions",
           "items": [
-            { "term": "HIV", "meaning": "The virus. It attacks the body's immune cells." },
-            { "term": "AIDS", "meaning": "The late stage of HIV infection, when the immune system is so badly damaged it can no longer deal with other infections or cancers." },
-            { "term": "Antiretroviral drugs", "meaning": "Drugs that control HIV and stop it damaging the immune system." }
+            {
+              "term": "HIV",
+              "meaning": "The virus. It attacks the body's immune cells."
+            },
+            {
+              "term": "AIDS",
+              "meaning": "The late stage of HIV infection, when the immune system is so badly damaged it can no longer deal with other infections or cancers."
+            },
+            {
+              "term": "Antiretroviral drugs",
+              "meaning": "Drugs that control HIV and stop it damaging the immune system."
+            }
           ]
         },
         {
@@ -59,7 +77,10 @@
             "HIV is spread by sexual contact, or by exchange of body fluids such as blood. Drug users who share needles can spread it this way."
           ]
         },
-        { "type": "subheading", "text": "Preventing the spread of HIV" },
+        {
+          "type": "subheading",
+          "text": "Preventing the spread of HIV"
+        },
         {
           "type": "list",
           "items": [
@@ -82,7 +103,10 @@
     {
       "heading": "Tobacco mosaic virus",
       "blocks": [
-        { "type": "paragraph", "text": "Tobacco mosaic virus (TMV) is a widespread plant pathogen. It affects many species, including tomatoes." },
+        {
+          "type": "paragraph",
+          "text": "Tobacco mosaic virus (TMV) is a widespread plant pathogen. It affects many species, including tomatoes."
+        },
         {
           "type": "list",
           "items": [
@@ -98,16 +122,44 @@
             "kind": "sort",
             "alt": "Sort each statement into the viral disease it describes: measles, HIV or tobacco mosaic virus.",
             "prompt": "Which viral disease does each statement describe?",
-            "groups": ["Measles", "HIV", "Tobacco mosaic virus"],
+            "groups": [
+              "Measles",
+              "HIV",
+              "Tobacco mosaic virus"
+            ],
             "items": [
-              { "text": "Fever and a red skin rash", "group": 0 },
-              { "text": "Spread by inhaling droplets from coughs and sneezes", "group": 0 },
-              { "text": "Prevented in most children by vaccination", "group": 0 },
-              { "text": "Attacks the body's immune cells", "group": 1 },
-              { "text": "Controlled with antiretroviral drugs", "group": 1 },
-              { "text": "Spread by sharing needles", "group": 1 },
-              { "text": "Mosaic pattern of discolouration on leaves", "group": 2 },
-              { "text": "Reduced photosynthesis slows growth", "group": 2 }
+              {
+                "text": "Fever and a red skin rash",
+                "group": 0
+              },
+              {
+                "text": "Spread by inhaling droplets from coughs and sneezes",
+                "group": 0
+              },
+              {
+                "text": "Prevented in most children by vaccination",
+                "group": 0
+              },
+              {
+                "text": "Attacks the body's immune cells",
+                "group": 1
+              },
+              {
+                "text": "Controlled with antiretroviral drugs",
+                "group": 1
+              },
+              {
+                "text": "Spread by sharing needles",
+                "group": 1
+              },
+              {
+                "text": "Mosaic pattern of discolouration on leaves",
+                "group": 2
+              },
+              {
+                "text": "Reduced photosynthesis slows growth",
+                "group": 2
+              }
             ]
           }
         },
@@ -140,7 +192,10 @@
   ],
   "boards": {
     "aqa": {
-      "spec_codes": ["AQA 3.2", "AQA T 4.3.1.2"],
+      "spec_codes": [
+        "AQA 3.2",
+        "AQA T 4.3.1.2"
+      ],
       "exam_phrases": [
         "coughs / sneezes (spread virus in droplets)",
         "immune system is damaged / weakened",
@@ -182,21 +237,20 @@
       }
     },
     "edexcel": {
-      "spec_codes": ["EDEX 5.5"],
+      "spec_codes": [
+        "EDEX 5.5"
+      ],
       "exam_phrases": [
         "HIV destroys white blood cells / reduces the number of white blood cells",
         "compromises the immune system",
         "weakens the immune system",
-        "more susceptible to other pathogens / infections / diseases"
+        "more susceptible to other pathogens / infections / diseases",
+        "(exchange of) bodily fluids / contact with body fluids"
       ],
       "mistakes": [
         {
           "wrong": "HIV makes the person more susceptible to AIDS.",
           "right": "\"More susceptible to AIDS\" is ignored. HIV weakens the immune system, so the person is more susceptible to other pathogens, infections or diseases."
-        },
-        {
-          "wrong": "HIV and AIDS are the same thing.",
-          "right": "HIV is the virus. AIDS is the late stage, when the immune system has been so badly damaged by HIV that it cannot deal with other infections."
         }
       ],
       "worked_example": {
@@ -209,10 +263,30 @@
           "Which compromises or weakens the immune system, making the person more susceptible to other pathogens, infections or diseases."
         ],
         "tip": "Link the two ideas: fewer white blood cells, so the immune system cannot defend the body."
-      }
+      },
+      "extra": [
+        {
+          "heading": "Ebola",
+          "blocks": [
+            {
+              "type": "paragraph",
+              "text": "Ebola is a viral disease that can be fatal."
+            },
+            {
+              "type": "list",
+              "items": [
+                "It spreads by exchange of body fluids, or contact with the body fluids of an infected person.",
+                "Antibiotics do not work on viruses, so they cannot treat it."
+              ]
+            }
+          ]
+        }
+      ]
     },
     "ocr": {
-      "spec_codes": ["OCR 6.3f"],
+      "spec_codes": [
+        "OCR 6.3f"
+      ],
       "exam_phrases": [
         "Tobacco mosaic disease: virus",
         "AIDS: caused by a virus",
@@ -242,7 +316,47 @@
           "Non-communicable disease: type 2 diabetes."
         ],
         "tip": "Four correct placements score 3 marks, two or three correct score 2 marks, and one correct scores 1 mark."
-      }
+      },
+      "extra": [
+        {
+          "heading": "Sorting diseases by cause",
+          "blocks": [
+            {
+              "type": "paragraph",
+              "text": "Learn which type of pathogen causes each disease, and which diseases are not communicable."
+            },
+            {
+              "type": "table",
+              "columns": [
+                "Disease",
+                "Type"
+              ],
+              "rows": [
+                [
+                  "AIDS (caused by HIV)",
+                  "Communicable, caused by a virus"
+                ],
+                [
+                  "Tobacco mosaic disease",
+                  "Communicable, caused by a virus"
+                ],
+                [
+                  "Crown gall disease",
+                  "Communicable, caused by a bacterium"
+                ],
+                [
+                  "Barley powdery mildew",
+                  "Communicable, caused by a fungus"
+                ],
+                [
+                  "Type 2 diabetes",
+                  "Non-communicable"
+                ]
+              ]
+            }
+          ]
+        }
+      ]
     }
   },
   "meta": {
@@ -257,6 +371,8 @@
       "44a83d9a-f73e-46bd-9dfa-2756a568327e",
       "365ec292-8046-488c-a345-4eb7d84fc170",
       "c61da3fc-84ca-42d6-acc0-8051a040bb6b"
-    ]
+    ],
+    "checked_by": "sonnet-science-check",
+    "checked_at": "2026-10-01"
   }
 }

@@ -1,0 +1,285 @@
+{
+  "format": 1,
+  "concept_id": "phys-020",
+  "subject": "physics",
+  "title": "The National Grid",
+  "key_idea": "The National Grid links power stations to consumers. Step-up transformers raise the potential difference for transmission, which lowers the current and so reduces energy lost as heat in the cables. Step-down transformers lower it for homes.",
+  "sections": [
+    {
+      "heading": "How the National Grid works",
+      "blocks": [
+        { "type": "paragraph", "text": "The National Grid is a system of cables and transformers linking power stations to consumers. Electrical power is transferred from power stations to consumers through it." },
+        {
+          "type": "definitions",
+          "items": [
+            { "term": "National Grid", "meaning": "A system of cables and transformers linking power stations to consumers." },
+            { "term": "Step-up transformer", "meaning": "A transformer that increases the potential difference." },
+            { "term": "Step-down transformer", "meaning": "A transformer that decreases the potential difference." }
+          ]
+        },
+        {
+          "type": "table",
+          "columns": ["Stage", "What happens", "Potential difference"],
+          "rows": [
+            ["Power station", "Electricity is generated as a.c.", "25 kV, for example"],
+            ["Step-up transformer", "Increases the potential difference for transmission.", "Up to 400 kV, for example"],
+            ["Overhead cables", "Transmit the power over long distances.", "Very high"],
+            ["Step-down transformers", "Decrease it, to a much lower value, in each locality.", "230 V for homes"]
+          ]
+        },
+        {
+          "type": "key-points",
+          "items": [
+            "Electrical power is transferred at a high potential difference from power stations.",
+            "Step-up transformers increase the p.d. for transmission. Step-down transformers decrease it for domestic use.",
+            "The National Grid uses a.c."
+          ]
+        }
+      ]
+    },
+    {
+      "heading": "Why a high potential difference is efficient",
+      "blocks": [
+        { "type": "paragraph", "text": "Cables have resistance, so some energy is transferred to the surroundings as heat. A high potential difference reduces this loss." },
+        {
+          "type": "equation",
+          "label": "Power from potential difference and current",
+          "formula": "power = potential difference × current    (P = V I)",
+          "where": ["power, P, in watts, W", "potential difference, V, in volts, V", "current, I, in amperes, A"]
+        },
+        {
+          "type": "equation",
+          "label": "Power lost in a cable",
+          "formula": "power = current² × resistance    (P = I²R)",
+          "where": ["power lost, P, in watts, W", "current, I, in amperes, A", "resistance of the cable, R, in ohms, Ω"]
+        },
+        { "type": "subheading", "text": "The argument in four steps" },
+        {
+          "type": "steps",
+          "items": [
+            { "lead": "Raise the potential difference.", "text": "A step-up transformer increases V for transmission." },
+            { "lead": "The current falls.", "text": "For the same power, P = V I means a larger V gives a smaller I." },
+            { "lead": "The heating falls.", "text": "Power lost is I²R, so a small current means much less thermal energy is transferred to the surroundings." },
+            { "lead": "Efficiency rises.", "text": "Less energy is wasted, so the transmission is more efficient." }
+          ]
+        },
+        {
+          "type": "diagram",
+          "diagram": {
+            "kind": "slider",
+            "alt": "Choose the transmission potential difference and the power sent to see the current and the power lost in the cables.",
+            "inputs": [
+              { "id": "P", "label": "Power sent", "unit": "MW", "min": 10, "max": 100, "step": 10, "value": 50 },
+              {
+                "id": "V",
+                "label": "Transmission potential difference",
+                "choices": [
+                  { "label": "25 kV", "value": 25 },
+                  { "label": "132 kV", "value": 132 },
+                  { "label": "275 kV", "value": 275 },
+                  { "label": "400 kV", "value": 400 }
+                ]
+              }
+            ],
+            "outputs": [
+              { "label": "Current in the cables, I = P / V", "unit": "A", "formula": "P * 1000 / V", "decimals": 0 },
+              { "label": "Power lost, I² × R (cable resistance 2 Ω)", "unit": "MW", "formula": "(P * 1000 / V)^2 * 2 / 1000000", "decimals": 2, "bar": true },
+              { "label": "Share of the power lost", "unit": "%", "formula": "(P * 1000 / V)^2 * 2 / 1000000 / P * 100", "decimals": 1 }
+            ]
+          }
+        },
+        { "type": "paragraph", "text": "Increase the potential difference 16 times and the current falls 16 times. The power lost, which depends on the current squared, falls far more." },
+        { "type": "paragraph", "text": "Never say that a high potential difference means no energy is lost. It means less energy is lost." },
+        { "type": "subheading", "text": "(Higher tier) The transformer equation" },
+        {
+          "type": "equation",
+          "label": "Power in a transformer",
+          "formula": "potential difference across primary coil × current in primary coil = potential difference across secondary coil × current in secondary coil    (Vp Ip = Vs Is)",
+          "where": ["Vp and Vs, in volts, V", "Ip and Is, in amperes, A"]
+        },
+        { "type": "paragraph", "text": "The power out equals the power in. If a step-up transformer raises the p.d. 16 times, the current in the secondary coil falls 16 times." },
+        {
+          "type": "diagram",
+          "diagram": {
+            "kind": "practice",
+            "alt": "Calculate the current in the secondary coil of a step-down transformer using Vp x Ip = Vs x Is.",
+            "question": "(Higher tier) The potential difference across the primary coil is {Vp} V and the current in it is {Ip} A. The potential difference across the secondary coil is {Vs} V. Calculate the current in the secondary coil.",
+            "variables": [
+              { "id": "Vp", "min": 20000, "max": 40000, "step": 10000 },
+              { "id": "Ip", "min": 10, "max": 50, "step": 10 },
+              { "id": "Vs", "min": 200, "max": 400, "step": 100 }
+            ],
+            "answer": { "formula": "Vp * Ip / Vs", "unit": "A", "decimals": 1 },
+            "working": [
+              "Use Vp × Ip = Vs × Is.",
+              "{Vp} × {Ip} = {Vs} × Is",
+              "Is = ({Vp} × {Ip}) ÷ {Vs}",
+              "Is = {answer} A"
+            ]
+          }
+        },
+        {
+          "type": "key-points",
+          "items": [
+            "High p.d. means low current for the same power.",
+            "Power lost in the cables is I²R, so a low current means much less heating.",
+            "Less energy is wasted, not none, so the transmission is more efficient."
+          ]
+        }
+      ]
+    }
+  ],
+  "checks": [
+    {
+      "q": "What is the job of a step-up transformer in the National Grid?",
+      "a": "It increases the potential difference from the power station to the transmission cables.",
+      "marks": 1
+    },
+    {
+      "q": "Explain why electricity is transmitted at a very high potential difference.",
+      "a": "A very high potential difference means a very low current. Less thermal energy is transferred to the surroundings, which increases the efficiency of power transmission.",
+      "marks": 3
+    },
+    {
+      "q": "What does a step-down transformer do, and where is one used?",
+      "a": "It decreases the potential difference to a much lower value, for domestic use in each locality.",
+      "marks": 2
+    }
+  ],
+  "boards": {
+    "aqa": {
+      "spec_codes": ["AQA 4.2.4.3", "AQA T 6.2.4.3"],
+      "exam_phrases": [
+        "the national grid",
+        "potential difference is increased",
+        "current is reduced",
+        "(very high p.d. means) very low currents",
+        "less (thermal) energy is transferred to surroundings",
+        "which increases the efficiency of power transmission",
+        "less heating in the transmission cables"
+      ],
+      "mistakes": [
+        {
+          "wrong": "Step-up transformers make the network efficient because there is no energy loss.",
+          "right": "Do not say there is no energy loss. Say there is less energy loss to the surroundings."
+        },
+        {
+          "wrong": "The step-up transformer increases the current and decreases the potential difference.",
+          "right": "A step-up transformer increases the potential difference and decreases the current, in that order."
+        },
+        {
+          "wrong": "Step-up transformers reduce the resistance of the cables.",
+          "right": "Resistance is ignored in this explanation. The current is reduced, so there is less heating in the transmission cables."
+        }
+      ],
+      "worked_example": {
+        "exemplar_id": "b2b3a421-8ba3-4b51-80e5-e2ce2b2e3d7c",
+        "source": "AQA jun 2022, Paper 1 (H), Q01.4",
+        "question": "A network of transformers and transmission cables transfers electrical power from power stations to consumers. Explain how using step-up transformers makes the network efficient.",
+        "marks": 3,
+        "answer_points": [
+          "The potential difference increases.",
+          "The current is reduced.",
+          "So there is less energy loss to the surroundings (less heating in the transmission cables)."
+        ],
+        "tip": "One mark each. Say less energy loss, never no energy loss."
+      }
+    },
+    "edexcel": {
+      "spec_codes": ["EDEX 13.8", "EDEX 13.9", "EDEX 13.11P"],
+      "exam_phrases": [
+        "(smaller currents) reduce heating effect (in cables)",
+        "less energy / power wasted (in cables)",
+        "increases efficiency",
+        "heat loss is reduced",
+        "transformers are used to step up to a high voltage for transmission",
+        "this means a low current",
+        "P = I² R",
+        "Vp Ip = Vs Is"
+      ],
+      "mistakes": [
+        {
+          "wrong": "The National Grid uses high voltages with large currents.",
+          "right": "It uses high voltages with small currents. A small current reduces the heating effect in the cables."
+        },
+        {
+          "wrong": "High voltages stop energy being lost in the cables.",
+          "right": "Say that heat loss is reduced, or that less energy or power is wasted in the cables."
+        },
+        {
+          "wrong": "Power loss is I²R, so power loss is small.",
+          "right": "Link both equations. Vp Ip = Vs Is shows that a high voltage means a low current, and then P = I²R shows that the power loss is small."
+        }
+      ],
+      "worked_example": {
+        "exemplar_id": "dffd3e4e-0df3-4414-a16f-e1198cfc941e",
+        "source": "EDEXCEL jun 2023, Paper 2 (F), Q5(b)",
+        "question": "Explain why the National Grid uses high voltages with small currents to transfer electricity from power stations.",
+        "marks": 2,
+        "answer_points": [
+          "Smaller currents reduce the heating effect in the cables.",
+          "So less energy or power is wasted in the cables, which increases efficiency."
+        ],
+        "tip": "Link any two points. Thermal energy is accepted for heat energy, and 'reduces heat energy loss' scores both marks."
+      }
+    },
+    "ocr": {
+      "spec_codes": ["OCR P8.2c", "OCR P8.2d", "OCR P8.2e", "OCR P8.2f"],
+      "exam_phrases": [
+        "step-up transformer",
+        "transformers increase voltage / p.d.",
+        "transformers decrease current",
+        "less energy wasted / lost / less heat in power lines",
+        "power loss depends on current²",
+        "using a.c.",
+        "energy is transferred from the mains / via national grid / via transformers / via power lines"
+      ],
+      "mistakes": [
+        {
+          "wrong": "High voltage stops energy being lost.",
+          "right": "Stops power loss and no energy wasted are not allowed. Say less energy is lost, or less heat in the power lines."
+        },
+        {
+          "wrong": "It makes the National Grid more efficient.",
+          "right": "Ideas about efficiency alone are ignored. Say that the current decreases, so less energy is lost as heat in the power lines."
+        },
+        {
+          "wrong": "A transformer that decreases 230 V to 12.1 V is a step-up transformer.",
+          "right": "It decreases the potential difference, so it is a step-down transformer. The transformer between a power station and the power lines is step-up."
+        }
+      ],
+      "worked_example": {
+        "exemplar_id": "910916e1-2aab-479b-8d02-0c936962c6a3",
+        "source": "OCR jun 2023, Paper 4, Q21(c)(ii)",
+        "question": "Explain why step-up transformers are used in the national grid.",
+        "marks": 2,
+        "answer_points": [
+          "Transformers increase the voltage or potential difference (before the national grid).",
+          "Transformers decrease the current.",
+          "Transformers decrease power or energy losses."
+        ],
+        "tip": "Any two of the three points. Do not write that energy losses stop completely."
+      }
+    }
+  },
+  "meta": {
+    "status": "draft",
+    "written_by": "sonnet-5-5",
+    "written_at": "2026-10-01",
+    "spec_point_ids": [
+      "bac89603-adb4-493d-afa7-3891eab71e00",
+      "0e6ba1a4-54d2-44aa-aadb-823b6d927f13",
+      "750105bf-41fe-4847-9093-41ace130f870",
+      "94e82b7d-4a58-4efb-a63d-66d4c78e95b7",
+      "bfe5783f-8827-47a3-b176-52871c5f6a49",
+      "c614005b-7de1-4f38-b3bd-6cf7889ad163",
+      "9c7c51fb-bc5d-4cf1-8576-43fc39b78c90",
+      "77722fa9-3bd8-4b17-841f-eabbb0a278cb"
+    ],
+    "exemplar_ids": [
+      "b2b3a421-8ba3-4b51-80e5-e2ce2b2e3d7c",
+      "dffd3e4e-0df3-4414-a16f-e1198cfc941e",
+      "910916e1-2aab-479b-8d02-0c936962c6a3"
+    ]
+  }
+}

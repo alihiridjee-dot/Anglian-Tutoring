@@ -8,20 +8,48 @@
     {
       "heading": "Common STIs and how they spread",
       "blocks": [
-        { "type": "paragraph", "text": "STIs are communicable diseases passed on by sexual contact. This section compares chlamydia, gonorrhoea and HIV." },
+        {
+          "type": "paragraph",
+          "text": "STIs are communicable diseases passed on by sexual contact. This section compares chlamydia, gonorrhoea and HIV."
+        },
         {
           "type": "table",
-          "columns": ["STI", "Pathogen", "How it spreads", "Other facts"],
+          "columns": [
+            "STI",
+            "Pathogen",
+            "How it spreads",
+            "Other facts"
+          ],
           "rows": [
-            ["Chlamydia", "Bacterium", "Sexual intercourse", "Treated with antibiotics."],
-            ["Gonorrhoea", "Bacterium", "Sexual contact", "Thick yellow or green discharge and pain on urinating. Many strains are resistant to penicillin."],
-            ["HIV", "Virus", "Sexual contact, or exchange of body fluids", "Destroys white blood cells. Can lead to AIDS."]
+            [
+              "Chlamydia",
+              "Bacterium",
+              "Sexual intercourse",
+              "Treated with antibiotics."
+            ],
+            [
+              "Gonorrhoea",
+              "Bacterium",
+              "Sexual contact",
+              "Thick yellow or green discharge and pain on urinating. Many strains are resistant to penicillin."
+            ],
+            [
+              "HIV",
+              "Virus",
+              "Sexual contact, or exchange of body fluids",
+              "Destroys white blood cells. Can lead to AIDS."
+            ]
           ]
         },
-        { "type": "subheading", "text": "HIV and body fluids" },
+        {
+          "type": "subheading",
+          "text": "HIV and body fluids"
+        },
         {
           "type": "list",
           "items": [
+            "HIV first causes a flu-like illness. It attacks the immune cells, and late-stage HIV infection is called AIDS.",
+            "In AIDS the immune system is so badly damaged that it cannot deal with other infections or cancers.",
             "Drug users who share needles can pass on HIV in blood.",
             "HIV can also pass in blood transfusions, and from a mother to the foetus in the uterus.",
             "HIV is diagnosed by blood tests. Blood samples must be handled safely: wear gloves or goggles, cover cuts, clean up spills, store samples in sealed containers and dispose of them safely."
@@ -40,7 +68,10 @@
     {
       "heading": "Reducing the spread of STIs",
       "blocks": [
-        { "type": "paragraph", "text": "Prevention works by stopping the pathogen passing between people, or by treating infected people." },
+        {
+          "type": "paragraph",
+          "text": "Prevention works by stopping the pathogen passing between people, or by treating infected people."
+        },
         {
           "type": "list",
           "items": [
@@ -65,12 +96,18 @@
     {
       "heading": "Using STI data",
       "blocks": [
-        { "type": "paragraph", "text": "Exam questions give the number of people diagnosed per 1000 of the population. Multiply by the population, then divide by 1000." },
+        {
+          "type": "paragraph",
+          "text": "Exam questions give the number of people diagnosed per 1000 of the population. Multiply by the population, then divide by 1000."
+        },
         {
           "type": "equation",
           "label": "Number of people diagnosed",
           "formula": "number diagnosed = (rate per 1000 ÷ 1000) × population",
-          "where": ["rate per 1000, in people per 1000", "population, in people"]
+          "where": [
+            "rate per 1000, in people per 1000",
+            "population, in people"
+          ]
         },
         {
           "type": "diagram",
@@ -79,12 +116,26 @@
             "alt": "A calculation practice: find the number of people diagnosed with an infection from a rate per 1000 and a population.",
             "question": "In one year, {rate} people per 1000 of the population were diagnosed with chlamydia. The population was {pop} people. Calculate the number of people diagnosed.",
             "variables": [
-              { "id": "rate", "min": 0.5, "max": 4, "step": 0.5 },
-              { "id": "pop", "min": 10000, "max": 200000, "step": 10000 }
+              {
+                "id": "rate",
+                "min": 0.5,
+                "max": 4,
+                "step": 0.5
+              },
+              {
+                "id": "pop",
+                "min": 10000,
+                "max": 200000,
+                "step": 10000
+              }
             ],
-            "answer": { "formula": "rate * pop / 1000", "unit": "people", "decimals": 0 },
+            "answer": {
+              "formula": "rate * pop / 1000",
+              "unit": "people",
+              "decimals": 0
+            },
             "working": [
-              "{pop} ÷ 1000 = (population in thousands)",
+              "{pop} ÷ 1000 gives the population in thousands",
               "Multiply by {rate}",
               "Number diagnosed = {answer} people"
             ]
@@ -119,7 +170,11 @@
   ],
   "boards": {
     "aqa": {
-      "spec_codes": ["AQA 3.2", "AQA T 4.3.1.2", "AQA T 4.3.1.3"],
+      "spec_codes": [
+        "AQA 3.2",
+        "AQA T 4.3.1.2",
+        "AQA T 4.3.1.3"
+      ],
       "exam_phrases": [
         "avoid sexual intercourse",
         "use a condom",
@@ -159,7 +214,9 @@
       }
     },
     "edexcel": {
-      "spec_codes": ["EDEX 5.8"],
+      "spec_codes": [
+        "EDEX 5.8"
+      ],
       "exam_phrases": [
         "avoid sexual contact",
         "use a condom / femidom",
@@ -193,34 +250,37 @@
       }
     },
     "ocr": {
-      "spec_codes": ["OCR 6.3f"],
+      "spec_codes": [
+        "OCR 6.3f"
+      ],
       "exam_phrases": [
-        "caused by a virus: AIDS",
-        "Crown gall disease: bacterium",
-        "type 2 diabetes: non-communicable disease"
+        "HIV is a pathogen",
+        "AIDS is a set of infections",
+        "HIV is a virus"
       ],
       "mistakes": [
         {
-          "wrong": "AIDS is a non-communicable disease.",
-          "right": "AIDS is a communicable disease caused by a virus. Type 2 diabetes is the non-communicable example."
+          "wrong": "AIDS is a virus that weakens the immune system.",
+          "right": "HIV is the virus (the pathogen). AIDS is a set of infections that develops when the immune system is weakened."
         },
         {
-          "wrong": "AIDS is caused by a bacterium or a fungus.",
-          "right": "AIDS is caused by a virus (HIV)."
+          "wrong": "HIV and AIDS are alternative names for the same disease.",
+          "right": "They are not the same. HIV is a pathogen and AIDS is a set of infections."
+        },
+        {
+          "wrong": "HIV is a virus that produces toxins which kill an infected person.",
+          "right": "HIV does not kill by producing toxins. It damages the immune system, so other infections take hold."
         }
       ],
       "worked_example": {
-        "exemplar_id": "c61da3fc-84ca-42d6-acc0-8051a040bb6b",
-        "source": "OCR jun 2019, Paper 2, Q21(a)",
-        "question": "Animals and plants can get different types of diseases. Write each of these four diseases in the correct column of a table with the columns: communicable disease caused by a bacterium, communicable disease caused by a fungus, communicable disease caused by a virus, and non-communicable disease. The diseases are: AIDS, type 2 diabetes, crown gall disease, barley powdery mildew.",
-        "marks": 3,
+        "exemplar_id": "54125ddf-70ea-49fc-9f83-499c5742ff37",
+        "source": "OCR jun 2022, Paper 4, Q10",
+        "question": "Which statement is correct about HIV/AIDS? A: AIDS is a virus that weakens the immune system. B: HIV and AIDS are alternative names for the same disease. C: HIV is a pathogen and AIDS is a set of infections. D: HIV is a virus that produces toxins which kill an infected person.",
+        "marks": 1,
         "answer_points": [
-          "Caused by a bacterium: crown gall disease.",
-          "Caused by a fungus: barley powdery mildew.",
-          "Caused by a virus: AIDS.",
-          "Non-communicable disease: type 2 diabetes."
+          "C: HIV is a pathogen and AIDS is a set of infections."
         ],
-        "tip": "Four correct placements score 3 marks, two or three correct score 2 marks, and one correct scores 1 mark."
+        "tip": "HIV is the virus. AIDS is the set of infections that follows when the immune system is badly damaged."
       }
     }
   },
@@ -235,7 +295,9 @@
     "exemplar_ids": [
       "14665365-e25c-468c-85a5-e2d673bf4a93",
       "76ce9779-e2b0-4163-bd9f-c43a762b7ca3",
-      "c61da3fc-84ca-42d6-acc0-8051a040bb6b"
-    ]
+      "54125ddf-70ea-49fc-9f83-499c5742ff37"
+    ],
+    "checked_by": "sonnet-science-check",
+    "checked_at": "2026-10-01"
   }
 }

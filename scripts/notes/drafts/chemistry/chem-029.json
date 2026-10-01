@@ -17,11 +17,15 @@
           "items": [
             {
               "term": "Relative atomic mass (Ar)",
-              "meaning": "The mass of an atom of an element compared with other atoms. It is given in the question or on the periodic table."
+              "meaning": "The average mass of an atom of an element compared with a carbon-12 atom, which is 12. It is given in the question or on the periodic table."
             },
             {
               "term": "Relative formula mass (Mr)",
               "meaning": "The sum of the relative atomic masses of the atoms in the numbers shown in the formula."
+            },
+            {
+              "term": "Relative molecular mass",
+              "meaning": "The relative formula mass of a molecule. It is worked out in the same way."
             }
           ]
         },
@@ -57,37 +61,31 @@
           "items": [
             "For a bracket, multiply everything inside it. In Mg(NO₃)₂ there are 2 N and 6 O.",
             "In a balanced equation, the Mr of the reactants, in the quantities shown, adds up to the Mr of the products.",
-            "Only use Ar values that the question gives you. Do not use values from memory."
+            "Use the Ar values given in the question, or on the periodic table."
           ]
         },
         {
           "type": "diagram",
           "diagram": {
             "kind": "practice",
-            "alt": "Calculate the relative formula mass of a hydrocarbon.",
-            "question": "A hydrocarbon has {c} carbon atoms and {h} hydrogen atoms in each molecule. Calculate its relative formula mass. (Relative atomic masses: C = 12, H = 1)",
+            "alt": "Calculate the relative formula mass of an alkane.",
+            "question": "An alkane has the general formula CₙH₂ₙ₊₂. Calculate the relative formula mass of the alkane with {c} carbon atoms in each molecule. (Relative atomic masses: C = 12, H = 1)",
             "variables": [
               {
                 "id": "c",
                 "min": 1,
                 "max": 8,
                 "step": 1
-              },
-              {
-                "id": "h",
-                "min": 4,
-                "max": 18,
-                "step": 2
               }
             ],
             "answer": {
-              "formula": "12 * c + 1 * h",
+              "formula": "12 * c + 1 * (2 * c + 2)",
               "decimals": 0
             },
             "working": [
               "Carbon: {c} × 12",
-              "Hydrogen: {h} × 1",
-              "Mr = (12 × {c}) + (1 × {h}) = {answer}"
+              "Hydrogen: (2 × {c}) + 2 atoms, each with Ar 1",
+              "Mr = (12 × {c}) + (1 × ((2 × {c}) + 2)) = {answer}"
             ]
           }
         },
@@ -153,12 +151,12 @@
               {
                 "id": "n",
                 "min": 1,
-                "max": 4,
+                "max": 3,
                 "step": 1
               },
               {
                 "id": "mr",
-                "min": 80,
+                "min": 100,
                 "max": 200,
                 "step": 10
               }
@@ -301,8 +299,8 @@
           "right": "The bracket applies to O and H. Use correct number of atoms: (1 × 40.1) + [(16.0 + 1.0) × 2] = 74.1."
         },
         {
-          "wrong": "Percentage of iron in rust = 55.8 ÷ 213.6 × 100.",
-          "right": "Rust contains two iron atoms in the formula used. Use (2 × 55.8) ÷ 213.6 × 100 = 52.25 %, to 2 decimal places."
+          "wrong": "Percentage of iron in rust = 55.8 ÷ 213.6 × 100, using one iron atom.",
+          "right": "The mass of iron is 2 × 55.8, not 55.8. Use (2 × 55.8) ÷ 213.6 × 100 = 52.25 %, to 2 decimal places."
         },
         {
           "wrong": "Mr of C₆H₈O₇ = 192 g.",
@@ -337,6 +335,8 @@
       "546119c2-1e43-452e-84fa-3d26f380502c",
       "7e437f33-ec11-4789-95a3-78640946e73c",
       "a6118302-5fbf-4332-b9fa-218a79f068f3"
-    ]
+    ],
+    "checked_by": "sonnet-science-check",
+    "checked_at": "2026-10-01"
   }
 }

@@ -262,11 +262,29 @@
           "Cells become flaccid / lose turgor (pressure), or become plasmolysed."
         ],
         "tip": "Follow the chain in order: transmission, xylem blocked, less water, cells lose turgor."
-      }
+      },
+      "extra": [
+        {
+          "heading": "Detecting plant disease early",
+          "blocks": [
+            { "type": "paragraph", "text": "Spread is easier to stop if the disease is found early." },
+            {
+              "type": "list",
+              "items": [
+                "Testing for the pathogen's **antigens** shows which pathogen is present.",
+                "**DNA testing** identifies the pathogen from its genetic material.",
+                "Infected plants can then be removed before the pathogen spreads."
+              ]
+            }
+          ]
+        }
+      ]
     }
   },
   "meta": {
     "status": "draft",
+    "checked_by": "sonnet-science-check",
+    "checked_at": "2026-10-01",
     "written_by": "sonnet-5-5",
     "written_at": "2026-10-01",
     "spec_point_ids": [

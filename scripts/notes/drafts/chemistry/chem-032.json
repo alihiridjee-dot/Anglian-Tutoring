@@ -172,7 +172,7 @@
           "type": "list",
           "items": [
             "Multiply Mr by the balancing number: 2 × Mr NH₃ = 34 in N₂ + 3H₂ → 2NH₃.",
-            "Do not forget the balancing numbers. Using 40 × 1.35 = 54 for 2Mg → 2MgO loses marks.",
+            "Do not leave out the ratio from the equation. Using 40 × 1.35 = 54 for 2Mg → 2MgO ignores the Ar of magnesium and loses marks.",
             "If the question gives masses in tonnes or kilograms, the ratio method still works. Keep the same unit throughout.",
             "Show each step. Marks are given for the Mr, the moles and the final mass."
           ]
@@ -224,12 +224,16 @@
           "right": "The ratio is the wrong way round. H₂ : NH₃ is 3 : 2, so moles of H₂ = 1.47 × 3/2 = 2.205."
         },
         {
-          "wrong": "Mass of chlorine = 0.00133 × 35.5.",
-          "right": "Chlorine is Cl₂, so the Mr is 71. Mass = 0.00133 × 71."
+          "wrong": "Mass of iron = 0.005 × 56 = 0.280 g, with no ratio from the equation.",
+          "right": "In 3Mg + 2FeCl₃ → 2Fe + 3MgCl₂ the ratio Mg : Fe is 3 : 2. Moles of Fe = 2/3 × 0.005 = 0.00333, so the mass is 0.187 g (187 mg). Leaving out the ratio loses marks."
         },
         {
           "wrong": "Answer 0.0946 when the question asks for milligrams.",
           "right": "The last mark is for the conversion: 0.0946 g = 94.6 mg."
+        },
+        {
+          "wrong": "Mr of the equation used: (3 × 24) + (2 × 56) = 184.",
+          "right": "Do not add up the masses of different substances. Work out moles of one substance, then use the ratio. An answer of 184 scores 0."
         }
       ],
       "worked_example": {
@@ -265,11 +269,11 @@
         },
         {
           "wrong": "Mass of MgO = 40 × 1.35 = 54 g.",
-          "right": "This uses Mr as a mass for 1 g. Use 40/24 × 1.35 = 2.25 g, or 80/48 × 1.35 if the equation is written 2Mg → 2MgO."
+          "right": "40 is the mass of 1 mole of MgO, but it is made from 24 g of magnesium, not 1 g. Use 40/24 × 1.35 = 2.25 g. The answer 54 scores 2 marks."
         },
         {
           "wrong": "Maximum mass of iron = 84 tonnes.",
-          "right": "The equation Fe₂O₃ gives 2 iron atoms, so the iron in 160 tonnes is 112, not 56. The answer 84 scores only 2 marks."
+          "right": "84 comes from using 56 for the iron: 240 ÷ 160 × 56. Fe₂O₃ contains 2 iron atoms, so use 112. The answer 84 scores only 2 marks."
         }
       ],
       "worked_example": {
@@ -307,8 +311,8 @@
           "right": "100 and 56 are not allowed. Use the Ar values given: 100.1 and 56.1."
         },
         {
-          "wrong": "Mass of SO₂ = 3 × 64.1 using the moles of H₂S without checking the ratio.",
-          "right": "Check the ratio first. Here 2H₂S gives 2SO₂, so the ratio is 1 : 1 and the moles are the same."
+          "wrong": "Moles of lead nitrate = 0.1 when the question asks for 2 significant figures.",
+          "right": "Give 0.10. The answer 0.1 is not to 2 significant figures and loses the last mark."
         }
       ],
       "worked_example": {
@@ -339,6 +343,8 @@
       "b605738f-f901-4356-a919-b1c5013e9414",
       "364c7b71-1974-44b9-93ad-c785cdd49cc6",
       "d027be33-df15-4f83-9346-44fca774f48e"
-    ]
+    ],
+    "checked_by": "sonnet-science-check",
+    "checked_at": "2026-10-01"
   }
 }

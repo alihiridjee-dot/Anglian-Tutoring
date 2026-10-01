@@ -114,7 +114,7 @@
     {
       "heading": "Ionic equations",
       "blocks": [
-        { "type": "paragraph", "text": "An ionic equation shows only the ions or particles that change. It leaves out the ions that are the same on both sides." },
+        { "type": "paragraph", "text": "(Higher tier) An ionic equation shows only the ions or particles that change. It leaves out the ions that are the same on both sides." },
         {
           "type": "definitions",
           "items": [
@@ -183,7 +183,7 @@
       "marks": 2
     },
     {
-      "q": "Write the ionic equation for iron(II) ions reacting with hydroxide ions to form the precipitate iron(II) hydroxide, Fe(OH)₂.",
+      "q": "(Higher tier) Write the ionic equation for iron(II) ions reacting with hydroxide ions to form the precipitate iron(II) hydroxide, Fe(OH)₂.",
       "a": "Fe²⁺ + 2OH⁻ → Fe(OH)₂",
       "marks": 3
     }
@@ -208,8 +208,8 @@
           "right": "The question asks for state symbols. Write Mg(s) + Zn²⁺(aq) → Mg²⁺(aq) + Zn(s). A mark is lost if the symbols are missing or incorrect."
         },
         {
-          "wrong": "The mass of the flask falls because the reaction destroys some atoms.",
-          "right": "Atoms are not destroyed. A gas in the equation, such as SO₂(g), escapes from the flask."
+          "wrong": "Ammonium nitrate solution has the state symbol (l).",
+          "right": "A solution in water is aqueous. The state symbol is (aq)."
         }
       ],
       "worked_example": {
@@ -240,8 +240,8 @@
           "right": "These names are rejected. Write ammonia + sulfuric acid → ammonium sulfate."
         },
         {
-          "wrong": "A balanced equation written with no working scores full marks.",
-          "right": "In calculation questions, an equation alone gains no marks. Show the working that leads to it."
+          "wrong": "2NH₃ + H₂SO₄ → NH₄SO₄, balanced with the wrong formula for ammonium sulfate.",
+          "right": "The balancing mark depends on the formula of the product being correct. Ammonium sulfate is (NH₄)₂SO₄, so 2NH₃ + H₂SO₄ → (NH₄)₂SO₄."
         },
         {
           "wrong": "Fe²⁺ + OH⁻ → Fe(OH)₂",
@@ -316,6 +316,8 @@
       "7a32094a-265b-4ee5-a920-562bcfb9b6ae",
       "bfdf4f0a-b8ca-4ffa-a332-2cfa4595811d",
       "4561bd97-5b01-41c2-9460-68559a70ab41"
-    ]
+    ],
+    "checked_by": "sonnet-science-check",
+    "checked_at": "2026-10-01"
   }
 }
