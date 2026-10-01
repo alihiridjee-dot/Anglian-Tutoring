@@ -39,7 +39,7 @@
           "type": "list",
           "items": [
             "Convert times to seconds first. For example, 180 ms = 0.18 s.",
-            "If an object reverses direction, add the two velocities to find the change. A ball arriving at 8 m/s and leaving at 15 m/s the other way has Δv = 23.2 m/s."
+            "If an object reverses direction, add the two velocities to find the change. A ball arriving at 8.2 m/s and leaving at 15 m/s the other way has Δv = 8.2 + 15 = 23.2 m/s."
           ]
         },
         {
@@ -318,8 +318,8 @@
           "right": "A much smaller time means a greater acceleration, so by F = ma there is a greater force on the occupants. This could lead to injury."
         },
         {
-          "wrong": "The momentum of the van increases in a crash, which injures the people.",
-          "right": "The momentum of the van falls to zero in a much shorter time. The rate of change of momentum is greater, so the force is greater."
+          "wrong": "The driver says the new braking system is ten times safer because the stopping time is ten times shorter.",
+          "right": "A ten times shorter stopping time means a force ten times greater on the people in the car (F = m a). This can lead to injury, so it is not ten times safer."
         }
       ],
       "worked_example": {
@@ -355,6 +355,8 @@
       "aefb9da9-2b84-4ba4-9d86-84f5ad2239e5",
       "bcbd01bd-c753-4f91-acc2-3cf6cb45a144",
       "f7db3661-6211-4089-a29c-d130a6df98bc"
-    ]
+    ],
+    "checked_by": "sonnet-science-check",
+    "checked_at": "2026-10-01"
   }
 }

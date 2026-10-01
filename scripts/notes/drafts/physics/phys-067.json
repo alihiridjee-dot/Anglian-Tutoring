@@ -16,6 +16,10 @@
           "type": "definitions",
           "items": [
             {
+              "term": "Amplitude",
+              "meaning": "The maximum displacement of a point on the wave from its undisturbed position."
+            },
+            {
               "term": "Wavelength",
               "meaning": "The distance from a point on one wave to the same point on the next wave."
             },
@@ -371,7 +375,7 @@
       "worked_example": {
         "exemplar_id": "7500efce-d100-4697-b74f-e6b630da3b89",
         "source": "AQA jun 2021, Paper 2 (H), Q06.3",
-        "question": "A teacher wants to determine the speed of water waves in a ripple tank. The teacher does not measure the wavelength of the wave.\n\nExplain how the teacher could determine the speed of the wave.",
+        "question": "The teacher wanted to determine the speed of water waves in a ripple tank. The teacher did not measure the wavelength of the wave.\n\nExplain how the teacher could determine the speed of the wave.",
         "marks": 3,
         "answer_points": [
           "Measure the distance travelled by a wave using a metre rule (or measure the length of the ripple tank).",
@@ -436,6 +440,8 @@
     "exemplar_ids": [
       "7500efce-d100-4697-b74f-e6b630da3b89",
       "97da703a-2286-46b0-aeeb-893397417012"
-    ]
+    ],
+    "checked_by": "sonnet-science-check",
+    "checked_at": "2026-10-01"
   }
 }

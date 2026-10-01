@@ -3,14 +3,14 @@
   "concept_id": "phys-068",
   "subject": "physics",
   "title": "Reflection of waves",
-  "key_idea": "A wave at a boundary can be reflected, absorbed or transmitted. Reflection obeys one law: the angle of incidence equals the angle of reflection, measured from the normal. Smooth surfaces give a clear image and rough surfaces scatter the rays.",
+  "key_idea": "(Separate science) A wave at a boundary can be reflected, absorbed or transmitted. Reflection obeys one law: the angle of incidence equals the angle of reflection, measured from the normal. Smooth surfaces give a clear image and rough surfaces scatter the rays.",
   "sections": [
     {
       "heading": "What happens at a boundary",
       "blocks": [
         {
           "type": "paragraph",
-          "text": "A boundary is where one material meets another, such as air and glass. A wave arriving there can do three things, often all at once."
+          "text": "(Separate science) A boundary is where one material meets another, such as air and glass. A wave arriving there can do three things, often all at once."
         },
         {
           "type": "definitions",
@@ -70,7 +70,7 @@
       "blocks": [
         {
           "type": "paragraph",
-          "text": "A ray is a straight line showing the direction a wave travels. The angles are measured from the normal, not from the surface."
+          "text": "(Separate science) A ray is a straight line showing the direction a wave travels. The angles are measured from the normal, not from the surface."
         },
         {
           "type": "definitions",
@@ -172,7 +172,7 @@
       "blocks": [
         {
           "type": "paragraph",
-          "text": "The surface decides what the reflected rays look like. Both kinds of reflection obey the law of reflection for every single ray."
+          "text": "(Separate science) The surface decides what the reflected rays look like. Both kinds of reflection obey the law of reflection for every single ray."
         },
         {
           "type": "definitions",
@@ -434,6 +434,8 @@
       "6962f64d-d012-494a-9295-032ac35266f5",
       "ca1c0615-90b3-449a-bf95-7f427ed4bab1",
       "0d6f07bd-ee41-4343-8835-644fd8013e24"
-    ]
+    ],
+    "checked_by": "sonnet-science-check",
+    "checked_at": "2026-10-01"
   }
 }

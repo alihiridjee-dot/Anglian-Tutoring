@@ -174,15 +174,15 @@
             "variables": [
               {
                 "id": "f",
-                "min": 1,
-                "max": 5,
+                "min": 2,
+                "max": 6,
                 "step": 1
               },
               {
                 "id": "l",
-                "min": 0.05,
-                "max": 0.25,
-                "step": 0.05
+                "min": 0.02,
+                "max": 0.06,
+                "step": 0.01
               }
             ],
             "answer": {
@@ -211,10 +211,10 @@
                 "id": "f",
                 "label": "Frequency",
                 "unit": "Hz",
-                "min": 2,
+                "min": 5,
                 "max": 10,
                 "step": 1,
-                "value": 4
+                "value": 5
               },
               {
                 "id": "A",
@@ -237,7 +237,7 @@
                 "label": "Period",
                 "unit": "s",
                 "formula": "1 / f",
-                "decimals": 2
+                "decimals": 3
               }
             ],
             "scene": {
@@ -307,7 +307,7 @@
         },
         {
           "type": "paragraph",
-          "text": "(Separate science) When a sound wave passes from one medium to another, its speed, frequency and wavelength change in a way that v = f λ links. For example, if the speed increases and the frequency stays the same, the wavelength increases."
+          "text": "(Separate science) When a sound wave passes into another medium, its frequency stays the same. Its speed and wavelength change together, because v = f λ. If the speed increases, the wavelength increases."
         },
         {
           "type": "key-points",
@@ -468,8 +468,8 @@
           "right": "A correct substitution into the given equation only scores 1 mark. Rearrange to λ = 330 ÷ 440 and give 0.75 m."
         },
         {
-          "wrong": "λ = 500 ÷ 330 = 1.5 m.",
-          "right": "Divide the wave speed by the frequency: 330 ÷ 500 = 0.66 m."
+          "wrong": "The mean time is 6.575 ms.",
+          "right": "Give the mean to 2 significant figures: 6.6 ms. An unrounded 6.575 ms scores 1 mark only."
         }
       ],
       "worked_example": {
@@ -516,6 +516,8 @@
       "c65749e7-9afa-47da-80d1-f841abd12cfd",
       "c6f5cd70-1a51-496d-ac46-52bb1cbdc5eb",
       "d969ef8f-a29a-414e-9206-ef6ac6cf6518"
-    ]
+    ],
+    "checked_by": "sonnet-science-check",
+    "checked_at": "2026-10-01"
   }
 }

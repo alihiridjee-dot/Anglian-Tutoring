@@ -274,8 +274,8 @@
           "right": "Two more marks need the wavefront: the edge entering the glass slows first, while the part still in the air continues at the higher speed."
         },
         {
-          "wrong": "The wavefronts do not refract because the wave does not slow down.",
-          "right": "Wavefronts parallel to the boundary do not turn because every point enters the new material, and slows down, at the same time."
+          "wrong": "The wavefronts do not refract because they are parallel to the boundary.",
+          "right": "Say why: every point on the wavefront enters the new material at the same time, so every point slows down at the same time."
         }
       ],
       "worked_example": {
@@ -296,7 +296,7 @@
           "blocks": [
             {
               "type": "paragraph",
-              "text": "Using wavefront diagrams to explain refraction in terms of a change of speed is Higher tier content in this course."
+              "text": "Explaining refraction with wavefront diagrams, and how absorption, transmission and refraction vary with wavelength, are Higher tier content in this course."
             }
           ]
         }
@@ -338,7 +338,27 @@
           "So they refract by different amounts."
         ],
         "tip": "Frequencies is allowed for wavelengths, and bend or change direction is allowed for refract."
-      }
+      },
+      "extra": [
+        {
+          "heading": "Refraction in a rectangular glass block",
+          "blocks": [
+            {
+              "type": "paragraph",
+              "text": "A ray passes through a glass block with parallel sides. It is refracted where it enters and again where it leaves."
+            },
+            {
+              "type": "list",
+              "items": [
+                "Entering the glass, the ray slows down and bends towards the normal.",
+                "Leaving the glass, the ray speeds up and bends away from the normal.",
+                "The ray that leaves is parallel to the ray that entered, but shifted sideways.",
+                "Measure every angle from the normal, not from the surface of the block."
+              ]
+            }
+          ]
+        }
+      ]
     },
     "ocr": {
       "spec_codes": [
@@ -356,7 +376,7 @@
       "mistakes": [
         {
           "wrong": "Light refracts because glass is less optically dense than air.",
-          "right": "Glass is more optically dense than air. A different density or refractive index is allowed."
+          "right": "Glass is more optically dense than air, so the speed of light is lower in glass."
         },
         {
           "wrong": "Light refracts because its speed is higher in the glass.",
@@ -376,8 +396,36 @@
           "Glass is more (optically) dense than air.",
           "The speed of light is lower in glass."
         ],
-        "tip": "Saying that the light slows down, or that glass has a different density or refractive index, is allowed. Ideas about wavelength and frequency are ignored."
-      }
+        "tip": "Saying that the light slows down is also allowed. Ideas about wavelength and frequency are ignored."
+      },
+      "extra": [
+        {
+          "heading": "Drawing a refraction ray diagram",
+          "blocks": [
+            {
+              "type": "steps",
+              "items": [
+                {
+                  "lead": "Boundary.",
+                  "text": "Draw the boundary between the two materials with a ruler."
+                },
+                {
+                  "lead": "Normal.",
+                  "text": "Draw the normal at 90° to the boundary, where the ray hits."
+                },
+                {
+                  "lead": "Incident ray.",
+                  "text": "Draw the ray arriving at the boundary, with an arrow."
+                },
+                {
+                  "lead": "Refracted ray.",
+                  "text": "Going into glass, bend it towards the normal. Going out of glass, bend it away from the normal."
+                }
+              ]
+            }
+          ]
+        }
+      ]
     }
   },
   "meta": {
@@ -398,6 +446,8 @@
       "fe15ffe9-4d6d-4cb4-85fd-07a62dd392bb",
       "12a6430c-cf01-40b7-830f-90e55bcb5699",
       "1d8efa40-bf6a-48ed-a9ba-11b2d1b4a130"
-    ]
+    ],
+    "checked_by": "sonnet-science-check",
+    "checked_at": "2026-10-01"
   }
 }

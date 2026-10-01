@@ -100,7 +100,8 @@
           "items": [
             "The wave has peaks and troughs.",
             "Ripples on a water surface are a transverse wave. A ripple tank is used to model transverse waves.",
-            "Electromagnetic waves, such as light and radio waves, are transverse."
+            "Electromagnetic waves, such as light and radio waves, are transverse.",
+            "Seismic S-waves are transverse."
           ]
         },
         {
@@ -112,7 +113,7 @@
           "items": [
             "The wave has compressions and rarefactions.",
             "Sound waves in air are longitudinal. The air particles vibrate parallel to the direction the sound travels.",
-            "Some seismic waves are also longitudinal."
+            "Seismic P-waves are longitudinal."
           ]
         },
         {
@@ -142,8 +143,8 @@
               {
                 "feature": "Examples",
                 "values": [
-                  "Ripples on water, light, radio waves",
-                  "Sound waves in air"
+                  "Ripples on water, light, radio waves, seismic S-waves",
+                  "Sound waves in air, seismic P-waves"
                 ]
               }
             ]
@@ -248,7 +249,7 @@
       "exam_phrases": [
         "the oscillations / vibrations are parallel to the direction of energy transfer",
         "the oscillations / vibrations are perpendicular to the direction of energy transfer",
-        "allow direction of wave travel for direction of energy transfer",
+        "sound waves are longitudinal whereas visible light waves are transverse",
         "transverse waves have peaks and troughs",
         "longitudinal waves have compressions and rarefactions",
         "compression and rarefaction"
@@ -303,8 +304,8 @@
           "right": "The cork moves up and down, at right angles to the direction of travel of the wave. It is not in the direction of the wave."
         },
         {
-          "wrong": "The air particles travel from the loudspeaker to the ear.",
-          "right": "The air particles vibrate backwards and forwards, parallel to the direction of travel, about fixed positions."
+          "wrong": "The air particles move along with the sound wave.",
+          "right": "The air particles vibrate backwards and forwards about fixed positions, parallel to the direction of travel."
         }
       ],
       "worked_example": {
@@ -389,6 +390,8 @@
       "e4a81b44-ff4c-4b9b-91b3-25356bd95da1",
       "f0d22910-df10-4e83-aef5-7c46a5dc43e9",
       "f43403ec-ac59-4fa2-af39-d764c72c8717"
-    ]
+    ],
+    "checked_by": "sonnet-science-check",
+    "checked_at": "2026-10-01"
   }
 }
