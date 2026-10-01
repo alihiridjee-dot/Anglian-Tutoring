@@ -1846,6 +1846,7 @@ export type Database = {
         Args: { _endpoint: string; _limit: number; _window: string };
         Returns: boolean;
       };
+      claim_parent_role: { Args: never; Returns: Json };
       curriculum_coverage: {
         Args: never;
         Returns: {

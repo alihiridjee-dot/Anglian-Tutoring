@@ -151,6 +151,41 @@ verified, in `/onboarding/*`:
 These routes sit **outside** `/_authenticated` on purpose: that guard redirects
 unpaid students _to_ them, so nesting them under it would loop.
 
+### Google and Microsoft
+
+The sign-in page offers "Log in / Sign up with Google" and "…with Microsoft"
+(Supabase's `azure` provider) under the email form. A button only shows when
+its provider is switched on in Supabase Auth, so turning a provider off hides it.
+
+The provider sends back its own profile, never our form's fields, so:
+
+- `handle_new_user` takes the display name from the provider's `full_name` /
+  `name`, then the email prefix.
+- Every SSO account is created as a **student**. A visitor who picked "Parent"
+  first has that choice, their child's invite code and any pricing-page plan
+  remembered in the browser (`src/lib/auth/ssoIntent.ts`). On return to `/auth`
+  the app calls `claim_parent_role()`, then `link_child_by_code()`.
+  `claim_parent_role()` only acts on an SSO account under 30 minutes old that
+  has done nothing as a student, and only ever moves student → parent.
+- No email code step: the provider has verified the address.
+
+Setup, once per provider:
+
+1. **Google:** Google Cloud Console → APIs & Services → Credentials → OAuth
+   client ID (Web). Authorised redirect URI:
+   `https://peohauhwquuvghrpmotf.supabase.co/auth/v1/callback`. Set the consent
+   screen's app name and logo.
+2. **Microsoft:** portal.azure.com → Microsoft Entra ID → App registrations →
+   New registration, "any organisational directory and personal Microsoft
+   accounts", Web redirect URI as above. Create a client secret and note its
+   expiry date. Add the `xms_edov` and `email` optional claims (Manifest →
+   `optionalClaims`) so Supabase can tell a verified email from an unverified one.
+3. **Supabase:** Authentication → Sign In / Providers → enable each, pasting the
+   client ID and secret. Authentication → URL Configuration → Redirect URLs must
+   allow `/auth` on every origin (production and `http://localhost:*/**`), or
+   the provider sends the visitor to the Site URL and their choices aren't
+   applied.
+
 ## The paywall
 
 `/_authenticated` asks three questions in order — session, then (students only)
