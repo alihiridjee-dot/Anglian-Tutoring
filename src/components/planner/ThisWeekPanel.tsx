@@ -13,6 +13,7 @@ import {
   ReturningLane,
   RevisionLane,
   WeekProgressCard,
+  TutorLane,
   YoursLane,
 } from "./ThisWeekLanes";
 
@@ -56,6 +57,7 @@ export function ThisWeekPanel({
     covered,
     coreThisWeek,
     focus,
+    tutor,
     yours,
     extraCore,
     returning,
@@ -127,6 +129,7 @@ export function ThisWeekPanel({
         <RevisionLane focus={focus} focusPointCount={focusPointCount} row={row} />
       </div>
 
+      {tutor.length > 0 && <TutorLane tutor={tutor} row={row} />}
       {yours.length > 0 && <YoursLane yours={yours} row={row} />}
 
       {playing && embed && (
