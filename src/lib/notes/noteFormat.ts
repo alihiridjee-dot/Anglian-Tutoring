@@ -13,6 +13,8 @@
  * Inline text supports **bold** and nothing else.
  */
 
+import { evaluate, parseFormula, variablesOf } from "./formula";
+
 export const NOTE_FORMAT_VERSION = 1;
 
 export const NOTE_BOARDS = ["aqa", "edexcel", "ocr"] as const;
@@ -60,7 +62,38 @@ export interface CompareDiagram {
   rows: { feature: string; values: string[] }[];
 }
 
-export type NoteDiagram = LineGraphDiagram | FlowDiagram | CompareDiagram;
+/**
+ * Pick one option and see what happens, e.g. a salt solution and its
+ * electrolysis products, or two parents and their offspring.
+ */
+export interface PredictorDiagram {
+  kind: "predictor";
+  alt: string;
+  /** "Pick a salt solution" */
+  prompt: string;
+  /** The rows every result has, e.g. ["Negative electrode", "Positive electrode", "What you see"]. */
+  result_labels: string[];
+  options: { label: string; results: string[]; explanation?: string }[];
+}
+
+/** A number input: a slider between min and max, or a set of named choices. */
+export type SliderInput =
+  | { id: string; label: string; unit?: string; min: number; max: number; step: number; value: number }
+  | { id: string; label: string; choices: { label: string; value: number }[] };
+
+/**
+ * Move a slider and watch the numbers change, e.g. speed against stopping
+ * distance. Formulas use the inputs' ids and + - * / ^ ( ) sqrt abs min max.
+ * Outputs marked `bar` are drawn as one stacked bar, in order.
+ */
+export interface SliderDiagram {
+  kind: "slider";
+  alt: string;
+  inputs: SliderInput[];
+  outputs: { label: string; unit?: string; formula: string; decimals?: number; bar?: boolean }[];
+}
+
+export type NoteDiagram = LineGraphDiagram | FlowDiagram | CompareDiagram | PredictorDiagram | SliderDiagram;
 
 export interface NoteCheck {
   q: string;
@@ -183,7 +216,52 @@ function checkDiagram(d: NoteDiagram, at: string, errs: string[]) {
     if (!isStrArr(d.items, 2) || d.items.length > 4) errs.push(`${at}: compare needs 2–4 items`);
     else if (!Array.isArray(d.rows) || !d.rows.every((r) => isStr(r.feature) && Array.isArray(r.values) && r.values.length === d.items.length))
       errs.push(`${at}: every compare row needs ${d.items.length} values`);
+  } else if (d?.kind === "predictor") {
+    if (!isStr(d.prompt)) errs.push(`${at}: predictor needs a prompt`);
+    if (!isStrArr(d.result_labels) || d.result_labels.length > 5) errs.push(`${at}: predictor needs 1–5 result_labels`);
+    else if (!Array.isArray(d.options) || d.options.length < 2 || d.options.length > 10) errs.push(`${at}: predictor needs 2–10 options`);
+    else
+      for (const o of d.options)
+        if (!isStr(o?.label) || !Array.isArray(o.results) || o.results.length !== d.result_labels.length || !o.results.every(isStr))
+          errs.push(`${at}: option "${o?.label}" needs a label and ${d.result_labels.length} results`);
+  } else if (d?.kind === "slider") {
+    checkSlider(d, at, errs);
   } else errs.push(`${at}: unknown diagram kind`);
+}
+
+function checkSlider(d: SliderDiagram, at: string, errs: string[]) {
+  if (!Array.isArray(d.inputs) || d.inputs.length < 1 || d.inputs.length > 4) { errs.push(`${at}: slider needs 1–4 inputs`); return; }
+  if (!Array.isArray(d.outputs) || d.outputs.length < 1 || d.outputs.length > 4) { errs.push(`${at}: slider needs 1–4 outputs`); return; }
+  const ids = new Set<string>();
+  for (const i of d.inputs) {
+    if (!/^[A-Za-z_][A-Za-z0-9_]*$/.test(i?.id ?? "") || !isStr(i.label)) { errs.push(`${at}: every input needs an id (letters, digits, _) and a label`); continue; }
+    ids.add(i.id);
+    if ("choices" in i) {
+      if (!Array.isArray(i.choices) || i.choices.length < 2 || !i.choices.every((c) => isStr(c.label) && Number.isFinite(c.value)))
+        errs.push(`${at}: input ${i.id} needs 2+ choices with label and value`);
+      else if (new Set(i.choices.map((c) => c.value)).size !== i.choices.length)
+        errs.push(`${at}: input ${i.id} has two choices with the same value`);
+    } else if (!(i.max > i.min) || !(i.step > 0) || !(i.value >= i.min && i.value <= i.max)) {
+      errs.push(`${at}: input ${i.id} needs min < max, step > 0 and min ≤ value ≤ max`);
+    }
+  }
+  // Every formula must parse, use only the inputs, and give a finite number at both ends of every slider.
+  const corners = [
+    Object.fromEntries(d.inputs.map((i) => [i.id, "choices" in i ? i.choices[0]?.value : i.min])),
+    Object.fromEntries(d.inputs.map((i) => [i.id, "choices" in i ? i.choices[i.choices.length - 1]?.value : i.max])),
+  ];
+  for (const o of d.outputs) {
+    if (!isStr(o?.label) || !isStr(o.formula)) { errs.push(`${at}: every output needs a label and a formula`); continue; }
+    try {
+      const tree = parseFormula(o.formula);
+      const unknown = [...variablesOf(tree)].filter((v) => !ids.has(v));
+      if (unknown.length) errs.push(`${at}: output "${o.label}" uses ${unknown.join(", ")}, which are not inputs`);
+      else if (corners.some((vars) => !Number.isFinite(evaluate(tree, vars as Record<string, number>))))
+        errs.push(`${at}: output "${o.label}" is not a finite number at the ends of its sliders`);
+    } catch (e) {
+      errs.push(`${at}: output "${o.label}" formula: ${(e as Error).message}`);
+    }
+  }
 }
 
 export function validateNote(n: unknown): string[] {

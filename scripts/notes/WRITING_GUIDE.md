@@ -49,7 +49,19 @@ missed the lesson could learn the topic from this note alone.
      zero sits on the 0–1 scale. Up to 5 series.
    - `flow` for a process or a cycle (`loop: true`), 2 to 7 short boxes.
    - `compare` for two to four things set side by side.
-   Leave it out if no diagram earns its place. Never more than two.
+   - `predictor` (interactive): "pick one and see what happens". Use it when the
+     topic is about predicting an outcome from a choice: electrolysis products,
+     flame tests, displacement, genetic crosses, which test identifies which ion.
+     2 to 10 options, each with the same `result_labels` rows.
+   - `slider` (interactive): "move a slider and watch it change". Use it when a
+     GCSE equation links the quantities: stopping distance, rate, magnification,
+     energy, power, density, SA:V. Inputs are sliders (`min`/`max`/`step`/`value`)
+     or named `choices`; each output has a `formula` using only the input ids and
+     + - * / ^ ( ) sqrt abs min max. Mark outputs `bar: true` to stack them in a bar.
+     Values must be realistic for GCSE and the formula must be the real equation.
+   Aim for one interactive (predictor or slider) wherever the topic genuinely
+   fits one; don't force it. Leave diagrams out if none earns its place. Never
+   more than two diagrams in a note.
 4. **checks** — three short questions a student can answer from the note, with
    answers written the way a mark scheme would credit them.
 5. **boards** — one layer for every board that has a spec point in the concept:
@@ -62,7 +74,11 @@ missed the lesson could learn the topic from this note alone.
    - `worked_example`: one question from that board's questions in the pack,
      chosen to show the core idea (prefer 3 to 6 marks, no image needed). Copy the
      question accurately, give `answer_points` that follow its mark scheme, and
-     cite `exemplar_id` and `source` exactly.
+     cite `exemplar_id` and `source` exactly. `source` is kept for our records
+     and is never shown to students, so don't mention the paper, year or board
+     anywhere a student sees it (question, answer points, tip). If the question
+     says "Figure 3" or "Table 2", either include what it shows in the question
+     text or choose another question.
    - `extra`: only for content this board alone requires.
 6. **meta** — `status: "draft"`, `written_by` (the model or the person),
    `written_at` (ISO date), `spec_point_ids` (the primary ids from the pack) and

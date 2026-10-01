@@ -1,5 +1,6 @@
-import { useState, type ReactNode } from "react";
-import { BookOpen, Eye, ArrowRight, RotateCcw } from "lucide-react";
+import { useMemo, useState, type ReactNode } from "react";
+import { evaluate, parseFormula } from "@/lib/notes/formula";
+import { BookOpen, Eye, EyeOff, ArrowRight, RotateCcw } from "lucide-react";
 import { PageHeader } from "@/components/Shared";
 import { SUBJECT_LABEL, SUBJECT_TINT } from "@/lib/curriculum/subjectTheme";
 import {
@@ -11,6 +12,8 @@ import {
   type NoteBlock,
   type NoteBoard,
   type NoteDiagram,
+  type PredictorDiagram,
+  type SliderDiagram,
 } from "@/lib/notes/noteFormat";
 
 const BOARD_LABEL: Record<NoteBoard, string> = { aqa: "AQA", edexcel: "Edexcel", ocr: "OCR" };
@@ -38,13 +41,15 @@ export function Reveal({ q, a, marks }: { q: string; a: ReactNode; marks?: numbe
           </span>
         ) : null}
       </div>
-      {open ? (
-        <div className="mt-3">{a}</div>
-      ) : (
-        <button onClick={() => setOpen(true)} className="btn-premium mt-3 inline-flex items-center gap-2 px-3 py-1.5 text-sm">
-          <Eye className="size-4" aria-hidden /> Show answer
-        </button>
-      )}
+      {open ? <div className="mt-3">{a}</div> : null}
+      <button
+        onClick={() => setOpen(!open)}
+        aria-expanded={open}
+        className="btn-premium mt-3 inline-flex items-center gap-2 px-3 py-1.5 text-sm"
+      >
+        {open ? <EyeOff className="size-4" aria-hidden /> : <Eye className="size-4" aria-hidden />}
+        {open ? "Hide answer" : "Show answer"}
+      </button>
     </div>
   );
 }
@@ -203,9 +208,130 @@ function Compare({ d }: { d: CompareDiagram }) {
   return <Table columns={["", ...d.items]} rows={d.rows.map((r) => [r.feature, ...r.values])} />;
 }
 
+function Predictor({ d }: { d: PredictorDiagram }) {
+  const [i, setI] = useState(0);
+  const o = d.options[i];
+  return (
+    <figure aria-label={d.alt} className="rounded-2xl border-[1.5px] border-[color-mix(in_oklab,var(--tint)_30%,transparent)] p-4 sm:p-5">
+      <p className="font-display text-base font-extrabold">{d.prompt}</p>
+      <div className="mt-3 flex flex-wrap gap-2" role="radiogroup" aria-label={d.prompt}>
+        {d.options.map((opt, n) => (
+          <button
+            key={opt.label}
+            role="radio"
+            aria-checked={n === i}
+            onClick={() => setI(n)}
+            className={`chip ${n === i ? "chip-solid" : ""}`}
+          >
+            {opt.label}
+          </button>
+        ))}
+      </div>
+      <dl className="mt-4 divide-y divide-border rounded-xl bg-[color-mix(in_oklab,var(--tint)_7%,var(--card))] px-4" aria-live="polite">
+        {d.result_labels.map((label, n) => (
+          <div key={label} className="py-3 sm:flex sm:gap-4">
+            <dt className="shrink-0 font-bold sm:w-44">{label}</dt>
+            <dd><Inline text={o.results[n]} /></dd>
+          </div>
+        ))}
+      </dl>
+      {o.explanation ? <p className="mt-3"><Inline text={o.explanation} /></p> : null}
+    </figure>
+  );
+}
+
+function fmt(n: number, decimals = 1) {
+  return Number.isFinite(n) ? n.toLocaleString("en-GB", { maximumFractionDigits: decimals, minimumFractionDigits: decimals }) : "–";
+}
+
+function Slider({ d }: { d: SliderDiagram }) {
+  const [vals, setVals] = useState<Record<string, number>>(() =>
+    Object.fromEntries(d.inputs.map((i) => [i.id, "choices" in i ? i.choices[0].value : i.value])),
+  );
+  const trees = useMemo(() => d.outputs.map((o) => parseFormula(o.formula)), [d.outputs]);
+  const results = trees.map((t) => {
+    try { return evaluate(t, vals); } catch { return NaN; }
+  });
+  const barIdx = d.outputs.map((o, n) => (o.bar ? n : -1)).filter((n) => n >= 0);
+  // Scale the bar to its largest possible size, so it visibly grows and shrinks.
+  const maxVals = Object.fromEntries(d.inputs.map((i) => [i.id, "choices" in i ? Math.max(...i.choices.map((c) => c.value)) : i.max]));
+  const barTotal = (v: Record<string, number>) => barIdx.reduce((s, n) => s + Math.max(0, evaluate(trees[n], v)), 0);
+  let scale = 1;
+  try { scale = Math.max(barTotal(maxVals), barTotal(vals), 1e-9); } catch { /* bar hidden below */ }
+
+  return (
+    <figure aria-label={d.alt} className="space-y-4 rounded-2xl border-[1.5px] border-[color-mix(in_oklab,var(--tint)_30%,transparent)] p-4 sm:p-5">
+      {d.inputs.map((inp) =>
+        "choices" in inp ? (
+          <div key={inp.id}>
+            <p className="font-bold">{inp.label}</p>
+            <div className="mt-2 flex flex-wrap gap-2" role="radiogroup" aria-label={inp.label}>
+              {inp.choices.map((c) => (
+                <button
+                  key={c.label}
+                  role="radio"
+                  aria-checked={vals[inp.id] === c.value}
+                  onClick={() => setVals((v) => ({ ...v, [inp.id]: c.value }))}
+                  className={`chip ${vals[inp.id] === c.value ? "chip-solid" : ""}`}
+                >
+                  {c.label}
+                </button>
+              ))}
+            </div>
+          </div>
+        ) : (
+          <div key={inp.id}>
+            <label htmlFor={`slider-${inp.id}`} className="flex flex-wrap items-baseline justify-between gap-2 font-bold">
+              <span>{inp.label}</span>
+              <span className="numeral text-lg">{fmt(vals[inp.id], inp.step < 1 ? 1 : 0)}{inp.unit ? ` ${inp.unit}` : ""}</span>
+            </label>
+            <input
+              id={`slider-${inp.id}`}
+              type="range"
+              min={inp.min}
+              max={inp.max}
+              step={inp.step}
+              value={vals[inp.id]}
+              onChange={(e) => {
+                const n = Number(e.target.value);
+                setVals((v) => ({ ...v, [inp.id]: n }));
+              }}
+              className="mt-2 w-full accent-[var(--tint)]"
+            />
+          </div>
+        ),
+      )}
+      {barIdx.length ? (
+        <div className="flex h-6 overflow-hidden rounded-full bg-[color-mix(in_oklab,var(--foreground)_8%,transparent)]" aria-hidden>
+          {barIdx.map((n, k) => (
+            <span
+              key={n}
+              className={`${SERIES_TINTS[k]} block h-full bg-[var(--tint)] transition-[width] duration-300`}
+              style={{ width: `${(Math.max(0, results[n]) / scale) * 100}%`, opacity: 0.85 }}
+            />
+          ))}
+        </div>
+      ) : null}
+      <dl className="grid gap-3 sm:grid-cols-[repeat(auto-fit,minmax(140px,1fr))]" aria-live="polite">
+        {d.outputs.map((o, n) => (
+          <div key={o.label} className={`${o.bar ? SERIES_TINTS[barIdx.indexOf(n)] : ""} rounded-xl bg-[color-mix(in_oklab,var(--tint)_9%,var(--card))] p-3`}>
+            <dt className="font-bold">{o.label}</dt>
+            <dd className="font-display text-2xl font-extrabold">
+              <span className="numeral">{fmt(results[n], o.decimals ?? 1)}</span>
+              {o.unit ? <span className="text-base"> {o.unit}</span> : null}
+            </dd>
+          </div>
+        ))}
+      </dl>
+    </figure>
+  );
+}
+
 function Diagram({ d }: { d: NoteDiagram }) {
   if (d.kind === "line-graph") return <LineGraph d={d} />;
   if (d.kind === "flow") return <Flow d={d} />;
+  if (d.kind === "predictor") return <Predictor d={d} />;
+  if (d.kind === "slider") return <Slider d={d} />;
   return <Compare d={d} />;
 }
 
@@ -361,7 +487,8 @@ export function NoteView({ note, board }: { note: Note; board: NoteBoard }) {
 
           {layer?.worked_example ? (
             <Section heading="Worked example">
-              <p><b>{layer.worked_example.source}.</b></p>
+              {/* `source` stays in the data for provenance; students see the question, not the paper. */}
+              <p>A real exam question on this topic. Try it, then check the answer.</p>
               <Reveal
                 q={layer.worked_example.question}
                 marks={layer.worked_example.marks}

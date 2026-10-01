@@ -1,0 +1,37 @@
+{
+  "format": 1,
+  "concept_id": "chem-055",
+  "subject": "chemistry",
+  "title": "Electrolysis of aqueous solutions (template test)",
+  "key_idea": "In a solution, water adds its own **H⁺** and **OH⁻** ions. At each electrode two ions compete, and only one is discharged.",
+  "sections": [
+    {
+      "heading": "Try it: pick a solution",
+      "blocks": [
+        { "type": "paragraph", "text": "Pick a salt solution to see what forms at each electrode." },
+        {
+          "type": "diagram",
+          "diagram": {
+            "kind": "predictor",
+            "alt": "Choose a salt solution to see the products of electrolysis at each electrode.",
+            "prompt": "Pick a salt solution",
+            "result_labels": ["Negative electrode", "Positive electrode", "What you see"],
+            "options": [
+              { "label": "Sodium chloride", "results": ["**Hydrogen**, because sodium is more reactive than hydrogen", "**Chlorine**, because chloride is a halide", "Bubbles at both electrodes"], "explanation": "Sodium and hydroxide ions are left, so the solution becomes alkaline." },
+              { "label": "Copper sulfate", "results": ["**Copper**, because copper is less reactive than hydrogen", "**Oxygen**, from hydroxide ions (no halide)", "Pink-brown solid; bubbles at the positive electrode"], "explanation": "Sulfuric acid is left, and the blue colour fades." },
+              { "label": "Potassium iodide", "results": ["**Hydrogen**", "**Iodine**", "Bubbles; the solution turns brown"] }
+            ]
+          }
+        }
+      ]
+    }
+  ],
+  "checks": [
+    { "q": "Name the product at the negative electrode when sodium chloride solution is electrolysed.", "a": "Hydrogen." },
+    { "q": "Where do the hydroxide ions come from?", "a": "Water." }
+  ],
+  "boards": {
+    "aqa": { "spec_codes": ["AQA 4.4.3.4"], "exam_phrases": ["hydrogen is less reactive than sodium", "OH⁻ ions are discharged"], "mistakes": [] }
+  },
+  "meta": { "status": "draft", "written_by": "template-test", "written_at": "2026-10-01", "spec_point_ids": ["b2c37116-8c41-499f-ac6d-557bb818f820"], "exemplar_ids": [] }
+}
