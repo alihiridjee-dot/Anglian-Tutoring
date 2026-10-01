@@ -17,6 +17,14 @@ import { ensureMcqForPoints } from "@/lib/mcq/mcq.functions";
 import { courseKey, invalidatePlanner, roadmapQuery } from "@/lib/planner/queries";
 
 export type Activity = Map<string, PointActivity & PointWork>;
+
+/**
+ * Generation already asked for this session, by student and missing points.
+ * Module-level, not per hook: /planner mounts two week hooks for the current
+ * week, and each kept its own guard, so every gap was generated twice at once —
+ * double the Anthropic spend and double the claim_ai_request budget.
+ */
+const generationAsked = new Set<string>();
 export interface WeekPlanState {
   plan: WeeklyPlan | null;
   points: PlanPoint[];
@@ -150,7 +158,9 @@ export function useWeekPlan(params: {
   });
   const road = useQuery({
     ...roadmapQuery(client, params),
-    enabled: !!studentId && params.roadmap === undefined,
+    // `enabled` binds the roadmap too: without it, a panel with no course to
+    // show still seeded a programme for its fallback subject.
+    enabled: !!studentId && params.enabled !== false && params.roadmap === undefined,
   });
   /**
    * Fill in any homework or quiz this week's points are missing.
@@ -187,11 +197,11 @@ export function useWeekPlan(params: {
       .sort()
       .join(",");
   }, [activity.data, points]);
-  const attempted = useRef<Set<string>>(new Set());
   useEffect(() => {
     if (!missingHomework || !isCurrent) return;
-    if (attempted.current.has(`homework:${missingHomework}`)) return;
-    attempted.current.add(`homework:${missingHomework}`);
+    const key = `${studentId}|homework:${missingHomework}`;
+    if (generationAsked.has(key)) return;
+    generationAsked.add(key);
     void (async () => {
       // Only the student's own week generates — a tutor looking at it is a
       // reader, and should not be billing AI calls by browsing.
@@ -210,8 +220,9 @@ export function useWeekPlan(params: {
   }, [missingHomework, isCurrent, studentId, subject, board, level, client, params]);
   useEffect(() => {
     if (!missingQuiz || !isCurrent) return;
-    if (attempted.current.has(`quiz:${missingQuiz}`)) return;
-    attempted.current.add(`quiz:${missingQuiz}`);
+    const key = `${studentId}|quiz:${missingQuiz}`;
+    if (generationAsked.has(key)) return;
+    generationAsked.add(key);
     void (async () => {
       if ((await getSessionUserId()) !== studentId) return;
       try {

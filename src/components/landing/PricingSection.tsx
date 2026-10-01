@@ -412,7 +412,8 @@ function PricingTiers({
             <p
               className={`relative mt-3 text-xs ${dark ? "text-white/75" : "text-muted-foreground"}`}
             >
-              {weeklyLessons} live {weeklyLessons === 1 ? "session" : "sessions"} a week · 1 per subject
+              {weeklyLessons} live {weeklyLessons === 1 ? "session" : "sessions"} a week · 1 per
+              subject
             </p>
 
             {/* Feature list — fills the middle so cards feel substantial */}

@@ -1,11 +1,12 @@
 import { useMemo, useState } from "react";
 import { Link } from "@tanstack/react-router";
 import { toast } from "sonner";
-import { ChevronDown, ClipboardList, Clock, Eye, Pencil, Trash2 } from "lucide-react";
+import { ChevronDown, ClipboardList, Clock, Eye, Loader2, Pencil, Trash2 } from "lucide-react";
 
-import { Spinner } from "@/components/Shared";
+import { ErrorNote, Spinner } from "@/components/Shared";
 import { HomeworkForm } from "@/components/tutor/HomeworkForm";
 import { deleteHomework } from "@/lib/homework/homework.functions";
+import { useHomeworkLibrary, useHomeworkLibraryCounts } from "@/hooks/data/useHomework";
 import { SUBJECT_LABEL } from "@/lib/curriculum/subjectTheme";
 import type { Homework, HomeworkOrigin } from "@/lib/homework/types";
 import { type SubjectV, type BoardV, type LevelV } from "@/lib/curriculum/taxonomy";
@@ -33,33 +34,23 @@ const FILTER_LABEL: Record<Filter, string> = {
   generated: "Generated practice",
 };
 
-export function HomeworkLibrary({
-  homework,
-  loading,
-  userId,
-  onChanged,
-}: {
-  homework: Homework[];
-  loading: boolean;
-  userId: string;
-  onChanged: () => void;
-}) {
+export function HomeworkLibrary({ userId, onChanged }: { userId: string; onChanged: () => void }) {
   const [open, setOpen] = useState(false);
   const [filter, setFilter] = useState<Filter>("tutor");
 
-  const counts = useMemo(
-    () => ({
-      all: homework.length,
-      tutor: homework.filter((h) => h.origin === "tutor").length,
-      generated: homework.filter((h) => h.origin === "generated").length,
-    }),
-    [homework],
-  );
+  // Counted and paged on the server: there's a generated sheet for every spec
+  // point, and one read of them all stopped at 1,000 rows (S-17b).
+  const { data: counts } = useHomeworkLibraryCounts();
+  const library = useHomeworkLibrary({ origin: filter, enabled: open });
+  const loading = library.isPending;
 
-  const shown = useMemo(
-    () => (filter === "all" ? homework : homework.filter((h) => h.origin === filter)),
-    [homework, filter],
-  );
+  // A row that moved between pages while they were read shouldn't show twice.
+  const shown = useMemo(() => {
+    const byId = new Map<string, Homework>();
+    for (const hw of (library.data?.pages ?? []).flat()) if (!byId.has(hw.id)) byId.set(hw.id, hw);
+    return [...byId.values()];
+  }, [library.data]);
+  const left = Math.max(0, (counts?.[filter] ?? 0) - shown.length);
 
   return (
     <div className="premium-card mt-8 overflow-hidden">
@@ -71,7 +62,7 @@ export function HomeworkLibrary({
           <ClipboardList className="text-muted-foreground size-4" />
           Homework library
           <span className="bg-secondary text-muted-foreground inline-flex h-5 min-w-5 items-center justify-center rounded-full px-1.5 text-[11px]">
-            {loading ? "…" : counts.all}
+            {counts ? counts.all : "…"}
           </span>
         </span>
         <ChevronDown
@@ -81,35 +72,47 @@ export function HomeworkLibrary({
 
       {open && (
         <div className="border-border border-t p-4 sm:p-5">
-          {loading ? (
+          <div className="mb-4 flex flex-wrap gap-2">
+            {(Object.keys(FILTER_LABEL) as Filter[]).map((key) => (
+              <button
+                key={key}
+                type="button"
+                onClick={() => setFilter(key)}
+                className={`chip tap-target ${filter === key ? "chip-solid" : ""}`}
+              >
+                {FILTER_LABEL[key]}
+                {counts ? ` (${counts[key]})` : ""}
+              </button>
+            ))}
+          </div>
+
+          {library.error ? (
+            <ErrorNote error={library.error} onRetry={() => void library.refetch()} />
+          ) : loading ? (
             <Spinner label="Loading homework" className="py-8" />
+          ) : shown.length === 0 ? (
+            <p className="text-muted-foreground text-sm">
+              {filter === "tutor"
+                ? "You haven't set any homework yet — use the form above to post the first one."
+                : "Nothing here yet."}
+            </p>
           ) : (
             <>
-              <div className="mb-4 flex flex-wrap gap-2">
-                {(Object.keys(FILTER_LABEL) as Filter[]).map((key) => (
-                  <button
-                    key={key}
-                    type="button"
-                    onClick={() => setFilter(key)}
-                    className={`chip tap-target ${filter === key ? "chip-solid" : ""}`}
-                  >
-                    {FILTER_LABEL[key]} ({counts[key]})
-                  </button>
+              <ul className="divide-border divide-y">
+                {shown.map((hw) => (
+                  <LibraryRow key={hw.id} hw={hw} userId={userId} onChanged={onChanged} />
                 ))}
-              </div>
-
-              {shown.length === 0 ? (
-                <p className="text-muted-foreground text-sm">
-                  {filter === "tutor"
-                    ? "You haven't set any homework yet — use the form above to post the first one."
-                    : "Nothing here yet."}
-                </p>
-              ) : (
-                <ul className="divide-border divide-y">
-                  {shown.map((hw) => (
-                    <LibraryRow key={hw.id} hw={hw} userId={userId} onChanged={onChanged} />
-                  ))}
-                </ul>
+              </ul>
+              {library.hasNextPage && (
+                <button
+                  type="button"
+                  onClick={() => void library.fetchNextPage()}
+                  disabled={library.isFetchingNextPage}
+                  className="btn-soft mx-auto mt-4 flex h-10 items-center gap-2 rounded-lg px-4 text-sm font-semibold"
+                >
+                  {library.isFetchingNextPage && <Loader2 className="size-4 animate-spin" />}
+                  Show more{left > 0 ? ` (${left} left)` : ""}
+                </button>
               )}
             </>
           )}

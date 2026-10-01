@@ -1,5 +1,6 @@
 import { toast } from "sonner";
 import { Target } from "lucide-react";
+import { ErrorNote } from "@/components/Shared";
 import {
   WeeklyPlanDAL,
   type WeeklyPlan,
@@ -67,6 +68,8 @@ export function WeekReview({
   const locked = !readOnly && lock.locked;
 
   const {
+    error: checkinError,
+    retry: retryCheckin,
     coveredOk,
     reflection,
     setReflection,
@@ -158,7 +161,8 @@ export function WeekReview({
             ))}
           </div>
 
-          {!readOnly && (
+          {!readOnly && checkinError && <ErrorNote error={checkinError} onRetry={retryCheckin} />}
+          {!readOnly && !checkinError && (
             <WeeklyCheckinForm
               coveredOk={coveredOk}
               busy={busy}

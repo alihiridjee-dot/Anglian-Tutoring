@@ -1,0 +1,320 @@
+{
+  "format": 1,
+  "concept_id": "bio-011",
+  "subject": "biology",
+  "title": "Diffusion",
+  "key_idea": "**Diffusion** is the spreading out of particles from a region of higher concentration to a region of lower concentration. It is how oxygen, carbon dioxide and many other substances move across cell membranes. The rate depends on the concentration gradient, temperature, surface area and distance.",
+  "sections": [
+    {
+      "heading": "What diffusion is",
+      "blocks": [
+        { "type": "paragraph", "text": "Particles of a gas or of a substance in solution spread out. This section covers what moves and in which direction." },
+        {
+          "type": "definitions",
+          "items": [
+            { "term": "Diffusion", "meaning": "The spreading out of particles, giving a net movement from a higher concentration to a lower concentration." },
+            { "term": "Concentration gradient", "meaning": "The difference in concentration between two places." }
+          ]
+        },
+        {
+          "type": "list",
+          "items": [
+            "Particles move **down** a concentration gradient, from high concentration to low concentration.",
+            "Diffusion carries on until the concentrations are equal.",
+            "It does not need energy from respiration.",
+            "Particles can diffuse across cell membranes."
+          ]
+        },
+        { "type": "subheading", "text": "Substances that diffuse" },
+        {
+          "type": "table",
+          "columns": ["Substance", "Where it diffuses"],
+          "rows": [
+            ["Oxygen", "Into cells from the blood, for respiration. In gas exchange, from the air into the blood"],
+            ["Carbon dioxide", "Out of cells into the blood. In gas exchange, from the blood into the air"],
+            ["Urea", "Out of cells into the blood plasma, for excretion in the kidney"],
+            ["Glucose, amino acids, fatty acids, glycerol, mineral ions", "Into cells from the blood"]
+          ]
+        },
+        {
+          "type": "key-points",
+          "items": [
+            "Diffusion is the net movement of particles down a concentration gradient.",
+            "Oxygen and carbon dioxide move into and out of cells by diffusion.",
+            "A substance only diffuses if there is a difference in concentration."
+          ]
+        }
+      ]
+    },
+    {
+      "heading": "What affects the rate of diffusion",
+      "blocks": [
+        { "type": "paragraph", "text": "Four factors change how fast a substance diffuses." },
+        {
+          "type": "table",
+          "columns": ["Factor", "Effect on rate", "Why"],
+          "rows": [
+            ["Concentration gradient", "Steeper gradient, faster rate", "More particles move down the gradient than back up it"],
+            ["Temperature", "Higher temperature, faster rate", "Particles have more energy and move faster"],
+            ["Surface area", "Larger surface area, faster rate", "More particles can cross at the same time"],
+            ["Diffusion distance (thickness of the membrane)", "Shorter distance, faster rate", "Particles have less far to travel"]
+          ]
+        },
+        {
+          "type": "diagram",
+          "diagram": {
+            "kind": "slider",
+            "alt": "Move the sliders for surface area, concentration difference and membrane thickness to see how the relative rate of diffusion changes. The number is a comparison between settings, not a real measurement.",
+            "inputs": [
+              { "id": "sa", "label": "Surface area", "unit": "units", "min": 1, "max": 20, "step": 1, "value": 5 },
+              { "id": "cd", "label": "Concentration difference", "unit": "units", "min": 1, "max": 10, "step": 1, "value": 4 },
+              { "id": "th", "label": "Membrane thickness", "unit": "units", "min": 1, "max": 10, "step": 1, "value": 2 }
+            ],
+            "outputs": [
+              { "label": "Relative rate of diffusion (a comparison, not a real measurement)", "unit": "arbitrary units", "formula": "sa * cd / th", "decimals": 1 }
+            ]
+          }
+        },
+        { "type": "subheading", "text": "Keeping diffusion fast in the body" },
+        {
+          "type": "list",
+          "items": [
+            "Gas exchange surfaces such as the alveoli are thin, one cell thick, so the diffusion distance is short.",
+            "A good blood supply keeps the concentration gradient steep by carrying substances away.",
+            "Ventilation brings fresh air in, which keeps the oxygen concentration high in the alveoli."
+          ]
+        },
+        {
+          "type": "key-points",
+          "items": [
+            "A steeper gradient, higher temperature and larger surface area all speed up diffusion.",
+            "A thicker membrane or longer distance slows diffusion down.",
+            "Exchange surfaces are thin and have a good blood supply."
+          ]
+        }
+      ]
+    },
+    {
+      "heading": "Investigating diffusion with agar jelly",
+      "blocks": [
+        { "type": "paragraph", "text": "Agar jelly cubes with a pink indicator turn clear when acid diffuses into them. The distance the clear area has spread shows how far the acid has diffused." },
+        {
+          "type": "steps",
+          "items": [
+            { "lead": "Prepare.", "text": "Use agar cubes of the same size, each containing the pink indicator." },
+            { "lead": "Change one variable.", "text": "Heat the hydrochloric acid to different temperatures." },
+            { "lead": "Control the rest.", "text": "Use the same volume and concentration of acid, and leave the cubes for the same time." },
+            { "lead": "Measure.", "text": "Measure the clear distance from the outside of each cube at each temperature." }
+          ]
+        },
+        {
+          "type": "equation",
+          "label": "Rate of diffusion",
+          "formula": "rate of diffusion = distance diffused ÷ time",
+          "where": ["distance in mm", "time in s"]
+        },
+        {
+          "type": "steps",
+          "items": [
+            { "lead": "Substitute.", "text": "The acid diffused 3 mm in 120 s, so 3 ÷ 120." },
+            { "lead": "Answer.", "text": "0.025 mm per second." }
+          ]
+        },
+        {
+          "type": "key-points",
+          "items": [
+            "Change one factor at a time, and control the others.",
+            "Measure the clear distance from the outside of the cube.",
+            "Rate = distance ÷ time."
+          ]
+        }
+      ]
+    }
+  ],
+  "checks": [
+    {
+      "q": "What is diffusion?",
+      "a": "The spreading of particles from a region of higher concentration to a region of lower concentration (down a concentration gradient).",
+      "marks": 2
+    },
+    {
+      "q": "Give two factors that affect the rate of diffusion.",
+      "a": "Any two from: concentration gradient, temperature, surface area, diffusion distance (thickness of the membrane).",
+      "marks": 2
+    },
+    {
+      "q": "Acid diffused 4.5 mm into an agar cube in 150 seconds. Calculate the distance diffused in one second.",
+      "a": "4.5 ÷ 150 = 0.03 mm per second.",
+      "marks": 2
+    }
+  ],
+  "boards": {
+    "aqa": {
+      "spec_codes": ["AQA 1.10", "AQA T 4.1.3.1"],
+      "exam_phrases": [
+        "movement / spreading of particles from a higher concentration to a lower concentration",
+        "down a concentration gradient",
+        "concentration gradient, surface area, thickness of the exchange surface, temperature",
+        "short diffusion distance",
+        "wall of the alveolus is one cell thick",
+        "good blood supply / well ventilated"
+      ],
+      "mistakes": [
+        {
+          "wrong": "Diffusion is movement along or across a concentration gradient.",
+          "right": "\"Along\" and \"across\" are ignored. Say down the concentration gradient, from higher to lower concentration. Against the gradient is not accepted."
+        },
+        {
+          "wrong": "The size of the jellyfish affects the rate of diffusion.",
+          "right": "\"Size\" on its own is ignored. Say surface area, the surface area to volume ratio, or the thickness of the exchange surface."
+        },
+        {
+          "wrong": "The lungs have a large surface area and many alveoli, and are moist.",
+          "right": "When asked for other ways, these are ignored. Say the alveolus wall is one cell thick, the capillary wall is one cell thick, there is a good blood supply, or the lungs are well ventilated."
+        },
+        {
+          "wrong": "With low oxygen no respiration occurs, so no energy is produced.",
+          "right": "\"No respiration\" and \"energy produced\" are not accepted. Say less oxygen diffuses in, so less aerobic respiration happens and less energy is released."
+        }
+      ],
+      "worked_example": {
+        "exemplar_id": "91f53dc0-7e5a-4409-b19c-a06d9ead4fab",
+        "source": "AQA jun 2020, Paper 1 (F), Q08.1",
+        "question": "Diffusion is an important process in animals and plants. What is meant by the term diffusion?",
+        "marks": 2,
+        "answer_points": [
+          "The movement or spreading of molecules or particles.",
+          "From a higher concentration to a lower concentration (down the concentration gradient)."
+        ],
+        "tip": "Do not write movement \"from a concentration gradient\". References to membranes are ignored."
+      }
+    },
+    "edexcel": {
+      "spec_codes": ["EDEX 8.4B"],
+      "exam_phrases": [
+        "concentration gradient",
+        "diffusion distance / thickness of the membrane",
+        "surface area",
+        "rate of diffusion is proportional to surface area and concentration difference, and inversely proportional to the thickness of the membrane",
+        "use the same size agar jelly cubes",
+        "measure the clear distance from the outside of the cube"
+      ],
+      "mistakes": [
+        {
+          "wrong": "Oxygen moves into and out of cells by osmosis.",
+          "right": "Osmosis is the movement of water. Oxygen moves into and out of cells by diffusion."
+        },
+        {
+          "wrong": "Use the same amount of acid.",
+          "right": "\"Amount\" is ignored. Say the same volume or concentration of acid."
+        },
+        {
+          "wrong": "Oxygen will diffuse out of the cell even if the concentrations inside and outside are equal.",
+          "right": "There has to be a difference in concentration for net diffusion to happen."
+        }
+      ],
+      "worked_example": {
+        "exemplar_id": "d437b9a9-6445-4aa5-865c-315d1b6e2b14",
+        "source": "EDEXCEL nov 2020, Paper 1 (F), Q4(b)",
+        "question": "Devise a method, using cubes of agar jelly, to investigate how temperature affects the rate of diffusion.",
+        "marks": 3,
+        "answer_points": [
+          "Heat (hydrochloric) acid to different temperatures (or heat the agar jelly cubes).",
+          "Use agar jelly cubes of the same size.",
+          "Use the same volume and concentration of acid.",
+          "Leave them for the same amount of time.",
+          "Measure the clear distance from the outside of the cube at each temperature."
+        ],
+        "tip": "Any three score one mark each. \"Amount of acid\" is ignored."
+      },
+      "extra": [
+        {
+          "heading": "Fick's law (Higher tier)",
+          "blocks": [
+            { "type": "paragraph", "text": "You must be able to state how the three factors combine. The slider above uses this relationship." },
+            {
+              "type": "equation",
+              "label": "Fick's law",
+              "formula": "rate of diffusion ∝ (surface area × concentration difference) ÷ thickness of the membrane",
+              "where": [
+                "∝ means \"is proportional to\"",
+                "Doubling the surface area or the concentration difference doubles the rate.",
+                "Doubling the thickness halves the rate."
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    "ocr": {
+      "spec_codes": ["OCR 2.1a"],
+      "exam_phrases": [
+        "diffusion",
+        "osmosis",
+        "active transport",
+        "oxygen entering red blood cells: diffusion",
+        "water moving into guard cells: osmosis",
+        "mineral ions moving into root hair cells against a concentration gradient: active transport"
+      ],
+      "mistakes": [
+        {
+          "wrong": "Oxygen enters red blood cells by osmosis.",
+          "right": "Oxygen enters red blood cells by diffusion. Osmosis is only the movement of water."
+        },
+        {
+          "wrong": "The sugar solution moves into the beetroot by osmosis.",
+          "right": "This is not allowed. Water moves in by osmosis, and sugar does not."
+        },
+        {
+          "wrong": "Mineral ions move into root hair cells by diffusion.",
+          "right": "Against a concentration gradient, the process is active transport."
+        }
+      ],
+      "worked_example": {
+        "exemplar_id": "6cb3c97d-5aba-49e2-9a9b-5c0a2b635ce5",
+        "source": "OCR jun 2024, Paper 3, Q18(b)",
+        "question": "The substances transported around the organism enter cells either by active transport, diffusion or osmosis. For each substance indicate which method of transport is used. Substances: water moving into guard cells; mineral ions moving into root hair cells against a concentration gradient; oxygen entering red blood cells.",
+        "marks": 3,
+        "answer_points": [
+          "Water moving into guard cells: osmosis.",
+          "Mineral ions moving into root hair cells against a concentration gradient: active transport.",
+          "Oxygen entering red blood cells: diffusion."
+        ],
+        "tip": "One mark for each correct row. Only water moves by osmosis, and \"against a concentration gradient\" means active transport."
+      },
+      "extra": [
+        {
+          "heading": "Diffusion, osmosis or active transport?",
+          "blocks": [
+            {
+              "type": "table",
+              "columns": ["Process", "What moves", "Direction and energy"],
+              "rows": [
+                ["Diffusion", "Particles of any substance", "Down a concentration gradient, no energy needed"],
+                ["Osmosis", "Water only", "Through a partially permeable membrane"],
+                ["Active transport", "Particles such as mineral ions", "Against a concentration gradient, uses energy"]
+              ]
+            }
+          ]
+        }
+      ]
+    }
+  },
+  "meta": {
+    "status": "draft",
+    "checked_by": "sonnet-science-check",
+    "checked_at": "2026-10-01",
+    "written_by": "Claude Sonnet 5.5",
+    "written_at": "2026-10-01",
+    "spec_point_ids": [
+      "c0f5e28f-e4e1-4183-8bc5-3714830e0c46",
+      "98f298dc-0091-411a-95ea-e8f109513b36",
+      "467e4a86-a73b-41e1-8046-18c9c61f76ae"
+    ],
+    "exemplar_ids": [
+      "91f53dc0-7e5a-4409-b19c-a06d9ead4fab",
+      "d437b9a9-6445-4aa5-865c-315d1b6e2b14",
+      "6cb3c97d-5aba-49e2-9a9b-5c0a2b635ce5"
+    ]
+  }
+}

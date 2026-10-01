@@ -38,6 +38,8 @@ import { Route as AuthenticatedVideosRouteImport } from './routes/_authenticated
 import { Route as DemoIndexRouteImport } from './routes/demo/index'
 import { Route as DemoParentRouteRouteImport } from './routes/demo/parent/route'
 import { Route as DemoStudentRouteRouteImport } from './routes/demo/student/route'
+import { Route as NotesPreviewIndexRouteImport } from './routes/notes-preview/index'
+import { Route as NotesPreviewConceptIdRouteImport } from './routes/notes-preview/$conceptId'
 import { Route as OnboardingIndexRouteImport } from './routes/onboarding/index'
 import { Route as OnboardingBoardRouteImport } from './routes/onboarding/board'
 import { Route as OnboardingConfidenceRouteImport } from './routes/onboarding/confidence'
@@ -47,6 +49,7 @@ import { Route as OnboardingSchoolRouteImport } from './routes/onboarding/school
 import { Route as OnboardingSubjectsRouteImport } from './routes/onboarding/subjects'
 import { Route as AuthenticatedHomeworkHomeworkIdRouteImport } from './routes/_authenticated/homework_.$homeworkId'
 import { Route as AuthenticatedMcqSetIdRouteImport } from './routes/_authenticated/mcq.$setId'
+import { Route as AuthenticatedNotesConceptIdRouteImport } from './routes/_authenticated/notes_.$conceptId'
 import { Route as AuthenticatedStudentsStudentIdRouteImport } from './routes/_authenticated/students_.$studentId'
 import { Route as DemoParentDashboardRouteImport } from './routes/demo/parent/dashboard'
 import { Route as DemoStudentCurriculumRouteImport } from './routes/demo/student/curriculum'
@@ -57,6 +60,7 @@ import { Route as DemoStudentMcqsRouteImport } from './routes/demo/student/mcqs'
 import { Route as DemoStudentMessagesRouteImport } from './routes/demo/student/messages'
 import { Route as DemoStudentPlannerRouteImport } from './routes/demo/student/planner'
 import { Route as DemoStudentVideosRouteImport } from './routes/demo/student/videos'
+import { Route as NotesPreviewCompareConceptIdRouteImport } from './routes/notes-preview/compare.$conceptId'
 import { Route as DemoStudentHomeworkHomeworkIdRouteImport } from './routes/demo/student/homework_.$homeworkId'
 import { Route as DemoStudentMcqSetIdRouteImport } from './routes/demo/student/mcq.$setId'
 
@@ -207,6 +211,16 @@ const DemoStudentRouteRoute = DemoStudentRouteRouteImport.update({
   path: '/demo/student',
   getParentRoute: () => rootRouteImport,
 } as any)
+const NotesPreviewIndexRoute = NotesPreviewIndexRouteImport.update({
+  id: '/notes-preview/',
+  path: '/notes-preview/',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const NotesPreviewConceptIdRoute = NotesPreviewConceptIdRouteImport.update({
+  id: '/notes-preview/$conceptId',
+  path: '/notes-preview/$conceptId',
+  getParentRoute: () => rootRouteImport,
+} as any)
 const OnboardingIndexRoute = OnboardingIndexRouteImport.update({
   id: '/',
   path: '/',
@@ -253,6 +267,12 @@ const AuthenticatedMcqSetIdRoute = AuthenticatedMcqSetIdRouteImport.update({
   path: '/mcq/$setId',
   getParentRoute: () => AuthenticatedRouteRoute,
 } as any)
+const AuthenticatedNotesConceptIdRoute =
+  AuthenticatedNotesConceptIdRouteImport.update({
+    id: '/notes_/$conceptId',
+    path: '/notes/$conceptId',
+    getParentRoute: () => AuthenticatedRouteRoute,
+  } as any)
 const AuthenticatedStudentsStudentIdRoute =
   AuthenticatedStudentsStudentIdRouteImport.update({
     id: '/students_/$studentId',
@@ -304,6 +324,12 @@ const DemoStudentVideosRoute = DemoStudentVideosRouteImport.update({
   path: '/videos',
   getParentRoute: () => DemoStudentRouteRoute,
 } as any)
+const NotesPreviewCompareConceptIdRoute =
+  NotesPreviewCompareConceptIdRouteImport.update({
+    id: '/notes-preview/compare/$conceptId',
+    path: '/notes-preview/compare/$conceptId',
+    getParentRoute: () => rootRouteImport,
+  } as any)
 const DemoStudentHomeworkHomeworkIdRoute =
   DemoStudentHomeworkHomeworkIdRouteImport.update({
     id: '/homework_/$homeworkId',
@@ -344,6 +370,7 @@ export interface FileRoutesByFullPath {
   '/students': typeof AuthenticatedStudentsRoute
   '/tutor': typeof AuthenticatedTutorRoute
   '/videos': typeof AuthenticatedVideosRoute
+  '/notes-preview/$conceptId': typeof NotesPreviewConceptIdRoute
   '/onboarding/board': typeof OnboardingBoardRoute
   '/onboarding/confidence': typeof OnboardingConfidenceRoute
   '/onboarding/learning': typeof OnboardingLearningRoute
@@ -351,9 +378,11 @@ export interface FileRoutesByFullPath {
   '/onboarding/school': typeof OnboardingSchoolRoute
   '/onboarding/subjects': typeof OnboardingSubjectsRoute
   '/demo/': typeof DemoIndexRoute
+  '/notes-preview/': typeof NotesPreviewIndexRoute
   '/onboarding/': typeof OnboardingIndexRoute
   '/homework/$homeworkId': typeof AuthenticatedHomeworkHomeworkIdRoute
   '/mcq/$setId': typeof AuthenticatedMcqSetIdRoute
+  '/notes/$conceptId': typeof AuthenticatedNotesConceptIdRoute
   '/students/$studentId': typeof AuthenticatedStudentsStudentIdRoute
   '/demo/parent/dashboard': typeof DemoParentDashboardRoute
   '/demo/student/curriculum': typeof DemoStudentCurriculumRoute
@@ -364,6 +393,7 @@ export interface FileRoutesByFullPath {
   '/demo/student/messages': typeof DemoStudentMessagesRoute
   '/demo/student/planner': typeof DemoStudentPlannerRoute
   '/demo/student/videos': typeof DemoStudentVideosRoute
+  '/notes-preview/compare/$conceptId': typeof NotesPreviewCompareConceptIdRoute
   '/demo/student/homework/$homeworkId': typeof DemoStudentHomeworkHomeworkIdRoute
   '/demo/student/mcq/$setId': typeof DemoStudentMcqSetIdRoute
 }
@@ -394,6 +424,7 @@ export interface FileRoutesByTo {
   '/students': typeof AuthenticatedStudentsRoute
   '/tutor': typeof AuthenticatedTutorRoute
   '/videos': typeof AuthenticatedVideosRoute
+  '/notes-preview/$conceptId': typeof NotesPreviewConceptIdRoute
   '/onboarding/board': typeof OnboardingBoardRoute
   '/onboarding/confidence': typeof OnboardingConfidenceRoute
   '/onboarding/learning': typeof OnboardingLearningRoute
@@ -401,9 +432,11 @@ export interface FileRoutesByTo {
   '/onboarding/school': typeof OnboardingSchoolRoute
   '/onboarding/subjects': typeof OnboardingSubjectsRoute
   '/demo': typeof DemoIndexRoute
+  '/notes-preview': typeof NotesPreviewIndexRoute
   '/onboarding': typeof OnboardingIndexRoute
   '/homework/$homeworkId': typeof AuthenticatedHomeworkHomeworkIdRoute
   '/mcq/$setId': typeof AuthenticatedMcqSetIdRoute
+  '/notes/$conceptId': typeof AuthenticatedNotesConceptIdRoute
   '/students/$studentId': typeof AuthenticatedStudentsStudentIdRoute
   '/demo/parent/dashboard': typeof DemoParentDashboardRoute
   '/demo/student/curriculum': typeof DemoStudentCurriculumRoute
@@ -414,6 +447,7 @@ export interface FileRoutesByTo {
   '/demo/student/messages': typeof DemoStudentMessagesRoute
   '/demo/student/planner': typeof DemoStudentPlannerRoute
   '/demo/student/videos': typeof DemoStudentVideosRoute
+  '/notes-preview/compare/$conceptId': typeof NotesPreviewCompareConceptIdRoute
   '/demo/student/homework/$homeworkId': typeof DemoStudentHomeworkHomeworkIdRoute
   '/demo/student/mcq/$setId': typeof DemoStudentMcqSetIdRoute
 }
@@ -447,6 +481,7 @@ export interface FileRoutesById {
   '/_authenticated/students': typeof AuthenticatedStudentsRoute
   '/_authenticated/tutor': typeof AuthenticatedTutorRoute
   '/_authenticated/videos': typeof AuthenticatedVideosRoute
+  '/notes-preview/$conceptId': typeof NotesPreviewConceptIdRoute
   '/onboarding/board': typeof OnboardingBoardRoute
   '/onboarding/confidence': typeof OnboardingConfidenceRoute
   '/onboarding/learning': typeof OnboardingLearningRoute
@@ -454,9 +489,11 @@ export interface FileRoutesById {
   '/onboarding/school': typeof OnboardingSchoolRoute
   '/onboarding/subjects': typeof OnboardingSubjectsRoute
   '/demo/': typeof DemoIndexRoute
+  '/notes-preview/': typeof NotesPreviewIndexRoute
   '/onboarding/': typeof OnboardingIndexRoute
   '/_authenticated/homework_/$homeworkId': typeof AuthenticatedHomeworkHomeworkIdRoute
   '/_authenticated/mcq/$setId': typeof AuthenticatedMcqSetIdRoute
+  '/_authenticated/notes_/$conceptId': typeof AuthenticatedNotesConceptIdRoute
   '/_authenticated/students_/$studentId': typeof AuthenticatedStudentsStudentIdRoute
   '/demo/parent/dashboard': typeof DemoParentDashboardRoute
   '/demo/student/curriculum': typeof DemoStudentCurriculumRoute
@@ -467,6 +504,7 @@ export interface FileRoutesById {
   '/demo/student/messages': typeof DemoStudentMessagesRoute
   '/demo/student/planner': typeof DemoStudentPlannerRoute
   '/demo/student/videos': typeof DemoStudentVideosRoute
+  '/notes-preview/compare/$conceptId': typeof NotesPreviewCompareConceptIdRoute
   '/demo/student/homework_/$homeworkId': typeof DemoStudentHomeworkHomeworkIdRoute
   '/demo/student/mcq/$setId': typeof DemoStudentMcqSetIdRoute
 }
@@ -500,6 +538,7 @@ export interface FileRouteTypes {
     | '/students'
     | '/tutor'
     | '/videos'
+    | '/notes-preview/$conceptId'
     | '/onboarding/board'
     | '/onboarding/confidence'
     | '/onboarding/learning'
@@ -507,9 +546,11 @@ export interface FileRouteTypes {
     | '/onboarding/school'
     | '/onboarding/subjects'
     | '/demo/'
+    | '/notes-preview/'
     | '/onboarding/'
     | '/homework/$homeworkId'
     | '/mcq/$setId'
+    | '/notes/$conceptId'
     | '/students/$studentId'
     | '/demo/parent/dashboard'
     | '/demo/student/curriculum'
@@ -520,6 +561,7 @@ export interface FileRouteTypes {
     | '/demo/student/messages'
     | '/demo/student/planner'
     | '/demo/student/videos'
+    | '/notes-preview/compare/$conceptId'
     | '/demo/student/homework/$homeworkId'
     | '/demo/student/mcq/$setId'
   fileRoutesByTo: FileRoutesByTo
@@ -550,6 +592,7 @@ export interface FileRouteTypes {
     | '/students'
     | '/tutor'
     | '/videos'
+    | '/notes-preview/$conceptId'
     | '/onboarding/board'
     | '/onboarding/confidence'
     | '/onboarding/learning'
@@ -557,9 +600,11 @@ export interface FileRouteTypes {
     | '/onboarding/school'
     | '/onboarding/subjects'
     | '/demo'
+    | '/notes-preview'
     | '/onboarding'
     | '/homework/$homeworkId'
     | '/mcq/$setId'
+    | '/notes/$conceptId'
     | '/students/$studentId'
     | '/demo/parent/dashboard'
     | '/demo/student/curriculum'
@@ -570,6 +615,7 @@ export interface FileRouteTypes {
     | '/demo/student/messages'
     | '/demo/student/planner'
     | '/demo/student/videos'
+    | '/notes-preview/compare/$conceptId'
     | '/demo/student/homework/$homeworkId'
     | '/demo/student/mcq/$setId'
   id:
@@ -602,6 +648,7 @@ export interface FileRouteTypes {
     | '/_authenticated/students'
     | '/_authenticated/tutor'
     | '/_authenticated/videos'
+    | '/notes-preview/$conceptId'
     | '/onboarding/board'
     | '/onboarding/confidence'
     | '/onboarding/learning'
@@ -609,9 +656,11 @@ export interface FileRouteTypes {
     | '/onboarding/school'
     | '/onboarding/subjects'
     | '/demo/'
+    | '/notes-preview/'
     | '/onboarding/'
     | '/_authenticated/homework_/$homeworkId'
     | '/_authenticated/mcq/$setId'
+    | '/_authenticated/notes_/$conceptId'
     | '/_authenticated/students_/$studentId'
     | '/demo/parent/dashboard'
     | '/demo/student/curriculum'
@@ -622,6 +671,7 @@ export interface FileRouteTypes {
     | '/demo/student/messages'
     | '/demo/student/planner'
     | '/demo/student/videos'
+    | '/notes-preview/compare/$conceptId'
     | '/demo/student/homework_/$homeworkId'
     | '/demo/student/mcq/$setId'
   fileRoutesById: FileRoutesById
@@ -637,7 +687,10 @@ export interface RootRouteChildren {
   ResetPasswordRoute: typeof ResetPasswordRoute
   DemoParentRouteRoute: typeof DemoParentRouteRouteWithChildren
   DemoStudentRouteRoute: typeof DemoStudentRouteRouteWithChildren
+  NotesPreviewConceptIdRoute: typeof NotesPreviewConceptIdRoute
   DemoIndexRoute: typeof DemoIndexRoute
+  NotesPreviewIndexRoute: typeof NotesPreviewIndexRoute
+  NotesPreviewCompareConceptIdRoute: typeof NotesPreviewCompareConceptIdRoute
 }
 
 declare module '@tanstack/react-router' {
@@ -845,6 +898,20 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof DemoStudentRouteRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/notes-preview/': {
+      id: '/notes-preview/'
+      path: '/notes-preview'
+      fullPath: '/notes-preview/'
+      preLoaderRoute: typeof NotesPreviewIndexRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/notes-preview/$conceptId': {
+      id: '/notes-preview/$conceptId'
+      path: '/notes-preview/$conceptId'
+      fullPath: '/notes-preview/$conceptId'
+      preLoaderRoute: typeof NotesPreviewConceptIdRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/onboarding/': {
       id: '/onboarding/'
       path: '/'
@@ -906,6 +973,13 @@ declare module '@tanstack/react-router' {
       path: '/mcq/$setId'
       fullPath: '/mcq/$setId'
       preLoaderRoute: typeof AuthenticatedMcqSetIdRouteImport
+      parentRoute: typeof AuthenticatedRouteRoute
+    }
+    '/_authenticated/notes_/$conceptId': {
+      id: '/_authenticated/notes_/$conceptId'
+      path: '/notes/$conceptId'
+      fullPath: '/notes/$conceptId'
+      preLoaderRoute: typeof AuthenticatedNotesConceptIdRouteImport
       parentRoute: typeof AuthenticatedRouteRoute
     }
     '/_authenticated/students_/$studentId': {
@@ -978,6 +1052,13 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof DemoStudentVideosRouteImport
       parentRoute: typeof DemoStudentRouteRoute
     }
+    '/notes-preview/compare/$conceptId': {
+      id: '/notes-preview/compare/$conceptId'
+      path: '/notes-preview/compare/$conceptId'
+      fullPath: '/notes-preview/compare/$conceptId'
+      preLoaderRoute: typeof NotesPreviewCompareConceptIdRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/demo/student/homework_/$homeworkId': {
       id: '/demo/student/homework_/$homeworkId'
       path: '/homework/$homeworkId'
@@ -1016,6 +1097,7 @@ interface AuthenticatedRouteRouteChildren {
   AuthenticatedVideosRoute: typeof AuthenticatedVideosRoute
   AuthenticatedHomeworkHomeworkIdRoute: typeof AuthenticatedHomeworkHomeworkIdRoute
   AuthenticatedMcqSetIdRoute: typeof AuthenticatedMcqSetIdRoute
+  AuthenticatedNotesConceptIdRoute: typeof AuthenticatedNotesConceptIdRoute
   AuthenticatedStudentsStudentIdRoute: typeof AuthenticatedStudentsStudentIdRoute
 }
 
@@ -1040,6 +1122,7 @@ const AuthenticatedRouteRouteChildren: AuthenticatedRouteRouteChildren = {
   AuthenticatedVideosRoute: AuthenticatedVideosRoute,
   AuthenticatedHomeworkHomeworkIdRoute: AuthenticatedHomeworkHomeworkIdRoute,
   AuthenticatedMcqSetIdRoute: AuthenticatedMcqSetIdRoute,
+  AuthenticatedNotesConceptIdRoute: AuthenticatedNotesConceptIdRoute,
   AuthenticatedStudentsStudentIdRoute: AuthenticatedStudentsStudentIdRoute,
 }
 
@@ -1122,7 +1205,10 @@ const rootRouteChildren: RootRouteChildren = {
   ResetPasswordRoute: ResetPasswordRoute,
   DemoParentRouteRoute: DemoParentRouteRouteWithChildren,
   DemoStudentRouteRoute: DemoStudentRouteRouteWithChildren,
+  NotesPreviewConceptIdRoute: NotesPreviewConceptIdRoute,
   DemoIndexRoute: DemoIndexRoute,
+  NotesPreviewIndexRoute: NotesPreviewIndexRoute,
+  NotesPreviewCompareConceptIdRoute: NotesPreviewCompareConceptIdRoute,
 }
 export const routeTree = rootRouteImport
   ._addFileChildren(rootRouteChildren)
