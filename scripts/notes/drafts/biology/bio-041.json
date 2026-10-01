@@ -1,0 +1,262 @@
+{
+  "format": 1,
+  "concept_id": "bio-041",
+  "subject": "biology",
+  "title": "Viral diseases",
+  "key_idea": "Viruses live and reproduce inside cells and damage them. Measles spreads in droplets and is prevented by vaccination. HIV attacks immune cells and can lead to AIDS. Tobacco mosaic virus damages plant leaves, so the plant cannot photosynthesise well.",
+  "sections": [
+    {
+      "heading": "Measles",
+      "blocks": [
+        { "type": "paragraph", "text": "Measles is a viral disease of people. This section covers its symptoms, how it spreads and how it is controlled." },
+        {
+          "type": "list",
+          "items": [
+            "Symptoms: a fever and a red skin rash.",
+            "It is a serious illness and can be fatal if complications arise.",
+            "It spreads by inhalation of droplets from sneezes and coughs.",
+            "Most young children are vaccinated against measles for this reason."
+          ]
+        },
+        { "type": "subheading", "text": "Controlling the spread" },
+        {
+          "type": "list",
+          "items": [
+            "Isolate people who have measles.",
+            "Cover your nose and mouth when you cough or sneeze.",
+            "Wash hands often and clean surfaces.",
+            "Vaccinate a large proportion of the population. Most people are immune, so there is less chance of non-immune people being exposed to the virus."
+          ]
+        },
+        {
+          "type": "key-points",
+          "items": [
+            "Measles causes a fever and a red skin rash, and can be fatal.",
+            "It spreads in droplets from coughs and sneezes, which are inhaled.",
+            "Vaccinating most of the population reduces the spread."
+          ]
+        }
+      ]
+    },
+    {
+      "heading": "HIV and AIDS",
+      "blocks": [
+        { "type": "paragraph", "text": "HIV is a virus that attacks the body's immune cells. This section covers how it spreads and how it leads to AIDS." },
+        {
+          "type": "definitions",
+          "items": [
+            { "term": "HIV", "meaning": "The virus. It attacks the body's immune cells." },
+            { "term": "AIDS", "meaning": "The late stage of HIV infection, when the immune system is so badly damaged it can no longer deal with other infections or cancers." },
+            { "term": "Antiretroviral drugs", "meaning": "Drugs that control HIV and stop it damaging the immune system." }
+          ]
+        },
+        {
+          "type": "list",
+          "items": [
+            "HIV first causes a flu-like illness.",
+            "Unless it is controlled with antiretroviral drugs, the virus destroys white blood cells.",
+            "A person with AIDS has a weakened immune system, so they are more susceptible to other pathogens. White blood cells cannot kill bacteria as effectively.",
+            "HIV is spread by sexual contact, or by exchange of body fluids such as blood. Drug users who share needles can spread it this way."
+          ]
+        },
+        { "type": "subheading", "text": "Preventing the spread of HIV" },
+        {
+          "type": "list",
+          "items": [
+            "Avoid sexual intercourse, or use a condom.",
+            "Do not share needles.",
+            "Screen blood used for transfusions.",
+            "Treat infected people with antiretroviral drugs."
+          ]
+        },
+        {
+          "type": "key-points",
+          "items": [
+            "HIV destroys white blood cells. AIDS is the late stage, when the immune system cannot cope.",
+            "HIV spreads by sexual contact and by exchange of body fluids such as blood.",
+            "Condoms, not sharing needles and antiretroviral drugs reduce the spread."
+          ]
+        }
+      ]
+    },
+    {
+      "heading": "Tobacco mosaic virus",
+      "blocks": [
+        { "type": "paragraph", "text": "Tobacco mosaic virus (TMV) is a widespread plant pathogen. It affects many species, including tomatoes." },
+        {
+          "type": "list",
+          "items": [
+            "TMV gives a distinctive mosaic pattern of discolouration on the leaves.",
+            "The discoloured parts have less chlorophyll, so there is less photosynthesis.",
+            "Less glucose is made, so less is available for respiration and for making amino acids, proteins and cellulose.",
+            "The plant has less energy and fewer materials for growth, so it grows slowly."
+          ]
+        },
+        {
+          "type": "diagram",
+          "diagram": {
+            "kind": "sort",
+            "alt": "Sort each statement into the viral disease it describes: measles, HIV or tobacco mosaic virus.",
+            "prompt": "Which viral disease does each statement describe?",
+            "groups": ["Measles", "HIV", "Tobacco mosaic virus"],
+            "items": [
+              { "text": "Fever and a red skin rash", "group": 0 },
+              { "text": "Spread by inhaling droplets from coughs and sneezes", "group": 0 },
+              { "text": "Prevented in most children by vaccination", "group": 0 },
+              { "text": "Attacks the body's immune cells", "group": 1 },
+              { "text": "Controlled with antiretroviral drugs", "group": 1 },
+              { "text": "Spread by sharing needles", "group": 1 },
+              { "text": "Mosaic pattern of discolouration on leaves", "group": 2 },
+              { "text": "Reduced photosynthesis slows growth", "group": 2 }
+            ]
+          }
+        },
+        {
+          "type": "key-points",
+          "items": [
+            "TMV is a plant virus that discolours leaves.",
+            "Less chlorophyll means less photosynthesis, less glucose and slower growth."
+          ]
+        }
+      ]
+    }
+  ],
+  "checks": [
+    {
+      "q": "Describe how the measles virus is transferred from person to person.",
+      "a": "Coughs and sneezes spread the virus in droplets. The droplets are inhaled.",
+      "marks": 2
+    },
+    {
+      "q": "Explain how HIV can lead to the onset of AIDS.",
+      "a": "HIV destroys white blood cells, which weakens the immune system. The person is then more susceptible to other pathogens and infections.",
+      "marks": 2
+    },
+    {
+      "q": "Explain why plants infected with tobacco mosaic virus grow slowly.",
+      "a": "Leaves are discoloured, with less chlorophyll, so there is reduced photosynthesis. Less glucose is made for respiration and for making amino acids and cellulose, so less energy is available for growth.",
+      "marks": 3
+    }
+  ],
+  "boards": {
+    "aqa": {
+      "spec_codes": ["AQA 3.2", "AQA T 4.3.1.2"],
+      "exam_phrases": [
+        "coughs / sneezes (spread virus in droplets)",
+        "immune system is damaged / weakened",
+        "white blood cells cannot kill bacteria (as effectively)",
+        "avoid sexual intercourse / use a condom / do not share needles",
+        "use antiretroviral drugs",
+        "discolouration in leaves or less chlorophyll in leaves",
+        "(so) reduced photosynthesis"
+      ],
+      "mistakes": [
+        {
+          "wrong": "Tobacco mosaic virus gives leaves a mosaic pattern, so they grow slowly.",
+          "right": "\"Mosaic pattern of leaves\" unqualified is ignored. Say there is discolouration or less chlorophyll in the leaves, so photosynthesis is reduced."
+        },
+        {
+          "wrong": "Use protection to stop the spread of HIV.",
+          "right": "\"Use protection\", \"use contraception\" and \"use medication\" unqualified are ignored. Say use a condom, avoid sexual intercourse, do not share needles or use antiretroviral drugs."
+        },
+        {
+          "wrong": "Wash your hands and keep your distance from people with HIV.",
+          "right": "Handwashing and social distancing are ignored for HIV. It is spread by sexual contact and exchange of body fluids."
+        },
+        {
+          "wrong": "Vaccination works because most people are immune so they don't catch measles.",
+          "right": "\"Don't get / catch it\" is ignored. Say most people are immune so there is less chance of non-immune or unvaccinated people being exposed to the virus."
+        }
+      ],
+      "worked_example": {
+        "exemplar_id": "44a83d9a-f73e-46bd-9dfa-2756a568327e",
+        "source": "AQA jun 2021, Paper 1 (H), Q04.5",
+        "question": "Explain why plants infected with tobacco mosaic virus grow slowly.",
+        "marks": 3,
+        "answer_points": [
+          "Discolouration in leaves, or less chlorophyll in leaves.",
+          "So reduced photosynthesis (allow less light absorbed).",
+          "So less glucose produced, so less amino acids / proteins / cellulose made, or less glucose for respiration so less energy transferred for growth."
+        ],
+        "tip": "Build a chain of three linked steps: leaf damage, less photosynthesis, then less glucose for growth."
+      }
+    },
+    "edexcel": {
+      "spec_codes": ["EDEX 5.5"],
+      "exam_phrases": [
+        "HIV destroys white blood cells / reduces the number of white blood cells",
+        "compromises the immune system",
+        "weakens the immune system",
+        "more susceptible to other pathogens / infections / diseases"
+      ],
+      "mistakes": [
+        {
+          "wrong": "HIV makes the person more susceptible to AIDS.",
+          "right": "\"More susceptible to AIDS\" is ignored. HIV weakens the immune system, so the person is more susceptible to other pathogens, infections or diseases."
+        },
+        {
+          "wrong": "HIV and AIDS are the same thing.",
+          "right": "HIV is the virus. AIDS is the late stage, when the immune system has been so badly damaged by HIV that it cannot deal with other infections."
+        }
+      ],
+      "worked_example": {
+        "exemplar_id": "365ec292-8046-488c-a345-4eb7d84fc170",
+        "source": "EDEXCEL jun 2022, Paper 1 (H), Q3(b)",
+        "question": "HIV is another sexually transmitted infection. Explain how HIV can lead to the onset of AIDS.",
+        "marks": 2,
+        "answer_points": [
+          "HIV destroys white blood cells, or reduces the number of white blood cells (named white blood cells are accepted).",
+          "Which compromises or weakens the immune system, making the person more susceptible to other pathogens, infections or diseases."
+        ],
+        "tip": "Link the two ideas: fewer white blood cells, so the immune system cannot defend the body."
+      }
+    },
+    "ocr": {
+      "spec_codes": ["OCR 6.3f"],
+      "exam_phrases": [
+        "Tobacco mosaic disease: virus",
+        "AIDS: caused by a virus",
+        "Crown gall disease: bacterium",
+        "barley powdery mildew: caused by a fungus",
+        "type 2 diabetes: non-communicable disease"
+      ],
+      "mistakes": [
+        {
+          "wrong": "Tobacco mosaic disease is caused by a bacterium.",
+          "right": "Tobacco mosaic disease is caused by a virus. Crown gall disease is the plant disease caused by a bacterium."
+        },
+        {
+          "wrong": "AIDS is a non-communicable disease.",
+          "right": "AIDS is a communicable disease caused by a virus (HIV). Type 2 diabetes is the non-communicable example."
+        }
+      ],
+      "worked_example": {
+        "exemplar_id": "c61da3fc-84ca-42d6-acc0-8051a040bb6b",
+        "source": "OCR jun 2019, Paper 2, Q21(a)",
+        "question": "Animals and plants can get different types of diseases. Write each of these four diseases in the correct column of a table with the columns: communicable disease caused by a bacterium, communicable disease caused by a fungus, communicable disease caused by a virus, and non-communicable disease. The diseases are: AIDS, type 2 diabetes, crown gall disease, barley powdery mildew.",
+        "marks": 3,
+        "answer_points": [
+          "Caused by a bacterium: crown gall disease.",
+          "Caused by a fungus: barley powdery mildew.",
+          "Caused by a virus: AIDS.",
+          "Non-communicable disease: type 2 diabetes."
+        ],
+        "tip": "Four correct placements score 3 marks, two or three correct score 2 marks, and one correct scores 1 mark."
+      }
+    }
+  },
+  "meta": {
+    "status": "draft",
+    "written_by": "sonnet-5-5",
+    "written_at": "2026-10-01",
+    "spec_point_ids": [
+      "d3f3d97c-c0c8-4d9c-b488-2adce13af8a2",
+      "67c7ee95-6f13-4c17-9599-5a7b65318841"
+    ],
+    "exemplar_ids": [
+      "44a83d9a-f73e-46bd-9dfa-2756a568327e",
+      "365ec292-8046-488c-a345-4eb7d84fc170",
+      "c61da3fc-84ca-42d6-acc0-8051a040bb6b"
+    ]
+  }
+}
