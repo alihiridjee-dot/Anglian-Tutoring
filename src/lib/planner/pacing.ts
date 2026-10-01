@@ -249,6 +249,27 @@ export interface ReviewProjection {
   backlog: FocusCandidate[];
   /** Reviews beyond the exam remain in FSRS, without being pulled forward. */
   beyondExam: FocusCandidate[];
+  /**
+   * Reviews already due by `readyBy` that the weekly budget pushed into a later
+   * week, oldest due first — what "Review more now" offers.
+   */
+  waiting: FocusCandidate[];
+}
+
+/**
+ * How much of a week reviews may take: three times its teaching, in the same
+ * weight units as the spine (a review is far quicker than first learning). On
+ * today's courses that is about fifteen to twenty reviews. It was unlimited,
+ * so every overdue review landed in one week: a student back after a few weeks
+ * away met a wall of them, and past 200 points the week could not be saved at
+ * all. What doesn't fit rolls into the following weeks, oldest due first, and
+ * "Review more now" pulls it forward for anyone who wants to keep going.
+ */
+export const REVIEW_SHARE = 3;
+
+/** The review lane's weekly budget, given the spine's weekly load. */
+export function reviewBudget(weeklySpineWeight: number): number {
+  return Math.max(0, weeklySpineWeight) * REVIEW_SHARE;
 }
 
 /** First weekly opening at or after the actual timestamp, never rounded backwards. */
@@ -273,6 +294,14 @@ export function projectReviews(params: {
    * one; a point blocked all the way to the exam joins the backlog.
    */
   isBlocked?: (specPointId: string, weekKey: string) => boolean;
+  /**
+   * The most review weight one week may hold ({@link reviewBudget}). What
+   * doesn't fit waits for the next week with room, oldest due first. Omitted,
+   * reviews are unlimited.
+   */
+  weeklyBudget?: number;
+  /** Reviews due by this Monday but placed later are reported as `waiting`. */
+  readyBy?: Date;
 }): ReviewProjection {
   const current = mondayOf(params.currentMonday);
   const horizon = params.examMonday;
@@ -317,16 +346,22 @@ export function projectReviews(params: {
         week = addWeeks(week, 1);
       return { ...t, week, dueMs: new Date(t.c.dueAt).getTime() };
     });
-  const backlog = due.filter((t) => t.week >= horizon).map((t) => t.c);
-  const scheduled = due
+  const order = (a: (typeof due)[number], b: (typeof due)[number]) =>
+    a.dueMs - b.dueMs ||
+    (a.c.retention ?? 1) - (b.c.retention ?? 1) ||
+    a.c.specPointId.localeCompare(b.c.specPointId);
+  const placed = placeWithinBudget(due, horizon, order, params.weeklyBudget, params.isBlocked);
+  const backlog = placed.filter((t) => t.week >= horizon).map((t) => t.c);
+  const scheduled = placed
     .filter((t) => t.week < horizon)
-    .sort(
-      (a, b) =>
-        a.week.getTime() - b.week.getTime() ||
-        a.dueMs - b.dueMs ||
-        (a.c.retention ?? 1) - (b.c.retention ?? 1) ||
-        a.c.specPointId.localeCompare(b.c.specPointId),
-    );
+    .sort((a, b) => a.week.getTime() - b.week.getTime() || order(a, b));
+  const readyBy = params.readyBy ? mondayOf(params.readyBy) : null;
+  const waiting = readyBy
+    ? scheduled
+        .filter((t) => t.opening <= readyBy && t.week > readyBy)
+        .sort(order)
+        .map((t) => t.c)
+    : [];
   const bands: PacingBand[] = [];
   const grouped = new Map<string, PacingBand>();
   for (const { c, week } of scheduled) {
@@ -355,7 +390,54 @@ export function projectReviews(params: {
       eligibleAt: c.eligibleAt,
     });
   }
-  return { bands, backlog, beyondExam };
+  return { bands, backlog, beyondExam, waiting };
+}
+
+/**
+ * Week by week from the earliest, fill each week's review budget from what is
+ * due by then, oldest due first, and carry the rest to the next week. Always
+ * places at least one review in a week with any due (the floor {@link trickle}
+ * keeps for catch-up): without it a review heavier than the whole budget would
+ * wait for ever. A review the tutor has closed a week to waits past it. With no
+ * budget, each review simply keeps its first eligible week.
+ */
+function placeWithinBudget<T extends { week: Date; c: FocusCandidate }>(
+  due: T[],
+  horizon: Date,
+  order: (a: T, b: T) => number,
+  budget: number | undefined,
+  isBlocked?: (specPointId: string, weekKey: string) => boolean,
+): T[] {
+  if (budget === undefined || !Number.isFinite(budget)) return due;
+  const queue = [...due].sort((a, b) => a.week.getTime() - b.week.getTime() || order(a, b));
+  const out: T[] = [];
+  let ready: T[] = [];
+  let i = 0;
+  let week = queue[0]?.week;
+  while (week && week < horizon && (i < queue.length || ready.length > 0)) {
+    while (i < queue.length && queue[i].week <= week) ready.push(queue[i++]);
+    ready.sort(order);
+    const key = toDateKey(week);
+    const held: T[] = [];
+    let spent = 0;
+    let took = 0;
+    for (const t of ready) {
+      const w = weightOf(t.c);
+      if (isBlocked?.(t.c.specPointId, key)) held.push(t);
+      else if (spent + w <= budget || took === 0) {
+        out.push({ ...t, week });
+        spent += w;
+        took++;
+      } else held.push(t);
+    }
+    ready = held;
+    week = addWeeks(week, 1);
+    // Jump straight to the next arrival when nothing is waiting.
+    if (ready.length === 0 && i < queue.length && queue[i].week > week) week = queue[i].week;
+  }
+  // Whatever never found room before the exam is backlog.
+  for (const t of [...ready, ...queue.slice(i)]) out.push({ ...t, week: horizon });
+  return out;
 }
 
 /**
