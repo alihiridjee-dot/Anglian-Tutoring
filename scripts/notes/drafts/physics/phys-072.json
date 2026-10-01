@@ -10,7 +10,7 @@
       "blocks": [
         {
           "type": "paragraph",
-          "text": "Ultrasound is sound with a frequency too high for humans to hear. It is used to find the distance to a hidden boundary by timing its echo."
+          "text": "(Separate science) Ultrasound is sound with a frequency too high for humans to hear. It is used to find the distance to a hidden boundary by timing its echo."
         },
         {
           "type": "definitions",
@@ -234,7 +234,9 @@
             "The P-wave arrives first, then the S-wave. The time between them is directly proportional to the distance from the earthquake.",
             "S-waves do not travel through the outer core.",
             "So the outer core must be a liquid.",
-            "Waves change speed and direction at boundaries between layers, which shows that the Earth has layers."
+            "The region where S-waves are not detected shows the size of the liquid outer core.",
+            "Waves change speed and direction at boundaries between layers, which shows that the Earth has layers.",
+            "The speeds of P-waves and S-waves generally increase with depth, as the material gets denser."
           ]
         },
         {
@@ -291,7 +293,7 @@
           "blocks": [
             {
               "type": "paragraph",
-              "text": "This topic is Higher tier content in this course."
+              "text": "(Higher tier) This topic is Higher tier content in this course."
             }
           ]
         }
@@ -321,7 +323,6 @@
         "pulses reflected by / bounce off / echo off ocean bed",
         "time between emission and receipt of pulse measured",
         "velocity of sound in sea water known",
-        "distance = velocity × time",
         "either distance halved or time halved"
       ],
       "mistakes": [
@@ -335,7 +336,7 @@
         },
         {
           "wrong": "Sound is sent to the ocean bed and back, the time is measured and distance = speed × time.",
-          "right": "The top level needs two from ultrasound, pulses and halving the distance or the time. Halve the time or distance, or the depth is twice too big."
+          "right": "Level 3 needs two of: ultrasound, pulses, and halving the distance or the time. Halve the time (or the distance), or the depth comes out twice too big."
         }
       ],
       "extra": [
@@ -382,8 +383,8 @@
           "right": "The time is for there and back. Divide by 2: 1500 × (2.8 × 10⁻⁷ ÷ 2) = 2.1 × 10⁻⁴ m. Not dividing by 2 loses a mark."
         },
         {
-          "wrong": "S waves stop at the core, so the core is solid.",
-          "right": "S waves do not travel through the core, so the outer core is a liquid."
+          "wrong": "S waves do not travel through the core.",
+          "right": "Finish the argument: S waves do not travel through the core, so the outer core is a liquid."
         }
       ],
       "worked_example": {
@@ -417,6 +418,8 @@
       "a379ad40-2f74-4dba-9c6f-04a9af64cfaa",
       "8c405010-0536-4d6a-940e-2c49d77a5003",
       "ba6ec042-5cdd-4cdd-b5c3-af54d6e292a6"
-    ]
+    ],
+    "checked_by": "sonnet-science-check",
+    "checked_at": "2026-10-01"
   }
 }
