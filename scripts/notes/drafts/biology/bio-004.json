@@ -1,0 +1,173 @@
+{
+  "format": 1,
+  "concept_id": "bio-004",
+  "subject": "biology",
+  "title": "Growth and percentile charts",
+  "key_idea": "Animals grow by cell division and differentiation. Plants grow by cell division, cell elongation and differentiation. Percentile charts let a doctor compare a child's growth with other children of the same age and track it over time.",
+  "sections": [
+    {
+      "heading": "Growth in animals and plants",
+      "blocks": [
+        { "type": "paragraph", "text": "Growth is an increase in size. This section covers the processes that make animals and plants grow." },
+        {
+          "type": "definitions",
+          "items": [
+            { "term": "Cell division", "meaning": "One cell dividing by mitosis to make two, which increases the number of cells." },
+            { "term": "Differentiation", "meaning": "Unspecialised cells becoming specialised cells." },
+            { "term": "Cell elongation", "meaning": "Cells getting longer, which makes a plant grow in length." }
+          ]
+        },
+        {
+          "type": "table",
+          "columns": ["Process", "Animals", "Plants"],
+          "rows": [
+            ["Cell division (mitosis)", "Yes", "Yes"],
+            ["Differentiation", "Yes", "Yes"],
+            ["Cell elongation", "No", "Yes"]
+          ]
+        },
+        {
+          "type": "diagram",
+          "diagram": {
+            "kind": "sort",
+            "alt": "Sort each statement into growth in both animals and plants, or growth in plants only.",
+            "prompt": "Which growth processes happen where?",
+            "groups": ["Animals and plants", "Plants only"],
+            "items": [
+              { "text": "Cells divide by mitosis to make more cells", "group": 0 },
+              { "text": "New specialised cells form from unspecialised cells", "group": 0 },
+              { "text": "Cell division increases the number of cells", "group": 0 },
+              { "text": "Cells get longer after they have divided", "group": 1 },
+              { "text": "Cell elongation", "group": 1 },
+              { "text": "Differentiation", "group": 0 }
+            ]
+          }
+        },
+        {
+          "type": "key-points",
+          "items": [
+            "Animal growth needs cell division and differentiation.",
+            "Plant growth also needs cell elongation.",
+            "Cell elongation is not part of animal growth."
+          ]
+        }
+      ]
+    },
+    {
+      "heading": "Percentile charts",
+      "blocks": [
+        { "type": "paragraph", "text": "A percentile chart is used to monitor height or weight over time and to compare a child with the standard growth pattern." },
+        {
+          "type": "definitions",
+          "items": [
+            { "term": "Percentile", "meaning": "A position out of 100. The 90th percentile means bigger than 90 out of 100 children of the same age." },
+            { "term": "Percentile chart", "meaning": "A graph of growth curves, each labelled with a percentile, for a measurement such as height." }
+          ]
+        },
+        {
+          "type": "diagram",
+          "diagram": {
+            "kind": "line-graph",
+            "alt": "A percentile chart showing height against age. Three curves rise steeply in early childhood and level off. The 97th percentile is the highest, the 50th percentile is in the middle and the 3rd percentile is the lowest.",
+            "x": { "label": "Age", "min": 0, "max": 18, "ticks": [0, 3, 6, 9, 12, 15, 18], "unit": "years" },
+            "y": { "label": "Height" },
+            "series": [
+              { "name": "97th percentile", "points": [[0, 0.3], [3, 0.55], [6, 0.7], [9, 0.8], [12, 0.88], [15, 0.97], [18, 1]] },
+              { "name": "50th percentile", "points": [[0, 0.27], [3, 0.5], [6, 0.63], [9, 0.72], [12, 0.8], [15, 0.88], [18, 0.9]] },
+              { "name": "3rd percentile", "points": [[0, 0.24], [3, 0.45], [6, 0.56], [9, 0.64], [12, 0.7], [15, 0.78], [18, 0.82]] }
+            ]
+          }
+        },
+        { "type": "subheading", "text": "How a doctor uses one" },
+        {
+          "type": "steps",
+          "items": [
+            { "lead": "Measure.", "text": "Measure the child's height, mass or head circumference." },
+            { "lead": "Plot.", "text": "Find the child's age on the chart and mark the measurement to find the percentile." },
+            { "lead": "Compare.", "text": "This compares the child with other children of the same age." },
+            { "lead": "Repeat.", "text": "Measure again over time. Growth should stay on or around the same percentile." }
+          ]
+        },
+        {
+          "type": "key-points",
+          "items": [
+            "Percentile charts monitor growth over time.",
+            "They compare an individual with the standard growth pattern for their age.",
+            "A healthy child's measurements should follow along a percentile."
+          ]
+        }
+      ]
+    }
+  ],
+  "checks": [
+    {
+      "q": "Which process, other than cell division, is needed for the growth of an animal?",
+      "a": "Differentiation.",
+      "marks": 1
+    },
+    {
+      "q": "State one way that plant growth differs from animal growth.",
+      "a": "Plant cells also grow by cell elongation, which makes the cells longer.",
+      "marks": 1
+    },
+    {
+      "q": "A parent is worried that their child is not growing as expected. Describe how a doctor could check this.",
+      "a": "Measure the child's height or mass. Find the percentile on a percentile chart for their age. Repeat the measurements over time and check that they stay on or around the same percentile.",
+      "marks": 3
+    }
+  ],
+  "boards": {
+    "edexcel": {
+      "spec_codes": ["EDEX 2.5", "EDEX 2.7"],
+      "exam_phrases": [
+        "measure height / mass / head circumference",
+        "find the percentile for their age",
+        "use a percentile chart",
+        "measurements should increase along a percentile",
+        "to monitor height / growth (over time)",
+        "to compare the growth of an individual against the standard growth pattern"
+      ],
+      "mistakes": [
+        {
+          "wrong": "Cell elongation is needed for the growth of an animal.",
+          "right": "Cell elongation is not part of animal growth. Animals need cell division and differentiation."
+        },
+        {
+          "wrong": "A doctor could work out the child's BMI.",
+          "right": "BMI is ignored. Measure height, mass (weight) or head circumference and find the percentile for the child's age."
+        },
+        {
+          "wrong": "A percentile chart is used to measure how tall a child is.",
+          "right": "A percentile chart does not measure the child. It is used to monitor growth over time and compare the child with the standard growth pattern."
+        }
+      ],
+      "worked_example": {
+        "exemplar_id": "3e5939cd-f83e-4fd1-a58e-c066b1c981e7",
+        "source": "EDEXCEL jun 2024, Paper 1 (H), Q9(b)(ii)",
+        "question": "The production of more cells contributes to the growth of an animal. A parent is concerned that their child is not growing as much as other children. Describe how a doctor might determine if the child is growing as expected.",
+        "marks": 4,
+        "answer_points": [
+          "Measure the height, mass or head circumference.",
+          "Find the percentile.",
+          "For their age (compare with children of the same age).",
+          "Measurements should increase along a percentile, so repeat the measurements over time."
+        ],
+        "tip": "One mark each. Use a percentile chart and mention age and repeating over time."
+      }
+    }
+  },
+  "meta": {
+    "status": "draft",
+    "checked_by": "sonnet-science-check",
+    "checked_at": "2026-10-01",
+    "written_by": "Claude Sonnet 5.5",
+    "written_at": "2026-10-01",
+    "spec_point_ids": [
+      "6040771d-a07a-4ab4-b959-938c26572284",
+      "7c8dcadf-538e-4a14-a9d1-adda7d7aa97f"
+    ],
+    "exemplar_ids": [
+      "3e5939cd-f83e-4fd1-a58e-c066b1c981e7"
+    ]
+  }
+}

@@ -1,0 +1,76 @@
+{
+  "format": 1,
+  "concept_id": "chem-067",
+  "subject": "chemistry",
+  "title": "Scene library (test)",
+  "key_idea": "A test note with one of each new scene.",
+  "sections": [
+    { "heading": "Gas syringe", "blocks": [{ "type": "diagram", "diagram": {
+      "kind": "slider", "alt": "Change the temperature and time; see the gas collected.",
+      "inputs": [
+        { "id": "T", "label": "Temperature", "unit": "°C", "min": 20, "max": 60, "step": 10, "value": 20 },
+        { "id": "t", "label": "Time", "unit": "s", "min": 0, "max": 60, "step": 5, "value": 20 }
+      ],
+      "outputs": [
+        { "label": "Rate", "unit": "cm³/s", "formula": "0.5 * 2^((T - 20) / 10)", "decimals": 1 },
+        { "label": "Gas collected", "unit": "cm³", "formula": "min(100, 0.5 * 2^((T - 20) / 10) * t)", "decimals": 0 }
+      ],
+      "scene": { "kind": "gas-syringe", "volume": 1, "max": 100, "rate": 0 } } }] },
+    { "heading": "pH scale", "blocks": [{ "type": "diagram", "diagram": {
+      "kind": "slider", "alt": "Move the pH to see the indicator colour.",
+      "inputs": [{ "id": "p", "label": "pH", "min": 0, "max": 14, "step": 1, "value": 3 }],
+      "outputs": [{ "label": "H⁺ concentration compared with pH 7", "unit": "×", "formula": "10^(7 - p)", "decimals": 0 }],
+      "scene": { "kind": "ph", "ph": "p" } } }] },
+    { "heading": "Food tests", "blocks": [{ "type": "diagram", "diagram": {
+      "kind": "predictor", "alt": "Pick a food test to see the result.", "prompt": "Pick a food test",
+      "result_labels": ["Reagent", "Positive result"],
+      "options": [
+        { "label": "Starch", "results": ["Iodine solution", "Orange-brown to **blue-black**"], "scene": { "kind": "tubes", "tubes": [{ "label": "Before", "colour": "orange" }, { "label": "Starch", "colour": "blue-black" }] } },
+        { "label": "Reducing sugar", "results": ["Benedict's solution, heated", "Blue to **brick-red** precipitate"], "scene": { "kind": "tubes", "tubes": [{ "label": "Before", "colour": "blue" }, { "label": "Sugar", "colour": "orange", "precipitate": "brick-red" }] } },
+        { "label": "Protein", "results": ["Biuret reagent", "Blue to **purple**"], "scene": { "kind": "tubes", "tubes": [{ "label": "Before", "colour": "blue" }, { "label": "Protein", "colour": "purple" }] } }
+      ] } }] },
+    { "heading": "Flame tests", "blocks": [{ "type": "diagram", "diagram": {
+      "kind": "predictor", "alt": "Pick a metal ion to see its flame colour.", "prompt": "Pick a metal ion",
+      "result_labels": ["Flame colour"],
+      "options": [
+        { "label": "Lithium Li⁺", "results": ["Crimson"], "scene": { "kind": "flame", "colour": "crimson" } },
+        { "label": "Sodium Na⁺", "results": ["Yellow"], "scene": { "kind": "flame", "colour": "yellow" } },
+        { "label": "Potassium K⁺", "results": ["Lilac"], "scene": { "kind": "flame", "colour": "lilac" } },
+        { "label": "Copper Cu²⁺", "results": ["Green"], "scene": { "kind": "flame", "colour": "green" } }
+      ] } }] },
+    { "heading": "Energy profiles", "blocks": [{ "type": "diagram", "diagram": {
+      "kind": "predictor", "alt": "Pick a reaction type to see its profile.", "prompt": "Pick a reaction",
+      "result_labels": ["Products compared with reactants", "Temperature of surroundings"],
+      "options": [
+        { "label": "Exothermic", "results": ["Lower energy", "Rises"], "scene": { "kind": "energy-profile", "direction": "exothermic" } },
+        { "label": "Endothermic", "results": ["Higher energy", "Falls"], "scene": { "kind": "energy-profile", "direction": "endothermic" } },
+        { "label": "With a catalyst", "results": ["Unchanged", "Unchanged; activation energy is lower"], "scene": { "kind": "energy-profile", "direction": "exothermic", "catalyst": true } }
+      ] } }] },
+    { "heading": "Enzyme", "blocks": [{ "type": "diagram", "diagram": {
+      "kind": "slider", "alt": "Change the temperature and watch the enzyme.",
+      "inputs": [{ "id": "T", "label": "Temperature", "unit": "°C", "min": 0, "max": 70, "step": 5, "value": 37 }],
+      "outputs": [{ "label": "Relative rate", "unit": "%", "formula": "max(0, 100 - abs(T - 37)^2 / 9)", "decimals": 0 }],
+      "scene": { "kind": "enzyme", "condition": "T", "optimum": 37, "denatures_at": 23 } } }] },
+    { "heading": "Diffusion", "blocks": [{ "type": "diagram", "diagram": {
+      "kind": "slider", "alt": "Change the concentration on each side.",
+      "inputs": [
+        { "id": "L", "label": "Concentration on the left", "min": 0, "max": 10, "step": 1, "value": 8 },
+        { "id": "R", "label": "Concentration on the right", "min": 0, "max": 10, "step": 1, "value": 2 }
+      ],
+      "outputs": [{ "label": "Concentration difference", "formula": "abs(L - R)", "decimals": 0 }],
+      "scene": { "kind": "diffusion", "left": "L", "right": "R", "membrane": "Cell membrane" } } }] },
+    { "heading": "Half-life", "blocks": [{ "type": "diagram", "diagram": {
+      "kind": "slider", "alt": "Move time on and watch the nuclei decay.",
+      "inputs": [{ "id": "t", "label": "Time", "unit": "days", "min": 0, "max": 32, "step": 2, "value": 8 }],
+      "outputs": [{ "label": "Fraction left", "formula": "0.5^(t / 8)", "decimals": 3 }],
+      "scene": { "kind": "half-life", "time": "t", "half_life": 8 } } }] },
+    { "heading": "Circuit", "blocks": [{ "type": "diagram", "diagram": {
+      "kind": "slider", "alt": "Change the voltage and see the bulbs.",
+      "inputs": [{ "id": "V", "label": "Potential difference", "unit": "V", "min": 0, "max": 12, "step": 1, "value": 6 }],
+      "outputs": [{ "label": "Current", "unit": "A", "formula": "V / 24", "decimals": 2 }],
+      "scene": { "kind": "circuit", "arrangement": "series", "brightness": 0, "max": 0.5 } } }] }
+  ],
+  "checks": [{ "q": "q1", "a": "a1" }, { "q": "q2", "a": "a2" }],
+  "boards": { "aqa": { "spec_codes": ["AQA 4.6.1.1"], "exam_phrases": ["one", "two"], "mistakes": [] } },
+  "meta": { "status": "draft", "written_by": "template-test", "written_at": "2026-10-01", "spec_point_ids": ["68d3360b-69d0-442e-bd0e-fb919f7dcf15"], "exemplar_ids": [] }
+}

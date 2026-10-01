@@ -330,7 +330,8 @@ export function Hero() {
             <Check className="size-3.5 shrink-0" aria-hidden /> Led by experienced qualified tutors
           </div>
           <div className="chip tint-accent">
-            <Check className="size-3.5 shrink-0" aria-hidden /> 15+ years combined teaching experience
+            <Check className="size-3.5 shrink-0" aria-hidden /> 15+ years combined teaching
+            experience
           </div>
         </div>
       </div>

@@ -4,7 +4,7 @@ import { CatchUpWeek } from "./CatchUpWeek";
 import { PLANNER_TIME_ZONE, weekKeyToDate } from "@/lib/planner/week";
 import { Meter } from "@/components/Shared";
 import { Link } from "@tanstack/react-router";
-import { CircleDot, History, Repeat, CheckCircle2, Plus } from "lucide-react";
+import { CircleDot, History, Repeat, CheckCircle2, Plus, BookMarked } from "lucide-react";
 import { type PlanPoint } from "@/lib/planner/weeklyPlanDal";
 import { type RoadmapResult } from "@/lib/planner/roadmap";
 import { type PacingBand } from "@/lib/planner/pacing";
@@ -218,6 +218,25 @@ export function RevisionLane({
           <NothingDue mascot="owl" mood="sleepy" title="No revision due" />
         </>
       )}
+    </div>
+  );
+}
+
+/** Points a tutor pinned into this student's week, kept apart from the student's own. */
+export function TutorLane({ tutor, row }: { tutor: TopicGroup[]; row: Row }) {
+  return (
+    <div className="tint-accent rounded-xl border border-border bg-muted/20 p-4">
+      <div className="flex items-center gap-1.5 mb-2">
+        <BookMarked className="w-3.5 h-3.5 text-[color:var(--tint)]" />
+        <span className="eyebrow eyebrow-bare">From your tutor</span>
+      </div>
+      <div className="space-y-5">
+        {tutor.map((g) => (
+          <TopicBlock key={g.topicId} title={g.title} accent="muted">
+            <SpecPointList>{g.points.map(row)}</SpecPointList>
+          </TopicBlock>
+        ))}
+      </div>
     </div>
   );
 }
