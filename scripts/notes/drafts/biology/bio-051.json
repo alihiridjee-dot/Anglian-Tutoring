@@ -8,14 +8,29 @@
     {
       "heading": "What monoclonal antibodies are",
       "blocks": [
-        { "type": "paragraph", "text": "Antibodies are made by lymphocytes, but a lymphocyte cannot divide many times in the laboratory. Scientists solve this by combining it with a tumour cell." },
+        {
+          "type": "paragraph",
+          "text": "This topic is for separate biology. Antibodies are made by lymphocytes, but a lymphocyte cannot divide many times in the laboratory. Scientists solve this by combining it with a tumour cell."
+        },
         {
           "type": "definitions",
           "items": [
-            { "term": "Monoclonal antibody", "meaning": "An antibody made by a clone of identical cells, so every antibody is specific to the same antigen." },
-            { "term": "Lymphocyte", "meaning": "A white blood cell that makes antibodies." },
-            { "term": "Tumour cell", "meaning": "A cancer cell that divides rapidly." },
-            { "term": "Hybridoma", "meaning": "A cell made by combining a lymphocyte with a tumour cell. It makes the antibody and divides rapidly." }
+            {
+              "term": "Monoclonal antibody",
+              "meaning": "An antibody made by a clone of identical cells, so every antibody is specific to the same antigen."
+            },
+            {
+              "term": "Lymphocyte",
+              "meaning": "A white blood cell that makes antibodies."
+            },
+            {
+              "term": "Tumour cell",
+              "meaning": "A cancer cell that divides rapidly."
+            },
+            {
+              "term": "Hybridoma",
+              "meaning": "A cell made by combining a lymphocyte with a tumour cell. It makes the antibody and divides rapidly."
+            }
           ]
         },
         {
@@ -30,7 +45,10 @@
     {
       "heading": "How they are made",
       "blocks": [
-        { "type": "paragraph", "text": "Monoclonal antibodies are usually made using mouse lymphocytes. The steps are in a fixed order." },
+        {
+          "type": "paragraph",
+          "text": "Monoclonal antibodies are usually made using mouse lymphocytes. The steps are in a fixed order."
+        },
         {
           "type": "diagram",
           "diagram": {
@@ -70,12 +88,15 @@
     {
       "heading": "Other ways of making them",
       "blocks": [
-        { "type": "paragraph", "text": "Mice are not the only source. Some people prefer methods that do not use animals." },
+        {
+          "type": "paragraph",
+          "text": "Mice are not the only source. Some people prefer methods that do not use animals."
+        },
         {
           "type": "list",
           "items": [
             "Human lymphocytes made naturally after an infection can be used instead of mouse lymphocytes.",
-            "Genes for antibodies can be put into viruses, then into bacteria, which make large quantities of the antibody.",
+            "Genes for many different antibodies are put into viruses. When an antigen attaches to one, its gene is used to genetically engineer bacteria, which make large quantities of that antibody.",
             "These methods do not use mice. Some people think using mice is cruel or unethical."
           ]
         },
@@ -108,7 +129,9 @@
   ],
   "boards": {
     "aqa": {
-      "spec_codes": ["AQA 3.7"],
+      "spec_codes": [
+        "AQA 3.7"
+      ],
       "exam_phrases": [
         "protein / antigen injected into mouse",
         "extract / collect (mouse) lymphocytes that make a specific antibody",
@@ -146,25 +169,24 @@
       }
     },
     "edexcel": {
-      "spec_codes": ["EDEX 5.21B"],
+      "spec_codes": [
+        "EDEX 5.21B"
+      ],
       "exam_phrases": [
-        "lymphocytes fused with hybridoma cells",
         "hybridoma cells that divide rapidly",
-        "monoclonal antibodies are produced"
+        "lymphocytes fused with tumour cells to make hybridoma cells"
       ],
       "mistakes": [
         {
           "wrong": "Monoclonal antibodies are made by lymphocytes alone.",
-          "right": "Lymphocytes are combined with tumour (hybridoma) cells, which divide rapidly, so the antibody can be made in large amounts."
-        },
-        {
-          "wrong": "A tumour cell is added.",
-          "right": "Be specific: a lymphocyte is combined with a tumour cell to make a hybridoma that divides rapidly and makes the antibody."
+          "right": "A lymphocyte is fused with a tumour cell to make a hybridoma cell. It divides rapidly, so the antibody can be made in large amounts."
         }
       ]
     },
     "ocr": {
-      "spec_codes": ["OCR 6.3m"],
+      "spec_codes": [
+        "OCR 6.3m"
+      ],
       "exam_phrases": [
         "(inject) drug into mice",
         "lymphocytes made / collected",
@@ -175,10 +197,6 @@
       ],
       "mistakes": [
         {
-          "wrong": "White blood cells are fused with cancer cells.",
-          "right": "White blood cells and cancer or myeloma cells are allowed, but lymphocytes and tumour cells are the best words to use."
-        },
-        {
           "wrong": "People prefer the bacteria method because of religion.",
           "right": "References to religion or \"playing god\" are ignored. Say the method does not use mice or animals, which some people think is cruel or unethical."
         }
@@ -186,14 +204,14 @@
       "worked_example": {
         "exemplar_id": "47244ade-2313-4020-82c4-f38ae56caa53",
         "source": "OCR jun 2018, Paper 4, Q22(b)",
-        "question": "Scientists are investigating the use of antibodies as a treatment to control the negative effects of a drug.\n\nAs the human body does not naturally make antibodies against the drug, scientists are using mice to make antibodies.\n\nDescribe how large amounts of the antibodies can be made using monoclonal antibody techniques.",
+        "question": "Methamphetamine is a drug. Scientists are investigating the use of antibodies as a treatment to control the negative effects of the drug.\n\nAs the human body does not naturally make antibodies against methamphetamine, scientists are using mice to make antibodies.\n\nDescribe how large amounts of the antibodies can be made using monoclonal antibody techniques.",
         "marks": 4,
         "answer_points": [
-          "Inject the drug into mice.",
+          "Inject methamphetamine (the drug) into mice.",
           "Lymphocytes are made or collected.",
           "The lymphocytes are fused with tumour cells.",
           "Hybridoma cells are made.",
-          "The hybridoma cells make antibodies against the drug."
+          "The hybridoma cells make antibodies against methamphetamine (the drug)."
         ],
         "tip": "Any four of these points score one mark each."
       }
@@ -211,6 +229,8 @@
     "exemplar_ids": [
       "a83505e3-72be-4c7f-8a8e-23735d2bd6fd",
       "47244ade-2313-4020-82c4-f38ae56caa53"
-    ]
+    ],
+    "checked_by": "sonnet-science-check",
+    "checked_at": "2026-10-01"
   }
 }

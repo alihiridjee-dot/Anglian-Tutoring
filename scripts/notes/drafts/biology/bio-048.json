@@ -8,14 +8,29 @@
     {
       "heading": "How a vaccine works",
       "blocks": [
-        { "type": "paragraph", "text": "A vaccine trains the immune system before a real infection happens. This section covers what is in a vaccine and what the body does with it." },
+        {
+          "type": "paragraph",
+          "text": "A vaccine trains the immune system before a real infection happens. This section covers what is in a vaccine and what the body does with it."
+        },
         {
           "type": "definitions",
           "items": [
-            { "term": "Vaccine", "meaning": "A medicine containing a dead, inactive or weakened pathogen, or its antigens, that makes a person immune." },
-            { "term": "Antigen", "meaning": "A molecule on the surface of a pathogen that the immune system recognises as foreign." },
-            { "term": "Antibody", "meaning": "A protein made by white blood cells that is specific to one antigen and binds to it." },
-            { "term": "Memory cell", "meaning": "A white blood cell that stays in the body after an infection and allows a fast response next time." }
+            {
+              "term": "Vaccine",
+              "meaning": "A medicine containing a dead, inactive or weakened pathogen, or its antigens, that makes a person immune."
+            },
+            {
+              "term": "Antigen",
+              "meaning": "A molecule on the surface of a pathogen that the immune system recognises as foreign."
+            },
+            {
+              "term": "Antibody",
+              "meaning": "A protein made by white blood cells that is specific to one antigen and binds to it."
+            },
+            {
+              "term": "Memory cell",
+              "meaning": "A white blood cell that stays in the body after an infection and allows a fast response next time."
+            }
           ]
         },
         {
@@ -57,23 +72,93 @@
     {
       "heading": "The first and second response",
       "blocks": [
-        { "type": "paragraph", "text": "The body responds more strongly the second time it meets a pathogen. This is why a vaccinated person does not become ill." },
+        {
+          "type": "paragraph",
+          "text": "The body responds more strongly the second time it meets a pathogen. This is why a vaccinated person does not become ill."
+        },
         {
           "type": "diagram",
           "diagram": {
             "kind": "line-graph",
             "alt": "Line graph of antibody level over time. After the vaccine the antibody level rises slowly to a low peak and then falls. When the real pathogen enters later, the antibody level rises much faster and reaches a much higher peak.",
-            "x": { "label": "Time", "min": 0, "max": 60, "ticks": [0, 10, 20, 30, 40, 50, 60], "unit": "days" },
-            "y": { "label": "Antibody level" },
+            "x": {
+              "label": "Time",
+              "min": 0,
+              "max": 60,
+              "ticks": [
+                0,
+                10,
+                20,
+                30,
+                40,
+                50,
+                60
+              ],
+              "unit": "days"
+            },
+            "y": {
+              "label": "Antibody level"
+            },
             "series": [
               {
                 "name": "Antibodies in the blood",
-                "points": [[0, 0], [5, 0.05], [10, 0.2], [15, 0.3], [22, 0.2], [30, 0.12], [32, 0.5], [35, 0.9], [42, 0.85], [50, 0.6], [60, 0.4]]
+                "points": [
+                  [
+                    0,
+                    0
+                  ],
+                  [
+                    5,
+                    0.05
+                  ],
+                  [
+                    10,
+                    0.2
+                  ],
+                  [
+                    15,
+                    0.3
+                  ],
+                  [
+                    22,
+                    0.2
+                  ],
+                  [
+                    30,
+                    0.12
+                  ],
+                  [
+                    32,
+                    0.5
+                  ],
+                  [
+                    35,
+                    0.9
+                  ],
+                  [
+                    42,
+                    0.85
+                  ],
+                  [
+                    50,
+                    0.6
+                  ],
+                  [
+                    60,
+                    0.4
+                  ]
+                ]
               }
             ],
             "markers": [
-              { "x": 0, "label": "Vaccine given" },
-              { "x": 30, "label": "Real pathogen enters" }
+              {
+                "x": 0,
+                "label": "Vaccine given"
+              },
+              {
+                "x": 30,
+                "label": "Real pathogen enters"
+              }
             ]
           }
         },
@@ -97,11 +182,17 @@
     {
       "heading": "Vaccination programmes and herd immunity",
       "blocks": [
-        { "type": "paragraph", "text": "Vaccinating a large part of a population reduces how far a disease can spread. This section covers herd immunity and the arguments for and against vaccination." },
+        {
+          "type": "paragraph",
+          "text": "Vaccinating a large part of a population reduces how far a disease can spread. This section covers herd immunity and the arguments for and against vaccination."
+        },
         {
           "type": "definitions",
           "items": [
-            { "term": "Herd immunity", "meaning": "When most of a population is immune, so unvaccinated people are protected because the pathogen is less likely to reach them." }
+            {
+              "term": "Herd immunity",
+              "meaning": "When most of a population is immune, so unvaccinated people are protected because the pathogen is less likely to reach them."
+            }
           ]
         },
         {
@@ -112,7 +203,10 @@
             "Unvaccinated people are protected, but they are not themselves immune."
           ]
         },
-        { "type": "subheading", "text": "Why some people are not vaccinated" },
+        {
+          "type": "subheading",
+          "text": "Why some people are not vaccinated"
+        },
         {
           "type": "list",
           "items": [
@@ -122,14 +216,16 @@
             "Religious, cultural or personal objections, or being afraid of needles."
           ]
         },
-        { "type": "subheading", "text": "Evaluating vaccination" },
+        {
+          "type": "subheading",
+          "text": "Evaluating vaccination"
+        },
         {
           "type": "list",
           "items": [
             "For: vaccination has been linked to falling numbers of cases, for example measles, and the protection also helps people who cannot be vaccinated.",
             "Against: some people may have side effects, and fewer people being vaccinated can allow cases to rise again.",
-            "When a false report linked a vaccine to a disorder, fewer children were vaccinated and the number of cases increased.",
-            "Scientific claims are checked by peer review to help detect false claims."
+            "When a false report linked a vaccine to a disorder, fewer children were vaccinated and the number of cases increased."
           ]
         },
         {
@@ -162,7 +258,10 @@
   ],
   "boards": {
     "aqa": {
-      "spec_codes": ["AQA 3.4", "AQA T 4.3.1.7"],
+      "spec_codes": [
+        "AQA 3.4",
+        "AQA T 4.3.1.7"
+      ],
       "exam_phrases": [
         "dead / inactive / weakened form of pathogen is introduced / injected",
         "white blood cells produce antibodies",
@@ -201,7 +300,10 @@
       }
     },
     "edexcel": {
-      "spec_codes": ["EDEX 5.14", "EDEX 5.15B"],
+      "spec_codes": [
+        "EDEX 5.14",
+        "EDEX 5.15B"
+      ],
       "exam_phrases": [
         "they are immune (to the bacterium)",
         "the vaccination contained an antigen",
@@ -220,8 +322,8 @@
           "right": "This is ignored. Give a reason, such as concern about side effects, a medical reason, being too young or having no access to healthcare."
         },
         {
-          "wrong": "Measles cases went down.",
-          "right": "A conclusion needs a reason: the number of cases decreased because more people have been immunised, or because of herd immunity."
+          "wrong": "Herd immunity means that most people are immunised.",
+          "right": "This is only half the answer. Add that non-immunised people are protected because they are less likely to come into contact with the pathogen, or because it is less likely to spread."
         }
       ],
       "worked_example": {
@@ -239,7 +341,9 @@
       }
     },
     "ocr": {
-      "spec_codes": ["OCR 6.3o"],
+      "spec_codes": [
+        "OCR 6.3o"
+      ],
       "exam_phrases": [
         "vaccine contains weakened / dead / inactive pathogen",
         "(formation of) memory cells",
@@ -290,6 +394,8 @@
       "0c084486-f8a1-450b-828a-de801cb3ebc9",
       "163afc43-0683-442d-9d9c-b412b2f4b0be",
       "e02a8753-836b-4569-80be-cfc70feddf0f"
-    ]
+    ],
+    "checked_by": "sonnet-science-check",
+    "checked_at": "2026-10-01"
   }
 }

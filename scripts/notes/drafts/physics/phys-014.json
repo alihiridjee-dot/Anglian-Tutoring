@@ -1,0 +1,268 @@
+{
+  "format": 1,
+  "concept_id": "phys-014",
+  "subject": "physics",
+  "title": "Required practical: resistance and I–V characteristics",
+  "key_idea": "Resistance is found by measuring the current in a component and the potential difference across it, then using R = V ÷ I. The same circuit tests how resistance changes with the length of a wire, and gives I–V graphs for different components.",
+  "sections": [
+    {
+      "heading": "Investigating the resistance of a wire",
+      "blocks": [
+        { "type": "paragraph", "text": "This practical finds how the resistance of a wire depends on its length, at constant temperature." },
+        {
+          "type": "list",
+          "items": [
+            "Equipment: power supply, ammeter, voltmeter, variable resistor, the wire fixed to a ruler, and crocodile clips.",
+            "The ammeter is in series with the wire. The voltmeter is in parallel with the wire.",
+            "The **independent variable** is the length of wire. The **dependent variable** is its resistance."
+          ]
+        },
+        {
+          "type": "diagram",
+          "diagram": {
+            "kind": "sequence",
+            "alt": "Put the steps of the wire-length investigation in order.",
+            "prompt": "Put the method in the right order.",
+            "steps": [
+              "Set up the circuit with the ammeter in series and the voltmeter across the wire.",
+              "Measure the length of wire between the crocodile clips with a ruler.",
+              "Close the switch and record the current and the potential difference.",
+              "Disconnect the circuit between readings.",
+              "Move a crocodile clip to change the length and repeat the readings.",
+              "Repeat each length, calculate mean values and remove anomalous readings.",
+              "Calculate the resistance for each length using R = V ÷ I.",
+              "Plot a graph of resistance against length."
+            ]
+          }
+        },
+        { "type": "subheading", "text": "Calculating resistance" },
+        {
+          "type": "equation",
+          "label": "Resistance",
+          "formula": "R = V ÷ I",
+          "where": ["R = resistance, in ohms (Ω)", "V = potential difference, in volts (V)", "I = current, in amperes (A)"]
+        },
+        {
+          "type": "diagram",
+          "diagram": {
+            "kind": "practice",
+            "alt": "Calculate the resistance of a wire from a voltmeter and ammeter reading.",
+            "question": "The voltmeter reads {V} V and the ammeter reads {I} A for a length of wire. Calculate the resistance of the wire.",
+            "variables": [
+              { "id": "V", "min": 0.5, "max": 3, "step": 0.5 },
+              { "id": "I", "min": 0.2, "max": 1, "step": 0.1 }
+            ],
+            "answer": { "formula": "V / I", "unit": "Ω", "decimals": 1 },
+            "working": [
+              "R = V ÷ I",
+              "R = {V} ÷ {I}",
+              "R = {answer} Ω"
+            ]
+          }
+        },
+        { "type": "subheading", "text": "Keeping the test fair and safe" },
+        {
+          "type": "list",
+          "items": [
+            "Use the variable resistor to keep the current the same, so the temperature of the wire stays constant.",
+            "Keep the current low and disconnect the circuit between readings, to minimise heating of the wire.",
+            "The hazard is a high current. It may make the wire overheat or melt, and may cause burns. Use low currents.",
+            "Repeat the readings, calculate means and remove anomalous readings."
+          ]
+        },
+        {
+          "type": "key-points",
+          "items": [
+            "Measure current with an ammeter and potential difference with a voltmeter, then calculate R = V ÷ I.",
+            "Change only the length of the wire.",
+            "Keep the temperature constant by using a low current and the variable resistor."
+          ]
+        }
+      ]
+    },
+    {
+      "heading": "Investigating I–V characteristics",
+      "blocks": [
+        { "type": "paragraph", "text": "The same meters give the I–V graph of a component such as a filament lamp, a diode or a resistor." },
+        {
+          "type": "list",
+          "items": [
+            "Put an ammeter in series with the component and a voltmeter in parallel with it.",
+            "Use a variable resistor, a variable power pack or a different number of cells to change the current and the potential difference.",
+            "The variable resistor changes the current in the circuit.",
+            "Reverse the connections to the power supply to obtain negative values.",
+            "Plot current against potential difference."
+          ]
+        },
+        {
+          "type": "list",
+          "items": [
+            "To test a fixed resistor instead of a lamp, swap the component and measure the current for different potential differences.",
+            "To find the resistance of resistors in parallel, measure the potential difference across them and the current in the circuit.",
+            "A data logger collects many pairs of readings in a short time and measures current and potential difference at the same time."
+          ]
+        },
+        {
+          "type": "key-points",
+          "items": [
+            "Vary the potential difference, record current and potential difference, and plot an I–V graph.",
+            "Reverse the connections to get negative values.",
+            "A variable resistor changes the current in the circuit."
+          ]
+        }
+      ]
+    }
+  ],
+  "checks": [
+    {
+      "q": "In the wire-length investigation, which two meters are used and how is each connected?",
+      "a": "An ammeter in series with the wire and a voltmeter in parallel with the wire.",
+      "marks": 2
+    },
+    {
+      "q": "Explain why the variable resistor is adjusted each time the length of wire is changed.",
+      "a": "It changes the resistance of the circuit to keep the current the same, so the temperature of the wire stays constant.",
+      "marks": 3
+    },
+    {
+      "q": "Describe how to obtain negative values of potential difference when plotting an I–V graph.",
+      "a": "Reverse the connections to the power supply (or battery).",
+      "marks": 1
+    }
+  ],
+  "boards": {
+    "aqa": {
+      "spec_codes": ["AQA 4.2.1.3", "AQA T 6.2.1.3", "AQA 4.2.1.4", "AQA T 6.2.1.4"],
+      "exam_phrases": [
+        "length varied by moving crocodile clips",
+        "current measured with ammeter",
+        "potential difference measured with voltmeter",
+        "use V = IR to calculate resistance",
+        "repeat readings of current and pd for each length and mean values calculated",
+        "ensure values of current are low to minimise heating of wire",
+        "may cause wire to melt / overheat",
+        "to keep the current the same"
+      ],
+      "mistakes": [
+        {
+          "wrong": "The variable resistor is adjusted to keep the potential difference the same.",
+          "right": "It changes the resistance of the circuit to keep the current the same, so the temperature of the wire is kept constant."
+        },
+        {
+          "wrong": "The student only records the current for each length.",
+          "right": "Measurements are needed for both: current with an ammeter and potential difference with a voltmeter. Then calculate resistance for each length."
+        },
+        {
+          "wrong": "The circuit is left connected between readings to save time.",
+          "right": "Disconnect the circuit between readings so the wire does not heat up."
+        }
+      ],
+      "worked_example": {
+        "exemplar_id": "73934c46-064d-4b38-a0b3-96f2ad459e2c",
+        "source": "AQA jun 2020, Paper 1 (H), Q03.1",
+        "question": "A student investigated how the resistance of a piece of wire varies with its length. The circuit included a variable resistor.\n\nExplain why the student needed to adjust the variable resistor each time she changed the length of the wire.",
+        "marks": 3,
+        "answer_points": [
+          "The variable resistor changes the resistance of the circuit.",
+          "To keep the current the same.",
+          "So the temperature of the wire is kept constant."
+        ],
+        "tip": "Three linked steps: resistance of the circuit, current kept the same, temperature of the wire constant."
+      }
+    },
+    "edexcel": {
+      "spec_codes": ["EDEX 10.17", "EDEX 10.21"],
+      "exam_phrases": [
+        "power supply, ammeter, voltmeter, filament lamp, means of varying potential difference",
+        "measure current with ammeter",
+        "measure potential difference with voltmeter",
+        "calculate the resistance",
+        "(collect data in a) short time",
+        "simultaneous measurement (of current and voltage)",
+        "greater number of / more data pairs collected",
+        "metre rule / crocodile clip"
+      ],
+      "mistakes": [
+        {
+          "wrong": "A data logger is more accurate and more precise than meters.",
+          "right": "Accuracy and precision are ignored. Say it collects data in a short time, measures current and voltage at the same time, or collects more data pairs."
+        },
+        {
+          "wrong": "The extra apparatus needed to change the length of wire is an ohmmeter or multimeter.",
+          "right": "Additional electrical devices such as an ohmmeter or multimeter are ignored. Give a metre rule, crocodile clip, wire cutters or more wire."
+        },
+        {
+          "wrong": "A circuit diagram with a lamp and meters is enough to vary the potential difference.",
+          "right": "The circuit needs a means of varying potential difference, such as a variable resistor, as well as the power supply, ammeter, voltmeter and lamp."
+        }
+      ],
+      "worked_example": {
+        "exemplar_id": "af05081f-55c8-4450-809f-68068891d334",
+        "source": "EDEXCEL jun 2024, Paper 2 (H), Q8(b)(i)",
+        "question": "A student investigates how current varies with potential difference across a filament lamp.\n\nThe student uses a power supply, a variable resistor, the filament lamp and two meters.\n\nAnother student repeats the investigation using a data logger.\n\nThe data logger records observations using sensors instead of meters. The sensors are connected to a computer to collect and display the observations.\n\nThe data logger collects 555 pairs of data in 2 minutes.\n\nSuggest one advantage of using a data logger instead of meters in this investigation.",
+        "marks": 1,
+        "answer_points": [
+          "It collects the data in a short time (it saves time).",
+          "Or: it measures current and voltage simultaneously.",
+          "Or: it collects a greater number of data pairs, which improves reliability."
+        ],
+        "tip": "One advantage is enough. Accuracy and precision are ignored."
+      }
+    },
+    "ocr": {
+      "spec_codes": ["OCR P3.2f"],
+      "exam_phrases": [
+        "Change lamp for a (fixed) resistor",
+        "Measure current for different potential differences",
+        "To change the current in the circuit",
+        "repeat the experiment"
+      ],
+      "mistakes": [
+        {
+          "wrong": "A variable resistor is used to change the potential difference of the battery.",
+          "right": "A variable resistor is used to change the current in the circuit."
+        },
+        {
+          "wrong": "A variable resistor is used to change the temperature of the circuit.",
+          "right": "A variable resistor changes the current in the circuit, not its temperature."
+        },
+        {
+          "wrong": "To test a fixed resistor, just change the lamp for a resistor.",
+          "right": "Two marks are needed: change the lamp for a (fixed) resistor, and measure the current for different potential differences."
+        }
+      ],
+      "worked_example": {
+        "exemplar_id": "95ba9a1c-7409-4d77-b13b-c1b73ecdfa0b",
+        "source": "OCR nov 2020, Paper 1, Q17(b)(iii)",
+        "question": "A student sets up a circuit to investigate the resistance of a lamp. The circuit has an ammeter and a voltmeter.\n\nExplain how you could use the same circuit to investigate the resistance of a fixed resistor instead of a lamp.",
+        "marks": 2,
+        "answer_points": [
+          "Change the lamp for a (fixed) resistor.",
+          "Measure the current for different potential differences."
+        ],
+        "tip": "Repeating the experiment is also allowed for the second mark."
+      }
+    }
+  },
+  "meta": {
+    "status": "draft",
+    "written_by": "sonnet-5-5",
+    "written_at": "2026-10-01",
+    "spec_point_ids": [
+      "19c14528-29bf-4fe9-bd88-7699d2e6bd92",
+      "29879cad-ff9a-4e20-a0a9-b5d6e91f033c",
+      "12d893d0-e789-4f5a-a81a-31fc4388dfdd"
+    ],
+    "exemplar_ids": [
+      "73934c46-064d-4b38-a0b3-96f2ad459e2c",
+      "069f42b5-ef4b-48e1-bdfb-4ed42c368a78",
+      "b244f5d3-ad48-4082-85a5-2eee8e06a951",
+      "af05081f-55c8-4450-809f-68068891d334",
+      "163ab3f7-17ac-443e-b142-b4bc68a46937",
+      "c0e5817a-c56f-4424-9175-411299ad70a5",
+      "95ba9a1c-7409-4d77-b13b-c1b73ecdfa0b",
+      "37ba9fde-e1b2-42bd-92bc-c3e04e956416",
+      "e3a54324-36a7-4673-9af4-4af3299af19e"
+    ]
+  }
+}

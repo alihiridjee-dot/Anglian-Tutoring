@@ -8,19 +8,43 @@
     {
       "heading": "Energy stores",
       "blocks": [
-        { "type": "paragraph", "text": "Energy is not a substance. It is kept in stores. This section covers the stores you need to name." },
+        {
+          "type": "paragraph",
+          "text": "Energy is not a substance. It is kept in stores. This section covers the stores you need to name."
+        },
         {
           "type": "definitions",
           "items": [
-            { "term": "System", "meaning": "An object or a group of objects." },
-            { "term": "Kinetic store", "meaning": "Energy of a moving object." },
-            { "term": "Gravitational potential store", "meaning": "Energy of an object because of its height above the ground." },
-            { "term": "Elastic potential store", "meaning": "Energy in a stretched or squashed object, such as a spring." },
-            { "term": "Thermal (internal) store", "meaning": "Energy in the particles of an object. It increases when the object gets hotter." },
-            { "term": "Chemical store", "meaning": "Energy in fuel, food and batteries, released by chemical reactions." }
+            {
+              "term": "System",
+              "meaning": "An object or a group of objects that interact."
+            },
+            {
+              "term": "Kinetic store",
+              "meaning": "Energy of a moving object."
+            },
+            {
+              "term": "Gravitational potential store",
+              "meaning": "Energy of an object because of its height above the ground."
+            },
+            {
+              "term": "Elastic potential store",
+              "meaning": "Energy in a stretched or squashed object, such as a spring."
+            },
+            {
+              "term": "Thermal (internal) store",
+              "meaning": "Energy in the particles of an object. It increases when the object gets hotter."
+            },
+            {
+              "term": "Chemical store",
+              "meaning": "Energy in fuel, food and batteries, released by chemical reactions."
+            }
           ]
         },
-        { "type": "paragraph", "text": "Other stores are nuclear, magnetic and electrostatic. A spinning fly wheel stores energy in its kinetic store." },
+        {
+          "type": "paragraph",
+          "text": "Other stores are nuclear, magnetic and electrostatic. A spinning fly wheel stores energy in its kinetic store."
+        },
         {
           "type": "key-points",
           "items": [
@@ -34,7 +58,10 @@
     {
       "heading": "How energy moves between stores",
       "blocks": [
-        { "type": "paragraph", "text": "When a system changes, energy is transferred from one store to another. There are three main ways to change the energy of a system." },
+        {
+          "type": "paragraph",
+          "text": "When a system changes, energy is transferred from one store to another. There are three main ways to change the energy of a system."
+        },
         {
           "type": "list",
           "items": [
@@ -49,29 +76,77 @@
             "kind": "sort",
             "alt": "Sort each item into an energy store or a way of changing the energy of a system.",
             "prompt": "Is it a store, or a way energy is transferred?",
-            "groups": ["Energy store", "Way of transferring energy"],
+            "groups": [
+              "Energy store",
+              "Way of transferring energy"
+            ],
             "items": [
-              { "text": "Kinetic", "group": 0 },
-              { "text": "Gravitational potential", "group": 0 },
-              { "text": "Elastic potential", "group": 0 },
-              { "text": "Chemical", "group": 0 },
-              { "text": "Thermal (internal)", "group": 0 },
-              { "text": "Work done by a force", "group": 1 },
-              { "text": "Work done by an electric current", "group": 1 },
-              { "text": "Heating", "group": 1 }
+              {
+                "text": "Kinetic",
+                "group": 0
+              },
+              {
+                "text": "Gravitational potential",
+                "group": 0
+              },
+              {
+                "text": "Elastic potential",
+                "group": 0
+              },
+              {
+                "text": "Chemical",
+                "group": 0
+              },
+              {
+                "text": "Thermal (internal)",
+                "group": 0
+              },
+              {
+                "text": "Work done by a force",
+                "group": 1
+              },
+              {
+                "text": "Work done by an electric current",
+                "group": 1
+              },
+              {
+                "text": "Heating",
+                "group": 1
+              }
             ]
           }
         },
-        { "type": "subheading", "text": "Common changes you must describe" },
+        {
+          "type": "subheading",
+          "text": "Common changes you must describe"
+        },
         {
           "type": "table",
-          "columns": ["Situation", "Energy changes"],
+          "columns": [
+            "Situation",
+            "Energy changes"
+          ],
           "rows": [
-            ["Object thrown upwards", "Kinetic store decreases. Gravitational potential store increases."],
-            ["Moving object hits an obstacle", "Kinetic store decreases. Thermal store of the object and surroundings increases."],
-            ["Object accelerated by a constant force", "Energy from the force's work increases the kinetic store."],
-            ["Vehicle slowing down", "Kinetic store decreases. Thermal store of the brakes increases."],
-            ["Kettle bringing water to the boil", "Energy from the current increases the thermal store of the water."]
+            [
+              "Object thrown upwards",
+              "Kinetic store decreases. Gravitational potential store increases."
+            ],
+            [
+              "Moving object hits an obstacle",
+              "Kinetic store decreases. Thermal store of the object and surroundings increases."
+            ],
+            [
+              "Object accelerated by a constant force",
+              "Energy from the force's work increases the kinetic store."
+            ],
+            [
+              "Vehicle slowing down",
+              "Kinetic store decreases. Thermal store of the brakes and surroundings increases."
+            ],
+            [
+              "Kettle bringing water to the boil",
+              "Energy from the current increases the thermal store of the water."
+            ]
           ]
         },
         {
@@ -87,21 +162,36 @@
     {
       "heading": "Conservation of energy",
       "blocks": [
-        { "type": "paragraph", "text": "Energy cannot be created or destroyed. It can only be transferred, stored or dissipated." },
+        {
+          "type": "paragraph",
+          "text": "Energy cannot be created or destroyed. It can only be transferred, stored or dissipated."
+        },
         {
           "type": "definitions",
           "items": [
-            { "term": "Closed system", "meaning": "A system where no energy enters or leaves." },
-            { "term": "Conservation of energy", "meaning": "When energy is transferred in a closed system, there is no net change to the total energy." }
+            {
+              "term": "Closed system",
+              "meaning": "A system where no energy enters or leaves."
+            },
+            {
+              "term": "Conservation of energy",
+              "meaning": "When energy is transferred in a closed system, there is no net change to the total energy."
+            }
           ]
         },
         {
           "type": "equation",
           "label": "Conservation of energy",
           "formula": "total energy before = total energy after",
-          "where": ["Energy is measured in joules (J).", "Some energy moves to less useful stores, such as the thermal store of the surroundings."]
+          "where": [
+            "Energy is measured in joules (J).",
+            "Some energy moves to less useful stores, such as the thermal store of the surroundings."
+          ]
         },
-        { "type": "subheading", "text": "Energy transfer diagrams" },
+        {
+          "type": "subheading",
+          "text": "Energy transfer diagrams"
+        },
         {
           "type": "paragraph",
           "text": "A transfer diagram shows where energy starts, where it goes and what is wasted. Each arrow is a transfer."
@@ -113,8 +203,8 @@
             "alt": "Energy transfers when a battery powered drone rises.",
             "steps": [
               "Chemical store of battery",
-              "Electrical work by current",
-              "Kinetic store of blades",
+              "Work done by current in motor",
+              "Work done by force from blades",
               "Gravitational potential store of drone"
             ]
           }
@@ -123,6 +213,7 @@
           "type": "list",
           "items": [
             "At each stage, some energy is also wasted to the thermal store of the surroundings.",
+            "All energy changes are measured in joules, so stores can be compared on one scale.",
             "The total of all the stores at the end equals the energy at the start.",
             "A rocket that transfers 510 MJ from its fuel gains 510 MJ in its other stores."
           ]
@@ -157,7 +248,10 @@
   ],
   "boards": {
     "aqa": {
-      "spec_codes": ["AQA 4.1.1.1", "AQA T 6.1.1.1"],
+      "spec_codes": [
+        "AQA 4.1.1.1",
+        "AQA T 6.1.1.1"
+      ],
       "exam_phrases": [
         "the chemical store of energy of the wood decreases",
         "the internal / thermal store of energy of the pipe increases",
@@ -193,7 +287,16 @@
       }
     },
     "edexcel": {
-      "spec_codes": ["EDEX 3.3", "EDEX 3.4", "EDEX 3.5", "EDEX 3.6", "EDEX 8.1", "EDEX 8.2", "EDEX 8.3", "EDEX 8.4"],
+      "spec_codes": [
+        "EDEX 3.3",
+        "EDEX 3.4",
+        "EDEX 3.5",
+        "EDEX 3.6",
+        "EDEX 8.1",
+        "EDEX 8.2",
+        "EDEX 8.3",
+        "EDEX 8.4"
+      ],
       "exam_phrases": [
         "KE / kinetic (energy store)",
         "elastic (potential energy store)",
@@ -229,7 +332,10 @@
       }
     },
     "ocr": {
-      "spec_codes": ["OCR P7.1a", "OCR P7.1b"],
+      "spec_codes": [
+        "OCR P7.1a",
+        "OCR P7.1b"
+      ],
       "exam_phrases": [
         "(store of) KE (in moving car)",
         "(transferred thermally) to (store of) thermal energy / heat",
@@ -286,6 +392,8 @@
       "87de8752-f165-4c72-8a3f-26e9e6491f78",
       "f2512db5-deb2-4818-887d-24e16273e906",
       "33530d73-f0aa-4fc6-b658-a3d64fdcc892"
-    ]
+    ],
+    "checked_by": "sonnet-science-check",
+    "checked_at": "2026-10-01"
   }
 }

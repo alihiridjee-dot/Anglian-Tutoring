@@ -1,0 +1,234 @@
+{
+  "format": 1,
+  "concept_id": "bio-079",
+  "subject": "biology",
+  "title": "Treating kidney failure: dialysis and transplants",
+  "key_idea": "(Separate science) When the kidneys fail, urea and excess ions build up in the blood. A dialysis machine removes them by diffusion, or a healthy donor kidney can be transplanted. Each treatment has advantages and disadvantages.",
+  "sections": [
+    {
+      "heading": "How dialysis works",
+      "blocks": [
+        { "type": "paragraph", "text": "In kidney failure the kidneys can no longer remove enough urea from the blood. A dialysis machine does this job instead." },
+        {
+          "type": "definitions",
+          "items": [
+            { "term": "Dialysis", "meaning": "Cleaning the blood of a person with kidney failure by passing it through a machine." },
+            { "term": "Dialysis fluid", "meaning": "The solution on the other side of the membrane. Unwanted substances diffuse into it." }
+          ]
+        },
+        {
+          "type": "diagram",
+          "diagram": {
+            "kind": "flow",
+            "alt": "Dialysis in four steps: blood leaves the arm, passes the membrane in the machine, urea and excess ions diffuse into the dialysis fluid, and the cleaned blood returns to the body.",
+            "steps": [
+              "Blood is taken from the arm into the dialysis machine",
+              "Blood and dialysis fluid are separated by a partially permeable membrane",
+              "Urea and excess ions diffuse into the dialysis fluid",
+              "Cleaned blood is returned to the body"
+            ]
+          }
+        },
+        {
+          "type": "list",
+          "items": [
+            "Unwanted substances include urea and excess ions, such as sodium and chloride.",
+            "They diffuse across the membrane, down their concentration gradient, from the blood into the dialysis fluid.",
+            "Fresh dialysis fluid is pumped through to keep the concentration gradient steep.",
+            "The dialysis fluid has the same concentration of useful substances as healthy blood, so these are not lost from the blood.",
+            "A patient usually needs dialysis about three times a week. Each session lasts several hours and is often in hospital."
+          ]
+        },
+        {
+          "type": "key-points",
+          "items": [
+            "Urea and excess ions diffuse from the blood into the dialysis fluid.",
+            "A partially permeable membrane separates blood and dialysis fluid.",
+            "Fresh fluid keeps the concentration gradient steep."
+          ]
+        }
+      ]
+    },
+    {
+      "heading": "Kidney transplants",
+      "blocks": [
+        { "type": "paragraph", "text": "A transplant replaces the failed kidney with a healthy kidney from a donor, in a surgical operation." },
+        {
+          "type": "list",
+          "items": [
+            "A person can live well with only one kidney, so a living donor can give one.",
+            "The donor kidney must be a tissue match, or the patient's immune system may attack it. This is **rejection**.",
+            "A twin has the same genes, so a kidney from a twin is less likely to be rejected.",
+            "The patient takes **immunosuppressant** drugs to reduce the chance of rejection.",
+            "A suitable donor kidney may not be available, so patients may have to wait."
+          ]
+        },
+        {
+          "type": "key-points",
+          "items": [
+            "A transplant needs a donor kidney with a tissue match.",
+            "Immunosuppressant drugs reduce the risk of rejection.",
+            "Donor kidneys are in short supply."
+          ]
+        }
+      ]
+    },
+    {
+      "heading": "Dialysis or transplant?",
+      "blocks": [
+        { "type": "paragraph", "text": "Exam questions ask you to weigh the two treatments. Use points for and against each, and reach a judgement." },
+        {
+          "type": "table",
+          "columns": ["Feature", "Dialysis", "Kidney transplant"],
+          "rows": [
+            ["Time and travel", "Regular, long hospital visits", "No regular visits, so more flexible"],
+            ["Blood chemistry", "Urea level changes between sessions", "A working kidney keeps substances at the correct level"],
+            ["Infection and clots", "Skin is punctured repeatedly and blood meets a machine, so infection and blood clots are possible", "One operation, with a risk from surgery and the anaesthetic"],
+            ["Diet", "Diet is restricted", "Less or no restriction"],
+            ["Drugs", "May need anti-clotting drugs", "Immunosuppressants for the rest of life, which can lead to other infections"],
+            ["Lasting", "Needed for as long as the kidneys are failed", "May be rejected or need replacing eventually"]
+          ]
+        },
+        {
+          "type": "diagram",
+          "diagram": {
+            "kind": "sort",
+            "alt": "Sort statements into dialysis and kidney transplant.",
+            "prompt": "Which treatment does each statement describe?",
+            "groups": ["Dialysis", "Kidney transplant"],
+            "items": [
+              { "text": "Needs regular, long visits to hospital", "group": 0 },
+              { "text": "Blood and fluid are separated by a partially permeable membrane", "group": 0 },
+              { "text": "Diet and fluid intake are restricted", "group": 0 },
+              { "text": "Skin is punctured repeatedly, so infection is possible", "group": 0 },
+              { "text": "Needs immunosuppressant drugs", "group": 1 },
+              { "text": "The kidney may be rejected", "group": 1 },
+              { "text": "Needs a donor with a tissue match", "group": 1 },
+              { "text": "Needs an operation with an anaesthetic", "group": 1 }
+            ]
+          }
+        },
+        {
+          "type": "key-points",
+          "items": [
+            "A transplant gives a more constant blood chemistry and a more flexible life.",
+            "A transplant risks rejection, surgery problems and a shortage of donors.",
+            "A good evaluation gives points for both treatments, then a judgement."
+          ]
+        }
+      ]
+    }
+  ],
+  "checks": [
+    {
+      "q": "Describe how dialysis removes urea from the blood.",
+      "a": "Blood passes through a machine, where it is separated from dialysis fluid by a partially permeable membrane. Urea diffuses across the membrane, down its concentration gradient, into the dialysis fluid.",
+      "marks": 3
+    },
+    {
+      "q": "Why must a donor kidney be a tissue match?",
+      "a": "If it is not, the patient's immune system may attack it and the kidney is rejected.",
+      "marks": 2
+    },
+    {
+      "q": "Give two disadvantages of a kidney transplant compared with dialysis.",
+      "a": "Any two from: the kidney may be rejected; immunosuppressant drugs must be taken; a suitable donor may not be available; risk from surgery; it may need replacing eventually.",
+      "marks": 2
+    }
+  ],
+  "boards": {
+    "aqa": {
+      "spec_codes": ["AQA 5.11"],
+      "exam_phrases": [
+        "changes in concentrations / levels of substances / urea are minimised",
+        "not repeatedly puncturing skin",
+        "less / no chance of infection / blood clots",
+        "no need for regular / long hospital visits",
+        "may be rejected",
+        "need to keep taking anti-rejection drugs or immunosuppressants",
+        "(suitable) donor may not be available / need for tissue matching",
+        "maintains correct concentration of substances in blood / body"
+      ],
+      "mistakes": [
+        {
+          "wrong": "A kidney transplant is better because it is cheaper.",
+          "right": "Cheaper on its own is ignored. Say it is cheaper in the long term, and give another point."
+        },
+        {
+          "wrong": "A transplant is better because there is less chance of infection.",
+          "right": "The explanation must match the reason. Give the reason as not repeatedly puncturing the skin, or blood not being in contact with a machine, then the lower chance of infection or blood clots."
+        },
+        {
+          "wrong": "A transplant is better because you do not have to go to hospital so often.",
+          "right": "When a question says do not refer to cost or convenience, hospital visits earn no marks. Give biological reasons, such as urea and other substances kept at a steady level."
+        },
+        {
+          "wrong": "Dialysis is bad and a transplant is good.",
+          "right": "A full evaluation needs points for and against a transplant before the judgement."
+        }
+      ],
+      "worked_example": {
+        "exemplar_id": "f9487938-3e54-433d-819c-f0c87c63217e",
+        "source": "AQA jun 2019, Paper 2 (H), Q06.4",
+        "question": "Some people have kidney failure. Doctors may treat patients with kidney failure by either dialysis or a kidney transplant. Explain two biological reasons why most doctors think that a kidney transplant is a better method of treatment than dialysis. Do not refer to cost or convenience.",
+        "marks": 4,
+        "answer_points": [
+          "Reason 1: the concentrations of urea and other substances in the blood change less (or not at all) (1).",
+          "So there is less or no damage to body cells and tissues, for example they are not poisoned by urea (1).",
+          "Reason 2: the skin is not repeatedly punctured, or the blood does not leave the body or meet a machine (1).",
+          "So there is less chance of infection or blood clots, or no need to take anti-clotting drugs (1)."
+        ],
+        "tip": "Each reason scores one mark and its explanation scores one more. The explanation must match the reason."
+      }
+    },
+    "edexcel": {
+      "spec_codes": ["EDEX 7.21B"],
+      "exam_phrases": [
+        "blood is separated from the dialysis solution by a (partially permeable) membrane",
+        "urea moves out of the blood / into the dialysis solution",
+        "by diffusion across the membrane",
+        "down a concentration gradient",
+        "fresh dialysis fluid is pumped through to maintain the concentration gradient",
+        "risk of rejection / tissue matching",
+        "need to take immunosuppressant drugs",
+        "the kidney is less likely to be rejected"
+      ],
+      "mistakes": [
+        {
+          "wrong": "You can have a transplant, or you can have your blood cleaned by a machine.",
+          "right": "Naming both treatments earns only Level 1. Link each treatment to what it involves, for example a transplant needs a suitable donor and tissue matching to avoid rejection."
+        },
+        {
+          "wrong": "A twin could donate a kidney because twins are the same.",
+          "right": "Say the twin's tissues or cells have the same or similar genes or antigens, so they will not cause an immune response and the kidney is less likely to be rejected. The donor can also live well with one kidney."
+        },
+        {
+          "wrong": "Dialysis filters the urea out of the blood.",
+          "right": "Say the urea moves out of the blood and into the dialysis solution by diffusion. Fresh dialysis fluid keeps the concentration gradient."
+        }
+      ],
+      "worked_example": {
+        "exemplar_id": "1ad5e0f1-cbe9-4bf9-984c-dca0306740fe",
+        "source": "EDEXCEL jun 2018, Paper 2 (F), Q7(c)",
+        "question": "Describe how dialysis removes unwanted substances from the blood. Include examples of unwanted substances in your answer.",
+        "marks": 6,
+        "answer_points": [
+          "Dialysis is used when the kidneys are damaged and do not remove urea from the blood.",
+          "Blood is taken from the arm and passes into the dialysis machine.",
+          "The blood is separated from the dialysis solution by a partially permeable membrane.",
+          "Unwanted substances include urea and excess ions, such as sodium and chloride.",
+          "These move into the dialysis fluid by diffusion across the membrane, down a concentration gradient.",
+          "Fresh dialysis fluid is pumped through to maintain the concentration gradient, and the blood is returned to the body."
+        ],
+        "tip": "Cover the route of the blood, examples of unwanted substances and how they move. Keep the answer in a clear order."
+      }
+    }
+  },
+  "meta": {
+    "status": "draft",
+    "written_by": "sonnet-5-5",
+    "written_at": "2026-10-01",
+    "spec_point_ids": ["ca3aac33-9cb9-4fee-81ed-302a157fe2cd", "aacbfa4b-8173-4d2c-8a04-15ed8ebb1adf"],
+    "exemplar_ids": ["f9487938-3e54-433d-819c-f0c87c63217e", "1ad5e0f1-cbe9-4bf9-984c-dca0306740fe", "34a3dded-4f92-4b9b-9ead-f5aba251dc49", "a5520bee-dc18-4fdf-83a2-d5c5155fdb93", "ca690e38-04b3-43f1-ba4a-084dbc382b5a", "9c5fcd13-1370-4837-9843-2627cfe825ce"]
+  }
+}

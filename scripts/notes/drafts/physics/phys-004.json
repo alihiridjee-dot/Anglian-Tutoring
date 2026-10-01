@@ -8,13 +8,25 @@
     {
       "heading": "What work done means",
       "blocks": [
-        { "type": "paragraph", "text": "When a force makes an object move, the force does work on it. This section covers what work is and how to measure it." },
+        {
+          "type": "paragraph",
+          "text": "When a force makes an object move, the force does work on it. This section covers what work is and how to measure it."
+        },
         {
           "type": "definitions",
           "items": [
-            { "term": "Work done", "meaning": "The energy transferred when a force moves an object through a distance." },
-            { "term": "Joule (J)", "meaning": "The unit of work and energy. One joule is the work done when a force of one newton moves an object one metre." },
-            { "term": "Newton-metre (N m)", "meaning": "Another name for the joule: 1 J = 1 N m." }
+            {
+              "term": "Work done",
+              "meaning": "The energy transferred when a force moves an object through a distance."
+            },
+            {
+              "term": "Joule (J)",
+              "meaning": "The unit of work and energy. One joule is the work done when a force of one newton moves an object one metre."
+            },
+            {
+              "term": "Newton-metre (N m)",
+              "meaning": "Another name for the joule: 1 J = 1 N m."
+            }
           ]
         },
         {
@@ -38,34 +50,79 @@
     {
       "heading": "Calculating work done",
       "blocks": [
-        { "type": "paragraph", "text": "The distance used must be along the line of the force." },
+        {
+          "type": "paragraph",
+          "text": "The distance used must be along the line of the force."
+        },
         {
           "type": "equation",
           "label": "Work done",
           "formula": "W = F × s",
-          "where": ["W is work done in joules (J).", "F is force in newtons (N).", "s is distance moved along the line of action of the force in metres (m)."]
+          "where": [
+            "W is work done in joules (J).",
+            "F is force in newtons (N).",
+            "s is distance moved along the line of action of the force in metres (m)."
+          ]
         },
         {
           "type": "steps",
           "items": [
-            { "lead": "Convert units.", "text": "Change any distance in centimetres to metres. 86 cm = 0.86 m." },
-            { "lead": "Substitute.", "text": "A force of 3.0 N moves a trolley 0.86 m: W = 3.0 × 0.86" },
-            { "lead": "Evaluate and add the unit.", "text": "W = 2.58 J, which is 2.6 J to 2 significant figures." }
+            {
+              "lead": "Convert units.",
+              "text": "Change any distance in centimetres to metres. 86 cm = 0.86 m."
+            },
+            {
+              "lead": "Substitute.",
+              "text": "A force of 3.0 N moves a trolley 0.86 m: W = 3.0 × 0.86"
+            },
+            {
+              "lead": "Evaluate and add the unit.",
+              "text": "W = 2.58 J, which is 2.6 J to 2 significant figures."
+            }
           ]
         },
-        { "type": "paragraph", "text": "Move the sliders to see how the force and distance change the work done." },
+        {
+          "type": "paragraph",
+          "text": "Move the sliders to see how the force and distance change the work done."
+        },
         {
           "type": "diagram",
           "diagram": {
             "kind": "slider",
             "alt": "Change a force and a distance to see the work done.",
             "inputs": [
-              { "id": "F", "label": "Force", "unit": "N", "min": 10, "max": 1000, "step": 10, "value": 200 },
-              { "id": "s", "label": "Distance moved", "unit": "m", "min": 1, "max": 50, "step": 1, "value": 10 }
+              {
+                "id": "F",
+                "label": "Force",
+                "unit": "N",
+                "min": 10,
+                "max": 1000,
+                "step": 10,
+                "value": 200
+              },
+              {
+                "id": "s",
+                "label": "Distance moved",
+                "unit": "m",
+                "min": 1,
+                "max": 50,
+                "step": 1,
+                "value": 10
+              }
             ],
             "outputs": [
-              { "label": "Work done", "unit": "J", "formula": "F * s", "decimals": 0 },
-              { "label": "Work done", "unit": "kJ", "formula": "F * s / 1000", "decimals": 2 }
+              {
+                "label": "Work done",
+                "unit": "J",
+                "formula": "F * s",
+                "decimals": 0
+              },
+              {
+                "label": "Work done",
+                "unit": "kJ",
+                "formula": "F * s / 1000",
+                "decimals": 2
+              }
             ]
           }
         },
@@ -76,10 +133,24 @@
             "alt": "Calculate work done with a distance in centimetres.",
             "question": "A force of {F} N moves a trolley {d} cm along a desk. Calculate the work done in joules.",
             "variables": [
-              { "id": "F", "min": 1, "max": 10, "step": 0.5 },
-              { "id": "d", "min": 20, "max": 100, "step": 5 }
+              {
+                "id": "F",
+                "min": 1,
+                "max": 10,
+                "step": 0.5
+              },
+              {
+                "id": "d",
+                "min": 20,
+                "max": 100,
+                "step": 10
+              }
             ],
-            "answer": { "formula": "F * d / 100", "unit": "J", "decimals": 2 },
+            "answer": {
+              "formula": "F * d / 100",
+              "unit": "J",
+              "decimals": 2
+            },
             "working": [
               "{d} cm = {d} ÷ 100 m",
               "W = F × s = {F} × ({d} ÷ 100)",
@@ -87,7 +158,10 @@
             ]
           }
         },
-        { "type": "subheading", "text": "Measuring work done" },
+        {
+          "type": "subheading",
+          "text": "Measuring work done"
+        },
         {
           "type": "list",
           "items": [
@@ -97,11 +171,21 @@
           ]
         },
         {
+          "type": "equation",
+          "label": "Rearranged to find force or distance",
+          "formula": "F = W ÷ s and s = W ÷ F",
+          "where": [
+            "F is force in newtons (N).",
+            "W is work done in joules (J).",
+            "s is distance in metres (m)."
+          ]
+        },
+        {
           "type": "key-points",
           "items": [
             "W = F × s, with distance in metres and force in newtons.",
             "Always give the unit: J or N m.",
-            "To find a force or distance, rearrange: F = W ÷ s and s = W ÷ F."
+            "Rearrange the equation to find a force or a distance."
           ]
         }
       ]
@@ -109,7 +193,10 @@
     {
       "heading": "Work done against friction",
       "blocks": [
-        { "type": "paragraph", "text": "Friction and air resistance oppose motion. Work done against them transfers energy to the surroundings." },
+        {
+          "type": "paragraph",
+          "text": "Friction and air resistance oppose motion. Work done against them transfers energy to the surroundings."
+        },
         {
           "type": "list",
           "items": [
@@ -118,13 +205,45 @@
             "A cyclist or wheelchair racer does work against air resistance. The energy comes from their chemical store."
           ]
         },
-        { "type": "paragraph", "text": "(Higher tier) Work done to stop a vehicle equals its initial kinetic energy. A bigger force over a longer distance does more work." },
+        {
+          "type": "paragraph",
+          "text": "Work done by forces also changes energy stores. This links work done to energy transfers."
+        },
+        {
+          "type": "list",
+          "items": [
+            "Lifting an object does work against gravity and raises its gravitational potential energy store.",
+            "A landing spacecraft has work done on it by gravity, by its thrusters and by air resistance on the parachute. Its kinetic energy store decreases and its thermal store increases."
+          ]
+        },
+        {
+          "type": "paragraph",
+          "text": "(Physics only) The work done to bring a vehicle to rest equals its initial kinetic energy. For a constant braking force, this shows how braking distance depends on speed."
+        },
+        {
+          "type": "equation",
+          "label": "Work done to stop a vehicle",
+          "formula": "F × s = ½ × m × v²",
+          "where": [
+            "F is braking force in newtons (N).",
+            "s is braking distance in metres (m).",
+            "m is mass in kilograms (kg).",
+            "v is initial speed in metres per second (m/s)."
+          ]
+        },
+        {
+          "type": "list",
+          "items": [
+            "Braking distance s is proportional to v².",
+            "Doubling the speed makes the braking distance four times as long."
+          ]
+        },
         {
           "type": "key-points",
           "items": [
             "Work done against friction heats the object and its surroundings.",
             "The kinetic energy of a braking vehicle becomes thermal energy in the brakes.",
-            "A vehicle's work done in stopping equals its initial kinetic energy."
+            "(Physics only) Work done in stopping equals initial kinetic energy, so braking distance depends on speed squared."
           ]
         }
       ]
@@ -149,7 +268,10 @@
   ],
   "boards": {
     "aqa": {
-      "spec_codes": ["AQA 4.5.2", "AQA T 6.5.2"],
+      "spec_codes": [
+        "AQA 4.5.2",
+        "AQA T 6.5.2"
+      ],
       "exam_phrases": [
         "W = 30 × 250",
         "3 360 000 = F × 42 000",
@@ -160,15 +282,15 @@
       "mistakes": [
         {
           "wrong": "Friction makes the brakes hot.",
-          "right": "Friction alone is ignored. Say that work is done by friction in the brakes, and that kinetic energy is transferred as thermal energy."
+          "right": "Friction on its own does not score. Say that work is done by friction in the brakes, and that kinetic energy is transferred as thermal energy."
         },
         {
           "wrong": "W = 30 × 250 = 7500.",
           "right": "The unit is a separate mark. Write W = 7500 J."
         },
         {
-          "wrong": "F = 42 000 / 3 360 000.",
-          "right": "Divide work by distance. F = 3 360 000 / 42 000 = 80 N."
+          "wrong": "W = 6.0 × 75 = 450 J, using the force as 6.0 kN.",
+          "right": "Convert the force to newtons first. 6.0 kN = 6000 N, so W = 6000 × 75 = 450 000 J."
         }
       ],
       "worked_example": {
@@ -185,7 +307,12 @@
       }
     },
     "edexcel": {
-      "spec_codes": ["EDEX 8.5", "EDEX 8.6", "EDEX 8.7", "EDEX 2.33P"],
+      "spec_codes": [
+        "EDEX 8.5",
+        "EDEX 8.6",
+        "EDEX 8.7",
+        "EDEX 2.33P"
+      ],
       "exam_phrases": [
         "(work done =) 1200 × 8(.0)",
         "J or N m (accept joule(s))",
@@ -204,8 +331,8 @@
           "right": "Give an appropriate number of significant figures. 7440 / 645 = 11.5 m to 3 significant figures, and 11.53 loses a mark."
         },
         {
-          "wrong": "Work done and energy transferred are different things.",
-          "right": "Energy transferred in joules is equal to the work done in joules."
+          "wrong": "Work done = 9600 n m.",
+          "right": "Write the unit as J, joule(s) or N m with a capital N. A lower case n m is ignored."
         }
       ],
       "worked_example": {
@@ -222,7 +349,10 @@
       }
     },
     "ocr": {
-      "spec_codes": ["OCR P2.2m", "OCR P2.2n"],
+      "spec_codes": [
+        "OCR P2.2m",
+        "OCR P2.2n"
+      ],
       "exam_phrases": [
         "86 cm = 0.86 m",
         "(work done =) 3(.0) × 0.86",
@@ -256,7 +386,7 @@
           "(Work done =) 2.58 (J)",
           "(Work done =) 2.6 (J)"
         ],
-        "tip": "A correct answer of 2.6 J scores all 4 marks. Forgetting to convert the unit can still earn marks for the working."
+        "tip": "A correct answer of 2.6 J scores all 4 marks. A missing unit conversion can still earn marks for the working."
       }
     }
   },
@@ -277,6 +407,8 @@
       "eb52c982-1dd2-45d0-ae4a-f852c777af86",
       "2981b334-a6a8-416c-8360-0c2dc38f7e42",
       "a70f9b71-fbdd-4380-9a78-135fb732ba05"
-    ]
+    ],
+    "checked_by": "sonnet-science-check",
+    "checked_at": "2026-10-01"
   }
 }

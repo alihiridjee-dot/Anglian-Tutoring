@@ -8,12 +8,21 @@
     {
       "heading": "Antibiotics",
       "blocks": [
-        { "type": "paragraph", "text": "Antibiotics are medicines used to cure bacterial disease. This section covers how they work and why they do not work against viruses." },
+        {
+          "type": "paragraph",
+          "text": "Antibiotics are medicines used to cure bacterial disease. This section covers how they work and why they do not work against viruses."
+        },
         {
           "type": "definitions",
           "items": [
-            { "term": "Antibiotic", "meaning": "A chemical, usually made by fungi or microbes, that kills bacteria inside the body." },
-            { "term": "Antibiotic resistance", "meaning": "When bacteria are no longer killed by an antibiotic." }
+            {
+              "term": "Antibiotic",
+              "meaning": "A chemical, usually made by fungi or microbes, that kills bacteria inside the body."
+            },
+            {
+              "term": "Antibiotic resistance",
+              "meaning": "When bacteria are no longer killed by an antibiotic."
+            }
           ]
         },
         {
@@ -23,6 +32,7 @@
             "They inhibit processes in the bacteria, for example by disrupting cell walls, so the bacteria are killed or stop reproducing.",
             "They do not damage the body's own (host) cells.",
             "Specific bacteria must be treated with specific antibiotics.",
+            "The use of antibiotics has greatly reduced deaths from bacterial diseases.",
             "Antibiotics do not kill **viruses**. Viruses live inside cells, and it is difficult to make drugs that kill viruses without also damaging the body's tissues."
           ]
         },
@@ -39,22 +49,50 @@
     {
       "heading": "Painkillers, antivirals and antiseptics",
       "blocks": [
-        { "type": "paragraph", "text": "Not every medicine kills a pathogen. This section compares the other types that you need to know." },
+        {
+          "type": "paragraph",
+          "text": "Not every medicine kills a pathogen. This section compares the other types that you need to know."
+        },
         {
           "type": "diagram",
           "diagram": {
             "kind": "sort",
             "alt": "Sort each statement into the type of medicine it describes: antibiotic, painkiller or antiseptic.",
             "prompt": "Which type of medicine does each statement describe?",
-            "groups": ["Antibiotic", "Painkiller", "Antiseptic"],
+            "groups": [
+              "Antibiotic",
+              "Painkiller",
+              "Antiseptic"
+            ],
             "items": [
-              { "text": "Kills bacteria inside the body", "group": 0 },
-              { "text": "Does not kill viruses", "group": 0 },
-              { "text": "Overuse leads to resistant bacteria", "group": 0 },
-              { "text": "Treats the symptoms of a disease", "group": 1 },
-              { "text": "Does not kill pathogens", "group": 1 },
-              { "text": "Wiped on the skin before surgery to kill bacteria", "group": 2 },
-              { "text": "Used on living tissue, not taken inside the body", "group": 2 }
+              {
+                "text": "Kills bacteria inside the body",
+                "group": 0
+              },
+              {
+                "text": "Does not kill viruses",
+                "group": 0
+              },
+              {
+                "text": "Overuse leads to resistant bacteria",
+                "group": 0
+              },
+              {
+                "text": "Treats the symptoms of a disease",
+                "group": 1
+              },
+              {
+                "text": "Does not kill pathogens",
+                "group": 1
+              },
+              {
+                "text": "Wiped on the skin before surgery to kill bacteria",
+                "group": 2
+              },
+              {
+                "text": "Used on living tissue, not taken inside the body",
+                "group": 2
+              }
             ]
           }
         },
@@ -62,7 +100,7 @@
           "type": "list",
           "items": [
             "**Painkillers** and other medicines treat the symptoms of disease. They do not kill pathogens.",
-            "**Antivirals** are used to treat viral infections, for example hepatitis. Antibiotics would not be given.",
+            "**Antivirals** are used to treat viral infections. Antibiotics would not be given.",
             "Antiseptics are used outside the body, for example on the skin before surgery, to kill bacteria."
           ]
         },
@@ -79,16 +117,20 @@
     {
       "heading": "Antibiotic resistance",
       "blocks": [
-        { "type": "paragraph", "text": "New strains of bacteria have become resistant to antibiotics. This is of great concern to doctors." },
+        {
+          "type": "paragraph",
+          "text": "New strains of bacteria have become resistant to antibiotics. This is of great concern to doctors."
+        },
         {
           "type": "list",
           "items": [
+            "Bacteria that develop resistance survive the antibiotic and reproduce, so a resistant strain spreads.",
             "Current antibiotics do not kill resistant bacteria.",
             "Some diseases become more difficult to treat, and new antibiotics take time and money to develop.",
             "Doctors do not prescribe antibiotics for viral infections or mild infections, which the body's immune system can deal with.",
             "Patients must finish the course. Any bacteria left may develop resistance, survive and reproduce.",
-            "A resistant strain is only treated with the antibiotic that kills it, so routine use is avoided.",
-            "Hospitals use hand wash and disinfectant, and isolate patients with the resistant strain."
+            "Doctors only prescribe the antibiotic that kills a resistant strain when the patient has that strain, because routine use would lead to more resistant bacteria.",
+            "Hospitals use antibacterial or alcohol hand wash between patients, disinfectant on wards, and isolate patients with the resistant strain."
           ]
         },
         {
@@ -121,7 +163,10 @@
   ],
   "boards": {
     "aqa": {
-      "spec_codes": ["AQA 3.5", "AQA T 4.3.1.8"],
+      "spec_codes": [
+        "AQA 3.5",
+        "AQA T 4.3.1.8"
+      ],
       "exam_phrases": [
         "do not prescribe antibiotics for viral infections",
         "because antibiotics do not kill viruses",
@@ -136,12 +181,12 @@
           "right": "This is ignored. Say that current antibiotics do not kill certain bacteria, so some diseases become more difficult to cure or treat."
         },
         {
-          "wrong": "Antibiotics should not be used for colds because the bacteria get used to them.",
-          "right": "Colds and flu are caused by viruses, and antibiotics do not kill viruses. Resistance happens when bacteria that survive reproduce."
+          "wrong": "Doctors should give antibiotics for a cold or flu to help the patient get better.",
+          "right": "Colds and flu are caused by viruses, and antibiotics do not kill viruses. Mild infections also get better because of the body's normal immune system."
         },
         {
           "wrong": "Clean the hospital to remove bacteria.",
-          "right": "Be specific: use antibacterial or alcohol hand wash between patients, use disinfectant on wards, and isolate patients with the resistant strain."
+          "right": "\"Clean\" on its own is ignored. Be specific: use antibacterial or alcohol hand wash between patients, use disinfectant on wards, and isolate patients with the resistant strain."
         }
       ],
       "worked_example": {
@@ -161,7 +206,9 @@
       }
     },
     "edexcel": {
-      "spec_codes": ["EDEX 5.16"],
+      "spec_codes": [
+        "EDEX 5.16"
+      ],
       "exam_phrases": [
         "they inhibit processes (in bacteria)",
         "so bacteria are destroyed / are killed / growth stops / reproduction stops",
@@ -197,7 +244,9 @@
       }
     },
     "ocr": {
-      "spec_codes": ["OCR 6.3o"],
+      "spec_codes": [
+        "OCR 6.3o"
+      ],
       "exam_phrases": [
         "a chemical (usually) made by fungi / microbes",
         "that kills (other) microbes / kills bacteria",
@@ -216,14 +265,14 @@
           "right": "A vaccine is ignored. Say the doctor would give an antiviral, not an antibiotic."
         },
         {
-          "wrong": "Antiseptics are taken inside the body like antibiotics.",
-          "right": "Antibiotics are used inside the body, but antiseptics are not."
+          "wrong": "An antibiotic is a chemical that kills any microbe, including viruses.",
+          "right": "An antibiotic is a chemical, usually made by fungi or microbes, that kills bacteria. It does not destroy viruses."
         }
       ],
       "worked_example": {
         "exemplar_id": "cc614c10-dad0-42f5-b10c-9cb377c4fae1",
         "source": "OCR jun 2025, Paper 2, Q22(b)(ii)",
-        "question": "A patient in hospital has a bacterial disease. The doctor gives the patient a tablet containing a medicine that will kill the bacteria.\n\nThe doctor would change the type of medicine given to the patient if the disease was caused by a virus.\n\nState the change the doctor would make. Give a reason for your answer.",
+        "question": "Many different bacteria can cause disease. A patient in hospital has a bacterial disease. A doctor tells the patient:\n\n\"Some time ago, bacteria entered your body. Your body detected chemicals on the surface of the bacteria. This made your body produce protein molecules to help kill the bacteria. I will give you a tablet containing a medicine that will also kill the bacteria. You should not get this disease again because cells in your body will now provide you with immunity.\"\n\nThe doctor would change the type of medicine given to the patient if the disease was caused by a virus.\n\nState the change the doctor would make. Give a reason for your answer.",
         "marks": 2,
         "answer_points": [
           "Change: the doctor would not give antibiotics, and would give an antiviral.",
@@ -247,6 +296,8 @@
       "d3b68048-13ea-48ee-93d9-dda812ec9ed8",
       "79039139-54d2-4d9a-8b34-c010b3e0e2a3",
       "cc614c10-dad0-42f5-b10c-9cb377c4fae1"
-    ]
+    ],
+    "checked_by": "sonnet-science-check",
+    "checked_at": "2026-10-01"
   }
 }

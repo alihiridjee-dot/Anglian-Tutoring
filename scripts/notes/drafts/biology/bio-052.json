@@ -8,7 +8,10 @@
     {
       "heading": "Why they are useful",
       "blocks": [
-        { "type": "paragraph", "text": "A monoclonal antibody has a shape that is complementary to one antigen only. It binds to that antigen and to nothing else." },
+        {
+          "type": "paragraph",
+          "text": "This topic is for separate biology. A monoclonal antibody has a shape that is complementary to one antigen only. It binds to that antigen and to nothing else."
+        },
         {
           "type": "list",
           "items": [
@@ -29,8 +32,14 @@
     {
       "heading": "Pregnancy tests, diagnosis and research",
       "blocks": [
-        { "type": "paragraph", "text": "Monoclonal antibodies can be used to detect a molecule or pathogen. The test shows a colour or a dye when the antigen is present." },
-        { "type": "subheading", "text": "Pregnancy test" },
+        {
+          "type": "paragraph",
+          "text": "Monoclonal antibodies can be used to detect a molecule or pathogen. The test shows a colour or a dye when the antigen is present."
+        },
+        {
+          "type": "subheading",
+          "text": "Pregnancy test"
+        },
         {
           "type": "list",
           "items": [
@@ -39,13 +48,16 @@
             "Immobile (fixed) antibodies in the test window hold the bound hormone, so a coloured line appears."
           ]
         },
-        { "type": "subheading", "text": "Diagnosis and research" },
+        {
+          "type": "subheading",
+          "text": "Diagnosis and research"
+        },
         {
           "type": "list",
           "items": [
             "To see pathogens, a fluorescent dye is bound to the antibodies. They are put on a slide of the sample and rinsed.",
             "The antibodies bind to the pathogens, which show up under the microscope.",
-            "Antibodies can be used to locate cancer cells or blood clots, or to detect the A antigen on red blood cells to identify a blood group.",
+            "Antibodies can be used to locate cancer cells (for example prostate cancer) or blood clots, or to detect the A antigen on red blood cells to identify a blood group.",
             "Antibodies can also be used to identify pathogens, develop vaccines and test drugs."
           ]
         },
@@ -61,21 +73,46 @@
     {
       "heading": "Treating cancer and disease",
       "blocks": [
-        { "type": "paragraph", "text": "Monoclonal antibodies can deliver treatment straight to the cells that need it." },
+        {
+          "type": "paragraph",
+          "text": "Monoclonal antibodies can deliver treatment straight to the cells that need it."
+        },
         {
           "type": "diagram",
           "diagram": {
             "kind": "sort",
             "alt": "Sort each description into the use of monoclonal antibodies it belongs to: pregnancy testing, diagnosis, or treatment.",
             "prompt": "Which use does each description belong to?",
-            "groups": ["Pregnancy testing", "Diagnosis", "Treatment"],
+            "groups": [
+              "Pregnancy testing",
+              "Diagnosis",
+              "Treatment"
+            ],
             "items": [
-              { "text": "Binds to a hormone in urine", "group": 0 },
-              { "text": "A coloured bead makes a line appear", "group": 0 },
-              { "text": "A fluorescent dye shows pathogens on a slide", "group": 1 },
-              { "text": "Locates cancer cells in the body", "group": 1 },
-              { "text": "Carries a toxin, drug or radioactive substance to cancer cells", "group": 2 },
-              { "text": "Binds to a donor organ's cells so white blood cells cannot attack them", "group": 2 }
+              {
+                "text": "Binds to a hormone in urine",
+                "group": 0
+              },
+              {
+                "text": "A coloured bead makes a line appear",
+                "group": 0
+              },
+              {
+                "text": "A fluorescent dye shows pathogens on a slide",
+                "group": 1
+              },
+              {
+                "text": "Locates cancer cells in the body",
+                "group": 1
+              },
+              {
+                "text": "Carries a toxin, drug or radioactive substance to cancer cells",
+                "group": 2
+              },
+              {
+                "text": "Binds to a donor organ's cells so white blood cells cannot attack them",
+                "group": 2
+              }
             ]
           }
         },
@@ -118,7 +155,9 @@
   ],
   "boards": {
     "aqa": {
-      "spec_codes": ["AQA 3.8"],
+      "spec_codes": [
+        "AQA 3.8"
+      ],
       "exam_phrases": [
         "bind fluorescent dye to mAbs",
         "mAbs will bind to pathogens and show up under the microscope",
@@ -155,7 +194,9 @@
       }
     },
     "edexcel": {
-      "spec_codes": ["EDEX 5.22B"],
+      "spec_codes": [
+        "EDEX 5.22B"
+      ],
       "exam_phrases": [
         "(pregnancy test detects) a hormone in urine",
         "(hormone / antigen) binds to the antibody (on the test)",
@@ -189,7 +230,9 @@
       }
     },
     "ocr": {
-      "spec_codes": ["OCR 6.3n"],
+      "spec_codes": [
+        "OCR 6.3n"
+      ],
       "exam_phrases": [
         "pregnancy testing",
         "detecting diseases / cancer",
@@ -201,10 +244,6 @@
         {
           "wrong": "Monoclonal antibodies are used in medicine.",
           "right": "Be specific. Name a use: pregnancy testing, detecting diseases or cancer, or treating disease or cancer."
-        },
-        {
-          "wrong": "They treat cancer by killing all the cells in the body.",
-          "right": "The antibody is specific. It carries the substance to the cancer cells only."
         }
       ],
       "worked_example": {
@@ -234,6 +273,8 @@
       "db3da9c7-f0db-4491-b8df-4b6e2f69906d",
       "4fb08ca5-dbf9-4351-b431-e85646bdf026",
       "42bc5ad0-2303-4a37-b369-665cbd59d2e2"
-    ]
+    ],
+    "checked_by": "sonnet-science-check",
+    "checked_at": "2026-10-01"
   }
 }

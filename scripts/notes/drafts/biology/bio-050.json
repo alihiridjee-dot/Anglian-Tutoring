@@ -8,14 +8,33 @@
     {
       "heading": "Where drugs come from",
       "blocks": [
-        { "type": "paragraph", "text": "Many drugs were first found in living things. Today most new drugs are made in the pharmaceutical industry." },
+        {
+          "type": "paragraph",
+          "text": "Many drugs were first found in living things. Today most new drugs are made in the pharmaceutical industry."
+        },
         {
           "type": "table",
-          "columns": ["Drug", "Used for", "Where it comes from"],
+          "columns": [
+            "Drug",
+            "Used for",
+            "Where it comes from"
+          ],
           "rows": [
-            ["Digitalis", "Heart drug", "Foxgloves"],
-            ["Aspirin", "Painkiller", "Willow"],
-            ["Penicillin", "Antibiotic", "Penicillium mould (discovered by Alexander Fleming)"]
+            [
+              "Digitalis",
+              "Heart drug",
+              "Foxgloves"
+            ],
+            [
+              "Aspirin",
+              "Painkiller",
+              "Willow"
+            ],
+            [
+              "Penicillin",
+              "Antibiotic",
+              "Penicillium mould (discovered by Alexander Fleming)"
+            ]
           ]
         },
         {
@@ -38,25 +57,47 @@
     {
       "heading": "Testing and trialling a new drug",
       "blocks": [
-        { "type": "paragraph", "text": "New drugs must be tested to check that they are safe and effective before they are used on patients. The tests look at three things." },
+        {
+          "type": "paragraph",
+          "text": "New drugs must be tested to check that they are safe and effective before they are used on patients. The tests look at three things."
+        },
         {
           "type": "definitions",
           "items": [
-            { "term": "Toxicity", "meaning": "Whether the drug is poisonous or harmful to the body." },
-            { "term": "Efficacy", "meaning": "Whether the drug works, that is, whether it treats the disease." },
-            { "term": "Dose", "meaning": "How much of the drug is needed." },
-            { "term": "Placebo", "meaning": "A dummy treatment that contains no active drug." }
+            {
+              "term": "Toxicity",
+              "meaning": "Whether the drug is poisonous or harmful to the body."
+            },
+            {
+              "term": "Efficacy",
+              "meaning": "Whether the drug works, that is, whether it treats the disease."
+            },
+            {
+              "term": "Dose",
+              "meaning": "How much of the drug is needed."
+            },
+            {
+              "term": "Placebo",
+              "meaning": "A dummy treatment that contains no active drug."
+            }
           ]
         },
-        { "type": "subheading", "text": "Preclinical testing" },
+        {
+          "type": "subheading",
+          "text": "Preclinical testing"
+        },
         {
           "type": "list",
           "items": [
-            "Done in a laboratory using cells, tissues and live animals.",
+            "After discovery, a new drug goes through a development phase before testing.",
+            "Done in a laboratory using cells (in vitro), tissues and live animals.",
             "It checks whether the drug is safe and works before it is given to people."
           ]
         },
-        { "type": "subheading", "text": "Clinical trials" },
+        {
+          "type": "subheading",
+          "text": "Clinical trials"
+        },
         {
           "type": "list",
           "items": [
@@ -71,14 +112,13 @@
           "type": "diagram",
           "diagram": {
             "kind": "sequence",
-            "alt": "Put the stages of developing a new medicine in order, from discovery to publication of the results.",
+            "alt": "Put the stages of developing a new drug in order, from discovery to publication of the results.",
             "prompt": "Put the stages of developing a new drug in the correct order.",
             "steps": [
               "A new drug is discovered or synthesised",
               "Preclinical testing on cells, tissues and live animals",
               "Clinical trial begins with a very low dose in healthy volunteers",
-              "Further trials in patients find the optimum dose and test efficacy",
-              "Double blind trial, with some patients given a placebo",
+              "Further trials in patients find the optimum dose and test efficacy, including a double blind trial with a placebo",
               "Results are published after peer review"
             ]
           }
@@ -96,12 +136,15 @@
     {
       "heading": "Peer review",
       "blocks": [
-        { "type": "paragraph", "text": "The results of testing and trials are only published after scrutiny by other scientists. This is called peer review." },
+        {
+          "type": "paragraph",
+          "text": "The results of testing and trials are only published after scrutiny by other scientists. This is called peer review."
+        },
         {
           "type": "list",
           "items": [
             "Peer review helps to detect false claims.",
-            "Research that was not peer reviewed, or that has a small sample size or a biased author, is less likely to be considered valid."
+            "Other scientists check the methods and conclusions before the results are published."
           ]
         },
         {
@@ -133,7 +176,10 @@
   ],
   "boards": {
     "aqa": {
-      "spec_codes": ["AQA 3.6", "AQA T 4.3.1.9"],
+      "spec_codes": [
+        "AQA 3.6",
+        "AQA T 4.3.1.9"
+      ],
       "exam_phrases": [
         "for toxicity or check not poisonous / harmful",
         "for efficacy or to see if it works",
@@ -173,7 +219,9 @@
       }
     },
     "edexcel": {
-      "spec_codes": ["EDEX 5.20"],
+      "spec_codes": [
+        "EDEX 5.20"
+      ],
       "exam_phrases": [
         "the antibiotic would go through a development phase",
         "pre-clinical (stage / trials)",
@@ -188,14 +236,14 @@
           "right": "A new drug goes through a development phase and pre-clinical testing on animals or cells before the clinical stage."
         },
         {
-          "wrong": "Double-blind trials only test the drug on animals.",
-          "right": "Double-blind trials are part of the clinical stage. They use patients, with a placebo and the drug."
+          "wrong": "Pre-clinical testing is done on volunteers.",
+          "right": "Pre-clinical testing is on animals, in vitro or on cells. Clinical testing is on (healthy) volunteers and patients."
         }
       ],
       "worked_example": {
         "exemplar_id": "bc9d920d-7d6d-4f06-9e9a-44bb4977cb2e",
         "source": "EDEXCEL jun 2022, Paper 1 (H), Q5(b)",
-        "question": "New antibiotics are being developed to treat a bacterial disease.\n\nDescribe the stages of antibiotic development that would occur after the discovery of a new antibiotic.",
+        "question": "New antibiotics are being developed to treat the disease caused by Klebsiella pneumoniae.\n\nDescribe the stages of antibiotic development that would occur after the discovery of a new antibiotic.",
         "marks": 3,
         "answer_points": [
           "The antibiotic would go through a development phase.",
@@ -207,7 +255,9 @@
       }
     },
     "ocr": {
-      "spec_codes": ["OCR 6.3q"],
+      "spec_codes": [
+        "OCR 6.3q"
+      ],
       "exam_phrases": [
         "control",
         "can act as a comparison / to check the drug works",
@@ -253,6 +303,8 @@
       "fa810eea-81c6-47ab-8c09-8789f3f2f690",
       "bc9d920d-7d6d-4f06-9e9a-44bb4977cb2e",
       "2df0c151-fe55-40ae-86aa-85db1d46ed10"
-    ]
+    ],
+    "checked_by": "sonnet-science-check",
+    "checked_at": "2026-10-01"
   }
 }
