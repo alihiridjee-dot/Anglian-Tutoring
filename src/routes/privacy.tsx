@@ -27,7 +27,7 @@ const CONTACT = "angliaeducate@gmail.com";
 const PROCESSORS = [
   {
     name: "Supabase",
-    what: "Stores accounts, learning records, messages and uploaded files, and runs sign-in.",
+    what: "Stores accounts, learning records, messages and profile photos, runs sign-in, and sends sign-up codes and password-reset emails.",
     where: "EU (Frankfurt)",
   },
   {
@@ -42,17 +42,27 @@ const PROCESSORS = [
   },
   {
     name: "Resend",
-    what: "Sends our emails, such as trial codes, parent invitations and account notices.",
+    what: "Sends free-trial codes and account-deletion notices.",
     where: "USA",
   },
   {
     name: "Zoom",
-    what: "Runs live lessons.",
+    what: "Runs live lessons. We send it only each lesson's title and time.",
     where: "USA",
   },
   {
     name: "Anthropic",
-    what: "Its AI, Claude, helps us mark homework and write feedback and progress summaries.",
+    what: "Its AI, Claude, helps with marking and feedback, as described under AI marking.",
+    where: "USA",
+  },
+  {
+    name: "YouTube and Vimeo",
+    what: "Play lesson videos. They may set their own cookies when you press play.",
+    where: "USA",
+  },
+  {
+    name: "Meta (WhatsApp)",
+    what: "Only if you message us on WhatsApp or use the chat on our demo pages.",
     where: "USA",
   },
   {
@@ -114,10 +124,10 @@ function PrivacyPage() {
           <span className="eyebrow">If you&apos;re a student</span>
           <p className="mt-4 leading-relaxed">
             We keep your name, email address, school, grades and the work you do on the site, so
-            your tutors can teach you and mark your homework. Your parent or guardian can see your
-            progress if you link your account to theirs. If you&apos;re under 13, please ask a
-            parent or guardian before you sign up. If something here worries you, talk to them or
-            email us.
+            your tutors can teach you and mark your homework. An AI helps with marking, and your
+            tutors can check and change its marks. Your parent or guardian can see your progress if
+            you link your account to theirs. If you&apos;re under 13, please ask a parent or
+            guardian before you sign up. If something here worries you, talk to them or email us.
           </p>
         </div>
 
@@ -150,9 +160,10 @@ function PrivacyPage() {
           </p>
           <h3>Learning records</h3>
           <p>
-            Subjects and exam boards, previous, current and target grades, homework answers and
-            uploaded work, quiz answers and scores, how confident you feel about each topic, weekly
-            plans, and the marks, feedback and notes tutors write about your progress.
+            Subjects and exam boards, previous, current and target grades, how you rate your own
+            study skills, homework answers, quiz answers and scores, how confident you feel about
+            each topic, weekly plans and the reflections you write in weekly check-ins, and the
+            marks, feedback and notes tutors write about your progress.
           </p>
           <h3>Messages</h3>
           <p>Messages between parents and tutors sent through the site.</p>
@@ -163,14 +174,18 @@ function PrivacyPage() {
           </p>
           <h3>Enquiries</h3>
           <p>
-            If you use our contact form: your name, email address, phone number if you give it, and
-            your message. If you ask for a free-trial code: your email address.
+            If you use our contact form or the chat on our demo pages: your name, email address,
+            phone number if you give it, and your message. If you ask for a free-trial code: your
+            email address, so we can send it. We keep only a scrambled copy of that address, which
+            can&apos;t be turned back into it.
           </p>
           <h3>Your browser</h3>
           <p>
-            We use your browser&apos;s own storage to keep you signed in and to remember small
-            things, like a trial code you&apos;ve been sent. We don&apos;t use advertising or
-            tracking cookies. Vercel counts page visits without cookies and without identifying you.
+            We use your browser&apos;s own storage to keep you signed in, to save homework answers
+            you haven&apos;t sent yet, and to remember small things, like a trial code you&apos;ve
+            been sent. Anglia Educate sets no cookies. Lesson videos from YouTube and Vimeo, and
+            Stripe&apos;s payment pages, may set their own. Vercel counts page visits without
+            cookies.
           </p>
         </Section>
 
@@ -201,19 +216,36 @@ function PrivacyPage() {
         </Section>
 
         <Section title="AI marking">
+          <p>We use Claude, an AI made by Anthropic, in three places:</p>
+          <ul className="list-disc space-y-2 pl-5">
+            <li>
+              <strong>Homework:</strong> it receives the questions, the mark scheme and the
+              student&apos;s answers, but not their name or email, and suggests marks and feedback.
+              A tutor can check and change them. If no tutor has reviewed them within 30 minutes,
+              the suggested marks are released to the student automatically. Students and parents
+              can always ask a tutor to look again.
+            </li>
+            <li>
+              <strong>Weekly feedback:</strong> it receives the student&apos;s recent scores and the
+              reflection they write in their weekly check-in.
+            </li>
+            <li>
+              <strong>Message drafts:</strong> a tutor can ask it to draft a reply to a student. It
+              sees the student&apos;s name and the recent messages in that conversation, and the
+              tutor edits and sends the reply.
+            </li>
+          </ul>
           <p>
-            We use Claude, an AI made by Anthropic, to help mark homework and to draft feedback and
-            progress summaries. It receives the questions and the student&apos;s answers. Anthropic
-            does not use information sent through its business service to train its AI. Tutors stay
-            responsible for students&apos; marks and feedback.
+            Anthropic does not use information sent through its business service to train its AI.
           </p>
         </Section>
 
         <Section title="Who can see it">
           <p>
             Inside Anglia Educate, a student&apos;s work and records can be seen by our tutors and
-            by parents or guardians the student has linked to. A parent can only ever see their own
-            linked children.
+            by parents or guardians the student has linked to by sharing their invite code. A parent
+            can only ever see their own linked children. Private notes tutors keep about a student
+            are seen only by tutors.
           </p>
           <p>Outside it, these services handle data for us, only to run the platform:</p>
           <div className="mt-2 grid gap-3 sm:grid-cols-2">
@@ -228,8 +260,8 @@ function PrivacyPage() {
             ))}
           </div>
           <p>
-            If you message us on WhatsApp, WhatsApp handles that conversation under its own privacy
-            policy. We&apos;d share information with anyone else only if the law required it.
+            WhatsApp, YouTube and Vimeo also handle what you do with them under their own privacy
+            policies. We&apos;d share information with anyone else only if the law required it.
           </p>
         </Section>
 
@@ -248,15 +280,22 @@ function PrivacyPage() {
               <strong>Accounts and learning records:</strong> for as long as the account is open.
             </li>
             <li>
-              <strong>Deleted accounts:</strong> there&apos;s a 7-day window to change your mind,
-              then the account and its records are permanently deleted.
+              <strong>Deleting an account:</strong> email us to ask. There&apos;s then a 7-day
+              window to change your mind, after which the account and its records are permanently
+              deleted.
             </li>
             <li>
-              <strong>Payment records:</strong> six years, because UK tax law requires it.
+              <strong>Cleared automatically:</strong> unsent homework drafts after 30 days,
+              conversations 30 days after the last message once a tutor has replied, and records of
+              past live lessons after 7 days.
             </li>
             <li>
-              <strong>Enquiries:</strong> until we no longer need them to reply and follow up, or
-              sooner if you ask.
+              <strong>Payment records:</strong> Stripe keeps its record of past payments, and we
+              keep financial records for six years, as UK tax law requires.
+            </li>
+            <li>
+              <strong>Enquiries:</strong> we keep these so we can follow up. Ask and we&apos;ll
+              delete yours.
             </li>
           </ul>
         </Section>
