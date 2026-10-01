@@ -922,6 +922,7 @@ export type Database = {
           subject: Database["public"]["Enums"]["subject"];
           title: string;
           video_url: string | null;
+          zoom_meeting_id: string | null;
         };
         Insert: {
           board?: Database["public"]["Enums"]["board"] | null;
@@ -947,6 +948,7 @@ export type Database = {
           subject: Database["public"]["Enums"]["subject"];
           title: string;
           video_url?: string | null;
+          zoom_meeting_id?: string | null;
         };
         Update: {
           board?: Database["public"]["Enums"]["board"] | null;
@@ -972,6 +974,7 @@ export type Database = {
           subject?: Database["public"]["Enums"]["subject"];
           title?: string;
           video_url?: string | null;
+          zoom_meeting_id?: string | null;
         };
         Relationships: [
           {
@@ -1842,6 +1845,22 @@ export type Database = {
       claim_ai_request: {
         Args: { _endpoint: string; _limit: number; _window: string };
         Returns: boolean;
+      };
+      create_linked_resource: {
+        Args: {
+          _board: Database["public"]["Enums"]["board"] | null;
+          _description: string;
+          _join_url?: string | null;
+          _kind: Database["public"]["Enums"]["resource_kind"];
+          _level: Database["public"]["Enums"]["level"];
+          _spec_point_ids: string[];
+          _starts_at?: string | null;
+          _subject: Database["public"]["Enums"]["subject"];
+          _title: string;
+          _video_url?: string | null;
+          _zoom_meeting_id?: string | null;
+        };
+        Returns: string;
       };
       curriculum_coverage: {
         Args: never;

@@ -34,12 +34,15 @@ export interface LiveFormProps {
  * Scheduling a live session: the fields, the link to the tutor's week, the three
  * assists (Zoom link, AI description, AI spec points) and the save itself.
  */
-export function useLiveForm({ userId, taxonomy, linkToWeek = false }: LiveFormProps) {
+export function useLiveForm({ taxonomy, linkToWeek = false }: LiveFormProps) {
   const qc = useQueryClient();
   const [title, setTitle] = useState("");
   const [description, setDescription] = useState("");
   const [startsAt, setStartsAt] = useState("");
   const [joinUrl, setJoinUrl] = useState("");
+  // The meeting "Auto Zoom" made, so deleting the session can cancel it. A
+  // pasted link's meeting belongs to whoever made it, and is never cancelled.
+  const [zoomMeeting, setZoomMeeting] = useState<{ id: string; joinUrl: string } | null>(null);
   const [specPointIds, setSpecPointIds] = useState<string[]>([]);
   const [loading, setLoading] = useState(false);
   const [generatingLink, setGeneratingLink] = useState(false);
@@ -100,6 +103,7 @@ export function useLiveForm({ userId, taxonomy, linkToWeek = false }: LiveFormPr
         startTime: new Date(startsAt).toISOString(),
       });
       setJoinUrl(meeting.join_url);
+      setZoomMeeting({ id: meeting.id, joinUrl: meeting.join_url });
       toast.success("Zoom meeting created!");
     } catch (err) {
       toast.error(err instanceof Error ? err.message : "Could not create Zoom meeting.");
@@ -180,42 +184,27 @@ export function useLiveForm({ userId, taxonomy, linkToWeek = false }: LiveFormPr
 
     const formattedStartsAt = new Date(startsAt).toISOString();
 
-    const { data: created, error } = await supabase
-      .from("resources")
-      .insert({
-        kind: "live_session",
-        title,
-        description,
-        starts_at: formattedStartsAt,
-        join_url: joinUrl || null,
-        subject: taxonomy.subject,
-        // Live sessions are broad, board-agnostic themes (per subject + level).
-        board: null,
-        level: taxonomy.level,
-        created_by: userId,
-      })
-      .select("id")
-      .single();
-
-    if (error) {
-      setLoading(false);
-      return toast.error(error.message);
-    }
-
-    // Curriculum links live in resource_spec_points (many-to-many), so one
-    // session can surface on every spec point it covers — students find it by
-    // browsing any of them.
-    if (specPointIds.length > 0) {
-      const { error: linkError } = await supabase
-        .from("resource_spec_points")
-        .insert(specPointIds.map((spec_point_id) => ({ resource_id: created.id, spec_point_id })));
-      if (linkError) {
-        setLoading(false);
-        return toast.error(linkError.message);
-      }
-    }
+    // The session and its curriculum links (resource_spec_points, many-to-many,
+    // so one session surfaces on every spec point it covers) are written in one
+    // transaction: a failed link no longer leaves a live session with no points
+    // for a retry to duplicate.
+    const { error } = await supabase.rpc("create_linked_resource", {
+      _kind: "live_session",
+      _title: title,
+      _description: description,
+      _subject: taxonomy.subject,
+      _level: taxonomy.level,
+      // Live sessions are broad, board-agnostic themes (per subject + level).
+      _board: null,
+      _spec_point_ids: specPointIds,
+      _starts_at: formattedStartsAt,
+      _join_url: joinUrl || null,
+      // Only while the field still holds the link Auto Zoom made.
+      _zoom_meeting_id: zoomMeeting && zoomMeeting.joinUrl === joinUrl ? zoomMeeting.id : null,
+    });
 
     setLoading(false);
+    if (error) return toast.error(error.message);
 
     if (broadcastWhatsApp) {
       const timeStr = new Date(startsAt).toLocaleString();
@@ -242,6 +231,7 @@ export function useLiveForm({ userId, taxonomy, linkToWeek = false }: LiveFormPr
     setDescription("");
     setStartsAt("");
     setJoinUrl("");
+    setZoomMeeting(null);
     setSpecPointIds([]);
     // Allow the next date pick to re-seed from that week's focus.
     seededFor.current = "";
