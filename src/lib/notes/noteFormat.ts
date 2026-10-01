@@ -73,8 +73,34 @@ export interface PredictorDiagram {
   prompt: string;
   /** The rows every result has, e.g. ["Negative electrode", "Positive electrode", "What you see"]. */
   result_labels: string[];
-  options: { label: string; results: string[]; explanation?: string }[];
+  options: { label: string; results: string[]; explanation?: string; scene?: PredictorScene }[];
 }
+
+/**
+ * An illustrated scene drawn above a predictor's result. If one option has a
+ * scene, every option must. Scenes are drawn by the app; a note only fills them in.
+ */
+export type PredictorScene = ElectrolysisScene;
+
+/** An electrolysis cell with inert electrodes. */
+export interface ElectrolysisScene {
+  kind: "electrolysis";
+  /** The salt's two ions, positive first, e.g. ["Cu²⁺", "SO₄²⁻"]. H⁺ and OH⁻ from water are added. */
+  ions: [string, string];
+  negative: { product: string; form: "gas" | "metal"; metal?: "copper" | "silver" | "grey" };
+  positive: { product: string; form: "gas" | "solution"; colour?: "orange" | "brown" | "green" };
+  /** Leave out H⁺ and OH⁻ for a molten compound. */
+  molten?: boolean;
+}
+
+/** An illustrated scene drawn by a slider. Each names the inputs or outputs it shows. */
+export type SliderScene =
+  /** A car on a road: thinking and braking distance (output indexes) as bands. */
+  | { kind: "road"; thinking: number; braking: number }
+  /** A moving transverse wave: amplitude and frequency are input ids. */
+  | { kind: "wave"; amplitude: string; frequency: string }
+  /** Particles in a box that change state as `temperature` (an input id) crosses the melting and boiling points. */
+  | { kind: "particles"; temperature: string; melting: number; boiling: number };
 
 /** A number input: a slider between min and max, or a set of named choices. */
 export type SliderInput =
@@ -91,6 +117,7 @@ export interface SliderDiagram {
   alt: string;
   inputs: SliderInput[];
   outputs: { label: string; unit?: string; formula: string; decimals?: number; bar?: boolean }[];
+  scene?: SliderScene;
 }
 
 /** Put jumbled steps into the right order. `steps` is the correct order. */
@@ -303,6 +330,11 @@ function checkDiagram(d: NoteDiagram, at: string, errs: string[]) {
       for (const o of d.options)
         if (!isStr(o?.label) || !Array.isArray(o.results) || o.results.length !== d.result_labels.length || !o.results.every(isStr))
           errs.push(`${at}: option "${o?.label}" needs a label and ${d.result_labels.length} results`);
+    if (Array.isArray(d.options)) {
+      const withScene = d.options.filter((o) => o?.scene).length;
+      if (withScene && withScene !== d.options.length) errs.push(`${at}: if one option has a scene, every option needs one`);
+      for (const o of d.options) if (o?.scene) checkElectrolysis(o.scene, `${at} option "${o.label}"`, errs);
+    }
   } else if (d?.kind === "slider") {
     checkSlider(d, at, errs);
   } else if (d?.kind === "sequence") {
@@ -365,6 +397,13 @@ function checkPractice(d: PracticeDiagram, at: string, errs: string[]) {
   }
 }
 
+function checkElectrolysis(s: ElectrolysisScene, at: string, errs: string[]) {
+  if (s.kind !== "electrolysis") { errs.push(`${at}: unknown scene ${JSON.stringify(s.kind)}`); return; }
+  if (!Array.isArray(s.ions) || s.ions.length !== 2 || !s.ions.every(isStr)) errs.push(`${at}: electrolysis scene needs two ions`);
+  if (!isStr(s.negative?.product) || !["gas", "metal"].includes(s.negative?.form)) errs.push(`${at}: negative electrode needs a product and form gas or metal`);
+  if (!isStr(s.positive?.product) || !["gas", "solution"].includes(s.positive?.form)) errs.push(`${at}: positive electrode needs a product and form gas or solution`);
+}
+
 function checkSlider(d: SliderDiagram, at: string, errs: string[]) {
   if (!Array.isArray(d.inputs) || d.inputs.length < 1 || d.inputs.length > 4) { errs.push(`${at}: slider needs 1–4 inputs`); return; }
   if (!Array.isArray(d.outputs) || d.outputs.length < 1 || d.outputs.length > 4) { errs.push(`${at}: slider needs 1–4 outputs`); return; }
@@ -398,6 +437,18 @@ function checkSlider(d: SliderDiagram, at: string, errs: string[]) {
       errs.push(`${at}: output "${o.label}" formula: ${(e as Error).message}`);
     }
   }
+  const sc = d.scene;
+  if (!sc) return;
+  const sliderIds = new Set(d.inputs.filter((i) => !("choices" in i)).map((i) => i.id));
+  const isOut = (n: number) => Number.isInteger(n) && n >= 0 && n < d.outputs.length;
+  if (sc.kind === "road") {
+    if (!isOut(sc.thinking) || !isOut(sc.braking)) errs.push(`${at}: road scene needs thinking and braking output indexes`);
+  } else if (sc.kind === "wave") {
+    if (!ids.has(sc.amplitude) || !ids.has(sc.frequency)) errs.push(`${at}: wave scene needs amplitude and frequency input ids`);
+  } else if (sc.kind === "particles") {
+    if (!sliderIds.has(sc.temperature)) errs.push(`${at}: particles scene needs a temperature slider id`);
+    if (!(sc.boiling > sc.melting)) errs.push(`${at}: particles scene needs melting < boiling`);
+  } else errs.push(`${at}: unknown scene ${JSON.stringify((sc as { kind?: unknown }).kind)}`);
 }
 
 export function validateNote(n: unknown): string[] {

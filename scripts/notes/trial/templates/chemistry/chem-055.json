@@ -8,18 +8,95 @@
     {
       "heading": "Try it: pick a solution",
       "blocks": [
-        { "type": "paragraph", "text": "Pick a salt solution to see what forms at each electrode." },
+        {
+          "type": "paragraph",
+          "text": "Pick a salt solution to see what forms at each electrode."
+        },
         {
           "type": "diagram",
           "diagram": {
             "kind": "predictor",
             "alt": "Choose a salt solution to see the products of electrolysis at each electrode.",
             "prompt": "Pick a salt solution",
-            "result_labels": ["Negative electrode", "Positive electrode", "What you see"],
+            "result_labels": [
+              "Negative electrode",
+              "Positive electrode",
+              "What you see"
+            ],
             "options": [
-              { "label": "Sodium chloride", "results": ["**Hydrogen**, because sodium is more reactive than hydrogen", "**Chlorine**, because chloride is a halide", "Bubbles at both electrodes"], "explanation": "Sodium and hydroxide ions are left, so the solution becomes alkaline." },
-              { "label": "Copper sulfate", "results": ["**Copper**, because copper is less reactive than hydrogen", "**Oxygen**, from hydroxide ions (no halide)", "Pink-brown solid; bubbles at the positive electrode"], "explanation": "Sulfuric acid is left, and the blue colour fades." },
-              { "label": "Potassium iodide", "results": ["**Hydrogen**", "**Iodine**", "Bubbles; the solution turns brown"] }
+              {
+                "label": "Sodium chloride",
+                "results": [
+                  "**Hydrogen**, because sodium is more reactive than hydrogen",
+                  "**Chlorine**, because chloride is a halide",
+                  "Bubbles at both electrodes"
+                ],
+                "explanation": "Sodium and hydroxide ions are left, so the solution becomes alkaline.",
+                "scene": {
+                  "kind": "electrolysis",
+                  "ions": [
+                    "Na⁺",
+                    "Cl⁻"
+                  ],
+                  "negative": {
+                    "product": "Hydrogen",
+                    "form": "gas"
+                  },
+                  "positive": {
+                    "product": "Chlorine",
+                    "form": "gas"
+                  }
+                }
+              },
+              {
+                "label": "Copper sulfate",
+                "results": [
+                  "**Copper**, because copper is less reactive than hydrogen",
+                  "**Oxygen**, from hydroxide ions (no halide)",
+                  "Pink-brown solid; bubbles at the positive electrode"
+                ],
+                "explanation": "Sulfuric acid is left, and the blue colour fades.",
+                "scene": {
+                  "kind": "electrolysis",
+                  "ions": [
+                    "Cu²⁺",
+                    "SO₄²⁻"
+                  ],
+                  "negative": {
+                    "product": "Copper",
+                    "form": "metal",
+                    "metal": "copper"
+                  },
+                  "positive": {
+                    "product": "Oxygen",
+                    "form": "gas"
+                  }
+                }
+              },
+              {
+                "label": "Potassium iodide",
+                "results": [
+                  "**Hydrogen**",
+                  "**Iodine**",
+                  "Bubbles; the solution turns brown"
+                ],
+                "scene": {
+                  "kind": "electrolysis",
+                  "ions": [
+                    "K⁺",
+                    "I⁻"
+                  ],
+                  "negative": {
+                    "product": "Hydrogen",
+                    "form": "gas"
+                  },
+                  "positive": {
+                    "product": "Iodine",
+                    "form": "solution",
+                    "colour": "brown"
+                  }
+                }
+              }
             ]
           }
         }
@@ -27,11 +104,34 @@
     }
   ],
   "checks": [
-    { "q": "Name the product at the negative electrode when sodium chloride solution is electrolysed.", "a": "Hydrogen." },
-    { "q": "Where do the hydroxide ions come from?", "a": "Water." }
+    {
+      "q": "Name the product at the negative electrode when sodium chloride solution is electrolysed.",
+      "a": "Hydrogen."
+    },
+    {
+      "q": "Where do the hydroxide ions come from?",
+      "a": "Water."
+    }
   ],
   "boards": {
-    "aqa": { "spec_codes": ["AQA 4.4.3.4"], "exam_phrases": ["hydrogen is less reactive than sodium", "OH⁻ ions are discharged"], "mistakes": [] }
+    "aqa": {
+      "spec_codes": [
+        "AQA 4.4.3.4"
+      ],
+      "exam_phrases": [
+        "hydrogen is less reactive than sodium",
+        "OH⁻ ions are discharged"
+      ],
+      "mistakes": []
+    }
   },
-  "meta": { "status": "draft", "written_by": "template-test", "written_at": "2026-10-01", "spec_point_ids": ["b2c37116-8c41-499f-ac6d-557bb818f820"], "exemplar_ids": [] }
+  "meta": {
+    "status": "draft",
+    "written_by": "template-test",
+    "written_at": "2026-10-01",
+    "spec_point_ids": [
+      "b2c37116-8c41-499f-ac6d-557bb818f820"
+    ],
+    "exemplar_ids": []
+  }
 }

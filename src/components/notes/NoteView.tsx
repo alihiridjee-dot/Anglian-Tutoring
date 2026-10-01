@@ -1,6 +1,7 @@
 import { useMemo, useState, type ReactNode } from "react";
 import { evaluate, parseFormula } from "@/lib/notes/formula";
 import { Explorer, Practice, Punnett, Sequence, Sort } from "@/components/notes/NoteInteractives";
+import { ElectrolysisCell, ParticlesScene, RoadScene, WaveScene } from "@/components/notes/NoteScenes";
 import { BookOpen, Eye, EyeOff, ArrowRight, RotateCcw } from "lucide-react";
 import { PageHeader } from "@/components/Shared";
 import { SUBJECT_LABEL, SUBJECT_TINT } from "@/lib/curriculum/subjectTheme";
@@ -228,6 +229,7 @@ function Predictor({ d }: { d: PredictorDiagram }) {
           </button>
         ))}
       </div>
+      {o.scene ? <div className="mt-4"><ElectrolysisCell s={o.scene} /></div> : null}
       <dl className="mt-4 divide-y divide-border rounded-xl bg-[color-mix(in_oklab,var(--tint)_7%,var(--card))] px-4" aria-live="polite">
         {d.result_labels.map((label, n) => (
           <div key={label} className="py-3 sm:flex sm:gap-4">
@@ -243,6 +245,25 @@ function Predictor({ d }: { d: PredictorDiagram }) {
 
 function fmt(n: number, decimals = 1) {
   return Number.isFinite(n) ? n.toLocaleString("en-GB", { maximumFractionDigits: decimals, minimumFractionDigits: decimals }) : "–";
+}
+
+/** An input's value as 0–1 across its own range (a choice counts by position). */
+function share(d: SliderDiagram, id: string, vals: Record<string, number>) {
+  const inp = d.inputs.find((i) => i.id === id);
+  if (!inp) return 0.5;
+  if ("choices" in inp) {
+    const k = inp.choices.findIndex((c) => c.value === vals[id]);
+    return inp.choices.length > 1 ? Math.max(0, k) / (inp.choices.length - 1) : 0.5;
+  }
+  return (vals[id] - inp.min) / (inp.max - inp.min);
+}
+
+function SliderSceneView({ d, vals, results }: { d: SliderDiagram; vals: Record<string, number>; results: number[] }) {
+  const s = d.scene!;
+  if (s.kind === "road") return <RoadScene thinking={results[s.thinking]} braking={results[s.braking]} />;
+  if (s.kind === "wave") return <WaveScene amplitude={share(d, s.amplitude, vals)} frequency={share(d, s.frequency, vals)} />;
+  const t = d.inputs.find((i) => i.id === s.temperature);
+  return <ParticlesScene temperature={vals[s.temperature]} melting={s.melting} boiling={s.boiling} unit={t && !("choices" in t) ? t.unit : undefined} />;
 }
 
 function Slider({ d }: { d: SliderDiagram }) {
@@ -302,7 +323,8 @@ function Slider({ d }: { d: SliderDiagram }) {
           </div>
         ),
       )}
-      {barIdx.length ? (
+      {d.scene ? <SliderSceneView d={d} vals={vals} results={results} /> : null}
+      {barIdx.length && d.scene?.kind !== "road" ? (
         <div className="flex h-6 overflow-hidden rounded-full bg-[color-mix(in_oklab,var(--foreground)_8%,transparent)]" aria-hidden>
           {barIdx.map((n, k) => (
             <span
