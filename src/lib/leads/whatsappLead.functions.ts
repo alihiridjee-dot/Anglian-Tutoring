@@ -1,8 +1,7 @@
 import { createServerFn } from "@tanstack/react-start";
 import { getRequest } from "@tanstack/react-start/server";
-import { createClient } from "@supabase/supabase-js";
-import type { Database } from "@/integrations/supabase/types";
 import { takeToken } from "@/lib/platform/rateLimit";
+import { saveLead } from "./saveLead.server";
 
 /**
  * The demo's sales chat: a visitor's question, delivered to the team's WhatsApp.
@@ -15,9 +14,9 @@ import { takeToken } from "@/lib/platform/rateLimit";
  *   • It writes the lead to the database FIRST and notifies second. WhatsApp is
  *     someone else's API and it will be down at some point; a lead that reached
  *     the team's phone but not the CRM is recoverable, a lead that reached
- *     neither is a lost customer. The insert goes through the anon key so the
- *     `leads public insert` policy still validates it — the server is not a
- *     reason to skip RLS.
+ *     neither is a lost customer. It is written with the service role
+ *     (saveLead.server.ts): this function is the only way in, so its guards
+ *     can't be skipped, and the table's CHECK constraints bound every field.
  *
  *   • It is rate limited per IP, because "send a WhatsApp message" is an action
  *     with a real cost attached and an anonymous caller could otherwise repeat
@@ -33,9 +32,9 @@ import { takeToken } from "@/lib/platform/rateLimit";
  */
 
 // --- Shape of a lead ---------------------------------------------------------
-// These bounds mirror the CHECK in the `leads public insert` policy exactly. A
-// value the policy would reject is caught here with a message a human wrote,
-// rather than surfacing as a Postgres constraint error.
+// These bounds mirror the CHECK constraints on `leads` exactly. A value they
+// would reject is caught here with a message a human wrote, rather than
+// surfacing as a Postgres constraint error.
 const MAX = { name: 200, email: 320, phone: 40, message: 4000 } as const;
 const EMAIL_RE = /^[^@\s]+@[^@\s]+\.[^@\s]+$/;
 
@@ -178,16 +177,6 @@ async function notifyWhatsApp(lead: {
   }
 }
 
-/** Anon client, built per request so nothing can carry a session between callers. */
-function anonClient() {
-  const url = process.env.SUPABASE_URL;
-  const key = process.env.SUPABASE_PUBLISHABLE_KEY;
-  if (!url || !key) throw new Error("Supabase is not configured");
-  return createClient<Database>(url, key, {
-    auth: { persistSession: false, autoRefreshToken: false, storage: undefined },
-  });
-}
-
 export const sendWhatsAppLead = createServerFn({ method: "POST" })
   .inputValidator(validate)
   .handler(async ({ data }) => {
@@ -202,9 +191,9 @@ export const sendWhatsAppLead = createServerFn({ method: "POST" })
 
     const lead = { name: data.name, email: data.email, phone: data.phone, message: data.message };
 
-    const { error } = await anonClient().from("leads").insert(lead);
+    const { error } = await saveLead(lead);
     if (error) {
-      console.error("[whatsapp] lead insert failed:", error.message);
+      console.error("[whatsapp] lead insert failed:", error);
       throw new Error("We couldn't send that just now. Please try again, or message us directly.");
     }
 
