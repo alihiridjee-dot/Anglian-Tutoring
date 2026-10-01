@@ -2,6 +2,11 @@ import { afterEach, beforeEach, expect, spyOn, test } from "bun:test";
 import { WeeklyNotesDAL } from "./weeklyNotesDal";
 import * as session from "../auth/session";
 
+// The real client is built and `fetch` is stubbed below, so these only have to
+// exist: without them the client throws on a machine with no local `.env`.
+process.env.SUPABASE_URL ??= "https://database.example";
+process.env.SUPABASE_PUBLISHABLE_KEY ??= "sb_publishable_test";
+
 // S-31: a failed read of the check-in or the tutor's note used to come back as
 // "none", and the next save wrote over the real one.
 let failing: boolean;
