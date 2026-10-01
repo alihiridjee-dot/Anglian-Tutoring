@@ -1,5 +1,6 @@
 import { createServerFn } from "@tanstack/react-start";
 import Anthropic from "@anthropic-ai/sdk";
+import { NO_THINKING, completeText } from "@/lib/platform/aiText";
 import { requireSupabaseAuth } from "@/integrations/supabase/auth-middleware";
 import { requireTutorAi } from "@/lib/auth/tutorAi.server";
 
@@ -99,6 +100,7 @@ ${checkinLine}`;
     res = await client.messages.create({
       model: MODEL,
       max_tokens: 500,
+      thinking: NO_THINKING,
       system,
       messages: [{ role: "user", content: user }],
     });
@@ -109,11 +111,7 @@ ${checkinLine}`;
     throw new Error(`AI error: ${e instanceof Error ? e.message : String(e)}`);
   }
 
-  return res.content
-    .filter((b): b is Anthropic.TextBlock => b.type === "text")
-    .map((b) => b.text)
-    .join("")
-    .trim();
+  return completeText(res).trim();
 }
 
 /**
