@@ -340,3 +340,45 @@ test("a failed baseline read throws rather than posing as a first view", async (
   await expect(load()).rejects.toMatchObject({ code: "42501" });
   expect(io).toMatchSnapshot();
 });
+
+/**
+ * S-29. A custom order cut for the student's old course, after a tutor moved
+ * them to another board: the stored spine named only the old course's topics,
+ * and under a custom order the roadmap returned it as it stood, so nothing on
+ * the new course was ever scheduled. Asserted outright rather than
+ * snapshotted: this is a fix, not a characterisation.
+ */
+test("a custom order for another course is rebuilt for this one (S-29)", async () => {
+  // The old course (t1..t3) in a custom order; the student is now on e1, e2.
+  baseline = {
+    program_start: "2026-09-07",
+    exam_date: "2027-06-07",
+    pacing: customOrder("2027-06-07"),
+  };
+  const edexcel = [topic("e1", [point("x1"), point("x2")]), topic("e2", [point("y1")])];
+  arrange({ progress: edexcel });
+  const result = await load();
+
+  const teaching = result!.bands.filter((b) => b.kind !== "revisit");
+  expect(new Set(teaching.map((b) => b.topicId))).toEqual(new Set(["e1", "e2"]));
+  expect(teaching.some((b) => b.startWeek <= THIS_MONDAY && b.endWeek >= THIS_MONDAY)).toBe(true);
+  expect(result!.unscheduledTopicTitles).toEqual([]);
+  expect(result!.needsAck).toBe(false);
+  // Rebuilt from this week, keeping the exam date, and saved by the student.
+  expect(result!.programStart).toBe(THIS_MONDAY);
+  expect(result!.examDate).toBe("2027-06-07");
+  const seed = io.find((e) => Array.isArray(e) && e[0] === "db" && e[1] === "POST") as unknown[];
+  expect((seed[3] as { program_start: string }).program_start).toBe(THIS_MONDAY);
+});
+
+test("a tutor looking at a moved student's planner answers the same but saves nothing (S-29)", async () => {
+  baseline = {
+    program_start: "2026-09-07",
+    exam_date: "2027-06-07",
+    pacing: customOrder("2027-06-07"),
+  };
+  arrange({ progress: [topic("e1", [point("x1")])], viewer: "tutor" });
+  const result = await load();
+  expect(result!.bands.some((b) => b.topicId === "e1")).toBe(true);
+  expect(io.some((e) => Array.isArray(e) && e[0] === "db" && e[1] === "POST")).toBe(false);
+});
