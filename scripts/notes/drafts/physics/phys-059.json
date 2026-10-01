@@ -112,7 +112,17 @@
         },
         {
           "type": "paragraph",
-          "text": "The forces on the two objects are equal, but the accelerations are not equal if the masses differ. Use F = m × a on each object separately."
+          "text": "The forces on the two objects are equal, but the accelerations are not equal if the masses differ. Apply Newton's second law to each object separately."
+        },
+        {
+          "type": "equation",
+          "label": "Newton's second law",
+          "formula": "F = m × a",
+          "where": [
+            "F: resultant force in newtons, N",
+            "m: mass in kilograms, kg",
+            "a: acceleration in metres per second squared, m/s²"
+          ]
         },
         {
           "type": "key-points",
@@ -151,9 +161,7 @@
       "exam_phrases": [
         "(an equal) force from the air",
         "pushes on the engine / aircraft in the opposite direction",
-        "the force of the car on the barrier is equal to the force of the barrier on the car and in the opposite direction",
-        "Newton's 3rd law (of motion)",
-        "equal to"
+        "the force of the car on the barrier is equal to the force of the barrier on the car and in the opposite direction"
       ],
       "mistakes": [
         {
@@ -221,9 +229,21 @@
               "text": "In a collision, the force on each object is equal and opposite and lasts for the same time. So the changes in momentum are equal and opposite."
             },
             {
+              "type": "equation",
+              "label": "Force and change in momentum",
+              "formula": "F = (m × v − m × u) / t",
+              "where": [
+                "F: force in newtons, N",
+                "m: mass in kilograms, kg",
+                "v: final velocity in metres per second, m/s",
+                "u: initial velocity in metres per second, m/s",
+                "t: time of the collision in seconds, s"
+              ]
+            },
+            {
               "type": "list",
               "items": [
-                "Force is linked to change in momentum, by Newton's second law.",
+                "Force is linked to change in momentum, by Newton's second law (the equation above).",
                 "The time of the collision is the same for both objects.",
                 "So the momentum change is the same size for both, in opposite directions.",
                 "Total momentum before equals total momentum after, if no external forces act."
@@ -284,6 +304,8 @@
       "3af80880-ca8d-475a-87d8-f621419a4314",
       "665e6043-bdea-46e1-8465-814b567f652f",
       "b99ea03a-a5ea-4e07-9613-0ed840c526ef"
-    ]
+    ],
+    "checked_by": "sonnet-science-check",
+    "checked_at": "2026-10-01"
   }
 }
