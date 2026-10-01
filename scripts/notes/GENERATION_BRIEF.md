@@ -20,10 +20,11 @@ This is the exact job given to a note-writing agent (Sonnet). One agent drafts
 2. For each concept in the chapter, in order, write
    `scripts/notes/drafts/<subject>/<concept id>.json`. If that file already
    exists, it has been reviewed: leave it alone and move to the next concept.
-3. After each note, validate it:
-   `bun run scripts/notes/validate.ts <subject>`
+3. After each note, validate just your notes (other writers work alongside you):
+   `bun run scripts/notes/validate.ts <subject> --ids <your concept ids, comma-separated>`
    Fix every error before moving on.
-4. When the whole chapter passes, stop and report.
+4. When the whole chapter passes, stop and report. A separate science check
+   then verifies and signs each note before it is published to students.
 
 ## Done means
 
@@ -34,8 +35,10 @@ This is the exact job given to a note-writing agent (Sonnet). One agent drafts
 
 ## Do not
 
-- Do not edit anything outside `scripts/notes/drafts/<subject>/`.
+- Do not edit anything outside your own notes in `scripts/notes/drafts/<subject>/`.
+  Other writers are working on other chapters at the same time.
 - Do not touch git, the database (beyond the read-only source script), or the network.
+- Do not set `meta.checked_by`; only the science check signs a note.
 - Do not use or imitate any textbook or revision guide.
 - Do not invent exam questions or mark-scheme wording. Quote the pack.
 - Do not skip a concept. If a pack is empty or unusable, write the note from the

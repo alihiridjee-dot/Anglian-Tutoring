@@ -1,4 +1,4 @@
-/** Isolated PostgreSQL checks for 20261001160000_revision_notes. No production
+/** Isolated PostgreSQL checks for 20261001164835_revision_notes. No production
  * data is read or written.
  *
  *   PGLITE_MODULE=/path/to/@electric-sql/pglite/dist/index.js bun scripts/test-revision-notes-db.ts
@@ -51,7 +51,7 @@ grant usage on schema private, auth to authenticated, anon, service_role;
 grant execute on all functions in schema private, auth to authenticated, anon, service_role;
 `);
 
-await db.exec(await readFile(new URL("../supabase/migrations/20261001160000_revision_notes.sql", import.meta.url), "utf8"));
+await db.exec(await readFile(new URL("../supabase/migrations/20261001164835_revision_notes.sql", import.meta.url), "utf8"));
 await db.exec(`grant all on all tables in schema public to service_role; alter role service_role bypassrls;`);
 
 async function as<T = Record<string, unknown>>(user: string | null, sql: string, params: unknown[] = []) {

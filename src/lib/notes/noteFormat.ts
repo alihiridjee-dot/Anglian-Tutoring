@@ -244,6 +244,9 @@ export interface Note {
     written_at: string;
     spec_point_ids: string[];
     exemplar_ids: string[];
+    /** Set by the science check once it has verified the note against its sources. Only checked notes are published. */
+    checked_by?: string;
+    checked_at?: string;
   };
 }
 

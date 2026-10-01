@@ -4,6 +4,7 @@
  *   bun run scripts/notes/validate.ts            # all drafts
  *   bun run scripts/notes/validate.ts biology    # one subject
  *   bun run scripts/notes/validate.ts --set trial/a
+ *   bun run scripts/notes/validate.ts biology --ids bio-020,bio-021
  *
  * Structural checks come from validateNote (it will render). On top, this
  * checks the note against its concept map: the concept exists, every spec point
@@ -19,7 +20,10 @@ const here = dirname(fileURLToPath(import.meta.url));
 const args = process.argv.slice(2);
 const setAt = args.indexOf("--set");
 const set = setAt >= 0 ? args[setAt + 1] : "drafts";
-const only = args.find((a, i) => !a.startsWith("--") && i !== setAt + 1);
+// --ids a,b,c checks just those notes, so parallel writers don't trip over each other's half-written files.
+const idsAt = args.indexOf("--ids");
+const ids = idsAt >= 0 ? new Set(args[idsAt + 1].split(",")) : null;
+const only = args.find((a, i) => !a.startsWith("--") && i !== setAt + 1 && i !== idsAt + 1);
 let failures = 0, checked = 0;
 
 for (const subject of ["biology", "chemistry", "physics"]) {
@@ -27,7 +31,7 @@ for (const subject of ["biology", "chemistry", "physics"]) {
   const dir = join(here, set, subject);
   if (!existsSync(dir)) continue;
   const map = JSON.parse(readFileSync(join(here, "concepts", `gcse-${subject}.json`), "utf8"));
-  for (const file of readdirSync(dir).filter((f) => f.endsWith(".json")).sort()) {
+  for (const file of readdirSync(dir).filter((f) => f.endsWith(".json") && (!ids || ids.has(f.slice(0, -5)))).sort()) {
     checked++;
     const errs: string[] = [];
     let note: Note;

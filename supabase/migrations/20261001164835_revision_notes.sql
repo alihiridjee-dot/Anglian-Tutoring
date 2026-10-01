@@ -7,8 +7,10 @@
 -- board — so the app renders it without joins and a format change needs no
 -- migration.
 --
--- Notes are written as drafts and loaded by scripts/notes/load-notes.ts with the
--- service role. A tutor reads and approves them; students and their parents
+-- Notes are loaded by scripts/notes/load-notes.ts with the service role. They
+-- are published ('approved') once they pass the automated checks — the format
+-- validator and a separate science check — with no person in the loop; a tutor
+-- can still edit a note or set it back to draft. Students and their parents
 -- only ever see approved notes, and only in the subjects they have paid for —
 -- the same gate as MCQ sets and resources (private.my_content_subjects()).
 
