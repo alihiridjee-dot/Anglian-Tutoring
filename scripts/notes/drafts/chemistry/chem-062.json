@@ -132,11 +132,11 @@
                 }
               },
               {
-                "label": "N₂ + O₂ → 2NO",
+                "label": "2HCl → H₂ + Cl₂",
                 "results": [
-                  "945 + 498 = 1443 kJ/mol",
-                  "2 × 631 = 1262 kJ/mol",
-                  "1443 − 1262 = +181 kJ/mol",
+                  "2 × 432 = 864 kJ/mol",
+                  "436 + 243 = 679 kJ/mol",
+                  "864 − 679 = +185 kJ/mol",
                   "Endothermic"
                 ],
                 "scene": {
@@ -250,8 +250,7 @@
         "the energy released is greater than the energy needed",
         "the energy transferred in bond making is greater than the energy transferred in bond breaking",
         "the overall energy change is negative",
-        "(bonds broken) ... (bonds made) ... energy change = bonds broken − bonds made",
-        "an incorrect answer for one step does not prevent marks for later steps"
+        "overall energy change = (energy needed to break bonds) − (energy released when bonds form)"
       ],
       "mistakes": [
         {
@@ -260,7 +259,7 @@
         },
         {
           "wrong": "Overall energy change = bonds made − bonds broken.",
-          "right": "The overall energy change is bonds broken − bonds made, for example 436 + 346 − (2 × 432). Bonds made − bonds broken gives the energy released."
+          "right": "The overall energy change is bonds broken − bonds made. For H₂ + Cl₂ → 2HCl, this is the H–H and Cl–Cl energies added together, minus 2 × the H–Cl energy."
         }
       ],
       "worked_example": {
@@ -325,14 +324,16 @@
       "exam_phrases": [
         "bond breaking is endothermic / takes in energy",
         "bond making is exothermic / gives out energy",
-        "more energy is given out (during bond making) than is taken in (during bond breaking)",
-        "evidence of correct working out is needed to score full marks",
-        "energy change = −409 kJ/mol (exothermic gives a negative value)"
+        "more energy is given out (during bond making) than is taken in (during bond breaking)"
       ],
       "mistakes": [
         {
           "wrong": "It takes more energy to make bonds than to break bonds.",
           "right": "This is ignored. Bond making gives out energy and bond breaking takes it in. More energy is given out than is taken in."
+        },
+        {
+          "wrong": "The reaction is exothermic because more bonds are made than broken.",
+          "right": "Ideas about more bonds are not allowed. Say more energy is given out making bonds than is taken in breaking bonds."
         },
         {
           "wrong": "The energy change for the reaction is +409 kJ/mol.",
@@ -349,12 +350,13 @@
         "question": "Two students investigate the burning of methane in oxygen.\n\nMethane + Oxygen → Carbon dioxide + Water\n\nBond energies in kJ/mol: O–H = 459, C=O = 799, O=O = 494. The C–H bond energy is not given.\n\nThe reaction is exothermic and 802 kJ of energy are given out when 1 mole of methane burns.\n\nStudent A thinks the C–H bond energy is 432 kJ/mol. Student B thinks it is 411 kJ/mol.\n\nWho is correct?\n\nUse the bond energies and the energy given out in the reaction to calculate the C–H bond energy.",
         "marks": 3,
         "answer_points": [
+          "Equation: CH₄ + 2O₂ → CO₂ + 2H₂O. Bonds made: 2 × C=O and 4 × O–H.",
           "Energy released making new bonds = (2 × 799) + (4 × 459) = 3434 kJ.",
           "Energy needed to break bonds = 3434 − 802 = 2632 kJ.",
-          "Breaking bonds uses 4 × C–H and 2 × 494 (= 988), so C–H = (2632 − 988) ÷ 4 = 411 kJ/mol.",
-          "Student B is correct."
+          "Bonds broken: 4 × C–H and 2 × O=O. So 4 × C–H = 2632 − (2 × 494) = 2632 − 988 = 1644 kJ.",
+          "C–H = 1644 ÷ 4 = 411 kJ/mol, so Student B is correct."
         ],
-        "tip": "The answer 411 alone scores 0. There must be evidence of correct working."
+        "tip": "Three marks: bonds made, bonds broken, then the C–H value. Remember to divide by 4 because there are four C–H bonds. The answer alone scores 0 without working."
       }
     }
   },
@@ -374,6 +376,8 @@
       "2f066c27-1ad8-4478-bcc4-9ecd96bdb8f7",
       "d49d2b3c-9499-470b-801b-53b37faff954",
       "5aae00e6-f649-4461-a3e0-9d9fb757ed36"
-    ]
+    ],
+    "checked_by": "sonnet-science-check",
+    "checked_at": "2026-10-01"
   }
 }

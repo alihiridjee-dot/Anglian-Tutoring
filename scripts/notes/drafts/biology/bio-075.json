@@ -12,7 +12,7 @@
         {
           "type": "list",
           "items": [
-            "The pancreas fails to produce enough insulin, because the cells that make it have been destroyed.",
+            "The pancreas fails to produce enough insulin.",
             "Glucose cannot move into the cells properly, so blood glucose concentration becomes very high.",
             "It is normally treated with insulin injections.",
             "The insulin causes cells to take in glucose and liver and muscle to store it as glycogen, so blood glucose falls."
@@ -54,6 +54,13 @@
             ["Cause", "The pancreas does not make enough insulin", "Body cells no longer respond to insulin"],
             ["Insulin in the blood", "Low or none", "Made, often more than normal"],
             ["Treatment", "Insulin injections", "Diet, exercise and losing mass, sometimes medicine"]
+          ]
+        },
+        {
+          "type": "list",
+          "items": [
+            "On a graph, blood glucose in a person without diabetes rises after a meal, then returns to normal.",
+            "In a person with diabetes it rises higher and stays high for longer."
           ]
         },
         {
@@ -106,7 +113,8 @@
           "items": [
             "A higher body mass or BMI is linked to a greater chance of developing type 2 diabetes.",
             "Other factors also affect the chance, such as age, diet, exercise and genes.",
-            "Losing body mass and exercising help to control type 2 diabetes."
+            "Losing body mass and exercising help to control type 2 diabetes.",
+            "Recommendations about lifestyle can involve social and ethical issues, such as cost to the health service and people's freedom to choose."
           ]
         },
         {
@@ -255,7 +263,7 @@
                 { "lead": "Divide.", "text": "90 ÷ 100 = 0.9." }
               ]
             },
-            { "type": "paragraph", "text": "In a study, age, diet, exercise regime, ethnicity and genetic makeup also affect the probability of type 2 diabetes, besides BMI and waist-to-hip ratio." }
+            { "type": "paragraph", "text": "Besides BMI and waist-to-hip ratio, age, diet, exercise regime, ethnicity and genetic makeup also affect the probability of developing type 2 diabetes." }
           ]
         }
       ]
@@ -277,7 +285,7 @@
           "right": "When the question asks for differences between treatments, causes are ignored. Say type 1 is treated with insulin and type 2 is controlled through diet and exercise."
         },
         {
-          "wrong": "Eat a better diet to manage type 2 diabetes.",
+          "wrong": "Eat less and have a balanced diet to manage type 2 diabetes.",
           "right": "\"Eat less\", \"better diet\" and \"balanced diet\" are ignored. Give a specific change in diet, such as less sugar, and say exercise more or stop smoking."
         },
         {
@@ -303,6 +311,8 @@
     "status": "draft",
     "written_by": "sonnet-5-5",
     "written_at": "2026-10-01",
+    "checked_by": "sonnet-science-check",
+    "checked_at": "2026-10-01",
     "spec_point_ids": [
       "2379c612-83c0-49b3-b6cd-2c4c72bb525d",
       "3e79cc14-db30-458a-b9cd-c583fdd1f5a6",

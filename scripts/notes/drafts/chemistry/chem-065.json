@@ -8,14 +8,29 @@
     {
       "heading": "How a chemical cell works",
       "blocks": [
-        { "type": "paragraph", "text": "(Separate science) This section covers what a cell contains and what decides its voltage." },
+        {
+          "type": "paragraph",
+          "text": "(Separate science) This section covers what a cell contains and what decides its voltage."
+        },
         {
           "type": "definitions",
           "items": [
-            { "term": "Chemical cell", "meaning": "A device in which chemicals react to produce electricity." },
-            { "term": "Electrode", "meaning": "A piece of metal dipped in the electrolyte." },
-            { "term": "Electrolyte", "meaning": "A solution that the electrodes are placed in." },
-            { "term": "Battery", "meaning": "Two or more cells connected together in series." }
+            {
+              "term": "Chemical cell",
+              "meaning": "A device in which chemicals react to produce electricity."
+            },
+            {
+              "term": "Electrode",
+              "meaning": "A piece of metal dipped in the electrolyte."
+            },
+            {
+              "term": "Electrolyte",
+              "meaning": "A solution that the electrodes are placed in."
+            },
+            {
+              "term": "Battery",
+              "meaning": "Two or more cells connected together in series."
+            }
           ]
         },
         {
@@ -48,7 +63,10 @@
     {
       "heading": "Batteries",
       "blocks": [
-        { "type": "paragraph", "text": "(Separate science) Cells in series add their voltages to give a battery with a greater voltage." },
+        {
+          "type": "paragraph",
+          "text": "(Separate science) Cells in series add their voltages to give a battery with a greater voltage."
+        },
         {
           "type": "equation",
           "label": "Voltage of a battery",
@@ -62,8 +80,14 @@
         {
           "type": "steps",
           "items": [
-            { "lead": "Divide.", "text": "To make a 12 V battery from 1.5 V cells, number of cells = 12 ÷ 1.5." },
-            { "lead": "Answer.", "text": "8 cells connected in series." }
+            {
+              "lead": "Divide.",
+              "text": "To make a 12 V battery from 1.5 V cells, number of cells = 12 ÷ 1.5."
+            },
+            {
+              "lead": "Answer.",
+              "text": "8 cells connected in series."
+            }
           ]
         },
         {
@@ -73,10 +97,24 @@
             "alt": "Work out the voltage of a battery made from cells in series.",
             "question": "A battery has {n} cells connected in series. Each cell has a voltage of {v} V. Calculate the voltage of the battery.",
             "variables": [
-              { "id": "n", "min": 2, "max": 8, "step": 1 },
-              { "id": "v", "min": 1.5, "max": 3, "step": 0.5 }
+              {
+                "id": "n",
+                "min": 2,
+                "max": 8,
+                "step": 1
+              },
+              {
+                "id": "v",
+                "min": 1.5,
+                "max": 3,
+                "step": 0.5
+              }
             ],
-            "answer": { "formula": "n * v", "unit": "V", "decimals": 1 },
+            "answer": {
+              "formula": "n * v",
+              "unit": "V",
+              "decimals": 1
+            },
             "working": [
               "Battery voltage = number of cells × voltage of one cell",
               "= {n} × {v} = {answer} V"
@@ -95,20 +133,70 @@
     {
       "heading": "Non-rechargeable and rechargeable cells",
       "blocks": [
-        { "type": "paragraph", "text": "(Separate science) A chemical cell produces a voltage until one of its reactants is used up." },
+        {
+          "type": "paragraph",
+          "text": "(Separate science) A chemical cell produces a voltage until one of its reactants is used up."
+        },
         {
           "type": "diagram",
           "diagram": {
             "kind": "line-graph",
             "alt": "Voltage of a non-rechargeable cell over time: constant, then falling to zero as a reactant is used up.",
-            "x": { "label": "Time in use", "min": 0, "max": 10, "ticks": [0, 2, 4, 6, 8, 10], "unit": "hours" },
-            "y": { "label": "Voltage" },
+            "x": {
+              "label": "Time in use",
+              "min": 0,
+              "max": 10,
+              "ticks": [
+                0,
+                2,
+                4,
+                6,
+                8,
+                10
+              ],
+              "unit": "hours"
+            },
+            "y": {
+              "label": "Voltage"
+            },
             "series": [
-              { "name": "Non-rechargeable cell", "points": [[0, 0.8], [5, 0.8], [7, 0.5], [9, 0.15], [10, 0]] }
+              {
+                "name": "Non-rechargeable cell",
+                "points": [
+                  [
+                    0,
+                    0.8
+                  ],
+                  [
+                    5,
+                    0.8
+                  ],
+                  [
+                    7,
+                    0.5
+                  ],
+                  [
+                    9,
+                    0.15
+                  ],
+                  [
+                    10,
+                    0
+                  ]
+                ]
+              }
             ],
             "bands": [
-              { "from": 0, "to": 5, "label": "Constant voltage" },
-              { "from": 5, "to": 10, "label": "Voltage falls to 0 V" }
+              {
+                "from": 0,
+                "to": 5,
+                "label": "Constant voltage"
+              },
+              {
+                "from": 5,
+                "to": 10,
+                "label": "Voltage falls to 0 V"
+              }
             ]
           }
         },
@@ -123,11 +211,27 @@
         },
         {
           "type": "table",
-          "columns": ["Type of battery", "Rechargeable?", "An advantage"],
+          "columns": [
+            "Type of battery",
+            "Rechargeable?",
+            "An advantage"
+          ],
           "rows": [
-            ["Zinc-carbon", "No", "Cheap"],
-            ["Alkaline", "No", "Long lasting"],
-            ["Nickel-metal hydride", "Yes", "Does not have to be thrown away"]
+            [
+              "Zinc-carbon",
+              "No",
+              "Cheap"
+            ],
+            [
+              "Alkaline",
+              "No",
+              "Long lasting"
+            ],
+            [
+              "Nickel-metal hydride",
+              "Yes",
+              "Does not have to be thrown away"
+            ]
           ]
         },
         {
@@ -159,7 +263,9 @@
   ],
   "boards": {
     "aqa": {
-      "spec_codes": ["AQA 4.5.2.1"],
+      "spec_codes": [
+        "AQA 4.5.2.1"
+      ],
       "exam_phrases": [
         "the higher the (positive) voltage, the more reactive the metal",
         "the metals have the largest difference in reactivity",
@@ -201,7 +307,9 @@
       }
     },
     "edexcel": {
-      "spec_codes": ["EDEX 5.25C"],
+      "spec_codes": [
+        "EDEX 5.25C"
+      ],
       "exam_phrases": [
         "starts bright, becomes dimmer, goes out (over time)",
         "bright light at the start, fades, then goes out",
@@ -233,12 +341,41 @@
       }
     },
     "ocr": {
-      "spec_codes": ["OCR C6.2p"],
-      "exam_phrases": [
-        "a chemical cell produces a potential difference until the reactants are used up",
-        "potential difference (voltage) of a chemical cell"
+      "spec_codes": [
+        "OCR C6.2p"
       ],
-      "mistakes": []
+      "exam_phrases": [
+        "a chemical cell produces a potential difference (voltage) until one of the reactants is completely used up",
+        "the potential difference decreases once the reactants are used up",
+        "the voltage is 0 V once the reactants are used up"
+      ],
+      "mistakes": [
+        {
+          "wrong": "A chemical cell produces a voltage indefinitely.",
+          "right": "A cell produces a voltage only until one of the reactants is completely used up."
+        },
+        {
+          "wrong": "A chemical cell produces a voltage once all of the reactants are used up.",
+          "right": "The voltage is produced while the reactants are being used. Once a reactant is used up, the voltage falls."
+        },
+        {
+          "wrong": "The potential difference of a cell stays the same, or increases, once the reactants are used up.",
+          "right": "The potential difference decreases, reaching 0 V, once the reactants are used up."
+        }
+      ],
+      "worked_example": {
+        "exemplar_id": "3f152c00-ad76-45fd-844a-5e75e793fe78",
+        "source": "OCR jun 2023, Paper 4, Q9",
+        "question": "Which statement about chemical cells is correct?\n\nA They produce a voltage indefinitely.\nB They produce a voltage once all of the reactants are used up.\nC They produce a voltage until one of the reactants is completely used up.\nD They produce a voltage until the reactants are partly used up.",
+        "marks": 1,
+        "answer_points": [
+          "C: they produce a voltage until one of the reactants is completely used up.",
+          "A is wrong because a cell cannot produce a voltage forever.",
+          "B is wrong because no voltage is produced once the reactants are used up.",
+          "D is wrong because the cell keeps working until a reactant is completely used up, not partly."
+        ],
+        "tip": "Pick the statement that says the voltage lasts until a reactant is completely used up."
+      }
     }
   },
   "meta": {
@@ -252,7 +389,10 @@
     ],
     "exemplar_ids": [
       "ff504168-e3a4-423e-bbb1-6b9f24b3d976",
-      "c0be2602-19a9-4515-aeca-f14dfb34a506"
-    ]
+      "c0be2602-19a9-4515-aeca-f14dfb34a506",
+      "3f152c00-ad76-45fd-844a-5e75e793fe78"
+    ],
+    "checked_by": "sonnet-science-check",
+    "checked_at": "2026-10-01"
   }
 }

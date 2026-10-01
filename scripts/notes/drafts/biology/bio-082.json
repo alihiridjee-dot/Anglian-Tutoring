@@ -3,12 +3,15 @@
   "concept_id": "bio-082",
   "subject": "biology",
   "title": "Contraception",
-  "key_idea": "Contraception lowers the chance of pregnancy. Hormonal methods inhibit FSH and LH so no egg matures or is released. Non-hormonal methods block or kill sperm, or stop an embryo implanting. Each method has advantages and disadvantages to weigh up.",
+  "key_idea": "Contraception lowers the chance of pregnancy. Hormonal methods inhibit FSH so no egg matures. (Higher tier) They also inhibit LH so no egg is released. Non-hormonal methods block or kill sperm, or stop an embryo implanting.",
   "sections": [
     {
       "heading": "Hormonal contraception",
       "blocks": [
-        { "type": "paragraph", "text": "Hormonal methods use oestrogen and progesterone, or progesterone alone, to stop eggs maturing or being released." },
+        {
+          "type": "paragraph",
+          "text": "Hormonal methods use oestrogen and progesterone, or progesterone alone, to stop eggs maturing or being released."
+        },
         {
           "type": "list",
           "items": [
@@ -17,7 +20,10 @@
             "Some intrauterine devices (IUDs or IUSs) release a hormone."
           ]
         },
-        { "type": "subheading", "text": "How the hormones work (Higher tier)" },
+        {
+          "type": "subheading",
+          "text": "How the hormones work (Higher tier)"
+        },
         {
           "type": "list",
           "items": [
@@ -40,22 +46,50 @@
     {
       "heading": "Non-hormonal contraception",
       "blocks": [
-        { "type": "paragraph", "text": "Non-hormonal methods stop sperm meeting an egg, or stop an embryo implanting. Sort each method by how it works." },
+        {
+          "type": "paragraph",
+          "text": "Non-hormonal methods stop sperm meeting an egg, or stop an embryo implanting. Sort each method by how it works."
+        },
         {
           "type": "diagram",
           "diagram": {
             "kind": "sort",
             "alt": "Sort contraceptive methods by how they work.",
             "prompt": "How does each method prevent pregnancy?",
-            "groups": ["Hormones inhibit eggs", "Barrier stops sperm reaching egg", "Other"],
+            "groups": [
+              "Hormones inhibit eggs",
+              "Barrier stops sperm reaching egg",
+              "Other"
+            ],
             "items": [
-              { "text": "Contraceptive pill", "group": 0 },
-              { "text": "Implant or skin patch", "group": 0 },
-              { "text": "Condom", "group": 1 },
-              { "text": "Diaphragm", "group": 1 },
-              { "text": "Spermicidal cream (kills sperm)", "group": 2 },
-              { "text": "Surgical sterilisation", "group": 2 },
-              { "text": "Abstaining when an egg may be in the oviduct", "group": 2 }
+              {
+                "text": "Contraceptive pill",
+                "group": 0
+              },
+              {
+                "text": "Implant or skin patch",
+                "group": 0
+              },
+              {
+                "text": "Condom",
+                "group": 1
+              },
+              {
+                "text": "Diaphragm",
+                "group": 1
+              },
+              {
+                "text": "Spermicidal cream (kills sperm)",
+                "group": 2
+              },
+              {
+                "text": "Surgical sterilisation",
+                "group": 2
+              },
+              {
+                "text": "Abstaining when an egg may be in the oviduct",
+                "group": 2
+              }
             ]
           }
         },
@@ -64,7 +98,7 @@
           "items": [
             "**Barrier methods**, such as condoms and diaphragms, stop sperm reaching an egg.",
             "A **spermicide** kills or disables sperm.",
-            "An intrauterine device (IUD) prevents an embryo implanting. It can also release copper ions or a hormone, which thicken the mucus so sperm cannot pass.",
+            "An intrauterine device (IUD) prevents an embryo implanting. It can release copper ions, which thicken mucus so sperm cannot pass, or a hormone, which prevents ovulation.",
             "Abstaining from intercourse when an egg may be in the oviduct means no egg is available to fertilise.",
             "Surgical sterilisation (vasectomy for men, tubal ligation for women) stops sperm or eggs passing."
           ]
@@ -82,27 +116,65 @@
     {
       "heading": "Evaluating contraceptive methods",
       "blocks": [
-        { "type": "paragraph", "text": "Exam questions ask you to compare methods. Use points for and against, then give a judgement." },
+        {
+          "type": "paragraph",
+          "text": "Exam questions ask you to compare methods. Use points for and against, then give a judgement."
+        },
         {
           "type": "table",
-          "columns": ["Method", "Advantages", "Disadvantages"],
+          "columns": [
+            "Method",
+            "Advantages",
+            "Disadvantages"
+          ],
           "rows": [
-            ["Pill", "Very reliable, easy to take, no need to rely on a partner", "Side effects, must be taken every day, no protection from STIs"],
-            ["Implant or patch", "No need to remember each day, reversible", "Needs a doctor or nurse to fit it, and an implant needs replacing after about 3 years"],
-            ["Condom", "Protects from STIs, easy to use, does not affect fertility", "Can split, less reliable than hormonal methods, latex allergy"],
-            ["Sterilisation", "Long lasting", "Surgery has risks, such as infection, and it is not easily reversed"]
+            [
+              "Pill",
+              "Very reliable, easy to take, no need to rely on a partner",
+              "Side effects, must be taken every day, no protection from STIs"
+            ],
+            [
+              "Implant",
+              "Lasts about 3 years so no need to remember each day, reversible",
+              "Needs a doctor or nurse to fit it, needs replacing after about 3 years, no protection from STIs"
+            ],
+            [
+              "Condom",
+              "Protects from STIs, easy to use, does not affect fertility",
+              "Can split, not as effective if past its use-by date, latex allergy, reduced sensitivity"
+            ],
+            [
+              "Sterilisation",
+              "Long lasting",
+              "Surgery has risks, such as infection, and it is not easily reversed"
+            ]
           ]
         },
         {
           "type": "steps",
           "items": [
-            { "lead": "Advantages.", "text": "Give specific points, such as very reliable or protects against STIs." },
-            { "lead": "Disadvantages.", "text": "Give specific points, such as side effects or no STI protection." },
-            { "lead": "Compare.", "text": "Compare named methods, using any data given." },
-            { "lead": "Judge.", "text": "Finish with a clear judgement linked to your reasons." }
+            {
+              "lead": "Advantages.",
+              "text": "Give specific points, such as very reliable or protects against STIs."
+            },
+            {
+              "lead": "Disadvantages.",
+              "text": "Give specific points, such as side effects or no STI protection."
+            },
+            {
+              "lead": "Compare.",
+              "text": "Compare named methods, using any data given."
+            },
+            {
+              "lead": "Judge.",
+              "text": "Finish with a clear judgement linked to your reasons."
+            }
           ]
         },
-        { "type": "paragraph", "text": "Science can show how well a method works. It cannot decide whether it is right to use it, because personal, social and ethical views also matter." },
+        {
+          "type": "paragraph",
+          "text": "Science can show how well a method works. It cannot decide whether it is right to use it, because personal, social and ethical views also matter."
+        },
         {
           "type": "key-points",
           "items": [
@@ -122,7 +194,7 @@
     },
     {
       "q": "Give one advantage and one disadvantage of a condom compared with the contraceptive pill.",
-      "a": "Advantage: it protects against STIs. Disadvantage: it can split, or it is less reliable.",
+      "a": "Advantage: it protects against STIs. Disadvantage: it can split, or it can cause a latex allergy.",
       "marks": 2
     },
     {
@@ -133,7 +205,10 @@
   ],
   "boards": {
     "aqa": {
-      "spec_codes": ["AQA 5.13", "AQA T 4.5.3.4"],
+      "spec_codes": [
+        "AQA 5.13",
+        "AQA T 4.5.3.4"
+      ],
       "exam_phrases": [
         "to inhibit / reduce / prevent FSH (release)",
         "(lack of FSH) so no eggs mature / develop",
@@ -175,7 +250,10 @@
       }
     },
     "edexcel": {
-      "spec_codes": ["EDEX 7.6", "EDEX 7.7"],
+      "spec_codes": [
+        "EDEX 7.6",
+        "EDEX 7.7"
+      ],
       "exam_phrases": [
         "inhibits the production of FSH",
         "(no FSH means) no eggs will be matured",
@@ -195,8 +273,8 @@
           "right": "\"Prevents production of eggs\" is ignored. Say it inhibits FSH or LH, which prevents maturation of a follicle or ovulation."
         },
         {
-          "wrong": "A condom is better than other methods because it is a condom.",
-          "right": "Give a specific advantage, such as protection from STIs, easy to use, or does not affect fertility, and a specific disadvantage, such as it can split or a latex allergy."
+          "wrong": "The pill works because no eggs are released.",
+          "right": "That repeats the question. Say how: oestrogen inhibits FSH so the egg or follicle cannot mature, and progesterone inhibits LH or FSH."
         }
       ],
       "worked_example": {
@@ -214,7 +292,9 @@
       }
     },
     "ocr": {
-      "spec_codes": ["OCR 3.2e"],
+      "spec_codes": [
+        "OCR 3.2e"
+      ],
       "exam_phrases": [
         "treatment contains oestrogen / progesterone / both",
         "inhibits LH, which controls ovulation",
@@ -239,12 +319,12 @@
         "question": "Explain how hormones can be used by women for contraception.",
         "marks": 4,
         "answer_points": [
-          "The treatment contains oestrogen, progesterone, or both.",
-          "It inhibits LH, which controls ovulation, so ovulation is prevented (2 marks).",
-          "It inhibits FSH, which matures eggs, so the egg does not mature (2 marks).",
-          "It thickens mucus. Any four points score."
+          "The treatment contains oestrogen, progesterone, or both (1).",
+          "It inhibits LH, which controls ovulation, so ovulation is prevented (up to 2 marks).",
+          "It inhibits FSH, which matures eggs, so the egg does not mature (up to 2 marks).",
+          "It thickens (or produces) mucus (1)."
         ],
-        "tip": "Naming the hormone and its effect together can score two marks."
+        "tip": "Any four points score. Naming the hormone and its effect together can score two marks."
       }
     }
   },
@@ -252,7 +332,31 @@
     "status": "draft",
     "written_by": "sonnet-5-5",
     "written_at": "2026-10-01",
-    "spec_point_ids": ["6c567f79-6945-433d-aeaa-c6ed18998917", "df50ad2c-da23-4cb7-b833-20dffca35f73", "a6e64392-27ff-4ca2-b4e2-c29a73a65219", "2917b16c-7d97-4221-8a48-f10e38bb91cb", "935dc7bf-6931-4d3e-956b-7569255a24fd"],
-    "exemplar_ids": ["83f1e189-d4fd-4260-9a50-5ec09a0a53a0", "072b8f39-6232-404e-89b3-70bfdcf81c5f", "a3befdca-b968-4d12-87c9-7dd94f809984", "1f9aa6be-12c9-4f45-b93a-b7977b7afa7e", "eb548829-10ed-4b46-a3ba-2f73de3e0e90", "dfd43f15-b448-4cbf-b344-875a98bd6544", "5a69a062-d3a8-40ce-9349-81b13182739b", "c0f011fa-ebab-40fc-b09e-fb822f8b1107", "3a199e89-e6de-4880-8a43-894214a26f10", "a6c448bb-09ac-418f-8f06-3238096f076a", "0b0ea9aa-ea16-41d8-b760-2e87cbd5c70a", "ad23ef11-549c-4c9d-b0a5-2690845ec7ac", "eb64b69c-0a4f-45a5-aaeb-13cdfe773939", "a79a407b-fb32-4874-a762-1656cef0d29b", "09f68c60-5355-4e2f-a803-ede5bd750059"]
+    "spec_point_ids": [
+      "6c567f79-6945-433d-aeaa-c6ed18998917",
+      "df50ad2c-da23-4cb7-b833-20dffca35f73",
+      "a6e64392-27ff-4ca2-b4e2-c29a73a65219",
+      "2917b16c-7d97-4221-8a48-f10e38bb91cb",
+      "935dc7bf-6931-4d3e-956b-7569255a24fd"
+    ],
+    "exemplar_ids": [
+      "83f1e189-d4fd-4260-9a50-5ec09a0a53a0",
+      "072b8f39-6232-404e-89b3-70bfdcf81c5f",
+      "a3befdca-b968-4d12-87c9-7dd94f809984",
+      "1f9aa6be-12c9-4f45-b93a-b7977b7afa7e",
+      "eb548829-10ed-4b46-a3ba-2f73de3e0e90",
+      "dfd43f15-b448-4cbf-b344-875a98bd6544",
+      "5a69a062-d3a8-40ce-9349-81b13182739b",
+      "c0f011fa-ebab-40fc-b09e-fb822f8b1107",
+      "3a199e89-e6de-4880-8a43-894214a26f10",
+      "a6c448bb-09ac-418f-8f06-3238096f076a",
+      "0b0ea9aa-ea16-41d8-b760-2e87cbd5c70a",
+      "ad23ef11-549c-4c9d-b0a5-2690845ec7ac",
+      "eb64b69c-0a4f-45a5-aaeb-13cdfe773939",
+      "a79a407b-fb32-4874-a762-1656cef0d29b",
+      "09f68c60-5355-4e2f-a803-ede5bd750059"
+    ],
+    "checked_by": "sonnet-science-check",
+    "checked_at": "2026-10-01"
   }
 }

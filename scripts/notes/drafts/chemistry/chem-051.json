@@ -1,0 +1,302 @@
+{
+  "format": 1,
+  "concept_id": "chem-051",
+  "subject": "chemistry",
+  "title": "Practical: pH change during neutralisation",
+  "key_idea": "You can follow neutralisation by measuring pH as a base is added to an acid. The pH starts low, rises as hydrogen ions react with hydroxide ions, and ends above 7 when the base is in excess.",
+  "sections": [
+    {
+      "heading": "Measuring pH",
+      "blocks": [
+        { "type": "paragraph", "text": "The pH scale runs from 0 to 14 and measures how acidic or alkaline a solution is. This section covers how to measure it." },
+        {
+          "type": "definitions",
+          "items": [
+            { "term": "pH scale", "meaning": "A scale from 0 to 14 that measures acidity or alkalinity." },
+            { "term": "Universal indicator", "meaning": "A mixture of dyes that gives a range of colours across the pH scale." },
+            { "term": "pH probe (pH meter)", "meaning": "An electronic probe that gives the pH as a number." }
+          ]
+        },
+        {
+          "type": "table",
+          "columns": ["Solution", "pH", "Universal indicator"],
+          "rows": [
+            ["Acidic (excess H⁺ ions)", "Less than 7", "Red, orange or yellow"],
+            ["Neutral", "7", "Green"],
+            ["Alkaline (excess OH⁻ ions)", "More than 7", "Blue, violet or purple"]
+          ]
+        },
+        {
+          "type": "list",
+          "items": [
+            "With universal indicator solution or paper, match the colour to a colour chart to find the approximate pH.",
+            "With a pH probe, wash the probe with water, put it in the solution and read the number.",
+            "Litmus only shows whether a solution is acidic or alkaline. It does not give the pH."
+          ]
+        },
+        {
+          "type": "diagram",
+          "diagram": {
+            "kind": "sort",
+            "alt": "Sort pH values and indicator colours into acidic, neutral and alkaline.",
+            "prompt": "Sort each reading into the right group",
+            "groups": ["Acidic", "Neutral", "Alkaline"],
+            "items": [
+              { "text": "pH 2", "group": 0 },
+              { "text": "Universal indicator turns red", "group": 0 },
+              { "text": "Excess H⁺ ions", "group": 0 },
+              { "text": "pH 7", "group": 1 },
+              { "text": "Universal indicator turns green", "group": 1 },
+              { "text": "pH probe reads 7", "group": 1 },
+              { "text": "pH 9", "group": 2 },
+              { "text": "pH 14", "group": 2 },
+              { "text": "Universal indicator turns purple", "group": 2 },
+              { "text": "Excess OH⁻ ions", "group": 2 }
+            ]
+          }
+        },
+        {
+          "type": "key-points",
+          "items": [
+            "Acids have pH below 7, neutral is 7 and alkalis are above 7.",
+            "Universal indicator and a colour chart give an approximate pH. A pH probe gives a number."
+          ]
+        }
+      ]
+    },
+    {
+      "heading": "The practical: adding a base to an acid",
+      "blocks": [
+        { "type": "paragraph", "text": "This practical records how the pH of dilute hydrochloric acid changes as powdered calcium hydroxide or calcium oxide is added." },
+        {
+          "type": "steps",
+          "items": [
+            { "lead": "Measure the acid.", "text": "Use a measuring cylinder to put a fixed volume of dilute hydrochloric acid into a beaker." },
+            { "lead": "Measure the starting pH.", "text": "Place a drop on universal indicator paper with a glass rod, or use a pH probe." },
+            { "lead": "Add a portion of base.", "text": "Add a measured portion of the powder, for example 0.1 g, and stir." },
+            { "lead": "Measure the pH again.", "text": "Use a new piece of indicator paper each time." },
+            { "lead": "Repeat.", "text": "Keep adding portions and measuring the pH until it stops changing." }
+          ]
+        },
+        {
+          "type": "list",
+          "items": [
+            "Stir after each addition. This mixes the substances evenly and makes them react and dissolve.",
+            "Measure the mass of the base on a balance, rather than using a spatula measure each time.",
+            "A pH probe gives a more precise reading than indicator paper."
+          ]
+        },
+        {
+          "type": "diagram",
+          "diagram": {
+            "kind": "line-graph",
+            "alt": "A curve showing pH rising from low to above 7 as portions of base are added, then levelling off.",
+            "x": { "label": "Portions of base added", "min": 0, "max": 10, "ticks": [0, 2, 4, 6, 8, 10] },
+            "y": { "label": "pH (shape only)" },
+            "series": [
+              { "name": "pH", "points": [[0, 0.1], [2, 0.18], [4, 0.3], [6, 0.55], [7, 0.78], [8, 0.86], [10, 0.88]] }
+            ]
+          }
+        },
+        {
+          "type": "key-points",
+          "items": [
+            "Add the base in measured portions and stir. Measure the pH after each one.",
+            "Stop when the pH stops changing."
+          ]
+        }
+      ]
+    },
+    {
+      "heading": "Explaining the change in pH",
+      "blocks": [
+        { "type": "paragraph", "text": "The pH changes because hydrogen ions are used up. Explain it in three parts: start, reaction and end." },
+        {
+          "type": "list",
+          "items": [
+            "**Start:** the solution is acidic. It has a high concentration of H⁺ ions, so the pH is low.",
+            "**Reaction:** the base (hydroxide ions) reacts with the acid. This is neutralisation.",
+            "**End:** the concentration of H⁺ ions has fallen and there are excess OH⁻ ions, so the pH is above 7."
+          ]
+        },
+        {
+          "type": "equation",
+          "label": "Neutralisation",
+          "formula": "H⁺(aq) + OH⁻(aq) → H₂O(l)",
+          "where": ["H⁺ comes from the acid", "OH⁻ comes from the base"]
+        },
+        {
+          "type": "list",
+          "items": [
+            "Adding acid to an alkali works the other way round. A strong alkali such as sodium hydroxide starts at about pH 12 to 14.",
+            "The pH falls as acid is added. With excess acid it ends at about pH 0 to 3."
+          ]
+        },
+        {
+          "type": "key-points",
+          "items": [
+            "Hydrogen ions react with hydroxide ions, so the H⁺ concentration falls and the pH rises.",
+            "With excess base, OH⁻ ions are left over and the pH is above 7."
+          ]
+        }
+      ]
+    }
+  ],
+  "checks": [
+    {
+      "q": "Describe how to measure the pH of a solution when a pH meter is not available.",
+      "a": "Add universal indicator solution (or use pH paper), note the colour produced and match it to a colour chart to find the pH.",
+      "marks": 3
+    },
+    {
+      "q": "Why is the mixture stirred after adding each portion of powdered base?",
+      "a": "To mix the substances evenly, so the base reacts and dissolves and the reaction is complete.",
+      "marks": 2
+    },
+    {
+      "q": "Explain, in terms of ions, why the pH of dilute hydrochloric acid rises when calcium hydroxide powder is added.",
+      "a": "The hydrogen ions react with the hydroxide ions (H⁺ + OH⁻ → H₂O). The concentration of H⁺ ions falls, and with excess hydroxide ions the pH is above 7.",
+      "marks": 3
+    }
+  ],
+  "boards": {
+    "aqa": {
+      "spec_codes": ["AQA 4.4.2.4", "AQA T 5.4.2.4"],
+      "exam_phrases": [
+        "(indicator) universal, (result) (green to) red / orange / yellow",
+        "(blue) litmus (turns) red",
+        "blue / violet / purple, (the solution is) alkaline / contains OH⁻ ions",
+        "(at start) value in range 12–14",
+        "(at end) value in range 0–3",
+        "universal indicator: red in nitric acid, purple or blue in ammonia solution"
+      ],
+      "mistakes": [
+        {
+          "wrong": "Universal indicator turns green in an acid such as nitric acid.",
+          "right": "Green is not accepted for an acid. Acids give red, and orange or yellow are allowed."
+        },
+        {
+          "wrong": "A pH meter is an indicator that tests if a solution is acidic.",
+          "right": "A pH meter is ignored when the question asks for an indicator. Name one: universal indicator (green to red, orange or yellow), blue litmus (turns red) or methyl orange (turns red)."
+        },
+        {
+          "wrong": "When sulfuric acid is added to sodium hydroxide until it is in excess, the pH ends at 7.",
+          "right": "With the acid in excess the end value is in the range 0–3. The start value is in the range 12–14."
+        }
+      ],
+      "worked_example": {
+        "exemplar_id": "efb26df8-c079-4ffd-b085-001b8814753c",
+        "source": "AQA jun 2020, Paper 1 (H), Q04.6",
+        "question": "Sulfuric acid and sodium hydroxide react to produce sodium sulfate.\n\nSulfuric acid is gradually added to sodium hydroxide solution.\n\nThe pH of the mixture changes as the sulfuric acid is added until in excess.\n\nSuggest the pH at:\n• the start before sulfuric acid is added\n• the end when sulfuric acid is in excess.",
+        "marks": 2,
+        "answer_points": [
+          "At the start: a value in the range 12–14, because it is a strong alkali.",
+          "At the end: a value in the range 0–3, because the acid is in excess."
+        ],
+        "tip": "The values must be in this order: high first, then low."
+      }
+    },
+    "edexcel": {
+      "spec_codes": ["EDEX 3.6"],
+      "exam_phrases": [
+        "stir / swirl / shake (the beaker)",
+        "to ensure that the mixture is evenly spread",
+        "to make substances {react / dissolve} / to speed up the {reaction / dissolving}",
+        "measure the {mass / amount} of the base / use a balance",
+        "{hydrogen ions / H⁺} {reacted / neutralised}",
+        "{concentration falls / fewer} H⁺ / {concentration rises / more} OH⁻",
+        "excess OH⁻ ions / (excess of) hydroxide ions have pH > 7"
+      ],
+      "mistakes": [
+        {
+          "wrong": "To make sure the reaction is complete, wait until the powder disappears.",
+          "right": "'Wait' is ignored. After adding the base, stir, swirl or shake the beaker (mixing or warming is also allowed)."
+        },
+        {
+          "wrong": "The mixture is stirred to make it a fair test.",
+          "right": "'More accurate', 'valid' and 'fair test' are ignored. Say the mixture is evenly spread, or that stirring speeds up the reaction or dissolving."
+        },
+        {
+          "wrong": "The pH increases because the mixture becomes less acidic.",
+          "right": "'Is less acidic' and 'becomes alkaline' are ignored. Describing the pattern also scores nothing. Link to ions: H⁺ ions react with OH⁻, so the H⁺ concentration falls."
+        },
+        {
+          "wrong": "The measuring of the base could be improved by using a scale.",
+          "right": "Say what you would do: measure the mass of the base and use a balance, instead of a spatula full each time."
+        }
+      ],
+      "worked_example": {
+        "exemplar_id": "1a3fdf4b-0eb2-48bd-9d92-a8d332268389",
+        "source": "EDEXCEL jun 2023, Paper 1 (H), Q2(d)(iii)",
+        "question": "In an experiment, powdered calcium hydroxide was added to dilute hydrochloric acid and the pH was measured.\n\nThe method used was\n\nstep 1 measure 200 cm3 dilute hydrochloric acid into a beaker\nstep 2 add 0.1 g of powdered calcium hydroxide to the beaker\nstep 3 find the pH of the mixture\nstep 4 repeat steps 2 and 3 until the pH stops changing.\n\nExplain why the pH starts at a low value and ends at a higher value.",
+        "marks": 3,
+        "answer_points": [
+          "Start: the solution is acidic, with a high concentration of H⁺ ions, so the pH is low.",
+          "Reaction: neutralisation. The hydroxide (alkali) reacts with the acid, H⁺ + OH⁻ → H₂O.",
+          "End: the concentration of H⁺ ions has reduced and there are excess OH⁻ ions, so the pH is above 7."
+        ],
+        "tip": "One mark each for start, reaction and end. Describing the pattern of the pH scores nothing."
+      }
+    },
+    "ocr": {
+      "spec_codes": ["OCR C3.3k"],
+      "exam_phrases": [
+        "add universal indicator solution / pH paper",
+        "identify colour produced",
+        "match to colour chart to determine pH",
+        "pH meter / pH probe",
+        "wash the probe with water, put the probe into the solution",
+        "pH probe 7, universal indicator green"
+      ],
+      "mistakes": [
+        {
+          "wrong": "Use litmus paper to measure the pH of the buttermilk.",
+          "right": "Litmus is not allowed. Use universal indicator with a colour chart, or a pH probe that gives the pH as a number."
+        },
+        {
+          "wrong": "Put the pH probe straight into the solution.",
+          "right": "Two marks are given: wash the probe with water, then put it into the solution (calibrating the meter is also allowed)."
+        },
+        {
+          "wrong": "A neutral solution turns universal indicator yellow.",
+          "right": "A neutral solution has a pH probe reading of 7 and universal indicator is green."
+        }
+      ],
+      "worked_example": {
+        "exemplar_id": "f301fa42-72ee-4287-b743-a30cb50ce749",
+        "source": "OCR sample null, Paper 1, Q19(c)",
+        "question": "Magnesium burns in oxygen to make magnesium oxide.\n\nMagnesium oxide reacts with water to make an alkaline solution.\nDescribe how you would measure the pH of the magnesium hydroxide solution.\nA pH meter is not available.",
+        "marks": 3,
+        "answer_points": [
+          "Add universal indicator solution (or use pH paper).",
+          "Identify the colour produced.",
+          "Match the colour to a colour chart to determine the pH."
+        ],
+        "tip": "Because a pH meter is not available, the answer must use universal indicator or pH paper."
+      }
+    }
+  },
+  "meta": {
+    "status": "draft",
+    "written_by": "sonnet-5-5",
+    "written_at": "2026-10-01",
+    "spec_point_ids": [
+      "ce284298-8594-43d5-8ace-3415ed022e7d",
+      "c6687288-67e5-4295-ae73-ed9243070328"
+    ],
+    "exemplar_ids": [
+      "efb26df8-c079-4ffd-b085-001b8814753c",
+      "4ead9494-1cf5-439f-a2c2-6bf2d1e331cd",
+      "ef77a145-8bc5-49b8-b3e3-d822cd318cc3",
+      "0193fd5c-d228-4885-9a99-9d7eff2f67fb",
+      "1a3fdf4b-0eb2-48bd-9d92-a8d332268389",
+      "317f35fe-30a3-436d-bdf2-9b2dc9428fca",
+      "1bd9e83c-367d-4c95-b519-4a4ee73bf56f",
+      "bf4e7109-1ae8-4752-a6fd-2109c34b6100",
+      "f301fa42-72ee-4287-b743-a30cb50ce749",
+      "8e4cf49b-65ff-4da1-94d9-9b82ee844e01",
+      "b1f2761e-fa55-4962-a531-6196815d3226",
+      "c2460160-d90e-4c21-9387-9fa1ed10c0f6"
+    ]
+  }
+}

@@ -8,12 +8,21 @@
     {
       "heading": "How dialysis works",
       "blocks": [
-        { "type": "paragraph", "text": "In kidney failure the kidneys can no longer remove enough urea from the blood. A dialysis machine does this job instead." },
+        {
+          "type": "paragraph",
+          "text": "In kidney failure the kidneys can no longer remove enough urea from the blood. A dialysis machine does this job instead."
+        },
         {
           "type": "definitions",
           "items": [
-            { "term": "Dialysis", "meaning": "Cleaning the blood of a person with kidney failure by passing it through a machine." },
-            { "term": "Dialysis fluid", "meaning": "The solution on the other side of the membrane. Unwanted substances diffuse into it." }
+            {
+              "term": "Dialysis",
+              "meaning": "Cleaning the blood of a person with kidney failure by passing it through a machine."
+            },
+            {
+              "term": "Dialysis fluid",
+              "meaning": "The solution on the other side of the membrane. Unwanted substances diffuse into it."
+            }
           ]
         },
         {
@@ -52,7 +61,10 @@
     {
       "heading": "Kidney transplants",
       "blocks": [
-        { "type": "paragraph", "text": "A transplant replaces the failed kidney with a healthy kidney from a donor, in a surgical operation." },
+        {
+          "type": "paragraph",
+          "text": "A transplant replaces the failed kidney with a healthy kidney from a donor, in a surgical operation."
+        },
         {
           "type": "list",
           "items": [
@@ -76,17 +88,48 @@
     {
       "heading": "Dialysis or transplant?",
       "blocks": [
-        { "type": "paragraph", "text": "Exam questions ask you to weigh the two treatments. Use points for and against each, and reach a judgement." },
+        {
+          "type": "paragraph",
+          "text": "Exam questions ask you to weigh the two treatments. Use points for and against each, and reach a judgement."
+        },
         {
           "type": "table",
-          "columns": ["Feature", "Dialysis", "Kidney transplant"],
+          "columns": [
+            "Feature",
+            "Dialysis",
+            "Kidney transplant"
+          ],
           "rows": [
-            ["Time and travel", "Regular, long hospital visits", "No regular visits, so more flexible"],
-            ["Blood chemistry", "Urea level changes between sessions", "A working kidney keeps substances at the correct level"],
-            ["Infection and clots", "Skin is punctured repeatedly and blood meets a machine, so infection and blood clots are possible", "One operation, with a risk from surgery and the anaesthetic"],
-            ["Diet", "Diet is restricted", "Less or no restriction"],
-            ["Drugs", "May need anti-clotting drugs", "Immunosuppressants for the rest of life, which can lead to other infections"],
-            ["Lasting", "Needed for as long as the kidneys are failed", "May be rejected or need replacing eventually"]
+            [
+              "Time and travel",
+              "Regular, long hospital visits",
+              "No regular visits, so more flexible"
+            ],
+            [
+              "Blood chemistry",
+              "Urea level changes between sessions",
+              "A working kidney keeps substances at the correct level"
+            ],
+            [
+              "Infection and clots",
+              "Skin is punctured repeatedly and blood meets a machine, so infection and blood clots are possible",
+              "One operation, with a risk from surgery and the anaesthetic"
+            ],
+            [
+              "Diet",
+              "Diet is restricted",
+              "Less or no restriction"
+            ],
+            [
+              "Drugs",
+              "May need anti-clotting drugs",
+              "Immunosuppressants for the rest of life, which can lead to other infections"
+            ],
+            [
+              "Lasting",
+              "Needed for as long as the kidneys are failed",
+              "May be rejected or need replacing eventually"
+            ]
           ]
         },
         {
@@ -95,16 +138,43 @@
             "kind": "sort",
             "alt": "Sort statements into dialysis and kidney transplant.",
             "prompt": "Which treatment does each statement describe?",
-            "groups": ["Dialysis", "Kidney transplant"],
+            "groups": [
+              "Dialysis",
+              "Kidney transplant"
+            ],
             "items": [
-              { "text": "Needs regular, long visits to hospital", "group": 0 },
-              { "text": "Blood and fluid are separated by a partially permeable membrane", "group": 0 },
-              { "text": "Diet and fluid intake are restricted", "group": 0 },
-              { "text": "Skin is punctured repeatedly, so infection is possible", "group": 0 },
-              { "text": "Needs immunosuppressant drugs", "group": 1 },
-              { "text": "The kidney may be rejected", "group": 1 },
-              { "text": "Needs a donor with a tissue match", "group": 1 },
-              { "text": "Needs an operation with an anaesthetic", "group": 1 }
+              {
+                "text": "Needs regular, long visits to hospital",
+                "group": 0
+              },
+              {
+                "text": "Blood and fluid are separated by a partially permeable membrane",
+                "group": 0
+              },
+              {
+                "text": "Diet is restricted",
+                "group": 0
+              },
+              {
+                "text": "Skin is punctured repeatedly, so infection is possible",
+                "group": 0
+              },
+              {
+                "text": "Needs immunosuppressant drugs",
+                "group": 1
+              },
+              {
+                "text": "The kidney may be rejected",
+                "group": 1
+              },
+              {
+                "text": "Needs a donor with a tissue match",
+                "group": 1
+              },
+              {
+                "text": "Needs an operation with an anaesthetic",
+                "group": 1
+              }
             ]
           }
         },
@@ -138,7 +208,9 @@
   ],
   "boards": {
     "aqa": {
-      "spec_codes": ["AQA 5.11"],
+      "spec_codes": [
+        "AQA 5.11"
+      ],
       "exam_phrases": [
         "changes in concentrations / levels of substances / urea are minimised",
         "not repeatedly puncturing skin",
@@ -182,29 +254,31 @@
       }
     },
     "edexcel": {
-      "spec_codes": ["EDEX 7.21B"],
+      "spec_codes": [
+        "EDEX 7.21B"
+      ],
       "exam_phrases": [
         "blood is separated from the dialysis solution by a (partially permeable) membrane",
         "urea moves out of the blood / into the dialysis solution",
         "by diffusion across the membrane",
         "down a concentration gradient",
         "fresh dialysis fluid is pumped through to maintain the concentration gradient",
-        "risk of rejection / tissue matching",
-        "need to take immunosuppressant drugs",
+        "blood is filtered (in a dialysis machine)",
+        "excess ions / named ions, such as sodium and chloride",
         "the kidney is less likely to be rejected"
       ],
       "mistakes": [
         {
-          "wrong": "You can have a transplant, or you can have your blood cleaned by a machine.",
-          "right": "Naming both treatments earns only Level 1. Link each treatment to what it involves, for example a transplant needs a suitable donor and tissue matching to avoid rejection."
+          "wrong": "Dialysis only removes urea.",
+          "right": "Name the other unwanted substances too: excess ions, such as sodium and chloride, and other toxic substances, such as alcohol."
         },
         {
           "wrong": "A twin could donate a kidney because twins are the same.",
           "right": "Say the twin's tissues or cells have the same or similar genes or antigens, so they will not cause an immune response and the kidney is less likely to be rejected. The donor can also live well with one kidney."
         },
         {
-          "wrong": "Dialysis filters the urea out of the blood.",
-          "right": "Say the urea moves out of the blood and into the dialysis solution by diffusion. Fresh dialysis fluid keeps the concentration gradient."
+          "wrong": "Urea moves into the dialysis fluid.",
+          "right": "Also say how: by diffusion across the membrane, down a concentration gradient. Fresh dialysis fluid keeps the gradient."
         }
       ],
       "worked_example": {
@@ -228,7 +302,19 @@
     "status": "draft",
     "written_by": "sonnet-5-5",
     "written_at": "2026-10-01",
-    "spec_point_ids": ["ca3aac33-9cb9-4fee-81ed-302a157fe2cd", "aacbfa4b-8173-4d2c-8a04-15ed8ebb1adf"],
-    "exemplar_ids": ["f9487938-3e54-433d-819c-f0c87c63217e", "1ad5e0f1-cbe9-4bf9-984c-dca0306740fe", "34a3dded-4f92-4b9b-9ead-f5aba251dc49", "a5520bee-dc18-4fdf-83a2-d5c5155fdb93", "ca690e38-04b3-43f1-ba4a-084dbc382b5a", "9c5fcd13-1370-4837-9843-2627cfe825ce"]
+    "spec_point_ids": [
+      "ca3aac33-9cb9-4fee-81ed-302a157fe2cd",
+      "aacbfa4b-8173-4d2c-8a04-15ed8ebb1adf"
+    ],
+    "exemplar_ids": [
+      "f9487938-3e54-433d-819c-f0c87c63217e",
+      "1ad5e0f1-cbe9-4bf9-984c-dca0306740fe",
+      "34a3dded-4f92-4b9b-9ead-f5aba251dc49",
+      "a5520bee-dc18-4fdf-83a2-d5c5155fdb93",
+      "ca690e38-04b3-43f1-ba4a-084dbc382b5a",
+      "9c5fcd13-1370-4837-9843-2627cfe825ce"
+    ],
+    "checked_by": "sonnet-science-check",
+    "checked_at": "2026-10-01"
   }
 }
