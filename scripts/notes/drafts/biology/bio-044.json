@@ -1,0 +1,241 @@
+{
+  "format": 1,
+  "concept_id": "bio-044",
+  "subject": "biology",
+  "title": "Sexually transmitted infections",
+  "key_idea": "A sexually transmitted infection (STI) is passed on by sexual contact. Chlamydia and gonorrhoea are caused by bacteria and HIV by a virus. Spread is reduced by avoiding sexual contact, using a condom, not sharing needles, screening and treatment.",
+  "sections": [
+    {
+      "heading": "Common STIs and how they spread",
+      "blocks": [
+        { "type": "paragraph", "text": "STIs are communicable diseases passed on by sexual contact. This section compares chlamydia, gonorrhoea and HIV." },
+        {
+          "type": "table",
+          "columns": ["STI", "Pathogen", "How it spreads", "Other facts"],
+          "rows": [
+            ["Chlamydia", "Bacterium", "Sexual intercourse", "Treated with antibiotics."],
+            ["Gonorrhoea", "Bacterium", "Sexual contact", "Thick yellow or green discharge and pain on urinating. Many strains are resistant to penicillin."],
+            ["HIV", "Virus", "Sexual contact, or exchange of body fluids", "Destroys white blood cells. Can lead to AIDS."]
+          ]
+        },
+        { "type": "subheading", "text": "HIV and body fluids" },
+        {
+          "type": "list",
+          "items": [
+            "Drug users who share needles can pass on HIV in blood.",
+            "HIV can also pass in blood transfusions, and from a mother to the foetus in the uterus.",
+            "HIV is diagnosed by blood tests. Blood samples must be handled safely: wear gloves or goggles, cover cuts, clean up spills, store samples in sealed containers and dispose of them safely."
+          ]
+        },
+        {
+          "type": "key-points",
+          "items": [
+            "Chlamydia and gonorrhoea are caused by bacteria. HIV is caused by a virus.",
+            "All three spread by sexual contact. HIV also spreads in body fluids such as blood.",
+            "An STI is communicable because it is passed from person to person."
+          ]
+        }
+      ]
+    },
+    {
+      "heading": "Reducing the spread of STIs",
+      "blocks": [
+        { "type": "paragraph", "text": "Prevention works by stopping the pathogen passing between people, or by treating infected people." },
+        {
+          "type": "list",
+          "items": [
+            "Avoid sexual contact.",
+            "Use a barrier method of contraception, such as a condom.",
+            "Do not share needles.",
+            "Screen people for an infection, and screen blood used for transfusions.",
+            "Treat bacterial STIs with antibiotics, and HIV with antiretroviral drugs.",
+            "Better education about how to prevent the spread of HIV can reduce new cases."
+          ]
+        },
+        {
+          "type": "key-points",
+          "items": [
+            "Condoms and avoiding sexual contact stop the pathogen passing on.",
+            "Antibiotics treat bacterial STIs. Antiretroviral drugs control HIV.",
+            "Not sharing needles and screening blood stop HIV spreading in blood."
+          ]
+        }
+      ]
+    },
+    {
+      "heading": "Using STI data",
+      "blocks": [
+        { "type": "paragraph", "text": "Exam questions give the number of people diagnosed per 1000 of the population. Multiply by the population, then divide by 1000." },
+        {
+          "type": "equation",
+          "label": "Number of people diagnosed",
+          "formula": "number diagnosed = (rate per 1000 ÷ 1000) × population",
+          "where": ["rate per 1000, in people per 1000", "population, in people"]
+        },
+        {
+          "type": "diagram",
+          "diagram": {
+            "kind": "practice",
+            "alt": "A calculation practice: find the number of people diagnosed with an infection from a rate per 1000 and a population.",
+            "question": "In one year, {rate} people per 1000 of the population were diagnosed with chlamydia. The population was {pop} people. Calculate the number of people diagnosed.",
+            "variables": [
+              { "id": "rate", "min": 0.5, "max": 4, "step": 0.5 },
+              { "id": "pop", "min": 10000, "max": 200000, "step": 10000 }
+            ],
+            "answer": { "formula": "rate * pop / 1000", "unit": "people", "decimals": 0 },
+            "working": [
+              "{pop} ÷ 1000 = (population in thousands)",
+              "Multiply by {rate}",
+              "Number diagnosed = {answer} people"
+            ]
+          }
+        },
+        {
+          "type": "key-points",
+          "items": [
+            "A rate per 1000 lets countries or years of different size be compared.",
+            "Divide the population by 1000, then multiply by the rate."
+          ]
+        }
+      ]
+    }
+  ],
+  "checks": [
+    {
+      "q": "Give two ways to prevent the spread of HIV.",
+      "a": "Any two from: avoid sexual intercourse, use a condom, do not share needles, use antiretroviral drugs, screen blood used for transfusions.",
+      "marks": 2
+    },
+    {
+      "q": "State why chlamydia can be described as a communicable disease.",
+      "a": "It is passed (spread) from person to person, or it is caused by bacteria (a pathogen).",
+      "marks": 1
+    },
+    {
+      "q": "Give one other way, apart from antibiotics, to control the spread of gonorrhoea.",
+      "a": "Use a condom (a barrier method of contraception), or avoid sexual intercourse.",
+      "marks": 1
+    }
+  ],
+  "boards": {
+    "aqa": {
+      "spec_codes": ["AQA 3.2", "AQA T 4.3.1.2", "AQA T 4.3.1.3"],
+      "exam_phrases": [
+        "avoid sexual intercourse",
+        "use a condom",
+        "do not share needles",
+        "use antiretroviral drugs",
+        "screen blood used for transfusions",
+        "sexual contact / intercourse",
+        "exchange of body fluids"
+      ],
+      "mistakes": [
+        {
+          "wrong": "Use protection to stop the spread of HIV.",
+          "right": "\"Use protection\", \"use contraception\" and \"use medication\" unqualified are ignored. Say use a condom, or use antiretroviral drugs."
+        },
+        {
+          "wrong": "Have less sexual contact to control gonorrhoea.",
+          "right": "\"Less sexual intercourse / contact\" is not accepted. Say avoid sexual intercourse, or use a condom or barrier method."
+        },
+        {
+          "wrong": "Wash your hands or keep your distance to stop the spread of HIV.",
+          "right": "Handwashing and social distancing are ignored. HIV spreads by sexual contact and exchange of body fluids."
+        }
+      ],
+      "worked_example": {
+        "exemplar_id": "14665365-e25c-468c-85a5-e2d673bf4a93",
+        "source": "AQA jun 2020, Paper 1 (F), Q04.5",
+        "question": "Give two ways to prevent the spread of HIV.",
+        "marks": 2,
+        "answer_points": [
+          "Avoid sexual intercourse.",
+          "Use a condom.",
+          "Do not share needles.",
+          "Use antiretroviral drugs.",
+          "Screen blood used for transfusions."
+        ],
+        "tip": "Any two score one mark each. If no other marks are awarded, \"do not exchange body fluids\" gets one mark."
+      }
+    },
+    "edexcel": {
+      "spec_codes": ["EDEX 5.8"],
+      "exam_phrases": [
+        "avoid sexual contact",
+        "use a condom / femidom",
+        "screen people for an infection",
+        "treat the infection / give antibiotics",
+        "it is passed / spread from person to person",
+        "chlamydia is transmitted by sexual intercourse"
+      ],
+      "mistakes": [
+        {
+          "wrong": "Use protection or contraception to prevent chlamydia.",
+          "right": "\"Protection\" and \"contraception\" are ignored. Say use a condom or femidom, or a barrier form of contraception."
+        },
+        {
+          "wrong": "Chlamydia is communicable because it is caused by a virus.",
+          "right": "\"Caused by a virus\" is ignored. Say it is passed from person to person, or caused by bacteria."
+        }
+      ],
+      "worked_example": {
+        "exemplar_id": "76ce9779-e2b0-4163-bd9f-c43a762b7ca3",
+        "source": "EDEXCEL jun 2022, Paper 1 (H), Q3(a)(iv)",
+        "question": "Chlamydia is a sexually transmitted infection (STI). Give one way the transmission of chlamydia can be prevented.",
+        "marks": 1,
+        "answer_points": [
+          "Avoid sexual contact.",
+          "Use a condom or femidom (a barrier form of contraception is accepted).",
+          "Screen people for an infection.",
+          "Treat the infection or give antibiotics."
+        ],
+        "tip": "Any one of these scores the mark. Protection and contraception unqualified are ignored."
+      }
+    },
+    "ocr": {
+      "spec_codes": ["OCR 6.3f"],
+      "exam_phrases": [
+        "caused by a virus: AIDS",
+        "Crown gall disease: bacterium",
+        "type 2 diabetes: non-communicable disease"
+      ],
+      "mistakes": [
+        {
+          "wrong": "AIDS is a non-communicable disease.",
+          "right": "AIDS is a communicable disease caused by a virus. Type 2 diabetes is the non-communicable example."
+        },
+        {
+          "wrong": "AIDS is caused by a bacterium or a fungus.",
+          "right": "AIDS is caused by a virus (HIV)."
+        }
+      ],
+      "worked_example": {
+        "exemplar_id": "c61da3fc-84ca-42d6-acc0-8051a040bb6b",
+        "source": "OCR jun 2019, Paper 2, Q21(a)",
+        "question": "Animals and plants can get different types of diseases. Write each of these four diseases in the correct column of a table with the columns: communicable disease caused by a bacterium, communicable disease caused by a fungus, communicable disease caused by a virus, and non-communicable disease. The diseases are: AIDS, type 2 diabetes, crown gall disease, barley powdery mildew.",
+        "marks": 3,
+        "answer_points": [
+          "Caused by a bacterium: crown gall disease.",
+          "Caused by a fungus: barley powdery mildew.",
+          "Caused by a virus: AIDS.",
+          "Non-communicable disease: type 2 diabetes."
+        ],
+        "tip": "Four correct placements score 3 marks, two or three correct score 2 marks, and one correct scores 1 mark."
+      }
+    }
+  },
+  "meta": {
+    "status": "draft",
+    "written_by": "sonnet-5-5",
+    "written_at": "2026-10-01",
+    "spec_point_ids": [
+      "0868beb0-22bd-4bba-991c-8d308f420c51",
+      "bde5f09a-6319-4d45-83b3-228dca9ff695"
+    ],
+    "exemplar_ids": [
+      "14665365-e25c-468c-85a5-e2d673bf4a93",
+      "76ce9779-e2b0-4163-bd9f-c43a762b7ca3",
+      "c61da3fc-84ca-42d6-acc0-8051a040bb6b"
+    ]
+  }
+}

@@ -99,7 +99,7 @@
         {
           "type": "list",
           "items": [
-            "Smoking: chemicals in smoke are inhaled and reach the lungs first, so lung cancer is the most common smoking cancer.",
+            "Smoking: carcinogens in smoke are inhaled into the lungs and increase the risk of lung cancer.",
             "Ionising radiation and UV light from the Sun or sunbeds can damage DNA.",
             "Some viruses can cause tumours to develop.",
             "Obesity is linked to a higher risk of cancer."
@@ -160,12 +160,7 @@
         {
           "wrong": "The Sun causes skin cancer.",
           "right": "\"Sun\" on its own is ignored. Say exposure to UV light or sunlight, or ionising radiation, causes cell, DNA or gene damage."
-        },
-        {
-          "wrong": "Nicotine causes lung cancer.",
-          "right": "Nicotine on its own is ignored. Say that smoke, tar or carcinogens (chemicals) are inhaled into the lungs."
-        }
-      ],
+        }      ],
       "worked_example": {
         "exemplar_id": "0b454788-a233-49d4-bdb6-2ace08b9700e",
         "source": "AQA jun 2022, Paper 1 (H), Q5.1",
@@ -174,7 +169,8 @@
         "answer_points": [
           "Similarity: both result from changes in the cell, DNA or genes.",
           "Similarity: both show uncontrolled cell growth or division.",
-          "Similarity: both can form a lump of abnormal cells.",
+          "Similarity: both can form a lump of cells.",
+          "Similarity: both are made up of abnormal cells.",
           "Difference: malignant tumours are made of cancer cells. Benign tumours are made of cells that are more similar to normal cells.",
           "Difference: malignant tumours usually grow faster.",
           "Difference: malignant tumours invade neighbouring tissues. Benign tumours do not.",
@@ -256,6 +252,8 @@
   },
   "meta": {
     "status": "draft",
+    "checked_by": "sonnet-science-check",
+    "checked_at": "2026-10-01",
     "written_by": "sonnet-5-5",
     "written_at": "2026-10-01",
     "spec_point_ids": [

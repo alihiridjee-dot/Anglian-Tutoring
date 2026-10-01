@@ -1,0 +1,274 @@
+{
+  "format": 1,
+  "concept_id": "bio-033",
+  "subject": "biology",
+  "title": "Risk factors and lifestyle in non-communicable disease",
+  "key_idea": "Risk factors are linked to an increased rate of a disease. Diet, exercise, smoking and alcohol all affect non-communicable diseases, and many diseases are caused by several factors interacting. BMI and waist-to-hip ratio help to judge weight and health. These diseases cost people and nations a great deal.",
+  "sections": [
+    {
+      "heading": "Risk factors",
+      "blocks": [
+        { "type": "paragraph", "text": "This section covers what a risk factor is and how several factors can combine to cause one disease." },
+        {
+          "type": "definitions",
+          "items": [
+            { "term": "Risk factor", "meaning": "Something linked to an increased rate of a disease. It may be an aspect of lifestyle, or a substance in the body or environment." },
+            { "term": "Carcinogen", "meaning": "A substance or radiation, such as ionising radiation, that can cause cancer." }
+          ]
+        },
+        {
+          "type": "list",
+          "items": [
+            "A causal mechanism has been proven for some risk factors, but not for others.",
+            "Many non-communicable diseases are caused by the interaction of a number of factors. Examples are cardiovascular disease, cancer, bronchitis and liver disease.",
+            "Medical risk factors for coronary heart disease include high blood pressure, high cholesterol, diabetes and genetic factors.",
+            "Lifestyle risk factors include smoking, obesity, lack of exercise, a high fat diet, a lot of salt and alcohol."
+          ]
+        },
+        {
+          "type": "key-points",
+          "items": [
+            "A risk factor is linked to a higher rate of a disease. It does not always cause it.",
+            "Several factors often interact to cause a disease.",
+            "Link each factor to its effect, for example smoking to high blood pressure and fatty deposits."
+          ]
+        }
+      ]
+    },
+    {
+      "heading": "Effects of lifestyle",
+      "blocks": [
+        { "type": "paragraph", "text": "Diet, exercise, smoking and alcohol each affect particular diseases. Learn the main links." },
+        {
+          "type": "table",
+          "columns": ["Lifestyle factor", "Effect on health"],
+          "rows": [
+            ["Diet", "A high fat diet raises cholesterol and can cause fatty deposits and cardiovascular disease. Obesity is a risk factor for type 2 diabetes."],
+            ["Exercise", "Lack of exercise raises the risk of obesity, high blood pressure and diabetes."],
+            ["Smoking", "Raises the risk of cardiovascular disease, lung disease and lung cancer. Smoking in pregnancy affects the unborn baby."],
+            ["Alcohol", "Affects the liver and brain function. Alcohol in pregnancy affects the unborn baby."]
+          ]
+        },
+        {
+          "type": "key-points",
+          "items": [
+            "Diet, exercise, smoking and alcohol all affect the rate of non-communicable disease.",
+            "Obesity is a risk factor for type 2 diabetes and cardiovascular disease."
+          ]
+        }
+      ]
+    },
+    {
+      "heading": "BMI and waist-to-hip ratio",
+      "blocks": [
+        { "type": "paragraph", "text": "BMI and waist-to-hip ratio are used to find out if a person is obese. BMI uses mass and height." },
+        {
+          "type": "equation",
+          "label": "Body mass index (BMI)",
+          "formula": "BMI = mass ÷ height²",
+          "where": ["BMI in kg/m²", "mass in kg", "height in m"]
+        },
+        {
+          "type": "diagram",
+          "diagram": {
+            "kind": "practice",
+            "alt": "A BMI calculation with new numbers each time.",
+            "question": "A person has a mass of {mass} kg and a height of {height} m. Calculate their BMI. Give your answer to 1 decimal place.",
+            "variables": [
+              { "id": "mass", "min": 50, "max": 100, "step": 1 },
+              { "id": "height", "min": 1.5, "max": 1.9, "step": 0.01 }
+            ],
+            "answer": { "formula": "mass / (height ^ 2)", "unit": "kg/m²", "decimals": 1 },
+            "working": [
+              "BMI = mass ÷ height²",
+              "height² = {height} × {height}",
+              "BMI = {mass} ÷ height² = {answer}"
+            ]
+          }
+        },
+        {
+          "type": "list",
+          "items": [
+            "Interpreting BMI: below 18.5 is underweight, 18.5 to 24.9 is healthy, 25.0 to 29.9 is overweight and 30.0 and above is obese.",
+            "Waist-to-hip ratio shows where weight is carried. A high ratio means more fat around the abdomen. A male with a ratio above 0.90 is abdominally obese.",
+            "Someone can be overweight by BMI but not abdominally obese, if the weight is spread over the body."
+          ]
+        },
+        {
+          "type": "key-points",
+          "items": [
+            "BMI = mass in kg ÷ (height in m)².",
+            "Waist-to-hip ratio shows weight distribution. BMI does not."
+          ]
+        }
+      ]
+    },
+    {
+      "heading": "The cost of non-communicable disease",
+      "blocks": [
+        { "type": "paragraph", "text": "Non-communicable diseases have human and financial costs. These fall on individuals, local communities, nations and the world." },
+        {
+          "type": "list",
+          "items": [
+            "An individual may have movement problems, lose a job or income, or suffer mental health effects.",
+            "They may need to visit the doctor, take medication regularly or have surgery.",
+            "Communities and nations pay for treatment and lose the work of ill people.",
+            "Diseases caused by lifestyle factors are found at local, national and global levels."
+          ]
+        },
+        {
+          "type": "key-points",
+          "items": [
+            "Costs are both human (health, lifestyle) and financial (treatment, lost income).",
+            "They affect individuals, communities, nations and the world."
+          ]
+        }
+      ]
+    }
+  ],
+  "checks": [
+    {
+      "q": "A person has a mass of 72 kg and a height of 1.81 m. Calculate their BMI to 3 significant figures.",
+      "a": "BMI = 72 ÷ 1.81² = 21.98, so 22.0 kg/m².",
+      "marks": 3
+    },
+    {
+      "q": "Give two ways that smoking can affect health.",
+      "a": "Any two from: lung cancer, lung disease, increased blood pressure, increased risk of heart (cardiovascular) disease.",
+      "marks": 2
+    },
+    {
+      "q": "A person has a BMI of 28.5. Explain one way they could change their lifestyle to reach a healthy weight.",
+      "a": "Do more exercise, so more energy is used up. Or eat less fat or carbohydrate, so energy intake is reduced.",
+      "marks": 2
+    }
+  ],
+  "boards": {
+    "aqa": {
+      "spec_codes": ["AQA 2.9", "AQA T 4.2.2.6"],
+      "exam_phrases": [
+        "high blood pressure",
+        "high cholesterol / fatty deposition",
+        "obesity is a risk factor for (type 2) diabetes",
+        "smoking: high bp / cholesterol / fatty deposition",
+        "alcohol: bp / cholesterol",
+        "high salt intake: high blood pressure"
+      ],
+      "mistakes": [
+        {
+          "wrong": "A disease related to being overweight is obesity.",
+          "right": "\"Obesity\" is ignored when asked for a disease related to being overweight. Name the disease, such as type 2 diabetes, heart disease, high blood pressure or cancer."
+        },
+        {
+          "wrong": "Only lifestyle risk factors are given for CHD.",
+          "right": "For top marks give both lifestyle and medical factors, and link them: for example smoking raises blood pressure, and obesity links to high cholesterol and fatty deposition."
+        },
+        {
+          "wrong": "A heart attack is a disease caused by being overweight.",
+          "right": "\"Heart attack\" and \"heart failure\" are ignored. Name coronary heart disease or cardiovascular disease."
+        }
+      ],
+      "worked_example": {
+        "exemplar_id": "67ce1ff8-4f78-4825-855e-a5cd3b5ec59e",
+        "source": "AQA jun 2018, Paper 1 (H), Q02.3",
+        "question": "Coronary heart disease (CHD) is a non-communicable disease. CHD is caused when fatty material builds up in the coronary arteries. Explain how lifestyle and medical risk factors increase the chance of developing CHD.",
+        "marks": 6,
+        "answer_points": [
+          "Medical risk factors: high blood pressure, high cholesterol, diabetes, genetic factors, medications.",
+          "Lifestyle risk factors: smoking, obesity, lack of exercise, a high fat or high energy diet, too little fruit and vegetables, alcohol, high salt intake.",
+          "Link the factors: smoking increases blood pressure, cholesterol and fatty deposition.",
+          "Obesity links to lack of exercise, high blood pressure, cholesterol, fatty deposition and diabetes.",
+          "A diet high in fat links to obesity, cholesterol and diabetes. High salt intake links to high blood pressure.",
+          "Genetic factors link to blood pressure, cholesterol, diabetes and obesity."
+        ],
+        "tip": "The main discriminator is the quality of linking. Both lifestyle and medical factors are needed for the top level."
+      }
+    },
+    "edexcel": {
+      "spec_codes": ["EDEX 5.23", "EDEX 5.24"],
+      "exam_phrases": [
+        "substitution: 72 ÷ 1.81²",
+        "waist : hip ratio above 0.90: abdominally obese",
+        "BMI shows overweight but not abdominally obese",
+        "do more exercise, so more energy is used up",
+        "reduce fat / carbohydrate intake, so energy intake is reduced"
+      ],
+      "mistakes": [
+        {
+          "wrong": "BMI = mass ÷ height.",
+          "right": "Height is squared: BMI = mass in kilograms ÷ (height in metres)²."
+        },
+        {
+          "wrong": "Give the BMI as 21.977.",
+          "right": "Read the rounding instruction. To 3 significant figures, 21.977 is 22.0. A correct evaluation without rounding loses the last mark."
+        },
+        {
+          "wrong": "Do more exercise to lose weight.",
+          "right": "Add the reason: so more energy is used up. One mark is for the change, one for what it does."
+        }
+      ],
+      "worked_example": {
+        "exemplar_id": "28b1a476-f1ff-4400-8eed-b8308e4f6585",
+        "source": "EDEXCEL jun 2018, Paper 1 (F), Q8(d)(i)",
+        "question": "BMI is calculated using the equation: BMI = mass in kilograms ÷ (height in metres)². Male B has a mass of 72 kg and a height of 1.81 m. Calculate the BMI of male B. Give the answer to 3 significant figures.",
+        "marks": 3,
+        "answer_points": [
+          "Substitution: 72 ÷ 1.81².",
+          "Evaluation: 21.977 (or 21.98 or 22).",
+          "Rounded to 3 significant figures: 22.0."
+        ],
+        "tip": "A correct numerical answer with no working gets full marks. Write the working anyway, in case of a slip."
+      }
+    },
+    "ocr": {
+      "spec_codes": ["OCR 6.3r", "OCR 6.3t"],
+      "exam_phrases": [
+        "the more points a person scores, the higher the risk",
+        "total the points for each person",
+        "greater risk of getting CHD",
+        "identify the risk of following the diet",
+        "benefit: helps overweight people reduce health issues"
+      ],
+      "mistakes": [
+        {
+          "wrong": "Person A is most likely to get CHD.",
+          "right": "Show the working. Total the points for each person (Person A 8, Person B 7), then state which total is higher."
+        },
+        {
+          "wrong": "Only one risk factor, such as smoking, is used to decide who is at more risk.",
+          "right": "Use every row of the table. CHD risk comes from several factors, so add up the points for all of them."
+        }
+      ],
+      "worked_example": {
+        "exemplar_id": "9b1242a8-c354-4ab8-b823-d7bc684d9632",
+        "source": "OCR jun 2018, Paper 2, Q22(b)(iii)",
+        "question": "A table is used to estimate the risk of getting CHD. The more points a person scores, the higher the risk. Age: under 20 is 1 point, 21 to 30 is 2 points, 31 to 40 is 3 points. Blood cholesterol: low 1, medium 2, high 3. Cigarettes per day: 0 is 1 point, 1 to 10 is 2 points, 11 to 20 is 3 points. Mass: below average 1, average 2, above average 3. Parents with CHD: 0 is 1 point, 1 is 2 points, 2 is 3 points. Person A: 25 years old, non-smoker, low blood cholesterol, average mass, one parent with CHD. Person B: 19 years old, smokes 20 cigarettes a day, low blood cholesterol, below average mass, no parents with CHD. Use the table to work out whether Person A or Person B is most likely to develop CHD. Show how you worked out your answer.",
+        "marks": 3,
+        "answer_points": [
+          "Person A has a total of 8 points.",
+          "Person B has a total of 7 points.",
+          "Person A has a greater risk."
+        ],
+        "tip": "Show each total. A correct deduction from your own totals is still credited if there is a slip in adding up the points."
+      }
+    }
+  },
+  "meta": {
+    "status": "draft",
+    "written_by": "sonnet-5-5",
+    "written_at": "2026-10-01",
+    "spec_point_ids": [
+      "d6274049-3ffc-40a8-aa55-0d480fa77f5a",
+      "f90c2303-7bcc-4e52-a217-dc0525fc2e12",
+      "58134996-9263-4b93-95dc-c40774050ddd",
+      "277b4067-e95a-41e9-b6ca-7d56f1f252ef",
+      "39af4d98-a044-4727-ac7d-123b5ccdba61",
+      "b13c8b98-f4a8-47a6-90b2-5f85d688a5ba"
+    ],
+    "exemplar_ids": [
+      "67ce1ff8-4f78-4825-855e-a5cd3b5ec59e",
+      "28b1a476-f1ff-4400-8eed-b8308e4f6585",
+      "9b1242a8-c354-4ab8-b823-d7bc684d9632"
+    ]
+  }
+}

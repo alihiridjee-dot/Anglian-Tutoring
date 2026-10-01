@@ -1,0 +1,282 @@
+{
+  "format": 1,
+  "concept_id": "phys-004",
+  "subject": "physics",
+  "title": "Work done",
+  "key_idea": "**Work done** is the energy transferred when a force moves an object. Work done equals force times distance moved in the direction of the force. One joule is one newton-metre. Work done against friction heats the object.",
+  "sections": [
+    {
+      "heading": "What work done means",
+      "blocks": [
+        { "type": "paragraph", "text": "When a force makes an object move, the force does work on it. This section covers what work is and how to measure it." },
+        {
+          "type": "definitions",
+          "items": [
+            { "term": "Work done", "meaning": "The energy transferred when a force moves an object through a distance." },
+            { "term": "Joule (J)", "meaning": "The unit of work and energy. One joule is the work done when a force of one newton moves an object one metre." },
+            { "term": "Newton-metre (N m)", "meaning": "Another name for the joule: 1 J = 1 N m." }
+          ]
+        },
+        {
+          "type": "list",
+          "items": [
+            "A force does work only when the object moves.",
+            "Energy transferred and work done are equal, and both are measured in joules.",
+            "Lifting a weight, pushing a trolley and braking a car all involve work done."
+          ]
+        },
+        {
+          "type": "key-points",
+          "items": [
+            "Work is done when a force causes a displacement of an object.",
+            "Work done is the energy transferred, in joules.",
+            "1 joule = 1 newton-metre."
+          ]
+        }
+      ]
+    },
+    {
+      "heading": "Calculating work done",
+      "blocks": [
+        { "type": "paragraph", "text": "The distance used must be along the line of the force." },
+        {
+          "type": "equation",
+          "label": "Work done",
+          "formula": "W = F × s",
+          "where": ["W is work done in joules (J).", "F is force in newtons (N).", "s is distance moved along the line of action of the force in metres (m)."]
+        },
+        {
+          "type": "steps",
+          "items": [
+            { "lead": "Convert units.", "text": "Change any distance in centimetres to metres. 86 cm = 0.86 m." },
+            { "lead": "Substitute.", "text": "A force of 3.0 N moves a trolley 0.86 m: W = 3.0 × 0.86" },
+            { "lead": "Evaluate and add the unit.", "text": "W = 2.58 J, which is 2.6 J to 2 significant figures." }
+          ]
+        },
+        { "type": "paragraph", "text": "Move the sliders to see how the force and distance change the work done." },
+        {
+          "type": "diagram",
+          "diagram": {
+            "kind": "slider",
+            "alt": "Change a force and a distance to see the work done.",
+            "inputs": [
+              { "id": "F", "label": "Force", "unit": "N", "min": 10, "max": 1000, "step": 10, "value": 200 },
+              { "id": "s", "label": "Distance moved", "unit": "m", "min": 1, "max": 50, "step": 1, "value": 10 }
+            ],
+            "outputs": [
+              { "label": "Work done", "unit": "J", "formula": "F * s", "decimals": 0 },
+              { "label": "Work done", "unit": "kJ", "formula": "F * s / 1000", "decimals": 2 }
+            ]
+          }
+        },
+        {
+          "type": "diagram",
+          "diagram": {
+            "kind": "practice",
+            "alt": "Calculate work done with a distance in centimetres.",
+            "question": "A force of {F} N moves a trolley {d} cm along a desk. Calculate the work done in joules.",
+            "variables": [
+              { "id": "F", "min": 1, "max": 10, "step": 0.5 },
+              { "id": "d", "min": 20, "max": 100, "step": 5 }
+            ],
+            "answer": { "formula": "F * d / 100", "unit": "J", "decimals": 2 },
+            "working": [
+              "{d} cm = {d} ÷ 100 m",
+              "W = F × s = {F} × ({d} ÷ 100)",
+              "W = {answer} J"
+            ]
+          }
+        },
+        { "type": "subheading", "text": "Measuring work done" },
+        {
+          "type": "list",
+          "items": [
+            "Measure the pulling force with a force meter (newton meter).",
+            "Measure the distance moved with a ruler or metre rule.",
+            "Repeat with different masses on the block, then use work done = force × distance."
+          ]
+        },
+        {
+          "type": "key-points",
+          "items": [
+            "W = F × s, with distance in metres and force in newtons.",
+            "Always give the unit: J or N m.",
+            "To find a force or distance, rearrange: F = W ÷ s and s = W ÷ F."
+          ]
+        }
+      ]
+    },
+    {
+      "heading": "Work done against friction",
+      "blocks": [
+        { "type": "paragraph", "text": "Friction and air resistance oppose motion. Work done against them transfers energy to the surroundings." },
+        {
+          "type": "list",
+          "items": [
+            "Work done against friction raises the temperature of the object.",
+            "When a car brakes, friction in the brakes does work. Kinetic energy is transferred to the thermal store of the brakes.",
+            "A cyclist or wheelchair racer does work against air resistance. The energy comes from their chemical store."
+          ]
+        },
+        { "type": "paragraph", "text": "(Higher tier) Work done to stop a vehicle equals its initial kinetic energy. A bigger force over a longer distance does more work." },
+        {
+          "type": "key-points",
+          "items": [
+            "Work done against friction heats the object and its surroundings.",
+            "The kinetic energy of a braking vehicle becomes thermal energy in the brakes.",
+            "A vehicle's work done in stopping equals its initial kinetic energy."
+          ]
+        }
+      ]
+    }
+  ],
+  "checks": [
+    {
+      "q": "A force of 5600 N brings a car to a stop in 20 m. Calculate the work done by the brakes, with its unit.",
+      "a": "Work done = 5600 × 20 = 112 000 J.",
+      "marks": 3
+    },
+    {
+      "q": "A trolley is moved 86 cm by a force of 3.0 N. Calculate the work done to 2 significant figures.",
+      "a": "86 cm = 0.86 m. Work done = 3.0 × 0.86 = 2.58, so 2.6 J.",
+      "marks": 3
+    },
+    {
+      "q": "Explain why braking increases the temperature of the brakes.",
+      "a": "Work is done by friction in the brakes. Some kinetic energy of the vehicle is transferred as thermal energy in the brakes.",
+      "marks": 2
+    }
+  ],
+  "boards": {
+    "aqa": {
+      "spec_codes": ["AQA 4.5.2", "AQA T 6.5.2"],
+      "exam_phrases": [
+        "W = 30 × 250",
+        "3 360 000 = F × 42 000",
+        "F = 3 360 000 / 42 000",
+        "work is done by friction (in the brakes)",
+        "(some of the kinetic) energy (of the vehicle) is transferred as thermal energy (in the brakes)"
+      ],
+      "mistakes": [
+        {
+          "wrong": "Friction makes the brakes hot.",
+          "right": "Friction alone is ignored. Say that work is done by friction in the brakes, and that kinetic energy is transferred as thermal energy."
+        },
+        {
+          "wrong": "W = 30 × 250 = 7500.",
+          "right": "The unit is a separate mark. Write W = 7500 J."
+        },
+        {
+          "wrong": "F = 42 000 / 3 360 000.",
+          "right": "Divide work by distance. F = 3 360 000 / 42 000 = 80 N."
+        }
+      ],
+      "worked_example": {
+        "exemplar_id": "eb52c982-1dd2-45d0-ae4a-f852c777af86",
+        "source": "AQA jun 2022, Paper 2 (F), Q07.2",
+        "question": "The distance of the London Marathon is 42 000 m.\nDuring the race, wheelchair competitors work against air resistance.\nThe work done against air resistance by the winner of the race was 3 360 000 J.\n\nCalculate the average air resistance acting on the winner of the race.",
+        "marks": 3,
+        "answer_points": [
+          "3 360 000 = F × 42 000",
+          "F = 3 360 000 / 42 000",
+          "F = 80 (N)"
+        ],
+        "tip": "One mark for the substitution, one for the rearrangement and one for the answer."
+      }
+    },
+    "edexcel": {
+      "spec_codes": ["EDEX 8.5", "EDEX 8.6", "EDEX 8.7", "EDEX 2.33P"],
+      "exam_phrases": [
+        "(work done =) 1200 × 8(.0)",
+        "J or N m (accept joule(s))",
+        "7440 = 645 × distance",
+        "(distance =) work done / force",
+        "work is done against / by gravity",
+        "idea of work done by the thrusters / jets"
+      ],
+      "mistakes": [
+        {
+          "wrong": "Work done = 1200 × 8.0 = 9600.",
+          "right": "The unit is an independent mark. Write 9600 J (or 9.6 kJ, or 9600 N m)."
+        },
+        {
+          "wrong": "The distance the sled moves is 11.53 m.",
+          "right": "Give an appropriate number of significant figures. 7440 / 645 = 11.5 m to 3 significant figures, and 11.53 loses a mark."
+        },
+        {
+          "wrong": "Work done and energy transferred are different things.",
+          "right": "Energy transferred in joules is equal to the work done in joules."
+        }
+      ],
+      "worked_example": {
+        "exemplar_id": "2981b334-a6a8-416c-8360-0c2dc38f7e42",
+        "source": "EDEXCEL jun 2024, Paper 2 (F), Q5(a)(i)",
+        "question": "A force of 1200 N pulls a truck along a horizontal road for a distance of 8.0 m.\n\nCalculate the work done by the 1200 N force.\nUse the equation: work done = force × distance moved in the direction of the force\n\nState the unit of work done.",
+        "marks": 3,
+        "answer_points": [
+          "Substitution: (work done =) 1200 × 8(.0)",
+          "Evaluation: (work done =) 9600",
+          "Unit: J"
+        ],
+        "tip": "The unit is an independent mark. J, joule(s) and N m are all accepted."
+      }
+    },
+    "ocr": {
+      "spec_codes": ["OCR P2.2m", "OCR P2.2n"],
+      "exam_phrases": [
+        "86 cm = 0.86 m",
+        "(work done =) 3(.0) × 0.86",
+        "(work done =) 2.58 (J)",
+        "J or N m",
+        "use a force meter / newton meter to measure (pulling) force",
+        "measure distance (moved) using a ruler / metre rule / measuring tape"
+      ],
+      "mistakes": [
+        {
+          "wrong": "Work done = 3.0 × 86 = 258 J.",
+          "right": "Convert the distance to metres first. 86 cm = 0.86 m, so the work done is 2.6 J."
+        },
+        {
+          "wrong": "Repeat the experiment again with the same block.",
+          "right": "Repeating the same experiment is ignored. Repeat with different masses on the block."
+        },
+        {
+          "wrong": "The work done by the brakes is 112 000.",
+          "right": "Include the unit, J or N m, which is its own mark."
+        }
+      ],
+      "worked_example": {
+        "exemplar_id": "a70f9b71-fbdd-4380-9a78-135fb732ba05",
+        "source": "OCR nov 2020, Paper 3, Q21(c)(ii)",
+        "question": "A trolley moves a distance of 86 cm along a desk.\n\nCalculate the work done when a force of 3.0 N is applied.\nUse the equation: work done = force × distance\n\nGive your answer to 2 significant figures.",
+        "marks": 4,
+        "answer_points": [
+          "86 cm = 0.86 m",
+          "(Work done =) 3(.0) × 0.86",
+          "(Work done =) 2.58 (J)",
+          "(Work done =) 2.6 (J)"
+        ],
+        "tip": "A correct answer of 2.6 J scores all 4 marks. Forgetting to convert the unit can still earn marks for the working."
+      }
+    }
+  },
+  "meta": {
+    "status": "draft",
+    "written_by": "sonnet-5-5",
+    "written_at": "2026-10-01",
+    "spec_point_ids": [
+      "0cc3dc5c-38f2-4869-bc42-8a01ba65bfc7",
+      "8132da04-6d7b-4bd5-9cfd-985f2a7b56b0",
+      "6da46589-7b7b-4f1d-8f6a-651402a3f47a",
+      "08baa296-689c-4f9a-9e19-d2123c094fb6",
+      "d426aa33-8325-4024-9a74-1d2aa8840cdb",
+      "83ef7aa1-5dcc-4d3c-9b1c-da316cc97d33",
+      "80501033-2978-4c55-933d-b0ca652ca0e3"
+    ],
+    "exemplar_ids": [
+      "eb52c982-1dd2-45d0-ae4a-f852c777af86",
+      "2981b334-a6a8-416c-8360-0c2dc38f7e42",
+      "a70f9b71-fbdd-4380-9a78-135fb732ba05"
+    ]
+  }
+}

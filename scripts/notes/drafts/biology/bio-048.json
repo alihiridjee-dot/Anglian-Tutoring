@@ -1,0 +1,295 @@
+{
+  "format": 1,
+  "concept_id": "bio-048",
+  "subject": "biology",
+  "title": "Vaccination",
+  "key_idea": "A vaccine contains a dead, inactive or weakened form of a pathogen. It makes white blood cells produce antibodies and memory cells, so a later infection is destroyed quickly. If enough people are vaccinated, the pathogen spreads less and unvaccinated people are protected.",
+  "sections": [
+    {
+      "heading": "How a vaccine works",
+      "blocks": [
+        { "type": "paragraph", "text": "A vaccine trains the immune system before a real infection happens. This section covers what is in a vaccine and what the body does with it." },
+        {
+          "type": "definitions",
+          "items": [
+            { "term": "Vaccine", "meaning": "A medicine containing a dead, inactive or weakened pathogen, or its antigens, that makes a person immune." },
+            { "term": "Antigen", "meaning": "A molecule on the surface of a pathogen that the immune system recognises as foreign." },
+            { "term": "Antibody", "meaning": "A protein made by white blood cells that is specific to one antigen and binds to it." },
+            { "term": "Memory cell", "meaning": "A white blood cell that stays in the body after an infection and allows a fast response next time." }
+          ]
+        },
+        {
+          "type": "list",
+          "items": [
+            "A dead, inactive or weakened form of the pathogen (or its antigens) is injected into the body.",
+            "White blood cells are stimulated to produce **antibodies** that are specific to that pathogen.",
+            "The antibodies bind to the antigens and help to destroy the pathogen.",
+            "Memory cells are made and stay in the body.",
+            "The pathogen in the vaccine cannot cause the disease, so the person does not become ill."
+          ]
+        },
+        {
+          "type": "diagram",
+          "diagram": {
+            "kind": "sequence",
+            "alt": "Put the stages of how a vaccine protects a person in order, from the inactive pathogen being injected to the real pathogen being destroyed.",
+            "prompt": "Put the stages of vaccination in the correct order.",
+            "steps": [
+              "An inactive form of the pathogen is injected into the body",
+              "White blood cells produce antibodies to the inactive pathogen",
+              "The antibodies attach to the antigens on the pathogen",
+              "Memory cells remain in the body",
+              "If the real pathogen enters, the correct antibodies are produced quickly",
+              "The antibodies destroy the pathogen before it can cause disease"
+            ]
+          }
+        },
+        {
+          "type": "key-points",
+          "items": [
+            "A vaccine contains a dead, inactive or weakened pathogen, or its antigens.",
+            "White blood cells (lymphocytes) make the antibodies. Phagocytes do not.",
+            "Memory cells make the next response faster."
+          ]
+        }
+      ]
+    },
+    {
+      "heading": "The first and second response",
+      "blocks": [
+        { "type": "paragraph", "text": "The body responds more strongly the second time it meets a pathogen. This is why a vaccinated person does not become ill." },
+        {
+          "type": "diagram",
+          "diagram": {
+            "kind": "line-graph",
+            "alt": "Line graph of antibody level over time. After the vaccine the antibody level rises slowly to a low peak and then falls. When the real pathogen enters later, the antibody level rises much faster and reaches a much higher peak.",
+            "x": { "label": "Time", "min": 0, "max": 60, "ticks": [0, 10, 20, 30, 40, 50, 60], "unit": "days" },
+            "y": { "label": "Antibody level" },
+            "series": [
+              {
+                "name": "Antibodies in the blood",
+                "points": [[0, 0], [5, 0.05], [10, 0.2], [15, 0.3], [22, 0.2], [30, 0.12], [32, 0.5], [35, 0.9], [42, 0.85], [50, 0.6], [60, 0.4]]
+              }
+            ],
+            "markers": [
+              { "x": 0, "label": "Vaccine given" },
+              { "x": 30, "label": "Real pathogen enters" }
+            ]
+          }
+        },
+        {
+          "type": "list",
+          "items": [
+            "First response (to the vaccine): antibodies rise slowly and in small numbers.",
+            "Second response (to the real pathogen): the correct antibodies are produced sooner, faster and in larger numbers.",
+            "The pathogen is killed before the population of pathogens is large enough to cause disease."
+          ]
+        },
+        {
+          "type": "key-points",
+          "items": [
+            "The second response is faster and produces more antibodies.",
+            "The pathogen is destroyed before it can make the person ill."
+          ]
+        }
+      ]
+    },
+    {
+      "heading": "Vaccination programmes and herd immunity",
+      "blocks": [
+        { "type": "paragraph", "text": "Vaccinating a large part of a population reduces how far a disease can spread. This section covers herd immunity and the arguments for and against vaccination." },
+        {
+          "type": "definitions",
+          "items": [
+            { "term": "Herd immunity", "meaning": "When most of a population is immune, so unvaccinated people are protected because the pathogen is less likely to reach them." }
+          ]
+        },
+        {
+          "type": "list",
+          "items": [
+            "Most people are immune, so few people are ill and carrying the pathogen.",
+            "The pathogen is less likely to be passed on, so unvaccinated people are less likely to come into contact with it.",
+            "Unvaccinated people are protected, but they are not themselves immune."
+          ]
+        },
+        { "type": "subheading", "text": "Why some people are not vaccinated" },
+        {
+          "type": "list",
+          "items": [
+            "Concerns about side effects or allergic reactions.",
+            "A medical reason, or being too young for the vaccination programme.",
+            "No access to healthcare, or already having had the disease.",
+            "Religious, cultural or personal objections, or being afraid of needles."
+          ]
+        },
+        { "type": "subheading", "text": "Evaluating vaccination" },
+        {
+          "type": "list",
+          "items": [
+            "For: vaccination has been linked to falling numbers of cases, for example measles, and the protection also helps people who cannot be vaccinated.",
+            "Against: some people may have side effects, and fewer people being vaccinated can allow cases to rise again.",
+            "When a false report linked a vaccine to a disorder, fewer children were vaccinated and the number of cases increased.",
+            "Scientific claims are checked by peer review to help detect false claims."
+          ]
+        },
+        {
+          "type": "key-points",
+          "items": [
+            "Herd immunity protects unvaccinated people because the pathogen is less likely to spread.",
+            "Unvaccinated people are protected, but not immune.",
+            "Falling vaccination rates lead to more cases."
+          ]
+        }
+      ]
+    }
+  ],
+  "checks": [
+    {
+      "q": "State what a vaccine contains that makes a person immune.",
+      "a": "Inactive, dead or weakened pathogen (or its antigens).",
+      "marks": 1
+    },
+    {
+      "q": "Explain why a vaccinated person does not become ill when the real pathogen enters the body.",
+      "a": "Memory cells are already present, so the correct (specific) antibodies are produced quickly and in large numbers. The pathogen is destroyed before it can cause the disease.",
+      "marks": 3
+    },
+    {
+      "q": "Explain why vaccinating most of a population protects people who are not vaccinated.",
+      "a": "Few people have the pathogen, so it is less likely to be passed on. Non-vaccinated people are less likely to come into contact with it.",
+      "marks": 2
+    }
+  ],
+  "boards": {
+    "aqa": {
+      "spec_codes": ["AQA 3.4", "AQA T 4.3.1.7"],
+      "exam_phrases": [
+        "dead / inactive / weakened form of pathogen is introduced / injected",
+        "white blood cells produce antibodies",
+        "the antibodies produced are specific / correct",
+        "reference to memory cells made",
+        "on secondary exposure antibodies are produced faster",
+        "less chance of non-immune / unvaccinated individuals being exposed to pathogen"
+      ],
+      "mistakes": [
+        {
+          "wrong": "Phagocytes produce the antibodies after a vaccine.",
+          "right": "Phagocytes do not produce antibodies. Say white blood cells or lymphocytes produce antibodies."
+        },
+        {
+          "wrong": "The vaccine contains dead measles, or you inject the disease.",
+          "right": "Say the vaccine contains a dead, inactive or weakened pathogen (virus) or its antigens, not the disease itself."
+        },
+        {
+          "wrong": "Most people are immune so they do not get it.",
+          "right": "A reference to the organism is needed. Say most people are immune so there is less chance of unvaccinated people being exposed to the virus."
+        }
+      ],
+      "worked_example": {
+        "exemplar_id": "0c084486-f8a1-450b-828a-de801cb3ebc9",
+        "source": "AQA jun 2024, Paper 1 (H), Q3.3",
+        "question": "Measles is a communicable disease caused by a pathogen. Vaccinations help reduce the spread of measles.\n\nDescribe how the measles vaccine helps a person to become immune to the measles pathogen.",
+        "marks": 4,
+        "answer_points": [
+          "The vaccine contains a dead or inactive (or weakened) measles pathogen or virus, or measles antigens.",
+          "White blood cells produce antibodies.",
+          "The antibodies produced are specific (correct) for the measles virus.",
+          "Memory cells are made.",
+          "On secondary exposure, antibodies are produced faster (or in larger quantities)."
+        ],
+        "tip": "Any four of these points score one mark each. Saying that phagocytes produce antibodies does not score."
+      }
+    },
+    "edexcel": {
+      "spec_codes": ["EDEX 5.14", "EDEX 5.15B"],
+      "exam_phrases": [
+        "they are immune (to the bacterium)",
+        "the vaccination contained an antigen",
+        "memory lymphocytes",
+        "leading to the production of antibodies",
+        "leading to a secondary (immune) response",
+        "most people are immunised / high level of immunity in the population"
+      ],
+      "mistakes": [
+        {
+          "wrong": "Herd immunity means that people who are not vaccinated are immune.",
+          "right": "Non-vaccinated people are protected because they are less likely to come into contact with the pathogen. They are not immune themselves."
+        },
+        {
+          "wrong": "Some people are not immunised because they didn't get a vaccine.",
+          "right": "This is ignored. Give a reason, such as concern about side effects, a medical reason, being too young or having no access to healthcare."
+        },
+        {
+          "wrong": "Measles cases went down.",
+          "right": "A conclusion needs a reason: the number of cases decreased because more people have been immunised, or because of herd immunity."
+        }
+      ],
+      "worked_example": {
+        "exemplar_id": "163afc43-0683-442d-9d9c-b412b2f4b0be",
+        "source": "EDEXCEL jun 2019, Paper 1 (H), Q3(a)",
+        "question": "Clostridium tetani is a bacterium that can be found in soil. It causes the infection tetanus. Children are vaccinated against tetanus.\n\nExplain why these children do not get tetanus if the bacteria enter their body through a cut in the skin.",
+        "marks": 3,
+        "answer_points": [
+          "They are immune to the bacterium.",
+          "The vaccination contained an antigen (the bacteria have antigens).",
+          "Memory lymphocytes lead to the production of antibodies.",
+          "This is a secondary immune response, so the bacteria are killed faster."
+        ],
+        "tip": "Link three points together. An inactive or dead bacterium in the vaccine is accepted."
+      }
+    },
+    "ocr": {
+      "spec_codes": ["OCR 6.3o"],
+      "exam_phrases": [
+        "vaccine contains weakened / dead / inactive pathogen",
+        "(formation of) memory cells",
+        "infected with the real pathogen then antibodies are produced faster / in larger numbers",
+        "(more) people were immune / vaccinated",
+        "idea of herd immunity"
+      ],
+      "mistakes": [
+        {
+          "wrong": "The antibodies become memory cells.",
+          "right": "Antibodies do not become memory cells. Memory cells are formed by white blood cells, and they allow antibodies to be produced faster next time."
+        },
+        {
+          "wrong": "The vaccine contains a dead version of the disease or measles.",
+          "right": "Say it contains a weakened or dead pathogen (virus), or the pathogen's antigens."
+        },
+        {
+          "wrong": "The vaccine kills the pathogen quicker.",
+          "right": "This is ignored. Say that antibodies are produced faster or in larger numbers when the real pathogen is met."
+        }
+      ],
+      "worked_example": {
+        "exemplar_id": "e02a8753-836b-4569-80be-cfc70feddf0f",
+        "source": "OCR jun 2022, Paper 4, Q21(a)",
+        "question": "Measles is an infectious disease caused by a virus. A vaccine is available to protect people against measles.\n\nExplain how vaccinations can protect people against diseases such as measles.",
+        "marks": 3,
+        "answer_points": [
+          "The vaccine contains a weakened, dead or inactive pathogen (or its antigens).",
+          "Memory cells are formed.",
+          "If infected with the real pathogen, antibodies are produced faster or in larger numbers."
+        ],
+        "tip": "One mark for each point. Saying antibodies make memory cells does not score."
+      }
+    }
+  },
+  "meta": {
+    "status": "draft",
+    "written_by": "sonnet-5-5",
+    "written_at": "2026-10-01",
+    "spec_point_ids": [
+      "c390de44-fee0-4bdc-b46f-1491f9ec20f8",
+      "9bc43e3e-dbf6-4aa3-ae55-d3b308e16550",
+      "561018dc-0845-4f61-8317-c30ccc351415",
+      "6cb4b201-e80c-46d1-81d3-d62021e12c58",
+      "dd84cb13-9250-4270-95ca-cf94db292195"
+    ],
+    "exemplar_ids": [
+      "0c084486-f8a1-450b-828a-de801cb3ebc9",
+      "163afc43-0683-442d-9d9c-b412b2f4b0be",
+      "e02a8753-836b-4569-80be-cfc70feddf0f"
+    ]
+  }
+}

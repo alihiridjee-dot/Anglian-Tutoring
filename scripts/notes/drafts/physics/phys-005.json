@@ -1,0 +1,283 @@
+{
+  "format": 1,
+  "concept_id": "phys-005",
+  "subject": "physics",
+  "title": "Power",
+  "key_idea": "**Power** is the rate at which energy is transferred or work is done. Power equals energy transferred divided by time, or work done divided by time. One watt is one joule per second. A more powerful device transfers the same energy more quickly.",
+  "sections": [
+    {
+      "heading": "What power means",
+      "blocks": [
+        { "type": "paragraph", "text": "Power tells you how fast energy is transferred, not how much. This section covers the idea and the unit." },
+        {
+          "type": "definitions",
+          "items": [
+            { "term": "Power", "meaning": "The rate at which energy is transferred, or the rate at which work is done." },
+            { "term": "Watt (W)", "meaning": "The unit of power. 1 watt is an energy transfer of 1 joule per second (1 W = 1 J/s)." },
+            { "term": "Kilowatt (kW)", "meaning": "1000 watts." }
+          ]
+        },
+        { "type": "subheading", "text": "An example" },
+        {
+          "type": "list",
+          "items": [
+            "Two electric motors lift the same weight through the same height.",
+            "Both transfer the same energy.",
+            "The motor that does it faster has the greater power."
+          ]
+        },
+        {
+          "type": "key-points",
+          "items": [
+            "Power is the rate of energy transfer or the rate of doing work.",
+            "A greater power transfers the same energy in less time.",
+            "1 W = 1 J/s."
+          ]
+        }
+      ]
+    },
+    {
+      "heading": "Calculating power",
+      "blocks": [
+        { "type": "paragraph", "text": "There are two forms of the equation. Use the one that matches the quantity you are given." },
+        {
+          "type": "equation",
+          "label": "Power from energy transferred",
+          "formula": "P = E ÷ t",
+          "where": ["P is power in watts (W).", "E is energy transferred in joules (J).", "t is time in seconds (s)."]
+        },
+        {
+          "type": "equation",
+          "label": "Power from work done",
+          "formula": "P = W ÷ t",
+          "where": ["P is power in watts (W).", "W is work done in joules (J).", "t is time in seconds (s)."]
+        },
+        {
+          "type": "steps",
+          "items": [
+            { "lead": "Convert units.", "text": "A boiler transfers 15 MJ in 10 minutes. 15 MJ = 15 000 000 J and 10 min = 600 s." },
+            { "lead": "Substitute.", "text": "P = 15 000 000 ÷ 600" },
+            { "lead": "Evaluate.", "text": "P = 25 000 W." }
+          ]
+        },
+        { "type": "paragraph", "text": "Change the energy and the time to see the power." },
+        {
+          "type": "diagram",
+          "diagram": {
+            "kind": "slider",
+            "alt": "Change the energy transferred and the time taken to see the power.",
+            "inputs": [
+              { "id": "E", "label": "Energy transferred", "unit": "J", "min": 1000, "max": 100000, "step": 1000, "value": 50000 },
+              { "id": "t", "label": "Time taken", "unit": "s", "min": 1, "max": 60, "step": 1, "value": 12 }
+            ],
+            "outputs": [
+              { "label": "Power", "unit": "W", "formula": "E / t", "decimals": 0 },
+              { "label": "Power", "unit": "kW", "formula": "E / t / 1000", "decimals": 2 }
+            ]
+          }
+        },
+        {
+          "type": "diagram",
+          "diagram": {
+            "kind": "practice",
+            "alt": "Calculate power from energy transferred and time.",
+            "question": "A lift motor does {W} J of work in {t} s. Calculate the power of the motor.",
+            "variables": [
+              { "id": "W", "min": 40000, "max": 200000, "step": 20000 },
+              { "id": "t", "min": 4, "max": 20, "step": 2 }
+            ],
+            "answer": { "formula": "W / t", "unit": "W", "decimals": 0 },
+            "working": [
+              "P = W ÷ t",
+              "P = {W} ÷ {t}",
+              "P = {answer} W"
+            ]
+          }
+        },
+        {
+          "type": "key-points",
+          "items": [
+            "P = E ÷ t and P = W ÷ t.",
+            "Convert minutes to seconds and kilojoules or megajoules to joules before you divide.",
+            "Give the unit: W, or J/s."
+          ]
+        }
+      ]
+    },
+    {
+      "heading": "Finding time or energy",
+      "blocks": [
+        { "type": "paragraph", "text": "Rearrange the equation when power is given. The same steps apply." },
+        {
+          "type": "list",
+          "items": [
+            "Energy transferred: E = P × t.",
+            "Time taken: t = E ÷ P.",
+            "A 7200 W charger takes 162 000 000 ÷ 7200 = 22 500 s to transfer 162 000 000 J."
+          ]
+        },
+        {
+          "type": "paragraph",
+          "text": "If the power is in kilowatts, change it to watts first. 17.5 kW is 17 500 W."
+        },
+        {
+          "type": "key-points",
+          "items": [
+            "To find the time, divide energy by power.",
+            "To find the energy, multiply power by time.",
+            "Increasing the power of a motor lets the same energy be transferred more quickly."
+          ]
+        }
+      ]
+    }
+  ],
+  "checks": [
+    {
+      "q": "The motor in a lift does 120 000 J of work in 8.0 s. Calculate its power.",
+      "a": "P = 120 000 ÷ 8.0 = 15 000 W.",
+      "marks": 2
+    },
+    {
+      "q": "State what is meant by a power of 1 watt.",
+      "a": "An energy transfer of 1 joule per second.",
+      "marks": 1
+    },
+    {
+      "q": "A heater has a power of 50 W. Calculate the time it takes to transfer 4750 J.",
+      "a": "t = E ÷ P = 4750 ÷ 50 = 95 s.",
+      "marks": 3
+    }
+  ],
+  "boards": {
+    "aqa": {
+      "spec_codes": ["AQA 4.1.1.4", "AQA T 6.1.1.4"],
+      "exam_phrases": [
+        "E = 15 000 000 (J)",
+        "t = 600 (s)",
+        "P = 15 000 000 / 600",
+        "162 000 000 = 7200 × t",
+        "t = 162 000 000 / 7200",
+        "use a motor with a greater power"
+      ],
+      "mistakes": [
+        {
+          "wrong": "P = 15 ÷ 10 = 1.5 W.",
+          "right": "Convert first. 15 MJ = 15 000 000 J and 10 minutes = 600 s, so P = 25 000 W."
+        },
+        {
+          "wrong": "A more powerful motor stores more energy.",
+          "right": "Power is a rate. A motor with a greater power stores the same energy more quickly because the mass is lifted more quickly."
+        },
+        {
+          "wrong": "Power is the amount of energy a device transfers.",
+          "right": "Power is the rate at which energy is transferred, or the rate at which work is done."
+        }
+      ],
+      "worked_example": {
+        "exemplar_id": "24909b91-f2e8-4175-8ee0-979ebd3346ad",
+        "source": "AQA jun 2018, Paper 1 (H), Q05.4",
+        "question": "To heat a house, the boiler transfers 15 MJ of energy in 10 minutes.\n\nCalculate the power of the boiler.\nWrite any equation that you use.",
+        "marks": 4,
+        "answer_points": [
+          "E = 15 000 000 (J)",
+          "t = 600 (s)",
+          "P = 15 000 000 / 600",
+          "P = 25 000 (W)"
+        ],
+        "tip": "One mark each for converting the energy, converting the time, the substitution and the answer. A correct answer of 25 000 scores all 4 marks."
+      }
+    },
+    "edexcel": {
+      "spec_codes": ["EDEX 8.12", "EDEX 8.13", "EDEX 8.14", "EDEX 10.28", "EDEX 10.29"],
+      "exam_phrases": [
+        "(P =) 130 000 / 87",
+        "(P =) 1494 (W)",
+        "1500 (W)",
+        "17.5 (× 10³) = 126 (× 10⁶) / t",
+        "(t =) E(nergy) / P(ower)",
+        "(t =) 2(.0) (h)"
+      ],
+      "mistakes": [
+        {
+          "wrong": "The power of the cooker is 1494 W to 2 significant figures.",
+          "right": "Round as asked. 1494 W to 2 significant figures is 1500 W, which is an independent mark."
+        },
+        {
+          "wrong": "126 × 10⁶ ÷ 17.5 gives the time.",
+          "right": "Change kW to W first: 17.5 kW = 17.5 × 10³ W. Then t = 126 × 10⁶ ÷ (17.5 × 10³) = 7200 s, which is 2.0 hours."
+        },
+        {
+          "wrong": "The time is 7200, so the battery lasts 7200 hours.",
+          "right": "7200 is in seconds. Divide by 3600 to give the answer in hours: 2.0 h."
+        }
+      ],
+      "worked_example": {
+        "exemplar_id": "b328dd3d-9770-4041-b493-7c7fe302abed",
+        "source": "EDEXCEL jun 2024, Paper 2 (F), Q6(b)(i)",
+        "question": "A cooker supplies 130 000 J of energy in a time of 87 s.\n\nCalculate the power supplied by the cooker.\nUse the equation: P = E / t\nGive your answer to 2 significant figures.",
+        "marks": 3,
+        "answer_points": [
+          "Substitution: (P =) 130 000 / 87",
+          "Evaluation: (P =) 1494 (W)",
+          "Value to 2 significant figures: 1500 (W)"
+        ],
+        "tip": "The 2 significant figures mark is independent: any number given to 2 significant figures earns it."
+      }
+    },
+    "ocr": {
+      "spec_codes": ["OCR P2.2o"],
+      "exam_phrases": [
+        "P = E ÷ t / power = work done ÷ time taken",
+        "P = 50000 ÷ 12",
+        "P = 4166.7 (W) (1 d.p.)",
+        "(P = E / t) P = 12500 / 5",
+        "W or watts",
+        "J/s"
+      ],
+      "mistakes": [
+        {
+          "wrong": "The power of the water rocket is 2500 J.",
+          "right": "Power is in watts. Write 2500 W (or J/s). The unit is an independent mark."
+        },
+        {
+          "wrong": "P = 50 000 ÷ 12 = 4166.666667 W.",
+          "right": "Give 1 decimal place as asked: 4166.7 W."
+        },
+        {
+          "wrong": "Power = work done × time = 12 500 × 5.",
+          "right": "Divide work done by time: 12 500 ÷ 5 = 2500 W."
+        }
+      ],
+      "worked_example": {
+        "exemplar_id": "d8c71318-91cf-492e-8736-555c92c40e78",
+        "source": "OCR jun 2024, Paper 1, Q19(b)(ii)",
+        "question": "A water rocket does 12 500 J of work in 5 seconds when it rises upwards.\n\nCalculate the power of this water rocket.\nUse the equation: power = work done ÷ time\nInclude the correct unit.",
+        "marks": 3,
+        "answer_points": [
+          "(P = E / t) P = 12 500 / 5",
+          "P = 2500",
+          "Unit: W or watts"
+        ],
+        "tip": "A correct answer of 2500 W scores all 3 marks. J/s is also allowed for the unit."
+      }
+    }
+  },
+  "meta": {
+    "status": "draft",
+    "written_by": "sonnet-5-5",
+    "written_at": "2026-10-01",
+    "spec_point_ids": [
+      "df53252b-9c3e-4677-8422-d55f935fa497",
+      "c9c4562d-74ae-48b9-846e-d74709c02a4a",
+      "6cc56d78-4fa4-4db0-9b10-57e5ddc7ebe5",
+      "1294c506-5df8-44f1-8e0c-9733f68ce652",
+      "cbd1c75d-2545-4230-a781-5129100629b1",
+      "54d2f17f-3446-4e13-b48a-12f07bb59a70"
+    ],
+    "exemplar_ids": [
+      "24909b91-f2e8-4175-8ee0-979ebd3346ad",
+      "b328dd3d-9770-4041-b493-7c7fe302abed",
+      "d8c71318-91cf-492e-8736-555c92c40e78"
+    ]
+  }
+}

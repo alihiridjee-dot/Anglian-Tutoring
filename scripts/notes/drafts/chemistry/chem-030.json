@@ -108,7 +108,7 @@
             "working": [
               "Mr of CH₂ = 12 + (2 × 1) = 14",
               "n = {mr} ÷ 14 = {answer}",
-              "The molecular formula is C{answer}H(2 × {answer}), so it has {answer} carbon atoms."
+              "Each CH₂ unit has 1 carbon atom, so there are {answer} carbon atoms."
             ]
           }
         },
