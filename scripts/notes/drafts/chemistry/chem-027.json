@@ -1,0 +1,321 @@
+{
+  "format": 1,
+  "concept_id": "chem-027",
+  "subject": "chemistry",
+  "title": "Word, balanced and ionic equations",
+  "key_idea": "An equation shows the reactants and products of a reaction. A balanced symbol equation has the same number of each type of atom on both sides. An ionic equation shows only the ions that react.",
+  "sections": [
+    {
+      "heading": "Word and symbol equations",
+      "blocks": [
+        { "type": "paragraph", "text": "A chemical reaction can be written as a word equation or as a symbol equation. Both have reactants on the left and products on the right." },
+        {
+          "type": "definitions",
+          "items": [
+            { "term": "Reactant", "meaning": "A substance that is used up in a reaction." },
+            { "term": "Product", "meaning": "A substance that is made in a reaction." },
+            { "term": "Word equation", "meaning": "An equation that gives the names of the reactants and products." }
+          ]
+        },
+        {
+          "type": "equation",
+          "label": "A word equation",
+          "formula": "ammonia + sulfuric acid → ammonium sulfate",
+          "where": ["The reactants are on the left of the arrow.", "The product is on the right of the arrow."]
+        },
+        {
+          "type": "list",
+          "items": [
+            "Write the full name of every substance.",
+            "Take care with names. Ammonia and ammonium are different substances.",
+            "Use the arrow to show that the reactants form the products."
+          ]
+        },
+        { "type": "subheading", "text": "State symbols" },
+        {
+          "type": "table",
+          "columns": ["Symbol", "Meaning", "Example"],
+          "rows": [
+            ["(s)", "Solid", "Mg(s)"],
+            ["(l)", "Liquid", "H₂O(l)"],
+            ["(g)", "Gas", "O₂(g)"],
+            ["(aq)", "Aqueous: dissolved in water", "HCl(aq)"]
+          ]
+        },
+        {
+          "type": "list",
+          "items": [
+            "H₂O(g) is water vapour, also called steam.",
+            "A molten substance is a liquid, so it is shown as (l).",
+            "A solution in water is (aq), not (l)."
+          ]
+        },
+        {
+          "type": "key-points",
+          "items": [
+            "A word equation uses names. Reactants are on the left and products on the right.",
+            "The four state symbols are (s), (l), (g) and (aq)."
+          ]
+        }
+      ]
+    },
+    {
+      "heading": "Balancing symbol equations",
+      "blocks": [
+        { "type": "paragraph", "text": "Atoms are not made or destroyed in a reaction. A balanced equation has the same number of each type of atom on both sides." },
+        {
+          "type": "equation",
+          "label": "A balanced symbol equation with state symbols",
+          "formula": "2Mg(s) + O₂(g) → 2MgO(s)",
+          "where": ["The big number in front of a formula multiplies the whole formula.", "The small number below an element (subscript) is part of the formula.", "Two Mg and two O on each side."]
+        },
+        {
+          "type": "steps",
+          "items": [
+            { "lead": "Write the formulae.", "text": "Write the correct formula of each reactant and product." },
+            { "lead": "Count the atoms.", "text": "Count each type of atom on both sides." },
+            { "lead": "Change the big numbers.", "text": "Put numbers in front of formulae until each atom type matches." },
+            { "lead": "Check again.", "text": "Count every atom type on both sides." }
+          ]
+        },
+        {
+          "type": "list",
+          "items": [
+            "Never change a subscript to balance an equation. Changing it makes a different substance.",
+            "Balancing marks depend on the formulae being correct.",
+            "Any correct multiple of the equation is allowed, such as halves or doubles."
+          ]
+        },
+        {
+          "type": "diagram",
+          "diagram": {
+            "kind": "sequence",
+            "alt": "Put the steps for balancing a symbol equation in order.",
+            "prompt": "Put the steps for balancing an equation in order.",
+            "steps": [
+              "Write the correct formula of each reactant and product",
+              "Count each type of atom on both sides",
+              "Put a number in front of a formula to balance one atom type",
+              "Count each type of atom on both sides again",
+              "Add the state symbols"
+            ]
+          }
+        },
+        {
+          "type": "key-points",
+          "items": [
+            "Balance by changing the big numbers in front of formulae, never the small ones.",
+            "Atoms are conserved, so each type has the same count on both sides.",
+            "Include state symbols when asked."
+          ]
+        }
+      ]
+    },
+    {
+      "heading": "Ionic equations",
+      "blocks": [
+        { "type": "paragraph", "text": "An ionic equation shows only the ions or particles that change. It leaves out the ions that are the same on both sides." },
+        {
+          "type": "definitions",
+          "items": [
+            { "term": "Ionic equation", "meaning": "An equation showing only the ions and substances that take part in the reaction." },
+            { "term": "Spectator ion", "meaning": "An ion that is in the mixture but does not change in the reaction." }
+          ]
+        },
+        {
+          "type": "equation",
+          "label": "Ionic equation for a precipitate",
+          "formula": "Mg²⁺(aq) + 2OH⁻(aq) → Mg(OH)₂(s)",
+          "where": ["Mg²⁺(aq) is the magnesium ion in solution.", "OH⁻(aq) is the hydroxide ion in solution.", "Mg(OH)₂(s) is the solid precipitate."]
+        },
+        {
+          "type": "steps",
+          "items": [
+            { "lead": "Write the full equation.", "text": "Write the balanced equation with state symbols." },
+            { "lead": "Split the aqueous ionic compounds.", "text": "Write each (aq) ionic compound as separate ions." },
+            { "lead": "Cross out spectators.", "text": "Cross out any ion that is the same on both sides." },
+            { "lead": "Check the balance.", "text": "The atoms and the charges must balance." }
+          ]
+        },
+        {
+          "type": "list",
+          "items": [
+            "Solids, liquids and gases are not split into ions.",
+            "Charges must balance. In the example, 2+ and 2 × 1− gives zero, the charge on Mg(OH)₂.",
+            "A displacement reaction can also be an ionic equation: Mg(s) + Zn²⁺(aq) → Mg²⁺(aq) + Zn(s)."
+          ]
+        },
+        {
+          "type": "diagram",
+          "diagram": {
+            "kind": "sequence",
+            "alt": "Put the steps for writing an ionic equation in order.",
+            "prompt": "Put the steps for writing an ionic equation in order.",
+            "steps": [
+              "Write the balanced equation with state symbols",
+              "Write each aqueous ionic compound as separate ions",
+              "Cross out the ions that are the same on both sides",
+              "Write the equation with the ions that are left",
+              "Check that the atoms and charges balance"
+            ]
+          }
+        },
+        {
+          "type": "key-points",
+          "items": [
+            "An ionic equation shows only the particles that change.",
+            "Spectator ions are the same on both sides and are left out.",
+            "Atoms and charges must both balance."
+          ]
+        }
+      ]
+    }
+  ],
+  "checks": [
+    {
+      "q": "Write the word equation for ammonia reacting with nitric acid to make ammonium nitrate.",
+      "a": "ammonia + nitric acid → ammonium nitrate",
+      "marks": 2
+    },
+    {
+      "q": "Balance the equation: K + Br₂ → KBr. Add state symbols for solid potassium, bromine gas and solid potassium bromide.",
+      "a": "2K(s) + Br₂(g) → 2KBr(s)",
+      "marks": 2
+    },
+    {
+      "q": "Write the ionic equation for iron(II) ions reacting with hydroxide ions to form the precipitate iron(II) hydroxide, Fe(OH)₂.",
+      "a": "Fe²⁺ + 2OH⁻ → Fe(OH)₂",
+      "marks": 3
+    }
+  ],
+  "boards": {
+    "aqa": {
+      "spec_codes": ["AQA 4.2.2.2", "AQA T 5.2.2.2"],
+      "exam_phrases": [
+        "water vapour / steam / gaseous water (H₂O(g))",
+        "Mg(s) + Zn²⁺(aq) → Mg²⁺(aq) + Zn(s)",
+        "allow multiples (balancing)",
+        "sulfur dioxide produced",
+        "(which) escapes from the (conical) flask"
+      ],
+      "mistakes": [
+        {
+          "wrong": "H₂O(g) is just water.",
+          "right": "The state symbol (g) means gas. Write water vapour, steam or gaseous water."
+        },
+        {
+          "wrong": "Mg + Zn²⁺ → Mg²⁺ + Zn, with no state symbols.",
+          "right": "The question asks for state symbols. Write Mg(s) + Zn²⁺(aq) → Mg²⁺(aq) + Zn(s). A mark is lost if the symbols are missing or incorrect."
+        },
+        {
+          "wrong": "The mass of the flask falls because the reaction destroys some atoms.",
+          "right": "Atoms are not destroyed. A gas in the equation, such as SO₂(g), escapes from the flask."
+        }
+      ],
+      "worked_example": {
+        "exemplar_id": "7a32094a-265b-4ee5-a920-562bcfb9b6ae",
+        "source": "AQA jun 2020, Paper 1 (H), Q6.3",
+        "question": "Magnesium displaces zinc from zinc sulfate solution.\n\nComplete the ionic equation for the reaction.\n\nYou should include state symbols.\n\nMg(s) + Zn²⁺(aq) → _________ + _________",
+        "marks": 2,
+        "answer_points": [
+          "Mg²⁺(aq) is the magnesium ion in solution.",
+          "Zn(s) is the zinc metal formed as a solid.",
+          "Mg(s) + Zn²⁺(aq) → Mg²⁺(aq) + Zn(s)"
+        ],
+        "tip": "Multiples are allowed. One mark is available for the correct species even if state symbols are missing or incorrect."
+      }
+    },
+    "edexcel": {
+      "spec_codes": ["EDEX 0.2", "EDEX 0.3", "EDEX 0.4"],
+      "exam_phrases": [
+        "ammonia + sulfuric acid → ammonium sulfate",
+        "Na₂CO₃ + 2HCl → 2NaCl + H₂O + CO₂",
+        "Fe²⁺ + 2OH⁻ → Fe(OH)₂",
+        "balancing of correct species / formulae only",
+        "allow multiples; ignore incorrect state symbols (ionic equations)"
+      ],
+      "mistakes": [
+        {
+          "wrong": "ammonia sulfate or ammonium for ammonia in a word equation.",
+          "right": "These names are rejected. Write ammonia + sulfuric acid → ammonium sulfate."
+        },
+        {
+          "wrong": "A balanced equation written with no working scores full marks.",
+          "right": "In calculation questions, an equation alone gains no marks. Show the working that leads to it."
+        },
+        {
+          "wrong": "Fe²⁺ + OH⁻ → Fe(OH)₂",
+          "right": "This is not balanced. Two hydroxide ions are needed: Fe²⁺ + 2OH⁻ → Fe(OH)₂. Marks are given for each side and for balancing the correct species."
+        }
+      ],
+      "worked_example": {
+        "exemplar_id": "bfdf4f0a-b8ca-4ffa-a332-2cfa4595811d",
+        "source": "EDEXCEL jun 2018, Paper 2 (H), Q8(d)(i)",
+        "question": "Iron(II) sulfate solution reacts with sodium hydroxide solution to form a pale green precipitate of iron(II) hydroxide, Fe(OH)₂.\n\nWrite the ionic equation for this reaction.",
+        "marks": 3,
+        "answer_points": [
+          "Left-hand side: Fe²⁺ and OH⁻ (1)",
+          "Right-hand side: Fe(OH)₂ (1)",
+          "Balancing of the correct species: Fe²⁺ + 2OH⁻ → Fe(OH)₂ (1)"
+        ],
+        "tip": "Allow multiples. Incorrect state symbols are ignored."
+      }
+    },
+    "ocr": {
+      "spec_codes": ["OCR C3.1b", "OCR C3.1c", "OCR C3.1e", "OCR C3.1f"],
+      "exam_phrases": [
+        "Na₂O (s) + H₂O (l) → 2NaOH (aq)",
+        "Mg²⁺ + 2OH⁻ → Mg(OH)₂",
+        "correct formulae; balancing",
+        "Ba²⁺ (aq) + SO₄²⁻ (aq) → BaSO₄ (s)",
+        "allow any correct multiple, including fractions"
+      ],
+      "mistakes": [
+        {
+          "wrong": "Mg²⁺ and OH⁻ → Mg(OH)₂, using 'and' between the ions.",
+          "right": "'And' and '&' are not allowed instead of '+'. Write Mg²⁺ + 2OH⁻ → Mg(OH)₂."
+        },
+        {
+          "wrong": "NaO + H₂O → 2NaOH, balanced by changing the formula of sodium oxide.",
+          "right": "The formulae must be correct, because the balancing mark depends on them. Sodium oxide is Na₂O."
+        },
+        {
+          "wrong": "Ba²⁺ + SO₄²⁻ → BaSO₄, with no state symbols when state symbols are asked for.",
+          "right": "Include the symbols: Ba²⁺ (aq) + SO₄²⁻ (aq) → BaSO₄ (s). The state symbol mark depends on the correct species."
+        }
+      ],
+      "worked_example": {
+        "exemplar_id": "4561bd97-5b01-41c2-9460-68559a70ab41",
+        "source": "OCR jun 2023, Paper 3, Q22(c)(ii)",
+        "question": "Magnesium nitrate is an ionic compound.\n\nA solution containing magnesium ions reacts with a solution containing hydroxide ions.\n\nSolid magnesium hydroxide is made.\n\nWrite the balanced ionic equation for this reaction.",
+        "marks": 2,
+        "answer_points": [
+          "Correct formulae: Mg²⁺, OH⁻ and Mg(OH)₂ (1)",
+          "Balancing: Mg²⁺ + 2OH⁻ → Mg(OH)₂ (1)"
+        ],
+        "tip": "State symbols are ignored in this question. Any correct multiple is allowed."
+      }
+    }
+  },
+  "meta": {
+    "status": "draft",
+    "written_by": "sonnet-5-5",
+    "written_at": "2026-10-01",
+    "spec_point_ids": [
+      "f97fcb6a-90dd-45b6-9d0d-8e6c0a21d1c3",
+      "d61c8cdc-b0fd-4407-88c2-fad9a62793f7",
+      "a6aa1fa3-442f-4812-be9a-21d14bc4ae53",
+      "64231796-af61-4542-8c2b-58298e495928",
+      "e16368f9-ac41-486d-89d6-6feaffb9633e",
+      "b6cdb4eb-79a9-4d1f-959f-24f489322941",
+      "b70de8ca-b890-4fb3-96dc-27bad926f525",
+      "7671f931-e2fc-473e-a2ac-21ef7a621d40",
+      "64f85bad-cc4d-4935-b584-84fd2ad7e84b"
+    ],
+    "exemplar_ids": [
+      "7a32094a-265b-4ee5-a920-562bcfb9b6ae",
+      "bfdf4f0a-b8ca-4ffa-a332-2cfa4595811d",
+      "4561bd97-5b01-41c2-9460-68559a70ab41"
+    ]
+  }
+}

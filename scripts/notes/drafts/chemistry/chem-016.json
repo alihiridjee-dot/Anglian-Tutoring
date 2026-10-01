@@ -264,11 +264,9 @@
       ],
       "exam_phrases": [
         "covalent",
-        "(so) argon (atoms) do not share / transfer electrons",
-        "magnesium (atom) loses electrons",
-        "oxygen (atom) gains electrons",
-        "magnesium ions and oxide ions are formed",
-        "(atoms of) argon have a stable arrangement of electrons"
+        "(atoms of) argon have a stable arrangement of electrons",
+        "(atoms of) argon have a full outer shell (of electrons)",
+        "(so) argon (atoms) do not share / transfer electrons"
       ],
       "mistakes": [
         {
@@ -278,24 +276,18 @@
         {
           "wrong": "The type of bonding in ClF3 is intermolecular forces.",
           "right": "The bonding is covalent, because both elements are non-metals. Intermolecular forces are ignored."
-        },
-        {
-          "wrong": "When magnesium reacts with oxygen, magnesium gains electrons.",
-          "right": "Magnesium is a metal, so it loses electrons. Oxygen gains them. Two electrons are transferred."
         }
       ],
       "worked_example": {
-        "exemplar_id": "06911976-6534-4653-8d85-3cc17d77a943",
-        "source": "AQA jun 2022, Paper 1 (F), Q09.7",
-        "question": "Magnesium oxide is a compound formed from the metal magnesium and the non-metal oxygen.\n\nDescribe what happens when a magnesium atom reacts with an oxygen atom.\n\nYou should refer to electrons in your answer.",
-        "marks": 4,
+        "exemplar_id": "5af96e7e-cb35-4876-8e93-20b3ec947639",
+        "source": "AQA jun 2023, Paper 1 (H), Q08.1",
+        "question": "Argon has the atomic number 18.\n\nExplain why argon does not form compounds.\n\nAnswer in terms of electrons.",
+        "marks": 2,
         "answer_points": [
-          "A magnesium atom loses electrons.",
-          "An oxygen atom gains electrons.",
-          "Two electrons are transferred.",
-          "Magnesium ions and oxide ions are formed (Mg²⁺ and O²⁻, with full outer shells)."
+          "Argon atoms have a stable arrangement of electrons (a full outer shell).",
+          "So argon atoms do not share or transfer electrons."
         ],
-        "tip": "One mark each. Refer to electrons moving from the metal to the non-metal."
+        "tip": "One mark each. Link the full outer shell to atoms not sharing or transferring electrons."
       }
     },
     "edexcel": {
@@ -399,7 +391,7 @@
       "7a952ea4-464c-4ce1-b9c0-4c61dca8e5b8"
     ],
     "exemplar_ids": [
-      "06911976-6534-4653-8d85-3cc17d77a943",
+      "5af96e7e-cb35-4876-8e93-20b3ec947639",
       "75df3c1f-ddb0-4196-b33c-81c6f9990463",
       "2bc15c38-cb63-4c53-b84d-d46d305260c4"
     ]

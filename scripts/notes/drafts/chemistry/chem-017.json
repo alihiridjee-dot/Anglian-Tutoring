@@ -46,7 +46,9 @@
           "items": [
             "The charge relates to the group number.",
             "Group 1 forms 1+, Group 2 forms 2+.",
-            "Group 6 forms 2−, Group 7 forms 1−."
+            "Group 6 forms 2−, Group 7 forms 1−.",
+            "The charge is the number of electrons lost (positive) or gained (negative).",
+            "Noble gases (Group 0) do not form ions because they already have a full outer shell."
           ]
         },
         {
@@ -210,6 +212,7 @@
           "type": "list",
           "items": [
             "Ionic bonding occurs in compounds of metals with non-metals.",
+            "In a solid ionic compound the ions are arranged in a regular giant lattice.",
             "Ionic bonding is not sharing. Covalent bonding is sharing a pair of electrons."
           ]
         },
@@ -271,7 +274,7 @@
       "worked_example": {
         "exemplar_id": "60159002-af59-4539-87fa-fa495b6dbf88",
         "source": "AQA jun 2024, Paper 1 (H), Q05.1",
-        "question": "This question is about ionic compounds and electrolysis.\n\nCalcium chloride is an ionic compound.\n\nCalcium and chlorine react to produce calcium chloride.\n\nDescribe what happens to calcium atoms and chlorine atoms when the ionic compound calcium chloride is formed.",
+        "question": "Calcium chloride is an ionic compound.\n\nCalcium and chlorine react to produce calcium chloride.\n\nDescribe what happens to calcium atoms and chlorine atoms when the ionic compound calcium chloride is formed.",
         "marks": 4,
         "answer_points": [
           "Each calcium atom loses two electrons.",
@@ -340,12 +343,12 @@
           "right": "References to intermolecular forces, covalent bonds or metallic bonds score 0 for the question. Write about strong electrostatic attraction between oppositely charged ions."
         },
         {
-          "wrong": "Cu²⁺(OH⁻)₂ is the formula for copper hydroxide.",
-          "right": "Write Cu(OH)₂. In an ionic equation, write each ion separately: Cu²⁺ (aq) + 2OH⁻ (aq) → Cu(OH)₂ (s)."
+          "wrong": "Magnesium sulfate has a high melting point because its ionic bonds are strong.",
+          "right": "Strong ionic bonds scores the first mark only. Also say that lots of energy is needed to overcome the forces between the ions."
         },
         {
-          "wrong": "The equation is written Cu²⁺ (aq) and 2OH⁻ (aq) → Cu(OH)₂ (s).",
-          "right": "Use '+' between the ions. 'And' and '&' are not allowed."
+          "wrong": "A covalent bond is when atoms swap electrons.",
+          "right": "A covalent bond is a shared pair of electrons between atoms. Ionic bonding is the transfer of electrons."
         }
       ],
       "worked_example": {
@@ -365,6 +368,8 @@
     "status": "draft",
     "written_by": "sonnet-5-5",
     "written_at": "2026-10-01",
+    "checked_by": "sonnet-science-check",
+    "checked_at": "2026-10-01",
     "spec_point_ids": [
       "c4e82df5-75b6-43d9-ac92-6a3abc67cc38",
       "0c1d56d3-8362-4ebc-94bc-87fabb7c6b2f",
