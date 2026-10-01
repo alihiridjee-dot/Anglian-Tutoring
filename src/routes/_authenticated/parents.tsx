@@ -307,7 +307,12 @@ function StudentView() {
                   </div>
                   <button
                     onClick={async () => {
-                      if (!window.confirm(`Remove ${p.display_name ?? p.email}'s access?`)) return;
+                      if (
+                        !window.confirm(
+                          `Remove ${p.display_name ?? p.email}'s access? Your invite code will change too.`,
+                        )
+                      )
+                        return;
                       try {
                         await unlink.mutateAsync(p.link_id);
                         toast.success("Parent unlinked");

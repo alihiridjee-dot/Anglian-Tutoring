@@ -205,13 +205,19 @@ export function useRevokeInvite() {
 }
 
 export function useUnlinkParent() {
+  const qc = useQueryClient();
   const invalidate = useInvalidateLinks();
   return useMutation({
     mutationFn: async (linkId: string) => {
       const { error } = await supabase.rpc("unlink_parent", { _link_id: linkId });
       if (error) throw new Error(error.message);
     },
-    onSuccess: invalidate,
+    onSuccess: () => {
+      invalidate();
+      // Unlinking gives the child a new invite code (20261001130000), and the
+      // enrolments cache is where the code is read from.
+      qc.invalidateQueries({ queryKey: ["user-enrolments-and-profile"] });
+    },
   });
 }
 
