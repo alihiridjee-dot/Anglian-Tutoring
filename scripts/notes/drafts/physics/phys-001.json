@@ -1,0 +1,263 @@
+{
+  "format": 1,
+  "concept_id": "phys-001",
+  "subject": "physics",
+  "title": "Units, prefixes and standard form",
+  "key_idea": "Every physical quantity has an **SI unit**. Prefixes such as kilo and milli scale a unit up or down by a power of ten. To convert units, multiply or divide by the right factor. Very large and very small numbers are written in **standard form**.",
+  "sections": [
+    {
+      "heading": "SI units and prefixes",
+      "blocks": [
+        { "type": "paragraph", "text": "Physics calculations only work when every quantity is in the right unit. This section covers the SI units and the prefixes that scale them." },
+        {
+          "type": "definitions",
+          "items": [
+            { "term": "SI unit", "meaning": "The standard unit for a quantity, such as the metre (m), kilogram (kg), second (s) and newton (N)." },
+            { "term": "Prefix", "meaning": "A letter placed before a unit that multiplies it by a power of ten." },
+            { "term": "Multiple", "meaning": "A larger unit, such as the kilometre (km)." },
+            { "term": "Sub-multiple", "meaning": "A smaller unit, such as the millimetre (mm)." }
+          ]
+        },
+        { "type": "subheading", "text": "The prefixes to know" },
+        {
+          "type": "table",
+          "columns": ["Prefix", "Symbol", "Multiplier", "Example"],
+          "rows": [
+            ["giga", "G", "1 000 000 000 (10⁹)", "1 GHz = 1 000 000 000 Hz"],
+            ["mega", "M", "1 000 000 (10⁶)", "1 MJ = 1 000 000 J"],
+            ["kilo", "k", "1000 (10³)", "1 kW = 1000 W"],
+            ["centi", "c", "0.01 (10⁻²)", "1 cm = 0.01 m"],
+            ["milli", "m", "0.001 (10⁻³)", "1 mA = 0.001 A"],
+            ["micro", "μ", "0.000 001 (10⁻⁶)", "1 μA = 0.000 001 A"],
+            ["nano", "n", "0.000 000 001 (10⁻⁹)", "1 nm = 0.000 000 001 m"]
+          ]
+        },
+        {
+          "type": "key-points",
+          "items": [
+            "Use the SI unit in a calculation unless the question tells you otherwise.",
+            "A prefix is a power of ten: kilo is 1000, milli is one thousandth.",
+            "Know giga, mega, kilo, centi, milli, micro and nano."
+          ]
+        }
+      ]
+    },
+    {
+      "heading": "Converting between units",
+      "blocks": [
+        { "type": "paragraph", "text": "Convert a quantity into the unit an equation needs. Change one unit at a time and check that the answer makes sense." },
+        {
+          "type": "steps",
+          "items": [
+            { "lead": "Write the link.", "text": "For example 1 km = 1000 m, or 1 h = 60 × 60 s = 3600 s." },
+            { "lead": "Convert the top unit.", "text": "To change km to m, multiply by 1000. To change m to km, divide by 1000." },
+            { "lead": "Convert the bottom unit.", "text": "To change hours to seconds, multiply by 3600. To change seconds to hours, divide by 3600." },
+            { "lead": "Check.", "text": "A smaller unit gives a bigger number. A larger unit gives a smaller number." }
+          ]
+        },
+        { "type": "subheading", "text": "Speed in km/h and m/s" },
+        {
+          "type": "list",
+          "items": [
+            "km/h to m/s: multiply by 1000, then divide by 3600. This is the same as dividing by 3.6.",
+            "m/s to km/h: multiply by 3600, then divide by 1000. This is the same as multiplying by 3.6."
+          ]
+        },
+        {
+          "type": "diagram",
+          "diagram": {
+            "kind": "practice",
+            "alt": "Convert a speed from kilometres per hour to metres per second.",
+            "question": "A car travels at {v} km/h. Calculate its speed in m/s.",
+            "variables": [{ "id": "v", "min": 18, "max": 144, "step": 18 }],
+            "answer": { "formula": "v * 1000 / 3600", "unit": "m/s", "decimals": 0 },
+            "working": [
+              "1 km = 1000 m and 1 h = 3600 s.",
+              "speed = {v} × 1000 ÷ 3600",
+              "speed = {answer} m/s"
+            ]
+          }
+        },
+        {
+          "type": "key-points",
+          "items": [
+            "Write down the unit link first, such as 1 km = 1000 m.",
+            "To convert hours to seconds, multiply by 60 × 60 = 3600.",
+            "Converting km/h to m/s means dividing by 3.6."
+          ]
+        }
+      ]
+    },
+    {
+      "heading": "Significant figures and standard form",
+      "blocks": [
+        { "type": "paragraph", "text": "Calculators give long answers. Round them sensibly and write very large or very small numbers in standard form." },
+        { "type": "subheading", "text": "Significant figures" },
+        {
+          "type": "list",
+          "items": [
+            "The first significant figure is the first digit that is not zero.",
+            "Count along from there. 0.00540 has three significant figures.",
+            "To round, look at the next digit. If it is 5 or more, round up.",
+            "Give an answer to the same number of significant figures as the data, or one more."
+          ]
+        },
+        { "type": "paragraph", "text": "For example, 5.555 m/s is 5.6 m/s to 2 significant figures." },
+        { "type": "subheading", "text": "Standard form" },
+        {
+          "type": "equation",
+          "label": "Standard form",
+          "formula": "A × 10ⁿ",
+          "where": ["A is a number from 1 up to (but not including) 10.", "n is a whole number. It is negative for numbers smaller than 1."]
+        },
+        {
+          "type": "list",
+          "items": [
+            "150 000 000 km = 1.5 × 10⁸ km. Move the decimal point 8 places left.",
+            "0.000 009 s = 9 × 10⁻⁶ s. Move the decimal point 6 places right.",
+            "2.45 × 10⁹ Hz = 2 450 000 000 Hz. A positive power makes the number bigger."
+          ]
+        },
+        {
+          "type": "key-points",
+          "items": [
+            "Count significant figures from the first non-zero digit.",
+            "In standard form, A is between 1 and 10.",
+            "A negative power of ten means the number is smaller than 1."
+          ]
+        }
+      ]
+    }
+  ],
+  "checks": [
+    {
+      "q": "Convert 2 kW into watts and 1.5 mW into watts.",
+      "a": "2 kW = 2000 W. 1.5 mW = 0.0015 W.",
+      "marks": 2
+    },
+    {
+      "q": "A car travels at 72 km/h. Calculate its speed in m/s.",
+      "a": "72 × 1000 ÷ 3600 = 20 m/s.",
+      "marks": 2
+    },
+    {
+      "q": "Write 0.000 009 s in standard form and 5.555 m/s to 2 significant figures.",
+      "a": "9 × 10⁻⁶ s. 5.6 m/s.",
+      "marks": 2
+    }
+  ],
+  "boards": {
+    "aqa": {
+      "spec_codes": ["AQA 4.5.6.1", "AQA T 6.5.4.1"],
+      "exam_phrases": [
+        "s = 300 000 000 × 0.000009",
+        "distance = 300 000 × 500",
+        "Give your answer to 2 significant figures",
+        "use ratios and proportional reasoning to convert units and to compute rates"
+      ],
+      "mistakes": [
+        {
+          "wrong": "Light takes 500 s to travel at 300 000 km/s, so the distance is 150 000 000 m.",
+          "right": "The speed is in kilometres per second, so the distance is in kilometres: 150 000 000 km."
+        },
+        {
+          "wrong": "0.000 009 s is 9 × 10⁶ s in standard form.",
+          "right": "A number smaller than 1 has a negative power of ten. 0.000 009 s = 9 × 10⁻⁶ s."
+        },
+        {
+          "wrong": "A calculator shows 2700, so the working can be left out.",
+          "right": "Write the substitution first, such as s = 300 000 000 × 0.000009, then the answer 2700 m."
+        }
+      ],
+      "worked_example": {
+        "exemplar_id": "fb4fd50d-de53-4bdc-88b4-152e9b65fc1d",
+        "source": "AQA jun 2023, Paper 2 (F), Q05.4",
+        "question": "Microwaves from a mobile phone take 0.000 009 s to reach a mobile phone mast.\nspeed of microwaves = 300 000 000 m/s\n\nCalculate the distance between the mobile phone and the mobile phone mast.\nUse the equation: distance = speed × time",
+        "marks": 2,
+        "answer_points": [
+          "s = 300 000 000 × 0.000009",
+          "s = 2700 (m)"
+        ],
+        "tip": "One mark for the correct substitution and one mark for the answer with its unit."
+      }
+    },
+    "edexcel": {
+      "spec_codes": ["EDEX 1.1", "EDEX 1.2", "EDEX 1.3", "EDEX 1.4"],
+      "exam_phrases": [
+        "convert either distance or time",
+        "(130 km =) 130 × 1000 (m) or 130 000 (m)",
+        "(1 h =) 60 × 60 (s) or 3600 (s)",
+        "(130 km/h =) 36(.1) (m/s)",
+        "(31 m/s =) 110 (km/h)",
+        "an appropriate number of significant figures"
+      ],
+      "mistakes": [
+        {
+          "wrong": "To change 130 km/h into m/s, just multiply by 1000.",
+          "right": "Change both units. Multiply by 1000 for the km, and divide by 3600 for the hour: 130 km/h is about 36 m/s."
+        },
+        {
+          "wrong": "The average of 0.74 s, 0.69 s and 0.81 s is 0.746 666 s.",
+          "right": "Round to match the data. 0.74, 0.69 and 0.81 have 2 significant figures, so the mean is 0.75 s."
+        },
+        {
+          "wrong": "31 m/s is less than 130 km/h because 31 is less than 130.",
+          "right": "The units are different. Convert one speed first, then compare: 31 m/s is 110 km/h, which is less than 130 km/h."
+        }
+      ],
+      "worked_example": {
+        "exemplar_id": "61734656-80f0-48af-bf80-2593f7909e7b",
+        "source": "EDEXCEL jun 2022, Paper 1 (H), Q3(a)(ii)",
+        "question": "A speed limit sign from a European motorway shows speeds in km/h (kilometres per hour).\nThe sign shows a speed of 130 km/h.\n\nShow that a speed of 31 m/s is less than a speed of 130 km/h.",
+        "marks": 2,
+        "answer_points": [
+          "Convert either the distance or the time: 31 m = 31/1000 km = 0.031 km, or 1 s = 1/3600 h",
+          "Or convert 130 km = 130 × 1000 m = 130 000 m, or 1 h = 60 × 60 s = 3600 s",
+          "Evaluate: 31 m/s = 110 km/h, or 130 km/h = 36(.1) m/s",
+          "Compare in one unit: 110 km/h is less than 130 km/h"
+        ],
+        "tip": "One mark for converting a unit and one mark for the evaluation. A correct answer without working still scores full marks."
+      }
+    },
+    "ocr": {
+      "spec_codes": ["OCR P2.1c", "OCR P8.1c"],
+      "exam_phrases": [
+        "make calculations using ratios and proportional reasoning",
+        "convert units and to compute rates",
+        "conversion from non-SI to SI units",
+        "converted into m/s (metres per second)"
+      ],
+      "mistakes": [
+        {
+          "wrong": "70 mph is 70 × 1600 = 112 000 m/s.",
+          "right": "A mile is 1600 m, but an hour is 3600 s. Divide by 3600 as well to get metres per second."
+        },
+        {
+          "wrong": "1.5 mW is 1500 W.",
+          "right": "Milli means one thousandth. 1.5 mW = 0.0015 W."
+        },
+        {
+          "wrong": "2 kW is 0.002 W.",
+          "right": "Kilo means one thousand. 2 kW = 2000 W."
+        }
+      ]
+    }
+  },
+  "meta": {
+    "status": "draft",
+    "written_by": "sonnet-5-5",
+    "written_at": "2026-10-01",
+    "spec_point_ids": [
+      "a16d633b-ff1f-4610-a028-fabd1da9d5eb",
+      "dca07e0a-c8e6-47fe-bf45-bbfb044c6bc3",
+      "60073435-efaf-44c6-af74-6e68784d96ad",
+      "2446d2c7-4ca3-4711-a38e-ec3d1e4b881f",
+      "21d1e9e5-4977-4656-8778-8f3de326577a",
+      "ad903066-2088-48e0-af0e-95142ad554be"
+    ],
+    "exemplar_ids": [
+      "fb4fd50d-de53-4bdc-88b4-152e9b65fc1d",
+      "61734656-80f0-48af-bf80-2593f7909e7b"
+    ]
+  }
+}
