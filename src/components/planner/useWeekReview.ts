@@ -45,7 +45,7 @@ export function useWeekVerdicts({
    * answers, and averaging them into one banner answers neither.
    */
   const lanes = useMemo(() => {
-    const order: Lane[] = ["core", "focus", "yours"];
+    const order: Lane[] = ["core", "focus", "tutor", "yours"];
     return order
       .map((lane) => ({ lane, points: points.filter((p) => laneOf(p.origin) === lane) }))
       .filter((g) => g.points.length > 0)
