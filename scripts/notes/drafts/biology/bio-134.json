@@ -71,7 +71,6 @@
             "Repeat the experiment or take repeat readings, to check the results are similar and to find a mean.",
             "Repeat an anomalous result and leave the odd one out of the mean.",
             "To check that a best value is correct, test a greater range of values, or smaller intervals around the best value.",
-            "Use a measuring method that does not depend on judgement, such as a colorimeter, or have the same person make all the observations.",
             "Record units in the table headings, and put results in rank order."
           ]
         },
@@ -244,6 +243,8 @@
     }
   },
   "meta": {
+    "checked_by": "sonnet-science-check",
+    "checked_at": "2026-10-01",
     "status": "draft",
     "written_by": "sonnet-5-5",
     "written_at": "2026-10-01",

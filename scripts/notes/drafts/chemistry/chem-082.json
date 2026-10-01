@@ -3,14 +3,14 @@
   "concept_id": "chem-082",
   "subject": "chemistry",
   "title": "Addition polymerisation",
-  "key_idea": "In addition polymerisation, many small alkene molecules called monomers join to make one very large molecule, a polymer. The C=C bond opens and no other molecule is made. So the repeating unit has the same atoms as the monomer.",
+  "key_idea": "(Separate science) In addition polymerisation, many small alkene molecules called monomers join to make one very large molecule, a polymer. The C=C bond opens and no other molecule is made. So the repeating unit has the same atoms as the monomer.",
   "sections": [
     {
       "heading": "How addition polymers form",
       "blocks": [
         {
           "type": "paragraph",
-          "text": "Alkenes can be used to make polymers. Each alkene molecule has a C=C double bond, which opens so the molecules can join in a chain."
+          "text": "(Separate science) Alkenes can be used to make polymers. Each alkene molecule has a C=C double bond, which opens so the molecules can join in a chain."
         },
         {
           "type": "definitions",
@@ -67,7 +67,7 @@
       "blocks": [
         {
           "type": "paragraph",
-          "text": "Each alkene gives its own polymer. The polymer is named by putting the monomer name in brackets after poly."
+          "text": "(Separate science) Each alkene gives its own polymer. The polymer is named by putting the monomer name in brackets after poly."
         },
         {
           "type": "diagram",
@@ -94,7 +94,7 @@
                 "results": [
                   "Poly(propene)",
                   "–CH₂–CH(CH₃)–",
-                  "Rope and crates"
+                  "Crates and ropes"
                 ]
               },
               {
@@ -162,7 +162,7 @@
       "blocks": [
         {
           "type": "paragraph",
-          "text": "The use of a polymer depends on its properties. A good answer links a property to the use, then gives the reason."
+          "text": "(Separate science) The use of a polymer depends on its properties. A good answer links a property to the use, then gives the reason."
         },
         {
           "type": "table",
@@ -175,12 +175,17 @@
             [
               "Poly(ethene)",
               "Plastic bags and bottles",
-              "Flexible, unreactive, waterproof, light"
+              "Flexible, unreactive, waterproof"
+            ],
+            [
+              "Poly(propene)",
+              "Crates and ropes",
+              "Flexible, waterproof, unreactive"
             ],
             [
               "Poly(chloroethene) (PVC)",
               "Window frames, water pipes, insulation for electrical wires",
-              "Tough, durable, waterproof, good insulator, flexible"
+              "Does not conduct electricity, waterproof, flexible, unreactive"
             ],
             [
               "Poly(tetrafluoroethene) (PTFE)",
@@ -194,7 +199,8 @@
           "items": [
             "PVC insulates cables because it does not conduct electricity, so it separates the user from the current.",
             "PTFE coats pans because it is non-stick, so food will not stick.",
-            "A plastic food wrapping must be non-toxic or unreactive, so it does not poison or react with the food, or flexible, so it wraps all around the food."
+            "A food wrapping must be non-toxic, so it does not poison the food.",
+            "It could instead be unreactive, so it does not react with the food, or flexible, so it wraps all around the food."
           ]
         },
         {
@@ -319,10 +325,24 @@
         {
           "wrong": "Alkanes and alkenes both decolourise bromine water.",
           "right": "Alkanes do not react with bromine water. Only an alkene, which has C=C like a monomer, turns it from orange to colourless."
-        },
+        }
+      ],
+      "extra": [
         {
-          "wrong": "The polymer is written without the n after the brackets.",
-          "right": "OCR represents a polymer as [repeat unit]ₙ, where n shows many repeating units."
+          "heading": "OCR only: writing a polymer",
+          "blocks": [
+            {
+              "type": "paragraph",
+              "text": "OCR writes a polymer as [repeat unit]ₙ. The n shows many repeating units."
+            },
+            {
+              "type": "list",
+              "items": [
+                "To deduce the polymer from a simple alkene, open the C=C and put the repeating unit in brackets.",
+                "To deduce the monomer, put the C=C back into one repeating unit."
+              ]
+            }
+          ]
         }
       ]
     }
@@ -344,6 +364,8 @@
     "exemplar_ids": [
       "5b943dba-e620-4ab7-a12a-fd43c88ebf65",
       "42c82a9a-16dd-44e6-be10-cef1c8a505bb"
-    ]
+    ],
+    "checked_by": "sonnet-science-check",
+    "checked_at": "2026-10-01"
   }
 }

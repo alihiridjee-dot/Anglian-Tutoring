@@ -196,7 +196,7 @@
                 "feature": "Example",
                 "values": [
                   "Mites feeding on the blood of a slug. Mistletoe growing on a tree.",
-                  "A fly that feeds on algae and has gut bacteria that digest the algae. The bacteria live in the fly's acidic gut."
+                  "A fly eats algae. Bacteria in its gut digest the algae, so the fly gets nutrients. The bacteria get an acidic gut to live in."
                 ]
               }
             ]
@@ -258,12 +258,12 @@
           "right": "\"Sun\" on its own is ignored. Write (sun)light."
         },
         {
-          "wrong": "Plants compete for nutrients and food.",
-          "right": "Nutrients and food are ignored here. Name what plants compete for: light, water, ions / minerals / salts or space."
+          "wrong": "Plants compete for food.",
+          "right": "\"Food\" is ignored. Name what plants compete for: light, water, ions / minerals / salts or space."
         },
         {
           "wrong": "Plants compete for carbon dioxide.",
-          "right": "Carbon dioxide is ignored. Choose from light, water, mineral ions, oxygen in the soil or space."
+          "right": "Carbon dioxide is ignored. Choose from light, water, ions / minerals / salts or space."
         },
         {
           "wrong": "An animal species is important because it is prey and provides food for a predator.",
@@ -302,8 +302,8 @@
       ],
       "mistakes": [
         {
-          "wrong": "A parasite is an animal that kills and eats other animals.",
-          "right": "A parasite lives in or on its host and feeds off it. Both points are needed for 2 marks."
+          "wrong": "Mites are parasites because they are small animals that feed on blood.",
+          "right": "Also say that they live on (or in) the slug, which is the host. Both living in / on the host and feeding off it are needed for 2 marks."
         },
         {
           "wrong": "The mistletoe and the tree both gain from living together.",
@@ -350,8 +350,8 @@
           "right": "A top answer gives both sides: it is a food source and shelter for other species (a \"friend\") and it outcompetes other plants (a \"pest\")."
         },
         {
-          "wrong": "Other plants decrease because the new plant uses all the food.",
-          "right": "Name the resource. Competition is for water, minerals, light or space."
+          "wrong": "Other plants decrease because buddleia competes with them.",
+          "right": "Say what for. Competition is for water, minerals, light or space."
         }
       ],
       "worked_example": {
@@ -387,6 +387,8 @@
       "cee99778-6b72-4e9f-b7dc-2aa720ea18a6",
       "adb24a42-e6ba-4632-9c20-8e007aedd573",
       "87a08034-9302-4a87-bb3f-578daf7aa7a3"
-    ]
+    ],
+    "checked_by": "sonnet-science-check",
+    "checked_at": "2026-10-01"
   }
 }

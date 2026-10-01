@@ -1,0 +1,518 @@
+{
+  "format": 1,
+  "concept_id": "chem-079",
+  "subject": "chemistry",
+  "title": "Alkenes: structure and reactions",
+  "key_idea": "(Separate science) Alkenes are hydrocarbons with a C=C double bond, so they are unsaturated and more reactive than alkanes. They decolourise bromine water and react by addition across the double bond.",
+  "sections": [
+    {
+      "heading": "Structure of alkenes",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "(Separate science) This section covers what an alkene is and how to write its formula."
+        },
+        {
+          "type": "definitions",
+          "items": [
+            {
+              "term": "Alkene",
+              "meaning": "A hydrocarbon with a double carbon–carbon bond, C=C."
+            },
+            {
+              "term": "Unsaturated",
+              "meaning": "Containing a C=C double bond, so atoms can be added across it."
+            },
+            {
+              "term": "Functional group",
+              "meaning": "The C=C double bond is the functional group of the alkenes."
+            }
+          ]
+        },
+        {
+          "type": "equation",
+          "label": "General formula of the alkenes",
+          "formula": "CₙH₂ₙ",
+          "where": [
+            "n is the number of carbon atoms in the molecule",
+            "2n is the number of hydrogen atoms in the molecule"
+          ]
+        },
+        {
+          "type": "list",
+          "items": [
+            "An alkene has two fewer hydrogen atoms than the alkane with the same number of carbon atoms.",
+            "Alkanes are saturated. Alkenes are unsaturated."
+          ]
+        },
+        {
+          "type": "table",
+          "columns": [
+            "Name",
+            "Carbon atoms",
+            "Molecular formula",
+            "Structural formula"
+          ],
+          "rows": [
+            [
+              "Ethene",
+              "2",
+              "C₂H₄",
+              "CH₂=CH₂"
+            ],
+            [
+              "Propene",
+              "3",
+              "C₃H₆",
+              "CH₃CH=CH₂"
+            ],
+            [
+              "Butene",
+              "4",
+              "C₄H₈",
+              "CH₃CH₂CH=CH₂"
+            ],
+            [
+              "Pentene",
+              "5",
+              "C₅H₁₀",
+              "CH₃CH₂CH₂CH=CH₂"
+            ]
+          ]
+        },
+        {
+          "type": "list",
+          "items": [
+            "In a displayed formula the C=C bond is drawn as two lines between the carbon atoms.",
+            "The first four alkenes are ethene, propene, butene and pentene."
+          ]
+        },
+        {
+          "type": "key-points",
+          "items": [
+            "Alkenes have a C=C double bond and the general formula CₙH₂ₙ.",
+            "They are unsaturated, so they are more reactive than alkanes."
+          ]
+        }
+      ]
+    },
+    {
+      "heading": "The bromine water test",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "Bromine water is orange. It is used to tell an alkene from an alkane."
+        },
+        {
+          "type": "list",
+          "items": [
+            "Add bromine water to the hydrocarbon and shake.",
+            "An **alkene** turns the bromine water from orange to **colourless**.",
+            "An **alkane** leaves the bromine water orange.",
+            "The bromine adds across the C=C double bond, so the orange colour is lost."
+          ]
+        },
+        {
+          "type": "diagram",
+          "diagram": {
+            "kind": "predictor",
+            "alt": "Pick a hydrocarbon to see what happens to bromine water.",
+            "prompt": "Pick a hydrocarbon to shake with bromine water",
+            "result_labels": [
+              "Type of hydrocarbon",
+              "What you see"
+            ],
+            "options": [
+              {
+                "label": "Ethane, C₂H₆",
+                "results": [
+                  "Alkane",
+                  "Stays orange"
+                ],
+                "explanation": "Ethane is saturated, so bromine does not add to it.",
+                "scene": {
+                  "kind": "tubes",
+                  "tubes": [
+                    {
+                      "label": "Before",
+                      "colour": "orange"
+                    },
+                    {
+                      "label": "After shaking",
+                      "colour": "orange"
+                    }
+                  ]
+                }
+              },
+              {
+                "label": "Ethene, C₂H₄",
+                "results": [
+                  "Alkene",
+                  "Orange to colourless"
+                ],
+                "explanation": "Ethene has a C=C bond, so bromine adds across it.",
+                "scene": {
+                  "kind": "tubes",
+                  "tubes": [
+                    {
+                      "label": "Before",
+                      "colour": "orange"
+                    },
+                    {
+                      "label": "After shaking",
+                      "colour": "colourless"
+                    }
+                  ]
+                }
+              },
+              {
+                "label": "Hexane, C₆H₁₄",
+                "results": [
+                  "Alkane",
+                  "Stays orange"
+                ],
+                "explanation": "Hexane is saturated, so there is no reaction.",
+                "scene": {
+                  "kind": "tubes",
+                  "tubes": [
+                    {
+                      "label": "Before",
+                      "colour": "orange"
+                    },
+                    {
+                      "label": "After shaking",
+                      "colour": "orange"
+                    }
+                  ]
+                }
+              },
+              {
+                "label": "Hexene, C₆H₁₂",
+                "results": [
+                  "Alkene",
+                  "Orange to colourless"
+                ],
+                "explanation": "Hexene has a C=C bond, so the bromine water is decolourised.",
+                "scene": {
+                  "kind": "tubes",
+                  "tubes": [
+                    {
+                      "label": "Before",
+                      "colour": "orange"
+                    },
+                    {
+                      "label": "After shaking",
+                      "colour": "colourless"
+                    }
+                  ]
+                }
+              }
+            ]
+          }
+        },
+        {
+          "type": "key-points",
+          "items": [
+            "Alkenes decolourise bromine water: orange to colourless.",
+            "Alkanes do not react, so the bromine water stays orange."
+          ]
+        }
+      ]
+    },
+    {
+      "heading": "Reactions of alkenes",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "Alkenes burn and they undergo addition reactions. The functional group decides these reactions."
+        },
+        {
+          "type": "subheading",
+          "text": "Combustion"
+        },
+        {
+          "type": "list",
+          "items": [
+            "Alkenes react with oxygen in combustion in the same way as other hydrocarbons.",
+            "They tend to burn in air with smoky flames, because of incomplete combustion."
+          ]
+        },
+        {
+          "type": "subheading",
+          "text": "Addition reactions"
+        },
+        {
+          "type": "paragraph",
+          "text": "In an addition reaction, atoms add across the C=C double bond. The double bond becomes a single bond."
+        },
+        {
+          "type": "equation",
+          "label": "Ethene and hydrogen make ethane",
+          "formula": "C₂H₄ + H₂ → C₂H₆",
+          "where": [
+            "needs a catalyst and a raised temperature"
+          ]
+        },
+        {
+          "type": "equation",
+          "label": "Ethene and steam (water) make ethanol",
+          "formula": "C₂H₄ + H₂O → C₂H₅OH",
+          "where": [
+            "needs a catalyst, high temperature and high pressure"
+          ]
+        },
+        {
+          "type": "equation",
+          "label": "Ethene and bromine make 1,2-dibromoethane",
+          "formula": "C₂H₄ + Br₂ → C₂H₄Br₂",
+          "where": [
+            "chlorine and iodine react in the same way"
+          ]
+        },
+        {
+          "type": "list",
+          "items": [
+            "The halogens (chlorine, bromine, iodine) add across the double bond to give a compound with two halogen atoms.",
+            "In every case only one product forms, because the molecules just add together."
+          ]
+        },
+        {
+          "type": "diagram",
+          "diagram": {
+            "kind": "compare",
+            "alt": "Ethane compared with ethene.",
+            "items": [
+              "Ethane (alkane)",
+              "Ethene (alkene)"
+            ],
+            "rows": [
+              {
+                "feature": "Formula",
+                "values": [
+                  "C₂H₆",
+                  "C₂H₄"
+                ]
+              },
+              {
+                "feature": "Bond between carbon atoms",
+                "values": [
+                  "Single C–C",
+                  "Double C=C"
+                ]
+              },
+              {
+                "feature": "Saturated?",
+                "values": [
+                  "Saturated",
+                  "Unsaturated"
+                ]
+              },
+              {
+                "feature": "Bromine water",
+                "values": [
+                  "Stays orange",
+                  "Turns colourless"
+                ]
+              },
+              {
+                "feature": "Addition reactions",
+                "values": [
+                  "No",
+                  "Yes: hydrogen, water, halogens"
+                ]
+              },
+              {
+                "feature": "Reactivity",
+                "values": [
+                  "Less reactive",
+                  "More reactive"
+                ]
+              }
+            ]
+          }
+        },
+        {
+          "type": "key-points",
+          "items": [
+            "In addition reactions atoms add across C=C and the double bond becomes a single bond.",
+            "Alkenes add hydrogen to make alkanes, steam to make alcohols and halogens to make dihalogen compounds."
+          ]
+        }
+      ]
+    }
+  ],
+  "checks": [
+    {
+      "q": "Describe the test for alkenes. Give the colour change in the test.",
+      "a": "Add bromine water. It changes from orange to colourless.",
+      "marks": 3
+    },
+    {
+      "q": "Explain why ethene is an unsaturated hydrocarbon.",
+      "a": "It contains hydrogen and carbon only. It contains a double bond between two carbon atoms.",
+      "marks": 2
+    },
+    {
+      "q": "Write the equation for the addition of bromine to ethene.",
+      "a": "C₂H₄ + Br₂ → C₂H₄Br₂.",
+      "marks": 1
+    }
+  ],
+  "boards": {
+    "aqa": {
+      "spec_codes": [
+        "AQA 4.7.2.1",
+        "AQA 4.7.2.2"
+      ],
+      "exam_phrases": [
+        "bromine (water)",
+        "(changes from) orange to colourless",
+        "turns (from orange / brown) to colourless",
+        "(hexane) (remains) orange",
+        "ethene decolourises bromine water",
+        "(but) ethane does not decolourise bromine water",
+        "ethene is more reactive (than ethane)",
+        "ethane contains a single C—C bond; (but) ethene contains a double bond",
+        "ethene can undergo addition reactions"
+      ],
+      "mistakes": [
+        {
+          "wrong": "The test is to add bromide.",
+          "right": "Bromide is not accepted. The test uses bromine (water)."
+        },
+        {
+          "wrong": "The bromine water goes clear.",
+          "right": "Clear is ignored. Say the bromine water turns colourless or is decolourised."
+        },
+        {
+          "wrong": "The bromine water turns from colourless to orange.",
+          "right": "The result mark depends on the correct test and the correct direction. The colour change is orange to colourless."
+        },
+        {
+          "wrong": "Ethene is a gas and is more flammable than ethane.",
+          "right": "In a comparison of structure, bonding and reactions, physical properties and references to flammability are ignored. Compare the C=C and C–C bonds and the reactions such as bromine water and addition."
+        }
+      ],
+      "worked_example": {
+        "exemplar_id": "6a70d740-75bd-416f-ac05-ed7e47374b2b",
+        "source": "AQA jun 2020, Paper 2 (H), Q01.5",
+        "question": "This question is about the Earth's resources.\nPropene is an alkene.\n\nDescribe the test for alkenes.\nGive the colour change in the test.",
+        "marks": 3,
+        "answer_points": [
+          "Bromine (water).",
+          "Orange.",
+          "To colourless."
+        ],
+        "tip": "One mark each for the reagent, the starting colour and the final colour. Colourless to orange earns only 1 mark."
+      }
+    },
+    "edexcel": {
+      "spec_codes": [
+        "EDEX 9.12C",
+        "EDEX 9.13C",
+        "EDEX 9.14C",
+        "EDEX 9.15C"
+      ],
+      "exam_phrases": [
+        "contains hydrogen and carbon only",
+        "contains a {double / multiple} bond (between two carbon atoms)",
+        "bromine water is {yellow / orange}",
+        "(bromine water) turns colourless / decolourises",
+        "C₄H₈ + Br₂ → C₄H₈Br₂",
+        "A reacts with bromine (water), therefore A is unsaturated"
+      ],
+      "mistakes": [
+        {
+          "wrong": "Ethene is unsaturated because it is a mixture of carbon and hydrogen.",
+          "right": "A mixture of carbon and hydrogen, or hydrogen and carbon molecules, is rejected. Say it contains hydrogen and carbon only, and has a double bond."
+        },
+        {
+          "wrong": "The bromine water turns clear or is discoloured.",
+          "right": "Clear and discolours are ignored. Say it turns colourless or decolourises."
+        },
+        {
+          "wrong": "The bromine water decolourises because an alkene is present.",
+          "right": "Alkene is ignored as a reason. Say a double bond is present or the compound is unsaturated."
+        }
+      ],
+      "worked_example": {
+        "exemplar_id": "05d0b627-da92-458b-9a3a-4cafa8a42397",
+        "source": "EDEXCEL nov 2021, Paper 2 (H), Q10(a)(ii)",
+        "question": "Compound Y can also be formed in the following reaction\nC₃H₈ → C₃H₆ + H₂\ncompound X compound Y\nExplain how bromine water can be used to distinguish between compound X and compound Y.",
+        "marks": 3,
+        "answer_points": [
+          "Bromine water is yellow.",
+          "With compound X the yellow colour remains (no change of colour).",
+          "With compound Y the bromine water turns colourless."
+        ],
+        "tip": "X is propane, a saturated alkane. Y is propene, an alkene, so only Y reacts."
+      },
+      "extra": [
+        {
+          "heading": "Butene has two forms",
+          "blocks": [
+            {
+              "type": "list",
+              "items": [
+                "But-1-ene has the double bond between the first and second carbon atoms: CH₂=CH–CH₂–CH₃.",
+                "But-2-ene has the double bond between the second and third carbon atoms: CH₃–CH=CH–CH₃.",
+                "Both have the formula C₄H₈."
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    "ocr": {
+      "spec_codes": [
+        "OCR C6.2c"
+      ],
+      "exam_phrases": [
+        "Ethane: bromine water remains orange / orange-brown",
+        "Ethene: bromine water is decolourised / turns colourless",
+        "carbon dioxide; water (complete combustion)",
+        "C₃H₈ + 5O₂ → 3CO₂ + 4H₂O"
+      ],
+      "mistakes": [
+        {
+          "wrong": "Ethane: no change.",
+          "right": "No change is ignored for ethane. Say the bromine water remains orange (or orange-brown)."
+        },
+        {
+          "wrong": "Ethene: the bromine water turns clear or disappears.",
+          "right": "Turns clear and disappears are ignored. Say it is decolourised or turns colourless."
+        }
+      ],
+      "worked_example": {
+        "exemplar_id": "ce80f3dc-6b28-47d3-a90c-887472611b31",
+        "source": "OCR jun 2019, Paper 2, Q17(c)",
+        "question": "This question is about hydrocarbons.\n\nA student has two test tubes. One contains ethane and one contains ethene.\n\nThe student added bromine water to each test tube.\n\nDescribe what she observes.\n\nEthane\nEthene",
+        "marks": 2,
+        "answer_points": [
+          "Ethane: the bromine water remains orange (or orange-brown).",
+          "Ethene: the bromine water is decolourised (turns colourless)."
+        ],
+        "tip": "One mark for each hydrocarbon."
+      }
+    }
+  },
+  "meta": {
+    "status": "draft",
+    "written_by": "sonnet-5-5",
+    "written_at": "2026-10-01",
+    "spec_point_ids": [
+      "0c5ec94b-02cf-4330-be7f-64ee077f1cff",
+      "fb93e348-7890-4820-abb1-d37fad387223",
+      "69bd2292-1dc8-457e-8d4b-fa0c072f0253",
+      "fa6725ef-e204-427b-a702-da5d85252b63",
+      "f5eaca34-76cc-4c56-934c-4adaea0aa205",
+      "16f97797-7939-4bb9-963c-da887fda0730",
+      "15bac1b0-1201-4af2-8a95-bf41e2543c51"
+    ],
+    "exemplar_ids": [
+      "6a70d740-75bd-416f-ac05-ed7e47374b2b",
+      "05d0b627-da92-458b-9a3a-4cafa8a42397",
+      "ce80f3dc-6b28-47d3-a90c-887472611b31"
+    ]
+  }
+}

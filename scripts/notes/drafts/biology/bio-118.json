@@ -106,7 +106,17 @@
         },
         {
           "type": "paragraph",
-          "text": "If a quadrat is not 1 m², first convert the mean count into the number per m²."
+          "text": "If a quadrat is not 1 m², scale up using the area of one quadrat instead."
+        },
+        {
+          "type": "equation",
+          "label": "Estimated population size (any quadrat size)",
+          "formula": "population size = mean number per quadrat × (total area of the habitat ÷ area of one quadrat)",
+          "where": [
+            "mean number per quadrat, in organisms",
+            "total area of the habitat, in m²",
+            "area of one quadrat, in m² (for example 0.25 m²)"
+          ]
         },
         {
           "type": "diagram",
@@ -182,7 +192,7 @@
             ],
             [
               "Factor measured",
-              "Not needed",
+              "Not needed to estimate a population",
               "Measure the factor, such as light intensity, at each quadrat"
             ]
           ]
@@ -299,7 +309,8 @@
         "measure the light (intensity)",
         "move along the line / repeat at different distances",
         "use a light meter / lux meter",
-        "multiplication factor to make the estimate"
+        "multiplication factor to make the estimate",
+        "substitution into the mark and recapture equation"
       ],
       "mistakes": [
         {
@@ -324,7 +335,65 @@
           "Move along the line, or repeat at different distances from the forest."
         ],
         "tip": "Any three score one mark each."
-      }
+      },
+      "extra": [
+        {
+          "heading": "Mark and recapture for animals",
+          "blocks": [
+            {
+              "type": "paragraph",
+              "text": "Animals move, so quadrats do not work well. Capture-recapture estimates the size of an animal population."
+            },
+            {
+              "type": "steps",
+              "items": [
+                {
+                  "lead": "Capture.",
+                  "text": "Catch a sample of animals, for example butterflies in nets."
+                },
+                {
+                  "lead": "Mark and release.",
+                  "text": "Mark each animal harmlessly and release it."
+                },
+                {
+                  "lead": "Recapture.",
+                  "text": "After a period of time catch a second sample. Count how many are marked."
+                },
+                {
+                  "lead": "Calculate.",
+                  "text": "Use the equation to estimate the population."
+                }
+              ]
+            },
+            {
+              "type": "equation",
+              "label": "Population size (capture-recapture)",
+              "formula": "population size = (number marked in first sample × size of second sample) ÷ number recaptured",
+              "where": [
+                "number marked in first sample, in animals",
+                "size of second sample, in animals",
+                "number recaptured (marked animals in the second sample), in animals"
+              ]
+            },
+            {
+              "type": "paragraph",
+              "text": "For example, 20 marked, a second sample of 30 and 5 recaptured gives 20 × 30 ÷ 5 = 120 animals."
+            },
+            {
+              "type": "list",
+              "items": [
+                "Plants do not move, so they are easy to count with quadrats.",
+                "Animals can move away, or be counted twice, or be missed if they burrow.",
+                "A pooter or a pitfall trap can be used to catch small animals."
+              ]
+            },
+            {
+              "type": "paragraph",
+              "text": "If the answer is not a whole number, give a whole number of animals, because you cannot have part of an animal."
+            }
+          ]
+        }
+      ]
     },
     "ocr": {
       "spec_codes": [
@@ -367,7 +436,7 @@
           "Repeat with several quadrats.",
           "Mean = total number of dandelions divided by the number of quadrats."
         ],
-        "tip": "Any three points score one mark each. A transect line is not accepted for the quadrat point."
+        "tip": "Marks are for a random position, counting the plants, repeating with several quadrats and working out the mean. A transect line is not accepted for the quadrat point."
       },
       "extra": [
         {
@@ -446,7 +515,10 @@
       "bbb7d64a-0edf-4cf7-aedc-b2fb0eb1aa74",
       "fe348284-a98c-40fe-aa47-b1b66e21c52d",
       "d577d350-3456-4ba5-9303-3367d60f7ac7",
-      "68164a6e-701f-4f59-ac62-66a24739909c"
-    ]
+      "68164a6e-701f-4f59-ac62-66a24739909c",
+      "5e7ea7fc-aeff-41a3-8346-996f061f8696"
+    ],
+    "checked_by": "sonnet-science-check",
+    "checked_at": "2026-10-01"
   }
 }

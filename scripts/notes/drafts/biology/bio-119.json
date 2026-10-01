@@ -36,7 +36,7 @@
               "Carbon compounds in plants",
               "Animals eat plants",
               "Plants and animals die and decay",
-              "Respiration releases carbon dioxide"
+              "Respiration (including by decomposers) releases carbon dioxide"
             ],
             "loop": true
           }
@@ -49,8 +49,13 @@
             "**Feeding:** carbon compounds pass to animals when they eat plants, and to other animals when they eat those animals.",
             "**Respiration:** plants, animals and microorganisms release carbon dioxide into the air.",
             "**Decay:** when plants and animals die, microorganisms decompose them.",
-            "**Combustion:** burning wood or fossil fuels releases carbon dioxide into the air."
+            "**Combustion:** burning wood or fossil fuels releases carbon dioxide into the air.",
+            "**Fossil fuels:** these formed over millions of years from the remains of dead organisms. Burning them releases carbon that has been stored for a very long time."
           ]
+        },
+        {
+          "type": "paragraph",
+          "text": "The water cycle is covered in its own note."
         },
         {
           "type": "key-points",
@@ -296,7 +301,7 @@
         },
         {
           "wrong": "Decomposition returns nutrients to the soil.",
-          "right": "\"Nutrients\" or \"minerals\" alone is ignored. Name a substance such as carbon, carbon dioxide or nitrates, or say a mineral is returned to the soil."
+          "right": "\"Nutrients\" alone is ignored. Name a substance such as carbon dioxide or nitrates, or say a mineral is returned to the soil."
         }
       ],
       "worked_example": {
@@ -331,6 +336,8 @@
       "1487004b-a590-4580-aa93-666b169efaef",
       "649270f2-6dd2-44b0-b8dc-86c77815b1b3",
       "bcf5e4b3-fa7d-4585-82b4-f786578c7ad2"
-    ]
+    ],
+    "checked_by": "sonnet-science-check",
+    "checked_at": "2026-10-01"
   }
 }

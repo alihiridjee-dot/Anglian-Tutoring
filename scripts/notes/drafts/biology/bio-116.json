@@ -235,7 +235,7 @@
       "worked_example": {
         "exemplar_id": "0ff68a2c-23c3-47bc-9b44-f1b5e61287d6",
         "source": "EDEXCEL jun 2024, Paper 2 (F), Q5(b)(ii)",
-        "question": "A scientist measured the thickness of the cuticle from the leaves of plants growing in soil with different percentages of water content. Six plants were measured at each water content. The mean thickness of the cuticle was 12.2 µm at 5% water content, 9.0 µm at 10%, and 3.9 µm at 20%.\n\nExplain why the thickness of the cuticle is different when a plant is grown in soil with a higher water content.",
+        "question": "A scientist measured the thickness of the cuticle from the leaves of plants growing in soil with different percentages of water content. Six plants were measured at each water content.\n\nWater content of soil (%) | Thickness of the cuticle (µm): plant 1 | plant 2 | plant 3 | plant 4 | plant 5 | plant 6 | Mean thickness (µm)\n5 | 13.8 | 12.3 | 11.4 | 10.6 | 11.7 | 13.2 | 12.2\n10 | 11.1 | 8.8 | 10.0 | 8.9 | 7.0 | 8.2 | 9.0\n15 | 7.2 | 7.1 | 6.9 | 5.4 | 5.9 | 6.1 | ?\n20 | 3.6 | 4.0 | 3.6 | 4.2 | 3.9 | 4.3 | 3.9\n\nExplain why the thickness of the cuticle is different when a plant is grown in soil with a higher water content.",
         "marks": 2,
         "answer_points": [
           "The cuticle is thinner.",
@@ -257,7 +257,7 @@
               "items": [
                 "**Small or needle-shaped leaves:** a smaller surface area means less water is lost.",
                 "**A thick cuticle:** the waxy layer is waterproof, so it reduces water loss.",
-                "**Rolled leaves or stomata in pits:** this traps moist air around the stomata and reduces the loss of water."
+                "**Rolled leaves or stomata in pits:** these trap moist air around the stomata, so less water vapour diffuses out and less water is lost."
               ]
             }
           ]
@@ -281,6 +281,8 @@
       "7a61fc24-b2de-4513-92c7-91fa7c1d19b8",
       "28d81eb4-026d-493b-a77d-edae40382654",
       "8314f60b-f469-4fd6-8202-7d998f6cf534"
-    ]
+    ],
+    "checked_by": "sonnet-science-check",
+    "checked_at": "2026-10-01"
   }
 }

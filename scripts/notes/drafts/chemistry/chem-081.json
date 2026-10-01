@@ -3,14 +3,14 @@
   "concept_id": "chem-081",
   "subject": "chemistry",
   "title": "Carboxylic acids",
-  "key_idea": "Carboxylic acids contain the –COOH functional group. Methanoic, ethanoic, propanoic and butanoic acid are the first four. Their solutions are acidic and react with carbonates to give a salt, carbon dioxide and water. They are weak acids because they ionise only partly.",
+  "key_idea": "(Separate science) Carboxylic acids contain the –COOH functional group. Methanoic, ethanoic, propanoic and butanoic acid are the first four. Their solutions are acidic and react with carbonates to give a salt, carbon dioxide and water. They are weak acids because they ionise only partly.",
   "sections": [
     {
       "heading": "Carboxylic acids and their structures",
       "blocks": [
         {
           "type": "paragraph",
-          "text": "Carboxylic acids are a homologous series. The –COOH group is always at the end of the carbon chain."
+          "text": "(Separate science) Carboxylic acids are a homologous series. The –COOH group is always at the end of the carbon chain."
         },
         {
           "type": "definitions",
@@ -124,7 +124,7 @@
       "blocks": [
         {
           "type": "paragraph",
-          "text": "Carboxylic acids dissolve in water to make acidic solutions. Their solutions show the typical properties of acids."
+          "text": "(Separate science) Carboxylic acids dissolve in water to make acidic solutions. Their solutions show the typical properties of acids."
         },
         {
           "type": "list",
@@ -152,7 +152,7 @@
           "items": [
             "The fizzing is carbon dioxide gas.",
             "In an open flask the mass falls, because the carbon dioxide escapes.",
-            "This reaction is a test that identifies a carboxylic acid."
+            "Fizzing with a carbonate is a test for an acid."
           ]
         },
         {
@@ -301,16 +301,16 @@
       ],
       "mistakes": [
         {
-          "wrong": "The mass of the flask stays the same because the reaction happens inside the flask.",
-          "right": "The mass decreases. Carbon dioxide is produced and escapes from the open flask."
+          "wrong": "The mass decreases because a gas is produced and escapes.",
+          "right": "Saying the gas escapes scores only 1 of the 3 marks. Name it: carbon dioxide is produced and carbon dioxide escapes from the flask."
         },
         {
-          "wrong": "The equation shows ethanoic acid is weak because it has a single arrow.",
-          "right": "The arrow is reversible (⇌). Say the reaction is reversible, so ionisation is incomplete (partial)."
+          "wrong": "The equation shows ethanoic acid is weak because it is only partly ionised.",
+          "right": "Partial ionisation earns one mark. Also say the reaction is reversible (or in equilibrium), shown by the ⇌ arrow."
         },
         {
-          "wrong": "Methanoic acid reacts faster because it has more acid particles.",
-          "right": "The concentrations are the same. Methanoic acid has a lower pH, so a higher concentration of hydrogen ions and more collisions per unit time."
+          "wrong": "Methanoic acid reacts faster because it is a stronger acid.",
+          "right": "A stronger acid or lower pH earns one mark. Go on to say it has a higher concentration of hydrogen ions, so more collisions per unit time."
         }
       ],
       "worked_example": {
@@ -423,6 +423,8 @@
       "d3d0cb0d-32ea-4b02-9877-08ebdec085e9",
       "2728f0cf-0cca-45b9-b112-810aa2412995",
       "c6047c52-9df1-4df8-97c6-055eaee064bc"
-    ]
+    ],
+    "checked_by": "sonnet-science-check",
+    "checked_at": "2026-10-01"
   }
 }

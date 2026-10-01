@@ -218,7 +218,7 @@
           "type": "list",
           "items": [
             "The predator peak comes after the prey peak.",
-            "If the numbers did not rise and fall around a fairly constant level, the community would not be stable."
+            "In a stable community the numbers rise and fall in cycles, so they stay fairly constant over a long time."
           ]
         },
         {
@@ -385,6 +385,8 @@
       "166fb9c1-8677-4027-9641-4cceaf5deebc",
       "04d923a5-744f-481e-863e-bb22d2ae1594",
       "95e005e9-5c47-4a38-a07e-55d8e6a4cc72"
-    ]
+    ],
+    "checked_by": "sonnet-science-check",
+    "checked_at": "2026-10-01"
   }
 }

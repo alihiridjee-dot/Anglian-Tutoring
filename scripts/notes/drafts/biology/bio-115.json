@@ -272,12 +272,12 @@
       ],
       "mistakes": [
         {
-          "wrong": "The grass does not grow among nettles because the nettles are taller.",
-          "right": "Explain the competition: the nettles absorb most of the light, so the grass cannot photosynthesise enough."
+          "wrong": "Grass does not grow among nettles because it is outcompeted.",
+          "right": "Add the reason: the nettles absorb most of the light, so the grass cannot photosynthesise enough. Two linked points are needed for 2 marks."
         },
         {
-          "wrong": "The moths will reduce the number of aphids by eating them.",
-          "right": "The moths feed on oak leaves. They eat the aphids' food, so there is less food for the aphids and their number decreases."
+          "wrong": "The number of aphids will decrease.",
+          "right": "Give the reason too: the moths feed on oak leaves, so they eat the aphids' food and there is less food for the aphids."
         }
       ],
       "worked_example": {
@@ -338,6 +338,23 @@
               ]
             }
           ]
+        },
+        {
+          "heading": "Pollutants",
+          "blocks": [
+            {
+              "type": "paragraph",
+              "text": "Pollutants are abiotic factors that can harm organisms."
+            },
+            {
+              "type": "list",
+              "items": [
+                "Pollutants include chemicals that make rain or water acidic.",
+                "They can kill organisms or reduce how many survive and reproduce.",
+                "This can reduce the number of species in a community."
+              ]
+            }
+          ]
         }
       ]
     },
@@ -364,7 +381,7 @@
       "worked_example": {
         "exemplar_id": "0a5c2031-6679-4239-9129-1d73d8f6feec",
         "source": "OCR jun 2018, Paper 4, Q21(d)",
-        "question": "A student investigates the effect of acid rain on seed growth. She puts 20 mustard seeds on wet cotton wool in each of five flasks. Each flask has 20 cm³ of liquid made of different volumes of water and dilute sulfuric acid. After 8 days she counts how many seeds have germinated.\n\nVolume of water (cm³) | Volume of dilute sulfuric acid (cm³) | Number of seeds that germinated\n20 | 0 | 18\n16 | 4 | 15\n8 | 12 | 13\n4 | 16 | 6\n0 | 20 | 2\n\nExplain what this experiment shows about the effect of acid rain on seed germination.",
+        "question": "A student investigates the effect of acid rain on seed growth. She dips some cotton wool in 20 cm³ of water, puts 20 mustard seeds onto the cotton wool and places it inside a flask. She puts the remaining water into the flask. She repeats this four more times, each time using different solutions of water and dilute sulfuric acid. After 8 days she counts how many of the seeds have germinated.\n\nVolume of water in flask (cm³) | Volume of dilute sulfuric acid in flask (cm³) | Number of seeds that germinated\n20 | 0 | 18\n16 | 4 | 15\n8 | 12 | 13\n4 | 16 | 6\n0 | 20 | 2\n\nExplain what this experiment shows about the effect of acid rain on seed germination.",
         "marks": 2,
         "answer_points": [
           "Acid rain reduces the number of seeds that germinate.",
@@ -393,6 +410,8 @@
       "66bf96a7-75ec-49f9-a34e-ca2f96d8f256",
       "654afbfd-d4f9-41b1-bd72-c7c4ad342998",
       "bf1533e2-6eab-4224-a42f-d4470c2676ac"
-    ]
+    ],
+    "checked_by": "sonnet-science-check",
+    "checked_at": "2026-10-01"
   }
 }

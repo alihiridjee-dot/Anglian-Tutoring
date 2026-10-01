@@ -3,14 +3,14 @@
   "concept_id": "chem-080",
   "subject": "chemistry",
   "title": "Alcohols",
-  "key_idea": "Alcohols contain the –OH functional group. Methanol, ethanol, propanol and butanol are the first four. They burn, react with sodium, dissolve in water and can be oxidised to carboxylic acids. Ethanol is made from sugar solution by fermentation using yeast.",
+  "key_idea": "(Separate science) Alcohols contain the –OH functional group. Methanol, ethanol, propanol and butanol are the first four. They burn, react with sodium, dissolve in water and can be oxidised to carboxylic acids. Ethanol is made from sugar solution by fermentation using yeast.",
   "sections": [
     {
       "heading": "Alcohols and their structures",
       "blocks": [
         {
           "type": "paragraph",
-          "text": "Alcohols are a homologous series of organic compounds. They all contain the same functional group, so they react in similar ways."
+          "text": "(Separate science) Alcohols are a homologous series of organic compounds. They all contain the same functional group, so they react in similar ways."
         },
         {
           "type": "definitions",
@@ -91,7 +91,7 @@
       "blocks": [
         {
           "type": "paragraph",
-          "text": "Ethanol shows the typical reactions of the first four alcohols. Pick a reaction to see what happens."
+          "text": "(Separate science) Ethanol shows the typical reactions of the first four alcohols. Pick a reaction to see what happens."
         },
         {
           "type": "diagram",
@@ -180,7 +180,7 @@
       "blocks": [
         {
           "type": "paragraph",
-          "text": "Aqueous ethanol is made when a sugar solution is fermented using yeast. The yeast provides enzymes that catalyse the reaction."
+          "text": "(Separate science) Aqueous ethanol is made when a sugar solution is fermented using yeast. The yeast provides enzymes that catalyse the reaction."
         },
         {
           "type": "definitions",
@@ -350,13 +350,14 @@
         "question": "Propanol and butanol are both members of the same homologous series as ethanol.\n\nGive three reasons why ethanol, propanol and butanol are members of the same homologous series.",
         "marks": 3,
         "answer_points": [
+          "Any three of the following.",
           "They all have the –OH group (hydroxyl group), the same functional group.",
           "They have the same general formula, CₙH₂ₙ₊₁OH.",
           "Their formulae differ by CH₂ units.",
           "They react similarly with oxygen, all burning to form carbon dioxide and water.",
-          "Any three of these, or a trend in a physical property such as boiling point."
+          "A trend in a physical property, such as an increasing boiling point, also scores."
         ],
-        "tip": "Any three points score one mark each. Saying only that they are all alcohols is ignored."
+        "tip": "Any three points score one mark each. Saying only that they are all alcohols is ignored, and hydroxide is not allowed."
       },
       "extra": [
         {
@@ -459,6 +460,8 @@
     "exemplar_ids": [
       "fc99d8cb-9348-4566-8421-d7ab4838339e",
       "4280f93c-688d-4194-b88f-6c2a021b9ac1"
-    ]
+    ],
+    "checked_by": "sonnet-science-check",
+    "checked_at": "2026-10-01"
   }
 }
