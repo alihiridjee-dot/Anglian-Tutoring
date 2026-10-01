@@ -1,5 +1,6 @@
 import { useQuery } from "@tanstack/react-query";
 import { supabase } from "@/integrations/supabase/client";
+import { QUESTION_COLUMNS, withMarkSchemes } from "@/lib/homework/markSchemes";
 import { DEMO_ANSWERS, DEMO_QUESTIONS, isDemoStudent } from "@/lib/demo/studentDemo";
 
 /**
@@ -88,13 +89,13 @@ export function useHomeworkQuestions(resourceIds: string[], enabled = true) {
 
       const { data, error } = await supabase
         .from("homework_questions")
-        .select("id, resource_id, position, prompt, marks, answer_type, mark_scheme, spec_point_id")
+        .select(QUESTION_COLUMNS)
         .in("resource_id", ids)
         .order("position", { ascending: true });
       if (error) throw error;
 
       const map: Record<string, HomeworkQuestion[]> = {};
-      for (const q of (data ?? []) as HomeworkQuestion[]) {
+      for (const q of (await withMarkSchemes(data ?? [])) as HomeworkQuestion[]) {
         (map[q.resource_id] ??= []).push(q);
       }
       return map;

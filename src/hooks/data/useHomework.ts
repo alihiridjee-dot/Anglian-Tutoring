@@ -1,6 +1,7 @@
 import { useQuery, useQueryClient } from "@tanstack/react-query";
 import { useCallback } from "react";
 import { supabase } from "@/integrations/supabase/client";
+import { QUESTION_COLUMNS, withMarkSchemes } from "@/lib/homework/markSchemes";
 import {
   isDemoStudent,
   DEMO_ANSWERS,
@@ -135,15 +136,15 @@ export function useHomeworkSheet({
           .maybeSingle(),
         supabase
           .from("homework_questions")
-          .select(
-            "id, resource_id, position, prompt, marks, answer_type, mark_scheme, spec_point_id",
-          )
+          .select(QUESTION_COLUMNS)
           .eq("resource_id", homeworkId)
           .order("position", { ascending: true }),
       ]);
       if (hwRes.error) throw hwRes.error;
       if (!hwRes.data) throw new Error("That homework doesn't exist, or isn't yours to open");
       if (qRes.error) throw qRes.error;
+      // Released only to a tutor, or once this student's work is marked.
+      const questions = await withMarkSchemes(qRes.data ?? []);
 
       // A tutor previewing the sheet has no submission of their own, and
       // shouldn't inherit anyone else's.
@@ -179,7 +180,7 @@ export function useHomeworkSheet({
 
       return {
         hw: hwRes.data as Homework,
-        questions: (qRes.data ?? []) as HomeworkQuestion[],
+        questions: questions as HomeworkQuestion[],
         submission,
         answers,
       };

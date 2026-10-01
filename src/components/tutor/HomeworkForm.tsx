@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
 import { useQueryClient } from "@tanstack/react-query";
 import { supabase } from "@/integrations/supabase/client";
+import { QUESTION_COLUMNS, withMarkSchemes } from "@/lib/homework/markSchemes";
 import { toast } from "sonner";
 import { Field, inputCls, submitBtn } from "./Field";
 import { TaxonomyFields } from "./TaxonomyFields";
@@ -68,7 +69,7 @@ export function HomeworkForm({ userId, taxonomy, editing }: HomeworkFormProps) {
           .single(),
         supabase
           .from("homework_questions")
-          .select("id, position, prompt, marks, answer_type, mark_scheme, spec_point_id")
+          .select(QUESTION_COLUMNS)
           .eq("resource_id", editingId)
           .order("position", { ascending: true }),
         supabase.from("resource_spec_points").select("spec_point_id").eq("resource_id", editingId),
@@ -86,7 +87,19 @@ export function HomeworkForm({ userId, taxonomy, editing }: HomeworkFormProps) {
         if (hw.level) taxonomy.setLevel(hw.level as LevelV);
       }
 
-      const rows = (qs ?? []).map((q) => ({
+      // Saving writes every scheme back, so one that failed to load must never
+      // become a blank one. Stay on the spinner, where nothing can be saved.
+      let withSchemes: Awaited<ReturnType<typeof withMarkSchemes<NonNullable<typeof qs>[number]>>>;
+      try {
+        withSchemes = await withMarkSchemes(qs ?? []);
+      } catch {
+        if (!cancelled)
+          toast.error("Couldn't load this homework's mark schemes. Close it and try again.");
+        return;
+      }
+      if (cancelled) return;
+
+      const rows = withSchemes.map((q) => ({
         key: q.id,
         id: q.id,
         prompt: q.prompt,
