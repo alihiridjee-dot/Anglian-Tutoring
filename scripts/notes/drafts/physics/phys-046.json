@@ -195,7 +195,7 @@
       "blocks": [
         {
           "type": "paragraph",
-          "text": "(Higher tier in some courses) Forces do not always act in a straight line. This section covers scale drawings for two forces at right angles."
+          "text": "(Higher tier) Forces do not always act in a straight line. This section covers scale drawings for two forces at right angles."
         },
         {
           "type": "list",
@@ -227,7 +227,7 @@
             },
             {
               "lead": "Measure",
-              "text": "Measure its length and convert with the scale. Measure its angle with a protractor."
+              "text": "Measure its length and convert with the scale. Measure its angle with a protractor. For 240 N and 200 N the resultant is about 312 N, at about 40° to the 240 N force."
             }
           ]
         },
@@ -270,7 +270,6 @@
         "AQA T 6.5.1.4"
       ],
       "exam_phrases": [
-        "resultant force = force from engines – air resistance",
         "as it accelerates the air resistance increases",
         "therefore resultant force decreases",
         "air resistance becomes equal to the driving force",
@@ -289,8 +288,8 @@
           "right": "This earns one mark at most. All 6 dogs pull: (6 × 370) − 520 = 1700 N."
         },
         {
-          "wrong": "A hailstone reaches terminal velocity because gravity stops pulling on it.",
-          "right": "As the velocity increases, air resistance increases until it becomes equal to the weight of the hailstone. The resultant force is then zero."
+          "wrong": "As the car accelerates, the air resistance increases until it equals the driving force. The driving force stays the same.",
+          "right": "A top answer says how both forces change. The driving force increases to a maximum value, and the air resistance increases until it equals the driving force, so the resultant force is zero."
         }
       ],
       "worked_example": {
@@ -301,8 +300,8 @@
         "answer_points": [
           "Draw a triangle or parallelogram with the vertical line (240 N) longer than the horizontal line (200 N).",
           "Draw the resultant force arrow in the correct direction, upwards and to the left.",
-          "The magnitude of the resultant is between 300 N and 320 N.",
-          "The angle of the resultant to the vertical is between 38° and 42°."
+          "The magnitude of the resultant is between 300 N and 320 N (a calculation gives about 312 N).",
+          "The angle of the resultant to the vertical is between 38° and 42° (a calculation gives about 40°)."
         ],
         "tip": "(Higher tier) Choose a scale such as 1 cm to 40 N. One mark each for the diagram, the arrow direction, the magnitude and the angle."
       }
@@ -324,7 +323,7 @@
       "mistakes": [
         {
           "wrong": "Friction, tension, weight and reaction all act on the block.",
-          "right": "A list of forces stays at the bottom level. Link them: friction and tension are equal and opposite, so there is no resultant force and no acceleration."
+          "right": "A list of unconnected forces only reaches the lowest level. Link them: friction and tension are equal and opposite, so there is no resultant force and no acceleration."
         },
         {
           "wrong": "Only horizontal forces matter, so the weight and the reaction can be left out.",
@@ -365,11 +364,11 @@
       ],
       "mistakes": [
         {
-          "wrong": "The shuttlecock reaches a maximum velocity because there is no air resistance.",
-          "right": "As the speed increases, air resistance increases until the weight balances it. There is then no resultant force and no acceleration."
+          "wrong": "At maximum velocity there are no forces acting on the shuttlecock.",
+          "right": "The weight and the air resistance still act. The weight balances the air resistance, so there is no resultant force and no acceleration."
         },
         {
-          "wrong": "The upwards force on a stationary rocket is weight and the downwards force is thrust.",
+          "wrong": "The upwards force on a stationary rocket is thrust.",
           "right": "The upwards force is the normal contact force and the downwards force is weight."
         }
       ],
@@ -407,6 +406,8 @@
       "df76daf2-b485-4384-97e7-79e26b2e22dd",
       "9ee52bef-9b64-41f2-ab3f-714e72c9a860",
       "198adfb1-befe-4211-a073-2467d4eb37cb"
-    ]
+    ],
+    "checked_by": "sonnet-science-check",
+    "checked_at": "2026-10-01"
   }
 }

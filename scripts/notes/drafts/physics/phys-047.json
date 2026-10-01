@@ -3,7 +3,7 @@
   "concept_id": "phys-047",
   "subject": "physics",
   "title": "Forces and elasticity",
-  "key_idea": "Stretching, bending or compressing an object needs more than one force. For a spring, the force is directly proportional to the extension until the limit of proportionality: F = ke. The work done on the spring is stored as elastic potential energy, ½ke².",
+  "key_idea": "Stretching, bending or compressing an object needs more than one force. For a spring, force is directly proportional to extension until the limit of proportionality (Hooke's law). The work done on the spring is stored as elastic potential energy.",
   "sections": [
     {
       "heading": "Changing the shape of an object",
@@ -129,8 +129,19 @@
             "A **linear** relationship gives a straight line through the origin. Force and extension are directly proportional.",
             "A **non-linear** relationship gives a curve. The extension is no longer proportional to the force.",
             "A spring is linear up to its limit of proportionality, then the line curves.",
-            "In the linear part, the spring constant is the force divided by the extension: k = F ÷ e.",
+            "In the linear part, the spring constant is the force divided by the extension.",
+            "Beyond the elastic limit, the spring is inelastically deformed and does not return to its original length.",
             "A spring with a low spring constant is easy to stretch: a given force gives a large extension."
+          ]
+        },
+        {
+          "type": "equation",
+          "label": "Spring constant (linear part)",
+          "formula": "k = F ÷ e",
+          "where": [
+            "k is the spring constant in newtons per metre (N/m).",
+            "F is force in newtons (N).",
+            "e is extension in metres (m)."
           ]
         },
         {
@@ -265,12 +276,12 @@
         "the extension is no longer proportional to the force",
         "limit of proportionality",
         "springs with a low spring constant can compress by a larger amount",
-        "1.50 cm = 0.015 m"
+        "the spring has reached its limit of proportionality"
       ],
       "mistakes": [
         {
-          "wrong": "k = 2.88 ÷ 1.50 = 1.92 N/m for an extension of 1.50 cm.",
-          "right": "Convert the extension to metres first: 1.50 cm = 0.015 m, so k = 2.88 ÷ 0.015 = 192 N/m."
+          "wrong": "k = 2.88 ÷ 1.50 = 1.92 N/m, using the extension in centimetres.",
+          "right": "The conversion is worth a mark of its own. 1.50 cm = 0.015 m, so k = 2.88 ÷ 0.015 = 192 N/m."
         },
         {
           "wrong": "A soft mattress needs springs with a high spring constant.",
@@ -304,7 +315,6 @@
         "EDEX 15.5"
       ],
       "exam_phrases": [
-        "substitution into E = ½ × k × x²",
         "rearrangement",
         "(controls the maximum) extension",
         "idea of keeping below the elastic limit",
@@ -317,14 +327,14 @@
           "right": "The extension must be in metres: ½ × 20 × 0.09² = 0.081 J. The unconverted answer earns only one mark."
         },
         {
-          "wrong": "k = 0.50 ÷ 13² for a force of 0.50 N and an extension of 13 mm.",
-          "right": "Do not square the extension in F = k × x. Convert 13 mm to 0.013 m and use k = F / x = 0.50 / 0.013 = 38 N/m."
+          "wrong": "k = 0.50 ÷ 0.013² = 2958 N/m for a force of 0.50 N and an extension of 13 mm.",
+          "right": "Do not square the extension when using force and extension. Use k = F ÷ e = 0.50 ÷ 0.013 = 38 N/m. The squared version earns only 1 mark."
         }
       ],
       "worked_example": {
         "exemplar_id": "1ea68aa4-d222-44cc-9596-0bece2e9075d",
         "source": "EDEXCEL jun 2019, Paper 2 (F), Q5(c)",
-        "question": "Another spring has a spring constant of 250 N/m. Calculate the work done in stretching the spring by 0.30 m. State the unit. Use the equation E = ½ × k × x².",
+        "question": "A spring has a spring constant of 250 N/m. Calculate the work done in stretching the spring by 0.30 m. State the unit. Use the equation E = ½ × k × x².",
         "marks": 3,
         "answer_points": [
           "Substitution: E = ½ × 250 × 0.30²",
@@ -349,7 +359,6 @@
         "plastic: stays deformed when the force is removed",
         "elastic: returns to original shape when the force is removed",
         "(spring constant =) force / extension",
-        "F = ke",
         "force and extension relationship is no longer linear"
       ],
       "mistakes": [

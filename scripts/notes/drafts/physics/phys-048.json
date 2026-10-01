@@ -3,7 +3,7 @@
   "concept_id": "phys-048",
   "subject": "physics",
   "title": "Required practical: force and extension of a spring",
-  "key_idea": "Hang weights on a spring, measure how far it stretches, and plot force against extension. The line is straight up to the limit of proportionality, and its gradient gives the spring constant. The work done is ½ke².",
+  "key_idea": "Hang weights on a spring, measure how far it stretches, and plot force against extension. The line is straight up to the limit of proportionality, and its gradient gives the spring constant. The work done is stored as elastic potential energy.",
   "sections": [
     {
       "heading": "The method",
@@ -109,30 +109,30 @@
           "diagram": {
             "kind": "practice",
             "alt": "Calculate the spring constant from a force and the length of the spring. New numbers each time.",
-            "question": "A spring has an original length of 12.0 cm. A force of {F} N makes its length {L} cm. Calculate the spring constant.",
+            "question": "A spring has an original length of 10.0 cm. A force of {F} N makes its length {L} cm. Calculate the spring constant.",
             "variables": [
               {
                 "id": "F",
-                "min": 2,
-                "max": 10,
-                "step": 2
+                "min": 3,
+                "max": 12,
+                "step": 3
               },
               {
                 "id": "L",
-                "min": 14,
-                "max": 22,
-                "step": 2
+                "min": 20,
+                "max": 30,
+                "step": 5
               }
             ],
             "answer": {
-              "formula": "F / ((L - 12) / 100)",
+              "formula": "F / ((L - 10) / 100)",
               "unit": "N/m",
               "decimals": 0
             },
             "working": [
-              "Extension = {L} − 12 cm, then ÷ 100 to give metres",
+              "Extension = {L} − 10 cm, then ÷ 100 to give metres",
               "k = F ÷ e",
-              "k = {F} ÷ (({L} − 12) ÷ 100)",
+              "k = {F} ÷ (({L} − 10) ÷ 100)",
               "k = {answer} N/m"
             ]
           }
@@ -182,7 +182,7 @@
                 "label": "Extension",
                 "unit": "cm",
                 "formula": "m * 9.8 / k * 100",
-                "decimals": 1
+                "decimals": 2
               },
               {
                 "label": "Energy stored",
@@ -276,7 +276,7 @@
         "set up a clamp stand with a clamp and hang the spring from it",
         "fix a metre ruler alongside the spring",
         "record the position of the bottom of the spring",
-        "extension = extended length – original length",
+        "measure the original length and the extended length of the spring",
         "ensure the ruler is vertical",
         "attach a pointer to the bottom of the spring",
         "masses could fall (off the spring)",
@@ -351,7 +351,8 @@
         "question": "A spring stands on a table. Weights are added to the spring and its length is measured with a ruler. State two ways that the experimental procedure could be improved.",
         "marks": 2,
         "answer_points": [
-          "Any two from: use a ruler with millimetre divisions.",
+          "Any two of the following points score one mark each.",
+          "Use a ruler with millimetre divisions.",
           "Use interim values of weight.",
           "Add more weights to increase the range.",
           "Move the ruler closer to the spring.",

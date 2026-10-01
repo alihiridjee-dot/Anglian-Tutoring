@@ -107,14 +107,14 @@
         },
         {
           "type": "paragraph",
-          "text": "In this simplified practice the calibration line is straight, so the reading is directly proportional to the concentration."
+          "text": "In this simplified practice the calibration line is straight and passes through zero, so the reading is directly proportional to the concentration."
         },
         {
           "type": "diagram",
           "diagram": {
             "kind": "practice",
             "alt": "Calculate the concentration of a sample from its flame photometer reading using a standard solution.",
-            "question": "A 20 mg/dm³ standard solution of sodium ions gives a flame photometer reading of {s}. A sample gives a reading of {r}. The reading is directly proportional to the concentration. Calculate the concentration of sodium ions in the sample.",
+            "question": "A 20 mg/dm³ standard solution of sodium ions gives a flame photometer reading of {s} units. A sample gives a reading of {r} units. The reading is directly proportional to the concentration. Calculate the concentration of sodium ions in the sample.",
             "variables": [
               {
                 "id": "s",
@@ -185,10 +185,6 @@
         {
           "wrong": "A flame test and flame emission spectroscopy are the same method.",
           "right": "They are two different methods. In flame emission spectroscopy the light from the flame is passed through a spectroscope, which gives a line spectrum."
-        },
-        {
-          "wrong": "Flame emission spectroscopy is only used to identify metal ions.",
-          "right": "The line spectrum identifies the metal ions and also measures their concentrations."
         },
         {
           "wrong": "Instrumental methods are more accurate because they can use a smaller sample.",
@@ -325,6 +321,8 @@
       "b71002f1-cf7a-43ad-8a2f-d085925a3f96",
       "3d713ae0-602b-4bc6-b5f9-958d3e9994ba",
       "886a8bc5-578c-4929-befd-0db943996f58"
-    ]
+    ],
+    "checked_by": "sonnet-science-check",
+    "checked_at": "2026-10-01"
   }
 }

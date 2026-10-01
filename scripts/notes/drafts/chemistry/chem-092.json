@@ -92,7 +92,7 @@
           "rows": [
             [
               "Flame test",
-              "Red",
+              "Crimson (red)",
               "Lithium"
             ],
             [
@@ -107,8 +107,18 @@
             ],
             [
               "Flame test",
-              "Red-orange",
+              "Red-orange (orange-red)",
               "Calcium"
+            ],
+            [
+              "Flame test",
+              "Green (blue-green)",
+              "Copper(II)"
+            ],
+            [
+              "Sodium hydroxide solution",
+              "White precipitate (aluminium: dissolves in excess to give a colourless solution)",
+              "Aluminium, calcium or magnesium"
             ],
             [
               "Sodium hydroxide solution",
@@ -119,6 +129,11 @@
               "Sodium hydroxide solution",
               "Green precipitate",
               "Iron(II)"
+            ],
+            [
+              "Sodium hydroxide solution",
+              "Brown precipitate",
+              "Iron(III)"
             ],
             [
               "Sodium hydroxide solution, warmed",
@@ -145,7 +160,7 @@
         {
           "type": "list",
           "items": [
-            "Other clues also help. A pH probe reading of 3 shows hydrogen ions.",
+            "Other clues also help. A solution with a pH of 3 is acidic, so it contains hydrogen ions.",
             "A white solid that dissolves to a colourless solution does not contain a transition metal ion."
           ]
         },
@@ -243,7 +258,7 @@
               {
                 "label": "Compound D",
                 "results": [
-                  "Flame test: **red**, so lithium",
+                  "Flame test: **crimson**, so lithium",
                   "Dilute nitric acid, then silver nitrate: **yellow** precipitate, so iodide",
                   "Lithium iodide"
                 ],
@@ -348,8 +363,8 @@
           "right": "The key steps must be in a logical order. The question says to give the results, so give each result and the ion it shows."
         },
         {
-          "wrong": "A yellow flame shows potassium ions.",
-          "right": "Potassium gives a lilac flame. Observe the lilac flame colour and say it shows potassium."
+          "wrong": "Add silver nitrate solution and a precipitate forms, so bromide is present.",
+          "right": "The colour of the precipitate is what shows the ion. Add dilute nitric acid first, then silver nitrate solution, and observe a cream precipitate to show bromide."
         }
       ],
       "worked_example": {
@@ -386,8 +401,8 @@
       ],
       "mistakes": [
         {
-          "wrong": "The test must be unique because it is the easiest one to do.",
-          "right": "Unique means the test only detects that ion. Then there is no confusion with other ions, and you know which ion is present."
+          "wrong": "The test must be unique, so there is no confusion with other ions.",
+          "right": "This is only half of the explanation. Link it: the test only detects that ion, so there is no confusion with other ions."
         },
         {
           "wrong": "A white precipitate with silver nitrate and a colourless solution with sodium hydroxide proves ammonium chloride.",
@@ -410,7 +425,7 @@
           "L: to justify aluminium, add more sodium hydroxide solution until in excess. The precipitate dissolves to give a colourless solution.",
           "M: to justify sulfate, add dilute hydrochloric acid and barium chloride (or barium nitrate) solution. A white precipitate forms."
         ],
-        "tip": "Marks go for saying which ion is justified and why, then for the further test for each other ion."
+        "tip": "This is a levelled question. The top level needs the further work for all three ions and a reason why the chloride and iron(II) ions are justified."
       }
     },
     "ocr": {
@@ -464,6 +479,8 @@
       "c3079125-7785-48fb-89ad-0e95195d5db5",
       "13a9b32e-4905-4c08-8260-67b2708a71f5",
       "62904850-f46c-4fa1-8b77-f6b0224f492f"
-    ]
+    ],
+    "checked_by": "sonnet-science-check",
+    "checked_at": "2026-10-01"
   }
 }

@@ -3,7 +3,7 @@
   "concept_id": "chem-091",
   "subject": "chemistry",
   "title": "Tests for carbonate, halide and sulfate ions",
-  "key_idea": "Negative ions are identified with a reagent and a result. Carbonates fizz with dilute acid and the gas turns limewater milky. Halides give a coloured precipitate with silver nitrate. Sulfates give a white precipitate with barium chloride.",
+  "key_idea": "Negative ions are identified with a reagent and a result. Carbonates fizz with dilute acid and the gas turns limewater milky. Halides give a precipitate with silver nitrate, and its colour shows which halide. Sulfates give a white precipitate with barium chloride.",
   "sections": [
     {
       "heading": "Testing for carbonate ions",
@@ -302,8 +302,8 @@
           "right": "Both reagents are marked. Add dilute hydrochloric acid as well as barium chloride solution. Nitric acid and barium nitrate are also allowed."
         },
         {
-          "wrong": "Silver nitrate gives a white precipitate with bromide ions.",
-          "right": "Bromide gives a cream precipitate. White is chloride. The result mark is only given if the reagent is correct."
+          "wrong": "The gas turns milky or cloudy, so the ion is carbonate.",
+          "right": "Name the test first: bubble the gas through limewater (calcium hydroxide solution is allowed). The result mark depends on it."
         }
       ],
       "worked_example": {
@@ -380,10 +380,6 @@
         {
           "wrong": "Hydrochloric acid cannot be used in the test for halide ions, because it is the wrong acid.",
           "right": "Explain why. Hydrochloric acid contains chloride ions, which would give a precipitate with silver nitrate and interfere with the test."
-        },
-        {
-          "wrong": "Add silver nitrate to the bromide solution and a white precipitate forms.",
-          "right": "Bromide gives a cream precipitate. Name the correct colour for each halide: chloride white, bromide cream, iodide yellow."
         }
       ],
       "worked_example": {
@@ -394,10 +390,10 @@
         "answer_points": [
           "Copper(II) ions: add aqueous sodium hydroxide.",
           "A blue precipitate forms.",
-          "Bromide ions: add aqueous silver nitrate followed by dilute nitric acid.",
+          "Bromide ions: add dilute nitric acid and aqueous silver nitrate.",
           "A cream precipitate forms."
         ],
-        "tip": "Each ion needs a reagent mark and a result mark. Another soluble metal hydroxide or aqueous ammonia is allowed for the copper test."
+        "tip": "Each ion needs a reagent mark and a result mark. In the standard halide test, add the dilute nitric acid first, then the silver nitrate. Another soluble metal hydroxide or aqueous ammonia is allowed for the copper test."
       }
     }
   },
@@ -415,6 +411,8 @@
       "474deda7-024a-4b00-9837-88a90c4665f9",
       "b718b6a6-58b6-43fe-ac00-1de11a6170f5",
       "06319414-cac8-42dd-92e6-fdc7b4f1658e"
-    ]
+    ],
+    "checked_by": "sonnet-science-check",
+    "checked_at": "2026-10-01"
   }
 }

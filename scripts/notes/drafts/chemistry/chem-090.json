@@ -1,0 +1,460 @@
+{
+  "format": 1,
+  "concept_id": "chem-090",
+  "subject": "chemistry",
+  "title": "Metal hydroxide precipitate tests",
+  "key_idea": "(Separate science) Sodium hydroxide solution forms insoluble metal hydroxides, seen as precipitates. Aluminium, calcium and magnesium ions give white precipitates, but only aluminium hydroxide dissolves in excess. Copper(II) is blue, iron(II) green and iron(III) brown.",
+  "sections": [
+    {
+      "heading": "Precipitates with sodium hydroxide",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "(Separate science) This section covers the colour of the precipitate each metal ion forms."
+        },
+        {
+          "type": "definitions",
+          "items": [
+            {
+              "term": "Cation",
+              "meaning": "A positive ion, such as a metal ion."
+            },
+            {
+              "term": "Precipitate",
+              "meaning": "An insoluble solid that forms when two solutions are mixed."
+            },
+            {
+              "term": "Excess",
+              "meaning": "More than enough, so that all of the other reactant has reacted."
+            }
+          ]
+        },
+        {
+          "type": "list",
+          "items": [
+            "Add a few drops of sodium hydroxide solution to a solution of the metal ion.",
+            "The metal ion and hydroxide ions react to form an insoluble **metal hydroxide**.",
+            "The metal hydroxide appears as a precipitate.",
+            "The colour of the precipitate identifies some metal ions."
+          ]
+        },
+        {
+          "type": "table",
+          "columns": [
+            "Metal ion",
+            "A few drops of NaOH",
+            "Excess NaOH"
+          ],
+          "rows": [
+            [
+              "Aluminium, Al³⁺",
+              "White precipitate",
+              "Precipitate dissolves"
+            ],
+            [
+              "Calcium, Ca²⁺",
+              "White precipitate",
+              "Precipitate stays"
+            ],
+            [
+              "Magnesium, Mg²⁺",
+              "White precipitate",
+              "Precipitate stays"
+            ],
+            [
+              "Copper(II), Cu²⁺",
+              "Blue precipitate",
+              "Precipitate stays"
+            ],
+            [
+              "Iron(II), Fe²⁺",
+              "Green precipitate",
+              "Precipitate stays"
+            ],
+            [
+              "Iron(III), Fe³⁺",
+              "Brown precipitate",
+              "Precipitate stays"
+            ]
+          ]
+        },
+        {
+          "type": "diagram",
+          "diagram": {
+            "kind": "predictor",
+            "alt": "Pick a metal ion to see what happens when sodium hydroxide solution is added.",
+            "prompt": "Pick a metal ion",
+            "result_labels": [
+              "A few drops of NaOH",
+              "Excess NaOH"
+            ],
+            "options": [
+              {
+                "label": "Aluminium, Al³⁺",
+                "results": [
+                  "**White** precipitate",
+                  "The precipitate **dissolves**, leaving a colourless solution"
+                ],
+                "scene": {
+                  "kind": "tubes",
+                  "tubes": [
+                    {
+                      "label": "A few drops",
+                      "colour": "colourless",
+                      "precipitate": "white"
+                    },
+                    {
+                      "label": "Excess NaOH",
+                      "colour": "colourless"
+                    }
+                  ]
+                }
+              },
+              {
+                "label": "Calcium, Ca²⁺",
+                "results": [
+                  "**White** precipitate",
+                  "The precipitate does not dissolve"
+                ],
+                "scene": {
+                  "kind": "tubes",
+                  "tubes": [
+                    {
+                      "label": "A few drops",
+                      "colour": "colourless",
+                      "precipitate": "white"
+                    },
+                    {
+                      "label": "Excess NaOH",
+                      "colour": "colourless",
+                      "precipitate": "white"
+                    }
+                  ]
+                }
+              },
+              {
+                "label": "Magnesium, Mg²⁺",
+                "results": [
+                  "**White** precipitate",
+                  "The precipitate does not dissolve"
+                ],
+                "scene": {
+                  "kind": "tubes",
+                  "tubes": [
+                    {
+                      "label": "A few drops",
+                      "colour": "colourless",
+                      "precipitate": "white"
+                    },
+                    {
+                      "label": "Excess NaOH",
+                      "colour": "colourless",
+                      "precipitate": "white"
+                    }
+                  ]
+                }
+              },
+              {
+                "label": "Copper(II), Cu²⁺",
+                "results": [
+                  "**Blue** precipitate",
+                  "The precipitate does not dissolve"
+                ],
+                "scene": {
+                  "kind": "tubes",
+                  "tubes": [
+                    {
+                      "label": "A few drops",
+                      "colour": "colourless",
+                      "precipitate": "blue"
+                    },
+                    {
+                      "label": "Excess NaOH",
+                      "colour": "colourless",
+                      "precipitate": "blue"
+                    }
+                  ]
+                }
+              },
+              {
+                "label": "Iron(II), Fe²⁺",
+                "results": [
+                  "**Green** precipitate",
+                  "The precipitate does not dissolve"
+                ],
+                "scene": {
+                  "kind": "tubes",
+                  "tubes": [
+                    {
+                      "label": "A few drops",
+                      "colour": "colourless",
+                      "precipitate": "green"
+                    },
+                    {
+                      "label": "Excess NaOH",
+                      "colour": "colourless",
+                      "precipitate": "green"
+                    }
+                  ]
+                }
+              },
+              {
+                "label": "Iron(III), Fe³⁺",
+                "results": [
+                  "**Brown** precipitate",
+                  "The precipitate does not dissolve"
+                ],
+                "scene": {
+                  "kind": "tubes",
+                  "tubes": [
+                    {
+                      "label": "A few drops",
+                      "colour": "colourless",
+                      "precipitate": "brown"
+                    },
+                    {
+                      "label": "Excess NaOH",
+                      "colour": "colourless",
+                      "precipitate": "brown"
+                    }
+                  ]
+                }
+              }
+            ]
+          }
+        },
+        {
+          "type": "key-points",
+          "items": [
+            "Coloured precipitates: blue copper(II), green iron(II), brown iron(III).",
+            "Three ions give a white precipitate."
+          ]
+        }
+      ]
+    },
+    {
+      "heading": "Telling the white precipitates apart",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "This section covers how to identify aluminium when a white precipitate forms."
+        },
+        {
+          "type": "steps",
+          "items": [
+            {
+              "lead": "Add a few drops",
+              "text": "Add a few drops of sodium hydroxide solution to the solution and look at the precipitate."
+            },
+            {
+              "lead": "A white precipitate",
+              "text": "This could be aluminium, calcium or magnesium ions. The result alone does not identify the ion."
+            },
+            {
+              "lead": "Add excess",
+              "text": "Keep adding sodium hydroxide solution until it is in excess."
+            },
+            {
+              "lead": "Look again",
+              "text": "If the precipitate dissolves to a colourless solution, the ion is aluminium. If it stays, the ion is calcium or magnesium."
+            }
+          ]
+        },
+        {
+          "type": "key-points",
+          "items": [
+            "A white precipitate on its own does not identify the ion.",
+            "Only aluminium hydroxide dissolves in excess sodium hydroxide."
+          ]
+        }
+      ]
+    }
+  ],
+  "checks": [
+    {
+      "q": "Describe a test to show that a solution contains copper(II) ions. Give the result.",
+      "a": "Add sodium hydroxide solution. A blue precipitate forms.",
+      "marks": 2
+    },
+    {
+      "q": "A white precipitate forms with a few drops of sodium hydroxide solution and dissolves in excess. Name the metal ion.",
+      "a": "Aluminium ions (Al³⁺).",
+      "marks": 2
+    },
+    {
+      "q": "Give the colour of the precipitate formed with sodium hydroxide solution by iron(II) ions and by iron(III) ions.",
+      "a": "Iron(II): green. Iron(III): brown.",
+      "marks": 2
+    }
+  ],
+  "boards": {
+    "aqa": {
+      "spec_codes": [
+        "AQA 4.8.3.2"
+      ],
+      "exam_phrases": [
+        "add sodium hydroxide (solution)",
+        "white precipitate (forms)",
+        "(precipitate which is) soluble in excess (NaOH)",
+        "blue precipitate",
+        "(add) excess sodium hydroxide ... (the white) precipitate dissolves",
+        "a colourless solution is produced"
+      ],
+      "mistakes": [
+        {
+          "wrong": "A few drops of sodium hydroxide make a white precipitate that dissolves, so the ion is aluminium.",
+          "right": "With a few drops the precipitate does not dissolve. It dissolves only when sodium hydroxide solution is added in excess."
+        },
+        {
+          "wrong": "A white precipitate with sodium hydroxide shows aluminium ions.",
+          "right": "Calcium and magnesium ions also give a white precipitate. Add excess sodium hydroxide: only the aluminium precipitate dissolves."
+        },
+        {
+          "wrong": "Use barium chloride to test for aluminium ions.",
+          "right": "Use sodium hydroxide solution to identify aluminium ions. Barium chloride is used for sulfate ions."
+        }
+      ],
+      "worked_example": {
+        "exemplar_id": "9a19f7cf-cc0e-42f2-a239-bbce17978927",
+        "source": "AQA jun 2019, Paper 2 (H), Q07.1",
+        "question": "A large amount of aluminium sulfate was accidentally added to the drinking water supply at a water treatment works.\n\nDescribe a test to show that the drinking water contained aluminium ions.\n\nGive the result of the test.",
+        "marks": 3,
+        "answer_points": [
+          "Test: add sodium hydroxide solution to a sample of the water.",
+          "A white precipitate forms.",
+          "The precipitate is soluble in excess sodium hydroxide solution."
+        ],
+        "tip": "The result marks depend on the correct test. The white precipitate alone does not prove aluminium; the dissolving in excess does."
+      }
+    },
+    "edexcel": {
+      "spec_codes": [
+        "EDEX 9.3C"
+      ],
+      "exam_phrases": [
+        "add named alkaline solution / sodium hydroxide (solution)",
+        "white precipitate forms (in both)",
+        "white precipitate dissolves with excess (alkali) indicates Al³⁺",
+        "white precipitate does not dissolve in excess (alkali) indicates Ca²⁺",
+        "more than one cation gives (a) white precipitate",
+        "red-brown precipitate"
+      ],
+      "mistakes": [
+        {
+          "wrong": "A white precipitate with a few drops of sodium hydroxide shows the solid is aluminium sulfate.",
+          "right": "Other cations give a white precipitate too, such as calcium. Add more sodium hydroxide to show whether the precipitate dissolves. A test for the negative ion is also needed."
+        },
+        {
+          "wrong": "Add an alkaline solution to the two solutions.",
+          "right": "'Alkaline solution' alone is ignored. Name it: sodium hydroxide (or potassium hydroxide) solution."
+        },
+        {
+          "wrong": "Iron(III) ions give a green precipitate with sodium hydroxide.",
+          "right": "Iron(III) ions give a red-brown precipitate."
+        }
+      ],
+      "worked_example": {
+        "exemplar_id": "a3921c0f-bcc7-44ba-a635-e96da511274d",
+        "source": "EDEXCEL jun 2022, Paper 2 (H), Q8(a)(ii)",
+        "question": "You are given two solutions, one containing Ca²⁺ ions and the other containing Al³⁺ ions.\n\nDevise a plan to identify which solution is which.",
+        "marks": 4,
+        "answer_points": [
+          "Add sodium hydroxide solution to each solution.",
+          "A white precipitate forms in both.",
+          "Add excess sodium hydroxide: if the white precipitate dissolves, the solution contains Al³⁺.",
+          "If the white precipitate does not dissolve in excess, the solution contains Ca²⁺."
+        ],
+        "tip": "The four marks are independent. A flame test (orange-red for Ca²⁺) is an allowed alternative for up to 2 marks."
+      },
+      "extra": [
+        {
+          "heading": "Ammonium ions",
+          "blocks": [
+            {
+              "type": "paragraph",
+              "text": "Sodium hydroxide solution is also used to test for ammonium ions, NH₄⁺."
+            },
+            {
+              "type": "list",
+              "items": [
+                "Add sodium hydroxide solution to the sample and warm.",
+                "A pungent gas, ammonia, is released.",
+                "The gas turns damp litmus paper blue, because it is alkaline."
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    "ocr": {
+      "spec_codes": [
+        "OCR C4.2b",
+        "OCR C4.2d"
+      ],
+      "exam_phrases": [
+        "add aqueous sodium hydroxide",
+        "gives a blue precipitate",
+        "Idea that more than one cation gives a white precipitate"
+      ],
+      "mistakes": [
+        {
+          "wrong": "A white precipitate with sodium hydroxide shows that the cation is calcium.",
+          "right": "More than one cation gives a white precipitate, for example Al³⁺, Ca²⁺, Mg²⁺, Zn²⁺ and Pb²⁺. The test does not identify the cation on its own."
+        },
+        {
+          "wrong": "Copper(II) ions turn the solution blue when sodium hydroxide is added.",
+          "right": "Copper(II) ions give a blue precipitate (a blue solid)."
+        }
+      ],
+      "worked_example": {
+        "exemplar_id": "06319414-cac8-42dd-92e6-fdc7b4f1658e",
+        "source": "OCR sample null, Paper 4, Q18",
+        "question": "Chemical tests are used to identify gases, anions and cations.\n\nLeila has an unknown solution.\n\nShe thinks that the solution contains copper(II) ions and bromide ions.\n\nDescribe the chemical tests she does to confirm the presence of these two ions in the solution.",
+        "marks": 4,
+        "answer_points": [
+          "Copper(II) ions: add aqueous sodium hydroxide.",
+          "This gives a blue precipitate.",
+          "Bromide ions: add aqueous silver nitrate followed by dilute nitric acid.",
+          "This gives a cream precipitate."
+        ],
+        "tip": "Two marks for each ion: the reagent, then the result. The bromide test is covered in the tests for negative ions."
+      },
+      "extra": [
+        {
+          "heading": "Zinc ions",
+          "blocks": [
+            {
+              "type": "paragraph",
+              "text": "Zinc ions also form a white precipitate with sodium hydroxide solution."
+            }
+          ]
+        }
+      ]
+    }
+  },
+  "meta": {
+    "status": "draft",
+    "written_by": "sonnet-5-5",
+    "written_at": "2026-10-01",
+    "spec_point_ids": [
+      "a7fca424-ef70-49ad-adc8-39b0088a7285",
+      "748f9662-e6e7-42fb-b9ee-ff36a381c33a",
+      "13b8b4a0-65ff-4e8d-8f11-c4ebba0a0051"
+    ],
+    "exemplar_ids": [
+      "9a19f7cf-cc0e-42f2-a239-bbce17978927",
+      "7d9fb3a1-cf5c-405b-a1ca-da58db291425",
+      "aa695177-54f2-4c46-80af-8e6e2634b4ec",
+      "0be3aaa1-5c57-43de-b0b4-a5ad581a04fd",
+      "67f98641-8691-474f-bd21-e59a6069acbe",
+      "8869491b-8bba-4a04-9bbf-765dfe479e2f",
+      "a998c734-beba-4e42-95bc-6e028dc4dedf",
+      "a3921c0f-bcc7-44ba-a635-e96da511274d",
+      "42a30676-f689-414d-9244-7aafffd24797",
+      "05305210-726d-4d76-a00f-40ee00ebd0f5",
+      "3a96e1de-5934-4d5e-a362-7d5b6dc2f8b4",
+      "06319414-cac8-42dd-92e6-fdc7b4f1658e",
+      "454cd28f-3e14-4bf8-90d8-36a11c743ed8"
+    ]
+  }
+}
