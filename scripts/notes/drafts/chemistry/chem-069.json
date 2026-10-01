@@ -3,7 +3,7 @@
   "concept_id": "chem-069",
   "subject": "chemistry",
   "title": "Factors affecting the rate of reaction",
-  "key_idea": "Five factors change the rate of a reaction: concentration of reactants in solution, pressure of reacting gases, surface area of solid reactants, temperature and the presence of a catalyst. Raising any of them increases the rate.",
+  "key_idea": "Five factors change the rate of a reaction: concentration of reactants in solution, pressure of reacting gases, surface area of solid reactants, temperature and a catalyst. Increasing the first four, or adding a catalyst, increases the rate.",
   "sections": [
     {
       "heading": "The five factors",
@@ -369,13 +369,12 @@
         "warm hydrogen peroxide to 30 °C / place in a water bath at 30 °C",
         "measure volume of (oxygen) gas every 5 minutes",
         "compare results (to results at room temperature)",
-        "gas made quicker at 30 °C / reaction finishes quicker at 30 °C",
-        "reaction (with magnesium powder) takes less time (than with magnesium ribbon)"
+        "gas made quicker at 30 °C / reaction finishes quicker at 30 °C"
       ],
       "mistakes": [
         {
-          "wrong": "The reaction with magnesium powder is faster. The table shows this.",
-          "right": "The table shows is ignored. Say the reaction with powder takes less time than with ribbon, and quote a result for one experiment."
+          "wrong": "Warm the hydrogen peroxide to 30 °C and see if the reaction is faster.",
+          "right": "Say what is measured: the volume of gas every few minutes (or the time to collect it, or the mass lost). Then compare with room temperature, or say the gas is made quicker at 30 °C."
         },
         {
           "wrong": "Warm the hydrogen peroxide to 30 °C and measure the volume of oxygen every 5 minutes.",
@@ -409,6 +408,8 @@
       "6b4d7eea-2c17-491f-9ae8-62b3badbd623",
       "72b08153-693b-4752-ae7e-909e5df06e02",
       "56d7161b-0bf5-4e5d-9126-abc4ef29855e"
-    ]
+    ],
+    "checked_by": "sonnet-science-check",
+    "checked_at": "2026-10-01"
   }
 }

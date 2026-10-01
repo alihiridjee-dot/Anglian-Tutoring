@@ -62,7 +62,7 @@
           "type": "diagram",
           "diagram": {
             "kind": "slider",
-            "alt": "Change the concentration of acid and the time to see the volume of gas collected in a gas syringe. A simple model in which rate is proportional to concentration.",
+            "alt": "Change the concentration of acid and the time to see the volume of gas collected in a gas syringe. A simple model: the rate is proportional to the concentration and stays constant until the syringe is full. A real rate falls as the reactants are used up.",
             "inputs": [
               {
                 "id": "c",
@@ -207,7 +207,7 @@
         {
           "type": "list",
           "items": [
-            "Measure volumes with a measuring cylinder, pipette or burette. Use a different one for each solution.",
+            "Measure volumes with a measuring cylinder, pipette or burette.",
             "A smaller measuring cylinder or a gas syringe has smaller gradations, so it gives a more precise volume than a large measuring cylinder.",
             "Start the stopwatch as soon as the reactants are mixed. Swirl the flask.",
             "Repeat each experiment and calculate a mean.",
@@ -260,8 +260,8 @@
       ],
       "mistakes": [
         {
-          "wrong": "The solution becomes cloudy because sulfur dioxide is made.",
-          "right": "The cloudiness is sulfur (S) formed as a precipitate. Say sulfur is formed and it is a precipitate, a solid, or insoluble."
+          "wrong": "The solution becomes cloudy because sulfur is formed.",
+          "right": "This earns 1 of the 2 marks. Also say that the sulfur is a precipitate, a solid, or insoluble."
         },
         {
           "wrong": "Change the concentration of both the sodium thiosulfate and the hydrochloric acid.",
@@ -355,10 +355,10 @@
       "worked_example": {
         "exemplar_id": "77a0ee1f-f1e1-4d04-a2aa-477cb1c8090f",
         "source": "OCR jun 2019, Paper 4, Q19(d)",
-        "question": "A student investigates the reaction between marble chips and hydrochloric acid. She times how long it takes for all the marble chips to react.\n\nIn experiment 1, large marble chips took 240 s to react and the mean rate of reaction was 8.33 × 10⁻⁴ g/s. In experiment 2, the same mass of large marble chips took 120 s to react.\n\nCalculate the mean rate of reaction in experiment 2.\n\nGive your answer to 3 significant figures and in standard form.",
+        "question": "A student investigates the reaction between marble chips and hydrochloric acid. She times how long it takes for all the marble chips to react. Here are her results.\n\nExperiment | Size of marble chips | Reaction time (s) | Mean rate of reaction (g/s)\n1 | large | 240 | 8.33 × 10⁻⁴\n2 | large | 120 | (blank)\n3 | large | 100 | 2.00 × 10⁻³\n4 | small | 50 | 4.00 × 10⁻³\n\nCalculate the mean rate of reaction in experiment 2.\n\nGive your answer to 3 significant figures and in standard form.",
         "marks": 3,
         "answer_points": [
-          "Mass of marble = rate × time = 8.33 × 10⁻⁴ × 240 = 0.2 g (2 marks).",
+          "Mass of marble = rate × time = 8.33 × 10⁻⁴ × 240 = 0.2 g (2 marks), or 100 × 2.00 × 10⁻³ = 0.2 g.",
           "Mean rate = 0.2 ÷ 120 = 0.00167.",
           "Mean rate = 1.67 × 10⁻³ g/s."
         ],
@@ -379,6 +379,8 @@
       "05e17128-dcec-44c9-ab9e-acc4161a2283",
       "602bb273-a37d-474e-87ed-4cba193e66eb",
       "77a0ee1f-f1e1-4d04-a2aa-477cb1c8090f"
-    ]
+    ],
+    "checked_by": "sonnet-science-check",
+    "checked_at": "2026-10-01"
   }
 }

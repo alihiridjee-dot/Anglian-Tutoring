@@ -177,7 +177,7 @@
             ],
             "markers": [
               {
-                "x": 10,
+                "x": 5,
                 "label": "Steepest: fastest rate"
               }
             ],
@@ -224,7 +224,7 @@
               "text": "Draw a right-angled triangle under the tangent, as large as you can."
             },
             {
-              "lead": "Find the gradient.",
+              "lead": "Find the gradient (Higher tier).",
               "text": "Divide the change on the vertical axis by the change on the horizontal axis."
             }
           ]
@@ -300,10 +300,10 @@
       "exam_phrases": [
         "draw tangent at 15 s",
         "calculate gradient",
-        "mean rate = volume of gas collected / mean time taken",
-        "headings: time and volume (of gas); units: s and cm³",
-        "do not include the anomalous result in the mean",
-        "answer to 2 significant figures"
+        "(0.78 + 0.81 + 0.81) / 3",
+        "(46 + 47 + 49) / 3",
+        "47 (cm³) (2 sf)",
+        "a straight line drawn on the curve at 15 s"
       ],
       "mistakes": [
         {
@@ -395,7 +395,7 @@
               "type": "list",
               "items": [
                 "If the time is halved, the rate is doubled.",
-                "On a rate graph, the gradient shows how the rate changes. You do not need to work out the order of reaction."
+                "On a graph of quantity against time, the gradient of the line is the rate."
               ]
             }
           ]
@@ -416,6 +416,8 @@
     "exemplar_ids": [
       "c997fc4e-d93e-4fcf-883a-11ae4ede3f2c",
       "198ed042-e1e2-4154-84ad-5699caa9de7c"
-    ]
+    ],
+    "checked_by": "sonnet-science-check",
+    "checked_at": "2026-10-01"
   }
 }

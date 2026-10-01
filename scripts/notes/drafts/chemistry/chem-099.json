@@ -38,9 +38,10 @@
         {
           "type": "list",
           "items": [
-            "Air is mostly nitrogen, and the fuel does not supply it.",
+            "Air is mostly nitrogen.",
             "Car engines work at high temperatures.",
-            "At these temperatures nitrogen from the air reacts with oxygen from the air."
+            "At these temperatures nitrogen from the air reacts with oxygen from the air.",
+            "The products include nitrogen monoxide, NO, and nitrogen dioxide, NO₂."
           ]
         },
         {
@@ -56,10 +57,8 @@
           "type": "diagram",
           "diagram": {
             "kind": "compare",
-            "alt": "Four atmospheric pollutants compared by source and effect.",
+            "alt": "Sulfur dioxide and oxides of nitrogen compared by source and effect.",
             "items": [
-              "Carbon monoxide",
-              "Particulates",
               "Sulfur dioxide",
               "Oxides of nitrogen"
             ],
@@ -67,17 +66,20 @@
               {
                 "feature": "Where it comes from",
                 "values": [
-                  "Incomplete combustion of fuels",
-                  "Incomplete combustion: soot and unburned hydrocarbons",
-                  "Burning sulfur impurities in fuels",
-                  "Nitrogen and oxygen from the air reacting at high temperature in engines"
+                  "Sulfur impurities in fuels burning",
+                  "Nitrogen and oxygen from the air reacting in engines"
+                ]
+              },
+              {
+                "feature": "Condition needed",
+                "values": [
+                  "Fuel burns in oxygen",
+                  "High temperature"
                 ]
               },
               {
                 "feature": "Effect",
                 "values": [
-                  "Toxic: stops the blood carrying oxygen",
-                  "Global dimming and health problems",
                   "Acid rain and respiratory problems",
                   "Acid rain and respiratory problems"
                 ]
@@ -90,7 +92,7 @@
           "items": [
             "Sulfur dioxide comes from sulfur impurities in fuels.",
             "Oxides of nitrogen come from nitrogen and oxygen in the air reacting at high temperature.",
-            "Particulates are a different pollutant: they cause global dimming."
+            "Both gases cause acid rain and respiratory problems."
           ]
         }
       ]
@@ -112,7 +114,7 @@
               "The fuel burns and the sulfur impurity reacts with oxygen",
               "Sulfur dioxide gas forms and is released into the atmosphere",
               "Sulfur dioxide dissolves in rain water or clouds",
-              "The rain becomes acidic and falls as acid rain",
+              "Sulfuric acid forms, so the rain becomes acidic and falls as acid rain",
               "Acid rain damages buildings, plants and water life"
             ]
           }
@@ -166,9 +168,9 @@
       "marks": 4
     },
     {
-      "q": "Name the pollutant that causes global dimming.",
-      "a": "Particulates.",
-      "marks": 1
+      "q": "Give two problems caused by the gas produced when sulfur burns in oxygen.",
+      "a": "Acid rain and respiratory problems.",
+      "marks": 2
     }
   ],
   "boards": {
@@ -185,8 +187,7 @@
         "damage to buildings / statues / bridges",
         "respiratory problems",
         "(car engines work at) high temperatures",
-        "nitrogen (from air) reacts with oxygen (from air)",
-        "particulates – global dimming"
+        "nitrogen (from air) reacts with oxygen (from air)"
       ],
       "mistakes": [
         {
@@ -194,8 +195,8 @@
           "right": "The nitrogen comes from the air. At the high temperature in the engine it reacts with oxygen from the air."
         },
         {
-          "wrong": "Particulates cause acid rain.",
-          "right": "Particulates cause global dimming. Sulfur dioxide causes acid rain."
+          "wrong": "Burning diesel produces sulfur, which causes acid rain.",
+          "right": "Sulfur reacts with oxygen to form sulfur dioxide. It is sulfur dioxide that causes acid rain."
         },
         {
           "wrong": "The only problem caused by sulfur dioxide is acid rain.",
@@ -229,7 +230,7 @@
         "sulfuric acid is formed",
         "acid rain damages buildings / statues",
         "kills fish / insects / water life",
-        "N₂ + 2O₂ → 2NO₂"
+        "sulfur is burned / oxidised / reacts with oxygen"
       ],
       "mistakes": [
         {
@@ -309,7 +310,9 @@
       "3be3805c-63d8-45cc-8a3b-b025a0b5105d",
       "ae651c6f-4239-405c-beab-91a5f123ddc3",
       "b811a93d-34dc-4fa8-a97d-a1e7e926383b"
-    ]
+    ],
+    "checked_by": "sonnet-science-check",
+    "checked_at": "2026-10-01"
   },
   "format": 1,
   "subject": "chemistry"

@@ -68,7 +68,7 @@
                 ]
               },
               {
-                "label": "Not enough oxygen, soot forms",
+                "label": "Not enough oxygen, carbon left unburned",
                 "results": [
                   "Incomplete combustion",
                   "Carbon (soot) and water",
@@ -121,7 +121,8 @@
           "type": "list",
           "items": [
             "It is colourless and odourless, so people cannot see or smell it.",
-            "It is toxic, so it is not easily detected before it does harm.",
+            "This means it is not easily detected before it does harm.",
+            "It is toxic.",
             "Carbon monoxide detectors are placed near boilers and other appliances that burn fuel."
           ]
         },
@@ -215,12 +216,8 @@
           "right": "No oxygen or no air is not accepted. Say there is not enough oxygen, so incomplete combustion happens."
         },
         {
-          "wrong": "Detectors are needed because carbon monoxide is corrosive or acidic.",
-          "right": "The three properties that make detectors necessary are colourless, odourless and toxic."
-        },
-        {
-          "wrong": "The solid pollutant from incomplete combustion is sulfur.",
-          "right": "The solid pollutant is soot, which is carbon. The gaseous pollutant is carbon monoxide."
+          "wrong": "Carbon monoxide is made by incomplete combustion.",
+          "right": "This earns one mark. Also say why: there is not enough (insufficient or limited) oxygen."
         }
       ],
       "worked_example": {
@@ -322,7 +319,9 @@
       "c09a49c4-a73a-4786-9966-7a73e3406534",
       "64468262-3adf-47d3-becd-8691fb28c6c1",
       "90cc8b0a-dc82-4d89-a268-ceb01b17e7ad"
-    ]
+    ],
+    "checked_by": "sonnet-science-check",
+    "checked_at": "2026-10-01"
   },
   "format": 1,
   "subject": "chemistry"

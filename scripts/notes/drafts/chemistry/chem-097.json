@@ -138,7 +138,7 @@
           "type": "list",
           "items": [
             "Scale: the effects are global and affect many countries at once.",
-            "Risk: scientists use evidence and models to judge how likely and how severe each effect will be.",
+            "Risk: flooding, drought and crop failure put people and food supplies at risk.",
             "Environmental implications: habitats change or are lost, and many species are affected."
           ]
         },
@@ -269,7 +269,7 @@
         },
         {
           "wrong": "One effect of climate change is global warming.",
-          "right": "Global warming is ignored in most mark schemes because it is the cause, not an effect. Name a specific effect such as melting ice caps."
+          "right": "Global warming is often ignored because it is the cause, not an effect. Name a specific effect such as melting ice caps."
         },
         {
           "wrong": "Climate change causes natural disasters.",
@@ -379,7 +379,9 @@
     "exemplar_ids": [
       "ed802034-c60e-4697-8034-bf5a7c45a05d",
       "3c077690-8725-4c31-b729-5b9fdd072c24"
-    ]
+    ],
+    "checked_by": "sonnet-science-check",
+    "checked_at": "2026-10-01"
   },
   "format": 1,
   "subject": "chemistry"

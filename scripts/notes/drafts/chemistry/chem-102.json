@@ -8,7 +8,7 @@
       "blocks": [
         {
           "type": "paragraph",
-          "text": "(Higher tier on some courses) The Earth's metal ores are limited. This section covers why new extraction methods are needed."
+          "text": "(Higher tier) The Earth's metal ores are limited. This section covers why new extraction methods are needed."
         },
         {
           "type": "list",
@@ -69,15 +69,18 @@
           "items": [
             "The ash contains the metal compounds.",
             "Copper can be obtained from the solution by displacement using scrap iron.",
-            "Copper can also be obtained from the solution by electrolysis."
+            "Copper can also be obtained from the solution by electrolysis.",
+            "Phytomining can also decontaminate land that contains metal compounds."
           ]
         },
         {
           "type": "equation",
           "label": "Displacement of copper by scrap iron",
-          "formula": "iron + copper sulfate → iron sulfate + copper",
+          "formula": "Fe(s) + CuSO₄(aq) → FeSO₄(aq) + Cu(s)",
           "where": [
-            "Iron is more reactive than copper, so it takes the place of copper in the solution."
+            "Fe is scrap iron, which is more reactive than copper so it displaces copper from the solution.",
+            "CuSO₄(aq) is the solution of a copper compound.",
+            "(s) means solid and (aq) means in solution."
           ]
         },
         {
@@ -132,7 +135,7 @@
         },
         {
           "type": "subheading",
-          "text": "Why these methods are not widely used"
+          "text": "Why phytomining is not widely used"
         },
         {
           "type": "list",
@@ -140,14 +143,15 @@
             "High-grade ores are still available.",
             "Land may not be available for growing plants.",
             "Phytomining takes a long time.",
-            "The technology is new."
+            "The technology is new.",
+            "Bioleaching may produce sulfuric acid, which can escape into water supplies or soil."
           ]
         },
         {
           "type": "key-points",
           "items": [
             "Biological methods let us extract metal from low-grade ores.",
-            "Both are slow and may give a low yield, so they are not widely used.",
+            "Phytomining is slow and may give a low yield, so it is not widely used.",
             "The metal is obtained from the solution by displacement or electrolysis."
           ]
         }
@@ -194,8 +198,8 @@
       ],
       "mistakes": [
         {
-          "wrong": "The plants are burned to give copper metal.",
-          "right": "Burning gives ash that contains copper compounds. The ash is dissolved in acid, then copper is obtained by electrolysis or displacement."
+          "wrong": "A disadvantage of phytomining is that it increases carbon dioxide and global warming.",
+          "right": "References to carbon dioxide and global warming are ignored. Give slower to produce copper, a large area of land needed, or insufficient yield."
         },
         {
           "wrong": "A disadvantage of phytomining is that it is expensive.",
@@ -315,7 +319,9 @@
       "30a43362-9c70-4f89-bf7e-9255cba3271e",
       "4579e9ab-098d-4eb3-9b90-bab036703309",
       "5047f0a6-d23e-4f76-8a18-81254b079392"
-    ]
+    ],
+    "checked_by": "sonnet-science-check",
+    "checked_at": "2026-10-01"
   },
   "format": 1,
   "subject": "chemistry"

@@ -319,7 +319,9 @@
     "exemplar_ids": [
       "8c8666eb-4c61-42bd-bbab-20d5bcbe5fed",
       "29f01815-d702-4f5e-b235-a6337e7b2ac8"
-    ]
+    ],
+    "checked_by": "sonnet-science-check",
+    "checked_at": "2026-10-01"
   },
   "format": 1,
   "subject": "chemistry"

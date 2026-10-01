@@ -270,6 +270,17 @@
           "right": "The frequency is constant (and so is the period). The speed and the wavelength change."
         }
       ],
+      "extra": [
+        {
+          "heading": "Course level",
+          "blocks": [
+            {
+              "type": "paragraph",
+              "text": "This topic is Higher tier content in this course."
+            }
+          ]
+        }
+      ],
       "worked_example": {
         "exemplar_id": "408a80b6-1a71-4235-bf85-b812f53cd4dc",
         "source": "AQA jun 2021, Paper 2 (H), Q03.4",

@@ -140,7 +140,7 @@
         {
           "type": "key-points",
           "items": [
-            "Reduce and reuse save the most resources. Recycling makes materials into new products.",
+            "Reusing and recycling reduce the use of limited resources. Recycling makes materials into new products.",
             "Metals are recycled by melting and recasting them."
           ]
         }
@@ -238,10 +238,6 @@
         {
           "wrong": "Sustainable development means not harming or damaging the planet.",
           "right": "This is ignored. Say it meets the needs of the current generation without compromising the needs of future generations."
-        },
-        {
-          "wrong": "Polymers are better than wood because they are renewable.",
-          "right": "Polymers are made from crude oil, which is finite. Their advantage is that they last a long time. Wood is the renewable material."
         }
       ],
       "worked_example": {
@@ -366,7 +362,9 @@
       "2a38386e-a289-4a76-9b16-e10913a41de3",
       "21780e96-cb5e-4cad-8b92-3493fa5cb765",
       "2f615415-7375-4616-88bb-d19bccd8870c"
-    ]
+    ],
+    "checked_by": "sonnet-science-check",
+    "checked_at": "2026-10-01"
   },
   "format": 1,
   "subject": "chemistry"

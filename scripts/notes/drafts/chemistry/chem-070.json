@@ -138,11 +138,11 @@
           "items": [
             {
               "lead": "A cube of side 1 cm.",
-              "text": "Surface area = 6 × 1 × 1 = 6 cm². Volume = 1 cm³. The ratio is 6."
+              "text": "Surface area = 6 × 1 × 1 = 6 cm². Volume = 1 cm³. The ratio is 6 /cm."
             },
             {
               "lead": "A cube of side 2 cm.",
-              "text": "Surface area = 6 × 2 × 2 = 24 cm². Volume = 8 cm³. The ratio is 3."
+              "text": "Surface area = 6 × 2 × 2 = 24 cm². Volume = 8 cm³. The ratio is 3 /cm."
             }
           ]
         },
@@ -320,7 +320,7 @@
       "worked_example": {
         "exemplar_id": "4e4d5923-1656-4a1b-8e7c-a31961fd84ef",
         "source": "EDEXCEL jun 2022, Paper 2 (H), Q2(b)(i)",
-        "question": "The experiment was repeated, but with acid of a higher concentration. The rate of reaction was faster.\n\nExplain why the rate of reaction increases when the concentration of acid is increased.",
+        "question": "An experiment involving an acid was repeated, but with acid of a higher concentration. The rate of reaction was faster.\n\nExplain why the rate of reaction increases when the concentration of acid is increased.",
         "marks": 2,
         "answer_points": [
           "There are more particles present in the same volume.",
@@ -384,6 +384,8 @@
       "93f62dbb-bb64-46e3-8809-5c5a9a8c998d",
       "4e4d5923-1656-4a1b-8e7c-a31961fd84ef",
       "d1cc345d-07ea-460a-8a37-f61fd38971ba"
-    ]
+    ],
+    "checked_by": "sonnet-science-check",
+    "checked_at": "2026-10-01"
   }
 }
