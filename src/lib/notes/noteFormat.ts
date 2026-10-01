@@ -93,7 +93,86 @@ export interface SliderDiagram {
   outputs: { label: string; unit?: string; formula: string; decimals?: number; bar?: boolean }[];
 }
 
-export type NoteDiagram = LineGraphDiagram | FlowDiagram | CompareDiagram | PredictorDiagram | SliderDiagram;
+/** Put jumbled steps into the right order. `steps` is the correct order. */
+export interface SequenceDiagram {
+  kind: "sequence";
+  alt: string;
+  prompt: string;
+  steps: string[];
+}
+
+/** Sort statements into two or three groups. `group` is an index into `groups`. */
+export interface SortDiagram {
+  kind: "sort";
+  alt: string;
+  prompt: string;
+  groups: string[];
+  items: { text: string; group: number }[];
+}
+
+/**
+ * A single-gene cross. Genotypes are two letters, each either the dominant or
+ * the recessive allele; a genotype with the dominant allele shows the dominant
+ * phenotype. Sex determination fits too: dominant "Y" → "Male", recessive "X" → "Female".
+ */
+export interface PunnettDiagram {
+  kind: "punnett";
+  alt: string;
+  alleles: { dominant: string; recessive: string };
+  phenotypes: { dominant: string; recessive: string };
+  /** The genotypes each parent can be set to, e.g. [["BB","Bb","bb"],["BB","Bb","bb"]]. */
+  parent_options: [string[], string[]];
+  parent_labels?: [string, string];
+}
+
+/**
+ * A calculation with fresh numbers every time. `question` and `working` use
+ * {id} for a variable and {answer} for the answer.
+ */
+export interface PracticeDiagram {
+  kind: "practice";
+  alt: string;
+  question: string;
+  variables: { id: string; min: number; max: number; step: number }[];
+  answer: { formula: string; unit?: string; decimals: number; tolerance_percent?: number };
+  working: string[];
+}
+
+/** Tap a part to learn what it does; then test yourself. */
+export interface ExplorerDiagram {
+  kind: "explorer";
+  alt: string;
+  prompt: string;
+  parts: { name: string; detail: string }[];
+}
+
+export type NoteDiagram =
+  | LineGraphDiagram
+  | FlowDiagram
+  | CompareDiagram
+  | PredictorDiagram
+  | SliderDiagram
+  | SequenceDiagram
+  | SortDiagram
+  | PunnettDiagram
+  | PracticeDiagram
+  | ExplorerDiagram;
+
+/** Fills {name} placeholders. Unknown names are left as they are, so a validator can spot them. */
+export function fillTemplate(text: string, values: Record<string, string>): string {
+  return text.replace(/\{([A-Za-z_][A-Za-z0-9_]*)\}/g, (m, k: string) => (k in values ? values[k] : m));
+}
+
+/** The values a practice variable can take: min, min+step, … ≤ max. */
+export function stepsOf(v: { min: number; max: number; step: number }): number[] {
+  const out: number[] = [];
+  for (let k = 0; k <= 10_000; k++) {
+    const x = +(v.min + k * v.step).toFixed(10);
+    if (x > v.max + 1e-9) break;
+    out.push(x);
+  }
+  return out;
+}
 
 export interface NoteCheck {
   q: string;
@@ -226,7 +305,64 @@ function checkDiagram(d: NoteDiagram, at: string, errs: string[]) {
           errs.push(`${at}: option "${o?.label}" needs a label and ${d.result_labels.length} results`);
   } else if (d?.kind === "slider") {
     checkSlider(d, at, errs);
+  } else if (d?.kind === "sequence") {
+    if (!isStr(d.prompt)) errs.push(`${at}: sequence needs a prompt`);
+    if (!isStrArr(d.steps, 3) || d.steps.length > 8) errs.push(`${at}: sequence needs 3–8 steps`);
+    else if (new Set(d.steps).size !== d.steps.length) errs.push(`${at}: sequence steps must all be different`);
+  } else if (d?.kind === "sort") {
+    if (!isStr(d.prompt)) errs.push(`${at}: sort needs a prompt`);
+    if (!isStrArr(d.groups, 2) || d.groups.length > 3) errs.push(`${at}: sort needs 2–3 groups`);
+    else if (!Array.isArray(d.items) || d.items.length < 4 || d.items.length > 12) errs.push(`${at}: sort needs 4–12 items`);
+    else {
+      if (!d.items.every((i) => isStr(i?.text) && Number.isInteger(i.group) && i.group >= 0 && i.group < d.groups.length))
+        errs.push(`${at}: every sort item needs text and a group index 0–${d.groups.length - 1}`);
+      if (d.groups.some((_, g) => !d.items.some((i) => i.group === g))) errs.push(`${at}: every sort group needs at least one item`);
+    }
+  } else if (d?.kind === "punnett") {
+    const { dominant: D, recessive: r } = d.alleles ?? ({} as PunnettDiagram["alleles"]);
+    if (!/^[A-Za-z]$/.test(D ?? "") || !/^[A-Za-z]$/.test(r ?? "") || D === r) errs.push(`${at}: punnett alleles must be two different single letters`);
+    if (!isStr(d.phenotypes?.dominant) || !isStr(d.phenotypes?.recessive)) errs.push(`${at}: punnett needs both phenotypes`);
+    if (!Array.isArray(d.parent_options) || d.parent_options.length !== 2) errs.push(`${at}: punnett needs parent_options for two parents`);
+    else
+      for (const opts of d.parent_options)
+        if (!Array.isArray(opts) || opts.length < 1 || !opts.every((g) => typeof g === "string" && g.length === 2 && [...g].every((c) => c === D || c === r)))
+          errs.push(`${at}: every punnett genotype must be two letters, each ${D} or ${r}`);
+  } else if (d?.kind === "practice") {
+    checkPractice(d, at, errs);
+  } else if (d?.kind === "explorer") {
+    if (!isStr(d.prompt)) errs.push(`${at}: explorer needs a prompt`);
+    if (!Array.isArray(d.parts) || d.parts.length < 3 || d.parts.length > 12 || !d.parts.every((p) => isStr(p?.name) && isStr(p?.detail)))
+      errs.push(`${at}: explorer needs 3–12 parts with name and detail`);
+    else if (new Set(d.parts.map((p) => p.name)).size !== d.parts.length) errs.push(`${at}: explorer part names must be different`);
   } else errs.push(`${at}: unknown diagram kind`);
+}
+
+function checkPractice(d: PracticeDiagram, at: string, errs: string[]) {
+  if (!isStr(d.question)) errs.push(`${at}: practice needs a question`);
+  if (!Array.isArray(d.variables) || d.variables.length < 1 || d.variables.length > 4) { errs.push(`${at}: practice needs 1–4 variables`); return; }
+  for (const v of d.variables)
+    if (!/^[A-Za-z_][A-Za-z0-9_]*$/.test(v?.id ?? "") || !(v.max >= v.min) || !(v.step > 0))
+      errs.push(`${at}: variable ${v?.id} needs an id, min ≤ max and step > 0`);
+  if (!isStr(d.answer?.formula) || !Number.isInteger(d.answer?.decimals) || d.answer.decimals < 0) { errs.push(`${at}: practice answer needs a formula and whole-number decimals`); return; }
+  if (!isStrArr(d.working, 1)) errs.push(`${at}: practice needs working steps`);
+  const ids = new Set(d.variables.map((v) => v.id));
+  const known = new Set([...ids, "answer"]);
+  for (const t of [d.question, ...(d.working ?? [])])
+    for (const [, k] of t.matchAll(/\{([A-Za-z_][A-Za-z0-9_]*)\}/g)) if (!known.has(k)) errs.push(`${at}: "{${k}}" is not a variable`);
+  try {
+    const tree = parseFormula(d.answer.formula);
+    const unknown = [...variablesOf(tree)].filter((v) => !ids.has(v));
+    if (unknown.length) { errs.push(`${at}: answer formula uses ${unknown.join(", ")}, which are not variables`); return; }
+    // Try every corner of the variable ranges: the answer must always be a finite number.
+    const ranges = d.variables.map((v) => [v.min, v.max]);
+    const corners = ranges.reduce<number[][]>((acc, r) => acc.flatMap((c) => r.map((x) => [...c, x])), [[]]);
+    for (const c of corners) {
+      const vars = Object.fromEntries(d.variables.map((v, i) => [v.id, c[i]]));
+      if (!Number.isFinite(evaluate(tree, vars))) { errs.push(`${at}: answer is not a finite number for ${JSON.stringify(vars)}`); break; }
+    }
+  } catch (e) {
+    errs.push(`${at}: answer formula: ${(e as Error).message}`);
+  }
 }
 
 function checkSlider(d: SliderDiagram, at: string, errs: string[]) {

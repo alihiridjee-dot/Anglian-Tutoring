@@ -1,5 +1,6 @@
 import { useMemo, useState, type ReactNode } from "react";
 import { evaluate, parseFormula } from "@/lib/notes/formula";
+import { Explorer, Practice, Punnett, Sequence, Sort } from "@/components/notes/NoteInteractives";
 import { BookOpen, Eye, EyeOff, ArrowRight, RotateCcw } from "lucide-react";
 import { PageHeader } from "@/components/Shared";
 import { SUBJECT_LABEL, SUBJECT_TINT } from "@/lib/curriculum/subjectTheme";
@@ -332,6 +333,11 @@ function Diagram({ d }: { d: NoteDiagram }) {
   if (d.kind === "flow") return <Flow d={d} />;
   if (d.kind === "predictor") return <Predictor d={d} />;
   if (d.kind === "slider") return <Slider d={d} />;
+  if (d.kind === "sequence") return <Sequence d={d} />;
+  if (d.kind === "sort") return <Sort d={d} />;
+  if (d.kind === "punnett") return <Punnett d={d} />;
+  if (d.kind === "practice") return <Practice d={d} />;
+  if (d.kind === "explorer") return <Explorer d={d} />;
   return <Compare d={d} />;
 }
 

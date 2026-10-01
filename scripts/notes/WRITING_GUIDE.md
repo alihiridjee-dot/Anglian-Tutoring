@@ -59,9 +59,27 @@ missed the lesson could learn the topic from this note alone.
      or named `choices`; each output has a `formula` using only the input ids and
      + - * / ^ ( ) sqrt abs min max. Mark outputs `bar: true` to stack them in a bar.
      Values must be realistic for GCSE and the formula must be the real equation.
-   Aim for one interactive (predictor or slider) wherever the topic genuinely
-   fits one; don't force it. Leave diagrams out if none earns its place. Never
-   more than two diagrams in a note.
+   - `sequence` (self-test): "put these steps in order". For any real sequence a
+     student must recall: cell cycle stages, a practical's method, the reflex arc,
+     blood flow through the heart. 3 to 8 steps, given in the correct order.
+   - `sort` (self-test): "sort these into groups". For classification the mark
+     schemes test: eukaryotic/prokaryotic, thinking/braking distance factors,
+     exothermic/endothermic. 2 or 3 groups, 4 to 12 short items.
+   - `punnett` (interactive): a single-gene cross with dominant and recessive
+     alleles, including genetic disorders and sex determination (X/Y).
+   - `practice` (self-test): a calculation with new numbers each time. Use it
+     for every equation students must apply (magnification, SA:V, moles, V = IR,
+     density, speed…). `question` and `working` use {id} and {answer}; ranges
+     must give sensible GCSE numbers; set `decimals` to what a mark scheme expects.
+   - `explorer` (self-test): "tap a part to learn its job, then test yourself".
+     For named parts with functions: cell structures, the heart, the eye, the
+     kidney. 3 to 12 parts, each detail one or two sentences.
+
+   Choosing: give each note **one interactive** wherever one genuinely fits,
+   picking the template that matches what students are examined on (recall a
+   sequence → `sequence`; apply an equation → `practice` or `slider`; predict an
+   outcome → `predictor`; name parts → `explorer`). Don't force one. Never more
+   than two diagrams in a note.
 4. **checks** — three short questions a student can answer from the note, with
    answers written the way a mark scheme would credit them.
 5. **boards** — one layer for every board that has a spec point in the concept:
