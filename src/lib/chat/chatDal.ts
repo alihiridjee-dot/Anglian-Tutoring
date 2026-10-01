@@ -64,15 +64,20 @@ export interface ThreadSummary extends ChatThread {
 /**
  * The name a tutor sees for a thread's member. A parent is named with the
  * child the conversation is about, because "Mum" alone doesn't say whose.
+ * Once the parent is unlinked the thread is hidden from them and replies no
+ * longer reach them, so the label says so rather than claiming the link.
  */
 export function memberLabel(
   t: Pick<ChatThread, "student_id" | "about_student_id">,
   names: ReadonlyMap<string, string>,
+  linked = true,
 ): string {
   const member = names.get(t.student_id);
   if (!t.about_student_id) return member || "Student";
-  const child = names.get(t.about_student_id);
-  return `${member || "Parent"} · parent of ${child || "a student"}`;
+  const child = names.get(t.about_student_id) || "a student";
+  return linked
+    ? `${member || "Parent"} · parent of ${child}`
+    : `${member || "Parent"} · no longer linked to ${child}`;
 }
 
 const THREAD_COLUMNS =
@@ -176,6 +181,27 @@ export class ChatDAL {
     }
     const tutorNames = new Map(tutors.map((t) => [t.id, t.display_name]));
 
+    // Which parents are still linked to the child their thread is about.
+    // Tutors may read every link. Thrown on failure like the reads above:
+    // a guess here would tell a tutor a removed parent can still read replies.
+    const aboutIds = [
+      ...new Set(
+        rows
+          .filter((t) => t.student_id !== uid)
+          .map((t) => t.about_student_id)
+          .filter((id): id is string => !!id),
+      ),
+    ];
+    const linkedPairs = new Set<string>();
+    if (aboutIds.length > 0) {
+      const { data: links, error: linksError } = await supabase
+        .from("parent_student_links")
+        .select("parent_id, student_id")
+        .in("student_id", aboutIds);
+      if (linksError) throw new Error(linksError.message);
+      for (const l of links ?? []) linkedPairs.add(`${l.parent_id}:${l.student_id}`);
+    }
+
     // Bucket the messages by thread once. Re-filtering the whole array inside the
     // map below made this O(threads × messages) — fine for a student with three
     // conversations, quadratic for a tutor working an inbox, which is the only
@@ -202,7 +228,11 @@ export class ChatDAL {
         lastMessage: threadMessages.at(-1)?.body ?? null,
         counterpartName: mine
           ? (t.tutor_id && tutorNames.get(t.tutor_id)) || "Your tutor"
-          : memberLabel(t, memberNames),
+          : memberLabel(
+              t,
+              memberNames,
+              !t.about_student_id || linkedPairs.has(`${t.student_id}:${t.about_student_id}`),
+            ),
       };
     });
   }
