@@ -22,6 +22,22 @@ import { mergeWeek, selectWeek, unsupportedReviews, type WeekSelection } from ".
 
 export { handPicked } from "./weekCut";
 
+/** Whether a stored exam date resolves to a real, modern calendar day. */
+export function isReadableExamDate(key: string): boolean {
+  try {
+    const year = weekKeyToDate(key).getUTCFullYear();
+    return year >= 2000 && year <= 2100;
+  } catch {
+    return false;
+  }
+}
+
+/** The dates a student may choose as their exam: today to four years out. */
+export function examDateBounds(today: Date = new Date()): { min: string; max: string } {
+  const min = toDateKey(today);
+  return { min, max: `${Number(min.slice(0, 4)) + 4}${min.slice(4)}` };
+}
+
 /**
  * The year-long curriculum programme ([[pacing]]) with persistence. The core
  * spine defaults to curriculum order from the first programme visit to the exam,
@@ -57,6 +73,12 @@ export class ProgramDAL {
       .maybeSingle();
 
     if (baselineError) throw baselineError;
+    // A stored date the calendar can't resolve (a half-typed "0002-06-01") must
+    // not take the whole planner down, or the date box that would fix it never
+    // renders. Plan against the default exam week instead; the next save
+    // replaces the bad value.
+    if (baseline && !isReadableExamDate(baseline.exam_date))
+      baseline.exam_date = toDateKey(examMondayFor());
 
     const thisMonday = mondayOf();
     const thisWeek = toDateKey(thisMonday);
@@ -361,6 +383,9 @@ export class ProgramDAL {
     subject: SubjectV;
     examDate: string;
   }): Promise<void> {
+    const { min, max } = examDateBounds();
+    if (!isReadableExamDate(params.examDate) || params.examDate < min || params.examDate > max)
+      throw new Error("Choose an exam date between today and four years from now.");
     const { data: saved, error: readError } = await supabase
       .from("student_program_plan")
       .select("pacing")

@@ -1,6 +1,7 @@
 import { createServerFn } from "@tanstack/react-start";
 import Anthropic from "@anthropic-ai/sdk";
 import { requireSupabaseAuth } from "@/integrations/supabase/auth-middleware";
+import { requireTutorAi } from "@/lib/auth/tutorAi.server";
 
 // The student-facing "what you'll focus on this week" summary is generated ONCE
 // when the tutor saves a week's spec points, and persisted on the weekly_focus
@@ -92,7 +93,8 @@ export const refreshWeeklySummary = createServerFn({ method: "POST" })
     return { focusId: String(input.focusId) };
   })
   .handler(async ({ data, context }) => {
-    const { supabase } = context;
+    const { supabase, userId } = context;
+    await requireTutorAi(supabase, userId, "weekly_summary");
 
     const { data: row, error } = await supabase
       .from("weekly_focus")

@@ -25,7 +25,7 @@ import { useBodyScrollLock } from "@/hooks/useBodyScrollLock";
  */
 export function PaywallOverlay() {
   const navigate = useNavigate();
-  const { resumable, isPending, error, refetch } = useOwnPlanState();
+  const { resumable, paymentOverdue, isPending, error, refetch } = useOwnPlanState();
   // The locked page underneath must not scroll under a thumb.
   useBodyScrollLock(true);
 
@@ -84,6 +84,26 @@ export function PaywallOverlay() {
               className="w-full h-11 rounded-xl btn-solid font-semibold hover:opacity-90 text-sm shadow-sm inline-flex items-center justify-center gap-2"
             >
               <PlayCircle className="h-4 w-4" /> Resume my plan
+            </button>
+          </>
+        ) : paymentOverdue ? (
+          // A failed card is not a lapsed plan: the subscription is still there
+          // and Stripe retries once the card is updated. The shop would only be
+          // refused, so send them to the portal button on Billing.
+          <>
+            <h1 id="paywall-title" className="font-display text-2xl font-bold tracking-tight mb-2">
+              Your last payment didn&apos;t go through
+            </h1>
+            <p className="text-sm text-muted-foreground mb-6 leading-relaxed">
+              Your plan is still here — the card just needs updating. Once it&apos;s updated in
+              Billing, your dashboard, progress and history come straight back.
+            </p>
+            <button
+              type="button"
+              onClick={() => navigate({ to: "/billing" })}
+              className="w-full h-11 rounded-xl btn-solid font-semibold hover:opacity-90 text-sm shadow-sm inline-flex items-center justify-center gap-2"
+            >
+              <CreditCard className="h-4 w-4" /> Update the card
             </button>
           </>
         ) : (

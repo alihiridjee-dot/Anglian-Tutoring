@@ -1,4 +1,4 @@
-import { createFileRoute, useNavigate } from "@tanstack/react-router";
+import { createFileRoute, Link, useNavigate } from "@tanstack/react-router";
 import { useEffect, useState } from "react";
 import { supabase } from "@/integrations/supabase/client";
 import { toast } from "sonner";
@@ -14,20 +14,37 @@ export const Route = createFileRoute("/reset-password")({
   component: ResetPasswordPage,
 });
 
+/** True when the session was opened from a reset link (GoTrue records AMR "recovery"). */
+function isRecoverySession(amr: unknown): boolean {
+  if (!Array.isArray(amr)) return false;
+  return amr.some((entry) =>
+    typeof entry === "string" ? entry === "recovery" : entry?.method === "recovery",
+  );
+}
+
 function ResetPasswordPage() {
   const navigate = useNavigate();
   const [password, setPassword] = useState("");
   const [confirm, setConfirm] = useState("");
   const [loading, setLoading] = useState(false);
   const [ready, setReady] = useState(false);
+  // Signed in, but not from a reset link.
+  const [ordinarySession, setOrdinarySession] = useState(false);
 
   useEffect(() => {
-    // Supabase places a recovery session in the URL hash when the user clicks the reset link
+    // Only a session opened from the reset email may set a password here. An
+    // ordinary signed-in session must go through the profile page, which asks
+    // for the current password first — otherwise a borrowed laptop is enough to
+    // take the account over.
     const { data: sub } = supabase.auth.onAuthStateChange((event) => {
-      if (event === "PASSWORD_RECOVERY" || event === "SIGNED_IN") setReady(true);
+      if (event === "PASSWORD_RECOVERY") setReady(true);
     });
-    supabase.auth.getSession().then(({ data }) => {
-      if (data.session) setReady(true);
+    // The event can fire while the client initialises, before this listener is
+    // attached, so also read how the current session was authenticated.
+    supabase.auth.getClaims().then(({ data }) => {
+      if (!data) return;
+      if (isRecoverySession(data.claims.amr)) setReady(true);
+      else setOrdinarySession(true);
     });
     return () => sub.subscription.unsubscribe();
   }, []);
@@ -70,9 +87,20 @@ function ResetPasswordPage() {
             Set a new password
           </h1>
           <p className="text-sm text-muted-foreground mb-6">
-            {ready
-              ? "Enter and confirm your new password below."
-              : "Waiting for your recovery link… If nothing happens, request a new email."}
+            {ready ? (
+              "Enter and confirm your new password below."
+            ) : ordinarySession ? (
+              <>
+                This page only works from the link in a password reset email. To change your
+                password while signed in, go to{" "}
+                <Link to="/profile" className="underline underline-offset-2 text-foreground">
+                  your profile
+                </Link>
+                .
+              </>
+            ) : (
+              "Waiting for your recovery link… If nothing happens, request a new email."
+            )}
           </p>
           <form onSubmit={handleSubmit} className="space-y-4">
             <div>

@@ -11,6 +11,7 @@ import {
   removeSubjects,
   changeCadence,
   resolvePackagesForLevel,
+  isPaymentOverdue,
   type Invoice,
   type PackageRow,
   type SubscriptionRow,
@@ -139,6 +140,8 @@ export function useOwnPlanState() {
     sub,
     /** A dormant plan that Resume brings back — never a reason to buy again. */
     resumable: !!sub && (sub.status === "paused" || sub.cancel_at_period_end),
+    /** The last payment failed: the answer is a new card, never a new plan. */
+    paymentOverdue: !!sub && isPaymentOverdue(sub.status),
     /** No plan has ever existed for this student, so Checkout is correct. */
     neverSubscribed: !query.isPending && sub === null,
   };

@@ -15,6 +15,7 @@ import {
 } from "@/hooks/data/useBilling";
 import {
   isSubscriptionLive,
+  isPaymentOverdue,
   planLabel,
   formatPence,
   billingIntervalLabel,
@@ -97,6 +98,9 @@ function BillingPage() {
   const sub = subs[0] ?? null;
   const loading = packagesLoading || subsLoading;
   const hasUsablePlan = !!sub && (isSubscriptionLive(sub.status) || sub.status === "paused");
+  // A failed payment still has a plan to show — with the card-update button —
+  // but nothing to change on it and nothing to buy on top of it.
+  const paymentOverdue = !!sub && isPaymentOverdue(sub.status);
 
   const payment = useCheckoutReturn({
     status: checkout,
@@ -179,7 +183,7 @@ function BillingPage() {
               // through to the branch below told a paying student to pick a
               // plan, with the shop open underneath.
               <ErrorNote error={subsQuery.error} onRetry={() => void subsQuery.refetch()} />
-            ) : hasUsablePlan && sub ? (
+            ) : (hasUsablePlan || paymentOverdue) && sub ? (
               <>
                 <SubscriptionPanel
                   sub={sub}
@@ -261,17 +265,21 @@ function BillingPage() {
         {/* Billing rhythm only — three rows, not the old nine-card grid. What
             the plan covers is the subjects card's job, so a switch here can't
             change it (and can't sell coverage the student isn't enrolled in). */}
-        {userId && !subsQuery.error && !awaitingPayment && (canManage || !hasUsablePlan) && (
-          <div className="mb-8">
-            <CadenceSwitcher
-              studentId={userId}
-              currentTier={activeTier}
-              subjectCount={enrolments.length}
-              level={level}
-              canManage={canManage || !hasUsablePlan}
-            />
-          </div>
-        )}
+        {userId &&
+          !subsQuery.error &&
+          !awaitingPayment &&
+          !paymentOverdue &&
+          (canManage || !hasUsablePlan) && (
+            <div className="mb-8">
+              <CadenceSwitcher
+                studentId={userId}
+                currentTier={activeTier}
+                subjectCount={enrolments.length}
+                level={level}
+                canManage={canManage || !hasUsablePlan}
+              />
+            </div>
+          )}
 
         {/* Shared household history: a student sees payments on their plan even
             when a linked parent's card was charged. Empty ("No payments yet")
