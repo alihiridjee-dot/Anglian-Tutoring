@@ -345,6 +345,7 @@ export type Database = {
           answers: Json;
           notes: string | null;
           resource_id: string;
+          stamps: Json;
           student_id: string;
           updated_at: string;
         };
@@ -352,6 +353,7 @@ export type Database = {
           answers?: Json;
           notes?: string | null;
           resource_id: string;
+          stamps?: Json;
           student_id: string;
           updated_at?: string;
         };
@@ -359,6 +361,7 @@ export type Database = {
           answers?: Json;
           notes?: string | null;
           resource_id?: string;
+          stamps?: Json;
           student_id?: string;
           updated_at?: string;
         };
@@ -2015,6 +2018,16 @@ export type Database = {
         Returns: string;
       };
       sweep_stale_homework_drafts: { Args: never; Returns: number };
+      sync_homework_draft: {
+        Args: {
+          _answers?: Json;
+          _client_now?: number;
+          _notes?: string;
+          _resource_id: string;
+          _stamps?: Json;
+        };
+        Returns: Json;
+      };
       tutor_directory: {
         Args: never;
         Returns: {
