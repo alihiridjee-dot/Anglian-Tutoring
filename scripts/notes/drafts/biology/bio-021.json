@@ -1,0 +1,321 @@
+{
+  "format": 1,
+  "concept_id": "bio-021",
+  "subject": "biology",
+  "title": "Factors affecting enzyme activity",
+  "key_idea": "Temperature, pH and substrate concentration change how fast an enzyme works. Each enzyme has an optimum temperature and pH. Too hot or too acidic or alkaline, and the active site changes shape, so the enzyme is denatured and stops working.",
+  "sections": [
+    {
+      "heading": "Temperature",
+      "blocks": [
+        { "type": "paragraph", "text": "Temperature changes how fast the molecules move, and it can change the shape of the enzyme. Try the slider to see both effects." },
+        {
+          "type": "definitions",
+          "items": [
+            { "term": "Optimum", "meaning": "The temperature or pH at which an enzyme works fastest." },
+            { "term": "Denatured", "meaning": "The active site has changed shape, so the substrate no longer fits and the enzyme cannot work." }
+          ]
+        },
+        {
+          "type": "diagram",
+          "diagram": {
+            "kind": "slider",
+            "alt": "Change the temperature and watch the enzyme. The rate rises towards the optimum, then falls sharply as the active site changes shape.",
+            "inputs": [
+              { "id": "T", "label": "Temperature", "unit": "°C", "min": 0, "max": 70, "step": 5, "value": 37 }
+            ],
+            "outputs": [
+              {
+                "label": "Relative rate of reaction",
+                "unit": "%",
+                "formula": "max(0, min(100 * (T / 37) ^ 2, 100 - 10 * (T - 37)))",
+                "decimals": 0
+              }
+            ],
+            "scene": { "kind": "enzyme", "condition": "T", "optimum": 37, "denatures_at": 23 }
+          }
+        },
+        { "type": "subheading", "text": "Below the optimum" },
+        {
+          "type": "list",
+          "items": [
+            "The molecules have less kinetic energy and move more slowly.",
+            "There are fewer collisions between enzyme and substrate, so fewer enzyme-substrate complexes form.",
+            "The reaction is slow, but the enzyme is not denatured."
+          ]
+        },
+        { "type": "subheading", "text": "Above the optimum" },
+        {
+          "type": "list",
+          "items": [
+            "Higher temperature gives more kinetic energy and more collisions, so the rate rises up to the optimum.",
+            "Above the optimum the active site changes shape and the substrate no longer fits.",
+            "The enzyme is denatured and the rate falls to zero."
+          ]
+        },
+        {
+          "type": "key-points",
+          "items": [
+            "Rate rises with temperature up to the optimum, because of more collisions.",
+            "Too hot: the active site changes shape and the enzyme is denatured.",
+            "Too cold: the enzyme is slow, not denatured."
+          ]
+        }
+      ]
+    },
+    {
+      "heading": "pH",
+      "blocks": [
+        { "type": "paragraph", "text": "Each enzyme works best at one pH. Values above or below the optimum reduce the rate." },
+        {
+          "type": "list",
+          "items": [
+            "Enzymes are protein molecules with a 3D structure and an active site of a specific shape.",
+            "At pH values above or below the optimum, the shape of the active site changes in some molecules, so the rate decreases.",
+            "At extreme pH values the enzyme is denatured and the substrate can no longer fit.",
+            "Different enzymes have different optimum pH values. The protease in the stomach works in acid. Amylase works best in alkaline conditions and is denatured in the acid of the stomach."
+          ]
+        },
+        {
+          "type": "key-points",
+          "items": [
+            "Each enzyme has an optimum pH.",
+            "Extreme pH changes the shape of the active site and denatures the enzyme.",
+            "A denatured enzyme cannot catalyse the reaction, so the rate falls."
+          ]
+        }
+      ]
+    },
+    {
+      "heading": "Substrate concentration",
+      "blocks": [
+        { "type": "paragraph", "text": "More substrate means more collisions with active sites, until every active site is in use." },
+        {
+          "type": "list",
+          "items": [
+            "Increasing the substrate concentration increases the rate of reaction, because there are more collisions with active sites.",
+            "More active sites are occupied and more enzyme-substrate complexes form.",
+            "Later the curve flattens. All the active sites are in use, so extra substrate makes no difference.",
+            "Increasing the enzyme concentration also increases the rate, because there are more active sites."
+          ]
+        },
+        {
+          "type": "key-points",
+          "items": [
+            "More substrate gives a faster rate, up to a limit.",
+            "The curve flattens when every active site is occupied.",
+            "More enzyme means more active sites and a faster rate."
+          ]
+        }
+      ]
+    },
+    {
+      "heading": "Calculating the rate of reaction",
+      "blocks": [
+        { "type": "paragraph", "text": "Rate tells you how fast a reaction goes. You often work it out from the time taken or the amount of product." },
+        {
+          "type": "equation",
+          "label": "Rate from the time taken",
+          "formula": "rate = 1 ÷ time",
+          "where": ["rate, in s⁻¹ (per second)", "time taken for the reaction, in s"]
+        },
+        {
+          "type": "equation",
+          "label": "Rate from the amount",
+          "formula": "rate = amount ÷ time",
+          "where": ["amount of substrate digested or product made, for example in g or cm³", "time, for example in minutes or s"]
+        },
+        {
+          "type": "steps",
+          "items": [
+            { "lead": "Time taken.", "text": "A potato disc rises in 75 seconds in 25% hydrogen peroxide." },
+            { "lead": "Calculate.", "text": "1 ÷ 75 = 0.01333." },
+            { "lead": "Round.", "text": "To 3 decimal places the rate is 0.013 s⁻¹." }
+          ]
+        },
+        {
+          "type": "diagram",
+          "diagram": {
+            "kind": "practice",
+            "alt": "Practise calculating a rate of reaction from the time taken.",
+            "question": "A potato disc takes **{t} seconds** to rise in hydrogen peroxide solution. Calculate the rate of reaction in s⁻¹, using rate = 1 ÷ time. Give your answer to 3 decimal places.",
+            "variables": [{ "id": "t", "min": 40, "max": 100, "step": 5 }],
+            "answer": { "formula": "1 / t", "unit": "s⁻¹", "decimals": 3 },
+            "working": [
+              "Rate = 1 ÷ time",
+              "Rate = 1 ÷ {t} = **{answer}** s⁻¹"
+            ]
+          }
+        },
+        {
+          "type": "key-points",
+          "items": [
+            "A shorter time means a faster rate.",
+            "Give the answer to the number of decimal places or significant figures the question asks for."
+          ]
+        }
+      ]
+    }
+  ],
+  "checks": [
+    {
+      "q": "Explain why an enzyme works slowly at 5 °C.",
+      "a": "The enzyme and substrate molecules have low kinetic energy, so there are fewer collisions and fewer enzyme-substrate complexes form.",
+      "marks": 2
+    },
+    {
+      "q": "What happens to an enzyme at a very high temperature or an extreme pH?",
+      "a": "It is denatured. The shape of the active site changes, so the substrate can no longer fit.",
+      "marks": 2
+    },
+    {
+      "q": "At pH 4, trypsin digested 1.5 g of mashed food in 2 minutes. At pH 1 it took 42 minutes to digest 1.5 g. Calculate the rate of digestion at pH 1 to 1 significant figure.",
+      "a": "1.5 ÷ 42 = 0.0357, which is 0.04 g per minute.",
+      "marks": 2
+    }
+  ],
+  "boards": {
+    "aqa": {
+      "spec_codes": ["AQA 2.5", "AQA T 4.2.2.1"],
+      "exam_phrases": [
+        "amylase / starch molecules have low (kinetic) energy",
+        "fewer (enzyme-substrate) collisions",
+        "fewer enzyme-substrate complexes are formed",
+        "(close to) the optimum / best temperature for the enzyme",
+        "the amylase has been denatured",
+        "the shape of the active site changes",
+        "(so) the substrate can no longer fit / bind",
+        "at extreme pH values the enzyme is denatured"
+      ],
+      "mistakes": [
+        {
+          "wrong": "At 80 °C the amylase was killed.",
+          "right": "\"Killed\" or \"has died\" is not accepted. Enzymes are not alive. Say the amylase is denatured, or that the shape of the active site has changed."
+        },
+        {
+          "wrong": "No carbon dioxide was produced at 2 °C because the enzymes were denatured.",
+          "right": "Denatured is not accepted for a very low temperature. Say it was too cold for the enzymes to work, or that there were no successful collisions."
+        },
+        {
+          "wrong": "The plant was denatured at 45 °C.",
+          "right": "\"The plant\" or \"the cells\" denatured is not accepted. Enzymes are denatured. Say the enzymes in the plant became destroyed and the active site changed shape."
+        },
+        {
+          "wrong": "The timing might be inaccurate because of human error.",
+          "right": "\"Human error\" unqualified is ignored. Say that deciding when the colour has changed is subjective, or based on opinion."
+        }
+      ],
+      "worked_example": {
+        "exemplar_id": "6942a23d-7a2e-4cd2-9a7c-0b9f33dbf2ff",
+        "source": "AQA jun 2021, Paper 1 (H), Q05.7",
+        "question": "A student investigated the effect of temperature on amylase breaking down starch. Iodine solution turns blue-black when starch is present and is yellow-brown when there is no starch.\n\nThe table shows the time taken for the iodine solution to become yellow-brown.\n\n5 °C: did not become yellow-brown\n20 °C: 5 minutes\n35 °C: 2 minutes\n50 °C: 7 minutes\n65 °C: 14 minutes\n80 °C: did not become yellow-brown\n\nExplain the results at 5 °C and at 80 °C.",
+        "marks": 5,
+        "answer_points": [
+          "The iodine did not become yellow-brown because the starch was still present, or had not been broken down.",
+          "At 5 °C the amylase and starch molecules have low (kinetic) energy.",
+          "Therefore there are fewer enzyme-substrate collisions (allow: fewer enzyme-substrate complexes formed).",
+          "At 80 °C the amylase has been denatured (allow: the shape of the amylase or active site changes).",
+          "So the starch can no longer fit (allow: the bonds holding the amylase in its 3D shape have broken)."
+        ],
+        "tip": "Treat the two temperatures separately. Low energy and fewer collisions for 5 °C. Denatured and the starch no longer fits for 80 °C. \"Killed\" is not accepted."
+      }
+    },
+    "edexcel": {
+      "spec_codes": ["EDEX 1.8", "EDEX 1.9", "EDEX 1.11"],
+      "exam_phrases": [
+        "enzymes have an optimum temperature",
+        "enzyme activity increases as temperature increases (up to the optimum)",
+        "the temperature is above the optimum, so the enzyme denatures",
+        "the active site changes shape, so no enzyme-substrate complexes form",
+        "more active sites of the enzyme are filled",
+        "increased chance of collisions with the active site",
+        "the curve flattens",
+        "1.5 ÷ 42 = 0.0357 = 0.04 g per minute"
+      ],
+      "mistakes": [
+        {
+          "wrong": "The lipase was killed by boiling.",
+          "right": "\"Killed\" is rejected. Say the enzyme is denatured, because the temperature is above the optimum, so the active site changes shape."
+        },
+        {
+          "wrong": "The same volume of lactose was used to make it a fair test.",
+          "right": "\"Fair test\", \"accurate\" and \"reliable\" are ignored. Say lactose is the substrate and a controlled variable, so the results can be compared and a valid conclusion drawn."
+        },
+        {
+          "wrong": "Boiling changes the shape of the protein, so it cannot be digested.",
+          "right": "References to the protein changing shape are ignored. It is the enzyme, and its active site, that changes shape, so the substrate does not fit."
+        },
+        {
+          "wrong": "Rate = 1 ÷ 75 = 0.01333 s⁻¹.",
+          "right": "Give the correct number of decimal places. For 3 decimal places the answer is 0.013 s⁻¹. The second mark is for the correct rounding."
+        }
+      ],
+      "worked_example": {
+        "exemplar_id": "d85db5fb-6932-4682-b42b-ca849799ffa4",
+        "source": "EDEXCEL nov 2020, Paper 2 (H), Q5(c)(ii)",
+        "question": "A student investigated the effect of pH on the enzyme trypsin digesting mashed food.\n\nAt pH 4, the trypsin digested 1.5 g of mashed food at a rate of 0.8 g per minute. At pH 1, it took 42 minutes to digest the 1.5 g of mashed food.\n\nCalculate the rate of digestion at pH 1.\n\nGive your answer to one significant figure.",
+        "marks": 2,
+        "answer_points": [
+          "Substitution: 1.5 ÷ 42 = 0.0357.",
+          "Evaluation: 0.04 g per minute (any correctly rounded value, for example 0.036, is accepted)."
+        ],
+        "tip": "One mark for the substitution and one mark for the evaluation to one significant figure."
+      }
+    },
+    "ocr": {
+      "spec_codes": ["OCR 1.2g"],
+      "exam_phrases": [
+        "increased kinetic energy, so more collisions",
+        "more enzyme-substrate complexes forming",
+        "particles moving more slowly, so less frequent collisions",
+        "the enzyme is denatured",
+        "the shape of the active site has changed / it cannot bind to the substrate",
+        "the optimum pH is between 6 and 8",
+        "below the optimum the enzymes were working too slowly"
+      ],
+      "mistakes": [
+        {
+          "wrong": "Acid pollution kills the enzymes.",
+          "right": "\"Kills enzymes\" or \"enzymes die\" is not allowed. Say the enzymes work slower or stop working, or that they are denatured because the active site changes shape."
+        },
+        {
+          "wrong": "Hypothermia is harmful because it denatures enzymes.",
+          "right": "\"Denatures enzymes\" is not allowed for a low body temperature. Say it affects the enzymes and slows or stops the rate of reactions, so metabolism and respiration slow down."
+        },
+        {
+          "wrong": "Increasing the temperature gives the particles more energy, so there are more collisions.",
+          "right": "\"More energy\" is ignored. Say increased kinetic energy, or that the particles move faster, so there is a greater chance of the substrate colliding with the active site."
+        }
+      ],
+      "worked_example": {
+        "exemplar_id": "04e9e6a0-7df3-4ec8-8517-ac6b60d816cb",
+        "source": "OCR jun 2023, Paper 3, Q20(a)",
+        "question": "A student makes pineapple jelly using two different methods. Both methods use a protein called gelatin which causes the jelly to set.\n\nTinned pineapple is fresh pineapple which has been treated with heat.\n\nMethod 1: Fresh pineapple is added to the gelatin. It is left for 2 hours. The jelly does not set.\nMethod 2: Tinned pineapple is added to the gelatin. It is left for 2 hours. The jelly sets.\n\nPineapple contains an enzyme called bromelain. Bromelain digests proteins.\n\nExplain why the jelly made with fresh pineapple does not set but the jelly made with tinned pineapple does set.\n\nUse your knowledge of enzymes.",
+        "marks": 4,
+        "answer_points": [
+          "Method 1: the bromelain (enzyme) breaks down the gelatin (protein), so the jelly cannot set.",
+          "Method 2: the bromelain (enzyme) has been denatured.",
+          "The active site of the enzyme changes shape, or the gelatin (protein) no longer fits into the active site.",
+          "The gelatin (protein) has not been broken down, so the jelly can set."
+        ],
+        "tip": "One mark for each of the four points. Heat denatures the enzyme. Do not say that the heat killed it."
+      }
+    }
+  },
+  "meta": {
+    "status": "draft",
+    "written_by": "sonnet-5-5",
+    "written_at": "2026-10-01",
+    "spec_point_ids": [
+      "de188d30-d767-4c9b-b53d-b5d546469476",
+      "0162eebf-2203-4888-ad39-dcf62aec3b66",
+      "e0b529e3-db13-4545-afa7-8edfe8becc85",
+      "019d89d3-91a5-41d7-81ec-221fb757c80c"
+    ],
+    "exemplar_ids": [
+      "6942a23d-7a2e-4cd2-9a7c-0b9f33dbf2ff",
+      "d85db5fb-6932-4682-b42b-ca849799ffa4",
+      "04e9e6a0-7df3-4ec8-8517-ac6b60d816cb"
+    ]
+  }
+}

@@ -25,7 +25,7 @@
             },
             {
               "term": "Metallic bonding",
-              "meaning": "Atoms share delocalised electrons."
+              "meaning": "Strong electrostatic attraction between positive metal ions and delocalised electrons."
             }
           ]
         },
@@ -49,7 +49,7 @@
             ],
             [
               "Metallic",
-              "Atoms sharing delocalised electrons",
+              "Positive metal ions and delocalised electrons",
               "Metal elements and alloys"
             ]
           ]
@@ -179,7 +179,11 @@
           "type": "list",
           "items": [
             "**Simple molecular** substances have low melting points because little energy is needed to overcome the weak forces between molecules.",
-            "**Giant** structures have high melting points because a lot of energy is needed to break many strong bonds.",
+            "**Giant** structures have high melting points because a lot of energy is needed to break many strong bonds or overcome strong forces.",
+            "Ionic compounds conduct when molten or dissolved because the ions are free to move. They do not conduct as solids because the ions are fixed in place.",
+            "Metals conduct because delocalised electrons can move through the structure.",
+            "Many ionic compounds dissolve in water. Giant covalent substances and metals do not.",
+            "Polymers have strong covalent bonds within their chains and weak intermolecular forces between chains. They have low melting points, do not conduct and can be flexible.",
             "Atoms themselves do not have the bulk properties of a material. Melting point and conductivity belong to the whole structure."
           ]
         },
@@ -259,8 +263,8 @@
         "AQA T 5.2.1.1"
       ],
       "exam_phrases": [
-        "ionic (metal with non-metal)",
-        "covalent (compounds of non-metals)",
+        "covalent",
+        "(so) argon (atoms) do not share / transfer electrons",
         "magnesium (atom) loses electrons",
         "oxygen (atom) gains electrons",
         "magnesium ions and oxide ions are formed",
@@ -272,8 +276,8 @@
           "right": "Say argon atoms have a full outer shell, a stable arrangement of electrons, so they do not share or transfer electrons."
         },
         {
-          "wrong": "The bonding in ClF3 is covalent because of intermolecular forces.",
-          "right": "The bonding is covalent. Intermolecular forces are ignored, because they are not the bonds within a molecule."
+          "wrong": "The type of bonding in ClF3 is intermolecular forces.",
+          "right": "The bonding is covalent, because both elements are non-metals. Intermolecular forces are ignored."
         },
         {
           "wrong": "When magnesium reacts with oxygen, magnesium gains electrons.",
@@ -382,6 +386,8 @@
     "status": "draft",
     "written_by": "sonnet-5-5",
     "written_at": "2026-10-01",
+    "checked_by": "sonnet-science-check",
+    "checked_at": "2026-10-01",
     "spec_point_ids": [
       "c29f3c30-d7b0-4acb-adca-c7c21c5c4e7a",
       "0a0cdeb8-9a0e-478b-a7f3-aed7cf9aaf3a",

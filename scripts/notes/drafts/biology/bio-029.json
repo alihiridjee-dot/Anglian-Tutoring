@@ -1,0 +1,250 @@
+{
+  "format": 1,
+  "concept_id": "bio-029",
+  "subject": "biology",
+  "title": "Blood vessels",
+  "key_idea": "The body has three types of blood vessel. Arteries carry blood away from the heart at high pressure, veins carry it back at low pressure, and capillaries let substances pass between the blood and cells. The structure of each suits its job.",
+  "sections": [
+    {
+      "heading": "Arteries, veins and capillaries",
+      "blocks": [
+        { "type": "paragraph", "text": "This section covers the structure of each vessel and how it fits its function. Always link a feature to a reason." },
+        {
+          "type": "definitions",
+          "items": [
+            { "term": "Lumen", "meaning": "The hollow space in the middle of a blood vessel that the blood flows through." },
+            { "term": "Elastic tissue", "meaning": "Tissue in the wall that stretches and then springs back to its shape." }
+          ]
+        },
+        { "type": "subheading", "text": "Arteries" },
+        {
+          "type": "list",
+          "items": [
+            "Carry blood **away from the heart** at high pressure.",
+            "Thick walls with a lot of muscle tissue and elastic tissue, to withstand the high pressure and to push blood around the body.",
+            "A narrow lumen, which helps to maintain high pressure.",
+            "No valves."
+          ]
+        },
+        { "type": "subheading", "text": "Veins" },
+        {
+          "type": "list",
+          "items": [
+            "Carry blood **towards the heart** at low pressure.",
+            "Thinner walls, with less muscle tissue and less elastic tissue than arteries.",
+            "A wide lumen, so a lot of blood can flow.",
+            "Valves close to stop the backflow of blood, so it keeps flowing in one direction."
+          ]
+        },
+        { "type": "subheading", "text": "Capillaries" },
+        {
+          "type": "list",
+          "items": [
+            "Tiny vessels that run close to every cell, linking arteries to veins.",
+            "Walls only **one cell thick**, so there is a short diffusion distance.",
+            "Very narrow, with a large surface area for the exchange of substances such as oxygen and glucose."
+          ]
+        },
+        {
+          "type": "diagram",
+          "diagram": {
+            "kind": "sort",
+            "alt": "Sort each feature into the blood vessel it belongs to: artery, vein or capillary.",
+            "prompt": "Which blood vessel has this feature?",
+            "groups": ["Artery", "Vein", "Capillary"],
+            "items": [
+              { "text": "Thick wall with a lot of muscle and elastic tissue", "group": 0 },
+              { "text": "Narrow lumen that keeps blood pressure high", "group": 0 },
+              { "text": "Carries blood away from the heart", "group": 0 },
+              { "text": "Has valves to prevent backflow", "group": 1 },
+              { "text": "Wide lumen", "group": 1 },
+              { "text": "Carries blood back to the heart at low pressure", "group": 1 },
+              { "text": "Wall is one cell thick", "group": 2 },
+              { "text": "Exchanges substances with body cells", "group": 2 }
+            ]
+          }
+        },
+        {
+          "type": "key-points",
+          "items": [
+            "Arteries: thick, muscular, elastic walls and a narrow lumen to handle high pressure.",
+            "Veins: wide lumen and valves to return blood at low pressure.",
+            "Capillaries: one-cell-thick walls for fast exchange."
+          ]
+        }
+      ]
+    },
+    {
+      "heading": "Blood flow rate",
+      "blocks": [
+        { "type": "paragraph", "text": "Blood flow can be measured as a rate: the volume of blood that passes through a vessel in a given time." },
+        {
+          "type": "equation",
+          "label": "Volume of blood flowing",
+          "formula": "volume = rate of flow × time",
+          "where": ["volume in cm³", "rate of flow in cm³/minute", "time in minutes"]
+        },
+        {
+          "type": "diagram",
+          "diagram": {
+            "kind": "practice",
+            "alt": "A blood flow calculation with new numbers each time.",
+            "question": "Blood flows through a coronary artery at {rate} cm³/minute. Calculate the volume of blood that flows through the artery in {time} minutes.",
+            "variables": [
+              { "id": "rate", "min": 150, "max": 300, "step": 10 },
+              { "id": "time", "min": 2, "max": 10, "step": 1 }
+            ],
+            "answer": { "formula": "rate * time", "unit": "cm³", "decimals": 0 },
+            "working": [
+              "volume = rate of flow × time",
+              "volume = {rate} × {time} = {answer} cm³"
+            ]
+          }
+        },
+        {
+          "type": "key-points",
+          "items": [
+            "Volume = rate of flow × time.",
+            "Check the units. Change cm³ to dm³ by dividing by 1000."
+          ]
+        }
+      ]
+    }
+  ],
+  "checks": [
+    {
+      "q": "Explain how the structure of an artery is related to its function.",
+      "a": "It has thick walls with muscle and elastic tissue, to withstand high blood pressure and push blood around the body. Its narrow lumen helps to maintain high pressure.",
+      "marks": 2
+    },
+    {
+      "q": "Explain how valves help veins to return blood to the heart.",
+      "a": "The valves close, which prevents the backflow of blood, so blood flows in one direction towards the heart.",
+      "marks": 2
+    },
+    {
+      "q": "Explain one way a capillary is adapted for its function.",
+      "a": "Its wall is one cell thick, so there is a short diffusion distance for the exchange of substances.",
+      "marks": 2
+    }
+  ],
+  "boards": {
+    "aqa": {
+      "spec_codes": ["AQA 2.6", "AQA T 4.2.2.2"],
+      "exam_phrases": [
+        "thicker layer of muscle (tissue)",
+        "thicker layer of elastic tissue",
+        "narrower lumen",
+        "veins have valves",
+        "to withstand / maintain high (blood) pressure",
+        "walls that are one cell thick",
+        "short diffusion distance"
+      ],
+      "mistakes": [
+        {
+          "wrong": "Arteries have thick cell walls.",
+          "right": "\"Cell wall\" is not accepted. Say the artery has a thicker wall, made of a thicker layer of muscle and elastic tissue."
+        },
+        {
+          "wrong": "Arteries have thick muscle to pump blood around the body.",
+          "right": "\"To pump blood around the body\" is not accepted. Say the muscle pushes blood around the body, or withstands high pressure."
+        },
+        {
+          "wrong": "Capillaries have thin walls.",
+          "right": "\"Thin\" unqualified is ignored. Say the walls are one cell thick, so there is a short diffusion distance."
+        }
+      ],
+      "worked_example": {
+        "exemplar_id": "66968b9e-b3e3-44be-9f66-06248d217b88",
+        "source": "AQA jun 2018, Paper 1 (H), Q03.5",
+        "question": "Compare the structure of an artery with the structure of a vein.",
+        "marks": 3,
+        "answer_points": [
+          "Arteries have a thicker layer of muscle (tissue), or veins have a thinner layer.",
+          "Arteries have a thicker layer of elastic tissue, or veins have a thinner layer.",
+          "Arteries have a narrower lumen, or veins have a wider lumen.",
+          "Arteries do not have valves, and veins have valves."
+        ],
+        "tip": "Any three points score. If you give neither muscle nor elastic tissue, a thicker wall for an artery earns one mark."
+      }
+    },
+    "edexcel": {
+      "spec_codes": ["EDEX 8.7"],
+      "exam_phrases": [
+        "veins contain valves",
+        "which prevent the backflow of blood",
+        "keep blood flowing in one direction",
+        "veins have a large lumen",
+        "to maximise blood flow"
+      ],
+      "mistakes": [
+        {
+          "wrong": "Valves in veins help the blood flow.",
+          "right": "Link the valve to its effect. The valve closes, which prevents backflow."
+        },
+        {
+          "wrong": "Veins have a large lumen.",
+          "right": "A feature alone does not score. Add the reason: it carries a lot of blood, or maximises blood flow."
+        }
+      ],
+      "worked_example": {
+        "exemplar_id": "4c5366bf-773a-4b90-a59b-7d8ca1e4976c",
+        "source": "EDEXCEL nov 2020, Paper 2 (H), Q6(c)",
+        "question": "Explain how one structure of a vein helps the blood return to the heart.",
+        "marks": 2,
+        "answer_points": [
+          "Veins contain valves, which prevent the backflow of blood.",
+          "Or: veins have a large lumen, to maximise blood flow."
+        ],
+        "tip": "Choose one structure and link it to its effect. One mark for the structure and one for what it does."
+      }
+    },
+    "ocr": {
+      "spec_codes": ["OCR 2.2d"],
+      "exam_phrases": [
+        "valves along their length: veins",
+        "very thick wall: arteries",
+        "wide lumen: veins",
+        "backflow of blood will not be prevented",
+        "blood could collect / pool in the veins"
+      ],
+      "mistakes": [
+        {
+          "wrong": "Veins have a thick wall and a narrow lumen.",
+          "right": "This is the wrong way round. Arteries have the very thick wall. Veins have a wide lumen and valves."
+        },
+        {
+          "wrong": "Faulty valves mean the blood stops flowing.",
+          "right": "Say backflow of blood is not prevented, so blood can pool in the veins and the legs may swell."
+        }
+      ],
+      "worked_example": {
+        "exemplar_id": "2a6f3b8e-1c26-49d2-8ffa-8ccf1b48f1a6",
+        "source": "OCR jun 2023, Paper 3, Q17(b)",
+        "question": "Chronic venous insufficiency (CVI) is a condition caused by faulty valves found in some blood vessels in the legs. Describe how CVI will affect the person's blood circulation. Suggest one symptom of this condition.",
+        "marks": 2,
+        "answer_points": [
+          "Effect: backflow of blood will not be prevented, or blood could collect / pool in the veins.",
+          "Symptom: legs may swell, be painful or have itchy skin."
+        ],
+        "tip": "One mark for the effect on circulation and one for a symptom. Reduced blood flow back to the heart is also allowed."
+      }
+    }
+  },
+  "meta": {
+    "status": "draft",
+    "written_by": "sonnet-5-5",
+    "written_at": "2026-10-01",
+    "spec_point_ids": [
+      "732961bd-de3e-4121-a47e-f0e5b4c44eca",
+      "57209c99-4e8b-4f41-9cb3-1c4070056482",
+      "e0fa0fc3-5266-46ac-a96a-b939bad1f87d",
+      "fa537cb3-6883-4a41-9632-c731ed800246"
+    ],
+    "exemplar_ids": [
+      "66968b9e-b3e3-44be-9f66-06248d217b88",
+      "4c5366bf-773a-4b90-a59b-7d8ca1e4976c",
+      "2a6f3b8e-1c26-49d2-8ffa-8ccf1b48f1a6"
+    ]
+  }
+}

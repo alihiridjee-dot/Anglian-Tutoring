@@ -216,11 +216,15 @@
           "text": "Limitations of the particle model"
         },
         {
+          "type": "paragraph",
+          "text": "AQA teaches this at Higher tier only. OCR teaches it to all students. Edexcel does not ask for it."
+        },
+        {
           "type": "list",
           "items": [
-            "There are no forces between the particles in the model.",
-            "All particles are shown as spheres.",
-            "The spheres are solid, so the size of particles and the space between them are not shown."
+            "The model has no forces between the particles. Real particles attract each other.",
+            "All particles are shown as spheres. The spheres are solid and inelastic.",
+            "The model does not show the size of particles or the space between them."
           ]
         },
         {
@@ -240,7 +244,7 @@
       "marks": 2
     },
     {
-      "q": "A substance has a melting point of -114 °C and a boiling point of 78 °C. State its state at 25 °C and give a reason.",
+      "q": "A substance has a melting point of -114 °C and a boiling point of 78 °C. State its physical state at 25 °C and give a reason.",
       "a": "Liquid. 25 °C is above the melting point and below the boiling point.",
       "marks": 2
     },
@@ -270,8 +274,8 @@
           "right": "Answers about breaking covalent bonds are not accepted. Say the forces between molecules (intermolecular forces) are weak and need little energy to overcome."
         },
         {
-          "wrong": "Chlorine gas boils at the surface of the sea.",
-          "right": "Evaporating or vaporisation is the change at the surface of a liquid below its boiling point. Boiling is not accepted for evaporation."
+          "wrong": "The change at the surface of the sea water is boiling.",
+          "right": "Say evaporating or vaporisation for the change from liquid to vapour at the surface. Boiling is not accepted here."
         },
         {
           "wrong": "The boiling point of a single bromine molecule is 59 °C.",
@@ -383,6 +387,8 @@
     "status": "draft",
     "written_by": "sonnet-5-5",
     "written_at": "2026-10-01",
+    "checked_by": "sonnet-science-check",
+    "checked_at": "2026-10-01",
     "spec_point_ids": [
       "10f3809a-746c-4ee1-b1eb-61628cd5650c",
       "c00f39c0-033f-41c7-a2ce-33a4695593b4",

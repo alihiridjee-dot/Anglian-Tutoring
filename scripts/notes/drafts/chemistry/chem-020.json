@@ -43,7 +43,8 @@
           "items": [
             "**Small molecules**, such as water, methane and chlorine.",
             "**Very large molecules**, such as polymers.",
-            "**Giant covalent structures**, such as diamond and silicon dioxide."
+            "**Giant covalent structures**, such as diamond and silicon dioxide.",
+            "From a diagram, a few atoms joined together is a small molecule. A repeat unit in brackets with a small n is a polymer. A continuous network of atoms is a giant structure."
           ]
         },
         {
@@ -75,7 +76,7 @@
             },
             {
               "lead": "Share.",
-              "text": "Place one dot and one cross in each overlap, so each atom reaches a full outer shell."
+              "text": "Place one dot and one cross in the overlap for each shared pair, so each atom reaches a full outer shell."
             },
             {
               "lead": "Check.",
@@ -335,12 +336,12 @@
       ],
       "mistakes": [
         {
-          "wrong": "A covalent bond is when one atom gives an electron to another atom.",
-          "right": "That describes ionic bonding. A covalent bond is a shared pair of electrons between atoms."
+          "wrong": "A covalent bond is a shared electron.",
+          "right": "Say a shared pair of electrons between atoms."
         },
         {
-          "wrong": "The ions in sodium chloride are held together by shared pairs of electrons.",
-          "right": "Ions are held together by strong electrostatic attraction between oppositely charged ions. Sharing electrons is covalent bonding."
+          "wrong": "Magnesium sulfate has a high melting point because of strong covalent bonds.",
+          "right": "Covalent bonds, intermolecular forces or metallic bonds score 0 for an ionic compound. Say strong electrostatic attraction between oppositely charged ions."
         }
       ],
       "worked_example": {
@@ -359,6 +360,8 @@
     "status": "draft",
     "written_by": "sonnet-5-5",
     "written_at": "2026-10-01",
+    "checked_by": "sonnet-science-check",
+    "checked_at": "2026-10-01",
     "spec_point_ids": [
       "2f570ffe-7536-49ab-8895-532817bd2b6d",
       "42fdb98c-30c7-4284-a6a0-cc83c5b858c8",

@@ -47,7 +47,7 @@
           "items": [
             "A dot and cross diagram shows the electron transfer but not the arrangement of ions in the lattice.",
             "A 2D diagram shows a single layer of ions, not the 3D structure.",
-            "A ball and stick model shows the 3D lattice. The sticks suggest bonds between pairs of ions, and the ions are drawn spaced apart.",
+            "A ball and stick model shows the 3D lattice. The sticks suggest physical bonds, and the ions are drawn further apart than they really are.",
             "A diagram of the lattice can be used to show that a compound is ionic: a regular pattern of two types of ion."
           ]
         },
@@ -285,8 +285,8 @@
           "right": "'Strong ionic bonds' is ignored for the first mark. Say strong electrostatic forces of attraction between oppositely charged ions."
         },
         {
-          "wrong": "A lot of energy is needed to break the bond between one pair of ions.",
-          "right": "The forces act in all directions in the giant structure. Many strong bonds must be broken, so a lot of energy is needed."
+          "wrong": "A lot of energy is needed because the forces between the ions are strong.",
+          "right": "Also say the forces act in all directions in the giant structure, so many strong bonds must be broken."
         }
       ],
       "worked_example": {
@@ -379,6 +379,8 @@
     "status": "draft",
     "written_by": "sonnet-5-5",
     "written_at": "2026-10-01",
+    "checked_by": "sonnet-science-check",
+    "checked_at": "2026-10-01",
     "spec_point_ids": [
       "4e5e550e-e760-4063-8ec5-2ff9d9f292c4",
       "588c6424-ae3e-45a2-aaca-678805219fd6",
