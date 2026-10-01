@@ -1,0 +1,428 @@
+{
+  "format": 1,
+  "concept_id": "phys-057",
+  "subject": "physics",
+  "title": "Newton's second law and inertia",
+  "key_idea": "The resultant force on an object equals its mass times its acceleration, F = m × a. Acceleration is proportional to force and inversely proportional to mass. (Higher tier) Inertial mass measures how hard it is to change an object's velocity.",
+  "sections": [
+    {
+      "heading": "Newton's second law",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "Newton's second law links the resultant force on an object, its mass and its acceleration. A bigger force gives a bigger acceleration. A bigger mass gives a smaller one."
+        },
+        {
+          "type": "list",
+          "items": [
+            "The acceleration is **proportional** to the resultant force: double the force, double the acceleration.",
+            "The acceleration is **inversely proportional** to the mass: double the mass, halve the acceleration.",
+            "The symbol ∝ means 'is proportional to'."
+          ]
+        },
+        {
+          "type": "equation",
+          "label": "Newton's second law",
+          "formula": "F = m × a",
+          "where": [
+            "F: resultant force in newtons, N",
+            "m: mass in kilograms, kg",
+            "a: acceleration in metres per second squared, m/s²"
+          ]
+        },
+        {
+          "type": "diagram",
+          "diagram": {
+            "kind": "slider",
+            "alt": "Change the force and the mass of a trolley and watch the acceleration change.",
+            "inputs": [
+              {
+                "id": "F",
+                "label": "Resultant force",
+                "unit": "N",
+                "min": 1,
+                "max": 6,
+                "step": 0.5,
+                "value": 3
+              },
+              {
+                "id": "m",
+                "label": "Mass of trolley",
+                "unit": "kg",
+                "min": 1,
+                "max": 3,
+                "step": 0.5,
+                "value": 1.5
+              }
+            ],
+            "outputs": [
+              {
+                "label": "Acceleration",
+                "unit": "m/s²",
+                "formula": "F / m",
+                "decimals": 2
+              },
+              {
+                "label": "Acceleration if the mass were doubled",
+                "unit": "m/s²",
+                "formula": "F / (2 * m)",
+                "decimals": 2
+              }
+            ]
+          }
+        },
+        {
+          "type": "key-points",
+          "items": [
+            "Acceleration is proportional to resultant force and inversely proportional to mass.",
+            "F = m × a, with F in N, m in kg and a in m/s².",
+            "The force in F = m × a is the resultant force."
+          ]
+        }
+      ]
+    },
+    {
+      "heading": "Using F = m × a",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "Most questions give two of the three quantities. Rearrange the equation for the one you need."
+        },
+        {
+          "type": "equation",
+          "label": "Acceleration",
+          "formula": "a = F / m",
+          "where": [
+            "a: acceleration in metres per second squared, m/s²",
+            "F: resultant force in newtons, N",
+            "m: mass in kilograms, kg"
+          ]
+        },
+        {
+          "type": "equation",
+          "label": "Mass",
+          "formula": "m = F / a",
+          "where": [
+            "m: mass in kilograms, kg",
+            "F: resultant force in newtons, N",
+            "a: acceleration in metres per second squared, m/s²"
+          ]
+        },
+        {
+          "type": "paragraph",
+          "text": "Sometimes you must find the acceleration first, using the change in velocity."
+        },
+        {
+          "type": "equation",
+          "label": "Acceleration from a change in velocity",
+          "formula": "a = Δv / t",
+          "where": [
+            "a: acceleration in metres per second squared, m/s²",
+            "Δv: change in velocity in metres per second, m/s",
+            "t: time taken in seconds, s"
+          ]
+        },
+        {
+          "type": "subheading",
+          "text": "Worked calculation"
+        },
+        {
+          "type": "steps",
+          "items": [
+            {
+              "lead": "Write the equation.",
+              "text": "F = m × a, for a 1200 kg car accelerating at 2.5 m/s²."
+            },
+            {
+              "lead": "Substitute.",
+              "text": "F = 1200 × 2.5"
+            },
+            {
+              "lead": "Evaluate and add the unit.",
+              "text": "F = 3000 N"
+            }
+          ]
+        },
+        {
+          "type": "diagram",
+          "diagram": {
+            "kind": "practice",
+            "alt": "Calculate the resultant force needed to accelerate a cyclist.",
+            "question": "A cyclist and bike have a total mass of {m} kg. They accelerate at {a} m/s². Calculate the resultant force on them.",
+            "variables": [
+              {
+                "id": "m",
+                "min": 60,
+                "max": 100,
+                "step": 10
+              },
+              {
+                "id": "a",
+                "min": 0.5,
+                "max": 2.5,
+                "step": 0.5
+              }
+            ],
+            "answer": {
+              "formula": "m * a",
+              "unit": "N",
+              "decimals": 0
+            },
+            "working": [
+              "F = m × a",
+              "F = {m} × {a}",
+              "F = {answer} N"
+            ]
+          }
+        },
+        {
+          "type": "key-points",
+          "items": [
+            "Convert to kg before you substitute. Give the unit of force as N.",
+            "An object slowing down has a resultant force against its velocity.",
+            "If the answer asks for significant figures, round only at the end."
+          ]
+        }
+      ]
+    },
+    {
+      "heading": "Inertia and inertial mass (Higher tier)",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "Some objects are harder to speed up or slow down than others. This is the idea of inertia."
+        },
+        {
+          "type": "definitions",
+          "items": [
+            {
+              "term": "Inertia",
+              "meaning": "The tendency of objects to continue in their state of rest or of uniform motion."
+            },
+            {
+              "term": "Inertial mass",
+              "meaning": "A measure of how difficult it is to change the velocity of an object. It is the ratio of force over acceleration."
+            }
+          ]
+        },
+        {
+          "type": "equation",
+          "label": "Inertial mass",
+          "formula": "m = F / a",
+          "where": [
+            "m: inertial mass in kilograms, kg",
+            "F: force in newtons, N",
+            "a: acceleration in metres per second squared, m/s²"
+          ]
+        },
+        {
+          "type": "list",
+          "items": [
+            "A large inertial mass needs a large force for the same acceleration.",
+            "A small inertial mass changes velocity easily.",
+            "A child has a smaller inertial mass than an adult, so less force is needed for the same deceleration in a crash."
+          ]
+        },
+        {
+          "type": "key-points",
+          "items": [
+            "(Higher tier) Inertia is the tendency to keep the same velocity.",
+            "(Higher tier) Inertial mass = force ÷ acceleration.",
+            "(Higher tier) Bigger inertial mass means a bigger force for the same acceleration."
+          ]
+        }
+      ]
+    }
+  ],
+  "checks": [
+    {
+      "q": "A 1200 kg car accelerates at 2.5 m/s². Calculate the resultant force.",
+      "a": "F = 1200 × 2.5 = 3000 N.",
+      "marks": 2
+    },
+    {
+      "q": "A resultant force of 2.0 N acts on a 0.50 kg trolley. Calculate its acceleration.",
+      "a": "a = 2.0 ÷ 0.50 = 4.0 m/s².",
+      "marks": 2
+    },
+    {
+      "q": "(Higher tier) Explain why a lorry needs a bigger force than a car to get the same acceleration.",
+      "a": "The lorry has a bigger (inertial) mass, so by F = m × a it needs a bigger force.",
+      "marks": 2
+    }
+  ],
+  "boards": {
+    "aqa": {
+      "spec_codes": [
+        "AQA 4.5.6.2",
+        "AQA T 6.5.4.2"
+      ],
+      "exam_phrases": [
+        "resultant force = mass × acceleration",
+        "a measure of how difficult it is to change the velocity of an object",
+        "the ratio of force over acceleration"
+      ],
+      "mistakes": [
+        {
+          "wrong": "The acceleration is 0.625 m/s², so I have finished.",
+          "right": "Round to the significant figures asked for: 0.63 m/s². The rounding is a separate mark."
+        },
+        {
+          "wrong": "A force of −4500 N must be wrong because forces cannot be negative.",
+          "right": "A negative sign shows the force acts against the motion. −4500 N is accepted, as is 4500 N."
+        },
+        {
+          "wrong": "The mass of the trolley must be written as 0.30 kg exactly.",
+          "right": "0.3 kg is also accepted."
+        }
+      ],
+      "worked_example": {
+        "exemplar_id": "a63b8eb2-767a-45d5-9f60-cea5afdd560a",
+        "source": "AQA jun 2020, Paper 2 (H), Q01.7",
+        "question": "A student investigated the acceleration of a trolley.\n\nThe resultant force on the trolley was 0.375 N.\nThe mass of the trolley was 0.60 kg.\n\nCalculate the acceleration of the trolley.\nGive your answer to 2 significant figures.",
+        "marks": 4,
+        "answer_points": [
+          "Substitute into F = m a: 0.375 = 0.60 × a",
+          "Rearrange: a = 0.375 / 0.60",
+          "a = 0.625 m/s²",
+          "Round to 2 significant figures: a = 0.63 m/s²"
+        ],
+        "tip": "One mark for each line. The last mark is for the rounding to 2 significant figures."
+      },
+      "extra": [
+        {
+          "heading": "Higher tier content",
+          "blocks": [
+            {
+              "type": "paragraph",
+              "text": "(Higher tier) Inertial mass is a measure of how difficult it is to change the velocity of an object. It is defined as the ratio of force over acceleration."
+            },
+            {
+              "type": "paragraph",
+              "text": "Recognise and use the symbol ∝ for proportional, and ~ for an approximate value."
+            },
+            {
+              "type": "list",
+              "items": [
+                "Estimate the forces in large accelerations for everyday road transport, for example a 1500 kg car at 6 m/s² needs about 9000 N.",
+                "Required practical: change the force on an object of constant mass, then change the mass with a constant force, and measure the acceleration."
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    "edexcel": {
+      "spec_codes": [
+        "EDEX 2.15",
+        "EDEX 2.22"
+      ],
+      "exam_phrases": [
+        "a measure of how difficult it is to change the velocity of an object",
+        "the ratio of force over acceleration",
+        "newtons"
+      ],
+      "mistakes": [
+        {
+          "wrong": "The force is 0.2 Ns.",
+          "right": "Do not allow Ns. The unit of force is N or newtons."
+        },
+        {
+          "wrong": "F = 0.10 × 2.0 = 2 N.",
+          "right": "A power of ten wrong scores 1 mark at most. 0.10 × 2.0 = 0.20 N."
+        },
+        {
+          "wrong": "F = 0.20, so the answer is complete without a unit.",
+          "right": "The unit is a separate mark. Write N or newtons."
+        }
+      ],
+      "worked_example": {
+        "exemplar_id": "d21aa28f-faa1-4d9a-a50a-945767ac2b3e",
+        "source": "EDEXCEL jun 2018, Paper 1 (F), Q1(c)",
+        "question": "A toy car has a mass of 0.10 kg.\nThe toy car accelerates at 2.0 m/s².\n\nCalculate the force producing this acceleration.\nState the unit.\nUse the equation F = m × a",
+        "marks": 3,
+        "answer_points": [
+          "Substitution: F = 0.10 × 2.0",
+          "Evaluation: F = 0.20 (0.2)",
+          "Unit: N (newtons)"
+        ],
+        "tip": "One mark for the substitution, one for the evaluation and one for the unit. The unit is a separate mark."
+      }
+    },
+    "ocr": {
+      "spec_codes": [
+        "OCR P2.2i",
+        "OCR P2.2j",
+        "OCR P2.2l"
+      ],
+      "exam_phrases": [
+        "F = ma / force = mass x acceleration",
+        "reducing mass means the same engine force will cause greater acceleration",
+        "Mass / inertia of child is lower",
+        "Less force is needed (for the same deceleration)"
+      ],
+      "mistakes": [
+        {
+          "wrong": "A lighter car needs less force for the same acceleration.",
+          "right": "Start with F = ma. With the same engine force, a smaller mass gives a greater acceleration."
+        },
+        {
+          "wrong": "The answer is 0.8.",
+          "right": "The answer is 800 kg. Writing 0.8 scores only two of the three marks."
+        }
+      ],
+      "worked_example": {
+        "exemplar_id": "3c22ba54-07f1-4f7d-9dfd-9a370eae6de4",
+        "source": "OCR jun 2018, Paper 2, Q22(b)",
+        "question": "A roller coaster car moves down a slope with an acceleration of 5 m/s².\n\nThe force on the roller coaster car is 4000 N.\n\nCalculate the mass of the roller coaster car.",
+        "marks": 3,
+        "answer_points": [
+          "Recall: force = mass × acceleration",
+          "Rearrange and substitute: mass = 4000 ÷ 5",
+          "Mass = 800 kg"
+        ],
+        "tip": "Check the answer first: 800 kg scores all 3 marks. Giving 0.8 instead of 800 scores 2 marks."
+      },
+      "extra": [
+        {
+          "heading": "Estimating a force",
+          "blocks": [
+            {
+              "type": "paragraph",
+              "text": "To estimate a force, pick a sensible mass and multiply it by the acceleration."
+            },
+            {
+              "type": "list",
+              "items": [
+                "A family car has a mass of about 1500 kg.",
+                "At a deceleration of 6 m/s², F = 1500 × 6 = 9000 N.",
+                "Any car mass from 400 to 3500 kg is allowed."
+              ]
+            }
+          ]
+        }
+      ]
+    }
+  },
+  "meta": {
+    "status": "draft",
+    "written_by": "sonnet-5-5",
+    "written_at": "2026-10-01",
+    "spec_point_ids": [
+      "a0c0a6be-3c0c-431f-872d-4d1704df0105",
+      "7f954f62-01ba-410b-9b5a-a147ee0e303a",
+      "421d5bca-7259-4ad1-b157-7997bc7ffdf7",
+      "2d8c1e8d-a07a-427c-bf0d-3de226629613",
+      "f14be378-daa2-4fdc-93ba-748e83f0d775",
+      "7bbfb593-408e-4453-becc-c762f3816eb6",
+      "7e8a95e5-cc69-4d91-bb4c-12f0c5bcd75b"
+    ],
+    "exemplar_ids": [
+      "a63b8eb2-767a-45d5-9f60-cea5afdd560a",
+      "d21aa28f-faa1-4d9a-a50a-945767ac2b3e",
+      "3c22ba54-07f1-4f7d-9dfd-9a370eae6de4"
+    ],
+    "checked_by": "sonnet-science-check",
+    "checked_at": "2026-10-01"
+  }
+}

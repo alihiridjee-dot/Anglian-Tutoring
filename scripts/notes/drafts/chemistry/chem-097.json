@@ -1,0 +1,388 @@
+{
+  "concept_id": "chem-097",
+  "title": "Effects of climate change and the carbon footprint",
+  "key_idea": "Greenhouse gases such as carbon dioxide and methane trap heat, so average global temperature rises and the climate changes. The **carbon footprint** is the total greenhouse gas emitted over a product's whole life cycle, and it can be reduced.",
+  "sections": [
+    {
+      "heading": "How greenhouse gases warm the Earth",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "Human activity adds greenhouse gases to the atmosphere. This section covers where they come from and how they cause global warming."
+        },
+        {
+          "type": "definitions",
+          "items": [
+            {
+              "term": "Greenhouse gas",
+              "meaning": "A gas in the atmosphere that absorbs heat radiation from the Earth. Carbon dioxide and methane are examples."
+            },
+            {
+              "term": "Global warming",
+              "meaning": "The increase in average global temperature caused by more greenhouse gases."
+            },
+            {
+              "term": "Climate change",
+              "meaning": "The long-term change in weather patterns that global warming causes."
+            }
+          ]
+        },
+        {
+          "type": "subheading",
+          "text": "Where the extra gases come from"
+        },
+        {
+          "type": "list",
+          "items": [
+            "Carbon dioxide is released when fossil fuels are burned.",
+            "Methane is released by livestock farming, rice paddy fields and rubbish in landfill.",
+            "More gas in the atmosphere means more heat is trapped."
+          ]
+        },
+        {
+          "type": "subheading",
+          "text": "How the warming happens"
+        },
+        {
+          "type": "diagram",
+          "diagram": {
+            "kind": "flow",
+            "alt": "Radiation from the Sun passes through the atmosphere, warms the Earth, is re-emitted as longer wavelength radiation and is absorbed by greenhouse gases, which warms the atmosphere.",
+            "steps": [
+              "Short wavelength radiation from the Sun enters the atmosphere",
+              "The Earth absorbs it",
+              "The Earth re-emits it as longer wavelength radiation",
+              "Greenhouse gases absorb the longer wavelength radiation",
+              "The atmosphere warms up"
+            ]
+          }
+        },
+        {
+          "type": "key-points",
+          "items": [
+            "Greenhouse gases absorb the longer wavelength radiation that the Earth re-emits.",
+            "Burning fossil fuels adds carbon dioxide. Farming and landfill add methane.",
+            "More greenhouse gas means a higher average temperature."
+          ]
+        }
+      ]
+    },
+    {
+      "heading": "Effects of global climate change",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "A higher average temperature changes the climate. This section covers the effects you can name in the exam."
+        },
+        {
+          "type": "list",
+          "items": [
+            "Melting ice caps and glaciers, and rising sea levels.",
+            "More flooding, including coastal flooding and erosion.",
+            "Extremes of weather, including more droughts and wildfires.",
+            "Loss of habitats and a reduction in biodiversity, as species move or die out.",
+            "Agricultural problems, such as crop failure."
+          ]
+        },
+        {
+          "type": "diagram",
+          "diagram": {
+            "kind": "sort",
+            "alt": "Sort each statement into effects of climate change and answers that are not accepted.",
+            "prompt": "Which of these are effects of climate change?",
+            "groups": [
+              "Effect of climate change",
+              "Not an effect: do not write it"
+            ],
+            "items": [
+              {
+                "text": "Rising sea levels",
+                "group": 0
+              },
+              {
+                "text": "Melting ice caps",
+                "group": 0
+              },
+              {
+                "text": "Extremes of weather",
+                "group": 0
+              },
+              {
+                "text": "Loss of habitats",
+                "group": 0
+              },
+              {
+                "text": "Increase in droughts",
+                "group": 0
+              },
+              {
+                "text": "Acid rain",
+                "group": 1
+              },
+              {
+                "text": "Global dimming",
+                "group": 1
+              },
+              {
+                "text": "Damage to the ozone layer",
+                "group": 1
+              }
+            ]
+          }
+        },
+        {
+          "type": "subheading",
+          "text": "Scale, risk and environmental implications"
+        },
+        {
+          "type": "list",
+          "items": [
+            "Scale: the effects are global and affect many countries at once.",
+            "Risk: flooding, drought and crop failure put people and food supplies at risk.",
+            "Environmental implications: habitats change or are lost, and many species are affected."
+          ]
+        },
+        {
+          "type": "key-points",
+          "items": [
+            "Name specific effects: ice melting, sea levels rising, flooding, extreme weather and loss of habitats.",
+            "Acid rain, global dimming and the ozone layer are not effects of climate change."
+          ]
+        }
+      ]
+    },
+    {
+      "heading": "The carbon footprint and how to reduce it",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "The carbon footprint measures the greenhouse gases linked to a product, service or event. This section covers what it includes and how to cut it."
+        },
+        {
+          "type": "definitions",
+          "items": [
+            {
+              "term": "Carbon footprint",
+              "meaning": "The total amount of carbon dioxide and other greenhouse gases emitted over the full life cycle of a product, service or event."
+            },
+            {
+              "term": "Life cycle",
+              "meaning": "All the stages from extracting raw materials to disposal at the end of useful life."
+            }
+          ]
+        },
+        {
+          "type": "subheading",
+          "text": "What is counted"
+        },
+        {
+          "type": "list",
+          "items": [
+            "Extracting and processing raw materials.",
+            "Manufacturing.",
+            "Use and operation. A car's exhaust is only this stage.",
+            "Disposal at the end of its useful life."
+          ]
+        },
+        {
+          "type": "subheading",
+          "text": "Ways to reduce emissions"
+        },
+        {
+          "type": "list",
+          "items": [
+            "Use less fossil fuel, for example by using public transport, cycling, walking or car sharing.",
+            "Use more efficient vehicles, which release less carbon dioxide.",
+            "Use energy sources that do not release carbon dioxide, such as solar energy.",
+            "Reduce livestock farming and the number of rice paddy fields to cut methane.",
+            "Send less rubbish to landfill by recycling more, and use methane from landfill as an energy source.",
+            "Reduce the destruction of peat bogs."
+          ]
+        },
+        {
+          "type": "subheading",
+          "text": "Why actions may be limited"
+        },
+        {
+          "type": "list",
+          "items": [
+            "Sunshine is unreliable, so solar energy cannot replace fossil fuels completely.",
+            "Demand for energy is increasing.",
+            "There may be a lack of space for new energy sources."
+          ]
+        },
+        {
+          "type": "key-points",
+          "items": [
+            "The carbon footprint covers the whole life cycle, not just use.",
+            "Cut carbon dioxide by using less fossil fuel. Cut methane by changing farming and rubbish disposal.",
+            "Some actions are limited because alternatives are unreliable or need space."
+          ]
+        }
+      ]
+    }
+  ],
+  "checks": [
+    {
+      "q": "Explain how greenhouse gases cause global warming.",
+      "a": "Short wavelength radiation from the Sun enters the atmosphere and is absorbed by the Earth. The Earth re-emits it as longer wavelength radiation, which greenhouse gases in the atmosphere absorb. This increases the temperature.",
+      "marks": 4
+    },
+    {
+      "q": "Give two effects of global climate change.",
+      "a": "Any two from: rising sea levels, melting ice caps, flooding, extremes of weather, droughts, loss of habitats.",
+      "marks": 2
+    },
+    {
+      "q": "Give two ways to reduce methane emissions into the atmosphere.",
+      "a": "Any two from: reduce livestock farming, reduce the number of rice paddy fields, send less rubbish to landfill, use methane from landfill as an energy source.",
+      "marks": 2
+    },
+    {
+      "q": "Why is the exhaust gas from a car not its whole carbon footprint?",
+      "a": "Carbon dioxide is also emitted when raw materials are extracted and processed, when the car is manufactured and when it is disposed of.",
+      "marks": 3
+    }
+  ],
+  "boards": {
+    "aqa": {
+      "spec_codes": [
+        "AQA 4.9.2.3",
+        "AQA T 5.9.2.3",
+        "AQA 4.9.2.4",
+        "AQA T 5.9.2.4"
+      ],
+      "exam_phrases": [
+        "absorbed by the earth and re-emitted as longer wavelength radiation",
+        "increases the temperature leading to global warming",
+        "rising sea levels",
+        "melting ice (caps)",
+        "extremes of weather",
+        "extracting / processing raw materials",
+        "disposal at the end of its useful life",
+        "use methane from landfill as an energy source"
+      ],
+      "mistakes": [
+        {
+          "wrong": "Climate change causes acid rain and global dimming.",
+          "right": "Acid rain, global dimming and the ozone layer are not accepted as effects of climate change. Give effects such as melting ice, rising sea levels or extremes of weather."
+        },
+        {
+          "wrong": "One effect of climate change is global warming.",
+          "right": "Global warming is often ignored because it is the cause, not an effect. Name a specific effect such as melting ice caps."
+        },
+        {
+          "wrong": "Climate change causes natural disasters.",
+          "right": "Natural disasters is not accepted as it is too vague. Name flooding, droughts, wildfires or extremes of weather."
+        },
+        {
+          "wrong": "A car's carbon footprint is the carbon dioxide from its exhaust.",
+          "right": "The carbon footprint covers the whole life cycle: extracting raw materials, manufacturing, use and disposal."
+        }
+      ],
+      "worked_example": {
+        "exemplar_id": "ed802034-c60e-4697-8034-bf5a7c45a05d",
+        "source": "AQA jun 2023, Paper 2 (H), Q05.2",
+        "question": "An increase of greenhouse gases in the Earth's atmosphere is causing global warming.\n\nGlobal warming is causing global climate change.\n\nExplain how greenhouse gases cause global warming.",
+        "marks": 4,
+        "answer_points": [
+          "Greenhouse gases allow short wavelength radiation to enter the atmosphere.",
+          "This is absorbed by the Earth and re-emitted as longer wavelength radiation.",
+          "The longer wavelength radiation is absorbed by greenhouse gases in the atmosphere.",
+          "This increases the temperature, leading to global warming."
+        ],
+        "tip": "One mark for each step in the sequence. UV is allowed for short wavelength and IR for long wavelength, but references to the ozone layer are ignored."
+      }
+    },
+    "edexcel": {
+      "spec_codes": [
+        "EDEX 8.26"
+      ],
+      "exam_phrases": [
+        "ice caps / glaciers melting",
+        "rising sea levels",
+        "changing habitats",
+        "more extreme weather",
+        "increased global temperatures",
+        "enhanced / increased greenhouse effect"
+      ],
+      "mistakes": [
+        {
+          "wrong": "Increasing carbon dioxide damages the ozone layer.",
+          "right": "References to the ozone layer are rejected. Say that more carbon dioxide strengthens the greenhouse effect."
+        },
+        {
+          "wrong": "Increasing carbon dioxide means there is less oxygen in the air.",
+          "right": "This is ignored. Name an effect of the extra carbon dioxide, such as melting ice caps or rising sea levels."
+        },
+        {
+          "wrong": "More carbon dioxide causes acid rain or deforestation.",
+          "right": "Acid rain and deforestation are rejected as effects of increased carbon dioxide."
+        }
+      ]
+    },
+    "ocr": {
+      "spec_codes": [
+        "OCR C6.3e"
+      ],
+      "exam_phrases": [
+        "melting ice caps / glaciers",
+        "rising sea levels / flooding",
+        "loss / change of habitats",
+        "altered weather patterns / extreme weather events",
+        "problems with farming / crop failure",
+        "drought / wildfires"
+      ],
+      "mistakes": [
+        {
+          "wrong": "Global warming causes acid rain.",
+          "right": "Acid rain and the ozone layer are not allowed. Give effects such as melting ice caps or rising sea levels."
+        },
+        {
+          "wrong": "Global warming means the temperature increases.",
+          "right": "A temperature increase without detail is ignored. Give a specific problem such as crop failure, drought or flooding."
+        },
+        {
+          "wrong": "Global warming causes natural hazards.",
+          "right": "Unspecified natural hazards are ignored. Name the hazard, for example wildfires or extreme weather."
+        }
+      ],
+      "worked_example": {
+        "exemplar_id": "3c077690-8725-4c31-b729-5b9fdd072c24",
+        "source": "OCR jun 2025, Paper 2, Q19(b)",
+        "question": "In the last 75 years there has been an increase in both\n\n• the world population\n• the concentration of carbon dioxide in the atmosphere.\n\nA problem with an increase in the concentration of carbon dioxide is global warming.\n\nState two problems caused by global warming.",
+        "marks": 2,
+        "answer_points": [
+          "Any two from: climate change or extremes of weather.",
+          "Melting ice caps or glaciers.",
+          "Rising sea levels or flooding.",
+          "Loss or change of habitats.",
+          "Problems with farming or crop failure.",
+          "Drought or wildfires."
+        ],
+        "tip": "One mark for each problem, up to two. Acid rain and the ozone layer are not allowed."
+      }
+    }
+  },
+  "meta": {
+    "status": "draft",
+    "written_by": "sonnet-5-5",
+    "written_at": "2026-10-01",
+    "spec_point_ids": [
+      "2fcfad04-c6be-40b3-8bde-5614bfc50edb",
+      "a0c3ff3c-2dc6-4df6-b632-e79585145f99",
+      "e4e508d0-1909-4a14-9b73-5caf38eb9acc",
+      "060193e8-50ab-46e8-8cf0-46ed19f7561c",
+      "88132f0d-7963-48dc-b58e-739ff940d55f",
+      "804be853-e189-4e16-a6ce-9cf0b20d18c5"
+    ],
+    "exemplar_ids": [
+      "ed802034-c60e-4697-8034-bf5a7c45a05d",
+      "3c077690-8725-4c31-b729-5b9fdd072c24"
+    ],
+    "checked_by": "sonnet-science-check",
+    "checked_at": "2026-10-01"
+  },
+  "format": 1,
+  "subject": "chemistry"
+}

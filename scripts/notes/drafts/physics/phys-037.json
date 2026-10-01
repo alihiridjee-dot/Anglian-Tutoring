@@ -1,0 +1,513 @@
+{
+  "format": 1,
+  "concept_id": "phys-037",
+  "subject": "physics",
+  "title": "Half-life",
+  "key_idea": "Radioactive decay is random, so we cannot say when one nucleus will decay. In a large sample the **half-life** is the time for the activity, or the number of undecayed nuclei, to halve. After each half-life the amount left is half of what it was.",
+  "sections": [
+    {
+      "heading": "Random decay and half-life",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "Each unstable nucleus decays at a random time. This section covers what that means and how half-life describes a whole sample."
+        },
+        {
+          "type": "definitions",
+          "items": [
+            {
+              "term": "Random",
+              "meaning": "It cannot be predicted when a particular nucleus will decay."
+            },
+            {
+              "term": "Half-life",
+              "meaning": "The time for the number of nuclei of the isotope in a sample to halve, or for the count rate (activity) of the sample to fall to half its initial level."
+            },
+            {
+              "term": "Activity",
+              "meaning": "The rate at which a source decays, measured in becquerel (Bq)."
+            }
+          ]
+        },
+        {
+          "type": "list",
+          "items": [
+            "We cannot predict when any one nucleus will decay.",
+            "A sample has a very large number of nuclei, so its activity can be predicted using the half-life.",
+            "The activity of a source falls over time as nuclei decay.",
+            "A short half-life means the activity falls quickly. A long half-life means it falls slowly.",
+            "A bigger chance of decay in a given time means a shorter half-life."
+          ]
+        },
+        {
+          "type": "list",
+          "items": [
+            "Because decay is random, count-rate readings scatter around the expected value.",
+            "The scatter is more pronounced at low count rates.",
+            "Counting for longer gives a larger count and less variation in the count rate."
+          ]
+        },
+        {
+          "type": "key-points",
+          "items": [
+            "Decay is random for a single nucleus, but predictable for a very large number.",
+            "Half-life is the time for the activity or the number of undecayed nuclei to halve."
+          ]
+        }
+      ]
+    },
+    {
+      "heading": "Half-life from a graph or data",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "The activity of a source falls in a curve. Each half-life takes it down to half of its value."
+        },
+        {
+          "type": "diagram",
+          "diagram": {
+            "kind": "line-graph",
+            "alt": "A decay curve: activity halves every half-life, so it falls steeply at first and then more slowly.",
+            "x": {
+              "label": "Time",
+              "min": 0,
+              "max": 4,
+              "ticks": [
+                0,
+                1,
+                2,
+                3,
+                4
+              ],
+              "unit": "half-lives"
+            },
+            "y": {
+              "label": "Activity (fraction of the start)"
+            },
+            "series": [
+              {
+                "name": "Activity",
+                "points": [
+                  [
+                    0,
+                    1
+                  ],
+                  [
+                    0.5,
+                    0.707
+                  ],
+                  [
+                    1,
+                    0.5
+                  ],
+                  [
+                    1.5,
+                    0.354
+                  ],
+                  [
+                    2,
+                    0.25
+                  ],
+                  [
+                    2.5,
+                    0.177
+                  ],
+                  [
+                    3,
+                    0.125
+                  ],
+                  [
+                    3.5,
+                    0.088
+                  ],
+                  [
+                    4,
+                    0.0625
+                  ]
+                ]
+              }
+            ]
+          }
+        },
+        {
+          "type": "steps",
+          "items": [
+            {
+              "lead": "Choose a value.",
+              "text": "Pick an activity or count rate on the graph, or in the table."
+            },
+            {
+              "lead": "Halve it.",
+              "text": "Work out half of that value."
+            },
+            {
+              "lead": "Read the times.",
+              "text": "Find the time at which each value occurs."
+            },
+            {
+              "lead": "Subtract.",
+              "text": "The difference in time is one half-life. Check with a second starting value."
+            }
+          ]
+        },
+        {
+          "type": "paragraph",
+          "text": "Move the slider to see how many nuclei are left. Here the half-life is 10 minutes."
+        },
+        {
+          "type": "diagram",
+          "diagram": {
+            "kind": "slider",
+            "alt": "Change the time and see how many nuclei of a sample with a 10 minute half-life are left.",
+            "inputs": [
+              {
+                "id": "t",
+                "label": "Time",
+                "unit": "minutes",
+                "min": 0,
+                "max": 60,
+                "step": 5,
+                "value": 20
+              }
+            ],
+            "outputs": [
+              {
+                "label": "Half-lives passed",
+                "formula": "t / 10",
+                "decimals": 1
+              },
+              {
+                "label": "Fraction left",
+                "formula": "0.5 ^ (t / 10)",
+                "decimals": 3
+              },
+              {
+                "label": "Nuclei left, from 100 at the start",
+                "formula": "100 * 0.5 ^ (t / 10)",
+                "decimals": 1
+              }
+            ],
+            "scene": {
+              "kind": "half-life",
+              "time": "t",
+              "half_life": 10
+            }
+          }
+        },
+        {
+          "type": "paragraph",
+          "text": "The diagram shows the expected number. In a real sample the numbers vary a little, because decay is random."
+        },
+        {
+          "type": "key-points",
+          "items": [
+            "The activity halves in every half-life, giving a curve that falls steeply and then flattens.",
+            "Read a half-life as the time taken for any value on the curve to halve."
+          ]
+        }
+      ]
+    },
+    {
+      "heading": "Calculating after a number of half-lives",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "First find how many half-lives have passed. Then halve the starting value that many times."
+        },
+        {
+          "type": "equation",
+          "label": "Number of half-lives",
+          "formula": "number of half-lives = time ÷ half-life",
+          "where": [
+            "time and half-life are in the same unit, for example days."
+          ]
+        },
+        {
+          "type": "equation",
+          "label": "Amount remaining",
+          "formula": "remaining = initial × (½)ⁿ",
+          "where": [
+            "initial is the starting number of nuclei, mass or activity.",
+            "n is the number of half-lives."
+          ]
+        },
+        {
+          "type": "steps",
+          "items": [
+            {
+              "lead": "Find n.",
+              "text": "A sample with a half-life of 12 hours is left for 36 hours. n = 36 ÷ 12 = 3."
+            },
+            {
+              "lead": "Halve n times.",
+              "text": "A count rate of 640 counts per minute becomes 320, then 160, then 80."
+            },
+            {
+              "lead": "Answer.",
+              "text": "The count rate after 36 hours is 80 counts per minute, which is 640 × (½)³."
+            }
+          ]
+        },
+        {
+          "type": "list",
+          "items": [
+            "To work backwards to the starting value, double the final value once for each half-life.",
+            "The activity after n half-lives is (½)ⁿ of the start. After 3 half-lives, one-eighth is left."
+          ]
+        },
+        {
+          "type": "paragraph",
+          "text": "(Higher tier) The net decline can be written as a ratio. After n half-lives, the final activity to the initial activity is 1 : 2ⁿ. After 3 half-lives this is 1 : 8."
+        },
+        {
+          "type": "diagram",
+          "diagram": {
+            "kind": "practice",
+            "alt": "Calculate a count rate after several half-lives of iodine-131.",
+            "question": "Iodine-131 has a half-life of 8 days. A sample has a count rate of {A0} counts per minute. Calculate its count rate after {t} days.",
+            "variables": [
+              {
+                "id": "A0",
+                "min": 320,
+                "max": 1600,
+                "step": 160
+              },
+              {
+                "id": "t",
+                "min": 8,
+                "max": 40,
+                "step": 8
+              }
+            ],
+            "answer": {
+              "formula": "A0 * 0.5 ^ (t / 8)",
+              "unit": "counts per minute",
+              "decimals": 0
+            },
+            "working": [
+              "Number of half-lives = {t} ÷ 8",
+              "Count rate = {A0} × (½) to the power of the number of half-lives",
+              "Count rate = {answer} counts per minute"
+            ]
+          }
+        },
+        {
+          "type": "key-points",
+          "items": [
+            "Number of half-lives = time ÷ half-life.",
+            "Halve the starting value once for each half-life.",
+            "(Higher tier) After n half-lives the ratio of final to initial activity is 1 : 2ⁿ."
+          ]
+        }
+      ]
+    },
+    {
+      "heading": "Half-life and risk",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "The half-life of an isotope decides how long its radiation stays a hazard and how useful it is."
+        },
+        {
+          "type": "list",
+          "items": [
+            "For the same number of nuclei, the isotope with the shorter half-life has the higher activity at the start.",
+            "A short half-life means the activity, and so the risk of harm, decreases quickly.",
+            "A long half-life means the activity hardly changes over a short time. Radon-222 has a half-life of 3.8 days, so its activity is almost unchanged after 7.4 minutes.",
+            "Vanadium-52 has a half-life of 3.7 minutes. After 7.4 minutes, 2 half-lives have passed and its activity has decreased by a factor of 4.",
+            "A source that must last for a long time needs a long half-life, so that it does not run out."
+          ]
+        },
+        {
+          "type": "key-points",
+          "items": [
+            "The shorter the half-life, the higher the starting activity and the faster the risk falls.",
+            "A long half-life means the source lasts and the hazard stays for a long time."
+          ]
+        }
+      ]
+    }
+  ],
+  "checks": [
+    {
+      "q": "Define the half-life of a radioactive isotope.",
+      "a": "The time taken for the number of nuclei of the isotope in a sample to halve, or for the activity (count rate) from the sample to fall to half its initial level.",
+      "marks": 2
+    },
+    {
+      "q": "A source has an activity of 800 Bq and a half-life of 6 hours. Calculate its activity after 18 hours.",
+      "a": "18 ÷ 6 = 3 half-lives. 800 → 400 → 200 → 100. The activity is 100 Bq.",
+      "marks": 3
+    },
+    {
+      "q": "Two samples have the same number of nuclei. One has a half-life of 2 years and the other 400 years. Which has the higher activity at the start?",
+      "a": "The one with the half-life of 2 years. A shorter half-life means more decays each second.",
+      "marks": 2
+    }
+  ],
+  "boards": {
+    "aqa": {
+      "spec_codes": [
+        "AQA 4.4.2.3",
+        "AQA T 6.4.2.3"
+      ],
+      "exam_phrases": [
+        "number of half-lives = 4",
+        "activity decreased by a factor of 4",
+        "because 2 half-lives had passed",
+        "activity decreases quickly",
+        "risk of harm decreases quickly",
+        "a dice with 8 sides will have a smaller chance of decay (in one roll)"
+      ],
+      "mistakes": [
+        {
+          "wrong": "The risk from iodine-131 has not changed between 1986 and 2018 because it emits the same radiation as caesium-137.",
+          "right": "Iodine-131 has a short half-life (8 days), so many half-lives have passed and its activity has decreased by a large amount. Caesium-137 has a long half-life, so its activity has not decreased by much."
+        },
+        {
+          "wrong": "Waste with a short half-life is better because it is radioactive for less time.",
+          "right": "This is ignored. Say that the activity decreases quickly and so the risk of harm decreases quickly."
+        },
+        {
+          "wrong": "Time = 5 × 137 for caesium-137 to fall to 1/32.",
+          "right": "A calculation using 137 scores zero. 137 is the mass number. Use the half-life, 30 years: 5 × 30 = 150 years."
+        },
+        {
+          "wrong": "An eight-sided dice has a shorter half-life, because it has more sides.",
+          "right": "An eight-sided dice has a smaller chance of decay on each roll, so it has a greater half-life."
+        }
+      ],
+      "worked_example": {
+        "exemplar_id": "9dd98a6a-d972-48fb-93cc-135719395492",
+        "source": "AQA jun 2025, Paper 1 (H), Q07.4",
+        "question": "Polonium-210 has a half-life of 138 days. A sample of polonium contains 256 000 atoms.\n\nCalculate the time taken for the number of polonium-210 atoms to reach 16 000.",
+        "marks": 3,
+        "answer_points": [
+          "Number of half-lives = 4 (256 000 → 128 000 → 64 000 → 32 000 → 16 000).",
+          "Time = 4 × 138.",
+          "Time = 552 days."
+        ],
+        "tip": "One mark for the number of half-lives, one for multiplying by the half-life and one for the answer, 552 days."
+      }
+    },
+    "edexcel": {
+      "spec_codes": [
+        "EDEX 6.23",
+        "EDEX 6.24",
+        "EDEX 6.25",
+        "EDEX 6.26",
+        "EDEX 6.27"
+      ],
+      "exam_phrases": [
+        "recognition of there being 4 half lives involved",
+        "so fraction of 1/16 involved",
+        "(54 days is) 3 half-lives",
+        "the process (of radioactive decay) is unpredictable / (occurs) random(ly)",
+        "so the count rate would not be constant / there will be variations with each reading",
+        "125 000 / 1 000 000 OR 1/8 OR 3 half-lives"
+      ],
+      "mistakes": [
+        {
+          "wrong": "20 years is 3 half-lives, so the activity is 38.5 ÷ 8 = 4.8 kBq.",
+          "right": "20 ÷ 5 = 4 half-lives, not 3. Using three half-lives scores only 2 marks. The fraction is 1/16, so the activity is 38.5 ÷ 16 = 2.4 kBq."
+        },
+        {
+          "wrong": "Scattered results happen because decay is difficult to predict.",
+          "right": "Difficult to predict is not allowed. Say that decay is unpredictable or random, so the count rate is not constant and varies with each reading."
+        },
+        {
+          "wrong": "Mass remaining after 54 days = 520 ÷ 2 ÷ 2 = 130 g, for a half-life of 18 days.",
+          "right": "54 ÷ 18 = 3 half-lives, so halve three times: 520 → 260 → 130 → 65 g. 130 g scores 1 mark."
+        }
+      ],
+      "worked_example": {
+        "exemplar_id": "4d20b027-23f1-47c8-b52f-fb4acfe0d6aa",
+        "source": "EDEXCEL nov 2020, Paper 1 (H), Q7(c)",
+        "question": "The half-life of cobalt-60 is 5 years.\n\nA school cobalt source had an activity of 38.5 kBq in the year 2000.\n\nEstimate the activity of this source in the year 2020.",
+        "marks": 3,
+        "answer_points": [
+          "Recognition that 4 half-lives are involved (20 years ÷ 5 years).",
+          "So a fraction of 1/16 is involved.",
+          "Activity = 38.5 ÷ 16 = 2.4 kBq."
+        ],
+        "tip": "The correct answer without working scores full marks. Another power of (½) scores 1 mark."
+      }
+    },
+    "ocr": {
+      "spec_codes": [
+        "OCR P6.1j",
+        "OCR P6.1k"
+      ],
+      "exam_phrases": [
+        "(1/32 =) 5 half-lives",
+        "(time required =) 28 x 5",
+        "Radiation / activity is random",
+        "Randomness is amplified at low readings",
+        "Radioactive decay is random",
+        "Variations are more pronounced at low count rates",
+        "(Shorter half-life means) higher activity"
+      ],
+      "mistakes": [
+        {
+          "wrong": "Of four metals with half-lives of 4 hours, 10 years, 2 years and 28 days, the 10-year metal is the most hazardous because it has the longest half-life.",
+          "right": "With equal masses, the shortest half-life gives the highest activity. The 4-hour metal is the most hazardous. No mark is given if it is not chosen."
+        },
+        {
+          "wrong": "The last two readings are anomalies because of a mistake in the measurement.",
+          "right": "Say that radiation or activity is random, and that the randomness is amplified at low readings."
+        },
+        {
+          "wrong": "A source with a longer half-life is a greater health risk at the start.",
+          "right": "For the same number of nuclei, the source with the shorter half-life has the higher activity at the start, so it is the greater risk to begin with."
+        }
+      ],
+      "worked_example": {
+        "exemplar_id": "966d3949-4543-4545-b678-28c39149070a",
+        "source": "OCR jun 2025, Paper 4, Q20(b)(ii)",
+        "question": "A technician investigates a radioactive metal, metal D, which emits gamma radiation and has a half-life of 28 days.\n\nMetal D is considered to be safe when the count rate drops to 1/32 of the original count rate.\n\nCalculate the time required for metal D to be safe.\n\nTime required = ______ days",
+        "marks": 3,
+        "answer_points": [
+          "1/32 is 5 half-lives.",
+          "Time required = 28 × 5.",
+          "Time required = 140 days."
+        ],
+        "tip": "A correct answer of 140 on the answer line scores all 3 marks. Halving something 5 times (1 → 1/2 → 1/4 → 1/8 → 1/16 → 1/32) is also credited."
+      }
+    }
+  },
+  "meta": {
+    "status": "draft",
+    "written_by": "sonnet-5-5",
+    "written_at": "2026-10-01",
+    "spec_point_ids": [
+      "98a1f204-524a-4fed-ae7d-11e68559c7b3",
+      "0fb9ab65-4554-4327-b787-90e34071153c",
+      "90815720-c589-46d5-9e10-c4b486bfe896",
+      "9736bf49-fe38-46dc-8d69-f202e10d38eb",
+      "2b24d6a8-2981-49e9-aa2b-a5a89e0990de",
+      "c7e907a8-7ed5-4120-88f3-bac6cde747dd",
+      "1fda754b-1ea4-42fa-be52-d56f48cee5fc",
+      "0449c4ad-582a-44f5-9c95-630a6dd8a840",
+      "f0d8b055-e12d-441c-8123-d2c03c405c58"
+    ],
+    "exemplar_ids": [
+      "9dd98a6a-d972-48fb-93cc-135719395492",
+      "4d20b027-23f1-47c8-b52f-fb4acfe0d6aa",
+      "966d3949-4543-4545-b678-28c39149070a",
+      "aeb60ef6-e0ab-4af7-920a-ef6d20e34b75",
+      "0c9ccf26-4bfa-404d-8311-b7ef670a8a38",
+      "24705094-f1a1-4a75-b2d2-90412a0aba4d",
+      "fd368dc0-1ab6-43c3-ad9a-a034a3901545",
+      "c9caf076-9099-4e77-abe3-839408479114",
+      "c98a7e20-0943-4014-be6a-46da1dc2e9a8",
+      "e4e9534e-2e38-489d-a527-cc14b632035a",
+      "cbd12aca-d8ae-48d9-af21-48d69c47936d",
+      "f35ceaa0-b246-4c26-bb58-62a699238769",
+      "d10b41b8-69a1-445a-b8dd-a742d5b61fa7",
+      "9fd40a43-46d1-4954-a494-9c71c463d29f",
+      "6f55e3f3-1966-4cb4-8b47-46b8279c4e9c"
+    ],
+    "checked_by": "sonnet-science-check",
+    "checked_at": "2026-10-01"
+  }
+}

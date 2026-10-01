@@ -1,0 +1,290 @@
+{
+  "format": 1,
+  "concept_id": "bio-076",
+  "subject": "biology",
+  "title": "Water and nitrogen balance",
+  "key_idea": "(Separate science) The body must balance the water and ions it gains and loses, because too much or too little water damages cells by osmosis. Excess amino acids are broken down in the liver to make urea. The kidneys remove urea and control urine.",
+  "sections": [
+    {
+      "heading": "Water balance",
+      "blocks": [
+        { "type": "paragraph", "text": "(Separate science) Water and ions are gained and lost every day. This section covers where they go and what happens if the balance is wrong." },
+        {
+          "type": "table",
+          "columns": ["Water is gained from", "Water is lost through"],
+          "rows": [
+            ["Food and drink", "The skin, as sweat"],
+            ["Respiration in cells", "The lungs, when breathing out"],
+            ["No other source", "Faeces and urine"]
+          ]
+        },
+        {
+          "type": "list",
+          "items": [
+            "Sweat also carries away ions (salts) and a little urea.",
+            "During exercise more water is lost by sweating and by breathing. Sweating cools the body and breathing increases to supply oxygen for more respiration.",
+            "The kidneys balance the rest by changing the volume and concentration of the urine."
+          ]
+        },
+        {
+          "type": "steps",
+          "items": [
+            { "lead": "Total gained.", "text": "Food and drink 2.4 litres plus 0.3 litres from respiration = 2.7 litres." },
+            { "lead": "Other losses.", "text": "Skin and lungs 1.0 litre plus faeces 0.1 litres = 1.1 litres." },
+            { "lead": "Urine.", "text": "If the balance is steady, urine = 2.7 − 1.1 = 1.6 litres." }
+          ]
+        },
+        {
+          "type": "diagram",
+          "diagram": {
+            "kind": "practice",
+            "alt": "Practise working out the volume of urine from the water gained and lost in a day.",
+            "question": "In one day a person gains **{fd} litres** of water in food and drink and 0.3 litres from respiration. They lose **{sk} litres** through the skin and lungs and 0.1 litres in faeces. Their water balance is steady. Calculate the volume of urine they produce, in litres.",
+            "variables": [
+              { "id": "fd", "min": 1.8, "max": 2.6, "step": 0.1 },
+              { "id": "sk", "min": 0.7, "max": 1.2, "step": 0.1 }
+            ],
+            "answer": { "formula": "fd + 0.3 - sk - 0.1", "unit": "litres", "decimals": 1 },
+            "working": [
+              "Water gained = {fd} + 0.3 litres",
+              "Water lost, not counting urine = {sk} + 0.1 litres",
+              "Urine = gained − lost = **{answer}** litres"
+            ]
+          }
+        },
+        {
+          "type": "key-points",
+          "items": [
+            "Water is gained in food, drink and respiration, and lost in sweat, breath, faeces and urine.",
+            "More sweating means less urine, because the body keeps water."
+          ]
+        }
+      ]
+    },
+    {
+      "heading": "Water and ions in body cells",
+      "blocks": [
+        { "type": "paragraph", "text": "Animal cells have no cell wall, so water entering or leaving them by osmosis changes them." },
+        {
+          "type": "table",
+          "columns": ["Blood compared with the cells", "Water moves", "Effect on the cell"],
+          "rows": [
+            ["More dilute, for example low sodium ion level", "Into the cells by osmosis", "The cell swells and may burst (lysis)"],
+            ["More concentrated, for example high blood glucose or dehydration", "Out of the cells by osmosis", "The cell shrinks and shrivels"]
+          ]
+        },
+        {
+          "type": "key-points",
+          "items": [
+            "Osmosis moves water between the blood and the cells through the cell membrane.",
+            "Ion and water levels in the blood must stay balanced so cells do not burst or shrivel."
+          ]
+        }
+      ]
+    },
+    {
+      "heading": "Making and removing urea",
+      "blocks": [
+        { "type": "paragraph", "text": "Proteins are made of amino acids. The body cannot store excess amino acids, so it gets rid of them." },
+        {
+          "type": "definitions",
+          "items": [
+            { "term": "Urea", "meaning": "A waste substance made when excess amino acids are broken down in the liver." },
+            { "term": "Filtration", "meaning": "Small molecules such as urea, glucose and water are forced out of the blood in the kidney. Useful ones are reabsorbed later." }
+          ]
+        },
+        {
+          "type": "steps",
+          "items": [
+            { "lead": "Breakdown.", "text": "Excess amino acids are broken down in the liver. Urea is made." },
+            { "lead": "Transport.", "text": "The urea is carried in the blood to the kidneys." },
+            { "lead": "Filtering.", "text": "The kidneys filter the urea out of the blood. It is not reabsorbed." },
+            { "lead": "Excretion.", "text": "The urea leaves the body in the urine." }
+          ]
+        },
+        {
+          "type": "key-points",
+          "items": [
+            "Urea is made in the liver from excess amino acids.",
+            "The kidneys filter urea from the blood and it leaves in the urine."
+          ]
+        }
+      ]
+    }
+  ],
+  "checks": [
+    {
+      "q": "Where is urea made, and from what?",
+      "a": "In the liver, from the breakdown of excess amino acids.",
+      "marks": 2
+    },
+    {
+      "q": "A person runs a marathon. Explain why they produce less urine.",
+      "a": "Water is lost in sweat, so the water concentration of the blood falls. The kidneys reabsorb more water into the blood, so less, more concentrated urine is produced.",
+      "marks": 3
+    },
+    {
+      "q": "A person drinks a large volume of water and the blood becomes more dilute than the body cells. What happens to the cells?",
+      "a": "Water enters the cells by osmosis. They swell and may burst (lysis).",
+      "marks": 2
+    }
+  ],
+  "boards": {
+    "aqa": {
+      "spec_codes": ["AQA 5.10"],
+      "exam_phrases": [
+        "(more) sweating, because exercise releases heat / need to cool the body",
+        "more energy needed, so more (aerobic) respiration",
+        "increased breathing (rate / depth) to supply oxygen or remove carbon dioxide / water",
+        "blood entering the kidneys goes through filtration",
+        "glucose is not found in urine because of reabsorption",
+        "passes through the filter in the kidney, (some / all) not reabsorbed back into the blood"
+      ],
+      "mistakes": [
+        {
+          "wrong": "More water is lost by breathing because more energy is needed for respiration.",
+          "right": "\"Energy needed for respiration\" and \"energy production\" are not accepted. Say more energy is needed, so more (aerobic) respiration, so breathing rate or depth increases."
+        },
+        {
+          "wrong": "More water is lost through the skin during the race because the blood vessels dilate and energy is produced.",
+          "right": "Vasodilation and vasoconstriction are ignored here, and \"energy being produced\" is not accepted. Say more sweating, because exercise releases heat and the body needs to cool."
+        },
+        {
+          "wrong": "A toxic substance is in the urine because it is not absorbed into the blood.",
+          "right": "\"Not absorbed into the blood\" is ignored. Say it passes through the filter in the kidney and is not reabsorbed back into the blood."
+        }
+      ],
+      "worked_example": {
+        "exemplar_id": "7cebf4de-baa3-445d-8d89-33a5124f3283",
+        "source": "AQA jun 2018, Paper 2 (F), Q11.4",
+        "question": "The next day, the person ran a 10-kilometre race. The volume of water lost from the body through the skin and by breathing increased.\n\nExplain why more water was lost by breathing during the race.",
+        "marks": 3,
+        "answer_points": [
+          "More energy is needed (do not accept energy production or energy needed for respiration).",
+          "So more (aerobic) respiration.",
+          "So increased breathing (rate / depth), to supply oxygen or remove carbon dioxide / water."
+        ],
+        "tip": "Link exercise to energy, then respiration, then breathing. \"More\" need only be stated once."
+      }
+    },
+    "edexcel": {
+      "spec_codes": ["EDEX 7.22B", "EDEX 7.10B"],
+      "exam_phrases": [
+        "(urea) is produced in the liver from (excess) amino acids / protein",
+        "excess amino acids are broken down into urea",
+        "deamination",
+        "transported in the blood to the kidney",
+        "enter the nephron during ultrafiltration",
+        "not reabsorbed back into the blood"
+      ],
+      "mistakes": [
+        {
+          "wrong": "Urea is made in the kidneys from carbohydrates.",
+          "right": "State where and how: urea is produced in the liver from excess amino acids (or protein). The process is called deamination."
+        },
+        {
+          "wrong": "The urine has a high concentration of urea because the urea is reabsorbed into the blood.",
+          "right": "Urea passes through the nephron and is not reabsorbed back into the blood. It forms urine in the collecting duct."
+        }
+      ],
+      "worked_example": {
+        "exemplar_id": "c4bb07c5-0cf7-4c05-ad6e-886c8b688f87",
+        "source": "EDEXCEL jun 2022, Paper 2 (H), Q10(c)",
+        "question": "Explain how high levels of amino acids in the blood cause a high concentration of urea in urine.",
+        "marks": 4,
+        "answer_points": [
+          "Excess amino acids are broken down into urea (accept deamination).",
+          "Amino acids are broken down in the liver.",
+          "The urea is transported in the blood to the kidney.",
+          "It enters the nephron during ultrafiltration.",
+          "It passes through the nephron and is not reabsorbed back into the blood.",
+          "Urine with a high concentration of urea forms in the collecting duct.",
+          "Any four of these points."
+        ],
+        "tip": "Four marks from seven points. Follow the urea from the liver, in the blood, to the kidney and out."
+      }
+    },
+    "ocr": {
+      "spec_codes": ["OCR 3.3g", "OCR 3.3f", "OCR 3.3j"],
+      "exam_phrases": [
+        "(water lost) in sweat when running / exercising",
+        "the water concentration in the blood falls",
+        "the kidney (tubules) will reabsorb more water into the blood",
+        "making the urine more concentrated, a lower volume of urine",
+        "water enters cells by osmosis; lysis may happen",
+        "water moves from (body) cells into the blood, by osmosis",
+        "the blood has a higher concentration, so a lower water potential"
+      ],
+      "mistakes": [
+        {
+          "wrong": "High blood glucose makes the blood thicker, so water leaves the cells.",
+          "right": "Reference to the viscosity of blood is ignored. Say the blood has a higher concentration of sugar, so a lower water potential, and water moves out of the cells by osmosis."
+        },
+        {
+          "wrong": "Low sodium ion levels make the blood more concentrated, so water leaves the body cells.",
+          "right": "Low sodium makes the blood less concentrated, with a higher water potential. Water enters the cells by osmosis and they may burst (lysis)."
+        }
+      ],
+      "worked_example": {
+        "exemplar_id": "0226b3ae-140c-416d-a2f5-cfc2540eed08",
+        "source": "OCR jun 2023, Paper 1, Q18(b)(ii)",
+        "question": "A person runs a marathon race.\n\nExplain how the kidney will maintain the water balance within this person’s body during the race.",
+        "marks": 3,
+        "answer_points": [
+          "Water is lost in sweat (when running).",
+          "The water concentration in the blood falls (allow: water potential falls).",
+          "The kidney (tubules) will reabsorb more water into the blood (allow: the tubules become more permeable).",
+          "The urine is more concentrated, and there is a lower volume of urine.",
+          "ADH is secreted from the pituitary gland (one mark).",
+          "Any three of these points."
+        ],
+        "tip": "Three marks from several points. Start with the sweat, then link the blood to the kidney and the urine."
+      },
+      "extra": [
+        {
+          "heading": "Temperature and osmotic challenges (OCR)",
+          "blocks": [
+            { "type": "paragraph", "text": "OCR links exercise, sweating and drinks to the water and salt balance of the body." },
+            {
+              "type": "list",
+              "items": [
+                "Exercise causes loss of water and salts through sweating, and uses up sugar.",
+                "A hypertonic drink has more solutes than body fluids and more sugar. It is absorbed slowly, so it suits the time before a race.",
+                "An isotonic drink has the same concentration as body fluids. After a race it will not dilute or concentrate the blood, and it replaces salts and sugar."
+              ]
+            }
+          ]
+        }
+      ]
+    }
+  },
+  "meta": {
+    "status": "draft",
+    "written_by": "sonnet-5-5",
+    "written_at": "2026-10-01",
+    "checked_by": "sonnet-science-check",
+    "checked_at": "2026-10-01",
+    "spec_point_ids": [
+      "54150b15-fab5-4ca6-874e-57abd8434cee",
+      "0dfddd94-f250-49c4-9e34-41bb6ebc890b",
+      "5996e7d1-4ad7-451d-8788-94f16c46d762",
+      "a935fbbe-b68f-4021-ad5f-27751d2117ff",
+      "bfa453c8-62b1-4a6f-b61b-d7e3735ce4d8"
+    ],
+    "exemplar_ids": [
+      "7cebf4de-baa3-445d-8d89-33a5124f3283",
+      "c4bb07c5-0cf7-4c05-ad6e-886c8b688f87",
+      "0226b3ae-140c-416d-a2f5-cfc2540eed08",
+      "6f7e0c77-2738-4079-bf0e-2e54c4927b75",
+      "a247710a-7080-431f-be82-8545080e1999",
+      "1dd19a23-1ba3-4817-a048-e56977ac9339",
+      "f1798950-34a5-4bca-9687-221ae850da2e",
+      "b9de1ae7-1b66-4820-af19-98259220d220",
+      "ccad2d4c-2d52-434d-bc91-89ad460b5968",
+      "0cebda33-cebc-40f1-a173-ca3109451c64",
+      "6351c631-a512-4678-b0be-64cd812ba808",
+      "4f5b5291-aa96-46c0-a518-46f4e65cbd55",
+      "a4569d9d-4f1e-41c8-b2a3-33a6f93b9172"
+    ]
+  }
+}

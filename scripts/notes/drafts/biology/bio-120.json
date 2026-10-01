@@ -1,0 +1,242 @@
+{
+  "format": 1,
+  "concept_id": "bio-120",
+  "subject": "biology",
+  "title": "The water cycle and potable water",
+  "key_idea": "The water cycle moves water between the sea, the air and the land. It supplies fresh water to plants and animals on land. In places with too little fresh water, **potable** (safe to drink) water can be made from seawater by **desalination**.",
+  "sections": [
+    {
+      "heading": "The water cycle",
+      "blocks": [
+        { "type": "paragraph", "text": "Water is continuously evaporated and precipitated. This section covers the processes in the cycle and why living things depend on it." },
+        {
+          "type": "definitions",
+          "items": [
+            { "term": "Evaporation", "meaning": "Liquid water changing into water vapour, mainly from the sea, lakes and soil." },
+            { "term": "Transpiration", "meaning": "Water vapour lost from the leaves of plants." },
+            { "term": "Condensation", "meaning": "Water vapour cooling and changing into tiny droplets of liquid water, forming clouds." },
+            { "term": "Precipitation", "meaning": "Water falling from the clouds to the ground as rain, snow, sleet or hail." },
+            { "term": "Run-off", "meaning": "Water flowing over the land into streams, rivers, lakes and the sea." }
+          ]
+        },
+        {
+          "type": "diagram",
+          "diagram": {
+            "kind": "sequence",
+            "alt": "Put the stages of the water cycle in order, starting with water evaporating from the sea and ending with water flowing back to the sea.",
+            "prompt": "Put the water cycle in the correct order",
+            "steps": [
+              "Water evaporates from the sea, lakes and soil, and plants lose water vapour by transpiration",
+              "The water vapour rises and cools",
+              "The water vapour condenses to form clouds",
+              "Water falls as precipitation, such as rain or snow",
+              "Water runs off the land into rivers and lakes, or soaks into the soil, and drains back to the sea"
+            ]
+          }
+        },
+        {
+          "type": "key-points",
+          "items": [
+            "Water is continuously evaporated and precipitated.",
+            "Evaporation and transpiration lift water into the air. Condensation forms clouds. Precipitation brings it back down."
+          ]
+        }
+      ]
+    },
+    {
+      "heading": "Why the water cycle matters to living things",
+      "blocks": [
+        { "type": "paragraph", "text": "All living things need water. The water cycle provides fresh water for plants and animals on land before it drains into the seas." },
+        {
+          "type": "list",
+          "items": [
+            "Plants take in water through their roots from the soil, which rain has refilled.",
+            "Animals drink fresh water from rivers, lakes and puddles.",
+            "Rain and run-off keep rivers and lakes full, so the organisms that live in them do not dry out.",
+            "Run-off can wash minerals into lakes and rivers.",
+            "Without precipitation, soil dries out and land can turn to desert."
+          ]
+        },
+        {
+          "type": "key-points",
+          "items": [
+            "The water cycle supplies fresh water to organisms on land.",
+            "If the supply of fresh water falls, plants and animals suffer."
+          ]
+        }
+      ]
+    },
+    {
+      "heading": "Potable water and desalination",
+      "blocks": [
+        { "type": "paragraph", "text": "Potable water is safe to drink. In places with a drought, or too little fresh water, it can be made from seawater." },
+        {
+          "type": "definitions",
+          "items": [
+            { "term": "Potable water", "meaning": "Water that is safe to drink." },
+            { "term": "Desalination", "meaning": "Removing the salt from seawater to make fresh water." }
+          ]
+        },
+        { "type": "subheading", "text": "Treating fresh water" },
+        {
+          "type": "list",
+          "items": [
+            "River water is **filtered** to remove solids such as debris.",
+            "It is then treated with chemicals, such as chlorine, to destroy **pathogens**.",
+            "Chemicals can also remove other dissolved substances and improve the taste."
+          ]
+        },
+        { "type": "subheading", "text": "Desalination of seawater" },
+        {
+          "type": "diagram",
+          "diagram": {
+            "kind": "flow",
+            "alt": "Desalination: seawater is heated, the water evaporates leaving the salt behind, the water vapour condenses, and the fresh water is collected.",
+            "steps": [
+              "Seawater is heated",
+              "The water evaporates, leaving the salt behind",
+              "The water vapour is cooled and condenses",
+              "The fresh water is collected"
+            ]
+          }
+        },
+        {
+          "type": "key-points",
+          "items": [
+            "Fresh water is filtered to remove solids, then treated with chemicals to destroy pathogens.",
+            "Desalination makes potable water from seawater: evaporate, condense and collect."
+          ]
+        }
+      ]
+    }
+  ],
+  "checks": [
+    {
+      "q": "Name the process by which water vapour changes into liquid droplets to form clouds.",
+      "a": "Condensation.",
+      "marks": 1
+    },
+    {
+      "q": "Explain why the water cycle is important to organisms living on land.",
+      "a": "It provides fresh water, as rain, for plants and animals on land before the water drains into the seas. Plants take it in from the soil and animals drink it.",
+      "marks": 2
+    },
+    {
+      "q": "Describe how seawater can be turned into drinking water.",
+      "a": "Desalination: heat the seawater so the water evaporates and the salt is left behind, then condense the water vapour and collect the liquid water.",
+      "marks": 2
+    }
+  ],
+  "boards": {
+    "aqa": {
+      "spec_codes": ["AQA T 4.7.2.2", "AQA 7.5"],
+      "exam_phrases": [
+        "climate change has increased the area of deserts",
+        "more water is used to grow crops",
+        "the water cycle provides water for plants and animals on land before the water goes into lakes and seas"
+      ],
+      "mistakes": [
+        {
+          "wrong": "More people have a water shortage because each person drinks less water, or because some countries have built de-salting factories.",
+          "right": "Neither is credited. The causes credited are that climate change has increased the area of deserts and that more water is used to grow crops."
+        },
+        {
+          "wrong": "There were 270 000 000 people with a severe water shortage.",
+          "right": "The question asks for standard form. The final mark is for 2.7 × 10⁸."
+        }
+      ],
+      "worked_example": {
+        "exemplar_id": "8e62a5e3-0264-4c68-aa61-b25f4682fb91",
+        "source": "AQA jun 2022, Paper 2 (F), Q05.3",
+        "question": "The water cycle provides water for plants and animals on land before the water goes into lakes and seas.\n\nIn 2007 the population of the world was 6 000 000 000. A study found that 4.5% of the population had severe water shortage.\n\nCalculate how many people had severe water shortage.\n\nGive your answer in standard form.",
+        "marks": 3,
+        "answer_points": [
+          "Number of people = 6 000 000 000 × 4.5 ÷ 100 (or × 0.045).",
+          "= 270 000 000 people.",
+          "In standard form: 2.7 × 10⁸."
+        ],
+        "tip": "One mark for the method, one for 270 000 000 and one for standard form. A wrong number written correctly in standard form still earns the final mark."
+      }
+    },
+    "edexcel": {
+      "spec_codes": ["EDEX 9.14"],
+      "exam_phrases": [
+        "desalination / remove salt from the water",
+        "evaporate the water",
+        "condense water (vapour and collect it)",
+        "to remove objects / debris",
+        "to destroy pathogens"
+      ],
+      "mistakes": [
+        {
+          "wrong": "Water is filtered to kill pathogens.",
+          "right": "Filtering removes objects or debris. Chemicals are used to destroy pathogens."
+        },
+        {
+          "wrong": "Seawater is turned into drinking water by removing the salt.",
+          "right": "This gives one mark at most. A description needs two points from: remove the salt (desalination), evaporate the water, and condense the vapour and collect it."
+        }
+      ],
+      "worked_example": {
+        "exemplar_id": "e312f066-d24a-471c-b8b3-a61413e74d4c",
+        "source": "EDEXCEL jun 2019, Paper 2 (F), Q1(c)",
+        "question": "The Canary Islands do not have enough fresh water.\n\nDescribe how seawater can be turned into drinking water.",
+        "marks": 2,
+        "answer_points": [
+          "Desalination removes the salt from the water.",
+          "The water is heated so it evaporates.",
+          "The water vapour is condensed and collected."
+        ],
+        "tip": "Two of the three points score. Distillation is accepted for both the evaporate and condense points."
+      }
+    },
+    "ocr": {
+      "spec_codes": ["OCR 4.1c"],
+      "exam_phrases": [
+        "prevents lake drying out",
+        "replenishes lake water",
+        "washes minerals into the lake",
+        "provides organisms with enough water to live in"
+      ],
+      "mistakes": [
+        {
+          "wrong": "Run-off gives the organisms more water.",
+          "right": "\"More water\" is ignored. Say that it replenishes the lake so it does not dry out, or that it provides enough water for the organisms to live in."
+        },
+        {
+          "wrong": "Run-off brings nutrients into the lake.",
+          "right": "\"Nutrients\" is ignored. Write minerals, or name a mineral."
+        }
+      ],
+      "worked_example": {
+        "exemplar_id": "f3a7de99-519f-4118-b87c-a06dc2ae739c",
+        "source": "OCR nov 2020, Paper 2, Q22(b)",
+        "question": "The water cycle takes place around a lake. Surface run-off water passes through soil and back into the lake.\n\nWrite down one reason why surface run-off water is important to organisms living in the lake.",
+        "marks": 1,
+        "answer_points": [
+          "It prevents the lake drying out, or replenishes the lake water.",
+          "Or: it washes minerals into the lake."
+        ],
+        "tip": "Any one of these scores the mark."
+      }
+    }
+  },
+  "meta": {
+    "status": "draft",
+    "written_by": "sonnet-5-5",
+    "written_at": "2026-10-01",
+    "checked_by": "sonnet-science-check",
+    "checked_at": "2026-10-01",
+    "spec_point_ids": [
+      "90544310-d6c3-4c49-8fd4-bb5317278687",
+      "e38c4fde-704d-49db-af8d-cc81020f70ca",
+      "42fa6cb6-43c4-429e-8c20-13f176496e10",
+      "e20f41ea-7788-440a-84ad-f0d1bc8682be"
+    ],
+    "exemplar_ids": [
+      "8e62a5e3-0264-4c68-aa61-b25f4682fb91",
+      "e312f066-d24a-471c-b8b3-a61413e74d4c",
+      "f3a7de99-519f-4118-b87c-a06dc2ae739c"
+    ]
+  }
+}

@@ -1,0 +1,366 @@
+{
+  "format": 1,
+  "concept_id": "chem-031",
+  "subject": "chemistry",
+  "title": "The mole and the Avogadro constant",
+  "key_idea": "A mole is a fixed number of particles: 6.02 × 10²³, the Avogadro constant. One mole of a substance has a mass in grams equal to its relative formula mass. This links mass, moles and number of particles.",
+  "sections": [
+    {
+      "heading": "What a mole is",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "(Higher tier) Chemists count particles in moles because atoms are far too small to count one by one."
+        },
+        {
+          "type": "definitions",
+          "items": [
+            {
+              "term": "Mole (mol)",
+              "meaning": "The unit for the amount of a substance. One mole contains the Avogadro constant number of particles."
+            },
+            {
+              "term": "Avogadro constant",
+              "meaning": "The number of atoms, molecules or ions in one mole: 6.02 × 10²³ per mole."
+            }
+          ]
+        },
+        {
+          "type": "list",
+          "items": [
+            "One mole of any substance contains the same number of particles as one mole of any other substance.",
+            "The particles can be atoms, molecules, ions, electrons or formulae.",
+            "One mole of carbon atoms has the same number of atoms as the number of molecules in one mole of carbon dioxide.",
+            "The mass of one mole in grams is numerically equal to the relative formula mass (Mr). One mole of carbon dioxide, with Mr 44, has a mass of 44 g."
+          ]
+        },
+        {
+          "type": "key-points",
+          "items": [
+            "One mole is 6.02 × 10²³ particles of any type.",
+            "The mass of one mole in grams equals Mr (or Ar for an element)."
+          ]
+        }
+      ]
+    },
+    {
+      "heading": "Mass and moles",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "(Higher tier) The mass of a sample, its Mr and the amount in moles are linked by one equation."
+        },
+        {
+          "type": "equation",
+          "label": "Number of moles",
+          "formula": "number of moles = mass ÷ Mr",
+          "where": [
+            "number of moles is in mol.",
+            "mass is in grams (g).",
+            "Mr is the relative formula mass, or Ar for an atom."
+          ]
+        },
+        {
+          "type": "steps",
+          "items": [
+            {
+              "lead": "Mass in grams.",
+              "text": "Convert kilograms or milligrams to grams first. 14.52 kg = 14 520 g."
+            },
+            {
+              "lead": "Divide by Mr.",
+              "text": "For ammonium nitrate, Mr = 80, so 14 520 ÷ 80 = 181.5 mol."
+            },
+            {
+              "lead": "Round as asked.",
+              "text": "In standard form to 2 significant figures this is 1.8 × 10²."
+            }
+          ]
+        },
+        {
+          "type": "list",
+          "items": [
+            "To find a mass, rearrange: mass = number of moles × Mr.",
+            "Use the Mr of the particle you are counting. For oxygen gas, O₂, Mr = 32. For oxygen atoms, Ar = 16."
+          ]
+        },
+        {
+          "type": "diagram",
+          "diagram": {
+            "kind": "practice",
+            "alt": "Calculate the number of moles from a mass and a relative formula mass.",
+            "question": "Calculate the number of moles in {m} g of a substance with a relative formula mass of {mr}. Give your answer to 3 decimal places.",
+            "variables": [
+              {
+                "id": "m",
+                "min": 2,
+                "max": 50,
+                "step": 2
+              },
+              {
+                "id": "mr",
+                "min": 16,
+                "max": 100,
+                "step": 4
+              }
+            ],
+            "answer": {
+              "formula": "m / mr",
+              "unit": "mol",
+              "decimals": 3
+            },
+            "working": [
+              "number of moles = mass ÷ Mr",
+              "number of moles = {m} ÷ {mr}",
+              "number of moles = {answer} mol"
+            ]
+          }
+        },
+        {
+          "type": "key-points",
+          "items": [
+            "Moles = mass ÷ Mr. Mass = moles × Mr.",
+            "Work in grams. Convert kg and mg first."
+          ]
+        }
+      ]
+    },
+    {
+      "heading": "Moles and number of particles",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "(Higher tier) Multiply moles by the Avogadro constant to find the number of particles. Answers are usually in standard form."
+        },
+        {
+          "type": "equation",
+          "label": "Number of particles",
+          "formula": "number of particles = number of moles × 6.02 × 10²³",
+          "where": [
+            "number of moles is in mol.",
+            "6.02 × 10²³ is the Avogadro constant, per mole."
+          ]
+        },
+        {
+          "type": "steps",
+          "items": [
+            {
+              "lead": "Find the moles.",
+              "text": "72 g of water, Mr = 18, is 72 ÷ 18 = 4 mol."
+            },
+            {
+              "lead": "Multiply by the Avogadro constant.",
+              "text": "4 × 6.02 × 10²³ = 2.408 × 10²⁴ molecules."
+            },
+            {
+              "lead": "Round.",
+              "text": "To 3 significant figures, 2.41 × 10²⁴."
+            }
+          ]
+        },
+        {
+          "type": "list",
+          "items": [
+            "To go the other way, divide the number of particles by 6.02 × 10²³ to get moles.",
+            "Mass of one atom = Ar ÷ (6.02 × 10²³) grams. For chromium (Ar = 52.0) this is 8.64 × 10⁻²³ g.",
+            "Be clear what the particle is. A mole of oxygen molecules, O₂, has twice as many oxygen atoms as molecules."
+          ]
+        },
+        {
+          "type": "diagram",
+          "diagram": {
+            "kind": "practice",
+            "alt": "Calculate the number of particles from moles.",
+            "question": "Calculate the number of atoms in {n} mol of an element. Give your answer as a number to be multiplied by 10²³, so 7.5 means 7.5 × 10²³ atoms. (Avogadro constant = 6.02 × 10²³ per mole)",
+            "variables": [
+              {
+                "id": "n",
+                "min": 0.5,
+                "max": 5,
+                "step": 0.5
+              }
+            ],
+            "answer": {
+              "formula": "n * 6.02",
+              "unit": "× 10²³ atoms",
+              "decimals": 2
+            },
+            "working": [
+              "number of atoms = number of moles × 6.02 × 10²³",
+              "number of atoms = {n} × 6.02 × 10²³",
+              "number of atoms = {answer} × 10²³"
+            ]
+          }
+        },
+        {
+          "type": "key-points",
+          "items": [
+            "Particles = moles × 6.02 × 10²³.",
+            "For particles from a mass: mass to moles first, then moles to particles.",
+            "Never multiply a mass directly by the Avogadro constant."
+          ]
+        }
+      ]
+    }
+  ],
+  "checks": [
+    {
+      "q": "What is meant by the Avogadro constant?",
+      "a": "The number of particles (atoms, molecules or ions) in one mole of a substance. It is 6.02 × 10²³ per mole.",
+      "marks": 1
+    },
+    {
+      "q": "Calculate the number of moles in 101 g of neon. (Ar of Ne = 20.2)",
+      "a": "101 ÷ 20.2 = 5 mol",
+      "marks": 2
+    },
+    {
+      "q": "Calculate the number of gold atoms in 3.94 g of gold. (Ar of Au = 197; Avogadro constant = 6.02 × 10²³)",
+      "a": "3.94 ÷ 197 = 0.02 mol. 0.02 × 6.02 × 10²³ = 1.2 × 10²² atoms.",
+      "marks": 2
+    }
+  ],
+  "boards": {
+    "aqa": {
+      "spec_codes": [
+        "AQA 4.3.2.1",
+        "AQA T 5.3.2.1"
+      ],
+      "exam_phrases": [
+        "mass = 14 520 g",
+        "(=) 14520 over 80 (mol)",
+        "(moles of C₇₀ molecules =) 1 ÷ 70",
+        "(1/40) × 6.02 × 10²³",
+        "must use Mr given (80)",
+        "(number of moles =) 2380 / (6.02 × 10²³)"
+      ],
+      "mistakes": [
+        {
+          "wrong": "Moles of NH₄NO₃ = 14.52 ÷ 80.",
+          "right": "Convert the mass to grams first. 14.52 kg = 14 520 g, so 14 520 ÷ 80 = 181.5 mol."
+        },
+        {
+          "wrong": "181.5 mol, when the question asks for standard form to 2 significant figures.",
+          "right": "The last mark is for the form asked: 1.8 × 10² mol."
+        },
+        {
+          "wrong": "Number of C₇₀ molecules from 1 mole of carbon atoms = 1 × 6.02 × 10²³.",
+          "right": "Each molecule has 70 atoms. Moles of C₇₀ = 1 ÷ 70, then multiply by 6.02 × 10²³ to give 8.6 × 10²¹."
+        }
+      ],
+      "worked_example": {
+        "exemplar_id": "493e21c8-5271-43f9-aef5-8d466a4f3502",
+        "source": "AQA jun 2018, Paper 2 (H), Q04.2",
+        "question": "A bag of fertiliser contains 14.52 kg of ammonium nitrate (NH₄NO₃).\n\nRelative formula mass (Mr): NH₄NO₃ = 80\n\nCalculate the number of moles of ammonium nitrate in the bag of fertiliser.\n\nGive your answer in standard form to 2 significant figures.",
+        "marks": 4,
+        "answer_points": [
+          "Mass = 14 520 g (1)",
+          "Moles = 14 520 ÷ 80 (1)",
+          "= 181.5 mol (1)",
+          "= 1.8 × 10² mol (1)"
+        ],
+        "tip": "An answer of 1.8 × 10² mol gains all 4 marks. The Mr given (80) must be used."
+      }
+    },
+    "edexcel": {
+      "spec_codes": [
+        "EDEX 1.50",
+        "EDEX 1.51"
+      ],
+      "exam_phrases": [
+        "0.11/44 (= 0.0025)",
+        "0.0025 × 6.02 × 10²³",
+        "44 g contains 6.02 × 10²³ molecules",
+        "3.94 / 197 = 0.02",
+        "allow ECF",
+        "with or without working scores 3"
+      ],
+      "mistakes": [
+        {
+          "wrong": "Number of molecules = 0.11 × 6.02 × 10²³.",
+          "right": "Convert mass to moles first: 0.11 ÷ 44 = 0.0025 mol. Then multiply by 6.02 × 10²³."
+        },
+        {
+          "wrong": "Copper atoms in 74 mg = 74 ÷ 63.5 × 6.02 × 10²³.",
+          "right": "Convert milligrams to grams first: 74 mg = 0.074 g. Using 74 directly gives an answer 1000 times too big and loses marks."
+        },
+        {
+          "wrong": "Number of gold atoms in 3.94 g = 3.94 ÷ 197 = 0.02 atoms.",
+          "right": "0.02 is the number of moles, not atoms. Multiply by 6.02 × 10²³ to get 1.2 × 10²² atoms."
+        }
+      ],
+      "worked_example": {
+        "exemplar_id": "59e5b12b-da60-4f9b-b350-acb37c384080",
+        "source": "EDEXCEL jun 2019, Paper 2 (H), Q5(c)",
+        "question": "Calculate the number of molecules in 0.11 g of carbon dioxide.\n\nGive your answer to two significant figures.\n\n(relative formula mass: CO₂ = 44; Avogadro constant = 6.02 × 10²³)",
+        "marks": 3,
+        "answer_points": [
+          "Moles = 0.11 ÷ 44 = 0.0025 (1)",
+          "Molecules = 0.0025 × 6.02 × 10²³ (1)",
+          "= 1.5 × 10²¹ (1)"
+        ],
+        "tip": "An answer of 1.5 × 10²¹ scores 3 marks with or without working."
+      }
+    },
+    "ocr": {
+      "spec_codes": [
+        "OCR C3.1g",
+        "OCR C3.1h"
+      ],
+      "exam_phrases": [
+        "number of entities in 1 mole",
+        "72 g of water = 72/18 = 4 moles",
+        "4 × 6.02 × 10²³ or 2.408 × 10²⁴",
+        "mass of one atom of chromium = 52 ÷ 6.02 × 10²³",
+        "101 ÷ 20.2 = 5",
+        "answer to 3 sig figs = 2.41 × 10²⁴"
+      ],
+      "mistakes": [
+        {
+          "wrong": "Number of water molecules in 72 g = 72 × 6.02 × 10²³.",
+          "right": "This scores 0. Find the moles first: 72 ÷ 18 = 4. Then 4 × 6.02 × 10²³."
+        },
+        {
+          "wrong": "The Avogadro constant is the number of atoms in one mole of an element.",
+          "right": "This is ignored. It is the number of entities in one mole. If you say atoms or molecules, link it to a correct substance."
+        },
+        {
+          "wrong": "Mass of one atom of chromium = 9 × 10⁻²³ g.",
+          "right": "Do not round to 1 significant figure. Give 8.64 × 10⁻²³ g."
+        }
+      ],
+      "worked_example": {
+        "exemplar_id": "c5c0050f-d3de-4d43-a194-1e50cc8b1e0d",
+        "source": "OCR jun 2018, Paper 3, Q26(b)",
+        "question": "The value of the Avogadro constant is 6.02 × 10²³.\n\nCalculate the number of water molecules in 72 g of water, H₂O.\n\nGive your answer to 3 significant figures.",
+        "marks": 3,
+        "answer_points": [
+          "72 g of water = 72 ÷ 18 = 4 moles (1)",
+          "Number of molecules = 4 × 6.02 × 10²³ = 2.408 × 10²⁴ (1)",
+          "To 3 significant figures = 2.41 × 10²⁴ (1)"
+        ],
+        "tip": "2.41 × 10²⁴ on the answer line scores 3 marks. The Mr of water is 18."
+      }
+    }
+  },
+  "meta": {
+    "status": "draft",
+    "written_by": "sonnet-5-5",
+    "written_at": "2026-10-01",
+    "spec_point_ids": [
+      "c64ec80c-c0f4-43d9-9245-c7d4997e9741",
+      "acb24f2d-64db-4342-ad62-9494d1854b70",
+      "2b354305-1ba6-4e65-a71d-07e0554d83a0",
+      "f1bc04da-f15f-4fef-b187-8a3a8304552c",
+      "7203c6f7-6ced-4199-a271-ca8e99cd40d8",
+      "d092749b-e5b3-4a44-ac49-bef760803c4a"
+    ],
+    "exemplar_ids": [
+      "493e21c8-5271-43f9-aef5-8d466a4f3502",
+      "59e5b12b-da60-4f9b-b350-acb37c384080",
+      "c5c0050f-d3de-4d43-a194-1e50cc8b1e0d"
+    ],
+    "checked_by": "sonnet-science-check",
+    "checked_at": "2026-10-01"
+  }
+}

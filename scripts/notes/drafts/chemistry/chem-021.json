@@ -1,0 +1,252 @@
+{
+  "format": 1,
+  "concept_id": "chem-021",
+  "subject": "chemistry",
+  "title": "Properties of simple molecular substances",
+  "key_idea": "Simple molecular substances have strong covalent bonds inside each molecule but only weak forces between molecules. When they melt or boil, only the weak intermolecular forces are overcome, so melting and boiling points are low. They do not conduct electricity.",
+  "sections": [
+    {
+      "heading": "Why melting and boiling points are low",
+      "blocks": [
+        { "type": "paragraph", "text": "This section explains why small molecules are usually gases or liquids at room temperature." },
+        {
+          "type": "definitions",
+          "items": [
+            { "term": "Simple molecular substance", "meaning": "A substance made of small molecules, each with a few atoms joined by covalent bonds." },
+            { "term": "Intermolecular forces", "meaning": "The weak forces of attraction between molecules." }
+          ]
+        },
+        {
+          "type": "list",
+          "items": [
+            "Atoms inside a molecule are held by strong **covalent bonds**.",
+            "Molecules are held to each other by weak **intermolecular forces**.",
+            "When the substance melts or boils, the molecules separate. Only the intermolecular forces are overcome.",
+            "The covalent bonds do not break, so the molecules stay the same."
+          ]
+        },
+        { "type": "subheading", "text": "The explanation in three steps" },
+        {
+          "type": "steps",
+          "items": [
+            { "lead": "Small molecules.", "text": "The substance is made of small, simple molecules." },
+            { "lead": "Weak forces.", "text": "There are weak forces between the molecules." },
+            { "lead": "Little energy.", "text": "Little energy is needed to overcome these forces, so the melting and boiling points are low." }
+          ]
+        },
+        {
+          "type": "diagram",
+          "diagram": {
+            "kind": "sort",
+            "alt": "Sort each statement by whether it is overcome when a simple molecular substance melts or boils.",
+            "prompt": "Is it overcome when a simple molecular substance melts or boils?",
+            "groups": ["Overcome when it melts or boils", "Not broken when it melts or boils"],
+            "items": [
+              { "text": "The forces between molecules", "group": 0 },
+              { "text": "The weak attractions between neighbouring molecules", "group": 0 },
+              { "text": "Intermolecular forces", "group": 0 },
+              { "text": "The covalent bond between the atoms in a molecule", "group": 1 },
+              { "text": "The strong bond between hydrogen and chlorine in HCl", "group": 1 },
+              { "text": "The covalent bonds inside each water molecule", "group": 1 }
+            ]
+          }
+        },
+        {
+          "type": "key-points",
+          "items": [
+            "Covalent bonds inside molecules are strong. Intermolecular forces between molecules are weak.",
+            "Melting and boiling overcome the intermolecular forces, not the covalent bonds.",
+            "Little energy is needed, so melting and boiling points are low."
+          ]
+        }
+      ]
+    },
+    {
+      "heading": "Size of molecule and trends",
+      "blocks": [
+        { "type": "paragraph", "text": "The intermolecular forces get stronger as the molecules get bigger. This explains trends in boiling points down a group or along a series." },
+        {
+          "type": "list",
+          "items": [
+            "Larger molecules have stronger intermolecular forces.",
+            "More energy is needed to overcome stronger forces.",
+            "So larger molecules have higher melting and boiling points.",
+            "Alkanes with more carbon atoms have higher boiling points. Halogens lower down Group 7 have higher boiling points."
+          ]
+        },
+        {
+          "type": "steps",
+          "items": [
+            { "lead": "State the trend.", "text": "The boiling point increases as the molecules get larger." },
+            { "lead": "Give the reason.", "text": "The intermolecular forces increase as the size of the molecules increases." },
+            { "lead": "Link to energy.", "text": "More energy is needed to overcome the intermolecular forces." }
+          ]
+        },
+        {
+          "type": "key-points",
+          "items": [
+            "Bigger molecules have stronger intermolecular forces.",
+            "Stronger forces need more energy, so the boiling point is higher."
+          ]
+        }
+      ]
+    },
+    {
+      "heading": "Electrical conductivity",
+      "blocks": [
+        { "type": "paragraph", "text": "Simple molecular substances do not conduct electricity, as solids, liquids or gases." },
+        {
+          "type": "list",
+          "items": [
+            "Conduction needs charged particles that are free to move.",
+            "Molecules have no overall electric charge.",
+            "There are no ions and no free electrons, so there are no charged particles to carry the current."
+          ]
+        },
+        {
+          "type": "key-points",
+          "items": [
+            "Molecules have no overall charge, so simple molecular substances do not conduct electricity.",
+            "Do not say covalent bonds are weak. The forces between molecules are weak."
+          ]
+        }
+      ]
+    }
+  ],
+  "checks": [
+    {
+      "q": "Explain why hydrogen chloride is a gas at room temperature.",
+      "a": "It is made of small (simple) molecules. There are weak intermolecular forces between the molecules. Little energy is needed to overcome these forces.",
+      "marks": 3
+    },
+    {
+      "q": "What is overcome when a simple molecular substance boils?",
+      "a": "The weak forces between the molecules (intermolecular forces), not the covalent bonds.",
+      "marks": 1
+    },
+    {
+      "q": "Why do simple molecular substances not conduct electricity?",
+      "a": "The molecules have no overall electric charge, so there are no charged particles free to move.",
+      "marks": 1
+    }
+  ],
+  "boards": {
+    "aqa": {
+      "spec_codes": ["AQA 4.2.2.4", "AQA T 5.2.2.4"],
+      "exam_phrases": [
+        "small molecules",
+        "weak intermolecular forces",
+        "little energy required to overcome the intermolecular forces",
+        "the intermolecular forces increase as the size of the molecules increases",
+        "(so) more energy is needed to overcome the intermolecular forces"
+      ],
+      "mistakes": [
+        {
+          "wrong": "Hydrogen chloride is a gas because it has weak covalent bonds.",
+          "right": "Do not accept reference to weak covalent bonds. Say it has small molecules with weak intermolecular forces, which need little energy to overcome."
+        },
+        {
+          "wrong": "More energy is needed to break the bonds in a bigger molecule, so its boiling point is higher.",
+          "right": "Do not accept reference to breaking bonds unless they are bonds between molecules. Say more energy is needed to overcome the intermolecular forces."
+        },
+        {
+          "wrong": "The boiling point increases because the atoms get bigger.",
+          "right": "Give the full chain: the molecules get larger, so the intermolecular forces increase, so more energy is needed to overcome them."
+        }
+      ],
+      "worked_example": {
+        "exemplar_id": "2912b902-a85a-4512-b731-fd51bee59c4a",
+        "source": "AQA jun 2018, Paper 1 (H), Q07.3",
+        "question": "Chlorine reacts with hydrogen to form hydrogen chloride.\n\nExplain why hydrogen chloride is a gas at room temperature.\n\nAnswer in terms of structure and bonding.",
+        "marks": 3,
+        "answer_points": [
+          "Hydrogen chloride is made of small molecules (simple molecular is also allowed).",
+          "So it has weak intermolecular forces.",
+          "These intermolecular forces require little energy to overcome."
+        ],
+        "tip": "One mark each. Do not refer to bonds breaking unless you mean the bonds between molecules."
+      }
+    },
+    "edexcel": {
+      "spec_codes": ["EDEX 1.34"],
+      "exam_phrases": [
+        "(intermolecular) forces are weak",
+        "little energy needed (to overcome forces)",
+        "simple molecular",
+        "weak intermolecular forces",
+        "simple molecular / has weak intermolecular forces"
+      ],
+      "mistakes": [
+        {
+          "wrong": "Fluorine has a low boiling point because it needs a low temperature to break the forces.",
+          "right": "'Needs a low temperature to break' is ignored. Say the forces between the molecules are weak and little energy is needed to overcome them."
+        },
+        {
+          "wrong": "Ammonia has a low boiling point because it is ionic.",
+          "right": "Anything ionic is rejected. Say ammonia is simple molecular with weak intermolecular forces."
+        }
+      ],
+      "worked_example": {
+        "exemplar_id": "b7ce6411-1396-422f-a0b1-76c12cf3fe2c",
+        "source": "EDEXCEL nov 2020, Paper 2 (H), Q2(c)",
+        "question": "Fluorine boils at –188 °C.\n\nThere are forces between fluorine molecules.\n\nExplain, in terms of these forces, why the boiling point of fluorine is low.",
+        "marks": 2,
+        "answer_points": [
+          "The intermolecular forces are weak.",
+          "Little energy is needed to overcome the forces."
+        ],
+        "tip": "Weak bonds between molecules is allowed for the first mark. Name the forces as between molecules."
+      }
+    },
+    "ocr": {
+      "spec_codes": ["OCR C2.3d", "OCR C2.3f"],
+      "exam_phrases": [
+        "weak forces between molecules",
+        "weak intermolecular forces/bonds",
+        "weakest intermolecular forces require the least energy to break",
+        "less energy to break the forces means a lower melting point and/or boiling point",
+        "larger molecules or longer chains have stronger intermolecular forces"
+      ],
+      "mistakes": [
+        {
+          "wrong": "Methane has a low melting point because it has weak bonds.",
+          "right": "Weak bonds alone is ignored. Say there are weak forces between molecules (weak intermolecular forces)."
+        },
+        {
+          "wrong": "Methane has a low melting point because it has weak covalent bonds.",
+          "right": "Weak covalent bonds and intramolecular bonding are not allowed. The covalent bonds are strong. The forces between molecules are weak."
+        }
+      ],
+      "worked_example": {
+        "exemplar_id": "91ef8d2a-ed83-4247-9b04-183b9786c81e",
+        "source": "OCR jun 2019, Paper 1, Q20(d)(ii)",
+        "question": "Carbon reacts with hydrogen to make methane, CH₄.\n\nMethane has a low melting point.\n\nExplain why methane has a low melting point.\n\nUse ideas about structure and bonding in your answer.",
+        "marks": 2,
+        "answer_points": [
+          "There are weak forces.",
+          "These forces are between molecules (weak intermolecular forces)."
+        ],
+        "tip": "One mark for weak forces and one for between molecules. Do not mention intramolecular bonding."
+      }
+    }
+  },
+  "meta": {
+    "status": "draft",
+    "written_by": "sonnet-5-5",
+    "written_at": "2026-10-01",
+    "checked_by": "sonnet-science-check",
+    "checked_at": "2026-10-01",
+    "spec_point_ids": [
+      "02d65818-dc2b-4dd2-a336-52bcddc0fe93",
+      "dcfef170-a9a4-461b-a9fc-e68642ae765e",
+      "d944dcb0-4293-40db-aa06-b3a64dc9eba9",
+      "3c9ac078-5a30-4a23-874b-fda5c2eee247",
+      "7a952ea4-464c-4ce1-b9c0-4c61dca8e5b8"
+    ],
+    "exemplar_ids": [
+      "2912b902-a85a-4512-b731-fd51bee59c4a",
+      "b7ce6411-1396-422f-a0b1-76c12cf3fe2c",
+      "91ef8d2a-ed83-4247-9b04-183b9786c81e"
+    ]
+  }
+}

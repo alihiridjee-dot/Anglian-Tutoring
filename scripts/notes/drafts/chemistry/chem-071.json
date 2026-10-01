@@ -1,0 +1,370 @@
+{
+  "format": 1,
+  "concept_id": "chem-071",
+  "subject": "chemistry",
+  "title": "Catalysts and enzymes",
+  "key_idea": "A **catalyst** speeds up a reaction by providing a different pathway with a lower activation energy. It is not used up and the products stay the same. Enzymes are catalysts in living things.",
+  "sections": [
+    {
+      "heading": "What a catalyst does",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "This section covers the features of a catalyst and how to show that a substance is one."
+        },
+        {
+          "type": "definitions",
+          "items": [
+            {
+              "term": "Catalyst",
+              "meaning": "A substance that speeds up a reaction without being used up."
+            },
+            {
+              "term": "Enzyme",
+              "meaning": "A biological catalyst, found in living things."
+            }
+          ]
+        },
+        {
+          "type": "list",
+          "items": [
+            "A catalyst **increases the rate** of a reaction.",
+            "It is **not used up**: it is chemically unchanged and has the same mass at the end.",
+            "It does not change the products of the reaction.",
+            "It is not written in the chemical equation, because it is not used up.",
+            "Different reactions need different catalysts."
+          ]
+        },
+        {
+          "type": "table",
+          "columns": [
+            "Reaction",
+            "Catalyst"
+          ],
+          "rows": [
+            [
+              "Making ammonia in the Haber process",
+              "Iron"
+            ],
+            [
+              "Decomposition of hydrogen peroxide",
+              "Manganese dioxide"
+            ],
+            [
+              "Removing nitrogen monoxide and carbon monoxide from car exhausts",
+              "The metal catalyst in a catalytic converter"
+            ]
+          ]
+        },
+        {
+          "type": "subheading",
+          "text": "Showing that a solid is a catalyst"
+        },
+        {
+          "type": "steps",
+          "items": [
+            {
+              "lead": "Measure.",
+              "text": "Find the mass of the solid before the reaction."
+            },
+            {
+              "lead": "React.",
+              "text": "Add it to the reaction and check that the reaction is faster."
+            },
+            {
+              "lead": "Recover.",
+              "text": "Filter the mixture, wash the solid and dry it."
+            },
+            {
+              "lead": "Weigh.",
+              "text": "Find the mass again. If it is unchanged, the solid was not used up and is a catalyst."
+            }
+          ]
+        },
+        {
+          "type": "key-points",
+          "items": [
+            "A catalyst speeds up a reaction and is not used up.",
+            "Its mass is the same at the end, and the products do not change.",
+            "Different reactions need different catalysts."
+          ]
+        }
+      ]
+    },
+    {
+      "heading": "How catalysts work",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "A catalyst gives the reaction a different pathway. This pathway has a lower activation energy."
+        },
+        {
+          "type": "diagram",
+          "diagram": {
+            "kind": "predictor",
+            "alt": "Pick a type of reaction and whether a catalyst is used to see its energy profile.",
+            "prompt": "Pick a reaction",
+            "result_labels": [
+              "Activation energy",
+              "Products compared with reactants",
+              "Rate of reaction"
+            ],
+            "options": [
+              {
+                "label": "Exothermic, no catalyst",
+                "results": [
+                  "Higher",
+                  "Lower energy",
+                  "Slower"
+                ],
+                "scene": {
+                  "kind": "energy-profile",
+                  "direction": "exothermic"
+                }
+              },
+              {
+                "label": "Exothermic, with a catalyst",
+                "results": [
+                  "**Lower**",
+                  "Same as without a catalyst",
+                  "**Faster**"
+                ],
+                "scene": {
+                  "kind": "energy-profile",
+                  "direction": "exothermic",
+                  "catalyst": true
+                }
+              },
+              {
+                "label": "Endothermic, no catalyst",
+                "results": [
+                  "Higher",
+                  "Higher energy",
+                  "Slower"
+                ],
+                "scene": {
+                  "kind": "energy-profile",
+                  "direction": "endothermic"
+                }
+              },
+              {
+                "label": "Endothermic, with a catalyst",
+                "results": [
+                  "**Lower**",
+                  "Same as without a catalyst",
+                  "**Faster**"
+                ],
+                "scene": {
+                  "kind": "energy-profile",
+                  "direction": "endothermic",
+                  "catalyst": true
+                }
+              }
+            ]
+          }
+        },
+        {
+          "type": "list",
+          "items": [
+            "The catalyst provides an **alternative pathway** for the reaction.",
+            "This pathway has a **lower activation energy**.",
+            "A greater proportion of collisions then have enough energy to react, so the rate increases.",
+            "The reactants and products are the same, so the energy change of the reaction is the same.",
+            "On a reaction profile, the catalysed line has a lower peak and starts and ends at the same levels.",
+            "(Higher tier) A catalyst does not change the position of equilibrium. It speeds up the forward and reverse reactions equally."
+          ]
+        },
+        {
+          "type": "key-points",
+          "items": [
+            "A catalyst gives an alternative pathway with a lower activation energy.",
+            "On a reaction profile the peak is lower. The start and end levels do not change."
+          ]
+        }
+      ]
+    },
+    {
+      "heading": "Enzymes",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "Enzymes are the catalysts of living things. They speed up the reactions that keep an organism alive."
+        },
+        {
+          "type": "list",
+          "items": [
+            "Enzymes act as catalysts in biological systems.",
+            "Yeast contains enzymes. They catalyse the reactions that produce alcoholic drinks.",
+            "Like other catalysts, an enzyme is not used up and does not change the products."
+          ]
+        },
+        {
+          "type": "key-points",
+          "items": [
+            "Enzymes are biological catalysts.",
+            "Enzymes in yeast are used to make alcoholic drinks."
+          ]
+        }
+      ]
+    }
+  ],
+  "checks": [
+    {
+      "q": "Explain how a catalyst increases the rate of a reaction.",
+      "a": "It provides a different (alternative) pathway for the reaction, which has a lower activation energy.",
+      "marks": 2
+    },
+    {
+      "q": "A student adds 0.5 g of a black powder to hydrogen peroxide. The reaction speeds up. State how the student could show that the powder is a catalyst.",
+      "a": "Filter, wash and dry the powder at the end. Its mass is still 0.5 g, so it has not been used up.",
+      "marks": 2
+    },
+    {
+      "q": "What are enzymes?",
+      "a": "Biological catalysts.",
+      "marks": 1
+    }
+  ],
+  "boards": {
+    "aqa": {
+      "spec_codes": [
+        "AQA 4.6.1.4",
+        "AQA T 5.6.1.4"
+      ],
+      "exam_phrases": [
+        "provides a different / alternative reaction pathway",
+        "(which has a) lower activation energy",
+        "(a substance that) increases the rate of reaction",
+        "and is not used up during the reaction",
+        "increases the rate of the reaction",
+        "(equilibrium position) does not change (Higher tier)"
+      ],
+      "mistakes": [
+        {
+          "wrong": "A catalyst is a substance that increases the rate of a reaction and does not take part in the reaction.",
+          "right": "Does not take part in the reaction is ignored. Say it increases the rate and is not used up during the reaction."
+        },
+        {
+          "wrong": "A catalyst increases the rate because there are more collisions.",
+          "right": "References to collisions are ignored for this question. Say it provides a different reaction pathway with a lower activation energy."
+        },
+        {
+          "wrong": "(Higher tier) A catalyst moves the position of equilibrium to the right.",
+          "right": "The position of equilibrium does not change. A catalyst increases the rate of the forward and the reverse reaction by the same amount."
+        }
+      ],
+      "worked_example": {
+        "exemplar_id": "497ad19b-0962-4a44-9b15-2c49f5086c08",
+        "source": "AQA jun 2025, Paper 2 (H), Q4.7",
+        "question": "Explain the effect of using a catalyst on the rate of production of methanol.",
+        "marks": 3,
+        "answer_points": [
+          "The catalyst increases the rate of the reaction.",
+          "By providing an alternative pathway for the reaction.",
+          "With a lower activation energy."
+        ],
+        "tip": "One mark each: the effect on the rate, the alternative pathway, and the lower activation energy."
+      }
+    },
+    "edexcel": {
+      "spec_codes": [
+        "EDEX 7.6",
+        "EDEX 7.7",
+        "EDEX 7.8"
+      ],
+      "exam_phrases": [
+        "makes it faster / increases rate / lowers activation energy",
+        "does not alter the products of the reaction",
+        "unchanged (mass of catalyst)",
+        "use a known mass of catalyst; find the mass of the catalyst before the reaction",
+        "after the reaction filter, wash and dry",
+        "the reaction proceeds by an alternative route, which reduces the activation energy",
+        "yeast contains an enzyme (alcoholic drinks)"
+      ],
+      "mistakes": [
+        {
+          "wrong": "The effect of a catalyst is that it is not used up.",
+          "right": "Being not used up is ignored when asked for the effect. Say it makes the reaction faster, increases the rate, or lowers the activation energy."
+        },
+        {
+          "wrong": "A catalyst speeds up the reaction time.",
+          "right": "Speeds up reaction time is ignored. Say it speeds up the reaction, or gives a shorter reaction time."
+        },
+        {
+          "wrong": "To find the mass of the catalyst, filter the mixture and weigh the filter paper and solid straight away.",
+          "right": "The solid will still be wet. Dry the filter paper and catalyst before finding their mass."
+        }
+      ],
+      "worked_example": {
+        "exemplar_id": "6b90e987-3dc3-497b-ba43-36e42ecc782c",
+        "source": "EDEXCEL jun 2019, Paper 2 (F), Q6(f)(ii)",
+        "question": "Some reactions are affected by the presence of a catalyst.\n\nDevise a simple experiment to find out what happens to the mass of a solid catalyst during a reaction.",
+        "marks": 3,
+        "answer_points": [
+          "Use a known mass of the catalyst in a reaction (find the mass of the catalyst before the reaction).",
+          "After the reaction, remove the catalyst by filtering, then wash and dry it.",
+          "Find the mass of the catalyst afterwards. The mass is unchanged."
+        ],
+        "tip": "Any three experimental points score. Calculating the difference between the final and initial masses is also credited."
+      }
+    },
+    "ocr": {
+      "spec_codes": [
+        "OCR C5.2f",
+        "OCR C5.2g",
+        "OCR C5.2h",
+        "OCR C5.2i"
+      ],
+      "exam_phrases": [
+        "substance that speeds up a reaction",
+        "(but) is not used up in the reaction / not chemically changed",
+        "provides an alternative (reaction) pathway",
+        "with a lower activation energy"
+      ],
+      "mistakes": [
+        {
+          "wrong": "A catalyst speeds up a reaction and doesn't take part in the reaction.",
+          "right": "Does not take part in the reaction is not allowed. Say it is not used up in the reaction, or not chemically changed."
+        },
+        {
+          "wrong": "A catalytic converter speeds up the reaction because the catalyst has a larger surface area.",
+          "right": "References to a larger surface area are ignored. Say it provides an alternative pathway with a lower activation energy."
+        }
+      ],
+      "worked_example": {
+        "exemplar_id": "2f731c3b-a532-4305-899d-ec8e04d8aa58",
+        "source": "OCR jun 2022, Paper 4, Q18(g)(i)",
+        "question": "Most cars have catalytic converters which catalyse the reaction between nitrogen monoxide and carbon monoxide to make nitrogen and carbon dioxide gases.\n\nExplain how the use of a catalyst in the catalytic converter increases this rate of reaction.",
+        "marks": 2,
+        "answer_points": [
+          "The catalyst provides an alternative reaction pathway.",
+          "With a lower activation energy."
+        ],
+        "tip": "Reactants adsorbing onto the surface of the catalyst so that bonds are weakened earns 1 mark."
+      }
+    }
+  },
+  "meta": {
+    "status": "draft",
+    "written_by": "sonnet-5-5",
+    "written_at": "2026-10-01",
+    "spec_point_ids": [
+      "c6bc5ed5-dafe-4363-8481-2d3f3ff44ea0",
+      "2b2fbcac-d757-4928-8046-6f6fb7ba0233",
+      "5d27928c-64b7-491b-869f-c82b85dc4a76",
+      "0c376829-7955-46cb-90cf-1086f7b576a8",
+      "8bde2508-cab0-439b-ab27-00fdb7bf35c3",
+      "5ffdc83c-dc34-4405-95d7-0ccc8251dc0c",
+      "cbb5348e-dd1f-45ee-9ac8-4855195d81cb",
+      "d7f0ada9-04c4-4c75-9171-06d08114553d",
+      "4a21b81d-5483-4bb1-80c5-003ef0ffcd4e"
+    ],
+    "exemplar_ids": [
+      "497ad19b-0962-4a44-9b15-2c49f5086c08",
+      "6b90e987-3dc3-497b-ba43-36e42ecc782c",
+      "2f731c3b-a532-4305-899d-ec8e04d8aa58"
+    ],
+    "checked_by": "sonnet-science-check",
+    "checked_at": "2026-10-01"
+  }
+}

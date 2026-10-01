@@ -1,0 +1,438 @@
+{
+  "format": 1,
+  "concept_id": "chem-087",
+  "subject": "chemistry",
+  "title": "Required practical: chromatography",
+  "key_idea": "Chromatography separates a mixture of soluble substances. A solvent (the mobile phase) moves through the paper (the stationary phase) and carries each substance a different distance. A pure substance gives one spot. Rf = distance moved by substance ÷ distance moved by solvent.",
+  "sections": [
+    {
+      "heading": "How chromatography separates a mixture",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "This section covers the two phases and what makes the substances separate."
+        },
+        {
+          "type": "definitions",
+          "items": [
+            {
+              "term": "Stationary phase",
+              "meaning": "The phase that does not move, such as the paper."
+            },
+            {
+              "term": "Mobile phase",
+              "meaning": "The solvent, which moves through the stationary phase."
+            },
+            {
+              "term": "Chromatogram",
+              "meaning": "The paper after the experiment, showing the separated spots."
+            },
+            {
+              "term": "Solvent front",
+              "meaning": "The furthest point the solvent has reached."
+            }
+          ]
+        },
+        {
+          "type": "list",
+          "items": [
+            "Chromatography separates mixtures and helps to identify substances.",
+            "Separation depends on how each substance is **distributed between** the two phases.",
+            "A substance that spends more time in the mobile phase moves further up the paper.",
+            "A substance that is more attracted to the paper spends more time in it, so it moves less far.",
+            "Different substances move at different rates, so they end up in different places."
+          ]
+        },
+        {
+          "type": "key-points",
+          "items": [
+            "The solvent is the mobile phase; the paper is the stationary phase.",
+            "Substances separate because they move at different rates."
+          ]
+        }
+      ]
+    },
+    {
+      "heading": "Required practical: paper chromatography",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "This section covers how to separate the colours in an ink. Use the same method for a food colouring."
+        },
+        {
+          "type": "list",
+          "items": [
+            "Draw the start line in **pencil**, because ink would dissolve in the solvent and run.",
+            "The spot must start above the level of the solvent, or it would dissolve into the beaker.",
+            "Put a lid on the beaker so the solvent does not evaporate.",
+            "If the ink stays on the start line, use a different solvent so that it dissolves."
+          ]
+        },
+        {
+          "type": "diagram",
+          "diagram": {
+            "kind": "sequence",
+            "alt": "Put the steps of paper chromatography in the right order.",
+            "prompt": "Put the steps of the experiment in order",
+            "steps": [
+              "Draw a pencil start line near the bottom of the paper",
+              "Put a small spot of ink on the start line",
+              "Pour a little solvent into a beaker, below the level of the spot",
+              "Stand the paper in the solvent and put a lid on the beaker",
+              "Leave the solvent to travel up the paper",
+              "Mark the solvent front and leave the paper to dry",
+              "Measure the distances moved by the spots and the solvent"
+            ]
+          }
+        },
+        {
+          "type": "key-points",
+          "items": [
+            "Pencil start line, spot above the solvent, lid on.",
+            "Mark the solvent front, then leave the paper to dry."
+          ]
+        }
+      ]
+    },
+    {
+      "heading": "Reading a chromatogram and finding Rf",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "This section covers what the spots show and how to calculate an Rf value."
+        },
+        {
+          "type": "list",
+          "items": [
+            "A **pure substance** gives one spot, whatever solvent is used.",
+            "A mixture can give more than one spot.",
+            "Known substances are run on the same paper. A spot that moves the same distance as a known substance is likely to be that substance.",
+            "The same substance has the same Rf value in the same solvent. Different solvents give different Rf values."
+          ]
+        },
+        {
+          "type": "equation",
+          "formula": "Rf = distance moved by substance ÷ distance moved by solvent",
+          "label": "Rf value",
+          "where": [
+            "distance moved by substance, from the start line to the centre of the spot, in centimetres (cm)",
+            "distance moved by solvent, from the start line to the solvent front, in centimetres (cm)"
+          ]
+        },
+        {
+          "type": "paragraph",
+          "text": "Rf has no units and is always between 0 and 1."
+        },
+        {
+          "type": "steps",
+          "items": [
+            {
+              "lead": "Measure the spot",
+              "text": "Measure from the start line to the centre of the spot."
+            },
+            {
+              "lead": "Measure the solvent",
+              "text": "Measure from the start line to the solvent front."
+            },
+            {
+              "lead": "Divide",
+              "text": "Rf = spot distance ÷ solvent distance."
+            }
+          ]
+        },
+        {
+          "type": "equation",
+          "formula": "distance moved by substance = Rf × distance moved by solvent",
+          "label": "Distance moved by the substance",
+          "where": [
+            "distance moved by substance in centimetres (cm)",
+            "Rf, no units",
+            "distance moved by solvent in centimetres (cm)"
+          ]
+        },
+        {
+          "type": "equation",
+          "formula": "distance moved by solvent = distance moved by substance ÷ Rf",
+          "label": "Distance moved by the solvent",
+          "where": [
+            "distance moved by solvent in centimetres (cm)",
+            "distance moved by substance in centimetres (cm)",
+            "Rf, no units"
+          ]
+        },
+        {
+          "type": "paragraph",
+          "text": "For example, a spot that moved 3.2 cm with Rf 0.40 means the solvent moved 3.2 ÷ 0.40 = 8.0 cm."
+        },
+        {
+          "type": "diagram",
+          "diagram": {
+            "kind": "practice",
+            "alt": "Calculate an Rf value with new numbers each time.",
+            "question": "A dye moves {d} cm from the start line. The solvent front moves {s} cm. Calculate the Rf value of the dye. Give your answer to 2 decimal places.",
+            "variables": [
+              {
+                "id": "d",
+                "min": 1.5,
+                "max": 7.5,
+                "step": 0.5
+              },
+              {
+                "id": "s",
+                "min": 9,
+                "max": 11,
+                "step": 1
+              }
+            ],
+            "answer": {
+              "formula": "d / s",
+              "decimals": 2
+            },
+            "working": [
+              "Rf = distance moved by dye ÷ distance moved by solvent",
+              "= {d} ÷ {s}",
+              "= {answer}"
+            ]
+          }
+        },
+        {
+          "type": "key-points",
+          "items": [
+            "One spot means pure; more than one spot means a mixture.",
+            "Rf = spot distance ÷ solvent distance."
+          ]
+        }
+      ]
+    }
+  ],
+  "checks": [
+    {
+      "q": "Why is the start line drawn in pencil and not ink?",
+      "a": "Ink dissolves in the solvent (so the colours of the ink would run and separate).",
+      "marks": 1
+    },
+    {
+      "q": "A dye moved 4.5 cm and the solvent front moved 9.0 cm. Calculate the Rf value.",
+      "a": "4.5 ÷ 9.0 = 0.50",
+      "marks": 2
+    },
+    {
+      "q": "Explain how chromatography can show that a food colouring contains an unknown dye.",
+      "a": "Run known dyes and the food colouring on the same paper. Compare the distances moved or the Rf values. A spot that has the same Rf value as a known dye is that dye.",
+      "marks": 3
+    }
+  ],
+  "boards": {
+    "aqa": {
+      "spec_codes": [
+        "AQA 4.8.1.3",
+        "AQA T 5.8.1.3"
+      ],
+      "exam_phrases": [
+        "draw a pencil line near the bottom edge of the (chromatography) paper",
+        "the dots of ink should be above the level of the water / solvent",
+        "put a lid on the beaker",
+        "mark position of solvent front",
+        "run known dyes and food colouring (as a chromatogram)",
+        "compare distances moved or compare Rf values"
+      ],
+      "mistakes": [
+        {
+          "wrong": "The paper is dipped into the solvent so that the spot is under the solvent.",
+          "right": "The dots of ink should be above the level of the solvent, so the solvent is below the start line."
+        },
+        {
+          "wrong": "The Rf values are different because the paper is different.",
+          "right": "Say that the dye is more attracted to one paper, so it spends a greater proportion of the time in that paper. A dye with a smaller Rf value is more attracted to its paper."
+        },
+        {
+          "wrong": "Distance moved by solvent = 0.24 × 1.8 cm.",
+          "right": "Rearrange Rf: distance moved by solvent = 1.8 ÷ 0.24 = 7.5 cm."
+        },
+        {
+          "wrong": "The distance moved by the solvent is 7.356 cm.",
+          "right": "Give the answer to the number of significant figures asked for: 7.4 cm to 2 significant figures. The final mark is for the rounding."
+        }
+      ],
+      "worked_example": {
+        "exemplar_id": "26baa279-ba26-4ad7-a73f-3bc535d550eb",
+        "source": "AQA jun 2023, Paper 2 (H), Q02.5",
+        "question": "Black ink is a mixture of several colours.\n\nPlan an experiment using paper chromatography to:\nseparate the colours in black ink\nidentify the colours from their Rf values.",
+        "marks": 6,
+        "answer_points": [
+          "Draw a pencil line near the bottom edge of the chromatography paper.",
+          "Put a small dot of black ink on the pencil line.",
+          "Put a small volume of water or solvent in a beaker.",
+          "Place the paper in the solvent, with the dots above the level of the solvent, and support the paper.",
+          "Put a lid on the beaker and leave the solvent to run.",
+          "Mark the position of the solvent front, then remove the paper and leave it to dry.",
+          "Measure the distance of each dot and of the solvent front from the start line, and calculate the Rf values.",
+          "Compare the Rf values with known Rf values to identify the colours."
+        ],
+        "tip": "A levelled question. Top marks need all the key steps in a logical order, ending with the Rf calculation and the comparison."
+      }
+    },
+    "edexcel": {
+      "spec_codes": [
+        "EDEX 2.9",
+        "EDEX 2.10",
+        "EDEX 2.11"
+      ],
+      "exam_phrases": [
+        "use a different solvent so that the ink will dissolve",
+        "longer paper / different paper (to make the Rf value more accurate)",
+        "distance = Rf × solvent front distance",
+        "(because the ink) does not dissolve in water"
+      ],
+      "mistakes": [
+        {
+          "wrong": "Rf = 9.20 ÷ 3.60 = 2.56.",
+          "right": "Divide the distance moved by the dye by the distance moved by the solvent front: 3.60 ÷ 9.20 = 0.39. Dividing the other way round scores only 1 mark."
+        },
+        {
+          "wrong": "Rf = 0.4 (no working shown).",
+          "right": "Give the Rf to the number of decimal places asked for: 0.39 to 2 decimal places. 0.4 alone without working scores 0."
+        },
+        {
+          "wrong": "Repeat the experiment to make the Rf value more accurate.",
+          "right": "This is ignored. Use longer paper, or a different paper."
+        }
+      ],
+      "worked_example": {
+        "exemplar_id": "f8245780-19c6-48e3-9beb-d8f6e7493910",
+        "source": "EDEXCEL jun 2023, Paper 1 (H), Q9(b)",
+        "question": "A scientist uses chromatography in an investigation of compound S.\n\nIn the conditions used, compound S has an Rf value of 0.22.\n\nCalculate the distance the spot of compound S moves if the solvent front has moved by 2.4 cm.",
+        "marks": 2,
+        "answer_points": [
+          "Rearrange: distance = Rf × distance moved by solvent front.",
+          "Distance = 0.22 × 2.4",
+          "= 0.528 cm, or 0.53 cm."
+        ],
+        "tip": "Do not add extra calculation steps: the mark scheme scores 0 for a different method."
+      },
+      "extra": [
+        {
+          "heading": "Core practical: composition of inks",
+          "blocks": [
+            {
+              "type": "paragraph",
+              "text": "The core practical investigates the composition of inks using simple distillation and paper chromatography."
+            },
+            {
+              "type": "list",
+              "items": [
+                "The paper chromatography method is the one in this note.",
+                "In the experiment, an ink that does not move from the start line needs a different solvent so that it dissolves."
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    "ocr": {
+      "spec_codes": [
+        "OCR C2.1g",
+        "OCR C2.1h",
+        "OCR C2.1i",
+        "OCR C2.1k"
+      ],
+      "exam_phrases": [
+        "Ink dissolves in solvent",
+        "To stop the mobile phase / solvent evaporating",
+        "(Use a) locating agent / stain / UV light",
+        "The Rf values are different",
+        "Idea that Rf value is in the range",
+        "Gas chromatography shows amounts / quantities of compounds"
+      ],
+      "mistakes": [
+        {
+          "wrong": "An impure painkiller will only have two spots on the thin layer chromatogram.",
+          "right": "It could have more than two spots, because it depends on how many impurities there are. It could have one spot if an impurity has the same Rf value as the painkiller."
+        },
+        {
+          "wrong": "Dye X is tartrazine, because both are food dyes.",
+          "right": "The Rf values are different (0.22 and 0.11). If dye X was tartrazine, it would have the same Rf value."
+        },
+        {
+          "wrong": "Use ink or food colouring to see colourless spots.",
+          "right": "Ink, indicator and food colouring are ignored. Use a locating agent, a stain or UV light."
+        },
+        {
+          "wrong": "Draw the start line in ink so it is easy to see.",
+          "right": "Ink dissolves in the solvent, so the start line is drawn in pencil."
+        }
+      ],
+      "worked_example": {
+        "exemplar_id": "4318466f-c746-41f2-b760-0ec175027548",
+        "source": "OCR jun 2025, Paper 1, Q23(b)(ii)",
+        "question": "A student calculates that a dye has an Rf value of 0.67.\n\nThe table shows the Rf value of different dyes.\n\nColour of dye | Rf value\nBlue | 0.15–0.20\nRed | 0.35–0.40\nPink | 0.40–0.80\nYellow | 0.75–0.80\n\nWhich dye did they use in their experiment?\n\nExplain your answer.",
+        "marks": 2,
+        "answer_points": [
+          "The dye is pink.",
+          "The Rf value of 0.67 is in the range 0.40–0.80."
+        ],
+        "tip": "Check each row: only one range includes the Rf value."
+      },
+      "extra": [
+        {
+          "heading": "Thin-layer and gas chromatography",
+          "blocks": [
+            {
+              "type": "paragraph",
+              "text": "Thin-layer chromatography (TLC) uses a thin layer of solid on a plate as the stationary phase. Gas chromatography uses a gas as the mobile phase."
+            },
+            {
+              "type": "list",
+              "items": [
+                "Both types have a stationary phase and a mobile phase.",
+                "TLC uses a liquid solvent as the mobile phase. It is used to separate solids.",
+                "The mobile phase can be an aqueous or a non-aqueous solvent.",
+                "Colourless spots are found using a **locating agent**, a stain or UV light.",
+                "Gas chromatography separates gases in a mixture. It shows the amounts of each compound, which TLC does not.",
+                "Choose a solvent that dissolves all the substances being separated."
+              ]
+            }
+          ]
+        }
+      ]
+    }
+  },
+  "meta": {
+    "status": "draft",
+    "written_by": "sonnet-5-5",
+    "written_at": "2026-10-01",
+    "spec_point_ids": [
+      "9f573028-87b4-4b2f-8bb7-b393a6c169fd",
+      "80b301e0-b4d1-411e-b5f5-a732d6ffa892",
+      "0e34ff30-6c64-4f54-8d0d-7d851cb88325",
+      "eaf3d61f-d506-4a55-bd8b-0ab715592b86",
+      "ee085a0a-38a5-4a45-8f29-35a1f0cd6887",
+      "cac20668-1324-4388-821f-31fd3ce3fbc5",
+      "a6d38c9c-e59b-4f31-a93d-94ddebfa1404",
+      "93f1352e-3a84-4fc9-8b12-c8868c7637e8",
+      "6b858862-a4f1-4ddd-b77a-64708462d892"
+    ],
+    "exemplar_ids": [
+      "26baa279-ba26-4ad7-a73f-3bc535d550eb",
+      "a993e836-2390-4b89-aa99-20483a9ee5b6",
+      "29ef4675-e7f5-469e-b0bc-de67e542b74d",
+      "17e239da-aed0-4a53-8a28-e67fe2c58966",
+      "2c2fe2fa-b46a-4ece-a329-e274aa6027b3",
+      "f8245780-19c6-48e3-9beb-d8f6e7493910",
+      "98d72444-234f-4680-9e2c-e60d718dd074",
+      "69c035fb-9847-46ab-a651-6e14faf87fc1",
+      "7a0643d2-2814-42d6-9f86-d318e53a9e83",
+      "4318466f-c746-41f2-b760-0ec175027548",
+      "d832a3e0-1d16-4cee-b423-7780d0c7ddd9",
+      "b338d409-3633-413f-982f-911715346ce8",
+      "1996da16-9196-4b10-a732-6d2d438829ad",
+      "1527d8d0-2618-402a-8f55-143a741b879c",
+      "cb6f221f-a078-4c19-bb0e-71b68715e273",
+      "82dfd23a-c330-432b-a281-7c277decbe9d",
+      "1a0723fe-d28e-4c57-8652-f8efc5389a89",
+      "5a37df87-c440-424c-a308-b47b7cc49184"
+    ],
+    "checked_by": "sonnet-science-check",
+    "checked_at": "2026-10-01"
+  }
+}

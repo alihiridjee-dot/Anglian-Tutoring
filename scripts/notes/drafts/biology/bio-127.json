@@ -1,0 +1,248 @@
+{
+  "format": 1,
+  "concept_id": "bio-127",
+  "subject": "biology",
+  "title": "Global warming",
+  "key_idea": "Carbon dioxide and methane are greenhouse gases that trap heat in the atmosphere. Human activities are raising their levels, which contributes to global warming. Global warming causes climate change that harms habitats and living organisms.",
+  "sections": [
+    {
+      "heading": "Greenhouse gases and human activity",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "Levels of carbon dioxide and methane in the atmosphere are increasing. This section covers what they do and where the extra comes from."
+        },
+        {
+          "type": "definitions",
+          "items": [
+            {
+              "term": "Global warming",
+              "meaning": "A rise in the average temperature of the Earth's atmosphere."
+            },
+            {
+              "term": "Greenhouse gas",
+              "meaning": "A gas, such as carbon dioxide or methane, that traps heat energy in the atmosphere."
+            },
+            {
+              "term": "Climate change",
+              "meaning": "Changes in weather patterns across the world, caused by global warming."
+            }
+          ]
+        },
+        {
+          "type": "paragraph",
+          "text": "The Earth's surface gives out heat energy. Greenhouse gases in the atmosphere trap some of it, which keeps the Earth warm. More greenhouse gases trap more heat, so the average temperature rises."
+        },
+        {
+          "type": "subheading",
+          "text": "Where the extra gases come from"
+        },
+        {
+          "type": "table",
+          "columns": [
+            "Gas",
+            "Human sources"
+          ],
+          "rows": [
+            [
+              "Carbon dioxide",
+              "Burning fuels, for example in cars and power stations. Deforestation. Burning and decay of peat. Respiration of farm animals."
+            ],
+            [
+              "Methane",
+              "Farming cows. Rice paddy fields. Rotting vegetables in landfill."
+            ]
+          ]
+        },
+        {
+          "type": "paragraph",
+          "text": "Fewer plants means less photosynthesis, so less carbon dioxide is taken out of the air."
+        },
+        {
+          "type": "key-points",
+          "items": [
+            "Carbon dioxide and methane are greenhouse gases that trap heat.",
+            "Burning fuels, deforestation, peat destruction and farming cows raise their levels.",
+            "Fewer plants means less carbon dioxide absorbed."
+          ]
+        }
+      ]
+    },
+    {
+      "heading": "Effects of global warming",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "Global warming causes climate change. This section covers the effects on the environment and on living organisms."
+        },
+        {
+          "type": "subheading",
+          "text": "On the environment"
+        },
+        {
+          "type": "list",
+          "items": [
+            "Ice caps and glaciers melt, so sea levels rise and land floods.",
+            "Extreme weather, such as storms and droughts.",
+            "Changing rainfall patterns, and desertification where rainfall falls."
+          ]
+        },
+        {
+          "type": "subheading",
+          "text": "On living organisms"
+        },
+        {
+          "type": "list",
+          "items": [
+            "Loss of habitat, which may lead to **extinction**.",
+            "Changes in migration patterns and in where species live.",
+            "Coral bleaching.",
+            "Crop failure, leading to food insecurity.",
+            "Some plants grow faster, because of more carbon dioxide or a higher temperature."
+          ]
+        },
+        {
+          "type": "diagram",
+          "diagram": {
+            "kind": "sequence",
+            "alt": "Put the steps from human activity to flooding and habitat loss in order.",
+            "prompt": "Put these steps in order, from the cause to the effect.",
+            "steps": [
+              "Humans burn fuels, clear forests and farm cattle",
+              "Carbon dioxide and methane levels in the atmosphere rise",
+              "More heat energy is trapped in the atmosphere",
+              "The average global temperature rises",
+              "Ice caps melt and sea levels rise",
+              "Low-lying habitats flood and some species are lost"
+            ]
+          }
+        },
+        {
+          "type": "key-points",
+          "items": [
+            "Global warming causes ice melting, rising sea levels, extreme weather and changed rainfall.",
+            "These effects cause loss of habitat, changes in distribution and extinction."
+          ]
+        }
+      ]
+    },
+    {
+      "heading": "Evidence and uncertainty",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "Scientists agree about global warming because of how the evidence has been checked. Some evidence is still incomplete."
+        },
+        {
+          "type": "list",
+          "items": [
+            "The scientific consensus is based on systematic reviews of thousands of **peer-reviewed** publications.",
+            "In peer review, other scientists check a study before it is published.",
+            "In a complex situation the evidence can be uncertain or incomplete. For example, the total number of animals in a population may not be known.",
+            "Many factors act together, such as hunting, melting sea ice and the supply of food."
+          ]
+        },
+        {
+          "type": "subheading",
+          "text": "Evaluating a prediction"
+        },
+        {
+          "type": "list",
+          "items": [
+            "Give reasons why a population may decrease, for example less habitat as ice melts.",
+            "Give reasons why it may increase or stay the same, for example laws that reduce hunting.",
+            "Finish with a judgement that follows from your reasons."
+          ]
+        },
+        {
+          "type": "key-points",
+          "items": [
+            "The consensus comes from reviews of thousands of peer-reviewed publications.",
+            "Evidence can still be uncertain or incomplete in a complex situation."
+          ]
+        }
+      ]
+    }
+  ],
+  "checks": [
+    {
+      "q": "Name two greenhouse gases whose levels in the atmosphere are increasing.",
+      "a": "Carbon dioxide and methane.",
+      "marks": 2
+    },
+    {
+      "q": "Explain why a decrease in the number of plants across the world increases global warming.",
+      "a": "Less photosynthesis, so less carbon dioxide is absorbed from the air. More carbon dioxide stays in the air, which increases global warming.",
+      "marks": 2
+    },
+    {
+      "q": "Give two effects of climate change.",
+      "a": "Any two from: ice caps melting, rise in sea levels, desertification, extreme weather, change in species distribution or migration, loss of biodiversity, coral bleaching, crop failure.",
+      "marks": 2
+    }
+  ],
+  "boards": {
+    "aqa": {
+      "spec_codes": [
+        "AQA 7.9",
+        "AQA T 4.7.3.5"
+      ],
+      "exam_phrases": [
+        "(higher CO2 concentration causes) global warming",
+        "less carbon dioxide absorbed / used (by plants)",
+        "(due to) less photosynthesis",
+        "ice caps melting",
+        "rise in sea levels",
+        "change in species distribution"
+      ],
+      "mistakes": [
+        {
+          "wrong": "An effect of climate change is that temperatures increase.",
+          "right": "Increased temperature and greenhouse gas references are ignored. Give an effect such as ice caps melting, rise in sea levels, extreme weather or loss of biodiversity."
+        },
+        {
+          "wrong": "Factories increase the concentration of carbon dioxide in the atmosphere.",
+          "right": "\"Factories\" on its own is ignored. Name combustion, such as burning fuels, driving cars or power stations, or give deforestation."
+        },
+        {
+          "wrong": "A higher temperature causes forest fires, so organisms die.",
+          "right": "Forest fires and \"death\" on their own are ignored. Say loss of habitat, migration or change in distribution, or extinction through lack of water or food or increased disease."
+        },
+        {
+          "wrong": "Burning or decaying peat releases methane.",
+          "right": "This point is ignored. Burning or decay of peat produces carbon dioxide. Methane released from the peat bog is a separate point."
+        }
+      ],
+      "worked_example": {
+        "exemplar_id": "d9dee04f-fab4-4504-b12d-595bb71a91be",
+        "source": "AQA jun 2021, Paper 2 (F), Q07.3",
+        "question": "Scientists are very concerned about the changes in concentration of carbon dioxide in the Earth's atmosphere. The trend of increasing carbon dioxide concentration may continue for many years.\n\nExplain what effect the changing concentration of carbon dioxide in the atmosphere could have on living organisms.",
+        "marks": 4,
+        "answer_points": [
+          "A higher carbon dioxide concentration causes global warming.",
+          "Plants photosynthesise faster because of more carbon dioxide or the higher temperature.",
+          "A temperature rise changes rainfall patterns or causes extreme weather such as storms.",
+          "Less rainfall causes desertification: many plant species die out, animals lack food and die, and drought-adapted plants become more common.",
+          "More rainfall causes flooding and loss of habitat, which may lead to extinction.",
+          "Melting ice caps or glaciers cause flooding and loss of habitat.",
+          "Animal and bird migration patterns or distribution change."
+        ],
+        "tip": "Levelled answer. Linked points that run from cause to effect reach the top level (3 to 4 marks)."
+      }
+    }
+  },
+  "meta": {
+    "status": "draft",
+    "written_by": "sonnet-5-5",
+    "written_at": "2026-10-01",
+    "spec_point_ids": [
+      "71a93be3-b8d4-49fa-856e-3f4b38456027",
+      "3068b47b-b814-4c5c-a649-2481ebfb13bf"
+    ],
+    "exemplar_ids": [
+      "d9dee04f-fab4-4504-b12d-595bb71a91be"
+    ],
+    "checked_by": "sonnet-science-check",
+    "checked_at": "2026-10-01"
+  }
+}

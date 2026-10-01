@@ -1,0 +1,380 @@
+{
+  "format": 1,
+  "concept_id": "chem-075",
+  "subject": "chemistry",
+  "title": "Homologous series and functional groups",
+  "key_idea": "A homologous series is a family of compounds with the same general formula and functional group. Neighbours differ by CH₂. Because the functional group decides the reactions, members of a series react in similar ways.",
+  "sections": [
+    {
+      "heading": "Homologous series",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "Carbon atoms can form families of similar compounds. Each family is a homologous series."
+        },
+        {
+          "type": "definitions",
+          "items": [
+            {
+              "term": "Homologous series",
+              "meaning": "A family of compounds with the same general formula, the same functional group and similar chemical properties."
+            },
+            {
+              "term": "Functional group",
+              "meaning": "The atom or group of atoms that gives a homologous series its chemical reactions."
+            },
+            {
+              "term": "General formula",
+              "meaning": "A formula that fits every member of a series, using n for the number of carbon atoms."
+            }
+          ]
+        },
+        {
+          "type": "subheading",
+          "text": "Features of a series"
+        },
+        {
+          "type": "list",
+          "items": [
+            "The members have the **same general formula**, for example CₙH₂ₙ₊₂ for the alkanes.",
+            "Neighbouring members differ by **CH₂** in their molecular formulae.",
+            "Their physical properties change gradually, for example their boiling points increase down the series.",
+            "Their chemical properties are similar, because they have the same functional group."
+          ]
+        },
+        {
+          "type": "subheading",
+          "text": "Why carbon forms so many compounds"
+        },
+        {
+          "type": "list",
+          "items": [
+            "Carbon atoms can bond to other carbon atoms, in chains and in rings.",
+            "Each carbon atom forms four bonds, so it can bond to different elements in many ways.",
+            "Carbon can form single or double bonds in different compounds.",
+            "This gives families of similar compounds."
+          ]
+        },
+        {
+          "type": "key-points",
+          "items": [
+            "Members of a series share a general formula and a functional group.",
+            "Neighbours differ by CH₂ and their boiling points change gradually.",
+            "Carbon forms many compounds because it bonds to itself and forms four bonds."
+          ]
+        }
+      ]
+    },
+    {
+      "heading": "Functional groups and the first four members",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "(Separate science) Alkenes, alcohols and carboxylic acids are needed for chemistry-only courses. Alkanes are needed on every course."
+        },
+        {
+          "type": "table",
+          "columns": [
+            "Series",
+            "Functional group",
+            "Name ending",
+            "General formula"
+          ],
+          "rows": [
+            [
+              "Alkanes",
+              "None: C–C single bonds only",
+              "-ane",
+              "CₙH₂ₙ₊₂"
+            ],
+            [
+              "Alkenes",
+              "C=C",
+              "-ene",
+              "CₙH₂ₙ"
+            ],
+            [
+              "Alcohols",
+              "–OH",
+              "-ol",
+              "CₙH₂ₙ₊₁OH"
+            ],
+            [
+              "Carboxylic acids",
+              "–COOH",
+              "-oic acid",
+              "not required"
+            ]
+          ]
+        },
+        {
+          "type": "table",
+          "columns": [
+            "Carbon atoms",
+            "Alkane",
+            "Alkene",
+            "Alcohol",
+            "Carboxylic acid"
+          ],
+          "rows": [
+            [
+              "1",
+              "methane CH₄",
+              "none",
+              "methanol CH₃OH",
+              "methanoic acid HCOOH"
+            ],
+            [
+              "2",
+              "ethane C₂H₆",
+              "ethene C₂H₄",
+              "ethanol C₂H₅OH",
+              "ethanoic acid CH₃COOH"
+            ],
+            [
+              "3",
+              "propane C₃H₈",
+              "propene C₃H₆",
+              "propanol C₃H₇OH",
+              "propanoic acid CH₃CH₂COOH"
+            ],
+            [
+              "4",
+              "butane C₄H₁₀",
+              "butene C₄H₈",
+              "butanol C₄H₉OH",
+              "butanoic acid CH₃CH₂CH₂COOH"
+            ]
+          ]
+        },
+        {
+          "type": "list",
+          "items": [
+            "The name starts with meth-, eth-, prop- or but- for 1, 2, 3 or 4 carbon atoms.",
+            "Alkenes start at ethene, so the first four alkenes are ethene, propene, butene and pentene.",
+            "(Separate science) Alkenes are unsaturated: they have a C=C double bond, so two fewer hydrogen atoms than the alkane with the same number of carbon atoms.",
+            "In a displayed formula, an alcohol shows an O–H bond, and a carboxylic acid shows C=O and O–H on the same carbon atom.",
+            "The functional group is what you look for to recognise the series."
+          ]
+        },
+        {
+          "type": "subheading",
+          "text": "Functional groups decide the reactions"
+        },
+        {
+          "type": "list",
+          "items": [
+            "Members of a series have similar reactions because their molecules contain the same functional group.",
+            "You can use this to predict the products of other members of the series.",
+            "For example, ethanol, propanol and butanol all burn to form carbon dioxide and water."
+          ]
+        },
+        {
+          "type": "diagram",
+          "diagram": {
+            "kind": "sort",
+            "alt": "Sort compounds into alkanes, alkenes and alcohols from their formulae.",
+            "prompt": "Sort each compound into its homologous series.",
+            "groups": [
+              "Alkane",
+              "Alkene",
+              "Alcohol"
+            ],
+            "items": [
+              {
+                "text": "CH₄",
+                "group": 0
+              },
+              {
+                "text": "C₂H₆",
+                "group": 0
+              },
+              {
+                "text": "C₃H₈",
+                "group": 0
+              },
+              {
+                "text": "C₂H₄",
+                "group": 1
+              },
+              {
+                "text": "C₃H₆",
+                "group": 1
+              },
+              {
+                "text": "C₄H₈",
+                "group": 1
+              },
+              {
+                "text": "CH₃OH",
+                "group": 2
+              },
+              {
+                "text": "C₂H₅OH",
+                "group": 2
+              },
+              {
+                "text": "C₃H₇OH",
+                "group": 2
+              }
+            ]
+          }
+        },
+        {
+          "type": "key-points",
+          "items": [
+            "Functional groups: alkenes C=C, alcohols –OH, carboxylic acids –COOH.",
+            "Names count carbon atoms: meth-, eth-, prop-, but-.",
+            "The same functional group gives similar reactions."
+          ]
+        }
+      ]
+    }
+  ],
+  "checks": [
+    {
+      "q": "State two features of a homologous series.",
+      "a": "Any two from: same general formula; same functional group; neighbours differ by CH₂; similar chemical properties; trend in physical properties.",
+      "marks": 2
+    },
+    {
+      "q": "Ethanol, propanol and butanol are in the same homologous series. Give two reasons.",
+      "a": "They all have the –OH functional group and the same general formula, CₙH₂ₙ₊₁OH. Their formulae differ by CH₂.",
+      "marks": 2
+    },
+    {
+      "q": "Which of CH₄, C₂H₄, C₂H₆, C₃H₆ and C₃H₈ are alkanes?",
+      "a": "CH₄, C₂H₆ and C₃H₈. They fit the general formula CₙH₂ₙ₊₂.",
+      "marks": 3
+    }
+  ],
+  "boards": {
+    "aqa": {
+      "spec_codes": [
+        "AQA 4.7.1.1",
+        "AQA T 5.7.1.1",
+        "AQA 4.7.2.1",
+        "AQA 4.7.2.2",
+        "AQA 4.7.2.3",
+        "AQA 4.7.2.4"
+      ],
+      "exam_phrases": [
+        "HCOOH (HCO₂H is allowed) for methanoic acid",
+        "propanoic acid for CH₃CH₂COOH"
+      ],
+      "mistakes": [],
+      "worked_example": {
+        "exemplar_id": "079b79cb-9525-49bc-94fa-4dae6cd5b05e",
+        "source": "AQA jun 2020, Paper 2 (H), Q7.1",
+        "question": "This question is about carboxylic acids.\n\nCarboxylic acids belong to a homologous series.\n\nThe table shows information about the first three carboxylic acids in this homologous series.\n\nName | Formula | pH of a 0.01 mol/dm³ solution\nMethanoic acid | (?) | 2.91\nEthanoic acid | CH₃COOH | 3.39\n(?) | CH₃CH₂COOH | 3.44\n\nComplete the table.",
+        "marks": 2,
+        "answer_points": [
+          "HCOOH (HCO₂H is allowed).",
+          "Propanoic acid."
+        ],
+        "tip": "One mark for each. The name comes from the three carbon atoms (prop-) and the -oic acid ending."
+      }
+    },
+    "edexcel": {
+      "spec_codes": [
+        "EDEX 8.6",
+        "EDEX 9.32C"
+      ],
+      "exam_phrases": [
+        "same general formula",
+        "same functional group",
+        "(neighbouring molecules) differ by CH₂",
+        "similar chemical properties / reactions",
+        "trend in physical properties",
+        "all have -OH group / hydroxyl group"
+      ],
+      "mistakes": [
+        {
+          "wrong": "They are all alcohols.",
+          "right": "This is ignored. Name the shared feature: the –OH group (the hydroxyl group), the same general formula, or CH₂ differences."
+        },
+        {
+          "wrong": "They all have a hydroxide group.",
+          "right": "Hydroxide is not allowed. Say –OH group, hydroxyl group or the same functional group."
+        },
+        {
+          "wrong": "They have the same molecular formula.",
+          "right": "Same empirical or molecular formula is rejected. They have the same general formula."
+        },
+        {
+          "wrong": "They have similar properties.",
+          "right": "Similar properties, or similar physical properties, is ignored. Say similar chemical properties and a trend in physical properties, such as increasing boiling point."
+        }
+      ],
+      "worked_example": {
+        "exemplar_id": "362c6775-377c-4e8d-a9ea-9d1ee6294f27",
+        "source": "EDEXCEL jun 2024, Paper 2 (H), Q5(a)(i)",
+        "question": "Most hydrocarbons found in fossil fuels are members of the alkane homologous series.\nState two features of an homologous series.",
+        "marks": 2,
+        "answer_points": [
+          "Any two from: same general formula (for example CₙH₂ₙ₊₂); same functional group; neighbouring molecules differ by CH₂; similar chemical properties or reactions; trend in physical properties (for example increasing melting points)."
+        ],
+        "tip": "One mark for each feature. Name a trend such as increasing melting point rather than saying properties are similar."
+      }
+    },
+    "ocr": {
+      "spec_codes": [
+        "OCR C2.3b",
+        "OCR C6.2a",
+        "OCR C6.2b",
+        "OCR C6.2i"
+      ],
+      "exam_phrases": [
+        "have the same general formula / both have the formula CₙH₂ₙ₊₂",
+        "they differ from each other by CH₂",
+        "they are both saturated / carbon atoms joined by (only) single (covalent) bonds",
+        "similar chemical properties",
+        "show trends in physical properties",
+        "carbon can bond to itself",
+        "carbon can form families / groups / series of compounds",
+        "carbon forms four bonds"
+      ],
+      "mistakes": [
+        {
+          "wrong": "A hydrocarbon contains carbon and hydrogen molecules.",
+          "right": "Carbon and hydrogen molecules, or a mixture of carbon and hydrogen, are not allowed. Say it contains only carbon and hydrogen (atoms)."
+        },
+        {
+          "wrong": "Ethane is saturated because it is not an alkene.",
+          "right": "This is ignored. Say it has single covalent bonds only, or has no double bond."
+        }
+      ],
+      "worked_example": {
+        "exemplar_id": "21c12ac5-2d6d-4f9c-8207-6cbd4d8ae117",
+        "source": "OCR nov 2020, Paper 2, Q22(a)",
+        "question": "This question is about compounds of carbon.\n\nEthane and propane are both members of the homologous series called the alkanes.\n\nWrite down two reasons why ethane and propane are members of the same homologous series.",
+        "marks": 2,
+        "answer_points": [
+          "Any two from: they have the same general formula, CₙH₂ₙ₊₂; they differ from each other by CH₂; they are both saturated, with carbon atoms joined by single covalent bonds only.",
+          "Similar chemical properties and trends in physical properties are also allowed."
+        ],
+        "tip": "One mark for each reason."
+      }
+    }
+  },
+  "meta": {
+    "status": "draft",
+    "written_by": "sonnet-5-5",
+    "written_at": "2026-10-01",
+    "spec_point_ids": [
+      "a268f223-d95a-4cc2-a45b-71a01706ea15",
+      "bad90467-78c7-40e5-91ba-7653fcbcafcc",
+      "897ee218-63f9-4967-a149-4b2b10fe40a9",
+      "5f60eea2-8024-496d-8b57-9e989bc0be17",
+      "a73a758c-0020-4740-8bfc-4e66440366c4",
+      "2a5ce7b1-8f54-4e35-8675-da1d1c366664"
+    ],
+    "exemplar_ids": [
+      "079b79cb-9525-49bc-94fa-4dae6cd5b05e",
+      "362c6775-377c-4e8d-a9ea-9d1ee6294f27",
+      "21c12ac5-2d6d-4f9c-8207-6cbd4d8ae117"
+    ],
+    "checked_by": "sonnet-science-check",
+    "checked_at": "2026-10-01"
+  }
+}

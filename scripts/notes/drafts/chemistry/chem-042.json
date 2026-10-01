@@ -1,0 +1,350 @@
+{
+  "format": 1,
+  "concept_id": "chem-042",
+  "subject": "chemistry",
+  "title": "The reactivity series",
+  "key_idea": "Metals can be put in order of reactivity using their reactions with water and dilute acids. A more reactive metal forms positive ions more easily and can displace a less reactive metal from its compound.",
+  "sections": [
+    {
+      "heading": "The reactivity series",
+      "blocks": [
+        { "type": "paragraph", "text": "This section covers what the reactivity series is and the order of the metals in it." },
+        {
+          "type": "definitions",
+          "items": [
+            { "term": "Reactivity series", "meaning": "A list of metals in order of how vigorously they react." },
+            { "term": "Displacement reaction", "meaning": "A reaction in which a more reactive metal takes the place of a less reactive metal in a compound." }
+          ]
+        },
+        {
+          "type": "table",
+          "columns": ["Reactivity", "Metals in order"],
+          "rows": [
+            ["Most reactive", "potassium, sodium, lithium, calcium"],
+            ["Middle", "magnesium, aluminium, (carbon), zinc, iron"],
+            ["Least reactive", "(hydrogen), copper, silver, gold"]
+          ]
+        },
+        {
+          "type": "list",
+          "items": [
+            "The non-metals **carbon** and **hydrogen** are often included in the series, shown in brackets above.",
+            "Potassium, sodium, lithium, calcium, magnesium, zinc, iron and copper can be put in order from their reactions with water and dilute acids.",
+            "Metals above hydrogen can displace it from an acid. Metals below hydrogen do not react with dilute acid."
+          ]
+        },
+        {
+          "type": "key-points",
+          "items": [
+            "The reactivity series lists metals from most to least reactive.",
+            "Carbon and hydrogen are included for comparison."
+          ]
+        }
+      ]
+    },
+    {
+      "heading": "Reactions with water and dilute acid",
+      "blocks": [
+        { "type": "paragraph", "text": "This section covers what you see when each metal meets cold water or a dilute acid at room temperature." },
+        {
+          "type": "equation",
+          "label": "Metal and water",
+          "formula": "metal + water → metal hydroxide + hydrogen",
+          "where": ["metal: for example potassium, sodium, lithium, calcium", "metal hydroxide: dissolves to make an alkaline solution", "hydrogen: a gas, which gives a squeaky pop with a lighted splint"]
+        },
+        {
+          "type": "equation",
+          "label": "Metal and dilute acid",
+          "formula": "metal + acid → salt + hydrogen",
+          "where": ["salt: for example a chloride with hydrochloric acid", "hydrogen: the gas given off"]
+        },
+        {
+          "type": "diagram",
+          "diagram": {
+            "kind": "predictor",
+            "alt": "Choose a metal to see its reaction with cold water and with dilute acid.",
+            "prompt": "Pick a metal",
+            "result_labels": ["With cold water", "With dilute acid", "Reactivity"],
+            "options": [
+              {
+                "label": "Potassium",
+                "results": ["Fizzes, floats, moves around, melts, burns with a lilac flame", "Explodes: too dangerous", "Very high"],
+                "scene": { "kind": "tubes", "tubes": [{ "label": "Water", "colour": "colourless", "bubbles": true }, { "label": "Acid", "colour": "colourless", "bubbles": true }] }
+              },
+              {
+                "label": "Sodium",
+                "results": ["Fizzes quickly, floats, melts into a ball, moves around", "Could explode or get too hot", "Very high"],
+                "scene": { "kind": "tubes", "tubes": [{ "label": "Water", "colour": "colourless", "bubbles": true }, { "label": "Acid", "colour": "colourless", "bubbles": true }] }
+              },
+              {
+                "label": "Lithium",
+                "results": ["Bubbles slowly, floats, moves slowly", "Reacts vigorously", "High"],
+                "scene": { "kind": "tubes", "tubes": [{ "label": "Water", "colour": "colourless", "bubbles": true }, { "label": "Acid", "colour": "colourless", "bubbles": true }] }
+              },
+              {
+                "label": "Calcium",
+                "results": ["Bubbles steadily; the solution turns cloudy as calcium hydroxide forms", "Reacts vigorously", "High"],
+                "scene": { "kind": "tubes", "tubes": [{ "label": "Water", "colour": "colourless", "precipitate": "white", "bubbles": true }, { "label": "Acid", "colour": "colourless", "bubbles": true }] }
+              },
+              {
+                "label": "Magnesium",
+                "results": ["Very slow reaction: only a few tiny bubbles", "Steady bubbles; the metal gets smaller and the temperature rises", "Medium"],
+                "scene": { "kind": "tubes", "tubes": [{ "label": "Water", "colour": "colourless", "bubbles": true }, { "label": "Acid", "colour": "colourless", "bubbles": true }] }
+              },
+              {
+                "label": "Zinc",
+                "results": ["No reaction", "Bubbles at a moderate rate", "Medium"],
+                "scene": { "kind": "tubes", "tubes": [{ "label": "Water", "colour": "colourless" }, { "label": "Acid", "colour": "colourless", "bubbles": true }] }
+              },
+              {
+                "label": "Iron",
+                "results": ["No reaction", "Bubbles very slowly; a pale green solution forms", "Low"],
+                "scene": { "kind": "tubes", "tubes": [{ "label": "Water", "colour": "colourless" }, { "label": "Acid", "colour": "pale-green", "bubbles": true }] }
+              },
+              {
+                "label": "Copper",
+                "results": ["No reaction", "No reaction", "Very low"],
+                "scene": { "kind": "tubes", "tubes": [{ "label": "Water", "colour": "colourless" }, { "label": "Acid", "colour": "colourless" }] }
+              }
+            ]
+          }
+        },
+        {
+          "type": "list",
+          "items": [
+            "The more reactive the metal, the faster the bubbles of hydrogen form.",
+            "The reaction with an acid gives out energy, so the temperature rises. A larger temperature rise means a more reactive metal.",
+            "Copper is below hydrogen in the series. It does not react with water or dilute acid.",
+            "Sodium and potassium are too dangerous to use with acid."
+          ]
+        },
+        {
+          "type": "key-points",
+          "items": [
+            "More reactive metals react faster with water and acids and give a bigger temperature rise.",
+            "Metal + water gives a hydroxide and hydrogen. Metal + acid gives a salt and hydrogen."
+          ]
+        }
+      ]
+    },
+    {
+      "heading": "Reactivity and positive ions",
+      "blocks": [
+        { "type": "paragraph", "text": "When metals react, their atoms lose outer electrons to form positive ions. Reactivity is the tendency to do this." },
+        {
+          "type": "list",
+          "items": [
+            "A more reactive metal forms its positive ion more easily.",
+            "Compare calcium with magnesium in the same group. Calcium is more reactive.",
+            "Calcium's outer electrons are further from the nucleus.",
+            "They are less strongly attracted to the nucleus, so they are lost more easily and positive ions form more easily."
+          ]
+        },
+        {
+          "type": "list",
+          "items": [
+            "A metal high in the series is less resistant to oxidation. A metal low in the series, such as gold, resists oxidation.",
+            "Oxidation of a metal is the gain of oxygen to form its oxide."
+          ]
+        },
+        {
+          "type": "key-points",
+          "items": [
+            "Metal atoms form positive ions by losing outer electrons.",
+            "The more easily a metal loses electrons, the more reactive it is."
+          ]
+        }
+      ]
+    },
+    {
+      "heading": "Displacement and deducing the order",
+      "blocks": [
+        { "type": "paragraph", "text": "A more reactive metal displaces a less reactive metal from a solution of its compound." },
+        {
+          "type": "list",
+          "items": [
+            "Magnesium reacts with copper sulfate solution. It displaces copper: magnesium + copper sulfate → magnesium sulfate + copper.",
+            "Copper does not react with magnesium sulfate solution, because it is less reactive.",
+            "Signs of a reaction: the solution changes colour, the metal changes colour, or the temperature changes.",
+            "Of the metals tested, the one that displaces most is the most reactive. The one that does not react at all is the least reactive."
+          ]
+        },
+        { "type": "paragraph", "text": "To compare metals fairly, change only the metal and keep everything else the same." },
+        {
+          "type": "steps",
+          "items": [
+            { "lead": "Measure.", "text": "Measure the same volume of acid or salt solution into a polystyrene cup and note the starting temperature." },
+            { "lead": "Add.", "text": "Add the same mass of one metal, in the same physical state, and stir." },
+            { "lead": "Record.", "text": "Record the highest temperature, or watch the rate of bubbling." },
+            { "lead": "Repeat.", "text": "Repeat for each metal and calculate the temperature changes." },
+            { "lead": "Order.", "text": "The largest temperature change is the most reactive metal." }
+          ]
+        },
+        {
+          "type": "key-points",
+          "items": [
+            "More reactive metals displace less reactive metals from their compounds.",
+            "Keep the mass and state of the metal and the volume and concentration of the solution the same."
+          ]
+        }
+      ]
+    }
+  ],
+  "checks": [
+    {
+      "q": "Name the gas given off when a metal reacts with dilute acid and give a test for it.",
+      "a": "Hydrogen. A lighted splint gives a squeaky pop.",
+      "marks": 2
+    },
+    {
+      "q": "Copper is added to silver nitrate solution and silver forms. Which metal is more reactive?",
+      "a": "Copper, because it displaces silver from its compound.",
+      "marks": 1
+    },
+    {
+      "q": "Explain why calcium is more reactive than magnesium.",
+      "a": "Calcium's outer electrons are further from the nucleus, so they are less strongly attracted and calcium forms positive ions more easily.",
+      "marks": 3
+    }
+  ],
+  "boards": {
+    "aqa": {
+      "spec_codes": ["AQA 4.4.1.2", "AQA T 5.4.1.2"],
+      "exam_phrases": [
+        "(calcium's) outer shell / electrons are further from the nucleus",
+        "the outer electrons are less strongly attracted to the nucleus",
+        "(so) positive ions are formed more easily",
+        "more reactive (metals) displace less reactive (metals)",
+        "the greater the temperature change the more reactive",
+        "same concentration / volume of solution; same mass / moles of metal",
+        "copper does not react with (sulfuric) acid; sodium could explode"
+      ],
+      "mistakes": [
+        {
+          "wrong": "Calcium is more reactive than magnesium because calcium atoms are larger.",
+          "right": "Calcium atoms are larger is ignored. Say the outer electrons are further from the nucleus, less strongly attracted, so positive ions form more easily."
+        },
+        {
+          "wrong": "Keep the amount of metal and the strength of the acid the same.",
+          "right": "Amount and strength are ignored. Say the same mass of metal, the same surface area, and the same concentration and volume of acid."
+        },
+        {
+          "wrong": "Copper is not used with sulfuric acid because it is not reactive enough.",
+          "right": "Not reactive enough is ignored. Say copper does not react with the acid, or is below hydrogen in the reactivity series."
+        },
+        {
+          "wrong": "When potassium reacts with water a gas is produced.",
+          "right": "Gas produced is ignored. Give an observation: bubbles, floats, moves around, melts, flame."
+        }
+      ],
+      "worked_example": {
+        "exemplar_id": "68ebb496-c5eb-444c-871e-ee556f69e32e",
+        "source": "AQA jun 2024, Paper 1 (F), Q05.4",
+        "question": "A student investigated the reactivity of three metals: copper, magnesium and iron.\n\nThe student mixed each metal with each metal chloride solution. The results were:\n\nCopper: no reaction with copper chloride, magnesium chloride or iron chloride solution.\nMagnesium: reaction with copper chloride solution, no reaction with magnesium chloride solution, reaction with iron chloride solution.\nIron: reaction with copper chloride solution, no reaction with magnesium chloride solution, no reaction with iron chloride solution.\n\nWhat is the order of reactivity for copper, magnesium and iron?\n\nGive two reasons for your answer.",
+        "marks": 3,
+        "answer_points": [
+          "Order, most reactive first: magnesium, iron, copper.",
+          "Any two from the following reasons.",
+          "Magnesium reacts with both copper chloride solution and iron chloride solution.",
+          "Iron only reacts with copper chloride solution.",
+          "Copper does not react with either magnesium chloride solution or iron chloride solution."
+        ],
+        "tip": "One mark for the order and one mark for each reason, up to two. Count the reactions each metal has."
+      }
+    },
+    "edexcel": {
+      "spec_codes": ["EDEX 4.1", "EDEX 4.3", "EDEX 4.9"],
+      "exam_phrases": [
+        "metal sulfate {insoluble / coats the metal / forms a barrier}",
+        "prevents further reaction of metal with acid",
+        "both form a hydroxide (calcium and potassium with water)",
+        "bubbles produced {slowly / steadily / quite quickly}",
+        "some metal remains",
+        "copper, silver and gold do not react with cold water"
+      ],
+      "mistakes": [
+        {
+          "wrong": "The reaction stopped because the acid had been used up.",
+          "right": "The acid was in excess and most of the metal remained. The insoluble metal sulfate coats the metal and prevents further reaction."
+        },
+        {
+          "wrong": "Calcium and potassium both react with water to make hydrogen only.",
+          "right": "Both also form a hydroxide."
+        },
+        {
+          "wrong": "Copper, silver and gold react slowly with cold water.",
+          "right": "Copper, silver and gold do not react with cold water. Calcium is the metal that does react."
+        }
+      ],
+      "worked_example": {
+        "exemplar_id": "50eb0a88-d203-48dc-85cc-ef045a1e89af",
+        "source": "EDEXCEL jun 2018, Paper 1 (H), Q9(a)(i)",
+        "question": "A student placed a piece of metal P in a test tube containing excess dilute sulfuric acid. The student repeated this with three other metals, Q, R and S. All the pieces of all four metals were the same size.\n\nThe student recorded the observations until each metal had reacted with the acid for two minutes.\n\nP: bubbles produced very slowly, some metal remained.\nQ: bubbles produced quickly, no metal remained.\nR: bubbles produced slowly, no metal remained.\nS: bubbles produced very quickly, no metal remained.\n\nUse this information to put the four metals in order of reactivity from the least reactive to the most reactive.",
+        "marks": 2,
+        "answer_points": [
+          "Least reactive to most reactive: P, R, Q, S.",
+          "Two metals in the correct order score 1 mark."
+        ],
+        "tip": "Faster bubbling means a more reactive metal. Check the order is least first."
+      }
+    },
+    "ocr": {
+      "spec_codes": ["OCR C4.1e", "OCR C4.1f"],
+      "exam_phrases": [
+        "idea that more reactive metals displace less reactive metals",
+        "the metal with the most (displacement) reactions is most reactive; the metal that does not react is least reactive",
+        "solution changed colour / metal changed colour / temperature change",
+        "hydrogen (H₂)",
+        "lighted splint; squeaky pop",
+        "rubidium + water → rubidium hydroxide + hydrogen",
+        "any time less than 6 s (rubidium)"
+      ],
+      "mistakes": [
+        {
+          "wrong": "The metal rusts or corrodes, so a reaction took place.",
+          "right": "Rusts and corrodes are ignored. Give a colour change of the solution or metal, fizzing or bubbles, or a temperature change."
+        },
+        {
+          "wrong": "The gas is H.",
+          "right": "H is not allowed. The gas is hydrogen, H₂."
+        },
+        {
+          "wrong": "Rubidium would take longer than potassium to react with water.",
+          "right": "Rubidium is below potassium and more reactive. Its reaction time is less than that of potassium."
+        }
+      ],
+      "worked_example": {
+        "exemplar_id": "05963311-a8e6-44e2-ad48-e7f8ddfe90e8",
+        "source": "OCR nov 2020, Paper 4, Q22(a)",
+        "question": "A student investigates the reactivity of four metals, A, B, C and D.\n\nHe adds a small piece of each metal to cold water. He then adds a small piece of each metal to dilute hydrochloric acid.\n\nA: slow bubbling in water, very fast bubbling in dilute hydrochloric acid.\nB: no reaction in water, no reaction in acid.\nC: fast bubbling in water, very fast bubbling in acid.\nD: no change in water, slow bubbling in acid.\n\nWrite down the order of reactivity of the four metals A, B, C and D, from most reactive to least reactive.",
+        "marks": 2,
+        "answer_points": [
+          "Most reactive to least reactive: C, A, D, B.",
+          "C as most reactive and B as least reactive scores 1 mark."
+        ],
+        "tip": "Use both columns. C reacts fastest in water, and B does not react at all."
+      }
+    }
+  },
+  "meta": {
+    "status": "draft",
+    "written_by": "sonnet-5-5",
+    "written_at": "2026-10-01",
+    "checked_by": "sonnet-science-check",
+    "checked_at": "2026-10-01",
+    "spec_point_ids": [
+      "64bb97a5-d18e-41f9-9805-f89e1ce66bbe",
+      "a03ed155-a7a4-4514-89d1-e8acb13d47b0",
+      "33128ee9-e1d2-4fee-a764-db8ae59673bb",
+      "c29d0393-9c0e-4aa2-bfc0-2838e54eaf2b",
+      "c25275aa-7e97-4d06-86de-d9314e2455c6",
+      "e92078ad-3c04-4c1e-bb8c-c519a167c521",
+      "c3dad98e-a9cc-423e-9bf4-a5259f3d2fb4"
+    ],
+    "exemplar_ids": [
+      "68ebb496-c5eb-444c-871e-ee556f69e32e",
+      "50eb0a88-d203-48dc-85cc-ef045a1e89af",
+      "05963311-a8e6-44e2-ad48-e7f8ddfe90e8"
+    ]
+  }
+}

@@ -1,0 +1,431 @@
+{
+  "format": 1,
+  "concept_id": "bio-131",
+  "subject": "biology",
+  "title": "Food security (Separate science)",
+  "key_idea": "Food security means everyone has enough safe, nutritious food. It is threatened by population growth, changing diets, new pests and pathogens, and environmental change such as climate change. Each either raises the demand for food or lowers the yield.",
+  "sections": [
+    {
+      "heading": "What food security means",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "(Separate science) Food security is about having enough food of the right kind. This section covers what it means and why it can fall."
+        },
+        {
+          "type": "definitions",
+          "items": [
+            {
+              "term": "Food security",
+              "meaning": "When all people at all times have access to enough safe, nutritious food to keep a healthy and active life."
+            },
+            {
+              "term": "Yield",
+              "meaning": "The mass of a crop produced from an area of land."
+            }
+          ]
+        },
+        {
+          "type": "list",
+          "items": [
+            "Food security falls when there is less food to go round.",
+            "It also falls when people cannot afford or obtain the food."
+          ]
+        },
+        {
+          "type": "key-points",
+          "items": [
+            "Food security means everyone can get enough safe, nutritious food.",
+            "It falls if demand for food rises or if crop yields fall."
+          ]
+        }
+      ]
+    },
+    {
+      "heading": "Biological factors that threaten food security",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "Several biological factors can reduce the amount of food available. This section covers the main ones."
+        },
+        {
+          "type": "subheading",
+          "text": "More people"
+        },
+        {
+          "type": "list",
+          "items": [
+            "A **growing population** needs more food, so there is less food to go round.",
+            "More land is needed for farming."
+          ]
+        },
+        {
+          "type": "subheading",
+          "text": "Changing diets"
+        },
+        {
+          "type": "list",
+          "items": [
+            "Eating more meat means more land is used for meat farming and animal feed.",
+            "Farming meat produces less food per area than growing crops, so less land is left for crops for people."
+          ]
+        },
+        {
+          "type": "subheading",
+          "text": "New pests and pathogens"
+        },
+        {
+          "type": "list",
+          "items": [
+            "Pests and pathogens eat or damage crops, so yields fall. Examples are a mould that rotted potato plants and locusts.",
+            "Locusts breed quickly, form huge swarms, eat large amounts and travel long distances fast."
+          ]
+        },
+        {
+          "type": "subheading",
+          "text": "Environmental change"
+        },
+        {
+          "type": "list",
+          "items": [
+            "**Climate change** and changes in weather, such as higher temperatures, can reduce crop yields.",
+            "Lower yields mean less food, higher food prices, and poor people who cannot afford enough food."
+          ]
+        },
+        {
+          "type": "subheading",
+          "text": "Cost of farming"
+        },
+        {
+          "type": "paragraph",
+          "text": "Fertilisers, animal feed, pesticides, irrigation and equipment cost money. Farmers who cannot afford them may produce less."
+        },
+        {
+          "type": "subheading",
+          "text": "Sustainability"
+        },
+        {
+          "type": "list",
+          "items": [
+            "Food must be produced in a **sustainable** way, so that future generations can also be fed.",
+            "Methods that damage the soil, use up water or destroy habitats reduce food security in the long term."
+          ]
+        },
+        {
+          "type": "diagram",
+          "diagram": {
+            "kind": "predictor",
+            "alt": "Pick a threat to food security and see what changes and how it affects the amount of food.",
+            "prompt": "Pick a threat to food security.",
+            "result_labels": [
+              "What changes",
+              "Effect on food security"
+            ],
+            "options": [
+              {
+                "label": "Population growth",
+                "results": [
+                  "More people to feed",
+                  "Less food to go round unless production rises"
+                ]
+              },
+              {
+                "label": "More meat in diets",
+                "results": [
+                  "More land used for meat farming and animal feed",
+                  "Less land for crops for people, so less food per area"
+                ]
+              },
+              {
+                "label": "A new pest or pathogen",
+                "results": [
+                  "Crops are eaten or damaged, for example by locusts or a mould",
+                  "Lower yields and less food"
+                ]
+              },
+              {
+                "label": "Climate change",
+                "results": [
+                  "Temperatures and weather change",
+                  "Lower yields in some places, so less food and higher prices"
+                ]
+              },
+              {
+                "label": "Higher costs of farming",
+                "results": [
+                  "Fertilisers, feed, pesticides and irrigation cost more",
+                  "Farmers may not afford them, so yields fall"
+                ]
+              }
+            ]
+          }
+        },
+        {
+          "type": "key-points",
+          "items": [
+            "Population growth, changing diets, new pests and pathogens, and environmental change all threaten food security.",
+            "Lower yields mean less food and higher prices."
+          ]
+        }
+      ]
+    },
+    {
+      "heading": "Food production and land",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "How food is produced affects how much land is needed. This section covers two examples."
+        },
+        {
+          "type": "list",
+          "items": [
+            "Farming meat gives less food per area than growing crops, because much of the biomass is lost between trophic levels.",
+            "Insects fed on waste vegetables need less land than cattle and release less methane, so they could improve food security.",
+            "Growing crops for biofuel uses land that could grow food."
+          ]
+        },
+        {
+          "type": "key-points",
+          "items": [
+            "Using less land per unit of food leaves more land for crops for people.",
+            "Growing crops for biofuel and eating more meat both use land that could grow food."
+          ]
+        }
+      ]
+    }
+  ],
+  "checks": [
+    {
+      "q": "State what is meant by food security.",
+      "a": "All people at all times have access to enough safe, nutritious food to maintain a healthy and active life.",
+      "marks": 2
+    },
+    {
+      "q": "Explain how a large increase in the mass of meat eaten could decrease food security.",
+      "a": "Meat farming produces less food per area than crops. More land is used for meat farming or animal feed, so less arable land is used to grow crops for people, and there is less food.",
+      "marks": 3
+    },
+    {
+      "q": "Give two biological factors that could reduce crop yields.",
+      "a": "Any two from: new pests, new pathogens (for example a mould), changes in the environment or weather such as climate change.",
+      "marks": 2
+    }
+  ],
+  "boards": {
+    "aqa": {
+      "spec_codes": [
+        "AQA 7.13"
+      ],
+      "exam_phrases": [
+        "less land required",
+        "(so) more space for crops (for humans)",
+        "less methane (from animals) therefore less global warming",
+        "less harmful effects of global warming on (human) food production",
+        "less energy lost as heat",
+        "less energy lost in movement"
+      ],
+      "mistakes": [
+        {
+          "wrong": "Rearing cows indoors is more efficient because less energy is produced.",
+          "right": "\"Energy produced / made / created\" is not accepted. Say less energy is lost as heat, and less energy is lost in movement."
+        },
+        {
+          "wrong": "A disadvantage of rearing cows indoors is that it is cruel and costs more.",
+          "right": "\"Cruelty\" and \"cost\" unqualified are ignored. Say disease spreads more easily or more antibiotics are used, the cost of heating, lighting, food or drugs, or aggression and stress reduce productivity."
+        }
+      ],
+      "worked_example": {
+        "exemplar_id": "dff5d7da-ad76-496d-a96b-1f5a4dc696a4",
+        "source": "AQA jun 2020, Paper 2 (H), Q07.3",
+        "question": "A new dog food has been developed that does not contain meat from cows, sheep or chickens. The new dog food contains insects, fed on waste vegetables.\n\nExplain how making dog food from insects could improve human food security in the future.",
+        "marks": 4,
+        "answer_points": [
+          "Less land is required.",
+          "So there is more space for crops for humans.",
+          "Less methane is released by animals, so there is less global warming.",
+          "So there are less harmful effects of global warming on human food production, for example less flooding of farmland."
+        ],
+        "tip": "Four linked points, one mark each. Allow more meat from cows for humans for the second point."
+      }
+    },
+    "edexcel": {
+      "spec_codes": [
+        "EDEX 9.11B"
+      ],
+      "exam_phrases": [
+        "there will be less food for people to eat",
+        "farming meat does not produce as much food (per acre as arable farming)",
+        "more land used for meat farming / animal feed",
+        "less arable land / food (crops) grown for humans",
+        "food prices will increase",
+        "poor people can't obtain / afford as much food",
+        "food security will be reduced"
+      ],
+      "mistakes": [
+        {
+          "wrong": "A mould killed the potatoes in Ireland.",
+          "right": "State the effect on food security. Food security decreased because there was less food or a reduced variety of food, as potatoes could not be harvested or food could not be obtained from other countries."
+        },
+        {
+          "wrong": "Lower crop yields mean people do not have food.",
+          "right": "Link the steps. Food security is reduced, as there is less food. Food prices increase, so poor people cannot afford as much food and may be malnourished."
+        },
+        {
+          "wrong": "Growing biofuel crops is only a disadvantage because it uses land.",
+          "right": "The top level needs at least three points including at least one advantage and one disadvantage, each linked to a detail."
+        }
+      ],
+      "worked_example": {
+        "exemplar_id": "227b599e-12fa-4c01-be12-7cc16f4735c4",
+        "source": "EDEXCEL nov 2020, Paper 2 (H), Q4(d)(ii)",
+        "question": "The World Health Organisation uses this definition of food security.\n'When all people at all times have access to sufficient, safe, nutritious food to maintain a healthy and active life'\n\nExplain how a large increase in the mass of meat eaten will decrease food security in the future.",
+        "marks": 3,
+        "answer_points": [
+          "There will be less food for people to eat.",
+          "Farming meat does not produce as much food per area as arable farming.",
+          "So more land is used for meat farming or animal feed.",
+          "This means less arable land, and less food (crops) grown for humans."
+        ],
+        "tip": "Link three of the points. A diet with a large amount of meat having health implications, for example high cholesterol, is also accepted."
+      },
+      "extra": [
+        {
+          "heading": "Growing crops for biofuel",
+          "blocks": [
+            {
+              "type": "paragraph",
+              "text": "A crop that people cannot eat can be grown to make biofuel. Compare the advantages and disadvantages."
+            },
+            {
+              "type": "table",
+              "columns": [
+                "Advantage",
+                "Disadvantage"
+              ],
+              "rows": [
+                [
+                  "Provides jobs and money for the local economy",
+                  "Costs to set up the system, which may end up controlled by an outside organisation"
+                ],
+                [
+                  "Carbon neutral, so it does not add to global warming",
+                  "Machinery used may offset the savings or cause pollution"
+                ],
+                [
+                  "Renewable, so it will not run out",
+                  "Uses land that could grow food, so less food and less food security"
+                ],
+                [
+                  "Provides fuel locally, which is cheaper",
+                  "High water demand, leaving less water for drinking or other crops"
+                ],
+                [
+                  "Less transport of other fuels reduces fuel costs and pollution",
+                  "Loss of habitat or deforestation reduces biodiversity"
+                ]
+              ]
+            }
+          ]
+        },
+        {
+          "heading": "Calculating a lower yield",
+          "blocks": [
+            {
+              "type": "steps",
+              "items": [
+                {
+                  "lead": "Fraction.",
+                  "text": "The average potato yield is 44 tonnes. The yield is one quarter lower, so 44 ÷ 4 = 11 tonnes less."
+                },
+                {
+                  "lead": "Subtract.",
+                  "text": "44 − 11 = 33 tonnes."
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    "ocr": {
+      "spec_codes": [
+        "OCR 6.2a"
+      ],
+      "exam_phrases": [
+        "food security",
+        "disease / predators",
+        "pests / pathogens / invasive species",
+        "increasing population means there is less food to go round",
+        "new pests and pathogens will result in lower yields of crops",
+        "changes to the environment / weather might reduce crop yields",
+        "costs of agricultural inputs may be too high for farmers to afford",
+        "they can reproduce / breed very quickly"
+      ],
+      "mistakes": [
+        {
+          "wrong": "Biotic factors such as drought can prevent a population being fed.",
+          "right": "Biotic factors are living ones. Give disease, predators, pests, pathogens or invasive species."
+        },
+        {
+          "wrong": "If soil lacks minerals, minerals can be added.",
+          "right": "\"Minerals\" is ignored. Add fertilisers, manure or compost, or name nitrates or phosphates."
+        },
+        {
+          "wrong": "Fewer people in Haiti are short of food than in the USA, because 5.5 million is less than 10.0 million.",
+          "right": "Compare the percentage and the number. A much larger percentage of people in Haiti (48% against 3%) are short of food, but more people in the USA (10.0 million against 5.5 million)."
+        }
+      ],
+      "worked_example": {
+        "exemplar_id": "d9775ce8-ea52-4775-9f81-a9192d6cc3e0",
+        "source": "OCR jun 2024, Paper 2, Q23(c)",
+        "question": "In some countries people do not have food security. This means they do not have enough food to eat.\nThe table shows some information about food security in Haiti and USA.\n\nCountry | Total population (million) | Percentage of people who do not get enough food (%) | Number of people who do not get enough food (million)\nHaiti | 11.5 | 48 | 5.5\nUSA | 331.9 | 3 | 10.0\n\nWrite about food security.\nIn your answer:\n• explain biological reasons for why people may be short of food,\n• compare the information in the table about food security in Haiti and USA.",
+        "marks": 6,
+        "answer_points": [
+          "Increasing population means there is less food to go round.",
+          "New pests and pathogens result in lower yields of crops.",
+          "Changes to the environment or weather might reduce crop yields.",
+          "Costs of agricultural inputs, such as fertilisers, may be too high for farmers.",
+          "A much larger percentage of people in Haiti (almost half) do not have enough food, compared with the USA.",
+          "The population of the USA is much higher, and more people there do not have enough food.",
+          "The impact on Haiti is more significant because it affects a larger proportion of the population."
+        ],
+        "tip": "Levelled answer. Explain a reason and compare the data, recognising the difference between a percentage and an actual number of people, to reach the top level (5 to 6 marks)."
+      },
+      "extra": [
+        {
+          "heading": "Growing crops where the soil is unsuitable",
+          "blocks": [
+            {
+              "type": "paragraph",
+              "text": "Soil may lack minerals, or may not be suitable at all."
+            },
+            {
+              "type": "list",
+              "items": [
+                "If the soil lacks minerals, add fertilisers, manure or compost.",
+                "**Hydroponics** means growing crops without soil, with the roots in water."
+              ]
+            }
+          ]
+        }
+      ]
+    }
+  },
+  "meta": {
+    "status": "draft",
+    "written_by": "sonnet-5-5",
+    "written_at": "2026-10-01",
+    "spec_point_ids": [
+      "f4b23ceb-38f9-47ac-917e-7594c60e6d2a",
+      "668dba0c-0c82-4d69-8349-32adfb42f1b0",
+      "268b5b65-3fe0-45d8-971e-5126cf52b828"
+    ],
+    "exemplar_ids": [
+      "dff5d7da-ad76-496d-a96b-1f5a4dc696a4",
+      "227b599e-12fa-4c01-be12-7cc16f4735c4",
+      "d9775ce8-ea52-4775-9f81-a9192d6cc3e0"
+    ],
+    "checked_by": "sonnet-science-check",
+    "checked_at": "2026-10-01"
+  }
+}

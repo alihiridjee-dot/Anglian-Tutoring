@@ -1,0 +1,308 @@
+{
+  "format": 1,
+  "concept_id": "phys-090",
+  "subject": "physics",
+  "title": "Orbits and satellites",
+  "key_idea": "Gravity provides the force that keeps planets, moons and satellites in circular orbits. It changes the direction of motion but not the speed, so the velocity changes. For a stable orbit, a change in speed needs a change in orbit radius.",
+  "sections": [
+    {
+      "heading": "Gravity and orbits",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "(Separate science) Gravity provides the force that keeps planets and satellites in their circular orbits."
+        },
+        {
+          "type": "definitions",
+          "items": [
+            {
+              "term": "Orbit",
+              "meaning": "The path of one body around another, held in place by gravity."
+            },
+            {
+              "term": "Natural satellite",
+              "meaning": "A moon, which orbits a planet."
+            },
+            {
+              "term": "Artificial satellite",
+              "meaning": "A human-made satellite, which orbits a planet or the Sun."
+            },
+            {
+              "term": "Centripetal force",
+              "meaning": "The resultant force towards the centre of a circular orbit. In an orbit it is provided by gravity."
+            }
+          ]
+        },
+        {
+          "type": "list",
+          "items": [
+            "Planets orbit the Sun.",
+            "Moons orbit planets.",
+            "Artificial satellites orbit the Earth or the Sun.",
+            "Comets orbit the Sun."
+          ]
+        },
+        {
+          "type": "paragraph",
+          "text": "The Moon and the International Space Station both have circular orbits around the Earth. They differ in orbital period, height and speed."
+        },
+        {
+          "type": "key-points",
+          "items": [
+            "Gravity provides the force for circular orbits.",
+            "Planets, moons, comets and artificial satellites all orbit because of gravity."
+          ]
+        }
+      ]
+    },
+    {
+      "heading": "Changing velocity, unchanged speed",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "(Higher tier) In a circular orbit the speed stays the same but the velocity keeps changing."
+        },
+        {
+          "type": "list",
+          "items": [
+            "Velocity is speed in a given direction.",
+            "Gravity acts towards the centre of the orbit, at right angles to the motion.",
+            "So gravity changes the direction of motion but not the speed."
+          ]
+        },
+        {
+          "type": "steps",
+          "items": [
+            {
+              "lead": "Force",
+              "text": "Gravity is a resultant force towards the centre."
+            },
+            {
+              "lead": "Acceleration",
+              "text": "The satellite accelerates towards the centre."
+            },
+            {
+              "lead": "Direction",
+              "text": "The direction of motion keeps changing."
+            },
+            {
+              "lead": "Velocity",
+              "text": "So the velocity changes, but the speed does not."
+            }
+          ]
+        },
+        {
+          "type": "key-points",
+          "items": [
+            "Gravity changes the direction of motion, not the speed.",
+            "A changing direction means a changing velocity, so the satellite is accelerating."
+          ]
+        }
+      ]
+    },
+    {
+      "heading": "Orbit radius and speed",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "(Higher tier) A satellite can only keep a stable orbit at one radius for each speed. This is qualitative: no calculation is needed."
+        },
+        {
+          "type": "list",
+          "items": [
+            "A slower satellite moves to a higher orbit, where gravity is weaker.",
+            "A faster satellite moves to a lower orbit, where gravity is stronger."
+          ]
+        },
+        {
+          "type": "diagram",
+          "diagram": {
+            "kind": "predictor",
+            "alt": "Pick a change to a satellite's speed to see what happens to the radius of its stable orbit.",
+            "prompt": "Pick a change to the satellite's speed",
+            "result_labels": [
+              "Radius of the new stable orbit",
+              "Gravitational force at that radius"
+            ],
+            "options": [
+              {
+                "label": "The satellite moves slower",
+                "results": [
+                  "Larger: a higher orbit",
+                  "Weaker"
+                ],
+                "explanation": "A slower satellite can only stay in a stable orbit at a greater radius, where gravity is weaker."
+              },
+              {
+                "label": "The satellite moves faster",
+                "results": [
+                  "Smaller: a lower orbit",
+                  "Stronger"
+                ],
+                "explanation": "A faster satellite can only stay in a stable orbit at a smaller radius, where gravity is stronger."
+              },
+              {
+                "label": "The speed stays the same",
+                "results": [
+                  "Unchanged",
+                  "Unchanged"
+                ],
+                "explanation": "The orbit stays the same size, but the direction of the velocity keeps changing."
+              }
+            ]
+          }
+        },
+        {
+          "type": "key-points",
+          "items": [
+            "If the speed of a satellite changes, the radius of its stable orbit must change.",
+            "Slower means a higher orbit. Faster means a lower orbit."
+          ]
+        }
+      ]
+    }
+  ],
+  "checks": [
+    {
+      "q": "State what provides the force that keeps a satellite in a circular orbit.",
+      "a": "Gravity (the gravitational force).",
+      "marks": 1
+    },
+    {
+      "q": "Explain why the velocity of a satellite in a circular orbit changes while its speed stays the same.",
+      "a": "Gravity acts towards the centre and accelerates the satellite. This changes its direction of motion but not its speed. A change in direction means the velocity changes.",
+      "marks": 3
+    },
+    {
+      "q": "A satellite in a stable orbit moves more slowly. Describe the change to its orbit.",
+      "a": "The orbit moves to a larger radius (a higher orbit), where gravity is weaker.",
+      "marks": 2
+    }
+  ],
+  "boards": {
+    "aqa": {
+      "spec_codes": [
+        "AQA 4.8.1.3"
+      ],
+      "exam_phrases": [
+        "(force of) gravity causes the satellite to accelerate (towards the Earth)",
+        "the acceleration causes a change in direction",
+        "velocity changes because direction changes",
+        "this changes the direction of motion (but not the speed)",
+        "a gravitational / centripetal / resultant force acts on the satellite"
+      ],
+      "mistakes": [
+        {
+          "wrong": "Gravity makes the satellite accelerate, which changes its speed.",
+          "right": "The acceleration changes the direction, not the speed. Saying acceleration causes a change in speed loses the mark."
+        },
+        {
+          "wrong": "Both the Moon and the ISS orbit the Earth.",
+          "right": "The question asks for another similarity and a difference. Give a similarity such as a circular orbit, and a difference such as the orbital period, height or speed."
+        }
+      ],
+      "extra": [
+        {
+          "heading": "Tier",
+          "blocks": [
+            {
+              "type": "paragraph",
+              "text": "The ideas about changing velocity and about radius changing with speed are Higher tier only in this course."
+            }
+          ]
+        }
+      ],
+      "worked_example": {
+        "exemplar_id": "6c58adf7-7bce-4d21-a531-9b7955ad3794",
+        "source": "AQA jun 2025, Paper 2 (H), Q04.7",
+        "marks": 3,
+        "question": "The James Webb Space Telescope is an artificial satellite that orbits the Sun at a constant speed.\n\nExplain why the velocity of the satellite changes as it orbits the Sun.",
+        "answer_points": [
+          "A gravitational (centripetal or resultant) force acts on the satellite.",
+          "So the satellite accelerates towards the centre of the orbit.",
+          "So the direction changes, which changes the velocity."
+        ],
+        "tip": "Do not say the acceleration causes a change in speed."
+      }
+    },
+    "edexcel": {
+      "spec_codes": [
+        "EDEX 7.5P",
+        "EDEX 7.6P",
+        "EDEX 7.7P"
+      ],
+      "exam_phrases": [
+        "all planets orbit the Sun",
+        "each planet in its own orbit",
+        "moons orbit planets",
+        "dwarf planets, asteroids and comets orbit the Sun",
+        "comet orbits are not in the same plane as the planets"
+      ],
+      "mistakes": [
+        {
+          "wrong": "Comets orbit the Sun in the same plane as the planets.",
+          "right": "The planets' orbits are in the same plane, but comet orbits are not."
+        },
+        {
+          "wrong": "Only the planets orbit the Sun.",
+          "right": "Dwarf planets, asteroids and comets also orbit the Sun. Moons orbit planets."
+        }
+      ]
+    },
+    "ocr": {
+      "spec_codes": [
+        "OCR P8.3f",
+        "OCR P8.3g"
+      ],
+      "exam_phrases": [
+        "(resultant) force is perpendicular to the direction of motion",
+        "the (resultant) force is a centripetal force",
+        "the direction is changing",
+        "provided by the gravitational pull of the Sun",
+        "so the planet is accelerating",
+        "no work is done on the planet"
+      ],
+      "mistakes": [
+        {
+          "wrong": "The speed is constant because there is no force on the planet.",
+          "right": "There is a resultant force, the gravitational pull of the Sun. It is perpendicular to the motion, so it changes direction only."
+        },
+        {
+          "wrong": "The planet is not accelerating because its speed is constant.",
+          "right": "The velocity is changing because the direction is changing, so the planet is accelerating."
+        }
+      ],
+      "worked_example": {
+        "exemplar_id": "6e3cddaf-543e-448c-9e17-08020c66c24e",
+        "source": "OCR jun 2022, Paper 4, Q22(a)",
+        "marks": 3,
+        "question": "Read the two statements about planet A:\n\n• The speed of planet A is constant.\n• The velocity of planet A is changing.\n\nExplain why these two statements are correct. Write about forces.",
+        "answer_points": [
+          "Speed is constant because the resultant force is perpendicular to the direction of motion (a centripetal force).",
+          "No work is done on the planet.",
+          "Velocity is changing because the direction is changing.",
+          "The resultant force is provided by the gravitational pull of the Sun, which changes the direction of motion.",
+          "So the planet is accelerating."
+        ],
+        "tip": "Any three points score."
+      }
+    }
+  },
+  "meta": {
+    "status": "draft",
+    "written_by": "sonnet-5-5",
+    "written_at": "2026-10-01",
+    "spec_point_ids": [
+      "d6260182-34d7-42da-92b0-a1ce53836257",
+      "d5bcc698-a2a3-49da-b5d7-50be5a30a823",
+      "8b746edb-42cc-4a5c-9003-529c33a33757",
+      "28ded9ac-f120-41d7-bab5-ab7ba1b5a040",
+      "5654b5b4-898c-4c70-8e54-b99557f5e733",
+      "762e9c61-db63-46f5-a9e7-9e1a50866771"
+    ],
+    "exemplar_ids": [
+      "6c58adf7-7bce-4d21-a531-9b7955ad3794",
+      "6e3cddaf-543e-448c-9e17-08020c66c24e"
+    ]
+  }
+}

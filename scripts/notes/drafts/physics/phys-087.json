@@ -1,0 +1,466 @@
+{
+  "format": 1,
+  "concept_id": "phys-087",
+  "subject": "physics",
+  "title": "Transformers",
+  "key_idea": "A transformer changes the size of an alternating p.d. An a.c. in the primary coil makes a changing field in the iron core, which induces a p.d. in the secondary coil. The turns ratio gives the p.d.s, and for 100% efficiency power out equals power in.",
+  "sections": [
+    {
+      "heading": "How a transformer works",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "A transformer changes the size of an alternating potential difference. It has no moving parts."
+        },
+        {
+          "type": "definitions",
+          "items": [
+            {
+              "term": "Primary coil",
+              "meaning": "The input coil, connected to the a.c. supply."
+            },
+            {
+              "term": "Secondary coil",
+              "meaning": "The output coil, where the new p.d. appears."
+            },
+            {
+              "term": "Iron core",
+              "meaning": "The core the two coils are wound on. Iron is used because it is easily magnetised."
+            },
+            {
+              "term": "Step-up transformer",
+              "meaning": "Increases the p.d., so Vₛ > Vₚ."
+            },
+            {
+              "term": "Step-down transformer",
+              "meaning": "Decreases the p.d., so Vₛ < Vₚ."
+            }
+          ]
+        },
+        {
+          "type": "steps",
+          "items": [
+            {
+              "lead": "1",
+              "text": "An alternating current in the primary coil produces a changing magnetic field."
+            },
+            {
+              "lead": "2",
+              "text": "The iron core carries this field, which changes direction, through the secondary coil."
+            },
+            {
+              "lead": "3",
+              "text": "The secondary coil cuts through the changing field, so an alternating p.d. is induced across its ends."
+            },
+            {
+              "lead": "4",
+              "text": "If the secondary is part of a circuit, an alternating current flows in it."
+            }
+          ]
+        },
+        {
+          "type": "paragraph",
+          "text": "A transformer does not work with direct current. The current is steady, so the magnetic field does not change and no p.d. is induced."
+        },
+        {
+          "type": "key-points",
+          "items": [
+            "An alternating current in the primary coil induces an alternating p.d. in the secondary coil.",
+            "The link between the coils is a changing magnetic field in the iron core.",
+            "A transformer only works with a.c."
+          ]
+        }
+      ]
+    },
+    {
+      "heading": "The turns ratio equation",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "The p.d.s across the coils depend on the number of turns on each coil."
+        },
+        {
+          "type": "equation",
+          "label": "Transformer turns ratio",
+          "formula": "Vₚ ÷ Vₛ = Nₚ ÷ Nₛ",
+          "where": [
+            "Vₚ is the potential difference across the primary coil, in volts, V",
+            "Vₛ is the potential difference across the secondary coil, in volts, V",
+            "Nₚ is the number of turns on the primary coil",
+            "Nₛ is the number of turns on the secondary coil"
+          ]
+        },
+        {
+          "type": "list",
+          "items": [
+            "More turns on the secondary coil than the primary gives a step-up transformer.",
+            "Fewer turns on the secondary coil gives a step-down transformer."
+          ]
+        },
+        {
+          "type": "subheading",
+          "text": "Worked example"
+        },
+        {
+          "type": "paragraph",
+          "text": "A primary coil of 1000 turns is connected to 230 V. The secondary coil has 50 turns. Find the secondary p.d."
+        },
+        {
+          "type": "steps",
+          "items": [
+            {
+              "lead": "Rearrange",
+              "text": "Vₛ = Vₚ × Nₛ ÷ Nₚ"
+            },
+            {
+              "lead": "Substitute",
+              "text": "Vₛ = 230 × 50 ÷ 1000"
+            },
+            {
+              "lead": "Answer",
+              "text": "Vₛ = 11.5 V"
+            }
+          ]
+        },
+        {
+          "type": "diagram",
+          "diagram": {
+            "kind": "practice",
+            "alt": "Calculate the secondary potential difference of a transformer from its turns and the primary potential difference.",
+            "question": "A transformer has {Np} turns on its primary coil and {Ns} turns on its secondary coil. The potential difference across the primary coil is {Vp} V. Calculate the potential difference across the secondary coil.",
+            "variables": [
+              {
+                "id": "Vp",
+                "min": 20,
+                "max": 240,
+                "step": 20
+              },
+              {
+                "id": "Np",
+                "min": 100,
+                "max": 500,
+                "step": 100
+              },
+              {
+                "id": "Ns",
+                "min": 100,
+                "max": 2000,
+                "step": 100
+              }
+            ],
+            "answer": {
+              "formula": "Vp * Ns / Np",
+              "unit": "V",
+              "decimals": 1
+            },
+            "working": [
+              "Vp ÷ Vs = Np ÷ Ns",
+              "Vs = Vp × Ns ÷ Np",
+              "Vs = {Vp} × {Ns} ÷ {Np}",
+              "Vs = {answer} V"
+            ]
+          }
+        },
+        {
+          "type": "key-points",
+          "items": [
+            "Vₚ ÷ Vₛ = Nₚ ÷ Nₛ links the p.d.s to the turns.",
+            "More secondary turns means a higher secondary p.d.",
+            "Rearrange before substituting, and check the answer is higher or lower as expected."
+          ]
+        }
+      ]
+    },
+    {
+      "heading": "Power, current and the National Grid",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "A transformer does not create energy. If it is 100% efficient, the power output equals the power input."
+        },
+        {
+          "type": "equation",
+          "label": "Transformer power",
+          "formula": "Vₛ × Iₛ = Vₚ × Iₚ",
+          "where": [
+            "Vₛ × Iₛ is the power output from the secondary coil, in watts, W",
+            "Vₚ × Iₚ is the power input to the primary coil, in watts, W",
+            "Iₛ and Iₚ are the currents in the secondary and primary coils, in amperes, A"
+          ]
+        },
+        {
+          "type": "list",
+          "items": [
+            "A step-up transformer raises the p.d., so the current in the secondary coil is lower.",
+            "A step-down transformer lowers the p.d., so the current in the secondary coil is higher."
+          ]
+        },
+        {
+          "type": "subheading",
+          "text": "Worked example"
+        },
+        {
+          "type": "paragraph",
+          "text": "A 100% efficient transformer has 230 V and 0.50 A in the primary coil. The secondary p.d. is 12 V."
+        },
+        {
+          "type": "steps",
+          "items": [
+            {
+              "lead": "Rearrange",
+              "text": "Iₛ = Vₚ × Iₚ ÷ Vₛ"
+            },
+            {
+              "lead": "Substitute",
+              "text": "Iₛ = 230 × 0.50 ÷ 12"
+            },
+            {
+              "lead": "Answer",
+              "text": "Iₛ = 9.6 A (to 2 significant figures)"
+            }
+          ]
+        },
+        {
+          "type": "paragraph",
+          "text": "Power is transmitted at high p.d. so that the current in the cables is small. A smaller current wastes less energy as heat. Transformers raise the p.d. at the power station and lower it again before it reaches homes."
+        },
+        {
+          "type": "paragraph",
+          "text": "Use the slider to see the p.d., current and power change."
+        },
+        {
+          "type": "diagram",
+          "diagram": {
+            "kind": "slider",
+            "alt": "Change the turns on the coils and the primary current to see the secondary potential difference, the secondary current and the power of a transformer on 230 V mains.",
+            "inputs": [
+              {
+                "id": "Np",
+                "label": "Turns on primary coil",
+                "min": 200,
+                "max": 1000,
+                "step": 100,
+                "value": 1000
+              },
+              {
+                "id": "Ns",
+                "label": "Turns on secondary coil",
+                "min": 100,
+                "max": 1000,
+                "step": 100,
+                "value": 100
+              },
+              {
+                "id": "Ip",
+                "label": "Primary current",
+                "unit": "A",
+                "min": 0.5,
+                "max": 3,
+                "step": 0.5,
+                "value": 1
+              }
+            ],
+            "outputs": [
+              {
+                "label": "Secondary p.d. (primary is 230 V)",
+                "unit": "V",
+                "formula": "230 * Ns / Np",
+                "decimals": 1
+              },
+              {
+                "label": "Secondary current",
+                "unit": "A",
+                "formula": "Ip * Np / Ns",
+                "decimals": 2
+              },
+              {
+                "label": "Power in = power out",
+                "unit": "W",
+                "formula": "230 * Ip",
+                "decimals": 0
+              }
+            ]
+          }
+        },
+        {
+          "type": "key-points",
+          "items": [
+            "Power out equals power in for a transformer that is 100% efficient.",
+            "Raising the p.d. lowers the current by the same factor.",
+            "High p.d. transmission means a small current and less wasted energy."
+          ]
+        }
+      ]
+    }
+  ],
+  "checks": [
+    {
+      "q": "Explain why a transformer does not work with a direct current.",
+      "a": "The direct current is steady, so the magnetic field in the core does not change. No potential difference is induced in the secondary coil.",
+      "marks": 2
+    },
+    {
+      "q": "A transformer has 200 turns on the primary coil and 50 turns on the secondary coil. The primary p.d. is 120 V. Calculate the secondary p.d.",
+      "a": "Vₛ = Vₚ × Nₛ ÷ Nₚ = 120 × 50 ÷ 200 = 30 V.",
+      "marks": 2
+    },
+    {
+      "q": "A transformer that is 100% efficient has 230 V and 0.50 A in the primary coil. The secondary p.d. is 11.5 V. Calculate the secondary current.",
+      "a": "Iₛ = Vₚ × Iₚ ÷ Vₛ = 230 × 0.50 ÷ 11.5 = 10 A.",
+      "marks": 2
+    }
+  ],
+  "boards": {
+    "aqa": {
+      "spec_codes": [
+        "AQA 4.7.3.4"
+      ],
+      "exam_phrases": [
+        "a changing magnetic field around the primary coil",
+        "creates a magnetic field that changes direction in the core",
+        "the secondary coil cuts through the changing magnetic field",
+        "this induces an alternating potential difference across the secondary coil",
+        "iron, because it is easily magnetised (and demagnetised)",
+        "to vary the output potential difference"
+      ],
+      "mistakes": [
+        {
+          "wrong": "The core is made of steel because it is magnetic.",
+          "right": "Steel is not accepted. The core is iron, because iron is easily magnetised (and demagnetised)."
+        },
+        {
+          "wrong": "The number of turns on the secondary coil can be changed to vary the power.",
+          "right": "Answers in terms of power are not accepted. Changing the turns varies the output potential difference, so the same generator suits different devices."
+        },
+        {
+          "wrong": "Vₚ ÷ 400 = 345 ÷ 6000, so Vₚ = 23 V.",
+          "right": "Convert kilovolts to volts first. 400 kV = 400 000 V, so Vₚ = 23 000 V. The answer is asked for in volts."
+        }
+      ],
+      "extra": [
+        {
+          "heading": "Tier and scope",
+          "blocks": [
+            {
+              "type": "paragraph",
+              "text": "This content is Higher tier only in this course. You do not need to know about laminations or eddy currents in the core."
+            }
+          ]
+        }
+      ],
+      "worked_example": {
+        "exemplar_id": "53c4569f-2ab9-44c9-b5ea-eb315e48e701",
+        "source": "AQA jun 2025, Paper 2 (H), Q09.2",
+        "marks": 4,
+        "question": "A transformer has 345 turns on the primary coil and 6000 turns on the secondary coil.\nThe potential difference across the secondary coil is 400 kV.\n\nCalculate the potential difference across the primary coil.\nGive your answer in volts.",
+        "answer_points": [
+          "Vₛ = 400 000 V.",
+          "Vₚ ÷ 400 000 = 345 ÷ 6000.",
+          "Vₚ = 0.0575 × 400 000.",
+          "Vₚ = 23 000 V."
+        ],
+        "tip": "One mark for converting to volts, one for the substitution, one for the rearrangement and one for the answer."
+      }
+    },
+    "edexcel": {
+      "spec_codes": [
+        "EDEX 13.5",
+        "EDEX 13.6",
+        "EDEX 13.10",
+        "EDEX 13.7P"
+      ],
+      "exam_phrases": [
+        "an alternating / changing current in the primary coil",
+        "magnetic field in the primary / secondary coil / core (due to current)",
+        "the magnetic field is alternating",
+        "this magnetic field cuts / links the secondary coil",
+        "induces an alternating voltage across the secondary coil",
+        "substitution into Vₚ ÷ Vₛ = Nₚ ÷ Nₛ",
+        "input current × input voltage = output current × output voltage"
+      ],
+      "mistakes": [
+        {
+          "wrong": "Vₛ = 230 × 800 ÷ 18 = 10 222 V.",
+          "right": "This inverts the ratio and earns one mark at most. Rearrange to Vₛ = Vₚ × Nₛ ÷ Nₚ = 230 × 18 ÷ 800 = 5.2 V."
+        },
+        {
+          "wrong": "The changing magnetic field is caused by the voltage in the primary coil.",
+          "right": "References to voltage or potential difference are ignored. Say an alternating or changing current in the primary coil."
+        },
+        {
+          "wrong": "Iₚ × 230 = 19 × 2.37, so Iₚ = 230 ÷ (19 × 2.37) = 5.1 A.",
+          "right": "An upside-down rearrangement scores one mark for substitution only. Divide by 230: Iₚ = 19 × 2.37 ÷ 230 = 0.196 A."
+        }
+      ],
+      "worked_example": {
+        "exemplar_id": "4b14a50e-3e5d-4f41-87c5-d4013bea080f",
+        "source": "EDEXCEL jun 2023, Paper 2 (H), Q10(b)",
+        "marks": 3,
+        "question": "A transformer has these values.\nThe number of turns on the primary coil, Nₚ = 800\nThe potential difference across the primary coil, Vₚ = 230 V\nThe number of turns on the secondary coil, Nₛ = 18\n\nCalculate the potential difference across the secondary coil.",
+        "answer_points": [
+          "Substitute: 230 ÷ Vₛ = 800 ÷ 18.",
+          "Rearrange: Vₛ = Vₚ × Nₛ ÷ Nₚ.",
+          "Substitute and evaluate: Vₛ = 18 × 230 ÷ 800 = 5.2 V."
+        ],
+        "tip": "An answer that rounds to 10 000 scores one mark. Correct answer without working scores full marks."
+      }
+    },
+    "ocr": {
+      "spec_codes": [
+        "OCR P4.2g",
+        "OCR P4.2h",
+        "OCR P4.2i",
+        "OCR P8.2f"
+      ],
+      "exam_phrases": [
+        "the current only flows in one direction",
+        "the magnetic field remains steady / does not change",
+        "(Iₚ =) (Iₛ × Vₛ) ÷ Vₚ",
+        "(Iₚ =) (Iₛ × Nₛ) ÷ Nₚ"
+      ],
+      "mistakes": [
+        {
+          "wrong": "A transformer does not work with d.c. because no magnetic field is induced.",
+          "right": "'Magnetic field not induced' is ignored. Say the current only flows in one direction, so the magnetic field stays steady and does not change."
+        },
+        {
+          "wrong": "A transformer does not work with d.c. because electricity only flows one way.",
+          "right": "'Electricity' is ignored. Use 'current', or voltage or p.d., and add that the magnetic field does not change."
+        }
+      ],
+      "worked_example": {
+        "exemplar_id": "9e495e6b-795b-4aad-97be-854e6bf38985",
+        "source": "OCR jun 2025, Paper 2, Q20(c)(ii)",
+        "marks": 3,
+        "question": "A games console has a transformer built into its power cord.\nThe transformer decreases the potential difference of the mains supply from 230 V to 12.1 V.\nThe current in the primary coil of the transformer is 0.51 A.\n\nCalculate the current in the secondary coil of the transformer.\nAssume the transformer is 100% efficient.",
+        "answer_points": [
+          "Select and substitute: 230 × 0.51 = 12.1 × current.",
+          "Rearrange: current = (230 × 0.51) ÷ 12.1.",
+          "Evaluate: 9.7 A."
+        ],
+        "tip": "Substitution and rearrangement can be in any order. Check the answer line first: 9.7 A gains all three marks."
+      }
+    }
+  },
+  "meta": {
+    "status": "draft",
+    "written_by": "sonnet-5-5",
+    "written_at": "2026-10-01",
+    "spec_point_ids": [
+      "a68da0a9-2bb1-4b04-a0b8-ca93fffa780e",
+      "1921039c-2987-4eda-98e3-9d84b3fb8222",
+      "452b71a3-4483-4855-b25b-4e921aed6bd9",
+      "d9f843ee-cdd0-4d09-8bbb-f472246f00bc",
+      "76d217ec-d533-420f-b32a-bd0def0bd0bb",
+      "fc2136bd-6e27-4035-a0c4-6b6e89ef7e49",
+      "4f9cf25b-a009-49d8-a9dc-3d77509382cd",
+      "581034dc-b865-4a2b-a2c2-bd8cc3bcfdd9",
+      "856cc69c-4a9d-4dc9-85ac-d1455a6905b5"
+    ],
+    "exemplar_ids": [
+      "53c4569f-2ab9-44c9-b5ea-eb315e48e701",
+      "4b14a50e-3e5d-4f41-87c5-d4013bea080f",
+      "9e495e6b-795b-4aad-97be-854e6bf38985"
+    ]
+  }
+}

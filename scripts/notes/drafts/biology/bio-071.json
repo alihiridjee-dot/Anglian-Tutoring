@@ -1,0 +1,318 @@
+{
+  "format": 1,
+  "concept_id": "bio-071",
+  "subject": "biology",
+  "title": "Eye defects and their correction",
+  "key_idea": "In short-sightedness light focuses in front of the retina, and a concave lens corrects it. In long-sightedness light focuses behind the retina, and a convex lens corrects it. In a cataract the lens turns cloudy, and surgery replaces it. (Separate science)",
+  "sections": [
+    {
+      "heading": "Short- and long-sightedness",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "(Separate science) A clear image forms only if light is focused on the retina. In these two defects it is not."
+        },
+        {
+          "type": "table",
+          "columns": [
+            "Feature",
+            "Short-sightedness (myopia)",
+            "Long-sightedness"
+          ],
+          "rows": [
+            [
+              "Difficulty seeing",
+              "Distant objects (such as road signs)",
+              "Near objects"
+            ],
+            [
+              "Where light is focused",
+              "In front of the retina",
+              "Behind the retina"
+            ],
+            [
+              "Possible causes",
+              "Eyeball too long, cornea too curved, or lens too powerful (cannot be made thin enough). Light is refracted too much.",
+              "Eyeball too short, or lens cannot be thickened enough (weak ciliary muscles or an inelastic lens)."
+            ],
+            [
+              "Lens that corrects it",
+              "**Concave (diverging)**: bends the light rays outwards",
+              "**Convex (converging)**: bends the light rays inwards more"
+            ],
+            [
+              "Other corrections",
+              "Contact lenses, or laser treatment of the cornea",
+              "Contact lenses"
+            ]
+          ]
+        },
+        {
+          "type": "list",
+          "items": [
+            "A corrective lens in glasses or a contact lens changes the direction of the light rays before they enter the eye.",
+            "After correction, the light rays meet (converge) on the retina and a clear image forms.",
+            "Laser treatment reshapes the cornea, so light is refracted less before it enters the eye."
+          ]
+        },
+        {
+          "type": "key-points",
+          "items": [
+            "Short-sighted: far objects blurred, light focuses in front of the retina, concave lens.",
+            "Long-sighted: near objects blurred, light focuses behind the retina, convex lens.",
+            "The correct lens makes light focus on the retina."
+          ]
+        }
+      ]
+    },
+    {
+      "heading": "Cataracts and colour blindness",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "(Separate science) These two defects have different causes. One affects the lens and the other affects receptor cells."
+        },
+        {
+          "type": "subheading",
+          "text": "Cataracts"
+        },
+        {
+          "type": "list",
+          "items": [
+            "In a cataract, the lens becomes **cloudy**.",
+            "Less light reaches the retina, so the image is blurred and less clear.",
+            "Surgery treats cataracts. The surgeon cuts into the eye (or uses a laser) and removes the old lens.",
+            "It is replaced with a new clear artificial lens, made of plastic.",
+            "Eye drops are being developed. They carry less risk of infection and permanent damage, and need no surgery."
+          ]
+        },
+        {
+          "type": "subheading",
+          "text": "Colour blindness"
+        },
+        {
+          "type": "list",
+          "items": [
+            "Cone cells in the retina are responsible for colour vision.",
+            "In colour blindness, some cone cells are missing or do not work properly, so some colours cannot be told apart.",
+            "There is no cure. Tinted or coloured filter lenses can help some people tell certain colours apart."
+          ]
+        },
+        {
+          "type": "diagram",
+          "diagram": {
+            "kind": "predictor",
+            "alt": "A predictor: pick an eye defect and see its cause, what the person cannot do and how it is corrected.",
+            "prompt": "Pick an eye defect.",
+            "result_labels": [
+              "Main problem",
+              "Where light is focused",
+              "Cause",
+              "Correction"
+            ],
+            "options": [
+              {
+                "label": "Short-sightedness",
+                "results": [
+                  "Distant objects look blurred",
+                  "In front of the retina",
+                  "Eyeball too long, or lens too powerful",
+                  "Concave (diverging) lens, or laser treatment"
+                ],
+                "explanation": "A concave lens spreads the rays out first, so they meet on the retina."
+              },
+              {
+                "label": "Long-sightedness",
+                "results": [
+                  "Near objects look blurred",
+                  "Behind the retina",
+                  "Eyeball too short, or lens cannot be thickened enough",
+                  "Convex (converging) lens"
+                ],
+                "explanation": "A convex lens bends the rays inwards, so they meet on the retina."
+              },
+              {
+                "label": "Cataract",
+                "results": [
+                  "Blurred, less clear vision",
+                  "Less light reaches the retina",
+                  "Lens becomes cloudy",
+                  "Surgery to replace the lens with a clear artificial lens"
+                ],
+                "explanation": "The lens is the part that has gone wrong, so it is replaced."
+              },
+              {
+                "label": "Colour blindness",
+                "results": [
+                  "Some colours cannot be told apart",
+                  "Normal focus on the retina",
+                  "Faulty or missing cone cells",
+                  "No cure. Tinted filter lenses may help tell some colours apart. A focusing lens does not fix it."
+                ],
+                "explanation": "The problem is in the receptor cells, not in how light is focused."
+              }
+            ]
+          }
+        },
+        {
+          "type": "key-points",
+          "items": [
+            "A cataract is a cloudy lens. The lens is replaced.",
+            "Colour blindness involves the cone cells.",
+            "Match each defect to its cause and its correction."
+          ]
+        }
+      ]
+    }
+  ],
+  "checks": [
+    {
+      "q": "A person cannot read road signs from a distance. Name the eye defect and the type of lens that corrects it.",
+      "a": "Short-sightedness (myopia). A concave (diverging) lens.",
+      "marks": 2
+    },
+    {
+      "q": "Explain why a cataract makes vision blurred.",
+      "a": "The lens becomes cloudy, so less light reaches the retina.",
+      "marks": 2
+    },
+    {
+      "q": "Describe how a convex lens helps a long-sighted person.",
+      "a": "The convex (converging) lens bends the light rays inwards more, so the rays are focused on the retina.",
+      "marks": 2
+    }
+  ],
+  "boards": {
+    "aqa": {
+      "spec_codes": [
+        "AQA 5.5"
+      ],
+      "exam_phrases": [
+        "convex / converging lens",
+        "light rays bent / refracted (inwards) more",
+        "light rays focused on the retina",
+        "the eyeball is too short or the lens cannot be thickened enough",
+        "the ciliary muscles are too weak or the lens is not sufficiently elastic",
+        "light focuses behind the retina / the image forms behind the retina"
+      ],
+      "mistakes": [
+        {
+          "wrong": "In long-sightedness, light is focused in front of the retina.",
+          "right": "In long-sightedness the light focuses behind the retina (the image forms behind the retina)."
+        },
+        {
+          "wrong": "A concave lens is used to correct long-sightedness.",
+          "right": "A convex (converging) lens is used. It bends the light rays inwards more so they focus on the retina."
+        }
+      ],
+      "worked_example": {
+        "exemplar_id": "8c860c1c-7bfe-4e8b-aaed-2df9b7221393",
+        "source": "AQA jun 2019, Paper 2 (H), Q04.3",
+        "question": "Long-sightedness can be corrected by wearing spectacles.\n\nDescribe how spectacle lenses can correct long-sightedness.",
+        "marks": 3,
+        "answer_points": [
+          "The lens is convex (converging), thicker in the middle.",
+          "Light rays are bent (refracted) inwards more.",
+          "Light rays are focused on the retina, so a clear image forms."
+        ],
+        "tip": "One mark for the type of lens, one for the refraction and one for focusing on the retina."
+      }
+    },
+    "edexcel": {
+      "spec_codes": [
+        "EDEX 2.16B",
+        "EDEX 2.17B"
+      ],
+      "exam_phrases": [
+        "the lens becomes cloudy",
+        "less light reaches the retina",
+        "replace the (old / opaque) lens with a new clear artificial lens",
+        "light is focused in front of the retina",
+        "the eyeball is too long / the lens cannot be made thin enough",
+        "a diverging lens bends / refracts light rays outwards",
+        "so the light rays meet / converge / focus on the retina",
+        "less risk of infection / permanent damage"
+      ],
+      "mistakes": [
+        {
+          "wrong": "A diverging lens refracts the light rays less.",
+          "right": "Refract light rays less is ignored. Say that a diverging lens bends or refracts the light rays outwards, so they focus on the retina."
+        },
+        {
+          "wrong": "The picture is less clear because light cannot get to the retina.",
+          "right": "Both points are needed. The lens becomes cloudy, so less light reaches the retina."
+        },
+        {
+          "wrong": "Short-sightedness happens because the eyeball is too short.",
+          "right": "A short-sighted eyeball is too long (or the cornea is too curved), so light focuses in front of the retina."
+        }
+      ],
+      "worked_example": {
+        "exemplar_id": "17446b7b-638d-41eb-9f2d-a2cb85584e2c",
+        "source": "EDEXCEL jun 2022, Paper 1 (F), Q7(b)(ii)",
+        "question": "A person cannot see distant objects clearly.\n\nExplain why this person cannot see distant objects clearly and how the problem can be corrected.",
+        "marks": 6,
+        "answer_points": [
+          "The person is short-sighted (has myopia).",
+          "Light is not focused on the retina. It is focused in front of the retina.",
+          "The eyeball is too long, or the cornea is too curved, or the lens cannot be made thin enough, so the light is refracted too much.",
+          "It is corrected with glasses or contact lenses that are concave (diverging), or with laser treatment of the cornea.",
+          "The correction refracts the light less before it enters the eye.",
+          "So the light is focused on the retina."
+        ],
+        "tip": "This is marked in levels. Explain the cause first, then the correction, and finish by saying the light is focused on the retina."
+      }
+    },
+    "ocr": {
+      "spec_codes": [
+        "OCR 3.1e"
+      ],
+      "exam_phrases": [
+        "short sighted / has myopia",
+        "eyeball is too long / lens is too powerful",
+        "light / rays refract too much",
+        "light / rays focused in front of the retina",
+        "(glasses / contact lenses) with concave lenses",
+        "laser eye surgery"
+      ],
+      "mistakes": [
+        {
+          "wrong": "A person who finds it difficult to read road signs at a distance is long-sighted.",
+          "right": "If the wrong defect is named, no marks are given. Difficulty with distance is short-sightedness (myopia)."
+        },
+        {
+          "wrong": "Short-sightedness is treated with convex lenses.",
+          "right": "Short-sightedness is treated with concave lenses in glasses or contact lenses, or with laser eye surgery."
+        }
+      ],
+      "worked_example": {
+        "exemplar_id": "704af92e-4f9b-4d80-add3-8ab145b68493",
+        "source": "OCR jun 2022, Paper 1, Q20(a)(i)",
+        "question": "A person is finding it difficult to read road signs at a distance whilst driving.\n\nDescribe the eye defect this person could have.",
+        "marks": 2,
+        "answer_points": [
+          "The person is short sighted.",
+          "Any one from: the eyeball is too long; the lens is too powerful; light refracts too much; light is focused in front of the retina (not at the retina)."
+        ],
+        "tip": "Myopia is also allowed. If the defect named is wrong, no marks are awarded for the explanation."
+      }
+    }
+  },
+  "meta": {
+    "status": "draft",
+    "written_by": "sonnet-5-5",
+    "written_at": "2026-10-01",
+    "spec_point_ids": [
+      "46acb3ca-17c6-4c17-aba4-ab7bd479729b",
+      "206ac230-8bf9-4b2d-8e92-fe8f5df1139d",
+      "827488c1-9494-4094-a04d-adc254f12e8d"
+    ],
+    "exemplar_ids": [
+      "8c860c1c-7bfe-4e8b-aaed-2df9b7221393",
+      "17446b7b-638d-41eb-9f2d-a2cb85584e2c",
+      "704af92e-4f9b-4d80-add3-8ab145b68493"
+    ],
+    "checked_by": "sonnet-science-check",
+    "checked_at": "2026-10-01"
+  }
+}

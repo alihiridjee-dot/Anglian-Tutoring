@@ -1,0 +1,325 @@
+{
+  "format": 1,
+  "concept_id": "bio-060",
+  "subject": "biology",
+  "title": "Aerobic respiration",
+  "key_idea": "Respiration is an exothermic reaction that goes on all the time in living cells. It transfers the energy from glucose that cells need for every living process. Aerobic respiration uses oxygen and makes carbon dioxide and water.",
+  "sections": [
+    {
+      "heading": "What respiration is",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "Every living cell needs energy all the time. Respiration is how cells get it from glucose."
+        },
+        {
+          "type": "definitions",
+          "items": [
+            {
+              "term": "Respiration",
+              "meaning": "A chemical reaction in cells that transfers energy from glucose. It happens continuously in all living cells."
+            },
+            {
+              "term": "Exothermic",
+              "meaning": "A reaction that transfers energy to the surroundings, often as heat."
+            },
+            {
+              "term": "Aerobic",
+              "meaning": "Using oxygen."
+            },
+            {
+              "term": "ATP",
+              "meaning": "The molecule cells use to store and supply the energy from respiration."
+            }
+          ]
+        },
+        {
+          "type": "subheading",
+          "text": "What the energy is used for"
+        },
+        {
+          "type": "list",
+          "items": [
+            "Chemical reactions that build larger molecules, such as proteins.",
+            "Movement, including muscle contraction.",
+            "Keeping warm.",
+            "Active transport and cell division."
+          ]
+        },
+        {
+          "type": "paragraph",
+          "text": "Plants respire too. Plant cells also need energy for active transport, protein synthesis and cell division."
+        },
+        {
+          "type": "key-points",
+          "items": [
+            "Respiration happens in all living cells, plants as well as animals, all the time.",
+            "It is exothermic: it transfers energy, and some of it is released as heat.",
+            "Energy is transferred or released. It is never made, produced or created."
+          ]
+        }
+      ]
+    },
+    {
+      "heading": "The aerobic respiration equation",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "Aerobic respiration breaks glucose down completely, using oxygen. Most of it happens in the mitochondria."
+        },
+        {
+          "type": "equation",
+          "label": "Aerobic respiration in words",
+          "formula": "glucose + oxygen → carbon dioxide + water",
+          "where": [
+            "glucose is the fuel",
+            "oxygen comes from the air you breathe",
+            "carbon dioxide and water are the waste products"
+          ]
+        },
+        {
+          "type": "equation",
+          "label": "Aerobic respiration in symbols",
+          "formula": "C₆H₁₂O₆ + 6O₂ → 6CO₂ + 6H₂O",
+          "where": [
+            "C₆H₁₂O₆ is glucose",
+            "O₂ is oxygen",
+            "CO₂ is carbon dioxide",
+            "H₂O is water"
+          ]
+        },
+        {
+          "type": "diagram",
+          "diagram": {
+            "kind": "sort",
+            "alt": "Sort each substance by whether aerobic respiration uses it, makes it, or does not involve it.",
+            "prompt": "Sort the substances for aerobic respiration",
+            "groups": [
+              "Used up (reactants)",
+              "Made (products)",
+              "Not part of aerobic respiration"
+            ],
+            "items": [
+              {
+                "text": "Glucose",
+                "group": 0
+              },
+              {
+                "text": "Oxygen",
+                "group": 0
+              },
+              {
+                "text": "Carbon dioxide",
+                "group": 1
+              },
+              {
+                "text": "Water",
+                "group": 1
+              },
+              {
+                "text": "Lactic acid",
+                "group": 2
+              },
+              {
+                "text": "Ethanol",
+                "group": 2
+              }
+            ]
+          }
+        },
+        {
+          "type": "key-points",
+          "items": [
+            "Glucose and oxygen are used up. Carbon dioxide and water are made.",
+            "Learn the symbols: C₆H₁₂O₆, O₂, CO₂ and H₂O.",
+            "Aerobic respiration releases much more energy per glucose than anaerobic respiration."
+          ]
+        }
+      ]
+    },
+    {
+      "heading": "Where respiration happens and why it matters",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "Cells that need a lot of energy have many mitochondria, so they can respire faster."
+        },
+        {
+          "type": "list",
+          "items": [
+            "Heart muscle cells contain many mitochondria. More respiration releases more energy, so the muscle can keep contracting.",
+            "Oxygen reaches cells in the blood, and it is used in respiration to release energy.",
+            "Glucose also comes from the blood, so a low blood glucose concentration means less respiration and less energy released. A person then feels weak.",
+            "Because respiration is exothermic, it also keeps the body warm."
+          ]
+        },
+        {
+          "type": "key-points",
+          "items": [
+            "Cells that use a lot of energy have many mitochondria.",
+            "Less oxygen or less glucose means less respiration and less energy released.",
+            "Always say energy is released or transferred, not produced."
+          ]
+        }
+      ]
+    }
+  ],
+  "checks": [
+    {
+      "q": "Complete the word equation for aerobic respiration: glucose + ______ → ______ + ______.",
+      "a": "glucose + oxygen → carbon dioxide + water (the products can be in either order).",
+      "marks": 3
+    },
+    {
+      "q": "Give two uses of the energy released in respiration.",
+      "a": "Any two from: movement or muscle contraction; keeping warm; active transport; building larger molecules.",
+      "marks": 2
+    },
+    {
+      "q": "Explain why heart muscle cells contain many mitochondria.",
+      "a": "Mitochondria are where aerobic respiration happens. More respiration releases more energy, so the muscle can contract.",
+      "marks": 3
+    }
+  ],
+  "boards": {
+    "aqa": {
+      "spec_codes": [
+        "AQA 4.5",
+        "AQA T 4.4.2.1"
+      ],
+      "exam_phrases": [
+        "(more) respiration (in mitochondria)",
+        "(which) releases more energy",
+        "(so the heart) muscle contracts",
+        "oxygen is needed for (aerobic) respiration",
+        "to release / transfer energy",
+        "glucose + oxygen → carbon dioxide + water",
+        "movement / muscle contraction / keeping warm / active transport / building larger molecules"
+      ],
+      "mistakes": [
+        {
+          "wrong": "Respiration produces energy.",
+          "right": "\"Energy produced / made / created\" is not accepted. Say energy is released or transferred."
+        },
+        {
+          "wrong": "Heart cells have many mitochondria because they need a lot of anaerobic respiration.",
+          "right": "Anaerobic respiration is not accepted here. Mitochondria are the site of aerobic respiration, which releases more energy for the muscle to contract."
+        },
+        {
+          "wrong": "Heart cells have many mitochondria because mitochondria provide more energy for respiration.",
+          "right": "\"Provides more energy for respiration\" is not accepted. Mitochondria are where respiration happens, and respiration releases the energy."
+        },
+        {
+          "wrong": "The energy from respiration is used for metabolism and growth.",
+          "right": "\"Metabolism\" unqualified and \"growth\" are ignored. Give a specific use: movement, muscle contraction, keeping warm, active transport or building larger molecules."
+        }
+      ],
+      "worked_example": {
+        "exemplar_id": "cb8e0754-bef4-4f1f-ae8c-cc2fbd96cffa",
+        "source": "AQA jun 2025, Paper 1 (H), Q01.3",
+        "question": "The heart is an organ that pumps blood around the body.\n\nHeart muscle cells contain many mitochondria.\n\nExplain why heart muscle cells contain many mitochondria.",
+        "marks": 3,
+        "answer_points": [
+          "More respiration happens in the mitochondria (not anaerobic respiration).",
+          "Which releases more energy (allow: the muscle needs more energy).",
+          "So the heart muscle contracts."
+        ],
+        "tip": "Link mitochondria to respiration, then to energy released, then to contraction. Do not say energy is produced, made or created."
+      }
+    },
+    "edexcel": {
+      "spec_codes": [
+        "EDEX 8.9"
+      ],
+      "exam_phrases": [
+        "to release energy",
+        "for metabolic processes / chemical reactions",
+        "respiration supplies energy (to muscles / cells)",
+        "(more) respiration occurs",
+        "(more respiration) requires oxygen",
+        "chemical / enzyme / metabolic reactions are increased at higher temperatures"
+      ],
+      "mistakes": [
+        {
+          "wrong": "Respiration is essential because it gives living things energy.",
+          "right": "Two marks are available: to release energy, and for metabolic processes or chemical reactions. Name a use, for example movement."
+        },
+        {
+          "wrong": "The athlete breathes faster to get more energy.",
+          "right": "Breathing faster absorbs more oxygen, so more respiration can occur and more energy is released. Or it removes more carbon dioxide from the extra respiration."
+        }
+      ],
+      "worked_example": {
+        "exemplar_id": "3bf4ca4f-b741-4f3e-ba0f-47c99ee71630",
+        "source": "EDEXCEL jun 2018, Paper 2 (H), Q6(a)(ii)",
+        "question": "Iguanas are lizards. Some species of iguana live on hot islands and use the environment to regulate their body temperature.\n\nA marine biologist measured the oxygen consumption of an iguana at different body temperatures.\n\nBody temperature 20 °C: 0.4 cm³ of oxygen per gram per hour.\nBody temperature 25 °C: 0.8 cm³ per gram per hour.\nBody temperature 30 °C: 1.1 cm³ per gram per hour.\nBody temperature 35 °C: 1.4 cm³ per gram per hour.\n\nExplain why the body temperature of the iguana affects its oxygen consumption.",
+        "marks": 3,
+        "answer_points": [
+          "Chemical (enzyme or metabolic) reactions are increased at higher temperatures.",
+          "So more respiration occurs.",
+          "More respiration requires more oxygen."
+        ],
+        "tip": "One mark for each link in the chain: temperature, then respiration, then oxygen."
+      }
+    },
+    "ocr": {
+      "spec_codes": [
+        "OCR 1.3a",
+        "OCR 1.3b"
+      ],
+      "exam_phrases": [
+        "respiration is a universal chemical process",
+        "all organisms need to respire",
+        "plants need (to produce) ATP",
+        "breakdown / use of glucose to release / transfer / provide energy",
+        "producing ATP",
+        "energy stored as ATP"
+      ],
+      "mistakes": [
+        {
+          "wrong": "Cellular respiration produces energy.",
+          "right": "\"Produces energy\" is not allowed. Say glucose is broken down to release, transfer or provide energy, or that ATP is produced."
+        },
+        {
+          "wrong": "Plants do not respire. They photosynthesise instead.",
+          "right": "Respiration is a universal chemical process, so plants respire too. They need ATP, for example for active transport, protein synthesis or cell division."
+        },
+        {
+          "wrong": "Plants use the ATP from respiration for growth.",
+          "right": "\"Growth\" unqualified is ignored. Give a named use of ATP or energy, such as active transport, protein synthesis or cell division."
+        }
+      ],
+      "worked_example": {
+        "exemplar_id": "1819bea2-2acf-46cd-a5e8-abaaed32ca04",
+        "source": "OCR jun 2023, Paper 3, Q25(a)",
+        "question": "Two students are discussing respiration.\n\nOne student says, 'I know all animals respire but I don't think plants need to.'\n\nExplain why the student's statement is not correct.",
+        "marks": 2,
+        "answer_points": [
+          "Respiration is a universal chemical process, so all organisms need to respire.",
+          "Plants need to produce ATP.",
+          "Give a named use of ATP or energy in plants, such as active transport, protein synthesis, cell division or translocation."
+        ],
+        "tip": "Any two of the three points score. Plant cells have mitochondria, which are the site of respiration."
+      }
+    }
+  },
+  "meta": {
+    "status": "draft",
+    "written_by": "sonnet-5-5",
+    "written_at": "2026-10-01",
+    "spec_point_ids": [
+      "bb0f9ff1-64dc-4396-9e0e-0c2542576f5b",
+      "888a0273-6824-40d3-94e5-777b04ad7690",
+      "01af95ca-a6f9-47b3-b290-698616837205",
+      "45c0e962-0878-49fa-a497-8120f4d79318",
+      "b3e23b05-8553-4dce-a89e-8e46dd544fb6"
+    ],
+    "exemplar_ids": [
+      "cb8e0754-bef4-4f1f-ae8c-cc2fbd96cffa",
+      "3bf4ca4f-b741-4f3e-ba0f-47c99ee71630",
+      "1819bea2-2acf-46cd-a5e8-abaaed32ca04"
+    ],
+    "checked_by": "sonnet-science-check",
+    "checked_at": "2026-10-01"
+  }
+}

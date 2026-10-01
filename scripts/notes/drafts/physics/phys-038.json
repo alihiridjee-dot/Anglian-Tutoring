@@ -1,0 +1,348 @@
+{
+  "format": 1,
+  "concept_id": "phys-038",
+  "subject": "physics",
+  "title": "Background radiation",
+  "key_idea": "**Background radiation** is nuclear radiation that is around us all the time. It comes from natural sources, such as rocks and cosmic rays, and from man-made sources, such as nuclear accidents. The dose a person receives depends on where they live and work.",
+  "sections": [
+    {
+      "heading": "Where background radiation comes from",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "Background radiation is always present, even when no radioactive source is near. This section covers where it comes from."
+        },
+        {
+          "type": "definitions",
+          "items": [
+            {
+              "term": "Background radiation",
+              "meaning": "Nuclear radiation that is around us all of the time."
+            },
+            {
+              "term": "Natural source",
+              "meaning": "A source that is part of the environment, whatever people do."
+            },
+            {
+              "term": "Man-made source",
+              "meaning": "A source that exists because of human activity."
+            }
+          ]
+        },
+        {
+          "type": "subheading",
+          "text": "Natural sources"
+        },
+        {
+          "type": "list",
+          "items": [
+            "**Rocks** and the ground, including radon gas",
+            "**Cosmic rays** from space and the Sun",
+            "Food and water",
+            "Buildings"
+          ]
+        },
+        {
+          "type": "subheading",
+          "text": "Man-made sources"
+        },
+        {
+          "type": "list",
+          "items": [
+            "Fallout from **nuclear weapons testing**",
+            "**Nuclear accidents**, such as Chernobyl or Fukushima",
+            "Medical uses, such as X-rays and radiotherapy",
+            "Nuclear waste and nuclear power stations"
+          ]
+        },
+        {
+          "type": "diagram",
+          "diagram": {
+            "kind": "sort",
+            "alt": "Sort sources of background radiation into natural and man-made.",
+            "prompt": "Is each source of background radiation natural or man-made?",
+            "groups": [
+              "Natural",
+              "Man-made"
+            ],
+            "items": [
+              {
+                "text": "Cosmic rays",
+                "group": 0
+              },
+              {
+                "text": "Radon gas",
+                "group": 0
+              },
+              {
+                "text": "Rocks",
+                "group": 0
+              },
+              {
+                "text": "Medical X-rays",
+                "group": 1
+              },
+              {
+                "text": "Nuclear accidents",
+                "group": 1
+              },
+              {
+                "text": "Fallout from nuclear weapons testing",
+                "group": 1
+              }
+            ]
+          }
+        },
+        {
+          "type": "key-points",
+          "items": [
+            "Background radiation is around us all the time.",
+            "Natural sources include rocks, radon gas and cosmic rays.",
+            "Man-made sources include nuclear accidents, nuclear weapons testing and medical X-rays."
+          ]
+        }
+      ]
+    },
+    {
+      "heading": "Radiation dose",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "A person's dose measures the radiation they absorb and the risk of harm it causes. Dose is measured in sieverts (Sv), and 1000 millisieverts (mSv) = 1 Sv."
+        },
+        {
+          "type": "paragraph",
+          "text": "Dose depends on **location** and on **occupation**. Some rocks give out more radiation than others, so people in some places receive a higher dose."
+        },
+        {
+          "type": "list",
+          "items": [
+            "Pilots receive extra dose from cosmic rays while flying.",
+            "Nuclear power station workers are exposed to nuclear radiation.",
+            "Granite worktops give out a small dose every day."
+          ]
+        },
+        {
+          "type": "subheading",
+          "text": "Total dose over time"
+        },
+        {
+          "type": "equation",
+          "label": "Total dose",
+          "formula": "total dose = dose per day × number of days",
+          "where": [
+            "total dose in millisieverts (mSv)",
+            "dose per day in millisieverts per day (mSv/day)",
+            "number of days (days)"
+          ]
+        },
+        {
+          "type": "steps",
+          "items": [
+            {
+              "lead": "Dose per year.",
+              "text": "A granite worktop gives 0.003 mSv per day."
+            },
+            {
+              "lead": "Multiply.",
+              "text": "0.003 × 365 = 1.095 mSv in a year."
+            },
+            {
+              "lead": "Compare.",
+              "text": "The lowest dose with evidence of causing cancer is 100 mSv, so 1.095 mSv is far below it."
+            }
+          ]
+        },
+        {
+          "type": "key-points",
+          "items": [
+            "Dose is measured in sieverts. 1000 mSv = 1 Sv.",
+            "Location and occupation change a person's dose.",
+            "Compare a calculated dose with a harmful dose to judge the risk."
+          ]
+        }
+      ]
+    },
+    {
+      "heading": "Background count rate",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "A Geiger-Muller tube and counter detects radiation. It also detects background radiation, so a reading is always too high."
+        },
+        {
+          "type": "equation",
+          "label": "Corrected count rate",
+          "formula": "corrected count rate = measured count rate − background count rate",
+          "where": [
+            "all count rates in counts per second (counts/s), or all in counts per minute (counts/min)",
+            "count rate = number of counts ÷ time"
+          ]
+        },
+        {
+          "type": "list",
+          "items": [
+            "A reading is still above zero when the source is taken away.",
+            "This is because of background radiation."
+          ]
+        },
+        {
+          "type": "diagram",
+          "diagram": {
+            "kind": "practice",
+            "alt": "Correct a measured count rate for background radiation.",
+            "question": "A Geiger-Muller tube records {counts} counts in 60 seconds from a rock. The background count rate is {bg} counts per second. Calculate the corrected count rate in counts per second.",
+            "variables": [
+              {
+                "id": "counts",
+                "min": 600,
+                "max": 1200,
+                "step": 60
+              },
+              {
+                "id": "bg",
+                "min": 0.2,
+                "max": 0.5,
+                "step": 0.1
+              }
+            ],
+            "answer": {
+              "formula": "counts / 60 - bg",
+              "unit": "counts/s",
+              "decimals": 1
+            },
+            "working": [
+              "Measured count rate = {counts} ÷ 60 counts per second",
+              "Corrected count rate = measured count rate − {bg}",
+              "Corrected count rate = {answer} counts/s"
+            ]
+          }
+        },
+        {
+          "type": "key-points",
+          "items": [
+            "A detector reads above zero without a source because of background radiation.",
+            "Subtract the background count rate from the measured count rate.",
+            "Use the same unit for both rates before subtracting."
+          ]
+        }
+      ]
+    }
+  ],
+  "checks": [
+    {
+      "q": "Give two natural sources and two man-made sources of background radiation.",
+      "a": "Natural: any two from rocks, radon gas, cosmic rays. Man-made: any two from nuclear accidents, nuclear weapons testing, medical X-rays, radiotherapy.",
+      "marks": 2
+    },
+    {
+      "q": "A detector counts 540 counts in 60 seconds from a source. The background count rate is 0.40 counts per second. Calculate the corrected count rate.",
+      "a": "Measured count rate = 540 ÷ 60 = 9.0 counts per second. Corrected count rate = 9.0 − 0.40 = 8.6 counts per second.",
+      "marks": 3
+    },
+    {
+      "q": "A worker receives 0.002 mSv each day. Calculate their dose after 30 days.",
+      "a": "Total dose = 0.002 × 30 = 0.06 mSv.",
+      "marks": 2
+    },
+    {
+      "q": "Explain why a detector still gives a reading when the radioactive source has been taken away.",
+      "a": "It is detecting background radiation, which is around us all the time.",
+      "marks": 1
+    }
+  ],
+  "boards": {
+    "aqa": {
+      "spec_codes": [
+        "AQA 4.4.3.1"
+      ],
+      "exam_phrases": [
+        "yearly dose = 0.003 × 365",
+        "(well) below the lowest dose with evidence of causing cancer / harm",
+        "corrected count rate = 13.35 (per second)",
+        "nuclear accidents",
+        "(medical) x-rays or radiotherapy",
+        "people are able to compare a radiation risk / dose / hazard to the radiation dose from (eating) bananas"
+      ],
+      "mistakes": [
+        {
+          "wrong": "The count rate for the rock is 819 ÷ 60 + 0.30 = 13.95 counts per second.",
+          "right": "Background radiation is subtracted, not added: 13.65 − 0.30 = 13.35 counts per second. The answer 13.95 scores 2 of the 3 marks."
+        },
+        {
+          "wrong": "Radioactive waste from nuclear power stations is another man-made source of background radiation.",
+          "right": "When waste is already given, it is ignored. Name another source, such as medical X-rays, radiotherapy, nuclear weapons testing or a named nuclear accident."
+        },
+        {
+          "wrong": "The dose is 0.003 mSv, which is a small number, so the householder is safe.",
+          "right": "Work out the yearly dose (0.003 × 365 = 1.095 mSv), then compare it with the lowest dose with evidence of causing cancer (100 mSv)."
+        }
+      ],
+      "worked_example": {
+        "exemplar_id": "7993383f-f29b-46c4-8a0a-be78be2df66c",
+        "source": "AQA jun 2023, Paper 1 (H), Q05.8",
+        "question": "Workers in the nuclear power industry are exposed to nuclear radiation. Pilots on aircraft are exposed to cosmic radiation from space. The daily dose caused by working in a nuclear power station is 0.00050 mSv. The hourly dose from cosmic rays to a pilot while flying is 0.0030 mSv. Calculate the number of days it takes for a nuclear power station worker to receive the same dose as a pilot flying for 24 hours.",
+        "marks": 3,
+        "answer_points": [
+          "Pilot's dose in 24 hours = 24 × 0.0030 = 0.072 mSv.",
+          "Number of days = 0.072 ÷ 0.00050.",
+          "Number of days = 144."
+        ],
+        "tip": "Convert the pilot's hourly dose to a daily dose first. Then divide by the worker's daily dose."
+      }
+    },
+    "edexcel": {
+      "spec_codes": [
+        "EDEX 6.12",
+        "EDEX 6.13"
+      ],
+      "exam_phrases": [
+        "background radiation",
+        "cosmic (rays)",
+        "rocks / ground",
+        "radon",
+        "(nuclear) power stations",
+        "nuclear tests / nuclear waste",
+        "nuclear accidents (Chernobyl, Fukushima etc)",
+        "medical (X-rays, radiotherapy)"
+      ],
+      "mistakes": [
+        {
+          "wrong": "Two sources of background radiation are alpha and beta radiation.",
+          "right": "Alpha, beta and gamma are ignored. They are types of radiation, not sources. Name a source, such as cosmic rays, rocks or radon."
+        },
+        {
+          "wrong": "The detector still gives a reading because the source is not completely removed.",
+          "right": "Give the reason that the reading is not zero: background radiation. A named source of background radiation is also accepted."
+        }
+      ],
+      "worked_example": {
+        "exemplar_id": "b74d6b1f-fec5-42e2-ac79-bd02ce13491f",
+        "source": "EDEXCEL jun 2019, Paper 1 (H), Q3(b)(ii)",
+        "question": "State two sources of background radiation.",
+        "marks": 2,
+        "answer_points": [
+          "Any two from: cosmic rays, the Sun, rocks or the ground, nuclear tests or nuclear waste, nuclear power stations, plants, buildings, food, water, medical sources, radon.",
+          "Nuclear accidents, named foods, X-rays and radiotherapy are also accepted."
+        ],
+        "tip": "One mark for each source. Alpha, beta and gamma are ignored."
+      }
+    }
+  },
+  "meta": {
+    "status": "draft",
+    "written_by": "sonnet-5-5",
+    "written_at": "2026-10-01",
+    "spec_point_ids": [
+      "af24e3b3-4d27-4a14-8274-a9659f9a4fe7",
+      "a452fa1b-beb3-425e-add5-0c679315d465",
+      "6a1228fe-90ed-4012-85d2-b34209153d4b"
+    ],
+    "exemplar_ids": [
+      "7993383f-f29b-46c4-8a0a-be78be2df66c",
+      "b74d6b1f-fec5-42e2-ac79-bd02ce13491f"
+    ],
+    "checked_by": "sonnet-science-check",
+    "checked_at": "2026-10-01"
+  }
+}

@@ -1,0 +1,395 @@
+{
+  "format": 1,
+  "concept_id": "chem-077",
+  "subject": "chemistry",
+  "title": "Properties and combustion of hydrocarbons",
+  "key_idea": "As hydrocarbon molecules get larger, boiling point and viscosity increase and flammability decreases. Hydrocarbon fuels burn in complete combustion to form carbon dioxide and water, releasing energy.",
+  "sections": [
+    {
+      "heading": "How molecule size affects properties",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "Three properties of hydrocarbons depend on the size of their molecules. These properties decide how each hydrocarbon is used as a fuel."
+        },
+        {
+          "type": "definitions",
+          "items": [
+            {
+              "term": "Boiling point",
+              "meaning": "The temperature at which a liquid turns to a gas."
+            },
+            {
+              "term": "Viscosity",
+              "meaning": "How difficult it is for a liquid to flow. A thick liquid has high viscosity."
+            },
+            {
+              "term": "Flammability",
+              "meaning": "How easily a substance catches fire and burns."
+            }
+          ]
+        },
+        {
+          "type": "list",
+          "items": [
+            "As the number of carbon atoms increases, the **boiling point** increases.",
+            "As molecules get larger, **viscosity** increases.",
+            "As molecules get larger, **flammability** decreases."
+          ]
+        },
+        {
+          "type": "paragraph",
+          "text": "The boiling point rises because the weak forces between larger molecules are stronger. More energy is needed to separate them."
+        },
+        {
+          "type": "diagram",
+          "diagram": {
+            "kind": "compare",
+            "alt": "Small hydrocarbon molecules compared with large hydrocarbon molecules.",
+            "items": [
+              "Small molecules",
+              "Large molecules"
+            ],
+            "rows": [
+              {
+                "feature": "Number of carbon atoms",
+                "values": [
+                  "Few",
+                  "Many"
+                ]
+              },
+              {
+                "feature": "Forces between molecules",
+                "values": [
+                  "Weaker",
+                  "Stronger"
+                ]
+              },
+              {
+                "feature": "Boiling point",
+                "values": [
+                  "Lower",
+                  "Higher"
+                ]
+              },
+              {
+                "feature": "Viscosity",
+                "values": [
+                  "Lower, flows easily",
+                  "Higher, flows slowly"
+                ]
+              },
+              {
+                "feature": "Flammability",
+                "values": [
+                  "Higher, ignites easily",
+                  "Lower, ignites less easily"
+                ]
+              },
+              {
+                "feature": "Example",
+                "values": [
+                  "Petrol, LPG",
+                  "Heavy fuel oil, bitumen"
+                ]
+              }
+            ]
+          }
+        },
+        {
+          "type": "list",
+          "items": [
+            "In an investigation, a more viscous liquid takes longer to flow through a funnel.",
+            "Small molecules make good fuels because they ignite easily and flow easily."
+          ]
+        },
+        {
+          "type": "key-points",
+          "items": [
+            "Larger molecules have higher boiling points and are more viscous.",
+            "Larger molecules are less flammable.",
+            "The boiling point trend is explained by stronger forces between larger molecules."
+          ]
+        }
+      ]
+    },
+    {
+      "heading": "Complete combustion",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "Hydrocarbon fuels burn in oxygen and release energy. In complete combustion, the carbon and the hydrogen in the fuel are oxidised."
+        },
+        {
+          "type": "definitions",
+          "items": [
+            {
+              "term": "Combustion",
+              "meaning": "Burning a substance in oxygen, which releases energy."
+            },
+            {
+              "term": "Oxidised",
+              "meaning": "Combined with oxygen. The carbon becomes carbon dioxide and the hydrogen becomes water."
+            }
+          ]
+        },
+        {
+          "type": "equation",
+          "label": "Complete combustion of a hydrocarbon",
+          "formula": "hydrocarbon + oxygen → carbon dioxide + water",
+          "where": [
+            "energy is released (the reaction is exothermic)"
+          ]
+        },
+        {
+          "type": "list",
+          "items": [
+            "Complete combustion of a hydrocarbon produces **carbon dioxide** and **water**.",
+            "The water forms as water vapour, which condenses on a cold surface."
+          ]
+        },
+        {
+          "type": "equation",
+          "label": "Complete combustion of methane (word equation)",
+          "formula": "methane + oxygen → carbon dioxide + water",
+          "where": [
+            "energy is released"
+          ]
+        },
+        {
+          "type": "subheading",
+          "text": "Balancing the equation"
+        },
+        {
+          "type": "paragraph",
+          "text": "Balance the equation so there are the same number of atoms of each element on both sides."
+        },
+        {
+          "type": "equation",
+          "label": "Complete combustion of propane",
+          "formula": "C₃H₈ + 5O₂ → 3CO₂ + 4H₂O",
+          "where": [
+            "3 carbon atoms: 3 in CO₂",
+            "8 hydrogen atoms: 8 in 4H₂O",
+            "10 oxygen atoms: 6 in 3CO₂ and 4 in 4H₂O"
+          ]
+        },
+        {
+          "type": "steps",
+          "items": [
+            {
+              "lead": "Carbon.",
+              "text": "Balance the carbon atoms with the number of CO₂."
+            },
+            {
+              "lead": "Hydrogen.",
+              "text": "Balance the hydrogen atoms with the number of H₂O."
+            },
+            {
+              "lead": "Oxygen.",
+              "text": "Count the oxygen atoms on the right and balance them with O₂."
+            }
+          ]
+        },
+        {
+          "type": "diagram",
+          "diagram": {
+            "kind": "practice",
+            "alt": "Practise working out the number of oxygen molecules needed to burn an alkane completely.",
+            "question": "Two molecules of an alkane with **{n}** carbon atoms burn completely: 2CₙH₂ₙ₊₂ + ___ O₂ → ___ CO₂ + ___ H₂O. How many O₂ molecules are needed?",
+            "variables": [
+              {
+                "id": "n",
+                "min": 1,
+                "max": 10,
+                "step": 1
+              }
+            ],
+            "answer": {
+              "formula": "(4 * n + 2 * n + 2) / 2",
+              "decimals": 0
+            },
+            "working": [
+              "CO₂ molecules = 2 × {n}. H₂O molecules = 2 × {n} + 2.",
+              "Oxygen atoms on the right = 2 × (2 × {n}) + (2 × {n} + 2).",
+              "O₂ molecules = oxygen atoms ÷ 2 = **{answer}**."
+            ]
+          }
+        },
+        {
+          "type": "key-points",
+          "items": [
+            "Complete combustion of a hydrocarbon gives carbon dioxide and water and releases energy.",
+            "Balance carbon first, then hydrogen, then oxygen."
+          ]
+        }
+      ]
+    }
+  ],
+  "checks": [
+    {
+      "q": "Explain the trend in the boiling points of the alkanes C₅H₁₂ (36 °C), C₁₀H₂₂ (174 °C) and C₁₅H₃₂ (271 °C).",
+      "a": "The boiling point increases as the number of carbon atoms increases. The forces between the molecules (intermolecular forces) increase as the size of the molecules increases.",
+      "marks": 3
+    },
+    {
+      "q": "Heavy fuel oil is more viscous than kerosene. Justify this.",
+      "a": "Viscosity increases as molecular size increases, and heavy fuel oil has larger molecules than kerosene.",
+      "marks": 2
+    },
+    {
+      "q": "Balance the equation for the complete combustion of propane: C₃H₈ + __O₂ → __CO₂ + __H₂O",
+      "a": "C₃H₈ + 5O₂ → 3CO₂ + 4H₂O.",
+      "marks": 2
+    }
+  ],
+  "boards": {
+    "aqa": {
+      "spec_codes": [
+        "AQA 4.7.1.3",
+        "AQA T 5.7.1.3"
+      ],
+      "exam_phrases": [
+        "the boiling point increases as the number of (carbon) atoms increases",
+        "(because the weak) intermolecular forces increase",
+        "as molecular size increases viscosity increases",
+        "heavy fuel oil has larger molecules (than kerosene)",
+        "(because) the viscosity increases",
+        "the time increases"
+      ],
+      "mistakes": [
+        {
+          "wrong": "The boiling point increases because the covalent bonds between the atoms get stronger.",
+          "right": "An incorrect reference to particles or bonds limits the answer to 2 marks. Say the weak forces between the molecules increase as the molecules get larger."
+        },
+        {
+          "wrong": "The forces between molecules increase, so the boiling point increases.",
+          "right": "The second mark depends on the first. State the trend first: the boiling point increases as the number of carbon atoms increases."
+        },
+        {
+          "wrong": "C₉H₂₀ + O₂ → CO₂ + H₂O",
+          "right": "An unbalanced equation with no multipliers earns 1 mark. Balance it: C₉H₂₀ + 14O₂ → 9CO₂ + 10H₂O."
+        }
+      ],
+      "worked_example": {
+        "exemplar_id": "5f0228ba-dbef-4d2a-be83-9e2802bdcd1f",
+        "source": "AQA jun 2020, Paper 2 (H), Q05.4",
+        "question": "This question is about crude oil and alkanes.\n\nThe boiling points of three alkanes are: C₅H₁₂ 36 °C, C₁₀H₂₂ 174 °C and C₁₅H₃₂ 271 °C.\n\nExplain the trend in the boiling points of the alkanes.",
+        "marks": 3,
+        "answer_points": [
+          "The boiling point increases as the number of (carbon) atoms increases.",
+          "Because the (weak) intermolecular forces, the forces between the molecules, increase.",
+          "These forces increase as the size of the molecules increases."
+        ],
+        "tip": "The second mark depends on the first. Referring to particles or bonds instead of forces between molecules limits the answer to 2 marks."
+      }
+    },
+    "edexcel": {
+      "spec_codes": [
+        "EDEX 8.7",
+        "EDEX 9.16C"
+      ],
+      "exam_phrases": [
+        "water vapour forms during combustion",
+        "(water vapour) condenses on cold surface",
+        "balancing of correct formulae"
+      ],
+      "mistakes": [
+        {
+          "wrong": "methane + oxygen → carbon dioxide + water + hydrogen",
+          "right": "Other substances on either side lose the mark. The products are carbon dioxide and water only."
+        },
+        {
+          "wrong": "C₈H₁₈ + O₂ → CO₂ + H₂O with different numbers of atoms on each side.",
+          "right": "Marks are given separately for the left formulae, the right formulae and the balancing. A balanced equation needs correct formulae first: 2C₈H₁₈ + 25O₂ → 16CO₂ + 18H₂O."
+        }
+      ],
+      "worked_example": {
+        "exemplar_id": "91570c90-9e13-46b1-92ea-8e4461460502",
+        "source": "EDEXCEL jun 2022, Paper 2 (H), Q5(b)(iii)",
+        "question": "Write the balanced equation for the complete combustion of octane, C₈H₁₈.",
+        "marks": 3,
+        "answer_points": [
+          "Left formulae: C₈H₁₈ and O₂.",
+          "Right formulae: CO₂ and H₂O.",
+          "Balanced: 2C₈H₁₈ + 25O₂ → 16CO₂ + 18H₂O (any correct multiple, including halves, is allowed)."
+        ],
+        "tip": "State symbols are ignored. One mark each for the reactants, the products and the balancing."
+      },
+      "extra": [
+        {
+          "heading": "Alkenes and combustion (Separate science)",
+          "blocks": [
+            {
+              "type": "paragraph",
+              "text": "Alkenes also burn completely in oxygen. The hydrocarbon is oxidised to carbon dioxide and water."
+            },
+            {
+              "type": "equation",
+              "label": "Complete combustion of ethene",
+              "formula": "C₂H₄ + 3O₂ → 2CO₂ + 2H₂O",
+              "where": [
+                "energy is released"
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    "ocr": {
+      "spec_codes": [
+        "OCR C6.2c",
+        "OCR C6.2k"
+      ],
+      "exam_phrases": [
+        "as the number of carbon atoms increases the boiling point increases",
+        "larger molecules have greater intermolecular forces",
+        "carbon dioxide; water",
+        "the stronger the intermolecular forces the higher the boiling point"
+      ],
+      "mistakes": [
+        {
+          "wrong": "C₅H₁₂ and 8O₂ → 5CO₂ and 6H₂O",
+          "right": "The words and and & are not allowed in place of +. Write C₅H₁₂ + 8O₂ → 5CO₂ + 6H₂O."
+        },
+        {
+          "wrong": "The boiling point is higher because the covalent bonds in larger molecules are stronger.",
+          "right": "References to covalent bonds are not allowed. Say the intermolecular forces between larger molecules are stronger."
+        },
+        {
+          "wrong": "C₃H₈ + 5O₂ → 3Co₂ + 4H₂O with wrongly written formulae.",
+          "right": "The balancing mark depends on correct formulae, although 1 mark can be given for a balanced equation with a minor error in case or subscripts."
+        }
+      ],
+      "worked_example": {
+        "exemplar_id": "9c5c714a-73f5-47a7-9249-18b8982f6fe4",
+        "source": "OCR sample, Paper 1, Q21(b)(iii)",
+        "question": "Look at the data about some hydrocarbons.\n\nethane: 2 carbon atoms, C₂H₆, boiling point −88 °C\npropane: 3 carbon atoms, C₃H₈, boiling point −42 °C\npentane: 5 carbon atoms, C₅H₁₂, boiling point 36 °C\nhexane: 6 carbon atoms, C₆H₁₄, boiling point 69 °C\n\nDescribe the relationship between the number of carbon atoms in the molecule and its boiling point.\nUse ideas about forces between molecules to explain your answer.",
+        "marks": 2,
+        "answer_points": [
+          "As the number of carbon atoms increases, the boiling point increases.",
+          "Larger molecules have greater intermolecular forces."
+        ],
+        "tip": "One mark for the trend and one for the explanation in terms of forces between molecules."
+      }
+    }
+  },
+  "meta": {
+    "status": "draft",
+    "written_by": "sonnet-5-5",
+    "written_at": "2026-10-01",
+    "spec_point_ids": [
+      "5d3e9f33-e123-4585-8601-fd5ebcfcb415",
+      "1715e037-553e-476c-93f1-dc7cbf42dd4b",
+      "c17ff4d0-6a75-42ad-8736-22a5845f174d",
+      "35e03ef4-e1b5-42e0-95f8-5c04af97b7c1"
+    ],
+    "exemplar_ids": [
+      "5f0228ba-dbef-4d2a-be83-9e2802bdcd1f",
+      "91570c90-9e13-46b1-92ea-8e4461460502",
+      "9c5c714a-73f5-47a7-9249-18b8982f6fe4"
+    ],
+    "checked_by": "sonnet-science-check",
+    "checked_at": "2026-10-01"
+  }
+}

@@ -1,0 +1,334 @@
+{
+  "format": 1,
+  "concept_id": "phys-026",
+  "subject": "physics",
+  "title": "Internal energy",
+  "key_idea": "Internal energy is the total kinetic energy and potential energy of all the particles in a system. Heating increases it. This either raises the temperature or produces a change of state.",
+  "sections": [
+    {
+      "heading": "What internal energy is",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "A system stores energy inside it, in its particles (atoms and molecules). This is its internal energy."
+        },
+        {
+          "type": "definitions",
+          "items": [
+            {
+              "term": "Internal energy",
+              "meaning": "The total kinetic energy and potential energy of all the particles that make up a system."
+            },
+            {
+              "term": "Kinetic energy",
+              "meaning": "The energy a particle has because it is moving. Faster particles have more."
+            },
+            {
+              "term": "Potential energy",
+              "meaning": "The energy stored in the particles because of the forces between them and how far apart they are."
+            }
+          ]
+        },
+        {
+          "type": "list",
+          "items": [
+            "The temperature of a substance depends on the average kinetic energy of its particles.",
+            "Changes in potential energy do not change the temperature.",
+            "Heating a system increases the energy of its particles, so its internal energy increases.",
+            "Cooling a system decreases the energy of its particles."
+          ]
+        },
+        {
+          "type": "key-points",
+          "items": [
+            "Internal energy = total kinetic energy + total potential energy of all the particles.",
+            "Faster particles mean more kinetic energy and a higher temperature."
+          ]
+        }
+      ]
+    },
+    {
+      "heading": "What heating does",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "Heating a system changes the energy stored in it. There are two possible results."
+        },
+        {
+          "type": "list",
+          "items": [
+            "The temperature rises. The particles move faster, so their kinetic energy increases.",
+            "There is a change of state. The temperature stays constant. The potential energy of the particles increases and their kinetic energy does not change."
+          ]
+        },
+        {
+          "type": "diagram",
+          "diagram": {
+            "kind": "line-graph",
+            "alt": "Temperature against time as a block of ice is heated until it melts, the water warms, boils and becomes steam. The line is flat while the ice melts and while the water boils.",
+            "x": {
+              "label": "Time",
+              "min": 0,
+              "max": 10,
+              "ticks": [
+                0,
+                2,
+                4,
+                6,
+                8,
+                10
+              ],
+              "unit": "min"
+            },
+            "y": {
+              "label": "Temperature"
+            },
+            "series": [
+              {
+                "name": "Temperature",
+                "points": [
+                  [
+                    0,
+                    0.1
+                  ],
+                  [
+                    1.5,
+                    0.3
+                  ],
+                  [
+                    3,
+                    0.3
+                  ],
+                  [
+                    6,
+                    0.7
+                  ],
+                  [
+                    8.5,
+                    0.7
+                  ],
+                  [
+                    10,
+                    0.9
+                  ]
+                ]
+              }
+            ],
+            "bands": [
+              {
+                "from": 0,
+                "to": 1.5,
+                "label": "Solid warms"
+              },
+              {
+                "from": 1.5,
+                "to": 3,
+                "label": "Melting"
+              },
+              {
+                "from": 3,
+                "to": 6,
+                "label": "Liquid warms"
+              },
+              {
+                "from": 6,
+                "to": 8.5,
+                "label": "Boiling"
+              },
+              {
+                "from": 8.5,
+                "to": 10,
+                "label": "Gas warms"
+              }
+            ]
+          }
+        },
+        {
+          "type": "list",
+          "items": [
+            "On the sloping parts, energy raises the kinetic energy of the particles.",
+            "On the flat parts, energy increases the potential energy. The particles are pulled apart against the forces between them.",
+            "Heating by an electric heater transfers energy to the thermal energy store of the heater and then of the water."
+          ]
+        },
+        {
+          "type": "diagram",
+          "diagram": {
+            "kind": "sort",
+            "alt": "Sort each change into kinetic energy changing or potential energy changing.",
+            "prompt": "Which energy of the particles changes? Sort each example.",
+            "groups": [
+              "Kinetic energy changes",
+              "Potential energy changes"
+            ],
+            "items": [
+              {
+                "text": "Water warms from 20 °C to 25 °C",
+                "group": 0
+              },
+              {
+                "text": "Air in a balloon cools down",
+                "group": 0
+              },
+              {
+                "text": "A metal block is heated from 20 °C to 50 °C",
+                "group": 0
+              },
+              {
+                "text": "Ice melts at 0 °C",
+                "group": 1
+              },
+              {
+                "text": "Water boils at 100 °C",
+                "group": 1
+              },
+              {
+                "text": "Steam condenses at 100 °C",
+                "group": 1
+              }
+            ]
+          }
+        },
+        {
+          "type": "key-points",
+          "items": [
+            "Heating either raises the temperature or changes the state.",
+            "Temperature rises: the kinetic energy of the particles increases.",
+            "Change of state: the potential energy increases and the temperature is constant."
+          ]
+        }
+      ]
+    }
+  ],
+  "checks": [
+    {
+      "q": "What is meant by internal energy?",
+      "a": "The total kinetic energy and potential energy of all the particles that make up the system.",
+      "marks": 1
+    },
+    {
+      "q": "Ice at 0 °C is melting. What happens to the kinetic energy and the potential energy of its particles?",
+      "a": "The kinetic energy stays the same, because the temperature is constant. The potential energy increases.",
+      "marks": 2
+    },
+    {
+      "q": "Explain how the internal energy of water changes as it is heated from 20 °C to 25 °C.",
+      "a": "The mean kinetic energy of the particles increases, which increases the internal energy of the water.",
+      "marks": 2
+    }
+  ],
+  "boards": {
+    "aqa": {
+      "spec_codes": [
+        "AQA 4.3.2.1",
+        "AQA T 6.3.2.1"
+      ],
+      "exam_phrases": [
+        "the (mean) kinetic energy of the particles increases",
+        "which increases the (internal) energy of the water",
+        "the potential energy of the particles increases",
+        "the kinetic energy of the particles does not change (as temperature does not change)",
+        "so the internal energy increases",
+        "the (mean) speed of the particles increases"
+      ],
+      "mistakes": [
+        {
+          "wrong": "The kinetic energy increases.",
+          "right": "This is not enough on its own. Say the (mean) kinetic energy of the particles increases, which increases the internal energy of the water."
+        },
+        {
+          "wrong": "As the water is heated, the particles vibrate more.",
+          "right": "Vibrating is not accepted. Say the (mean) speed or kinetic energy of the particles increases."
+        },
+        {
+          "wrong": "The kinetic energy of the particles increases as the liquid nitrogen turns to a gas.",
+          "right": "The temperature does not change, so the kinetic energy does not change. The potential energy increases, so the internal energy increases."
+        }
+      ],
+      "worked_example": {
+        "exemplar_id": "1cf92678-08bd-4447-b537-420412b41df3",
+        "source": "AQA jun 2025, Paper 1 (H), Q08.2",
+        "question": "A scientist poured some liquid nitrogen into a container. The container was then sealed. Explain how the internal energy of the nitrogen changed as the nitrogen turned from a liquid to a gas.",
+        "marks": 3,
+        "answer_points": [
+          "the potential energy of the particles increases",
+          "but the kinetic energy of the particles does not change, as the temperature does not change",
+          "so the internal energy increases"
+        ],
+        "tip": "The third mark depends on the first two."
+      }
+    },
+    "edexcel": {
+      "spec_codes": [
+        "EDEX 14.6"
+      ],
+      "exam_phrases": [
+        "change in temperature",
+        "change of state",
+        "no change in temperature (during a change of state)"
+      ],
+      "mistakes": [
+        {
+          "wrong": "Heating a substance always raises its temperature.",
+          "right": "Heating either raises the temperature or produces a change of state. During a change of state the temperature does not change."
+        }
+      ]
+    },
+    "ocr": {
+      "spec_codes": [
+        "OCR P1.2c"
+      ],
+      "exam_phrases": [
+        "energy transferred electrically from the supply to the heating element",
+        "thermal energy store of the water increases",
+        "energy is needed to change the state of a material",
+        "energy is needed to break / weaken the bonds between particles",
+        "overcome attractive forces",
+        "increases temperature"
+      ],
+      "mistakes": [
+        {
+          "wrong": "The water gets hotter by conduction and convection.",
+          "right": "Write about energy stores. Energy is transferred to the thermal energy store of the element, and then to the thermal energy store of the water. Conduction and convection are ignored."
+        },
+        {
+          "wrong": "The solid needs energy to make its particles move faster, so its temperature rises.",
+          "right": "At the melting point the vaccine remains solid. The energy is needed to change the state, by breaking or weakening the bonds between particles and overcoming the attractive forces."
+        },
+        {
+          "wrong": "When the thermal energy store of a rocket increases, its speed increases.",
+          "right": "When the thermal energy store increases, the temperature increases. The rocket gets hotter."
+        }
+      ],
+      "worked_example": {
+        "exemplar_id": "76ee8714-93df-4842-8e63-b1bdf8862fac",
+        "source": "OCR jun 2023, Paper 3, Q23(b)(i)",
+        "question": "A vaccine is a solid. Its temperature is first raised to its melting point, but it remains as a solid. Explain two reasons why more energy is needed to change the solid vaccine into a liquid at its melting point.",
+        "marks": 2,
+        "answer_points": [
+          "energy is needed to change the state of a material",
+          "energy is needed to break or weaken the bonds between the molecules (overcome the attractive forces between the solid molecules)",
+          "or: some heat transfer with the surroundings or the container"
+        ],
+        "tip": "Any two of these points score. Energy needed to increase the separation of the molecules is also allowed."
+      }
+    }
+  },
+  "meta": {
+    "status": "draft",
+    "written_by": "sonnet-5-5",
+    "written_at": "2026-10-01",
+    "spec_point_ids": [
+      "38ac1ccd-c458-450d-832a-78dff68182f3",
+      "ab072255-4ced-4e4f-a518-e8aedc1316b9",
+      "8b023ec2-4e48-4a5d-b4a6-ddbfef15250b",
+      "25043cb9-3814-41c7-a2ba-1630825b0bd6"
+    ],
+    "exemplar_ids": [
+      "1cf92678-08bd-4447-b537-420412b41df3",
+      "76ee8714-93df-4842-8e63-b1bdf8862fac"
+    ],
+    "checked_by": "sonnet-science-check",
+    "checked_at": "2026-10-01"
+  }
+}

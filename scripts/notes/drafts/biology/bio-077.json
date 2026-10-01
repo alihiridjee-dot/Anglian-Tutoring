@@ -1,0 +1,253 @@
+{
+  "format": 1,
+  "concept_id": "bio-077",
+  "subject": "biology",
+  "title": "The kidney and the nephron",
+  "key_idea": "(Separate science) The kidneys filter the blood to make urine. In each nephron, small molecules are filtered out under pressure. Then all the glucose and some water and ions are selectively reabsorbed. Urea and excess water leave in the urine.",
+  "sections": [
+    {
+      "heading": "The urinary system",
+      "blocks": [
+        { "type": "paragraph", "text": "(Separate science) The urinary system makes urine and removes it from the body. Each part has one job." },
+        {
+          "type": "list",
+          "items": [
+            "The **kidneys** filter the blood and make urine.",
+            "The **ureters** carry urine from the kidneys to the bladder.",
+            "The **bladder** stores the urine.",
+            "The **urethra** carries urine out of the body.",
+            "The renal artery brings blood to each kidney. The renal vein takes the filtered blood away."
+          ]
+        },
+        {
+          "type": "key-points",
+          "items": [
+            "Urine route: kidneys, ureters, bladder, urethra.",
+            "The kidneys do the filtering. The other parts carry and store urine."
+          ]
+        }
+      ]
+    },
+    {
+      "heading": "Filtering the blood in the nephron",
+      "blocks": [
+        { "type": "paragraph", "text": "Each kidney contains many tiny tubes called nephrons. Blood is filtered where it first meets the nephron." },
+        {
+          "type": "definitions",
+          "items": [
+            { "term": "Nephron", "meaning": "A kidney tubule that filters blood and forms urine." },
+            { "term": "Glomerulus", "meaning": "A tangle of blood capillaries at the start of the nephron." },
+            { "term": "Bowman's capsule", "meaning": "The cup around the glomerulus that collects the filtered liquid, called the filtrate." },
+            { "term": "Selective reabsorption", "meaning": "Useful substances are taken back into the blood from the nephron." }
+          ]
+        },
+        { "type": "subheading", "text": "Filtration" },
+        {
+          "type": "list",
+          "items": [
+            "Blood in the glomerulus is under high pressure.",
+            "Small molecules, such as water, glucose, ions and urea, are forced out of the blood into the Bowman's capsule through a partially permeable membrane.",
+            "Large molecules, such as proteins, and blood cells are too big to pass through, so they stay in the blood."
+          ]
+        },
+        {
+          "type": "key-points",
+          "items": [
+            "Filtration happens in the glomerulus and Bowman's capsule, under pressure.",
+            "Proteins and blood cells are too large to be filtered."
+          ]
+        }
+      ]
+    },
+    {
+      "heading": "Reabsorption and making urine",
+      "blocks": [
+        { "type": "paragraph", "text": "The filtrate contains useful substances as well as waste. The rest of the nephron takes back what the body needs. Try putting the stages in order." },
+        { "type": "subheading", "text": "What is reabsorbed" },
+        {
+          "type": "list",
+          "items": [
+            "In the first coiled tubule (**proximal convoluted tubule**), all the glucose is reabsorbed back into the blood.",
+            "Glucose is taken up by active transport, against its concentration gradient, using energy from respiration.",
+            "In the loop of Henlé water and ions are exchanged with the blood.",
+            "In the collecting duct water is reabsorbed. Urea and the excess water form urine.",
+            "Urea is mostly not reabsorbed, so it passes out in the urine."
+          ]
+        },
+        {
+          "type": "diagram",
+          "diagram": {
+            "kind": "sequence",
+            "alt": "Put the stages of the nephron in the order the filtrate passes through them.",
+            "prompt": "Put the stages in the order the blood and filtrate pass through them",
+            "steps": [
+              "Blood in the glomerulus is filtered under pressure",
+              "The filtrate collects in the Bowman's capsule",
+              "In the proximal convoluted tubule all the glucose is reabsorbed",
+              "In the loop of Henlé water and ions are exchanged",
+              "The second coiled tubule (distal convoluted tubule) carries the filtrate on",
+              "In the collecting duct water is reabsorbed and urine forms"
+            ]
+          }
+        },
+        {
+          "type": "key-points",
+          "items": [
+            "All the glucose is reabsorbed in the first coiled tubule, by active transport.",
+            "Urea is not reabsorbed, so it leaves in the urine.",
+            "Order: Bowman's capsule, proximal convoluted tubule, loop of Henlé, second coiled tubule, collecting duct."
+          ]
+        }
+      ]
+    }
+  ],
+  "checks": [
+    {
+      "q": "Describe the route taken by urine from the kidney until it leaves the body.",
+      "a": "Through the ureters, to the bladder where it is stored, then through the urethra and out of the body.",
+      "marks": 3
+    },
+    {
+      "q": "Explain why there is no protein in the filtrate in the Bowman's capsule.",
+      "a": "Protein molecules are too large to pass through the glomerulus, so they stay in the blood.",
+      "marks": 2
+    },
+    {
+      "q": "Where is glucose reabsorbed, and how?",
+      "a": "In the first coiled tubule (proximal convoluted tubule), by active transport into the blood, so no glucose is left in the urine.",
+      "marks": 2
+    }
+  ],
+  "boards": {
+    "aqa": {
+      "spec_codes": ["AQA 5.10"],
+      "exam_phrases": [
+        "glucose and urea are filtered (out of the blood)",
+        "protein is not filtered (out of the blood)",
+        "all glucose reabsorbed (back into the blood)",
+        "urea (mostly) not reabsorbed or urea passes out in urine",
+        "blood entering the kidneys goes through filtration"
+      ],
+      "mistakes": [
+        {
+          "wrong": "Glucose is not filtered, so there is no glucose in the urine.",
+          "right": "Glucose and urea are both filtered out of the blood. All the glucose is then reabsorbed back into the blood, so none is left in the urine."
+        },
+        {
+          "wrong": "Protein is filtered out of the blood and then reabsorbed.",
+          "right": "Protein is not filtered out of the blood at all."
+        }
+      ],
+      "worked_example": {
+        "exemplar_id": "012fa7cc-ebb5-46ca-9dcc-6b8c626d0800",
+        "source": "AQA jun 2024, Paper 2 (H), Q08.2",
+        "question": "The kidneys have an important role in homeostasis.\n\nDescribe what happens to glucose, protein and urea in the kidneys.",
+        "marks": 4,
+        "answer_points": [
+          "Glucose and urea are filtered (out of the blood).",
+          "Protein is not filtered (out of the blood).",
+          "All the glucose is reabsorbed (allow: absorbed back into the blood).",
+          "Urea is (mostly) not reabsorbed, or passes out in the urine."
+        ],
+        "tip": "Take each substance in turn: filtered or not, then reabsorbed or not."
+      }
+    },
+    "edexcel": {
+      "spec_codes": ["EDEX 7.18B", "EDEX 7.19B"],
+      "exam_phrases": [
+        "ultrafiltration",
+        "the glomerulus puts pressure on the blood, and the liquid part passes into the Bowman's capsule",
+        "protein molecules are too large to pass through",
+        "glucose is selectively reabsorbed back into the blood in the PCT",
+        "by active transport, against the concentration gradient",
+        "through the ureters, to the bladder, through the urethra"
+      ],
+      "mistakes": [
+        {
+          "wrong": "Glucose is reabsorbed in the Bowman's capsule.",
+          "right": "No glucose is reabsorbed in the Bowman's capsule. Glucose is filtered into it at the same concentration as in the blood, then reabsorbed in the first coiled tubule (PCT)."
+        },
+        {
+          "wrong": "There is no protein in the urine because the kidney reabsorbs it.",
+          "right": "Protein cannot pass into the nephron during ultrafiltration, because its molecules are too large to pass through."
+        },
+        {
+          "wrong": "Urine travels from the kidney through the urethra to the bladder.",
+          "right": "The route is through the ureters to the bladder, where it is stored, and then through the urethra and out of the body."
+        }
+      ],
+      "worked_example": {
+        "exemplar_id": "f20a6b7e-971c-4616-bb14-ede4aa2073a4",
+        "source": "EDEXCEL jun 2024, Paper 2 (H), Q10(b)(ii)",
+        "question": "A scientist investigated the effect of a high-protein, low-carbohydrate diet on a person's body.\n\nThe urine of a person on this diet (person A) contained no protein and no glucose.\n\nExplain how a nephron ensures that there is no protein and no glucose in the urine of person A.",
+        "marks": 6,
+        "answer_points": [
+          "Protein cannot pass into the nephron during ultrafiltration.",
+          "The glomerulus puts pressure on the blood, and the liquid part of the blood passes into the Bowman's capsule.",
+          "Protein molecules are too large to pass through.",
+          "Glucose is selectively reabsorbed back into the blood.",
+          "This happens in the PCT (first convoluted tubule).",
+          "By active transport, against the concentration gradient."
+        ],
+        "tip": "Marked in levels. Name the glomerulus, Bowman's capsule and PCT in order, and link each to protein or glucose."
+      }
+    },
+    "ocr": {
+      "spec_codes": ["OCR 3.3h", "OCR 3.3g"],
+      "exam_phrases": [
+        "Bowman's capsule",
+        "proximal convoluted tubule",
+        "loop of Henlé",
+        "second coiled region",
+        "collecting duct",
+        "kidney tubule"
+      ],
+      "mistakes": [
+        {
+          "wrong": "The liquid passes through the Bowman's capsule, the loop of Henlé, the proximal convoluted tubule, the second coiled region and the collecting duct.",
+          "right": "The proximal convoluted tubule comes before the loop of Henlé. The order is Bowman's capsule, proximal convoluted tubule, loop of Henlé, second coiled region, collecting duct."
+        },
+        {
+          "wrong": "650 ml per hour × 24 = 15 600 litres.",
+          "right": "The second mark is for converting units. 650 × 24 = 15 600 ml, and 15 600 ÷ 1000 = 15.6 litres."
+        }
+      ],
+      "worked_example": {
+        "exemplar_id": "673ec240-ce96-4600-bef2-c5e8678f4f99",
+        "source": "OCR nov 2020, Paper 3, Q17(b)",
+        "question": "The kidney filters the blood. The fluid produced by filtering the blood passes through kidney tubules.\n\nEach kidney tubule contains a number of different parts.\n\nPut a number (1 to 5) in the boxes to show the order of the parts that the liquid passes through. The first one has been done for you.\n\nBowman’s capsule 1\nCollecting duct\nProximal convoluted tubule\nLoop of Henlé\nSecond coiled region",
+        "marks": 3,
+        "answer_points": [
+          "Bowman’s capsule 1",
+          "Proximal convoluted tubule 2",
+          "Loop of Henlé 3",
+          "Second coiled region 4",
+          "Collecting duct 5"
+        ],
+        "tip": "The marks are for the correct order: 5 before 2, 2 before 3, 3 before 4."
+      }
+    }
+  },
+  "meta": {
+    "status": "draft",
+    "written_by": "sonnet-5-5",
+    "written_at": "2026-10-01",
+    "checked_by": "sonnet-science-check",
+    "checked_at": "2026-10-01",
+    "spec_point_ids": [
+      "d3519732-063c-4ce3-af43-afa0a2c04120",
+      "f3da0cc0-2031-4473-b9cf-8bf5cf85451e",
+      "8429e121-003e-49a0-aeb2-18841aaa6bce"
+    ],
+    "exemplar_ids": [
+      "012fa7cc-ebb5-46ca-9dcc-6b8c626d0800",
+      "f20a6b7e-971c-4616-bb14-ede4aa2073a4",
+      "673ec240-ce96-4600-bef2-c5e8678f4f99",
+      "dee15647-beed-4176-8468-dcfaf31cae82",
+      "75799b12-ad6f-4d31-960b-5fb20915b710",
+      "707b9f11-c0f8-4c48-b0a8-aaf85c6b8cd2",
+      "f8f28ad0-31dc-4825-8c2d-d68a882eec52",
+      "16799ec4-51c1-4857-b9f9-e96194722ded"
+    ]
+  }
+}

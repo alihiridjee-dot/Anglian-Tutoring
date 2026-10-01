@@ -1,0 +1,389 @@
+{
+  "format": 1,
+  "concept_id": "phys-071",
+  "subject": "physics",
+  "title": "Sound waves and hearing",
+  "key_idea": "Sound travels through solids by particles vibrating and passing the vibration on. The ear changes sound waves into vibrations and then nerve impulses, but only over about 20 Hz to 20 kHz. Entering a new material, frequency stays the same while speed and wavelength change.",
+  "sections": [
+    {
+      "heading": "Sound in solids and across boundaries",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "(Separate science) Sound is a longitudinal wave. It needs particles to carry it, and it can travel through solids as well as gases and liquids."
+        },
+        {
+          "type": "list",
+          "items": [
+            "Something vibrating, such as a hammer hitting a metal rod, makes the particles at that end vibrate.",
+            "Those particles make their neighbours vibrate, and so on along the rod.",
+            "The particles vibrate about fixed positions. They are not carried along the rod.",
+            "The vibrations pass on as compressions and rarefactions."
+          ]
+        },
+        {
+          "type": "paragraph",
+          "text": "When sound crosses into a new material, its speed and wavelength change but its frequency does not."
+        },
+        {
+          "type": "equation",
+          "label": "Wave equation",
+          "formula": "wave speed = frequency × wavelength",
+          "where": [
+            "wave speed, in metres per second (m/s)",
+            "frequency, in hertz (Hz)",
+            "wavelength, in metres (m)"
+          ]
+        },
+        {
+          "type": "list",
+          "items": [
+            "The frequency is set by the source, so it stays the same.",
+            "The speed depends on the material, so it changes.",
+            "With the frequency fixed, a higher speed gives a longer wavelength."
+          ]
+        },
+        {
+          "type": "paragraph",
+          "text": "Choose a material and a frequency. The speeds are typical values."
+        },
+        {
+          "type": "diagram",
+          "diagram": {
+            "kind": "slider",
+            "alt": "Choose the frequency of a sound and the material it travels in to see its speed and wavelength.",
+            "inputs": [
+              {
+                "id": "f",
+                "label": "Frequency",
+                "unit": "Hz",
+                "min": 250,
+                "max": 2000,
+                "step": 250,
+                "value": 500
+              },
+              {
+                "id": "v",
+                "label": "Material",
+                "choices": [
+                  {
+                    "label": "Air (340 m/s)",
+                    "value": 340
+                  },
+                  {
+                    "label": "Water (1500 m/s)",
+                    "value": 1500
+                  },
+                  {
+                    "label": "Steel (5000 m/s)",
+                    "value": 5000
+                  }
+                ]
+              }
+            ],
+            "outputs": [
+              {
+                "label": "Frequency",
+                "unit": "Hz",
+                "formula": "f",
+                "decimals": 0
+              },
+              {
+                "label": "Speed",
+                "unit": "m/s",
+                "formula": "v",
+                "decimals": 0
+              },
+              {
+                "label": "Wavelength",
+                "unit": "m",
+                "formula": "v / f",
+                "decimals": 2
+              }
+            ]
+          }
+        },
+        {
+          "type": "key-points",
+          "items": [
+            "Sound travels through solids as vibrations passed from particle to particle.",
+            "Crossing into a new material, frequency stays the same.",
+            "Speed and wavelength change together: higher speed, longer wavelength."
+          ]
+        }
+      ]
+    },
+    {
+      "heading": "How the ear works",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "The ear changes sound waves in air into vibrations of solid parts, then into nerve impulses. Tap each part to learn its job."
+        },
+        {
+          "type": "diagram",
+          "diagram": {
+            "kind": "explorer",
+            "alt": "Tap the parts of the ear to see what each does.",
+            "prompt": "Tap a part of the ear to see how it passes on the sound.",
+            "parts": [
+              {
+                "name": "Outer ear (pinna)",
+                "detail": "Collects sound waves and passes them along the ear canal."
+              },
+              {
+                "name": "Auditory canal",
+                "detail": "Carries the sound to the ear drum."
+              },
+              {
+                "name": "Ear drum",
+                "detail": "A thin membrane that vibrates when sound waves hit it."
+              },
+              {
+                "name": "Ossicles",
+                "detail": "Three small bones that pass on the vibrations and amplify them."
+              },
+              {
+                "name": "Cochlea",
+                "detail": "Liquid in the cochlea moves and makes small hairs vibrate. This starts nerve impulses."
+              },
+              {
+                "name": "Auditory nerve",
+                "detail": "Carries nerve impulses from the cochlea to the brain."
+              }
+            ]
+          }
+        },
+        {
+          "type": "steps",
+          "items": [
+            {
+              "lead": "Sound waves.",
+              "text": "Sound waves in air reach the ear drum."
+            },
+            {
+              "lead": "Ear drum.",
+              "text": "It vibrates."
+            },
+            {
+              "lead": "Ossicles.",
+              "text": "They vibrate and amplify the vibration."
+            },
+            {
+              "lead": "Cochlea.",
+              "text": "Liquid in the cochlea carries the movement to small hairs, which vibrate."
+            },
+            {
+              "lead": "Brain.",
+              "text": "Nerve impulses travel along the auditory nerve to the brain, which gives the sensation of sound."
+            }
+          ]
+        },
+        {
+          "type": "key-points",
+          "items": [
+            "The ear converts sound waves to vibrations of the ear drum and ossicles.",
+            "The cochlea turns the vibrations into nerve impulses.",
+            "Always mention vibrations when describing the route."
+          ]
+        }
+      ]
+    },
+    {
+      "heading": "The limits of human hearing",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "The conversion of sound waves to vibrations only works over a limited range of frequencies. This limits what humans can hear."
+        },
+        {
+          "type": "definitions",
+          "items": [
+            {
+              "term": "Normal range of human hearing",
+              "meaning": "From 20 Hz to 20 000 Hz (20 kHz)."
+            },
+            {
+              "term": "Infrasound",
+              "meaning": "Sound with a frequency below 20 Hz."
+            },
+            {
+              "term": "Ultrasound",
+              "meaning": "Sound with a frequency above 20 000 Hz."
+            }
+          ]
+        },
+        {
+          "type": "list",
+          "items": [
+            "The parts of the ear are the right size and stiffness to vibrate only over a limited range of frequencies.",
+            "Different parts of the ear vibrate at different frequencies.",
+            "At very low or very high frequencies the ear drum may not respond well, or the brain cannot interpret the signal.",
+            "The range of frequencies a person can hear changes as they get older."
+          ]
+        },
+        {
+          "type": "key-points",
+          "items": [
+            "Human hearing ranges from 20 Hz to 20 kHz.",
+            "Below 20 Hz is infrasound and above 20 kHz is ultrasound.",
+            "The ear only works over a limited range because its parts only vibrate over a limited range."
+          ]
+        }
+      ]
+    }
+  ],
+  "checks": [
+    {
+      "q": "State the range of frequencies that humans can normally hear.",
+      "a": "From 20 Hz to 20 000 Hz (20 kHz).",
+      "marks": 1
+    },
+    {
+      "q": "Describe how sound travels through the ear.",
+      "a": "The outer ear and ear canal carry the sound to the ear drum. The ear drum vibrates. The vibrations pass to the ossicles, which vibrate and amplify them. Liquid in the cochlea carries the movement to small hairs, which vibrate and send nerve impulses to the brain.",
+      "marks": 3
+    },
+    {
+      "q": "A sound wave of frequency 500 Hz travels from air into water. State what happens to its frequency, speed and wavelength.",
+      "a": "The frequency stays the same. The speed increases. The wavelength increases.",
+      "marks": 2
+    }
+  ],
+  "boards": {
+    "aqa": {
+      "spec_codes": [
+        "AQA 4.6.1.4"
+      ],
+      "exam_phrases": [
+        "deeper water means longer wavelength",
+        "v increases and f is constant",
+        "for a fixed frequency the period is constant"
+      ],
+      "mistakes": [
+        {
+          "wrong": "In deeper water the wavelength is longer.",
+          "right": "This gets only 1 of 2 marks. Add the reason: the wave speed increases and the frequency is constant."
+        }
+      ],
+      "extra": [
+        {
+          "heading": "Course level",
+          "blocks": [
+            {
+              "type": "paragraph",
+              "text": "(Higher tier) This topic is Higher tier content in this course."
+            }
+          ]
+        }
+      ],
+      "worked_example": {
+        "exemplar_id": "6eb1422b-32e8-44a9-aaf9-d4802a3ca7aa",
+        "source": "AQA jun 2019, Paper 2 (H), Q9.1",
+        "question": "The table gives the frequencies in the hearing ranges of five different animals.\n\nCat: 55 Hz to 77 kHz\nChicken: 125 Hz to 2 kHz\nDog: 20 Hz to 30 kHz\nGerbil: 56 Hz to 60 kHz\nHorse: 55 Hz to 33 kHz\n\nWhich one of the animals would not be able to hear ultrasound?",
+        "marks": 1,
+        "answer_points": [
+          "Chicken."
+        ],
+        "tip": "Ultrasound is above 20 kHz. Only the chicken's range stops below this, at 2 kHz."
+      }
+    },
+    "edexcel": {
+      "spec_codes": [
+        "EDEX 4.12P",
+        "EDEX 4.16P"
+      ],
+      "exam_phrases": [
+        "particles (at end) vibrate (more) (about fixed positions)",
+        "cause neighbouring particles to vibrate",
+        "vibrations passed along",
+        "compressions and rarefactions",
+        "the size of the parts of the (inner) ear",
+        "different parts vibrate at different frequencies",
+        "eardrum not sensitive enough to detect low/high frequencies",
+        "brain cannot interpret low/high frequencies"
+      ],
+      "mistakes": [
+        {
+          "wrong": "Hitting the rod makes the particles move along the rod to the other end.",
+          "right": "The particles at the end vibrate about fixed positions and make their neighbouring particles vibrate, so the vibration is passed along."
+        }
+      ],
+      "worked_example": {
+        "exemplar_id": "242b340d-af10-46fd-80f2-4dffb41ed044",
+        "source": "EDEXCEL jun 2019, Paper 1 (H), Q6(b)",
+        "question": "A long metal rod is hit at one end by a hammer.\n\nThis causes a sound wave to travel along the inside of the rod.\n\nDescribe how hitting the rod causes a sound wave to travel along the inside of the rod.",
+        "marks": 2,
+        "answer_points": [
+          "Particles at the end of the rod vibrate (about fixed positions).",
+          "They cause neighbouring particles to vibrate, and the vibrations are passed along the rod."
+        ],
+        "tip": "Atoms, ions or molecules are accepted for particles. Longitudinal waves, or compressions and rarefactions, are also credited."
+      }
+    },
+    "ocr": {
+      "spec_codes": [
+        "OCR P5.1f",
+        "OCR P5.1h",
+        "OCR P5.1i"
+      ],
+      "exam_phrases": [
+        "Outer ear / pinna / auditory canal transfers sound to ear drum",
+        "Ear drum vibrates",
+        "Ossicles / small bones / anvil, hammer or stirrup vibrate",
+        "Ossicles amplify vibration",
+        "Liquid in cochlea transmits movement to small hairs",
+        "Small hairs / cilia vibrate",
+        "(frequency) stays the same",
+        "(velocity) increases",
+        "(wavelength) increases"
+      ],
+      "mistakes": [
+        {
+          "wrong": "The sound goes through the pinna, ear drum, ossicles and cochlea to the brain.",
+          "right": "If vibrations are not mentioned the maximum is 1 mark. Say that the ear drum, ossicles and hairs vibrate."
+        },
+        {
+          "wrong": "When sound goes from air into water the frequency increases.",
+          "right": "The frequency stays the same. The velocity and the wavelength both increase."
+        }
+      ],
+      "worked_example": {
+        "exemplar_id": "589d6f0b-1b96-4aac-8183-8752cc701516",
+        "source": "OCR jun 2018, Paper 4, Q17(c)",
+        "question": "Sound wave disturbances, outside the ear, transfer energy to the small hairs (cilia) inside the cochlea.\n\nThe cochlea then sends nerve impulses along the auditory nerve to the brain.\n\nExplain how sound wave disturbances in the air outside the ear transfer to the small hairs (cilia) inside the cochlea.",
+        "marks": 3,
+        "answer_points": [
+          "Any three from: the outer ear (pinna) or auditory canal transfers the sound to the ear drum.",
+          "The ear drum vibrates.",
+          "The ossicles (small bones, anvil, hammer or stirrup) vibrate.",
+          "The ossicles amplify the vibration.",
+          "Liquid in the cochlea transmits the movement to the small hairs.",
+          "The small hairs (cilia) vibrate."
+        ],
+        "tip": "The ear drum moving in and out is accepted for vibrates."
+      }
+    }
+  },
+  "meta": {
+    "status": "draft",
+    "written_by": "sonnet-5-5",
+    "written_at": "2026-10-01",
+    "spec_point_ids": [
+      "479d7adf-8b90-4cfe-ad68-274affcb55cc",
+      "3af700a9-6634-4441-8925-62c3172ee4dd",
+      "e74b05d6-1732-4620-9917-fcb30e417b89",
+      "c2f7be2a-c790-4f9a-b940-236a54f2caca",
+      "3d2002fb-13ad-45c0-8fd7-f6acc1c4668a",
+      "1c7ddf44-161a-4a36-a392-8bd2e74d2d84"
+    ],
+    "exemplar_ids": [
+      "6eb1422b-32e8-44a9-aaf9-d4802a3ca7aa",
+      "408a80b6-1a71-4235-bf85-b812f53cd4dc",
+      "242b340d-af10-46fd-80f2-4dffb41ed044",
+      "589d6f0b-1b96-4aac-8183-8752cc701516"
+    ],
+    "checked_by": "sonnet-science-check",
+    "checked_at": "2026-10-01"
+  }
+}

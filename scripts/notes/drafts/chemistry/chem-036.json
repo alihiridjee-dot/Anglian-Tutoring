@@ -1,0 +1,281 @@
+{
+  "format": 1,
+  "concept_id": "chem-036",
+  "subject": "chemistry",
+  "title": "Concentration in mol/dm³",
+  "key_idea": "Concentration can be measured in mol/dm³ as well as g/dm³. Moles of solute = concentration × volume in dm³. Multiply mol/dm³ by Mr to get g/dm³, and divide g/dm³ by Mr to get mol/dm³.",
+  "sections": [
+    {
+      "heading": "Concentration in mol/dm³",
+      "blocks": [
+        { "type": "paragraph", "text": "(Higher tier, chemistry only) Concentration can be given as the amount of solute in moles in each dm³ of solution. This links the mass of solute and the volume of solution through the number of moles." },
+        {
+          "type": "equation",
+          "label": "Concentration in mol/dm³",
+          "formula": "concentration = moles of solute ÷ volume of solution",
+          "where": ["concentration is in mol/dm³", "moles of solute is in mol", "volume of solution is in dm³"]
+        },
+        {
+          "type": "equation",
+          "label": "Moles of solute",
+          "formula": "moles = concentration × volume",
+          "where": ["moles is in mol", "concentration is in mol/dm³", "volume is in dm³ (cm³ ÷ 1000)"]
+        },
+        {
+          "type": "paragraph",
+          "text": "Example: 25.0 cm³ of 0.100 mol/dm³ solution contains 0.100 × (25.0 ÷ 1000) = 0.0025 mol of solute."
+        },
+        {
+          "type": "diagram",
+          "diagram": {
+            "kind": "practice",
+            "alt": "Practise calculating a concentration in mol/dm³ from moles of solute and a volume in cm³.",
+            "question": "**{n}** mol of solute is dissolved in water to make **{v}** cm³ of solution. Calculate the concentration in mol/dm³.",
+            "variables": [
+              { "id": "n", "min": 0.02, "max": 0.2, "step": 0.02 },
+              { "id": "v", "min": 100, "max": 500, "step": 50 }
+            ],
+            "answer": { "formula": "n / (v / 1000)", "unit": "mol/dm³", "decimals": 3 },
+            "working": [
+              "Volume in dm³ = {v} ÷ 1000.",
+              "Concentration = moles ÷ volume = {n} ÷ ({v} ÷ 1000) = **{answer}** mol/dm³."
+            ]
+          }
+        },
+        {
+          "type": "key-points",
+          "items": [
+            "Concentration (mol/dm³) = moles ÷ volume (dm³).",
+            "Moles = concentration × volume (dm³). Divide cm³ by 1000 first."
+          ]
+        }
+      ]
+    },
+    {
+      "heading": "Converting between g/dm³ and mol/dm³",
+      "blocks": [
+        { "type": "paragraph", "text": "(Higher tier, chemistry only) Moles and mass are linked by the relative formula mass, so concentrations are linked in the same way." },
+        {
+          "type": "equation",
+          "label": "From mol/dm³ to g/dm³",
+          "formula": "concentration (g/dm³) = concentration (mol/dm³) × Mr",
+          "where": ["Mr is the relative formula mass of the solute"]
+        },
+        {
+          "type": "equation",
+          "label": "From g/dm³ to mol/dm³",
+          "formula": "concentration (mol/dm³) = concentration (g/dm³) ÷ Mr",
+          "where": ["Mr is the relative formula mass of the solute"]
+        },
+        { "type": "subheading", "text": "Worked example" },
+        { "type": "paragraph", "text": "A copper sulfate solution has a concentration of 15.95 g/dm³. Mr of CuSO₄ = 159.5. Calculate the moles in 50.0 cm³." },
+        {
+          "type": "steps",
+          "items": [
+            { "lead": "Convert.", "text": "15.95 ÷ 159.5 = 0.100 mol/dm³." },
+            { "lead": "Volume.", "text": "50.0 cm³ ÷ 1000 = 0.0500 dm³." },
+            { "lead": "Moles.", "text": "0.100 × 0.0500 = 0.00500 mol." }
+          ]
+        },
+        {
+          "type": "diagram",
+          "diagram": {
+            "kind": "practice",
+            "alt": "Practise converting a concentration in mol/dm³ into g/dm³ for sulfuric acid.",
+            "question": "A solution of sulfuric acid, H₂SO₄, has a concentration of **{c}** mol/dm³. Calculate its concentration in g/dm³. Mr of H₂SO₄ = 98.",
+            "variables": [
+              { "id": "c", "min": 0.05, "max": 0.5, "step": 0.05 }
+            ],
+            "answer": { "formula": "c * 98", "unit": "g/dm³", "decimals": 1 },
+            "working": [
+              "Concentration in g/dm³ = concentration in mol/dm³ × Mr.",
+              "{c} × 98 = **{answer}** g/dm³."
+            ]
+          }
+        },
+        {
+          "type": "key-points",
+          "items": [
+            "Multiply by Mr to go from mol/dm³ to g/dm³.",
+            "Divide by Mr to go from g/dm³ to mol/dm³."
+          ]
+        }
+      ]
+    },
+    {
+      "heading": "Making a solution and using reacting volumes",
+      "blocks": [
+        { "type": "paragraph", "text": "(Higher tier, chemistry only) The amount in moles, or the mass of solute, in a given volume can be calculated from the concentration." },
+        {
+          "type": "steps",
+          "items": [
+            { "lead": "Moles.", "text": "Moles = concentration × volume in dm³." },
+            { "lead": "Mass.", "text": "Mass = moles × Mr." }
+          ]
+        },
+        {
+          "type": "paragraph",
+          "text": "Example: to make 250 cm³ of 0.100 mol/dm³ sodium carbonate (Mr = 106), moles = 0.100 × 0.250 = 0.0250 mol, so the mass is 0.0250 × 106 = 2.65 g."
+        },
+        {
+          "type": "list",
+          "items": [
+            "If two solutions react completely, and the volumes and one concentration are known, the other concentration can be found.",
+            "Work out the moles of the known solution, use the equation ratio, then divide by the volume of the unknown solution.",
+            "This is how titration results are used (see titration calculations)."
+          ]
+        },
+        {
+          "type": "key-points",
+          "items": [
+            "Moles of solute = concentration × volume. Mass = moles × Mr.",
+            "Use the equation ratio to move from one solution to another."
+          ]
+        }
+      ]
+    }
+  ],
+  "checks": [
+    {
+      "q": "Calculate the number of moles of sodium hydroxide in 20.0 cm³ of a 0.500 mol/dm³ solution.",
+      "a": "20.0 cm³ = 0.0200 dm³. Moles = 0.500 × 0.0200 = 0.0100 mol.",
+      "marks": 2
+    },
+    {
+      "q": "A solution of sodium hydroxide has a concentration of 0.25 mol/dm³. Calculate its concentration in g/dm³. Mr of NaOH = 40.",
+      "a": "0.25 × 40 = 10 g/dm³.",
+      "marks": 1
+    },
+    {
+      "q": "A solution of hydrochloric acid has a concentration of 7.3 g/dm³. Mr of HCl = 36.5. Calculate its concentration in mol/dm³.",
+      "a": "7.3 ÷ 36.5 = 0.20 mol/dm³.",
+      "marks": 1
+    }
+  ],
+  "boards": {
+    "aqa": {
+      "spec_codes": ["AQA 4.3.4"],
+      "exam_phrases": [
+        "(moles H2C2O4 = 15.0 × 0.0480/1000 =) 0.00072 (mol)",
+        "(moles NaOH = moles H2C2O4 × 2 =) 0.00144 (mol)",
+        "(concentration = 0.00144/25.0 × 1000) = 0.0576 (mol/dm3)",
+        "(moles Na2CO3 = 25.0 / 1000 × 0.124) = 0.0031(0)",
+        "(concentration =) 0.0062(0) × 1000 / 23.6"
+      ],
+      "mistakes": [
+        {
+          "wrong": "Moles of acid = 15.0 × 0.0480 = 0.72, because the volume is 15.0 cm³.",
+          "right": "Divide the volume by 1000 to get dm³ before multiplying: 15.0 ÷ 1000 × 0.0480 = 0.00072 mol."
+        },
+        {
+          "wrong": "Moles of NaOH = moles of acid, so concentration = 0.00072 ÷ 25.0 × 1000 = 0.0288 mol/dm³.",
+          "right": "Use the ratio in the equation. 1 mol of H₂C₂O₄ reacts with 2 mol of NaOH, so the moles of NaOH are 0.00144. Use of an incorrect mole ratio loses the ratio mark."
+        },
+        {
+          "wrong": "Concentration = 0.00144 ÷ 25.0 = 0.0000576 mol/dm³.",
+          "right": "The volume must be in dm³. Concentration = 0.00144 × 1000 ÷ 25.0 = 0.0576 mol/dm³."
+        }
+      ],
+      "worked_example": {
+        "exemplar_id": "aa9dd085-1780-4621-95db-b8a60641acc3",
+        "source": "AQA jun 2021, Paper 1 (H), Q09.5",
+        "question": "A student found that 25.0 cm³ of a sodium hydroxide solution was neutralised by 15.00 cm³ of 0.0480 mol/dm³ ethanedioic acid solution.\n\nThe equation for the reaction is:\nH₂C₂O₄ + 2 NaOH → Na₂C₂O₄ + 2 H₂O\n\nCalculate the concentration of the sodium hydroxide solution in mol/dm³.",
+        "marks": 3,
+        "answer_points": [
+          "Moles of H₂C₂O₄ = 15.0 × 0.0480 ÷ 1000 = 0.00072 mol.",
+          "Moles of NaOH = 0.00072 × 2 = 0.00144 mol.",
+          "Concentration = 0.00144 ÷ 25.0 × 1000 = 0.0576 mol/dm³ (0.058 is allowed)."
+        ],
+        "tip": "One mark each: moles of acid, the 1 : 2 ratio, then the concentration."
+      }
+    },
+    "edexcel": {
+      "spec_codes": ["EDEX 5.8C"],
+      "exam_phrases": [
+        "Mr = 63.5 + 32 + 4 x 16 (= 159.5)",
+        "conc = 15.95/159.5 (= 0.1 mol dm-3)",
+        "moles = 50/1000 x 0.1 (= 0.005 mol)",
+        "concentration = 98 x 0.25 (= 24.5 g dm-3)",
+        "moles of NaOH = 24.25 x 0.200 / 1000",
+        "moles acid = ½ x moles alkali"
+      ],
+      "mistakes": [
+        {
+          "wrong": "Concentration of H₂SO₄ = 98 × 0.250 = 2.45 g/dm³ (or 24500 g/dm³).",
+          "right": "Check the size of the answer. 98 × 0.250 = 24.5 g/dm³. A slip in the decimal place scores only 1 of the 2 marks."
+        },
+        {
+          "wrong": "Moles of H₂SO₄ = 2 × moles of NaOH, giving 0.388 mol/dm³.",
+          "right": "The equation is H₂SO₄ + 2NaOH, so the acid has half the moles of the alkali. Multiply by ½ to give 0.097 mol/dm³."
+        },
+        {
+          "wrong": "Concentration of H₂SO₄ = 24.25 × 0.200 ÷ 25.00 = 0.194 mol/dm³, with no ½.",
+          "right": "Use the ratio in the equation. Moles of acid = ½ × moles of alkali, which gives 0.097 mol/dm³."
+        }
+      ],
+      "worked_example": {
+        "exemplar_id": "0530259e-61aa-42d0-b3ca-5eee5076243c",
+        "source": "EDEXCEL jun 2019, Paper 1 (H), Q8(c)",
+        "question": "The copper sulfate solution used has a concentration of 15.95 g dm⁻³.\n\nCalculate the number of moles of copper sulfate, CuSO₄, in 50.00 cm³ of this solution.\n(relative atomic masses: O = 16, S = 32, Cu = 63.5)",
+        "marks": 3,
+        "answer_points": [
+          "Mr of CuSO₄ = 63.5 + 32 + 4 × 16 = 159.5.",
+          "Mass of copper sulfate = 50 ÷ 1000 × 15.95 = 0.7975 g, so moles = 0.7975 ÷ 159.5 = 0.005 mol.",
+          "Or: concentration = 15.95 ÷ 159.5 = 0.1 mol dm⁻³, so moles = 50 ÷ 1000 × 0.1 = 0.005 mol."
+        ],
+        "tip": "Either route scores. 0.005 mol scores all three marks, even without working."
+      }
+    },
+    "ocr": {
+      "spec_codes": ["OCR C5.1a"],
+      "exam_phrases": [
+        "Conversion of cm³ to dm³: 25 ÷ 1000 = 0.025 dm³",
+        "mass = concentration x volume = 21 x 0.025",
+        "0.525 without working scores 2 marks"
+      ],
+      "mistakes": [
+        {
+          "wrong": "Mass = concentration × volume, with the volume left in cm³.",
+          "right": "Convert the volume from cm³ to dm³ first (divide by 1000), or convert the concentration to g/cm³."
+        },
+        {
+          "wrong": "To make 0.100 mol/dm³, dissolve 10.6 g in 1.0 dm³ of water.",
+          "right": "The concentration depends on the volume of the solution, not the volume of water. Dissolve the solute in water, then make up to 1.0 dm³ of solution."
+        },
+        {
+          "wrong": "0.100 mol/dm³ of sodium carbonate needs 106 g in 1.0 dm³.",
+          "right": "106 g is 1 mol, which gives 1.00 mol/dm³. For 0.100 mol, the mass is 0.100 × 106 = 10.6 g."
+        }
+      ],
+      "worked_example": {
+        "exemplar_id": "4162592d-3e36-4162-8a2b-6832377af7d8",
+        "source": "OCR sample, Paper 4, Q12",
+        "question": "Which of the following procedures is the most suitable for preparing a 0.100 mol/dm³ solution of sodium carbonate?\n\nThe relative formula mass, Mr, of sodium carbonate is 106.\n\nA  Dissolving 10.6 g of sodium carbonate in water to make 1.0 dm³ of solution.\nB  Dissolving 10.6 g of sodium carbonate in 0.10 dm³ of water.\nC  Dissolving 10.6 g of sodium carbonate in 1.0 dm³ of water.\nD  Dissolving 106 g of sodium carbonate in water to make 1.0 dm³ of solution.",
+        "marks": 1,
+        "answer_points": [
+          "Moles needed in 1.0 dm³ = 0.100 × 1.0 = 0.100 mol.",
+          "Mass needed = 0.100 × 106 = 10.6 g.",
+          "The mass is dissolved in water and made up to 1.0 dm³ of solution, so the answer is A."
+        ],
+        "tip": "The volume that counts is the volume of the solution, not the volume of water added."
+      }
+    }
+  },
+  "meta": {
+    "status": "draft",
+    "checked_by": "sonnet-science-check",
+    "checked_at": "2026-10-01",
+    "written_by": "sonnet-5-5",
+    "written_at": "2026-10-01",
+    "spec_point_ids": [
+      "2c812b33-2a38-4bcc-97d4-f8a67e46c735",
+      "379b87e0-c12d-4ef4-8bfe-c3b1fb417654",
+      "be7eb613-d8d6-4e80-8171-e96d5ce8da1b"
+    ],
+    "exemplar_ids": [
+      "aa9dd085-1780-4621-95db-b8a60641acc3",
+      "0530259e-61aa-42d0-b3ca-5eee5076243c",
+      "4162592d-3e36-4162-8a2b-6832377af7d8"
+    ]
+  }
+}

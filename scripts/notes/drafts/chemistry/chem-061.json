@@ -1,0 +1,264 @@
+{
+  "format": 1,
+  "concept_id": "chem-061",
+  "subject": "chemistry",
+  "title": "Reaction profiles and activation energy",
+  "key_idea": "Particles react only if they collide with enough energy. The minimum energy needed is the activation energy. A reaction profile shows the energy of the reactants and products, the activation energy and the overall energy change.",
+  "sections": [
+    {
+      "heading": "Activation energy",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "This section covers why particles need a minimum energy before they can react."
+        },
+        {
+          "type": "definitions",
+          "items": [
+            {
+              "term": "Activation energy",
+              "meaning": "The minimum energy that particles must have to react."
+            },
+            {
+              "term": "Reaction profile",
+              "meaning": "A diagram showing how the energy changes as reactants turn into products."
+            }
+          ]
+        },
+        {
+          "type": "list",
+          "items": [
+            "Chemical reactions can occur only when reacting particles **collide** with each other.",
+            "The particles must also collide with enough energy. This minimum energy is the **activation energy**.",
+            "If the particles have less energy than the activation energy, they still collide but the collisions are not successful.",
+            "A mixture of methane and oxygen does not react at room temperature. The particles collide, but have less energy than the activation energy."
+          ]
+        },
+        {
+          "type": "key-points",
+          "items": [
+            "Activation energy is the minimum energy needed for particles to react.",
+            "Collisions with less energy than this do not lead to a reaction."
+          ]
+        }
+      ]
+    },
+    {
+      "heading": "Drawing and reading reaction profiles",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "A reaction profile is a curved line. It shows the energy of the particles as the reaction proceeds."
+        },
+        {
+          "type": "steps",
+          "items": [
+            {
+              "lead": "Axes.",
+              "text": "Label the vertical axis energy and the horizontal axis progress of reaction."
+            },
+            {
+              "lead": "Reactants.",
+              "text": "Draw a level line at the start and label it reactants."
+            },
+            {
+              "lead": "Peak.",
+              "text": "Draw a curve up to a peak, then down to a second level line labelled products."
+            },
+            {
+              "lead": "Activation energy.",
+              "text": "Draw an arrow from the reactants level up to the top of the peak and label it activation energy."
+            },
+            {
+              "lead": "Energy change.",
+              "text": "Draw an arrow between the reactants level and the products level and label it overall energy change."
+            }
+          ]
+        },
+        {
+          "type": "diagram",
+          "diagram": {
+            "kind": "predictor",
+            "alt": "Pick exothermic or endothermic to see its reaction profile.",
+            "prompt": "Pick a type of reaction",
+            "result_labels": [
+              "Energy of products compared with reactants",
+              "Overall energy change",
+              "Temperature of surroundings"
+            ],
+            "options": [
+              {
+                "label": "Exothermic",
+                "results": [
+                  "Lower than the reactants",
+                  "Energy is transferred to the surroundings",
+                  "Rises"
+                ],
+                "scene": {
+                  "kind": "energy-profile",
+                  "direction": "exothermic"
+                }
+              },
+              {
+                "label": "Endothermic",
+                "results": [
+                  "Higher than the reactants",
+                  "Energy is taken in from the surroundings",
+                  "Falls"
+                ],
+                "scene": {
+                  "kind": "energy-profile",
+                  "direction": "endothermic"
+                }
+              }
+            ]
+          }
+        },
+        {
+          "type": "list",
+          "items": [
+            "In both types, the curve rises first. Energy must be put in to reach the peak, so activation energy is always shown as an upward arrow.",
+            "If the products are **lower** than the reactants, the reaction is exothermic.",
+            "If the products are **higher** than the reactants, the reaction is endothermic.",
+            "(Higher tier) In an exothermic reaction, the energy released making bonds is greater than the energy taken in breaking bonds."
+          ]
+        },
+        {
+          "type": "key-points",
+          "items": [
+            "Label reactants, products, activation energy and overall energy change.",
+            "Products lower than reactants means exothermic. Products higher means endothermic."
+          ]
+        }
+      ]
+    }
+  ],
+  "checks": [
+    {
+      "q": "What is meant by activation energy?",
+      "a": "The minimum energy that particles must have to react (needed for a reaction to occur).",
+      "marks": 1
+    },
+    {
+      "q": "A reaction profile shows the products at a lower energy than the reactants. State the type of reaction and what happens to the temperature of the surroundings.",
+      "a": "Exothermic. The temperature of the surroundings increases.",
+      "marks": 2
+    },
+    {
+      "q": "Which labelled arrow on a reaction profile shows the activation energy?",
+      "a": "The arrow from the level of the reactants up to the top of the peak.",
+      "marks": 1
+    }
+  ],
+  "boards": {
+    "aqa": {
+      "spec_codes": [
+        "AQA 4.5.1.2",
+        "AQA T 5.5.1.2"
+      ],
+      "exam_phrases": [
+        "the (minimum) energy needed for particles to react",
+        "the (minimum) energy needed for a reaction to occur",
+        "the (minimum) energy needed to start a reaction",
+        "particles collide but have insufficient energy",
+        "energy less than the activation energy (so collisions are not successful)",
+        "in an exothermic reaction the energy of the products is lower than the energy of the reactants"
+      ],
+      "mistakes": [
+        {
+          "wrong": "At room temperature the methane and oxygen particles do not collide.",
+          "right": "The particles collide, but they have insufficient energy, less than the activation energy, so the collisions are not successful."
+        },
+        {
+          "wrong": "In an exothermic reaction the energy of the products is higher than the energy of the reactants.",
+          "right": "In an exothermic reaction the energy of the products is lower than the energy of the reactants."
+        }
+      ],
+      "worked_example": {
+        "exemplar_id": "d452c7cf-a8d5-4b96-9de0-16b9cf7ac8a0",
+        "source": "AQA jun 2021, Paper 1 (H), Q07.1",
+        "question": "Methane, ethane, propane and butane all react with oxygen to produce carbon dioxide and water.\n\nSuggest why a mixture of methane and oxygen does not react at room temperature.\n\nAnswer in terms of particles.",
+        "marks": 2,
+        "answer_points": [
+          "The particles collide.",
+          "But at room temperature the particles have insufficient energy, or have less energy than the activation energy, so the collisions are not successful."
+        ],
+        "tip": "One mark for the collision and one mark for the energy being below the activation energy."
+      }
+    },
+    "edexcel": {
+      "spec_codes": [
+        "EDEX 7.15",
+        "EDEX 7.16"
+      ],
+      "exam_phrases": [
+        "energy is taken in breaking bonds (in the reactants)",
+        "energy is given out making bonds (in the products)",
+        "more energy is given out than taken in",
+        "breaking bonds is endothermic",
+        "forming bonds is exothermic"
+      ],
+      "mistakes": [
+        {
+          "wrong": "The reaction profile shows that the products have less energy than the reactants.",
+          "right": "This alone is ignored. Describe the energy in bond breaking and bond making, and say more energy is given out than taken in."
+        },
+        {
+          "wrong": "The reaction is exothermic because more bonds are made than broken.",
+          "right": "References to the number of bonds are ignored. Compare the energy: more energy is released forming bonds than is needed to break bonds."
+        }
+      ]
+    },
+    "ocr": {
+      "spec_codes": [
+        "OCR C3.2b",
+        "OCR C3.2c"
+      ],
+      "exam_phrases": [
+        "energy required to start the reaction",
+        "energy required for a successful collision to occur",
+        "the (minimum) amount of energy needed for a reaction to start or occur",
+        "the (minimum) amount of energy for a successful collision"
+      ],
+      "mistakes": [
+        {
+          "wrong": "Activation energy is the energy needed to activate the reaction.",
+          "right": "This is ignored. Say it is the (minimum) energy needed to start the reaction, or for a successful collision to occur."
+        },
+        {
+          "wrong": "In an exothermic reaction the energy of the products is higher than the energy of the reactants.",
+          "right": "In an exothermic reaction the energy of the products is lower than the energy of the reactants. In an endothermic reaction it is higher."
+        }
+      ],
+      "worked_example": {
+        "exemplar_id": "76d9c269-0b2d-44f6-9efc-1becce5a7f6d",
+        "source": "OCR nov 2020, Paper 3, Q18(b)",
+        "question": "A student draws the reaction profile for a reaction.\n\nExplain what is meant by the term activation energy.",
+        "marks": 1,
+        "answer_points": [
+          "The energy required to start the reaction, or the energy required for a successful collision to occur."
+        ],
+        "tip": "Use the words start the reaction or successful collision."
+      }
+    }
+  },
+  "meta": {
+    "status": "draft",
+    "written_by": "sonnet-5-5",
+    "written_at": "2026-10-01",
+    "spec_point_ids": [
+      "92adebb0-f526-47ec-b9c9-6cbc4c860e8d",
+      "8e59ec1e-e51f-4df1-b7ec-cea679a577b3",
+      "7a3f4b56-31f4-45bb-801c-8c2a04e2d1d8",
+      "4b10c8a6-0f7c-4a5b-9a0d-f4996543c72c",
+      "826c903e-afc8-4ef0-9991-fc5e7b5efcb7",
+      "04a4a65c-6ea9-4b7f-88b9-75d80389b9b6"
+    ],
+    "exemplar_ids": [
+      "d452c7cf-a8d5-4b96-9de0-16b9cf7ac8a0",
+      "76d9c269-0b2d-44f6-9efc-1becce5a7f6d"
+    ],
+    "checked_by": "sonnet-science-check",
+    "checked_at": "2026-10-01"
+  }
+}

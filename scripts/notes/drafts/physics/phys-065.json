@@ -1,0 +1,397 @@
+{
+  "format": 1,
+  "concept_id": "phys-065",
+  "subject": "physics",
+  "title": "Transverse and longitudinal waves",
+  "key_idea": "Waves transfer **energy** and information from place to place without transferring matter. In a **transverse** wave the vibrations are perpendicular to the direction of energy transfer. In a **longitudinal** wave they are parallel to it.",
+  "sections": [
+    {
+      "heading": "Waves transfer energy, not matter",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "This section explains what a wave moves and how we know it is the wave, and not the material, that travels."
+        },
+        {
+          "type": "definitions",
+          "items": [
+            {
+              "term": "Wave",
+              "meaning": "A disturbance that transfers energy and information without transferring matter."
+            },
+            {
+              "term": "Oscillation (vibration)",
+              "meaning": "A repeated movement to and fro about a fixed position."
+            },
+            {
+              "term": "Medium",
+              "meaning": "The material a wave travels through, such as water or air."
+            }
+          ]
+        },
+        {
+          "type": "subheading",
+          "text": "Evidence from water waves"
+        },
+        {
+          "type": "list",
+          "items": [
+            "A cork floats on the surface of a pond. When ripples pass, the cork moves up and down.",
+            "The cork does not travel across the pond with the ripples.",
+            "The water particles oscillate up and down. The energy moves in the direction of the wave."
+          ]
+        },
+        {
+          "type": "subheading",
+          "text": "Evidence from sound waves"
+        },
+        {
+          "type": "list",
+          "items": [
+            "When someone claps, the air particles vibrate backwards and forwards about fixed positions.",
+            "The air does not travel from the clap to your ear. The vibrations are passed on from particle to particle.",
+            "The energy travels in the direction of the wave."
+          ]
+        },
+        {
+          "type": "key-points",
+          "items": [
+            "A wave transfers energy and information, not matter.",
+            "A floating cork moves up and down on ripples. It is not carried along.",
+            "Air particles vibrate in a sound wave. They do not travel with it."
+          ]
+        }
+      ]
+    },
+    {
+      "heading": "Transverse and longitudinal waves",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "The two types of wave are described by how the vibrations move compared with the direction the wave travels."
+        },
+        {
+          "type": "definitions",
+          "items": [
+            {
+              "term": "Transverse wave",
+              "meaning": "A wave in which the vibrations are perpendicular (at right angles) to the direction of energy transfer."
+            },
+            {
+              "term": "Longitudinal wave",
+              "meaning": "A wave in which the vibrations are parallel to the direction of energy transfer."
+            },
+            {
+              "term": "Compression",
+              "meaning": "A region of a longitudinal wave where the particles are squashed together."
+            },
+            {
+              "term": "Rarefaction",
+              "meaning": "A region of a longitudinal wave where the particles are spread apart."
+            }
+          ]
+        },
+        {
+          "type": "subheading",
+          "text": "Transverse waves"
+        },
+        {
+          "type": "list",
+          "items": [
+            "The wave has peaks and troughs.",
+            "Ripples on a water surface are a transverse wave. A ripple tank is used to model transverse waves.",
+            "Electromagnetic waves, such as light and radio waves, are transverse.",
+            "Seismic S-waves are transverse."
+          ]
+        },
+        {
+          "type": "subheading",
+          "text": "Longitudinal waves"
+        },
+        {
+          "type": "list",
+          "items": [
+            "The wave has compressions and rarefactions.",
+            "Sound waves in air are longitudinal. The air particles vibrate parallel to the direction the sound travels.",
+            "Seismic P-waves are longitudinal."
+          ]
+        },
+        {
+          "type": "diagram",
+          "diagram": {
+            "kind": "compare",
+            "alt": "Transverse waves compared with longitudinal waves.",
+            "items": [
+              "Transverse wave",
+              "Longitudinal wave"
+            ],
+            "rows": [
+              {
+                "feature": "Vibrations compared with the direction of energy transfer",
+                "values": [
+                  "Perpendicular (at right angles)",
+                  "Parallel (in the same direction)"
+                ]
+              },
+              {
+                "feature": "Pattern in the wave",
+                "values": [
+                  "Peaks and troughs",
+                  "Compressions and rarefactions"
+                ]
+              },
+              {
+                "feature": "Examples",
+                "values": [
+                  "Ripples on water, light, radio waves, seismic S-waves",
+                  "Sound waves in air, seismic P-waves"
+                ]
+              }
+            ]
+          }
+        },
+        {
+          "type": "key-points",
+          "items": [
+            "Transverse: vibrations are perpendicular to the direction of energy transfer.",
+            "Longitudinal: vibrations are parallel to the direction of energy transfer.",
+            "Longitudinal waves have compressions and rarefactions. Transverse waves have peaks and troughs."
+          ]
+        }
+      ]
+    },
+    {
+      "heading": "Test yourself",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "Sort each statement into the type of wave it describes."
+        },
+        {
+          "type": "diagram",
+          "diagram": {
+            "kind": "sort",
+            "alt": "Sort statements and examples into transverse waves and longitudinal waves.",
+            "prompt": "Is it a transverse or a longitudinal wave?",
+            "groups": [
+              "Transverse wave",
+              "Longitudinal wave"
+            ],
+            "items": [
+              {
+                "text": "Ripples on a water surface",
+                "group": 0
+              },
+              {
+                "text": "Light",
+                "group": 0
+              },
+              {
+                "text": "Vibrations are at right angles to the direction of energy transfer",
+                "group": 0
+              },
+              {
+                "text": "Peaks and troughs",
+                "group": 0
+              },
+              {
+                "text": "Sound in air",
+                "group": 1
+              },
+              {
+                "text": "Compressions and rarefactions",
+                "group": 1
+              },
+              {
+                "text": "Vibrations are parallel to the direction of energy transfer",
+                "group": 1
+              },
+              {
+                "text": "Air particles vibrate backwards and forwards in the direction the wave travels",
+                "group": 1
+              }
+            ]
+          }
+        },
+        {
+          "type": "key-points",
+          "items": [
+            "Learn one example of each type: ripples are transverse and sound in air is longitudinal.",
+            "Always say what is perpendicular or parallel: the vibrations compared with the direction of energy transfer."
+          ]
+        }
+      ]
+    }
+  ],
+  "checks": [
+    {
+      "q": "Describe the difference between transverse and longitudinal waves.",
+      "a": "In a transverse wave the vibrations are perpendicular to the direction of energy transfer. In a longitudinal wave the vibrations are parallel to the direction of energy transfer.",
+      "marks": 2
+    },
+    {
+      "q": "A cork floats on the surface of a pond while ripples pass. Describe how the cork moves and explain what this shows.",
+      "a": "The cork moves up and down, perpendicular to the direction the ripples travel. It is not carried along, so the wave transfers energy but not matter.",
+      "marks": 3
+    },
+    {
+      "q": "Complete the sentence. When sound waves travel through air they create areas of ___ and ___.",
+      "a": "compression and rarefaction.",
+      "marks": 2
+    }
+  ],
+  "boards": {
+    "aqa": {
+      "spec_codes": [
+        "AQA 4.6.1.1",
+        "AQA T 6.6.1.1"
+      ],
+      "exam_phrases": [
+        "the oscillations / vibrations are parallel to the direction of energy transfer",
+        "the oscillations / vibrations are perpendicular to the direction of energy transfer",
+        "sound waves are longitudinal whereas visible light waves are transverse",
+        "transverse waves have peaks and troughs",
+        "longitudinal waves have compressions and rarefactions",
+        "compression and rarefaction"
+      ],
+      "mistakes": [
+        {
+          "wrong": "Longitudinal waves are parallel and transverse waves are perpendicular.",
+          "right": "Say what is parallel or perpendicular, and to what: the oscillations (vibrations) are parallel or perpendicular to the direction of energy transfer or wave travel."
+        },
+        {
+          "wrong": "When sound waves travel through air they create areas of reflection and diffraction.",
+          "right": "Sound waves in air create areas of compression and rarefaction."
+        },
+        {
+          "wrong": "Sound waves and visible light waves are the same type of wave.",
+          "right": "Sound waves are longitudinal and light waves are transverse. Sound needs a medium to travel through, whereas visible light can travel through a vacuum."
+        }
+      ],
+      "worked_example": {
+        "exemplar_id": "bfde65a3-27d2-4e97-a44c-486d6c5e5b12",
+        "source": "AQA jun 2021, Paper 2 (H), Q05.5",
+        "question": "Electromagnetic waves are transverse.\nSome other types of wave are longitudinal.\nDescribe the difference between transverse and longitudinal waves.",
+        "marks": 2,
+        "answer_points": [
+          "In a transverse wave, the oscillations / vibrations are perpendicular to the direction of energy transfer.",
+          "In a longitudinal wave, the oscillations / vibrations are parallel to the direction of energy transfer."
+        ],
+        "tip": "Direction of wave travel is allowed for direction of energy transfer."
+      }
+    },
+    "edexcel": {
+      "spec_codes": [
+        "EDEX 4.1",
+        "EDEX 4.2",
+        "EDEX 4.5"
+      ],
+      "exam_phrases": [
+        "mention of oscillations/vibrations",
+        "(oscillations) perpendicular to direction of wave (travel)",
+        "(oscillations) in same direction as wave (travel)",
+        "particles vibrate / oscillate / move backwards and forwards",
+        "about mean / fixed positions",
+        "moves up and down at right angles to the direction of travel"
+      ],
+      "mistakes": [
+        {
+          "wrong": "Transverse waves move up and down, but longitudinal waves move side to side.",
+          "right": "Compare the vibrations with the direction of travel. Transverse is perpendicular to it and longitudinal is in the same direction. Up and down against side to side scores 1 mark only."
+        },
+        {
+          "wrong": "The cork moves along in the direction the wave travels.",
+          "right": "The cork moves up and down, at right angles to the direction of travel of the wave. It is not in the direction of the wave."
+        },
+        {
+          "wrong": "The air particles move along with the sound wave.",
+          "right": "The air particles vibrate backwards and forwards about fixed positions, parallel to the direction of travel."
+        }
+      ],
+      "worked_example": {
+        "exemplar_id": "e4a81b44-ff4c-4b9b-91b3-25356bd95da1",
+        "source": "EDEXCEL jun 2018, Paper 1 (F), Q2(c)",
+        "question": "Sound waves are longitudinal waves.\nWater waves are transverse waves.\nDescribe the difference between longitudinal waves and transverse waves.",
+        "marks": 3,
+        "answer_points": [
+          "Longitudinal: the vibrations are parallel to the direction of travel.",
+          "Transverse: the vibrations are at right angles to the direction of travel.",
+          "The connection between the direction of travel and the direction of the vibrations is stated."
+        ],
+        "tip": "Back and forth oscillations or compressions and rarefactions are allowed for longitudinal, and up and down oscillations for transverse."
+      }
+    },
+    "ocr": {
+      "spec_codes": [
+        "OCR P5.1e",
+        "OCR P5.1j",
+        "OCR P5.1k"
+      ],
+      "exam_phrases": [
+        "(Sound travels as) a longitudinal wave",
+        "(Sound travels as) compressions and rarefactions",
+        "air particles vibrate",
+        "vibrations are parallel to the direction of energy transfer / wave travel",
+        "water / particles move up and down / oscillate vertically",
+        "energy moves in direction of the wave (travel)"
+      ],
+      "mistakes": [
+        {
+          "wrong": "The water waves move up and down.",
+          "right": "This is repeated from the question and is ignored. Say the water particles oscillate up and down, at 90° to the wave direction, while the energy moves in the direction of the wave."
+        },
+        {
+          "wrong": "Sound particles vibrate left to right.",
+          "right": "Left to right, side to side and up and down are ignored. Say the particles vibrate parallel to the wave direction."
+        },
+        {
+          "wrong": "Sound travels as the air moving from the guitar to the ear.",
+          "right": "The air particles vibrate parallel to the direction of energy transfer. The sound travels as a longitudinal wave of compressions and rarefactions."
+        }
+      ],
+      "worked_example": {
+        "exemplar_id": "9a566871-f8e6-4f93-b2de-976d27d5bccd",
+        "source": "OCR jun 2018, Paper 4, Q17(a)(iii)",
+        "question": "A teacher uses water waves in a ripple tank to demonstrate transverse waves.\n\nA student tries to describe water waves in the sea.\n\n'The water waves move up and down. The water particles move all the way across the surface of the sea. This means that water moves in the direction of the waves.'\n\nPart of his explanation is incorrect.\n\nWrite an improved and correct description about water waves in the sea.",
+        "marks": 2,
+        "answer_points": [
+          "The water particles move up and down (oscillate vertically), at 90° to the direction of the wave.",
+          "The energy moves in the direction of the wave."
+        ],
+        "tip": "Any two of the three points score the marks. Statements repeated from the question are ignored."
+      }
+    }
+  },
+  "meta": {
+    "status": "draft",
+    "written_by": "sonnet-5-5",
+    "written_at": "2026-10-01",
+    "spec_point_ids": [
+      "5a1b7204-b971-4d77-bf78-98a1e525643b",
+      "e3bf5392-2334-49bf-867a-a2cd888a14ed",
+      "c08a00ee-e5c7-4471-9e7d-24a7a9fc6ef1",
+      "05be30a9-56b9-4548-b90f-ba1e3c7ae246",
+      "7c8a8179-244b-45bb-a4e1-2dc1e26182af",
+      "2b5c86af-d082-422b-85e2-20d3fa45f3ca",
+      "6de95755-6ce6-414a-bdea-204a60a665b6",
+      "ad81068a-7299-4bc7-8032-3a556cf69f3b"
+    ],
+    "exemplar_ids": [
+      "0cabe2e5-d612-4546-848c-6c10a7cb463c",
+      "0fe0660f-8b2e-4b65-97c2-44f6be3ae757",
+      "18b5f282-54c6-4a0a-935d-679fdbc417ca",
+      "1bbbbc5a-cfdf-4ef6-95b3-3dbc385d719d",
+      "20d81b39-5cbc-4bf7-9461-ac319ed1c475",
+      "9a566871-f8e6-4f93-b2de-976d27d5bccd",
+      "9d0afd1a-0931-49de-ba3d-597309d3be92",
+      "a1e3c77e-50a6-46d7-be29-038a46a707ee",
+      "b915237a-d67b-47cc-bc37-98e42c3308d7",
+      "bfde65a3-27d2-4e97-a44c-486d6c5e5b12",
+      "e4a81b44-ff4c-4b9b-91b3-25356bd95da1",
+      "f0d22910-df10-4e83-aef5-7c46a5dc43e9",
+      "f43403ec-ac59-4fa2-af39-d764c72c8717"
+    ],
+    "checked_by": "sonnet-science-check",
+    "checked_at": "2026-10-01"
+  }
+}

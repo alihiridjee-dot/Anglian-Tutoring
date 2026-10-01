@@ -1,0 +1,328 @@
+{
+  "concept_id": "chem-098",
+  "title": "Carbon monoxide and particulates from incomplete combustion",
+  "key_idea": "When a fuel burns without enough oxygen, **incomplete combustion** produces toxic carbon monoxide and solid carbon particles called soot. Carbon monoxide is colourless and odourless, so it is hard to detect, and it stops the blood carrying oxygen.",
+  "sections": [
+    {
+      "heading": "Complete and incomplete combustion",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "Burning a fuel is a reaction with oxygen. What forms depends on how much oxygen is available."
+        },
+        {
+          "type": "definitions",
+          "items": [
+            {
+              "term": "Complete combustion",
+              "meaning": "Burning with plenty of oxygen. A hydrocarbon forms carbon dioxide and water."
+            },
+            {
+              "term": "Incomplete combustion",
+              "meaning": "Burning with not enough oxygen. A hydrocarbon forms carbon monoxide and/or carbon, plus water."
+            },
+            {
+              "term": "Soot",
+              "meaning": "Solid particles of carbon released when a fuel burns incompletely."
+            },
+            {
+              "term": "Particulates",
+              "meaning": "Tiny solid particles in the air, such as soot and unburned hydrocarbons."
+            }
+          ]
+        },
+        {
+          "type": "list",
+          "items": [
+            "Most fuels, including coal, contain carbon and/or hydrogen.",
+            "With limited oxygen, some of the carbon forms carbon monoxide instead of carbon dioxide.",
+            "Some carbon may not react at all. It is released as soot."
+          ]
+        },
+        {
+          "type": "diagram",
+          "diagram": {
+            "kind": "predictor",
+            "alt": "Choose how a hydrocarbon fuel burns and see the products.",
+            "prompt": "How does the fuel burn?",
+            "result_labels": [
+              "Type of combustion",
+              "Products",
+              "Pollutant released"
+            ],
+            "options": [
+              {
+                "label": "Plenty of oxygen",
+                "results": [
+                  "Complete combustion",
+                  "Carbon dioxide and water",
+                  "No carbon monoxide or soot"
+                ]
+              },
+              {
+                "label": "Not enough oxygen",
+                "results": [
+                  "Incomplete combustion",
+                  "Carbon monoxide and water",
+                  "Carbon monoxide, a toxic gas"
+                ]
+              },
+              {
+                "label": "Not enough oxygen, carbon left unburned",
+                "results": [
+                  "Incomplete combustion",
+                  "Carbon (soot) and water",
+                  "Soot, solid carbon particles"
+                ]
+              }
+            ]
+          }
+        },
+        {
+          "type": "subheading",
+          "text": "Equations"
+        },
+        {
+          "type": "equation",
+          "label": "Incomplete combustion of methane forming carbon monoxide",
+          "formula": "2CH₄ + 3O₂ → 2CO + 4H₂O",
+          "where": [
+            "CH₄ is methane.",
+            "CO is carbon monoxide.",
+            "H₂O is water."
+          ]
+        },
+        {
+          "type": "equation",
+          "label": "Incomplete combustion of methane forming soot",
+          "formula": "CH₄ + O₂ → C + 2H₂O",
+          "where": [
+            "C is carbon, which is released as soot."
+          ]
+        },
+        {
+          "type": "key-points",
+          "items": [
+            "Complete combustion needs plenty of oxygen and makes carbon dioxide and water.",
+            "Incomplete combustion needs limited oxygen and makes carbon monoxide and/or soot, plus water.",
+            "Say not enough oxygen, never no oxygen."
+          ]
+        }
+      ]
+    },
+    {
+      "heading": "Why carbon monoxide is harmful",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "Carbon monoxide is a toxic gas. This section covers why it is dangerous and how people are protected."
+        },
+        {
+          "type": "list",
+          "items": [
+            "It is colourless and odourless, so people cannot see or smell it.",
+            "This means it is not easily detected before it does harm.",
+            "It is toxic.",
+            "Carbon monoxide detectors are placed near boilers and other appliances that burn fuel."
+          ]
+        },
+        {
+          "type": "subheading",
+          "text": "How it behaves as a poison"
+        },
+        {
+          "type": "list",
+          "items": [
+            "Carbon monoxide attaches to haemoglobin in red blood cells.",
+            "This reduces the amount of oxygen the blood can carry.",
+            "So less oxygen reaches the brain and other organs.",
+            "Effects include difficulty breathing, drowsiness and death."
+          ]
+        },
+        {
+          "type": "key-points",
+          "items": [
+            "Carbon monoxide is colourless, odourless and toxic.",
+            "It attaches to haemoglobin, so the blood carries less oxygen.",
+            "Detectors are needed because people cannot sense it."
+          ]
+        }
+      ]
+    },
+    {
+      "heading": "Soot and particulates",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "Soot is the solid pollutant from incomplete combustion. Other solid particles and unburned hydrocarbons also form particulates."
+        },
+        {
+          "type": "list",
+          "items": [
+            "Particulates cause global dimming, which means less sunlight reaches the Earth's surface.",
+            "Particulates cause health problems for humans.",
+            "In appliances such as boilers, incomplete combustion releases both soot and carbon monoxide."
+          ]
+        },
+        {
+          "type": "key-points",
+          "items": [
+            "Soot is solid carbon from incomplete combustion.",
+            "Particulates cause global dimming and health problems."
+          ]
+        }
+      ]
+    }
+  ],
+  "checks": [
+    {
+      "q": "Explain how carbon monoxide is produced when methane is burned.",
+      "a": "There is not enough oxygen, so the methane undergoes incomplete combustion.",
+      "marks": 2
+    },
+    {
+      "q": "Name the solid pollutant and the gaseous pollutant formed when a hydrocarbon burns incompletely.",
+      "a": "The solid is soot (carbon) and the gas is carbon monoxide.",
+      "marks": 2
+    },
+    {
+      "q": "Explain how carbon monoxide behaves as a toxic gas.",
+      "a": "It reacts with haemoglobin in red blood cells. This stops oxygen being carried by the blood, so less oxygen reaches the brain.",
+      "marks": 2
+    },
+    {
+      "q": "Why are carbon monoxide detectors needed?",
+      "a": "Carbon monoxide is colourless and odourless, so it cannot be detected by sight or smell, and it is toxic.",
+      "marks": 3
+    }
+  ],
+  "boards": {
+    "aqa": {
+      "spec_codes": [
+        "AQA 4.9.3.1",
+        "AQA T 5.9.3.1"
+      ],
+      "exam_phrases": [
+        "incomplete combustion",
+        "insufficient / limited oxygen supply",
+        "not enough oxygen",
+        "colourless, odourless, toxic",
+        "soot",
+        "particles of carbon"
+      ],
+      "mistakes": [
+        {
+          "wrong": "Carbon monoxide forms when there is no oxygen or no air.",
+          "right": "No oxygen or no air is not accepted. Say there is not enough oxygen, so incomplete combustion happens."
+        },
+        {
+          "wrong": "Carbon monoxide is made by incomplete combustion.",
+          "right": "This earns one mark. Also say why: there is not enough (insufficient or limited) oxygen."
+        }
+      ],
+      "worked_example": {
+        "exemplar_id": "c09a49c4-a73a-4786-9966-7a73e3406534",
+        "source": "AQA jun 2019, Paper 2 (F), Q02.1",
+        "question": "Some central heating boilers use methane as a fuel. Carbon monoxide detectors are placed near central heating boilers.\n\nWhich three properties of carbon monoxide make it necessary to use carbon monoxide detectors?\n\nChoose answers from the box: acidic, alkaline, colourless, corrosive, insoluble, odourless, toxic",
+        "marks": 3,
+        "answer_points": [
+          "Colourless.",
+          "Odourless.",
+          "Toxic."
+        ],
+        "tip": "One mark for each correct property, in any order."
+      }
+    },
+    "edexcel": {
+      "spec_codes": [
+        "EDEX 8.8",
+        "EDEX 8.9",
+        "EDEX 8.10"
+      ],
+      "exam_phrases": [
+        "incomplete combustion with lack of oxygen",
+        "incomplete combustion produces carbon / soot",
+        "incomplete combustion produces carbon monoxide",
+        "carbon monoxide reacts with haemoglobin (in blood) / red blood cells",
+        "stops oxygen being carried",
+        "so less oxygen reaches brain"
+      ],
+      "mistakes": [
+        {
+          "wrong": "Carbon monoxide is toxic because it is poisonous.",
+          "right": "An explanation is needed. Say it reacts with haemoglobin in red blood cells, which stops oxygen being carried so less reaches the brain."
+        },
+        {
+          "wrong": "Incomplete combustion of alkanes forms carbon dioxide and water.",
+          "right": "That is complete combustion. For top marks give correct products for both types: carbon monoxide and/or carbon (soot) for incomplete combustion."
+        }
+      ],
+      "worked_example": {
+        "exemplar_id": "64468262-3adf-47d3-becd-8691fb28c6c1",
+        "source": "EDEXCEL nov 2021, Paper 2 (H), Q9(a)(ii)",
+        "question": "Pentadecane, C₁₅H₃₂, is a hydrocarbon and is used as a fuel.\nThe incomplete combustion of pentadecane produces carbon monoxide.\nCarbon monoxide is a toxic gas.\n\nExplain how carbon monoxide behaves as a toxic gas.",
+        "marks": 2,
+        "answer_points": [
+          "Carbon monoxide reacts with haemoglobin in the blood, or with red blood cells.",
+          "This stops oxygen being carried by the haemoglobin or blood, so less oxygen reaches the brain."
+        ],
+        "tip": "The two marks need an explanation linking both points."
+      }
+    },
+    "ocr": {
+      "spec_codes": [
+        "OCR C6.3f"
+      ],
+      "exam_phrases": [
+        "poisonous / toxic",
+        "attaches to the haemoglobin (protein) in red blood cells",
+        "reduces the amount of oxygen that the blood can carry",
+        "can cause difficulty breathing or suffocation",
+        "can cause drowsiness"
+      ],
+      "mistakes": [
+        {
+          "wrong": "Carbon monoxide is harmful, dangerous or deadly.",
+          "right": "These words are ignored. Say it is poisonous or toxic, and give an effect such as reducing the oxygen the blood can carry."
+        },
+        {
+          "wrong": "Carbon monoxide contributes to global warming.",
+          "right": "This is ignored. The problem to give is that it is toxic and affects the blood's oxygen supply."
+        }
+      ],
+      "worked_example": {
+        "exemplar_id": "90cc8b0a-dc82-4d89-a268-ceb01b17e7ad",
+        "source": "OCR jun 2022, Paper 2, Q20(a)",
+        "question": "Atmospheric pollution can be caused by\n• carbon monoxide\n• oxides of nitrogen\n• sulfur dioxide.\n\nExplain why carbon monoxide in the atmosphere is a problem.",
+        "marks": 2,
+        "answer_points": [
+          "Carbon monoxide is poisonous or toxic.",
+          "And one from: it can cause difficulty breathing or suffocation; it attaches to the haemoglobin in red blood cells; it reduces the amount of oxygen the blood can carry; it can cause drowsiness."
+        ],
+        "tip": "One mark for toxic and one mark for a specific effect."
+      }
+    }
+  },
+  "meta": {
+    "status": "draft",
+    "written_by": "sonnet-5-5",
+    "written_at": "2026-10-01",
+    "spec_point_ids": [
+      "daa47949-258a-465a-846b-f17871cc9ca9",
+      "30c1d0d5-2002-4171-b07e-999ee691e6b0",
+      "5c520aae-a988-47f3-aec2-57aa992cbb9c",
+      "15a28432-773a-4abd-834b-da264c925767",
+      "00b44334-8727-4976-92f8-a2636ec149b7",
+      "abafb2e8-3e18-4a9d-b8b2-3ffbe7494f8b"
+    ],
+    "exemplar_ids": [
+      "c09a49c4-a73a-4786-9966-7a73e3406534",
+      "64468262-3adf-47d3-becd-8691fb28c6c1",
+      "90cc8b0a-dc82-4d89-a268-ceb01b17e7ad"
+    ],
+    "checked_by": "sonnet-science-check",
+    "checked_at": "2026-10-01"
+  },
+  "format": 1,
+  "subject": "chemistry"
+}

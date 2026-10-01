@@ -1,0 +1,329 @@
+{
+  "format": 1,
+  "concept_id": "phys-049",
+  "subject": "physics",
+  "title": "Moments, levers and gears",
+  "key_idea": "(Separate science) A force can turn an object about a pivot. The turning effect is the moment, **moment = force × perpendicular distance**. A balanced object has equal clockwise and anticlockwise moments. Levers and gears use this to transmit turning effects.",
+  "sections": [
+    {
+      "heading": "The moment of a force",
+      "blocks": [
+        { "type": "paragraph", "text": "(Separate science) This section covers how a force makes an object rotate and how to calculate the turning effect." },
+        {
+          "type": "definitions",
+          "items": [
+            { "term": "Pivot", "meaning": "The fixed point an object turns around." },
+            { "term": "Moment", "meaning": "The turning effect of a force about a pivot." },
+            { "term": "Clockwise and anticlockwise", "meaning": "The two directions a force can turn an object about a pivot." }
+          ]
+        },
+        {
+          "type": "list",
+          "items": [
+            "A force can cause an object to rotate about a pivot.",
+            "A bigger force gives a bigger moment.",
+            "A bigger distance from the pivot gives a bigger moment.",
+            "The distance is measured at right angles from the pivot to the line of action of the force."
+          ]
+        },
+        {
+          "type": "equation",
+          "label": "Moment of a force",
+          "formula": "M = F × d",
+          "where": [
+            "M is the moment of the force in newton-metres (N m).",
+            "F is the force in newtons (N).",
+            "d is the perpendicular distance from the pivot to the line of action of the force in metres (m)."
+          ]
+        },
+        {
+          "type": "paragraph",
+          "text": "Convert centimetres to metres before substituting. Divide by 100."
+        },
+        {
+          "type": "steps",
+          "items": [
+            { "lead": "Convert.", "text": "A force of 2.0 N acts 7.5 cm from a pivot: 7.5 cm = 0.075 m." },
+            { "lead": "Substitute.", "text": "M = 2.0 × 0.075" },
+            { "lead": "Evaluate.", "text": "M = 0.15 N m" }
+          ]
+        },
+        {
+          "type": "diagram",
+          "diagram": {
+            "kind": "practice",
+            "alt": "Calculate the moment of a force when the distance is given in centimetres.",
+            "question": "A force of {F} N acts at right angles to a spanner, {d} cm from the pivot. Calculate the moment of the force in N m.",
+            "variables": [
+              { "id": "F", "min": 2, "max": 20, "step": 1 },
+              { "id": "d", "min": 5, "max": 50, "step": 5 }
+            ],
+            "answer": { "formula": "F * d / 100", "unit": "N m", "decimals": 2 },
+            "working": [
+              "{d} cm = {d} ÷ 100 m",
+              "M = F × d = {F} × ({d} ÷ 100)",
+              "M = {answer} N m"
+            ]
+          }
+        },
+        {
+          "type": "key-points",
+          "items": [
+            "The moment of a force is its turning effect about a pivot.",
+            "M = F × d, with d measured at right angles from the pivot.",
+            "The unit is the newton-metre (N m)."
+          ]
+        }
+      ]
+    },
+    {
+      "heading": "Balanced objects and the principle of moments",
+      "blocks": [
+        { "type": "paragraph", "text": "(Separate science) This section covers what happens when the turning effects on an object are equal." },
+        {
+          "type": "equation",
+          "label": "Principle of moments",
+          "formula": "total clockwise moment = total anticlockwise moment",
+          "where": [
+            "Both moments are taken about the same pivot.",
+            "This is true when the object is balanced, which means it is in equilibrium."
+          ]
+        },
+        {
+          "type": "list",
+          "items": [
+            "If the clockwise moment is bigger, the object turns clockwise.",
+            "If the anticlockwise moment is bigger, the object turns anticlockwise.",
+            "If the two moments are equal, the object does not turn.",
+            "To rebalance an object, change a force or move it to a different distance from the pivot."
+          ]
+        },
+        {
+          "type": "steps",
+          "items": [
+            { "lead": "Find one moment.", "text": "A 650 N load is 0.75 m from the pivot: moment = 650 × 0.75 = 487.5 N m." },
+            { "lead": "Balance it.", "text": "A 160 N effort must give the same moment: 160 × d = 487.5." },
+            { "lead": "Rearrange.", "text": "d = 487.5 ÷ 160 = 3.05 m, which is about 3 m." }
+          ]
+        },
+        {
+          "type": "diagram",
+          "diagram": {
+            "kind": "slider",
+            "alt": "Balance a see-saw by changing the force and distances on each side of the pivot.",
+            "inputs": [
+              { "id": "F1", "label": "Force on the left", "unit": "N", "min": 10, "max": 50, "step": 5, "value": 30 },
+              { "id": "d1", "label": "Distance of left force from pivot", "unit": "m", "min": 0.2, "max": 1.0, "step": 0.1, "value": 0.6 },
+              { "id": "d2", "label": "Distance of right force from pivot", "unit": "m", "min": 0.2, "max": 1.0, "step": 0.1, "value": 0.4 }
+            ],
+            "outputs": [
+              { "label": "Anticlockwise moment of the left force", "unit": "N m", "formula": "F1 * d1", "decimals": 1 },
+              { "label": "Force needed on the right to balance", "unit": "N", "formula": "F1 * d1 / d2", "decimals": 0, "bar": true }
+            ]
+          }
+        },
+        {
+          "type": "key-points",
+          "items": [
+            "Balanced means total clockwise moment equals total anticlockwise moment about the same pivot.",
+            "To balance with a smaller distance, you need a bigger force."
+          ]
+        }
+      ]
+    },
+    {
+      "heading": "Levers and gears",
+      "blocks": [
+        { "type": "paragraph", "text": "(Separate science) Levers and gears are simple machines that transmit the turning effect of a force." },
+        { "type": "subheading", "text": "Levers" },
+        {
+          "type": "list",
+          "items": [
+            "A lever turns about a pivot, also called a fulcrum.",
+            "The effort is the force you apply. The load is the force you want to move.",
+            "If the effort is further from the pivot than the load, the moments can be equal with a smaller effort.",
+            "This makes the lever a force multiplier. A crowbar and a wheelbarrow work this way."
+          ]
+        },
+        { "type": "subheading", "text": "Gears" },
+        {
+          "type": "list",
+          "items": [
+            "Meshed gears have teeth that fit together.",
+            "A force on one gear causes a moment about the pivot of the next gear, so it turns.",
+            "The second gear turns in the opposite direction.",
+            "The smaller gear, with fewer teeth, turns faster than the larger gear.",
+            "A small gear driving a large gear gives a bigger moment on the large gear, so the pair works as a force multiplier."
+          ]
+        },
+        {
+          "type": "equation",
+          "label": "Meshed gears",
+          "formula": "turns of gear A × teeth on gear A = turns of gear B × teeth on gear B",
+          "where": [
+            "Turns is the number of complete turns of that gear.",
+            "Teeth is the number of teeth on that gear. The same number of teeth pass the meshing point on both gears."
+          ]
+        },
+        {
+          "type": "steps",
+          "items": [
+            { "lead": "Example.", "text": "A gear with 20 teeth turns a gear with 60 teeth, and the large gear makes 2 turns." },
+            { "lead": "Substitute.", "text": "turns of small gear × 20 = 2 × 60" },
+            { "lead": "Evaluate.", "text": "turns of small gear = 120 ÷ 20 = 6 turns" }
+          ]
+        },
+        {
+          "type": "key-points",
+          "items": [
+            "A lever with the effort far from the pivot needs less force to balance the load.",
+            "Meshed gears turn in opposite directions and the smaller gear turns faster."
+          ]
+        }
+      ]
+    }
+  ],
+  "checks": [
+    {
+      "q": "A force of 20 N acts at right angles 0.30 m from a pivot. Calculate the moment of the force.",
+      "a": "Moment = 20 × 0.30 = 6.0 N m.",
+      "marks": 2
+    },
+    {
+      "q": "State the principle of moments.",
+      "a": "For a system in equilibrium, the sum of the clockwise moments equals the sum of the anticlockwise moments about the same point.",
+      "marks": 2
+    },
+    {
+      "q": "Explain why the effort needed to lift the load with a wheelbarrow is smaller than the load.",
+      "a": "The effort is at a bigger distance from the pivot than the load, so a smaller force gives the same moment.",
+      "marks": 2
+    }
+  ],
+  "boards": {
+    "aqa": {
+      "spec_codes": ["AQA 4.5.4"],
+      "exam_phrases": [
+        "gear B rotates in the opposite direction (to gear A)",
+        "gear A exerts a force on gear B",
+        "gear A causes a moment about the pivot of gear B",
+        "gear B rotates faster than gear A"
+      ],
+      "mistakes": [
+        {
+          "wrong": "A force of 2.0 N acts 7.5 cm from the pivot, so the moment is 2.0 × 7.5 = 15.",
+          "right": "Convert the distance first: 7.5 cm = 0.075 m. The conversion earns a mark and the moment is 0.15 N m."
+        },
+        {
+          "wrong": "When the child turns gear A, gear B turns the same way as gear A.",
+          "right": "Gear B rotates in the opposite direction, because gear A exerts a force on gear B and causes a moment about the pivot of gear B."
+        }
+      ],
+      "worked_example": {
+        "exemplar_id": "0340d0c0-80fe-4106-a799-a3b9b34e97d9",
+        "source": "AQA jun 2024, Paper 2 (H), Q02.6",
+        "question": "A child applies a force of 2.0 N on gear A of a toy. The perpendicular distance between the force and the pivot is 7.5 cm. Calculate the moment of the force about the pivot.",
+        "marks": 3,
+        "answer_points": [
+          "7.5 cm = 0.075 m",
+          "M = 2.0 × 0.075",
+          "M = 0.15 N m"
+        ],
+        "tip": "One mark for converting the distance, one for substituting and one for the answer. A correct substitution of a distance that was not converted still earns the substitution mark."
+      }
+    },
+    "edexcel": {
+      "spec_codes": ["EDEX 9.6P", "EDEX 9.7P", "EDEX 9.8P", "EDEX 9.9P"],
+      "exam_phrases": [
+        "sum of the clockwise moments = sum of anticlockwise moments (about the same point)",
+        "for (a system in) equilibrium",
+        "the effort is at a bigger distance from fulcrum (than the load)",
+        "(magnitudes of) moments are the same",
+        "distance moved by chain around large gear = distance moved by chain around small gear"
+      ],
+      "mistakes": [
+        {
+          "wrong": "The principle of moments says the clockwise moments equal the anticlockwise moments.",
+          "right": "Add 'about the same point' and 'for a system in equilibrium'. The second mark is for the equilibrium."
+        },
+        {
+          "wrong": "The moment of the load is 650 × 0.75 = 490 J.",
+          "right": "The unit of a moment is N m, not J. The unit is an independent mark."
+        },
+        {
+          "wrong": "The effort is at a bigger distance.",
+          "right": "Say from where. The effort is at a bigger distance from the fulcrum (or pivot or wheel) than the load. Both parts earn a mark."
+        }
+      ],
+      "worked_example": {
+        "exemplar_id": "c8edd2a2-4406-402e-8931-306be9ae319d",
+        "source": "EDEXCEL jun 2018, Paper 2 (F), Q5(b)(iii)",
+        "question": "A lever is used to lift a heavy load. The weight of the load is 650 N. The centre of the load is 0.75 m from the pivot. An effort of 160 N is applied to the end of the lever to balance the load. Calculate the distance between the effort and the pivot.",
+        "marks": 3,
+        "answer_points": [
+          "Moment of the load = 650 × 0.75 = 487.5 N m",
+          "160 × distance = 487.5",
+          "distance = 487.5 ÷ 160 = 3.05 m, which rounds to 3 m (490 ÷ 160 gives 3.1 m)"
+        ],
+        "tip": "Marks are for substitution, rearrangement and evaluation. Any value that rounds to 3 is accepted, and a power of ten error loses marks. Full marks for the correct answer without working."
+      }
+    },
+    "ocr": {
+      "spec_codes": ["OCR P2.3k", "OCR P2.3l", "OCR P2.3m"],
+      "exam_phrases": [
+        "(Moment =) force x distance",
+        "(Force = 70 x 10 =) 700 (N)"
+      ],
+      "mistakes": [
+        {
+          "wrong": "The boy has a mass of 70 kg, so the moment is 70 × 1.8 = 126 N m.",
+          "right": "The force is the weight, not the mass. Weight = 70 × 10 = 700 N, so the moment is 700 × 1.8 = 1260 N m."
+        },
+        {
+          "wrong": "Convert 1.8 m to 180 cm, so the moment is 126 000 N m.",
+          "right": "Keep the distance in metres to get an answer in N m. Converting to centimetres gives a wrong answer."
+        }
+      ],
+      "worked_example": {
+        "exemplar_id": "d08616af-485f-406b-9c88-acdf9b054941",
+        "source": "OCR nov 2020, Paper 3, Q22(a)",
+        "question": "A boy of mass 70 kg stands on the end of a diving board at a distance of 1.8 m from the wall. Calculate the moment of the boy standing on the diving board. Gravitational field strength on Earth = 10 N/kg.",
+        "marks": 4,
+        "answer_points": [
+          "Force = 70 × 10 = 700 N",
+          "Moment = force × distance",
+          "Moment = 700 × 1.8",
+          "Moment = 1260 N m"
+        ],
+        "tip": "A correct answer of 1260 N m, or 1300 N m, scores all 4 marks. Using mass instead of weight loses a mark."
+      }
+    }
+  },
+  "meta": {
+    "status": "draft",
+    "checked_by": "sonnet-science-check",
+    "checked_at": "2026-10-01",
+    "written_by": "sonnet-5-5",
+    "written_at": "2026-10-01",
+    "spec_point_ids": [
+      "902f9bae-80b4-4ae9-a694-ac872acb1b2c",
+      "f576ed8e-5c87-4a38-9cb7-35554d577ed8",
+      "065a5300-9d7b-48ee-96c7-9fa683f56299",
+      "b971f97e-6fd4-4e69-b40c-a0a23fb7d047",
+      "122b7af2-812f-4ac2-a2db-a27d8c9ff6b2",
+      "c8fc848e-42bc-46b2-8b4e-ac6dc12c3a5d",
+      "f115c447-476b-4fc0-a134-542ad4f66fe3",
+      "d1be1237-5f8a-42f9-ab4c-5872b7bef289"
+    ],
+    "exemplar_ids": [
+      "0340d0c0-80fe-4106-a799-a3b9b34e97d9",
+      "f61be628-6799-4d53-8f09-c6a66634f2cb",
+      "36fc9662-3d1b-480d-bec0-84eafb1524ab",
+      "894873b8-a8d8-4684-a4de-e96714142f1e",
+      "c8edd2a2-4406-402e-8931-306be9ae319d",
+      "ddc5581c-2cfe-46fd-b0ab-96f9ada7be75",
+      "c84bb2de-130a-4a8a-97ef-eed70fdc5c88",
+      "d08616af-485f-406b-9c88-acdf9b054941"
+    ]
+  }
+}

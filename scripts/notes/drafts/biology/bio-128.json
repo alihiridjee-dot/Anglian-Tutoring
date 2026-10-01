@@ -1,0 +1,410 @@
+{
+  "format": 1,
+  "concept_id": "bio-128",
+  "subject": "biology",
+  "title": "Maintaining biodiversity",
+  "key_idea": "Biodiversity is worth protecting because food webs, habitats and human needs depend on it. Conservation measures such as breeding programmes, habitat protection, reforestation and ecotourism help. They compete with the need for land and money.",
+  "sections": [
+    {
+      "heading": "Why biodiversity matters",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "Losing species and habitats harms ecosystems and people. This section covers the benefits of maintaining biodiversity, locally and globally."
+        },
+        {
+          "type": "list",
+          "items": [
+            "Species are protected from **extinction**.",
+            "Food webs keep working and genetic diversity is kept.",
+            "Habitats provide food and shelter.",
+            "Wild organisms can provide medicines, and pollinators are crucial for crops.",
+            "Rare habitats, with species that live nowhere else, are not lost."
+          ]
+        },
+        {
+          "type": "subheading",
+          "text": "Local and global effects of losing a habitat"
+        },
+        {
+          "type": "list",
+          "items": [
+            "**Locally**, species lose their food and shelter. They die out or migrate.",
+            "**Globally**, destroying habitats such as peat bogs and forests releases carbon dioxide and methane.",
+            "This adds to global warming, which can change rainfall, flood habitats and cause extinctions."
+          ]
+        },
+        {
+          "type": "key-points",
+          "items": [
+            "Maintaining biodiversity protects species, food webs and genetic diversity.",
+            "Habitat loss has local effects and global effects."
+          ]
+        }
+      ]
+    },
+    {
+      "heading": "Ways to protect biodiversity",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "People and governments run programmes to reduce the harm humans do. This section covers the main measures."
+        },
+        {
+          "type": "definitions",
+          "items": [
+            {
+              "term": "Conservation",
+              "meaning": "Protecting species and habitats so that they are not lost."
+            },
+            {
+              "term": "Reforestation",
+              "meaning": "Planting trees to replace forest that has been cut down."
+            },
+            {
+              "term": "Ecotourism",
+              "meaning": "Tourism that lets people see threatened habitats and species, and raises money without damaging them."
+            }
+          ]
+        },
+        {
+          "type": "list",
+          "items": [
+            "**Breeding programmes** for endangered species, so animals can be returned to the wild.",
+            "Protection and regeneration of rare habitats.",
+            "Reintroducing field margins and hedgerows where farmers grow only one type of crop, and planting a variety of crops.",
+            "Reducing deforestation and carbon dioxide emissions.",
+            "**Reforestation**: trees provide habitats and food, take in carbon dioxide and release oxygen, and prevent erosion and flooding.",
+            "Recycling resources rather than dumping waste in landfill.",
+            "Reducing hunting and poaching.",
+            "**Ecotourism**: visitors pay, which funds conservation and gives local people jobs."
+          ]
+        },
+        {
+          "type": "subheading",
+          "text": "Why more tree species help animals"
+        },
+        {
+          "type": "paragraph",
+          "text": "More types of tree give more types of food and more types of habitat, shelter or nest site. So more types of animal can live there."
+        },
+        {
+          "type": "key-points",
+          "items": [
+            "Breeding programmes, habitat protection, reforestation and ecotourism all help biodiversity.",
+            "Planting trees and a variety of crops provides food and habitats."
+          ]
+        }
+      ]
+    },
+    {
+      "heading": "Benefits and challenges",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "Conservation has costs as well as benefits. Exam answers weigh them up and give a judgement."
+        },
+        {
+          "type": "list",
+          "items": [
+            "Land is wanted for crops, grazing, biofuels and renewable energy.",
+            "A growing population needs more food, so there is pressure to farm more land.",
+            "Conservation schemes need money, which ecotourism can help to provide.",
+            "Some methods of controlling animal numbers are cruel, expensive or have side effects."
+          ]
+        },
+        {
+          "type": "diagram",
+          "diagram": {
+            "kind": "sort",
+            "alt": "Sort statements into benefits of conservation and challenges of conservation.",
+            "prompt": "Sort each statement into a benefit or a challenge of maintaining biodiversity.",
+            "groups": [
+              "Benefit",
+              "Challenge"
+            ],
+            "items": [
+              {
+                "text": "Keeps food webs working",
+                "group": 0
+              },
+              {
+                "text": "Prevents species becoming extinct",
+                "group": 0
+              },
+              {
+                "text": "Ecotourism brings in money and jobs",
+                "group": 0
+              },
+              {
+                "text": "Wild species can provide medicines",
+                "group": 0
+              },
+              {
+                "text": "Farmers want the land for crops",
+                "group": 1
+              },
+              {
+                "text": "Culling animals is seen as cruel",
+                "group": 1
+              },
+              {
+                "text": "Moving animals to a new country is expensive and difficult",
+                "group": 1
+              },
+              {
+                "text": "A growing population needs more land for food",
+                "group": 1
+              }
+            ]
+          }
+        },
+        {
+          "type": "key-points",
+          "items": [
+            "Benefits include protecting species, food webs and income from ecotourism.",
+            "Challenges include competing land use, cost and the methods used to control animal numbers."
+          ]
+        }
+      ]
+    }
+  ],
+  "checks": [
+    {
+      "q": "Give two ways of increasing biodiversity in the UK.",
+      "a": "Any two from: breeding programmes for endangered species, planting trees, rewilding or regenerating habitats, wider field margins, planting a variety of crops, reducing pesticide use or pollution.",
+      "marks": 2
+    },
+    {
+      "q": "Explain what is meant by ecotourism.",
+      "a": "Tourists visit threatened habitats or species, and this raises money or jobs, ideally without damaging the habitat.",
+      "marks": 2
+    },
+    {
+      "q": "Give two reasons why more types of tree in a rainforest lead to more types of animal.",
+      "a": "More or different types of food are available. More or different habitats, shelter or nest sites are available.",
+      "marks": 2
+    }
+  ],
+  "boards": {
+    "aqa": {
+      "spec_codes": [
+        "AQA 7.10",
+        "AQA T 4.7.3.6"
+      ],
+      "exam_phrases": [
+        "breeding programmes (for endangered species)",
+        "rewilding / regeneration of habitats / hedgerows / meadows",
+        "(reintroducing) wider field margins",
+        "plant a variety of crops",
+        "more / different types of food available",
+        "more / different types of habitat / shelter or nest sites available"
+      ],
+      "mistakes": [
+        {
+          "wrong": "To increase biodiversity in the UK, protect or conserve habitats.",
+          "right": "This is ignored. Give a specific action, such as planting trees, rewilding, wider field margins, planting a variety of crops or breeding programmes."
+        },
+        {
+          "wrong": "To increase biodiversity in the UK, reduce carbon dioxide emissions and stop global warming.",
+          "right": "References to carbon dioxide, greenhouse gases or global warming are ignored here. Give an action that directly helps wildlife."
+        },
+        {
+          "wrong": "More trees means more animals because there is more food available.",
+          "right": "\"More food available\" is ignored. Say more or different types of food, or more or different types of habitat or shelter."
+        },
+        {
+          "wrong": "To increase biodiversity, recycle more.",
+          "right": "Recycling is ignored in this answer."
+        }
+      ],
+      "worked_example": {
+        "exemplar_id": "83a2c2ff-5838-4580-97da-bc9d0f47a150",
+        "source": "AQA jun 2025, Paper 2 (H), Q05.3",
+        "question": "The destruction of peat bogs can affect biodiversity.\n\nExplain how the destruction of peat bogs can affect biodiversity:\n- in the local area\n- globally.",
+        "marks": 6,
+        "answer_points": [
+          "Local: loss of the specialised habitat means a lack of food and shelter.",
+          "So local populations or species die or become extinct, or migrate to find food and shelter.",
+          "Global: removing peat releases trapped carbon dioxide and methane.",
+          "Burning peat releases carbon dioxide, and decay releases carbon dioxide (respiration of microorganisms) and methane (anaerobic respiration).",
+          "This causes global warming or the greenhouse effect, and climate change.",
+          "Effects include melting ice caps, rising sea levels or flooding, and drought or desertification.",
+          "So there is loss of food and habitats, migration patterns change and some species become extinct."
+        ],
+        "tip": "Levelled answer. For Level 2 refer to local and global effects with an explanation. For Level 3 explain both and support them with further detail."
+      }
+    },
+    "edexcel": {
+      "spec_codes": [
+        "EDEX 9.10"
+      ],
+      "exam_phrases": [
+        "increase numbers of endangered species / prevent extinction",
+        "controlled breeding programmes / reduction in poaching / maintaining habitats",
+        "removes carbon dioxide and releases oxygen",
+        "maintains the food web",
+        "maintains genetic diversity",
+        "generating income to fund conservation projects through zoos / animal parks / ecotourism"
+      ],
+      "mistakes": [
+        {
+          "wrong": "Trees improve the air.",
+          "right": "Name the gases. Trees take in carbon dioxide and release oxygen. Top-level answers need both named atmospheric gases."
+        },
+        {
+          "wrong": "Animal conservation saves animals.",
+          "right": "Say how it helps biodiversity: protecting endangered species from hunting, maintaining habitats and controlled breeding. Then say why, for example the effect on food webs."
+        },
+        {
+          "wrong": "The percentage increase in the number of males is 210 ÷ 11 = 19.09%.",
+          "right": "Multiply by 100. 210 ÷ 11 × 100 = 1909%. The value 19.09 gains only 2 of the 3 marks."
+        }
+      ],
+      "worked_example": {
+        "exemplar_id": "8dd4856e-28cd-4352-a652-326d63900b62",
+        "source": "EDEXCEL jun 2022, Paper 2 (H), Q9(c)",
+        "question": "Reforestation has a beneficial effect on air composition and biodiversity.\n\nAnimal conservation projects can also have a beneficial effect on biodiversity.\n\nExplain the beneficial effects of reforestation and animal conservation projects.",
+        "marks": 6,
+        "answer_points": [
+          "Reforestation is planting trees. Trees take in carbon dioxide and release oxygen, which reduces greenhouse gases and global warming.",
+          "Trees increase the rate of photosynthesis and provide habitats and a food source for animals.",
+          "Trees prevent erosion and reduce flooding.",
+          "Animal conservation protects endangered species so numbers increase, by protecting them from hunting and maintaining habitats.",
+          "Controlled breeding programmes allow animals to be re-introduced into the wild.",
+          "Conservation maintains the food web and genetic diversity, and zoos or ecotourism can generate income for conservation."
+        ],
+        "tip": "Levelled answer. The top level (5 to 6 marks) needs both named atmospheric gases and how conservation improves biodiversity, including why endangered species are preserved or the effect on food webs."
+      },
+      "extra": [
+        {
+          "heading": "Percentage increase in a population",
+          "blocks": [
+            {
+              "type": "paragraph",
+              "text": "Conservation success can be measured as a percentage increase in numbers."
+            },
+            {
+              "type": "equation",
+              "label": "Percentage increase",
+              "formula": "percentage increase = (increase in number ÷ original number) × 100",
+              "where": [
+                "increase in number = new number − original number",
+                "original number is the number at the start"
+              ]
+            },
+            {
+              "type": "steps",
+              "items": [
+                {
+                  "lead": "Increase.",
+                  "text": "A count of males rises from 20 to 90, so the increase is 90 − 20 = 70."
+                },
+                {
+                  "lead": "Divide.",
+                  "text": "70 ÷ 20 = 3.5."
+                },
+                {
+                  "lead": "Multiply by 100.",
+                  "text": "3.5 × 100 = 350%."
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    "ocr": {
+      "spec_codes": [
+        "OCR 6.1c"
+      ],
+      "exam_phrases": [
+        "idea to see (threatened) habitats / (endangered) species / ecosystems / nature",
+        "to raise money / employment / profit / donation",
+        "the elephants are protected (from hunting)",
+        "they receive money / employment due to the tourists",
+        "salt marshes are rare habitats",
+        "they contain plants that do not live anywhere else"
+      ],
+      "mistakes": [
+        {
+          "wrong": "Ecotourism is when tourists visit a country.",
+          "right": "Include both ideas: people see threatened habitats, species or nature, and it raises money, jobs or profit. It can also be in a way that conserves the habitat."
+        },
+        {
+          "wrong": "A disadvantage of relocating elephants is that they are not adapted to the new location, or that they disrupt food chains.",
+          "right": "This is ignored, as is saying they will not survive. Say it is expensive or difficult to transport them, they may be distressed or families split up, or they may spread disease or eat crops in the new place."
+        }
+      ],
+      "worked_example": {
+        "exemplar_id": "595a5354-9379-4179-a67d-c345cd486989",
+        "source": "OCR jun 2019, Paper 2, Q19(d)",
+        "question": "A salt marsh is a large, muddy area of land where a river joins the sea.\n\nIn some salt marshes large sand banks have been built. These stop tides from entering the salt marsh. The level of soil on the salt marsh builds up and the marsh turns into dry land.\n\nLocal farmers want to turn salt marshes into dry land and other people want to leave it as a salt marsh.\n\nExplain why. Use ideas about land use and biodiversity in your answer.",
+        "marks": 6,
+        "answer_points": [
+          "Dry land can be used for growing crops or biofuels, grazing animals, or renewable energy.",
+          "An increasing population means land is needed to supply more food, biofuel or renewable energy.",
+          "Farmers gain more money from more food production.",
+          "Protecting the salt marsh maintains biodiversity, the number of species, habitats and food chains.",
+          "Salt marshes are rare habitats with rare species, so protecting them avoids species becoming extinct or endangered.",
+          "Maintaining biodiversity can provide medicines, and pollinators are crucial."
+        ],
+        "tip": "Levelled answer. For the top level (5 to 6 marks) explain both the uses of the land and how preserving the salt marsh maintains biodiversity, in a clear line of reasoning."
+      },
+      "extra": [
+        {
+          "heading": "Controlling an animal population in a conservation area",
+          "blocks": [
+            {
+              "type": "paragraph",
+              "text": "Where numbers grow too large, for example elephants eating crops, scientists use three main methods. Each has a disadvantage."
+            },
+            {
+              "type": "table",
+              "columns": [
+                "Method",
+                "What it involves",
+                "A disadvantage"
+              ],
+              "rows": [
+                [
+                  "Culling",
+                  "A number of animals from each population are killed",
+                  "Painful, cruel or unethical"
+                ],
+                [
+                  "Relocation",
+                  "Animals are moved to a country where numbers have dropped",
+                  "Expensive and difficult to transport them. They may be distressed or families split up"
+                ],
+                [
+                  "Contraception",
+                  "Females are treated to reduce their fertility",
+                  "May have harmful side effects. They may not be able to reproduce again"
+                ]
+              ]
+            }
+          ]
+        }
+      ]
+    }
+  },
+  "meta": {
+    "status": "draft",
+    "written_by": "sonnet-5-5",
+    "written_at": "2026-10-01",
+    "spec_point_ids": [
+      "5e5a4219-5fbb-4b1c-81b6-dded7c0e89e5",
+      "5ee55e77-1442-4b3b-96c3-103d0a2d347f",
+      "72a447ff-73b9-4764-a444-5304e7636c49",
+      "65aa2855-3de3-4a6e-9805-e440b3ac3fa6"
+    ],
+    "exemplar_ids": [
+      "83a2c2ff-5838-4580-97da-bc9d0f47a150",
+      "8dd4856e-28cd-4352-a652-326d63900b62",
+      "595a5354-9379-4179-a67d-c345cd486989"
+    ],
+    "checked_by": "sonnet-science-check",
+    "checked_at": "2026-10-01"
+  }
+}

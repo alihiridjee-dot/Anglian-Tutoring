@@ -1,0 +1,451 @@
+{
+  "format": 1,
+  "concept_id": "phys-078",
+  "subject": "physics",
+  "title": "Black body radiation",
+  "key_idea": "(Separate science) All bodies emit and absorb infrared radiation, and a hotter body emits more. A perfect black body absorbs all radiation and is the best emitter. A body's temperature is set by the balance between radiation absorbed and radiation emitted.",
+  "sections": [
+    {
+      "heading": "Emitting and absorbing infrared",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "(Separate science) This section covers how every object emits and absorbs infrared radiation."
+        },
+        {
+          "type": "list",
+          "items": [
+            "All bodies, whatever their temperature, emit and absorb infrared radiation.",
+            "The hotter a body is, the more infrared radiation it radiates in a given time.",
+            "The intensity and the wavelengths of the radiation both depend on the temperature of the body.",
+            "A hot object emits a continuous range of electromagnetic radiation.",
+            "The Sun is much hotter than the Earth, so it emits infrared at a greater rate."
+          ]
+        },
+        {
+          "type": "key-points",
+          "items": [
+            "(Separate science) All bodies emit and absorb infrared radiation.",
+            "A hotter body emits more infrared radiation each second.",
+            "The temperature of a body affects the intensity and wavelengths it emits."
+          ]
+        }
+      ]
+    },
+    {
+      "heading": "Perfect black bodies",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "(Separate science) This section covers the best possible absorber and emitter."
+        },
+        {
+          "type": "definitions",
+          "items": [
+            {
+              "term": "Perfect black body",
+              "meaning": "An object that absorbs all of the radiation that hits it. It does not reflect or transmit any radiation."
+            }
+          ]
+        },
+        {
+          "type": "list",
+          "items": [
+            "A good absorber of radiation is also a good emitter.",
+            "A perfect black body is the best possible emitter.",
+            "Black surfaces are good absorbers and good emitters of infrared.",
+            "White and shiny surfaces are poor absorbers and poor emitters.",
+            "Matt surfaces absorb more infrared than shiny surfaces of the same colour."
+          ]
+        },
+        {
+          "type": "key-points",
+          "items": [
+            "(Separate science) A perfect black body absorbs all radiation and reflects or transmits none.",
+            "Good absorbers are good emitters.",
+            "Black matt surfaces absorb and emit best."
+          ]
+        }
+      ]
+    },
+    {
+      "heading": "Absorbed and emitted radiation",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "(Separate science) This section covers how the balance between absorbing and emitting sets a body's temperature."
+        },
+        {
+          "type": "list",
+          "items": [
+            "A body at constant temperature absorbs radiation at the same rate as it emits radiation.",
+            "The temperature rises if the body absorbs radiation faster than it emits it.",
+            "The temperature falls if it emits radiation faster than it absorbs it.",
+            "A hotter body emits at a greater rate, so a warming body eventually reaches a constant temperature."
+          ]
+        },
+        {
+          "type": "diagram",
+          "diagram": {
+            "kind": "predictor",
+            "alt": "Pick a situation to see how the balance of absorbed and emitted radiation changes the temperature.",
+            "prompt": "Pick a situation",
+            "result_labels": [
+              "Absorbed and emitted radiation",
+              "Temperature of the body"
+            ],
+            "options": [
+              {
+                "label": "A cold cube is placed in front of an infrared heater",
+                "results": [
+                  "The cube absorbs radiation faster than it emits it.",
+                  "The temperature rises."
+                ]
+              },
+              {
+                "label": "The cube has warmed up and reached a steady temperature",
+                "results": [
+                  "The cube emits radiation at the same rate that it absorbs it.",
+                  "The temperature stays constant."
+                ]
+              },
+              {
+                "label": "The heater is switched off",
+                "results": [
+                  "The cube emits radiation faster than it absorbs it.",
+                  "The temperature falls."
+                ]
+              },
+              {
+                "label": "A black cube and a white cube are heated by the same heater",
+                "results": [
+                  "The black cube is the better absorber, so it absorbs radiation faster at first.",
+                  "The black cube warms up faster."
+                ]
+              },
+              {
+                "label": "More greenhouse gases build up around the Earth",
+                "results": [
+                  "The Earth emits less radiation to space than it absorbs.",
+                  "The temperature of the Earth rises."
+                ]
+              }
+            ]
+          }
+        },
+        {
+          "type": "diagram",
+          "diagram": {
+            "kind": "line-graph",
+            "alt": "Temperature against time for a black cube and a white cube heated by an infrared heater. Both rise quickly at first and then level off. The black cube rises faster.",
+            "x": {
+              "label": "Time",
+              "min": 0,
+              "max": 12,
+              "ticks": [
+                0,
+                2,
+                4,
+                6,
+                8,
+                10,
+                12
+              ],
+              "unit": "min"
+            },
+            "y": {
+              "label": "Temperature"
+            },
+            "series": [
+              {
+                "name": "Black cube",
+                "points": [
+                  [
+                    0,
+                    0.1
+                  ],
+                  [
+                    2,
+                    0.55
+                  ],
+                  [
+                    4,
+                    0.75
+                  ],
+                  [
+                    6,
+                    0.85
+                  ],
+                  [
+                    8,
+                    0.88
+                  ],
+                  [
+                    10,
+                    0.88
+                  ],
+                  [
+                    12,
+                    0.88
+                  ]
+                ]
+              },
+              {
+                "name": "White cube",
+                "points": [
+                  [
+                    0,
+                    0.1
+                  ],
+                  [
+                    2,
+                    0.4
+                  ],
+                  [
+                    4,
+                    0.58
+                  ],
+                  [
+                    6,
+                    0.68
+                  ],
+                  [
+                    8,
+                    0.72
+                  ],
+                  [
+                    10,
+                    0.72
+                  ],
+                  [
+                    12,
+                    0.72
+                  ]
+                ]
+              }
+            ],
+            "markers": [
+              {
+                "x": 8,
+                "label": "Absorbed = emitted"
+              }
+            ]
+          }
+        },
+        {
+          "type": "key-points",
+          "items": [
+            "(Separate science) Constant temperature means rate absorbed equals rate emitted.",
+            "Absorbing faster than emitting makes the temperature rise.",
+            "Emission increases as temperature rises, so the temperature levels off."
+          ]
+        }
+      ]
+    },
+    {
+      "heading": "The temperature of the Earth",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "(Separate science) This section covers what controls the Earth's temperature."
+        },
+        {
+          "type": "list",
+          "items": [
+            "The Earth absorbs radiation from the Sun and emits infrared radiation into space.",
+            "Some radiation from the Sun is reflected back into space.",
+            "If the radiation absorbed equals the radiation emitted, the Earth's temperature stays constant.",
+            "If more is absorbed than emitted, the temperature rises.",
+            "Greenhouse gases in the atmosphere absorb some of the infrared the Earth emits and send some back towards the surface.",
+            "More greenhouse gases mean less radiation escapes, so the Earth warms up."
+          ]
+        },
+        {
+          "type": "paragraph",
+          "text": "A planet further from the Sun receives less energy, so it is usually cooler."
+        },
+        {
+          "type": "key-points",
+          "items": [
+            "(Separate science) The Earth's temperature depends on absorption, emission and reflection into space.",
+            "Greenhouse gases return some emitted infrared towards the surface.",
+            "More greenhouse gases raise the Earth's temperature."
+          ]
+        }
+      ]
+    }
+  ],
+  "checks": [
+    {
+      "q": "Describe what happens to the temperature of a body that absorbs radiation faster than it emits radiation.",
+      "a": "The temperature of the body increases.",
+      "marks": 1
+    },
+    {
+      "q": "Explain why the temperature of a cube in front of an infrared heater stops rising after a few minutes.",
+      "a": "The hotter the cube, the greater the rate at which it emits infrared. Eventually it emits at the same rate as it absorbs, so the temperature is constant.",
+      "marks": 3
+    },
+    {
+      "q": "What is a perfect black body?",
+      "a": "An object that absorbs all the radiation that hits it. It does not reflect or transmit any radiation.",
+      "marks": 2
+    }
+  ],
+  "boards": {
+    "aqa": {
+      "spec_codes": [
+        "AQA 4.6.3.1",
+        "AQA 4.6.3.2"
+      ],
+      "exam_phrases": [
+        "black surfaces are good absorbers (and emitters of infrared / radiation)",
+        "white surfaces are poor absorbers (and emitters)",
+        "as the temperature of the cubes increases the cubes emit infrared at a greater rate",
+        "at constant temperature, each cube emits infrared at the same rate that it absorbs infrared",
+        "the Sun is at a higher temperature",
+        "greatest temperature difference"
+      ],
+      "mistakes": [
+        {
+          "wrong": "The black cube absorbs more heat than the white cube.",
+          "right": "References to heat are ignored. Say the black cube absorbs more infrared radiation."
+        },
+        {
+          "wrong": "The cubes stop changing temperature because they stop absorbing infrared.",
+          "right": "They keep absorbing. The temperature is constant because each cube emits infrared at the same rate that it absorbs it."
+        },
+        {
+          "wrong": "The flasks emit the most infrared at the end of 10 minutes of cooling.",
+          "right": "They emit at the greatest rate during the first minute, when the temperature difference with the surroundings is greatest."
+        }
+      ],
+      "worked_example": {
+        "exemplar_id": "38d5909b-6c24-4c45-aba6-c814bc66f358",
+        "source": "AQA jun 2025, Paper 2 (H), Q5.5",
+        "question": "A student investigated how the colour of an object affects the rate of change of temperature of the object. The student made two observations:\n\n1. The rate of change of temperature was initially greater for a black cube than for a white cube.\n2. After a few minutes, both cubes stopped changing temperature.\n\nExplain the student's observations. You should refer to the absorption and emission of radiation from the surfaces of the cubes.",
+        "marks": 4,
+        "answer_points": [
+          "Black surfaces are good absorbers (and emitters) of infrared.",
+          "White surfaces are poor absorbers (and emitters) of infrared.",
+          "As the temperature of the cubes increases, they emit infrared at a greater rate.",
+          "At the constant temperature, each cube emits infrared at the same rate that it absorbs infrared."
+        ],
+        "tip": "References to heat are ignored, so write about infrared or radiation."
+      },
+      "extra": [
+        {
+          "heading": "Higher tier content",
+          "blocks": [
+            {
+              "type": "paragraph",
+              "text": "(Higher tier) The balance between absorbed and emitted radiation, and the factors that decide the temperature of the Earth, are Higher tier only."
+            }
+          ]
+        }
+      ]
+    },
+    "edexcel": {
+      "spec_codes": [
+        "EDEX 5.15P",
+        "EDEX 5.16P",
+        "EDEX 5.17P",
+        "EDEX 5.18P"
+      ],
+      "exam_phrases": [
+        "P is absorbing radiation / (thermal) energy",
+        "P is (also) emitting radiation / (thermal) energy",
+        "(rate of) emission increases with temperature",
+        "(temperature constant) when (rate of) emission = (rate of) absorption",
+        "black / P is good absorber / poor reflector",
+        "white / Q is good reflector / poor absorber"
+      ],
+      "mistakes": [
+        {
+          "wrong": "The temperature of P is constant because P stops absorbing radiation.",
+          "right": "P keeps absorbing, and also emits. The temperature is constant when the rate of emission equals the rate of absorption."
+        },
+        {
+          "wrong": "The temperature is constant when emission equals absorption.",
+          "right": "Say the rate of emission equals the rate of absorption. A mention of rate earns a mark."
+        },
+        {
+          "wrong": "Sphere P heats up faster because black is hotter.",
+          "right": "Black is a good absorber and poor reflector. White is a good reflector and poor absorber."
+        }
+      ],
+      "worked_example": {
+        "exemplar_id": "85fdaacf-8027-4aae-9232-0b761e763467",
+        "source": "EDEXCEL jun 2023, Paper 1 (H), Q8(b)(ii)",
+        "question": "Two iron spheres, P and Q, are near to a radiant heater. P is painted black and Q is painted white. Each sphere is the same distance away from the heater. The spheres have the same radius.\n\nThe heater is switched on and the spheres heat up.\n\nThe heater remains switched on. The temperature of sphere P rises and then reaches a constant value.\n\nExplain why the temperature of P reaches a constant value, even though the heater remains switched on.",
+        "marks": 4,
+        "answer_points": [
+          "P is absorbing radiation (thermal energy).",
+          "P is also emitting radiation.",
+          "The rate of emission increases with temperature.",
+          "The temperature is constant when the rate of emission equals the rate of absorption."
+        ],
+        "tip": "Four marks from these points, with an extra mark available for mentioning rate in either of the last two."
+      }
+    },
+    "ocr": {
+      "spec_codes": [
+        "OCR P8.3d",
+        "OCR P8.3h"
+      ],
+      "exam_phrases": [
+        "the Earth radiates (infrared) radiation back into space",
+        "if energy absorbed = energy emitted, the temperature stays constant",
+        "if energy absorbed > energy emitted, the temperature increases",
+        "greenhouse gases / CO2 absorb some of the Earth's emitted (infrared) radiation",
+        "some of the infrared radiation is radiated back towards the Earth's surface",
+        "the amount of greenhouse gases is increasing",
+        "(Mars is further from the Sun) so receives less energy"
+      ],
+      "mistakes": [
+        {
+          "wrong": "The Earth is warming because of greenhouse gases. (Nothing about the radiation absorbed and emitted.)",
+          "right": "A maximum of 3 marks is given for only one aspect. Also explain that the Earth absorbs more radiation than it emits, so its temperature rises."
+        },
+        {
+          "wrong": "The Earth absorbs long wavelength infrared and emits ultraviolet.",
+          "right": "The Earth absorbs UV, light or shorter wavelength radiation from the Sun and emits longer wavelength infrared."
+        }
+      ],
+      "worked_example": {
+        "exemplar_id": "ef07ffa2-bca9-4a48-b262-d41c6db0c7de",
+        "source": "OCR jun 2024, Paper 4, Q21(c)",
+        "question": "Explain why the average temperature of the Earth is increasing.\n\nIn your answer, write about:\n• the radiation absorbed and emitted by the Earth\n• the effect of the Earth's atmosphere.",
+        "marks": 6,
+        "answer_points": [
+          "The Earth absorbs radiation from the Sun and emits infrared radiation back into space.",
+          "If the energy absorbed is greater than the energy emitted, the temperature of the Earth increases.",
+          "Greenhouse gases (such as CO₂) in the atmosphere absorb some of the infrared radiation emitted by the Earth.",
+          "Some of this infrared is radiated back towards the Earth's surface.",
+          "The amount of greenhouse gases is increasing, so the greenhouse effect is increasing."
+        ],
+        "tip": "This is a levels question. Cover both the radiation balance and the atmosphere: with only one of these the maximum is 3 marks."
+      }
+    }
+  },
+  "meta": {
+    "status": "draft",
+    "written_by": "sonnet-5-5",
+    "written_at": "2026-10-01",
+    "spec_point_ids": [
+      "d72b3417-85bd-4f0b-9c0d-37ab73a89e0c",
+      "8b8e65af-726e-4050-9883-01a9e757fa69",
+      "a854a0eb-f1a5-4eb7-a561-02ea2c7226c2",
+      "7b42cd75-7b08-4303-86da-19fc57e3b1f7",
+      "2b2fcf4b-42aa-493d-9a28-f525662a0e71",
+      "46c1b419-e32a-43df-acf6-9192bebbbdf6",
+      "4c4643ff-82df-4e8b-b77f-855515f09f43",
+      "8ee461d3-c925-4563-a1ed-966325f4df56"
+    ],
+    "exemplar_ids": [
+      "38d5909b-6c24-4c45-aba6-c814bc66f358",
+      "85fdaacf-8027-4aae-9232-0b761e763467",
+      "ef07ffa2-bca9-4a48-b262-d41c6db0c7de"
+    ]
+  }
+}

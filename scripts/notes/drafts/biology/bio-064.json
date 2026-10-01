@@ -1,0 +1,398 @@
+{
+  "format": 1,
+  "concept_id": "bio-064",
+  "subject": "biology",
+  "title": "Metabolism",
+  "key_idea": "Metabolism is the sum of all the reactions in a cell or the body. The energy from respiration drives enzyme-controlled reactions that build large molecules from small ones. Other reactions break large molecules down into their small units.",
+  "sections": [
+    {
+      "heading": "What metabolism is",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "Every reaction in your cells is part of your metabolism. Respiration supplies the energy for the reactions that build new molecules."
+        },
+        {
+          "type": "definitions",
+          "items": [
+            {
+              "term": "Metabolism",
+              "meaning": "The sum of all the reactions in a cell or the body."
+            },
+            {
+              "term": "Synthesis",
+              "meaning": "Building a larger molecule from smaller ones."
+            },
+            {
+              "term": "Monomer",
+              "meaning": "A small unit that joins with others to make a larger molecule."
+            },
+            {
+              "term": "Polymer",
+              "meaning": "A large molecule made of many monomers joined together."
+            }
+          ]
+        },
+        {
+          "type": "list",
+          "items": [
+            "The energy transferred by respiration is used for continual, enzyme-controlled reactions that synthesise new molecules.",
+            "Respiration is itself part of metabolism.",
+            "Breaking down excess proteins to make urea for excretion is also part of metabolism."
+          ]
+        },
+        {
+          "type": "diagram",
+          "diagram": {
+            "kind": "sort",
+            "alt": "Sort each reaction into building up molecules or breaking them down.",
+            "prompt": "Sort the reactions of metabolism",
+            "groups": [
+              "Building up (synthesis)",
+              "Breaking down"
+            ],
+            "items": [
+              {
+                "text": "Glucose to starch",
+                "group": 0
+              },
+              {
+                "text": "Glucose to glycogen",
+                "group": 0
+              },
+              {
+                "text": "Glycerol and fatty acids to a lipid",
+                "group": 0
+              },
+              {
+                "text": "Amino acids to a protein",
+                "group": 0
+              },
+              {
+                "text": "Starch to glucose",
+                "group": 1
+              },
+              {
+                "text": "Lipid to glycerol and fatty acids",
+                "group": 1
+              },
+              {
+                "text": "Protein to amino acids",
+                "group": 1
+              },
+              {
+                "text": "Excess amino acids to urea",
+                "group": 1
+              }
+            ]
+          }
+        },
+        {
+          "type": "key-points",
+          "items": [
+            "Metabolism is all the reactions in a cell or the body.",
+            "Its reactions are controlled by enzymes and use energy from respiration.",
+            "Some reactions build molecules up and others break them down."
+          ]
+        }
+      ]
+    },
+    {
+      "heading": "Building molecules",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "Cells join small molecules together to make the large molecules they need."
+        },
+        {
+          "type": "table",
+          "columns": [
+            "Product",
+            "Made from",
+            "Notes"
+          ],
+          "rows": [
+            [
+              "Starch, glycogen and cellulose",
+              "Glucose (sugar) monomers",
+              "Starch is stored in plant cells and glycogen in animal cells. Cellulose strengthens plant cell walls."
+            ],
+            [
+              "Lipid (fat or oil)",
+              "1 glycerol and 3 fatty acids",
+              "One glycerol molecule joins to three fatty acid molecules."
+            ],
+            [
+              "Protein",
+              "Amino acids",
+              "Plants make amino acids from glucose and nitrate ions."
+            ]
+          ]
+        },
+        {
+          "type": "key-points",
+          "items": [
+            "Glucose is joined to make starch, glycogen and cellulose.",
+            "A lipid is made from 1 glycerol and 3 fatty acids.",
+            "Glucose and nitrate ions make amino acids, which are used to synthesise proteins."
+          ]
+        }
+      ]
+    },
+    {
+      "heading": "Breaking molecules down",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "Enzymes also break large molecules into their small units. The small units can then be absorbed into cells."
+        },
+        {
+          "type": "list",
+          "items": [
+            "Starch is broken down to glucose by amylase, a carbohydrase. The starch fits the active site and the bonds between glucose molecules are broken.",
+            "Proteins are broken down to amino acids by protease enzymes.",
+            "Lipids are broken down by lipase to fatty acids and glycerol. The fatty acids are acidic, so the pH falls.",
+            "Glucose, amino acids, fatty acids and glycerol move into cells from the blood.",
+            "Excess amino acids are broken down to form urea, which is excreted."
+          ]
+        },
+        {
+          "type": "key-points",
+          "items": [
+            "Polymers are broken down into monomers by enzymes.",
+            "Lipase breaks lipids into fatty acids and glycerol, and the fatty acids lower the pH.",
+            "Urea is made from the breakdown of excess proteins."
+          ]
+        }
+      ]
+    },
+    {
+      "heading": "Metabolic rate",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "Metabolic rate is how fast the reactions of metabolism go. It is higher when the body is more active, because more respiration releases more energy."
+        },
+        {
+          "type": "list",
+          "items": [
+            "A swimming fish has a higher metabolic rate than a resting fish, because movement needs more energy and so more respiration.",
+            "The mean metabolic rate of humans falls with age, for example from 53 to 36 kJ/m²/hour in males between 5 and 45 years old."
+          ]
+        },
+        {
+          "type": "equation",
+          "label": "Percentage decrease",
+          "formula": "percentage decrease = (decrease ÷ original value) × 100",
+          "where": [
+            "decrease = original value − new value",
+            "original and new values in the same unit, for example kJ/m²/hour"
+          ]
+        },
+        {
+          "type": "diagram",
+          "diagram": {
+            "kind": "practice",
+            "alt": "Practise calculating a percentage decrease in mean metabolic rate.",
+            "question": "The mean metabolic rate of a group fell from **{a} kJ/m²/hour** to **{b} kJ/m²/hour**. Calculate the percentage decrease. Give your answer to 1 decimal place.",
+            "variables": [
+              {
+                "id": "a",
+                "min": 40,
+                "max": 50,
+                "step": 10
+              },
+              {
+                "id": "b",
+                "min": 30,
+                "max": 38,
+                "step": 1
+              }
+            ],
+            "answer": {
+              "formula": "(a - b) / a * 100",
+              "unit": "%",
+              "decimals": 1
+            },
+            "working": [
+              "Decrease = {a} − {b}",
+              "Percentage decrease = decrease ÷ {a} × 100 = **{answer}** %"
+            ]
+          }
+        },
+        {
+          "type": "key-points",
+          "items": [
+            "More activity means more respiration, so a higher metabolic rate.",
+            "Always divide the decrease by the original value."
+          ]
+        }
+      ]
+    }
+  ],
+  "checks": [
+    {
+      "q": "What is metabolism?",
+      "a": "The sum of all the reactions in a cell or the body.",
+      "marks": 1
+    },
+    {
+      "q": "Describe how nitrate ions are used in a plant to help it grow.",
+      "a": "Nitrate ions are used with glucose to form amino acids. The amino acids are used to synthesise proteins needed for growth.",
+      "marks": 3
+    },
+    {
+      "q": "Which molecules are joined to make a lipid?",
+      "a": "One molecule of glycerol and three molecules of fatty acids.",
+      "marks": 2
+    }
+  ],
+  "boards": {
+    "aqa": {
+      "spec_codes": [
+        "AQA 4.8",
+        "AQA T 4.4.2.3"
+      ],
+      "exam_phrases": [
+        "nitrate ions are used with glucose to form amino acids",
+        "(which are) used to synthesise proteins (needed for growth)",
+        "urea / glycogen / starch / cellulose",
+        "glucose / amino acids / fatty acids / glycerol / water / mineral ions move into cells",
+        "respiration releases energy / is exothermic",
+        "(increased) movement needs (more) energy, so more respiration takes place"
+      ],
+      "mistakes": [
+        {
+          "wrong": "Exercise burns energy, and respiration produces energy.",
+          "right": "\"Energy is burnt\" and \"energy produced / made / created\" are not accepted. Say energy is transferred or released."
+        },
+        {
+          "wrong": "Plants use the glucose from photosynthesis for growth.",
+          "right": "\"Growth\" is ignored. Give a specific use: respiration, converting to starch, producing fat or oil, producing cellulose, or producing amino acids or protein."
+        },
+        {
+          "wrong": "Urea and carbon dioxide move into cells from the blood.",
+          "right": "Carbon dioxide and urea are ignored. Substances that move into cells from the blood include glucose, water, amino acids, fatty acids, glycerol and mineral ions."
+        },
+        {
+          "wrong": "Metabolic rate is higher when swimming because more energy is produced for respiration.",
+          "right": "\"Energy produced\" and \"energy for respiration\" are not accepted. Say the movement needs more energy, so more respiration takes place for muscle contraction."
+        }
+      ],
+      "worked_example": {
+        "exemplar_id": "ac329d10-9ebf-4d7e-a7ba-eab99f76a15a",
+        "source": "AQA jun 2019, Paper 1 (H), Q5.5",
+        "question": "Nitrate ions are essential for plants to grow.\n\nDescribe how nitrate ions are used in a plant to help the plant grow.",
+        "marks": 3,
+        "answer_points": [
+          "Nitrate ions are used with glucose.",
+          "To form amino acids.",
+          "The amino acids are used to synthesise proteins (needed for growth)."
+        ],
+        "tip": "One mark for each step in the chain: nitrate ions and glucose, then amino acids, then proteins."
+      }
+    },
+    "edexcel": {
+      "spec_codes": [
+        "EDEX 1.12"
+      ],
+      "exam_phrases": [
+        "lipase digests fat / lipid",
+        "forming fatty acids (and glycerol)",
+        "which are acidic / lowering the pH of the mixture",
+        "enzyme / amylase / carbohydrase",
+        "starch fits into the active site",
+        "bonds (between glucose molecules in starch) broken",
+        "polymer broken down into monomers",
+        "milk A did not contain any / much fat, as there was no substrate"
+      ],
+      "mistakes": [
+        {
+          "wrong": "Starch is broken down into glucose by acid.",
+          "right": "The marks are for an enzyme (amylase or carbohydrase), the starch fitting into the active site, and the bonds between glucose molecules being broken."
+        },
+        {
+          "wrong": "The pH fell because acid was made.",
+          "right": "Say lipase digests the fat, forming fatty acids (and glycerol), and that the fatty acids are acidic, so they lower the pH."
+        },
+        {
+          "wrong": "Fat is digested to fatty acids only, when describing how fat is digested.",
+          "right": "Fats are digested by an enzyme, lipase, into glycerol and fatty acids. When describing digestion, name both products."
+        }
+      ],
+      "worked_example": {
+        "exemplar_id": "51b24e35-7391-463a-9a0e-d05ff1375329",
+        "source": "EDEXCEL jun 2022, Paper 1 (H), Q6(b)(i)",
+        "question": "5 cm³ of milk B and 1 cm³ of lipase were added to a test tube. The pH of this mixture was pH 7.\n\nThis test tube was placed in a water bath for 10 minutes. The pH of the mixture changed from pH 7 to pH 5.\n\nExplain what caused this change in pH.",
+        "marks": 3,
+        "answer_points": [
+          "Lipase digests (breaks down) fat or lipid.",
+          "Forming fatty acids (and glycerol).",
+          "Which are acidic, lowering the pH of the mixture (allow: removing fat makes the milk more acidic)."
+        ],
+        "tip": "One mark for each link: lipase digests fat, fatty acids are formed, and the fatty acids are acidic."
+      }
+    },
+    "ocr": {
+      "spec_codes": [
+        "OCR 1.3d",
+        "OCR 1.3e",
+        "OCR 1.3f"
+      ],
+      "exam_phrases": [
+        "sugars are the monomers",
+        "sugars are joined together to make the polymer / cellulose",
+        "polymers",
+        "monomers",
+        "fatty acids are obtained by breaking down / digesting larger molecules",
+        "from lipids / fats / oils / triglycerides",
+        "produces fatty acids"
+      ],
+      "mistakes": [
+        {
+          "wrong": "The pH falls because acids are produced.",
+          "right": "\"Produces acids\" earns only one mark. Name the acids made when fat is broken down: fatty acids, for the second mark."
+        },
+        {
+          "wrong": "Sugars are needed to make the cell wall because they give it energy.",
+          "right": "The marks are for sugars being the monomers, which are joined together to make the polymer, cellulose."
+        },
+        {
+          "wrong": "Large molecules like proteins are called monomers and the smaller amino acids are called polymers.",
+          "right": "Large molecules made of smaller ones are polymers. The smaller molecules, such as amino acids, are monomers."
+        }
+      ],
+      "worked_example": {
+        "exemplar_id": "efba3ddd-6c4c-486f-a736-dbf37a2b6846",
+        "source": "OCR nov 2021, Paper 1, Q16(b)(v)",
+        "question": "The cell wall in the plant cell is made from a carbohydrate called cellulose. Cellulose is a polymer.\n\nExplain why sugars are needed to make the cell wall.",
+        "marks": 2,
+        "answer_points": [
+          "Sugars are the monomers.",
+          "Sugars are joined together to make the polymer (cellulose).",
+          "Allow: cellulose is made up of sugar or glucose monomers, for 2 marks."
+        ],
+        "tip": "Use the words monomer and polymer. Glucose is accepted as the sugar."
+      }
+    }
+  },
+  "meta": {
+    "status": "draft",
+    "written_by": "sonnet-5-5",
+    "written_at": "2026-10-01",
+    "spec_point_ids": [
+      "7073e13a-b626-4532-9ec0-5fd65aa494d1",
+      "6052ddc4-1d05-4482-9b42-ef95e2e27014",
+      "ea6e9475-512a-46b7-b02a-0759bad1ae78",
+      "1d5df90a-3540-48b6-b263-7674c2f563e6",
+      "ca0f2e01-8c2b-4bcd-9421-fd9736e23797"
+    ],
+    "exemplar_ids": [
+      "ac329d10-9ebf-4d7e-a7ba-eab99f76a15a",
+      "51b24e35-7391-463a-9a0e-d05ff1375329",
+      "efba3ddd-6c4c-486f-a736-dbf37a2b6846"
+    ],
+    "checked_by": "sonnet-science-check",
+    "checked_at": "2026-10-01"
+  }
+}

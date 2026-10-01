@@ -1,0 +1,385 @@
+{
+  "format": 1,
+  "concept_id": "chem-055",
+  "subject": "chemistry",
+  "title": "Electrolysis of aqueous solutions",
+  "key_idea": "An aqueous solution contains the ions of the compound and also H⁺ and OH⁻ ions from water. At the cathode, hydrogen forms if the metal is more reactive than hydrogen. At the anode, oxygen forms unless the solution contains halide ions.",
+  "sections": [
+    {
+      "heading": "Ions in an aqueous solution",
+      "blocks": [
+        { "type": "paragraph", "text": "This section covers why a solution has more ions than the compound alone." },
+        {
+          "type": "definitions",
+          "items": [
+            { "term": "Aqueous solution", "meaning": "A substance dissolved in water." },
+            { "term": "Discharged", "meaning": "An ion that gains or loses electrons at an electrode and forms an atom or molecule." },
+            { "term": "Halide ion", "meaning": "A negative ion of a halogen, such as chloride, bromide or iodide." }
+          ]
+        },
+        {
+          "type": "list",
+          "items": [
+            "Water molecules break down to produce **hydrogen ions** (H⁺) and **hydroxide ions** (OH⁻).",
+            "So the solution has two positive ions and two negative ions.",
+            "Only one ion is discharged at each electrode.",
+            "Which ion is discharged depends on the reactivity of the elements involved."
+          ]
+        },
+        {
+          "type": "table",
+          "columns": ["Solution", "Positive ions", "Negative ions"],
+          "rows": [
+            ["Sodium chloride", "Na⁺, H⁺", "Cl⁻, OH⁻"],
+            ["Copper sulfate", "Cu²⁺, H⁺", "SO₄²⁻, OH⁻"],
+            ["Potassium bromide", "K⁺, H⁺", "Br⁻, OH⁻"]
+          ]
+        },
+        {
+          "type": "key-points",
+          "items": [
+            "Water adds H⁺ and OH⁻ ions to every aqueous solution.",
+            "One ion is discharged at each electrode."
+          ]
+        }
+      ]
+    },
+    {
+      "heading": "Predicting the products",
+      "blocks": [
+        { "type": "paragraph", "text": "This section covers the rules for the product at each electrode, using inert electrodes and a solution of one compound." },
+        { "type": "subheading", "text": "At the negative electrode (cathode)" },
+        {
+          "type": "list",
+          "items": [
+            "If the metal is **more reactive than hydrogen**, hydrogen forms. Sodium and potassium solutions give hydrogen.",
+            "If the metal is **less reactive than hydrogen**, the metal forms. Copper solutions give copper.",
+            "Hydrogen is seen as bubbles. It burns with a squeaky pop.",
+            "Copper is seen as a pink-brown solid on the electrode."
+          ]
+        },
+        { "type": "subheading", "text": "At the positive electrode (anode)" },
+        {
+          "type": "list",
+          "items": [
+            "If the solution contains **halide ions**, the halogen forms. Chloride gives chlorine, bromide gives bromine and iodide gives iodine.",
+            "If there are no halide ions, **oxygen** forms. Sulfate and nitrate solutions give oxygen.",
+            "Chlorine and oxygen are seen as bubbles. Chlorine bleaches damp litmus paper."
+          ]
+        },
+        {
+          "type": "diagram",
+          "diagram": {
+            "kind": "predictor",
+            "alt": "Choose a salt solution to see the products of electrolysis at each electrode.",
+            "prompt": "Pick a salt solution",
+            "result_labels": ["Negative electrode", "Positive electrode", "Why"],
+            "options": [
+              {
+                "label": "Sodium chloride",
+                "results": [
+                  "**Hydrogen**",
+                  "**Chlorine**",
+                  "Sodium is more reactive than hydrogen. Chloride is a halide."
+                ],
+                "explanation": "Na⁺ and OH⁻ are left in solution, so the solution becomes alkaline.",
+                "scene": {
+                  "kind": "electrolysis",
+                  "ions": ["Na⁺", "Cl⁻"],
+                  "negative": { "product": "Hydrogen", "form": "gas" },
+                  "positive": { "product": "Chlorine", "form": "gas" }
+                }
+              },
+              {
+                "label": "Copper sulfate",
+                "results": [
+                  "**Copper**",
+                  "**Oxygen**",
+                  "Copper is less reactive than hydrogen. There is no halide."
+                ],
+                "scene": {
+                  "kind": "electrolysis",
+                  "ions": ["Cu²⁺", "SO₄²⁻"],
+                  "negative": { "product": "Copper", "form": "metal", "metal": "copper" },
+                  "positive": { "product": "Oxygen", "form": "gas" }
+                }
+              },
+              {
+                "label": "Sodium sulfate",
+                "results": [
+                  "**Hydrogen**",
+                  "**Oxygen**",
+                  "Sodium is more reactive than hydrogen. There is no halide."
+                ],
+                "scene": {
+                  "kind": "electrolysis",
+                  "ions": ["Na⁺", "SO₄²⁻"],
+                  "negative": { "product": "Hydrogen", "form": "gas" },
+                  "positive": { "product": "Oxygen", "form": "gas" }
+                }
+              },
+              {
+                "label": "Copper chloride",
+                "results": [
+                  "**Copper**",
+                  "**Chlorine**",
+                  "Copper is less reactive than hydrogen. Chloride is a halide."
+                ],
+                "scene": {
+                  "kind": "electrolysis",
+                  "ions": ["Cu²⁺", "Cl⁻"],
+                  "negative": { "product": "Copper", "form": "metal", "metal": "copper" },
+                  "positive": { "product": "Chlorine", "form": "gas" }
+                }
+              },
+              {
+                "label": "Potassium bromide",
+                "results": [
+                  "**Hydrogen**",
+                  "**Bromine**",
+                  "Potassium is more reactive than hydrogen. Bromide is a halide."
+                ],
+                "scene": {
+                  "kind": "electrolysis",
+                  "ions": ["K⁺", "Br⁻"],
+                  "negative": { "product": "Hydrogen", "form": "gas" },
+                  "positive": { "product": "Bromine", "form": "solution", "colour": "orange" }
+                }
+              },
+              {
+                "label": "Potassium iodide",
+                "results": [
+                  "**Hydrogen**",
+                  "**Iodine**",
+                  "Potassium is more reactive than hydrogen. Iodide is a halide."
+                ],
+                "scene": {
+                  "kind": "electrolysis",
+                  "ions": ["K⁺", "I⁻"],
+                  "negative": { "product": "Hydrogen", "form": "gas" },
+                  "positive": { "product": "Iodine", "form": "solution", "colour": "brown" }
+                }
+              }
+            ]
+          }
+        },
+        {
+          "type": "key-points",
+          "items": [
+            "Negative electrode: hydrogen if the metal is more reactive than hydrogen, otherwise the metal.",
+            "Positive electrode: a halogen if there is a halide ion, otherwise oxygen."
+          ]
+        }
+      ]
+    },
+    {
+      "heading": "Explaining why hydrogen or oxygen forms",
+      "blocks": [
+        { "type": "paragraph", "text": "This section covers the explanation that exam questions ask for." },
+        { "type": "subheading", "text": "Hydrogen at the negative electrode" },
+        {
+          "type": "list",
+          "items": [
+            "Water breaks down to produce H⁺ ions.",
+            "H⁺ ions are attracted to the negative electrode.",
+            "The metal is more reactive than hydrogen, so H⁺ ions are discharged instead of the metal ions. Hydrogen forms.",
+            "(Higher tier) H⁺ ions gain electrons. They are reduced."
+          ]
+        },
+        { "type": "subheading", "text": "Oxygen at the positive electrode" },
+        {
+          "type": "list",
+          "items": [
+            "Water breaks down to produce OH⁻ ions.",
+            "OH⁻ ions are attracted to the positive electrode.",
+            "There is no halide in the solution, so OH⁻ ions are discharged. Oxygen forms.",
+            "(Higher tier) OH⁻ ions lose electrons. They are oxidised."
+          ]
+        },
+        { "type": "subheading", "text": "The solution left behind" },
+        {
+          "type": "list",
+          "items": [
+            "In sodium chloride solution, H⁺ ions are discharged at the negative electrode and Cl⁻ ions at the positive electrode.",
+            "Sodium ions and hydroxide ions are left in the solution.",
+            "The solution becomes alkaline, so its pH increases."
+          ]
+        },
+        {
+          "type": "key-points",
+          "items": [
+            "H⁺ and OH⁻ ions come from water.",
+            "The metal is more reactive than hydrogen, so hydrogen is made instead of the metal.",
+            "Sodium chloride solution is left alkaline, because OH⁻ ions remain."
+          ]
+        }
+      ]
+    }
+  ],
+  "checks": [
+    {
+      "q": "Name the product at each electrode when potassium bromide solution is electrolysed.",
+      "a": "Negative electrode: hydrogen. Positive electrode: bromine.",
+      "marks": 2
+    },
+    {
+      "q": "Explain why sodium is not made when sodium chloride solution is electrolysed.",
+      "a": "Sodium is more reactive than hydrogen, so hydrogen ions are discharged and hydrogen is produced instead.",
+      "marks": 2
+    },
+    {
+      "q": "Describe what is seen at each electrode when copper chloride solution is electrolysed.",
+      "a": "Positive electrode: bubbles (of chlorine). Negative electrode: a pink-brown solid (copper).",
+      "marks": 2
+    }
+  ],
+  "boards": {
+    "aqa": {
+      "spec_codes": ["AQA 4.4.3.4", "AQA T 5.4.3.4"],
+      "exam_phrases": [
+        "water (molecules) break down to produce H⁺ and OH⁻ (ions)",
+        "hydrogen ions are attracted to the negative electrode",
+        "hydrogen is less reactive than sodium",
+        "OH⁻ ions are oxidised / lose electrons",
+        "sodium ions and hydroxide ions are left (in solution)",
+        "(positive electrode) bubbles / effervescence / fizzing",
+        "(negative electrode) (pink / orange / red / brown) solid"
+      ],
+      "mistakes": [
+        {
+          "wrong": "Oxygen is produced because there is no halide in the solution.",
+          "right": "This is ignored by the mark scheme. Explain with ions: water breaks down to give OH⁻ ions, which are attracted to the positive electrode, where they lose electrons (are oxidised)."
+        },
+        {
+          "wrong": "The product at the positive electrode of potassium bromide solution is bromide.",
+          "right": "Bromide is not accepted. The product is bromine. The product at the negative electrode is hydrogen."
+        },
+        {
+          "wrong": "Sodium chloride solution gives sodium at the negative electrode.",
+          "right": "Hydrogen is produced instead of sodium, because sodium is more reactive than hydrogen."
+        }
+      ],
+      "worked_example": {
+        "exemplar_id": "2a1a8b99-bbb1-481c-b29c-8f8ec58f8e65",
+        "source": "AQA jun 2021, Paper 1 (H), Q05.3",
+        "question": "Hydrogen gas and oxygen gas are produced when sodium sulfate solution is electrolysed.\n\nExplain how oxygen gas is produced in the electrolysis of sodium sulfate solution.",
+        "marks": 4,
+        "answer_points": [
+          "Water molecules",
+          "break down to produce OH⁻ ions.",
+          "The OH⁻ ions are attracted to the positive electrode.",
+          "Where the OH⁻ ions are oxidised (lose electrons)."
+        ],
+        "tip": "One mark for each step. 'Discharged' is ignored, so say oxidised or lose electrons."
+      }
+    },
+    "edexcel": {
+      "spec_codes": ["EDEX 3.25"],
+      "exam_phrases": [
+        "hydrogen ions attracted to cathode / negatively charged electrode",
+        "(two) hydrogen ions gain (two) electrons / are reduced / form hydrogen molecules",
+        "the copper ions are positive so are reduced at the cathode",
+        "hydrogen / H₂",
+        "so that they do not react (with the electrolyte / products)",
+        "twice as much hydrogen produced as oxygen"
+      ],
+      "mistakes": [
+        {
+          "wrong": "Sodium ions gain electrons at the cathode to make the hydrogen.",
+          "right": "References to sodium ions are ignored. Hydrogen ions are attracted to the cathode, where they gain electrons and form hydrogen molecules."
+        },
+        {
+          "wrong": "Copper is formed at the anode.",
+          "right": "Copper ions are positive, so they are reduced at the cathode."
+        },
+        {
+          "wrong": "The volume of hydrogen is 4 cm³ and the volume of oxygen is 2 cm³.",
+          "right": "Quoting two figures is not enough. State the ratio: twice as much hydrogen as oxygen, or 2 : 1."
+        }
+      ],
+      "worked_example": {
+        "exemplar_id": "372bdf16-fd7c-4cb3-bd62-19ada72c71eb",
+        "source": "EDEXCEL jun 2019, Paper 1 (H), Q3(a)(ii)",
+        "question": "Water, acidified with sulfuric acid, is decomposed by electrolysis. The water is decomposed to produce hydrogen and oxygen.\n\nThroughout the experiment the volume of hydrogen and the volume of oxygen are measured at two-minute intervals.\n\nTime in minutes: 0, 2, 4, 6, 8\nVolume of hydrogen in cm³: 0, 4, 8, 12, 16\nVolume of oxygen in cm³: 0, 2, 4, 6, 8\n\nDescribe, using the data, what the results show about the volumes of hydrogen and of oxygen produced in this experiment.",
+        "marks": 2,
+        "answer_points": [
+          "The volumes of hydrogen and oxygen increase with time (directly proportional to time).",
+          "The volume of hydrogen is double the volume of oxygen: a 2 : 1 ratio, or twice as much hydrogen as oxygen."
+        ],
+        "tip": "Refer to the ratio explicitly. Quoting two figures is not enough."
+      },
+      "extra": [
+        {
+          "heading": "Water acidified with sulfuric acid",
+          "blocks": [
+            { "type": "paragraph", "text": "Edexcel also asks about the electrolysis of water that has been acidified with sulfuric acid, using inert electrodes." },
+            {
+              "type": "list",
+              "items": [
+                "Hydrogen forms at the negative electrode.",
+                "Oxygen forms at the positive electrode.",
+                "The volume of hydrogen is twice the volume of oxygen, a ratio of 2 : 1.",
+                "Graphite electrodes are used because they are inert and conduct electricity."
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    "ocr": {
+      "spec_codes": ["OCR C3.4c"],
+      "exam_phrases": [
+        "hydrogen is produced (at the cathode) if ions from a more reactive metal (than hydrogen) are present",
+        "only 1 ion is discharged at each electrode",
+        "discharge is based on the reactivity series",
+        "less reactive ions are discharged in preference",
+        "hydrogen is less reactive than sodium",
+        "Cu²⁺, SO₄²⁻, H⁺, OH⁻"
+      ],
+      "mistakes": [
+        {
+          "wrong": "Copper sulfate solution contains only Cu²⁺ and SO₄²⁻ ions.",
+          "right": "It also contains H⁺ and OH⁻ from water. All four ions are needed for full marks. Two or three correct ions earn 1 mark."
+        },
+        {
+          "wrong": "The more reactive ion is discharged at the negative electrode.",
+          "right": "Less reactive ions are discharged in preference. Hydrogen is less reactive than sodium, so hydrogen forms from sodium chloride solution. Copper is less reactive than hydrogen, so copper forms from copper sulfate solution."
+        },
+        {
+          "wrong": "Chlorine gas is dangerous.",
+          "right": "Dangerous and hazardous are ignored. Say that chlorine is a toxic gas."
+        }
+      ],
+      "worked_example": {
+        "exemplar_id": "9f60a13f-8728-41b3-811d-43e1eb28890a",
+        "source": "OCR jun 2022, Paper 3, Q19(b)",
+        "question": "A teacher electrolyses aqueous sodium chloride, NaCl, and measures the volume of hydrogen gas given off.\n\nA student repeats the experiment with aqueous copper sulfate, CuSO₄. The student finds that no hydrogen gas is given off.\n\nExplain why hydrogen gas is given off in the electrolysis of aqueous NaCl, but not in the electrolysis of aqueous CuSO₄.",
+        "marks": 3,
+        "answer_points": [
+          "Hydrogen is produced at the cathode if ions of a metal more reactive than hydrogen are present. Only one ion is discharged at each electrode, based on the reactivity series.",
+          "Hydrogen is less reactive than sodium, so hydrogen is formed from NaCl solution.",
+          "Copper is less reactive than hydrogen, so copper is formed from CuSO₄ solution."
+        ],
+        "tip": "Name both metals and compare each with hydrogen."
+      }
+    }
+  },
+  "meta": {
+    "status": "draft",
+    "written_by": "sonnet-5-5",
+    "written_at": "2026-10-01",
+    "checked_by": "sonnet-science-check",
+    "checked_at": "2026-10-01",
+    "spec_point_ids": [
+      "b2c37116-8c41-499f-ac6d-557bb818f820",
+      "061cfa73-9899-4162-802b-ae9509172967",
+      "fc42e875-9c0d-4639-991e-f1bca921134b",
+      "9f5a0c2a-24de-4129-a7cf-54aeb124842a"
+    ],
+    "exemplar_ids": [
+      "2a1a8b99-bbb1-481c-b29c-8f8ec58f8e65",
+      "372bdf16-fd7c-4cb3-bd62-19ada72c71eb",
+      "9f60a13f-8728-41b3-811d-43e1eb28890a"
+    ]
+  }
+}

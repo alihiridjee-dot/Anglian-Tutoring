@@ -1,0 +1,330 @@
+{
+  "format": 1,
+  "concept_id": "phys-028",
+  "subject": "physics",
+  "title": "Specific latent heat",
+  "key_idea": "A change of state needs energy, but the temperature does not change while it happens. The energy changes the **internal energy** of the substance. The **specific latent heat** is the energy needed to change the state of 1 kg. Energy equals mass multiplied by specific latent heat.",
+  "sections": [
+    {
+      "heading": "Latent heat and changes of state",
+      "blocks": [
+        { "type": "paragraph", "text": "This section covers what latent heat is and why the temperature stays constant during a change of state." },
+        {
+          "type": "definitions",
+          "items": [
+            { "term": "Latent heat", "meaning": "The energy needed for a substance to change state." },
+            { "term": "Internal energy", "meaning": "The total kinetic energy and potential energy of all the particles in a substance." },
+            { "term": "Specific heat capacity", "meaning": "The energy needed to raise the temperature of 1 kg of a substance by 1 °C." },
+            { "term": "Specific latent heat", "meaning": "The energy needed to change the state of 1 kg of a substance with no change in temperature." },
+            { "term": "Specific latent heat of fusion", "meaning": "The specific latent heat for a change from solid to liquid." },
+            { "term": "Specific latent heat of vaporisation", "meaning": "The specific latent heat for a change from liquid to vapour." }
+          ]
+        },
+        {
+          "type": "list",
+          "items": [
+            "While a substance changes state, the energy supplied changes its internal energy.",
+            "The temperature does not change during the change of state.",
+            "When a substance is heated and its temperature rises, the kinetic energy of its particles increases.",
+            "So the internal energy increases when the temperature rises and when the state changes."
+          ]
+        },
+        { "type": "subheading", "text": "Specific heat capacity and specific latent heat" },
+        {
+          "type": "table",
+          "columns": ["Feature", "Specific heat capacity", "Specific latent heat"],
+          "rows": [
+            ["Concerns", "Change in temperature", "Change of state"],
+            ["Temperature while energy is supplied", "Changes", "Stays the same"],
+            ["Examples", "Heating up or cooling down", "Melting, freezing, boiling or condensing"]
+          ]
+        },
+        {
+          "type": "key-points",
+          "items": [
+            "Latent heat is the energy needed to change state.",
+            "During a change of state the energy changes the internal energy, not the temperature.",
+            "Fusion is solid to liquid. Vaporisation is liquid to vapour."
+          ]
+        }
+      ]
+    },
+    {
+      "heading": "Heating and cooling curves",
+      "blocks": [
+        { "type": "paragraph", "text": "A heating curve shows temperature against time as a substance is heated at a steady rate. It has sloping parts and flat parts." },
+        {
+          "type": "diagram",
+          "diagram": {
+            "kind": "line-graph",
+            "alt": "A heating curve for ice. The temperature rises as a solid, is flat while melting, rises as a liquid, is flat while boiling, then rises as a gas.",
+            "x": { "label": "Time heated at a steady rate", "unit": "min", "min": 0, "max": 10, "ticks": [0, 2, 4, 6, 8, 10] },
+            "y": { "label": "Temperature" },
+            "series": [
+              { "name": "Heating curve", "points": [[0, 0.1], [1.5, 0.35], [3.5, 0.35], [6, 0.7], [8.5, 0.7], [10, 0.9]] }
+            ],
+            "bands": [
+              { "from": 0, "to": 1.5, "label": "Solid" },
+              { "from": 1.5, "to": 3.5, "label": "Melting" },
+              { "from": 3.5, "to": 6, "label": "Liquid" },
+              { "from": 6, "to": 8.5, "label": "Boiling" },
+              { "from": 8.5, "to": 10, "label": "Gas" }
+            ]
+          }
+        },
+        {
+          "type": "list",
+          "items": [
+            "Sloping parts: the temperature rises. The energy increases the kinetic energy of the particles.",
+            "Flat parts: the substance is changing state. The temperature stays the same.",
+            "The first flat part is the melting point. The second flat part is the boiling point.",
+            "Cooling is the reverse. The temperature stays constant while the substance condenses or freezes."
+          ]
+        },
+        {
+          "type": "key-points",
+          "items": [
+            "Flat parts of a heating curve show a change of state.",
+            "Sloping parts show the temperature changing.",
+            "On cooling, the temperature is constant while a vapour condenses or a liquid freezes."
+          ]
+        }
+      ]
+    },
+    {
+      "heading": "Calculating the energy for a change of state",
+      "blocks": [
+        { "type": "paragraph", "text": "The energy for a change of state depends on the mass and the specific latent heat of the substance." },
+        {
+          "type": "equation",
+          "label": "Energy for a change of state",
+          "formula": "E = m × L",
+          "where": [
+            "E = energy transferred, in joules (J)",
+            "m = mass that changes state, in kilograms (kg)",
+            "L = specific latent heat, in joules per kilogram (J/kg)"
+          ]
+        },
+        {
+          "type": "list",
+          "items": [
+            "Convert the mass to kilograms and the energy to joules before you substitute.",
+            "Only the mass that changes state counts.",
+            "Do not use a temperature in this equation.",
+            "To find L or the mass, rearrange the equation."
+          ]
+        },
+        {
+          "type": "equation",
+          "label": "Rearranged to find L or m",
+          "formula": "L = E ÷ m   or   m = E ÷ L",
+          "where": [
+            "L = specific latent heat, in joules per kilogram (J/kg)",
+            "E = energy transferred, in joules (J)",
+            "m = mass that changes state, in kilograms (kg)"
+          ]
+        },
+        {
+          "type": "steps",
+          "items": [
+            { "lead": "Question", "text": "Calculate the energy to melt 0.50 kg of ice at 0 °C. The specific latent heat of fusion of ice is 334 000 J/kg." },
+            { "lead": "Substitute", "text": "E = 0.50 × 334 000" },
+            { "lead": "Answer", "text": "E = 167 000 J" }
+          ]
+        },
+        {
+          "type": "diagram",
+          "diagram": {
+            "kind": "practice",
+            "alt": "Calculate the energy needed to turn water at 100 degrees Celsius into steam.",
+            "question": "Water at 100 °C has a mass of {m} g. The specific latent heat of vaporisation of water is 2 260 000 J/kg. Calculate the energy needed to turn all of the water into steam.",
+            "variables": [{ "id": "m", "min": 10, "max": 200, "step": 10 }],
+            "answer": { "formula": "m / 1000 * 2260000", "unit": "J", "decimals": 0 },
+            "working": [
+              "Mass = {m} ÷ 1000 kg",
+              "E = m × L = ({m} ÷ 1000) × 2 260 000",
+              "E = {answer} J"
+            ]
+          }
+        },
+        {
+          "type": "key-points",
+          "items": [
+            "L is in J/kg, so the mass must be in kg and the energy in J.",
+            "Only the mass that changes state is used, and no temperature.",
+            "Rearrange the equation to find L or the mass when needed."
+          ]
+        }
+      ]
+    }
+  ],
+  "checks": [
+    {
+      "q": "What is meant by the specific latent heat of fusion of a substance?",
+      "a": "The energy needed to change 1 kg of the substance from solid to liquid with no change in temperature.",
+      "marks": 2
+    },
+    {
+      "q": "Explain why the temperature of ice stays the same while it melts, even though energy is being supplied.",
+      "a": "The energy supplied changes the internal energy of the substance (it changes the state), not the temperature.",
+      "marks": 2
+    },
+    {
+      "q": "Calculate the energy needed to change 0.30 kg of water at 100 °C to steam. The specific latent heat of vaporisation of water is 2 260 000 J/kg.",
+      "a": "E = 0.30 × 2 260 000 = 678 000 J.",
+      "marks": 2
+    }
+  ],
+  "boards": {
+    "aqa": {
+      "spec_codes": ["AQA 4.3.2.3", "AQA T 6.3.2.3"],
+      "exam_phrases": [
+        "the kinetic energy (and the potential energy) of the particles increases",
+        "internal energy is the sum of kinetic and potential energy (of the particles)",
+        "less energy was transferred to the water, so the student's value of L was too high",
+        "the measured change in mass is too high (for the energy supplied), so the student's value of L is too low"
+      ],
+      "mistakes": [
+        {
+          "wrong": "A student uses a mass of 0.016 g directly in E = mL.",
+          "right": "The mass must be in kg. 0.016 g is 0.000016 kg. The first mark is for the conversion."
+        },
+        {
+          "wrong": "The specific latent heat of vaporisation of water is 2 300 000 J.",
+          "right": "The unit of specific latent heat is J/kg. Any other unit must match the number, for example 2300 kJ/kg."
+        },
+        {
+          "wrong": "If some energy is transferred to the surroundings, the student's value of L is too low.",
+          "right": "Less energy reaches the water than the energy measured, so the calculated value of L is too high."
+        }
+      ],
+      "worked_example": {
+        "exemplar_id": "65006db0-806b-4806-9085-83fdd5f806e2",
+        "source": "AQA jun 2021, Paper 1 (H), Q11.4",
+        "question": "When water was boiling, 0.030 kg of water turned into steam. The energy transferred to the water was 69 kJ. Calculate the specific latent heat of vaporisation of water. Give the unit.",
+        "marks": 5,
+        "answer_points": [
+          "E = 69 000 J",
+          "69 000 = 0.030 × L",
+          "L = 69 000 ÷ 0.030",
+          "L = 2 300 000 (2.3 × 10⁶)",
+          "Unit: J/kg"
+        ],
+        "tip": "One mark for each step, including converting 69 kJ to 69 000 J and giving the unit. A unit that matches your number, such as 2300 kJ/kg, is allowed."
+      },
+      "extra": [
+        {
+          "heading": "Measuring latent heat in an experiment",
+          "blocks": [
+            { "type": "paragraph", "text": "In an experiment on boiling water, the mass that changes state is the fall in mass of the beaker and water. Two sources of error change the value of L." },
+            {
+              "type": "list",
+              "items": [
+                "Mass changed to steam = initial mass − final mass.",
+                "Some energy is transferred to the surroundings. Less energy reaches the water, so the value of L is too high.",
+                "Some water evaporates before it reaches 100 °C. The measured change in mass is too high for the energy supplied, so the value of L is too low."
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    "edexcel": {
+      "spec_codes": ["EDEX 14.9", "EDEX 14.7", "EDEX 14.11"],
+      "exam_phrases": [
+        "Q = m × L",
+        "specific heat capacity concerns change in temperature",
+        "specific latent heat concerns change of state",
+        "specific latent heat is related to no change in temperature",
+        "specific heat capacity concerns heating up / cooling"
+      ],
+      "mistakes": [
+        {
+          "wrong": "The student melts 380 g of ice, so Q = 380 × 3.34 × 10⁵.",
+          "right": "A power-of-ten error limits the marks. Convert 380 g to 0.380 kg first."
+        },
+        {
+          "wrong": "Specific heat capacity and specific latent heat both mean the energy needed to heat a substance.",
+          "right": "Specific heat capacity concerns a change in temperature. Specific latent heat concerns a change of state."
+        },
+        {
+          "wrong": "A kettle starts with 1.41 kg of water and 0.20 kg boils away, so use 1.41 kg in Q = m × L.",
+          "right": "Only the mass that turned to steam is used: 1.41 − 1.21 = 0.20 kg. Using the wrong mass scores one mark at most."
+        }
+      ],
+      "worked_example": {
+        "exemplar_id": "f6a34268-34f9-4017-9d0d-6d75e0a3fcd4",
+        "source": "EDEXCEL nov 2021, Paper 2 (H), Q10(a)(ii)",
+        "question": "An electric kettle contains 1.41 kg of water at its boiling point. The kettle is kept switched on and the water continues to boil. After a while, the mass of the water in the kettle has decreased to 1.21 kg. The thermal energy supplied to the water during this time was 450 000 J. Calculate the specific latent heat of vaporisation of water.",
+        "marks": 3,
+        "answer_points": [
+          "Mass changed to steam = 1.41 − 1.21 = 0.20 kg.",
+          "Substitute: 450 000 = 0.20 × L",
+          "Rearrange: L = 450 000 ÷ 0.20",
+          "L = 2 200 000 J/kg (2 250 000 is also accepted)"
+        ],
+        "tip": "One mark each for the substitution, the rearrangement and the answer. Using the full 1.41 kg is a wrong mass."
+      }
+    },
+    "ocr": {
+      "spec_codes": ["OCR P1.2f"],
+      "exam_phrases": [
+        "energy = mass × specific latent heat",
+        "specific latent heat = E ÷ m"
+      ],
+      "mistakes": [
+        {
+          "wrong": "Energy = 0.2 × 2 260 000 × 80, because the water starts at 20 °C.",
+          "right": "Including a temperature scores zero. The change of state at 100 °C uses E = m × L only."
+        },
+        {
+          "wrong": "Specific latent heat = 95 000 ÷ 250 = 380 J/kg, using the mass in grams.",
+          "right": "Rearranging the equation scores, but the answer is 380 000 J/kg. Convert 250 g to 0.25 kg first."
+        },
+        {
+          "wrong": "A 5 mg dose is 0.005 kg.",
+          "right": "5 mg is 5 × 10⁻⁶ kg. A missing or incorrect conversion from mg to kg loses marks."
+        }
+      ],
+      "worked_example": {
+        "exemplar_id": "df7fbf44-6169-414e-83bb-0764439c4e55",
+        "source": "OCR jun 2018, Paper 3, Q21(b)",
+        "question": "Two students design an experiment to find the specific latent heat of water. The students find that 250 g of ice takes 95 kJ of energy to change state. Calculate the specific latent heat.",
+        "marks": 3,
+        "answer_points": [
+          "Specific latent heat = E ÷ m",
+          "= 95 000 ÷ 0.25",
+          "= 380 000 J/kg"
+        ],
+        "tip": "A correct answer of 380 000 J/kg scores all three marks. Rearranging the equation is rewarded."
+      }
+    }
+  },
+  "meta": {
+    "status": "draft",
+    "written_by": "sonnet-5-5",
+    "written_at": "2026-10-01",
+    "checked_by": "sonnet-science-check",
+    "checked_at": "2026-10-01",
+    "spec_point_ids": [
+      "489b9fc2-422a-4a00-8341-769cb1de00b9",
+      "db7c1503-b881-470f-8081-2e75a8049eb4",
+      "c05eb3b7-010d-424e-a735-88782e122347",
+      "208cd0f5-423e-4d02-957b-9d1965bb4758"
+    ],
+    "exemplar_ids": [
+      "65006db0-806b-4806-9085-83fdd5f806e2",
+      "eb1ddeba-12c4-4ea2-86ff-bef23da24c88",
+      "031530f8-a318-4017-900f-9a60d21a9e43",
+      "d64f1171-433a-4e88-a27f-7d116f0f5bb4",
+      "e06e156e-6721-45e6-8c5c-c5b2c1dc2397",
+      "d143eb9c-ad42-4d59-95db-87e24b4f9308",
+      "f6a34268-34f9-4017-9d0d-6d75e0a3fcd4",
+      "e817e455-9f42-4b95-8d31-3ffd54f19a67",
+      "f74e781c-077d-49e8-a620-2d7241c0296b",
+      "df7fbf44-6169-414e-83bb-0764439c4e55",
+      "e05c1be1-1352-49dc-973f-2f2036ce1d4b",
+      "db26006f-6fd6-4b27-bb78-af4b63138a96"
+    ]
+  }
+}

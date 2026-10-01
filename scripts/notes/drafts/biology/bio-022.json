@@ -1,0 +1,308 @@
+{
+  "format": 1,
+  "concept_id": "bio-022",
+  "subject": "biology",
+  "title": "Required practical: effect of pH on amylase",
+  "key_idea": "In this practical, amylase is mixed with starch at different pH values. Drops of the mixture are tested with iodine every 30 seconds. The time taken for the starch to disappear shows how well the enzyme works at each pH.",
+  "sections": [
+    {
+      "heading": "What the practical investigates",
+      "blocks": [
+        { "type": "paragraph", "text": "Amylase is an enzyme that breaks down starch. This practical finds how pH changes the rate at which it does so." },
+        {
+          "type": "table",
+          "columns": ["Type of variable", "In this investigation"],
+          "rows": [
+            ["Independent (what you change)", "The pH, set using buffer solutions"],
+            ["Dependent (what you measure)", "The time taken for all the starch to be digested"],
+            ["Control (kept the same)", "Volume and concentration of starch, amylase and buffer. Temperature, kept constant in a water bath or with an electric heater."]
+          ]
+        },
+        { "type": "subheading", "text": "The iodine test for starch" },
+        {
+          "type": "list",
+          "items": [
+            "Iodine solution is orange or brown.",
+            "If starch is present, it turns blue-black.",
+            "If there is no starch, it stays orange or brown."
+          ]
+        },
+        {
+          "type": "key-points",
+          "items": [
+            "Change the pH. Keep everything else the same.",
+            "Measure the time taken until the iodine stays orange or brown.",
+            "Blue-black means starch is still present."
+          ]
+        }
+      ]
+    },
+    {
+      "heading": "The method",
+      "blocks": [
+        { "type": "paragraph", "text": "This is a continuous sampling method. You test the same mixture again and again until the starch has gone." },
+        {
+          "type": "diagram",
+          "diagram": {
+            "kind": "sequence",
+            "alt": "Put the stages of the amylase and pH practical in order.",
+            "prompt": "Put the practical in order",
+            "steps": [
+              "Put a drop of iodine solution into each well of a spotting tile",
+              "Mix amylase, starch and a buffer of one pH in a test tube and start the timer",
+              "Every 30 seconds, remove a drop of the mixture and add it to a well of iodine",
+              "Stop when the iodine stays orange or brown",
+              "Record the time taken",
+              "Repeat at a range of pH values"
+            ]
+          }
+        },
+        {
+          "type": "steps",
+          "items": [
+            { "lead": "Prepare.", "text": "Put one drop of iodine solution into each well of a spotting tile." },
+            { "lead": "Mix.", "text": "In a test tube in a water bath, mix amylase solution, starch solution and a buffer solution of one pH. Start the timer." },
+            { "lead": "Sample.", "text": "Every 30 seconds, use a pipette to move one drop of the mixture into a new well of iodine." },
+            { "lead": "Observe.", "text": "Blue-black means starch is still present. Continue until the iodine stays orange or brown." },
+            { "lead": "Record.", "text": "Write down the time taken for all the starch to be digested." },
+            { "lead": "Repeat.", "text": "Do the same at each pH, using the same volumes and concentrations and the same temperature." }
+          ]
+        },
+        {
+          "type": "key-points",
+          "items": [
+            "Test a drop every 30 seconds, using a new well each time.",
+            "Use a buffer to set the pH. Use a water bath to keep the temperature constant.",
+            "Repeat at different pH values."
+          ]
+        }
+      ]
+    },
+    {
+      "heading": "Results and conclusion",
+      "blocks": [
+        { "type": "paragraph", "text": "A shorter time means the enzyme is working faster. The best pH is the one with the shortest time." },
+        {
+          "type": "equation",
+          "label": "Rate of reaction",
+          "formula": "rate = 1 ÷ time",
+          "where": ["rate, in s⁻¹ (per second)", "time taken for the starch to be digested, in s"]
+        },
+        {
+          "type": "diagram",
+          "diagram": {
+            "kind": "line-graph",
+            "alt": "A bell-shaped curve. The rate of amylase reaction rises as pH increases from acidic, peaks near pH 7, then falls again at higher pH.",
+            "x": { "label": "pH", "min": 0, "max": 14, "ticks": [0, 2, 4, 6, 8, 10, 12, 14] },
+            "y": { "label": "Rate of reaction" },
+            "series": [
+              {
+                "name": "Amylase",
+                "points": [[2, 0], [3, 0.05], [4, 0.2], [5, 0.5], [6, 0.85], [7, 1], [8, 0.8], [9, 0.5], [10, 0.15], [11, 0.03], [12, 0]]
+              }
+            ],
+            "markers": [{ "x": 7, "label": "Optimum" }]
+          }
+        },
+        {
+          "type": "list",
+          "items": [
+            "At the optimum pH the starch is digested in the shortest time.",
+            "Above or below the optimum the active site changes shape and the rate falls.",
+            "At extreme pH values the enzyme is denatured and the starch is not broken down."
+          ]
+        },
+        {
+          "type": "key-points",
+          "items": [
+            "Shortest time means the fastest rate.",
+            "The optimum pH of amylase is close to 7.",
+            "To find the optimum more precisely, test more pH values close to it."
+          ]
+        }
+      ]
+    },
+    {
+      "heading": "Improving the investigation",
+      "blocks": [
+        { "type": "paragraph", "text": "Exam questions ask how to make the results more accurate and how to check the optimum." },
+        {
+          "type": "list",
+          "items": [
+            "Test the mixture every 30 seconds, or more often, for a more accurate time.",
+            "Deciding when the colour has changed is subjective. Use the same person each time, or a colorimeter.",
+            "Put the solutions in the water bath before mixing, so they reach the right temperature.",
+            "Repeat at each pH and calculate a mean.",
+            "Test more pH values close to the optimum."
+          ]
+        },
+        {
+          "type": "key-points",
+          "items": [
+            "More frequent sampling gives a more accurate time.",
+            "Colour change is subjective, so use the same person or a colorimeter.",
+            "Repeat and take a mean."
+          ]
+        }
+      ]
+    }
+  ],
+  "checks": [
+    {
+      "q": "How can you tell that all the starch has been digested?",
+      "a": "The iodine solution stays orange or brown, and does not turn blue-black.",
+      "marks": 1
+    },
+    {
+      "q": "What is the independent variable in the investigation?",
+      "a": "The pH of the amylase solution (the buffer).",
+      "marks": 1
+    },
+    {
+      "q": "Give two variables that must be controlled.",
+      "a": "Any two from: temperature; volume of starch, amylase or buffer; concentration of starch or amylase.",
+      "marks": 2
+    }
+  ],
+  "boards": {
+    "aqa": {
+      "spec_codes": ["AQA 2.5", "AQA T 4.2.2.1"],
+      "exam_phrases": [
+        "add iodine solution to a spotting tile",
+        "add amylase, pH solution and starch solution together",
+        "remove a drop of the mixture at regular intervals (every 30 seconds)",
+        "if starch is present, the mixture and iodine turn blue-black",
+        "iodine would stay orange / brown",
+        "record the time taken for the mixture to stay orange",
+        "repeat at different pH",
+        "observation of colour change is subjective"
+      ],
+      "mistakes": [
+        {
+          "wrong": "The independent variable is how acidic or alkaline the solution is.",
+          "right": "\"Acidity\" and \"alkalinity\" are ignored. Say the pH (of the amylase solution, or buffer)."
+        },
+        {
+          "wrong": "When all the starch is digested the iodine does not turn blue.",
+          "right": "\"Blue\" or \"purple\" alone is ignored. Say the iodine does not turn black or blue-black, or that it stays orange or brown."
+        },
+        {
+          "wrong": "The timing might be inaccurate because of human error.",
+          "right": "\"Human error\" unqualified is ignored. Say the observation of the colour change is subjective, or based on opinion."
+        },
+        {
+          "wrong": "The control variables are the time and the temperature.",
+          "right": "\"Time\" on its own is ignored. Say the time before mixing the starch and amylase solutions, and give a volume, for example the volume of starch solution or the number of drops of iodine."
+        }
+      ],
+      "worked_example": {
+        "exemplar_id": "09499812-c61f-4e31-98eb-e9c2f473d4c2",
+        "source": "AQA jun 2023, Paper 1 (F), Q05.9",
+        "question": "Amylase is an enzyme which breaks down starch.\n\nDescribe a method to investigate the effect of pH on the rate of starch breakdown by amylase.",
+        "marks": 6,
+        "answer_points": [
+          "Add iodine solution to a spotting tile.",
+          "Use a measuring cylinder to add amylase solution, pH solution and starch solution together, and start the timer.",
+          "Use a pipette to remove a drop of the mixture at regular intervals, for example every 30 seconds, and add it to the iodine solution.",
+          "If starch is present, the mixture and iodine solution turn blue-black.",
+          "Continue until the iodine solution and the mixture remain yellow, orange or brown. Record the time taken.",
+          "Repeat at different pH values and compare the times at each pH.",
+          "Control variables: the volume and concentration of the starch, amylase and pH solutions, and the temperature."
+        ],
+        "tip": "This is a levelled answer. A valid method with the key steps in a logical order, and control variables named for a pH investigation, reaches the top level of 5 to 6 marks."
+      }
+    },
+    "edexcel": {
+      "spec_codes": ["EDEX 1.10"],
+      "exam_phrases": [
+        "mix starch, enzyme and pH (solution)",
+        "use iodine (to test for starch)",
+        "blue-black means starch is present, orange / brown means no starch",
+        "control of one variable, for example concentration, volume or temperature",
+        "repeat using different pH solutions",
+        "test at pH solutions between pH 6.5 and 7.5",
+        "the sample that produces glucose in the shortest time is closest to the optimum"
+      ],
+      "mistakes": [
+        {
+          "wrong": "Iodine turns blue when starch is present.",
+          "right": "\"Blue\" is ignored. Say blue-black means starch is present, and orange or brown means no starch."
+        },
+        {
+          "wrong": "Mix the solutions and test them.",
+          "right": "\"Mix the solutions\" is ignored. Name all three: starch solution, enzyme solution and a pH solution."
+        },
+        {
+          "wrong": "Control the amount of starch and enzyme.",
+          "right": "\"Amount\" is ignored unless a measurement is given. Say the volume or concentration of the starch or enzyme solution, or the temperature."
+        }
+      ],
+      "worked_example": {
+        "exemplar_id": "d0e5e410-0cdd-414a-a1f8-5f4ba8ce2c1f",
+        "source": "EDEXCEL jun 2023, Paper 1 (H), Q2(c)",
+        "question": "As apples ripen, enzymes convert starch into sugars.\n\nDevise a method to find the optimum pH of an enzyme that breaks down starch.\n\nYou may use standard laboratory equipment and the solutions listed in the box.\n\nstarch solution   enzyme solution   iodine solution   a range of pH solutions",
+        "marks": 4,
+        "answer_points": [
+          "Mix starch, enzyme and pH solution.",
+          "Use iodine to test for starch.",
+          "With iodine solution, blue-black means starch is present and orange or brown means no starch is present.",
+          "Control one variable, for example concentration, volume or temperature.",
+          "Repeat using different pH solutions."
+        ],
+        "tip": "Any four points score one mark each. All three solutions must be used. Adding the iodine to a spotting tile is accepted."
+      }
+    },
+    "ocr": {
+      "spec_codes": ["OCR 1.2f", "OCR 7.4"],
+      "exam_phrases": [
+        "change the temperature, using a water bath or Bunsen burner",
+        "record the time it takes for the indicator to change colour",
+        "to colourless",
+        "use a stop clock",
+        "volume / mass of milk, concentration of enzyme, type of milk",
+        "use a colorimeter, so it is objective",
+        "have the same student doing all the observations, so there is a consistent judgement",
+        "repeat at each temperature and take a mean"
+      ],
+      "mistakes": [
+        {
+          "wrong": "Use the same amount of milk each time.",
+          "right": "\"Amount\" and \"quantity\" are ignored. Say the volume or mass of milk."
+        },
+        {
+          "wrong": "Use a heater to change the temperature.",
+          "right": "\"Heater\" is ignored. Say how the temperature is maintained or changed, for example in a water bath or with a Bunsen burner."
+        }
+      ],
+      "worked_example": {
+        "exemplar_id": "c7e0c91e-feae-422e-9443-501d934e0277",
+        "source": "OCR jun 2022, Paper 1, Q23(b)",
+        "question": "Lipase is an enzyme produced in the human digestive system. It breaks down lipids.\n\nPhenolphthalein is an indicator that turns pink in an alkaline solution of pH 10.\n\nWhen lipase breaks down lipids, the indicator goes colourless.\n\nA group of students investigate how temperature affects the enzymes that break down lipids found in milk.\n\nDescribe an experiment that the students could use to investigate the effect of temperature on the breakdown of the lipids found in milk.\n\nIn your description include:\n- how the independent variable could be changed\n- the observations that should be made\n- two variables that need to be controlled.",
+        "marks": 5,
+        "answer_points": [
+          "Independent variable (maximum 2): change the temperature, and say how it is maintained or changed, for example a water bath or Bunsen burner.",
+          "Observations (maximum 2): record the time it takes for the indicator to change colour, to colourless, and use a stop clock.",
+          "Controlled variables (maximum 2): volume or mass of milk, concentration of enzyme, volume or mass of enzyme, type of milk."
+        ],
+        "tip": "Marks are given in three groups. In this question temperature is the variable you change, so it cannot also be a controlled variable. \"Amount\" is ignored, so give a volume or a mass. For a pH investigation the plan is the same, but you change the pH and keep the temperature constant."
+      }
+    }
+  },
+  "meta": {
+    "status": "draft",
+    "written_by": "sonnet-5-5",
+    "written_at": "2026-10-01",
+    "checked_by": "sonnet-science-check",
+    "checked_at": "2026-10-01",
+    "spec_point_ids": [
+      "82a928db-f5de-4bed-9b60-5b76834c399c",
+      "3309e2ec-798f-4f59-a638-f9dba7f0248f",
+      "d1524cd4-fd59-4ec8-9873-6eb3c435a75e"
+    ],
+    "exemplar_ids": [
+      "09499812-c61f-4e31-98eb-e9c2f473d4c2",
+      "d0e5e410-0cdd-414a-a1f8-5f4ba8ce2c1f",
+      "c7e0c91e-feae-422e-9443-501d934e0277"
+    ]
+  }
+}

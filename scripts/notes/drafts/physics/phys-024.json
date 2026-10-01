@@ -1,0 +1,323 @@
+{
+  "format": 1,
+  "concept_id": "phys-024",
+  "subject": "physics",
+  "title": "Required practical: density",
+  "key_idea": "To find a density, measure the mass and the volume, then divide. Find the volume of a regular solid from its dimensions and of an irregular solid by displacement. Repeat the readings and take a mean.",
+  "sections": [
+    {
+      "heading": "Measuring mass and volume",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "Every density method has two measurements: the mass and the volume. This section covers how to measure each one for a regular solid, an irregular solid and a liquid."
+        },
+        {
+          "type": "equation",
+          "label": "Density",
+          "formula": "density = mass ÷ volume    (ρ = m ÷ V)",
+          "where": [
+            "density, ρ, in kilograms per metre cubed, kg/m³, or grams per centimetre cubed, g/cm³",
+            "mass, m, in kilograms, kg, or grams, g",
+            "volume, V, in metres cubed, m³, or centimetres cubed, cm³"
+          ]
+        },
+        {
+          "type": "list",
+          "items": [
+            "Mass: use a top pan balance for every solid.",
+            "Mass of a liquid: measure the mass of the empty container, then the container with the liquid, and subtract. Or zero the balance with the empty container on it."
+          ]
+        },
+        {
+          "type": "subheading",
+          "text": "Volume of a regular solid"
+        },
+        {
+          "type": "equation",
+          "label": "Volume of a cuboid or cube",
+          "formula": "volume = length × width × height    (V = l × w × h)",
+          "where": [
+            "volume, V, in centimetres cubed, cm³",
+            "length, width and height, in centimetres, cm"
+          ]
+        },
+        {
+          "type": "list",
+          "items": [
+            "Measure each dimension with a ruler, a micrometer or Vernier callipers.",
+            "A micrometer has a smaller resolution than a metre rule, so it gives a more accurate width."
+          ]
+        },
+        {
+          "type": "subheading",
+          "text": "Volume of an irregular solid"
+        },
+        {
+          "type": "list",
+          "items": [
+            "Use a displacement method. The object pushes aside its own volume of water.",
+            "Measuring cylinder: volume of object = final volume − initial volume.",
+            "Displacement (eureka) can: fill the can to the spout, put the object in, collect the displaced water and measure its volume in a measuring cylinder.",
+            "For a very small object, add several identical objects together. Divide the change in volume by the number of objects."
+          ]
+        },
+        {
+          "type": "subheading",
+          "text": "Volume of a liquid"
+        },
+        {
+          "type": "list",
+          "items": [
+            "Pour the liquid into a measuring cylinder.",
+            "Read the volume with your eye level with the bottom of the meniscus."
+          ]
+        },
+        {
+          "type": "key-points",
+          "items": [
+            "Density = mass ÷ volume. Measure both.",
+            "Regular solid: calculate the volume from its dimensions. Irregular solid: use displacement.",
+            "Small objects: use several and divide the volume by the number."
+          ]
+        }
+      ]
+    },
+    {
+      "heading": "Method for an irregular solid",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "This is the standard method for a rock or other irregular solid that sinks in water."
+        },
+        {
+          "type": "steps",
+          "items": [
+            {
+              "lead": "Measure the mass.",
+              "text": "Use a top pan balance."
+            },
+            {
+              "lead": "Part fill a measuring cylinder with water.",
+              "text": "Record the initial volume."
+            },
+            {
+              "lead": "Place the object in the water.",
+              "text": "Record the final volume."
+            },
+            {
+              "lead": "Find the volume.",
+              "text": "Volume of object = final volume − initial volume."
+            },
+            {
+              "lead": "Calculate the density.",
+              "text": "Use density = mass ÷ volume."
+            }
+          ]
+        },
+        {
+          "type": "diagram",
+          "diagram": {
+            "kind": "sequence",
+            "alt": "Put the steps for finding the density of an irregular solid in order.",
+            "prompt": "Put the steps for finding the density of an irregular solid in order.",
+            "steps": [
+              "Measure the mass of the object with a balance",
+              "Part fill a measuring cylinder with water and record the initial volume",
+              "Place the object in the water and record the final volume",
+              "Subtract the initial volume from the final volume to find the volume of the object",
+              "Calculate the density using density = mass ÷ volume"
+            ]
+          }
+        },
+        {
+          "type": "diagram",
+          "diagram": {
+            "kind": "practice",
+            "alt": "Calculate the density of an irregular solid from its mass and the water levels before and after.",
+            "question": "A solid has a mass of {m} g. It is placed in a measuring cylinder containing 50 cm³ of water. The water level rises to {f} cm³. Calculate the density of the solid in g/cm³.",
+            "variables": [
+              {
+                "id": "m",
+                "min": 40,
+                "max": 110,
+                "step": 10
+              },
+              {
+                "id": "f",
+                "min": 60,
+                "max": 80,
+                "step": 5
+              }
+            ],
+            "answer": {
+              "formula": "m / (f - 50)",
+              "unit": "g/cm³",
+              "decimals": 2
+            },
+            "working": [
+              "Volume of solid = final volume − initial volume = {f} − 50 cm³.",
+              "density = mass ÷ volume",
+              "density = {m} ÷ ({f} − 50)",
+              "density = {answer} g/cm³"
+            ]
+          }
+        },
+        {
+          "type": "key-points",
+          "items": [
+            "Mass first, then the volume by displacement, then divide.",
+            "The volume of the object is the change in water level, not the final reading."
+          ]
+        }
+      ]
+    },
+    {
+      "heading": "Accuracy and errors",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "Good results need careful reading and repeats. This section covers the main sources of error and how to reduce them."
+        },
+        {
+          "type": "list",
+          "items": [
+            "Read a measuring cylinder with your eye level with the water, to avoid a parallax error.",
+            "In a displacement can, fill the water to the spout before the object goes in. Collect all of the displaced water.",
+            "Use equipment with a smaller resolution, such as a micrometer rather than a metre rule.",
+            "Use a balance that reads to more decimal places, and zero it with the empty container on it.",
+            "Use a larger volume of liquid, or a measuring cylinder with smaller divisions.",
+            "Repeat the measurements and calculate a mean. This reduces the effect of random errors and helps to identify anomalies."
+          ]
+        },
+        {
+          "type": "key-points",
+          "items": [
+            "Eye level with the scale, and the water level at the spout, reduce errors in the volume.",
+            "A smaller resolution means a more accurate measurement.",
+            "Repeating and finding a mean reduces the effect of random errors."
+          ]
+        }
+      ]
+    }
+  ],
+  "checks": [
+    {
+      "q": "Describe how to find the volume of a small stone using a measuring cylinder.",
+      "a": "Part fill a measuring cylinder with water and record the initial volume. Place the stone in the water and record the final volume. Volume of stone = final volume − initial volume.",
+      "marks": 3
+    },
+    {
+      "q": "A student wants an accurate volume for one very small coin. How can displacement be used?",
+      "a": "Add several identical coins to the measuring cylinder. Measure the change in water level and divide by the number of coins.",
+      "marks": 2
+    },
+    {
+      "q": "A rock has a mass of 90 g. The water level rises from 50 cm³ to 80 cm³ when it is added. Calculate the density.",
+      "a": "Volume = 80 − 50 = 30 cm³. Density = 90 ÷ 30 = 3.0 g/cm³.",
+      "marks": 3
+    }
+  ],
+  "boards": {
+    "aqa": {
+      "spec_codes": [
+        "AQA 4.3.1.1",
+        "AQA T 6.3.1.1"
+      ],
+      "exam_phrases": [
+        "measure mass using a balance / scales",
+        "part fill a measuring cylinder with water and measure initial volume",
+        "volume of rock = final volume − initial volume",
+        "collect displaced water",
+        "a mean can be calculated",
+        "which reduces the effect of random errors",
+        "metre rule has a lower resolution",
+        "divide by the number of coins added"
+      ],
+      "mistakes": [
+        {
+          "wrong": "The metre rule gives fewer decimal places, so it is less accurate.",
+          "right": "Fewer decimal places is not enough. Say the metre rule has a lower resolution, so it is less accurate than the micrometer."
+        },
+        {
+          "wrong": "Measure one tiny coin in the measuring cylinder to find its volume.",
+          "right": "Add several coins and measure the change in water level. Then divide by the number of coins added."
+        },
+        {
+          "wrong": "Repeating the measurements removes errors.",
+          "right": "Repeating allows a mean to be calculated. A mean reduces the effect of random errors, and anomalies can be identified."
+        }
+      ],
+      "worked_example": {
+        "exemplar_id": "5211ea3c-3275-4a60-98ca-edfc7294b871",
+        "source": "AQA jun 2022, Paper 1 (F), Q10.1",
+        "question": "To help identify the type of rock, a student took measurements to determine its density. Describe a method the student could use to determine the density of the rock.",
+        "marks": 6,
+        "answer_points": [
+          "measure the mass using a balance",
+          "part fill a measuring cylinder with water and measure the initial volume",
+          "place the rock in the water and measure the final volume",
+          "volume of rock = final volume − initial volume",
+          "use mass and volume to calculate the density",
+          "use density = mass ÷ volume"
+        ],
+        "tip": "Marks are for a valid method with all key steps in a logical order. A displacement can with the displaced water collected in a measuring cylinder also scores."
+      }
+    },
+    "edexcel": {
+      "spec_codes": [
+        "EDEX 14.3"
+      ],
+      "exam_phrases": [
+        "find mass of marble(s)",
+        "put marble(s) into water (in cylinder) and measure change in water level",
+        "divide mass by volume",
+        "density = mass/volume",
+        "use several marbles",
+        "ensure water measured at eye level",
+        "use tare/zero balance"
+      ],
+      "mistakes": [
+        {
+          "wrong": "Repeat the measurements and take an average, as the idea to improve accuracy.",
+          "right": "Repeating and averaging is ignored for that mark. Give a specific improvement, such as using several marbles or reading the water level at eye level."
+        },
+        {
+          "wrong": "Density = 0.058 ÷ 6.5 = 0.0089 for a volume of 6.5 × 10⁻⁶ m³.",
+          "right": "Use the full volume: 0.058 ÷ (6.5 × 10⁻⁶) = 8.9 × 10³ kg/m³. Getting the power of ten wrong scores only 1 mark."
+        },
+        {
+          "wrong": "Measure the volume of the copper by putting it in water and reading the final water level.",
+          "right": "Note the water level before and after, then find the difference. Or use a displacement can and collect the water from the spout."
+        }
+      ],
+      "worked_example": {
+        "exemplar_id": "b5ba045f-13af-4d86-914e-7f6194bc0108",
+        "source": "EDEXCEL jun 2019, Paper 2 (H), Q7(a)",
+        "question": "A student measures the density of glass. The student has a bag of marbles, all made from the same type of glass, a weighing balance and a plastic measuring cylinder containing water. Describe how the student could find, as accurately as possible, the density of the glass used for the marbles.",
+        "marks": 4,
+        "answer_points": [
+          "find the mass of the marble(s) with the balance",
+          "put the marble(s) into the water and measure the change in water level",
+          "divide the mass by the volume (density = mass ÷ volume)",
+          "a suitable idea to improve accuracy, such as using several marbles, or reading the water at eye level"
+        ],
+        "tip": "The fourth mark needs a specific improvement. Repeating and averaging is ignored."
+      }
+    }
+  },
+  "meta": {
+    "status": "draft",
+    "written_by": "sonnet-5-5",
+    "written_at": "2026-10-01",
+    "spec_point_ids": [
+      "bd41094a-c05e-47a3-b02a-5fc869c893cd"
+    ],
+    "exemplar_ids": [
+      "5211ea3c-3275-4a60-98ca-edfc7294b871",
+      "b5ba045f-13af-4d86-914e-7f6194bc0108"
+    ],
+    "checked_by": "sonnet-science-check",
+    "checked_at": "2026-10-01"
+  }
+}

@@ -1,0 +1,293 @@
+{
+  "format": 1,
+  "concept_id": "phys-030",
+  "subject": "physics",
+  "title": "Gas temperature, pressure and absolute zero",
+  "key_idea": "Gas particles move randomly and collide with the walls of their container. Heating a gas makes the particles faster, so the pressure rises if the volume is fixed. **Absolute zero** is 0 K, which is −273 °C.",
+  "sections": [
+    {
+      "heading": "Gas particles and pressure",
+      "blocks": [
+        { "type": "paragraph", "text": "This section covers how the motion of gas particles produces the pressure of a gas." },
+        {
+          "type": "list",
+          "items": [
+            "The particles in a gas are in constant random motion.",
+            "They move in random directions.",
+            "They move with a range of speeds.",
+            "The temperature of the gas is related to the average kinetic energy of the particles."
+          ]
+        },
+        {
+          "type": "definitions",
+          "items": [
+            { "term": "Gas pressure", "meaning": "The force the gas particles exert on a surface, for every unit of area." }
+          ]
+        },
+        { "type": "subheading", "text": "How a gas exerts a pressure" },
+        {
+          "type": "list",
+          "items": [
+            "Gas particles collide with the walls of the container.",
+            "Each collision exerts a force on the wall.",
+            "Many collisions every second give a steady pressure on the wall."
+          ]
+        },
+        {
+          "type": "key-points",
+          "items": [
+            "Gas particles move randomly, with a range of speeds.",
+            "Temperature is related to the average kinetic energy of the particles.",
+            "Pressure is caused by particles colliding with the walls and exerting a force."
+          ]
+        }
+      ]
+    },
+    {
+      "heading": "Temperature and pressure at constant volume",
+      "blocks": [
+        { "type": "paragraph", "text": "Here the mass of gas and the volume of the container stay fixed. Only the temperature changes." },
+        {
+          "type": "diagram",
+          "diagram": {
+            "kind": "compare",
+            "alt": "A cold gas and a hot gas in the same sealed container, compared by particle speed, collisions, force and pressure.",
+            "items": ["Cold gas", "Hot gas"],
+            "rows": [
+              { "feature": "Average speed of the particles", "values": ["Slower", "Faster"] },
+              { "feature": "Collisions with the walls each second", "values": ["Fewer", "More"] },
+              { "feature": "Force in each collision", "values": ["Smaller", "Greater"] },
+              { "feature": "Pressure", "values": ["Lower", "Higher"] }
+            ]
+          }
+        },
+        {
+          "type": "list",
+          "items": [
+            "Heating raises the average kinetic energy, so the particles move faster.",
+            "They hit the walls more often.",
+            "They hit the walls with more force each time.",
+            "A greater force on the same area means a greater pressure."
+          ]
+        },
+        { "type": "paragraph", "text": "Cooling does the reverse. The particles are slower, so the pressure decreases. Learn this as a qualitative link only." },
+        {
+          "type": "key-points",
+          "items": [
+            "Higher temperature means faster particles with more kinetic energy.",
+            "They collide with the walls more often and with greater force.",
+            "So the pressure of a fixed volume of gas increases. Cooling decreases it."
+          ]
+        }
+      ]
+    },
+    {
+      "heading": "Absolute zero and the kelvin scale",
+      "blocks": [
+        { "type": "paragraph", "text": "As a gas cools, its particles slow down. There is a lowest possible temperature." },
+        {
+          "type": "definitions",
+          "items": [
+            { "term": "Absolute zero", "meaning": "The lowest possible temperature, 0 K or −273 °C, where the particles have no movement." },
+            { "term": "Kelvin scale", "meaning": "A temperature scale that starts at absolute zero. A change of 1 K is the same as a change of 1 °C." }
+          ]
+        },
+        {
+          "type": "equation",
+          "label": "Celsius to kelvin",
+          "formula": "T = θ + 273",
+          "where": [
+            "T = temperature, in kelvin (K)",
+            "θ = temperature, in degrees Celsius (°C)"
+          ]
+        },
+        {
+          "type": "list",
+          "items": [
+            "To go from kelvin to Celsius, subtract 273.",
+            "A temperature in kelvin is never negative.",
+            "For example, 660 °C is 660 + 273 = 933 K."
+          ]
+        },
+        {
+          "type": "diagram",
+          "diagram": {
+            "kind": "practice",
+            "alt": "Convert a temperature in degrees Celsius to kelvin.",
+            "question": "A thermometer reads {t} °C. Convert this temperature to kelvin.",
+            "variables": [{ "id": "t", "min": -50, "max": 150, "step": 10 }],
+            "answer": { "formula": "t + 273", "unit": "K", "decimals": 0 },
+            "working": [
+              "T = θ + 273",
+              "T = {t} + 273",
+              "T = {answer} K"
+            ]
+          }
+        },
+        {
+          "type": "key-points",
+          "items": [
+            "Absolute zero is −273 °C, which is 0 K.",
+            "Add 273 to go from °C to K. Subtract 273 to go from K to °C.",
+            "Kelvin temperatures are never negative."
+          ]
+        }
+      ]
+    }
+  ],
+  "checks": [
+    {
+      "q": "Explain how gas particles exert a pressure on the walls of a container.",
+      "a": "The particles are in constant random motion and collide with the walls. Each collision exerts a force on the wall. Many collisions every second give a steady pressure.",
+      "marks": 3
+    },
+    {
+      "q": "A sealed container of gas is heated. The volume does not change. Explain why the pressure increases.",
+      "a": "The particles have a greater average kinetic energy (they move faster). They collide with the walls more often and with greater force. A greater force on the same area gives a greater pressure.",
+      "marks": 3
+    },
+    {
+      "q": "Convert 27 °C to kelvin. Then state what is meant by absolute zero.",
+      "a": "27 + 273 = 300 K. Absolute zero is −273 °C (0 K), where the particles have no movement.",
+      "marks": 3
+    }
+  ],
+  "boards": {
+    "aqa": {
+      "spec_codes": ["AQA 4.3.3.1", "AQA T 6.3.3.1"],
+      "exam_phrases": [
+        "particles have a higher (mean) kinetic energy",
+        "particles move with greater speeds (on average)",
+        "more collisions with the walls per second",
+        "greater forces exerted in collisions",
+        "greater force exerted on the same area",
+        "the particles move in random directions",
+        "the particles move with a range of speeds"
+      ],
+      "mistakes": [
+        {
+          "wrong": "At a higher temperature the particles vibrate more, so the pressure increases.",
+          "right": "Vibrate and vibrations are not accepted for a gas. Say the particles have a higher mean kinetic energy or move faster."
+        },
+        {
+          "wrong": "The gas is hotter, so the pressure goes up.",
+          "right": "Explain it with particles: higher kinetic energy, more frequent collisions with the walls and a greater force."
+        },
+        {
+          "wrong": "All the particles in a gas move at the same speed.",
+          "right": "The particles move in random directions and with a range of speeds."
+        }
+      ],
+      "worked_example": {
+        "exemplar_id": "21b94324-294b-49a3-b4bb-7a586ec839ee",
+        "source": "AQA jun 2020, Paper 1 (H), Q10.3",
+        "question": "The temperature of the helium in a balloon was increased. The mass and volume of helium in the balloon remained constant. Explain why the pressure exerted by the helium inside the balloon would increase.",
+        "marks": 4,
+        "answer_points": [
+          "The particles have a higher (mean) kinetic energy (they move faster).",
+          "There is an increased number of collisions with the walls of the balloon per second.",
+          "There are greater forces exerted in the collisions between the particles and the balloon walls.",
+          "There is a greater force exerted on the same area."
+        ],
+        "tip": "One mark for each step. Do not accept that the particles vibrate more."
+      }
+    },
+    "edexcel": {
+      "spec_codes": ["EDEX 14.12", "EDEX 14.13", "EDEX 14.14", "EDEX 14.15"],
+      "exam_phrases": [
+        "gas particles are continually in motion",
+        "collide / hit / bombard the sides (walls) of the container",
+        "(gas particles) exert a force on the side of the container",
+        "particles move faster at a higher temperature",
+        "greater velocity / speed means greater kinetic energy",
+        "particles hit the container more frequently",
+        "bigger pressure because p = F / A"
+      ],
+      "mistakes": [
+        {
+          "wrong": "The melting point of aluminium is 660 °C, which is −933 K.",
+          "right": "Add 273: 660 + 273 = 933 K. A negative value is not accepted."
+        },
+        {
+          "wrong": "When the gas is heated, the pressure is higher.",
+          "right": "This is only an isolated idea. Link it: faster particles have more kinetic energy, hit the walls more often and with more force, so p = F / A is larger."
+        }
+      ],
+      "worked_example": {
+        "exemplar_id": "d616a0d9-ca61-43c6-bad3-9a7ed7397a80",
+        "source": "EDEXCEL jun 2018, Paper 2 (F), Q2(a)(i)",
+        "question": "A fixed mass of gas is inside a cylinder with a movable piston. Describe, in terms of gas particles, how the gas exerts a pressure on the cylinder.",
+        "marks": 3,
+        "answer_points": [
+          "The gas particles are continually in motion.",
+          "They collide with, hit or bombard...",
+          "...the sides (walls) of the container.",
+          "The gas particles exert a force on the side of the container."
+        ],
+        "tip": "Any three of these four points score the three marks."
+      }
+    },
+    "ocr": {
+      "spec_codes": ["OCR P1.3a", "OCR P1.3b"],
+      "exam_phrases": [
+        "higher (average) speed / more (kinetic) energy",
+        "collide more frequently / often with the walls of the container",
+        "bigger force (over the same area) equals greater pressure",
+        "the mass of the air stays the same",
+        "the speed of the air molecules decreases",
+        "the pressure exerted by the air decreases"
+      ],
+      "mistakes": [
+        {
+          "wrong": "Temperature affects the speed of the particles, which affects the pressure.",
+          "right": "The direction of the temperature change must be clear. For an increase in temperature, the particles have a higher average speed and the pressure increases."
+        },
+        {
+          "wrong": "When warm air in a sealed bottle is put in icy water, the mass of the air decreases.",
+          "right": "The mass of the air stays the same. The speed of the molecules, the force on the walls and the pressure all decrease."
+        }
+      ],
+      "worked_example": {
+        "exemplar_id": "42f8cefe-7035-48d2-bf0b-fd50f9cf019f",
+        "source": "OCR jun 2019, Paper 3, Q22(b)",
+        "question": "A student investigates a gas at constant volume. Explain, using ideas about particles, how temperature affects gas pressure.",
+        "marks": 3,
+        "answer_points": [
+          "For an increase in temperature, the gas particles have a higher average speed (more kinetic energy).",
+          "They collide more frequently with the walls of the container.",
+          "A bigger force over the same area gives a greater pressure."
+        ],
+        "tip": "State the direction of the temperature change. The reverse argument for a decrease in temperature is also credited."
+      }
+    }
+  },
+  "meta": {
+    "status": "draft",
+    "written_by": "sonnet-5-5",
+    "written_at": "2026-10-01",
+    "checked_by": "sonnet-science-check",
+    "checked_at": "2026-10-01",
+    "spec_point_ids": [
+      "a1c6178c-4bae-4d8e-a0ec-1148f48c4c69",
+      "6dca44f0-361d-4f15-b172-c9acf2837a69",
+      "1c9fee17-c623-4d08-8a23-a7b9630ecbe3",
+      "2910f8d8-79ad-4352-b0ae-4968f80e8eb1",
+      "55424f1f-5914-42db-92c9-bce6cec00bd8",
+      "1da8f170-023e-4407-95fd-305f52a9960e",
+      "daac9241-543f-48a9-8646-7c1838a908e5",
+      "61652cb5-a240-4ade-8e24-d54e4016c692"
+    ],
+    "exemplar_ids": [
+      "21b94324-294b-49a3-b4bb-7a586ec839ee",
+      "8c114e67-4562-458f-a3cc-3e9f7ebd6612",
+      "13f1ece8-bbe8-477e-99bb-a9d9711c0115",
+      "48672dd1-b099-43e7-a178-547a88590d67",
+      "d616a0d9-ca61-43c6-bad3-9a7ed7397a80",
+      "8c49ec3a-6fcb-4063-9ade-b6c78fa67839",
+      "e21c75c5-2d9e-4064-9fea-835c3d2a3095",
+      "129cb8f7-4e01-4fd1-8d41-5694d2967789",
+      "42f8cefe-7035-48d2-bf0b-fd50f9cf019f",
+      "fabda61c-c2e7-4975-a824-fa03a2566c8e"
+    ]
+  }
+}

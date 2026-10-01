@@ -1,0 +1,399 @@
+{
+  "format": 1,
+  "concept_id": "chem-016",
+  "subject": "chemistry",
+  "title": "Chemical bonds and types of structure",
+  "key_idea": "There are three types of strong chemical bond: ionic, covalent and metallic. Ionic bonding joins metals to non-metals. Covalent bonding joins non-metal atoms. Metallic bonding holds metal atoms together. The bonding and structure decide a substance's properties.",
+  "sections": [
+    {
+      "heading": "The three types of bond",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "Every bond is an electrostatic force acting between particles. The three types differ in which particles are involved and what happens to the electrons."
+        },
+        {
+          "type": "definitions",
+          "items": [
+            {
+              "term": "Ionic bonding",
+              "meaning": "Electrostatic attraction between oppositely charged ions, formed by transfer of electrons."
+            },
+            {
+              "term": "Covalent bonding",
+              "meaning": "Atoms share pairs of electrons."
+            },
+            {
+              "term": "Metallic bonding",
+              "meaning": "Strong electrostatic attraction between positive metal ions and delocalised electrons."
+            }
+          ]
+        },
+        {
+          "type": "table",
+          "columns": [
+            "Bonding",
+            "Particles",
+            "Found in"
+          ],
+          "rows": [
+            [
+              "Ionic",
+              "Oppositely charged ions",
+              "Compounds of a metal with a non-metal"
+            ],
+            [
+              "Covalent",
+              "Atoms sharing pairs of electrons",
+              "Most non-metal elements and compounds of non-metals"
+            ],
+            [
+              "Metallic",
+              "Positive metal ions and delocalised electrons",
+              "Metal elements and alloys"
+            ]
+          ]
+        },
+        {
+          "type": "list",
+          "items": [
+            "Electrons are transferred in ionic bonding and shared in covalent and metallic bonding.",
+            "Argon does not form compounds because its atoms have a full outer shell. They do not share or transfer electrons."
+          ]
+        },
+        {
+          "type": "diagram",
+          "diagram": {
+            "kind": "sort",
+            "alt": "Sort each substance by its type of bonding.",
+            "prompt": "Which type of bonding holds each substance together?",
+            "groups": [
+              "Ionic",
+              "Covalent",
+              "Metallic"
+            ],
+            "items": [
+              {
+                "text": "Sodium chloride",
+                "group": 0
+              },
+              {
+                "text": "Magnesium oxide",
+                "group": 0
+              },
+              {
+                "text": "Water",
+                "group": 1
+              },
+              {
+                "text": "Oxygen",
+                "group": 1
+              },
+              {
+                "text": "Diamond",
+                "group": 1
+              },
+              {
+                "text": "Copper",
+                "group": 2
+              },
+              {
+                "text": "Iron",
+                "group": 2
+              },
+              {
+                "text": "Brass (an alloy)",
+                "group": 2
+              }
+            ]
+          }
+        },
+        {
+          "type": "key-points",
+          "items": [
+            "Metal with non-metal: ionic. Non-metal with non-metal: covalent. Metal elements and alloys: metallic.",
+            "All three are electrostatic forces and involve transferring or sharing electrons."
+          ]
+        }
+      ]
+    },
+    {
+      "heading": "Four types of structure",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "The type of bonding gives four types of structure. You can identify one from its properties."
+        },
+        {
+          "type": "diagram",
+          "diagram": {
+            "kind": "compare",
+            "alt": "Ionic, simple molecular, giant covalent and metallic structures compared.",
+            "items": [
+              "Ionic",
+              "Simple molecular",
+              "Giant covalent",
+              "Metallic"
+            ],
+            "rows": [
+              {
+                "feature": "Held together by",
+                "values": [
+                  "Strong forces between ions",
+                  "Strong covalent bonds inside molecules",
+                  "Many strong covalent bonds",
+                  "Ions and delocalised electrons"
+                ]
+              },
+              {
+                "feature": "Melting point",
+                "values": [
+                  "High",
+                  "Low",
+                  "Very high",
+                  "High"
+                ]
+              },
+              {
+                "feature": "Conducts electricity",
+                "values": [
+                  "Only when molten or dissolved",
+                  "No",
+                  "No (graphite does)",
+                  "Yes"
+                ]
+              },
+              {
+                "feature": "Example",
+                "values": [
+                  "Sodium chloride",
+                  "Water, bromine",
+                  "Diamond, silicon dioxide",
+                  "Copper, iron"
+                ]
+              }
+            ]
+          }
+        },
+        {
+          "type": "list",
+          "items": [
+            "**Simple molecular** substances have low melting points because little energy is needed to overcome the weak forces between molecules.",
+            "**Giant** structures have high melting points because a lot of energy is needed to break many strong bonds or overcome strong forces.",
+            "Ionic compounds conduct when molten or dissolved because the ions are free to move. They do not conduct as solids because the ions are fixed in place.",
+            "Metals conduct because delocalised electrons can move through the structure.",
+            "Many ionic compounds dissolve in water. Giant covalent substances and metals do not.",
+            "Polymers have strong covalent bonds within their chains and weak intermolecular forces between chains. They have low melting points, do not conduct and can be flexible.",
+            "Atoms themselves do not have the bulk properties of a material. Melting point and conductivity belong to the whole structure."
+          ]
+        },
+        {
+          "type": "key-points",
+          "items": [
+            "Low melting point and no conduction: simple molecular.",
+            "High melting point and conducts only when molten or dissolved: ionic.",
+            "High melting point and conducts when solid: metallic."
+          ]
+        }
+      ]
+    },
+    {
+      "heading": "Limitations of models",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "Every diagram or model of bonding shows some features and hides others."
+        },
+        {
+          "type": "table",
+          "columns": [
+            "Model",
+            "What it shows",
+            "Limitation"
+          ],
+          "rows": [
+            [
+              "Dot and cross diagram",
+              "Outer electrons and how they are shared or transferred",
+              "Does not show the shape or the relative size of the atoms"
+            ],
+            [
+              "Ball and stick model",
+              "Shape, number of bonds and single or double bonds",
+              "Does not show electrons or forces. Sticks are not real bonds"
+            ],
+            [
+              "2D drawing",
+              "Which atoms are joined",
+              "Does not show the 3D arrangement"
+            ]
+          ]
+        },
+        {
+          "type": "key-points",
+          "items": [
+            "Each model shows only some features of a substance.",
+            "Choose the model that shows what the question asks about."
+          ]
+        }
+      ]
+    }
+  ],
+  "checks": [
+    {
+      "q": "Name the type of bonding in a compound formed between a metal and a non-metal.",
+      "a": "Ionic.",
+      "marks": 1
+    },
+    {
+      "q": "Describe the structure and bonding in a metal.",
+      "a": "Positive metal ions in a lattice, surrounded by a sea of delocalised electrons, with strong forces of attraction between the ions and the electrons.",
+      "marks": 2
+    },
+    {
+      "q": "Ammonia (NH3) has a boiling point of -33 °C. Silicon dioxide has a boiling point of 2230 °C. Explain the difference.",
+      "a": "Ammonia is simple molecular with weak intermolecular forces. Silicon dioxide is giant covalent with strong covalent bonds. More energy is needed to break the bonds in silicon dioxide than the intermolecular forces in ammonia.",
+      "marks": 3
+    }
+  ],
+  "boards": {
+    "aqa": {
+      "spec_codes": [
+        "AQA 4.2.1.1",
+        "AQA T 5.2.1.1"
+      ],
+      "exam_phrases": [
+        "covalent",
+        "(atoms of) argon have a stable arrangement of electrons",
+        "(atoms of) argon have a full outer shell (of electrons)",
+        "(so) argon (atoms) do not share / transfer electrons"
+      ],
+      "mistakes": [
+        {
+          "wrong": "Argon does not form compounds because it does not want to react.",
+          "right": "Say argon atoms have a full outer shell, a stable arrangement of electrons, so they do not share or transfer electrons."
+        },
+        {
+          "wrong": "The type of bonding in ClF3 is intermolecular forces.",
+          "right": "The bonding is covalent, because both elements are non-metals. Intermolecular forces are ignored."
+        }
+      ],
+      "worked_example": {
+        "exemplar_id": "5af96e7e-cb35-4876-8e93-20b3ec947639",
+        "source": "AQA jun 2023, Paper 1 (H), Q08.1",
+        "question": "Argon has the atomic number 18.\n\nExplain why argon does not form compounds.\n\nAnswer in terms of electrons.",
+        "marks": 2,
+        "answer_points": [
+          "Argon atoms have a stable arrangement of electrons (a full outer shell).",
+          "So argon atoms do not share or transfer electrons."
+        ],
+        "tip": "One mark each. Link the full outer shell to atoms not sharing or transferring electrons."
+      }
+    },
+    "edexcel": {
+      "spec_codes": [
+        "EDEX 1.32",
+        "EDEX 1.41"
+      ],
+      "exam_phrases": [
+        "simple molecular / weak intermolecular forces",
+        "giant covalent / strong covalent bonds",
+        "more energy to break bonds in silicon dioxide than intermolecular forces in ammonia",
+        "metal ions surrounded by delocalised electrons",
+        "strong forces of attraction between delocalised electrons and metal ions",
+        "needs lots of energy to separate the particles"
+      ],
+      "mistakes": [
+        {
+          "wrong": "Silicon dioxide has a high boiling point because it is ionic.",
+          "right": "Silicon dioxide is giant covalent. Ionic is rejected, because both elements are non-metals."
+        },
+        {
+          "wrong": "Metals have high melting points because of intermolecular forces between atoms.",
+          "right": "Mentioning intermolecular forces, covalent bonding, molecules or ionic bonding limits the answer to 1 mark. Use metal ions, delocalised electrons and strong forces of attraction."
+        },
+        {
+          "wrong": "A giant covalent structure has strong bonds.",
+          "right": "'Strong bonds' alone is ignored. State a property that follows from the structure, such as a high melting point, hardness or not conducting."
+        }
+      ],
+      "worked_example": {
+        "exemplar_id": "75df3c1f-ddb0-4196-b33c-81c6f9990463",
+        "source": "EDEXCEL jun 2023, Paper 2 (H), Q8(c)",
+        "question": "Ammonia, NH3, and silicon dioxide, SiO2, are both compounds that are made of two non-metallic elements.\nAmmonia has a boiling point of –33 °C.\nSilicon dioxide has a boiling point of 2230 °C.\nExplain why the boiling points of ammonia and silicon dioxide are so different.",
+        "marks": 3,
+        "answer_points": [
+          "Ammonia is simple molecular, with weak intermolecular forces.",
+          "Silicon dioxide is giant covalent, with strong covalent bonds.",
+          "More heat or energy is needed to break the bonds in silicon dioxide than the intermolecular forces in ammonia."
+        ],
+        "tip": "The marks are independent. Do not describe either substance as ionic."
+      }
+    },
+    "ocr": {
+      "spec_codes": [
+        "OCR C2.2d",
+        "OCR C2.2e",
+        "OCR C2.2g",
+        "OCR C2.3f"
+      ],
+      "exam_phrases": [
+        "positive (metal) ions in a lattice surrounded by a sea of delocalised electrons",
+        "strong forces of attraction between ions and electrons",
+        "ionic: high melting point, conducts when molten or dissolved but not as a solid",
+        "intermolecular forces in bromine are weak",
+        "covalent bonds in diamond require a lot of energy to break",
+        "polymers: low melting point, do not conduct, can be flexible"
+      ],
+      "mistakes": [
+        {
+          "wrong": "Metals have a structure of ionic and covalent bonds.",
+          "right": "Any reference to ionic or covalent bonding or intermolecular forces scores 0 for the structure of a metal. Say positive ions surrounded by a sea of delocalised electrons."
+        },
+        {
+          "wrong": "Metals conduct because they have free ions.",
+          "right": "Free ions score 0. Say metals have electrons that can move, or delocalised electrons."
+        },
+        {
+          "wrong": "Bromine has a low melting point because its covalent bonds are weak.",
+          "right": "The covalent bonds are not broken. Say the intermolecular forces in bromine are weak and need less energy to break."
+        }
+      ],
+      "worked_example": {
+        "exemplar_id": "2bc15c38-cb63-4c53-b84d-d46d305260c4",
+        "source": "OCR jun 2023, Paper 1, Q19(a)*",
+        "question": "The table shows the type of bonding in three substances.\nSubstance | Type of bonding\nBromine, Br2 | simple molecular (covalent)\nSodium chloride, NaCl | ionic\nDiamond, C | giant covalent\n\nDescribe and compare the types of bonding in these three substances.\nPredict which substance will have the lowest melting point.",
+        "marks": 6,
+        "answer_points": [
+          "Sodium chloride (ionic): strong electrostatic forces between ions need a lot of energy to break.",
+          "Diamond (giant covalent): many strong covalent bonds need a lot of energy to break.",
+          "Bromine (simple molecular): intermolecular forces are weak and need less energy to break.",
+          "Bromine has the lowest melting point. Sodium chloride and diamond have higher melting points."
+        ],
+        "tip": "This is a six-mark answer marked by level. Describe each bonding type, link it to the melting point, then predict bromine."
+      }
+    }
+  },
+  "meta": {
+    "status": "draft",
+    "written_by": "sonnet-5-5",
+    "written_at": "2026-10-01",
+    "checked_by": "sonnet-science-check",
+    "checked_at": "2026-10-01",
+    "spec_point_ids": [
+      "c29f3c30-d7b0-4acb-adca-c7c21c5c4e7a",
+      "0a0cdeb8-9a0e-478b-a7f3-aed7cf9aaf3a",
+      "2b3f86dc-f48e-4711-a21e-2f4847c0fe5c",
+      "27e37939-7d45-4a24-8d5c-4cf5ab71ae41",
+      "29692a5d-d366-4fc3-a655-3736e23b93d9",
+      "0b280586-513f-4bc9-ad42-92175d44f6f5",
+      "7295ad30-9047-4022-8977-b71e28d29a9a",
+      "7a952ea4-464c-4ce1-b9c0-4c61dca8e5b8"
+    ],
+    "exemplar_ids": [
+      "5af96e7e-cb35-4876-8e93-20b3ec947639",
+      "75df3c1f-ddb0-4196-b33c-81c6f9990463",
+      "2bc15c38-cb63-4c53-b84d-d46d305260c4"
+    ]
+  }
+}

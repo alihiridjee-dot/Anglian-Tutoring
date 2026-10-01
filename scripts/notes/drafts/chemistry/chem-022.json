@@ -1,0 +1,313 @@
+{
+  "format": 1,
+  "concept_id": "chem-022",
+  "subject": "chemistry",
+  "title": "Polymer structure",
+  "key_idea": "Polymers have very large molecules made of long chains of atoms. Atoms in the chains are joined by strong covalent bonds. The intermolecular forces between the chains are weak compared with covalent bonds, but stronger than in small molecules, so polymers are solids at room temperature.",
+  "sections": [
+    {
+      "heading": "What a polymer is",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "This section covers the structure of a polymer, using poly(ethene) as the example."
+        },
+        {
+          "type": "definitions",
+          "items": [
+            {
+              "term": "Polymer",
+              "meaning": "A substance of high average relative molecular mass, made up of small repeating units."
+            },
+            {
+              "term": "Repeating unit",
+              "meaning": "The small group of atoms that is repeated along the chain."
+            }
+          ]
+        },
+        {
+          "type": "list",
+          "items": [
+            "Polymers have very large molecules.",
+            "The molecules are long chains of carbon atoms.",
+            "In poly(ethene), each carbon atom is joined to other atoms by covalent bonds.",
+            "The chains are far longer than the molecules in small substances such as methane."
+          ]
+        },
+        {
+          "type": "key-points",
+          "items": [
+            "A polymer is made up of small repeating units and has a high relative molecular mass.",
+            "Poly(ethene) is a long chain of carbon atoms."
+          ]
+        }
+      ]
+    },
+    {
+      "heading": "Bonding and state at room temperature",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "Two kinds of attraction matter in a polymer: the bonds inside each chain and the forces between chains."
+        },
+        {
+          "type": "list",
+          "items": [
+            "Within each chain, atoms are joined by strong **covalent bonds**.",
+            "Between the chains there are **intermolecular forces**.",
+            "The intermolecular forces are weak compared with the covalent bonds.",
+            "Because the molecules are so large, the intermolecular forces are stronger than those between small molecules."
+          ]
+        },
+        {
+          "type": "subheading",
+          "text": "Why polymers are solids"
+        },
+        {
+          "type": "steps",
+          "items": [
+            {
+              "lead": "Very large molecules.",
+              "text": "Polymer molecules are much larger than small molecules."
+            },
+            {
+              "lead": "Stronger forces.",
+              "text": "Larger molecules have stronger intermolecular forces."
+            },
+            {
+              "lead": "More energy.",
+              "text": "More energy is needed to overcome the intermolecular forces."
+            },
+            {
+              "lead": "Higher melting point.",
+              "text": "The melting and boiling points are higher, so the polymer is a solid at room temperature."
+            }
+          ]
+        },
+        {
+          "type": "diagram",
+          "diagram": {
+            "kind": "compare",
+            "alt": "Methane compared with poly(ethene).",
+            "items": [
+              "Methane",
+              "Poly(ethene)"
+            ],
+            "rows": [
+              {
+                "feature": "Size of molecule",
+                "values": [
+                  "Very small",
+                  "Very large, a long chain"
+                ]
+              },
+              {
+                "feature": "Bonds between atoms",
+                "values": [
+                  "Strong covalent",
+                  "Strong covalent"
+                ]
+              },
+              {
+                "feature": "Intermolecular forces",
+                "values": [
+                  "Weaker",
+                  "Stronger"
+                ]
+              },
+              {
+                "feature": "Energy to overcome them",
+                "values": [
+                  "Less",
+                  "More"
+                ]
+              },
+              {
+                "feature": "State at room temperature",
+                "values": [
+                  "Gas",
+                  "Solid"
+                ]
+              }
+            ]
+          }
+        },
+        {
+          "type": "key-points",
+          "items": [
+            "Covalent bonds in the chains are strong. Intermolecular forces between chains are weak in comparison.",
+            "Polymers have larger molecules than small molecules, so stronger intermolecular forces.",
+            "Do not write about covalent bonds breaking when a polymer melts."
+          ]
+        }
+      ]
+    },
+    {
+      "heading": "Chains, cross-links and properties",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "How the chains are held together decides how a polymer behaves when it is stretched or heated."
+        },
+        {
+          "type": "list",
+          "items": [
+            "Polymers with no cross-links have chains held only by intermolecular forces.",
+            "The chains can slide over each other, so these polymers stretch and are flexible.",
+            "Cross-links are covalent bonds between chains. They hold the chains firmly, so the polymer is rigid and strong.",
+            "Polymers with cross-links that do not melt when heated are called **thermosetting** polymers. Too much energy is needed to overcome the cross-links.",
+            "Polymers do not conduct electricity. Compared with ionic compounds and metals, they have low melting points."
+          ]
+        },
+        {
+          "type": "key-points",
+          "items": [
+            "Chains without cross-links can slide over each other, so the polymer stretches.",
+            "Cross-links are bonds between chains, so the polymer is rigid and may not melt."
+          ]
+        }
+      ]
+    }
+  ],
+  "checks": [
+    {
+      "q": "Describe the structure of poly(ethene).",
+      "a": "Very large molecules made of long chains of carbon atoms. The atoms in the chains are joined by strong covalent bonds.",
+      "marks": 2
+    },
+    {
+      "q": "Explain why poly(ethene) is a solid at room temperature but methane is a gas.",
+      "a": "Poly(ethene) has much larger molecules, so it has stronger intermolecular forces. More energy is needed to overcome them, so the melting and boiling points are higher.",
+      "marks": 3
+    },
+    {
+      "q": "Explain why some polymers do not melt when heated.",
+      "a": "There are cross-links (covalent bonds) between the chains. Too much energy is needed to overcome the cross-links.",
+      "marks": 2
+    }
+  ],
+  "boards": {
+    "aqa": {
+      "spec_codes": [
+        "AQA 4.2.2.5",
+        "AQA T 5.2.2.5"
+      ],
+      "exam_phrases": [
+        "covalent bonds (between atoms) in the chain",
+        "intermolecular forces between the chains",
+        "covalent bonds are strong and intermolecular forces are weak",
+        "(poly(ethene) has) much larger molecules, so stronger intermolecular forces",
+        "(so the intermolecular forces) need more energy to break",
+        "cross-links between (polymer) chains",
+        "too much energy needed to overcome the cross-links"
+      ],
+      "mistakes": [
+        {
+          "wrong": "Poly(ethene) is a solid because it has stronger covalent bonds than methane.",
+          "right": "Reference to weaker or stronger covalent bonds is not accepted. Say poly(ethene) has much larger molecules, so stronger intermolecular forces."
+        },
+        {
+          "wrong": "Poly(ethene) melts when the covalent bonds break, which needs more energy.",
+          "right": "Reference to breaking covalent bonds is not accepted. Say more energy is needed to overcome the intermolecular forces."
+        },
+        {
+          "wrong": "Melamine does not melt because it has strong intermolecular forces.",
+          "right": "Reference to intermolecular forces is not accepted. Say it contains cross-links (bonds between the polymer chains) and too much energy is needed to overcome them."
+        }
+      ],
+      "worked_example": {
+        "exemplar_id": "15641ba3-29ff-481b-8a89-4f72a24f0af2",
+        "source": "AQA jun 2023, Paper 1 (H), Q04.5",
+        "question": "Methane is a gas at room temperature but poly(ethene) is a solid at room temperature.\n\nExplain why methane and poly(ethene) exist in different states at room temperature.",
+        "marks": 4,
+        "answer_points": [
+          "Poly(ethene) has much larger molecules (than methane).",
+          "So it has stronger intermolecular forces.",
+          "So the intermolecular forces need more energy to break (overcome).",
+          "So the melting and boiling points are higher, and poly(ethene) is a solid.",
+          "Or, in terms of methane: much smaller molecules, weaker intermolecular forces, less energy to overcome, lower boiling point, so a gas."
+        ],
+        "tip": "Either route scores four marks. Do not refer to weaker or stronger covalent bonds, or to breaking covalent bonds."
+      }
+    },
+    "edexcel": {
+      "spec_codes": [
+        "EDEX 1.39",
+        "EDEX 9.17C"
+      ],
+      "exam_phrases": [
+        "large molecules containing chains of carbon atoms",
+        "a substance of high average relative molecular mass",
+        "made up of small repeating units"
+      ],
+      "mistakes": [
+        {
+          "wrong": "A polymer is a small molecule that repeats.",
+          "right": "A polymer is a substance of high average relative molecular mass made up of small repeating units. The molecule is very large."
+        },
+        {
+          "wrong": "Poly(ethene) is a chain of hydrogen atoms.",
+          "right": "Poly(ethene) consists of large molecules containing chains of carbon atoms."
+        }
+      ]
+    },
+    "ocr": {
+      "spec_codes": [
+        "OCR C2.2d",
+        "OCR C2.3f"
+      ],
+      "exam_phrases": [
+        "polymer chains without cross-links can slide or move over each other",
+        "intermolecular forces holding polymer chains together are weaker than cross-links",
+        "polymers have low melting points (compared with ionic compounds and metals)",
+        "polymers do not conduct electricity",
+        "polymers can be flexible",
+        "plastic bottle polymer has strong cross-links"
+      ],
+      "mistakes": [
+        {
+          "wrong": "Polymers without cross-links stretch because the polymer chains stretch.",
+          "right": "References to the polymer chains stretching are ignored. Say the chains can slide or move over each other, because the intermolecular forces are weaker than cross-links."
+        },
+        {
+          "wrong": "A polymer that stretches is not suitable for a ruler because rulers should not be stretchy.",
+          "right": "'Rulers should not be stretchy' is ignored. Say rulers need to be rigid, because stretching moves the scale apart and measurements are incorrect."
+        }
+      ],
+      "worked_example": {
+        "exemplar_id": "c9836d32-06b7-42b6-ad6c-3d8678cb9c1c",
+        "source": "OCR jun 2023, Paper 3, Q21(b)",
+        "question": "Explain why polymers without cross-links can stretch more than polymers with cross-links.",
+        "marks": 2,
+        "answer_points": [
+          "The polymer chains without cross-links can slide or move over each other.",
+          "The intermolecular forces holding the polymer chains together are weaker than cross-links (cross-links are covalent bonds)."
+        ],
+        "tip": "An unqualified answer is taken to refer to polymers without cross-links. Do not write that the chains stretch."
+      }
+    }
+  },
+  "meta": {
+    "status": "draft",
+    "written_by": "sonnet-5-5",
+    "written_at": "2026-10-01",
+    "spec_point_ids": [
+      "c8db2b2e-2e0e-4bc6-ba80-6c9f692d2f66",
+      "e4d22474-ae8e-47eb-b1ab-cb51a8a435fe",
+      "a2be8596-f96e-480d-96a6-a0b13b6cb1a3",
+      "3299dbb5-56d7-4fe9-8f6b-2e7754f93c91",
+      "29692a5d-d366-4fc3-a655-3736e23b93d9",
+      "7a952ea4-464c-4ce1-b9c0-4c61dca8e5b8"
+    ],
+    "exemplar_ids": [
+      "15641ba3-29ff-481b-8a89-4f72a24f0af2",
+      "c9836d32-06b7-42b6-ad6c-3d8678cb9c1c",
+      "041318de-1860-47e8-bd88-cb300e0a74fc",
+      "2f25c8bc-facc-4d29-a9e4-558c52aa1d13",
+      "635bdb41-9780-4212-a307-ce1ca889bef6",
+      "c79d17b2-fbee-4176-8ead-7a811809bc5a"
+    ],
+    "checked_by": "sonnet-science-check",
+    "checked_at": "2026-10-01"
+  }
+}

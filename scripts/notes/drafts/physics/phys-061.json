@@ -1,0 +1,468 @@
+{
+  "format": 1,
+  "concept_id": "phys-061",
+  "subject": "physics",
+  "title": "Stopping distance and reaction time",
+  "key_idea": "**Stopping distance = thinking distance + braking distance.** Thinking distance is the distance travelled during the driver's reaction time. Braking distance is the distance travelled while the brakes slow the vehicle. Each factor changes one or both distances.",
+  "sections": [
+    {
+      "heading": "Thinking distance, braking distance and stopping distance",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "This section explains how a vehicle stops in an emergency and which distances are involved."
+        },
+        {
+          "type": "definitions",
+          "items": [
+            {
+              "term": "Reaction time",
+              "meaning": "The time between a driver seeing a hazard and starting to brake."
+            },
+            {
+              "term": "Thinking distance",
+              "meaning": "The distance the vehicle travels during the driver's reaction time."
+            },
+            {
+              "term": "Braking distance",
+              "meaning": "The distance the vehicle travels under the braking force, until it stops."
+            },
+            {
+              "term": "Stopping distance",
+              "meaning": "The total distance the vehicle travels from the hazard being seen to the vehicle stopping."
+            }
+          ]
+        },
+        {
+          "type": "equation",
+          "label": "Stopping distance",
+          "formula": "stopping distance = thinking distance + braking distance",
+          "where": [
+            "stopping distance, thinking distance and braking distance are all in metres, m"
+          ]
+        },
+        {
+          "type": "list",
+          "items": [
+            "During the thinking distance the vehicle keeps moving at the same speed.",
+            "During the braking distance the brakes slow the vehicle down.",
+            "For a given braking force, the greater the speed, the greater the stopping distance."
+          ]
+        },
+        {
+          "type": "key-points",
+          "items": [
+            "Stopping distance is the sum of thinking distance and braking distance.",
+            "The driver controls the thinking distance. The brakes, tyres and road control the braking distance.",
+            "A greater speed gives a greater stopping distance."
+          ]
+        }
+      ]
+    },
+    {
+      "heading": "Reaction time and thinking distance",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "Reaction times vary from person to person. Typical values range from 0.2 s to 0.9 s."
+        },
+        {
+          "type": "paragraph",
+          "text": "A longer reaction time means the vehicle travels further before the driver starts to brake. This increases the thinking distance."
+        },
+        {
+          "type": "subheading",
+          "text": "What changes a driver's reaction time"
+        },
+        {
+          "type": "list",
+          "items": [
+            "Tiredness.",
+            "Drugs.",
+            "Alcohol.",
+            "Distractions, such as using a mobile phone."
+          ]
+        },
+        {
+          "type": "equation",
+          "label": "Thinking distance",
+          "formula": "distance = speed × time",
+          "where": [
+            "distance is the thinking distance, in metres, m",
+            "speed is the speed of the vehicle, in metres per second, m/s",
+            "time is the reaction time, in seconds, s"
+          ]
+        },
+        {
+          "type": "diagram",
+          "diagram": {
+            "kind": "practice",
+            "alt": "Calculate a thinking distance from a speed and a reaction time.",
+            "question": "A car travels at {v} m/s. The driver's reaction time is {t} s. Calculate the thinking distance.",
+            "variables": [
+              {
+                "id": "v",
+                "min": 10,
+                "max": 35,
+                "step": 5
+              },
+              {
+                "id": "t",
+                "min": 0.2,
+                "max": 0.9,
+                "step": 0.1
+              }
+            ],
+            "answer": {
+              "formula": "v * t",
+              "unit": "m",
+              "decimals": 1
+            },
+            "working": [
+              "thinking distance = speed × reaction time",
+              "thinking distance = {v} × {t}",
+              "thinking distance = {answer} m"
+            ]
+          }
+        },
+        {
+          "type": "subheading",
+          "text": "Measuring reaction times"
+        },
+        {
+          "type": "list",
+          "items": [
+            "A simple method is for one student to drop a ruler and another to catch it. The distance the ruler falls before it is caught shows the reaction time: a longer distance means a longer reaction time.",
+            "Repeat the test several times and take a mean to reduce the effect of chance.",
+            "Compare the results with and without a distraction to see its effect on reaction time."
+          ]
+        },
+        {
+          "type": "key-points",
+          "items": [
+            "Reaction time is typically 0.2 s to 0.9 s.",
+            "Tiredness, drugs, alcohol and distractions increase reaction time.",
+            "A longer reaction time gives a longer thinking distance, not a longer braking distance."
+          ]
+        }
+      ]
+    },
+    {
+      "heading": "Factors that affect braking distance",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "Braking distance depends on the vehicle, the road and the weather. It does not depend on the driver's reaction time."
+        },
+        {
+          "type": "list",
+          "items": [
+            "Wet or icy roads reduce the friction between the tyres and the road.",
+            "Poor tyres, such as worn tyres, reduce the friction between the tyres and the road.",
+            "Poor brakes, such as worn brakes, reduce the braking force.",
+            "A greater mass means more kinetic energy to remove, so the braking distance is greater.",
+            "A greater speed means more kinetic energy to remove, so the braking distance is greater."
+          ]
+        },
+        {
+          "type": "paragraph",
+          "text": "Try the slider. Change the speed, the driver and the road, and watch which distance changes."
+        },
+        {
+          "type": "diagram",
+          "diagram": {
+            "kind": "slider",
+            "alt": "Set the speed, the driver and the road to see the thinking, braking and stopping distances.",
+            "inputs": [
+              {
+                "id": "v",
+                "label": "Speed",
+                "unit": "m/s",
+                "min": 10,
+                "max": 35,
+                "step": 1,
+                "value": 20
+              },
+              {
+                "id": "t",
+                "label": "Driver",
+                "choices": [
+                  {
+                    "label": "Alert (0.3 s)",
+                    "value": 0.3
+                  },
+                  {
+                    "label": "Tired (0.6 s)",
+                    "value": 0.6
+                  },
+                  {
+                    "label": "On a phone (0.9 s)",
+                    "value": 0.9
+                  }
+                ]
+              },
+              {
+                "id": "a",
+                "label": "Road",
+                "choices": [
+                  {
+                    "label": "Dry",
+                    "value": 6.5
+                  },
+                  {
+                    "label": "Wet",
+                    "value": 3.9
+                  },
+                  {
+                    "label": "Icy",
+                    "value": 1.3
+                  }
+                ]
+              }
+            ],
+            "outputs": [
+              {
+                "label": "Thinking distance",
+                "unit": "m",
+                "formula": "v * t",
+                "decimals": 1,
+                "bar": true
+              },
+              {
+                "label": "Braking distance",
+                "unit": "m",
+                "formula": "v^2 / (2 * a)",
+                "decimals": 1,
+                "bar": true
+              },
+              {
+                "label": "Stopping distance",
+                "unit": "m",
+                "formula": "v * t + v^2 / (2 * a)",
+                "decimals": 1
+              }
+            ],
+            "scene": {
+              "kind": "road",
+              "thinking": 0,
+              "braking": 1
+            }
+          }
+        },
+        {
+          "type": "list",
+          "items": [
+            "The driver changes the thinking distance only.",
+            "The road, tyres and brakes change the braking distance only.",
+            "Speed changes both distances."
+          ]
+        },
+        {
+          "type": "list",
+          "items": [
+            "You may be asked to estimate how the stopping distance of a vehicle changes over a range of typical speeds.",
+            "(Separate science) You may be asked to interpret graphs of speed against stopping distance for a range of vehicles."
+          ]
+        },
+        {
+          "type": "subheading",
+          "text": "Implications for safety"
+        },
+        {
+          "type": "list",
+          "items": [
+            "Leave a bigger gap to the vehicle in front on wet or icy roads.",
+            "Keep tyres and brakes in good condition.",
+            "Do not drive when tired or after drinking alcohol or taking drugs.",
+            "Do not use a mobile phone while driving."
+          ]
+        },
+        {
+          "type": "key-points",
+          "items": [
+            "Friction between tyres and road, brake condition and mass change the braking distance.",
+            "Road, tyre and brake conditions do not change the thinking distance.",
+            "In an answer, link each factor to the distance it changes, with a reason."
+          ]
+        }
+      ]
+    }
+  ],
+  "checks": [
+    {
+      "q": "State the equation for stopping distance.",
+      "a": "Stopping distance = thinking distance + braking distance.",
+      "marks": 1
+    },
+    {
+      "q": "Explain why a person should not drink alcohol and then drive.",
+      "a": "Alcohol increases reaction time, so the thinking distance increases. The driver is more likely to have a collision before stopping.",
+      "marks": 3
+    },
+    {
+      "q": "A car travels at 20 m/s. The thinking distance is 14 m. Calculate the driver's reaction time.",
+      "a": "Reaction time = thinking distance ÷ speed = 14 ÷ 20 = 0.70 s.",
+      "marks": 2
+    }
+  ],
+  "boards": {
+    "aqa": {
+      "spec_codes": [
+        "AQA 4.5.6.3",
+        "AQA T 6.5.4.3"
+      ],
+      "exam_phrases": [
+        "increases reaction time",
+        "so increases the thinking distance",
+        "stopping distance includes thinking distance",
+        "there is an additional time before the driver applies the brakes",
+        "because of decreased friction",
+        "stopping distance = braking distance + thinking distance"
+      ],
+      "mistakes": [
+        {
+          "wrong": "Alcohol makes the stopping distance longer.",
+          "right": "Link the steps. Alcohol increases reaction time, so the thinking distance increases, so the driver is more likely to have a collision before stopping."
+        },
+        {
+          "wrong": "Tiredness, wet roads and speed all affect the stopping distance.",
+          "right": "A list of factors only scores at Level 1. Add a linked explanation for each, such as wet roads reducing friction between the tyres and the road."
+        },
+        {
+          "wrong": "A single factor such as worn tyres affects the braking distance.",
+          "right": "A single factor with no related explanation is insufficient to score a mark. Add the reason, which is decreased friction."
+        }
+      ],
+      "worked_example": {
+        "exemplar_id": "8b75db64-2869-48d6-aa57-017cedbbe0dc",
+        "source": "AQA jun 2022, Paper 2 (F), Q05.2",
+        "question": "The stopping distance of a car is the sum of the thinking distance and the braking distance.\n\nExplain why a person should not drink alcohol and then drive.",
+        "marks": 3,
+        "answer_points": [
+          "Alcohol increases reaction time.",
+          "So the thinking distance increases (the car travels a greater distance).",
+          "So the driver is more likely to have a collision before stopping in an emergency."
+        ],
+        "tip": "One mark for each linked step: reaction time, thinking distance, then the risk of a collision."
+      }
+    },
+    "edexcel": {
+      "spec_codes": [
+        "EDEX 2.27",
+        "EDEX 2.28",
+        "EDEX 2.29",
+        "EDEX 2.30",
+        "EDEX 2.32P"
+      ],
+      "exam_phrases": [
+        "increased reaction time",
+        "increased thinking distance",
+        "worn tyres cause increased stopping distance",
+        "tired driver causes increased stopping distance",
+        "effect of drugs",
+        "state of brakes"
+      ],
+      "mistakes": [
+        {
+          "wrong": "t = 1.4 s.",
+          "right": "46 ÷ 31 = 1.483... s, which is 1.5 s to 2 significant figures. An answer of 1.4 scores 2 marks, not 3."
+        },
+        {
+          "wrong": "1.50 s is a better answer than 1.5 s.",
+          "right": "The question asked for 2 significant figures. 1.50 scores 2 marks, so write 1.5 s."
+        },
+        {
+          "wrong": "Worn tyres and a tired driver.",
+          "right": "Naming factors alone stays at a low level. Link each to its effect: worn tyres cause increased stopping distance, and a tired driver causes increased stopping distance."
+        },
+        {
+          "wrong": "Reaction time = 31 ÷ 46 = 0.67 s.",
+          "right": "Divide the distance by the speed, 46 ÷ 31. Dividing the wrong way round loses a mark."
+        }
+      ],
+      "worked_example": {
+        "exemplar_id": "571d2dea-fea5-48aa-9577-f04c55a2574f",
+        "source": "EDEXCEL jun 2022, Paper 1 (F), Q9(a)(iii)",
+        "question": "The driver's reaction time is the time between the driver seeing an emergency and starting to brake.\n\nA car is travelling at a speed of 31 m/s.\n\nThe car travels 46 m between the driver seeing an emergency and starting to brake.\n\nCalculate the driver's reaction time.\n\nGive your answer to 2 significant figures.",
+        "marks": 3,
+        "answer_points": [
+          "46 = 31 × t",
+          "t = 46 ÷ 31 = 1.48(3) s",
+          "t = 1.5 s"
+        ],
+        "tip": "One mark for substitution, one for the evaluation and one for giving 2 significant figures."
+      }
+    },
+    "ocr": {
+      "spec_codes": [
+        "OCR P8.1d",
+        "OCR P8.1e",
+        "OCR P8.1f"
+      ],
+      "exam_phrases": [
+        "Thinking distance unchanged",
+        "Friction/force between tyres and road reduced",
+        "Braking distance becomes greater",
+        "less friction / smaller deceleration",
+        "larger KE to dissipate",
+        "Initial kinetic energy is the same"
+      ],
+      "mistakes": [
+        {
+          "wrong": "On an icy road the thinking distance is longer too.",
+          "right": "Thinking distance is unchanged by ice. The friction between the tyres and the road is reduced, so only the braking distance becomes greater."
+        },
+        {
+          "wrong": "Reaction time = speed ÷ thinking distance = 8 ÷ 6.",
+          "right": "Reaction time = thinking distance ÷ speed = 6 ÷ 8 = 0.75 s. A correct substitution is ignored if it is not rearranged."
+        },
+        {
+          "wrong": "A factor that affects braking distance is the stopping distance.",
+          "right": "Stopping distance and the distance for braking or thinking are not accepted as a factor. Name a cause, such as poor brakes, and give the reason: less friction or a smaller deceleration."
+        }
+      ],
+      "worked_example": {
+        "exemplar_id": "9061ba10-fa10-485b-ab98-e54ee3e9323e",
+        "source": "OCR jun 2018, Paper 2, Q20(b)",
+        "question": "The table shows thinking, braking and stopping distances for the same car travelling at different speeds.\n\nSpeed (m/s) | Thinking distance (m) | Braking distance (m) | Stopping distance (m)\n8 | 6 | 6 | 12\n16 | 12 | 24 | 36\n32 | 24 | 96 | 120\n\nCalculate the reaction time of the person driving the car.",
+        "marks": 3,
+        "answer_points": [
+          "Reaction time = thinking distance ÷ speed.",
+          "6 ÷ 8 (or 12 ÷ 16, or 24 ÷ 32).",
+          "Reaction time = 0.75 s."
+        ],
+        "tip": "A correct answer of 0.75 s scores all 3 marks. A correct substitution is ignored if it is not rearranged."
+      }
+    }
+  },
+  "meta": {
+    "status": "draft",
+    "written_by": "sonnet-5-5",
+    "written_at": "2026-10-01",
+    "spec_point_ids": [
+      "a86fafa2-d33b-4f5b-ad37-86924ea852e2",
+      "e34d8784-f53a-4753-bb4f-92c0258f7306",
+      "4f6e0ccc-7f37-4e4a-acda-db2db66c2fc2",
+      "f89b3b40-17d2-45b6-9e50-4242d449818f",
+      "8a7e60b4-98ce-411f-8176-2f094558a94e",
+      "71a5b17d-f7c6-4e2c-9ce1-39042ace59a4",
+      "6aea149a-5d8a-4214-a328-270ae28b89ed",
+      "c69541c4-9ce5-4a46-b75f-cae7f7116f83",
+      "9e06b462-3148-49d2-98ff-5b38c68a5165",
+      "b403667f-c165-48fc-a8d6-70af60145d79"
+    ],
+    "exemplar_ids": [
+      "06b2ae90-133f-4292-832f-4db297f06fe1",
+      "1835d6eb-3ea7-4b66-b1b8-340d875157fa",
+      "571d2dea-fea5-48aa-9577-f04c55a2574f",
+      "65401692-641e-471b-9dee-d3d2289c5a21",
+      "66ce3aa9-0917-49b8-92d3-7727c5e1b1fd",
+      "8b75db64-2869-48d6-aa57-017cedbbe0dc",
+      "9061ba10-fa10-485b-ab98-e54ee3e9323e",
+      "ae23d552-ebea-4dd6-9934-2d245366c2e5",
+      "ce75c31d-5c9c-4900-bb4e-3cefa8ed8e43"
+    ],
+    "checked_by": "sonnet-science-check",
+    "checked_at": "2026-10-01"
+  }
+}

@@ -1,0 +1,321 @@
+{
+  "format": 1,
+  "concept_id": "phys-070",
+  "subject": "physics",
+  "title": "Required practical: refraction of light",
+  "key_idea": "Trace a narrow ray of light through a rectangular glass block, remove the block and join the marks. Measure the angle of incidence and angle of refraction from the normal. The two angles are not directly proportional.",
+  "sections": [
+    {
+      "heading": "The method",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "In this practical you trace a ray of light through a rectangular glass block and measure the angles with a protractor."
+        },
+        {
+          "type": "list",
+          "items": [
+            "Equipment: a ray box with a narrow slit and a rectangular glass block.",
+            "Also a sheet of paper, a pencil, a ruler and a protractor."
+          ]
+        },
+        {
+          "type": "steps",
+          "items": [
+            {
+              "lead": "Place the block.",
+              "text": "Put the glass block on a sheet of paper and draw around it."
+            },
+            {
+              "lead": "Shine a ray.",
+              "text": "Use the ray box to shine a narrow ray of light at the block, entering through one side."
+            },
+            {
+              "lead": "Mark the ray.",
+              "text": "Mark the ray entering the block and the ray emerging from it, with crosses."
+            },
+            {
+              "lead": "Join the points.",
+              "text": "Remove the block. Join the marks to show the path of the whole ray through the block."
+            },
+            {
+              "lead": "Draw the normal.",
+              "text": "Draw a normal at 90° to the surface where the ray enters."
+            },
+            {
+              "lead": "Measure.",
+              "text": "Use a protractor to measure the angle of incidence and the angle of refraction."
+            },
+            {
+              "lead": "Repeat.",
+              "text": "Change the angle of incidence in 10° steps, for example from 10° to 80°, and repeat."
+            }
+          ]
+        },
+        {
+          "type": "paragraph",
+          "text": "Put the steps of the method in order."
+        },
+        {
+          "type": "diagram",
+          "diagram": {
+            "kind": "sequence",
+            "alt": "Put the steps of the refraction practical in order.",
+            "prompt": "Put the steps of the glass block practical in the right order.",
+            "steps": [
+              "Place the glass block on paper and draw around it.",
+              "Shine a narrow ray of light into the block.",
+              "Mark the ray entering and the ray leaving the block.",
+              "Remove the block and join the marks to show the path of the ray.",
+              "Draw the normal at 90° to the surface.",
+              "Measure the angle of incidence and angle of refraction with a protractor.",
+              "Repeat for a range of angles of incidence."
+            ]
+          }
+        },
+        {
+          "type": "key-points",
+          "items": [
+            "Trace the ray, then remove the block and join the marks.",
+            "Draw the normal at 90° to the surface and measure both angles from it.",
+            "Repeat for angles of incidence in 10° steps."
+          ]
+        }
+      ]
+    },
+    {
+      "heading": "Results and conclusions",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "Plot the angle of refraction against the angle of incidence. Entering glass from air, the ray bends towards the normal."
+        },
+        {
+          "type": "list",
+          "items": [
+            "The angle of refraction is smaller than the angle of incidence.",
+            "A ray along the normal (0°) does not change direction.",
+            "The graph is a curve that bends over. It is not a straight line.",
+            "So the two angles are not directly proportional."
+          ]
+        },
+        {
+          "type": "diagram",
+          "diagram": {
+            "kind": "line-graph",
+            "alt": "A sketch graph of angle of refraction against angle of incidence for light entering glass. The line starts at zero and rises steeply at first, then flattens, so the line is a curve and the angles are not directly proportional.",
+            "x": {
+              "label": "Angle of incidence",
+              "min": 0,
+              "max": 90,
+              "ticks": [
+                0,
+                15,
+                30,
+                45,
+                60,
+                75,
+                90
+              ],
+              "unit": "°"
+            },
+            "y": {
+              "label": "Angle of refraction (sketch of the shape only)"
+            },
+            "series": [
+              {
+                "name": "Air into glass",
+                "points": [
+                  [
+                    0,
+                    0
+                  ],
+                  [
+                    10,
+                    0.056
+                  ],
+                  [
+                    20,
+                    0.111
+                  ],
+                  [
+                    30,
+                    0.156
+                  ],
+                  [
+                    40,
+                    0.211
+                  ],
+                  [
+                    50,
+                    0.256
+                  ],
+                  [
+                    60,
+                    0.289
+                  ],
+                  [
+                    70,
+                    0.311
+                  ],
+                  [
+                    80,
+                    0.322
+                  ]
+                ]
+              }
+            ]
+          }
+        },
+        {
+          "type": "subheading",
+          "text": "Testing whether angles are proportional"
+        },
+        {
+          "type": "list",
+          "items": [
+            "If two quantities are directly proportional, dividing one by the other always gives the same number.",
+            "Work out angle of incidence ÷ angle of refraction for several pairs. If the numbers differ, the angles are not proportional.",
+            "To test a conclusion properly, repeat, use more angles, and use larger angles."
+          ]
+        },
+        {
+          "type": "key-points",
+          "items": [
+            "Entering glass, the ray bends towards the normal.",
+            "The graph of the two angles is a curve, so they are not directly proportional.",
+            "Dividing one angle by the other for several pairs tests proportionality."
+          ]
+        }
+      ]
+    },
+    {
+      "heading": "Accuracy and errors",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "The ray box should give a ray that is as narrow as possible. This improves the accuracy of the angles."
+        },
+        {
+          "type": "list",
+          "items": [
+            "It is harder to judge where the centre of a wider ray is.",
+            "That causes a larger uncertainty in the measurements.",
+            "Variation between repeat readings is a random error. A cause is the student's eye not being in the same position each time, or the centre of the ray not marked correctly.",
+            "Repeat the readings and calculate a mean to reduce the effect of random errors.",
+            "Use a sharp pencil and a protractor that is placed carefully on the normal."
+          ]
+        },
+        {
+          "type": "key-points",
+          "items": [
+            "Use a narrow ray so the centre is easier to mark.",
+            "Variation in repeat readings is random error.",
+            "Repeat and take a mean."
+          ]
+        }
+      ]
+    }
+  ],
+  "checks": [
+    {
+      "q": "Describe how to trace the path of a ray through a glass block.",
+      "a": "Place the block on paper and draw around it. Shine a ray into the block. Mark the ray entering and leaving. Remove the block and join the marks.",
+      "marks": 3
+    },
+    {
+      "q": "Why should the ray from the ray box be as narrow as possible?",
+      "a": "It is harder to judge the centre of a wide ray, which causes a larger uncertainty in the measurements.",
+      "marks": 2
+    },
+    {
+      "q": "A student says the angle of refraction is directly proportional to the angle of incidence. How could the student test this?",
+      "a": "Repeat the readings, use more different angles of incidence, and include larger angles. Divide the angle of incidence by the angle of refraction for each pair. If the answers differ, the angles are not proportional.",
+      "marks": 3
+    }
+  ],
+  "boards": {
+    "aqa": {
+      "spec_codes": [
+        "AQA 4.6.1.3"
+      ],
+      "exam_phrases": [
+        "place a glass block on a piece of paper",
+        "draw around the glass block",
+        "mark the ray of light entering the glass block",
+        "mark the ray of light emerging from the glass block",
+        "join the points to show the path of the complete ray through the block",
+        "draw a normal line at 90 degrees to the surface",
+        "use a protractor to measure the angle of incidence",
+        "increase the angle of incidence in 10 degree intervals",
+        "it is harder to judge where the centre of a wider ray is",
+        "causing a larger uncertainty"
+      ],
+      "mistakes": [
+        {
+          "wrong": "Use a mirror and measure the angle of reflection.",
+          "right": "Methods involving mirrors and reflection score zero. Use a glass block and measure the angle of refraction."
+        },
+        {
+          "wrong": "A wider ray gives less accurate results.",
+          "right": "This only repeats the question. Give the reason: it is harder to judge where the centre of a wider ray is, causing a larger uncertainty."
+        },
+        {
+          "wrong": "Measure the angles without drawing a normal.",
+          "right": "Draw a normal line at 90 degrees to the surface and measure the angle of incidence and angle of refraction from it."
+        }
+      ],
+      "worked_example": {
+        "exemplar_id": "dd4a11fb-3ea4-42a9-8645-07a294f64dfa",
+        "source": "AQA jun 2022, Paper 2 (H), Q02.1",
+        "question": "A student used a ray box to shine a ray of light through air into a glass block.\n\nThe student investigated how the angle of refraction varied with the angle of incidence.\n\nThe results were:\n\nAngle of incidence 10°, refraction 5°\n20°, 10°\n30°, 14°\n40°, 19°\n50°, 23°\n60°, 26°\n70°, 28°\n80°, 29°\n\nDescribe a method the student could have used to obtain these results.\n\nYour answer may include a labelled diagram.",
+        "marks": 6,
+        "answer_points": [
+          "Place a glass block on a piece of paper and draw around it.",
+          "Use the ray box to shine a ray of light through the glass block.",
+          "Mark the ray entering the block and the ray emerging from it, and join the points to show the path of the whole ray.",
+          "Draw a normal line at 90 degrees to the surface.",
+          "Use a protractor to measure the angle of incidence and the angle of refraction.",
+          "Repeat for a range of angles of incidence, in 10 degree intervals from 10 degrees to 80 degrees."
+        ],
+        "tip": "A six-mark question is marked by level. Give all the key steps, in a logical order."
+      }
+    },
+    "edexcel": {
+      "spec_codes": [
+        "EDEX 5.9"
+      ],
+      "exam_phrases": [
+        "repeat",
+        "different angles / more values",
+        "more measurements / collect more data",
+        "for larger angles"
+      ],
+      "mistakes": [
+        {
+          "wrong": "To test whether the angles are proportional, repeat the same readings.",
+          "right": "Repeating alone scores only one of the three marks. Use different angles, or more values, as well."
+        },
+        {
+          "wrong": "Angles up to 20° are enough to test the conclusion.",
+          "right": "Test it for larger angles as well, above 20°."
+        }
+      ]
+    }
+  },
+  "meta": {
+    "status": "draft",
+    "written_by": "sonnet-5-5",
+    "written_at": "2026-10-01",
+    "spec_point_ids": [
+      "501a5dfc-1260-4680-9b36-43eebaf5f3a5",
+      "a884de6f-c06d-44d3-970a-b46ddef6cb24"
+    ],
+    "exemplar_ids": [
+      "dd4a11fb-3ea4-42a9-8645-07a294f64dfa",
+      "1a15e8f0-7549-4922-bb3f-d574905eeb82"
+    ],
+    "checked_by": "sonnet-science-check",
+    "checked_at": "2026-10-01"
+  }
+}

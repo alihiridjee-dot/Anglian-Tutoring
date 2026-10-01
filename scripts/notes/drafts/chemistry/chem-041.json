@@ -1,0 +1,296 @@
+{
+  "format": 1,
+  "concept_id": "chem-041",
+  "subject": "chemistry",
+  "title": "Oxidation and reduction (oxygen)",
+  "key_idea": "Metals react with oxygen to form metal oxides. This is oxidation, because the metal gains oxygen. Reduction is the opposite: loss of oxygen. The two always happen together in a redox reaction.",
+  "sections": [
+    {
+      "heading": "Metals reacting with oxygen",
+      "blocks": [
+        { "type": "paragraph", "text": "This section covers what happens when a metal is heated in air or oxygen." },
+        {
+          "type": "list",
+          "items": [
+            "Metals react with oxygen to produce **metal oxides**.",
+            "The metal gains oxygen, so the reaction is an **oxidation** reaction.",
+            "The metal oxide is a compound of the metal and oxygen only.",
+            "Magnesium burns with a bright white flame and leaves white magnesium oxide."
+          ]
+        },
+        {
+          "type": "equation",
+          "label": "Word equation for magnesium",
+          "formula": "magnesium + oxygen → magnesium oxide",
+          "where": ["magnesium, oxygen: reactants", "magnesium oxide: the only product"]
+        },
+        {
+          "type": "equation",
+          "label": "Symbol equations for metals and oxygen",
+          "formula": "2Mg + O₂ → 2MgO\n4Na + O₂ → 2Na₂O\n4Fe + 3O₂ → 2Fe₂O₃",
+          "where": ["Mg, Na, Fe: magnesium, sodium, iron", "O₂: oxygen gas", "MgO, Na₂O, Fe₂O₃: the metal oxides"]
+        },
+        {
+          "type": "key-points",
+          "items": [
+            "Metal + oxygen → metal oxide.",
+            "The metal is oxidised because it gains oxygen."
+          ]
+        }
+      ]
+    },
+    {
+      "heading": "Oxidation and reduction",
+      "blocks": [
+        { "type": "paragraph", "text": "This section covers the two definitions in terms of oxygen and how to use them on an equation." },
+        {
+          "type": "definitions",
+          "items": [
+            { "term": "Oxidation", "meaning": "The gain of oxygen." },
+            { "term": "Reduction", "meaning": "The loss of oxygen." },
+            { "term": "Redox reaction", "meaning": "A reaction in which oxidation and reduction happen at the same time." }
+          ]
+        },
+        {
+          "type": "steps",
+          "items": [
+            { "lead": "Find the substance that gains oxygen.", "text": "It has been oxidised." },
+            { "lead": "Find the substance that loses oxygen.", "text": "It has been reduced." },
+            { "lead": "Name the whole substance.", "text": "In a metal oxide, say the oxide (for example iron oxide) is reduced, not just the metal." }
+          ]
+        },
+        { "type": "paragraph", "text": "In 2CuO + C → 2Cu + CO₂, copper oxide loses oxygen and carbon gains it." },
+        {
+          "type": "list",
+          "items": [
+            "Copper oxide (CuO) is **reduced**, because it loses oxygen.",
+            "Carbon (C) is **oxidised**, because it gains oxygen to form carbon dioxide.",
+            "Oxygen is transferred from one substance to the other, so the reaction is a redox reaction."
+          ]
+        },
+        {
+          "type": "diagram",
+          "diagram": {
+            "kind": "sort",
+            "alt": "Sort each change into oxidation or reduction.",
+            "prompt": "Is the substance oxidised or reduced?",
+            "groups": ["Oxidised (gains oxygen)", "Reduced (loses oxygen)"],
+            "items": [
+              { "text": "Mg in 2Mg + O₂ → 2MgO", "group": 0 },
+              { "text": "Iron oxide in Fe₂O₃ + 3C → 2Fe + 3CO", "group": 1 },
+              { "text": "Carbon in 2CuO + C → 2Cu + CO₂", "group": 0 },
+              { "text": "Copper oxide in 2CuO + C → 2Cu + CO₂", "group": 1 },
+              { "text": "Hydrogen in 2H₂ + O₂ → 2H₂O", "group": 0 },
+              { "text": "Iron in 4Fe + 3O₂ → 2Fe₂O₃", "group": 0 },
+              { "text": "Tin oxide in SnO₂ + C → Sn + CO₂", "group": 1 }
+            ]
+          }
+        },
+        {
+          "type": "key-points",
+          "items": [
+            "Oxidation is gain of oxygen. Reduction is loss of oxygen.",
+            "Oxidation and reduction happen together in a redox reaction.",
+            "Say which substance gains or loses oxygen, and name the whole substance."
+          ]
+        }
+      ]
+    },
+    {
+      "heading": "Showing oxidation by measuring mass",
+      "blocks": [
+        { "type": "paragraph", "text": "A metal heated in a crucible gains mass as it gains oxygen." },
+        {
+          "type": "steps",
+          "items": [
+            { "lead": "Weigh.", "text": "Find the mass of the empty crucible and lid, then add the metal and weigh again." },
+            { "lead": "Heat.", "text": "Heat strongly. Lift the lid from time to time to let air in." },
+            { "lead": "Weigh again.", "text": "Heat to constant mass, then weigh the crucible, lid and product." },
+            { "lead": "Calculate.", "text": "Final mass of oxide minus start mass of metal is the mass of oxygen that combined." }
+          ]
+        },
+        {
+          "type": "list",
+          "items": [
+            "The oxide is heavier than the metal, because oxygen has been added.",
+            "Without a lid, some of the metal oxide escapes as smoke, so the mass of oxide collected is less."
+          ]
+        },
+        {
+          "type": "key-points",
+          "items": [
+            "Mass of oxide is greater than the mass of metal, because oxygen has been gained.",
+            "Keep a lid on the crucible so no product escapes."
+          ]
+        }
+      ]
+    }
+  ],
+  "checks": [
+    {
+      "q": "Magnesium burns in oxygen to form magnesium oxide. Is the magnesium oxidised or reduced? Give a reason.",
+      "a": "Oxidised, because magnesium gains oxygen.",
+      "marks": 2
+    },
+    {
+      "q": "Lead oxide is heated with carbon: 2PbO + C → 2Pb + CO₂. Which substance is reduced?",
+      "a": "Lead oxide (PbO), because it loses oxygen.",
+      "marks": 2
+    },
+    {
+      "q": "Why is the mass of a metal greater after it has been heated in air?",
+      "a": "The metal has gained oxygen to form the metal oxide.",
+      "marks": 1
+    }
+  ],
+  "boards": {
+    "aqa": {
+      "spec_codes": ["AQA 4.4.1.1", "AQA T 5.4.1.1"],
+      "exam_phrases": [
+        "(iron oxide) loses oxygen",
+        "loss of oxygen (reduction)",
+        "oxidised (magnesium reacting with oxygen)",
+        "magnesium + oxygen → magnesium oxide",
+        "products escaped (without a lid)",
+        "2 Mg + O₂ → 2 MgO"
+      ],
+      "mistakes": [
+        {
+          "wrong": "Iron oxide is reduced because it gains electrons.",
+          "right": "When the question says answer in terms of oxygen, references to gain of electrons are ignored. Say iron oxide loses oxygen."
+        },
+        {
+          "wrong": "Carbon is reduced because it takes oxygen from the oxide.",
+          "right": "The reason mark depends on naming the right substance. Carbon gains oxygen, so it is oxidised. The oxide that loses oxygen is reduced."
+        },
+        {
+          "wrong": "Without a lid the mass of magnesium oxide would be greater, because more air gets in.",
+          "right": "Without a lid the mass of magnesium oxide is less, because some of the product escaped."
+        }
+      ],
+      "worked_example": {
+        "exemplar_id": "a54a3f67-d8b4-4be4-b5ac-84e6ea2db914",
+        "source": "AQA jun 2025, Paper 1 (F), Q10.1",
+        "question": "Tin (Sn) is extracted from tin oxide using carbon. The equation for the reaction is:\n\nSnO₂ + C → Sn + CO₂\n\nWhich substance is reduced in this reaction?\n\nGive one reason for your answer.\n\nAnswer in terms of oxygen.",
+        "marks": 2,
+        "answer_points": [
+          "Substance reduced: SnO₂ (tin oxide).",
+          "Reason: SnO₂ (tin oxide) loses oxygen."
+        ],
+        "tip": "The reason mark is only given if you named the right substance first."
+      }
+    },
+    "edexcel": {
+      "spec_codes": ["EDEX 4.5"],
+      "exam_phrases": [
+        "gain of oxygen (oxidation)",
+        "carbon gained oxygen (to form carbon dioxide)",
+        "allow addition of oxygen",
+        "oxidation is loss of electrons (allowed)",
+        "reject other elements (for the substance oxidised)",
+        "ignore oxygen reacts with metal"
+      ],
+      "mistakes": [
+        {
+          "wrong": "Oxidation is when oxygen reacts with a metal.",
+          "right": "Oxygen reacts with metal is ignored. Say oxidation is the gain of oxygen."
+        },
+        {
+          "wrong": "In 2PbO + C → 2Pb + CO₂, lead is oxidised.",
+          "right": "Other elements are rejected. Carbon is oxidised because it gains oxygen to form carbon dioxide."
+        },
+        {
+          "wrong": "Iron is reduced when it reacts with oxygen to form iron oxide.",
+          "right": "Iron gains oxygen, so it is oxidised. Reduction is loss of oxygen."
+        }
+      ],
+      "worked_example": {
+        "exemplar_id": "baea6bb0-4474-45de-a9e6-07985a685a06",
+        "source": "EDEXCEL nov 2020, Paper 1 (F), Q6(e)",
+        "question": "In one stage of the extraction of lead from its ore, lead oxide is heated strongly with carbon.\n\nThe equation for the reaction is\n\n2PbO + C → 2Pb + CO₂\n\nExplain, using this equation, which substance has been oxidised in this reaction.",
+        "marks": 2,
+        "answer_points": [
+          "Carbon (C) is the substance oxidised.",
+          "It gained oxygen (to form carbon dioxide)."
+        ],
+        "tip": "Other elements are rejected for the first mark. Oxidation as loss of electrons is also allowed."
+      }
+    },
+    "ocr": {
+      "spec_codes": ["OCR C3.3a"],
+      "exam_phrases": [
+        "copper oxide / CuO loses oxygen or is reduced",
+        "carbon / C gains oxygen or is oxidised",
+        "hydrogen gains oxygen",
+        "oxygen is removed (from iron oxide)",
+        "the oxidising agent is oxygen and the reducing agent is magnesium",
+        "the oxide loses oxygen"
+      ],
+      "mistakes": [
+        {
+          "wrong": "Copper loses oxygen.",
+          "right": "Do not allow this. Copper oxide loses oxygen, and copper is what is left."
+        },
+        {
+          "wrong": "Iron oxide is reduced because iron is formed.",
+          "right": "The mark is for the process, not the products. Say oxygen is removed from iron oxide. Saying iron is formed is ignored."
+        },
+        {
+          "wrong": "Hydrogen is oxidised because water is formed.",
+          "right": "Water is formed is ignored. Say hydrogen gains oxygen."
+        }
+      ],
+      "worked_example": {
+        "exemplar_id": "ea8b2340-9b1f-4305-8299-3ad39736fd8a",
+        "source": "OCR jun 2024, Paper 4, Q18(c)(i)",
+        "question": "Copper is extracted by heating copper oxide with carbon.\n\n2CuO + C → 2Cu + CO₂\n\nExplain why this is an example of a redox reaction.",
+        "marks": 2,
+        "answer_points": [
+          "Copper oxide (CuO) loses oxygen, so it is reduced.",
+          "Carbon (C) gains oxygen, so it is oxidised."
+        ],
+        "tip": "A redox reaction needs both. Do not say that copper loses oxygen."
+      },
+      "extra": [
+        {
+          "heading": "Oxidising and reducing agents",
+          "blocks": [
+            { "type": "paragraph", "text": "OCR also asks which substance is the oxidising agent and which is the reducing agent." },
+            {
+              "type": "definitions",
+              "items": [
+                { "term": "Oxidising agent", "meaning": "The substance that oxidises another substance. It is itself reduced." },
+                { "term": "Reducing agent", "meaning": "The substance that reduces another substance. It is itself oxidised." }
+              ]
+            },
+            {
+              "type": "list",
+              "items": [
+                "In 2Mg + O₂ → 2MgO the oxidising agent is oxygen and the reducing agent is magnesium.",
+                "In Mg + CuO → MgO + Cu the reducing agent is magnesium, because it takes oxygen from copper oxide."
+              ]
+            }
+          ]
+        }
+      ]
+    }
+  },
+  "meta": {
+    "status": "draft",
+    "written_by": "sonnet-5-5",
+    "written_at": "2026-10-01",
+    "checked_by": "sonnet-science-check",
+    "checked_at": "2026-10-01",
+    "spec_point_ids": [
+      "40b815dc-82d7-4f9a-a36a-29b0d868ddcb",
+      "4fb80692-6001-450f-934a-31ca07164a8f",
+      "20930848-f596-495a-8257-f2a678d58091",
+      "a2428503-907f-4b58-889f-b790c90285cf"
+    ],
+    "exemplar_ids": [
+      "a54a3f67-d8b4-4be4-b5ac-84e6ea2db914",
+      "baea6bb0-4474-45de-a9e6-07985a685a06",
+      "ea8b2340-9b1f-4305-8299-3ad39736fd8a"
+    ]
+  }
+}

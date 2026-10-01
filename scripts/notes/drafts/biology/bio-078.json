@@ -1,0 +1,277 @@
+{
+  "format": 1,
+  "concept_id": "bio-078",
+  "subject": "biology",
+  "title": "ADH and the control of water content",
+  "key_idea": "(Separate science) ADH is released by the pituitary gland when the blood is too concentrated. It makes the collecting duct more permeable, so more water is reabsorbed and the urine is smaller in volume and more concentrated. This is negative feedback.",
+  "sections": [
+    {
+      "heading": "Detecting the water content of the blood",
+      "blocks": [
+        { "type": "paragraph", "text": "(Separate science) The water content of the blood changes with drinking, sweating and eating. The brain monitors it and sends a hormone message." },
+        {
+          "type": "definitions",
+          "items": [
+            { "term": "ADH", "meaning": "A hormone from the pituitary gland that controls how much water the kidney reabsorbs." },
+            { "term": "Collecting duct", "meaning": "The last part of the kidney tubule, where the final amount of water is reabsorbed." }
+          ]
+        },
+        {
+          "type": "steps",
+          "items": [
+            { "lead": "Detect.", "text": "Receptors in the hypothalamus detect that the blood is too concentrated, because it has too little water." },
+            { "lead": "Signal.", "text": "The hypothalamus sends a message to the pituitary gland." },
+            { "lead": "Release.", "text": "The pituitary gland releases **ADH** into the blood." },
+            { "lead": "Carry.", "text": "The blood carries ADH to the kidneys, its target organs." }
+          ]
+        },
+        {
+          "type": "key-points",
+          "items": [
+            "The hypothalamus detects the water content of the blood.",
+            "The pituitary gland releases ADH into the blood."
+          ]
+        }
+      ]
+    },
+    {
+      "heading": "How ADH changes the urine",
+      "blocks": [
+        { "type": "paragraph", "text": "ADH acts on the collecting duct. It changes how much water is reabsorbed, so it changes the urine." },
+        { "type": "subheading", "text": "Too little water in the blood" },
+        {
+          "type": "list",
+          "items": [
+            "More ADH is released.",
+            "The collecting duct becomes more permeable to water.",
+            "More water is reabsorbed into the blood by osmosis.",
+            "The urine is more concentrated and smaller in volume."
+          ]
+        },
+        { "type": "subheading", "text": "Too much water in the blood" },
+        {
+          "type": "list",
+          "items": [
+            "Less ADH is released, or none.",
+            "The collecting duct is less permeable to water.",
+            "Less water is reabsorbed, so more stays in the urine.",
+            "The urine is more dilute and larger in volume."
+          ]
+        },
+        {
+          "type": "key-points",
+          "items": [
+            "More ADH means a more permeable collecting duct, more water reabsorbed and less, concentrated urine.",
+            "Less ADH means the reverse: more, dilute urine."
+          ]
+        }
+      ]
+    },
+    {
+      "heading": "Negative feedback",
+      "blocks": [
+        { "type": "paragraph", "text": "When the blood water content returns to normal, ADH release falls. The change is reversed, so this is negative feedback. Pick a situation to see the response." },
+        {
+          "type": "diagram",
+          "diagram": {
+            "kind": "predictor",
+            "alt": "Choose a situation to see how ADH, the collecting duct and the urine respond.",
+            "prompt": "Pick a situation",
+            "result_labels": ["Water content of the blood", "ADH released", "Collecting duct", "Urine"],
+            "options": [
+              {
+                "label": "Hot day, not enough to drink",
+                "results": [
+                  "Falls, so the blood is more concentrated",
+                  "More ADH",
+                  "More permeable, so more water is reabsorbed",
+                  "Small volume, concentrated and dark"
+                ]
+              },
+              {
+                "label": "Drinking a large volume of water",
+                "results": [
+                  "Rises, so the blood is more dilute",
+                  "Less ADH, or none",
+                  "Less permeable, so less water is reabsorbed",
+                  "Large volume, dilute and pale"
+                ]
+              },
+              {
+                "label": "A disease that reduces the amount of ADH made",
+                "results": [
+                  "Tends to fall, because extra water is lost in the urine",
+                  "Less ADH than normal",
+                  "Less water is reabsorbed from the kidney tubule",
+                  "Large volume and low concentration"
+                ]
+              }
+            ]
+          }
+        },
+        {
+          "type": "key-points",
+          "items": [
+            "Negative feedback keeps the water content of the blood close to normal.",
+            "Too concentrated: more ADH. Too dilute: less ADH."
+          ]
+        }
+      ]
+    }
+  ],
+  "checks": [
+    {
+      "q": "Which gland releases ADH into the blood?",
+      "a": "The pituitary gland.",
+      "marks": 1
+    },
+    {
+      "q": "A man has not had a drink all day. Explain how ADH changes his urine.",
+      "a": "More ADH makes the collecting duct more permeable to water, so more water is reabsorbed into the blood. The urine is more concentrated and smaller in volume.",
+      "marks": 3
+    },
+    {
+      "q": "Explain why less ADH is released after a person drinks a lot of water.",
+      "a": "The blood water content rises, which is detected by the hypothalamus. This is negative feedback, so the pituitary gland releases less ADH.",
+      "marks": 2
+    }
+  ],
+  "boards": {
+    "aqa": {
+      "spec_codes": ["AQA 5.10"],
+      "exam_phrases": [
+        "(increased / high) ADH increases water reabsorption",
+        "increases permeability (of kidney tubules) to water",
+        "(water reabsorption) from kidney tubules",
+        "ADH increases the concentration (of urine), decreases the volume",
+        "(kidney) tubules less permeable to water, so less water is reabsorbed",
+        "more water in urine, more dilute urine / increased volume",
+        "high(er) concentration of blood causes (more) ADH release"
+      ],
+      "mistakes": [
+        {
+          "wrong": "In the desert the man's kidneys make less urine, so he loses less water.",
+          "right": "Reference to urine is ignored for the reabsorption mark. Say ADH increases the permeability of the kidney tubules to water, so more water is reabsorbed back into the blood."
+        },
+        {
+          "wrong": "When the blood is more dilute, more ADH is released.",
+          "right": "A higher concentration of the blood (lower water potential) causes more ADH release. Dilute blood means less ADH."
+        },
+        {
+          "wrong": "ADH increases the volume of urine.",
+          "right": "ADH increases water reabsorption, so it increases the concentration of the urine and decreases its volume."
+        }
+      ],
+      "worked_example": {
+        "exemplar_id": "8718724b-b53f-4226-bcdb-0c175760b883",
+        "source": "AQA jun 2024, Paper 2 (H), Q08.3",
+        "question": "ADH is a hormone that affects the production and concentration of urine by the kidneys.\n\nExplain how ADH affects the production and concentration of urine by the kidneys.",
+        "marks": 4,
+        "answer_points": [
+          "(Increased / high) ADH increases water reabsorption, or increases permeability to water (allow the converse for low or no ADH).",
+          "Water is reabsorbed from the kidney tubules.",
+          "So ADH increases the concentration of the urine.",
+          "So ADH decreases the volume of the urine."
+        ],
+        "tip": "Four marks: reabsorption, from the tubules, then concentration up and volume down."
+      }
+    },
+    "edexcel": {
+      "spec_codes": ["EDEX 7.20B"],
+      "exam_phrases": [
+        "hypothalamus detects there is too little water in the blood",
+        "ADH released from the pituitary gland into the blood",
+        "the collecting duct becomes more permeable",
+        "more water is reabsorbed into the blood by osmosis",
+        "more concentrated urine, smaller volume of urine produced",
+        "ADH lowered / not released; collecting duct is less permeable",
+        "more dilute urine, larger volume of urine produced"
+      ],
+      "mistakes": [
+        {
+          "wrong": "ADH is released from the kidney into the blood.",
+          "right": "ADH is released from the pituitary gland into the blood. The hypothalamus detects the water content. The kidney is where ADH acts."
+        },
+        {
+          "wrong": "In the collecting duct water leaves the body, which makes the urine more concentrated.",
+          "right": "Water from the urine is reabsorbed, or moved back into the blood, by osmosis. That leaves the urine more concentrated."
+        }
+      ],
+      "worked_example": {
+        "exemplar_id": "8c01ceaa-2038-4a52-ae12-b201ce99555e",
+        "source": "EDEXCEL jun 2023, Paper 2 (H), Q10(b)",
+        "question": "Describe how the water content of the blood is controlled in the nephron.",
+        "marks": 6,
+        "answer_points": [
+          "Water content too low: the hypothalamus detects too little water in the blood.",
+          "ADH is released from the pituitary gland into the blood.",
+          "The collecting duct becomes more permeable, so more water is reabsorbed into the blood by osmosis.",
+          "More concentrated urine and a smaller volume of urine are produced.",
+          "Water content too high: the hypothalamus detects too much water, and ADH is lowered or not released.",
+          "The collecting duct is less permeable, less water is reabsorbed, and more dilute, larger-volume urine is produced."
+        ],
+        "tip": "Marked in levels. Describe both a low and a high water content, and link ADH from the pituitary gland to the collecting duct."
+      }
+    },
+    "ocr": {
+      "spec_codes": ["OCR 3.3i"],
+      "exam_phrases": [
+        "(low) water potential / (decreased) water levels are detected by the hypothalamus",
+        "release of ADH / increased ADH levels",
+        "increased permeability of the collecting duct / kidney tubules",
+        "increased reabsorption of water (into the blood)",
+        "decreased urine production, urine will become more concentrated",
+        "hypothalamus; pituitary (gland); ADH",
+        "less water is reabsorbed from the kidney tubule into the blood"
+      ],
+      "mistakes": [
+        {
+          "wrong": "The brain detects that the water level is low.",
+          "right": "\"Brain\" is ignored. Name the hypothalamus as the part that detects the low water level."
+        },
+        {
+          "wrong": "The blood concentration is detected by receptors in the medulla and a message is sent to the hypothalamus.",
+          "right": "Receptors in the hypothalamus detect the blood concentration and the message goes to the pituitary gland, which releases ADH."
+        },
+        {
+          "wrong": "Less ADH means less water is reabsorbed, so the horse makes a small volume of concentrated urine.",
+          "right": "This is the wrong way round. Less water reabsorbed from the kidney tubule gives a higher volume of urine with a lower concentration."
+        }
+      ],
+      "worked_example": {
+        "exemplar_id": "2f905652-12db-4a97-86bb-9618c52b42a1",
+        "source": "OCR nov 2020, Paper 3, Q22(b)(iii)",
+        "question": "ADH is a protein hormone made up of amino acids.\n\nAlcohol inhibits ADH production.\n\nAfter the alcohol has been removed from a person’s body, control mechanisms will correct the excess loss of water caused by the alcohol.\n\nDescribe these control mechanisms.",
+        "marks": 2,
+        "answer_points": [
+          "(Low) water potential or decreased water levels are detected by the hypothalamus (ignore: brain).",
+          "This causes the release of ADH, or increased ADH levels.",
+          "Increased permeability of the collecting duct / kidney tubules, so increased reabsorption of water into the blood, decreased urine production, or more concentrated urine.",
+          "Any two of these points."
+        ],
+        "tip": "Two marks from three points. Say hypothalamus, then ADH, then the effect on the kidney tubule."
+      }
+    }
+  },
+  "meta": {
+    "status": "draft",
+    "written_by": "sonnet-5-5",
+    "written_at": "2026-10-01",
+    "checked_by": "sonnet-science-check",
+    "checked_at": "2026-10-01",
+    "spec_point_ids": [
+      "31134818-3827-42aa-bf53-498ecc93b236",
+      "438f47d8-5ca7-46f2-8a2d-efa03f2e297a"
+    ],
+    "exemplar_ids": [
+      "8718724b-b53f-4226-bcdb-0c175760b883",
+      "8c01ceaa-2038-4a52-ae12-b201ce99555e",
+      "2f905652-12db-4a97-86bb-9618c52b42a1",
+      "793fdd8d-dfce-4357-bb57-48bf85f1327f",
+      "a2749c79-1b47-480b-89c2-ab22dcbda5a9",
+      "2f2d93e2-ec71-4190-8b2f-3c1be2690979",
+      "54791e7a-e82a-430c-8e33-5a36bd1a4027",
+      "40b76244-3923-4644-9f6c-233299651a6f"
+    ]
+  }
+}

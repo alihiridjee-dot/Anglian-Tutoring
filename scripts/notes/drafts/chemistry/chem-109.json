@@ -1,0 +1,445 @@
+{
+  "format": 1,
+  "concept_id": "chem-109",
+  "subject": "chemistry",
+  "title": "NPK fertilisers",
+  "key_idea": "Plants need nitrogen, phosphorus and potassium, and NPK fertilisers supply them to increase crop yield. Ammonia is used to make ammonium salts and nitric acid, and phosphate rock is treated with acid. Industrial production is large scale and continuous, while laboratory preparation is small scale and batch. (Separate science)",
+  "sections": [
+    {
+      "heading": "Why plants need N, P and K (Separate science)",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "Plants need nitrogen, phosphorus and potassium. Fertilisers add these elements to the soil to improve crop yield."
+        },
+        {
+          "type": "definitions",
+          "items": [
+            {
+              "term": "Fertiliser",
+              "meaning": "A substance added to soil to provide elements that plants need to grow."
+            },
+            {
+              "term": "NPK fertiliser",
+              "meaning": "A fertiliser containing compounds of nitrogen (N), phosphorus (P) and potassium (K)."
+            }
+          ]
+        },
+        {
+          "type": "list",
+          "items": [
+            "Fertilisers increase crop yields.",
+            "Growing populations mean farmers need to grow more crops.",
+            "Fertilisers allow farmers to use the same land over and over again."
+          ]
+        },
+        {
+          "type": "diagram",
+          "diagram": {
+            "kind": "sort",
+            "alt": "Sort each clue into nitrogen, phosphorus or potassium.",
+            "prompt": "Which element does each clue point to?",
+            "groups": [
+              "Nitrogen",
+              "Phosphorus",
+              "Potassium"
+            ],
+            "items": [
+              {
+                "text": "Too little causes yellow leaves",
+                "group": 0
+              },
+              {
+                "text": "Too little causes poor root growth",
+                "group": 1
+              },
+              {
+                "text": "Too little causes poor fruit growth",
+                "group": 2
+              },
+              {
+                "text": "Found in ammonium nitrate",
+                "group": 0
+              },
+              {
+                "text": "Found in potassium chloride",
+                "group": 2
+              },
+              {
+                "text": "Found in treated phosphate rock",
+                "group": 1
+              }
+            ]
+          }
+        },
+        {
+          "type": "key-points",
+          "items": [
+            "Plants need nitrogen, phosphorus and potassium.",
+            "Too little nitrogen: yellow leaves. Too little phosphorus: poor root growth. Too little potassium: poor fruit growth.",
+            "Fertilisers increase crop yield."
+          ]
+        }
+      ]
+    },
+    {
+      "heading": "Making fertilisers (Separate science)",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "NPK fertilisers are mixtures of salts with the right percentages of each element. The raw materials come from ammonia and from mining."
+        },
+        {
+          "type": "list",
+          "items": [
+            "Ammonia is used to make ammonium salts and nitric acid.",
+            "Ammonium nitrate is made from ammonia and nitric acid.",
+            "Ammonium sulfate is made from ammonia and sulfuric acid.",
+            "Potassium chloride, potassium sulfate and phosphate rock are obtained by mining.",
+            "Phosphate rock cannot be used directly as a fertiliser. It is treated with acid to make soluble salts."
+          ]
+        },
+        {
+          "type": "equation",
+          "label": "Ammonium nitrate",
+          "formula": "NH₃ + HNO₃ → NH₄NO₃",
+          "where": [
+            "NH₃ = ammonia, HNO₃ = nitric acid"
+          ]
+        },
+        {
+          "type": "equation",
+          "label": "Ammonium sulfate",
+          "formula": "2NH₃ + H₂SO₄ → (NH₄)₂SO₄",
+          "where": [
+            "NH₃ = ammonia, H₂SO₄ = sulfuric acid"
+          ]
+        },
+        {
+          "type": "subheading",
+          "text": "Treating phosphate rock with acid"
+        },
+        {
+          "type": "table",
+          "columns": [
+            "Acid used",
+            "Salt produced"
+          ],
+          "rows": [
+            [
+              "Nitric acid",
+              "Calcium nitrate (with phosphoric acid)"
+            ],
+            [
+              "Sulfuric acid",
+              "Calcium sulfate (single superphosphate)"
+            ],
+            [
+              "Phosphoric acid",
+              "Calcium phosphate (triple superphosphate)"
+            ]
+          ]
+        },
+        {
+          "type": "subheading",
+          "text": "Percentage of an element in a fertiliser"
+        },
+        {
+          "type": "equation",
+          "label": "Mass of an element in a fertiliser",
+          "formula": "mass of element = (percentage of element ÷ 100) × mass of fertiliser",
+          "where": [
+            "mass of fertiliser in kg",
+            "percentage of element in %, from the bag or table"
+          ]
+        },
+        {
+          "type": "diagram",
+          "diagram": {
+            "kind": "practice",
+            "alt": "Calculate the mass of potassium in a bag of fertiliser.",
+            "question": "A {m} kg bag of fertiliser contains {p}% potassium. Calculate the mass of potassium in the bag.",
+            "variables": [
+              {
+                "id": "p",
+                "min": 12,
+                "max": 36,
+                "step": 6
+              },
+              {
+                "id": "m",
+                "min": 10,
+                "max": 30,
+                "step": 5
+              }
+            ],
+            "answer": {
+              "formula": "p / 100 * m",
+              "unit": "kg",
+              "decimals": 2
+            },
+            "working": [
+              "Mass of potassium = {p} ÷ 100 × {m}",
+              "Mass of potassium = {answer} kg"
+            ]
+          }
+        },
+        {
+          "type": "key-points",
+          "items": [
+            "Ammonia is used to make ammonium salts and nitric acid.",
+            "Phosphate rock is treated with acid to make soluble salts.",
+            "Mass of element = percentage ÷ 100 × mass of fertiliser."
+          ]
+        }
+      ]
+    },
+    {
+      "heading": "Laboratory and industrial production (Separate science)",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "Ammonium sulfate can be made in a laboratory or in industry. Both use ammonia and sulfuric acid and both are neutralisation reactions."
+        },
+        {
+          "type": "subheading",
+          "text": "In the laboratory"
+        },
+        {
+          "type": "list",
+          "items": [
+            "React ammonia solution and sulfuric acid in a conical flask, using a titration to find the volumes needed.",
+            "Evaporate water from the solution until crystals start to form.",
+            "Leave to cool and crystallise, filter the crystals and dry them."
+          ]
+        },
+        {
+          "type": "subheading",
+          "text": "In industry"
+        },
+        {
+          "type": "list",
+          "items": [
+            "Streams of ammonia solution and sulfuric acid are reacted together.",
+            "The water is evaporated as the solution passes down a warm column.",
+            "Dry crystals are collected continuously at the bottom."
+          ]
+        },
+        {
+          "type": "table",
+          "columns": [
+            "Feature",
+            "Laboratory",
+            "Industry"
+          ],
+          "rows": [
+            [
+              "Scale",
+              "Small",
+              "Large"
+            ],
+            [
+              "Process",
+              "Batch",
+              "Continuous"
+            ],
+            [
+              "Speed",
+              "Slow",
+              "Quick"
+            ],
+            [
+              "Stages",
+              "One stage: titration",
+              "Several stages to make ammonia and sulfuric acid from raw materials"
+            ]
+          ]
+        },
+        {
+          "type": "key-points",
+          "items": [
+            "Both methods react ammonia with sulfuric acid in a neutralisation reaction.",
+            "Industry is large scale, continuous and quick.",
+            "The laboratory method is small scale and is a batch process."
+          ]
+        }
+      ]
+    }
+  ],
+  "checks": [
+    {
+      "q": "Name the three elements that NPK fertilisers contain.",
+      "a": "Nitrogen, phosphorus and potassium.",
+      "marks": 1
+    },
+    {
+      "q": "Explain why farmers spread ammonium nitrate on their fields.",
+      "a": "It is a fertiliser that contains nitrogen. It helps promote plant growth and increases crop yield.",
+      "marks": 2
+    },
+    {
+      "q": "State one difference between the industrial production and the laboratory preparation of ammonium sulfate.",
+      "a": "The industrial process is on a much larger scale, is continuous, or involves more stages. The laboratory method is a small-scale batch process.",
+      "marks": 1
+    }
+  ],
+  "boards": {
+    "aqa": {
+      "spec_codes": [
+        "AQA 4.10.4.2"
+      ],
+      "exam_phrases": [
+        "calcium sulfate",
+        "calcium phosphate",
+        "calcium nitrate",
+        "(calcium) triple superphosphate",
+        "single superphosphate",
+        "(industrial process) is larger scale",
+        "(industrial process) is quicker",
+        "(is a) continuous process",
+        "none of the compounds contain both nitrogen and potassium so a mixture is needed",
+        "contains more nitrogen and is cheaper, so more cost effective"
+      ],
+      "mistakes": [
+        {
+          "wrong": "The industrial process is better because it uses less energy and costs less.",
+          "right": "References to cost and energy are ignored here. Say the industrial process is larger scale, quicker or continuous."
+        },
+        {
+          "wrong": "The industrial process is better because it produces a large mass.",
+          "right": "A large mass produced is ignored. Say the process is larger scale, quicker, or continuous so it does not need to be repeated."
+        },
+        {
+          "wrong": "Compound C is best for this soil because it contains nitrogen and phosphorus.",
+          "right": "The soil already had enough phosphorus, so it is not needed. Ammonium nitrate has more nitrogen and is cheaper, and potassium chloride is the only source of potassium."
+        }
+      ],
+      "worked_example": {
+        "exemplar_id": "03c76de9-3555-4c98-b3b9-89ebdd4e37be",
+        "source": "AQA jun 2023, Paper 2 (H), Q10.1",
+        "question": "Compounds of nitrogen (N), phosphorus (P) and potassium (K) are used as fertilisers to improve agricultural productivity.\n\nThe table shows information about three compounds, A, B and C, that can be used as fertilisers.\n\n| | Compound A | Compound B | Compound C |\n| Name | potassium chloride | ammonium nitrate | diammonium hydrogen phosphate |\n| Formula | KCl | NH4NO3 | (NH4)2HPO4 |\n| Percentage of N, P and K by mass | K: 52% | N: 35% | N: 21%, P: 23% |\n| Cost in £/kg | 0.24 | 0.23 | 0.35 |\n\nA scientist analysed the percentages of nitrogen, phosphorus and potassium in a soil.\n\nThe percentages of nitrogen and of potassium in the soil were lower than the percentages needed for high agricultural productivity.\n\nThere was sufficient phosphorus in the soil for high agricultural productivity.\n\nEvaluate the use of the compounds in the table to improve the agricultural productivity of this soil.",
+        "marks": 4,
+        "answer_points": [
+          "Compound A (potassium chloride) only contains potassium, and is the only source of potassium, so it is needed.",
+          "Compound B (ammonium nitrate) only contains nitrogen.",
+          "Compound B contains more nitrogen than compound C and is cheaper, so it is more cost effective.",
+          "Compound C contains phosphorus, which is not needed.",
+          "Judgement: none of the compounds contains both nitrogen and potassium, so a mixture is needed, such as A and B."
+        ],
+        "tip": "Marked in levels: reasons logically linked to a judgement reach the top level."
+      }
+    },
+    "edexcel": {
+      "spec_codes": [
+        "EDEX 5.22C",
+        "EDEX 5.23C",
+        "EDEX 5.24C"
+      ],
+      "exam_phrases": [
+        "as a fertiliser",
+        "to help their crops grow",
+        "contains (a high percentage of) nitrogen",
+        "promote plant growth / increases crop yield",
+        "NH3 + HNO3 → NH4NO3",
+        "both use sulfuric acid",
+        "both are neutralisation",
+        "industrial process is on a much larger scale",
+        "industrial process involves more stages",
+        "ammonia is a gas in the industrial process but a solution in the laboratory"
+      ],
+      "mistakes": [
+        {
+          "wrong": "Farmers spread ammonium sulfate to protect crops from disease and kill pests.",
+          "right": "Protecting from disease or killing pests is rejected. It is a fertiliser, a source of nitrogen that helps crops grow and increases yield."
+        },
+        {
+          "wrong": "A similarity is that both produce ammonium sulfate.",
+          "right": "This is ignored. Give a similarity such as both use sulfuric acid or both are neutralisation reactions."
+        },
+        {
+          "wrong": "The industrial process is more dangerous.",
+          "right": "This is ignored. Give a difference such as much larger scale, more stages, or a continuous rather than a batch process."
+        }
+      ],
+      "worked_example": {
+        "exemplar_id": "0e6df897-f3ab-4ed2-b06e-a808340afcb5",
+        "source": "EDEXCEL nov 2020, Paper 1 (H), Q10(b)(iii)",
+        "question": "Ammonium sulfate and ammonium nitrate are used as fertilisers as they both contain nitrogen, which will increase the yield of crops.\n\nDescribe one similarity and one difference between the industrial production of ammonium sulfate and the laboratory preparation of ammonium sulfate.",
+        "marks": 2,
+        "answer_points": [
+          "Similarity (any one): both use sulfuric acid, or both are neutralisation reactions, or both give out heat energy.",
+          "Difference (any one): the industrial process is on a much larger scale, or involves more stages.",
+          "Or: ammonia is a gas in the industrial process but a solution in the laboratory.",
+          "Or: the laboratory preparation uses titration and crystallisation."
+        ],
+        "tip": "One mark for a similarity and one for a difference."
+      }
+    },
+    "ocr": {
+      "spec_codes": [
+        "OCR C6.1h",
+        "OCR C6.1i",
+        "OCR C6.1j"
+      ],
+      "exam_phrases": [
+        "fertilisers increase crop yields",
+        "fertilisers provide essential elements for crops",
+        "growing populations mean farmers need to grow more crops",
+        "fertilisers allow farmers to use the same land over and over again",
+        "phosphorus and potassium",
+        "titrate ammonia against sulfuric acid",
+        "slow evaporation of reaction mixture",
+        "atom economy is 100%",
+        "batch process",
+        "continuous process",
+        "can be made from by-products of other processes"
+      ],
+      "mistakes": [
+        {
+          "wrong": "Fertilisers make plants grow faster and better.",
+          "right": "Just good, increased or faster growth is ignored. Say fertilisers increase crop yields, or provide essential elements such as nitrogen, phosphorus and potassium."
+        },
+        {
+          "wrong": "Fertilisers provide nutrients and minerals for plants.",
+          "right": "Nutrients and minerals are ignored. Name the essential elements: nitrogen, potassium or phosphorus."
+        },
+        {
+          "wrong": "Fertilisers are important because they control pests.",
+          "right": "Controlling pests is ignored. Fertilisers increase crop yield and provide essential elements."
+        }
+      ],
+      "worked_example": {
+        "exemplar_id": "4a811083-07fe-4125-b557-31035e0a4a9b",
+        "source": "OCR sample null, Paper 4, Q22(c)(i)",
+        "question": "Ammonium sulfate is a salt.\n\nIt is made using the reaction between the alkali ammonia and sulfuric acid.\n\n2NH3 + H2SO4 → (NH4)2SO4\n\nDescribe how a sample of solid ammonium sulfate is prepared in a laboratory.\n\nExplain why this method is not suitable to be used industrially.",
+        "marks": 4,
+        "answer_points": [
+          "Titrate ammonia against sulfuric acid to obtain the volumes needed for complete neutralisation.",
+          "Add these volumes together without an indicator.",
+          "Evaporate the reaction mixture slowly, or heat it over a steam bath, to obtain crystals.",
+          "Not suitable industrially: a burette and other apparatus cannot be used for large quantities, and a steam bath is very difficult to use on a large scale."
+        ],
+        "tip": "One mark each. The last mark explains why it is not suitable on a large scale."
+      }
+    }
+  },
+  "meta": {
+    "status": "draft",
+    "written_by": "sonnet-5-5",
+    "written_at": "2026-10-01",
+    "spec_point_ids": [
+      "9d33c66a-664a-40e8-9cc0-6e60a1c64130",
+      "b8eb4ad6-1262-43f5-82f7-beca22a17e42",
+      "9c8d57e5-6ee6-4bfe-8267-26a13fae3d75",
+      "afd14cf5-74f3-44f3-a84c-34cf07c6a4a3",
+      "7ce72cfd-eb6a-45ce-b196-c888fc11c687",
+      "9458d8b3-0666-425a-a93f-2f0ebdca321e",
+      "938bfc60-39a6-47ed-8e68-bd515571da58"
+    ],
+    "exemplar_ids": [
+      "03c76de9-3555-4c98-b3b9-89ebdd4e37be",
+      "0e6df897-f3ab-4ed2-b06e-a808340afcb5",
+      "4a811083-07fe-4125-b557-31035e0a4a9b"
+    ]
+  }
+}
