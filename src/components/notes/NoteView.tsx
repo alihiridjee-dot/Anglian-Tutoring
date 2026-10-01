@@ -759,7 +759,6 @@ export function NoteView({ note, board }: { note: Note; board: NoteBoard }) {
               {[
                 ...note.sections.map((s) => s.heading),
                 ...(layer?.extra?.map((s) => s.heading) ?? []),
-                ...(layer ? ["Exam tips"] : []),
                 ...(layer?.worked_example ? ["Worked example"] : []),
                 "Check your understanding",
               ].map((h, i) => (
@@ -791,31 +790,6 @@ export function NoteView({ note, board }: { note: Note; board: NoteBoard }) {
               ))}
             </Section>
           ))}
-
-          {layer ? (
-            <Section heading="Exam tips">
-              <p>These phrases come from {BOARD_LABEL[board]} mark schemes. Use them as written:</p>
-              <ul className="list-disc space-y-2 pl-6">
-                {layer.exam_phrases.map((p, i) => (
-                  <li key={i}>
-                    <Inline text={p} />
-                  </li>
-                ))}
-              </ul>
-              {layer.mistakes.length ? (
-                <>
-                  <p>Common ways students lose marks:</p>
-                  <ul className="list-disc space-y-2 pl-6">
-                    {layer.mistakes.map((m, i) => (
-                      <li key={i}>
-                        <Inline text={m.wrong} /> <Inline text={m.right} />
-                      </li>
-                    ))}
-                  </ul>
-                </>
-              ) : null}
-            </Section>
-          ) : null}
 
           {layer?.worked_example ? (
             <Section heading="Worked example">
