@@ -59,9 +59,9 @@
           "rows": [
             ["Statins (drug)", "Reduce blood cholesterol, which slows the build-up of fatty material.", "Easy to take, not invasive and low cost.", "Possible side effects such as muscle pain. Take time to work and must be taken long term."],
             ["Stent", "A tube that holds a blocked coronary artery open.", "Blood flow to the heart muscle increases straight away. Recovery is rapid.", "Risk of infection, bleeding or a blood clot from the operation."],
-            ["Bypass surgery", "A section of blood vessel is used to go round a narrowed or blocked artery.", "Restores blood flow to the heart muscle.", "Major surgery, with the risks of an operation."],
-            ["Valve replacement", "A faulty valve is replaced with a biological or mechanical valve.", "Valve opens fully or no longer leaks.", "Risks of surgery."],
-            ["Transplant or artificial heart", "A donor heart (or heart and lungs) replaces a failing heart. An artificial heart keeps a patient alive while waiting, or lets the heart rest.", "Can save the life of a patient with heart failure.", "Risks of surgery. A donor organ must be found."]
+            ["Bypass surgery", "A section of blood vessel is used to go round a narrowed or blocked artery.", "Restores blood flow to the heart muscle.", "Major surgery, with a risk of infection, bleeding or blood clots. Recovery is slower than for a stent."],
+            ["Valve replacement", "Replaces a valve that does not open fully or that leaks, using a biological or mechanical valve.", "The new valve opens fully and does not leak, so blood flows in the right direction.", "Risks of surgery. A mechanical valve can cause blood clots, so medication may be needed long term."],
+            ["Transplant or artificial heart", "A donor heart (or heart and lungs) replaces a failing heart. An artificial heart keeps a patient alive while waiting for a transplant, or lets the heart rest to help recovery.", "A transplant can save the life of a patient with heart failure. An artificial heart gives time while waiting for a donor.", "Risks of surgery. A donor organ must be found, and the body may reject it. An artificial heart risks infection and blood clots."]
           ]
         },
         { "type": "subheading", "text": "Lifestyle changes" },
@@ -209,6 +209,8 @@
   },
   "meta": {
     "status": "draft",
+    "checked_by": "sonnet-science-check",
+    "checked_at": "2026-10-01",
     "written_by": "sonnet-5-5",
     "written_at": "2026-10-01",
     "spec_point_ids": [

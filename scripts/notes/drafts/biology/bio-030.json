@@ -67,7 +67,7 @@
     {
       "heading": "White blood cells and platelets",
       "blocks": [
-        { "type": "paragraph", "text": "White blood cells and platelets defend the body. White cells deal with pathogens and platelets seal wounds." },
+        { "type": "paragraph", "text": "White blood cells and platelets defend the body. White cells deal with pathogens and platelets help the blood to clot." },
         { "type": "subheading", "text": "White blood cells" },
         {
           "type": "list",
@@ -75,7 +75,7 @@
             "They are part of the immune system and fight disease.",
             "Receptors on the membrane let them recognise pathogens and antigens.",
             "Some can change shape to engulf (take in) pathogens. These are phagocytes.",
-            "Some have a nucleus and make antibodies and antitoxins. These are lymphocytes."
+            "Others make antibodies and antitoxins, using their nucleus and ribosomes. These are lymphocytes."
           ]
         },
         { "type": "subheading", "text": "Platelets" },
@@ -125,8 +125,8 @@
       ],
       "mistakes": [
         {
-          "wrong": "A red blood cell has no cell wall and no nucleus, so it is the same as an animal cell.",
-          "right": "Compare features clearly. A red blood cell has no nucleus, is a biconcave disc and contains haemoglobin. A plant cell has a nucleus and a cell wall."
+          "wrong": "A red blood cell has no nucleus.",
+          "right": "Make the difference clear by naming both cells. A red blood cell has no nucleus, whereas a plant cell has a nucleus. Do the same for the cell wall and haemoglobin."
         },
         {
           "wrong": "Red blood cells have mitochondria and ribosomes, which makes them different from a plant cell.",
@@ -151,7 +151,7 @@
           "A red blood cell is much smaller.",
           "Both have cytoplasm and a cell membrane."
         ],
-        "tip": "This is a levelled question. Cover both cells, make the differences clear and add at least one similarity."
+        "tip": "This is a levelled question. Cover both cells and make each difference clear. Similarities can add to the answer."
       }
     },
     "edexcel": {
@@ -223,6 +223,8 @@
   },
   "meta": {
     "status": "draft",
+    "checked_by": "sonnet-science-check",
+    "checked_at": "2026-10-01",
     "written_by": "sonnet-5-5",
     "written_at": "2026-10-01",
     "spec_point_ids": [

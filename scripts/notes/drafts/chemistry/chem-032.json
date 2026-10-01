@@ -1,0 +1,344 @@
+{
+  "format": 1,
+  "concept_id": "chem-032",
+  "subject": "chemistry",
+  "title": "Reacting masses from equations",
+  "key_idea": "A balanced equation shows the ratio in which moles of substances react. Convert the known mass to moles, use the equation ratio to find the moles of the other substance, then convert those moles to a mass.",
+  "sections": [
+    {
+      "heading": "Equations in terms of moles",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "(Higher tier) The numbers in front of formulae in a balanced equation show the ratio of moles that react."
+        },
+        {
+          "type": "equation",
+          "label": "Reading an equation in moles",
+          "formula": "Mg + 2HCl → MgCl₂ + H₂",
+          "where": [
+            "1 mole of magnesium reacts with 2 moles of hydrochloric acid.",
+            "They produce 1 mole of magnesium chloride and 1 mole of hydrogen gas."
+          ]
+        },
+        {
+          "type": "list",
+          "items": [
+            "The balancing numbers give the mole ratio, not the mass ratio.",
+            "In N₂ + 3H₂ → 2NH₃, the ratio of moles of H₂ to NH₃ is 3 : 2.",
+            "Masses of reactants and products can be found from the mass of just one substance."
+          ]
+        },
+        {
+          "type": "key-points",
+          "items": [
+            "The balancing numbers in an equation give the ratio of moles.",
+            "You need the mass of only one substance to find the mass of another."
+          ]
+        }
+      ]
+    },
+    {
+      "heading": "Calculating a mass from an equation",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "Use the same four steps every time. Write the balanced equation first."
+        },
+        {
+          "type": "steps",
+          "items": [
+            {
+              "lead": "Moles of the known substance.",
+              "text": "Moles = mass ÷ Mr. Use grams, so convert kilograms or tonnes first."
+            },
+            {
+              "lead": "Use the ratio.",
+              "text": "Multiply by the equation ratio, wanted ÷ known, to find the moles of the other substance."
+            },
+            {
+              "lead": "Convert to mass.",
+              "text": "Mass = moles × Mr of the wanted substance."
+            },
+            {
+              "lead": "Check units and rounding.",
+              "text": "Give the unit and the number of significant figures asked for."
+            }
+          ]
+        },
+        {
+          "type": "equation",
+          "label": "Worked example: mass of magnesium oxide from 2.4 g of magnesium",
+          "formula": "2Mg + O₂ → 2MgO",
+          "where": [
+            "Moles of Mg = 2.4 ÷ 24 = 0.10 mol.",
+            "The ratio Mg : MgO is 2 : 2, so moles of MgO = 0.10 mol.",
+            "Mass of MgO = 0.10 × 40 = 4.0 g."
+          ]
+        },
+        {
+          "type": "diagram",
+          "diagram": {
+            "kind": "practice",
+            "alt": "Calculate the mass of magnesium oxide made from a mass of magnesium.",
+            "question": "Magnesium burns in oxygen: 2Mg + O₂ → 2MgO. Calculate the mass of magnesium oxide made from {m} g of magnesium. (Relative atomic masses: Mg = 24, O = 16)",
+            "variables": [
+              {
+                "id": "m",
+                "min": 1.2,
+                "max": 7.2,
+                "step": 1.2
+              }
+            ],
+            "answer": {
+              "formula": "m / 24 * 40",
+              "unit": "g",
+              "decimals": 2
+            },
+            "working": [
+              "Moles of Mg = {m} ÷ 24",
+              "The ratio Mg : MgO is 2 : 2, so moles of MgO = moles of Mg.",
+              "Mr of MgO = 24 + 16 = 40",
+              "Mass of MgO = moles × 40 = {answer} g"
+            ]
+          }
+        },
+        {
+          "type": "subheading",
+          "text": "When the ratio is not 1 : 1"
+        },
+        {
+          "type": "list",
+          "items": [
+            "In N₂ + 3H₂ → 2NH₃, each 3 moles of H₂ makes 2 moles of NH₃.",
+            "Moles of H₂ = moles of NH₃ × 3/2. Moles of NH₃ = moles of H₂ × 2/3.",
+            "Check which way round the ratio goes. The wanted substance goes on top."
+          ]
+        },
+        {
+          "type": "diagram",
+          "diagram": {
+            "kind": "practice",
+            "alt": "Calculate the mass of ammonia made from a mass of hydrogen.",
+            "question": "Nitrogen reacts with hydrogen: N₂ + 3H₂ → 2NH₃. Calculate the mass of ammonia made from {m} g of hydrogen. (Relative formula masses: H₂ = 2, NH₃ = 17)",
+            "variables": [
+              {
+                "id": "m",
+                "min": 3,
+                "max": 12,
+                "step": 3
+              }
+            ],
+            "answer": {
+              "formula": "m / 2 * 2 / 3 * 17",
+              "unit": "g",
+              "decimals": 1
+            },
+            "working": [
+              "Moles of H₂ = {m} ÷ 2",
+              "Ratio H₂ : NH₃ = 3 : 2, so moles of NH₃ = moles of H₂ × 2/3",
+              "Mass of NH₃ = moles × 17 = {answer} g"
+            ]
+          }
+        },
+        {
+          "type": "key-points",
+          "items": [
+            "Mass to moles, then ratio from the equation, then moles to mass.",
+            "The ratio uses the balancing numbers, with the wanted substance on top.",
+            "Convert units to grams first. Round as the question asks."
+          ]
+        }
+      ]
+    },
+    {
+      "heading": "The proportion method and common slips",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "The same answer can come from masses in proportion. Use the equation to write the mass of each substance in the quantities shown."
+        },
+        {
+          "type": "equation",
+          "label": "Mass in proportion: iron from iron oxide",
+          "formula": "Fe₂O₃ → 2Fe: 160 tonnes gives 112 tonnes",
+          "where": [
+            "Mr of Fe₂O₃ = (2 × 56) + (3 × 16) = 160.",
+            "Two iron atoms: 2 × 56 = 112.",
+            "240 tonnes of Fe₂O₃ gives 240 ÷ 160 × 112 = 168 tonnes of iron."
+          ]
+        },
+        {
+          "type": "list",
+          "items": [
+            "Multiply Mr by the balancing number: 2 × Mr NH₃ = 34 in N₂ + 3H₂ → 2NH₃.",
+            "Do not forget the balancing numbers. Using 40 × 1.35 = 54 for 2Mg → 2MgO loses marks.",
+            "If the question gives masses in tonnes or kilograms, the ratio method still works. Keep the same unit throughout.",
+            "Show each step. Marks are given for the Mr, the moles and the final mass."
+          ]
+        },
+        {
+          "type": "key-points",
+          "items": [
+            "The proportion method and the moles method give the same answer.",
+            "Include the balancing numbers in every step."
+          ]
+        }
+      ]
+    }
+  ],
+  "checks": [
+    {
+      "q": "In the equation Mg + 2HCl → MgCl₂ + H₂, how many moles of hydrochloric acid react with 0.5 mol of magnesium?",
+      "a": "1.0 mol, because the ratio of Mg to HCl is 1 : 2.",
+      "marks": 1
+    },
+    {
+      "q": "Calculate the mass of carbon dioxide made when 135 g of glucose, C₆H₁₂O₆, ferments: C₆H₁₂O₆ → 2C₂H₅OH + 2CO₂. (Mr: C₆H₁₂O₆ = 180, CO₂ = 44)",
+      "a": "135 ÷ 180 = 0.75 mol. Moles of CO₂ = 0.75 × 2 = 1.5 mol. Mass = 1.5 × 44 = 66 g.",
+      "marks": 3
+    },
+    {
+      "q": "Calculate the maximum mass of iron from 240 tonnes of iron oxide, Fe₂O₃. (Ar: Fe = 56, O = 16)",
+      "a": "Mr of Fe₂O₃ = 160. 240 ÷ 160 = 1.5. 1.5 × 112 = 168 tonnes.",
+      "marks": 3
+    }
+  ],
+  "boards": {
+    "aqa": {
+      "spec_codes": [
+        "AQA 4.3.2.2",
+        "AQA T 5.3.2.2"
+      ],
+      "exam_phrases": [
+        "(Mr NH₃ = 14 + (3 × 1) =) 17",
+        "(moles NH₃ = 25 / 17) = 1.47 (mols)",
+        "(moles H₂ = 1.47 × 3/2) = 2.205 (mols)",
+        "(mass H₂ = 2.205 × 2) = 4.41 (g)",
+        "allow correct use of an incorrectly calculated value of moles",
+        "(from equation 2 moles of Au reacts with 3 moles of Cl₂)"
+      ],
+      "mistakes": [
+        {
+          "wrong": "Moles of H₂ = 1.47 × 2/3.",
+          "right": "The ratio is the wrong way round. H₂ : NH₃ is 3 : 2, so moles of H₂ = 1.47 × 3/2 = 2.205."
+        },
+        {
+          "wrong": "Mass of chlorine = 0.00133 × 35.5.",
+          "right": "Chlorine is Cl₂, so the Mr is 71. Mass = 0.00133 × 71."
+        },
+        {
+          "wrong": "Answer 0.0946 when the question asks for milligrams.",
+          "right": "The last mark is for the conversion: 0.0946 g = 94.6 mg."
+        }
+      ],
+      "worked_example": {
+        "exemplar_id": "b605738f-f901-4356-a919-b1c5013e9414",
+        "source": "AQA jun 2024, Paper 1 (H), Q05.2",
+        "question": "Nitrogen reacts with hydrogen to produce ammonia (NH₃). The equation for the reaction is:\n\nN₂ + 3H₂ → 2NH₃\n\nRelative atomic masses (Ar): H = 1, N = 14\n\nCalculate the mass of hydrogen that is needed to produce 25 g of ammonia.",
+        "marks": 4,
+        "answer_points": [
+          "Mr of NH₃ = 14 + (3 × 1) = 17 (1)",
+          "Moles of NH₃ = 25 ÷ 17 = 1.47 mol (1)",
+          "Moles of H₂ = 1.47 × 3/2 = 2.205 mol (1)",
+          "Mass of H₂ = 2.205 × 2 = 4.41 g (1)"
+        ],
+        "tip": "Alternative method: 6 g of H₂ gives 34 g of NH₃, so 25 g of NH₃ needs (6 ÷ 34) × 25 = 4.41 g of H₂."
+      }
+    },
+    "edexcel": {
+      "spec_codes": [
+        "EDEX 1.48"
+      ],
+      "exam_phrases": [
+        "mol carbohydrate = 135/180 = 0.75 mol",
+        "mol of carbon dioxide = 0.75 × 2 = 1.5 mol",
+        "mass = 1.5 × 44 = 66 (g)",
+        "MgO = 24 + 16 = 40; 1 g Mg forms 40/24",
+        "final answer with or without working scores 3",
+        "allow ECF for incorrect formula mass"
+      ],
+      "mistakes": [
+        {
+          "wrong": "Mass of CO₂ = 0.75 × 44 = 33 g.",
+          "right": "The equation makes 2 moles of CO₂ for each mole of glucose. Moles of CO₂ = 0.75 × 2 = 1.5, so the mass is 66 g. The answer 33 scores 2."
+        },
+        {
+          "wrong": "Mass of MgO = 40 × 1.35 = 54 g.",
+          "right": "This uses Mr as a mass for 1 g. Use 40/24 × 1.35 = 2.25 g, or 80/48 × 1.35 if the equation is written 2Mg → 2MgO."
+        },
+        {
+          "wrong": "Maximum mass of iron = 84 tonnes.",
+          "right": "The equation Fe₂O₃ gives 2 iron atoms, so the iron in 160 tonnes is 112, not 56. The answer 84 scores only 2 marks."
+        }
+      ],
+      "worked_example": {
+        "exemplar_id": "364c7b71-1974-44b9-93ad-c785cdd49cc6",
+        "source": "EDEXCEL jun 2019, Paper 2 (H), Q3(b)",
+        "question": "Magnesium burns in excess oxygen to form magnesium oxide.\n\nThe balanced equation for this reaction is\n\n2Mg + O₂ → 2MgO\n\nStarting with 1.35 g of magnesium, calculate the maximum mass of magnesium oxide that could be formed in this reaction.\n\n(relative atomic masses: O = 16.0, Mg = 24.0)\n\nYou must show your working.",
+        "marks": 3,
+        "answer_points": [
+          "Mr of MgO = 24 + 16 = 40 (1)",
+          "1 g of Mg forms 40/24 = 1.67 g of MgO (1)",
+          "1.35 g of Mg forms 40/24 × 1.35 = 2.25 g of MgO (1)"
+        ],
+        "tip": "Moles method: 1.35 ÷ 24 = 0.05625 mol of Mg and so of MgO; 0.05625 × 40 = 2.25 g. Allow follow-through for an incorrect formula mass."
+      }
+    },
+    "ocr": {
+      "spec_codes": [
+        "OCR C3.1l"
+      ],
+      "exam_phrases": [
+        "Mr of H₂S = 34.1 and Mr of SO₂ = 64.1",
+        "moles H₂S = (102.3 ÷ 34.1) = 3 (mol)",
+        "mass SO₂ = (3 × 64.1) = 192.3 (g)",
+        "need both relative formula masses for 1 mark",
+        "100.1 / 56.1 × 209",
+        "give your answer to 3 significant figures"
+      ],
+      "mistakes": [
+        {
+          "wrong": "Mr of H₂S = 34 and Mr of SO₂ = 64.",
+          "right": "These are not allowed when the Ar values are given as 1.0, 16.0 and 32.1. Use 34.1 and 64.1."
+        },
+        {
+          "wrong": "Mr of CaCO₃ = 100 and Mr of CaO = 56.",
+          "right": "100 and 56 are not allowed. Use the Ar values given: 100.1 and 56.1."
+        },
+        {
+          "wrong": "Mass of SO₂ = 3 × 64.1 using the moles of H₂S without checking the ratio.",
+          "right": "Check the ratio first. Here 2H₂S gives 2SO₂, so the ratio is 1 : 1 and the moles are the same."
+        }
+      ],
+      "worked_example": {
+        "exemplar_id": "d027be33-df15-4f83-9346-44fca774f48e",
+        "source": "OCR nov 2021, Paper 3, Q22(b)",
+        "question": "Hydrogen sulfide, H₂S, reacts with oxygen, O₂, to form sulfur dioxide, SO₂, and water.\n\nThe balanced symbol equation is shown.\n\n2H₂S(g) + 3O₂(g) → 2SO₂(g) + 2H₂O(l)\n\nCalculate the mass of sulfur dioxide made from 102.3 g of hydrogen sulfide.\n\n(The relative atomic mass, Ar, of H is 1.0, of O is 16.0 and of S is 32.1.)",
+        "marks": 3,
+        "answer_points": [
+          "Mr of H₂S = 34.1 and Mr of SO₂ = 64.1 (1)",
+          "Moles of H₂S = 102.3 ÷ 34.1 = 3 mol (1)",
+          "Mass of SO₂ = 3 × 64.1 = 192.3 g (1)"
+        ],
+        "tip": "192.3 g on the answer line scores all 3 marks. Follow-through is allowed from an incorrect Mr or number of moles."
+      }
+    }
+  },
+  "meta": {
+    "status": "draft",
+    "written_by": "sonnet-5-5",
+    "written_at": "2026-10-01",
+    "spec_point_ids": [
+      "18ddd924-bf38-477a-9482-2304e40544b4",
+      "5d0298e0-ce75-4871-895e-aba922b1c8ce",
+      "e7a1720f-19f7-474a-b076-b55511c5201b",
+      "6354c1c0-d24c-4f0e-aa05-690c473cff58"
+    ],
+    "exemplar_ids": [
+      "b605738f-f901-4356-a919-b1c5013e9414",
+      "364c7b71-1974-44b9-93ad-c785cdd49cc6",
+      "d027be33-df15-4f83-9346-44fca774f48e"
+    ]
+  }
+}

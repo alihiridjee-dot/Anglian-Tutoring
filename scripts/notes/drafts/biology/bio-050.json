@@ -1,0 +1,258 @@
+{
+  "format": 1,
+  "concept_id": "bio-050",
+  "subject": "biology",
+  "title": "Discovery and development of drugs",
+  "key_idea": "Drugs were traditionally extracted from plants and microorganisms, but most new drugs are now made by chemists. Every new drug is tested for toxicity, efficacy and dose, first in the laboratory and then in clinical trials, before it can be used.",
+  "sections": [
+    {
+      "heading": "Where drugs come from",
+      "blocks": [
+        { "type": "paragraph", "text": "Many drugs were first found in living things. Today most new drugs are made in the pharmaceutical industry." },
+        {
+          "type": "table",
+          "columns": ["Drug", "Used for", "Where it comes from"],
+          "rows": [
+            ["Digitalis", "Heart drug", "Foxgloves"],
+            ["Aspirin", "Painkiller", "Willow"],
+            ["Penicillin", "Antibiotic", "Penicillium mould (discovered by Alexander Fleming)"]
+          ]
+        },
+        {
+          "type": "list",
+          "items": [
+            "Traditionally, drugs were extracted from plants and microorganisms.",
+            "Most new drugs are **synthesised** by chemists in the pharmaceutical industry.",
+            "The starting point may still be a chemical extracted from a plant."
+          ]
+        },
+        {
+          "type": "key-points",
+          "items": [
+            "Foxgloves, willow and Penicillium mould gave us digitalis, aspirin and penicillin.",
+            "Most new drugs are now synthesised by chemists."
+          ]
+        }
+      ]
+    },
+    {
+      "heading": "Testing and trialling a new drug",
+      "blocks": [
+        { "type": "paragraph", "text": "New drugs must be tested to check that they are safe and effective before they are used on patients. The tests look at three things." },
+        {
+          "type": "definitions",
+          "items": [
+            { "term": "Toxicity", "meaning": "Whether the drug is poisonous or harmful to the body." },
+            { "term": "Efficacy", "meaning": "Whether the drug works, that is, whether it treats the disease." },
+            { "term": "Dose", "meaning": "How much of the drug is needed." },
+            { "term": "Placebo", "meaning": "A dummy treatment that contains no active drug." }
+          ]
+        },
+        { "type": "subheading", "text": "Preclinical testing" },
+        {
+          "type": "list",
+          "items": [
+            "Done in a laboratory using cells, tissues and live animals.",
+            "It checks whether the drug is safe and works before it is given to people."
+          ]
+        },
+        { "type": "subheading", "text": "Clinical trials" },
+        {
+          "type": "list",
+          "items": [
+            "Use healthy volunteers and patients.",
+            "A very low dose is given at the start, to check the drug is safe.",
+            "If it is safe, further trials find the optimum dose and test whether the drug works.",
+            "In a **double blind trial**, some patients are given a placebo. Neither the patients nor the doctors know who has the drug and who has the placebo.",
+            "A placebo group acts as a comparison, to check the drug works and to remove any psychological effect."
+          ]
+        },
+        {
+          "type": "diagram",
+          "diagram": {
+            "kind": "sequence",
+            "alt": "Put the stages of developing a new medicine in order, from discovery to publication of the results.",
+            "prompt": "Put the stages of developing a new drug in the correct order.",
+            "steps": [
+              "A new drug is discovered or synthesised",
+              "Preclinical testing on cells, tissues and live animals",
+              "Clinical trial begins with a very low dose in healthy volunteers",
+              "Further trials in patients find the optimum dose and test efficacy",
+              "Double blind trial, with some patients given a placebo",
+              "Results are published after peer review"
+            ]
+          }
+        },
+        {
+          "type": "key-points",
+          "items": [
+            "Drugs are tested for toxicity, efficacy and dose.",
+            "Preclinical testing comes first, then clinical trials on healthy volunteers and patients.",
+            "A double blind trial uses a placebo, and neither patients nor doctors know who has the drug."
+          ]
+        }
+      ]
+    },
+    {
+      "heading": "Peer review",
+      "blocks": [
+        { "type": "paragraph", "text": "The results of testing and trials are only published after scrutiny by other scientists. This is called peer review." },
+        {
+          "type": "list",
+          "items": [
+            "Peer review helps to detect false claims.",
+            "Research that was not peer reviewed, or that has a small sample size or a biased author, is less likely to be considered valid."
+          ]
+        },
+        {
+          "type": "key-points",
+          "items": [
+            "Results are published only after peer review.",
+            "Peer review helps to detect false claims."
+          ]
+        }
+      ]
+    }
+  ],
+  "checks": [
+    {
+      "q": "Name the plant that the heart drug digitalis comes from.",
+      "a": "Foxgloves.",
+      "marks": 1
+    },
+    {
+      "q": "Give three reasons why a new drug must be tested before it is used.",
+      "a": "To check it is not toxic (poisonous or harmful), to check its efficacy (that it works), and to find the correct dose.",
+      "marks": 3
+    },
+    {
+      "q": "Explain why a placebo group is used in a clinical trial.",
+      "a": "It acts as a control, for comparison, to check the drug itself works and to remove any psychological effect.",
+      "marks": 2
+    }
+  ],
+  "boards": {
+    "aqa": {
+      "spec_codes": ["AQA 3.6", "AQA T 4.3.1.9"],
+      "exam_phrases": [
+        "for toxicity or check not poisonous / harmful",
+        "for efficacy or to see if it works",
+        "for dose or how much is needed",
+        "given first to healthy volunteers at (very) low dose",
+        "in a double blind trial",
+        "neither patients nor doctors know who has the drug and who has a placebo"
+      ],
+      "mistakes": [
+        {
+          "wrong": "Drugs are tested to check they are not dangerous.",
+          "right": "\"Dangerous\" is ignored. Say the drug is tested for toxicity (not poisonous or harmful) or for side effects."
+        },
+        {
+          "wrong": "The drug is given to patients in full doses straight away.",
+          "right": "Clinical trials start with healthy volunteers at a very low dose, to test that the drug is safe. Patients come later, to test the correct dose and efficacy."
+        },
+        {
+          "wrong": "A double blind trial means the patients do not know what they are taking.",
+          "right": "In a double blind trial neither the patients nor the doctors know who has the drug and who has a placebo."
+        }
+      ],
+      "worked_example": {
+        "exemplar_id": "fa810eea-81c6-47ab-8c09-8789f3f2f690",
+        "source": "AQA jun 2020, Paper 1 (H), Q07.3",
+        "question": "A new treatment has been shown to be effective in the laboratory using both infected tissue culture cells and infected live animals. The treatment is now ready for clinical trials on people.\n\nDescribe how the clinical trials should be carried out.",
+        "marks": 6,
+        "answer_points": [
+          "It is given first to healthy volunteers, at a very low dose, to test it is safe (toxicity) or to check for side effects.",
+          "It is then given to some patients with the disease.",
+          "This tests for the correct (optimum) dose and checks for side effects.",
+          "It tests for efficacy, or whether it works.",
+          "It is a double blind trial, where neither patients nor doctors know who has the treatment and who has a placebo.",
+          "A large trial, a long duration or control variables."
+        ],
+        "tip": "This is a levelled question. Cover healthy volunteers first, then patients, with a reason for each stage."
+      }
+    },
+    "edexcel": {
+      "spec_codes": ["EDEX 5.20"],
+      "exam_phrases": [
+        "the antibiotic would go through a development phase",
+        "pre-clinical (stage / trials)",
+        "testing on animals / testing in-vitro / on cells",
+        "clinical (stage / trials)",
+        "testing on (healthy) volunteers / testing on patients",
+        "double-blind trials"
+      ],
+      "mistakes": [
+        {
+          "wrong": "A new drug is tested straight on humans.",
+          "right": "A new drug goes through a development phase and pre-clinical testing on animals or cells before the clinical stage."
+        },
+        {
+          "wrong": "Double-blind trials only test the drug on animals.",
+          "right": "Double-blind trials are part of the clinical stage. They use patients, with a placebo and the drug."
+        }
+      ],
+      "worked_example": {
+        "exemplar_id": "bc9d920d-7d6d-4f06-9e9a-44bb4977cb2e",
+        "source": "EDEXCEL jun 2022, Paper 1 (H), Q5(b)",
+        "question": "New antibiotics are being developed to treat a bacterial disease.\n\nDescribe the stages of antibiotic development that would occur after the discovery of a new antibiotic.",
+        "marks": 3,
+        "answer_points": [
+          "The antibiotic would go through a development phase.",
+          "Pre-clinical stage: testing on animals, in vitro or on cells.",
+          "Clinical stage: testing on (healthy) volunteers and on patients.",
+          "Double-blind trials (a placebo and the drug)."
+        ],
+        "tip": "Any three of these points score one mark each. Named animals are accepted."
+      }
+    },
+    "ocr": {
+      "spec_codes": ["OCR 6.3q"],
+      "exam_phrases": [
+        "control",
+        "can act as a comparison / to check the drug works",
+        "idea of identifying / eliminates any psychological effect",
+        "placebo contains no active drug / dummy injection",
+        "to eliminate placebo effect"
+      ],
+      "mistakes": [
+        {
+          "wrong": "The placebo group is there to cure patients.",
+          "right": "A placebo contains no active drug. It is a control, so the effect of the drug can be compared with no drug."
+        },
+        {
+          "wrong": "A placebo is used so the patients can feel better.",
+          "right": "Some people believe they are feeling better when they are not. The placebo group identifies or eliminates this psychological effect."
+        }
+      ],
+      "worked_example": {
+        "exemplar_id": "2df0c151-fe55-40ae-86aa-85db1d46ed10",
+        "source": "OCR jun 2019, Paper 4, Q20(b)(i)",
+        "question": "Doctors are trying to find a treatment to prevent migraines. They have produced an antibody against a protein in the brain. The doctors test the antibody treatment on migraine patients. The patients are divided into two groups:\n\n- One group is given an injection of the antibody\n- The second group receives an injection of a placebo.\n\nExplain why a placebo group is used in drug testing.",
+        "marks": 3,
+        "answer_points": [
+          "The placebo group is a control.",
+          "It acts as a comparison, to check the drug works (to see the effects of the drug).",
+          "It identifies or eliminates any psychological effect, because some people believe they feel better when they are not."
+        ],
+        "tip": "One mark for each point. A placebo contains no active drug."
+      }
+    }
+  },
+  "meta": {
+    "status": "draft",
+    "written_by": "sonnet-5-5",
+    "written_at": "2026-10-01",
+    "spec_point_ids": [
+      "cee79d09-9581-4a06-bc7c-4b5fc0cbe388",
+      "3c61086a-50fb-418b-9e70-1d0f6c9cda5f",
+      "7c5c115d-7729-4f66-b087-dd9bb91f08e4",
+      "5932e7cc-2245-4ecc-9bb3-a88511eb5357"
+    ],
+    "exemplar_ids": [
+      "fa810eea-81c6-47ab-8c09-8789f3f2f690",
+      "bc9d920d-7d6d-4f06-9e9a-44bb4977cb2e",
+      "2df0c151-fe55-40ae-86aa-85db1d46ed10"
+    ]
+  }
+}
