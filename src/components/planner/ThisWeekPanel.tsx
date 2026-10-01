@@ -8,6 +8,8 @@ import { VideoModal } from "@/components/VideoPlayer";
 import { type Activity } from "./useWeekPlan";
 import { useWeekLanes } from "./useWeekLanes";
 import { WeekPointRow } from "./WeekPointRow";
+import { ReviewMoreStrip } from "./ReviewMoreStrip";
+import { type ReviewMore } from "./useReviewMore";
 import {
   NewLearningLane,
   ReturningLane,
@@ -36,6 +38,7 @@ export function ThisWeekPanel({
   isPast,
   showCoverage,
   onFocusAgain,
+  reviewMore,
 }: {
   plan: WeeklyPlan | null;
   points: PlanPoint[];
@@ -47,6 +50,8 @@ export function ThisWeekPanel({
   isPast: boolean;
   showCoverage: boolean;
   onFocusAgain?: (point: PlanPoint) => void;
+  /** "Review more now", where the surface offers it (the current week). */
+  reviewMore?: ReviewMore;
 }) {
   // The video a Watch chip has opened, if any. Same modal the checklist uses —
   // a point's video plays where the student pressed it, not on another page.
@@ -128,6 +133,8 @@ export function ThisWeekPanel({
         />
         <RevisionLane focus={focus} focusPointCount={focusPointCount} row={row} />
       </div>
+
+      {reviewMore && <ReviewMoreStrip more={reviewMore} />}
 
       {tutor.length > 0 && <TutorLane tutor={tutor} row={row} />}
       {yours.length > 0 && <YoursLane yours={yours} row={row} />}
