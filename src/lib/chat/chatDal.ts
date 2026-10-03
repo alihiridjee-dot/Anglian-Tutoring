@@ -40,7 +40,8 @@ export interface ChatThread {
 export interface ChatMessage {
   id: string;
   thread_id: string;
-  sender_id: string;
+  /** Null once a tutor's account is deleted: their replies stay. */
+  sender_id: string | null;
   body: string;
   ai_drafted: boolean;
   created_at: string;

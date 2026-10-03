@@ -134,7 +134,7 @@ export type Database = {
           body: string;
           created_at: string;
           id: string;
-          sender_id: string;
+          sender_id: string | null;
           thread_id: string;
         };
         Insert: {
@@ -142,7 +142,7 @@ export type Database = {
           body: string;
           created_at?: string;
           id?: string;
-          sender_id: string;
+          sender_id?: string | null;
           thread_id: string;
         };
         Update: {
@@ -150,7 +150,7 @@ export type Database = {
           body?: string;
           created_at?: string;
           id?: string;
-          sender_id?: string;
+          sender_id?: string | null;
           thread_id?: string;
         };
         Relationships: [
@@ -804,6 +804,7 @@ export type Database = {
       notifications: {
         Row: {
           body: string | null;
+          chat_thread_id: string | null;
           created_at: string;
           id: string;
           link: string | null;
@@ -815,6 +816,7 @@ export type Database = {
         };
         Insert: {
           body?: string | null;
+          chat_thread_id?: string | null;
           created_at?: string;
           id?: string;
           link?: string | null;
@@ -826,6 +828,7 @@ export type Database = {
         };
         Update: {
           body?: string | null;
+          chat_thread_id?: string | null;
           created_at?: string;
           id?: string;
           link?: string | null;
@@ -836,6 +839,13 @@ export type Database = {
           user_id?: string;
         };
         Relationships: [
+          {
+            foreignKeyName: "notifications_chat_thread_id_fkey";
+            columns: ["chat_thread_id"];
+            isOneToOne: false;
+            referencedRelation: "chat_threads";
+            referencedColumns: ["id"];
+          },
           {
             foreignKeyName: "notifications_submission_id_fkey";
             columns: ["submission_id"];
