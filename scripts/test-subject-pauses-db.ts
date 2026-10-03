@@ -397,6 +397,33 @@ await db.query(
   await setSub("status = 'active'");
 }
 
+// ── 10b. A programme that goes closes its stop, with nothing to pick up ─
+{
+  await setSub("status = 'paused'");
+  assert.equal((await open(alex)).length, 2);
+  await db.query(
+    "delete from public.student_program_plan where student_id = $1 and subject = 'chemistry'",
+    [alex],
+  );
+  await db.query("select private.sync_subject_pauses($1)", [alex]);
+  const chem = (
+    await db.query<{ ended_at: Date | null; programme_resumed_at: Date | null }>(
+      "select ended_at, programme_resumed_at from public.student_subject_pauses where student_id = $1 and subject = 'chemistry' order by started_at desc limit 1",
+      [alex],
+    )
+  ).rows[0];
+  assert.ok(chem.ended_at, "no programme, nothing stopped");
+  assert.ok(chem.programme_resumed_at, "and nothing to replay onto a programme started later");
+  await setSub("status = 'active'");
+  const bio = (
+    await db.query<{ programme_resumed_at: Date | null }>(
+      "select programme_resumed_at from public.student_subject_pauses where student_id = $1 and subject = 'biology' order by started_at desc limit 1",
+      [alex],
+    )
+  ).rows[0];
+  assert.equal(bio.programme_resumed_at, null, "a resumed programme waits for the planner");
+}
+
 // ── 11. Who can read the record, and nobody writes it ───────────────────
 {
   const as = async (uid: string, sql: string) => {

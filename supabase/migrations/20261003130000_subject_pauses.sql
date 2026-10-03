@@ -40,6 +40,10 @@ create table public.student_subject_pauses (
   -- When a family's cancellation took effect: set only for 'cancelled' and
   -- 'subject_removed', and cleared if the subject comes back first.
   cancelled_at timestamptz,
+  -- When the planner picked the programme up after this stop. Set at once
+  -- when there is no programme left to pick up, so an old stop is never
+  -- replayed onto a programme started afresh later.
+  programme_resumed_at timestamptz,
   constraint student_subject_pauses_ends_after_start check (ended_at is null or ended_at >= started_at),
   constraint student_subject_pauses_cancel_has_reason check (
     (cancelled_at is null) = (reason not in ('cancelled', 'subject_removed'))
@@ -47,7 +51,7 @@ create table public.student_subject_pauses (
 );
 
 comment on table public.student_subject_pauses is
-  'One row per stop of one subject for one student. ended_at null = stopped now. Written only by private.sync_subject_pauses.';
+  'One row per stop of one subject for one student. ended_at null = stopped now. Written only by definer functions.';
 
 -- At most one open stop per subject.
 create unique index student_subject_pauses_open
@@ -140,9 +144,11 @@ begin
      and p.ended_at is null
      and p.subject::text = any (_paid);
 
-  -- Nothing left to stop: the programme itself is gone.
+  -- Nothing left to stop: the programme itself is gone, so there is nothing
+  -- to pick up either.
   update public.student_subject_pauses p
-     set ended_at = greatest(now(), p.started_at)
+     set ended_at = greatest(now(), p.started_at),
+         programme_resumed_at = now()
    where p.student_id = p_student_id
      and p.ended_at is null
      and not exists (

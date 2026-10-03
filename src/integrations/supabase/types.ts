@@ -1508,6 +1508,7 @@ export type Database = {
           cancelled_at: string | null;
           ended_at: string | null;
           id: string;
+          programme_resumed_at: string | null;
           reason: string;
           started_at: string;
           student_id: string;
@@ -1517,6 +1518,7 @@ export type Database = {
           cancelled_at?: string | null;
           ended_at?: string | null;
           id?: string;
+          programme_resumed_at?: string | null;
           reason: string;
           started_at?: string;
           student_id: string;
@@ -1526,6 +1528,7 @@ export type Database = {
           cancelled_at?: string | null;
           ended_at?: string | null;
           id?: string;
+          programme_resumed_at?: string | null;
           reason?: string;
           started_at?: string;
           student_id?: string;
