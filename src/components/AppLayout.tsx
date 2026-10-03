@@ -29,6 +29,8 @@ import { useAvatarUrl } from "@/hooks/data/useAvatar";
 import { useChatUnread } from "@/hooks/data/useChat";
 import { NotificationBell } from "@/components/NotificationBell";
 import { CourseBadge } from "@/components/CourseBadge";
+import { HeaderSubjectToggle } from "@/components/HeaderSubjectToggle";
+import { followsSubject } from "@/lib/shell/subjectPages";
 import { UserMenu } from "@/components/UserMenu";
 import { HeaderLiveButton } from "@/components/live/HeaderLiveButton";
 import { GlobalSearchDialog } from "@/components/search/GlobalSearchDialog";
@@ -49,7 +51,7 @@ const demoStudentNav = [
   { to: "/demo/student/dashboard", label: "Dashboard", icon: LayoutDashboard },
   { to: "/demo/student/planner", label: "Planner", icon: Compass },
   { to: "/demo/student/curriculum", label: "Curriculum", icon: BookMarked },
-  { to: "/demo/student/homework", label: "Homework & Grades", icon: ClipboardList },
+  { to: "/demo/student/homework", label: "Tasks & Grades", icon: ClipboardList },
   { to: "/demo/student/live", label: "Live Sessions", icon: Video },
   { to: "/demo/student/mcqs", label: "MCQs", icon: ListChecks },
   { to: "/demo/student/messages", label: "Messages", icon: MessagesSquare },
@@ -138,6 +140,8 @@ export function AppLayout({ title, children }: { title: string; children: ReactN
   // The live "Join" pill in the ribbon is a student affordance — tutors run
   // sessions and parents don't attend, so it only shows in a student context.
   const isStudentContext = isDemo ? demoRole === "student" : !isTutor && userRole !== "parent";
+  // The subject slider, only where the page follows it (see subjectPages).
+  const showSubjectSlider = isStudentContext && followsSubject(pathname);
 
   return (
     <div className="min-h-screen flex bg-background text-foreground">
@@ -282,7 +286,7 @@ export function AppLayout({ title, children }: { title: string; children: ReactN
             </div>
           </div>
         )}
-        <header className="glass-bar sticky top-0 z-30 flex flex-wrap gap-x-3 gap-y-2 items-center justify-between px-4 sm:px-6 lg:px-10 py-3 sm:py-4 shrink-0">
+        <header className="glass-bar sticky top-0 z-30 flex flex-wrap gap-x-3 gap-y-2 items-center px-4 sm:px-6 lg:px-10 py-3 sm:py-4 shrink-0">
           <div className="flex min-w-0 items-center gap-2 sm:gap-3">
             <button
               type="button"
@@ -323,9 +327,16 @@ export function AppLayout({ title, children }: { title: string; children: ReactN
             {/* Which spec this student is on, stated on every page — it decides
                 everything they're shown, and it used to appear nowhere after the
                 onboarding step that set it. */}
-            <CourseBadge />
+            <CourseBadge followsSlider={showSubjectSlider} />
           </div>
-          <div className="flex flex-wrap items-center gap-2 sm:gap-3">
+          {/* The subject every student page is showing, switched here and only
+              here. Beside the course chip when the header has room; below `xl`
+              the title, chip, slider and buttons don't fit one line, so it takes
+              its own row under them. */}
+          {showSubjectSlider && (
+            <HeaderSubjectToggle className="max-xl:order-last max-xl:basis-full" />
+          )}
+          <div className="ml-auto flex flex-wrap items-center gap-2 sm:gap-3">
             <StudentGuide
               key={`${pathname}:${title}`}
               pageTitle={title}

@@ -120,7 +120,7 @@ export function NewThreadDialog({ initialContext, about, onClose, onCreated }: P
               <p className="text-xs text-muted-foreground mt-0.5">
                 {about
                   ? `About ${about.name}`
-                  : "Attach the spec point, homework or quiz you're stuck on and they'll see it straight away."}
+                  : "Attach the spec point, task or quiz you're stuck on and they'll see it straight away."}
               </p>
             </div>
           </div>

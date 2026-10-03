@@ -5,6 +5,6 @@ import { HomeworkSheetPage } from "@/components/homework/HomeworkSheetPage";
 // isDemoMode() keys off the /demo/* pathname, so every query inside short-circuits
 // to fixtures and no session is ever needed.
 export const Route = createFileRoute("/demo/student/homework_/$homeworkId")({
-  head: () => ({ meta: [{ title: "Homework | Anglia Educate" }] }),
+  head: () => ({ meta: [{ title: "Task | Anglia Educate" }] }),
   component: HomeworkSheetPage,
 });

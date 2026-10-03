@@ -143,7 +143,7 @@ function EnrolmentCard({
           <p>
             Switch {subjectLabel(enrolment.subject)} to{" "}
             <span className="font-bold">{BOARDS.find((b) => b.value === pendingBoard)?.label}</span>
-            ? Their curriculum, quizzes, homework and planner for this subject all change with it.
+            ? Their curriculum, quizzes, tasks and planner for this subject all change with it.
           </p>
           <div className="mt-3 flex flex-wrap gap-2">
             <button

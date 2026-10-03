@@ -336,7 +336,7 @@ export function SpecPointDetail({
 
         {/* Homework Assignments Section */}
         <CollapsibleResourceGroup
-          label="Homework Assignments"
+          label="Tasks"
           icon={ClipboardList}
           items={resources.filter((r) => r.kind === "homework")}
           render={(r) => (

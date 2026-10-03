@@ -1,4 +1,4 @@
-import { Link, useParams } from "@tanstack/react-router";
+import { Link, useNavigate, useParams } from "@tanstack/react-router";
 import { ArrowLeft, CheckCircle2, Clock } from "lucide-react";
 import { useEffect, useState } from "react";
 import { toast } from "sonner";
@@ -14,6 +14,7 @@ import { acknowledgeSubmission } from "@/lib/homework/homework.functions";
 import { isDemoStudent } from "@/lib/demo/studentDemo";
 import { needsMarkingStart, startMarking } from "@/lib/homework/startMarking";
 import { SUBJECT_LABEL, SUBJECT_TINT } from "@/lib/curriculum/subjectTheme";
+import { usePinSubject } from "@/hooks/useActiveSubject";
 
 export function HomeworkSheetPage() {
   // `strict: false` because this component is mounted twice — here, and again
@@ -42,16 +43,23 @@ export function HomeworkSheetPage() {
     startMarking(submission.id);
   }, [demo, isTutor, submission]);
 
+  // A sheet belongs to one subject: opening it moves the header slider there,
+  // and switching subject from here goes back to the list for the new one.
+  const navigate = useNavigate();
+  usePinSubject(data?.hw.subject, () =>
+    navigate({ to: demo ? "/demo/student/homework" : "/homework" }),
+  );
+
   if (!demo && rolesLoading)
     return (
-      <AppLayout title="Homework">
+      <AppLayout title="Task">
         <Spinner label="Loading" />
       </AppLayout>
     );
 
   if (error) {
     return (
-      <AppLayout title="Homework">
+      <AppLayout title="Task">
         <BackLink />
         <div className="mt-6">
           <ErrorNote error={error} onRetry={() => void refetch()} />
@@ -62,9 +70,9 @@ export function HomeworkSheetPage() {
 
   if (isPending || !data) {
     return (
-      <AppLayout title="Homework">
+      <AppLayout title="Task">
         <BackLink />
-        <Spinner label="Opening this homework" />
+        <Spinner label="Opening this task" />
       </AppLayout>
     );
   }
@@ -117,7 +125,7 @@ export function HomeworkSheetPage() {
             This is the sheet as a student sees it, with the mark schemes shown. Marking happens in
             the queue on the{" "}
             <Link to="/homework" className="font-semibold underline">
-              Homework &amp; Grades
+              Tasks &amp; Grades
             </Link>{" "}
             page.
           </p>
@@ -142,7 +150,7 @@ export function HomeworkSheetPage() {
             <EmptyState
               mascot="books"
               title="Nothing to answer here"
-              body="This homework has no questions on it yet. Your tutor may still be putting it together — check back, or ask them about it."
+              body="This task has no questions on it yet. Your tutor may still be putting it together — check back, or ask them about it."
             />
           ) : (
             <BuiltInHomework
@@ -169,7 +177,7 @@ function BackLink() {
       className="text-muted-foreground hover:text-foreground inline-flex min-h-11 items-center gap-1.5 text-sm font-semibold sm:min-h-0"
     >
       <ArrowLeft className="size-4" aria-hidden />
-      All homework
+      All tasks
     </Link>
   );
 }

@@ -150,7 +150,7 @@ export const STATUS_STYLE: Record<PointStatus, StatusStyle> = {
   },
   not_done: {
     label: "Not done",
-    meaning: "homework or a quiz is waiting on this one",
+    meaning: "a task or a quiz is waiting on this one",
     pill: "tint-slate",
     dot: "tint-slate bg-[color:var(--tint)]",
   },
@@ -260,7 +260,7 @@ export function verdictCopy(v: Verdict, s: WeekSummary): VerdictCopy {
   if (v === "no_signal") {
     return {
       headline: "Nothing to mark this week",
-      sub: `No homework or quizzes were set on ${
+      sub: `No tasks or quizzes were set on ${
         s.total === 1 ? "this point" : "these points"
       }, so there's nothing to score yet. Tell us how you feel about it below.`,
       tone: "bg-muted/40 border-border",

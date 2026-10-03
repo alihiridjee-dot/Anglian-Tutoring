@@ -1,12 +1,13 @@
 import { Link } from "@tanstack/react-router";
 import { useEffect, useMemo, useState } from "react";
-import { EmptyState, ErrorNote, SectionHeading, Spinner, SubjectToggle } from "@/components/Shared";
+import { EmptyState, ErrorNote, SectionHeading, Spinner } from "@/components/Shared";
 import { AppLayout } from "@/components/AppLayout";
 import { supabase } from "@/integrations/supabase/client";
 import { ChevronRight, ChevronDown, CalendarClock, CheckCircle2 } from "lucide-react";
 import { isDemoStudent, DEMO_MCQ, DEMO_MCQ_ATTEMPTS, DEMO_MCQ_SETS } from "@/lib/demo/studentDemo";
 import { useRoles } from "@/hooks/useRole";
 import { useEnrolments } from "@/hooks/data/useEnrolments";
+import { useActiveSubject } from "@/hooks/useActiveSubject";
 import { McqManager } from "@/components/tutor/McqManager";
 import { SUBJECT_TINT, subjectLabel } from "@/lib/curriculum/subjectTheme";
 import { selectIn, selectInHistory } from "@/lib/platform/db/chunked";
@@ -29,9 +30,6 @@ type QuizSet = {
 
 /** The student's best attempt at a set, or nothing if they've never opened it. */
 type Attempt = { score: number; total: number };
-
-/** Remembers the last subject so the page opens where you left it. */
-const SUBJECT_KEY = "mcqs:subject";
 
 export function MCQs() {
   const { isTutor, loading: rolesLoading } = useRoles();
@@ -64,7 +62,7 @@ export function MCQs() {
  *
  * 1. **One subject at a time.** Every quiz used to sit in one scroll, so a
  *    student revising Chemistry had to read past Biology to find it. The
- *    toggle picks the subject and the whole page repaints to its colour.
+ *    header slider picks the subject and the whole page repaints to its colour.
  * 2. **This week is defined by the plan.** Tutors don't assign quizzes: every
  *    set is the shared one for a spec point, with no deadline. So "this week"
  *    reads the student's own weekly plan and asks which points they are on
@@ -73,14 +71,14 @@ export function MCQs() {
  *    without bound; left flat it buries the handful of quizzes that matter.
  */
 function StudentMCQs() {
-  const { enrolledCourses, loading: enrolmentsLoading } = useEnrolments();
+  const { loading: enrolmentsLoading } = useEnrolments();
+  const { subject } = useActiveSubject();
   const [sets, setSets] = useState<QuizSet[]>([]);
   const [attempts, setAttempts] = useState<Record<string, Attempt>>({});
   /** Spec points in this week's plan — including any carried in from earlier. */
   const [thisWeekPoints, setThisWeekPoints] = useState<ReadonlySet<string>>(new Set());
   const [loading, setLoading] = useState(true);
   const [loadError, setLoadError] = useState<string | null>(null);
-  const [subject, setSubject] = useState<string | null>(null);
 
   useEffect(() => {
     let cancelled = false;
@@ -240,38 +238,6 @@ function StudentMCQs() {
     };
   }, []);
 
-  // Only subjects the student actually sits, and only those with quizzes behind
-  // them — a toggle segment that opens an empty page is a dead end.
-  const subjects = useMemo(() => {
-    const withQuizzes = new Set(sets.map((s) => s.subject).filter(Boolean) as string[]);
-    const enrolled = enrolledCourses.filter((s) => withQuizzes.has(s));
-    // Fall back to whatever the quizzes say if enrolment hasn't loaded or
-    // doesn't overlap, so the page is never blank for want of a profile row.
-    return enrolled.length > 0 ? enrolled : [...withQuizzes].sort();
-  }, [sets, enrolledCourses]);
-
-  // Settle on a subject once the list is known: the remembered one if it is
-  // still on offer, otherwise the first.
-  useEffect(() => {
-    if (subjects.length === 0 || (subject && subjects.includes(subject))) return;
-    let remembered: string | null = null;
-    try {
-      remembered = localStorage.getItem(SUBJECT_KEY);
-    } catch {
-      // Private browsing, or storage refused. Not worth a failure.
-    }
-    setSubject(remembered && subjects.includes(remembered) ? remembered : subjects[0]);
-  }, [subjects, subject]);
-
-  const chooseSubject = (next: string) => {
-    setSubject(next);
-    try {
-      localStorage.setItem(SUBJECT_KEY, next);
-    } catch {
-      // As above — remembering is a convenience, not a requirement.
-    }
-  };
-
   // This week's work, and everything else filed under its topic.
   const { current, byTopic } = useMemo(() => {
     const mine = sets.filter((s) => s.subject === subject);
@@ -313,7 +279,7 @@ function StudentMCQs() {
         <Spinner label="Loading your quizzes" />
       ) : loadError ? (
         <ErrorNote error={loadError} />
-      ) : subjects.length === 0 ? (
+      ) : !subject ? (
         <EmptyState
           mascot="pencil"
           mood="sleepy"
@@ -321,17 +287,9 @@ function StudentMCQs() {
           body="Nothing has been set for your subjects so far. Ask your tutor to generate one for this week — quizzes are the quickest way to find the spec points you haven't nailed yet."
         />
       ) : (
-        // The subject tint wraps the whole page, so the toggle, the cards and
-        // every chip inside them are one colour without any of them naming it.
-        <div className={SUBJECT_TINT[subject ?? ""] ?? "tint-primary"}>
-          <div className="mb-8">
-            <SubjectToggle
-              subjects={subjects}
-              value={subject ?? subjects[0]}
-              onChange={chooseSubject}
-            />
-          </div>
-
+        // The subject tint wraps the whole page, so the cards and every chip
+        // inside them are one colour without any of them naming it.
+        <div className={SUBJECT_TINT[subject] ?? "tint-primary"}>
           <ThisWeek sets={current} attempts={attempts} />
 
           {byTopic.length > 0 && (
@@ -357,7 +315,7 @@ function StudentMCQs() {
             <EmptyState
               mascot="pencil"
               mood="sleepy"
-              title={`No ${subjectLabel(subject ?? "")} quizzes yet`}
+              title={`No ${subjectLabel(subject)} quizzes yet`}
               body="Nothing has been written for this subject so far. It'll appear here as soon as your plan reaches a spec point with a quiz behind it."
             />
           )}

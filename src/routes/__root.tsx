@@ -76,13 +76,13 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
       {
         name: "description",
         content:
-          "Expert-led online Biology, Chemistry and Physics tutoring for KS3 and GCSE. Live lessons, weekly quizzes, homework marking and grade tracking.",
+          "Expert-led online Biology, Chemistry and Physics tutoring for KS3 and GCSE. Live lessons, weekly quizzes, task marking and grade tracking.",
       },
       { property: "og:title", content: "Anglia Educate — GCSE & KS3 Science Tutoring" },
       {
         property: "og:description",
         content:
-          "Live lessons with Dr Nadia and Ali. Curriculum-aligned to Edexcel, AQA, and OCR. Grade predictor, weekly MCQs, and interactive homework.",
+          "Live lessons with Dr Nadia and Ali. Curriculum-aligned to Edexcel, AQA, and OCR. Grade predictor, weekly MCQs, and interactive tasks.",
       },
       { property: "og:type", content: "website" },
       { name: "twitter:card", content: "summary_large_image" },

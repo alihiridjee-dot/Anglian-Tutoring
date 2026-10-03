@@ -56,7 +56,7 @@ function Tutor() {
   const tabs: { k: Tab; label: string; icon: typeof PlayCircle }[] = [
     { k: "marking", label: "Marking Queue", icon: ClipboardCheck },
     { k: "video", label: "Add Video", icon: PlayCircle },
-    { k: "homework", label: "Set Homework", icon: ClipboardList },
+    { k: "homework", label: "Set Tasks", icon: ClipboardList },
   ];
 
   return (
@@ -80,7 +80,7 @@ function Tutor() {
             Welcome, {tutorName}
           </h2>
           <p className="text-sm md:text-base text-primary-foreground/75 max-w-2xl mt-1">
-            Mark student submissions and manage teaching resources — set homework, add videos, and
+            Mark student submissions and manage teaching resources — set tasks, add videos, and
             schedule live sessions.
           </p>
         </div>

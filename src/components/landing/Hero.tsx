@@ -287,7 +287,7 @@ export function Hero() {
 
         <p className="text-muted-foreground mx-auto mt-6 max-w-2xl text-lg leading-relaxed">
           Weekly live lessons in Biology, Chemistry, and Physics, aligned to Edexcel, AQA, and OCR.
-          Interactive quizzes, marked homework, and a grade predictor that actually reflects your
+          Interactive quizzes, marked tasks, and a grade predictor that actually reflects your
           progress.
         </p>
 

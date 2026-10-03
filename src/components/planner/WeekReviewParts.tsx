@@ -179,7 +179,7 @@ export function LaneReview({
   const Icon = LANE_ICON[lane];
   const headline = readOnly ? tutorHeadline(summary) : copy.headline;
   const sub = readOnly
-    ? "Based on this week's homework and quiz marks on these spec points."
+    ? "Based on this week's task and quiz marks on these spec points."
     : copy.sub;
 
   return (
@@ -259,7 +259,7 @@ function CoverageBar({ summary }: { summary: WeekSummary }) {
 function tutorHeadline(s: WeekSummary): string {
   switch (s.verdict) {
     case "no_signal":
-      return "No homework or quizzes set on these points";
+      return "No tasks or quizzes set on these points";
     case "move_on":
       return "On track — all planned points covered";
     case "almost":
@@ -293,15 +293,15 @@ export function LockedCard({ lock }: { lock: ReturnType<typeof reviewLock> }) {
             {lock.homeworkTotal === 0
               ? "There's still time left in this week, so there's nothing to sum up yet."
               : outstanding === 1
-                ? "One homework still to hand in — finish it and this opens straight away."
-                : `${outstanding} homeworks still to hand in — finish them and this opens straight away.`}
+                ? "One task still to hand in — finish it and this opens straight away."
+                : `${outstanding} tasks still to hand in — finish them and this opens straight away.`}
           </p>
         </div>
       </div>
       {lock.homeworkTotal > 0 && (
         <div className="mt-3 pt-3 border-t border-border/60">
           <div className="flex items-center justify-between text-[11px] mb-1">
-            <span className="text-muted-foreground">Homework handed in</span>
+            <span className="text-muted-foreground">Tasks handed in</span>
             <span className="font-semibold tabular-nums">
               {lock.homeworkDone} of {lock.homeworkTotal}
             </span>

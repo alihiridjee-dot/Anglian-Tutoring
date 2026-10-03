@@ -14,11 +14,11 @@ import { DoNowPanel } from "./DoNowPanel";
 import { useWeekPlan } from "./useWeekPlan";
 import { useReviewMore } from "./useReviewMore";
 import { WeekReview } from "./WeekReview";
-import { subjectLabel } from "@/lib/curriculum/courseSummary";
+import { useActiveSubject } from "@/hooks/useActiveSubject";
 
 /**
- * The dashboard's "this week": subject tabs and week navigation around the
- * shared {@link ThisWeekPanel}, with the end-of-week review as its own box
+ * The dashboard's "this week": the header slider's subject, with week
+ * navigation around the shared {@link ThisWeekPanel}, with the end-of-week review as its own box
  * underneath rather than buried at the bottom of the plan.
  *
  * The week itself needs no asking for — it's this week's slice of the year-long
@@ -42,7 +42,7 @@ export function WeeklyPlanPanel({
     ],
     [enrolments],
   );
-  const [activeSubject, setActiveSubject] = useState(ordered[0]?.subject ?? "biology");
+  const { subject: activeSubject } = useActiveSubject();
   const active = ordered.find((e) => e.subject === activeSubject) ?? ordered[0];
 
   // 0 = this week, -1 = last week, +1 = next week…
@@ -138,24 +138,6 @@ export function WeeklyPlanPanel({
                 roadmap={week.roadmap}
                 weekStart={weekStart}
               />
-            )}
-            {ordered.length > 1 && (
-              <div className="flex flex-wrap items-center gap-2">
-                {ordered.map((e) => (
-                  <button
-                    key={e.subject}
-                    type="button"
-                    onClick={() => setActiveSubject(e.subject)}
-                    className={`h-11 sm:h-8 px-3 rounded-lg text-sm font-medium transition ${
-                      e.subject === activeSubject
-                        ? "btn-solid"
-                        : "bg-muted text-muted-foreground hover:text-foreground"
-                    }`}
-                  >
-                    {subjectLabel(e.subject)}
-                  </button>
-                ))}
-              </div>
             )}
             <div className="flex items-center gap-2 sm:gap-1">
               <button
