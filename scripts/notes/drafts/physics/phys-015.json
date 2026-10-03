@@ -59,8 +59,7 @@
               { "label": "Total resistance", "unit": "Ω", "formula": "R1 + R2", "decimals": 0 },
               { "label": "Current in the circuit", "unit": "A", "formula": "V / (R1 + R2)", "decimals": 2 },
               { "label": "Potential difference across resistor 2", "unit": "V", "formula": "V * R2 / (R1 + R2)", "decimals": 2 }
-            ],
-            "scene": { "kind": "circuit", "arrangement": "series", "brightness": 1, "max": 1.2 }
+            ]
           }
         },
         {
@@ -276,8 +275,8 @@
     "status": "draft",
     "written_by": "sonnet-5-5",
     "written_at": "2026-10-01",
-    "checked_by": "sonnet-science-check",
-    "checked_at": "2026-10-01",
+    "checked_by": "sonnet-science-check, opus-5-5-diagram-audit",
+    "checked_at": "2026-10-03",
     "spec_point_ids": [
       "dd2dfc70-cca6-469a-ae6b-c4c7ce98c051",
       "487305da-ab95-4fe7-93b1-5d565e3bed14",

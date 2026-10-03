@@ -100,74 +100,28 @@
                 "results": [
                   "Burning splint at the open end of a test tube of the gas",
                   "Burns rapidly with a **squeaky pop**"
-                ],
-                "scene": {
-                  "kind": "tubes",
-                  "tubes": [
-                    {
-                      "label": "Hydrogen",
-                      "colour": "colourless",
-                      "bubbles": true
-                    }
-                  ]
-                }
+                ]
               },
               {
                 "label": "Oxygen, O₂",
                 "results": [
                   "Glowing splint put into a test tube of the gas",
                   "The splint **relights**"
-                ],
-                "scene": {
-                  "kind": "tubes",
-                  "tubes": [
-                    {
-                      "label": "Oxygen",
-                      "colour": "colourless",
-                      "bubbles": true
-                    }
-                  ]
-                }
+                ]
               },
               {
                 "label": "Carbon dioxide, CO₂",
                 "results": [
                   "Bubble the gas through limewater",
                   "Limewater turns **milky (cloudy)**"
-                ],
-                "scene": {
-                  "kind": "tubes",
-                  "tubes": [
-                    {
-                      "label": "Limewater",
-                      "colour": "colourless"
-                    },
-                    {
-                      "label": "After CO₂",
-                      "colour": "white"
-                    }
-                  ]
-                }
+                ]
               },
               {
                 "label": "Chlorine, Cl₂",
                 "results": [
                   "Put damp litmus paper into the gas",
                   "Litmus paper is **bleached** and turns white"
-                ],
-                "scene": {
-                  "kind": "tubes",
-                  "tubes": [
-                    {
-                      "label": "Damp litmus",
-                      "colour": "blue"
-                    },
-                    {
-                      "label": "In chlorine",
-                      "colour": "white"
-                    }
-                  ]
-                }
+                ]
               }
             ]
           }
@@ -354,7 +308,7 @@
       "4957de6c-61d8-41d8-9580-2527bece04f6",
       "b913c4c1-00f8-48f8-8399-f0f9a1468de0"
     ],
-    "checked_by": "sonnet-science-check",
-    "checked_at": "2026-10-01"
+    "checked_by": "sonnet-science-check, opus-5-5-diagram-audit",
+    "checked_at": "2026-10-03"
   }
 }

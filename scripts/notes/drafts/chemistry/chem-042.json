@@ -68,43 +68,35 @@
             "options": [
               {
                 "label": "Potassium",
-                "results": ["Fizzes, floats, moves around, melts, burns with a lilac flame", "Explodes: too dangerous", "Very high"],
-                "scene": { "kind": "tubes", "tubes": [{ "label": "Water", "colour": "colourless", "bubbles": true }, { "label": "Acid", "colour": "colourless", "bubbles": true }] }
+                "results": ["Fizzes, floats, moves around, melts, burns with a lilac flame", "Explodes: too dangerous", "Very high"]
               },
               {
                 "label": "Sodium",
-                "results": ["Fizzes quickly, floats, melts into a ball, moves around", "Could explode or get too hot", "Very high"],
-                "scene": { "kind": "tubes", "tubes": [{ "label": "Water", "colour": "colourless", "bubbles": true }, { "label": "Acid", "colour": "colourless", "bubbles": true }] }
+                "results": ["Fizzes quickly, floats, melts into a ball, moves around", "Could explode or get too hot", "Very high"]
               },
               {
                 "label": "Lithium",
-                "results": ["Bubbles slowly, floats, moves slowly", "Reacts vigorously", "High"],
-                "scene": { "kind": "tubes", "tubes": [{ "label": "Water", "colour": "colourless", "bubbles": true }, { "label": "Acid", "colour": "colourless", "bubbles": true }] }
+                "results": ["Bubbles slowly, floats, moves slowly", "Reacts vigorously", "High"]
               },
               {
                 "label": "Calcium",
-                "results": ["Bubbles steadily; the solution turns cloudy as calcium hydroxide forms", "Reacts vigorously", "High"],
-                "scene": { "kind": "tubes", "tubes": [{ "label": "Water", "colour": "colourless", "precipitate": "white", "bubbles": true }, { "label": "Acid", "colour": "colourless", "bubbles": true }] }
+                "results": ["Bubbles steadily; the solution turns cloudy as calcium hydroxide forms", "Reacts vigorously", "High"]
               },
               {
                 "label": "Magnesium",
-                "results": ["Very slow reaction: only a few tiny bubbles", "Steady bubbles; the metal gets smaller and the temperature rises", "Medium"],
-                "scene": { "kind": "tubes", "tubes": [{ "label": "Water", "colour": "colourless", "bubbles": true }, { "label": "Acid", "colour": "colourless", "bubbles": true }] }
+                "results": ["Very slow reaction: only a few tiny bubbles", "Steady bubbles; the metal gets smaller and the temperature rises", "Medium"]
               },
               {
                 "label": "Zinc",
-                "results": ["No reaction", "Bubbles at a moderate rate", "Medium"],
-                "scene": { "kind": "tubes", "tubes": [{ "label": "Water", "colour": "colourless" }, { "label": "Acid", "colour": "colourless", "bubbles": true }] }
+                "results": ["No reaction", "Bubbles at a moderate rate", "Medium"]
               },
               {
                 "label": "Iron",
-                "results": ["No reaction", "Bubbles very slowly; a pale green solution forms", "Low"],
-                "scene": { "kind": "tubes", "tubes": [{ "label": "Water", "colour": "colourless" }, { "label": "Acid", "colour": "pale-green", "bubbles": true }] }
+                "results": ["No reaction", "Bubbles very slowly; a pale green solution forms", "Low"]
               },
               {
                 "label": "Copper",
-                "results": ["No reaction", "No reaction", "Very low"],
-                "scene": { "kind": "tubes", "tubes": [{ "label": "Water", "colour": "colourless" }, { "label": "Acid", "colour": "colourless" }] }
+                "results": ["No reaction", "No reaction", "Very low"]
               }
             ]
           }
@@ -330,8 +322,8 @@
     "status": "draft",
     "written_by": "sonnet-5-5",
     "written_at": "2026-10-01",
-    "checked_by": "sonnet-science-check",
-    "checked_at": "2026-10-01",
+    "checked_by": "sonnet-science-check, opus-5-5-diagram-audit",
+    "checked_at": "2026-10-03",
     "spec_point_ids": [
       "64bb97a5-d18e-41f9-9805-f89e1ce66bbe",
       "a03ed155-a7a4-4514-89d1-e8acb13d47b0",
