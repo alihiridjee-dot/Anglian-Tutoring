@@ -38,8 +38,10 @@ const NAV_LINK =
 const SHEET_LINK = "btn-ghost flex min-h-11 items-center rounded-xl px-3 py-2.5 text-base";
 
 export function Nav() {
-  // Below `md` the section links live in a sheet under the bar. It closes on
-  // the backdrop, Escape, a link, or any navigation.
+  // Below `lg` the section links live in a sheet under the bar. It closes on
+  // the backdrop, Escape, a link, or any navigation. The bar needs about 945px
+  // for all five links beside the buttons, so `md` would push Sign up off a
+  // phone turned sideways and off a portrait iPad.
   const [open, setOpen] = useState(false);
   const location = useRouterState({ select: (s) => s.location.href });
 
@@ -66,7 +68,7 @@ export function Nav() {
 
         {/* Section links route back to the landing page by path + hash, so they
             work from standalone pages (e.g. /how-it-works) as well as from "/". */}
-        <nav className="text-muted-foreground hidden items-center gap-7 text-sm md:flex">
+        <nav className="text-muted-foreground hidden items-center gap-7 text-sm lg:flex">
           <Link to="/" hash="tutors" className={NAV_LINK}>
             Our Tutors
           </Link>
@@ -105,7 +107,7 @@ export function Nav() {
           <Link
             to="/auth"
             search={{ mode: "signin" } as never}
-            className="btn-ghost hidden rounded-xl px-3 py-2 text-sm sm:inline-flex"
+            className="btn-ghost hidden min-h-11 items-center rounded-xl px-3 py-2 text-sm sm:inline-flex sm:min-h-0"
           >
             Login
           </Link>
@@ -122,7 +124,7 @@ export function Nav() {
             aria-label={open ? "Close menu" : "Open menu"}
             aria-expanded={open}
             aria-controls="site-menu"
-            className="btn-ghost -mr-2 flex size-11 shrink-0 cursor-pointer items-center justify-center rounded-xl md:hidden"
+            className="btn-ghost -mr-2 flex size-11 shrink-0 cursor-pointer items-center justify-center rounded-xl lg:hidden"
           >
             {open ? <X className="size-5" aria-hidden /> : <Menu className="size-5" aria-hidden />}
           </button>
@@ -138,12 +140,12 @@ export function Nav() {
             type="button"
             aria-label="Close menu"
             onClick={() => setOpen(false)}
-            className="bg-primary-deep/40 absolute inset-x-0 top-full h-dvh cursor-pointer md:hidden"
+            className="bg-primary-deep/40 absolute inset-x-0 top-full h-dvh cursor-pointer lg:hidden"
           />
           <nav
             id="site-menu"
             aria-label="Site"
-            className="bg-background absolute inset-x-0 top-full max-h-[calc(100dvh-4.5rem)] overflow-y-auto border-b-[1.5px] border-[color:color-mix(in_oklab,var(--foreground)_9%,transparent)] px-4 pt-2 pb-[calc(1rem+env(safe-area-inset-bottom))] shadow-2xl md:hidden"
+            className="bg-background absolute inset-x-0 top-full max-h-[calc(100dvh-4.5rem)] overflow-y-auto border-b-[1.5px] border-[color:color-mix(in_oklab,var(--foreground)_9%,transparent)] px-4 pt-2 pb-[calc(1rem+env(safe-area-inset-bottom))] shadow-2xl lg:hidden"
           >
             <ul className="flex flex-col gap-0.5">
               <li>

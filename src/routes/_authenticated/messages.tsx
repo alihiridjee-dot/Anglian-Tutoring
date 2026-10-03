@@ -127,20 +127,28 @@ function MessagesPage() {
                 showCounterpart={isTutor}
               />
             </div>
+            {/* Open on a phone turned sideways, the thread takes the whole
+                screen (`.thread-sideways`) and its own title row carries the
+                way back, so this row steps aside there. */}
             <div
               data-guide="message-thread"
-              className={`premium-card flex h-[70vh] min-h-0 flex-col overflow-hidden rounded-2xl ${threadOpen ? "" : "max-lg:hidden"}`}
+              className={`premium-card flex h-[70vh] min-h-0 flex-col overflow-hidden rounded-2xl ${threadOpen ? "thread-sideways" : "max-lg:hidden"}`}
             >
               <button
                 type="button"
                 onClick={() => setThreadOpen(false)}
-                className="inline-flex min-h-11 items-center gap-2 border-b border-border px-4 text-sm font-semibold text-muted-foreground hover:text-foreground lg:hidden"
+                className="inline-flex min-h-11 items-center gap-2 border-b border-border px-4 text-sm font-semibold text-muted-foreground hover:text-foreground lg:hidden short:hidden"
               >
                 <ArrowLeft className="size-4" aria-hidden /> All conversations
               </button>
               <div className="min-h-0 flex-1">
                 {selected && userId ? (
-                  <ThreadView thread={selected} viewerId={userId} isTutor={isTutor} />
+                  <ThreadView
+                    thread={selected}
+                    viewerId={userId}
+                    isTutor={isTutor}
+                    onBack={() => setThreadOpen(false)}
+                  />
                 ) : (
                   <p className="p-10 text-center text-sm text-muted-foreground">
                     Pick a conversation.

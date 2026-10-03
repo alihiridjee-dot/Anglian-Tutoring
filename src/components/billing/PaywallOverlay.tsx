@@ -35,9 +35,11 @@ export function PaywallOverlay() {
       role="dialog"
       aria-modal="true"
       aria-labelledby="paywall-title"
-      className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-background/50 backdrop-blur-xl"
+      // The card is 405px tall, more than a phone turned sideways has, so the
+      // overlay scrolls; `m-auto` still centres the card wherever it fits.
+      className="fixed inset-0 z-50 flex overflow-y-auto overscroll-contain p-4 bg-background/50 backdrop-blur-xl"
     >
-      <div className="w-full max-w-md rounded-3xl border border-white/20 bg-card/80 backdrop-blur-md shadow-2xl p-6 sm:p-8 text-center ring-1 ring-black/5">
+      <div className="m-auto w-full max-w-md rounded-3xl border border-white/20 bg-card/80 backdrop-blur-md shadow-2xl p-6 sm:p-8 text-center ring-1 ring-black/5">
         <div className="mx-auto mb-5 flex h-14 w-14 items-center justify-center rounded-2xl bg-primary/10 text-primary">
           <Lock className="h-6 w-6" />
         </div>

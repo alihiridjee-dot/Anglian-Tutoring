@@ -68,8 +68,11 @@ export function HeaderLiveButton({ liveHref }: { liveHref: "/live" | "/demo/stud
         ) : (
           <Video className="w-3.5 h-3.5" />
         )}
-        <span className="hidden sm:inline">{isLive ? "Join live" : `Join · ${remaining}`}</span>
-        <span className="sm:hidden">Join</span>
+        {/* The short label on a phone either way up: the header is one row. */}
+        <span className="hidden sm:inline short:hidden">
+          {isLive ? "Join live" : `Join · ${remaining}`}
+        </span>
+        <span className="sm:hidden short:inline">Join</span>
       </a>
     );
   }
@@ -82,8 +85,8 @@ export function HeaderLiveButton({ liveHref }: { liveHref: "/live" | "/demo/stud
       className="tap-target inline-flex items-center gap-1.5 h-9 px-3 rounded-lg text-xs font-semibold border border-[#2D8CFF]/40 bg-[#2D8CFF]/10 text-[#2D8CFF] hover:bg-[#2D8CFF]/15 transition"
     >
       <Radio className="w-3.5 h-3.5 animate-pulse" />
-      <span className="hidden sm:inline">Live in {remaining}</span>
-      <span className="sm:hidden">{remaining}</span>
+      <span className="hidden sm:inline short:hidden">Live in {remaining}</span>
+      <span className="sm:hidden short:inline">{remaining}</span>
     </Link>
   );
 }

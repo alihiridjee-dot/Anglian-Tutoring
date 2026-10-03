@@ -76,7 +76,8 @@ export function AppLayout({ title, children }: { title: string; children: ReactN
   const router = useRouter();
   const signOut = useSignOut();
   const [searchOpen, setSearchOpen] = useState(false);
-  // The phone drawer. Below `md` the sidebar has no hover to expand on, so it
+  // The phone drawer. Below `md`, and on a phone turned sideways (see `rail:`
+  // and `drawer:` in styles.css), the sidebar has no hover to expand on, so it
   // slides in from the left instead and is dismissed by the backdrop, Escape,
   // its own close button, or simply arriving somewhere.
   const [navOpen, setNavOpen] = useState(false);
@@ -147,8 +148,12 @@ export function AppLayout({ title, children }: { title: string; children: ReactN
        * absolutely positioned and *overlays* the page as it widens, so hovering
        * never reflows the content beside it. Tailwind's `hover:` variant is
        * gated on `@media (hover: hover)`, so touch devices simply keep the rail.
+       * The placeholder is pinned to the screen and the rail scrolls inside it,
+       * so the links stay in reach however far down the page you are, and a
+       * short page can't cut the bottom of the rail off. Being sticky makes it
+       * a stacking context, so it carries the rail's z-index itself.
        */}
-      <div className="relative w-0 shrink-0 md:w-20">
+      <div className="relative w-0 shrink-0 rail:sticky rail:top-0 rail:z-50 rail:h-dvh rail:w-20 rail:self-start">
         {/* Phone only: the tap-to-close backdrop behind the open drawer. Sits
             under the drawer (z-50) and over the ribbon and header. */}
         {navOpen && (
@@ -156,17 +161,19 @@ export function AppLayout({ title, children }: { title: string; children: ReactN
             type="button"
             aria-label="Close menu"
             onClick={() => setNavOpen(false)}
-            className="bg-primary-deep/40 fixed inset-0 z-45 cursor-pointer md:hidden"
+            className="bg-primary-deep/40 fixed inset-0 z-45 cursor-pointer rail:hidden"
           />
         )}
         {/* Above the demo ribbon (z-40) and the sticky header (z-30), both of
-            which the expanded rail passes in front of. Below `md` the same
-            element is a fixed drawer: full labels, slid off-screen and made
-            `invisible` (so it leaves the tab order) until opened. */}
+            which the expanded rail passes in front of. Below `md`, and on a
+            phone turned sideways, the same element is a fixed drawer: full
+            labels, slid off-screen and made `invisible` (so it leaves the tab
+            order) until opened. A fixed layer misses the body's notch padding,
+            so the drawer widens and pads by the left inset itself. */}
         <aside
           id="app-sidebar"
-          className={`group/sidebar fixed inset-y-0 left-0 z-50 flex w-60 flex-col gap-1 overflow-y-auto overflow-x-hidden border-r border-sidebar-border bg-sidebar px-3 py-5 pb-[calc(1.25rem+env(safe-area-inset-bottom))] transition-[width,box-shadow,transform,visibility] duration-200 ease-out motion-reduce:transition-none md:absolute md:w-20 md:translate-x-0 md:overflow-hidden md:pb-5 md:hover:w-60 md:hover:shadow-2xl ${
-            navOpen ? "translate-x-0 shadow-2xl" : "max-md:invisible max-md:-translate-x-full"
+          className={`group/sidebar scroll-none fixed inset-y-0 left-0 z-50 flex w-[calc(15rem+env(safe-area-inset-left))] flex-col gap-1 overflow-y-auto overflow-x-hidden overscroll-contain border-r border-sidebar-border bg-sidebar py-5 pr-3 pl-[calc(0.75rem+env(safe-area-inset-left))] pb-[calc(1.25rem+env(safe-area-inset-bottom))] transition-[width,box-shadow,transform,visibility] duration-200 ease-out motion-reduce:transition-none rail:absolute rail:w-20 rail:translate-x-0 rail:pl-3 rail:pb-5 rail:hover:w-60 rail:hover:shadow-2xl ${
+            navOpen ? "translate-x-0 shadow-2xl" : "drawer:invisible drawer:-translate-x-full"
           }`}
         >
           <div className="mb-6 flex items-center justify-between gap-2">
@@ -187,7 +194,7 @@ export function AppLayout({ title, children }: { title: string; children: ReactN
               type="button"
               onClick={() => setNavOpen(false)}
               aria-label="Close menu"
-              className="btn-ghost flex size-11 shrink-0 cursor-pointer items-center justify-center rounded-xl md:hidden"
+              className="btn-ghost flex size-11 shrink-0 cursor-pointer items-center justify-center rounded-xl rail:hidden"
             >
               <X className="size-5" aria-hidden />
             </button>
@@ -282,7 +289,11 @@ export function AppLayout({ title, children }: { title: string; children: ReactN
             </div>
           </div>
         )}
-        <header className="glass-bar sticky top-0 z-30 flex flex-wrap gap-x-3 gap-y-2 items-center justify-between px-4 sm:px-6 lg:px-10 py-3 sm:py-4 shrink-0">
+        {/* On a phone turned sideways the header stays one row: it is pinned,
+            and a second row would cover a third of a 390px screen. The course
+            chip and Forward drop out there, as they do on a phone held upright,
+            and the page title truncates to whatever room is left. */}
+        <header className="glass-bar sticky top-0 z-30 flex flex-wrap gap-x-3 gap-y-2 items-center justify-between px-4 sm:px-6 lg:px-10 py-3 sm:py-4 shrink-0 short:flex-nowrap short:py-2">
           <div className="flex min-w-0 items-center gap-2 sm:gap-3">
             <button
               type="button"
@@ -290,7 +301,7 @@ export function AppLayout({ title, children }: { title: string; children: ReactN
               aria-label="Open menu"
               aria-controls="app-sidebar"
               aria-expanded={navOpen}
-              className="btn-soft flex size-11 shrink-0 cursor-pointer items-center justify-center rounded-xl md:hidden"
+              className="btn-soft flex size-11 shrink-0 cursor-pointer items-center justify-center rounded-xl rail:hidden"
             >
               <Menu className="size-5" aria-hidden />
             </button>
@@ -310,13 +321,13 @@ export function AppLayout({ title, children }: { title: string; children: ReactN
                 onClick={() => router.history.forward()}
                 title="Forward"
                 aria-label="Forward"
-                className="btn-soft hidden size-9 rounded-xl sm:flex items-center justify-center cursor-pointer"
+                className="btn-soft hidden size-9 rounded-xl sm:flex short:hidden items-center justify-center cursor-pointer"
               >
                 <ArrowRight className="w-4 h-4" />
               </button>
             </div>
             <div className="min-w-0">
-              <h1 className="font-display truncate text-lg font-extrabold tracking-tight sm:text-xl lg:text-2xl">
+              <h1 className="font-display truncate text-lg font-extrabold tracking-tight sm:text-xl lg:text-2xl short:text-lg">
                 {title}
               </h1>
             </div>
@@ -325,7 +336,7 @@ export function AppLayout({ title, children }: { title: string; children: ReactN
                 onboarding step that set it. */}
             <CourseBadge />
           </div>
-          <div className="flex flex-wrap items-center gap-2 sm:gap-3">
+          <div className="flex flex-wrap items-center gap-2 sm:gap-3 short:shrink-0 short:flex-nowrap short:gap-2">
             <StudentGuide
               key={`${pathname}:${title}`}
               pageTitle={title}

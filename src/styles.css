@@ -1176,6 +1176,23 @@ body {
    What a phone needs and no single screen should have to remember.
    ════════════════════════════════════════════════════════════════════════════ */
 
+/* A phone on its side. At 667–956px it is as wide as a tablet, so every width
+   breakpoint hands it the desktop layout, but at 340–440px tall it can't spare
+   the height that layout assumes. `short:` is that case: a pinned bar, a box
+   sized to the screen or a dialog that has to fit. No tablet or laptop is this
+   short. The shell keys its sidebar off the other two: the hover rail needs a
+   screen that is wide and tall, and every other screen gets the phone drawer. */
+@custom-variant short (@media (height <= 31.25rem));
+@custom-variant rail (@media (width >= 48rem) and (height > 31.25rem));
+@custom-variant drawer {
+  @media (width < 48rem) {
+    @slot;
+  }
+  @media (height <= 31.25rem) {
+    @slot;
+  }
+}
+
 /* The page never scrolls sideways. Set on `html` alone: from there it
    propagates to the viewport and every sticky bar keeps working. Set on `body`
    too, it would make the body its own scroll container and pin each `sticky`
@@ -1231,6 +1248,25 @@ body {
     font-size: 0.8125rem;
     line-height: 1.15;
     padding-inline: 0.375rem;
+  }
+}
+
+/* An open conversation on a phone turned sideways. Inside the page, under the
+   pinned header, its box had 34px left for messages once the title row and the
+   typing box were in, so it takes the whole screen instead, over the header, and
+   drops the card it sits in. The notch insets come back as padding because a
+   fixed layer misses the body's. Below `lg` only: from there the list and the
+   thread sit side by side. Unlayered, like the card rules it overrides. */
+@media (width < 64rem) and (height <= 31.25rem) {
+  .thread-sideways {
+    position: fixed;
+    inset: 0;
+    z-index: 40;
+    height: auto;
+    border: 0;
+    border-radius: 0;
+    box-shadow: none;
+    padding: 0 env(safe-area-inset-right) env(safe-area-inset-bottom) env(safe-area-inset-left);
   }
 }
 

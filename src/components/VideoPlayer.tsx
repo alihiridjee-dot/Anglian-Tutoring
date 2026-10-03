@@ -69,8 +69,12 @@ export function VideoModal({
       className="fixed inset-0 z-50 flex items-center justify-center bg-black/70 backdrop-blur-sm p-4 animate-fade-in"
       onClick={onClose}
     >
+      {/* As wide as the screen's height allows, so the whole 16:9 frame and the
+          title under it fit: 6rem is the title block, 2rem the gutter. At full
+          width on a phone turned sideways the frame was 431px tall in a 358px
+          box, and its bottom 74px (the play bar, full screen) was cut off. */}
       <div
-        className="relative w-full max-w-3xl max-h-[calc(100dvh-2rem)] overflow-y-auto overflow-x-hidden bg-card rounded-2xl shadow-2xl border border-border"
+        className="relative w-full max-w-[min(48rem,calc((100dvh-8rem)*16/9))] max-h-[calc(100dvh-2rem)] overflow-y-auto overflow-x-hidden bg-card rounded-2xl shadow-2xl border border-border"
         onClick={(e) => e.stopPropagation()}
       >
         <button

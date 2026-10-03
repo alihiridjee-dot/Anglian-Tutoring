@@ -100,7 +100,9 @@ export function ContextPicker({ value, onChange }: Props) {
 /** Shared shell for the three attachment lists. */
 function PickerShell({ children }: { children: React.ReactNode }) {
   return (
-    <div className="mt-2.5 max-h-52 overflow-y-auto rounded-xl border border-border divide-y divide-border">
+    // Shorter on a phone turned sideways, so the list can't fill the dialog's
+    // scrolling form and catch every swipe meant for the form around it.
+    <div className="mt-2.5 max-h-52 short:max-h-32 overflow-y-auto rounded-xl border border-border divide-y divide-border">
       {children}
     </div>
   );
