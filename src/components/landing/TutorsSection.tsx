@@ -93,6 +93,9 @@ export function TutorsSection() {
                 key={t.id}
                 onMouseEnter={() => setHoveredId(t.id)}
                 onMouseLeave={() => setHoveredId(null)}
+                // A keyboard user reaches the credentials by tabbing to the card.
+                onFocus={() => setHoveredId(t.id)}
+                onBlur={() => setHoveredId((id) => (id === t.id ? null : id))}
                 onClick={() => setActiveId(t.id)}
                 role="button"
                 tabIndex={0}
@@ -346,6 +349,38 @@ function TutorChatModal({ tutor, onClose }: { tutor: Tutor; onClose: () => void 
             </span>
           </div>
           <p className="text-primary mt-0.5 text-sm font-bold">{tutor.role}</p>
+
+          {/* The credentials the card shows on hover. Phones, keyboards and
+              screen readers never hover, and this pop-up is where they land. */}
+          <div className="mt-4 space-y-2">
+            <p className="eyebrow">Verified Academic Degrees</p>
+            <ul className="space-y-1">
+              {tutor.degrees.map((degree) => (
+                <li
+                  key={degree}
+                  className="text-foreground flex items-start gap-1.5 text-sm font-bold"
+                >
+                  <span aria-hidden>🎓</span>
+                  {degree}
+                </li>
+              ))}
+            </ul>
+            {tutor.experience && (
+              <p className="text-foreground text-sm leading-relaxed font-medium">
+                {tutor.experience}
+              </p>
+            )}
+            {tutor.agencies.length > 0 && (
+              <ul className="flex flex-wrap gap-1.5">
+                {tutor.agencies.map((a) => (
+                  <li key={a.name} className="chip">
+                    <img src={a.logo} alt="" loading="lazy" className="h-4 w-auto object-contain" />
+                    {a.name}
+                  </li>
+                ))}
+              </ul>
+            )}
+          </div>
 
           {/* Greeting, drawn as a real message: the tutor's own face as the
               avatar and a bubble with a tail pointing at it. A bare grey box
