@@ -3,6 +3,7 @@ import { Link } from "@tanstack/react-router";
 import { Bell, Check } from "lucide-react";
 import { supabase } from "@/integrations/supabase/client";
 import { isDemoMode } from "@/lib/auth/session";
+import { ErrorNote } from "@/components/Shared";
 
 type Notification = {
   id: string;
@@ -24,17 +25,25 @@ type Notification = {
  */
 export function NotificationBell() {
   const [items, setItems] = useState<Notification[]>([]);
+  // A failed read is not "You're all caught up". The last good list is kept
+  // and the panel says the read failed, with a retry.
+  const [loadError, setLoadError] = useState<Error | null>(null);
   const [open, setOpen] = useState(false);
   const ref = useRef<HTMLDivElement>(null);
 
   const load = useCallback(async () => {
     // The demo platform is a self-contained showcase — never read real rows.
     if (isDemoMode()) return;
-    const { data } = await supabase
+    const { data, error } = await supabase
       .from("notifications")
       .select("id, type, title, body, link, read_at, created_at")
       .order("created_at", { ascending: false })
       .limit(20);
+    if (error) {
+      setLoadError(new Error(error.message));
+      return;
+    }
+    setLoadError(null);
     setItems((data ?? []) as Notification[]);
   }, []);
 
@@ -96,10 +105,17 @@ export function NotificationBell() {
             )}
           </div>
 
+          {loadError && (
+            <div className="p-3">
+              <ErrorNote error={loadError} onRetry={() => void load()} />
+            </div>
+          )}
           {items.length === 0 ? (
-            <p className="text-muted-foreground px-4 py-8 text-center text-sm">
-              You&apos;re all caught up.
-            </p>
+            !loadError && (
+              <p className="text-muted-foreground px-4 py-8 text-center text-sm">
+                You&apos;re all caught up.
+              </p>
+            )
           ) : (
             <ul className="divide-y divide-border">
               {items.map((n) => {
