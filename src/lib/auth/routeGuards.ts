@@ -39,26 +39,24 @@ export function guardStudentSection(args: GuardArgs) {
   }
 }
 
-/** `/dashboard` is an address, not a page: it forwards each role to its own home. */
-export function redirectToRoleHome(args: GuardArgs): never {
+/** Each role's own home — where `/dashboard`, an address and not a page, forwards to. */
+export function roleHomePath(args: GuardArgs) {
   const role = roleOf(args);
   if (isStaffRole(role)) {
     // Tutor home is the Tutor Studio (resource management). Tutors must never
     // land on the Parent Portal — that surface is PARENT-only.
-    throw redirect({ to: "/tutor" });
+    return "/tutor" as const;
   }
-  if (role === UserRole.PARENT) {
-    throw redirect({ to: "/parent-dashboard" });
-  }
+  if (role === UserRole.PARENT) return "/parent-dashboard" as const;
   // Students and the safe fallback both resolve to the student dashboard.
-  throw redirect({ to: "/student-dashboard" });
+  return "/student-dashboard" as const;
 }
 
 /**
  * Student surface. Tutors/admins own the Studio and parents own the Portal;
  * each is routed to their own home rather than rendering a student page in
  * their session. An unresolved role falls through to the student view, which
- * matches the fallback in {@link redirectToRoleHome} and avoids a redirect loop.
+ * matches the fallback in {@link roleHomePath} and avoids a redirect loop.
  */
 export function guardStudentHome(args: GuardArgs) {
   const role = roleOf(args);

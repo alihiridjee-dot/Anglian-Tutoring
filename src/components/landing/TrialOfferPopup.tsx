@@ -3,8 +3,7 @@ import { Link } from "@tanstack/react-router";
 import { ArrowRight, Loader2, Mail, X } from "lucide-react";
 import { toast } from "sonner";
 import { useBodyScrollLock } from "@/hooks/useBodyScrollLock";
-import { requestTrialCode, readTrialCode } from "@/lib/billing/trialCode";
-import { TRIAL_DAYS } from "@/components/billing/TrialCodeField";
+import { requestTrialCode, readTrialCode, TRIAL_DAYS } from "@/lib/billing/trialCode";
 
 const DISMISSED_KEY = "trial-offer-dismissed-at";
 /** How long a closed pop-up stays closed. */

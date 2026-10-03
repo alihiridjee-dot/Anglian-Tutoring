@@ -42,6 +42,7 @@ import { CoveredLedger } from "./CoveredLedger";
 import { CatchUpPanel } from "./CatchUpPanel";
 import { ThisWeekPanel } from "./ThisWeekPanel";
 import { useWeekPlan } from "./useWeekPlan";
+import { useReviewMore } from "./useReviewMore";
 import { WeekReview } from "./WeekReview";
 import { subjectLabel } from "@/lib/curriculum/courseSummary";
 
@@ -359,12 +360,14 @@ function ThisWeekTab({
     refreshKey,
   });
 
+  const reviewMore = useReviewMore({ ...week, isCurrent });
+
   if (week.error) return <ErrorNote error={week.error} onRetry={() => void week.reload()} />;
 
   return (
     <div className="space-y-4">
       {/* Learning this week — core topic and focused topics, the shared panel. */}
-      <section>
+      <section data-guide="planner-week">
         <div className="flex flex-wrap items-center justify-between gap-2 mb-2.5">
           <h2 className="flex items-center gap-1.5 font-display text-sm font-bold tracking-tight">
             <CalendarDays className="w-4 h-4 text-primary" />
@@ -428,6 +431,7 @@ function ThisWeekTab({
             weekStart={weekStart}
             isPast={isPast}
             showCoverage={showReview}
+            reviewMore={reviewMore}
           />
         )}
       </section>

@@ -33,6 +33,7 @@ import { SpecSearchBar, SpecSearchResults } from "@/components/curriculum/SpecSe
 import { TopicCard } from "@/components/curriculum/TopicCard";
 import { TopicCreate } from "@/components/curriculum/TopicCreate";
 import { labelOf } from "@/components/curriculum/styles";
+import { CourseChip } from "@/components/CourseBadge";
 
 export function Curriculum() {
   const { isTutor, userId } = useRoles();
@@ -223,16 +224,11 @@ export function Curriculum() {
           <div className="rounded-2xl premium-card p-4 sm:p-6 relative overflow-hidden shadow-xs">
             <div className="absolute top-0 left-0 right-0 h-1.5 bg-gradient-to-r from-primary to-accent" />
 
-            <div className="flex flex-wrap items-center gap-2 mb-3">
-              <span className="text-[10px] px-2.5 py-1 rounded-full uppercase tracking-wider font-extrabold bg-primary/10 text-primary">
-                {labelOf(LEVELS, level)}
-              </span>
-              <span className="text-[10px] px-2.5 py-1 rounded-full uppercase tracking-wider font-extrabold bg-accent/10 text-accent">
-                {labelOf(BOARDS, board)}
-              </span>
-              <span className="text-[10px] px-2.5 py-1 rounded-full uppercase tracking-wider font-extrabold bg-secondary text-foreground">
-                {subject.toUpperCase()}
-              </span>
+            <div className="mb-3">
+              <CourseChip
+                icon
+                parts={[labelOf(LEVELS, level), labelOf(BOARDS, board), labelOf(SUBJECTS, subject)]}
+              />
             </div>
 
             <p className="text-[10px] uppercase tracking-wider font-extrabold text-primary">

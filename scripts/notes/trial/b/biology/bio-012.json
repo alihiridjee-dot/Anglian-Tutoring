@@ -1,0 +1,264 @@
+{
+  "format": 1,
+  "concept_id": "bio-012",
+  "subject": "biology",
+  "title": "Osmosis",
+  "key_idea": "**Osmosis** is the diffusion of water from a dilute solution to a more concentrated solution through a **partially permeable membrane**. Water moves into a cell when the solution outside is more dilute than the cell contents, and out of the cell when the solution outside is more concentrated.",
+  "sections": [
+    {
+      "heading": "How osmosis works",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "A **solute** is a substance dissolved in water, such as sugar or salt. A **dilute** solution has a little solute and a lot of water. A concentrated solution has a lot of solute and less water."
+        },
+        {
+          "type": "paragraph",
+          "text": "A **partially permeable membrane** lets some particles through but not others. Small water molecules can pass through it. Larger solute molecules, such as sugar, cannot. The cell membrane is partially permeable."
+        },
+        {
+          "type": "paragraph",
+          "text": "Water molecules move at random, in both directions, across the membrane. More move from the dilute side to the concentrated side than the other way. So there is a net movement of water into the more concentrated solution. This is osmosis. It is passive: it needs no energy from respiration."
+        },
+        {
+          "type": "paragraph",
+          "text": "You can describe the same idea using the concentration of water. A dilute solution has a high concentration of water molecules. A concentrated solution has a low concentration of water molecules. In osmosis, water moves from a high water concentration to a low water concentration, down its concentration gradient."
+        },
+        {
+          "type": "paragraph",
+          "text": "Scientists also use the term **water potential**. Pure water has the highest water potential. Adding solute lowers it. Water moves by osmosis from a higher water potential to a lower water potential."
+        },
+        {
+          "type": "paragraph",
+          "text": "If the solutions on both sides have the same concentration, water still moves both ways, but there is no net movement. A cell or piece of tissue in such a solution does not change in mass."
+        }
+      ]
+    },
+    {
+      "heading": "Osmosis in animal cells",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "Animal cells have a cell membrane but no cell wall. In pure water, or a solution more dilute than the cytoplasm, water enters the cell by osmosis. The cell swells and may burst. When red blood cells burst like this it is called **lysis**."
+        },
+        {
+          "type": "paragraph",
+          "text": "In a solution more concentrated than the cytoplasm, water leaves the cell by osmosis. The cell shrinks and shrivels. Red blood cells that shrink like this are said to crenate."
+        },
+        {
+          "type": "paragraph",
+          "text": "So the body must keep the concentration of the blood steady. In untreated diabetes, the blood glucose concentration is high. The blood is then more concentrated than the solution inside body cells, so water moves out of the cells into the blood by osmosis."
+        }
+      ]
+    },
+    {
+      "heading": "Osmosis in plant cells",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "Plant cells have a strong cellulose cell wall outside the membrane. In a dilute solution, water enters by osmosis and the vacuole swells. The cytoplasm pushes against the cell wall and the cell becomes **turgid** (firm). The cell wall stops the cell bursting. Turgid cells help support the plant."
+        },
+        {
+          "type": "paragraph",
+          "text": "In a concentrated solution, water leaves by osmosis. The cell becomes flaccid (soft) and the plant wilts. If a lot of water is lost, the cytoplasm and membrane pull away from the cell wall. The cell is then **plasmolysed**."
+        },
+        {
+          "type": "diagram",
+          "diagram": {
+            "kind": "compare",
+            "alt": "What happens to an animal cell and a plant cell in a more dilute solution, a solution of the same concentration, and a more concentrated solution.",
+            "items": ["Animal cell (e.g. red blood cell)", "Plant cell"],
+            "rows": [
+              {
+                "feature": "Pure water or a more dilute solution",
+                "values": ["Water moves in. The cell swells and may burst (lysis).", "Water moves in. The cell becomes turgid. The cell wall stops it bursting."]
+              },
+              {
+                "feature": "Solution of the same concentration",
+                "values": ["No net movement of water. No change.", "No net movement of water. No change."]
+              },
+              {
+                "feature": "More concentrated solution",
+                "values": ["Water moves out. The cell shrinks and shrivels.", "Water moves out. The cell becomes flaccid, then plasmolysed."]
+              }
+            ]
+          }
+        },
+        {
+          "type": "paragraph",
+          "text": "Osmosis explains several other things. Root hair cells take in water from the soil by osmosis. Guard cells take in water by osmosis when they make glucose, so they swell and curve, which opens the stoma. Some antibiotics damage the bacterial cell wall: water then enters the bacterium by osmosis and the cell bursts, because the damaged wall cannot withstand the pressure."
+        },
+        {
+          "type": "paragraph",
+          "text": "You can measure osmosis by putting pieces of potato into different solutions and weighing them. That required practical has its own note."
+        }
+      ]
+    }
+  ],
+  "checks": [
+    {
+      "q": "Define osmosis.",
+      "a": "The diffusion (net movement) of water from a dilute solution to a more concentrated solution through a partially permeable membrane.",
+      "marks": 2
+    },
+    {
+      "q": "Explain why a red blood cell bursts in pure water but a plant cell does not.",
+      "a": "Water enters both cells by osmosis. The plant cell has a cell wall, which stops it bursting. The red blood cell has no cell wall, so it swells and bursts.",
+      "marks": 2
+    },
+    {
+      "q": "A piece of potato loses mass in a strong salt solution. Explain why.",
+      "a": "Water moves out of the potato cells by osmosis, through a partially permeable membrane, because the salt solution outside is more concentrated than the solution inside the cells.",
+      "marks": 3
+    }
+  ],
+  "boards": {
+    "aqa": {
+      "spec_codes": ["AQA 1.11", "AQA T 4.1.3.2"],
+      "exam_phrases": [
+        "water moves out of cells by osmosis",
+        "through a partially permeable membrane",
+        "the solution in the cells is less concentrated than outside",
+        "from a dilute solution to a more concentrated solution",
+        "plant cell has a cell wall (which prevents it from bursting)",
+        "damaged cell wall cannot withstand pressure"
+      ],
+      "mistakes": [
+        {
+          "wrong": "Water moves from an area of high concentration to an area of low concentration.",
+          "right": "AQA rejects this, because it sounds like the solute concentration. Say water moves from a dilute solution to a more concentrated one, or from a high water concentration to a low water concentration."
+        },
+        {
+          "wrong": "There is more salt outside the potato, so water moves out.",
+          "right": "AQA ignores the amount of water or salt. Compare concentrations: the solution outside is more concentrated than the solution inside the cells."
+        },
+        {
+          "wrong": "Water moves along (or across) the concentration gradient.",
+          "right": "AQA does not accept 'along' or 'across'. Write that water moves down its concentration gradient."
+        },
+        {
+          "wrong": "Water enters the potato cells by active transport.",
+          "right": "Water moves by osmosis, which needs no energy. AQA does not accept active transport here."
+        }
+      ],
+      "worked_example": {
+        "exemplar_id": "3eb849c7-74ff-466a-8f46-4c883bd39d3a",
+        "source": "AQA jun 2018, Paper 1 (H), Q04.4",
+        "question": "A student investigated the effect of different concentrations of sugar solution on pieces of carrot.\n\nThis is the method used.\n1. Weigh five pieces of carrot.\n2. Place each piece into a different tube.\n3. Into each tube add 20 cm3 of water or one of the sugar solutions as shown in Figure 6.\n4. Leave the apparatus for 2 hours.\n5. Remove the carrot and dry each piece on paper towel.\n6. Reweigh each piece.\n7. Calculate the percentage (%) change in mass of each piece.\n\nTable 2 shows the results.\n\nConcentration of sugar solution in mol/dm3 | Percentage (%) change in mass\n0.0 | +24\n0.2 | +12\n0.4 | +1\n0.6 | –8\n0.8 | –15\n\nExplain why the mass of the carrot in the 0.6 mol/dm3 sugar solution changed.",
+        "marks": 4,
+        "answer_points": [
+          "The mass of the carrot decreased.",
+          "Water was lost from the carrot by osmosis.",
+          "The water moved out through a partially permeable membrane.",
+          "The 0.6 mol/dm³ sugar solution was more concentrated than the solution inside the carrot cells."
+        ],
+        "tip": "The last mark needs a clear comparison, inside versus outside, of either the sugar concentration or the water concentration."
+      }
+    },
+    "edexcel": {
+      "spec_codes": ["EDEX 1.15", "EDEX 7.10B", "EDEX 1.16"],
+      "exam_phrases": [
+        "water moves by osmosis",
+        "across a partially permeable membrane",
+        "from a high water molecule concentration to a low water molecule concentration",
+        "(cells) lose water / become plasmolysed",
+        "causing the erythrocyte to burst / lyse",
+        "5% salt is an isotonic solution (same concentration as the egg)"
+      ],
+      "mistakes": [
+        {
+          "wrong": "Alcohol (or oxygen) moves into cells by osmosis.",
+          "right": "Osmosis is only the movement of water. Other substances, such as alcohol and oxygen, move by diffusion."
+        },
+        {
+          "wrong": "Water moves from a high concentration to a low concentration.",
+          "right": "Say what is concentrated. Water moves from a high concentration of water molecules to a low concentration of water molecules."
+        },
+        {
+          "wrong": "The cytoplasm shrinks because salt moves into the cell.",
+          "right": "Water moves out of the cell by osmosis into the more concentrated salt solution, so the cytoplasm shrinks away from the cell wall."
+        }
+      ],
+      "worked_example": {
+        "exemplar_id": "f16366f5-472b-4d9e-b775-776437e5b5ea",
+        "source": "EDEXCEL nov 2021, Paper 2 (H), Q5(b)",
+        "question": "Some blood transfusions contain red blood cells.\nRed blood cells are stored in a solution containing 5.0% glucose and 0.9% salt.\n\nExplain why red blood cells cannot be stored in pure water.",
+        "marks": 3,
+        "answer_points": [
+          "Water would move into the red blood cells (erythrocytes).",
+          "The water moves by osmosis.",
+          "It moves down a concentration gradient, from a high water concentration to a low water concentration.",
+          "This causes the red blood cells to burst (lyse)."
+        ],
+        "tip": "Any three linked points score."
+      }
+    },
+    "ocr": {
+      "spec_codes": ["OCR 2.1a", "OCR 3.3f", "OCR 7.2"],
+      "exam_phrases": [
+        "cells absorb water by osmosis",
+        "cell membrane ruptures / bursts",
+        "water will move from (body) cells into the blood",
+        "cells crenate",
+        "higher water potential outside",
+        "same water potential, so no (net) water loss or gain"
+      ],
+      "mistakes": [
+        {
+          "wrong": "The sugar solution moves into the cells by osmosis.",
+          "right": "OCR does not allow this. Only water moves by osmosis. The solute stays outside."
+        },
+        {
+          "wrong": "Red blood cells burst in pure water.",
+          "right": "'The cell bursts' on its own is ignored. Explain it: the cell absorbs water by osmosis, swells, and the pressure ruptures the membrane."
+        },
+        {
+          "wrong": "Salt water makes plant cells flaccid and dries the plant out.",
+          "right": "OCR ignores 'flaccid' and 'dries out' here. Say the salt water draws water out of the plant cells by osmosis and the cells become plasmolysed."
+        }
+      ],
+      "worked_example": {
+        "exemplar_id": "957f6fe2-35f3-44f8-8146-6b7fd2aab528",
+        "source": "OCR nov 2020, Paper 1, Q21(c)",
+        "question": "Red blood cells burst when they are placed in a solution with a much higher water potential than the red blood cells. This is called lysis.\n\nExplain why lysis happens.",
+        "marks": 3,
+        "answer_points": [
+          "The red blood cells absorb water.",
+          "The water enters by osmosis.",
+          "The cell swells, so the pressure on the cell membrane increases until the membrane ruptures."
+        ],
+        "tip": "The question already tells you the cell bursts, so 'it bursts' alone earns nothing. Explain how."
+      },
+      "extra": [
+        {
+          "heading": "Water potential in more detail",
+          "blocks": [
+            {
+              "type": "paragraph",
+              "text": "OCR expects you to use the term water potential. Pure water has the highest water potential, given the value zero. Every solution has a lower, negative water potential. The more concentrated the solution, the more negative it is."
+            },
+            {
+              "type": "paragraph",
+              "text": "Water moves by osmosis from a higher (less negative) water potential to a lower (more negative) water potential. For example, if the blood glucose concentration rises, the water potential of the blood falls, so water moves out of body cells into the blood."
+            }
+          ]
+        }
+      ]
+    }
+  },
+  "meta": {
+    "status": "draft",
+    "written_by": "writer-b",
+    "written_at": "2026-10-01",
+    "spec_point_ids": [
+      "4334d423-b85f-4557-a19c-b9597d5aaa7b",
+      "9162cfab-b880-4b20-b59e-118950e16986",
+      "b7b2f691-01d8-4241-9c7a-d4815edd4622"
+    ],
+    "exemplar_ids": [
+      "3eb849c7-74ff-466a-8f46-4c883bd39d3a",
+      "f16366f5-472b-4d9e-b775-776437e5b5ea",
+      "957f6fe2-35f3-44f8-8146-6b7fd2aab528"
+    ]
+  }
+}

@@ -1,0 +1,277 @@
+{
+  "format": 1,
+  "concept_id": "chem-003",
+  "subject": "chemistry",
+  "title": "Development of the model of the atom",
+  "key_idea": "Scientists change a model when new experimental evidence does not fit it. The atom was a solid sphere, then a plum pudding, then a nucleus with electrons around it. Later work added orbits at set distances, protons and neutrons.",
+  "sections": [
+    {
+      "heading": "Early models: Dalton and the plum pudding",
+      "blocks": [
+        { "type": "paragraph", "text": "A scientific model is changed or replaced when new experimental evidence is found. This section covers the first two models of the atom." },
+        {
+          "type": "definitions",
+          "items": [
+            { "term": "Model", "meaning": "A way of picturing something that cannot be seen directly. It is changed if new evidence does not fit it." },
+            { "term": "Plum pudding model", "meaning": "An atom as a ball of positive charge with negative electrons embedded in it." }
+          ]
+        },
+        { "type": "subheading", "text": "Dalton's model" },
+        {
+          "type": "list",
+          "items": [
+            "All elements are made of atoms.",
+            "Atoms are tiny spheres that cannot be divided.",
+            "All atoms of the same element are identical."
+          ]
+        },
+        { "type": "subheading", "text": "The plum pudding model" },
+        {
+          "type": "list",
+          "items": [
+            "The discovery of the **electron** showed that atoms were not indivisible. They contain smaller, negatively charged particles.",
+            "J.J. Thomson suggested the plum pudding model.",
+            "The atom is a ball of **positive charge** with negative electrons embedded in it.",
+            "The positive charge and the mass are spread out. There is no nucleus."
+          ]
+        },
+        {
+          "type": "key-points",
+          "items": [
+            "Before the electron was found, atoms were thought to be tiny spheres that could not be divided.",
+            "The discovery of the electron led to the plum pudding model.",
+            "The plum pudding model has no nucleus."
+          ]
+        }
+      ]
+    },
+    {
+      "heading": "The nuclear model",
+      "blocks": [
+        { "type": "paragraph", "text": "The alpha particle scattering experiment gave results that the plum pudding model could not explain." },
+        {
+          "type": "list",
+          "items": [
+            "Alpha particles (positively charged) were fired at a thin sheet of gold foil.",
+            "The experiment was done by Geiger and Marsden, and Rutherford explained the results.",
+            "The plum pudding model predicted that the particles would pass through with only tiny changes in direction."
+          ]
+        },
+        {
+          "type": "table",
+          "columns": ["What was seen", "What it shows"],
+          "rows": [
+            ["Most alpha particles went straight through the foil", "Most of the atom is empty space"],
+            ["Some alpha particles were deflected or reflected", "The atom has a positively charged nucleus, which repelled the positive alpha particles"],
+            ["Very few alpha particles were reflected back", "The mass of the atom is concentrated in the nucleus, a very small centre"]
+          ]
+        },
+        {
+          "type": "paragraph",
+          "text": "This **nuclear model** replaced the plum pudding model. The electrons are separate from the nucleus and move around it."
+        },
+        { "type": "subheading", "text": "Plum pudding and nuclear models compared" },
+        {
+          "type": "list",
+          "items": [
+            "Plum pudding: positive charge spread through the whole ball. Nuclear: positive charge all in the nucleus.",
+            "Plum pudding: mass spread out. Nuclear: mass concentrated in the nucleus.",
+            "Plum pudding: electrons embedded in the ball. Nuclear: electrons separate from the nucleus.",
+            "Plum pudding: no empty space. Nuclear: mostly empty space."
+          ]
+        },
+        {
+          "type": "key-points",
+          "items": [
+            "Most alpha particles passed through, so most of the atom is empty space.",
+            "Some were deflected, so the nucleus is positively charged.",
+            "The mass of the atom is concentrated in the nucleus."
+          ]
+        }
+      ]
+    },
+    {
+      "heading": "Bohr, protons and neutrons",
+      "blocks": [
+        { "type": "paragraph", "text": "Later work refined the nuclear model. Each step came from new evidence." },
+        {
+          "type": "list",
+          "items": [
+            "**Bohr** suggested that electrons orbit the nucleus at specific distances. His calculations agreed with experimental observations.",
+            "Later experiments showed that the positive charge of the nucleus can be divided into a whole number of smaller particles, each with the same positive charge. These were named **protons**.",
+            "**Chadwick** provided evidence for **neutrons** in the nucleus, about 20 years after the nucleus became accepted.",
+            "Neutrons explain why atoms of the same element can have different masses. These atoms are isotopes.",
+            "The order of discovery was the electron, then the proton, then the neutron."
+          ]
+        },
+        {
+          "type": "diagram",
+          "diagram": {
+            "kind": "sequence",
+            "alt": "Put the steps in the development of the model of the atom in the order they happened.",
+            "prompt": "Put the development of the atom in order",
+            "steps": [
+              "Dalton: atoms are tiny spheres that cannot be divided",
+              "Plum pudding model after the electron is discovered",
+              "Nuclear model after the alpha particle scattering experiment",
+              "Bohr: electrons orbit the nucleus at specific distances",
+              "The nucleus is divided into protons, each with the same positive charge",
+              "Chadwick shows that neutrons are in the nucleus"
+            ]
+          }
+        },
+        {
+          "type": "key-points",
+          "items": [
+            "Bohr: electrons orbit the nucleus at specific distances.",
+            "The nucleus contains protons (positive) and neutrons.",
+            "Chadwick's evidence for neutrons explains isotopes."
+          ]
+        }
+      ]
+    }
+  ],
+  "checks": [
+    {
+      "q": "Describe the plum pudding model of the atom.",
+      "a": "A ball of positive charge with negative electrons embedded in it.",
+      "marks": 2
+    },
+    {
+      "q": "In the alpha particle scattering experiment, most alpha particles passed straight through the gold foil. State what this showed.",
+      "a": "Most of the atom is empty space.",
+      "marks": 1
+    },
+    {
+      "q": "Describe the change that Bohr made to the nuclear model.",
+      "a": "Electrons orbit the nucleus at specific distances from it.",
+      "marks": 2
+    }
+  ],
+  "boards": {
+    "aqa": {
+      "spec_codes": ["AQA 4.1.1.3", "AQA T 5.1.1.3"],
+      "exam_phrases": [
+        "a ball of positive charge with (negative) electrons embedded",
+        "most alpha particles passed (straight) through the gold foil",
+        "the mass of the atom is concentrated in the nucleus / centre",
+        "most of the atom is empty space",
+        "some alpha particles were deflected / reflected",
+        "the atom has a (positively) charged nucleus",
+        "electrons orbit the nucleus at specific distances"
+      ],
+      "mistakes": [
+        {
+          "wrong": "The plum pudding model has protons and a nucleus.",
+          "right": "References to protons, a nucleus or neutrons are not accepted. Describe a ball of positive charge with electrons embedded in it."
+        },
+        {
+          "wrong": "The mass is concentrated in the neutrons.",
+          "right": "Neutrons are not accepted here. Say the mass is concentrated in the nucleus or centre of the atom."
+        },
+        {
+          "wrong": "The alpha particle experiment showed that electrons are in shells.",
+          "right": "References to shells are not accepted as a conclusion. Give the nuclear conclusions: mass in the nucleus, positively charged nucleus, mostly empty space."
+        }
+      ],
+      "worked_example": {
+        "exemplar_id": "26ef6311-15fe-43d5-82c5-faef494896a2",
+        "source": "AQA jun 2019, Paper 1 (H), Q04.4",
+        "question": "The model of the atom changed as new evidence was discovered. The plum pudding model suggested that the atom was a ball of positive charge with electrons embedded in it. Evidence from the alpha particle scattering experiment led to a change in the model of the atom from the plum pudding model.\n\nExplain how.",
+        "marks": 4,
+        "answer_points": [
+          "Most alpha particles passed straight through the gold foil.",
+          "So the mass of the atom is concentrated in the nucleus, or most of the atom is empty space.",
+          "Some alpha particles were deflected or reflected.",
+          "So the atom has a positively charged nucleus."
+        ],
+        "tip": "Each observation scores a mark, and each is followed by the conclusion it leads to. Write 'so' to link them."
+      }
+    },
+    "edexcel": {
+      "spec_codes": ["EDEX 1.1"],
+      "exam_phrases": [
+        "atoms are formed of sub-atomic particles",
+        "atoms have a nucleus",
+        "atoms contain protons",
+        "atoms contain neutrons",
+        "atoms contain (shells of) electrons",
+        "atoms of the same element can have different numbers of neutrons / isotopes exist"
+      ],
+      "mistakes": [
+        {
+          "wrong": "Dalton's atoms had no electrons.",
+          "right": "A statement that is just the negative of Dalton's model is ignored. Say what today's atoms have, such as a nucleus, protons, neutrons or electrons in shells."
+        },
+        {
+          "wrong": "Today's atom is different from Dalton's because it is not like the plum pudding model.",
+          "right": "A comparison with the plum pudding model is rejected. Compare today's model with Dalton's only."
+        }
+      ],
+      "worked_example": {
+        "exemplar_id": "4c873d18-f70d-48cb-b18b-a37005a8a222",
+        "source": "EDEXCEL nov 2021, Paper 1 (H), Q2(a)",
+        "question": "The scientist John Dalton lived over 200 years ago.\nJohn Dalton suggested an early model of atoms.\nWhen Dalton first described atoms he said that\n• all elements are made of atoms\n• atoms are not formed of any smaller particles\n• all atoms of the same element are identical.\n\nGive two differences between Dalton's model of atoms and today's model of atoms.",
+        "marks": 2,
+        "answer_points": [
+          "Atoms are formed of sub-atomic particles, but Dalton said they were not formed of smaller particles.",
+          "Atoms have a nucleus.",
+          "Atoms contain protons, neutrons and shells of electrons.",
+          "Atoms of the same element can have different numbers of neutrons (isotopes), but Dalton said they were identical."
+        ],
+        "tip": "Any two score one mark each. Say what is in today's atom, not simply the opposite of Dalton's statements."
+      }
+    },
+    "ocr": {
+      "spec_codes": ["OCR C1.2a"],
+      "exam_phrases": [
+        "alpha / positively charged particles were fired at gold leaf",
+        "most particles went (straight) through",
+        "some particles were repelled by the (positive charge of the) nucleus",
+        "the positive charge is in the nucleus",
+        "the nucleus contains most of the mass",
+        "electrons orbit (the nucleus)"
+      ],
+      "mistakes": [
+        {
+          "wrong": "Most of the alpha particles were repelled.",
+          "right": "Most went straight through. Only some were repelled, deflected or reflected."
+        },
+        {
+          "wrong": "The nucleus contains most of the mass because it has protons and neutrons.",
+          "right": "Mentioning neutrons earns nothing here. State that the nucleus contains most of the mass of the atom."
+        }
+      ],
+      "worked_example": {
+        "exemplar_id": "ec10c4fd-b9c8-4a70-bc8f-907682570cd5",
+        "source": "OCR jun 2023, Paper 3, Q18(a)",
+        "question": "The model of the atom has developed over time.\n\nDescribe the experiment and results that Rutherford, Geiger, and Marsden used to determine that an atom has a nucleus.",
+        "marks": 3,
+        "answer_points": [
+          "Alpha (positively charged) particles were fired at gold leaf.",
+          "Most particles went straight through.",
+          "Some particles were repelled by the positive charge of the nucleus (deflected or reflected is also accepted)."
+        ],
+        "tip": "One mark for the set-up and one mark for each result. Do not say that most particles were repelled."
+      }
+    }
+  },
+  "meta": {
+    "status": "draft",
+    "checked_by": "sonnet-science-check",
+    "checked_at": "2026-10-01",
+    "written_by": "claude-sonnet-5-5",
+    "written_at": "2026-10-01",
+    "spec_point_ids": [
+      "17a8d488-aac4-4515-accd-0571a594129f",
+      "8feec10a-c864-44fd-ad8a-be463ab0729d",
+      "b3f9c2b8-f219-42c7-b2e7-242b5578b597",
+      "cb110cc7-e43d-4e20-89d7-653686456c35"
+    ],
+    "exemplar_ids": [
+      "26ef6311-15fe-43d5-82c5-faef494896a2",
+      "4c873d18-f70d-48cb-b18b-a37005a8a222",
+      "ec10c4fd-b9c8-4a70-bc8f-907682570cd5"
+    ]
+  }
+}
