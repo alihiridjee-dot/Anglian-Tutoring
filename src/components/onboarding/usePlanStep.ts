@@ -47,9 +47,31 @@ export function usePlanStep({
   queryClient: QueryClient;
   search: SearchParams;
 }) {
-  const { enrolments, level, inviteCode, loading: loadingEnrolments } = useEnrolments();
-  const { data: packages = [], isLoading: loadingPackages } = usePackages(level);
+  const {
+    enrolments,
+    level,
+    inviteCode,
+    loading: loadingEnrolments,
+    error: enrolmentsError,
+    refetch: refetchEnrolments,
+  } = useEnrolments();
+  const {
+    data: packages = [],
+    isLoading: loadingPackages,
+    error: packagesError,
+    refetch: refetchPackages,
+  } = usePackages(level);
   const loading = loadingPackages || loadingEnrolments;
+  // A failed read of the subjects or the prices: the price can't be known, so
+  // nothing is shown or sold until a retry works. An unread subject list used
+  // to price as one subject while Checkout charged the real count.
+  const loadError = enrolmentsError ?? packagesError ?? null;
+  const retryLoad = () => {
+    if (enrolmentsError) refetchEnrolments();
+    if (packagesError) void refetchPackages();
+  };
+  // Read fine, and there are none: a plan would pay for an empty account.
+  const noSubjects = !loading && !loadError && enrolments.length === 0;
 
   // The plan size is the student's actual number of enrolled subjects, clamped
   // to the tiers we sell (1–3). This is the whole point: they don't pick a size,
@@ -141,7 +163,7 @@ export function usePlanStep({
   }, [search.checkout]);
 
   const payNow = async () => {
-    if (!selectedPkg) return;
+    if (!selectedPkg || noSubjects) return;
     setRedirecting(true);
     try {
       // Trials are for students who have never had a plan; the server refuses
@@ -176,6 +198,9 @@ export function usePlanStep({
     enrolments,
     level,
     loading,
+    loadError,
+    retryLoad,
+    noSubjects,
     subjectCount,
     resumable,
     paymentOverdue,
