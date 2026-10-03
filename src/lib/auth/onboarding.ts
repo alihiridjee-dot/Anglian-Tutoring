@@ -18,7 +18,6 @@ export const ONBOARDING_STEPS = [
   { path: "/onboarding/board", label: "Exam board" },
   { path: "/onboarding/subjects", label: "Subjects" },
   { path: "/onboarding/learning", label: "How you learn" },
-  { path: "/onboarding/confidence", label: "Your topics" },
   { path: "/onboarding/school", label: "School & grades" },
   { path: "/onboarding/plan", label: "Choose a plan" },
 ] as const;
