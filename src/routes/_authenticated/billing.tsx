@@ -264,8 +264,13 @@ function BillingPage() {
 
         {/* Billing rhythm only — three rows, not the old nine-card grid. What
             the plan covers is the subjects card's job, so a switch here can't
-            change it (and can't sell coverage the student isn't enrolled in). */}
+            change it (and can't sell coverage the student isn't enrolled in).
+            Not shown until the plan and parent links have loaded: until then
+            there is no plan to see, and the shop would open under a paying
+            student's "Loading" spinner. */}
         {userId &&
+          !loading &&
+          linksSettled &&
           !subsQuery.error &&
           !awaitingPayment &&
           !paymentOverdue &&
