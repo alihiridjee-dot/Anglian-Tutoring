@@ -227,7 +227,7 @@ See [STRIPE_SETUP.md](STRIPE_SETUP.md) for the Stripe half.
 ## Tutors are never students
 
 A tutor or admin account holds no student data at all. The database enforces
-this (`supabase/migrations/20261003120000_tutors_are_never_students.sql`), so it
+this (`supabase/migrations/20261003115242_tutors_are_never_students.sql`), so it
 holds for the app, edge functions, scripts and hand-written SQL alike:
 
 - **No student row may name a tutor.** Every table holding a student's own data

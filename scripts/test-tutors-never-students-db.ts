@@ -1,4 +1,4 @@
-/** Isolated PostgreSQL checks for 20261003120000_tutors_are_never_students.
+/** Isolated PostgreSQL checks for 20261003115242_tutors_are_never_students.
  * No production data is read or written.
  *
  *   PGLITE_MODULE=/path/to/@electric-sql/pglite/dist/index.js bun scripts/test-tutors-never-students-db.ts
@@ -14,7 +14,7 @@ const { PGlite } = await import(process.env.PGLITE_MODULE ?? "@electric-sql/pgli
 const db = new PGlite();
 
 const migration = await readFile(
-  new URL("../supabase/migrations/20261003120000_tutors_are_never_students.sql", import.meta.url),
+  new URL("../supabase/migrations/20261003115242_tutors_are_never_students.sql", import.meta.url),
   "utf8",
 );
 
