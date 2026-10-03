@@ -134,7 +134,7 @@ export type Database = {
           body: string;
           created_at: string;
           id: string;
-          sender_id: string;
+          sender_id: string | null;
           thread_id: string;
         };
         Insert: {
@@ -142,7 +142,7 @@ export type Database = {
           body: string;
           created_at?: string;
           id?: string;
-          sender_id: string;
+          sender_id?: string | null;
           thread_id: string;
         };
         Update: {
@@ -150,7 +150,7 @@ export type Database = {
           body?: string;
           created_at?: string;
           id?: string;
-          sender_id?: string;
+          sender_id?: string | null;
           thread_id?: string;
         };
         Relationships: [
@@ -436,6 +436,7 @@ export type Database = {
         Row: {
           acknowledged_at: string | null;
           ai_marked_at: string | null;
+          ai_marking_started_at: string | null;
           feedback: string | null;
           files: Json;
           files_deleted_at: string | null;
@@ -454,6 +455,7 @@ export type Database = {
         Insert: {
           acknowledged_at?: string | null;
           ai_marked_at?: string | null;
+          ai_marking_started_at?: string | null;
           feedback?: string | null;
           files?: Json;
           files_deleted_at?: string | null;
@@ -472,6 +474,7 @@ export type Database = {
         Update: {
           acknowledged_at?: string | null;
           ai_marked_at?: string | null;
+          ai_marking_started_at?: string | null;
           feedback?: string | null;
           files?: Json;
           files_deleted_at?: string | null;
@@ -801,6 +804,7 @@ export type Database = {
       notifications: {
         Row: {
           body: string | null;
+          chat_thread_id: string | null;
           created_at: string;
           id: string;
           link: string | null;
@@ -812,6 +816,7 @@ export type Database = {
         };
         Insert: {
           body?: string | null;
+          chat_thread_id?: string | null;
           created_at?: string;
           id?: string;
           link?: string | null;
@@ -823,6 +828,7 @@ export type Database = {
         };
         Update: {
           body?: string | null;
+          chat_thread_id?: string | null;
           created_at?: string;
           id?: string;
           link?: string | null;
@@ -833,6 +839,13 @@ export type Database = {
           user_id?: string;
         };
         Relationships: [
+          {
+            foreignKeyName: "notifications_chat_thread_id_fkey";
+            columns: ["chat_thread_id"];
+            isOneToOne: false;
+            referencedRelation: "chat_threads";
+            referencedColumns: ["id"];
+          },
           {
             foreignKeyName: "notifications_submission_id_fkey";
             columns: ["submission_id"];
@@ -1963,12 +1976,30 @@ export type Database = {
         Returns: undefined;
       };
       assessment_scheduler_version: { Args: never; Returns: number };
+      chat_thread_summaries: {
+        Args: { p_thread_ids: string[] };
+        Returns: {
+          last_message: string;
+          thread_id: string;
+          unread: number;
+        }[];
+      };
       chat_unread_count: { Args: never; Returns: number };
+      claim_homework_marking: { Args: { _submission_id: string }; Returns: boolean };
       claim_ai_request: {
         Args: { _endpoint: string; _limit: number; _window: string };
         Returns: boolean;
       };
       claim_parent_role: { Args: never; Returns: Json };
+      confirm_homework_marks: {
+        Args: {
+          _feedback: string | null;
+          _marks: Json;
+          _score_pct: number | null;
+          _submission_id: string;
+        };
+        Returns: undefined;
+      };
       create_linked_resource: {
         Args: {
           _board: Database["public"]["Enums"]["board"] | null;
@@ -2032,7 +2063,7 @@ export type Database = {
         Returns: number;
       };
       grade_mcq_attempt: {
-        Args: { _answers: Json; _set_id: string };
+        Args: { _answers: Json; _attempt_id?: string; _set_id: string };
         Returns: Json;
       };
       homework_points_with_sheet: {
@@ -2071,6 +2102,10 @@ export type Database = {
           linked_at: string;
           parent_id: string;
         }[];
+      };
+      live_session_join_urls: {
+        Args: { _ids: string[] };
+        Returns: { id: string; join_url: string }[];
       };
       delete_chat_thread: {
         Args: { p_thread_id: string };
@@ -2114,6 +2149,20 @@ export type Database = {
       };
       revoke_parent_invite: { Args: { _invite_id: string }; Returns: undefined };
       rotate_student_invite_code: { Args: never; Returns: string };
+      save_homework_brief: {
+        Args: {
+          _board: Database["public"]["Enums"]["board"];
+          _due_at: string | null;
+          _id: string | null;
+          _instructions: string;
+          _level: Database["public"]["Enums"]["level"];
+          _questions: Json;
+          _spec_point_ids: string[];
+          _subject: Database["public"]["Enums"]["subject"];
+          _title: string;
+        };
+        Returns: string;
+      };
       save_student_enrolments: { Args: { _subjects: Json }; Returns: undefined };
       save_weekly_plan: {
         Args: {
@@ -2142,6 +2191,10 @@ export type Database = {
           _note?: string;
         };
         Returns: Json;
+      };
+      replace_generated_mcq_questions: {
+        Args: { _questions: Json; _set_id: string };
+        Returns: number;
       };
       skip_plan_point: {
         Args: {

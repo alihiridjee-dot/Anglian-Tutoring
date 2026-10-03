@@ -1,5 +1,5 @@
 import { useNavigate } from "@tanstack/react-router";
-import { CreditCard, Loader2, Lock, PlayCircle, RotateCw } from "lucide-react";
+import { CreditCard, Loader2, Lock, MessageSquare, PlayCircle, RotateCw } from "lucide-react";
 import { useOwnPlanState } from "@/hooks/data/useBilling";
 import { useBodyScrollLock } from "@/hooks/useBodyScrollLock";
 
@@ -21,7 +21,8 @@ import { useBodyScrollLock } from "@/hooks/useBodyScrollLock";
  * this makes sure we never ask for it.
  *
  * Billing routes are exempt upstream (the guard never mounts this there), so a
- * student who paused or cancelled can always get back in to resume.
+ * student who paused or cancelled can always get back in to resume. Messages
+ * is exempt too, and linked from here, so they can always ask a tutor.
  */
 export function PaywallOverlay() {
   const navigate = useNavigate();
@@ -131,6 +132,16 @@ export function PaywallOverlay() {
             </button>
           </>
         )}
+
+        {/* Messages stays open whatever the plan's state (the guard exempts
+            it), so a family can always ask a tutor what happened. */}
+        <button
+          type="button"
+          onClick={() => navigate({ to: "/messages" })}
+          className="btn-soft mt-3 w-full h-11 rounded-xl font-semibold text-sm inline-flex items-center justify-center gap-2"
+        >
+          <MessageSquare className="h-4 w-4" /> Message your tutor
+        </button>
       </div>
     </div>
   );

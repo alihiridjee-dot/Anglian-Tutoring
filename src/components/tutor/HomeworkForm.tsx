@@ -26,6 +26,7 @@ import { type SubjectV, type BoardV, type LevelV } from "@/lib/curriculum/taxono
  */
 
 interface HomeworkFormProps {
+  /** Unused: save_homework_brief credits the brief to the signed-in tutor. */
   userId: string;
   taxonomy: {
     subject: SubjectV;
@@ -39,7 +40,7 @@ interface HomeworkFormProps {
   editing?: { id: string; onDone: () => void };
 }
 
-export function HomeworkForm({ userId, taxonomy, editing }: HomeworkFormProps) {
+export function HomeworkForm({ taxonomy, editing }: HomeworkFormProps) {
   const qc = useQueryClient();
   const [title, setTitle] = useState("");
   const [instructions, setInstructions] = useState("");
@@ -48,10 +49,6 @@ export function HomeworkForm({ userId, taxonomy, editing }: HomeworkFormProps) {
   const [questions, setQuestions] = useState<BuilderQuestion[]>([]);
   const [loading, setLoading] = useState(false);
   const [hydrating, setHydrating] = useState(!!editing);
-
-  // Which question rows existed when the form opened. Anything in here that the
-  // tutor has since removed is what gets deleted on save.
-  const [originalIds, setOriginalIds] = useState<string[]>([]);
 
   const editingId = editing?.id;
   useEffect(() => {
@@ -108,7 +105,6 @@ export function HomeworkForm({ userId, taxonomy, editing }: HomeworkFormProps) {
         spec_point_id: q.spec_point_id,
       }));
       setQuestions(rows);
-      setOriginalIds(rows.map((r) => r.id));
       setSpecPointIds((links ?? []).map((l) => l.spec_point_id));
       setHydrating(false);
     })();
@@ -127,7 +123,6 @@ export function HomeworkForm({ userId, taxonomy, editing }: HomeworkFormProps) {
     setDueAt("");
     setSpecPointIds([]);
     setQuestions([]);
-    setOriginalIds([]);
   };
 
   const submit = async (e: React.FormEvent) => {
@@ -139,10 +134,32 @@ export function HomeworkForm({ userId, taxonomy, editing }: HomeworkFormProps) {
     }
     setLoading(true);
     try {
-      const resourceId = editingId ?? (await insertResource());
-      if (editingId) await updateResource(editingId);
-      await saveQuestions(resourceId);
-      await saveSpecPoints(resourceId);
+      // One call writes the brief, its questions and its curriculum links, or
+      // nothing (S-11, M-20). Saving them one request at a time collided on the
+      // question order whenever two questions swapped places, and a failure
+      // part-way left an empty brief that a retry duplicated.
+      const { error } = await supabase.rpc("save_homework_brief", {
+        _id: editingId ?? null,
+        _title: title,
+        _instructions: instructions,
+        _due_at: dueAt ? new Date(dueAt).toISOString() : null,
+        _subject: taxonomy.subject,
+        _board: taxonomy.board,
+        _level: taxonomy.level,
+        _spec_point_ids: specPointIds,
+        // In sheet order. A question with an id is updated in place, so the
+        // answers pointing at it stay; one the tutor removed is deleted, and
+        // takes its answers with it, which is why the builder says so.
+        _questions: questions.map((q) => ({
+          id: q.id ?? null,
+          prompt: q.prompt.trim(),
+          marks: q.marks,
+          answer_type: q.answer_type,
+          mark_scheme: q.mark_scheme.trim() || null,
+          spec_point_id: q.spec_point_id,
+        })),
+      });
+      if (error) throw error;
 
       toast.success(
         editingId
@@ -159,120 +176,6 @@ export function HomeworkForm({ userId, taxonomy, editing }: HomeworkFormProps) {
     } finally {
       setLoading(false);
     }
-  };
-
-  const insertResource = async (): Promise<string> => {
-    const { data: created, error } = await supabase
-      .from("resources")
-      .insert({
-        kind: "homework",
-        title,
-        instructions,
-        due_at: dueAt ? new Date(dueAt).toISOString() : null,
-        subject: taxonomy.subject,
-        board: taxonomy.board,
-        level: taxonomy.level,
-        created_by: userId,
-        // A brief written here is a brief somebody decided to set, which is what
-        // separates it from the generated library in the student's list.
-        origin: "tutor",
-      })
-      .select("id")
-      .single();
-    if (error) throw error;
-    return created.id;
-  };
-
-  const updateResource = async (id: string) => {
-    const { error } = await supabase
-      .from("resources")
-      .update({
-        title,
-        instructions,
-        due_at: dueAt ? new Date(dueAt).toISOString() : null,
-        subject: taxonomy.subject,
-        board: taxonomy.board,
-        level: taxonomy.level,
-      })
-      .eq("id", id);
-    if (error) throw error;
-  };
-
-  /**
-   * Reconcile the question list against what is in the database.
-   *
-   * Deletes go first: if a question is being removed and another is being added
-   * at the same position, doing it the other way round would collide on
-   * whatever uniqueness position carries.
-   */
-  const saveQuestions = async (resourceId: string) => {
-    const keptIds = new Set(questions.map((q) => q.id).filter(Boolean) as string[]);
-    const removed = originalIds.filter((id) => !keptIds.has(id));
-
-    if (removed.length > 0) {
-      const { error } = await supabase.from("homework_questions").delete().in("id", removed);
-      if (error) throw error;
-    }
-
-    const updates = questions
-      .map((q, i) => ({ q, i }))
-      .filter(({ q }) => !!q.id)
-      .map(({ q, i }) =>
-        supabase
-          .from("homework_questions")
-          .update({
-            position: i,
-            prompt: q.prompt.trim(),
-            marks: q.marks,
-            answer_type: q.answer_type,
-            mark_scheme: q.mark_scheme.trim() || null,
-            spec_point_id: q.spec_point_id,
-          })
-          .eq("id", q.id!)
-          .then(({ error }) => {
-            if (error) throw error;
-          }),
-      );
-    const results = await Promise.allSettled(updates);
-    const failed = results.find((r) => r.status === "rejected");
-    if (failed) throw (failed as PromiseRejectedResult).reason;
-
-    const inserts = questions
-      .map((q, i) => ({ q, i }))
-      .filter(({ q }) => !q.id)
-      .map(({ q, i }) => ({
-        resource_id: resourceId,
-        position: i,
-        prompt: q.prompt.trim(),
-        marks: q.marks,
-        answer_type: q.answer_type,
-        mark_scheme: q.mark_scheme.trim() || null,
-        spec_point_id: q.spec_point_id,
-      }));
-    if (inserts.length > 0) {
-      const { error } = await supabase.from("homework_questions").insert(inserts);
-      if (error) throw error;
-    }
-  };
-
-  /**
-   * Curriculum links live in resource_spec_points, not resources.spec_point_id
-   * (deprecated) — homework can hang off several points, and students find it
-   * by browsing any of them.
-   */
-  const saveSpecPoints = async (resourceId: string) => {
-    if (editingId) {
-      const { error } = await supabase
-        .from("resource_spec_points")
-        .delete()
-        .eq("resource_id", resourceId);
-      if (error) throw error;
-    }
-    if (specPointIds.length === 0) return;
-    const { error } = await supabase
-      .from("resource_spec_points")
-      .insert(specPointIds.map((spec_point_id) => ({ resource_id: resourceId, spec_point_id })));
-    if (error) throw error;
   };
 
   if (hydrating) {

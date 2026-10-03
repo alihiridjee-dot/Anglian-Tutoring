@@ -1,5 +1,5 @@
 import { describe, expect, test } from "bun:test";
-import { roleHomePath } from "./routeGuards";
+import { paywallExempt, roleHomePath } from "./routeGuards";
 import type { GuardState } from "./guardState";
 import { UserRole } from "@/types/user";
 
@@ -28,5 +28,17 @@ describe("roleHomePath — where /dashboard sends each role", () => {
       "/student-dashboard",
     );
     expect(roleHomePath({ context: {} })).toBe("/student-dashboard");
+  });
+});
+
+describe("paywallExempt", () => {
+  test("Billing and Messages stay open to a student without a plan", () => {
+    expect(paywallExempt("/billing")).toBe(true);
+    expect(paywallExempt("/messages")).toBe(true);
+  });
+
+  test("everything else is behind the paywall", () => {
+    expect(paywallExempt("/student-dashboard")).toBe(false);
+    expect(paywallExempt("/homework")).toBe(false);
   });
 });

@@ -1,6 +1,7 @@
 import { ErrorNote, Spinner } from "@/components/Shared";
 import { useEffect, useRef, useState } from "react";
 import { Link } from "@tanstack/react-router";
+import { useInView } from "motion/react";
 import { ExternalLink, Loader2, Send, Sparkles, Trash2 } from "lucide-react";
 import { toast } from "sonner";
 import {
@@ -44,8 +45,14 @@ export function ThreadView({ thread, viewerId, isTutor }: Props) {
   const [confirmingDelete, setConfirmingDelete] = useState(false);
   const endRef = useRef<HTMLDivElement>(null);
   const markedRef = useRef<string | null>(null);
+  // Mounted is not seen. On a phone the Messages page keeps this pane mounted
+  // but hidden (display: none never intersects) until a row is tapped, and the
+  // Parent Portal mounts it at the foot of a long page. Marking on mount
+  // cleared the unread dot for a reply nobody had opened.
+  const scrollRef = useRef<HTMLDivElement>(null);
+  const onScreen = useInView(scrollRef, { amount: 0.3 });
 
-  // Opening a thread is reading it — and so is having it open when a reply
+  // Seeing a thread is reading it — and so is having it on screen when a reply
   // arrives. The ref stops one burst of unread from firing more than one write
   // (the poll refetch, StrictMode's double effect); it is cleared once the
   // count is back to zero, so the *next* message is marked too. It used to be
@@ -56,12 +63,13 @@ export function ThreadView({ thread, viewerId, isTutor }: Props) {
       markedRef.current = null;
       return;
     }
+    if (!onScreen) return;
     if (markedRef.current === thread.id) return;
     markedRef.current = thread.id;
     markRead.mutate(thread.id);
     // markRead is a stable mutation object; re-running on it would loop.
     // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [thread.id, thread.unread]);
+  }, [thread.id, thread.unread, onScreen]);
 
   useEffect(() => {
     endRef.current?.scrollIntoView({ block: "end" });
@@ -88,8 +96,14 @@ export function ThreadView({ thread, viewerId, isTutor }: Props) {
     }
   };
 
+  // One send at a time. `send.isPending` alone isn't enough: a held-down
+  // Ctrl/Cmd+Enter or a quick second press arrives before the re-render that
+  // disables anything, and every extra press was another message (and another
+  // notification) that nobody can delete.
+  const sendingRef = useRef(false);
   const submit = () => {
-    if (!body.trim()) return;
+    if (!body.trim() || sendingRef.current) return;
+    sendingRef.current = true;
     send.mutate(
       { threadId: thread.id, body, aiDrafted: usedDraft },
       {
@@ -98,6 +112,9 @@ export function ThreadView({ thread, viewerId, isTutor }: Props) {
           setUsedDraft(false);
         },
         onError: (err) => toast.error(err.message),
+        onSettled: () => {
+          sendingRef.current = false;
+        },
       },
     );
   };
@@ -178,7 +195,7 @@ export function ThreadView({ thread, viewerId, isTutor }: Props) {
         )}
       </div>
 
-      <div className="min-h-0 flex-1 space-y-3 overflow-y-auto px-4 py-4 sm:px-5">
+      <div ref={scrollRef} className="min-h-0 flex-1 space-y-3 overflow-y-auto px-4 py-4 sm:px-5">
         {isPending ? (
           <Spinner className="py-10" />
         ) : error && messages.length === 0 ? (
@@ -246,6 +263,9 @@ export function ThreadView({ thread, viewerId, isTutor }: Props) {
             onKeyDown={(e) => {
               if (e.key === "Enter" && (e.metaKey || e.ctrlKey)) {
                 e.preventDefault();
+                // A held key repeats, and an Enter that ends an IME
+                // composition is the input method's, not a send.
+                if (e.repeat || e.nativeEvent.isComposing) return;
                 submit();
               }
             }}
