@@ -32,7 +32,9 @@ export function Videos() {
       }
       let q = supabase
         .from("resources")
-        .select("*")
+        // Named, not "*": a browser may not select every column of resources
+        // (join_url is withheld), and "*" asks for all of them.
+        .select("id, title, description, subject, board, level, video_url")
         .eq("kind", "video")
         .order("created_at", { ascending: false });
       if (filters.subject) q = q.eq("subject", filters.subject);

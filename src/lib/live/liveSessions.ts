@@ -9,8 +9,10 @@ import { type SubjectV, type BoardV, type LevelV } from "@/lib/curriculum/taxono
  * `resource_spec_points`), which drives the "What's covered" UI.
  *
  * Row visibility is still decided by RLS on `resources`; this just shapes what
- * comes back. The showcase has no session, so demo reads short-circuit to
- * fixtures (which carry no spec-point links).
+ * comes back. Join links are not part of the row: a browser can't select
+ * `join_url`, so they arrive through {@link joinUrlsFor}. The showcase has no
+ * session, so demo reads short-circuit to fixtures (which carry no spec-point
+ * links).
  */
 
 export interface LiveSessionSpecPoint {
@@ -46,21 +48,20 @@ type RawRow = {
   title: string;
   description: string | null;
   starts_at: string | null;
-  join_url: string | null;
   subject: string;
   level: string;
   board: string | null;
   resource_spec_points: Array<{ spec_points: LiveSessionSpecPoint | null }> | null;
 };
 
-function mapRow(r: RawRow): LiveSession {
+function mapRow(r: RawRow, joinUrl: string | null): LiveSession {
   return {
     id: r.id,
     kind: r.kind,
     title: r.title,
     description: r.description,
     starts_at: r.starts_at,
-    join_url: r.join_url,
+    join_url: joinUrl,
     subject: r.subject,
     level: r.level,
     board: r.board,
@@ -83,7 +84,7 @@ export async function fetchLiveSessions(filters: LiveFilters = {}): Promise<Live
   let q = supabase
     .from("resources")
     .select(
-      "id, kind, title, description, starts_at, join_url, subject, level, board, resource_spec_points(spec_points(id, code, title))",
+      "id, kind, title, description, starts_at, subject, level, board, resource_spec_points(spec_points(id, code, title))",
     )
     .eq("kind", "live_session")
     .order("starts_at", { ascending: true });
@@ -93,7 +94,49 @@ export async function fetchLiveSessions(filters: LiveFilters = {}): Promise<Live
 
   const { data, error } = await q;
   if (error) throw error;
-  return ((data ?? []) as unknown as RawRow[]).map(mapRow);
+  const rows = (data ?? []) as unknown as RawRow[];
+  const links = await joinUrlsFor(rows.map((r) => r.id));
+  return rows.map((r) => mapRow(r, links.get(r.id) ?? null));
+}
+
+/**
+ * Each session's join link, where `live_session_join_urls` releases it: every
+ * link to a tutor, and to a student only for sessions on their own course
+ * (the rule {@link sessionsOnCourse} applies). Anyone else, a parent above
+ * all, gets no entry, which every surface already shows as "Join link pending".
+ */
+export async function joinUrlsFor(ids: string[]): Promise<Map<string, string>> {
+  if (ids.length === 0) return new Map();
+  const { data, error } = await supabase.rpc("live_session_join_urls", { _ids: ids });
+  if (error) throw error;
+  return new Map((data ?? []).map((r) => [r.id, r.join_url]));
+}
+
+/** What a student is enrolled on: one level, and an exam board per subject. */
+export interface StudentCourse {
+  level: string | null;
+  enrolments: ReadonlyArray<{ subject: string; board: string }>;
+}
+
+/**
+ * The sessions on a student's own course: their level, a subject they're
+ * enrolled in, and that subject's board (a session with no board is open to
+ * every board). Row-level security scopes sessions by subject only, so without
+ * this a GCSE Biology student was shown "Live now — Join" for an A-level
+ * Biology room. The server hands out join links by the same rule.
+ */
+export function sessionsOnCourse<T extends Pick<LiveSession, "subject" | "level" | "board">>(
+  sessions: readonly T[],
+  course: StudentCourse,
+): T[] {
+  if (!course.level) return [];
+  const boardOf = new Map(course.enrolments.map((e) => [e.subject, e.board]));
+  return sessions.filter(
+    (s) =>
+      s.level === course.level &&
+      boardOf.has(s.subject) &&
+      (!s.board || s.board === boardOf.get(s.subject)),
+  );
 }
 
 // "Thu 17 Jul · 11:58 PM" — far more scannable than a raw locale timestamp.
