@@ -216,7 +216,7 @@ export function Curriculum() {
           <button
             data-guide="curriculum-back"
             onClick={closeSpecPoint}
-            className="inline-flex items-center gap-2 min-h-11 sm:min-h-0 text-sm text-muted-foreground hover:text-primary transition font-semibold"
+            className="inline-flex items-center gap-2 min-h-11 sm:pointer-fine:min-h-0 text-sm text-muted-foreground hover:text-primary transition font-semibold"
           >
             <ChevronLeft className="w-4 h-4" /> Back to Curriculum
           </button>

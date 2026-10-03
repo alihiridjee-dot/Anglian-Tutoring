@@ -168,7 +168,7 @@ export function AddSubjectCard({
                   on ? "border-primary bg-primary/10" : "border-border bg-card"
                 } ${disabled ? "opacity-50" : ""}`}
               >
-                <label className="-my-3 flex min-h-11 items-center gap-3 cursor-pointer select-none sm:my-0 sm:min-h-0">
+                <label className="-my-3 flex min-h-11 items-center gap-3 cursor-pointer select-none sm:pointer-fine:my-0 sm:pointer-fine:min-h-0">
                   <span
                     className={`flex h-5 w-5 items-center justify-center rounded-md border ${
                       on ? "border-primary bg-primary text-primary-foreground" : "border-border"
@@ -196,7 +196,7 @@ export function AddSubjectCard({
                         if (isBoard(next)) setBoards((prev) => ({ ...prev, [s.value]: next }));
                       }}
                       aria-label="Exam board"
-                      className="h-11 sm:h-8 rounded-lg premium-card px-2 text-xs focus:outline-none focus:ring-2 focus:ring-primary/40"
+                      className="h-11 sm:pointer-fine:h-8 rounded-lg premium-card px-2 text-xs focus:outline-none focus:ring-2 focus:ring-primary/40"
                     >
                       {BOARDS.filter((b) => boardsFor(s.value).includes(b.value)).map((b) => (
                         <option key={b.value} value={b.value}>

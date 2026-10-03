@@ -234,7 +234,7 @@ function StudentView() {
             type="button"
             onClick={copyCode}
             disabled={!inviteCode}
-            className="h-11 sm:h-10 px-3 rounded-lg border border-border hover:bg-muted text-sm font-medium inline-flex items-center gap-2 disabled:opacity-60 cursor-pointer"
+            className="h-11 sm:pointer-fine:h-10 px-3 rounded-lg border border-border hover:bg-muted text-sm font-medium inline-flex items-center gap-2 disabled:opacity-60 cursor-pointer"
           >
             {copied ? <Check className="w-4 h-4 text-primary" /> : <Copy className="w-4 h-4" />}
             {copied ? "Copied" : "Copy"}
@@ -243,7 +243,7 @@ function StudentView() {
             type="button"
             onClick={doRotate}
             disabled={rotate.isPending}
-            className="h-11 sm:h-10 px-3 rounded-lg border border-border hover:bg-muted text-sm font-medium inline-flex items-center gap-2 disabled:opacity-60 cursor-pointer"
+            className="h-11 sm:pointer-fine:h-10 px-3 rounded-lg border border-border hover:bg-muted text-sm font-medium inline-flex items-center gap-2 disabled:opacity-60 cursor-pointer"
           >
             <RefreshCw className={`w-4 h-4 ${rotate.isPending ? "animate-spin" : ""}`} />
             New code
@@ -276,7 +276,7 @@ function StudentView() {
                         toast.error(err instanceof Error ? err.message : "Could not withdraw it");
                       }
                     }}
-                    className="inline-flex min-h-11 items-center px-2 text-xs font-medium text-muted-foreground hover:text-destructive shrink-0 cursor-pointer sm:min-h-0"
+                    className="inline-flex min-h-11 items-center px-2 text-xs font-medium text-muted-foreground hover:text-destructive shrink-0 cursor-pointer sm:pointer-fine:min-h-0"
                   >
                     Withdraw
                   </button>
@@ -316,7 +316,7 @@ function StudentView() {
                         toast.error(err instanceof Error ? err.message : "Could not unlink them");
                       }
                     }}
-                    className="inline-flex min-h-11 items-center px-2 text-xs font-medium text-muted-foreground hover:text-destructive shrink-0 cursor-pointer sm:min-h-0"
+                    className="inline-flex min-h-11 items-center px-2 text-xs font-medium text-muted-foreground hover:text-destructive shrink-0 cursor-pointer sm:pointer-fine:min-h-0"
                   >
                     Remove
                   </button>
@@ -433,14 +433,14 @@ function ParentView() {
                     <button
                       onClick={() => answer(i.id, true)}
                       disabled={respond.isPending}
-                      className="h-11 sm:h-8 px-3 rounded-lg btn-solid text-xs font-semibold inline-flex items-center gap-1.5 hover:opacity-90 disabled:opacity-60 cursor-pointer"
+                      className="h-11 sm:pointer-fine:h-8 px-3 rounded-lg btn-solid text-xs font-semibold inline-flex items-center gap-1.5 hover:opacity-90 disabled:opacity-60 cursor-pointer"
                     >
                       <Check className="w-3.5 h-3.5" /> Accept
                     </button>
                     <button
                       onClick={() => answer(i.id, false)}
                       disabled={respond.isPending}
-                      className="h-11 sm:h-8 px-3 rounded-lg border border-border text-xs font-medium inline-flex items-center gap-1.5 hover:bg-muted disabled:opacity-60 cursor-pointer"
+                      className="h-11 sm:pointer-fine:h-8 px-3 rounded-lg border border-border text-xs font-medium inline-flex items-center gap-1.5 hover:bg-muted disabled:opacity-60 cursor-pointer"
                     >
                       <X className="w-3.5 h-3.5" /> Decline
                     </button>
@@ -472,7 +472,7 @@ function ParentView() {
                         toast.error(err instanceof Error ? err.message : "Could not unlink");
                       }
                     }}
-                    className="inline-flex min-h-11 items-center px-2 text-xs font-medium text-muted-foreground hover:text-destructive shrink-0 cursor-pointer sm:min-h-0"
+                    className="inline-flex min-h-11 items-center px-2 text-xs font-medium text-muted-foreground hover:text-destructive shrink-0 cursor-pointer sm:pointer-fine:min-h-0"
                   >
                     Remove
                   </button>

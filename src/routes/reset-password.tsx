@@ -142,7 +142,7 @@ function ResetPasswordPage() {
             <button
               type="submit"
               disabled={loading || !ready}
-              className="w-full h-11 sm:h-10 rounded-lg btn-solid font-semibold text-sm hover:opacity-90 disabled:opacity-60"
+              className="w-full h-11 sm:pointer-fine:h-10 rounded-lg btn-solid font-semibold text-sm hover:opacity-90 disabled:opacity-60"
             >
               {loading ? "Updating…" : "Update password"}
             </button>

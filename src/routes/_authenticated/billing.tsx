@@ -49,7 +49,7 @@ function StripeFooter() {
       </p>
       <Link
         to="/dashboard"
-        className="text-primary mt-3 inline-flex min-h-11 items-center text-sm font-semibold hover:underline sm:min-h-0"
+        className="text-primary mt-3 inline-flex min-h-11 items-center text-sm font-semibold hover:underline sm:pointer-fine:min-h-0"
       >
         ← Back to dashboard
       </Link>

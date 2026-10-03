@@ -22,7 +22,7 @@ export function ReviewMoreStrip({ more }: { more: ReviewMore }) {
         type="button"
         onClick={() => void more.pull()}
         disabled={more.busy}
-        className="btn-soft h-11 sm:h-9 rounded-xl px-4 text-sm font-semibold inline-flex items-center gap-2 disabled:opacity-60"
+        className="btn-soft h-11 sm:pointer-fine:h-9 rounded-xl px-4 text-sm font-semibold inline-flex items-center gap-2 disabled:opacity-60"
       >
         {more.busy && <Loader2 className="size-4 animate-spin" aria-hidden />}
         Review {more.batch} more now

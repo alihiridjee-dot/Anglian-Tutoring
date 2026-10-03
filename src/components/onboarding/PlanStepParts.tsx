@@ -78,7 +78,7 @@ export function PlanOnHold({
       <button
         type="button"
         onClick={onSignOut}
-        className="w-full min-h-11 text-xs text-muted-foreground hover:text-foreground sm:min-h-0"
+        className="w-full min-h-11 text-xs text-muted-foreground hover:text-foreground sm:pointer-fine:min-h-0"
       >
         Sign out
       </button>
@@ -257,7 +257,7 @@ export function AskParentCard({
               type="button"
               onClick={copyCode}
               disabled={!inviteCode}
-              className="h-11 sm:h-10 px-3 rounded-lg border border-border hover:bg-muted text-sm font-medium inline-flex items-center gap-2 disabled:opacity-60 cursor-pointer"
+              className="h-11 sm:pointer-fine:h-10 px-3 rounded-lg border border-border hover:bg-muted text-sm font-medium inline-flex items-center gap-2 disabled:opacity-60 cursor-pointer"
             >
               {copied ? <Check className="w-4 h-4 text-primary" /> : <Copy className="w-4 h-4" />}
               {copied ? "Copied" : "Copy"}
@@ -266,7 +266,7 @@ export function AskParentCard({
           <button
             type="button"
             onClick={() => setInviteOutcome(null)}
-            className="inline-flex min-h-11 items-center text-xs text-muted-foreground hover:text-foreground sm:min-h-0"
+            className="inline-flex min-h-11 items-center text-xs text-muted-foreground hover:text-foreground sm:pointer-fine:min-h-0"
           >
             Try a different email
           </button>

@@ -69,14 +69,18 @@ export function VideoModal({
       className="fixed inset-0 z-50 flex items-center justify-center bg-black/70 backdrop-blur-sm p-4 animate-fade-in"
       onClick={onClose}
     >
+      {/* As wide as the screen's height allows, so the whole 16:9 frame and the
+          title under it fit: 6rem is the title block, 2rem the gutter. At full
+          width on a phone turned sideways the frame was 431px tall in a 358px
+          box, and its bottom 74px (the play bar, full screen) was cut off. */}
       <div
-        className="relative w-full max-w-3xl max-h-[calc(100dvh-2rem)] overflow-y-auto overflow-x-hidden bg-card rounded-2xl shadow-2xl border border-border"
+        className="relative w-full max-w-[min(48rem,calc((100dvh-8rem)*16/9))] max-h-[calc(100dvh-2rem)] overflow-y-auto overflow-x-hidden bg-card rounded-2xl shadow-2xl border border-border"
         onClick={(e) => e.stopPropagation()}
       >
         <button
           onClick={onClose}
           aria-label="Close player"
-          className="absolute top-3 right-3 z-10 size-11 sm:size-9 rounded-full bg-black/50 hover:bg-black/70 text-white flex items-center justify-center"
+          className="absolute top-3 right-3 z-10 size-11 sm:pointer-fine:size-9 rounded-full bg-black/50 hover:bg-black/70 text-white flex items-center justify-center"
         >
           <X className="w-5 h-5" />
         </button>
@@ -99,7 +103,7 @@ export function VideoModal({
                 href={embed.originalUrl}
                 target="_blank"
                 rel="noreferrer"
-                className="inline-flex items-center gap-2 px-4 py-2 min-h-11 sm:min-h-0 rounded-lg btn-solid text-sm font-semibold"
+                className="inline-flex items-center gap-2 px-4 py-2 min-h-11 sm:pointer-fine:min-h-0 rounded-lg btn-solid text-sm font-semibold"
               >
                 <ExternalLink className="w-4 h-4" />
                 Open in new tab

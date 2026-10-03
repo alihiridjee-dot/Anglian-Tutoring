@@ -68,7 +68,7 @@ export function InvoiceHistory() {
                     href={inv.hosted_invoice_url}
                     target="_blank"
                     rel="noreferrer"
-                    className="inline-flex min-h-11 items-center gap-1 text-primary hover:underline font-semibold mr-3 sm:min-h-0"
+                    className="inline-flex min-h-11 items-center gap-1 text-primary hover:underline font-semibold mr-3 sm:pointer-fine:min-h-0"
                   >
                     View <ExternalLink className="w-3 h-3" />
                   </a>
@@ -76,7 +76,7 @@ export function InvoiceHistory() {
                 {inv.invoice_pdf && (
                   <a
                     href={inv.invoice_pdf}
-                    className="inline-flex min-h-11 items-center gap-1 text-primary hover:underline font-semibold sm:min-h-0"
+                    className="inline-flex min-h-11 items-center gap-1 text-primary hover:underline font-semibold sm:pointer-fine:min-h-0"
                   >
                     PDF <Download className="w-3 h-3" />
                   </a>

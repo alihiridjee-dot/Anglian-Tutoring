@@ -91,7 +91,7 @@ function Tutor() {
           <button
             key={t.k}
             onClick={() => setTab(t.k)}
-            className={`inline-flex items-center gap-2 px-4 py-2 min-h-11 sm:min-h-0 rounded-lg text-sm font-medium border transition ${
+            className={`inline-flex items-center gap-2 px-4 py-2 min-h-11 sm:pointer-fine:min-h-0 rounded-lg text-sm font-medium border transition ${
               tab === t.k
                 ? "btn-solid border-primary"
                 : "bg-card border-border text-muted-foreground hover:text-foreground"

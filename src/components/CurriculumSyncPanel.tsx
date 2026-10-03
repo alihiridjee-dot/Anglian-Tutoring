@@ -101,7 +101,7 @@ export function CurriculumSyncPanel({ subject, board, level, onSynced }: Curricu
         </div>
         <button
           onClick={() => setIsOpen(!isOpen)}
-          className="h-11 sm:h-9 px-4 rounded-xl border border-border hover:bg-accent text-xs font-medium transition-colors"
+          className="h-11 sm:pointer-fine:h-9 px-4 rounded-xl border border-border hover:bg-accent text-xs font-medium transition-colors"
         >
           {isOpen ? "Close Sync Service" : "Launch Sync Portal"}
         </button>
@@ -125,7 +125,7 @@ export function CurriculumSyncPanel({ subject, board, level, onSynced }: Curricu
               />
               <button
                 onClick={handleParse}
-                className="w-full h-11 sm:h-9 btn-solid rounded-xl text-xs font-semibold hover:bg-primary/90 transition-colors flex items-center justify-center gap-1.5"
+                className="w-full h-11 sm:pointer-fine:h-9 btn-solid rounded-xl text-xs font-semibold hover:bg-primary/90 transition-colors flex items-center justify-center gap-1.5"
               >
                 <RefreshCw className="w-3.5 h-3.5" />
                 Parse Text Specification
@@ -185,7 +185,7 @@ export function CurriculumSyncPanel({ subject, board, level, onSynced }: Curricu
                   <button
                     onClick={handleSync}
                     disabled={syncing}
-                    className="w-full h-11 sm:h-9 bg-violet-600 hover:bg-violet-700 text-white rounded-xl text-xs font-semibold transition-colors flex items-center justify-center gap-1.5"
+                    className="w-full h-11 sm:pointer-fine:h-9 bg-violet-600 hover:bg-violet-700 text-white rounded-xl text-xs font-semibold transition-colors flex items-center justify-center gap-1.5"
                   >
                     {syncing ? (
                       <RefreshCw className="w-3.5 h-3.5 animate-spin" />

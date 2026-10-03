@@ -91,7 +91,7 @@ export function MemoryPanel({
                 role="tab"
                 aria-selected={e.subject === activeSubject}
                 onClick={() => setActiveSubject(e.subject)}
-                className={`px-3 py-1 min-h-11 sm:min-h-0 rounded-full text-xs font-medium transition-colors ${
+                className={`px-3 py-1 min-h-11 sm:pointer-fine:min-h-0 rounded-full text-xs font-medium transition-colors ${
                   e.subject === activeSubject
                     ? "btn-solid"
                     : "bg-muted text-muted-foreground hover:bg-muted/70"

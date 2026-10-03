@@ -321,7 +321,7 @@ function TutorChatModal({ tutor, onClose }: { tutor: Tutor; onClose: () => void 
         <button
           onClick={onClose}
           aria-label="Close"
-          className="icon-tile absolute top-4 right-4 z-20 size-11 sm:size-9 bg-white/90 backdrop-blur transition hover:bg-white"
+          className="icon-tile absolute top-4 right-4 z-20 size-11 sm:pointer-fine:size-9 bg-white/90 backdrop-blur transition hover:bg-white"
         >
           <X className="size-5" aria-hidden />
         </button>

@@ -146,7 +146,16 @@ function RootComponent() {
   return (
     <QueryClientProvider client={queryClient}>
       <Outlet />
-      <Toaster richColors position="top-right" />
+      {/* A fixed layer misses the body's notch padding, so the toasts keep
+          sonner's own 24px or clear the notch, whichever is further in. */}
+      <Toaster
+        richColors
+        position="top-right"
+        offset={{
+          top: "max(24px, env(safe-area-inset-top))",
+          right: "max(24px, env(safe-area-inset-right))",
+        }}
+      />
       <Analytics />
     </QueryClientProvider>
   );
