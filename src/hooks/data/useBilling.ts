@@ -12,6 +12,7 @@ import {
   changeCadence,
   resolvePackagesForLevel,
   isPaymentOverdue,
+  isResumable,
   type Invoice,
   type PackageRow,
   type SubscriptionRow,
@@ -163,7 +164,7 @@ export function useOwnPlanState() {
     ...query,
     sub,
     /** A dormant plan that Resume brings back — never a reason to buy again. */
-    resumable: !!sub && (sub.status === "paused" || sub.cancel_at_period_end),
+    resumable: isResumable(sub),
     /** The last payment failed: the answer is a new card, never a new plan. */
     paymentOverdue: !!sub && isPaymentOverdue(sub.status),
     /** No plan has ever existed for this student, so Checkout is correct. */

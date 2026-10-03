@@ -99,16 +99,18 @@ export function EnrolledSubjectsCard({
 
   const confirmRemove = (category: string, comment: string) => {
     if (!removing) return;
-    void recordBillingFeedback({
-      studentId,
-      action: "remove_subject",
-      category,
-      comment,
-    });
     remove.mutate(
       { studentId, subjects: [removing] },
       {
         onSuccess: (res) => {
+          // Only once the removal has worked: a refused one must not leave an
+          // entry in the tutor's plan history.
+          void recordBillingFeedback({
+            studentId,
+            action: "remove_subject",
+            category,
+            comment,
+          });
           const label = subjectLabel(removing);
           setRemoving(null);
           toast.success(`${label} removed. Your next bill drops to the smaller plan.`, {

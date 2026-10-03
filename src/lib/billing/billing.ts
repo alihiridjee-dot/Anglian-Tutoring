@@ -84,6 +84,30 @@ export function isSubscriptionLive(status: string | undefined | null) {
   return status === "active" || status === "trialing";
 }
 
+type PlanState = Pick<SubscriptionRow, "status" | "cancel_at_period_end">;
+
+/**
+ * A dormant plan that Resume brings back: paused, or still live with a
+ * cancellation booked for the period end. A plan that has already ended keeps
+ * cancel_at_period_end = true on its row, but Stripe can't resume a cancelled
+ * subscription — that family needs a new plan, not a Resume that fails.
+ */
+export function isResumable(sub: PlanState | null | undefined) {
+  return (
+    !!sub &&
+    (sub.status === "paused" || (isSubscriptionLive(sub.status) && sub.cancel_at_period_end))
+  );
+}
+
+/**
+ * Whether subjects or cadence can change on this plan: live and not cancelling.
+ * Mirrors stripe-checkout, which refuses anything else with "Resume the plan
+ * before…", so a paused or ending plan is never offered a change.
+ */
+export function isPlanChangeable(sub: PlanState | null | undefined) {
+  return !!sub && isSubscriptionLive(sub.status) && !sub.cancel_at_period_end;
+}
+
 /**
  * A plan that still exists in Stripe but whose last payment failed. The way
  * back is a new card in the billing portal, never a second Checkout — the

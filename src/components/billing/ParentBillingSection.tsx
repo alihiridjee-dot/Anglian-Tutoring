@@ -14,6 +14,7 @@ import {
 import {
   isSubscriptionLive,
   isPaymentOverdue,
+  isPlanChangeable,
   planLabel,
   resolvePackagesForLevel,
   formatPence,
@@ -77,9 +78,10 @@ function ChildPlan({
   });
 
   const anchorId = `subjects-${studentId}`;
-  // Only a live plan can have subjects added or removed, or its cadence changed
-  // — the server rejects a paused or cancelling one, so don't offer any of it.
-  const changeable = !!sub?.plan && isSubscriptionLive(sub.status);
+  // Only a live plan that isn't cancelling can have subjects added or removed,
+  // or its cadence changed — the server rejects a paused or cancelling one, so
+  // don't offer any of it.
+  const changeable = !!sub?.plan && isPlanChangeable(sub);
 
   return (
     <>
