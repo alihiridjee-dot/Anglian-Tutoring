@@ -1,0 +1,390 @@
+{
+  "format": 1,
+  "concept_id": "chem-096",
+  "subject": "chemistry",
+  "title": "Human activity and climate change: the evidence",
+  "key_idea": "Human activities add carbon dioxide and methane to the atmosphere. Many scientists believe this will raise the Earth's temperature and cause climate change. Evidence must be evaluated for quality, uncertainty and peer review.",
+  "sections": [
+    {
+      "heading": "Human activities that add greenhouse gases",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "This section covers the activities that increase carbon dioxide and methane in the atmosphere."
+        },
+        {
+          "type": "definitions",
+          "items": [
+            {
+              "term": "Global warming",
+              "meaning": "An increase in the mean temperature of the atmosphere at the Earth's surface."
+            },
+            {
+              "term": "Climate change",
+              "meaning": "A long-term change in weather patterns across the Earth."
+            },
+            {
+              "term": "Deforestation",
+              "meaning": "Clearing forests, which means less photosynthesis to take in carbon dioxide."
+            }
+          ]
+        },
+        {
+          "type": "subheading",
+          "text": "Carbon dioxide"
+        },
+        {
+          "type": "list",
+          "items": [
+            "Burning **fossil fuels** for energy, electricity and transport.",
+            "**Deforestation** to make farmland, housing or space for industry."
+          ]
+        },
+        {
+          "type": "subheading",
+          "text": "Methane"
+        },
+        {
+          "type": "list",
+          "items": [
+            "Farming livestock such as cattle, and growing rice in paddy fields.",
+            "Waste in landfill, which produces methane as it decomposes.",
+            "Fossil fuel use and the destruction of peat bogs."
+          ]
+        },
+        {
+          "type": "subheading",
+          "text": "Reducing methane"
+        },
+        {
+          "type": "list",
+          "items": [
+            "Reduce livestock farming and the number of rice (paddy) fields.",
+            "Reduce the amount of rubbish going to landfill.",
+            "Use methane from landfill as an energy source.",
+            "Reduce fossil fuel use and the destruction of peat bogs."
+          ]
+        },
+        {
+          "type": "diagram",
+          "diagram": {
+            "kind": "sort",
+            "alt": "Sort human activities by the greenhouse gas they add to the atmosphere.",
+            "prompt": "Sort each activity by the main greenhouse gas it adds.",
+            "groups": [
+              "Adds carbon dioxide",
+              "Adds methane"
+            ],
+            "items": [
+              {
+                "text": "Burning coal to generate electricity",
+                "group": 0
+              },
+              {
+                "text": "Burning petrol in cars",
+                "group": 0
+              },
+              {
+                "text": "Clearing forests for farmland",
+                "group": 0
+              },
+              {
+                "text": "Keeping beef cattle",
+                "group": 1
+              },
+              {
+                "text": "Growing rice in paddy fields",
+                "group": 1
+              },
+              {
+                "text": "Rubbish decomposing in landfill",
+                "group": 1
+              }
+            ]
+          }
+        },
+        {
+          "type": "key-points",
+          "items": [
+            "Fossil fuel burning and deforestation add carbon dioxide.",
+            "Livestock, rice fields and landfill add methane."
+          ]
+        }
+      ]
+    },
+    {
+      "heading": "Population, energy and food",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "This section covers why a growing population links to more greenhouse gases."
+        },
+        {
+          "type": "list",
+          "items": [
+            "More people need more energy and transport, so more fossil fuels are burned.",
+            "More people need more farmland, so more forests are cleared.",
+            "More people need more food, so more cattle are kept and more rice is grown.",
+            "More people produce more waste, which produces methane as it decomposes."
+          ]
+        },
+        {
+          "type": "key-points",
+          "items": [
+            "Link population to what people need, then to the gas that results.",
+            "Energy and farmland link to carbon dioxide. Food and waste link to methane."
+          ]
+        }
+      ]
+    },
+    {
+      "heading": "Evaluating the evidence",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "This section covers how to judge evidence about climate change."
+        },
+        {
+          "type": "definitions",
+          "items": [
+            {
+              "term": "Correlation",
+              "meaning": "A link between two sets of data, such as carbon dioxide concentration and temperature."
+            },
+            {
+              "term": "Peer review",
+              "meaning": "Checking of a scientist's results by other scientists before they are accepted."
+            }
+          ]
+        },
+        {
+          "type": "list",
+          "items": [
+            "Evidence compares the change in atmospheric carbon dioxide, fossil fuel use and temperature.",
+            "Many scientists believe human activities will cause the Earth's temperature to rise, based on peer-reviewed evidence.",
+            "It is difficult to model such a complex system, so models are simplified.",
+            "Opinions in the media may be based on only part of the evidence and may be biased.",
+            "Possible effects of global warming include melting ice and rising sea levels."
+          ]
+        },
+        {
+          "type": "subheading",
+          "text": "Uncertainties in the evidence"
+        },
+        {
+          "type": "list",
+          "items": [
+            "Where measurements are taken, because data from one city or country is not a global figure.",
+            "How accurate historical measurements are.",
+            "A time lag between emissions and their effect.",
+            "Emissions from other sources may also matter.",
+            "Data about emissions alone does not show a change in temperature."
+          ]
+        },
+        {
+          "type": "paragraph",
+          "text": "Practise calculating an increase in carbon dioxide concentration, in parts per million (ppm)."
+        },
+        {
+          "type": "diagram",
+          "diagram": {
+            "kind": "practice",
+            "alt": "Calculate the increase in atmospheric carbon dioxide concentration between two dates.",
+            "question": "The concentration of carbon dioxide in the atmosphere was {a} ppm in an earlier year and {b} ppm in a later year. Calculate the increase in ppm, to the nearest whole number.",
+            "variables": [
+              {
+                "id": "a",
+                "min": 371.17,
+                "max": 381.17,
+                "step": 1
+              },
+              {
+                "id": "b",
+                "min": 410.56,
+                "max": 420.56,
+                "step": 1
+              }
+            ],
+            "answer": {
+              "formula": "b - a",
+              "unit": "ppm",
+              "decimals": 0
+            },
+            "working": [
+              "Increase = later − earlier = {b} − {a}",
+              "Increase = {answer} ppm to the nearest whole number"
+            ]
+          }
+        },
+        {
+          "type": "key-points",
+          "items": [
+            "Evaluate evidence by its quality, its uncertainties and whether it was peer reviewed.",
+            "A correlation is a link. Check where and how the data was collected."
+          ]
+        }
+      ]
+    }
+  ],
+  "checks": [
+    {
+      "q": "Give two human activities that increase the amount of methane in the atmosphere.",
+      "a": "Any two from: keeping livestock such as cattle, growing rice in paddy fields, waste decomposing in landfill.",
+      "marks": 2
+    },
+    {
+      "q": "Explain why an increase in the world population may increase the concentration of carbon dioxide in the atmosphere.",
+      "a": "More energy is needed, so more fossil fuels are burned. Or more farmland is needed, so there is more deforestation.",
+      "marks": 2
+    },
+    {
+      "q": "Give one reason why data about carbon dioxide emissions from one country may not show the effect on global temperature.",
+      "a": "The data is not a global figure, or there is a time lag between emissions and their effect, or emissions from other sources also matter.",
+      "marks": 1
+    }
+  ],
+  "boards": {
+    "aqa": {
+      "spec_codes": [
+        "AQA 4.9.2.2",
+        "AQA T 5.9.2.2"
+      ],
+      "exam_phrases": [
+        "(increased population so) more energy required",
+        "more (fossil) fuels burned",
+        "more farmland required, so more deforestation",
+        "more food required, so more methane-producing food production",
+        "more waste produced, which produces more methane on decomposition",
+        "reduce livestock farming",
+        "reduce the amount of rubbish going to landfill",
+        "use methane from landfill as an energy source"
+      ],
+      "mistakes": [
+        {
+          "wrong": "More people means more carbon dioxide.",
+          "right": "Link the population to a need. More energy is required, so more fossil fuels are burned. Or more farmland is required, so there is more deforestation."
+        },
+        {
+          "wrong": "More people means more methane.",
+          "right": "Link it to food or waste. More food is required, so more beef cattle or rice. Or more waste is produced, which gives more methane on decomposition."
+        }
+      ],
+      "worked_example": {
+        "exemplar_id": "7dbb639f-0b01-450d-ac34-a760975f929f",
+        "source": "AQA jun 2023, Paper 2 (H), Q04.2",
+        "question": "In the past 50 years, there has been an increase in:\n• the world population\n• the concentration of carbon dioxide in the atmosphere\n• the concentration of methane in the atmosphere\n• the mean temperature of the atmosphere at the Earth's surface.\n\nMost scientists think this information can be used to explain climate change.\n\nExplain why the increase in world population may have caused the increase in the concentration of carbon dioxide in the atmosphere.",
+        "marks": 2,
+        "answer_points": [
+          "More energy (or transport) is required, so more fossil fuels are burned.",
+          "OR more farmland is required, so there is more deforestation."
+        ],
+        "tip": "Both marks are linked: the need, then the activity. A named fossil fuel is allowed."
+      }
+    },
+    "edexcel": {
+      "spec_codes": [
+        "EDEX 8.25"
+      ],
+      "exam_phrases": [
+        "carbon dioxide is a greenhouse gas",
+        "greenhouse gases cause global warming",
+        "effects of global warming, such as sea levels rising",
+        "to nearest whole number",
+        "answer of 45 alone with or without working scores (2)"
+      ],
+      "mistakes": [
+        {
+          "wrong": "Increase = 416.56 − 371.17 = 45.39 ppm.",
+          "right": "The question asks for the nearest whole number. One mark is for the correct rounding: 45 ppm."
+        },
+        {
+          "wrong": "Carbon dioxide causes climate change by damaging the ozone layer.",
+          "right": "References to the ozone layer are ignored. Say that carbon dioxide is a greenhouse gas and greenhouse gases cause global warming."
+        }
+      ],
+      "worked_example": {
+        "exemplar_id": "5e26b255-e471-4c79-a342-3a5fe148f5a4",
+        "source": "EDEXCEL jun 2023, Paper 2 (F), Q4(d)(i)",
+        "question": "Many people are concerned by the increasing amount of carbon dioxide in the atmosphere.\n\nThe amount of carbon dioxide in the atmosphere is measured in parts per million (ppm).\n\nThe amount of carbon dioxide in the atmosphere in June 2001 and in June 2021 was:\n\nJune 2001: 371.17 ppm\nJune 2021: 416.56 ppm\n\nCalculate the increase in the amount of carbon dioxide, in ppm, from June 2001 to June 2021.\n\nGive your answer to the nearest whole number.",
+        "marks": 2,
+        "answer_points": [
+          "416.56 − 371.17 = 45.39",
+          "= 45 ppm (to the nearest whole number)"
+        ],
+        "tip": "45 on its own scores both marks. One mark is for correct rounding of the difference of the two numbers."
+      },
+      "extra": [
+        {
+          "heading": "Correlation and measurement uncertainty",
+          "blocks": [
+            {
+              "type": "list",
+              "items": [
+                "Consider the correlation between change in carbon dioxide concentration, fossil fuel consumption and temperature change.",
+                "Consider the uncertainties caused by where measurements are taken.",
+                "Consider the uncertainties caused by the accuracy of historical measurements."
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    "ocr": {
+      "spec_codes": [
+        "OCR C6.3d"
+      ],
+      "exam_phrases": [
+        "(increased population so) more energy required",
+        "(so) more (fossil) fuels burned",
+        "more farmland or land for housing / industry required, so more deforestation",
+        "CO₂ emissions are only from the UK and not a global figure",
+        "there is a lag between CO₂ emissions impacting on global sea levels",
+        "none of the data refers to climate change or global temperature",
+        "the data is for one city and not a global figure"
+      ],
+      "mistakes": [
+        {
+          "wrong": "More people means more respiration, so more carbon dioxide.",
+          "right": "Answers in terms of respiration are ignored. Say that more energy is required, so more fossil fuels are burned, or that more land is cleared by deforestation."
+        },
+        {
+          "wrong": "The problem with the data is that other factors may affect sea levels.",
+          "right": "That is ignored. Say that the emissions are only from the UK and not a global figure, or that there is a lag between emissions and their effect."
+        },
+        {
+          "wrong": "The data does not support the view. No.",
+          "right": "No mark is given for no on its own. Give a reason: the data is for one city, or none of it refers to global temperature."
+        }
+      ],
+      "worked_example": {
+        "exemplar_id": "e60126bb-82a1-4661-a91e-24a76bed96a8",
+        "source": "OCR jun 2025, Paper 4, Q23(a)",
+        "question": "In the last 75 years there has been an increase in both:\n\n• the world population\n• the concentration of carbon dioxide in the atmosphere.\n\nWhy may the increase in the world population have caused the increase in the concentration of carbon dioxide in the atmosphere?",
+        "marks": 2,
+        "answer_points": [
+          "More energy is required, so more fossil fuels are burned.",
+          "OR more farmland, or land for housing and industry, is required, so there is more deforestation."
+        ],
+        "tip": "More electricity, transport or manufacturing is allowed for more energy. Answers in terms of respiration are ignored."
+      }
+    }
+  },
+  "meta": {
+    "status": "draft",
+    "written_by": "sonnet-5-5",
+    "written_at": "2026-10-01",
+    "spec_point_ids": [
+      "845d2dbd-3050-4317-a549-9f8f3d2a1c8a",
+      "48aa8d21-0525-411f-b6e4-24d0b0393ee0",
+      "e0ecc22c-d8c1-4527-a2c7-79196fca5d63",
+      "ec307a21-3afd-4b82-bf22-d02b1d272a23"
+    ],
+    "exemplar_ids": [
+      "7dbb639f-0b01-450d-ac34-a760975f929f",
+      "5e26b255-e471-4c79-a342-3a5fe148f5a4",
+      "e60126bb-82a1-4661-a91e-24a76bed96a8"
+    ],
+    "checked_by": "sonnet-science-check",
+    "checked_at": "2026-10-01"
+  }
+}

@@ -1,0 +1,183 @@
+{
+  "format": 1,
+  "concept_id": "phys-093",
+  "subject": "physics",
+  "title": "Observing the Universe",
+  "key_idea": "Methods of observing the Universe have changed, from telescopes to photographs, computer models, satellites and space probes. Some telescopes are in space, above the atmosphere. This gives clearer images, access to more wavelengths and a view of the whole sky.",
+  "sections": [
+    {
+      "heading": "How we observe the Universe",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "(Physics only, not needed for Combined Science) The methods used to observe the Universe have changed over time, and each has added evidence."
+        },
+        {
+          "type": "list",
+          "items": [
+            "Observations by telescope, such as Galileo seeing the moons of Jupiter.",
+            "Detailed photographic evidence.",
+            "Computer modelling.",
+            "Observations by satellites, including telescopes in space.",
+            "Space probes, such as the Voyager missions."
+          ]
+        },
+        {
+          "type": "key-points",
+          "items": [
+            "Telescopes, photographs, computer models, satellites and space probes have all added evidence.",
+            "Better methods have led to new discoveries and changed our models."
+          ]
+        }
+      ]
+    },
+    {
+      "heading": "Why some telescopes are in space",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "Some telescopes are on satellites that orbit above the Earth's atmosphere."
+        },
+        {
+          "type": "list",
+          "items": [
+            "The atmosphere absorbs and scatters light, so a telescope above it gives clearer images.",
+            "Light from very distant objects is very faint, so any loss matters.",
+            "Some wavelengths, such as microwaves, infrared and ultraviolet, are absorbed by the Earth's atmosphere.",
+            "There is less interference from dust, clouds and light pollution.",
+            "A telescope in space can view the whole sky."
+          ]
+        },
+        {
+          "type": "paragraph",
+          "text": "The reason is not that the telescope is closer to the objects it observes."
+        },
+        {
+          "type": "diagram",
+          "diagram": {
+            "kind": "compare",
+            "alt": "A telescope on the ground compared with a telescope in space.",
+            "items": [
+              "Telescope on Earth",
+              "Telescope in space"
+            ],
+            "rows": [
+              {
+                "feature": "Atmosphere",
+                "values": [
+                  "Light passes through it and is absorbed or scattered",
+                  "Above it, so nothing absorbs or scatters the light"
+                ]
+              },
+              {
+                "feature": "Image clarity",
+                "values": [
+                  "Reduced by atmospheric distortion",
+                  "Improved"
+                ]
+              },
+              {
+                "feature": "Wavelengths",
+                "values": [
+                  "Some, such as microwaves, infrared and ultraviolet, are absorbed",
+                  "These can be observed"
+                ]
+              },
+              {
+                "feature": "Interference",
+                "values": [
+                  "Dust, clouds and light pollution",
+                  "Much less"
+                ]
+              },
+              {
+                "feature": "Sky coverage",
+                "values": [
+                  "Part of the sky at a time",
+                  "Can view the whole sky"
+                ]
+              }
+            ]
+          }
+        },
+        {
+          "type": "key-points",
+          "items": [
+            "A telescope in space is above the atmosphere.",
+            "This gives clearer images, access to absorbed wavelengths and less interference."
+          ]
+        }
+      ]
+    }
+  ],
+  "checks": [
+    {
+      "q": "Explain why the Hubble Space Telescope is placed high above the Earth's surface.",
+      "a": "It is above the atmosphere, which absorbs and scatters light. The light from distant objects is very faint, so this improves the clarity of the images.",
+      "marks": 2
+    },
+    {
+      "q": "Give two benefits of a telescope on a satellite compared with one on the ground.",
+      "a": "Any two from: above the atmosphere; less interference from dust, clouds and light pollution; can detect wavelengths absorbed by the atmosphere such as microwaves, infrared and ultraviolet; can view the whole sky.",
+      "marks": 2
+    },
+    {
+      "q": "Give two ways of observing the Solar System other than using telescopes.",
+      "a": "Any two from: photographs, computer modelling, satellites and space probes.",
+      "marks": 2
+    }
+  ],
+  "boards": {
+    "edexcel": {
+      "spec_codes": [
+        "EDEX 7.19P"
+      ],
+      "exam_phrases": [
+        "telescopes are above the Earth / in space / outside the Earth's atmosphere",
+        "less interference from dust / clouds",
+        "wavelengths that are absorbed by the Earth's atmosphere (microwaves / IR / UV)",
+        "can view the whole sky",
+        "the atmosphere absorbs / scatters light",
+        "improves clarity of images",
+        "light pollution"
+      ],
+      "mistakes": [
+        {
+          "wrong": "A telescope in space is closer to the object it is observing.",
+          "right": "This is not accepted. Say it is above the Earth's atmosphere, so the light is not absorbed or scattered."
+        },
+        {
+          "wrong": "A space telescope avoids the atmosphere, so it can see more.",
+          "right": "Say what is gained. It improves the clarity of images, avoids interference from dust, clouds and light pollution, and can detect wavelengths the atmosphere absorbs."
+        }
+      ],
+      "worked_example": {
+        "exemplar_id": "8cd80839-f9bd-4984-892e-d9c554b29ba3",
+        "source": "EDEXCEL jun 2022, Paper 1 (H), Q6(c)",
+        "marks": 2,
+        "question": "Observations of the Universe can be made using telescopes on Earth.\n\nExplain why some telescopes are located on satellites that orbit the Earth.",
+        "answer_points": [
+          "Telescopes are above the Earth, in space, outside the Earth's atmosphere.",
+          "Less interference from dust and clouds.",
+          "They can detect wavelengths absorbed by the Earth's atmosphere (microwaves, infrared, ultraviolet).",
+          "They can view the whole sky.",
+          "Any two linked points score."
+        ],
+        "tip": "Any other sensible benefit is allowed, such as less atmospheric distortion or light pollution."
+      }
+    }
+  },
+  "meta": {
+    "status": "draft",
+    "written_by": "sonnet-5-5",
+    "written_at": "2026-10-01",
+    "spec_point_ids": [
+      "ccc15f12-e18e-49a1-b60e-61517dd2ab40"
+    ],
+    "exemplar_ids": [
+      "8cd80839-f9bd-4984-892e-d9c554b29ba3"
+    ],
+    "checked_by": "sonnet-science-check",
+    "checked_at": "2026-10-03"
+  }
+}

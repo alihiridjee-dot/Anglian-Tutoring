@@ -1,0 +1,288 @@
+{
+  "format": 1,
+  "concept_id": "bio-116",
+  "subject": "biology",
+  "title": "Adaptations",
+  "key_idea": "An **adaptation** is a feature that helps an organism survive in the conditions where it normally lives. Adaptations may be structural, behavioural or functional. **Extremophiles** are organisms adapted to very extreme conditions.",
+  "sections": [
+    {
+      "heading": "Types of adaptation",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "Organisms have features that help them survive and reproduce in their habitat. This section covers the three types and how to explain one."
+        },
+        {
+          "type": "definitions",
+          "items": [
+            {
+              "term": "Adaptation",
+              "meaning": "A feature that helps an organism survive in the conditions in which it normally lives."
+            },
+            {
+              "term": "Structural adaptation",
+              "meaning": "A feature of the body's shape or covering, such as colour or leaf shape."
+            },
+            {
+              "term": "Behavioural adaptation",
+              "meaning": "The way an organism acts, such as migrating or hunting at night."
+            },
+            {
+              "term": "Functional adaptation",
+              "meaning": "A process inside the body that helps survival, such as how an enzyme works."
+            }
+          ]
+        },
+        {
+          "type": "diagram",
+          "diagram": {
+            "kind": "sort",
+            "alt": "Sort each adaptation into structural, behavioural or functional.",
+            "prompt": "Which type of adaptation is each one?",
+            "groups": [
+              "Structural",
+              "Behavioural",
+              "Functional"
+            ],
+            "items": [
+              {
+                "text": "White winter fur on a hare",
+                "group": 0
+              },
+              {
+                "text": "Needle-shaped leaves on a pine tree",
+                "group": 0
+              },
+              {
+                "text": "Bright colours on a flower",
+                "group": 0
+              },
+              {
+                "text": "Birds migrating to a warmer place",
+                "group": 1
+              },
+              {
+                "text": "Hibernating through the winter",
+                "group": 1
+              },
+              {
+                "text": "Hunting at night",
+                "group": 1
+              },
+              {
+                "text": "Enzymes that work at very high temperature",
+                "group": 2
+              },
+              {
+                "text": "Producing very concentrated urine to save water",
+                "group": 2
+              }
+            ]
+          }
+        },
+        {
+          "type": "subheading",
+          "text": "Explaining how an adaptation helps"
+        },
+        {
+          "type": "list",
+          "items": [
+            "Name the feature.",
+            "Say what it does for the organism.",
+            "Link it to survival: avoiding predators, finding food, avoiding competition or reproducing."
+          ]
+        },
+        {
+          "type": "subheading",
+          "text": "Examples"
+        },
+        {
+          "type": "list",
+          "items": [
+            "**Camouflage:** a hare with white fur in winter is hidden from predators such as lynx, so it is less likely to be eaten.",
+            "**Mimicry:** a hoverfly with yellow and black markings looks like a wasp. Predators avoid wasps because they sting, so they do not eat the hoverfly.",
+            "**Flowers:** bright colours attract insects, which carry pollen between plants.",
+            "**Seeds:** many tiny, light seeds travel long distances, away from competitors, to grow in new areas.",
+            "**Wings:** winged aphids can fly to another plant to get more food."
+          ]
+        },
+        {
+          "type": "key-points",
+          "items": [
+            "Adaptations may be structural, behavioural or functional.",
+            "Always link the feature to survival, for example avoiding being eaten or getting more food."
+          ]
+        }
+      ]
+    },
+    {
+      "heading": "Extremophiles",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "Some organisms live where conditions would kill most others. This section covers what they are and where they live."
+        },
+        {
+          "type": "definitions",
+          "items": [
+            {
+              "term": "Extremophile",
+              "meaning": "An organism adapted to live in very extreme conditions."
+            }
+          ]
+        },
+        {
+          "type": "list",
+          "items": [
+            "Extreme conditions include very high temperature, very high pressure and very high salt concentration.",
+            "Bacteria living in deep sea vents are extremophiles.",
+            "Microorganisms that survive in hot, acidic caves are also extremophiles.",
+            "Their adaptations let them survive where most organisms cannot."
+          ]
+        },
+        {
+          "type": "key-points",
+          "items": [
+            "An extremophile is adapted to extreme conditions such as high temperature, pressure or salt concentration.",
+            "Deep sea vent bacteria are an example."
+          ]
+        }
+      ]
+    }
+  ],
+  "checks": [
+    {
+      "q": "Explain how the yellow and black markings help a hoverfly survive.",
+      "a": "The hoverfly looks like a wasp. Predators avoid wasps so they do not get stung, so the predator does not attack or eat the hoverfly.",
+      "marks": 3
+    },
+    {
+      "q": "Name the three types of adaptation.",
+      "a": "Structural, behavioural and functional.",
+      "marks": 2
+    },
+    {
+      "q": "Explain why bacteria living in deep sea vents are called extremophiles.",
+      "a": "They are adapted to survive in very extreme conditions, such as high temperature and high pressure.",
+      "marks": 2
+    }
+  ],
+  "boards": {
+    "aqa": {
+      "spec_codes": [
+        "AQA 7.3",
+        "AQA T 4.7.1.4"
+      ],
+      "exam_phrases": [
+        "camouflaged / hidden or not (easily) seen",
+        "from lynx / predator / carnivore",
+        "not killed / eaten",
+        "hoverfly looks like a wasp",
+        "predator / animal avoids wasps so it does not get stung",
+        "bright colours attract pollinators",
+        "tiny / light seeds will travel away from competitors",
+        "they survive in high temperatures",
+        "they survive where it is acidic"
+      ],
+      "mistakes": [
+        {
+          "wrong": "The predator thinks the hoverfly is a wasp.",
+          "right": "This is ignored. Say the hoverfly looks like a wasp, so predators avoid it because they do not want to be stung."
+        },
+        {
+          "wrong": "The predator does not bite or harm the hoverfly.",
+          "right": "\"Bite\" and \"harm\" are ignored. Say the predator does not attack or eat the hoverfly."
+        },
+        {
+          "wrong": "Aphids with wings can fly.",
+          "right": "\"To fly\" unqualified is ignored. Say they can fly to another plant to get more food."
+        }
+      ],
+      "worked_example": {
+        "exemplar_id": "72b68b51-51fe-4d3a-a834-ec62e4dc6b5c",
+        "source": "AQA jun 2023, Paper 2 (F), Q03.3",
+        "question": "The snowshoe hare has a different fur colour in the summer (brown) than in the winter (white).\n\nExplain how the different fur colour increases the chance of survival of the snowshoe hare.",
+        "marks": 3,
+        "answer_points": [
+          "The hare is camouflaged or hidden, so it is not easily seen. It blends in with its surroundings.",
+          "It is hidden from the lynx (predator).",
+          "So it is less likely to be killed or eaten."
+        ],
+        "tip": "One mark for camouflage, one for naming the predator and one for not being eaten."
+      }
+    },
+    "edexcel": {
+      "spec_codes": [
+        "EDEX 6.14B"
+      ],
+      "exam_phrases": [
+        "the cuticle is thinner",
+        "the plant has plenty of water / doesn't need to conserve water",
+        "the cuticle is waterproof",
+        "stomata in pits to reduce the loss of water",
+        "needle-shaped to reduce the surface area"
+      ],
+      "mistakes": [
+        {
+          "wrong": "Plants in soil with more water have a thicker cuticle.",
+          "right": "The cuticle is thinner, because the plant has plenty of water and does not need to conserve it. The cuticle is waterproof."
+        },
+        {
+          "wrong": "The pine leaf is needle-shaped to reduce its volume.",
+          "right": "A needle shape reduces the surface area of the leaf, which reduces water loss."
+        }
+      ],
+      "worked_example": {
+        "exemplar_id": "0ff68a2c-23c3-47bc-9b44-f1b5e61287d6",
+        "source": "EDEXCEL jun 2024, Paper 2 (F), Q5(b)(ii)",
+        "question": "A scientist measured the thickness of the cuticle from the leaves of plants growing in soil with different percentages of water content. Six plants were measured at each water content.\n\nWater content of soil (%) | Thickness of the cuticle (µm): plant 1 | plant 2 | plant 3 | plant 4 | plant 5 | plant 6 | Mean thickness (µm)\n5 | 13.8 | 12.3 | 11.4 | 10.6 | 11.7 | 13.2 | 12.2\n10 | 11.1 | 8.8 | 10.0 | 8.9 | 7.0 | 8.2 | 9.0\n15 | 7.2 | 7.1 | 6.9 | 5.4 | 5.9 | 6.1 | ?\n20 | 3.6 | 4.0 | 3.6 | 4.2 | 3.9 | 4.3 | 3.9\n\nExplain why the thickness of the cuticle is different when a plant is grown in soil with a higher water content.",
+        "marks": 2,
+        "answer_points": [
+          "The cuticle is thinner.",
+          "The plant has plenty of water, so it does not need to conserve as much water as a plant in dry soil.",
+          "The cuticle is waterproof."
+        ],
+        "tip": "Any two points score. Say the direction of the change, then give the reason."
+      },
+      "extra": [
+        {
+          "heading": "Plants in extreme environments",
+          "blocks": [
+            {
+              "type": "paragraph",
+              "text": "Plants in very dry places must reduce the water they lose. Three features help."
+            },
+            {
+              "type": "list",
+              "items": [
+                "**Small or needle-shaped leaves:** a smaller surface area means less water is lost.",
+                "**A thick cuticle:** the waxy layer is waterproof, so it reduces water loss.",
+                "**Rolled leaves or stomata in pits:** these trap moist air around the stomata, so less water vapour diffuses out and less water is lost."
+              ]
+            }
+          ]
+        }
+      ]
+    }
+  },
+  "meta": {
+    "status": "draft",
+    "written_by": "sonnet-5-5",
+    "written_at": "2026-10-01",
+    "spec_point_ids": [
+      "9733dcba-040f-4cdc-b776-2a4aebde680d",
+      "af5cc197-0780-42f9-8216-c7fdfd75a219",
+      "ca8ba68e-f9a7-4104-9b07-a37d92a4670b"
+    ],
+    "exemplar_ids": [
+      "72b68b51-51fe-4d3a-a834-ec62e4dc6b5c",
+      "0ff68a2c-23c3-47bc-9b44-f1b5e61287d6",
+      "44c5d270-bedd-4888-b32b-f5478d73bdc6",
+      "7a61fc24-b2de-4513-92c7-91fa7c1d19b8",
+      "28d81eb4-026d-493b-a77d-edae40382654",
+      "8314f60b-f469-4fd6-8202-7d998f6cf534"
+    ],
+    "checked_by": "sonnet-science-check",
+    "checked_at": "2026-10-01"
+  }
+}

@@ -1,0 +1,420 @@
+{
+  "format": 1,
+  "concept_id": "phys-047",
+  "subject": "physics",
+  "title": "Forces and elasticity",
+  "key_idea": "Stretching, bending or compressing an object needs more than one force. For a spring, force is directly proportional to extension until the limit of proportionality (Hooke's law). The work done on the spring is stored as elastic potential energy.",
+  "sections": [
+    {
+      "heading": "Changing the shape of an object",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "Forces can stretch, bend or compress an object. This section covers what is needed and what happens when the force is removed."
+        },
+        {
+          "type": "list",
+          "items": [
+            "To change the shape of an object, **two or more forces** must act on it, in different directions.",
+            "Stretching is an example: the forces pull in opposite directions. Compressing is the same idea, with the forces pushing in.",
+            "Fixing one end of an object counts as the second force.",
+            "This applies to stationary objects, such as a spring held in a clamp."
+          ]
+        },
+        {
+          "type": "definitions",
+          "items": [
+            {
+              "term": "Elastic deformation",
+              "meaning": "The object returns to its original shape or length when the force is removed."
+            },
+            {
+              "term": "Inelastic (plastic) deformation",
+              "meaning": "The object does not return to its original shape or length when the force is removed."
+            },
+            {
+              "term": "Extension",
+              "meaning": "The increase in length of a spring: extended length minus original length."
+            }
+          ]
+        },
+        {
+          "type": "key-points",
+          "items": [
+            "Changing shape needs two or more forces.",
+            "An elastic object returns to its original shape.",
+            "An inelastically deformed object stays changed."
+          ]
+        }
+      ]
+    },
+    {
+      "heading": "Force and extension: Hooke's law",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "For a spring, the extension is directly proportional to the force, provided the limit of proportionality is not exceeded."
+        },
+        {
+          "type": "equation",
+          "label": "Force on a spring",
+          "formula": "F = k × e",
+          "where": [
+            "F is force in newtons (N).",
+            "k is the spring constant in newtons per metre (N/m).",
+            "e is extension in metres (m). The same equation works for compression, where e is the compression."
+          ]
+        },
+        {
+          "type": "steps",
+          "items": [
+            {
+              "lead": "Convert to metres",
+              "text": "A spring extends by 1.50 cm: e = 0.015 m."
+            },
+            {
+              "lead": "Substitute",
+              "text": "A force of 2.88 N: 2.88 = k × 0.015."
+            },
+            {
+              "lead": "Rearrange",
+              "text": "k = 2.88 ÷ 0.015."
+            },
+            {
+              "lead": "Calculate",
+              "text": "k = 192 N/m."
+            }
+          ]
+        },
+        {
+          "type": "diagram",
+          "diagram": {
+            "kind": "practice",
+            "alt": "Calculate the force needed to stretch a spring of a given spring constant by a given extension in centimetres. New numbers each time.",
+            "question": "A spring has a spring constant of {k} N/m. Calculate the force needed to extend it by {e} cm.",
+            "variables": [
+              {
+                "id": "k",
+                "min": 20,
+                "max": 100,
+                "step": 10
+              },
+              {
+                "id": "e",
+                "min": 2,
+                "max": 20,
+                "step": 2
+              }
+            ],
+            "answer": {
+              "formula": "k * e / 100",
+              "unit": "N",
+              "decimals": 1
+            },
+            "working": [
+              "Convert the extension to metres: {e} cm ÷ 100",
+              "F = k × e",
+              "F = {k} × ({e} ÷ 100)",
+              "F = {answer} N"
+            ]
+          }
+        },
+        {
+          "type": "subheading",
+          "text": "Force-extension graphs"
+        },
+        {
+          "type": "list",
+          "items": [
+            "A **linear** relationship gives a straight line through the origin. Force and extension are directly proportional.",
+            "A **non-linear** relationship gives a curve. The extension is no longer proportional to the force.",
+            "A spring is linear up to its limit of proportionality, then the line curves.",
+            "In the linear part, the spring constant is the force divided by the extension.",
+            "Beyond the elastic limit, the spring is inelastically deformed and does not return to its original length.",
+            "A spring with a low spring constant is easy to stretch: a given force gives a large extension."
+          ]
+        },
+        {
+          "type": "equation",
+          "label": "Spring constant (linear part)",
+          "formula": "k = F ÷ e",
+          "where": [
+            "k is the spring constant in newtons per metre (N/m).",
+            "F is force in newtons (N).",
+            "e is extension in metres (m)."
+          ]
+        },
+        {
+          "type": "key-points",
+          "items": [
+            "F = k × e, with the extension in metres.",
+            "Convert centimetres or millimetres to metres first.",
+            "Beyond the limit of proportionality the relationship is non-linear."
+          ]
+        }
+      ]
+    },
+    {
+      "heading": "Energy stored in a spring",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "A force that stretches or compresses a spring does work. Provided the spring is not inelastically deformed, the work done equals the elastic potential energy stored."
+        },
+        {
+          "type": "equation",
+          "label": "Elastic potential energy",
+          "formula": "Ee = ½ × k × e²",
+          "where": [
+            "Ee is elastic potential energy in joules (J). It is the same as the work done in stretching.",
+            "k is the spring constant in newtons per metre (N/m).",
+            "e is extension in metres (m). It is squared."
+          ]
+        },
+        {
+          "type": "steps",
+          "items": [
+            {
+              "lead": "Convert to metres",
+              "text": "A spring with k = 8500 N/m is compressed by 1.2 cm: e = 0.012 m."
+            },
+            {
+              "lead": "Substitute",
+              "text": "Ee = ½ × 8500 × 0.012²."
+            },
+            {
+              "lead": "Calculate",
+              "text": "Ee = 0.612 J."
+            }
+          ]
+        },
+        {
+          "type": "diagram",
+          "diagram": {
+            "kind": "slider",
+            "alt": "Change the spring constant and the extension and see the force and the energy stored.",
+            "inputs": [
+              {
+                "id": "k",
+                "label": "Spring constant",
+                "unit": "N/m",
+                "min": 50,
+                "max": 500,
+                "step": 50,
+                "value": 200
+              },
+              {
+                "id": "e",
+                "label": "Extension",
+                "unit": "m",
+                "min": 0.02,
+                "max": 0.2,
+                "step": 0.02,
+                "value": 0.1
+              }
+            ],
+            "outputs": [
+              {
+                "label": "Force",
+                "unit": "N",
+                "formula": "k * e",
+                "decimals": 1
+              },
+              {
+                "label": "Energy stored",
+                "unit": "J",
+                "formula": "0.5 * k * e^2",
+                "decimals": 2
+              }
+            ]
+          }
+        },
+        {
+          "type": "paragraph",
+          "text": "Doubling the extension doubles the force but makes the stored energy four times bigger, because the extension is squared."
+        },
+        {
+          "type": "key-points",
+          "items": [
+            "Ee = ½ × k × e². The extension is squared.",
+            "The work done equals the energy stored, up to the limit of proportionality.",
+            "Always give the unit, J."
+          ]
+        }
+      ]
+    }
+  ],
+  "checks": [
+    {
+      "q": "Describe the difference between elastic deformation and inelastic deformation.",
+      "a": "An elastically deformed object returns to its original shape or length when the force is removed. An inelastically deformed object does not.",
+      "marks": 2
+    },
+    {
+      "q": "A force of 4.0 N gives an extension of 0.064 m. Calculate the spring constant.",
+      "a": "k = F ÷ e = 4.0 ÷ 0.064 = 62.5 N/m.",
+      "marks": 3
+    },
+    {
+      "q": "A spring with a spring constant of 30 N/m is stretched by 4.0 cm. Calculate the energy transferred.",
+      "a": "e = 0.04 m. Ee = ½ × 30 × 0.04² = 0.024 J.",
+      "marks": 3
+    }
+  ],
+  "boards": {
+    "aqa": {
+      "spec_codes": [
+        "AQA 4.5.3",
+        "AQA T 6.5.3",
+        "AQA 4.1.1.2",
+        "AQA T 6.1.1.2"
+      ],
+      "exam_phrases": [
+        "will return to its original shape / length when the force is removed",
+        "will not go back to its original length when the force is removed",
+        "the spring is inelastically deformed",
+        "the extension is no longer proportional to the force",
+        "limit of proportionality",
+        "springs with a low spring constant can compress by a larger amount",
+        "the spring has reached its limit of proportionality"
+      ],
+      "mistakes": [
+        {
+          "wrong": "k = 2.88 ÷ 1.50 = 1.92 N/m, using the extension in centimetres.",
+          "right": "The conversion is worth a mark of its own. 1.50 cm = 0.015 m, so k = 2.88 ÷ 0.015 = 192 N/m."
+        },
+        {
+          "wrong": "A soft mattress needs springs with a high spring constant.",
+          "right": "A soft mattress needs springs with a low spring constant, because they can compress by a larger amount for a given force."
+        },
+        {
+          "wrong": "An object that is inelastically deformed returns to its original shape.",
+          "right": "It will not go back to its original length (or shape) when the force is removed."
+        }
+      ],
+      "worked_example": {
+        "exemplar_id": "acfb5091-078c-4013-b9c0-649fa681c5af",
+        "source": "AQA jun 2020, Paper 2 (H), Q04.5",
+        "question": "A door is fitted with a lock. The lock contains a spring. When the door unlocks, a force of 2.88 N is applied to the spring. The spring extends by 1.50 cm. Calculate the spring constant of the spring.",
+        "marks": 4,
+        "answer_points": [
+          "1.50 cm = 0.015 m",
+          "2.88 = k × 0.015",
+          "k = 2.88 / 0.015",
+          "k = 192 N/m"
+        ],
+        "tip": "One mark each for converting, substituting, rearranging and the answer. Without the conversion, the later method marks can still be awarded."
+      }
+    },
+    "edexcel": {
+      "spec_codes": [
+        "EDEX 15.1",
+        "EDEX 15.2",
+        "EDEX 15.3",
+        "EDEX 15.4",
+        "EDEX 15.5"
+      ],
+      "exam_phrases": [
+        "rearrangement",
+        "(controls the maximum) extension",
+        "idea of keeping below the elastic limit",
+        "spring being permanently stretched",
+        "joule(s) / J"
+      ],
+      "mistakes": [
+        {
+          "wrong": "The work done is ½ × 20 × 9² = 810 J for an extension of 0.09 m.",
+          "right": "The extension must be in metres: ½ × 20 × 0.09² = 0.081 J. The unconverted answer earns only one mark."
+        },
+        {
+          "wrong": "k = 0.50 ÷ 0.013² = 2958 N/m for a force of 0.50 N and an extension of 13 mm.",
+          "right": "Do not square the extension when using force and extension. Use k = F ÷ e = 0.50 ÷ 0.013 = 38 N/m. The squared version earns only 1 mark."
+        }
+      ],
+      "worked_example": {
+        "exemplar_id": "1ea68aa4-d222-44cc-9596-0bece2e9075d",
+        "source": "EDEXCEL jun 2019, Paper 2 (F), Q5(c)",
+        "question": "A spring has a spring constant of 250 N/m. Calculate the work done in stretching the spring by 0.30 m. State the unit. Use the equation E = ½ × k × x².",
+        "marks": 3,
+        "answer_points": [
+          "Substitution: E = ½ × 250 × 0.30²",
+          "Evaluation: E = 11.25, which is 11",
+          "Unit: joule (J)"
+        ],
+        "tip": "The unit is an independent mark. No power of ten errors are allowed in the evaluation."
+      }
+    },
+    "ocr": {
+      "spec_codes": [
+        "OCR P2.3a",
+        "OCR P2.3b",
+        "OCR P2.3c",
+        "OCR P2.3d",
+        "OCR P2.3e",
+        "OCR P2.3f",
+        "OCR P7.1e"
+      ],
+      "exam_phrases": [
+        "two (or more) forces acting in different directions",
+        "plastic: stays deformed when the force is removed",
+        "elastic: returns to original shape when the force is removed",
+        "(spring constant =) force / extension",
+        "force and extension relationship is no longer linear"
+      ],
+      "mistakes": [
+        {
+          "wrong": "To change the shape of an object you need to apply one force.",
+          "right": "Two or more forces are needed, acting in different directions. A fixed end of the material counts as the second force."
+        },
+        {
+          "wrong": "Plastic deformation means the object returns to its original shape.",
+          "right": "Plastic: it stays deformed when the force is removed. Elastic: it returns to its original shape."
+        },
+        {
+          "wrong": "A spring has an original length of 3.0 cm and an extended length of 7.0 cm, so the extension is 7.0 cm.",
+          "right": "Extension = extended length − original length = 4.0 cm. Using the wrong data point loses the substitution mark."
+        }
+      ],
+      "worked_example": {
+        "exemplar_id": "cf253643-9739-43e0-96ae-b81c743ab04f",
+        "source": "OCR jun 2022, Paper 1, Q22(b)(i)",
+        "question": "A climber investigates how a rope stretches with different forces. The results: force 0 N, 10 N, 20 N, 30 N, 40 N gives extension 0.00 m, 0.15 m, 0.3 m, 0.45 m, 0.60 m. Calculate the spring constant for the rope. Give your answer to two significant figures. Use the equation: force = extension × spring constant.",
+        "marks": 4,
+        "answer_points": [
+          "Spring constant = force / extension",
+          "Substitute any pair of values from the table: 40 / 0.6",
+          "66.7 N/m",
+          "67 N/m to 2 significant figures"
+        ],
+        "tip": "Any two matching values from the table can be used. The final mark is for rounding to 2 significant figures."
+      }
+    }
+  },
+  "meta": {
+    "status": "draft",
+    "written_by": "sonnet-5-5",
+    "written_at": "2026-10-01",
+    "spec_point_ids": [
+      "b595be2c-0ca5-46d1-b9e8-c678a8f8db12",
+      "6dfedda3-a826-4037-a47d-356898bc91ea",
+      "926b3967-8ba9-4af5-ba40-4713862c710c",
+      "e1261883-76f1-4d22-9ce3-53331a264ac0",
+      "55ef0b9e-4925-44d1-a33e-84359a4ca2a8",
+      "84115923-4741-49ab-8011-c090afe47ed4",
+      "2097b457-7821-4dcd-ba98-53a5b73dbad5",
+      "ceb4e25a-17cb-43f8-938e-4a0e8d992fad",
+      "ff218a29-6bd4-401b-af82-e6059858752a",
+      "db8df4f3-5417-4986-bd23-efe3ceec4d71",
+      "4625f6c2-b554-47c9-a115-5820f2c8ff33",
+      "77ddf25a-a4c6-4b39-b74b-ddc20dfe2649",
+      "ea064ab1-453d-472f-ac4c-b50afce0fe73"
+    ],
+    "exemplar_ids": [
+      "acfb5091-078c-4013-b9c0-649fa681c5af",
+      "1ea68aa4-d222-44cc-9596-0bece2e9075d",
+      "cf253643-9739-43e0-96ae-b81c743ab04f"
+    ],
+    "checked_by": "sonnet-science-check",
+    "checked_at": "2026-10-01"
+  }
+}

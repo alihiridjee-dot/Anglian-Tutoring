@@ -1,0 +1,271 @@
+{
+  "format": 1,
+  "concept_id": "bio-034",
+  "subject": "biology",
+  "title": "Cancer",
+  "key_idea": "Cancer is the result of changes in cells that lead to uncontrolled cell division. The cells form a lump called a tumour. Malignant tumours invade other tissues and spread around the body. Benign tumours stay in one place.",
+  "sections": [
+    {
+      "heading": "What cancer is",
+      "blocks": [
+        { "type": "paragraph", "text": "Cancer is a non-communicable disease. It starts when changes in a cell lead to uncontrolled growth and division." },
+        {
+          "type": "definitions",
+          "items": [
+            { "term": "Mutation", "meaning": "A change in a cell's DNA or genes." },
+            { "term": "Tumour", "meaning": "A lump of abnormal cells formed by uncontrolled cell division." },
+            { "term": "Carcinogen", "meaning": "Something that can damage DNA and cause cancer." }
+          ]
+        },
+        {
+          "type": "list",
+          "items": [
+            "Mutations happen in the nucleus of a cell.",
+            "A mutation can stop the cell dividing in a controlled way.",
+            "The cell divides by mitosis again and again and never stops.",
+            "A mass of cells forms: a tumour."
+          ]
+        },
+        {
+          "type": "key-points",
+          "items": [
+            "Cancer is caused by changes (mutations) in cells.",
+            "The cells divide uncontrollably by mitosis.",
+            "Uncontrolled division forms a tumour."
+          ]
+        }
+      ]
+    },
+    {
+      "heading": "Benign and malignant tumours",
+      "blocks": [
+        { "type": "paragraph", "text": "There are two types of tumour. Only malignant tumours are cancers." },
+        {
+          "type": "diagram",
+          "diagram": {
+            "kind": "compare",
+            "alt": "Benign tumours compared with malignant tumours.",
+            "items": ["Benign tumour", "Malignant tumour"],
+            "rows": [
+              { "feature": "Cells", "values": ["Abnormal, but more similar to normal cells", "Cancer cells"] },
+              { "feature": "Where it stays", "values": ["Contained in one area, usually within a membrane", "Invades neighbouring tissues"] },
+              { "feature": "Spread", "values": ["Does not spread to other parts of the body", "Cells spread in the blood to other parts of the body"] },
+              { "feature": "Secondary tumours", "values": ["Do not form", "Can form"] }
+            ]
+          }
+        },
+        {
+          "type": "list",
+          "items": [
+            "Both types come from changes in the cell, and both show uncontrolled cell division.",
+            "Both can form a lump of abnormal cells.",
+            "Malignant tumours usually grow faster than benign tumours."
+          ]
+        },
+        {
+          "type": "diagram",
+          "diagram": {
+            "kind": "sort",
+            "alt": "Sort each statement into benign tumours, malignant tumours or both.",
+            "prompt": "Benign, malignant or both?",
+            "groups": ["Benign", "Malignant", "Both"],
+            "items": [
+              { "text": "Contained in one area", "group": 0 },
+              { "text": "Invades neighbouring tissues", "group": 1 },
+              { "text": "Can form secondary tumours", "group": 1 },
+              { "text": "Caused by uncontrolled cell division", "group": 2 },
+              { "text": "Cells travel in the blood to other parts of the body", "group": 1 },
+              { "text": "Does not spread to other parts of the body", "group": 0 },
+              { "text": "Made of abnormal cells", "group": 2 },
+              { "text": "A cancer", "group": 1 }
+            ]
+          }
+        },
+        {
+          "type": "key-points",
+          "items": [
+            "Benign tumours stay in one place and do not invade other parts of the body.",
+            "Malignant tumours are cancers. They invade neighbouring tissues and spread in the blood.",
+            "Spread forms secondary tumours."
+          ]
+        }
+      ]
+    },
+    {
+      "heading": "Risk factors",
+      "blocks": [
+        { "type": "paragraph", "text": "Scientists have found lifestyle risk factors and genetic risk factors for different types of cancer." },
+        { "type": "subheading", "text": "Lifestyle and environment" },
+        {
+          "type": "list",
+          "items": [
+            "Smoking: carcinogens in smoke are inhaled into the lungs and increase the risk of lung cancer.",
+            "Ionising radiation and UV light from the Sun or sunbeds can damage DNA.",
+            "Some viruses can cause tumours to develop.",
+            "Obesity is linked to a higher risk of cancer."
+          ]
+        },
+        { "type": "subheading", "text": "Genetic" },
+        {
+          "type": "list",
+          "items": [
+            "There are genetic risk factors for some cancers.",
+            "Some people inherit genes that make these cancers more likely."
+          ]
+        },
+        {
+          "type": "key-points",
+          "items": [
+            "Carcinogens, ionising radiation and some viruses can cause cancer.",
+            "There are lifestyle risk factors and genetic risk factors.",
+            "More cell and DNA damage means a higher chance of cancer."
+          ]
+        }
+      ]
+    }
+  ],
+  "checks": [
+    {
+      "q": "Describe what happens to cells when a tumour forms.",
+      "a": "Cells grow and divide abnormally, or uncontrollably.",
+      "marks": 1
+    },
+    {
+      "q": "Explain what is meant by a malignant tumour.",
+      "a": "Uncontrolled cell division. The cells invade neighbouring tissues. They spread to other parts of the body in the blood.",
+      "marks": 3
+    },
+    {
+      "q": "Name two factors that can cause cancer.",
+      "a": "Any two from: ionising radiation, viruses, carcinogens.",
+      "marks": 2
+    }
+  ],
+  "boards": {
+    "aqa": {
+      "spec_codes": ["AQA 2.10", "AQA T 4.2.2.7"],
+      "exam_phrases": [
+        "uncontrolled cell division / growth",
+        "invade neighbouring tissues",
+        "(tumour) cells spread to different parts of the body / tissues in the blood",
+        "can form secondary tumours",
+        "result from changes in the cell / DNA / genes",
+        "benign tumours stay in one place"
+      ],
+      "mistakes": [
+        {
+          "wrong": "Malignant tumours are more harmful than benign tumours.",
+          "right": "References to the level of harm are ignored. Say that malignant tumours invade neighbouring tissues, spread in the blood and form secondary tumours."
+        },
+        {
+          "wrong": "The Sun causes skin cancer.",
+          "right": "\"Sun\" on its own is ignored. Say exposure to UV light or sunlight, or ionising radiation, causes cell, DNA or gene damage."
+        }      ],
+      "worked_example": {
+        "exemplar_id": "0b454788-a233-49d4-bdb6-2ace08b9700e",
+        "source": "AQA jun 2022, Paper 1 (H), Q5.1",
+        "question": "Describe the similarities and differences between benign tumours and malignant tumours.",
+        "marks": 4,
+        "answer_points": [
+          "Similarity: both result from changes in the cell, DNA or genes.",
+          "Similarity: both show uncontrolled cell growth or division.",
+          "Similarity: both can form a lump of cells.",
+          "Similarity: both are made up of abnormal cells.",
+          "Difference: malignant tumours are made of cancer cells. Benign tumours are made of cells that are more similar to normal cells.",
+          "Difference: malignant tumours usually grow faster.",
+          "Difference: malignant tumours invade neighbouring tissues. Benign tumours do not.",
+          "Difference: malignant tumour cells can spread to other parts of the body, in the blood. Benign tumours stay in one place.",
+          "Difference: malignant tumours can form secondary tumours. Benign tumours do not."
+        ],
+        "tip": "Any four points score one mark each. Give both similarities and differences, or the maximum is three marks."
+      }
+    },
+    "edexcel": {
+      "spec_codes": ["EDEX 2.4"],
+      "exam_phrases": [
+        "cell division is uncontrolled",
+        "mutations in DNA",
+        "creates a mass / large number of cells / tumour",
+        "cancer cells divide uncontrollably / have mutations",
+        "the cell cycle is quicker / doesn't stop",
+        "cells triggered to divide by mitosis"
+      ],
+      "mistakes": [
+        {
+          "wrong": "Cancer is caused by a mutation.",
+          "right": "When asked for the effect on cell division, \"mutation\" or \"tumour\" alone is ignored. Say cell division is uncontrolled or increased."
+        },
+        {
+          "wrong": "Cancer cells just grow.",
+          "right": "Say the cells divide, multiply or reproduce rapidly, or that they will not stop dividing."
+        }
+      ],
+      "worked_example": {
+        "exemplar_id": "4d9e7f6e-ccd4-4fa2-a44a-1929129c0fca",
+        "source": "EDEXCEL nov 2020, Paper 1 (H), Q9(a)(i)",
+        "question": "Cancer Research UK found that many people do not realise that obesity is linked to an increased risk of developing cancer. In the body, fat tissue sends signals that cause other cells to divide. Describe how this could cause cancer to develop.",
+        "marks": 3,
+        "answer_points": [
+          "The cells are triggered to divide by mitosis.",
+          "This division is uncontrolled. The cells will not stop dividing, or divide faster.",
+          "It creates a mass or large number of cells: a tumour."
+        ],
+        "tip": "Link the three steps in order: more cell division, which is uncontrolled, forming a tumour."
+      }
+    },
+    "ocr": {
+      "spec_codes": ["OCR 6.3u"],
+      "exam_phrases": [
+        "grow / divide in an uncontrolled way",
+        "form tumours",
+        "mutations / change in DNA / genes",
+        "rapid / uncontrolled (cell) division",
+        "less chance of mutations",
+        "less likely to get cancer / tumours"
+      ],
+      "mistakes": [
+        {
+          "wrong": "Cancer cells reproduce.",
+          "right": "\"Reproduce\" is ignored. Say the cells divide, replicate, multiply or undergo mitosis in an uncontrolled way."
+        },
+        {
+          "wrong": "Cancer cells just grow.",
+          "right": "\"Grow\" unqualified is ignored. Say they grow or divide in an uncontrolled way."
+        },
+        {
+          "wrong": "Slowing the cell cycle stops cells dividing uncontrollably.",
+          "right": "\"Stops\" or \"prevents\" division is ignored. Say it slows down cell division, so cells are less likely to divide uncontrollably."
+        }
+      ],
+      "worked_example": {
+        "exemplar_id": "29bef832-1059-48b3-b262-389f59de66f0",
+        "source": "OCR nov 2021, Paper 4, Q19(a)",
+        "question": "Cancer is caused by changes in cells. Describe the effects that cancer has on cells.",
+        "marks": 2,
+        "answer_points": [
+          "The cells grow or divide in an uncontrolled way (a change in the rate of growth or division is allowed).",
+          "The cells form tumours."
+        ],
+        "tip": "\"Grow\" on its own is ignored. Say the growth or division is uncontrolled."
+      }
+    }
+  },
+  "meta": {
+    "status": "draft",
+    "checked_by": "sonnet-science-check",
+    "checked_at": "2026-10-01",
+    "written_by": "sonnet-5-5",
+    "written_at": "2026-10-01",
+    "spec_point_ids": [
+      "7d777dae-a597-420b-9f43-e209a6e74832",
+      "aed7d436-410e-462e-a58a-5996f7e79b69",
+      "5918bd7b-5233-415f-b8cb-505bef8c336e",
+      "f7e5a956-8295-4e05-819d-1b2fdf44fd94"
+    ],
+    "exemplar_ids": [
+      "0b454788-a233-49d4-bdb6-2ace08b9700e",
+      "4d9e7f6e-ccd4-4fa2-a44a-1929129c0fca",
+      "29bef832-1059-48b3-b262-389f59de66f0"
+    ]
+  }
+}

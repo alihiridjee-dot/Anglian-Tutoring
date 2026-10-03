@@ -1,0 +1,434 @@
+{
+  "format": 1,
+  "concept_id": "chem-105",
+  "subject": "chemistry",
+  "title": "Alloys",
+  "key_idea": "In a pure metal the layers of atoms slide easily, so it is soft. An alloy has atoms of different sizes, which distort the layers so they cannot easily slide. Alloys are harder, and each is chosen for the properties its use needs.",
+  "sections": [
+    {
+      "heading": "Why alloys are harder than pure metals",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "An alloy is a mixture of a metal with other elements, usually other metals. This section explains why alloys are harder."
+        },
+        {
+          "type": "definitions",
+          "items": [
+            {
+              "term": "Alloy",
+              "meaning": "A mixture of a metal with other elements, usually other metals."
+            }
+          ]
+        },
+        {
+          "type": "list",
+          "items": [
+            "In a pure metal the atoms are all the same size and are arranged in regular layers.",
+            "The layers can slide over each other, so a pure metal can be bent and shaped. It is also soft.",
+            "In an alloy the atoms are of different sizes.",
+            "The different sized atoms distort the layers, so the layers cannot easily slide over each other.",
+            "So an alloy is harder and stronger than the pure metal."
+          ]
+        },
+        {
+          "type": "diagram",
+          "diagram": {
+            "kind": "compare",
+            "alt": "A pure metal compared with an alloy.",
+            "items": [
+              "Pure metal",
+              "Alloy"
+            ],
+            "rows": [
+              {
+                "feature": "Size of atoms",
+                "values": [
+                  "All the same",
+                  "Different sizes"
+                ]
+              },
+              {
+                "feature": "Layers of atoms",
+                "values": [
+                  "Regular and can slide easily",
+                  "Distorted and cannot easily slide"
+                ]
+              },
+              {
+                "feature": "Hardness",
+                "values": [
+                  "Soft",
+                  "Harder"
+                ]
+              }
+            ]
+          }
+        },
+        {
+          "type": "key-points",
+          "items": [
+            "Pure metals are too soft for many uses.",
+            "An alloy has atoms of different sizes, which distort the layers.",
+            "Distorted layers cannot easily slide, so an alloy is harder."
+          ]
+        }
+      ]
+    },
+    {
+      "heading": "Common alloys and their uses (Separate science)",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "Most metals in everyday use are alloys. Each alloy is made for the properties its use needs."
+        },
+        {
+          "type": "table",
+          "columns": [
+            "Alloy",
+            "Made from",
+            "Properties and uses"
+          ],
+          "rows": [
+            [
+              "Bronze",
+              "Copper and tin",
+              "Used for bells, statues and ship propellers."
+            ],
+            [
+              "Brass",
+              "Copper and zinc",
+              "Strong and hard wearing. Used for musical instruments and plug pins."
+            ],
+            [
+              "Gold jewellery",
+              "Gold with silver, copper and zinc",
+              "Harder than pure gold, and cheaper."
+            ],
+            [
+              "High carbon steel",
+              "Iron with a high amount of carbon",
+              "Strong but brittle."
+            ],
+            [
+              "Low carbon steel",
+              "Iron with a low amount of carbon",
+              "Softer and more easily shaped."
+            ],
+            [
+              "Stainless steel",
+              "Iron with chromium and nickel",
+              "Hard and resistant to corrosion."
+            ],
+            [
+              "Aluminium alloys, such as magnalium (aluminium and magnesium)",
+              "Aluminium with other metals",
+              "Low density. Used for aircraft parts."
+            ],
+            [
+              "Duralumin",
+              "Copper and aluminium",
+              "Used for aircraft parts."
+            ],
+            [
+              "Solder",
+              "Tin and lead",
+              "Harder than pure tin."
+            ]
+          ]
+        },
+        {
+          "type": "subheading",
+          "text": "Gold and carats"
+        },
+        {
+          "type": "list",
+          "items": [
+            "The proportion of gold in an alloy is measured in carats.",
+            "24 carat is pure gold (100%).",
+            "18 carat is 75% gold."
+          ]
+        },
+        {
+          "type": "equation",
+          "label": "Percentage of gold in an alloy",
+          "formula": "percentage of gold = (carats ÷ 24) × 100",
+          "where": [
+            "carats = the carat value of the alloy",
+            "percentage of gold in %"
+          ]
+        },
+        {
+          "type": "equation",
+          "label": "Mass of gold in an object",
+          "formula": "mass of gold = (percentage of gold ÷ 100) × mass of object",
+          "where": [
+            "mass in grams (g)"
+          ]
+        },
+        {
+          "type": "diagram",
+          "diagram": {
+            "kind": "practice",
+            "alt": "Calculate the mass of gold in a ring from its carat value.",
+            "question": "A {m} g ring is made from {c} carat gold. 24 carat gold is pure gold. Calculate the mass of gold in the ring.",
+            "variables": [
+              {
+                "id": "c",
+                "min": 12,
+                "max": 18,
+                "step": 6
+              },
+              {
+                "id": "m",
+                "min": 2,
+                "max": 10,
+                "step": 1
+              }
+            ],
+            "answer": {
+              "formula": "c / 24 * m",
+              "unit": "g",
+              "decimals": 2
+            },
+            "working": [
+              "Percentage of gold = {c} ÷ 24 × 100",
+              "Mass of gold = (percentage ÷ 100) × {m}",
+              "Mass of gold = {answer} g"
+            ]
+          }
+        },
+        {
+          "type": "key-points",
+          "items": [
+            "Bronze is copper and tin. Brass is copper and zinc.",
+            "Steels are iron with carbon. More carbon makes steel stronger but more brittle.",
+            "24 carat is 100% gold. Carat ÷ 24 × 100 gives the percentage."
+          ]
+        }
+      ]
+    },
+    {
+      "heading": "Matching alloys to uses (Separate science)",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "To choose a metal for a use, match its properties to what the use needs. Compare the data given in the question."
+        },
+        {
+          "type": "subheading",
+          "text": "Pure metals and their uses"
+        },
+        {
+          "type": "list",
+          "items": [
+            "Aluminium is used for cooking foil. It is malleable and has low toxicity.",
+            "Copper is used for water pipes and electrical wires. It is unreactive and a good conductor of electricity.",
+            "Gold is used for jewellery and electronic contacts. It is unreactive, does not corrode and is a good conductor."
+          ]
+        },
+        {
+          "type": "subheading",
+          "text": "Why an alloy is chosen"
+        },
+        {
+          "type": "list",
+          "items": [
+            "Gold alloys are harder and cheaper than pure gold.",
+            "Aluminium alloys have low density and are stronger than pure aluminium, so they suit aircraft parts.",
+            "Brass is strong and hard wearing, so it suits plug pins.",
+            "Stainless steel is hard and resists corrosion."
+          ]
+        },
+        {
+          "type": "subheading",
+          "text": "Evaluating data"
+        },
+        {
+          "type": "list",
+          "items": [
+            "Compare the properties in the table, such as density, strength and resistance to corrosion.",
+            "Say which is higher or lower. Do not just quote the numbers.",
+            "Link the property to what the use needs."
+          ]
+        },
+        {
+          "type": "key-points",
+          "items": [
+            "Match each property to what the use needs.",
+            "An alloy is chosen when the pure metal is too soft or lacks a needed property.",
+            "Compare values in your answer rather than only quoting them."
+          ]
+        }
+      ]
+    }
+  ],
+  "checks": [
+    {
+      "q": "Explain why an alloy is harder than a pure metal.",
+      "a": "The atoms in an alloy are of different sizes, so the layers are distorted. The layers cannot easily slide over each other.",
+      "marks": 3
+    },
+    {
+      "q": "Name the metals in brass and in bronze.",
+      "a": "Brass is copper and zinc. Bronze is copper and tin.",
+      "marks": 2
+    },
+    {
+      "q": "Calculate the mass of gold in a 4 g ring made from 18 carat gold.",
+      "a": "18 carat is 75% gold. 75 ÷ 100 × 4 = 3 g.",
+      "marks": 2
+    }
+  ],
+  "boards": {
+    "aqa": {
+      "spec_codes": [
+        "AQA 4.10.3.2",
+        "AQA 4.2.2.7",
+        "AQA T 5.2.2.7"
+      ],
+      "exam_phrases": [
+        "different sized atoms",
+        "the layers are distorted",
+        "the layers cannot easily slide",
+        "slide over each other less easily",
+        "hard",
+        "resistant to corrosion",
+        "(alloy of gold is) harder",
+        "(alloy of gold is) cheaper",
+        "aesthetic reasons"
+      ],
+      "mistakes": [
+        {
+          "wrong": "The atoms of tin and lead have different shapes.",
+          "right": "Shapes are not accepted. The atoms have different sizes (or diameters), so the layers cannot easily slide."
+        },
+        {
+          "wrong": "Stainless steels are brittle and have low density.",
+          "right": "Stainless steels are hard and resistant to corrosion. High carbon steel is the strong but brittle one."
+        },
+        {
+          "wrong": "An alloy is used for window frames because it is cheaper than pure aluminium.",
+          "right": "References to cost are ignored. The alloy is used because it is harder (or stronger) than pure aluminium."
+        }
+      ],
+      "worked_example": {
+        "exemplar_id": "47f699fa-a60d-454d-9cb6-098c101df3c3",
+        "source": "AQA jun 2024, Paper 1 (H), Q07.2",
+        "question": "Pure iron is too soft for many uses.\n\nExplain why mixing iron with other metals makes alloys which are harder than pure iron.",
+        "marks": 3,
+        "answer_points": [
+          "The alloy has atoms of different sizes.",
+          "So the layers of atoms are distorted.",
+          "So the layers cannot easily slide over each other."
+        ],
+        "tip": "Ions are allowed for atoms throughout."
+      }
+    },
+    "edexcel": {
+      "spec_codes": [
+        "EDEX 5.5C",
+        "EDEX 5.6C",
+        "EDEX 5.7C"
+      ],
+      "exam_phrases": [
+        "in alloy atoms are different sizes",
+        "layers of atoms cannot easily slide over each other",
+        "layers of atoms easily slide over each other",
+        "disrupts structure of metal",
+        "unreactive so will not react with skin",
+        "malleable so can be shaped",
+        "shiny, looks attractive",
+        "magnalium: low density, aircraft parts",
+        "brass: strong and hard wearing"
+      ],
+      "mistakes": [
+        {
+          "wrong": "The molecules in an alloy are different sizes.",
+          "right": "Molecules is rejected. Metals are made of atoms, so write atoms (ions or particles are allowed)."
+        },
+        {
+          "wrong": "Gold alloys suit jewellery because they are cheap or the right colour.",
+          "right": "Cost and colour are ignored. Link a property to a reason, such as unreactive so will not react with skin, or malleable so can be shaped."
+        },
+        {
+          "wrong": "Magnalium is used for aircraft parts because it is light.",
+          "right": "Light is ignored. Say magnalium has a low density."
+        }
+      ],
+      "worked_example": {
+        "exemplar_id": "25750aa3-fb18-4fe5-b665-2c69591eb578",
+        "source": "EDEXCEL nov 2021, Paper 1 (F), Q10(a)",
+        "question": "Aluminium alloys are used instead of pure aluminium in aircraft manufacture.\n\nExplain, in terms of the arrangement of metal particles, why aluminium alloys are stronger than pure aluminium.",
+        "marks": 3,
+        "answer_points": [
+          "In an alloy the atoms are different sizes (in pure aluminium they are all the same size).",
+          "In pure aluminium the layers of atoms easily slide over each other.",
+          "In an alloy the layers of atoms cannot easily slide over each other."
+        ],
+        "tip": "Reject molecules once only."
+      }
+    },
+    "ocr": {
+      "spec_codes": [
+        "OCR C6.1o"
+      ],
+      "exam_phrases": [
+        "different sized atoms",
+        "atoms of the same size can slide over each other more easily",
+        "layers in alloy disrupted / cannot slide",
+        "brass: copper and zinc",
+        "bronze: copper and tin",
+        "duralumin: copper and aluminium",
+        "lower density",
+        "stronger",
+        "higher resistance to corrosion"
+      ],
+      "mistakes": [
+        {
+          "wrong": "An alloy is harder because the elements are different sizes.",
+          "right": "Different sized elements is not allowed. Say the atoms (ions or particles) are different sizes."
+        },
+        {
+          "wrong": "The molecules in an alloy are different sizes.",
+          "right": "Molecules is not allowed for the first mark. Use atoms, ions or particles."
+        },
+        {
+          "wrong": "Magnalium has low density, high strength and high corrosion resistance.",
+          "right": "Answers must be comparative. Say it has a lower density than pure aluminium, is stronger than aluminium or magnesium, and has a higher resistance to corrosion."
+        }
+      ],
+      "worked_example": {
+        "exemplar_id": "ef7d27d0-9c91-487b-84b8-6d5b57231385",
+        "source": "OCR jun 2025, Paper 2, Q16(c)",
+        "question": "Magnalium is an alloy of aluminium and magnesium.\n\nThe table shows some information about aluminium, magnesium and magnalium.\n\n| | Density (g / cm3) | Relative strength | Resistance to corrosion |\n| Aluminium | 2.7 | low | high |\n| Magnesium | 1.7 | low | low |\n| Magnalium | 2.0 | high | very high |\n\nMagnalium is used to make aircraft parts.\n\nExplain why magnalium is used to make aircraft parts rather than pure aluminium or pure magnesium.\n\nUse the information in the table.",
+        "marks": 3,
+        "answer_points": [
+          "Magnalium has a lower density than pure aluminium.",
+          "Magnalium is stronger than aluminium or magnesium.",
+          "Magnalium has a higher resistance to corrosion than aluminium or magnesium."
+        ],
+        "tip": "Each point must be a comparison, not just a quoted value."
+      }
+    }
+  },
+  "meta": {
+    "status": "draft",
+    "written_by": "sonnet-5-5",
+    "written_at": "2026-10-01",
+    "spec_point_ids": [
+      "592ff7e3-e429-4c14-baed-ef6fff6e4a39",
+      "63d3c891-b3a1-47fd-abf5-70b6df46d1a9",
+      "3204745d-b9ae-49d8-b36d-90eb958b4dc3",
+      "970e3d3e-56ea-436e-ab8d-897dab60cdd2",
+      "97440902-fca9-464b-9d40-b635ec4c19ef"
+    ],
+    "exemplar_ids": [
+      "47f699fa-a60d-454d-9cb6-098c101df3c3",
+      "25750aa3-fb18-4fe5-b665-2c69591eb578",
+      "ef7d27d0-9c91-487b-84b8-6d5b57231385"
+    ],
+    "checked_by": "sonnet-science-check",
+    "checked_at": "2026-10-03"
+  }
+}

@@ -1,0 +1,307 @@
+{
+  "format": 1,
+  "concept_id": "chem-019",
+  "subject": "chemistry",
+  "title": "Properties of ionic compounds",
+  "key_idea": "Ionic compounds have high melting and boiling points because a lot of energy is needed to break the many strong forces between ions. They conduct electricity when molten or dissolved, because the ions are free to move, but not when solid.",
+  "sections": [
+    {
+      "heading": "Melting and boiling points",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "This section explains why ionic compounds have high melting points and boiling points."
+        },
+        {
+          "type": "steps",
+          "items": [
+            {
+              "lead": "Giant lattice.",
+              "text": "Ionic compounds have a regular structure called a giant ionic lattice."
+            },
+            {
+              "lead": "Strong forces.",
+              "text": "There are strong electrostatic forces of attraction between oppositely charged ions, in all directions."
+            },
+            {
+              "lead": "Many bonds.",
+              "text": "Many strong bonds must be broken to melt or boil the compound."
+            },
+            {
+              "lead": "Large energy.",
+              "text": "So a large amount of energy is needed, and the melting and boiling points are high."
+            }
+          ]
+        },
+        {
+          "type": "list",
+          "items": [
+            "Potassium chloride melts at 770 °C.",
+            "Ionic compounds are solid at room temperature.",
+            "Melting does not break covalent bonds. It separates ions from the lattice."
+          ]
+        },
+        {
+          "type": "key-points",
+          "items": [
+            "High melting and boiling points: a lot of energy is needed to break the many strong electrostatic forces.",
+            "Never write about intermolecular forces or covalent bonds for an ionic compound."
+          ]
+        }
+      ]
+    },
+    {
+      "heading": "Conducting electricity",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "A substance conducts electricity when it has charged particles that are free to move. In an ionic compound these are the ions."
+        },
+        {
+          "type": "diagram",
+          "diagram": {
+            "kind": "predictor",
+            "alt": "Pick the state of an ionic compound to see whether it conducts.",
+            "prompt": "Pick the state of the ionic compound",
+            "result_labels": [
+              "Are the ions free to move?",
+              "Conducts electricity?"
+            ],
+            "options": [
+              {
+                "label": "Solid",
+                "results": [
+                  "No. The ions are fixed in the lattice and only vibrate.",
+                  "**No**"
+                ]
+              },
+              {
+                "label": "Molten",
+                "results": [
+                  "Yes. The lattice has broken down and the ions can move.",
+                  "**Yes**"
+                ]
+              },
+              {
+                "label": "Dissolved in water",
+                "results": [
+                  "Yes. The ions are separated and free to move.",
+                  "**Yes**"
+                ]
+              }
+            ]
+          }
+        },
+        {
+          "type": "list",
+          "items": [
+            "In a solid, the ions are held in fixed positions, so charge cannot flow.",
+            "When melted or dissolved in water, the ions are free to move and so charge can flow.",
+            "Metals conduct because of delocalised electrons. Ionic compounds conduct because of free ions."
+          ]
+        },
+        {
+          "type": "key-points",
+          "items": [
+            "Solid: ions cannot move, so no conduction.",
+            "Molten or dissolved: ions are free to move, so the compound conducts."
+          ]
+        }
+      ]
+    },
+    {
+      "heading": "Recognising an ionic compound",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "Use data to identify an ionic compound. Look for the typical properties in the table."
+        },
+        {
+          "type": "table",
+          "columns": [
+            "Property",
+            "Ionic compound"
+          ],
+          "rows": [
+            [
+              "Melting and boiling points",
+              "High"
+            ],
+            [
+              "Conducts electricity as a solid",
+              "No"
+            ],
+            [
+              "Conducts electricity when molten or dissolved",
+              "Yes"
+            ],
+            [
+              "Solubility in water",
+              "Many are soluble"
+            ]
+          ]
+        },
+        {
+          "type": "key-points",
+          "items": [
+            "High melting point, no conduction as a solid and conduction when molten point to an ionic compound.",
+            "A low melting point and no conduction in any state point to a simple molecular compound."
+          ]
+        }
+      ]
+    }
+  ],
+  "checks": [
+    {
+      "q": "Explain why sodium chloride has a high melting point.",
+      "a": "It is a giant lattice with strong electrostatic forces of attraction between oppositely charged ions, so a lot of energy is needed to break the many strong bonds.",
+      "marks": 3
+    },
+    {
+      "q": "Explain why sodium chloride conducts electricity when molten but not when solid.",
+      "a": "When molten the ions are free to move and carry charge. In the solid the ions are fixed in the lattice.",
+      "marks": 3
+    },
+    {
+      "q": "Give two ways in which solid sodium chloride can be made to conduct electricity.",
+      "a": "Melt it (heat until molten). Dissolve it in water.",
+      "marks": 2
+    }
+  ],
+  "boards": {
+    "aqa": {
+      "spec_codes": [
+        "AQA 4.2.2.3",
+        "AQA T 5.2.2.3"
+      ],
+      "exam_phrases": [
+        "(giant) lattice",
+        "strong (electrostatic) forces of attraction between oppositely charged ions",
+        "large amounts of energy needed to break the many strong bonds",
+        "(conducts) when molten / dissolved in water",
+        "(because) ions are free to move",
+        "(ions) allow charge to flow",
+        "fixed in solid"
+      ],
+      "mistakes": [
+        {
+          "wrong": "Sodium chloride conducts when molten because the electrons are free to move.",
+          "right": "The particles are ions. An incorrect reference to particles or bonds limits the answer. Say ions are free to move."
+        },
+        {
+          "wrong": "Potassium chloride has a high melting point because of strong intermolecular forces.",
+          "right": "Strong intermolecular forces are not accepted. Say giant ionic lattice with strong electrostatic forces between ions."
+        },
+        {
+          "wrong": "Copper oxide has a high melting point because it has strong ionic bonds.",
+          "right": "'Strong ionic bonds' alone is ignored for the force mark. Say strong electrostatic forces of attraction between oppositely charged ions, so large amounts of energy are needed."
+        }
+      ],
+      "worked_example": {
+        "exemplar_id": "122dbafa-cfec-4887-8c83-251e4f76c705",
+        "source": "AQA jun 2022, Paper 1 (H), Q7.6",
+        "question": "This question is about elements and compounds. Sodium metal and sodium chloride are both able to conduct electricity.\n\nExplain how sodium chloride can conduct electricity.",
+        "marks": 3,
+        "answer_points": [
+          "It conducts electricity when liquid or molten (or dissolved in water).",
+          "Because it contains ions.",
+          "The ions are free to move (so charge can flow)."
+        ],
+        "tip": "One mark each. Give the condition, name the particles and say they are free to move."
+      }
+    },
+    "edexcel": {
+      "spec_codes": [
+        "EDEX 1.33"
+      ],
+      "exam_phrases": [
+        "(ionic) lattice / ions held by strong (electrostatic) attractions",
+        "so the ions cannot move / are fixed / just vibrate",
+        "in solution the ions can move / are free",
+        "strong forces of attraction between ions of opposite charge",
+        "needs a large amount of energy to overcome ionic forces",
+        "conducts when molten / does not conduct when solid"
+      ],
+      "mistakes": [
+        {
+          "wrong": "Potassium chloride has a high melting point because of strong covalent bonds between atoms.",
+          "right": "Covalent, molecular, intermolecular and atoms in the wrong context are rejected. Use ionic lattice, strong forces between oppositely charged ions and a large amount of energy."
+        },
+        {
+          "wrong": "Charged particles cannot move in solid magnesium carbonate.",
+          "right": "'Charged particles' is ignored. Name the ions: the ions are held in a fixed position in the lattice."
+        },
+        {
+          "wrong": "Potassium chloride has a high melting point because a lot of heat is needed to melt it.",
+          "right": "Temperature or heat is ignored. Say a large amount of energy is needed to overcome the strong forces between ions."
+        }
+      ],
+      "worked_example": {
+        "exemplar_id": "4cd8021b-2fba-4acd-86d2-7ffb9d9ee1d8",
+        "source": "EDEXCEL jun 2024, Paper 1 (F), Q9(a)(ii)",
+        "question": "Sodium carbonate has the formula Na2CO3.\nSodium carbonate contains Na+ ions and CO32– ions.\n\nExplain why solid sodium carbonate cannot conduct electricity but a solution of sodium carbonate can conduct electricity.",
+        "marks": 3,
+        "answer_points": [
+          "Solid: sodium carbonate is an ionic lattice, with ions held by strong electrostatic attractions.",
+          "So the ions cannot move (they are fixed, or just vibrate).",
+          "In solution the ions can move (are free)."
+        ],
+        "tip": "One mark each. The first two marks explain the solid, the last explains the solution."
+      }
+    },
+    "ocr": {
+      "spec_codes": [
+        "OCR C2.3f"
+      ],
+      "exam_phrases": [
+        "ionic compounds have high melting and / or boiling points",
+        "ionic compounds can conduct electricity when molten or dissolved, but not as a solid",
+        "only conducts electricity when liquid or dissolved",
+        "(simple covalent) has a low melting point / a low boiling point",
+        "(simple covalent) cannot conduct electricity"
+      ],
+      "mistakes": [
+        {
+          "wrong": "Substance A is ionic because it conducts electricity.",
+          "right": "State both conditions: it conducts when molten or dissolved but not as a solid, and it has a high melting or boiling point."
+        },
+        {
+          "wrong": "Substance B is a simple covalent compound because it is insoluble in water.",
+          "right": "'Insoluble in water' is ignored. Use the low melting point or low boiling point and that it cannot conduct electricity."
+        },
+        {
+          "wrong": "Metals conduct because they have free ions.",
+          "right": "Free ions score 0 for metals. Say the metal has electrons that can move (delocalised electrons)."
+        }
+      ],
+      "worked_example": {
+        "exemplar_id": "79ed422c-3bba-40e8-9487-26ffc3153030",
+        "source": "OCR jun 2022, Paper 1, Q18(a)(i)",
+        "question": "The table shows data about four different substances.\n\nSubstance | Melting point (°C) | Boiling point (°C) | Soluble in water? | Conducts electricity as a solid? | Conducts electricity when molten or dissolved?\nA | 550 | 1300 | yes | no | yes\nB | –183 | –162 | no | no | no\nC | 420 | 907 | no | yes | yes\nD | 1670 | >1670 | no | no | no\n\nA scientist uses the information to find out what type of bonding is present in each substance.\n\nThe scientist thinks substance A is an ionic compound.\n\nExplain why the scientist is correct.",
+        "marks": 2,
+        "answer_points": [
+          "Ionic compounds have high melting and boiling points. Substance A melts at 550 °C and boils at 1300 °C.",
+          "Ionic compounds conduct electricity when molten or dissolved, but not as a solid. Substance A conducts when molten or dissolved, but not as a solid."
+        ],
+        "tip": "One mark for each property. Use the figures in the table."
+      }
+    }
+  },
+  "meta": {
+    "status": "draft",
+    "written_by": "sonnet-5-5",
+    "written_at": "2026-10-01",
+    "checked_by": "sonnet-science-check",
+    "checked_at": "2026-10-01",
+    "spec_point_ids": [
+      "7486d348-43df-40e3-ab6f-ca403b5d1c64",
+      "d369c8b1-14ab-4680-b3d2-83a6fbc0a636",
+      "57bf982a-99ec-4e01-a087-0edfe8a0de04"
+    ],
+    "exemplar_ids": [
+      "122dbafa-cfec-4887-8c83-251e4f76c705",
+      "4cd8021b-2fba-4acd-86d2-7ffb9d9ee1d8",
+      "79ed422c-3bba-40e8-9487-26ffc3153030"
+    ]
+  }
+}

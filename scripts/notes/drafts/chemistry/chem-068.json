@@ -1,0 +1,386 @@
+{
+  "format": 1,
+  "concept_id": "chem-068",
+  "subject": "chemistry",
+  "title": "Practical: investigating rates of reaction",
+  "key_idea": "Rate can be followed by the volume of gas made, the mass lost, or the time for a mixture to go cloudy or change colour. Change one factor, keep every other variable the same, and record results at set times.",
+  "sections": [
+    {
+      "heading": "Three ways to measure rate",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "The method depends on what the reaction does. This section covers the three common methods and their apparatus."
+        },
+        {
+          "type": "table",
+          "columns": [
+            "Method",
+            "Reaction signs",
+            "What you measure",
+            "Apparatus"
+          ],
+          "rows": [
+            [
+              "Volume of gas",
+              "A gas is made, such as hydrogen or carbon dioxide",
+              "Volume of gas at set times, or the time to collect a fixed volume",
+              "Gas syringe (or measuring cylinder and water trough), stopwatch"
+            ],
+            [
+              "Mass lost",
+              "A gas escapes from the flask",
+              "Mass of the flask and contents at set times",
+              "Balance, stopwatch"
+            ],
+            [
+              "Colour change or turbidity",
+              "A precipitate makes the mixture cloudy",
+              "Time for a cross to disappear, or light reaching a light sensor",
+              "Conical flask on a cross, stopwatch or light sensor"
+            ]
+          ]
+        },
+        {
+          "type": "list",
+          "items": [
+            "In the **mass lost** method, the gas escapes from the flask, so the mass goes down.",
+            "This method fails if the gas has a very small mass. 0.1 g of magnesium makes only 0.008 g of hydrogen, which is too small to measure accurately.",
+            "In the **turbidity** method, sodium thiosulfate reacts with hydrochloric acid to make a precipitate of sulfur. The mixture becomes cloudy.",
+            "A shorter time for the cross to disappear means a faster reaction."
+          ]
+        },
+        {
+          "type": "equation",
+          "label": "Sodium thiosulfate and hydrochloric acid",
+          "formula": "Na₂S₂O₃(aq) + 2HCl(aq) → 2NaCl(aq) + SO₂(g) + H₂O(l) + S(s)",
+          "where": [
+            "S(s) is the solid sulfur that makes the mixture cloudy"
+          ]
+        },
+        {
+          "type": "diagram",
+          "diagram": {
+            "kind": "slider",
+            "alt": "Change the concentration of acid and the time to see the volume of gas collected in a gas syringe. A simple model: the rate is proportional to the concentration and stays constant until the syringe is full. A real rate falls as the reactants are used up.",
+            "inputs": [
+              {
+                "id": "c",
+                "label": "Concentration of acid",
+                "unit": "mol/dm³",
+                "min": 0.5,
+                "max": 2,
+                "step": 0.5,
+                "value": 1
+              },
+              {
+                "id": "t",
+                "label": "Time",
+                "unit": "s",
+                "min": 0,
+                "max": 60,
+                "step": 5,
+                "value": 20
+              }
+            ],
+            "outputs": [
+              {
+                "label": "Rate of reaction",
+                "unit": "cm³/s",
+                "formula": "0.4 * c",
+                "decimals": 1
+              },
+              {
+                "label": "Gas collected",
+                "unit": "cm³",
+                "formula": "min(40, 0.4 * c * t)",
+                "decimals": 0
+              }
+            ],
+            "scene": {
+              "kind": "gas-syringe",
+              "volume": 1,
+              "max": 40,
+              "rate": 0
+            }
+          }
+        },
+        {
+          "type": "key-points",
+          "items": [
+            "Gas made: collect it in a gas syringe and time it. Gas lost: use a balance.",
+            "A precipitate makes a mixture cloudy: time how long until a cross cannot be seen.",
+            "The mass method needs a gas with enough mass to measure."
+          ]
+        }
+      ]
+    },
+    {
+      "heading": "Investigating the effect of changing a condition",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "Change one variable at a time and keep everything else the same. This makes the investigation a fair test."
+        },
+        {
+          "type": "definitions",
+          "items": [
+            {
+              "term": "Independent variable",
+              "meaning": "The one thing you change, such as concentration."
+            },
+            {
+              "term": "Dependent variable",
+              "meaning": "What you measure, such as time or volume of gas."
+            },
+            {
+              "term": "Control variable",
+              "meaning": "Something you keep the same so the test is fair."
+            }
+          ]
+        },
+        {
+          "type": "subheading",
+          "text": "Concentration with sodium thiosulfate"
+        },
+        {
+          "type": "steps",
+          "items": [
+            {
+              "lead": "Measure the solutions.",
+              "text": "Measure a volume of sodium thiosulfate solution and put it in a conical flask. Measure a volume of hydrochloric acid separately."
+            },
+            {
+              "lead": "Set up the cross.",
+              "text": "Place the flask on a cross drawn on paper, or use a light sensor."
+            },
+            {
+              "lead": "Start.",
+              "text": "Add the acid, swirl, and start the stopwatch."
+            },
+            {
+              "lead": "Stop.",
+              "text": "Measure the time until the cross is no longer visible."
+            },
+            {
+              "lead": "Repeat.",
+              "text": "Repeat and find a mean. Then change the concentration by changing the ratio of thiosulfate volume to water volume."
+            }
+          ]
+        },
+        {
+          "type": "list",
+          "items": [
+            "Keep the concentration and the volume of hydrochloric acid the same.",
+            "Keep the total volume of sodium thiosulfate solution the same, adding water to dilute it."
+          ]
+        },
+        {
+          "type": "subheading",
+          "text": "Other conditions"
+        },
+        {
+          "type": "list",
+          "items": [
+            "**Temperature:** keep the flask in a water bath at the chosen temperature. Warm water alone is not enough, and a Bunsen burner is not used.",
+            "**Surface area:** use the same mass of marble chips in different sizes. Crush large chips in a pestle and mortar and sort them with sieves.",
+            "Keep the volume and concentration of acid and the mass of solid the same."
+          ]
+        },
+        {
+          "type": "key-points",
+          "items": [
+            "Change one independent variable. Keep the control variables the same.",
+            "For a dilution, change the volume of thiosulfate and water but keep the total volume constant.",
+            "Use a water bath to control temperature."
+          ]
+        }
+      ]
+    },
+    {
+      "heading": "Getting good results",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "Careful measuring and repeats make results accurate and reliable."
+        },
+        {
+          "type": "list",
+          "items": [
+            "Measure volumes with a measuring cylinder, pipette or burette.",
+            "A smaller measuring cylinder or a gas syringe has smaller gradations, so it gives a more precise volume than a large measuring cylinder.",
+            "Start the stopwatch as soon as the reactants are mixed. Swirl the flask.",
+            "Repeat each experiment and calculate a mean.",
+            "Say the reaction has finished when the solid has gone or there are no more bubbles."
+          ]
+        },
+        {
+          "type": "key-points",
+          "items": [
+            "Choose apparatus with small gradations for a precise measurement.",
+            "Repeat and find a mean.",
+            "Start timing as soon as the reactants mix."
+          ]
+        }
+      ]
+    }
+  ],
+  "checks": [
+    {
+      "q": "Name two pieces of apparatus used to find the rate of production of a gas.",
+      "a": "A gas syringe (or measuring cylinder and water trough) and a stopwatch.",
+      "marks": 2
+    },
+    {
+      "q": "Explain why the mixture becomes cloudy when sodium thiosulfate reacts with hydrochloric acid.",
+      "a": "Sulfur is formed. It is a solid precipitate.",
+      "marks": 2
+    },
+    {
+      "q": "A student investigates how temperature affects the reaction between magnesium and acid. State how to keep the acid at 40 °C.",
+      "a": "Place the conical flask in a water bath at 40 °C.",
+      "marks": 1
+    }
+  ],
+  "boards": {
+    "aqa": {
+      "spec_codes": [
+        "AQA 4.6.1.2",
+        "AQA T 5.6.1.2"
+      ],
+      "exam_phrases": [
+        "measure (indicated) volume of sodium thiosulfate",
+        "place on cross",
+        "measure time for cross to become no longer visible",
+        "repeat and find mean",
+        "change ratio of sodium thiosulfate volume : water volume",
+        "(gas) syringe",
+        "stopclock / stopwatch",
+        "sulfur (formed) ... precipitate / solid / insoluble"
+      ],
+      "mistakes": [
+        {
+          "wrong": "The solution becomes cloudy because sulfur is formed.",
+          "right": "This earns 1 of the 2 marks. Also say that the sulfur is a precipitate, a solid, or insoluble."
+        },
+        {
+          "wrong": "Change the concentration of both the sodium thiosulfate and the hydrochloric acid.",
+          "right": "Change only the concentration of sodium thiosulfate. The concentration and volume of hydrochloric acid are control variables."
+        },
+        {
+          "wrong": "Use a different total volume of solution in each experiment.",
+          "right": "Keep the total volume of sodium thiosulfate solution the same. Change the ratio of thiosulfate volume to water volume."
+        }
+      ],
+      "worked_example": {
+        "exemplar_id": "05e17128-dcec-44c9-ab9e-acc4161a2283",
+        "source": "AQA jun 2018, Paper 2 (H), Q05.2",
+        "question": "Sodium thiosulfate solution reacts with dilute hydrochloric acid, becoming cloudy as the reaction proceeds.\n\nPlan an investigation to show how the concentration of the sodium thiosulfate solution affects the rate of the reaction with dilute hydrochloric acid.\n\nYour plan should give valid results.",
+        "marks": 6,
+        "answer_points": [
+          "Measure a volume of sodium thiosulfate and place it in a conical flask.",
+          "Measure a volume of hydrochloric acid.",
+          "Place the flask on a cross (or between a light source and a light sensor).",
+          "Add the hydrochloric acid, swirl, and start a stopwatch.",
+          "Measure the time for the cross to become no longer visible.",
+          "Repeat and find the mean.",
+          "Repeat for different concentrations of sodium thiosulfate, by changing the ratio of thiosulfate volume to water volume.",
+          "Control variables: concentration of the hydrochloric acid, volume of the hydrochloric acid, and total volume of sodium thiosulfate solution."
+        ],
+        "tip": "This is a levels question. Marks go for the key steps in a logical order and for naming the control variables."
+      }
+    },
+    "edexcel": {
+      "spec_codes": [
+        "EDEX 7.1",
+        "EDEX 7.2"
+      ],
+      "exam_phrases": [
+        "flask placed over / in front of a cross",
+        "measure time",
+        "when the cross is obscured",
+        "100 cm³ measuring cylinder / (gas) syringe",
+        "smaller gradations / higher resolution",
+        "conical flask in a water bath",
+        "stopwatch / clock",
+        "magnesium has gone / no more bubbles"
+      ],
+      "mistakes": [
+        {
+          "wrong": "Keep the acid at 45 °C by heating it with a Bunsen burner throughout.",
+          "right": "Heating with a Bunsen burner is rejected, and warm water alone is not enough. Put the conical flask in a water bath."
+        },
+        {
+          "wrong": "An upturned burette would measure the gas better than a 250 cm³ measuring cylinder.",
+          "right": "An upturned burette is rejected. Use a 100 cm³ measuring cylinder or a gas syringe."
+        },
+        {
+          "wrong": "A gas syringe is better because it is easier to use.",
+          "right": "Easier to use is ignored. Say it has smaller gradations or a higher resolution, so it is more precise."
+        }
+      ],
+      "worked_example": {
+        "exemplar_id": "602bb273-a37d-474e-87ed-4cba193e66eb",
+        "source": "EDEXCEL nov 2020, Paper 2 (H), Q6(a)(ii)",
+        "question": "Sodium thiosulfate solution, Na₂S₂O₃, reacts with dilute hydrochloric acid.\n\nNa₂S₂O₃(aq) + 2HCl(aq) → 2NaCl(aq) + H₂O(l) + SO₂(g) + S(s)\n\nIn an investigation, different concentrations of hydrochloric acid are reacted with sodium thiosulfate solution. The mixture goes cloudy at different rates.\n\nDescribe how the rate at which the mixture goes cloudy can be measured.",
+        "marks": 3,
+        "answer_points": [
+          "Place the flask over (or in front of) a cross.",
+          "Measure the time taken (how long the reaction takes).",
+          "Stop the timer when the cross is obscured."
+        ],
+        "tip": "The second and third marks depend on placing the flask over a cross."
+      }
+    },
+    "ocr": {
+      "spec_codes": [
+        "OCR C5.2a"
+      ],
+      "exam_phrases": [
+        "(gas) syringe / (upturned) burette",
+        "idea that the mass of the gas is too small (to measure accurately)",
+        "1.67 × 10⁻³ (g/s)",
+        "3 significant figures and standard form"
+      ],
+      "mistakes": [
+        {
+          "wrong": "Measuring the loss in mass would not work well because it is difficult to measure.",
+          "right": "Difficult to measure and not accurate are ignored without a reason. Say the mass of the gas is too small to measure accurately."
+        },
+        {
+          "wrong": "The mean rate is 1.6 × 10⁻³ g/s, or 1.7 × 10⁻³ g/s.",
+          "right": "Give 3 significant figures: 1.67 × 10⁻³. Writing 1.6 × 10⁻³ is ignored, and 1.7 × 10⁻³ loses the final mark."
+        }
+      ],
+      "worked_example": {
+        "exemplar_id": "77a0ee1f-f1e1-4d04-a2aa-477cb1c8090f",
+        "source": "OCR jun 2019, Paper 4, Q19(d)",
+        "question": "A student investigates the reaction between marble chips and hydrochloric acid. She times how long it takes for all the marble chips to react. Here are her results.\n\nExperiment | Size of marble chips | Reaction time (s) | Mean rate of reaction (g/s)\n1 | large | 240 | 8.33 × 10⁻⁴\n2 | large | 120 | (blank)\n3 | large | 100 | 2.00 × 10⁻³\n4 | small | 50 | 4.00 × 10⁻³\n\nCalculate the mean rate of reaction in experiment 2.\n\nGive your answer to 3 significant figures and in standard form.",
+        "marks": 3,
+        "answer_points": [
+          "Mass of marble = rate × time = 8.33 × 10⁻⁴ × 240 = 0.2 g (2 marks), or 100 × 2.00 × 10⁻³ = 0.2 g.",
+          "Mean rate = 0.2 ÷ 120 = 0.00167.",
+          "Mean rate = 1.67 × 10⁻³ g/s."
+        ],
+        "tip": "The answer 1.67 × 10⁻³ g/s scores all 3 marks."
+      }
+    }
+  },
+  "meta": {
+    "status": "draft",
+    "written_by": "sonnet-5-5",
+    "written_at": "2026-10-01",
+    "spec_point_ids": [
+      "609f6c01-2b2b-4856-a43c-4d90845cc226",
+      "271a6a49-f8a7-467e-9fdd-4429e525dfe7",
+      "92d9a9aa-2f34-4e29-abfe-64a71279dd2a"
+    ],
+    "exemplar_ids": [
+      "05e17128-dcec-44c9-ab9e-acc4161a2283",
+      "602bb273-a37d-474e-87ed-4cba193e66eb",
+      "77a0ee1f-f1e1-4d04-a2aa-477cb1c8090f"
+    ],
+    "checked_by": "sonnet-science-check",
+    "checked_at": "2026-10-01"
+  }
+}

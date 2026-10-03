@@ -1,0 +1,413 @@
+{
+  "format": 1,
+  "concept_id": "phys-046",
+  "subject": "physics",
+  "title": "Resultant forces and free body diagrams",
+  "key_idea": "Several forces on an object can be replaced by one resultant force. Forces in a straight line are added or subtracted. When the resultant force is zero, the forces are balanced. A free body diagram shows every force on one object.",
+  "sections": [
+    {
+      "heading": "Resultant forces",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "A number of forces on an object can be replaced by one force with the same effect. This section covers how to find it for forces in a straight line."
+        },
+        {
+          "type": "definitions",
+          "items": [
+            {
+              "term": "Resultant force",
+              "meaning": "The single force that has the same effect as all the original forces acting together."
+            },
+            {
+              "term": "Balanced forces",
+              "meaning": "Forces that cancel out, so the resultant force is zero."
+            }
+          ]
+        },
+        {
+          "type": "list",
+          "items": [
+            "Forces in the same direction are added.",
+            "Forces in opposite directions are subtracted.",
+            "The resultant acts in the direction of the larger force.",
+            "If the forces are equal and opposite, the resultant force is zero."
+          ]
+        },
+        {
+          "type": "steps",
+          "items": [
+            {
+              "lead": "Add the forces in one direction",
+              "text": "6 dogs each pull a sled forwards with 370 N: 6 × 370 = 2220 N."
+            },
+            {
+              "lead": "Subtract the force the other way",
+              "text": "Friction pulls backwards with 520 N: 2220 − 520."
+            },
+            {
+              "lead": "State the resultant",
+              "text": "The resultant force is 1700 N forwards."
+            }
+          ]
+        },
+        {
+          "type": "diagram",
+          "diagram": {
+            "kind": "practice",
+            "alt": "Calculate the resultant force on a sled pulled by several dogs against friction. New numbers each time.",
+            "question": "{n} dogs each pull a sled forwards with a force of {F} N. Friction acts backwards on the sled with a force of {R} N. Calculate the resultant force on the sled.",
+            "variables": [
+              {
+                "id": "n",
+                "min": 4,
+                "max": 8,
+                "step": 1
+              },
+              {
+                "id": "F",
+                "min": 300,
+                "max": 400,
+                "step": 10
+              },
+              {
+                "id": "R",
+                "min": 400,
+                "max": 600,
+                "step": 50
+              }
+            ],
+            "answer": {
+              "formula": "n * F - R",
+              "unit": "N",
+              "decimals": 0
+            },
+            "working": [
+              "Total forward force = {n} × {F}",
+              "Resultant = total forward force − {R}",
+              "Resultant = {answer} N forwards"
+            ]
+          }
+        },
+        {
+          "type": "key-points",
+          "items": [
+            "Add forces in the same direction and subtract forces in opposite directions.",
+            "The resultant force is the single force with the same effect.",
+            "Balanced forces give a resultant force of zero."
+          ]
+        }
+      ]
+    },
+    {
+      "heading": "Free body diagrams",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "A free body diagram shows one object on its own, with an arrow for every force acting on it. It helps you work out the resultant force."
+        },
+        {
+          "type": "list",
+          "items": [
+            "Draw the object as a simple shape or a dot.",
+            "Draw each force as an arrow starting on the object.",
+            "Point each arrow in the direction of the force.",
+            "Make longer arrows for larger forces.",
+            "Label every arrow with the name of the force."
+          ]
+        },
+        {
+          "type": "subheading",
+          "text": "Balanced forces: resultant force of zero"
+        },
+        {
+          "type": "list",
+          "items": [
+            "A stationary object on a table: weight downwards equals the normal contact force upwards.",
+            "A block moving at constant velocity across a table: the pull of the string equals friction, and weight equals the normal contact force.",
+            "A brick at rest at the bottom of a pool: upthrust and the normal contact force act upwards, and together they equal the weight."
+          ]
+        },
+        {
+          "type": "subheading",
+          "text": "Unbalanced forces: a resultant force"
+        },
+        {
+          "type": "list",
+          "items": [
+            "A car accelerates when the driving force is greater than air resistance.",
+            "As the speed increases, air resistance increases, so the resultant force decreases.",
+            "At maximum speed, air resistance equals the driving force, so the resultant force is zero.",
+            "A falling object reaches terminal velocity when air resistance equals its weight."
+          ]
+        },
+        {
+          "type": "diagram",
+          "diagram": {
+            "kind": "slider",
+            "alt": "Change the driving force and air resistance on a car and see the resultant force.",
+            "inputs": [
+              {
+                "id": "d",
+                "label": "Driving force",
+                "unit": "N",
+                "min": 1000,
+                "max": 3000,
+                "step": 500,
+                "value": 2000
+              },
+              {
+                "id": "r",
+                "label": "Air resistance",
+                "unit": "N",
+                "min": 500,
+                "max": 1000,
+                "step": 250,
+                "value": 750
+              }
+            ],
+            "outputs": [
+              {
+                "label": "Resultant forward force",
+                "unit": "N",
+                "formula": "d - r",
+                "decimals": 0
+              }
+            ]
+          }
+        },
+        {
+          "type": "paragraph",
+          "text": "The resultant forward force is the driving force minus the air resistance. It falls to zero when air resistance catches up with the driving force."
+        },
+        {
+          "type": "key-points",
+          "items": [
+            "A free body diagram has one object and an arrow for each force on it.",
+            "Balanced forces mean no resultant force and no change in velocity.",
+            "Unbalanced forces mean a resultant force and a change in velocity."
+          ]
+        }
+      ]
+    },
+    {
+      "heading": "Forces at right angles",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "(Higher tier) Forces do not always act in a straight line. This section covers scale drawings for two forces at right angles."
+        },
+        {
+          "type": "list",
+          "items": [
+            "A single force can be resolved into two components at right angles to each other.",
+            "The two components together have the same effect as the single force.",
+            "The resultant of two forces at right angles can be found with a scale vector diagram.",
+            "If the forces form a closed shape when drawn tip to tail, the resultant force is zero and the object is in equilibrium."
+          ]
+        },
+        {
+          "type": "steps",
+          "items": [
+            {
+              "lead": "Choose a scale",
+              "text": "For example, 1 cm for every 40 N."
+            },
+            {
+              "lead": "Draw the first force",
+              "text": "Draw an arrow to scale in its direction, such as 240 N upwards."
+            },
+            {
+              "lead": "Draw the second force",
+              "text": "Start it at the tip of the first, at a right angle, to scale: 200 N to the left."
+            },
+            {
+              "lead": "Draw the resultant",
+              "text": "Join the start of the first arrow to the tip of the second."
+            },
+            {
+              "lead": "Measure",
+              "text": "Measure its length and convert with the scale. Measure its angle with a protractor. For 240 N and 200 N the resultant is about 312 N, at about 40° to the 240 N force."
+            }
+          ]
+        },
+        {
+          "type": "paragraph",
+          "text": "A boat has 3000 N to the west and 1000 N to the south. If the force to the south increases, the resultant gets bigger and its direction turns towards the south."
+        },
+        {
+          "type": "key-points",
+          "items": [
+            "Draw forces to scale, tip to tail, to find a resultant at an angle.",
+            "The resultant gives both a magnitude and a direction.",
+            "A closed vector diagram means equilibrium."
+          ]
+        }
+      ]
+    }
+  ],
+  "checks": [
+    {
+      "q": "A sled is pulled forwards by a total force of 2220 N. Friction acts backwards with a force of 520 N. Calculate the resultant force.",
+      "a": "2220 − 520 = 1700 N forwards.",
+      "marks": 2
+    },
+    {
+      "q": "A car accelerates to its maximum speed. Explain why the car stops accelerating.",
+      "a": "As speed increases, air resistance increases. At maximum speed air resistance equals the driving force. The resultant force is zero, so there is no acceleration.",
+      "marks": 3
+    },
+    {
+      "q": "A block stays at rest on a table. Name the two forces acting on it and compare their sizes.",
+      "a": "The weight acts downwards and the normal contact force acts upwards. They are equal in size and opposite in direction.",
+      "marks": 2
+    }
+  ],
+  "boards": {
+    "aqa": {
+      "spec_codes": [
+        "AQA 4.5.1.4",
+        "AQA T 6.5.1.4"
+      ],
+      "exam_phrases": [
+        "as it accelerates the air resistance increases",
+        "therefore resultant force decreases",
+        "air resistance becomes equal to the driving force",
+        "resultant force is zero",
+        "acceleration is directly proportional to resultant force",
+        "weight is equal to upthrust plus normal contact force",
+        "the resistive force has decreased so the resultant force increases"
+      ],
+      "mistakes": [
+        {
+          "wrong": "The brick is stationary because its weight is equal to the upthrust.",
+          "right": "Three forces are needed. Upthrust acts upwards, the normal contact force acts upwards, and the weight equals upthrust plus normal contact force. Resultant force zero is only credited if all three are given."
+        },
+        {
+          "wrong": "The resultant force on the sled is 370 − 520 = −150 N.",
+          "right": "This earns one mark at most. All 6 dogs pull: (6 × 370) − 520 = 1700 N."
+        },
+        {
+          "wrong": "As the car accelerates, the air resistance increases until it equals the driving force. The driving force stays the same.",
+          "right": "A top answer says how both forces change. The driving force increases to a maximum value, and the air resistance increases until it equals the driving force, so the resultant force is zero."
+        }
+      ],
+      "worked_example": {
+        "exemplar_id": "df76daf2-b485-4384-97e7-79e26b2e22dd",
+        "source": "AQA jun 2025, Paper 2 (H), Q05.5",
+        "question": "The skydiver opened his parachute. A few seconds after opening the parachute, the resultant vertical force on the skydiver was 240 N upwards. The wind caused a resultant horizontal force of 200 N to the left on the skydiver. Draw a vector diagram to determine the resultant force on the skydiver.",
+        "marks": 4,
+        "answer_points": [
+          "Draw a triangle or parallelogram with the vertical line (240 N) longer than the horizontal line (200 N).",
+          "Draw the resultant force arrow in the correct direction, upwards and to the left.",
+          "The magnitude of the resultant is between 300 N and 320 N (a calculation gives about 312 N).",
+          "The angle of the resultant to the vertical is between 38° and 42° (a calculation gives about 40°)."
+        ],
+        "tip": "(Higher tier) Choose a scale such as 1 cm to 40 N. One mark each for the diagram, the arrow direction, the magnitude and the angle."
+      }
+    },
+    "edexcel": {
+      "spec_codes": [
+        "EDEX 9.3",
+        "EDEX 9.4",
+        "EDEX 9.5"
+      ],
+      "exam_phrases": [
+        "friction acts in the opposite direction to the tension",
+        "friction opposes motion",
+        "the forces are balanced / equal and opposite",
+        "no resultant force, so the block moves at a constant velocity",
+        "the weight and the (normal) reaction are equal and opposite",
+        "vertical forces on the block do not affect horizontal velocity"
+      ],
+      "mistakes": [
+        {
+          "wrong": "Friction, tension, weight and reaction all act on the block.",
+          "right": "A list of unconnected forces only reaches the lowest level. Link them: friction and tension are equal and opposite, so there is no resultant force and no acceleration."
+        },
+        {
+          "wrong": "Only horizontal forces matter, so the weight and the reaction can be left out.",
+          "right": "The question asks for all forces. Weight and the normal reaction are equal and opposite, so the block does not move up or down."
+        }
+      ],
+      "worked_example": {
+        "exemplar_id": "9ee52bef-9b64-41f2-ab3f-714e72c9a860",
+        "source": "EDEXCEL nov 2020, Paper 2 (H), Q9(c)",
+        "question": "A wooden block is connected to a weight by a string. The string goes over a pulley. The surfaces of the table and the wooden block are both rough. The wooden block moves across the table at a constant horizontal velocity. Several vertical and horizontal forces act on the wooden block as it moves. Explain how the forces keep the wooden block moving across the table at a constant horizontal velocity. Your answer should refer to all forces acting on the wooden block.",
+        "marks": 6,
+        "answer_points": [
+          "Horizontal: the tension in the string pulls the block.",
+          "Friction between the table and the block acts in the opposite direction to the tension and opposes motion.",
+          "The friction and the tension are equal, so the forces are balanced and there is no resultant force.",
+          "So the block moves at a constant horizontal velocity.",
+          "Vertical: the weight of the block acts downwards and the normal reaction from the table acts upwards.",
+          "The weight and the reaction are equal and opposite, so the block does not move up or down."
+        ],
+        "tip": "This is a level-marked answer. Link the forces in one direction and also deal with the other direction to reach the top level."
+      }
+    },
+    "ocr": {
+      "spec_codes": [
+        "OCR P2.2c",
+        "OCR P2.2e",
+        "OCR P2.2f",
+        "OCR P2.2g",
+        "OCR P2.2h"
+      ],
+      "exam_phrases": [
+        "as velocity increases air resistance increases",
+        "the weight balances the air resistance",
+        "no net / resultant force",
+        "no acceleration",
+        "normal contact force",
+        "drag for air resistance"
+      ],
+      "mistakes": [
+        {
+          "wrong": "At maximum velocity there are no forces acting on the shuttlecock.",
+          "right": "The weight and the air resistance still act. The weight balances the air resistance, so there is no resultant force and no acceleration."
+        },
+        {
+          "wrong": "The upwards force on a stationary rocket is thrust.",
+          "right": "The upwards force is the normal contact force and the downwards force is weight."
+        }
+      ],
+      "worked_example": {
+        "exemplar_id": "198adfb1-befe-4211-a073-2467d4eb37cb",
+        "source": "OCR jun 2024, Paper 3, Q23(a)",
+        "question": "A badminton player drops a shuttlecock and records its velocity as it falls vertically to the ground. Explain why the shuttlecock reaches a maximum velocity.",
+        "marks": 3,
+        "answer_points": [
+          "As the velocity increases, air resistance increases.",
+          "Until the weight balances the air resistance.",
+          "There is no resultant force, so no acceleration and no further increase in velocity."
+        ],
+        "tip": "Any three of the four marking points score. Drag is accepted for air resistance."
+      }
+    }
+  },
+  "meta": {
+    "status": "draft",
+    "written_by": "sonnet-5-5",
+    "written_at": "2026-10-01",
+    "spec_point_ids": [
+      "b0d9a55a-9249-47d5-96c7-f2e36a8b41a5",
+      "92ea1a28-b181-4954-836b-9208bd224587",
+      "4c0b5bf7-997e-484f-9e69-d4316fbfda83",
+      "3661ccdb-c027-45c3-b146-5a1f1f0252ca",
+      "e2647936-cd30-48f1-8ad1-7057fdb6e09c",
+      "a36c8102-4c24-4f53-8da3-9340facc92b7",
+      "14834a88-6b13-41c3-b2dd-66cafae2c667",
+      "523e320f-0c2c-4660-9f62-756f57a362d7",
+      "11ce994d-7600-453c-86a3-411d918b4923",
+      "8fd6468e-6cef-42ac-bd0d-51ad7ff976bb"
+    ],
+    "exemplar_ids": [
+      "df76daf2-b485-4384-97e7-79e26b2e22dd",
+      "9ee52bef-9b64-41f2-ab3f-714e72c9a860",
+      "198adfb1-befe-4211-a073-2467d4eb37cb"
+    ],
+    "checked_by": "sonnet-science-check",
+    "checked_at": "2026-10-01"
+  }
+}

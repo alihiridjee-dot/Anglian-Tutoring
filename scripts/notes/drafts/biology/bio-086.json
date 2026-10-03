@@ -1,0 +1,264 @@
+{
+  "format": 1,
+  "concept_id": "bio-086",
+  "subject": "biology",
+  "title": "Uses of plant hormones",
+  "key_idea": "(Separate science) Growers use plant hormones commercially. Auxins are used in selective weedkillers and rooting powders. Gibberellins start germination and promote flowering and fruit. Ethene ripens fruit.",
+  "sections": [
+    {
+      "heading": "Auxins",
+      "blocks": [
+        { "type": "paragraph", "text": "(Separate science) Auxins are used to control the growth of weeds and to grow new plants from cuttings." },
+        {
+          "type": "list",
+          "items": [
+            "**Selective weedkillers** contain auxins. They act on broad-leaved plants, which are the weeds.",
+            "They cause the weeds to overgrow, or grow too fast, so they die. Narrow-leaved plants such as grass are not killed.",
+            "**Rooting powder** contains auxin. The end of a cutting is dipped in it to stimulate the growth of roots, so a new plant can grow from a cutting.",
+            "Auxin is also used to promote growth in tissue culture.",
+            "Auxin can also be sprayed onto flowers to produce seedless fruit. Gibberellins are the more common choice for this."
+          ]
+        },
+        {
+          "type": "key-points",
+          "items": [
+            "Selective weedkillers: auxin makes broad-leaved weeds overgrow, but grass is not killed.",
+            "Rooting powder: auxin stimulates root growth in cuttings."
+          ]
+        }
+      ]
+    },
+    {
+      "heading": "Gibberellins and ethene",
+      "blocks": [
+        { "type": "paragraph", "text": "(Separate science) Gibberellins act on seeds, flowers and fruit. Ethene ripens fruit." },
+        {
+          "type": "diagram",
+          "diagram": {
+            "kind": "sort",
+            "alt": "Sort the uses into auxin, gibberellin and ethene.",
+            "prompt": "Which hormone is used for each job?",
+            "groups": ["Auxin", "Gibberellin", "Ethene"],
+            "items": [
+              { "text": "Selective weedkiller", "group": 0 },
+              { "text": "Rooting powder for cuttings", "group": 0 },
+              { "text": "Make dormant seeds germinate", "group": 1 },
+              { "text": "Promote flower production", "group": 1 },
+              { "text": "Increase fruit size", "group": 1 },
+              { "text": "Ripen fruit that was picked unripe", "group": 2 },
+              { "text": "Ripen tomatoes more quickly", "group": 2 },
+              { "text": "Released by bananas, so other fruits ripen faster", "group": 2 }
+            ]
+          }
+        },
+        { "type": "subheading", "text": "Gibberellins" },
+        {
+          "type": "list",
+          "items": [
+            "Sprayed on seeds to start germination.",
+            "Sprayed to promote flowering and to give more or bigger fruit.",
+            "Sprayed onto flowers before pollination, they stimulate the development of seedless fruit."
+          ]
+        },
+        { "type": "subheading", "text": "Ethene" },
+        {
+          "type": "list",
+          "items": [
+            "Unripe fruit can be picked and transported, then ethene is added so it ripens ready to sell.",
+            "Unripe fruit can be transported without ripening on the way.",
+            "Bananas release ethene, so other fruit stored with them ripens faster."
+          ]
+        },
+        {
+          "type": "key-points",
+          "items": [
+            "Gibberellins: germination, flowering, bigger fruit and seedless fruit (auxin is sometimes used too).",
+            "Ethene: ripening, so fruit can be picked unripe and ripened later."
+          ]
+        }
+      ]
+    },
+    {
+      "heading": "Testing a weedkiller",
+      "blocks": [
+        { "type": "paragraph", "text": "(Separate science) A weedkiller trial compares weeds in treated and untreated areas." },
+        {
+          "type": "list",
+          "items": [
+            "Spray one area with weedkiller and a second area with the same volume of water.",
+            "The area sprayed with water is the control. It shows the results are due to the weedkiller.",
+            "Place the quadrats randomly, to avoid bias and give representative results.",
+            "Count the weeds in each quadrat at the start and after two weeks, and calculate the mean."
+          ]
+        },
+        {
+          "type": "equation",
+          "label": "Percentage decrease",
+          "formula": "percentage decrease = (mean at start − mean after) ÷ mean at start × 100",
+          "where": ["mean number of weeds per quadrat at the start", "mean number of weeds per quadrat after the time", "percentage decrease, in %"]
+        },
+        {
+          "type": "diagram",
+          "diagram": {
+            "kind": "practice",
+            "alt": "Calculate the percentage decrease in the mean number of weeds per quadrat.",
+            "question": "A selective weedkiller is sprayed on a lawn. The mean number of weeds per quadrat is **{s}** before spraying and **{a}** two weeks after. Calculate the percentage decrease in the mean number of weeds. Give your answer to 1 decimal place.",
+            "variables": [
+              { "id": "s", "min": 10, "max": 50, "step": 10 },
+              { "id": "a", "min": 1, "max": 9, "step": 1 }
+            ],
+            "answer": { "formula": "(s - a) / s * 100", "unit": "%", "decimals": 1 },
+            "working": [
+              "Decrease = {s} − {a}",
+              "Percentage decrease = decrease ÷ {s} × 100 = **{answer}** %"
+            ]
+          }
+        },
+        {
+          "type": "key-points",
+          "items": [
+            "Use a control sprayed with water.",
+            "Percentage decrease = decrease ÷ starting value × 100."
+          ]
+        }
+      ]
+    }
+  ],
+  "checks": [
+    {
+      "q": "Explain how plant hormones work as weedkillers.",
+      "a": "Weedkillers contain auxins. They act on broad-leaved plants (the weeds) and make them overgrow. Selective weedkillers do not kill grass plants.",
+      "marks": 3
+    },
+    {
+      "q": "Name the plant hormone used to ripen fruit, and explain why growers use it.",
+      "a": "Ethene. Fruit can be picked unripe and transported, then ethene is added so it ripens ready for sale.",
+      "marks": 2
+    },
+    {
+      "q": "Give two uses of gibberellins.",
+      "a": "Any two from: start germination of seeds, promote flower production, increase fruit size, stimulate the development of seedless fruit.",
+      "marks": 2
+    }
+  ],
+  "boards": {
+    "aqa": {
+      "spec_codes": ["AQA 5.16"],
+      "exam_phrases": [
+        "auxin: to stimulate root growth in plant cuttings",
+        "weed killers; rooting (powders); growth in tissue culture",
+        "gibberellin: to promote seed germination",
+        "gibberellins: to increase fruit size; to promote flower production",
+        "ethene: to reduce the time taken for fruit to ripen",
+        "ethene is released from bananas",
+        "as a control / comparison, to show results are due to weed killer"
+      ],
+      "mistakes": [
+        {
+          "wrong": "Auxin is used to grow shoots.",
+          "right": "Reference to shoots is ignored. Give the uses: weed killers, rooting powders to grow plants from cuttings, or growth in tissue culture."
+        },
+        {
+          "wrong": "Gibberellin is used to make tomatoes ripen faster.",
+          "right": "Ethene reduces the time taken for fruit to ripen. Gibberellin promotes seed germination."
+        },
+        {
+          "wrong": "The area sprayed with water is a control variable.",
+          "right": "A control variable is not accepted. The water is the control, used for comparison, so the results can be shown to be due to the weed killer."
+        }
+      ],
+      "worked_example": {
+        "exemplar_id": "76fef712-7775-47ff-9250-dc7093b19dc1",
+        "source": "AQA jun 2018, Paper 2 (H), Q06.6",
+        "question": "In horticulture plant hormones are used for controlling plant growth. Draw one line from each plant hormone to the correct use of that hormone. Plant hormones: auxin, ethene, gibberellin. Uses: to reduce the time taken for tomatoes to ripen; to slow down the growth of plant stems; to promote seed germination; to stimulate root growth in plant cuttings.",
+        "marks": 3,
+        "answer_points": [
+          "Auxin: to stimulate root growth in plant cuttings (1).",
+          "Ethene: to reduce the time taken for tomatoes to ripen (1).",
+          "Gibberellin: to promote seed germination (1)."
+        ],
+        "tip": "One mark per hormone. One use is left over and is not correct for any of the three."
+      }
+    },
+    "edexcel": {
+      "spec_codes": ["EDEX 6.16B"],
+      "exam_phrases": [
+        "auxins used in selective weed killers",
+        "these act on broad leaf plants / only act on the weeds, causing them to overgrow",
+        "selective weedkillers do not kill grass plants",
+        "rooting powder stimulates the growth of roots",
+        "gibberellins stimulate germination in dormant seeds",
+        "gibberellins stimulate the development of seedless fruits",
+        "ethene: unripe fruit is harvested, then ethene is added so the fruit ripens for selling"
+      ],
+      "mistakes": [
+        {
+          "wrong": "Gibberellins are used in selective weedkillers and rooting powders.",
+          "right": "Selective weedkillers and rooting powders use auxins. Gibberellins cause germination and flower and fruit formation."
+        },
+        {
+          "wrong": "Selective weedkillers kill every plant, including the grass.",
+          "right": "Selective weedkillers contain auxins, which act on broad-leaf plants, the weeds. They do not kill grass plants."
+        },
+        {
+          "wrong": "Ethene makes seeds germinate faster.",
+          "right": "Gibberellins make seeds germinate faster. Ethene causes fruit ripening."
+        }
+      ],
+      "worked_example": {
+        "exemplar_id": "19489064-fcba-49eb-808e-c232afaa7709",
+        "source": "EDEXCEL nov 2020, Paper 2 (H), Q7(b)",
+        "question": "Some weed killers contain plant hormones. Explain how plant hormones work as weed killers.",
+        "marks": 3,
+        "answer_points": [
+          "Weed killers contain auxins (1).",
+          "These act on broad leaf plants, so they only act on the weeds (1).",
+          "They cause the weeds to overgrow, or grow too fast (1).",
+          "Selective weedkillers do not kill grass plants (1). Any three points score."
+        ],
+        "tip": "Name the hormone, say which plants it acts on and what it does to them."
+      }
+    },
+    "ocr": {
+      "spec_codes": ["OCR 3.2i"],
+      "exam_phrases": [
+        "selective weedkillers and rooting powders usually contain auxin",
+        "flowers are sprayed with auxin or gibberellins to produce fruits without seeds",
+        "fruits are exposed to ethene to make them ripen",
+        "gibberellins make seeds break dormancy"
+      ],
+      "mistakes": [
+        {
+          "wrong": "Selective weedkillers and rooting powders contain gibberellins.",
+          "right": "Selective weedkillers and rooting powders usually contain auxin."
+        },
+        {
+          "wrong": "After picking, fruits are exposed to auxin to make them ripen.",
+          "right": "Fruits are exposed to ethene to make them ripen."
+        }
+      ],
+      "worked_example": {
+        "exemplar_id": "f22dc986-35be-4dc4-ba79-8f230541d3aa",
+        "source": "OCR jun 2024, Paper 3, Q20(a)",
+        "question": "Plant hormones control many processes in plants. Complete these sentences by writing the correct plant hormones in the gaps. Each hormone can be used more than once. Flowers are sometimes sprayed with ________ to produce fruits without seeds. After fruits are picked, they can be exposed to ________ to make them ripen. Flowers are stimulated to open, and seeds made to break dormancy by the hormone ________. Selective weedkillers and rooting powders usually contain ________.",
+        "marks": 4,
+        "answer_points": [
+          "Seedless fruits: auxin (gibberellins is also allowed) (1).",
+          "Ripening after picking: ethene (1).",
+          "Flower opening and seed dormancy: gibberellins (1).",
+          "Selective weedkillers and rooting powders: auxin (1)."
+        ],
+        "tip": "Each hormone can be used more than once, so check every gap on its own."
+      }
+    }
+  },
+  "meta": {
+    "status": "draft",
+    "written_by": "sonnet-5-5",
+    "written_at": "2026-10-01",
+    "spec_point_ids": ["aa1ce410-a47a-4103-975c-379f67bae908", "7f5d2497-ab99-4fa3-8856-736dc5764187", "1927aa68-f751-4f89-bd6d-a7d2731cd0cb"],
+    "exemplar_ids": ["76fef712-7775-47ff-9250-dc7093b19dc1", "19489064-fcba-49eb-808e-c232afaa7709", "f22dc986-35be-4dc4-ba79-8f230541d3aa", "920a1564-3593-45ad-b98c-9089dd19d7a9", "af3873d8-a0f1-4d0e-82b1-a847de36fb89", "37e4e145-281f-42ee-9a4f-f1f9e1952ea4", "60dafae8-8d2f-4dde-ab30-93da2d9a534f", "135fd1b6-b999-4200-941f-cb430185a51e", "293d2f77-ea0f-4602-b6c0-aaa210163f27", "c413f160-00c7-4769-82e2-a0119032d839", "a0304e75-f981-4275-bb1e-18202b7edd80", "735657fb-6583-4106-8623-598f8dc9de6d", "2e45dafd-1438-4496-b75b-f62565ec274b"],
+    "checked_by": "sonnet-science-check",
+    "checked_at": "2026-10-01"
+  }
+}

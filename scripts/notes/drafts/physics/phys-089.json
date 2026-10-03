@@ -1,0 +1,300 @@
+{
+  "format": 1,
+  "concept_id": "phys-089",
+  "subject": "physics",
+  "title": "Life cycle of stars",
+  "key_idea": "A star forms from a nebula and is stable while gravity balances the energy from fusion. A star like the Sun becomes a red giant and then a white dwarf. A much more massive star ends in a supernova and leaves a neutron star or black hole.",
+  "sections": [
+    {
+      "heading": "Why a star is stable",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "(Physics only, not needed for Combined Science) A star goes through a life cycle. How it ends depends on its mass."
+        },
+        {
+          "type": "definitions",
+          "items": [
+            {
+              "term": "Nebula",
+              "meaning": "A cloud of dust and gas, mostly hydrogen."
+            },
+            {
+              "term": "Protostar",
+              "meaning": "A star forming as the nebula is pulled together by gravity."
+            },
+            {
+              "term": "Main sequence star",
+              "meaning": "A stable star fusing hydrogen into helium."
+            },
+            {
+              "term": "Nuclear fusion",
+              "meaning": "Small nuclei join to form larger nuclei, releasing energy."
+            }
+          ]
+        },
+        {
+          "type": "list",
+          "items": [
+            "Gravity pulls a nebula together, so the temperature rises.",
+            "When it is hot enough, nuclear fusion begins and a main sequence star forms.",
+            "Hydrogen nuclei fuse to form helium nuclei."
+          ]
+        },
+        {
+          "type": "paragraph",
+          "text": "A main sequence star is stable. The inward force of gravity is balanced by the outward forces from the energy released in fusion."
+        },
+        {
+          "type": "key-points",
+          "items": [
+            "A nebula collapses under gravity until it is hot enough for fusion.",
+            "A main sequence star is stable because gravity and fusion are in equilibrium."
+          ]
+        }
+      ]
+    },
+    {
+      "heading": "Stars similar in mass to the Sun",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "When the hydrogen in the core begins to run out, the balance changes and the star leaves the main sequence."
+        },
+        {
+          "type": "list",
+          "items": [
+            "The star expands to become a **red giant**.",
+            "It throws off its outer layers of gas (a planetary nebula) and the core collapses to become a **white dwarf**.",
+            "The white dwarf cools to become a black dwarf."
+          ]
+        },
+        {
+          "type": "diagram",
+          "diagram": {
+            "kind": "sequence",
+            "alt": "Put the life cycle of a star similar in mass to the Sun in order.",
+            "prompt": "Put the life cycle of a star like the Sun in order.",
+            "steps": [
+              "Nebula",
+              "Protostar",
+              "Main sequence star",
+              "Red giant",
+              "White dwarf",
+              "Black dwarf"
+            ]
+          }
+        },
+        {
+          "type": "key-points",
+          "items": [
+            "A star like the Sun becomes a red giant, then a white dwarf, then a black dwarf.",
+            "The order of the stages matters in an answer."
+          ]
+        }
+      ]
+    },
+    {
+      "heading": "Stars much more massive than the Sun",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "A star much more massive than the Sun starts in the same way, but ends differently."
+        },
+        {
+          "type": "list",
+          "items": [
+            "After the main sequence it expands to become a red super giant.",
+            "It then collapses rapidly and explodes in a **supernova**.",
+            "It leaves behind a neutron star or a black hole."
+          ]
+        },
+        {
+          "type": "diagram",
+          "diagram": {
+            "kind": "flow",
+            "alt": "The life cycle of a star much more massive than the Sun.",
+            "steps": [
+              "Nebula",
+              "Protostar",
+              "Main sequence star",
+              "Red super giant",
+              "Supernova",
+              "Neutron star or black hole"
+            ]
+          }
+        },
+        {
+          "type": "subheading",
+          "text": "Making the elements"
+        },
+        {
+          "type": "list",
+          "items": [
+            "Fusion in stars produces all the naturally occurring elements.",
+            "Hydrogen nuclei fuse to form helium. Helium nuclei fuse to make heavier elements, up to iron.",
+            "Elements heavier than iron are produced in a supernova.",
+            "The explosion distributes the elements throughout the Universe."
+          ]
+        },
+        {
+          "type": "key-points",
+          "items": [
+            "A massive star becomes a red super giant, then a supernova, then a neutron star or black hole.",
+            "Stars make elements up to iron by fusion.",
+            "Elements heavier than iron form in a supernova, which spreads them through the Universe."
+          ]
+        }
+      ]
+    }
+  ],
+  "checks": [
+    {
+      "q": "Explain why a main sequence star is stable.",
+      "a": "The inward force of gravity is balanced (in equilibrium) with the outward forces caused by the energy released in nuclear fusion.",
+      "marks": 2
+    },
+    {
+      "q": "Describe what happens to a star the size of the Sun after the main sequence stage. Name the stages.",
+      "a": "It expands to become a red giant, then collapses to become a white dwarf, then cools to become a black dwarf.",
+      "marks": 3
+    },
+    {
+      "q": "State where elements heavier than iron are made.",
+      "a": "In a supernova, the explosion of a massive star.",
+      "marks": 1
+    }
+  ],
+  "boards": {
+    "aqa": {
+      "spec_codes": [
+        "AQA 4.8.1.2"
+      ],
+      "exam_phrases": [
+        "gravitational force inwards and forces as a result of fusion reactions outwards",
+        "are in equilibrium / balanced",
+        "expand to become a red giant",
+        "collapse to become a white dwarf",
+        "helium nuclei fuse to make heavier elements, up to iron",
+        "creating elements heavier than iron"
+      ],
+      "mistakes": [
+        {
+          "wrong": "The forces pulling inwards are caused by weight.",
+          "right": "Weight is not allowed. The inward force is gravity, and the outward forces come from the energy released by nuclear fusion."
+        },
+        {
+          "wrong": "The star is stable because the forces are balanced.",
+          "right": "Name both forces. Gravitational force inwards and fusion reactions outwards, which are in equilibrium. 'Forces in equilibrium' on its own scores one mark."
+        },
+        {
+          "wrong": "The Sun will become a white dwarf, then a red giant, then a black dwarf.",
+          "right": "The stages must be in the correct sequence to score all three marks: red giant, white dwarf, black dwarf."
+        }
+      ],
+      "worked_example": {
+        "exemplar_id": "bb4e8e32-4587-42c9-8d42-a64d1f34a25e",
+        "source": "AQA jun 2021, Paper 2 (H), Q03.2",
+        "marks": 3,
+        "question": "A main sequence star in a distant galaxy is the same size and mass as the Sun.\n\nDescribe what will happen to the star between the main sequence stage and the end of the star's life cycle.\nYou should include the names of the stages in the life cycle of the star.",
+        "answer_points": [
+          "The star will expand to become a red giant.",
+          "The star will collapse to become a white dwarf.",
+          "The star will cool to become a black dwarf."
+        ],
+        "tip": "The stages must be in the correct sequence to score all three marks."
+      }
+    },
+    "edexcel": {
+      "spec_codes": [
+        "EDEX 7.16P",
+        "EDEX 7.17P",
+        "EDEX 7.18P"
+      ],
+      "exam_phrases": [
+        "nebula as a cloud of gas / dust",
+        "gas / atoms pulled together by gravitational force",
+        "temperature increases until hot enough for nuclear fusion",
+        "gravitational potential energy converted into kinetic energy",
+        "balance between gravity and fusion / thermal expansion"
+      ],
+      "mistakes": [
+        {
+          "wrong": "The nebula collapses until it is hot enough for nuclear fission.",
+          "right": "References to fission are ignored. The nebula collapses until it is hot enough for nuclear fusion."
+        },
+        {
+          "wrong": "The nebula collapses and gets hot.",
+          "right": "References to hot or heat are ignored. Say very high temperatures and pressures are reached, or that gravitational potential energy is converted into kinetic energy of the particles."
+        },
+        {
+          "wrong": "The Sun will become a red super giant and then explode in a supernova.",
+          "right": "Red super giant and supernova are not accepted for the Sun. The Sun expands to a red giant, then cools to a white dwarf."
+        }
+      ],
+      "worked_example": {
+        "exemplar_id": "05de4c4f-4b60-41f9-8881-0621aeed960d",
+        "source": "EDEXCEL jun 2023, Paper 1 (H), Q4(d)(ii)",
+        "marks": 3,
+        "question": "During the evolution of a star, the nebula collapses and becomes a main sequence star.\n\nExplain why the nebula stops collapsing as it becomes a main sequence star.",
+        "answer_points": [
+          "Gravity causes an increase in temperature.",
+          "Until it is hot enough for fusion.",
+          "Until there is a balance between gravity and fusion (thermal expansion)."
+        ],
+        "tip": "Allow increase in pressure or density, nuclear reactions, or equilibrium. Fission is ignored."
+      }
+    },
+    "ocr": {
+      "spec_codes": [
+        "OCR P8.3c"
+      ],
+      "exam_phrases": [
+        "high temperature",
+        "high pressure",
+        "large gravitational forces (due to large mass)",
+        "red giant",
+        "planetary nebula",
+        "white dwarf",
+        "the gravitational force is equal to the outward force"
+      ],
+      "mistakes": [
+        {
+          "wrong": "Fusion occurs in the Sun because it is hot.",
+          "right": "'Heat' is ignored. Give high temperature, high pressure or large gravitational forces due to the Sun's large mass."
+        }
+      ],
+      "worked_example": {
+        "exemplar_id": "e5315711-ab22-4f40-8f87-bbe3a999ed10",
+        "source": "OCR jun 2019, Paper 2, Q23(c)(ii)",
+        "marks": 2,
+        "question": "It is difficult for nuclear fusion reactions to occur on Earth.\n\nExplain why nuclear fusion reactions occur in the Sun.",
+        "answer_points": [
+          "High temperature.",
+          "High pressure.",
+          "Large gravitational forces (due to its large mass).",
+          "Any two of these score the marks."
+        ],
+        "tip": "Any two points score. 'Heat' is ignored."
+      }
+    }
+  },
+  "meta": {
+    "status": "draft",
+    "written_by": "sonnet-5-5",
+    "written_at": "2026-10-01",
+    "spec_point_ids": [
+      "f20b10eb-532c-4258-b3cd-3a75b00847bc",
+      "6e17a11f-2efd-48f7-824c-e910d0893111",
+      "96632856-64a5-4520-9fb7-be43935e177a",
+      "41803a82-a9d3-40a4-b041-2d3284bcb815"
+    ],
+    "exemplar_ids": [
+      "bb4e8e32-4587-42c9-8d42-a64d1f34a25e",
+      "05de4c4f-4b60-41f9-8881-0621aeed960d",
+      "e5315711-ab22-4f40-8f87-bbe3a999ed10"
+    ],
+    "checked_by": "sonnet-science-check",
+    "checked_at": "2026-10-03"
+  }
+}

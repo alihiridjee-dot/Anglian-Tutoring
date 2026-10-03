@@ -1,0 +1,641 @@
+{
+  "format": 1,
+  "concept_id": "phys-086",
+  "subject": "physics",
+  "title": "Generators and microphones",
+  "key_idea": "An alternator and a dynamo are generators. A coil turns in a magnetic field and a p.d. is induced. An alternator gives a.c. and a dynamo gives d.c. A microphone uses the same effect to turn sound waves into a varying current.",
+  "sections": [
+    {
+      "heading": "Alternators and dynamos",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "(Separate science) This section explains how a coil rotating in a magnetic field generates a potential difference."
+        },
+        {
+          "type": "list",
+          "items": [
+            "A coil rotates between the poles of a magnet.",
+            "The coil cuts the magnetic field lines, so a p.d. is induced across it.",
+            "The coil is part of a complete circuit, so a current is induced."
+          ]
+        },
+        {
+          "type": "definitions",
+          "items": [
+            {
+              "term": "Alternator",
+              "meaning": "A generator that produces alternating current (a.c.)."
+            },
+            {
+              "term": "Dynamo",
+              "meaning": "A generator that produces direct current (d.c.)."
+            },
+            {
+              "term": "Slip rings",
+              "meaning": "Rings joined to the ends of the coil. They keep the same connection to the circuit all the time."
+            },
+            {
+              "term": "Split-ring commutator",
+              "meaning": "A ring split in two. It swaps the coil's connections to the circuit every half turn."
+            }
+          ]
+        },
+        {
+          "type": "subheading",
+          "text": "Alternator: alternating current"
+        },
+        {
+          "type": "list",
+          "items": [
+            "Every half turn the potential difference reverses direction.",
+            "So the current changes direction every half turn."
+          ]
+        },
+        {
+          "type": "subheading",
+          "text": "Dynamo: direct current"
+        },
+        {
+          "type": "list",
+          "items": [
+            "Every half turn the commutator switches the contacts the two ends of the coil connect to.",
+            "So the current in the circuit does not reverse every half turn."
+          ]
+        },
+        {
+          "type": "diagram",
+          "diagram": {
+            "kind": "line-graph",
+            "alt": "Potential difference against time for two turns of the coil. The alternator output swings above and below zero. The dynamo output stays above zero and rises and falls twice per turn.",
+            "x": {
+              "label": "Time",
+              "min": 0,
+              "max": 2,
+              "ticks": [
+                0,
+                0.5,
+                1,
+                1.5,
+                2
+              ],
+              "unit": "turns of the coil"
+            },
+            "y": {
+              "label": "Potential difference",
+              "zero": 0.5
+            },
+            "series": [
+              {
+                "name": "Alternator (a.c.)",
+                "points": [
+                  [
+                    0.0,
+                    0.5
+                  ],
+                  [
+                    0.0625,
+                    0.672
+                  ],
+                  [
+                    0.125,
+                    0.818
+                  ],
+                  [
+                    0.1875,
+                    0.916
+                  ],
+                  [
+                    0.25,
+                    0.95
+                  ],
+                  [
+                    0.3125,
+                    0.916
+                  ],
+                  [
+                    0.375,
+                    0.818
+                  ],
+                  [
+                    0.4375,
+                    0.672
+                  ],
+                  [
+                    0.5,
+                    0.5
+                  ],
+                  [
+                    0.5625,
+                    0.328
+                  ],
+                  [
+                    0.625,
+                    0.182
+                  ],
+                  [
+                    0.6875,
+                    0.084
+                  ],
+                  [
+                    0.75,
+                    0.05
+                  ],
+                  [
+                    0.8125,
+                    0.084
+                  ],
+                  [
+                    0.875,
+                    0.182
+                  ],
+                  [
+                    0.9375,
+                    0.328
+                  ],
+                  [
+                    1.0,
+                    0.5
+                  ],
+                  [
+                    1.0625,
+                    0.672
+                  ],
+                  [
+                    1.125,
+                    0.818
+                  ],
+                  [
+                    1.1875,
+                    0.916
+                  ],
+                  [
+                    1.25,
+                    0.95
+                  ],
+                  [
+                    1.3125,
+                    0.916
+                  ],
+                  [
+                    1.375,
+                    0.818
+                  ],
+                  [
+                    1.4375,
+                    0.672
+                  ],
+                  [
+                    1.5,
+                    0.5
+                  ],
+                  [
+                    1.5625,
+                    0.328
+                  ],
+                  [
+                    1.625,
+                    0.182
+                  ],
+                  [
+                    1.6875,
+                    0.084
+                  ],
+                  [
+                    1.75,
+                    0.05
+                  ],
+                  [
+                    1.8125,
+                    0.084
+                  ],
+                  [
+                    1.875,
+                    0.182
+                  ],
+                  [
+                    1.9375,
+                    0.328
+                  ],
+                  [
+                    2.0,
+                    0.5
+                  ]
+                ]
+              },
+              {
+                "name": "Dynamo (d.c.)",
+                "points": [
+                  [
+                    0.0,
+                    0.5
+                  ],
+                  [
+                    0.0625,
+                    0.672
+                  ],
+                  [
+                    0.125,
+                    0.818
+                  ],
+                  [
+                    0.1875,
+                    0.916
+                  ],
+                  [
+                    0.25,
+                    0.95
+                  ],
+                  [
+                    0.3125,
+                    0.916
+                  ],
+                  [
+                    0.375,
+                    0.818
+                  ],
+                  [
+                    0.4375,
+                    0.672
+                  ],
+                  [
+                    0.5,
+                    0.5
+                  ],
+                  [
+                    0.5625,
+                    0.672
+                  ],
+                  [
+                    0.625,
+                    0.818
+                  ],
+                  [
+                    0.6875,
+                    0.916
+                  ],
+                  [
+                    0.75,
+                    0.95
+                  ],
+                  [
+                    0.8125,
+                    0.916
+                  ],
+                  [
+                    0.875,
+                    0.818
+                  ],
+                  [
+                    0.9375,
+                    0.672
+                  ],
+                  [
+                    1.0,
+                    0.5
+                  ],
+                  [
+                    1.0625,
+                    0.672
+                  ],
+                  [
+                    1.125,
+                    0.818
+                  ],
+                  [
+                    1.1875,
+                    0.916
+                  ],
+                  [
+                    1.25,
+                    0.95
+                  ],
+                  [
+                    1.3125,
+                    0.916
+                  ],
+                  [
+                    1.375,
+                    0.818
+                  ],
+                  [
+                    1.4375,
+                    0.672
+                  ],
+                  [
+                    1.5,
+                    0.5
+                  ],
+                  [
+                    1.5625,
+                    0.672
+                  ],
+                  [
+                    1.625,
+                    0.818
+                  ],
+                  [
+                    1.6875,
+                    0.916
+                  ],
+                  [
+                    1.75,
+                    0.95
+                  ],
+                  [
+                    1.8125,
+                    0.916
+                  ],
+                  [
+                    1.875,
+                    0.818
+                  ],
+                  [
+                    1.9375,
+                    0.672
+                  ],
+                  [
+                    2.0,
+                    0.5
+                  ]
+                ]
+              }
+            ]
+          }
+        },
+        {
+          "type": "key-points",
+          "items": [
+            "A coil turning in a magnetic field induces a p.d. because it cuts field lines.",
+            "An alternator reverses the current every half turn, giving a.c.",
+            "A dynamo uses a split-ring commutator to keep the current in one direction, giving d.c."
+          ]
+        }
+      ]
+    },
+    {
+      "heading": "Microphones and loudspeakers",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "(Separate science) A microphone uses the generator effect. It converts pressure variations in sound waves into variations in current in a circuit."
+        },
+        {
+          "type": "subheading",
+          "text": "How a moving-coil microphone works"
+        },
+        {
+          "type": "steps",
+          "items": [
+            {
+              "lead": "Sound",
+              "text": "Sound waves cause the diaphragm to vibrate."
+            },
+            {
+              "lead": "Coil",
+              "text": "The diaphragm causes the coil to vibrate."
+            },
+            {
+              "lead": "Induction",
+              "text": "The coil moves through the magnetic field of a magnet, cutting field lines."
+            },
+            {
+              "lead": "Signal",
+              "text": "A p.d. is induced across the ends of the coil, giving an alternating current in the circuit."
+            }
+          ]
+        },
+        {
+          "type": "paragraph",
+          "text": "A loudspeaker or headphone does the reverse. An alternating current in a coil in a magnetic field gives a force on the coil that changes direction, so the cone vibrates and makes sound."
+        },
+        {
+          "type": "diagram",
+          "diagram": {
+            "kind": "compare",
+            "alt": "A microphone and a loudspeaker compared: their input, output and the effect each uses.",
+            "items": [
+              "Microphone",
+              "Loudspeaker"
+            ],
+            "rows": [
+              {
+                "feature": "Input",
+                "values": [
+                  "Sound waves",
+                  "Alternating current"
+                ]
+              },
+              {
+                "feature": "Output",
+                "values": [
+                  "Alternating current or p.d. signal",
+                  "Sound waves"
+                ]
+              },
+              {
+                "feature": "Effect used",
+                "values": [
+                  "Generator effect",
+                  "Motor effect"
+                ]
+              },
+              {
+                "feature": "What vibrates",
+                "values": [
+                  "Diaphragm and coil, driven by the sound",
+                  "Coil and cone, driven by the force on the coil"
+                ]
+              }
+            ]
+          }
+        },
+        {
+          "type": "key-points",
+          "items": [
+            "A microphone turns sound waves into a varying current using the generator effect.",
+            "The sound's frequency decides the frequency of the current.",
+            "A loudspeaker reverses the process and turns a varying current into sound."
+          ]
+        }
+      ]
+    }
+  ],
+  "checks": [
+    {
+      "q": "How does the output of an alternator differ from the output of a dynamo?",
+      "a": "An alternator produces alternating current (a.c.). A dynamo produces direct current (d.c.).",
+      "marks": 2
+    },
+    {
+      "q": "Explain how a moving-coil microphone works.",
+      "a": "Sound waves cause the diaphragm to vibrate. This makes the coil vibrate, so it moves through the magnetic field. A potential difference is induced across the ends of the coil.",
+      "marks": 4
+    },
+    {
+      "q": "Name the part of a dynamo that stops the current reversing every half turn.",
+      "a": "The split-ring commutator, which switches the contacts every half turn.",
+      "marks": 1
+    }
+  ],
+  "boards": {
+    "aqa": {
+      "spec_codes": [
+        "AQA 4.7.3.2",
+        "AQA 4.7.3.3"
+      ],
+      "exam_phrases": [
+        "every half turn the potential difference reverses direction",
+        "so (every half turn) the current changes direction",
+        "each half-revolution, (the two halves of) the commutator switch brushes / contacts",
+        "the direction of the induced current does not reverse every half rotation",
+        "sound (waves) cause the diaphragm to vibrate",
+        "the diaphragm causes the coil / wire to vibrate",
+        "inducing an alternating current (in the circuit)"
+      ],
+      "mistakes": [
+        {
+          "wrong": "The diaphragm moves and this makes a current.",
+          "right": "'Diaphragm moves' is not enough. Say that sound waves cause the diaphragm to vibrate, which causes the coil to vibrate in the magnetic field."
+        },
+        {
+          "wrong": "The coil moves up and down in the microphone.",
+          "right": "Do not accept 'moves up and down'. Say the coil or wire vibrates, moving through the magnetic field or cutting field lines."
+        },
+        {
+          "wrong": "The dynamo gives a direct current because the coil only turns one way.",
+          "right": "The commutator is what matters. Each half turn it switches contacts, so the current in the circuit does not reverse."
+        }
+      ],
+      "extra": [
+        {
+          "heading": "Tier",
+          "blocks": [
+            {
+              "type": "paragraph",
+              "text": "This content is Higher tier only and Physics only (Separate science) in this course."
+            }
+          ]
+        }
+      ],
+      "worked_example": {
+        "exemplar_id": "93ab0a24-ea5e-4e3b-b499-6cb09378754d",
+        "source": "AQA jun 2019, Paper 2 (H), Q9.5",
+        "marks": 4,
+        "question": "A moving-coil microphone contains a diaphragm, a coil of wire and a magnet.\n\nExplain how a moving-coil microphone works.",
+        "answer_points": [
+          "Sound waves cause the diaphragm to vibrate.",
+          "The diaphragm causes the coil to vibrate.",
+          "The coil moves through the magnetic field (it cuts magnetic field lines).",
+          "A potential difference is induced across the ends of the coil."
+        ],
+        "tip": "One mark for each step. 'Diaphragm moves' is insufficient, and 'moves up and down' is not accepted."
+      }
+    },
+    "edexcel": {
+      "spec_codes": [
+        "EDEX 13.3P",
+        "EDEX 13.4P"
+      ],
+      "exam_phrases": [
+        "(alternating) current produces a (changing) magnetic field around the coil",
+        "the force on the coil / cone (continuously) changes direction",
+        "the coil oscillates in a magnetic field",
+        "generates an alternating p.d. / alternating current / signal",
+        "frequency / amplitude of the alternating p.d. depends on the frequency / amplitude of the sound",
+        "electromagnetic induction in a microphone"
+      ],
+      "mistakes": [
+        {
+          "wrong": "A loudspeaker makes sound and a microphone picks sound up.",
+          "right": "These are basic facts and only reach Level 1. Add the principle (motor effect in a loudspeaker, electromagnetic induction in a microphone) and the details of the coil and magnet."
+        },
+        {
+          "wrong": "The current in the loudspeaker makes the cone vibrate.",
+          "right": "Link the steps in order. The alternating current gives a changing field around the coil, the coil is in a magnetic field so there is a force, the force changes direction, and the coil and cone vibrate."
+        }
+      ],
+      "worked_example": {
+        "exemplar_id": "d65d82b3-01e8-4574-be6a-6ba966fea55f",
+        "source": "EDEXCEL nov 2020, Paper 2 (H), Q7(b)",
+        "marks": 4,
+        "question": "Explain how sound is produced when an alternating current is supplied to the coil of a loudspeaker.",
+        "answer_points": [
+          "The alternating current produces a changing magnetic field around the coil.",
+          "The coil is in the magnetic field of the fixed magnet.",
+          "The varying current in the magnetic field produces a force.",
+          "The force on the coil and cone continuously changes direction.",
+          "The paper cone and coil vibrate, moving to and fro."
+        ],
+        "tip": "Any four points, linked in a logical order."
+      }
+    },
+    "ocr": {
+      "spec_codes": [
+        "OCR P4.2f",
+        "OCR P4.2j"
+      ],
+      "exam_phrases": [
+        "alternator output is alternating current / a.c.",
+        "dynamo output is direct current / d.c.",
+        "the dynamo uses a split-ring commutator and the alternator uses slip rings",
+        "a microphone converts sound waves into current / p.d. / electrical signal",
+        "a speaker converts current / p.d. / electrical signal into sound waves",
+        "potential difference / voltage is induced across the ends of the wire"
+      ],
+      "mistakes": [
+        {
+          "wrong": "A resistance is induced across the ends of the wire.",
+          "right": "A potential difference (voltage) is induced across the ends of the wire. A current is also allowed."
+        },
+        {
+          "wrong": "A microphone is similar to a motor.",
+          "right": "A microphone is similar to a generator (or dynamo). It uses electromagnetic induction."
+        },
+        {
+          "wrong": "A dynamo and an alternator both use electromagnetism.",
+          "right": "This is not credited. Give a specific similarity, such as both rotate a coil in a magnetic field, or both induce a potential difference or current when rotated."
+        },
+        {
+          "wrong": "A microphone changes sound energy into electrical energy.",
+          "right": "References to energy are ignored when comparing the two devices. Say a microphone converts sound waves into a current, p.d. or signal."
+        }
+      ],
+      "worked_example": {
+        "exemplar_id": "b2923f90-ab4f-4030-a2be-d620e13a7507",
+        "source": "OCR jun 2023, Paper 3, Q20(a)",
+        "marks": 4,
+        "question": "Explain two similarities and two differences between the operation of a loudspeaker and the operation of a microphone.",
+        "answer_points": [
+          "Similarity (any two): both have an alternating or changing current, p.d. or voltage.",
+          "Similarity: both use a coil, magnets or a magnetic field.",
+          "Similarity: both have a moving diaphragm.",
+          "Similarity: the frequency of the sound equals the frequency of the current.",
+          "Difference: a microphone converts sound waves into a current, p.d. or electrical signal.",
+          "Difference: a speaker converts a current, p.d. or electrical signal into sound waves."
+        ],
+        "tip": "Two marks for similarities and two for differences. Ignore references to energy."
+      }
+    }
+  },
+  "meta": {
+    "status": "draft",
+    "written_by": "sonnet-5-5",
+    "written_at": "2026-10-01",
+    "spec_point_ids": [
+      "bd6a6121-0679-43a7-b464-72bbdc66a77a",
+      "f1251ac2-de25-425e-a3e8-e610ae209d77",
+      "3a1a0e89-fb07-4a96-8ff9-bcd91a87138d",
+      "ebc6844a-a88e-4550-a11d-a62548642a10",
+      "5ed6c75e-73c8-4a60-b6b2-245219400358",
+      "d1303a84-2cd1-45ff-bc84-4a6c8286e1be"
+    ],
+    "exemplar_ids": [
+      "93ab0a24-ea5e-4e3b-b499-6cb09378754d",
+      "d65d82b3-01e8-4574-be6a-6ba966fea55f",
+      "b2923f90-ab4f-4030-a2be-d620e13a7507"
+    ],
+    "checked_by": "sonnet-science-check",
+    "checked_at": "2026-10-03"
+  }
+}

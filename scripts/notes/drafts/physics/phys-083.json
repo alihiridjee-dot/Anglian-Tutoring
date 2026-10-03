@@ -1,0 +1,425 @@
+{
+  "format": 1,
+  "concept_id": "phys-083",
+  "subject": "physics",
+  "title": "The motor effect",
+  "key_idea": "(Higher tier) A wire carrying a current in a magnetic field experiences a force, and the magnet experiences an equal and opposite force. Fleming's left-hand rule gives the direction of the force. For a wire at right angles to the field, F = B × I × l.",
+  "sections": [
+    {
+      "heading": "What the motor effect is",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "(Higher tier) A wire carrying a current in a magnetic field experiences a force. This is the motor effect."
+        },
+        {
+          "type": "definitions",
+          "items": [
+            {
+              "term": "Motor effect",
+              "meaning": "The force on a conductor carrying a current in a magnetic field. The magnet and the conductor exert forces on each other."
+            },
+            {
+              "term": "Magnetic flux density",
+              "meaning": "The strength of the magnetic field. Its unit is the tesla (T)."
+            }
+          ]
+        },
+        {
+          "type": "list",
+          "items": [
+            "The magnet's field and the field around the wire interact. This produces a force on the wire.",
+            "An equal and opposite force acts on the magnet.",
+            "Reverse the current or reverse the magnetic field to reverse the direction of the force.",
+            "To increase the force, increase the current or use a stronger magnet. A longer length of wire in the field also helps."
+          ]
+        },
+        {
+          "type": "key-points",
+          "items": [
+            "The motor effect is the force on a current-carrying wire in a magnetic field.",
+            "The wire and the magnet exert equal and opposite forces on each other."
+          ]
+        }
+      ]
+    },
+    {
+      "heading": "Fleming's left-hand rule",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "(Higher tier) Fleming's left-hand rule gives the direction of the force. Use your left hand."
+        },
+        {
+          "type": "steps",
+          "items": [
+            {
+              "lead": "Hold up three digits.",
+              "text": "Hold the first finger, second finger and thumb at right angles to each other."
+            },
+            {
+              "lead": "First finger: Field.",
+              "text": "Point it in the direction of the magnetic field, north to south."
+            },
+            {
+              "lead": "Second finger: Current.",
+              "text": "Point it in the direction of the current."
+            },
+            {
+              "lead": "Thumb: Force.",
+              "text": "It points in the direction of the force, and so the motion."
+            }
+          ]
+        },
+        {
+          "type": "key-points",
+          "items": [
+            "First finger is the field, second finger is the current, thumb is the force.",
+            "The three must be at right angles to each other."
+          ]
+        }
+      ]
+    },
+    {
+      "heading": "Calculating the force",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "(Higher tier) For a conductor at right angles to the magnetic field, the force depends on the field, the current and the length in the field."
+        },
+        {
+          "type": "equation",
+          "label": "Force on a conductor",
+          "formula": "F = B × I × l",
+          "where": [
+            "F is the force in newtons (N).",
+            "B is the magnetic flux density in tesla (T).",
+            "I is the current in amperes (A).",
+            "l is the length of conductor in the field in metres (m)."
+          ]
+        },
+        {
+          "type": "paragraph",
+          "text": "The equation is given on the equation sheet. You must convert units and rearrange it."
+        },
+        {
+          "type": "equation",
+          "label": "Magnetic flux density",
+          "formula": "B = F ÷ (I × l)",
+          "where": [
+            "B is the magnetic flux density in tesla (T).",
+            "F is the force in newtons (N).",
+            "I is the current in amperes (A).",
+            "l is the length of conductor in the field in metres (m)."
+          ]
+        },
+        {
+          "type": "equation",
+          "label": "Current",
+          "formula": "I = F ÷ (B × l)",
+          "where": [
+            "I is the current in amperes (A).",
+            "F is the force in newtons (N).",
+            "B is the magnetic flux density in tesla (T).",
+            "l is the length of conductor in the field in metres (m)."
+          ]
+        },
+        {
+          "type": "steps",
+          "items": [
+            {
+              "lead": "Convert units.",
+              "text": "A wire of 50 mm carries 3.0 A in a field of 0.20 T. 50 mm = 0.050 m."
+            },
+            {
+              "lead": "Substitute.",
+              "text": "F = 0.20 × 3.0 × 0.050"
+            },
+            {
+              "lead": "Evaluate.",
+              "text": "F = 0.030 N."
+            }
+          ]
+        },
+        {
+          "type": "paragraph",
+          "text": "Change the field, current and length to see the force."
+        },
+        {
+          "type": "diagram",
+          "diagram": {
+            "kind": "slider",
+            "alt": "Change the magnetic flux density, the current and the length of wire in the field to see the force.",
+            "inputs": [
+              {
+                "id": "B",
+                "label": "Magnetic flux density",
+                "unit": "T",
+                "min": 0.1,
+                "max": 1.0,
+                "step": 0.1,
+                "value": 0.3
+              },
+              {
+                "id": "I",
+                "label": "Current",
+                "unit": "A",
+                "min": 1,
+                "max": 10,
+                "step": 1,
+                "value": 4
+              },
+              {
+                "id": "l",
+                "label": "Length of wire in the field",
+                "unit": "m",
+                "min": 0.02,
+                "max": 0.2,
+                "step": 0.01,
+                "value": 0.05
+              }
+            ],
+            "outputs": [
+              {
+                "label": "Force on the wire",
+                "unit": "N",
+                "formula": "B * I * l",
+                "decimals": 3
+              }
+            ]
+          }
+        },
+        {
+          "type": "diagram",
+          "diagram": {
+            "kind": "practice",
+            "alt": "Calculate the current in a wire from the force, the magnetic flux density and the length in the field.",
+            "question": "A wire carries a current in a uniform magnetic field of flux density {B} T. The length of wire in the field is {L} mm. The force on the wire is {F} N. Calculate the current in the wire.",
+            "variables": [
+              {
+                "id": "F",
+                "min": 0.04,
+                "max": 0.2,
+                "step": 0.04
+              },
+              {
+                "id": "B",
+                "min": 0.25,
+                "max": 1,
+                "step": 0.25
+              },
+              {
+                "id": "L",
+                "min": 60,
+                "max": 120,
+                "step": 20
+              }
+            ],
+            "answer": {
+              "formula": "F / (B * L / 1000)",
+              "unit": "A",
+              "decimals": 2
+            },
+            "working": [
+              "I = F ÷ (B × l)",
+              "l = {L} mm = {L} ÷ 1000 m",
+              "I = {F} ÷ ({B} × l)",
+              "I = {answer} A"
+            ]
+          }
+        },
+        {
+          "type": "key-points",
+          "items": [
+            "F = B × I × l, with the length in metres.",
+            "Convert mm to m, mA to A and mT to T before substituting.",
+            "Give the unit: N for force, T for flux density, A for current."
+          ]
+        }
+      ]
+    }
+  ],
+  "checks": [
+    {
+      "q": "Give two ways the direction of the force on a wire in a magnetic field could be reversed.",
+      "a": "Reverse the direction of the current. Reverse the direction of the magnetic field.",
+      "marks": 2
+    },
+    {
+      "q": "A wire of length 0.075 m carries a current of 4.0 A at right angles to a magnetic field of flux density 0.30 T. Calculate the force on the wire.",
+      "a": "F = B × I × l = 0.30 × 4.0 × 0.075 = 0.090 N.",
+      "marks": 2
+    },
+    {
+      "q": "Describe how Fleming's left-hand rule can be used to find the direction of the force on a current-carrying wire in a magnetic field.",
+      "a": "Hold the first finger, second finger and thumb of the left hand at right angles. The first finger is in the direction of the field and the second finger is in the direction of the current. The thumb shows the direction of the force.",
+      "marks": 3
+    }
+  ],
+  "boards": {
+    "aqa": {
+      "spec_codes": [
+        "AQA 4.7.2.2",
+        "AQA T 6.7.2.2"
+      ],
+      "exam_phrases": [
+        "use (Fleming's) left hand rule",
+        "first finger in the direction of the field lines",
+        "second finger in the direction of current",
+        "thumb will show the direction of the force",
+        "reverse the direction of the current",
+        "reverse the direction of the magnetic field",
+        "there is a magnetic field due to the (permanent) magnets",
+        "the current in the wire produces a magnetic field",
+        "the wire must experience an equal and opposite force"
+      ],
+      "mistakes": [
+        {
+          "wrong": "B = 0.092 ÷ (4.6 × 80) = 0.00025 T.",
+          "right": "Convert the length first: 80 mm = 0.080 m. Then B = 0.092 ÷ (4.6 × 0.080) = 0.25 T."
+        },
+        {
+          "wrong": "The reading on the balance increased because the wire got heavier.",
+          "right": "The downward force on the balance increased. The wire experiences an equal and opposite force, which is upwards."
+        },
+        {
+          "wrong": "B = 360, so 0.072 = 360 × I × 0.050.",
+          "right": "Convert 360 mT to 0.360 T. Then I = 0.072 ÷ (0.360 × 0.050) = 4.0 A."
+        }
+      ],
+      "worked_example": {
+        "exemplar_id": "a5db4218-4be2-4142-830f-dfb7c5332835",
+        "source": "AQA jun 2019, Paper 2 (H), Q04.3",
+        "question": "The length of the wire in the magnetic field is 0.050 m.\nThe force on the wire is 0.072 N.\nThe magnetic flux density is 360 mT.\n\nCalculate the current in the wire.\nUse the Physics Equations Sheet.",
+        "marks": 4,
+        "answer_points": [
+          "B = 0.360 T",
+          "0.072 = 0.360 × I × 0.050",
+          "I = 0.072 ÷ (0.360 × 0.050)",
+          "I = 4.0 A"
+        ],
+        "tip": "One mark each for the conversion, the substitution, the rearrangement and the answer. A correct answer of 4.0 A scores all 4 marks."
+      }
+    },
+    "edexcel": {
+      "spec_codes": [
+        "EDEX 12.10",
+        "EDEX 12.11",
+        "EDEX 12.12",
+        "EDEX 12.13"
+      ],
+      "exam_phrases": [
+        "first finger, second finger and thumb (of left-hand) held mutually perpendicular",
+        "first finger (is in the direction of) magnetic field",
+        "second finger (is in the direction of) current",
+        "thumb (is in the) direction of force / motion",
+        "magnetic fields interact",
+        "weight / gravitational force (downwards on upper magnet)",
+        "forces equal size / in equilibrium"
+      ],
+      "mistakes": [
+        {
+          "wrong": "I = 0.045 ÷ (0.72 × 30) = 0.002 A.",
+          "right": "Convert 30 mm to 0.030 m. Then I = 0.045 ÷ (0.72 × 0.030) = 2.1 A."
+        },
+        {
+          "wrong": "B = 1.11 × 10⁻⁵ ÷ (93.1 × 0.600) = 2.0 × 10⁻⁷ T.",
+          "right": "Convert 93.1 mA to 93.1 × 10⁻³ A. Then B = 2.0 × 10⁻⁴ T. A power-of-ten error scores 1 mark only."
+        },
+        {
+          "wrong": "Only an upward magnetic force acts on the floating magnet.",
+          "right": "The weight (gravitational force) also acts downwards. The forces are equal in size, so the magnet floats."
+        }
+      ],
+      "extra": [
+        {
+          "heading": "Another unit for flux density",
+          "blocks": [
+            {
+              "type": "paragraph",
+              "text": "Magnetic flux density can also be given in newtons per ampere metre (N/A m). 1 T = 1 N/A m, so the equation is used in the same way."
+            }
+          ]
+        }
+      ],
+      "worked_example": {
+        "exemplar_id": "0bb2b014-91f5-4a94-950e-847d92696c07",
+        "source": "EDEXCEL jun 2019, Paper 2 (H), Q5(b)(iii)",
+        "question": "A wire is in a uniform magnetic field.\n\nThe magnetic flux density of the magnetic field is 0.72 N/A m.\nThe length of the wire inside the field is 30 mm.\nThe size of the force due to the magnetic field on the wire is 0.045 N.\n\nCalculate the size of the current in the wire.\n\nUse an equation selected from the list of equations at the end of this paper.",
+        "marks": 3,
+        "answer_points": [
+          "Substitution into F = B × I × l: 0.045 = 0.72 × I × 30 (× 10⁻³).",
+          "Rearrangement: I = F ÷ (B × l) = 0.045 ÷ (0.72 × 30 (× 10⁻³)).",
+          "Evaluation: I = 2.1 A."
+        ],
+        "tip": "One mark each for substitution, rearrangement and evaluation. Rearrangement and substitution can be in either order."
+      }
+    },
+    "ocr": {
+      "spec_codes": [
+        "OCR P4.2a",
+        "OCR P4.2b",
+        "OCR P4.2c"
+      ],
+      "exam_phrases": [
+        "the magnet will exert a force on the wire",
+        "(current in the wire) creates a magnetic field",
+        "the magnetic fields of the magnet and wire interact",
+        "F = BIL",
+        "increase the current (in the coil)",
+        "increase the number of coils",
+        "increase the length of the coil (in the magnetic field)",
+        "increase the strength of the magnet / magnetic field"
+      ],
+      "mistakes": [
+        {
+          "wrong": "Use a bigger magnet to increase the force on the coil.",
+          "right": "Increase the strength of the magnet or magnetic field. The size of the magnet is ignored."
+        },
+        {
+          "wrong": "Add an iron core to the coil to increase the force.",
+          "right": "Increase the current, the number of coils, the length of coil in the field or the strength of the magnet. An iron core is ignored."
+        },
+        {
+          "wrong": "F = 1.125 N.",
+          "right": "Give the answer to the number of significant figures asked for. To 2 significant figures F = 1.1 N."
+        }
+      ],
+      "worked_example": {
+        "exemplar_id": "93729033-66aa-4515-ab11-3ed449698b43",
+        "source": "OCR nov 2021, Paper 3, Q20(b)",
+        "question": "A wire of length 0.25 m experiences a force of 0.15 N when a current of 5.0 A flows.\n\nCalculate the magnetic flux density of the field.\n\nUse an equation from the data sheet to help you.",
+        "marks": 3,
+        "answer_points": [
+          "F = BIL, so B = F ÷ (I × L)",
+          "B = 0.15 ÷ (5.0 × 0.25)",
+          "B = 0.12 T"
+        ],
+        "tip": "Check the answer line first: 0.12 T scores all 3 marks."
+      }
+    }
+  },
+  "meta": {
+    "status": "draft",
+    "written_by": "sonnet-5-5",
+    "written_at": "2026-10-01",
+    "spec_point_ids": [
+      "bf11e214-f5a8-4bc3-81c4-98c3344dc2fc",
+      "aaeb7e9f-f9c8-4828-b6bc-31989963a5ae",
+      "d0093d03-1102-476f-ac7e-24850f21b17c",
+      "8418d235-624c-4724-acc9-dc15af6da03b",
+      "fd38690e-1062-4d3a-b1df-f4feca0cc518",
+      "8bc19181-dedc-4d3b-9aaa-ee169e72c909",
+      "29566c88-70bd-489d-b16c-a144e7cd77c9",
+      "3e0d1005-5a82-4696-be9c-05f93473a696",
+      "2c7e6682-1864-4a41-8dc0-1d7e4528b3a3"
+    ],
+    "exemplar_ids": [
+      "a5db4218-4be2-4142-830f-dfb7c5332835",
+      "0bb2b014-91f5-4a94-950e-847d92696c07",
+      "93729033-66aa-4515-ab11-3ed449698b43"
+    ],
+    "checked_by": "sonnet-science-check",
+    "checked_at": "2026-10-03"
+  }
+}

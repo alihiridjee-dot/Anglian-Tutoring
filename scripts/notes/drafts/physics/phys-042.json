@@ -1,0 +1,398 @@
+{
+  "format": 1,
+  "concept_id": "phys-042",
+  "subject": "physics",
+  "title": "Nuclear fusion",
+  "key_idea": "(Separate science) In **nuclear fusion** two light nuclei join to form a heavier nucleus. Some of the mass is converted into energy of radiation. Fusion powers the Sun and other stars, but it needs a very high temperature and pressure.",
+  "sections": [
+    {
+      "heading": "What happens in fusion",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "(Separate science) Fusion is the joining of two light nuclei. This section covers what happens and why it releases energy."
+        },
+        {
+          "type": "definitions",
+          "items": [
+            {
+              "term": "Nuclear fusion",
+              "meaning": "The joining of two light nuclei to form a heavier nucleus."
+            },
+            {
+              "term": "Nucleus",
+              "meaning": "The centre of an atom. Fusion joins nuclei, not whole atoms."
+            }
+          ]
+        },
+        {
+          "type": "list",
+          "items": [
+            "Two **hydrogen** nuclei (isotopes of hydrogen) join to make a **helium** nucleus.",
+            "The total mass of the particles decreases.",
+            "Some of the mass is converted into **energy of radiation**.",
+            "Fusion is the energy source for stars, including the Sun."
+          ]
+        },
+        {
+          "type": "subheading",
+          "text": "Fission and fusion compared"
+        },
+        {
+          "type": "diagram",
+          "diagram": {
+            "kind": "compare",
+            "alt": "A table comparing nuclear fission and nuclear fusion.",
+            "items": [
+              "Nuclear fission",
+              "Nuclear fusion"
+            ],
+            "rows": [
+              {
+                "feature": "What happens",
+                "values": [
+                  "A large nucleus splits into smaller nuclei",
+                  "Light nuclei join to form a heavier nucleus"
+                ]
+              },
+              {
+                "feature": "Fuel",
+                "values": [
+                  "Uranium, mined from underground",
+                  "Hydrogen, which can be extracted from water"
+                ]
+              },
+              {
+                "feature": "Chain reaction",
+                "values": [
+                  "Yes. It has to be controlled",
+                  "No"
+                ]
+              },
+              {
+                "feature": "Energy per kilogram of fuel",
+                "values": [
+                  "Large",
+                  "Even larger"
+                ]
+              },
+              {
+                "feature": "Conditions",
+                "values": [
+                  "Lower temperature and pressure",
+                  "Very high temperature and pressure"
+                ]
+              },
+              {
+                "feature": "Waste",
+                "values": [
+                  "Very radioactive, with a long half-life",
+                  "Slightly radioactive, with a short half-life"
+                ]
+              }
+            ]
+          }
+        },
+        {
+          "type": "key-points",
+          "items": [
+            "Fusion joins light nuclei to form a heavier nucleus.",
+            "Mass decreases and is converted into energy of radiation.",
+            "Fission splits a large nucleus. Fusion joins small nuclei."
+          ]
+        }
+      ]
+    },
+    {
+      "heading": "Conditions needed and fusion power",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "(Separate science) Fusion does not happen at low temperatures and pressures. The reason is the force between the nuclei."
+        },
+        {
+          "type": "list",
+          "items": [
+            "All nuclei are positively charged, because they contain **protons**.",
+            "Two nuclei repel each other because they have the same charge.",
+            "A very **high temperature** gives the nuclei enough energy to overcome the repulsion.",
+            "A high pressure and density bring the nuclei close enough together."
+          ]
+        },
+        {
+          "type": "subheading",
+          "text": "The difficulty of making fusion power"
+        },
+        {
+          "type": "list",
+          "items": [
+            "It is hard to maintain the high temperature and the high pressure.",
+            "The hot fusion gases are hard to contain.",
+            "These conditions are difficult to produce on Earth, so a practical and economic power station does not exist yet."
+          ]
+        },
+        {
+          "type": "subheading",
+          "text": "Benefits, and a claim that was not believed"
+        },
+        {
+          "type": "list",
+          "items": [
+            "Fusion has benefits: it would give more energy for the same mass of fuel, the fuel is easy to obtain, and the waste has a short half-life.",
+            "In 1989 a claim of fusion at room temperature was not believed. The results were not peer reviewed and no other scientist could repeat them."
+          ]
+        },
+        {
+          "type": "diagram",
+          "diagram": {
+            "kind": "sort",
+            "alt": "Sort statements into fission and fusion.",
+            "prompt": "Does each statement describe fission or fusion?",
+            "groups": [
+              "Fission",
+              "Fusion"
+            ],
+            "items": [
+              {
+                "text": "A large nucleus splits",
+                "group": 0
+              },
+              {
+                "text": "Needs a very high temperature and pressure",
+                "group": 1
+              },
+              {
+                "text": "A chain reaction has to be controlled",
+                "group": 0
+              },
+              {
+                "text": "Light nuclei join to form a heavier nucleus",
+                "group": 1
+              },
+              {
+                "text": "The energy source for the Sun",
+                "group": 1
+              },
+              {
+                "text": "Used in power stations at present",
+                "group": 0
+              }
+            ]
+          }
+        },
+        {
+          "type": "key-points",
+          "items": [
+            "Nuclei repel each other because they are positively charged.",
+            "A very high temperature and pressure are needed to overcome the repulsion.",
+            "Containing the conditions makes fusion power hard to build."
+          ]
+        }
+      ]
+    }
+  ],
+  "checks": [
+    {
+      "q": "Explain how nuclear fusion releases energy.",
+      "a": "Light nuclei fuse to form a heavier nucleus. Some of the mass is converted into energy of radiation.",
+      "marks": 3
+    },
+    {
+      "q": "Explain why a very high temperature is needed for two hydrogen nuclei to fuse.",
+      "a": "A high temperature means the nuclei have high energy. This is needed to overcome the repulsion between the nuclei, because they have the same charge.",
+      "marks": 3
+    },
+    {
+      "q": "Describe one difference between fission and fusion.",
+      "a": "Any one from: in fusion nuclei join and in fission nuclei split; fusion needs a higher temperature and pressure; a larger nucleus forms in fusion and smaller nuclei in fission; fission causes a chain reaction but fusion does not.",
+      "marks": 1
+    }
+  ],
+  "boards": {
+    "aqa": {
+      "spec_codes": [
+        "AQA 4.4.4.2"
+      ],
+      "exam_phrases": [
+        "light(er) nuclei fuse",
+        "to form heavier nuclei / elements",
+        "some of the mass (of the nuclei) is converted into energy (of radiation)",
+        "joining together of nuclei",
+        "the total mass of the particles decreases"
+      ],
+      "mistakes": [
+        {
+          "wrong": "Nuclear fusion is the joining together of atoms.",
+          "right": "Atoms are not accepted. Fusion is the joining together of nuclei."
+        },
+        {
+          "wrong": "In fusion the nuclei bond or collide to make a heavier nucleus.",
+          "right": "Bonding and colliding are ignored. Say the lighter nuclei fuse to form heavier nuclei."
+        }
+      ],
+      "worked_example": {
+        "exemplar_id": "c0c4ce41-3791-4a0c-8677-aadac2856665",
+        "source": "AQA jun 2025, Paper 1 (H), Q05.2",
+        "question": "Scientists have used lasers to start a nuclear fusion reaction. The scientists used the lasers to heat a small amount of an isotope of hydrogen. Explain how nuclear fusion releases energy.",
+        "marks": 3,
+        "answer_points": [
+          "Lighter nuclei fuse.",
+          "To form heavier nuclei or elements.",
+          "Some of the mass of the nuclei is converted into energy of radiation."
+        ],
+        "tip": "Hydrogen nuclei fusing, or forming helium nuclei, is accepted."
+      }
+    },
+    "edexcel": {
+      "spec_codes": [
+        "EDEX 6.43P",
+        "EDEX 6.44P",
+        "EDEX 6.45P",
+        "EDEX 6.46P"
+      ],
+      "exam_phrases": [
+        "(high temperature means) high energy to overcome (force of) repulsion",
+        "between nuclei / because they both have the same charge",
+        "(smaller) nuclei come together / join to produce a larger nucleus",
+        "needing high temperature / pressure",
+        "energy released",
+        "decrease in mass",
+        "problem of containment",
+        "results had not been peer reviewed"
+      ],
+      "mistakes": [
+        {
+          "wrong": "Energy is created in a fusion reaction.",
+          "right": "Created is ignored. Say energy is released, and that there is a decrease in mass."
+        },
+        {
+          "wrong": "The nuclei bond together.",
+          "right": "Say fuse, not bond. Add the idea of joining to produce a larger nucleus."
+        },
+        {
+          "wrong": "Fusion is when particles fuse together.",
+          "right": "Saying fuse together only restates the word. Say that smaller nuclei come together to produce a larger nucleus."
+        }
+      ],
+      "worked_example": {
+        "exemplar_id": "d036c69f-f7f3-4c3c-82ee-5155427923aa",
+        "source": "EDEXCEL jun 2018, Paper 1 (H), Q10(a)(i)",
+        "question": "In a fusion reaction, two hydrogen nuclei are forced together to form a helium nucleus. Explain why a very high temperature is needed for this reaction to happen.",
+        "marks": 3,
+        "answer_points": [
+          "A high temperature means high energy.",
+          "This is needed to overcome the force of repulsion.",
+          "The repulsion is between the nuclei, because they both have the same charge."
+        ],
+        "tip": "Them or hydrogen is accepted for nuclei."
+      },
+      "extra": [
+        {
+          "heading": "Mass and energy (Higher tier)",
+          "blocks": [
+            {
+              "type": "paragraph",
+              "text": "(Higher tier) In some questions the decrease in mass in a fusion reaction is linked to the energy released. The equation is given in the question."
+            },
+            {
+              "type": "equation",
+              "label": "Energy and mass",
+              "formula": "E = m × c²",
+              "where": [
+                "E = energy released in joules (J)",
+                "m = decrease in mass in kilograms (kg)",
+                "c = speed of light = 3.0 × 10⁸ metres per second (m/s)"
+              ]
+            },
+            {
+              "type": "diagram",
+              "diagram": {
+                "kind": "practice",
+                "alt": "Calculate the decrease in mass in a fusion reaction from the energy released.",
+                "question": "The energy released in one fusion reaction is {E} × 10⁻¹² J. The speed of light is 3.0 × 10⁸ m/s. Calculate the decrease in mass. Give your answer as a number in units of 10⁻²⁹ kg.",
+                "variables": [
+                  {
+                    "id": "E",
+                    "min": 1.8,
+                    "max": 8.1,
+                    "step": 0.9
+                  }
+                ],
+                "answer": {
+                  "formula": "E / 0.9",
+                  "unit": "× 10⁻²⁹ kg",
+                  "decimals": 0
+                },
+                "working": [
+                  "Rearrange: m = E ÷ c²",
+                  "m = ({E} × 10⁻¹²) ÷ (3.0 × 10⁸)²",
+                  "m = ({E} × 10⁻¹²) ÷ (9.0 × 10¹⁶)",
+                  "Decrease in mass = {answer} × 10⁻²⁹ kg"
+                ]
+              }
+            }
+          ]
+        }
+      ]
+    },
+    "ocr": {
+      "spec_codes": [
+        "OCR P6.2e"
+      ],
+      "exam_phrases": [
+        "two nuclei combine (at very high temperature)",
+        "in fusion nuclei join / in fission nuclei split",
+        "larger / heavier nucleus forms in fusion",
+        "fusion occurs at higher temperatures or pressures",
+        "fission causes a chain reaction / fusion does not cause a chain reaction",
+        "both convert mass to energy",
+        "slightly radioactive with short half life"
+      ],
+      "mistakes": [
+        {
+          "wrong": "Nuclear fusion is when two molecules or particles join.",
+          "right": "Molecules, particles and ions are ignored. Say two nuclei, or two atoms, combine."
+        },
+        {
+          "wrong": "Fusion power stations already generate electricity.",
+          "right": "Only fission reactors are used at present to produce electricity."
+        }
+      ],
+      "worked_example": {
+        "exemplar_id": "0b8ee910-4037-445f-b9b5-7f2084802565",
+        "source": "OCR jun 2025, Paper 4, Q21(b)",
+        "question": "Scientists think that nuclear fusion would be a better energy source than nuclear fission. A fission power station uses uranium, has a power output of 1.0 × 10⁹ W and its waste is very radioactive with a long half-life. A fusion power station uses hydrogen, is expected to have a power output of 1.3 × 10⁹ W and its waste is slightly radioactive with a short half-life. Use the information to compare a nuclear fission power station with a nuclear fusion power station. In your answer, write about the differences between a fission reaction and a fusion reaction, the benefits of using nuclear fusion instead of fission, and the difficulties associated with using nuclear fusion.",
+        "marks": 6,
+        "answer_points": [
+          "Fission is the splitting of a large (uranium) nucleus into lighter nuclei and neutrons, and a chain reaction occurs which has to be controlled.",
+          "Fusion is the combining of lighter (hydrogen) nuclei into a heavier (helium) nucleus.",
+          "Benefits: the fusion power station is expected to output 1.3 times more power, so fewer are needed.",
+          "Fission waste is more radioactive and has a longer half-life, so it stays dangerous for longer and has to be stored.",
+          "Uranium is non-renewable, but hydrogen is renewable and more easily obtained.",
+          "Difficulty: fusion needs a high temperature and pressure, which is difficult to produce on Earth."
+        ],
+        "tip": "Level-marked. Cover the difference between the reactions, the benefits and the difficulties, using the data."
+      }
+    }
+  },
+  "meta": {
+    "status": "draft",
+    "written_by": "sonnet-5-5",
+    "written_at": "2026-10-01",
+    "spec_point_ids": [
+      "25eb4194-b3a4-491a-81d8-634c00837ce1",
+      "27e00b33-6cb2-4531-ae2a-cfb72b39a5f4",
+      "f03b2f7e-2880-4470-ae1f-2a1b5a73d510",
+      "1910f384-ce07-43bf-9428-662fdbf5c4e0",
+      "b8332929-23d3-48fb-8a6a-842bd3ff7a55",
+      "706a329a-f7d9-46a1-a8e8-716dd2ddacfc"
+    ],
+    "exemplar_ids": [
+      "c0c4ce41-3791-4a0c-8677-aadac2856665",
+      "d036c69f-f7f3-4c3c-82ee-5155427923aa",
+      "0b8ee910-4037-445f-b9b5-7f2084802565"
+    ],
+    "checked_by": "sonnet-science-check",
+    "checked_at": "2026-10-01"
+  }
+}

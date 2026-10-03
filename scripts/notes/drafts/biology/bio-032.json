@@ -1,0 +1,266 @@
+{
+  "format": 1,
+  "concept_id": "bio-032",
+  "subject": "biology",
+  "title": "Health and disease",
+  "key_idea": "Health is a state of complete physical, mental and social well-being, not just the absence of disease. Communicable diseases are caused by pathogens and spread between people. Non-communicable diseases are not. Diseases can interact, so one disease can make another more likely.",
+  "sections": [
+    {
+      "heading": "Health and types of disease",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "This section covers what health means and the two main types of disease."
+        },
+        {
+          "type": "definitions",
+          "items": [
+            {
+              "term": "Health",
+              "meaning": "A state of complete physical, mental and social well-being, and not merely the absence of disease or infirmity. This is the definition used by the World Health Organization (WHO)."
+            },
+            {
+              "term": "Communicable disease",
+              "meaning": "A disease caused by a pathogen that can be passed from person to person."
+            },
+            {
+              "term": "Non-communicable disease",
+              "meaning": "A disease that is not caused by a pathogen and cannot be passed from person to person."
+            }
+          ]
+        },
+        {
+          "type": "subheading",
+          "text": "Communicable and non-communicable diseases"
+        },
+        {
+          "type": "list",
+          "items": [
+            "Communicable diseases are caused by pathogens such as bacteria, viruses and fungi. Examples are tuberculosis (TB) and AIDS.",
+            "Non-communicable diseases are not infectious. Examples are coronary heart disease and type 2 diabetes.",
+            "Non-communicable diseases can have causes such as lifestyle, diet or genes. A communicable disease cannot be inherited."
+          ]
+        },
+        {
+          "type": "diagram",
+          "diagram": {
+            "kind": "sort",
+            "alt": "Sort each disease into communicable or non-communicable.",
+            "prompt": "Communicable or non-communicable?",
+            "groups": [
+              "Communicable",
+              "Non-communicable"
+            ],
+            "items": [
+              {
+                "text": "Tuberculosis (TB)",
+                "group": 0
+              },
+              {
+                "text": "AIDS",
+                "group": 0
+              },
+              {
+                "text": "Barley powdery mildew",
+                "group": 0
+              },
+              {
+                "text": "Type 2 diabetes",
+                "group": 1
+              },
+              {
+                "text": "Coronary heart disease",
+                "group": 1
+              },
+              {
+                "text": "Beriberi (lack of vitamin B1)",
+                "group": 1
+              }
+            ]
+          }
+        },
+        {
+          "type": "key-points",
+          "items": [
+            "Health covers physical, mental and social well-being.",
+            "Communicable diseases are caused by pathogens and are passed from person to person.",
+            "Non-communicable diseases are not caused by a pathogen and are not passed on."
+          ]
+        }
+      ]
+    },
+    {
+      "heading": "How diseases interact",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "One disease can make another more likely. This section covers the main examples."
+        },
+        {
+          "type": "list",
+          "items": [
+            "A defective immune system makes a person more likely to get infectious diseases. HIV destroys white blood cells and weakens the immune system, so the body cannot destroy the TB pathogen as well. People with AIDS are more susceptible to TB.",
+            "Viruses living in cells can trigger cancers. For example, HPV (a virus) can lead to cervical cancer.",
+            "Immune reactions first caused by a pathogen can trigger allergies, such as skin rashes and asthma.",
+            "Severe physical ill health can lead to depression and other mental illness.",
+            "Diet, stress and life situations also affect both physical and mental health."
+          ]
+        },
+        {
+          "type": "key-points",
+          "items": [
+            "A weak immune system makes infections more likely, as HIV does for TB.",
+            "Some viruses can trigger cancers, such as HPV and cervical cancer.",
+            "Physical and mental health affect each other."
+          ]
+        }
+      ]
+    }
+  ],
+  "checks": [
+    {
+      "q": "Explain what a non-communicable disease is.",
+      "a": "It is not caused by a pathogen (infective organism), so it is not passed or spread from person to person.",
+      "marks": 2
+    },
+    {
+      "q": "Explain why people with AIDS are more susceptible to TB.",
+      "a": "HIV destroys white blood cells and weakens the immune system, so the body is unable to destroy the TB pathogen.",
+      "marks": 2
+    },
+    {
+      "q": "Give one example of a virus triggering a non-communicable disease.",
+      "a": "HPV can trigger cervical cancer.",
+      "marks": 1
+    }
+  ],
+  "boards": {
+    "aqa": {
+      "spec_codes": [
+        "AQA T 4.2.2.5",
+        "AQA 2.9"
+      ],
+      "exam_phrases": [
+        "not caused by a pathogen / infective organism",
+        "not passed / spread (from person to person)",
+        "is not infectious / contagious",
+        "cannot be spread / caught"
+      ],
+      "mistakes": [
+        {
+          "wrong": "A non-communicable disease is not caused by infection.",
+          "right": "\"Not caused by infection\" is ignored. Say it is not caused by a pathogen (or microorganism), so it is not passed from person to person."
+        },
+        {
+          "wrong": "A non-communicable disease is not caused by bacteria.",
+          "right": "A named pathogen is ignored unless bacteria, viruses and fungi are all mentioned. Say not caused by a pathogen."
+        }
+      ],
+      "worked_example": {
+        "exemplar_id": "d8399a0b-129b-4bb8-90c7-8ef25a315f20",
+        "source": "AQA jun 2018, Paper 1 (H), Q02.1",
+        "question": "Coronary heart disease (CHD) is a non-communicable disease. Explain what a non-communicable disease is.",
+        "marks": 2,
+        "answer_points": [
+          "It is not caused by a pathogen (or infective organism).",
+          "So it is not passed or spread from person to person."
+        ],
+        "tip": "Two linked marks: what does not cause it, and what that means for spread."
+      }
+    },
+    "edexcel": {
+      "spec_codes": [
+        "EDEX 5.1",
+        "EDEX 5.2",
+        "EDEX 5.3"
+      ],
+      "exam_phrases": [
+        "World Health Organization / WHO",
+        "is passed from person to person",
+        "caused by pathogens",
+        "communicable diseases cannot be inherited",
+        "HIV destroys white blood cells / weakens the immune system",
+        "unable to destroy the TB pathogen"
+      ],
+      "mistakes": [
+        {
+          "wrong": "People with AIDS cannot fight off the disease.",
+          "right": "\"Fight off the disease\" is ignored. Say HIV destroys white blood cells or weakens the immune system, so the body cannot destroy the TB pathogen."
+        },
+        {
+          "wrong": "Health means not being ill.",
+          "right": "Health is a state of complete physical, mental and social well-being, not merely the absence of disease."
+        }
+      ],
+      "worked_example": {
+        "exemplar_id": "21408cc8-a358-46f1-bb1e-08634c09d107",
+        "source": "EDEXCEL nov 2021, Paper 1 (H), Q3(c)",
+        "question": "Explain why people with AIDS are more susceptible to TB.",
+        "marks": 2,
+        "answer_points": [
+          "HIV destroys white blood cells, or weakens the immune system.",
+          "So the body is unable to destroy the TB pathogen, or prevent the pathogen invading the body."
+        ],
+        "tip": "Link the two ideas: the weakened immune system, then what the body cannot do. People with AIDS having fewer white blood cells is also accepted."
+      }
+    },
+    "ocr": {
+      "spec_codes": [
+        "OCR 6.3a",
+        "OCR 6.3b",
+        "OCR 6.3c"
+      ],
+      "exam_phrases": [
+        "not caused by a pathogen",
+        "not spread / not passed from person to person",
+        "not infectious / contagious / transmissible",
+        "AIDS: caused by a virus",
+        "type 2 diabetes: non-communicable"
+      ],
+      "mistakes": [
+        {
+          "wrong": "Type 2 diabetes is caused by a virus.",
+          "right": "Type 2 diabetes is non-communicable. It is not caused by a pathogen and is not passed from person to person."
+        },
+        {
+          "wrong": "Non-communicable diseases are always caused by genes.",
+          "right": "Not all of them are. Genetic CJD and sporadic CJD are both non-communicable because they are not caused by a pathogen and are not spread."
+        }
+      ],
+      "worked_example": {
+        "exemplar_id": "c61da3fc-84ca-42d6-acc0-8051a040bb6b",
+        "source": "OCR jun 2019, Paper 2, Q21(a)",
+        "question": "Animals and plants can get different types of diseases. A table has four columns, headed: communicable disease caused by a bacterium; communicable disease caused by a fungus; communicable disease caused by a virus; non-communicable disease. Look at the list of four diseases: AIDS, type 2 diabetes, crown gall disease, barley powdery mildew. Write each disease in the correct column of the table.",
+        "marks": 3,
+        "answer_points": [
+          "Caused by a bacterium: crown gall disease.",
+          "Caused by a fungus: barley powdery mildew.",
+          "Caused by a virus: AIDS.",
+          "Non-communicable disease: type 2 diabetes."
+        ],
+        "tip": "Four correct gives 3 marks, two or three correct gives 2 marks and one correct gives 1 mark."
+      }
+    }
+  },
+  "meta": {
+    "status": "draft",
+    "written_by": "sonnet-5-5",
+    "written_at": "2026-10-01",
+    "spec_point_ids": [
+      "c89c8a72-4d4c-4e9b-8cda-f9315692c4ab",
+      "5081bd49-f175-434e-b11e-fbedabaea0cb",
+      "65cce6dc-b210-4d7e-b071-042b64aa4322",
+      "435e2a61-be07-491e-a08f-b9de289f24e9",
+      "4bde8a14-c2a0-41b0-9052-7f0b822e4afe",
+      "ef79c620-14b8-4f9c-8af6-4a5e1d5f5a6a",
+      "98267df3-c7a8-4fec-9667-42ab4b327e71"
+    ],
+    "exemplar_ids": [
+      "d8399a0b-129b-4bb8-90c7-8ef25a315f20",
+      "21408cc8-a358-46f1-bb1e-08634c09d107",
+      "c61da3fc-84ca-42d6-acc0-8051a040bb6b"
+    ],
+    "checked_by": "sonnet-science-check",
+    "checked_at": "2026-10-01"
+  }
+}

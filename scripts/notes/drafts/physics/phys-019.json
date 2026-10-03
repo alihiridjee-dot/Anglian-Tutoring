@@ -1,0 +1,290 @@
+{
+  "format": 1,
+  "concept_id": "phys-019",
+  "subject": "physics",
+  "title": "Energy transfers in everyday appliances",
+  "key_idea": "An appliance transfers more energy the greater its power and the longer it is on. Energy transferred is E = P t. When charge flows, energy transferred is E = Q V, so potential difference is energy per unit charge.",
+  "sections": [
+    {
+      "heading": "What appliances do with energy",
+      "blocks": [
+        { "type": "paragraph", "text": "Everyday electrical appliances are designed to bring about energy transfers. This section covers where the energy goes." },
+        {
+          "type": "list",
+          "items": [
+            "Appliances transfer energy from batteries or the a.c. mains.",
+            "Motors transfer it to kinetic energy.",
+            "Heating devices transfer it to thermal energy.",
+            "Some energy is wasted as heat in motors and heating devices."
+          ]
+        },
+        { "type": "subheading", "text": "Power ratings" },
+        {
+          "type": "list",
+          "items": [
+            "The amount of energy an appliance transfers depends on its power and on how long it is switched on.",
+            "A kettle rated at 2100 W transfers 2100 J every second.",
+            "A higher power rating means the stored energy changes faster."
+          ]
+        },
+        { "type": "paragraph", "text": "Compare appliances using power × time, not power alone. A 100 W television used for 5 hours transfers more energy than a 2000 W toaster used for 0.2 hours." },
+        {
+          "type": "key-points",
+          "items": [
+            "Appliances transfer energy from batteries or the mains to kinetic energy or thermal energy.",
+            "Energy transferred depends on the power and the time switched on.",
+            "A higher power rating means more energy is transferred each second."
+          ]
+        }
+      ]
+    },
+    {
+      "heading": "Calculating energy transferred",
+      "blocks": [
+        { "type": "paragraph", "text": "Work is done when charge flows in a circuit. There are two equations for the energy transferred." },
+        {
+          "type": "equation",
+          "label": "Energy from power and time",
+          "formula": "energy transferred = power × time    (E = P t)",
+          "where": ["energy transferred, E, in joules, J", "power, P, in watts, W", "time, t, in seconds, s"]
+        },
+        {
+          "type": "equation",
+          "label": "Energy from charge and potential difference",
+          "formula": "energy transferred = charge flow × potential difference    (E = Q V)",
+          "where": ["energy transferred, E, in joules, J", "charge flow, Q, in coulombs, C", "potential difference, V, in volts, V"]
+        },
+        {
+          "type": "equation",
+          "label": "Energy from current, potential difference and time",
+          "formula": "energy transferred = current × potential difference × time    (E = I V t)",
+          "where": ["energy transferred, E, in joules, J", "current, I, in amperes, A", "potential difference, V, in volts, V", "time, t, in seconds, s"]
+        },
+        {
+          "type": "diagram",
+          "diagram": {
+            "kind": "slider",
+            "alt": "Choose an appliance and how long it is on to see the energy it transfers using E = P x t.",
+            "inputs": [
+              {
+                "id": "P",
+                "label": "Appliance",
+                "choices": [
+                  { "label": "Filament lamp, 60 W", "value": 60 },
+                  { "label": "Television, 100 W", "value": 100 },
+                  { "label": "Hair dryer, 1500 W", "value": 1500 },
+                  { "label": "Kettle, 2100 W", "value": 2100 }
+                ]
+              },
+              { "id": "m", "label": "Time switched on", "unit": "minutes", "min": 1, "max": 30, "step": 1, "value": 5 }
+            ],
+            "outputs": [
+              { "label": "Time in seconds", "unit": "s", "formula": "m * 60", "decimals": 0 },
+              { "label": "Energy transferred, E = P × t", "unit": "J", "formula": "P * m * 60", "decimals": 0 },
+              { "label": "Energy transferred", "unit": "kJ", "formula": "P * m * 60 / 1000", "decimals": 1 }
+            ]
+          }
+        },
+        { "type": "paragraph", "text": "Always convert minutes to seconds, and kW or mW to W, before you substitute." },
+        {
+          "type": "diagram",
+          "diagram": {
+            "kind": "practice",
+            "alt": "Calculate the energy transferred when a charge flows through a battery, using E = Q V.",
+            "question": "A charge of {Q} C flows through a battery with a potential difference of {V} V. Calculate the energy transferred.",
+            "variables": [
+              { "id": "Q", "min": 50, "max": 500, "step": 50 },
+              { "id": "V", "min": 3, "max": 12, "step": 3 }
+            ],
+            "answer": { "formula": "Q * V", "unit": "J", "decimals": 0 },
+            "working": [
+              "Use E = Q V.",
+              "E = {Q} × {V}",
+              "E = {answer} J"
+            ]
+          }
+        },
+        { "type": "subheading", "text": "Potential difference as energy per unit charge" },
+        {
+          "type": "definitions",
+          "items": [
+            { "term": "Potential difference", "meaning": "The energy transferred per unit charge passed." },
+            { "term": "Volt", "meaning": "The unit of potential difference. One volt is one joule per coulomb." }
+          ]
+        },
+        { "type": "paragraph", "text": "A potential difference of 6.0 V means 6.0 joules of energy are transferred for every coulomb of charge." },
+        { "type": "subheading", "text": "Rearranging" },
+        {
+          "type": "steps",
+          "items": [
+            { "lead": "Convert units.", "text": "Change kJ to J and minutes to seconds. 3.6 kJ = 3600 J." },
+            { "lead": "Choose the equation.", "text": "Power and time: E = P t. Charge and potential difference: E = Q V." },
+            { "lead": "Rearrange.", "text": "To find time, t = E ÷ P. To find charge, Q = E ÷ V." },
+            { "lead": "Calculate and add the unit.", "text": "3600 J at 120 W gives t = 3600 ÷ 120 = 30 s." }
+          ]
+        },
+        {
+          "type": "key-points",
+          "items": [
+            "E = P t and E = Q V. Energy is in joules.",
+            "Potential difference is energy transferred per unit charge. One volt is one joule per coulomb.",
+            "Convert minutes, kJ, kW and mW to seconds, J and W first."
+          ]
+        }
+      ]
+    }
+  ],
+  "checks": [
+    {
+      "q": "A heater has a power of 2000 W. Calculate the energy it transfers in 3 minutes.",
+      "a": "3 minutes = 180 s. E = P t = 2000 × 180 = 360 000 J.",
+      "marks": 3
+    },
+    {
+      "q": "A charge of 40 C flows through a 12 V battery. Calculate the energy transferred.",
+      "a": "E = Q V = 40 × 12 = 480 J.",
+      "marks": 2
+    },
+    {
+      "q": "What does a potential difference of 6.0 V mean in terms of energy and charge?",
+      "a": "6.0 joules of energy are transferred for each coulomb of charge that passes.",
+      "marks": 1
+    }
+  ],
+  "boards": {
+    "aqa": {
+      "spec_codes": ["AQA 4.2.4.2", "AQA T 6.2.4.2"],
+      "exam_phrases": [
+        "energy transferred = power × time",
+        "energy transferred = charge flow × potential difference",
+        "E = 3600 (J)",
+        "t = 3600 / 120",
+        "has the largest power (input)",
+        "has the largest current"
+      ],
+      "mistakes": [
+        {
+          "wrong": "Using 3.6 for the energy in a calculation when the question gives 3.6 kJ.",
+          "right": "Convert first: 3.6 kJ = 3600 J. Later marks can still be scored with an unconverted value, but you lose the conversion mark."
+        },
+        {
+          "wrong": "E = 500 × 3600 for a power station with an output of 500 MW.",
+          "right": "Convert to watts first: 500 MW = 500 000 000 W."
+        },
+        {
+          "wrong": "Q = 1 408 695 652 C when the question asks for 3 significant figures.",
+          "right": "Round as asked: Q = 1.41 × 10⁹ C."
+        }
+      ],
+      "worked_example": {
+        "exemplar_id": "fe316077-a58d-4baa-92ac-89b56edb4901",
+        "source": "AQA jun 2022, Paper 1 (H), Q11.3",
+        "question": "The hair straighteners have a maximum power output of 120 W. The energy transferred to the hair straighteners to reach normal operating temperature is 3.6 kJ. Calculate the time taken for the hair straighteners to reach normal operating temperature when operating at maximum power.",
+        "marks": 4,
+        "answer_points": [
+          "E = 3600 J",
+          "3600 = 120 × t",
+          "t = 3600 / 120",
+          "t = 30 s"
+        ],
+        "tip": "One mark each for the conversion to joules, the substitution, the rearrangement and the answer."
+      }
+    },
+    "edexcel": {
+      "spec_codes": ["EDEX 10.5", "EDEX 10.6", "EDEX 10.27", "EDEX 10.32", "EDEX 10.42"],
+      "exam_phrases": [
+        "(potential difference) is energy (transferred) per unit charge (passed)",
+        "units of p.d. = J/C",
+        "E = I × V × t",
+        "E = Q × V",
+        "conversion of time: 1 × 60 (s)",
+        "6.0 joules per coulomb"
+      ],
+      "mistakes": [
+        {
+          "wrong": "E = 3.0 × 0.041 × 2 = 0.25 J for 2 minutes.",
+          "right": "Convert the time to seconds first: 2 minutes = 120 s. E = 3.0 × 0.041 × 120 = 15 J."
+        },
+        {
+          "wrong": "A potential difference of 6.0 V is the same as 6.0 joules.",
+          "right": "A potential difference of 6.0 V is 6.0 joules per coulomb. Potential difference is the energy transferred per unit charge passed."
+        },
+        {
+          "wrong": "E = 12 × 600 × 7 for a current of 600 mA over 7 minutes.",
+          "right": "Convert 600 mA to 0.6 A and 7 minutes to 420 s. E = 12 × 0.6 × 420 = about 3000 J. A power of ten error loses a mark."
+        }
+      ],
+      "worked_example": {
+        "exemplar_id": "365547a9-a0b5-4b58-bfb1-43153b9ac417",
+        "source": "EDEXCEL jun 2022, Paper 2 (F), Q5(b)",
+        "question": "An electric water pump is powered by the 230 V mains supply. The 230 V mains supply transfers 9000 J of energy to the pump motor in 1 minute. Calculate the current in the pump motor. Use the equation I = E / (V × t)",
+        "marks": 3,
+        "answer_points": [
+          "Conversion of time: 1 × 60 s",
+          "I = 9000 / (230 × 60)",
+          "I = 0.65 A"
+        ],
+        "tip": "One mark each for converting the time, substituting and evaluating."
+      }
+    },
+    "ocr": {
+      "spec_codes": ["OCR P7.2b", "OCR P7.2c"],
+      "exam_phrases": [
+        "P = E ÷ t",
+        "P = 28 500 ÷ (5 × 60)",
+        "time conversion: 10 × 60 = 600 seconds",
+        "(ensure the same) volume / mass of water (in each kettle)",
+        "ensure the water has the same starting temperature"
+      ],
+      "mistakes": [
+        {
+          "wrong": "P = 28 500 ÷ 5 = 5700 W.",
+          "right": "Convert 5 minutes to 300 s first: P = 28 500 ÷ 300 = 95 W. Missing the unit conversion loses a mark."
+        },
+        {
+          "wrong": "Control the amount of water.",
+          "right": "Amount and quantity are not accepted. Say the same volume or mass of water, or the same starting temperature."
+        },
+        {
+          "wrong": "The toaster uses the most energy because it has the highest power.",
+          "right": "Energy depends on power and time. Calculate power × time for each appliance."
+        }
+      ],
+      "worked_example": {
+        "exemplar_id": "e4efa1a3-c8fa-41c9-a7af-fa99116ea6f9",
+        "source": "OCR jun 2023, Paper 3, Q23(a)(ii)",
+        "question": "A medical freezer is used to keep vaccines cool. The freezer needs 28 500 J of energy to cool the vaccines. It takes 5 minutes for the freezer to cool the vaccines. Calculate the power of the freezer.",
+        "marks": 3,
+        "answer_points": [
+          "P = E ÷ t",
+          "P = 28 500 ÷ (5 × 60)",
+          "P = 95 W"
+        ],
+        "tip": "The time must be in seconds. Using 5 minutes gives 5700 W and loses marks."
+      }
+    }
+  },
+  "meta": {
+    "status": "draft",
+    "written_by": "sonnet-5-5",
+    "written_at": "2026-10-01",
+    "spec_point_ids": [
+      "5beb6deb-2433-4fd4-a2e4-163739bc0209",
+      "0a9521c2-89f4-425d-8060-8caacbaba5e1",
+      "b301105f-0724-409c-8e6e-d463a58b635c",
+      "97a0b677-342d-4c51-a329-9f1bc0114bf3",
+      "19e2771e-542f-4c9d-999b-84e8a6879508",
+      "6953e755-4400-4e5e-918e-a25f3d8921d3",
+      "b0b85858-e613-4b15-9b28-233dfd95994d",
+      "8ca36cc2-a4c7-42fa-ada6-8ffe0202b2f7",
+      "aa15fad4-556a-486e-b262-f332f1aacbe7"
+    ],
+    "checked_by": "sonnet-science-check",
+    "checked_at": "2026-10-01",
+    "exemplar_ids": [
+      "fe316077-a58d-4baa-92ac-89b56edb4901",
+      "365547a9-a0b5-4b58-bfb1-43153b9ac417",
+      "e4efa1a3-c8fa-41c9-a7af-fa99116ea6f9"
+    ]
+  }
+}

@@ -1,0 +1,168 @@
+{
+  "format": 1,
+  "concept_id": "bio-018",
+  "subject": "biology",
+  "title": "Levels of organisation",
+  "key_idea": "Living things are built in levels. Cells make up tissues, tissues make up organs, and organs work together in organ systems. Organ systems together make up the whole organism.",
+  "sections": [
+    {
+      "heading": "From cells to organisms",
+      "blocks": [
+        { "type": "paragraph", "text": "Cells are the basic building blocks of all living organisms. This section covers each level and how they fit together." },
+        {
+          "type": "definitions",
+          "items": [
+            { "term": "Cell", "meaning": "The basic building block of all living organisms." },
+            { "term": "Tissue", "meaning": "A group of cells with a similar structure and function." },
+            { "term": "Organ", "meaning": "A group of different tissues working together to do a specific job." },
+            { "term": "Organ system", "meaning": "A group of organs working together to do a job for the whole body." },
+            { "term": "Organism", "meaning": "A living thing, made of organ systems working together." }
+          ]
+        },
+        {
+          "type": "diagram",
+          "diagram": {
+            "kind": "flow",
+            "alt": "The levels of organisation in order: cell, tissue, organ, organ system, organism. Each level is made of the one before.",
+            "steps": ["Cell", "Tissue", "Organ", "Organ system", "Organism"]
+          }
+        },
+        {
+          "type": "key-points",
+          "items": [
+            "Cells make tissues. Tissues make organs. Organs make organ systems.",
+            "A tissue is a group of cells with a similar function.",
+            "An organ is made of different tissues."
+          ]
+        }
+      ]
+    },
+    {
+      "heading": "Examples in animals and plants",
+      "blocks": [
+        { "type": "paragraph", "text": "Every level has examples you need to be able to name. Animals and plants are organised in the same way." },
+        { "type": "subheading", "text": "In animals" },
+        {
+          "type": "list",
+          "items": [
+            "The heart is an organ. It is made of different tissues, such as muscle tissue, that perform specific functions.",
+            "Other animal organs include the brain, lungs, liver, kidney, stomach, intestines, pancreas and skin.",
+            "The heart is part of the circulatory system.",
+            "The digestive system is an organ system. Several organs work together to digest and absorb food."
+          ]
+        },
+        { "type": "subheading", "text": "In plants" },
+        {
+          "type": "list",
+          "items": [
+            "A leaf is an organ. A root is an organ. The stem is an organ.",
+            "Spongy mesophyll and xylem are tissues."
+          ]
+        },
+        {
+          "type": "key-points",
+          "items": [
+            "The heart, lungs, liver and kidney are organs. Blood is not an organ.",
+            "A leaf and a root are plant organs. Spongy mesophyll and xylem are tissues.",
+            "The size order runs nucleus, cell, tissue, organ."
+          ]
+        }
+      ]
+    },
+    {
+      "heading": "Size order",
+      "blocks": [
+        { "type": "paragraph", "text": "Exam questions ask you to put structures in order of size. Each level is made of the level before it, so it is always larger." },
+        {
+          "type": "diagram",
+          "diagram": {
+            "kind": "sequence",
+            "alt": "Put the structures in order of size, smallest first.",
+            "prompt": "Put these in order, smallest to largest",
+            "steps": ["Nucleus", "Cell", "Tissue", "Organ", "Organ system"]
+          }
+        },
+        {
+          "type": "key-points",
+          "items": [
+            "A nucleus is inside a cell, so a cell is larger.",
+            "Work up the levels one at a time: cell, tissue, organ, organ system."
+          ]
+        }
+      ]
+    }
+  ],
+  "checks": [
+    {
+      "q": "What is a tissue?",
+      "a": "A group of cells with a similar structure and function.",
+      "marks": 1
+    },
+    {
+      "q": "Why is the heart described as an organ?",
+      "a": "It is made up of different tissues that perform specific functions.",
+      "marks": 1
+    },
+    {
+      "q": "Write these in order of size, smallest first: cell, nucleus, organ, tissue.",
+      "a": "Nucleus, cell, tissue, organ.",
+      "marks": 3
+    }
+  ],
+  "boards": {
+    "aqa": {
+      "spec_codes": ["AQA 2.1", "AQA T 4.2.1"],
+      "exam_phrases": [
+        "a group of the same / similar cells",
+        "a group of cells with a (similar / specific) function",
+        "a group of tissues working together is an organ",
+        "it is made up of (different) tissues that perform specific functions",
+        "circulatory / circulation (system)",
+        "small intestine"
+      ],
+      "mistakes": [
+        {
+          "wrong": "A tissue is a group of cells.",
+          "right": "\"A group of cells\" on its own is ignored. Say a group of the same or similar cells, or a group of cells with a similar function."
+        },
+        {
+          "wrong": "The heart is part of the blood system.",
+          "right": "\"Blood system\" is ignored. Say the circulatory system (cardiovascular is also accepted)."
+        },
+        {
+          "wrong": "The root hair cell is the plant organ that absorbs water from the soil.",
+          "right": "\"Root hair\" is not accepted. The organ is the root."
+        },
+        {
+          "wrong": "Blood is an animal organ.",
+          "right": "\"Blood\" is ignored when naming an organ. Name the heart, lung, liver, kidney, brain, stomach, intestine, pancreas, bladder or skin."
+        }
+      ],
+      "worked_example": {
+        "exemplar_id": "0e397f32-b50c-4580-aa5f-9f5ce923ba8d",
+        "source": "AQA jun 2019, Paper 1 (F), Q3.1",
+        "question": "Write the biological structures from the box in the correct size order.\n\ncell   nucleus   organ   tissue\n\nSmallest\n\nLargest",
+        "marks": 3,
+        "answer_points": [
+          "Smallest: nucleus",
+          "Then: cell",
+          "Then: tissue",
+          "Largest: organ"
+        ],
+        "tip": "All four in the correct order scores full marks. One mark is given for each consecutive pair in the right order."
+      }
+    }
+  },
+  "meta": {
+    "status": "draft",
+    "written_by": "sonnet-5-5",
+    "checked_by": "sonnet-science-check",
+    "checked_at": "2026-10-01",
+    "written_at": "2026-10-01",
+    "spec_point_ids": [
+      "630f6f04-55e3-4352-85df-1a98bd839364",
+      "294f73f0-3f53-43d0-8deb-fa399f6d591d"
+    ],
+    "exemplar_ids": ["0e397f32-b50c-4580-aa5f-9f5ce923ba8d"]
+  }
+}

@@ -1,0 +1,257 @@
+{
+  "format": 1,
+  "concept_id": "chem-095",
+  "subject": "chemistry",
+  "title": "Greenhouse gases and the greenhouse effect",
+  "key_idea": "Greenhouse gases such as carbon dioxide, methane and water vapour absorb infrared radiation from the Earth's surface and re-emit it in all directions. This warms the Earth and keeps temperatures high enough to support life.",
+  "sections": [
+    {
+      "heading": "Greenhouse gases",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "This section covers which gases are greenhouse gases and why they matter."
+        },
+        {
+          "type": "definitions",
+          "items": [
+            {
+              "term": "Greenhouse gas",
+              "meaning": "A gas in the atmosphere that absorbs infrared radiation from the Earth's surface and keeps the Earth warm."
+            },
+            {
+              "term": "Infrared radiation",
+              "meaning": "Radiation with a longer wavelength than the radiation that arrives from the Sun."
+            }
+          ]
+        },
+        {
+          "type": "list",
+          "items": [
+            "**Water vapour**, **carbon dioxide** and **methane** are greenhouse gases.",
+            "They keep the temperature on Earth high enough to support life.",
+            "A planet or moon with greenhouse gases in its atmosphere is warmer than one with no atmosphere."
+          ]
+        },
+        {
+          "type": "key-points",
+          "items": [
+            "The greenhouse gases are water vapour, carbon dioxide and methane.",
+            "They keep Earth warm enough for life."
+          ]
+        }
+      ]
+    },
+    {
+      "heading": "How the greenhouse effect works",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "This section covers the interaction of radiation with the atmosphere, step by step."
+        },
+        {
+          "type": "list",
+          "items": [
+            "Short wavelength radiation from the Sun passes through the atmosphere.",
+            "The Earth's surface absorbs it and warms up.",
+            "The Earth emits longer wavelength radiation, called **infrared radiation**.",
+            "Some infrared radiation goes directly into space.",
+            "Greenhouse gases **absorb** some of the infrared radiation.",
+            "The gas molecules **re-emit** infrared radiation in all directions.",
+            "This warms the Earth's surface and the atmosphere."
+          ]
+        },
+        {
+          "type": "diagram",
+          "diagram": {
+            "kind": "sequence",
+            "alt": "Put the steps of the greenhouse effect in order.",
+            "prompt": "Put the steps of the greenhouse effect in order.",
+            "steps": [
+              "Short wavelength radiation from the Sun passes through the atmosphere",
+              "The Earth's surface absorbs the radiation and warms up",
+              "The Earth emits longer wavelength infrared radiation",
+              "Greenhouse gases absorb some of the infrared radiation",
+              "The gases re-emit infrared radiation in all directions",
+              "The Earth's surface and atmosphere become warmer"
+            ]
+          }
+        },
+        {
+          "type": "key-points",
+          "items": [
+            "Short wavelength radiation comes in. Longer wavelength infrared radiation goes out from the surface.",
+            "Greenhouse gases absorb the infrared radiation and re-emit it, which warms the Earth."
+          ]
+        }
+      ]
+    },
+    {
+      "heading": "Greenhouse gases from burning fuels",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "This section covers a common exam link between fuels and the greenhouse effect."
+        },
+        {
+          "type": "list",
+          "items": [
+            "Complete combustion of a hydrocarbon fuel makes carbon dioxide and water.",
+            "Both are greenhouse gases.",
+            "They absorb heat radiated from the Earth and re-radiate it back into the atmosphere."
+          ]
+        },
+        {
+          "type": "key-points",
+          "items": [
+            "Burning a hydrocarbon fuel produces carbon dioxide and water vapour.",
+            "Both absorb heat radiated from the Earth."
+          ]
+        }
+      ]
+    }
+  ],
+  "checks": [
+    {
+      "q": "Name two greenhouse gases.",
+      "a": "Any two from: carbon dioxide, methane, water vapour.",
+      "marks": 2
+    },
+    {
+      "q": "Describe what happens to infrared radiation emitted by the Earth's surface.",
+      "a": "Some goes directly into space. Some is absorbed by greenhouse gases, which re-emit it in all directions and warm the Earth.",
+      "marks": 2
+    },
+    {
+      "q": "Explain how methane keeps a moon warmer than a moon with no atmosphere.",
+      "a": "Short wavelength radiation from the Sun passes through. It is re-emitted from the surface as longer wavelength infrared radiation, which is absorbed by methane in the atmosphere.",
+      "marks": 3
+    }
+  ],
+  "boards": {
+    "aqa": {
+      "spec_codes": [
+        "AQA 4.9.2.1",
+        "AQA T 5.9.2.1"
+      ],
+      "exam_phrases": [
+        "allows short(er) wavelength radiation to pass through (from the sun)",
+        "re-emitted from the surface as long(er) wavelength radiation",
+        "re-emitted as ir / infra-red radiation",
+        "absorbed (by methane in the atmosphere)",
+        "carbon dioxide / methane which stops radiation escaping",
+        "this increases the temperature leading to global warming"
+      ],
+      "mistakes": [
+        {
+          "wrong": "Greenhouse gases keep the Earth warm because the ozone layer holds the heat in.",
+          "right": "References to the ozone layer are ignored. Explain with radiation: short wavelength radiation enters, is re-emitted as longer wavelength radiation, and is absorbed by greenhouse gases."
+        },
+        {
+          "wrong": "Methane keeps the moon warm.",
+          "right": "A bare statement earns nothing. If no other mark is given, one mark is allowed for saying methane absorbs longer wavelength (infrared) radiation."
+        }
+      ],
+      "worked_example": {
+        "exemplar_id": "71e1a651-bb7b-416b-8873-9b0e5ca54882",
+        "source": "AQA jun 2019, Paper 2 (H), Q07.4",
+        "question": "Carbon dioxide is a greenhouse gas.\n\nDescribe the greenhouse effect in terms of the interaction of short and long wavelength radiation with matter.",
+        "marks": 4,
+        "answer_points": [
+          "Short wavelength radiation (ultraviolet) enters the atmosphere.",
+          "It is absorbed by materials and re-emitted.",
+          "It is re-emitted as longer wavelength radiation (infrared).",
+          "The longer wavelength radiation is trapped by a greenhouse gas such as carbon dioxide or methane, which stops radiation escaping."
+        ],
+        "tip": "Ultraviolet and infrared are allowed for short and long wavelength radiation. The temperature increases."
+      }
+    },
+    "edexcel": {
+      "spec_codes": [
+        "EDEX 8.24"
+      ],
+      "exam_phrases": [
+        "{carbon dioxide / water} produced",
+        "(the gases) absorb heat radiated from earth",
+        "re-radiate heat back into the atmosphere",
+        "traps the heat"
+      ],
+      "mistakes": [
+        {
+          "wrong": "Writing the formula CO₂ instead of the name 'carbon dioxide' loses the mark.",
+          "right": "The formula is allowed. 'Traps the heat' is also allowed for the gases absorbing heat radiated from the Earth."
+        },
+        {
+          "wrong": "Carbon dioxide causes the greenhouse effect.",
+          "right": "Add the two linked points: the gases absorb heat radiated from the Earth, then re-radiate heat back into the atmosphere."
+        }
+      ],
+      "worked_example": {
+        "exemplar_id": "e326646d-620a-471b-8c3e-ddc095d7b494",
+        "source": "EDEXCEL nov 2021, Paper 2 (F), Q9(d)",
+        "question": "Diesel oil is a mixture of hydrocarbons that can be obtained from crude oil.\n\nExplain how the greenhouse effect is caused by the gases produced by the complete combustion of diesel oil.",
+        "marks": 3,
+        "answer_points": [
+          "Carbon dioxide (or water) is produced.",
+          "The gases absorb heat radiated from the Earth.",
+          "They re-radiate heat back into the atmosphere."
+        ],
+        "tip": "Traps the heat is allowed. Use the formula of the gas if you prefer."
+      }
+    },
+    "ocr": {
+      "spec_codes": [
+        "OCR C6.3c"
+      ],
+      "exam_phrases": [
+        "energy transferred by radiation from the Sun warms up the Earth's surface",
+        "infrared radiation is emitted by the Earth's surface",
+        "some infrared radiation goes directly into space",
+        "greenhouse gases absorb (some) infrared radiation",
+        "greenhouse gas molecules emit infrared radiation (in all directions)",
+        "warming the Earth's surface / atmosphere"
+      ],
+      "mistakes": [
+        {
+          "wrong": "The ozone layer traps the heat and causes the greenhouse effect.",
+          "right": "References to the ozone layer are not allowed. Describe greenhouse gases absorbing infrared radiation."
+        },
+        {
+          "wrong": "Greenhouse gases trap infrared radiation.",
+          "right": "The idea of trapping is ignored. Say that greenhouse gases absorb some of the infrared radiation and then emit it in all directions."
+        }
+      ],
+      "worked_example": {
+        "exemplar_id": "acfceb21-5a22-45e6-a60f-e31384182efb",
+        "source": "OCR nov 2020, Paper 4, Q23(b)",
+        "question": "This question is about the Earth's atmosphere.\n\nDescribe and explain what is meant by the greenhouse effect.",
+        "marks": 3,
+        "answer_points": [
+          "Energy transferred by radiation from the Sun warms up the Earth's surface.",
+          "Infrared radiation is emitted by the Earth's surface, and some goes directly into space.",
+          "Greenhouse gases absorb some of the infrared radiation.",
+          "Greenhouse gas molecules emit infrared radiation in all directions, warming the Earth's surface and atmosphere."
+        ],
+        "tip": "Any three points. Energy is allowed instead of infrared radiation, and a named gas such as carbon dioxide or methane is allowed."
+      }
+    }
+  },
+  "meta": {
+    "status": "draft",
+    "written_by": "sonnet-5-5",
+    "written_at": "2026-10-01",
+    "spec_point_ids": [
+      "3ca28f59-1900-473a-b58e-62be5239d960",
+      "15aa3ad6-febe-43c1-ba20-9b8581a23143",
+      "1d4028d5-d516-4342-8ffa-25bc87d97cd9",
+      "4a1e716e-d7d8-4d01-9611-9a49a3539fba"
+    ],
+    "exemplar_ids": [
+      "71e1a651-bb7b-416b-8873-9b0e5ca54882",
+      "e326646d-620a-471b-8c3e-ddc095d7b494",
+      "acfceb21-5a22-45e6-a60f-e31384182efb"
+    ],
+    "checked_by": "sonnet-science-check",
+    "checked_at": "2026-10-01"
+  }
+}

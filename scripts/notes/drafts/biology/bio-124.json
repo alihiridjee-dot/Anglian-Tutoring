@@ -1,0 +1,178 @@
+{
+  "format": 1,
+  "concept_id": "bio-124",
+  "subject": "biology",
+  "title": "Indicator species",
+  "key_idea": "An **indicator species** is an organism whose presence or absence shows how polluted an environment is. Some species need clean conditions. Others can live where there is pollution. Scientists use them as evidence of pollution levels.",
+  "sections": [
+    {
+      "heading": "Indicator species for water and air",
+      "blocks": [
+        { "type": "paragraph", "text": "(Separate science) Some organisms are found only in clean places and some only in polluted ones. This section covers the main indicator species." },
+        {
+          "type": "definitions",
+          "items": [
+            { "term": "Indicator species", "meaning": "A species whose presence or absence shows the level of pollution in an area." },
+            { "term": "Pollution", "meaning": "Harmful substances released into the water or air." }
+          ]
+        },
+        {
+          "type": "diagram",
+          "diagram": {
+            "kind": "predictor",
+            "alt": "Pick an indicator species to see what it shows about pollution and why.",
+            "prompt": "Pick an indicator species you find",
+            "result_labels": ["Where it is used", "What it indicates", "Why"],
+            "options": [
+              {
+                "label": "Freshwater shrimp",
+                "results": ["Water", "Clean water", "Freshwater shrimps are not found in polluted water"]
+              },
+              {
+                "label": "Stonefly",
+                "results": ["Water", "Clean water", "Stoneflies are clean water indicators and are not found in polluted water"]
+              },
+              {
+                "label": "Sludgeworm",
+                "results": ["Water", "Polluted water", "Sludgeworms are found where the oxygen concentration is low"]
+              },
+              {
+                "label": "Bloodworm",
+                "results": ["Water", "Polluted water", "Bloodworms in a pond show that the water is polluted"]
+              },
+              {
+                "label": "Lichen",
+                "results": ["Air", "Air quality", "Lichens are sensitive to air pollution, so mostly sensitive species means low pollution"]
+              },
+              {
+                "label": "Blackspot fungus on roses",
+                "results": ["Air", "Sulfur dioxide level", "Blackspot fungus will not grow where there is a high concentration of sulfur dioxide"]
+              }
+            ]
+          }
+        },
+        {
+          "type": "key-points",
+          "items": [
+            "Freshwater shrimp and stonefly indicate clean water. Sludgeworm and bloodworm indicate polluted water.",
+            "Lichens and blackspot fungus are indicators of air pollution, not water pollution."
+          ]
+        }
+      ]
+    },
+    {
+      "heading": "Pollution and oxygen in water",
+      "blocks": [
+        { "type": "paragraph", "text": "Pollution such as sewage lowers the oxygen concentration in water. Species then survive or disappear according to how much oxygen they need." },
+        {
+          "type": "list",
+          "items": [
+            "Sewage increases the number of aerobic bacteria, which use oxygen from the water in respiration.",
+            "Sewage can also block light or kill plants, so less oxygen is made by photosynthesis.",
+            "Where the oxygen concentration is high, more organisms can survive and respire, so biodiversity is higher.",
+            "Where the oxygen concentration is low, only species such as sludgeworms survive."
+          ]
+        },
+        {
+          "type": "key-points",
+          "items": [
+            "Sewage lowers oxygen because bacteria respire and photosynthesis falls.",
+            "Biodiversity is highest where the oxygen concentration is highest."
+          ]
+        }
+      ]
+    },
+    {
+      "heading": "Using indicator species as evidence",
+      "blocks": [
+        { "type": "paragraph", "text": "To evaluate the use of indicator species, look at what they show and what they cannot show." },
+        {
+          "type": "table",
+          "columns": ["Strength", "Limitation"],
+          "rows": [
+            ["Simple: finding the species in a sample shows the level of pollution", "Shows that an area is polluted, not which pollutant caused it"],
+            ["Linked to measured data, such as a low oxygen concentration", "The right species must be identified correctly"],
+            ["Species that are absent from an area give evidence that it is polluted", "A species could be absent for another reason, so use other evidence too"]
+          ]
+        },
+        {
+          "type": "key-points",
+          "items": [
+            "Indicator species give evidence of pollution levels.",
+            "They are stronger evidence when they agree with measurements such as oxygen concentration."
+          ]
+        }
+      ]
+    }
+  ],
+  "checks": [
+    {
+      "q": "Give the names of two indicator species that provide evidence for clean water.",
+      "a": "Stonefly and freshwater shrimp.",
+      "marks": 2
+    },
+    {
+      "q": "Rose plants near a factory are not infected with blackspot fungus. State why.",
+      "a": "Blackspot fungus will not grow where there is a high concentration of sulfur dioxide.",
+      "marks": 1
+    },
+    {
+      "q": "Explain why sewage pollution in a river can decrease the oxygen levels in the water.",
+      "a": "Sewage increases the number of aerobic bacteria, which use oxygen from the water in respiration. Sewage can also stop plants getting light, so there is less photosynthesis and less oxygen produced.",
+      "marks": 2
+    }
+  ],
+  "boards": {
+    "edexcel": {
+      "spec_codes": ["EDEX 9.16B"],
+      "exam_phrases": [
+        "stonefly and freshwater shrimp provide evidence for clean water",
+        "sludgeworm indicates polluted water",
+        "lichen is an air pollution indicator",
+        "blackspot fungus will not grow where areas have high sulfur dioxide",
+        "oxygen concentration is highest here so organisms can survive / respire",
+        "increased levels of (aerobic) bacteria use oxygen from the water in respiration",
+        "prevent plants from getting light so no oxygen produced by photosynthesis"
+      ],
+      "mistakes": [
+        {
+          "wrong": "Lichens show that a river is polluted.",
+          "right": "Lichens are an air quality indicator, not a water quality indicator."
+        },
+        {
+          "wrong": "Freshwater shrimps and stoneflies live in polluted water.",
+          "right": "They are not found in polluted water. They are clean water indicators."
+        },
+        {
+          "wrong": "Sewage lowers the oxygen because it is full of bacteria.",
+          "right": "Explain the link: the bacteria respire and use oxygen from the water, or sewage prevents plants getting light so no oxygen is produced by photosynthesis."
+        }
+      ],
+      "worked_example": {
+        "exemplar_id": "be35cd7f-e6a5-4e74-8ec9-42e82aff9b42",
+        "source": "EDEXCEL jun 2023, Paper 2 (H), Q1(a)(iv)",
+        "question": "A fertiliser factory releases waste into a stream. Samples of water were taken at five points, A, B, C, D and E, along the stream.\n\nPoint along stream | Oxygen concentration (ppm)\nA | 1.5\nB | 2.7\nC | 3.4\nD | 4.4\nE | 4.5\n\nExplain where the biodiversity will be highest in the stream.",
+        "marks": 3,
+        "answer_points": [
+          "The biodiversity will be highest at point D to E.",
+          "This is because the oxygen concentration is highest there.",
+          "So organisms can survive and respire."
+        ],
+        "tip": "Name the place (D to E, or E), then link it to the oxygen concentration, then to survival or respiration."
+      }
+    }
+  },
+  "meta": {
+    "status": "draft",
+    "checked_by": "sonnet-science-check",
+    "checked_at": "2026-10-01",
+    "written_by": "sonnet-5-5",
+    "written_at": "2026-10-01",
+    "spec_point_ids": [
+      "89c51c10-51a7-450f-a8d0-3a9ef7911de6"
+    ],
+    "exemplar_ids": [
+      "be35cd7f-e6a5-4e74-8ec9-42e82aff9b42"
+    ]
+  }
+}

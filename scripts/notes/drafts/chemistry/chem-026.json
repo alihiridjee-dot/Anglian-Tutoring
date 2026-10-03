@@ -1,0 +1,305 @@
+{
+  "format": 1,
+  "concept_id": "chem-026",
+  "subject": "chemistry",
+  "title": "Nanoparticles",
+  "key_idea": "(Separate science) Nanoparticles are 1 to 100 nm across and contain a few hundred atoms. They have a very high surface area to volume ratio, so they can behave differently from the same material in bulk. This gives them many uses, and possible risks.",
+  "sections": [
+    {
+      "heading": "How big is a nanoparticle",
+      "blocks": [
+        { "type": "paragraph", "text": "(Separate science) This section covers the size of nanoparticles compared with other particles." },
+        {
+          "type": "definitions",
+          "items": [
+            { "term": "Nanoparticle", "meaning": "A particle 1 to 100 nanometres (nm) across, containing a few hundred atoms." },
+            { "term": "Nanometre (nm)", "meaning": "One billionth of a metre, 1 × 10⁻⁹ m." }
+          ]
+        },
+        {
+          "type": "table",
+          "columns": ["Particle", "Diameter"],
+          "rows": [
+            ["Nanoparticles", "1 to 100 nm"],
+            ["Fine particles (PM2.5)", "100 to 2500 nm (1 × 10⁻⁷ m to 2.5 × 10⁻⁶ m)"],
+            ["Coarse particles (PM10), often called dust", "2500 to 10 000 nm (2.5 × 10⁻⁶ m to 1 × 10⁻⁵ m)"]
+          ]
+        },
+        {
+          "type": "list",
+          "items": [
+            "A nanoparticle is much larger than an atom or a small molecule. A gold atom is about 0.14 nm across and a water molecule about 0.27 nm.",
+            "A water molecule is smaller than 1 nm, so it is not a nanoparticle. A DNA strand, 2.5 nm across, is.",
+            "Nanoparticles are smaller than fine particles."
+          ]
+        },
+        {
+          "type": "key-points",
+          "items": [
+            "Nanoparticles are 1 to 100 nm across, about a few hundred atoms.",
+            "They are smaller than fine particles and larger than atoms and small molecules."
+          ]
+        }
+      ]
+    },
+    {
+      "heading": "Surface area to volume ratio",
+      "blocks": [
+        { "type": "paragraph", "text": "Nanoparticles have a very high surface area to volume ratio. For a cube, you work it out from the side length." },
+        {
+          "type": "equation",
+          "label": "Surface area of a cube",
+          "formula": "surface area = 6 × (side)²",
+          "where": ["surface area is in nm²", "side is the length of one edge, in nm"]
+        },
+        {
+          "type": "equation",
+          "label": "Volume of a cube",
+          "formula": "volume = (side)³",
+          "where": ["volume is in nm³", "side is the length of one edge, in nm"]
+        },
+        {
+          "type": "diagram",
+          "diagram": {
+            "kind": "slider",
+            "alt": "Change the side of a cube and see its surface area, volume and surface area to volume ratio.",
+            "inputs": [
+              { "id": "side", "label": "Side of cube", "unit": "nm", "min": 1, "max": 100, "step": 1, "value": 10 }
+            ],
+            "outputs": [
+              { "label": "Surface area", "unit": "nm²", "formula": "6 * side^2", "decimals": 0 },
+              { "label": "Volume", "unit": "nm³", "formula": "side^3", "decimals": 0 },
+              { "label": "Surface area ÷ volume", "unit": "per nm", "formula": "6 / side", "decimals": 2 }
+            ]
+          }
+        },
+        {
+          "type": "subheading",
+          "text": "Worked calculation"
+        },
+        {
+          "type": "steps",
+          "items": [
+            { "lead": "Surface area.", "text": "A cube has side 3 nm. Surface area = 6 × 3² = 54 nm²." },
+            { "lead": "Volume.", "text": "Volume = 3³ = 27 nm³." },
+            { "lead": "Ratio.", "text": "Surface area : volume = 54 : 27 = 2 : 1 in its simplest form." }
+          ]
+        },
+        {
+          "type": "list",
+          "items": [
+            "As the side of a cube decreases by a factor of 10, the surface area to volume ratio increases by a factor of 10.",
+            "Smaller particles have a larger surface area to volume ratio."
+          ]
+        },
+        {
+          "type": "diagram",
+          "diagram": {
+            "kind": "practice",
+            "alt": "Calculate the surface area to volume ratio of a cube-shaped nanoparticle.",
+            "question": "A cube-shaped nanoparticle has sides of length {side} nm. Calculate its surface area divided by its volume, in nm⁻¹.",
+            "variables": [{ "id": "side", "min": 2, "max": 20, "step": 2 }],
+            "answer": { "formula": "6 * side^2 / side^3", "unit": "nm⁻¹", "decimals": 2 },
+            "working": [
+              "Surface area = 6 × {side}² nm²",
+              "Volume = {side}³ nm³",
+              "Surface area ÷ volume = {answer}"
+            ]
+          }
+        },
+        {
+          "type": "key-points",
+          "items": [
+            "Surface area of a cube = 6 × side². Volume = side³.",
+            "Smaller cube, larger surface area to volume ratio."
+          ]
+        }
+      ]
+    },
+    {
+      "heading": "Uses and risks",
+      "blocks": [
+        { "type": "paragraph", "text": "Because of their high surface area to volume ratio, nanoparticles may have properties different from the same material in bulk." },
+        {
+          "type": "list",
+          "items": [
+            "Smaller quantities may be needed to be effective than for materials with normal particle sizes.",
+            "**Catalysts:** a high surface area to volume ratio makes nanoparticle catalysts more effective and speeds up the reaction.",
+            "**Sun creams:** titanium dioxide or zinc oxide nanoparticles block UV light and cannot be seen on the skin.",
+            "**Medicine, electronics, cosmetics, deodorants:** other applications, with new ones an important area of research.",
+            "**Coatings:** a thinner layer can be used, so less coating is needed."
+          ]
+        },
+        { "type": "subheading", "text": "Possible risks" },
+        {
+          "type": "list",
+          "items": [
+            "The long term risks are not yet fully known, because the materials are new.",
+            "Nanoparticles might pass into the body, through cell membranes or into the bloodstream.",
+            "They could catalyse harmful reactions in the body, or have toxic effects.",
+            "Some are small enough to be breathed in."
+          ]
+        },
+        {
+          "type": "key-points",
+          "items": [
+            "A high surface area to volume ratio makes nanoparticles effective catalysts, in smaller quantities.",
+            "Uses include sun creams, medicine, electronics and catalysts.",
+            "Possible risks: effects on the body are not fully known."
+          ]
+        }
+      ]
+    }
+  ],
+  "checks": [
+    {
+      "q": "A cube-shaped nanoparticle has sides of length 10 nm. Calculate its surface area to volume ratio.",
+      "a": "Surface area = 6 × 10² = 600 nm². Volume = 10³ = 1000 nm³. Ratio = 600 ÷ 1000 = 0.6 (or 0.6 : 1).",
+      "marks": 3
+    },
+    {
+      "q": "Explain why nanoparticles can make better catalysts than larger particles.",
+      "a": "Nanoparticles have a much larger surface area to volume ratio, so the reaction rate is increased.",
+      "marks": 2
+    },
+    {
+      "q": "Give one possible risk of using nanoparticles.",
+      "a": "Any one from: the long term risks are not fully known; they might pass into the body through cell membranes or the skin; they could catalyse harmful reactions in the body; they can have toxic effects.",
+      "marks": 1
+    }
+  ],
+  "boards": {
+    "aqa": {
+      "spec_codes": ["AQA 4.2.4.1", "AQA 4.2.4.2"],
+      "exam_phrases": [
+        "(nanoparticles) have a higher surface area to volume ratio",
+        "(so) less coating is used / a thinner layer can be used",
+        "surface area = 6 × surface area of one face",
+        "simplest whole number ratio of surface area : volume",
+        "could be harmful if breathed in",
+        "high cost"
+      ],
+      "mistakes": [
+        {
+          "wrong": "Nanoparticles are used because they have a large surface area.",
+          "right": "Give the ratio: nanoparticles have a higher surface area to volume ratio. Then say what follows, such as less coating used or a thinner layer."
+        },
+        {
+          "wrong": "A cube with a surface area of 54 nm² and volume of 27 nm³ has a ratio of 54 : 27.",
+          "right": "The question asks for the simplest whole number ratio. Divide both by 27 to give 2 : 1."
+        }
+      ],
+      "worked_example": {
+        "exemplar_id": "83cf557b-33dd-4748-9435-08348c2d96c8",
+        "source": "AQA jun 2023, Paper 1 (F), Q05.3",
+        "question": "A cubic nanoparticle has a volume of 27 nm³. Each edge of the cube is 3 nm long.\n\nCalculate:\n• the surface area of the cubic nanoparticle\n• the simplest whole number ratio of surface area : volume for the cubic nanoparticle.\n\nUse the equation:\n\nsurface area of cubic nanoparticle = 6 × surface area of one face",
+        "marks": 4,
+        "answer_points": [
+          "Surface area = 6 × 3² (area of one face is 3 × 3 = 9 nm²).",
+          "= 54 nm².",
+          "Surface area : volume = 54 : 27.",
+          "Simplest ratio = 2 : 1."
+        ],
+        "tip": "One mark each. A correct ratio from an incorrect surface area still scores. Always simplify the ratio."
+      }
+    },
+    "edexcel": {
+      "spec_codes": ["EDEX 9.35C", "EDEX 9.36C", "EDEX 9.37C"],
+      "exam_phrases": [
+        "catalyst particles have much larger surface area (when made from nanoparticles)",
+        "leads to increased reaction rate",
+        "absorb / block UV light, so prevent sunburn / skin damage",
+        "very small / less than 100 nm, so cannot be seen on skin",
+        "do not know the risks fully / long term risks not yet known",
+        "might pass into the body / through cell membranes / enter the bloodstream",
+        "could change / catalyse reactions in the body"
+      ],
+      "mistakes": [
+        {
+          "wrong": "Nanoparticles are used in sunscreen because they have a large surface area.",
+          "right": "For the size point, a large surface area to volume ratio is allowed but a large surface area alone is ignored. Better: they absorb UV light so prevent sunburn, and are very small so cannot be seen on the skin."
+        },
+        {
+          "wrong": "The risk is that nanoparticles harm the skin or cause rashes.",
+          "right": "'Harm the skin' and 'causes rashes or illness' are ignored. Say the long term risks are not known, or they might pass into the body, or could catalyse reactions in the body."
+        }
+      ],
+      "worked_example": {
+        "exemplar_id": "c4ed061b-1de2-4ec2-9927-afa74333e725",
+        "source": "EDEXCEL jun 2022, Paper 2 (H), Q1(c)",
+        "question": "A nanoparticle is cube shaped. The length of one side of this cube is 60 nm.\n\nShow that the surface area : volume ratio for this cube is 1 : 10.",
+        "marks": 3,
+        "answer_points": [
+          "Surface area = 60 × 60 × 6 = 21 600 nm².",
+          "Volume = 60 × 60 × 60 = 216 000 nm³.",
+          "Ratio: 216 000 ÷ 21 600 = 10, so surface area : volume = 1 : 10."
+        ],
+        "tip": "Show each step. 10 : 1 (or multiples of) is allowed if the calculation is shown."
+      }
+    },
+    "ocr": {
+      "spec_codes": ["OCR C2.3g", "OCR C2.3h", "OCR C2.3i", "OCR C2.3j"],
+      "exam_phrases": [
+        "nanoparticles have diameter between 1 nm and 100 nm",
+        "large surface area to volume ratio",
+        "surface area = 6 × side²; volume = side³",
+        "they can catalyse harmful reactions in the body",
+        "they can have toxic effects on the body",
+        "blocks UV light / cannot be seen on the skin"
+      ],
+      "mistakes": [
+        {
+          "wrong": "A water molecule is not a nanoparticle because it is very small.",
+          "right": "'Very small' is ignored. Say nanoparticles are between 1 nm and 100 nm, and 0.27 nm is less than 1 nm."
+        },
+        {
+          "wrong": "The surface area to volume ratio of a 10 nm cube is 1 : 0.6.",
+          "right": "A ratio written the wrong way round is not allowed. Surface area ÷ volume = 600 ÷ 1000 = 0.6, or 0.6 : 1."
+        }
+      ],
+      "worked_example": {
+        "exemplar_id": "6ad66d07-9204-47ff-98cb-95c7e64e258c",
+        "source": "OCR jun 2025, Paper 1, Q22(c)",
+        "question": "A cube-shaped nanoparticle has sides of length 10 nm.\n\nCalculate the surface area to volume ratio of the cube.\n\nSurface area to volume ratio = surface area / volume",
+        "marks": 3,
+        "answer_points": [
+          "Surface area = 6 × 10² = 600.",
+          "Volume = 10³ = 1000.",
+          "Ratio = 600 ÷ 1000 = 0.6 (or 0.6 : 1, or 3 : 5)."
+        ],
+        "tip": "Units are not needed. Do not write the ratio the wrong way round."
+      }
+    }
+  },
+  "meta": {
+    "status": "draft",
+    "checked_by": "sonnet-science-check",
+    "checked_at": "2026-10-01",
+    "written_by": "sonnet-5-5",
+    "written_at": "2026-10-01",
+    "spec_point_ids": [
+      "d473ad67-0ba8-4a56-a007-5cadda261ba9",
+      "4a2a0b7f-ccc6-4247-b701-9338379ef29e",
+      "ba33c8ae-1b85-442d-9ee3-b6a153212333",
+      "10f953b7-f6a5-4dba-9448-f48640348fa5",
+      "50f47a76-697d-4881-b5af-bd4dc3526295",
+      "8c6a9639-c48f-406d-a9da-a70eff7e4159",
+      "d95138f6-5d81-4b2b-ae85-f8c0c77f0cff",
+      "78501c0c-d655-4542-9961-885d170fe282",
+      "7250f0e3-f756-441e-87f3-1d9904571bd2"
+    ],
+    "exemplar_ids": [
+      "83cf557b-33dd-4748-9435-08348c2d96c8",
+      "c4ed061b-1de2-4ec2-9927-afa74333e725",
+      "6ad66d07-9204-47ff-98cb-95c7e64e258c",
+      "74e9d5b6-30ca-4cec-b59b-73535a2785e8",
+      "f39e93f3-1f4c-4939-9726-977a0fbabe51",
+      "9c4d2df0-dbea-4275-a9a7-a7d6d722686e",
+      "f4c7b979-241d-46f9-ae6a-d3f82d9b0f59",
+      "e85cc62e-2c27-4c84-8a93-c9fd49b6cfc3",
+      "4ecec8f4-2cf5-4069-9054-b846abc03a07",
+      "ef6df18f-3190-4926-bb53-e5060b42b0d6",
+      "3178dcb1-b3d1-42a3-a78e-3b6bd64d25de"
+    ]
+  }
+}

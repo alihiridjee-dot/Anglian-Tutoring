@@ -1,0 +1,225 @@
+{
+  "format": 1,
+  "concept_id": "bio-028",
+  "subject": "biology",
+  "title": "Cardiac output",
+  "key_idea": "Cardiac output is the volume of blood the heart pumps out each minute. It equals the stroke volume multiplied by the heart rate. During exercise cardiac output rises, so more oxygen and glucose reach the muscles.",
+  "sections": [
+    {
+      "heading": "Heart rate, stroke volume and cardiac output",
+      "blocks": [
+        { "type": "paragraph", "text": "Three quantities describe how hard the heart is working. This section defines them and gives the equation that links them." },
+        {
+          "type": "definitions",
+          "items": [
+            { "term": "Heart rate", "meaning": "The number of times the heart beats each minute, in beats per minute." },
+            { "term": "Stroke volume", "meaning": "The volume of blood pumped out of the heart each time it beats, for example in cm³." },
+            { "term": "Cardiac output", "meaning": "The total volume of blood pumped out of the heart each minute, for example in cm³ per minute." }
+          ]
+        },
+        {
+          "type": "equation",
+          "label": "Cardiac output",
+          "formula": "cardiac output = stroke volume × heart rate",
+          "where": ["cardiac output, in cm³ per minute", "stroke volume, in cm³", "heart rate, in beats per minute"]
+        },
+        {
+          "type": "diagram",
+          "diagram": {
+            "kind": "slider",
+            "alt": "Change the heart rate and the stroke volume and watch the cardiac output.",
+            "inputs": [
+              { "id": "HR", "label": "Heart rate", "unit": "beats per minute", "min": 40, "max": 200, "step": 4, "value": 68 },
+              { "id": "SV", "label": "Stroke volume", "unit": "cm³", "min": 50, "max": 150, "step": 2, "value": 72 }
+            ],
+            "outputs": [
+              { "label": "Cardiac output", "unit": "cm³ per minute", "formula": "HR * SV", "decimals": 0 },
+              { "label": "Cardiac output", "unit": "dm³ per minute", "formula": "HR * SV / 1000", "decimals": 1 }
+            ]
+          }
+        },
+        {
+          "type": "key-points",
+          "items": [
+            "Cardiac output = stroke volume × heart rate.",
+            "Cardiac output is the volume pumped each minute. Stroke volume is the volume pumped each beat."
+          ]
+        }
+      ]
+    },
+    {
+      "heading": "Calculations",
+      "blocks": [
+        { "type": "paragraph", "text": "Substitute the numbers, then check the units and the number of significant figures." },
+        {
+          "type": "steps",
+          "items": [
+            { "lead": "At rest.", "text": "68 beats per minute × 72 cm³ = 4896 cm³ per minute." },
+            { "lead": "Exercising.", "text": "112 beats per minute × 124 cm³ = 13 888 cm³ per minute." },
+            { "lead": "Difference.", "text": "13 888 − 4896 = 8992 cm³ per minute." },
+            { "lead": "Round.", "text": "To 3 significant figures this is 8990 cm³ per minute." }
+          ]
+        },
+        { "type": "subheading", "text": "Rearranging the equation" },
+        {
+          "type": "equation",
+          "label": "Heart rate",
+          "formula": "heart rate = cardiac output ÷ stroke volume",
+          "where": ["heart rate, in beats per minute", "cardiac output, in cm³ per minute", "stroke volume, in cm³"]
+        },
+        {
+          "type": "equation",
+          "label": "Stroke volume",
+          "formula": "stroke volume = cardiac output ÷ heart rate",
+          "where": ["stroke volume, in cm³", "cardiac output, in cm³ per minute", "heart rate, in beats per minute"]
+        },
+        {
+          "type": "steps",
+          "items": [
+            { "lead": "Heart rate.", "text": "A person has a cardiac output of 4.9 litres per minute and a stroke volume of 70 ml. Calculate the heart rate." },
+            { "lead": "Units.", "text": "Convert 4.9 litres to 4900 ml." },
+            { "lead": "Calculate.", "text": "4900 ÷ 70 = 70 beats per minute." }
+          ]
+        },
+        {
+          "type": "diagram",
+          "diagram": {
+            "kind": "practice",
+            "alt": "Practise calculating heart rate from cardiac output and stroke volume.",
+            "question": "A person has a cardiac output of **{CO} litres per minute**. The stroke volume of each heart beat is **{SV} ml**. Calculate the heart rate in beats per minute. Give your answer to the nearest whole number.",
+            "variables": [
+              { "id": "CO", "min": 4, "max": 6, "step": 0.5 },
+              { "id": "SV", "min": 65, "max": 85, "step": 5 }
+            ],
+            "answer": { "formula": "CO * 1000 / SV", "unit": "beats per minute", "decimals": 0 },
+            "working": [
+              "Heart rate = cardiac output ÷ stroke volume",
+              "Convert litres to ml: {CO} litres = {CO} × 1000 ml",
+              "Heart rate = {CO} × 1000 ÷ {SV} = **{answer}** beats per minute"
+            ]
+          }
+        },
+        { "type": "subheading", "text": "Measuring heart rate" },
+        {
+          "type": "list",
+          "items": [
+            "Count the beats at a pulse point, such as the carotid artery, for 10 seconds.",
+            "Multiply the number of beats by 6 to get beats per minute.",
+            "To improve the method, use a heart rate monitor, take readings more often, record the pulse for longer, or repeat and calculate a mean."
+          ]
+        },
+        {
+          "type": "key-points",
+          "items": [
+            "Check the units. Convert litres to ml, or ml to litres, before dividing.",
+            "Beats in 10 seconds × 6 = beats per minute.",
+            "Give the answer to the number of significant figures asked, with units."
+          ]
+        }
+      ]
+    },
+    {
+      "heading": "Cardiac output and exercise",
+      "blocks": [
+        { "type": "paragraph", "text": "During exercise the muscles need more oxygen and glucose. The heart meets this by increasing the cardiac output." },
+        {
+          "type": "list",
+          "items": [
+            "A higher cardiac output delivers more oxygen and glucose to the muscles.",
+            "This increases the rate of aerobic respiration, so more energy is released.",
+            "It also removes more carbon dioxide and prevents the build-up of lactic acid.",
+            "Cardiac output rises when the heart rate increases, when the stroke volume increases, or both."
+          ]
+        },
+        { "type": "subheading", "text": "Regular exercise" },
+        {
+          "type": "list",
+          "items": [
+            "A person who does not exercise regularly has a lower stroke volume.",
+            "Each beat pumps out less blood, so they need a higher heart rate to get a similar cardiac output.",
+            "This supplies oxygen and glucose to the muscles at the same intensity of exercise."
+          ]
+        },
+        {
+          "type": "key-points",
+          "items": [
+            "Exercise needs more oxygen and glucose, so cardiac output increases.",
+            "A lower stroke volume needs a higher heart rate for the same cardiac output."
+          ]
+        }
+      ]
+    }
+  ],
+  "checks": [
+    {
+      "q": "A person has a heart rate of 70 beats per minute and a stroke volume of 75 cm³. Calculate the cardiac output.",
+      "a": "70 × 75 = 5250 cm³ per minute.",
+      "marks": 2
+    },
+    {
+      "q": "Explain why the cardiac output needs to increase during exercise.",
+      "a": "To deliver more oxygen and glucose to the muscles, so aerobic respiration increases and more energy is released. Also to remove more carbon dioxide and prevent a build-up of lactic acid.",
+      "marks": 3
+    },
+    {
+      "q": "The heart rate was found by counting 14 beats in 10 seconds. What was the heart rate?",
+      "a": "14 × 6 = 84 beats per minute.",
+      "marks": 1
+    }
+  ],
+  "boards": {
+    "edexcel": {
+      "spec_codes": ["EDEX 8.12"],
+      "exam_phrases": [
+        "cardiac output = stroke volume × heart rate",
+        "multiply the number of beats (in 10 seconds) by 6",
+        "to deliver more oxygen / glucose (to the muscles)",
+        "to remove more carbon dioxide",
+        "to prevent build-up of lactic acid",
+        "to increase the rate of aerobic respiration and release more energy",
+        "a lower stroke volume pumps less blood out per beat, so a higher heart rate is needed",
+        "use a heart rate monitor / take repeat readings"
+      ],
+      "mistakes": [
+        {
+          "wrong": "More respiration produces more energy.",
+          "right": "\"Produce energy\" is ignored. Say more respiration releases more energy."
+        },
+        {
+          "wrong": "To improve the method, use a stopwatch.",
+          "right": "\"Use a stopwatch\" is ignored. Say use a heart rate monitor, take readings more often than every 5 minutes, record the pulse for longer than 10 seconds, or repeat and calculate a mean."
+        },
+        {
+          "wrong": "13 888 − 4896 = 8992 cm³ per minute, to 3 significant figures.",
+          "right": "8992 is 4 significant figures. Round to 3 significant figures, 8990, and give units, cm³ per minute. Each is worth a mark."
+        },
+        {
+          "wrong": "Heart rate = 4.9 ÷ 70 = 0.07 beats per minute.",
+          "right": "The units do not match. Convert 4.9 litres to 4900 ml, then 4900 ÷ 70 = 70 beats per minute. Only the substitution mark is given for 4.9 ÷ 70."
+        }
+      ],
+      "worked_example": {
+        "exemplar_id": "28c9872d-5954-498f-8183-0acc83dfdfa2",
+        "source": "EDEXCEL jun 2024, Paper 2 (H), Q8(b)(i)",
+        "question": "The table shows the heart rate and stroke volume of a person when at rest and when doing exercise.\n\nAt rest: heart rate 68 beats per minute, stroke volume 72 cm³.\nDuring exercise: heart rate 112 beats per minute, stroke volume 124 cm³.\n\nCalculate the difference in cardiac output when at rest and when doing exercise.\n\nGive your answer to 3 significant figures and include units in your answer.",
+        "marks": 4,
+        "answer_points": [
+          "At rest: 68 × 72 = 4896. During exercise: 112 × 124 = 13 888.",
+          "Difference: 13 888 − 4896 = 8992.",
+          "To 3 significant figures: 8990.",
+          "Units: cm³ per minute (cm³/min, ml/min and per minute are accepted)."
+        ],
+        "tip": "One mark for each step. 8992 gets 2 marks. 8990 with no working gets 3 marks, and the units give the fourth."
+      }
+    }
+  },
+  "meta": {
+    "status": "draft",
+    "written_by": "sonnet-5-5",
+    "written_at": "2026-10-01",
+    "checked_by": "sonnet-science-check",
+    "checked_at": "2026-10-01",
+    "spec_point_ids": ["1f7c5270-8833-44b9-964e-fd60583ea125"],
+    "exemplar_ids": ["28c9872d-5954-498f-8183-0acc83dfdfa2"]
+  }
+}

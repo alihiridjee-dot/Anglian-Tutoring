@@ -1,0 +1,180 @@
+{
+  "format": 1,
+  "concept_id": "bio-123",
+  "subject": "biology",
+  "title": "Environmental change and species distribution",
+  "key_idea": "The **distribution** of a species is where it lives. Changes in temperature, water availability and the gases in the atmosphere can make an area unsuitable for some organisms and suitable for others. Scientists test these effects with evidence.",
+  "sections": [
+    {
+      "heading": "How environmental change alters distribution",
+      "blocks": [
+        { "type": "paragraph", "text": "(Separate science) Each organism survives only where conditions suit it. This section covers three changes that can move species." },
+        {
+          "type": "definitions",
+          "items": [
+            { "term": "Distribution", "meaning": "Where a species is found, and how many there are in each place." },
+            { "term": "Environmental change", "meaning": "A change in a physical factor, such as temperature, rainfall or the gases in the air." },
+            { "term": "Migration", "meaning": "The movement of animals from one place to another, often at a particular time of year." }
+          ]
+        },
+        {
+          "type": "table",
+          "columns": ["Change", "Example effects on living things"],
+          "rows": [
+            ["**Temperature**", "Global warming melts polar ice caps and glaciers, causing flooding. Animals and birds change when and where they migrate, so their distribution changes"],
+            ["**Water availability**", "Less rainfall can cause desertification. Many plant species die out, animals lack food, and drought-adapted plants become more common. More rainfall can cause flooding and loss of habitat"],
+            ["**Atmospheric gases**", "More carbon dioxide causes global warming, and plants may photosynthesise faster. Acidic gases such as sulfur dioxide cause acid rain, which can stop seeds from growing"]
+          ]
+        },
+        {
+          "type": "diagram",
+          "diagram": {
+            "kind": "sort",
+            "alt": "Sort each effect into the environmental change that causes it: temperature rise, less rainfall or more rainfall.",
+            "prompt": "Which change causes each effect?",
+            "groups": ["Temperature rise", "Less rainfall", "More rainfall"],
+            "items": [
+              { "text": "Polar ice caps and glaciers melt, causing flooding", "group": 0 },
+              { "text": "Animals and birds migrate at different times or to new places", "group": 0 },
+              { "text": "Desertification", "group": 1 },
+              { "text": "Many plant species die out and animals lack food", "group": 1 },
+              { "text": "Drought-adapted plants become more common", "group": 1 },
+              { "text": "Flooding and loss of habitat, which may lead to extinction", "group": 2 }
+            ]
+          }
+        },
+        {
+          "type": "key-points",
+          "items": [
+            "Temperature, water availability and atmospheric gases all affect where species can live.",
+            "Always follow a change through to its effect on food, habitat or survival."
+          ]
+        }
+      ]
+    },
+    {
+      "heading": "Evaluating the evidence",
+      "blocks": [
+        { "type": "paragraph", "text": "You may be given data from an investigation and asked what it shows. Describe the pattern, then judge how far the evidence supports the claim." },
+        {
+          "type": "list",
+          "items": [
+            "Describe the trend, quoting figures from the data.",
+            "Say where the effect starts. A change may only matter beyond a certain value.",
+            "Check that only one factor was changed and the others were kept constant.",
+            "Check the sample size and whether the results were repeated.",
+            "A link between two things does not prove that one causes the other."
+          ]
+        },
+        {
+          "type": "key-points",
+          "items": [
+            "Describe the trend using the data, including any value where it changes.",
+            "Judge the evidence by its controls, sample size and repeats."
+          ]
+        }
+      ]
+    }
+  ],
+  "checks": [
+    {
+      "q": "Give two effects of less rainfall on the plants and animals in an area.",
+      "a": "Any two from: desertification, many plant species die out, animals lack food and die, drought-adapted plants become more common.",
+      "marks": 2
+    },
+    {
+      "q": "Explain how rising temperature could change the distribution of birds.",
+      "a": "Temperature rise changes the places and times that birds can find food and shelter, so their migration patterns change and they are found in different places.",
+      "marks": 2
+    },
+    {
+      "q": "In an investigation, 17 of 20 seeds grew at pH 7.0 and 2 of 20 grew at pH 5.0. Describe what this shows about acid rain.",
+      "a": "Acid rain lowers the number of seeds that grow.",
+      "marks": 1
+    }
+  ],
+  "boards": {
+    "aqa": {
+      "spec_codes": ["AQA 7.7"],
+      "exam_phrases": [
+        "higher carbon dioxide concentration causes global warming",
+        "plants photosynthesise faster due to more carbon dioxide / higher temperature",
+        "temperature rise causes changes in rainfall patterns or extreme weather conditions",
+        "less rainfall causes desertification; many plant species die out; animals lack food and die",
+        "more rainfall causes flooding; loss of habitat; may lead to extinction",
+        "temperature rise melts polar ice caps or glaciers, causing flooding",
+        "changes in animal / bird migration patterns / times or changes in distribution of animals"
+      ],
+      "mistakes": [
+        {
+          "wrong": "Carbon dioxide causes global warming. Ice melts. There are floods. Animals die.",
+          "right": "A list scores at Level 1. For Level 2, link each point to the next: higher carbon dioxide causes global warming, which melts ice caps, which causes flooding and loss of habitat."
+        },
+        {
+          "wrong": "More rainfall causes flooding.",
+          "right": "Add the effect on living things: loss of habitat, which may lead to extinction."
+        },
+        {
+          "wrong": "More carbon dioxide only harms living organisms.",
+          "right": "Mention both sides. Plants may photosynthesise faster with more carbon dioxide, or at a higher temperature."
+        }
+      ],
+      "worked_example": {
+        "exemplar_id": "d9dee04f-fab4-4504-b12d-595bb71a91be",
+        "source": "AQA jun 2021, Paper 2 (F), Q07.3",
+        "question": "Scientists are very concerned about the changes in concentration of carbon dioxide in the Earth's atmosphere. The trend of increasing carbon dioxide concentration may continue for many years.\n\nExplain what effect the changing concentration of carbon dioxide in the atmosphere could have on living organisms.",
+        "marks": 4,
+        "answer_points": [
+          "Higher carbon dioxide concentration causes global warming.",
+          "Plants may photosynthesise faster because of more carbon dioxide or higher temperature.",
+          "Temperature rise changes rainfall patterns or causes extreme weather. Less rainfall causes desertification, so many plant species die out, animals lack food and die, and drought-adapted plants become more common.",
+          "More rainfall causes flooding and loss of habitat, which may lead to extinction. Ice caps and glaciers melt, causing flooding, and animal and bird migration patterns and distribution change."
+        ],
+        "tip": "Level 2 (3 to 4 marks) needs relevant points that are detailed and logically linked, not a list."
+      }
+    },
+    "ocr": {
+      "spec_codes": ["OCR 6.1d"],
+      "exam_phrases": [
+        "acid rain will lower the number of seeds growing",
+        "only affects seeds if the pH is less than 6.0"
+      ],
+      "mistakes": [
+        {
+          "wrong": "As the pH decreases, the number of seeds growing decreases.",
+          "right": "\"Decrease pH decreases number of seeds growing\" is ignored. Say that acid rain lowers the number of seeds growing, and that it only has an effect when the pH is below 6.0."
+        },
+        {
+          "wrong": "Acid rain affects the seeds at every pH.",
+          "right": "The seeds grew as well at pH 6.0 to 6.5 as at pH 7.0. The effect only appears below pH 6.0."
+        }
+      ],
+      "worked_example": {
+        "exemplar_id": "a52f3669-b7f0-48d7-ae7c-6b82b99fbeca",
+        "source": "OCR jun 2018, Paper 2, Q17(b)",
+        "question": "A student investigates the effect of acid rain on seed growth. She soaks cotton wool in a solution of a set pH value and places 20 mustard seeds on it. She repeats this with solutions of different pH. After 8 days she counts how many seeds are growing.\n\npH of solution | Number of the 20 seeds growing after 8 days\n7.0 | 17\n6.5 | 18\n6.0 | 16\n5.5 | 6\n5.0 | 2\n\nDescribe what this investigation shows about the effect of acid rain on seed growth.",
+        "marks": 2,
+        "answer_points": [
+          "Acid rain lowers the number of seeds growing.",
+          "It only affects the seeds if the pH is less than 6.0: 16 to 18 seeds grew at pH 6.0 to 7.0, but only 6 at pH 5.5 and 2 at pH 5.0."
+        ],
+        "tip": "One mark for the overall effect and one for the point where it starts."
+      }
+    }
+  },
+  "meta": {
+    "status": "draft",
+    "checked_by": "sonnet-science-check",
+    "checked_at": "2026-10-01",
+    "written_by": "sonnet-5-5",
+    "written_at": "2026-10-01",
+    "spec_point_ids": [
+      "a468689e-be17-4d0c-8f07-31f85ea79149",
+      "d66cb221-db69-4e8f-b613-3effbfbb1b74"
+    ],
+    "exemplar_ids": [
+      "d9dee04f-fab4-4504-b12d-595bb71a91be",
+      "a52f3669-b7f0-48d7-ae7c-6b82b99fbeca"
+    ]
+  }
+}

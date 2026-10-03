@@ -1,0 +1,386 @@
+{
+  "format": 1,
+  "concept_id": "chem-017",
+  "subject": "chemistry",
+  "title": "Ionic bonding",
+  "key_idea": "When a metal atom reacts with a non-metal atom, electrons in the outer shell of the metal atom are transferred. Metal atoms lose electrons to form positive ions. Non-metal atoms gain electrons to form negative ions. The ions attract each other.",
+  "sections": [
+    {
+      "heading": "Forming ions by transferring electrons",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "This section explains how atoms become ions. Atoms gain or lose electrons to get a full outer shell."
+        },
+        {
+          "type": "definitions",
+          "items": [
+            {
+              "term": "Ion",
+              "meaning": "An atom or group of atoms with a positive or negative charge."
+            },
+            {
+              "term": "Cation",
+              "meaning": "A positive ion, formed when an atom loses electrons."
+            },
+            {
+              "term": "Anion",
+              "meaning": "A negative ion, formed when an atom gains electrons."
+            }
+          ]
+        },
+        {
+          "type": "list",
+          "items": [
+            "Metal atoms lose outer electrons and become **positive ions**.",
+            "Non-metal atoms gain electrons and become **negative ions**.",
+            "Ions of Group 1 and 2 metals and Group 6 and 7 non-metals have the electronic structure of a noble gas (Group 0), with a full outer shell."
+          ]
+        },
+        {
+          "type": "subheading",
+          "text": "The charge on an ion"
+        },
+        {
+          "type": "list",
+          "items": [
+            "The charge relates to the group number.",
+            "Group 1 forms 1+, Group 2 forms 2+.",
+            "Group 6 forms 2−, Group 7 forms 1−.",
+            "The charge is the number of electrons lost (positive) or gained (negative).",
+            "Noble gases (Group 0) do not form ions because they already have a full outer shell."
+          ]
+        },
+        {
+          "type": "diagram",
+          "diagram": {
+            "kind": "predictor",
+            "alt": "Pick an element to see the ion it forms.",
+            "prompt": "Pick an element",
+            "result_labels": [
+              "Group and outer electrons",
+              "What happens",
+              "Ion formed",
+              "Electronic structure of the ion"
+            ],
+            "options": [
+              {
+                "label": "Lithium",
+                "results": [
+                  "Group 1, 1 outer electron",
+                  "Loses 1 electron",
+                  "**Li⁺**",
+                  "2"
+                ]
+              },
+              {
+                "label": "Sodium",
+                "results": [
+                  "Group 1, 1 outer electron",
+                  "Loses 1 electron",
+                  "**Na⁺**",
+                  "2.8"
+                ]
+              },
+              {
+                "label": "Magnesium",
+                "results": [
+                  "Group 2, 2 outer electrons",
+                  "Loses 2 electrons",
+                  "**Mg²⁺**",
+                  "2.8"
+                ]
+              },
+              {
+                "label": "Calcium",
+                "results": [
+                  "Group 2, 2 outer electrons",
+                  "Loses 2 electrons",
+                  "**Ca²⁺**",
+                  "2.8.8"
+                ]
+              },
+              {
+                "label": "Oxygen",
+                "results": [
+                  "Group 6, 6 outer electrons",
+                  "Gains 2 electrons",
+                  "**O²⁻**",
+                  "2.8"
+                ]
+              },
+              {
+                "label": "Sulfur",
+                "results": [
+                  "Group 6, 6 outer electrons",
+                  "Gains 2 electrons",
+                  "**S²⁻**",
+                  "2.8.8"
+                ]
+              },
+              {
+                "label": "Fluorine",
+                "results": [
+                  "Group 7, 7 outer electrons",
+                  "Gains 1 electron",
+                  "**F⁻**",
+                  "2.8"
+                ]
+              },
+              {
+                "label": "Chlorine",
+                "results": [
+                  "Group 7, 7 outer electrons",
+                  "Gains 1 electron",
+                  "**Cl⁻**",
+                  "2.8.8"
+                ]
+              }
+            ]
+          }
+        },
+        {
+          "type": "key-points",
+          "items": [
+            "Metals lose electrons to form positive ions. Non-metals gain electrons to form negative ions.",
+            "The charge follows the group number: Group 1 is 1+, Group 2 is 2+, Group 6 is 2−, Group 7 is 1−."
+          ]
+        }
+      ]
+    },
+    {
+      "heading": "Dot and cross diagrams",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "A dot and cross diagram shows the transfer of outer electrons. Dots show electrons from one atom and crosses show electrons from the other."
+        },
+        {
+          "type": "subheading",
+          "text": "Sodium chloride"
+        },
+        {
+          "type": "steps",
+          "items": [
+            {
+              "lead": "Draw the atoms.",
+              "text": "Sodium (2.8.1) has one outer electron. Chlorine (2.8.7) has seven."
+            },
+            {
+              "lead": "Transfer.",
+              "text": "The sodium atom loses its outer electron. The chlorine atom gains it."
+            },
+            {
+              "lead": "Draw the ions.",
+              "text": "Draw each ion in square brackets with its charge. Na⁺ has 2.8 and Cl⁻ has 2.8.8."
+            },
+            {
+              "lead": "Check.",
+              "text": "Both ions have a full outer shell. One sodium atom reacts with one chlorine atom, so the formula is NaCl."
+            }
+          ]
+        },
+        {
+          "type": "subheading",
+          "text": "Other compounds"
+        },
+        {
+          "type": "list",
+          "items": [
+            "Magnesium oxide: each magnesium atom loses two electrons and each oxygen atom gains two. The ions are Mg²⁺ and O²⁻.",
+            "Calcium chloride: each calcium atom loses two electrons. Each chlorine atom gains one, so one calcium atom reacts with two chlorine atoms.",
+            "Sodium oxide: each sodium atom loses one electron. Each oxygen atom gains two, so two sodium atoms react with one oxygen atom."
+          ]
+        },
+        {
+          "type": "key-points",
+          "items": [
+            "Draw the outer shell only. Show the transfer, then the ions in brackets with their charges.",
+            "The number of electrons lost equals the number gained. This gives the ratio of atoms."
+          ]
+        }
+      ]
+    },
+    {
+      "heading": "The ionic bond",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "The ionic bond is the electrostatic force of attraction between oppositely charged ions."
+        },
+        {
+          "type": "list",
+          "items": [
+            "Ionic bonding occurs in compounds of metals with non-metals.",
+            "In a solid ionic compound the ions are arranged in a regular giant lattice.",
+            "Ionic bonding is not sharing. Covalent bonding is sharing a pair of electrons."
+          ]
+        },
+        {
+          "type": "key-points",
+          "items": [
+            "An ionic bond is the electrostatic attraction between oppositely charged ions.",
+            "Ionic compounds are made from a metal and a non-metal."
+          ]
+        }
+      ]
+    }
+  ],
+  "checks": [
+    {
+      "q": "Describe what happens to a sodium atom and a chlorine atom when they react to form sodium chloride.",
+      "a": "The sodium atom loses one outer electron. The chlorine atom gains one electron. Na⁺ and Cl⁻ ions form, each with a full outer shell.",
+      "marks": 4
+    },
+    {
+      "q": "Give the electronic structure of a Mg²⁺ ion. Magnesium has atomic number 12.",
+      "a": "2.8",
+      "marks": 1
+    },
+    {
+      "q": "State what is meant by an ionic bond.",
+      "a": "The electrostatic force of attraction between oppositely charged ions.",
+      "marks": 1
+    }
+  ],
+  "boards": {
+    "aqa": {
+      "spec_codes": [
+        "AQA 4.2.1.2",
+        "AQA T 5.2.1.2"
+      ],
+      "exam_phrases": [
+        "each calcium atom loses two electrons",
+        "each chlorine atom gains one electron",
+        "so one calcium atom reacts with two chlorine atoms",
+        "to form Ca²⁺ ions and Cl⁻ ions",
+        "to form ions with full outer shells",
+        "sodium (atom) loses one (outer shell) electron"
+      ],
+      "mistakes": [
+        {
+          "wrong": "The sodium ion loses an electron to the chlorine.",
+          "right": "Write 'sodium atom loses'. 'Sodium ion loses' is not accepted, and neither is 'chloride' for a chlorine atom that gains."
+        },
+        {
+          "wrong": "Sodium and chlorine share an electron to form sodium chloride.",
+          "right": "Reference to sharing or covalent bonding limits the answer to 3 marks out of 4. Electrons are transferred."
+        },
+        {
+          "wrong": "Calcium reacts more vigorously than magnesium because calcium atoms are larger.",
+          "right": "'Atoms are larger' is ignored. Say the outer electrons are further from the nucleus, less strongly attracted, so positive ions form more easily."
+        }
+      ],
+      "worked_example": {
+        "exemplar_id": "60159002-af59-4539-87fa-fa495b6dbf88",
+        "source": "AQA jun 2024, Paper 1 (H), Q05.1",
+        "question": "Calcium chloride is an ionic compound.\n\nCalcium and chlorine react to produce calcium chloride.\n\nDescribe what happens to calcium atoms and chlorine atoms when the ionic compound calcium chloride is formed.",
+        "marks": 4,
+        "answer_points": [
+          "Each calcium atom loses two electrons.",
+          "Each chlorine atom gains one electron.",
+          "So one calcium atom reacts with two chlorine atoms.",
+          "Ca²⁺ ions and Cl⁻ ions are formed (ions with full outer shells)."
+        ],
+        "tip": "One mark each. If only 'calcium loses electrons and chlorine gains electrons' is given, 1 mark is allowed."
+      }
+    },
+    "edexcel": {
+      "spec_codes": [
+        "EDEX 1.21",
+        "EDEX 1.22",
+        "EDEX 1.24"
+      ],
+      "exam_phrases": [
+        "(electrostatic) force between oppositely charged ions",
+        "ions are charged particles",
+        "loss of electron(s) ... two electrons",
+        "gain of electron(s) ... one electron",
+        "Na⁺ 2.8 and Cl⁻ 2.8.8",
+        "ionic bonds between metals and non-metals"
+      ],
+      "mistakes": [
+        {
+          "wrong": "A nickel atom forms Ni²⁺ by gaining two electrons.",
+          "right": "A positive ion forms by loss of two electrons. Gaining two electrons scores only 1 mark."
+        },
+        {
+          "wrong": "Sodium forms Na⁺ by losing a proton.",
+          "right": "Zero marks are given for gain or loss of protons, sharing of electrons or positive electrons. Electrons are lost or gained."
+        },
+        {
+          "wrong": "A chlorine atom gains electrons to form a chloride ion.",
+          "right": "Say how many. The second mark needs 'one electron' and depends on the first mark: a chlorine atom gains one electron."
+        }
+      ],
+      "worked_example": {
+        "exemplar_id": "ed486695-ec63-4951-bea2-98915010caab",
+        "source": "EDEXCEL jun 2019, Paper 2 (H), Q3(d)",
+        "question": "Sodium reacts with chlorine to form sodium chloride.\nThe electronic configuration of the sodium atom is 2.8.1 and the electronic configuration of the chlorine atom is 2.8.7.\n\nGive the electronic configurations of the ions formed.\n\nNa+\nCl–",
+        "marks": 2,
+        "answer_points": [
+          "Na⁺: 2.8",
+          "Cl⁻: 2.8.8"
+        ],
+        "tip": "One mark each. The sodium atom loses its one outer electron and the chlorine atom gains one."
+      }
+    },
+    "ocr": {
+      "spec_codes": [
+        "OCR C2.2e",
+        "OCR C2.2f"
+      ],
+      "exam_phrases": [
+        "strong electrostatic attraction between oppositely charged ions",
+        "strong forces between oppositely charged ions",
+        "strong ionic bonds",
+        "lots of energy is required to overcome the forces / bonds",
+        "a covalent bond is a shared pair of electrons"
+      ],
+      "mistakes": [
+        {
+          "wrong": "Magnesium sulfate has a high melting point because the intermolecular forces are strong.",
+          "right": "References to intermolecular forces, covalent bonds or metallic bonds score 0 for the question. Write about strong electrostatic attraction between oppositely charged ions."
+        },
+        {
+          "wrong": "Magnesium sulfate has a high melting point because its ionic bonds are strong.",
+          "right": "Strong ionic bonds scores the first mark only. Also say that lots of energy is needed to overcome the forces between the ions."
+        },
+        {
+          "wrong": "A covalent bond is when atoms swap electrons.",
+          "right": "A covalent bond is a shared pair of electrons between atoms. Ionic bonding is the transfer of electrons."
+        }
+      ],
+      "worked_example": {
+        "exemplar_id": "ddb3698b-9d14-49d9-8384-ce6de6237db2",
+        "source": "OCR jun 2023, Paper 3, Q20(c)(iv)",
+        "question": "Explain why magnesium sulfate has a high melting point.",
+        "marks": 2,
+        "answer_points": [
+          "Strong electrostatic attraction between oppositely charged ions (strong ionic bonds).",
+          "Lots of energy is required to overcome the forces."
+        ],
+        "tip": "One mark each. Do not mention intermolecular forces, covalent bonds or metallic bonds."
+      }
+    }
+  },
+  "meta": {
+    "status": "draft",
+    "written_by": "sonnet-5-5",
+    "written_at": "2026-10-01",
+    "checked_by": "sonnet-science-check",
+    "checked_at": "2026-10-01",
+    "spec_point_ids": [
+      "c4e82df5-75b6-43d9-ac92-6a3abc67cc38",
+      "0c1d56d3-8362-4ebc-94bc-87fabb7c6b2f",
+      "d6ecd4c7-5860-47a8-a979-7fd1030e258c",
+      "a5117c51-c1bb-4eec-afed-34461a3aba2c",
+      "a94a23cf-8bff-4279-b729-3cc759024047"
+    ],
+    "exemplar_ids": [
+      "60159002-af59-4539-87fa-fa495b6dbf88",
+      "ed486695-ec63-4951-bea2-98915010caab",
+      "ddb3698b-9d14-49d9-8384-ce6de6237db2"
+    ]
+  }
+}

@@ -1,0 +1,379 @@
+{
+  "format": 1,
+  "concept_id": "phys-041",
+  "subject": "physics",
+  "title": "Nuclear fission",
+  "key_idea": "(Separate science) In **nuclear fission** a large unstable nucleus absorbs a neutron and splits into two smaller nuclei. Energy and two or three neutrons are released. The neutrons can start a **chain reaction**, which a reactor controls to make electricity.",
+  "sections": [
+    {
+      "heading": "What happens in fission",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "(Separate science) Fission is the splitting of a large and unstable nucleus, such as uranium-235 or plutonium. It is one nuclear reaction that can be a source of energy. This section covers the process step by step."
+        },
+        {
+          "type": "definitions",
+          "items": [
+            {
+              "term": "Nuclear fission",
+              "meaning": "The splitting of a large, unstable nucleus into two smaller nuclei."
+            },
+            {
+              "term": "Chain reaction",
+              "meaning": "Neutrons from one fission are absorbed by other nuclei, which split and release more neutrons."
+            }
+          ]
+        },
+        {
+          "type": "steps",
+          "items": [
+            {
+              "lead": "Absorb.",
+              "text": "The unstable nucleus first absorbs a **neutron**."
+            },
+            {
+              "lead": "Split.",
+              "text": "It splits into two smaller nuclei, roughly equal in size."
+            },
+            {
+              "lead": "Release.",
+              "text": "Two or three neutrons are released, as well as gamma rays, and energy."
+            }
+          ]
+        },
+        {
+          "type": "list",
+          "items": [
+            "All of the fission products have kinetic energy.",
+            "The products of fission are radioactive.",
+            "Fission without a neutron being absorbed (spontaneous fission) is rare."
+          ]
+        },
+        {
+          "type": "subheading",
+          "text": "The chain reaction"
+        },
+        {
+          "type": "list",
+          "items": [
+            "Each fission releases more than one neutron.",
+            "Each neutron can be absorbed by another nucleus, which then splits.",
+            "In a nuclear reactor the chain reaction is **controlled**.",
+            "In a nuclear weapon the chain reaction is **uncontrolled**, which causes an explosion."
+          ]
+        },
+        {
+          "type": "key-points",
+          "items": [
+            "A nucleus absorbs a neutron, splits into two parts and releases two or three neutrons, gamma rays and energy.",
+            "The neutrons can start a chain reaction.",
+            "A controlled chain reaction is used in a reactor. An uncontrolled one causes a nuclear explosion."
+          ]
+        }
+      ]
+    },
+    {
+      "heading": "Inside a nuclear reactor",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "(Separate science) A reactor keeps the chain reaction going at a steady rate. These parts control it."
+        },
+        {
+          "type": "table",
+          "columns": [
+            "Part",
+            "What it does"
+          ],
+          "rows": [
+            [
+              "Fuel (uranium-235)",
+              "Nuclei absorb neutrons and split, releasing energy."
+            ],
+            [
+              "Moderator (graphite)",
+              "Slows down the neutrons, so they are more likely to be absorbed and cause fission."
+            ],
+            [
+              "Control rods",
+              "Absorb neutrons. Pushed in, they leave fewer neutrons for the chain reaction, so fewer fissions."
+            ],
+            [
+              "Coolant",
+              "Carries the thermal energy away from the reactor."
+            ]
+          ]
+        },
+        {
+          "type": "list",
+          "items": [
+            "Pull the control rods out and more neutrons are available, so the reaction speeds up.",
+            "Push the control rods in and fewer neutrons are available, so the reaction slows down."
+          ]
+        },
+        {
+          "type": "subheading",
+          "text": "From nuclear reaction to electricity"
+        },
+        {
+          "type": "diagram",
+          "diagram": {
+            "kind": "flow",
+            "alt": "Energy flows from the fission fragments to the coolant, to steam, to a turbine and then to electricity.",
+            "steps": [
+              "Fission fragments gain kinetic energy",
+              "Thermal energy transferred to the coolant",
+              "Water heated to make steam",
+              "Steam turns a turbine",
+              "Generator produces electricity"
+            ]
+          }
+        },
+        {
+          "type": "key-points",
+          "items": [
+            "The moderator slows neutrons. Control rods absorb neutrons.",
+            "Moving the control rods changes the rate of energy release.",
+            "Kinetic energy of the fission products becomes thermal energy, which makes steam to turn a turbine."
+          ]
+        }
+      ]
+    },
+    {
+      "heading": "Energy from fission and the arguments for and against",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "(Separate science) Each fission releases a tiny amount of energy. A reactor needs a huge number of fissions each second."
+        },
+        {
+          "type": "equation",
+          "label": "Energy released",
+          "formula": "energy released = number of fissions × energy released per fission",
+          "where": [
+            "energy released in joules (J)",
+            "number of fissions in one second (a number)",
+            "energy released per fission in joules (J)"
+          ]
+        },
+        {
+          "type": "diagram",
+          "diagram": {
+            "kind": "practice",
+            "alt": "Calculate the energy released each second by a reactor.",
+            "question": "In a reactor there are {n} × 10¹⁷ fission reactions each second. Each reaction releases 4.0 × 10⁻¹¹ J. Calculate the energy released in 1 second, in megajoules (MJ).",
+            "variables": [
+              {
+                "id": "n",
+                "min": 1,
+                "max": 5,
+                "step": 0.5
+              }
+            ],
+            "answer": {
+              "formula": "n * 4",
+              "unit": "MJ",
+              "decimals": 1
+            },
+            "working": [
+              "Energy = {n} × 10¹⁷ × 4.0 × 10⁻¹¹ J",
+              "= {n} × 4.0 × 10⁶ J",
+              "Energy = {answer} MJ"
+            ]
+          }
+        },
+        {
+          "type": "subheading",
+          "text": "Nuclear power: arguments for and against"
+        },
+        {
+          "type": "list",
+          "items": [
+            "For: no carbon dioxide is produced, so it does not add to global warming.",
+            "For: a large power output from a small amount of fuel, and it saves fossil fuels.",
+            "For: low running costs once the power station is built.",
+            "Against: **radioactive waste** stays dangerous for a long time and must be stored safely.",
+            "Against: expensive to build and to decommission.",
+            "Against: the risk of an accident, which could expose people to radiation or contaminate an area.",
+            "Against: public worry about safety, waste and terrorism."
+          ]
+        },
+        {
+          "type": "key-points",
+          "items": [
+            "Energy released = number of fissions × energy per fission.",
+            "Nuclear power produces no carbon dioxide and has a large output.",
+            "Waste, cost and the risk of an accident are the main arguments against."
+          ]
+        }
+      ]
+    }
+  ],
+  "checks": [
+    {
+      "q": "Describe the process of nuclear fission.",
+      "a": "A neutron is absorbed by a large nucleus. The nucleus splits into two smaller nuclei. Energy (and gamma rays) are released, and two or three neutrons.",
+      "marks": 4
+    },
+    {
+      "q": "Explain how pushing the control rods further into a reactor slows down the chain reaction.",
+      "a": "The control rods absorb neutrons, so fewer neutrons are available for the chain reaction, so there are fewer fissions.",
+      "marks": 2
+    },
+    {
+      "q": "Give one advantage and one disadvantage of using nuclear power to generate electricity.",
+      "a": "Advantage: any one from no carbon dioxide produced, small quantities of fuel needed, fuel readily available. Disadvantage: any one from radioactive waste is produced, expensive to build, risk of an accident.",
+      "marks": 2
+    }
+  ],
+  "boards": {
+    "aqa": {
+      "spec_codes": [
+        "AQA 4.4.4.1"
+      ],
+      "exam_phrases": [
+        "a neutron is absorbed by a (large) nucleus",
+        "the nucleus splits into two (smaller) nuclei",
+        "releasing energy (and gamma rays)",
+        "and (two / three) neutrons",
+        "neutron absorbed by a uranium nucleus",
+        "gamma rays (are emitted)"
+      ],
+      "mistakes": [
+        {
+          "wrong": "An atom absorbs a neutron and the atom splits in two.",
+          "right": "A description in terms of only atoms loses the first two marks. Say a nucleus absorbs a neutron and the nucleus splits into two smaller nuclei."
+        },
+        {
+          "wrong": "A uranium nucleus absorbs a proton, and X-rays are released.",
+          "right": "A uranium nucleus absorbs a neutron. The electromagnetic radiation released is gamma rays."
+        }
+      ],
+      "worked_example": {
+        "exemplar_id": "72f0aada-69eb-4665-8f2b-dcce84edbf6d",
+        "source": "AQA jun 2020, Paper 1 (H), Q05.3",
+        "question": "Nuclear fission releases energy. Describe the process of nuclear fission inside a nuclear reactor.",
+        "marks": 4,
+        "answer_points": [
+          "A neutron is absorbed by a uranium nucleus.",
+          "The nucleus splits into two parts.",
+          "Two or three neutrons are released.",
+          "Gamma rays are emitted."
+        ],
+        "tip": "One mark each. An atom splitting into two parts can score if the first point is not given."
+      }
+    },
+    "edexcel": {
+      "spec_codes": [
+        "EDEX 6.36P",
+        "EDEX 6.37P",
+        "EDEX 6.38P",
+        "EDEX 6.39P",
+        "EDEX 6.40P",
+        "EDEX 6.41P",
+        "EDEX 6.42P"
+      ],
+      "exam_phrases": [
+        "neutrons emitted in one fission go on to hit other U-235 nuclei",
+        "chain reaction",
+        "(control rods) absorb neutrons",
+        "(so) fewer neutrons available for chain reaction",
+        "the moderator slows down neutrons, so they are more likely to cause fission",
+        "kinetic energy (of fission fragments) transferred to thermal energy (of coolant)",
+        "no carbon emissions so does not contribute towards global warming",
+        "radioactive substances"
+      ],
+      "mistakes": [
+        {
+          "wrong": "The control rods slow down the neutrons.",
+          "right": "The moderator slows down the neutrons. The control rods absorb neutrons."
+        },
+        {
+          "wrong": "Pushing the control rods in slows down the chain reaction.",
+          "right": "This is ignored as it only repeats the question. Explain that the rods absorb neutrons, so fewer neutrons are available for the chain reaction."
+        },
+        {
+          "wrong": "Using nuclear fuel produces carbon dioxide as a harmful waste product.",
+          "right": "Burning oil produces carbon dioxide. Using nuclear fuel produces radioactive substances, or nuclear waste."
+        }
+      ],
+      "worked_example": {
+        "exemplar_id": "2dcde7fc-faba-4ab0-ad5f-1e6930786b9a",
+        "source": "EDEXCEL jun 2023, Paper 1 (H), Q10(c)",
+        "question": "The energy released in a single uranium fission is very small. In a nuclear power station, the fission of uranium in the reactor releases large amounts of energy, enough to generate electricity for thousands of homes. The demand for electricity varies. Explain how large amounts of energy can be released in the reactor, and how the rate of energy release is controlled as the demand for electricity varies.",
+        "marks": 6,
+        "answer_points": [
+          "Chain reaction: neutrons emitted in one fission go on to hit other U-235 nuclei and cause a chain reaction.",
+          "Control rods absorb, capture or stop neutrons.",
+          "This limits the number of fissions, which varies the rate of thermal energy released.",
+          "Moderator: it slows down the neutrons, which makes them more likely to cause fission."
+        ],
+        "tip": "Level-marked. For the top level, give detail on two of chain reaction, control rods and moderator, and mention the third."
+      }
+    },
+    "ocr": {
+      "spec_codes": [
+        "OCR P6.2d"
+      ],
+      "exam_phrases": [
+        "releases more / several (> 1) neutrons",
+        "each (additional) neutron can be absorbed by another nucleus",
+        "no carbon dioxide produced / does not contribute to global warming",
+        "small quantities of fuel needed",
+        "radioactive / nuclear waste produced",
+        "expensive to build",
+        "risk of accident (and after-effects) / uncontrollable (chain reaction)"
+      ],
+      "mistakes": [
+        {
+          "wrong": "In a chain reaction the nucleus releases another neutron.",
+          "right": "This is ignored. The nucleus releases more than one neutron, and each additional neutron is absorbed by another nucleus."
+        },
+        {
+          "wrong": "The neutron hits the nucleus.",
+          "right": "This is ignored. Say the neutron is absorbed by the nucleus."
+        },
+        {
+          "wrong": "Nuclear power is dangerous.",
+          "right": "This is ignored. Say there is a risk of an accident or of exposure to radiation, or that radioactive waste is produced."
+        }
+      ],
+      "worked_example": {
+        "exemplar_id": "9e56300b-cc07-4f33-8725-a1cb1c949378",
+        "source": "OCR jun 2025, Paper 2, Q21(a)",
+        "question": "A nuclear power station uses fission to produce electricity. The total power output of the nuclear power station is 1.0 GW. The average power output of one fission reaction is 3.2 × 10⁻¹¹ W. Calculate the number of fission reactions that occur per second. Use the equation: number of fission reactions per second = total power output ÷ average power output per fission reaction.",
+        "marks": 3,
+        "answer_points": [
+          "Convert the unit: 1.0 GW = 1 × 10⁹ W.",
+          "Number = 1.0 × 10⁹ ÷ 3.2 × 10⁻¹¹.",
+          "Number = 3.1 × 10¹⁹ (3.125 × 10¹⁹) reactions per second."
+        ],
+        "tip": "Missing the GW to W conversion loses a mark: 3.1 × 10ⁿ with the wrong power of ten scores 2 marks."
+      }
+    }
+  },
+  "meta": {
+    "status": "draft",
+    "written_by": "sonnet-5-5",
+    "written_at": "2026-10-01",
+    "spec_point_ids": [
+      "8cc19cba-eb9d-494c-bd7a-9387697005f3",
+      "b141d0d7-b797-4e71-8ed3-1024de55ad10",
+      "3a2a7659-3032-4f6f-b7f7-1a28fc67ba24",
+      "66835439-db72-4498-a2ea-2bfe4e490488",
+      "f6e4e83f-732b-4a14-938a-4c94c9335526",
+      "cf83f58a-2dd3-48c6-b8c6-f48215962f63",
+      "27e7779b-7640-49c9-9108-c4cc62914f74",
+      "f83d5739-083f-4279-97b1-3a850004ec90",
+      "f3135311-df04-4c8c-9fec-e592f2339cf7"
+    ],
+    "exemplar_ids": [
+      "72f0aada-69eb-4665-8f2b-dcce84edbf6d",
+      "2dcde7fc-faba-4ab0-ad5f-1e6930786b9a",
+      "9e56300b-cc07-4f33-8725-a1cb1c949378"
+    ],
+    "checked_by": "sonnet-science-check",
+    "checked_at": "2026-10-01"
+  }
+}

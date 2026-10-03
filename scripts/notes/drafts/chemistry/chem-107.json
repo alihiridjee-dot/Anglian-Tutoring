@@ -1,0 +1,295 @@
+{
+  "format": 1,
+  "concept_id": "chem-107",
+  "subject": "chemistry",
+  "title": "The Haber process",
+  "key_idea": "The Haber process makes ammonia from nitrogen (from the air) and hydrogen (from natural gas), using an iron catalyst at about 450 °C and 200 atmospheres. The ammonia is liquefied and removed, and the unreacted gases are recycled. Ammonia is used to make fertilisers. (Separate science)",
+  "sections": [
+    {
+      "heading": "Making ammonia (Separate science)",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "The Haber process makes ammonia from nitrogen and hydrogen. This section covers the raw materials and the reaction."
+        },
+        {
+          "type": "list",
+          "items": [
+            "Ammonia is used to make nitrogen-based fertilisers.",
+            "Nitrogen comes from the air.",
+            "Hydrogen comes from natural gas (methane).",
+            "The reaction is reversible, so some of the ammonia breaks down again into nitrogen and hydrogen."
+          ]
+        },
+        {
+          "type": "equation",
+          "label": "The Haber process",
+          "formula": "N₂ + 3H₂ ⇌ 2NH₃",
+          "where": [
+            "⇌ shows the reaction is reversible",
+            "N₂ = nitrogen, H₂ = hydrogen, NH₃ = ammonia"
+          ]
+        },
+        {
+          "type": "paragraph",
+          "text": "(Higher tier) A reversible reaction can reach a dynamic equilibrium, where the forward and backward reactions go at the same rate."
+        },
+        {
+          "type": "key-points",
+          "items": [
+            "Raw materials: nitrogen from the air and hydrogen from natural gas.",
+            "The equation is N₂ + 3H₂ ⇌ 2NH₃, with the equilibrium symbol."
+          ]
+        }
+      ]
+    },
+    {
+      "heading": "Conditions and the process (Separate science)",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "The purified gases react under fixed conditions. The ammonia is then removed and the unreacted gases are used again."
+        },
+        {
+          "type": "table",
+          "columns": [
+            "Condition",
+            "Value"
+          ],
+          "rows": [
+            [
+              "Temperature",
+              "About 450 °C"
+            ],
+            [
+              "Pressure",
+              "About 200 atmospheres"
+            ],
+            [
+              "Catalyst",
+              "Iron"
+            ]
+          ]
+        },
+        {
+          "type": "diagram",
+          "diagram": {
+            "kind": "sequence",
+            "alt": "Put the steps of the Haber process in order.",
+            "prompt": "Put the steps of the Haber process in order.",
+            "steps": [
+              "Nitrogen and hydrogen are purified",
+              "The gases pass over an iron catalyst at about 450 °C and 200 atmospheres",
+              "Some of the nitrogen and hydrogen reacts to form ammonia",
+              "The mixture is cooled and the ammonia liquefies",
+              "The liquid ammonia is removed",
+              "The unreacted nitrogen and hydrogen are recycled"
+            ]
+          }
+        },
+        {
+          "type": "list",
+          "items": [
+            "The iron catalyst speeds up the reaction.",
+            "On cooling, only the ammonia liquefies, because it has a higher boiling point. The nitrogen and hydrogen stay as gases.",
+            "The remaining nitrogen and hydrogen are recycled back into the reactor.",
+            "Recycling means no raw materials are wasted."
+          ]
+        },
+        {
+          "type": "key-points",
+          "items": [
+            "The conditions are 450 °C, 200 atmospheres and an iron catalyst.",
+            "Cooling liquefies the ammonia so it can be removed.",
+            "Unreacted nitrogen and hydrogen are recycled."
+          ]
+        }
+      ]
+    },
+    {
+      "heading": "Why the Haber process matters (Separate science)",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "Ammonia is the starting point for many fertilisers. Fertilisers increase the yield of crops."
+        },
+        {
+          "type": "list",
+          "items": [
+            "The Haber process converts nitrogen from the air into ammonia.",
+            "Ammonia is used to make fertilisers, which increase crop yield.",
+            "The nitrogen in the air is an endless supply of starting material.",
+            "(Higher tier) Demand for ammonia has increased because the world population has increased, so more fertiliser and more food are needed.",
+            "(Higher tier) Using nitrogen is more sustainable than hydrogen. Nitrogen is abundant in the air, while natural gas is a finite resource and making hydrogen from it releases carbon dioxide."
+          ]
+        },
+        {
+          "type": "key-points",
+          "items": [
+            "The Haber process turns nitrogen from the air into ammonia.",
+            "Ammonia makes fertilisers, which increase crop yield."
+          ]
+        }
+      ]
+    }
+  ],
+  "checks": [
+    {
+      "q": "Give the sources of the nitrogen and of the hydrogen used in the Haber process.",
+      "a": "Nitrogen from the air. Hydrogen from natural gas (methane).",
+      "marks": 2
+    },
+    {
+      "q": "State the temperature, pressure and catalyst used in the Haber process.",
+      "a": "About 450 °C, about 200 atmospheres and an iron catalyst.",
+      "marks": 3
+    },
+    {
+      "q": "Explain how the ammonia is separated from the unreacted nitrogen and hydrogen.",
+      "a": "The mixture is cooled so that only the ammonia liquefies. The unreacted gases are recycled.",
+      "marks": 2
+    }
+  ],
+  "boards": {
+    "aqa": {
+      "spec_codes": [
+        "AQA 4.10.4.1"
+      ],
+      "exam_phrases": [
+        "(nitrogen) air",
+        "(hydrogen) natural gas",
+        "450 °C",
+        "200 atm / atmospheres",
+        "(mixture is) cooled so that only ammonia liquefies",
+        "ammonia has a higher boiling point",
+        "to recycle unreacted gases",
+        "world population has increased",
+        "demand for fertiliser has increased",
+        "nitrogen is an abundant gas (in the air)",
+        "natural gas is a finite resource"
+      ],
+      "mistakes": [
+        {
+          "wrong": "The mixture is cooled so that nitrogen, hydrogen and ammonia all liquefy.",
+          "right": "Only the ammonia liquefies, so it can be removed. The unreacted nitrogen and hydrogen are recycled."
+        },
+        {
+          "wrong": "The temperature is 450 and the pressure is 200.",
+          "right": "Units are needed. Give 450 °C and 200 atm. With no units, only 1 mark can be given."
+        },
+        {
+          "wrong": "The demand for ammonia has increased because the population has increased.",
+          "right": "This is one mark. Add a second point, such as increased demand for fertiliser or for other ammonia-based products, or more food is needed."
+        }
+      ],
+      "worked_example": {
+        "exemplar_id": "2088595f-d61f-4fc9-914c-412ed68cf908",
+        "source": "AQA jun 2025, Paper 2 (H), Q09.6",
+        "question": "Ammonia is used to produce fertilisers.\n\nNitrogen is released into the air when bacteria break down fertilisers and dead plant matter.\n\nOne of the reactions during the production of hydrogen from methane (natural gas) releases carbon dioxide into the air.\n\nGive three reasons why the use of nitrogen to produce ammonia is more sustainable than the use of hydrogen to produce ammonia.",
+        "marks": 3,
+        "answer_points": [
+          "Nitrogen is an abundant gas in the air.",
+          "The use of nitrogen releases fewer greenhouse gases.",
+          "The nitrogen released replaces that used to make ammonia.",
+          "Natural gas is a finite resource.",
+          "The use of hydrogen (methane) releases carbon dioxide, which contributes to climate change."
+        ],
+        "tip": "Any three of these points."
+      }
+    },
+    "edexcel": {
+      "spec_codes": [
+        "EDEX 4.15",
+        "EDEX 4.16",
+        "EDEX 5.19C"
+      ],
+      "exam_phrases": [
+        "Haber process",
+        "N2 + 3H2 ⇌ 2NH3",
+        "450 °C and 200 atmospheres",
+        "catalyst",
+        "increase rate of reaction",
+        "lower activation energy",
+        "increase rate of attainment of equilibrium"
+      ],
+      "mistakes": [
+        {
+          "wrong": "N₂ + 3H₂ → 2NH₃ for the reversible reaction.",
+          "right": "The equilibrium symbol ⇌ earns its own mark. Three correct formulae, a balanced equation and the equilibrium symbol give the 3 marks."
+        },
+        {
+          "wrong": "The iron provides an alternative route for the reaction.",
+          "right": "This is ignored. The iron is a catalyst: it increases the rate of reaction, lowers the activation energy, or increases the rate of attainment of equilibrium."
+        },
+        {
+          "wrong": "N + H → NH₃",
+          "right": "Balancing only scores when the formulae are correct: N₂, H₂ and NH₃. Then balance to N₂ + 3H₂ ⇌ 2NH₃."
+        }
+      ],
+      "worked_example": {
+        "exemplar_id": "f6e033f6-4c6b-41ad-87a6-ec5c9cc6ade0",
+        "source": "EDEXCEL jun 2023, Paper 1 (H), Q5(a)(i)",
+        "question": "Ammonia is manufactured in the Haber process by the reversible reaction between nitrogen and hydrogen.\n\nWrite the balanced equation for the reversible reaction between nitrogen and hydrogen to make ammonia, NH3.",
+        "marks": 3,
+        "answer_points": [
+          "Correct formulae on the correct sides: N₂ and H₂ on the left, NH₃ on the right.",
+          "Balanced: N₂ + 3H₂ → 2NH₃ (multiples allowed).",
+          "Equilibrium symbol: N₂ + 3H₂ ⇌ 2NH₃."
+        ],
+        "tip": "The equilibrium symbol is a separate mark. The balancing mark depends on the formulae being correct."
+      }
+    },
+    "ocr": {
+      "spec_codes": [
+        "OCR C6.1g",
+        "OCR C6.1d"
+      ],
+      "exam_phrases": [
+        "endless supply of starting materials",
+        "no need to use solid raw materials to make fertilisers",
+        "ammonia used to make fertilisers which increase crop yield",
+        "converts atmospheric nitrogen into ammonia"
+      ],
+      "mistakes": [
+        {
+          "wrong": "The Haber process is important because it makes ammonia.",
+          "right": "Say why ammonia matters in agriculture. It is used to make fertilisers, which increase crop yield, and the process gives an endless supply of starting materials."
+        },
+        {
+          "wrong": "Lowering the pressure is a disadvantage because the reaction will not be at equilibrium.",
+          "right": "This is ignored. Say the reaction is slower, because particles collide less often, or that the yield of ammonia is less."
+        }
+      ],
+      "worked_example": {
+        "exemplar_id": "c595065c-471a-4fec-854e-b4276f248562",
+        "source": "OCR sample null, Paper 4, Q22(a)",
+        "question": "Ammonium sulfate, (NH4)2SO4, is a fertiliser.\n\nAmmonium sulfate can be manufactured from ammonia and sulfuric acid.\n\nThe Haber Process is used to manufacture ammonia. Scientists think that the Haber Process is one of the most important chemical reactions.\n\nExplain the importance of the Haber Process in agriculture.",
+        "marks": 2,
+        "answer_points": [
+          "There is an endless supply of starting materials, with no need to use solid raw materials to make fertilisers.",
+          "Ammonia is used to make fertilisers, which increase crop yield."
+        ],
+        "tip": "Converting atmospheric nitrogen into ammonia can also score one mark."
+      }
+    }
+  },
+  "meta": {
+    "status": "draft",
+    "written_by": "sonnet-5-5",
+    "written_at": "2026-10-01",
+    "spec_point_ids": [
+      "bda26440-febe-41b9-b276-f6e1f25ba10f",
+      "9c99e1ee-8497-4cc2-8e44-d8d69962db29",
+      "5fa295a2-6573-4c5d-9453-7235129ab4b4",
+      "b2c88923-aa9d-4c84-83fd-59da41c29a02",
+      "59eac991-31cf-4140-85d4-8dc9cde5e86b"
+    ],
+    "exemplar_ids": [
+      "2088595f-d61f-4fc9-914c-412ed68cf908",
+      "f6e033f6-4c6b-41ad-87a6-ec5c9cc6ade0",
+      "c595065c-471a-4fec-854e-b4276f248562"
+    ],
+    "checked_by": "sonnet-science-check",
+    "checked_at": "2026-10-03"
+  }
+}

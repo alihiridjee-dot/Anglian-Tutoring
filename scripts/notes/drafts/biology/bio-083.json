@@ -1,0 +1,301 @@
+{
+  "format": 1,
+  "concept_id": "bio-083",
+  "subject": "biology",
+  "title": "Using hormones to treat infertility",
+  "key_idea": "(Higher tier) Infertility can be treated with hormones. FSH and LH, or clomifene, make eggs mature and be released. In IVF, eggs are fertilised in a laboratory and one or two embryos are put in the uterus. IVF has benefits, risks and ethical issues.",
+  "sections": [
+    {
+      "heading": "Fertility drugs",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "(Higher tier) Some women are infertile because they do not release eggs. Hormones can help."
+        },
+        {
+          "type": "definitions",
+          "items": [
+            {
+              "term": "Infertility",
+              "meaning": "Being unable to become pregnant."
+            },
+            {
+              "term": "Fertility drug",
+              "meaning": "A treatment that makes a woman more likely to release eggs."
+            }
+          ]
+        },
+        {
+          "type": "list",
+          "items": [
+            "A fertility drug can contain FSH and LH, given by injection.",
+            "FSH causes several eggs to mature in the ovary.",
+            "LH then causes ovulation, the release of the eggs.",
+            "More eggs are present, so there is a higher chance of an egg being fertilised.",
+            "The woman may then become pregnant in the normal way, by sexual intercourse."
+          ]
+        },
+        {
+          "type": "list",
+          "items": [
+            "Clomifene is another fertility drug.",
+            "It causes the pituitary gland to release more FSH and LH.",
+            "So more eggs mature in the follicles and there is more chance of an egg being released."
+          ]
+        },
+        {
+          "type": "key-points",
+          "items": [
+            "FSH matures eggs and LH causes ovulation.",
+            "More eggs means a higher chance of fertilisation.",
+            "Clomifene makes the pituitary gland release more FSH and LH."
+          ]
+        }
+      ]
+    },
+    {
+      "heading": "In vitro fertilisation (IVF)",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "(Higher tier) In IVF, eggs are fertilised outside the body. Put the stages in order."
+        },
+        {
+          "type": "diagram",
+          "diagram": {
+            "kind": "sequence",
+            "alt": "Put the stages of IVF in order.",
+            "prompt": "Put the stages of IVF in the correct order.",
+            "steps": [
+              "The woman is given FSH and LH to stimulate several eggs to mature",
+              "Mature eggs are collected from her ovary",
+              "The eggs are fertilised with sperm in the laboratory",
+              "The fertilised eggs divide and develop into embryos",
+              "One or two embryos, as tiny balls of cells, are inserted into her uterus"
+            ]
+          }
+        },
+        {
+          "type": "list",
+          "items": [
+            "Hormones given during IVF increase oestrogen and progesterone, which maintain the uterus lining.",
+            "This prepares the lining so the embryo can implant.",
+            "Microscopes are used to select and check eggs, sperm and embryos, and to see whether an egg is fertilised.",
+            "IVF can help when the Fallopian tubes are blocked, because fertilisation happens outside the body."
+          ]
+        },
+        {
+          "type": "key-points",
+          "items": [
+            "IVF: hormones, collect eggs, fertilise in a laboratory, embryos, insert into the uterus.",
+            "The uterus lining must be maintained so the embryo can implant."
+          ]
+        }
+      ]
+    },
+    {
+      "heading": "Benefits, risks and ethics of IVF",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "(Higher tier) Exam questions ask for both sides. Think about patients and doctors."
+        },
+        {
+          "type": "table",
+          "columns": [
+            "Benefits",
+            "Risks and concerns"
+          ],
+          "rows": [
+            [
+              "Gives a woman the chance to have a baby of her own",
+              "Physically and emotionally stressful"
+            ],
+            [
+              "Can work when the Fallopian tubes are blocked",
+              "Success rates are not high, so it may take many attempts"
+            ],
+            [
+              "Eggs and embryos can be checked under a microscope",
+              "Multiple births are a risk to the mother and the babies"
+            ],
+            [
+              "Hormones prepare the body for pregnancy",
+              "Embryos are created but not used, which raises ethical concerns"
+            ]
+          ]
+        },
+        {
+          "type": "paragraph",
+          "text": "The chance of success depends on factors such as age, obesity or diet, the reason for infertility, the number of eggs collected and the number of embryos implanted."
+        },
+        {
+          "type": "key-points",
+          "items": [
+            "IVF gives hope, but it is stressful and often unsuccessful.",
+            "Multiple births and unused embryos are the main risks and concerns."
+          ]
+        }
+      ]
+    }
+  ],
+  "checks": [
+    {
+      "q": "Explain how injecting FSH and then LH helps a woman to become pregnant.",
+      "a": "FSH causes several eggs to mature. LH then causes ovulation. More eggs are present, so there is a higher chance of fertilisation.",
+      "marks": 3
+    },
+    {
+      "q": "Describe what happens to the eggs in IVF after they are collected.",
+      "a": "They are fertilised with sperm in the laboratory and develop into embryos. One or two embryos are inserted into the uterus.",
+      "marks": 3
+    },
+    {
+      "q": "Give two arguments against the use of IVF.",
+      "a": "Any two from: it is stressful, success rate is low, multiple births are a risk to mother and babies, embryos are created but not used.",
+      "marks": 2
+    }
+  ],
+  "boards": {
+    "aqa": {
+      "spec_codes": [
+        "AQA T 4.5.3.5",
+        "AQA 5.13"
+      ],
+      "exam_phrases": [
+        "FSH and LH given / injected to stimulate maturation of egg(s)",
+        "(collected) egg(s) are fertilised (in laboratory)",
+        "fertilised egg undergoes mitosis / develops into an embryo",
+        "(one or two) embryo(s) inserted into uterus / womb",
+        "so more eggs present therefore higher chance of fertilisation",
+        "progesterone / oestrogen maintain uterus lining",
+        "multiple births are a risk to mother / baby",
+        "embryos are created but not used"
+      ],
+      "mistakes": [
+        {
+          "wrong": "The eggs are fertilised in the fallopian tube.",
+          "right": "In IVF the eggs are fertilised in the laboratory, outside the body. Fertilisation in the fallopian tube is not accepted."
+        },
+        {
+          "wrong": "The foetus is inserted into the uterus.",
+          "right": "Embryos, tiny balls of cells, are inserted into the uterus. Foetus is not accepted."
+        },
+        {
+          "wrong": "IVF is unethical.",
+          "right": "\"Unethical\" on its own is ignored. Say that embryos are created but not used. Side effects unqualified is also ignored, so name the stress, low success rate or multiple births."
+        }
+      ],
+      "worked_example": {
+        "exemplar_id": "ce520e47-873a-4c25-a3b0-1d849c634e97",
+        "source": "AQA jun 2024, Paper 2 (H), Q03.5",
+        "question": "Some people have In Vitro Fertilisation (IVF) treatment to increase the chance of becoming pregnant. Describe how the process of IVF can result in pregnancy.",
+        "marks": 4,
+        "answer_points": [
+          "FSH and LH are injected into the female to stimulate maturation of egg(s) (1).",
+          "The collected egg(s) are fertilised in the laboratory (1).",
+          "The fertilised egg undergoes mitosis, developing into an embryo (1).",
+          "One or two embryos are inserted into the uterus (1)."
+        ],
+        "tip": "Follow the process in order. One mark each for the hormones, fertilisation, development and insertion."
+      }
+    },
+    "edexcel": {
+      "spec_codes": [
+        "EDEX 7.8"
+      ],
+      "exam_phrases": [
+        "clomifene is a fertility drug that causes the pituitary gland to release more FSH and LH",
+        "so more eggs are matured in the follicle",
+        "causes the release of FSH, stimulating eggs to develop",
+        "IVF involves fertilisation outside the body",
+        "a fertilised egg can be implanted directly into the uterus",
+        "if Fallopian tubes are blocked there can still be pregnancy"
+      ],
+      "mistakes": [
+        {
+          "wrong": "Clomifene is a fertility drug that replaces FSH and LH.",
+          "right": "Clomifene causes the pituitary gland to release more FSH and LH, so more eggs are matured in the follicle. It does not fertilise eggs. Fertilisation outside the body is IVF."
+        },
+        {
+          "wrong": "Answers that explain only IVF, or only clomifene, can reach the top level.",
+          "right": "Level 3 needs a detailed explanation of both IVF and clomifene therapy, so cover both."
+        }
+      ],
+      "worked_example": {
+        "exemplar_id": "f0a3141c-756c-412c-886d-7cf7953ae409",
+        "source": "EDEXCEL nov 2021, Paper 2 (H), Q6(c)",
+        "question": "Hormones can also be used to treat infertility. Explain how clomifene therapy and IVF can improve female fertility.",
+        "marks": 4,
+        "answer_points": [
+          "Clomifene therapy stimulates the hormones LH and FSH (1).",
+          "This allows more eggs to develop or be released (1).",
+          "IVF involves fertilisation outside the body (1).",
+          "So a fertilised egg cell can be implanted directly into the uterus, and if the Fallopian tubes are blocked there can still be a pregnancy (1)."
+        ],
+        "tip": "A maximum of two marks comes from clomifene and two from IVF, so cover both."
+      }
+    },
+    "ocr": {
+      "spec_codes": [
+        "OCR 3.2f"
+      ],
+      "exam_phrases": [
+        "FSH and LH used",
+        "FSH leads to ripening of the follicle",
+        "LH causes ovulation",
+        "hCG causes the egg to mature inside the follicle",
+        "stimulate egg production / development"
+      ],
+      "mistakes": [
+        {
+          "wrong": "hCG causes ovulation.",
+          "right": "LH causes ovulation. In the IVF procedure, hCG triggers the final stage of egg development, so the eggs are matured before collection."
+        },
+        {
+          "wrong": "In IVF, FSH is used to maintain the uterus lining.",
+          "right": "FSH stimulates the female to produce a large number of immature eggs. Progesterone maintains the uterus lining after the eggs are collected."
+        }
+      ],
+      "worked_example": {
+        "exemplar_id": "79d41654-c914-41c7-840c-a92b27c19160",
+        "source": "OCR jun 2018, Paper 3, Q20(d)(iii)",
+        "question": "Explain how hormones can be used to treat infertility in women.",
+        "marks": 3,
+        "answer_points": [
+          "FSH and LH are used (gonadotrophins).",
+          "FSH leads to the ripening of the follicle, which stimulates egg development.",
+          "LH causes ovulation.",
+          "hCG (human chorionic gonadotrophin) causes the egg to mature inside the follicle. Any three points score."
+        ],
+        "tip": "Name the hormone and say what it does to the egg."
+      }
+    }
+  },
+  "meta": {
+    "status": "draft",
+    "written_by": "sonnet-5-5",
+    "written_at": "2026-10-01",
+    "spec_point_ids": [
+      "7abd4d23-ce71-4f35-8ac9-e320d3a1ff1b",
+      "e2ebde7b-4d45-4f3b-b98f-befd05f0a446",
+      "5c22615d-d1b8-40b7-81bc-403fdb89bc56"
+    ],
+    "exemplar_ids": [
+      "ce520e47-873a-4c25-a3b0-1d849c634e97",
+      "f0a3141c-756c-412c-886d-7cf7953ae409",
+      "79d41654-c914-41c7-840c-a92b27c19160",
+      "81631d7d-9db4-42d7-a532-db5abb89de28",
+      "52523bd0-111f-48c3-9573-53c6af7de814",
+      "acd1cff5-90b9-4c97-a01a-9a1ce8d5a3a8",
+      "6bccb986-49ad-416e-9a28-291fb69fd4ac",
+      "e93185e9-26ce-4d5e-b0ff-8eaa970f1900",
+      "a19452ea-8d40-4ed8-916d-2fa92ad908db",
+      "2791552d-4b99-4955-9e1d-959b2212c6f8",
+      "117f1885-3257-42e5-97d7-2994ca20f4a7",
+      "7a7cc31b-4b47-4d5a-8d0a-7d3327fe9566"
+    ],
+    "checked_by": "sonnet-science-check",
+    "checked_at": "2026-10-01"
+  }
+}

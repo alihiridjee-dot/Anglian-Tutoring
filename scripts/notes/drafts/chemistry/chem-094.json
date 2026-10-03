@@ -1,0 +1,464 @@
+{
+  "format": 1,
+  "concept_id": "chem-094",
+  "subject": "chemistry",
+  "title": "Earth's atmosphere: composition and evolution",
+  "key_idea": "Today's atmosphere is about four-fifths nitrogen and one-fifth oxygen. The early atmosphere came from volcanoes and was mainly carbon dioxide. Oceans, algae and plants then removed carbon dioxide and added oxygen.",
+  "sections": [
+    {
+      "heading": "The atmosphere today",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "This section covers the gases in today's atmosphere. The proportions have been much the same for 200 million years."
+        },
+        {
+          "type": "table",
+          "columns": [
+            "Gas",
+            "Approximate proportion"
+          ],
+          "rows": [
+            [
+              "Nitrogen",
+              "About four-fifths (approximately 80%)"
+            ],
+            [
+              "Oxygen",
+              "About one-fifth (approximately 20%)"
+            ],
+            [
+              "Carbon dioxide, water vapour and noble gases",
+              "Small proportions (carbon dioxide is about 0.04%)"
+            ]
+          ]
+        },
+        {
+          "type": "key-points",
+          "items": [
+            "Nitrogen is about 80% and oxygen about 20% of the air.",
+            "Carbon dioxide, water vapour and noble gases are small proportions."
+          ]
+        }
+      ]
+    },
+    {
+      "heading": "The early atmosphere",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "This section covers what the early atmosphere contained and where it came from."
+        },
+        {
+          "type": "definitions",
+          "items": [
+            {
+              "term": "Volcanic activity",
+              "meaning": "Eruptions that release gases from inside the Earth."
+            },
+            {
+              "term": "Sediment",
+              "meaning": "Layers of material that settle and build up, which can form sedimentary rock."
+            }
+          ]
+        },
+        {
+          "type": "list",
+          "items": [
+            "In the first billion years there was intense **volcanic activity**.",
+            "Volcanoes released the gases that formed the early atmosphere, and water vapour.",
+            "The early atmosphere was mainly **carbon dioxide**, with little or no oxygen.",
+            "It may have been like the atmospheres of Mars and Venus today.",
+            "Volcanoes also produced **nitrogen**, which gradually built up.",
+            "There may have been small amounts of methane and ammonia."
+          ]
+        },
+        {
+          "type": "list",
+          "items": [
+            "The Earth is 4.6 billion years old, so evidence for the early atmosphere is limited.",
+            "Theories about the early atmosphere have changed and developed over time."
+          ]
+        },
+        {
+          "type": "key-points",
+          "items": [
+            "Volcanoes produced the early atmosphere: mainly carbon dioxide, some nitrogen and water vapour.",
+            "There was little or no oxygen."
+          ]
+        }
+      ]
+    },
+    {
+      "heading": "How the atmosphere changed",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "This section covers how carbon dioxide decreased and oxygen increased."
+        },
+        {
+          "type": "subheading",
+          "text": "Oceans and carbon dioxide"
+        },
+        {
+          "type": "list",
+          "items": [
+            "The Earth cooled, so water vapour **condensed** to form the oceans.",
+            "Carbon dioxide dissolved in the oceans.",
+            "Carbonates were precipitated and produced sediments, which locked up carbon in sedimentary rocks such as limestone."
+          ]
+        },
+        {
+          "type": "subheading",
+          "text": "Algae, plants and oxygen"
+        },
+        {
+          "type": "list",
+          "items": [
+            "Algae first produced oxygen about 2.7 billion years ago, by **photosynthesis**.",
+            "Over the next billion years plants evolved and the percentage of oxygen gradually increased.",
+            "Oxygen rose to a level that allowed animals to evolve.",
+            "Photosynthesis also took carbon dioxide out of the atmosphere."
+          ]
+        },
+        {
+          "type": "equation",
+          "label": "Photosynthesis",
+          "formula": "carbon dioxide + water → glucose + oxygen",
+          "where": [
+            "Light energy is needed for the reaction"
+          ]
+        },
+        {
+          "type": "subheading",
+          "text": "Carbon locked up in rocks and fossil fuels"
+        },
+        {
+          "type": "list",
+          "items": [
+            "Limestone contains carbon from carbonates that formed sediments.",
+            "Coal, crude oil and natural gas are fossil fuels that contain carbon.",
+            "Coal formed from plant remains that were buried.",
+            "Crude oil and natural gas formed from plankton that died and were covered by sediments.",
+            "Heat and pressure over millions of years turned the remains into deposits."
+          ]
+        },
+        {
+          "type": "diagram",
+          "diagram": {
+            "kind": "line-graph",
+            "alt": "Carbon dioxide falls over time, and oxygen stays low then rises after algae first produce it. Shape only.",
+            "x": {
+              "label": "Time since the Earth formed",
+              "min": 0,
+              "max": 4.6,
+              "ticks": [
+                0,
+                1,
+                2,
+                3,
+                4
+              ],
+              "unit": "billion years"
+            },
+            "y": {
+              "label": "Relative amount in the atmosphere"
+            },
+            "series": [
+              {
+                "name": "Carbon dioxide",
+                "points": [
+                  [
+                    0,
+                    0.95
+                  ],
+                  [
+                    1,
+                    0.6
+                  ],
+                  [
+                    1.9,
+                    0.3
+                  ],
+                  [
+                    3,
+                    0.1
+                  ],
+                  [
+                    4.6,
+                    0.03
+                  ]
+                ]
+              },
+              {
+                "name": "Oxygen",
+                "points": [
+                  [
+                    0,
+                    0
+                  ],
+                  [
+                    1.9,
+                    0.02
+                  ],
+                  [
+                    3,
+                    0.1
+                  ],
+                  [
+                    4.6,
+                    0.21
+                  ]
+                ]
+              }
+            ],
+            "markers": [
+              {
+                "x": 1.9,
+                "label": "Algae first produce oxygen"
+              }
+            ],
+            "bands": [
+              {
+                "from": 0,
+                "to": 1,
+                "label": "Intense volcanic activity"
+              }
+            ]
+          }
+        },
+        {
+          "type": "key-points",
+          "items": [
+            "Carbon dioxide decreased: it dissolved in the oceans, formed sedimentary rocks and fossil fuels, and was used in photosynthesis.",
+            "Oxygen increased because algae and plants photosynthesised."
+          ]
+        }
+      ]
+    },
+    {
+      "heading": "Putting the changes in order",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "Exam questions often ask for the changes in the right order."
+        },
+        {
+          "type": "diagram",
+          "diagram": {
+            "kind": "sequence",
+            "alt": "Put the stages in the development of the atmosphere in order.",
+            "prompt": "Put these changes to the atmosphere in the order they happened.",
+            "steps": [
+              "Volcanoes release water vapour and carbon dioxide",
+              "The Earth cools",
+              "Water vapour condenses to form the oceans",
+              "Carbon dioxide dissolves in the oceans",
+              "Algae and plants evolve and use photosynthesis to take in carbon dioxide and make oxygen",
+              "The carbon cycle now keeps the composition of the atmosphere almost constant"
+            ]
+          }
+        },
+        {
+          "type": "key-points",
+          "items": [
+            "Volcanoes, then cooling, then oceans, then carbon dioxide dissolving.",
+            "Then photosynthesis raised oxygen, and the atmosphere became almost constant."
+          ]
+        }
+      ]
+    }
+  ],
+  "checks": [
+    {
+      "q": "State the approximate percentages of nitrogen and oxygen in today's atmosphere.",
+      "a": "Nitrogen about 80% (four-fifths) and oxygen about 20% (one-fifth).",
+      "marks": 2
+    },
+    {
+      "q": "Explain how the amount of water vapour in the atmosphere decreased.",
+      "a": "The Earth cooled, so water vapour condensed to form the oceans.",
+      "marks": 2
+    },
+    {
+      "q": "Explain how the percentages of nitrogen and oxygen in the atmosphere changed after the early atmosphere formed.",
+      "a": "Nitrogen increased because of emission from volcanoes. Oxygen increased because algae and plants carried out photosynthesis.",
+      "marks": 4
+    }
+  ],
+  "boards": {
+    "aqa": {
+      "spec_codes": [
+        "AQA 4.9.1.1",
+        "AQA 4.9.1.2",
+        "AQA 4.9.1.3",
+        "AQA 4.9.1.4",
+        "AQA T 5.9.1.1",
+        "AQA T 5.9.1.2",
+        "AQA T 5.9.1.3",
+        "AQA T 5.9.1.4"
+      ],
+      "exam_phrases": [
+        "nitrogen increased (because of) emission from volcanoes",
+        "oxygen increased (because of) photosynthesis",
+        "algae and plants evolved",
+        "the water vapour condensed to form oceans",
+        "carbon dioxide dissolved in oceans",
+        "carbonates produce sediments",
+        "carbon locked up in sedimentary rocks / fossil fuels",
+        "plankton (died) and (the organisms) were covered by sediments"
+      ],
+      "mistakes": [
+        {
+          "wrong": "Oxygen increased and carbon dioxide decreased.",
+          "right": "Give the cause as well. Algae and plants evolved and used carbon dioxide in photosynthesis, which released oxygen. The oceans also took in carbon dioxide."
+        },
+        {
+          "wrong": "Nitrogen increased.",
+          "right": "Give the cause as well: emission from volcanoes (denitrifying bacteria is also allowed). Each change needs its own cause to earn the mark."
+        },
+        {
+          "wrong": "Natural gas was formed when dinosaurs died.",
+          "right": "Natural gas was formed from plankton (tiny marine organisms) that died, were covered by sediments, and were subjected to high temperature and pressure over millions of years."
+        }
+      ],
+      "worked_example": {
+        "exemplar_id": "ca9cd955-86d8-4404-ae11-50382ebbae5b",
+        "source": "AQA jun 2018, Paper 2 (F), Q10.4",
+        "question": "The Earth's early atmosphere was different to Earth's atmosphere today.\nScientists think that the Earth's early atmosphere was like the atmosphere found on Venus today.\nThe amounts of carbon dioxide and oxygen in the atmospheres of Venus and Earth today are:\n\nGas | Percentage (%) in Venus' atmosphere today | Percentage (%) in Earth's atmosphere today\nCarbon dioxide | 96.50 | 0.04\nOxygen | 0.00 | 20.95\n\nThe percentages of carbon dioxide and oxygen have changed from Earth's early atmosphere to Earth's atmosphere today.\nExplain the processes that led to these changes.",
+        "marks": 6,
+        "answer_points": [
+          "Carbon dioxide has decreased and oxygen has increased.",
+          "Volcanic activity released water vapour, which condensed to form oceans.",
+          "Carbon dioxide dissolved in the oceans.",
+          "Carbonates produced sediments, so carbon was locked up in sedimentary rocks.",
+          "Algae and plants evolved and absorbed carbon dioxide by photosynthesis, which also released oxygen.",
+          "Carbon was locked up in fossil fuels."
+        ],
+        "tip": "This is a levelled question. Link each cause to the change it explains, to reach the top level."
+      }
+    },
+    "edexcel": {
+      "spec_codes": [
+        "EDEX 8.18",
+        "EDEX 8.19",
+        "EDEX 8.20",
+        "EDEX 8.21",
+        "EDEX 8.22"
+      ],
+      "exam_phrases": [
+        "Earth cooled",
+        "water (vapour) condensed",
+        "oceans formed / seas formed / rainfall",
+        "plants (grow / evolve)",
+        "photosynthesis occurs",
+        "oxygen increased (in atmosphere)",
+        "(oxygen) reacts / combines with iron (sulfide) / iron is oxidised"
+      ],
+      "mistakes": [
+        {
+          "wrong": "Oxygen increased because of respiration, or breathing.",
+          "right": "Respiration and breathing are rejected. Plants grow and evolve, and photosynthesis occurs."
+        },
+        {
+          "wrong": "The rocks changed because oxygen entered the rocks.",
+          "right": "Oxygen entering the rocks is ignored. Say that oxygen in the atmosphere increased and reacted with the iron (sulfide), so iron was oxidised."
+        }
+      ],
+      "worked_example": {
+        "exemplar_id": "d637a8a5-2dd3-4efb-ac0f-95601c19a8a9",
+        "source": "EDEXCEL nov 2020, Paper 2 (F), Q1(c)",
+        "question": "This early atmosphere was hot and contained water vapour.\nThe atmosphere today contains less water vapour.\nExplain what caused the amount of water vapour in the atmosphere to decrease.",
+        "marks": 2,
+        "answer_points": [
+          "The Earth cooled (the temperature decreased).",
+          "Water vapour condensed.",
+          "Oceans (seas) formed, or rainfall."
+        ],
+        "tip": "Any two linked points. A fall in temperature is allowed for the Earth cooling."
+      },
+      "extra": [
+        {
+          "heading": "Evidence from rocks",
+          "blocks": [
+            {
+              "type": "paragraph",
+              "text": "Questions may ask you to interpret evidence about the early atmosphere. Rocks give some."
+            },
+            {
+              "type": "list",
+              "items": [
+                "The earliest rocks contained iron sulfide and no iron oxide.",
+                "Later rocks contained iron oxide as well as iron sulfide.",
+                "This shows that oxygen increased in the atmosphere and reacted with iron."
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    "ocr": {
+      "spec_codes": [
+        "OCR C6.3a",
+        "OCR C6.3b"
+      ],
+      "exam_phrases": [
+        "the Earth cooled, and water vapour condensed",
+        "(water vapour condensed) to form oceans",
+        "plants or algae evolved",
+        "used photosynthesis to take in carbon dioxide and make oxygen"
+      ],
+      "mistakes": [
+        {
+          "wrong": "Plants evolved and made oxygen. Then the Earth cooled and the water vapour made oceans.",
+          "right": "The processes must be in the correct order. A maximum of 2 marks is given if they are not. Cooling and condensing come first, then oceans, then plants or algae and photosynthesis."
+        },
+        {
+          "wrong": "Plants evolved and made oxygen.",
+          "right": "State the full point: plants or algae used photosynthesis to take in carbon dioxide and make oxygen."
+        }
+      ],
+      "worked_example": {
+        "exemplar_id": "24445ba1-44ae-47e4-9a20-95ca5cb02f4b",
+        "source": "OCR jun 2024, Paper 4, Q20(a)",
+        "question": "The Earth's early atmosphere is thought to have been mainly carbon dioxide, with smaller amounts of water vapour.\n\nDescribe how the amounts of these gases changed over time to develop an oxygen-rich atmosphere.",
+        "marks": 3,
+        "answer_points": [
+          "The Earth cooled, and water vapour condensed (turned to water).",
+          "The water vapour condensed to form oceans.",
+          "Plants or algae evolved and used photosynthesis to take in carbon dioxide and make oxygen."
+        ],
+        "tip": "A maximum of 2 marks is given if the processes are not in the correct order."
+      }
+    }
+  },
+  "meta": {
+    "status": "draft",
+    "written_by": "sonnet-5-5",
+    "written_at": "2026-10-01",
+    "spec_point_ids": [
+      "a52e1ec1-9101-4b03-8f54-77ede20d5ec4",
+      "933528f7-1e7b-4851-b0c1-49279481cf77",
+      "e7e4f4eb-b1a6-48bf-984f-e03a558532df",
+      "7db57459-7575-4465-86b7-4dc546e8c13d",
+      "70d41d82-d2fc-4274-a142-0d1e67c48289",
+      "3835b59d-f6c4-43ca-9222-f5e30e122e2f",
+      "b8ecfcab-0c9c-450f-8349-3cb57cb87f67",
+      "df079dc7-9449-4abf-8d8e-a91d4c45d0d0",
+      "ca3cc010-e6e8-4bb9-a4e1-4b9599cb67bb",
+      "354f845d-ac6d-448a-bb0f-d55185655c09",
+      "f7c30064-6b3a-4170-9a8d-560cec5eec8c",
+      "1a653e70-73f0-4f0e-b1a7-276e63820f11",
+      "ee46ce56-7331-4993-ba68-ef5ee1272436",
+      "e58fd0a0-5b52-4505-bf06-b7db38084f93",
+      "0e47f9ed-81f4-45c3-a84f-a7cf831cc831"
+    ],
+    "exemplar_ids": [
+      "ca9cd955-86d8-4404-ae11-50382ebbae5b",
+      "d637a8a5-2dd3-4efb-ac0f-95601c19a8a9",
+      "24445ba1-44ae-47e4-9a20-95ca5cb02f4b"
+    ],
+    "checked_by": "sonnet-science-check",
+    "checked_at": "2026-10-01"
+  }
+}

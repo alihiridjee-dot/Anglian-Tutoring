@@ -1,0 +1,306 @@
+{
+  "format": 1,
+  "concept_id": "chem-028",
+  "subject": "chemistry",
+  "title": "Conservation of mass",
+  "key_idea": "No atoms are made or lost in a chemical reaction, so the total mass of the products equals the total mass of the reactants. A mass change in an open container means a gas has entered or left.",
+  "sections": [
+    {
+      "heading": "The law of conservation of mass",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "Atoms are rearranged in a reaction. They are not created or destroyed, so the total mass stays the same."
+        },
+        {
+          "type": "definitions",
+          "items": [
+            {
+              "term": "Law of conservation of mass",
+              "meaning": "No atoms are made or lost in a reaction, so the mass of the products equals the mass of the reactants."
+            },
+            {
+              "term": "Closed system",
+              "meaning": "A container where nothing can enter or leave, such as a sealed flask."
+            },
+            {
+              "term": "Non-enclosed system",
+              "meaning": "A container that is open, so a gas can enter or leave."
+            }
+          ]
+        },
+        {
+          "type": "list",
+          "items": [
+            "In a closed system, the total mass before and after the reaction is the same.",
+            "A precipitation reaction in a closed flask shows no change in mass.",
+            "A balanced symbol equation also shows this. The total relative formula mass is the same on each side."
+          ]
+        },
+        {
+          "type": "equation",
+          "label": "Mass is conserved",
+          "formula": "mass of reactants = mass of products",
+          "where": [
+            "Both masses are measured in grams (g).",
+            "Example: 2Mg + O₂ → 2MgO. The relative masses 48 + 32 = 80 are the same on each side of the arrow."
+          ]
+        },
+        {
+          "type": "key-points",
+          "items": [
+            "No atoms are made or lost, so total mass is unchanged.",
+            "In a closed system the mass before equals the mass after."
+          ]
+        }
+      ]
+    },
+    {
+      "heading": "Why mass seems to change",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "In an open container, a mass change usually means a gas has gone in or out. The gas still has mass, but it was not weighed."
+        },
+        {
+          "type": "subheading",
+          "text": "Mass decreases"
+        },
+        {
+          "type": "list",
+          "items": [
+            "A reaction in an open flask gives off a gas, such as carbon dioxide or hydrogen.",
+            "The gas **escapes** from the flask, so the mass shown on the balance falls.",
+            "Thermal decomposition of a metal carbonate gives a metal oxide and carbon dioxide. The carbon dioxide escapes into the air."
+          ]
+        },
+        {
+          "type": "subheading",
+          "text": "Mass increases"
+        },
+        {
+          "type": "list",
+          "items": [
+            "A metal heated in air reacts with oxygen from the air.",
+            "The oxygen atoms add mass, so the metal oxide is heavier than the metal.",
+            "Example: copper + oxygen → copper oxide. The solid gains the mass of the oxygen it takes in."
+          ]
+        },
+        {
+          "type": "subheading",
+          "text": "Explaining it with particles"
+        },
+        {
+          "type": "list",
+          "items": [
+            "The atoms are rearranged into new substances. The number of atoms stays the same.",
+            "A gas is made of particles that spread out and leave an open container. Their mass leaves with them.",
+            "A gas from the air, such as oxygen, joins the solid. The particles of the solid now include those atoms, so its mass rises."
+          ]
+        },
+        {
+          "type": "equation",
+          "label": "Mass of a gas lost",
+          "formula": "mass of gas lost = mass before − mass after",
+          "where": [
+            "Both masses are the mass of the container and its contents, in grams (g).",
+            "Use this when the gas escapes from an open container."
+          ]
+        },
+        {
+          "type": "diagram",
+          "diagram": {
+            "kind": "practice",
+            "alt": "Calculate the mass of solid left after a gas escapes.",
+            "question": "A student heats {start} g of a metal carbonate in an open container. The reaction gives off {lost} g of carbon dioxide gas, which escapes. What is the mass of solid left?",
+            "variables": [
+              {
+                "id": "start",
+                "min": 10,
+                "max": 20,
+                "step": 0.5
+              },
+              {
+                "id": "lost",
+                "min": 2,
+                "max": 4,
+                "step": 0.1
+              }
+            ],
+            "answer": {
+              "formula": "start - lost",
+              "unit": "g",
+              "decimals": 1
+            },
+            "working": [
+              "Mass of solid left = mass before − mass of gas lost.",
+              "Mass of solid left = {start} − {lost}",
+              "Mass of solid left = {answer} g"
+            ]
+          }
+        },
+        {
+          "type": "key-points",
+          "items": [
+            "Mass falls in an open container when a gas escapes.",
+            "Mass rises when a solid reacts with a gas from the air, such as oxygen.",
+            "Always name the gas and say that it escapes or is taken in."
+          ]
+        }
+      ]
+    }
+  ],
+  "checks": [
+    {
+      "q": "State the law of conservation of mass.",
+      "a": "No atoms are made or lost in a chemical reaction, so the mass of the products equals the mass of the reactants.",
+      "marks": 1
+    },
+    {
+      "q": "Magnesium ribbon is heated in air. The mass of the solid increases. Explain why.",
+      "a": "Magnesium reacts with oxygen from the air. The oxygen atoms add mass to the solid magnesium oxide.",
+      "marks": 2
+    },
+    {
+      "q": "Magnesium reacts with dilute hydrochloric acid in an open flask. Explain why the mass of the flask and contents falls.",
+      "a": "Hydrogen gas is produced and it escapes from the flask.",
+      "marks": 2
+    }
+  ],
+  "boards": {
+    "aqa": {
+      "spec_codes": [
+        "AQA 4.3.1.1",
+        "AQA T 5.3.1.1",
+        "AQA 4.3.1.3",
+        "AQA T 5.3.1.3"
+      ],
+      "exam_phrases": [
+        "mass (of flask and contents) decreases",
+        "(because) carbon dioxide is produced / carbon dioxide escapes (from the flask)",
+        "(oxygen is) a gas (which) escaped from the flask",
+        "the mass of the products equals the mass of the reactants",
+        "no atoms were lost or made during the reaction",
+        "sum of relative formula masses on left hand side equals sum on right hand side"
+      ],
+      "mistakes": [
+        {
+          "wrong": "The mass goes down because some of the liquid evaporates.",
+          "right": "References to evaporation are not accepted. Name the gas and say it escapes. For example: carbon dioxide is produced and it escapes from the flask."
+        },
+        {
+          "wrong": "The mass decreased because a gas was made.",
+          "right": "Making a gas is not enough. Add that the gas escapes from the flask (allowed: a gas is produced, for one mark)."
+        },
+        {
+          "wrong": "Show that the equation obeys the law by writing 'both sides have the same atoms'.",
+          "right": "Use the data. Add the relative formula masses on each side and show they are equal."
+        }
+      ],
+      "worked_example": {
+        "exemplar_id": "d7e4a513-daba-47ac-84e8-60313a0d8af0",
+        "source": "AQA jun 2025, Paper 1 (H), Q3.5",
+        "question": "Tungsten oxide reacts with hydrogen to give tungsten (W) and water. The equation for the reaction is:\n\nWO₃ + 3H₂ → W + 3H₂O\n\nThe law of conservation of mass states: 'The mass of the products equals the mass of the reactants during a chemical reaction.'\n\nRelative atomic mass (Ar): W = 184\nRelative formula masses (Mr): H₂ = 2, WO₃ = 232, H₂O = 18\n\nShow that the equation obeys the law of conservation of mass.",
+        "marks": 2,
+        "answer_points": [
+          "Left-hand side: 232 + (3 × 2) = 238 (1)",
+          "Right-hand side: 184 + (3 × 18) = 238 (1)",
+          "Both sides are equal, so the equation obeys the law of conservation of mass."
+        ],
+        "tip": "Multiply each Mr by its balancing number before adding. One mark is available for showing that both sides equal 238."
+      }
+    },
+    "edexcel": {
+      "spec_codes": [
+        "EDEX 1.47"
+      ],
+      "exam_phrases": [
+        "an explanation linking: {hydrogen / gas} formed",
+        "escapes (from the flask) / released (from the flask)",
+        "oxygen atoms are added; oxygen atoms have mass",
+        "some copper oxide may be lost to air",
+        "mass of carbon dioxide = 5.000 − 2.800 = 2.20 (g) to 3 significant figures"
+      ],
+      "mistakes": [
+        {
+          "wrong": "The mass falls because the magnesium reacts.",
+          "right": "References to magnesium reacting are ignored. Say that hydrogen (a gas) is formed and it escapes from the flask."
+        },
+        {
+          "wrong": "Mass of CO₂ = 5.000 ÷ 2.800 = 1.79 g.",
+          "right": "The mass of gas lost is a subtraction: 5.000 − 2.800 = 2.20 g. Dividing or adding the masses scores 1 mark at most."
+        },
+        {
+          "wrong": "Mass of carbon dioxide = 2.2 g.",
+          "right": "Where three significant figures are asked for, write 2.20 g. A value of 2.2 scores only the first mark."
+        }
+      ],
+      "worked_example": {
+        "exemplar_id": "05eb4acd-ecb0-49ec-8b12-0e78f63b6ffc",
+        "source": "EDEXCEL jun 2019, Paper 2 (F), Q6(b)",
+        "question": "The word equation for the reaction between magnesium and dilute hydrochloric acid is\n\nmagnesium + hydrochloric acid → magnesium chloride + hydrogen\n\nA strip of magnesium ribbon was placed in the conical flask. 100 cm³ of dilute hydrochloric acid was added to the conical flask.\n\nThe mass of the flask and contents was measured at regular intervals. The loss in mass was calculated.\n\nExplain why there is a loss in mass of the flask and contents.",
+        "marks": 2,
+        "answer_points": [
+          "Hydrogen (a gas) is formed (1)",
+          "It escapes from the flask (1)"
+        ],
+        "tip": "Both marks need linking: say what gas is formed, then say it escapes. References to magnesium reacting are ignored."
+      }
+    },
+    "ocr": {
+      "spec_codes": [
+        "OCR C3.1i",
+        "OCR C3.1j"
+      ],
+      "exam_phrases": [
+        "No atoms are made or lost during a chemical reaction",
+        "the mass of the products is equal to the mass of the reactants",
+        "hydrogen is a gas / a gas is produced",
+        "the gas can escape (from the beaker)",
+        "carbon dioxide (gas) escapes"
+      ],
+      "mistakes": [
+        {
+          "wrong": "The mass of copper oxide is less because oxygen escapes.",
+          "right": "An incorrectly named gas is not allowed. Copper carbonate decomposes to give carbon dioxide, and the carbon dioxide escapes."
+        },
+        {
+          "wrong": "The mass of the beaker decreases because hydrogen gas is produced.",
+          "right": "This earns one mark. Add the idea that the gas can escape from the beaker."
+        }
+      ],
+      "worked_example": {
+        "exemplar_id": "5076540a-66b3-4413-9ff0-ed733f27f326",
+        "source": "OCR jun 2018, Paper 1, Q19(c)",
+        "question": "Two students heat some calcium carbonate, CaCO₃.\n\nCaCO₃(s) → CaO(s) + CO₂(g)\n\nTheir results:\n\nMass of calcium carbonate (g) | Mass of calcium oxide (g) | Mass of carbon dioxide (g)\n1.00 | 0.56 | 0.44\n2.00 | 1.12 | 0.88\n3.00 | 1.68 | 1.32\n4.00 | 2.24 | ______\n\nStudent A states: 'If I heat 20 g of calcium carbonate, I will make 8.8 g of calcium oxide and 11.2 g of carbon dioxide.'\n\nIs student A correct? Explain your answer.",
+        "marks": 2,
+        "answer_points": [
+          "No. 20 g of calcium carbonate will make 11.2 g of calcium oxide (1).",
+          "And 8.8 g of carbon dioxide (1). The student has the numbers reversed."
+        ],
+        "tip": "Scale the table by 5. The calcium oxide mass is always larger than the carbon dioxide mass, and the two add up to the mass of calcium carbonate."
+      }
+    }
+  },
+  "meta": {
+    "status": "draft",
+    "written_by": "sonnet-5-5",
+    "written_at": "2026-10-01",
+    "spec_point_ids": [
+      "6d9966c1-8e06-4eed-826c-4061da842ad1",
+      "84e4ba2e-36a4-40f2-bea8-e8e62439b683",
+      "eedf06ce-3b8b-4ca1-8849-3b5841c3b583",
+      "87053ee4-08f1-4f57-ae48-bc82440c37d6",
+      "cb73850c-5950-4fdc-99e6-d8f6a883b171",
+      "f3e3f0b6-51c3-47d2-b7a1-44260eec5784",
+      "1e6159b8-5832-428c-94b4-3896cf199adf"
+    ],
+    "exemplar_ids": [
+      "d7e4a513-daba-47ac-84e8-60313a0d8af0",
+      "05eb4acd-ecb0-49ec-8b12-0e78f63b6ffc",
+      "5076540a-66b3-4413-9ff0-ed733f27f326"
+    ],
+    "checked_by": "sonnet-science-check",
+    "checked_at": "2026-10-01"
+  }
+}
