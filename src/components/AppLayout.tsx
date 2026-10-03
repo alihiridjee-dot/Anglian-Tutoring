@@ -313,7 +313,7 @@ export function AppLayout({ title, children }: { title: string; children: ReactN
                 onClick={() => router.history.back()}
                 title="Back"
                 aria-label="Back"
-                className="btn-soft size-11 sm:size-9 rounded-xl flex items-center justify-center cursor-pointer"
+                className="btn-soft size-11 sm:pointer-fine:size-9 rounded-xl flex items-center justify-center cursor-pointer"
               >
                 <ArrowLeft className="w-4 h-4" />
               </button>

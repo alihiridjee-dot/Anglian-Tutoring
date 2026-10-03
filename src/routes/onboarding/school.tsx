@@ -182,7 +182,7 @@ function SchoolStep() {
                             [subject]: { ...(prev[subject] ?? EMPTY), [key]: e.target.value },
                           }))
                         }
-                        className="mt-0.5 w-full h-11 sm:h-9 rounded-lg premium-input px-2 text-sm"
+                        className="mt-0.5 w-full h-11 sm:pointer-fine:h-9 rounded-lg premium-input px-2 text-sm"
                       >
                         <option value="">—</option>
                         {options.map((g) => (

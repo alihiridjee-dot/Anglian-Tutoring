@@ -164,7 +164,7 @@ export function RevisitSimulator() {
           <button
             type="button"
             onClick={reset}
-            className="mt-5 inline-flex min-h-11 cursor-pointer items-center gap-1.5 text-xs font-semibold text-muted-foreground/70 transition hover:text-foreground sm:min-h-0"
+            className="mt-5 inline-flex min-h-11 cursor-pointer items-center gap-1.5 text-xs font-semibold text-muted-foreground/70 transition hover:text-foreground sm:pointer-fine:min-h-0"
           >
             <RotateCcw className="h-3.5 w-3.5" /> Start again
           </button>

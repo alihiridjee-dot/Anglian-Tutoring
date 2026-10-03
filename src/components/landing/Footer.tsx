@@ -42,33 +42,33 @@ export function Footer() {
         <nav className="flex flex-wrap items-center justify-center gap-x-6 gap-y-1 text-sm font-semibold">
           <Link
             to="/our-story"
-            className="inline-flex min-h-11 items-center hover:text-primary-foreground transition sm:min-h-0"
+            className="inline-flex min-h-11 items-center hover:text-primary-foreground transition sm:pointer-fine:min-h-0"
           >
             Our story
           </Link>
           <Link
             to="/how-it-works"
-            className="inline-flex min-h-11 items-center hover:text-primary-foreground transition sm:min-h-0"
+            className="inline-flex min-h-11 items-center hover:text-primary-foreground transition sm:pointer-fine:min-h-0"
           >
             How it works
           </Link>
           <Link
             to="/"
             hash="pricing"
-            className="inline-flex min-h-11 items-center hover:text-primary-foreground transition sm:min-h-0"
+            className="inline-flex min-h-11 items-center hover:text-primary-foreground transition sm:pointer-fine:min-h-0"
           >
             Pricing
           </Link>
           <Link
             to="/"
             hash="contact"
-            className="inline-flex min-h-11 items-center hover:text-primary-foreground transition sm:min-h-0"
+            className="inline-flex min-h-11 items-center hover:text-primary-foreground transition sm:pointer-fine:min-h-0"
           >
             Contact
           </Link>
           <Link
             to="/privacy"
-            className="inline-flex min-h-11 items-center hover:text-primary-foreground transition sm:min-h-0"
+            className="inline-flex min-h-11 items-center hover:text-primary-foreground transition sm:pointer-fine:min-h-0"
           >
             Privacy
           </Link>

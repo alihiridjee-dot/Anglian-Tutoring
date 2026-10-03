@@ -79,7 +79,7 @@ function MessagesPage() {
             <button
               data-guide="ask-question"
               onClick={() => setComposing(true)}
-              className="btn-hero inline-flex h-11 sm:h-10 shrink-0 items-center gap-2 rounded-xl px-4 text-sm"
+              className="btn-hero inline-flex h-11 sm:pointer-fine:h-10 shrink-0 items-center gap-2 rounded-xl px-4 text-sm"
             >
               <MessageSquarePlus className="size-4" aria-hidden /> Ask a question
             </button>

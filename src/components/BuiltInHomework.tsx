@@ -421,7 +421,7 @@ export function AnswerForm({
               type="button"
               onClick={submit}
               disabled={saving}
-              className="btn-solid inline-flex h-11 items-center justify-center gap-2 rounded-lg px-5 text-sm font-semibold disabled:opacity-60 sm:h-10"
+              className="btn-solid inline-flex h-11 items-center justify-center gap-2 rounded-lg px-5 text-sm font-semibold disabled:opacity-60 sm:pointer-fine:h-10"
             >
               {saving ? <Loader2 className="size-4 animate-spin" /> : <Send className="size-4" />}
               {saving ? "Submitting…" : "Yes, hand it in"}
@@ -430,7 +430,7 @@ export function AnswerForm({
               type="button"
               onClick={() => setConfirming(false)}
               disabled={saving}
-              className="btn-premium inline-flex h-11 items-center rounded-lg px-4 text-sm font-semibold disabled:opacity-60 sm:h-10"
+              className="btn-premium inline-flex h-11 items-center rounded-lg px-4 text-sm font-semibold disabled:opacity-60 sm:pointer-fine:h-10"
             >
               Keep working
             </button>
@@ -444,7 +444,7 @@ export function AnswerForm({
           </p>
           <button
             type="submit"
-            className="btn-solid inline-flex h-11 w-full items-center justify-center gap-2 rounded-lg text-sm font-semibold sm:h-10"
+            className="btn-solid inline-flex h-11 w-full items-center justify-center gap-2 rounded-lg text-sm font-semibold sm:pointer-fine:h-10"
           >
             <Send className="size-4" />
             Submit answers

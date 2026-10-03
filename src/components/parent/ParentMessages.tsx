@@ -41,7 +41,7 @@ export function ParentMessages({ childId, childName }: { childId: string; childN
         <button
           type="button"
           onClick={() => setComposing(true)}
-          className="btn-solid inline-flex h-11 items-center sm:h-9 gap-1.5 rounded-lg px-3.5 text-sm font-semibold"
+          className="btn-solid inline-flex h-11 items-center sm:pointer-fine:h-9 gap-1.5 rounded-lg px-3.5 text-sm font-semibold"
         >
           <MessageSquarePlus className="size-4" aria-hidden /> Message a tutor
         </button>

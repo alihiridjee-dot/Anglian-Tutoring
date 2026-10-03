@@ -96,7 +96,7 @@ export function Nav() {
         <div className="flex items-center gap-1.5 sm:gap-2.5">
           <Link
             to="/demo"
-            className="btn-soft inline-flex min-h-11 cursor-pointer items-center gap-1.5 whitespace-nowrap rounded-xl px-3 py-2 text-sm sm:min-h-0 sm:px-3.5"
+            className="btn-soft inline-flex min-h-11 cursor-pointer items-center gap-1.5 whitespace-nowrap rounded-xl px-3 py-2 text-sm sm:pointer-fine:min-h-0 sm:px-3.5"
           >
             <Sparkles className="size-3.5 text-[color:var(--pop-ink)]" aria-hidden />
             <span className="hidden sm:inline">Demo Platform</span>
@@ -107,14 +107,14 @@ export function Nav() {
           <Link
             to="/auth"
             search={{ mode: "signin" } as never}
-            className="btn-ghost hidden min-h-11 items-center rounded-xl px-3 py-2 text-sm sm:inline-flex sm:min-h-0"
+            className="btn-ghost hidden min-h-11 items-center rounded-xl px-3 py-2 text-sm sm:inline-flex sm:pointer-fine:min-h-0"
           >
             Login
           </Link>
           <Link
             to="/auth"
             search={{ mode: "signup" } as never}
-            className="btn-hero inline-flex min-h-11 items-center whitespace-nowrap rounded-xl px-3 py-2 text-sm sm:min-h-0 sm:px-4"
+            className="btn-hero inline-flex min-h-11 items-center whitespace-nowrap rounded-xl px-3 py-2 text-sm sm:pointer-fine:min-h-0 sm:px-4"
           >
             Sign up
           </Link>

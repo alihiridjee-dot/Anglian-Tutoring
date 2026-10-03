@@ -19,7 +19,7 @@ export function PaymentPending({ delayed, onRetry }: { delayed: boolean; onRetry
         <button
           type="button"
           onClick={onRetry}
-          className="btn-soft mt-3 inline-flex h-11 items-center rounded-lg px-4 text-sm font-semibold sm:h-9"
+          className="btn-soft mt-3 inline-flex h-11 items-center rounded-lg px-4 text-sm font-semibold sm:pointer-fine:h-9"
         >
           Check again
         </button>

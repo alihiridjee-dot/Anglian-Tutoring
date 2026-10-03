@@ -50,7 +50,7 @@ export function WeekSwitcher({
         type="button"
         onClick={() => onShift(-1)}
         aria-label="Previous week"
-        className="btn-soft inline-flex size-11 sm:size-8 shrink-0 items-center justify-center rounded-lg"
+        className="btn-soft inline-flex size-11 sm:pointer-fine:size-8 shrink-0 items-center justify-center rounded-lg"
       >
         <ChevronLeft className="size-4" aria-hidden />
       </button>
@@ -58,7 +58,7 @@ export function WeekSwitcher({
         type="button"
         onClick={() => onShift(1)}
         aria-label="Next week"
-        className="btn-soft inline-flex size-11 sm:size-8 shrink-0 items-center justify-center rounded-lg"
+        className="btn-soft inline-flex size-11 sm:pointer-fine:size-8 shrink-0 items-center justify-center rounded-lg"
       >
         <ChevronRight className="size-4" aria-hidden />
       </button>

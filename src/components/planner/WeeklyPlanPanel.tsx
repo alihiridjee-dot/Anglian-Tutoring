@@ -146,7 +146,7 @@ export function WeeklyPlanPanel({
                     key={e.subject}
                     type="button"
                     onClick={() => setActiveSubject(e.subject)}
-                    className={`h-11 sm:h-8 px-3 rounded-lg text-sm font-medium transition ${
+                    className={`h-11 sm:pointer-fine:h-8 px-3 rounded-lg text-sm font-medium transition ${
                       e.subject === activeSubject
                         ? "btn-solid"
                         : "bg-muted text-muted-foreground hover:text-foreground"
@@ -161,7 +161,7 @@ export function WeeklyPlanPanel({
               <button
                 type="button"
                 onClick={() => setWeekOffset((w) => w - 1)}
-                className="size-11 sm:size-8 rounded-lg border border-border text-muted-foreground hover:text-foreground hover:bg-muted flex items-center justify-center"
+                className="size-11 sm:pointer-fine:size-8 rounded-lg border border-border text-muted-foreground hover:text-foreground hover:bg-muted flex items-center justify-center"
                 aria-label="Previous week"
               >
                 <ChevronLeft className="w-4 h-4" />
@@ -169,7 +169,7 @@ export function WeeklyPlanPanel({
               <button
                 type="button"
                 onClick={() => setWeekOffset((w) => w + 1)}
-                className="size-11 sm:size-8 rounded-lg border border-border text-muted-foreground hover:text-foreground hover:bg-muted flex items-center justify-center"
+                className="size-11 sm:pointer-fine:size-8 rounded-lg border border-border text-muted-foreground hover:text-foreground hover:bg-muted flex items-center justify-center"
                 aria-label="Next week"
               >
                 <ChevronRight className="w-4 h-4" />

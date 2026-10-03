@@ -52,7 +52,7 @@ export function WeeklyCheckinForm({
           type="button"
           onClick={() => report(true)}
           disabled={!!busy}
-          className={`inline-flex items-center gap-1.5 h-11 sm:h-9 px-3.5 rounded-lg text-sm font-semibold transition disabled:opacity-50 ${
+          className={`inline-flex items-center gap-1.5 h-11 sm:pointer-fine:h-9 px-3.5 rounded-lg text-sm font-semibold transition disabled:opacity-50 ${
             coveredOk === true ? "bg-emerald-600 text-white" : "border border-border hover:bg-muted"
           }`}
         >
@@ -67,7 +67,7 @@ export function WeeklyCheckinForm({
           type="button"
           onClick={() => report(false)}
           disabled={!!busy}
-          className={`inline-flex items-center gap-1.5 h-11 sm:h-9 px-3.5 rounded-lg text-sm font-semibold transition disabled:opacity-50 ${
+          className={`inline-flex items-center gap-1.5 h-11 sm:pointer-fine:h-9 px-3.5 rounded-lg text-sm font-semibold transition disabled:opacity-50 ${
             coveredOk === false ? "bg-amber-500 text-white" : "border border-border hover:bg-muted"
           }`}
         >
@@ -132,7 +132,7 @@ export function CarryForwardBar({
         type="button"
         onClick={onCarry}
         disabled={!!busy}
-        className="inline-flex items-center gap-1.5 h-11 sm:h-9 px-3.5 rounded-lg btn-solid text-sm font-semibold hover:opacity-90 disabled:opacity-50"
+        className="inline-flex items-center gap-1.5 h-11 sm:pointer-fine:h-9 px-3.5 rounded-lg btn-solid text-sm font-semibold hover:opacity-90 disabled:opacity-50"
       >
         {busy === "carry" ? (
           <Loader2 className="w-4 h-4 animate-spin" />

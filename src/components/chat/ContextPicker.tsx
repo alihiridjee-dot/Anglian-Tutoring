@@ -61,7 +61,7 @@ export function ContextPicker({ value, onChange }: Props) {
                 if (key === "general") select(EMPTY_CONTEXT);
                 else select({ kind: key });
               }}
-              className={`inline-flex items-center gap-1.5 h-11 sm:h-8 px-3 rounded-lg border text-xs font-semibold transition ${
+              className={`inline-flex items-center gap-1.5 h-11 sm:pointer-fine:h-8 px-3 rounded-lg border text-xs font-semibold transition ${
                 active
                   ? "border-primary bg-primary/10 text-foreground"
                   : "border-border text-muted-foreground hover:border-primary/40"

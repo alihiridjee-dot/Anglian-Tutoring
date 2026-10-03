@@ -132,7 +132,7 @@ export function StudentGuide({
         ref={trigger}
         data-guide="guide"
         onClick={start}
-        className="btn-premium inline-flex min-h-11 items-center gap-2 rounded-xl px-3 py-2 text-sm tint-primary sm:min-h-0"
+        className="btn-premium inline-flex min-h-11 items-center gap-2 rounded-xl px-3 py-2 text-sm tint-primary sm:pointer-fine:min-h-0"
       >
         {/* Sideways, the header has room for the compass, not the words. The
             words stay for screen readers, so the button keeps its name. */}

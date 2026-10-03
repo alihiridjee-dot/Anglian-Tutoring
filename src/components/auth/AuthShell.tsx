@@ -107,7 +107,7 @@ export function AuthShell({
           <BrandMark />
           <Link
             to="/"
-            className="btn-ghost inline-flex min-h-11 items-center gap-1.5 rounded-xl px-3 py-2 text-sm sm:min-h-0"
+            className="btn-ghost inline-flex min-h-11 items-center gap-1.5 rounded-xl px-3 py-2 text-sm sm:pointer-fine:min-h-0"
           >
             <ArrowLeft className="size-4" aria-hidden /> Back to home
           </Link>

@@ -161,7 +161,7 @@ export function NewThreadDialog({ initialContext, about, onClose, onCreated }: P
                     key={t.id}
                     type="button"
                     onClick={() => setTutorId(t.id)}
-                    className={`h-11 sm:h-9 px-3.5 rounded-lg border text-sm font-semibold transition ${
+                    className={`h-11 sm:pointer-fine:h-9 px-3.5 rounded-lg border text-sm font-semibold transition ${
                       tutorId === t.id
                         ? "border-primary bg-primary/10"
                         : "border-border text-muted-foreground hover:border-primary/40"
@@ -231,14 +231,14 @@ export function NewThreadDialog({ initialContext, about, onClose, onCreated }: P
         <div className="flex shrink-0 justify-end gap-2 p-4 sm:p-6 short:p-3 border-t border-border">
           <button
             onClick={onClose}
-            className="h-11 sm:h-10 px-4 rounded-lg border border-border text-sm font-semibold hover:bg-muted"
+            className="h-11 sm:pointer-fine:h-10 px-4 rounded-lg border border-border text-sm font-semibold hover:bg-muted"
           >
             Cancel
           </button>
           <button
             onClick={submit}
             disabled={!canSend || start.isPending}
-            className="btn-premium h-11 sm:h-10 px-4 rounded-lg text-sm font-semibold inline-flex items-center gap-2 disabled:opacity-50"
+            className="btn-premium h-11 sm:pointer-fine:h-10 px-4 rounded-lg text-sm font-semibold inline-flex items-center gap-2 disabled:opacity-50"
           >
             {start.isPending && <Loader2 className="w-4 h-4 animate-spin" />}{" "}
             {about ? "Send message" : "Send question"}

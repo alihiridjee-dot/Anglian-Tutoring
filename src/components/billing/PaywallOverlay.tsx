@@ -67,7 +67,7 @@ export function PaywallOverlay() {
             <button
               type="button"
               onClick={() => navigate({ to: "/billing" })}
-              className="mt-3 inline-flex min-h-11 items-center px-3 text-xs text-muted-foreground hover:text-foreground sm:min-h-0"
+              className="mt-3 inline-flex min-h-11 items-center px-3 text-xs text-muted-foreground hover:text-foreground sm:pointer-fine:min-h-0"
             >
               Open Billing
             </button>
@@ -128,7 +128,7 @@ export function PaywallOverlay() {
             <button
               type="button"
               onClick={() => navigate({ to: "/billing" })}
-              className="mt-3 inline-flex min-h-11 items-center px-3 text-xs text-muted-foreground hover:text-foreground sm:min-h-0"
+              className="mt-3 inline-flex min-h-11 items-center px-3 text-xs text-muted-foreground hover:text-foreground sm:pointer-fine:min-h-0"
             >
               Manage billing instead
             </button>

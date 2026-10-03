@@ -181,7 +181,7 @@ export function ThreadView({ thread, viewerId, isTutor, onBack }: Props) {
               type="button"
               onClick={() => setConfirmingDelete(false)}
               disabled={remove.isPending}
-              className="h-11 sm:h-9 rounded-lg border border-border px-3 text-sm font-semibold hover:bg-muted disabled:opacity-50"
+              className="h-11 sm:pointer-fine:h-9 rounded-lg border border-border px-3 text-sm font-semibold hover:bg-muted disabled:opacity-50"
             >
               Cancel
             </button>
@@ -189,7 +189,7 @@ export function ThreadView({ thread, viewerId, isTutor, onBack }: Props) {
               type="button"
               onClick={deleteThread}
               disabled={remove.isPending}
-              className="inline-flex h-11 sm:h-9 items-center gap-1.5 rounded-lg bg-destructive px-3 text-sm font-semibold text-destructive-foreground hover:opacity-90 disabled:opacity-50"
+              className="inline-flex h-11 sm:pointer-fine:h-9 items-center gap-1.5 rounded-lg bg-destructive px-3 text-sm font-semibold text-destructive-foreground hover:opacity-90 disabled:opacity-50"
             >
               {remove.isPending ? (
                 <Loader2 className="h-4 w-4 animate-spin" />
@@ -205,7 +205,7 @@ export function ThreadView({ thread, viewerId, isTutor, onBack }: Props) {
             onClick={() => setConfirmingDelete(true)}
             aria-label="Delete conversation"
             title="Delete conversation"
-            className="inline-flex size-11 sm:size-9 shrink-0 items-center justify-center rounded-lg text-muted-foreground transition hover:bg-destructive/10 hover:text-destructive"
+            className="inline-flex size-11 sm:pointer-fine:size-9 shrink-0 items-center justify-center rounded-lg text-muted-foreground transition hover:bg-destructive/10 hover:text-destructive"
           >
             <Trash2 className="h-4 w-4" />
           </button>
@@ -262,7 +262,7 @@ export function ThreadView({ thread, viewerId, isTutor, onBack }: Props) {
               type="button"
               onClick={draft}
               disabled={drafting || messages.length === 0}
-              className="inline-flex items-center gap-1.5 h-11 sm:h-8 px-3 rounded-lg border border-border text-xs font-semibold hover:bg-muted disabled:opacity-50"
+              className="inline-flex items-center gap-1.5 h-11 sm:pointer-fine:h-8 px-3 rounded-lg border border-border text-xs font-semibold hover:bg-muted disabled:opacity-50"
             >
               {drafting ? (
                 <Loader2 className="h-3.5 w-3.5 animate-spin" />
