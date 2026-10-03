@@ -16,6 +16,7 @@ import {
 import {
   isSubscriptionLive,
   isPaymentOverdue,
+  isPlanChangeable,
   planLabel,
   formatPence,
   billingIntervalLabel,
@@ -101,6 +102,10 @@ function BillingPage() {
   // A failed payment still has a plan to show — with the card-update button —
   // but nothing to change on it and nothing to buy on top of it.
   const paymentOverdue = !!sub && isPaymentOverdue(sub.status);
+  // Subjects and cadence change only on a live plan that isn't cancelling. A
+  // paused or ending one is refused by the server ("Resume the plan before…"),
+  // so it is shown, but not offered changes.
+  const changeable = isPlanChangeable(sub);
 
   const payment = useCheckoutReturn({
     status: checkout,
@@ -241,7 +246,7 @@ function BillingPage() {
               currentTier={sub.plan}
               enrolments={enrolments}
               level={level}
-              canManage={canManage}
+              canManage={canManage && changeable}
               canChangeBoard
             />
           </div>
@@ -250,7 +255,7 @@ function BillingPage() {
         {/* Frictionless upgrade: any student can add a subject to their own live
             plan — even when a parent holds the pause/cancel controls. Adding is
             additive growth, so it isn't gated the way the lifecycle actions are. */}
-        {userId && hasUsablePlan && sub?.plan && (
+        {userId && changeable && sub?.plan && (
           <div className="mb-8">
             <AddSubjectCard
               studentId={userId}
@@ -269,7 +274,7 @@ function BillingPage() {
           !subsQuery.error &&
           !awaitingPayment &&
           !paymentOverdue &&
-          (canManage || !hasUsablePlan) && (
+          (changeable ? canManage : !hasUsablePlan) && (
             <div className="mb-8">
               <CadenceSwitcher
                 studentId={userId}
