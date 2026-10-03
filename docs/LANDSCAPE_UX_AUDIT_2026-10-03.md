@@ -24,7 +24,9 @@ was tested upright only.
   is wide (`md`) and not short. Everything else gets the phone drawer.
 - **`.thread-sideways`**: an open conversation's box on a short screen below
   `lg` takes the whole screen and drops its card. Unlayered, like the card
-  rules it overrides.
+  rules it overrides. The page content isolates (`.page-aurora`), so no
+  z-index lifts the thread over the pinned header: while it is open the header
+  is `visibility: hidden` (`main:has(.thread-sideways) > header`).
 - **Tap sizes**: write `min-h-11 sm:pointer-fine:min-h-0`, not `sm:min-h-0`.
   The phone size is undone only on a mouse-driven screen, so a phone either way
   up and a tablet keep 44px.
@@ -56,10 +58,16 @@ was tested upright only.
 - The `/demo` showcase is untouched (sales only).
 - Tutor screens were not audited (agreed scope).
 
-## Not verified on a real account
+## How it was checked
 
-The test accounts have no message threads, no quiz sets, no unsubmitted
-homework and an active plan, so the full-screen thread, quiz taking, answer
-writing and the paywall were checked with copies of their markup, not live.
-The browser pane cannot copy touch above 768px wide, Safari's bars or the
-keyboard.
+On the test student and test parent at 844×390, 844×340 and 667×375 (touch),
+plus 375×812, 768×1024 and 1280×800 for the sizes that must not change. The
+full-screen thread was checked on a real conversation: with Ali's OK the test
+student sent one message to his tutor account, and it was deleted straight
+after (thread, message and notification all gone). That check found the header
+drawing over the thread, fixed in the same PR.
+
+Still copies of the markup, not live: quiz taking, writing homework answers and
+the paywall. The test accounts have no quiz sets, no unsubmitted homework and
+an active plan. The browser pane cannot copy touch above 768px wide, Safari's
+bars or the keyboard.
