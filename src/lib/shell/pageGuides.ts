@@ -264,8 +264,8 @@ export const pageGuides: Record<string, GuideStep[]> = {
   "Revision Notes": [
     select(
       "h2, h3, p",
-      "Your revision notes",
-      "Read the information here for the current availability of revision notes. You can also explore the resources attached to individual curriculum points.",
+      "Your revision note",
+      "This note covers one topic, written for your exam board. Use Back to return to the spec point you opened it from.",
     ),
   ],
 };
@@ -301,6 +301,5 @@ export const pageIntroductions: Record<string, string> = {
     "Follow your linked student’s learning progress and explore the information available for them.",
   Students: "Find and manage your students and family links from this workspace.",
   "Tutor Studio": "Your workspace for managing learning resources and teaching activities.",
-  "Revision Notes":
-    "Personal notes are coming soon. For now, your dashboard brings together your week’s videos, quizzes and homework.",
+  "Revision Notes": "Read the note for this topic, then go back to its spec point to practise.",
 };

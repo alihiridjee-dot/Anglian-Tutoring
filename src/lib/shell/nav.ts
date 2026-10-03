@@ -28,7 +28,6 @@ export type NavRoute =
   | "/dashboard"
   | "/planner"
   | "/curriculum"
-  | "/notes"
   | "/homework"
   | "/live"
   | "/mcqs"
@@ -54,7 +53,6 @@ export type NavRoute =
 export const STUDENT_SECTION_ROUTES = [
   "/planner",
   "/curriculum",
-  "/notes",
   "/homework",
   "/live",
   "/mcqs",
