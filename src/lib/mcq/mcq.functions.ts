@@ -221,3 +221,48 @@ export const generateMcqSet = createServerFn({ method: "POST" })
     });
     return { setId: result.sets.get(data.specPointId)!, created: result.created > 0 };
   });
+
+type ReplaceInput = { setId: string };
+
+/**
+ * A tutor's "Replace questions" on a shared quiz: writes a fresh set of
+ * questions for its spec point and swaps them in under the same set id.
+ *
+ * The way to fix a bad quiz. Deleting one that students have taken is refused
+ * (it would erase their results), and generating again only finds the set that
+ * is already there. Past attempts keep the score and per-point results they
+ * were graded with.
+ */
+export const replaceMcqQuestions = createServerFn({ method: "POST" })
+  .middleware([requireSupabaseAuth])
+  .inputValidator((input: ReplaceInput) => {
+    if (!input?.setId) throw new Error("setId required");
+    return { setId: String(input.setId) };
+  })
+  .handler(async ({ data, context }) => {
+    const { supabase, userId } = context;
+    await requireTutor(supabase, userId);
+
+    // Read as the caller, so a tutor only replaces a set they can see.
+    const { data: set, error } = await supabase
+      .from("mcq_sets")
+      .select("spec_point_id, origin")
+      .eq("id", data.setId)
+      .maybeSingle();
+    if (error) throw error;
+    if (!set?.spec_point_id || set.origin !== "generated")
+      throw new Error("Only a spec point's shared quiz can have its questions replaced");
+
+    const generation = await loadGenerationContext(supabase, set.spec_point_id);
+    const questions = await generateExamQuestions(generation, QUESTIONS_PER_POINT, "mcq");
+    const count = await libraryRequest("rpc/replace_generated_mcq_questions", {
+      _set_id: data.setId,
+      _questions: questions.map((q) => ({
+        question: q.question.trim(),
+        options: q.options.map((o) => o.trim()),
+        correct_index: q.correct_index,
+        explanation: q.explanation.trim(),
+      })),
+    });
+    return { questions: typeof count === "number" ? count : 0 };
+  });

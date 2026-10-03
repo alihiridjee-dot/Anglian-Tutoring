@@ -2045,7 +2045,7 @@ export type Database = {
         Returns: number;
       };
       grade_mcq_attempt: {
-        Args: { _answers: Json; _set_id: string };
+        Args: { _answers: Json; _attempt_id?: string; _set_id: string };
         Returns: Json;
       };
       homework_points_with_sheet: {
@@ -2131,6 +2131,20 @@ export type Database = {
       };
       revoke_parent_invite: { Args: { _invite_id: string }; Returns: undefined };
       rotate_student_invite_code: { Args: never; Returns: string };
+      save_homework_brief: {
+        Args: {
+          _board: Database["public"]["Enums"]["board"];
+          _due_at: string | null;
+          _id: string | null;
+          _instructions: string;
+          _level: Database["public"]["Enums"]["level"];
+          _questions: Json;
+          _spec_point_ids: string[];
+          _subject: Database["public"]["Enums"]["subject"];
+          _title: string;
+        };
+        Returns: string;
+      };
       save_student_enrolments: { Args: { _subjects: Json }; Returns: undefined };
       save_weekly_plan: {
         Args: {
@@ -2159,6 +2173,10 @@ export type Database = {
           _note?: string;
         };
         Returns: Json;
+      };
+      replace_generated_mcq_questions: {
+        Args: { _questions: Json; _set_id: string };
+        Returns: number;
       };
       skip_plan_point: {
         Args: {

@@ -235,7 +235,7 @@ export class CurriculumDAL {
       // Sets whose whole set is this spec point (manual per-point generation).
       supabase
         .from("mcq_sets")
-        .select("id, title, published")
+        .select("id, title, published, origin")
         .eq("spec_point_id", point.id)
         .order("created_at", { ascending: false }),
       // Weekly quizzes contribute questions tagged with this point while the set
@@ -243,7 +243,7 @@ export class CurriculumDAL {
       // opening a spec point finds every quiz that covers it.
       supabase
         .from("mcq_questions")
-        .select("mcq_sets!inner(id, title, published)")
+        .select("mcq_sets!inner(id, title, published, origin)")
         .eq("spec_point_id", point.id),
     ]);
 

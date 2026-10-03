@@ -31,6 +31,8 @@ export type McqSet = {
   id: string;
   title: string;
   published: boolean;
+  /** "generated" for a spec point's shared quiz, the one "Replace questions" rewrites. */
+  origin?: string;
 };
 
 /** A spec point returned by a search, carrying the topic it belongs to. */
