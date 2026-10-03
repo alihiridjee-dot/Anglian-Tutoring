@@ -46,14 +46,16 @@ export async function isStaff(callerId: string): Promise<boolean> {
  *     student's record on /students. Staff is read from user_roles, the same
  *     table RLS consults.
  *
- * So the only person refused is a student who neither pays nor is unlinked: a
- * child on a parent-funded plan, who sees status and is pointed at their payer.
+ * A student manages only a plan they pay for. On a plan someone else pays for
+ * they see status and are pointed at their payer — even after unlinking that
+ * parent, which used to hand the child pause, cancel and cadence switches on the
+ * parent's card. A legacy plan with no payer recorded keeps the old rule.
  *
  *   • caller is the payer                                  → allowed
  *   • caller is a linked parent of the student             → allowed
  *   • caller is a tutor or admin                           → allowed
- *   • caller IS the student AND no parent is linked        → allowed
- *   • a linked student on someone else's card              → 403
+ *   • caller IS the student, no payer recorded, no parent  → allowed
+ *   • the student, on someone else's card                  → 403
  *
  * Mirrored by the billing_feedback RLS insert policy so the rule holds on both
  * sides. `payerId` comes from the subscription row the caller already loaded;
@@ -85,8 +87,9 @@ export async function assertCanManage(
       .eq("student_id", studentId)
       .limit(1)
       .maybeSingle();
-    if (!anyParent) return; // an unlinked student managing their own plan
-    throw new HttpError(403, "Your linked parent manages this plan.");
+    if (anyParent) throw new HttpError(403, "Your linked parent manages this plan.");
+    if (payerId) throw new HttpError(403, "The parent who pays for this plan manages it.");
+    return; // a legacy plan with no payer, and no parent to defer to
   }
 
   throw new HttpError(403, "You aren't allowed to manage this plan.");
@@ -98,10 +101,29 @@ export async function assertCanManage(
  * for their own plan even when a parent holds the pause/cancel controls, and a
  * linked parent may do it for their child. Only the destructive lifecycle
  * actions stay locked to the billing controller.
+ *
+ * The student's growth still lands on the payer's card, so it needs the payer
+ * to be them, or a parent still linked to them: a child who unlinked the parent
+ * paying can no longer add to that parent's bill.
  */
-export async function assertCanUpgrade(callerId: string, studentId: string) {
-  if (callerId === studentId) return; // the student growing their own plan
-  const { data: link } = await admin()
+export async function assertCanUpgrade(
+  callerId: string,
+  studentId: string,
+  payerId?: string | null,
+) {
+  const db = admin();
+  if (callerId === studentId) {
+    if (!payerId || payerId === callerId) return; // the student paying, or a legacy plan
+    const { data: payerLink } = await db
+      .from("parent_student_links")
+      .select("parent_id")
+      .eq("parent_id", payerId)
+      .eq("student_id", studentId)
+      .maybeSingle();
+    if (payerLink) return; // growing a plan their linked parent pays for
+    throw new HttpError(403, "The parent who pays for this plan manages it.");
+  }
+  const { data: link } = await db
     .from("parent_student_links")
     .select("parent_id")
     .eq("parent_id", callerId)

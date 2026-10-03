@@ -1,0 +1,5129 @@
+{
+  "subject": "physics",
+  "level": "gcse",
+  "boards": [
+    "aqa",
+    "aqa_trilogy",
+    "edexcel",
+    "ocr"
+  ],
+  "note": "One revision note per concept. Each GCSE spec point is primary in exactly one concept; non-primary refs are broad points that also need this note.",
+  "concepts": [
+    {
+      "id": "phys-001",
+      "group": "Working scientifically / practical skills",
+      "title": "Units, prefixes and standard form",
+      "scope": "SI units, prefixes from giga to nano, converting units (e.g. hours to seconds), significant figures and standard form in physics calculations.",
+      "kind": "skills",
+      "higher_only": false,
+      "separate_only": false,
+      "data_note": "taught by AQA (units and maths-skills appendix) but no matching spec point",
+      "spec_points": [
+        {
+          "id": "a16d633b-ff1f-4610-a028-fabd1da9d5eb",
+          "board": "edexcel",
+          "code": "EDEX 1.1",
+          "primary": true
+        },
+        {
+          "id": "dca07e0a-c8e6-47fe-bf45-bbfb044c6bc3",
+          "board": "edexcel",
+          "code": "EDEX 1.2",
+          "primary": true
+        },
+        {
+          "id": "60073435-efaf-44c6-af74-6e68784d96ad",
+          "board": "edexcel",
+          "code": "EDEX 1.3",
+          "primary": true
+        },
+        {
+          "id": "2446d2c7-4ca3-4711-a38e-ec3d1e4b881f",
+          "board": "edexcel",
+          "code": "EDEX 1.4",
+          "primary": true
+        },
+        {
+          "id": "21d1e9e5-4977-4656-8778-8f3de326577a",
+          "board": "ocr",
+          "code": "OCR P2.1c",
+          "primary": true
+        },
+        {
+          "id": "ad903066-2088-48e0-af0e-95142ad554be",
+          "board": "ocr",
+          "code": "OCR P8.1c",
+          "primary": true
+        },
+        {
+          "id": "e168775c-87b7-4c03-a4be-2430ba23030b",
+          "board": "aqa",
+          "code": "AQA 4.5.6.1",
+          "primary": false
+        },
+        {
+          "id": "d4a9de4a-a77e-4ee9-b0b9-999936a1910a",
+          "board": "aqa_trilogy",
+          "code": "AQA T 6.5.4.1",
+          "primary": false
+        }
+      ]
+    },
+    {
+      "id": "phys-002",
+      "group": "Energy",
+      "title": "Energy stores and systems",
+      "scope": "The energy stores, the ways energy is transferred between them, conservation of energy in a closed system and energy transfer diagrams.",
+      "kind": "content",
+      "higher_only": false,
+      "separate_only": false,
+      "spec_points": [
+        {
+          "id": "0b43fafa-d9c8-44e2-8ecd-627639ff8f82",
+          "board": "aqa",
+          "code": "AQA 4.1.1.1",
+          "primary": true
+        },
+        {
+          "id": "d40667dd-726d-4417-8183-ca2514684b35",
+          "board": "aqa_trilogy",
+          "code": "AQA T 6.1.1.1",
+          "primary": true
+        },
+        {
+          "id": "55526697-70cb-4c5d-b158-6b18754e0f67",
+          "board": "edexcel",
+          "code": "EDEX 3.3",
+          "primary": true
+        },
+        {
+          "id": "c34920aa-b1c7-4d94-aebb-bbe83bc5cd51",
+          "board": "edexcel",
+          "code": "EDEX 3.4",
+          "primary": true
+        },
+        {
+          "id": "b99f7b8a-5133-497f-97ad-6bd20cd7f90d",
+          "board": "edexcel",
+          "code": "EDEX 3.5",
+          "primary": true
+        },
+        {
+          "id": "11692ca4-c217-4f91-9147-129e68248078",
+          "board": "edexcel",
+          "code": "EDEX 3.6",
+          "primary": true
+        },
+        {
+          "id": "88b59e1b-5f84-4483-857a-59b29226d108",
+          "board": "edexcel",
+          "code": "EDEX 8.1",
+          "primary": true
+        },
+        {
+          "id": "2ec4deb5-d3bc-4094-bcfb-a89b2529bec1",
+          "board": "edexcel",
+          "code": "EDEX 8.2",
+          "primary": true
+        },
+        {
+          "id": "f72bd231-bcaf-4fef-aa1a-c79801e1f590",
+          "board": "edexcel",
+          "code": "EDEX 8.3",
+          "primary": true
+        },
+        {
+          "id": "4adf7a1c-4e4d-4a5c-b72a-21fb5900969b",
+          "board": "edexcel",
+          "code": "EDEX 8.4",
+          "primary": true
+        },
+        {
+          "id": "0c375621-8875-4ec5-b45e-5c11b312298c",
+          "board": "ocr",
+          "code": "OCR P7.1a",
+          "primary": true
+        },
+        {
+          "id": "e2d364ca-94f8-47e5-a2db-798336442e6a",
+          "board": "ocr",
+          "code": "OCR P7.1b",
+          "primary": true
+        }
+      ]
+    },
+    {
+      "id": "phys-003",
+      "group": "Energy",
+      "title": "Kinetic and gravitational potential energy",
+      "scope": "Calculating kinetic energy (½mv²) and gravitational potential energy (mgh) and the energy changes between them, e.g. a falling object.",
+      "kind": "content",
+      "higher_only": false,
+      "separate_only": false,
+      "spec_points": [
+        {
+          "id": "3935c4ff-9b82-43c4-b0bf-3f449aad4b54",
+          "board": "aqa",
+          "code": "AQA 4.1.1.2",
+          "primary": true
+        },
+        {
+          "id": "ea51afaf-a074-4966-93cd-4c4be6f0a597",
+          "board": "aqa_trilogy",
+          "code": "AQA T 6.1.1.2",
+          "primary": true
+        },
+        {
+          "id": "1f6ec2e2-d5dc-407f-a215-25574f3012fc",
+          "board": "edexcel",
+          "code": "EDEX 3.1",
+          "primary": true
+        },
+        {
+          "id": "5a342841-9fb9-4d06-9d43-aa2e0093278e",
+          "board": "edexcel",
+          "code": "EDEX 3.2",
+          "primary": true
+        },
+        {
+          "id": "3069050d-0049-4288-9942-1cab60c7907c",
+          "board": "edexcel",
+          "code": "EDEX 8.8",
+          "primary": true
+        },
+        {
+          "id": "b1101cb7-109a-4c11-bd18-c7819198355e",
+          "board": "edexcel",
+          "code": "EDEX 8.9",
+          "primary": true
+        },
+        {
+          "id": "c22e8b32-25bd-4134-9e44-95e9bd70178d",
+          "board": "ocr",
+          "code": "OCR P7.1d",
+          "primary": true
+        },
+        {
+          "id": "51fa129d-2332-4b81-8904-f50cba35fc11",
+          "board": "ocr",
+          "code": "OCR P7.1e",
+          "primary": true
+        },
+        {
+          "id": "80501033-2978-4c55-933d-b0ca652ca0e3",
+          "board": "ocr",
+          "code": "OCR P2.2n",
+          "primary": false
+        }
+      ]
+    },
+    {
+      "id": "phys-004",
+      "group": "Energy",
+      "title": "Work done",
+      "scope": "Work done as energy transferred by a force (W = Fd), the joule as a newton-metre, and work done against friction causing heating.",
+      "kind": "content",
+      "higher_only": false,
+      "separate_only": false,
+      "spec_points": [
+        {
+          "id": "0cc3dc5c-38f2-4869-bc42-8a01ba65bfc7",
+          "board": "aqa",
+          "code": "AQA 4.5.2",
+          "primary": true
+        },
+        {
+          "id": "8132da04-6d7b-4bd5-9cfd-985f2a7b56b0",
+          "board": "aqa_trilogy",
+          "code": "AQA T 6.5.2",
+          "primary": true
+        },
+        {
+          "id": "6da46589-7b7b-4f1d-8f6a-651402a3f47a",
+          "board": "edexcel",
+          "code": "EDEX 8.5",
+          "primary": true
+        },
+        {
+          "id": "08baa296-689c-4f9a-9e19-d2123c094fb6",
+          "board": "edexcel",
+          "code": "EDEX 8.6",
+          "primary": true
+        },
+        {
+          "id": "d426aa33-8325-4024-9a74-1d2aa8840cdb",
+          "board": "edexcel",
+          "code": "EDEX 8.7",
+          "primary": true
+        },
+        {
+          "id": "83ef7aa1-5dcc-4d3c-9b1c-da316cc97d33",
+          "board": "ocr",
+          "code": "OCR P2.2m",
+          "primary": true
+        },
+        {
+          "id": "80501033-2978-4c55-933d-b0ca652ca0e3",
+          "board": "ocr",
+          "code": "OCR P2.2n",
+          "primary": true
+        },
+        {
+          "id": "f6967825-2875-4355-a6ed-cd593e372ef6",
+          "board": "edexcel",
+          "code": "EDEX 2.33P",
+          "primary": false
+        }
+      ]
+    },
+    {
+      "id": "phys-005",
+      "group": "Energy",
+      "title": "Power",
+      "scope": "Power as the rate of energy transfer or work done (P = E/t, P = W/t) and the watt as one joule per second.",
+      "kind": "content",
+      "higher_only": false,
+      "separate_only": false,
+      "spec_points": [
+        {
+          "id": "df53252b-9c3e-4677-8422-d55f935fa497",
+          "board": "aqa",
+          "code": "AQA 4.1.1.4",
+          "primary": true
+        },
+        {
+          "id": "c9c4562d-74ae-48b9-846e-d74709c02a4a",
+          "board": "aqa_trilogy",
+          "code": "AQA T 6.1.1.4",
+          "primary": true
+        },
+        {
+          "id": "6cc56d78-4fa4-4db0-9b10-57e5ddc7ebe5",
+          "board": "edexcel",
+          "code": "EDEX 8.12",
+          "primary": true
+        },
+        {
+          "id": "1294c506-5df8-44f1-8e0c-9733f68ce652",
+          "board": "edexcel",
+          "code": "EDEX 8.13",
+          "primary": true
+        },
+        {
+          "id": "cbd1c75d-2545-4230-a781-5129100629b1",
+          "board": "edexcel",
+          "code": "EDEX 8.14",
+          "primary": true
+        },
+        {
+          "id": "54d2f17f-3446-4e13-b48a-12f07bb59a70",
+          "board": "ocr",
+          "code": "OCR P2.2o",
+          "primary": true
+        },
+        {
+          "id": "c08787e8-b871-48ba-811c-0d32226a2fc3",
+          "board": "edexcel",
+          "code": "EDEX 10.28",
+          "primary": false
+        },
+        {
+          "id": "c87c4fc2-d838-4723-8309-9202dff8afae",
+          "board": "edexcel",
+          "code": "EDEX 10.29",
+          "primary": false
+        }
+      ]
+    },
+    {
+      "id": "phys-006",
+      "group": "Energy",
+      "title": "Energy dissipation",
+      "scope": "How energy is dissipated (wasted) into less useful stores, usually by heating the surroundings, in every system change.",
+      "kind": "content",
+      "higher_only": false,
+      "separate_only": false,
+      "spec_points": [
+        {
+          "id": "840f4495-3f0d-4aed-a3a6-97234bbbc0de",
+          "board": "aqa",
+          "code": "AQA 4.1.2.1",
+          "primary": true
+        },
+        {
+          "id": "49c59b9a-ff34-4c34-a20a-c3a566a42880",
+          "board": "aqa_trilogy",
+          "code": "AQA T 6.1.2.1",
+          "primary": true
+        },
+        {
+          "id": "c29abc6d-f1e9-430c-a7b5-62d14c81bb20",
+          "board": "edexcel",
+          "code": "EDEX 3.7",
+          "primary": true
+        },
+        {
+          "id": "a4cc48ad-887a-47b9-a8b9-b91a18f6e5d2",
+          "board": "edexcel",
+          "code": "EDEX 3.8",
+          "primary": true
+        },
+        {
+          "id": "109da1ff-4c55-4bdd-8675-4736443c8345",
+          "board": "edexcel",
+          "code": "EDEX 8.10",
+          "primary": true
+        },
+        {
+          "id": "c218a517-feae-4205-bcae-f9e238f6f51e",
+          "board": "edexcel",
+          "code": "EDEX 8.11",
+          "primary": true
+        },
+        {
+          "id": "182696c2-b293-4cc2-848d-c337832a61f1",
+          "board": "ocr",
+          "code": "OCR P7.2a",
+          "primary": true
+        }
+      ]
+    },
+    {
+      "id": "phys-007",
+      "group": "Energy",
+      "title": "Reducing unwanted energy transfers",
+      "scope": "Reducing wasted energy with lubrication, thermal insulation and low-resistance wires, and how wall thickness and thermal conductivity affect a building's rate of cooling.",
+      "kind": "content",
+      "higher_only": false,
+      "separate_only": false,
+      "spec_points": [
+        {
+          "id": "b3bc72c6-bcd9-4f1e-a18f-109082974b26",
+          "board": "edexcel",
+          "code": "EDEX 3.9",
+          "primary": true
+        },
+        {
+          "id": "6ca793d2-dbf0-42ce-ab73-78f3da5c1f1e",
+          "board": "edexcel",
+          "code": "EDEX 3.10",
+          "primary": true
+        },
+        {
+          "id": "cae1a07d-1c7f-4202-9955-8ce216242bc1",
+          "board": "edexcel",
+          "code": "EDEX 9.10",
+          "primary": true
+        },
+        {
+          "id": "a3f22a89-f0a2-4243-ac48-cd3423c3c5bf",
+          "board": "edexcel",
+          "code": "EDEX 14.10",
+          "primary": true
+        },
+        {
+          "id": "232176aa-8aec-4776-8e60-d57fe46a4073",
+          "board": "ocr",
+          "code": "OCR P7.2f",
+          "primary": true
+        },
+        {
+          "id": "2d82f832-63ba-4a5f-8cab-ddb02e51ac30",
+          "board": "ocr",
+          "code": "OCR P7.2g",
+          "primary": true
+        },
+        {
+          "id": "840f4495-3f0d-4aed-a3a6-97234bbbc0de",
+          "board": "aqa",
+          "code": "AQA 4.1.2.1",
+          "primary": false
+        },
+        {
+          "id": "49c59b9a-ff34-4c34-a20a-c3a566a42880",
+          "board": "aqa_trilogy",
+          "code": "AQA T 6.1.2.1",
+          "primary": false
+        },
+        {
+          "id": "a2e010a0-cf8a-4709-9edf-e96375d049e8",
+          "board": "edexcel",
+          "code": "EDEX 10.25",
+          "primary": false
+        }
+      ]
+    },
+    {
+      "id": "phys-008",
+      "group": "Energy",
+      "title": "Efficiency",
+      "scope": "Calculating efficiency as useful output over total input energy or power, and ways to increase efficiency.",
+      "kind": "content",
+      "higher_only": false,
+      "separate_only": false,
+      "spec_points": [
+        {
+          "id": "9f864548-6e12-42e3-a09b-126d9842d5f1",
+          "board": "aqa",
+          "code": "AQA 4.1.2.2",
+          "primary": true
+        },
+        {
+          "id": "5fd5ff94-db8c-4a64-a910-b5497e09dfaa",
+          "board": "aqa_trilogy",
+          "code": "AQA T 6.1.2.2",
+          "primary": true
+        },
+        {
+          "id": "bcd19852-692f-4e4d-97d1-eb34b5cf2afa",
+          "board": "edexcel",
+          "code": "EDEX 3.11",
+          "primary": true
+        },
+        {
+          "id": "dd7d358b-28c0-4079-9c28-0236034a95a2",
+          "board": "edexcel",
+          "code": "EDEX 3.12",
+          "primary": true
+        },
+        {
+          "id": "22de61e6-2637-480b-bdaf-acbad68f6e35",
+          "board": "edexcel",
+          "code": "EDEX 8.15",
+          "primary": true
+        },
+        {
+          "id": "a26e6870-2f77-42cc-97aa-95bae6204023",
+          "board": "ocr",
+          "code": "OCR P7.2d",
+          "primary": true
+        },
+        {
+          "id": "59d29726-e3ba-4bb3-a3c3-e87719ba7b85",
+          "board": "ocr",
+          "code": "OCR P7.2e",
+          "primary": true
+        }
+      ]
+    },
+    {
+      "id": "phys-009",
+      "group": "Energy",
+      "title": "Energy resources",
+      "scope": "Renewable and non-renewable energy resources, their uses, reliability and environmental impact, and trends in their use.",
+      "kind": "content",
+      "higher_only": false,
+      "separate_only": false,
+      "spec_points": [
+        {
+          "id": "a8e6bb33-445e-477e-8e46-2fa0b75aeeee",
+          "board": "aqa",
+          "code": "AQA 4.1.3",
+          "primary": true
+        },
+        {
+          "id": "0b389449-9047-4c4b-a6e7-6927800f4b38",
+          "board": "aqa_trilogy",
+          "code": "AQA T 6.1.3",
+          "primary": true
+        },
+        {
+          "id": "05a699fd-733d-450c-90cb-10b67b2d72ae",
+          "board": "edexcel",
+          "code": "EDEX 3.13",
+          "primary": true
+        },
+        {
+          "id": "ac11c711-ff80-41a2-9ee8-486ce6b099ef",
+          "board": "edexcel",
+          "code": "EDEX 3.14",
+          "primary": true
+        },
+        {
+          "id": "0ff38e29-b320-4403-9dd3-9f733db4b374",
+          "board": "ocr",
+          "code": "OCR P8.2a",
+          "primary": true
+        },
+        {
+          "id": "d6f49ba1-3f91-4da3-87cf-fc29c8f6ae29",
+          "board": "ocr",
+          "code": "OCR P8.2b",
+          "primary": true
+        },
+        {
+          "id": "b141d0d7-b797-4e71-8ed3-1024de55ad10",
+          "board": "edexcel",
+          "code": "EDEX 6.36P",
+          "primary": false
+        }
+      ]
+    },
+    {
+      "id": "phys-010",
+      "group": "Electricity",
+      "title": "Circuit symbols and measuring current and potential difference",
+      "scope": "Standard circuit symbols, drawing circuit diagrams, and connecting ammeters in series and voltmeters in parallel to measure and test circuits.",
+      "kind": "content",
+      "higher_only": false,
+      "separate_only": false,
+      "spec_points": [
+        {
+          "id": "0ebdbe4d-7377-407f-8433-ee3450a16868",
+          "board": "aqa",
+          "code": "AQA 4.2.1.1",
+          "primary": true
+        },
+        {
+          "id": "8434f25b-e3f4-4b19-b78d-f85739384d94",
+          "board": "aqa_trilogy",
+          "code": "AQA T 6.2.1.1",
+          "primary": true
+        },
+        {
+          "id": "562747b9-5030-4132-9955-61c5bbf9feb7",
+          "board": "edexcel",
+          "code": "EDEX 10.2",
+          "primary": true
+        },
+        {
+          "id": "47c2c993-3e98-4dea-8b44-b2f02b994204",
+          "board": "edexcel",
+          "code": "EDEX 10.4",
+          "primary": true
+        },
+        {
+          "id": "c740e228-cc4e-4f11-a4e2-a61a1e77f7b7",
+          "board": "edexcel",
+          "code": "EDEX 10.7",
+          "primary": true
+        },
+        {
+          "id": "ff732ef2-dfdf-416f-8dbd-f0da7bbfed42",
+          "board": "edexcel",
+          "code": "EDEX 10.16",
+          "primary": true
+        },
+        {
+          "id": "b2b80588-90e9-4c43-9dec-07fce2dff1c3",
+          "board": "ocr",
+          "code": "OCR P3.2b",
+          "primary": true
+        },
+        {
+          "id": "13d699ff-45da-4bfa-b3d0-853bfef69c47",
+          "board": "ocr",
+          "code": "OCR P3.2k",
+          "primary": true
+        },
+        {
+          "id": "edc42c31-3c97-4268-94f0-683c15ee6c36",
+          "board": "ocr",
+          "code": "OCR P3.2a",
+          "primary": false
+        }
+      ]
+    },
+    {
+      "id": "phys-011",
+      "group": "Electricity",
+      "title": "Charge and current",
+      "scope": "Current as the rate of flow of charge (Q = It), conditions needed for current to flow, and current being the same everywhere in a single loop.",
+      "kind": "content",
+      "higher_only": false,
+      "separate_only": false,
+      "spec_points": [
+        {
+          "id": "2f7d6d21-3f08-4476-89a0-5b8a407ee5ee",
+          "board": "aqa",
+          "code": "AQA 4.2.1.2",
+          "primary": true
+        },
+        {
+          "id": "e0a5b4ed-3675-4f14-aef6-1fe664f228f2",
+          "board": "aqa_trilogy",
+          "code": "AQA T 6.2.1.2",
+          "primary": true
+        },
+        {
+          "id": "06704b31-455f-48bc-870b-a3432d620f51",
+          "board": "edexcel",
+          "code": "EDEX 10.8",
+          "primary": true
+        },
+        {
+          "id": "f72fafdc-4a45-4771-b237-56d82c2ce3fa",
+          "board": "edexcel",
+          "code": "EDEX 10.9",
+          "primary": true
+        },
+        {
+          "id": "9e0000c7-e31e-4f04-b8ff-eebaf9965dfd",
+          "board": "edexcel",
+          "code": "EDEX 10.10",
+          "primary": true
+        },
+        {
+          "id": "462143b1-5982-485d-8a0d-a7358625ddcf",
+          "board": "ocr",
+          "code": "OCR P3.1e",
+          "primary": true
+        },
+        {
+          "id": "9bf34753-f164-44fd-ba10-e96e142b60bd",
+          "board": "ocr",
+          "code": "OCR P3.1f",
+          "primary": true
+        },
+        {
+          "id": "859a6d23-9eb2-44d3-96eb-3b00c9f06082",
+          "board": "ocr",
+          "code": "OCR P3.1g",
+          "primary": true
+        }
+      ]
+    },
+    {
+      "id": "phys-012",
+      "group": "Electricity",
+      "title": "Potential difference, current and resistance",
+      "scope": "How current depends on potential difference and resistance (V = IR) and how a variable resistor changes current.",
+      "kind": "content",
+      "higher_only": false,
+      "separate_only": false,
+      "spec_points": [
+        {
+          "id": "2e51af61-1a73-4c93-ae6d-8011527f575b",
+          "board": "aqa",
+          "code": "AQA 4.2.1.3",
+          "primary": true
+        },
+        {
+          "id": "78532d25-a71d-4104-870b-53ed107e033e",
+          "board": "aqa_trilogy",
+          "code": "AQA T 6.2.1.3",
+          "primary": true
+        },
+        {
+          "id": "61b23f25-c76a-4a27-8443-720cd256db9a",
+          "board": "edexcel",
+          "code": "EDEX 10.12",
+          "primary": true
+        },
+        {
+          "id": "4e397086-a947-4d70-a19f-85084f6f8327",
+          "board": "edexcel",
+          "code": "EDEX 10.13",
+          "primary": true
+        },
+        {
+          "id": "73e872b9-8062-4c28-b669-acf68989786f",
+          "board": "ocr",
+          "code": "OCR P3.2c",
+          "primary": true
+        },
+        {
+          "id": "01f4a5e2-b552-4cdc-886c-1a551611e3a4",
+          "board": "ocr",
+          "code": "OCR P3.2d",
+          "primary": true
+        }
+      ]
+    },
+    {
+      "id": "phys-013",
+      "group": "Electricity",
+      "title": "I–V characteristics, thermistors and LDRs",
+      "scope": "I–V graphs for a fixed resistor, filament lamp and diode, ohmic versus non-ohmic components, and how thermistor and LDR resistance changes with temperature and light.",
+      "kind": "content",
+      "higher_only": false,
+      "separate_only": false,
+      "spec_points": [
+        {
+          "id": "69aa4ef6-b189-497b-a1a4-f63a3c7e884d",
+          "board": "aqa",
+          "code": "AQA 4.2.1.4",
+          "primary": true
+        },
+        {
+          "id": "7bbf38c6-0e92-4039-ae5f-f81e17a2dd55",
+          "board": "aqa_trilogy",
+          "code": "AQA T 6.2.1.4",
+          "primary": true
+        },
+        {
+          "id": "551d01b6-8b23-4e64-a1b6-f3061e956319",
+          "board": "edexcel",
+          "code": "EDEX 10.18",
+          "primary": true
+        },
+        {
+          "id": "792647b4-392a-4d7c-b6a7-5e7ba18853af",
+          "board": "edexcel",
+          "code": "EDEX 10.19",
+          "primary": true
+        },
+        {
+          "id": "f989fb65-9917-45b4-b0c5-9fa761b17629",
+          "board": "edexcel",
+          "code": "EDEX 10.20",
+          "primary": true
+        },
+        {
+          "id": "7b544a63-970e-4dd0-a372-239791af4e39",
+          "board": "ocr",
+          "code": "OCR P3.2e",
+          "primary": true
+        },
+        {
+          "id": "d96f77cc-decd-480a-9f1a-b03619e1aa55",
+          "board": "ocr",
+          "code": "OCR P3.2g",
+          "primary": true
+        },
+        {
+          "id": "252292df-aa2f-46d8-8c85-2571de0b8c9c",
+          "board": "ocr",
+          "code": "OCR P3.2h",
+          "primary": true
+        },
+        {
+          "id": "19c14528-29bf-4fe9-bd88-7699d2e6bd92",
+          "board": "edexcel",
+          "code": "EDEX 10.17",
+          "primary": false
+        },
+        {
+          "id": "29879cad-ff9a-4e20-a0a9-b5d6e91f033c",
+          "board": "edexcel",
+          "code": "EDEX 10.21",
+          "primary": false
+        },
+        {
+          "id": "12d893d0-e789-4f5a-a81a-31fc4388dfdd",
+          "board": "ocr",
+          "code": "OCR P3.2f",
+          "primary": false
+        }
+      ]
+    },
+    {
+      "id": "phys-014",
+      "group": "Electricity",
+      "title": "Required practical: resistance and I–V characteristics",
+      "scope": "Building circuits to investigate how resistance depends on wire length or combinations of resistors, and to plot I–V characteristics of components.",
+      "kind": "practical",
+      "higher_only": false,
+      "separate_only": false,
+      "spec_points": [
+        {
+          "id": "19c14528-29bf-4fe9-bd88-7699d2e6bd92",
+          "board": "edexcel",
+          "code": "EDEX 10.17",
+          "primary": true
+        },
+        {
+          "id": "29879cad-ff9a-4e20-a0a9-b5d6e91f033c",
+          "board": "edexcel",
+          "code": "EDEX 10.21",
+          "primary": true
+        },
+        {
+          "id": "12d893d0-e789-4f5a-a81a-31fc4388dfdd",
+          "board": "ocr",
+          "code": "OCR P3.2f",
+          "primary": true
+        },
+        {
+          "id": "2e51af61-1a73-4c93-ae6d-8011527f575b",
+          "board": "aqa",
+          "code": "AQA 4.2.1.3",
+          "primary": false
+        },
+        {
+          "id": "78532d25-a71d-4104-870b-53ed107e033e",
+          "board": "aqa_trilogy",
+          "code": "AQA T 6.2.1.3",
+          "primary": false
+        },
+        {
+          "id": "69aa4ef6-b189-497b-a1a4-f63a3c7e884d",
+          "board": "aqa",
+          "code": "AQA 4.2.1.4",
+          "primary": false
+        },
+        {
+          "id": "7bbf38c6-0e92-4039-ae5f-f81e17a2dd55",
+          "board": "aqa_trilogy",
+          "code": "AQA T 6.2.1.4",
+          "primary": false
+        }
+      ]
+    },
+    {
+      "id": "phys-015",
+      "group": "Electricity",
+      "title": "Series and parallel circuits",
+      "scope": "Rules for current, potential difference and resistance in series and parallel circuits, and calculating equivalent resistance.",
+      "kind": "content",
+      "higher_only": false,
+      "separate_only": false,
+      "spec_points": [
+        {
+          "id": "dd2dfc70-cca6-469a-ae6b-c4c7ce98c051",
+          "board": "aqa",
+          "code": "AQA 4.2.2",
+          "primary": true
+        },
+        {
+          "id": "487305da-ab95-4fe7-93b1-5d565e3bed14",
+          "board": "aqa_trilogy",
+          "code": "AQA T 6.2.2",
+          "primary": true
+        },
+        {
+          "id": "286e8f4e-86e3-4fdd-a039-6dbf4641f724",
+          "board": "edexcel",
+          "code": "EDEX 10.3",
+          "primary": true
+        },
+        {
+          "id": "62f74fa7-8f24-43dc-8fa1-6b20d0a94b86",
+          "board": "edexcel",
+          "code": "EDEX 10.11",
+          "primary": true
+        },
+        {
+          "id": "a2cdd999-beaf-463c-8086-04a499d9ceae",
+          "board": "edexcel",
+          "code": "EDEX 10.14",
+          "primary": true
+        },
+        {
+          "id": "05cc15f8-36d1-411d-b020-4c5cc0720fd4",
+          "board": "edexcel",
+          "code": "EDEX 10.15",
+          "primary": true
+        },
+        {
+          "id": "edc42c31-3c97-4268-94f0-683c15ee6c36",
+          "board": "ocr",
+          "code": "OCR P3.2a",
+          "primary": true
+        },
+        {
+          "id": "131cbf80-4f67-4a0e-931f-121189c49d9d",
+          "board": "ocr",
+          "code": "OCR P3.2i",
+          "primary": true
+        },
+        {
+          "id": "371a3cc8-54b4-4748-b83e-bd43fd2e0cdb",
+          "board": "ocr",
+          "code": "OCR P3.2j",
+          "primary": true
+        },
+        {
+          "id": "5dc795b7-9187-4287-bebd-9fbb48a19e14",
+          "board": "ocr",
+          "code": "OCR P3.2m",
+          "primary": true
+        }
+      ]
+    },
+    {
+      "id": "phys-016",
+      "group": "Electricity",
+      "title": "Direct and alternating current",
+      "scope": "The difference between d.c. and a.c., and the UK mains supply of 230 V at 50 Hz.",
+      "kind": "content",
+      "higher_only": false,
+      "separate_only": false,
+      "spec_points": [
+        {
+          "id": "dbe2ebcc-b375-4696-a42d-696b747c9834",
+          "board": "aqa",
+          "code": "AQA 4.2.3.1",
+          "primary": true
+        },
+        {
+          "id": "2e48e850-95fc-4f51-a5d2-513a9aec7de5",
+          "board": "aqa_trilogy",
+          "code": "AQA T 6.2.3.1",
+          "primary": true
+        },
+        {
+          "id": "6c7dd65a-9e42-4361-843c-fb1b4b3d9945",
+          "board": "edexcel",
+          "code": "EDEX 10.33",
+          "primary": true
+        },
+        {
+          "id": "b53f8d8f-13ea-4ea5-be9c-9781efa6cd87",
+          "board": "edexcel",
+          "code": "EDEX 10.34",
+          "primary": true
+        },
+        {
+          "id": "11da1ac7-d04a-4ae0-9859-f231f85ce03d",
+          "board": "edexcel",
+          "code": "EDEX 10.35",
+          "primary": true
+        },
+        {
+          "id": "088a44a4-7b8e-4cc4-8b66-8b0d8cd1059f",
+          "board": "edexcel",
+          "code": "EDEX 10.36",
+          "primary": true
+        },
+        {
+          "id": "c6ebbb59-8251-4feb-8895-0139d071f9eb",
+          "board": "ocr",
+          "code": "OCR P8.2g",
+          "primary": true
+        },
+        {
+          "id": "3f00fd93-d2a9-4a02-af75-c43fff61a3ac",
+          "board": "ocr",
+          "code": "OCR P8.2h",
+          "primary": true
+        }
+      ]
+    },
+    {
+      "id": "phys-017",
+      "group": "Electricity",
+      "title": "Mains electricity and plug safety",
+      "scope": "Live, neutral and earth wires, their potential differences, fuses, circuit breakers and why touching the live wire is dangerous.",
+      "kind": "content",
+      "higher_only": false,
+      "separate_only": false,
+      "spec_points": [
+        {
+          "id": "29dc0b1e-f9e2-4b24-9ef9-af9aca956979",
+          "board": "aqa",
+          "code": "AQA 4.2.3.2",
+          "primary": true
+        },
+        {
+          "id": "4146f63c-747a-424f-9d5e-0482d11a4003",
+          "board": "aqa_trilogy",
+          "code": "AQA T 6.2.3.2",
+          "primary": true
+        },
+        {
+          "id": "df56745b-3d95-41c7-8068-bef868837d79",
+          "board": "edexcel",
+          "code": "EDEX 10.37",
+          "primary": true
+        },
+        {
+          "id": "26ffe411-895f-49aa-902d-610b92663cd9",
+          "board": "edexcel",
+          "code": "EDEX 10.38",
+          "primary": true
+        },
+        {
+          "id": "12e2d047-8a26-4a12-a082-82b4942a1bb7",
+          "board": "edexcel",
+          "code": "EDEX 10.39",
+          "primary": true
+        },
+        {
+          "id": "19280874-09c8-4cd2-9b34-4252a6fe1a6c",
+          "board": "edexcel",
+          "code": "EDEX 10.40",
+          "primary": true
+        },
+        {
+          "id": "4e85097b-e124-4320-8035-f847b3f0b6f6",
+          "board": "edexcel",
+          "code": "EDEX 10.41",
+          "primary": true
+        },
+        {
+          "id": "883ef74b-15a9-48f6-9ec0-de1db50f9b95",
+          "board": "ocr",
+          "code": "OCR P8.2i",
+          "primary": true
+        },
+        {
+          "id": "ec42224e-3e59-4641-9bbc-d405d494049e",
+          "board": "ocr",
+          "code": "OCR P8.2j",
+          "primary": true
+        }
+      ]
+    },
+    {
+      "id": "phys-018",
+      "group": "Electricity",
+      "title": "Electrical power and the heating effect of current",
+      "scope": "Electrical power (P = IV, P = I²R, P = E/t) and the heating effect of a current explained by electron–lattice collisions.",
+      "kind": "content",
+      "higher_only": false,
+      "separate_only": false,
+      "spec_points": [
+        {
+          "id": "92921793-b4ce-482a-9d00-8ee92f090730",
+          "board": "aqa",
+          "code": "AQA 4.2.4.1",
+          "primary": true
+        },
+        {
+          "id": "15501e5e-b43a-4c9b-b199-dfd22847fa96",
+          "board": "aqa_trilogy",
+          "code": "AQA T 6.2.4.1",
+          "primary": true
+        },
+        {
+          "id": "e3cd6796-80df-426f-8096-29cb5e192311",
+          "board": "edexcel",
+          "code": "EDEX 10.22",
+          "primary": true
+        },
+        {
+          "id": "f91e074a-c12d-441b-9993-42ff3e5ea78f",
+          "board": "edexcel",
+          "code": "EDEX 10.23",
+          "primary": true
+        },
+        {
+          "id": "d04ffe08-f48b-4b34-8f93-911136a50daa",
+          "board": "edexcel",
+          "code": "EDEX 10.24",
+          "primary": true
+        },
+        {
+          "id": "a2e010a0-cf8a-4709-9edf-e96375d049e8",
+          "board": "edexcel",
+          "code": "EDEX 10.25",
+          "primary": true
+        },
+        {
+          "id": "fccb4693-d7bb-4f53-9452-e05bf55d9b0d",
+          "board": "edexcel",
+          "code": "EDEX 10.26",
+          "primary": true
+        },
+        {
+          "id": "c08787e8-b871-48ba-811c-0d32226a2fc3",
+          "board": "edexcel",
+          "code": "EDEX 10.28",
+          "primary": true
+        },
+        {
+          "id": "c87c4fc2-d838-4723-8309-9202dff8afae",
+          "board": "edexcel",
+          "code": "EDEX 10.29",
+          "primary": true
+        },
+        {
+          "id": "70ce42aa-c7c5-40c7-b4e8-6e60f8bab4c7",
+          "board": "edexcel",
+          "code": "EDEX 10.30",
+          "primary": true
+        },
+        {
+          "id": "15ee130f-7b5f-4413-a4f8-e85e6b1d6774",
+          "board": "edexcel",
+          "code": "EDEX 10.31",
+          "primary": true
+        },
+        {
+          "id": "b70b348d-1d94-45f6-bd19-c8581aeaa335",
+          "board": "ocr",
+          "code": "OCR P3.2l",
+          "primary": true
+        }
+      ]
+    },
+    {
+      "id": "phys-019",
+      "group": "Electricity",
+      "title": "Energy transfers in everyday appliances",
+      "scope": "Energy transferred by appliances (E = Pt, E = QV), potential difference as energy per unit charge, and power ratings of household devices.",
+      "kind": "content",
+      "higher_only": false,
+      "separate_only": false,
+      "spec_points": [
+        {
+          "id": "5beb6deb-2433-4fd4-a2e4-163739bc0209",
+          "board": "aqa",
+          "code": "AQA 4.2.4.2",
+          "primary": true
+        },
+        {
+          "id": "0a9521c2-89f4-425d-8060-8caacbaba5e1",
+          "board": "aqa_trilogy",
+          "code": "AQA T 6.2.4.2",
+          "primary": true
+        },
+        {
+          "id": "b301105f-0724-409c-8e6e-d463a58b635c",
+          "board": "edexcel",
+          "code": "EDEX 10.5",
+          "primary": true
+        },
+        {
+          "id": "97a0b677-342d-4c51-a329-9f1bc0114bf3",
+          "board": "edexcel",
+          "code": "EDEX 10.6",
+          "primary": true
+        },
+        {
+          "id": "19e2771e-542f-4c9d-999b-84e8a6879508",
+          "board": "edexcel",
+          "code": "EDEX 10.27",
+          "primary": true
+        },
+        {
+          "id": "6953e755-4400-4e5e-918e-a25f3d8921d3",
+          "board": "edexcel",
+          "code": "EDEX 10.32",
+          "primary": true
+        },
+        {
+          "id": "b0b85858-e613-4b15-9b28-233dfd95994d",
+          "board": "edexcel",
+          "code": "EDEX 10.42",
+          "primary": true
+        },
+        {
+          "id": "8ca36cc2-a4c7-42fa-ada6-8ffe0202b2f7",
+          "board": "ocr",
+          "code": "OCR P7.2b",
+          "primary": true
+        },
+        {
+          "id": "aa15fad4-556a-486e-b262-f332f1aacbe7",
+          "board": "ocr",
+          "code": "OCR P7.2c",
+          "primary": true
+        }
+      ]
+    },
+    {
+      "id": "phys-020",
+      "group": "Electricity",
+      "title": "The National Grid",
+      "scope": "How the National Grid uses step-up and step-down transformers and high-voltage transmission to reduce energy losses.",
+      "kind": "content",
+      "higher_only": false,
+      "separate_only": false,
+      "spec_points": [
+        {
+          "id": "bac89603-adb4-493d-afa7-3891eab71e00",
+          "board": "aqa",
+          "code": "AQA 4.2.4.3",
+          "primary": true
+        },
+        {
+          "id": "0e6ba1a4-54d2-44aa-aadb-823b6d927f13",
+          "board": "aqa_trilogy",
+          "code": "AQA T 6.2.4.3",
+          "primary": true
+        },
+        {
+          "id": "750105bf-41fe-4847-9093-41ace130f870",
+          "board": "edexcel",
+          "code": "EDEX 13.8",
+          "primary": true
+        },
+        {
+          "id": "94e82b7d-4a58-4efb-a63d-66d4c78e95b7",
+          "board": "edexcel",
+          "code": "EDEX 13.9",
+          "primary": true
+        },
+        {
+          "id": "bfe5783f-8827-47a3-b176-52871c5f6a49",
+          "board": "edexcel",
+          "code": "EDEX 13.11P",
+          "primary": true
+        },
+        {
+          "id": "c614005b-7de1-4f38-b3bd-6cf7889ad163",
+          "board": "ocr",
+          "code": "OCR P8.2c",
+          "primary": true
+        },
+        {
+          "id": "9c7c51fb-bc5d-4cf1-8576-43fc39b78c90",
+          "board": "ocr",
+          "code": "OCR P8.2d",
+          "primary": true
+        },
+        {
+          "id": "77722fa9-3bd8-4b17-841f-eabbb0a278cb",
+          "board": "ocr",
+          "code": "OCR P8.2e",
+          "primary": true
+        },
+        {
+          "id": "856cc69c-4a9d-4dc9-85ac-d1455a6905b5",
+          "board": "ocr",
+          "code": "OCR P8.2f",
+          "primary": false
+        }
+      ]
+    },
+    {
+      "id": "phys-021",
+      "group": "Electricity",
+      "title": "Static electricity",
+      "scope": "Charging insulators by friction through electron transfer, attraction and repulsion of charges, sparking, earthing and everyday uses and dangers of static.",
+      "kind": "content",
+      "higher_only": false,
+      "separate_only": true,
+      "spec_points": [
+        {
+          "id": "189fa500-7394-4e36-903e-bbee81a0a5b6",
+          "board": "aqa",
+          "code": "AQA 4.2.5.1",
+          "primary": true
+        },
+        {
+          "id": "dafcb82e-c38f-4a71-96e4-4be7e673ae75",
+          "board": "edexcel",
+          "code": "EDEX 11.1P",
+          "primary": true
+        },
+        {
+          "id": "93f7d1e8-25d2-46a3-8073-06b0520cffdc",
+          "board": "edexcel",
+          "code": "EDEX 11.2P",
+          "primary": true
+        },
+        {
+          "id": "70e47232-74ab-4b3e-a4e2-26adc54be72b",
+          "board": "edexcel",
+          "code": "EDEX 11.3P",
+          "primary": true
+        },
+        {
+          "id": "c90b97cc-6eea-4719-b6cf-a3e00a8f46ec",
+          "board": "edexcel",
+          "code": "EDEX 11.4P",
+          "primary": true
+        },
+        {
+          "id": "aea66a78-e5a5-45cf-87a0-071180a0158b",
+          "board": "edexcel",
+          "code": "EDEX 11.5P",
+          "primary": true
+        },
+        {
+          "id": "c761aca8-121c-407f-b905-208e5ac893f1",
+          "board": "edexcel",
+          "code": "EDEX 11.6P",
+          "primary": true
+        },
+        {
+          "id": "33ac4d7d-b750-4781-8fbf-1a65ff30e2f4",
+          "board": "edexcel",
+          "code": "EDEX 11.7P",
+          "primary": true
+        },
+        {
+          "id": "d3f49a4f-de91-43ac-93a1-d4beb39c4cb1",
+          "board": "ocr",
+          "code": "OCR P3.1a",
+          "primary": true
+        },
+        {
+          "id": "e29f40ff-638b-44eb-9aad-0288e0d3abc7",
+          "board": "ocr",
+          "code": "OCR P3.1b",
+          "primary": true
+        },
+        {
+          "id": "93c4db64-10b3-4ff3-9cd9-3529d21bdcab",
+          "board": "ocr",
+          "code": "OCR P3.1c",
+          "primary": true
+        }
+      ]
+    },
+    {
+      "id": "phys-022",
+      "group": "Electricity",
+      "title": "Electric fields",
+      "scope": "Electric fields around charged objects and between parallel plates, field-line diagrams and how fields explain static effects.",
+      "kind": "content",
+      "higher_only": false,
+      "separate_only": true,
+      "spec_points": [
+        {
+          "id": "0fd5d872-2e66-4ae9-84ed-a6061a88d118",
+          "board": "aqa",
+          "code": "AQA 4.2.5.2",
+          "primary": true
+        },
+        {
+          "id": "7f53d359-af24-4ad6-9ecc-654fabdc9f03",
+          "board": "edexcel",
+          "code": "EDEX 11.8P",
+          "primary": true
+        },
+        {
+          "id": "b568c287-6a62-43cd-b853-bb65b721f8f7",
+          "board": "edexcel",
+          "code": "EDEX 11.9P",
+          "primary": true
+        },
+        {
+          "id": "729259cf-0ba3-401c-99b1-4309c12d5dd4",
+          "board": "edexcel",
+          "code": "EDEX 11.10P",
+          "primary": true
+        },
+        {
+          "id": "5e28fcae-7582-4bcf-a472-040c2e811f92",
+          "board": "ocr",
+          "code": "OCR P3.1d",
+          "primary": true
+        }
+      ]
+    },
+    {
+      "id": "phys-023",
+      "group": "Particle model of matter",
+      "title": "States of matter and density",
+      "scope": "The particle model of solids, liquids and gases and calculating density (ρ = m/V), including why the states differ in density.",
+      "kind": "content",
+      "higher_only": false,
+      "separate_only": false,
+      "spec_points": [
+        {
+          "id": "a71909cb-78e4-4320-a85d-190c20804675",
+          "board": "aqa",
+          "code": "AQA 4.3.1.1",
+          "primary": true
+        },
+        {
+          "id": "de0e77b3-8ca5-46a5-91d8-5244da45d799",
+          "board": "aqa_trilogy",
+          "code": "AQA T 6.3.1.1",
+          "primary": true
+        },
+        {
+          "id": "e799b446-bc79-4d01-8428-d8ba43c075d1",
+          "board": "edexcel",
+          "code": "EDEX 14.1",
+          "primary": true
+        },
+        {
+          "id": "0e9f5aa5-da44-4494-9ece-15362c162708",
+          "board": "edexcel",
+          "code": "EDEX 14.2",
+          "primary": true
+        },
+        {
+          "id": "d85bc68d-5727-4a47-aa57-7c296026e5a8",
+          "board": "edexcel",
+          "code": "EDEX 14.4",
+          "primary": true
+        },
+        {
+          "id": "8857d7f5-d3c0-472d-9d93-1c0192689434",
+          "board": "ocr",
+          "code": "OCR P1.1d",
+          "primary": true
+        },
+        {
+          "id": "b2811351-1bd2-427a-b06c-0d02018e017c",
+          "board": "ocr",
+          "code": "OCR P1.1e",
+          "primary": true
+        },
+        {
+          "id": "fbd49186-8285-4d83-a24a-873d71c3c926",
+          "board": "ocr",
+          "code": "OCR P1.1f",
+          "primary": true
+        },
+        {
+          "id": "bd41094a-c05e-47a3-b02a-5fc869c893cd",
+          "board": "edexcel",
+          "code": "EDEX 14.3",
+          "primary": false
+        }
+      ]
+    },
+    {
+      "id": "phys-024",
+      "group": "Particle model of matter",
+      "title": "Required practical: density",
+      "scope": "Measuring the density of regular and irregular solids and of liquids using mass, dimensions and displacement.",
+      "kind": "practical",
+      "higher_only": false,
+      "separate_only": false,
+      "data_note": "taught by OCR (PAG practical activity) but no matching spec point",
+      "spec_points": [
+        {
+          "id": "bd41094a-c05e-47a3-b02a-5fc869c893cd",
+          "board": "edexcel",
+          "code": "EDEX 14.3",
+          "primary": true
+        },
+        {
+          "id": "a71909cb-78e4-4320-a85d-190c20804675",
+          "board": "aqa",
+          "code": "AQA 4.3.1.1",
+          "primary": false
+        },
+        {
+          "id": "de0e77b3-8ca5-46a5-91d8-5244da45d799",
+          "board": "aqa_trilogy",
+          "code": "AQA T 6.3.1.1",
+          "primary": false
+        }
+      ]
+    },
+    {
+      "id": "phys-025",
+      "group": "Particle model of matter",
+      "title": "Changes of state",
+      "scope": "Melting, freezing, boiling, evaporating, condensing and sublimating as reversible physical changes in which mass is conserved.",
+      "kind": "content",
+      "higher_only": false,
+      "separate_only": false,
+      "spec_points": [
+        {
+          "id": "ba0c62ba-0791-4e31-a302-988c0b7b9730",
+          "board": "aqa",
+          "code": "AQA 4.3.1.2",
+          "primary": true
+        },
+        {
+          "id": "36e24922-8e21-4c0e-b87d-f16f2fa8643e",
+          "board": "aqa_trilogy",
+          "code": "AQA T 6.3.1.2",
+          "primary": true
+        },
+        {
+          "id": "01c0dfd5-66d3-400a-9765-004501a10701",
+          "board": "edexcel",
+          "code": "EDEX 14.5",
+          "primary": true
+        },
+        {
+          "id": "34a7aa2c-3875-439e-9cc8-9bb57a5cd8a3",
+          "board": "ocr",
+          "code": "OCR P1.2a",
+          "primary": true
+        },
+        {
+          "id": "c2bcfe4d-42f5-4559-a0a9-5dd8b12736ea",
+          "board": "ocr",
+          "code": "OCR P1.2b",
+          "primary": true
+        }
+      ]
+    },
+    {
+      "id": "phys-026",
+      "group": "Particle model of matter",
+      "title": "Internal energy",
+      "scope": "Internal energy as the total kinetic and potential energy of the particles, and how heating raises temperature or changes state.",
+      "kind": "content",
+      "higher_only": false,
+      "separate_only": false,
+      "spec_points": [
+        {
+          "id": "38ac1ccd-c458-450d-832a-78dff68182f3",
+          "board": "aqa",
+          "code": "AQA 4.3.2.1",
+          "primary": true
+        },
+        {
+          "id": "ab072255-4ced-4e4f-a518-e8aedc1316b9",
+          "board": "aqa_trilogy",
+          "code": "AQA T 6.3.2.1",
+          "primary": true
+        },
+        {
+          "id": "8b023ec2-4e48-4a5d-b4a6-ddbfef15250b",
+          "board": "edexcel",
+          "code": "EDEX 14.6",
+          "primary": true
+        },
+        {
+          "id": "25043cb9-3814-41c7-a2ba-1630825b0bd6",
+          "board": "ocr",
+          "code": "OCR P1.2c",
+          "primary": true
+        }
+      ]
+    },
+    {
+      "id": "phys-027",
+      "group": "Particle model of matter",
+      "title": "Specific heat capacity",
+      "scope": "Specific heat capacity and calculating the energy needed to change temperature (ΔE = mcΔθ).",
+      "kind": "content",
+      "higher_only": false,
+      "separate_only": false,
+      "spec_points": [
+        {
+          "id": "920d5b82-0da1-4056-ae3e-efd5805bc95c",
+          "board": "aqa",
+          "code": "AQA 4.1.1.3",
+          "primary": true
+        },
+        {
+          "id": "d6e13b88-d99b-4a5b-9920-522afb61d365",
+          "board": "aqa_trilogy",
+          "code": "AQA T 6.1.1.3",
+          "primary": true
+        },
+        {
+          "id": "d1817a6e-25eb-4f92-b2b8-1bb55cd68807",
+          "board": "aqa",
+          "code": "AQA 4.3.2.2",
+          "primary": true
+        },
+        {
+          "id": "1ea1c06d-78ce-4d31-a3ed-8392b753fd6f",
+          "board": "aqa_trilogy",
+          "code": "AQA T 6.3.2.2",
+          "primary": true
+        },
+        {
+          "id": "71d3df6f-f19a-4ca9-a099-8b248d5135bd",
+          "board": "edexcel",
+          "code": "EDEX 14.7",
+          "primary": true
+        },
+        {
+          "id": "0bdfdf29-1cac-4401-831e-e8c814430fdf",
+          "board": "edexcel",
+          "code": "EDEX 14.8",
+          "primary": true
+        },
+        {
+          "id": "192fbfa3-cc37-447b-a548-9c21460b0b02",
+          "board": "ocr",
+          "code": "OCR P1.2d",
+          "primary": true
+        },
+        {
+          "id": "b1bb38e2-1db1-4d4d-85c2-fcd1e731d44c",
+          "board": "ocr",
+          "code": "OCR P1.2e",
+          "primary": true
+        },
+        {
+          "id": "fdaeda44-cd92-459a-8b95-b7f163bdafdd",
+          "board": "ocr",
+          "code": "OCR P7.1c",
+          "primary": true
+        },
+        {
+          "id": "60e73727-82bc-489c-9aec-4905102a2a7b",
+          "board": "edexcel",
+          "code": "EDEX 14.11",
+          "primary": false
+        }
+      ]
+    },
+    {
+      "id": "phys-028",
+      "group": "Particle model of matter",
+      "title": "Specific latent heat",
+      "scope": "Latent heat of fusion and vaporisation, calculating energy for a change of state (E = mL) and heating and cooling curves.",
+      "kind": "content",
+      "higher_only": false,
+      "separate_only": false,
+      "spec_points": [
+        {
+          "id": "489b9fc2-422a-4a00-8341-769cb1de00b9",
+          "board": "aqa",
+          "code": "AQA 4.3.2.3",
+          "primary": true
+        },
+        {
+          "id": "db7c1503-b881-470f-8081-2e75a8049eb4",
+          "board": "aqa_trilogy",
+          "code": "AQA T 6.3.2.3",
+          "primary": true
+        },
+        {
+          "id": "c05eb3b7-010d-424e-a735-88782e122347",
+          "board": "edexcel",
+          "code": "EDEX 14.9",
+          "primary": true
+        },
+        {
+          "id": "208cd0f5-423e-4d02-957b-9d1965bb4758",
+          "board": "ocr",
+          "code": "OCR P1.2f",
+          "primary": true
+        },
+        {
+          "id": "71d3df6f-f19a-4ca9-a099-8b248d5135bd",
+          "board": "edexcel",
+          "code": "EDEX 14.7",
+          "primary": false
+        },
+        {
+          "id": "60e73727-82bc-489c-9aec-4905102a2a7b",
+          "board": "edexcel",
+          "code": "EDEX 14.11",
+          "primary": false
+        }
+      ]
+    },
+    {
+      "id": "phys-029",
+      "group": "Particle model of matter",
+      "title": "Required practical: specific heat capacity",
+      "scope": "Determining the specific heat capacity of water or a metal block and obtaining a heating curve for melting ice.",
+      "kind": "practical",
+      "higher_only": false,
+      "separate_only": false,
+      "data_note": "taught by OCR (PAG practical activity) but no matching spec point",
+      "spec_points": [
+        {
+          "id": "60e73727-82bc-489c-9aec-4905102a2a7b",
+          "board": "edexcel",
+          "code": "EDEX 14.11",
+          "primary": true
+        },
+        {
+          "id": "920d5b82-0da1-4056-ae3e-efd5805bc95c",
+          "board": "aqa",
+          "code": "AQA 4.1.1.3",
+          "primary": false
+        },
+        {
+          "id": "d6e13b88-d99b-4a5b-9920-522afb61d365",
+          "board": "aqa_trilogy",
+          "code": "AQA T 6.1.1.3",
+          "primary": false
+        }
+      ]
+    },
+    {
+      "id": "phys-030",
+      "group": "Particle model of matter",
+      "title": "Gas temperature, pressure and absolute zero",
+      "scope": "How the motion of gas particles relates to temperature and pressure, absolute zero and converting between kelvin and Celsius.",
+      "kind": "content",
+      "higher_only": false,
+      "separate_only": false,
+      "spec_points": [
+        {
+          "id": "a1c6178c-4bae-4d8e-a0ec-1148f48c4c69",
+          "board": "aqa",
+          "code": "AQA 4.3.3.1",
+          "primary": true
+        },
+        {
+          "id": "6dca44f0-361d-4f15-b172-c9acf2837a69",
+          "board": "aqa_trilogy",
+          "code": "AQA T 6.3.3.1",
+          "primary": true
+        },
+        {
+          "id": "1c9fee17-c623-4d08-8a23-a7b9630ecbe3",
+          "board": "edexcel",
+          "code": "EDEX 14.12",
+          "primary": true
+        },
+        {
+          "id": "2910f8d8-79ad-4352-b0ae-4968f80e8eb1",
+          "board": "edexcel",
+          "code": "EDEX 14.13",
+          "primary": true
+        },
+        {
+          "id": "55424f1f-5914-42db-92c9-bce6cec00bd8",
+          "board": "edexcel",
+          "code": "EDEX 14.14",
+          "primary": true
+        },
+        {
+          "id": "1da8f170-023e-4407-95fd-305f52a9960e",
+          "board": "edexcel",
+          "code": "EDEX 14.15",
+          "primary": true
+        },
+        {
+          "id": "daac9241-543f-48a9-8646-7c1838a908e5",
+          "board": "ocr",
+          "code": "OCR P1.3a",
+          "primary": true
+        },
+        {
+          "id": "61652cb5-a240-4ade-8e24-d54e4016c692",
+          "board": "ocr",
+          "code": "OCR P1.3b",
+          "primary": true
+        }
+      ]
+    },
+    {
+      "id": "phys-031",
+      "group": "Particle model of matter",
+      "title": "Gas pressure, volume and doing work on a gas",
+      "scope": "Pressure acting at right angles to surfaces, pV = constant at fixed temperature, and why doing work on a gas (e.g. a bicycle pump) raises its temperature.",
+      "kind": "content",
+      "higher_only": false,
+      "separate_only": true,
+      "spec_points": [
+        {
+          "id": "74f5ee80-2911-4c81-8ca5-c0fb92292aa2",
+          "board": "aqa",
+          "code": "AQA 4.3.3.2",
+          "primary": true
+        },
+        {
+          "id": "98b26a14-d04e-45be-9b21-aae970dfea06",
+          "board": "aqa",
+          "code": "AQA 4.3.3.3",
+          "primary": true
+        },
+        {
+          "id": "d87fb4a2-b08e-4589-bda6-e6c68f5d0721",
+          "board": "edexcel",
+          "code": "EDEX 14.16P",
+          "primary": true
+        },
+        {
+          "id": "dd5fbe1b-a530-4316-bd45-fa76a67a4c8b",
+          "board": "edexcel",
+          "code": "EDEX 14.17P",
+          "primary": true
+        },
+        {
+          "id": "d297da20-a45f-4ba0-b0e8-c5d19bf88acc",
+          "board": "edexcel",
+          "code": "EDEX 14.18P",
+          "primary": true
+        },
+        {
+          "id": "67acb1a6-0cb3-4b92-aeba-d0ebcb66d6ea",
+          "board": "edexcel",
+          "code": "EDEX 14.19P",
+          "primary": true
+        },
+        {
+          "id": "8a05e42a-3f63-4fd3-a95f-3f30c9ab5d80",
+          "board": "edexcel",
+          "code": "EDEX 14.20P",
+          "primary": true
+        },
+        {
+          "id": "065ac984-cf38-455e-8bed-fe73810249b8",
+          "board": "ocr",
+          "code": "OCR P1.3c",
+          "primary": true
+        },
+        {
+          "id": "67b7fa1b-cd71-4672-8f03-da5615705092",
+          "board": "ocr",
+          "code": "OCR P1.3d",
+          "primary": true
+        },
+        {
+          "id": "ac62fa0e-67e3-4d57-9e11-2cb76b2283a3",
+          "board": "ocr",
+          "code": "OCR P1.3e",
+          "primary": true
+        }
+      ]
+    },
+    {
+      "id": "phys-032",
+      "group": "Atomic structure and radioactivity",
+      "title": "Structure of the atom",
+      "scope": "The nucleus of protons and neutrons with orbiting electrons, the size of atoms, relative masses and charges, energy levels, ions and absorption or emission of radiation.",
+      "kind": "content",
+      "higher_only": false,
+      "separate_only": false,
+      "spec_points": [
+        {
+          "id": "e94dd4a0-cddb-4ee8-9714-7f1db1c91e97",
+          "board": "aqa",
+          "code": "AQA 4.4.1.1",
+          "primary": true
+        },
+        {
+          "id": "f8f2395b-05a1-4711-9ecd-f6b482d40d52",
+          "board": "aqa_trilogy",
+          "code": "AQA T 6.4.1.1",
+          "primary": true
+        },
+        {
+          "id": "2669d044-8bfe-46d7-86a9-fc41f1e56a8f",
+          "board": "edexcel",
+          "code": "EDEX 5.24",
+          "primary": true
+        },
+        {
+          "id": "0bd098e7-c366-4cf6-9fa5-4f00783e8117",
+          "board": "edexcel",
+          "code": "EDEX 6.1",
+          "primary": true
+        },
+        {
+          "id": "eb50039f-fb32-4f23-ae2f-2463b7fa1885",
+          "board": "edexcel",
+          "code": "EDEX 6.2",
+          "primary": true
+        },
+        {
+          "id": "80eeea29-99dc-4c48-93c4-cd7be19b6bf6",
+          "board": "edexcel",
+          "code": "EDEX 6.5",
+          "primary": true
+        },
+        {
+          "id": "66bb9849-8279-42a6-a482-736141ee44fa",
+          "board": "edexcel",
+          "code": "EDEX 6.6",
+          "primary": true
+        },
+        {
+          "id": "a1bfa499-100c-4e3f-ae67-9e4fc9d6ad28",
+          "board": "edexcel",
+          "code": "EDEX 6.7",
+          "primary": true
+        },
+        {
+          "id": "17c04418-ed9a-4f29-8f1a-1cf4cdf6b090",
+          "board": "edexcel",
+          "code": "EDEX 6.8",
+          "primary": true
+        },
+        {
+          "id": "f818c42e-8c10-46f5-a117-95acb1de47dc",
+          "board": "edexcel",
+          "code": "EDEX 6.9",
+          "primary": true
+        },
+        {
+          "id": "7fffd8f3-0534-42f6-9b0d-e57936dc3103",
+          "board": "edexcel",
+          "code": "EDEX 10.1",
+          "primary": true
+        },
+        {
+          "id": "24564680-80fa-476a-9ba7-8e2b5f448cc2",
+          "board": "ocr",
+          "code": "OCR P1.1b",
+          "primary": true
+        },
+        {
+          "id": "5ecf9c05-e7f3-4906-8fd5-f0e7c5bb1d4f",
+          "board": "ocr",
+          "code": "OCR P1.1c",
+          "primary": true
+        },
+        {
+          "id": "d97e9e6c-b7da-41f1-b2a4-7b58ac37f119",
+          "board": "ocr",
+          "code": "OCR P6.1h",
+          "primary": true
+        },
+        {
+          "id": "7c3c1df5-650f-4133-8cb9-58a044ede6a7",
+          "board": "ocr",
+          "code": "OCR P6.1i",
+          "primary": true
+        }
+      ]
+    },
+    {
+      "id": "phys-033",
+      "group": "Atomic structure and radioactivity",
+      "title": "Atomic number, mass number and isotopes",
+      "scope": "Atomic and mass numbers, nuclear notation and isotopes as atoms with different numbers of neutrons.",
+      "kind": "content",
+      "higher_only": false,
+      "separate_only": false,
+      "spec_points": [
+        {
+          "id": "4214a5da-b95b-420c-a248-d29d6aa0384c",
+          "board": "aqa",
+          "code": "AQA 4.4.1.2",
+          "primary": true
+        },
+        {
+          "id": "acd7d4d4-03e3-4a81-99e3-435d86d8e979",
+          "board": "aqa_trilogy",
+          "code": "AQA T 6.4.1.2",
+          "primary": true
+        },
+        {
+          "id": "94f80382-3e72-4f9a-8ceb-e4b4fabcead2",
+          "board": "edexcel",
+          "code": "EDEX 6.3",
+          "primary": true
+        },
+        {
+          "id": "c94524a0-bab4-4f42-9aee-d79f25908de0",
+          "board": "edexcel",
+          "code": "EDEX 6.4",
+          "primary": true
+        },
+        {
+          "id": "35b0e0e3-3274-4076-9f0c-9ebf39c49846",
+          "board": "ocr",
+          "code": "OCR P6.1a",
+          "primary": true
+        },
+        {
+          "id": "95cc0565-067e-4a02-9eba-9a0d3de080c9",
+          "board": "ocr",
+          "code": "OCR P6.1b",
+          "primary": true
+        },
+        {
+          "id": "e558d928-8f96-4af1-9063-db4a06737066",
+          "board": "ocr",
+          "code": "OCR P6.1c",
+          "primary": true
+        }
+      ]
+    },
+    {
+      "id": "phys-034",
+      "group": "Atomic structure and radioactivity",
+      "title": "Development of the atomic model",
+      "scope": "How the model changed from the plum pudding model through Rutherford's alpha scattering experiment to Bohr and the discovery of the neutron.",
+      "kind": "content",
+      "higher_only": false,
+      "separate_only": false,
+      "spec_points": [
+        {
+          "id": "28077c86-3107-4168-a21c-f60ceba109eb",
+          "board": "aqa",
+          "code": "AQA 4.4.1.3",
+          "primary": true
+        },
+        {
+          "id": "9b022a6d-24a0-4c24-8d92-c350ec5455d2",
+          "board": "aqa_trilogy",
+          "code": "AQA T 6.4.1.3",
+          "primary": true
+        },
+        {
+          "id": "7f7310fd-2c95-4b99-85cc-674cc81186d4",
+          "board": "edexcel",
+          "code": "EDEX 6.17",
+          "primary": true
+        },
+        {
+          "id": "68d6c87d-0fc2-4d8d-9884-046f6a914255",
+          "board": "ocr",
+          "code": "OCR P1.1a",
+          "primary": true
+        }
+      ]
+    },
+    {
+      "id": "phys-035",
+      "group": "Atomic structure and radioactivity",
+      "title": "Radioactive decay and nuclear radiation",
+      "scope": "Alpha, beta, gamma and neutron emission, their nature, penetration and ionising power, activity in becquerels and detection with a Geiger–Müller tube.",
+      "kind": "content",
+      "higher_only": false,
+      "separate_only": false,
+      "spec_points": [
+        {
+          "id": "b758998b-5e89-4aa6-b4c0-684260f47d93",
+          "board": "aqa",
+          "code": "AQA 4.4.2.1",
+          "primary": true
+        },
+        {
+          "id": "cce72e59-8593-4696-be59-8733ba238025",
+          "board": "aqa_trilogy",
+          "code": "AQA T 6.4.2.1",
+          "primary": true
+        },
+        {
+          "id": "254db599-e653-465f-ad53-e30644261823",
+          "board": "edexcel",
+          "code": "EDEX 6.10",
+          "primary": true
+        },
+        {
+          "id": "dd9d6dcf-dfed-48d5-b340-f7fde282d7c1",
+          "board": "edexcel",
+          "code": "EDEX 6.11",
+          "primary": true
+        },
+        {
+          "id": "9b7b333a-3451-4289-ae32-957c62a91c8c",
+          "board": "edexcel",
+          "code": "EDEX 6.14",
+          "primary": true
+        },
+        {
+          "id": "42dd98c4-6072-4b81-822f-00f2d69c8f22",
+          "board": "edexcel",
+          "code": "EDEX 6.15",
+          "primary": true
+        },
+        {
+          "id": "7dec85b2-091c-4763-a839-c991d66558a3",
+          "board": "edexcel",
+          "code": "EDEX 6.16",
+          "primary": true
+        },
+        {
+          "id": "9f93a615-b5fb-4bfa-86ac-68488aa91175",
+          "board": "ocr",
+          "code": "OCR P6.1d",
+          "primary": true
+        },
+        {
+          "id": "55ae0cb9-c414-42c5-a0d8-6950f677345a",
+          "board": "ocr",
+          "code": "OCR P6.1l",
+          "primary": true
+        }
+      ]
+    },
+    {
+      "id": "phys-036",
+      "group": "Atomic structure and radioactivity",
+      "title": "Nuclear equations",
+      "scope": "Writing and balancing nuclear equations for alpha, beta-minus, beta-plus and gamma decay and their effect on atomic and mass number.",
+      "kind": "content",
+      "higher_only": false,
+      "separate_only": false,
+      "spec_points": [
+        {
+          "id": "9b20b175-f227-4fa4-bbab-9938eba7347f",
+          "board": "aqa",
+          "code": "AQA 4.4.2.2",
+          "primary": true
+        },
+        {
+          "id": "f000c66f-4222-468f-88bf-8880c81fd986",
+          "board": "aqa_trilogy",
+          "code": "AQA T 6.4.2.2",
+          "primary": true
+        },
+        {
+          "id": "3c1850d6-2621-42e7-9244-02cf69688c41",
+          "board": "edexcel",
+          "code": "EDEX 6.18",
+          "primary": true
+        },
+        {
+          "id": "e2203da0-7dc3-4e49-b49f-c9ee0e50afcc",
+          "board": "edexcel",
+          "code": "EDEX 6.19",
+          "primary": true
+        },
+        {
+          "id": "bf859455-6aa1-4c6f-920b-4a6ee84f94cf",
+          "board": "edexcel",
+          "code": "EDEX 6.20",
+          "primary": true
+        },
+        {
+          "id": "8b7babb7-7ec5-4430-9fb0-4dca2e159dc8",
+          "board": "edexcel",
+          "code": "EDEX 6.21",
+          "primary": true
+        },
+        {
+          "id": "7cc17727-beb9-4748-ab02-affff607ff0d",
+          "board": "edexcel",
+          "code": "EDEX 6.22",
+          "primary": true
+        },
+        {
+          "id": "875bc979-900b-4ebc-95b4-b2c59e640405",
+          "board": "ocr",
+          "code": "OCR P6.1e",
+          "primary": true
+        },
+        {
+          "id": "30a45ea4-5f5d-4534-9364-fd745c804848",
+          "board": "ocr",
+          "code": "OCR P6.1f",
+          "primary": true
+        },
+        {
+          "id": "73eed43e-862b-47a7-9dd2-27e5e5d04c25",
+          "board": "ocr",
+          "code": "OCR P6.1g",
+          "primary": true
+        }
+      ]
+    },
+    {
+      "id": "phys-037",
+      "group": "Atomic structure and radioactivity",
+      "title": "Half-life",
+      "scope": "The random nature of decay, half-life from graphs and data, and calculating net decline after a number of half-lives.",
+      "kind": "content",
+      "higher_only": false,
+      "separate_only": false,
+      "spec_points": [
+        {
+          "id": "98a1f204-524a-4fed-ae7d-11e68559c7b3",
+          "board": "aqa",
+          "code": "AQA 4.4.2.3",
+          "primary": true
+        },
+        {
+          "id": "0fb9ab65-4554-4327-b787-90e34071153c",
+          "board": "aqa_trilogy",
+          "code": "AQA T 6.4.2.3",
+          "primary": true
+        },
+        {
+          "id": "90815720-c589-46d5-9e10-c4b486bfe896",
+          "board": "edexcel",
+          "code": "EDEX 6.23",
+          "primary": true
+        },
+        {
+          "id": "9736bf49-fe38-46dc-8d69-f202e10d38eb",
+          "board": "edexcel",
+          "code": "EDEX 6.24",
+          "primary": true
+        },
+        {
+          "id": "2b24d6a8-2981-49e9-aa2b-a5a89e0990de",
+          "board": "edexcel",
+          "code": "EDEX 6.25",
+          "primary": true
+        },
+        {
+          "id": "c7e907a8-7ed5-4120-88f3-bac6cde747dd",
+          "board": "edexcel",
+          "code": "EDEX 6.26",
+          "primary": true
+        },
+        {
+          "id": "1fda754b-1ea4-42fa-be52-d56f48cee5fc",
+          "board": "edexcel",
+          "code": "EDEX 6.27",
+          "primary": true
+        },
+        {
+          "id": "0449c4ad-582a-44f5-9c95-630a6dd8a840",
+          "board": "ocr",
+          "code": "OCR P6.1j",
+          "primary": true
+        },
+        {
+          "id": "f0d8b055-e12d-441c-8123-d2c03c405c58",
+          "board": "ocr",
+          "code": "OCR P6.1k",
+          "primary": true
+        }
+      ]
+    },
+    {
+      "id": "phys-038",
+      "group": "Atomic structure and radioactivity",
+      "title": "Background radiation",
+      "scope": "Natural and man-made sources of background radiation and how dose depends on location and occupation.",
+      "kind": "content",
+      "higher_only": false,
+      "separate_only": false,
+      "spec_points": [
+        {
+          "id": "af24e3b3-4d27-4a14-8274-a9659f9a4fe7",
+          "board": "aqa",
+          "code": "AQA 4.4.3.1",
+          "primary": true
+        },
+        {
+          "id": "a452fa1b-beb3-425e-add5-0c679315d465",
+          "board": "edexcel",
+          "code": "EDEX 6.12",
+          "primary": true
+        },
+        {
+          "id": "6a1228fe-90ed-4012-85d2-b34209153d4b",
+          "board": "edexcel",
+          "code": "EDEX 6.13",
+          "primary": true
+        }
+      ]
+    },
+    {
+      "id": "phys-039",
+      "group": "Atomic structure and radioactivity",
+      "title": "Contamination, irradiation and radiation hazards",
+      "scope": "The difference between contamination and irradiation, how hazards depend on radiation type and half-life, and safety precautions.",
+      "kind": "content",
+      "higher_only": false,
+      "separate_only": false,
+      "spec_points": [
+        {
+          "id": "b9af893e-2842-4584-95c1-a53e85d6d5de",
+          "board": "aqa",
+          "code": "AQA 4.4.2.4",
+          "primary": true
+        },
+        {
+          "id": "c8f50835-e22c-4d17-97f3-eac470140579",
+          "board": "aqa_trilogy",
+          "code": "AQA T 6.4.2.4",
+          "primary": true
+        },
+        {
+          "id": "1c9f2311-6743-4ed2-8451-652afa65bfdc",
+          "board": "aqa",
+          "code": "AQA 4.4.3.2",
+          "primary": true
+        },
+        {
+          "id": "7636e652-043d-4b76-976e-edff078d10f9",
+          "board": "edexcel",
+          "code": "EDEX 6.29",
+          "primary": true
+        },
+        {
+          "id": "f32d63b9-c2ce-4db3-bd9a-c1e3b27823c3",
+          "board": "edexcel",
+          "code": "EDEX 6.30P",
+          "primary": true
+        },
+        {
+          "id": "a0136f48-3a68-42da-92c2-f3b998025c1d",
+          "board": "edexcel",
+          "code": "EDEX 6.31",
+          "primary": true
+        },
+        {
+          "id": "34f7f5af-189f-48be-bced-77943fb27fb8",
+          "board": "edexcel",
+          "code": "EDEX 6.32",
+          "primary": true
+        },
+        {
+          "id": "74063584-ccc3-4454-b518-e3eadbe76ea5",
+          "board": "ocr",
+          "code": "OCR P6.2a",
+          "primary": true
+        },
+        {
+          "id": "e7f80910-8b6e-4b24-b3c5-023b9b182daa",
+          "board": "ocr",
+          "code": "OCR P6.2b",
+          "primary": true
+        }
+      ]
+    },
+    {
+      "id": "phys-040",
+      "group": "Atomic structure and radioactivity",
+      "title": "Uses of nuclear radiation",
+      "scope": "Medical and everyday uses of radiation, including tracers, PET scans, radiotherapy, smoke alarms and sterilisation.",
+      "kind": "content",
+      "higher_only": false,
+      "separate_only": true,
+      "spec_points": [
+        {
+          "id": "94cae484-1de3-47c6-96ef-65917a912122",
+          "board": "aqa",
+          "code": "AQA 4.4.3.3",
+          "primary": true
+        },
+        {
+          "id": "a190224d-e829-4be9-a786-bb6d1a81b7dd",
+          "board": "edexcel",
+          "code": "EDEX 6.28P",
+          "primary": true
+        },
+        {
+          "id": "26f1b022-56a0-49c6-90b2-2ed215698eb9",
+          "board": "edexcel",
+          "code": "EDEX 6.33P",
+          "primary": true
+        },
+        {
+          "id": "d8bb22e0-0711-4deb-a349-8278deb22b5e",
+          "board": "edexcel",
+          "code": "EDEX 6.34P",
+          "primary": true
+        },
+        {
+          "id": "06da0b28-896f-436e-acc9-f607675b9de2",
+          "board": "edexcel",
+          "code": "EDEX 6.35P",
+          "primary": true
+        },
+        {
+          "id": "5c5f43a1-6ca7-437a-a171-7924db690b52",
+          "board": "ocr",
+          "code": "OCR P6.2c",
+          "primary": true
+        }
+      ]
+    },
+    {
+      "id": "phys-041",
+      "group": "Atomic structure and radioactivity",
+      "title": "Nuclear fission",
+      "scope": "Fission of uranium-235, chain reactions, control rods and moderators in a reactor, and the pros and cons of nuclear power.",
+      "kind": "content",
+      "higher_only": false,
+      "separate_only": true,
+      "spec_points": [
+        {
+          "id": "8cc19cba-eb9d-494c-bd7a-9387697005f3",
+          "board": "aqa",
+          "code": "AQA 4.4.4.1",
+          "primary": true
+        },
+        {
+          "id": "b141d0d7-b797-4e71-8ed3-1024de55ad10",
+          "board": "edexcel",
+          "code": "EDEX 6.36P",
+          "primary": true
+        },
+        {
+          "id": "3a2a7659-3032-4f6f-b7f7-1a28fc67ba24",
+          "board": "edexcel",
+          "code": "EDEX 6.37P",
+          "primary": true
+        },
+        {
+          "id": "66835439-db72-4498-a2ea-2bfe4e490488",
+          "board": "edexcel",
+          "code": "EDEX 6.38P",
+          "primary": true
+        },
+        {
+          "id": "f6e4e83f-732b-4a14-938a-4c94c9335526",
+          "board": "edexcel",
+          "code": "EDEX 6.39P",
+          "primary": true
+        },
+        {
+          "id": "cf83f58a-2dd3-48c6-b8c6-f48215962f63",
+          "board": "edexcel",
+          "code": "EDEX 6.40P",
+          "primary": true
+        },
+        {
+          "id": "27e7779b-7640-49c9-9108-c4cc62914f74",
+          "board": "edexcel",
+          "code": "EDEX 6.41P",
+          "primary": true
+        },
+        {
+          "id": "f83d5739-083f-4279-97b1-3a850004ec90",
+          "board": "edexcel",
+          "code": "EDEX 6.42P",
+          "primary": true
+        },
+        {
+          "id": "f3135311-df04-4c8c-9fec-e592f2339cf7",
+          "board": "ocr",
+          "code": "OCR P6.2d",
+          "primary": true
+        }
+      ]
+    },
+    {
+      "id": "phys-042",
+      "group": "Atomic structure and radioactivity",
+      "title": "Nuclear fusion",
+      "scope": "Fusion of light nuclei with release of energy, why it needs very high temperature and pressure, and the difficulty of fusion power.",
+      "kind": "content",
+      "higher_only": false,
+      "separate_only": true,
+      "spec_points": [
+        {
+          "id": "25eb4194-b3a4-491a-81d8-634c00837ce1",
+          "board": "aqa",
+          "code": "AQA 4.4.4.2",
+          "primary": true
+        },
+        {
+          "id": "27e00b33-6cb2-4531-ae2a-cfb72b39a5f4",
+          "board": "edexcel",
+          "code": "EDEX 6.43P",
+          "primary": true
+        },
+        {
+          "id": "f03b2f7e-2880-4470-ae1f-2a1b5a73d510",
+          "board": "edexcel",
+          "code": "EDEX 6.44P",
+          "primary": true
+        },
+        {
+          "id": "1910f384-ce07-43bf-9428-662fdbf5c4e0",
+          "board": "edexcel",
+          "code": "EDEX 6.45P",
+          "primary": true
+        },
+        {
+          "id": "b8332929-23d3-48fb-8a6a-842bd3ff7a55",
+          "board": "edexcel",
+          "code": "EDEX 6.46P",
+          "primary": true
+        },
+        {
+          "id": "706a329a-f7d9-46a1-a8e8-716dd2ddacfc",
+          "board": "ocr",
+          "code": "OCR P6.2e",
+          "primary": true
+        }
+      ]
+    },
+    {
+      "id": "phys-043",
+      "group": "Forces",
+      "title": "Scalars and vectors",
+      "scope": "Scalar and vector quantities such as distance and displacement, speed and velocity, and representing vectors as arrows.",
+      "kind": "content",
+      "higher_only": false,
+      "separate_only": false,
+      "spec_points": [
+        {
+          "id": "ab8d07a6-d0a9-4065-937f-08f668332dbb",
+          "board": "aqa",
+          "code": "AQA 4.5.1.1",
+          "primary": true
+        },
+        {
+          "id": "c882c9fd-d41e-4082-8163-d314075073bd",
+          "board": "aqa_trilogy",
+          "code": "AQA T 6.5.1.1",
+          "primary": true
+        },
+        {
+          "id": "93a1651f-56ed-44fb-937b-88e70015f617",
+          "board": "edexcel",
+          "code": "EDEX 2.1",
+          "primary": true
+        },
+        {
+          "id": "02e7948d-1780-4969-9824-b1ff21a2e3cf",
+          "board": "edexcel",
+          "code": "EDEX 2.2",
+          "primary": true
+        },
+        {
+          "id": "7a547449-c42b-46df-9c82-cb0eb0e3508c",
+          "board": "edexcel",
+          "code": "EDEX 2.3",
+          "primary": true
+        },
+        {
+          "id": "4ef26eae-6868-4103-ac82-b0082de0a4d4",
+          "board": "edexcel",
+          "code": "EDEX 2.4",
+          "primary": true
+        },
+        {
+          "id": "d32095b5-ab35-4092-85c5-2b55e456eeb7",
+          "board": "edexcel",
+          "code": "EDEX 2.5",
+          "primary": true
+        },
+        {
+          "id": "4826d15e-76e4-4ef4-b12c-a1353a046884",
+          "board": "edexcel",
+          "code": "EDEX 9.2",
+          "primary": true
+        },
+        {
+          "id": "1a153dd7-7ae3-4bca-a9d3-0ed838ea55fe",
+          "board": "ocr",
+          "code": "OCR P2.1d",
+          "primary": true
+        },
+        {
+          "id": "e168775c-87b7-4c03-a4be-2430ba23030b",
+          "board": "aqa",
+          "code": "AQA 4.5.6.1",
+          "primary": false
+        },
+        {
+          "id": "d4a9de4a-a77e-4ee9-b0b9-999936a1910a",
+          "board": "aqa_trilogy",
+          "code": "AQA T 6.5.4.1",
+          "primary": false
+        }
+      ]
+    },
+    {
+      "id": "phys-044",
+      "group": "Forces",
+      "title": "Contact and non-contact forces",
+      "scope": "Contact and non-contact forces and how forces arise from interactions between pairs of objects.",
+      "kind": "content",
+      "higher_only": false,
+      "separate_only": false,
+      "spec_points": [
+        {
+          "id": "74f94e17-85ec-4b33-b977-e07ede7293a6",
+          "board": "aqa",
+          "code": "AQA 4.5.1.2",
+          "primary": true
+        },
+        {
+          "id": "68ff07ff-59a3-4acf-bd16-9354458d13b3",
+          "board": "aqa_trilogy",
+          "code": "AQA T 6.5.1.2",
+          "primary": true
+        },
+        {
+          "id": "28acd09e-8e4c-4e36-bfa2-c7e7df211be7",
+          "board": "edexcel",
+          "code": "EDEX 9.1",
+          "primary": true
+        },
+        {
+          "id": "272d493f-a7e0-4403-998e-fa3de7c5a588",
+          "board": "ocr",
+          "code": "OCR P2.2a",
+          "primary": true
+        },
+        {
+          "id": "3fd58c2a-e790-456d-ac60-743d36ec7155",
+          "board": "ocr",
+          "code": "OCR P2.2b",
+          "primary": true
+        }
+      ]
+    },
+    {
+      "id": "phys-045",
+      "group": "Forces",
+      "title": "Weight, mass and gravitational field strength",
+      "scope": "Weight as the force of gravity (W = mg), measuring weight, free-fall acceleration and how g differs on other planets.",
+      "kind": "content",
+      "higher_only": false,
+      "separate_only": false,
+      "spec_points": [
+        {
+          "id": "c8da79d4-a811-44b0-93ce-60bbbbd8b782",
+          "board": "aqa",
+          "code": "AQA 4.5.1.3",
+          "primary": true
+        },
+        {
+          "id": "c09badb3-00c9-4284-88a4-077eb8a7da7a",
+          "board": "aqa_trilogy",
+          "code": "AQA T 6.5.1.3",
+          "primary": true
+        },
+        {
+          "id": "3f145c5a-f226-4993-b883-13c825236981",
+          "board": "edexcel",
+          "code": "EDEX 2.16",
+          "primary": true
+        },
+        {
+          "id": "790e087e-cc14-41fb-aa7f-f7e475d9fcb2",
+          "board": "edexcel",
+          "code": "EDEX 2.17",
+          "primary": true
+        },
+        {
+          "id": "cdb67350-4437-4700-baa7-6bd29fb0ebff",
+          "board": "edexcel",
+          "code": "EDEX 2.18",
+          "primary": true
+        },
+        {
+          "id": "1faa5c45-ca25-4f1a-a332-866205e2ca5c",
+          "board": "edexcel",
+          "code": "EDEX 7.1P",
+          "primary": true
+        },
+        {
+          "id": "7b3f8e92-1f9a-4782-b74d-988e2c643cf9",
+          "board": "ocr",
+          "code": "OCR P2.3g",
+          "primary": true
+        },
+        {
+          "id": "1fe25125-da8d-43a7-aaa5-b74cbc5fe73e",
+          "board": "ocr",
+          "code": "OCR P2.3h",
+          "primary": true
+        },
+        {
+          "id": "0bf2edfa-499b-48c0-98d9-0ff7ac7ab50e",
+          "board": "ocr",
+          "code": "OCR P2.3i",
+          "primary": true
+        },
+        {
+          "id": "add197db-ba4b-48ef-bfe7-d79421f259d8",
+          "board": "ocr",
+          "code": "OCR P2.3j",
+          "primary": true
+        },
+        {
+          "id": "cfbee96b-371a-4c2a-a651-38585550fad6",
+          "board": "edexcel",
+          "code": "EDEX 2.13",
+          "primary": false
+        }
+      ]
+    },
+    {
+      "id": "phys-046",
+      "group": "Forces",
+      "title": "Resultant forces and free body diagrams",
+      "scope": "Finding resultant forces, free body diagrams, resolving forces and equilibrium using scale vector diagrams.",
+      "kind": "content",
+      "higher_only": false,
+      "separate_only": false,
+      "spec_points": [
+        {
+          "id": "b0d9a55a-9249-47d5-96c7-f2e36a8b41a5",
+          "board": "aqa",
+          "code": "AQA 4.5.1.4",
+          "primary": true
+        },
+        {
+          "id": "92ea1a28-b181-4954-836b-9208bd224587",
+          "board": "aqa_trilogy",
+          "code": "AQA T 6.5.1.4",
+          "primary": true
+        },
+        {
+          "id": "4c0b5bf7-997e-484f-9e69-d4316fbfda83",
+          "board": "edexcel",
+          "code": "EDEX 9.3",
+          "primary": true
+        },
+        {
+          "id": "3661ccdb-c027-45c3-b146-5a1f1f0252ca",
+          "board": "edexcel",
+          "code": "EDEX 9.4",
+          "primary": true
+        },
+        {
+          "id": "e2647936-cd30-48f1-8ad1-7057fdb6e09c",
+          "board": "edexcel",
+          "code": "EDEX 9.5",
+          "primary": true
+        },
+        {
+          "id": "a36c8102-4c24-4f53-8da3-9340facc92b7",
+          "board": "ocr",
+          "code": "OCR P2.2c",
+          "primary": true
+        },
+        {
+          "id": "14834a88-6b13-41c3-b2dd-66cafae2c667",
+          "board": "ocr",
+          "code": "OCR P2.2e",
+          "primary": true
+        },
+        {
+          "id": "523e320f-0c2c-4660-9f62-756f57a362d7",
+          "board": "ocr",
+          "code": "OCR P2.2f",
+          "primary": true
+        },
+        {
+          "id": "11ce994d-7600-453c-86a3-411d918b4923",
+          "board": "ocr",
+          "code": "OCR P2.2g",
+          "primary": true
+        },
+        {
+          "id": "8fd6468e-6cef-42ac-bd0d-51ad7ff976bb",
+          "board": "ocr",
+          "code": "OCR P2.2h",
+          "primary": true
+        }
+      ]
+    },
+    {
+      "id": "phys-047",
+      "group": "Forces",
+      "title": "Forces and elasticity",
+      "scope": "Elastic and inelastic deformation, Hooke's law (F = ke), linear and non-linear force–extension graphs and work done stretching a spring (½ke²).",
+      "kind": "content",
+      "higher_only": false,
+      "separate_only": false,
+      "spec_points": [
+        {
+          "id": "b595be2c-0ca5-46d1-b9e8-c678a8f8db12",
+          "board": "aqa",
+          "code": "AQA 4.5.3",
+          "primary": true
+        },
+        {
+          "id": "6dfedda3-a826-4037-a47d-356898bc91ea",
+          "board": "aqa_trilogy",
+          "code": "AQA T 6.5.3",
+          "primary": true
+        },
+        {
+          "id": "926b3967-8ba9-4af5-ba40-4713862c710c",
+          "board": "edexcel",
+          "code": "EDEX 15.1",
+          "primary": true
+        },
+        {
+          "id": "e1261883-76f1-4d22-9ce3-53331a264ac0",
+          "board": "edexcel",
+          "code": "EDEX 15.2",
+          "primary": true
+        },
+        {
+          "id": "55ef0b9e-4925-44d1-a33e-84359a4ca2a8",
+          "board": "edexcel",
+          "code": "EDEX 15.4",
+          "primary": true
+        },
+        {
+          "id": "84115923-4741-49ab-8011-c090afe47ed4",
+          "board": "edexcel",
+          "code": "EDEX 15.5",
+          "primary": true
+        },
+        {
+          "id": "2097b457-7821-4dcd-ba98-53a5b73dbad5",
+          "board": "edexcel",
+          "code": "EDEX 15.3",
+          "primary": true
+        },
+        {
+          "id": "ceb4e25a-17cb-43f8-938e-4a0e8d992fad",
+          "board": "ocr",
+          "code": "OCR P2.3a",
+          "primary": true
+        },
+        {
+          "id": "ff218a29-6bd4-401b-af82-e6059858752a",
+          "board": "ocr",
+          "code": "OCR P2.3b",
+          "primary": true
+        },
+        {
+          "id": "db8df4f3-5417-4986-bd23-efe3ceec4d71",
+          "board": "ocr",
+          "code": "OCR P2.3c",
+          "primary": true
+        },
+        {
+          "id": "4625f6c2-b554-47c9-a115-5820f2c8ff33",
+          "board": "ocr",
+          "code": "OCR P2.3d",
+          "primary": true
+        },
+        {
+          "id": "77ddf25a-a4c6-4b39-b74b-ddc20dfe2649",
+          "board": "ocr",
+          "code": "OCR P2.3e",
+          "primary": true
+        },
+        {
+          "id": "ea064ab1-453d-472f-ac4c-b50afce0fe73",
+          "board": "ocr",
+          "code": "OCR P2.3f",
+          "primary": true
+        },
+        {
+          "id": "3935c4ff-9b82-43c4-b0bf-3f449aad4b54",
+          "board": "aqa",
+          "code": "AQA 4.1.1.2",
+          "primary": false
+        },
+        {
+          "id": "ea51afaf-a074-4966-93cd-4c4be6f0a597",
+          "board": "aqa_trilogy",
+          "code": "AQA T 6.1.1.2",
+          "primary": false
+        },
+        {
+          "id": "51fa129d-2332-4b81-8904-f50cba35fc11",
+          "board": "ocr",
+          "code": "OCR P7.1e",
+          "primary": false
+        }
+      ]
+    },
+    {
+      "id": "phys-048",
+      "group": "Forces",
+      "title": "Required practical: force and extension of a spring",
+      "scope": "Investigating the relationship between force and extension for a spring and the work done in stretching it.",
+      "kind": "practical",
+      "higher_only": false,
+      "separate_only": false,
+      "data_note": "taught by OCR (PAG practical activity) but no matching spec point",
+      "spec_points": [
+        {
+          "id": "5a2d9f2b-8688-41c7-9f93-0f49b19f2f29",
+          "board": "edexcel",
+          "code": "EDEX 15.6",
+          "primary": true
+        },
+        {
+          "id": "b595be2c-0ca5-46d1-b9e8-c678a8f8db12",
+          "board": "aqa",
+          "code": "AQA 4.5.3",
+          "primary": false
+        },
+        {
+          "id": "6dfedda3-a826-4037-a47d-356898bc91ea",
+          "board": "aqa_trilogy",
+          "code": "AQA T 6.5.3",
+          "primary": false
+        }
+      ]
+    },
+    {
+      "id": "phys-049",
+      "group": "Forces",
+      "title": "Moments, levers and gears",
+      "scope": "The moment of a force (M = Fd), the principle of moments, and how levers and gears transmit turning effects.",
+      "kind": "content",
+      "higher_only": false,
+      "separate_only": true,
+      "spec_points": [
+        {
+          "id": "902f9bae-80b4-4ae9-a694-ac872acb1b2c",
+          "board": "aqa",
+          "code": "AQA 4.5.4",
+          "primary": true
+        },
+        {
+          "id": "f576ed8e-5c87-4a38-9cb7-35554d577ed8",
+          "board": "edexcel",
+          "code": "EDEX 9.6P",
+          "primary": true
+        },
+        {
+          "id": "065a5300-9d7b-48ee-96c7-9fa683f56299",
+          "board": "edexcel",
+          "code": "EDEX 9.7P",
+          "primary": true
+        },
+        {
+          "id": "b971f97e-6fd4-4e69-b40c-a0a23fb7d047",
+          "board": "edexcel",
+          "code": "EDEX 9.8P",
+          "primary": true
+        },
+        {
+          "id": "122b7af2-812f-4ac2-a2db-a27d8c9ff6b2",
+          "board": "edexcel",
+          "code": "EDEX 9.9P",
+          "primary": true
+        },
+        {
+          "id": "c8fc848e-42bc-46b2-8b4e-ac6dc12c3a5d",
+          "board": "ocr",
+          "code": "OCR P2.3k",
+          "primary": true
+        },
+        {
+          "id": "f115c447-476b-4fc0-a134-542ad4f66fe3",
+          "board": "ocr",
+          "code": "OCR P2.3l",
+          "primary": true
+        },
+        {
+          "id": "d1be1237-5f8a-42f9-ab4c-5872b7bef289",
+          "board": "ocr",
+          "code": "OCR P2.3m",
+          "primary": true
+        }
+      ]
+    },
+    {
+      "id": "phys-050",
+      "group": "Forces",
+      "title": "Pressure and pressure in liquids",
+      "scope": "Pressure as force per unit area (p = F/A) and how pressure in a liquid depends on depth and density (p = hρg).",
+      "kind": "content",
+      "higher_only": false,
+      "separate_only": true,
+      "spec_points": [
+        {
+          "id": "39ed39c8-27c1-43ec-9a67-5db2025b5c5b",
+          "board": "aqa",
+          "code": "AQA 4.5.5.1",
+          "primary": true
+        },
+        {
+          "id": "0898e510-4f0d-407b-9c28-969ce9eebd8f",
+          "board": "edexcel",
+          "code": "EDEX 15.8P",
+          "primary": true
+        },
+        {
+          "id": "8c559ef2-a16d-443f-9a2f-86adff37f87d",
+          "board": "edexcel",
+          "code": "EDEX 15.9P",
+          "primary": true
+        },
+        {
+          "id": "72858cc4-8cd7-4c40-9a31-fd6ad43a167c",
+          "board": "edexcel",
+          "code": "EDEX 15.10P",
+          "primary": true
+        },
+        {
+          "id": "299abf75-d827-4309-b48e-e83662632c6e",
+          "board": "edexcel",
+          "code": "EDEX 15.12P",
+          "primary": true
+        },
+        {
+          "id": "a8aba3f2-0949-4ea2-84f8-40765b284b1d",
+          "board": "edexcel",
+          "code": "EDEX 15.13P",
+          "primary": true
+        },
+        {
+          "id": "13f2ff05-a45e-452b-819b-d0604446f389",
+          "board": "edexcel",
+          "code": "EDEX 15.11P",
+          "primary": true
+        },
+        {
+          "id": "524274e2-1cdb-444c-9ef5-6b4e55932793",
+          "board": "edexcel",
+          "code": "EDEX 15.14P",
+          "primary": true
+        },
+        {
+          "id": "aecc6962-0f20-4170-9a1a-1066cd2ece3e",
+          "board": "ocr",
+          "code": "OCR P2.3n",
+          "primary": true
+        },
+        {
+          "id": "0d3e6785-2c7d-470e-bd99-b2681d8990a4",
+          "board": "ocr",
+          "code": "OCR P2.3o",
+          "primary": true
+        },
+        {
+          "id": "d1746be2-b55e-4658-aa5d-07413df5acfd",
+          "board": "ocr",
+          "code": "OCR P1.3j",
+          "primary": true
+        },
+        {
+          "id": "0fb8b8d4-4cf2-4e42-b809-12326bb36d46",
+          "board": "ocr",
+          "code": "OCR P1.3i",
+          "primary": false
+        }
+      ]
+    },
+    {
+      "id": "phys-051",
+      "group": "Forces",
+      "title": "Upthrust and floating",
+      "scope": "Why objects in a fluid feel upthrust equal to the weight of fluid displaced, and what decides whether they float or sink.",
+      "kind": "content",
+      "higher_only": false,
+      "separate_only": true,
+      "spec_points": [
+        {
+          "id": "085054ef-ce52-4737-8fc5-daa264f2350e",
+          "board": "edexcel",
+          "code": "EDEX 15.15P",
+          "primary": true
+        },
+        {
+          "id": "a003684d-a39e-46cc-b753-4ccc26c5c1cf",
+          "board": "edexcel",
+          "code": "EDEX 15.16P",
+          "primary": true
+        },
+        {
+          "id": "44379e5d-725a-4033-b3c8-339f0cf8fe53",
+          "board": "edexcel",
+          "code": "EDEX 15.17P",
+          "primary": true
+        },
+        {
+          "id": "0aefd7c5-86a6-4a1d-befb-0622b9a15afb",
+          "board": "ocr",
+          "code": "OCR P1.3h",
+          "primary": true
+        },
+        {
+          "id": "0fb8b8d4-4cf2-4e42-b809-12326bb36d46",
+          "board": "ocr",
+          "code": "OCR P1.3i",
+          "primary": true
+        },
+        {
+          "id": "39ed39c8-27c1-43ec-9a67-5db2025b5c5b",
+          "board": "aqa",
+          "code": "AQA 4.5.5.1",
+          "primary": false
+        }
+      ]
+    },
+    {
+      "id": "phys-052",
+      "group": "Forces",
+      "title": "Atmospheric pressure",
+      "scope": "A simple model of the atmosphere and why atmospheric pressure decreases with height.",
+      "kind": "content",
+      "higher_only": false,
+      "separate_only": true,
+      "spec_points": [
+        {
+          "id": "6c302e10-72be-40fc-a6af-ccab7739ad92",
+          "board": "aqa",
+          "code": "AQA 4.5.5.2",
+          "primary": true
+        },
+        {
+          "id": "e73c19b1-78f7-40ed-88ea-980d46e20325",
+          "board": "edexcel",
+          "code": "EDEX 15.7P",
+          "primary": true
+        },
+        {
+          "id": "afe7d547-4425-49ac-9619-eb07d0290fe3",
+          "board": "ocr",
+          "code": "OCR P1.3f",
+          "primary": true
+        },
+        {
+          "id": "2c66de50-f110-4c7d-b807-3066dac4aa5c",
+          "board": "ocr",
+          "code": "OCR P1.3g",
+          "primary": true
+        }
+      ]
+    },
+    {
+      "id": "phys-053",
+      "group": "Motion",
+      "title": "Speed, velocity and distance–time graphs",
+      "scope": "Distance, displacement, speed and velocity, s = d/t, average speed, measuring speed in the lab, and reading speed from distance–time graphs.",
+      "kind": "content",
+      "higher_only": false,
+      "separate_only": false,
+      "spec_points": [
+        {
+          "id": "e168775c-87b7-4c03-a4be-2430ba23030b",
+          "board": "aqa",
+          "code": "AQA 4.5.6.1",
+          "primary": true
+        },
+        {
+          "id": "d4a9de4a-a77e-4ee9-b0b9-999936a1910a",
+          "board": "aqa_trilogy",
+          "code": "AQA T 6.5.4.1",
+          "primary": true
+        },
+        {
+          "id": "956e8bff-8b3d-46a5-9d56-babf9c904f99",
+          "board": "edexcel",
+          "code": "EDEX 2.6",
+          "primary": true
+        },
+        {
+          "id": "5906de17-3400-453d-a2fe-75268853d3cd",
+          "board": "edexcel",
+          "code": "EDEX 2.7",
+          "primary": true
+        },
+        {
+          "id": "eafa057d-510b-486a-86cc-784dcb5c56a2",
+          "board": "edexcel",
+          "code": "EDEX 2.11",
+          "primary": true
+        },
+        {
+          "id": "39e0ce82-0bc0-4e5e-b221-407813efc22d",
+          "board": "ocr",
+          "code": "OCR P2.1a",
+          "primary": true
+        },
+        {
+          "id": "5c1ce0c3-2614-440a-ad55-9572a424dbf2",
+          "board": "ocr",
+          "code": "OCR P2.1b",
+          "primary": true
+        },
+        {
+          "id": "1ede54e7-a92b-42c3-bad6-b8ae95b58ae6",
+          "board": "ocr",
+          "code": "OCR P2.1g",
+          "primary": true
+        },
+        {
+          "id": "0b3ac826-6154-42bd-8add-674198bc53f5",
+          "board": "ocr",
+          "code": "OCR P2.1e",
+          "primary": false
+        },
+        {
+          "id": "f5e414fd-9057-4b7b-b216-d9884575c8e7",
+          "board": "ocr",
+          "code": "OCR P2.1h",
+          "primary": false
+        }
+      ]
+    },
+    {
+      "id": "phys-054",
+      "group": "Motion",
+      "title": "Acceleration and velocity–time graphs",
+      "scope": "Acceleration (a = Δv/t), the equation v² − u² = 2as, and finding acceleration and distance from velocity–time graphs.",
+      "kind": "content",
+      "higher_only": false,
+      "separate_only": false,
+      "spec_points": [
+        {
+          "id": "1b57deb5-df55-40e9-a040-9c78cd282448",
+          "board": "edexcel",
+          "code": "EDEX 2.8",
+          "primary": true
+        },
+        {
+          "id": "7456b522-8057-4373-a88b-8a2df550f080",
+          "board": "edexcel",
+          "code": "EDEX 2.9",
+          "primary": true
+        },
+        {
+          "id": "7feed2ea-5848-45af-b7ac-3224c0933297",
+          "board": "edexcel",
+          "code": "EDEX 2.10",
+          "primary": true
+        },
+        {
+          "id": "0b3ac826-6154-42bd-8add-674198bc53f5",
+          "board": "ocr",
+          "code": "OCR P2.1e",
+          "primary": true
+        },
+        {
+          "id": "ccde78b1-81f5-4804-a621-5969687d6d9f",
+          "board": "ocr",
+          "code": "OCR P2.1f",
+          "primary": true
+        },
+        {
+          "id": "f5e414fd-9057-4b7b-b216-d9884575c8e7",
+          "board": "ocr",
+          "code": "OCR P2.1h",
+          "primary": true
+        },
+        {
+          "id": "e168775c-87b7-4c03-a4be-2430ba23030b",
+          "board": "aqa",
+          "code": "AQA 4.5.6.1",
+          "primary": false
+        },
+        {
+          "id": "d4a9de4a-a77e-4ee9-b0b9-999936a1910a",
+          "board": "aqa_trilogy",
+          "code": "AQA T 6.5.4.1",
+          "primary": false
+        }
+      ]
+    },
+    {
+      "id": "phys-055",
+      "group": "Motion",
+      "title": "Typical speeds and accelerations",
+      "scope": "Typical everyday speeds for walking, cycling, cars, wind and sound, and estimating everyday accelerations compared with g.",
+      "kind": "content",
+      "higher_only": false,
+      "separate_only": false,
+      "spec_points": [
+        {
+          "id": "7ce56a02-5f18-4d63-955b-267e1d857747",
+          "board": "edexcel",
+          "code": "EDEX 2.12",
+          "primary": true
+        },
+        {
+          "id": "cfbee96b-371a-4c2a-a651-38585550fad6",
+          "board": "edexcel",
+          "code": "EDEX 2.13",
+          "primary": true
+        },
+        {
+          "id": "ff5c7d2a-7ad6-42c1-a138-96e7ad3155e2",
+          "board": "ocr",
+          "code": "OCR P8.1a",
+          "primary": true
+        },
+        {
+          "id": "5e59e576-cfcc-4b5f-82a0-134e7fe98e5c",
+          "board": "ocr",
+          "code": "OCR P8.1b",
+          "primary": true
+        },
+        {
+          "id": "e168775c-87b7-4c03-a4be-2430ba23030b",
+          "board": "aqa",
+          "code": "AQA 4.5.6.1",
+          "primary": false
+        },
+        {
+          "id": "d4a9de4a-a77e-4ee9-b0b9-999936a1910a",
+          "board": "aqa_trilogy",
+          "code": "AQA T 6.5.4.1",
+          "primary": false
+        }
+      ]
+    },
+    {
+      "id": "phys-056",
+      "group": "Motion",
+      "title": "Newton's first law",
+      "scope": "How an object stays at rest or at constant velocity unless a resultant force acts on it.",
+      "kind": "content",
+      "higher_only": false,
+      "separate_only": false,
+      "spec_points": [
+        {
+          "id": "1a367b8a-416e-42e9-8999-193a27293341",
+          "board": "edexcel",
+          "code": "EDEX 2.14",
+          "primary": true
+        },
+        {
+          "id": "ba92461c-c575-4b46-870c-fadcbbf15366",
+          "board": "ocr",
+          "code": "OCR P2.2d",
+          "primary": true
+        },
+        {
+          "id": "a0c0a6be-3c0c-431f-872d-4d1704df0105",
+          "board": "aqa",
+          "code": "AQA 4.5.6.2",
+          "primary": false
+        },
+        {
+          "id": "7f954f62-01ba-410b-9b5a-a147ee0e303a",
+          "board": "aqa_trilogy",
+          "code": "AQA T 6.5.4.2",
+          "primary": false
+        }
+      ]
+    },
+    {
+      "id": "phys-057",
+      "group": "Motion",
+      "title": "Newton's second law and inertia",
+      "scope": "Resultant force, mass and acceleration (F = ma), and inertia and inertial mass as resistance to changing velocity.",
+      "kind": "content",
+      "higher_only": false,
+      "separate_only": false,
+      "spec_points": [
+        {
+          "id": "a0c0a6be-3c0c-431f-872d-4d1704df0105",
+          "board": "aqa",
+          "code": "AQA 4.5.6.2",
+          "primary": true
+        },
+        {
+          "id": "7f954f62-01ba-410b-9b5a-a147ee0e303a",
+          "board": "aqa_trilogy",
+          "code": "AQA T 6.5.4.2",
+          "primary": true
+        },
+        {
+          "id": "421d5bca-7259-4ad1-b157-7997bc7ffdf7",
+          "board": "edexcel",
+          "code": "EDEX 2.15",
+          "primary": true
+        },
+        {
+          "id": "2d8c1e8d-a07a-427c-bf0d-3de226629613",
+          "board": "edexcel",
+          "code": "EDEX 2.22",
+          "primary": true
+        },
+        {
+          "id": "f14be378-daa2-4fdc-93ba-748e83f0d775",
+          "board": "ocr",
+          "code": "OCR P2.2i",
+          "primary": true
+        },
+        {
+          "id": "7bbfb593-408e-4453-becc-c762f3816eb6",
+          "board": "ocr",
+          "code": "OCR P2.2j",
+          "primary": true
+        },
+        {
+          "id": "7e8a95e5-cc69-4d91-bb4c-12f0c5bcd75b",
+          "board": "ocr",
+          "code": "OCR P2.2l",
+          "primary": true
+        }
+      ]
+    },
+    {
+      "id": "phys-058",
+      "group": "Motion",
+      "title": "Required practical: force, mass and acceleration",
+      "scope": "Investigating how the acceleration of a trolley depends on resultant force and on mass, using light gates or timing.",
+      "kind": "practical",
+      "higher_only": false,
+      "separate_only": false,
+      "data_note": "taught by OCR (PAG practical activity) but no matching spec point",
+      "spec_points": [
+        {
+          "id": "7659b8f0-e9fb-4c2e-9587-3f3ea541d9eb",
+          "board": "edexcel",
+          "code": "EDEX 2.19",
+          "primary": true
+        },
+        {
+          "id": "a0c0a6be-3c0c-431f-872d-4d1704df0105",
+          "board": "aqa",
+          "code": "AQA 4.5.6.2",
+          "primary": false
+        },
+        {
+          "id": "7f954f62-01ba-410b-9b5a-a147ee0e303a",
+          "board": "aqa_trilogy",
+          "code": "AQA T 6.5.4.2",
+          "primary": false
+        }
+      ]
+    },
+    {
+      "id": "phys-059",
+      "group": "Motion",
+      "title": "Newton's third law",
+      "scope": "Equal and opposite force pairs acting on different objects, in equilibrium and in collisions.",
+      "kind": "content",
+      "higher_only": false,
+      "separate_only": false,
+      "spec_points": [
+        {
+          "id": "d5f3bbf8-196e-448b-9ebe-05c2f22328cf",
+          "board": "edexcel",
+          "code": "EDEX 2.23",
+          "primary": true
+        },
+        {
+          "id": "3458b682-a2da-48a3-a3fb-886681ab4ca8",
+          "board": "ocr",
+          "code": "OCR P2.2p",
+          "primary": true
+        },
+        {
+          "id": "a0c0a6be-3c0c-431f-872d-4d1704df0105",
+          "board": "aqa",
+          "code": "AQA 4.5.6.2",
+          "primary": false
+        },
+        {
+          "id": "7f954f62-01ba-410b-9b5a-a147ee0e303a",
+          "board": "aqa_trilogy",
+          "code": "AQA T 6.5.4.2",
+          "primary": false
+        },
+        {
+          "id": "3fd58c2a-e790-456d-ac60-743d36ec7155",
+          "board": "ocr",
+          "code": "OCR P2.2b",
+          "primary": false
+        }
+      ]
+    },
+    {
+      "id": "phys-060",
+      "group": "Motion",
+      "title": "Circular motion",
+      "scope": "Why an object moving in a circle at constant speed has a changing velocity and needs a centripetal force.",
+      "kind": "content",
+      "higher_only": false,
+      "separate_only": false,
+      "spec_points": [
+        {
+          "id": "a42be171-a3be-4f24-8326-0eb06b0b516c",
+          "board": "edexcel",
+          "code": "EDEX 2.20",
+          "primary": true
+        },
+        {
+          "id": "dd260783-3697-47e9-bd5b-00ec30b5a01c",
+          "board": "edexcel",
+          "code": "EDEX 2.21",
+          "primary": true
+        },
+        {
+          "id": "42cc65ec-3cdf-42cd-8d64-99e871df769b",
+          "board": "ocr",
+          "code": "OCR P2.2q",
+          "primary": true
+        },
+        {
+          "id": "d6260182-34d7-42da-92b0-a1ce53836257",
+          "board": "aqa",
+          "code": "AQA 4.8.1.3",
+          "primary": false
+        },
+        {
+          "id": "8b746edb-42cc-4a5c-9003-529c33a33757",
+          "board": "edexcel",
+          "code": "EDEX 7.6P",
+          "primary": false
+        },
+        {
+          "id": "5654b5b4-898c-4c70-8e54-b99557f5e733",
+          "board": "ocr",
+          "code": "OCR P8.3f",
+          "primary": false
+        }
+      ]
+    },
+    {
+      "id": "phys-061",
+      "group": "Motion",
+      "title": "Stopping distance and reaction time",
+      "scope": "Thinking plus braking distance, factors that affect each, measuring reaction times and how stopping distance varies with speed.",
+      "kind": "content",
+      "higher_only": false,
+      "separate_only": false,
+      "spec_points": [
+        {
+          "id": "a86fafa2-d33b-4f5b-ad37-86924ea852e2",
+          "board": "aqa",
+          "code": "AQA 4.5.6.3",
+          "primary": true
+        },
+        {
+          "id": "e34d8784-f53a-4753-bb4f-92c0258f7306",
+          "board": "aqa_trilogy",
+          "code": "AQA T 6.5.4.3",
+          "primary": true
+        },
+        {
+          "id": "4f6e0ccc-7f37-4e4a-acda-db2db66c2fc2",
+          "board": "edexcel",
+          "code": "EDEX 2.27",
+          "primary": true
+        },
+        {
+          "id": "f89b3b40-17d2-45b6-9e50-4242d449818f",
+          "board": "edexcel",
+          "code": "EDEX 2.28",
+          "primary": true
+        },
+        {
+          "id": "8a7e60b4-98ce-411f-8176-2f094558a94e",
+          "board": "edexcel",
+          "code": "EDEX 2.29",
+          "primary": true
+        },
+        {
+          "id": "71a5b17d-f7c6-4e2c-9ce1-39042ace59a4",
+          "board": "edexcel",
+          "code": "EDEX 2.30",
+          "primary": true
+        },
+        {
+          "id": "6aea149a-5d8a-4214-a328-270ae28b89ed",
+          "board": "edexcel",
+          "code": "EDEX 2.32P",
+          "primary": true
+        },
+        {
+          "id": "c69541c4-9ce5-4a46-b75f-cae7f7116f83",
+          "board": "ocr",
+          "code": "OCR P8.1d",
+          "primary": true
+        },
+        {
+          "id": "9e06b462-3148-49d2-98ff-5b38c68a5165",
+          "board": "ocr",
+          "code": "OCR P8.1e",
+          "primary": true
+        },
+        {
+          "id": "b403667f-c165-48fc-a8d6-70af60145d79",
+          "board": "ocr",
+          "code": "OCR P8.1f",
+          "primary": true
+        }
+      ]
+    },
+    {
+      "id": "phys-062",
+      "group": "Motion",
+      "title": "Braking forces and large decelerations",
+      "scope": "Work done by brakes, braking distance depending on speed squared, and estimating the forces and dangers of large decelerations on the road.",
+      "kind": "content",
+      "higher_only": false,
+      "separate_only": false,
+      "spec_points": [
+        {
+          "id": "546e3039-b117-414a-94f0-5840ea154fe4",
+          "board": "edexcel",
+          "code": "EDEX 2.31",
+          "primary": true
+        },
+        {
+          "id": "f6967825-2875-4355-a6ed-cd593e372ef6",
+          "board": "edexcel",
+          "code": "EDEX 2.33P",
+          "primary": true
+        },
+        {
+          "id": "50b4142b-8ac0-413d-b154-a1accbf91777",
+          "board": "ocr",
+          "code": "OCR P8.1g",
+          "primary": true
+        },
+        {
+          "id": "4dedfab0-012d-4ab2-94af-5805a9952b40",
+          "board": "ocr",
+          "code": "OCR P8.1h",
+          "primary": true
+        },
+        {
+          "id": "ead44384-f3cb-4fca-bd83-639a9b31b077",
+          "board": "ocr",
+          "code": "OCR P8.1i",
+          "primary": true
+        },
+        {
+          "id": "a86fafa2-d33b-4f5b-ad37-86924ea852e2",
+          "board": "aqa",
+          "code": "AQA 4.5.6.3",
+          "primary": false
+        },
+        {
+          "id": "e34d8784-f53a-4753-bb4f-92c0258f7306",
+          "board": "aqa_trilogy",
+          "code": "AQA T 6.5.4.3",
+          "primary": false
+        }
+      ]
+    },
+    {
+      "id": "phys-063",
+      "group": "Motion",
+      "title": "Momentum and conservation of momentum",
+      "scope": "Momentum (p = mv) and conservation of momentum in collisions and explosions.",
+      "kind": "content",
+      "higher_only": false,
+      "separate_only": false,
+      "spec_points": [
+        {
+          "id": "a4885796-e2a3-4e92-843c-9c1478bcd399",
+          "board": "aqa",
+          "code": "AQA 4.5.7.1",
+          "primary": true
+        },
+        {
+          "id": "611026b2-8184-47be-8970-f3a7ce0124bc",
+          "board": "aqa_trilogy",
+          "code": "AQA T 6.5.5.1",
+          "primary": true
+        },
+        {
+          "id": "ed9e600d-01b1-48b1-bd25-602ec9b82dc0",
+          "board": "aqa",
+          "code": "AQA 4.5.7.2",
+          "primary": true
+        },
+        {
+          "id": "67a02428-0497-496a-9728-801c5cadbabd",
+          "board": "aqa_trilogy",
+          "code": "AQA T 6.5.5.2",
+          "primary": true
+        },
+        {
+          "id": "0c3a0eab-2b83-4ca2-8df4-8195b6d2c8e3",
+          "board": "edexcel",
+          "code": "EDEX 2.24",
+          "primary": true
+        },
+        {
+          "id": "b42992d6-f51b-4cac-b485-6f7848916e43",
+          "board": "edexcel",
+          "code": "EDEX 2.25",
+          "primary": true
+        },
+        {
+          "id": "bec8ac99-0bef-4109-8746-9f3c16273188",
+          "board": "ocr",
+          "code": "OCR P2.2k",
+          "primary": true
+        }
+      ]
+    },
+    {
+      "id": "phys-064",
+      "group": "Motion",
+      "title": "Changes in momentum and safety features",
+      "scope": "Force as rate of change of momentum (F = mΔv/Δt) and how air bags, seat belts and crash mats reduce force.",
+      "kind": "content",
+      "higher_only": true,
+      "separate_only": false,
+      "spec_points": [
+        {
+          "id": "0f07791b-ea02-4ad6-8638-aa6b4ca08e7a",
+          "board": "aqa",
+          "code": "AQA 4.5.7.3",
+          "primary": true
+        },
+        {
+          "id": "870627e7-eeb1-4dea-b5a9-01cd726eb64c",
+          "board": "edexcel",
+          "code": "EDEX 2.26",
+          "primary": true
+        },
+        {
+          "id": "7e8a95e5-cc69-4d91-bb4c-12f0c5bcd75b",
+          "board": "ocr",
+          "code": "OCR P2.2l",
+          "primary": false
+        }
+      ]
+    },
+    {
+      "id": "phys-065",
+      "group": "Waves",
+      "title": "Transverse and longitudinal waves",
+      "scope": "Waves transferring energy without matter, the difference between transverse and longitudinal waves, and evidence from ripples and sound.",
+      "kind": "content",
+      "higher_only": false,
+      "separate_only": false,
+      "spec_points": [
+        {
+          "id": "5a1b7204-b971-4d77-bf78-98a1e525643b",
+          "board": "aqa",
+          "code": "AQA 4.6.1.1",
+          "primary": true
+        },
+        {
+          "id": "e3bf5392-2334-49bf-867a-a2cd888a14ed",
+          "board": "aqa_trilogy",
+          "code": "AQA T 6.6.1.1",
+          "primary": true
+        },
+        {
+          "id": "c08a00ee-e5c7-4471-9e7d-24a7a9fc6ef1",
+          "board": "edexcel",
+          "code": "EDEX 4.1",
+          "primary": true
+        },
+        {
+          "id": "05be30a9-56b9-4548-b90f-ba1e3c7ae246",
+          "board": "edexcel",
+          "code": "EDEX 4.2",
+          "primary": true
+        },
+        {
+          "id": "7c8a8179-244b-45bb-a4e1-2dc1e26182af",
+          "board": "edexcel",
+          "code": "EDEX 4.5",
+          "primary": true
+        },
+        {
+          "id": "2b5c86af-d082-422b-85e2-20d3fa45f3ca",
+          "board": "ocr",
+          "code": "OCR P5.1e",
+          "primary": true
+        },
+        {
+          "id": "6de95755-6ce6-414a-bdea-204a60a665b6",
+          "board": "ocr",
+          "code": "OCR P5.1j",
+          "primary": true
+        },
+        {
+          "id": "ad81068a-7299-4bc7-8032-3a556cf69f3b",
+          "board": "ocr",
+          "code": "OCR P5.1k",
+          "primary": true
+        }
+      ]
+    },
+    {
+      "id": "phys-066",
+      "group": "Waves",
+      "title": "Wave properties and the wave equation",
+      "scope": "Amplitude, wavelength, frequency and period, and calculating wave speed (v = fλ, T = 1/f).",
+      "kind": "content",
+      "higher_only": false,
+      "separate_only": false,
+      "spec_points": [
+        {
+          "id": "4d1bfc69-2378-4fc1-9976-243664fd704d",
+          "board": "aqa",
+          "code": "AQA 4.6.1.2",
+          "primary": true
+        },
+        {
+          "id": "bed3b232-a39e-4fd1-baa1-9ce4b6a4caf9",
+          "board": "aqa_trilogy",
+          "code": "AQA T 6.6.1.2",
+          "primary": true
+        },
+        {
+          "id": "8a3a5464-2a44-41d0-8cdd-9c70cabf7dda",
+          "board": "edexcel",
+          "code": "EDEX 4.3",
+          "primary": true
+        },
+        {
+          "id": "f2452e32-932c-4896-a124-cd4eb9223d44",
+          "board": "edexcel",
+          "code": "EDEX 4.4",
+          "primary": true
+        },
+        {
+          "id": "e779cfa1-566b-4495-8da7-175ef3bb1c60",
+          "board": "edexcel",
+          "code": "EDEX 4.6",
+          "primary": true
+        },
+        {
+          "id": "1a5298c9-2b21-4dfd-b1a0-ac35f0165503",
+          "board": "ocr",
+          "code": "OCR P5.1a",
+          "primary": true
+        },
+        {
+          "id": "b6678b3e-a443-430c-8920-b07f45f837c5",
+          "board": "ocr",
+          "code": "OCR P5.1b",
+          "primary": true
+        },
+        {
+          "id": "ce653765-11e8-4574-8418-4d50cd59e0eb",
+          "board": "ocr",
+          "code": "OCR P5.1c",
+          "primary": true
+        },
+        {
+          "id": "2a167b23-84fb-43cd-8f76-1617523da3e5",
+          "board": "ocr",
+          "code": "OCR P5.1d",
+          "primary": true
+        }
+      ]
+    },
+    {
+      "id": "phys-067",
+      "group": "Waves",
+      "title": "Required practical: measuring wave speed",
+      "scope": "Measuring the speed, frequency and wavelength of waves in a ripple tank, on a string and of sound in air.",
+      "kind": "practical",
+      "higher_only": false,
+      "separate_only": false,
+      "data_note": "taught by OCR (PAG practical activity) but no matching spec point",
+      "spec_points": [
+        {
+          "id": "7cbb0d71-e891-45e9-ae6e-76fc113a6f6f",
+          "board": "edexcel",
+          "code": "EDEX 4.7",
+          "primary": true
+        },
+        {
+          "id": "6ffa8c0b-01a7-4ea9-9244-aa5e465e00d5",
+          "board": "edexcel",
+          "code": "EDEX 4.17",
+          "primary": true
+        },
+        {
+          "id": "4d1bfc69-2378-4fc1-9976-243664fd704d",
+          "board": "aqa",
+          "code": "AQA 4.6.1.2",
+          "primary": false
+        },
+        {
+          "id": "bed3b232-a39e-4fd1-baa1-9ce4b6a4caf9",
+          "board": "aqa_trilogy",
+          "code": "AQA T 6.6.1.2",
+          "primary": false
+        }
+      ]
+    },
+    {
+      "id": "phys-068",
+      "group": "Waves",
+      "title": "Reflection of waves",
+      "scope": "Reflection, absorption and transmission at boundaries, the law of reflection, specular and diffuse reflection, ray diagrams and total internal reflection.",
+      "kind": "content",
+      "higher_only": false,
+      "separate_only": true,
+      "spec_points": [
+        {
+          "id": "a884de6f-c06d-44d3-970a-b46ddef6cb24",
+          "board": "aqa",
+          "code": "AQA 4.6.1.3",
+          "primary": true
+        },
+        {
+          "id": "253f581d-07e9-4825-a37d-7805a76df70b",
+          "board": "edexcel",
+          "code": "EDEX 4.9P",
+          "primary": true
+        },
+        {
+          "id": "cb2769f2-4515-42c7-8787-537e9ef1b056",
+          "board": "edexcel",
+          "code": "EDEX 5.1P",
+          "primary": true
+        },
+        {
+          "id": "acda7ec6-65d1-4482-8000-ac995c9fc6b6",
+          "board": "edexcel",
+          "code": "EDEX 5.2P",
+          "primary": true
+        },
+        {
+          "id": "d08bb6ac-395d-4c7b-871c-f97481f32b4e",
+          "board": "ocr",
+          "code": "OCR P5.1g",
+          "primary": true
+        },
+        {
+          "id": "e9debc07-7a09-40b8-b08e-ba242db021e8",
+          "board": "ocr",
+          "code": "OCR P5.3d",
+          "primary": true
+        }
+      ]
+    },
+    {
+      "id": "phys-069",
+      "group": "Waves",
+      "title": "Refraction",
+      "scope": "How waves change speed and direction at a boundary, wavefront diagrams, and how absorption, transmission and refraction vary with wavelength.",
+      "kind": "content",
+      "higher_only": false,
+      "separate_only": false,
+      "spec_points": [
+        {
+          "id": "a9782248-363f-4ad0-a421-705352fa9921",
+          "board": "aqa",
+          "code": "AQA 4.6.2.2",
+          "primary": true
+        },
+        {
+          "id": "6fd2f45b-4d6f-4c6d-bd21-a396968852fc",
+          "board": "aqa_trilogy",
+          "code": "AQA T 6.6.2.2",
+          "primary": true
+        },
+        {
+          "id": "f023e359-6139-4df7-bc8d-9de6fee87fc5",
+          "board": "edexcel",
+          "code": "EDEX 4.10",
+          "primary": true
+        },
+        {
+          "id": "300bab9e-1802-42e1-a1ee-7e6610bb7686",
+          "board": "edexcel",
+          "code": "EDEX 4.11",
+          "primary": true
+        },
+        {
+          "id": "c42aa054-c47c-458f-966e-ee210b455276",
+          "board": "edexcel",
+          "code": "EDEX 5.13",
+          "primary": true
+        },
+        {
+          "id": "ec30fe8e-933f-46f5-b6dc-3e73bf0acb7f",
+          "board": "edexcel",
+          "code": "EDEX 5.14",
+          "primary": true
+        },
+        {
+          "id": "71c88bc4-c8ee-4654-bcb7-853f45c9ba0b",
+          "board": "ocr",
+          "code": "OCR P5.3a",
+          "primary": true
+        },
+        {
+          "id": "c6fcca5c-ddf9-49ec-8eb8-d07b77f3a16a",
+          "board": "ocr",
+          "code": "OCR P5.3b",
+          "primary": true
+        },
+        {
+          "id": "cb2769f2-4515-42c7-8787-537e9ef1b056",
+          "board": "edexcel",
+          "code": "EDEX 5.1P",
+          "primary": false
+        },
+        {
+          "id": "501a5dfc-1260-4680-9b36-43eebaf5f3a5",
+          "board": "edexcel",
+          "code": "EDEX 5.9",
+          "primary": false
+        },
+        {
+          "id": "e9debc07-7a09-40b8-b08e-ba242db021e8",
+          "board": "ocr",
+          "code": "OCR P5.3d",
+          "primary": false
+        }
+      ]
+    },
+    {
+      "id": "phys-070",
+      "group": "Waves",
+      "title": "Required practical: refraction of light",
+      "scope": "Investigating refraction of light through rectangular glass blocks by tracing rays and measuring angles.",
+      "kind": "practical",
+      "higher_only": false,
+      "separate_only": false,
+      "data_note": "taught by OCR (PAG practical activity) but no matching spec point",
+      "spec_points": [
+        {
+          "id": "501a5dfc-1260-4680-9b36-43eebaf5f3a5",
+          "board": "edexcel",
+          "code": "EDEX 5.9",
+          "primary": true
+        },
+        {
+          "id": "a884de6f-c06d-44d3-970a-b46ddef6cb24",
+          "board": "aqa",
+          "code": "AQA 4.6.1.3",
+          "primary": false
+        }
+      ]
+    },
+    {
+      "id": "phys-071",
+      "group": "Waves",
+      "title": "Sound waves and hearing",
+      "scope": "How sound travels through solids, how the ear converts sound to vibrations, the limited range of human hearing and changes when sound enters a new medium.",
+      "kind": "content",
+      "higher_only": false,
+      "separate_only": true,
+      "spec_points": [
+        {
+          "id": "479d7adf-8b90-4cfe-ad68-274affcb55cc",
+          "board": "aqa",
+          "code": "AQA 4.6.1.4",
+          "primary": true
+        },
+        {
+          "id": "3af700a9-6634-4441-8925-62c3172ee4dd",
+          "board": "edexcel",
+          "code": "EDEX 4.12P",
+          "primary": true
+        },
+        {
+          "id": "e74b05d6-1732-4620-9917-fcb30e417b89",
+          "board": "edexcel",
+          "code": "EDEX 4.16P",
+          "primary": true
+        },
+        {
+          "id": "c2f7be2a-c790-4f9a-b940-236a54f2caca",
+          "board": "ocr",
+          "code": "OCR P5.1f",
+          "primary": true
+        },
+        {
+          "id": "3d2002fb-13ad-45c0-8fd7-f6acc1c4668a",
+          "board": "ocr",
+          "code": "OCR P5.1h",
+          "primary": true
+        },
+        {
+          "id": "1c7ddf44-161a-4a36-a392-8bd2e74d2d84",
+          "board": "ocr",
+          "code": "OCR P5.1i",
+          "primary": true
+        }
+      ]
+    },
+    {
+      "id": "phys-072",
+      "group": "Waves",
+      "title": "Ultrasound, infrasound and seismic waves",
+      "scope": "Using ultrasound echoes for imaging and sonar, seismic P and S waves for exploring the Earth's core, and calculating distance from echo times.",
+      "kind": "content",
+      "higher_only": false,
+      "separate_only": true,
+      "spec_points": [
+        {
+          "id": "7182bc4a-a3cf-4c0e-8c68-9c3899ff1989",
+          "board": "aqa",
+          "code": "AQA 4.6.1.5",
+          "primary": true
+        },
+        {
+          "id": "c197fcfd-d0b0-49af-977c-0ab4305c73f3",
+          "board": "edexcel",
+          "code": "EDEX 4.8P",
+          "primary": true
+        },
+        {
+          "id": "de9b1314-4418-4f52-88b6-8ae4dc496541",
+          "board": "edexcel",
+          "code": "EDEX 4.13P",
+          "primary": true
+        },
+        {
+          "id": "435460bf-9968-4429-9ddb-4aa7a4cbaa2e",
+          "board": "edexcel",
+          "code": "EDEX 4.14P",
+          "primary": true
+        },
+        {
+          "id": "375a6a82-37ab-4f74-8b54-238076f84918",
+          "board": "edexcel",
+          "code": "EDEX 4.15P",
+          "primary": true
+        },
+        {
+          "id": "0f2f6839-c075-4535-a158-c38579d47b9a",
+          "board": "ocr",
+          "code": "OCR P5.2i",
+          "primary": true
+        },
+        {
+          "id": "a6129881-120a-4aed-8413-0f41be6df421",
+          "board": "ocr",
+          "code": "OCR P8.3i",
+          "primary": true
+        }
+      ]
+    },
+    {
+      "id": "phys-073",
+      "group": "Waves",
+      "title": "The electromagnetic spectrum",
+      "scope": "EM waves as transverse waves with the same speed in a vacuum, the order of the spectrum, and visible light as the only part we can see.",
+      "kind": "content",
+      "higher_only": false,
+      "separate_only": false,
+      "spec_points": [
+        {
+          "id": "3176b85f-d4cd-4efb-8c8d-752b5a4490bf",
+          "board": "aqa",
+          "code": "AQA 4.6.2.1",
+          "primary": true
+        },
+        {
+          "id": "1cd948c2-d27d-42ca-b0ae-730b7a7d8eb6",
+          "board": "aqa_trilogy",
+          "code": "AQA T 6.6.2.1",
+          "primary": true
+        },
+        {
+          "id": "acbdbf63-f004-4d1c-bb10-636fc141da3b",
+          "board": "edexcel",
+          "code": "EDEX 5.7",
+          "primary": true
+        },
+        {
+          "id": "4268ca01-017d-4855-b596-fd96a99c1711",
+          "board": "edexcel",
+          "code": "EDEX 5.8",
+          "primary": true
+        },
+        {
+          "id": "7113e488-9d0d-4e05-b130-f55f060ea2ed",
+          "board": "edexcel",
+          "code": "EDEX 5.10",
+          "primary": true
+        },
+        {
+          "id": "db775d3b-a0eb-4849-9ebc-dc1b0fe3698a",
+          "board": "edexcel",
+          "code": "EDEX 5.11",
+          "primary": true
+        },
+        {
+          "id": "13eed16d-0107-483a-95df-a01a18956f1c",
+          "board": "edexcel",
+          "code": "EDEX 5.12",
+          "primary": true
+        },
+        {
+          "id": "c013d408-6332-43d5-aeb4-ad352fb577a8",
+          "board": "ocr",
+          "code": "OCR P5.2a",
+          "primary": true
+        },
+        {
+          "id": "d56add9b-3bd3-4bed-9b2a-16f325e30b2a",
+          "board": "ocr",
+          "code": "OCR P5.2b",
+          "primary": true
+        },
+        {
+          "id": "e6b7e7c3-e6c0-4ee4-af50-66ecf24a6b13",
+          "board": "ocr",
+          "code": "OCR P5.2c",
+          "primary": true
+        },
+        {
+          "id": "fba9b734-02fc-422d-9910-4266e3a02b0a",
+          "board": "ocr",
+          "code": "OCR P5.2d",
+          "primary": true
+        },
+        {
+          "id": "90f22883-2995-4cfc-9706-47feb90356a2",
+          "board": "ocr",
+          "code": "OCR P5.2e",
+          "primary": true
+        },
+        {
+          "id": "f3c2b713-8542-4e64-be3c-49cd41d75543",
+          "board": "ocr",
+          "code": "OCR P5.2f",
+          "primary": true
+        }
+      ]
+    },
+    {
+      "id": "phys-074",
+      "group": "Waves",
+      "title": "Uses of electromagnetic waves",
+      "scope": "Practical uses of each part of the spectrum, and how radio waves are produced by and induce oscillations in circuits.",
+      "kind": "content",
+      "higher_only": false,
+      "separate_only": false,
+      "spec_points": [
+        {
+          "id": "e2dd1fd5-b83c-4e80-8992-6121cdcc68bc",
+          "board": "aqa",
+          "code": "AQA 4.6.2.4",
+          "primary": true
+        },
+        {
+          "id": "96461c29-d3f0-4363-9927-44786efe67e8",
+          "board": "aqa_trilogy",
+          "code": "AQA T 6.6.2.4",
+          "primary": true
+        },
+        {
+          "id": "873dc208-829e-48f6-9517-06e88743bf67",
+          "board": "edexcel",
+          "code": "EDEX 5.22",
+          "primary": true
+        },
+        {
+          "id": "bd2add22-a660-497c-a965-86d7472b158d",
+          "board": "edexcel",
+          "code": "EDEX 5.23",
+          "primary": true
+        },
+        {
+          "id": "57f85d6b-5873-441f-bcad-1dd0893a52bd",
+          "board": "ocr",
+          "code": "OCR P5.2g",
+          "primary": true
+        },
+        {
+          "id": "0bd3ca9a-2345-4706-b512-c3e4c0729353",
+          "board": "ocr",
+          "code": "OCR P5.2j",
+          "primary": true
+        }
+      ]
+    },
+    {
+      "id": "phys-075",
+      "group": "Waves",
+      "title": "Dangers of electromagnetic radiation",
+      "scope": "How the danger of EM radiation rises with frequency, the harmful effects of microwaves, infrared, UV, X-rays and gamma, and radiation dose.",
+      "kind": "content",
+      "higher_only": false,
+      "separate_only": false,
+      "spec_points": [
+        {
+          "id": "045ab699-1a56-4e46-a923-e8b4f95c0d79",
+          "board": "aqa",
+          "code": "AQA 4.6.2.3",
+          "primary": true
+        },
+        {
+          "id": "2230d9ec-2cf6-4775-96d5-cceb444e2f38",
+          "board": "aqa_trilogy",
+          "code": "AQA T 6.6.2.3",
+          "primary": true
+        },
+        {
+          "id": "30e5ceea-c924-4d82-9749-4493a32c4e14",
+          "board": "edexcel",
+          "code": "EDEX 5.20",
+          "primary": true
+        },
+        {
+          "id": "caa832fe-4cdd-482d-918c-a16d45a9f44d",
+          "board": "edexcel",
+          "code": "EDEX 5.21",
+          "primary": true
+        },
+        {
+          "id": "8dfef336-c595-4740-b832-9740577d33cd",
+          "board": "ocr",
+          "code": "OCR P5.2h",
+          "primary": true
+        }
+      ]
+    },
+    {
+      "id": "phys-076",
+      "group": "Waves",
+      "title": "Lenses",
+      "scope": "Converging and diverging lenses, focal length and lens power, ray diagrams, real and virtual images and magnification.",
+      "kind": "content",
+      "higher_only": false,
+      "separate_only": true,
+      "spec_points": [
+        {
+          "id": "bbf164fb-cf14-4f6d-be44-49792ff2ef5f",
+          "board": "aqa",
+          "code": "AQA 4.6.2.5",
+          "primary": true
+        },
+        {
+          "id": "1da0ba28-db03-48c6-94ba-28f533897178",
+          "board": "edexcel",
+          "code": "EDEX 5.4P",
+          "primary": true
+        },
+        {
+          "id": "2609afff-ad97-4c24-ab1d-78b6685e3820",
+          "board": "edexcel",
+          "code": "EDEX 5.5P",
+          "primary": true
+        },
+        {
+          "id": "dfa8f1f2-7523-47c3-a3a7-9b3cd290be3c",
+          "board": "edexcel",
+          "code": "EDEX 5.6P",
+          "primary": true
+        },
+        {
+          "id": "6f6da19a-db7f-47da-a17f-06b93c98ec5a",
+          "board": "ocr",
+          "code": "OCR P5.3c",
+          "primary": true
+        }
+      ]
+    },
+    {
+      "id": "phys-077",
+      "group": "Waves",
+      "title": "Visible light and colour",
+      "scope": "How the colour of objects and filters depends on differential reflection, absorption and transmission of wavelengths.",
+      "kind": "content",
+      "higher_only": false,
+      "separate_only": true,
+      "spec_points": [
+        {
+          "id": "3d99cf74-6dce-4d77-af98-fa2374064793",
+          "board": "aqa",
+          "code": "AQA 4.6.2.6",
+          "primary": true
+        },
+        {
+          "id": "4f752dc0-31e3-474f-962d-697804704adf",
+          "board": "edexcel",
+          "code": "EDEX 5.3P",
+          "primary": true
+        },
+        {
+          "id": "2834f26a-22a5-4f95-9a38-f04ef4ed4585",
+          "board": "ocr",
+          "code": "OCR P5.3e",
+          "primary": true
+        }
+      ]
+    },
+    {
+      "id": "phys-078",
+      "group": "Waves",
+      "title": "Black body radiation",
+      "scope": "How all bodies emit and absorb infrared, perfect black bodies, the balance of absorbed and emitted radiation and the Earth's temperature.",
+      "kind": "content",
+      "higher_only": false,
+      "separate_only": true,
+      "spec_points": [
+        {
+          "id": "d72b3417-85bd-4f0b-9c0d-37ab73a89e0c",
+          "board": "aqa",
+          "code": "AQA 4.6.3.1",
+          "primary": true
+        },
+        {
+          "id": "8b8e65af-726e-4050-9883-01a9e757fa69",
+          "board": "aqa",
+          "code": "AQA 4.6.3.2",
+          "primary": true
+        },
+        {
+          "id": "a854a0eb-f1a5-4eb7-a561-02ea2c7226c2",
+          "board": "edexcel",
+          "code": "EDEX 5.15P",
+          "primary": true
+        },
+        {
+          "id": "7b42cd75-7b08-4303-86da-19fc57e3b1f7",
+          "board": "edexcel",
+          "code": "EDEX 5.16P",
+          "primary": true
+        },
+        {
+          "id": "2b2fcf4b-42aa-493d-9a28-f525662a0e71",
+          "board": "edexcel",
+          "code": "EDEX 5.17P",
+          "primary": true
+        },
+        {
+          "id": "46c1b419-e32a-43df-acf6-9192bebbbdf6",
+          "board": "edexcel",
+          "code": "EDEX 5.18P",
+          "primary": true
+        },
+        {
+          "id": "4c4643ff-82df-4e8b-b77f-855515f09f43",
+          "board": "ocr",
+          "code": "OCR P8.3d",
+          "primary": true
+        },
+        {
+          "id": "8ee461d3-c925-4563-a1ed-966325f4df56",
+          "board": "ocr",
+          "code": "OCR P8.3h",
+          "primary": true
+        },
+        {
+          "id": "a9782248-363f-4ad0-a421-705352fa9921",
+          "board": "aqa",
+          "code": "AQA 4.6.2.2",
+          "primary": false
+        },
+        {
+          "id": "6fd2f45b-4d6f-4c6d-bd21-a396968852fc",
+          "board": "aqa_trilogy",
+          "code": "AQA T 6.6.2.2",
+          "primary": false
+        },
+        {
+          "id": "9c02dcdb-ea91-4850-b402-0e26e063f32a",
+          "board": "edexcel",
+          "code": "EDEX 5.19P",
+          "primary": false
+        }
+      ]
+    },
+    {
+      "id": "phys-079",
+      "group": "Waves",
+      "title": "Required practical: infrared radiation and surfaces",
+      "scope": "Investigating how the nature of a surface affects how much infrared it emits or absorbs, e.g. with a Leslie cube.",
+      "kind": "practical",
+      "higher_only": false,
+      "separate_only": false,
+      "spec_points": [
+        {
+          "id": "9c02dcdb-ea91-4850-b402-0e26e063f32a",
+          "board": "edexcel",
+          "code": "EDEX 5.19P",
+          "primary": true
+        },
+        {
+          "id": "a9782248-363f-4ad0-a421-705352fa9921",
+          "board": "aqa",
+          "code": "AQA 4.6.2.2",
+          "primary": false
+        },
+        {
+          "id": "6fd2f45b-4d6f-4c6d-bd21-a396968852fc",
+          "board": "aqa_trilogy",
+          "code": "AQA T 6.6.2.2",
+          "primary": false
+        }
+      ]
+    },
+    {
+      "id": "phys-080",
+      "group": "Magnetism and electromagnetism",
+      "title": "Magnets and magnetic materials",
+      "scope": "Magnetic poles, attraction and repulsion, magnetic materials and the difference between permanent and induced magnets.",
+      "kind": "content",
+      "higher_only": false,
+      "separate_only": false,
+      "spec_points": [
+        {
+          "id": "290033dd-9d9a-4dc5-92f7-924e2ceed15b",
+          "board": "aqa",
+          "code": "AQA 4.7.1.1",
+          "primary": true
+        },
+        {
+          "id": "2c83205c-7b2c-4113-a80b-4e60e34df25c",
+          "board": "aqa_trilogy",
+          "code": "AQA T 6.7.1.1",
+          "primary": true
+        },
+        {
+          "id": "b0332ec0-bddf-492c-af71-53b0f0954168",
+          "board": "edexcel",
+          "code": "EDEX 12.1",
+          "primary": true
+        },
+        {
+          "id": "5db8c90f-7486-43e5-85ac-2de913ac06ad",
+          "board": "edexcel",
+          "code": "EDEX 12.2",
+          "primary": true
+        },
+        {
+          "id": "9ec71ec6-027e-4fe3-ac9c-c8c69a046a66",
+          "board": "edexcel",
+          "code": "EDEX 12.3",
+          "primary": true
+        },
+        {
+          "id": "9f04fa53-8be6-4a2d-b7ee-84e4be0b2dcb",
+          "board": "ocr",
+          "code": "OCR P4.1a",
+          "primary": true
+        },
+        {
+          "id": "910a6fff-2749-4c55-b33b-b9d4f9d055d1",
+          "board": "ocr",
+          "code": "OCR P4.1b",
+          "primary": true
+        }
+      ]
+    },
+    {
+      "id": "phys-081",
+      "group": "Magnetism and electromagnetism",
+      "title": "Magnetic fields",
+      "scope": "Magnetic field lines around bar magnets and uniform fields, plotting compasses and evidence that the Earth has a magnetic core.",
+      "kind": "content",
+      "higher_only": false,
+      "separate_only": false,
+      "spec_points": [
+        {
+          "id": "f3ee0ea9-74e3-42e4-b3e8-29aac581ebcd",
+          "board": "aqa",
+          "code": "AQA 4.7.1.2",
+          "primary": true
+        },
+        {
+          "id": "47340042-7913-4b71-8c90-fa571382fe38",
+          "board": "aqa_trilogy",
+          "code": "AQA T 6.7.1.2",
+          "primary": true
+        },
+        {
+          "id": "b513d2cc-2419-4620-8607-e45ad92f8353",
+          "board": "edexcel",
+          "code": "EDEX 12.4",
+          "primary": true
+        },
+        {
+          "id": "c6b13051-6c72-4879-aed0-85458bf0723f",
+          "board": "edexcel",
+          "code": "EDEX 12.5",
+          "primary": true
+        },
+        {
+          "id": "f5df0af9-535e-4367-8c6a-0de4a689652a",
+          "board": "edexcel",
+          "code": "EDEX 12.6",
+          "primary": true
+        },
+        {
+          "id": "f8a540cf-c21f-4170-82c9-0b5dd2ebf791",
+          "board": "ocr",
+          "code": "OCR P4.1c",
+          "primary": true
+        },
+        {
+          "id": "b7c9301f-e2d1-438b-bccd-805bb46ed16f",
+          "board": "ocr",
+          "code": "OCR P4.1d",
+          "primary": true
+        }
+      ]
+    },
+    {
+      "id": "phys-082",
+      "group": "Magnetism and electromagnetism",
+      "title": "Electromagnetism and solenoids",
+      "scope": "The magnetic field around a current-carrying wire and a solenoid, the right-hand grip rule and electromagnets.",
+      "kind": "content",
+      "higher_only": false,
+      "separate_only": false,
+      "spec_points": [
+        {
+          "id": "fcf38adb-20d2-4c6f-bb4f-7c762ce9ee13",
+          "board": "aqa",
+          "code": "AQA 4.7.2.1",
+          "primary": true
+        },
+        {
+          "id": "a836ad3c-0ac8-466a-b807-33865a1504bf",
+          "board": "aqa_trilogy",
+          "code": "AQA T 6.7.2.1",
+          "primary": true
+        },
+        {
+          "id": "d8aaf271-87d5-4a9b-9ebb-a38e1a0a61ff",
+          "board": "edexcel",
+          "code": "EDEX 12.7",
+          "primary": true
+        },
+        {
+          "id": "2a0091fa-a2ea-4a03-935c-6f259d66b0ac",
+          "board": "edexcel",
+          "code": "EDEX 12.8",
+          "primary": true
+        },
+        {
+          "id": "02f63d71-0fb4-4718-9402-6f223c92fab2",
+          "board": "edexcel",
+          "code": "EDEX 12.9",
+          "primary": true
+        },
+        {
+          "id": "dfa3befb-1bbf-4be8-88f9-2b48c331b11a",
+          "board": "ocr",
+          "code": "OCR P4.1e",
+          "primary": true
+        },
+        {
+          "id": "842cbcdf-ff2b-4573-a6ef-1c9213860698",
+          "board": "ocr",
+          "code": "OCR P4.1f",
+          "primary": true
+        },
+        {
+          "id": "1e20d926-bc21-40ab-bb26-2c5795dfc694",
+          "board": "ocr",
+          "code": "OCR P4.1g",
+          "primary": true
+        }
+      ]
+    },
+    {
+      "id": "phys-083",
+      "group": "Magnetism and electromagnetism",
+      "title": "The motor effect",
+      "scope": "The force on a current-carrying conductor in a magnetic field, Fleming's left-hand rule and F = BIL.",
+      "kind": "content",
+      "higher_only": false,
+      "separate_only": false,
+      "spec_points": [
+        {
+          "id": "bf11e214-f5a8-4bc3-81c4-98c3344dc2fc",
+          "board": "aqa",
+          "code": "AQA 4.7.2.2",
+          "primary": true
+        },
+        {
+          "id": "aaeb7e9f-f9c8-4828-b6bc-31989963a5ae",
+          "board": "aqa_trilogy",
+          "code": "AQA T 6.7.2.2",
+          "primary": true
+        },
+        {
+          "id": "d0093d03-1102-476f-ac7e-24850f21b17c",
+          "board": "edexcel",
+          "code": "EDEX 12.10",
+          "primary": true
+        },
+        {
+          "id": "8418d235-624c-4724-acc9-dc15af6da03b",
+          "board": "edexcel",
+          "code": "EDEX 12.11",
+          "primary": true
+        },
+        {
+          "id": "fd38690e-1062-4d3a-b1df-f4feca0cc518",
+          "board": "edexcel",
+          "code": "EDEX 12.12",
+          "primary": true
+        },
+        {
+          "id": "8bc19181-dedc-4d3b-9aaa-ee169e72c909",
+          "board": "edexcel",
+          "code": "EDEX 12.13",
+          "primary": true
+        },
+        {
+          "id": "29566c88-70bd-489d-b16c-a144e7cd77c9",
+          "board": "ocr",
+          "code": "OCR P4.2a",
+          "primary": true
+        },
+        {
+          "id": "3e0d1005-5a82-4696-be9c-05f93473a696",
+          "board": "ocr",
+          "code": "OCR P4.2b",
+          "primary": true
+        },
+        {
+          "id": "2c7e6682-1864-4a41-8dc0-1d7e4528b3a3",
+          "board": "ocr",
+          "code": "OCR P4.2c",
+          "primary": true
+        }
+      ]
+    },
+    {
+      "id": "phys-084",
+      "group": "Magnetism and electromagnetism",
+      "title": "Electric motors and loudspeakers",
+      "scope": "How the motor effect makes a coil rotate in an electric motor and makes a loudspeaker cone vibrate.",
+      "kind": "content",
+      "higher_only": false,
+      "separate_only": false,
+      "spec_points": [
+        {
+          "id": "aefdf8ba-7877-4dde-8047-94d4bd222ff9",
+          "board": "aqa",
+          "code": "AQA 4.7.2.3",
+          "primary": true
+        },
+        {
+          "id": "3c86eeb9-b95a-42aa-a236-36005d8305aa",
+          "board": "aqa_trilogy",
+          "code": "AQA T 6.7.2.3",
+          "primary": true
+        },
+        {
+          "id": "3396de71-a2d5-4a2a-bcce-1bd7f7088227",
+          "board": "aqa",
+          "code": "AQA 4.7.2.4",
+          "primary": true
+        },
+        {
+          "id": "fcf07d7b-40a3-44ba-a72d-7edcf83d2d10",
+          "board": "edexcel",
+          "code": "EDEX 12.14P",
+          "primary": true
+        },
+        {
+          "id": "0f9687e0-4b63-4d03-9a75-bde9e941184b",
+          "board": "ocr",
+          "code": "OCR P4.2d",
+          "primary": true
+        }
+      ]
+    },
+    {
+      "id": "phys-085",
+      "group": "Magnetism and electromagnetism",
+      "title": "Electromagnetic induction",
+      "scope": "Inducing a potential difference by moving a conductor relative to a magnetic field and the factors affecting its size and direction.",
+      "kind": "content",
+      "higher_only": false,
+      "separate_only": false,
+      "spec_points": [
+        {
+          "id": "1dcca174-c574-463a-905c-9643aac9fd71",
+          "board": "aqa",
+          "code": "AQA 4.7.3.1",
+          "primary": true
+        },
+        {
+          "id": "38fbada1-a8b4-426f-9bdf-0c7b8d3c6b9b",
+          "board": "edexcel",
+          "code": "EDEX 13.1P",
+          "primary": true
+        },
+        {
+          "id": "0e881ab8-d3c8-434f-a26b-6e7b6bad892a",
+          "board": "edexcel",
+          "code": "EDEX 13.2",
+          "primary": true
+        },
+        {
+          "id": "22bfcbbc-94f0-4d47-90f5-eb8667332278",
+          "board": "ocr",
+          "code": "OCR P4.2e",
+          "primary": true
+        }
+      ]
+    },
+    {
+      "id": "phys-086",
+      "group": "Magnetism and electromagnetism",
+      "title": "Generators and microphones",
+      "scope": "How alternators produce a.c., dynamos produce d.c., and microphones turn sound into electrical signals using the generator effect.",
+      "kind": "content",
+      "higher_only": false,
+      "separate_only": true,
+      "spec_points": [
+        {
+          "id": "bd6a6121-0679-43a7-b464-72bbdc66a77a",
+          "board": "aqa",
+          "code": "AQA 4.7.3.2",
+          "primary": true
+        },
+        {
+          "id": "f1251ac2-de25-425e-a3e8-e610ae209d77",
+          "board": "aqa",
+          "code": "AQA 4.7.3.3",
+          "primary": true
+        },
+        {
+          "id": "3a1a0e89-fb07-4a96-8ff9-bcd91a87138d",
+          "board": "edexcel",
+          "code": "EDEX 13.3P",
+          "primary": true
+        },
+        {
+          "id": "ebc6844a-a88e-4550-a11d-a62548642a10",
+          "board": "edexcel",
+          "code": "EDEX 13.4P",
+          "primary": true
+        },
+        {
+          "id": "5ed6c75e-73c8-4a60-b6b2-245219400358",
+          "board": "ocr",
+          "code": "OCR P4.2f",
+          "primary": true
+        },
+        {
+          "id": "d1303a84-2cd1-45ff-bc84-4a6c8286e1be",
+          "board": "ocr",
+          "code": "OCR P4.2j",
+          "primary": true
+        }
+      ]
+    },
+    {
+      "id": "phys-087",
+      "group": "Magnetism and electromagnetism",
+      "title": "Transformers",
+      "scope": "How transformers change alternating voltage, the turns ratio equation Vp/Vs = Np/Ns and VpIp = VsIs.",
+      "kind": "content",
+      "higher_only": false,
+      "separate_only": false,
+      "spec_points": [
+        {
+          "id": "a68da0a9-2bb1-4b04-a0b8-ca93fffa780e",
+          "board": "aqa",
+          "code": "AQA 4.7.3.4",
+          "primary": true
+        },
+        {
+          "id": "1921039c-2987-4eda-98e3-9d84b3fb8222",
+          "board": "edexcel",
+          "code": "EDEX 13.5",
+          "primary": true
+        },
+        {
+          "id": "452b71a3-4483-4855-b25b-4e921aed6bd9",
+          "board": "edexcel",
+          "code": "EDEX 13.6",
+          "primary": true
+        },
+        {
+          "id": "d9f843ee-cdd0-4d09-8bbb-f472246f00bc",
+          "board": "edexcel",
+          "code": "EDEX 13.10",
+          "primary": true
+        },
+        {
+          "id": "76d217ec-d533-420f-b32a-bd0def0bd0bb",
+          "board": "edexcel",
+          "code": "EDEX 13.7P",
+          "primary": true
+        },
+        {
+          "id": "fc2136bd-6e27-4035-a0c4-6b6e89ef7e49",
+          "board": "ocr",
+          "code": "OCR P4.2g",
+          "primary": true
+        },
+        {
+          "id": "4f9cf25b-a009-49d8-a9dc-3d77509382cd",
+          "board": "ocr",
+          "code": "OCR P4.2h",
+          "primary": true
+        },
+        {
+          "id": "581034dc-b865-4a2b-a2c2-bd8cc3bcfdd9",
+          "board": "ocr",
+          "code": "OCR P4.2i",
+          "primary": true
+        },
+        {
+          "id": "856cc69c-4a9d-4dc9-85ac-d1455a6905b5",
+          "board": "ocr",
+          "code": "OCR P8.2f",
+          "primary": true
+        }
+      ]
+    },
+    {
+      "id": "phys-088",
+      "group": "Space physics",
+      "title": "The Solar System",
+      "scope": "The Sun, planets, moons and dwarf planets, how the Sun formed from a nebula, and how models of the Solar System changed over time.",
+      "kind": "content",
+      "higher_only": false,
+      "separate_only": true,
+      "spec_points": [
+        {
+          "id": "92db1b63-72c1-48db-ad16-38d5de85e0f8",
+          "board": "aqa",
+          "code": "AQA 4.8.1.1",
+          "primary": true
+        },
+        {
+          "id": "6e20bc29-ea9b-4c22-8732-f11da7da1d26",
+          "board": "edexcel",
+          "code": "EDEX 7.2P",
+          "primary": true
+        },
+        {
+          "id": "fcdff68f-7b8b-4582-b880-8fc75114d1b1",
+          "board": "edexcel",
+          "code": "EDEX 7.3P",
+          "primary": true
+        },
+        {
+          "id": "49c158fd-e48e-4734-bc05-e7d8ac7aa6b1",
+          "board": "edexcel",
+          "code": "EDEX 7.4P",
+          "primary": true
+        },
+        {
+          "id": "73e49b35-c89a-4823-abc2-6ed56946396f",
+          "board": "ocr",
+          "code": "OCR P8.3c",
+          "primary": true
+        },
+        {
+          "id": "5b597bcf-6af3-48b7-a3dd-37ea59a6e178",
+          "board": "ocr",
+          "code": "OCR P8.3e",
+          "primary": true
+        }
+      ]
+    },
+    {
+      "id": "phys-089",
+      "group": "Space physics",
+      "title": "Life cycle of stars",
+      "scope": "How stars like the Sun and more massive stars evolve from nebula to white dwarf, neutron star or black hole, and the balance of gravity and fusion.",
+      "kind": "content",
+      "higher_only": false,
+      "separate_only": true,
+      "spec_points": [
+        {
+          "id": "f20b10eb-532c-4258-b3cd-3a75b00847bc",
+          "board": "aqa",
+          "code": "AQA 4.8.1.2",
+          "primary": true
+        },
+        {
+          "id": "6e17a11f-2efd-48f7-824c-e910d0893111",
+          "board": "edexcel",
+          "code": "EDEX 7.16P",
+          "primary": true
+        },
+        {
+          "id": "96632856-64a5-4520-9fb7-be43935e177a",
+          "board": "edexcel",
+          "code": "EDEX 7.17P",
+          "primary": true
+        },
+        {
+          "id": "41803a82-a9d3-40a4-b041-2d3284bcb815",
+          "board": "edexcel",
+          "code": "EDEX 7.18P",
+          "primary": true
+        },
+        {
+          "id": "73e49b35-c89a-4823-abc2-6ed56946396f",
+          "board": "ocr",
+          "code": "OCR P8.3c",
+          "primary": false
+        }
+      ]
+    },
+    {
+      "id": "phys-090",
+      "group": "Space physics",
+      "title": "Orbits and satellites",
+      "scope": "How gravity keeps planets, moons and satellites in circular orbits with changing velocity but constant speed, and how orbit radius depends on speed.",
+      "kind": "content",
+      "higher_only": false,
+      "separate_only": true,
+      "spec_points": [
+        {
+          "id": "d6260182-34d7-42da-92b0-a1ce53836257",
+          "board": "aqa",
+          "code": "AQA 4.8.1.3",
+          "primary": true
+        },
+        {
+          "id": "d5bcc698-a2a3-49da-b5d7-50be5a30a823",
+          "board": "edexcel",
+          "code": "EDEX 7.5P",
+          "primary": true
+        },
+        {
+          "id": "8b746edb-42cc-4a5c-9003-529c33a33757",
+          "board": "edexcel",
+          "code": "EDEX 7.6P",
+          "primary": true
+        },
+        {
+          "id": "28ded9ac-f120-41d7-bab5-ab7ba1b5a040",
+          "board": "edexcel",
+          "code": "EDEX 7.7P",
+          "primary": true
+        },
+        {
+          "id": "5654b5b4-898c-4c70-8e54-b99557f5e733",
+          "board": "ocr",
+          "code": "OCR P8.3f",
+          "primary": true
+        },
+        {
+          "id": "762e9c61-db63-46f5-a9e7-9e1a50866771",
+          "board": "ocr",
+          "code": "OCR P8.3g",
+          "primary": true
+        }
+      ]
+    },
+    {
+      "id": "phys-091",
+      "group": "Space physics",
+      "title": "Red-shift and the expanding Universe",
+      "scope": "The Doppler effect, red-shift of light from distant galaxies and why it shows the Universe is expanding.",
+      "kind": "content",
+      "higher_only": false,
+      "separate_only": true,
+      "spec_points": [
+        {
+          "id": "21f6736b-e06e-41f3-af75-a4fa4aed6497",
+          "board": "aqa",
+          "code": "AQA 4.8.2",
+          "primary": true
+        },
+        {
+          "id": "fbe119bc-813c-44b3-aff7-e8b90622bf0f",
+          "board": "edexcel",
+          "code": "EDEX 7.11P",
+          "primary": true
+        },
+        {
+          "id": "8d26b880-76ab-4bea-afec-4b3667836c5d",
+          "board": "edexcel",
+          "code": "EDEX 7.12P",
+          "primary": true
+        },
+        {
+          "id": "4583d10b-c89d-43e4-88ac-cd204ba91154",
+          "board": "edexcel",
+          "code": "EDEX 7.13P",
+          "primary": true
+        },
+        {
+          "id": "ba4b09a0-3c4b-461c-8c2a-3029bf36c2c4",
+          "board": "ocr",
+          "code": "OCR P8.3a",
+          "primary": true
+        },
+        {
+          "id": "8e85a705-88e4-4e95-a1e2-2e1a7801de27",
+          "board": "edexcel",
+          "code": "EDEX 7.14P",
+          "primary": false
+        }
+      ]
+    },
+    {
+      "id": "phys-092",
+      "group": "Space physics",
+      "title": "The Big Bang and Steady State theories",
+      "scope": "Comparing the Big Bang and Steady State models and the evidence from red-shift and cosmic microwave background radiation.",
+      "kind": "content",
+      "higher_only": false,
+      "separate_only": true,
+      "spec_points": [
+        {
+          "id": "f23c4643-d1eb-4f0f-abfb-9167cde2bbe7",
+          "board": "edexcel",
+          "code": "EDEX 7.8P",
+          "primary": true
+        },
+        {
+          "id": "f22d0375-1847-431d-863a-2ab86d52c7fb",
+          "board": "edexcel",
+          "code": "EDEX 7.9P",
+          "primary": true
+        },
+        {
+          "id": "f7996ee5-a9b3-4fb6-bfb0-f964fb2ed5e5",
+          "board": "edexcel",
+          "code": "EDEX 7.10P",
+          "primary": true
+        },
+        {
+          "id": "8e85a705-88e4-4e95-a1e2-2e1a7801de27",
+          "board": "edexcel",
+          "code": "EDEX 7.14P",
+          "primary": true
+        },
+        {
+          "id": "129e25a8-dd33-4462-a8af-81af23a460b6",
+          "board": "edexcel",
+          "code": "EDEX 7.15P",
+          "primary": true
+        },
+        {
+          "id": "8e06742b-41a0-48a2-8a51-04efb5258dfe",
+          "board": "ocr",
+          "code": "OCR P8.3b",
+          "primary": true
+        },
+        {
+          "id": "21f6736b-e06e-41f3-af75-a4fa4aed6497",
+          "board": "aqa",
+          "code": "AQA 4.8.2",
+          "primary": false
+        }
+      ]
+    },
+    {
+      "id": "phys-093",
+      "group": "Space physics",
+      "title": "Observing the Universe",
+      "scope": "How telescopes and observation methods have changed and why some telescopes are placed in space.",
+      "kind": "content",
+      "higher_only": false,
+      "separate_only": true,
+      "spec_points": [
+        {
+          "id": "ccc15f12-e18e-49a1-b60e-61517dd2ab40",
+          "board": "edexcel",
+          "code": "EDEX 7.19P",
+          "primary": true
+        }
+      ]
+    }
+  ]
+}

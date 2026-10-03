@@ -10,6 +10,7 @@ import {
   CircleDot,
   Repeat,
   Plus,
+  BookMarked,
   MinusCircle,
 } from "lucide-react";
 import {
@@ -151,12 +152,14 @@ export function CarryForwardBar({
 const LANE_ICON: Record<Lane, typeof CircleDot> = {
   core: CircleDot,
   focus: Repeat,
+  tutor: BookMarked,
   yours: Plus,
 };
 
 const LANE_ACCENT: Record<Lane, string> = {
   core: "text-primary",
   focus: "text-rose-600 dark:text-rose-400",
+  tutor: "tint-accent text-[color:var(--tint)]",
   yours: "text-muted-foreground",
 };
 

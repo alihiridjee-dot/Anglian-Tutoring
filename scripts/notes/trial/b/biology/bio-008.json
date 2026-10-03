@@ -1,0 +1,326 @@
+{
+  "format": 1,
+  "concept_id": "bio-008",
+  "subject": "biology",
+  "title": "Chromosomes, mitosis and the cell cycle",
+  "key_idea": "Body cells divide in a series of stages called the **cell cycle**. The cell grows and copies its DNA, then in **mitosis** one set of chromosomes is pulled to each end of the cell and the nucleus divides, and finally the cytoplasm and cell membrane divide. The result is two genetically identical cells, used for growth, repair and asexual reproduction.",
+  "sections": [
+    {
+      "heading": "Chromosomes and genes",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "The nucleus of a cell contains **chromosomes**. Each chromosome is one long molecule of DNA. A **gene** is a short section of DNA on a chromosome. Each chromosome carries a large number of genes."
+        },
+        {
+          "type": "paragraph",
+          "text": "In body cells, chromosomes are found in pairs. Human body cells have 23 pairs, which is 46 chromosomes. A cell with chromosomes in pairs like this is called **diploid**."
+        },
+        {
+          "type": "paragraph",
+          "text": "From smallest to largest: gene, chromosome, nucleus, cell."
+        }
+      ]
+    },
+    {
+      "heading": "The three stages of the cell cycle",
+      "blocks": [
+        {
+          "type": "diagram",
+          "diagram": {
+            "kind": "flow",
+            "alt": "The cell cycle as a loop: the cell grows, the DNA replicates, one set of chromosomes is pulled to each end, the nucleus divides, the cytoplasm and membrane divide, giving two identical cells that can start the cycle again.",
+            "steps": [
+              "Cell grows; more ribosomes and mitochondria",
+              "DNA replicates: two copies of each chromosome",
+              "One set of chromosomes pulled to each end",
+              "Nucleus divides",
+              "Cytoplasm and cell membrane divide",
+              "Two genetically identical cells"
+            ],
+            "loop": true
+          }
+        },
+        {
+          "type": "steps",
+          "items": [
+            {
+              "lead": "Stage 1: growth and DNA replication",
+              "text": "Before it can divide, the cell grows. It increases the number of sub-cellular structures, such as ribosomes and mitochondria. Then the DNA **replicates** (is copied), so there are two copies of each chromosome."
+            },
+            {
+              "lead": "Stage 2: mitosis",
+              "text": "One set of chromosomes is pulled to each end of the cell. The nucleus then divides into two."
+            },
+            {
+              "lead": "Stage 3: the cell divides",
+              "text": "The cytoplasm and cell membrane divide. This forms two new cells."
+            }
+          ]
+        },
+        {
+          "type": "paragraph",
+          "text": "Each new cell has the same set of chromosomes as the other, and the same as the parent cell. The new cells are **genetically identical**. A human body cell with 46 chromosomes makes two cells with 46 chromosomes each."
+        },
+        {
+          "type": "paragraph",
+          "text": "The DNA is doubled in stage 1 and then shared out in stages 2 and 3. So each new cell ends up with the same mass of DNA as the parent cell had at the start of the cycle."
+        }
+      ]
+    },
+    {
+      "heading": "Why mitosis matters",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "Mitosis makes new body cells. Multicellular organisms need these for **growth** and development, for **repair** of damaged tissue and replacement of old cells, and for **asexual reproduction**."
+        },
+        {
+          "type": "paragraph",
+          "text": "In plants, mitosis happens mainly in the meristems, such as the tips of roots and shoots. This is why a root tip is used to see dividing cells under a microscope."
+        },
+        {
+          "type": "paragraph",
+          "text": "Cancer is caused by changes in cells that lead to uncontrolled cell division. Some cancer drugs stop the cell cycle, for example by stopping DNA replication or stopping chromosomes being pulled apart. Then the cells cannot divide, so the tumour cannot grow."
+        },
+        {
+          "type": "paragraph",
+          "text": "Mitosis is not the same as meiosis. Meiosis makes gametes (sex cells): four genetically different cells, each with half the number of chromosomes. Meiosis has its own note."
+        }
+      ]
+    },
+    {
+      "heading": "Working with the numbers",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "Each division doubles the number of cells. One cell becomes 2, then 4, then 8, then 16. After n divisions there are 2ⁿ cells. So a 16-cell embryo has gone through 4 rounds of division."
+        },
+        {
+          "type": "steps",
+          "items": [
+            { "lead": "The question", "text": "A cell divides every 8 hours. How many cells are there after one day?" },
+            { "lead": "Use the same units", "text": "One day is 24 hours." },
+            { "lead": "Count the divisions", "text": "24 ÷ 8 = 3 divisions." },
+            { "lead": "Double each time", "text": "2 → 4 → 8, so 2³ = 8 cells." }
+          ]
+        }
+      ]
+    }
+  ],
+  "checks": [
+    {
+      "q": "Describe what happens in stage 1 of the cell cycle.",
+      "a": "The cell grows and the number of sub-cellular structures, such as ribosomes and mitochondria, increases. The DNA replicates to form two copies of each chromosome.",
+      "marks": 2
+    },
+    {
+      "q": "A cell with 14 chromosomes divides by mitosis. How many chromosomes does each new cell have?",
+      "a": "14. Mitosis keeps the number of chromosomes the same.",
+      "marks": 1
+    },
+    {
+      "q": "Give two reasons why mitosis is important in living things.",
+      "a": "Any two: growth (and development); repair of damaged tissue or replacing old cells; asexual reproduction.",
+      "marks": 2
+    }
+  ],
+  "boards": {
+    "aqa": {
+      "spec_codes": ["AQA 1.6", "AQA 1.7", "AQA T 4.1.2.1", "AQA T 4.1.2.2"],
+      "exam_phrases": [
+        "increase in the number of sub-cellular structures",
+        "DNA replicates or two copies of each chromosome form",
+        "one set of chromosomes is pulled to each end of the cell",
+        "nucleus divides",
+        "cytoplasm and cell membrane divide to form two genetically identical cells"
+      ],
+      "mistakes": [
+        {
+          "wrong": "In stage 1 the cell grows.",
+          "right": "AQA can ignore 'cell grows' on its own. Say the number of sub-cellular structures, such as mitochondria and ribosomes, increases."
+        },
+        {
+          "wrong": "The DNA reproduces.",
+          "right": "AQA does not accept 'reproduces'. Write that the DNA replicates, or that two copies of each chromosome form."
+        },
+        {
+          "wrong": "Half the chromosomes move to each end of the cell.",
+          "right": "AQA ignores this. Write that one set of chromosomes is pulled to each end of the cell."
+        },
+        {
+          "wrong": "Describing the stages in the wrong order.",
+          "right": "Marks are capped if the stages are out of order. Learn the sequence: grow and replicate DNA; pull the chromosomes apart and divide the nucleus; divide the cytoplasm and membrane."
+        }
+      ],
+      "worked_example": {
+        "exemplar_id": "ba5621a4-e99c-41ec-ac57-76de549d7d2c",
+        "source": "AQA jun 2018, Paper 1 (H), Q06.5",
+        "question": "Embryonic stem cells divide by mitosis.\n\nDescribe what happens in each of the three stages of the cell cycle.",
+        "marks": 5,
+        "answer_points": [
+          "Stage 1: the cell grows and the number of sub-cellular structures, such as ribosomes and mitochondria, increases.",
+          "Stage 1: the DNA replicates, forming two copies of each chromosome.",
+          "Stage 2 (mitosis): one set of chromosomes moves to each end of the cell.",
+          "Stage 2: the nucleus divides.",
+          "Stage 3: the cytoplasm and cell membrane divide to form two genetically identical cells."
+        ],
+        "tip": "Label each point with its stage number. A correct sequence with no stage numbers scores at most 4 marks."
+      }
+    },
+    "edexcel": {
+      "spec_codes": ["EDEX 2.1", "EDEX 2.2", "EDEX 2.3"],
+      "exam_phrases": [
+        "two cells",
+        "diploid cells / same number of chromosomes as parent cell",
+        "genetically identical cells",
+        "DNA is replicated (in interphase)",
+        "for growth / for repair / for asexual reproduction",
+        "cytokinesis"
+      ],
+      "mistakes": [
+        {
+          "wrong": "Stem cells in an embryo divide by meiosis.",
+          "right": "Body cells and stem cells divide by mitosis. Edexcel rejects meiosis in these answers."
+        },
+        {
+          "wrong": "After mitosis, each human cell has 23 chromosomes.",
+          "right": "Each new body cell has 46 chromosomes, which is 23 pairs. For mitosis, '23' on its own is not credited."
+        },
+        {
+          "wrong": "DNA is replicated during prophase.",
+          "right": "DNA is replicated during interphase, before mitosis starts."
+        }
+      ],
+      "worked_example": {
+        "exemplar_id": "bd288192-e30c-4cdd-b96f-7f7ec79ed505",
+        "source": "EDEXCEL jun 2022, Paper 1 (H), Q7(b)",
+        "question": "Describe what is produced when a single cell divides by mitosis.",
+        "marks": 3,
+        "answer_points": [
+          "Two cells are produced.",
+          "They are diploid: they have the same number of chromosomes as the parent cell (46, or 23 pairs, in humans).",
+          "They are genetically identical.",
+          "They are body cells, used for growth and repair."
+        ],
+        "tip": "Any three of these four points score."
+      },
+      "extra": [
+        {
+          "heading": "The stages of mitosis",
+          "blocks": [
+            {
+              "type": "paragraph",
+              "text": "Edexcel names every part of the cycle. **Interphase** comes first. Mitosis then has four stages, in the order prophase, metaphase, anaphase, telophase. **Cytokinesis** comes last."
+            },
+            {
+              "type": "steps",
+              "items": [
+                { "lead": "Interphase", "text": "The cell grows, makes new proteins and sub-cellular structures, and its DNA replicates. Each chromosome is now two identical copies (chromatids) joined together." },
+                { "lead": "Prophase", "text": "The chromosomes condense (coil up) and become visible. The nuclear membrane breaks down and spindle fibres form." },
+                { "lead": "Metaphase", "text": "The chromosomes line up across the middle of the cell." },
+                { "lead": "Anaphase", "text": "The spindle fibres pull the two copies of each chromosome apart, to opposite ends of the cell." },
+                { "lead": "Telophase", "text": "A new nuclear membrane forms around each set of chromosomes, making two nuclei." },
+                { "lead": "Cytokinesis", "text": "The cytoplasm and cell membrane divide, forming two genetically identical diploid cells." }
+              ]
+            }
+          ]
+        },
+        {
+          "heading": "Looking at mitosis in a root tip",
+          "blocks": [
+            {
+              "type": "list",
+              "items": [
+                "Use the root tip, because it contains the meristem, where cells are dividing for growth.",
+                "Soften the root, for example by heating it in acid. Wear goggles and heat the acid in a water bath.",
+                "Squash the root tip onto a slide, or take a thin section.",
+                "Add a stain so the chromosomes show up, then a drop of water and a cover slip."
+              ]
+            },
+            {
+              "type": "paragraph",
+              "text": "The **mitotic index** shows what proportion of cells are dividing: mitotic index = (number of cells in mitosis ÷ total number of cells) × 100. Cells in prophase, metaphase, anaphase or telophase count as in mitosis. Cells in interphase do not."
+            }
+          ]
+        }
+      ]
+    },
+    "ocr": {
+      "spec_codes": ["OCR 2.1b"],
+      "exam_phrases": [
+        "cells grow",
+        "DNA replicates",
+        "chromosomes separate",
+        "cells divide into two new cells",
+        "meristem (cells) divide by mitosis",
+        "S = DNA synthesis / replication; M = movement of chromosomes / mitosis"
+      ],
+      "mistakes": [
+        {
+          "wrong": "New cells for a growing stem are made by meiosis.",
+          "right": "Meristem cells divide by mitosis. OCR does not allow meiosis."
+        },
+        {
+          "wrong": "Slowing the cell cycle prevents cancer because it stops cell division.",
+          "right": "OCR ignores 'stops cell division'. Say it slows down cell division, so cells are less likely to divide uncontrollably and form tumours."
+        },
+        {
+          "wrong": "Mitosis is how cells reproduce.",
+          "right": "OCR ignores 'reproduction' here. Write cell division."
+        }
+      ],
+      "worked_example": {
+        "exemplar_id": "b14a9a16-7d66-4a52-9fc3-f9e6ea78f8d0",
+        "source": "OCR jun 2019, Paper 1, Q19(d)",
+        "question": "The lining of the uterus is shed during menstruation.\n\nNew cells are needed to replace the lining of the uterus.\n\nDescribe the processes that occur to make these new cells.",
+        "marks": 3,
+        "answer_points": [
+          "The cells divide by mitosis.",
+          "The cells grow.",
+          "The DNA replicates (the chromosomes are copied).",
+          "The chromosomes separate.",
+          "Each cell divides into two new, identical cells."
+        ],
+        "tip": "Any three of these score."
+      },
+      "extra": [
+        {
+          "heading": "The cell cycle as G1, S, G2 and M",
+          "blocks": [
+            {
+              "type": "table",
+              "columns": ["Stage", "What happens"],
+              "rows": [
+                ["G1", "The cell grows."],
+                ["S", "DNA synthesis: the DNA replicates."],
+                ["G2", "The cell grows more and prepares to divide."],
+                ["M", "Mitosis: the chromosomes move apart and the cell divides into two."]
+              ]
+            }
+          ]
+        }
+      ]
+    }
+  },
+  "meta": {
+    "status": "draft",
+    "written_by": "writer-b",
+    "written_at": "2026-10-01",
+    "spec_point_ids": [
+      "e71edf1c-e0c9-4710-915f-cfc70ccd5462",
+      "1e297de4-1be5-4f04-b79a-418b26fbf17f",
+      "6d6ad388-b9fb-4311-ad4f-01ae2b19e2ce",
+      "0abff3af-ce6e-4bfc-af13-a2e7627f57e1",
+      "a0d1dcdf-1ee2-4ffc-864d-5142b408d2fa",
+      "3abb7067-bb34-414c-96a3-986fcee62d91",
+      "876e9400-2083-4d5a-8625-3e8f4839b608",
+      "34aebdc3-ae72-41bc-a415-7f4ffedd65e3"
+    ],
+    "exemplar_ids": [
+      "ba5621a4-e99c-41ec-ac57-76de549d7d2c",
+      "bd288192-e30c-4cdd-b96f-7f7ec79ed505",
+      "b14a9a16-7d66-4a52-9fc3-f9e6ea78f8d0"
+    ]
+  }
+}
