@@ -1,5 +1,12 @@
 import { describe, expect, test, beforeEach } from "bun:test";
-import { loadDraft, saveDraft, clearDraft, clearAllDrafts } from "@/lib/homework/homeworkDrafts";
+import {
+  loadDraft,
+  saveDraft,
+  clearDraft,
+  clearAllDrafts,
+  mergeDrafts,
+  type TimestampedDraft,
+} from "@/lib/homework/homeworkDrafts";
 
 /**
  * Draft persistence exists so a reload doesn't cost a student twenty minutes of
@@ -48,6 +55,7 @@ describe("homework drafts", () => {
       answers: { q1: "mitochondria" },
       notes: "unsure on q3",
       savedAt: expect.any(Number),
+      stamps: {},
     });
   });
 
@@ -118,5 +126,80 @@ describe("homework drafts", () => {
     expect(() =>
       saveDraft(STUDENT_A, HOMEWORK, { answers: { q1: "a long answer" }, notes: "" }),
     ).not.toThrow();
+  });
+});
+
+/**
+ * Reconciling two copies of a draft. Whole drafts used to win or lose
+ * together, by the writing device's clock, so a stale or offline device wiped
+ * answers typed elsewhere. Now each answer's newest edit wins on its own.
+ */
+describe("merging drafts per question", () => {
+  const draft = (
+    answers: Record<string, string>,
+    stamps: Record<string, number>,
+    notes = "",
+  ): TimestampedDraft => ({
+    answers,
+    notes,
+    stamps,
+    savedAt: Math.max(0, ...Object.values(stamps)),
+  });
+
+  test("an old tab's next keystroke doesn't wipe answers typed on the phone", () => {
+    // The laptop tab loaded yesterday's q1, then the student rewrote q1 on
+    // the phone, and now types q2 on the laptop. The laptop's copy is newer as
+    // a whole, which is what used to make it win outright.
+    const laptop = draft({ q1: "yesterday", q2: "laptop" }, { q1: 1_000, q2: 5_000 });
+    const server = draft({ q1: "phone" }, { q1: 3_000 });
+    expect(mergeDrafts(laptop, server)!.answers).toEqual({ q1: "phone", q2: "laptop" });
+  });
+
+  test("an offline device's later save keeps the newer answer to each question", () => {
+    // The laptop typed q1 and q2 offline; the phone then rewrote q2. When the
+    // laptop reconnects, its q1 is newest, the phone's q2 is newest.
+    const laptop = draft({ q1: "laptop q1", q2: "laptop q2" }, { q1: 1_000, q2: 1_000 });
+    const server = draft({ q1: "old q1", q2: "phone q2" }, { q1: 500, q2: 2_000 });
+    expect(mergeDrafts(laptop, server)!.answers).toEqual({ q1: "laptop q1", q2: "phone q2" });
+    expect(mergeDrafts(server, laptop)!.answers).toEqual({ q1: "laptop q1", q2: "phone q2" });
+  });
+
+  test("a deliberately cleared answer stays cleared if the clear is newer", () => {
+    const here = draft({ q1: "" }, { q1: 2_000 });
+    const server = draft({ q1: "old text" }, { q1: 1_000 });
+    expect(mergeDrafts(here, server)!.answers.q1).toBe("");
+  });
+
+  test("the note merges the same way", () => {
+    const here = draft({}, { notes: 1_000 }, "old note");
+    const server = draft({}, { notes: 2_000 }, "newer note");
+    expect(mergeDrafts(here, server)!.notes).toBe("newer note");
+  });
+
+  test("typing done while the saved draft loads is kept", () => {
+    // M-22: what was typed before the load finished is newer than either copy.
+    const typedMeanwhile = draft({ q1: "typed while loading" }, { q1: 9_000 });
+    const saved = draft({ q1: "saved yesterday", q2: "also saved" }, { q1: 1_000, q2: 1_000 });
+    expect(mergeDrafts(typedMeanwhile, saved)!.answers).toEqual({
+      q1: "typed while loading",
+      q2: "also saved",
+    });
+  });
+
+  test("a copy with nothing newer leaves the draft as it was, the same object", () => {
+    const here = draft({ q1: "a" }, { q1: 2_000 });
+    expect(mergeDrafts(here, draft({ q1: "b" }, { q1: 1_000 }))).toBe(here);
+    expect(mergeDrafts(here, draft({ q1: "a" }, { q1: 3_000 }))).toBe(here);
+  });
+
+  test("a draft saved before per-question times dates every answer from its save", () => {
+    const legacy: TimestampedDraft = {
+      answers: { q1: "legacy" },
+      notes: "",
+      stamps: {},
+      savedAt: 1_500,
+    };
+    expect(mergeDrafts(legacy, draft({ q1: "newer" }, { q1: 2_000 }))!.answers.q1).toBe("newer");
+    expect(mergeDrafts(legacy, draft({ q1: "older" }, { q1: 1_000 }))!.answers.q1).toBe("legacy");
   });
 });

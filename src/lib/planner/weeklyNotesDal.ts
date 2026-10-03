@@ -23,20 +23,29 @@ export interface TutorNote {
  * note on it. Both hang off a plan id from [[weeklyPlanDal]].
  */
 export class WeeklyNotesDAL {
-  /** The stored check-in for a plan, or null if the student hasn't done one. */
+  /**
+   * The stored check-in for a plan, or null if the student hasn't done one.
+   * Throws on a failed read: reported as "none", the next save wrote over the
+   * student's earlier reflection.
+   */
   static async getCheckin(planId: string): Promise<WeeklyCheckin | null> {
-    const { data } = await supabase
+    const { data, error } = await supabase
       .from("student_weekly_checkins")
       .select("id, plan_id, covered_ok, reflection, coverage")
       .eq("plan_id", planId)
       .maybeSingle();
+    if (error) throw error;
     return (data as WeeklyCheckin | null) ?? null;
   }
 
-  /** Record (or update) the student's end-of-week reflection for a plan. */
+  /**
+   * Record (or update) the student's end-of-week check-in for a plan. Only the
+   * fields passed are written; the upsert leaves the rest of a saved row alone,
+   * so saving the verdict can't blank a reflection, nor the other way round.
+   */
   static async saveCheckin(params: {
     planId: string;
-    coveredOk: boolean | null;
+    coveredOk?: boolean | null;
     reflection?: string | null;
     coverage?: Record<string, unknown>;
     studentId?: string;
@@ -47,22 +56,26 @@ export class WeeklyNotesDAL {
       {
         plan_id: params.planId,
         student_id: params.studentId ?? uid,
-        covered_ok: params.coveredOk,
-        reflection: params.reflection ?? null,
-        coverage: (params.coverage ?? {}) as Json,
+        ...(params.coveredOk !== undefined && { covered_ok: params.coveredOk }),
+        ...(params.reflection !== undefined && { reflection: params.reflection }),
+        ...(params.coverage !== undefined && { coverage: params.coverage as Json }),
       },
       { onConflict: "plan_id" },
     );
     if (error) throw error;
   }
 
-  /** The tutor's "Ali's take" note for a plan, or null if none written yet. */
+  /**
+   * The tutor's "Ali's take" note for a plan, or null if none written yet.
+   * Throws on a failed read, so an empty editor never saves over a real note.
+   */
   static async getTutorNote(planId: string): Promise<TutorNote | null> {
-    const { data } = await supabase
+    const { data, error } = await supabase
       .from("student_weekly_tutor_notes")
       .select("plan_id, note, next_points")
       .eq("plan_id", planId)
       .maybeSingle();
+    if (error) throw error;
     if (!data) return null;
     return { plan_id: data.plan_id, note: data.note, next_points: data.next_points ?? [] };
   }

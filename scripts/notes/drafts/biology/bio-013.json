@@ -1,0 +1,329 @@
+{
+  "format": 1,
+  "concept_id": "bio-013",
+  "subject": "biology",
+  "title": "Required practical: osmosis in plant tissue",
+  "key_idea": "In this practical, pieces of potato are left in solutions of different concentrations and weighed before and after. Water moves in or out by osmosis, so the mass changes. Plotting percentage change in mass against concentration shows the concentration at which there is no change.",
+  "sections": [
+    {
+      "heading": "What the practical investigates",
+      "blocks": [
+        { "type": "paragraph", "text": "Potato cells have a partially permeable membrane, so water moves across it by **osmosis**. This section covers what to expect and which variables matter." },
+        {
+          "type": "table",
+          "columns": ["Solution outside the potato", "Water movement", "Mass of the potato"],
+          "rows": [
+            ["More dilute than the cell contents", "Water enters the potato", "Goes up"],
+            ["Same concentration as the cell contents", "No overall movement", "Stays the same"],
+            ["More concentrated than the cell contents", "Water leaves the potato", "Goes down"]
+          ]
+        },
+        { "type": "paragraph", "text": "The concentration where the mass does not change matches the concentration inside the potato cells." },
+        { "type": "subheading", "text": "The variables" },
+        {
+          "type": "table",
+          "columns": ["Type of variable", "In this investigation"],
+          "rows": [
+            ["Independent (what you change)", "The concentration of the salt or sugar solution"],
+            ["Dependent (what you measure)", "The mass of the potato piece, used to find the percentage change in mass"],
+            ["Control (kept the same)", "Same type of potato, no skin, same size and mass of piece, same volume of solution, same time in the solution, same temperature, same solute"]
+          ]
+        },
+        {
+          "type": "key-points",
+          "items": [
+            "Dilute outside: mass goes up. Concentrated outside: mass goes down.",
+            "No change in mass means the solution matches the cell contents.",
+            "Change the concentration. Keep everything else the same."
+          ]
+        }
+      ]
+    },
+    {
+      "heading": "The method",
+      "blocks": [
+        { "type": "paragraph", "text": "Follow these steps in order." },
+        {
+          "type": "diagram",
+          "diagram": {
+            "kind": "flow",
+            "alt": "Seven steps in order: cut equal potato pieces, weigh each piece, put each piece in a different concentration, leave for the same time, blot dry and reweigh, calculate percentage change, plot a graph.",
+            "steps": [
+              "Cut equal potato pieces",
+              "Weigh each piece",
+              "Place in different concentrations",
+              "Leave for the same time",
+              "Blot dry and reweigh",
+              "Calculate percentage change",
+              "Plot a graph"
+            ]
+          }
+        },
+        {
+          "type": "steps",
+          "items": [
+            { "lead": "Prepare the potato.", "text": "Use the same potato. Remove the skin, because water cannot move through it. Cut equal pieces, for example with a cork borer." },
+            { "lead": "Prepare the solutions.", "text": "Label a tube for each concentration (at least three, ideally five), including 0.0 mol/dm³ (distilled water). Use the same volume in each, enough to cover the piece." },
+            { "lead": "Weigh the pieces.", "text": "Dry each piece on a paper towel. Weigh it and record the starting mass." },
+            { "lead": "Start.", "text": "Put one piece in each tube, fully submerged, all at the same temperature." },
+            { "lead": "Wait.", "text": "Leave them for the same time, at least 10 minutes. Longer gives larger changes." },
+            { "lead": "Reweigh.", "text": "Remove each piece and blot it dry in the same way. Weigh it and record the final mass." },
+            { "lead": "Repeat.", "text": "Do each concentration at least three times so that you can calculate a mean." }
+          ]
+        },
+        { "type": "paragraph", "text": "Blot each piece dry. Water left on the surface adds to the mass and gives a false result." },
+        {
+          "type": "key-points",
+          "items": [
+            "Weigh before and after, and blot dry both times.",
+            "Same time, same temperature, same volume, same size of piece.",
+            "Repeat each concentration at least three times."
+          ]
+        }
+      ]
+    },
+    {
+      "heading": "Results and calculations",
+      "blocks": [
+        { "type": "paragraph", "text": "Work out the change in mass for each piece. Then use percentage change, so that pieces with different starting masses can be compared." },
+        {
+          "type": "equation",
+          "label": "Percentage change in mass",
+          "formula": "percentage change in mass = (change in mass ÷ mass at the start) × 100",
+          "where": ["change in mass = final mass − starting mass, in g", "mass at the start, in g"]
+        },
+        {
+          "type": "steps",
+          "items": [
+            { "lead": "Change.", "text": "A piece goes from 7.96 g to 8.21 g. The change is 0.25 g." },
+            { "lead": "Calculate.", "text": "0.25 ÷ 7.96 × 100 = 3.14%." },
+            { "lead": "Sign.", "text": "A gain is positive. A loss is negative, written with a minus sign." }
+          ]
+        },
+        { "type": "paragraph", "text": "Round to the number of significant figures the question asks for." },
+        {
+          "type": "definitions",
+          "items": [
+            { "term": "Mean", "meaning": "The total of the repeats divided by the number of repeats." },
+            { "term": "Anomalous result", "meaning": "A result that does not fit the pattern. Leave it out of the mean." }
+          ]
+        },
+        { "type": "subheading", "text": "The graph" },
+        {
+          "type": "list",
+          "items": [
+            "Concentration on the x axis, mean percentage change on the y axis.",
+            "Draw a line of best fit.",
+            "Where the line crosses **zero**, the piece neither gains nor loses mass.",
+            "At that concentration the solution outside matches the solution inside the cells.",
+            "If the points are too far apart to read this, repeat with more concentrations close to the crossing point."
+          ]
+        },
+        {
+          "type": "key-points",
+          "items": [
+            "Percentage change = change ÷ starting mass × 100.",
+            "A loss in mass is a negative percentage.",
+            "The zero crossing on the graph is the answer."
+          ]
+        }
+      ]
+    },
+    {
+      "heading": "Evaluating the investigation",
+      "blocks": [
+        { "type": "paragraph", "text": "Exam questions ask how reliable the results are and how to improve them." },
+        {
+          "type": "definitions",
+          "items": [
+            { "term": "Repeatable", "meaning": "The same person gets the same result when they repeat the experiment." },
+            { "term": "Reproducible", "meaning": "A different person, or different equipment or method, gets the same result." },
+            { "term": "Random error", "meaning": "An error that changes from piece to piece, such as excess liquid left on a piece." },
+            { "term": "Systematic error", "meaning": "An error that is the same every time, such as an uncalibrated balance." }
+          ]
+        },
+        { "type": "subheading", "text": "Improvements" },
+        {
+          "type": "list",
+          "items": [
+            "Use more concentrations, so the point of no change can be found more precisely.",
+            "Use a balance that reads to more decimal places, to measure small changes in mass.",
+            "Use the same potato, skin removed, with pieces of the same size.",
+            "Keep the time in the solution and the temperature the same.",
+            "Repeat readings to spot anomalous results."
+          ]
+        },
+        { "type": "subheading", "text": "Boiled potato control" },
+        { "type": "paragraph", "text": "A boiled potato shows no change in mass. Boiling damages the membrane, so it is no longer partially permeable." },
+        {
+          "type": "key-points",
+          "items": [
+            "Repeatable: same person repeats it. Reproducible: someone else does it.",
+            "Boiled potato: damaged membrane, so no osmosis.",
+            "More concentrations near the zero crossing give a more precise answer."
+          ]
+        }
+      ]
+    }
+  ],
+  "checks": [
+    {
+      "q": "Why is each piece of potato blotted dry before it is weighed?",
+      "a": "Water on the surface would increase the mass, so the mass of the potato alone would not be measured.",
+      "marks": 1
+    },
+    {
+      "q": "Why is percentage change in mass calculated rather than just the change in mass?",
+      "a": "The pieces have different starting masses. Percentage change takes this into account so the results can be compared.",
+      "marks": 1
+    },
+    {
+      "q": "A potato piece has a mass of 7.96 g at the start and 8.21 g at the end. Calculate the percentage change in mass to 3 significant figures.",
+      "a": "Change = 0.25 g. 0.25 ÷ 7.96 × 100 = 3.14%.",
+      "marks": 3
+    }
+  ],
+  "boards": {
+    "aqa": {
+      "spec_codes": ["AQA 1.11", "AQA T 4.1.3.2"],
+      "exam_phrases": [
+        "measure and record the mass of the potato pieces",
+        "use at least 3 different concentrations of salt solution",
+        "blot the potato pieces dry",
+        "repeat each concentration and calculate the mean change in mass",
+        "keep the potato pieces in the solutions for the same amount of time",
+        "percentage change takes account of the different starting masses",
+        "the concentration where the line crosses zero percentage change",
+        "the membrane was damaged or leaky"
+      ],
+      "mistakes": [
+        {
+          "wrong": "The size of the potato was a control variable.",
+          "right": "\"Size of potato\" is ignored. Say the size of the piece of potato, the type of potato, the volume of solution, or the time the pieces are left in the solution."
+        },
+        {
+          "wrong": "The boiled carrot did not change in mass because its cells are dead.",
+          "right": "\"Dead cells\" is ignored. Say that the membrane was damaged or leaky, so it was no longer partially permeable."
+        },
+        {
+          "wrong": "Dry the potato because water left on it would make the mass lower.",
+          "right": "Water left on would make the mass higher or affect it. This answer is not accepted."
+        }
+      ],
+      "worked_example": {
+        "exemplar_id": "b20e00fb-c9b8-4d6b-b035-a206bc2fdf12",
+        "source": "AQA jun 2024, Paper 1 (H), Q05.1",
+        "question": "A student investigated the effect of concentration of salt solution on the mass of uncooked potato pieces.\n\nPlan a method that could be used to obtain results for the effect of salt solution concentration on the mass of uncooked potato pieces.",
+        "marks": 6,
+        "answer_points": [
+          "Measure and record the mass of each potato piece.",
+          "Place the pieces into different concentrations of salt solution, using at least three concentrations.",
+          "Leave the pieces in the solutions for the same time, at least 10 minutes, and at the same temperature.",
+          "Remove the pieces from the solutions and blot them dry.",
+          "Measure and record the mass again and calculate the change in mass.",
+          "Repeat each concentration two more times and calculate the mean change in mass.",
+          "Control variables: same size or mass of piece, same potato with no skin, same blotting technique."
+        ],
+        "tip": "This is a levelled answer. A full set of steps in a logical order, giving comparable results across concentrations, reaches the top level of 5 to 6 marks."
+      }
+    },
+    "edexcel": {
+      "spec_codes": ["EDEX 1.16", "EDEX 1.17"],
+      "exam_phrases": [
+        "different salt concentrations between the dilute and the concentrated solution",
+        "make repeated readings at each concentration / find an average",
+        "plot a graph to find the concentration with no mass change",
+        "where the line crosses the x axis",
+        "dry the cube / check the balance is on zero",
+        "distilled water used as a control to compare",
+        "a single result could be anomalous / to calculate a mean",
+        "cut from the same carrot / same variety"
+      ],
+      "mistakes": [
+        {
+          "wrong": "0.8 ÷ 4.2 × 100 = 19.048%",
+          "right": "Round to the number of significant figures asked for, here 2, giving 19%. Without the rounding the final mark is lost."
+        },
+        {
+          "wrong": "Repeat the investigation to make the measurement of mass more accurate.",
+          "right": "Repeating is ignored for accuracy of a mass reading. Dry the piece, or check that the balance reads zero."
+        },
+        {
+          "wrong": "Percentage change = change in mass ÷ final mass × 100.",
+          "right": "Divide by the mass at the start. Percentage change = change in mass ÷ mass at the start × 100."
+        }
+      ],
+      "worked_example": {
+        "exemplar_id": "ee79f4bf-a75a-40fe-bf9a-9abe9b828925",
+        "source": "EDEXCEL jun 2023, Paper 1 (H), Q8(a)(iv)",
+        "question": "A student investigated the movement of water in potatoes.\nThe student used three identical cubes of potato.\nOne cube was placed in water and each of the other two cubes were placed in solutions with different concentrations of salt.\nThe cubes were left for 20 minutes.\nThe student wanted to find the concentration of salt solution where the potato cube did not change mass.\n\nDescribe how the student could modify this investigation to find this concentration.",
+        "marks": 3,
+        "answer_points": [
+          "Repeat with different salt concentrations.",
+          "Use concentrations between the dilute and the concentrated solution already used.",
+          "Make repeated readings at each concentration and find an average.",
+          "Plot a graph and find the concentration where the line crosses the x axis, which is the concentration with no mass change.",
+          "Control the other variables, for example temperature."
+        ],
+        "tip": "Any three score one mark each."
+      }
+    },
+    "ocr": {
+      "spec_codes": ["OCR 7.2"],
+      "exam_phrases": [
+        "use a (measuring) balance",
+        "measure the mass of the cube at the start and at the end",
+        "blot or dry the outside of the cubes",
+        "repeat the experiment / take repeat readings",
+        "another student conducts the experiment / use different equipment",
+        "the same water potential, so no net water loss or gain",
+        "percentage change allows comparison even if the original sizes are different",
+        "excess fluid is a random error, an uncalibrated scale is a systematic error"
+      ],
+      "mistakes": [
+        {
+          "wrong": "Make the cubes the same mass and measure the volume of the solutions.",
+          "right": "This is ignored when finding percentage change. Use a balance, measure the mass of each cube at the start and at the end, and blot the cubes dry."
+        },
+        {
+          "wrong": "To check the data is repeatable and reproducible, compare the results.",
+          "right": "\"Compare the results\" is ignored. Repeatable: repeat the experiment. Reproducible: another student does it, or different equipment or a different method is used."
+        },
+        {
+          "wrong": "The amount of solution is a control variable.",
+          "right": "\"Amount of solution\" is ignored. Write the volume of the solution, the temperature, the time in the solution, or the size of the cubes."
+        }
+      ],
+      "worked_example": {
+        "exemplar_id": "a4f69bdc-b1af-4c06-baba-6b79c080e469",
+        "source": "OCR jun 2024, Paper 1, Q22(a)",
+        "question": "A student investigates the effect of different concentrations of sugar solution on cubes of beetroot.\n\nThis is the method that they use:\n\nStep 1 Cut four cubes of beetroot tissue.\nStep 2 Place each beetroot cube in a test tube containing a different concentration of sugar solution.\nStep 3 Leave the beetroot cubes in the sugar solutions for 3 hours.\nStep 4 Remove the beetroot cubes from the sugar solutions.\n\nThe student wants to calculate the percentage change in mass for each beetroot cube.\n\nThey want to use the method above to collect the data they need, but have missed some steps from the method.\n\nDescribe the additional steps needed in the method to find the data.",
+        "marks": 3,
+        "answer_points": [
+          "Use a balance to measure mass.",
+          "Measure the mass of each beetroot cube at the start of the experiment, before step 2.",
+          "Measure the mass of each beetroot cube at the end, after step 4.",
+          "Blot or dry the outside of the cubes before the final mass is measured."
+        ],
+        "tip": "Any three score one mark each."
+      }
+    }
+  },
+  "meta": {
+    "status": "draft",
+    "checked_by": "sonnet-science-check",
+    "checked_at": "2026-10-01",
+    "written_by": "writer-c",
+    "written_at": "2026-10-01",
+    "spec_point_ids": [
+      "3db3bfea-0af0-42f4-9e96-4a91a32e659f",
+      "7b945151-4e26-455b-b86c-b2d0b0b4d77f",
+      "1ffb6f36-bb2f-4b46-b633-ff85101cd3c4"
+    ],
+    "exemplar_ids": [
+      "b20e00fb-c9b8-4d6b-b035-a206bc2fdf12",
+      "ee79f4bf-a75a-40fe-bf9a-9abe9b828925",
+      "a4f69bdc-b1af-4c06-baba-6b79c080e469"
+    ]
+  }
+}

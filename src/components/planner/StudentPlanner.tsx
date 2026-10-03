@@ -42,6 +42,7 @@ import { CoveredLedger } from "./CoveredLedger";
 import { CatchUpPanel } from "./CatchUpPanel";
 import { ThisWeekPanel } from "./ThisWeekPanel";
 import { useWeekPlan } from "./useWeekPlan";
+import { useReviewMore } from "./useReviewMore";
 import { WeekReview } from "./WeekReview";
 import { subjectLabel } from "@/lib/curriculum/courseSummary";
 
@@ -359,6 +360,8 @@ function ThisWeekTab({
     refreshKey,
   });
 
+  const reviewMore = useReviewMore({ ...week, isCurrent });
+
   if (week.error) return <ErrorNote error={week.error} onRetry={() => void week.reload()} />;
 
   return (
@@ -428,6 +431,7 @@ function ThisWeekTab({
             weekStart={weekStart}
             isPast={isPast}
             showCoverage={showReview}
+            reviewMore={reviewMore}
           />
         )}
       </section>

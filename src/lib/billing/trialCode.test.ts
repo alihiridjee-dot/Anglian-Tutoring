@@ -6,7 +6,7 @@ import {
   normaliseTrialCode,
   TRIAL_DAYS,
 } from "../../../supabase/functions/_shared/trialCode";
-import { TRIAL_DAYS as CLIENT_TRIAL_DAYS } from "@/components/billing/TrialCodeField";
+import { TRIAL_DAYS as CLIENT_TRIAL_DAYS } from "./trialCode";
 
 describe("makeTrialCode", () => {
   test("is AE- and two groups of four, from characters that can't be misread", () => {

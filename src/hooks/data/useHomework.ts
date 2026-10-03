@@ -1,4 +1,4 @@
-import { useQuery, useQueryClient } from "@tanstack/react-query";
+import { useInfiniteQuery, useQuery, useQueryClient } from "@tanstack/react-query";
 import { useCallback } from "react";
 import { supabase } from "@/integrations/supabase/client";
 import { QUESTION_COLUMNS, withMarkSchemes } from "@/lib/homework/markSchemes";
@@ -11,7 +11,7 @@ import {
   DEMO_SUBMISSIONS,
 } from "@/lib/demo/studentDemo";
 import type { HomeworkAnswer, HomeworkQuestion } from "@/hooks/data/useHomeworkQuestions";
-import type { Homework, SubmissionRow } from "@/lib/homework/types";
+import type { Homework, HomeworkOrigin, SubmissionRow } from "@/lib/homework/types";
 import type { LevelV } from "@/lib/curriculum/taxonomy";
 
 /** How often an open sheet checks whether its mark has been released. */
@@ -63,6 +63,71 @@ export function useHomework({
       const { data, error } = await q;
       if (error) throw error;
       return (data ?? []) as Homework[];
+    },
+    enabled,
+  });
+}
+
+/** Rows per request in the tutor's homework library. */
+const LIBRARY_PAGE = 50;
+
+/**
+ * The tutor's homework library, a page at a time, filtered by who wrote it.
+ *
+ * Asked of the server rather than filtered here: the planner writes a sheet for
+ * every spec point, and a single read of every brief stopped at PostgREST's
+ * 1,000-row cap (S-17b), so past that the newest sheets never reached the list.
+ * `id` breaks ties so a page never repeats or skips a row with the same date.
+ */
+export function useHomeworkLibrary({
+  origin,
+  enabled = true,
+}: {
+  origin: "all" | HomeworkOrigin;
+  enabled?: boolean;
+}) {
+  return useInfiniteQuery({
+    queryKey: [...HOMEWORK_KEY, "library", origin],
+    initialPageParam: 0,
+    queryFn: async ({ pageParam }): Promise<Homework[]> => {
+      let q = supabase
+        .from("resources")
+        .select("id, title, instructions, subject, board, level, due_at, created_at, origin")
+        .eq("kind", "homework")
+        .order("due_at", { ascending: true })
+        .order("id", { ascending: true });
+      if (origin !== "all") q = q.eq("origin", origin);
+      const { data, error } = await q.range(pageParam, pageParam + LIBRARY_PAGE - 1);
+      if (error) throw error;
+      return (data ?? []) as Homework[];
+    },
+    getNextPageParam: (last, pages) =>
+      last.length < LIBRARY_PAGE ? undefined : pages.length * LIBRARY_PAGE,
+    enabled,
+  });
+}
+
+/** How many briefs the library holds, by who wrote them, counted on the server. */
+export function useHomeworkLibraryCounts({ enabled = true }: { enabled?: boolean } = {}) {
+  return useQuery({
+    queryKey: [...HOMEWORK_KEY, "library-counts"],
+    queryFn: async (): Promise<Record<"all" | HomeworkOrigin, number>> => {
+      const count = async (origin?: HomeworkOrigin) => {
+        let q = supabase
+          .from("resources")
+          .select("id", { count: "exact", head: true })
+          .eq("kind", "homework");
+        if (origin) q = q.eq("origin", origin);
+        const { count, error } = await q;
+        if (error) throw error;
+        return count ?? 0;
+      };
+      const [all, tutor, generated] = await Promise.all([
+        count(),
+        count("tutor"),
+        count("generated"),
+      ]);
+      return { all, tutor, generated };
     },
     enabled,
   });

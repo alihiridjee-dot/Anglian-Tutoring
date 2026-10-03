@@ -1,0 +1,266 @@
+{
+  "format": 1,
+  "concept_id": "bio-009",
+  "subject": "biology",
+  "title": "Stem cells",
+  "key_idea": "A **stem cell** is an undifferentiated cell that can divide to make more cells and can differentiate into specialised cells. Stem cells are found in embryos, in adult animals and in plant meristems. Embryonic stem cells can become most cell types, but adult stem cells are more limited.",
+  "sections": [
+    {
+      "heading": "What stem cells are",
+      "blocks": [
+        { "type": "paragraph", "text": "Stem cells are cells that have not yet become specialised. This section covers what they can do and where they are found." },
+        {
+          "type": "definitions",
+          "items": [
+            { "term": "Stem cell", "meaning": "An undifferentiated cell that can divide to make more cells, and from which other cells can arise by differentiation." },
+            { "term": "Undifferentiated", "meaning": "Not yet specialised for one particular job." },
+            { "term": "Differentiation", "meaning": "A stem cell changing into a specialised cell." },
+            { "term": "Meristem", "meaning": "The tissue in plants that contains stem cells." }
+          ]
+        },
+        { "type": "subheading", "text": "Where stem cells are found" },
+        {
+          "type": "table",
+          "columns": ["Where", "Name", "What they can become"],
+          "rows": [
+            ["Human embryos", "Embryonic stem cells", "Most types of human cell"],
+            ["Adult animals, such as in bone marrow", "Adult stem cells", "Many types of cell, such as blood cells"],
+            ["Tips of roots and shoots in plants", "Meristem cells", "Any type of plant cell, throughout the life of the plant"]
+          ]
+        },
+        {
+          "type": "key-points",
+          "items": [
+            "Stem cells are undifferentiated and can differentiate into specialised cells.",
+            "Stem cells are found in embryos, in adult bone marrow and in plant meristems.",
+            "Meristem cells in plants can differentiate throughout the life of the plant."
+          ]
+        }
+      ]
+    },
+    {
+      "heading": "What stem cells do",
+      "blocks": [
+        { "type": "paragraph", "text": "Stem cells provide the new cells an organism needs. They work in two steps." },
+        {
+          "type": "steps",
+          "items": [
+            { "lead": "Divide.", "text": "Stem cells divide by **mitosis** to make more cells." },
+            { "lead": "Differentiate.", "text": "Some of the new cells become specialised cells, such as blood cells, muscle cells or nerve cells." }
+          ]
+        },
+        {
+          "type": "list",
+          "items": [
+            "In an embryo, stem cells form the tissues and organs of the developing baby.",
+            "In adults, stem cells make new cells for growth and to replace damaged cells.",
+            "In plants, the meristem at the tips of roots and shoots makes the new cells that let the plant grow."
+          ]
+        },
+        {
+          "type": "key-points",
+          "items": [
+            "Stem cells divide by mitosis, then the new cells can differentiate.",
+            "They provide new cells for growth and to replace damaged cells.",
+            "Plant stem cells are found in meristems."
+          ]
+        }
+      ]
+    },
+    {
+      "heading": "Embryonic and adult stem cells",
+      "blocks": [
+        { "type": "paragraph", "text": "The two types of animal stem cell differ in where they come from and what they can become." },
+        {
+          "type": "table",
+          "columns": ["Feature", "Embryonic stem cells", "Adult stem cells"],
+          "rows": [
+            ["Source", "Human embryos", "Adult tissues, such as bone marrow"],
+            ["Can become", "Most (any) types of human cell", "Only certain types of cell"],
+            ["Example", "Can be cloned and made to differentiate into most types of human cell", "Bone marrow stem cells form many types of cell, including blood cells"]
+          ]
+        },
+        {
+          "type": "diagram",
+          "diagram": {
+            "kind": "sort",
+            "alt": "Sort each statement into embryonic stem cells, adult stem cells or plant meristem cells.",
+            "prompt": "Which type of stem cell?",
+            "groups": ["Embryonic stem cells", "Adult stem cells", "Plant meristem cells"],
+            "items": [
+              { "text": "Come from an embryo", "group": 0 },
+              { "text": "Can become most types of human cell", "group": 0 },
+              { "text": "Can be cloned and made to differentiate", "group": 0 },
+              { "text": "Found in bone marrow", "group": 1 },
+              { "text": "Can form many types of cell, including blood cells", "group": 1 },
+              { "text": "Can only form certain types of cell", "group": 1 },
+              { "text": "Found in the tips of roots and shoots", "group": 2 },
+              { "text": "Can differentiate into any type of plant cell", "group": 2 },
+              { "text": "Keep differentiating throughout the life of the plant", "group": 2 }
+            ]
+          }
+        },
+        {
+          "type": "key-points",
+          "items": [
+            "Embryonic stem cells can become most types of human cell.",
+            "Adult stem cells can only form certain types of cell.",
+            "Bone marrow stem cells can form blood cells."
+          ]
+        }
+      ]
+    }
+  ],
+  "checks": [
+    {
+      "q": "What is a stem cell?",
+      "a": "An undifferentiated cell that can divide to make more cells and can differentiate into specialised cells.",
+      "marks": 2
+    },
+    {
+      "q": "Name the tissue in plants that contains stem cells and give one place where it is found.",
+      "a": "Meristem tissue, found in the tip of a root or the tip of a shoot.",
+      "marks": 2
+    },
+    {
+      "q": "State one difference between embryonic stem cells and adult stem cells.",
+      "a": "Embryonic stem cells can differentiate into most (any) types of cell. Adult stem cells can only form certain types of cell.",
+      "marks": 1
+    }
+  ],
+  "boards": {
+    "aqa": {
+      "spec_codes": ["AQA 1.8", "AQA T 4.1.2.3"],
+      "exam_phrases": [
+        "undifferentiated cells",
+        "can differentiate into any type of cell",
+        "adult stem cells (in bone marrow)",
+        "meristem (tissue)",
+        "tip of shoot / tip of root",
+        "meristem cells can differentiate throughout the life of the plant"
+      ],
+      "mistakes": [
+        {
+          "wrong": "Stem cells in a plant are found in the stem or the embryo.",
+          "right": "\"Stem\" and \"embryo\" are ignored. Say meristems, the tip of a shoot or the tip of a root."
+        },
+        {
+          "wrong": "Stem cells become specialised by specialisation.",
+          "right": "The process is differentiation. \"Specialisation\" is ignored."
+        },
+        {
+          "wrong": "Stem cells are used because they are not specialised.",
+          "right": "\"Not specialised\" alone is ignored. Say they are undifferentiated and can differentiate into the cells needed, such as heart muscle cells."
+        },
+        {
+          "wrong": "Stem cells divide by meiosis to grow a new organ.",
+          "right": "Meiosis is not accepted. Stem cells divide by mitosis."
+        }
+      ],
+      "worked_example": {
+        "exemplar_id": "41ea3dec-9383-497a-931f-7f8f1f5cfb81",
+        "source": "AQA jun 2021, Paper 1 (H), Q05.6",
+        "question": "Scientists have developed patches of beating heart cells to repair damaged heart tissue. The patches are placed onto areas of the heart where cells have died. New cells grow to replace the dead cells. The patches are made using a person's own cells that are converted into stem cells. Explain why stem cells are used to make the patches.",
+        "marks": 2,
+        "answer_points": [
+          "Stem cells are undifferentiated cells (they can differentiate into different types of cell).",
+          "Therefore they can form heart (muscle) cells."
+        ],
+        "tip": "\"Stem cells can become specialised\" and \"stem cells are not specialised\" are ignored. Use undifferentiated or can differentiate."
+      }
+    },
+    "edexcel": {
+      "spec_codes": ["EDEX 2.8"],
+      "exam_phrases": [
+        "stem cells divide / make new cells (by mitosis)",
+        "differentiate / become specialised cells",
+        "to provide new cells for growth / to replace damaged cells",
+        "meristem cells are undifferentiated",
+        "meristem cells divide by mitosis",
+        "the cells produced can differentiate / elongate"
+      ],
+      "mistakes": [
+        {
+          "wrong": "The function of stem cells is that they are unspecialised.",
+          "right": "\"Unspecialised\" or \"undifferentiated\" is ignored when you are asked for a function. Say they divide to make new cells and differentiate into other types of cell."
+        },
+        {
+          "wrong": "Stem cells repair cells.",
+          "right": "\"Repair cells\" is ignored. Say they replace damaged cells, or repair damaged tissues or organs."
+        },
+        {
+          "wrong": "Many cells divide by mitosis in the xylem at the tip of a root.",
+          "right": "The area of a root where many cells divide by mitosis is the meristem. Root hair cells, xylem and phloem are not."
+        }
+      ],
+      "worked_example": {
+        "exemplar_id": "f9bca34e-d39d-4c0c-b048-fc8bfec0eb42",
+        "source": "EDEXCEL jun 2024, Paper 1 (F), Q4(d)",
+        "question": "Some animal cells are stem cells. Describe the function of stem cells.",
+        "marks": 2,
+        "answer_points": [
+          "They make new cells (they divide, by mitosis).",
+          "They differentiate, becoming specialised or other (named) types of cell.",
+          "They provide new cells for growth or to replace damaged cells."
+        ],
+        "tip": "Any two score one mark each. Saying stem cells are unspecialised scores nothing."
+      }
+    },
+    "ocr": {
+      "spec_codes": ["OCR 2.1d", "OCR 2.1e", "OCR 2.1f"],
+      "exam_phrases": [
+        "stem cells are undifferentiated / unspecialised",
+        "can divide into any type of cell in the body",
+        "which form tissues and organs",
+        "adult stem cells can only form certain types of cell",
+        "embryonic stem cells can produce a wide range of cell types",
+        "meristem cells divide by mitosis"
+      ],
+      "mistakes": [
+        {
+          "wrong": "Adult stem cells are already specialised.",
+          "right": "This is ignored. Say adult stem cells can only form certain types of cell, so they are more limited than embryonic stem cells."
+        },
+        {
+          "wrong": "Stem cells can produce white blood cells.",
+          "right": "\"Can produce\" is ignored. Say stem cells are undifferentiated and can differentiate into white blood cells."
+        },
+        {
+          "wrong": "Meristem cells divide by meiosis to make a stem grow.",
+          "right": "Meiosis is not allowed. Meristem cells divide by mitosis."
+        }
+      ],
+      "worked_example": {
+        "exemplar_id": "1103e18f-53d0-4973-bd11-4b5ead661b08",
+        "source": "OCR nov 2021, Paper 3, Q16(b)(i)",
+        "question": "Stem cells can be obtained from embryos. Stem cells can also be extracted from menstrual blood. These two types of cells are different. Embryo stem cells can be used to treat a wider range of disorders than menstrual blood stem cells. Explain why.",
+        "marks": 2,
+        "answer_points": [
+          "Menstrual blood cells are adult stem cells, which can only form certain types of cell.",
+          "Embryo stem cells can produce a wide range of cell types (any type of cell)."
+        ],
+        "tip": "Name both types of stem cell and say what each can become."
+      }
+    }
+  },
+  "meta": {
+    "status": "draft",
+    "checked_by": "sonnet-science-check",
+    "checked_at": "2026-10-01",
+    "written_by": "Claude Sonnet 5.5",
+    "written_at": "2026-10-01",
+    "spec_point_ids": [
+      "3aa45ae9-539e-420f-b159-87d290f80661",
+      "c9115294-5494-480a-9eda-a76df6ae718c",
+      "1ae21a56-3a62-405c-bfac-f21465b0652a",
+      "ea0641d7-76f3-4b91-a26f-57bad56a1995",
+      "fbb7a487-aba5-48cd-9d8d-c2ede287f634",
+      "279be9a0-731b-4c78-b84b-ef157779210f"
+    ],
+    "exemplar_ids": [
+      "41ea3dec-9383-497a-931f-7f8f1f5cfb81",
+      "f9bca34e-d39d-4c0c-b048-fc8bfec0eb42",
+      "1103e18f-53d0-4973-bd11-4b5ead661b08"
+    ]
+  }
+}
