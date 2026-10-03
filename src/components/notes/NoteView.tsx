@@ -80,15 +80,36 @@ function LineGraph({ d }: { d: LineGraphDiagram }) {
     H = Y0 - TOP;
   const sx = (x: number) => X0 + ((x - d.x.min) / (d.x.max - d.x.min)) * (X1 - X0);
   const sy = (y: number) => Y0 - y * H;
+  // A monotone curve (Steffen): it never overshoots its points, so a flat run
+  // stays flat (a heating curve's plateau) and a peak stays where it was put.
   const curve = (pts: [number, number][]) => {
     const p = pts.map(([x, y]) => [sx(x), sy(y)]);
+    const n = p.length;
+    const secant = (i: number) => {
+      const h = p[i + 1][0] - p[i][0];
+      return h ? (p[i + 1][1] - p[i][1]) / h : 0;
+    };
+    const t = p.map((_, i) => {
+      if (i === 0 || i === n - 1) return 0;
+      const h0 = p[i][0] - p[i - 1][0],
+        h1 = p[i + 1][0] - p[i][0],
+        s0 = secant(i - 1),
+        s1 = secant(i),
+        mean = h0 + h1 ? (s0 * h1 + s1 * h0) / (h0 + h1) : 0;
+      return (
+        (Math.sign(s0) + Math.sign(s1)) *
+          Math.min(Math.abs(s0), Math.abs(s1), 0.5 * Math.abs(mean)) || 0
+      );
+    });
+    if (n === 2) t[0] = t[1] = secant(0);
+    else if (n > 2) {
+      t[0] = (3 * secant(0) - t[1]) / 2;
+      t[n - 1] = (3 * secant(n - 2) - t[n - 2]) / 2;
+    }
     let s = `M ${p[0][0]} ${p[0][1]}`;
-    for (let i = 0; i < p.length - 1; i++) {
-      const a = p[i - 1] ?? p[i],
-        b = p[i],
-        c = p[i + 1],
-        e = p[i + 2] ?? c;
-      s += ` C ${b[0] + (c[0] - a[0]) / 6} ${b[1] + (c[1] - a[1]) / 6}, ${c[0] - (e[0] - b[0]) / 6} ${c[1] - (e[1] - b[1]) / 6}, ${c[0]} ${c[1]}`;
+    for (let i = 0; i < n - 1; i++) {
+      const dx = (p[i + 1][0] - p[i][0]) / 3;
+      s += ` C ${p[i][0] + dx} ${p[i][1] + dx * t[i]}, ${p[i + 1][0] - dx} ${p[i + 1][1] - dx * t[i + 1]}, ${p[i + 1][0]} ${p[i + 1][1]}`;
     }
     return s;
   };
@@ -369,7 +390,9 @@ function Predictor({ d }: { d: PredictorDiagram }) {
           </button>
         ))}
       </div>
-      {o.scene ? (
+      {/* The reaction profile drawing is withheld until it is redrawn: it put
+          activation energy on the slope instead of from reactants to the peak. */}
+      {o.scene && o.scene.kind !== "energy-profile" ? (
         <div className="mt-4">
           <PredictorSceneView s={o.scene} />
         </div>

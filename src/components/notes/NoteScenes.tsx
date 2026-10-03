@@ -463,7 +463,8 @@ export function WaveScene({ amplitude, frequency }: { amplitude: number; frequen
         </g>
       </svg>
       <p className="mt-1 text-sm font-bold">
-        The purple point shows the medium moving up and down while the wave travels along.
+        The purple point marks one place on the wave. It moves up and down while the wave travels
+        along.
       </p>
     </div>
   );
