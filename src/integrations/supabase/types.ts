@@ -1973,6 +1973,15 @@ export type Database = {
         Returns: boolean;
       };
       claim_parent_role: { Args: never; Returns: Json };
+      confirm_homework_marks: {
+        Args: {
+          _feedback: string | null;
+          _marks: Json;
+          _score_pct: number | null;
+          _submission_id: string;
+        };
+        Returns: undefined;
+      };
       create_linked_resource: {
         Args: {
           _board: Database["public"]["Enums"]["board"] | null;
