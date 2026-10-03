@@ -70,8 +70,10 @@ function PlanStep() {
     payNow,
     trialCode,
     setTrialCode,
+    neverSubscribed,
   } = step;
-  const withTrial = !!trialCode.trim();
+  // Only a student who has never had a plan can start a trial.
+  const withTrial = neverSubscribed && !!trialCode.trim();
 
   if (search.checkout === "success" && confirmDelayed) {
     return <PaymentStillConfirming onCheckAgain={() => setConfirmRound((n) => n + 1)} />;
@@ -139,13 +141,17 @@ function PlanStep() {
 
             <PlanTotal selectedPkg={selectedPkg} selectedUnit={selectedUnit} />
 
-            <TrialCodeField
-              value={trialCode}
-              onChange={setTrialCode}
-              thenPrice={
-                selectedPkg ? `${formatPence(selectedPkg.price_pence)} ${selectedUnit}` : undefined
-              }
-            />
+            {neverSubscribed && (
+              <TrialCodeField
+                value={trialCode}
+                onChange={setTrialCode}
+                thenPrice={
+                  selectedPkg
+                    ? `${formatPence(selectedPkg.price_pence)} ${selectedUnit}`
+                    : undefined
+                }
+              />
+            )}
 
             {!selectedPkg && (
               <p className="mt-3 text-xs text-rose-600">

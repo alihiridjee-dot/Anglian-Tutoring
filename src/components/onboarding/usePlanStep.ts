@@ -54,6 +54,7 @@ export function usePlanStep({
   const {
     resumable,
     paymentOverdue,
+    neverSubscribed,
     isPending: planStatePending,
     error: planStateError,
     refetch: refetchPlanState,
@@ -134,7 +135,13 @@ export function usePlanStep({
     if (!selectedPkg) return;
     setRedirecting(true);
     try {
-      await startCheckout({ tier: selectedPkg.tier, returnTo: "onboarding", trialCode });
+      // Trials are for students who have never had a plan; the server refuses
+      // the rest, so a stored code is never sent for a returning one.
+      await startCheckout({
+        tier: selectedPkg.tier,
+        returnTo: "onboarding",
+        trialCode: neverSubscribed ? trialCode : undefined,
+      });
     } catch (err) {
       toast.error(err instanceof Error ? err.message : "Couldn't open checkout — try again.");
       setRedirecting(false);
@@ -163,6 +170,7 @@ export function usePlanStep({
     subjectCount,
     resumable,
     paymentOverdue,
+    neverSubscribed,
     planStatePending,
     planStateError,
     refetchPlanState,

@@ -25,6 +25,12 @@ interface CadenceSwitcherProps {
   canManage: boolean;
   /** Whose plan it is ("Alex"), for the parent view. Omit for own plan. */
   ownerLabel?: string;
+  /**
+   * The student has a subscription row, even an ended one. Trials are for new
+   * students only (stripe-checkout refuses the rest), so no code is offered or
+   * sent — a stored one would only get the purchase refused.
+   */
+  hadPlan?: boolean;
 }
 
 /**
@@ -50,6 +56,7 @@ export function CadenceSwitcher({
   level,
   canManage,
   ownerLabel,
+  hadPlan = false,
 }: CadenceSwitcherProps) {
   const { data: packages = [] } = usePackages(level);
   const change = useChangeCadence();
@@ -77,7 +84,12 @@ export function CadenceSwitcher({
   const buy = async (c: Cadence) => {
     setBuying(c);
     try {
-      await startCheckout({ tier: tierFor(c, count), studentId, returnTo: "billing", trialCode });
+      await startCheckout({
+        tier: tierFor(c, count),
+        studentId,
+        returnTo: "billing",
+        trialCode: hadPlan ? undefined : trialCode,
+      });
     } catch (err) {
       toast.error(err instanceof Error ? err.message : "Couldn't open checkout — try again.");
       setBuying(null);
@@ -112,7 +124,9 @@ export function CadenceSwitcher({
         for longer. {currentTier && "Switching is prorated, never a fresh charge."}
       </p>
 
-      {!currentTier && canManage && <TrialCodeField value={trialCode} onChange={setTrialCode} />}
+      {!currentTier && canManage && !hadPlan && (
+        <TrialCodeField value={trialCode} onChange={setTrialCode} />
+      )}
 
       <div className="mt-4 space-y-2">
         {CADENCES.map((c) => {

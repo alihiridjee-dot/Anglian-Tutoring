@@ -277,6 +277,7 @@ function BillingPage() {
                 subjectCount={enrolments.length}
                 level={level}
                 canManage={canManage || !hasUsablePlan}
+                hadPlan={!!sub}
               />
             </div>
           )}
