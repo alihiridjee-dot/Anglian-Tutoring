@@ -23,6 +23,8 @@ export function WhatsAppReminderModal({
   // Holds the page still underneath; Escape or a tap outside closes it. The
   // number lives in the parent's state, so closing loses nothing.
   useBodyScrollLock(true);
+  // Null until a number has been typed — a field of only spaces isn't one.
+  const ownChatLink = whatsAppShareLink(selectedSession, phonePrefix, phoneNumber);
   useEffect(() => {
     const onKey = (e: KeyboardEvent) => {
       if (e.key === "Escape") onClose();
@@ -107,11 +109,11 @@ export function WhatsAppReminderModal({
 
           <div className="grid grid-cols-2 gap-2">
             <a
-              href={whatsAppShareLink(selectedSession, phonePrefix, phoneNumber)}
+              href={ownChatLink ?? undefined}
               target="_blank"
               rel="noreferrer"
               onClick={(e) => {
-                if (!phoneNumber) {
+                if (!ownChatLink) {
                   e.preventDefault();
                   toast.error("Enter your phone number first.");
                 }

@@ -9,69 +9,68 @@
 // Additionally, you should also exclude this file from your linter and/or formatter to prevent it from being checked or modified.
 
 import { Route as rootRouteImport } from './routes/__root'
-import { Route as ResetPasswordRouteImport } from './routes/reset-password'
-import { Route as OurStoryRouteImport } from './routes/our-story'
-import { Route as HowItWorksRouteImport } from './routes/how-it-works'
-import { Route as AuthRouteImport } from './routes/auth'
-import { Route as OnboardingRouteRouteImport } from './routes/onboarding/route'
-import { Route as AuthenticatedRouteRouteImport } from './routes/_authenticated/route'
 import { Route as IndexRouteImport } from './routes/index'
-import { Route as OnboardingIndexRouteImport } from './routes/onboarding/index'
-import { Route as DemoIndexRouteImport } from './routes/demo/index'
-import { Route as OnboardingSubjectsRouteImport } from './routes/onboarding/subjects'
-import { Route as OnboardingSchoolRouteImport } from './routes/onboarding/school'
-import { Route as OnboardingPlanRouteImport } from './routes/onboarding/plan'
-import { Route as OnboardingLearningRouteImport } from './routes/onboarding/learning'
-import { Route as OnboardingConfidenceRouteImport } from './routes/onboarding/confidence'
-import { Route as OnboardingBoardRouteImport } from './routes/onboarding/board'
-import { Route as AuthenticatedVideosRouteImport } from './routes/_authenticated/videos'
-import { Route as AuthenticatedTutorRouteImport } from './routes/_authenticated/tutor'
-import { Route as AuthenticatedStudentsRouteImport } from './routes/_authenticated/students'
-import { Route as AuthenticatedStudentDashboardRouteImport } from './routes/_authenticated/student-dashboard'
-import { Route as AuthenticatedSettingsRouteImport } from './routes/_authenticated/settings'
-import { Route as AuthenticatedProfileRouteImport } from './routes/_authenticated/profile'
-import { Route as AuthenticatedPlannerOrderRouteImport } from './routes/_authenticated/planner-order'
-import { Route as AuthenticatedPlannerRouteImport } from './routes/_authenticated/planner'
-import { Route as AuthenticatedParentsRouteImport } from './routes/_authenticated/parents'
-import { Route as AuthenticatedParentDashboardRouteImport } from './routes/_authenticated/parent-dashboard'
-import { Route as AuthenticatedNotesRouteImport } from './routes/_authenticated/notes'
-import { Route as AuthenticatedMessagesRouteImport } from './routes/_authenticated/messages'
-import { Route as AuthenticatedMcqsRouteImport } from './routes/_authenticated/mcqs'
-import { Route as AuthenticatedLiveRouteImport } from './routes/_authenticated/live'
-import { Route as AuthenticatedHomeworkRouteImport } from './routes/_authenticated/homework'
-import { Route as AuthenticatedDashboardRouteImport } from './routes/_authenticated/dashboard'
-import { Route as AuthenticatedCurriculumRouteImport } from './routes/_authenticated/curriculum'
+import { Route as AuthenticatedRouteRouteImport } from './routes/_authenticated/route'
+import { Route as AuthRouteImport } from './routes/auth'
+import { Route as HowItWorksRouteImport } from './routes/how-it-works'
+import { Route as OnboardingRouteRouteImport } from './routes/onboarding/route'
+import { Route as OurStoryRouteImport } from './routes/our-story'
+import { Route as PrivacyRouteImport } from './routes/privacy'
+import { Route as ResetPasswordRouteImport } from './routes/reset-password'
 import { Route as AuthenticatedBillingRouteImport } from './routes/_authenticated/billing'
-import { Route as DemoStudentRouteRouteImport } from './routes/demo/student/route'
+import { Route as AuthenticatedCurriculumRouteImport } from './routes/_authenticated/curriculum'
+import { Route as AuthenticatedDashboardRouteImport } from './routes/_authenticated/dashboard'
+import { Route as AuthenticatedHomeworkRouteImport } from './routes/_authenticated/homework'
+import { Route as AuthenticatedLiveRouteImport } from './routes/_authenticated/live'
+import { Route as AuthenticatedMcqsRouteImport } from './routes/_authenticated/mcqs'
+import { Route as AuthenticatedMessagesRouteImport } from './routes/_authenticated/messages'
+import { Route as AuthenticatedNotesRouteImport } from './routes/_authenticated/notes'
+import { Route as AuthenticatedParentDashboardRouteImport } from './routes/_authenticated/parent-dashboard'
+import { Route as AuthenticatedParentsRouteImport } from './routes/_authenticated/parents'
+import { Route as AuthenticatedPlannerRouteImport } from './routes/_authenticated/planner'
+import { Route as AuthenticatedPlannerOrderRouteImport } from './routes/_authenticated/planner-order'
+import { Route as AuthenticatedProfileRouteImport } from './routes/_authenticated/profile'
+import { Route as AuthenticatedSettingsRouteImport } from './routes/_authenticated/settings'
+import { Route as AuthenticatedStudentDashboardRouteImport } from './routes/_authenticated/student-dashboard'
+import { Route as AuthenticatedStudentsRouteImport } from './routes/_authenticated/students'
+import { Route as AuthenticatedTutorRouteImport } from './routes/_authenticated/tutor'
+import { Route as AuthenticatedVideosRouteImport } from './routes/_authenticated/videos'
+import { Route as DemoIndexRouteImport } from './routes/demo/index'
 import { Route as DemoParentRouteRouteImport } from './routes/demo/parent/route'
-import { Route as DemoStudentVideosRouteImport } from './routes/demo/student/videos'
-import { Route as DemoStudentPlannerRouteImport } from './routes/demo/student/planner'
-import { Route as DemoStudentMessagesRouteImport } from './routes/demo/student/messages'
-import { Route as DemoStudentMcqsRouteImport } from './routes/demo/student/mcqs'
-import { Route as DemoStudentLiveRouteImport } from './routes/demo/student/live'
-import { Route as DemoStudentHomeworkRouteImport } from './routes/demo/student/homework'
-import { Route as DemoStudentDashboardRouteImport } from './routes/demo/student/dashboard'
-import { Route as DemoStudentCurriculumRouteImport } from './routes/demo/student/curriculum'
-import { Route as DemoParentDashboardRouteImport } from './routes/demo/parent/dashboard'
-import { Route as AuthenticatedStudentsStudentIdRouteImport } from './routes/_authenticated/students_.$studentId'
-import { Route as AuthenticatedMcqSetIdRouteImport } from './routes/_authenticated/mcq.$setId'
+import { Route as DemoStudentRouteRouteImport } from './routes/demo/student/route'
+import { Route as NotesPreviewIndexRouteImport } from './routes/notes-preview/index'
+import { Route as NotesPreviewConceptIdRouteImport } from './routes/notes-preview/$conceptId'
+import { Route as OnboardingIndexRouteImport } from './routes/onboarding/index'
+import { Route as OnboardingBoardRouteImport } from './routes/onboarding/board'
+import { Route as OnboardingConfidenceRouteImport } from './routes/onboarding/confidence'
+import { Route as OnboardingLearningRouteImport } from './routes/onboarding/learning'
+import { Route as OnboardingPlanRouteImport } from './routes/onboarding/plan'
+import { Route as OnboardingSchoolRouteImport } from './routes/onboarding/school'
+import { Route as OnboardingSubjectsRouteImport } from './routes/onboarding/subjects'
 import { Route as AuthenticatedHomeworkHomeworkIdRouteImport } from './routes/_authenticated/homework_.$homeworkId'
-import { Route as DemoStudentMcqSetIdRouteImport } from './routes/demo/student/mcq.$setId'
+import { Route as AuthenticatedMcqSetIdRouteImport } from './routes/_authenticated/mcq.$setId'
+import { Route as AuthenticatedNotesConceptIdRouteImport } from './routes/_authenticated/notes_.$conceptId'
+import { Route as AuthenticatedStudentsStudentIdRouteImport } from './routes/_authenticated/students_.$studentId'
+import { Route as DemoParentDashboardRouteImport } from './routes/demo/parent/dashboard'
+import { Route as DemoStudentCurriculumRouteImport } from './routes/demo/student/curriculum'
+import { Route as DemoStudentDashboardRouteImport } from './routes/demo/student/dashboard'
+import { Route as DemoStudentHomeworkRouteImport } from './routes/demo/student/homework'
+import { Route as DemoStudentLiveRouteImport } from './routes/demo/student/live'
+import { Route as DemoStudentMcqsRouteImport } from './routes/demo/student/mcqs'
+import { Route as DemoStudentMessagesRouteImport } from './routes/demo/student/messages'
+import { Route as DemoStudentPlannerRouteImport } from './routes/demo/student/planner'
+import { Route as DemoStudentVideosRouteImport } from './routes/demo/student/videos'
+import { Route as NotesPreviewCompareConceptIdRouteImport } from './routes/notes-preview/compare.$conceptId'
 import { Route as DemoStudentHomeworkHomeworkIdRouteImport } from './routes/demo/student/homework_.$homeworkId'
+import { Route as DemoStudentMcqSetIdRouteImport } from './routes/demo/student/mcq.$setId'
 
-const ResetPasswordRoute = ResetPasswordRouteImport.update({
-  id: '/reset-password',
-  path: '/reset-password',
+const IndexRoute = IndexRouteImport.update({
+  id: '/',
+  path: '/',
   getParentRoute: () => rootRouteImport,
 } as any)
-const OurStoryRoute = OurStoryRouteImport.update({
-  id: '/our-story',
-  path: '/our-story',
-  getParentRoute: () => rootRouteImport,
-} as any)
-const HowItWorksRoute = HowItWorksRouteImport.update({
-  id: '/how-it-works',
-  path: '/how-it-works',
+const AuthenticatedRouteRoute = AuthenticatedRouteRouteImport.update({
+  id: '/_authenticated',
   getParentRoute: () => rootRouteImport,
 } as any)
 const AuthRoute = AuthRouteImport.update({
@@ -79,105 +78,69 @@ const AuthRoute = AuthRouteImport.update({
   path: '/auth',
   getParentRoute: () => rootRouteImport,
 } as any)
+const HowItWorksRoute = HowItWorksRouteImport.update({
+  id: '/how-it-works',
+  path: '/how-it-works',
+  getParentRoute: () => rootRouteImport,
+} as any)
 const OnboardingRouteRoute = OnboardingRouteRouteImport.update({
   id: '/onboarding',
   path: '/onboarding',
   getParentRoute: () => rootRouteImport,
 } as any)
-const AuthenticatedRouteRoute = AuthenticatedRouteRouteImport.update({
-  id: '/_authenticated',
+const OurStoryRoute = OurStoryRouteImport.update({
+  id: '/our-story',
+  path: '/our-story',
   getParentRoute: () => rootRouteImport,
 } as any)
-const IndexRoute = IndexRouteImport.update({
-  id: '/',
-  path: '/',
+const PrivacyRoute = PrivacyRouteImport.update({
+  id: '/privacy',
+  path: '/privacy',
   getParentRoute: () => rootRouteImport,
 } as any)
-const OnboardingIndexRoute = OnboardingIndexRouteImport.update({
-  id: '/',
-  path: '/',
-  getParentRoute: () => OnboardingRouteRoute,
-} as any)
-const DemoIndexRoute = DemoIndexRouteImport.update({
-  id: '/demo/',
-  path: '/demo/',
+const ResetPasswordRoute = ResetPasswordRouteImport.update({
+  id: '/reset-password',
+  path: '/reset-password',
   getParentRoute: () => rootRouteImport,
 } as any)
-const OnboardingSubjectsRoute = OnboardingSubjectsRouteImport.update({
-  id: '/subjects',
-  path: '/subjects',
-  getParentRoute: () => OnboardingRouteRoute,
-} as any)
-const OnboardingSchoolRoute = OnboardingSchoolRouteImport.update({
-  id: '/school',
-  path: '/school',
-  getParentRoute: () => OnboardingRouteRoute,
-} as any)
-const OnboardingPlanRoute = OnboardingPlanRouteImport.update({
-  id: '/plan',
-  path: '/plan',
-  getParentRoute: () => OnboardingRouteRoute,
-} as any)
-const OnboardingLearningRoute = OnboardingLearningRouteImport.update({
-  id: '/learning',
-  path: '/learning',
-  getParentRoute: () => OnboardingRouteRoute,
-} as any)
-const OnboardingConfidenceRoute = OnboardingConfidenceRouteImport.update({
-  id: '/confidence',
-  path: '/confidence',
-  getParentRoute: () => OnboardingRouteRoute,
-} as any)
-const OnboardingBoardRoute = OnboardingBoardRouteImport.update({
-  id: '/board',
-  path: '/board',
-  getParentRoute: () => OnboardingRouteRoute,
-} as any)
-const AuthenticatedVideosRoute = AuthenticatedVideosRouteImport.update({
-  id: '/videos',
-  path: '/videos',
+const AuthenticatedBillingRoute = AuthenticatedBillingRouteImport.update({
+  id: '/billing',
+  path: '/billing',
   getParentRoute: () => AuthenticatedRouteRoute,
 } as any)
-const AuthenticatedTutorRoute = AuthenticatedTutorRouteImport.update({
-  id: '/tutor',
-  path: '/tutor',
+const AuthenticatedCurriculumRoute = AuthenticatedCurriculumRouteImport.update({
+  id: '/curriculum',
+  path: '/curriculum',
   getParentRoute: () => AuthenticatedRouteRoute,
 } as any)
-const AuthenticatedStudentsRoute = AuthenticatedStudentsRouteImport.update({
-  id: '/students',
-  path: '/students',
+const AuthenticatedDashboardRoute = AuthenticatedDashboardRouteImport.update({
+  id: '/dashboard',
+  path: '/dashboard',
   getParentRoute: () => AuthenticatedRouteRoute,
 } as any)
-const AuthenticatedStudentDashboardRoute =
-  AuthenticatedStudentDashboardRouteImport.update({
-    id: '/student-dashboard',
-    path: '/student-dashboard',
-    getParentRoute: () => AuthenticatedRouteRoute,
-  } as any)
-const AuthenticatedSettingsRoute = AuthenticatedSettingsRouteImport.update({
-  id: '/settings',
-  path: '/settings',
+const AuthenticatedHomeworkRoute = AuthenticatedHomeworkRouteImport.update({
+  id: '/homework',
+  path: '/homework',
   getParentRoute: () => AuthenticatedRouteRoute,
 } as any)
-const AuthenticatedProfileRoute = AuthenticatedProfileRouteImport.update({
-  id: '/profile',
-  path: '/profile',
+const AuthenticatedLiveRoute = AuthenticatedLiveRouteImport.update({
+  id: '/live',
+  path: '/live',
   getParentRoute: () => AuthenticatedRouteRoute,
 } as any)
-const AuthenticatedPlannerOrderRoute =
-  AuthenticatedPlannerOrderRouteImport.update({
-    id: '/planner-order',
-    path: '/planner-order',
-    getParentRoute: () => AuthenticatedRouteRoute,
-  } as any)
-const AuthenticatedPlannerRoute = AuthenticatedPlannerRouteImport.update({
-  id: '/planner',
-  path: '/planner',
+const AuthenticatedMcqsRoute = AuthenticatedMcqsRouteImport.update({
+  id: '/mcqs',
+  path: '/mcqs',
   getParentRoute: () => AuthenticatedRouteRoute,
 } as any)
-const AuthenticatedParentsRoute = AuthenticatedParentsRouteImport.update({
-  id: '/parents',
-  path: '/parents',
+const AuthenticatedMessagesRoute = AuthenticatedMessagesRouteImport.update({
+  id: '/messages',
+  path: '/messages',
+  getParentRoute: () => AuthenticatedRouteRoute,
+} as any)
+const AuthenticatedNotesRoute = AuthenticatedNotesRouteImport.update({
+  id: '/notes',
+  path: '/notes',
   getParentRoute: () => AuthenticatedRouteRoute,
 } as any)
 const AuthenticatedParentDashboardRoute =
@@ -186,49 +149,56 @@ const AuthenticatedParentDashboardRoute =
     path: '/parent-dashboard',
     getParentRoute: () => AuthenticatedRouteRoute,
   } as any)
-const AuthenticatedNotesRoute = AuthenticatedNotesRouteImport.update({
-  id: '/notes',
-  path: '/notes',
+const AuthenticatedParentsRoute = AuthenticatedParentsRouteImport.update({
+  id: '/parents',
+  path: '/parents',
   getParentRoute: () => AuthenticatedRouteRoute,
 } as any)
-const AuthenticatedMessagesRoute = AuthenticatedMessagesRouteImport.update({
-  id: '/messages',
-  path: '/messages',
+const AuthenticatedPlannerRoute = AuthenticatedPlannerRouteImport.update({
+  id: '/planner',
+  path: '/planner',
   getParentRoute: () => AuthenticatedRouteRoute,
 } as any)
-const AuthenticatedMcqsRoute = AuthenticatedMcqsRouteImport.update({
-  id: '/mcqs',
-  path: '/mcqs',
+const AuthenticatedPlannerOrderRoute =
+  AuthenticatedPlannerOrderRouteImport.update({
+    id: '/planner-order',
+    path: '/planner-order',
+    getParentRoute: () => AuthenticatedRouteRoute,
+  } as any)
+const AuthenticatedProfileRoute = AuthenticatedProfileRouteImport.update({
+  id: '/profile',
+  path: '/profile',
   getParentRoute: () => AuthenticatedRouteRoute,
 } as any)
-const AuthenticatedLiveRoute = AuthenticatedLiveRouteImport.update({
-  id: '/live',
-  path: '/live',
+const AuthenticatedSettingsRoute = AuthenticatedSettingsRouteImport.update({
+  id: '/settings',
+  path: '/settings',
   getParentRoute: () => AuthenticatedRouteRoute,
 } as any)
-const AuthenticatedHomeworkRoute = AuthenticatedHomeworkRouteImport.update({
-  id: '/homework',
-  path: '/homework',
+const AuthenticatedStudentDashboardRoute =
+  AuthenticatedStudentDashboardRouteImport.update({
+    id: '/student-dashboard',
+    path: '/student-dashboard',
+    getParentRoute: () => AuthenticatedRouteRoute,
+  } as any)
+const AuthenticatedStudentsRoute = AuthenticatedStudentsRouteImport.update({
+  id: '/students',
+  path: '/students',
   getParentRoute: () => AuthenticatedRouteRoute,
 } as any)
-const AuthenticatedDashboardRoute = AuthenticatedDashboardRouteImport.update({
-  id: '/dashboard',
-  path: '/dashboard',
+const AuthenticatedTutorRoute = AuthenticatedTutorRouteImport.update({
+  id: '/tutor',
+  path: '/tutor',
   getParentRoute: () => AuthenticatedRouteRoute,
 } as any)
-const AuthenticatedCurriculumRoute = AuthenticatedCurriculumRouteImport.update({
-  id: '/curriculum',
-  path: '/curriculum',
+const AuthenticatedVideosRoute = AuthenticatedVideosRouteImport.update({
+  id: '/videos',
+  path: '/videos',
   getParentRoute: () => AuthenticatedRouteRoute,
 } as any)
-const AuthenticatedBillingRoute = AuthenticatedBillingRouteImport.update({
-  id: '/billing',
-  path: '/billing',
-  getParentRoute: () => AuthenticatedRouteRoute,
-} as any)
-const DemoStudentRouteRoute = DemoStudentRouteRouteImport.update({
-  id: '/demo/student',
-  path: '/demo/student',
+const DemoIndexRoute = DemoIndexRouteImport.update({
+  id: '/demo/',
+  path: '/demo/',
   getParentRoute: () => rootRouteImport,
 } as any)
 const DemoParentRouteRoute = DemoParentRouteRouteImport.update({
@@ -236,61 +206,55 @@ const DemoParentRouteRoute = DemoParentRouteRouteImport.update({
   path: '/demo/parent',
   getParentRoute: () => rootRouteImport,
 } as any)
-const DemoStudentVideosRoute = DemoStudentVideosRouteImport.update({
-  id: '/videos',
-  path: '/videos',
-  getParentRoute: () => DemoStudentRouteRoute,
+const DemoStudentRouteRoute = DemoStudentRouteRouteImport.update({
+  id: '/demo/student',
+  path: '/demo/student',
+  getParentRoute: () => rootRouteImport,
 } as any)
-const DemoStudentPlannerRoute = DemoStudentPlannerRouteImport.update({
-  id: '/planner',
-  path: '/planner',
-  getParentRoute: () => DemoStudentRouteRoute,
+const NotesPreviewIndexRoute = NotesPreviewIndexRouteImport.update({
+  id: '/notes-preview/',
+  path: '/notes-preview/',
+  getParentRoute: () => rootRouteImport,
 } as any)
-const DemoStudentMessagesRoute = DemoStudentMessagesRouteImport.update({
-  id: '/messages',
-  path: '/messages',
-  getParentRoute: () => DemoStudentRouteRoute,
+const NotesPreviewConceptIdRoute = NotesPreviewConceptIdRouteImport.update({
+  id: '/notes-preview/$conceptId',
+  path: '/notes-preview/$conceptId',
+  getParentRoute: () => rootRouteImport,
 } as any)
-const DemoStudentMcqsRoute = DemoStudentMcqsRouteImport.update({
-  id: '/mcqs',
-  path: '/mcqs',
-  getParentRoute: () => DemoStudentRouteRoute,
+const OnboardingIndexRoute = OnboardingIndexRouteImport.update({
+  id: '/',
+  path: '/',
+  getParentRoute: () => OnboardingRouteRoute,
 } as any)
-const DemoStudentLiveRoute = DemoStudentLiveRouteImport.update({
-  id: '/live',
-  path: '/live',
-  getParentRoute: () => DemoStudentRouteRoute,
+const OnboardingBoardRoute = OnboardingBoardRouteImport.update({
+  id: '/board',
+  path: '/board',
+  getParentRoute: () => OnboardingRouteRoute,
 } as any)
-const DemoStudentHomeworkRoute = DemoStudentHomeworkRouteImport.update({
-  id: '/homework',
-  path: '/homework',
-  getParentRoute: () => DemoStudentRouteRoute,
+const OnboardingConfidenceRoute = OnboardingConfidenceRouteImport.update({
+  id: '/confidence',
+  path: '/confidence',
+  getParentRoute: () => OnboardingRouteRoute,
 } as any)
-const DemoStudentDashboardRoute = DemoStudentDashboardRouteImport.update({
-  id: '/dashboard',
-  path: '/dashboard',
-  getParentRoute: () => DemoStudentRouteRoute,
+const OnboardingLearningRoute = OnboardingLearningRouteImport.update({
+  id: '/learning',
+  path: '/learning',
+  getParentRoute: () => OnboardingRouteRoute,
 } as any)
-const DemoStudentCurriculumRoute = DemoStudentCurriculumRouteImport.update({
-  id: '/curriculum',
-  path: '/curriculum',
-  getParentRoute: () => DemoStudentRouteRoute,
+const OnboardingPlanRoute = OnboardingPlanRouteImport.update({
+  id: '/plan',
+  path: '/plan',
+  getParentRoute: () => OnboardingRouteRoute,
 } as any)
-const DemoParentDashboardRoute = DemoParentDashboardRouteImport.update({
-  id: '/dashboard',
-  path: '/dashboard',
-  getParentRoute: () => DemoParentRouteRoute,
+const OnboardingSchoolRoute = OnboardingSchoolRouteImport.update({
+  id: '/school',
+  path: '/school',
+  getParentRoute: () => OnboardingRouteRoute,
 } as any)
-const AuthenticatedStudentsStudentIdRoute =
-  AuthenticatedStudentsStudentIdRouteImport.update({
-    id: '/students_/$studentId',
-    path: '/students/$studentId',
-    getParentRoute: () => AuthenticatedRouteRoute,
-  } as any)
-const AuthenticatedMcqSetIdRoute = AuthenticatedMcqSetIdRouteImport.update({
-  id: '/mcq/$setId',
-  path: '/mcq/$setId',
-  getParentRoute: () => AuthenticatedRouteRoute,
+const OnboardingSubjectsRoute = OnboardingSubjectsRouteImport.update({
+  id: '/subjects',
+  path: '/subjects',
+  getParentRoute: () => OnboardingRouteRoute,
 } as any)
 const AuthenticatedHomeworkHomeworkIdRoute =
   AuthenticatedHomeworkHomeworkIdRouteImport.update({
@@ -298,17 +262,85 @@ const AuthenticatedHomeworkHomeworkIdRoute =
     path: '/homework/$homeworkId',
     getParentRoute: () => AuthenticatedRouteRoute,
   } as any)
-const DemoStudentMcqSetIdRoute = DemoStudentMcqSetIdRouteImport.update({
+const AuthenticatedMcqSetIdRoute = AuthenticatedMcqSetIdRouteImport.update({
   id: '/mcq/$setId',
   path: '/mcq/$setId',
+  getParentRoute: () => AuthenticatedRouteRoute,
+} as any)
+const AuthenticatedNotesConceptIdRoute =
+  AuthenticatedNotesConceptIdRouteImport.update({
+    id: '/notes_/$conceptId',
+    path: '/notes/$conceptId',
+    getParentRoute: () => AuthenticatedRouteRoute,
+  } as any)
+const AuthenticatedStudentsStudentIdRoute =
+  AuthenticatedStudentsStudentIdRouteImport.update({
+    id: '/students_/$studentId',
+    path: '/students/$studentId',
+    getParentRoute: () => AuthenticatedRouteRoute,
+  } as any)
+const DemoParentDashboardRoute = DemoParentDashboardRouteImport.update({
+  id: '/dashboard',
+  path: '/dashboard',
+  getParentRoute: () => DemoParentRouteRoute,
+} as any)
+const DemoStudentCurriculumRoute = DemoStudentCurriculumRouteImport.update({
+  id: '/curriculum',
+  path: '/curriculum',
   getParentRoute: () => DemoStudentRouteRoute,
 } as any)
+const DemoStudentDashboardRoute = DemoStudentDashboardRouteImport.update({
+  id: '/dashboard',
+  path: '/dashboard',
+  getParentRoute: () => DemoStudentRouteRoute,
+} as any)
+const DemoStudentHomeworkRoute = DemoStudentHomeworkRouteImport.update({
+  id: '/homework',
+  path: '/homework',
+  getParentRoute: () => DemoStudentRouteRoute,
+} as any)
+const DemoStudentLiveRoute = DemoStudentLiveRouteImport.update({
+  id: '/live',
+  path: '/live',
+  getParentRoute: () => DemoStudentRouteRoute,
+} as any)
+const DemoStudentMcqsRoute = DemoStudentMcqsRouteImport.update({
+  id: '/mcqs',
+  path: '/mcqs',
+  getParentRoute: () => DemoStudentRouteRoute,
+} as any)
+const DemoStudentMessagesRoute = DemoStudentMessagesRouteImport.update({
+  id: '/messages',
+  path: '/messages',
+  getParentRoute: () => DemoStudentRouteRoute,
+} as any)
+const DemoStudentPlannerRoute = DemoStudentPlannerRouteImport.update({
+  id: '/planner',
+  path: '/planner',
+  getParentRoute: () => DemoStudentRouteRoute,
+} as any)
+const DemoStudentVideosRoute = DemoStudentVideosRouteImport.update({
+  id: '/videos',
+  path: '/videos',
+  getParentRoute: () => DemoStudentRouteRoute,
+} as any)
+const NotesPreviewCompareConceptIdRoute =
+  NotesPreviewCompareConceptIdRouteImport.update({
+    id: '/notes-preview/compare/$conceptId',
+    path: '/notes-preview/compare/$conceptId',
+    getParentRoute: () => rootRouteImport,
+  } as any)
 const DemoStudentHomeworkHomeworkIdRoute =
   DemoStudentHomeworkHomeworkIdRouteImport.update({
     id: '/homework_/$homeworkId',
     path: '/homework/$homeworkId',
     getParentRoute: () => DemoStudentRouteRoute,
   } as any)
+const DemoStudentMcqSetIdRoute = DemoStudentMcqSetIdRouteImport.update({
+  id: '/mcq/$setId',
+  path: '/mcq/$setId',
+  getParentRoute: () => DemoStudentRouteRoute,
+} as any)
 
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
@@ -316,6 +348,7 @@ export interface FileRoutesByFullPath {
   '/auth': typeof AuthRoute
   '/how-it-works': typeof HowItWorksRoute
   '/our-story': typeof OurStoryRoute
+  '/privacy': typeof PrivacyRoute
   '/reset-password': typeof ResetPasswordRoute
   '/demo/parent': typeof DemoParentRouteRouteWithChildren
   '/demo/student': typeof DemoStudentRouteRouteWithChildren
@@ -337,6 +370,7 @@ export interface FileRoutesByFullPath {
   '/students': typeof AuthenticatedStudentsRoute
   '/tutor': typeof AuthenticatedTutorRoute
   '/videos': typeof AuthenticatedVideosRoute
+  '/notes-preview/$conceptId': typeof NotesPreviewConceptIdRoute
   '/onboarding/board': typeof OnboardingBoardRoute
   '/onboarding/confidence': typeof OnboardingConfidenceRoute
   '/onboarding/learning': typeof OnboardingLearningRoute
@@ -344,9 +378,11 @@ export interface FileRoutesByFullPath {
   '/onboarding/school': typeof OnboardingSchoolRoute
   '/onboarding/subjects': typeof OnboardingSubjectsRoute
   '/demo/': typeof DemoIndexRoute
+  '/notes-preview/': typeof NotesPreviewIndexRoute
   '/onboarding/': typeof OnboardingIndexRoute
   '/homework/$homeworkId': typeof AuthenticatedHomeworkHomeworkIdRoute
   '/mcq/$setId': typeof AuthenticatedMcqSetIdRoute
+  '/notes/$conceptId': typeof AuthenticatedNotesConceptIdRoute
   '/students/$studentId': typeof AuthenticatedStudentsStudentIdRoute
   '/demo/parent/dashboard': typeof DemoParentDashboardRoute
   '/demo/student/curriculum': typeof DemoStudentCurriculumRoute
@@ -357,6 +393,7 @@ export interface FileRoutesByFullPath {
   '/demo/student/messages': typeof DemoStudentMessagesRoute
   '/demo/student/planner': typeof DemoStudentPlannerRoute
   '/demo/student/videos': typeof DemoStudentVideosRoute
+  '/notes-preview/compare/$conceptId': typeof NotesPreviewCompareConceptIdRoute
   '/demo/student/homework/$homeworkId': typeof DemoStudentHomeworkHomeworkIdRoute
   '/demo/student/mcq/$setId': typeof DemoStudentMcqSetIdRoute
 }
@@ -365,6 +402,7 @@ export interface FileRoutesByTo {
   '/auth': typeof AuthRoute
   '/how-it-works': typeof HowItWorksRoute
   '/our-story': typeof OurStoryRoute
+  '/privacy': typeof PrivacyRoute
   '/reset-password': typeof ResetPasswordRoute
   '/demo/parent': typeof DemoParentRouteRouteWithChildren
   '/demo/student': typeof DemoStudentRouteRouteWithChildren
@@ -386,6 +424,7 @@ export interface FileRoutesByTo {
   '/students': typeof AuthenticatedStudentsRoute
   '/tutor': typeof AuthenticatedTutorRoute
   '/videos': typeof AuthenticatedVideosRoute
+  '/notes-preview/$conceptId': typeof NotesPreviewConceptIdRoute
   '/onboarding/board': typeof OnboardingBoardRoute
   '/onboarding/confidence': typeof OnboardingConfidenceRoute
   '/onboarding/learning': typeof OnboardingLearningRoute
@@ -393,9 +432,11 @@ export interface FileRoutesByTo {
   '/onboarding/school': typeof OnboardingSchoolRoute
   '/onboarding/subjects': typeof OnboardingSubjectsRoute
   '/demo': typeof DemoIndexRoute
+  '/notes-preview': typeof NotesPreviewIndexRoute
   '/onboarding': typeof OnboardingIndexRoute
   '/homework/$homeworkId': typeof AuthenticatedHomeworkHomeworkIdRoute
   '/mcq/$setId': typeof AuthenticatedMcqSetIdRoute
+  '/notes/$conceptId': typeof AuthenticatedNotesConceptIdRoute
   '/students/$studentId': typeof AuthenticatedStudentsStudentIdRoute
   '/demo/parent/dashboard': typeof DemoParentDashboardRoute
   '/demo/student/curriculum': typeof DemoStudentCurriculumRoute
@@ -406,6 +447,7 @@ export interface FileRoutesByTo {
   '/demo/student/messages': typeof DemoStudentMessagesRoute
   '/demo/student/planner': typeof DemoStudentPlannerRoute
   '/demo/student/videos': typeof DemoStudentVideosRoute
+  '/notes-preview/compare/$conceptId': typeof NotesPreviewCompareConceptIdRoute
   '/demo/student/homework/$homeworkId': typeof DemoStudentHomeworkHomeworkIdRoute
   '/demo/student/mcq/$setId': typeof DemoStudentMcqSetIdRoute
 }
@@ -417,6 +459,7 @@ export interface FileRoutesById {
   '/auth': typeof AuthRoute
   '/how-it-works': typeof HowItWorksRoute
   '/our-story': typeof OurStoryRoute
+  '/privacy': typeof PrivacyRoute
   '/reset-password': typeof ResetPasswordRoute
   '/demo/parent': typeof DemoParentRouteRouteWithChildren
   '/demo/student': typeof DemoStudentRouteRouteWithChildren
@@ -438,6 +481,7 @@ export interface FileRoutesById {
   '/_authenticated/students': typeof AuthenticatedStudentsRoute
   '/_authenticated/tutor': typeof AuthenticatedTutorRoute
   '/_authenticated/videos': typeof AuthenticatedVideosRoute
+  '/notes-preview/$conceptId': typeof NotesPreviewConceptIdRoute
   '/onboarding/board': typeof OnboardingBoardRoute
   '/onboarding/confidence': typeof OnboardingConfidenceRoute
   '/onboarding/learning': typeof OnboardingLearningRoute
@@ -445,9 +489,11 @@ export interface FileRoutesById {
   '/onboarding/school': typeof OnboardingSchoolRoute
   '/onboarding/subjects': typeof OnboardingSubjectsRoute
   '/demo/': typeof DemoIndexRoute
+  '/notes-preview/': typeof NotesPreviewIndexRoute
   '/onboarding/': typeof OnboardingIndexRoute
   '/_authenticated/homework_/$homeworkId': typeof AuthenticatedHomeworkHomeworkIdRoute
   '/_authenticated/mcq/$setId': typeof AuthenticatedMcqSetIdRoute
+  '/_authenticated/notes_/$conceptId': typeof AuthenticatedNotesConceptIdRoute
   '/_authenticated/students_/$studentId': typeof AuthenticatedStudentsStudentIdRoute
   '/demo/parent/dashboard': typeof DemoParentDashboardRoute
   '/demo/student/curriculum': typeof DemoStudentCurriculumRoute
@@ -458,6 +504,7 @@ export interface FileRoutesById {
   '/demo/student/messages': typeof DemoStudentMessagesRoute
   '/demo/student/planner': typeof DemoStudentPlannerRoute
   '/demo/student/videos': typeof DemoStudentVideosRoute
+  '/notes-preview/compare/$conceptId': typeof NotesPreviewCompareConceptIdRoute
   '/demo/student/homework_/$homeworkId': typeof DemoStudentHomeworkHomeworkIdRoute
   '/demo/student/mcq/$setId': typeof DemoStudentMcqSetIdRoute
 }
@@ -469,6 +516,7 @@ export interface FileRouteTypes {
     | '/auth'
     | '/how-it-works'
     | '/our-story'
+    | '/privacy'
     | '/reset-password'
     | '/demo/parent'
     | '/demo/student'
@@ -490,6 +538,7 @@ export interface FileRouteTypes {
     | '/students'
     | '/tutor'
     | '/videos'
+    | '/notes-preview/$conceptId'
     | '/onboarding/board'
     | '/onboarding/confidence'
     | '/onboarding/learning'
@@ -497,9 +546,11 @@ export interface FileRouteTypes {
     | '/onboarding/school'
     | '/onboarding/subjects'
     | '/demo/'
+    | '/notes-preview/'
     | '/onboarding/'
     | '/homework/$homeworkId'
     | '/mcq/$setId'
+    | '/notes/$conceptId'
     | '/students/$studentId'
     | '/demo/parent/dashboard'
     | '/demo/student/curriculum'
@@ -510,6 +561,7 @@ export interface FileRouteTypes {
     | '/demo/student/messages'
     | '/demo/student/planner'
     | '/demo/student/videos'
+    | '/notes-preview/compare/$conceptId'
     | '/demo/student/homework/$homeworkId'
     | '/demo/student/mcq/$setId'
   fileRoutesByTo: FileRoutesByTo
@@ -518,6 +570,7 @@ export interface FileRouteTypes {
     | '/auth'
     | '/how-it-works'
     | '/our-story'
+    | '/privacy'
     | '/reset-password'
     | '/demo/parent'
     | '/demo/student'
@@ -539,6 +592,7 @@ export interface FileRouteTypes {
     | '/students'
     | '/tutor'
     | '/videos'
+    | '/notes-preview/$conceptId'
     | '/onboarding/board'
     | '/onboarding/confidence'
     | '/onboarding/learning'
@@ -546,9 +600,11 @@ export interface FileRouteTypes {
     | '/onboarding/school'
     | '/onboarding/subjects'
     | '/demo'
+    | '/notes-preview'
     | '/onboarding'
     | '/homework/$homeworkId'
     | '/mcq/$setId'
+    | '/notes/$conceptId'
     | '/students/$studentId'
     | '/demo/parent/dashboard'
     | '/demo/student/curriculum'
@@ -559,6 +615,7 @@ export interface FileRouteTypes {
     | '/demo/student/messages'
     | '/demo/student/planner'
     | '/demo/student/videos'
+    | '/notes-preview/compare/$conceptId'
     | '/demo/student/homework/$homeworkId'
     | '/demo/student/mcq/$setId'
   id:
@@ -569,6 +626,7 @@ export interface FileRouteTypes {
     | '/auth'
     | '/how-it-works'
     | '/our-story'
+    | '/privacy'
     | '/reset-password'
     | '/demo/parent'
     | '/demo/student'
@@ -590,6 +648,7 @@ export interface FileRouteTypes {
     | '/_authenticated/students'
     | '/_authenticated/tutor'
     | '/_authenticated/videos'
+    | '/notes-preview/$conceptId'
     | '/onboarding/board'
     | '/onboarding/confidence'
     | '/onboarding/learning'
@@ -597,9 +656,11 @@ export interface FileRouteTypes {
     | '/onboarding/school'
     | '/onboarding/subjects'
     | '/demo/'
+    | '/notes-preview/'
     | '/onboarding/'
     | '/_authenticated/homework_/$homeworkId'
     | '/_authenticated/mcq/$setId'
+    | '/_authenticated/notes_/$conceptId'
     | '/_authenticated/students_/$studentId'
     | '/demo/parent/dashboard'
     | '/demo/student/curriculum'
@@ -610,6 +671,7 @@ export interface FileRouteTypes {
     | '/demo/student/messages'
     | '/demo/student/planner'
     | '/demo/student/videos'
+    | '/notes-preview/compare/$conceptId'
     | '/demo/student/homework_/$homeworkId'
     | '/demo/student/mcq/$setId'
   fileRoutesById: FileRoutesById
@@ -621,47 +683,23 @@ export interface RootRouteChildren {
   AuthRoute: typeof AuthRoute
   HowItWorksRoute: typeof HowItWorksRoute
   OurStoryRoute: typeof OurStoryRoute
+  PrivacyRoute: typeof PrivacyRoute
   ResetPasswordRoute: typeof ResetPasswordRoute
   DemoParentRouteRoute: typeof DemoParentRouteRouteWithChildren
   DemoStudentRouteRoute: typeof DemoStudentRouteRouteWithChildren
+  NotesPreviewConceptIdRoute: typeof NotesPreviewConceptIdRoute
   DemoIndexRoute: typeof DemoIndexRoute
+  NotesPreviewIndexRoute: typeof NotesPreviewIndexRoute
+  NotesPreviewCompareConceptIdRoute: typeof NotesPreviewCompareConceptIdRoute
 }
 
 declare module '@tanstack/react-router' {
   interface FileRoutesByPath {
-    '/reset-password': {
-      id: '/reset-password'
-      path: '/reset-password'
-      fullPath: '/reset-password'
-      preLoaderRoute: typeof ResetPasswordRouteImport
-      parentRoute: typeof rootRouteImport
-    }
-    '/our-story': {
-      id: '/our-story'
-      path: '/our-story'
-      fullPath: '/our-story'
-      preLoaderRoute: typeof OurStoryRouteImport
-      parentRoute: typeof rootRouteImport
-    }
-    '/how-it-works': {
-      id: '/how-it-works'
-      path: '/how-it-works'
-      fullPath: '/how-it-works'
-      preLoaderRoute: typeof HowItWorksRouteImport
-      parentRoute: typeof rootRouteImport
-    }
-    '/auth': {
-      id: '/auth'
-      path: '/auth'
-      fullPath: '/auth'
-      preLoaderRoute: typeof AuthRouteImport
-      parentRoute: typeof rootRouteImport
-    }
-    '/onboarding': {
-      id: '/onboarding'
-      path: '/onboarding'
-      fullPath: '/onboarding'
-      preLoaderRoute: typeof OnboardingRouteRouteImport
+    '/': {
+      id: '/'
+      path: '/'
+      fullPath: '/'
+      preLoaderRoute: typeof IndexRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/_authenticated': {
@@ -671,179 +709,53 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof AuthenticatedRouteRouteImport
       parentRoute: typeof rootRouteImport
     }
-    '/': {
-      id: '/'
-      path: '/'
-      fullPath: '/'
-      preLoaderRoute: typeof IndexRouteImport
+    '/auth': {
+      id: '/auth'
+      path: '/auth'
+      fullPath: '/auth'
+      preLoaderRoute: typeof AuthRouteImport
       parentRoute: typeof rootRouteImport
     }
-    '/onboarding/': {
-      id: '/onboarding/'
-      path: '/'
-      fullPath: '/onboarding/'
-      preLoaderRoute: typeof OnboardingIndexRouteImport
-      parentRoute: typeof OnboardingRouteRoute
-    }
-    '/demo/': {
-      id: '/demo/'
-      path: '/demo'
-      fullPath: '/demo/'
-      preLoaderRoute: typeof DemoIndexRouteImport
+    '/how-it-works': {
+      id: '/how-it-works'
+      path: '/how-it-works'
+      fullPath: '/how-it-works'
+      preLoaderRoute: typeof HowItWorksRouteImport
       parentRoute: typeof rootRouteImport
     }
-    '/onboarding/subjects': {
-      id: '/onboarding/subjects'
-      path: '/subjects'
-      fullPath: '/onboarding/subjects'
-      preLoaderRoute: typeof OnboardingSubjectsRouteImport
-      parentRoute: typeof OnboardingRouteRoute
+    '/onboarding': {
+      id: '/onboarding'
+      path: '/onboarding'
+      fullPath: '/onboarding'
+      preLoaderRoute: typeof OnboardingRouteRouteImport
+      parentRoute: typeof rootRouteImport
     }
-    '/onboarding/school': {
-      id: '/onboarding/school'
-      path: '/school'
-      fullPath: '/onboarding/school'
-      preLoaderRoute: typeof OnboardingSchoolRouteImport
-      parentRoute: typeof OnboardingRouteRoute
+    '/our-story': {
+      id: '/our-story'
+      path: '/our-story'
+      fullPath: '/our-story'
+      preLoaderRoute: typeof OurStoryRouteImport
+      parentRoute: typeof rootRouteImport
     }
-    '/onboarding/plan': {
-      id: '/onboarding/plan'
-      path: '/plan'
-      fullPath: '/onboarding/plan'
-      preLoaderRoute: typeof OnboardingPlanRouteImport
-      parentRoute: typeof OnboardingRouteRoute
+    '/privacy': {
+      id: '/privacy'
+      path: '/privacy'
+      fullPath: '/privacy'
+      preLoaderRoute: typeof PrivacyRouteImport
+      parentRoute: typeof rootRouteImport
     }
-    '/onboarding/learning': {
-      id: '/onboarding/learning'
-      path: '/learning'
-      fullPath: '/onboarding/learning'
-      preLoaderRoute: typeof OnboardingLearningRouteImport
-      parentRoute: typeof OnboardingRouteRoute
+    '/reset-password': {
+      id: '/reset-password'
+      path: '/reset-password'
+      fullPath: '/reset-password'
+      preLoaderRoute: typeof ResetPasswordRouteImport
+      parentRoute: typeof rootRouteImport
     }
-    '/onboarding/confidence': {
-      id: '/onboarding/confidence'
-      path: '/confidence'
-      fullPath: '/onboarding/confidence'
-      preLoaderRoute: typeof OnboardingConfidenceRouteImport
-      parentRoute: typeof OnboardingRouteRoute
-    }
-    '/onboarding/board': {
-      id: '/onboarding/board'
-      path: '/board'
-      fullPath: '/onboarding/board'
-      preLoaderRoute: typeof OnboardingBoardRouteImport
-      parentRoute: typeof OnboardingRouteRoute
-    }
-    '/_authenticated/videos': {
-      id: '/_authenticated/videos'
-      path: '/videos'
-      fullPath: '/videos'
-      preLoaderRoute: typeof AuthenticatedVideosRouteImport
-      parentRoute: typeof AuthenticatedRouteRoute
-    }
-    '/_authenticated/tutor': {
-      id: '/_authenticated/tutor'
-      path: '/tutor'
-      fullPath: '/tutor'
-      preLoaderRoute: typeof AuthenticatedTutorRouteImport
-      parentRoute: typeof AuthenticatedRouteRoute
-    }
-    '/_authenticated/students': {
-      id: '/_authenticated/students'
-      path: '/students'
-      fullPath: '/students'
-      preLoaderRoute: typeof AuthenticatedStudentsRouteImport
-      parentRoute: typeof AuthenticatedRouteRoute
-    }
-    '/_authenticated/student-dashboard': {
-      id: '/_authenticated/student-dashboard'
-      path: '/student-dashboard'
-      fullPath: '/student-dashboard'
-      preLoaderRoute: typeof AuthenticatedStudentDashboardRouteImport
-      parentRoute: typeof AuthenticatedRouteRoute
-    }
-    '/_authenticated/settings': {
-      id: '/_authenticated/settings'
-      path: '/settings'
-      fullPath: '/settings'
-      preLoaderRoute: typeof AuthenticatedSettingsRouteImport
-      parentRoute: typeof AuthenticatedRouteRoute
-    }
-    '/_authenticated/profile': {
-      id: '/_authenticated/profile'
-      path: '/profile'
-      fullPath: '/profile'
-      preLoaderRoute: typeof AuthenticatedProfileRouteImport
-      parentRoute: typeof AuthenticatedRouteRoute
-    }
-    '/_authenticated/planner-order': {
-      id: '/_authenticated/planner-order'
-      path: '/planner-order'
-      fullPath: '/planner-order'
-      preLoaderRoute: typeof AuthenticatedPlannerOrderRouteImport
-      parentRoute: typeof AuthenticatedRouteRoute
-    }
-    '/_authenticated/planner': {
-      id: '/_authenticated/planner'
-      path: '/planner'
-      fullPath: '/planner'
-      preLoaderRoute: typeof AuthenticatedPlannerRouteImport
-      parentRoute: typeof AuthenticatedRouteRoute
-    }
-    '/_authenticated/parents': {
-      id: '/_authenticated/parents'
-      path: '/parents'
-      fullPath: '/parents'
-      preLoaderRoute: typeof AuthenticatedParentsRouteImport
-      parentRoute: typeof AuthenticatedRouteRoute
-    }
-    '/_authenticated/parent-dashboard': {
-      id: '/_authenticated/parent-dashboard'
-      path: '/parent-dashboard'
-      fullPath: '/parent-dashboard'
-      preLoaderRoute: typeof AuthenticatedParentDashboardRouteImport
-      parentRoute: typeof AuthenticatedRouteRoute
-    }
-    '/_authenticated/notes': {
-      id: '/_authenticated/notes'
-      path: '/notes'
-      fullPath: '/notes'
-      preLoaderRoute: typeof AuthenticatedNotesRouteImport
-      parentRoute: typeof AuthenticatedRouteRoute
-    }
-    '/_authenticated/messages': {
-      id: '/_authenticated/messages'
-      path: '/messages'
-      fullPath: '/messages'
-      preLoaderRoute: typeof AuthenticatedMessagesRouteImport
-      parentRoute: typeof AuthenticatedRouteRoute
-    }
-    '/_authenticated/mcqs': {
-      id: '/_authenticated/mcqs'
-      path: '/mcqs'
-      fullPath: '/mcqs'
-      preLoaderRoute: typeof AuthenticatedMcqsRouteImport
-      parentRoute: typeof AuthenticatedRouteRoute
-    }
-    '/_authenticated/live': {
-      id: '/_authenticated/live'
-      path: '/live'
-      fullPath: '/live'
-      preLoaderRoute: typeof AuthenticatedLiveRouteImport
-      parentRoute: typeof AuthenticatedRouteRoute
-    }
-    '/_authenticated/homework': {
-      id: '/_authenticated/homework'
-      path: '/homework'
-      fullPath: '/homework'
-      preLoaderRoute: typeof AuthenticatedHomeworkRouteImport
-      parentRoute: typeof AuthenticatedRouteRoute
-    }
-    '/_authenticated/dashboard': {
-      id: '/_authenticated/dashboard'
-      path: '/dashboard'
-      fullPath: '/dashboard'
-      preLoaderRoute: typeof AuthenticatedDashboardRouteImport
+    '/_authenticated/billing': {
+      id: '/_authenticated/billing'
+      path: '/billing'
+      fullPath: '/billing'
+      preLoaderRoute: typeof AuthenticatedBillingRouteImport
       parentRoute: typeof AuthenticatedRouteRoute
     }
     '/_authenticated/curriculum': {
@@ -853,18 +765,123 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof AuthenticatedCurriculumRouteImport
       parentRoute: typeof AuthenticatedRouteRoute
     }
-    '/_authenticated/billing': {
-      id: '/_authenticated/billing'
-      path: '/billing'
-      fullPath: '/billing'
-      preLoaderRoute: typeof AuthenticatedBillingRouteImport
+    '/_authenticated/dashboard': {
+      id: '/_authenticated/dashboard'
+      path: '/dashboard'
+      fullPath: '/dashboard'
+      preLoaderRoute: typeof AuthenticatedDashboardRouteImport
       parentRoute: typeof AuthenticatedRouteRoute
     }
-    '/demo/student': {
-      id: '/demo/student'
-      path: '/demo/student'
-      fullPath: '/demo/student'
-      preLoaderRoute: typeof DemoStudentRouteRouteImport
+    '/_authenticated/homework': {
+      id: '/_authenticated/homework'
+      path: '/homework'
+      fullPath: '/homework'
+      preLoaderRoute: typeof AuthenticatedHomeworkRouteImport
+      parentRoute: typeof AuthenticatedRouteRoute
+    }
+    '/_authenticated/live': {
+      id: '/_authenticated/live'
+      path: '/live'
+      fullPath: '/live'
+      preLoaderRoute: typeof AuthenticatedLiveRouteImport
+      parentRoute: typeof AuthenticatedRouteRoute
+    }
+    '/_authenticated/mcqs': {
+      id: '/_authenticated/mcqs'
+      path: '/mcqs'
+      fullPath: '/mcqs'
+      preLoaderRoute: typeof AuthenticatedMcqsRouteImport
+      parentRoute: typeof AuthenticatedRouteRoute
+    }
+    '/_authenticated/messages': {
+      id: '/_authenticated/messages'
+      path: '/messages'
+      fullPath: '/messages'
+      preLoaderRoute: typeof AuthenticatedMessagesRouteImport
+      parentRoute: typeof AuthenticatedRouteRoute
+    }
+    '/_authenticated/notes': {
+      id: '/_authenticated/notes'
+      path: '/notes'
+      fullPath: '/notes'
+      preLoaderRoute: typeof AuthenticatedNotesRouteImport
+      parentRoute: typeof AuthenticatedRouteRoute
+    }
+    '/_authenticated/parent-dashboard': {
+      id: '/_authenticated/parent-dashboard'
+      path: '/parent-dashboard'
+      fullPath: '/parent-dashboard'
+      preLoaderRoute: typeof AuthenticatedParentDashboardRouteImport
+      parentRoute: typeof AuthenticatedRouteRoute
+    }
+    '/_authenticated/parents': {
+      id: '/_authenticated/parents'
+      path: '/parents'
+      fullPath: '/parents'
+      preLoaderRoute: typeof AuthenticatedParentsRouteImport
+      parentRoute: typeof AuthenticatedRouteRoute
+    }
+    '/_authenticated/planner': {
+      id: '/_authenticated/planner'
+      path: '/planner'
+      fullPath: '/planner'
+      preLoaderRoute: typeof AuthenticatedPlannerRouteImport
+      parentRoute: typeof AuthenticatedRouteRoute
+    }
+    '/_authenticated/planner-order': {
+      id: '/_authenticated/planner-order'
+      path: '/planner-order'
+      fullPath: '/planner-order'
+      preLoaderRoute: typeof AuthenticatedPlannerOrderRouteImport
+      parentRoute: typeof AuthenticatedRouteRoute
+    }
+    '/_authenticated/profile': {
+      id: '/_authenticated/profile'
+      path: '/profile'
+      fullPath: '/profile'
+      preLoaderRoute: typeof AuthenticatedProfileRouteImport
+      parentRoute: typeof AuthenticatedRouteRoute
+    }
+    '/_authenticated/settings': {
+      id: '/_authenticated/settings'
+      path: '/settings'
+      fullPath: '/settings'
+      preLoaderRoute: typeof AuthenticatedSettingsRouteImport
+      parentRoute: typeof AuthenticatedRouteRoute
+    }
+    '/_authenticated/student-dashboard': {
+      id: '/_authenticated/student-dashboard'
+      path: '/student-dashboard'
+      fullPath: '/student-dashboard'
+      preLoaderRoute: typeof AuthenticatedStudentDashboardRouteImport
+      parentRoute: typeof AuthenticatedRouteRoute
+    }
+    '/_authenticated/students': {
+      id: '/_authenticated/students'
+      path: '/students'
+      fullPath: '/students'
+      preLoaderRoute: typeof AuthenticatedStudentsRouteImport
+      parentRoute: typeof AuthenticatedRouteRoute
+    }
+    '/_authenticated/tutor': {
+      id: '/_authenticated/tutor'
+      path: '/tutor'
+      fullPath: '/tutor'
+      preLoaderRoute: typeof AuthenticatedTutorRouteImport
+      parentRoute: typeof AuthenticatedRouteRoute
+    }
+    '/_authenticated/videos': {
+      id: '/_authenticated/videos'
+      path: '/videos'
+      fullPath: '/videos'
+      preLoaderRoute: typeof AuthenticatedVideosRouteImport
+      parentRoute: typeof AuthenticatedRouteRoute
+    }
+    '/demo/': {
+      id: '/demo/'
+      path: '/demo'
+      fullPath: '/demo/'
+      preLoaderRoute: typeof DemoIndexRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/demo/parent': {
@@ -874,74 +891,81 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof DemoParentRouteRouteImport
       parentRoute: typeof rootRouteImport
     }
-    '/demo/student/videos': {
-      id: '/demo/student/videos'
-      path: '/videos'
-      fullPath: '/demo/student/videos'
-      preLoaderRoute: typeof DemoStudentVideosRouteImport
-      parentRoute: typeof DemoStudentRouteRoute
+    '/demo/student': {
+      id: '/demo/student'
+      path: '/demo/student'
+      fullPath: '/demo/student'
+      preLoaderRoute: typeof DemoStudentRouteRouteImport
+      parentRoute: typeof rootRouteImport
     }
-    '/demo/student/planner': {
-      id: '/demo/student/planner'
-      path: '/planner'
-      fullPath: '/demo/student/planner'
-      preLoaderRoute: typeof DemoStudentPlannerRouteImport
-      parentRoute: typeof DemoStudentRouteRoute
+    '/notes-preview/': {
+      id: '/notes-preview/'
+      path: '/notes-preview'
+      fullPath: '/notes-preview/'
+      preLoaderRoute: typeof NotesPreviewIndexRouteImport
+      parentRoute: typeof rootRouteImport
     }
-    '/demo/student/messages': {
-      id: '/demo/student/messages'
-      path: '/messages'
-      fullPath: '/demo/student/messages'
-      preLoaderRoute: typeof DemoStudentMessagesRouteImport
-      parentRoute: typeof DemoStudentRouteRoute
+    '/notes-preview/$conceptId': {
+      id: '/notes-preview/$conceptId'
+      path: '/notes-preview/$conceptId'
+      fullPath: '/notes-preview/$conceptId'
+      preLoaderRoute: typeof NotesPreviewConceptIdRouteImport
+      parentRoute: typeof rootRouteImport
     }
-    '/demo/student/mcqs': {
-      id: '/demo/student/mcqs'
-      path: '/mcqs'
-      fullPath: '/demo/student/mcqs'
-      preLoaderRoute: typeof DemoStudentMcqsRouteImport
-      parentRoute: typeof DemoStudentRouteRoute
+    '/onboarding/': {
+      id: '/onboarding/'
+      path: '/'
+      fullPath: '/onboarding/'
+      preLoaderRoute: typeof OnboardingIndexRouteImport
+      parentRoute: typeof OnboardingRouteRoute
     }
-    '/demo/student/live': {
-      id: '/demo/student/live'
-      path: '/live'
-      fullPath: '/demo/student/live'
-      preLoaderRoute: typeof DemoStudentLiveRouteImport
-      parentRoute: typeof DemoStudentRouteRoute
+    '/onboarding/board': {
+      id: '/onboarding/board'
+      path: '/board'
+      fullPath: '/onboarding/board'
+      preLoaderRoute: typeof OnboardingBoardRouteImport
+      parentRoute: typeof OnboardingRouteRoute
     }
-    '/demo/student/homework': {
-      id: '/demo/student/homework'
-      path: '/homework'
-      fullPath: '/demo/student/homework'
-      preLoaderRoute: typeof DemoStudentHomeworkRouteImport
-      parentRoute: typeof DemoStudentRouteRoute
+    '/onboarding/confidence': {
+      id: '/onboarding/confidence'
+      path: '/confidence'
+      fullPath: '/onboarding/confidence'
+      preLoaderRoute: typeof OnboardingConfidenceRouteImport
+      parentRoute: typeof OnboardingRouteRoute
     }
-    '/demo/student/dashboard': {
-      id: '/demo/student/dashboard'
-      path: '/dashboard'
-      fullPath: '/demo/student/dashboard'
-      preLoaderRoute: typeof DemoStudentDashboardRouteImport
-      parentRoute: typeof DemoStudentRouteRoute
+    '/onboarding/learning': {
+      id: '/onboarding/learning'
+      path: '/learning'
+      fullPath: '/onboarding/learning'
+      preLoaderRoute: typeof OnboardingLearningRouteImport
+      parentRoute: typeof OnboardingRouteRoute
     }
-    '/demo/student/curriculum': {
-      id: '/demo/student/curriculum'
-      path: '/curriculum'
-      fullPath: '/demo/student/curriculum'
-      preLoaderRoute: typeof DemoStudentCurriculumRouteImport
-      parentRoute: typeof DemoStudentRouteRoute
+    '/onboarding/plan': {
+      id: '/onboarding/plan'
+      path: '/plan'
+      fullPath: '/onboarding/plan'
+      preLoaderRoute: typeof OnboardingPlanRouteImport
+      parentRoute: typeof OnboardingRouteRoute
     }
-    '/demo/parent/dashboard': {
-      id: '/demo/parent/dashboard'
-      path: '/dashboard'
-      fullPath: '/demo/parent/dashboard'
-      preLoaderRoute: typeof DemoParentDashboardRouteImport
-      parentRoute: typeof DemoParentRouteRoute
+    '/onboarding/school': {
+      id: '/onboarding/school'
+      path: '/school'
+      fullPath: '/onboarding/school'
+      preLoaderRoute: typeof OnboardingSchoolRouteImport
+      parentRoute: typeof OnboardingRouteRoute
     }
-    '/_authenticated/students_/$studentId': {
-      id: '/_authenticated/students_/$studentId'
-      path: '/students/$studentId'
-      fullPath: '/students/$studentId'
-      preLoaderRoute: typeof AuthenticatedStudentsStudentIdRouteImport
+    '/onboarding/subjects': {
+      id: '/onboarding/subjects'
+      path: '/subjects'
+      fullPath: '/onboarding/subjects'
+      preLoaderRoute: typeof OnboardingSubjectsRouteImport
+      parentRoute: typeof OnboardingRouteRoute
+    }
+    '/_authenticated/homework_/$homeworkId': {
+      id: '/_authenticated/homework_/$homeworkId'
+      path: '/homework/$homeworkId'
+      fullPath: '/homework/$homeworkId'
+      preLoaderRoute: typeof AuthenticatedHomeworkHomeworkIdRouteImport
       parentRoute: typeof AuthenticatedRouteRoute
     }
     '/_authenticated/mcq/$setId': {
@@ -951,25 +975,102 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof AuthenticatedMcqSetIdRouteImport
       parentRoute: typeof AuthenticatedRouteRoute
     }
-    '/_authenticated/homework_/$homeworkId': {
-      id: '/_authenticated/homework_/$homeworkId'
-      path: '/homework/$homeworkId'
-      fullPath: '/homework/$homeworkId'
-      preLoaderRoute: typeof AuthenticatedHomeworkHomeworkIdRouteImport
+    '/_authenticated/notes_/$conceptId': {
+      id: '/_authenticated/notes_/$conceptId'
+      path: '/notes/$conceptId'
+      fullPath: '/notes/$conceptId'
+      preLoaderRoute: typeof AuthenticatedNotesConceptIdRouteImport
       parentRoute: typeof AuthenticatedRouteRoute
     }
-    '/demo/student/mcq/$setId': {
-      id: '/demo/student/mcq/$setId'
-      path: '/mcq/$setId'
-      fullPath: '/demo/student/mcq/$setId'
-      preLoaderRoute: typeof DemoStudentMcqSetIdRouteImport
+    '/_authenticated/students_/$studentId': {
+      id: '/_authenticated/students_/$studentId'
+      path: '/students/$studentId'
+      fullPath: '/students/$studentId'
+      preLoaderRoute: typeof AuthenticatedStudentsStudentIdRouteImport
+      parentRoute: typeof AuthenticatedRouteRoute
+    }
+    '/demo/parent/dashboard': {
+      id: '/demo/parent/dashboard'
+      path: '/dashboard'
+      fullPath: '/demo/parent/dashboard'
+      preLoaderRoute: typeof DemoParentDashboardRouteImport
+      parentRoute: typeof DemoParentRouteRoute
+    }
+    '/demo/student/curriculum': {
+      id: '/demo/student/curriculum'
+      path: '/curriculum'
+      fullPath: '/demo/student/curriculum'
+      preLoaderRoute: typeof DemoStudentCurriculumRouteImport
       parentRoute: typeof DemoStudentRouteRoute
+    }
+    '/demo/student/dashboard': {
+      id: '/demo/student/dashboard'
+      path: '/dashboard'
+      fullPath: '/demo/student/dashboard'
+      preLoaderRoute: typeof DemoStudentDashboardRouteImport
+      parentRoute: typeof DemoStudentRouteRoute
+    }
+    '/demo/student/homework': {
+      id: '/demo/student/homework'
+      path: '/homework'
+      fullPath: '/demo/student/homework'
+      preLoaderRoute: typeof DemoStudentHomeworkRouteImport
+      parentRoute: typeof DemoStudentRouteRoute
+    }
+    '/demo/student/live': {
+      id: '/demo/student/live'
+      path: '/live'
+      fullPath: '/demo/student/live'
+      preLoaderRoute: typeof DemoStudentLiveRouteImport
+      parentRoute: typeof DemoStudentRouteRoute
+    }
+    '/demo/student/mcqs': {
+      id: '/demo/student/mcqs'
+      path: '/mcqs'
+      fullPath: '/demo/student/mcqs'
+      preLoaderRoute: typeof DemoStudentMcqsRouteImport
+      parentRoute: typeof DemoStudentRouteRoute
+    }
+    '/demo/student/messages': {
+      id: '/demo/student/messages'
+      path: '/messages'
+      fullPath: '/demo/student/messages'
+      preLoaderRoute: typeof DemoStudentMessagesRouteImport
+      parentRoute: typeof DemoStudentRouteRoute
+    }
+    '/demo/student/planner': {
+      id: '/demo/student/planner'
+      path: '/planner'
+      fullPath: '/demo/student/planner'
+      preLoaderRoute: typeof DemoStudentPlannerRouteImport
+      parentRoute: typeof DemoStudentRouteRoute
+    }
+    '/demo/student/videos': {
+      id: '/demo/student/videos'
+      path: '/videos'
+      fullPath: '/demo/student/videos'
+      preLoaderRoute: typeof DemoStudentVideosRouteImport
+      parentRoute: typeof DemoStudentRouteRoute
+    }
+    '/notes-preview/compare/$conceptId': {
+      id: '/notes-preview/compare/$conceptId'
+      path: '/notes-preview/compare/$conceptId'
+      fullPath: '/notes-preview/compare/$conceptId'
+      preLoaderRoute: typeof NotesPreviewCompareConceptIdRouteImport
+      parentRoute: typeof rootRouteImport
     }
     '/demo/student/homework_/$homeworkId': {
       id: '/demo/student/homework_/$homeworkId'
       path: '/homework/$homeworkId'
       fullPath: '/demo/student/homework/$homeworkId'
       preLoaderRoute: typeof DemoStudentHomeworkHomeworkIdRouteImport
+      parentRoute: typeof DemoStudentRouteRoute
+    }
+    '/demo/student/mcq/$setId': {
+      id: '/demo/student/mcq/$setId'
+      path: '/mcq/$setId'
+      fullPath: '/demo/student/mcq/$setId'
+      preLoaderRoute: typeof DemoStudentMcqSetIdRouteImport
       parentRoute: typeof DemoStudentRouteRoute
     }
   }
@@ -996,6 +1097,7 @@ interface AuthenticatedRouteRouteChildren {
   AuthenticatedVideosRoute: typeof AuthenticatedVideosRoute
   AuthenticatedHomeworkHomeworkIdRoute: typeof AuthenticatedHomeworkHomeworkIdRoute
   AuthenticatedMcqSetIdRoute: typeof AuthenticatedMcqSetIdRoute
+  AuthenticatedNotesConceptIdRoute: typeof AuthenticatedNotesConceptIdRoute
   AuthenticatedStudentsStudentIdRoute: typeof AuthenticatedStudentsStudentIdRoute
 }
 
@@ -1020,6 +1122,7 @@ const AuthenticatedRouteRouteChildren: AuthenticatedRouteRouteChildren = {
   AuthenticatedVideosRoute: AuthenticatedVideosRoute,
   AuthenticatedHomeworkHomeworkIdRoute: AuthenticatedHomeworkHomeworkIdRoute,
   AuthenticatedMcqSetIdRoute: AuthenticatedMcqSetIdRoute,
+  AuthenticatedNotesConceptIdRoute: AuthenticatedNotesConceptIdRoute,
   AuthenticatedStudentsStudentIdRoute: AuthenticatedStudentsStudentIdRoute,
 }
 
@@ -1098,10 +1201,14 @@ const rootRouteChildren: RootRouteChildren = {
   AuthRoute: AuthRoute,
   HowItWorksRoute: HowItWorksRoute,
   OurStoryRoute: OurStoryRoute,
+  PrivacyRoute: PrivacyRoute,
   ResetPasswordRoute: ResetPasswordRoute,
   DemoParentRouteRoute: DemoParentRouteRouteWithChildren,
   DemoStudentRouteRoute: DemoStudentRouteRouteWithChildren,
+  NotesPreviewConceptIdRoute: NotesPreviewConceptIdRoute,
   DemoIndexRoute: DemoIndexRoute,
+  NotesPreviewIndexRoute: NotesPreviewIndexRoute,
+  NotesPreviewCompareConceptIdRoute: NotesPreviewCompareConceptIdRoute,
 }
 export const routeTree = rootRouteImport
   ._addFileChildren(rootRouteChildren)

@@ -304,23 +304,27 @@ export function verdictCopy(v: Verdict, s: WeekSummary): VerdictCopy {
  * revision stick" are different questions and averaging them into one banner
  * answers neither.
  */
-export type Lane = "core" | "focus" | "yours";
+export type Lane = "core" | "focus" | "tutor" | "yours";
 
 export const LANE_LABEL: Record<Lane, string> = {
   core: "Core topic",
   focus: "Topics to revisit",
+  tutor: "From your tutor",
   yours: "Added by you",
 };
 
 /**
  * Which lane a plan point belongs to. `ai` predates lanes and has always read as
  * core — presenting unlabelled work as revision tells the student they flagged
- * something they never flagged. `carried_over` is the legacy carry origin, kept
- * here for rows written before `carried_from` existed.
+ * something they never flagged. A tutor's pin is the tutor's, not the student's —
+ * filing it under "added by you" told the student they chose it. `carried_over`
+ * is the legacy carry origin, kept here for rows written before `carried_from`
+ * existed.
  */
 export function laneOf(origin: string): Lane {
   if (origin === "core" || origin === "ai") return "core";
   if (origin === "focus") return "focus";
+  if (origin === "tutor") return "tutor";
   return "yours";
 }
 

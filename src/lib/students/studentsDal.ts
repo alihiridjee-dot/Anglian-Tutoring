@@ -83,6 +83,8 @@ export interface AccountDeletion {
   requested_at: string;
   purge_after: string;
   last_error: string | null;
+  /** Purge runs that have tried this deletion and failed. */
+  attempts: number;
 }
 
 /**
@@ -304,7 +306,7 @@ export class StudentsDAL {
   static async getOpenDeletion(studentId: string): Promise<AccountDeletion | null> {
     const { data, error } = await supabase
       .from("account_deletions")
-      .select("id, requested_at, purge_after, last_error")
+      .select("id, requested_at, purge_after, last_error, attempts")
       .eq("student_id", studentId)
       .eq("status", "scheduled")
       .maybeSingle();
