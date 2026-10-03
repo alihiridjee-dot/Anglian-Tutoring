@@ -48,7 +48,7 @@ const dashboardSteps: GuideStep[] = [
   {
     target: "guide",
     title: "You’re ready to explore",
-    body: "Start with your weekly plan. Whenever you need a reminder, select Show me around in the top ribbon to take this tour again.",
+    body: "Start with your weekly plan. Whenever you need a reminder, press the 🧭 at the top to take this tour again.",
   },
 ];
 type Box = { x: number; y: number; width: number; height: number };
@@ -68,7 +68,7 @@ function findVisible(selector: string) {
 const selectorOf = (step: GuideStep) => step.selector ?? `[data-guide="${step.target}"]`;
 
 /**
- * The "Show me around" button, and a tour of the page it sits on.
+ * The 🧭 "Show me around" button, and a tour of the page it sits on.
  *
  * On a home page (`welcome`) the button replays the welcome tour instead, which
  * walks through the whole platform rather than one page. The showcase never
@@ -104,7 +104,7 @@ export function StudentGuide({
           {
             target: "guide",
             title: "Off you go!",
-            body: "You can take this page’s tour again any time. Look for 🧭 Show me around in the top ribbon.",
+            body: "You can take this page’s tour again any time. Just press the 🧭 at the top.",
           },
         ];
   const [index, setIndex] = useState<number | null>(null);
@@ -132,9 +132,11 @@ export function StudentGuide({
         ref={trigger}
         data-guide="guide"
         onClick={start}
-        className="btn-premium inline-flex min-h-11 items-center gap-2 rounded-xl px-3 py-2 text-sm tint-primary sm:min-h-0"
+        title="Show me around"
+        aria-label="Show me around"
+        className="btn-soft tint-amber flex size-11 cursor-pointer items-center justify-center rounded-xl text-lg sm:size-9"
       >
-        <span aria-hidden="true">🧭</span> Show me around
+        <span aria-hidden="true">🧭</span>
       </button>
       {step && index !== null && (
         <GuideOverlay
