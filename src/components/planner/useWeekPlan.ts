@@ -16,6 +16,7 @@ import { ensureHomeworkForPoints } from "@/lib/homework/homeworkQuestions.functi
 import { ensureMcqForPoints } from "@/lib/mcq/mcq.functions";
 import { courseKey, invalidatePlanner, roadmapQuery } from "@/lib/planner/queries";
 import { weekIsForAnotherCourse } from "@/lib/planner/weekCut";
+import { subjectPauseQuery, type SubjectPause } from "@/lib/planner/subjectPauses";
 
 export type Activity = Map<string, PointActivity & PointWork>;
 
@@ -33,6 +34,8 @@ export interface WeekPlanState {
   activity: Activity;
   coverage: Map<string, PointCoverage>;
   roadmap: RoadmapResult | null;
+  /** The subject is stopped (plan paused, lapsed, ended or removed): nothing is planned. */
+  pause: SubjectPause | null;
   loading: boolean;
   error: Error | null;
   reload: () => Promise<void>;
@@ -60,6 +63,10 @@ export function useWeekPlan(params: {
     enabled: !!studentId && params.enabled !== false,
     queryFn: async ({ signal }) => {
       let saved = await WeeklyPlanDAL.getPlan(studentId, subject, weekStart);
+      // A paused subject is read, never planned: no week is built and nothing
+      // is added to one until the student can use it again. The database
+      // refuses those writes too; this is so the planner doesn't try.
+      if (await client.fetchQuery(subjectPauseQuery(studentId, subject))) return saved;
       /**
        * A saved review with nothing behind it is repaired before the week is
        * read, not left sitting there.
@@ -84,6 +91,10 @@ export function useWeekPlan(params: {
       }
       if (!saved && isCurrent && (await getSessionUserId()) === studentId) {
         const roadmap = await client.fetchQuery(roadmapQuery(client, params, true));
+        // No curriculum came back (hidden from this student, or the read
+        // failed), so there is nothing to plan from. An empty week saved now
+        // would never be rebuilt: on the test account one sat there all week.
+        if (!roadmap) return null;
         const selection = await ProgramDAL.planForWeek({ ...params, roadmap });
         signal.throwIfAborted();
         await WeeklyPlanDAL.savePlan({
@@ -166,6 +177,11 @@ export function useWeekPlan(params: {
     queryFn: () => WeeklyActivityDAL.getCoverage(studentId, ids, weekStart),
     enabled: !!week.data && withCoverage,
   });
+  const pause = useQuery({
+    ...subjectPauseQuery(studentId, subject),
+    enabled: !!studentId && params.enabled !== false,
+  });
+  const paused = !!pause.data;
   const road = useQuery({
     ...roadmapQuery(client, params),
     // `enabled` binds the roadmap too: without it, a panel with no course to
@@ -208,7 +224,8 @@ export function useWeekPlan(params: {
       .join(",");
   }, [activity.data, points]);
   useEffect(() => {
-    if (!missingHomework || !isCurrent) return;
+    // Nothing is written for a paused subject, and that includes its work.
+    if (!missingHomework || !isCurrent || paused) return;
     const key = `${studentId}|homework:${missingHomework}`;
     if (generationAsked.has(key)) return;
     generationAsked.add(key);
@@ -227,9 +244,9 @@ export function useWeekPlan(params: {
         // Soft by design — see above.
       }
     })();
-  }, [missingHomework, isCurrent, studentId, subject, board, level, client, params]);
+  }, [missingHomework, isCurrent, paused, studentId, subject, board, level, client, params]);
   useEffect(() => {
-    if (!missingQuiz || !isCurrent) return;
+    if (!missingQuiz || !isCurrent || paused) return;
     const key = `${studentId}|quiz:${missingQuiz}`;
     if (generationAsked.has(key)) return;
     generationAsked.add(key);
@@ -246,7 +263,7 @@ export function useWeekPlan(params: {
         // Soft by design — see above.
       }
     })();
-  }, [missingQuiz, isCurrent, studentId, client, params]);
+  }, [missingQuiz, isCurrent, paused, studentId, client, params]);
 
   const reload = useCallback(async () => {
     await invalidatePlanner(client, studentId);
@@ -271,7 +288,13 @@ export function useWeekPlan(params: {
     activity: activity.data ?? new Map(),
     coverage: withCoverage ? (coverage.data ?? new Map()) : new Map(),
     roadmap: params.roadmap !== undefined ? params.roadmap : (road.data ?? null),
-    loading: week.isLoading || activity.isLoading || coverage.isLoading || road.isLoading,
+    pause: pause.data ?? null,
+    loading:
+      week.isLoading ||
+      activity.isLoading ||
+      coverage.isLoading ||
+      road.isLoading ||
+      pause.isLoading,
     error: week.error ?? activity.error ?? coverage.error ?? road.error,
     reload,
     setPointDone: async (id, value) => {
