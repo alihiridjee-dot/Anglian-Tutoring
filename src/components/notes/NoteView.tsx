@@ -26,6 +26,17 @@ import {
   type PredictorDiagram,
   type SliderDiagram,
 } from "@/lib/notes/noteFormat";
+import {
+  fitSize,
+  labelBox,
+  monotonePath,
+  placeLabels,
+  sampleCurve,
+  textWidth,
+  wrapLabel,
+  type Box,
+  type Pt,
+} from "@/lib/notes/graphLayout";
 
 const BOARD_LABEL: Record<NoteBoard, string> = { aqa: "AQA", edexcel: "Edexcel", ocr: "OCR" };
 
@@ -73,56 +84,45 @@ const SERIES_TINTS = ["tint-primary", "tint-rose", "tint-amber", "tint-chem", "t
 
 function LineGraph({ d }: { d: LineGraphDiagram }) {
   const [active, setActive] = useState<string | null>(null);
-  const X0 = 44,
+  const W = 640,
+    X0 = 44,
     X1 = 600,
     TOP = 30,
     Y0 = 200,
     H = Y0 - TOP;
   const sx = (x: number) => X0 + ((x - d.x.min) / (d.x.max - d.x.min)) * (X1 - X0);
   const sy = (y: number) => Y0 - y * H;
-  // A monotone curve (Steffen): it never overshoots its points, so a flat run
-  // stays flat (a heating curve's plateau) and a peak stays where it was put.
-  const curve = (pts: [number, number][]) => {
-    const p = pts.map(([x, y]) => [sx(x), sy(y)]);
-    const n = p.length;
-    const secant = (i: number) => {
-      const h = p[i + 1][0] - p[i][0];
-      return h ? (p[i + 1][1] - p[i][1]) / h : 0;
-    };
-    const t = p.map((_, i) => {
-      if (i === 0 || i === n - 1) return 0;
-      const h0 = p[i][0] - p[i - 1][0],
-        h1 = p[i + 1][0] - p[i][0],
-        s0 = secant(i - 1),
-        s1 = secant(i),
-        mean = h0 + h1 ? (s0 * h1 + s1 * h0) / (h0 + h1) : 0;
-      return (
-        (Math.sign(s0) + Math.sign(s1)) *
-          Math.min(Math.abs(s0), Math.abs(s1), 0.5 * Math.abs(mean)) || 0
-      );
-    });
-    if (n === 2) t[0] = t[1] = secant(0);
-    else if (n > 2) {
-      t[0] = (3 * secant(0) - t[1]) / 2;
-      t[n - 1] = (3 * secant(n - 2) - t[n - 2]) / 2;
-    }
-    let s = `M ${p[0][0]} ${p[0][1]}`;
-    for (let i = 0; i < n - 1; i++) {
-      const dx = (p[i + 1][0] - p[i][0]) / 3;
-      s += ` C ${p[i][0] + dx} ${p[i][1] + dx * t[i]}, ${p[i + 1][0] - dx} ${p[i + 1][1] - dx * t[i + 1]}, ${p[i + 1][0]} ${p[i + 1][1]}`;
-    }
-    return s;
-  };
-  // Label each line at its highest point, nudged down if it would sit on another label.
-  const placed: { x: number; y: number }[] = [];
-  const labels = d.series.map((s) => {
-    const [px, py] = s.points.reduce((m, p) => (p[1] > m[1] ? p : m));
-    const x = Math.min(Math.max(sx(px), X0 + 30), X1 - 40);
-    let y = sy(py) - 8;
-    while (placed.some((q) => Math.abs(q.x - x) < 80 && Math.abs(q.y - y) < 16)) y += 16;
-    placed.push({ x, y });
-    return { x, y };
+  // When x runs through zero (an I–V graph) the axes cross at the origin, as on exam papers.
+  const quadrant = d.x.min < 0 && d.x.max > 0;
+  const axisX = quadrant ? sx(0) : X0;
+  const axisY = quadrant && d.y.zero != null ? sy(d.y.zero) : Y0;
+  const tickY = axisY + 18;
+  const ticks = d.x.ticks.filter((t) => !(quadrant && t === 0));
+  const pixels = d.series.map((s) => s.points.map(([x, y]) => [sx(x), sy(y)] as Pt));
+
+  // Marker labels stay inside the drawing.
+  const markers = (d.markers ?? []).map((m) => {
+    const half = textWidth(m.label, 12) / 2;
+    const lx = Math.min(Math.max(sx(m.x), half + 4), W - 4 - half);
+    return { ...m, lx, box: labelBox(lx, TOP - 12, m.label, 12) };
   });
+  // Each line is named where its name fits clearly; the key below names every line.
+  const avoid: Box[] = [
+    ...markers.map((m) => m.box),
+    ...ticks.map((t) => labelBox(sx(t), tickY, String(t), 12)),
+    { x0: axisX - 2, y0: TOP - 10, x1: axisX + 2, y1: Y0 },
+  ];
+  const labels =
+    d.series.length > 1
+      ? placeLabels(
+          pixels.map((p) => sampleCurve(p)),
+          d.series.map((s) => s.name),
+          { bounds: { x0: X0 + 4, y0: 4, x1: W - 4, y1: Y0 + 26 }, avoid, size: 13 },
+        )
+      : [];
+  // A long axis label takes two lines, and shrinks only if two are not enough.
+  const yLines = wrapLabel(d.y.label, 12, H + 24);
+  const ySize = fitSize(yLines, 12, H + 24);
   const bandsY = Y0 + 44;
   const height = d.bands?.length ? bandsY + 14 : Y0 + 30;
 
@@ -130,41 +130,47 @@ function LineGraph({ d }: { d: LineGraphDiagram }) {
     <figure className="space-y-3">
       <div className="-mx-1 overflow-x-auto px-1">
         <svg
-          viewBox={`0 0 640 ${height}`}
+          viewBox={`0 0 ${W} ${height}`}
           className="w-full min-w-[520px]"
           role="img"
           aria-label={d.alt}
         >
           <line
             x1={X0}
-            y1={Y0}
+            y1={axisY}
             x2={X1}
-            y2={Y0}
+            y2={axisY}
             stroke="var(--foreground)"
-            strokeOpacity=".3"
+            strokeOpacity={quadrant ? ".45" : ".3"}
             strokeWidth="1.5"
           />
           <line
-            x1={X0}
+            x1={axisX}
             y1={TOP - 10}
-            x2={X0}
+            x2={axisX}
             y2={Y0}
             stroke="var(--foreground)"
-            strokeOpacity=".3"
+            strokeOpacity={quadrant ? ".45" : ".3"}
             strokeWidth="1.5"
           />
-          <text
-            x={14}
-            y={(TOP + Y0) / 2}
-            transform={`rotate(-90 14 ${(TOP + Y0) / 2})`}
-            textAnchor="middle"
-            fontSize="12"
-            fontWeight="700"
-            fill="var(--foreground)"
-          >
-            {d.y.label}
-          </text>
-          {d.y.zero != null ? (
+          {yLines.map((line, k) => {
+            const x = yLines.length > 1 ? 12 + k * 15 : 14;
+            return (
+              <text
+                key={k}
+                x={x}
+                y={(TOP + Y0) / 2}
+                transform={`rotate(-90 ${x} ${(TOP + Y0) / 2})`}
+                textAnchor="middle"
+                fontSize={ySize}
+                fontWeight="700"
+                fill="var(--foreground)"
+              >
+                {line}
+              </text>
+            );
+          })}
+          {d.y.zero != null && !quadrant ? (
             <g>
               <line
                 x1={X0}
@@ -176,8 +182,8 @@ function LineGraph({ d }: { d: LineGraphDiagram }) {
                 strokeDasharray="6 4"
               />
               <text
-                x={X1}
-                y={sy(d.y.zero) - 6}
+                x={X0 - 6}
+                y={sy(d.y.zero) + 4}
                 textAnchor="end"
                 fontSize="12"
                 fontWeight="800"
@@ -187,7 +193,7 @@ function LineGraph({ d }: { d: LineGraphDiagram }) {
               </text>
             </g>
           ) : null}
-          {d.markers?.map((m) => (
+          {markers.map((m) => (
             <g key={m.label}>
               <line
                 x1={sx(m.x)}
@@ -199,7 +205,7 @@ function LineGraph({ d }: { d: LineGraphDiagram }) {
                 strokeDasharray="4 4"
               />
               <text
-                x={sx(m.x)}
+                x={m.lx}
                 y={TOP - 12}
                 textAnchor="middle"
                 fontSize="12"
@@ -218,13 +224,13 @@ function LineGraph({ d }: { d: LineGraphDiagram }) {
               style={{ transition: "opacity .2s" }}
             >
               <path
-                d={curve(s.points)}
+                d={monotonePath(pixels[i])}
                 fill="none"
                 stroke="var(--tint)"
                 strokeWidth={active === s.name ? 4 : 3}
                 strokeLinecap="round"
               />
-              {d.series.length > 1 ? (
+              {labels[i] ? (
                 <text
                   x={labels[i].x}
                   y={labels[i].y}
@@ -238,11 +244,11 @@ function LineGraph({ d }: { d: LineGraphDiagram }) {
               ) : null}
             </g>
           ))}
-          {d.x.ticks.map((t) => (
+          {ticks.map((t) => (
             <text
               key={t}
               x={sx(t)}
-              y={Y0 + 18}
+              y={tickY}
               textAnchor="middle"
               fontSize="12"
               fontWeight="700"
@@ -390,9 +396,7 @@ function Predictor({ d }: { d: PredictorDiagram }) {
           </button>
         ))}
       </div>
-      {/* The reaction profile drawing is withheld until it is redrawn: it put
-          activation energy on the slope instead of from reactants to the peak. */}
-      {o.scene && o.scene.kind !== "energy-profile" ? (
+      {o.scene ? (
         <div className="mt-4">
           <PredictorSceneView s={o.scene} />
         </div>
@@ -523,17 +527,31 @@ function Slider({ d }: { d: SliderDiagram }) {
   });
   const barIdx = d.outputs.map((o, n) => (o.bar ? n : -1)).filter((n) => n >= 0);
   // Scale the bar to its largest possible size, so it visibly grows and shrinks.
-  const maxVals = Object.fromEntries(
-    d.inputs.map((i) => [
-      i.id,
-      "choices" in i ? Math.max(...i.choices.map((c) => c.value)) : i.max,
-    ]),
+  // Try every corner of the inputs' ranges: an output can grow as an input
+  // shrinks (wavelength = speed / frequency).
+  const ends = d.inputs.map((i) => {
+    const v = "choices" in i ? i.choices.map((c) => c.value) : [i.min, i.max];
+    return [Math.min(...v), Math.max(...v)];
+  });
+  const corners = ends.reduce<number[][]>(
+    (acc, [lo, hi]) =>
+      acc.flatMap((c) => [
+        [...c, lo],
+        [...c, hi],
+      ]),
+    [[]],
   );
   const barTotal = (v: Record<string, number>) =>
     barIdx.reduce((s, n) => s + Math.max(0, evaluate(trees[n], v)), 0);
   let scale = 1;
   try {
-    scale = Math.max(barTotal(maxVals), barTotal(vals), 1e-9);
+    scale = Math.max(
+      barTotal(vals),
+      ...corners
+        .map((c) => barTotal(Object.fromEntries(d.inputs.map((inp, k) => [inp.id, c[k]]))))
+        .filter(Number.isFinite),
+      1e-9,
+    );
   } catch {
     /* bar hidden below */
   }
