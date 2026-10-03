@@ -96,8 +96,14 @@ export function ThreadView({ thread, viewerId, isTutor }: Props) {
     }
   };
 
+  // One send at a time. `send.isPending` alone isn't enough: a held-down
+  // Ctrl/Cmd+Enter or a quick second press arrives before the re-render that
+  // disables anything, and every extra press was another message (and another
+  // notification) that nobody can delete.
+  const sendingRef = useRef(false);
   const submit = () => {
-    if (!body.trim()) return;
+    if (!body.trim() || sendingRef.current) return;
+    sendingRef.current = true;
     send.mutate(
       { threadId: thread.id, body, aiDrafted: usedDraft },
       {
@@ -106,6 +112,9 @@ export function ThreadView({ thread, viewerId, isTutor }: Props) {
           setUsedDraft(false);
         },
         onError: (err) => toast.error(err.message),
+        onSettled: () => {
+          sendingRef.current = false;
+        },
       },
     );
   };
@@ -254,6 +263,9 @@ export function ThreadView({ thread, viewerId, isTutor }: Props) {
             onKeyDown={(e) => {
               if (e.key === "Enter" && (e.metaKey || e.ctrlKey)) {
                 e.preventDefault();
+                // A held key repeats, and an Enter that ends an IME
+                // composition is the input method's, not a send.
+                if (e.repeat || e.nativeEvent.isComposing) return;
                 submit();
               }
             }}
