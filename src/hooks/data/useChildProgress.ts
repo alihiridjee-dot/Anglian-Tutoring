@@ -4,6 +4,7 @@ import { currentWeekKey, mondayOf, toDateKey } from "@/lib/planner/week";
 import type { BoardV, LevelV, SubjectV } from "@/lib/curriculum/taxonomy";
 import { WeeklyPlanDAL, type PlanPoint } from "@/lib/planner/weeklyPlanDal";
 import { WeeklyNotesDAL } from "@/lib/planner/weeklyNotesDal";
+import { trendWeeks } from "@/lib/profile/analytics";
 
 /**
  * Real progress data for one student, read by a linked parent (or the student
@@ -111,23 +112,14 @@ export function useChildTrends(studentId: string | null, weeks = 6) {
 
       // Emit a continuous run of weeks ending this week, so the x-axis is
       // stable even when some weeks are quiet.
-      const points: WeeklyTrendPoint[] = [];
-      const thisWeek = mondayOf(new Date());
-      for (let i = weeks - 1; i >= 0; i--) {
-        const d = new Date(thisWeek);
-        d.setDate(d.getDate() - i * 7);
-        const key = toDateKey(d);
+      // Stepped and labelled in UK time, like the buckets above (S-25).
+      return trendWeeks(weeks).map(({ weekStart, label }) => {
         const averages: Record<string, number> = {};
-        for (const [subj, { sum, n }] of Object.entries(buckets[key] ?? {})) {
+        for (const [subj, { sum, n }] of Object.entries(buckets[weekStart] ?? {})) {
           averages[subj] = Math.round(sum / n);
         }
-        points.push({
-          weekStart: key,
-          label: d.toLocaleDateString("en-GB", { day: "numeric", month: "short" }),
-          averages,
-        });
-      }
-      return points;
+        return { weekStart, label, averages };
+      });
     },
     enabled: !!studentId,
   });
