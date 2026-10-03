@@ -144,7 +144,7 @@ describe("laneOf", () => {
     expect(laneOf("ai")).toBe("core"); // pre-lanes rows read as core
     expect(laneOf("focus")).toBe("focus");
     expect(laneOf("student")).toBe("yours");
-    expect(laneOf("tutor")).toBe("yours");
+    expect(laneOf("tutor")).toBe("tutor"); // a tutor pin is not the student's own
     expect(laneOf("carried_over")).toBe("yours"); // legacy carry origin
   });
 });

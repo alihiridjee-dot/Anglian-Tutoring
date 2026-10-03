@@ -6,6 +6,11 @@ import * as session from "../auth/session";
 import { ProgramDAL } from "./programDal";
 import type { PacingBand } from "./pacing";
 
+// The real client is built and `fetch` is stubbed below, so these only have to
+// exist: without them the client throws on a machine with no local `.env`.
+process.env.SUPABASE_URL ??= "https://database.example";
+process.env.SUPABASE_PUBLISHABLE_KEY ??= "sb_publishable_test";
+
 const course = { subject: "biology", board: "aqa", level: "gcse" } as const;
 const plan = {
   id: "plan",

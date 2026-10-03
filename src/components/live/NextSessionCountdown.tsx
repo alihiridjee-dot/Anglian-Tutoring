@@ -1,16 +1,15 @@
 import { useMemo } from "react";
-import { useQuery } from "@tanstack/react-query";
 import { Video, CalendarClock, Radio } from "lucide-react";
 import { useNow } from "@/hooks/useNow";
 import {
   DAY_MS,
   MINUTE_MS as MINUTE,
-  fetchLiveSessions,
   nextSession,
   sessionStartMs,
   sessionTiming,
 } from "@/lib/live/liveSessions";
 import { SessionIdentity, WhatsCovered } from "@/components/live/SessionMeta";
+import { useMyLiveSessions } from "@/components/live/useMyLiveSessions";
 
 function pad(n: number) {
   return String(n).padStart(2, "0");
@@ -37,10 +36,7 @@ function Segment({ value, label }: { value: string; label: string }) {
  * unconditionally.
  */
 export function NextSessionCountdown({ className = "" }: { className?: string }) {
-  const { data } = useQuery({
-    queryKey: ["live", "countdown"],
-    queryFn: () => fetchLiveSessions(),
-  });
+  const { data } = useMyLiveSessions();
   // Seconds are on screen here, so this one does tick every second.
   const now = useNow();
 

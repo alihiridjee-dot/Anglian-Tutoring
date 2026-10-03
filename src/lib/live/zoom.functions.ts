@@ -76,17 +76,23 @@ export async function getZoomMeeting(meetingIdOrUrl: string): Promise<ZoomMeetin
 export interface DeleteZoomMeetingResult {
   deleted: boolean;
   id?: string;
-  reason?: "no_zoom_meeting" | "not_found";
+  /**
+   * Why nothing was cancelled: the app didn't create this session's meeting (a
+   * pasted link), another session still uses it, or Zoom no longer has it.
+   */
+  reason?: "not_created_here" | "shared" | "not_found";
 }
 
 /**
- * Cancel a Zoom meeting by numeric id or join URL. Idempotent server-side: a
- * meeting Zoom no longer knows about resolves as `{ deleted: false }` rather
- * than throwing, so callers can still remove the local session row.
+ * Cancel the Zoom meeting behind a live session, before its row is deleted.
+ * The server cancels only a meeting the app created for that session, and only
+ * while no other session uses it. Idempotent: a meeting Zoom no longer knows
+ * about resolves as `{ deleted: false }` rather than throwing, so callers can
+ * still remove the session row.
  */
-export async function deleteZoomMeeting(meetingIdOrUrl: string): Promise<DeleteZoomMeetingResult> {
+export async function deleteZoomMeeting(sessionId: string): Promise<DeleteZoomMeetingResult> {
   const { data, error } = await supabase.functions.invoke<DeleteZoomMeetingResult>(FUNCTION, {
-    body: { action: "delete", meeting_id: meetingIdOrUrl },
+    body: { action: "delete", resource_id: sessionId },
   });
   if (error) throw new Error(await readInvokeError(error));
   return data ?? { deleted: false };
