@@ -12,6 +12,7 @@ import { VideoModal, VideoThumbnail } from "@/components/VideoPlayer";
 import { isDemoStudent } from "@/lib/demo/studentDemo";
 import { parseVideoUrl, type VideoEmbed } from "@/lib/curriculum/videoEmbed";
 import { SpecPointVideoEditor, type EditableVideo } from "@/components/tutor/SpecPointVideoEditor";
+import { useSpecPointNotes } from "@/hooks/data/useNotes";
 import {
   Plus,
   Pencil,
@@ -21,6 +22,7 @@ import {
   ClipboardList,
   CalendarClock,
   ListChecks,
+  BookOpen,
 } from "lucide-react";
 import {
   CollapsibleSection,
@@ -51,6 +53,8 @@ export function SpecPointDetail({
     description?: string | null;
   } | null>(null);
   const genFn = useServerFn(generateMcqSet);
+  const { data: notesByPoint } = useSpecPointNotes([point.id]);
+  const notes = notesByPoint?.get(point.id) ?? [];
 
   const reload = async () => {
     try {
@@ -238,6 +242,25 @@ export function SpecPointDetail({
               </div>
             );
           }}
+        />
+
+        {/* Revision Notes Section */}
+        <CollapsibleResourceGroup
+          label="Revision Notes"
+          icon={BookOpen}
+          items={notes}
+          render={(n) => (
+            <div className="flex items-start justify-between gap-2 w-full text-sm font-semibold text-foreground leading-snug">
+              <span>{n.title}</span>
+              <Link
+                to="/notes/$conceptId"
+                params={{ conceptId: n.id }}
+                className="tap-target inline-flex items-center shrink-0 text-[10px] px-2 py-0.5 rounded btn-solid font-bold"
+              >
+                Read
+              </Link>
+            </div>
+          )}
         />
 
         {/* Live Sessions Section */}
