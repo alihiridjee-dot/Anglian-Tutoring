@@ -1,8 +1,7 @@
 import { createServerFn } from "@tanstack/react-start";
 import { getRequest } from "@tanstack/react-start/server";
-import { createClient } from "@supabase/supabase-js";
-import type { Database } from "@/integrations/supabase/types";
 import { takeToken } from "@/lib/platform/rateLimit";
+import { saveLead } from "./saveLead.server";
 
 /**
  * The landing page's contact form: a visitor's enquiry, written to the CRM.
@@ -18,14 +17,14 @@ import { takeToken } from "@/lib/platform/rateLimit";
  *   • A per-IP rate limit, because an anonymous caller could otherwise repeat
  *     the insert forever and the `leads` table has already collected SEO spam.
  *
- * The insert goes through the anon key so the `leads public insert` RLS policy
- * still validates every field — the server is not a reason to skip RLS. The
- * validation below mirrors that policy's CHECK bounds exactly, so a value the
- * policy would reject is caught here with a message a human wrote rather than a
- * raw Postgres constraint error.
+ * This function is the only way in: the lead is written with the service role
+ * (saveLead.server.ts), and the public INSERT grant that let callers skip both
+ * guards is revoked. The table's CHECK constraints still bound every field, and
+ * the validation below mirrors them exactly, so a value they would reject is
+ * caught here with a message a human wrote rather than a raw Postgres error.
  */
 
-// Bounds mirror the CHECK in the `leads public insert` policy exactly.
+// Bounds mirror the CHECK constraints on `leads` exactly.
 const MAX = { name: 200, email: 320, phone: 40, message: 4000 } as const;
 const EMAIL_RE = /^[^@\s]+@[^@\s]+\.[^@\s]+$/;
 
@@ -78,16 +77,6 @@ function clientKey(): string {
   return forwarded || headers?.get("x-real-ip")?.trim() || "unknown";
 }
 
-/** Anon client, built per request so nothing can carry a session between callers. */
-function anonClient() {
-  const url = process.env.SUPABASE_URL;
-  const key = process.env.SUPABASE_PUBLISHABLE_KEY;
-  if (!url || !key) throw new Error("Supabase is not configured");
-  return createClient<Database>(url, key, {
-    auth: { persistSession: false, autoRefreshToken: false, storage: undefined },
-  });
-}
-
 export const submitContactLead = createServerFn({ method: "POST" })
   .inputValidator(validate)
   .handler(async ({ data }) => {
@@ -101,9 +90,9 @@ export const submitContactLead = createServerFn({ method: "POST" })
 
     const lead = { name: data.name, email: data.email, phone: data.phone, message: data.message };
 
-    const { error } = await anonClient().from("leads").insert(lead);
+    const { error } = await saveLead(lead);
     if (error) {
-      console.error("[contact] lead insert failed:", error.message);
+      console.error("[contact] lead insert failed:", error);
       throw new Error("We couldn't send that just now. Please try again, or email us directly.");
     }
 

@@ -19,7 +19,7 @@ interface VideoFormProps {
   };
 }
 
-export function VideoForm({ userId, taxonomy }: VideoFormProps) {
+export function VideoForm({ taxonomy }: VideoFormProps) {
   const qc = useQueryClient();
   const [title, setTitle] = useState("");
   const [description, setDescription] = useState("");
@@ -30,40 +30,23 @@ export function VideoForm({ userId, taxonomy }: VideoFormProps) {
   const submit = async (e: React.FormEvent) => {
     e.preventDefault();
     setLoading(true);
-    const { data: created, error } = await supabase
-      .from("resources")
-      .insert({
-        kind: "video",
-        title,
-        description,
-        video_url: videoUrl,
-        subject: taxonomy.subject,
-        board: taxonomy.board,
-        level: taxonomy.level,
-        created_by: userId,
-      })
-      .select("id")
-      .single();
-
-    if (error) {
-      setLoading(false);
-      return toast.error(error.message);
-    }
-
-    // Link the video to the chosen curriculum points (same M2M as live sessions
-    // and homework) so it surfaces on each spec point's page and in the student
-    // "From your tutor" card when the tutor pins one of its points.
-    if (specPointIds.length > 0) {
-      const { error: linkError } = await supabase
-        .from("resource_spec_points")
-        .insert(specPointIds.map((spec_point_id) => ({ resource_id: created.id, spec_point_id })));
-      if (linkError) {
-        setLoading(false);
-        return toast.error(linkError.message);
-      }
-    }
+    // The video and its links to the chosen curriculum points (same M2M as live
+    // sessions and homework, so it surfaces on each spec point's page and in the
+    // student "From your tutor" card when the tutor pins one of its points) are
+    // written in one transaction.
+    const { error } = await supabase.rpc("create_linked_resource", {
+      _kind: "video",
+      _title: title,
+      _description: description,
+      _subject: taxonomy.subject,
+      _level: taxonomy.level,
+      _board: taxonomy.board,
+      _spec_point_ids: specPointIds,
+      _video_url: videoUrl,
+    });
 
     setLoading(false);
+    if (error) return toast.error(error.message);
     toast.success("Video added");
     qc.invalidateQueries({ queryKey: ["videos"] });
     qc.invalidateQueries({ queryKey: ["weekly-focus-videos"] });
