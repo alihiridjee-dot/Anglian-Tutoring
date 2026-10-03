@@ -355,9 +355,8 @@ export function PredictorMock() {
       </div>
 
       <p className="mt-2.5 rounded-lg bg-secondary/70 px-2.5 py-2 text-[10px] leading-relaxed text-muted-foreground">
-        Worked out from{" "}
-        <strong className="font-semibold text-foreground">6 marked homeworks</strong> and{" "}
-        <strong className="font-semibold text-foreground">9 quizzes</strong>.
+        Worked out from <strong className="font-semibold text-foreground">6 marked tasks</strong>{" "}
+        and <strong className="font-semibold text-foreground">9 quizzes</strong>.
       </p>
     </div>
   );
@@ -376,7 +375,7 @@ export function ParentMock() {
       <ul className="mt-1 divide-y divide-border">
         {[
           { l: "Lessons attended", v: "2 of 2" },
-          { l: "Homework", v: "Marked · grade 8" },
+          { l: "Tasks", v: "Marked · grade 8" },
           { l: "Weekly quiz", v: "4 / 5" },
           { l: "Predicted grade", v: "7" },
         ].map((r) => (

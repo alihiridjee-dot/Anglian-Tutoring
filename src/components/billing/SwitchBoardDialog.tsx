@@ -93,7 +93,7 @@ export function SwitchBoardDialog({
             <li className="flex gap-2.5">
               <Info className="w-4 h-4 text-primary shrink-0 mt-0.5" />
               <span>
-                {subjectLabel} lessons, videos, quizzes and homework switch to the{" "}
+                {subjectLabel} lessons, videos, quizzes and tasks switch to the{" "}
                 <strong>{spec}</strong> specification straight away.
               </span>
             </li>

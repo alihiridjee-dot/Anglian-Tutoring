@@ -1,5 +1,5 @@
 import type { ReactNode } from "react";
-import { Lock, Target, TrendingUp } from "lucide-react";
+import { Target, TrendingUp } from "lucide-react";
 import { toast } from "sonner";
 import { Ring } from "@/components/Shared";
 import { useSetTargetGrade } from "@/hooks/data/useEnrolments";
@@ -7,7 +7,6 @@ import { gradeOptions } from "@/lib/auth/onboarding";
 import { subjectLabel, subjectTint } from "@/lib/curriculum/subjectTheme";
 import type { LevelV, SubjectV } from "@/lib/curriculum/taxonomy";
 import {
-  MIN_WORK_FOR_PREDICTION,
   gradeFill,
   gradesToGo,
   hasPrediction,
@@ -24,9 +23,12 @@ import {
  * the live prediction (solid: the progress), each filled by how far up the
  * scale its grade sits, so the gap between them is visible before it is read.
  *
- * The prediction waits for `MIN_WORK_FOR_PREDICTION` pieces of scored work and
- * says how many are left. A-Level has no calibrated letter yet (see
- * `GradePredictorCard`), so its ring stays a dash and only the averages show.
+ * Nothing else is on the card: no heading (the header slider names the
+ * subject) and no averages. Once both grades exist, one chip under the rings
+ * says whether the student is on target or how many grades are left. The
+ * prediction waits for `MIN_WORK_FOR_PREDICTION` pieces of scored work; until
+ * then its ring is a dash. A-Level has no calibrated letter yet (see
+ * `GradePredictorCard`), so its ring stays a dash.
  *
  * Keyed by subject where it is used, so the rings draw in afresh on a switch.
  */
@@ -49,50 +51,30 @@ export function PredictedGradeCard({
   const predicts = level !== "alevel";
   const working = predicts && row && hasPrediction(row) ? String(row.predictedGrade) : null;
   const toGo = gradesToGo(working, targetGrade, scale);
-  const remaining = row ? Math.max(0, MIN_WORK_FOR_PREDICTION - row.mcqAttempts - row.hwGraded) : 0;
 
   return (
-    <div className={`premium-card p-5 sm:p-6 ${subjectTint(subject)}`}>
-      <div className="flex flex-wrap items-center gap-x-10 gap-y-6">
-        <div className="flex flex-wrap items-start justify-center gap-8 sm:gap-10">
-          <GradeRing label="Target" grade={targetGrade} fill={gradeFill(targetGrade, scale)} soft>
-            {!targetGrade && studentId && (
-              <TargetPicker subject={subject} scale={scale} studentId={studentId} />
-            )}
-          </GradeRing>
-          <GradeRing label="Working towards" grade={working} fill={gradeFill(working, scale)} />
-        </div>
-
-        {row && (
-          <div className="flex min-w-0 flex-1 flex-wrap items-center gap-2">
-            {toGo !== null &&
-              (toGo <= 0 ? (
-                <span className="chip chip-solid">
-                  <Target className="size-3.5" aria-hidden /> On target
-                </span>
-              ) : (
-                <span className="chip">
-                  <TrendingUp className="size-3.5" aria-hidden /> {toGo} grade
-                  {toGo === 1 ? "" : "s"} to go
-                </span>
-              ))}
-            {predicts && !working && remaining > 0 && (
-              <span className="chip">
-                <Lock className="size-3.5" aria-hidden /> Do {remaining} more{" "}
-                {remaining === 1 ? "quiz or homework" : "quizzes or homework"} to unlock
-              </span>
-            )}
-            <span className="chip">
-              MCQs{" "}
-              <span className="numeral">{row.mcqAttempts > 0 ? `${row.mcqAverage}%` : "—"}</span>
-            </span>
-            <span className="chip">
-              Homework{" "}
-              <span className="numeral">{row.hwGraded > 0 ? `${row.hwAverage}%` : "—"}</span>
-            </span>
-          </div>
-        )}
+    <div
+      className={`premium-card inline-flex max-w-full flex-col items-center gap-5 p-5 sm:p-6 ${subjectTint(subject)}`}
+    >
+      <div className="flex flex-wrap items-start justify-center gap-8 sm:gap-10">
+        <GradeRing label="Target" grade={targetGrade} fill={gradeFill(targetGrade, scale)} soft>
+          {!targetGrade && studentId && (
+            <TargetPicker subject={subject} scale={scale} studentId={studentId} />
+          )}
+        </GradeRing>
+        <GradeRing label="Working towards" grade={working} fill={gradeFill(working, scale)} />
       </div>
+      {toGo !== null &&
+        (toGo <= 0 ? (
+          <span className="chip chip-solid">
+            <Target className="size-3.5" aria-hidden /> On target
+          </span>
+        ) : (
+          <span className="chip">
+            <TrendingUp className="size-3.5" aria-hidden /> {toGo} grade
+            {toGo === 1 ? "" : "s"} to go
+          </span>
+        ))}
     </div>
   );
 }

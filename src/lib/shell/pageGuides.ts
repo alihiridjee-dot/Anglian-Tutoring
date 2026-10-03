@@ -100,11 +100,11 @@ export const pageGuides: Record<string, GuideStep[]> = {
       "Use Download to open the worksheet or paper. Check the subject, board and level beside the title before you begin.",
     ),
   ],
-  "Homework & Grades": [
+  "Tasks & Grades": [
     select(
-      '[data-guide="homework-grades"] h3',
+      '[data-guide="homework-grades"]',
       "See how you’re doing",
-      "Your target grade, next to the grade your quizzes and homework say you’re working towards, for the subject picked at the top. No target yet? Set one here.",
+      "Your target grade, next to the grade your quizzes and tasks say you’re working towards, for the subject picked at the top. No target yet? Set one here.",
     ),
     select(
       '[data-guide="homework-list"] a',
@@ -164,7 +164,7 @@ export const pageGuides: Record<string, GuideStep[]> = {
     at(
       "ask-question",
       "Ask for a hand",
-      "Choose Ask a question to start a conversation with your tutor. Attach the topic, homework or quiz you’re stuck on to give them context.",
+      "Choose Ask a question to start a conversation with your tutor. Attach the topic, task or quiz you’re stuck on to give them context.",
     ),
     at(
       "message-list",
@@ -294,8 +294,8 @@ export const pageIntroductions: Record<string, string> = {
     "Find a recorded explanation for your course. Filter the library, then select a video to watch. If no videos appear, try a wider selection.",
   Downloads:
     "Find worksheets and papers for your course, then open a file to study. If nothing is listed, try a wider filter or check back after your next lesson.",
-  "Homework & Grades":
-    "Complete your homework here and return for tutor feedback and grades. New assignments appear when your tutor sets them.",
+  "Tasks & Grades":
+    "Complete your tasks here and return for tutor feedback and grades. New assignments appear when your tutor sets them.",
   "Weekly MCQs":
     "Start with this week’s quizzes, then revisit earlier ones by topic. A quiz appears here once your plan reaches its spec point.",
   MCQ: "Choose an answer for each question, submit the set and review the explanations. Your answers stay untouched during this tour.",

@@ -21,19 +21,14 @@ import {
   type HomeworkBucket,
   type HomeworkItem,
 } from "@/lib/homework/homeworkBuckets";
-import { ChevronDown, Clock, Plus, TrendingUp } from "lucide-react";
+import { ChevronDown, Clock, Plus } from "lucide-react";
 import { useAnalytics } from "@/hooks/data/useAnalytics";
 import { MarkingQueue } from "@/components/tutor/MarkingQueue";
 import { HomeworkLibrary } from "@/components/tutor/HomeworkLibrary";
 import { HomeworkForm } from "@/components/tutor/HomeworkForm";
 import { isDemoStudent } from "@/lib/demo/studentDemo";
 import { type SubjectV, type BoardV, type LevelV } from "@/lib/curriculum/taxonomy";
-import {
-  SUBJECT_LABEL,
-  SUBJECT_TINT,
-  subjectLabel,
-  subjectTint,
-} from "@/lib/curriculum/subjectTheme";
+import { SUBJECT_LABEL, SUBJECT_TINT, subjectTint } from "@/lib/curriculum/subjectTheme";
 import { useActiveSubject } from "@/hooks/useActiveSubject";
 import { PredictedGradeCard } from "@/components/homework/PredictedGradeCard";
 
@@ -85,10 +80,10 @@ export function HomeworkPage() {
   // what exists stays available below as secondary context.
   if (isTutor) {
     return (
-      <AppLayout title="Homework & Grades">
+      <AppLayout title="Tasks & Grades">
         <p className="text-muted-foreground mb-6 max-w-2xl">
-          Set homework as questions students answer on the site — generate them from the spec with
-          AI, edit anything, then check the marks before they go out.
+          Set tasks as questions students answer on the site — generate them from the spec with AI,
+          edit anything, then check the marks before they go out.
         </p>
         {userId && <SetHomeworkPanel userId={userId} />}
         <MarkingQueue />
@@ -182,21 +177,13 @@ function StudentHomework({
   const nothingAtAll = sections.every((s) => s.items.length === 0);
 
   return (
-    <AppLayout title="Homework & Grades">
-      <p className="text-muted-foreground mb-6 max-w-2xl">
-        Answer each homework here on the page — nothing to download, nothing to hand in. Your marks
-        and feedback appear here once they&apos;ve been checked.
-      </p>
-
+    <AppLayout title="Tasks & Grades">
       {/* The predicted grade for the subject in the header, against its
-          target. Keyed by subject so the rings draw in again on a switch. */}
+          target: just the rings, with no heading or intro above them — the
+          slider already names the subject. Keyed by subject so the rings
+          draw in again on a switch. */}
       {subject && (
-        <div data-guide="homework-grades" className={`mb-8 ${subjectTint(subject)}`}>
-          <div className="mb-3 flex flex-wrap items-center gap-2">
-            <TrendingUp className="size-4 text-[color:var(--tint)]" aria-hidden />
-            <h3 className="text-base">Predicted Grade</h3>
-            <span className="chip">{subjectLabel(subject)}</span>
-          </div>
+        <div data-guide="homework-grades" className="mb-8">
           <PredictedGradeCard
             key={subject}
             subject={subject}
@@ -209,13 +196,13 @@ function StudentHomework({
       )}
 
       {loading ? (
-        <Spinner label="Fetching your homework" />
+        <Spinner label="Fetching your tasks" />
       ) : !subject ? (
         <EmptyState
           mascot="star"
           mood="happy"
           title="Nothing due right now"
-          body="No homework has been set for your subjects yet. When your tutor posts one it lands here, with the questions and your marks in the same place."
+          body="No tasks have been set for your subjects yet. When your tutor posts one it lands here, with the questions and your marks in the same place."
         />
       ) : (
         // The subject tint wraps the page, so the tabs and every card and chip
@@ -224,7 +211,7 @@ function StudentHomework({
           <div className="mb-5 overflow-x-auto">
             <SegmentedToggle
               layoutId="homework-bucket-pill"
-              label="Homework status"
+              label="Task status"
               value={active?.bucket ?? "due"}
               onChange={(v) => setBucket(v as HomeworkBucket)}
               items={sections.map((s) => ({
@@ -239,7 +226,7 @@ function StudentHomework({
             <EmptyState
               mascot="star"
               mood="happy"
-              title={`No ${SUBJECT_LABEL[subject ?? ""] ?? ""} homework yet`}
+              title={`No ${SUBJECT_LABEL[subject ?? ""] ?? ""} tasks yet`}
               body="Nothing has been set for this subject so far. It'll appear here as soon as your tutor posts one, or your plan reaches a spec point with a sheet behind it."
             />
           ) : (
@@ -329,7 +316,7 @@ function SetHomeworkPanel({ userId }: { userId: string }) {
       >
         <span className="inline-flex items-center gap-2 text-sm font-semibold">
           <Plus className="text-primary size-4" />
-          Set new homework
+          Set a new task
         </span>
         <ChevronDown
           className={`text-muted-foreground size-4 transition-transform ${open ? "rotate-180" : ""}`}

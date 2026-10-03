@@ -70,7 +70,7 @@ function DemoPage() {
             points={[
               "A weekly plan that covers the whole course before the exam",
               "Quizzes that mark themselves, with an explanation for every answer",
-              "Homework answered online, marked with written feedback",
+              "Tasks answered online, marked with written feedback",
               "Live Zoom lessons and direct messages with the tutor",
             ]}
             cta="Explore Student Platform"
@@ -86,8 +86,8 @@ function DemoPage() {
             blurb="See what a parent sees: their child's progress, attendance and the tutor's feedback, all in one place."
             points={[
               "Predicted grades on the 9–1 scale for each subject",
-              "Weekly quiz trends, lesson attendance and homework handed in",
-              "Every comment the tutor writes on marked homework",
+              "Weekly quiz trends, lesson attendance and tasks handed in",
+              "Every comment the tutor writes on marked tasks",
             ]}
             cta="Explore Parent Platform"
           />

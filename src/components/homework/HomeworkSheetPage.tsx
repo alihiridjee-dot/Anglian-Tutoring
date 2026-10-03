@@ -52,14 +52,14 @@ export function HomeworkSheetPage() {
 
   if (!demo && rolesLoading)
     return (
-      <AppLayout title="Homework">
+      <AppLayout title="Task">
         <Spinner label="Loading" />
       </AppLayout>
     );
 
   if (error) {
     return (
-      <AppLayout title="Homework">
+      <AppLayout title="Task">
         <BackLink />
         <div className="mt-6">
           <ErrorNote error={error} onRetry={() => void refetch()} />
@@ -70,9 +70,9 @@ export function HomeworkSheetPage() {
 
   if (isPending || !data) {
     return (
-      <AppLayout title="Homework">
+      <AppLayout title="Task">
         <BackLink />
-        <Spinner label="Opening this homework" />
+        <Spinner label="Opening this task" />
       </AppLayout>
     );
   }
@@ -125,7 +125,7 @@ export function HomeworkSheetPage() {
             This is the sheet as a student sees it, with the mark schemes shown. Marking happens in
             the queue on the{" "}
             <Link to="/homework" className="font-semibold underline">
-              Homework &amp; Grades
+              Tasks &amp; Grades
             </Link>{" "}
             page.
           </p>
@@ -150,7 +150,7 @@ export function HomeworkSheetPage() {
             <EmptyState
               mascot="books"
               title="Nothing to answer here"
-              body="This homework has no questions on it yet. Your tutor may still be putting it together — check back, or ask them about it."
+              body="This task has no questions on it yet. Your tutor may still be putting it together — check back, or ask them about it."
             />
           ) : (
             <BuiltInHomework
@@ -177,7 +177,7 @@ function BackLink() {
       className="text-muted-foreground hover:text-foreground inline-flex min-h-11 items-center gap-1.5 text-sm font-semibold sm:min-h-0"
     >
       <ArrowLeft className="size-4" aria-hidden />
-      All homework
+      All tasks
     </Link>
   );
 }

@@ -47,8 +47,9 @@ export function StudentDashboard({
 
   return (
     <AppLayout title="Student Dashboard">
-      {/* Slim welcome ribbon — name on the left, the student's actual level and
-          per-subject exam boards on the right. */}
+      {/* Slim welcome ribbon: the student's name. Their level and boards are in
+          the header beside the subject slider, so the ribbon no longer repeats
+          them — it only says so when there are no subjects to show at all. */}
       <div data-tour="welcome" className="relative mb-6">
         <Mascot
           name="star"
@@ -72,7 +73,7 @@ export function StudentDashboard({
                 Welcome back, {displayName}
               </h2>
             </div>
-            <EnrolmentSummary enrolments={enrolments} level={level} />
+            {enrolments.length === 0 && <EnrolmentSummary enrolments={enrolments} level={level} />}
           </div>
         </div>
       </div>

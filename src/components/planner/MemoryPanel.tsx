@@ -110,7 +110,7 @@ export function MemoryPanel({
         <p className="text-muted-foreground text-sm">No curriculum loaded for this subject yet.</p>
       ) : practised === 0 ? (
         <p className="text-sm text-muted-foreground">
-          Nothing practised yet — finish some homework or a quiz and this fills in.
+          Nothing practised yet — finish a task or a quiz and this fills in.
         </p>
       ) : (
         <div className="flex flex-col lg:flex-row gap-5">

@@ -47,7 +47,7 @@ const PILLARS = [
 const SUPPORT = [
   {
     id: "homework",
-    title: "Homework marked by their tutor",
+    title: "Tasks marked by their tutor",
     desc: "A grade and written comments within 48 hours, from the tutor who taught it.",
     preview: HomeworkMock,
     tint: "tint-bio",
@@ -76,14 +76,14 @@ const SUPPORT = [
   {
     id: "predictor",
     title: "A predicted grade",
-    desc: "Worked out from their marked homework and quizzes, so it moves as they improve.",
+    desc: "Worked out from their marked tasks and quizzes, so it moves as they improve.",
     preview: PredictorMock,
     tint: "tint-amber",
   },
   {
     id: "parent",
     title: "Your own parent login",
-    desc: "See attendance, homework, scores and their predicted grade at any time.",
+    desc: "See attendance, tasks, scores and their predicted grade at any time.",
     preview: ParentMock,
     tint: "tint-accent",
   },

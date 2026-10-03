@@ -15,14 +15,14 @@ export function StudentHomework({ studentId }: { studentId: string }) {
   const q = useStudentSubmissions(studentId);
 
   if (q.error) return <ErrorNote error={q.error} onRetry={() => void q.refetch()} />;
-  if (q.isPending) return <Spinner label="Loading homework" className="py-12" />;
+  if (q.isPending) return <Spinner label="Loading tasks" className="py-12" />;
 
   const rows = q.data;
   if (rows.length === 0) {
     return (
       <EmptyState
         title="Nothing handed in yet"
-        body="Homework the student submits appears here with its mark."
+        body="Tasks the student submits appear here with their marks."
         mascot="books"
       />
     );
@@ -68,7 +68,7 @@ export function StudentHomework({ studentId }: { studentId: string }) {
           <table className="w-full text-sm">
             <thead className="bg-muted/60 text-muted-foreground text-xs tracking-widest uppercase">
               <tr>
-                <th className="px-4 sm:px-5 py-3 text-left">Homework</th>
+                <th className="px-4 sm:px-5 py-3 text-left">Task</th>
                 <th className="hidden px-4 sm:px-5 py-3 text-left sm:table-cell">Handed in</th>
                 <th className="px-4 sm:px-5 py-3 text-left">Mark</th>
                 <th className="hidden px-4 sm:px-5 py-3 text-left md:table-cell">Status</th>
@@ -85,7 +85,7 @@ export function StudentHomework({ studentId }: { studentId: string }) {
                         params={{ homeworkId: r.resource_id }}
                         className="font-semibold hover:underline"
                       >
-                        {r.resource?.title ?? "Homework"}
+                        {r.resource?.title ?? "Task"}
                       </Link>
                       <div className="mt-1 flex flex-wrap gap-1.5">
                         {subject && (

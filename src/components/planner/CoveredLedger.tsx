@@ -286,7 +286,7 @@ export function CoveredLedger({
 /** Best marks behind a done point, shown on hover over its tick. */
 function markTitle(p: ProgressPoint) {
   const marks = [
-    p.homeworkScore != null ? `Homework best ${p.homeworkScore}%` : null,
+    p.homeworkScore != null ? `Task best ${p.homeworkScore}%` : null,
     p.quizScore != null ? `Quiz best ${p.quizScore}%` : null,
   ].filter(Boolean);
   return marks.length > 0 ? marks.join(" · ") : undefined;

@@ -49,7 +49,7 @@ async function refuseStaff(supabase: SupabaseServer, userId: string) {
   if (error) throw error;
   const roles = ((role ?? []) as Array<{ role: string }>).map((r) => r.role);
   if (roles.includes("tutor") || roles.includes("admin")) {
-    throw new Error("Only a student's week fills in its homework");
+    throw new Error("Only a student's week fills in its tasks");
   }
 }
 

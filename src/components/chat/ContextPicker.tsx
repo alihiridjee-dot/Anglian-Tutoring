@@ -31,7 +31,7 @@ import type { BoardV, LevelV, SubjectV } from "@/lib/curriculum/taxonomy";
 const TABS = [
   { key: "general", label: "General", icon: MessageSquare },
   { key: "spec_point", label: "Spec point", icon: BookMarked },
-  { key: "homework", label: "Homework", icon: ClipboardList },
+  { key: "homework", label: "Tasks", icon: ClipboardList },
   { key: "mcq_set", label: "Quiz", icon: ListChecks },
 ] as const;
 
@@ -272,7 +272,7 @@ function HomeworkList({ onPick }: { onPick: (s: ChatContextSelection) => void })
       {rows === undefined ? (
         <Spinner className="py-4" />
       ) : rows.length === 0 ? (
-        <EmptyRow>No homework set yet.</EmptyRow>
+        <EmptyRow>No tasks set yet.</EmptyRow>
       ) : (
         rows.map((r) => (
           <PickerRow
@@ -284,7 +284,7 @@ function HomeworkList({ onPick }: { onPick: (s: ChatContextSelection) => void })
                 kind: "homework",
                 resourceId: r.id,
                 subject: r.subject,
-                label: `Homework: ${r.title}`,
+                label: `Task: ${r.title}`,
               })
             }
           />

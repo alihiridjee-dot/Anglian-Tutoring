@@ -60,7 +60,7 @@ export function HomeworkLibrary({ userId, onChanged }: { userId: string; onChang
       >
         <span className="inline-flex items-center gap-2 text-sm font-semibold">
           <ClipboardList className="text-muted-foreground size-4" />
-          Homework library
+          Task library
           <span className="bg-secondary text-muted-foreground inline-flex h-5 min-w-5 items-center justify-center rounded-full px-1.5 text-[11px]">
             {counts ? counts.all : "…"}
           </span>
@@ -89,11 +89,11 @@ export function HomeworkLibrary({ userId, onChanged }: { userId: string; onChang
           {library.error ? (
             <ErrorNote error={library.error} onRetry={() => void library.refetch()} />
           ) : loading ? (
-            <Spinner label="Loading homework" className="py-8" />
+            <Spinner label="Loading tasks" className="py-8" />
           ) : shown.length === 0 ? (
             <p className="text-muted-foreground text-sm">
               {filter === "tutor"
-                ? "You haven't set any homework yet — use the form above to post the first one."
+                ? "You haven't set any tasks yet — use the form above to post the first one."
                 : "Nothing here yet."}
             </p>
           ) : (
@@ -145,10 +145,10 @@ function LibraryRow({
     setDeleting(true);
     try {
       await deleteHomework({ data: { homeworkId: hw.id } });
-      toast.success("Homework deleted for everyone");
+      toast.success("Task deleted for everyone");
       onChanged();
     } catch (err) {
-      toast.error(err instanceof Error ? err.message : "Could not delete homework");
+      toast.error(err instanceof Error ? err.message : "Could not delete task");
       setDeleting(false);
       setConfirming(false);
     }

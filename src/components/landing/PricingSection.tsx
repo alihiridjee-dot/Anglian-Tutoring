@@ -420,22 +420,20 @@ function PricingTiers({
 
             {/* Feature list — fills the middle so cards feel substantial */}
             <ul className="relative mt-4 space-y-2 text-xs">
-              {["Homework & marking", "Weekly quizzes", "Parent portal", "Cancel anytime"].map(
-                (f) => (
-                  <li key={f} className="flex items-center gap-2">
-                    <span
-                      className={`flex h-4 w-4 shrink-0 items-center justify-center rounded-full ${
-                        dark
-                          ? "bg-white/15 text-white"
-                          : "bg-[var(--accent-soft)] text-[var(--primary-deep)]"
-                      }`}
-                    >
-                      <Check className="h-2.5 w-2.5" />
-                    </span>
-                    <span className={dark ? "text-white/85" : "text-muted-foreground"}>{f}</span>
-                  </li>
-                ),
-              )}
+              {["Tasks & marking", "Weekly quizzes", "Parent portal", "Cancel anytime"].map((f) => (
+                <li key={f} className="flex items-center gap-2">
+                  <span
+                    className={`flex h-4 w-4 shrink-0 items-center justify-center rounded-full ${
+                      dark
+                        ? "bg-white/15 text-white"
+                        : "bg-[var(--accent-soft)] text-[var(--primary-deep)]"
+                    }`}
+                  >
+                    <Check className="h-2.5 w-2.5" />
+                  </span>
+                  <span className={dark ? "text-white/85" : "text-muted-foreground"}>{f}</span>
+                </li>
+              ))}
             </ul>
 
             {/* Billed price + CTA pinned to the bottom */}

@@ -116,7 +116,7 @@ export function CredentialsForm({ flow, tier }: { flow: AuthFlow; tier?: string 
       </h1>
       <p className="text-sm text-muted-foreground mb-6 leading-relaxed">
         {mode === "signin"
-          ? "Log in to see your lessons, quizzes, and homework."
+          ? "Log in to see your lessons, quizzes, and tasks."
           : tier
             ? `Great pick — you're signing up for the ${tier.replaceAll("_", " ")} plan.`
             : "Start with a student or parent account."}

@@ -50,14 +50,14 @@ export function CourseChip({
  * profile still loading) rather than a placeholder. The showcase is excluded
  * because it holds no session, so its Billing link would bounce to /auth.
  */
-export function CourseBadge() {
+export function CourseBadge({ followsSlider = false }: { followsSlider?: boolean }) {
   const { headline, levelLabel, boardLabels, perSubject, mixedBoards, loading } =
     useCourseSummary();
-  // The slider beside this chip picks the subject, so the chip names that
+  // Where the subject slider sits beside this chip, the chip names that
   // subject's board — a student sitting Biology with AQA and Physics with OCR
-  // reads the board of what's on screen, not both.
+  // reads the board of what's on screen, not both. Elsewhere it names them all.
   const { subject } = useActiveSubject();
-  const active = perSubject.find((s) => s.subject === subject);
+  const active = followsSlider ? perSubject.find((s) => s.subject === subject) : undefined;
 
   if (isDemoMode() || loading || !headline) return null;
 

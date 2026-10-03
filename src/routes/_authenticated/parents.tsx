@@ -289,7 +289,7 @@ function StudentView() {
 
       <Panel
         title="Linked parents"
-        description="They can see your grades, homework and progress."
+        description="They can see your grades, tasks and progress."
         icon={Users}
       >
         <ListState query={parents} empty="No parents are linked to your account.">

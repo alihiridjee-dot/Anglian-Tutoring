@@ -63,12 +63,12 @@ export function EngagementStats({
         )}
         {homeworkSet > 0 && (
           <Row
-            label="Homework handed in"
+            label="Tasks handed in"
             icon={CheckCircle2}
             done={homeworkSubmitted}
             total={homeworkSet}
             tint="tint-emerald"
-            caption={`${homeworkSubmitted} of ${homeworkSet} set homeworks handed in.`}
+            caption={`${homeworkSubmitted} of ${homeworkSet} set tasks handed in.`}
           />
         )}
       </div>
