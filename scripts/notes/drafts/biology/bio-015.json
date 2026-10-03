@@ -1,0 +1,418 @@
+{
+  "format": 1,
+  "concept_id": "bio-015",
+  "subject": "biology",
+  "title": "Exchange surfaces and surface area to volume ratio",
+  "key_idea": "Cells need to take in substances such as oxygen and get rid of waste. Small organisms can do this across their surface. Large organisms have a small **surface area to volume ratio**, so they need exchange surfaces with a large surface area and a transport system.",
+  "sections": [
+    {
+      "heading": "Why large organisms need exchange surfaces",
+      "blocks": [
+        { "type": "paragraph", "text": "Every cell must take in substances and remove waste. This section covers why size decides how an organism does it." },
+        {
+          "type": "definitions",
+          "items": [
+            { "term": "Diffusion", "meaning": "The net movement of particles from where they are in high concentration to where they are in low concentration." },
+            { "term": "Exchange surface", "meaning": "A part of the body where substances cross in and out, such as the lungs." },
+            { "term": "Transport system", "meaning": "A system, such as the blood, that carries substances between the exchange surface and the cells." }
+          ]
+        },
+        { "type": "subheading", "text": "Single-celled organisms" },
+        {
+          "type": "list",
+          "items": [
+            "Very small, with a **large surface area** compared with their volume.",
+            "Short distance from the surface to the middle of the cell.",
+            "Diffusion across the cell surface is enough."
+          ]
+        },
+        { "type": "subheading", "text": "Large multicellular organisms" },
+        {
+          "type": "list",
+          "items": [
+            "Volume increases faster than surface area, so the surface area to volume ratio is **smaller**.",
+            "Long distance from the surface to the cells inside.",
+            "Diffusion alone would take too long.",
+            "So they have exchange surfaces **and** a transport system."
+          ]
+        },
+        {
+          "type": "key-points",
+          "items": [
+            "Bigger organism: smaller surface area to volume ratio.",
+            "Diffusion alone is too slow over a long distance.",
+            "Large organisms need exchange surfaces and a transport system."
+          ]
+        }
+      ]
+    },
+    {
+      "heading": "Calculating surface area to volume ratio",
+      "blocks": [
+        { "type": "paragraph", "text": "The ratio compares the surface area with the volume. It is written like 6 : 1, meaning 6 units of surface area for every 1 unit of volume." },
+        {
+          "type": "equation",
+          "label": "Surface area to volume ratio",
+          "formula": "SA:V = surface area ÷ volume",
+          "where": ["surface area, in cm²", "volume, in cm³"]
+        },
+        { "type": "subheading", "text": "For a cube" },
+        {
+          "type": "equation",
+          "label": "Surface area of a cube",
+          "formula": "surface area = 6 × side × side",
+          "where": ["A cube has six square faces.", "side, in cm"]
+        },
+        {
+          "type": "equation",
+          "label": "Volume of a cube",
+          "formula": "volume = side × side × side",
+          "where": ["side, in cm"]
+        },
+        {
+          "type": "steps",
+          "items": [
+            { "lead": "Surface area.", "text": "A cube with sides of 2 cm: 6 × 2 × 2 = 24 cm²." },
+            { "lead": "Volume.", "text": "2 × 2 × 2 = 8 cm³." },
+            { "lead": "Ratio.", "text": "24 : 8 = 3 : 1." }
+          ]
+        },
+        {
+          "type": "table",
+          "columns": ["Side of cube", "Surface area", "Volume", "Surface area to volume ratio"],
+          "rows": [
+            ["1 cm", "6 cm²", "1 cm³", "6 : 1"],
+            ["2 cm", "24 cm²", "8 cm³", "3 : 1"],
+            ["3 cm", "54 cm²", "27 cm³", "2 : 1"]
+          ]
+        },
+        {
+          "type": "diagram",
+          "diagram": {
+            "kind": "practice",
+            "alt": "Practise calculating the surface area to volume ratio of a cube. The side length changes each time.",
+            "question": "A cube has sides of **{s} cm**. Calculate its surface area to volume ratio. Give your answer in the form ___ : 1.",
+            "variables": [{ "id": "s", "min": 1, "max": 6, "step": 1 }],
+            "answer": { "formula": "6 * s * s / (s * s * s)", "unit": ": 1", "decimals": 1 },
+            "working": [
+              "Surface area = 6 × {s} × {s}",
+              "Volume = {s} × {s} × {s}",
+              "Ratio = surface area ÷ volume = **{answer} : 1**"
+            ]
+          }
+        },
+        { "type": "subheading", "text": "For a block that is not a cube" },
+        {
+          "type": "equation",
+          "label": "Surface area of a block",
+          "formula": "surface area = 2XY + 2XZ + 2YZ",
+          "where": ["X, Y and Z are the three sides, in cm"]
+        },
+        { "type": "paragraph", "text": "Work out the area of each face, add them, then divide by the volume." },
+        {
+          "type": "diagram",
+          "diagram": {
+            "kind": "line-graph",
+            "alt": "A line graph showing the surface area to volume ratio of a cube falling steeply as the side of the cube increases from 1 cm to 6 cm, then falling more slowly.",
+            "x": { "label": "Side of cube", "min": 0, "max": 6, "ticks": [0, 1, 2, 3, 4, 5, 6], "unit": "cm" },
+            "y": { "label": "Surface area to volume ratio" },
+            "series": [
+              {
+                "name": "Cube",
+                "points": [[1, 1], [2, 0.5], [3, 0.33], [4, 0.25], [5, 0.2], [6, 0.17]]
+              }
+            ]
+          }
+        },
+        {
+          "type": "key-points",
+          "items": [
+            "SA:V = surface area ÷ volume.",
+            "As size increases, the ratio decreases.",
+            "Small animals have a large ratio. Large animals have a small ratio."
+          ]
+        }
+      ]
+    },
+    {
+      "heading": "What organisms exchange",
+      "blocks": [
+        { "type": "paragraph", "text": "Organisms take in some substances and get rid of others." },
+        {
+          "type": "table",
+          "columns": ["Substance", "Moves", "Why"],
+          "rows": [
+            ["Oxygen", "Into cells", "Needed for aerobic respiration"],
+            ["Carbon dioxide", "Out of cells", "A waste product of respiration"],
+            ["Water", "Into cells", "Needed by all cells. Plants take it in from the soil"],
+            ["Dissolved food molecules, such as glucose", "Into cells", "Used for respiration and growth"],
+            ["Mineral ions, such as nitrate", "Into cells", "Needed for healthy growth. Plants take them in from the soil"],
+            ["Urea", "Out of the body", "A waste product made when excess amino acids are broken down. It is carried in the blood to the kidneys and removed in urine"]
+          ]
+        },
+        {
+          "type": "key-points",
+          "items": [
+            "In: oxygen, water, food molecules, mineral ions.",
+            "Out: carbon dioxide and urea."
+          ]
+        }
+      ]
+    },
+    {
+      "heading": "How exchange surfaces are adapted",
+      "blocks": [
+        { "type": "paragraph", "text": "Exchange surfaces are adapted so that diffusion is fast. Examples are the alveoli in the lungs, the gills of a fish and the villi in the small intestine." },
+        {
+          "type": "table",
+          "columns": ["Adaptation", "Why it speeds up diffusion"],
+          "rows": [
+            ["**Large surface area**, from folds or many small projections", "More particles can cross at once"],
+            ["**Thin walls**, often one cell thick", "Short diffusion distance"],
+            ["**Good blood supply**, a network of capillaries", "Carries substances away, so the concentration gradient stays steep"],
+            ["Ventilation (lungs and gills)", "Brings fresh air or water, so the concentration gradient stays steep"]
+          ]
+        },
+        { "type": "paragraph", "text": "A steep concentration gradient is a big difference in concentration across the surface. The steeper it is, the faster the diffusion." },
+        {
+          "type": "key-points",
+          "items": [
+            "Large surface area, thin walls, good blood supply.",
+            "Always link each adaptation to its effect on diffusion."
+          ]
+        }
+      ]
+    },
+    {
+      "heading": "Investigating the effect of surface area to volume ratio",
+      "blocks": [
+        { "type": "paragraph", "text": "A common investigation uses jelly cubes of different sizes. The jelly contains an indicator that changes colour when acid reaches it." },
+        {
+          "type": "steps",
+          "items": [
+            { "lead": "Set up.", "text": "Cut cubes of different sizes and place them in acid." },
+            { "lead": "Time.", "text": "Measure the time for the colour to change throughout each cube." },
+            { "lead": "Conclude.", "text": "Small cubes change faster. They have a larger ratio, so acid diffuses to the middle more quickly." }
+          ]
+        },
+        {
+          "type": "equation",
+          "label": "Rate of colour change",
+          "formula": "rate = 1 ÷ time",
+          "where": ["time to change colour, in seconds", "rate, in per second"]
+        },
+        {
+          "type": "steps",
+          "items": [
+            { "lead": "Divide.", "text": "A cube takes 132 s. 1 ÷ 132 = 0.0076 per second." },
+            { "lead": "Standard form.", "text": "7.6 × 10⁻³ per second." }
+          ]
+        },
+        {
+          "type": "key-points",
+          "items": [
+            "Higher surface area to volume ratio gives a faster rate of diffusion.",
+            "Rate = 1 ÷ time."
+          ]
+        }
+      ]
+    }
+  ],
+  "checks": [
+    {
+      "q": "Calculate the surface area to volume ratio of a cube with sides of 3 cm.",
+      "a": "Surface area = 6 × 3 × 3 = 54 cm². Volume = 3 × 3 × 3 = 27 cm³. Ratio = 54 : 27 = 2 : 1.",
+      "marks": 2
+    },
+    {
+      "q": "Explain why a large multicellular organism needs a transport system but a single-celled organism does not.",
+      "a": "A large organism has a small surface area to volume ratio and a long diffusion distance, so diffusion alone would take too long. A single-celled organism has a large ratio and a short distance, so diffusion is enough.",
+      "marks": 2
+    },
+    {
+      "q": "Give three ways an exchange surface is adapted for fast diffusion.",
+      "a": "A large surface area, thin walls (a short diffusion distance) and a good blood supply to keep a steep concentration gradient.",
+      "marks": 3
+    }
+  ],
+  "boards": {
+    "aqa": {
+      "spec_codes": ["AQA 1.13"],
+      "exam_phrases": [
+        "provides a large surface area for diffusion",
+        "good blood supply / capillary network to maintain the concentration gradient",
+        "thin walls / walls are one cell thick for a short diffusion distance",
+        "as size increases, surface area to volume ratio decreases",
+        "diffusion distance is too large to meet the demands of the cells",
+        "diffusion takes too long",
+        "can absorb more oxygen in a given time"
+      ],
+      "mistakes": [
+        {
+          "wrong": "The walls of the capillaries are thin cell walls.",
+          "right": "\"Cell walls\" is not accepted. Write that the walls are thin, or one cell thick, for a short diffusion distance."
+        },
+        {
+          "wrong": "Arteries and veins give the gills a good blood supply.",
+          "right": "Arteries and veins are not accepted for capillaries. Write capillaries, or blood vessels."
+        },
+        {
+          "wrong": "Alveoli have a steep concentration gradient.",
+          "right": "This is ignored on its own. Say that a good blood supply, or a capillary network, maintains the concentration gradient."
+        },
+        {
+          "wrong": "A large animal needs a respiratory system because its surface area is too small.",
+          "right": "Say that it has a smaller surface area to volume ratio, so the diffusion distance is too large or diffusion takes too long."
+        }
+      ],
+      "worked_example": {
+        "exemplar_id": "b92b3d1b-4a11-4b5b-886d-1868794fad6b",
+        "source": "AQA jun 2025, Paper 1 (H), Q06.2",
+        "question": "Fish exchange gases through gills. Oxygen from the water enters the blood of a fish through the gills, which have filaments and capillaries.\n\nExplain how gills are adapted to maximise the exchange of oxygen between the water and the blood.",
+        "marks": 4,
+        "answer_points": [
+          "The gills and filaments provide a large surface area for diffusion.",
+          "A good blood supply, or a network of capillaries, maintains the concentration gradient.",
+          "The filaments and capillaries have thin walls, one cell thick, for a short diffusion distance.",
+          "The water is in close proximity to the blood supply for a short diffusion distance."
+        ],
+        "tip": "Each adaptation scores a mark only when it is linked to its effect on diffusion."
+      },
+      "extra": [
+        {
+          "heading": "Surface area to volume ratio and heat loss (Higher tier)",
+          "blocks": [
+            { "type": "paragraph", "text": "A warm-blooded animal with a large surface area to volume ratio loses heat faster per unit volume." },
+            {
+              "type": "list",
+              "items": [
+                "It needs a greater rate of respiration to release more heat and keep warm.",
+                "Respiration is a large part of metabolism, so its metabolic rate is higher.",
+                "Small warm-blooded animals therefore have a higher metabolic rate than large ones."
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    "edexcel": {
+      "spec_codes": ["EDEX 8.2", "EDEX 8.5B", "EDEX 8.1", "EDEX 8.3"],
+      "exam_phrases": [
+        "rate of diffusion is proportional to surface area and concentration difference",
+        "inversely proportional to the thickness of the membrane",
+        "as surface area increases, the rate of diffusion increases",
+        "reduces the distance over which diffusion occurs",
+        "by diffusion, down a concentration gradient, through a membrane",
+        "a larger surface area to volume ratio, so oxygen diffuses faster",
+        "walls that are thin / flattened / one cell thick",
+        "a good blood supply / many capillaries"
+      ],
+      "mistakes": [
+        {
+          "wrong": "The alveoli have thin cell walls.",
+          "right": "\"Cell walls\" is rejected. Write that the walls or membranes are thin or one cell thick."
+        },
+        {
+          "wrong": "The total surface area of a human lung is 70.",
+          "right": "A unit is needed to get the second mark: 70 m²."
+        },
+        {
+          "wrong": "Oxygen moves from the alveolus into the capillary by osmosis or active transport.",
+          "right": "Oxygen moves by diffusion. Osmosis is the movement of water, and diffusion needs no energy."
+        }
+      ],
+      "worked_example": {
+        "exemplar_id": "d86138a0-8ff7-4c18-8956-c12f8a5478e5",
+        "source": "EDEXCEL jun 2019, Paper 2 (H), Q9(c)",
+        "question": "Explain, using Fick's law, the factors that affect the diffusion rate of molecules into and out of cells.",
+        "marks": 6,
+        "answer_points": [
+          "Fick's law: the rate of diffusion is proportional to surface area and concentration difference, and inversely proportional to the thickness of the membrane.",
+          "Surface area: as surface area increases, the rate of diffusion increases, because there are more places for diffusion to happen.",
+          "Concentration difference: the larger the difference between inside and outside the cell, the faster the rate of diffusion.",
+          "Thickness of the membrane: the thicker the membrane, the slower the rate of diffusion, because the diffusion distance is greater."
+        ],
+        "tip": "Full marks need all three factors with their effects, and one reference to proportionality."
+      },
+      "extra": [
+        {
+          "heading": "Fick's law (Higher tier)",
+          "blocks": [
+            { "type": "paragraph", "text": "Fick's law links the rate of diffusion to three factors." },
+            {
+              "type": "equation",
+              "label": "Fick's law",
+              "formula": "rate of diffusion ∝ (surface area × concentration difference) ÷ thickness of membrane",
+              "where": ["∝ means is proportional to", "A bigger surface area or concentration difference speeds diffusion up.", "A thicker membrane slows it down."]
+            },
+            {
+              "type": "table",
+              "columns": ["Factor", "If it increases", "Effect on rate of diffusion"],
+              "rows": [
+                ["Surface area", "More places for particles to cross", "Rate increases"],
+                ["Concentration difference", "Steeper concentration gradient", "Rate increases"],
+                ["Thickness of the membrane", "Longer diffusion distance", "Rate decreases"]
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    "ocr": {
+      "spec_codes": ["OCR 2.2a", "OCR 2.2b"],
+      "exam_phrases": [
+        "higher surface area to volume ratio, faster rate of diffusion",
+        "as size increases the diffusion distance increases",
+        "it would take too long for substances to diffuse in and out of large organisms",
+        "diffusion alone is sufficient in smaller organisms",
+        "reduces the surface area of the alveoli, so diffusion is reduced",
+        "oxygen reaches the chick / carbon dioxide produced by the chick escapes"
+      ],
+      "mistakes": [
+        {
+          "wrong": "Surface area to volume ratio and rate of diffusion are directly proportional.",
+          "right": "\"Directly proportional\" is ignored. Write that a higher surface area to volume ratio gives a faster rate of diffusion, or that there is a positive correlation."
+        },
+        {
+          "wrong": "In emphysema, oxygen cannot diffuse into the blood.",
+          "right": "This is ignored. Write that the surface area of the alveoli is reduced, so diffusion of oxygen is reduced or harder."
+        },
+        {
+          "wrong": "The eggshell lets gases in and out so the chick can breathe.",
+          "right": "\"Gases in and out\" and \"breathing\" are ignored. Write that oxygen reaches the chick, carbon dioxide escapes, and the chick can respire."
+        }
+      ],
+      "worked_example": {
+        "exemplar_id": "d4d1b2f1-51aa-4e53-8fb1-e9afa8234707",
+        "source": "OCR nov 2020, Paper 1, Q21(a)(i)",
+        "question": "Some students investigate the effect of the surface area : volume ratio on the rate of diffusion in animal cells.\n\nThey use hydrochloric acid and gelatine cubes that have been stained blue using a pH indicator solution. The indicator will turn red in acidic conditions.\n\nThey put different sized cubes into 3 different test tubes of hydrochloric acid and time how long it takes for the cubes to completely change to red.\n\nThe table shows the students' results.\n\nLength of each side of the cube (mm) | surface area : volume ratio | Time to completely change colour (seconds)\n2 | | 32\n4 | 3 : 2 | 61\n6 | 1 : 1 | 170\n\nCalculate the surface area : volume ratio for the cube with sides of 2 mm.",
+        "marks": 2,
+        "answer_points": [
+          "Surface area = 6 × 2 × 2 = 24 mm². Volume = 2 × 2 × 2 = 8 mm³.",
+          "The ratio is 24 : 8, which is 3 : 1."
+        ],
+        "tip": "A correct answer of 3 : 1 on the answer line scores both marks. Show 24 : 8 to be safe."
+      }
+    }
+  },
+  "meta": {
+    "status": "draft",
+    "checked_by": "sonnet-science-check",
+    "checked_at": "2026-10-01",
+    "written_by": "writer-c",
+    "written_at": "2026-10-01",
+    "spec_point_ids": [
+      "979cae12-1b47-4466-a056-3f32560f414d",
+      "5b20b2fb-6b7d-4a34-80b5-c0e9d3f7d61f",
+      "dd4fa697-a501-46f9-8902-2c2949f499d8",
+      "7277d655-ac69-4187-86a3-e203de2f690c",
+      "a93cee80-af5b-46ed-b2b4-a29383473029",
+      "a2be5d4d-feee-4e41-9e53-6ceaa2dc6e36"
+    ],
+    "exemplar_ids": [
+      "b92b3d1b-4a11-4b5b-886d-1868794fad6b",
+      "d86138a0-8ff7-4c18-8956-c12f8a5478e5",
+      "d4d1b2f1-51aa-4e53-8fb1-e9afa8234707"
+    ]
+  }
+}

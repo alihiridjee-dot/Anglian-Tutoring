@@ -97,7 +97,7 @@ export function useAuthFlow(navigate: ReturnType<typeof useNavigate>, search: Se
             data: {
               display_name: name || email.split("@")[0],
               role,
-              parent_invite_code: role === "parent" ? inviteCode || null : null,
+              parent_invite_code: role === "parent" ? inviteCode.trim() || null : null,
               // The plan the student picked on the pricing page. Stashed here so
               // it survives the email-verification round-trip and can seed the
               // onboarding steps. Every one of these stays editable there.

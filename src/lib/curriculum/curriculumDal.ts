@@ -1,6 +1,7 @@
 import { supabase } from "@/integrations/supabase/client";
 import { type LevelV, type BoardV, type SubjectV } from "./taxonomy";
 import type { Topic, SpecPoint, Resource, McqSet, SpecPointMatch } from "./types";
+import { joinUrlsFor } from "@/lib/live/liveSessions";
 import {
   isDemoStudent,
   DEMO_CURRICULUM_TOPICS,
@@ -228,7 +229,7 @@ export class CurriculumDAL {
       supabase
         .from("resource_spec_points")
         .select(
-          "resources!inner(id, kind, title, description, video_url, file_path, file_name, starts_at, join_url, due_at, created_at)",
+          "resources!inner(id, kind, title, description, video_url, file_path, file_name, starts_at, due_at, created_at)",
         )
         .eq("spec_point_id", point.id),
       // Sets whose whole set is this spec point (manual per-point generation).
@@ -246,14 +247,26 @@ export class CurriculumDAL {
         .eq("spec_point_id", point.id),
     ]);
 
-    const resources = ((r.data ?? []) as unknown as Array<{ resources: Resource | null }>)
+    const rows = (
+      (r.data ?? []) as unknown as Array<{ resources: Omit<Resource, "join_url"> | null }>
+    )
       .map((row) => row.resources)
-      .filter((x): x is Resource => !!x)
+      .filter((x): x is Omit<Resource, "join_url"> => !!x)
       .sort((a, b) =>
         String((b as { created_at?: string }).created_at ?? "").localeCompare(
           String((a as { created_at?: string }).created_at ?? ""),
         ),
       );
+    // A browser can't select join_url; the server releases it only to a tutor
+    // or a student on the session's course. A failed read leaves a session
+    // without its Join button rather than hiding the point's videos and quizzes.
+    const links = await joinUrlsFor(
+      rows.filter((x) => x.kind === "live_session").map((x) => x.id),
+    ).catch((e) => {
+      console.error("Error loading join links:", e);
+      return new Map<string, string>();
+    });
+    const resources: Resource[] = rows.map((x) => ({ ...x, join_url: links.get(x.id) ?? null }));
 
     // Merge direct and question-tagged sets, de-duplicating by set id.
     const byId = new Map<string, McqSet>();

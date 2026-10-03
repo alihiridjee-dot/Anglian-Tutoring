@@ -1,0 +1,254 @@
+{
+  "format": 1,
+  "concept_id": "chem-008",
+  "subject": "chemistry",
+  "title": "Development of the periodic table",
+  "key_idea": "Early scientists arranged the elements by atomic weight. Mendeleev left gaps, swapped some elements and predicted the properties of undiscovered ones. When his predictions came true, his table was accepted. Atomic number later explained the order.",
+  "sections": [
+    {
+      "heading": "Early periodic tables",
+      "blocks": [
+        { "type": "paragraph", "text": "Before protons, neutrons and electrons were discovered, scientists tried to classify the elements by their atomic weights." },
+        {
+          "type": "definitions",
+          "items": [
+            { "term": "Atomic weight", "meaning": "The old name for relative atomic mass." },
+            { "term": "Prediction", "meaning": "A statement of what should be found if an idea is correct. Testing it can support or refute the idea." }
+          ]
+        },
+        {
+          "type": "list",
+          "items": [
+            "Elements were arranged in order of atomic weight.",
+            "The early tables were incomplete.",
+            "If the order of atomic weights was followed strictly, some elements ended up in the wrong groups, with elements that were not like them."
+          ]
+        },
+        {
+          "type": "key-points",
+          "items": [
+            "Early tables arranged the elements in order of atomic weight.",
+            "They were incomplete, and some elements were in inappropriate groups."
+          ]
+        }
+      ]
+    },
+    {
+      "heading": "Mendeleev's periodic table",
+      "blocks": [
+        { "type": "paragraph", "text": "Mendeleev overcame some of the problems with the early tables in three ways." },
+        {
+          "type": "steps",
+          "items": [
+            { "lead": "Groups by properties.", "text": "He put elements with similar properties, and similar compounds, in the same column." },
+            { "lead": "Changed the order.", "text": "In some places he swapped elements so they fitted their group. Iodine was placed after tellurium, with Group 7 elements that it resembles." },
+            { "lead": "Left gaps.", "text": "He left gaps for elements that he thought had not yet been discovered." }
+          ]
+        },
+        { "type": "subheading", "text": "Predictions" },
+        {
+          "type": "list",
+          "items": [
+            "Mendeleev predicted the properties of the missing elements, using the elements around the gaps in the same group and period.",
+            "Elements with the predicted properties were later discovered and filled the gaps. Gallium was found six years after his table was published.",
+            "One missing element, which he called eka-silicon, turned out to be germanium.",
+            "The properties matched his predictions, so his table became more widely accepted than earlier ones.",
+            "Testing a prediction supports an idea if the prediction is correct. It refutes the idea if it is wrong."
+          ]
+        },
+        {
+          "type": "key-points",
+          "items": [
+            "Mendeleev left gaps and swapped some elements so that similar elements were in the same group.",
+            "He predicted properties of undiscovered elements, and they were found.",
+            "Correct predictions made his table more widely accepted."
+          ]
+        }
+      ]
+    },
+    {
+      "heading": "From atomic weight to atomic number",
+      "blocks": [
+        { "type": "paragraph", "text": "Knowledge of atomic structure and isotopes explained why Mendeleev's changes to the order were needed." },
+        {
+          "type": "list",
+          "items": [
+            "The modern periodic table is arranged in order of increasing **atomic number**.",
+            "Relative atomic mass depends on the abundance of isotopes, so the order by atomic weight is not always the same as the order by atomic number.",
+            "Tellurium has atomic number 52 and iodine has 53. Tellurium has the larger relative atomic mass because of the abundance of its isotopes.",
+            "The noble gases (Group 0) had not been discovered. They were added to the table later."
+          ]
+        },
+        {
+          "type": "diagram",
+          "diagram": {
+            "kind": "sort",
+            "alt": "Sort each statement into Mendeleev's table, the modern table or both.",
+            "prompt": "Which periodic table?",
+            "groups": ["Mendeleev's table", "Modern table", "Both"],
+            "items": [
+              { "text": "Mostly in order of atomic weight", "group": 0 },
+              { "text": "In order of atomic number", "group": 1 },
+              { "text": "Gaps left for undiscovered elements", "group": 0 },
+              { "text": "Includes Group 0, the noble gases", "group": 1 },
+              { "text": "Elements with similar properties in the same group", "group": 2 },
+              { "text": "Some pairs of elements swapped to match their group", "group": 0 }
+            ]
+          }
+        },
+        {
+          "type": "key-points",
+          "items": [
+            "The modern table is in order of atomic number.",
+            "Isotopes explain why the order by atomic weight was not always right.",
+            "The noble gases were not in Mendeleev's table."
+          ]
+        }
+      ]
+    }
+  ],
+  "checks": [
+    {
+      "q": "Give two ways in which Mendeleev overcame the problems of the early periodic tables.",
+      "a": "He left gaps for undiscovered elements. He changed the order of some elements so they were in groups with similar properties.",
+      "marks": 2
+    },
+    {
+      "q": "Explain why the discovery of gallium helped Mendeleev's periodic table to become accepted.",
+      "a": "Gallium fitted into a gap that Mendeleev had left, and its properties matched the predictions he had made.",
+      "marks": 2
+    },
+    {
+      "q": "State how the elements are arranged in the modern periodic table.",
+      "a": "In order of increasing atomic number (number of protons).",
+      "marks": 1
+    }
+  ],
+  "boards": {
+    "aqa": {
+      "spec_codes": ["AQA 4.1.2.2", "AQA T 5.1.2.2"],
+      "exam_phrases": [
+        "arranged in order of atomic weight",
+        "left gaps / spaces",
+        "changed the order so properties matched the rest of the group",
+        "Mendeleev had predicted properties of missing elements",
+        "elements were discovered that filled the gaps",
+        "the properties matched Mendeleev's predictions",
+        "so their properties matched the rest of the group"
+      ],
+      "mistakes": [
+        {
+          "wrong": "Early tables were arranged by atomic mass or Ar.",
+          "right": "For early tables the answer is atomic weight. Atomic mass or Ar is not accepted for this answer."
+        },
+        {
+          "wrong": "Mendeleev left gaps for undiscovered elements, so gaps are 'undiscovered elements'.",
+          "right": "Complete the sentence with gaps (spaces or blanks). The words undiscovered elements are not accepted."
+        },
+        {
+          "wrong": "Mendeleev reversed some pairs of elements because of their atomic numbers.",
+          "right": "References to atomic structure are ignored. He reversed pairs so their properties matched the rest of the group."
+        }
+      ],
+      "worked_example": {
+        "exemplar_id": "52f9f8c3-690b-434e-b74c-43f266ed08a1",
+        "source": "AQA jun 2019, Paper 1 (H), Q01.2",
+        "question": "Mendeleev left spaces in his periodic table marked with an asterisk, because he thought missing elements belonged there.\n\nWhy did Mendeleev's periodic table become more widely accepted than previous versions?",
+        "marks": 3,
+        "answer_points": [
+          "Mendeleev had predicted the properties of the missing elements.",
+          "Elements were discovered that filled the spaces (gaps).",
+          "The properties of these elements matched Mendeleev's predictions."
+        ],
+        "tip": "Three linked ideas: he predicted, the elements were found, and the properties matched. References to atomic structure are ignored."
+      }
+    },
+    "edexcel": {
+      "spec_codes": ["EDEX 1.13", "EDEX 1.14", "EDEX 1.15"],
+      "exam_phrases": [
+        "left gaps / incomplete",
+        "fewer elements / not all elements discovered",
+        "elements ordered by atomic mass",
+        "no group 0 / noble gases not discovered",
+        "no atomic numbers",
+        "compared with the elements in the same group or period, using the trend"
+      ],
+      "mistakes": [
+        {
+          "wrong": "Mendeleev could not include the noble gases because they were not reactive.",
+          "right": "Say that the noble gases had yet to be discovered, so he did not know about them."
+        },
+        {
+          "wrong": "Mendeleev guessed the properties of gallium.",
+          "right": "He compared it with the elements in the same group or period and used the trend down the group or across the period."
+        }
+      ],
+      "worked_example": {
+        "exemplar_id": "d584e7fa-1ac6-4f9b-a320-1701838b992d",
+        "source": "EDEXCEL jun 2024, Paper 1 (F), Q5(d)",
+        "question": "Describe two differences between Mendeleev's periodic table and the modern periodic table.",
+        "marks": 2,
+        "answer_points": [
+          "Mendeleev's table left gaps and was incomplete.",
+          "It had fewer elements, because not all were discovered yet.",
+          "The elements were ordered by atomic mass.",
+          "It had no Group 0 (noble gases) and no atomic numbers.",
+          "Some elements were in different positions."
+        ],
+        "tip": "Any two score one mark each. Answers about the modern table that are the reverse of these are also credited."
+      }
+    },
+    "ocr": {
+      "spec_codes": ["OCR C2.2i"],
+      "exam_phrases": [
+        "in order of (increasing) atomic mass / weight",
+        "in groups showing similar chemical properties",
+        "left gaps for elements that had not been discovered",
+        "in order of (increasing) atomic number / proton number",
+        "chemical properties are based on atomic number / number of protons"
+      ],
+      "mistakes": [
+        {
+          "wrong": "Mendeleev put the elements in order of mass.",
+          "right": "Just in order of mass is ignored. Say increasing atomic mass (or weight)."
+        },
+        {
+          "wrong": "The modern table is arranged by atomic mass.",
+          "right": "This is not allowed. The modern table is in order of atomic number (proton number). Mentioning electrons is ignored."
+        }
+      ],
+      "worked_example": {
+        "exemplar_id": "fbda4060-be64-44e8-8f49-e64714bb924c",
+        "source": "OCR nov 2020, Paper 1, Q23(a)",
+        "question": "Dmitri Mendeleev produced a periodic table of elements which is the basis for our modern periodic table. He left gaps for elements that had not been discovered yet.\n\nDescribe two ways Mendeleev arranged the elements in his periodic table.",
+        "marks": 2,
+        "answer_points": [
+          "In order of increasing atomic mass (or weight).",
+          "In groups showing similar chemical properties.",
+          "He left gaps for elements that had not been discovered."
+        ],
+        "tip": "Any two score one mark each. Increasing mass number is also accepted."
+      }
+    }
+  },
+  "meta": {
+    "status": "draft",
+    "checked_by": "sonnet-science-check",
+    "checked_at": "2026-10-01",
+    "written_by": "claude-sonnet-5-5",
+    "written_at": "2026-10-01",
+    "spec_point_ids": [
+      "2038cfd8-d8dc-4bf2-9e25-b1094d1609c7",
+      "ed1494a2-5114-4346-af6e-1c3565f01fa6",
+      "3175fe29-994a-43d5-8d6a-347559b699ad",
+      "b0dc9dcb-81d1-4c9d-8a5d-8c11219a5b67",
+      "73f78591-0ac1-45dc-a1a2-f7ab0caf8526",
+      "5905de16-addb-4976-a280-f1a15b1b221f"
+    ],
+    "exemplar_ids": [
+      "52f9f8c3-690b-434e-b74c-43f266ed08a1",
+      "d584e7fa-1ac6-4f9b-a320-1701838b992d",
+      "fbda4060-be64-44e8-8f49-e64714bb924c"
+    ]
+  }
+}

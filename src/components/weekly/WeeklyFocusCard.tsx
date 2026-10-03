@@ -15,16 +15,17 @@ import { levelLabel, subjectLabel } from "@/lib/curriculum/courseSummary";
 import { Spinner } from "@/components/Shared";
 
 /**
- * Student "This Week" widget. Shows the curriculum spec points the tutor has set
- * for the current Mon–Sun week (with the exact dates spelled out), grouped by
- * subject and limited to the student's enrolments, plus an AI focus summary, the
- * spec points in a dropdown, related videos, a live-session strip and quick
- * links to the homework, MCQ and live-session surfaces.
+ * Student "From your tutor" card. Shows the spec points the tutor pinned into
+ * this student's current Mon–Sun week, grouped by subject and limited to the
+ * student's enrolments, with the videos linked to them and an optional
+ * live-session strip.
  */
 export function WeeklyFocusCard({
+  studentId,
   subjects,
   showLive = true,
 }: {
+  studentId: string | null;
   subjects: string[];
   showLive?: boolean;
 }) {
@@ -32,7 +33,11 @@ export function WeeklyFocusCard({
   const rangeLabel = weekRangeLabel(mondayOf());
   // Only narrow to enrolments when we actually have some; an empty list would
   // otherwise hide every plan.
-  const { plans, loading } = useWeeklyFocus(weekKey, subjects.length > 0 ? subjects : undefined);
+  const { plans, loading } = useWeeklyFocus(
+    studentId,
+    weekKey,
+    subjects.length > 0 ? subjects : undefined,
+  );
   const demo = isDemoStudent();
   const linkTo = (to: string) => (demo ? `/demo/student${to}` : to);
 
@@ -92,12 +97,6 @@ export function WeeklyFocusCard({
                       {plan.board.toUpperCase()}
                     </span>
                   </div>
-
-                  {(plan.summary || plan.note) && (
-                    <p className="text-sm text-foreground/90 leading-relaxed">
-                      {plan.summary ?? plan.note}
-                    </p>
-                  )}
 
                   {/* The points themselves, in the open — they are the reason this
                       card exists, and a dropdown hid the tutor's actual choice. */}

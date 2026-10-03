@@ -1,14 +1,15 @@
-import { useEffect, useState } from "react";
+import { useCallback, useEffect, useRef, useState } from "react";
 import { toast } from "sonner";
 import { Clock3, Loader2, Send } from "lucide-react";
 import { supabase } from "@/integrations/supabase/client";
 import {
+  NOTES,
   clearDraft,
   loadDraft,
-  loadServerDraft,
   mergeDrafts,
   saveDraft,
-  saveServerDraft,
+  syncServerDraft,
+  type TimestampedDraft,
 } from "@/lib/homework/homeworkDrafts";
 import type { HomeworkQuestion, HomeworkAnswer } from "@/hooks/data/useHomeworkQuestions";
 
@@ -127,6 +128,8 @@ export function AnsweredView({
 
 type Draft = { text: string };
 
+const EMPTY_WORK: TimestampedDraft = { answers: {}, notes: "", stamps: {}, savedAt: 0 };
+
 export function AnswerForm({
   hw,
   questions,
@@ -142,18 +145,47 @@ export function AnswerForm({
   readonly: boolean;
   showMarkScheme?: boolean;
 }) {
-  const [drafts, setDrafts] = useState<Record<string, Draft>>({});
-  const [notes, setNotes] = useState("");
+  // Every answer and the note, each with the time it was last edited here.
+  // The times are what let copies from other devices merge in per question
+  // (see mergeDrafts) instead of one whole draft overwriting another.
+  const [work, setWork] = useState<TimestampedDraft>(EMPTY_WORK);
+  // Counts the student's own edits. Saving follows this, not `work`, so taking
+  // in another device's answers doesn't write them straight back.
+  const [edits, setEdits] = useState(0);
   const [saving, setSaving] = useState(false);
   const [restored, setRestored] = useState(false);
   const [confirming, setConfirming] = useState(false);
+  const notes = work.notes;
 
-  const draftOf = (id: string): Draft => drafts[id] ?? { text: "" };
-  const patch = (id: string, changes: Partial<Draft>) =>
-    setDrafts((prev) => ({ ...prev, [id]: { ...draftOf(id), ...changes } }));
+  const draftOf = (id: string): Draft => ({ text: work.answers[id] ?? "" });
+  const edit = (field: string, text: string) => {
+    setWork((prev) => ({
+      ...prev,
+      answers: field === NOTES ? prev.answers : { ...prev.answers, [field]: text },
+      notes: field === NOTES ? text : prev.notes,
+      stamps: { ...prev.stamps, [field]: Date.now() },
+    }));
+    setEdits((n) => n + 1);
+  };
+  const patch = (id: string, changes: Partial<Draft>) => edit(id, changes.text ?? "");
+  // Fold in another copy: the newer edit of each field wins, and typing done
+  // here since stays, because it is newer.
+  const takeIn = useCallback((other: TimestampedDraft | null) => {
+    if (other) setWork((prev) => mergeDrafts(prev, other) ?? prev);
+  }, []);
 
-  // Bring back anything typed but never submitted — from this device or from
-  // whichever one they were last working on, whichever is more recent.
+  // The latest work, for timers and listeners that outlive the render they
+  // were set up in.
+  const workRef = useRef(work);
+  useEffect(() => {
+    workRef.current = work;
+  }, [work]);
+
+  // Bring back anything typed but never submitted — from this device and from
+  // whichever others they worked on, the newer edit of each answer winning.
+  //
+  // Anything typed while this loads is kept: it's newer than either copy, so
+  // the merge keeps it, where it used to be replaced by the draft arriving.
   //
   // Nothing may be written back until the load has *finished*, which is what
   // `ready` gates. Gating on the load having merely begun meant the first
@@ -174,16 +206,19 @@ export function AnswerForm({
 
     void (async () => {
       const local = loadDraft(userId, hw.id);
-      const server = await loadServerDraft(hw.id);
+      // Sent as well as fetched: edits this device made offline reach the
+      // server now, rather than waiting for the next keystroke.
+      const server = await syncServerDraft(hw.id, local);
       if (cancelled) return;
 
       const saved = mergeDrafts(local, server);
       if (saved) {
-        setDrafts(
-          Object.fromEntries(Object.entries(saved.answers).map(([qid, text]) => [qid, { text }])),
-        );
-        setNotes(saved.notes);
-        setRestored(true);
+        takeIn(saved);
+        if (
+          saved.notes.trim() ||
+          Object.values(saved.answers).some((text) => text.trim().length > 0)
+        )
+          setRestored(true);
       }
       // Only now may anything be written back.
       setReady(true);
@@ -192,26 +227,48 @@ export function AnswerForm({
     return () => {
       cancelled = true;
     };
-  }, [userId, hw.id]);
+  }, [userId, hw.id, takeIn]);
 
   // Persist as they type. Debounced so a fast typist isn't writing on every
-  // keystroke; localStorage takes it immediately, the server a beat later.
+  // keystroke; localStorage takes it immediately, the server a beat later. The
+  // server sends back the merged draft, which brings in anything typed on
+  // another device meanwhile.
   useEffect(() => {
-    if (!userId || !ready) return;
-    const draft = {
-      answers: Object.fromEntries(Object.entries(drafts).map(([k, v]) => [k, v.text])),
-      notes,
-    };
-    const local = setTimeout(() => saveDraft(userId, hw.id, draft), 400);
-    const remote = setTimeout(() => void saveServerDraft(userId, hw.id, draft), 2500);
+    if (!userId || !ready || edits === 0) return;
+    const local = setTimeout(() => saveDraft(userId, hw.id, workRef.current), 400);
+    const remote = setTimeout(
+      () => void syncServerDraft(hw.id, workRef.current).then(takeIn),
+      2500,
+    );
     return () => {
       clearTimeout(local);
       clearTimeout(remote);
     };
-  }, [drafts, notes, userId, hw.id, ready]);
+  }, [edits, userId, hw.id, ready, takeIn]);
+
+  // Coming back to this tab, or back online: catch up with the other devices
+  // before the next keystroke here is saved. A tab left open since yesterday
+  // is exactly the one that would otherwise be out of date.
+  const catchUp = useCallback(async () => {
+    takeIn(await syncServerDraft(hw.id, workRef.current));
+  }, [hw.id, takeIn]);
+  useEffect(() => {
+    if (!userId || !ready) return;
+    const onReturn = () => {
+      if (document.visibilityState === "visible") void catchUp();
+    };
+    document.addEventListener("visibilitychange", onReturn);
+    window.addEventListener("focus", onReturn);
+    window.addEventListener("online", onReturn);
+    return () => {
+      document.removeEventListener("visibilitychange", onReturn);
+      window.removeEventListener("focus", onReturn);
+      window.removeEventListener("online", onReturn);
+    };
+  }, [userId, ready, catchUp]);
 
   const hasUnsent =
-    notes.trim().length > 0 || Object.values(drafts).some((d) => d.text.trim().length > 0);
+    notes.trim().length > 0 || Object.values(work.answers).some((text) => text.trim().length > 0);
 
   // A reload or a closed tab is recoverable now, but a student who navigates
   // away mid-answer still deserves the browser's own warning.
@@ -254,8 +311,7 @@ export function AnswerForm({
 
       toast.success("Homework submitted");
       clearDraft(userId, hw.id);
-      setDrafts({});
-      setNotes("");
+      setWork(EMPTY_WORK);
       setRestored(false);
       setConfirming(false);
       onChanged();
@@ -307,7 +363,9 @@ export function AnswerForm({
     <form
       onSubmit={(e) => {
         e.preventDefault();
-        setConfirming(true);
+        // Answers typed on another device belong in what's handed in, and in
+        // the count the confirmation shows.
+        void catchUp().finally(() => setConfirming(true));
       }}
       className="space-y-4"
     >
@@ -343,7 +401,7 @@ export function AnswerForm({
 
       <textarea
         value={notes}
-        onChange={(e) => setNotes(e.target.value)}
+        onChange={(e) => edit(NOTES, e.target.value)}
         placeholder="Anything you'd like your tutor to know (optional)"
         aria-label="Note for your tutor (optional)"
         className="premium-input min-h-16 w-full rounded-lg px-3 py-2 text-sm"
