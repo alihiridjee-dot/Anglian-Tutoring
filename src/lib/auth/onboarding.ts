@@ -95,12 +95,34 @@ export function gradeOptions(level: LevelV | null): string[] {
     : ["9", "8", "7", "6", "5", "4", "3", "2", "1", "U"];
 }
 
+/** Setup was finished with no subject saved. */
+export class NoSubjectsError extends Error {
+  constructor() {
+    super("Pick at least one subject first.");
+    this.name = "NoSubjectsError";
+  }
+}
+
 /**
  * Marks setup finished. This is the flag the route guard reads, so it is set
  * only once the required answers exist — never optimistically on step one.
+ *
+ * A subject is one of them: it prices the plan and scopes the curriculum. A
+ * deep link to the school step followed by Skip used to finish setup with
+ * none, and lead to a plan for an empty account. Throws NoSubjectsError then.
  */
-export async function completeOnboarding(userId: string) {
-  const { error } = await supabase
+export async function completeOnboarding(
+  userId: string,
+  db: Pick<typeof supabase, "from"> = supabase,
+) {
+  const { count, error: countError } = await db
+    .from("student_enrolments")
+    .select("subject", { count: "exact", head: true })
+    .eq("student_id", userId);
+  if (countError) throw countError;
+  if (!count) throw new NoSubjectsError();
+
+  const { error } = await db
     .from("profiles")
     .update({ onboarding_completed_at: new Date().toISOString() })
     .eq("id", userId);
