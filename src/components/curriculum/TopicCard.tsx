@@ -67,7 +67,14 @@ export function TopicCard({
   };
 
   const del = async () => {
-    if (!confirm(`Delete topic "${topic.title}" and all its spec points?`)) return;
+    // Refused by the database when students have work or planner history on
+    // the topic (S-18); the refusal says how much, and shows as the error.
+    if (
+      !confirm(
+        `Delete topic "${topic.title}" and all its spec points? A topic students have worked on can't be deleted.`,
+      )
+    )
+      return;
     const { error } = await supabase.from("topics").delete().eq("id", topic.id);
     if (error) return toast.error(error.message);
     toast.success("Topic deleted");

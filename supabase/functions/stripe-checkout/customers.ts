@@ -58,7 +58,7 @@ export async function resolveCustomer(stripe: Stripe, userId: string, email: str
   const { error } = await db
     .from("stripe_customers")
     .insert({ user_id: userId, stripe_customer_id: customer.id });
-  if (error) throw new HttpError(500, `Couldn't record the Stripe customer: ${error.message}`);
+  if (error) throw new Error(`Couldn't record the Stripe customer: ${error.message}`);
   return customer.id;
 }
 
