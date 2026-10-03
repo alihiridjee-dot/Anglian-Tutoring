@@ -6,4 +6,6 @@ export type ProfileRole = Database["public"]["Enums"]["profile_role"];
 export interface Enrolment {
   subject: string;
   board: Database["public"]["Enums"]["board"];
+  /** When the student took the subject up. Absent where it isn't known (fixtures, other readers). */
+  enrolledAt?: string;
 }

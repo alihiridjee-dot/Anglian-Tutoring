@@ -1,0 +1,294 @@
+{
+  "format": 1,
+  "concept_id": "chem-005",
+  "subject": "chemistry",
+  "title": "Atomic number, mass number and isotopes",
+  "key_idea": "The **atomic number** is the number of protons. The **mass number** is the number of protons plus neutrons. Atoms of the same element with different numbers of neutrons are **isotopes**.",
+  "sections": [
+    {
+      "heading": "Atomic number and mass number",
+      "blocks": [
+        { "type": "paragraph", "text": "Two numbers describe every atom. This section covers what they mean and how to use them to count particles." },
+        {
+          "type": "definitions",
+          "items": [
+            { "term": "Atomic number", "meaning": "The number of protons in an atom. It is the smaller number in the periodic table box." },
+            { "term": "Mass number", "meaning": "The sum of the protons and neutrons in an atom. It is the larger number." }
+          ]
+        },
+        {
+          "type": "list",
+          "items": [
+            "The mass number is written at the top left of the symbol. The atomic number is at the bottom left.",
+            "Aluminium is written ²⁷₁₃Al. Its mass number is 27 and its atomic number is 13.",
+            "Atoms of the same element always have the same atomic number. No two elements share an atomic number."
+          ]
+        },
+        {
+          "type": "equation",
+          "label": "Number of neutrons",
+          "formula": "neutrons = mass number − atomic number",
+          "where": ["Mass number = protons + neutrons.", "Atomic number = protons."]
+        },
+        {
+          "type": "steps",
+          "items": [
+            { "lead": "Protons.", "text": "Aluminium has atomic number 13, so 13 protons." },
+            { "lead": "Electrons.", "text": "An atom is neutral, so it has 13 electrons." },
+            { "lead": "Neutrons.", "text": "27 − 13 = 14 neutrons." }
+          ]
+        },
+        {
+          "type": "diagram",
+          "diagram": {
+            "kind": "practice",
+            "alt": "Practise calculating the number of neutrons from the mass number and atomic number.",
+            "question": "An atom has atomic number **{Z}** and mass number **{A}**. Calculate the number of neutrons in the atom.",
+            "variables": [
+              { "id": "Z", "min": 11, "max": 16, "step": 1 },
+              { "id": "A", "min": 23, "max": 35, "step": 1 }
+            ],
+            "answer": { "formula": "A - Z", "decimals": 0 },
+            "working": [
+              "Neutrons = mass number − atomic number",
+              "Neutrons = {A} − {Z} = **{answer}**"
+            ]
+          }
+        },
+        {
+          "type": "key-points",
+          "items": [
+            "Atomic number = number of protons. In an atom it is also the number of electrons.",
+            "Mass number = protons + neutrons.",
+            "Neutrons = mass number − atomic number."
+          ]
+        }
+      ]
+    },
+    {
+      "heading": "Particles in ions",
+      "blocks": [
+        { "type": "paragraph", "text": "An ion has an electric charge because its numbers of protons and electrons are not equal." },
+        {
+          "type": "definitions",
+          "items": [
+            { "term": "Ion", "meaning": "An atom (or group of atoms) that has lost or gained electrons, so it has an overall charge." }
+          ]
+        },
+        {
+          "type": "list",
+          "items": [
+            "The atomic number and mass number do not change when an ion forms. Only the electrons change.",
+            "A positive ion has fewer electrons than protons.",
+            "A negative ion has more electrons than protons."
+          ]
+        },
+        {
+          "type": "table",
+          "columns": ["Ion", "Atomic number", "Mass number", "Protons", "Neutrons", "Electrons"],
+          "rows": [
+            ["K⁺", "19", "39", "19", "20", "18"],
+            ["Al³⁺", "13", "27", "13", "14", "10"],
+            ["O²⁻", "8", "16", "8", "8", "10"]
+          ]
+        },
+        {
+          "type": "steps",
+          "items": [
+            { "lead": "Protons.", "text": "The atomic number gives the protons." },
+            { "lead": "Neutrons.", "text": "Mass number − atomic number." },
+            { "lead": "Electrons.", "text": "Protons minus the charge. For 3+ take away 3. For 2− add 2." }
+          ]
+        },
+        {
+          "type": "key-points",
+          "items": [
+            "Only the number of electrons changes when an ion forms.",
+            "Electrons = protons − charge. A 2− ion has two more electrons than protons."
+          ]
+        }
+      ]
+    },
+    {
+      "heading": "Isotopes",
+      "blocks": [
+        { "type": "paragraph", "text": "Atoms of one element can have different numbers of neutrons. These atoms are isotopes." },
+        {
+          "type": "definitions",
+          "items": [
+            { "term": "Isotopes", "meaning": "Atoms of the same element with the same number of protons but different numbers of neutrons." }
+          ]
+        },
+        {
+          "type": "table",
+          "columns": ["Isotope", "Protons", "Neutrons", "Electrons", "Mass number"],
+          "rows": [
+            ["Carbon-12", "6", "6", "6", "12"],
+            ["Carbon-13", "6", "7", "6", "13"],
+            ["Carbon-14", "6", "8", "6", "14"]
+          ]
+        },
+        {
+          "type": "list",
+          "items": [
+            "Isotopes have the same atomic number, because they are the same element.",
+            "Isotopes have different mass numbers, because the number of neutrons is different.",
+            "Chadwick's discovery of neutrons helped to explain isotopes."
+          ]
+        },
+        {
+          "type": "key-points",
+          "items": [
+            "Isotopes: same number of protons, different number of neutrons.",
+            "Different neutrons means a different mass number.",
+            "Always answer in terms of protons and neutrons."
+          ]
+        }
+      ]
+    }
+  ],
+  "checks": [
+    {
+      "q": "An atom of fluorine has atomic number 9 and mass number 19. Give the numbers of protons, neutrons and electrons.",
+      "a": "Protons 9, neutrons 10 (19 − 9), electrons 9.",
+      "marks": 3
+    },
+    {
+      "q": "Give the numbers of protons, neutrons and electrons in a Mg²⁺ ion (atomic number 12, mass number 24).",
+      "a": "Protons 12, neutrons 12, electrons 10.",
+      "marks": 3
+    },
+    {
+      "q": "Describe what is meant by isotopes.",
+      "a": "Atoms of the same element, with the same number of protons, but with different numbers of neutrons.",
+      "marks": 2
+    }
+  ],
+  "boards": {
+    "aqa": {
+      "spec_codes": ["AQA 4.1.1.5", "AQA T 5.1.1.5"],
+      "exam_phrases": [
+        "(atoms with the) same number of protons",
+        "(but with) different numbers of neutrons",
+        "atoms of the same element / same atomic number",
+        "number of protons plus neutrons",
+        "number of protons only",
+        "protons and electrons in equal numbers (no overall charge)"
+      ],
+      "mistakes": [
+        {
+          "wrong": "Isotopes have different relative atomic masses.",
+          "right": "This is not accepted. Say they have different numbers of neutrons. Different mass numbers is ignored."
+        },
+        {
+          "wrong": "Isotopes have the same number of electrons.",
+          "right": "This is ignored. Say they have the same number of protons, or are atoms of the same element."
+        },
+        {
+          "wrong": "Mass number is the mass of the protons and neutrons.",
+          "right": "References to mass are not accepted. Mass number is the number of protons plus neutrons."
+        }
+      ],
+      "worked_example": {
+        "exemplar_id": "9cbf9f52-3eb7-462e-a64a-d9352801b6c2",
+        "source": "AQA jun 2024, Paper 1 (H), Q03.3",
+        "question": "Chadwick's experiments showed the existence of neutrons in an atom.\n\nThis led to an understanding of isotopes.\n\nDefine the term 'isotopes'.\n\nRefer to subatomic particles in your answer.",
+        "marks": 2,
+        "answer_points": [
+          "Atoms with the same number of protons (atoms of the same element, or with the same atomic number, is also accepted).",
+          "With different numbers of neutrons."
+        ],
+        "tip": "The question asks for subatomic particles, so name protons and neutrons. References to electrons are ignored."
+      }
+    },
+    "edexcel": {
+      "spec_codes": ["EDEX 1.7", "EDEX 1.8", "EDEX 1.9", "EDEX 1.10", "EDEX 1.23"],
+      "exam_phrases": [
+        "(atoms) of the same element / with the same number of protons",
+        "same atomic number",
+        "different number of neutrons / different mass number",
+        "number of neutrons = 125 − number of protons",
+        "number of electrons = number of protons (in an atom)"
+      ],
+      "mistakes": [
+        {
+          "wrong": "Isotopes are different elements with different numbers of neutrons.",
+          "right": "Answers in terms of elements (plural) are rejected. Isotopes are atoms of one element."
+        },
+        {
+          "wrong": "Isotopes have different numbers of protons.",
+          "right": "This is rejected. Isotopes always have the same number of protons."
+        },
+        {
+          "wrong": "A phosphorus atom with mass 31 has about 16 neutrons, or 15.5.",
+          "right": "Only whole numbers are accepted. Neutrons = 31 − 15 = 16."
+        }
+      ],
+      "worked_example": {
+        "exemplar_id": "2f96af33-ee15-418e-af40-8e277910750f",
+        "source": "EDEXCEL nov 2021, Paper 1 (H), Q9(a)",
+        "question": "An ion of element X can be represented as ¹²⁵X²⁻.\nThis ion of element X has 54 electrons.\n\nCalculate the number of protons and the number of neutrons in this ion.",
+        "marks": 2,
+        "answer_points": [
+          "Number of protons = 52, because the ion has 2 more electrons than protons (54 − 2).",
+          "Number of neutrons = 125 − 52 = 73."
+        ],
+        "tip": "Find the protons first. The mass number 125 then gives the neutrons."
+      }
+    },
+    "ocr": {
+      "spec_codes": ["OCR C1.2e"],
+      "exam_phrases": [
+        "isotopes have the same number of protons",
+        "isotopes have different numbers of neutrons",
+        "atoms of the same element",
+        "same atomic number, different mass number",
+        "an ion has more (or fewer) electrons than protons"
+      ],
+      "mistakes": [
+        {
+          "wrong": "Isotopes have different relative atomic masses or Mr.",
+          "right": "This is not allowed. Say different mass number or different numbers of neutrons."
+        },
+        {
+          "wrong": "Isotopes of an element have different numbers of electrons.",
+          "right": "Isotopes of an element have the same number of protons and so the same number of electrons in an atom. Electrons are ignored in the definition. Say same protons, different neutrons."
+        }
+      ],
+      "worked_example": {
+        "exemplar_id": "b46e41a0-2690-4448-a58c-33a1b62cf859",
+        "source": "OCR jun 2024, Paper 3, Q19(b)(ii)",
+        "question": "The table shows information about three different ions.\n\nMg²⁺: 12 protons, ___ neutrons, 10 electrons, mass number 24\nF⁻: 9 protons, 10 neutrons, ___ electrons, mass number 19\nLi⁺: 3 protons, 4 neutrons, 2 electrons, mass number ___\n\nComplete the table.",
+        "marks": 2,
+        "answer_points": [
+          "Mg²⁺ has 12 neutrons (24 − 12).",
+          "F⁻ has 10 electrons (one more than the 9 protons).",
+          "Li⁺ has mass number 7 (3 + 4)."
+        ],
+        "tip": "All three correct scores 2 marks. One or two correct scores 1 mark."
+      }
+    }
+  },
+  "meta": {
+    "status": "draft",
+    "checked_by": "sonnet-science-check",
+    "checked_at": "2026-10-01",
+    "written_by": "claude-sonnet-5-5",
+    "written_at": "2026-10-01",
+    "spec_point_ids": [
+      "e2410861-7383-4287-a130-11dbc7d25820",
+      "9ea0c1e5-d651-4a61-9558-f9829567a59b",
+      "b869461b-e7c2-4237-8409-1f1aad047509",
+      "4cd044ad-55f0-46f5-b5b7-4f963f2f8dfe",
+      "d1e950a2-9a32-4a80-95bb-261662d78d62",
+      "87df0f30-3cf0-4441-9e23-b9313e1f0628",
+      "40073d4c-37c6-4cf6-8943-27dacb6abb08",
+      "25e2f9ab-46f9-46a0-80d5-806242a8c354"
+    ],
+    "exemplar_ids": [
+      "9cbf9f52-3eb7-462e-a64a-d9352801b6c2",
+      "2f96af33-ee15-418e-af40-8e277910750f",
+      "b46e41a0-2690-4448-a58c-33a1b62cf859"
+    ]
+  }
+}

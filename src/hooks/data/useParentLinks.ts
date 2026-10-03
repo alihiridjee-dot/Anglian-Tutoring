@@ -212,14 +212,26 @@ export function useRevokeInvite() {
   });
 }
 
+/**
+ * Ends a link, from either side.
+ *
+ * Every unlink also gives the child a new invite code (the database trigger
+ * psl_rotate_invite_code), and the enrolments cache holds the code, so it is
+ * refreshed too, as useRotateInviteCode does. Otherwise the Parents page keeps
+ * showing the old, now dead code until a reload.
+ */
 export function useUnlinkParent() {
+  const qc = useQueryClient();
   const invalidate = useInvalidateLinks();
   return useMutation({
     mutationFn: async (linkId: string) => {
       const { error } = await supabase.rpc("unlink_parent", { _link_id: linkId });
       if (error) throw new Error(error.message);
     },
-    onSuccess: invalidate,
+    onSuccess: () => {
+      invalidate();
+      qc.invalidateQueries({ queryKey: ["user-enrolments-and-profile"] });
+    },
   });
 }
 
