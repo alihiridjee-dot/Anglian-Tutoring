@@ -1,0 +1,280 @@
+{
+  "format": 1,
+  "concept_id": "bio-014",
+  "subject": "biology",
+  "title": "Active transport",
+  "key_idea": "**Active transport** moves substances from a lower concentration to a higher concentration, against the concentration gradient. It needs energy from respiration. Plants use it to absorb mineral ions from the soil, and the gut uses it to absorb sugars into the blood.",
+  "sections": [
+    {
+      "heading": "What active transport is",
+      "blocks": [
+        { "type": "paragraph", "text": "Active transport moves particles the opposite way to diffusion. This section covers what it needs and where it happens." },
+        {
+          "type": "definitions",
+          "items": [
+            { "term": "Active transport", "meaning": "Movement of substances against a concentration gradient, using energy from respiration." },
+            { "term": "Concentration gradient", "meaning": "The difference in concentration between two places." },
+            { "term": "Mitochondria", "meaning": "The structures where aerobic respiration releases the energy for active transport." }
+          ]
+        },
+        {
+          "type": "list",
+          "items": [
+            "Substances move from a more dilute solution to a more concentrated solution.",
+            "This is **against** the concentration gradient.",
+            "It needs energy released by respiration, so cells that use it have many mitochondria.",
+            "It allows a cell to take in substances it needs, even when there is very little outside."
+          ]
+        },
+        {
+          "type": "key-points",
+          "items": [
+            "Active transport is movement against a concentration gradient.",
+            "It needs energy from respiration.",
+            "Cells that carry out a lot of active transport have many mitochondria."
+          ]
+        }
+      ]
+    },
+    {
+      "heading": "Where active transport happens",
+      "blocks": [
+        { "type": "paragraph", "text": "Two examples are on the specification: roots and the gut." },
+        { "type": "subheading", "text": "Mineral ions into root hair cells" },
+        {
+          "type": "list",
+          "items": [
+            "The soil solution is very dilute, so mineral ions such as nitrate are at a lower concentration than in the root hair cell.",
+            "Root hair cells absorb the ions by active transport.",
+            "Plants need mineral ions for healthy growth.",
+            "Root hair cells have a large surface area, a thin cell wall and many mitochondria.",
+            "They have no chloroplasts, because roots are underground and there is no light for photosynthesis."
+          ]
+        },
+        { "type": "subheading", "text": "Sugars from the gut into the blood" },
+        {
+          "type": "list",
+          "items": [
+            "Sugar molecules are absorbed from lower concentrations in the gut into the blood, which has a higher sugar concentration.",
+            "Glucose is absorbed by both diffusion and active transport.",
+            "Sugar is used in cell respiration."
+          ]
+        },
+        { "type": "subheading", "text": "Evidence that nitrate uptake is active" },
+        {
+          "type": "list",
+          "items": [
+            "Seedlings absorb more nitrate ions when oxygen is added.",
+            "Oxygen is needed for aerobic respiration, which releases the energy for active transport."
+          ]
+        },
+        {
+          "type": "key-points",
+          "items": [
+            "Root hair cells take in mineral ions by active transport.",
+            "Sugars are absorbed into the blood from the gut by active transport (and diffusion).",
+            "More uptake with oxygen shows that the process needs energy from respiration."
+          ]
+        }
+      ]
+    },
+    {
+      "heading": "Comparing the three processes",
+      "blocks": [
+        { "type": "paragraph", "text": "You must be able to explain the differences between diffusion, osmosis and active transport." },
+        {
+          "type": "table",
+          "columns": ["Feature", "Diffusion", "Osmosis", "Active transport"],
+          "rows": [
+            ["What moves", "Particles of a gas or solute", "Water only", "Ions and molecules such as sugar"],
+            ["Direction", "Down a concentration gradient", "From a dilute solution to a concentrated solution, across a partially permeable membrane", "Against a concentration gradient"],
+            ["Energy from respiration", "Not needed", "Not needed", "Needed"],
+            ["Example", "Oxygen into cells", "Water into root hair cells", "Mineral ions into root hair cells"]
+          ]
+        },
+        {
+          "type": "diagram",
+          "diagram": {
+            "kind": "sort",
+            "alt": "Sort each movement into diffusion, osmosis or active transport.",
+            "prompt": "Which process moves the substance?",
+            "groups": ["Diffusion", "Osmosis", "Active transport"],
+            "items": [
+              { "text": "Oxygen moving from the blood into muscle cells", "group": 0 },
+              { "text": "Carbon dioxide leaving cells", "group": 0 },
+              { "text": "Urea moving from cells into the blood plasma", "group": 0 },
+              { "text": "Water moving into root hair cells", "group": 1 },
+              { "text": "Water moving into guard cells", "group": 1 },
+              { "text": "Mineral ions moving into root hair cells from dilute soil solution", "group": 2 },
+              { "text": "Sugar moving from the gut into blood that has a higher sugar concentration", "group": 2 },
+              { "text": "Calcium ions moving from low to high concentration into an egg", "group": 2 }
+            ]
+          }
+        },
+        {
+          "type": "key-points",
+          "items": [
+            "Diffusion and osmosis move substances down a gradient and need no energy from respiration.",
+            "Active transport moves substances against a gradient and needs energy.",
+            "Osmosis is only the movement of water."
+          ]
+        }
+      ]
+    }
+  ],
+  "checks": [
+    {
+      "q": "State two ways active transport is different from diffusion.",
+      "a": "It moves substances against a concentration gradient (from low to high concentration). It needs energy from respiration.",
+      "marks": 2
+    },
+    {
+      "q": "Why do root hair cells contain many mitochondria?",
+      "a": "Mitochondria release energy by respiration. The energy is needed for active transport of mineral ions into the cell.",
+      "marks": 2
+    },
+    {
+      "q": "A plant absorbs nitrate ions faster when oxygen is added to the water around its roots. What does this suggest?",
+      "a": "The nitrate ions are absorbed by active transport, which needs energy from aerobic respiration.",
+      "marks": 2
+    }
+  ],
+  "boards": {
+    "aqa": {
+      "spec_codes": ["AQA 1.12", "AQA T 4.1.3.3"],
+      "exam_phrases": [
+        "from an area of low concentration to high concentration",
+        "against the concentration gradient",
+        "active transport",
+        "requires energy (from respiration)",
+        "mitochondria for aerobic respiration",
+        "transports minerals / ions (and not water)"
+      ],
+      "mistakes": [
+        {
+          "wrong": "Mitochondria produce the energy for active transport.",
+          "right": "Energy produced, made or created is not accepted. Say mitochondria release energy in aerobic respiration."
+        },
+        {
+          "wrong": "Mitochondria carry out anaerobic respiration for active transport.",
+          "right": "Anaerobic respiration is not accepted here. Say (aerobic) respiration."
+        },
+        {
+          "wrong": "Active transport moves substances down a concentration gradient.",
+          "right": "Down the gradient is not accepted. Active transport is against the gradient, from low to high concentration. \"Along\" or \"across\" the gradient is ignored."
+        },
+        {
+          "wrong": "Calcium molecules are moved into the egg by active transport.",
+          "right": "\"Molecules\" is not accepted. Calcium is moved as ions."
+        }
+      ],
+      "worked_example": {
+        "exemplar_id": "62e22ccd-469e-4186-8c8e-d21a16520e93",
+        "source": "AQA jun 2018, Paper 1 (H), Q04.5",
+        "question": "Chicken egg shells contain calcium. Calcium ions are moved from the shell into the cytoplasm of the egg. The concentration of calcium ions is 0.6 arbitrary units in the egg shell and 2.1 arbitrary units in the egg cytoplasm. Explain how calcium ions are moved from the shell into the cytoplasm of the egg.",
+        "marks": 3,
+        "answer_points": [
+          "The ions are moved from an area of low concentration to high concentration (against the concentration gradient).",
+          "By active transport.",
+          "Which requires using energy."
+        ],
+        "tip": "Compare the two concentrations first. Low to high means active transport. Do not say energy is created."
+      }
+    },
+    "edexcel": {
+      "spec_codes": ["EDEX 1.15", "EDEX 6.7"],
+      "exam_phrases": [
+        "against a concentration gradient using energy",
+        "from a low concentration to a high concentration",
+        "root hair cells absorb mineral ions by active transport",
+        "contains many mitochondria to release energy / for active transport",
+        "long / thin projection increases the surface area",
+        "thin cell wall, so a shorter distance for water to travel"
+      ],
+      "mistakes": [
+        {
+          "wrong": "Nitrate ions are absorbed by osmosis.",
+          "right": "Osmosis is rejected. Say by diffusion (high to low concentration) or by active transport (low to high concentration, using energy)."
+        },
+        {
+          "wrong": "Active transport is movement down a concentration gradient using energy.",
+          "right": "Active transport is against a concentration gradient using energy."
+        },
+        {
+          "wrong": "Oxygen moves into and out of cells by active transport.",
+          "right": "Oxygen moves into and out of cells by diffusion."
+        }
+      ],
+      "worked_example": {
+        "exemplar_id": "16e71e8c-85f3-4c1b-8694-fa059780d651",
+        "source": "EDEXCEL jun 2018, Paper 2 (H), Q7(b)(ii)",
+        "question": "A student investigated the effect of nitrate ion concentration on plant growth. She placed barley seedlings in test tubes containing different concentrations of nitrate fertiliser. Test tube 3 contained distilled water with 3 pellets of nitrate fertiliser. Explain how nitrate ions were absorbed by the seedling in test tube 3.",
+        "marks": 3,
+        "answer_points": [
+          "By the roots or root hair cells.",
+          "By diffusion, from a high concentration to a low concentration (down the concentration gradient).",
+          "OR by active transport, from a low concentration to a high concentration (against the concentration gradient, using energy)."
+        ],
+        "tip": "Name the roots, then link the process to the direction of movement. Osmosis is rejected."
+      }
+    },
+    "ocr": {
+      "spec_codes": ["OCR 2.1a", "OCR 2.2f"],
+      "exam_phrases": [
+        "active transport",
+        "against a concentration gradient",
+        "mineral ions moving into root hair cells: active transport",
+        "water moving into root hair cells: osmosis",
+        "root hairs absorb water",
+        "root hairs absorb minerals"
+      ],
+      "mistakes": [
+        {
+          "wrong": "The gardener protects the root hairs so the plant survives.",
+          "right": "\"Plant survival\" is ignored. Say root hairs absorb water and minerals, so the plant might wilt, grow slower or photosynthesise less."
+        },
+        {
+          "wrong": "Water moves into root hair cells by active transport.",
+          "right": "Water moves into root hair cells by osmosis, because of differences in water potential. Mineral ions move by active transport."
+        }
+      ],
+      "extra": [
+        {
+          "heading": "Carrier proteins",
+          "blocks": [
+            { "type": "paragraph", "text": "Active transport uses carrier proteins in the cell membrane. They bind to the substance and move it across, using energy from respiration." }
+          ]
+        }
+      ],
+      "worked_example": {
+        "exemplar_id": "bdaaf491-dc6e-4d6f-8bf2-8f4f206f2501",
+        "source": "OCR nov 2021, Paper 1, Q18(c)",
+        "question": "A gardener digs up a bush and then plants it in a different position in their garden. They try to dig up the bush with as much soil as possible so that the root hairs are not damaged. Explain why the gardener tries to prevent the root hairs being damaged.",
+        "marks": 3,
+        "answer_points": [
+          "Root hairs absorb water.",
+          "Root hairs absorb minerals.",
+          "The plant might wilt, grow slower or photosynthesise less."
+        ],
+        "tip": "Three separate points. \"Plant survival\" is ignored."
+      }
+    }
+  },
+  "meta": {
+    "status": "draft",
+    "checked_by": "sonnet-science-check",
+    "checked_at": "2026-10-01",
+    "written_by": "Claude Sonnet 5.5",
+    "written_at": "2026-10-01",
+    "spec_point_ids": [
+      "aa4531e6-a8c0-425f-be01-cb3db3dfd609",
+      "42d3ab58-666a-4490-8379-92ee10955d43",
+      "86fd14d8-fc24-4fe3-97eb-ddfdd03c0b83"
+    ],
+    "exemplar_ids": [
+      "62e22ccd-469e-4186-8c8e-d21a16520e93",
+      "16e71e8c-85f3-4c1b-8694-fa059780d651",
+      "bdaaf491-dc6e-4d6f-8bf2-8f4f206f2501"
+    ]
+  }
+}

@@ -1,0 +1,263 @@
+{
+  "format": 1,
+  "concept_id": "chem-004",
+  "subject": "chemistry",
+  "title": "Subatomic particles and the size of atoms",
+  "key_idea": "An atom has a tiny nucleus of **protons** and **neutrons**, surrounded by **electrons**. It has no overall charge because it has equal numbers of protons and electrons. Most of its mass is in the nucleus. Atoms are about 1 × 10⁻¹⁰ m in radius.",
+  "sections": [
+    {
+      "heading": "Protons, neutrons and electrons",
+      "blocks": [
+        { "type": "paragraph", "text": "Every atom is made of three types of subatomic particle. This section covers where they are, their charges and their masses." },
+        {
+          "type": "definitions",
+          "items": [
+            { "term": "Nucleus", "meaning": "The tiny centre of the atom. It contains the protons and neutrons." },
+            { "term": "Proton", "meaning": "A positively charged particle in the nucleus." },
+            { "term": "Neutron", "meaning": "A particle in the nucleus with no charge." },
+            { "term": "Electron", "meaning": "A negatively charged particle that moves around the nucleus in shells." },
+            { "term": "Atomic number", "meaning": "The number of protons in an atom of an element." }
+          ]
+        },
+        {
+          "type": "table",
+          "columns": ["Particle", "Relative charge", "Relative mass", "Where it is"],
+          "rows": [
+            ["Proton", "+1", "1", "In the nucleus"],
+            ["Neutron", "0", "1", "In the nucleus"],
+            ["Electron", "−1", "0.0005 (very small)", "In shells around the nucleus"]
+          ]
+        },
+        {
+          "type": "diagram",
+          "diagram": {
+            "kind": "explorer",
+            "alt": "Tap a part of the atom to learn its charge, mass and position, then test yourself.",
+            "prompt": "Parts of an atom",
+            "parts": [
+              { "name": "Nucleus", "detail": "The tiny centre of the atom. It is positively charged and contains the protons and neutrons." },
+              { "name": "Proton", "detail": "Relative charge +1 and relative mass 1. It is in the nucleus. The number of protons is the atomic number." },
+              { "name": "Neutron", "detail": "Relative charge 0 and relative mass 1. It is in the nucleus." },
+              { "name": "Electron", "detail": "Relative charge −1 and a very small relative mass (0.0005). Electrons move around the nucleus." },
+              { "name": "Electron shells", "detail": "The electrons are arranged in shells (energy levels) at set distances from the nucleus." }
+            ]
+          }
+        },
+        { "type": "subheading", "text": "Why an atom has no overall charge" },
+        {
+          "type": "list",
+          "items": [
+            "The number of electrons is equal to the number of protons.",
+            "The charges +1 and −1 cancel, so the atom is neutral.",
+            "All atoms of one element have the same number of protons.",
+            "Atoms of different elements have different numbers of protons."
+          ]
+        },
+        {
+          "type": "key-points",
+          "items": [
+            "Protons (+1) and neutrons (0) are in the nucleus. Electrons (−1) are in shells around it.",
+            "An atom has equal numbers of protons and electrons, so it is neutral.",
+            "The number of protons decides which element an atom is."
+          ]
+        }
+      ]
+    },
+    {
+      "heading": "Size and mass of an atom",
+      "blocks": [
+        { "type": "paragraph", "text": "The nucleus is very small compared with the whole atom, but it holds almost all of the mass." },
+        {
+          "type": "list",
+          "items": [
+            "The radius of an atom is about 0.1 nm, which is 1 × 10⁻¹⁰ m.",
+            "The radius of the nucleus is less than 1/10 000 of the radius of the atom.",
+            "Most of an atom is empty space.",
+            "A bond length is also about 1 × 10⁻¹⁰ m. Small molecules are a little bigger, about 1 × 10⁻⁹ m across.",
+            "In order of size, smallest first: proton, atom, molecule, nanoparticle.",
+            "Most of the mass is in the nucleus, because protons and neutrons each have a relative mass of 1.",
+            "An electron has a very small relative mass, so the electrons add almost nothing to the mass of the atom."
+          ]
+        },
+        { "type": "subheading", "text": "Units for tiny sizes" },
+        {
+          "type": "table",
+          "columns": ["Size", "In nanometres", "In metres"],
+          "rows": [
+            ["1 nanometre", "1 nm", "1 × 10⁻⁹ m"],
+            ["Radius of an atom", "0.1 nm", "1 × 10⁻¹⁰ m"],
+            ["Width of an atom (twice the radius)", "0.2 nm", "2 × 10⁻¹⁰ m"]
+          ]
+        },
+        {
+          "type": "equation",
+          "label": "How many atoms fit across a width",
+          "formula": "number of atoms = width of sample ÷ width of one atom",
+          "where": ["Both widths must be in the same unit, such as metres.", "The width of an atom is twice its radius."]
+        },
+        {
+          "type": "steps",
+          "items": [
+            { "lead": "Convert.", "text": "A sample is 2.0 mm wide. 2.0 mm = 2.0 × 10⁻³ m." },
+            { "lead": "Atom width.", "text": "An atom with radius 1 × 10⁻¹⁰ m is 2 × 10⁻¹⁰ m wide." },
+            { "lead": "Divide.", "text": "(2.0 × 10⁻³) ÷ (2 × 10⁻¹⁰) = 1 × 10⁷ atoms." }
+          ]
+        },
+        {
+          "type": "key-points",
+          "items": [
+            "An atom has a radius of about 1 × 10⁻¹⁰ m. The nucleus is much smaller still.",
+            "Most of the mass is in the nucleus because electrons have very little mass.",
+            "Put both sizes in the same unit before you divide."
+          ]
+        }
+      ]
+    }
+  ],
+  "checks": [
+    {
+      "q": "State the relative charge and relative mass of a neutron.",
+      "a": "Relative charge 0. Relative mass 1.",
+      "marks": 2
+    },
+    {
+      "q": "Explain why an atom has no overall electrical charge.",
+      "a": "It has the same number of protons (positive) as electrons (negative), so the charges cancel.",
+      "marks": 2
+    },
+    {
+      "q": "Explain why most of the mass of an atom is in the nucleus.",
+      "a": "Protons and neutrons each have a relative mass of 1. Electrons have a very small relative mass (0.0005).",
+      "marks": 2
+    }
+  ],
+  "boards": {
+    "aqa": {
+      "spec_codes": ["AQA 4.1.1.4", "AQA T 5.1.1.4"],
+      "exam_phrases": [
+        "number of protons (only)",
+        "the same number of protons and electrons",
+        "neutron: relative mass 1, relative charge 0",
+        "proton: relative mass 1, relative charge +1",
+        "the electron has the lowest mass",
+        "more electrons than protons (so it is not an atom)"
+      ],
+      "mistakes": [
+        {
+          "wrong": "Particle X is not an atom because it has a different number of neutrons.",
+          "right": "This is not accepted. An atom has the same number of protons and electrons, so say it has more electrons than protons."
+        },
+        {
+          "wrong": "Atomic number is the number of protons and neutrons.",
+          "right": "Atomic number is the number of protons only. Protons plus neutrons is the mass number."
+        },
+        {
+          "wrong": "A neutron has a relative charge of 1.",
+          "right": "A neutron has no charge. Write 0, or neutral."
+        }
+      ],
+      "worked_example": {
+        "exemplar_id": "b496a1f7-3918-4985-b501-1a7acc5622dc",
+        "source": "AQA jun 2020, Paper 1 (F), Q2.5",
+        "question": "The model of the atom used today has three subatomic particles: electrons, neutrons and protons.\n\nComplete the sentences.\n\nAtoms of the same element have the same atomic number because they have the same number of ____.\n\nAtoms of the same element can have different mass numbers because they have different numbers of ____.\n\nAtoms have no overall charge because they have the same number of ____ and ____.",
+        "marks": 3,
+        "answer_points": [
+          "Protons",
+          "Neutrons",
+          "Protons and electrons, in either order"
+        ],
+        "tip": "One mark for each sentence. Atomic number depends only on protons, and mass number also depends on neutrons."
+      }
+    },
+    "edexcel": {
+      "spec_codes": ["EDEX 1.2", "EDEX 1.3", "EDEX 1.4", "EDEX 1.5", "EDEX 1.6", "EDEX 1.30"],
+      "exam_phrases": [
+        "proton, atom, molecule, nanoparticle (smallest to largest)",
+        "relative mass of a proton is 1",
+        "0.252 nm = 2.52 × 10⁻¹⁰ m (converting nm to m)",
+        "nucleus of protons and neutrons, surrounded by electrons in shells"
+      ],
+      "mistakes": [
+        {
+          "wrong": "A proton has a relative mass of −1.",
+          "right": "Mass cannot be negative. A proton has a relative mass of 1 and a relative charge of +1."
+        },
+        {
+          "wrong": "An iron atom 2.52 × 10⁻¹⁰ m wide is 2.52 nm.",
+          "right": "1 nm is 1 × 10⁻⁹ m, so 2.52 × 10⁻¹⁰ m is 0.252 nm."
+        }
+      ],
+      "worked_example": {
+        "exemplar_id": "10a24a4d-d85f-4d18-a163-35d196644ec6",
+        "source": "EDEXCEL jun 2023, Paper 2 (F), Q10(a)",
+        "question": "Atoms, molecules, nanoparticles and protons are types of particle.\n\nList these four types of particle in order of size from smallest to largest.",
+        "marks": 2,
+        "answer_points": [
+          "Proton, atom, molecule, nanoparticle in the correct order."
+        ],
+        "tip": "Put the particles in order of size, smallest first. The correct order scores 2 marks."
+      }
+    },
+    "ocr": {
+      "spec_codes": ["OCR C1.2b", "OCR C1.2c", "OCR C1.2d"],
+      "exam_phrases": [
+        "relative mass of protons and neutrons is 1",
+        "relative mass of electrons is 0.0005 / very small / negligible",
+        "equal numbers of (positive) protons and (negative) electrons",
+        "atomic radius = 1 × 10⁻¹⁰ m / 0.1 nm",
+        "the nucleus is made up of protons and neutrons",
+        "the nucleus has a positive charge"
+      ],
+      "mistakes": [
+        {
+          "wrong": "The electron has a relative mass of 0.",
+          "right": "A mass of 0 or nothing is not accepted. Write 0.0005, 1/2000, or say it is negligible."
+        },
+        {
+          "wrong": "The protons cancel the electrons.",
+          "right": "This is ignored. Say the atom has equal numbers of protons and electrons."
+        },
+        {
+          "wrong": "The mass of the atom is in the nucleus because the particles weigh so many grams.",
+          "right": "Using grams is not allowed. Use relative mass: 1 for protons and neutrons, and 0.0005 for electrons."
+        }
+      ],
+      "worked_example": {
+        "exemplar_id": "8d346900-9ce7-4906-bad5-fbb6c0d9f1c0",
+        "source": "OCR jun 2018, Paper 1, Q22(c)",
+        "question": "Most of the mass of an atom is in the nucleus.\n\nExplain why.",
+        "marks": 2,
+        "answer_points": [
+          "The relative mass of protons and neutrons is 1.",
+          "The relative mass of electrons is 0.0005, or very small in comparison."
+        ],
+        "tip": "Compare the particles in the nucleus with the electrons, using relative masses."
+      }
+    }
+  },
+  "meta": {
+    "status": "draft",
+    "checked_by": "sonnet-science-check",
+    "checked_at": "2026-10-01",
+    "written_by": "claude-sonnet-5-5",
+    "written_at": "2026-10-01",
+    "spec_point_ids": [
+      "dd72d0ac-7714-49d6-9763-d5d009cd1f10",
+      "e811bacb-55ba-438d-baa0-c35f5829a08f",
+      "9ad8836c-233b-49f4-9811-e95fc069fd1e",
+      "2848b8bc-9935-4ab1-9f84-8c4da2329061",
+      "9ca99ceb-e5df-49d1-afbc-97fc34675848",
+      "fb0b0b67-7c29-4562-834a-72bd599477a0",
+      "b2c7516c-07a4-4dd4-bfd2-b51d3a4d169d",
+      "cf3d8469-eb24-47e5-9ae8-6c404e3694bd",
+      "9fb639be-f54b-4933-b3bf-511b06d3c28c",
+      "4eae3d4b-a7ab-498c-a1ca-5cd296a71d92",
+      "a996ca63-9f4b-4064-8b58-5e8bc0ac7baf"
+    ],
+    "exemplar_ids": [
+      "b496a1f7-3918-4985-b501-1a7acc5622dc",
+      "10a24a4d-d85f-4d18-a163-35d196644ec6",
+      "8d346900-9ce7-4906-bad5-fbb6c0d9f1c0"
+    ]
+  }
+}

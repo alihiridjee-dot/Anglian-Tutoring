@@ -1,0 +1,311 @@
+{
+  "format": 1,
+  "concept_id": "bio-007",
+  "subject": "biology",
+  "title": "Required practical: using a light microscope",
+  "key_idea": "In this practical you prepare a stained slide, focus a light microscope from low power to high power, and draw the cells you see. You then calculate the magnification of your drawing. Each step in the method has a reason you must be able to give.",
+  "sections": [
+    {
+      "heading": "Preparing a slide",
+      "blocks": [
+        { "type": "paragraph", "text": "Onion epidermis is a common specimen. This section covers the equipment, the method and the reason for each step." },
+        {
+          "type": "definitions",
+          "items": [
+            { "term": "Specimen", "meaning": "The thing you are looking at, such as a layer of onion cells." },
+            { "term": "Stain", "meaning": "A dye, such as iodine, that makes parts of a cell easier to see." },
+            { "term": "Cover slip", "meaning": "A thin square of glass or plastic placed over the specimen." }
+          ]
+        },
+        {
+          "type": "list",
+          "items": [
+            "Equipment: microscope slide, cover slip, stain, mounted needle, pipette or dropper, scalpel, forceps.",
+            "A named stain can be iodine, methylene blue or eosin.",
+            "For cheek cells, collect the cells with a swab."
+          ]
+        },
+        {
+          "type": "steps",
+          "items": [
+            { "lead": "Cut the onion.", "text": "Cut it into pieces with a sharp knife, on a chopping board." },
+            { "lead": "Peel a thin layer.", "text": "A thin layer lets light pass through, so individual cells can be seen." },
+            { "lead": "Place it on a slide.", "text": "Put the layer flat on the microscope slide." },
+            { "lead": "Add iodine.", "text": "Add a few drops of iodine solution. It stains the cell so the nucleus and other parts can be seen." },
+            { "lead": "Lower the cover slip.", "text": "Lower it at an angle. This reduces air bubbles and keeps the specimen flat and in place." }
+          ]
+        },
+        { "type": "subheading", "text": "Staying safe" },
+        {
+          "type": "table",
+          "columns": ["Hazard", "Risk", "How to reduce it"],
+          "rows": [
+            ["Iodine solution is an irritant", "May cause an allergic reaction or skin rash", "Wear gloves, use a dropper bottle and wash skin straight away after contact"],
+            ["Sharp knife", "May cut you or someone else", "Cut away from the body, on a chopping board, with fingers away from the blade"]
+          ]
+        },
+        {
+          "type": "key-points",
+          "items": [
+            "A thin layer lets light through. A stain shows the parts of the cell.",
+            "Lower the cover slip at an angle to reduce air bubbles.",
+            "Name the hazard, the risk and a way to reduce it."
+          ]
+        }
+      ]
+    },
+    {
+      "heading": "Using the microscope",
+      "blocks": [
+        { "type": "paragraph", "text": "Always start on the lowest power. Then increase the magnification step by step." },
+        {
+          "type": "diagram",
+          "diagram": {
+            "kind": "sequence",
+            "alt": "Put the steps for preparing and viewing an onion cell slide in the correct order.",
+            "prompt": "Put the practical in order",
+            "steps": [
+              "Peel a thin layer of cells from the onion",
+              "Place the layer flat on a microscope slide",
+              "Add a few drops of iodine solution",
+              "Lower a cover slip over the cells at an angle",
+              "Place the slide on the stage",
+              "Select the lowest power objective lens",
+              "Use the focusing knob to bring the cells into focus",
+              "Change to a higher power objective lens and refocus"
+            ]
+          }
+        },
+        { "type": "subheading", "text": "Focusing safely" },
+        {
+          "type": "list",
+          "items": [
+            "Switch the lamp on, or adjust the mirror, so light passes through the slide.",
+            "Start with the lowest power objective lens. It has the widest field of view and is easier to focus.",
+            "Move the stage close to the lens without letting the slide touch the lens.",
+            "Turn the focusing knob so the slide moves **away** from the lens until the cells are in focus.",
+            "Never focus by moving the lens towards the slide: this can damage the lens or the slide."
+          ]
+        },
+        {
+          "type": "equation",
+          "label": "Total magnification",
+          "formula": "total magnification = eyepiece lens magnification × objective lens magnification",
+          "where": ["For example, ×10 eyepiece and ×40 objective give ×400."]
+        },
+        { "type": "subheading", "text": "If no cells can be seen" },
+        {
+          "type": "list",
+          "items": [
+            "The slide is not in the correct position, or there are no cells in the field of view.",
+            "The mirror or light is not set correctly.",
+            "The objective lens is not clicked into place, or is dirty.",
+            "You are looking at an air bubble, or the microscope is not focused."
+          ]
+        },
+        { "type": "subheading", "text": "Why not the highest magnification?" },
+        {
+          "type": "list",
+          "items": [
+            "It is more difficult to focus.",
+            "The field of view is smaller."
+          ]
+        },
+        {
+          "type": "key-points",
+          "items": [
+            "Start with the lowest power objective lens, then change to a higher power and refocus.",
+            "Turn the focusing knob so the slide moves away from the lens.",
+            "Total magnification = eyepiece × objective."
+          ]
+        }
+      ]
+    },
+    {
+      "heading": "Drawing and magnification",
+      "blocks": [
+        { "type": "paragraph", "text": "You draw what you see, label it and show the magnification." },
+        {
+          "type": "list",
+          "items": [
+            "Use a sharp pencil and draw clear, continuous lines. Do not shade.",
+            "Draw the cells large, so the detail is clear.",
+            "Label the parts using ruled lines that do not cross.",
+            "Write the magnification beside the drawing."
+          ]
+        },
+        {
+          "type": "equation",
+          "label": "Magnification of a drawing",
+          "formula": "magnification = size of drawing ÷ real size",
+          "where": ["Both sizes in the same unit, such as mm.", "Magnification has no unit."]
+        },
+        {
+          "type": "steps",
+          "items": [
+            { "lead": "Same units.", "text": "A bacterium is 0.005 mm long. The drawing is 80 mm long." },
+            { "lead": "Divide.", "text": "80 ÷ 0.005 = 16 000." },
+            { "lead": "Answer.", "text": "The drawing has a magnification of ×16 000." }
+          ]
+        },
+        {
+          "type": "key-points",
+          "items": [
+            "A scientific drawing has clear lines, no shading and ruled label lines.",
+            "Show the magnification on the drawing.",
+            "Magnification = size of drawing ÷ real size."
+          ]
+        }
+      ]
+    }
+  ],
+  "checks": [
+    {
+      "q": "Give a reason why a thin layer of onion cells is used.",
+      "a": "To allow light to pass through the cells, so individual cells can be seen.",
+      "marks": 1
+    },
+    {
+      "q": "Explain why you start with the lowest power objective lens.",
+      "a": "It has the widest field of view, so the cells are easier to find and focus.",
+      "marks": 2
+    },
+    {
+      "q": "A drawing of a bacterium is 80 mm long. The real bacterium is 0.005 mm long. Calculate the magnification of the drawing.",
+      "a": "80 ÷ 0.005 = ×16 000.",
+      "marks": 2
+    }
+  ],
+  "boards": {
+    "aqa": {
+      "spec_codes": ["AQA 1.4", "AQA T 4.1.1.5"],
+      "exam_phrases": [
+        "to allow light to pass through the cells",
+        "to stain / see the parts of the cell",
+        "to prevent / reduce air bubbles",
+        "biggest / widest field of view",
+        "easier to focus",
+        "to avoid damage to the lens / slide"
+      ],
+      "mistakes": [
+        {
+          "wrong": "Iodine solution is added to stain the cell.",
+          "right": "\"To stain the cell\" is ignored. Say it stains so you can see the parts of the cell, such as the nucleus or cell wall."
+        },
+        {
+          "wrong": "Focus by turning the knob so the lens moves towards the slide.",
+          "right": "The lens or slide may be damaged. Start with the slide close to the lens, and turn the knob so the slide moves away until the cells are in focus."
+        },
+        {
+          "wrong": "To reduce the risk, do not spill the iodine and use a blunt knife.",
+          "right": "\"Do not spill\" and \"blunt knife\" are ignored. Wash skin straight away, wear gloves or use a dropper. Cut away from the body or on a chopping board."
+        }
+      ],
+      "worked_example": {
+        "exemplar_id": "9676264d-42bd-481c-8ee4-7916135279d1",
+        "source": "AQA jun 2022, Paper 1 (H), Q03.2",
+        "question": "A student prepared some onion cells. The student peeled off a thin layer of onion epidermis, placed it on a slide, added three drops of iodine solution, and lowered a cover slip at an angle. Give a reason for each of the following steps in the method. A thin layer of onion epidermis is used. Iodine solution is added to the onion epidermis. The cover slip is lowered onto the onion epidermis at an angle.",
+        "marks": 3,
+        "answer_points": [
+          "Thin layer: to help see individual cells, so light can penetrate.",
+          "Iodine solution: to stain, so the parts of the cell can be seen (for example the nucleus, cytoplasm or cell wall).",
+          "Cover slip at an angle: to prevent or reduce air bubbles."
+        ],
+        "tip": "One mark for each reason. \"To stain the cell\" on its own is ignored."
+      }
+    },
+    "edexcel": {
+      "spec_codes": ["EDEX 1.6"],
+      "exam_phrases": [
+        "use a thin section of cells",
+        "add a stain / named stain",
+        "place a cover slip on top of the sample",
+        "start with the lowest objective lens",
+        "×40 objective lens with a ×10 eyepiece lens",
+        "use the focusing wheel"
+      ],
+      "mistakes": [
+        {
+          "wrong": "Zoom in to see the cells better.",
+          "right": "\"Zoom in / out\" is ignored. Say select a higher power objective lens to increase the magnification."
+        },
+        {
+          "wrong": "A cover slip is placed on the leaf peel to stop it drying out.",
+          "right": "This is ignored. Say it keeps the peel flat or in place, or protects the lens or the specimen."
+        },
+        {
+          "wrong": "The whole leaf is viewed because it shows the stomata.",
+          "right": "A whole leaf is too thick and opaque, so light cannot pass through it. A thin leaf peel lets light through, so the cells and stomata can be identified."
+        },
+        {
+          "wrong": "When swabbing cheek cells, use a clean swab and follow the lab rules.",
+          "right": "\"Clean\" and general lab rules are ignored. Say use a sterile swab, avoid the swab touching other surfaces, or dispose of the swab in disinfectant."
+        }
+      ],
+      "worked_example": {
+        "exemplar_id": "82f33fe1-c4b5-4897-84b5-902931b0849a",
+        "source": "EDEXCEL nov 2020, Paper 1 (F), Q9(a)(ii)",
+        "question": "A student took a sample of cells from a meristem to view under a light microscope. Describe how the student would prepare a microscope slide using these cells.",
+        "marks": 3,
+        "answer_points": [
+          "Use a thin section of the cells (or meristem).",
+          "Add a stain (or a named stain).",
+          "Place a cover slip on top of the sample."
+        ],
+        "tip": "One mark each. Adding a sample of the cells to the slide is also accepted, and so is describing how to lower the cover slip."
+      }
+    },
+    "ocr": {
+      "spec_codes": ["OCR 7.1"],
+      "exam_phrases": [
+        "place the slide on the stage",
+        "use the low power objective lens",
+        "use the focusing knob to focus on the cells",
+        "change to a higher power objective lens and refocus",
+        "as a stain so can see organelles",
+        "more difficult to focus / smaller field of view"
+      ],
+      "mistakes": [
+        {
+          "wrong": "Put the cover slip on, then add the iodine.",
+          "right": "The order is: cut the onion, peel a thin layer, put the tissue on a slide, add a drop of iodine, then put on the cover slip."
+        },
+        {
+          "wrong": "The highest magnification is always best.",
+          "right": "It is more difficult to focus, and the field of view is smaller."
+        },
+        {
+          "wrong": "Iodine is used to make the cells visible.",
+          "right": "Say iodine is a stain, so the organelles can be seen. Increasing contrast is also accepted."
+        }
+      ],
+      "worked_example": {
+        "exemplar_id": "62db301c-b615-4e20-ad42-65b8adc8319e",
+        "source": "OCR sample null, Paper 1, Q16(e)",
+        "question": "A student prepares onion cell slides to view under a microscope. A student thinks that using the highest magnification of a microscope is always best. Explain why this may not be true.",
+        "marks": 2,
+        "answer_points": [
+          "It is more difficult to focus.",
+          "The field of view is smaller."
+        ],
+        "tip": "One mark for each problem with using the highest magnification."
+      }
+    }
+  },
+  "meta": {
+    "status": "draft",
+    "checked_by": "sonnet-science-check",
+    "checked_at": "2026-10-01",
+    "written_by": "Claude Sonnet 5.5",
+    "written_at": "2026-10-01",
+    "spec_point_ids": [
+      "404277f5-3df5-4fbb-ac3f-c9814593e014",
+      "f8e8ae2f-db6d-42f4-92ba-61867e1a115c"
+    ],
+    "exemplar_ids": [
+      "9676264d-42bd-481c-8ee4-7916135279d1",
+      "82f33fe1-c4b5-4897-84b5-902931b0849a",
+      "62db301c-b615-4e20-ad42-65b8adc8319e"
+    ]
+  }
+}

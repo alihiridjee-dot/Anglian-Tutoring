@@ -1,4 +1,5 @@
 import { Loader2 } from "lucide-react";
+import { ErrorNote } from "@/components/Shared";
 import { type WeeklyPlan } from "@/lib/planner/weeklyPlanDal";
 import { type SubjectV, type BoardV, type LevelV } from "@/lib/curriculum/taxonomy";
 import { useTutorTake, type FeedbackMetric } from "./useTutorTake";
@@ -58,6 +59,14 @@ export function TutorTake({
     studentFeltReady,
   });
   const { loaded, savedNote, existingNext } = take;
+
+  if (take.error) {
+    return (
+      <div className="mt-4">
+        <ErrorNote error={take.error} onRetry={take.retry} />
+      </div>
+    );
+  }
 
   if (!loaded) {
     return (

@@ -1,5 +1,6 @@
 import { createServerFn } from "@tanstack/react-start";
 import Anthropic from "@anthropic-ai/sdk";
+import { NO_THINKING, completeText } from "@/lib/platform/aiText";
 import { requireSupabaseAuth } from "@/integrations/supabase/auth-middleware";
 import { requireTutorAi } from "@/lib/auth/tutorAi.server";
 
@@ -7,7 +8,7 @@ import { requireTutorAi } from "@/lib/auth/tutorAi.server";
 // drop into a live session's description. It runs in the tutor studio (not per
 // student view): the tutor clicks generate, the text lands in the editable
 // description field, and once the session is scheduled that same description is
-// what the student sees on their countdown banner. Mirrors weeklySummary's setup.
+// what the student sees on their countdown banner. Mirrors suggestSpecPoints' setup.
 
 const MODEL = "claude-sonnet-5";
 
@@ -40,6 +41,7 @@ ${pointList || "(none tagged yet — base it on the title)"}`;
     res = await client.messages.create({
       model: MODEL,
       max_tokens: 200,
+      thinking: NO_THINKING,
       system,
       messages: [{ role: "user", content: user }],
     });
@@ -50,11 +52,7 @@ ${pointList || "(none tagged yet — base it on the title)"}`;
     throw new Error(`AI error: ${e instanceof Error ? e.message : String(e)}`);
   }
 
-  return res.content
-    .filter((b): b is Anthropic.TextBlock => b.type === "text")
-    .map((b) => b.text)
-    .join("")
-    .trim();
+  return completeText(res).trim();
 }
 
 /**

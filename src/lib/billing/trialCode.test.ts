@@ -1,11 +1,12 @@
 import { describe, expect, test } from "bun:test";
 import {
   buildTrialEmail,
+  canonicalEmail,
   makeTrialCode,
   normaliseTrialCode,
   TRIAL_DAYS,
 } from "../../../supabase/functions/_shared/trialCode";
-import { TRIAL_DAYS as CLIENT_TRIAL_DAYS } from "@/components/billing/TrialCodeField";
+import { TRIAL_DAYS as CLIENT_TRIAL_DAYS } from "./trialCode";
 
 describe("makeTrialCode", () => {
   test("is AE- and two groups of four, from characters that can't be misread", () => {
@@ -61,4 +62,27 @@ describe("buildTrialEmail", () => {
 
 test("the plan page promises the same trial length the server grants", () => {
   expect(CLIENT_TRIAL_DAYS).toBe(TRIAL_DAYS);
+});
+
+describe("canonicalEmail", () => {
+  test("Gmail's dots, plus-tags and googlemail.com are one mailbox", () => {
+    for (const variant of [
+      "name@gmail.com",
+      "Name@Gmail.com",
+      " n.a.m.e@gmail.com ",
+      "name+trial@gmail.com",
+      "na.me+2@googlemail.com",
+    ]) {
+      expect(canonicalEmail(variant)).toBe("name@gmail.com");
+    }
+  });
+
+  test("a plus-tag is dropped anywhere, but dots only matter at Gmail", () => {
+    expect(canonicalEmail("sam+school@outlook.com")).toBe("sam@outlook.com");
+    expect(canonicalEmail("first.last@outlook.com")).toBe("first.last@outlook.com");
+  });
+
+  test("an address that is all tag keeps its name rather than becoming empty", () => {
+    expect(canonicalEmail("+x@gmail.com")).toBe("+x@gmail.com");
+  });
 });
