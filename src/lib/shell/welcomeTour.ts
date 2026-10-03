@@ -221,12 +221,12 @@ function studentSteps({ name }: WelcomeFacts): WelcomeStep[] {
     },
     {
       path: home,
-      targets: [],
+      targets: ['[data-guide="guide"]'],
       chapter: "All set",
       title: allSet(name),
       body: [
         "Start with this week’s plan on your dashboard.",
-        "Want this tour again? Press Show me around at the top of your dashboard.",
+        "Want to know more about any page? Press the 🧭 at the top. Here on your dashboard, it plays this tour again.",
       ],
     },
   ];
@@ -335,12 +335,12 @@ function parentSteps({ name, children }: WelcomeFacts): WelcomeStep[] {
 
   const done: WelcomeStep = {
     path: home,
-    targets: [],
+    targets: ['[data-guide="guide"]'],
     chapter: "All set",
     title: allSet(name),
     body: [
       "Check in whenever you like.",
-      "Want this tour again? Press Show me around at the top of the portal.",
+      "Want to know more about any page? Press the 🧭 at the top. Here on the portal, it plays this tour again.",
     ],
   };
 
