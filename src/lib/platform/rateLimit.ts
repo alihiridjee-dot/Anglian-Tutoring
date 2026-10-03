@@ -19,7 +19,8 @@
  * long-lived instance.
  */
 
-type Window = { hits: number[] };
+/** A key's recent hits, and the window they count over. */
+type Window = { hits: number[]; windowMs: number };
 
 const buckets = new Map<string, Window>();
 
@@ -27,9 +28,14 @@ const buckets = new Map<string, Window>();
 const SWEEP_EVERY = 500;
 let writes = 0;
 
-function sweep(now: number, windowMs: number): void {
+/**
+ * Each bucket is pruned by its own window. Pruning every bucket by the calling
+ * request's window let a 10-minute contact-form call trim the hour-long
+ * WhatsApp budget, so that budget forgot hits it should still count.
+ */
+function sweep(now: number): void {
   for (const [key, w] of buckets) {
-    const live = w.hits.filter((t) => now - t < windowMs);
+    const live = w.hits.filter((t) => now - t < w.windowMs);
     if (live.length === 0) buckets.delete(key);
     else w.hits = live;
   }
@@ -50,9 +56,10 @@ export interface LimitResult {
 export function takeToken(key: string, limit: number, windowMs: number): LimitResult {
   const now = Date.now();
 
-  if (++writes % SWEEP_EVERY === 0) sweep(now, windowMs);
+  if (++writes % SWEEP_EVERY === 0) sweep(now);
 
-  const bucket = buckets.get(key) ?? { hits: [] };
+  const bucket = buckets.get(key) ?? { hits: [], windowMs };
+  bucket.windowMs = windowMs;
   bucket.hits = bucket.hits.filter((t) => now - t < windowMs);
 
   if (bucket.hits.length >= limit) {
