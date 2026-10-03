@@ -1,0 +1,6 @@
+{
+  "imports": {
+    "https://esm.sh/@supabase/supabase-js@2": "./mock-supabase-deletions.ts",
+    "https://esm.sh/stripe@17.5.0?target=deno": "./mock-stripe.ts"
+  }
+}

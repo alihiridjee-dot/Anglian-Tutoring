@@ -1,0 +1,283 @@
+{
+  "format": 1,
+  "concept_id": "bio-001",
+  "subject": "biology",
+  "title": "Eukaryotic and prokaryotic cells",
+  "key_idea": "All cells have a cell membrane, cytoplasm and genetic material. Plant and animal cells are **eukaryotic**: their DNA is inside a nucleus. Bacterial cells are **prokaryotic**: they are much smaller, have no nucleus, and their DNA is a single loop, often with extra small rings of DNA called plasmids.",
+  "sections": [
+    {
+      "heading": "Two types of cell",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "Every living thing is made of cells. Biologists sort cells into two types by where they keep their genetic material. A **eukaryotic cell** keeps its DNA inside a nucleus. Animal cells, plant cells, fungal cells such as yeast, and protists are all eukaryotic."
+        },
+        {
+          "type": "paragraph",
+          "text": "A **prokaryotic cell** has no nucleus. Its DNA is free in the cytoplasm. Bacteria are prokaryotic cells."
+        },
+        {
+          "type": "paragraph",
+          "text": "Eukaryotic cells also contain **membrane-bound organelles**. These are sub-cellular structures wrapped in their own membrane, such as the nucleus, mitochondria and chloroplasts. Prokaryotic cells have none of these."
+        }
+      ]
+    },
+    {
+      "heading": "What each cell contains",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "Some structures are found in every cell. Others are found only in one type. The comparison below is the one exam questions ask about most."
+        },
+        {
+          "type": "diagram",
+          "diagram": {
+            "kind": "compare",
+            "alt": "A comparison of animal, plant and bacterial cells, structure by structure.",
+            "items": ["Animal cell", "Plant cell", "Bacterial cell"],
+            "rows": [
+              { "feature": "Cell membrane", "values": ["Yes", "Yes", "Yes"] },
+              { "feature": "Cytoplasm", "values": ["Yes", "Yes", "Yes"] },
+              { "feature": "Ribosomes", "values": ["Yes", "Yes", "Yes, but smaller"] },
+              { "feature": "Nucleus", "values": ["Yes", "Yes", "No: DNA is free in the cytoplasm"] },
+              { "feature": "Shape of the DNA", "values": ["Long strands (chromosomes)", "Long strands (chromosomes)", "One single loop"] },
+              { "feature": "Plasmids", "values": ["No", "No", "Often, one or more"] },
+              { "feature": "Mitochondria", "values": ["Yes", "Yes", "No"] },
+              { "feature": "Cell wall", "values": ["No", "Yes, made of cellulose", "Yes, not made of cellulose"] },
+              { "feature": "Chloroplasts", "values": ["No", "In many cells, e.g. leaf cells", "No"] },
+              { "feature": "Permanent vacuole", "values": ["No", "Yes, large", "No"] },
+              { "feature": "Typical size", "values": ["About 10–30 µm", "About 10–100 µm", "About 1–5 µm"] }
+            ]
+          }
+        },
+        {
+          "type": "paragraph",
+          "text": "Plant cells have three things animal cells do not: a cell wall, chloroplasts and a large permanent vacuole. Not every plant cell has chloroplasts. Cells in roots and potatoes get no light, so they do not photosynthesise and have no chloroplasts."
+        },
+        {
+          "type": "paragraph",
+          "text": "Some bacteria also have a flagellum, a tail-like structure used for movement, and a slime capsule on the outside."
+        }
+      ]
+    },
+    {
+      "heading": "What the structures do",
+      "blocks": [
+        {
+          "type": "table",
+          "columns": ["Structure", "Found in", "Job"],
+          "rows": [
+            ["Nucleus", "Animal and plant cells", "Contains the genetic material (chromosomes) and controls the activities of the cell."],
+            ["Cytoplasm", "All cells", "A jelly-like liquid where most of the cell's chemical reactions happen."],
+            ["Cell membrane", "All cells", "Controls which substances enter and leave the cell. It has receptor molecules that let cells communicate."],
+            ["Mitochondria", "Animal and plant cells", "Where aerobic respiration happens. Respiration releases energy for the cell."],
+            ["Ribosomes", "All cells", "Where proteins are made (protein synthesis)."],
+            ["Chloroplasts", "Many plant cells", "Contain chlorophyll, which absorbs light for photosynthesis."],
+            ["Cell wall", "Plant cells and bacteria", "Strengthens and supports the cell. In plants it is made of cellulose."],
+            ["Permanent vacuole", "Plant cells", "Filled with cell sap. It helps keep the cell firm."],
+            ["Single loop of DNA", "Bacteria", "Carries most of the bacterium's genes."],
+            ["Plasmids", "Bacteria", "Small rings of extra DNA carrying a few extra genes, such as genes for antibiotic resistance."],
+            ["Flagellum", "Some bacteria", "Lets the cell move."]
+          ]
+        }
+      ]
+    },
+    {
+      "heading": "Size and orders of magnitude",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "Cells are tiny, so they are measured in small units. From the millimetre down, each unit is 1000 times smaller than the one above it."
+        },
+        {
+          "type": "table",
+          "columns": ["Unit", "Symbol", "Size in metres"],
+          "rows": [
+            ["centimetre", "cm", "1 × 10⁻² m (0.01 m)"],
+            ["millimetre", "mm", "1 × 10⁻³ m (0.001 m)"],
+            ["micrometre", "µm", "1 × 10⁻⁶ m"],
+            ["nanometre", "nm", "1 × 10⁻⁹ m"]
+          ]
+        },
+        {
+          "type": "paragraph",
+          "text": "So 1 mm = 1000 µm and 1 µm = 1000 nm. To change to a smaller unit, multiply by 1000. To change to a bigger unit, divide by 1000. Sizes this small are often written in **standard form**: 2 µm is 2 × 10⁻⁶ m."
+        },
+        {
+          "type": "paragraph",
+          "text": "An **order of magnitude** is a factor of ten. To compare two sizes, divide the bigger one by the smaller one. An answer of about 10 means one order of magnitude (10¹). An answer of about 100 means two orders of magnitude (10²)."
+        },
+        {
+          "type": "steps",
+          "items": [
+            { "lead": "The sizes", "text": "An animal cell is 20 µm across. A bacterial cell is 2 µm long." },
+            { "lead": "Divide", "text": "20 ÷ 2 = 10." },
+            { "lead": "Write as a power of ten", "text": "10 = 10¹." },
+            { "lead": "Conclude", "text": "The animal cell is one order of magnitude bigger than the bacterial cell." }
+          ]
+        },
+        {
+          "type": "paragraph",
+          "text": "Working out the real size of a cell from a microscope image uses magnification, which has its own note."
+        }
+      ]
+    }
+  ],
+  "checks": [
+    {
+      "q": "Give three ways a bacterial cell is different from an animal cell.",
+      "a": "Any three: it is smaller; it has no nucleus (its DNA is free in the cytoplasm); its DNA is a single loop; it may have plasmids; it has no mitochondria; it has a cell wall; its ribosomes are smaller.",
+      "marks": 3
+    },
+    {
+      "q": "Name two structures found in both a plant cell and a bacterial cell.",
+      "a": "Any two: cell membrane, cytoplasm, ribosomes, cell wall.",
+      "marks": 2
+    },
+    {
+      "q": "A plant cell is 60 µm long. A bacterial cell is 0.6 µm long. How many orders of magnitude bigger is the plant cell?",
+      "a": "60 ÷ 0.6 = 100 = 10². The plant cell is two orders of magnitude bigger.",
+      "marks": 2
+    }
+  ],
+  "boards": {
+    "aqa": {
+      "spec_codes": ["AQA 1.1", "AQA T 4.1.1.1"],
+      "exam_phrases": [
+        "bacterial cell does not have its DNA inside a nucleus",
+        "DNA is free in the cytoplasm",
+        "has a single loop of DNA",
+        "(may) have plasmids",
+        "cell wall in bacterial cells is not made of cellulose",
+        "bacterial cell has smaller ribosomes"
+      ],
+      "mistakes": [
+        {
+          "wrong": "Bacterial cells do not have ribosomes.",
+          "right": "They do. Bacterial ribosomes are smaller than those in plant and animal cells. AQA does not accept the idea that bacteria have no ribosomes."
+        },
+        {
+          "wrong": "A eukaryotic cell does not have a cell wall.",
+          "right": "Plant cells and fungal cells are eukaryotic and do have a cell wall, so AQA rejects this. Compare the specific cells named in the question."
+        },
+        {
+          "wrong": "A bacterial cell has no chloroplasts, unlike a eukaryotic cell.",
+          "right": "Animal cells have no chloroplasts either, so AQA ignores this when the comparison is with eukaryotic cells in general. Use the nucleus, mitochondria, the single loop of DNA or plasmids."
+        },
+        {
+          "wrong": "Both cells contain genetic information.",
+          "right": "AQA ignores 'genetic information'. Write DNA or genetic material."
+        }
+      ],
+      "worked_example": {
+        "exemplar_id": "13922221-eaf2-4f1e-bb1e-9ff208a3502f",
+        "source": "AQA jun 2020, Paper 1 (H), Q04.1",
+        "question": "Cells are the basic units of all forms of life.\n\nDescribe four differences between a bacterial cell and a plant cell.",
+        "marks": 4,
+        "answer_points": [
+          "The bacterial cell is smaller than the plant cell.",
+          "The bacterial cell does not have its DNA inside a nucleus; the plant cell does.",
+          "The bacterial cell may have plasmids; the plant cell does not.",
+          "The bacterial cell has no chloroplasts or mitochondria; the plant cell has both.",
+          "The bacterial cell wall is not made of cellulose; the plant cell wall is.",
+          "The bacterial cell has no large permanent vacuole; the plant cell does."
+        ],
+        "tip": "Any four of these score. Make it clear which cell has the feature, or AQA reads 'it' as the bacterium."
+      }
+    },
+    "edexcel": {
+      "spec_codes": ["EDEX 1.1"],
+      "exam_phrases": [
+        "no nucleus / chromosomal DNA (in the cytoplasm)",
+        "no membrane-bound organelles",
+        "circular / plasmid DNA",
+        "flagella (allows) movement",
+        "mitochondria are where respiration occurs / release energy",
+        "ribosomes are where proteins are made"
+      ],
+      "mistakes": [
+        {
+          "wrong": "Mitochondria make energy.",
+          "right": "Edexcel ignores 'makes' or 'produces' energy. Write that mitochondria are where respiration happens, which releases energy."
+        },
+        {
+          "wrong": "A bacterial cell has a nucleus and mitochondria.",
+          "right": "It has neither. Its DNA is chromosomal DNA free in the cytoplasm. Listing nucleus or mitochondria as a bacterial feature loses the mark."
+        },
+        {
+          "wrong": "Plant and animal cells both have a cell wall.",
+          "right": "Only plant cells have a cell wall. The structures in plant cells but not animal cells are the cell wall, chloroplasts and a large vacuole."
+        }
+      ],
+      "worked_example": {
+        "exemplar_id": "80c332ff-990a-4d44-b5d6-adb195018232",
+        "source": "EDEXCEL jun 2023, Paper 1 (F), Q9(c)",
+        "question": "Figure 18 shows a bacterial cell and a plant cell.\n\nDescribe the similarities and differences of a bacterial cell and a plant cell.",
+        "marks": 6,
+        "answer_points": [
+          "Similarities: both cells have a cell membrane, a cell wall, cytoplasm and ribosomes, and both contain DNA.",
+          "The bacterial cell has chromosomal DNA free in the cytoplasm; the plant cell has a nucleus containing its DNA.",
+          "The bacterial cell has plasmid DNA; the plant cell does not.",
+          "The bacterial cell may have flagella for movement; the plant cell does not.",
+          "The plant cell has chloroplasts, mitochondria and a vacuole; the bacterial cell has none of these.",
+          "The bacterial cell is smaller and is prokaryotic; the plant cell is eukaryotic."
+        ],
+        "tip": "This is marked by levels. The top level needs both similarities and differences, written as clear, linked sentences."
+      }
+    },
+    "ocr": {
+      "spec_codes": ["OCR 1.1b"],
+      "exam_phrases": [
+        "in eukaryotes the DNA is contained in the nucleus",
+        "in prokaryotes it is in the cytoplasm",
+        "a strand in eukaryotes but a loop in prokaryotes",
+        "prokaryotes have plasmids",
+        "the ribosome is the site of protein synthesis",
+        "chloroplasts contain chlorophyll for photosynthesis"
+      ],
+      "mistakes": [
+        {
+          "wrong": "Eukaryotic DNA is a double helix but prokaryotic DNA is a loop.",
+          "right": "All DNA is a double helix, so OCR ignores this. Compare the shape: a linear strand in eukaryotic cells and a loop in prokaryotic cells."
+        },
+        {
+          "wrong": "Plant cells and bacterial cells are similar because both have DNA.",
+          "right": "OCR ignores DNA as the similarity here. Name a structure both have: cell membrane, cell wall, ribosomes or cytoplasm."
+        },
+        {
+          "wrong": "Ticking two boxes in a row of a table to be safe.",
+          "right": "More than one tick in a row scores no mark for that row. Decide, then tick once."
+        }
+      ],
+      "worked_example": {
+        "exemplar_id": "1ee5f14e-cda2-487a-a4c6-245a25d75bcc",
+        "source": "OCR jun 2022, Paper 3, Q23(d)",
+        "question": "Compare the DNA found in eukaryotic and in prokaryotic cells.",
+        "marks": 3,
+        "answer_points": [
+          "In eukaryotic cells the DNA is contained in the nucleus.",
+          "In prokaryotic cells the DNA is in the cytoplasm.",
+          "In eukaryotic cells the DNA is in strands, but in prokaryotic cells it is a loop.",
+          "Prokaryotic cells have plasmids; eukaryotic cells do not.",
+          "In both, the DNA is made of the same parts (nucleotides)."
+        ],
+        "tip": "Any three. Each point should say something about both types of cell."
+      }
+    }
+  },
+  "meta": {
+    "status": "draft",
+    "written_by": "writer-b",
+    "written_at": "2026-10-01",
+    "spec_point_ids": [
+      "833ed39f-936a-4592-8787-322e9e113dbe",
+      "d9a8fe0a-e252-40ac-9cca-6d0c6d81bcd9",
+      "61ce3dc3-baa2-4347-bb54-b2c56863dc1b"
+    ],
+    "exemplar_ids": [
+      "13922221-eaf2-4f1e-bb1e-9ff208a3502f",
+      "80c332ff-990a-4d44-b5d6-adb195018232",
+      "1ee5f14e-cda2-487a-a4c6-245a25d75bcc"
+    ]
+  }
+}

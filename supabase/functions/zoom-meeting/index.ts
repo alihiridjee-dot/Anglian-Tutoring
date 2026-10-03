@@ -31,7 +31,7 @@ interface GetPayload {
 
 interface DeletePayload {
   action: "delete";
-  meeting_id: string; // numeric Zoom meeting id, or a Zoom join URL to parse
+  resource_id: string; // the live session being deleted; its row must still exist
 }
 
 type Payload = CreatePayload | GetPayload | DeletePayload;
@@ -193,13 +193,43 @@ async function handleGet(p: GetPayload) {
   };
 }
 
-// Cancels a scheduled meeting on Zoom. Idempotent: a meeting that Zoom no
-// longer knows about (already deleted, or created before this integration) is
-// treated as success so the caller can still remove the local session row.
+// The meeting number in a Zoom join link, or null for any other link.
+function meetingIdInLink(url: string | null): string | null {
+  return url?.match(/\/j\/(\d+)/)?.[1] ?? null;
+}
+
+// Cancels the Zoom meeting behind a live session that is about to be deleted,
+// but only a meeting this app created for that session ("Auto Zoom" records
+// it in zoom_meeting_id), and only while no other session points at it. A
+// pasted link is often one recurring meeting reused every week, and Zoom
+// deletes a recurring meeting whole, so cancelling it killed every other
+// session's link. Idempotent: a meeting Zoom no longer knows about is treated
+// as success so the caller can still remove the session row.
 async function handleDelete(p: DeletePayload) {
-  if (!p.meeting_id) throw new HttpError(400, "`meeting_id` is required.");
-  const id = parseMeetingId(p.meeting_id);
-  if (!id) return { deleted: false, reason: "no_zoom_meeting" };
+  if (!p.resource_id) throw new HttpError(400, "`resource_id` is required.");
+  const admin = createClient(
+    Deno.env.get("SUPABASE_URL")!,
+    Deno.env.get("SUPABASE_SERVICE_ROLE_KEY") ?? "",
+  );
+  const { data: sessions, error } = await admin
+    .from("resources")
+    .select("id, join_url, zoom_meeting_id")
+    .eq("kind", "live_session");
+  if (error) throw new HttpError(500, "Could not read the live sessions.");
+  const rows = (sessions ?? []) as {
+    id: string;
+    join_url: string | null;
+    zoom_meeting_id: string | null;
+  }[];
+
+  const session = rows.find((r) => r.id === p.resource_id);
+  if (!session?.zoom_meeting_id) return { deleted: false, reason: "not_created_here" };
+  const id = session.zoom_meeting_id;
+  const shared = rows.some(
+    (r) => r.id !== session.id && (r.zoom_meeting_id === id || meetingIdInLink(r.join_url) === id),
+  );
+  if (shared) return { deleted: false, id, reason: "shared" };
+
   try {
     await zoomFetch(`/meetings/${id}`, { method: "DELETE" });
     return { deleted: true, id };

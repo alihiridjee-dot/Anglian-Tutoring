@@ -71,7 +71,7 @@ export function useWeekLanes({
   // Split the plan by the lane each point was saved with. Plans written before
   // lanes existed carry `ai`; they join the core column rather than being hidden
   // in a nameless third list.
-  const { focus, yours, extraCore, returning } = useMemo(() => {
+  const { focus, tutor, yours, extraCore, returning } = useMemo(() => {
     const titleOf = new Map((roadmap?.progress ?? []).map((t) => [t.topicId, t.title]));
     const group = (list: PlanPoint[]) => {
       const m = new Map<string, { topicId: string; title: string; points: PlanPoint[] }>();
@@ -90,6 +90,7 @@ export function useWeekLanes({
     };
     return {
       focus: group(points.filter((p) => laneOf(p.origin) === "focus")),
+      tutor: group(points.filter((p) => laneOf(p.origin) === "tutor")),
       yours: group(points.filter((p) => laneOf(p.origin) === "yours")),
       // Core-lane work outside this week's band — a week planned without a
       // programme (no band at all), or a point carried in from another topic.
@@ -131,6 +132,7 @@ export function useWeekLanes({
     covered,
     coreThisWeek,
     focus,
+    tutor,
     yours,
     extraCore,
     returning,

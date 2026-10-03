@@ -1,0 +1,313 @@
+{
+  "format": 1,
+  "concept_id": "chem-011",
+  "subject": "chemistry",
+  "title": "Group 1: the alkali metals",
+  "key_idea": "The Group 1 elements are the **alkali metals**. Each has one electron in its outer shell, which it loses easily to form a 1+ ion. They react with water to make hydrogen and an alkaline solution, and they get more reactive going down the group.",
+  "sections": [
+    {
+      "heading": "Properties of the alkali metals",
+      "blocks": [
+        { "type": "paragraph", "text": "The alkali metals are lithium, sodium, potassium, rubidium, caesium and francium. This section covers their physical properties." },
+        {
+          "type": "definitions",
+          "items": [
+            { "term": "Alkali metals", "meaning": "The elements in Group 1 of the periodic table." },
+            { "term": "Alkaline", "meaning": "A solution containing hydroxide ions (OH⁻), with a pH above 7." }
+          ]
+        },
+        {
+          "type": "list",
+          "items": [
+            "They have one electron in the outer shell. This is why they are in the same group and have similar chemical properties.",
+            "They are soft metals, soft enough to cut with a knife, with relatively low melting points.",
+            "The melting points decrease going down the group.",
+            "They have a low density. Lithium, sodium and potassium float on water. Rubidium is denser than water and sinks.",
+            "They are stored under oil so that they do not react with air (oxygen) or water.",
+            "They form ions with a 1+ charge, such as Na⁺, by losing the outer electron."
+          ]
+        },
+        {
+          "type": "key-points",
+          "items": [
+            "Group 1 metals have one outer electron and form 1+ ions.",
+            "They are soft with low melting points and low density.",
+            "Their properties depend on the single electron in the outer shell."
+          ]
+        }
+      ]
+    },
+    {
+      "heading": "Reactions of the alkali metals",
+      "blocks": [
+        { "type": "paragraph", "text": "The alkali metals react with oxygen, chlorine and water. In each reaction the metal atoms lose their outer electron." },
+        {
+          "type": "table",
+          "columns": ["Reacts with", "Product", "Example"],
+          "rows": [
+            ["Water", "Metal hydroxide and hydrogen", "2Na + 2H₂O → 2NaOH + H₂"],
+            ["Oxygen", "Metal oxide", "4Na + O₂ → 2Na₂O"],
+            ["Chlorine", "Metal chloride (a white solid)", "2Na + Cl₂ → 2NaCl"]
+          ]
+        },
+        { "type": "subheading", "text": "Reaction with water" },
+        {
+          "type": "list",
+          "items": [
+            "The metal floats, moves around on the surface and gets smaller until it disappears.",
+            "Bubbles (effervescence) of hydrogen gas are given off.",
+            "The solution formed is an alkali. Universal indicator turns blue, purple or violet.",
+            "Hydrogen gives a squeaky pop with a lighted splint."
+          ]
+        },
+        {
+          "type": "diagram",
+          "diagram": {
+            "kind": "predictor",
+            "alt": "Pick an alkali metal to see what happens when a small piece is added to water.",
+            "prompt": "Pick an alkali metal to add to water",
+            "result_labels": ["What you see", "How fast it reacts", "Products"],
+            "options": [
+              {
+                "label": "Lithium",
+                "results": [
+                  "Floats, moves slowly and bubbles slowly",
+                  "**Slowest** of the four",
+                  "Lithium hydroxide solution, which is alkaline, and hydrogen gas"
+                ],
+                "explanation": "2Li + 2H₂O → 2LiOH + H₂"
+              },
+              {
+                "label": "Sodium",
+                "results": [
+                  "Floats, melts into a ball, moves quickly and bubbles quickly",
+                  "**Faster** than lithium",
+                  "Sodium hydroxide solution, which is alkaline, and hydrogen gas"
+                ],
+                "explanation": "2Na + 2H₂O → 2NaOH + H₂"
+              },
+              {
+                "label": "Potassium",
+                "results": [
+                  "Floats, melts into a ball, moves very quickly, bubbles very quickly and burns with a lilac flame",
+                  "**Very fast**, faster than sodium",
+                  "Potassium hydroxide solution, which is alkaline, and hydrogen gas"
+                ],
+                "explanation": "2K + 2H₂O → 2KOH + H₂"
+              },
+              {
+                "label": "Rubidium",
+                "results": [
+                  "Sinks, melts into a ball and explodes with a flame",
+                  "**Even faster** than potassium",
+                  "Rubidium hydroxide solution, which is alkaline, and hydrogen gas"
+                ],
+                "explanation": "2Rb + 2H₂O → 2RbOH + H₂"
+              }
+            ]
+          }
+        },
+        { "type": "subheading", "text": "Reaction with chlorine" },
+        {
+          "type": "list",
+          "items": [
+            "Before: sodium is a silver solid and chlorine is a green gas.",
+            "During: hot sodium burns with a yellow or orange flame and the green colour fades.",
+            "After: a white solid, sodium chloride, is left."
+          ]
+        },
+        {
+          "type": "key-points",
+          "items": [
+            "Alkali metal + water → metal hydroxide + hydrogen. The solution is alkaline.",
+            "Alkali metal + oxygen → metal oxide. Alkali metal + chlorine → metal chloride.",
+            "Use a small piece of metal and a large trough of water to react safely."
+          ]
+        }
+      ]
+    },
+    {
+      "heading": "Reactivity down the group",
+      "blocks": [
+        { "type": "paragraph", "text": "Reactivity increases going down Group 1. The reason is in the electrons." },
+        {
+          "type": "steps",
+          "items": [
+            { "lead": "More shells.", "text": "Atoms lower down the group have more shells, so the outer electron is further from the nucleus." },
+            { "lead": "Less attraction.", "text": "There is more shielding, so the attraction between the nucleus and the outer electron is less." },
+            { "lead": "Lost more easily.", "text": "The outer electron is lost more easily, so the metal is more reactive." }
+          ]
+        },
+        {
+          "type": "list",
+          "items": [
+            "Lithium has the electronic structure 2,1 and potassium has 2,8,8,1.",
+            "Potassium has more shells than lithium, so it is more reactive.",
+            "Use the pattern to predict rubidium and caesium: they react more violently than potassium."
+          ]
+        },
+        {
+          "type": "key-points",
+          "items": [
+            "Reactivity increases down Group 1.",
+            "The outer electron is further from the nucleus, less attracted, and lost more easily.",
+            "Use the trend to predict the reactions of rubidium and caesium."
+          ]
+        }
+      ]
+    }
+  ],
+  "checks": [
+    {
+      "q": "Give two observations when a small piece of potassium is added to water.",
+      "a": "Any two from: it floats, melts, moves around, becomes smaller, effervescence (fizzing), a lilac flame.",
+      "marks": 2
+    },
+    {
+      "q": "Write a balanced equation for the reaction of lithium with water.",
+      "a": "2Li + 2H₂O → 2LiOH + H₂",
+      "marks": 2
+    },
+    {
+      "q": "Explain why rubidium is more reactive than potassium.",
+      "a": "The outer electron in rubidium is further from the nucleus, so there is less attraction between the nucleus and the outer electron. It is lost more easily.",
+      "marks": 3
+    }
+  ],
+  "boards": {
+    "aqa": {
+      "spec_codes": ["AQA 4.1.2.5", "AQA T 5.1.2.5"],
+      "exam_phrases": [
+        "the outer electron is further from the nucleus",
+        "less attraction between the nucleus and the outer electron",
+        "the atom loses an electron more easily",
+        "effervescence / bubbles / fizzing",
+        "(potassium) floats / moves around / melts / becomes smaller",
+        "blue / violet / purple, because the solution is alkaline",
+        "2K + 2H₂O → 2KOH + H₂"
+      ],
+      "mistakes": [
+        {
+          "wrong": "Potassium is more reactive because the nucleus attracts its outer electron more strongly.",
+          "right": "Incorrect attractions are not accepted. Down the group the attraction between the nucleus and the outer electron is less."
+        },
+        {
+          "wrong": "When potassium reacts with water, a gas is produced.",
+          "right": "'Gas produced' is ignored as an observation. Say effervescence, bubbles or fizzing. The colour of the flame is also ignored."
+        },
+        {
+          "wrong": "Universal indicator in potassium hydroxide solution turns red.",
+          "right": "It turns blue, violet or purple, because the solution is alkaline (it contains hydroxide ions)."
+        }
+      ],
+      "worked_example": {
+        "exemplar_id": "f734e464-20db-4914-9b5f-61c0a91bbe76",
+        "source": "AQA jun 2021, Paper 1 (H), Q04.3",
+        "question": "Explain why the reactivity of elements changes going down Group 1.",
+        "marks": 4,
+        "answer_points": [
+          "Reactivity increases going down the group.",
+          "The outer electron (shell) is further from the nucleus, or there are more shells.",
+          "So there is less attraction between the nucleus and the outer electron.",
+          "So the atom loses an electron more easily."
+        ],
+        "tip": "State the trend first, then give the chain of reasons. More shielding is also accepted."
+      }
+    },
+    "edexcel": {
+      "spec_codes": ["EDEX 6.2", "EDEX 6.3", "EDEX 6.4", "EDEX 6.5"],
+      "exam_phrases": [
+        "outer electron closer to the nucleus",
+        "so more attraction for the outer electron",
+        "the electron is harder to lose",
+        "1 electron in the outer shell",
+        "metal disappears, moves around, fizzing, flame, explodes",
+        "melting points decrease down the group"
+      ],
+      "mistakes": [
+        {
+          "wrong": "Lithium is less reactive than potassium because it has fewer outer shells.",
+          "right": "'Less outer shells' is rejected. Lithium has fewer shells, so its outer electron is closer to the nucleus."
+        },
+        {
+          "wrong": "Potassium and caesium are in the same group because they have the same number of electrons.",
+          "right": "This is rejected. They have the same number of electrons, one, in the outer shell."
+        },
+        {
+          "wrong": "Rubidium sinks in water and gives off hydrogen.",
+          "right": "Floating or sinking, and the name of the gas, are ignored. Say it disappears, moves around, fizzes, burns with a flame or explodes."
+        }
+      ],
+      "worked_example": {
+        "exemplar_id": "9a8c85cd-17b0-44b7-a733-a2960890c5ae",
+        "source": "EDEXCEL jun 2019, Paper 2 (H), Q6(b)(ii)",
+        "question": "Lithium, potassium and rubidium are alkali metals.\n\nThe electronic configuration of lithium is 2.1\nThe electronic configuration of potassium is 2.8.8.1\nLithium is less reactive than potassium.\n\nExplain, in terms of their electronic configurations, why lithium is less reactive than potassium.",
+        "marks": 3,
+        "answer_points": [
+          "The outer electron in lithium is closer to the nucleus.",
+          "So there is more attraction between the nucleus and the outer electron.",
+          "Therefore the electron is harder to lose."
+        ],
+        "tip": "Fewer shells, a smaller atomic radius or less shielding all score the first point. The reverse argument for potassium is also credited."
+      }
+    },
+    "ocr": {
+      "spec_codes": ["OCR C4.1a", "OCR C4.1b"],
+      "exam_phrases": [
+        "outer shell electron is further from the nucleus",
+        "less attraction between the nucleus and the outer shell electron / more shielding",
+        "outer electron is lost more easily",
+        "reacts violently / sparks / ignites / explodes",
+        "lilac flame",
+        "low density / low melting point"
+      ],
+      "mistakes": [
+        {
+          "wrong": "The outer electron is lost more quickly down the group.",
+          "right": "'More quickly' is ignored. Say the outer electron is lost more easily."
+        },
+        {
+          "wrong": "Group 1 elements are more reactive down the group because of weaker intermolecular forces.",
+          "right": "References to intermolecular forces are not allowed. Explain using the outer shell electron and its attraction to the nucleus."
+        },
+        {
+          "wrong": "The atoms get larger, so they are more reactive.",
+          "right": "A larger radius or more shells is accepted, but you must refer to the outer shell electron at least once to score all 3 marks."
+        }
+      ],
+      "worked_example": {
+        "exemplar_id": "f9d3766d-6ce6-444a-a1bb-18c5ecc4b463",
+        "source": "OCR jun 2024, Paper 2, Q21(b)(ii)",
+        "question": "The Group 1 elements all react with Group 7 elements to form ionic compounds.\n\nThe Group 1 elements become more reactive down the group.\n\nExplain why.",
+        "marks": 3,
+        "answer_points": [
+          "Down the group the outer shell electron is further from the nucleus.",
+          "There is less attraction between the nucleus and the outer shell electron, or more shielding.",
+          "The outer electron is lost more easily."
+        ],
+        "tip": "Each point is marked independently. Refer to the outer shell electron at least once to get all 3 marks."
+      }
+    }
+  },
+  "meta": {
+    "status": "draft",
+    "checked_by": "sonnet-science-check",
+    "checked_at": "2026-10-01",
+    "written_by": "claude-sonnet-5-5",
+    "written_at": "2026-10-01",
+    "spec_point_ids": [
+      "540cdf0f-e27a-415d-bb36-44a994a8e00d",
+      "ca5a58c6-b4b0-4f50-81b2-bf031b11e5d2",
+      "ffc9541f-0c4b-48ca-bc85-6150cc480a9b",
+      "27e5c31f-b15f-4581-8e3e-bde715e6ee5f",
+      "a996b524-30c3-4308-ae0e-8f372f5d7206",
+      "073665d8-b5b2-4d30-b72a-5f2a49dfd932",
+      "a62e76ed-9d93-4b0e-847a-48db3c96d8c6"
+    ],
+    "exemplar_ids": [
+      "f734e464-20db-4914-9b5f-61c0a91bbe76",
+      "9a8c85cd-17b0-44b7-a733-a2960890c5ae",
+      "f9d3766d-6ce6-444a-a1bb-18c5ecc4b463"
+    ]
+  }
+}

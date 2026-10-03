@@ -6,6 +6,8 @@ import { AppLayout } from "@/components/AppLayout";
 import { AwaitingMark, BuiltInHomework } from "@/components/BuiltInHomework";
 import { EmptyState, ErrorNote, SectionHeading, Spinner } from "@/components/Shared";
 import { useHomeworkSheet, useInvalidateHomework } from "@/hooks/data/useHomework";
+import { useEnrolments } from "@/hooks/data/useEnrolments";
+import { isOverdue } from "@/lib/homework/homeworkBuckets";
 import type { SubmissionRow } from "@/lib/homework/types";
 import { useRoles } from "@/hooks/useRole";
 import { acknowledgeSubmission } from "@/lib/homework/homework.functions";
@@ -22,6 +24,7 @@ export function HomeworkSheetPage() {
   const { isTutor, userId, loading: rolesLoading } = useRoles();
   const demo = isDemoStudent();
   const reload = useInvalidateHomework();
+  const { enrolments } = useEnrolments();
 
   const { data, isPending, error, refetch } = useHomeworkSheet({
     homeworkId,
@@ -68,7 +71,13 @@ export function HomeworkSheetPage() {
 
   const { hw, questions, answers } = data;
   const marked = !!submission?.graded_at;
-  const overdue = !submission && hw.due_at && new Date(hw.due_at) < new Date();
+  // The same rule as the list, so a brief set before the student joined isn't
+  // Overdue here either.
+  const overdue = isOverdue({
+    hw,
+    submission: submission ?? undefined,
+    enrolledAt: enrolments.find((e) => e.subject === hw.subject)?.enrolledAt,
+  });
 
   return (
     <AppLayout title={hw.title}>

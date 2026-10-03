@@ -315,6 +315,10 @@ async function handleSchedule(req: Request, studentId: string | undefined) {
 
 // ── undo ────────────────────────────────────────────────────────────────────
 
+function purgeStarted() {
+  return new HttpError(409, "The deletion has already started and can't be undone.");
+}
+
 async function handleUndo(req: Request, studentId: string | undefined) {
   const caller = await requireStaff(req);
   if (!studentId) throw new HttpError(400, "student_id is required.");
@@ -328,22 +332,29 @@ async function handleUndo(req: Request, studentId: string | undefined) {
     .maybeSingle<DeletionRow>();
   if (!row) throw new HttpError(404, "There's no deletion booked for this student.");
 
+  // A purge that has started and failed may already have cancelled the plan and
+  // deleted the files and parent links. Undoing then would bring back a hollow
+  // account and email the family that all is well. And once the date has passed,
+  // a purge may start at any moment. So undo ends when either happens.
+  const now = new Date();
+  if (row.attempts > 0 || new Date(row.purge_after) <= now) throw purgeStarted();
+
   // Taking the row out of "scheduled" is what stops the purge, so it goes
-  // first — and only if no purge is holding it right now.
+  // first — and only if no purge is holding it, has tried it, or can take it.
   const { data: freed } = await db
     .from("account_deletions")
     .update({
       status: "cancelled",
-      cancelled_at: new Date().toISOString(),
+      cancelled_at: now.toISOString(),
       cancelled_by: caller.id,
     })
     .eq("id", row.id)
     .eq("status", "scheduled")
+    .eq("attempts", 0)
+    .gt("purge_after", now.toISOString())
     .or(unclaimed())
     .select("id");
-  if (!freed?.length) {
-    throw new HttpError(409, "The deletion is running right now and can't be stopped.");
-  }
+  if (!freed?.length) throw purgeStarted();
 
   const { error: unbanError } = await db.auth.admin.updateUserById(studentId, {
     ban_duration: "none",

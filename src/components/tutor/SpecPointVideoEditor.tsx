@@ -72,14 +72,7 @@ async function checkLink(url: string): Promise<CheckState> {
   }
 }
 
-export function SpecPointVideoEditor({
-  video,
-  specPointId,
-  taxonomy,
-  userId,
-  onClose,
-  onSaved,
-}: Props) {
+export function SpecPointVideoEditor({ video, specPointId, taxonomy, onClose, onSaved }: Props) {
   const isNew = video === null;
   const [title, setTitle] = useState(video?.title ?? "");
   const [description, setDescription] = useState(video?.description ?? "");
@@ -111,30 +104,20 @@ export function SpecPointVideoEditor({
     setBusy(true);
 
     if (isNew) {
-      const { data: created, error } = await supabase
-        .from("resources")
-        .insert({
-          kind: "video",
-          title,
-          description,
-          video_url: videoUrl,
-          subject: taxonomy.subject,
-          board: taxonomy.board,
-          level: taxonomy.level,
-          created_by: userId,
-        })
-        .select("id")
-        .single();
+      // The video and its link to this point, in one transaction.
+      const { error } = await supabase.rpc("create_linked_resource", {
+        _kind: "video",
+        _title: title,
+        _description: description,
+        _subject: taxonomy.subject,
+        _level: taxonomy.level,
+        _board: taxonomy.board,
+        _spec_point_ids: [specPointId],
+        _video_url: videoUrl,
+      });
       if (error) {
         setBusy(false);
         return toast.error(error.message);
-      }
-      const { error: linkError } = await supabase
-        .from("resource_spec_points")
-        .insert({ resource_id: created.id, spec_point_id: specPointId });
-      if (linkError) {
-        setBusy(false);
-        return toast.error(linkError.message);
       }
     } else {
       const { error } = await supabase

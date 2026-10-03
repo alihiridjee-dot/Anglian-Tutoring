@@ -3,9 +3,9 @@ import { TaxonomyFields } from "./TaxonomyFields";
 import { SpecPointSelect } from "./SpecPointSelect";
 import { Video, Loader2, Sparkles } from "lucide-react";
 import { useLiveForm, type LiveFormProps } from "./useLiveForm";
-import { AiSuggestRow, BroadcastToggle, WeekLinkBanner } from "./LiveFormParts";
+import { AiSuggestRow, BroadcastToggle } from "./LiveFormParts";
 
-export function LiveForm({ userId, taxonomy, linkToWeek = false }: LiveFormProps) {
+export function LiveForm({ userId, taxonomy }: LiveFormProps) {
   const {
     title,
     setTitle,
@@ -23,15 +23,11 @@ export function LiveForm({ userId, taxonomy, linkToWeek = false }: LiveFormProps
     suggesting,
     broadcastWhatsApp,
     setBroadcastWhatsApp,
-    validStart,
-    weekLabel,
-    weekLoading,
-    weekFocus,
     generateZoomLink,
     generateDescription,
     suggestFromDescription,
     submit,
-  } = useLiveForm({ userId, taxonomy, linkToWeek });
+  } = useLiveForm({ userId, taxonomy });
 
   return (
     <form onSubmit={submit} className="space-y-4">
@@ -107,11 +103,6 @@ export function LiveForm({ userId, taxonomy, linkToWeek = false }: LiveFormProps
       </Field>
 
       <TaxonomyFields {...taxonomy} hideBoard />
-
-      {/* Week link banner — only in dashboard mode, once a date is picked. */}
-      {linkToWeek && validStart && (
-        <WeekLinkBanner weekLoading={weekLoading} weekFocus={weekFocus} weekLabel={weekLabel} />
-      )}
 
       <AiSuggestRow suggesting={suggesting} suggestFromDescription={suggestFromDescription} />
 

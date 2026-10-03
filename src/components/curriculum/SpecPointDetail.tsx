@@ -4,7 +4,7 @@ import { useServerFn } from "@tanstack/react-start";
 import { supabase } from "@/integrations/supabase/client";
 import { useRoles } from "@/hooks/useRole";
 import { type SubjectV, type BoardV, type LevelV } from "@/lib/curriculum/taxonomy";
-import { generateMcqSet } from "@/lib/mcq/mcq.functions";
+import { generateMcqSet, replaceMcqQuestions } from "@/lib/mcq/mcq.functions";
 import { toast } from "sonner";
 import { CurriculumDAL } from "@/lib/curriculum/curriculumDal";
 import type { SpecPoint, Resource, McqSet } from "@/lib/curriculum/types";
@@ -43,6 +43,7 @@ export function SpecPointDetail({
   const [resources, setResources] = useState<Resource[]>([]);
   const [mcqSets, setMcqSets] = useState<McqSet[]>([]);
   const [genLoading, setGenLoading] = useState(false);
+  const [replacingId, setReplacingId] = useState<string | null>(null);
   // `null` inside the object means "creating"; the outer null means closed.
   const [editingVideo, setEditingVideo] = useState<{ video: EditableVideo | null } | null>(null);
   const [activeVideo, setActiveVideo] = useState<{
@@ -51,6 +52,7 @@ export function SpecPointDetail({
     description?: string | null;
   } | null>(null);
   const genFn = useServerFn(generateMcqSet);
+  const replaceFn = useServerFn(replaceMcqQuestions);
 
   const reload = async () => {
     try {
@@ -74,7 +76,7 @@ export function SpecPointDetail({
       toast.success(
         res.created
           ? "Generated this point's MCQs — every student now shares them"
-          : "This point already has its MCQs — nothing new was generated",
+          : "This point already has its MCQs — use Replace questions to write new ones",
       );
       reload();
     } catch (e) {
@@ -93,11 +95,37 @@ export function SpecPointDetail({
     reload();
   };
 
+  // A quiz students have taken is refused by the database (S-18): their
+  // results would go with it. The refusal says how many, and points here.
   const delSet = async (setId: string) => {
-    if (!confirm("Delete this MCQ set?")) return;
+    if (
+      !confirm(
+        "Delete this MCQ set and its questions? A quiz students have taken can't be deleted.",
+      )
+    )
+      return;
     const { error } = await supabase.from("mcq_sets").delete().eq("id", setId);
     if (error) return toast.error(error.message);
     reload();
+  };
+
+  const replaceSet = async (setId: string) => {
+    if (
+      !confirm(
+        "Write a new set of questions for this quiz? The current questions are replaced for every student. Scores from past attempts stay as they are.",
+      )
+    )
+      return;
+    setReplacingId(setId);
+    try {
+      const res = await replaceFn({ data: { setId } });
+      toast.success(`Questions replaced — ${res.questions} new questions`);
+      reload();
+    } catch (e) {
+      toast.error(e instanceof Error ? e.message : "Couldn't replace the questions");
+    } finally {
+      setReplacingId(null);
+    }
   };
 
   return (
@@ -171,6 +199,15 @@ export function SpecPointDetail({
                         >
                           {s.published ? "Unpublish" : "Publish"}
                         </button>
+                        {s.origin === "generated" && (
+                          <button
+                            onClick={() => replaceSet(s.id)}
+                            disabled={replacingId !== null}
+                            className="inline-flex items-center text-xs px-2.5 py-1.5 min-h-11 sm:min-h-0 rounded-lg border border-border text-muted-foreground hover:text-foreground transition disabled:opacity-60"
+                          >
+                            {replacingId === s.id ? "Replacing…" : "Replace questions"}
+                          </button>
+                        )}
                         <button
                           onClick={() => delSet(s.id)}
                           aria-label={`Delete MCQ set ${s.title}`}
