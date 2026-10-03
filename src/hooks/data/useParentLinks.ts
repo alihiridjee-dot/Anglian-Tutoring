@@ -42,7 +42,8 @@ export interface PendingInvite {
 }
 
 /** The outcomes `invite_parent_by_email` reports without raising. */
-export type InviteOutcome = "invited" | "no_account" | "not_a_parent" | "already_linked";
+export type InviteOutcome =
+  "invited" | "no_account" | "not_a_parent" | "already_linked" | "not_a_student" | "rate_limited";
 
 /** How each non-raising outcome of invite_parent_by_email reads to the student. */
 export const INVITE_MESSAGE: Record<InviteOutcome, string> = {
@@ -50,6 +51,8 @@ export const INVITE_MESSAGE: Record<InviteOutcome, string> = {
   no_account: "No account uses that email yet — share your invite code with them instead.",
   not_a_parent: "That account isn't a parent/guardian account.",
   already_linked: "That parent is already linked to you.",
+  not_a_student: "Only a student account can invite a parent.",
+  rate_limited: "Too many invites in the last hour. Please try again later.",
 };
 
 /** The outcomes `link_child_by_code` reports without raising. */
@@ -212,14 +215,26 @@ export function useRevokeInvite() {
   });
 }
 
+/**
+ * Ends a link, from either side.
+ *
+ * Every unlink also gives the child a new invite code (the database trigger
+ * psl_rotate_invite_code), and the enrolments cache holds the code, so it is
+ * refreshed too, as useRotateInviteCode does. Otherwise the Parents page keeps
+ * showing the old, now dead code until a reload.
+ */
 export function useUnlinkParent() {
+  const qc = useQueryClient();
   const invalidate = useInvalidateLinks();
   return useMutation({
     mutationFn: async (linkId: string) => {
       const { error } = await supabase.rpc("unlink_parent", { _link_id: linkId });
       if (error) throw new Error(error.message);
     },
-    onSuccess: invalidate,
+    onSuccess: () => {
+      invalidate();
+      qc.invalidateQueries({ queryKey: ["user-enrolments-and-profile"] });
+    },
   });
 }
 

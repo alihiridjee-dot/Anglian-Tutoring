@@ -105,6 +105,30 @@ export function useSubscriptions(studentIds: string[]) {
 }
 
 /**
+ * Every plan on this payer's card, whoever it covers. A child who removes the
+ * parent paying doesn't take the plan with them: it keeps running on the
+ * parent's card, and only the parent can change or cancel it, so the parent's
+ * Billing page has to keep showing it. RLS lets the payer read the row
+ * (auth.uid() = user_id), and nothing else about the child.
+ */
+export function usePaidSubscriptions(payerId: string | null) {
+  return useQuery({
+    queryKey: [...BILLING_KEY, "paid-by", payerId],
+    queryFn: async (): Promise<SubscriptionRow[]> => {
+      const { data, error } = await supabase
+        .from("subscriptions")
+        .select(
+          "user_id, student_id, status, plan, current_period_end, cancel_at_period_end, stripe_subscription_id",
+        )
+        .eq("user_id", payerId!);
+      if (error) throw new Error(error.message);
+      return (data ?? []) as SubscriptionRow[];
+    },
+    enabled: !isDemoMode() && !!payerId,
+  });
+}
+
+/**
  * The signed-in student's own plan, and whether it is merely dormant.
  *
  * `resumable` is the one that matters: a paused plan (or one running to a

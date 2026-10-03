@@ -16,6 +16,7 @@ import type { Homework, SubmissionRow } from "@/lib/homework/types";
  *   submitted               -> submitted
  *   not submitted + due     -> due
  *   not submitted + no due  -> practice
+ *   due before they joined  -> practice
  *
  * A generated sheet has no due date, so it lands in practice without being
  * special-cased — and a tutor brief set without one lands there too, which is
@@ -28,16 +29,32 @@ export type HomeworkBucket = "due" | "submitted" | "marked" | "practice";
 export type HomeworkItem = {
   hw: Homework;
   submission?: SubmissionRow;
+  /** When the student took this subject up, if known. */
+  enrolledAt?: string | null;
 };
+
+/**
+ * A brief whose deadline passed before the student took the subject up.
+ *
+ * Briefs are visible to everyone on the subject and level, not set per student,
+ * so a student who joins in November also sees October's brief. Nobody asked
+ * them for it by that date, and calling it Overdue blames them for work set
+ * before they were here. It is still a good sheet, so it stays on offer as
+ * practice.
+ */
+export function wasDueBeforeJoining(item: HomeworkItem): boolean {
+  if (!item.hw.due_at || !item.enrolledAt) return false;
+  return new Date(item.hw.due_at).getTime() < new Date(item.enrolledAt).getTime();
+}
 
 export function bucketOf(item: HomeworkItem): HomeworkBucket {
   if (item.submission) return item.submission.graded_at ? "marked" : "submitted";
-  return item.hw.due_at ? "due" : "practice";
+  return item.hw.due_at && !wasDueBeforeJoining(item) ? "due" : "practice";
 }
 
 /** Past its due date and still not handed in. */
 export function isOverdue(item: HomeworkItem, now = Date.now()): boolean {
-  if (item.submission || !item.hw.due_at) return false;
+  if (item.submission || !item.hw.due_at || wasDueBeforeJoining(item)) return false;
   return new Date(item.hw.due_at).getTime() < now;
 }
 
@@ -64,9 +81,13 @@ const SORT: Record<HomeworkBucket, { key: (i: HomeworkItem) => string; descendin
   submitted: { key: (i) => i.submission?.submitted_at ?? "", descending: true },
   marked: { key: (i) => i.submission?.graded_at ?? "", descending: true },
   // Alphabetical by title, which for a generated sheet is its spec point code —
-  // so the practice section comes out in specification order.
+  // so the practice section comes out in specification order. That needs the
+  // numeric comparison below: as plain text, 4.1.1.10 sorts before 4.1.1.2.
   practice: { key: (i) => i.hw.title.toLocaleLowerCase(), descending: false },
 };
+
+/** Text order, with runs of digits compared as numbers. */
+const byKey = (a: string, b: string) => a.localeCompare(b, undefined, { numeric: true });
 
 /** The whole list, split into its sections and sorted inside each one. */
 export function groupHomework(items: HomeworkItem[]): Array<{
@@ -81,7 +102,7 @@ export function groupHomework(items: HomeworkItem[]): Array<{
   return BUCKET_ORDER.map((bucket) => {
     const { key, descending } = SORT[bucket];
     const sorted = [...(byBucket[bucket] ?? [])].sort((a, b) =>
-      descending ? key(b).localeCompare(key(a)) : key(a).localeCompare(key(b)),
+      descending ? byKey(key(b), key(a)) : byKey(key(a), key(b)),
     );
     return { bucket, items: sorted };
   }).filter((section) => section.items.length > 0);

@@ -1,5 +1,6 @@
 import { createServerFn } from "@tanstack/react-start";
 import Anthropic from "@anthropic-ai/sdk";
+import { NO_THINKING, completeText } from "@/lib/platform/aiText";
 import { requireSupabaseAuth } from "@/integrations/supabase/auth-middleware";
 import { requireTutorAi } from "@/lib/auth/tutorAi.server";
 
@@ -14,7 +15,7 @@ import { requireTutorAi } from "@/lib/auth/tutorAi.server";
 // Metrics come in as input rather than being re-queried server-side because the
 // coverage mapping (mapAttemptSources) is bound to the browser Supabase client;
 // the tutor already sees these numbers, so trusting the payload is fine for a
-// text-only generation. Mirrors the suggestSpecPoints / weeklySummary setup
+// text-only generation. Mirrors the suggestSpecPoints setup
 // (Anthropic claude-sonnet-5, needs ANTHROPIC_API_KEY).
 
 const MODEL = "claude-sonnet-5";
@@ -99,6 +100,7 @@ ${checkinLine}`;
     res = await client.messages.create({
       model: MODEL,
       max_tokens: 500,
+      thinking: NO_THINKING,
       system,
       messages: [{ role: "user", content: user }],
     });
@@ -109,11 +111,7 @@ ${checkinLine}`;
     throw new Error(`AI error: ${e instanceof Error ? e.message : String(e)}`);
   }
 
-  return res.content
-    .filter((b): b is Anthropic.TextBlock => b.type === "text")
-    .map((b) => b.text)
-    .join("")
-    .trim();
+  return completeText(res).trim();
 }
 
 /**

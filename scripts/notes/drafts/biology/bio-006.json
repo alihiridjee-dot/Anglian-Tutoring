@@ -1,0 +1,299 @@
+{
+  "format": 1,
+  "concept_id": "bio-006",
+  "subject": "biology",
+  "title": "Magnification calculations and units",
+  "key_idea": "Magnification links the size of an image to the real size of the object. To use the equation you must put both sizes in the same unit and convert between mm, µm and nm. Very small and very large numbers are written in standard form.",
+  "sections": [
+    {
+      "heading": "Calculating magnification",
+      "blocks": [
+        { "type": "paragraph", "text": "One equation links magnification, image size and real size. This section covers rearranging it and using it." },
+        {
+          "type": "equation",
+          "label": "Magnification",
+          "formula": "magnification = size of image ÷ size of real object",
+          "where": [
+            "size of image is measured on the picture or on the screen",
+            "size of real object is the actual size of the cell or structure",
+            "both sizes must be in the same unit",
+            "magnification has no unit"
+          ]
+        },
+        { "type": "subheading", "text": "Rearranging" },
+        {
+          "type": "list",
+          "items": [
+            "Real size = image size ÷ magnification.",
+            "Image size = real size × magnification.",
+            "To find the real size from an image, divide. To find the image size from the real size, multiply."
+          ]
+        },
+        { "type": "subheading", "text": "A worked calculation" },
+        {
+          "type": "steps",
+          "items": [
+            { "lead": "Write the equation.", "text": "Real length = image length ÷ magnification." },
+            { "lead": "Substitute.", "text": "A palisade cell has an image length of 28 mm at ×400. Real length = 28 ÷ 400." },
+            { "lead": "Evaluate.", "text": "28 ÷ 400 = 0.07 mm." },
+            { "lead": "Convert.", "text": "0.07 mm × 1000 = 70 µm." }
+          ]
+        },
+        {
+          "type": "diagram",
+          "diagram": {
+            "kind": "practice",
+            "alt": "Practise calculating the real size of a cell in micrometres from the image size in millimetres and the magnification. The numbers change each time.",
+            "question": "A cell's image is **{I} mm** long. The magnification is **×{M}**. Calculate the real length of the cell in micrometres (µm).",
+            "variables": [
+              { "id": "I", "min": 10, "max": 50, "step": 5 },
+              { "id": "M", "min": 400, "max": 1000, "step": 100 }
+            ],
+            "answer": { "formula": "I * 1000 / M", "unit": "µm", "decimals": 1 },
+            "working": [
+              "Real length = image length ÷ magnification",
+              "Real length = {I} ÷ {M} (in mm)",
+              "Convert to µm: multiply by 1000",
+              "Real length = {I} × 1000 ÷ {M} = **{answer}**"
+            ]
+          }
+        },
+        {
+          "type": "key-points",
+          "items": [
+            "Magnification = image size ÷ real size.",
+            "Put both sizes in the same unit before you divide.",
+            "Do not give magnification a unit."
+          ]
+        }
+      ]
+    },
+    {
+      "heading": "Units and standard form",
+      "blocks": [
+        { "type": "paragraph", "text": "Cells are measured in very small units. You need to convert between them and write numbers in standard form." },
+        {
+          "type": "table",
+          "columns": ["Unit", "Symbol", "In metres"],
+          "rows": [
+            ["millimetre", "mm", "10⁻³ m"],
+            ["micrometre", "µm", "10⁻⁶ m"],
+            ["nanometre", "nm", "10⁻⁹ m"],
+            ["picometre", "pm", "10⁻¹² m"]
+          ]
+        },
+        { "type": "subheading", "text": "Converting between units" },
+        {
+          "type": "list",
+          "items": [
+            "mm to µm: multiply by 1000. µm to nm: multiply by 1000.",
+            "Going the other way: divide by 1000.",
+            "1 cm = 10 mm, so 1 cm = 10 000 µm.",
+            "Example: 0.075 mm × 1000 = 75 µm."
+          ]
+        },
+        {
+          "type": "definitions",
+          "items": [
+            { "term": "Standard form", "meaning": "A number written as A × 10ⁿ, where A is between 1 and 10." }
+          ]
+        },
+        {
+          "type": "list",
+          "items": [
+            "Big numbers have a positive power: 6000 µm = 6 × 10³ µm.",
+            "Small numbers have a negative power: 0.04 mm = 4 × 10⁻² mm.",
+            "6 mm in micrometres is 6 × 10³ µm, not 6 × 10⁻³ µm."
+          ]
+        },
+        {
+          "type": "key-points",
+          "items": [
+            "1 mm = 1000 µm and 1 µm = 1000 nm.",
+            "Small numbers in standard form have a negative power of ten.",
+            "Check your answer is sensible: cells are tens of micrometres across."
+          ]
+        }
+      ]
+    },
+    {
+      "heading": "Estimating sizes",
+      "blocks": [
+        { "type": "paragraph", "text": "You can estimate the size of a cell by counting how many fit across the field of view." },
+        {
+          "type": "steps",
+          "items": [
+            { "lead": "Measure the field of view.", "text": "Place a ruler on the stage, focus on it and measure the diameter of the field of view in millimetres." },
+            { "lead": "View the cells.", "text": "Replace the ruler with the slide and focus on the cells at the same magnification." },
+            { "lead": "Count.", "text": "Count the number of cells that fit across the field of view." },
+            { "lead": "Divide.", "text": "Length of one cell = diameter of the field of view ÷ number of cells." }
+          ]
+        },
+        { "type": "subheading", "text": "Order of magnitude" },
+        {
+          "type": "list",
+          "items": [
+            "An order of magnitude is a power of ten: 10 times bigger is one order, 100 times bigger is two orders.",
+            "Divide the larger size by the smaller size, in the same unit.",
+            "Example: a 40 mm egg and a 0.4 mm egg. 40 ÷ 0.4 = 100, which is 2 orders of magnitude."
+          ]
+        },
+        {
+          "type": "key-points",
+          "items": [
+            "Field of view ÷ number of cells gives an estimate of cell length.",
+            "Take the mean of several cells for a better estimate.",
+            "Orders of magnitude compare sizes as powers of ten."
+          ]
+        }
+      ]
+    }
+  ],
+  "checks": [
+    {
+      "q": "A cell has an image width of 40 mm. Its real width is 0.1 mm. Calculate the magnification.",
+      "a": "40 ÷ 0.1 = 400, so ×400. There is no unit.",
+      "marks": 2
+    },
+    {
+      "q": "A cell is magnified ×500. Its real length is 0.04 mm. Calculate the length of the image.",
+      "a": "0.04 × 500 = 20 mm.",
+      "marks": 2
+    },
+    {
+      "q": "Write 0.0125 mm in micrometres and give 6 mm in micrometres in standard form.",
+      "a": "0.0125 × 1000 = 12.5 µm. 6 mm = 6000 µm = 6 × 10³ µm.",
+      "marks": 2
+    }
+  ],
+  "boards": {
+    "aqa": {
+      "spec_codes": ["AQA 1.4", "AQA T 4.1.1.5"],
+      "exam_phrases": [
+        "magnification = size of image ÷ size of real object",
+        "size of real object = size of image ÷ magnification",
+        "1 mm = 1000 µm",
+        "measure the diameter of the field of view in millimetres",
+        "divide the width of the field of view by the number of cells",
+        "(mean) size of real cell = (mean cell) image size ÷ magnification"
+      ],
+      "mistakes": [
+        {
+          "wrong": "The magnification is ×40 µm.",
+          "right": "A magnification with a unit is not accepted. Give ×40 or 40."
+        },
+        {
+          "wrong": "Estimate the mean length of onion cells by measuring one cell.",
+          "right": "Measure several cells (three or more), then calculate a mean. Real size = mean image size ÷ magnification."
+        },
+        {
+          "wrong": "Look at the cells on the highest power first.",
+          "right": "Focus under low power first using the focusing knob, then increase the magnification."
+        }
+      ],
+      "worked_example": {
+        "exemplar_id": "ef102107-9714-4b17-88d8-d082d1f2a842",
+        "source": "AQA jun 2022, Paper 1 (H), Q03.3",
+        "question": "A student viewed cells under a microscope at a magnification of ×400. The length of cell Z in the image is 4.8 cm. Calculate the real length of cell Z. Give your answer in micrometres (µm).",
+        "marks": 5,
+        "answer_points": [
+          "Equation: magnification = size of image ÷ size of real object.",
+          "Rearranged: size of real object = size of image ÷ magnification.",
+          "Substitution: 4.8 ÷ 400.",
+          "Evaluation: 0.012 cm.",
+          "Conversion to micrometres: 120 µm."
+        ],
+        "tip": "Marks are for the equation, rearranging, substituting, evaluating and converting the unit. 1 cm = 10 000 µm."
+      }
+    },
+    "edexcel": {
+      "spec_codes": ["EDEX 1.4", "EDEX 1.5"],
+      "exam_phrases": [
+        "substitution: 6 ÷ 150",
+        "evaluation: 0.04 mm",
+        "answer in standard form: 4.0 × 10⁻² mm",
+        "micrometre = 10⁻⁶ m, nanometre = 10⁻⁹ m, picometre = 10⁻¹² m",
+        "1000 micrometres in 1 mm",
+        "image length = actual length × magnification"
+      ],
+      "mistakes": [
+        {
+          "wrong": "6 mm is 6 × 10⁻³ µm.",
+          "right": "6 × 10⁻³ is rejected. 6 mm = 6000 µm = 6 × 10³ µm."
+        },
+        {
+          "wrong": "To find the image length, divide the actual length by the magnification.",
+          "right": "Multiply. Image length = actual length × magnification, for example 0.04 mm × 500 = 20 mm."
+        },
+        {
+          "wrong": "There are 100 micrometres in 1 mm.",
+          "right": "There are 1000 micrometres in 1 mm."
+        }
+      ],
+      "worked_example": {
+        "exemplar_id": "6cf56d86-20f1-46fd-ba32-cc3cb0418790",
+        "source": "EDEXCEL jun 2023, Paper 2 (H), Q9(a)(ii)",
+        "question": "The length of one guard cell in this image is 6 mm. The image has been magnified 150×. Calculate the actual size of the guard cell. Give your answer in standard form in mm.",
+        "marks": 3,
+        "answer_points": [
+          "Substitution: 6 ÷ 150.",
+          "Evaluation: 0.04 mm.",
+          "Standard form: 4.0 × 10⁻² mm."
+        ],
+        "tip": "4 × 10⁻² scores full marks. Do not stop at 0.04 when the question asks for standard form."
+      }
+    },
+    "ocr": {
+      "spec_codes": ["OCR 1.1a"],
+      "exam_phrases": [
+        "image size ÷ magnification",
+        "× 1000 to convert mm to µm",
+        "total magnification = eyepiece × objective",
+        "40 ÷ 0.4 = 100, which is 2 orders of magnitude",
+        "smallest cell is 8 µm, which is greater than 0.2 µm"
+      ],
+      "mistakes": [
+        {
+          "wrong": "A cell of 0.008 mm is smaller than 0.2 µm, so a light microscope cannot show it.",
+          "right": "Convert to the same unit first. 0.008 mm = 8 µm, which is greater than 0.2 µm (the smallest a light microscope can show), so the cell can be seen."
+        },
+        {
+          "wrong": "Total magnification = eyepiece + objective.",
+          "right": "Multiply the two lenses: ×10 eyepiece and ×40 objective give ×400."
+        },
+        {
+          "wrong": "A 40 mm egg and a 0.4 mm egg are 100 orders of magnitude apart.",
+          "right": "The size is 100 times bigger. 100 = 10², so it is 2 orders of magnitude."
+        }
+      ],
+      "worked_example": {
+        "exemplar_id": "8c0a0acf-b0ed-4a2c-a265-bda8914683a1",
+        "source": "OCR jun 2022, Paper 3, Q22(b)",
+        "question": "The diagram has a magnification of ×400. The width of the stoma is 5 mm. Calculate the actual size of the stoma. Give your answer in micrometres. (1 mm = 1000 micrometres)",
+        "marks": 2,
+        "answer_points": [
+          "5 ÷ 400 = 0.0125 mm.",
+          "0.0125 × 1000 = 12.5 µm."
+        ],
+        "tip": "The correct answer of 12.5 scores both marks. A correct conversion by × 1000 earns a mark."
+      }
+    }
+  },
+  "meta": {
+    "status": "draft",
+    "checked_by": "sonnet-science-check",
+    "checked_at": "2026-10-01",
+    "written_by": "Claude Sonnet 5.5",
+    "written_at": "2026-10-01",
+    "spec_point_ids": [
+      "6d5e3b85-92a8-4504-b4c7-ec63c293aea1",
+      "fa0bba27-ee0b-4783-ab88-954822ee4545",
+      "e501296b-de8d-42d0-a0d4-2a67f325d649"
+    ],
+    "exemplar_ids": [
+      "ef102107-9714-4b17-88d8-d082d1f2a842",
+      "6cf56d86-20f1-46fd-ba32-cc3cb0418790",
+      "8c0a0acf-b0ed-4a2c-a265-bda8914683a1"
+    ]
+  }
+}
