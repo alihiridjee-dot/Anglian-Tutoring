@@ -12,6 +12,8 @@ export const DB = {
   /** table -> an error every query on it returns (a missing table, a timeout). */
   broken: {} as Record<string, { code: string; message: string }>,
   users: {} as Record<string, { id: string; email: string }>, // bearer token -> user
+  /** rpc name -> stand-in; `caller` is the bearer token the client was made with. */
+  rpcs: {} as Record<string, (args: any, caller: string | null) => { data: any; error: any }>,
 };
 
 export function resetDb() {
@@ -22,6 +24,7 @@ export function resetDb() {
   };
   DB.broken = {};
   DB.users = {};
+  DB.rpcs = {};
 }
 resetDb();
 
@@ -152,12 +155,22 @@ class Query implements PromiseLike<any> {
   }
 }
 
-export function createClient(_url?: string, _key?: string, _opts?: unknown) {
+export function createClient(
+  _url?: string,
+  _key?: string,
+  opts?: { global?: { headers?: Record<string, string> } },
+) {
+  // A client made "as the caller" carries their token in its headers.
+  const bearer = opts?.global?.headers?.Authorization?.replace(/^Bearer\s+/i, "") ?? null;
   return {
     from: (t: string) => new Query(t),
+    rpc: async (name: string, args: any) =>
+      DB.rpcs[name]
+        ? DB.rpcs[name](args, bearer)
+        : { data: null, error: { code: "PGRST202", message: `no function ${name}` } },
     auth: {
-      getUser: async (token: string) => {
-        const u = DB.users[token];
+      getUser: async (token?: string) => {
+        const u = DB.users[token ?? bearer ?? ""];
         return u
           ? { data: { user: u }, error: null }
           : { data: { user: null }, error: { message: "bad jwt" } };

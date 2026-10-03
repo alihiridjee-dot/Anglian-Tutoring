@@ -436,6 +436,7 @@ export type Database = {
         Row: {
           acknowledged_at: string | null;
           ai_marked_at: string | null;
+          ai_marking_started_at: string | null;
           feedback: string | null;
           files: Json;
           files_deleted_at: string | null;
@@ -454,6 +455,7 @@ export type Database = {
         Insert: {
           acknowledged_at?: string | null;
           ai_marked_at?: string | null;
+          ai_marking_started_at?: string | null;
           feedback?: string | null;
           files?: Json;
           files_deleted_at?: string | null;
@@ -472,6 +474,7 @@ export type Database = {
         Update: {
           acknowledged_at?: string | null;
           ai_marked_at?: string | null;
+          ai_marking_started_at?: string | null;
           feedback?: string | null;
           files?: Json;
           files_deleted_at?: string | null;
@@ -1964,6 +1967,7 @@ export type Database = {
       };
       assessment_scheduler_version: { Args: never; Returns: number };
       chat_unread_count: { Args: never; Returns: number };
+      claim_homework_marking: { Args: { _submission_id: string }; Returns: boolean };
       claim_ai_request: {
         Args: { _endpoint: string; _limit: number; _window: string };
         Returns: boolean;
