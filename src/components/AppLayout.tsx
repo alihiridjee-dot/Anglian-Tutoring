@@ -358,6 +358,7 @@ export function AppLayout({ title, children }: { title: string; children: ReactN
               // Tutors manage families from /students; the item would point a
               // tutor at a page about their own parents, which they don't have.
               showLinkedParents={!isTutor}
+              isParent={userRole === "parent"}
               isDemo={isDemo}
             />
           </div>

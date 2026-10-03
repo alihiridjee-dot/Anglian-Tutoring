@@ -4,6 +4,12 @@ import { useState } from "react";
 import { useCurriculumCoverage } from "@/hooks/data/useCurriculumCoverage";
 import { boardLabel } from "@/lib/curriculum/courseSummary";
 import { isBoard, isSubject, type BoardV, type LevelV } from "@/lib/curriculum/taxonomy";
+import {
+  BEST_VALUE_CADENCE,
+  BEST_VALUE_LABEL,
+  WEEKS_PER_CYCLE,
+  type Cadence,
+} from "@/lib/billing/entitlements";
 
 // ---------------------------------------------------------------------------
 // Pricing model
@@ -27,18 +33,11 @@ import { isBoard, isSubject, type BoardV, type LevelV } from "@/lib/curriculum/t
 // ---------------------------------------------------------------------------
 
 type Count = 1 | 2 | 3;
-type Cadence = "weekly" | "monthly" | "termly";
 
 const PRICE_PENCE: Record<Cadence, Record<Count, number>> = {
   weekly: { 1: 1999, 2: 2239, 3: 2399 },
   monthly: { 1: 4999, 2: 5599, 3: 5999 },
   termly: { 1: 13999, 2: 15699, 3: 16799 },
-};
-
-const SESSIONS: Record<Cadence, (n: Count) => number> = {
-  weekly: (n) => n,
-  monthly: (n) => 4 * n,
-  termly: (n) => 12 * n,
 };
 
 const CADENCES: {
@@ -56,7 +55,9 @@ const CADENCES: {
     badge: "Saving",
     highlight: true,
   },
-  { cadence: "termly", name: "Termly", billing: "per term", badge: "Best value", highlight: false },
+  // "Best value" goes on BEST_VALUE_CADENCE, shared with the plan step, so the
+  // badges below are what each card says when it isn't that one.
+  { cadence: "termly", name: "Termly", billing: "per term", badge: "Saving", highlight: false },
 ];
 
 // Maths is the one subject not taught at all yet. Whether a science is taught at
@@ -331,7 +332,7 @@ export function PricingSection() {
 /** Live pricing tiers — all three shown side by side, each a full-height
  *  premium card. The wrapper is h-full so the row (items-stretch on the outer
  *  grid) makes every card match the builder's height exactly. The middle
- *  "Best value" tier is lifted and styled dark to draw the eye. */
+ *  highlighted tier is lifted and styled dark to draw the eye. */
 function PricingTiers({
   count,
   level_key,
@@ -347,7 +348,8 @@ function PricingTiers({
     <div className="grid h-full grid-cols-1 gap-3 sm:grid-cols-3 sm:gap-4">
       {CADENCES.map((tier) => {
         const pence = PRICE_PENCE[tier.cadence][count];
-        const perSession = pence / SESSIONS[tier.cadence](count);
+        // One live session per subject per week, over the shared weeks per cycle.
+        const perSession = pence / (WEEKS_PER_CYCLE[tier.cadence] * count);
         const weeklyLessons = count;
         const dark = tier.highlight;
 
@@ -377,7 +379,7 @@ function PricingTiers({
                     : "chip text-[9px] tracking-wider uppercase"
                 }
               >
-                {tier.badge}
+                {tier.cadence === BEST_VALUE_CADENCE ? BEST_VALUE_LABEL : tier.badge}
               </span>
               <h3 className="mt-2.5 font-display text-lg font-bold leading-tight">{tier.name}</h3>
             </div>

@@ -4,38 +4,24 @@ import { isDemoStudent, DEMO_ANALYTICS } from "@/lib/demo/studentDemo";
 import { summariseAnalytics, type SubjectAnalytics } from "@/lib/profile/analytics";
 
 async function fetchAnalytics(userId: string, subjects: string[]): Promise<SubjectAnalytics[]> {
-  const [attempts, subs] = await Promise.all([
-    // MCQ attempts joined to sets (for subject)
-    supabase
-      .from("mcq_attempts")
-      .select("score, total, mcq_sets(subject)")
-      .eq("user_id", userId)
-      .order("created_at", { ascending: false })
-      .limit(200),
-    supabase
-      .from("homework_submissions")
-      .select("score_pct, resources(subject)")
-      .eq("student_id", userId)
-      .not("score_pct", "is", null)
-      .order("graded_at", { ascending: false })
-      .limit(200),
-  ]);
+  // Through the read model, not embeds of mcq_sets and resources: those sit
+  // behind the paywall, so a paused or lapsed child's work lost its subject and
+  // every card said "No marked work yet" (S-23).
+  const { data, error } = await supabase.rpc("student_scored_work", { _student_id: userId });
   // A failed read must not be averaged as "no work done" — that put a predicted
   // grade of 1 in front of a parent because a request timed out.
-  if (attempts.error) throw attempts.error;
-  if (subs.error) throw subs.error;
+  if (error) throw error;
 
-  return summariseAnalytics(
-    subjects,
-    (attempts.data ?? []).map((a) => ({
-      subject: (a.mcq_sets as unknown as { subject: string | null } | null)?.subject,
-      pct: a.total > 0 ? (a.score / a.total) * 100 : 0,
-    })),
-    (subs.data ?? []).map((h) => ({
-      subject: (h.resources as unknown as { subject: string | null } | null)?.subject,
-      pct: Number(h.score_pct),
-    })),
-  );
+  // The newest 200 of each, as before.
+  const newest = (kind: string) =>
+    (data ?? [])
+      .filter((w) => w.kind === kind)
+      .sort((a, b) => b.scored_at.localeCompare(a.scored_at))
+      .slice(0, 200)
+      // A quiz with no questions has no percentage; it counted as 0 before.
+      .map((w) => ({ subject: w.subject, pct: w.pct === null ? 0 : Number(w.pct) }));
+
+  return summariseAnalytics(subjects, newest("quiz"), newest("homework"));
 }
 
 /**

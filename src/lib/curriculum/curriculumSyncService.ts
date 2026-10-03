@@ -22,6 +22,25 @@ export interface SyncResult {
   insertedPointsCount?: number;
 }
 
+// The first word of a measured quantity in a spec's prose ("1.5 kg of water",
+// "2.5 × 10³"), which no spec code is followed by. "A" for amps is left out:
+// it's also the article a point's title can start with.
+const QUANTITY_WORDS = new Set(
+  (
+    "kg g mg µg μg t m cm mm km µm μm nm s ms min mins h hr hrs J kJ MJ N kN W kW MW " +
+    "V mV kV mA Ω Pa kPa Hz kHz MHz mol dm³ dm3 cm³ cm3 m³ m3 m² m2 cm² ml mL l L " +
+    "°C ° K % × x = - – times per million billion thousand"
+  ).split(" "),
+);
+
+function startsWithQuantity(text: string): boolean {
+  const first = text
+    .split(/\s/)[0]
+    .replace(/[,;:)]+$/, "")
+    .split("/")[0];
+  return QUANTITY_WORDS.has(first);
+}
+
 export class CurriculumSyncService {
   /**
    * Utility to parse unstructured curriculum specification texts (e.g., from PDFs)
@@ -41,7 +60,7 @@ export class CurriculumSyncService {
     let topicTitle = "New Topic";
     let topicCode = "Topic X";
     const topicDescription = "Manual/PDF Uploaded Curriculum Module";
-    const specPoints: Array<{ code: string; title: string; description?: string }> = [];
+    let specPoints: Array<{ code: string; title: string; description?: string }> = [];
 
     // Simple heuristic parser for specification lines
     // Look for patterns like "B1.1a describe how...", "1.1 Eukaryotic...", or "B1.1 Cell structures"
@@ -59,11 +78,14 @@ export class CurriculumSyncService {
         continue;
       }
 
-      // Detect spec points. Match codes like B1.1a, 1.1, B1.1, etc.
-      const specMatch = line.match(/^([A-Z]?\d+\.\d+[a-z]?)\s+(.+)$/i);
-      if (specMatch) {
+      // Detect spec points. Match codes at any depth: B1.1a, 1.1, AQA's
+      // 4.1.1.1, Cambridge's 2.1.1 and 1.1.1S, Edexcel's 1.1B.
+      const specMatch = line.match(/^([A-Z]?\d+(?:\.\d+)+[A-Z]{0,2})\s+(.+)$/i);
+      if (specMatch && !startsWithQuantity(specMatch[2])) {
         const code = specMatch[1];
-        const titleAndDesc = specMatch[2];
+        // A contents page's dot leaders and page number aren't part of the title.
+        const titleAndDesc = specMatch[2].replace(/\s*(?:\.\s*){3,}\d*\s*$|\s*…+\s*\d*\s*$/, "");
+        if (!titleAndDesc) continue;
 
         // If there's a long sentence, make the first part the title and the rest description
         const sentenceEnd = titleAndDesc.indexOf(".");
@@ -75,6 +97,12 @@ export class CurriculumSyncService {
           specDesc = titleAndDesc.substring(sentenceEnd + 1).trim();
         }
 
+        // A contents page repeats codes the body has: keep one of each.
+        const seen = specPoints.find((p) => p.code === code);
+        if (seen) {
+          seen.description ??= specDesc || undefined;
+          continue;
+        }
         specPoints.push({
           code,
           title: specTitle,
@@ -82,6 +110,23 @@ export class CurriculumSyncService {
         });
       }
     }
+
+    // A code with points under it (4.1.1 above 4.1.1.1, B1.1 above B1.1a) is a
+    // section heading, not a point. Edexcel's B/C/P and Cambridge's S are
+    // capitals, so they never count as children.
+    const headings = new Set(
+      specPoints
+        .filter((p) =>
+          specPoints.some(
+            (c) =>
+              c.code.length > p.code.length &&
+              c.code.startsWith(p.code) &&
+              /^[.a-z]/.test(c.code[p.code.length]),
+          ),
+        )
+        .map((p) => p.code),
+    );
+    specPoints = specPoints.filter((p) => !headings.has(p.code));
 
     // Fallback if no specific topic structure was found
     if (specPoints.length === 0 && lines.length > 0) {
@@ -112,64 +157,34 @@ export class CurriculumSyncService {
   }
 
   /**
-   * Inserts parsed curriculum (topics, spec points, and a default MCQ set per
-   * point) into the shared database. Demo and real accounts read the same rows;
-   * demo access is limited only by RLS on MCQs/homework/live sessions.
+   * Inserts parsed curriculum (a topic and its spec points) into the shared
+   * database in one transaction: all of it or none of it. Demo and real
+   * accounts read the same rows; demo access is limited only by RLS on
+   * MCQs/homework/live sessions. No quiz sets are made: an empty one would be
+   * published to students with nothing in it.
    */
-  private static async insertCurriculum(
-    data: ParsedCurriculum,
-    userId: string,
-  ): Promise<SyncResult> {
+  private static async insertCurriculum(data: ParsedCurriculum): Promise<SyncResult> {
     try {
-      const { data: topicRow, error: topicErr } = await supabase
-        .from("topics")
-        .insert({
-          board: data.board,
-          level: data.level,
-          subject: data.subject,
-          code: data.topicCode,
-          title: data.topicTitle,
-          description: data.topicDescription || null,
-          created_by: userId,
-          sort_order: 100, // Put manually added topics lower down
-        })
-        .select("id")
-        .single();
-
-      if (topicErr) return { success: false, error: topicErr.message };
-
-      const topicId = topicRow.id;
-      let pointsCount = 0;
-
-      for (const pt of data.specPoints) {
-        const { data: ptRow, error: ptErr } = await supabase
-          .from("spec_points")
-          .insert({
-            topic_id: topicId,
-            code: pt.code,
-            title: pt.title,
-            description: pt.description || null,
-            created_by: userId,
-          })
-          .select("id")
-          .single();
-
-        if (!ptErr && ptRow) {
-          pointsCount++;
-
-          // Create connected default MCQ set for click readiness
-          await supabase.from("mcq_sets").insert({
-            spec_point_id: ptRow.id,
-            title: `${data.topicTitle}: ${pt.title} MCQ Set`,
-            description: `Practice assessment for ${pt.title}`,
-            published: true,
-            subject: data.subject,
-            created_by: userId,
-          });
-        }
-      }
-
-      return { success: true, insertedTopicId: topicId, insertedPointsCount: pointsCount };
+      const { data: row, error } = await supabase.rpc("import_curriculum_topic", {
+        _subject: data.subject,
+        _board: data.board,
+        _level: data.level,
+        _topic_code: data.topicCode,
+        _topic_title: data.topicTitle,
+        _topic_description: data.topicDescription ?? null,
+        _points: data.specPoints.map((pt) => ({
+          code: pt.code,
+          title: pt.title,
+          description: pt.description ?? null,
+        })),
+      });
+      if (error) return { success: false, error: error.message };
+      const result = row as { topic_id: string; points: number };
+      return {
+        success: true,
+        insertedTopicId: result.topic_id,
+        insertedPointsCount: result.points,
+      };
     } catch (e: unknown) {
       return { success: false, error: e instanceof Error ? e.message : String(e) };
     }
@@ -183,12 +198,7 @@ export class CurriculumSyncService {
   static async uploadCurriculum(
     data: ParsedCurriculum,
   ): Promise<{ production: SyncResult; demo: SyncResult }> {
-    const {
-      data: { user },
-    } = await supabase.auth.getUser();
-    const userId = user?.id || "00000000-0000-0000-0000-000000000000";
-
-    const result = await this.insertCurriculum(data, userId);
+    const result = await this.insertCurriculum(data);
     return { production: result, demo: result };
   }
 }

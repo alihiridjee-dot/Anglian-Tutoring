@@ -1,3 +1,5 @@
+import { addWeeks, mondayOf, plannerDateLabel, toDateKey } from "@/lib/planner/week";
+
 export interface SubjectAnalytics {
   subject: string;
   mcqAttempts: number;
@@ -116,5 +118,31 @@ export function summariseAnalytics(
       hwAverage: Math.round(hwAvg),
       predictedGrade: gradeFromPct(composite),
     };
+  });
+}
+
+/** One week on the trends chart's x-axis. */
+export interface TrendWeek {
+  /** The Monday that starts the week, as a London calendar date. */
+  weekStart: string;
+  /** Short axis label, e.g. "7 Jul". */
+  label: string;
+}
+
+/**
+ * The run of `weeks` weeks ending with this one, oldest first, on UK time.
+ *
+ * Weeks are London weeks everywhere else (the planner, quiz dates), so the
+ * chart steps and labels them in London too. Stepping back with the viewer's
+ * own calendar (`setDate(getDate() - 7)`) slid the London Monday onto a Sunday
+ * whenever the viewer's clocks and the UK's change on different dates: in New
+ * York the week of 26 Oct 2026 was keyed on the Sunday and never plotted, and
+ * labels showed a day early (S-25).
+ */
+export function trendWeeks(weeks: number, now: Date = new Date()): TrendWeek[] {
+  const thisWeek = mondayOf(now);
+  return Array.from({ length: weeks }, (_, i) => {
+    const monday = addWeeks(thisWeek, i - (weeks - 1));
+    return { weekStart: toDateKey(monday), label: plannerDateLabel(monday) };
   });
 }

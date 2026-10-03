@@ -4,7 +4,13 @@ import { Check, Loader2 } from "lucide-react";
 import { toast } from "sonner";
 import { usePackages, useChangeCadence } from "@/hooks/data/useBilling";
 import { formatPence, billingIntervalLabel, startCheckout } from "@/lib/billing/billing";
-import { planCadence, tierFor, CADENCES, type Cadence } from "@/lib/billing/entitlements";
+import {
+  planCadence,
+  pricePerWeek,
+  tierFor,
+  CADENCES,
+  type Cadence,
+} from "@/lib/billing/entitlements";
 import { CadenceChangeDialog } from "@/components/billing/CadenceChangeDialog";
 import { TrialCodeField } from "@/components/billing/TrialCodeField";
 import { readTrialCode } from "@/lib/billing/trialCode";
@@ -25,6 +31,12 @@ interface CadenceSwitcherProps {
   canManage: boolean;
   /** Whose plan it is ("Alex"), for the parent view. Omit for own plan. */
   ownerLabel?: string;
+  /**
+   * The student has a subscription row, even an ended one. Trials are for new
+   * students only (stripe-checkout refuses the rest), so no code is offered or
+   * sent — a stored one would only get the purchase refused.
+   */
+  hadPlan?: boolean;
 }
 
 /**
@@ -50,6 +62,7 @@ export function CadenceSwitcher({
   level,
   canManage,
   ownerLabel,
+  hadPlan = false,
 }: CadenceSwitcherProps) {
   const { data: packages = [] } = usePackages(level);
   const change = useChangeCadence();
@@ -66,18 +79,23 @@ export function CadenceSwitcher({
   const pkgFor = (c: Cadence) => packages.find((p) => p.tier === tierFor(c, count));
 
   // Everything is quoted per week so three different billing rhythms can be
-  // compared at a glance — the entire reason someone opens this control.
+  // compared at a glance — the entire reason someone opens this control. Weeks
+  // per cycle are the shared 4 a month and 12 a term, as on the landing page.
   const perWeek = (c: Cadence) => {
     const pence = pkgFor(c)?.price_pence;
-    if (pence == null) return null;
-    return c === "weekly" ? pence : c === "monthly" ? pence / 4.345 : pence / 13;
+    return pence == null ? null : pricePerWeek(c, pence);
   };
   const weeklyBaseline = perWeek("weekly");
 
   const buy = async (c: Cadence) => {
     setBuying(c);
     try {
-      await startCheckout({ tier: tierFor(c, count), studentId, returnTo: "billing", trialCode });
+      await startCheckout({
+        tier: tierFor(c, count),
+        studentId,
+        returnTo: "billing",
+        trialCode: hadPlan ? undefined : trialCode,
+      });
     } catch (err) {
       toast.error(err instanceof Error ? err.message : "Couldn't open checkout — try again.");
       setBuying(null);
@@ -112,7 +130,9 @@ export function CadenceSwitcher({
         for longer. {currentTier && "Switching is prorated, never a fresh charge."}
       </p>
 
-      {!currentTier && canManage && <TrialCodeField value={trialCode} onChange={setTrialCode} />}
+      {!currentTier && canManage && !hadPlan && (
+        <TrialCodeField value={trialCode} onChange={setTrialCode} />
+      )}
 
       <div className="mt-4 space-y-2">
         {CADENCES.map((c) => {

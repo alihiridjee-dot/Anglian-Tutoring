@@ -125,7 +125,7 @@ export function EnrolmentSummary({
 }) {
   if (enrolments.length === 0) {
     return (
-      <p className="text-xs sm:text-sm text-primary-foreground/70">
+      <p className="text-xs sm:text-sm font-semibold text-primary-foreground">
         You're not enrolled in any subjects yet — contact your tutor to get set up.
       </p>
     );

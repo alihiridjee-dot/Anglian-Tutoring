@@ -96,7 +96,9 @@ export function TakeMcq() {
   // threw on every render until the list stopped linking past it.
   const params = useParams({ strict: false }) as { setId?: string };
   const setId = params.setId ?? "";
-  const { userId } = useRoles();
+  // A tutor opens a quiz from the quiz manager to see it as a student does. It
+  // is a preview: staff accounts hold no student data, so nothing is filed.
+  const { userId, isTutor } = useRoles();
   const demo = isDemoStudent();
   const [answers, setAnswers] = useState<McqAnswers>({});
   const [marked, setMarked] = useState<Marked | null>(null);
@@ -160,7 +162,7 @@ export function TakeMcq() {
     // An in-flight guard, not just a disabled button. Marking is a round trip,
     // and two clicks landing before the first response would file two attempts
     // — which the planner then reads as two separate pieces of practice.
-    if (submitting || submitted) return;
+    if (submitting || submitted || isTutor) return;
     if (questions.length === 0) return;
 
     // Demo student: mark locally against the fixture, never write an attempt.
@@ -327,7 +329,11 @@ export function TakeMcq() {
             );
           })}
         </ol>
-        {!submitted ? (
+        {isTutor ? (
+          <div className="mt-6 text-center">
+            <span className="chip tint-slate">Tutor preview</span>
+          </div>
+        ) : !submitted ? (
           <button
             data-guide="quiz-submit"
             onClick={submit}

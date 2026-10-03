@@ -1,5 +1,5 @@
 import { useOnboardingUser } from "@/hooks/useOnboardingUser";
-import { ErrorNote, Spinner } from "@/components/Shared";
+import { EmptyState, ErrorNote, Spinner } from "@/components/Shared";
 import { createFileRoute, useNavigate } from "@tanstack/react-router";
 import { useQueryClient } from "@tanstack/react-query";
 import { Loader2, CreditCard, Gift } from "lucide-react";
@@ -57,6 +57,9 @@ function PlanStep() {
   const step = usePlanStep({ navigate, user, queryClient, search });
   const {
     loading,
+    loadError,
+    retryLoad,
+    noSubjects,
     resumable,
     paymentOverdue,
     planStatePending,
@@ -70,8 +73,10 @@ function PlanStep() {
     payNow,
     trialCode,
     setTrialCode,
+    neverSubscribed,
   } = step;
-  const withTrial = !!trialCode.trim();
+  // Only a student who has never had a plan can start a trial.
+  const withTrial = neverSubscribed && !!trialCode.trim();
 
   if (search.checkout === "success" && confirmDelayed) {
     return <PaymentStillConfirming onCheckAgain={() => setConfirmRound((n) => n + 1)} />;
@@ -128,6 +133,15 @@ function PlanStep() {
 
         {loading ? (
           <Spinner className="py-10" />
+        ) : loadError ? (
+          <ErrorNote error={loadError} onRetry={retryLoad} />
+        ) : noSubjects ? (
+          <EmptyState
+            title="Pick your subjects first"
+            body="Your plan is priced on the subjects you study with us, and you haven't chosen any yet."
+            action={{ to: "/onboarding/subjects", label: "Choose subjects" }}
+            compact
+          />
         ) : (
           <>
             <PlanSummary
@@ -139,13 +153,17 @@ function PlanStep() {
 
             <PlanTotal selectedPkg={selectedPkg} selectedUnit={selectedUnit} />
 
-            <TrialCodeField
-              value={trialCode}
-              onChange={setTrialCode}
-              thenPrice={
-                selectedPkg ? `${formatPence(selectedPkg.price_pence)} ${selectedUnit}` : undefined
-              }
-            />
+            {neverSubscribed && (
+              <TrialCodeField
+                value={trialCode}
+                onChange={setTrialCode}
+                thenPrice={
+                  selectedPkg
+                    ? `${formatPence(selectedPkg.price_pence)} ${selectedUnit}`
+                    : undefined
+                }
+              />
+            )}
 
             {!selectedPkg && (
               <p className="mt-3 text-xs text-rose-600">

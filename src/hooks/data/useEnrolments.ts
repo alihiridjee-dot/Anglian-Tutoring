@@ -42,11 +42,19 @@ export interface EnrolmentsState {
    * one.
    */
   avatarPath: string | null;
+  /**
+   * The read failed. Every field above is then its empty default, which means
+   * "unknown", not "none" — a page that prices or gates on the subjects must
+   * say so rather than act on an empty list.
+   */
+  error: Error | null;
+  /** Read again after an error. */
+  refetch: () => void;
 }
 
 /** Reads the current user's profile row (name + photo + role + subjects). */
 export function useEnrolments(): EnrolmentsState {
-  const { data, isLoading } = useQuery({
+  const { data, isLoading, error, refetch } = useQuery({
     queryKey: ["user-enrolments-and-profile"],
     queryFn: async () => {
       // The showcase has no session, so a real read would return nothing and
@@ -135,6 +143,8 @@ export function useEnrolments(): EnrolmentsState {
     inviteCode: data?.inviteCode ?? null,
     displayName: data?.displayName ?? null,
     avatarPath: data?.avatarPath ?? null,
+    error,
+    refetch: () => void refetch(),
   };
 }
 
