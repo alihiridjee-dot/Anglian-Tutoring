@@ -1,5 +1,5 @@
 import { supabase } from "@/integrations/supabase/client";
-import { type LevelV } from "@/lib/curriculum/taxonomy";
+import { isBoard, type BoardV, type LevelV } from "@/lib/curriculum/taxonomy";
 
 /**
  * Profile setup — the steps between verifying an email and reaching payment.
@@ -22,6 +22,21 @@ export const ONBOARDING_STEPS = [
   { path: "/onboarding/school", label: "School & grades" },
   { path: "/onboarding/plan", label: "Choose a plan" },
 ] as const;
+
+/**
+ * The student's main exam board, as far as we know it: the board of a subject
+ * they've saved, else the one they picked on the pricing page. Null when
+ * neither exists — the caller picks its own default rather than inheriting a
+ * silent "edexcel" for an AQA student who came back a step.
+ */
+export function knownMainBoard(
+  enrolments: { board: string }[] | null | undefined,
+  intendedBoard: unknown,
+): BoardV | null {
+  const saved = enrolments?.[0]?.board;
+  if (isBoard(saved)) return saved;
+  return isBoard(intendedBoard) ? intendedBoard : null;
+}
 
 export function stepIndex(pathname: string): number {
   const i = ONBOARDING_STEPS.findIndex((s) => pathname.startsWith(s.path));
