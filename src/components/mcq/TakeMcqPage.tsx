@@ -11,6 +11,7 @@ import { CheckCircle2, XCircle } from "lucide-react";
 import { isDemoStudent, DEMO_MCQ } from "@/lib/demo/studentDemo";
 import { describeError } from "@/lib/platform/errors";
 import {
+  attemptIdFor,
   clearMcqAnswers,
   loadMcqAnswers,
   reconcileAnswers,
@@ -117,6 +118,10 @@ export function TakeMcq() {
   // a refetch — would re-run this and clear `marked`, taking the score and the
   // explanations off the screen while the student was still reading them.
   const startedFor = useRef<string | null>(null);
+  // The id this sitting is filed under. Fixed when the quiz starts, so a
+  // retry after a lost reply returns the attempt already filed (see
+  // `attemptIdFor`); a fresh visit after a marked attempt gets a new one.
+  const attemptId = useRef<string | null>(null);
   useEffect(() => {
     if (questions.length === 0) return;
     const attempt = `${userId ?? ""}:${setId}`;
@@ -124,6 +129,7 @@ export function TakeMcq() {
     startedFor.current = attempt;
     setMarked(null);
     setAnswers(userId && !demo ? reconcileAnswers(loadMcqAnswers(userId, setId), questions) : {});
+    attemptId.current = userId && !demo ? attemptIdFor(userId, setId) : null;
   }, [setId, userId, demo, questions]);
 
   const choose = (questionId: string, index: number) => {
@@ -169,6 +175,7 @@ export function TakeMcq() {
       const { data, error } = await supabase.rpc("grade_mcq_attempt", {
         _set_id: setId,
         _answers: answers as unknown as Json,
+        _attempt_id: attemptId.current ?? undefined,
       });
       if (error) throw error;
       const graded = data as unknown as {
@@ -193,8 +200,9 @@ export function TakeMcq() {
       // The averages and predicted grade are built from attempts like this one.
       void plannerQueryClient.invalidateQueries({ queryKey: ["analytics"] });
     } catch (err) {
-      // Nothing is marked on a failure, so the student keeps their answers and
-      // can simply press submit again.
+      // The student keeps their answers and can simply press submit again. If
+      // the attempt was in fact filed and only the reply was lost, the retry
+      // carries the same id and gets that attempt back rather than a second.
       toast.error(describeError(err, "Couldn't submit — try again."));
     } finally {
       setSubmitting(false);

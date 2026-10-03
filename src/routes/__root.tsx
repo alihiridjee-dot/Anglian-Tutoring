@@ -93,7 +93,13 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
       },
     ],
     links: [
-      { rel: "icon", type: "image/svg+xml", href: "/favicon.svg" },
+      // The SVG is the icon and the PNG its fallback, the pairing Safari shows
+      // reliably; /favicon.ico stays in `public/` for anything that asks for it
+      // directly. Bump `?v=` when the icon changes, or browsers that stored the
+      // old one (or none) keep showing it.
+      { rel: "alternate icon", type: "image/png", href: "/favicon.png?v=2" },
+      { rel: "icon", type: "image/svg+xml", href: "/favicon.svg?v=2" },
+      { rel: "apple-touch-icon", href: "/apple-touch-icon.png?v=2" },
       { rel: "preconnect", href: "https://fonts.googleapis.com" },
       { rel: "preconnect", href: "https://fonts.gstatic.com", crossOrigin: "" },
       {

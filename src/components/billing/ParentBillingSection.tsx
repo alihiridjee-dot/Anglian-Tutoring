@@ -5,7 +5,12 @@ import { ErrorNote, Spinner } from "@/components/Shared";
 import { PaymentPending } from "@/components/billing/PaymentPending";
 import { supabase } from "@/integrations/supabase/client";
 import { useChildLinks } from "@/hooks/data/useParentLinks";
-import { useRawPackages, useStudentLevels, useSubscriptions } from "@/hooks/data/useBilling";
+import {
+  usePaidSubscriptions,
+  useRawPackages,
+  useStudentLevels,
+  useSubscriptions,
+} from "@/hooks/data/useBilling";
 import {
   isSubscriptionLive,
   isPaymentOverdue,
@@ -160,6 +165,14 @@ export function ParentBillingSection({
   const studentIds = useMemo(() => children.map((c) => c.student_id), [children]);
   const subsQuery = useSubscriptions(studentIds);
   const { data: subs = [] } = subsQuery;
+  // Plans on this parent's card for a student who has since removed them. They
+  // keep running, and only the payer can change or cancel them.
+  const paidQuery = usePaidSubscriptions(parentId);
+  const unlinkedPaid = (paidQuery.data ?? []).filter(
+    (s) =>
+      !studentIds.includes(s.student_id) &&
+      (isSubscriptionLive(s.status) || s.status === "paused" || isPaymentOverdue(s.status)),
+  );
   // Children may sit different levels, so prices resolve per child rather than
   // once for the whole tab.
   const { data: allPackages = [] } = useRawPackages();
@@ -170,7 +183,7 @@ export function ParentBillingSection({
   // A failed read of either list must not be drawn as its empty state. "No
   // children linked" hides every plan; "no subscriptions" is worse — it offers a
   // parent who is already paying the chance to pay for the same child again.
-  const loadError = childrenQuery.error ?? subsQuery.error;
+  const loadError = childrenQuery.error ?? subsQuery.error ?? paidQuery.error;
   if (loadError) {
     return (
       <ErrorNote
@@ -178,6 +191,7 @@ export function ParentBillingSection({
         onRetry={() => {
           void childrenQuery.refetch();
           void subsQuery.refetch();
+          void paidQuery.refetch();
         }}
       />
     );
@@ -193,6 +207,27 @@ export function ParentBillingSection({
         <CreditCard className="w-5 h-5 text-primary" />
         <h2 className="font-display text-xl font-bold text-foreground">Billing &amp; plans</h2>
       </div>
+
+      {unlinkedPaid.length > 0 && (
+        <div className="space-y-6 mb-6">
+          {unlinkedPaid.map((sub) => (
+            // No name or course: the student removed this link, so all that is
+            // shown is the plan on this parent's card and the controls for it.
+            <div key={sub.student_id} className="rounded-2xl premium-card p-4 sm:p-6">
+              <p className="eyebrow mb-3">A plan on your card</p>
+              <SubscriptionPanel
+                sub={sub}
+                planName={planLabel(sub.plan, resolvePackagesForLevel(allPackages, undefined))}
+                canManage
+                isPayer
+                returnTo="billing"
+                ownerLabel="this student"
+                payerLabel="you"
+              />
+            </div>
+          ))}
+        </div>
+      )}
 
       {children.length === 0 ? (
         <div className="rounded-2xl premium-card p-4 sm:p-6 text-sm text-muted-foreground">

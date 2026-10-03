@@ -83,12 +83,42 @@ export function saveMcqAnswers(userId: string, setId: string, answers: McqAnswer
   }
 }
 
-/** Remove the saved answers once the paper has actually been marked. */
+/**
+ * The id this attempt will be filed under, made here rather than by the server.
+ *
+ * When a submission's reply was lost, the page asked the student to submit
+ * again, and the server filed a second attempt: the planner then counted one
+ * sitting as two. With the id fixed before the first submit, a retry sends the
+ * same id, and `grade_mcq_attempt` returns the attempt it already filed. Kept
+ * beside the answers so a reload after the lost reply still retries with it.
+ * Storage that won't hold it only costs the reload case: the caller keeps the
+ * id it was given for as long as the page is open.
+ */
+export function attemptIdFor(userId: string, setId: string): string {
+  const store = available();
+  const k = `${key(userId, setId)}:attempt`;
+  try {
+    const saved = store?.getItem(k);
+    if (saved) return saved;
+  } catch {
+    /* fall through to a fresh id */
+  }
+  const id = crypto.randomUUID();
+  try {
+    store?.setItem(k, id);
+  } catch {
+    /* best-effort, as above */
+  }
+  return id;
+}
+
+/** Remove the saved answers, and the attempt's id, once the paper has actually been marked. */
 export function clearMcqAnswers(userId: string, setId: string): void {
   const store = available();
   if (!store) return;
   try {
     store.removeItem(key(userId, setId));
+    store.removeItem(`${key(userId, setId)}:attempt`);
   } catch {
     /* nothing to do */
   }
