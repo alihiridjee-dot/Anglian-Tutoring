@@ -351,7 +351,8 @@ export function WaveScene({ amplitude, frequency }: { amplitude: number; frequen
   const W = 600,
     mid = 90;
   const A = 12 + amplitude * 58; // 0–1 → px
-  const cycles = 1 + frequency * 5; // 0–1 → 1–6 waves across
+  // 0–1 → 1.5–6 waves across: always room for the wavelength bar, crest to crest.
+  const cycles = 1.5 + frequency * 4.5;
   const lambda = W / cycles;
   const pts: string[] = [];
   for (let x = 0; x <= W + lambda; x += 4)
