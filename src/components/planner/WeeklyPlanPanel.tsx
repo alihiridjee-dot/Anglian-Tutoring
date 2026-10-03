@@ -14,6 +14,7 @@ import { DoNowPanel } from "./DoNowPanel";
 import { useWeekPlan } from "./useWeekPlan";
 import { useReviewMore } from "./useReviewMore";
 import { WeekReview } from "./WeekReview";
+import { PausedWeek } from "./PausedWeek";
 import { subjectLabel } from "@/lib/curriculum/courseSummary";
 
 /**
@@ -68,6 +69,8 @@ export function WeeklyPlanPanel({
     enabled: !!active,
   });
   const reviewMore = useReviewMore({ ...week, isCurrent });
+  // A paused subject's week is frozen: shown as paused, with nothing to press.
+  const frozen = !!week.pause && !isPast;
 
   // Pull a past-week point back into this week's plan, in the lane it was in —
   // the same rule the end-of-week carry follows ({@link carryOrigin}).
@@ -178,7 +181,9 @@ export function WeeklyPlanPanel({
           </div>
         </div>
 
-        {!week.loading && week.points.length === 0 && !week.roadmap ? (
+        {frozen && week.pause ? (
+          <PausedWeek subject={active.subject} pause={week.pause} />
+        ) : !week.loading && week.points.length === 0 && !week.roadmap ? (
           editable ? (
             <EmptyState future={isFuture} />
           ) : (
@@ -203,20 +208,22 @@ export function WeeklyPlanPanel({
         )}
       </div>
 
-      <WithheldPlanPoints points={week.withheld} coverage={week.coverage} />
+      {!frozen && <WithheldPlanPoints points={week.withheld} coverage={week.coverage} />}
 
       {/* The week as a checklist, between the plan and the review: the panel above
           says what this week is and why, this one says what to press. */}
-      <DoNowPanel
-        points={week.points}
-        activity={week.activity}
-        coverage={week.coverage}
-        subject={active?.subject ?? "biology"}
-        editable={editable}
-        onToggle={(id, done) => {
-          void week.setPointDone(id, done);
-        }}
-      />
+      {!frozen && (
+        <DoNowPanel
+          points={week.points}
+          activity={week.activity}
+          coverage={week.coverage}
+          subject={active?.subject ?? "biology"}
+          editable={editable}
+          onToggle={(id, done) => {
+            void week.setPointDone(id, done);
+          }}
+        />
+      )}
 
       {/* The student's own read on the week — its own box, not a footnote to the plan. */}
       {showReview && week.plan && active && (

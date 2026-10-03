@@ -1503,6 +1503,36 @@ export type Database = {
           },
         ];
       };
+      student_subject_pauses: {
+        Row: {
+          cancelled_at: string | null;
+          ended_at: string | null;
+          id: string;
+          reason: string;
+          started_at: string;
+          student_id: string;
+          subject: Database["public"]["Enums"]["subject"];
+        };
+        Insert: {
+          cancelled_at?: string | null;
+          ended_at?: string | null;
+          id?: string;
+          reason: string;
+          started_at?: string;
+          student_id: string;
+          subject: Database["public"]["Enums"]["subject"];
+        };
+        Update: {
+          cancelled_at?: string | null;
+          ended_at?: string | null;
+          id?: string;
+          reason?: string;
+          started_at?: string;
+          student_id?: string;
+          subject?: Database["public"]["Enums"]["subject"];
+        };
+        Relationships: [];
+      };
       student_term_plans: {
         Row: {
           board: Database["public"]["Enums"]["board"];
