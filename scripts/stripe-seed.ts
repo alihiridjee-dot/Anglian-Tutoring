@@ -39,8 +39,20 @@ const PRICE_PENCE: Record<string, Record<number, number>> = {
   termly: { 1: 13999, 2: 15699, 3: 16799 },
 };
 
-// Live sessions per billing cycle, at 2 per subject per week.
-const CYCLE_SESSIONS: Record<string, number> = { weekly: 2, monthly: 8, termly: 24 };
+// Weeks per billing cycle; one live session per subject per week. Counted the
+// landing page's way (4 a month, 12 a term).
+const CYCLE_WEEKS: Record<string, number> = { weekly: 1, monthly: 4, termly: 12 };
+
+/**
+ * What a plan includes, word for word as packages.description holds it
+ * (20261003120000), so Checkout, invoices and the plan step agree.
+ */
+function planDescription(cadence: string, count: number) {
+  const unit = cadence === "termly" ? "term" : cadence === "monthly" ? "month" : "week";
+  const sessions = CYCLE_WEEKS[cadence] * count;
+  const head = `${sessions} live ${sessions === 1 ? "session" : "sessions"} a ${unit}`;
+  return cadence === "weekly" ? `${head}.` : `${head}, ${count} a week.`;
+}
 
 // Price lists we maintain. `level: null` is the general ladder everyone falls
 // back to; a level entry is an override that only students at that level are
@@ -56,7 +68,6 @@ const PRICE_LISTS = [
 const PLANS = PRICE_LISTS.flatMap(({ level, suffix, nameSuffix }) =>
   CADENCES.flatMap(({ cadence, label, interval, intervalCount }) =>
     [1, 2, 3].map((count) => {
-      const sessions = CYCLE_SESSIONS[cadence] * count;
       const subjectWord = count === 1 ? "1 subject" : `${count} subjects`;
       return {
         tier: `${cadence}_${count}`,
@@ -66,9 +77,7 @@ const PLANS = PRICE_LISTS.flatMap(({ level, suffix, nameSuffix }) =>
         // price and silently reuse it.
         lookupKey: `anglian_${suffix}${cadence}_${count}`,
         name: `Anglia Educate — ${label} (${subjectWord})${nameSuffix}`,
-        description: `${sessions} live sessions per ${
-          cadence === "termly" ? "term" : interval
-        }. ${subjectWord}.`,
+        description: planDescription(cadence, count),
         amount: PRICE_PENCE[cadence][count],
         interval,
         intervalCount,
@@ -115,6 +124,17 @@ for (const plan of PLANS) {
 
   if (price) {
     console.log(`• ${label}: reusing existing price ${price.id}`);
+    // A price is immutable but its product's description isn't: keep the text
+    // families see at Checkout and on invoices in step with the plan.
+    const product = price.product;
+    if (
+      typeof product !== "string" &&
+      !product.deleted &&
+      product.description !== plan.description
+    ) {
+      await stripe.products.update(product.id, { description: plan.description });
+      console.log(`  updated product ${product.id}: "${plan.description}"`);
+    }
   } else {
     const product = await stripe.products.create({
       name: plan.name,
