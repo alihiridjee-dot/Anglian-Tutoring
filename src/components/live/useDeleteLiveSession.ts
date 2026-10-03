@@ -8,15 +8,15 @@ import { toast } from "sonner";
 export function useDeleteLiveSession(qc: QueryClient) {
   const [deletingId, setDeletingId] = useState<string | null>(null);
 
-  // Tutor-only: cancel a session scheduled in error. Removes the Zoom meeting
-  // first (best-effort — a link-less or already-gone meeting is fine), then
-  // deletes the resource row. The row delete is the RLS-checked, authoritative
+  // Tutor-only: cancel a session scheduled in error. Cancels the Zoom meeting
+  // first if the app created it and no other session uses it (best-effort — a
+  // link-less or already-gone meeting is fine), then deletes the resource row. The row delete is the RLS-checked, authoritative
   // step and cascades to resource_spec_points / session_attendees, so the
   // session vanishes everywhere (including any curriculum point it was on).
   const handleDelete = async (session: LiveSession) => {
     if (
       !confirm(
-        `Delete "${session.title}"? This removes the session and its Zoom meeting for everyone.`,
+        `Delete "${session.title}"? This removes the session for everyone, and cancels its Zoom meeting if the app created it.`,
       )
     )
       return;
@@ -24,7 +24,10 @@ export function useDeleteLiveSession(qc: QueryClient) {
     try {
       if (session.join_url?.toLowerCase().includes("zoom")) {
         try {
-          await deleteZoomMeeting(session.join_url);
+          const zoom = await deleteZoomMeeting(session.id);
+          if (zoom.reason === "shared") {
+            toast.info("Zoom meeting kept: another session uses the same link.");
+          }
         } catch (err) {
           // Don't block removing the row if Zoom cancellation fails — surface it
           // but still delete locally so a bad session can always be cleared.
