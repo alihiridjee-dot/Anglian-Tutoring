@@ -2004,6 +2004,14 @@ export type Database = {
         };
         Returns: undefined;
       };
+      resume_programme_after_pause: {
+        Args: {
+          _pause_id: string;
+          _expected_pacing: Json;
+          _pacing: Json | null;
+        };
+        Returns: undefined;
+      };
       acknowledge_submission: {
         Args: { _submission_id: string };
         Returns: undefined;

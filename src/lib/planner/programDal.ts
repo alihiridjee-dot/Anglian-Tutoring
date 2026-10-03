@@ -1,9 +1,9 @@
-import { customSchedule, reorderTopics } from "./topicOrder";
+import { customSchedule, reorderTopics, resumeAfterPause } from "./topicOrder";
 import { supabase } from "@/integrations/supabase/client";
 import { getSessionUserId } from "@/lib/auth/session";
 import { type SubjectV, type BoardV, type LevelV } from "../curriculum/taxonomy";
 import { type Json } from "@/integrations/supabase/types";
-import { mondayOf, addWeeks, toDateKey, weekKeyToDate } from "./week";
+import { mondayOf, addWeeks, currentWeekKey, toDateKey, weekKeyToDate } from "./week";
 import { ScheduleDAL, type TopicProgress } from "./scheduleDal";
 import {
   type PacingBand,
@@ -26,6 +26,7 @@ import {
   type RoadmapResult,
 } from "./roadmap";
 import { mergeWeek, selectWeek, unsupportedReviews, type WeekSelection } from "./weekCut";
+import { SubjectPauseDAL } from "./pausesDal";
 
 export { handPicked } from "./weekCut";
 
@@ -86,6 +87,13 @@ export class ProgramDAL {
     // replaces the bad value.
     if (baseline && !isReadableExamDate(baseline.exam_date))
       baseline.exam_date = toDateKey(examMondayFor());
+
+    // A subject that has just restarted picks its programme up where it
+    // stopped, before anything is cut from it (see resumeAfterPause).
+    if (baseline) {
+      const resumed = await this.pickUpAfterPauses({ studentId, subject, baseline, progress });
+      if (resumed) baseline.pacing = resumed as unknown as Json;
+    }
 
     const thisMonday = mondayOf();
     const thisWeek = toDateKey(thisMonday);
@@ -161,6 +169,71 @@ export class ProgramDAL {
       }
     }
     return roadmap;
+  }
+
+  /**
+   * Pick the programme up after every stop that has ended but not been picked
+   * up yet, oldest first. Returns the new spine, or null when nothing moved.
+   *
+   * It never fails the load. A stop that can't be saved now is tried again on
+   * the next one, and a viewer who may not change the plan (a parent) leaves
+   * it for the student or a tutor. The result doesn't depend on who looks or
+   * when: both ends of the stop are recorded by the database.
+   */
+  private static async pickUpAfterPauses(p: {
+    studentId: string;
+    subject: SubjectV;
+    baseline: { exam_date: string; pacing: Json };
+    progress: TopicProgress[];
+  }): Promise<PacingBand[] | null> {
+    const pending = (await SubjectPauseDAL.history(p.studentId, p.subject)).filter(
+      (r) => r.endedAt && !r.programmeResumedAt,
+    );
+    if (!pending.length) return null;
+    const stored = p.baseline.pacing as unknown as PacingBand[];
+    // A spine for another course is rebuilt from this week anyway.
+    const otherCourse = spineIsForAnotherCourse(stored, p.progress);
+    const topics = p.progress.map((t) => ({
+      topicId: t.topicId,
+      title: t.title,
+      points: t.points.map((pt) => ({
+        specPointId: pt.id,
+        code: pt.code,
+        title: pt.title,
+        weight: pt.weight,
+      })),
+    }));
+    let bands = stored.filter(isTeachBand);
+    let changed = false;
+    for (const pause of pending) {
+      let next: PacingBand[] | null = null;
+      if (!otherCourse) {
+        try {
+          const moved = resumeAfterPause({
+            bands,
+            topics,
+            pausedFrom: currentWeekKey(new Date(pause.startedAt)),
+            resumeFrom: currentWeekKey(new Date(pause.endedAt!)),
+            examDate: p.baseline.exam_date,
+          });
+          if (moved !== bands) next = moved;
+        } catch (e) {
+          // Too few weeks left, or the exams have begun: the plan stays as it is.
+          console.warn("[planner] couldn't re-plan after a pause", e);
+        }
+      }
+      try {
+        await SubjectPauseDAL.resumeProgramme({ pauseId: pause.id, expected: bands, pacing: next });
+      } catch (e) {
+        console.warn("[planner] couldn't save the plan after a pause", e);
+        break;
+      }
+      if (next) {
+        bands = next;
+        changed = true;
+      }
+    }
+    return changed ? bands : null;
   }
 
   /**
