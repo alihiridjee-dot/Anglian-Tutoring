@@ -5,7 +5,7 @@ import { useQueryClient } from "@tanstack/react-query";
 import { toast } from "sonner";
 import { supabase } from "@/integrations/supabase/client";
 import { invalidateGuardState } from "@/lib/auth/guardState";
-import { gradeOptions, completeOnboarding } from "@/lib/auth/onboarding";
+import { gradeOptions, completeOnboarding, NoSubjectsError } from "@/lib/auth/onboarding";
 import { SUBJECTS, type LevelV, type SubjectV } from "@/lib/curriculum/taxonomy";
 import { StepCard } from "@/components/onboarding/StepCard";
 import { SchoolPicker } from "@/components/onboarding/SchoolPicker";
@@ -105,6 +105,13 @@ function SchoolStep() {
       invalidateGuardState(queryClient);
       navigate({ to: "/onboarding/plan" });
     } catch (err) {
+      if (err instanceof NoSubjectsError) {
+        // Reached here without a subject (a deep link, then Skip): send them
+        // back to choose one rather than finishing setup with none.
+        toast.error(err.message);
+        navigate({ to: "/onboarding/subjects" });
+        return;
+      }
       toast.error(err instanceof Error ? err.message : "Couldn't save that — try again.");
     } finally {
       setSaving(false);

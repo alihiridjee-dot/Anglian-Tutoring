@@ -5,8 +5,9 @@ import { toast } from "sonner";
 import { supabase } from "@/integrations/supabase/client";
 import { LEVELS, BOARDS, type LevelV, type BoardV } from "@/lib/curriculum/taxonomy";
 import { StepCard, ChoiceTile } from "@/components/onboarding/StepCard";
-import { Spinner } from "@/components/Shared";
+import { ErrorNote, Spinner } from "@/components/Shared";
 import { useCurriculumCoverage } from "@/hooks/data/useCurriculumCoverage";
+import { knownMainBoard } from "@/lib/auth/onboarding";
 
 /**
  * Step 1 — level and exam board.
@@ -28,7 +29,12 @@ function BoardStep() {
   const [level, setLevel] = useState<LevelV>("gcse");
   const [board, setBoard] = useState<BoardV>("edexcel");
   const [saving, setSaving] = useState(false);
-  const { coverage, isPending: coverageLoading } = useCurriculumCoverage();
+  const {
+    coverage,
+    isPending: coverageLoading,
+    error: coverageError,
+    refetch: refetchCoverage,
+  } = useCurriculumCoverage();
 
   const teachableLevels = coverage.levels();
   const teachableBoards = coverage.boardsFor(level);
@@ -62,10 +68,8 @@ function BoardStep() {
         setLevel(intendedLevel as LevelV);
       // Seed the board from what they picked on the pricing page, but let
       // anything they've already saved win — and they can still change it here.
-      const intendedBoard = user.user_metadata?.intended_board as string | undefined;
-      if (enrolments?.[0]?.board) setBoard(enrolments[0].board as BoardV);
-      else if (intendedBoard && BOARDS.some((b) => b.value === intendedBoard))
-        setBoard(intendedBoard as BoardV);
+      const known = knownMainBoard(enrolments, user.user_metadata?.intended_board);
+      if (known) setBoard(known);
     })();
   }, [user]);
 
@@ -88,16 +92,19 @@ function BoardStep() {
       title="Which exam are you sitting?"
       subtitle="This scopes everything you'll see — your spec, your videos, your quizzes."
       onContinue={handleContinue}
-      continueDisabled={coverageLoading || !teachableBoards.includes(board)}
+      // A failed coverage read leaves Continue open: not knowing what we teach
+      // must never strand a student on step 1.
+      continueDisabled={coverageLoading || !coverage.offersBoard(level, board)}
       saving={saving}
     >
+      {coverageError && <ErrorNote error={coverageError} onRetry={() => void refetchCoverage()} />}
       <div>
         <label className="text-xs font-semibold uppercase tracking-wider text-muted-foreground">
           Level
         </label>
         <div className="mt-2 grid grid-cols-1 gap-2 sm:grid-cols-2">
           {LEVELS.map((l) => {
-            const available = coverageLoading || teachableLevels.includes(l.value);
+            const available = coverage.offersLevel(l.value);
             return (
               <ChoiceTile
                 key={l.value}
@@ -127,16 +134,14 @@ function BoardStep() {
           <Spinner className="py-6" />
         ) : (
           <div className="mt-2 grid grid-cols-2 gap-2 sm:grid-cols-3">
-            {BOARDS.filter((b) => coverage.isEmpty || teachableBoards.includes(b.value)).map(
-              (b) => (
-                <ChoiceTile
-                  key={b.value}
-                  title={b.label}
-                  selected={board === b.value}
-                  onClick={() => setBoard(b.value)}
-                />
-              ),
-            )}
+            {BOARDS.filter((b) => coverage.offersBoard(level, b.value)).map((b) => (
+              <ChoiceTile
+                key={b.value}
+                title={b.label}
+                selected={board === b.value}
+                onClick={() => setBoard(b.value)}
+              />
+            ))}
           </div>
         )}
       </div>

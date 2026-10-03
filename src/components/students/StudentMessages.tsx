@@ -59,14 +59,14 @@ export function StudentMessages({ studentId }: { studentId: string }) {
                     </span>
                   )}
                   {t.context_label && (
-                    <span className="text-muted-foreground text-xs">{t.context_label}</span>
+                    <span className="chip tint-slate text-[10px]">{t.context_label}</span>
                   )}
                   {t.status !== "open" && (
                     <span className="chip tint-slate text-[10px] capitalize">{t.status}</span>
                   )}
                 </div>
               </div>
-              <span className="text-muted-foreground text-xs">{timeAgo(t.last_message_at)}</span>
+              <span className="text-xs font-semibold">{timeAgo(t.last_message_at)}</span>
             </li>
           );
         })}

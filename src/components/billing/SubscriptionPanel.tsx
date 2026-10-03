@@ -3,6 +3,8 @@ import { ExternalLink, Loader2, PauseCircle, PlayCircle, ShieldCheck, XCircle } 
 import { toast } from "sonner";
 import {
   isPaymentOverdue,
+  isPlanChangeable,
+  isResumable,
   isSubscriptionLive,
   openBillingPortal,
   type BillingReturnTo,
@@ -127,15 +129,19 @@ export function SubscriptionPanel({
   const manageable = canManage && !!sub.stripe_subscription_id;
   const canPause = live && !sub.cancel_at_period_end;
   const canCancel = (live || paused) && !sub.cancel_at_period_end;
+  // Subjects only change on a live plan that isn't cancelling; the server
+  // refuses the rest, so nothing here points there.
+  const changeable = isPlanChangeable(sub);
   // Subjects come from the course summary so there is one source for "what does
   // this plan cover" — the tiles and the cancel dialog can't disagree.
   const subjectLabels = course?.perSubject.map((s) => s.subjectLabel) ?? [];
 
-  const run = (action: "cancel" | "pause" | "resume") => {
+  const run = (action: "cancel" | "pause" | "resume", onDone?: () => void) => {
     manage.mutate(
       { action, studentId: sub.student_id },
       {
         onSuccess: () => {
+          onDone?.();
           setPauseOpen(false);
           setCancelOpen(false);
           toast.success(
@@ -151,11 +157,13 @@ export function SubscriptionPanel({
     );
   };
 
-  // Record why the family is pausing/cancelling (manager-only, enforced by RLS),
-  // then run it. Best-effort: a lost feedback row never blocks the action.
+  // Run it, then record why the family paused/cancelled (manager-only, enforced
+  // by RLS). Only once it has worked: a refused or failed action must not leave
+  // an entry in the tutor's plan history. Best-effort: a lost row never matters.
   const confirmWith = (action: "pause" | "cancel") => (category: string, comment: string) => {
-    void recordBillingFeedback({ studentId: sub.student_id, action, category, comment });
-    run(action);
+    run(action, () => {
+      void recordBillingFeedback({ studentId: sub.student_id, action, category, comment });
+    });
   };
 
   // "Drop a subject instead" hands them to EnrolledSubjectsCard, which owns the
@@ -225,13 +233,13 @@ export function SubscriptionPanel({
               : undefined
         }
         onChangeBoard={canChangeBoard ? goToSubjects : undefined}
-        onManageSubjects={canManage ? goToSubjects : undefined}
+        onManageSubjects={canManage && changeable ? goToSubjects : undefined}
       />
 
       {manageable && (
         <>
           <div className="mt-4 flex flex-wrap gap-2">
-            {(paused || sub.cancel_at_period_end) && (
+            {isResumable(sub) && (
               <button
                 onClick={() => run("resume")}
                 disabled={manage.isPending}
@@ -328,7 +336,7 @@ export function SubscriptionPanel({
           subjectLabels={subjectLabels}
           pending={manage.isPending}
           canPauseInstead={canPause}
-          canRemoveInstead={subjectLabels.length > 1}
+          canRemoveInstead={changeable && subjectLabels.length > 1}
           onPauseInstead={() => {
             setCancelOpen(false);
             setPauseOpen(true);

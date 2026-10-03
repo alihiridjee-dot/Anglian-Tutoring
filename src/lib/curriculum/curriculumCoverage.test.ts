@@ -117,3 +117,30 @@ describe("Coverage", () => {
     expect(shuffled.boardsForSubject("gcse", "physics")).toEqual(["edexcel", "aqa", "ocr"]);
   });
 });
+
+describe("Coverage for the onboarding pickers", () => {
+  const c = new Coverage(LIVE);
+  // A failed or unfinished curriculum_coverage() read: no rows at all.
+  const unknown = new Coverage([]);
+
+  test("known coverage gates levels, boards and per-subject boards as before", () => {
+    expect(c.offersLevel("gcse")).toBe(true);
+    expect(c.offersBoard("alevel", "aqa")).toBe(true);
+    expect(c.offersBoard("alevel", "edexcel")).toBe(false);
+    expect(c.boardsOffered("igcse", "physics")).toEqual([]);
+    expect(c.boardsOffered("gcse_trilogy", "biology")).toEqual(["aqa"]);
+  });
+
+  test("unknown coverage blocks nothing: every level, board and subject is offered", () => {
+    for (const level of ["gcse", "gcse_trilogy", "igcse", "alevel"] as const) {
+      expect(unknown.offersLevel(level)).toBe(true);
+      expect(unknown.offersBoard(level, "edexcel")).toBe(true);
+      expect(unknown.boardsOffered(level, "physics").length).toBeGreaterThan(0);
+    }
+    expect(unknown.boardsOffered(null, "biology").length).toBeGreaterThan(0);
+  });
+
+  test("with coverage known but no level yet, no board is offered for a subject", () => {
+    expect(c.boardsOffered(null, "biology")).toEqual([]);
+  });
+});

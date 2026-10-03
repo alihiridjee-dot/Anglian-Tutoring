@@ -11,6 +11,25 @@ export const CADENCES: { key: Cadence; label: string; unit: string }[] = [
 ];
 
 /**
+ * Weeks in one billing cycle, for every per-week and per-session figure.
+ * Counted the landing page's way — 4 a month, 12 a term — so the landing page,
+ * the plan step and Billing all quote the same number.
+ */
+export const WEEKS_PER_CYCLE: Record<Cadence, number> = { weekly: 1, monthly: 4, termly: 12 };
+
+/** A cycle's price spread over its weeks, in pence. */
+export function pricePerWeek(cadence: Cadence, pence: number): number {
+  return pence / WEEKS_PER_CYCLE[cadence];
+}
+
+/**
+ * The one cadence every page labels "Best value": the cheapest per week at
+ * every subject count (entitlements.test.ts checks it against live prices).
+ */
+export const BEST_VALUE_CADENCE: Cadence = "termly";
+export const BEST_VALUE_LABEL = "Best value";
+
+/**
  * How many subjects a plan tier covers. Tiers are `${cadence}_${count}` (e.g.
  * "monthly_2"), so the count is the trailing number; anything unparseable falls
  * back to 1 so a live plan never reads as covering zero subjects.

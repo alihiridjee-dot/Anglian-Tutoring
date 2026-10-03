@@ -39,6 +39,12 @@ const PAGE = 50;
  * tally them here stopped at PostgREST's 1,000-row cap (S-17b), so past that
  * the counts were wrong, and the delete confirmation could promise "0 student
  * attempts" while deleting real ones.
+ *
+ * Questions are counted from their ids. Signed-in users may read only the
+ * question columns that don't give the answer away (20260806150000), and under
+ * those grants PostgREST refuses `mcq_questions(count)` outright, for tutors as
+ * well as students, so the list never loaded. A page is at most 50 sets of a
+ * few questions each, well inside the row cap.
  */
 function useManagedSets() {
   return useInfiniteQuery({
@@ -47,7 +53,7 @@ function useManagedSets() {
     queryFn: async ({ pageParam }) => {
       const { data, error, count } = await supabase
         .from("mcq_sets")
-        .select("id, title, published, created_at, mcq_questions(count), mcq_attempts(count)", {
+        .select("id, title, published, created_at, mcq_questions(id), mcq_attempts(count)", {
           count: "exact",
         })
         .order("created_at", { ascending: false })
@@ -57,7 +63,7 @@ function useManagedSets() {
 
       const sets: ManagedSet[] = (data ?? []).map(({ mcq_questions, mcq_attempts, ...s }) => ({
         ...s,
-        questionCount: mcq_questions[0]?.count ?? 0,
+        questionCount: mcq_questions.length,
         attemptCount: mcq_attempts[0]?.count ?? 0,
       }));
       return { sets, total: count ?? sets.length };

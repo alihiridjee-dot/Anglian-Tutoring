@@ -1,5 +1,5 @@
 import { supabase } from "@/integrations/supabase/client";
-import { type LevelV } from "@/lib/curriculum/taxonomy";
+import { isBoard, type BoardV, type LevelV } from "@/lib/curriculum/taxonomy";
 
 /**
  * Profile setup — the steps between verifying an email and reaching payment.
@@ -18,10 +18,24 @@ export const ONBOARDING_STEPS = [
   { path: "/onboarding/board", label: "Exam board" },
   { path: "/onboarding/subjects", label: "Subjects" },
   { path: "/onboarding/learning", label: "How you learn" },
-  { path: "/onboarding/confidence", label: "Your topics" },
   { path: "/onboarding/school", label: "School & grades" },
   { path: "/onboarding/plan", label: "Choose a plan" },
 ] as const;
+
+/**
+ * The student's main exam board, as far as we know it: the board of a subject
+ * they've saved, else the one they picked on the pricing page. Null when
+ * neither exists — the caller picks its own default rather than inheriting a
+ * silent "edexcel" for an AQA student who came back a step.
+ */
+export function knownMainBoard(
+  enrolments: { board: string }[] | null | undefined,
+  intendedBoard: unknown,
+): BoardV | null {
+  const saved = enrolments?.[0]?.board;
+  if (isBoard(saved)) return saved;
+  return isBoard(intendedBoard) ? intendedBoard : null;
+}
 
 export function stepIndex(pathname: string): number {
   const i = ONBOARDING_STEPS.findIndex((s) => pathname.startsWith(s.path));
@@ -95,12 +109,34 @@ export function gradeOptions(level: LevelV | null): string[] {
     : ["9", "8", "7", "6", "5", "4", "3", "2", "1", "U"];
 }
 
+/** Setup was finished with no subject saved. */
+export class NoSubjectsError extends Error {
+  constructor() {
+    super("Pick at least one subject first.");
+    this.name = "NoSubjectsError";
+  }
+}
+
 /**
  * Marks setup finished. This is the flag the route guard reads, so it is set
  * only once the required answers exist — never optimistically on step one.
+ *
+ * A subject is one of them: it prices the plan and scopes the curriculum. A
+ * deep link to the school step followed by Skip used to finish setup with
+ * none, and lead to a plan for an empty account. Throws NoSubjectsError then.
  */
-export async function completeOnboarding(userId: string) {
-  const { error } = await supabase
+export async function completeOnboarding(
+  userId: string,
+  db: Pick<typeof supabase, "from"> = supabase,
+) {
+  const { count, error: countError } = await db
+    .from("student_enrolments")
+    .select("subject", { count: "exact", head: true })
+    .eq("student_id", userId);
+  if (countError) throw countError;
+  if (!count) throw new NoSubjectsError();
+
+  const { error } = await db
     .from("profiles")
     .update({ onboarding_completed_at: new Date().toISOString() })
     .eq("id", userId);

@@ -1,5 +1,5 @@
 import { describe, expect, test } from "bun:test";
-import { resolvePackagesForLevel, type PackageRow } from "./billing";
+import { isPlanChangeable, isResumable, resolvePackagesForLevel, type PackageRow } from "./billing";
 
 const pkg = (tier: string, level: string | null, price = 1999): PackageRow => ({
   id: `${tier}:${level ?? "all"}`,
@@ -66,5 +66,33 @@ describe("resolvePackagesForLevel", () => {
     // ...and is not leaked to anyone else.
     expect(resolvePackagesForLevel(onlyOverride, "gcse")).toHaveLength(0);
     expect(resolvePackagesForLevel(onlyOverride, null)).toHaveLength(0);
+  });
+});
+
+describe("plan state rules", () => {
+  const row = (status: string, cancel_at_period_end = false) => ({ status, cancel_at_period_end });
+
+  test("Resume is offered for a paused plan and one running to its period end", () => {
+    expect(isResumable(row("paused"))).toBe(true);
+    expect(isResumable(row("active", true))).toBe(true);
+    expect(isResumable(row("trialing", true))).toBe(true);
+  });
+
+  test("a plan that has fully ended is not resumable, though its row keeps the flag", () => {
+    // Stripe can't resume a cancelled subscription: this one needs a new plan.
+    expect(isResumable(row("canceled", true))).toBe(false);
+    expect(isResumable(row("active"))).toBe(false);
+    expect(isResumable(row("past_due", true))).toBe(false);
+    expect(isResumable(null)).toBe(false);
+  });
+
+  test("only a live plan that isn't cancelling can change subjects or cadence", () => {
+    expect(isPlanChangeable(row("active"))).toBe(true);
+    expect(isPlanChangeable(row("trialing"))).toBe(true);
+    expect(isPlanChangeable(row("active", true))).toBe(false);
+    expect(isPlanChangeable(row("paused"))).toBe(false);
+    expect(isPlanChangeable(row("past_due"))).toBe(false);
+    expect(isPlanChangeable(row("canceled", true))).toBe(false);
+    expect(isPlanChangeable(undefined)).toBe(false);
   });
 });

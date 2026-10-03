@@ -180,32 +180,39 @@ assert.deepEqual(
   (await db.query("select * from student_weekly_plan_points where plan_id=$1", [oldPlan])).rows,
   old,
 );
-const kept = (
+// The plan-point columns these checks read.
+type PlanPoint = {
+  spec_point_id: string;
+  origin: string;
+  done_at: string | null;
+  carried_from: string | null;
+};
+const kept: PlanPoint[] = (
   await db.query("select * from student_weekly_plan_points where plan_id=$1", [currentPlan])
 ).rows;
 for (const id of [a[0], a[1], a[2], a[3], a[4], a[6]])
   assert(
-    kept.some((p: any) => p.spec_point_id === id),
+    kept.some((p) => p.spec_point_id === id),
     `Lost protected ${id}`,
   );
-assert(!kept.some((p: any) => p.spec_point_id === a[5]), "Unstarted moved work remained");
+assert(!kept.some((p) => p.spec_point_id === a[5]), "Unstarted moved work remained");
 assert(
-  kept.some((p: any) => topics[2].points.some((c) => c.specPointId === p.spec_point_id)),
+  kept.some((p) => topics[2].points.some((c) => c.specPointId === p.spec_point_id)),
   "New teaching missing",
 );
-assert(kept.find((p: any) => p.spec_point_id === a[0]).done_at, "Completion reset");
-assert(kept.find((p: any) => p.spec_point_id === a[1]).carried_from, "Carry marker reset");
-const futureRows = (
+assert(kept.find((p) => p.spec_point_id === a[0])?.done_at, "Completion reset");
+assert(kept.find((p) => p.spec_point_id === a[1])?.carried_from, "Carry marker reset");
+const futureRows: PlanPoint[] = (
   await db.query("select * from student_weekly_plan_points where plan_id=$1", [futurePlan])
 ).rows;
 assert(
   futureRows.some(
-    (p: any) => p.spec_point_id === topics[1].points[5].specPointId && p.origin === "focus",
+    (p) => p.spec_point_id === topics[1].points[5].specPointId && p.origin === "focus",
   ),
   "Updated future review missing",
 );
 assert(
-  !futureRows.some((p: any) => p.spec_point_id === a[6]),
+  !futureRows.some((p) => p.spec_point_id === a[6]),
   "Old future review duplicated the current assignment",
 );
 await assert.rejects(call(), /another window/);
