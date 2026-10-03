@@ -11,16 +11,25 @@ import { useEnrolments } from "@/hooks/data/useEnrolments";
 import { INVITE_MESSAGE, useInviteParent, type InviteOutcome } from "@/hooks/data/useParentLinks";
 import { startCheckout } from "@/lib/billing/billing";
 import { forgetTrialCode, readTrialCode } from "@/lib/billing/trialCode";
+import {
+  BEST_VALUE_CADENCE,
+  BEST_VALUE_LABEL,
+  CADENCES as BILLING_CADENCES,
+  type Cadence,
+} from "@/lib/billing/entitlements";
 
 export type SearchParams = { checkout?: "success" | "cancelled" };
 
-/** Billing cadences, in display order. Each maps to the `${key}_${n}` tiers. */
-export type Cadence = "weekly" | "monthly" | "termly";
-export const CADENCES: { key: Cadence; label: string; unit: string; note?: string }[] = [
-  { key: "weekly", label: "Weekly", unit: "per week" },
-  { key: "monthly", label: "Monthly", unit: "per month", note: "Best value" },
-  { key: "termly", label: "Termly", unit: "per term" },
-];
+/**
+ * Billing cadences, in display order. Each maps to the `${key}_${n}` tiers. The
+ * "Best value" note comes from the one shared choice, so this page can't
+ * disagree with the landing page about which cadence it is.
+ */
+export const CADENCES: { key: Cadence; label: string; unit: string; note?: string }[] =
+  BILLING_CADENCES.map((c) => ({
+    ...c,
+    note: c.key === BEST_VALUE_CADENCE ? BEST_VALUE_LABEL : undefined,
+  }));
 
 /**
  * The paywall's working state: the one price built from the student's

@@ -4,7 +4,13 @@ import { Check, Loader2 } from "lucide-react";
 import { toast } from "sonner";
 import { usePackages, useChangeCadence } from "@/hooks/data/useBilling";
 import { formatPence, billingIntervalLabel, startCheckout } from "@/lib/billing/billing";
-import { planCadence, tierFor, CADENCES, type Cadence } from "@/lib/billing/entitlements";
+import {
+  planCadence,
+  pricePerWeek,
+  tierFor,
+  CADENCES,
+  type Cadence,
+} from "@/lib/billing/entitlements";
 import { CadenceChangeDialog } from "@/components/billing/CadenceChangeDialog";
 import { TrialCodeField } from "@/components/billing/TrialCodeField";
 import { readTrialCode } from "@/lib/billing/trialCode";
@@ -66,11 +72,11 @@ export function CadenceSwitcher({
   const pkgFor = (c: Cadence) => packages.find((p) => p.tier === tierFor(c, count));
 
   // Everything is quoted per week so three different billing rhythms can be
-  // compared at a glance — the entire reason someone opens this control.
+  // compared at a glance — the entire reason someone opens this control. Weeks
+  // per cycle are the shared 4 a month and 12 a term, as on the landing page.
   const perWeek = (c: Cadence) => {
     const pence = pkgFor(c)?.price_pence;
-    if (pence == null) return null;
-    return c === "weekly" ? pence : c === "monthly" ? pence / 4.345 : pence / 13;
+    return pence == null ? null : pricePerWeek(c, pence);
   };
   const weeklyBaseline = perWeek("weekly");
 
