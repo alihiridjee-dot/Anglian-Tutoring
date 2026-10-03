@@ -224,6 +224,44 @@ mistaken for the other.
 
 See [STRIPE_SETUP.md](STRIPE_SETUP.md) for the Stripe half.
 
+## Tutors are never students
+
+A tutor or admin account holds no student data at all. The database enforces
+this (`supabase/migrations/20261003120000_tutors_are_never_students.sql`), so it
+holds for the app, edge functions, scripts and hand-written SQL alike:
+
+- **No student row may name a tutor.** Every table holding a student's own data
+  (enrolments, learning profile, plans, reviews, quiz attempts, homework,
+  subscriptions, parent links and the rest) carries the trigger
+  `student_row_not_staff`. A new student table goes on the list in that
+  migration.
+- **A tutor's profile has no level, no courses and no invite code.**
+- **The profile follows the grant.** Changing a `user_roles` row to `tutor`
+  makes the profile a tutor profile. A profile can't claim `tutor` without the
+  grant, and a tutor can't also hold `student`.
+- **Promotion is refused while the account still holds student data.** Nothing
+  is deleted automatically, so promoting the wrong account can't wipe a
+  student's history.
+
+The app matches it. A tutor who opens a quiz gets a preview with no Submit, and
+the planner's fill-in generators (`ensureMcqForPoints`,
+`ensureHomeworkForPoints`) refuse staff callers.
+
+**To make a student a tutor**, run:
+
+```sql
+update public.user_roles set role = 'tutor' where user_id = '<id>' and role = 'student';
+```
+
+If it is refused, the error names the tables still holding their rows. Delete
+those rows, clear `profiles.level` and `profiles.enrolled_courses`, and run it
+again.
+
+**To take tutor access away**, delete their tutor row in `user_roles`, then set
+`profiles.role` to what they now are. Give them a `student` row if they study.
+A former tutor has no invite code: set one with
+`public.gen_student_invite_code()` if a parent needs to link.
+
 ## Environment configuration
 
 Session/URL/keys come from environment variables (`.env`, see `.env.example`) —

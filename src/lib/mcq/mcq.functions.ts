@@ -43,6 +43,23 @@ async function requireTutor(supabase: SupabaseServer, userId: string) {
 }
 
 /**
+ * The planner's fill-in is a student's own week asking for its practice. Staff
+ * accounts hold no student data, so they have no week, and a tutor calling this
+ * is never the planner: refused before anything is generated or paid for.
+ */
+async function refuseStaff(supabase: SupabaseServer, userId: string) {
+  const { data: role, error } = await supabase
+    .from("user_roles")
+    .select("role")
+    .eq("user_id", userId);
+  if (error) throw error;
+  const roles = ((role ?? []) as Array<{ role: string }>).map((r) => r.role);
+  if (roles.includes("tutor") || roles.includes("admin")) {
+    throw new Error("Only a student's week fills in its practice");
+  }
+}
+
+/**
  * The shared set for a point, or null. Asked of the database rather than read
  * through RLS, so a set a tutor has unpublished still counts as existing and is
  * not paid for again.
@@ -170,6 +187,7 @@ export const ensureMcqForPoints = createServerFn({ method: "POST" })
   })
   .handler(async ({ data, context }): Promise<EnsureMcqResult> => {
     const { supabase, userId } = context;
+    await refuseStaff(supabase, userId);
     const result = await ensureSharedSets(supabase, userId, data.specPointIds, {
       throttle: true,
       soft: true,
