@@ -11,6 +11,9 @@ import { LiveSessionsBanner } from "@/components/live/LiveSessionsBanner";
 import { WeeklyPlanPanel } from "@/components/planner/WeeklyPlanPanel";
 import { useViewerId } from "@/hooks/useViewer";
 import { boardLabel, levelLabel, subjectLabel } from "@/lib/curriculum/courseSummary";
+import { SUBJECT_TINT } from "@/lib/curriculum/subjectTheme";
+import { CourseChip } from "@/components/CourseBadge";
+import { NotesDashboardCard } from "@/components/notes/NotesDashboardCard";
 
 /**
  * @param afterContent Rendered inside the layout, below the dashboard's own
@@ -89,11 +92,18 @@ export function StudentDashboard({
         )
       )}
 
-      {/* "This Week" hub — the curriculum focus the tutor set for the current
-          Mon–Sun week, plus curated videos and links to homework, MCQs and live
-          sessions. Live strip suppressed here since it now has its own banner. */}
+      {/* Revision notes: one note per topic, written for the student's board. */}
+      <NotesDashboardCard />
+
+      {/* "From your tutor" — the spec points the tutor pinned into this student's
+          week, with their videos. Live strip suppressed here since it now has its
+          own banner. */}
       <div data-tour="tutor-focus">
-        <WeeklyFocusCard subjects={enrolledCourses} showLive={false} />
+        <WeeklyFocusCard
+          studentId={effectiveStudentId}
+          subjects={enrolledCourses}
+          showLive={false}
+        />
       </div>
 
       {afterContent}
@@ -123,20 +133,13 @@ export function EnrolmentSummary({
 
   return (
     <div className="flex flex-wrap items-center gap-1.5">
-      {level && (
-        <span className="text-[11px] font-bold uppercase tracking-wide px-2 py-1 rounded-md bg-accent/25 text-primary-foreground border border-accent/30">
-          {levelLabel(level)}
-        </span>
-      )}
+      <CourseChip icon parts={[levelLabel(level)]} />
       {enrolments.map((e) => (
-        <span
+        <CourseChip
           key={e.subject}
-          className="inline-flex items-center gap-1.5 text-[11px] sm:text-xs font-medium px-2.5 py-1 rounded-md bg-white/10 border border-white/10 text-primary-foreground/90"
-        >
-          {subjectLabel(e.subject)}
-          <span className="text-primary-foreground/50">·</span>
-          <span className="text-primary-foreground/70">{boardLabel(e.board)}</span>
-        </span>
+          tint={SUBJECT_TINT[e.subject] ?? "tint-primary"}
+          parts={[subjectLabel(e.subject), boardLabel(e.board)]}
+        />
       ))}
     </div>
   );

@@ -6,7 +6,8 @@ import { Loader2, CreditCard, Gift } from "lucide-react";
 import { useSignOut } from "@/hooks/useSignOut";
 import { formatPence } from "@/lib/billing/billing";
 import { usePlanStep, type SearchParams } from "@/components/onboarding/usePlanStep";
-import { TrialCodeField, TRIAL_DAYS } from "@/components/billing/TrialCodeField";
+import { TrialCodeField } from "@/components/billing/TrialCodeField";
+import { TRIAL_DAYS } from "@/lib/billing/trialCode";
 import {
   AskParentCard,
   CadencePicker,

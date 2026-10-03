@@ -70,15 +70,18 @@ function Panel({
   title,
   description,
   icon: Icon,
+  guide,
   children,
 }: {
   title: string;
   description?: string;
   icon: React.ComponentType<{ className?: string }>;
+  /** Where the welcome tour points, on the one panel it describes. */
+  guide?: string;
   children: React.ReactNode;
 }) {
   return (
-    <section className="rounded-2xl premium-card p-4 sm:p-6">
+    <section data-guide={guide} className="rounded-2xl premium-card p-4 sm:p-6">
       <div className="flex items-start gap-3 mb-5">
         <div className="w-9 h-9 rounded-lg bg-primary/10 border border-primary/20 flex items-center justify-center shrink-0">
           <Icon className="w-4 h-4 text-primary" />
@@ -193,6 +196,7 @@ function StudentView() {
         title="Invite a parent or guardian"
         description="They'll be asked to accept before they can see anything."
         icon={Mail}
+        guide="invite-parent"
       >
         <form onSubmit={submit} className="space-y-4 max-w-sm">
           <Field label="Their email">
@@ -299,7 +303,12 @@ function StudentView() {
                   </div>
                   <button
                     onClick={async () => {
-                      if (!window.confirm(`Remove ${p.display_name ?? p.email}'s access?`)) return;
+                      if (
+                        !window.confirm(
+                          `Remove ${p.display_name ?? p.email}'s access? Your invite code will change too.`,
+                        )
+                      )
+                        return;
                       try {
                         await unlink.mutateAsync(p.link_id);
                         toast.success("Parent unlinked");
@@ -372,6 +381,7 @@ function ParentView() {
         title="Link a student by invite code"
         description="Ask your child for their invite code, then enter it here to follow their progress."
         icon={Link2}
+        guide="link-child"
       >
         <form onSubmit={submitCode} className="flex flex-wrap items-end gap-2">
           <div className="flex-1 min-w-48">

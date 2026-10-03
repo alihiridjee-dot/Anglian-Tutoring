@@ -330,7 +330,11 @@ export function AppLayout({ title, children }: { title: string; children: ReactN
               key={`${pathname}:${title}`}
               pageTitle={title}
               guideKey={pathname.includes("/mcq/") ? "MCQ" : title}
-              autoStart={isStudentContext && pathname === "/student-dashboard"}
+              // On a home page the button replays the welcome tour, which starts
+              // there by itself the first time (see WelcomeTour).
+              welcome={
+                !isDemo && (pathname === "/student-dashboard" || pathname === "/parent-dashboard")
+              }
             />
             {isStudentContext && (
               <HeaderLiveButton liveHref={isDemo ? "/demo/student/live" : "/live"} />

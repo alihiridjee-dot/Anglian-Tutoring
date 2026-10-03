@@ -1,0 +1,233 @@
+{
+  "format": 1,
+  "concept_id": "chem-014",
+  "subject": "chemistry",
+  "title": "Transition metals",
+  "key_idea": "Most metals are transition metals. They are harder, stronger and denser than the Group 1 metals, with high melting points, and are less reactive. Many have ions with different charges, form coloured compounds and are useful as catalysts.",
+  "sections": [
+    {
+      "heading": "Transition metals compared with Group 1",
+      "blocks": [
+        { "type": "paragraph", "text": "(Separate science only) The transition metals are the block of elements between Group 2 and Group 3. This section compares them with the alkali metals." },
+        {
+          "type": "definitions",
+          "items": [
+            { "term": "Transition metal", "meaning": "A metal in the central block of the periodic table, such as chromium (Cr), manganese (Mn), iron (Fe), cobalt (Co), nickel (Ni) and copper (Cu)." },
+            { "term": "Catalyst", "meaning": "A substance that speeds up a reaction without being used up." }
+          ]
+        },
+        {
+          "type": "table",
+          "columns": ["Property", "Group 1 metals", "Transition metals"],
+          "rows": [
+            ["Melting point", "Low", "High"],
+            ["Density", "Low", "High"],
+            ["Strength and hardness", "Soft and weak", "Hard and strong"],
+            ["Reactivity with oxygen, water and halogens", "Very reactive", "Much less reactive"],
+            ["Electrical conductivity", "Conduct electricity", "Conduct electricity"]
+          ]
+        },
+        {
+          "type": "list",
+          "items": [
+            "The transition metals have similar properties to each other, which are different from those of Group 1.",
+            "Most metals are transition metals.",
+            "Example: copper is harder and less reactive than sodium."
+          ]
+        },
+        {
+          "type": "key-points",
+          "items": [
+            "Transition metals have higher melting points and densities than Group 1 metals.",
+            "They are harder and stronger, and less reactive.",
+            "Both groups conduct electricity."
+          ]
+        }
+      ]
+    },
+    {
+      "heading": "Typical properties of transition metals",
+      "blocks": [
+        { "type": "paragraph", "text": "Many transition elements share three properties that Group 1 metals do not." },
+        {
+          "type": "list",
+          "items": [
+            "They have **ions with different charges**. Iron forms Fe²⁺ and Fe³⁺ ions.",
+            "They form **coloured compounds**. Compounds of copper are often blue, and vanadium oxide, V₂O₅, is orange.",
+            "They are useful as **catalysts**. Iron is a catalyst in making ammonia, vanadium(V) oxide is a catalyst in making sulfuric acid, and platinum is a catalyst in fuel cells."
+          ]
+        },
+        {
+          "type": "diagram",
+          "diagram": {
+            "kind": "sort",
+            "alt": "Sort each property into Group 1 metals, transition metals or both.",
+            "prompt": "Which metals?",
+            "groups": ["Group 1 metals", "Transition metals", "Both"],
+            "items": [
+              { "text": "Low melting points", "group": 0 },
+              { "text": "High melting points", "group": 1 },
+              { "text": "Very reactive with water", "group": 0 },
+              { "text": "Ions with different charges", "group": 1 },
+              { "text": "Form coloured compounds", "group": 1 },
+              { "text": "Useful as catalysts", "group": 1 },
+              { "text": "Soft and low density", "group": 0 },
+              { "text": "Hard, strong and dense", "group": 1 },
+              { "text": "Good conductors of electricity", "group": 2 }
+            ]
+          }
+        },
+        {
+          "type": "key-points",
+          "items": [
+            "Many transition elements have ions with different charges.",
+            "Many form coloured compounds.",
+            "Many are useful as catalysts, for example iron."
+          ]
+        }
+      ]
+    }
+  ],
+  "checks": [
+    {
+      "q": "Give two differences between the physical properties of the transition metals and those of the Group 1 metals.",
+      "a": "Any two from: transition metals have higher melting points, are denser, are harder, are stronger.",
+      "marks": 2
+    },
+    {
+      "q": "State three typical properties of transition metals that Group 1 metals do not have.",
+      "a": "Ions with different charges, coloured compounds, and useful as catalysts.",
+      "marks": 3
+    },
+    {
+      "q": "Platinum acts as a catalyst in a fuel cell. Explain how its position in the periodic table shows this.",
+      "a": "Platinum is a transition metal, and transition metals are useful as catalysts.",
+      "marks": 1
+    }
+  ],
+  "boards": {
+    "aqa": {
+      "spec_codes": ["AQA 4.1.3.1", "AQA 4.1.3.2"],
+      "exam_phrases": [
+        "(transition metal) has a higher melting / boiling point",
+        "is denser",
+        "is harder / stronger",
+        "is less reactive",
+        "has ions with different charges",
+        "forms coloured compounds",
+        "can be a catalyst"
+      ],
+      "mistakes": [
+        {
+          "wrong": "A difference in physical properties is that transition elements form coloured compounds.",
+          "right": "Coloured compounds and ions are chemical properties, and are ignored when physical properties are asked for. Give melting point, density, strength or hardness."
+        },
+        {
+          "wrong": "Tungsten is more reactive than potassium because it has a high melting point.",
+          "right": "Transition metals are less reactive than Group 1 metals."
+        },
+        {
+          "wrong": "Tungsten differs from potassium because of the arrangement of its electrons.",
+          "right": "References to atomic structure are ignored. Give a property: for example, tungsten has a higher melting point or is denser."
+        }
+      ],
+      "worked_example": {
+        "exemplar_id": "63d59d73-bc1f-46cc-887d-79f49d0b3d11",
+        "source": "AQA jun 2025, Paper 1 (H), Q3.4",
+        "question": "Tungsten is a transition metal. Potassium is a Group 1 metal.\n\nGive two differences between the properties of tungsten and the properties of potassium.",
+        "marks": 2,
+        "answer_points": [
+          "Tungsten has a higher melting or boiling point.",
+          "Tungsten is denser.",
+          "Tungsten is harder or stronger.",
+          "Tungsten is less reactive.",
+          "Tungsten has ions with different charges, forms coloured compounds, or can be a catalyst."
+        ],
+        "tip": "Any two score one mark each. The converse for potassium is also accepted."
+      }
+    },
+    "edexcel": {
+      "spec_codes": ["EDEX 5.1C"],
+      "exam_phrases": [
+        "platinum is a transition metal / element",
+        "high melting point",
+        "high density",
+        "forms coloured compounds",
+        "catalytic activity, for example iron"
+      ],
+      "mistakes": [
+        {
+          "wrong": "Platinum is a catalyst because it is in the middle of the periodic table.",
+          "right": "'In the middle' is ignored. Say platinum is a transition metal (or transition element)."
+        },
+        {
+          "wrong": "Transition metals have low melting points and colourless compounds.",
+          "right": "Typical properties are a high melting point, a high density and coloured compounds."
+        }
+      ],
+      "worked_example": {
+        "exemplar_id": "c0434aed-d4a0-46aa-8fbc-ee5e5e2ce0b6",
+        "source": "EDEXCEL jun 2019, Paper 1 (H), Q1(b)(ii)",
+        "question": "In a hydrogen-oxygen fuel cell, hydrogen and oxygen react at the electrodes.\n\nPlatinum acts as a catalyst.\n\nState, in terms of its position in the periodic table, why you would expect platinum to act as a catalyst.",
+        "marks": 1,
+        "answer_points": [
+          "Platinum is a transition metal (or transition element)."
+        ],
+        "tip": "Name the block of the periodic table that platinum is in. Irrelevant extra information is ignored."
+      }
+    },
+    "ocr": {
+      "spec_codes": ["OCR C4.1c"],
+      "exam_phrases": [
+        "Group 1 metals have a lower density",
+        "Group 1 metals have a lower melting point",
+        "Group 1 metals are softer / less strong",
+        "both Group 1 metals and transition metals conduct electricity",
+        "Group 1 metals are more reactive",
+        "transition metals form coloured compounds / variable valency / catalysts",
+        "copper is harder and less reactive than potassium"
+      ],
+      "mistakes": [
+        {
+          "wrong": "Element X has a high melting point of 1538 °C and a density of 7.87 g/cm³.",
+          "right": "The answer must compare Group 1 metals with transition metals, not describe one element. Say Group 1 metals have a lower melting point and density than transition metals."
+        },
+        {
+          "wrong": "Transition metals are shinier than Group 1 metals.",
+          "right": "Incorrect or uncertain statements about properties not on the list, such as shinier, are ignored. Use density, melting point, strength, hardness or reactivity."
+        }
+      ],
+      "worked_example": {
+        "exemplar_id": "4f13613e-724a-49ce-b630-b9230f225694",
+        "source": "OCR jun 2023, Paper 2, Q17(c)(i)",
+        "question": "The table shows information about the physical properties of four elements, W, X, Y and Z.\n\nW: density 0.97 g/cm³, melting point 98 °C, conducts electricity\nX: density 7.87 g/cm³, melting point 1538 °C, conducts electricity\nY: density 0.003 g/cm³, melting point −102 °C, does not conduct electricity\nZ: density 1.74 g/cm³, melting point 650 °C, conducts electricity\n\nOne of the elements is a transition metal.\n\nCompare the physical and chemical properties of Group 1 metals and transition metals.\n\nUse the information in the table, and your own knowledge.",
+        "marks": 3,
+        "answer_points": [
+          "Group 1 metals have a lower density and a lower melting point.",
+          "Group 1 metals are softer and less strong.",
+          "Both Group 1 metals and transition metals conduct electricity.",
+          "Group 1 metals are more reactive."
+        ],
+        "tip": "Any two of the physical points, plus the idea that Group 1 metals are more reactive. An unqualified answer is taken to refer to Group 1 metals."
+      }
+    }
+  },
+  "meta": {
+    "status": "draft",
+    "checked_by": "sonnet-science-check",
+    "checked_at": "2026-10-01",
+    "written_by": "claude-sonnet-5-5",
+    "written_at": "2026-10-01",
+    "spec_point_ids": [
+      "1032bd86-e891-4b89-803f-a1880cd67c02",
+      "c03e4a69-5ed8-4d94-a9da-7314c7f31695",
+      "04559104-64e7-48d4-9ae8-d97f5ed97d95",
+      "27b06f7c-d3a6-43f7-b269-6cbfd91baeb8"
+    ],
+    "exemplar_ids": [
+      "63d59d73-bc1f-46cc-887d-79f49d0b3d11",
+      "c0434aed-d4a0-46aa-8fbc-ee5e5e2ce0b6",
+      "4f13613e-724a-49ce-b630-b9230f225694"
+    ]
+  }
+}

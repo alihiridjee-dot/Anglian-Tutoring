@@ -4,6 +4,39 @@ import { isDemoMode } from "@/lib/auth/session";
 import { useCourseSummary } from "@/hooks/data/useCourseSummary";
 
 /**
+ * The one chip that states a student's course — "GCSE · Edexcel",
+ * "Chemistry · Edexcel". Every surface that names a level, board or subject
+ * draws this, so the student sees the same pill everywhere. Feed it from
+ * `useCourseSummary` / `useEnrolments` (one cached profile query) rather than
+ * fetching the course again. Empty parts are dropped; `tint` recolours it.
+ */
+export function CourseChip({
+  parts,
+  icon = false,
+  tint = "tint-primary",
+  className = "",
+}: {
+  parts: (string | null | undefined)[];
+  icon?: boolean;
+  tint?: string;
+  className?: string;
+}) {
+  const shown = parts.filter(Boolean) as string[];
+  if (shown.length === 0) return null;
+  return (
+    <span className={`chip ${tint} whitespace-nowrap ${className}`}>
+      {icon && <GraduationCap className="h-3.5 w-3.5 shrink-0" aria-hidden />}
+      {shown.map((p, i) => (
+        <span key={i} className="inline-flex items-center gap-1.5">
+          {i > 0 && <span aria-hidden>·</span>}
+          {p}
+        </span>
+      ))}
+    </span>
+  );
+}
+
+/**
  * The persistent "you are studying X" chip in the app header.
  *
  * Which spec a student is on decides every piece of content they're shown, and
@@ -17,7 +50,8 @@ import { useCourseSummary } from "@/hooks/data/useCourseSummary";
  * because it holds no session, so its Billing link would bounce to /auth.
  */
 export function CourseBadge() {
-  const { headline, perSubject, mixedBoards, loading } = useCourseSummary();
+  const { headline, levelLabel, boardLabels, perSubject, mixedBoards, loading } =
+    useCourseSummary();
 
   if (isDemoMode() || loading || !headline) return null;
 
@@ -29,10 +63,9 @@ export function CourseBadge() {
     <Link
       to="/billing"
       title={title ? `${headline} — ${title}` : headline}
-      className="hidden sm:inline-flex items-center gap-1.5 h-7 rounded-full border border-border bg-secondary/60 px-2.5 text-[11px] font-semibold text-muted-foreground transition hover:border-primary/40 hover:text-foreground"
+      className="hidden sm:inline-flex rounded-full transition hover:opacity-80"
     >
-      <GraduationCap className="h-3.5 w-3.5 shrink-0" />
-      <span className="whitespace-nowrap">{headline}</span>
+      <CourseChip icon parts={[levelLabel, ...boardLabels]} />
     </Link>
   );
 }

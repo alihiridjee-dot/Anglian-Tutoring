@@ -1,14 +1,13 @@
-import { useEffect, useRef, useState } from "react";
+import { useState } from "react";
 import { useQueryClient } from "@tanstack/react-query";
 import { useServerFn } from "@tanstack/react-start";
 import { supabase } from "@/integrations/supabase/client";
 import { toast } from "sonner";
 import { type SubjectV, type BoardV, type LevelV } from "@/lib/curriculum/taxonomy";
 import { createZoomMeeting } from "@/lib/live/zoom.functions";
+import { scheduledInviteText } from "@/lib/live/whatsappShare";
 import { generateSessionBlurb } from "@/lib/live/sessionBlurb.functions";
 import { suggestSpecPoints } from "@/lib/curriculum/suggestSpecPoints.functions";
-import { useWeeklyFocus } from "@/hooks/data/useWeeklyFocus";
-import { mondayOf, toDateKey, weekRangeLabel } from "@/lib/planner/week";
 
 export interface LiveFormProps {
   userId: string;
@@ -20,21 +19,13 @@ export interface LiveFormProps {
     level: LevelV;
     setLevel: (v: LevelV) => void;
   };
-  /**
-   * Dashboard mode: tie the session to the tutor's "This Week" plan. Picking a
-   * start date derives the week it falls in and pre-links the session's spec
-   * points to that week's focus, so a live session is always covering the same
-   * curriculum the week is built around. Off (default) on the standalone /live
-   * page, where a session can be scheduled for anything.
-   */
-  linkToWeek?: boolean;
 }
 
 /**
- * Scheduling a live session: the fields, the link to the tutor's week, the three
+ * Scheduling a live session: the fields, the three
  * assists (Zoom link, AI description, AI spec points) and the save itself.
  */
-export function useLiveForm({ taxonomy, linkToWeek = false }: LiveFormProps) {
+export function useLiveForm({ taxonomy }: LiveFormProps) {
   const qc = useQueryClient();
   const [title, setTitle] = useState("");
   const [description, setDescription] = useState("");
@@ -51,41 +42,6 @@ export function useLiveForm({ taxonomy, linkToWeek = false }: LiveFormProps) {
   const [broadcastWhatsApp, setBroadcastWhatsApp] = useState(true);
   const genBlurb = useServerFn(generateSessionBlurb);
   const suggestPoints = useServerFn(suggestSpecPoints);
-
-  // Week-linking (dashboard mode). The chosen start date decides which Mon–Sun
-  // week the session belongs to; we then look up the tutor's "This Week" focus
-  // for that week + taxonomy and pre-fill the session's spec points from it, so
-  // the live session and the week's focus always cover the same curriculum.
-  const startDate = startsAt ? new Date(startsAt) : null;
-  const validStart = startDate && !isNaN(startDate.getTime()) ? startDate : null;
-  const weekKey = linkToWeek && validStart ? toDateKey(mondayOf(validStart)) : "";
-  const weekLabel = linkToWeek && validStart ? weekRangeLabel(mondayOf(validStart)) : "";
-  const { plans: weekPlans, loading: weekLoading } = useWeeklyFocus(weekKey, undefined, {
-    enabled: linkToWeek && weekKey.length > 0,
-  });
-  // Sessions are board-agnostic, so match the week's focus by subject + level
-  // only. weekly_focus is still board-scoped; the first matching board's focus
-  // for that subject+level is used to seed points (the tutor can add more).
-  const weekFocus = weekPlans.find(
-    (p) => p.subject === taxonomy.subject && p.level === taxonomy.level,
-  );
-
-  // Seed the session's spec points from the week's focus once per (week, taxonomy)
-  // signature, so a background refetch or an unrelated field edit doesn't clobber
-  // points the tutor added on top. Adding more points below is always allowed.
-  const seededFor = useRef<string>("");
-  useEffect(() => {
-    if (!linkToWeek || !weekKey || weekLoading) return;
-    // Board is deliberately absent: the focus above is matched on subject +
-    // level only, so the seeded points are identical across boards. Including it
-    // made the signature finer-grained than the data it guards, which meant
-    // switching board re-seeded and wiped points the tutor had added on top.
-    const sig = `${weekKey}|${taxonomy.subject}|${taxonomy.level}`;
-    if (seededFor.current === sig) return;
-    seededFor.current = sig;
-    const focusIds = weekFocus?.points.map((p) => p.id) ?? [];
-    if (focusIds.length > 0) setSpecPointIds(focusIds);
-  }, [linkToWeek, weekKey, weekLoading, weekFocus, taxonomy.subject, taxonomy.level]);
 
   // Provisions a real Zoom meeting via the zoom-meeting edge function and drops
   // the returned join URL into the form. Needs a title and start time so the
@@ -207,8 +163,13 @@ export function useLiveForm({ taxonomy, linkToWeek = false }: LiveFormProps) {
     if (error) return toast.error(error.message);
 
     if (broadcastWhatsApp) {
-      const timeStr = new Date(startsAt).toLocaleString();
-      const inviteText = `📚 *New Anglia Educate Live Session Scheduled!* 📚\n\n🔹 *Session:* ${title}\n🔹 *Subject:* ${taxonomy.subject.toUpperCase()} (${taxonomy.level.toUpperCase()})\n🔹 *Time:* ${timeStr}\n\n👉 *Join here:* ${joinUrl || "Link pending"}`;
+      const inviteText = scheduledInviteText({
+        title,
+        subject: taxonomy.subject,
+        level: taxonomy.level,
+        starts_at: formattedStartsAt,
+        join_url: joinUrl || null,
+      });
 
       try {
         await navigator.clipboard.writeText(inviteText);
@@ -233,8 +194,6 @@ export function useLiveForm({ taxonomy, linkToWeek = false }: LiveFormProps) {
     setJoinUrl("");
     setZoomMeeting(null);
     setSpecPointIds([]);
-    // Allow the next date pick to re-seed from that week's focus.
-    seededFor.current = "";
   };
 
   return {
@@ -254,10 +213,6 @@ export function useLiveForm({ taxonomy, linkToWeek = false }: LiveFormProps) {
     suggesting,
     broadcastWhatsApp,
     setBroadcastWhatsApp,
-    validStart,
-    weekLabel,
-    weekLoading,
-    weekFocus,
     generateZoomLink,
     generateDescription,
     suggestFromDescription,
