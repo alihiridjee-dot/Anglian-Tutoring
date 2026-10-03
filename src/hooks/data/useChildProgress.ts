@@ -144,10 +144,15 @@ export interface ChildEngagement {
 /**
  * Attendance and homework-completion counts — the real engagement stats.
  *
- * Counted against the child's own course: sessions and homework at their level
- * only, and only sessions held since they joined. Counting every level's
- * sessions since the platform began told the parent of an iGCSE student who
- * joined last month that they had missed nearly all of them.
+ * Counted on the server (student_engagement) with the child's own list rules:
+ * their level, each subject's board, since they took that subject up, and
+ * only homework a tutor set whose due date has passed. Counting every brief at
+ * the level told the parent of a child who joined in October "0 of 12 handed
+ * in", including sheets the child never saw (S-24). The server also reads past
+ * the paywall, so a paused or lapsed child keeps their record (S-23).
+ *
+ * `subjects` and `course` aren't sent: they key the cache, so a changed board
+ * or level recounts, and hold the read until the course is known.
  */
 export function useChildEngagement(
   studentId: string | null,
@@ -164,76 +169,18 @@ export function useChildEngagement(
       course?.joinedAt,
     ],
     queryFn: async (): Promise<ChildEngagement> => {
-      const nowIso = new Date().toISOString();
-      const subjectList = subjects as ("biology" | "chemistry" | "physics")[];
-      // No level yet means the student's own pages don't filter by one either.
-      const level = course!.level;
-      const since = course!.joinedAt;
-
-      let sessionsQ = supabase
-        .from("resources")
-        .select("id", { count: "exact", head: true })
-        .eq("kind", "live_session")
-        .in("subject", subjectList)
-        .gte("starts_at", since)
-        .lt("starts_at", nowIso);
-      // The same population as above, so a join record for another level's
-      // session can't push attendance past what was held.
-      let attendedQ = supabase
-        .from("session_attendees")
-        .select("id, resources!inner(kind, subject, level, starts_at)", {
-          count: "exact",
-          head: true,
-        })
-        .eq("user_id", studentId!)
-        .eq("resources.kind", "live_session")
-        .in("resources.subject", subjectList)
-        .gte("resources.starts_at", since)
-        .lt("resources.starts_at", nowIso);
-      let homeworkQ = supabase
-        .from("resources")
-        .select("id", { count: "exact", head: true })
-        .eq("kind", "homework")
-        .eq("origin", "tutor")
-        .in("subject", subjectList);
-      let submissionsQ = supabase
-        .from("homework_submissions")
-        .select("id, resources!inner(origin, subject, level)", { count: "exact", head: true })
-        .eq("student_id", studentId!)
-        .eq("resources.origin", "tutor")
-        .in("resources.subject", subjectList);
-      if (level) {
-        sessionsQ = sessionsQ.eq("level", level);
-        attendedQ = attendedQ.eq("resources.level", level);
-        homeworkQ = homeworkQ.eq("level", level);
-        submissionsQ = submissionsQ.eq("resources.level", level);
-      }
-
-      const [sessions, attended, homework, submissions] = await Promise.all([
-        sessionsQ,
-        attendedQ,
-        // Only homework somebody actually set. The planner writes a practice
-        // sheet for every spec point a student's week reaches, and counting
-        // those would show a parent "4 of 180 handed in" — a number that says
-        // their child is failing when it is really measuring the size of the
-        // library.
-        homeworkQ,
-        // Counted against the same population as `homeworkSet` above. Without
-        // the join a term of enthusiastic practice reads as every set homework
-        // handed in, because the pair is clamped to each other below.
-        submissionsQ,
-      ]);
-      for (const r of [sessions, attended, homework, submissions]) {
-        if (r.error) throw new Error(r.error.message);
-      }
-
+      const { data, error } = await supabase.rpc("student_engagement", {
+        _student_id: studentId!,
+      });
+      if (error) throw new Error(error.message);
+      // No row means the caller isn't the student, a linked parent or a tutor.
+      const row = data?.[0];
+      if (!row) throw new Error("This student's engagement isn't available to your account.");
       return {
-        sessionsHeld: sessions.count ?? 0,
-        // A student can technically hold join-records for sessions since
-        // removed; never report more than 100%.
-        sessionsAttended: Math.min(attended.count ?? 0, sessions.count ?? 0),
-        homeworkSet: homework.count ?? 0,
-        homeworkSubmitted: Math.min(submissions.count ?? 0, homework.count ?? 0),
+        sessionsHeld: row.sessions_held,
+        sessionsAttended: row.sessions_attended,
+        homeworkSet: row.homework_set,
+        homeworkSubmitted: row.homework_submitted,
       };
     },
     enabled: !!studentId && subjects.length > 0 && !!course,

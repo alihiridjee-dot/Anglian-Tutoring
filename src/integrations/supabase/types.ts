@@ -2108,6 +2108,15 @@ export type Database = {
           onboarding_complete: boolean;
         }[];
       };
+      student_engagement: {
+        Args: { _student_id: string };
+        Returns: {
+          homework_set: number;
+          homework_submitted: number;
+          sessions_attended: number;
+          sessions_held: number;
+        }[];
+      };
       planner_attempt_sources: { Args: { _ids: string[] }; Returns: Json };
       planner_course_snapshot: {
         Args: {
