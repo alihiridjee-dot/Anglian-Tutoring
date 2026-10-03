@@ -1268,6 +1268,15 @@ body {
     box-shadow: none;
     padding: 0 env(safe-area-inset-right) env(safe-area-inset-bottom) env(safe-area-inset-left);
   }
+
+  /* The page content is its own stacking context (`.page-aurora` isolates), so
+     no z-index lifts the thread over the pinned header beside it. The header
+     steps aside instead, `visibility` rather than `display` so the page under
+     the thread doesn't jump when it closes. The thread's title row has the way
+     back, and the drawer button returns with the header. */
+  main:has(.thread-sideways) > header {
+    visibility: hidden;
+  }
 }
 
 /* A control drawn small — a close ×, a chevron, a chip's remove button — gets a
