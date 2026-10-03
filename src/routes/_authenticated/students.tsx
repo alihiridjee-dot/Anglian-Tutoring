@@ -1,6 +1,6 @@
 import { createFileRoute } from "@tanstack/react-router";
 import { Users } from "lucide-react";
-import { PageHeader, Spinner } from "@/components/Shared";
+import { EmptyState, PageHeader, Spinner } from "@/components/Shared";
 import { AppLayout } from "@/components/AppLayout";
 import { useRoles } from "@/hooks/useRole";
 import { StudentsRoster } from "@/components/students/StudentsRoster";
@@ -26,7 +26,12 @@ function Students() {
   if (!isTutor) {
     return (
       <AppLayout title="Students">
-        <p className="text-muted-foreground">Tutor access required.</p>
+        <EmptyState
+          title="Tutor access required"
+          body="Student records are open to tutors only."
+          action={{ to: "/dashboard", label: "Go to your dashboard" }}
+          mascot="owl"
+        />
       </AppLayout>
     );
   }
