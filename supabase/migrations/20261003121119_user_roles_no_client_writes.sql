@@ -1,0 +1,25 @@
+-- user_roles decides who is a tutor or an admin, so only the server writes it.
+--
+-- anon and authenticated held every privilege on public.user_roles (Supabase's
+-- default grants, checked live on 3 Oct 2026). Only row-level security refused
+-- their writes: the table's one policy, "roles self read", lets a signed-in
+-- user read their own rows and nothing more. A single permissive write policy
+-- added by mistake would have let anyone grant themselves tutor. Without the
+-- privileges, no policy can: the write fails with "permission denied" before
+-- any policy is consulted. TRUNCATE goes too: row-level security doesn't
+-- govern it.
+--
+-- Nothing in the app writes this table with a user's key. Roles are granted by
+-- public.handle_new_user() at sign-up (SECURITY DEFINER, so it runs as its
+-- owner) and by hand in SQL, and both keep working. So do the two triggers
+-- 20261003115242_tutors_are_never_students.sql put on this table,
+-- staff_grant_not_student and staff_grant_syncs_profile. A revoke leaves
+-- triggers alone, their functions are SECURITY DEFINER too, and every write
+-- that still reaches the table comes from the owner or the service role.
+--
+-- SELECT stays for authenticated: useRoles, guardState.ts and the tutor checks
+-- in the server functions read the caller's own roles through "roles self
+-- read".
+--
+-- Independent of any app release: apply any time.
+revoke insert, update, delete, truncate on public.user_roles from anon, authenticated;
