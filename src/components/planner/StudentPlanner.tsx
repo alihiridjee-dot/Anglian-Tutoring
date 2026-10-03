@@ -44,7 +44,7 @@ import { ThisWeekPanel } from "./ThisWeekPanel";
 import { useWeekPlan } from "./useWeekPlan";
 import { useReviewMore } from "./useReviewMore";
 import { WeekReview } from "./WeekReview";
-import { subjectLabel } from "@/lib/curriculum/courseSummary";
+import { useActiveSubject } from "@/hooks/useActiveSubject";
 
 /** Stable identity for one focus-lane band — topic + kind + week it lands on. */
 function focusKey(b: PacingBand): string {
@@ -60,8 +60,8 @@ const TABS: { key: TabKey; label: string; icon: typeof CalendarDays }[] = [
 ];
 
 /**
- * The whole student planner in one place: subject picked once up top, then
- * three tabs. "This week" is the landing view — the one topic being taught,
+ * The whole student planner in one place: the subject from the header slider,
+ * then three tabs. "This week" is the landing view — the one topic being taught,
  * anything to revisit, and how memory is holding. "Full plan" is the road to
  * the exams. "My topics" is where the student reviews
  * what's been practised. Replaces the old four stacked panels, each of which
@@ -71,15 +71,12 @@ export function StudentPlanner({
   studentId,
   enrolments,
   level,
-  initialSubject,
   initialTab,
   focusWeek,
 }: {
   studentId: string;
   enrolments: Enrolment[];
   level: LevelV;
-  /** Opens on this course when the student is enrolled on it. */
-  initialSubject?: string;
   initialTab?: TabKey;
   /** A week the full plan opens at, e.g. from a curriculum point. */
   focusWeek?: string;
@@ -91,9 +88,7 @@ export function StudentPlanner({
     ],
     [enrolments],
   );
-  const [activeSubject, setActiveSubject] = useState(
-    ordered.find((e) => e.subject === initialSubject)?.subject ?? ordered[0]?.subject ?? "biology",
-  );
+  const { subject: activeSubject } = useActiveSubject();
   const active = ordered.find((e) => e.subject === activeSubject) ?? ordered[0];
   // Named separately so the effect below can depend on the two values it uses.
   // Depending on `active` itself would re-run the whole roadmap load whenever
@@ -179,32 +174,8 @@ export function StudentPlanner({
 
   return (
     <div className="rounded-2xl premium-card shadow-sm overflow-hidden">
-      {/* One header: subject picked once, tabs underneath. */}
+      {/* The subject is the header slider's; the section tabs sit here. */}
       <div className="px-4 sm:px-5 pt-4 border-b border-border">
-        {ordered.length > 1 && (
-          <div
-            className="flex flex-wrap items-center gap-2 mb-3"
-            role="tablist"
-            aria-label="Subject"
-          >
-            {ordered.map((e) => (
-              <button
-                key={e.subject}
-                type="button"
-                role="tab"
-                aria-selected={e.subject === activeSubject}
-                onClick={() => setActiveSubject(e.subject)}
-                className={`h-11 sm:h-8 px-3.5 rounded-full text-sm font-medium transition ${
-                  e.subject === activeSubject
-                    ? "btn-solid"
-                    : "bg-muted text-muted-foreground hover:text-foreground"
-                }`}
-              >
-                {subjectLabel(e.subject)}
-              </button>
-            ))}
-          </div>
-        )}
         <nav
           className="flex gap-1 -mb-px overflow-x-auto scroll-none -mx-4 px-4 sm:mx-0 sm:px-0"
           aria-label="Planner sections"

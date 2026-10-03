@@ -32,8 +32,15 @@ export const pageGuides: Record<string, GuideStep[]> = {
     ),
   ],
   Curriculum: [
+    // A student picks the subject in the header; a tutor with the filters on
+    // the page. Each finds only its own, so one of the two steps shows.
+    at(
+      "subject-slider",
+      "Choose your subject",
+      "Pick the subject you want to work on here, at the top. Every page follows it, and the curriculum uses the exam board and level shown beside it.",
+    ),
     select(
-      '[data-guide="curriculum-filters"] > :first-child',
+      '[data-guide="curriculum-filters"] > .grid',
       "Choose your subject",
       "Pick the subject you want to work on. The curriculum follows the exam board and level shown here.",
     ),
@@ -97,7 +104,7 @@ export const pageGuides: Record<string, GuideStep[]> = {
     select(
       '[data-guide="homework-grades"] h3',
       "See how you’re doing",
-      "Your predicted grades and practice averages appear here when enough results are available. Use them to spot subjects that need more attention.",
+      "Your target grade, next to the grade your quizzes and homework say you’re working towards, for the subject picked at the top. No target yet? Set one here.",
     ),
     select(
       '[data-guide="homework-list"] a',
@@ -106,10 +113,10 @@ export const pageGuides: Record<string, GuideStep[]> = {
     ),
   ],
   "Weekly MCQs": [
-    select(
-      '[aria-label="Subject"]',
+    at(
+      "subject-slider",
       "Pick your subject",
-      "Switch subjects to see the quizzes for the course you want to work on.",
+      "Switch subjects here, at the top, to see the quizzes for the course you want to work on.",
     ),
     select(
       '[data-guide="mcq-this-week"] h2',
@@ -123,6 +130,12 @@ export const pageGuides: Record<string, GuideStep[]> = {
     ),
   ],
   "My Planner": [
+    at(
+      "subject-slider",
+      "Pick your subject",
+      "Switch subjects here, at the top, to see the plan for the course you want to work on.",
+    ),
+    // A tutor's planner keeps its own subject toggle, beside the student's name.
     select(
       '[aria-label="Subject"]',
       "Pick your subject",

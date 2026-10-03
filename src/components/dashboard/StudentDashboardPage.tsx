@@ -10,6 +10,7 @@ import { WeeklyFocusCard } from "@/components/weekly/WeeklyFocusCard";
 import { LiveSessionsBanner } from "@/components/live/LiveSessionsBanner";
 import { WeeklyPlanPanel } from "@/components/planner/WeeklyPlanPanel";
 import { useViewerId } from "@/hooks/useViewer";
+import { useActiveSubject } from "@/hooks/useActiveSubject";
 import { boardLabel, levelLabel, subjectLabel } from "@/lib/curriculum/courseSummary";
 import { SUBJECT_TINT } from "@/lib/curriculum/subjectTheme";
 import { CourseChip } from "@/components/CourseBadge";
@@ -33,6 +34,9 @@ export function StudentDashboard({
   // This is a student-only surface (see the guard above), so the student whose
   // plan is shown is always the viewer. Null in the showcase, which has nobody.
   const effectiveStudentId = useViewerId();
+  // The plan, the tutor's focus and the live banner follow the header slider;
+  // the welcome strip keeps every subject, as the summary of the whole course.
+  const { subject: activeSubject } = useActiveSubject();
 
   // Warms the analytics cache for the pages that render it.
   useAnalytics(effectiveStudentId, enrolledCourses);
@@ -76,7 +80,7 @@ export function StudentDashboard({
       {/* Live sessions — hoisted out of the "This Week" hub into its own banner so
           it stands apart from the study plan below. */}
       <div data-tour="live-banner">
-        <LiveSessionsBanner />
+        <LiveSessionsBanner subject={activeSubject} />
       </div>
 
       {/* Saved weekly assignments, assessed practice, and end-of-week feedback. */}
@@ -97,7 +101,7 @@ export function StudentDashboard({
       <div data-tour="tutor-focus">
         <WeeklyFocusCard
           studentId={effectiveStudentId}
-          subjects={enrolledCourses}
+          subjects={activeSubject ? [activeSubject] : enrolledCourses}
           showLive={false}
         />
       </div>

@@ -29,6 +29,7 @@ import { useAvatarUrl } from "@/hooks/data/useAvatar";
 import { useChatUnread } from "@/hooks/data/useChat";
 import { NotificationBell } from "@/components/NotificationBell";
 import { CourseBadge } from "@/components/CourseBadge";
+import { HeaderSubjectToggle } from "@/components/HeaderSubjectToggle";
 import { UserMenu } from "@/components/UserMenu";
 import { HeaderLiveButton } from "@/components/live/HeaderLiveButton";
 import { GlobalSearchDialog } from "@/components/search/GlobalSearchDialog";
@@ -282,7 +283,7 @@ export function AppLayout({ title, children }: { title: string; children: ReactN
             </div>
           </div>
         )}
-        <header className="glass-bar sticky top-0 z-30 flex flex-wrap gap-x-3 gap-y-2 items-center justify-between px-4 sm:px-6 lg:px-10 py-3 sm:py-4 shrink-0">
+        <header className="glass-bar sticky top-0 z-30 flex flex-wrap gap-x-3 gap-y-2 items-center px-4 sm:px-6 lg:px-10 py-3 sm:py-4 shrink-0">
           <div className="flex min-w-0 items-center gap-2 sm:gap-3">
             <button
               type="button"
@@ -325,7 +326,14 @@ export function AppLayout({ title, children }: { title: string; children: ReactN
                 onboarding step that set it. */}
             <CourseBadge />
           </div>
-          <div className="flex flex-wrap items-center gap-2 sm:gap-3">
+          {/* The subject every student page is showing, switched here and only
+              here. Beside the course chip when the header has room; below `xl`
+              the title, chip, slider and buttons don't fit one line, so it takes
+              its own row under them. */}
+          {isStudentContext && (
+            <HeaderSubjectToggle className="max-xl:order-last max-xl:basis-full" />
+          )}
+          <div className="ml-auto flex flex-wrap items-center gap-2 sm:gap-3">
             <StudentGuide
               key={`${pathname}:${title}`}
               pageTitle={title}

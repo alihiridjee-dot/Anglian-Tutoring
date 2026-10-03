@@ -1,4 +1,4 @@
-import { Link, useParams } from "@tanstack/react-router";
+import { Link, useNavigate, useParams } from "@tanstack/react-router";
 import { ArrowLeft, CheckCircle2, Clock } from "lucide-react";
 import { useEffect, useState } from "react";
 import { toast } from "sonner";
@@ -14,6 +14,7 @@ import { acknowledgeSubmission } from "@/lib/homework/homework.functions";
 import { isDemoStudent } from "@/lib/demo/studentDemo";
 import { needsMarkingStart, startMarking } from "@/lib/homework/startMarking";
 import { SUBJECT_LABEL, SUBJECT_TINT } from "@/lib/curriculum/subjectTheme";
+import { usePinSubject } from "@/hooks/useActiveSubject";
 
 export function HomeworkSheetPage() {
   // `strict: false` because this component is mounted twice — here, and again
@@ -41,6 +42,13 @@ export function HomeworkSheetPage() {
     if (demo || isTutor || !submission || !needsMarkingStart(submission)) return;
     startMarking(submission.id);
   }, [demo, isTutor, submission]);
+
+  // A sheet belongs to one subject: opening it moves the header slider there,
+  // and switching subject from here goes back to the list for the new one.
+  const navigate = useNavigate();
+  usePinSubject(data?.hw.subject, () =>
+    navigate({ to: demo ? "/demo/student/homework" : "/homework" }),
+  );
 
   if (!demo && rolesLoading)
     return (

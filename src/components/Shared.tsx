@@ -243,18 +243,24 @@ export function Meter({
  * A circular gauge, for the one number a screen is actually about.
  *
  * Draws with `--ring-len` / `--ring-end` so the sweep animates in CSS and the
- * reduced-motion rule can land it flat at the final value.
+ * reduced-motion rule can land it flat at the final value. The sweep plays on
+ * mount, so key a ring by its value to replay it when the number changes.
+ *
+ * `soft` draws the sweep in a paler mix of the tint, for a ring that sits
+ * beside a solid one and means something different — a goal next to progress.
  */
 export function Ring({
   value,
   size = 76,
   stroke = 9,
+  soft = false,
   children,
   className,
 }: {
   value: number;
   size?: number;
   stroke?: number;
+  soft?: boolean;
   children?: ReactNode;
   className?: string;
 }) {
@@ -275,23 +281,27 @@ export function Ring({
           strokeWidth={stroke}
           stroke="color-mix(in oklab, var(--foreground) 8%, transparent)"
         />
-        <circle
-          cx={size / 2}
-          cy={size / 2}
-          r={r}
-          fill="none"
-          strokeWidth={stroke}
-          strokeLinecap="round"
-          stroke="var(--tint)"
-          className="ring-draw"
-          style={
-            {
-              strokeDasharray: len,
-              "--ring-len": len,
-              "--ring-end": len * (1 - pct / 100),
-            } as React.CSSProperties
-          }
-        />
+        {/* Skipped at zero: a zero-length dash still paints its round cap, a
+            stray dot at twelve o'clock on a ring that should be empty. */}
+        {pct > 0 && (
+          <circle
+            cx={size / 2}
+            cy={size / 2}
+            r={r}
+            fill="none"
+            strokeWidth={stroke}
+            strokeLinecap="round"
+            stroke={soft ? "color-mix(in oklab, var(--tint) 40%, var(--card))" : "var(--tint)"}
+            className="ring-draw"
+            style={
+              {
+                strokeDasharray: len,
+                "--ring-len": len,
+                "--ring-end": len * (1 - pct / 100),
+              } as React.CSSProperties
+            }
+          />
+        )}
       </svg>
       <span className="absolute inset-0 flex flex-col items-center justify-center">
         {children ?? <span className="numeral text-lg">{Math.round(pct)}%</span>}

@@ -2,6 +2,7 @@ import { Link } from "@tanstack/react-router";
 import { GraduationCap } from "lucide-react";
 import { isDemoMode } from "@/lib/auth/session";
 import { useCourseSummary } from "@/hooks/data/useCourseSummary";
+import { useActiveSubject } from "@/hooks/useActiveSubject";
 
 /**
  * The one chip that states a student's course — "GCSE · Edexcel",
@@ -52,6 +53,11 @@ export function CourseChip({
 export function CourseBadge() {
   const { headline, levelLabel, boardLabels, perSubject, mixedBoards, loading } =
     useCourseSummary();
+  // The slider beside this chip picks the subject, so the chip names that
+  // subject's board — a student sitting Biology with AQA and Physics with OCR
+  // reads the board of what's on screen, not both.
+  const { subject } = useActiveSubject();
+  const active = perSubject.find((s) => s.subject === subject);
 
   if (isDemoMode() || loading || !headline) return null;
 
@@ -65,7 +71,7 @@ export function CourseBadge() {
       title={title ? `${headline} — ${title}` : headline}
       className="hidden sm:inline-flex rounded-full transition hover:opacity-80"
     >
-      <CourseChip icon parts={[levelLabel, ...boardLabels]} />
+      <CourseChip icon parts={[levelLabel, ...(active ? [active.boardLabel] : boardLabels)]} />
     </Link>
   );
 }

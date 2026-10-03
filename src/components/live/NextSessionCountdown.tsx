@@ -35,8 +35,15 @@ function Segment({ value, label }: { value: string; label: string }) {
  * Renders nothing when there's no upcoming session, so it can be dropped in
  * unconditionally.
  */
-export function NextSessionCountdown({ className = "" }: { className?: string }) {
-  const { data } = useMyLiveSessions();
+export function NextSessionCountdown({
+  className = "",
+  subject,
+}: {
+  className?: string;
+  /** Only this subject's sessions — the header slider's, where the page follows it. */
+  subject?: string | null;
+}) {
+  const { data } = useMyLiveSessions(subject);
   // Seconds are on screen here, so this one does tick every second.
   const now = useNow();
 
