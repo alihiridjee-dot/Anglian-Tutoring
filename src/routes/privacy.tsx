@@ -17,7 +17,7 @@ export const Route = createFileRoute("/privacy")({
   component: PrivacyPage,
 });
 
-const UPDATED = "1 October 2026";
+const UPDATED = "3 October 2026";
 const CONTACT = "angliaeducate@gmail.com";
 
 /**
@@ -321,6 +321,26 @@ function PrivacyPage() {
               ico.org.uk
             </a>{" "}
             or on 0303 123 1113. We&apos;d appreciate the chance to put things right first.
+          </p>
+        </Section>
+
+        <Section title="The school list">
+          <p>
+            When you type your school, we suggest names from the UK&apos;s official lists of
+            schools. The list is downloaded to your device and searched there, so nothing you type
+            is sent anywhere until you save it.
+          </p>
+          <p>
+            It contains public sector information from the Department for Education, the Welsh
+            Government, the Scottish Government and the Department of Education (Northern Ireland),
+            licensed under the{" "}
+            <a
+              className="font-semibold underline"
+              href="https://www.nationalarchives.gov.uk/doc/open-government-licence/version/3/"
+            >
+              Open Government Licence v3.0
+            </a>
+            .
           </p>
         </Section>
 
