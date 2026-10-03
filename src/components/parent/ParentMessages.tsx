@@ -2,7 +2,7 @@ import { useMemo, useState } from "react";
 import { ArrowLeft, MessageSquarePlus } from "lucide-react";
 import { ErrorNote, SectionHeading, Spinner } from "@/components/Shared";
 import { useRoles } from "@/hooks/useRole";
-import { useChatThreads, type ThreadSummary } from "@/hooks/data/useChat";
+import { useChatThreads, usePinnedThread, type ThreadSummary } from "@/hooks/data/useChat";
 import { ThreadList } from "@/components/chat/ThreadList";
 import { ThreadView } from "@/components/chat/ThreadView";
 import { NewThreadDialog } from "@/components/chat/NewThreadDialog";
@@ -20,7 +20,6 @@ const EMPTY_THREADS: ThreadSummary[] = [];
 export function ParentMessages({ childId, childName }: { childId: string; childName: string }) {
   const { userId } = useRoles();
   const { data: threads = EMPTY_THREADS, isPending, error, refetch } = useChatThreads();
-  const [selectedId, setSelectedId] = useState<string | null>(null);
   const [composing, setComposing] = useState(false);
   // On a phone the list and the thread take turns, as on the Messages page:
   // picking a row opens the thread, and the back arrow returns to the list.
@@ -30,7 +29,11 @@ export function ParentMessages({ childId, childName }: { childId: string; childN
     () => threads.filter((t) => t.about_student_id === childId),
     [threads, childId],
   );
-  const selected = aboutChild.find((t) => t.id === selectedId) ?? aboutChild[0] ?? null;
+  // Pinned, not "whichever is first": the poll re-sorts the list when a tutor
+  // replies elsewhere, and following it moved a parent's half-written reply
+  // into another conversation.
+  const [selectedId, setSelectedId] = usePinnedThread(aboutChild);
+  const selected = aboutChild.find((t) => t.id === selectedId) ?? null;
 
   return (
     <section data-tour="parent-messages" className="premium-card p-4 sm:p-6">
