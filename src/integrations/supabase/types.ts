@@ -1963,6 +1963,14 @@ export type Database = {
         Returns: undefined;
       };
       assessment_scheduler_version: { Args: never; Returns: number };
+      chat_thread_summaries: {
+        Args: { p_thread_ids: string[] };
+        Returns: {
+          last_message: string;
+          thread_id: string;
+          unread: number;
+        }[];
+      };
       chat_unread_count: { Args: never; Returns: number };
       claim_ai_request: {
         Args: { _endpoint: string; _limit: number; _window: string };

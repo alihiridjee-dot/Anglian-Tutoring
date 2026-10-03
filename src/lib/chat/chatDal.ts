@@ -121,8 +121,9 @@ export class ChatDAL {
    * Every thread the caller can see, newest activity first, with the unread
    * count and last line each row needs.
    *
-   * The counts are computed here from one extra query rather than per row, so
-   * an inbox of fifty threads is still two round trips.
+   * The counts and last lines come from the server, one row per thread
+   * (chat_thread_summaries). Reading every message and counting here stopped
+   * at PostgREST's 1,000-row cap, which cut off the newest messages first.
    */
   static async listThreads(): Promise<ThreadSummary[]> {
     const uid = await getSessionUserId();
@@ -140,20 +141,13 @@ export class ChatDAL {
     const rows = (threads ?? []) as ChatThread[];
     if (rows.length === 0) return [];
 
-    const [{ data: messages, error: messagesError }, tutors] = await Promise.all([
-      supabase
-        .from("chat_messages")
-        .select("thread_id, sender_id, body, created_at")
-        .in(
-          "thread_id",
-          rows.map((t) => t.id),
-        )
-        .order("created_at", { ascending: true }),
+    const [{ data: summaries, error: summariesError }, tutors] = await Promise.all([
+      supabase.rpc("chat_thread_summaries", { p_thread_ids: rows.map((t) => t.id) }),
       ChatDAL.listTutors(),
     ]);
-    // Without the messages every thread would report nothing unread and no
-    // last line — a quiet wrong answer rather than a visible failure.
-    if (messagesError) throw new Error(messagesError.message);
+    // Without these every thread would report nothing unread and no last
+    // line — a quiet wrong answer rather than a visible failure.
+    if (summariesError) throw new Error(summariesError.message);
 
     // A tutor's counterpart is the student (or a parent, and the child they're
     // writing about), so their names come from profiles — which tutors may
@@ -202,30 +196,17 @@ export class ChatDAL {
       for (const l of links ?? []) linkedPairs.add(`${l.parent_id}:${l.student_id}`);
     }
 
-    // Bucket the messages by thread once. Re-filtering the whole array inside the
-    // map below made this O(threads × messages) — fine for a student with three
-    // conversations, quadratic for a tutor working an inbox, which is the only
-    // person who ever sees the big version of this list.
-    const byThread = new Map<string, typeof messages>();
-    for (const m of messages ?? []) {
-      const bucket = byThread.get(m.thread_id);
-      if (bucket) bucket.push(m);
-      else byThread.set(m.thread_id, [m]);
-    }
+    const summaryOf = new Map((summaries ?? []).map((s) => [s.thread_id, s]));
 
     return rows.map((t) => {
       const mine = t.student_id === uid;
-      const watermark = mine ? t.student_last_read_at : t.tutor_last_read_at;
-      const threadMessages = byThread.get(t.id) ?? [];
-      const unread = threadMessages.filter(
-        (m) => m.sender_id !== uid && (!watermark || m.created_at > watermark),
-      ).length;
+      const summary = summaryOf.get(t.id);
 
       return {
         ...t,
         contextKind: contextKindOf(t),
-        unread,
-        lastMessage: threadMessages.at(-1)?.body ?? null,
+        unread: summary?.unread ?? 0,
+        lastMessage: summary?.last_message ?? null,
         counterpartName: mine
           ? (t.tutor_id && tutorNames.get(t.tutor_id)) || "Your tutor"
           : memberLabel(
