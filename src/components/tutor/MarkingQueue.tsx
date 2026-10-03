@@ -81,89 +81,135 @@ function isLate(s: Submission): boolean {
   return !!due && new Date(s.submitted_at).getTime() > new Date(due).getTime();
 }
 
+/** Rows per request, for each segment. */
+const PAGE = 50;
+
+type Segment = { rows: Submission[]; total: number };
+const EMPTY: Segment = { rows: [], total: 0 };
+
+/**
+ * One page of a segment, with the segment's full count. Asked of the server
+ * rather than filtered here: a single read of every submission stopped at
+ * PostgREST's 1,000-row cap, so once the table passed that, new work — "No
+ * marks yet" included — never reached "To review".
+ */
+async function fetchSegment(status: SubmissionStatus, filters: Filters, offset: number) {
+  let q = supabase
+    .from("homework_submissions")
+    .select("*, resources!inner(id, title, subject, board, level, due_at)", { count: "exact" });
+  q =
+    status === "PENDING_REVIEW"
+      ? q.is("graded_at", null).order("submitted_at", { ascending: false })
+      : q.not("graded_at", "is", null).order("graded_at", { ascending: false });
+  if (filters.subject) q = q.eq("resources.subject", filters.subject);
+  if (filters.board) q = q.eq("resources.board", filters.board);
+  if (filters.level) q = q.eq("resources.level", filters.level);
+  const { data, error, count } = await q.range(offset, offset + PAGE - 1);
+  if (error) throw error;
+  const rows = (
+    (data ?? []) as unknown as (Omit<Submission, "resource"> & {
+      resources: Submission["resource"];
+    })[]
+  ).map(({ resources, ...r }) => ({ ...r, resource: resources }));
+  return { rows, total: count ?? rows.length };
+}
+
 export function MarkingQueue() {
   const { userId } = useRoles();
-  const [subs, setSubs] = useState<Submission[]>([]);
+  const [pendingSeg, setPendingSeg] = useState<Segment>(EMPTY);
+  const [gradedSeg, setGradedSeg] = useState<Segment>(EMPTY);
   const [names, setNames] = useState<Record<string, string>>({});
   const [loading, setLoading] = useState(true);
+  const [loadingMore, setLoadingMore] = useState(false);
+  const [error, setError] = useState<unknown>(null);
   const [segment, setSegment] = useState<SubmissionStatus>("PENDING_REVIEW");
   const [filters, setFilters] = useState<Filters>({});
 
+  // Resolve the author profiles so we can show real names. Every submission
+  // here is genuine: the public demo is a session-less showcase that cannot
+  // sign in or submit anything, so there is no sandbox work to filter out.
+  const addNames = useCallback(async (rows: Submission[]) => {
+    const ids = [...new Set(rows.map((r) => r.student_id))];
+    if (ids.length === 0) return;
+    const { data: profs } = await supabase
+      .from("profiles")
+      .select("id, display_name")
+      .in("id", ids);
+    setNames((prev) => {
+      const next = { ...prev };
+      for (const p of profs ?? []) next[p.id] = p.display_name ?? "";
+      return next;
+    });
+  }, []);
+
+  // The site-wide subject/board/level filters go to the server with each
+  // segment, so the segment counts always describe what the tutor is looking at.
   const reload = useCallback(async () => {
     setLoading(true);
-    const { data, error } = await supabase
-      .from("homework_submissions")
-      .select("*, resource:resources(id, title, subject, board, level, due_at)")
-      .order("submitted_at", { ascending: true });
-    if (error) {
-      toast.error(error.message);
+    setError(null);
+    try {
+      const [p, g] = await Promise.all([
+        fetchSegment("PENDING_REVIEW", filters, 0),
+        fetchSegment("GRADED", filters, 0),
+      ]);
+      await addNames([...p.rows, ...g.rows]);
+      setPendingSeg(p);
+      setGradedSeg(g);
+    } catch (err) {
+      setError(err);
+    } finally {
       setLoading(false);
-      return;
     }
-    const allRows = (data ?? []) as Submission[];
-
-    // Resolve the author profiles so we can show real names. Every submission
-    // here is genuine: the public demo is a session-less showcase that cannot
-    // sign in or submit anything, so there is no sandbox work to filter out.
-    const ids = [...new Set(allRows.map((r) => r.student_id))];
-    const map: Record<string, string> = {};
-    if (ids.length > 0) {
-      const { data: profs } = await supabase
-        .from("profiles")
-        .select("id, display_name")
-        .in("id", ids);
-      for (const p of profs ?? []) {
-        map[p.id] = p.display_name ?? "";
-      }
-    }
-
-    setSubs(allRows);
-    setNames(map);
-    setLoading(false);
-  }, []);
+  }, [filters, addNames]);
 
   useEffect(() => {
     reload();
   }, [reload]);
 
-  const nameOf = useCallback((id: string) => names[id] || `Student ${id.slice(0, 8)}`, [names]);
+  const loadMore = async () => {
+    const current = segment === "PENDING_REVIEW" ? pendingSeg : gradedSeg;
+    const set = segment === "PENDING_REVIEW" ? setPendingSeg : setGradedSeg;
+    setLoadingMore(true);
+    try {
+      const next = await fetchSegment(segment, filters, current.rows.length);
+      await addNames(next.rows);
+      // A row that moved between pages while we read shouldn't show twice.
+      const seen = new Set(current.rows.map((r) => r.id));
+      set({
+        rows: [...current.rows, ...next.rows.filter((r) => !seen.has(r.id))],
+        total: next.total,
+      });
+    } catch (err) {
+      toast.error(err instanceof Error ? err.message : "Couldn't load more submissions");
+    } finally {
+      setLoadingMore(false);
+    }
+  };
 
-  // Site-wide subject/board/level filters, applied before segmenting so the
-  // segment counts always describe what the tutor is actually looking at.
-  const visible = useMemo(() => {
-    return subs.filter((s) => {
-      if (filters.subject && s.resource?.subject !== filters.subject) return false;
-      if (filters.board && s.resource?.board !== filters.board) return false;
-      if (filters.level && s.resource?.level !== filters.level) return false;
-      return true;
-    });
-  }, [subs, filters]);
+  const nameOf = useCallback((id: string) => names[id] || `Student ${id.slice(0, 8)}`, [names]);
 
   const pending = useMemo(
     () =>
-      visible
-        .filter((s) => statusOf(s) === "PENDING_REVIEW")
+      [...pendingSeg.rows]
         // Whatever publishes soonest, first — and anything with no mark staged
         // at the very top, since nothing will happen to it without a person.
         .sort((a, b) => {
           const left = (s: Submission) => minutesToRelease(s) ?? -Infinity;
           return left(a) - left(b);
         }),
-    [visible],
+    [pendingSeg.rows],
   );
 
-  const graded = useMemo(
-    () =>
-      visible
-        .filter((s) => statusOf(s) === "GRADED")
-        .sort((a, b) => (b.graded_at ?? "").localeCompare(a.graded_at ?? "")),
-    [visible],
-  );
+  const graded = gradedSeg.rows;
+  const filtering = !!(filters.subject || filters.board || filters.level);
 
   const shown = segment === "PENDING_REVIEW" ? pending : graded;
+  const shownTotal = segment === "PENDING_REVIEW" ? pendingSeg.total : gradedSeg.total;
   const urgentCount = pending.filter((s) => urgencyOf(s) === "urgent").length;
 
-  if (loading) {
+  // Only the first load replaces the queue; a filter change or a refresh after
+  // marking keeps the current list on screen until the new one arrives.
+  if (loading && pendingSeg === EMPTY && gradedSeg === EMPTY) {
     return (
       <div className="flex items-center gap-2 text-sm text-muted-foreground py-10 justify-center">
         <Loader2 className="w-4 h-4 animate-spin" /> Loading submissions…
@@ -171,7 +217,11 @@ export function MarkingQueue() {
     );
   }
 
-  if (subs.length === 0) {
+  if (error) {
+    return <ErrorNote error={error} onRetry={() => void reload()} />;
+  }
+
+  if (!filtering && pendingSeg.total === 0 && gradedSeg.total === 0) {
     return (
       <div className="rounded-2xl border border-dashed border-border p-6 sm:p-10 text-center text-muted-foreground">
         <Inbox className="w-8 h-8 mx-auto mb-3 opacity-50" />
@@ -190,7 +240,7 @@ export function MarkingQueue() {
           active={segment === "PENDING_REVIEW"}
           onClick={() => setSegment("PENDING_REVIEW")}
           label="To review"
-          count={pending.length}
+          count={pendingSeg.total}
           tone="amber"
           badge={urgentCount > 0 ? `${urgentCount} urgent` : undefined}
         />
@@ -198,7 +248,7 @@ export function MarkingQueue() {
           active={segment === "GRADED"}
           onClick={() => setSegment("GRADED")}
           label="Marked"
-          count={graded.length}
+          count={gradedSeg.total}
           tone="emerald"
         />
       </div>
@@ -211,7 +261,7 @@ export function MarkingQueue() {
           {segment === "PENDING_REVIEW"
             ? "Nothing waiting to be reviewed here."
             : "No marked submissions here yet."}
-          {(filters.subject || filters.board || filters.level) && " Try clearing the filters."}
+          {filtering && " Try clearing the filters."}
         </div>
       ) : (
         <div className="space-y-4">
@@ -224,6 +274,17 @@ export function MarkingQueue() {
               onSaved={reload}
             />
           ))}
+          {shown.length < shownTotal && (
+            <button
+              type="button"
+              onClick={() => void loadMore()}
+              disabled={loadingMore}
+              className="btn-soft mx-auto flex h-10 items-center gap-2 rounded-lg px-4 text-sm font-semibold"
+            >
+              {loadingMore && <Loader2 className="w-4 h-4 animate-spin" />}
+              Show more ({shownTotal - shown.length} left)
+            </button>
+          )}
         </div>
       )}
     </div>

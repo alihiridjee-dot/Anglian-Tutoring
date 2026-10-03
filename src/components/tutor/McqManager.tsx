@@ -1,10 +1,19 @@
 import { Spinner } from "@/components/Shared";
 import { Link } from "@tanstack/react-router";
-import { useQuery, useQueryClient } from "@tanstack/react-query";
-import { useState } from "react";
+import { useInfiniteQuery, useQueryClient } from "@tanstack/react-query";
+import { useMemo, useState } from "react";
 import { supabase } from "@/integrations/supabase/client";
 import { toast } from "sonner";
-import { ListChecks, Sparkles, Eye, Trash2, Users, FileQuestion, Wand2 } from "lucide-react";
+import {
+  ListChecks,
+  Loader2,
+  Sparkles,
+  Eye,
+  Trash2,
+  Users,
+  FileQuestion,
+  Wand2,
+} from "lucide-react";
 
 // Tutor-facing counterpart to the student MCQs page. Same route (/mcqs), entirely
 // different view: instead of "Take Quiz" cards this lists every set the tutor owns
@@ -21,39 +30,53 @@ type ManagedSet = {
   attemptCount: number;
 };
 
+/** Sets per request. */
+const PAGE = 50;
+
+/**
+ * The tutor's quiz sets, a page at a time, each with its question and attempt
+ * counts worked out by the database. Reading every question and attempt row to
+ * tally them here stopped at PostgREST's 1,000-row cap (S-17b), so past that
+ * the counts were wrong, and the delete confirmation could promise "0 student
+ * attempts" while deleting real ones.
+ */
 function useManagedSets() {
-  return useQuery({
+  return useInfiniteQuery({
     queryKey: ["tutor-mcq-sets"],
-    queryFn: async (): Promise<ManagedSet[]> => {
-      const [{ data: sets, error }, { data: questions }, { data: attempts }] = await Promise.all([
-        supabase
-          .from("mcq_sets")
-          .select("id, title, published, created_at")
-          .order("created_at", { ascending: false }),
-        supabase.from("mcq_questions").select("set_id"),
-        supabase.from("mcq_attempts").select("set_id"),
-      ]);
+    initialPageParam: 0,
+    queryFn: async ({ pageParam }) => {
+      const { data, error, count } = await supabase
+        .from("mcq_sets")
+        .select("id, title, published, created_at, mcq_questions(count), mcq_attempts(count)", {
+          count: "exact",
+        })
+        .order("created_at", { ascending: false })
+        .order("id", { ascending: true })
+        .range(pageParam, pageParam + PAGE - 1);
       if (error) throw error;
 
-      const tally = (rows: { set_id: string }[] | null) => {
-        const m = new Map<string, number>();
-        for (const r of rows ?? []) m.set(r.set_id, (m.get(r.set_id) ?? 0) + 1);
-        return m;
-      };
-      const qCounts = tally(questions);
-      const aCounts = tally(attempts);
-
-      return (sets ?? []).map((s) => ({
+      const sets: ManagedSet[] = (data ?? []).map(({ mcq_questions, mcq_attempts, ...s }) => ({
         ...s,
-        questionCount: qCounts.get(s.id) ?? 0,
-        attemptCount: aCounts.get(s.id) ?? 0,
+        questionCount: mcq_questions[0]?.count ?? 0,
+        attemptCount: mcq_attempts[0]?.count ?? 0,
       }));
+      return { sets, total: count ?? sets.length };
     },
+    getNextPageParam: (last, pages) => (last.sets.length < PAGE ? undefined : pages.length * PAGE),
   });
 }
 
 export function McqManager() {
-  const { data: sets = [], isPending, error } = useManagedSets();
+  const managed = useManagedSets();
+  const { isPending, error } = managed;
+  // A set that moved between pages while they were read shouldn't show twice.
+  const sets = useMemo(() => {
+    const byId = new Map<string, ManagedSet>();
+    for (const page of managed.data?.pages ?? [])
+      for (const s of page.sets) if (!byId.has(s.id)) byId.set(s.id, s);
+    return [...byId.values()];
+  }, [managed.data]);
+  const total = managed.data?.pages.at(-1)?.total ?? sets.length;
   const qc = useQueryClient();
   const [busyId, setBusyId] = useState<string | null>(null);
 
@@ -178,7 +201,20 @@ export function McqManager() {
           No quizzes yet. Use “Generate quiz” to create your first one.
         </div>
       ) : (
-        <div className="space-y-3">{sets.map(Row)}</div>
+        <div className="space-y-3">
+          {sets.map(Row)}
+          {managed.hasNextPage && (
+            <button
+              type="button"
+              onClick={() => void managed.fetchNextPage()}
+              disabled={managed.isFetchingNextPage}
+              className="btn-soft mx-auto flex h-10 items-center gap-2 rounded-lg px-4 text-sm font-semibold"
+            >
+              {managed.isFetchingNextPage && <Loader2 className="size-4 animate-spin" />}
+              Show more{total > sets.length ? ` (${total - sets.length} left)` : ""}
+            </button>
+          )}
+        </div>
       )}
     </>
   );

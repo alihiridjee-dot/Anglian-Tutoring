@@ -1,4 +1,4 @@
-import { useQuery, useQueryClient } from "@tanstack/react-query";
+import { useQuery } from "@tanstack/react-query";
 import { supabase } from "@/integrations/supabase/client";
 import { isDemoStudent, DEMO_VIDEOS } from "@/lib/demo/studentDemo";
 import type { SubjectV, BoardV, LevelV } from "@/lib/curriculum/taxonomy";
@@ -10,43 +10,64 @@ export interface WeeklyFocusPoint {
   topicLabel: string;
 }
 
+/**
+ * One subject's slice of the points a tutor pinned into a student's week. The
+ * pins themselves are ordinary plan points with a `tutor` origin — set from the
+ * tutor's planner, one student at a time.
+ */
 export interface WeeklyFocusPlan {
   id: string;
   subject: SubjectV;
   board: BoardV;
   level: LevelV;
-  note: string | null;
-  /** AI-generated student focus summary, produced once when the tutor saves. */
-  summary: string | null;
   points: WeeklyFocusPoint[];
 }
 
-// Shape returned by the nested select below.
+// Shape returned by the select below: one row per pinned point.
 type RawRow = {
-  id: string;
-  subject: SubjectV;
-  board: BoardV;
-  level: LevelV;
-  note: string | null;
-  ai_summary: string | null;
-  weekly_focus_points: Array<{
-    spec_points: {
-      id: string;
-      code: string;
-      title: string;
-      sort_order: number | null;
-      topics: { code: string | null; title: string; sort_order: number | null } | null;
-    } | null;
-  }> | null;
+  student_weekly_plans: {
+    id: string;
+    subject: SubjectV;
+    board: BoardV;
+    level: LevelV;
+  } | null;
+  spec_points: {
+    id: string;
+    code: string;
+    title: string;
+    sort_order: number | null;
+    topics: { code: string | null; title: string; sort_order: number | null } | null;
+  } | null;
 };
 
 function shape(rows: RawRow[]): WeeklyFocusPlan[] {
-  return rows
-    .map((r) => {
-      const points = (r.weekly_focus_points ?? [])
-        .map((wp) => wp.spec_points)
+  const byPlan = new Map<
+    string,
+    { plan: NonNullable<RawRow["student_weekly_plans"]>; points: RawRow["spec_points"][] }
+  >();
+  for (const r of rows) {
+    if (!r.student_weekly_plans || !r.spec_points) continue;
+    const entry = byPlan.get(r.student_weekly_plans.id) ?? {
+      plan: r.student_weekly_plans,
+      points: [],
+    };
+    entry.points.push(r.spec_points);
+    byPlan.set(r.student_weekly_plans.id, entry);
+  }
+  return [...byPlan.values()]
+    .map(({ plan, points }) => ({
+      id: plan.id,
+      subject: plan.subject,
+      board: plan.board,
+      level: plan.level,
+      points: points
         .filter((sp): sp is NonNullable<typeof sp> => !!sp)
-        .sort((a, b) => (a.sort_order ?? 0) - (b.sort_order ?? 0) || a.code.localeCompare(b.code))
+        .sort(
+          (a, b) =>
+            (a.topics?.sort_order ?? 0) - (b.topics?.sort_order ?? 0) ||
+            (a.sort_order ?? 0) - (b.sort_order ?? 0) ||
+            a.code.localeCompare(b.code),
+        )
         .map((sp) => ({
           id: sp.id,
           code: sp.code,
@@ -56,17 +77,8 @@ function shape(rows: RawRow[]): WeeklyFocusPlan[] {
               ? `${sp.topics.code} · ${sp.topics.title}`
               : sp.topics.title
             : "",
-        }));
-      return {
-        id: r.id,
-        subject: r.subject,
-        board: r.board,
-        level: r.level,
-        note: r.note,
-        summary: r.ai_summary,
-        points,
-      };
-    })
+        })),
+    }))
     .sort((a, b) => a.subject.localeCompare(b.subject));
 }
 
@@ -78,9 +90,6 @@ const DEMO_PLANS: WeeklyFocusPlan[] = [
     subject: "biology",
     board: "edexcel",
     level: "gcse",
-    note: "Focus on exchange surfaces before this week's live session.",
-    summary:
-      "This week you'll get to grips with how substances move in and out of cells — diffusion, osmosis and active transport — and then look again at photosynthesis, where your last quiz dropped a mark on limiting factors. Both come up in the 6-mark questions we'll practise in this week's live session.",
     points: [
       {
         id: "d1",
@@ -96,42 +105,38 @@ const DEMO_PLANS: WeeklyFocusPlan[] = [
     subject: "chemistry",
     board: "aqa",
     level: "gcse",
-    note: null,
-    summary:
-      "This week is all about ionic bonding — how metals and non-metals swap electrons to form charged ions that stick together in giant lattices. Once it clicks, you'll be able to explain why salts like sodium chloride behave the way they do.",
     points: [{ id: "d3", code: "5.2.1", title: "Ionic bonding", topicLabel: "C2 · Bonding" }],
   },
 ];
 
 /**
- * Reads the weekly plan(s) for a given week key (`YYYY-MM-DD` Monday), optionally
- * narrowed to a set of subjects (used to show a student only their enrolled
- * subjects). Any signed-in user may read; RLS handles the rest.
+ * The spec points a tutor pinned into this student's week (`YYYY-MM-DD` Monday),
+ * grouped by subject and optionally narrowed to the student's enrolments. RLS
+ * limits the read to the student's own plans.
  */
-export function useWeeklyFocus(
-  weekKey: string,
-  subjects?: string[],
-  options?: { enabled?: boolean },
-) {
+export function useWeeklyFocus(studentId: string | null, weekKey: string, subjects?: string[]) {
   const enabledSubjects = subjects && subjects.length > 0 ? [...subjects].sort() : null;
+  const demo = isDemoStudent();
 
   const query = useQuery({
-    enabled: (options?.enabled ?? true) && weekKey.length > 0,
-    queryKey: ["weekly-focus", weekKey, enabledSubjects],
+    enabled: demo || (!!studentId && weekKey.length > 0),
+    queryKey: ["weekly-focus", studentId, weekKey, enabledSubjects],
     queryFn: async (): Promise<WeeklyFocusPlan[]> => {
-      if (isDemoStudent()) {
+      if (demo) {
         return enabledSubjects
           ? DEMO_PLANS.filter((p) => enabledSubjects.includes(p.subject))
           : DEMO_PLANS;
       }
 
       let q = supabase
-        .from("weekly_focus")
+        .from("student_weekly_plan_points")
         .select(
-          "id, subject, board, level, note, ai_summary, weekly_focus_points(spec_points(id, code, title, sort_order, topics(code, title, sort_order)))",
+          "student_weekly_plans!inner(id, subject, board, level), spec_points(id, code, title, sort_order, topics(code, title, sort_order))",
         )
-        .eq("week_start", weekKey);
-      if (enabledSubjects) q = q.in("subject", enabledSubjects as SubjectV[]);
+        .eq("origin", "tutor")
+        .eq("student_weekly_plans.student_id", studentId!)
+        .eq("student_weekly_plans.week_start", weekKey);
+      if (enabledSubjects) q = q.in("student_weekly_plans.subject", enabledSubjects as SubjectV[]);
 
       const { data, error } = await q;
       if (error) throw error;
@@ -183,9 +188,9 @@ type RawVideoRow = {
 
 /**
  * Videos linked to any of the given spec points (via `resource_spec_points`).
- * Drives the "Related videos" strip on the student "This Week" card — a video
- * appears the moment the tutor puts one of its spec points in this week's focus.
- * Pass the union of the week's focus point ids.
+ * Drives the videos on the student "From your tutor" card — a video appears the
+ * moment the tutor pins one of its spec points into the student's week. Pass the
+ * union of the pinned point ids.
  */
 export function useWeeklyFocusVideos(pointIds: string[]) {
   const ids = [...pointIds].sort();
@@ -217,74 +222,4 @@ export function useWeeklyFocusVideos(pointIds: string[]) {
   });
 
   return { videos: query.data ?? [], loading: query.isLoading };
-}
-
-/** Invalidate every cached weekly-focus read (after a tutor save/clear). */
-export function useInvalidateWeeklyFocus() {
-  const qc = useQueryClient();
-  return () => qc.invalidateQueries({ queryKey: ["weekly-focus"] });
-}
-
-/**
- * Tutor write: replace the plan for one (week, subject, board, level) with the
- * given spec points. Passing an empty `specPointIds` clears the plan entirely
- * (the row and its links are removed), so an over-eager week can be undone.
- */
-export async function saveWeeklyFocus(input: {
-  weekKey: string;
-  subject: SubjectV;
-  board: BoardV;
-  level: LevelV;
-  note: string | null;
-  specPointIds: string[];
-  userId: string;
-}): Promise<string | null> {
-  const { weekKey, subject, board, level, note, specPointIds, userId } = input;
-
-  // Clearing: drop the plan row; ON DELETE CASCADE removes its points.
-  if (specPointIds.length === 0) {
-    const { error } = await supabase
-      .from("weekly_focus")
-      .delete()
-      .eq("week_start", weekKey)
-      .eq("subject", subject)
-      .eq("board", board)
-      .eq("level", level);
-    if (error) throw error;
-    return null;
-  }
-
-  const { data: upserted, error: upsertErr } = await supabase
-    .from("weekly_focus")
-    .upsert(
-      {
-        week_start: weekKey,
-        subject,
-        board,
-        level,
-        note: note?.trim() || null,
-        created_by: userId,
-        updated_at: new Date().toISOString(),
-      },
-      { onConflict: "week_start,subject,board,level" },
-    )
-    .select("id")
-    .single();
-  if (upsertErr) throw upsertErr;
-
-  const focusId = upserted.id;
-
-  // Replace the point set: clear then insert the current selection.
-  const { error: delErr } = await supabase
-    .from("weekly_focus_points")
-    .delete()
-    .eq("focus_id", focusId);
-  if (delErr) throw delErr;
-
-  const { error: insErr } = await supabase
-    .from("weekly_focus_points")
-    .insert(specPointIds.map((spec_point_id) => ({ focus_id: focusId, spec_point_id })));
-  if (insErr) throw insErr;
-
-  return focusId;
 }

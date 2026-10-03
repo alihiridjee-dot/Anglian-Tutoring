@@ -1,0 +1,311 @@
+{
+  "format": 1,
+  "concept_id": "bio-015",
+  "subject": "biology",
+  "title": "Exchange surfaces and surface area to volume ratio",
+  "key_idea": "Organisms must exchange substances such as oxygen, carbon dioxide, food molecules and waste with their surroundings. A small organism has a large **surface area to volume ratio**, so diffusion across its surface is enough. A large multicellular organism has a small ratio and long diffusion distances, so it needs specialised exchange surfaces and a transport system.",
+  "sections": [
+    {
+      "heading": "What organisms exchange",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "Every organism takes in the substances it needs and gets rid of waste. These substances cross an exchange surface, often by diffusion. Osmosis and active transport have their own notes."
+        },
+        {
+          "type": "table",
+          "columns": ["Substance", "Direction", "Why"],
+          "rows": [
+            ["Oxygen", "Into cells", "Needed for aerobic respiration."],
+            ["Carbon dioxide", "Out of animal cells; into plant cells that are photosynthesising", "A waste product of respiration, and a raw material for photosynthesis."],
+            ["Water", "In and out", "Needed for chemical reactions in cells. Plants take it in through their roots and lose it from their leaves."],
+            ["Dissolved food molecules, such as glucose and amino acids", "Into cells", "Used for respiration and to build new molecules."],
+            ["Mineral ions", "Into cells", "Plants absorb them from the soil to make substances such as proteins."],
+            ["Urea", "Out of the body", "A waste product made in the liver from excess amino acids. The kidneys remove it in urine."]
+          ]
+        }
+      ]
+    },
+    {
+      "heading": "Surface area to volume ratio",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "The **surface area to volume ratio** (SA:V) compares how much surface something has with how big it is. Substances enter and leave through the surface. The volume is the part that needs them."
+        },
+        {
+          "type": "paragraph",
+          "text": "To find SA:V, work out the surface area and the volume, then divide the surface area by the volume. Write the answer as a ratio, such as 3:1. For a cuboid with sides X, Y and Z, surface area = 2XY + 2XZ + 2YZ and volume = X × Y × Z."
+        },
+        {
+          "type": "steps",
+          "items": [
+            { "lead": "Surface area", "text": "A cube with sides of 4 cm has 6 faces. Each face is 4 × 4 = 16 cm². Total surface area = 6 × 16 = 96 cm²." },
+            { "lead": "Volume", "text": "4 × 4 × 4 = 64 cm³." },
+            { "lead": "Ratio", "text": "96 ÷ 64 = 1.5, so SA:V = 1.5:1." }
+          ]
+        },
+        {
+          "type": "diagram",
+          "diagram": {
+            "kind": "line-graph",
+            "alt": "As the side of a cube gets longer, its surface area to volume ratio falls, quickly at first and then more slowly: 6:1 at 1 cm, 2:1 at 3 cm and 1:1 at 6 cm.",
+            "x": { "label": "Length of each side of a cube (cm)", "min": 1, "max": 6, "ticks": [1, 2, 3, 4, 5, 6] },
+            "y": { "label": "Surface area : volume ratio" },
+            "series": [
+              {
+                "name": "Cube",
+                "points": [[1, 1], [1.5, 0.667], [2, 0.5], [3, 0.333], [4, 0.25], [5, 0.2], [6, 0.167]]
+              }
+            ],
+            "markers": [
+              { "x": 1, "label": "6:1" },
+              { "x": 3, "label": "2:1" },
+              { "x": 6, "label": "1:1" }
+            ]
+          }
+        },
+        {
+          "type": "paragraph",
+          "text": "As an object or organism gets bigger, its SA:V gets smaller. Its volume grows faster than its surface area."
+        }
+      ]
+    },
+    {
+      "heading": "Why large organisms need exchange surfaces and transport",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "A single-celled organism has a large SA:V. Its surface is big compared with its volume, and no part of it is far from the surface. Diffusion across its membrane is fast enough to meet its needs, so it needs no transport system."
+        },
+        {
+          "type": "paragraph",
+          "text": "A large multicellular organism has a small SA:V. Its outer surface is too small to supply all its cells, and many cells are far from the surface. The **diffusion distance** is too large, so diffusion alone would take too long. It needs **specialised exchange surfaces**, such as the lungs, gills and small intestine, and a **transport system**, such as the blood, to carry substances to and from every cell."
+        },
+        {
+          "type": "paragraph",
+          "text": "Some fairly small animals, such as earthworms, have a large enough SA:V to take in all the oxygen they need through their skin. A large SA:V also means losing heat quickly. So a small warm-blooded animal needs a higher rate of respiration to keep warm."
+        }
+      ]
+    },
+    {
+      "heading": "What makes an exchange surface efficient",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "Diffusion is faster when the surface area is larger, when the concentration gradient is steeper, and when the diffusion distance is shorter. Exchange surfaces are adapted in all three ways."
+        },
+        {
+          "type": "table",
+          "columns": ["Feature", "How it helps"],
+          "rows": [
+            ["Large surface area", "More molecules can diffuse across at the same time."],
+            ["Thin walls, often one cell thick", "A short diffusion distance."],
+            ["Good blood supply (a capillary network)", "Blood carries substances away, or brings them, quickly. This keeps the concentration gradient steep."],
+            ["Ventilation (lungs and gills)", "Brings in fresh oxygen and removes carbon dioxide. This keeps the concentration gradient steep."]
+          ]
+        },
+        {
+          "type": "table",
+          "columns": ["Exchange surface", "How it is adapted"],
+          "rows": [
+            ["Alveoli in the lungs", "Millions of alveoli give a very large surface area. The alveolus and capillary walls are one cell thick and close together. A capillary network and breathing keep the gradients steep."],
+            ["Villi in the small intestine", "Villi, and microvilli on their cells, give a large surface area. Their walls are thin and they have a good blood supply. Their cells have many mitochondria to release energy for active transport."],
+            ["Gills in fish", "Many filaments give a large surface area. The walls are thin, the water flows close to the blood, and a capillary network keeps the gradient steep."],
+            ["Roots and leaves in plants", "Root hair cells give a large surface area for taking in water and mineral ions. Leaves are thin and flat, with stomata and air spaces for gases to diffuse in and out."]
+          ]
+        },
+        {
+          "type": "paragraph",
+          "text": "The lungs and gas exchange have their own note, with more detail on the alveoli."
+        }
+      ]
+    }
+  ],
+  "checks": [
+    {
+      "q": "Calculate the surface area to volume ratio of a cube with sides of 5 cm.",
+      "a": "Surface area = 6 × 25 = 150 cm². Volume = 125 cm³. 150 ÷ 125 = 1.2, so SA:V = 1.2:1.",
+      "marks": 2
+    },
+    {
+      "q": "Explain why a large multicellular organism needs a transport system but a single-celled organism does not.",
+      "a": "The large organism has a smaller SA:V and a longer diffusion distance, so diffusion alone is too slow to supply its cells. The single-celled organism has a large SA:V and a short diffusion distance, so diffusion is enough.",
+      "marks": 2
+    },
+    {
+      "q": "Give three features of an efficient exchange surface.",
+      "a": "A large surface area; thin walls for a short diffusion distance; a good blood supply (or ventilation) to keep a steep concentration gradient.",
+      "marks": 3
+    }
+  ],
+  "boards": {
+    "aqa": {
+      "spec_codes": ["AQA 1.13"],
+      "exam_phrases": [
+        "large surface area to volume ratio",
+        "walls are thin or one cell thick for a short diffusion distance",
+        "good blood supply to maintain concentration gradient",
+        "lungs are ventilated",
+        "as size increases, surface area to volume ratio decreases",
+        "diffusion distance is too large (to meet demands of cells)"
+      ],
+      "mistakes": [
+        {
+          "wrong": "Alveoli have thin cell walls.",
+          "right": "Animal cells have no cell wall, so AQA does not accept 'thin cell walls'. Say the walls of the alveoli are thin, or one cell thick."
+        },
+        {
+          "wrong": "The alveoli are one cell thick.",
+          "right": "AQA ignores this. It is the walls of the alveoli and capillaries that are one cell thick."
+        },
+        {
+          "wrong": "Writing the ratio with a unit, such as 74 m.",
+          "right": "Give the ratio as a number or as 74:1. AQA does not accept an answer with a unit."
+        },
+        {
+          "wrong": "The small intestine has a large surface area.",
+          "right": "AQA ignores this on its own. Say the villi (or folds) provide a large surface area."
+        }
+      ],
+      "worked_example": {
+        "exemplar_id": "b92b3d1b-4a11-4b5b-886d-1868794fad6b",
+        "source": "AQA jun 2025, Paper 1 (H), Q06.2",
+        "question": "Fish exchange gases through gills. Oxygen from the water enters the blood of a fish through the gills, which have filaments and capillaries.\n\nExplain how gills are adapted to maximise the exchange of oxygen between the water and the blood.",
+        "marks": 4,
+        "answer_points": [
+          "The gill filaments provide a large surface area for diffusion.",
+          "A good blood supply, or capillary network, maintains the concentration gradient.",
+          "The filaments and capillaries have thin walls (one cell thick), giving a short diffusion distance.",
+          "The water is in close proximity to the blood supply, giving a short diffusion distance."
+        ],
+        "tip": "Each mark needs a feature linked to how it helps diffusion."
+      }
+    },
+    "edexcel": {
+      "spec_codes": ["EDEX 8.2", "EDEX 8.5B", "EDEX 8.1", "EDEX 8.3"],
+      "exam_phrases": [
+        "rate of diffusion is proportional to surface area and concentration difference",
+        "inversely proportional to the thickness of the membrane",
+        "the thicker the membrane the slower the rate of diffusion",
+        "by diffusion, down a concentration gradient, through a membrane",
+        "cell A has a larger surface area to volume ratio, so oxygen will diffuse faster",
+        "to reduce the distance over which diffusion occurs"
+      ],
+      "mistakes": [
+        {
+          "wrong": "Oxygen moves from the alveolus into the blood by osmosis or active transport.",
+          "right": "It moves by diffusion. Osmosis is only for water, and no active transport is needed to move from a high to a low concentration."
+        },
+        {
+          "wrong": "The alveoli have thin cell walls.",
+          "right": "Edexcel rejects 'cell walls'. Say the alveolar walls are thin, flattened or one cell thick."
+        },
+        {
+          "wrong": "The surface area of the lung is 70.",
+          "right": "Give the unit. Edexcel gives a separate mark for it: 70 m²."
+        }
+      ],
+      "worked_example": {
+        "exemplar_id": "d86138a0-8ff7-4c18-8956-c12f8a5478e5",
+        "source": "EDEXCEL jun 2019, Paper 2 (H), Q9(c)",
+        "question": "Explain, using Fick's law, the factors that affect the diffusion rate of molecules into and out of cells.",
+        "marks": 6,
+        "answer_points": [
+          "Fick's law: the rate of diffusion is proportional to the surface area and the concentration difference, and inversely proportional to the thickness of the membrane.",
+          "Surface area: as surface area increases, the rate of diffusion increases, because there are more places for diffusion to happen.",
+          "Concentration difference: the larger the difference in concentration between the inside and outside of the cell, the faster the rate of diffusion.",
+          "Thickness of the membrane: the thicker the membrane, the slower the rate of diffusion, because the diffusion distance is greater."
+        ],
+        "tip": "This is marked by levels. Level 3 needs all three factors with their effects, and at least one reference to proportionality."
+      },
+      "extra": [
+        {
+          "heading": "Fick's law",
+          "blocks": [
+            {
+              "type": "paragraph",
+              "text": "**Fick's law** links the three factors that control the rate of diffusion across a membrane: rate of diffusion ∝ (surface area × concentration difference) ÷ thickness of membrane."
+            },
+            {
+              "type": "paragraph",
+              "text": "The symbol ∝ means 'is proportional to'. Doubling the surface area doubles the rate. Doubling the concentration difference doubles the rate. Doubling the thickness of the membrane halves the rate, because the diffusion distance is twice as long."
+            },
+            {
+              "type": "steps",
+              "items": [
+                { "lead": "Membrane A", "text": "Surface area 10 units, concentration difference 6 units, thickness 2 units. Rate ∝ (10 × 6) ÷ 2 = 30." },
+                { "lead": "Membrane B", "text": "The same, but thickness 4 units. Rate ∝ (10 × 6) ÷ 4 = 15." },
+                { "lead": "Compare", "text": "Diffusion across B is half as fast as across A, because B is twice as thick." }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    "ocr": {
+      "spec_codes": ["OCR 2.2a", "OCR 2.2b"],
+      "exam_phrases": [
+        "higher SA:V ratio, faster rate of diffusion",
+        "as size increases the diffusion distance increases",
+        "would take too long for substances to diffuse in and out of large organisms",
+        "diffusion alone is sufficient in smaller organisms",
+        "reduces SA:V ratio of alveoli, so diffusion of oxygen reduced"
+      ],
+      "mistakes": [
+        {
+          "wrong": "SA:V and the rate of diffusion are directly proportional.",
+          "right": "OCR ignores 'directly proportional'. Say a higher SA:V gives a faster rate of diffusion (a positive correlation)."
+        },
+        {
+          "wrong": "With emphysema, oxygen cannot diffuse into the blood.",
+          "right": "OCR ignores this. Fewer, larger air sacs have a smaller surface area, so less oxygen diffuses into the blood."
+        },
+        {
+          "wrong": "The eggshell lets gases in and out.",
+          "right": "OCR ignores 'gases in and out'. Be specific: oxygen reaches the chick for respiration, and carbon dioxide produced by the chick escapes."
+        }
+      ],
+      "worked_example": {
+        "exemplar_id": "5eb230d8-9228-4def-93a9-a591fb952e54",
+        "source": "OCR sample null, Paper 3, Q22(a)(iii)",
+        "question": "Some students investigate how the rate of diffusion in animal cells is affected by the surface area : volume ratio.\n1. They use three different sized gelatine cubes stained blue with pH indicator.\n2. They put the cubes into a beaker of hydrochloric acid.\n3. They measure the time for each cube to completely change colour.\nThe table shows their results.\n\nLength of one side of cube (cm) | surface area : volume ratio | Time to completely change colour (seconds)\n1 | ............. | 132\n2 | 3:1 | 328\n3 | 2:1 | 673\n\nUse the results and your calculations in parts (i) and (ii).\nExplain why most large multi-cellular organisms need transport systems, such as the blood system, but most single celled organisms do not.",
+        "marks": 2,
+        "answer_points": [
+          "As size increases, the rate of diffusion decreases, because the diffusion distance increases: the 3 cm cube took longest to change colour.",
+          "It would take too long for substances to diffuse in and out of large organisms, so they need a transport system. In small single-celled organisms, diffusion alone is enough."
+        ],
+        "tip": "You can argue it either way round, starting from large or from small organisms."
+      },
+      "extra": [
+        {
+          "heading": "Turning a time into a rate",
+          "blocks": [
+            {
+              "type": "paragraph",
+              "text": "In the gelatine cube experiment, rate = 1 ÷ time. A cube that changes colour in 200 s has a rate of 1 ÷ 200 = 0.005 s⁻¹. In standard form this is 5.0 × 10⁻³ s⁻¹."
+            }
+          ]
+        }
+      ]
+    }
+  },
+  "meta": {
+    "status": "draft",
+    "written_by": "writer-b",
+    "written_at": "2026-10-01",
+    "spec_point_ids": [
+      "979cae12-1b47-4466-a056-3f32560f414d",
+      "5b20b2fb-6b7d-4a34-80b5-c0e9d3f7d61f",
+      "dd4fa697-a501-46f9-8902-2c2949f499d8",
+      "7277d655-ac69-4187-86a3-e203de2f690c",
+      "a93cee80-af5b-46ed-b2b4-a29383473029",
+      "a2be5d4d-feee-4e41-9e53-6ceaa2dc6e36"
+    ],
+    "exemplar_ids": [
+      "b92b3d1b-4a11-4b5b-886d-1868794fad6b",
+      "d86138a0-8ff7-4c18-8956-c12f8a5478e5",
+      "5eb230d8-9228-4def-93a9-a591fb952e54"
+    ]
+  }
+}

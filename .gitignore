@@ -51,3 +51,6 @@ __pycache__/
 papers/*
 !papers/README.md
 .pytest_cache/
+
+# Revision-note source packs carry exam board questions (see scripts/notes).
+scripts/notes/.sources/

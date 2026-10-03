@@ -1,7 +1,15 @@
 import { useEffect, useState } from "react";
 import { type useNavigate } from "@tanstack/react-router";
+import { useQueryClient } from "@tanstack/react-query";
 import { supabase } from "@/integrations/supabase/client";
 import { toast } from "sonner";
+import { invalidateGuardState } from "@/lib/auth/guardState";
+import {
+  finishSsoSignUp,
+  readProviderError,
+  rememberSsoIntent,
+  type SsoProvider,
+} from "@/lib/auth/ssoIntent";
 
 // Supabase's Email OTP Length is a project setting (6–10); this project is set
 // to 8, and the digit boxes have to match it exactly.
@@ -47,11 +55,26 @@ export function useAuthFlow(navigate: ReturnType<typeof useNavigate>, search: Se
       ? search.redirect
       : "/dashboard";
 
+  const queryClient = useQueryClient();
+
+  // Also where Google / Microsoft send the visitor back: the session arrives in
+  // the URL, and the choices made on this form before leaving are applied here.
   useEffect(() => {
-    supabase.auth.getUser().then(({ data }) => {
-      if (data.user) navigate({ to: dest as never });
+    const providerError = readProviderError();
+    if (providerError) {
+      toast.error(providerError);
+      const url = new URL(window.location.href);
+      for (const k of ["error", "error_code", "error_description"]) url.searchParams.delete(k);
+      url.hash = "";
+      window.history.replaceState(window.history.state, "", url);
+    }
+    supabase.auth.getUser().then(async ({ data }) => {
+      if (!data.user) return;
+      await finishSsoSignUp();
+      invalidateGuardState(queryClient);
+      navigate({ to: dest as never });
     });
-  }, [navigate, dest]);
+  }, [navigate, dest, queryClient]);
 
   // Cooldown between "resend code" presses. GoTrue rate-limits these server
   // side anyway; this just stops people hammering the button and eating the
@@ -159,6 +182,41 @@ export function useAuthFlow(navigate: ReturnType<typeof useNavigate>, search: Se
     setResendIn(60);
   };
 
+  // Google / Microsoft. On sign-up the role and invite code chosen above go
+  // with the visitor (see `@/lib/auth/ssoIntent`); on log in nothing does, and
+  // an unknown account is made as a student, as an email sign-up defaults to.
+  const handleOAuth = async (provider: SsoProvider) => {
+    if (mode === "signup" && role === "parent" && !inviteCode.trim()) {
+      return toast.error("Enter your child's invite code first");
+    }
+    if (mode === "signup") {
+      rememberSsoIntent({
+        role,
+        inviteCode: role === "parent" ? inviteCode.trim() : null,
+        tier: search.tier ?? null,
+        level: search.level ?? null,
+        subjects: search.subjects ?? null,
+        board: search.board ?? null,
+      });
+    }
+    setLoading(true);
+    const back = new URL("/auth", window.location.origin);
+    if (dest !== "/dashboard") back.searchParams.set("redirect", dest);
+    const { error } = await supabase.auth.signInWithOAuth({
+      provider,
+      options: {
+        redirectTo: back.toString(),
+        // Microsoft only returns the email address when asked for it.
+        scopes: provider === "azure" ? "email" : undefined,
+      },
+    });
+    // On success the browser is already leaving for the provider.
+    if (error) {
+      toast.error(error.message);
+      setLoading(false);
+    }
+  };
+
   const handleForgotPassword = async () => {
     if (!email) return toast.error("Enter your email above first");
     const { error } = await supabase.auth.resetPasswordForEmail(email, {
@@ -190,6 +248,7 @@ export function useAuthFlow(navigate: ReturnType<typeof useNavigate>, search: Se
     handleSubmit,
     handleVerify,
     handleResend,
+    handleOAuth,
     handleForgotPassword,
   };
 }

@@ -199,14 +199,16 @@ export const ensureHomeworkForPoints = createServerFn({ method: "POST" })
   .handler(async ({ data, context }): Promise<EnsureHomeworkResult> => {
     const { supabase, userId } = context;
 
-    const { data: already, error: haveErr } = await supabase
-      .from("resources")
-      .select("spec_point_id")
-      .eq("kind", "homework")
-      .in("spec_point_id", data.specPointIds);
+    // Asked of the library, not of this student's view of it. Read through
+    // `resources`, a sheet the student can't see — held for review, or not yet
+    // published — looked missing, so it was generated again (and paid for) only
+    // for the write to find the existing sheet and throw the new one away.
+    const { data: already, error: haveErr } = await supabase.rpc("homework_points_with_sheet", {
+      _spec_point_ids: data.specPointIds,
+    });
     if (haveErr) throw haveErr;
 
-    const have = new Set((already ?? []).map((r) => r.spec_point_id).filter(Boolean));
+    const have = new Set((already ?? []).filter(Boolean));
     const missing = data.specPointIds.filter((id) => !have.has(id));
     if (missing.length === 0) {
       return { created: 0, existing: data.specPointIds.length, throttled: false };

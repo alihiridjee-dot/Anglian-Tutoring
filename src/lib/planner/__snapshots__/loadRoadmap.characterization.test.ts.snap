@@ -465,6 +465,7 @@ exports[`first view by the student: seeds the baseline 1`] = `
       },
     ],
     "reviewBacklog": [],
+    "reviewsWaiting": [],
     "unscheduledTopicTitles": [],
   },
 }
@@ -884,6 +885,7 @@ exports[`first view by someone else: answers the same but leaves no mark 1`] = `
       },
     ],
     "reviewBacklog": [],
+    "reviewsWaiting": [],
     "unscheduledTopicTitles": [],
   },
 }
@@ -1302,6 +1304,7 @@ exports[`acknowledged baseline, nothing saved this week 1`] = `
       },
     ],
     "reviewBacklog": [],
+    "reviewsWaiting": [],
     "unscheduledTopicTitles": [],
   },
 }
@@ -1733,6 +1736,7 @@ exports[`saved week: owns its reviews, reports withheld points, narrows the back
       },
     ],
     "reviewBacklog": [],
+    "reviewsWaiting": [],
     "unscheduledTopicTitles": [],
   },
 }
@@ -2189,6 +2193,7 @@ exports[`projectOnly: skips the saved-week read but still reserves its catch-up 
       },
     ],
     "reviewBacklog": [],
+    "reviewsWaiting": [],
     "unscheduledTopicTitles": [],
   },
 }
@@ -2633,6 +2638,7 @@ exports[`exam date moved: proposes changes and asks for acknowledgement 1`] = `
       },
     ],
     "reviewBacklog": [],
+    "reviewsWaiting": [],
     "unscheduledTopicTitles": [],
   },
 }
@@ -3151,6 +3157,7 @@ exports[`custom topic order is kept as stored 1`] = `
       },
     ],
     "reviewBacklog": [],
+    "reviewsWaiting": [],
     "unscheduledTopicTitles": [],
   },
 }
@@ -3690,6 +3697,7 @@ exports[`custom topic order is re-spread when the exam date has moved 1`] = `
       },
     ],
     "reviewBacklog": [],
+    "reviewsWaiting": [],
     "unscheduledTopicTitles": [],
   },
 }
@@ -4038,6 +4046,7 @@ exports[`caller-supplied progress is used instead of reading it 1`] = `
       },
     ],
     "reviewBacklog": [],
+    "reviewsWaiting": [],
     "unscheduledTopicTitles": [],
   },
 }
