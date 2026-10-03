@@ -1,12 +1,12 @@
 import { Mascot } from "@/components/Doodles";
 import { ErrorNote, Spinner } from "@/components/Shared";
 import { createFileRoute } from "@tanstack/react-router";
-import { useEffect, useMemo, useRef, useState } from "react";
+import { useMemo, useState } from "react";
 import { ArrowLeft, MessageSquarePlus } from "lucide-react";
 import { AppLayout } from "@/components/AppLayout";
 import { guardStudentSection } from "@/lib/auth/routeGuards";
 import { useRoles } from "@/hooks/useRole";
-import { useChatThreads, type ThreadSummary } from "@/hooks/data/useChat";
+import { useChatThreads, usePinnedThread, type ThreadSummary } from "@/hooks/data/useChat";
 import { ThreadList } from "@/components/chat/ThreadList";
 import { ThreadView } from "@/components/chat/ThreadView";
 import { NewThreadDialog } from "@/components/chat/NewThreadDialog";
@@ -36,7 +36,6 @@ const EMPTY_THREADS: ThreadSummary[] = [];
 function MessagesPage() {
   const { isTutor, userId, loading: rolesLoading } = useRoles();
   const { data: threads = EMPTY_THREADS, isPending, error, refetch } = useChatThreads();
-  const [selectedId, setSelectedId] = useState<string | null>(null);
   const [composing, setComposing] = useState(false);
   // On a phone the list and the thread take turns in one column; picking a row
   // opens the thread and the back arrow returns to the list. Wide screens show
@@ -44,23 +43,10 @@ function MessagesPage() {
   const [threadOpen, setThreadOpen] = useState(false);
 
   // Open the most recent conversation on arrival, and again when the open one is
-  // deleted — an empty right-hand pane next to a full list is a dead end.
-  //
-  // "Not in the list" has two meanings, and only one of them is "deleted". A
-  // thread that was just created isn't in the list either until the refetch
-  // lands, and treating that as a deletion bounced the student out of the
-  // question they had just asked and into their previous conversation — where a
-  // follow-up would have gone to the wrong thread. So only a selection that
-  // *has been seen* in the list, and has now gone, is replaced.
-  const seenIds = useRef(new Set<string>());
-  useEffect(() => {
-    if (selectedId && threads.some((t) => t.id === selectedId)) {
-      seenIds.current.add(selectedId);
-      return;
-    }
-    if (selectedId && !seenIds.current.has(selectedId)) return;
-    if (threads.length > 0) setSelectedId(threads[0].id);
-  }, [threads, selectedId]);
+  // deleted — an empty right-hand pane next to a full list is a dead end. On a
+  // phone that pane is hidden until a row is tapped, and ThreadView leaves it
+  // unread until then.
+  const [selectedId, setSelectedId] = usePinnedThread(threads);
 
   const selected = useMemo(
     () => threads.find((t) => t.id === selectedId) ?? null,
