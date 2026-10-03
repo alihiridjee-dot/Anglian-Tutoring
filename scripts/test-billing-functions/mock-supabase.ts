@@ -41,11 +41,13 @@ class Query implements PromiseLike<any> {
   private onConflict?: string;
   private returning = false;
   private mode: "many" | "maybe" | "single" = "many";
+  private count?: { head: boolean };
 
   constructor(private t: string) {}
 
-  select() {
+  select(_columns?: string, opts?: { count?: string; head?: boolean }) {
     if (this.op !== "select") this.returning = true;
+    if (opts?.count) this.count = { head: !!opts.head };
     return this;
   }
   insert(p: any) {
@@ -80,6 +82,15 @@ class Query implements PromiseLike<any> {
     this.filters.push((r) => vs.includes(r[c]));
     return this;
   }
+  // Timestamps are ISO strings here, which compare correctly as text.
+  gt(c: string, v: any) {
+    this.filters.push((r) => r[c] != null && r[c] > v);
+    return this;
+  }
+  lt(c: string, v: any) {
+    this.filters.push((r) => r[c] != null && r[c] < v);
+    return this;
+  }
   order() {
     return this;
   }
@@ -106,8 +117,13 @@ class Query implements PromiseLike<any> {
     const match = rows.filter((r) => this.filters.every((f) => f(r)));
 
     switch (this.op) {
-      case "select":
+      case "select": {
+        if (this.count) {
+          const data = this.count.head ? null : match.map((r) => ({ ...r }));
+          return Promise.resolve({ data, count: match.length, error: null });
+        }
         return Promise.resolve(this.shape(match.map((r) => ({ ...r }))));
+      }
       case "insert": {
         const list = Array.isArray(this.payload) ? this.payload : [this.payload];
         for (const p of list) {

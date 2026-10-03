@@ -8,24 +8,32 @@
 // yet. That makes it a way to send email from our domain to any address, so:
 //
 //   • a honeypot field (`website`) gets a cheerful answer and nothing sent;
-//   • one code per address — asking again re-sends the same code, at most once
-//     every RESEND_COOLDOWN, so one inbox cannot be flooded;
+//   • one code per person — the address is reduced to canonicalEmail first, so
+//     plus-tags and Gmail's dots don't make new people — and asking again
+//     re-sends the same code, at most once every RESEND_COOLDOWN, claimed
+//     atomically so a burst of requests sends one email, not one each;
+//   • at most IP_LIMIT requests an hour from one address (Cloudflare's
+//     cf-connecting-ip), so one script can't spend the hourly cap for everyone;
 //   • at most HOURLY_CAP sends an hour in total, so a script rotating addresses
-//     costs a bounded number of emails rather than an unbounded one.
+//     costs a bounded number of emails rather than an unbounded one. Checked
+//     before any row is created.
 //
 // Every accepted request gets the same answer, whether or not an email went,
-// so the endpoint never tells anyone whether an address has had a trial.
+// and the limits answer before the address is looked up, so the endpoint never
+// tells anyone whether an address has had a trial.
 //
 // Required function secrets: RESEND_API_KEY, EMAIL_FROM, APP_URL
 // Auto-injected by the platform: SUPABASE_URL, SUPABASE_SERVICE_ROLE_KEY
 //
 import { corsHeaders, HttpError } from "../_shared/http.ts";
 import { admin } from "../_shared/clients.ts";
-import { buildTrialEmail, makeTrialCode } from "../_shared/trialCode.ts";
+import { buildTrialEmail, canonicalEmail, makeTrialCode } from "../_shared/trialCode.ts";
 
 const EMAIL_RE = /^[^@\s]+@[^@\s]+\.[^@\s]+$/;
 const RESEND_COOLDOWN_MS = 10 * 60_000;
 const HOURLY_CAP = 100;
+const IP_LIMIT = 5;
+const BUSY = "We're sending a lot of codes right now. Please try again in an hour.";
 
 async function sha256Hex(s: string): Promise<string> {
   const digest = await crypto.subtle.digest("SHA-256", new TextEncoder().encode(s));
@@ -36,21 +44,25 @@ function newCode(): string {
   return makeTrialCode(crypto.getRandomValues(new Uint8Array(8)));
 }
 
-/** The address's code, minting one on first ask. Null once it has been used. */
+/**
+ * The person's code, minting one on first ask. Null once one has been used.
+ * Looked up under the canonical address and, for codes sent before addresses
+ * were canonicalised, the address as typed.
+ */
 async function codeFor(
   db: ReturnType<typeof admin>,
   emailHash: string,
+  typedHash: string,
 ): Promise<{ code: string; lastSentAt: string } | null> {
   for (let attempt = 0; attempt < 4; attempt++) {
-    const { data: existing } = await db
+    const { data: rows, error: readError } = await db
       .from("trial_codes")
       .select("code, last_sent_at, redeemed_at")
-      .eq("email_hash", emailHash)
-      .maybeSingle();
-    if (existing) {
-      return existing.redeemed_at
-        ? null
-        : { code: existing.code, lastSentAt: existing.last_sent_at };
+      .in("email_hash", [...new Set([emailHash, typedHash])]);
+    if (readError) throw new Error(`trial_codes read: ${readError.message}`);
+    if (rows?.length) {
+      if (rows.some((r) => r.redeemed_at)) return null;
+      return { code: rows[0].code, lastSentAt: rows[0].last_sent_at };
     }
 
     // Not yet "sent": the cooldown starts when an email actually goes, so a
@@ -84,7 +96,14 @@ async function send(to: string, code: string) {
   }
 }
 
-async function handle(body: { email?: unknown; website?: unknown }) {
+/** The caller's address as Cloudflare saw it (a client can't set this header). */
+function clientIp(req: Request): string | null {
+  return (
+    req.headers.get("cf-connecting-ip")?.trim() || req.headers.get("x-real-ip")?.trim() || null
+  );
+}
+
+async function handle(req: Request, body: { email?: unknown; website?: unknown }) {
   if (typeof body.website === "string" && body.website.trim()) return { ok: true };
 
   const email = typeof body.email === "string" ? body.email.trim().toLowerCase() : "";
@@ -93,26 +112,56 @@ async function handle(body: { email?: unknown; website?: unknown }) {
   }
 
   const db = admin();
-  const found = await codeFor(db, await sha256Hex(email));
-  if (!found) return { ok: true };
-  if (Date.now() - new Date(found.lastSentAt).getTime() < RESEND_COOLDOWN_MS) return { ok: true };
 
-  const { count } = await db
+  // The limits come first, before the address is looked up or a row is made:
+  // so no rows pile up while capped, and a capped answer is the same whether
+  // or not this address has had a trial.
+  const ip = clientIp(req);
+  if (ip) {
+    const { data: allowed, error } = await db.rpc("claim_trial_code_request", {
+      _ip_hash: await sha256Hex(ip),
+      _limit: IP_LIMIT,
+    });
+    if (error) throw new Error(`claim_trial_code_request: ${error.message}`);
+    if (!allowed) throw new HttpError(429, BUSY);
+  } else {
+    console.warn("trial-code: no client IP header; per-IP limit skipped");
+  }
+
+  const { count, error: countError } = await db
     .from("trial_codes")
     .select("code", { count: "exact", head: true })
     .gt("last_sent_at", new Date(Date.now() - 3_600_000).toISOString());
-  if ((count ?? 0) >= HOURLY_CAP) {
-    throw new HttpError(
-      429,
-      "We're sending a lot of codes right now. Please try again in an hour.",
-    );
-  }
+  if (countError) throw new Error(`trial_codes count: ${countError.message}`);
+  if ((count ?? 0) >= HOURLY_CAP) throw new HttpError(429, BUSY);
 
-  await send(email, found.code);
-  await db
+  const found = await codeFor(db, await sha256Hex(canonicalEmail(email)), await sha256Hex(email));
+  if (!found) return { ok: true };
+
+  // Claim this send before making it: only the request that moves last_sent_at
+  // past the cooldown sends. Checking and then setting let a burst of requests
+  // for one address all send.
+  const sentAt = new Date().toISOString();
+  const { data: claimed, error: claimError } = await db
     .from("trial_codes")
-    .update({ last_sent_at: new Date().toISOString() })
-    .eq("code", found.code);
+    .update({ last_sent_at: sentAt })
+    .eq("code", found.code)
+    .lt("last_sent_at", new Date(Date.now() - RESEND_COOLDOWN_MS).toISOString())
+    .select("code");
+  if (claimError) throw new Error(`trial_codes claim: ${claimError.message}`);
+  if (!claimed?.length) return { ok: true };
+
+  try {
+    await send(email, found.code);
+  } catch (err) {
+    // Give the cooldown back, so a failed send can be retried at once.
+    await db
+      .from("trial_codes")
+      .update({ last_sent_at: found.lastSentAt })
+      .eq("code", found.code)
+      .eq("last_sent_at", sentAt);
+    throw err;
+  }
   return { ok: true };
 }
 
@@ -121,7 +170,7 @@ Deno.serve(async (req) => {
 
   try {
     const body = (await req.json().catch(() => ({}))) as { email?: unknown; website?: unknown };
-    const result = await handle(body);
+    const result = await handle(req, body);
     return new Response(JSON.stringify(result), {
       headers: { ...corsHeaders, "Content-Type": "application/json" },
     });

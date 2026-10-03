@@ -32,6 +32,25 @@ export function normaliseTrialCode(raw: unknown): string | null {
   return SHAPE.test(code) ? code : null;
 }
 
+/**
+ * The one address behind the many ways of writing it, for "one trial per
+ * person": lower-cased, with any "+tag" dropped, and for Gmail the dots in the
+ * name too (Gmail ignores them) and googlemail.com read as gmail.com. Without
+ * this, name+1@gmail.com, n.a.m.e@gmail.com and so on each got a trial.
+ *
+ * Only for counting: the code is still sent to the address as typed.
+ */
+export function canonicalEmail(email: string): string {
+  const lower = email.trim().toLowerCase();
+  const at = lower.lastIndexOf("@");
+  if (at < 1) return lower;
+  let name = lower.slice(0, at).split("+")[0];
+  let domain = lower.slice(at + 1);
+  if (domain === "googlemail.com") domain = "gmail.com";
+  if (domain === "gmail.com") name = name.replace(/\./g, "");
+  return `${name || lower.slice(0, at)}@${domain}`;
+}
+
 export interface Email {
   subject: string;
   text: string;
