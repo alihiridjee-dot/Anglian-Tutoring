@@ -8,6 +8,7 @@ import { ScheduleDAL, type TopicProgress } from "./scheduleDal";
 import {
   type PacingBand,
   examMondayFor,
+  programStartFor,
   isTeachBand,
   projectReviews,
   weeksBetween,
@@ -17,7 +18,13 @@ import { WeeklyPlanDAL, type PlanPoint } from "./weeklyPlanDal";
 import { WeeklyActivityDAL } from "./weeklyActivityDal";
 import { PlanOverridesDAL } from "./planOverridesDal";
 import { blockedBy, indexOverrides, programmeMayAssign, type PlanOverride } from "./overrides";
-import { buildRoadmap, focusInputs, type RoadmapResult } from "./roadmap";
+import {
+  buildRoadmap,
+  focusInputs,
+  reviewBudgetFor,
+  spineIsForAnotherCourse,
+  type RoadmapResult,
+} from "./roadmap";
 import { mergeWeek, selectWeek, unsupportedReviews, type WeekSelection } from "./weekCut";
 
 export { handPicked } from "./weekCut";
@@ -104,18 +111,27 @@ export class ProgramDAL {
       savedWeek ??
       (params.projectOnly ? await WeeklyPlanDAL.getPlan(studentId, subject, thisWeek) : null);
 
+    // A tutor moved the student to another board or level: the stored spine
+    // teaches the old course's topics, so it is no programme for this one. It
+    // is built afresh from this week, keeping the exam date, exactly as a first
+    // view is — and, like one, saved only when the student is the one looking.
+    const courseChanged =
+      !!baseline && spineIsForAnotherCourse(baseline.pacing as unknown as PacingBand[], progress);
+    const current = courseChanged ? null : baseline;
+
     const roadmap = buildRoadmap({
       progress,
-      baseline: baseline && { ...baseline, pacing: baseline.pacing as unknown as PacingBand[] },
+      baseline: current && { ...current, pacing: current.pacing as unknown as PacingBand[] },
       savedWeek,
       catchUpWeek,
       ledger,
       thisMonday,
+      firstWeek: programStartFor(),
       examMonday,
       overrides,
     });
 
-    if (!baseline) {
+    if (!current) {
       // Seed the acknowledged baseline so the first view is calm (no diff) —
       // but ONLY when the student is the one looking.
       //
@@ -292,6 +308,7 @@ export class ProgramDAL {
       currentMonday: saved ? addWeeks(monday, 1) : monday,
       examMonday: weekKeyToDate(p.examDate),
       isBlocked: blockedBy(overrides),
+      weeklyBudget: reviewBudgetFor(p.progress, p.pacing.filter(isTeachBand)),
     }).bands;
   }
 

@@ -33,6 +33,18 @@ export function handPicked(origin: PlanPointOrigin): boolean {
   return origin === "student" || origin === "tutor";
 }
 
+/**
+ * A saved week cut for another board or level than the course the student is
+ * on now — a tutor moved them mid-week. Every point in it reads back as
+ * off-course, so the week has to be re-cut for the course it is now (S-30).
+ */
+export function weekIsForAnotherCourse(
+  plan: { board: string; level: string },
+  course: { board: string; level: string },
+): boolean {
+  return plan.board !== course.board || plan.level !== course.level;
+}
+
 /** What a week is cut to: its points, the lane each was chosen for, and why. */
 export interface WeekSelection {
   specPointIds: string[];

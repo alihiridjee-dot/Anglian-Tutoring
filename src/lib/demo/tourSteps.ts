@@ -56,7 +56,7 @@ export const TOUR_STEPS: TourStep[] = [
     target: '[data-tour="tutor-focus"]',
     chapter: "Student",
     title: "Extra focus from the tutor",
-    body: "Tutors add their own focus for the week, with a short note on why it matters and the videos that go with it.",
+    body: "Tutors can pin extra spec points into one student's week, and the videos that go with them come along.",
   },
   {
     path: "/demo/student/planner",

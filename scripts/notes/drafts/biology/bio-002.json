@@ -1,0 +1,307 @@
+{
+  "format": 1,
+  "concept_id": "bio-002",
+  "subject": "biology",
+  "title": "Animal and plant cell structures",
+  "key_idea": "Animal and plant cells contain sub-cellular structures, and each one has a job. Plant cells also have a cell wall, a permanent vacuole and (often) chloroplasts. You must be able to link each structure to its function.",
+  "sections": [
+    {
+      "heading": "Structures in animal cells",
+      "blocks": [
+        { "type": "paragraph", "text": "Most animal cells have the same five parts. This section covers what each part does." },
+        {
+          "type": "definitions",
+          "items": [
+            { "term": "Sub-cellular structure", "meaning": "A part inside a cell that has a job to do." },
+            { "term": "Cytoplasm", "meaning": "The jelly-like liquid that fills the cell." },
+            { "term": "Respiration", "meaning": "The reaction that releases energy for the cell to use." },
+            { "term": "Protein synthesis", "meaning": "Making proteins from smaller molecules." }
+          ]
+        },
+        {
+          "type": "table",
+          "columns": ["Structure", "Function"],
+          "rows": [
+            ["Nucleus", "Contains the genetic material (DNA in chromosomes) and controls the activities of the cell"],
+            ["Cytoplasm", "Where most chemical reactions happen"],
+            ["Cell membrane", "Controls the movement of substances into and out of the cell"],
+            ["Mitochondria", "Where aerobic respiration happens, which releases energy"],
+            ["Ribosomes", "Where proteins are made (protein synthesis)"]
+          ]
+        },
+        {
+          "type": "diagram",
+          "diagram": {
+            "kind": "explorer",
+            "alt": "Tap each cell structure to see what it does, then test yourself on matching structures to functions. The structures are the nucleus, cytoplasm, cell membrane, mitochondria, ribosomes, chloroplasts, permanent vacuole and cell wall.",
+            "prompt": "Structures of animal and plant cells",
+            "parts": [
+              { "name": "Nucleus", "detail": "Contains the genetic material and controls the activities of the cell." },
+              { "name": "Cytoplasm", "detail": "A jelly-like liquid where most chemical reactions happen." },
+              { "name": "Cell membrane", "detail": "Controls the movement of substances into and out of the cell." },
+              { "name": "Mitochondria", "detail": "Where aerobic respiration happens, which releases energy." },
+              { "name": "Ribosomes", "detail": "Where protein synthesis happens: this is where proteins are made." },
+              { "name": "Chloroplasts", "detail": "Contain chlorophyll, which absorbs light for photosynthesis. Found in some plant cells only." },
+              { "name": "Permanent vacuole", "detail": "Filled with cell sap. Found in plant cells only." },
+              { "name": "Cell wall", "detail": "Made of cellulose. Strengthens the cell. Found in plant and algal cells." }
+            ]
+          }
+        },
+        {
+          "type": "key-points",
+          "items": [
+            "The nucleus controls the cell. It contains the DNA.",
+            "Mitochondria release energy by aerobic respiration.",
+            "The cell membrane controls what enters and leaves. Ribosomes make proteins."
+          ]
+        }
+      ]
+    },
+    {
+      "heading": "Extra structures in plant cells",
+      "blocks": [
+        { "type": "paragraph", "text": "Plant cells have all the animal cell parts, plus three more. Algal cells have them too." },
+        {
+          "type": "table",
+          "columns": ["Structure", "Function"],
+          "rows": [
+            ["Chloroplasts", "Contain chlorophyll, which absorbs light for photosynthesis"],
+            ["Permanent vacuole", "Filled with cell sap"],
+            ["Cell wall", "Made of cellulose. Strengthens the cell"]
+          ]
+        },
+        { "type": "subheading", "text": "Not every plant cell is the same" },
+        {
+          "type": "list",
+          "items": [
+            "Root cells are underground, so they get no light and have **no chloroplasts**.",
+            "Leaf cells that photosynthesise have many chloroplasts.",
+            "A green colour in a cell or stem comes from chlorophyll in the chloroplasts."
+          ]
+        },
+        {
+          "type": "diagram",
+          "diagram": {
+            "kind": "compare",
+            "alt": "A table comparing animal and plant cells. Both have a nucleus, cytoplasm, cell membrane, mitochondria and ribosomes. Only plant cells have a cell wall, a permanent vacuole and chloroplasts.",
+            "items": ["Animal cell", "Plant cell"],
+            "rows": [
+              { "feature": "Nucleus", "values": ["Yes", "Yes"] },
+              { "feature": "Cytoplasm", "values": ["Yes", "Yes"] },
+              { "feature": "Cell membrane", "values": ["Yes", "Yes"] },
+              { "feature": "Mitochondria", "values": ["Yes", "Yes"] },
+              { "feature": "Ribosomes", "values": ["Yes", "Yes"] },
+              { "feature": "Cell wall (cellulose)", "values": ["No", "Yes"] },
+              { "feature": "Permanent vacuole", "values": ["No", "Yes"] },
+              { "feature": "Chloroplasts", "values": ["No", "Often"] }
+            ]
+          }
+        },
+        {
+          "type": "key-points",
+          "items": [
+            "Plant cells have a cell wall, a permanent vacuole and chloroplasts. Animal cells do not.",
+            "The cell wall strengthens the cell. The cell membrane is not the same thing.",
+            "Chloroplasts are for photosynthesis, so cells in the dark have none."
+          ]
+        }
+      ]
+    },
+    {
+      "heading": "Linking structure to function",
+      "blocks": [
+        { "type": "paragraph", "text": "A cell's structures match its job. Exam questions ask you to explain why a cell has a lot of one structure, or none." },
+        {
+          "type": "list",
+          "items": [
+            "Cells that need a lot of energy, such as heart muscle cells, contain **many mitochondria**.",
+            "More mitochondria means more respiration, which releases more energy for the muscle to contract.",
+            "Cells that make a lot of protein need **many ribosomes**.",
+            "Some cells have no nucleus, such as red blood cells and xylem cells."
+          ]
+        },
+        { "type": "subheading", "text": "Words that lose marks" },
+        {
+          "type": "list",
+          "items": [
+            "Say mitochondria **release** energy. Energy is never made, produced or created.",
+            "Chlorophyll is a chemical, not a structure. The structure is the chloroplast.",
+            "Plasmids are small rings of DNA found in bacterial cells, not animal or plant cells."
+          ]
+        },
+        {
+          "type": "key-points",
+          "items": [
+            "Many mitochondria means a high demand for energy.",
+            "Link structure, process and result: more mitochondria, more respiration, more energy released.",
+            "Say \"release\" energy, never \"make\" energy."
+          ]
+        }
+      ]
+    }
+  ],
+  "checks": [
+    {
+      "q": "Name the part of a cell that controls the movement of substances into and out of the cell.",
+      "a": "The cell membrane.",
+      "marks": 1
+    },
+    {
+      "q": "Name two structures found in a plant cell but not in an animal cell.",
+      "a": "Any two from: cell wall, permanent vacuole, chloroplasts.",
+      "marks": 2
+    },
+    {
+      "q": "Explain why a sperm cell or a muscle cell contains many mitochondria.",
+      "a": "More respiration happens in the mitochondria, which releases more energy. The cell needs the energy to move or contract.",
+      "marks": 3
+    }
+  ],
+  "boards": {
+    "aqa": {
+      "spec_codes": ["AQA 1.2", "AQA T 4.1.1.2"],
+      "exam_phrases": [
+        "controls the (activities of the) cell",
+        "contains genetic information / DNA / chromosomes",
+        "controls the movement of substances into and out of the cell",
+        "(site of aerobic) respiration / releases energy",
+        "photosynthesis",
+        "to strengthen the cell"
+      ],
+      "mistakes": [
+        {
+          "wrong": "Mitochondria produce energy for the cell.",
+          "right": "Mitochondria release energy in respiration. Energy produced, made or created is not accepted."
+        },
+        {
+          "wrong": "The nucleus is the brain of the cell.",
+          "right": "\"Brain\" is not accepted. Say the nucleus controls the activities of the cell and contains the genetic material."
+        },
+        {
+          "wrong": "The nucleus controls substances entering and leaving the cell.",
+          "right": "This is the job of the cell membrane. The nucleus controls the activities of the cell."
+        },
+        {
+          "wrong": "The cell membrane allows substances in and out of the cell.",
+          "right": "\"Allows\" is ignored. Say the membrane controls the movement of substances into and out of the cell."
+        }
+      ],
+      "worked_example": {
+        "exemplar_id": "cb8e0754-bef4-4f1f-ae8c-cc2fbd96cffa",
+        "source": "AQA jun 2025, Paper 1 (H), Q01.3",
+        "question": "The heart is an organ that pumps blood around the body. Heart muscle cells contain many mitochondria. Explain why heart muscle cells contain many mitochondria.",
+        "marks": 3,
+        "answer_points": [
+          "More respiration happens in the mitochondria.",
+          "Respiration releases more energy (or the muscle needs more energy).",
+          "So the heart muscle can contract."
+        ],
+        "tip": "Do not write that energy is produced, made or created, and do not write anaerobic respiration."
+      }
+    },
+    "edexcel": {
+      "spec_codes": ["EDEX 1.1"],
+      "exam_phrases": [
+        "mitochondria release energy / are where respiration occurs",
+        "ribosomes are where proteins are made / protein synthesis",
+        "the nucleus controls the activities of the cell",
+        "cell wall provides structure / support",
+        "cell wall, chloroplast, large vacuole",
+        "no chloroplasts because there is no light for photosynthesis"
+      ],
+      "mistakes": [
+        {
+          "wrong": "Mitochondria make energy.",
+          "right": "\"Makes\" or \"produces\" energy is ignored. Say mitochondria release energy, or that aerobic respiration happens there."
+        },
+        {
+          "wrong": "Vacuoles produce proteins.",
+          "right": "Ribosomes are where proteins are made. Vacuoles do not make proteins."
+        },
+        {
+          "wrong": "Animal cells do not have mitochondria.",
+          "right": "Animal and plant cells both have mitochondria. Animal cells do not have a cell wall."
+        }
+      ],
+      "worked_example": {
+        "exemplar_id": "e7315ea9-8fcb-4969-ac98-0479eeaa8809",
+        "source": "EDEXCEL jun 2024, Paper 1 (H), Q5(b)",
+        "question": "The cytoplasm of a cell contains a nucleus. Explain the role of one other structure in the cytoplasm of a human cell.",
+        "marks": 2,
+        "answer_points": [
+          "Mitochondria, which release energy (or are where respiration occurs).",
+          "OR ribosomes, which are where proteins are made (protein synthesis)."
+        ],
+        "tip": "One mark for naming the structure and one for its role, and the role must match the structure you named."
+      }
+    },
+    "ocr": {
+      "spec_codes": ["OCR 1.1b"],
+      "exam_phrases": [
+        "chloroplast contains chlorophyll for photosynthesis",
+        "mitochondria contain enzymes for respiration",
+        "cell membrane has receptor molecules for communication",
+        "ribosome is the site of protein synthesis",
+        "chloroplasts absorb light"
+      ],
+      "mistakes": [
+        {
+          "wrong": "Plant and bacterial cells are similar because both have DNA.",
+          "right": "DNA is ignored as a similarity. Give a structure such as the cell membrane, cell wall, ribosomes or cytoplasm."
+        },
+        {
+          "wrong": "Plant cells can make sugars because they are green.",
+          "right": "Link it to the chloroplasts: they contain chlorophyll, which absorbs light for photosynthesis."
+        },
+        {
+          "wrong": "Mitochondria are found in plant cells but not in animal cells.",
+          "right": "Mitochondria are found in both animal and plant cells. Only plant cells have chloroplasts, a cell wall and a permanent vacuole."
+        }
+      ],
+      "worked_example": {
+        "exemplar_id": "bb392d10-aab4-49bf-a949-ec965057f86e",
+        "source": "OCR nov 2020, Paper 1, Q16(a)",
+        "question": "Cells contain structures that have different features. Complete the table using structures from this list: cell membrane, chloroplast, mitochondria, nucleus, ribosomes. The features are: (1) contains chlorophyll for photosynthesis, (2) contains enzymes for respiration, (3) has receptor molecules for communication.",
+        "marks": 3,
+        "answer_points": [
+          "Contains chlorophyll for photosynthesis: chloroplast.",
+          "Contains enzymes for respiration: mitochondria.",
+          "Has receptor molecules for communication: cell membrane."
+        ],
+        "tip": "One mark for each correct structure. Two structures in the list are not needed."
+      },
+      "extra": [
+        {
+          "heading": "Detail this board asks for",
+          "blocks": [
+            {
+              "type": "list",
+              "items": [
+                "The cell membrane has **receptor molecules**, which let the cell communicate with other cells.",
+                "Mitochondria contain the **enzymes** needed for respiration.",
+                "Chloroplasts contain chlorophyll, which absorbs light for photosynthesis."
+              ]
+            }
+          ]
+        }
+      ]
+    }
+  },
+  "meta": {
+    "status": "draft",
+    "checked_by": "sonnet-science-check",
+    "checked_at": "2026-10-01",
+    "written_by": "Claude Sonnet 5.5",
+    "written_at": "2026-10-01",
+    "spec_point_ids": [
+      "4bd13b5d-c82c-4992-88f3-8d8e51f5d293",
+      "691af171-cd32-41fa-bdbd-e064821b727f",
+      "a28124fb-33a5-4fb8-9129-f93791c12b6a"
+    ],
+    "exemplar_ids": [
+      "cb8e0754-bef4-4f1f-ae8c-cc2fbd96cffa",
+      "e7315ea9-8fcb-4969-ac98-0479eeaa8809",
+      "bb392d10-aab4-49bf-a949-ec965057f86e"
+    ]
+  }
+}

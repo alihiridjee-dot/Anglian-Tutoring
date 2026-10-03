@@ -345,6 +345,7 @@ export type Database = {
           answers: Json;
           notes: string | null;
           resource_id: string;
+          stamps: Json;
           student_id: string;
           updated_at: string;
         };
@@ -352,6 +353,7 @@ export type Database = {
           answers?: Json;
           notes?: string | null;
           resource_id: string;
+          stamps?: Json;
           student_id: string;
           updated_at?: string;
         };
@@ -359,6 +361,7 @@ export type Database = {
           answers?: Json;
           notes?: string | null;
           resource_id?: string;
+          stamps?: Json;
           student_id?: string;
           updated_at?: string;
         };
@@ -682,6 +685,122 @@ export type Database = {
           },
         ];
       };
+      note_concept_spec_points: {
+        Row: {
+          concept_id: string;
+          is_primary: boolean;
+          spec_point_id: string;
+        };
+        Insert: {
+          concept_id: string;
+          is_primary: boolean;
+          spec_point_id: string;
+        };
+        Update: {
+          concept_id?: string;
+          is_primary?: boolean;
+          spec_point_id?: string;
+        };
+        Relationships: [
+          {
+            foreignKeyName: "note_concept_spec_points_concept_id_fkey";
+            columns: ["concept_id"];
+            isOneToOne: false;
+            referencedRelation: "note_concepts";
+            referencedColumns: ["id"];
+          },
+          {
+            foreignKeyName: "note_concept_spec_points_spec_point_id_fkey";
+            columns: ["spec_point_id"];
+            isOneToOne: false;
+            referencedRelation: "spec_points";
+            referencedColumns: ["id"];
+          },
+        ];
+      };
+      note_concepts: {
+        Row: {
+          chapter: string;
+          created_at: string;
+          higher_only: boolean;
+          id: string;
+          kind: string;
+          level: Database["public"]["Enums"]["level"];
+          scope: string;
+          separate_only: boolean;
+          sort_order: number;
+          subject: Database["public"]["Enums"]["subject"];
+          title: string;
+        };
+        Insert: {
+          chapter: string;
+          created_at?: string;
+          higher_only?: boolean;
+          id: string;
+          kind: string;
+          level?: Database["public"]["Enums"]["level"];
+          scope: string;
+          separate_only?: boolean;
+          sort_order: number;
+          subject: Database["public"]["Enums"]["subject"];
+          title: string;
+        };
+        Update: {
+          chapter?: string;
+          created_at?: string;
+          higher_only?: boolean;
+          id?: string;
+          kind?: string;
+          level?: Database["public"]["Enums"]["level"];
+          scope?: string;
+          separate_only?: boolean;
+          sort_order?: number;
+          subject?: Database["public"]["Enums"]["subject"];
+          title?: string;
+        };
+        Relationships: [];
+      };
+      notes: {
+        Row: {
+          approved_at: string | null;
+          approved_by: string | null;
+          body: Json;
+          concept_id: string;
+          format: number;
+          status: string;
+          updated_at: string;
+          written_by: string;
+        };
+        Insert: {
+          approved_at?: string | null;
+          approved_by?: string | null;
+          body: Json;
+          concept_id: string;
+          format?: number;
+          status?: string;
+          updated_at?: string;
+          written_by: string;
+        };
+        Update: {
+          approved_at?: string | null;
+          approved_by?: string | null;
+          body?: Json;
+          concept_id?: string;
+          format?: number;
+          status?: string;
+          updated_at?: string;
+          written_by?: string;
+        };
+        Relationships: [
+          {
+            foreignKeyName: "notes_concept_id_fkey";
+            columns: ["concept_id"];
+            isOneToOne: true;
+            referencedRelation: "note_concepts";
+            referencedColumns: ["id"];
+          },
+        ];
+      };
       notifications: {
         Row: {
           body: string | null;
@@ -838,6 +957,7 @@ export type Database = {
           role: Database["public"]["Enums"]["profile_role"];
           school: string | null;
           student_invite_code: string | null;
+          welcome_tour_seen_at: string | null;
         };
         Insert: {
           avatar_path?: string | null;
@@ -851,6 +971,7 @@ export type Database = {
           role?: Database["public"]["Enums"]["profile_role"];
           school?: string | null;
           student_invite_code?: string | null;
+          welcome_tour_seen_at?: string | null;
         };
         Update: {
           avatar_path?: string | null;
@@ -864,6 +985,7 @@ export type Database = {
           role?: Database["public"]["Enums"]["profile_role"];
           school?: string | null;
           student_invite_code?: string | null;
+          welcome_tour_seen_at?: string | null;
         };
         Relationships: [];
       };
@@ -925,6 +1047,7 @@ export type Database = {
           subject: Database["public"]["Enums"]["subject"];
           title: string;
           video_url: string | null;
+          zoom_meeting_id: string | null;
         };
         Insert: {
           board?: Database["public"]["Enums"]["board"] | null;
@@ -950,6 +1073,7 @@ export type Database = {
           subject: Database["public"]["Enums"]["subject"];
           title: string;
           video_url?: string | null;
+          zoom_meeting_id?: string | null;
         };
         Update: {
           board?: Database["public"]["Enums"]["board"] | null;
@@ -975,6 +1099,7 @@ export type Database = {
           subject?: Database["public"]["Enums"]["subject"];
           title?: string;
           video_url?: string | null;
+          zoom_meeting_id?: string | null;
         };
         Relationships: [
           {
@@ -1847,6 +1972,23 @@ export type Database = {
         Args: { _endpoint: string; _limit: number; _window: string };
         Returns: boolean;
       };
+      claim_parent_role: { Args: never; Returns: Json };
+      create_linked_resource: {
+        Args: {
+          _board: Database["public"]["Enums"]["board"] | null;
+          _description: string;
+          _join_url?: string | null;
+          _kind: Database["public"]["Enums"]["resource_kind"];
+          _level: Database["public"]["Enums"]["level"];
+          _spec_point_ids: string[];
+          _starts_at?: string | null;
+          _subject: Database["public"]["Enums"]["subject"];
+          _title: string;
+          _video_url?: string | null;
+          _zoom_meeting_id?: string | null;
+        };
+        Returns: string;
+      };
       curriculum_coverage: {
         Args: never;
         Returns: {
@@ -1897,6 +2039,10 @@ export type Database = {
         Args: { _answers: Json; _set_id: string };
         Returns: Json;
       };
+      homework_points_with_sheet: {
+        Args: { _spec_point_ids: string[] };
+        Returns: string[];
+      };
       homework_mark_schemes: {
         Args: { _resource_ids: string[] };
         Returns: { mark_scheme: string; question_id: string }[];
@@ -1929,6 +2075,10 @@ export type Database = {
           linked_at: string;
           parent_id: string;
         }[];
+      };
+      live_session_join_urls: {
+        Args: { _ids: string[] };
+        Returns: { id: string; join_url: string }[];
       };
       delete_chat_thread: {
         Args: { p_thread_id: string };
@@ -2015,6 +2165,16 @@ export type Database = {
         Returns: string;
       };
       sweep_stale_homework_drafts: { Args: never; Returns: number };
+      sync_homework_draft: {
+        Args: {
+          _answers?: Json;
+          _client_now?: number;
+          _notes?: string;
+          _resource_id: string;
+          _stamps?: Json;
+        };
+        Returns: Json;
+      };
       tutor_directory: {
         Args: never;
         Returns: {

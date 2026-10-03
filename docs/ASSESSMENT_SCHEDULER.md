@@ -9,9 +9,15 @@ rows and old stored cards are retained, allowing rollback without data deletion.
 
 Each skill has one next review. The raw FSRS due date remains untouched; eligibility
 is max(raw due, last review + 168 hours). The first Monday opening at or after that
-instant can receive the review. All eligible reviews are assigned without a weekly
-count or weight cap. Teaching uses every week before the exam, with no reserved
-pre-exam block. Curriculum weights still balance teaching across those weeks.
+instant can receive the review. A week holds reviews up to three times its teaching
+weight (`REVIEW_SHARE`, `reviewBudget` in `pacing.ts`; about fifteen to twenty reviews
+on current courses), oldest due first, always at least one. Reviews that don't fit
+roll into the following weeks, and "Review more now" pulls the next ten into the
+current week for a student who wants to keep going. Until 1 October 2026 reviews were
+uncapped: a student back after weeks away got every overdue review in one week, and
+past 200 spec points the week could not be saved at all (S-28). Teaching uses every
+week before the exam, with no reserved pre-exam block. Curriculum weights still
+balance teaching across those weeks.
 
 The queue never manufactures repeat counts or moves all secure skills into a final
 review week. Dates beyond the exam remain outside the exam preparation assignment
@@ -196,7 +202,8 @@ the current week accordingly.
 - Past assignments are preserved rather than migrated automatically. The full-year
   teaching outline remains an outline, not a record that each lesson was delivered.
 - Shared activities can cover multiple points; workload estimates are not yet
-  deduplicated at activity level. Eligible review workload is uncapped.
+  deduplicated at activity level. Eligible review workload is budgeted per week (see
+  Behaviour), and the overflow rolls forward rather than being dropped.
 - Exam-date risk prediction and a full cohort workload forecasting tool are not yet
   implemented. Current backlog reporting covers the next-review queue only.
 - Memory reconstruction reads source history rather than persisting a new versioned
@@ -211,7 +218,7 @@ the current week accordingly.
 
 Validation covers deterministic FSRS updates, confidence exclusion, assessment
 snapshot attribution, weekly completion boundaries, seven-day eligibility, Monday
-rounding, uncapped review selection, full-window teaching, exam horizon and stable projections.
+rounding, the weekly review budget, full-window teaching, exam horizon and stable projections.
 
 ## Synthetic full-year scenarios
 

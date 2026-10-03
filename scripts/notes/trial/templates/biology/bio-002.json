@@ -1,0 +1,120 @@
+{
+  "format": 1,
+  "concept_id": "bio-002",
+  "subject": "biology",
+  "title": "Interactive templates (test)",
+  "key_idea": "A test note that uses each self-test template once.",
+  "sections": [
+    {
+      "heading": "Parts explorer",
+      "blocks": [
+        {
+          "type": "diagram",
+          "diagram": {
+            "kind": "explorer",
+            "alt": "Tap a cell structure to learn its job, then test yourself.",
+            "prompt": "Parts of an animal and plant cell",
+            "parts": [
+              { "name": "Nucleus", "detail": "Contains the genetic material, which controls the activities of the cell." },
+              { "name": "Cytoplasm", "detail": "A jelly-like liquid where most chemical reactions happen." },
+              { "name": "Cell membrane", "detail": "Controls which substances pass in and out of the cell." },
+              { "name": "Mitochondria", "detail": "Where aerobic respiration happens, releasing energy." },
+              { "name": "Ribosomes", "detail": "Where protein synthesis happens." },
+              { "name": "Chloroplasts", "detail": "Absorb light for photosynthesis. Found in plant cells only." },
+              { "name": "Cell wall", "detail": "Made of cellulose. Strengthens the cell. Found in plant cells only." }
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "heading": "Order it",
+      "blocks": [
+        {
+          "type": "diagram",
+          "diagram": {
+            "kind": "sequence",
+            "alt": "Put the stages of the cell cycle in order.",
+            "prompt": "Put the cell cycle in order",
+            "steps": [
+              "The cell grows and makes more ribosomes and mitochondria",
+              "The DNA replicates",
+              "One set of chromosomes is pulled to each end of the cell",
+              "The nucleus divides",
+              "The cytoplasm and cell membrane divide"
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "heading": "Sort it",
+      "blocks": [
+        {
+          "type": "diagram",
+          "diagram": {
+            "kind": "sort",
+            "alt": "Sort each feature into eukaryotic or prokaryotic cells.",
+            "prompt": "Eukaryotic or prokaryotic?",
+            "groups": ["Eukaryotic", "Prokaryotic", "Both"],
+            "items": [
+              { "text": "Genetic material in a nucleus", "group": 0 },
+              { "text": "Plasmids", "group": 1 },
+              { "text": "A single loop of DNA", "group": 1 },
+              { "text": "Cell membrane", "group": 2 },
+              { "text": "Mitochondria", "group": 0 },
+              { "text": "Ribosomes", "group": 2 }
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "heading": "Punnett square",
+      "blocks": [
+        {
+          "type": "diagram",
+          "diagram": {
+            "kind": "punnett",
+            "alt": "Choose two parents' genotypes to see the offspring.",
+            "alleles": { "dominant": "F", "recessive": "f" },
+            "phenotypes": { "dominant": "No cystic fibrosis", "recessive": "Cystic fibrosis" },
+            "parent_options": [["FF", "Ff", "ff"], ["FF", "Ff", "ff"]],
+            "parent_labels": ["Mother", "Father"]
+          }
+        }
+      ]
+    },
+    {
+      "heading": "Calculation practice",
+      "blocks": [
+        {
+          "type": "diagram",
+          "diagram": {
+            "kind": "practice",
+            "alt": "Practise calculating real size from image size and magnification.",
+            "question": "A cell's image is **{I} mm** long. The magnification is **×{M}**. Calculate the real size of the cell in micrometres (µm).",
+            "variables": [
+              { "id": "I", "min": 10, "max": 60, "step": 2 },
+              { "id": "M", "min": 400, "max": 2000, "step": 200 }
+            ],
+            "answer": { "formula": "I * 1000 / M", "unit": "µm", "decimals": 1 },
+            "working": [
+              "Real size = image size ÷ magnification",
+              "Convert the image size to µm: {I} mm × 1000",
+              "Real size = {I} × 1000 ÷ {M} = **{answer}**"
+            ]
+          }
+        }
+      ]
+    }
+  ],
+  "checks": [
+    { "q": "Which structure controls what enters and leaves the cell?", "a": "The cell membrane." },
+    { "q": "Where does aerobic respiration happen?", "a": "In the mitochondria." }
+  ],
+  "boards": {
+    "aqa": { "spec_codes": ["AQA 1.2"], "exam_phrases": ["controls the activities of the cell", "site of protein synthesis"], "mistakes": [] }
+  },
+  "meta": { "status": "draft", "written_by": "template-test", "written_at": "2026-10-01", "spec_point_ids": ["4bd13b5d-c82c-4992-88f3-8d8e51f5d293"], "exemplar_ids": [] }
+}

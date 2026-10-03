@@ -1,16 +1,15 @@
 import { useMemo } from "react";
-import { useQuery } from "@tanstack/react-query";
 import { Link } from "@tanstack/react-router";
 import { Video, Radio } from "lucide-react";
 import { useNow } from "@/hooks/useNow";
 import {
   DAY_MS,
   MINUTE_MS as MINUTE,
-  fetchLiveSessions,
   nextSession,
   sessionStartMs,
   sessionTiming,
 } from "@/lib/live/liveSessions";
+import { useMyLiveSessions } from "@/components/live/useMyLiveSessions";
 
 function formatShort(diff: number) {
   const days = Math.floor(diff / DAY_MS);
@@ -28,13 +27,10 @@ function formatShort(diff: number) {
  * nothing otherwise, so the ribbon stays clean when there's no session soon.
  *
  * Shares the ["live","countdown"] query with the This Week card, so both agree
- * and there's no extra fetch.
+ * and there's no extra fetch, and shows only sessions on the student's course.
  */
 export function HeaderLiveButton({ liveHref }: { liveHref: "/live" | "/demo/student/live" }) {
-  const { data } = useQuery({
-    queryKey: ["live", "countdown"],
-    queryFn: () => fetchLiveSessions(),
-  });
+  const { data } = useMyLiveSessions();
   // This chip shows minutes, on every page of the app — it has no use for a
   // one-second tick.
   const now = useNow(15_000);

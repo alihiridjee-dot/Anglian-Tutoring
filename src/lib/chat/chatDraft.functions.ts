@@ -1,5 +1,6 @@
 import { createServerFn } from "@tanstack/react-start";
 import Anthropic from "@anthropic-ai/sdk";
+import { NO_THINKING, completeText } from "@/lib/platform/aiText";
 import { requireSupabaseAuth } from "@/integrations/supabase/auth-middleware";
 
 /**
@@ -73,6 +74,7 @@ Draft the tutor's next reply.`;
     res = await client.messages.create({
       model: MODEL,
       max_tokens: 500,
+      thinking: NO_THINKING,
       system,
       messages: [{ role: "user", content: user }],
     });
@@ -83,11 +85,7 @@ Draft the tutor's next reply.`;
     throw new Error(`AI error: ${e instanceof Error ? e.message : String(e)}`);
   }
 
-  return res.content
-    .filter((b): b is Anthropic.TextBlock => b.type === "text")
-    .map((b) => b.text)
-    .join("")
-    .trim();
+  return completeText(res).trim();
 }
 
 export const generateChatDraft = createServerFn({ method: "POST" })
@@ -131,12 +129,17 @@ export const generateChatDraft = createServerFn({ method: "POST" })
         .select("display_name, level")
         .eq("id", thread.student_id)
         .maybeSingle(),
-      supabase
-        .from("student_enrolments")
-        .select("board")
-        .eq("student_id", thread.student_id)
-        .limit(1)
-        .maybeSingle(),
+      // The board for this thread's subject: a student can sit Edexcel Physics
+      // and AQA Biology. A thread with no subject gets no board, rather than
+      // whichever enrolment happens to come first.
+      thread.subject
+        ? supabase
+            .from("student_enrolments")
+            .select("board")
+            .eq("student_id", thread.student_id)
+            .eq("subject", thread.subject)
+            .maybeSingle()
+        : Promise.resolve({ data: null }),
     ]);
 
     const history: Turn[] = (messages ?? [])

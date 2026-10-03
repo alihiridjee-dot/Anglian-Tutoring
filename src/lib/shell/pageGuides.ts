@@ -69,12 +69,12 @@ export const pageGuides: Record<string, GuideStep[]> = {
     at(
       "live-tabs",
       "Coming up or catching up?",
-      "Upcoming shows the lessons ahead. Previous lets you look back at past sessions and any recording links provided.",
+      "Upcoming shows the lessons ahead. Previous shows the ones from the last 7 days.",
     ),
     select(
       '[data-guide="live-session"] > :first-child',
       "Your lesson details",
-      "Check the topic and start time here. Use the joining link when available; past sessions may include a recording to watch.",
+      "Check the topic and start time here. The Join button opens 10 minutes before the lesson starts.",
     ),
   ],
   Videos: [
@@ -276,7 +276,7 @@ export const pageIntroductions: Record<string, string> = {
   "Curriculum Point":
     "Everything available for this specification point is collected here, so you can learn and practise in one place.",
   "Live Sessions":
-    "Find upcoming classes, check joining details and look back at previous sessions. If a recording is available, you can catch up here.",
+    "Find upcoming classes and how to join them, and look back at the last week’s sessions.",
   Videos:
     "Find a recorded explanation for your course. Filter the library, then select a video to watch. If no videos appear, try a wider selection.",
   Downloads:
