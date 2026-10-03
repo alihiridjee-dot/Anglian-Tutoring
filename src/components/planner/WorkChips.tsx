@@ -1,12 +1,13 @@
 import { Link } from "@tanstack/react-router";
 import { isDemoStudent } from "@/lib/demo/studentDemo";
-import { CheckCircle2, ClipboardList, ListChecks, PlayCircle } from "lucide-react";
+import { BookOpen, CheckCircle2, ClipboardList, ListChecks, PlayCircle } from "lucide-react";
 import {
   type PointCoverage,
   type PointWork,
   type PointWorkItem,
   workItems,
 } from "@/lib/planner/coverage";
+import type { SpecPointNote } from "@/hooks/data/useNotes";
 
 /**
  * Everything a student can actually open on one spec point, as chips.
@@ -40,6 +41,20 @@ export function VideoChip({
     <button type="button" onClick={() => onPlay(item)} title={item.title} className={CHIP}>
       <PlayCircle className="w-3 h-3" /> {label}
     </button>
+  );
+}
+
+/** Straight to the point's revision note. */
+export function NoteChip({ note, label = "Notes" }: { note: SpecPointNote; label?: string }) {
+  return (
+    <Link
+      to="/notes/$conceptId"
+      params={{ conceptId: note.id }}
+      title={note.title}
+      className={CHIP}
+    >
+      <BookOpen className="w-3 h-3" /> {label}
+    </Link>
   );
 }
 

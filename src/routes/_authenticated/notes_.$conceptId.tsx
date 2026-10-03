@@ -1,4 +1,4 @@
-import { createFileRoute, Link } from "@tanstack/react-router";
+import { createFileRoute, useRouter } from "@tanstack/react-router";
 import { ArrowLeft } from "lucide-react";
 import { AppLayout } from "@/components/AppLayout";
 import { EmptyState, Spinner } from "@/components/Shared";
@@ -18,6 +18,7 @@ function NotePage() {
   const { conceptId } = Route.useParams();
   const { data: note, isLoading, error } = useNote(conceptId);
   const { enrolments } = useEnrolments();
+  const router = useRouter();
 
   // Show the layer for the student's own board in this subject; fall back to
   // whichever board the note has, so a note is never blank.
@@ -28,13 +29,20 @@ function NotePage() {
   return (
     <AppLayout title="Revision Notes">
       <div className="mx-auto max-w-4xl space-y-4">
-        <Link
-          to="/notes"
-          search={{ subject: note?.subject }}
+        {/* Back to wherever the note was opened from — a curriculum point or the
+            week's plan. A note opened from a shared link has nowhere to go back
+            to, so it lands on the curriculum. */}
+        <button
+          type="button"
+          onClick={() =>
+            router.history.canGoBack()
+              ? router.history.back()
+              : router.navigate({ to: "/curriculum" })
+          }
           className="inline-flex items-center gap-1.5 text-sm font-bold"
         >
-          <ArrowLeft className="size-4" aria-hidden /> All notes
-        </Link>
+          <ArrowLeft className="size-4" aria-hidden /> Back
+        </button>
         {isLoading ? (
           <Spinner label="Loading the note" />
         ) : error ? (

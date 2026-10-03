@@ -13,7 +13,6 @@ import { useViewerId } from "@/hooks/useViewer";
 import { boardLabel, levelLabel, subjectLabel } from "@/lib/curriculum/courseSummary";
 import { SUBJECT_TINT } from "@/lib/curriculum/subjectTheme";
 import { CourseChip } from "@/components/CourseBadge";
-import { NotesDashboardCard } from "@/components/notes/NotesDashboardCard";
 
 /**
  * @param afterContent Rendered inside the layout, below the dashboard's own
@@ -91,9 +90,6 @@ export function StudentDashboard({
           </div>
         )
       )}
-
-      {/* Revision notes: one note per topic, written for the student's board. */}
-      <NotesDashboardCard />
 
       {/* "From your tutor" — the spec points the tutor pinned into this student's
           week, with their videos. Live strip suppressed here since it now has its

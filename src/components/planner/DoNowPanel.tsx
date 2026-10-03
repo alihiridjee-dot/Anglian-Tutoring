@@ -12,7 +12,8 @@ import { parseVideoUrl } from "@/lib/curriculum/videoEmbed";
 import { VideoModal } from "@/components/VideoPlayer";
 import { SectionHeading, Meter } from "@/components/Shared";
 import { SUBJECT_TINT } from "@/lib/curriculum/subjectTheme";
-import { HomeworkChip, QuizChip, VideoChip } from "./WorkChips";
+import { HomeworkChip, NoteChip, QuizChip, VideoChip } from "./WorkChips";
+import { useSpecPointNotes, type SpecPointNote } from "@/hooks/data/useNotes";
 
 /**
  * "What to do now" — the week as a single checklist.
@@ -30,8 +31,8 @@ import { HomeworkChip, QuizChip, VideoChip } from "./WorkChips";
  *
  * Where it used to run that work together as one undifferentiated row of chips —
  * which made it read as a second copy of the core-topic card — the work is now
- * sorted into three fixed columns: **Watch**, **MCQs**, **Homework**. That only
- * works because all three are attached per spec point: one video, one quiz and
+ * sorted into fixed columns: **Watch**, **Read**, **MCQs**, **Homework**. That only
+ * works because each is attached per spec point: one video, one note, one quiz and
  * one homework each, so a row has at most one thing in each cell and the columns
  * line up down the page. A grouped homework spanning four points would have to
  * repeat itself in four rows, which is the layout this replaced.
@@ -48,8 +49,8 @@ import { HomeworkChip, QuizChip, VideoChip } from "./WorkChips";
  * student to start work they have already handed in.
  */
 
-/** The row's shape: the spec point takes the slack, the three cells are fixed. */
-const GRID = "sm:grid sm:grid-cols-[minmax(0,1fr)_repeat(3,minmax(0,5.25rem))] sm:gap-x-3";
+/** The row's shape: the spec point takes the slack, the four cells are fixed. */
+const GRID = "sm:grid sm:grid-cols-[minmax(0,1fr)_repeat(4,minmax(0,5.25rem))] sm:gap-x-3";
 
 export function DoNowPanel({
   points,
@@ -70,6 +71,7 @@ export function DoNowPanel({
   onToggle: (specPointId: string, done: boolean) => void;
 }) {
   const [playing, setPlaying] = useState<{ item: PointWorkItem } | null>(null);
+  const { data: notes } = useSpecPointNotes(points.map((p) => p.spec_point_id));
 
   const doneCount = points.filter((p) => p.done_at).length;
   const total = points.length;
@@ -119,6 +121,7 @@ export function DoNowPanel({
       >
         <span />
         <span>Watch</span>
+        <span>Read</span>
         <span>MCQs</span>
         <span>Homework</span>
       </div>
@@ -130,6 +133,7 @@ export function DoNowPanel({
             point={p}
             work={activity.get(p.spec_point_id)}
             coverage={coverage?.get(p.spec_point_id)}
+            note={notes?.get(p.spec_point_id)?.[0]}
             editable={editable}
             onToggle={onToggle}
             onPlay={(item) => setPlaying({ item })}
@@ -148,6 +152,7 @@ function ChecklistRow({
   point,
   work,
   coverage,
+  note,
   editable,
   onToggle,
   onPlay,
@@ -155,6 +160,8 @@ function ChecklistRow({
   point: PlanPoint;
   work: (PointActivity & PointWork) | undefined;
   coverage: PointCoverage | undefined;
+  /** The note written for this point; one per row, so the column lines up. */
+  note: SpecPointNote | undefined;
   editable: boolean;
   onToggle: (specPointId: string, done: boolean) => void;
   onPlay: (item: PointWorkItem) => void;
@@ -194,6 +201,10 @@ function ChecklistRow({
         ))}
       </WorkCell>
 
+      <WorkCell label="Read" empty="No revision note on this point yet">
+        {note ? [<NoteChip key={note.id} note={note} label="Read" />] : []}
+      </WorkCell>
+
       <WorkCell label="MCQs" empty="No quiz on this point yet">
         {work?.quizzes.map((q) => (
           <QuizChip key={q.id} item={q} label="Start" coverage={coverage} />
@@ -210,7 +221,7 @@ function ChecklistRow({
 }
 
 /**
- * One cell of the three.
+ * One cell of the four.
  *
  * The empty state is the important half. Most spec points have a video and
  * nothing else, so these cells are blank far more often than they are full, and
