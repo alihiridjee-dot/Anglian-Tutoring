@@ -2131,6 +2131,20 @@ export type Database = {
       };
       revoke_parent_invite: { Args: { _invite_id: string }; Returns: undefined };
       rotate_student_invite_code: { Args: never; Returns: string };
+      save_homework_brief: {
+        Args: {
+          _board: Database["public"]["Enums"]["board"];
+          _due_at: string | null;
+          _id: string | null;
+          _instructions: string;
+          _level: Database["public"]["Enums"]["level"];
+          _questions: Json;
+          _spec_point_ids: string[];
+          _subject: Database["public"]["Enums"]["subject"];
+          _title: string;
+        };
+        Returns: string;
+      };
       save_student_enrolments: { Args: { _subjects: Json }; Returns: undefined };
       save_weekly_plan: {
         Args: {
