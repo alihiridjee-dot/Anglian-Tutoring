@@ -65,7 +65,9 @@ export function CurriculumSyncPanel({ subject, board, level, onSynced }: Curricu
       });
 
       if (results.production.success && results.demo.success) {
-        toast.success("All environments synchronized successfully with strict isolation!");
+        toast.success(
+          `${results.production.insertedPointsCount ?? 0} spec points imported. All environments synchronized successfully with strict isolation!`,
+        );
         setRawText("");
         setParsedData(null);
         setIsOpen(false);

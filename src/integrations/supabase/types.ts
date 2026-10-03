@@ -2074,6 +2074,18 @@ export type Database = {
         Args: { _resource_ids: string[] };
         Returns: { mark_scheme: string; question_id: string }[];
       };
+      import_curriculum_topic: {
+        Args: {
+          _board: Database["public"]["Enums"]["board"];
+          _level: Database["public"]["Enums"]["level"];
+          _points: Json;
+          _subject: Database["public"]["Enums"]["subject"];
+          _topic_code: string;
+          _topic_description: string | null;
+          _topic_title: string;
+        };
+        Returns: Json;
+      };
       invite_parent_by_email: { Args: { _email: string }; Returns: Json };
       is_enrolled_in: {
         Args: {
