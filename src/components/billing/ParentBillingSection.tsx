@@ -55,10 +55,13 @@ function ChildPlan({
   packages,
   level,
   isPayer,
+  hadPlan,
 }: {
   studentId: string;
   /** Their live/paused subscription, or null when they have no plan. */
   sub: SubscriptionRow | null;
+  /** They have a subscription row, even an ended one: no free trial. */
+  hadPlan: boolean;
   childName: string;
   packages: PackageRow[];
   level: string | null | undefined;
@@ -136,6 +139,7 @@ function ChildPlan({
             level={level}
             canManage
             ownerLabel={childName}
+            hadPlan={hadPlan}
           />
         </div>
       )}
@@ -282,6 +286,7 @@ export function ParentBillingSection({
                       packages={packages}
                       level={levels[child.student_id]}
                       isPayer={sub?.user_id === parentId}
+                      hadPlan={!!sub}
                     />
                   )}
                 </div>
