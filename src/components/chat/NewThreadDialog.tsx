@@ -5,6 +5,7 @@ import { toast } from "sonner";
 import { Spinner } from "@/components/Shared";
 import { useStartThread, useTutorDirectory } from "@/hooks/data/useChat";
 import { ContextPicker } from "@/components/chat/ContextPicker";
+import { ErrorNote } from "@/components/Shared";
 import { EMPTY_CONTEXT, type ChatContextSelection } from "@/lib/chat/chatContext";
 
 interface Props {
@@ -29,7 +30,12 @@ interface Props {
  * and a new tutor appears here the moment their account is granted the role.
  */
 export function NewThreadDialog({ initialContext, about, onClose, onCreated }: Props) {
-  const { data: tutors = [], isPending: tutorsPending } = useTutorDirectory();
+  const {
+    data: tutors = [],
+    isPending: tutorsPending,
+    error: tutorsError,
+    refetch: refetchTutors,
+  } = useTutorDirectory();
   const start = useStartThread();
 
   const [tutorId, setTutorId] = useState<string>("");
@@ -135,9 +141,16 @@ export function NewThreadDialog({ initialContext, about, onClose, onCreated }: P
             {tutorsPending ? (
               <Spinner label="Loading tutors" className="mt-2 py-3" />
             ) : tutors.length === 0 ? (
-              <p className="mt-2 text-sm text-muted-foreground">
-                No tutors are available to message right now.
-              </p>
+              // A failed read leaves the list empty too, but it isn't "no tutors".
+              tutorsError ? (
+                <div className="mt-2">
+                  <ErrorNote error={tutorsError} onRetry={() => void refetchTutors()} />
+                </div>
+              ) : (
+                <p className="mt-2 text-sm text-muted-foreground">
+                  No tutors are available to message right now.
+                </p>
+              )
             ) : (
               <div className="mt-2 flex flex-wrap gap-2">
                 {tutors.map((t) => (

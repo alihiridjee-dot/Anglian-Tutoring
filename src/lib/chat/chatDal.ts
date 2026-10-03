@@ -111,10 +111,9 @@ export class ChatDAL {
   /** Tutors a student may address a question to, by name. */
   static async listTutors(): Promise<TutorOption[]> {
     const { data, error } = await supabase.rpc("tutor_directory");
-    if (error) {
-      console.error("Error loading tutor directory:", error);
-      return [];
-    }
+    // Thrown, not []: an empty directory is cached for half an hour, and read
+    // as "No tutors are available to message right now" with Send disabled.
+    if (error) throw new Error(error.message);
     return (data ?? []) as TutorOption[];
   }
 
