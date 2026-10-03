@@ -2169,6 +2169,17 @@ export type Database = {
         };
         Returns: Json;
       };
+      student_scored_work: {
+        Args: { _since?: string; _student_id: string };
+        Returns: {
+          item_id: string;
+          kind: string;
+          pct: number | null;
+          scored_at: string;
+          subject: Database["public"]["Enums"]["subject"];
+          title: string | null;
+        }[];
+      };
       submit_homework_answers: {
         Args: { _answers: Json; _notes?: string; _resource_id: string };
         Returns: string;
