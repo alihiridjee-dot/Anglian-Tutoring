@@ -10,7 +10,7 @@
       "blocks": [
         {
           "type": "paragraph",
-          "text": "(Separate science) Gravity provides the force that keeps planets and satellites in their circular orbits."
+          "text": "(Physics only, not needed for Combined Science) Gravity provides the force that keeps planets and satellites in their circular orbits."
         },
         {
           "type": "definitions",
@@ -247,7 +247,22 @@
           "wrong": "Only the planets orbit the Sun.",
           "right": "Dwarf planets, asteroids and comets also orbit the Sun. Moons orbit planets."
         }
-      ]
+      ],
+      "worked_example": {
+        "exemplar_id": "ed6c7f3c-d3ff-43d1-b82c-5c7b821c89f0",
+        "source": "EDEXCEL jun 2022, Paper 1 (F), Q7(b)",
+        "marks": 6,
+        "question": "Describe the Solar System in terms of the Sun, the planets, and the other objects which move in the Solar System.\n\nYour answer should include the patterns of movement of the planets and the other objects in the Solar System.\n\nYou may draw a labelled diagram if it helps your answer.",
+        "answer_points": [
+          "All planets orbit the Sun, each in its own orbit, and the orbits are in the same plane.",
+          "Planets spin on their own axes.",
+          "Moons orbit planets, and some planets have several moons.",
+          "Dwarf planets, asteroids and comets orbit the Sun.",
+          "Comet orbits are not in the same plane as the planets.",
+          "Name the planets: Mercury, Venus, Earth, Mars, Jupiter, Saturn, Uranus, Neptune."
+        ],
+        "tip": "A six-mark level-marked answer. Detailed patterns of movement for two sets of objects reach the top level."
+      }
     },
     "ocr": {
       "spec_codes": [
@@ -260,7 +275,11 @@
         "the direction is changing",
         "provided by the gravitational pull of the Sun",
         "so the planet is accelerating",
-        "no work is done on the planet"
+        "no work is done on the planet",
+        "higher orbit",
+        "less (force of) gravity",
+        "smaller radius means larger gravitational force",
+        "closer orbits have lower GPE and higher KE"
       ],
       "mistakes": [
         {
@@ -302,7 +321,10 @@
     ],
     "exemplar_ids": [
       "6c58adf7-7bce-4d21-a531-9b7955ad3794",
-      "6e3cddaf-543e-448c-9e17-08020c66c24e"
-    ]
+      "6e3cddaf-543e-448c-9e17-08020c66c24e",
+      "ed6c7f3c-d3ff-43d1-b82c-5c7b821c89f0"
+    ],
+    "checked_by": "sonnet-science-check",
+    "checked_at": "2026-10-03"
   }
 }

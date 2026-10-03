@@ -3,7 +3,7 @@
   "concept_id": "chem-108",
   "subject": "chemistry",
   "title": "Choosing conditions for industrial processes",
-  "key_idea": "Industrial conditions are a compromise between rate, equilibrium yield and cost. In the Haber process a higher temperature speeds up the reaction but lowers the yield, a higher pressure raises both but costs more, and a catalyst speeds up the reaction without changing the yield. (Separate science)",
+  "key_idea": "Industrial conditions are a compromise between rate, equilibrium yield and cost. In the Haber process a higher temperature speeds up the reaction but lowers the yield, a higher pressure raises both but costs more, and a catalyst speeds up the reaction without changing the yield. (Higher tier, Separate science)",
   "sections": [
     {
       "heading": "Rate and yield (Higher tier, Separate science)",
@@ -116,7 +116,7 @@
       ]
     },
     {
-      "heading": "Choosing the conditions (Separate science)",
+      "heading": "Choosing the conditions (Higher tier, Separate science)",
       "blocks": [
         {
           "type": "paragraph",
@@ -129,7 +129,8 @@
             "A higher temperature uses more energy, so it increases costs.",
             "A higher pressure uses more energy and needs stronger reaction vessels, so it increases costs.",
             "A catalyst increases the rate and reduces energy costs.",
-            "Recycling unreacted gases makes use of all the raw materials."
+            "Recycling unreacted gases makes use of all the raw materials.",
+            "On a graph of product against time, a steeper line means a faster rate. The line levels off when equilibrium is reached."
           ]
         },
         {
@@ -238,7 +239,7 @@
         },
         {
           "wrong": "The catalyst lowers the activation energy.",
-          "right": "References to activation energy are ignored when describing the effect of a catalyst. Say the rate of attainment of equilibrium is increased and the yield is unchanged."
+          "right": "On its own this is ignored when the question asks for the effect on the rate of attainment of equilibrium and on the yield. Say the rate is increased and the yield has no change."
         },
         {
           "wrong": "A higher pressure only makes the reaction faster.",
@@ -320,6 +321,8 @@
       "2e0d3b68-5111-4e6e-8d49-9fbac85d1dc4",
       "baeab4b8-30ef-460a-950f-69aa41f77959",
       "d65c0534-0f83-4c91-af4d-257be32e3066"
-    ]
+    ],
+    "checked_by": "sonnet-science-check",
+    "checked_at": "2026-10-03"
   }
 }

@@ -240,22 +240,7 @@
           "wrong": "Carbon dioxide is released in manufacture and again when plastic is burnt, so I can score for it twice.",
           "right": "If carbon dioxide or the greenhouse effect is mentioned in both aspects, it is credited once only."
         }
-      ],
-      "worked_example": {
-        "exemplar_id": "b991959c-35bd-4305-a3f2-e99d221a3f8a",
-        "source": "EDEXCEL jun 2018, Paper 2 (F), Q*7(c)(ii)",
-        "question": "Poly(ethene) has many uses in everyday life.\nLarge amounts of poly(ethene) are manufactured from ethene produced by cracking fractions obtained from crude oil.\nPoly(ethene) is used to make many objects.\nAfter use it is necessary to dispose of the large amounts of poly(ethene) in these objects.\nExplain some of the problems associated with the manufacture and disposal of poly(ethene).",
-        "marks": 6,
-        "answer_points": [
-          "Manufacture: crude oil is the raw material and it is finite.",
-          "Cracking requires a lot of energy. Generating that energy may release carbon dioxide, a greenhouse gas.",
-          "Disposal in landfill: poly(ethene) is non-biodegradable, persists in landfill and landfill space runs out.",
-          "Some plastic ends up as litter, which may be hazardous to wildlife.",
-          "Recycling needs polymers sorted into different types.",
-          "Burning produces carbon dioxide and may produce toxic gases."
-        ],
-        "tip": "Marked in levels: cover both manufacture and disposal, with detailed and linked explanation, for the top level."
-      }
+      ]
     },
     "ocr": {
       "spec_codes": [
@@ -319,8 +304,9 @@
     ],
     "exemplar_ids": [
       "5fef5df6-24fd-4a40-80b0-1607bc70d038",
-      "b991959c-35bd-4305-a3f2-e99d221a3f8a",
       "2b380ca1-1be8-418a-bbcc-b2f84376aaf0"
-    ]
+    ],
+    "checked_by": "sonnet-science-check",
+    "checked_at": "2026-10-03"
   }
 }

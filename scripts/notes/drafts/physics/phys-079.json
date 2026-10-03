@@ -164,7 +164,10 @@
           "type": "list",
           "items": [
             "An infrared detector can be used instead of a thermometer. Place it the same distance from each surface.",
-            "To compare absorption, place identical flasks painted different colours the same distance from an infrared lamp and record how the temperature rises."
+            "To compare absorption, place identical flasks painted different colours the same distance from an infrared lamp and record how the temperature rises.",
+            "A Leslie cube is a metal cube with four faces that have different surfaces. Fill it with hot water and measure the infrared from each face with a detector.",
+            "Stand the cube on a block of wood, which is a poor conductor, so less energy is lost through the bench.",
+            "Keep the distance between the detector and each face, and the time of the reading, the same."
           ]
         },
         {
@@ -332,10 +335,12 @@
         "EDEX 5.19P"
       ],
       "exam_phrases": [
-        "cools more slowly",
         "distance / separation",
         "time (exposure)",
-        "poor conductor / reduces energy loss / (good) insulator"
+        "cools more slowly",
+        "the curve will be above the first one (starting at the same point)",
+        "poor conductor / reduces energy loss / (good) insulator",
+        "same height as detector"
       ],
       "mistakes": [
         {
@@ -346,7 +351,18 @@
           "wrong": "The curve for the silver can starts at a lower temperature.",
           "right": "It starts at the same point as the first curve. It then falls less steeply."
         }
-      ]
+      ],
+      "worked_example": {
+        "exemplar_id": "46f418eb-7106-4cd4-838a-a6a7342512af",
+        "source": "EDEXCEL jun 2018, Paper 1 (F), Q3(a)(iv)",
+        "question": "A copper can, painted black, contains boiling water at 100 °C. The can is left to cool and the water temperature is measured every 5 minutes.\n\nTime in minutes: 0, 5, 10, 15, 20, 25, 30\nTemperature in °C: 100, 74, 60, 56, 37, 30, 25\n\nAn identical can contains the same amount of boiling water. This can has a shiny silver surface. The measurements are repeated and a new cooling curve is drawn.\n\nState how the cooling curve would be different from the curve for the black can.",
+        "marks": 1,
+        "answer_points": [
+          "The curve starts at the same point (100 °C).",
+          "It is above the first curve, because the shiny silver can cools more slowly."
+        ],
+        "tip": "Describe the curve. Comments about heat or the process are ignored."
+      }
     }
   },
   "meta": {
@@ -357,7 +373,10 @@
       "9c02dcdb-ea91-4850-b402-0e26e063f32a"
     ],
     "exemplar_ids": [
-      "38d5909b-6c24-4c45-aba6-c814bc66f358"
-    ]
+      "38d5909b-6c24-4c45-aba6-c814bc66f358",
+      "46f418eb-7106-4cd4-838a-a6a7342512af"
+    ],
+    "checked_by": "sonnet-science-check",
+    "checked_at": "2026-10-03"
   }
 }

@@ -3,7 +3,7 @@
   "concept_id": "chem-111",
   "subject": "chemistry",
   "title": "Uncertainty in measurements",
-  "key_idea": "Every measurement has some uncertainty. Repeat the readings, leave out anomalous results and find the mean. The range about the mean is a measure of uncertainty, written as mean ± uncertainty.",
+  "key_idea": "Every measurement has some uncertainty. Repeat the readings, leave out anomalous results and find the mean. The range of the readings about the mean is a measure of uncertainty, written as mean ± uncertainty.",
   "sections": [
     {
       "heading": "Repeats, means and anomalous results",
@@ -17,11 +17,11 @@
           "items": [
             {
               "term": "Uncertainty",
-              "meaning": "How far the true value could be from the measured value. It is shown as a ± value."
+              "meaning": "The range of the readings about the mean: the greatest amount any reading is above or below the mean. It is shown as a ± value."
             },
             {
               "term": "Range",
-              "meaning": "The largest reading minus the smallest reading."
+              "meaning": "The largest reading minus the smallest reading. It can be written as from the smallest reading to the largest."
             },
             {
               "term": "Anomalous result",
@@ -65,16 +65,17 @@
           "type": "list",
           "items": [
             "Find the mean of the readings.",
-            "The uncertainty is how far the readings lie either side of the mean.",
-            "Here this is half the range."
+            "Find how far each reading is above or below the mean.",
+            "The largest of these differences is the uncertainty.",
+            "If the readings are spread evenly either side of the mean, this is half the range."
           ]
         },
         {
           "type": "equation",
           "label": "Uncertainty",
-          "formula": "uncertainty = (largest reading − smallest reading) ÷ 2",
+          "formula": "uncertainty = largest difference between a reading and the mean",
           "where": [
-            "readings in the same unit as the mean"
+            "readings and mean in the same unit"
           ]
         },
         {
@@ -86,8 +87,9 @@
           "items": [
             "Highest temperature reached in four trials: 37.6 °C, 37.2 °C, 37.8 °C and 37.4 °C.",
             "Mean = (37.6 + 37.2 + 37.8 + 37.4) ÷ 4 = 37.5 °C.",
-            "Range = 37.8 − 37.2 = 0.6 °C, so the uncertainty = 0.6 ÷ 2 = 0.3 °C.",
-            "Result: 37.5 ± 0.3 °C. The readings lie between 37.2 °C and 37.8 °C."
+            "Differences from the mean: 0.1, 0.3, 0.3 and 0.1 °C. The largest is 0.3 °C.",
+            "Result: 37.5 ± 0.3 °C. The readings lie between 37.2 °C and 37.8 °C.",
+            "Another set: 6, 9, 10 and 11 cm³ has a mean of 9 cm³. The differences are 3, 0, 1 and 2, so the result is 9 ± 3 cm³."
           ]
         },
         {
@@ -95,7 +97,7 @@
           "diagram": {
             "kind": "practice",
             "alt": "Calculate the uncertainty from four repeat readings.",
-            "question": "Four repeat readings of the highest temperature were {a} °C, {b} °C, {c} °C and {d} °C. Calculate the uncertainty, as half the range. Give your answer to 1 decimal place.",
+            "question": "Four repeat readings of the highest temperature were {a} °C, {b} °C, {c} °C and {d} °C. Calculate the uncertainty: the largest difference between a reading and the mean. Give your answer to 2 decimal places.",
             "variables": [
               {
                 "id": "a",
@@ -123,13 +125,13 @@
               }
             ],
             "answer": {
-              "formula": "(max(max(a, b), max(c, d)) - min(min(a, b), min(c, d))) / 2",
+              "formula": "max(max(max(a, b), max(c, d)) - (a + b + c + d) / 4, (a + b + c + d) / 4 - min(min(a, b), min(c, d)))",
               "unit": "°C",
-              "decimals": 1
+              "decimals": 2
             },
             "working": [
-              "Largest reading minus smallest reading = range",
-              "Uncertainty = range ÷ 2 = {answer} °C"
+              "Mean = ({a} + {b} + {c} + {d}) ÷ 4",
+              "Uncertainty = largest difference between a reading and the mean = {answer} °C"
             ]
           }
         },
@@ -137,7 +139,7 @@
           "type": "key-points",
           "items": [
             "The uncertainty is the range about the mean.",
-            "Uncertainty = (largest − smallest) ÷ 2.",
+            "Uncertainty = the largest difference between a reading and the mean.",
             "Write the result as mean ± uncertainty, with the unit."
           ]
         }
@@ -159,8 +161,8 @@
             "steps": [
               "Leave out any anomalous result",
               "Add the remaining readings and divide by how many there are to find the mean",
-              "Find the range: largest reading minus smallest reading",
-              "Halve the range to find the uncertainty",
+              "Find how far each reading is from the mean",
+              "Take the largest difference as the uncertainty",
               "Write the result as mean ± uncertainty, with the unit"
             ]
           }
@@ -191,7 +193,7 @@
   "checks": [
     {
       "q": "Four readings are 37.6, 37.2, 37.8 and 37.4 °C. Calculate the mean and give the uncertainty.",
-      "a": "Mean = 150 ÷ 4 = 37.5 °C. Uncertainty = (37.8 − 37.2) ÷ 2 = 0.3 °C. Result: 37.5 ± 0.3 °C.",
+      "a": "Mean = 150 ÷ 4 = 37.5 °C. The largest difference from the mean is 37.8 − 37.5 = 0.3 °C. Result: 37.5 ± 0.3 °C.",
       "marks": 3
     },
     {
@@ -256,6 +258,8 @@
     ],
     "exemplar_ids": [
       "b9bbf9f7-5620-48d2-96ad-96a967285202"
-    ]
+    ],
+    "checked_by": "sonnet-science-check",
+    "checked_at": "2026-10-03"
   }
 }

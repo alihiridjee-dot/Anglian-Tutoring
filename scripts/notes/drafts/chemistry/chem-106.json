@@ -60,7 +60,7 @@
           "type": "list",
           "items": [
             "Low density (LD) and high density (HD) poly(ethene) are both produced from ethene.",
-            "They have different properties because they are made under different conditions."
+            "They have different properties because they are made under different conditions, such as different temperatures and pressures."
           ]
         },
         {
@@ -201,7 +201,7 @@
             "A high density makes an object heavier, so a low density suits something carried or worn.",
             "A strong material is less likely to break or be damaged.",
             "A stiff material is less likely to bend out of shape.",
-            "An insulator, such as poly(chloroethene), separates the user from an electric current.",
+            "A polymer is chosen to insulate a household wire because it does not conduct electricity and it is flexible. The wire inside is metal because a metal conducts electricity.",
             "A metal is chosen for a pan base because it conducts heat well and its melting point is high enough."
           ]
         },
@@ -259,8 +259,8 @@
           "right": "More dense is not accepted. It is stronger, so it can bear the weight of heavy traffic."
         },
         {
-          "wrong": "Ceramic plates are made by melting clay.",
-          "right": "Wet clay is shaped, then heated in a furnace (a kiln or fired). It is not melted into shape."
+          "wrong": "The outer coating on a surfboard is added to stop the board rusting.",
+          "right": "References to corrosion or rusting are ignored. Say the coating makes the board stronger, harder, tougher or waterproof."
         }
       ],
       "worked_example": {
@@ -289,9 +289,9 @@
         "low flexibility",
         "ceramic will not melt",
         "cup will keep its shape",
-        "metal, good conductor of electricity",
-        "low ability to conduct electricity / insulator",
-        "separates user from current / prevents electric shock"
+        "cup will not distort",
+        "the metal conducts electricity",
+        "the polymer is flexible"
       ],
       "mistakes": [
         {
@@ -299,12 +299,12 @@
           "right": "No property given means no marks. Give a correct property from the data, such as high melting point, and link it to a reason, such as the cup will not melt or distort."
         },
         {
-          "wrong": "Poly(chloroethene) surrounds the copper in cables because it conducts electricity well.",
-          "right": "It is an insulator, with a low ability to conduct electricity. It separates the user from the current and prevents electric shock."
+          "wrong": "A metal is the most suitable material for the insulation on a household wire.",
+          "right": "A metal conducts electricity, so it is not an insulator. The polymer is the most suitable, because it has low electrical conductivity and is flexible."
         },
         {
-          "wrong": "Glass is best for electrical circuits because it has good resistance to corrosion.",
-          "right": "Choose the material with good conductivity. The metal is the best choice because it is a good conductor of electricity."
+          "wrong": "The wire is made of metal because metals are hard.",
+          "right": "Metals are not hard (their hardness is low). The wire is made of metal because the metal conducts electricity."
         }
       ],
       "worked_example": {
@@ -379,6 +379,8 @@
       "03c72196-5cdf-47d1-9604-5f20e4787270",
       "3f930732-0c0f-4f14-92b8-4872d83cfab4",
       "77c6fa50-6c5f-4f82-ab7a-107f8d3625d8"
-    ]
+    ],
+    "checked_by": "sonnet-science-check",
+    "checked_at": "2026-10-03"
   }
 }

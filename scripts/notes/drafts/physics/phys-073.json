@@ -353,8 +353,8 @@
           "right": "This is not allowed as a difference. Say X-rays have a higher frequency, a shorter wavelength or more energy."
         },
         {
-          "wrong": "3 × 10⁸ ÷ 3000 gives a wavelength of 1 × 10⁵ nm.",
-          "right": "Convert 3000 THz to 3000 × 10¹² Hz first. Then the wavelength is 1 × 10⁻⁷ m, which is 100 nm. A power-of-ten error loses marks."
+          "wrong": "Infrared cannot be seen because it is not visible to the eye.",
+          "right": "This is ignored. Say our eyes can only detect a limited range of electromagnetic waves, and infrared is outside that range."
         }
       ],
       "worked_example": {
@@ -394,6 +394,8 @@
       "ca9e5750-b38f-4425-8792-7f240c8c7969",
       "a9253cd4-c6eb-4bb0-9406-64d79c355c14",
       "0d8d02c2-17c0-4f30-b042-e6f6d04d09a4"
-    ]
+    ],
+    "checked_by": "sonnet-science-check",
+    "checked_at": "2026-10-03"
   }
 }

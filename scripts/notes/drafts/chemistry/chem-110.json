@@ -97,7 +97,7 @@
                 "label": "Toxic solid, such as barium chloride",
                 "results": [
                   "Wear gloves, wear goggles, or use a fume cupboard",
-                  "So it does not contact the skin, so it does not contact the eyes, or so you do not inhale it"
+                  "Gloves: it does not contact the skin. Goggles: it does not contact the eyes. Fume cupboard: you do not inhale it"
                 ]
               },
               {
@@ -240,6 +240,8 @@
     ],
     "exemplar_ids": [
       "d1732d4e-e1c7-42b5-9255-b2881b6daead"
-    ]
+    ],
+    "checked_by": "sonnet-science-check",
+    "checked_at": "2026-10-03"
   }
 }

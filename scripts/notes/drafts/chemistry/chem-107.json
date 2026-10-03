@@ -90,7 +90,8 @@
         {
           "type": "list",
           "items": [
-            "On cooling, only the ammonia liquefies. The nitrogen and hydrogen stay as gases.",
+            "The iron catalyst speeds up the reaction.",
+            "On cooling, only the ammonia liquefies, because it has a higher boiling point. The nitrogen and hydrogen stay as gases.",
             "The remaining nitrogen and hydrogen are recycled back into the reactor.",
             "Recycling means no raw materials are wasted."
           ]
@@ -160,6 +161,8 @@
         "450 °C",
         "200 atm / atmospheres",
         "(mixture is) cooled so that only ammonia liquefies",
+        "ammonia has a higher boiling point",
+        "to recycle unreacted gases",
         "world population has increased",
         "demand for fertiliser has increased",
         "nitrogen is an abundant gas (in the air)",
@@ -253,8 +256,8 @@
           "right": "Say why ammonia matters in agriculture. It is used to make fertilisers, which increase crop yield, and the process gives an endless supply of starting materials."
         },
         {
-          "wrong": "The Haber process makes nitrogen from the air.",
-          "right": "The Haber process converts atmospheric nitrogen into ammonia. The nitrogen is already in the air."
+          "wrong": "Lowering the pressure is a disadvantage because the reaction will not be at equilibrium.",
+          "right": "This is ignored. Say the reaction is slower, because particles collide less often, or that the yield of ammonia is less."
         }
       ],
       "worked_example": {
@@ -285,6 +288,8 @@
       "2088595f-d61f-4fc9-914c-412ed68cf908",
       "f6e033f6-4c6b-41ad-87a6-ec5c9cc6ade0",
       "c595065c-471a-4fec-854e-b4276f248562"
-    ]
+    ],
+    "checked_by": "sonnet-science-check",
+    "checked_at": "2026-10-03"
   }
 }

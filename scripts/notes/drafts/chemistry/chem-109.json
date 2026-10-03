@@ -58,6 +58,14 @@
                 "group": 2
               },
               {
+                "text": "Too little causes slow plant growth",
+                "group": 1
+              },
+              {
+                "text": "Too little causes brown leaf edges",
+                "group": 2
+              },
+              {
                 "text": "Found in ammonium nitrate",
                 "group": 0
               },
@@ -76,7 +84,7 @@
           "type": "key-points",
           "items": [
             "Plants need nitrogen, phosphorus and potassium.",
-            "Too little nitrogen: yellow leaves. Too little phosphorus: poor root growth. Too little potassium: poor fruit growth.",
+            "Too little nitrogen: yellow leaves. Too little phosphorus: poor root growth and slow growth. Too little potassium: poor fruit growth and brown leaf edges.",
             "Fertilisers increase crop yield."
           ]
         }
@@ -96,7 +104,8 @@
             "Ammonium nitrate is made from ammonia and nitric acid.",
             "Ammonium sulfate is made from ammonia and sulfuric acid.",
             "Potassium chloride, potassium sulfate and phosphate rock are obtained by mining.",
-            "Phosphate rock cannot be used directly as a fertiliser. It is treated with acid to make soluble salts."
+            "Phosphate rock cannot be used directly as a fertiliser, because it is insoluble. It is treated with acid to make soluble salts.",
+            "An NPK fertiliser is a formulation: a mixture of salts in fixed proportions."
           ]
         },
         {
@@ -132,7 +141,7 @@
             ],
             [
               "Sulfuric acid",
-              "Calcium sulfate (single superphosphate)"
+              "Calcium sulfate, with calcium phosphate (together called single superphosphate)"
             ],
             [
               "Phosphoric acid",
@@ -209,6 +218,7 @@
           "type": "list",
           "items": [
             "React ammonia solution and sulfuric acid in a conical flask, using a titration to find the volumes needed.",
+            "Repeat with the volumes found, but without the indicator.",
             "Evaporate water from the solution until crystals start to form.",
             "Leave to cool and crystallise, filter the crystals and dry them."
           ]
@@ -440,6 +450,8 @@
       "03c76de9-3555-4c98-b3b9-89ebdd4e37be",
       "0e6df897-f3ab-4ed2-b06e-a808340afcb5",
       "4a811083-07fe-4125-b557-31035e0a4a9b"
-    ]
+    ],
+    "checked_by": "sonnet-science-check",
+    "checked_at": "2026-10-03"
   }
 }

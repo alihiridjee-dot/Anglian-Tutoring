@@ -73,7 +73,7 @@
       "blocks": [
         {
           "type": "paragraph",
-          "text": "(Separate science) This section covers how the balance between absorbing and emitting sets a body's temperature."
+          "text": "(Separate science) This section covers how the balance between absorbing and emitting sets a body's temperature. On AQA this is Higher tier only."
         },
         {
           "type": "list",
@@ -247,7 +247,7 @@
       "blocks": [
         {
           "type": "paragraph",
-          "text": "(Separate science) This section covers what controls the Earth's temperature."
+          "text": "(Separate science) This section covers what controls the Earth's temperature. On AQA this is Higher tier only."
         },
         {
           "type": "list",
@@ -446,6 +446,8 @@
       "38d5909b-6c24-4c45-aba6-c814bc66f358",
       "85fdaacf-8027-4aae-9232-0b761e763467",
       "ef07ffa2-bca9-4a48-b262-d41c6db0c7de"
-    ]
+    ],
+    "checked_by": "sonnet-science-check",
+    "checked_at": "2026-10-03"
   }
 }

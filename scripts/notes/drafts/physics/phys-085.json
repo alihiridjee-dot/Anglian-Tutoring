@@ -3,14 +3,14 @@
   "concept_id": "phys-085",
   "subject": "physics",
   "title": "Electromagnetic induction",
-  "key_idea": "A potential difference is induced across a conductor when it moves relative to a magnetic field, or when the field around it changes. If the conductor is in a complete circuit, a current flows. This is the **generator effect**.",
+  "key_idea": "(Higher tier) A potential difference is induced across a conductor when it moves relative to a magnetic field, or when the field around it changes. If the conductor is in a complete circuit, a current flows. This is the **generator effect**.",
   "sections": [
     {
       "heading": "Inducing a potential difference",
       "blocks": [
         {
           "type": "paragraph",
-          "text": "This section explains how a potential difference and a current can be produced using a magnetic field."
+          "text": "(Higher tier) This section explains how a potential difference and a current can be produced using a magnetic field."
         },
         {
           "type": "definitions",
@@ -246,7 +246,7 @@
           "blocks": [
             {
               "type": "paragraph",
-              "text": "This content is Higher tier only in this course."
+              "text": "This content is Higher tier only and Physics only (Separate science) in this course."
             }
           ]
         }
@@ -298,8 +298,19 @@
           "Move the magnet quickly and then slowly (change the speed of movement).",
           "Note the larger or smaller meter reading (or change the number of turns on the coil)."
         ],
-        "tip": "Two marks for direction and two for size. Changing the size or strength of the magnet is ignored."
-      }
+        "tip": "Two marks for direction and two for size. In this question, changing the size or strength of the magnet is not credited."
+      },
+      "extra": [
+        {
+          "heading": "Physics only",
+          "blocks": [
+            {
+              "type": "paragraph",
+              "text": "Explaining how to produce a current by moving a magnet and a conductor, in the laboratory and in large-scale generation, is Physics only (Separate science) on this specification."
+            }
+          ]
+        }
+      ]
     },
     "ocr": {
       "spec_codes": [
@@ -350,6 +361,8 @@
       "46ddca11-eb06-40a7-a7b3-4fb0ceda87d4",
       "2f141646-1fed-4ecd-a8b6-69c6f8abcd5d",
       "4a21be75-ed75-4980-a525-a7377141317a"
-    ]
+    ],
+    "checked_by": "sonnet-science-check",
+    "checked_at": "2026-10-03"
   }
 }

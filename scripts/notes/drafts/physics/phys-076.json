@@ -59,7 +59,10 @@
           "items": [
             "A convex lens is drawn as a line with outward arrowheads.",
             "A concave lens is drawn as a line with inward arrowheads.",
-            "Ray diagrams show the rays from an object, refracted by the lens, forming an image."
+            "Ray diagrams show the rays from an object, refracted by the lens, forming an image.",
+            "A ray parallel to the axis of a convex lens is refracted through the principal focus.",
+            "A ray through the centre of a lens carries straight on.",
+            "A ray parallel to the axis of a concave lens is refracted so it seems to come from the principal focus."
           ]
         },
         {
@@ -98,6 +101,8 @@
             "A convex lens can form a real image or a virtual image.",
             "A convex lens used as a magnifying glass forms a magnified, upright, virtual image.",
             "A concave lens always forms a virtual image.",
+            "A convex lens forms a real image when the object is further from the lens than the principal focus.",
+            "A convex lens forms a virtual image when the object is closer to the lens than the principal focus.",
             "The image from a concave lens is upright and virtual.",
             "To correct long sight, a convex lens refracts light inwards so that it focuses on the retina."
           ]
@@ -232,7 +237,7 @@
         },
         {
           "wrong": "To find the object height, convert 9.0 mm to metres first, then divide by 6.0.",
-          "right": "Both heights can stay in mm, so no conversion is needed. Object height = 9.0 ÷ 6.0 = 1.5 mm. An unnecessary conversion loses marks."
+          "right": "Both heights can stay in mm, so no conversion is needed. Object height = 9.0 ÷ 6.0 = 1.5 mm. An unnecessary conversion loses a mark."
         },
         {
           "wrong": "The magnification is 3.5 mm.",
@@ -422,6 +427,8 @@
       "7345f879-15d1-462f-a8f8-2882c4d2f895",
       "64235ff2-04bf-4f7c-8de3-a40e67d41981",
       "20fdcfe3-e7d4-4506-a967-12850df0eb51"
-    ]
+    ],
+    "checked_by": "sonnet-science-check",
+    "checked_at": "2026-10-03"
   }
 }

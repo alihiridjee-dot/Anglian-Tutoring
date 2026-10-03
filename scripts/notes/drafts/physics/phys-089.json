@@ -10,7 +10,7 @@
       "blocks": [
         {
           "type": "paragraph",
-          "text": "(Separate science) A star goes through a life cycle. How it ends depends on its mass."
+          "text": "(Physics only, not needed for Combined Science) A star goes through a life cycle. How it ends depends on its mass."
         },
         {
           "type": "definitions",
@@ -65,7 +65,8 @@
           "type": "list",
           "items": [
             "The star expands to become a **red giant**.",
-            "It then collapses to become a **white dwarf**."
+            "It throws off its outer layers of gas (a planetary nebula) and the core collapses to become a **white dwarf**.",
+            "The white dwarf cools to become a black dwarf."
           ]
         },
         {
@@ -79,14 +80,15 @@
               "Protostar",
               "Main sequence star",
               "Red giant",
-              "White dwarf"
+              "White dwarf",
+              "Black dwarf"
             ]
           }
         },
         {
           "type": "key-points",
           "items": [
-            "A star like the Sun becomes a red giant and then a white dwarf.",
+            "A star like the Sun becomes a red giant, then a white dwarf, then a black dwarf.",
             "The order of the stages matters in an answer."
           ]
         }
@@ -153,9 +155,9 @@
       "marks": 2
     },
     {
-      "q": "Describe what happens to a star the size of the Sun after the main sequence stage.",
-      "a": "It expands to become a red giant, then collapses to become a white dwarf.",
-      "marks": 2
+      "q": "Describe what happens to a star the size of the Sun after the main sequence stage. Name the stages.",
+      "a": "It expands to become a red giant, then collapses to become a white dwarf, then cools to become a black dwarf.",
+      "marks": 3
     },
     {
       "q": "State where elements heavier than iron are made.",
@@ -188,17 +190,6 @@
         {
           "wrong": "The Sun will become a white dwarf, then a red giant, then a black dwarf.",
           "right": "The stages must be in the correct sequence to score all three marks: red giant, white dwarf, black dwarf."
-        }
-      ],
-      "extra": [
-        {
-          "heading": "The end of a Sun-sized star",
-          "blocks": [
-            {
-              "type": "paragraph",
-              "text": "After the white dwarf stage, a star like the Sun cools to become a **black dwarf**."
-            }
-          ]
         }
       ],
       "worked_example": {
@@ -235,6 +226,10 @@
         {
           "wrong": "The nebula collapses and gets hot.",
           "right": "References to hot or heat are ignored. Say very high temperatures and pressures are reached, or that gravitational potential energy is converted into kinetic energy of the particles."
+        },
+        {
+          "wrong": "The Sun will become a red super giant and then explode in a supernova.",
+          "right": "Red super giant and supernova are not accepted for the Sun. The Sun expands to a red giant, then cools to a white dwarf."
         }
       ],
       "worked_example": {
@@ -257,7 +252,11 @@
       "exam_phrases": [
         "high temperature",
         "high pressure",
-        "large gravitational forces (due to large mass)"
+        "large gravitational forces (due to large mass)",
+        "red giant",
+        "planetary nebula",
+        "white dwarf",
+        "the gravitational force is equal to the outward force"
       ],
       "mistakes": [
         {
@@ -294,6 +293,8 @@
       "bb4e8e32-4587-42c9-8d42-a64d1f34a25e",
       "05de4c4f-4b60-41f9-8881-0621aeed960d",
       "e5315711-ab22-4f40-8f87-bbe3a999ed10"
-    ]
+    ],
+    "checked_by": "sonnet-science-check",
+    "checked_at": "2026-10-03"
   }
 }

@@ -59,7 +59,7 @@
                 "label": "Ultraviolet",
                 "results": [
                   "Security marking, fluorescent and energy efficient lamps, detecting forged bank notes, disinfecting water, sun tanning.",
-                  "Its energy gives useful effects, such as making lamps work and marking or checking security features."
+                  "It makes fluorescent materials glow, so it is used in lamps, security marking and checking bank notes."
                 ]
               },
               {
@@ -133,7 +133,7 @@
       "blocks": [
         {
           "type": "paragraph",
-          "text": "This section covers how radio waves are made and detected."
+          "text": "This section covers how radio waves are made and detected. This is Higher tier content on some specifications."
         },
         {
           "type": "definitions",
@@ -164,9 +164,9 @@
             "alt": "Put the steps of radio transmission and reception in order.",
             "prompt": "Put these steps in order, from the transmitter to the receiver.",
             "steps": [
-              "An alternating current flows in the transmitter circuit and aerial.",
-              "Electrons in the transmitter oscillate.",
+              "Electrons oscillate in the transmitter circuit and aerial, as an alternating current.",
               "Radio waves of the same frequency are produced.",
+              "The radio waves travel through the air to the receiving aerial.",
               "The receiving aerial absorbs the radio waves.",
               "Electrons in the receiver circuit oscillate, giving an alternating current of the same frequency."
             ]
@@ -229,16 +229,15 @@
         }
       ],
       "worked_example": {
-        "exemplar_id": "cb7ccead-fb84-415e-a521-ea76c9930be6",
-        "source": "AQA jun 2020, Paper 2 (H), Q5.3",
-        "question": "Radio waves form part of the electromagnetic spectrum.\n\nExplain how electrical signals in a transmitter produce a signal in a receiver.",
-        "marks": 3,
+        "exemplar_id": "46d01f25-f796-4987-8d35-92d3c81e7004",
+        "source": "AQA jun 2020, Paper 2 (H), Q5.1",
+        "question": "X-rays form part of the electromagnetic spectrum. Radiographers use X-rays to produce images of bones inside the body.\n\nExplain why X-rays can be used to produce images of the bones inside the body.",
+        "marks": 2,
         "answer_points": [
-          "An electrical current (oscillations) in the transmitter produces radio waves.",
-          "The radio waves are absorbed by the receiver, inducing an electrical current (oscillations) in the receiver.",
-          "The induced current has the same frequency as the radio waves."
+          "X-rays are absorbed by bone.",
+          "X-rays can pass through flesh (soft tissue)."
         ],
-        "tip": "If no other mark is earned, one mark is allowed for saying that radio waves transfer information or energy through the air."
+        "tip": "Both halves are needed. 'Pass through tissue' on its own is not enough, and 'reflected by bone' is not accepted."
       },
       "extra": [
         {
@@ -344,9 +343,11 @@
       "0bd3ca9a-2345-4706-b512-c3e4c0729353"
     ],
     "exemplar_ids": [
-      "cb7ccead-fb84-415e-a521-ea76c9930be6",
+      "46d01f25-f796-4987-8d35-92d3c81e7004",
       "7a4b34b7-cca9-4263-b31d-3eda0f53c328",
       "b6dae34e-7b75-4997-874d-d0b589ebdba3"
-    ]
+    ],
+    "checked_by": "sonnet-science-check",
+    "checked_at": "2026-10-03"
   }
 }

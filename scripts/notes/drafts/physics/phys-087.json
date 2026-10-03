@@ -144,7 +144,7 @@
               {
                 "id": "Ns",
                 "min": 100,
-                "max": 2000,
+                "max": 1000,
                 "step": 100
               }
             ],
@@ -343,7 +343,7 @@
           "blocks": [
             {
               "type": "paragraph",
-              "text": "This content is Higher tier only in this course. You do not need to know about laminations or eddy currents in the core."
+              "text": "This content is Higher tier only and Physics only (Separate science) in this course. You do not need to know about laminations or eddy currents in the core."
             }
           ]
         }
@@ -461,6 +461,8 @@
       "53c4569f-2ab9-44c9-b5ea-eb315e48e701",
       "4b14a50e-3e5d-4f41-87c5-d4013bea080f",
       "9e495e6b-795b-4aad-97be-854e6bf38985"
-    ]
+    ],
+    "checked_by": "sonnet-science-check",
+    "checked_at": "2026-10-03"
   }
 }

@@ -238,10 +238,16 @@
         "first finger (is in the direction of) magnetic field",
         "second finger (is in the direction of) current"
       ],
-      "mistakes": [
+      "mistakes": [],
+      "extra": [
         {
-          "wrong": "The coil turns because the magnet attracts it.",
-          "right": "The magnetic field of the current in the coil interacts with the field of the magnets. This produces forces on the sides of the coil."
+          "heading": "Physics only",
+          "blocks": [
+            {
+              "type": "paragraph",
+              "text": "Explaining how the force on a conductor makes a coil rotate in an electric motor is Physics only (Separate science) on this specification."
+            }
+          ]
         }
       ]
     },
@@ -278,7 +284,21 @@
           "The forces on either side of the coil are opposite: up on one side and down on the other. These two forces work together to cause rotation around the axle."
         ],
         "tip": "Any two of the points score. Fleming's left-hand rule is ignored."
-      }
+      },
+      "extra": [
+        {
+          "heading": "Energy transfer in a motor",
+          "blocks": [
+            {
+              "type": "list",
+              "items": [
+                "In a motor, energy is transferred from the electrical energy store to the kinetic energy store.",
+                "In a motor, the current and magnetic field cause motion."
+              ]
+            }
+          ]
+        }
+      ]
     }
   },
   "meta": {
@@ -295,6 +315,8 @@
     "exemplar_ids": [
       "f6c8a93d-ac3b-4769-a361-3df1c0d28aa8",
       "50888809-d832-4c56-ba4d-526040a88578"
-    ]
+    ],
+    "checked_by": "sonnet-science-check",
+    "checked_at": "2026-10-03"
   }
 }

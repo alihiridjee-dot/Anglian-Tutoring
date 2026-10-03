@@ -10,7 +10,7 @@
       "blocks": [
         {
           "type": "paragraph",
-          "text": "(Separate science) When a wave source moves relative to an observer, the observed wavelength and frequency change."
+          "text": "(Physics only, not needed for Combined Science) When a wave source moves relative to an observer, the observed wavelength and frequency change."
         },
         {
           "type": "list",
@@ -181,7 +181,11 @@
       ],
       "exam_phrases": [
         "wavelength (seems to have) decreased",
-        "frequency (seems to have) increased"
+        "frequency (seems to have) increased",
+        "an increase in wavelength",
+        "distant galaxies are moving away from our galaxy",
+        "a very distant galaxy moves faster",
+        "expanding at an ever greater rate"
       ],
       "mistakes": [
         {
@@ -233,7 +237,7 @@
       "mistakes": [
         {
           "wrong": "The light is shifted to the red end of the spectrum, so the Universe is expanding.",
-          "right": "'Shift to the red end of the spectrum' is ignored. State the increase in wavelength, which shows galaxies are moving away."
+          "right": "On its own, 'shift to the red end of the spectrum' is ignored when explaining expansion. State the increase in wavelength, which shows galaxies are moving away."
         },
         {
           "wrong": "Stars are moving away from the Earth.",
@@ -318,6 +322,8 @@
       "3896815f-0a62-4be9-98bb-9e1701b86432",
       "3195f79b-2b51-4230-b3ad-429537fc4cb0",
       "308ea677-53aa-4ffc-b07f-4908d8af3c55"
-    ]
+    ],
+    "checked_by": "sonnet-science-check",
+    "checked_at": "2026-10-03"
   }
 }

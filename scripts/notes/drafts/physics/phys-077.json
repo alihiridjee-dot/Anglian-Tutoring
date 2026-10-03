@@ -251,19 +251,33 @@
         "EDEX 5.3P"
       ],
       "exam_phrases": [
+        "no green light shines on the object",
+        "no red light is reflected from the object",
         "differential absorption at surfaces",
         "transmission of light through filters"
       ],
       "mistakes": [
         {
-          "wrong": "A red object in blue light looks dark red.",
-          "right": "A red object reflects only red light, so in blue light nothing is reflected and it appears black."
+          "wrong": "The green book still looks green under a red filter, because the book is green.",
+          "right": "The red filter transmits only red light, so no green light shines on the book. The book reflects only green, so no light is reflected and it appears black."
         },
         {
-          "wrong": "A coloured filter adds colour to white light.",
-          "right": "A filter absorbs some wavelengths and transmits others. It does not add colour."
+          "wrong": "The book looks red because the filter is red.",
+          "right": "No red light is reflected from the green book, so it does not look red. It appears black."
         }
-      ]
+      ],
+      "worked_example": {
+        "exemplar_id": "508ee286-45b9-429c-95ba-9ce9bbccc083",
+        "source": "EDEXCEL nov 2021, Paper 1 (F), Q7(a)",
+        "question": "White light includes all the colours in the visible spectrum.\n\nA beam of white light is the only light that shines on a book. The book appears green.\n\nA red filter is placed between the source of white light and the book.\n\nWhat colour does the book appear now?",
+        "marks": 1,
+        "answer_points": [
+          "Black.",
+          "The red filter transmits only red light, so no green light shines on the book.",
+          "The book reflects only green light, so no light is reflected."
+        ],
+        "tip": "Only the colour black scores the mark. The reasons are not marked here but are what you would write if asked to explain."
+      }
     },
     "ocr": {
       "spec_codes": [
@@ -311,7 +325,10 @@
     ],
     "exemplar_ids": [
       "a09d84fd-cb64-4d8e-959d-1e22c6aa083c",
-      "900da5d6-dce3-48df-baf6-b227f32cb92b"
-    ]
+      "900da5d6-dce3-48df-baf6-b227f32cb92b",
+      "508ee286-45b9-429c-95ba-9ce9bbccc083"
+    ],
+    "checked_by": "sonnet-science-check",
+    "checked_at": "2026-10-03"
   }
 }

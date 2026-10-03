@@ -10,7 +10,7 @@
       "blocks": [
         {
           "type": "paragraph",
-          "text": "(Separate science) The Big Bang and Steady State theories are two models for how the Universe began and how it has changed."
+          "text": "(Physics only, not needed for Combined Science) The Big Bang and Steady State theories are two models for how the Universe began and how it has changed."
         },
         {
           "type": "definitions",
@@ -99,7 +99,7 @@
             "**Red-shift** shows distant galaxies are moving away, so the Universe is expanding. Both theories account for this.",
             "The increase of speed with distance, followed backwards, points to a beginning at a single point.",
             "**CMB radiation** is microwave radiation left over from the beginning. It is detected from all over the sky.",
-            "The radiation is microwaves because of cooling.",
+            "The radiation is microwaves because of cooling. A typical wavelength is about 1 mm.",
             "The Big Bang theory has more evidence supporting it than the Steady State theory, so it is the currently accepted model."
           ]
         },
@@ -208,7 +208,17 @@
           "wrong": "New observations suggest the expansion of the Universe is slowing down.",
           "right": "The new observations suggest distant galaxies are moving away at an increasingly fast rate: expanding at an ever greater rate."
         }
-      ]
+      ],
+      "worked_example": {
+        "exemplar_id": "7c8a459a-9976-43af-a2d2-887346be0758",
+        "source": "AQA jun 2019, Paper 2 (H), Q5.2",
+        "marks": 1,
+        "question": "The Big Bang theory is one model used to explain the origin of the universe.\n\nHow does the Big Bang theory describe the universe when it began?",
+        "answer_points": [
+          "(Extremely) hot and dense."
+        ],
+        "tip": "'Very small' is ignored on its own."
+      }
     },
     "edexcel": {
       "spec_codes": [
@@ -300,7 +310,10 @@
     ],
     "exemplar_ids": [
       "09b47cac-2d29-441e-9189-93be448766f2",
-      "8fcc90e5-fc71-4be9-afd3-42b4a443a866"
-    ]
+      "8fcc90e5-fc71-4be9-afd3-42b4a443a866",
+      "7c8a459a-9976-43af-a2d2-887346be0758"
+    ],
+    "checked_by": "sonnet-science-check",
+    "checked_at": "2026-10-03"
   }
 }

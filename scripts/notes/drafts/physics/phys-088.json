@@ -10,7 +10,7 @@
       "blocks": [
         {
           "type": "paragraph",
-          "text": "(Separate science) The Solar System is the Sun and everything that orbits it. It is a small part of the Milky Way galaxy."
+          "text": "(Physics only, not needed for Combined Science) The Solar System is the Sun and everything that orbits it. It is a small part of the Milky Way galaxy."
         },
         {
           "type": "definitions",
@@ -312,6 +312,10 @@
             {
               "type": "paragraph",
               "text": "This course also covers minor planets, and geostationary and polar orbits for artificial satellites. A polar orbit travels over both poles."
+            },
+            {
+              "type": "paragraph",
+              "text": "Moons are natural satellites. Artificial satellites are made by people and launched into orbit."
             }
           ]
         }
@@ -348,6 +352,8 @@
       "0e516e0d-2ad6-4f21-9b3d-952c19ebcaf8",
       "b7f893b4-03c2-4868-8543-db267630edbd",
       "ad4d5e41-76b7-41f5-bf34-e7f87103cdb0"
-    ]
+    ],
+    "checked_by": "sonnet-science-check",
+    "checked_at": "2026-10-03"
   }
 }

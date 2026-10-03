@@ -10,7 +10,7 @@
       "blocks": [
         {
           "type": "paragraph",
-          "text": "(Separate science) The methods used to observe the Universe have changed over time, and each has added evidence."
+          "text": "(Physics only, not needed for Combined Science) The methods used to observe the Universe have changed over time, and each has added evidence."
         },
         {
           "type": "list",
@@ -176,6 +176,8 @@
     ],
     "exemplar_ids": [
       "8cd80839-f9bd-4984-892e-d9c554b29ba3"
-    ]
+    ],
+    "checked_by": "sonnet-science-check",
+    "checked_at": "2026-10-03"
   }
 }

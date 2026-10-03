@@ -305,17 +305,19 @@
       "exam_phrases": [
         "Induced magnets lose their magnetism (when away from a magnetic field)",
         "Permanent magnets retain their magnetism (when away from a magnetic field)",
-        "A temporary magnet which is only magnetic when it is within a magnetic field",
-        "the opposite pole has been induced at the top of the paperclip"
+        "in the magnetic field (of the bar magnet)",
+        "the paperclip is magnetised by the magnet",
+        "using a (plotting) compass",
+        "it is not magnetic"
       ],
       "mistakes": [
         {
-          "wrong": "An induced magnet is a permanent magnet which is always magnetic.",
-          "right": "An induced magnet is a temporary magnet which is only magnetic when it is within a magnetic field."
+          "wrong": "Iron filings are another piece of equipment to investigate a magnetic field.",
+          "right": "Iron filings were already used, so they score nothing. Use a plotting compass."
         },
         {
-          "wrong": "A magnet picks up a paper clip because the same pole is induced at the top of the clip.",
-          "right": "The opposite pole is induced at the top of the paper clip, so the two attract."
+          "wrong": "A wooden stand is used so the magnet is not stuck to the stand.",
+          "right": "Not being stuck to the stand is ignored. Wood is not magnetic, so it would not attract the magnet or interfere with the experiment."
         }
       ],
       "worked_example": {
@@ -348,6 +350,8 @@
       "dc84c266-a9d8-451d-926d-b7a45b0a2613",
       "281abdfa-cffa-4972-86c2-38d105a6d501",
       "f11767b3-2ae4-4976-b3fc-04c47f13f3dc"
-    ]
+    ],
+    "checked_by": "sonnet-science-check",
+    "checked_at": "2026-10-03"
   }
 }

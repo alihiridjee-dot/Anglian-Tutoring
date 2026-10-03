@@ -308,8 +308,8 @@
           "right": "Stainless steels are hard and resistant to corrosion. High carbon steel is the strong but brittle one."
         },
         {
-          "wrong": "Alloys are harder because the atoms cannot move.",
-          "right": "Say the atoms or ions are of different sizes, so the layers are distorted and cannot easily slide over each other."
+          "wrong": "An alloy is used for window frames because it is cheaper than pure aluminium.",
+          "right": "References to cost are ignored. The alloy is used because it is harder (or stronger) than pure aluminium."
         }
       ],
       "worked_example": {
@@ -427,6 +427,8 @@
       "47f699fa-a60d-454d-9cb6-098c101df3c3",
       "25750aa3-fb18-4fe5-b665-2c69591eb578",
       "ef7d27d0-9c91-487b-84b8-6d5b57231385"
-    ]
+    ],
+    "checked_by": "sonnet-science-check",
+    "checked_at": "2026-10-03"
   }
 }

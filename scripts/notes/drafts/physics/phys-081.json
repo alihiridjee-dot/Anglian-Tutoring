@@ -186,8 +186,8 @@
       ],
       "mistakes": [
         {
-          "wrong": "Aluminium and copper are attracted to a magnet.",
-          "right": "Only magnetic materials are attracted: iron, steel, cobalt and nickel. For example nickel and steel are attracted to an electromagnet."
+          "wrong": "The compass lines up with the Earth's magnetic field, so the Earth has a magnetic field.",
+          "right": "First say the compass needle always points in the same direction (north). The second mark, that it aligns with the Earth's field, depends on it."
         },
         {
           "wrong": "A permanent magnet can repel a piece of iron.",
@@ -301,6 +301,8 @@
       "1b2ead58-a2da-438f-b0f3-7a4e07eaf7d5",
       "0635492f-3924-445b-bf47-40d301512db0",
       "8618d49f-9231-4df9-bac7-928325387dd7"
-    ]
+    ],
+    "checked_by": "sonnet-science-check",
+    "checked_at": "2026-10-03"
   }
 }
