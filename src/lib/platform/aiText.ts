@@ -1,15 +1,20 @@
 import type Anthropic from "@anthropic-ai/sdk";
 
 /**
- * Shared by the short drafting calls (session blurb, weekly summary and
- * feedback, spec-point suggestions, chat drafts).
+ * Shared by the short drafting calls (session blurb, weekly feedback, chat
+ * drafts).
  *
- * claude-sonnet-5 thinks by default, and its thinking counts against
+ * claude-sonnet-5-5 thinks by default, and its thinking counts against
  * `max_tokens`. These calls ask for a few sentences with a ceiling of 200 to
- * 1,000 tokens, so thinking could use up the room and cut the answer short.
+ * 500 tokens, so thinking could use up the room and cut the answer short.
  * They are simple rewording jobs, so thinking is turned off for them.
+ *
+ * Sonnet 5.5 rejects `{ type: "disabled" }`; `between_tools` is its "off"
+ * setting. SDK 0.111 doesn't list that value yet, hence the cast.
  */
-export const NO_THINKING = { type: "disabled" } as const;
+export const NO_THINKING = {
+  type: "between_tools",
+} as unknown as Anthropic.ThinkingConfigParam;
 
 /**
  * The text of a reply that finished on its own.
