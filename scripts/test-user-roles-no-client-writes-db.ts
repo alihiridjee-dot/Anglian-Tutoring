@@ -1,4 +1,4 @@
-/** Isolated PostgreSQL checks for 20261003121119_user_roles_no_client_writes.sql:
+/** Isolated PostgreSQL checks for 20261003122518_user_roles_no_client_writes.sql:
  * a signed-in caller still reads their own roles, no client can write any (even
  * past a write policy added by mistake), and sign-up, grants by hand and the
  * service role still write through the table's triggers. No production data is
@@ -229,7 +229,7 @@ assert.deepEqual(await roles(STUDENT), ["student"]);
 
 // ── The migration, with that mistaken policy in place ───────────────────────
 await db.exec(MISTAKE);
-const migration = await file("20261003121119_user_roles_no_client_writes.sql");
+const migration = await file("20261003122518_user_roles_no_client_writes.sql");
 await db.exec(migration);
 await db.exec(migration); // idempotent
 
