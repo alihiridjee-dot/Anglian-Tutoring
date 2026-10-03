@@ -1,6 +1,6 @@
 import { Link, useParams } from "@tanstack/react-router";
 import { ArrowLeft, CheckCircle2, Clock } from "lucide-react";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { toast } from "sonner";
 import { AppLayout } from "@/components/AppLayout";
 import { AwaitingMark, BuiltInHomework } from "@/components/BuiltInHomework";
@@ -12,6 +12,7 @@ import type { SubmissionRow } from "@/lib/homework/types";
 import { useRoles } from "@/hooks/useRole";
 import { acknowledgeSubmission } from "@/lib/homework/homework.functions";
 import { isDemoStudent } from "@/lib/demo/studentDemo";
+import { needsMarkingStart, startMarking } from "@/lib/homework/startMarking";
 import { SUBJECT_LABEL, SUBJECT_TINT } from "@/lib/curriculum/subjectTheme";
 
 export function HomeworkSheetPage() {
@@ -32,6 +33,14 @@ export function HomeworkSheetPage() {
     userId: isTutor ? null : userId,
     enabled: demo || !rolesLoading,
   });
+
+  // Work handed in whose marking never started: the submit's reply was lost,
+  // so the page that sent it never asked. Ask now (see startMarking).
+  const submission = data?.submission ?? null;
+  useEffect(() => {
+    if (demo || isTutor || !submission || !needsMarkingStart(submission)) return;
+    startMarking(submission.id);
+  }, [demo, isTutor, submission]);
 
   if (!demo && rolesLoading)
     return (
@@ -60,7 +69,7 @@ export function HomeworkSheetPage() {
     );
   }
 
-  const { hw, questions, submission, answers } = data;
+  const { hw, questions, answers } = data;
   const marked = !!submission?.graded_at;
   // The same rule as the list, so a brief set before the student joined isn't
   // Overdue here either.
