@@ -1,9 +1,8 @@
 import { Field, inputCls, submitBtn } from "./Field";
 import { TaxonomyFields } from "./TaxonomyFields";
-import { SpecPointSelect } from "./SpecPointSelect";
 import { Video, Loader2, Sparkles } from "lucide-react";
 import { useLiveForm, type LiveFormProps } from "./useLiveForm";
-import { AiSuggestRow, BroadcastToggle } from "./LiveFormParts";
+import { BroadcastToggle } from "./LiveFormParts";
 
 export function LiveForm({ userId, taxonomy }: LiveFormProps) {
   const {
@@ -15,17 +14,13 @@ export function LiveForm({ userId, taxonomy }: LiveFormProps) {
     setStartsAt,
     joinUrl,
     setJoinUrl,
-    specPointIds,
-    setSpecPointIds,
     loading,
     generatingLink,
     generatingBlurb,
-    suggesting,
     broadcastWhatsApp,
     setBroadcastWhatsApp,
     generateZoomLink,
     generateDescription,
-    suggestFromDescription,
     submit,
   } = useLiveForm({ userId, taxonomy });
 
@@ -90,7 +85,7 @@ export function LiveForm({ userId, taxonomy }: LiveFormProps) {
             onClick={generateDescription}
             disabled={generatingBlurb}
             className="self-end min-h-11 sm:min-h-0 sm:absolute sm:right-1.5 sm:top-1.5 px-2.5 py-1 rounded bg-primary/10 hover:bg-primary/15 text-primary text-xs font-semibold inline-flex items-center gap-1 transition-colors cursor-pointer disabled:opacity-70"
-            title="Draft a description with AI from the title & spec points"
+            title="Draft a description with AI from the title"
           >
             {generatingBlurb ? (
               <Loader2 className="w-3.5 h-3.5 animate-spin" />
@@ -103,16 +98,6 @@ export function LiveForm({ userId, taxonomy }: LiveFormProps) {
       </Field>
 
       <TaxonomyFields {...taxonomy} hideBoard />
-
-      <AiSuggestRow suggesting={suggesting} suggestFromDescription={suggestFromDescription} />
-
-      <SpecPointSelect
-        subject={taxonomy.subject}
-        level={taxonomy.level}
-        value={specPointIds}
-        onChange={setSpecPointIds}
-        required
-      />
 
       {/* Broadcast Toggle Options */}
       <BroadcastToggle
