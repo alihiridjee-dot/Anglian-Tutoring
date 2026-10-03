@@ -1,9 +1,9 @@
 import { Link } from "@tanstack/react-router";
-import { useQuery } from "@tanstack/react-query";
 import { ChevronRight, Radio } from "lucide-react";
 import { NextSessionCountdown } from "@/components/live/NextSessionCountdown";
 import { useNow } from "@/hooks/useNow";
-import { fetchLiveSessions, nextSession } from "@/lib/live/liveSessions";
+import { nextSession } from "@/lib/live/liveSessions";
+import { useMyLiveSessions } from "@/components/live/useMyLiveSessions";
 
 /**
  * The student's live-sessions strip: a gently pulsing panel that shows the
@@ -36,10 +36,7 @@ export function LiveSessionsBanner({
  * live/upcoming window the countdown owns the strip and this steps aside.
  */
 function LiveSessionsFallback({ to, plansPresent }: { to: string; plansPresent: boolean }) {
-  const { data } = useQuery({
-    queryKey: ["live", "countdown"],
-    queryFn: () => fetchLiveSessions(),
-  });
+  const { data } = useMyLiveSessions();
   // The same question the countdown above asks, so exactly one of them shows.
   // It read the clock once, at render: when the last session of the day ended
   // the countdown stepped aside and this never stepped in, leaving the strip

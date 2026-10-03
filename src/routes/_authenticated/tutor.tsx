@@ -6,9 +6,8 @@ import { useRoles } from "@/hooks/useRole";
 import { useEnrolments } from "@/hooks/data/useEnrolments";
 import { resolveDisplayName } from "@/lib/profile/displayName";
 import { toast } from "sonner";
-import { PlayCircle, ClipboardList, Wrench, ClipboardCheck, CalendarRange } from "lucide-react";
+import { PlayCircle, ClipboardList, Wrench, ClipboardCheck } from "lucide-react";
 
-import { ThisWeekPanel } from "@/components/tutor/ThisWeekPanel";
 import { VideoForm } from "@/components/tutor/VideoForm";
 import { HomeworkForm } from "@/components/tutor/HomeworkForm";
 import { MarkingQueue } from "@/components/tutor/MarkingQueue";
@@ -20,7 +19,7 @@ export const Route = createFileRoute("/_authenticated/tutor")({
 });
 
 type Kind = "video" | "homework";
-type Tab = "this_week" | "marking" | Kind;
+type Tab = "marking" | Kind;
 
 function useTaxonomy() {
   const [subject, setSubject] = useState<SubjectV>("biology");
@@ -33,7 +32,7 @@ function Tutor() {
   const { isTutor, loading, userId, email } = useRoles();
   const { displayName: profileName } = useEnrolments();
   const navigate = useNavigate();
-  const [tab, setTab] = useState<Tab>("this_week");
+  const [tab, setTab] = useState<Tab>("marking");
   const taxonomy = useTaxonomy();
 
   // Access is a tutor/admin privilege.
@@ -55,7 +54,6 @@ function Tutor() {
   const tutorName = resolveDisplayName(profileName, email);
 
   const tabs: { k: Tab; label: string; icon: typeof PlayCircle }[] = [
-    { k: "this_week", label: "This Week", icon: CalendarRange },
     { k: "marking", label: "Marking Queue", icon: ClipboardCheck },
     { k: "video", label: "Add Video", icon: PlayCircle },
     { k: "homework", label: "Set Homework", icon: ClipboardList },
@@ -105,9 +103,7 @@ function Tutor() {
         ))}
       </div>
 
-      {tab === "this_week" ? (
-        <ThisWeekPanel userId={userId!} taxonomy={taxonomy} />
-      ) : tab === "marking" ? (
+      {tab === "marking" ? (
         <MarkingQueue />
       ) : (
         <div className="max-w-2xl rounded-2xl premium-card p-4 sm:p-6">

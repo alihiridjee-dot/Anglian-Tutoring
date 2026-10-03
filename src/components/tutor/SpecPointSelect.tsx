@@ -1,4 +1,4 @@
-import { useEffect, useMemo, useState } from "react";
+import { useEffect, useMemo, useRef, useState } from "react";
 import { supabase } from "@/integrations/supabase/client";
 import { Field } from "./Field";
 import { Search, X, ChevronDown, Layers } from "lucide-react";
@@ -69,6 +69,14 @@ export function SpecPointSelect({
   const [query, setQuery] = useState("");
   const [openTopics, setOpenTopics] = useState<Set<string>>(new Set());
   const [closedBoards, setClosedBoards] = useState<Set<string>>(new Set());
+  // The selection as it is now, not as it was when the load below started. In
+  // the dashboard's week mode, switching subject re-seeds the new subject's
+  // focus points while this load is in flight; filtering the old selection
+  // then wiped them, under a banner still saying they'd been added.
+  const valueRef = useRef(value);
+  useEffect(() => {
+    valueRef.current = value;
+  });
 
   // Board sections only appear in all-boards mode (board prop omitted); a single
   // known board doesn't need a section wrapper.
@@ -136,8 +144,9 @@ export function SpecPointSelect({
 
       // Drop stale selections that don't exist under the new taxonomy.
       const valid = new Set(rows.map((r) => r.id));
-      const kept = value.filter((id) => valid.has(id));
-      if (kept.length !== value.length) onChange(kept);
+      const current = valueRef.current;
+      const kept = current.filter((id) => valid.has(id));
+      if (kept.length !== current.length) onChange(kept);
     })();
     return () => {
       cancelled = true;

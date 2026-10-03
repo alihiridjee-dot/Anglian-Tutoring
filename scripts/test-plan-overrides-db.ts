@@ -21,7 +21,7 @@ const week = (n: number) => toDateKey(addWeeks(weekKeyToDate(today), n));
 
 // The shape of production the migration touches, with the role helper stubbed.
 await db.exec(`
-create role authenticated; create role anon;
+create role authenticated; create role anon; create role service_role;
 create schema auth; create schema private;
 create table auth.users(id uuid primary key);
 create function auth.uid() returns uuid language sql stable as $$ select nullif(current_setting('request.jwt.claim.sub',true),'')::uuid $$;
@@ -50,6 +50,18 @@ create table mcq_questions(set_id uuid, spec_point_id uuid);
 await db.exec(
   await readFile(
     new URL("../supabase/migrations/20260922104641_planner_tutor_overrides.sql", import.meta.url),
+    "utf8",
+  ),
+);
+// The tutor check runs as its owner: `authenticated` has no USAGE on `private`
+// (granted below exactly as production grants it), so without this every
+// override failed with "permission denied for schema private".
+await db.exec(
+  await readFile(
+    new URL(
+      "../supabase/migrations/20261001125425_plan_override_tutor_check_definer.sql",
+      import.meta.url,
+    ),
     "utf8",
   ),
 );
@@ -127,7 +139,7 @@ await insertPoint(pastPlan, a[4], "core");
 await insertPoint(futurePlan, a[4], "focus");
 await insertPoint(futurePlan, a[5], "tutor");
 
-await db.exec(`grant usage on schema public,auth,private to authenticated;
+await db.exec(`grant usage on schema public,auth to authenticated;
  grant all on all tables in schema public to authenticated;
  alter table student_program_plan enable row level security;
  create policy own on student_program_plan to authenticated using(student_id=auth.uid() or private.has_role(auth.uid(),'tutor')) with check(student_id=auth.uid() or private.has_role(auth.uid(),'tutor'));

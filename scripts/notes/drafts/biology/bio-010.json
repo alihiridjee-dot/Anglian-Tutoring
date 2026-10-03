@@ -1,0 +1,331 @@
+{
+  "format": 1,
+  "concept_id": "bio-010",
+  "subject": "biology",
+  "title": "Stem cells in medicine and plant cloning",
+  "key_idea": "Stem cells can be used to replace damaged cells and treat disease, but there are risks and ethical issues. Therapeutic cloning makes embryonic stem cells that match the patient. In plants, meristem tissue is used to make many identical copies of a plant quickly and cheaply.",
+  "sections": [
+    {
+      "heading": "Treating disease with stem cells",
+      "blocks": [
+        { "type": "paragraph", "text": "Stem cells can differentiate into the cells a patient has lost. This section covers how they are used and what rejection means." },
+        {
+          "type": "definitions",
+          "items": [
+            { "term": "Rejection", "meaning": "The patient's immune system attacks transplanted cells because it sees them as foreign." },
+            { "term": "Therapeutic cloning", "meaning": "Making an embryo with the same genes as a patient, to get stem cells that will not be rejected." }
+          ]
+        },
+        { "type": "subheading", "text": "Some uses" },
+        {
+          "type": "list",
+          "items": [
+            "Bone marrow stem cells differentiate into blood cells. A transplant can treat conditions such as anaemia or blood cancer.",
+            "Stem cells can replace damaged heart muscle cells in heart disease.",
+            "Stem cells can replace damaged retina cells to treat blindness.",
+            "Stem cells may be able to help conditions such as diabetes and paralysis.",
+            "Blood cells can be grown from stem cells in a laboratory: less need for donors, a smaller sample is needed and larger quantities can be made."
+          ]
+        },
+        { "type": "subheading", "text": "Avoiding rejection" },
+        {
+          "type": "list",
+          "items": [
+            "Cells from a donor may be rejected, so the patient may need drugs to make their immune system less active.",
+            "A weakened immune system cannot attack pathogens as well, so the patient is more likely to get ill.",
+            "Stem cells made from the patient's own cells will not be rejected.",
+            "Adult cells can be reprogrammed to have the properties of embryonic stem cells. No embryo is needed."
+          ]
+        },
+        {
+          "type": "key-points",
+          "items": [
+            "Stem cells replace damaged cells by differentiating into the cells needed.",
+            "Donor cells may be rejected. A patient's own cells will not be.",
+            "Adult cells can be reprogrammed, so embryos are not needed."
+          ]
+        }
+      ]
+    },
+    {
+      "heading": "Therapeutic cloning",
+      "blocks": [
+        { "type": "paragraph", "text": "Therapeutic cloning makes an embryo that is genetically matched to the patient. Its stem cells are then used for treatment." },
+        {
+          "type": "diagram",
+          "diagram": {
+            "kind": "flow",
+            "alt": "Steps of therapeutic cloning. A donated egg has its nucleus removed. The nucleus from a cell of the patient is put in. An embryo develops. Stem cells are removed from the embryo and made to differentiate into the cells needed. They are transplanted into the patient.",
+            "steps": [
+              "Patient's nucleus put into a donated egg cell with its own nucleus removed",
+              "Embryo with the patient's genes develops",
+              "Stem cells removed from the embryo",
+              "Stem cells made to differentiate into the cells needed",
+              "Cells transplanted into the patient"
+            ]
+          }
+        },
+        {
+          "type": "list",
+          "items": [
+            "The cells match the patient, so they are unlikely to be rejected.",
+            "Cells and tissues of any type could be produced, in large numbers.",
+            "The embryo is only used to provide stem cells."
+          ]
+        },
+        {
+          "type": "key-points",
+          "items": [
+            "Therapeutic cloning makes an embryo using the patient's own genetic material.",
+            "Its stem cells are unlikely to be rejected.",
+            "The embryo is destroyed when the stem cells are removed."
+          ]
+        }
+      ]
+    },
+    {
+      "heading": "Benefits, risks and ethical issues",
+      "blocks": [
+        { "type": "paragraph", "text": "Exam questions ask you to weigh up benefits, risks and ethical issues. Keep each point specific." },
+        { "type": "subheading", "text": "Benefits" },
+        {
+          "type": "list",
+          "items": [
+            "Can cure or treat diseases, or replace damaged cells, tissues or organs.",
+            "The patient's own cells are unlikely to be rejected.",
+            "Many cells of any type can be made.",
+            "Could shorten the waiting time for transplants."
+          ]
+        },
+        { "type": "subheading", "text": "Risks" },
+        {
+          "type": "list",
+          "items": [
+            "New cells may not function correctly, or may be damaged again.",
+            "Donor cells may be rejected.",
+            "Stem cells may keep dividing and form tumours (cancer).",
+            "A virus may be transferred, causing infection.",
+            "Egg donation has risks, and there is a shortage of eggs."
+          ]
+        },
+        { "type": "subheading", "text": "Ethical issues" },
+        {
+          "type": "list",
+          "items": [
+            "A potential human life is destroyed.",
+            "The embryo cannot give consent.",
+            "Some people have religious, cultural or personal beliefs against it."
+          ]
+        },
+        {
+          "type": "diagram",
+          "diagram": {
+            "kind": "sort",
+            "alt": "Sort each statement into a benefit, a risk or an ethical issue of using stem cells.",
+            "prompt": "Benefit, risk or ethical issue?",
+            "groups": ["Benefit", "Risk", "Ethical issue"],
+            "items": [
+              { "text": "The patient's own cells are unlikely to be rejected", "group": 0 },
+              { "text": "Damaged cells can be replaced", "group": 0 },
+              { "text": "Could reduce waiting time for organ transplants", "group": 0 },
+              { "text": "The stem cells may become cancerous", "group": 1 },
+              { "text": "The new cells may be rejected by the patient", "group": 1 },
+              { "text": "A virus may be transferred to the patient", "group": 1 },
+              { "text": "Removing stem cells destroys a potential human life", "group": 2 },
+              { "text": "An embryo cannot give consent", "group": 2 }
+            ]
+          }
+        },
+        {
+          "type": "key-points",
+          "items": [
+            "Give specific benefits, risks and ethical issues, not general words.",
+            "\"It is unethical\" on its own is not enough. Say what is wrong, such as destroying a potential life.",
+            "Using reprogrammed adult cells avoids damaging embryos."
+          ]
+        }
+      ]
+    },
+    {
+      "heading": "Cloning plants with meristems",
+      "blocks": [
+        { "type": "paragraph", "text": "Meristem tissue contains stem cells, so it can be used to produce clones of a plant. A clone is genetically identical to the parent." },
+        {
+          "type": "list",
+          "items": [
+            "Cells from the meristem of a parent plant are grown in a nutrient jelly (agar) to form tiny plantlets, which are then planted in compost.",
+            "Large numbers of identical plants are produced quickly and cheaply.",
+            "Rare species can be cloned to prevent them from becoming extinct.",
+            "Crop plants with useful features, such as disease resistance, can be cloned for farmers."
+          ]
+        },
+        {
+          "type": "key-points",
+          "items": [
+            "Meristems are used to produce large numbers of identical plants.",
+            "Cloning can protect rare species and copy useful crops.",
+            "The cloned plants are genetically identical to the parent."
+          ]
+        }
+      ]
+    }
+  ],
+  "checks": [
+    {
+      "q": "Explain why stem cells from a patient's own body are better than donor stem cells.",
+      "a": "The cells will not be rejected, because the patient's immune system does not see them as foreign.",
+      "marks": 2
+    },
+    {
+      "q": "Give one ethical reason why some people disagree with using embryonic stem cells.",
+      "a": "It destroys an embryo, which is a potential human life, or the embryo cannot give consent.",
+      "marks": 1
+    },
+    {
+      "q": "Give one economic use of plant stem cells (meristem tissue).",
+      "a": "To produce large numbers of identical plants (for example crop plants) quickly and cheaply.",
+      "marks": 1
+    }
+  ],
+  "boards": {
+    "aqa": {
+      "spec_codes": ["AQA 1.9", "AQA T 4.1.2.3"],
+      "exam_phrases": [
+        "may cure / treat diseases or produce replacement cells / tissues / organs",
+        "cells unlikely to be rejected by the patient",
+        "potential life is killed / destroyed",
+        "egg donation has risks",
+        "may transfer (viral) infection",
+        "to produce large numbers of identical plants"
+      ],
+      "mistakes": [
+        {
+          "wrong": "Stem cell treatment is unethical.",
+          "right": "\"Unethical\" on its own is ignored. Give a reason, such as destroying a (potential) life, or that the embryo cannot give consent."
+        },
+        {
+          "wrong": "An advantage of therapeutic cloning is that it is cheaper.",
+          "right": "References to cost are ignored when listing advantages and disadvantages of therapeutic cloning."
+        },
+        {
+          "wrong": "Therapeutic cloning is used to produce babies.",
+          "right": "References to producing babies or IVF are ignored. The embryo is used as a source of stem cells."
+        },
+        {
+          "wrong": "Religion is the reason a patient may not want the treatment.",
+          "right": "\"Religion\" on its own is ignored. When asked why a patient may not want treatment, say it is against their religious, cultural or personal beliefs, or that a potential life is destroyed."
+        }
+      ],
+      "worked_example": {
+        "exemplar_id": "4d768fd2-1300-4e3e-b122-02be004728ed",
+        "source": "AQA jun 2018, Paper 1 (H), Q06.6",
+        "question": "Embryonic stem cells are produced in therapeutic cloning for use in patients. Give two advantages and two disadvantages of therapeutic cloning in medical treatments.",
+        "marks": 4,
+        "answer_points": [
+          "Advantage: may be used to cure or treat diseases, or produce replacement cells, tissues or organs.",
+          "Advantage: cells or tissues of any type could be produced.",
+          "Advantage: cells unlikely to be rejected by the patient.",
+          "Advantage: many cells produced, or would reduce waiting time for organ transplants.",
+          "Disadvantage: a potential life is killed or destroyed.",
+          "Disadvantage: shortage of donors or eggs, or egg donation has risks.",
+          "Disadvantage: the risks and side effects for the patient are not yet known.",
+          "Disadvantage: may transfer a viral infection, or there is a poor success rate."
+        ],
+        "tip": "Any two advantages and any two disadvantages score one mark each. Cost is ignored."
+      }
+    },
+    "edexcel": {
+      "spec_codes": ["EDEX 2.9"],
+      "exam_phrases": [
+        "stem cells can differentiate / become specialised",
+        "replace (damaged) cells",
+        "new cells do not function correctly",
+        "stem cells continue to divide (and could cause cancer)",
+        "less chance of rejection / matches the tissue type of the patient",
+        "embryos do not need to be used"
+      ],
+      "mistakes": [
+        {
+          "wrong": "Stem cells repair cells.",
+          "right": "\"Repair cells\" is ignored. Say they replace damaged cells, or repair damaged tissues."
+        },
+        {
+          "wrong": "Reprogrammed stem cells can be used to clone body parts or treat cancer.",
+          "right": "These are ignored unless qualified. Say the cells can become any cell type, replace faulty cells or treat a named condition such as Parkinson's disease or diabetes."
+        },
+        {
+          "wrong": "Some people think using embryonic stem cells is wrong.",
+          "right": "Give the scientific reason: embryos have the potential to develop into a baby or person, so they are harmed or destroyed."
+        }
+      ],
+      "worked_example": {
+        "exemplar_id": "8c37f7d0-e1d4-480a-ab6f-564f2f6766fb",
+        "source": "EDEXCEL nov 2021, Paper 1 (H), Q5(c)",
+        "question": "Arthritis is a condition that occurs when cells in joints get damaged or destroyed. Stem cell therapy can be used to treat arthritis. Discuss the benefits and risks of using stem cell therapy to treat arthritis.",
+        "marks": 4,
+        "answer_points": [
+          "Benefit: stem cells can differentiate or become specialised.",
+          "Benefit: they replace damaged cells (and so reduce the symptoms of arthritis).",
+          "Risk: the new cells do not function correctly.",
+          "Risk: the stem cells continue to divide (this could develop into cancer).",
+          "Risk: side effects, symptoms worsen, or the cells are rejected."
+        ],
+        "tip": "A maximum of two marks for benefits and two for risks. Include both to reach four marks."
+      }
+    },
+    "ocr": {
+      "spec_codes": ["OCR 6.3v"],
+      "exam_phrases": [
+        "stem cells can differentiate / specialise into muscle / heart cells",
+        "the heart will then beat more efficiently",
+        "more oxygen / glucose supply to the body cells",
+        "rejection (of cells)",
+        "cells could mutate and become cancerous / form tumours",
+        "would not be detected as foreign cells"
+      ],
+      "mistakes": [
+        {
+          "wrong": "Stem cells fix or repair the muscle cells and replace the scar tissue.",
+          "right": "\"Fix / repair muscle cells\" and \"replace scar tissue\" are ignored. Say the stem cells differentiate into heart muscle cells or replace damaged cells."
+        },
+        {
+          "wrong": "A risk of stem cell treatment is that the long-term effects are unknown and it is unethical.",
+          "right": "Unknown long-term effects and ethical issues are ignored when asked for risks. Say rejection, new cells being damaged again, cancer or tumours, or infection."
+        },
+        {
+          "wrong": "The patient's own stem cells are used because they have the same DNA.",
+          "right": "\"Same DNA\" is ignored. Say they would not be rejected, because the immune system would not detect them as foreign."
+        }
+      ],
+      "worked_example": {
+        "exemplar_id": "eb150d11-9153-48db-ba57-486d39bd3446",
+        "source": "OCR jun 2022, Paper 2, Q16(e)",
+        "question": "Heart disease causes damage as muscle cells can be replaced with scar tissue. This makes the heart less efficient at pumping blood, which affects all the cells of the body. Doctors can treat heart disease by injecting the heart muscle with stem cells. Explain how this could improve the lives of people with heart disease.",
+        "marks": 3,
+        "answer_points": [
+          "Stem cells can differentiate or specialise into muscle (heart) cells.",
+          "The heart will then beat more efficiently (a stronger heartbeat).",
+          "More oxygen and glucose is supplied to the cells of the body."
+        ],
+        "tip": "Link the three steps in order: stem cells become muscle cells, the heart works better, the body's cells get more oxygen and glucose."
+      }
+    }
+  },
+  "meta": {
+    "status": "draft",
+    "checked_by": "sonnet-science-check",
+    "checked_at": "2026-10-01",
+    "written_by": "Claude Sonnet 5.5",
+    "written_at": "2026-10-01",
+    "spec_point_ids": [
+      "e457157c-a4c2-4ccd-80d8-735e441e864f",
+      "02ec7f9b-593e-4ed2-98cc-bc334c8602e5",
+      "c6088a6a-3ff8-4c4c-94a3-4003caa88e92"
+    ],
+    "exemplar_ids": [
+      "4d768fd2-1300-4e3e-b122-02be004728ed",
+      "8c37f7d0-e1d4-480a-ab6f-564f2f6766fb",
+      "eb150d11-9153-48db-ba57-486d39bd3446"
+    ]
+  }
+}

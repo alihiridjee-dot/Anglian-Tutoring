@@ -32,5 +32,9 @@ export const WHATSAPP_DISPLAY = "+44 7410 116988";
 export function whatsappLink(prefill?: string): string {
   const base = `https://wa.me/${WHATSAPP_NUMBER}`;
   const text = prefill?.trim();
-  return text ? `${base}?text=${encodeURIComponent(text.slice(0, 900))}` : base;
+  // Cut by whole characters, not UTF-16 units: an emoji at the 900th unit
+  // would be split in half, and encodeURIComponent throws on half a character.
+  return text
+    ? `${base}?text=${encodeURIComponent(Array.from(text).slice(0, 900).join(""))}`
+    : base;
 }

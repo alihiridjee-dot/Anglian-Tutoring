@@ -1,6 +1,10 @@
 import { describe, expect, test } from "bun:test";
 import {
   projectReviews,
+  reviewBudget,
+  REVIEW_SHARE,
+  examMondayFor,
+  programStartFor,
   mondayOnOrAfter,
   computePacing,
   diffPacing,
@@ -14,6 +18,7 @@ import {
   type PacingBand,
 } from "./pacing";
 import { addWeeks, mondayOf, toDateKey, weekKeyToDate } from "@/lib/planner/week";
+import { spineIsForAnotherCourse } from "./roadmap";
 
 const currentMonday = mondayOf(new Date("2026-09-07T00:00:00+01:00"));
 const examMonday = mondayOf(new Date("2027-06-07T00:00:00+01:00")); // ~39 weeks out
@@ -409,5 +414,191 @@ describe("reviews respect acknowledged teaching openings", () => {
     });
     expect(result.bands).toEqual([]);
     expect(result.backlog).toEqual([candidate]);
+  });
+});
+
+describe("weekly review budget (S-28)", () => {
+  // 230 reviews all overdue on the same day — a student back after weeks away.
+  // Each due a minute apart, so "oldest first" has one right answer.
+  const overdue = Array.from({ length: 230 }, (_, i) => ({
+    specPointId: `p${String(i).padStart(3, "0")}`,
+    topicId: `t${i % 7}`,
+    topicTitle: `Topic ${i % 7}`,
+    code: `${i}`,
+    pointTitle: `Point ${i}`,
+    dueAt: new Date(Date.parse("2026-08-01T09:00:00Z") + i * 60_000).toISOString(),
+    eligibleAt: "2026-08-01T09:00:00Z",
+    lastReviewedAt: "2026-07-20T09:00:00Z",
+    weight: 1,
+  }));
+  const thisWeek = toDateKey(currentMonday);
+  // A week's reviews are grouped by topic, so compare which ones, not their order.
+  const idsIn = (r: ReturnType<typeof projectReviews>, week: string) =>
+    r.bands
+      .filter((b) => b.startWeek === week)
+      .flatMap((b) => b.points!.map((p) => p.specPointId))
+      .sort();
+  // A course teaching about six points a week, as today's courses do.
+  const budget = reviewBudget(6);
+
+  test("the budget is three times a week's teaching", () => {
+    expect(REVIEW_SHARE).toBe(3);
+    expect(budget).toBe(18);
+  });
+
+  test("without a budget every overdue review lands in one week — the week that couldn't save", () => {
+    const r = projectReviews({ candidates: overdue, currentMonday, examMonday });
+    expect(idsIn(r, thisWeek)).toHaveLength(230);
+  });
+
+  test("with it, this week holds the budget's worth, oldest due first", () => {
+    const r = projectReviews({
+      candidates: overdue,
+      currentMonday,
+      examMonday,
+      weeklyBudget: budget,
+    });
+    expect(idsIn(r, thisWeek)).toEqual(overdue.slice(0, 18).map((c) => c.specPointId));
+  });
+
+  test("the rest roll into the following weeks in order, and nothing is lost", () => {
+    const r = projectReviews({
+      candidates: overdue,
+      currentMonday,
+      examMonday,
+      weeklyBudget: budget,
+    });
+    expect(idsIn(r, toDateKey(addWeeks(currentMonday, 1)))).toEqual(
+      overdue.slice(18, 36).map((c) => c.specPointId),
+    );
+    const placed = r.bands.flatMap((b) => b.points!.map((p) => p.specPointId));
+    expect(new Set(placed).size).toBe(230);
+    expect(r.backlog).toEqual([]);
+  });
+
+  test("what is due now but waiting is offered to pull forward, oldest first", () => {
+    const r = projectReviews({
+      candidates: overdue,
+      currentMonday,
+      examMonday,
+      weeklyBudget: budget,
+      readyBy: currentMonday,
+    });
+    expect(r.waiting.map((c) => c.specPointId)).toEqual(
+      overdue.slice(18).map((c) => c.specPointId),
+    );
+  });
+
+  test("a review not yet due is never 'waiting', and keeps its own week", () => {
+    const later = { ...overdue[0], specPointId: "later", dueAt: "2026-10-05T00:00:00+01:00" };
+    const r = projectReviews({
+      candidates: [later],
+      currentMonday,
+      examMonday,
+      weeklyBudget: budget,
+      readyBy: currentMonday,
+    });
+    expect(r.waiting).toEqual([]);
+    expect(idsIn(r, "2026-10-05")).toEqual(["later"]);
+  });
+
+  test("a review heavier than the whole budget still gets a week of its own", () => {
+    const heavy = { ...overdue[0], specPointId: "heavy", weight: 40 };
+    const r = projectReviews({
+      candidates: [heavy],
+      currentMonday,
+      examMonday,
+      weeklyBudget: budget,
+    });
+    expect(idsIn(r, thisWeek)).toEqual(["heavy"]);
+  });
+
+  test("a week the tutor closed to a point is stepped past", () => {
+    const [a, b] = overdue;
+    const r = projectReviews({
+      candidates: [a, b],
+      currentMonday,
+      examMonday,
+      weeklyBudget: 1,
+      isBlocked: (id, week) => id === a.specPointId && week === thisWeek,
+    });
+    expect(idsIn(r, thisWeek)).toEqual([b.specPointId]);
+    expect(idsIn(r, toDateKey(addWeeks(currentMonday, 1)))).toEqual([a.specPointId]);
+  });
+
+  test("reviews with no room before the exam are reported as backlog", () => {
+    const nearExam = addWeeks(currentMonday, 2);
+    const r = projectReviews({
+      candidates: overdue.slice(0, 10),
+      currentMonday,
+      examMonday: nearExam,
+      weeklyBudget: 3,
+    });
+    expect(r.bands.flatMap((b) => b.points!)).toHaveLength(6);
+    expect(r.backlog.map((c) => c.specPointId)).toEqual(
+      overdue.slice(6, 10).map((c) => c.specPointId),
+    );
+  });
+});
+
+describe("spineIsForAnotherCourse (S-29)", () => {
+  const band = (topicId: string): PacingBand => ({
+    topicId,
+    title: topicId,
+    startWeek: "2026-09-07",
+    endWeek: "2026-10-05",
+    weeks: 5,
+  });
+  const course = (...ids: string[]) =>
+    ids.map((topicId) => ({ topicId, title: topicId, points: [] }) as never);
+
+  test("a spine naming none of the course's topics is another course's", () => {
+    expect(spineIsForAnotherCourse([band("aqa1"), band("aqa2")], course("edx1", "edx2"))).toBe(
+      true,
+    );
+  });
+
+  test("one shared topic is enough to call it this course's (an edited curriculum, not a switch)", () => {
+    expect(spineIsForAnotherCourse([band("t1"), band("gone")], course("t1", "t2"))).toBe(false);
+  });
+
+  test("nothing stored, or no curriculum, is never a course change", () => {
+    expect(spineIsForAnotherCourse([], course("t1"))).toBe(false);
+    expect(spineIsForAnotherCourse([band("t1")], [])).toBe(false);
+  });
+});
+
+describe("default exam date (S-32)", () => {
+  const exam = (iso: string) => toDateKey(examMondayFor(new Date(iso)));
+
+  test("once this year's exam Monday has come, the default is next year's", () => {
+    // 1 June 2026 is a Monday; 10 June is after it.
+    expect(exam("2026-06-10T12:00:00Z")).toBe("2027-06-07");
+    // 2027's first Monday of June is the 7th; the 8th is after it.
+    expect(exam("2027-06-08T12:00:00Z")).toBe("2028-06-05");
+    // On the exam Monday itself, this year's series has begun.
+    expect(exam("2027-06-07T09:00:00+01:00")).toBe("2028-06-05");
+  });
+
+  test("before it, this year's series stands", () => {
+    expect(exam("2027-06-06T20:00:00+01:00")).toBe("2027-06-07");
+    expect(exam("2026-09-07T12:00:00Z")).toBe("2027-06-07");
+    expect(exam("2027-01-15T12:00:00Z")).toBe("2027-06-07");
+  });
+});
+
+describe("programme start from a first visit (M-9)", () => {
+  const start = (iso: string) => toDateKey(programStartFor(new Date(iso)));
+
+  test("Monday to Friday anchors to this week", () => {
+    expect(start("2026-10-05T09:00:00+01:00")).toBe("2026-10-05"); // Monday
+    expect(start("2026-10-09T23:30:00+01:00")).toBe("2026-10-05"); // Friday night
+  });
+
+  test("from Saturday (UK time) it starts next Monday", () => {
+    expect(start("2026-10-10T00:05:00+01:00")).toBe("2026-10-12"); // Saturday
+    expect(start("2026-10-11T23:30:00+01:00")).toBe("2026-10-12"); // late Sunday
+    // Friday 23:30 in London is already Saturday in Dubai; London decides.
+    expect(start("2026-10-09T22:30:00Z")).toBe("2026-10-05");
   });
 });
