@@ -88,24 +88,23 @@ export function useChildTrends(studentId: string | null, weeks = 6) {
       const since = new Date();
       since.setDate(since.getDate() - weeks * 7);
 
-      const { data, error } = await supabase
-        .from("mcq_attempts")
-        .select("score, total, created_at, mcq_sets(subject)")
-        .eq("user_id", studentId!)
-        .gte("created_at", since.toISOString())
-        .order("created_at", { ascending: true })
-        .limit(500);
+      // The read model, so a paused or lapsed child's quizzes keep their
+      // subject (S-23).
+      const { data, error } = await supabase.rpc("student_scored_work", {
+        _student_id: studentId!,
+        _since: since.toISOString(),
+      });
       if (error) throw new Error(error.message);
 
       // Bucket by week start, averaging per subject.
       const buckets: Record<string, Record<string, { sum: number; n: number }>> = {};
       for (const a of data ?? []) {
-        const subj = (a.mcq_sets as unknown as { subject: string | null } | null)?.subject;
-        if (!subj || !a.total) continue;
-        const week = toDateKey(mondayOf(new Date(a.created_at)));
+        if (a.kind !== "quiz" || !a.subject || a.pct === null) continue;
+        const subj = a.subject;
+        const week = toDateKey(mondayOf(new Date(a.scored_at)));
         buckets[week] = buckets[week] ?? {};
         buckets[week][subj] = buckets[week][subj] ?? { sum: 0, n: 0 };
-        buckets[week][subj].sum += (a.score / a.total) * 100;
+        buckets[week][subj].sum += Number(a.pct);
         buckets[week][subj].n += 1;
       }
 
@@ -257,16 +256,31 @@ export function useChildFeedback(studentId: string | null, limit = 4) {
     queryFn: async (): Promise<FeedbackItem[]> => {
       const { data, error } = await supabase
         .from("homework_submissions")
-        .select("id, feedback, grade, score_pct, graded_at, resources(subject, title)")
+        .select("id, feedback, grade, score_pct, graded_at")
         .eq("student_id", studentId!)
         .not("feedback", "is", null)
         .not("graded_at", "is", null)
         .order("graded_at", { ascending: false })
         .limit(limit);
       if (error) throw new Error(error.message);
+      if (!data || data.length === 0) return [];
 
-      return (data ?? []).flatMap((s) => {
-        const res = s.resources as unknown as { subject: string; title: string } | null;
+      // Each sheet's subject and title come from the read model: an embed of
+      // resources is empty once the child's plan lapses (S-23).
+      const scored = await supabase
+        .rpc("student_scored_work", { _student_id: studentId! })
+        .eq("kind", "homework")
+        .in(
+          "item_id",
+          data.map((s) => s.id),
+        );
+      if (scored.error) throw new Error(scored.error.message);
+      const sheetOf = new Map((scored.data ?? []).map((w) => [w.item_id, w]));
+
+      return data.flatMap((s) => {
+        const sheet = sheetOf.get(s.id);
+        const res =
+          sheet && sheet.title !== null ? { subject: sheet.subject, title: sheet.title } : null;
         if (!res || !s.feedback || !s.graded_at) return [];
         return [
           {
