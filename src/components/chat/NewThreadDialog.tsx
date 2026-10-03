@@ -2,6 +2,7 @@ import { useEffect, useState } from "react";
 import { useBodyScrollLock } from "@/hooks/useBodyScrollLock";
 import { Loader2, MessageSquarePlus, X } from "lucide-react";
 import { toast } from "sonner";
+import { Spinner } from "@/components/Shared";
 import { useStartThread, useTutorDirectory } from "@/hooks/data/useChat";
 import { ContextPicker } from "@/components/chat/ContextPicker";
 import { EMPTY_CONTEXT, type ChatContextSelection } from "@/lib/chat/chatContext";
@@ -52,20 +53,22 @@ export function NewThreadDialog({ initialContext, about, onClose, onCreated }: P
 
   const canSend = !!tutorId && subjectLine.trim().length > 0 && body.trim().length > 0;
 
-  // The sheet holds the page still underneath it, and Escape closes it. A tap
-  // on the backdrop closes it too, unless a half-written question would be lost.
+  // The sheet holds the page still underneath it. Escape and a tap on the
+  // backdrop both close it, unless a half-written question would be lost —
+  // Cancel and the X are the deliberate ways out. An Escape that ends an IME
+  // composition belongs to the input method, so it never closes anything.
   useBodyScrollLock(true);
   const dirty = subjectLine.trim().length > 0 || body.trim().length > 0;
   useEffect(() => {
     const onKey = (e: KeyboardEvent) => {
-      if (e.key === "Escape") onClose();
+      if (e.key === "Escape" && !e.isComposing && !dirty) onClose();
     };
     window.addEventListener("keydown", onKey);
     return () => window.removeEventListener("keydown", onKey);
-  }, [onClose]);
+  }, [onClose, dirty]);
 
   const submit = () => {
-    if (!canSend) return;
+    if (!canSend || start.isPending) return;
     start.mutate(
       {
         tutorId,
@@ -130,9 +133,7 @@ export function NewThreadDialog({ initialContext, about, onClose, onCreated }: P
               {about ? "Who are you writing to?" : "Who are you asking?"}
             </label>
             {tutorsPending ? (
-              <div className="mt-2 py-3">
-                <Loader2 className="h-4 w-4 animate-spin text-muted-foreground" />
-              </div>
+              <Spinner label="Loading tutors" className="mt-2 py-3" />
             ) : tutors.length === 0 ? (
               <p className="mt-2 text-sm text-muted-foreground">
                 No tutors are available to message right now.
