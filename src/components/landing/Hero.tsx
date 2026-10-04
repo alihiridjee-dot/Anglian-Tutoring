@@ -241,7 +241,9 @@ export function Hero() {
     <section
       id="top"
       ref={sectionRef}
-      className="page-aurora relative overflow-hidden py-20 lg:py-32"
+      // Tighter on a phone turned sideways, so "Get started" makes the first
+      // screen rather than the second.
+      className="page-aurora relative overflow-hidden py-20 lg:py-32 short:pt-5 short:pb-8"
     >
       {/* Background with faded science images reflecting the specialities */}
       <div className="absolute inset-0 -z-10 overflow-hidden">
@@ -281,17 +283,17 @@ export function Hero() {
 
         {/* The highlighter goes on the one word the whole page is about. A
             second marker anywhere on this screen and neither would land. */}
-        <h1 className="font-display text-foreground mx-auto mt-8 max-w-3xl text-4xl leading-[1.1] font-extrabold tracking-tight sm:text-5xl lg:text-6xl">
+        <h1 className="font-display text-foreground mx-auto mt-8 max-w-3xl text-4xl leading-[1.1] font-extrabold tracking-tight sm:text-5xl lg:text-6xl short:mt-3 short:text-4xl">
           Better grades in <span className="marker">science</span>, taught by teachers who care.
         </h1>
 
-        <p className="text-muted-foreground mx-auto mt-6 max-w-2xl text-lg leading-relaxed">
+        <p className="text-muted-foreground mx-auto mt-6 max-w-2xl text-lg leading-relaxed short:mt-2 short:text-base">
           Weekly live lessons in Biology, Chemistry, and Physics, aligned to Edexcel, AQA, and OCR.
           Interactive quizzes, marked tasks, and a grade predictor that actually reflects your
           progress.
         </p>
 
-        <div className="mt-10 flex flex-wrap justify-center gap-4">
+        <div className="mt-10 flex flex-wrap justify-center gap-4 short:mt-4">
           <Link
             to="/auth"
             search={{ mode: "signup" } as never}

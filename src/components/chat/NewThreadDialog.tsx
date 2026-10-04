@@ -107,8 +107,11 @@ export function NewThreadDialog({ initialContext, about, onClose, onCreated }: P
         if (e.target === e.currentTarget && !dirty) onClose();
       }}
     >
-      <div className="w-full max-w-lg rounded-2xl premium-card shadow-xl max-h-[calc(100dvh-2rem)] overflow-y-auto">
-        <div className="flex items-start justify-between gap-3 p-4 sm:p-6 border-b border-border">
+      {/* The title and the Send row stay put and the form scrolls between
+          them. On a phone turned sideways the form is twice the height of the
+          box, and Send used to be the last thing in it, 286px below the fold. */}
+      <div className="flex w-full max-w-lg flex-col overflow-hidden rounded-2xl premium-card shadow-xl max-h-[calc(100dvh-2rem)]">
+        <div className="flex shrink-0 items-start justify-between gap-3 p-4 sm:p-6 short:p-3 border-b border-border">
           <div className="flex items-center gap-3">
             <div className="w-10 h-10 rounded-xl bg-primary/15 flex items-center justify-center shrink-0">
               <MessageSquarePlus className="w-5 h-5 text-primary" />
@@ -133,7 +136,7 @@ export function NewThreadDialog({ initialContext, about, onClose, onCreated }: P
           </button>
         </div>
 
-        <div className="p-4 sm:p-6 space-y-4">
+        <div className="min-h-0 flex-1 overflow-y-auto overscroll-contain p-4 sm:p-6 short:p-4 space-y-4">
           <div>
             <label className="text-xs font-semibold uppercase tracking-wider text-muted-foreground">
               {about ? "Who are you writing to?" : "Who are you asking?"}
@@ -158,7 +161,7 @@ export function NewThreadDialog({ initialContext, about, onClose, onCreated }: P
                     key={t.id}
                     type="button"
                     onClick={() => setTutorId(t.id)}
-                    className={`h-11 sm:h-9 px-3.5 rounded-lg border text-sm font-semibold transition ${
+                    className={`h-11 sm:pointer-fine:h-9 px-3.5 rounded-lg border text-sm font-semibold transition ${
                       tutorId === t.id
                         ? "border-primary bg-primary/10"
                         : "border-border text-muted-foreground hover:border-primary/40"
@@ -225,17 +228,17 @@ export function NewThreadDialog({ initialContext, about, onClose, onCreated }: P
           </div>
         </div>
 
-        <div className="flex justify-end gap-2 p-4 sm:p-6 border-t border-border">
+        <div className="flex shrink-0 justify-end gap-2 p-4 sm:p-6 short:p-3 border-t border-border">
           <button
             onClick={onClose}
-            className="h-11 sm:h-10 px-4 rounded-lg border border-border text-sm font-semibold hover:bg-muted"
+            className="h-11 sm:pointer-fine:h-10 px-4 rounded-lg border border-border text-sm font-semibold hover:bg-muted"
           >
             Cancel
           </button>
           <button
             onClick={submit}
             disabled={!canSend || start.isPending}
-            className="btn-premium h-11 sm:h-10 px-4 rounded-lg text-sm font-semibold inline-flex items-center gap-2 disabled:opacity-50"
+            className="btn-premium h-11 sm:pointer-fine:h-10 px-4 rounded-lg text-sm font-semibold inline-flex items-center gap-2 disabled:opacity-50"
           >
             {start.isPending && <Loader2 className="w-4 h-4 animate-spin" />}{" "}
             {about ? "Send message" : "Send question"}

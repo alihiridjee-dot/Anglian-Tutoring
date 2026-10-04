@@ -2,7 +2,7 @@ import { ErrorNote, Spinner } from "@/components/Shared";
 import { useEffect, useRef, useState } from "react";
 import { Link } from "@tanstack/react-router";
 import { useInView } from "motion/react";
-import { ExternalLink, Loader2, Send, Sparkles, Trash2 } from "lucide-react";
+import { ArrowLeft, ExternalLink, Loader2, Send, Sparkles, Trash2 } from "lucide-react";
 import { toast } from "sonner";
 import {
   useChatMessages,
@@ -22,6 +22,12 @@ interface Props {
   viewerId: string;
   /** Tutors get the AI draft button; students never do. */
   isTutor: boolean;
+  /**
+   * Back to the list. Shown in the title row only on a phone turned sideways,
+   * where the pane takes the whole screen (`.thread-sideways`) and the page's
+   * own "All conversations" row would cost another 44px of a 390px screen.
+   */
+  onBack?: () => void;
 }
 
 /**
@@ -34,7 +40,7 @@ interface Props {
  * they're paying for; an autoresponder wearing the tutor's name would be a
  * different (and worse) thing.
  */
-export function ThreadView({ thread, viewerId, isTutor }: Props) {
+export function ThreadView({ thread, viewerId, isTutor, onBack }: Props) {
   const { data: messages = EMPTY_MESSAGES, isPending, error, refetch } = useChatMessages(thread.id);
   const send = useSendMessage();
   const markRead = useMarkThreadRead();
@@ -135,7 +141,18 @@ export function ThreadView({ thread, viewerId, isTutor }: Props) {
 
   return (
     <div className="flex h-full min-h-0 flex-col">
-      <div className="flex flex-wrap items-start gap-3 border-b border-border px-4 py-4 sm:px-5">
+      <div className="flex flex-wrap items-start gap-3 border-b border-border px-4 py-4 sm:px-5 short:items-center short:py-2">
+        {onBack && (
+          <button
+            type="button"
+            onClick={onBack}
+            aria-label="All conversations"
+            title="All conversations"
+            className="btn-ghost hidden size-11 shrink-0 cursor-pointer items-center justify-center rounded-xl max-lg:short:inline-flex"
+          >
+            <ArrowLeft className="size-4" aria-hidden />
+          </button>
+        )}
         <div className="min-w-0 flex-1">
           <h2 className="font-display text-base font-bold leading-tight">{thread.subject_line}</h2>
           <div className="mt-1 flex flex-wrap items-center gap-2 text-xs text-muted-foreground">
@@ -164,7 +181,7 @@ export function ThreadView({ thread, viewerId, isTutor }: Props) {
               type="button"
               onClick={() => setConfirmingDelete(false)}
               disabled={remove.isPending}
-              className="h-11 sm:h-9 rounded-lg border border-border px-3 text-sm font-semibold hover:bg-muted disabled:opacity-50"
+              className="h-11 sm:pointer-fine:h-9 rounded-lg border border-border px-3 text-sm font-semibold hover:bg-muted disabled:opacity-50"
             >
               Cancel
             </button>
@@ -172,7 +189,7 @@ export function ThreadView({ thread, viewerId, isTutor }: Props) {
               type="button"
               onClick={deleteThread}
               disabled={remove.isPending}
-              className="inline-flex h-11 sm:h-9 items-center gap-1.5 rounded-lg bg-destructive px-3 text-sm font-semibold text-destructive-foreground hover:opacity-90 disabled:opacity-50"
+              className="inline-flex h-11 sm:pointer-fine:h-9 items-center gap-1.5 rounded-lg bg-destructive px-3 text-sm font-semibold text-destructive-foreground hover:opacity-90 disabled:opacity-50"
             >
               {remove.isPending ? (
                 <Loader2 className="h-4 w-4 animate-spin" />
@@ -188,14 +205,17 @@ export function ThreadView({ thread, viewerId, isTutor }: Props) {
             onClick={() => setConfirmingDelete(true)}
             aria-label="Delete conversation"
             title="Delete conversation"
-            className="inline-flex size-11 sm:size-9 shrink-0 items-center justify-center rounded-lg text-muted-foreground transition hover:bg-destructive/10 hover:text-destructive"
+            className="inline-flex size-11 sm:pointer-fine:size-9 shrink-0 items-center justify-center rounded-lg text-muted-foreground transition hover:bg-destructive/10 hover:text-destructive"
           >
             <Trash2 className="h-4 w-4" />
           </button>
         )}
       </div>
 
-      <div ref={scrollRef} className="min-h-0 flex-1 space-y-3 overflow-y-auto px-4 py-4 sm:px-5">
+      <div
+        ref={scrollRef}
+        className="min-h-0 flex-1 space-y-3 overflow-y-auto overscroll-contain px-4 py-4 sm:px-5"
+      >
         {isPending ? (
           <Spinner className="py-10" />
         ) : error && messages.length === 0 ? (
@@ -231,7 +251,9 @@ export function ThreadView({ thread, viewerId, isTutor }: Props) {
         <div ref={endRef} />
       </div>
 
-      <div className="border-t border-border p-4">
+      {/* On a phone turned sideways the typing box is one line, like a chat
+          app's, so the messages keep most of the screen. It still scrolls. */}
+      <div className="border-t border-border p-4 short:p-2">
         {/* The draft prompt is written for answering a student's question, so a
             parent's thread doesn't offer it. */}
         {isTutor && !thread.about_student_id && (
@@ -240,7 +262,7 @@ export function ThreadView({ thread, viewerId, isTutor }: Props) {
               type="button"
               onClick={draft}
               disabled={drafting || messages.length === 0}
-              className="inline-flex items-center gap-1.5 h-11 sm:h-8 px-3 rounded-lg border border-border text-xs font-semibold hover:bg-muted disabled:opacity-50"
+              className="inline-flex items-center gap-1.5 h-11 sm:pointer-fine:h-8 px-3 rounded-lg border border-border text-xs font-semibold hover:bg-muted disabled:opacity-50"
             >
               {drafting ? (
                 <Loader2 className="h-3.5 w-3.5 animate-spin" />
@@ -272,7 +294,7 @@ export function ThreadView({ thread, viewerId, isTutor }: Props) {
             rows={3}
             placeholder={isTutor ? "Write your reply…" : "Write a message…"}
             aria-label={isTutor ? "Your reply" : "Your message"}
-            className="flex-1 rounded-xl border border-border bg-background p-3 text-sm transition focus:outline-none focus:border-primary focus:ring-4 focus:ring-primary/15"
+            className="flex-1 rounded-xl border border-border bg-background p-3 text-sm transition focus:outline-none focus:border-primary focus:ring-4 focus:ring-primary/15 short:h-12 short:resize-none"
           />
           <button
             type="button"

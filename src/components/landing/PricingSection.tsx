@@ -227,7 +227,7 @@ export function PricingSection() {
                   <button
                     type="button"
                     onClick={() => window.setTimeout(() => setOpenStep(1), 40)}
-                    className="mt-4 w-full min-h-11 rounded-xl bg-primary py-2.5 text-sm font-semibold text-white transition-colors sm:min-h-0"
+                    className="mt-4 w-full min-h-11 rounded-xl bg-primary py-2.5 text-sm font-semibold text-white transition-colors sm:pointer-fine:min-h-0"
                   >
                     Continue
                   </button>
@@ -290,7 +290,7 @@ export function PricingSection() {
               <button
                 type="button"
                 onClick={() => setOpenStep(2)}
-                className="mt-4 w-full min-h-11 rounded-xl bg-primary py-2.5 text-sm font-semibold text-white transition-colors sm:min-h-0"
+                className="mt-4 w-full min-h-11 rounded-xl bg-primary py-2.5 text-sm font-semibold text-white transition-colors sm:pointer-fine:min-h-0"
               >
                 Continue
               </button>
@@ -459,7 +459,7 @@ function PricingTiers({
                     board,
                   } as never
                 }
-                className={`mt-3 flex min-h-11 items-center justify-center rounded-xl py-2.5 text-center text-sm font-bold transition-all duration-200 sm:min-h-0 ${
+                className={`mt-3 flex min-h-11 items-center justify-center rounded-xl py-2.5 text-center text-sm font-bold transition-all duration-200 sm:pointer-fine:min-h-0 ${
                   dark
                     ? "bg-white text-[var(--primary-deep)] hover:bg-white/90 shadow-lg"
                     : "btn-solid hover:bg-[var(--primary-deep)]"
@@ -563,7 +563,7 @@ function Slider({
           key={o.value}
           type="button"
           onClick={() => onChange(o.value)}
-          className={`relative z-10 min-h-11 flex-1 rounded-full px-2 py-2 text-sm leading-tight font-semibold transition-colors duration-200 sm:min-h-0 sm:px-3 ${
+          className={`relative z-10 min-h-11 flex-1 rounded-full px-2 py-2 text-sm leading-tight font-semibold transition-colors duration-200 sm:pointer-fine:min-h-0 sm:px-3 ${
             value === o.value
               ? "text-[var(--primary-deep)]"
               : "text-muted-foreground hover:text-foreground"

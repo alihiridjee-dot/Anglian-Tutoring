@@ -141,7 +141,7 @@ function TargetPicker({
           },
         );
       }}
-      className="premium-input h-11 cursor-pointer rounded-full px-3.5 text-sm font-bold sm:h-9"
+      className="premium-input h-11 cursor-pointer rounded-full px-3.5 text-sm font-bold sm:pointer-fine:h-9"
     >
       <option value="">Set target</option>
       {/* Nobody aims for a U. */}

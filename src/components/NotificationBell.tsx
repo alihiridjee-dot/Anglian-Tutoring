@@ -81,7 +81,7 @@ export function NotificationBell() {
           if (!open) load();
         }}
         aria-label={unread > 0 ? `Notifications (${unread} unread)` : "Notifications"}
-        className="relative size-11 sm:size-9 rounded-lg border border-border hover:bg-muted flex items-center justify-center cursor-pointer"
+        className="relative size-11 sm:pointer-fine:size-9 rounded-lg border border-border hover:bg-muted flex items-center justify-center cursor-pointer"
       >
         <Bell className="w-4 h-4" />
         {unread > 0 && (

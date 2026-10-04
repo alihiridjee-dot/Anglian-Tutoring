@@ -99,7 +99,7 @@ export function TutorFeedbackEditor({
                 key={m}
                 type="button"
                 onClick={() => setMode(m)}
-                className={`h-11 sm:h-7 px-3 rounded-md text-xs font-semibold transition ${
+                className={`h-11 sm:pointer-fine:h-7 px-3 rounded-md text-xs font-semibold transition ${
                   mode === m ? "btn-solid" : "text-muted-foreground hover:text-foreground"
                 }`}
               >
@@ -122,7 +122,7 @@ export function TutorFeedbackEditor({
           type="button"
           onClick={draftWithAI}
           disabled={drafting || !!busy}
-          className="inline-flex items-center gap-1.5 h-11 sm:h-7 px-2.5 rounded-lg border border-primary/30 bg-primary/5 text-primary text-[11px] font-semibold hover:bg-primary/10 disabled:opacity-50"
+          className="inline-flex items-center gap-1.5 h-11 sm:pointer-fine:h-7 px-2.5 rounded-lg border border-primary/30 bg-primary/5 text-primary text-[11px] font-semibold hover:bg-primary/10 disabled:opacity-50"
           title="Draft feedback from this week's task and quiz marks"
         >
           {drafting ? (
@@ -148,7 +148,7 @@ export function TutorFeedbackEditor({
           type="button"
           onClick={saveNote}
           disabled={!!busy || drafting}
-          className="inline-flex items-center gap-1.5 h-11 sm:h-9 px-3.5 rounded-lg btn-solid text-sm font-semibold hover:opacity-90 disabled:opacity-50"
+          className="inline-flex items-center gap-1.5 h-11 sm:pointer-fine:h-9 px-3.5 rounded-lg btn-solid text-sm font-semibold hover:opacity-90 disabled:opacity-50"
         >
           {busy === "save" ? (
             <Loader2 className="w-4 h-4 animate-spin" />
@@ -244,7 +244,7 @@ export function NextWeekAssigner({
           type="button"
           onClick={applyToNextWeek}
           disabled={!!busy}
-          className="inline-flex items-center gap-1.5 h-11 sm:h-9 px-3.5 rounded-lg btn-solid text-sm font-semibold hover:opacity-90 disabled:opacity-50"
+          className="inline-flex items-center gap-1.5 h-11 sm:pointer-fine:h-9 px-3.5 rounded-lg btn-solid text-sm font-semibold hover:opacity-90 disabled:opacity-50"
         >
           {busy === "apply" ? (
             <Loader2 className="w-4 h-4 animate-spin" />

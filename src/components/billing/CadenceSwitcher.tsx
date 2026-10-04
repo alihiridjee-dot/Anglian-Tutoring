@@ -188,7 +188,7 @@ export function CadenceSwitcher({
                 <button
                   onClick={() => (currentTier ? setPending(c.key) : buy(c.key))}
                   disabled={buying !== null || change.isPending}
-                  className="h-11 sm:h-9 px-3.5 rounded-lg btn-solid text-sm font-semibold hover:opacity-90 disabled:opacity-50 shrink-0 inline-flex items-center gap-1.5"
+                  className="h-11 sm:pointer-fine:h-9 px-3.5 rounded-lg btn-solid text-sm font-semibold hover:opacity-90 disabled:opacity-50 shrink-0 inline-flex items-center gap-1.5"
                 >
                   {buying === c.key && <Loader2 className="w-4 h-4 animate-spin" />}
                   {currentTier ? "Switch" : "Choose"}

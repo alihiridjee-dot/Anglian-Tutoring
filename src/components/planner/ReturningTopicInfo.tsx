@@ -98,7 +98,7 @@ export function ReturningTopicInfo({
                 {onOriginalWeek && (
                   <button
                     type="button"
-                    className="btn-premium rounded-lg px-2.5 py-1.5 min-h-11 sm:min-h-0 text-xs inline-flex items-center gap-1.5"
+                    className="btn-premium rounded-lg px-2.5 py-1.5 min-h-11 sm:pointer-fine:min-h-0 text-xs inline-flex items-center gap-1.5"
                     onClick={() => {
                       setOpen(false);
 

@@ -41,7 +41,7 @@ export function ParentMessages({ childId, childName }: { childId: string; childN
         <button
           type="button"
           onClick={() => setComposing(true)}
-          className="btn-solid inline-flex h-11 items-center sm:h-9 gap-1.5 rounded-lg px-3.5 text-sm font-semibold"
+          className="btn-solid inline-flex h-11 items-center sm:pointer-fine:h-9 gap-1.5 rounded-lg px-3.5 text-sm font-semibold"
         >
           <MessageSquarePlus className="size-4" aria-hidden /> Message a tutor
         </button>
@@ -69,19 +69,26 @@ export function ParentMessages({ childId, childName }: { childId: string; childN
                 showCounterpart
               />
             </div>
+            {/* A fixed 448px box is taller than a phone turned sideways, so
+                open there it takes the whole screen like the student's does. */}
             <div
-              className={`pop-card pop-card-flat flex h-[28rem] min-h-0 flex-col overflow-hidden ${threadOpen ? "" : "max-lg:hidden"}`}
+              className={`pop-card pop-card-flat flex h-[28rem] min-h-0 flex-col overflow-hidden ${threadOpen ? "thread-sideways" : "max-lg:hidden"}`}
             >
               <button
                 type="button"
                 onClick={() => setThreadOpen(false)}
-                className="border-border text-muted-foreground hover:text-foreground inline-flex min-h-11 items-center gap-2 border-b px-4 text-sm font-semibold lg:hidden"
+                className="border-border text-muted-foreground hover:text-foreground inline-flex min-h-11 items-center gap-2 border-b px-4 text-sm font-semibold lg:hidden short:hidden"
               >
                 <ArrowLeft className="size-4" aria-hidden /> All conversations
               </button>
               <div className="min-h-0 flex-1">
                 {selected && userId && (
-                  <ThreadView thread={selected} viewerId={userId} isTutor={false} />
+                  <ThreadView
+                    thread={selected}
+                    viewerId={userId}
+                    isTutor={false}
+                    onBack={() => setThreadOpen(false)}
+                  />
                 )}
               </div>
             </div>

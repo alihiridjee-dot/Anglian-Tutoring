@@ -228,7 +228,7 @@ export function TakeMcq() {
   const back = (
     <Link
       to={backTo}
-      className="mt-4 inline-flex min-h-11 items-center text-sm text-primary hover:underline sm:min-h-0"
+      className="mt-4 inline-flex min-h-11 items-center text-sm text-primary hover:underline sm:pointer-fine:min-h-0"
     >
       ← Back to curriculum
     </Link>
@@ -299,7 +299,7 @@ export function TakeMcq() {
                         key={i}
                         disabled={submitted}
                         onClick={() => choose(q.id, i)}
-                        className={`w-full min-h-11 text-left px-4 py-2.5 rounded-lg border text-sm break-words transition sm:min-h-0 ${
+                        className={`w-full min-h-11 text-left px-4 py-2.5 rounded-lg border text-sm break-words transition sm:pointer-fine:min-h-0 ${
                           isCorrect
                             ? "bg-primary/15 border-primary text-foreground"
                             : isWrong

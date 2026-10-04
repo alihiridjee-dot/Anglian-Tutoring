@@ -117,7 +117,7 @@ export function TrialOfferPopup() {
         <button
           type="button"
           onClick={close}
-          className="absolute top-2 right-2 sm:top-4 sm:right-4 size-11 sm:size-8 rounded-lg hover:bg-muted flex items-center justify-center"
+          className="absolute top-2 right-2 sm:top-4 sm:right-4 size-11 sm:pointer-fine:size-8 rounded-lg hover:bg-muted flex items-center justify-center"
           aria-label="Close"
         >
           <X className="w-4 h-4" />

@@ -14,7 +14,7 @@ export function AddSubjectsLink({ lockedSubjects }: { lockedSubjects: readonly S
   return (
     <Link
       to="/billing"
-      className="mt-3 inline-flex items-center gap-1.5 min-h-11 sm:min-h-0 text-xs font-semibold text-primary hover:underline"
+      className="mt-3 inline-flex items-center gap-1.5 min-h-11 sm:pointer-fine:min-h-0 text-xs font-semibold text-primary hover:underline"
     >
       <Sparkles className="w-3.5 h-3.5" />
       Add {lockedSubjects.map((s) => labelOf(SUBJECTS, s)).join(" & ")} to your plan
@@ -39,7 +39,7 @@ export function Filter<T extends string>({
         {label}
       </label>
       <select
-        className={inputCls + " h-10 min-h-11 sm:min-h-0 mt-1"}
+        className={inputCls + " h-10 min-h-11 sm:pointer-fine:min-h-0 mt-1"}
         value={value}
         onChange={(e) => onChange(e.target.value as T)}
       >

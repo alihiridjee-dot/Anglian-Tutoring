@@ -173,7 +173,7 @@ function LibraryRow({
               type="button"
               onClick={remove}
               disabled={deleting}
-              className="bg-destructive inline-flex h-11 sm:h-7 items-center gap-1 rounded-md px-2.5 text-xs font-semibold text-white hover:opacity-90 disabled:opacity-60"
+              className="bg-destructive inline-flex h-11 sm:pointer-fine:h-7 items-center gap-1 rounded-md px-2.5 text-xs font-semibold text-white hover:opacity-90 disabled:opacity-60"
             >
               <Trash2 className="size-3" />
               {deleting ? "Deleting…" : "Delete"}
@@ -182,7 +182,7 @@ function LibraryRow({
               type="button"
               onClick={() => setConfirming(false)}
               disabled={deleting}
-              className="border-border hover:bg-muted/50 h-11 sm:h-7 rounded-md border px-2.5 text-xs font-medium disabled:opacity-60"
+              className="border-border hover:bg-muted/50 h-11 sm:pointer-fine:h-7 rounded-md border px-2.5 text-xs font-medium disabled:opacity-60"
             >
               Cancel
             </button>
@@ -192,7 +192,7 @@ function LibraryRow({
             <Link
               to="/homework/$homeworkId"
               params={{ homeworkId: hw.id }}
-              className="text-muted-foreground hover:text-foreground inline-flex min-h-11 sm:min-h-0 items-center gap-1 text-xs"
+              className="text-muted-foreground hover:text-foreground inline-flex min-h-11 sm:pointer-fine:min-h-0 items-center gap-1 text-xs"
             >
               <Eye className="size-3.5" />
               Preview
@@ -200,7 +200,7 @@ function LibraryRow({
             <button
               type="button"
               onClick={() => setEditing((e) => !e)}
-              className="text-muted-foreground hover:text-foreground inline-flex min-h-11 sm:min-h-0 items-center gap-1 text-xs"
+              className="text-muted-foreground hover:text-foreground inline-flex min-h-11 sm:pointer-fine:min-h-0 items-center gap-1 text-xs"
             >
               <Pencil className="size-3.5" />
               {editing ? "Close" : "Edit"}
@@ -208,7 +208,7 @@ function LibraryRow({
             <button
               type="button"
               onClick={() => setConfirming(true)}
-              className="text-muted-foreground hover:text-destructive inline-flex min-h-11 sm:min-h-0 items-center gap-1 text-xs"
+              className="text-muted-foreground hover:text-destructive inline-flex min-h-11 sm:pointer-fine:min-h-0 items-center gap-1 text-xs"
             >
               <Trash2 className="size-3.5" />
               Delete

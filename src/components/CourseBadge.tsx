@@ -69,7 +69,9 @@ export function CourseBadge({ followsSlider = false }: { followsSlider?: boolean
     <Link
       to="/billing"
       title={title ? `${headline} — ${title}` : headline}
-      className="hidden sm:inline-flex rounded-full transition hover:opacity-80"
+      // Off on a phone either way up: upright there's no room beside the title,
+      // and sideways the header has to stay one row (see AppLayout).
+      className="hidden sm:inline-flex short:hidden rounded-full transition hover:opacity-80"
     >
       <CourseChip icon parts={[levelLabel, ...(active ? [active.boardLabel] : boardLabels)]} />
     </Link>

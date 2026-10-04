@@ -174,7 +174,7 @@ function BackLink() {
   return (
     <Link
       to={isDemoStudent() ? "/demo/student/homework" : "/homework"}
-      className="text-muted-foreground hover:text-foreground inline-flex min-h-11 items-center gap-1.5 text-sm font-semibold sm:min-h-0"
+      className="text-muted-foreground hover:text-foreground inline-flex min-h-11 items-center gap-1.5 text-sm font-semibold sm:pointer-fine:min-h-0"
     >
       <ArrowLeft className="size-4" aria-hidden />
       All tasks
@@ -266,7 +266,7 @@ function AcknowledgeFeedback({
       <button
         onClick={acknowledge}
         disabled={saving}
-        className="btn-solid inline-flex h-11 shrink-0 items-center gap-2 rounded-lg px-4 text-sm font-semibold disabled:opacity-60 sm:h-9"
+        className="btn-solid inline-flex h-11 shrink-0 items-center gap-2 rounded-lg px-4 text-sm font-semibold disabled:opacity-60 sm:pointer-fine:h-9"
       >
         <CheckCircle2 className="size-4" />
         {saving ? "Acknowledging…" : "Acknowledge"}

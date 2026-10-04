@@ -127,7 +127,7 @@ export function CancelPlanDialog({
           </div>
           <button
             onClick={onClose}
-            className="size-11 sm:size-8 rounded-lg hover:bg-muted flex items-center justify-center shrink-0"
+            className="size-11 sm:pointer-fine:size-8 rounded-lg hover:bg-muted flex items-center justify-center shrink-0"
             aria-label="Close"
           >
             <X className="w-4 h-4" />
@@ -252,7 +252,7 @@ export function CancelPlanDialog({
                   id="cancel-reason"
                   value={category}
                   onChange={(e) => setCategory(e.target.value)}
-                  className="w-full min-h-11 rounded-lg border border-border bg-background p-2.5 text-sm sm:min-h-0"
+                  className="w-full min-h-11 rounded-lg border border-border bg-background p-2.5 text-sm sm:pointer-fine:min-h-0"
                 >
                   <option value="">Choose a reason…</option>
                   {BILLING_FEEDBACK_REASONS.map((r) => (
@@ -316,7 +316,7 @@ export function CancelPlanDialog({
               <button
                 onClick={back}
                 disabled={pending}
-                className="h-11 sm:h-10 px-3 rounded-lg border border-border text-sm font-semibold hover:bg-muted disabled:opacity-50 inline-flex items-center gap-1.5"
+                className="h-11 sm:pointer-fine:h-10 px-3 rounded-lg border border-border text-sm font-semibold hover:bg-muted disabled:opacity-50 inline-flex items-center gap-1.5"
               >
                 <ArrowLeft className="w-4 h-4" /> Back
               </button>
@@ -324,7 +324,7 @@ export function CancelPlanDialog({
             <button
               onClick={onClose}
               disabled={pending}
-              className="flex-1 h-11 sm:h-10 px-4 rounded-lg btn-solid text-sm font-semibold hover:opacity-90 disabled:opacity-50"
+              className="flex-1 h-11 sm:pointer-fine:h-10 px-4 rounded-lg btn-solid text-sm font-semibold hover:opacity-90 disabled:opacity-50"
             >
               Keep my plan
             </button>
@@ -332,7 +332,7 @@ export function CancelPlanDialog({
               <button
                 onClick={() => onConfirm(category, comment)}
                 disabled={typed.trim().toUpperCase() !== CONFIRM_WORD || pending}
-                className="h-11 sm:h-10 px-4 rounded-lg bg-rose-600 text-white text-sm font-semibold hover:opacity-90 disabled:opacity-40 disabled:cursor-not-allowed inline-flex items-center justify-center gap-2"
+                className="h-11 sm:pointer-fine:h-10 px-4 rounded-lg bg-rose-600 text-white text-sm font-semibold hover:opacity-90 disabled:opacity-40 disabled:cursor-not-allowed inline-flex items-center justify-center gap-2"
               >
                 {pending && <Loader2 className="w-4 h-4 animate-spin" />}
                 Cancel plan
@@ -341,7 +341,7 @@ export function CancelPlanDialog({
               <button
                 onClick={next}
                 disabled={step === "reason" && !category}
-                className="h-11 sm:h-10 px-4 rounded-lg border border-rose-200 text-rose-600 text-sm font-semibold hover:bg-rose-50 disabled:opacity-40 disabled:cursor-not-allowed"
+                className="h-11 sm:pointer-fine:h-10 px-4 rounded-lg border border-rose-200 text-rose-600 text-sm font-semibold hover:bg-rose-50 disabled:opacity-40 disabled:cursor-not-allowed"
               >
                 Continue
               </button>

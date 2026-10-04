@@ -58,7 +58,7 @@ export function StudentHomework({ studentId }: { studentId: string }) {
           <SectionHeading title="Submissions">
             <Link
               to="/tutor"
-              className="btn-soft inline-flex h-11 sm:h-9 items-center rounded-lg px-3 text-xs font-semibold"
+              className="btn-soft inline-flex h-11 sm:pointer-fine:h-9 items-center rounded-lg px-3 text-xs font-semibold"
             >
               Open marking queue
             </Link>

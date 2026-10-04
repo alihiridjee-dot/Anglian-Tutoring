@@ -181,7 +181,7 @@ function SpecPointCreate({ topicId, onCreated }: { topicId: string; onCreated: (
     return (
       <button
         onClick={() => setOpen(true)}
-        className="w-full h-11 sm:h-10 border border-dashed border-border rounded-xl flex items-center justify-center gap-1.5 text-xs font-semibold hover:border-primary/50 text-muted-foreground hover:text-primary transition"
+        className="w-full h-11 sm:pointer-fine:h-10 border border-dashed border-border rounded-xl flex items-center justify-center gap-1.5 text-xs font-semibold hover:border-primary/50 text-muted-foreground hover:text-primary transition"
       >
         <Plus className="w-3.5 h-3.5" /> Add Specification Point
       </button>
@@ -231,13 +231,13 @@ function SpecPointCreate({ topicId, onCreated }: { topicId: string; onCreated: (
         <button
           type="button"
           onClick={() => setOpen(false)}
-          className="h-11 sm:h-8 px-3 rounded-md text-xs hover:bg-secondary border border-border"
+          className="h-11 sm:pointer-fine:h-8 px-3 rounded-md text-xs hover:bg-secondary border border-border"
         >
           Cancel
         </button>
         <button
           type="submit"
-          className="h-11 sm:h-8 px-3 rounded-md text-xs btn-solid font-semibold"
+          className="h-11 sm:pointer-fine:h-8 px-3 rounded-md text-xs btn-solid font-semibold"
         >
           Add Point
         </button>
