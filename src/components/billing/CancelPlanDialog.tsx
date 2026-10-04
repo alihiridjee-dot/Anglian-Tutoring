@@ -167,16 +167,18 @@ export function CancelPlanDialog({
                   </span>
                 </li>
                 <li className="flex gap-2.5">
-                  <Check className="w-4 h-4 text-emerald-600 shrink-0 mt-0.5" />
+                  <AlertTriangle className="w-4 h-4 text-rose-600 shrink-0 mt-0.5" />
                   <span>
-                    Progress, marks and revision history are <strong>kept</strong>, not deleted.
+                    After that date {whose} lessons, quizzes, task marking and revision planner lock
+                    {subjectLabels.length ? ` for ${subjectLabels.join(" and ")}` : ""}.
                   </span>
                 </li>
                 <li className="flex gap-2.5">
                   <AlertTriangle className="w-4 h-4 text-rose-600 shrink-0 mt-0.5" />
                   <span>
-                    After that date {whose} lessons, quizzes, task marking and revision planner lock
-                    {subjectLabels.length ? ` for ${subjectLabels.join(" and ")}` : ""}.
+                    {Whose} progress, marks and revision history are kept for{" "}
+                    <strong>7 days</strong> after that date, then <strong>deleted</strong> for good.
+                    Restart in that time and nothing is lost.
                   </span>
                 </li>
                 <li className="flex gap-2.5">

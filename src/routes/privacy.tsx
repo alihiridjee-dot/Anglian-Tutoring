@@ -277,7 +277,14 @@ function PrivacyPage() {
         <Section title="How long we keep it">
           <ul className="list-disc space-y-2 pl-5">
             <li>
-              <strong>Accounts and learning records:</strong> for as long as the account is open.
+              <strong>Accounts:</strong> for as long as the account is open.
+            </li>
+            <li>
+              <strong>Learning records</strong> (plans, quiz and task results, marks, revision
+              history and tutor notes): kept while a plan is active or paused. Pausing, or a payment
+              that hasn&apos;t gone through, never deletes anything. If a plan is cancelled,
+              they&apos;re permanently deleted 7 days after it ends, and removing a subject does the
+              same for that subject. Coming back within the 7 days keeps everything.
             </li>
             <li>
               <strong>Deleting an account:</strong> email us to ask. There&apos;s then a 7-day
