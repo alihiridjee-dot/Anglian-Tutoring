@@ -1,4 +1,4 @@
-import { useCallback, useEffect, useRef, useState } from "react";
+import { useCallback, useEffect, useLayoutEffect, useRef, useState } from "react";
 import { Link } from "@tanstack/react-router";
 import { Bell, Check } from "lucide-react";
 import { supabase } from "@/integrations/supabase/client";
@@ -30,6 +30,11 @@ export function NotificationBell() {
   const [loadError, setLoadError] = useState<Error | null>(null);
   const [open, setOpen] = useState(false);
   const ref = useRef<HTMLDivElement>(null);
+  const panelRef = useRef<HTMLDivElement>(null);
+  // How far the panel slides right of the bell. On a phone the header wraps and
+  // the bell sits near the left edge, so a panel hung from its right edge would
+  // run off the screen; this keeps it 1rem (the header's gutter) inside.
+  const [shift, setShift] = useState(0);
 
   const load = useCallback(async () => {
     // The demo platform is a self-contained showcase — never read real rows.
@@ -59,6 +64,18 @@ export function NotificationBell() {
     };
     document.addEventListener("mousedown", onDown);
     return () => document.removeEventListener("mousedown", onDown);
+  }, [open]);
+
+  useLayoutEffect(() => {
+    if (!open) return;
+    const place = () => {
+      if (!ref.current || !panelRef.current) return;
+      const left = ref.current.getBoundingClientRect().right - panelRef.current.offsetWidth;
+      setShift(Math.max(0, 16 - left));
+    };
+    place();
+    window.addEventListener("resize", place);
+    return () => window.removeEventListener("resize", place);
   }, [open]);
 
   const unread = items.filter((n) => !n.read_at).length;
@@ -92,7 +109,11 @@ export function NotificationBell() {
       </button>
 
       {open && (
-        <div className="absolute right-0 top-12 sm:top-11 w-[min(20rem,calc(100vw-2rem))] max-h-[min(24rem,70dvh)] overflow-auto rounded-xl premium-card shadow-xl z-50">
+        <div
+          ref={panelRef}
+          style={{ right: -shift }}
+          className="absolute top-12 sm:top-11 w-[min(20rem,calc(100vw-2rem))] max-h-[min(24rem,70dvh)] overflow-auto rounded-xl premium-card shadow-xl z-50"
+        >
           <div className="flex items-center justify-between px-4 py-3 border-b border-border sticky top-0 bg-card">
             <span className="text-sm font-semibold">Notifications</span>
             {unread > 0 && (

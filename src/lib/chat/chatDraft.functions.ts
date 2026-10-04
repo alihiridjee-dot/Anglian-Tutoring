@@ -20,7 +20,7 @@ import { requireSupabaseAuth } from "@/integrations/supabase/auth-middleware";
  * key exists only on the server.
  */
 
-const MODEL = "claude-sonnet-5";
+const MODEL = "claude-sonnet-5-5";
 
 /** Enough of the conversation for a useful answer, without sending everything. */
 const HISTORY_LIMIT = 12;
