@@ -13,7 +13,7 @@ import {
   type McqQuestion,
 } from "./examGeneration";
 
-const MODEL = "claude-sonnet-5";
+const MODEL = "claude-sonnet-5-5";
 
 /**
  * Privileged calls stay server-only; no public endpoint exposes the source library.
@@ -95,7 +95,7 @@ export async function generateExamQuestions(
   try {
     response = await client.messages.create({
       model: MODEL,
-      // Sonnet 5 thinks before answering, and that thinking counts against this
+      // Sonnet 5.5 thinks before answering, and that thinking counts against this
       // ceiling: a per-question estimate left an 8-question set ~400 tokens for
       // the JSON itself. Only tokens actually produced are billed.
       max_tokens: 16000,
