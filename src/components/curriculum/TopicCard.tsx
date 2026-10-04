@@ -94,7 +94,10 @@ export function TopicCard({
               {topic.code}
             </span>
           )}
-          <span className="font-display font-bold truncate min-w-0 flex-1 sm:flex-initial">
+          {/* Wraps rather than truncates: a topic's name is what a student
+              scans the list for, and "Topic 4: Natural selection and genetic m…"
+              cut it off on every phone. */}
+          <span className="font-display font-bold break-words min-w-0 flex-1 sm:flex-initial">
             {topic.title}
           </span>
           {coverage ? <TopicCoverage {...coverage} /> : scheduleLoading && <TopicCoverageLoading />}

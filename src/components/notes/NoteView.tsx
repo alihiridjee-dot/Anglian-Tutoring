@@ -2,6 +2,7 @@ import { useMemo, useState, type ReactNode } from "react";
 import { evaluate, parseFormula } from "@/lib/notes/formula";
 import { Explorer, Practice, Punnett, Sequence, Sort } from "@/components/notes/NoteInteractives";
 import { ParticlesScene, RoadScene, WaveScene } from "@/components/notes/NoteScenes";
+import { ZoomableFigure } from "@/components/notes/ZoomableFigure";
 import {
   CircuitView,
   DiffusionView,
@@ -128,13 +129,8 @@ function LineGraph({ d }: { d: LineGraphDiagram }) {
 
   return (
     <figure className="space-y-3">
-      <div className="-mx-1 overflow-x-auto px-1">
-        <svg
-          viewBox={`0 0 ${W} ${height}`}
-          className="w-full min-w-[520px]"
-          role="img"
-          aria-label={d.alt}
-        >
+      <ZoomableFigure label={d.alt} naturalWidth={W}>
+        <svg viewBox={`0 0 ${W} ${height}`} className="w-full" role="img" aria-label={d.alt}>
           <line
             x1={X0}
             y1={axisY}
@@ -274,7 +270,7 @@ function LineGraph({ d }: { d: LineGraphDiagram }) {
                 </text>
               ))}
         </svg>
-      </div>
+      </ZoomableFigure>
       <figcaption className="flex flex-wrap items-center gap-x-4 gap-y-2 text-sm font-bold">
         <span>
           {d.x.label}
