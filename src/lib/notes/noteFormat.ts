@@ -289,9 +289,9 @@ export interface WorkedExample {
 
 export interface BoardLayer {
   spec_codes: string[];
-  /** Phrases from this board's mark schemes, written as a student should write them. */
-  exam_phrases: string[];
-  mistakes: { wrong: string; right: string }[];
+  /** Legacy: no longer written or shown (the "Exam tips" section was removed). */
+  exam_phrases?: string[];
+  mistakes?: { wrong: string; right: string }[];
   worked_example?: WorkedExample;
   /** Board-only content that the shared note doesn't cover. */
   extra?: { heading: string; blocks: NoteBlock[] }[];
@@ -714,9 +714,6 @@ export function validateNote(n: unknown): string[] {
     }
     const l = note.boards[b as NoteBoard]!;
     if (!isStrArr(l.spec_codes)) errs.push(`boards.${b}: spec_codes required`);
-    if (!isStrArr(l.exam_phrases, 2)) errs.push(`boards.${b}: needs 2+ exam_phrases`);
-    if (!Array.isArray(l.mistakes) || !l.mistakes.every((m) => isStr(m?.wrong) && isStr(m?.right)))
-      errs.push(`boards.${b}: mistakes need wrong and right`);
     const w = l.worked_example;
     if (
       w &&

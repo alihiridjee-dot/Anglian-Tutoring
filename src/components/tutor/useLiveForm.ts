@@ -7,7 +7,6 @@ import { type SubjectV, type BoardV, type LevelV } from "@/lib/curriculum/taxono
 import { createZoomMeeting } from "@/lib/live/zoom.functions";
 import { scheduledInviteText } from "@/lib/live/whatsappShare";
 import { generateSessionBlurb } from "@/lib/live/sessionBlurb.functions";
-import { suggestSpecPoints } from "@/lib/curriculum/suggestSpecPoints.functions";
 
 export interface LiveFormProps {
   userId: string;
@@ -22,8 +21,8 @@ export interface LiveFormProps {
 }
 
 /**
- * Scheduling a live session: the fields, the three
- * assists (Zoom link, AI description, AI spec points) and the save itself.
+ * Scheduling a live session: the fields, the two
+ * assists (Zoom link, AI description) and the save itself.
  */
 export function useLiveForm({ taxonomy }: LiveFormProps) {
   const qc = useQueryClient();
@@ -34,14 +33,11 @@ export function useLiveForm({ taxonomy }: LiveFormProps) {
   // The meeting "Auto Zoom" made, so deleting the session can cancel it. A
   // pasted link's meeting belongs to whoever made it, and is never cancelled.
   const [zoomMeeting, setZoomMeeting] = useState<{ id: string; joinUrl: string } | null>(null);
-  const [specPointIds, setSpecPointIds] = useState<string[]>([]);
   const [loading, setLoading] = useState(false);
   const [generatingLink, setGeneratingLink] = useState(false);
   const [generatingBlurb, setGeneratingBlurb] = useState(false);
-  const [suggesting, setSuggesting] = useState(false);
   const [broadcastWhatsApp, setBroadcastWhatsApp] = useState(true);
   const genBlurb = useServerFn(generateSessionBlurb);
-  const suggestPoints = useServerFn(suggestSpecPoints);
 
   // Provisions a real Zoom meeting via the zoom-meeting edge function and drops
   // the returned join URL into the form. Needs a title and start time so the
@@ -68,11 +64,15 @@ export function useLiveForm({ taxonomy }: LiveFormProps) {
     }
   };
 
-  // Draft the "in this session we'll cover…" description with AI from the title
-  // and tagged spec points. Fills the (still editable) description field; the
+  // Draft the "in this session we'll cover…" description with AI from the title,
+  // subject and level. Fills the (still editable) description field; the
   // tutor can tweak it before scheduling, and it's what the student sees.
   const generateDescription = async (e: React.MouseEvent) => {
     e.preventDefault();
+    if (!title.trim()) {
+      toast.error("Add a title first, then let AI draft the description.");
+      return;
+    }
     setGeneratingBlurb(true);
     try {
       const { blurb } = await genBlurb({
@@ -81,7 +81,6 @@ export function useLiveForm({ taxonomy }: LiveFormProps) {
           level: taxonomy.level,
           board: taxonomy.board,
           title,
-          specPointIds,
         },
       });
       setDescription(blurb);
@@ -92,58 +91,15 @@ export function useLiveForm({ taxonomy }: LiveFormProps) {
     }
   };
 
-  // Ask the AI which spec points the session's title + description cover, then
-  // merge its picks into the current selection (union — never drops points the
-  // tutor added by hand). Candidates span all boards, so a broad theme gets its
-  // equivalent point under each board.
-  const suggestFromDescription = async (e: React.MouseEvent) => {
-    e.preventDefault();
-    if (!title.trim() && !description.trim()) {
-      toast.error("Add a title or description first, then let AI suggest spec points.");
-      return;
-    }
-    setSuggesting(true);
-    try {
-      const { specPointIds: suggested, count } = await suggestPoints({
-        data: {
-          subject: taxonomy.subject,
-          level: taxonomy.level,
-          title,
-          description,
-        },
-      });
-      if (count === 0) {
-        toast.info("No matching spec points found — try adding more detail to the description.");
-        return;
-      }
-      setSpecPointIds((prev) => [...new Set([...prev, ...suggested])]);
-      toast.success(`AI suggested ${count} spec point${count === 1 ? "" : "s"} — review below`);
-    } catch (err) {
-      toast.error(err instanceof Error ? err.message : "Could not suggest spec points.");
-    } finally {
-      setSuggesting(false);
-    }
-  };
-
   const submit = async (e: React.FormEvent) => {
     e.preventDefault();
-
-    // A live session must be tied to the curriculum it covers — spec points are
-    // required, not optional.
-    if (specPointIds.length === 0) {
-      return toast.error(
-        "Tag at least one spec point — a live session must cover some curriculum.",
-      );
-    }
 
     setLoading(true);
 
     const formattedStartsAt = new Date(startsAt).toISOString();
 
-    // The session and its curriculum links (resource_spec_points, many-to-many,
-    // so one session surfaces on every spec point it covers) are written in one
-    // transaction: a failed link no longer leaves a live session with no points
-    // for a retry to duplicate.
+    // A live session belongs to a subject and level only. It is not tagged to
+    // spec points, so it writes no resource_spec_points links.
     const { error } = await supabase.rpc("create_linked_resource", {
       _kind: "live_session",
       _title: title,
@@ -152,7 +108,7 @@ export function useLiveForm({ taxonomy }: LiveFormProps) {
       _level: taxonomy.level,
       // Live sessions are broad, board-agnostic themes (per subject + level).
       _board: null,
-      _spec_point_ids: specPointIds,
+      _spec_point_ids: [],
       _starts_at: formattedStartsAt,
       _join_url: joinUrl || null,
       // Only while the field still holds the link Auto Zoom made.
@@ -193,7 +149,6 @@ export function useLiveForm({ taxonomy }: LiveFormProps) {
     setStartsAt("");
     setJoinUrl("");
     setZoomMeeting(null);
-    setSpecPointIds([]);
   };
 
   return {
@@ -205,17 +160,13 @@ export function useLiveForm({ taxonomy }: LiveFormProps) {
     setStartsAt,
     joinUrl,
     setJoinUrl,
-    specPointIds,
-    setSpecPointIds,
     loading,
     generatingLink,
     generatingBlurb,
-    suggesting,
     broadcastWhatsApp,
     setBroadcastWhatsApp,
     generateZoomLink,
     generateDescription,
-    suggestFromDescription,
     submit,
   };
 }

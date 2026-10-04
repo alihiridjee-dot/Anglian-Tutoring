@@ -3,14 +3,13 @@ import { WeekBreakdown } from "./WeekBreakdown";
 import { FullPlanTimeline } from "./FullPlanTimeline";
 import { WithheldPlanPoints } from "./WithheldPlanPoints";
 import { ErrorNote, Meter } from "@/components/Shared";
-import { usePlannerRoadmap, usePlannerMemory } from "@/hooks/data/usePlanner";
+import { usePlannerRoadmap } from "@/hooks/data/usePlanner";
 import { ScheduleComparison } from "./ScheduleComparison";
 import { Spinner } from "@/components/Shared";
 import { useEffect, useMemo, useRef, useState, type ReactNode } from "react";
 import { toast } from "sonner";
 import {
   AlertTriangle,
-  Brain,
   CalendarDays,
   CheckCircle2,
   ChevronDown,
@@ -28,7 +27,7 @@ import {
 import { isTeachBand, type PacingBand } from "@/lib/planner/pacing";
 import { ProgramDAL, examDateBounds } from "@/lib/planner/programDal";
 import { type RoadmapResult } from "@/lib/planner/roadmap";
-import { ScheduleDAL, type MemoryStats, type TopicProgress } from "@/lib/planner/scheduleDal";
+import { ScheduleDAL, type TopicProgress } from "@/lib/planner/scheduleDal";
 import { type Enrolment } from "@/lib/profile/enrolment";
 import { type SubjectV, type BoardV, type LevelV } from "@/lib/curriculum/taxonomy";
 import {
@@ -62,8 +61,8 @@ const TABS: { key: TabKey; label: string; icon: typeof CalendarDays }[] = [
 
 /**
  * The whole student planner in one place: the subject from the header slider,
- * then three tabs. "This week" is the landing view — the one topic being taught,
- * anything to revisit, and how memory is holding. "Full plan" is the road to
+ * then three tabs. "This week" is the landing view — the one topic being taught
+ * and anything to revisit. "Full plan" is the road to
  * the exams. "My topics" is where the student reviews
  * what's been practised. Replaces the old four stacked panels, each of which
  * had its own subject tabs.
@@ -118,7 +117,6 @@ export function StudentPlanner({
     level,
   };
   const roadQuery = usePlannerRoadmap(courseParams, boardRev, !!active);
-  const memQuery = usePlannerMemory(courseParams, !!active);
   const data = roadQuery.data ?? null;
   // Keep the current assignment in sync even when Full plan is the open tab.
   // The weekly view shares this query, so only one load/write can run per course.
@@ -130,7 +128,6 @@ export function StudentPlanner({
     roadmap: data,
     enabled: !!active,
   });
-  const memory = memQuery.data ?? null;
   // A re-flowed plan left unapplied — the course changed, or an exam-date save
   // was cut short. It is settled quietly on sight, once per proposal, rather
   // than handed to the student as something to review.
@@ -150,7 +147,7 @@ export function StudentPlanner({
       // Stays pending and is tried again on the next visit.
       .catch(() => {});
   }, [data, studentId, activeCourseSubject, activeBoard, level]);
-  const loading = roadQuery.isLoading || memQuery.isLoading || currentWeek.loading;
+  const loading = roadQuery.isLoading || currentWeek.loading;
   useEffect(() => {
     const course = `${studentId}|${activeCourseSubject}|${activeBoard}|${level}`;
     const keys = new Set((data?.bands ?? []).filter((b) => !isTeachBand(b)).map(focusKey));
@@ -221,7 +218,6 @@ export function StudentPlanner({
         ) : tab === "week" ? (
           <ThisWeekTab
             data={data}
-            memory={memory}
             studentId={studentId}
             subject={active.subject as SubjectV}
             board={active.board as BoardV}
@@ -282,7 +278,6 @@ function useRoadmapView(data: RoadmapResult) {
 
 function ThisWeekTab({
   data,
-  memory,
   studentId,
   subject,
   board,
@@ -291,7 +286,6 @@ function ThisWeekTab({
   onScheduleApplied,
 }: {
   data: RoadmapResult;
-  memory: MemoryStats | null;
   studentId: string;
   subject: SubjectV;
   board: BoardV;
@@ -447,50 +441,6 @@ function ThisWeekTab({
             weekStart={weekStart}
             onChanged={week.reload}
           />
-        </details>
-      )}
-
-      {/* Memory strip — how the course is held right now. */}
-      {memory && memory.total - memory.newCount > 0 && (
-        <details className="premium-card tint-primary rounded-xl p-3.5">
-          <summary className="cursor-pointer text-sm font-bold py-3 -my-3 sm:pointer-fine:py-0 sm:pointer-fine:my-0">
-            Memory details
-          </summary>
-          <h3 className="flex items-center gap-1.5 text-sm font-bold mb-2">
-            <Brain className="w-4 h-4 text-violet-500" />
-            Your memory right now
-          </h3>
-          <div className="flex flex-wrap items-center gap-x-5 gap-y-1.5 text-sm">
-            {memory.avgRetention != null && (
-              <span>
-                <span className="font-display font-bold tabular-nums text-lg">
-                  {Math.round(memory.avgRetention * 100)}%
-                </span>{" "}
-                <span className="text-muted-foreground text-xs">average recall</span>
-              </span>
-            )}
-            <span className="text-xs text-muted-foreground">
-              <span className="font-semibold text-rose-600 dark:text-rose-400 tabular-nums">
-                {memory.dueNow}
-              </span>{" "}
-              due now · <span className="font-semibold tabular-nums">{memory.dueThisWeek}</span> due
-              this week · <span className="font-semibold tabular-nums">{memory.stable}</span>{" "}
-              holding
-            </span>
-          </div>
-          {memory.weakest.length > 0 && (
-            <ul className="mt-2.5 space-y-1">
-              {memory.weakest.map((w) => (
-                <li key={w.code} className="flex items-baseline gap-2 text-xs min-w-0">
-                  <span className="font-mono text-muted-foreground shrink-0">{w.code}</span>
-                  <span className="truncate">{w.title}</span>
-                  <span className="ml-auto shrink-0 font-semibold tabular-nums">
-                    {Math.round(w.retention * 100)}%
-                  </span>
-                </li>
-              ))}
-            </ul>
-          )}
         </details>
       )}
     </div>
