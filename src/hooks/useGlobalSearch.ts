@@ -5,7 +5,9 @@ import { useEnrolments } from "@/hooks/data/useEnrolments";
 import { useEntitlements } from "@/hooks/data/useEntitlements";
 import { isDemoMode, getDemoRole } from "@/lib/auth/session";
 import { runGlobalSearch, type SearchSection } from "@/lib/search/globalSearch";
-import { MIN_QUERY_LENGTH, queryTerms } from "@/lib/search/match";
+import { MIN_QUERY_LENGTH } from "@/lib/search/match";
+import { contentTerms, matchHelpIntent, type HelpIntentId } from "@/lib/search/help";
+import { helpSection } from "@/lib/search/helpAnswers";
 import type { SearchContext } from "@/lib/search/types";
 
 /** Long enough that typing a word doesn't fire five queries, short enough to feel live. */
@@ -46,7 +48,17 @@ export interface GlobalSearchState {
   /** True once the query is long enough to have been run at all. */
   active: boolean;
   error: string | null;
+  /** True for a signed-in student: the only box that answers help requests. */
+  helpOn: boolean;
+  /** The help request the query was read as, if any. */
+  intent: HelpIntentId | null;
 }
+
+/**
+ * Help answers a student about their own week, so it's off for tutors and
+ * parents, and in the showcase, which has no week to read.
+ */
+const helpEnabled = (ctx: SearchContext) => !ctx.isTutor && !ctx.isDemo && ctx.role === "student";
 
 /**
  * Runs the global search for `query`, debounced and cached.
@@ -54,11 +66,24 @@ export interface GlobalSearchState {
  * Results are keyed by the *settled* query and the caller's scope, so
  * backspacing to a query you already ran is instant, and a tutor's results can
  * never be served from a student's cache entry.
+ *
+ * For a student, a query that reads as a help request ("find my mcq for this
+ * week") gets its answer on top, and the content search runs on whatever words
+ * are left. `forcedIntent` is the model's reading of a query the rules didn't
+ * recognise, from "Ask for help".
  */
-export function useGlobalSearch(query: string): GlobalSearchState {
+export function useGlobalSearch(
+  query: string,
+  forcedIntent: HelpIntentId | null = null,
+): GlobalSearchState {
   const ctx = useSearchContext();
   const settled = useDebounced(query.trim());
   const active = settled.length >= MIN_QUERY_LENGTH;
+  const helpOn = helpEnabled(ctx);
+  const intent = helpOn && active ? (forcedIntent ?? matchHelpIntent(settled)) : null;
+  const terms = useMemo(() => contentTerms(settled, intent), [settled, intent]);
+  const contentQuery = terms.join(" ");
+  const searching = contentQuery.length >= MIN_QUERY_LENGTH;
 
   const scopeKey = [
     ctx.isTutor,
@@ -69,22 +94,38 @@ export function useGlobalSearch(query: string): GlobalSearchState {
   ].join("|");
 
   const { data, isFetching, error } = useQuery({
-    queryKey: ["global-search", settled, scopeKey],
-    queryFn: () => runGlobalSearch(settled, ctx),
-    enabled: active,
+    queryKey: ["global-search", contentQuery, scopeKey],
+    queryFn: () => runGlobalSearch(contentQuery, ctx),
+    enabled: active && searching,
     staleTime: 30_000,
     // The previous query's results stay on screen while the next one lands, so
     // the list refines rather than blanking on every keystroke.
     placeholderData: (prev) => prev,
   });
 
+  // Keyed by the intent, not the query: typing on past "find my mcq" doesn't
+  // re-read the week for every letter.
+  const help = useQuery({
+    queryKey: ["global-search-help", intent, scopeKey],
+    queryFn: () => helpSection(intent!, ctx),
+    enabled: !!intent,
+    staleTime: 60_000,
+  });
+
+  const sections = useMemo(() => {
+    const found = active && searching ? (data ?? NO_SECTIONS) : NO_SECTIONS;
+    return intent && help.data ? [help.data, ...found] : found;
+  }, [active, searching, data, intent, help.data]);
+
   return {
-    sections: active ? (data ?? NO_SECTIONS) : NO_SECTIONS,
-    terms: useMemo(() => queryTerms(settled), [settled]),
+    sections,
+    terms,
     // Only report loading on a *cold* query — with placeholder data on screen a
     // spinner would just flicker.
-    loading: active && isFetching && !data,
+    loading: (active && searching && isFetching && !data) || (!!intent && help.isLoading),
     active,
     error: error instanceof Error ? error.message : null,
+    helpOn,
+    intent,
   };
 }
