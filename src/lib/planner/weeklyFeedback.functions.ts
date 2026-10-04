@@ -16,9 +16,9 @@ import { requireTutorAi } from "@/lib/auth/tutorAi.server";
 // coverage mapping (mapAttemptSources) is bound to the browser Supabase client;
 // the tutor already sees these numbers, so trusting the payload is fine for a
 // text-only generation. Mirrors the sessionBlurb setup
-// (Anthropic claude-sonnet-5, needs ANTHROPIC_API_KEY).
+// (Anthropic claude-sonnet-5-5, needs ANTHROPIC_API_KEY).
 
-const MODEL = "claude-sonnet-5";
+const MODEL = "claude-sonnet-5-5";
 
 type PointMetric = {
   code: string;

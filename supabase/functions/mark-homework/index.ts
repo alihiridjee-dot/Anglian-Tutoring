@@ -33,7 +33,7 @@ import { createClient } from "https://esm.sh/@supabase/supabase-js@2";
 import Anthropic from "npm:@anthropic-ai/sdk@0.111.0";
 import { corsHeaders, HttpError } from "../_shared/http.ts";
 
-const MODEL = "claude-opus-5";
+const MODEL = "claude-opus-5-5";
 
 /**
  * How long a tutor has to correct a mark before the student sees it.

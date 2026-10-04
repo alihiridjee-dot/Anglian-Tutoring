@@ -10,7 +10,7 @@ import { requireTutorAi } from "@/lib/auth/tutorAi.server";
 // description field, and once the session is scheduled that same description is
 // what the student sees on their countdown banner.
 
-const MODEL = "claude-sonnet-5";
+const MODEL = "claude-sonnet-5-5";
 
 async function generateBlurb(input: {
   subject: string;
