@@ -7,7 +7,13 @@ import {
   projectReviews,
   type PacingBand,
 } from "./pacing";
-import { orderInputs, reorderTopics, type OrderTopic } from "./topicOrder";
+import {
+  customSchedule,
+  orderInputs,
+  reorderTopics,
+  resumeAfterPause,
+  type OrderTopic,
+} from "./topicOrder";
 import { spineReach, admit } from "./admissibility";
 import { spineBacklog } from "./backlog";
 import { weekKeyToDate } from "./week";
@@ -200,5 +206,73 @@ describe("individual topic order", () => {
         .reverse(),
     });
     expect(past(next, from)).toEqual(past(baseline, from));
+  });
+});
+
+describe("resuming after a pause", () => {
+  // Stopped in the week of 21 Sept, back in the week of 5 Oct: two weeks lost.
+  const pausedFrom = "2026-09-21";
+  const resumeFrom = "2026-10-05";
+  const resume = (bands = baseline) =>
+    resumeAfterPause({ bands, topics, pausedFrom, resumeFrom, examDate });
+  const none = {
+    assessed: new Set<string>(),
+    done: new Set<string>(),
+    outstanding: new Set<string>(),
+  };
+  const ids = (rows: string[][]) => rows.map(([id]) => id).sort();
+
+  test("keeps every promise before the pause and teaches nothing while it lasted", () => {
+    const next = resume();
+    expect(past(next, pausedFrom)).toEqual(past(baseline, pausedFrom));
+    expect(scheduled(next).filter(([, w]) => w >= pausedFrom && w < resumeFrom)).toEqual([]);
+  });
+  test("still covers every point exactly once, and finishes before the exam", () => {
+    const next = resume();
+    expect(ids(scheduled(next))).toEqual(ids(scheduled(baseline)));
+    expect(new Set(scheduled(next).map(([id]) => id)).size).toBe(12);
+    expect(next.every((b) => b.endWeek < examDate)).toBe(true);
+  });
+  test("work due while paused is not missed; work missed before the pause still is", () => {
+    const paused = scheduled(baseline).filter(([, w]) => w >= pausedFrom && w < resumeFrom);
+    expect(paused.length).toBeGreaterThan(0);
+    const missed = (bands: PacingBand[]) =>
+      spineBacklog({ weekStart: resumeFrom, ledger: none, bands })
+        .map((p) => p.specPointId)
+        .sort();
+    expect(missed(baseline)).toEqual(ids(scheduled(baseline).filter(([, w]) => w < resumeFrom)));
+    expect(missed(resume())).toEqual(ids(scheduled(baseline).filter(([, w]) => w < pausedFrom)));
+  });
+  test("picks up the same topics in the same order", () => {
+    const next = resume();
+    expect(next.filter((b) => b.startWeek >= resumeFrom).map((b) => b.topicId)).toEqual(
+      orderInputs(baseline, topics, pausedFrom).remaining.map((t) => t.topicId),
+    );
+  });
+  test("is kept as stored: a custom schedule from the week of return", () => {
+    expect(customSchedule(resume())).toEqual({ version: 1, from: resumeFrom, examDate });
+  });
+  test("a pause inside one week changes nothing", () => {
+    expect(
+      resumeAfterPause({ bands: baseline, topics, pausedFrom, resumeFrom: pausedFrom, examDate }),
+    ).toBe(baseline);
+  });
+  test("a second pause builds on the first", () => {
+    const first = resume();
+    const next = resumeAfterPause({
+      bands: first,
+      topics,
+      pausedFrom: "2026-10-12",
+      resumeFrom: "2026-10-19",
+      examDate,
+    });
+    expect(past(next, "2026-10-12")).toEqual(past(first, "2026-10-12"));
+    expect(scheduled(next).filter(([, w]) => w === "2026-10-12")).toEqual([]);
+    expect(ids(scheduled(next))).toEqual(ids(scheduled(baseline)));
+  });
+  test("refuses, changing nothing, when too few weeks are left for the topics", () => {
+    expect(() =>
+      resumeAfterPause({ bands: baseline, topics, pausedFrom, resumeFrom: "2026-11-02", examDate }),
+    ).toThrow(/not enough weeks/);
   });
 });

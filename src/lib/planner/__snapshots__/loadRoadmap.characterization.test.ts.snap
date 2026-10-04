@@ -910,6 +910,13 @@ exports[`acknowledged baseline, nothing saved this week 1`] = `
       "?select=program_start%2Cexam_date%2Cpacing&student_id=eq.student&subject=eq.biology",
     ],
     [
+      "pauseHistory",
+      [
+        "student",
+        "biology",
+      ],
+    ],
+    [
       "getPlan",
       [
         "student",
@@ -1327,6 +1334,13 @@ exports[`saved week: owns its reviews, reports withheld points, narrows the back
       "GET",
       "student_program_plan",
       "?select=program_start%2Cexam_date%2Cpacing&student_id=eq.student&subject=eq.biology",
+    ],
+    [
+      "pauseHistory",
+      [
+        "student",
+        "biology",
+      ],
     ],
     [
       "getPlan",
@@ -1759,6 +1773,13 @@ exports[`projectOnly: skips the saved-week read but still reserves its catch-up 
       "GET",
       "student_program_plan",
       "?select=program_start%2Cexam_date%2Cpacing&student_id=eq.student&subject=eq.biology",
+    ],
+    [
+      "pauseHistory",
+      [
+        "student",
+        "biology",
+      ],
     ],
     [
       "getDeliveryLedger",
@@ -2218,6 +2239,13 @@ exports[`exam date moved: proposes changes and asks for acknowledgement 1`] = `
       "?select=program_start%2Cexam_date%2Cpacing&student_id=eq.student&subject=eq.biology",
     ],
     [
+      "pauseHistory",
+      [
+        "student",
+        "biology",
+      ],
+    ],
+    [
       "getPlan",
       [
         "student",
@@ -2661,6 +2689,13 @@ exports[`custom topic order is kept as stored 1`] = `
       "GET",
       "student_program_plan",
       "?select=program_start%2Cexam_date%2Cpacing&student_id=eq.student&subject=eq.biology",
+    ],
+    [
+      "pauseHistory",
+      [
+        "student",
+        "biology",
+      ],
     ],
     [
       "getPlan",
@@ -3180,6 +3215,13 @@ exports[`custom topic order is re-spread when the exam date has moved 1`] = `
       "GET",
       "student_program_plan",
       "?select=program_start%2Cexam_date%2Cpacing&student_id=eq.student&subject=eq.biology",
+    ],
+    [
+      "pauseHistory",
+      [
+        "student",
+        "biology",
+      ],
     ],
     [
       "getPlan",
@@ -3713,6 +3755,13 @@ exports[`caller-supplied progress is used instead of reading it 1`] = `
       "?select=program_start%2Cexam_date%2Cpacing&student_id=eq.student&subject=eq.biology",
     ],
     [
+      "pauseHistory",
+      [
+        "student",
+        "biology",
+      ],
+    ],
+    [
       "getPlan",
       [
         "student",
@@ -4070,4 +4119,596 @@ exports[`a failed baseline read throws rather than posing as a first view 1`] = 
     "?select=program_start%2Cexam_date%2Cpacing&student_id=eq.student&subject=eq.biology",
   ],
 ]
+`;
+
+exports[`an ended stop is picked up before anything is cut from the programme 1`] = `
+{
+  "io": [
+    [
+      "getTopicProgress",
+      {
+        "board": "aqa",
+        "level": "gcse",
+        "studentId": "student",
+        "subject": "biology",
+      },
+    ],
+    [
+      "db",
+      "GET",
+      "student_program_plan",
+      "?select=program_start%2Cexam_date%2Cpacing&student_id=eq.student&subject=eq.biology",
+    ],
+    [
+      "pauseHistory",
+      [
+        "student",
+        "biology",
+      ],
+    ],
+    [
+      "resumeProgramme",
+      {
+        "pacing": [
+          [
+            "t1",
+            "2026-08-24",
+            "2026-08-24",
+          ],
+          [
+            "t1",
+            "2026-09-14",
+            "2026-12-07",
+          ],
+          [
+            "t2",
+            "2026-12-14",
+            "2027-02-01",
+          ],
+          [
+            "t3",
+            "2027-02-08",
+            "2027-05-31",
+          ],
+        ],
+        "pauseId": "p1",
+      },
+    ],
+    [
+      "getPlan",
+      [
+        "student",
+        "biology",
+        "2026-09-21",
+      ],
+    ],
+    [
+      "getDeliveryLedger",
+      [
+        "student",
+        "biology",
+        "2026-09-21",
+      ],
+    ],
+    [
+      "db",
+      "GET",
+      "student_plan_overrides",
+      "?select=id%2Cspec_point_id%2Ckind%2Cweek_start%2Cnote%2Ccreated_by%2Ccreated_at&student_id=eq.student&subject=eq.biology&order=created_at.asc",
+    ],
+  ],
+  "result": {
+    "backlog": [],
+    "backlogByTopic": [],
+    "bands": [
+      {
+        "endWeek": "2026-08-24",
+        "fixedPoints": true,
+        "pointsByWeek": {
+          "2026-08-24": [
+            {
+              "code": "A1",
+              "specPointId": "a1",
+              "title": "Point a1",
+              "weight": 1,
+            },
+          ],
+        },
+        "schedule": {
+          "examDate": "2027-06-07",
+          "from": "2026-09-14",
+          "version": 1,
+        },
+        "startWeek": "2026-08-24",
+        "title": "Topic t1",
+        "topicId": "t1",
+        "weeks": 1,
+      },
+      {
+        "endWeek": "2026-12-07",
+        "fixedPoints": true,
+        "openedWeek": "2026-08-24",
+        "pointsByWeek": {
+          "2026-09-14": [
+            {
+              "code": "A2",
+              "specPointId": "a2",
+              "title": "Point a2",
+              "weight": 2,
+            },
+          ],
+          "2026-09-21": [
+            {
+              "code": "A3",
+              "specPointId": "a3",
+              "title": "Point a3",
+              "weight": 1,
+            },
+          ],
+        },
+        "reviewStartWeek": "2026-08-24",
+        "schedule": {
+          "examDate": "2027-06-07",
+          "from": "2026-09-14",
+          "version": 1,
+        },
+        "startWeek": "2026-09-14",
+        "title": "Topic t1",
+        "topicId": "t1",
+        "weeks": 13,
+      },
+      {
+        "endWeek": "2026-09-21",
+        "kind": "revisit",
+        "points": [
+          {
+            "code": "A1",
+            "dueAt": "2026-09-15T09:00:00Z",
+            "eligibleAt": "2026-09-15T09:00:00Z",
+            "specPointId": "a1",
+            "title": "Point a1",
+            "weight": 1,
+          },
+        ],
+        "startWeek": "2026-09-21",
+        "title": "Topic t1",
+        "topicId": "t1",
+        "weeks": 1,
+      },
+      {
+        "endWeek": "2026-10-12",
+        "kind": "revisit",
+        "points": [
+          {
+            "code": "A2",
+            "dueAt": "2026-10-06T09:00:00Z",
+            "eligibleAt": "2026-10-06T09:00:00Z",
+            "specPointId": "a2",
+            "title": "Point a2",
+            "weight": 2,
+          },
+        ],
+        "startWeek": "2026-10-12",
+        "title": "Topic t1",
+        "topicId": "t1",
+        "weeks": 1,
+      },
+      {
+        "endWeek": "2027-02-01",
+        "fixedPoints": true,
+        "openedWeek": undefined,
+        "pointsByWeek": {
+          "2026-12-14": [
+            {
+              "code": "B1",
+              "specPointId": "b1",
+              "title": "Point b1",
+              "weight": 1,
+            },
+          ],
+          "2026-12-21": [
+            {
+              "code": "B2",
+              "specPointId": "b2",
+              "title": "Point b2",
+              "weight": 1,
+            },
+          ],
+        },
+        "reviewStartWeek": "2026-12-14",
+        "schedule": {
+          "examDate": "2027-06-07",
+          "from": "2026-09-14",
+          "version": 1,
+        },
+        "startWeek": "2026-12-14",
+        "title": "Topic t2",
+        "topicId": "t2",
+        "weeks": 8,
+      },
+      {
+        "endWeek": "2026-12-14",
+        "kind": "revisit",
+        "points": [
+          {
+            "code": "B1",
+            "dueAt": "2026-09-28T09:00:00Z",
+            "eligibleAt": "2026-09-28T09:00:00Z",
+            "specPointId": "b1",
+            "title": "Point b1",
+            "weight": 1,
+          },
+        ],
+        "startWeek": "2026-12-14",
+        "title": "Topic t2",
+        "topicId": "t2",
+        "weeks": 1,
+      },
+      {
+        "endWeek": "2027-05-31",
+        "fixedPoints": true,
+        "openedWeek": undefined,
+        "pointsByWeek": {
+          "2027-02-08": [
+            {
+              "code": "C1",
+              "specPointId": "c1",
+              "title": "Point c1",
+              "weight": 3,
+            },
+          ],
+          "2027-02-15": [
+            {
+              "code": "C2",
+              "specPointId": "c2",
+              "title": "Point c2",
+              "weight": 1,
+            },
+          ],
+        },
+        "reviewStartWeek": "2027-02-08",
+        "schedule": {
+          "examDate": "2027-06-07",
+          "from": "2026-09-14",
+          "version": 1,
+        },
+        "startWeek": "2027-02-08",
+        "title": "Topic t3",
+        "topicId": "t3",
+        "weeks": 17,
+      },
+    ],
+    "baselineBands": [
+      {
+        "endWeek": "2026-08-24",
+        "fixedPoints": true,
+        "pointsByWeek": {
+          "2026-08-24": [
+            {
+              "code": "A1",
+              "specPointId": "a1",
+              "title": "Point a1",
+              "weight": 1,
+            },
+          ],
+        },
+        "schedule": {
+          "examDate": "2027-06-07",
+          "from": "2026-09-14",
+          "version": 1,
+        },
+        "startWeek": "2026-08-24",
+        "title": "Topic t1",
+        "topicId": "t1",
+        "weeks": 1,
+      },
+      {
+        "endWeek": "2026-12-07",
+        "fixedPoints": true,
+        "openedWeek": "2026-08-24",
+        "pointsByWeek": {
+          "2026-09-14": [
+            {
+              "code": "A2",
+              "specPointId": "a2",
+              "title": "Point a2",
+              "weight": 2,
+            },
+          ],
+          "2026-09-21": [
+            {
+              "code": "A3",
+              "specPointId": "a3",
+              "title": "Point a3",
+              "weight": 1,
+            },
+          ],
+        },
+        "reviewStartWeek": "2026-08-24",
+        "schedule": {
+          "examDate": "2027-06-07",
+          "from": "2026-09-14",
+          "version": 1,
+        },
+        "startWeek": "2026-09-14",
+        "title": "Topic t1",
+        "topicId": "t1",
+        "weeks": 13,
+      },
+      {
+        "endWeek": "2027-02-01",
+        "fixedPoints": true,
+        "openedWeek": undefined,
+        "pointsByWeek": {
+          "2026-12-14": [
+            {
+              "code": "B1",
+              "specPointId": "b1",
+              "title": "Point b1",
+              "weight": 1,
+            },
+          ],
+          "2026-12-21": [
+            {
+              "code": "B2",
+              "specPointId": "b2",
+              "title": "Point b2",
+              "weight": 1,
+            },
+          ],
+        },
+        "reviewStartWeek": "2026-12-14",
+        "schedule": {
+          "examDate": "2027-06-07",
+          "from": "2026-09-14",
+          "version": 1,
+        },
+        "startWeek": "2026-12-14",
+        "title": "Topic t2",
+        "topicId": "t2",
+        "weeks": 8,
+      },
+      {
+        "endWeek": "2027-05-31",
+        "fixedPoints": true,
+        "openedWeek": undefined,
+        "pointsByWeek": {
+          "2027-02-08": [
+            {
+              "code": "C1",
+              "specPointId": "c1",
+              "title": "Point c1",
+              "weight": 3,
+            },
+          ],
+          "2027-02-15": [
+            {
+              "code": "C2",
+              "specPointId": "c2",
+              "title": "Point c2",
+              "weight": 1,
+            },
+          ],
+        },
+        "reviewStartWeek": "2027-02-08",
+        "schedule": {
+          "examDate": "2027-06-07",
+          "from": "2026-09-14",
+          "version": 1,
+        },
+        "startWeek": "2027-02-08",
+        "title": "Topic t3",
+        "topicId": "t3",
+        "weeks": 17,
+      },
+    ],
+    "catchUpSchedule": {
+      "assignedIds": [],
+      "held": [],
+      "weeks": {
+        "2026-09-21": [],
+      },
+    },
+    "changes": [],
+    "completedPointIds": [],
+    "coveredTopicIds": [
+      "t1",
+    ],
+    "examDate": "2027-06-07",
+    "focusLoad": {
+      "backlogCount": 0,
+      "backlogWeight": 0,
+      "overloaded": false,
+      "spine": 0.2564102564102564,
+      "teachingWeeksShort": 0,
+    },
+    "inadmissible": [],
+    "needsAck": false,
+    "overrides": [],
+    "programStart": "2026-08-24",
+    "progress": [
+      {
+        "assessment": {
+          "assessable": 0,
+          "assessed": 0,
+          "state": "unassessable",
+          "total": 3,
+        },
+        "masteryPct": 0,
+        "points": [
+          {
+            "assessability": "assessed",
+            "card": null,
+            "code": "A1",
+            "confidence": null,
+            "dueAt": "2026-09-15T09:00:00Z",
+            "eligibleAt": "2026-09-15T09:00:00Z",
+            "homeworkScore": null,
+            "id": "a1",
+            "lastReviewedAt": "2026-09-01T09:00:00Z",
+            "mastery": 0,
+            "quizScore": null,
+            "reps": 2,
+            "retention": 0.8,
+            "stability": null,
+            "status": "learning",
+            "title": "Point a1",
+            "weight": 1,
+          },
+          {
+            "assessability": "assessed",
+            "card": null,
+            "code": "A2",
+            "confidence": null,
+            "dueAt": "2026-10-06T09:00:00Z",
+            "eligibleAt": "2026-10-06T09:00:00Z",
+            "homeworkScore": null,
+            "id": "a2",
+            "lastReviewedAt": "2026-09-22T09:00:00Z",
+            "mastery": 0,
+            "quizScore": null,
+            "reps": 2,
+            "retention": 0.8,
+            "stability": null,
+            "status": "learning",
+            "title": "Point a2",
+            "weight": 2,
+          },
+          {
+            "assessability": "unassessable",
+            "card": null,
+            "code": "A3",
+            "confidence": null,
+            "dueAt": null,
+            "eligibleAt": null,
+            "homeworkScore": null,
+            "id": "a3",
+            "lastReviewedAt": null,
+            "mastery": 0,
+            "quizScore": null,
+            "reps": 0,
+            "retention": null,
+            "stability": null,
+            "status": "new",
+            "title": "Point a3",
+            "weight": 1,
+          },
+        ],
+        "practisedCount": 2,
+        "settled": true,
+        "title": "Topic t1",
+        "topicId": "t1",
+      },
+      {
+        "assessment": {
+          "assessable": 0,
+          "assessed": 0,
+          "state": "unassessable",
+          "total": 2,
+        },
+        "masteryPct": 0,
+        "points": [
+          {
+            "assessability": "assessed",
+            "card": null,
+            "code": "B1",
+            "confidence": null,
+            "dueAt": "2026-09-28T09:00:00Z",
+            "eligibleAt": "2026-09-28T09:00:00Z",
+            "homeworkScore": null,
+            "id": "b1",
+            "lastReviewedAt": "2026-09-10T09:00:00Z",
+            "mastery": 0,
+            "quizScore": null,
+            "reps": 2,
+            "retention": 0.8,
+            "stability": null,
+            "status": "learning",
+            "title": "Point b1",
+            "weight": 1,
+          },
+          {
+            "assessability": "unassessable",
+            "card": null,
+            "code": "B2",
+            "confidence": null,
+            "dueAt": null,
+            "eligibleAt": null,
+            "homeworkScore": null,
+            "id": "b2",
+            "lastReviewedAt": null,
+            "mastery": 0,
+            "quizScore": null,
+            "reps": 0,
+            "retention": null,
+            "stability": null,
+            "status": "new",
+            "title": "Point b2",
+            "weight": 1,
+          },
+        ],
+        "practisedCount": 1,
+        "settled": false,
+        "title": "Topic t2",
+        "topicId": "t2",
+      },
+      {
+        "assessment": {
+          "assessable": 0,
+          "assessed": 0,
+          "state": "unassessable",
+          "total": 2,
+        },
+        "masteryPct": 0,
+        "points": [
+          {
+            "assessability": "unassessable",
+            "card": null,
+            "code": "C1",
+            "confidence": null,
+            "dueAt": null,
+            "eligibleAt": null,
+            "homeworkScore": null,
+            "id": "c1",
+            "lastReviewedAt": null,
+            "mastery": 0,
+            "quizScore": null,
+            "reps": 0,
+            "retention": null,
+            "stability": null,
+            "status": "new",
+            "title": "Point c1",
+            "weight": 3,
+          },
+          {
+            "assessability": "unassessable",
+            "card": null,
+            "code": "C2",
+            "confidence": null,
+            "dueAt": null,
+            "eligibleAt": null,
+            "homeworkScore": null,
+            "id": "c2",
+            "lastReviewedAt": null,
+            "mastery": 0,
+            "quizScore": null,
+            "reps": 0,
+            "retention": null,
+            "stability": null,
+            "status": "new",
+            "title": "Point c2",
+            "weight": 1,
+          },
+        ],
+        "practisedCount": 0,
+        "settled": false,
+        "title": "Topic t3",
+        "topicId": "t3",
+      },
+    ],
+    "reviewBacklog": [],
+    "reviewsWaiting": [],
+    "unscheduledTopicTitles": [],
+  },
+}
 `;

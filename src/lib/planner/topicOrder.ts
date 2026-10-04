@@ -117,3 +117,66 @@ export function reorderTopics(params: {
   );
   return [...frozen, ...future].map((b) => ({ ...b, schedule: { version: 1, from, examDate } }));
 }
+
+/**
+ * The programme after a pause: it picks up where it stopped.
+ *
+ * Every promise before the week the pause began stands, so work missed before
+ * the pause is still missed. Whatever was promised from that week on is spread
+ * again, in the same topic order, from the week the student came back to the
+ * exam. The weeks the subject was stopped hold no teaching, so nothing in them
+ * counts as missed. The exam doesn't move, so the rest of the course runs a
+ * little fuller each week (Ali's choice, 3 Oct 2026).
+ *
+ * Throws, leaving the plan as it was, when there are fewer weeks left than
+ * topics: a pause ending right before the exams has nothing sensible to spread.
+ */
+export function resumeAfterPause(params: {
+  bands: PacingBand[];
+  topics: OrderTopic[];
+  /** Monday of the week the pause began. */
+  pausedFrom: string;
+  /** Monday of the week the student came back. */
+  resumeFrom: string;
+  examDate: string;
+}): PacingBand[] {
+  const { bands, topics, pausedFrom, resumeFrom, examDate } = params;
+  // Stopped and started in the same week: no week was skipped.
+  if (resumeFrom <= pausedFrom) return bands;
+  if (resumeFrom >= examDate)
+    throw new Error("The exams have started, so there is nothing to re-plan.");
+  const { frozen, remaining } = orderInputs(bands, topics, pausedFrom);
+  if (!remaining.length) return bands;
+  if (weeksBetween(weekKeyToDate(resumeFrom), weekKeyToDate(examDate)) < remaining.length)
+    throw new Error(
+      `There are not enough weeks before the exam for all ${remaining.length} remaining topics.`,
+    );
+  const allocated = computePacing(
+    remaining.map((t) => ({ ...t, weight: t.points.reduce((sum, p) => sum + weightOf(p), 0) })),
+    weekKeyToDate(resumeFrom),
+    weekKeyToDate(examDate),
+  );
+  const future = withWeeklyPoints(
+    allocated,
+    new Map(remaining.map((t) => [t.topicId, t.points])),
+  ).map((b) => {
+    const previous = bands.filter((p) => p.topicId === b.topicId);
+    return {
+      ...b,
+      fixedPoints: true,
+      // Only teaching actually reached, before the pause, keeps a topic open.
+      openedWeek: previous
+        .map((p) => p.openedWeek ?? p.startWeek)
+        .filter((w) => w < pausedFrom)
+        .sort()[0],
+      reviewStartWeek: [
+        b.startWeek,
+        ...previous.map((p) => p.reviewStartWeek ?? p.startWeek),
+      ].sort()[0],
+    };
+  });
+  return [...frozen, ...future].map((b) => ({
+    ...b,
+    schedule: { version: 1, from: resumeFrom, examDate },
+  }));
+}
