@@ -4,6 +4,6 @@ import { HomeworkPage } from "@/components/homework/HomeworkPage";
 
 export const Route = createFileRoute("/_authenticated/homework")({
   beforeLoad: guardStudentSection,
-  head: () => ({ meta: [{ title: "Homework & Grades | Anglia Educate" }] }),
+  head: () => ({ meta: [{ title: "Tasks & Grades | Anglia Educate" }] }),
   component: HomeworkPage,
 });

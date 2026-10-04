@@ -23,7 +23,7 @@ export function BrandMark({ className = "" }: { className?: string }) {
 const POINTS = [
   "Your exam board's spec, point by point",
   "Weekly quizzes that target your weak spots",
-  "Live sessions and homework in one place",
+  "Live sessions and tasks in one place",
 ];
 
 /**
@@ -99,13 +99,15 @@ export function AuthShell({
   maxWidth?: string;
 }) {
   return (
-    <div className="auth-aurora min-h-screen px-4 py-8 sm:py-12">
+    // Less air above the card on a phone turned sideways, where 390px has to
+    // hold the brand row and as much of the form as it can.
+    <div className="auth-aurora min-h-screen px-4 py-8 sm:py-12 short:py-4">
       <div className={`w-full ${maxWidth} mx-auto`}>
-        <div className="flex items-center justify-between mb-8 sm:mb-10">
+        <div className="flex items-center justify-between mb-8 sm:mb-10 short:mb-4">
           <BrandMark />
           <Link
             to="/"
-            className="btn-ghost inline-flex min-h-11 items-center gap-1.5 rounded-xl px-3 py-2 text-sm sm:min-h-0"
+            className="btn-ghost inline-flex min-h-11 items-center gap-1.5 rounded-xl px-3 py-2 text-sm sm:pointer-fine:min-h-0"
           >
             <ArrowLeft className="size-4" aria-hidden /> Back to home
           </Link>

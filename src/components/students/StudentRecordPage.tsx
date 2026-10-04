@@ -42,7 +42,7 @@ const StudentPerformance = lazy(() =>
 const NAV: { tab: StudentTab; label: string; icon: LucideIcon }[] = [
   { tab: "overview", label: "Overview", icon: IdCard },
   { tab: "performance", label: "Performance", icon: TrendingUp },
-  { tab: "homework", label: "Homework", icon: ClipboardList },
+  { tab: "homework", label: "Tasks", icon: ClipboardList },
   { tab: "quizzes", label: "Quizzes", icon: ListChecks },
   { tab: "billing", label: "Billing", icon: CreditCard },
   { tab: "messages", label: "Messages", icon: MessagesSquare },
@@ -107,7 +107,7 @@ export function StudentRecordPage({ studentId, tab }: { studentId: string; tab: 
     <AppLayout title={name}>
       <Link
         to="/students"
-        className="text-muted-foreground hover:text-foreground mb-4 inline-flex min-h-11 sm:min-h-0 items-center gap-1.5 text-sm font-semibold"
+        className="text-muted-foreground hover:text-foreground mb-4 inline-flex min-h-11 sm:pointer-fine:min-h-0 items-center gap-1.5 text-sm font-semibold"
       >
         <ArrowLeft className="size-4" aria-hidden /> All students
       </Link>

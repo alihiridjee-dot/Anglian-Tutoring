@@ -10,8 +10,9 @@
  *
  * `group/sidebar` is declared on the `<aside>` in `AppLayout`.
  *
- * Below `md` the rail is a slide-in drawer rather than a hover target — there is
- * no hover on a phone — so the labels are simply always shown there.
+ * Below `md`, and on a phone turned sideways, the rail is a slide-in drawer
+ * rather than a hover target — there is no hover on a phone — so the labels are
+ * simply always shown there (`drawer:` in styles.css).
  */
 export const SIDEBAR_LABEL_CLASS =
-  "whitespace-nowrap opacity-0 transition-opacity duration-150 motion-reduce:transition-none group-hover/sidebar:opacity-100 group-hover/sidebar:delay-100 max-md:opacity-100";
+  "whitespace-nowrap opacity-0 transition-opacity duration-150 motion-reduce:transition-none group-hover/sidebar:opacity-100 group-hover/sidebar:delay-100 drawer:opacity-100";

@@ -1,6 +1,6 @@
 import { Link } from "@tanstack/react-router";
 import { useEffect, useMemo, useState } from "react";
-import { EmptyState, SegmentedToggle, Spinner, SubjectToggle } from "@/components/Shared";
+import { EmptyState, SegmentedToggle, Spinner } from "@/components/Shared";
 import { AppLayout } from "@/components/AppLayout";
 import { useRoles } from "@/hooks/useRole";
 import { useEnrolments } from "@/hooks/data/useEnrolments";
@@ -21,18 +21,16 @@ import {
   type HomeworkBucket,
   type HomeworkItem,
 } from "@/lib/homework/homeworkBuckets";
-import { ChevronDown, Clock, Plus, TrendingUp } from "lucide-react";
+import { ChevronDown, Clock, Plus } from "lucide-react";
 import { useAnalytics } from "@/hooks/data/useAnalytics";
-import { hasPrediction } from "@/lib/profile/analytics";
 import { MarkingQueue } from "@/components/tutor/MarkingQueue";
 import { HomeworkLibrary } from "@/components/tutor/HomeworkLibrary";
 import { HomeworkForm } from "@/components/tutor/HomeworkForm";
 import { isDemoStudent } from "@/lib/demo/studentDemo";
 import { type SubjectV, type BoardV, type LevelV } from "@/lib/curriculum/taxonomy";
-import { SUBJECT_LABEL, SUBJECT_TINT } from "@/lib/curriculum/subjectTheme";
-
-/** Remembers the last subject so the page opens where you left it. */
-const SUBJECT_KEY = "homework:subject";
+import { SUBJECT_LABEL, SUBJECT_TINT, subjectTint } from "@/lib/curriculum/subjectTheme";
+import { useActiveSubject } from "@/hooks/useActiveSubject";
+import { PredictedGradeCard } from "@/components/homework/PredictedGradeCard";
 
 /**
  * The homework list.
@@ -82,10 +80,10 @@ export function HomeworkPage() {
   // what exists stays available below as secondary context.
   if (isTutor) {
     return (
-      <AppLayout title="Homework & Grades">
+      <AppLayout title="Tasks & Grades">
         <p className="text-muted-foreground mb-6 max-w-2xl">
-          Set homework as questions students answer on the site — generate them from the spec with
-          AI, edit anything, then check the marks before they go out.
+          Set tasks as questions students answer on the site — generate them from the spec with AI,
+          edit anything, then check the marks before they go out.
         </p>
         {userId && <SetHomeworkPanel userId={userId} />}
         <MarkingQueue />
@@ -108,13 +106,13 @@ export function HomeworkPage() {
  * The student's homework list.
  *
  * Two controls narrow what is on screen, mirroring the MCQ page so the pair
- * read as one product: a subject toggle across the top, then the lifecycle as
- * tabs. Previously every lifecycle section was stacked open at once, which was
- * fine at four sheets and unreadable once the planner started writing one per
- * spec point — the practice section alone runs to fifteen.
+ * read as one product: the subject from the header slider, then the lifecycle
+ * as tabs. Previously every lifecycle section was stacked open at once, which
+ * was fine at four sheets and unreadable once the planner started writing one
+ * per spec point — the practice section alone runs to fifteen.
  *
  * Colour comes from the subject, not the bucket. The buckets used to tint
- * themselves amber/emerald, but a subject toggle that repaints the page cannot
+ * themselves amber/emerald, but a subject switch that repaints the page cannot
  * share a surface with a second colour system without one of them looking like
  * a bug. Urgency keeps its own signal regardless: overdue still carries a red
  * chip, a mark still carries its score.
@@ -130,8 +128,9 @@ function StudentHomework({
   loading: boolean;
   analytics: ReturnType<typeof useAnalytics>["rows"];
 }) {
-  const { enrolledCourses, enrolments } = useEnrolments();
-  const [subject, setSubject] = useState<string | null>(null);
+  const { enrolments, level } = useEnrolments();
+  const { userId } = useRoles();
+  const { subject } = useActiveSubject();
   const [bucket, setBucket] = useState<HomeworkBucket>("due");
 
   // The student sits each subject with one board. A sheet belongs on this page
@@ -156,36 +155,6 @@ function StudentHomework({
     items.length > 0,
   );
 
-  // Only subjects the student sits that actually have homework behind them — a
-  // toggle segment that opens an empty page is a dead end.
-  const subjects = useMemo(() => {
-    const withWork = new Set(items.map((i) => i.hw.subject).filter(Boolean));
-    const enrolled = enrolledCourses.filter((s) => withWork.has(s));
-    return enrolled.length > 0 ? enrolled : [...withWork].sort();
-  }, [items, enrolledCourses]);
-
-  // Settle on a subject once the list is known: the remembered one if it is
-  // still on offer, otherwise the first.
-  useEffect(() => {
-    if (subjects.length === 0 || (subject && subjects.includes(subject))) return;
-    let remembered: string | null = null;
-    try {
-      remembered = localStorage.getItem(SUBJECT_KEY);
-    } catch {
-      // Private browsing, or storage refused. Not worth a failure.
-    }
-    setSubject(remembered && subjects.includes(remembered) ? remembered : subjects[0]);
-  }, [subjects, subject]);
-
-  const chooseSubject = (next: string) => {
-    setSubject(next);
-    try {
-      localStorage.setItem(SUBJECT_KEY, next);
-    } catch {
-      // As above — remembering is a convenience, not a requirement.
-    }
-  };
-
   // Every bucket, including the empty ones: the tab row keeps its shape as work
   // moves through it, so the tab in a given position is always the same tab.
   const sections = useMemo(() => {
@@ -208,70 +177,41 @@ function StudentHomework({
   const nothingAtAll = sections.every((s) => s.items.length === 0);
 
   return (
-    <AppLayout title="Homework & Grades">
-      <p className="text-muted-foreground mb-6 max-w-2xl">
-        Answer each homework here on the page — nothing to download, nothing to hand in. Your marks
-        and feedback appear here once they&apos;ve been checked.
-      </p>
-
-      {/* Predicted grades stay a whole-picture summary above the toggle: they
-          are the one block on this page that is about comparing subjects, so
-          filtering them to the selected one would remove their point. */}
-      {analytics.length > 0 && (
+    <AppLayout title="Tasks & Grades">
+      {/* The predicted grade for the subject in the header, against its
+          target: just the rings, with no heading or intro above them — the
+          slider already names the subject. Keyed by subject so the rings
+          draw in again on a switch. */}
+      {subject && (
         <div data-guide="homework-grades" className="mb-8">
-          <div className="mb-3 flex items-center gap-2">
-            <TrendingUp className="text-primary size-4" />
-            <h3 className="text-base">Predicted Grades</h3>
-          </div>
-          <div className="grid grid-cols-1 gap-4 sm:grid-cols-2 md:grid-cols-3">
-            {analytics.map((a) => (
-              <div
-                key={a.subject}
-                className={`premium-card p-5 ${SUBJECT_TINT[a.subject] ?? "tint-primary"}`}
-              >
-                <p className="eyebrow-bare">{SUBJECT_LABEL[a.subject] ?? a.subject}</p>
-                <p className="numeral mt-1 text-2xl text-[color:var(--tint)]">
-                  {hasPrediction(a) ? `Grade ${a.predictedGrade}` : "—"}
-                </p>
-                <div className="border-border text-muted-foreground mt-3 flex items-center justify-between border-t pt-3 text-[11px]">
-                  <span>
-                    MCQs: <strong className="text-foreground">{a.mcqAverage}%</strong>
-                  </span>
-                  <span>
-                    Homework: <strong className="text-foreground">{a.hwAverage}%</strong>
-                  </span>
-                </div>
-              </div>
-            ))}
-          </div>
+          <PredictedGradeCard
+            key={subject}
+            subject={subject}
+            row={analytics.find((a) => a.subject === subject)}
+            level={level}
+            targetGrade={enrolments.find((e) => e.subject === subject)?.targetGrade ?? null}
+            studentId={isDemoStudent() ? null : userId}
+          />
         </div>
       )}
 
       {loading ? (
-        <Spinner label="Fetching your homework" />
-      ) : subjects.length === 0 ? (
+        <Spinner label="Fetching your tasks" />
+      ) : !subject ? (
         <EmptyState
           mascot="star"
           mood="happy"
           title="Nothing due right now"
-          body="No homework has been set for your subjects yet. When your tutor posts one it lands here, with the questions and your marks in the same place."
+          body="No tasks have been set for your subjects yet. When your tutor posts one it lands here, with the questions and your marks in the same place."
         />
       ) : (
-        // The subject tint wraps the page, so the toggle, the tabs and every
-        // card and chip inside them are one colour without any of them naming it.
-        <div className={SUBJECT_TINT[subject ?? ""] ?? "tint-primary"}>
-          <div className="mb-5">
-            <SubjectToggle
-              subjects={subjects}
-              value={subject ?? subjects[0]}
-              onChange={chooseSubject}
-            />
-          </div>
-
+        // The subject tint wraps the page, so the tabs and every card and chip
+        // inside them are one colour without any of them naming it.
+        <div className={subjectTint(subject)}>
           <div className="mb-5 overflow-x-auto">
             <SegmentedToggle
               layoutId="homework-bucket-pill"
-              label="Homework status"
+              label="Task status"
               value={active?.bucket ?? "due"}
               onChange={(v) => setBucket(v as HomeworkBucket)}
               items={sections.map((s) => ({
@@ -286,7 +226,7 @@ function StudentHomework({
             <EmptyState
               mascot="star"
               mood="happy"
-              title={`No ${SUBJECT_LABEL[subject ?? ""] ?? ""} homework yet`}
+              title={`No ${SUBJECT_LABEL[subject ?? ""] ?? ""} tasks yet`}
               body="Nothing has been set for this subject so far. It'll appear here as soon as your tutor posts one, or your plan reaches a spec point with a sheet behind it."
             />
           ) : (
@@ -376,7 +316,7 @@ function SetHomeworkPanel({ userId }: { userId: string }) {
       >
         <span className="inline-flex items-center gap-2 text-sm font-semibold">
           <Plus className="text-primary size-4" />
-          Set new homework
+          Set a new task
         </span>
         <ChevronDown
           className={`text-muted-foreground size-4 transition-transform ${open ? "rotate-180" : ""}`}

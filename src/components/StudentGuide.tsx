@@ -33,7 +33,7 @@ const dashboardSteps: GuideStep[] = [
   {
     target: "homework",
     title: "Keep track of your work",
-    body: "Homework & Grades brings your assignments and results together. Check what’s been set and return here to review your feedback.",
+    body: "Tasks & Grades brings your assignments and results together. Check what’s been set and return here to review your feedback.",
   },
   {
     target: "mcqs",
@@ -48,7 +48,7 @@ const dashboardSteps: GuideStep[] = [
   {
     target: "guide",
     title: "You’re ready to explore",
-    body: "Start with your weekly plan. Whenever you need a reminder, select Show me around in the top ribbon to take this tour again.",
+    body: "Start with your weekly plan. Whenever you need a reminder, press the 🧭 at the top to take this tour again.",
   },
 ];
 type Box = { x: number; y: number; width: number; height: number };
@@ -68,7 +68,7 @@ function findVisible(selector: string) {
 const selectorOf = (step: GuideStep) => step.selector ?? `[data-guide="${step.target}"]`;
 
 /**
- * The "Show me around" button, and a tour of the page it sits on.
+ * The 🧭 "Show me around" button, and a tour of the page it sits on.
  *
  * On a home page (`welcome`) the button replays the welcome tour instead, which
  * walks through the whole platform rather than one page. The showcase never
@@ -104,7 +104,7 @@ export function StudentGuide({
           {
             target: "guide",
             title: "Off you go!",
-            body: "You can take this page’s tour again any time. Look for 🧭 Show me around in the top ribbon.",
+            body: "You can take this page’s tour again any time. Just press the 🧭 at the top.",
           },
         ];
   const [index, setIndex] = useState<number | null>(null);
@@ -132,9 +132,11 @@ export function StudentGuide({
         ref={trigger}
         data-guide="guide"
         onClick={start}
-        className="btn-premium inline-flex min-h-11 items-center gap-2 rounded-xl px-3 py-2 text-sm tint-primary sm:min-h-0"
+        title="Show me around"
+        aria-label="Show me around"
+        className="btn-soft tint-amber flex size-11 cursor-pointer items-center justify-center rounded-xl text-lg sm:pointer-fine:size-9"
       >
-        <span aria-hidden="true">🧭</span> Show me around
+        <span aria-hidden="true">🧭</span>
       </button>
       {step && index !== null && (
         <GuideOverlay
@@ -175,6 +177,8 @@ const SEARCH_MS = 4000;
 const PREFER_MS = 2500;
 /** The smallest part of a tall section that is lit, however little room is left. */
 const MIN_LIT = 120;
+/** A phone turned sideways: no taller than this. Matches `short:` in styles.css. */
+const SHORT_SCREEN = 500;
 
 const easeOut = (t: number) => 1 - (1 - t) ** 3;
 const between = (a: Box, b: Box, t: number): Box => ({
@@ -411,23 +415,31 @@ export function GuideOverlay({
   let arrow: string | null = null;
   if (box) {
     // Beside the element when there's room, else below it, else above it,
-    // else against whichever edge of the screen is further from it.
+    // else against whichever edge of the screen is further from it. A phone
+    // turned sideways has room for none of those, but it has width: there the
+    // card keeps to the right edge, so the start of the section, where its
+    // heading is, stays in view instead of under the card.
     const beside = viewport.width >= 640 && box.x + box.width + width + 48 < viewport.width;
     const below = box.y + box.height + cardHeight + 44 < viewport.height;
     const above = box.y > cardHeight + 44;
+    const toSide =
+      !beside && !below && !above && viewport.width >= 640 && viewport.height <= SHORT_SCREEN;
     const lowerHalf = box.y + box.height / 2 > viewport.height / 2;
     left = beside
       ? box.x + box.width + 28
-      : Math.max(16, Math.min(box.x, viewport.width - width - 16));
-    top = beside
-      ? Math.max(16, Math.min(box.y, viewport.height - cardHeight - 16))
-      : below
-        ? box.y + box.height + 28
-        : above
-          ? box.y - cardHeight - 28
-          : lowerHalf
-            ? 16
-            : Math.max(16, viewport.height - cardHeight - 16);
+      : toSide
+        ? viewport.width - width - 16
+        : Math.max(16, Math.min(box.x, viewport.width - width - 16));
+    top =
+      beside || toSide
+        ? Math.max(16, Math.min(box.y, viewport.height - cardHeight - 16))
+        : below
+          ? box.y + box.height + 28
+          : above
+            ? box.y - cardHeight - 28
+            : lowerHalf
+              ? 16
+              : Math.max(16, viewport.height - cardHeight - 16);
     if (settled && (beside || below || above)) {
       arrow = beside
         ? `M ${left} ${top + 30} L ${box.x + box.width + 9} ${box.y + box.height / 2}`
@@ -513,16 +525,20 @@ export function GuideOverlay({
       </svg>
       <div
         ref={card}
-        className="premium-card fixed overflow-auto p-5 transition-[left,top] duration-300 ease-out motion-reduce:transition-none sm:p-6"
+        className="premium-card fixed flex flex-col p-5 transition-[left,top] duration-300 ease-out motion-reduce:transition-none sm:p-6 short:p-4"
         style={{
-          left,
+          // Kept clear of the notch, which a phone turned sideways has on one
+          // side or the other: the insets are zero everywhere else.
+          left: `clamp(calc(env(safe-area-inset-left) + 16px), ${left}px, calc(100vw - env(safe-area-inset-right) - ${width + 16}px))`,
           top,
           width,
           maxHeight: "calc(100dvh - 32px)",
           background: "var(--card)",
         }}
       >
-        <div aria-live="polite" aria-atomic="true">
+        {/* The words scroll and the buttons stay. When the card is capped at
+            the screen's height, Next used to scroll away with the words. */}
+        <div aria-live="polite" aria-atomic="true" className="scroll-slim min-h-0 overflow-y-auto">
           <p className="eyebrow mb-3">{eyebrow}</p>
           <div className="flex items-center gap-3">
             {icon && (
@@ -541,8 +557,8 @@ export function GuideOverlay({
             {children}
           </div>
         </div>
-        <Meter value={progress * 100} size="sm" />
-        <div className="mt-5 flex items-center gap-2">
+        <Meter value={progress * 100} size="sm" className="shrink-0" />
+        <div className="mt-5 flex shrink-0 items-center gap-2 short:mt-3">
           {closeLabel !== null && (
             <button onClick={onClose} className="btn-ghost min-h-11 rounded-xl px-2 py-2 text-sm">
               {closeLabel}

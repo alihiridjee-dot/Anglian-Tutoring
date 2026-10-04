@@ -49,7 +49,7 @@ function StripeFooter() {
       </p>
       <Link
         to="/dashboard"
-        className="text-primary mt-3 inline-flex min-h-11 items-center text-sm font-semibold hover:underline sm:min-h-0"
+        className="text-primary mt-3 inline-flex min-h-11 items-center text-sm font-semibold hover:underline sm:pointer-fine:min-h-0"
       >
         ← Back to dashboard
       </Link>
@@ -221,7 +221,7 @@ function BillingPage() {
               <div>
                 <p className="text-muted-foreground">
                   You don't have an active plan yet. Pick one below to unlock lessons, quizzes, and
-                  homework marking.
+                  task marking.
                 </p>
                 {/* Still say what they'd be buying — the course is set at
                     signup and is the thing worth checking before paying. */}

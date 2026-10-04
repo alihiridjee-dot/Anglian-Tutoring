@@ -16,7 +16,7 @@ import { HomeworkChip, NoteChip, QuizChip, VideoChip } from "./WorkChips";
 import { useSpecPointNotes, type SpecPointNote } from "@/hooks/data/useNotes";
 
 /**
- * "What to do now" — the week as a single checklist.
+ * "Weekly task list" — the week as a single checklist.
  *
  * The panel above this one explains the week: which topic is on schedule, what
  * came back round, how well it's all sticking. That is the right answer to *why
@@ -93,7 +93,7 @@ export function DoNowPanel({
         </span>
         <div className="flex-1 min-w-0">
           <SectionHeading
-            title="What to do now"
+            title="Weekly task list"
             hint={
               allDone
                 ? "Everything ticked off — nice one."
@@ -123,7 +123,7 @@ export function DoNowPanel({
         <span>Watch</span>
         <span>Read</span>
         <span>MCQs</span>
-        <span>Homework</span>
+        <span>Tasks</span>
       </div>
 
       <ul className="space-y-1.5">
@@ -211,7 +211,7 @@ function ChecklistRow({
         ))}
       </WorkCell>
 
-      <WorkCell label="Homework" empty="No homework set on this point yet">
+      <WorkCell label="Tasks" empty="No tasks set on this point yet">
         {work?.homework.map((h) => (
           <HomeworkChip key={h.id} item={h} label="Start" coverage={coverage} />
         ))}

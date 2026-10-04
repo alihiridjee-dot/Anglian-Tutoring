@@ -217,7 +217,7 @@ export function SpecPointVideoEditor({ video, specPointId, taxonomy, onClose, on
             type="button"
             onClick={runCheck}
             disabled={!videoUrl || check.status === "checking"}
-            className="inline-flex min-h-11 sm:min-h-0 items-center gap-1.5 px-3 py-1.5 rounded-md border border-border text-xs font-semibold text-foreground hover:bg-secondary/40 disabled:opacity-60"
+            className="inline-flex min-h-11 sm:pointer-fine:min-h-0 items-center gap-1.5 px-3 py-1.5 rounded-md border border-border text-xs font-semibold text-foreground hover:bg-secondary/40 disabled:opacity-60"
           >
             {check.status === "checking" ? (
               <Loader2 className="w-3.5 h-3.5 animate-spin" />
@@ -272,7 +272,7 @@ export function SpecPointVideoEditor({ video, specPointId, taxonomy, onClose, on
               type="button"
               onClick={unlink}
               disabled={busy}
-              className="inline-flex min-h-11 sm:min-h-0 items-center gap-1.5 mt-3 px-3 py-1.5 rounded-md border border-border text-xs font-semibold text-muted-foreground hover:text-foreground disabled:opacity-60"
+              className="inline-flex min-h-11 sm:pointer-fine:min-h-0 items-center gap-1.5 mt-3 px-3 py-1.5 rounded-md border border-border text-xs font-semibold text-muted-foreground hover:text-foreground disabled:opacity-60"
             >
               <Link2Off className="w-3.5 h-3.5" /> Remove from this point
             </button>
@@ -280,7 +280,7 @@ export function SpecPointVideoEditor({ video, specPointId, taxonomy, onClose, on
               type="button"
               onClick={destroy}
               disabled={busy}
-              className="inline-flex min-h-11 sm:min-h-0 items-center gap-1.5 mt-3 px-3 py-1.5 rounded-md border border-destructive/40 text-xs font-semibold text-destructive hover:bg-destructive/10 disabled:opacity-60"
+              className="inline-flex min-h-11 sm:pointer-fine:min-h-0 items-center gap-1.5 mt-3 px-3 py-1.5 rounded-md border border-destructive/40 text-xs font-semibold text-destructive hover:bg-destructive/10 disabled:opacity-60"
             >
               <Trash2 className="w-3.5 h-3.5" /> Delete everywhere
             </button>

@@ -5,6 +5,7 @@ import { EmptyState, Spinner } from "@/components/Shared";
 import { NoteView } from "@/components/notes/NoteView";
 import { guardStudentSection } from "@/lib/auth/routeGuards";
 import { useEnrolments } from "@/hooks/data/useEnrolments";
+import { usePinSubject } from "@/hooks/useActiveSubject";
 import { useNote } from "@/hooks/data/useNotes";
 import { NOTE_BOARDS, type NoteBoard } from "@/lib/notes/noteFormat";
 
@@ -19,6 +20,9 @@ function NotePage() {
   const { data: note, isLoading, error } = useNote(conceptId);
   const { enrolments } = useEnrolments();
   const router = useRouter();
+  // A note is about one subject: opening it moves the header slider there, and
+  // switching subject from here goes to the curriculum for the new one.
+  usePinSubject(note?.subject, () => router.navigate({ to: "/curriculum" }));
 
   // Show the layer for the student's own board in this subject; fall back to
   // whichever board the note has, so a note is never blank.

@@ -49,7 +49,7 @@ function ParentRow({ parent, studentId }: { parent: LinkedParent; studentId: str
                 },
               )
             }
-            className="btn-solid tint-rose inline-flex h-11 sm:h-8 items-center gap-1.5 rounded-lg px-3 text-xs font-semibold"
+            className="btn-solid tint-rose inline-flex h-11 sm:pointer-fine:h-8 items-center gap-1.5 rounded-lg px-3 text-xs font-semibold"
           >
             {unlink.isPending && <Loader2 className="size-3.5 animate-spin" aria-hidden />}
             Yes, unlink
@@ -57,7 +57,7 @@ function ParentRow({ parent, studentId }: { parent: LinkedParent; studentId: str
           <button
             type="button"
             onClick={() => setConfirming(false)}
-            className="btn-soft inline-flex h-11 sm:h-8 items-center rounded-lg px-3 text-xs font-semibold"
+            className="btn-soft inline-flex h-11 sm:pointer-fine:h-8 items-center rounded-lg px-3 text-xs font-semibold"
           >
             Keep
           </button>
@@ -66,7 +66,7 @@ function ParentRow({ parent, studentId }: { parent: LinkedParent; studentId: str
         <button
           type="button"
           onClick={() => setConfirming(true)}
-          className="text-muted-foreground hover:text-foreground inline-flex min-h-11 sm:min-h-0 items-center gap-1 text-xs font-semibold"
+          className="text-muted-foreground hover:text-foreground inline-flex min-h-11 sm:pointer-fine:min-h-0 items-center gap-1 text-xs font-semibold"
         >
           <X className="size-3.5" aria-hidden /> Unlink
         </button>
@@ -111,7 +111,7 @@ export function StudentOverview({
         <SectionHeading title="Parents">
           <Link
             to="/parents"
-            className="btn-soft inline-flex h-11 sm:h-9 items-center gap-1.5 rounded-lg px-3 text-xs font-semibold"
+            className="btn-soft inline-flex h-11 sm:pointer-fine:h-9 items-center gap-1.5 rounded-lg px-3 text-xs font-semibold"
           >
             <Users className="size-4" aria-hidden /> Parent links
           </Link>

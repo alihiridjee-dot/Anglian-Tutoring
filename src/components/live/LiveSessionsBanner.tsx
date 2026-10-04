@@ -14,16 +14,19 @@ import { useMyLiveSessions } from "@/components/live/useMyLiveSessions";
 export function LiveSessionsBanner({
   to = "/live",
   plansPresent = false,
+  subject,
 }: {
   to?: string;
   plansPresent?: boolean;
+  /** Only this subject's sessions — the header slider's, on the dashboard. */
+  subject?: string | null;
 }) {
   return (
     <div className="relative rounded-2xl">
       <span className="pointer-events-none absolute inset-0 rounded-2xl ring-2 ring-emerald-500/40 animate-pulse" />
       <div className="relative">
-        <NextSessionCountdown className="!mb-0" />
-        <LiveSessionsFallback to={to} plansPresent={plansPresent} />
+        <NextSessionCountdown className="!mb-0" subject={subject} />
+        <LiveSessionsFallback to={to} plansPresent={plansPresent} subject={subject} />
       </div>
     </div>
   );
@@ -35,8 +38,16 @@ export function LiveSessionsBanner({
  * always carries a visible route into Live Sessions. When a session is in the
  * live/upcoming window the countdown owns the strip and this steps aside.
  */
-function LiveSessionsFallback({ to, plansPresent }: { to: string; plansPresent: boolean }) {
-  const { data } = useMyLiveSessions();
+function LiveSessionsFallback({
+  to,
+  plansPresent,
+  subject,
+}: {
+  to: string;
+  plansPresent: boolean;
+  subject?: string | null;
+}) {
+  const { data } = useMyLiveSessions(subject);
   // The same question the countdown above asks, so exactly one of them shows.
   // It read the clock once, at render: when the last session of the day ended
   // the countdown stepped aside and this never stepped in, leaving the strip
