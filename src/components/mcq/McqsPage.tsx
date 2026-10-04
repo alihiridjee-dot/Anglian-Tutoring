@@ -399,7 +399,8 @@ function TopicGroup({
           className={`text-muted-foreground size-4 shrink-0 transition-transform ${open ? "" : "-rotate-90"}`}
           aria-hidden
         />
-        <span className="font-display min-w-0 flex-1 truncate font-bold">{title}</span>
+        {/* Wraps rather than truncates, like the curriculum's topic names. */}
+        <span className="font-display min-w-0 flex-1 font-bold break-words">{title}</span>
         {done === items.length && (
           <CheckCircle2 className="size-4 shrink-0 text-[color:var(--tint)]" aria-hidden />
         )}

@@ -140,7 +140,7 @@ export function SpecSearchResults({
                 {topic.code}
               </span>
             )}
-            <span className="font-display font-bold text-sm truncate">
+            <span className="font-display font-bold text-sm break-words min-w-0">
               <Highlight text={topic.title} terms={terms} />
             </span>
             <span className="ml-auto text-[11px] font-semibold text-muted-foreground shrink-0">
