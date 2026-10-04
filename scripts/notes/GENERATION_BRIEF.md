@@ -29,12 +29,14 @@ This is the exact job given to a note-writing agent (Sonnet). One agent drafts
 ## Done means
 
 - Every concept in the chapter has a note, and the validator passes all of them.
-- Every board that has spec points in a concept has a board layer with real
-  exam phrases, real mistakes and a real worked example from that board's pack.
+- Every board that has spec points in a concept has a board layer with its spec
+  codes and a real worked example from that board's pack.
 - An interactive (`predictor` or `slider`) wherever the topic genuinely fits.
 
 ## Do not
 
+- Do not write an "Exam tips" section: no `exam_phrases` and no `mistakes` in
+  any board layer. It was removed from every note and is not written any more.
 - Do not edit anything outside your own notes in `scripts/notes/drafts/<subject>/`.
   Other writers are working on other chapters at the same time.
 - Do not touch git, the database (beyond the read-only source script), or the network.
