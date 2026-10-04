@@ -181,9 +181,10 @@ function StudentHomework({
       {/* The predicted grade for the subject in the header, against its
           target: just the rings, with no heading or intro above them — the
           slider already names the subject. Keyed by subject so the rings
-          draw in again on a switch. */}
+          draw in again on a switch. Centred on a computer screen, where a
+          card this size would otherwise sit in the corner of a wide page. */}
       {subject && (
-        <div data-guide="homework-grades" className="mb-8">
+        <div data-guide="homework-grades" className="mb-8 lg:flex lg:justify-center">
           <PredictedGradeCard
             key={subject}
             subject={subject}
