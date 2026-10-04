@@ -10,11 +10,9 @@ import type Anthropic from "@anthropic-ai/sdk";
  * They are simple rewording jobs, so thinking is turned off for them.
  *
  * Sonnet 5.5 rejects `{ type: "disabled" }`; `between_tools` is its "off"
- * setting. SDK 0.111 doesn't list that value yet, hence the cast.
+ * setting.
  */
-export const NO_THINKING = {
-  type: "between_tools",
-} as unknown as Anthropic.ThinkingConfigParam;
+export const NO_THINKING = { type: "between_tools" } as const;
 
 /**
  * The text of a reply that finished on its own.
