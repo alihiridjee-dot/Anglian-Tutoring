@@ -3,6 +3,7 @@ import { ProgramDAL } from "./programDal";
 import { ScheduleDAL, type ProgressPoint, type TopicProgress } from "./scheduleDal";
 import { WeeklyPlanDAL, type PlanPoint, type PlanPointOrigin } from "./weeklyPlanDal";
 import { WeeklyActivityDAL } from "./weeklyActivityDal";
+import { SubjectPauseDAL, type PauseRecord } from "./pausesDal";
 import { computePacing, type PacingBand } from "./pacing";
 import { reorderTopics } from "./topicOrder";
 import { weekKeyToDate } from "./week";
@@ -157,6 +158,10 @@ function arrange(world: {
   viewer?: string;
   /** Rows of `student_plan_overrides`, as the API would return them. */
   overrides?: Record<string, unknown>[];
+  /** The subject's recorded stops. */
+  pauses?: PauseRecord[];
+  /** The database refuses to save the plan picked up after a stop. */
+  resumeFails?: boolean;
 }) {
   spies = [
     spyOn(ScheduleDAL, "getTopicProgress").mockImplementation(async (args) => {
@@ -173,6 +178,21 @@ function arrange(world: {
         done: new Set(world.ledger?.done ?? []),
         outstanding: new Set(world.ledger?.outstanding ?? []),
       };
+    }),
+    spyOn(SubjectPauseDAL, "history").mockImplementation(async (...args) => {
+      io.push(["pauseHistory", args]);
+      return world.pauses ?? [];
+    }),
+    spyOn(SubjectPauseDAL, "resumeProgramme").mockImplementation(async (args) => {
+      io.push([
+        "resumeProgramme",
+        {
+          pauseId: args.pauseId,
+          pacing: args.pacing?.map((b) => [b.topicId, b.startWeek, b.endWeek]) ?? null,
+        },
+      ]);
+      if (world.resumeFails)
+        throw new Error("Only the student or their tutor can pick their plan up after a pause.");
     }),
     spyOn(session, "getSessionUserId").mockImplementation(async () => {
       io.push(["getSessionUserId"]);
@@ -381,4 +401,39 @@ test("a tutor looking at a moved student's planner answers the same but saves no
   const result = await load();
   expect(result!.bands.some((b) => b.topicId === "e1")).toBe(true);
   expect(io.some((e) => Array.isArray(e) && e[0] === "db" && e[1] === "POST")).toBe(false);
+});
+
+// Paused in the week of 31 Aug, back on Monday 14 Sept: two weeks stopped.
+const stop = (values: Partial<PauseRecord> = {}): PauseRecord => ({
+  id: "p1",
+  reason: "paused",
+  startedAt: "2026-09-02T10:00:00Z",
+  endedAt: "2026-09-14T10:00:00Z",
+  programmeResumedAt: null,
+  ...values,
+});
+const taughtIn = (bands: PacingBand[], from: string, to: string) =>
+  bands.flatMap((b) => Object.keys(b.pointsByWeek ?? {})).filter((w) => w >= from && w < to);
+
+test("an ended stop is picked up before anything is cut from the programme", async () => {
+  baseline = {
+    program_start: "2026-08-24",
+    exam_date: "2027-06-07",
+    pacing: seeded("2026-08-24", "2027-06-07"),
+  };
+  arrange({ pauses: [stop({ id: "p0", programmeResumedAt: "2026-08-20T10:00:00Z" }), stop()] });
+  const result = await load();
+  expect(io.filter((e) => (e as unknown[])[0] === "resumeProgramme")).toHaveLength(1);
+  expect(taughtIn(result!.baselineBands, "2026-08-31", "2026-09-14")).toEqual([]);
+  expect({ result, io }).toMatchSnapshot();
+});
+
+test("a stop that can't be saved (a parent looking) leaves the programme as it was", async () => {
+  const pacing = seeded("2026-08-24", "2027-06-07");
+  baseline = { program_start: "2026-08-24", exam_date: "2027-06-07", pacing };
+  arrange({ pauses: [stop()], resumeFails: true, viewer: "parent" });
+  const result = await load();
+  expect(result!.baselineBands.map((b) => [b.topicId, b.startWeek, b.endWeek])).toEqual(
+    pacing.map((b) => [b.topicId, b.startWeek, b.endWeek]),
+  );
 });

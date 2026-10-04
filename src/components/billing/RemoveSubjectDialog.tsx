@@ -121,15 +121,16 @@ export function RemoveSubjectDialog({
               </span>
             </li>
             <li className="flex gap-2.5">
-              <Check className="w-4 h-4 text-emerald-600 shrink-0 mt-0.5" />
-              <span>{remainingCarryOn}</span>
+              <AlertTriangle className="w-4 h-4 text-amber-600 shrink-0 mt-0.5" />
+              <span>
+                {subjectLabel} progress and marks are kept for <strong>7 days</strong>, then{" "}
+                <strong>deleted</strong> for good. Add it back in that time and it's all still
+                there.
+              </span>
             </li>
             <li className="flex gap-2.5">
               <Check className="w-4 h-4 text-emerald-600 shrink-0 mt-0.5" />
-              <span>
-                {subjectLabel} progress and marks are <strong>kept</strong> — add it back later and
-                it's all still there.
-              </span>
+              <span>{remainingCarryOn}</span>
             </li>
             <li className="flex gap-2.5">
               <Check className="w-4 h-4 text-emerald-600 shrink-0 mt-0.5" />

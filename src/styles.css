@@ -998,6 +998,13 @@ a.when-link:hover .when-link-arrow {
 .wordmark:focus-visible .wordmark-tile {
   animation: hop 0.55s cubic-bezier(0.34, 1.4, 0.64, 1);
 }
+/* The same hop on a grade ring when the pointer reaches it. A computer only —
+   a tap is not a hover — and silent until then, for the same reason. */
+@media (hover: hover) {
+  .ring-hop:hover {
+    animation: hop 0.55s cubic-bezier(0.34, 1.4, 0.64, 1);
+  }
+}
 
 /* Tapping a nav tab pops its icon. The animation is declared only under the
    active state, so it fires on the transition INTO active — i.e. exactly once
@@ -1069,7 +1076,8 @@ a.when-link:hover .when-link-arrow {
   .blink,
   .peek-in,
   .cheer,
-  .confetti-bit {
+  .confetti-bit,
+  .ring-hop:hover {
     animation: none;
   }
   .ring-draw {

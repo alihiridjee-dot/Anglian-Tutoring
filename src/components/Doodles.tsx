@@ -412,7 +412,14 @@ const SHARDS = [
   { dx: "90px", dy: "118px", dr: "-280deg", left: "82%", delay: "90ms", c: "var(--phys)" },
 ] as const;
 
-export function Confetti({ className }: { className?: string }) {
+export function Confetti({
+  className,
+  delay,
+}: {
+  className?: string;
+  /** Holds the whole burst back, e.g. "1s" — until a ring has finished drawing. */
+  delay?: string;
+}) {
   return (
     <span aria-hidden className={cn("pointer-events-none absolute inset-x-0 top-0 h-0", className)}>
       {SHARDS.map((s, i) => (
@@ -426,7 +433,7 @@ export function Confetti({ className }: { className?: string }) {
               "--dx": s.dx,
               "--dy": s.dy,
               "--dr": s.dr,
-              "--confetti-delay": s.delay,
+              "--confetti-delay": delay ? `calc(${delay} + ${s.delay})` : s.delay,
             } as React.CSSProperties
           }
         />
