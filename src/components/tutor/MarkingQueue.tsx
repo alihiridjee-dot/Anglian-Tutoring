@@ -225,8 +225,7 @@ export function MarkingQueue() {
     return (
       <div className="rounded-2xl border border-dashed border-border p-6 sm:p-10 text-center text-muted-foreground">
         <Inbox className="w-8 h-8 mx-auto mb-3 opacity-50" />
-        No homework submissions yet. Once students answer their homework it will appear here to
-        review.
+        No task submissions yet. Once students answer their tasks they will appear here to review.
       </div>
     );
   }
@@ -313,7 +312,7 @@ function SegmentTab({
   return (
     <button
       onClick={onClick}
-      className={`inline-flex min-h-11 sm:min-h-0 items-center gap-2.5 rounded-xl border px-4 py-2.5 text-sm font-semibold transition ${
+      className={`inline-flex min-h-11 sm:pointer-fine:min-h-0 items-center gap-2.5 rounded-xl border px-4 py-2.5 text-sm font-semibold transition ${
         active
           ? activeCls
           : "bg-secondary border-border text-muted-foreground hover:text-foreground"
@@ -435,7 +434,7 @@ function MarkSubmissionCard({
               )}
             </div>
             <p className="font-display font-bold truncate">
-              {sub.resource?.title ?? "Untitled homework"}
+              {sub.resource?.title ?? "Untitled task"}
             </p>
             <p className="text-xs text-muted-foreground mt-0.5">
               {studentName} · submitted {new Date(sub.submitted_at).toLocaleDateString()}
@@ -545,7 +544,7 @@ function MarkSubmissionCard({
             <button
               onClick={save}
               disabled={saving || marking.loading || !!marking.error}
-              className="ml-auto inline-flex items-center gap-2 h-11 sm:h-10 px-5 rounded-lg btn-solid text-sm font-semibold hover:opacity-90 disabled:opacity-60"
+              className="ml-auto inline-flex items-center gap-2 h-11 sm:pointer-fine:h-10 px-5 rounded-lg btn-solid text-sm font-semibold hover:opacity-90 disabled:opacity-60"
             >
               {saving ? (
                 <Loader2 className="w-4 h-4 animate-spin" />

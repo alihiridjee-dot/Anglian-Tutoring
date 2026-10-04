@@ -231,7 +231,7 @@ function SubjectsStep() {
                     onChange={(e) =>
                       setBoards((prev) => ({ ...prev, [s.value]: e.target.value as BoardV }))
                     }
-                    className="h-11 sm:h-8 rounded-lg premium-card px-2 text-xs transition focus:outline-none focus:border-primary focus:ring-4 focus:ring-primary/15"
+                    className="h-11 sm:pointer-fine:h-8 rounded-lg premium-card px-2 text-xs transition focus:outline-none focus:border-primary focus:ring-4 focus:ring-primary/15"
                   >
                     {BOARDS.filter((b) => options.includes(b.value)).map((b) => (
                       <option key={b.value} value={b.value}>

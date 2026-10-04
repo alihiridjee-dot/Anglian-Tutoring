@@ -97,7 +97,7 @@ export function GlobalSearchDialog({ open, onClose }: { open: boolean; onClose: 
             ref={inputRef}
             value={query}
             onChange={(e) => setQuery(e.target.value)}
-            placeholder="Search spec points, homework, sessions, quizzes…"
+            placeholder="Search spec points, tasks, sessions, quizzes…"
             aria-label="Search"
             className="flex-1 min-w-0 bg-transparent text-base focus:outline-none placeholder:text-muted-foreground/70"
           />
@@ -115,7 +115,7 @@ export function GlobalSearchDialog({ open, onClose }: { open: boolean; onClose: 
           {!active ? (
             <EmptyState
               title="Search everything"
-              body={`Type at least ${MIN_QUERY_LENGTH} characters to search across the specification, homework, live sessions, videos and quizzes.`}
+              body={`Type at least ${MIN_QUERY_LENGTH} characters to search across the specification, tasks, live sessions, videos and quizzes.`}
             />
           ) : error ? (
             <EmptyState title="Search failed" body={error} />

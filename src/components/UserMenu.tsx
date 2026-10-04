@@ -114,9 +114,11 @@ export function UserMenu({
       </button>
 
       {open && (
+        // Hangs off the pinned header, so scrolling the page can't bring its
+        // end into view: on a phone turned sideways it scrolls itself instead.
         <div
           role="menu"
-          className="absolute right-0 top-12 w-56 max-w-[calc(100vw-2rem)] rounded-xl premium-card shadow-xl z-50 p-1.5"
+          className="absolute right-0 top-12 w-56 max-w-[calc(100vw-2rem)] max-h-[calc(100dvh-4.5rem)] overflow-y-auto overscroll-contain rounded-xl premium-card shadow-xl z-50 p-1.5"
         >
           {email && (
             <div className="px-3 py-2 border-b border-border mb-1">

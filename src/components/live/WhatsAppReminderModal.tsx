@@ -85,7 +85,7 @@ export function WhatsAppReminderModal({
             <div className="flex gap-2">
               <select
                 aria-label="Country code"
-                className="w-24 h-11 sm:h-10 px-2 bg-white border border-border rounded-lg text-sm focus:ring-2 focus:ring-primary/20 focus:border-primary outline-hidden"
+                className="w-24 h-11 sm:pointer-fine:h-10 px-2 bg-white border border-border rounded-lg text-sm focus:ring-2 focus:ring-primary/20 focus:border-primary outline-hidden"
                 value={phonePrefix}
                 onChange={(e) => setPhonePrefix(e.target.value)}
               >
@@ -100,7 +100,7 @@ export function WhatsAppReminderModal({
                 autoComplete="tel-national"
                 aria-label="Your phone number"
                 placeholder="7123 456789"
-                className="min-w-0 flex-1 h-11 sm:h-10 px-3 bg-white border border-border rounded-lg text-sm focus:ring-2 focus:ring-primary/20 focus:border-primary outline-hidden"
+                className="min-w-0 flex-1 h-11 sm:pointer-fine:h-10 px-3 bg-white border border-border rounded-lg text-sm focus:ring-2 focus:ring-primary/20 focus:border-primary outline-hidden"
                 value={phoneNumber}
                 onChange={(e) => setPhoneNumber(e.target.value.replace(/[^0-9\s]/g, ""))}
               />
@@ -118,7 +118,7 @@ export function WhatsAppReminderModal({
                   toast.error("Enter your phone number first.");
                 }
               }}
-              className="h-11 sm:h-10 bg-[#25D366] hover:bg-[#20ba59] text-white font-semibold rounded-lg text-xs flex items-center justify-center gap-1.5 transition text-center"
+              className="h-11 sm:pointer-fine:h-10 bg-[#25D366] hover:bg-[#20ba59] text-white font-semibold rounded-lg text-xs flex items-center justify-center gap-1.5 transition text-center"
             >
               <Send className="w-3.5 h-3.5" />
               Send to Myself
@@ -127,7 +127,7 @@ export function WhatsAppReminderModal({
               href={whatsAppGroupShareLink(selectedSession)}
               target="_blank"
               rel="noreferrer"
-              className="h-11 sm:h-10 border border-border hover:bg-secondary text-foreground font-semibold rounded-lg text-xs flex items-center justify-center gap-1.5 transition text-center"
+              className="h-11 sm:pointer-fine:h-10 border border-border hover:bg-secondary text-foreground font-semibold rounded-lg text-xs flex items-center justify-center gap-1.5 transition text-center"
             >
               <Share2 className="w-3.5 h-3.5 text-muted-foreground" />
               Share Invite Link

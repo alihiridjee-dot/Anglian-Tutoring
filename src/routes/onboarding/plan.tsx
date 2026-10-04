@@ -206,14 +206,14 @@ function PlanStep() {
         <button
           type="button"
           onClick={() => navigate({ to: "/onboarding/school" })}
-          className="inline-flex min-h-11 items-center text-xs text-muted-foreground hover:text-foreground sm:min-h-0"
+          className="inline-flex min-h-11 items-center text-xs text-muted-foreground hover:text-foreground sm:pointer-fine:min-h-0"
         >
           ← Back to your profile
         </button>
         <button
           type="button"
           onClick={signOut}
-          className="inline-flex min-h-11 items-center text-xs text-muted-foreground hover:text-foreground sm:min-h-0"
+          className="inline-flex min-h-11 items-center text-xs text-muted-foreground hover:text-foreground sm:pointer-fine:min-h-0"
         >
           Sign out
         </button>

@@ -33,7 +33,7 @@ export function Field({ label, children }: { label: string; children: React.Reac
 }
 
 export const inputCls =
-  "w-full h-11 sm:h-10 rounded-lg bg-secondary border border-border px-3 text-sm focus:outline-none focus:ring-2 focus:ring-primary/40";
+  "w-full h-11 sm:pointer-fine:h-10 rounded-lg bg-secondary border border-border px-3 text-sm focus:outline-none focus:ring-2 focus:ring-primary/40";
 
 export const submitBtn =
-  "w-full h-11 sm:h-10 rounded-lg btn-solid font-semibold text-sm hover:opacity-90 disabled:opacity-60";
+  "w-full h-11 sm:pointer-fine:h-10 rounded-lg btn-solid font-semibold text-sm hover:opacity-90 disabled:opacity-60";

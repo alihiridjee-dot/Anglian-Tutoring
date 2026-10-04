@@ -13,7 +13,7 @@ export function BroadcastToggle({
           Broadcast Notifications
         </span>
       </div>
-      <label className="flex min-h-11 sm:min-h-0 items-center gap-2 cursor-pointer text-sm">
+      <label className="flex min-h-11 sm:pointer-fine:min-h-0 items-center gap-2 cursor-pointer text-sm">
         <input
           type="checkbox"
           className="rounded border-border text-[#25D366] focus:ring-[#25D366]"

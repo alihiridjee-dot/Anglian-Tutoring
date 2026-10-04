@@ -227,7 +227,7 @@ export function PricingSection() {
                   <button
                     type="button"
                     onClick={() => window.setTimeout(() => setOpenStep(1), 40)}
-                    className="mt-4 w-full min-h-11 rounded-xl bg-primary py-2.5 text-sm font-semibold text-white transition-colors sm:min-h-0"
+                    className="mt-4 w-full min-h-11 rounded-xl bg-primary py-2.5 text-sm font-semibold text-white transition-colors sm:pointer-fine:min-h-0"
                   >
                     Continue
                   </button>
@@ -290,7 +290,7 @@ export function PricingSection() {
               <button
                 type="button"
                 onClick={() => setOpenStep(2)}
-                className="mt-4 w-full min-h-11 rounded-xl bg-primary py-2.5 text-sm font-semibold text-white transition-colors sm:min-h-0"
+                className="mt-4 w-full min-h-11 rounded-xl bg-primary py-2.5 text-sm font-semibold text-white transition-colors sm:pointer-fine:min-h-0"
               >
                 Continue
               </button>
@@ -420,22 +420,20 @@ function PricingTiers({
 
             {/* Feature list — fills the middle so cards feel substantial */}
             <ul className="relative mt-4 space-y-2 text-xs">
-              {["Homework & marking", "Weekly quizzes", "Parent portal", "Cancel anytime"].map(
-                (f) => (
-                  <li key={f} className="flex items-center gap-2">
-                    <span
-                      className={`flex h-4 w-4 shrink-0 items-center justify-center rounded-full ${
-                        dark
-                          ? "bg-white/15 text-white"
-                          : "bg-[var(--accent-soft)] text-[var(--primary-deep)]"
-                      }`}
-                    >
-                      <Check className="h-2.5 w-2.5" />
-                    </span>
-                    <span className={dark ? "text-white/85" : "text-muted-foreground"}>{f}</span>
-                  </li>
-                ),
-              )}
+              {["Tasks & marking", "Weekly quizzes", "Parent portal", "Cancel anytime"].map((f) => (
+                <li key={f} className="flex items-center gap-2">
+                  <span
+                    className={`flex h-4 w-4 shrink-0 items-center justify-center rounded-full ${
+                      dark
+                        ? "bg-white/15 text-white"
+                        : "bg-[var(--accent-soft)] text-[var(--primary-deep)]"
+                    }`}
+                  >
+                    <Check className="h-2.5 w-2.5" />
+                  </span>
+                  <span className={dark ? "text-white/85" : "text-muted-foreground"}>{f}</span>
+                </li>
+              ))}
             </ul>
 
             {/* Billed price + CTA pinned to the bottom */}
@@ -461,7 +459,7 @@ function PricingTiers({
                     board,
                   } as never
                 }
-                className={`mt-3 flex min-h-11 items-center justify-center rounded-xl py-2.5 text-center text-sm font-bold transition-all duration-200 sm:min-h-0 ${
+                className={`mt-3 flex min-h-11 items-center justify-center rounded-xl py-2.5 text-center text-sm font-bold transition-all duration-200 sm:pointer-fine:min-h-0 ${
                   dark
                     ? "bg-white text-[var(--primary-deep)] hover:bg-white/90 shadow-lg"
                     : "btn-solid hover:bg-[var(--primary-deep)]"
@@ -565,7 +563,7 @@ function Slider({
           key={o.value}
           type="button"
           onClick={() => onChange(o.value)}
-          className={`relative z-10 min-h-11 flex-1 rounded-full px-2 py-2 text-sm leading-tight font-semibold transition-colors duration-200 sm:min-h-0 sm:px-3 ${
+          className={`relative z-10 min-h-11 flex-1 rounded-full px-2 py-2 text-sm leading-tight font-semibold transition-colors duration-200 sm:pointer-fine:min-h-0 sm:px-3 ${
             value === o.value
               ? "text-[var(--primary-deep)]"
               : "text-muted-foreground hover:text-foreground"

@@ -139,19 +139,19 @@ export function SpecPointDetail({
           <button
             onClick={generate}
             disabled={genLoading}
-            className="inline-flex items-center gap-2 px-3 py-1.5 min-h-11 sm:min-h-0 rounded-md bg-accent/20 border border-accent/40 text-accent-foreground text-xs font-semibold hover:bg-accent/30 disabled:opacity-60"
+            className="inline-flex items-center gap-2 px-3 py-1.5 min-h-11 sm:pointer-fine:min-h-0 rounded-md bg-accent/20 border border-accent/40 text-accent-foreground text-xs font-semibold hover:bg-accent/30 disabled:opacity-60"
           >
             <Sparkles className="w-3.5 h-3.5" /> {genLoading ? "Generating…" : "AI generate MCQs"}
           </button>
           <button
             onClick={() => setEditingVideo({ video: null })}
-            className="inline-flex items-center gap-2 px-3 py-1.5 min-h-11 sm:min-h-0 rounded-md border border-border text-xs text-foreground font-semibold hover:bg-secondary/40 transition"
+            className="inline-flex items-center gap-2 px-3 py-1.5 min-h-11 sm:pointer-fine:min-h-0 rounded-md border border-border text-xs text-foreground font-semibold hover:bg-secondary/40 transition"
           >
             <PlayCircle className="w-3.5 h-3.5" /> Add video to this point
           </button>
           <Link
             to="/tutor"
-            className="inline-flex items-center gap-2 px-3 py-1.5 min-h-11 sm:min-h-0 rounded-md border border-border text-xs text-foreground font-semibold hover:bg-secondary/40 transition"
+            className="inline-flex items-center gap-2 px-3 py-1.5 min-h-11 sm:pointer-fine:min-h-0 rounded-md border border-border text-xs text-foreground font-semibold hover:bg-secondary/40 transition"
           >
             <Plus className="w-3.5 h-3.5" /> Add resource in Tutor Studio
           </Link>
@@ -190,7 +190,7 @@ export function SpecPointDetail({
                       <Link
                         to={isDemoStudent() ? "/demo/student/mcq/$setId" : "/mcq/$setId"}
                         params={{ setId: s.id }}
-                        className="inline-flex items-center text-xs px-2.5 py-1.5 min-h-11 sm:min-h-0 rounded-lg border border-border bg-background hover:border-primary/50 text-foreground font-medium transition"
+                        className="inline-flex items-center text-xs px-2.5 py-1.5 min-h-11 sm:pointer-fine:min-h-0 rounded-lg border border-border bg-background hover:border-primary/50 text-foreground font-medium transition"
                       >
                         Take
                       </Link>
@@ -199,7 +199,7 @@ export function SpecPointDetail({
                       <>
                         <button
                           onClick={() => publish(s.id, s.published)}
-                          className="inline-flex items-center text-xs px-2.5 py-1.5 min-h-11 sm:min-h-0 rounded-lg border border-border text-muted-foreground hover:text-foreground transition"
+                          className="inline-flex items-center text-xs px-2.5 py-1.5 min-h-11 sm:pointer-fine:min-h-0 rounded-lg border border-border text-muted-foreground hover:text-foreground transition"
                         >
                           {s.published ? "Unpublish" : "Publish"}
                         </button>
@@ -207,7 +207,7 @@ export function SpecPointDetail({
                           <button
                             onClick={() => replaceSet(s.id)}
                             disabled={replacingId !== null}
-                            className="inline-flex items-center text-xs px-2.5 py-1.5 min-h-11 sm:min-h-0 rounded-lg border border-border text-muted-foreground hover:text-foreground transition disabled:opacity-60"
+                            className="inline-flex items-center text-xs px-2.5 py-1.5 min-h-11 sm:pointer-fine:min-h-0 rounded-lg border border-border text-muted-foreground hover:text-foreground transition disabled:opacity-60"
                           >
                             {replacingId === s.id ? "Replacing…" : "Replace questions"}
                           </button>
@@ -336,7 +336,7 @@ export function SpecPointDetail({
 
         {/* Homework Assignments Section */}
         <CollapsibleResourceGroup
-          label="Homework Assignments"
+          label="Tasks"
           icon={ClipboardList}
           items={resources.filter((r) => r.kind === "homework")}
           render={(r) => (

@@ -166,7 +166,7 @@ export function TopicOrderEditor({
             {asTutor ? "Change the order from" : "Change my order from"}
           </span>
           <select
-            className="premium-card rounded-xl px-3 py-2 min-h-11 sm:min-h-0 max-w-full"
+            className="premium-card rounded-xl px-3 py-2 min-h-11 sm:pointer-fine:min-h-0 max-w-full"
             aria-label="Change order from week"
             value={from}
             disabled={saving}
@@ -208,7 +208,7 @@ export function TopicOrderEditor({
               />
               <button
                 type="button"
-                className="btn-premium rounded-xl px-3 py-2 min-h-11 sm:min-h-0 text-xs inline-flex gap-2 items-center"
+                className="btn-premium rounded-xl px-3 py-2 min-h-11 sm:pointer-fine:min-h-0 text-xs inline-flex gap-2 items-center"
                 disabled={saving}
                 onClick={() => {
                   setChosen(topics.filter((t) => byId.has(t.topicId)).map((t) => t.topicId));
@@ -256,7 +256,7 @@ export function TopicOrderEditor({
                       <div className="flex flex-col gap-2 sm:gap-1">
                         <button
                           type="button"
-                          className="btn-premium rounded-lg p-3.5 sm:p-2"
+                          className="btn-premium rounded-lg p-3.5 sm:pointer-fine:p-2"
                           disabled={saving || index === 0}
                           aria-label={`Move ${topic.title} up`}
                           onPointerDown={(e) => e.stopPropagation()}
@@ -266,7 +266,7 @@ export function TopicOrderEditor({
                         </button>
                         <button
                           type="button"
-                          className="btn-premium rounded-lg p-3.5 sm:p-2"
+                          className="btn-premium rounded-lg p-3.5 sm:pointer-fine:p-2"
                           disabled={saving || index === order.length - 1}
                           aria-label={`Move ${topic.title} down`}
                           onPointerDown={(e) => e.stopPropagation()}
@@ -350,7 +350,7 @@ export function TopicOrderEditor({
           type="button"
           onClick={onCancel}
           disabled={saving}
-          className="btn-premium px-5 py-2.5 min-h-11 sm:min-h-0 rounded-xl"
+          className="btn-premium px-5 py-2.5 min-h-11 sm:pointer-fine:min-h-0 rounded-xl"
         >
           {asTutor ? "Close" : "Back to planner"}
         </button>
@@ -363,7 +363,7 @@ export function TopicOrderEditor({
             snapshot.needsAck ||
             order.every((id, i) => id === inputs.remaining[i]?.topicId)
           }
-          className="btn-solid px-5 py-2.5 min-h-11 sm:min-h-0 rounded-xl"
+          className="btn-solid px-5 py-2.5 min-h-11 sm:pointer-fine:min-h-0 rounded-xl"
         >
           {saving ? (asTutor ? "Saving the order…" : "Saving your order…") : "Save topic order"}
         </button>

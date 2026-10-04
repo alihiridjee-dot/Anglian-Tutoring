@@ -60,7 +60,7 @@ const THREADS: DemoThread[] = [
     id: "demo-thread-photo",
     subject: "biology",
     subject_line: "Why does the rate plateau?",
-    context_label: "Homework · Photosynthesis: Limiting Factors",
+    context_label: "Task · Photosynthesis: Limiting Factors",
     contextKind: "homework",
     unread: 1,
     link: { to: "/demo/student/homework/$homeworkId", id: "demo-hw-photosynthesis" },
@@ -153,7 +153,7 @@ function DemoMessagesPage() {
       <div className="max-w-6xl">
         <div className="mb-4">
           <p className="text-sm text-muted-foreground">
-            Ask your tutor anything — attach the spec point, homework or quiz you're stuck on.
+            Ask your tutor anything — attach the spec point, task or quiz you're stuck on.
           </p>
         </div>
 

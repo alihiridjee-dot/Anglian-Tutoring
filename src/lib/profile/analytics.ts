@@ -39,6 +39,35 @@ export function hasPrediction(row: SubjectAnalytics): boolean {
   return row.mcqAttempts + row.hwGraded >= MIN_WORK_FOR_PREDICTION;
 }
 
+/**
+ * How far up its scale a grade sits, 0–100: the sweep of a grade ring.
+ *
+ * `scale` runs best first and ends at "U" (`gradeOptions(level)`), so the top
+ * grade fills the ring and a U leaves it empty. A grade not on the scale —
+ * nothing set, or an A-Level letter on a GCSE scale — draws nothing.
+ */
+export function gradeFill(grade: string | null | undefined, scale: readonly string[]): number {
+  const i = grade ? scale.indexOf(grade) : -1;
+  if (i < 0 || scale.length < 2) return 0;
+  return ((scale.length - 1 - i) / (scale.length - 1)) * 100;
+}
+
+/**
+ * Grades between where a student is heading and their target, on `scale`
+ * (best first). Zero or less means on or above target. Null when either grade
+ * isn't on the scale, so there is nothing honest to compare.
+ */
+export function gradesToGo(
+  workingTowards: string | null | undefined,
+  target: string | null | undefined,
+  scale: readonly string[],
+): number | null {
+  const at = workingTowards ? scale.indexOf(workingTowards) : -1;
+  const goal = target ? scale.indexOf(target) : -1;
+  if (at < 0 || goal < 0) return null;
+  return at - goal;
+}
+
 /** One scored piece of work, reduced to the subject it belongs to and its percentage. */
 export interface ScoredWork {
   subject: string | null | undefined;

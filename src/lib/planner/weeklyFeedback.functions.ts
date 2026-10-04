@@ -64,7 +64,7 @@ async function generate(input: {
           .map((p) => {
             const topic = p.topic ? ` [${p.topic}]` : "";
             const word = STATUS_WORD[p.status] ?? p.status;
-            return `- ${p.code} ${p.title}${topic} — ${word}; homework ${pct(
+            return `- ${p.code} ${p.title}${topic} — ${word}; task ${pct(
               p.homeworkScore,
             )}, quiz ${pct(p.quizScore)}`;
           })
@@ -83,7 +83,7 @@ async function generate(input: {
       : "";
 
   const system = `You are a friendly, encouraging UK ${input.level.toUpperCase()} ${input.subject} tutor writing a short end-of-week feedback note that the STUDENT will read (${input.board ? `${input.board.toUpperCase()} board` : "their board"}).
-Base it on the evidence given — the spec points covered this week with their homework/MCQ marks, and the student's own check-in.
+Base it on the evidence given — the spec points covered this week with their task/MCQ marks, and the student's own check-in.
 Write 3–5 sentences of warm, plain-English prose. Do: name what went well and cite the strong marks; flag what's still shaky; end with one concrete recommendation for what to focus on next week. Don't: dump spec-point codes back, use markdown, or invent marks that aren't in the evidence.${replyClause}
 Return ONLY the note text — no preamble, no headings, no markdown.`;
 

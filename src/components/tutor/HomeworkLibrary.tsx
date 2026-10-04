@@ -60,7 +60,7 @@ export function HomeworkLibrary({ userId, onChanged }: { userId: string; onChang
       >
         <span className="inline-flex items-center gap-2 text-sm font-semibold">
           <ClipboardList className="text-muted-foreground size-4" />
-          Homework library
+          Task library
           <span className="bg-secondary text-muted-foreground inline-flex h-5 min-w-5 items-center justify-center rounded-full px-1.5 text-[11px]">
             {counts ? counts.all : "…"}
           </span>
@@ -89,11 +89,11 @@ export function HomeworkLibrary({ userId, onChanged }: { userId: string; onChang
           {library.error ? (
             <ErrorNote error={library.error} onRetry={() => void library.refetch()} />
           ) : loading ? (
-            <Spinner label="Loading homework" className="py-8" />
+            <Spinner label="Loading tasks" className="py-8" />
           ) : shown.length === 0 ? (
             <p className="text-muted-foreground text-sm">
               {filter === "tutor"
-                ? "You haven't set any homework yet — use the form above to post the first one."
+                ? "You haven't set any tasks yet — use the form above to post the first one."
                 : "Nothing here yet."}
             </p>
           ) : (
@@ -145,10 +145,10 @@ function LibraryRow({
     setDeleting(true);
     try {
       await deleteHomework({ data: { homeworkId: hw.id } });
-      toast.success("Homework deleted for everyone");
+      toast.success("Task deleted for everyone");
       onChanged();
     } catch (err) {
-      toast.error(err instanceof Error ? err.message : "Could not delete homework");
+      toast.error(err instanceof Error ? err.message : "Could not delete task");
       setDeleting(false);
       setConfirming(false);
     }
@@ -173,7 +173,7 @@ function LibraryRow({
               type="button"
               onClick={remove}
               disabled={deleting}
-              className="bg-destructive inline-flex h-11 sm:h-7 items-center gap-1 rounded-md px-2.5 text-xs font-semibold text-white hover:opacity-90 disabled:opacity-60"
+              className="bg-destructive inline-flex h-11 sm:pointer-fine:h-7 items-center gap-1 rounded-md px-2.5 text-xs font-semibold text-white hover:opacity-90 disabled:opacity-60"
             >
               <Trash2 className="size-3" />
               {deleting ? "Deleting…" : "Delete"}
@@ -182,7 +182,7 @@ function LibraryRow({
               type="button"
               onClick={() => setConfirming(false)}
               disabled={deleting}
-              className="border-border hover:bg-muted/50 h-11 sm:h-7 rounded-md border px-2.5 text-xs font-medium disabled:opacity-60"
+              className="border-border hover:bg-muted/50 h-11 sm:pointer-fine:h-7 rounded-md border px-2.5 text-xs font-medium disabled:opacity-60"
             >
               Cancel
             </button>
@@ -192,7 +192,7 @@ function LibraryRow({
             <Link
               to="/homework/$homeworkId"
               params={{ homeworkId: hw.id }}
-              className="text-muted-foreground hover:text-foreground inline-flex min-h-11 sm:min-h-0 items-center gap-1 text-xs"
+              className="text-muted-foreground hover:text-foreground inline-flex min-h-11 sm:pointer-fine:min-h-0 items-center gap-1 text-xs"
             >
               <Eye className="size-3.5" />
               Preview
@@ -200,7 +200,7 @@ function LibraryRow({
             <button
               type="button"
               onClick={() => setEditing((e) => !e)}
-              className="text-muted-foreground hover:text-foreground inline-flex min-h-11 sm:min-h-0 items-center gap-1 text-xs"
+              className="text-muted-foreground hover:text-foreground inline-flex min-h-11 sm:pointer-fine:min-h-0 items-center gap-1 text-xs"
             >
               <Pencil className="size-3.5" />
               {editing ? "Close" : "Edit"}
@@ -208,7 +208,7 @@ function LibraryRow({
             <button
               type="button"
               onClick={() => setConfirming(true)}
-              className="text-muted-foreground hover:text-destructive inline-flex min-h-11 sm:min-h-0 items-center gap-1 text-xs"
+              className="text-muted-foreground hover:text-destructive inline-flex min-h-11 sm:pointer-fine:min-h-0 items-center gap-1 text-xs"
             >
               <Trash2 className="size-3.5" />
               Delete
