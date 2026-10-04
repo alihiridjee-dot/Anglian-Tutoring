@@ -98,11 +98,8 @@ missed the lesson could learn the topic from this note alone.
    answers written the way a mark scheme would credit them.
 5. **boards** — one layer for every board that has a spec point in the concept:
    - `spec_codes`: that board's codes from the source pack (primary ones first).
-   - `exam_phrases`: 3 to 6 phrases lifted from that board's mark schemes in the
-     source pack, short enough to quote. These are the words that score.
-   - `mistakes`: 2 to 4, each `wrong` (what students write, as a sentence) and
-     `right` (the correction, one or two sentences). Base them on what the mark
-     schemes reject or ignore.
+   - Do **not** write `exam_phrases` or `mistakes`. The "Exam tips" section was
+     removed from every note and must not be written for new notes.
    - `worked_example`: one question from that board's questions in the pack,
      chosen to show the core idea (prefer 3 to 6 marks, no image needed). Copy the
      question accurately, give `answer_points` that follow its mark scheme, and

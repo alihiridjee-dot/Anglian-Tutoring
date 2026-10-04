@@ -156,11 +156,6 @@ export function PastSessionCard({
       </div>
       <div className="flex-1 min-w-0">
         <WhatsCovered points={s.specPoints} label="Covered" />
-        {s.specPoints.length === 0 && !s.description && (
-          <p className="text-xs text-muted-foreground italic mt-1">
-            No curriculum points recorded.
-          </p>
-        )}
       </div>
       {isTutor && (
         <button

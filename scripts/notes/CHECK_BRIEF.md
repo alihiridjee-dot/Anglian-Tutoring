@@ -25,8 +25,8 @@ One checker takes a list of drafted notes. For each note:
    that `exemplar_id` (same question, accurate wording, any needed table or
    figure data included). `answer_points` follow that question's mark scheme.
    No paper, year or board appears anywhere a student sees.
-4. **Exam phrases and mistakes** come from that board's mark schemes, not
-   invented.
+4. **No exam tips.** No board layer has `exam_phrases` or `mistakes`; the
+   "Exam tips" section is no longer written.
 5. **Interactives give right answers.** Work each one through:
    - `practice`: compute the answer at both ends of every variable range; the
      formula is the real equation; the numbers are realistic; `decimals` is right.
