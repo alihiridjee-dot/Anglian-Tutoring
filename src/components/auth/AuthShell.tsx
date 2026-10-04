@@ -23,7 +23,7 @@ export function BrandMark({ className = "" }: { className?: string }) {
 const POINTS = [
   "Your exam board's spec, point by point",
   "Weekly quizzes that target your weak spots",
-  "Live sessions and homework in one place",
+  "Live sessions and tasks in one place",
 ];
 
 /**

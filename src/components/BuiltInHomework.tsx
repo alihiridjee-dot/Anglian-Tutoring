@@ -309,7 +309,7 @@ export function AnswerForm({
       // simply waits for a tutor, which is what used to happen to all of them.
       if (submissionId) startMarking(submissionId);
 
-      toast.success("Homework submitted");
+      toast.success("Task submitted");
       clearDraft(userId, hw.id);
       setWork(EMPTY_WORK);
       setRestored(false);

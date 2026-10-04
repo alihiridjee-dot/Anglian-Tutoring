@@ -79,7 +79,7 @@ const studentNav: NavItem[] = [
   { to: "/dashboard", label: "Dashboard", icon: LayoutDashboard },
   { to: "/planner", label: "Planner", icon: Compass },
   { to: "/curriculum", label: "Curriculum", icon: BookMarked },
-  { to: "/homework", label: "Homework & Grades", icon: ClipboardList },
+  { to: "/homework", label: "Tasks & Grades", icon: ClipboardList },
   { to: "/live", label: "Live Sessions", icon: Video },
   { to: "/mcqs", label: "MCQs", icon: ListChecks },
   // Sits with the learning sections, not with account settings: asking your

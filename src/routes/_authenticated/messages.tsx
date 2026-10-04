@@ -72,7 +72,7 @@ function MessagesPage() {
                 ? unreadTotal > 0
                   ? `${unreadTotal} message${unreadTotal === 1 ? "" : "s"} waiting for a reply.`
                   : "Everything's answered."
-                : "Ask your tutor anything — attach the spec point, homework or quiz you're stuck on."}
+                : "Ask your tutor anything — attach the spec point, task or quiz you're stuck on."}
             </p>
           </div>
           {!isTutor && (
@@ -98,7 +98,7 @@ function MessagesPage() {
             </h2>
             <p className="text-muted-foreground mx-auto mt-2 max-w-sm text-sm leading-relaxed">
               {isTutor
-                ? "When a student asks a question it lands here, with the spec point or homework they were working on attached."
+                ? "When a student asks a question it lands here, with the spec point or task they were working on attached."
                 : "Stuck on something? Ask your tutor — they'll see exactly which part of the spec you mean."}
             </p>
             {!isTutor && (

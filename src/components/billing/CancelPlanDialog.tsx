@@ -175,8 +175,7 @@ export function CancelPlanDialog({
                 <li className="flex gap-2.5">
                   <AlertTriangle className="w-4 h-4 text-rose-600 shrink-0 mt-0.5" />
                   <span>
-                    After that date {whose} lessons, quizzes, homework marking and revision planner
-                    lock
+                    After that date {whose} lessons, quizzes, task marking and revision planner lock
                     {subjectLabels.length ? ` for ${subjectLabels.join(" and ")}` : ""}.
                   </span>
                 </li>

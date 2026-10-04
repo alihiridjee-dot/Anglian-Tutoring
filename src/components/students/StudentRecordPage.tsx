@@ -42,7 +42,7 @@ const StudentPerformance = lazy(() =>
 const NAV: { tab: StudentTab; label: string; icon: LucideIcon }[] = [
   { tab: "overview", label: "Overview", icon: IdCard },
   { tab: "performance", label: "Performance", icon: TrendingUp },
-  { tab: "homework", label: "Homework", icon: ClipboardList },
+  { tab: "homework", label: "Tasks", icon: ClipboardList },
   { tab: "quizzes", label: "Quizzes", icon: ListChecks },
   { tab: "billing", label: "Billing", icon: CreditCard },
   { tab: "messages", label: "Messages", icon: MessagesSquare },

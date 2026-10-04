@@ -124,10 +124,10 @@ function PrivacyPage() {
           <span className="eyebrow">If you&apos;re a student</span>
           <p className="mt-4 leading-relaxed">
             We keep your name, email address, school, grades and the work you do on the site, so
-            your tutors can teach you and mark your homework. An AI helps with marking, and your
-            tutors can check and change its marks. Your parent or guardian can see your progress if
-            you link your account to theirs. If you&apos;re under 13, please ask a parent or
-            guardian before you sign up. If something here worries you, talk to them or email us.
+            your tutors can teach you and mark your tasks. An AI helps with marking, and your tutors
+            can check and change its marks. Your parent or guardian can see your progress if you
+            link your account to theirs. If you&apos;re under 13, please ask a parent or guardian
+            before you sign up. If something here worries you, talk to them or email us.
           </p>
         </div>
 
@@ -161,9 +161,9 @@ function PrivacyPage() {
           <h3>Learning records</h3>
           <p>
             Subjects and exam boards, previous, current and target grades, how you rate your own
-            study skills, homework answers, quiz answers and scores, how confident you feel about
-            each topic, weekly plans and the reflections you write in weekly check-ins, and the
-            marks, feedback and notes tutors write about your progress.
+            study skills, task answers, quiz answers and scores, how confident you feel about each
+            topic, weekly plans and the reflections you write in weekly check-ins, and the marks,
+            feedback and notes tutors write about your progress.
           </p>
           <h3>Messages</h3>
           <p>Messages between parents and tutors sent through the site.</p>
@@ -181,9 +181,9 @@ function PrivacyPage() {
           </p>
           <h3>Your browser</h3>
           <p>
-            We use your browser&apos;s own storage to keep you signed in, to save homework answers
-            you haven&apos;t sent yet, and to remember small things, like a trial code you&apos;ve
-            been sent. Anglia Educate sets no cookies. Lesson videos from YouTube and Vimeo, and
+            We use your browser&apos;s own storage to keep you signed in, to save task answers you
+            haven&apos;t sent yet, and to remember small things, like a trial code you&apos;ve been
+            sent. Anglia Educate sets no cookies. Lesson videos from YouTube and Vimeo, and
             Stripe&apos;s payment pages, may set their own. Vercel counts page visits without
             cookies.
           </p>
@@ -192,7 +192,7 @@ function PrivacyPage() {
         <Section title="How we use it, and why we're allowed to">
           <ul className="list-disc space-y-2 pl-5">
             <li>
-              <strong>To teach:</strong> lessons, homework, marking, feedback, plans and progress
+              <strong>To teach:</strong> lessons, tasks, marking, feedback, plans and progress
               reports. This is the service you or your parent signed up for (a contract).
             </li>
             <li>
@@ -219,7 +219,7 @@ function PrivacyPage() {
           <p>We use Claude, an AI made by Anthropic, in three places:</p>
           <ul className="list-disc space-y-2 pl-5">
             <li>
-              <strong>Homework:</strong> it receives the questions, the mark scheme and the
+              <strong>Tasks:</strong> it receives the questions, the mark scheme and the
               student&apos;s answers, but not their name or email, and suggests marks and feedback.
               A tutor can check and change them. If no tutor has reviewed them within 30 minutes,
               the suggested marks are released to the student automatically. Students and parents
@@ -285,7 +285,7 @@ function PrivacyPage() {
               deleted.
             </li>
             <li>
-              <strong>Cleared automatically:</strong> unsent homework drafts after 30 days,
+              <strong>Cleared automatically:</strong> unsent task drafts after 30 days,
               conversations 30 days after the last message once a tutor has replied, and records of
               past live lessons after 7 days.
             </li>

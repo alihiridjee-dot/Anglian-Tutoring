@@ -225,8 +225,7 @@ export function MarkingQueue() {
     return (
       <div className="rounded-2xl border border-dashed border-border p-6 sm:p-10 text-center text-muted-foreground">
         <Inbox className="w-8 h-8 mx-auto mb-3 opacity-50" />
-        No homework submissions yet. Once students answer their homework it will appear here to
-        review.
+        No task submissions yet. Once students answer their tasks they will appear here to review.
       </div>
     );
   }
@@ -435,7 +434,7 @@ function MarkSubmissionCard({
               )}
             </div>
             <p className="font-display font-bold truncate">
-              {sub.resource?.title ?? "Untitled homework"}
+              {sub.resource?.title ?? "Untitled task"}
             </p>
             <p className="text-xs text-muted-foreground mt-0.5">
               {studentName} · submitted {new Date(sub.submitted_at).toLocaleDateString()}

@@ -33,7 +33,7 @@ const dashboardSteps: GuideStep[] = [
   {
     target: "homework",
     title: "Keep track of your work",
-    body: "Homework & Grades brings your assignments and results together. Check what’s been set and return here to review your feedback.",
+    body: "Tasks & Grades brings your assignments and results together. Check what’s been set and return here to review your feedback.",
   },
   {
     target: "mcqs",

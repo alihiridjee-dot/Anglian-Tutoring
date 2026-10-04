@@ -123,7 +123,7 @@ export function TutorFeedbackEditor({
           onClick={draftWithAI}
           disabled={drafting || !!busy}
           className="inline-flex items-center gap-1.5 h-11 sm:pointer-fine:h-7 px-2.5 rounded-lg border border-primary/30 bg-primary/5 text-primary text-[11px] font-semibold hover:bg-primary/10 disabled:opacity-50"
-          title="Draft feedback from this week's homework and quiz marks"
+          title="Draft feedback from this week's task and quiz marks"
         >
           {drafting ? (
             <Loader2 className="w-3.5 h-3.5 animate-spin" />

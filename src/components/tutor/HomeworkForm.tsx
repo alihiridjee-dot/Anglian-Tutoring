@@ -90,7 +90,7 @@ export function HomeworkForm({ taxonomy, editing }: HomeworkFormProps) {
         withSchemes = await withMarkSchemes(qs ?? []);
       } catch {
         if (!cancelled)
-          toast.error("Couldn't load this homework's mark schemes. Close it and try again.");
+          toast.error("Couldn't load this task's mark schemes. Close it and try again.");
         return;
       }
       if (cancelled) return;
@@ -163,10 +163,10 @@ export function HomeworkForm({ taxonomy, editing }: HomeworkFormProps) {
 
       toast.success(
         editingId
-          ? "Homework updated"
+          ? "Task updated"
           : questions.length > 0
-            ? `Homework set — ${questions.length} question${questions.length === 1 ? "" : "s"} students answer on the site`
-            : "Homework set",
+            ? `Task set — ${questions.length} question${questions.length === 1 ? "" : "s"} students answer on the site`
+            : "Task set",
       );
       qc.invalidateQueries({ queryKey: ["homework"] });
       if (editing) editing.onDone();
@@ -179,7 +179,7 @@ export function HomeworkForm({ taxonomy, editing }: HomeworkFormProps) {
   };
 
   if (hydrating) {
-    return <p className="text-muted-foreground py-6 text-sm">Loading this homework…</p>;
+    return <p className="text-muted-foreground py-6 text-sm">Loading this task…</p>;
   }
 
   return (
@@ -208,7 +208,7 @@ export function HomeworkForm({ taxonomy, editing }: HomeworkFormProps) {
         />
       </Field>
       <p className="text-muted-foreground text-xs">
-        Homework with no due date sits in the student&apos;s practice list rather than their
+        A task with no due date sits in the student&apos;s practice list rather than their
         deadlines.
       </p>
       <TaxonomyFields {...taxonomy} />
@@ -232,7 +232,7 @@ export function HomeworkForm({ taxonomy, editing }: HomeworkFormProps) {
 
       <div className="flex flex-wrap gap-2">
         <button disabled={loading} className={submitBtn}>
-          {loading ? "Saving…" : editingId ? "Save changes" : "Set homework"}
+          {loading ? "Saving…" : editingId ? "Save changes" : "Set task"}
         </button>
         {editing && (
           <button

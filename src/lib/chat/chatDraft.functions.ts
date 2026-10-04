@@ -61,7 +61,7 @@ Rules:
 
   const user = `Student: ${input.studentName}
 Course: ${course || "(not recorded)"}
-Question is about: ${input.contextLabel ?? "(no specific spec point, homework or quiz attached)"}
+Question is about: ${input.contextLabel ?? "(no specific spec point, task or quiz attached)"}
 Thread subject: ${input.subjectLine}
 
 Conversation so far:

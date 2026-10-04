@@ -37,7 +37,7 @@ export const Route = createFileRoute("/how-it-works")({
       {
         name: "description",
         content:
-          "Up to 3 live sessions a week, homework marked by the tutor who taught it, a weekly quiz, a direct line to your tutor — and a spaced-repetition scheduler that brings every topic back just before your child would forget it.",
+          "Up to 3 live sessions a week, tasks marked by the tutor who taught it, a weekly quiz, a direct line to your tutor — and a spaced-repetition scheduler that brings every topic back just before your child would forget it.",
       },
     ],
   }),
@@ -71,7 +71,7 @@ const SERVICES: Service[] = [
     body: "We lay out the whole course on your child's exam board, from the week they join to their exam date. Each week shows what to learn, and which topics to revisit.",
     points: [
       "Set to their exam board, level and exam date",
-      "Weak topics come back, based on their marked homework and quizzes",
+      "Weak topics come back, based on their marked tasks and quizzes",
       "Reviewed and adjusted by Dr Nadia or Ali every week",
     ],
     preview: ProgrammeMock,
@@ -92,7 +92,7 @@ const SERVICES: Service[] = [
   {
     icon: ClipboardCheck,
     eyebrow: "Practised",
-    title: "Homework set, marked and returned",
+    title: "Tasks set, marked and returned",
     body: "Answered inside the platform on the spec points just taught, then marked by the tutor who taught them — so the feedback comes from someone who watched your child try it, not a marking service.",
     points: [
       "Returned with a grade, a percentage and personalised comments",
@@ -129,7 +129,7 @@ const SERVICES: Service[] = [
     icon: MessageCircle,
     eyebrow: "Never stuck",
     title: "A direct line to their tutor, all week",
-    body: "Stuck at nine on a Sunday? They message their tutor from inside the platform, with the spec point, homework or quiz question already attached — so the answer that comes back is about the thing they're actually stuck on.",
+    body: "Stuck at nine on a Sunday? They message their tutor from inside the platform, with the spec point, task or quiz question already attached — so the answer that comes back is about the thing they're actually stuck on.",
     points: [
       "Questions pinned to the exact topic they came from",
       "Answered by their tutor — never auto-replied by a bot",

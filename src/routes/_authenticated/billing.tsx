@@ -221,7 +221,7 @@ function BillingPage() {
               <div>
                 <p className="text-muted-foreground">
                   You don't have an active plan yet. Pick one below to unlock lessons, quizzes, and
-                  homework marking.
+                  task marking.
                 </p>
                 {/* Still say what they'd be buying — the course is set at
                     signup and is the thing worth checking before paying. */}

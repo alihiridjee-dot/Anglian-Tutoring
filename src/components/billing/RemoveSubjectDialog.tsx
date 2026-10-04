@@ -116,7 +116,7 @@ export function RemoveSubjectDialog({
             <li className="flex gap-2.5">
               <AlertTriangle className="w-4 h-4 text-amber-600 shrink-0 mt-0.5" />
               <span>
-                {subjectLabel} lessons, quizzes, homework and revision planner lock{" "}
+                {subjectLabel} lessons, quizzes, tasks and revision planner lock{" "}
                 <strong>straight away</strong> — not at the end of the period.
               </span>
             </li>

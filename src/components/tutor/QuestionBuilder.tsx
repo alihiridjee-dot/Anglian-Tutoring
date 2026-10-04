@@ -60,7 +60,7 @@ export function QuestionBuilder({
 
   const generate = async () => {
     if (specPointIds.length === 0) {
-      return toast.error("Pick the spec points this homework covers first");
+      return toast.error("Pick the spec points this task covers first");
     }
     setGenerating(true);
     try {
