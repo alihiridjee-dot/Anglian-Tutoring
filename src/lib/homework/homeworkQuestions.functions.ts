@@ -36,6 +36,23 @@ async function requireTutor(supabase: SupabaseServer, userId: string) {
   if (!roles.includes("tutor")) throw new Error("Tutor access required");
 }
 
+/**
+ * The planner's fill-in is a student's own week asking for its homework. Staff
+ * accounts hold no student data, so they have no week, and a tutor calling this
+ * is never the planner: refused before anything is generated or paid for.
+ */
+async function refuseStaff(supabase: SupabaseServer, userId: string) {
+  const { data: role, error } = await supabase
+    .from("user_roles")
+    .select("role")
+    .eq("user_id", userId);
+  if (error) throw error;
+  const roles = ((role ?? []) as Array<{ role: string }>).map((r) => r.role);
+  if (roles.includes("tutor") || roles.includes("admin")) {
+    throw new Error("Only a student's week fills in its tasks");
+  }
+}
+
 /** The shared framework validates the whole set before these drafts are exposed. */
 function toDrafts(raw: WrittenQuestion[], specPointId: string): DraftQuestion[] {
   return raw.map((q) => ({
@@ -198,6 +215,7 @@ export const ensureHomeworkForPoints = createServerFn({ method: "POST" })
   })
   .handler(async ({ data, context }): Promise<EnsureHomeworkResult> => {
     const { supabase, userId } = context;
+    await refuseStaff(supabase, userId);
 
     // Asked of the library, not of this student's view of it. Read through
     // `resources`, a sheet the student can't see — held for review, or not yet

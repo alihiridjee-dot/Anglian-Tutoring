@@ -17,6 +17,11 @@ interface UserMenuProps {
    * manage — they link families from /students instead.
    */
   showLinkedParents: boolean;
+  /**
+   * A parent's /parents page manages the children they follow, so their item
+   * reads "Linked Students", as their sidebar does (src/lib/shell/nav.ts).
+   */
+  isParent: boolean;
   /** The showcase holds no session, so it gets the avatar without the menu. */
   isDemo: boolean;
 }
@@ -31,7 +36,14 @@ const itemCls =
  * caller's role and redirects, so one link lands every persona on their own home
  * without this component knowing the routing rules.
  */
-export function UserMenu({ initials, avatarUrl, email, showLinkedParents, isDemo }: UserMenuProps) {
+export function UserMenu({
+  initials,
+  avatarUrl,
+  email,
+  showLinkedParents,
+  isParent,
+  isDemo,
+}: UserMenuProps) {
   const [open, setOpen] = useState(false);
   const ref = useRef<HTMLDivElement>(null);
   const signOut = useSignOut();
@@ -77,7 +89,11 @@ export function UserMenu({ initials, avatarUrl, email, showLinkedParents, isDemo
     { to: "/dashboard", label: "Main Dashboard", icon: LayoutDashboard },
     ...(showLinkedParents
       ? [
-          { to: "/parents" as const, label: "Linked Parents", icon: Users },
+          {
+            to: "/parents" as const,
+            label: isParent ? "Linked Students" : "Linked Parents",
+            icon: Users,
+          },
           // Billing lives with the family menu items: tutors have nothing to
           // pay for, so it follows the same visibility rule.
           { to: "/billing" as const, label: "Billing & Plan", icon: CreditCard },
@@ -98,9 +114,11 @@ export function UserMenu({ initials, avatarUrl, email, showLinkedParents, isDemo
       </button>
 
       {open && (
+        // Hangs off the pinned header, so scrolling the page can't bring its
+        // end into view: on a phone turned sideways it scrolls itself instead.
         <div
           role="menu"
-          className="absolute right-0 top-12 w-56 max-w-[calc(100vw-2rem)] rounded-xl premium-card shadow-xl z-50 p-1.5"
+          className="absolute right-0 top-12 w-56 max-w-[calc(100vw-2rem)] max-h-[calc(100dvh-4.5rem)] overflow-y-auto overscroll-contain rounded-xl premium-card shadow-xl z-50 p-1.5"
         >
           {email && (
             <div className="px-3 py-2 border-b border-border mb-1">

@@ -140,7 +140,7 @@ function MarkChip({ kind, score }: { kind: "homework" | "quiz"; score: number })
           ? "bg-emerald-500/10 border-emerald-500/30 text-emerald-700 dark:text-emerald-300"
           : "bg-amber-500/10 border-amber-500/30 text-amber-700 dark:text-amber-300"
       }`}
-      title={`${kind === "homework" ? "Homework" : "Quiz"}: best ${score}%`}
+      title={`${kind === "homework" ? "Task" : "Quiz"}: best ${score}%`}
     >
       {kind === "homework" ? (
         <ClipboardList className="w-2.5 h-2.5" />

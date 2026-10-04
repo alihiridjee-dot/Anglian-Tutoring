@@ -206,7 +206,7 @@ export function useHomeworkSheet({
           .order("position", { ascending: true }),
       ]);
       if (hwRes.error) throw hwRes.error;
-      if (!hwRes.data) throw new Error("That homework doesn't exist, or isn't yours to open");
+      if (!hwRes.data) throw new Error("That task doesn't exist, or isn't yours to open");
       if (qRes.error) throw qRes.error;
       // Released only to a tutor, or once this student's work is marked.
       const questions = await withMarkSchemes(qRes.data ?? []);
@@ -274,7 +274,7 @@ export function useInvalidateHomework() {
 /** One sheet assembled from the showcase fixtures, in the shape the page expects. */
 function demoSheet(homeworkId: string) {
   const hw = DEMO_HOMEWORK.find((h) => h.id === homeworkId);
-  if (!hw) throw new Error("That homework doesn't exist, or isn't yours to open");
+  if (!hw) throw new Error("That task doesn't exist, or isn't yours to open");
 
   const submission = DEMO_SUBMISSIONS[homeworkId] ?? null;
   const answers = submission

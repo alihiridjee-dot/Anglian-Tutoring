@@ -1,5 +1,5 @@
 import { createFileRoute } from "@tanstack/react-router";
-import { Spinner } from "@/components/Shared";
+import { EmptyState, Spinner } from "@/components/Shared";
 import { AppLayout } from "@/components/AppLayout";
 import { useRoles } from "@/hooks/useRole";
 import { StudentRecordPage } from "@/components/students/StudentRecordPage";
@@ -29,7 +29,12 @@ function StudentRoute() {
   if (!isTutor) {
     return (
       <AppLayout title="Student">
-        <p className="text-muted-foreground">Tutor access required.</p>
+        <EmptyState
+          title="Tutor access required"
+          body="Student records are open to tutors only."
+          action={{ to: "/dashboard", label: "Go to your dashboard" }}
+          mascot="owl"
+        />
       </AppLayout>
     );
   }

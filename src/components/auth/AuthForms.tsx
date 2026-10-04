@@ -46,7 +46,7 @@ export function VerifyCodeScreen({ flow }: { flow: AuthFlow }) {
           type="button"
           onClick={handleResend}
           disabled={resendIn > 0}
-          className="w-full min-h-11 text-xs text-muted-foreground hover:text-primary disabled:hover:text-muted-foreground sm:min-h-0"
+          className="w-full min-h-11 text-xs text-muted-foreground hover:text-primary disabled:hover:text-muted-foreground sm:pointer-fine:min-h-0"
         >
           {resendIn > 0 ? `Resend code in ${resendIn}s` : "Didn't get it? Resend code"}
         </button>
@@ -57,7 +57,7 @@ export function VerifyCodeScreen({ flow }: { flow: AuthFlow }) {
             setOtp("");
             setMode("signin");
           }}
-          className="w-full min-h-11 text-xs text-muted-foreground hover:text-foreground sm:min-h-0"
+          className="w-full min-h-11 text-xs text-muted-foreground hover:text-foreground sm:pointer-fine:min-h-0"
         >
           Back to log in
         </button>
@@ -92,7 +92,7 @@ export function CredentialsForm({ flow, tier }: { flow: AuthFlow; tier?: string 
           <button
             key={m}
             onClick={() => setMode(m)}
-            className={`min-h-11 py-2.5 rounded-lg text-sm font-semibold transition sm:min-h-0 ${
+            className={`min-h-11 py-2.5 rounded-lg text-sm font-semibold transition sm:pointer-fine:min-h-0 ${
               mode === m
                 ? "bg-card text-foreground shadow-sm ring-1 ring-border"
                 : "text-muted-foreground hover:text-foreground"
@@ -116,7 +116,7 @@ export function CredentialsForm({ flow, tier }: { flow: AuthFlow; tier?: string 
       </h1>
       <p className="text-sm text-muted-foreground mb-6 leading-relaxed">
         {mode === "signin"
-          ? "Log in to see your lessons, quizzes, and homework."
+          ? "Log in to see your lessons, quizzes, and tasks."
           : tier
             ? `Great pick — you're signing up for the ${tier.replaceAll("_", " ")} plan.`
             : "Start with a student or parent account."}
@@ -214,7 +214,7 @@ export function CredentialsForm({ flow, tier }: { flow: AuthFlow; tier?: string 
           <button
             type="button"
             onClick={handleForgotPassword}
-            className="w-full min-h-11 text-xs text-muted-foreground hover:text-primary sm:min-h-0"
+            className="w-full min-h-11 text-xs text-muted-foreground hover:text-primary sm:pointer-fine:min-h-0"
           >
             Forgot password?
           </button>

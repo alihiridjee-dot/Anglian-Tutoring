@@ -20,7 +20,7 @@ export const GROUP_LABEL: Record<SearchGroup, string> = {
   page: "Pages",
   spec_point: "Specification points",
   topic: "Topics",
-  homework: "Homework",
+  homework: "Tasks",
   live_session: "Live sessions",
   video: "Videos",
   mcq_set: "Quizzes",

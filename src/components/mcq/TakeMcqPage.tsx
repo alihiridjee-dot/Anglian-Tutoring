@@ -1,11 +1,12 @@
 import { useQuery, useQueryClient } from "@tanstack/react-query";
 import { invalidatePlanner } from "@/lib/planner/assessmentSync";
-import { Link, useParams } from "@tanstack/react-router";
+import { Link, useNavigate, useParams } from "@tanstack/react-router";
 import { useEffect, useRef, useState } from "react";
 import { EmptyState, ErrorNote, Spinner } from "@/components/Shared";
 import { AppLayout } from "@/components/AppLayout";
 import { supabase } from "@/integrations/supabase/client";
 import { useRoles } from "@/hooks/useRole";
+import { usePinSubject } from "@/hooks/useActiveSubject";
 import { toast } from "sonner";
 import { CheckCircle2, XCircle } from "lucide-react";
 import { isDemoStudent, DEMO_MCQ } from "@/lib/demo/studentDemo";
@@ -27,7 +28,14 @@ type Q = {
   options: string[];
 };
 
-type SetRow = { id: string; title: string; description: string | null; published: boolean };
+type SetRow = {
+  id: string;
+  title: string;
+  description: string | null;
+  published: boolean;
+  /** Absent on the showcase fixtures, which have no header slider to move. */
+  subject?: string | null;
+};
 
 type Paper = { set: SetRow; questions: Q[] };
 
@@ -59,7 +67,7 @@ async function fetchPaper(setId: string): Promise<Paper | null> {
   const [{ data: s, error: sErr }, { data: qs, error: qErr }] = await Promise.all([
     supabase
       .from("mcq_sets")
-      .select("id, title, description, published")
+      .select("id, title, description, published, subject")
       .eq("id", setId)
       .maybeSingle(),
     supabase
@@ -88,7 +96,9 @@ export function TakeMcq() {
   // threw on every render until the list stopped linking past it.
   const params = useParams({ strict: false }) as { setId?: string };
   const setId = params.setId ?? "";
-  const { userId } = useRoles();
+  // A tutor opens a quiz from the quiz manager to see it as a student does. It
+  // is a preview: staff accounts hold no student data, so nothing is filed.
+  const { userId, isTutor } = useRoles();
   const demo = isDemoStudent();
   const [answers, setAnswers] = useState<McqAnswers>({});
   const [marked, setMarked] = useState<Marked | null>(null);
@@ -109,6 +119,12 @@ export function TakeMcq() {
   });
   const set = paper.data?.set ?? null;
   const questions = paper.data?.questions ?? EMPTY_QUESTIONS;
+
+  // A quiz belongs to one subject: opening it moves the header slider there,
+  // and switching subject mid-quiz goes to the quiz list for the new one. The
+  // answers chosen so far are kept (see saveMcqAnswers) for coming back.
+  const navigate = useNavigate();
+  usePinSubject(set?.subject, () => navigate({ to: demo ? "/demo/student/mcqs" : "/mcqs" }));
 
   // A new quiz starts clean — then picks up whatever this student had already
   // chosen on it before a reload took the page away.
@@ -146,7 +162,7 @@ export function TakeMcq() {
     // An in-flight guard, not just a disabled button. Marking is a round trip,
     // and two clicks landing before the first response would file two attempts
     // — which the planner then reads as two separate pieces of practice.
-    if (submitting || submitted) return;
+    if (submitting || submitted || isTutor) return;
     if (questions.length === 0) return;
 
     // Demo student: mark locally against the fixture, never write an attempt.
@@ -212,7 +228,7 @@ export function TakeMcq() {
   const back = (
     <Link
       to={backTo}
-      className="mt-4 inline-flex min-h-11 items-center text-sm text-primary hover:underline sm:min-h-0"
+      className="mt-4 inline-flex min-h-11 items-center text-sm text-primary hover:underline sm:pointer-fine:min-h-0"
     >
       ← Back to curriculum
     </Link>
@@ -283,7 +299,7 @@ export function TakeMcq() {
                         key={i}
                         disabled={submitted}
                         onClick={() => choose(q.id, i)}
-                        className={`w-full min-h-11 text-left px-4 py-2.5 rounded-lg border text-sm break-words transition sm:min-h-0 ${
+                        className={`w-full min-h-11 text-left px-4 py-2.5 rounded-lg border text-sm break-words transition sm:pointer-fine:min-h-0 ${
                           isCorrect
                             ? "bg-primary/15 border-primary text-foreground"
                             : isWrong
@@ -313,7 +329,11 @@ export function TakeMcq() {
             );
           })}
         </ol>
-        {!submitted ? (
+        {isTutor ? (
+          <div className="mt-6 text-center">
+            <span className="chip tint-slate">Tutor preview</span>
+          </div>
+        ) : !submitted ? (
           <button
             data-guide="quiz-submit"
             onClick={submit}

@@ -39,6 +39,25 @@ export function forgetTrialCode() {
   }
 }
 
+/** How long a closed trial pop-up stays closed. */
+const OFFER_QUIET_MS = 7 * 24 * 60 * 60_000;
+
+/**
+ * Whether the landing page may offer a free trial. Never to someone signed in
+ * (they have an account; Ali, 3 Oct 2026), never again once a code has been
+ * sent or is held, and not for a week after the pop-up was closed.
+ */
+export function mayOfferTrial(v: {
+  signedIn: boolean;
+  codeSent: boolean;
+  heldCode: string;
+  dismissedAt: number | null;
+  now: number;
+}): boolean {
+  if (v.signedIn || v.codeSent || v.heldCode) return false;
+  return !v.dismissedAt || v.now - v.dismissedAt >= OFFER_QUIET_MS;
+}
+
 /**
  * Email the visitor their code. `website` is the pop-up's honeypot. Resolves
  * the same way whether or not an email actually went — the server never says

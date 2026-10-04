@@ -14,6 +14,7 @@ import {
 import {
   isSubscriptionLive,
   isPaymentOverdue,
+  isPlanChangeable,
   planLabel,
   resolvePackagesForLevel,
   formatPence,
@@ -54,10 +55,13 @@ function ChildPlan({
   packages,
   level,
   isPayer,
+  hadPlan,
 }: {
   studentId: string;
   /** Their live/paused subscription, or null when they have no plan. */
   sub: SubscriptionRow | null;
+  /** They have a subscription row, even an ended one: no free trial. */
+  hadPlan: boolean;
   childName: string;
   packages: PackageRow[];
   level: string | null | undefined;
@@ -77,9 +81,10 @@ function ChildPlan({
   });
 
   const anchorId = `subjects-${studentId}`;
-  // Only a live plan can have subjects added or removed, or its cadence changed
-  // — the server rejects a paused or cancelling one, so don't offer any of it.
-  const changeable = !!sub?.plan && isSubscriptionLive(sub.status);
+  // Only a live plan that isn't cancelling can have subjects added or removed,
+  // or its cadence changed — the server rejects a paused or cancelling one, so
+  // don't offer any of it.
+  const changeable = !!sub?.plan && isPlanChangeable(sub);
 
   return (
     <>
@@ -134,6 +139,7 @@ function ChildPlan({
             level={level}
             canManage
             ownerLabel={childName}
+            hadPlan={hadPlan}
           />
         </div>
       )}
@@ -280,6 +286,7 @@ export function ParentBillingSection({
                       packages={packages}
                       level={levels[child.student_id]}
                       isPayer={sub?.user_id === parentId}
+                      hadPlan={!!sub}
                     />
                   )}
                 </div>

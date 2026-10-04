@@ -45,7 +45,7 @@ import { PausedWeek } from "./PausedWeek";
 import { useWeekPlan } from "./useWeekPlan";
 import { useReviewMore } from "./useReviewMore";
 import { WeekReview } from "./WeekReview";
-import { subjectLabel } from "@/lib/curriculum/courseSummary";
+import { useActiveSubject } from "@/hooks/useActiveSubject";
 
 /** Stable identity for one focus-lane band — topic + kind + week it lands on. */
 function focusKey(b: PacingBand): string {
@@ -61,8 +61,8 @@ const TABS: { key: TabKey; label: string; icon: typeof CalendarDays }[] = [
 ];
 
 /**
- * The whole student planner in one place: subject picked once up top, then
- * three tabs. "This week" is the landing view — the one topic being taught,
+ * The whole student planner in one place: the subject from the header slider,
+ * then three tabs. "This week" is the landing view — the one topic being taught,
  * anything to revisit, and how memory is holding. "Full plan" is the road to
  * the exams. "My topics" is where the student reviews
  * what's been practised. Replaces the old four stacked panels, each of which
@@ -72,15 +72,12 @@ export function StudentPlanner({
   studentId,
   enrolments,
   level,
-  initialSubject,
   initialTab,
   focusWeek,
 }: {
   studentId: string;
   enrolments: Enrolment[];
   level: LevelV;
-  /** Opens on this course when the student is enrolled on it. */
-  initialSubject?: string;
   initialTab?: TabKey;
   /** A week the full plan opens at, e.g. from a curriculum point. */
   focusWeek?: string;
@@ -92,9 +89,7 @@ export function StudentPlanner({
     ],
     [enrolments],
   );
-  const [activeSubject, setActiveSubject] = useState(
-    ordered.find((e) => e.subject === initialSubject)?.subject ?? ordered[0]?.subject ?? "biology",
-  );
+  const { subject: activeSubject } = useActiveSubject();
   const active = ordered.find((e) => e.subject === activeSubject) ?? ordered[0];
   // Named separately so the effect below can depend on the two values it uses.
   // Depending on `active` itself would re-run the whole roadmap load whenever
@@ -180,32 +175,8 @@ export function StudentPlanner({
 
   return (
     <div className="rounded-2xl premium-card shadow-sm overflow-hidden">
-      {/* One header: subject picked once, tabs underneath. */}
+      {/* The subject is the header slider's; the section tabs sit here. */}
       <div className="px-4 sm:px-5 pt-4 border-b border-border">
-        {ordered.length > 1 && (
-          <div
-            className="flex flex-wrap items-center gap-2 mb-3"
-            role="tablist"
-            aria-label="Subject"
-          >
-            {ordered.map((e) => (
-              <button
-                key={e.subject}
-                type="button"
-                role="tab"
-                aria-selected={e.subject === activeSubject}
-                onClick={() => setActiveSubject(e.subject)}
-                className={`h-11 sm:h-8 px-3.5 rounded-full text-sm font-medium transition ${
-                  e.subject === activeSubject
-                    ? "btn-solid"
-                    : "bg-muted text-muted-foreground hover:text-foreground"
-                }`}
-              >
-                {subjectLabel(e.subject)}
-              </button>
-            ))}
-          </div>
-        )}
         <nav
           className="flex gap-1 -mb-px overflow-x-auto scroll-none -mx-4 px-4 sm:mx-0 sm:px-0"
           aria-label="Planner sections"
@@ -216,7 +187,7 @@ export function StudentPlanner({
               type="button"
               onClick={() => setTab(key)}
               aria-current={tab === key ? "page" : undefined}
-              className={`inline-flex shrink-0 whitespace-nowrap items-center gap-1.5 px-3.5 h-11 sm:h-10 text-sm font-medium border-b-2 transition ${
+              className={`inline-flex shrink-0 whitespace-nowrap items-center gap-1.5 px-3.5 h-11 sm:pointer-fine:h-10 text-sm font-medium border-b-2 transition ${
                 tab === key
                   ? "border-primary text-foreground"
                   : "border-transparent text-muted-foreground hover:text-foreground"
@@ -400,7 +371,7 @@ function ThisWeekTab({
             <button
               type="button"
               onClick={() => setWeekOffset((w) => w - 1)}
-              className="size-11 sm:size-7 rounded-lg border border-border text-muted-foreground hover:text-foreground hover:bg-muted flex items-center justify-center"
+              className="size-11 sm:pointer-fine:size-7 rounded-lg border border-border text-muted-foreground hover:text-foreground hover:bg-muted flex items-center justify-center"
               aria-label="Previous week"
             >
               <ChevronLeft className="w-4 h-4" />
@@ -408,7 +379,7 @@ function ThisWeekTab({
             <button
               type="button"
               onClick={() => setWeekOffset((w) => w + 1)}
-              className="size-11 sm:size-7 rounded-lg border border-border text-muted-foreground hover:text-foreground hover:bg-muted flex items-center justify-center"
+              className="size-11 sm:pointer-fine:size-7 rounded-lg border border-border text-muted-foreground hover:text-foreground hover:bg-muted flex items-center justify-center"
               aria-label="Next week"
             >
               <ChevronRight className="w-4 h-4" />
@@ -461,7 +432,7 @@ function ThisWeekTab({
       {/* Optional reflection and tutor feedback. */}
       {week.plan && showReview && (
         <details className="premium-card rounded-xl p-3">
-          <summary className="cursor-pointer text-sm font-bold py-3 -my-3 sm:py-0 sm:my-0">
+          <summary className="cursor-pointer text-sm font-bold py-3 -my-3 sm:pointer-fine:py-0 sm:pointer-fine:my-0">
             Weekly check-in and tutor feedback
           </summary>
           <WeekReview
@@ -482,7 +453,7 @@ function ThisWeekTab({
       {/* Memory strip — how the course is held right now. */}
       {memory && memory.total - memory.newCount > 0 && (
         <details className="premium-card tint-primary rounded-xl p-3.5">
-          <summary className="cursor-pointer text-sm font-bold py-3 -my-3 sm:py-0 sm:my-0">
+          <summary className="cursor-pointer text-sm font-bold py-3 -my-3 sm:pointer-fine:py-0 sm:pointer-fine:my-0">
             Memory details
           </summary>
           <h3 className="flex items-center gap-1.5 text-sm font-bold mb-2">
@@ -642,7 +613,7 @@ function FullPlanTab({
               disabled={savingDate}
               onChange={(e) => queueExamDate(e.target.value)}
               onBlur={(e) => queueExamDate(e.target.value, true)}
-              className="btn-soft h-11 sm:h-9 w-full rounded-xl px-3 text-sm focus:outline-none focus:ring-2 focus:ring-[var(--tint)] disabled:opacity-50"
+              className="btn-soft h-11 sm:pointer-fine:h-9 w-full rounded-xl px-3 text-sm focus:outline-none focus:ring-2 focus:ring-[var(--tint)] disabled:opacity-50"
             />
           </label>
         </div>
@@ -656,7 +627,7 @@ function FullPlanTab({
           <Link
             to="/planner-order"
             search={{ subject }}
-            className="btn-soft mt-auto h-11 sm:h-9 rounded-xl px-3 text-sm inline-flex items-center justify-center gap-2"
+            className="btn-soft mt-auto h-11 sm:pointer-fine:h-9 rounded-xl px-3 text-sm inline-flex items-center justify-center gap-2"
           >
             <SlidersHorizontal className="size-4" aria-hidden /> Reorder topics
           </Link>
@@ -677,7 +648,7 @@ function FullPlanTab({
               type="button"
               aria-expanded={catchUpOpen}
               onClick={() => setCatchUpOpen((open) => !open)}
-              className="btn-soft mt-auto h-11 sm:h-9 rounded-xl px-3 text-sm inline-flex items-center justify-center gap-2"
+              className="btn-soft mt-auto h-11 sm:pointer-fine:h-9 rounded-xl px-3 text-sm inline-flex items-center justify-center gap-2"
             >
               {catchUpOpen ? "Hide catch-up" : "Catch up now"}
               <ChevronDown

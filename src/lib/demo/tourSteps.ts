@@ -28,7 +28,7 @@ export const TOUR_STEPS: TourStep[] = [
     target: '[data-tour="welcome"]',
     chapter: "Student",
     title: "Each subject, its own exam board",
-    body: "Alex sits Biology with Edexcel, Chemistry with AQA and Physics with OCR. Every topic, quiz and homework follows the right specification.",
+    body: "Alex sits Biology with Edexcel, Chemistry with AQA and Physics with OCR. Every topic, quiz and task follows the right specification.",
   },
   {
     path: "/demo/student/dashboard",
@@ -48,8 +48,8 @@ export const TOUR_STEPS: TourStep[] = [
     path: "/demo/student/dashboard",
     target: '[data-tour="do-now"]',
     chapter: "Student",
-    title: "What to do now",
-    body: "The same week as a checklist. Every spec point has its video, quiz and homework one click away. Try pressing Play, or tick a point off.",
+    title: "Weekly task list",
+    body: "The same week as a checklist. Every spec point has its video, quiz and task one click away. Try pressing Play, or tick a point off.",
   },
   {
     path: "/demo/student/dashboard",
@@ -70,7 +70,7 @@ export const TOUR_STEPS: TourStep[] = [
     target: '[data-guide="curriculum-topics"]',
     chapter: "Student",
     title: "The whole specification",
-    body: "Every topic and spec point on Alex's course. Open a topic, then a point, to find its videos, quizzes and homework in one place.",
+    body: "Every topic and spec point on Alex's course. Open a topic, then a point, to find its videos, quizzes and tasks in one place.",
   },
   {
     path: "/demo/student/mcqs",
@@ -91,14 +91,14 @@ export const TOUR_STEPS: TourStep[] = [
     target: '[data-guide="homework-grades"]',
     chapter: "Student",
     title: "Predicted grades",
-    body: "Quiz and homework results add up to a predicted grade for each subject, on the 9–1 scale.",
+    body: "Quiz and task results add up to a predicted grade for each subject, on the 9–1 scale.",
   },
   {
     path: "/demo/student/homework/demo-hw-photosynthesis",
     target: '[data-guide="page-content"] .tint-emerald.premium-card',
     chapter: "Student",
-    title: "Homework, marked with feedback",
-    body: "Students answer homework on the page. Nothing to print or hand in. It comes back with a mark and written feedback from the tutor, question by question.",
+    title: "Tasks, marked with feedback",
+    body: "Students answer tasks on the page. Nothing to print or hand in. Each comes back with a mark and written feedback from the tutor, question by question.",
   },
   {
     path: "/demo/student/live",
@@ -112,7 +112,7 @@ export const TOUR_STEPS: TourStep[] = [
     target: '[data-tour="messages"]',
     chapter: "Student",
     title: "Ask the tutor",
-    body: "Stuck on something? Students message their tutor with the homework or quiz attached, so the tutor sees exactly what they mean.",
+    body: "Stuck on something? Students message their tutor with the task or quiz attached, so the tutor sees exactly what they mean.",
   },
   {
     path: "/demo/student/messages",
@@ -133,7 +133,7 @@ export const TOUR_STEPS: TourStep[] = [
     target: '[data-tour="parent-grades"]',
     chapter: "Parent",
     title: "Predicted grades",
-    body: "The same predicted grades Alex sees, with the quiz and homework averages behind them.",
+    body: "The same predicted grades Alex sees, with the quiz and task averages behind them.",
   },
   {
     path: "/demo/parent/dashboard",
@@ -146,15 +146,15 @@ export const TOUR_STEPS: TourStep[] = [
     path: "/demo/parent/dashboard",
     target: '[data-tour="parent-engagement"]',
     chapter: "Parent",
-    title: "Attendance and homework",
-    body: "How many live lessons were attended and how much homework was handed in.",
+    title: "Attendance and tasks",
+    body: "How many live lessons were attended and how many tasks were handed in.",
   },
   {
     path: "/demo/parent/dashboard",
     target: '[data-tour="parent-feedback"]',
     chapter: "Parent",
     title: "The tutor's feedback",
-    body: "Every comment the tutor writes on marked homework, in one list.",
+    body: "Every comment the tutor writes on marked tasks, in one list.",
   },
   {
     path: "/demo/parent/dashboard",

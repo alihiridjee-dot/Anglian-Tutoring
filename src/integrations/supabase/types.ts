@@ -2107,6 +2107,18 @@ export type Database = {
         Args: { _resource_ids: string[] };
         Returns: { mark_scheme: string; question_id: string }[];
       };
+      import_curriculum_topic: {
+        Args: {
+          _board: Database["public"]["Enums"]["board"];
+          _level: Database["public"]["Enums"]["level"];
+          _points: Json;
+          _subject: Database["public"]["Enums"]["subject"];
+          _topic_code: string;
+          _topic_description: string | null;
+          _topic_title: string;
+        };
+        Returns: Json;
+      };
       invite_parent_by_email: { Args: { _email: string }; Returns: Json };
       is_enrolled_in: {
         Args: {
@@ -2157,6 +2169,15 @@ export type Database = {
         Returns: {
           has_access: boolean;
           onboarding_complete: boolean;
+        }[];
+      };
+      student_engagement: {
+        Args: { _student_id: string };
+        Returns: {
+          homework_set: number;
+          homework_submitted: number;
+          sessions_attended: number;
+          sessions_held: number;
         }[];
       };
       planner_attempt_sources: { Args: { _ids: string[] }; Returns: Json };
@@ -2237,6 +2258,17 @@ export type Database = {
           _note?: string;
         };
         Returns: Json;
+      };
+      student_scored_work: {
+        Args: { _since?: string; _student_id: string };
+        Returns: {
+          item_id: string;
+          kind: string;
+          pct: number | null;
+          scored_at: string;
+          subject: Database["public"]["Enums"]["subject"];
+          title: string | null;
+        }[];
       };
       submit_homework_answers: {
         Args: { _answers: Json; _notes?: string; _resource_id: string };

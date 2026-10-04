@@ -212,7 +212,7 @@ function PhotoCard({ currentEmail }: { currentEmail: string | null }) {
               type="button"
               onClick={() => picker.current?.click()}
               disabled={isLoading || busy !== null}
-              className="btn-premium h-11 sm:h-10 px-4 rounded-lg text-sm font-semibold inline-flex items-center gap-2 whitespace-nowrap disabled:opacity-50"
+              className="btn-premium h-11 sm:pointer-fine:h-10 px-4 rounded-lg text-sm font-semibold inline-flex items-center gap-2 whitespace-nowrap disabled:opacity-50"
             >
               {busy === "upload" ? (
                 <Loader2 className="w-4 h-4 animate-spin" />
@@ -227,7 +227,7 @@ function PhotoCard({ currentEmail }: { currentEmail: string | null }) {
                 type="button"
                 onClick={remove}
                 disabled={busy !== null}
-                className="h-11 sm:h-10 px-4 rounded-lg border border-border text-sm font-semibold inline-flex items-center gap-2 hover:bg-muted disabled:opacity-50"
+                className="h-11 sm:pointer-fine:h-10 px-4 rounded-lg border border-border text-sm font-semibold inline-flex items-center gap-2 hover:bg-muted disabled:opacity-50"
               >
                 {busy === "remove" ? (
                   <Loader2 className="w-4 h-4 animate-spin" />

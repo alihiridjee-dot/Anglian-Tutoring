@@ -1,3 +1,5 @@
+import { addWeeks, mondayOf, plannerDateLabel, toDateKey } from "@/lib/planner/week";
+
 export interface SubjectAnalytics {
   subject: string;
   mcqAttempts: number;
@@ -35,6 +37,35 @@ export const MIN_WORK_FOR_PREDICTION = 3;
 /** Whether a subject has enough scored work to show its predicted grade. */
 export function hasPrediction(row: SubjectAnalytics): boolean {
   return row.mcqAttempts + row.hwGraded >= MIN_WORK_FOR_PREDICTION;
+}
+
+/**
+ * How far up its scale a grade sits, 0–100: the sweep of a grade ring.
+ *
+ * `scale` runs best first and ends at "U" (`gradeOptions(level)`), so the top
+ * grade fills the ring and a U leaves it empty. A grade not on the scale —
+ * nothing set, or an A-Level letter on a GCSE scale — draws nothing.
+ */
+export function gradeFill(grade: string | null | undefined, scale: readonly string[]): number {
+  const i = grade ? scale.indexOf(grade) : -1;
+  if (i < 0 || scale.length < 2) return 0;
+  return ((scale.length - 1 - i) / (scale.length - 1)) * 100;
+}
+
+/**
+ * Grades between where a student is heading and their target, on `scale`
+ * (best first). Zero or less means on or above target. Null when either grade
+ * isn't on the scale, so there is nothing honest to compare.
+ */
+export function gradesToGo(
+  workingTowards: string | null | undefined,
+  target: string | null | undefined,
+  scale: readonly string[],
+): number | null {
+  const at = workingTowards ? scale.indexOf(workingTowards) : -1;
+  const goal = target ? scale.indexOf(target) : -1;
+  if (at < 0 || goal < 0) return null;
+  return at - goal;
 }
 
 /** One scored piece of work, reduced to the subject it belongs to and its percentage. */
@@ -87,5 +118,31 @@ export function summariseAnalytics(
       hwAverage: Math.round(hwAvg),
       predictedGrade: gradeFromPct(composite),
     };
+  });
+}
+
+/** One week on the trends chart's x-axis. */
+export interface TrendWeek {
+  /** The Monday that starts the week, as a London calendar date. */
+  weekStart: string;
+  /** Short axis label, e.g. "7 Jul". */
+  label: string;
+}
+
+/**
+ * The run of `weeks` weeks ending with this one, oldest first, on UK time.
+ *
+ * Weeks are London weeks everywhere else (the planner, quiz dates), so the
+ * chart steps and labels them in London too. Stepping back with the viewer's
+ * own calendar (`setDate(getDate() - 7)`) slid the London Monday onto a Sunday
+ * whenever the viewer's clocks and the UK's change on different dates: in New
+ * York the week of 26 Oct 2026 was keyed on the Sunday and never plotted, and
+ * labels showed a day early (S-25).
+ */
+export function trendWeeks(weeks: number, now: Date = new Date()): TrendWeek[] {
+  const thisWeek = mondayOf(now);
+  return Array.from({ length: weeks }, (_, i) => {
+    const monday = addWeeks(thisWeek, i - (weeks - 1));
+    return { weekStart: toDateKey(monday), label: plannerDateLabel(monday) };
   });
 }

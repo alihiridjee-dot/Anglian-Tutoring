@@ -75,4 +75,23 @@ export class Coverage {
   get isEmpty(): boolean {
     return this.rows.length === 0;
   }
+
+  // The same questions for a picker, where not knowing must never block anyone:
+  // while coverage loads, or if its read failed, everything is offered.
+
+  /** Whether a picker should offer this level. */
+  offersLevel(level: LevelV): boolean {
+    return this.isEmpty || this.levels().includes(level);
+  }
+
+  /** Whether a picker should offer this board at this level. */
+  offersBoard(level: LevelV, board: BoardV): boolean {
+    return this.isEmpty || this.boardsFor(level).includes(board);
+  }
+
+  /** Boards a picker should offer for this subject; none until the level is known. */
+  boardsOffered(level: LevelV | null, subject: SubjectV): BoardV[] {
+    if (this.isEmpty) return BOARDS.map((b) => b.value);
+    return level ? this.boardsForSubject(level, subject) : [];
+  }
 }

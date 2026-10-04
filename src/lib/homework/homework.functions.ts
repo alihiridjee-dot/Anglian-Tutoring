@@ -33,7 +33,7 @@ export const deleteHomework = createServerFn({ method: "POST" })
   .middleware([requireSupabaseAuth])
   .inputValidator((input: { homeworkId: string }) => {
     const id = typeof input?.homeworkId === "string" ? input.homeworkId.trim() : "";
-    if (!id) throw new Error("A homework id is required");
+    if (!id) throw new Error("A task id is required");
     return { homeworkId: id };
   })
   .handler(async ({ data, context }) => {
@@ -46,7 +46,7 @@ export const deleteHomework = createServerFn({ method: "POST" })
       .eq("id", data.homeworkId)
       .single();
     if (hwError) throw new Error(hwError.message);
-    if (hw.kind !== "homework") throw new Error("That item is not homework");
+    if (hw.kind !== "homework") throw new Error("That item is not a task");
 
     // Figures attached to the brief's own questions. They cascade away with the
     // row like everything else, so their bytes have to be swept here too.

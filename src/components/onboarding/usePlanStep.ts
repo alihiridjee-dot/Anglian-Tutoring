@@ -11,16 +11,25 @@ import { useEnrolments } from "@/hooks/data/useEnrolments";
 import { INVITE_MESSAGE, useInviteParent, type InviteOutcome } from "@/hooks/data/useParentLinks";
 import { startCheckout } from "@/lib/billing/billing";
 import { forgetTrialCode, readTrialCode } from "@/lib/billing/trialCode";
+import {
+  BEST_VALUE_CADENCE,
+  BEST_VALUE_LABEL,
+  CADENCES as BILLING_CADENCES,
+  type Cadence,
+} from "@/lib/billing/entitlements";
 
 export type SearchParams = { checkout?: "success" | "cancelled" };
 
-/** Billing cadences, in display order. Each maps to the `${key}_${n}` tiers. */
-export type Cadence = "weekly" | "monthly" | "termly";
-export const CADENCES: { key: Cadence; label: string; unit: string; note?: string }[] = [
-  { key: "weekly", label: "Weekly", unit: "per week" },
-  { key: "monthly", label: "Monthly", unit: "per month", note: "Best value" },
-  { key: "termly", label: "Termly", unit: "per term" },
-];
+/**
+ * Billing cadences, in display order. Each maps to the `${key}_${n}` tiers. The
+ * "Best value" note comes from the one shared choice, so this page can't
+ * disagree with the landing page about which cadence it is.
+ */
+export const CADENCES: { key: Cadence; label: string; unit: string; note?: string }[] =
+  BILLING_CADENCES.map((c) => ({
+    ...c,
+    note: c.key === BEST_VALUE_CADENCE ? BEST_VALUE_LABEL : undefined,
+  }));
 
 /**
  * The paywall's working state: the one price built from the student's
@@ -38,9 +47,31 @@ export function usePlanStep({
   queryClient: QueryClient;
   search: SearchParams;
 }) {
-  const { enrolments, level, inviteCode, loading: loadingEnrolments } = useEnrolments();
-  const { data: packages = [], isLoading: loadingPackages } = usePackages(level);
+  const {
+    enrolments,
+    level,
+    inviteCode,
+    loading: loadingEnrolments,
+    error: enrolmentsError,
+    refetch: refetchEnrolments,
+  } = useEnrolments();
+  const {
+    data: packages = [],
+    isLoading: loadingPackages,
+    error: packagesError,
+    refetch: refetchPackages,
+  } = usePackages(level);
   const loading = loadingPackages || loadingEnrolments;
+  // A failed read of the subjects or the prices: the price can't be known, so
+  // nothing is shown or sold until a retry works. An unread subject list used
+  // to price as one subject while Checkout charged the real count.
+  const loadError = enrolmentsError ?? packagesError ?? null;
+  const retryLoad = () => {
+    if (enrolmentsError) refetchEnrolments();
+    if (packagesError) void refetchPackages();
+  };
+  // Read fine, and there are none: a plan would pay for an empty account.
+  const noSubjects = !loading && !loadError && enrolments.length === 0;
 
   // The plan size is the student's actual number of enrolled subjects, clamped
   // to the tiers we sell (1–3). This is the whole point: they don't pick a size,
@@ -54,6 +85,7 @@ export function usePlanStep({
   const {
     resumable,
     paymentOverdue,
+    neverSubscribed,
     isPending: planStatePending,
     error: planStateError,
     refetch: refetchPlanState,
@@ -131,10 +163,16 @@ export function usePlanStep({
   }, [search.checkout]);
 
   const payNow = async () => {
-    if (!selectedPkg) return;
+    if (!selectedPkg || noSubjects) return;
     setRedirecting(true);
     try {
-      await startCheckout({ tier: selectedPkg.tier, returnTo: "onboarding", trialCode });
+      // Trials are for students who have never had a plan; the server refuses
+      // the rest, so a stored code is never sent for a returning one.
+      await startCheckout({
+        tier: selectedPkg.tier,
+        returnTo: "onboarding",
+        trialCode: neverSubscribed ? trialCode : undefined,
+      });
     } catch (err) {
       toast.error(err instanceof Error ? err.message : "Couldn't open checkout — try again.");
       setRedirecting(false);
@@ -160,9 +198,13 @@ export function usePlanStep({
     enrolments,
     level,
     loading,
+    loadError,
+    retryLoad,
+    noSubjects,
     subjectCount,
     resumable,
     paymentOverdue,
+    neverSubscribed,
     planStatePending,
     planStateError,
     refetchPlanState,

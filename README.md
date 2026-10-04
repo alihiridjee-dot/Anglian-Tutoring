@@ -65,6 +65,18 @@ things that are display type _without_ being headings. Display type is **bold
 weights. `font-sans` remains the escape hatch, and utilities still beat the base
 rule, so `tracking-widest` on a small uppercase label wins as intended.
 
+### Phones, either way up
+
+- **Tap targets** are 44px on any touch screen: `min-h-11 sm:pointer-fine:min-h-0`
+  (or `h-11`, `size-11`), never a bare `sm:` undo. A phone turned sideways is
+  wider than `sm`, and so is a tablet.
+- **`short:`** styles a phone on its side: 340–440px tall and as wide as a
+  tablet, so every width breakpoint hands it a desktop layout it has no height
+  for. Anything pinned, sized to the screen, or meant to fit on one screen needs
+  a look at `short:`. The sidebar follows `rail:` and `drawer:`, and an open
+  conversation goes full screen with `.thread-sideways`. See
+  `docs/LANDSCAPE_UX_AUDIT_2026-10-03.md`.
+
 ## Tech
 
 - React 19, TanStack Start v1, Tailwind CSS v4, TypeScript strict

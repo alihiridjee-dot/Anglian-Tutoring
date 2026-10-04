@@ -4,6 +4,7 @@ import { toast } from "sonner";
 import { supabase } from "@/integrations/supabase/client";
 import { invalidateGuardState } from "@/lib/auth/guardState";
 import { isDemoMode, getSessionUserId } from "@/lib/auth/session";
+import { forgetTrialCode } from "@/lib/billing/trialCode";
 import {
   fetchInvoices,
   manageSubscription,
@@ -12,6 +13,7 @@ import {
   changeCadence,
   resolvePackagesForLevel,
   isPaymentOverdue,
+  isResumable,
   type Invoice,
   type PackageRow,
   type SubscriptionRow,
@@ -163,7 +165,7 @@ export function useOwnPlanState() {
     ...query,
     sub,
     /** A dormant plan that Resume brings back — never a reason to buy again. */
-    resumable: !!sub && (sub.status === "paused" || sub.cancel_at_period_end),
+    resumable: isResumable(sub),
     /** The last payment failed: the answer is a new card, never a new plan. */
     paymentOverdue: !!sub && isPaymentOverdue(sub.status),
     /** No plan has ever existed for this student, so Checkout is correct. */
@@ -368,6 +370,14 @@ export function useCheckoutReturn({
     }, CONFIRM_POLL_MS);
     return () => clearInterval(timer);
   }, [status, phase, round, qc]);
+
+  // A completed Checkout has spent any trial code it carried, and a stored one
+  // would be pre-filled into the next purchase (a second child) and refused.
+  // A parent's purchase can't be confirmed from here, so Stripe sending them
+  // back paid is the confirmation; a student's waits for their plan to show.
+  useEffect(() => {
+    if (status === "success" && confirmed !== false) forgetTrialCode();
+  }, [status, confirmed]);
 
   useEffect(() => {
     if (status !== "success" || !confirmed) return;

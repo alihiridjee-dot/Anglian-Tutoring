@@ -31,7 +31,7 @@ import type { BoardV, LevelV, SubjectV } from "@/lib/curriculum/taxonomy";
 const TABS = [
   { key: "general", label: "General", icon: MessageSquare },
   { key: "spec_point", label: "Spec point", icon: BookMarked },
-  { key: "homework", label: "Homework", icon: ClipboardList },
+  { key: "homework", label: "Tasks", icon: ClipboardList },
   { key: "mcq_set", label: "Quiz", icon: ListChecks },
 ] as const;
 
@@ -61,7 +61,7 @@ export function ContextPicker({ value, onChange }: Props) {
                 if (key === "general") select(EMPTY_CONTEXT);
                 else select({ kind: key });
               }}
-              className={`inline-flex items-center gap-1.5 h-11 sm:h-8 px-3 rounded-lg border text-xs font-semibold transition ${
+              className={`inline-flex items-center gap-1.5 h-11 sm:pointer-fine:h-8 px-3 rounded-lg border text-xs font-semibold transition ${
                 active
                   ? "border-primary bg-primary/10 text-foreground"
                   : "border-border text-muted-foreground hover:border-primary/40"
@@ -100,7 +100,9 @@ export function ContextPicker({ value, onChange }: Props) {
 /** Shared shell for the three attachment lists. */
 function PickerShell({ children }: { children: React.ReactNode }) {
   return (
-    <div className="mt-2.5 max-h-52 overflow-y-auto rounded-xl border border-border divide-y divide-border">
+    // Shorter on a phone turned sideways, so the list can't fill the dialog's
+    // scrolling form and catch every swipe meant for the form around it.
+    <div className="mt-2.5 max-h-52 short:max-h-32 overflow-y-auto rounded-xl border border-border divide-y divide-border">
       {children}
     </div>
   );
@@ -272,7 +274,7 @@ function HomeworkList({ onPick }: { onPick: (s: ChatContextSelection) => void })
       {rows === undefined ? (
         <Spinner className="py-4" />
       ) : rows.length === 0 ? (
-        <EmptyRow>No homework set yet.</EmptyRow>
+        <EmptyRow>No tasks set yet.</EmptyRow>
       ) : (
         rows.map((r) => (
           <PickerRow
@@ -284,7 +286,7 @@ function HomeworkList({ onPick }: { onPick: (s: ChatContextSelection) => void })
                 kind: "homework",
                 resourceId: r.id,
                 subject: r.subject,
-                label: `Homework: ${r.title}`,
+                label: `Task: ${r.title}`,
               })
             }
           />

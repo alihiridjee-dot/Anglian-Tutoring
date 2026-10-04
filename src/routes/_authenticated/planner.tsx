@@ -1,10 +1,11 @@
-import { createFileRoute } from "@tanstack/react-router";
+import { createFileRoute, useNavigate } from "@tanstack/react-router";
 import { guardStudentSection } from "@/lib/auth/routeGuards";
 import { Compass, Loader2 } from "lucide-react";
 import { AppLayout } from "@/components/AppLayout";
 import { useEnrolments } from "@/hooks/data/useEnrolments";
 import { useRoles } from "@/hooks/useRole";
 import { useViewerId } from "@/hooks/useViewer";
+import { useSubjectFromLink } from "@/hooks/useActiveSubject";
 import { StudentPlanner } from "@/components/planner/StudentPlanner";
 import { TutorPlannerPanel } from "@/components/planner/TutorPlannerPanel";
 import { validatePlannerSearch, type PlannerSearch } from "@/lib/planner/plannerSearch";
@@ -69,6 +70,18 @@ function StudentPlannerGate() {
   // student being planned for is always the viewer — known before first render,
   // with no lookup that could fail and leave this on a spinner forever.
   const studentId = useViewerId();
+  // A link into a course (`?subject=`, from a curriculum point) moves the
+  // header slider onto it; the planner follows the slider from there.
+  const navigate = useNavigate();
+  useSubjectFromLink(
+    search.subject,
+    () =>
+      void navigate({
+        to: "/planner",
+        search: (prev) => ({ ...prev, subject: undefined }),
+        replace: true,
+      }),
+  );
 
   if (loading || !studentId) {
     return (
@@ -92,7 +105,6 @@ function StudentPlannerGate() {
       studentId={studentId}
       enrolments={enrolments}
       level={level}
-      initialSubject={search.subject}
       initialTab={search.tab ?? (search.week ? "plan" : undefined)}
       focusWeek={search.week}
     />

@@ -150,7 +150,7 @@ export function CoveredLedger({
                 key={e.subject}
                 type="button"
                 onClick={() => setPickedSubject(e.subject)}
-                className={`h-11 sm:h-8 px-3 rounded-lg text-sm font-medium transition ${
+                className={`h-11 sm:pointer-fine:h-8 px-3 rounded-lg text-sm font-medium transition ${
                   e.subject === activeSubject
                     ? "btn-solid"
                     : "bg-muted text-muted-foreground hover:text-foreground"
@@ -260,7 +260,7 @@ export function CoveredLedger({
                           type="button"
                           onClick={() => retake(t)}
                           disabled={retaking === t.topicId}
-                          className="inline-flex items-center gap-1.5 h-11 sm:h-8 px-3 rounded-lg border border-border text-xs font-semibold text-muted-foreground hover:text-primary hover:border-primary/40 disabled:opacity-50"
+                          className="inline-flex items-center gap-1.5 h-11 sm:pointer-fine:h-8 px-3 rounded-lg border border-border text-xs font-semibold text-muted-foreground hover:text-primary hover:border-primary/40 disabled:opacity-50"
                           title="Bring this whole topic back into this week to revise it again"
                         >
                           {retaking === t.topicId ? (
@@ -286,7 +286,7 @@ export function CoveredLedger({
 /** Best marks behind a done point, shown on hover over its tick. */
 function markTitle(p: ProgressPoint) {
   const marks = [
-    p.homeworkScore != null ? `Homework best ${p.homeworkScore}%` : null,
+    p.homeworkScore != null ? `Task best ${p.homeworkScore}%` : null,
     p.quizScore != null ? `Quiz best ${p.quizScore}%` : null,
   ].filter(Boolean);
   return marks.length > 0 ? marks.join(" · ") : undefined;

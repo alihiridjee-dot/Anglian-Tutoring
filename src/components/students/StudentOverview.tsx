@@ -16,9 +16,7 @@ function Fact({ icon: Icon, label, value }: { icon: typeof Mail; label: string; 
         <Icon className="size-4" aria-hidden />
       </span>
       <div className="min-w-0">
-        <p className="text-muted-foreground text-[10px] font-bold tracking-wider uppercase">
-          {label}
-        </p>
+        <p className="eyebrow eyebrow-bare">{label}</p>
         <p className="truncate text-sm font-semibold">{value}</p>
       </div>
     </div>
@@ -34,7 +32,7 @@ function ParentRow({ parent, studentId }: { parent: LinkedParent; studentId: str
     <li className="flex flex-wrap items-center justify-between gap-3 py-3">
       <div>
         <p className="text-sm font-semibold">{name === "there" ? "Parent" : name}</p>
-        <p className="text-muted-foreground text-xs">Linked {formatDate(parent.linked_at)}</p>
+        <p className="chip tint-slate mt-1 text-[10px]">Linked {formatDate(parent.linked_at)}</p>
       </div>
       {confirming ? (
         <div className="flex items-center gap-2">
@@ -51,7 +49,7 @@ function ParentRow({ parent, studentId }: { parent: LinkedParent; studentId: str
                 },
               )
             }
-            className="btn-solid tint-rose inline-flex h-11 sm:h-8 items-center gap-1.5 rounded-lg px-3 text-xs font-semibold"
+            className="btn-solid tint-rose inline-flex h-11 sm:pointer-fine:h-8 items-center gap-1.5 rounded-lg px-3 text-xs font-semibold"
           >
             {unlink.isPending && <Loader2 className="size-3.5 animate-spin" aria-hidden />}
             Yes, unlink
@@ -59,7 +57,7 @@ function ParentRow({ parent, studentId }: { parent: LinkedParent; studentId: str
           <button
             type="button"
             onClick={() => setConfirming(false)}
-            className="btn-soft inline-flex h-11 sm:h-8 items-center rounded-lg px-3 text-xs font-semibold"
+            className="btn-soft inline-flex h-11 sm:pointer-fine:h-8 items-center rounded-lg px-3 text-xs font-semibold"
           >
             Keep
           </button>
@@ -68,7 +66,7 @@ function ParentRow({ parent, studentId }: { parent: LinkedParent; studentId: str
         <button
           type="button"
           onClick={() => setConfirming(true)}
-          className="text-muted-foreground hover:text-foreground inline-flex min-h-11 sm:min-h-0 items-center gap-1 text-xs font-semibold"
+          className="text-muted-foreground hover:text-foreground inline-flex min-h-11 sm:pointer-fine:min-h-0 items-center gap-1 text-xs font-semibold"
         >
           <X className="size-3.5" aria-hidden /> Unlink
         </button>
@@ -110,10 +108,10 @@ export function StudentOverview({
       <StudentCourseEditor record={record} />
 
       <section className="premium-card rounded-2xl p-5 sm:p-6">
-        <SectionHeading title="Parents" hint="Linked parents see grades, feedback and billing.">
+        <SectionHeading title="Parents">
           <Link
             to="/parents"
-            className="btn-soft inline-flex h-11 sm:h-9 items-center gap-1.5 rounded-lg px-3 text-xs font-semibold"
+            className="btn-soft inline-flex h-11 sm:pointer-fine:h-9 items-center gap-1.5 rounded-lg px-3 text-xs font-semibold"
           >
             <Users className="size-4" aria-hidden /> Parent links
           </Link>
@@ -128,16 +126,18 @@ export function StudentOverview({
         {pendingInvites.length > 0 && (
           <ul className="mt-3 space-y-1.5">
             {pendingInvites.map((i) => (
-              <li key={i.id} className="text-muted-foreground flex flex-wrap gap-x-2 text-xs">
+              <li key={i.id} className="flex flex-wrap items-center gap-x-2 gap-y-1 text-xs">
                 <span className="chip tint-amber text-[10px]">Invited</span>
                 <span className="font-semibold">{i.parent_email}</span>
-                <span>expires {formatDate(i.expires_at)}</span>
+                <span className="chip tint-slate text-[10px]">
+                  Expires {formatDate(i.expires_at)}
+                </span>
               </li>
             ))}
           </ul>
         )}
         {parents.length === 0 && pendingInvites.length === 0 && (
-          <p className="text-muted-foreground mt-3 text-sm">No parent is linked yet.</p>
+          <p className="chip tint-amber mt-3">No parent linked</p>
         )}
       </section>
     </div>

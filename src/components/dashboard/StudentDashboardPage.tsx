@@ -10,6 +10,7 @@ import { WeeklyFocusCard } from "@/components/weekly/WeeklyFocusCard";
 import { LiveSessionsBanner } from "@/components/live/LiveSessionsBanner";
 import { WeeklyPlanPanel } from "@/components/planner/WeeklyPlanPanel";
 import { useViewerId } from "@/hooks/useViewer";
+import { useActiveSubject } from "@/hooks/useActiveSubject";
 import { boardLabel, levelLabel, subjectLabel } from "@/lib/curriculum/courseSummary";
 import { SUBJECT_TINT } from "@/lib/curriculum/subjectTheme";
 import { CourseChip } from "@/components/CourseBadge";
@@ -33,6 +34,9 @@ export function StudentDashboard({
   // This is a student-only surface (see the guard above), so the student whose
   // plan is shown is always the viewer. Null in the showcase, which has nobody.
   const effectiveStudentId = useViewerId();
+  // The plan, the tutor's focus and the live banner follow the header slider;
+  // the welcome strip keeps every subject, as the summary of the whole course.
+  const { subject: activeSubject } = useActiveSubject();
 
   // Warms the analytics cache for the pages that render it.
   useAnalytics(effectiveStudentId, enrolledCourses);
@@ -43,8 +47,9 @@ export function StudentDashboard({
 
   return (
     <AppLayout title="Student Dashboard">
-      {/* Slim welcome ribbon — name on the left, the student's actual level and
-          per-subject exam boards on the right. */}
+      {/* Slim welcome ribbon: the student's name. Their level and boards are in
+          the header beside the subject slider, so the ribbon no longer repeats
+          them — it only says so when there are no subjects to show at all. */}
       <div data-tour="welcome" className="relative mb-6">
         <Mascot
           name="star"
@@ -68,7 +73,7 @@ export function StudentDashboard({
                 Welcome back, {displayName}
               </h2>
             </div>
-            <EnrolmentSummary enrolments={enrolments} level={level} />
+            {enrolments.length === 0 && <EnrolmentSummary enrolments={enrolments} level={level} />}
           </div>
         </div>
       </div>
@@ -76,7 +81,7 @@ export function StudentDashboard({
       {/* Live sessions — hoisted out of the "This Week" hub into its own banner so
           it stands apart from the study plan below. */}
       <div data-tour="live-banner">
-        <LiveSessionsBanner />
+        <LiveSessionsBanner subject={activeSubject} />
       </div>
 
       {/* Saved weekly assignments, assessed practice, and end-of-week feedback. */}
@@ -97,7 +102,7 @@ export function StudentDashboard({
       <div data-tour="tutor-focus">
         <WeeklyFocusCard
           studentId={effectiveStudentId}
-          subjects={enrolledCourses}
+          subjects={activeSubject ? [activeSubject] : enrolledCourses}
           showLive={false}
         />
       </div>
@@ -121,7 +126,7 @@ export function EnrolmentSummary({
 }) {
   if (enrolments.length === 0) {
     return (
-      <p className="text-xs sm:text-sm text-primary-foreground/70">
+      <p className="text-xs sm:text-sm font-semibold text-primary-foreground">
         You're not enrolled in any subjects yet — contact your tutor to get set up.
       </p>
     );

@@ -14,7 +14,9 @@ import {
   type SubjectV,
 } from "@/lib/curriculum/taxonomy";
 import { StepCard } from "@/components/onboarding/StepCard";
+import { ErrorNote } from "@/components/Shared";
 import { useCurriculumCoverage } from "@/hooks/data/useCurriculumCoverage";
+import { knownMainBoard } from "@/lib/auth/onboarding";
 
 type SearchParams = { board?: BoardV; level?: LevelV };
 
@@ -40,8 +42,18 @@ function SubjectsStep() {
   const user = useOnboardingUser();
   const search = Route.useSearch();
   const queryClient = useQueryClient();
-  const defaultBoard: BoardV = search.board ?? "edexcel";
-  const { coverage, isPending: coverageLoading } = useCurriculumCoverage();
+  // The student's main board. Step 1 hands it over in the URL; coming back from
+  // a later step there is none, so the prefill below reads it from their saved
+  // subjects, as step 1 does, rather than pre-selecting Edexcel for an AQA
+  // student's new subjects.
+  const [mainBoard, setMainBoard] = useState<BoardV | null>(search.board ?? null);
+  const defaultBoard: BoardV = mainBoard ?? "edexcel";
+  const {
+    coverage,
+    isPending: coverageLoading,
+    error: coverageError,
+    refetch: refetchCoverage,
+  } = useCurriculumCoverage();
 
   const [chosen, setChosen] = useState<Record<string, boolean>>(() =>
     Object.fromEntries(SUBJECTS.map((s) => [s.value, false])),
@@ -54,9 +66,9 @@ function SubjectsStep() {
   const [level, setLevel] = useState<LevelV | null>(search.level ?? null);
   const [saving, setSaving] = useState(false);
 
-  /** Boards that can teach this subject at the student's level. */
-  const boardsFor = (subject: SubjectV): BoardV[] =>
-    level ? coverage.boardsForSubject(level, subject) : [];
+  /** Boards that can teach this subject at the student's level — every board
+   *  while coverage is unknown, so a failed read never locks a subject. */
+  const boardsFor = (subject: SubjectV): BoardV[] => coverage.boardsOffered(level, subject);
 
   // Prefill from existing enrolments if they're revisiting the step; otherwise
   // fall back to whatever they picked on the pricing page (stashed in auth
@@ -68,6 +80,13 @@ function SubjectsStep() {
         supabase.from("profiles").select("level").eq("id", user.id).maybeSingle(),
       ]);
       if (!search.level && profile?.level) setLevel(profile.level as LevelV);
+      if (!search.board) {
+        const known = knownMainBoard(data, user.user_metadata?.intended_board);
+        if (known) {
+          setMainBoard(known);
+          setBoards(Object.fromEntries(SUBJECTS.map((s) => [s.value, known])));
+        }
+      }
       if (data?.length) {
         setChosen((prev) => ({
           ...prev,
@@ -164,6 +183,7 @@ function SubjectsStep() {
       continueDisabled={selected.length === 0}
       saving={saving}
     >
+      {coverageError && <ErrorNote error={coverageError} onRetry={() => void refetchCoverage()} />}
       <div className="space-y-2">
         {SUBJECTS.map((s) => {
           const on = chosen[s.value];
@@ -211,7 +231,7 @@ function SubjectsStep() {
                     onChange={(e) =>
                       setBoards((prev) => ({ ...prev, [s.value]: e.target.value as BoardV }))
                     }
-                    className="h-11 sm:h-8 rounded-lg premium-card px-2 text-xs transition focus:outline-none focus:border-primary focus:ring-4 focus:ring-primary/15"
+                    className="h-11 sm:pointer-fine:h-8 rounded-lg premium-card px-2 text-xs transition focus:outline-none focus:border-primary focus:ring-4 focus:ring-primary/15"
                   >
                     {BOARDS.filter((b) => options.includes(b.value)).map((b) => (
                       <option key={b.value} value={b.value}>

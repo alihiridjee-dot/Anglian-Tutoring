@@ -5,9 +5,10 @@ import { useQueryClient } from "@tanstack/react-query";
 import { toast } from "sonner";
 import { supabase } from "@/integrations/supabase/client";
 import { invalidateGuardState } from "@/lib/auth/guardState";
-import { gradeOptions, completeOnboarding } from "@/lib/auth/onboarding";
+import { gradeOptions, completeOnboarding, NoSubjectsError } from "@/lib/auth/onboarding";
 import { SUBJECTS, type LevelV, type SubjectV } from "@/lib/curriculum/taxonomy";
 import { StepCard } from "@/components/onboarding/StepCard";
+import { SchoolPicker } from "@/components/onboarding/SchoolPicker";
 
 type Grades = { previous_grade: string; current_grade: string; target_grade: string };
 const EMPTY: Grades = { previous_grade: "", current_grade: "", target_grade: "" };
@@ -104,6 +105,13 @@ function SchoolStep() {
       invalidateGuardState(queryClient);
       navigate({ to: "/onboarding/plan" });
     } catch (err) {
+      if (err instanceof NoSubjectsError) {
+        // Reached here without a subject (a deep link, then Skip): send them
+        // back to choose one rather than finishing setup with none.
+        toast.error(err.message);
+        navigate({ to: "/onboarding/subjects" });
+        return;
+      }
       toast.error(err instanceof Error ? err.message : "Couldn't save that — try again.");
     } finally {
       setSaving(false);
@@ -133,14 +141,11 @@ function SchoolStep() {
         >
           School or college
         </label>
-        <input
+        <SchoolPicker
           id="onboarding-school"
-          type="text"
-          autoComplete="organization"
           value={school}
-          onChange={(e) => setSchool(e.target.value)}
+          onChange={setSchool}
           placeholder="e.g. Cambridge Academy"
-          className="mt-1 w-full h-11 rounded-xl bg-background border border-border px-3.5 text-sm transition focus:outline-none focus:border-primary focus:ring-4 focus:ring-primary/15"
         />
       </div>
 
@@ -175,7 +180,7 @@ function SchoolStep() {
                             [subject]: { ...(prev[subject] ?? EMPTY), [key]: e.target.value },
                           }))
                         }
-                        className="mt-0.5 w-full h-11 sm:h-9 rounded-lg premium-input px-2 text-sm"
+                        className="mt-0.5 w-full h-11 sm:pointer-fine:h-9 rounded-lg premium-input px-2 text-sm"
                       >
                         <option value="">—</option>
                         {options.map((g) => (

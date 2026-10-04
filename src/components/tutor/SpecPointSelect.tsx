@@ -207,7 +207,7 @@ export function SpecPointSelect({
         <button
           type="button"
           onClick={() => toggleTopic(g.topicId)}
-          className="w-full flex min-h-11 sm:min-h-0 items-center gap-2 px-3 py-1.5 bg-muted/80 backdrop-blur text-[10px] font-extrabold uppercase tracking-widest text-muted-foreground hover:bg-muted"
+          className="w-full flex min-h-11 sm:pointer-fine:min-h-0 items-center gap-2 px-3 py-1.5 bg-muted/80 backdrop-blur text-[10px] font-extrabold uppercase tracking-widest text-muted-foreground hover:bg-muted"
         >
           <ChevronDown
             className={`w-3.5 h-3.5 shrink-0 transition-transform ${isOpen ? "" : "-rotate-90"}`}
@@ -224,7 +224,7 @@ export function SpecPointSelect({
           g.points.map((p) => (
             <label
               key={p.id}
-              className="flex min-h-11 sm:min-h-0 items-center sm:items-start gap-2.5 px-3 py-2 hover:bg-muted/40 cursor-pointer"
+              className="flex min-h-11 sm:pointer-fine:min-h-0 items-center sm:items-start gap-2.5 px-3 py-2 hover:bg-muted/40 cursor-pointer"
             >
               <input
                 type="checkbox"
@@ -245,7 +245,7 @@ export function SpecPointSelect({
   return (
     <Field label={label}>
       <div className="rounded-lg premium-card overflow-hidden">
-        <div className="flex min-h-11 sm:min-h-0 items-center gap-2 px-3 py-2 border-b border-border">
+        <div className="flex min-h-11 sm:pointer-fine:min-h-0 items-center gap-2 px-3 py-2 border-b border-border">
           <Search className="w-3.5 h-3.5 text-muted-foreground shrink-0" />
           <input
             value={query}
@@ -288,7 +288,7 @@ export function SpecPointSelect({
                   <button
                     type="button"
                     onClick={() => toggleBoard(b)}
-                    className="sticky top-0 z-20 w-full flex min-h-11 sm:min-h-0 items-center gap-2 px-3 py-2 bg-primary/10 border-y border-primary/15 text-xs font-bold uppercase tracking-wider text-primary hover:bg-primary/15"
+                    className="sticky top-0 z-20 w-full flex min-h-11 sm:pointer-fine:min-h-0 items-center gap-2 px-3 py-2 bg-primary/10 border-y border-primary/15 text-xs font-bold uppercase tracking-wider text-primary hover:bg-primary/15"
                   >
                     <Layers className="w-3.5 h-3.5 shrink-0" />
                     <span className="text-left flex-1">

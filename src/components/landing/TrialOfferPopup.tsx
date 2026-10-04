@@ -3,36 +3,45 @@ import { Link } from "@tanstack/react-router";
 import { ArrowRight, Loader2, Mail, X } from "lucide-react";
 import { toast } from "sonner";
 import { useBodyScrollLock } from "@/hooks/useBodyScrollLock";
-import { requestTrialCode, readTrialCode, TRIAL_DAYS } from "@/lib/billing/trialCode";
+import { getSessionUserId } from "@/lib/auth/session";
+import {
+  mayOfferTrial,
+  requestTrialCode,
+  readTrialCode,
+  TRIAL_DAYS,
+} from "@/lib/billing/trialCode";
 
 const DISMISSED_KEY = "trial-offer-dismissed-at";
-/** How long a closed pop-up stays closed. */
-const QUIET_MS = 7 * 24 * 60 * 60_000;
+/** Set once a code has been emailed: that visitor is never asked again. */
+const SENT_KEY = "trial-offer-sent";
 /** How long a visitor reads the page before it appears. */
 const DELAY_MS = 2_000;
 
-function recentlyDismissed(): boolean {
+function readStored(key: string): string | null {
   try {
-    const at = Number(localStorage.getItem(DISMISSED_KEY));
-    return !!at && Date.now() - at < QUIET_MS;
+    return localStorage.getItem(key);
   } catch {
-    return false;
+    return null;
+  }
+}
+
+function store(key: string, value: string) {
+  try {
+    localStorage.setItem(key, value);
+  } catch {
+    /* Storage unavailable: it may show again next visit. */
   }
 }
 
 function markDismissed() {
-  try {
-    localStorage.setItem(DISMISSED_KEY, String(Date.now()));
-  } catch {
-    /* Storage unavailable: it may show again next visit. */
-  }
+  store(DISMISSED_KEY, String(Date.now()));
 }
 
 /**
  * The landing page's free-trial offer. A visitor leaves an email address and
  * the trial-code function sends them a code of their own, good for one
  * 14-day trial. Appears once, a few seconds in; closed, it stays away a week.
- * Someone who already holds a code is never shown it.
+ * Someone signed in, sent a code, or holding one is never shown it.
  */
 export function TrialOfferPopup() {
   const [open, setOpen] = useState(false);
@@ -44,9 +53,24 @@ export function TrialOfferPopup() {
   useBodyScrollLock(open);
 
   useEffect(() => {
-    if (recentlyDismissed() || readTrialCode()) return;
-    const t = setTimeout(() => setOpen(true), DELAY_MS);
-    return () => clearTimeout(t);
+    let cancelled = false;
+    let t: ReturnType<typeof setTimeout> | undefined;
+    // The locally held session, no network call: anyone signed in — student,
+    // parent or tutor — already has an account and is never offered a trial.
+    void getSessionUserId().then((uid) => {
+      const offer = mayOfferTrial({
+        signedIn: !!uid,
+        codeSent: !!readStored(SENT_KEY),
+        heldCode: readTrialCode(),
+        dismissedAt: Number(readStored(DISMISSED_KEY)) || null,
+        now: Date.now(),
+      });
+      if (!cancelled && offer) t = setTimeout(() => setOpen(true), DELAY_MS);
+    });
+    return () => {
+      cancelled = true;
+      clearTimeout(t);
+    };
   }, []);
 
   useEffect(() => {
@@ -70,7 +94,7 @@ export function TrialOfferPopup() {
     setSending(true);
     try {
       await requestTrialCode(email.trim(), website);
-      markDismissed();
+      store(SENT_KEY, String(Date.now()));
       setSentTo(email.trim());
     } catch (err) {
       toast.error(err instanceof Error ? err.message : "We couldn't send the email just now.");
@@ -93,7 +117,7 @@ export function TrialOfferPopup() {
         <button
           type="button"
           onClick={close}
-          className="absolute top-2 right-2 sm:top-4 sm:right-4 size-11 sm:size-8 rounded-lg hover:bg-muted flex items-center justify-center"
+          className="absolute top-2 right-2 sm:top-4 sm:right-4 size-11 sm:pointer-fine:size-8 rounded-lg hover:bg-muted flex items-center justify-center"
           aria-label="Close"
         >
           <X className="w-4 h-4" />

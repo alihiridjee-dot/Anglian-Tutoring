@@ -99,16 +99,18 @@ export function EnrolledSubjectsCard({
 
   const confirmRemove = (category: string, comment: string) => {
     if (!removing) return;
-    void recordBillingFeedback({
-      studentId,
-      action: "remove_subject",
-      category,
-      comment,
-    });
     remove.mutate(
       { studentId, subjects: [removing] },
       {
         onSuccess: (res) => {
+          // Only once the removal has worked: a refused one must not leave an
+          // entry in the tutor's plan history.
+          void recordBillingFeedback({
+            studentId,
+            action: "remove_subject",
+            category,
+            comment,
+          });
           const label = subjectLabel(removing);
           setRemoving(null);
           toast.success(`${label} removed. Your next bill drops to the smaller plan.`, {
@@ -179,7 +181,7 @@ export function EnrolledSubjectsCard({
                   <button
                     onClick={() => setRemoving(e.subject)}
                     disabled={remove.isPending}
-                    className="inline-flex items-center gap-1.5 h-11 sm:h-9 px-3 rounded-lg border border-rose-200 text-rose-600 text-sm font-semibold hover:bg-rose-50 disabled:opacity-50 shrink-0"
+                    className="inline-flex items-center gap-1.5 h-11 sm:pointer-fine:h-9 px-3 rounded-lg border border-rose-200 text-rose-600 text-sm font-semibold hover:bg-rose-50 disabled:opacity-50 shrink-0"
                   >
                     {remove.isPending && removing === e.subject ? (
                       <Loader2 className="w-4 h-4 animate-spin" />
