@@ -138,7 +138,7 @@ await db.query(
 await db.query("insert into public.spec_points values ($1), ($2)", [point, point2]);
 
 const migration = await readFile(
-  new URL("../supabase/migrations/20261003130000_subject_pauses.sql", import.meta.url),
+  new URL("../supabase/migrations/20261004090000_subject_pauses.sql", import.meta.url),
   "utf8",
 );
 await db.exec(migration);
@@ -474,7 +474,7 @@ await db.query(
   await refusesAsPaused(samWeek, "an unpaid student can't be planned for");
   await db.exec(
     await readFile(
-      new URL("../supabase/rollbacks/20261003130000_subject_pauses.down.sql", import.meta.url),
+      new URL("../supabase/rollbacks/20261004090000_subject_pauses.down.sql", import.meta.url),
       "utf8",
     ),
   );

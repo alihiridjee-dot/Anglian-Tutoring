@@ -1,4 +1,4 @@
--- Rollback for 20261003130000_subject_pauses.sql. Run by hand.
+-- Rollback for 20261004090000_subject_pauses.sql. Run by hand.
 --
 -- Removes the hard stop (weeks can be planned for a paused subject again), the
 -- triggers that keep the record, the hourly job and the record itself. The
