@@ -87,9 +87,9 @@ function statusTint(status: string) {
 }
 
 /**
- * The plan, folded away under one row ("Your plan · £55.99 per month") since
+ * The plan, folded away under one row ("Your plan" and its status) since
  * the Subjects block above it is what families come for. Opened, it is a grid
- * of tiles: subject count, next bill, who pays, Card & invoices (payer only)
+ * of tiles: price, subject count, next bill, who pays, Card & invoices (payer only)
  * and Switch payment, which opens the three cadences in place.
  *
  * Opens by itself when it needs attention: a paused plan (Resume lives here)
@@ -154,6 +154,9 @@ export function SubscriptionPanel({
   const overdue = isPaymentOverdue(sub.status);
   const cadenceLabel = CADENCES.find((c) => c.key === planCadence(sub.plan))?.label;
   const subjectCount = course?.perSubject.length || planSubjectCount(sub.plan);
+  // "£55.99 per month" → a "Per month" tile showing £55.99.
+  const [priceValue, ...priceRest] = priceLabel?.split(" ") ?? [];
+  const priceUnit = priceRest.join(" ");
   const tileClass =
     "pop-card pop-card-interactive flex flex-col items-start justify-between gap-3 p-4 text-left disabled:opacity-50 sm:p-5";
 
@@ -164,7 +167,6 @@ export function SubscriptionPanel({
           <CreditCard className="size-4" aria-hidden />
         </span>
         <h2 className="text-xl font-bold">{title}</h2>
-        {priceLabel && <span className="font-display text-lg font-bold">{priceLabel}</span>}
         <span className={`chip ${statusTint(sub.status)} uppercase`}>
           {STATUS_LABELS[sub.status] ?? sub.status}
         </span>
@@ -210,6 +212,8 @@ export function SubscriptionPanel({
 
       <div className="mt-1">
         <PlanFacts
+          priceValue={priceValue}
+          priceLabel={priceUnit ? priceUnit.charAt(0).toUpperCase() + priceUnit.slice(1) : "Price"}
           subjectCount={subjectCount}
           payerLabel={payerLabel}
           billingLabel={sub.cancel_at_period_end ? "Access ends" : paused ? "Was due" : "Next bill"}
