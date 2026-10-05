@@ -1,6 +1,7 @@
 import { Link, useNavigate, useParams } from "@tanstack/react-router";
 import { ArrowLeft, CheckCircle2, Clock } from "lucide-react";
 import { useEffect, useState } from "react";
+import { useQuery } from "@tanstack/react-query";
 import { toast } from "sonner";
 import { AppLayout } from "@/components/AppLayout";
 import { AwaitingMark, BuiltInHomework } from "@/components/BuiltInHomework";
@@ -12,6 +13,7 @@ import type { SubmissionRow } from "@/lib/homework/types";
 import { useRoles } from "@/hooks/useRole";
 import { acknowledgeSubmission } from "@/lib/homework/homework.functions";
 import { isDemoStudent } from "@/lib/demo/studentDemo";
+import { studentBreaksQuery } from "@/lib/planner/breakQueries";
 import { needsMarkingStart, startMarking } from "@/lib/homework/startMarking";
 import { SUBJECT_LABEL, SUBJECT_TINT } from "@/lib/curriculum/subjectTheme";
 import { usePinSubject } from "@/hooks/useActiveSubject";
@@ -26,6 +28,10 @@ export function HomeworkSheetPage() {
   const demo = isDemoStudent();
   const reload = useInvalidateHomework();
   const { enrolments } = useEnrolments();
+  const { data: breaks } = useQuery({
+    ...studentBreaksQuery(userId ?? ""),
+    enabled: !!userId && !isTutor && !isDemoStudent(),
+  });
 
   const { data, isPending, error, refetch } = useHomeworkSheet({
     homeworkId,
@@ -79,12 +85,13 @@ export function HomeworkSheetPage() {
 
   const { hw, questions, answers } = data;
   const marked = !!submission?.graded_at;
-  // The same rule as the list, so a brief set before the student joined isn't
-  // Overdue here either.
+  // The same rule as the list, so a brief set before the student joined, or
+  // due during their break, isn't Overdue here either.
   const overdue = isOverdue({
     hw,
     submission: submission ?? undefined,
     enrolledAt: enrolments.find((e) => e.subject === hw.subject)?.enrolledAt,
+    breaks,
   });
 
   return (

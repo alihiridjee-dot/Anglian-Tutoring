@@ -1,4 +1,4 @@
-import { Download, ExternalLink, Receipt } from "lucide-react";
+import { ChevronDown, Download, ExternalLink, Receipt } from "lucide-react";
 import { useInvoices } from "@/hooks/data/useBilling";
 import { formatPence } from "@/lib/billing/billing";
 import { Spinner } from "@/components/Shared";
@@ -115,22 +115,23 @@ function ReceiptLinks({ inv }: { inv: Invoice }) {
   );
 }
 
-/** Card wrapper used by both the billing page and the parent dashboard. */
+/**
+ * Card wrapper used by both the billing page and the parent dashboard. Closed
+ * by default: past invoices are looked up now and then, not read every visit.
+ */
 export function InvoiceHistoryCard() {
   return (
-    <div className="relative overflow-hidden rounded-2xl border border-primary/30 bg-gradient-to-br from-primary/5 via-card to-card p-4 sm:p-6 shadow-sm">
-      {/* soft glow accent */}
-      <div className="pointer-events-none absolute -top-16 -right-16 h-40 w-40 rounded-full bg-primary/10 blur-3xl" />
-
-      <div className="relative">
-        <div className="flex items-center gap-2 mb-4">
-          <div className="w-8 h-8 rounded-lg bg-primary/15 flex items-center justify-center">
-            <Receipt className="w-4 h-4 text-primary" />
-          </div>
-          <h2 className="font-display text-xl font-bold">Payment history</h2>
-        </div>
+    <details className="group premium-card rounded-2xl p-4 sm:p-6">
+      <summary className="flex min-h-11 cursor-pointer list-none items-center gap-2 sm:pointer-fine:min-h-0 [&::-webkit-details-marker]:hidden">
+        <span className="icon-tile size-8 shrink-0">
+          <Receipt className="size-4" aria-hidden />
+        </span>
+        <h2 className="font-display flex-1 text-xl font-bold">Payment history</h2>
+        <ChevronDown className="size-5 transition group-open:rotate-180" aria-hidden />
+      </summary>
+      <div className="mt-4">
         <InvoiceHistory />
       </div>
-    </div>
+    </details>
   );
 }

@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { BookOpen, Loader2, MinusCircle } from "lucide-react";
+import { Check, Loader2 } from "lucide-react";
 import { toast } from "sonner";
 import {
   SUBJECTS,
@@ -9,45 +9,37 @@ import {
   type BoardV,
   type SubjectV,
 } from "@/lib/curriculum/taxonomy";
-import { usePackages, useRemoveSubjects } from "@/hooks/data/useBilling";
 import { useUpdateEnrolmentBoard } from "@/hooks/data/useEnrolments";
 import { useCurriculumCoverage } from "@/hooks/data/useCurriculumCoverage";
-import { formatPence } from "@/lib/billing/billing";
 import { levelLabel } from "@/lib/curriculum/courseSummary";
-import { planCadence, tierFor, CADENCES } from "@/lib/billing/entitlements";
-import { RemoveSubjectDialog } from "@/components/billing/RemoveSubjectDialog";
 import { SwitchBoardDialog } from "@/components/billing/SwitchBoardDialog";
-import { recordBillingFeedback } from "@/lib/billing/billingFeedback";
+import { SUBJECT_TINT } from "@/lib/curriculum/subjectTheme";
+import { SectionHeading } from "@/components/Shared";
 
 interface EnrolledSubjectsCardProps {
   /** subscriptions.student_id whose plan these subjects sit on. */
   studentId: string;
-  /** The plan's current tier, e.g. "monthly_2" — sets the price ladder. */
-  currentTier: string;
   /** What the plan covers today, with the board each is sat with. */
   enrolments: { subject: string; board: string }[];
-  /** Exam level, so the price shown is off the right ladder. */
+  /** Exam level, so only boards that teach the subject at it are offered. */
   level?: string | null;
-  /** Whether the viewer may shrink the plan (payer or linked parent). */
-  canManage: boolean;
   /**
    * Whether the viewer may move a subject onto a different exam board.
    *
-   * Separate from `canManage` because it is a different authority entirely: the
-   * board is an academic fact about the student, costs nothing to change, and
-   * RLS lets only the student write their own enrolment rows — so a student on a
-   * parent-paid plan has this while lacking every billing control, and a linked
-   * parent has every billing control while lacking this.
+   * A different authority from the billing controls: the board is an academic
+   * fact about the student, costs nothing to change, and RLS lets only the
+   * student write their own enrolment rows — so a student on a parent-paid plan
+   * has this while lacking every billing control, and a linked parent has every
+   * billing control while lacking this.
    */
   canChangeBoard?: boolean;
-  /** Whose plan it is ("Alex"), for the parent view. Omit for own plan. */
-  ownerLabel?: string;
   /**
-   * DOM id the cancel dialog's "drop a subject instead" scrolls to. Defaults to
-   * "subjects"; the parent tab renders one card per child, so it passes a
-   * per-child id to keep them unique.
+   * DOM id for this block. Defaults to "subjects"; the parent tab renders one
+   * per child, so it passes a per-child id to keep them unique.
    */
   anchorId?: string;
+  /** More tiles at the end of the grid — the subjects that can be added. */
+  extraTiles?: React.ReactNode;
 }
 
 const subjectLabel = (value: string) =>
@@ -56,71 +48,25 @@ const subjectLabel = (value: string) =>
 const boardLabel = (value: string) => BOARDS.find((b) => b.value === value)?.label ?? value;
 
 /**
- * What the plan actually covers, and the only place a single subject can be
- * dropped without ending the whole plan.
+ * What the plan covers: one tile per subject, with its exam board, then the
+ * subjects that can be added (AddSubjectTiles) in the same grid.
  *
- * This is the missing half of AddSubjectCard: the page could grow a plan but
- * never shrink one, so "I want to stop Chemistry" had no answer short of
- * cancelling everything. Removal is gated by RemoveSubjectDialog and refused
- * outright on the last subject — a plan covering nothing is a cancellation, and
- * that has its own flow.
- *
- * Read-only (no Remove buttons) for a student on a plan someone else pays for;
- * they still see exactly what they're enrolled in and who to ask.
+ * Deliberately no Remove here — this block sells, it doesn't shrink. Dropping
+ * one subject lives with pause and cancel in PlanLifecycleActions, at the very
+ * bottom of the page.
  */
 export function EnrolledSubjectsCard({
   studentId,
-  currentTier,
   enrolments,
   level,
-  canManage,
   canChangeBoard = false,
-  ownerLabel,
   anchorId = "subjects",
+  extraTiles,
 }: EnrolledSubjectsCardProps) {
-  const { data: packages = [] } = usePackages(level);
-  const remove = useRemoveSubjects();
   const switchBoard = useUpdateEnrolmentBoard();
   const { coverage } = useCurriculumCoverage();
-  const [removing, setRemoving] = useState<string | null>(null);
   /** The pending board switch, held until the dialog confirms it. */
   const [switching, setSwitching] = useState<{ subject: string; board: BoardV } | null>(null);
-
-  const cadence = planCadence(currentTier);
-  const isLast = enrolments.length <= 1;
-  const whose = ownerLabel ? `${ownerLabel}'s` : "your";
-
-  // What the plan costs once this subject comes off — the ladder one step down.
-  const nextPkg =
-    cadence && !isLast
-      ? packages.find((p) => p.tier === tierFor(cadence, enrolments.length - 1))
-      : undefined;
-  const unit = CADENCES.find((c) => c.key === cadence)?.unit;
-
-  const confirmRemove = (category: string, comment: string) => {
-    if (!removing) return;
-    remove.mutate(
-      { studentId, subjects: [removing] },
-      {
-        onSuccess: (res) => {
-          // Only once the removal has worked: a refused one must not leave an
-          // entry in the tutor's plan history.
-          void recordBillingFeedback({
-            studentId,
-            action: "remove_subject",
-            category,
-            comment,
-          });
-          const label = subjectLabel(removing);
-          setRemoving(null);
-          toast.success(`${label} removed. Your next bill drops to the smaller plan.`, {
-            description: `Still covered: ${res.remaining.map(subjectLabel).join(", ")}.`,
-          });
-        },
-        onError: (err) => toast.error(err.message),
-      },
-    );
-  };
 
   /** Boards that actually teach this subject at the student's level. */
   const boardsFor = (subject: string): BoardV[] =>
@@ -144,139 +90,84 @@ export function EnrolledSubjectsCard({
   };
 
   return (
-    <div id={anchorId} className="rounded-2xl premium-card p-4 sm:p-6 scroll-mt-24">
-      <div className="flex items-center gap-2 mb-1">
-        <div className="w-8 h-8 rounded-lg bg-primary/15 flex items-center justify-center">
-          <BookOpen className="w-4 h-4 text-primary" />
-        </div>
-        <h3 className="font-display text-lg font-bold">Subjects on this plan</h3>
-      </div>
-      <p className="text-sm text-muted-foreground">
-        {canManage
-          ? "Everything the plan pays for. Remove one and the bill drops to the smaller plan from your next bill."
-          : `Everything ${whose} plan pays for.`}
-        {canChangeBoard &&
-          " Each subject's exam board is yours to set, and costs nothing to change."}
-      </p>
+    <section id={anchorId} className="scroll-mt-24">
+      <SectionHeading title="Your subjects" />
 
-      <div className="mt-4 space-y-2">
-        {enrolments.length === 0 && (
-          <p className="text-muted-foreground text-sm">
-            No subjects on this plan yet — add one to get started.
-          </p>
-        )}
+      {/* One square tile per subject, then one per subject that can be added
+          (from AddSubjectTiles), so the plan's coverage and its growth read as
+          one grid. */}
+      <div className="mt-3 grid grid-cols-1 gap-3 min-[440px]:grid-cols-2 sm:grid-cols-3">
         {enrolments.map((e) => {
           const options = boardsFor(e.subject);
           const busy = switchBoard.isPending && switching?.subject === e.subject;
           return (
-            <div key={e.subject} className="rounded-xl border border-border p-3.5">
-              {/* Wraps rather than squeezes: on a narrow screen the Remove
-                  button drops to its own line instead of crushing the subject
-                  name, which is the one thing on the row that must stay legible.
-                  No "included in your plan" caption either — the card title
-                  already says these are the plan's subjects. */}
-              <div className="flex items-center justify-between gap-3 flex-wrap">
-                <div className="font-semibold text-sm">{subjectLabel(e.subject)}</div>
-                {canManage && !isLast && (
-                  <button
-                    onClick={() => setRemoving(e.subject)}
-                    disabled={remove.isPending}
-                    className="inline-flex items-center gap-1.5 h-11 sm:pointer-fine:h-9 px-3 rounded-lg border border-rose-200 text-rose-600 text-sm font-semibold hover:bg-rose-50 disabled:opacity-50 shrink-0"
-                  >
-                    {remove.isPending && removing === e.subject ? (
-                      <Loader2 className="w-4 h-4 animate-spin" />
-                    ) : (
-                      <MinusCircle className="w-4 h-4" />
-                    )}
-                    Remove
-                  </button>
-                )}
-              </div>
-
-              {/* The board, as a control rather than a caption. Presented per
-                  subject because that is how it is stored — a student may sit
-                  Biology with AQA and Physics with OCR — and priced nowhere,
-                  which the label says outright so nobody fears a switch costs. */}
-              <div className="mt-3 flex flex-wrap items-center gap-x-3 gap-y-1.5">
-                <span className="text-[10px] font-bold uppercase tracking-wider text-muted-foreground">
-                  Exam board
+            <div
+              key={e.subject}
+              className={`pop-card pop-card-banded relative flex flex-col gap-3 p-4 sm:aspect-square sm:p-5 ${
+                SUBJECT_TINT[e.subject] ?? "tint-primary"
+              }`}
+            >
+              <div className="flex flex-wrap items-center justify-between gap-2">
+                <h3 className="text-xl font-bold text-[color:var(--tint)]">
+                  {subjectLabel(e.subject)}
+                </h3>
+                <span className="chip">
+                  <Check className="size-3.5" aria-hidden /> Included
                 </span>
-                {canChangeBoard ? (
-                  <>
-                    <div
-                      role="group"
-                      aria-label={`Exam board for ${subjectLabel(e.subject)}`}
-                      className="inline-flex rounded-lg border border-border bg-muted/40 p-0.5"
-                    >
-                      {/* The current board, plus only those that teach this
-                          subject at the student's level. Until coverage is
-                          known that is just the current one: a switch to a
-                          board with no spec would leave the subject empty. */}
-                      {BOARDS.filter((b) => b.value === e.board || options.includes(b.value)).map(
-                        (b) => {
-                          const on = b.value === e.board;
-                          return (
-                            <button
-                              key={b.value}
-                              onClick={() => setSwitching({ subject: e.subject, board: b.value })}
-                              disabled={on || switchBoard.isPending}
-                              aria-pressed={on}
-                              className={`tap-target h-7 px-2.5 rounded-md text-xs font-semibold transition disabled:cursor-default ${
-                                on
-                                  ? "btn-solid shadow-sm"
-                                  : "text-muted-foreground hover:text-foreground hover:bg-card"
-                              }`}
-                            >
-                              {b.label}
-                            </button>
-                          );
-                        },
-                      )}
-                    </div>
-                    {busy ? (
-                      <span className="inline-flex items-center gap-1.5 text-[11px] text-muted-foreground">
-                        <Loader2 className="w-3 h-3 animate-spin" /> Switching…
-                      </span>
-                    ) : (
-                      <span className="text-[11px] text-muted-foreground">
-                        Switching board never changes your price
-                      </span>
-                    )}
-                  </>
-                ) : (
-                  <span className="inline-flex items-center rounded-full border border-border bg-card px-2.5 py-1 text-xs font-semibold">
-                    {boardLabel(e.board)}
-                  </span>
-                )}
               </div>
+              {/* What the subject buys — every subject on a plan is one live
+                  lesson a week, whatever the cadence. */}
+              <p className="font-display text-lg font-bold">1 live lesson a week</p>
+
+              {/* The board, as a control rather than a caption. Per subject
+                  because that is how it is stored — a student may sit Biology
+                  with AQA and Physics with OCR. */}
+              <p className="eyebrow eyebrow-bare mt-auto">Exam board</p>
+              {canChangeBoard ? (
+                <div className="-mt-1 flex flex-wrap items-center gap-2">
+                  <div
+                    role="group"
+                    aria-label={`Exam board for ${subjectLabel(e.subject)}`}
+                    className="inline-flex flex-wrap rounded-lg border border-border bg-muted/40 p-0.5"
+                  >
+                    {/* The current board, plus only those that teach this
+                        subject at the student's level. Until coverage is known
+                        that is just the current one: a switch to a board with
+                        no spec would leave the subject empty. */}
+                    {BOARDS.filter((b) => b.value === e.board || options.includes(b.value)).map(
+                      (b) => {
+                        const on = b.value === e.board;
+                        return (
+                          <button
+                            key={b.value}
+                            // The current board is pressed, not disabled: the
+                            // kit greys out a disabled button, which made the
+                            // one board that's in use look switched off.
+                            onClick={() =>
+                              !on && setSwitching({ subject: e.subject, board: b.value })
+                            }
+                            disabled={!on && switchBoard.isPending}
+                            aria-pressed={on}
+                            className={`tap-target h-8 rounded-md px-2.5 text-xs font-semibold transition disabled:cursor-default ${
+                              on ? "btn-solid cursor-default shadow-sm" : "hover:bg-card"
+                            }`}
+                          >
+                            {b.label}
+                          </button>
+                        );
+                      },
+                    )}
+                  </div>
+                  {busy && <Loader2 className="size-4 animate-spin" aria-label="Switching" />}
+                </div>
+              ) : (
+                <span className="chip -mt-1 self-start">{boardLabel(e.board)}</span>
+              )}
             </div>
           );
         })}
+        {extraTiles}
       </div>
-
-      {canManage && isLast && enrolments.length > 0 && (
-        <p className="mt-3 text-xs text-muted-foreground rounded-xl border border-border bg-muted/40 p-3">
-          This is the last subject on the plan, so it can't be removed on its own — a plan covering
-          nothing is a cancelled plan. Use <strong>Cancel plan</strong> below to stop billing
-          entirely, or <strong>Pause</strong> if you're coming back.
-        </p>
-      )}
-
-      {removing && (
-        <RemoveSubjectDialog
-          subjectLabel={subjectLabel(removing)}
-          remainingLabels={enrolments
-            .filter((e) => e.subject !== removing)
-            .map((e) => subjectLabel(e.subject))}
-          newPlanName={nextPkg?.name}
-          newPriceLabel={nextPkg ? formatPence(nextPkg.price_pence) : undefined}
-          unitLabel={unit}
-          ownerLabel={ownerLabel}
-          pending={remove.isPending}
-          onConfirm={confirmRemove}
-          onClose={() => setRemoving(null)}
-        />
-      )}
 
       {switching && (
         <SwitchBoardDialog
@@ -291,6 +182,6 @@ export function EnrolledSubjectsCard({
           onClose={() => setSwitching(null)}
         />
       )}
-    </div>
+    </section>
   );
 }

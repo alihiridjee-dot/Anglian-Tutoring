@@ -17,6 +17,8 @@ import { ensureMcqForPoints } from "@/lib/mcq/mcq.functions";
 import { courseKey, invalidatePlanner, roadmapQuery } from "@/lib/planner/queries";
 import { weekIsForAnotherCourse } from "@/lib/planner/weekCut";
 import { subjectPauseQuery, type SubjectPause } from "@/lib/planner/subjectPauses";
+import { breakCovering, type StudentBreak } from "@/lib/planner/breaks";
+import { studentBreaksQuery } from "@/lib/planner/breakQueries";
 
 export type Activity = Map<string, PointActivity & PointWork>;
 
@@ -36,6 +38,8 @@ export interface WeekPlanState {
   roadmap: RoadmapResult | null;
   /** The subject is stopped (plan paused, lapsed, ended or removed): nothing is planned. */
   pause: SubjectPause | null;
+  /** The week falls in a break the student is taking: nothing is planned for it. */
+  onBreak: StudentBreak | null;
   loading: boolean;
   error: Error | null;
   reload: () => Promise<void>;
@@ -67,6 +71,9 @@ export function useWeekPlan(params: {
       // is added to one until the student can use it again. The database
       // refuses those writes too; this is so the planner doesn't try.
       if (await client.fetchQuery(subjectPauseQuery(studentId, subject))) return saved;
+      // A break week is read, never planned, in the same way (student_breaks).
+      if (breakCovering(await client.fetchQuery(studentBreaksQuery(studentId)), weekStart))
+        return saved;
       /**
        * A saved review with nothing behind it is repaired before the week is
        * read, not left sitting there.
@@ -182,6 +189,12 @@ export function useWeekPlan(params: {
     enabled: !!studentId && params.enabled !== false,
   });
   const paused = !!pause.data;
+  const breaks = useQuery({
+    ...studentBreaksQuery(studentId),
+    enabled: !!studentId && params.enabled !== false,
+  });
+  const onBreak = breakCovering(breaks.data ?? [], weekStart);
+  const breakWeek = !!onBreak;
   const road = useQuery({
     ...roadmapQuery(client, params),
     // `enabled` binds the roadmap too: without it, a panel with no course to
@@ -224,8 +237,9 @@ export function useWeekPlan(params: {
       .join(",");
   }, [activity.data, points]);
   useEffect(() => {
-    // Nothing is written for a paused subject, and that includes its work.
-    if (!missingHomework || !isCurrent || paused) return;
+    // Nothing is written for a paused subject or a break week, and that
+    // includes its work.
+    if (!missingHomework || !isCurrent || paused || breakWeek) return;
     const key = `${studentId}|homework:${missingHomework}`;
     if (generationAsked.has(key)) return;
     generationAsked.add(key);
@@ -244,9 +258,20 @@ export function useWeekPlan(params: {
         // Soft by design — see above.
       }
     })();
-  }, [missingHomework, isCurrent, paused, studentId, subject, board, level, client, params]);
+  }, [
+    missingHomework,
+    isCurrent,
+    paused,
+    breakWeek,
+    studentId,
+    subject,
+    board,
+    level,
+    client,
+    params,
+  ]);
   useEffect(() => {
-    if (!missingQuiz || !isCurrent || paused) return;
+    if (!missingQuiz || !isCurrent || paused || breakWeek) return;
     const key = `${studentId}|quiz:${missingQuiz}`;
     if (generationAsked.has(key)) return;
     generationAsked.add(key);
@@ -263,7 +288,7 @@ export function useWeekPlan(params: {
         // Soft by design — see above.
       }
     })();
-  }, [missingQuiz, isCurrent, paused, studentId, client, params]);
+  }, [missingQuiz, isCurrent, paused, breakWeek, studentId, client, params]);
 
   const reload = useCallback(async () => {
     await invalidatePlanner(client, studentId);
@@ -289,12 +314,14 @@ export function useWeekPlan(params: {
     coverage: withCoverage ? (coverage.data ?? new Map()) : new Map(),
     roadmap: params.roadmap !== undefined ? params.roadmap : (road.data ?? null),
     pause: pause.data ?? null,
+    onBreak,
     loading:
       week.isLoading ||
       activity.isLoading ||
       coverage.isLoading ||
       road.isLoading ||
-      pause.isLoading,
+      pause.isLoading ||
+      breaks.isLoading,
     error: week.error ?? activity.error ?? coverage.error ?? road.error,
     reload,
     setPointDone: async (id, value) => {

@@ -26,10 +26,11 @@ before writing a border, a shadow or an uppercase label by hand:
 | `.page-aurora`                | The page-level wash                                              |
 
 `src/components/Shared.tsx` holds the composed pieces — `PageHeader`,
-`SectionHeading`, `EmptyState`, `Spinner`, `Meter`, `Ring`, `StatTile`,
-`Milestone`. Use them rather than rolling a heading, a progress bar or a
-loading state per screen; every one of those had drifted apart before they
-existed. `src/components/Doodles.tsx` holds the mascot cast, and it belongs in
+`SectionHeading`, `Chip`, `EmptyState`, `Spinner`, `Meter`, `Ring`, `StatTile`,
+`Milestone`. Use them rather than rolling a heading, a pill, a progress bar or
+a loading state per screen; every one of those had drifted apart before they
+existed. A pill with an icon is `<Chip icon={…} tint="tint-…">`, which keeps
+the icon one size everywhere. `src/components/Doodles.tsx` holds the mascot cast, and it belongs in
 empty states, milestones and the 404 — not inside a working tool.
 
 ### Everything colours itself from `--tint`

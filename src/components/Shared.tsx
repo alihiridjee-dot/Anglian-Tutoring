@@ -84,6 +84,34 @@ export function SectionHeading({
 }
 
 /**
+ * A pill: status, a date, a count — anything small that labels the thing
+ * beside it.
+ *
+ * The `.chip` class already sets the shape and the colour; this decides what
+ * goes inside, so an icon is the same size and sits the same distance from its
+ * text on every screen. Pills drawn by hand had drifted to four icon sizes.
+ * `tint` takes a `tint-*` class; without one the pill follows its parent's.
+ */
+export function Chip({
+  icon: Icon,
+  tint,
+  className,
+  children,
+}: {
+  icon?: LucideIcon;
+  tint?: string;
+  className?: string;
+  children: ReactNode;
+}) {
+  return (
+    <span className={cn("chip", tint, className)}>
+      {Icon ? <Icon className="size-3.5 shrink-0" aria-hidden /> : null}
+      {children}
+    </span>
+  );
+}
+
+/**
  * The empty state — and the main home of the doodle cast.
  *
  * Used heavily: a student with nothing set, a tutor with an unseeded spec, a

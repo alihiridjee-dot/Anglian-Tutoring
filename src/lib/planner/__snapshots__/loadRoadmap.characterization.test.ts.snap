@@ -917,6 +917,12 @@ exports[`acknowledged baseline, nothing saved this week 1`] = `
       ],
     ],
     [
+      "breaks",
+      [
+        "student",
+      ],
+    ],
+    [
       "getPlan",
       [
         "student",
@@ -1312,6 +1318,29 @@ exports[`acknowledged baseline, nothing saved this week 1`] = `
     ],
     "reviewBacklog": [],
     "reviewsWaiting": [],
+    "storedBands": [
+      {
+        "endWeek": "2026-12-21",
+        "startWeek": "2026-09-07",
+        "title": "Topic t1",
+        "topicId": "t1",
+        "weeks": 16,
+      },
+      {
+        "endWeek": "2027-02-15",
+        "startWeek": "2026-12-28",
+        "title": "Topic t2",
+        "topicId": "t2",
+        "weeks": 8,
+      },
+      {
+        "endWeek": "2027-05-31",
+        "startWeek": "2027-02-22",
+        "title": "Topic t3",
+        "topicId": "t3",
+        "weeks": 15,
+      },
+    ],
     "unscheduledTopicTitles": [],
   },
 }
@@ -1340,6 +1369,12 @@ exports[`saved week: owns its reviews, reports withheld points, narrows the back
       [
         "student",
         "biology",
+      ],
+    ],
+    [
+      "breaks",
+      [
+        "student",
       ],
     ],
     [
@@ -1751,6 +1786,29 @@ exports[`saved week: owns its reviews, reports withheld points, narrows the back
     ],
     "reviewBacklog": [],
     "reviewsWaiting": [],
+    "storedBands": [
+      {
+        "endWeek": "2026-10-19",
+        "startWeek": "2026-06-01",
+        "title": "Topic t1",
+        "topicId": "t1",
+        "weeks": 21,
+      },
+      {
+        "endWeek": "2027-01-04",
+        "startWeek": "2026-10-26",
+        "title": "Topic t2",
+        "topicId": "t2",
+        "weeks": 11,
+      },
+      {
+        "endWeek": "2027-05-31",
+        "startWeek": "2027-01-11",
+        "title": "Topic t3",
+        "topicId": "t3",
+        "weeks": 21,
+      },
+    ],
     "unscheduledTopicTitles": [],
   },
 }
@@ -1779,6 +1837,12 @@ exports[`projectOnly: skips the saved-week read but still reserves its catch-up 
       [
         "student",
         "biology",
+      ],
+    ],
+    [
+      "breaks",
+      [
+        "student",
       ],
     ],
     [
@@ -2215,6 +2279,29 @@ exports[`projectOnly: skips the saved-week read but still reserves its catch-up 
     ],
     "reviewBacklog": [],
     "reviewsWaiting": [],
+    "storedBands": [
+      {
+        "endWeek": "2026-10-19",
+        "startWeek": "2026-06-01",
+        "title": "Topic t1",
+        "topicId": "t1",
+        "weeks": 21,
+      },
+      {
+        "endWeek": "2027-01-04",
+        "startWeek": "2026-10-26",
+        "title": "Topic t2",
+        "topicId": "t2",
+        "weeks": 11,
+      },
+      {
+        "endWeek": "2027-05-31",
+        "startWeek": "2027-01-11",
+        "title": "Topic t3",
+        "topicId": "t3",
+        "weeks": 21,
+      },
+    ],
     "unscheduledTopicTitles": [],
   },
 }
@@ -2243,6 +2330,12 @@ exports[`exam date moved: proposes changes and asks for acknowledgement 1`] = `
       [
         "student",
         "biology",
+      ],
+    ],
+    [
+      "breaks",
+      [
+        "student",
       ],
     ],
     [
@@ -2667,6 +2760,29 @@ exports[`exam date moved: proposes changes and asks for acknowledgement 1`] = `
     ],
     "reviewBacklog": [],
     "reviewsWaiting": [],
+    "storedBands": [
+      {
+        "endWeek": "2026-12-21",
+        "startWeek": "2026-09-07",
+        "title": "Topic t1",
+        "topicId": "t1",
+        "weeks": 16,
+      },
+      {
+        "endWeek": "2027-02-15",
+        "startWeek": "2026-12-28",
+        "title": "Topic t2",
+        "topicId": "t2",
+        "weeks": 8,
+      },
+      {
+        "endWeek": "2027-05-31",
+        "startWeek": "2027-02-22",
+        "title": "Topic t3",
+        "topicId": "t3",
+        "weeks": 15,
+      },
+    ],
     "unscheduledTopicTitles": [],
   },
 }
@@ -2695,6 +2811,12 @@ exports[`custom topic order is kept as stored 1`] = `
       [
         "student",
         "biology",
+      ],
+    ],
+    [
+      "breaks",
+      [
+        "student",
       ],
     ],
     [
@@ -3193,6 +3315,111 @@ exports[`custom topic order is kept as stored 1`] = `
     ],
     "reviewBacklog": [],
     "reviewsWaiting": [],
+    "storedBands": [
+      {
+        "endWeek": "2026-09-28",
+        "fixedPoints": true,
+        "pointsByWeek": {
+          "2026-09-07": [
+            {
+              "code": "A1",
+              "specPointId": "a1",
+              "title": "Point a1",
+              "weight": 1,
+            },
+          ],
+          "2026-09-14": [
+            {
+              "code": "A2",
+              "specPointId": "a2",
+              "title": "Point a2",
+              "weight": 2,
+            },
+          ],
+          "2026-09-21": [
+            {
+              "code": "A3",
+              "specPointId": "a3",
+              "title": "Point a3",
+              "weight": 1,
+            },
+          ],
+        },
+        "schedule": {
+          "examDate": "2027-06-07",
+          "from": "2026-10-05",
+          "version": 1,
+        },
+        "startWeek": "2026-09-07",
+        "title": "Topic t1",
+        "topicId": "t1",
+        "weeks": 4,
+      },
+      {
+        "endWeek": "2027-03-08",
+        "fixedPoints": true,
+        "pointsByWeek": {
+          "2026-10-05": [
+            {
+              "code": "C1",
+              "specPointId": "c1",
+              "title": "Point c1",
+              "weight": 3,
+            },
+          ],
+          "2026-10-12": [
+            {
+              "code": "C2",
+              "specPointId": "c2",
+              "title": "Point c2",
+              "weight": 1,
+            },
+          ],
+        },
+        "reviewStartWeek": "2026-10-05",
+        "schedule": {
+          "examDate": "2027-06-07",
+          "from": "2026-10-05",
+          "version": 1,
+        },
+        "startWeek": "2026-10-05",
+        "title": "Topic t3",
+        "topicId": "t3",
+        "weeks": 23,
+      },
+      {
+        "endWeek": "2027-05-31",
+        "fixedPoints": true,
+        "pointsByWeek": {
+          "2027-03-15": [
+            {
+              "code": "B1",
+              "specPointId": "b1",
+              "title": "Point b1",
+              "weight": 1,
+            },
+          ],
+          "2027-03-22": [
+            {
+              "code": "B2",
+              "specPointId": "b2",
+              "title": "Point b2",
+              "weight": 1,
+            },
+          ],
+        },
+        "reviewStartWeek": "2026-12-28",
+        "schedule": {
+          "examDate": "2027-06-07",
+          "from": "2026-10-05",
+          "version": 1,
+        },
+        "startWeek": "2027-03-15",
+        "title": "Topic t2",
+        "topicId": "t2",
+        "weeks": 12,
+      },
+    ],
     "unscheduledTopicTitles": [],
   },
 }
@@ -3221,6 +3448,12 @@ exports[`custom topic order is re-spread when the exam date has moved 1`] = `
       [
         "student",
         "biology",
+      ],
+    ],
+    [
+      "breaks",
+      [
+        "student",
       ],
     ],
     [
@@ -3740,6 +3973,111 @@ exports[`custom topic order is re-spread when the exam date has moved 1`] = `
     ],
     "reviewBacklog": [],
     "reviewsWaiting": [],
+    "storedBands": [
+      {
+        "endWeek": "2026-09-28",
+        "fixedPoints": true,
+        "pointsByWeek": {
+          "2026-09-07": [
+            {
+              "code": "A1",
+              "specPointId": "a1",
+              "title": "Point a1",
+              "weight": 1,
+            },
+          ],
+          "2026-09-14": [
+            {
+              "code": "A2",
+              "specPointId": "a2",
+              "title": "Point a2",
+              "weight": 2,
+            },
+          ],
+          "2026-09-21": [
+            {
+              "code": "A3",
+              "specPointId": "a3",
+              "title": "Point a3",
+              "weight": 1,
+            },
+          ],
+        },
+        "schedule": {
+          "examDate": "2027-06-07",
+          "from": "2026-10-05",
+          "version": 1,
+        },
+        "startWeek": "2026-09-07",
+        "title": "Topic t1",
+        "topicId": "t1",
+        "weeks": 4,
+      },
+      {
+        "endWeek": "2027-03-08",
+        "fixedPoints": true,
+        "pointsByWeek": {
+          "2026-10-05": [
+            {
+              "code": "C1",
+              "specPointId": "c1",
+              "title": "Point c1",
+              "weight": 3,
+            },
+          ],
+          "2026-10-12": [
+            {
+              "code": "C2",
+              "specPointId": "c2",
+              "title": "Point c2",
+              "weight": 1,
+            },
+          ],
+        },
+        "reviewStartWeek": "2026-10-05",
+        "schedule": {
+          "examDate": "2027-06-07",
+          "from": "2026-10-05",
+          "version": 1,
+        },
+        "startWeek": "2026-10-05",
+        "title": "Topic t3",
+        "topicId": "t3",
+        "weeks": 23,
+      },
+      {
+        "endWeek": "2027-05-31",
+        "fixedPoints": true,
+        "pointsByWeek": {
+          "2027-03-15": [
+            {
+              "code": "B1",
+              "specPointId": "b1",
+              "title": "Point b1",
+              "weight": 1,
+            },
+          ],
+          "2027-03-22": [
+            {
+              "code": "B2",
+              "specPointId": "b2",
+              "title": "Point b2",
+              "weight": 1,
+            },
+          ],
+        },
+        "reviewStartWeek": "2026-12-28",
+        "schedule": {
+          "examDate": "2027-06-07",
+          "from": "2026-10-05",
+          "version": 1,
+        },
+        "startWeek": "2027-03-15",
+        "title": "Topic t2",
+        "topicId": "t2",
+        "weeks": 12,
+      },
+    ],
     "unscheduledTopicTitles": [],
   },
 }
@@ -3759,6 +4097,12 @@ exports[`caller-supplied progress is used instead of reading it 1`] = `
       [
         "student",
         "biology",
+      ],
+    ],
+    [
+      "breaks",
+      [
+        "student",
       ],
     ],
     [
@@ -4096,6 +4440,29 @@ exports[`caller-supplied progress is used instead of reading it 1`] = `
     ],
     "reviewBacklog": [],
     "reviewsWaiting": [],
+    "storedBands": [
+      {
+        "endWeek": "2026-12-21",
+        "startWeek": "2026-09-07",
+        "title": "Topic t1",
+        "topicId": "t1",
+        "weeks": 16,
+      },
+      {
+        "endWeek": "2027-02-15",
+        "startWeek": "2026-12-28",
+        "title": "Topic t2",
+        "topicId": "t2",
+        "weeks": 8,
+      },
+      {
+        "endWeek": "2027-05-31",
+        "startWeek": "2027-02-22",
+        "title": "Topic t3",
+        "topicId": "t3",
+        "weeks": 15,
+      },
+    ],
     "unscheduledTopicTitles": [],
   },
 }
@@ -4173,6 +4540,12 @@ exports[`an ended stop is picked up before anything is cut from the programme 1`
         ],
         "pauseId": "p1",
       },
+    ],
+    [
+      "breaks",
+      [
+        "student",
+      ],
     ],
     [
       "getPlan",
@@ -4708,6 +5081,130 @@ exports[`an ended stop is picked up before anything is cut from the programme 1`
     ],
     "reviewBacklog": [],
     "reviewsWaiting": [],
+    "storedBands": [
+      {
+        "endWeek": "2026-08-24",
+        "fixedPoints": true,
+        "pointsByWeek": {
+          "2026-08-24": [
+            {
+              "code": "A1",
+              "specPointId": "a1",
+              "title": "Point a1",
+              "weight": 1,
+            },
+          ],
+        },
+        "schedule": {
+          "examDate": "2027-06-07",
+          "from": "2026-09-14",
+          "version": 1,
+        },
+        "startWeek": "2026-08-24",
+        "title": "Topic t1",
+        "topicId": "t1",
+        "weeks": 1,
+      },
+      {
+        "endWeek": "2026-12-07",
+        "fixedPoints": true,
+        "openedWeek": "2026-08-24",
+        "pointsByWeek": {
+          "2026-09-14": [
+            {
+              "code": "A2",
+              "specPointId": "a2",
+              "title": "Point a2",
+              "weight": 2,
+            },
+          ],
+          "2026-09-21": [
+            {
+              "code": "A3",
+              "specPointId": "a3",
+              "title": "Point a3",
+              "weight": 1,
+            },
+          ],
+        },
+        "reviewStartWeek": "2026-08-24",
+        "schedule": {
+          "examDate": "2027-06-07",
+          "from": "2026-09-14",
+          "version": 1,
+        },
+        "startWeek": "2026-09-14",
+        "title": "Topic t1",
+        "topicId": "t1",
+        "weeks": 13,
+      },
+      {
+        "endWeek": "2027-02-01",
+        "fixedPoints": true,
+        "openedWeek": undefined,
+        "pointsByWeek": {
+          "2026-12-14": [
+            {
+              "code": "B1",
+              "specPointId": "b1",
+              "title": "Point b1",
+              "weight": 1,
+            },
+          ],
+          "2026-12-21": [
+            {
+              "code": "B2",
+              "specPointId": "b2",
+              "title": "Point b2",
+              "weight": 1,
+            },
+          ],
+        },
+        "reviewStartWeek": "2026-12-14",
+        "schedule": {
+          "examDate": "2027-06-07",
+          "from": "2026-09-14",
+          "version": 1,
+        },
+        "startWeek": "2026-12-14",
+        "title": "Topic t2",
+        "topicId": "t2",
+        "weeks": 8,
+      },
+      {
+        "endWeek": "2027-05-31",
+        "fixedPoints": true,
+        "openedWeek": undefined,
+        "pointsByWeek": {
+          "2027-02-08": [
+            {
+              "code": "C1",
+              "specPointId": "c1",
+              "title": "Point c1",
+              "weight": 3,
+            },
+          ],
+          "2027-02-15": [
+            {
+              "code": "C2",
+              "specPointId": "c2",
+              "title": "Point c2",
+              "weight": 1,
+            },
+          ],
+        },
+        "reviewStartWeek": "2027-02-08",
+        "schedule": {
+          "examDate": "2027-06-07",
+          "from": "2026-09-14",
+          "version": 1,
+        },
+        "startWeek": "2027-02-08",
+        "title": "Topic t3",
+        "topicId": "t3",
+        "weeks": 17,
+      },
+    ],
     "unscheduledTopicTitles": [],
   },
 }
