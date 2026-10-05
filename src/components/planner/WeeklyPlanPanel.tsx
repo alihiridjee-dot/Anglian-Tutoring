@@ -195,7 +195,9 @@ export function WeeklyPlanPanel({
         )}
       </div>
 
-      {!frozen && !resting && <WithheldPlanPoints points={week.withheld} coverage={week.coverage} />}
+      {!frozen && !resting && (
+        <WithheldPlanPoints points={week.withheld} coverage={week.coverage} />
+      )}
 
       {/* The week as a checklist, between the plan and the review: the panel above
           says what this week is and why, this one says what to press. */}
