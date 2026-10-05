@@ -1,5 +1,11 @@
 import { describe, expect, test } from "bun:test";
-import { sciRuns, toSciNotation, toSciNotationTogether, toggleScript } from "./sciNotation";
+import {
+  sciRuns,
+  scriptTyped,
+  toSciNotation,
+  toSciNotationTogether,
+  toggleScript,
+} from "./sciNotation";
 
 const cases = (pairs: [string, string][]) => {
   for (const [input, want] of pairs) expect(toSciNotation(input)).toBe(want);
@@ -126,22 +132,49 @@ describe("sciRuns", () => {
 });
 
 describe("toggleScript", () => {
-  test("makes the figures before the cursor small", () => {
-    expect(toggleScript("H2", 2, 2, "sub")).toEqual({ value: "H₂", start: 1, end: 2 });
-    expect(toggleScript("Mg2+", 4, 4, "sup")).toEqual({ value: "Mg²⁺", start: 2, end: 4 });
-  });
-
   test("makes a selection small, and a second press undoes it", () => {
     const once = toggleScript("x 10-3", 4, 6, "sup");
     expect(once.value).toBe("x 10⁻³");
     expect(toggleScript(once.value, once.start, once.end, "sup").value).toBe("x 10-3");
+    expect(toggleScript("C6H12O6", 0, 7, "sub").value).toBe("C₆H₁₂O₆");
   });
 
-  test("switches between subscript and superscript", () => {
-    expect(toggleScript("Mg₂", 3, 3, "sup").value).toBe("Mg²");
+  test("switches a selection between subscript and superscript", () => {
+    expect(toggleScript("Mg₂", 2, 3, "sup").value).toBe("Mg²");
   });
 
-  test("does nothing with no figures before the cursor", () => {
-    expect(toggleScript("Na", 2, 2, "sub")).toEqual({ value: "Na", start: 2, end: 2 });
+  test("with nothing selected it changes nothing: the button holds on instead", () => {
+    expect(toggleScript("H2", 2, 2, "sub")).toEqual({ value: "H2", start: 2, end: 2 });
+  });
+});
+
+describe("scriptTyped", () => {
+  test("what is typed while the button is on comes out small", () => {
+    expect(scriptTyped("Mg", "Mg2", 3, "sup")).toEqual({ value: "Mg²", done: false });
+    expect(scriptTyped("Mg²", "Mg²+", 4, "sup")).toEqual({ value: "Mg²⁺", done: false });
+    expect(scriptTyped("H₂", "H₂2", 3, "sub")).toEqual({ value: "H₂₂", done: false });
+  });
+
+  test("letters with no small form stay ordinary, so a whole formula can be typed", () => {
+    expect(scriptTyped("", "C6H12O6", 7, "sub").value).toBe("C₆H₁₂O₆");
+  });
+
+  test("a space lets go, and stays ordinary itself", () => {
+    expect(scriptTyped("10⁻³", "10⁻³ m", 6, "sup")).toEqual({ value: "10⁻³ m", done: true });
+    expect(scriptTyped("x 10", "x 10-3 m", 8, "sup")).toEqual({ value: "x 10⁻³ m", done: true });
+  });
+
+  test("typing in the middle leaves the rest of the answer alone", () => {
+    expect(scriptTyped("H O is water", "H2O is water", 2, "sub")).toEqual({
+      value: "H₂O is water",
+      done: false,
+    });
+    expect(scriptTyped("CO and 2 moles", "CO2 and 2 moles", 3, "sub").value).toBe(
+      "CO₂ and 2 moles",
+    );
+  });
+
+  test("deleting changes nothing", () => {
+    expect(scriptTyped("H₂O", "H₂", 2, "sub")).toEqual({ value: "H₂", done: false });
   });
 });

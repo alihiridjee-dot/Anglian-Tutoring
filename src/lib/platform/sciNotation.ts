@@ -46,6 +46,9 @@ PLAIN["₋"] = "−";
 const SUB_CHARS = new Set(Object.values(SUB));
 const SUP_CHARS = new Set(Object.values(SUP));
 
+/** A small figure's ordinary character, with the minus typed as a hyphen. */
+const plainOf = (c: string) => (PLAIN[c] === "−" ? "-" : (PLAIN[c] ?? c));
+
 export const toSub = (s: string) => [...s].map((c) => SUB[c] ?? c).join("");
 export const toSup = (s: string) => [...s].map((c) => SUP[c] ?? c).join("");
 
@@ -344,9 +347,9 @@ export function sciRuns(text: string, context = ""): SciRun[] {
 }
 
 /**
- * The subscript/superscript buttons on an answer box. Makes the selection
- * small, or, with nothing selected, the figures just before the cursor
- * ("H2|" -> "H₂|"). Pressing again makes them ordinary.
+ * x₂ or x² pressed with text selected: the selection made small, or made
+ * ordinary again if it already was. Characters with no small form (most
+ * letters) stay as they are.
  */
 export function toggleScript(
   value: string,
@@ -354,21 +357,9 @@ export function toggleScript(
   end: number,
   kind: "sub" | "sup",
 ): { value: string; start: number; end: number } {
+  if (start === end) return { value, start, end };
   const map = kind === "sub" ? SUB : SUP;
   const target = kind === "sub" ? SUB_CHARS : SUP_CHARS;
-  const plainOf = (c: string) => (PLAIN[c] === "−" ? "-" : (PLAIN[c] ?? c));
-  if (start === end) {
-    // The figures (and a charge sign) typed just before the cursor.
-    let i = start;
-    const takes = (c: string) =>
-      /[0-9]/.test(c) ||
-      (kind === "sup" && /[+−–-]/.test(c)) ||
-      SUB_CHARS.has(c) ||
-      SUP_CHARS.has(c);
-    while (i > 0 && takes(value[i - 1])) i--;
-    if (i === start) return { value, start, end };
-    start = i;
-  }
   const chosen = value.slice(start, end);
   const already = [...chosen].every((c) => target.has(c) || !(plainOf(c) in map));
   const swapped = [...chosen]
@@ -382,4 +373,43 @@ export function toggleScript(
     start,
     end: start + swapped.length,
   };
+}
+
+/**
+ * Typing while x₂ or x² is held on, as in a word processor: what was just
+ * typed comes out small where it has a small form (figures, + and −, n).
+ *
+ * A space or a new line lets go, since a formula never has one: it and
+ * anything after it stay ordinary, and `done` says the button is off again.
+ *
+ * `before` is the text before the edit, `after` the text after it, and
+ * `caret` where the cursor ended up, just past what was typed.
+ */
+export function scriptTyped(
+  before: string,
+  after: string,
+  caret: number,
+  kind: "sub" | "sup",
+): { value: string; done: boolean } {
+  const map = kind === "sub" ? SUB : SUP;
+  // What follows the cursor is untouched by typing, so the typed text runs
+  // from where the two versions first differ up to the cursor.
+  const tail = after.length - caret;
+  if (tail < 0 || before.length < tail || before.slice(before.length - tail) !== after.slice(caret))
+    return { value: after, done: false };
+  let from = 0;
+  const limit = Math.min(caret, before.length - tail);
+  while (from < limit && before[from] === after[from]) from++;
+  const typed = after.slice(from, caret);
+  let out = "";
+  let done = false;
+  for (const [i, c] of [...typed].entries()) {
+    if (/\s/.test(c)) {
+      out += [...typed].slice(i).join("");
+      done = true;
+      break;
+    }
+    out += map[c] ?? c;
+  }
+  return { value: after.slice(0, from) + out + after.slice(caret), done };
 }
