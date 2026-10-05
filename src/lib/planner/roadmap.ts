@@ -106,6 +106,12 @@ export interface RoadmapResult {
    * rather than something that has already happened to them.
    */
   baselineBands: PacingBand[];
+  /**
+   * The spine exactly as saved, when a break still to come has been laid over
+   * `baselineBands` for display (ProgramDAL.withBreaksAhead). A change to the
+   * programme is saved from this, because it is what the database holds.
+   */
+  storedBands?: PacingBand[];
   /** Topics whose start week moved since the student last acknowledged. */
   changes: PacingChange[];
   needsAck: boolean;
@@ -188,6 +194,12 @@ export interface RoadmapInputs {
   examMonday: Date;
   /** The tutor's overrides for this course. Absent means none. */
   overrides?: PlanOverride[];
+  /**
+   * Mondays of the weeks the student is on a break. Every lane steps past
+   * them, as past a week a tutor closed: no catch-up or review is forecast
+   * into a break.
+   */
+  breakWeeks?: string[];
 }
 
 /**
@@ -201,7 +213,13 @@ export function buildRoadmap(inputs: RoadmapInputs): RoadmapResult {
   // The tutor's overrides bind every automatic lane below: a skipped point is
   // neither reviewed nor chased, and a removed week is stepped past.
   const overrideIndex = indexOverrides(overrides);
-  const isBlocked = blockedBy(overrideIndex);
+  const closedByTutor = blockedBy(overrideIndex);
+  // A break week is closed to every lane too, whatever the point.
+  const offWeeks = new Set(inputs.breakWeeks ?? []);
+  const isBlocked = offWeeks.size
+    ? (specPointId: string, weekStart: string) =>
+        offWeeks.has(weekStart) || closedByTutor(specPointId, weekStart)
+    : closedByTutor;
 
   const topics: PacingInput[] = pacingInputs(progress);
 

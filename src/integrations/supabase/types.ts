@@ -1275,6 +1275,7 @@ export type Database = {
           ends_on: string;
           id: string;
           reason: string;
+          recorded_at: string | null;
           starts_on: string;
           student_id: string;
         };
@@ -1287,6 +1288,7 @@ export type Database = {
           ends_on: string;
           id?: string;
           reason: string;
+          recorded_at?: string | null;
           starts_on: string;
           student_id: string;
         };
@@ -1299,6 +1301,7 @@ export type Database = {
           ends_on?: string;
           id?: string;
           reason?: string;
+          recorded_at?: string | null;
           starts_on?: string;
           student_id?: string;
         };

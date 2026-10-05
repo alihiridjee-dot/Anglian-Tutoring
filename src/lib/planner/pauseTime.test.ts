@@ -26,6 +26,14 @@ describe("paused time since a review", () => {
     const spans = [pause, { start: at("2026-10-15"), end: at("2026-10-17") }];
     expect(pausedMsSince(spans, at("2026-09-20"), now)).toBe(12 * day);
   });
+  test("time stopped twice over counts once", () => {
+    // A break (1–11 Oct) over a lapsed payment (6–15 Oct): 1–15 Oct, 14 days.
+    const spans = [pause, { start: at("2026-10-06"), end: at("2026-10-15") }];
+    expect(pausedMsSince(spans, at("2026-09-20"), now)).toBe(14 * day);
+    // One inside the other adds nothing.
+    const inside = [pause, { start: at("2026-10-03"), end: at("2026-10-05") }];
+    expect(pausedMsSince(inside, at("2026-09-20"), now)).toBe(10 * day);
+  });
   test("a point never reviewed has no clock to stop", () => {
     expect(pausedMsSince([pause], undefined, now)).toBe(0);
   });

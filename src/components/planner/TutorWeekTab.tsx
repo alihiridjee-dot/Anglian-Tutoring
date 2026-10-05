@@ -11,6 +11,7 @@ import { type TutorWeekRow } from "./tutorWeekRows";
 import { type TutorPlannerState } from "./useTutorPlanner";
 import { WeekSwitcher } from "./WeekSwitcher";
 import { PausedWeek } from "./PausedWeek";
+import { BreakWeek } from "./BreakWeek";
 
 const COUNTED: PointStatus[] = ["strong", "practised", "weak", "not_done"];
 
@@ -126,6 +127,14 @@ export function TutorWeekTab({ state }: { state: TutorPlannerState }) {
       <div className="space-y-5">
         {switcher}
         <PausedWeek subject={active.subject} pause={state.week.pause} />
+      </div>
+    );
+  // Nor does a week the student is on a break for.
+  if (state.week.onBreak && editable)
+    return (
+      <div className="space-y-5">
+        {switcher}
+        <BreakWeek brk={state.week.onBreak} />
       </div>
     );
 

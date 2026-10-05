@@ -41,6 +41,7 @@ import { CoveredLedger } from "./CoveredLedger";
 import { CatchUpPanel } from "./CatchUpPanel";
 import { ThisWeekPanel } from "./ThisWeekPanel";
 import { PausedWeek } from "./PausedWeek";
+import { BreakWeek } from "./BreakWeek";
 import { useWeekPlan } from "./useWeekPlan";
 import { useReviewMore } from "./useReviewMore";
 import { WeekReview } from "./WeekReview";
@@ -328,7 +329,9 @@ function ThisWeekTab({
 
   const reviewMore = useReviewMore({ ...week, isCurrent });
   // A paused subject's week is frozen: shown as paused, with nothing to change.
+  // So is a week the student is on a break for.
   const frozen = !!week.pause && !isPast;
+  const resting = !frozen && !!week.onBreak && !isPast;
 
   if (week.error) return <ErrorNote error={week.error} onRetry={() => void week.reload()} />;
 
@@ -383,6 +386,8 @@ function ThisWeekTab({
 
         {frozen && week.pause ? (
           <PausedWeek subject={subject} pause={week.pause} />
+        ) : resting && week.onBreak ? (
+          <BreakWeek brk={week.onBreak} />
         ) : !week.loading && week.points.length === 0 && isPast ? (
           // Said plainly, because the alternative reading — "you did nothing" —
           // is the wrong one, and on this account it was the common one: three
@@ -406,12 +411,14 @@ function ThisWeekTab({
         )}
       </section>
 
-      {!frozen && <WithheldPlanPoints points={week.withheld} coverage={week.coverage} />}
+      {!frozen && !resting && (
+        <WithheldPlanPoints points={week.withheld} coverage={week.coverage} />
+      )}
 
       {/* Re-cutting a week is a statement about the week ahead. Offering it on a
           week that has gone by would let a student rewrite what was set for
           them after the fact, and a paused week has nothing to re-cut. */}
-      {week.plan && isCurrent && !frozen && (
+      {week.plan && isCurrent && !frozen && !resting && (
         <ScheduleComparison
           studentId={studentId}
           subject={subject}

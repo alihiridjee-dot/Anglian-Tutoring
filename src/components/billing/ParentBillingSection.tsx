@@ -27,6 +27,7 @@ import { SubscriptionPanel } from "@/components/billing/SubscriptionPanel";
 import { AddSubjectCard } from "@/components/billing/AddSubjectCard";
 import { EnrolledSubjectsCard } from "@/components/billing/EnrolledSubjectsCard";
 import { InvoiceHistoryCard } from "@/components/billing/InvoiceHistory";
+import { TakeABreakCard } from "@/components/billing/TakeABreakCard";
 import { resolveDisplayName } from "@/lib/profile/displayName";
 import { summariseCourse } from "@/lib/curriculum/courseSummary";
 import { type BoardV, type LevelV } from "@/lib/curriculum/taxonomy";
@@ -207,8 +208,26 @@ export function ParentBillingSection({
     return <Spinner label="Loading" className="py-8" />;
   }
 
+  // A break from the work, not the plan, for each child on a live plan: first
+  // on the page, before the plans and their own pause, which stops access too.
+  const onLivePlans = children.filter((c) =>
+    isSubscriptionLive(subs.find((s) => s.student_id === c.student_id)?.status),
+  );
+
   return (
     <div data-guide="parent-billing">
+      {onLivePlans.length > 0 && (
+        <div className="space-y-4 mb-8">
+          {onLivePlans.map((child) => (
+            <TakeABreakCard
+              key={child.link_id}
+              studentId={child.student_id}
+              name={resolveDisplayName(child.display_name, child.email).split(" ")[0]}
+            />
+          ))}
+        </div>
+      )}
+
       <div className="flex items-center gap-3 mb-5">
         <CreditCard className="w-5 h-5 text-primary" />
         <h2 className="font-display text-xl font-bold text-foreground">Billing &amp; plans</h2>

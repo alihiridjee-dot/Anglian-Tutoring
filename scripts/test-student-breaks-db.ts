@@ -13,6 +13,7 @@ const uuid = (n: number) => `00000000-0000-0000-0000-${String(n).padStart(12, "0
 const alex = uuid(1); // two subjects, a programme for each, two parents
 const sam = uuid(2); // one subject, no programme yet, no parent
 const kim = uuid(3); // one subject, no programme, for breaks already under way
+const lee = uuid(9); // one subject with a programme, for breaks that are over
 const mum = uuid(4);
 const dad = uuid(5);
 const stranger = uuid(6); // a parent of someone else
@@ -209,7 +210,7 @@ const dy = (iso: string) => {
 };
 
 // ── Fixtures, before the migrations ──────────────────────────────────────
-for (const id of [alex, sam, kim, mum, dad, stranger, tutor, admin])
+for (const id of [alex, sam, kim, mum, dad, stranger, tutor, admin, lee])
   await db.query("insert into auth.users values ($1)", [id]);
 await db.query("insert into public.user_roles values ($1, 'tutor'), ($2, 'admin')", [tutor, admin]);
 await db.query(
@@ -219,8 +220,8 @@ await db.query(
      ($3, 'student', 'Kim Lee', 'gcse', array['biology']),
      ($4, 'parent', 'Pat Smith', null, null), ($5, 'parent', 'Chris Smith', null, null),
      ($6, 'parent', 'Jo Bloggs', null, null), ($7, 'tutor', 'Dr Tutor', null, null),
-     ($8, 'tutor', 'Admin', null, null)`,
-  [alex, sam, kim, mum, dad, stranger, tutor, admin],
+     ($8, 'tutor', 'Admin', null, null), ($9, 'student', 'Lee', 'gcse', array['biology'])`,
+  [alex, sam, kim, mum, dad, stranger, tutor, admin, lee],
 );
 await db.query(
   // The third link outlives its parent's account: the live table has no
@@ -230,20 +231,26 @@ await db.query(
 );
 await db.query(
   `insert into public.student_enrolments (student_id, subject, board) values
-     ($1, 'chemistry', 'edexcel'), ($1, 'biology', 'edexcel'), ($2, 'biology', 'aqa'), ($3, 'biology', 'aqa')`,
-  [alex, sam, kim],
+     ($1, 'chemistry', 'edexcel'), ($1, 'biology', 'edexcel'), ($2, 'biology', 'aqa'), ($3, 'biology', 'aqa'),
+     ($4, 'biology', 'aqa')`,
+  [alex, sam, kim, lee],
 );
 await db.query(
   `insert into public.subscriptions (user_id, student_id, status, plan, current_period_end) values
      ($1, $1, 'active', 'monthly_2', now() + interval '20 days'),
      ($2, $2, 'active', 'monthly_1', now() + interval '20 days'),
-     ($3, $3, 'active', 'monthly_1', now() + interval '20 days')`,
-  [alex, sam, kim],
+     ($3, $3, 'active', 'monthly_1', now() + interval '20 days'),
+     ($4, $4, 'active', 'monthly_1', now() + interval '20 days')`,
+  [alex, sam, kim, lee],
 );
 // Chemistry's exam is on the Monday 20 weeks on; biology's on a Wednesday 30 on.
 await db.query(
   "insert into public.student_program_plan (student_id, subject, program_start, exam_date, pacing) values ($1, 'chemistry', $2, $3, '[]'), ($1, 'biology', $2, $4, '[]')",
   [alex, mon(-10), mon(20), shift(mon(30), 2)],
+);
+await db.query(
+  "insert into public.student_program_plan (student_id, subject, program_start, exam_date, pacing) values ($1, 'biology', $2, $3, '[]')",
+  [lee, mon(-10), mon(30)],
 );
 await db.query("insert into public.spec_points values ($1), ($2)", [point, point2]);
 
@@ -252,6 +259,7 @@ for (const file of [
   "20261004091000_resume_after_pause.sql",
   "20261004092000_erase_cancelled_progress.sql",
   "20261005160000_student_breaks.sql",
+  "20261005161000_break_pickup.sql",
   "20261005163000_break_notice_existing_parents.sql",
 ])
   await db.exec(await readFile(new URL(`../supabase/migrations/${file}`, import.meta.url), "utf8"));
@@ -705,6 +713,104 @@ const extension = await book(alex, alex, mon(3), 2, "holiday");
   );
 }
 
+// ── 12b. A break that is over becomes a finished stop of each subject, once ─
+{
+  const leeBreak = async (from: string, to: string, cancelled = false) =>
+    (
+      await db.query<{ id: string }>(
+        "insert into public.student_breaks (student_id, starts_on, ends_on, reason, cancelled_at) values ($1, $2, $3, 'holiday', $4) returning id",
+        [lee, from, to, cancelled ? new Date() : null],
+      )
+    ).rows[0].id;
+  const over = await leeBreak(mon(-6), sun(-5));
+  const calledOff = await leeBreak(mon(-3), sun(-3), true);
+  const underWay = await leeBreak(mon(-1), sun(1));
+  const ahead = await book(lee, lee, mon(4), 1);
+  type Stop = { id: string; subject: string; reason: string; started: string; ended: string };
+  const stops = async () =>
+    (
+      await db.query<Stop>(
+        `select id, subject::text, reason,
+                to_char(started_at at time zone 'Europe/London', 'YYYY-MM-DD HH24:MI') as started,
+                to_char(ended_at at time zone 'Europe/London', 'YYYY-MM-DD HH24:MI') as ended
+           from public.student_subject_pauses where student_id = $1 order by started_at`,
+        [lee],
+      )
+    ).rows;
+  const recordedAt = async (id: string) =>
+    (
+      await db.query<{ at: Date | null }>(
+        "select recorded_at as at from public.student_breaks where id = $1",
+        [id],
+      )
+    ).rows[0].at;
+
+  const job = await db.query<{ schedule: string }>(
+    "select schedule from cron.job where jobname = 'record-finished-breaks'",
+  );
+  assert.equal(job.rows[0]?.schedule, "10 * * * *", "the hourly backstop is scheduled");
+
+  await db.query("select private.record_finished_breaks()");
+  assert.deepEqual(
+    (await stops()).map(({ subject, reason, started, ended }) => ({
+      subject,
+      reason,
+      started,
+      ended,
+    })),
+    [
+      {
+        subject: "biology",
+        reason: "break",
+        started: `${mon(-6)} 00:00`,
+        ended: `${mon(-4)} 00:00`,
+      },
+    ],
+    "UK midnight on the Monday it began, to UK midnight on the Monday after it ended",
+  );
+  assert.ok(await recordedAt(over), "a break that is over is recorded");
+  assert.equal(await recordedAt(calledOff), null, "a called-off break never is");
+  assert.equal(await recordedAt(underWay), null, "nor one under way");
+  assert.equal(await recordedAt(ahead), null, "nor one still to come");
+
+  await db.query("select private.record_finished_breaks()");
+  await db.query("select private.sync_subject_pauses($1)", [lee]);
+  assert.equal((await stops()).length, 1, "recorded once, and the billing sync leaves it be");
+  // Asked directly, it still records each break at most once, and never one called off.
+  await db.query("select private.record_break($1)", [over]);
+  await db.query("select private.record_break($1)", [calledOff]);
+  assert.equal((await stops()).length, 1);
+  assert.equal(await recordedAt(calledOff), null);
+
+  assert.equal(await end(lee, underWay), "ended_early");
+  const [, back] = await stops();
+  assert.deepEqual(
+    { reason: back?.reason, started: back?.started, ended: back?.ended },
+    { reason: "break", started: `${mon(-1)} 00:00`, ended: `${mon(0)} 00:00` },
+    "coming back early records the break at once, ending this Monday",
+  );
+  assert.ok(await recordedAt(underWay));
+
+  // Picked up as a billing pause is: the student saves the calendar after it.
+  const [first] = await stops();
+  await as(lee, "select public.resume_programme_after_pause($1, '[]'::jsonb, null)", [first.id]);
+  const resumed = await db.query<{ at: Date | null }>(
+    "select programme_resumed_at as at from public.student_subject_pauses where id = $1",
+    [first.id],
+  );
+  assert.ok(resumed.rows[0].at, "the resume step takes a break like any other stop");
+
+  await assert.rejects(
+    () =>
+      db.query(
+        "insert into public.student_subject_pauses (student_id, subject, reason, started_at, ended_at) values ($1, 'biology', 'holiday', now() - interval '2 days', now() - interval '1 day')",
+        [lee],
+      ),
+    /reason_check/,
+    "only the known reasons",
+  );
+}
+
 // ── 13. An account deleted outright takes its breaks with it ────────────
 {
   await db.query("delete from auth.users where id = $1", [kim]);
@@ -742,6 +848,38 @@ const extension = await book(alex, alex, mon(3), 2, "holiday");
     "utf8",
   );
   assert.ok(firstFile.includes(`as $function$${bookSrc}$function$;`), "book_break as it was");
+  // The pick-up first: end_break as 20261005160000 left it, the record gone.
+  await db.exec(
+    await readFile(
+      new URL("../supabase/rollbacks/20261005161000_break_pickup.down.sql", import.meta.url),
+      "utf8",
+    ),
+  );
+  const endSrc = (
+    await db.query<{ src: string }>("select prosrc as src from pg_proc where proname = 'end_break'")
+  ).rows[0].src;
+  const firstPr = await readFile(
+    new URL("../supabase/migrations/20261005160000_student_breaks.sql", import.meta.url),
+    "utf8",
+  );
+  assert.ok(firstPr.includes(`as $function$${endSrc}$function$;`), "end_break as it was");
+  const pickupLeft = await db.query<{ n: number }>(
+    `select (select count(*) from pg_proc where proname in ('record_break', 'record_finished_breaks'))::int
+          + (select count(*) from cron.job where jobname = 'record-finished-breaks')::int
+          + (select count(*) from information_schema.columns
+              where table_name = 'student_breaks' and column_name = 'recorded_at')::int
+          + (select count(*) from public.student_subject_pauses where reason = 'break')::int as n`,
+  );
+  assert.equal(pickupLeft.rows[0].n, 0, "no function, job, column or recorded break left");
+  await assert.rejects(
+    () =>
+      db.query(
+        "insert into public.student_subject_pauses (student_id, subject, reason, started_at, ended_at) values ($1, 'biology', 'break', now() - interval '2 days', now() - interval '1 day')",
+        [lee],
+      ),
+    /reason_check/,
+    "'break' is no longer a reason",
+  );
   await db.exec(
     await readFile(
       new URL("../supabase/rollbacks/20261005160000_student_breaks.down.sql", import.meta.url),

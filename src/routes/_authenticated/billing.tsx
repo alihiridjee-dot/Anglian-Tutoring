@@ -27,6 +27,7 @@ import { InvoiceHistoryCard } from "@/components/billing/InvoiceHistory";
 import { AddSubjectCard } from "@/components/billing/AddSubjectCard";
 import { EnrolledSubjectsCard } from "@/components/billing/EnrolledSubjectsCard";
 import { ParentBillingSection } from "@/components/billing/ParentBillingSection";
+import { TakeABreakCard } from "@/components/billing/TakeABreakCard";
 import { resolveDisplayName } from "@/lib/profile/displayName";
 import { subjectLabel, summariseCourse } from "@/lib/curriculum/courseSummary";
 
@@ -169,6 +170,15 @@ function BillingPage() {
   return (
     <AppLayout title="Billing">
       <div className="max-w-4xl">
+        {/* A break from the work, not the plan: first on the page, because a
+            family looking for "pause" for a holiday should find this before
+            the plan's own pause, which stops access too. */}
+        {userId && sub && isSubscriptionLive(sub.status) && (
+          <div className="mb-8">
+            <TakeABreakCard studentId={userId} />
+          </div>
+        )}
+
         <div className="relative overflow-hidden rounded-2xl border border-primary/30 bg-gradient-to-br from-primary/5 via-card to-card p-4 sm:p-6 mb-8 shadow-sm">
           {/* soft glow accent */}
           <div className="pointer-events-none absolute -top-16 -right-16 h-40 w-40 rounded-full bg-primary/10 blur-3xl" />
