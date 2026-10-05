@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { Loader2, Plus } from "lucide-react";
+import { Loader2, Plus, Sparkles } from "lucide-react";
 import { toast } from "sonner";
 import {
   SUBJECTS,
@@ -17,8 +17,10 @@ import {
   planCadence,
   planSubjectCount,
   tierFor,
+  pricePerWeek,
   CADENCES,
   PLAN_MAX_SUBJECTS,
+  WEEKS_PER_CYCLE,
 } from "@/lib/billing/entitlements";
 
 interface AddSubjectTilesProps {
@@ -37,10 +39,16 @@ interface AddSubjectTilesProps {
   level?: string | null;
 }
 
+/** Whole pounds drop the pence: "£1", not "£1.00". */
+const friendlyPence = (pence: number) =>
+  pence % 100 === 0 ? `£${pence / 100}` : formatPence(pence);
+
 /**
- * The frictionless upgrade, as tiles for the Subjects grid: one dashed tile per
- * subject that can still be added, showing what it adds to the bill. Same
- * cadence, one step up the subject-count ladder, prorated and charged now.
+ * The frictionless upgrade, as tiles for the Subjects grid: one tile per
+ * subject that can still be added, in that subject's colour, leading with the
+ * smallest true figure — what it adds per week ("Just £1 a week") and the
+ * lessons that buys. Same cadence, one step up the subject-count ladder,
+ * prorated and charged now.
  *
  * Two taps, never one: the first opens the tile (board choice and the charge
  * spelled out), the second adds it. Renders nothing when there's nothing to
@@ -92,6 +100,12 @@ export function AddSubjectTiles({
   const nowPrice = priceOf(tierFor(cadence, currentCount));
   const nextPrice = priceOf(tierFor(cadence, newCount));
   const delta = nowPrice != null && nextPrice != null ? nextPrice - nowPrice : null;
+  const deltaPerWeek = delta != null ? Math.round(pricePerWeek(cadence, delta)) : null;
+  // One live lesson a week per subject, so the extra lessons per billing cycle.
+  const extraLessons = WEEKS_PER_CYCLE[cadence];
+  const cycleWord = unit.replace(/^per /, "a ");
+  // Adding the last missing subject completes the set — worth saying so.
+  const completesSet = remaining === 1;
   const whose = ownerLabel ? `${ownerLabel}'s` : "your";
 
   const submit = (subject: string, label: string) => {
@@ -115,24 +129,32 @@ export function AddSubjectTiles({
 
         if (open !== s.value) {
           return (
-            <button
+            <div
               key={s.value}
-              type="button"
-              onClick={() => setOpen(s.value)}
-              className={`pop-card pop-card-flat pop-card-interactive flex flex-col items-start gap-3 border-dashed p-4 text-left sm:aspect-square sm:p-5 ${tint}`}
+              className={`pop-card pop-card-hero pop-card-banded relative flex flex-col items-start gap-3 p-4 sm:aspect-square sm:p-5 ${tint}`}
             >
-              <span className="icon-tile size-8">
-                <Plus className="size-4" aria-hidden />
-              </span>
-              <span className="font-display text-xl font-bold text-[color:var(--tint)]">
-                Add {s.label}
-              </span>
-              {delta != null && (
-                <span className="numeral mt-auto text-2xl">
-                  +{formatPence(delta)} <span className="text-base">{unit}</span>
+              {completesSet && (
+                <span className="chip chip-solid">
+                  <Sparkles className="size-3.5" aria-hidden /> Complete your sciences
                 </span>
               )}
-            </button>
+              <h3 className="text-xl font-bold text-[color:var(--tint)]">{s.label}</h3>
+              {deltaPerWeek != null && (
+                <p className="numeral text-3xl text-[color:var(--tint)]">
+                  Just {friendlyPence(deltaPerWeek)} <span className="text-lg">a week</span>
+                </p>
+              )}
+              <span className="chip">
+                +{extraLessons} live {extraLessons === 1 ? "lesson" : "lessons"} {cycleWord}
+              </span>
+              <button
+                type="button"
+                onClick={() => setOpen(s.value)}
+                className="btn-solid mt-auto inline-flex h-11 items-center gap-1.5 rounded-lg px-3.5 text-sm sm:pointer-fine:h-9"
+              >
+                <Plus className="size-4" aria-hidden /> Add {s.label}
+              </button>
+            </div>
           );
         }
 
@@ -161,8 +183,12 @@ export function AddSubjectTiles({
             )}
             {delta != null && nextPrice != null && (
               <p className="text-sm">
-                Adds <strong>+{formatPence(delta)}</strong> {unit}. Today you pay only for the days
-                left in this billing period, then <strong>{formatPence(nextPrice)}</strong> {unit}.
+                Adds <strong>{formatPence(delta)}</strong> {unit}
+                {deltaPerWeek != null && cadence !== "weekly" && (
+                  <> — that&apos;s {friendlyPence(deltaPerWeek)} a week</>
+                )}
+                . Today you pay only for the days left in this billing period, then{" "}
+                <strong>{formatPence(nextPrice)}</strong> {unit}.
               </p>
             )}
             <div className="mt-auto flex flex-wrap gap-2">

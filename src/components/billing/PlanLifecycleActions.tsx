@@ -1,9 +1,16 @@
 import { useState } from "react";
-import { PauseCircle, XCircle } from "lucide-react";
+import { MinusCircle, PauseCircle, XCircle } from "lucide-react";
 import { toast } from "sonner";
 import { SectionHeading } from "@/components/Shared";
-import { isPlanChangeable, isSubscriptionLive, type SubscriptionRow } from "@/lib/billing/billing";
-import { useManageSubscription } from "@/hooks/data/useBilling";
+import {
+  formatPence,
+  isPlanChangeable,
+  isSubscriptionLive,
+  type SubscriptionRow,
+} from "@/lib/billing/billing";
+import { useManageSubscription, usePackages, useRemoveSubjects } from "@/hooks/data/useBilling";
+import { CADENCES, planCadence, tierFor } from "@/lib/billing/entitlements";
+import { RemoveSubjectDialog } from "@/components/billing/RemoveSubjectDialog";
 import { PlanFeedbackDialog } from "@/components/billing/PlanFeedbackDialog";
 import { CancelPlanDialog } from "@/components/billing/CancelPlanDialog";
 import { recordBillingFeedback } from "@/lib/billing/billingFeedback";
@@ -16,19 +23,21 @@ interface PlanLifecycleActionsProps {
   canManage: boolean;
   /** Whose plan it is (e.g. a child's name), for the dialogs' copy. */
   ownerLabel?: string;
-  /** The plan's subjects, for the cancel dialog's "drop one instead" offer. */
+  /** The plan's subjects — what can be dropped, and what the cancel dialog names. */
   course?: CourseSummary;
-  /** DOM id of the matching EnrolledSubjectsCard, for "drop a subject instead". */
-  subjectsAnchorId?: string;
+  /** Exam level, so the smaller plan's price comes off the right ladder. */
+  level?: string | null;
 }
 
 /**
- * Pause and cancel — the two ways to stop paying, kept at the very bottom of
- * the page, under everything else the family might want to do first.
+ * Drop a subject, pause, cancel — every way to pay less, kept at the very
+ * bottom of the page, under everything else the family might want to do first.
  *
- * Both are gated: pausing by a one-screen reason form, cancelling by the
+ * All three are gated: dropping by a choice of subject then
+ * RemoveSubjectDialog (refused on the last subject — a plan covering nothing is
+ * a cancellation), pausing by a one-screen reason form, cancelling by the
  * four-step CancelPlanDialog (which offers pausing or dropping a subject
- * instead). Renders nothing when neither applies. Authority is enforced
+ * instead). Renders nothing when none applies. Authority is enforced
  * server-side too — hiding the buttons is UX, not security.
  */
 export function PlanLifecycleActions({
@@ -37,11 +46,16 @@ export function PlanLifecycleActions({
   canManage,
   ownerLabel,
   course,
-  subjectsAnchorId = "subjects",
+  level,
 }: PlanLifecycleActionsProps) {
   const manage = useManageSubscription();
+  const remove = useRemoveSubjects();
+  const { data: packages = [] } = usePackages(level);
   const [pauseOpen, setPauseOpen] = useState(false);
   const [cancelOpen, setCancelOpen] = useState(false);
+  /** The subject chooser under the buttons, then the subject being dropped. */
+  const [choosing, setChoosing] = useState(false);
+  const [removing, setRemoving] = useState<string | null>(null);
 
   const live = isSubscriptionLive(sub.status);
   const paused = sub.status === "paused";
@@ -57,7 +71,45 @@ export function PlanLifecycleActions({
   const canPause = live && !sub.cancel_at_period_end;
   const canCancel = (live || paused) && !sub.cancel_at_period_end;
   const changeable = isPlanChangeable(sub);
-  const subjectLabels = course?.perSubject.map((s) => s.subjectLabel) ?? [];
+  const perSubject = course?.perSubject ?? [];
+  const subjectLabels = perSubject.map((s) => s.subjectLabel);
+  const labelOf = (subject: string) =>
+    perSubject.find((s) => s.subject === subject)?.subjectLabel ?? subject;
+  // Subjects only come off a live plan that isn't ending, and never the last.
+  const canDrop = changeable && perSubject.length > 1;
+
+  // What the plan costs once a subject comes off — the ladder one step down.
+  const cadence = planCadence(sub.plan);
+  const nextPkg = cadence
+    ? packages.find((p) => p.tier === tierFor(cadence, perSubject.length - 1))
+    : undefined;
+  const unit = CADENCES.find((c) => c.key === cadence)?.unit;
+
+  const confirmRemove = (category: string, comment: string) => {
+    if (!removing) return;
+    remove.mutate(
+      { studentId: sub.student_id, subjects: [removing] },
+      {
+        onSuccess: (res) => {
+          // Only once the removal has worked: a refused one must not leave an
+          // entry in the tutor's plan history.
+          void recordBillingFeedback({
+            studentId: sub.student_id,
+            action: "remove_subject",
+            category,
+            comment,
+          });
+          const label = labelOf(removing);
+          setRemoving(null);
+          setChoosing(false);
+          toast.success(`${label} removed. Your next bill drops to the smaller plan.`, {
+            description: `Still covered: ${res.remaining.map(labelOf).join(", ")}.`,
+          });
+        },
+        onError: (err) => toast.error(err.message),
+      },
+    );
+  };
 
   // Run it, then record why the family paused/cancelled (manager-only, enforced
   // by RLS). Only once it has worked: a refused or failed action must not leave
@@ -81,25 +133,29 @@ export function PlanLifecycleActions({
     );
   };
 
-  // "Drop a subject instead" hands them to EnrolledSubjectsCard, which owns the
-  // removal flow.
-  const goToSubjects = () => {
-    setCancelOpen(false);
-    document
-      .getElementById(subjectsAnchorId)
-      ?.scrollIntoView({ behavior: "smooth", block: "start" });
-  };
+  if (!manageable || !(canDrop || canPause || canCancel)) return null;
 
-  if (!manageable || !(canPause || canCancel)) return null;
+  const busy = manage.isPending || remove.isPending;
 
   return (
-    <section className="premium-card rounded-2xl p-4 sm:p-6">
-      <SectionHeading title="Pause or cancel">
+    <section className="pop-card pop-card-flat p-4 sm:p-5">
+      <SectionHeading title="Need a change?">
+        {canDrop && (
+          <button
+            type="button"
+            onClick={() => setChoosing((v) => !v)}
+            aria-expanded={choosing}
+            disabled={busy}
+            className="btn-soft tint-slate inline-flex h-11 items-center gap-1.5 rounded-lg px-3.5 text-sm sm:pointer-fine:h-9"
+          >
+            <MinusCircle className="size-4" aria-hidden /> Drop a subject
+          </button>
+        )}
         {canPause && (
           <button
             type="button"
             onClick={() => setPauseOpen(true)}
-            disabled={manage.isPending}
+            disabled={busy}
             className="btn-soft tint-slate inline-flex h-11 items-center gap-1.5 rounded-lg px-3.5 text-sm sm:pointer-fine:h-9"
           >
             <PauseCircle className="size-4" aria-hidden /> Pause plan
@@ -109,13 +165,46 @@ export function PlanLifecycleActions({
           <button
             type="button"
             onClick={() => setCancelOpen(true)}
-            disabled={manage.isPending}
+            disabled={busy}
             className="btn-soft tint-rose inline-flex h-11 items-center gap-1.5 rounded-lg px-3.5 text-sm sm:pointer-fine:h-9"
           >
             <XCircle className="size-4" aria-hidden /> Cancel plan
           </button>
         )}
       </SectionHeading>
+
+      {choosing && canDrop && (
+        <div className="mt-4 flex flex-wrap items-center gap-2">
+          <p className="text-sm font-semibold">Which subject?</p>
+          {perSubject.map((s) => (
+            <button
+              key={s.subject}
+              type="button"
+              onClick={() => setRemoving(s.subject)}
+              disabled={busy}
+              className="btn-soft tint-rose inline-flex h-11 items-center rounded-lg px-3.5 text-sm sm:pointer-fine:h-9"
+            >
+              Drop {s.subjectLabel}
+            </button>
+          ))}
+        </div>
+      )}
+
+      {removing && (
+        <RemoveSubjectDialog
+          subjectLabel={labelOf(removing)}
+          remainingLabels={perSubject
+            .filter((s) => s.subject !== removing)
+            .map((s) => s.subjectLabel)}
+          newPlanName={nextPkg?.name}
+          newPriceLabel={nextPkg ? formatPence(nextPkg.price_pence) : undefined}
+          unitLabel={unit}
+          ownerLabel={ownerLabel}
+          pending={remove.isPending}
+          onConfirm={confirmRemove}
+          onClose={() => setRemoving(null)}
+        />
+      )}
 
       {pauseOpen && (
         <PlanFeedbackDialog
@@ -137,12 +226,15 @@ export function PlanLifecycleActions({
           subjectLabels={subjectLabels}
           pending={manage.isPending}
           canPauseInstead={canPause}
-          canRemoveInstead={changeable && subjectLabels.length > 1}
+          canRemoveInstead={canDrop}
           onPauseInstead={() => {
             setCancelOpen(false);
             setPauseOpen(true);
           }}
-          onRemoveInstead={goToSubjects}
+          onRemoveInstead={() => {
+            setCancelOpen(false);
+            setChoosing(true);
+          }}
           onConfirm={confirmWith("cancel")}
           onClose={() => setCancelOpen(false)}
         />

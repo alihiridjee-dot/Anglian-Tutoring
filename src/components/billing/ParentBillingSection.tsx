@@ -97,11 +97,8 @@ function ChildPlan({
         <div className="mb-6">
           <EnrolledSubjectsCard
             studentId={studentId}
-            currentTier={sub.plan}
             enrolments={enrolments}
             level={level}
-            canManage
-            ownerLabel={childName}
             anchorId={anchorId}
             extraTiles={
               <AddSubjectTiles
@@ -171,7 +168,7 @@ function ChildPlan({
             canManage
             ownerLabel={childName}
             course={course}
-            subjectsAnchorId={anchorId}
+            level={level}
           />
         </div>
       )}

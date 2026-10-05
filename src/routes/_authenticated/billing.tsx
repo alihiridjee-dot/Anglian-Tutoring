@@ -1,5 +1,5 @@
 import { createFileRoute, Link, useNavigate } from "@tanstack/react-router";
-import { Info } from "lucide-react";
+import { Info, ShieldCheck } from "lucide-react";
 import { ErrorNote, SectionHeading, Spinner } from "@/components/Shared";
 import { AppLayout } from "@/components/AppLayout";
 import { useEnrolments } from "@/hooks/data/useEnrolments";
@@ -43,17 +43,22 @@ export const Route = createFileRoute("/_authenticated/billing")({
 /** The Stripe reassurance + back-link, shared by both persona views. */
 function StripeFooter() {
   return (
-    <div className="mt-8 pop-card pop-card-flat p-4 sm:p-5 text-sm">
-      <p>
-        Payments are handled by Stripe. Your card details go straight to them and are never seen or
-        stored by Anglia Educate.
-      </p>
-      <Link
-        to="/dashboard"
-        className="text-primary mt-3 inline-flex min-h-11 items-center text-sm font-semibold hover:underline sm:pointer-fine:min-h-0"
-      >
-        ← Back to dashboard
-      </Link>
+    <div className="mt-8 pop-card pop-card-flat tint-emerald flex gap-3 p-4 text-sm sm:p-5">
+      <span className="icon-tile size-9 shrink-0">
+        <ShieldCheck className="size-4" aria-hidden />
+      </span>
+      <div className="min-w-0">
+        <p className="font-display font-bold">Secure payments by Stripe</p>
+        <p className="mt-0.5">
+          Your card details go straight to Stripe and are never seen or stored by Anglia Educate.
+        </p>
+        <Link
+          to="/dashboard"
+          className="text-primary mt-3 inline-flex min-h-11 items-center text-sm font-semibold hover:underline sm:pointer-fine:min-h-0"
+        >
+          ← Back to dashboard
+        </Link>
+      </div>
     </div>
   );
 }
@@ -180,10 +185,8 @@ function BillingPage() {
           <div className="mb-8">
             <EnrolledSubjectsCard
               studentId={userId}
-              currentTier={sub.plan}
               enrolments={enrolments}
               level={level}
-              canManage={canManage && changeable}
               canChangeBoard
               extraTiles={
                 changeable && (
@@ -314,6 +317,7 @@ function BillingPage() {
               planName={planName}
               canManage={canManage}
               course={course}
+              level={level}
             />
           </div>
         )}

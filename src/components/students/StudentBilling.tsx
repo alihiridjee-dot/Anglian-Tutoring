@@ -109,6 +109,7 @@ export function StudentBilling({ record, name }: { record: StudentRecord; name: 
           canManage={!deletion}
           ownerLabel={name}
           course={course}
+          level={profile.level}
         />
       )}
 
