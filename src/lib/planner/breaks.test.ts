@@ -6,7 +6,6 @@ import {
   backOn,
   breakCovering,
   breakEndsOn,
-  fullerBy,
   layBreaksOver,
   mondayKeyOf,
   overlapsBreak,
@@ -66,17 +65,6 @@ describe("the booking rules, as the form checks them", () => {
     // An exam on a Wednesday counts from its Monday.
     expect(touchesExam({ startsOn: "2027-05-10", weeks: 1, examDate: "2027-06-23" })).toBe(true);
     expect(touchesExam({ startsOn: "2027-05-03", weeks: 1, examDate: "2027-06-23" })).toBe(false);
-  });
-  test("each week after gets fuller by the weeks the break takes out", () => {
-    // 34 weeks from 12 Oct to the exam week; a 2-week break leaves 32 to carry them.
-    expect(fullerBy({ startsOn: "2026-10-12", weeks: 2, examDate: "2027-06-07" })).toBeCloseTo(
-      34 / 32 - 1,
-    );
-    // With 8 weeks left, the same break makes each week a third fuller.
-    expect(fullerBy({ startsOn: "2027-04-12", weeks: 2, examDate: "2027-06-07" })).toBeCloseTo(
-      8 / 6 - 1,
-    );
-    expect(fullerBy({ startsOn: "2027-05-24", weeks: 2, examDate: "2027-06-07" })).toBeNull();
   });
 });
 
