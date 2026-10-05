@@ -455,7 +455,7 @@ function QuizCard({ set, attempt }: { set: QuizSet; attempt?: Attempt }) {
         {set.specCode && <span className="chip">{set.specCode}</span>}
         {!set.published && <span className="chip tint-slate">Draft</span>}
         {pct !== null && (
-          <span className="chip-solid">
+          <span className="chip chip-solid">
             <span className="numeral">{pct}%</span>
           </span>
         )}

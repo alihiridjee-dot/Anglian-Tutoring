@@ -393,7 +393,7 @@ export function TakeMcq() {
             before the student tries to change an answer. */}
         {marked && opensLabel && (
           <div className="mb-5 flex flex-wrap items-center gap-2">
-            <span className="chip-solid">
+            <span className="chip chip-solid">
               <span className="numeral">
                 {marked.score}/{marked.total}
               </span>
