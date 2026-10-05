@@ -282,13 +282,15 @@ export function TakeMcq() {
         <ol className="space-y-5">
           {questions.map((q, idx) => {
             const chosen = answers[q.id];
+            // Read together, so a wrong option is written like the right one.
+            const notation = [q.question, ...q.options].join("\n");
             return (
               <li key={q.id} className="rounded-2xl premium-card p-4 sm:p-5">
                 <p className="text-xs uppercase tracking-widest text-primary font-semibold">
                   Question {idx + 1}
                 </p>
                 <p className="font-display text-lg mt-1">
-                  <SciText text={q.question} />
+                  <SciText text={q.question} context={notation} />
                 </p>
                 <div className="mt-3 space-y-2">
                   {q.options.map((opt, i) => {
@@ -314,7 +316,7 @@ export function TakeMcq() {
                         <span className="font-mono text-xs mr-2 text-muted-foreground">
                           {String.fromCharCode(65 + i)}.
                         </span>
-                        <SciText text={opt} />
+                        <SciText text={opt} context={notation} />
                         {isCorrect && <CheckCircle2 className="w-4 h-4 text-primary inline ml-2" />}
                         {isWrong && <XCircle className="w-4 h-4 text-destructive inline ml-2" />}
                       </button>
@@ -324,7 +326,7 @@ export function TakeMcq() {
                 {marked?.byQuestion[q.id]?.explanation && (
                   <p className="mt-3 text-xs text-muted-foreground border-t border-border pt-3">
                     <span className="font-semibold text-foreground">Explanation:</span>{" "}
-                    <SciText text={marked.byQuestion[q.id]!.explanation} />
+                    <SciText text={marked.byQuestion[q.id]!.explanation} context={notation} />
                   </p>
                 )}
               </li>

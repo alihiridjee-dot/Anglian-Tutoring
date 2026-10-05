@@ -395,6 +395,7 @@ export function AnswerForm({
             <SciAnswerBox
               value={draftOf(q.id).text}
               onValueChange={(text) => patch(q.id, { text })}
+              context={q.prompt}
               placeholder={TYPE_HINT[q.answer_type]}
               aria-label={`Answer to question ${i + 1}`}
               className={`premium-input w-full rounded-lg px-3 py-2 text-sm ${

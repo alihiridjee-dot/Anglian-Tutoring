@@ -1,5 +1,5 @@
 import { describe, expect, test } from "bun:test";
-import { sciRuns, toSciNotation, toggleScript } from "./sciNotation";
+import { sciRuns, toSciNotation, toSciNotationTogether, toggleScript } from "./sciNotation";
 
 const cases = (pairs: [string, string][]) => {
   for (const [input, want] of pairs) expect(toSciNotation(input)).toBe(want);
@@ -93,6 +93,15 @@ describe("toSciNotation", () => {
       ["SPF30", "SPF30"],
       ["between 2-3 days", "between 2-3 days"],
     ]);
+  });
+
+  test("wrong answers are written like the right one", () => {
+    expect(
+      toSciNotationTogether(["Which is chlorine gas, Cl2?", "Cl", "Cl2", "Cl3", "2Cl"]),
+    ).toEqual(["Which is chlorine gas, Cl₂?", "Cl", "Cl₂", "Cl₃", "2Cl"]);
+    expect(toSciNotationTogether(["Fe2", "Fe2+", "2Fe+"])).toEqual(["Fe₂", "Fe²⁺", "2Fe⁺"]);
+    expect(toSciNotation("Cl3", "Cl₂ is a gas")).toBe("Cl₃");
+    expect(toSciNotation("Cl3")).toBe("Cl3");
   });
 
   test("is safe to run twice", () => {

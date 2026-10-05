@@ -1,5 +1,5 @@
 /** Pure selection, prompting and response validation; no credentials or DB access. */
-import { toSciNotation } from "@/lib/platform/sciNotation";
+import { toSciNotationTogether } from "@/lib/platform/sciNotation";
 
 export const FRAMEWORK_VERSION = "exam-generation-v3";
 export type GenerationFormat = "written" | "mcq";
@@ -140,6 +140,12 @@ export function selectExamples(
 }
 
 function exampleForPrompt(e: ExamExample) {
+  const [shared, question, scheme, ...options] = toSciNotationTogether([
+    e.shared_context ?? "",
+    e.prompt,
+    e.mark_scheme ?? "",
+    ...(e.options ?? []).map((o) => o.text),
+  ]);
   return {
     id: e.id,
     relevance: e.grounding,
@@ -149,11 +155,11 @@ function exampleForPrompt(e: ExamExample) {
     tier: e.tier,
     // Text copied from a PDF loses its small figures ("H2O"); the model copies
     // what it is shown, so it is shown the proper notation.
-    shared_context: e.shared_context && toSciNotation(e.shared_context),
-    question: toSciNotation(e.prompt),
+    shared_context: e.shared_context && shared,
+    question,
     marks: e.marks,
-    options: e.options?.map((o) => ({ ...o, text: toSciNotation(o.text) })) ?? null,
-    mark_scheme: e.mark_scheme && toSciNotation(e.mark_scheme),
+    options: e.options?.map((o, i) => ({ ...o, text: options[i] })) ?? null,
+    mark_scheme: e.mark_scheme && scheme,
     command_word: e.command_word,
     assessment_objectives: e.assessment_objectives,
     question_format: e.question_format,
@@ -274,21 +280,23 @@ const nonempty = (v: unknown): v is string => typeof v === "string" && v.trim().
 
 /**
  * Every text field in proper notation (H₂O, Mg²⁺, cm³), whatever the model
- * wrote. Applied before the checks, so options differing only in notation
- * still count as duplicates.
+ * wrote, the fields of a question read together so its options all match.
+ * Applied before the checks, so options differing only in notation still
+ * count as duplicates.
  */
 function withNotation(q: unknown): unknown {
   if (!q || typeof q !== "object") return q;
-  const fix = (v: unknown) => (typeof v === "string" ? toSciNotation(v) : v);
   const r = q as Record<string, unknown>;
-  return {
-    ...r,
-    ...("prompt" in r && { prompt: fix(r.prompt) }),
-    ...("mark_scheme" in r && { mark_scheme: fix(r.mark_scheme) }),
-    ...("question" in r && { question: fix(r.question) }),
-    ...("explanation" in r && { explanation: fix(r.explanation) }),
-    ...("options" in r && { options: Array.isArray(r.options) ? r.options.map(fix) : r.options }),
-  };
+  const keys = ["prompt", "mark_scheme", "question", "explanation"].filter(
+    (k) => typeof r[k] === "string",
+  );
+  const options = Array.isArray(r.options) && r.options.every((o) => typeof o === "string");
+  const texts = [...keys.map((k) => r[k] as string), ...(options ? (r.options as string[]) : [])];
+  const fixed = toSciNotationTogether(texts);
+  const out: Record<string, unknown> = { ...r };
+  keys.forEach((k, i) => (out[k] = fixed[i]));
+  if (options) out.options = fixed.slice(keys.length);
+  return out;
 }
 
 export function validateQuestions(

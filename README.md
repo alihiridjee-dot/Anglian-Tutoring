@@ -65,6 +65,24 @@ things that are display type _without_ being headings. Display type is **bold
 weights. `font-sans` remains the escape hatch, and utilities still beat the base
 rule, so `tracking-widest` on a small uppercase label wins as intended.
 
+### Science notation
+
+Formulas, ions, units and powers are stored as plain text with Unicode small
+figures (H₂O, Mg²⁺, cm³, 10⁻³), and `toSciNotation` in
+`src/lib/platform/sciNotation.ts` turns typed notation ("H2O", "Mg2+",
+"SO4^2-", "cm3") into that form. It only changes what it is sure of, so labels
+like AO1, KS4, H1N1, B2 and F1/F2 are left alone.
+
+- Show any question, option, explanation, mark scheme, answer, feedback or
+  note text through `SciText` (in `Shared.tsx`), never as a bare `{text}`. It
+  formats old text too, and draws the small figures in the site's face, which
+  the web fonts can't do for ₂ and ⁺. Pass `context` when texts sit together
+  (a question and its options), so a wrong option is written like the right one.
+- Take typed science through `SciAnswerBox` (`src/components/homework/`): it
+  shows how formulas will read, and has x₂ and x² buttons.
+- Generated questions are normalised before saving, and the generator and the
+  marker are both told the notation.
+
 ### Phones, either way up
 
 - **Tap targets** are 44px on any touch screen: `min-h-11 sm:pointer-fine:min-h-0`
@@ -144,6 +162,11 @@ the same question may assess both, and unsuitable skills must not be forced in.
 The migration seeds concise GCSE AQA and Edexcel guidance. Other qualifications
 use the common framework and their available exemplars until applicable guidance
 is added; GCSE guidance is not silently reused for another qualification.
+
+Past-paper text lost its small figures when it was copied out of PDFs ("H2O"),
+and the model copies what it is shown, so examples go into the prompt in proper
+notation, the prompt spells the notation out, and every field of the reply is
+normalised before it is checked (see Science notation above).
 
 The call returns schema-constrained JSON. Code rejects incomplete sets, empty
 rubrics, invalid marks, duplicate prompts and malformed MCQ answer keys. This

@@ -549,8 +549,15 @@ export function SubjectToggle({
  * surrounding face: the web fonts carry no subscript characters, so stored ₂
  * would otherwise fall back to a system font mid-word.
  */
-export function SciText({ text }: { text: string | null | undefined }) {
-  const runs = useMemo(() => sciRuns(text ?? ""), [text]);
+export function SciText({
+  text,
+  context,
+}: {
+  text: string | null | undefined;
+  /** Text shown alongside (a question beside its options), so they are all written alike. */
+  context?: string;
+}) {
+  const runs = useMemo(() => sciRuns(text ?? "", context), [text, context]);
   return (
     <>
       {runs.map((r, i) =>

@@ -17,14 +17,17 @@ import { toSciNotation, toggleScript } from "@/lib/platform/sciNotation";
 export function SciAnswerBox({
   value,
   onValueChange,
+  context = "",
   className,
   ...rest
 }: {
   value: string;
   onValueChange: (value: string) => void;
+  /** The question being answered, read for clues: see `toSciNotation`. */
+  context?: string;
 } & Omit<TextareaHTMLAttributes<HTMLTextAreaElement>, "value" | "onChange">) {
   const ref = useRef<HTMLTextAreaElement>(null);
-  const read = useMemo(() => recognised(value), [value]);
+  const read = useMemo(() => recognised(value, context), [value, context]);
 
   const press = (kind: "sub" | "sup") => {
     const box = ref.current;
@@ -50,7 +53,7 @@ export function SciAnswerBox({
       <div className="flex flex-wrap items-center gap-1.5">
         {read.map((t) => (
           <span key={t} className="chip">
-            <SciText text={t} />
+            <SciText text={t} context={context} />
           </span>
         ))}
         <span className="ml-auto flex gap-1.5">
@@ -76,13 +79,13 @@ export function SciAnswerBox({
 }
 
 /** The words the box will show differently (H2O -> H₂O), each once, at most six. */
-function recognised(text: string): string[] {
+function recognised(text: string, context: string): string[] {
   const out = new Set<string>();
   const trim = (w: string) => w.replace(/^[("'[]+|[)"'\],.;:!?]+$/g, "");
   const words = text.split(/\s+/);
-  let formatted = toSciNotation(text).split(/\s+/);
+  let formatted = toSciNotation(text, context).split(/\s+/);
   // An arrow typed as "->" gains spaces; read word by word instead.
-  if (words.length !== formatted.length) formatted = words.map(toSciNotation);
+  if (words.length !== formatted.length) formatted = words.map((w) => toSciNotation(w, context));
   words.forEach((w, i) => {
     const f = trim(formatted[i]);
     if (f && trim(w) !== f) out.add(f);

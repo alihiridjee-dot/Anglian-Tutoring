@@ -17,7 +17,9 @@
  * - a formula is made only of real element symbols ("KS3" and "AO1" are not);
  * - a small 1 is never written, so "H1N1" and "F1" are labels, not formulas;
  * - one element with a number ("B2", "Y11") is a formula only when it is a
- *   real molecule (Cl₂, O₂, C₆₀);
+ *   real molecule (Cl₂, O₂, C₆₀), or when the element is plainly being used
+ *   as chemistry nearby: beside Cl₂, the wrong answer "Cl3" reads Cl₃ too, so
+ *   the options don't give the right one away;
  * - lower-case text ("x2", "v2") is algebra or a label, so it needs a ^ to
  *   become a power.
  */
@@ -137,7 +139,14 @@ const charge = (digits: string, sign: string) => toSup(digits + (sign === "+" ? 
  * One formula-shaped token, with the charge sign typed straight after it if
  * there is one. Returns the token unchanged when it is not a formula.
  */
-function formatToken(token: string, sign: string, labels: Set<string>): string {
+type Clues = {
+  /** Letters used as numbered labels (F1 and F2), never formulas. */
+  labels: Set<string>;
+  /** Elements written in a formula or ion somewhere nearby. */
+  chemical: Set<string>;
+};
+
+function formatToken(token: string, sign: string, clues: Clues, seen?: Set<string>): string {
   if (NOT_FORMULAS.test(token)) return token + sign;
   // Brackets around the formula, not part of it: "(NH3,", "CO2)", "[Fe2O3]".
   const opens = (t: string) => (t.match(/[([]/g) ?? []).length;
@@ -192,7 +201,8 @@ function formatToken(token: string, sign: string, labels: Set<string>): string {
     if (single) {
       // Mg2+, O2-, Na+: the figures are the charge.
       if (trail.length > 1 || trail === "0" || trail === "1") return token + sign;
-      if (!trail && !SIMPLE_IONS.has(base)) return token + sign;
+      if (!trail && !SIMPLE_IONS.has(base) && !clues.chemical.has(base)) return token + sign;
+      seen?.add(base);
       return whole(base + charge(trail, sign));
     }
     // NO3-, NH4+, OH-: the figures are a count, the sign the charge.
@@ -205,15 +215,19 @@ function formatToken(token: string, sign: string, labels: Set<string>): string {
     }
     const f = parseFormula(base + count);
     if (!f) return token + sign;
+    f.elements.forEach((e) => seen?.add(e));
     return whole(f.out + charge(size, sign));
   }
 
   const f = parseFormula(core);
   if (!f || f.counts === 0) return token;
   if (f.elements.size === 1 && !f.brackets) {
+    const [el] = f.elements;
     // F2 beside F1 is the second of two labels, not fluorine.
-    if (!MOLECULES.has(core) || labels.has([...f.elements][0])) return token;
+    if (clues.labels.has(el)) return token;
+    if (!MOLECULES.has(core) && !clues.chemical.has(el)) return token;
   }
+  f.elements.forEach((e) => seen?.add(e));
   return whole(f.out);
 }
 
@@ -221,8 +235,33 @@ const UNIT_ROOTS = "kg|g|mg|mol|m|cm|dm|mm|km|nm|μm|s|K|J|kJ|N|W|Pa|h|C|V|A|Hz"
 const LENGTHS = "m|cm|dm|mm|km|nm|μm";
 const SIGN = "[−–-]";
 
-/** Rewrites typed notation (H2O, Mg2+, cm3, 10^-3) into its proper form. Safe to run twice. */
-export function toSciNotation(text: string): string {
+const FORMULA_TOKEN = /(?<![A-Za-z0-9])([A-Za-z0-9()[\]]+)([+−–-]?)(?![A-Za-z0-9])/g;
+
+/** What the text around a formula says about it: see `Clues`. */
+function cluesFrom(text: string): Clues {
+  const labels = new Set(
+    [...text.matchAll(/(?<![A-Za-z0-9])([A-Z][a-z]?)1(?![A-Za-z0-9])/g)].map((m) => m[1]),
+  );
+  // Already written properly (Cl₂, Fe³⁺), or typed in a formula we are sure of.
+  const chemical = new Set(
+    [...text.matchAll(/([A-Z][a-z]?)[₀-₉⁰¹²³⁴-⁹⁺⁻]/g)]
+      .map((m) => m[1])
+      .filter((e) => ELEMENTS.has(e)),
+  );
+  const sure: Clues = { labels, chemical: new Set() };
+  for (const m of text.matchAll(FORMULA_TOKEN))
+    if (/[A-Z]/.test(m[1])) formatToken(m[1], m[2], sure, chemical);
+  return { labels, chemical };
+}
+
+/**
+ * Rewrites typed notation (H2O, Mg2+, cm3, 10^-3) into its proper form. Safe
+ * to run twice.
+ *
+ * `context` is text shown alongside (a question beside its options), read
+ * only for clues: see `toSciNotationTogether`.
+ */
+export function toSciNotation(text: string, context = ""): string {
   if (!text) return text;
   let s = text;
 
@@ -239,17 +278,12 @@ export function toSciNotation(text: string): string {
   );
 
   // Formulas, ions and electrons.
-  const labels = new Set(
-    [...s.matchAll(/(?<![A-Za-z0-9])([A-Z][a-z]?)1(?![A-Za-z0-9])/g)].map((m) => m[1]),
-  );
-  s = s.replace(
-    /(?<![A-Za-z0-9])([A-Za-z0-9()[\]]+)([+−–-]?)(?![A-Za-z0-9])/g,
-    (m, token: string, sign: string) => {
-      if (/^\d*e$/.test(token) && sign && sign !== "+") return token + toSup("-");
-      if (!/[A-Z]/.test(token)) return m;
-      return formatToken(token, sign, labels);
-    },
-  );
+  const clues = cluesFrom(context ? `${s}\n${context}` : s);
+  s = s.replace(FORMULA_TOKEN, (m, token: string, sign: string) => {
+    if (/^\d*e$/.test(token) && sign && sign !== "+") return token + toSup("-");
+    if (!/[A-Z]/.test(token)) return m;
+    return formatToken(token, sign, clues);
+  });
 
   // Units. cm3 and dm3 are never anything else.
   s = s.replace(
@@ -280,6 +314,16 @@ export function toSciNotation(text: string): string {
   return s;
 }
 
+/**
+ * Texts shown together (a question, its options and explanation) in proper
+ * notation, each read with the others as context, so every option is
+ * written the same way.
+ */
+export function toSciNotationTogether(texts: string[]): string[] {
+  const all = texts.join("\n");
+  return texts.map((t) => toSciNotation(t, all));
+}
+
 export type SciRun = { text: string; kind: "text" | "sub" | "sup" };
 
 /**
@@ -287,9 +331,9 @@ export type SciRun = { text: string; kind: "text" | "sub" | "sup" };
  * ordinary characters, so the page can draw the small ones in the site's own
  * font (the web fonts carry no subscript figures).
  */
-export function sciRuns(text: string): SciRun[] {
+export function sciRuns(text: string, context = ""): SciRun[] {
   const runs: SciRun[] = [];
-  for (const ch of toSciNotation(text ?? "")) {
+  for (const ch of toSciNotation(text ?? "", context)) {
     const kind = SUB_CHARS.has(ch) ? "sub" : SUP_CHARS.has(ch) ? "sup" : "text";
     const plain = kind === "text" ? ch : PLAIN[ch];
     const last = runs[runs.length - 1];
