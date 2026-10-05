@@ -268,6 +268,9 @@ export function useInvalidateHomework() {
   const queryClient = useQueryClient();
   return useCallback(() => {
     queryClient.invalidateQueries({ queryKey: HOMEWORK_KEY });
+    // A hand-in is what ticks its point on the weekly task list (the database
+    // sets the tick), so the planner has to read the week again too.
+    queryClient.invalidateQueries({ queryKey: ["planner"] });
   }, [queryClient]);
 }
 

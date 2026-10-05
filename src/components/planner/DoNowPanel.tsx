@@ -40,13 +40,13 @@ import { useSpecPointNotes, type SpecPointNote } from "@/hooks/data/useNotes";
  * The columns are also the answer to "what have I actually covered": a cell is
  * either something to press, a mark, or an honest dash. Nothing is implied.
  *
- * The tick is the student's own mark and nothing else sets it. Coverage knows
- * when homework was handed in and when a quiz was scored, but a week is mostly
- * work that leaves no trace — watching the video, reading the spec point, doing
- * the questions on paper — and a box that only half-fills itself is worse than
- * one the student owns outright. Coverage is still read, but only inside a cell:
- * a homework that has come back marked shows its mark instead of asking the
- * student to start work they have already handed in.
+ * The tick is earned, not claimed. On a point with a quiz or a task the
+ * database sets it (20261005190000): once every quiz and task on the point has
+ * been attempted that week, and never by hand, because a ticked point leaves
+ * the student's programme for good. Only a point with no practice on it yet
+ * keeps a box the student ticks themselves. Coverage is also read inside a
+ * cell: a homework that has come back marked shows its mark instead of asking
+ * the student to start work they have already handed in.
  */
 
 /** The row's shape: the spec point takes the slack, the four cells are fixed. */
@@ -167,25 +167,49 @@ function ChecklistRow({
   onPlay: (item: PointWorkItem) => void;
 }) {
   const done = !!point.done_at;
+  // What the database waits for before it ticks this point. Empty means no
+  // practice is attached yet, and the box is still the student's own.
+  const earnedBy = [
+    work?.quizzes.length ? "the quiz" : null,
+    work?.homework.length ? "the task" : null,
+  ].filter(Boolean);
+  const icon = done ? <CheckCircle2 className="w-5 h-5" /> : <Circle className="w-5 h-5" />;
 
   return (
     <li className={`${GRID} sm:items-center premium-card planner-point-row px-2.5 py-2`}>
       <div className="flex items-center gap-2 min-w-0">
-        <button
-          type="button"
-          role="checkbox"
-          aria-checked={done}
-          aria-label={`${done ? "Untick" : "Tick off"} ${point.code} ${point.title}`}
-          disabled={!editable}
-          onClick={() => onToggle(point.spec_point_id, !done)}
-          className={`tap-target shrink-0 transition ${
-            done
-              ? "text-[color:var(--tint)]"
-              : "text-muted-foreground/40 hover:text-[color:var(--tint)]"
-          } ${editable ? "" : "cursor-default"}`}
-        >
-          {done ? <CheckCircle2 className="w-5 h-5" /> : <Circle className="w-5 h-5" />}
-        </button>
+        {earnedBy.length > 0 ? (
+          <span
+            role="checkbox"
+            aria-checked={done}
+            aria-readonly
+            aria-label={`${point.code} ${point.title}: ${
+              done ? "done" : `ticks itself once you attempt ${earnedBy.join(" and ")}`
+            }`}
+            title={done ? "Done" : `Ticks itself once you attempt ${earnedBy.join(" and ")}`}
+            className={`tap-target shrink-0 ${
+              done ? "text-[color:var(--tint)]" : "text-muted-foreground/40"
+            }`}
+          >
+            {icon}
+          </span>
+        ) : (
+          <button
+            type="button"
+            role="checkbox"
+            aria-checked={done}
+            aria-label={`${done ? "Untick" : "Tick off"} ${point.code} ${point.title}`}
+            disabled={!editable}
+            onClick={() => onToggle(point.spec_point_id, !done)}
+            className={`tap-target shrink-0 transition ${
+              done
+                ? "text-[color:var(--tint)]"
+                : "text-muted-foreground/40 hover:text-[color:var(--tint)]"
+            } ${editable ? "" : "cursor-default"}`}
+          >
+            {icon}
+          </button>
+        )}
 
         <div className={`min-w-0 ${done ? "opacity-50" : ""}`}>
           <span className="text-[11px] font-semibold text-muted-foreground mr-1.5">
