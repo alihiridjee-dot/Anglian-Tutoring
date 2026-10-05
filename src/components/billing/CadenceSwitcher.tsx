@@ -13,6 +13,7 @@ import {
 } from "@/lib/billing/entitlements";
 import { CadenceChangeDialog } from "@/components/billing/CadenceChangeDialog";
 import { TrialCodeField } from "@/components/billing/TrialCodeField";
+import { SectionHeading } from "@/components/Shared";
 import { readTrialCode } from "@/lib/billing/trialCode";
 
 interface CadenceSwitcherProps {
@@ -44,7 +45,7 @@ interface CadenceSwitcherProps {
  *
  * This replaces a nine-card grid (three cadences × three subject counts) that
  * conflated two unrelated decisions. Coverage is owned by EnrolledSubjectsCard
- * and AddSubjectCard, which ask which subjects and enrol properly; all that's
+ * and AddSubjectTiles, which ask which subjects and enrol properly; all that's
  * left here is the rhythm, so it collapses to three rows priced at whatever the
  * student actually studies.
  *
@@ -121,20 +122,14 @@ export function CadenceSwitcher({
   };
 
   return (
-    <div className="rounded-2xl premium-card p-4 sm:p-6">
-      <h3 className="font-display text-lg font-bold">
-        {currentTier ? "How often you pay" : "Choose how often you pay"}
-      </h3>
-      <p className="text-sm text-muted-foreground mt-0.5">
-        Same {count === 1 ? "subject" : `${count} subjects`}, same tutoring — pay less by committing
-        for longer. {currentTier && "Switching is prorated, never a fresh charge."}
-      </p>
+    <section>
+      <SectionHeading title={currentTier ? "How often you pay" : "Choose how often you pay"} />
 
       {!currentTier && canManage && !hadPlan && (
         <TrialCodeField value={trialCode} onChange={setTrialCode} />
       )}
 
-      <div className="mt-4 space-y-2">
+      <div className="mt-3 grid gap-3 sm:grid-cols-3">
         {CADENCES.map((c) => {
           const pkg = pkgFor(c.key);
           if (!pkg) return null;
@@ -148,52 +143,43 @@ export function CadenceSwitcher({
           return (
             <div
               key={c.key}
-              className={`flex items-center justify-between gap-3 rounded-xl border p-4 transition ${
-                isCurrent ? "border-primary bg-primary/5" : "border-border"
+              className={`pop-card flex flex-col gap-2 p-4 sm:p-5 ${
+                isCurrent ? "pop-card-hero tint-primary" : ""
               }`}
             >
-              <div className="min-w-0">
-                <div className="flex items-center gap-2 flex-wrap">
-                  <span className="font-semibold text-sm">{c.label}</span>
-                  {isCurrent && (
-                    <span className="text-[10px] px-2 py-0.5 rounded-full bg-primary text-primary-foreground uppercase tracking-wider font-bold">
-                      Current
-                    </span>
-                  )}
-                  {saving > 0 && !isCurrent && (
-                    <span className="text-[10px] px-2 py-0.5 rounded-full bg-emerald-50 text-emerald-700 border border-emerald-200 uppercase tracking-wider font-bold">
-                      Save {saving}%
-                    </span>
-                  )}
-                </div>
-                <div className="font-display text-xl font-bold mt-0.5">
-                  {formatPence(pkg.price_pence)}
-                  <span className="text-xs font-medium text-muted-foreground">
-                    {" "}
-                    {billingIntervalLabel(pkg.billing_interval)}
-                  </span>
-                </div>
-                {each != null && c.key !== "weekly" && (
-                  <div className="text-[11px] text-muted-foreground">
-                    ≈ {formatPence(Math.round(each))} a week
-                  </div>
+              <div className="flex flex-wrap items-center gap-2">
+                <h3 className="text-lg font-bold">{c.label}</h3>
+                {isCurrent && (
+                  <span className="chip chip-solid tint-primary uppercase">Current</span>
+                )}
+                {saving > 0 && !isCurrent && (
+                  <span className="chip tint-emerald uppercase">Save {saving}%</span>
                 )}
               </div>
+              <p className="numeral text-2xl">
+                {formatPence(pkg.price_pence)}{" "}
+                <span className="text-base">{billingIntervalLabel(pkg.billing_interval)}</span>
+              </p>
+              {each != null && c.key !== "weekly" && (
+                <p className="text-sm font-semibold">≈ {formatPence(Math.round(each))} a week</p>
+              )}
 
-              {isCurrent ? (
-                <span className="inline-flex items-center gap-1.5 text-sm font-semibold text-primary shrink-0">
-                  <Check className="w-4 h-4" /> Active
-                </span>
-              ) : canManage ? (
-                <button
-                  onClick={() => (currentTier ? setPending(c.key) : buy(c.key))}
-                  disabled={buying !== null || change.isPending}
-                  className="h-11 sm:pointer-fine:h-9 px-3.5 rounded-lg btn-solid text-sm font-semibold hover:opacity-90 disabled:opacity-50 shrink-0 inline-flex items-center gap-1.5"
-                >
-                  {buying === c.key && <Loader2 className="w-4 h-4 animate-spin" />}
-                  {currentTier ? "Switch" : "Choose"}
-                </button>
-              ) : null}
+              <div className="mt-auto pt-2">
+                {isCurrent ? (
+                  <span className="inline-flex items-center gap-1.5 text-sm font-bold text-[color:var(--tint)]">
+                    <Check className="size-4" aria-hidden /> Your plan
+                  </span>
+                ) : canManage ? (
+                  <button
+                    onClick={() => (currentTier ? setPending(c.key) : buy(c.key))}
+                    disabled={buying !== null || change.isPending}
+                    className="btn-solid inline-flex h-11 items-center gap-1.5 rounded-lg px-3.5 text-sm sm:pointer-fine:h-9"
+                  >
+                    {buying === c.key && <Loader2 className="size-4 animate-spin" aria-hidden />}
+                    {currentTier ? "Switch" : "Choose"}
+                  </button>
+                ) : null}
+              </div>
             </div>
           );
         })}
@@ -211,6 +197,6 @@ export function CadenceSwitcher({
           onClose={() => setPending(null)}
         />
       )}
-    </div>
+    </section>
   );
 }

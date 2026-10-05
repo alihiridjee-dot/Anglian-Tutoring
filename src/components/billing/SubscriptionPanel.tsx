@@ -1,9 +1,9 @@
 import { useState } from "react";
 import { ExternalLink, Loader2, PlayCircle, ShieldCheck } from "lucide-react";
+import { CourseChip } from "@/components/CourseBadge";
 import { toast } from "sonner";
 import {
   isPaymentOverdue,
-  isPlanChangeable,
   isResumable,
   isSubscriptionLive,
   openBillingPortal,
@@ -21,9 +21,9 @@ interface SubscriptionPanelProps {
   planName: string;
   /**
    * Whether the signed-in user may manage the plan's lifecycle (resume here;
-   * pause and cancel in PlanLifecycleActions). True for the PAYER — always, since nobody may be charged with no
-   * way to stop — and for a linked parent of the student. False only for a
-   * student on a plan someone else pays for.
+   * pause and cancel in PlanLifecycleActions). True for the PAYER — always,
+   * since nobody may be charged with no way to stop — and for a linked parent of
+   * the student. False only for a student on a plan someone else pays for.
    */
   canManage: boolean;
   /**
@@ -50,16 +50,11 @@ interface SubscriptionPanelProps {
    */
   course?: CourseSummary;
   /**
-   * Whether the viewer may move a subject to a different board. Student-only:
-   * RLS lets nobody but the student write their own enrolment rows. When set,
-   * the board tile offers a jump to the controls in EnrolledSubjectsCard.
+   * Show the subjects as chips. Only where no Subjects block follows — the
+   * tutor's record page, or an overdue plan — since that block is the better
+   * home for them everywhere else.
    */
-  canChangeBoard?: boolean;
-  /**
-   * DOM id of the matching EnrolledSubjectsCard, for the board and subjects
-   * jumps. Per-child on the parent tab, which renders several.
-   */
-  subjectsAnchorId?: string;
+  showSubjects?: boolean;
 }
 
 const STATUS_LABELS: Record<string, string> = {
@@ -79,12 +74,12 @@ function statusTint(status: string) {
 }
 
 /**
- * What one subscription is: name, status, price, the course and billing facts,
- * plus Resume and the Stripe billing portal.
+ * What one subscription is, as tiles: a header tile with the name, status,
+ * price and course, then Next bill, Paid by and (for the payer) Card &
+ * invoices. Resume sits in the header tile when the plan is paused.
  *
  * Pause and cancel are deliberately not here. They live in
- * PlanLifecycleActions, which each page puts at the very bottom, under the
- * subjects, the add-subject card and the invoices.
+ * PlanLifecycleActions, which each page puts at the very bottom.
  *
  * Rendered on the student billing page (own plan) and on the parent billing tab
  * (one per linked child). Authority is enforced server-side too — this component
@@ -99,8 +94,7 @@ export function SubscriptionPanel({
   payerLabel,
   priceLabel,
   course,
-  canChangeBoard = false,
-  subjectsAnchorId = "subjects",
+  showSubjects = false,
 }: SubscriptionPanelProps) {
   const manage = useManageSubscription();
   const [portalBusy, setPortalBusy] = useState(false);
@@ -109,16 +103,14 @@ export function SubscriptionPanel({
 
   const paused = sub.status === "paused";
   const endsAt = sub.current_period_end ? new Date(sub.current_period_end) : null;
-  const endsAtLabel = endsAt?.toLocaleDateString("en-GB", {
+  // Short enough to sit large in a tile; the year only when it isn't this one.
+  const endsAtShort = endsAt?.toLocaleDateString("en-GB", {
     day: "numeric",
-    month: "long",
-    year: "numeric",
+    month: "short",
+    ...(endsAt.getFullYear() !== new Date().getFullYear() && { year: "numeric" }),
   });
   // Controls only make sense against a real Stripe subscription.
   const manageable = canManage && !!sub.stripe_subscription_id;
-  // Subjects only change on a live plan that isn't cancelling; the server
-  // refuses the rest, so nothing here points there.
-  const changeable = isPlanChangeable(sub);
 
   const resume = () => {
     manage.mutate(
@@ -130,97 +122,99 @@ export function SubscriptionPanel({
     );
   };
 
-  // EnrolledSubjectsCard owns the board and subject controls, and renders under
-  // #subjects on both personas' pages.
-  const goToSubjects = () => {
-    document
-      .getElementById(subjectsAnchorId)
-      ?.scrollIntoView({ behavior: "smooth", block: "start" });
+  const openPortal = async () => {
+    setPortalBusy(true);
+    try {
+      await openBillingPortal(returnTo);
+    } catch (err) {
+      toast.error(err instanceof Error ? err.message : "Couldn't open the billing portal.");
+      setPortalBusy(false);
+    }
   };
 
   return (
     <div>
-      <div className="flex items-center gap-2 flex-wrap">
-        <p className="font-display text-lg font-bold">{planName}</p>
-        <span className={`chip ${statusTint(sub.status)} text-[10px] uppercase tracking-wider`}>
-          {STATUS_LABELS[sub.status] ?? sub.status}
-        </span>
+      <div className="pop-card p-4 sm:p-5">
+        <div className="flex flex-wrap items-start justify-between gap-3">
+          <div className="min-w-0">
+            <div className="flex flex-wrap items-center gap-2">
+              <p className="font-display text-lg font-bold">{planName}</p>
+              <span className={`chip ${statusTint(sub.status)} uppercase`}>
+                {STATUS_LABELS[sub.status] ?? sub.status}
+              </span>
+            </div>
+            {priceLabel && <p className="numeral mt-1 text-3xl">{priceLabel}</p>}
+            {course?.levelLabel && (
+              <CourseChip
+                icon
+                className="mt-3"
+                parts={[course.levelLabel, course.mixedBoards ? null : course.boardSummary]}
+              />
+            )}
+          </div>
+          {manageable && isResumable(sub) && (
+            <button
+              type="button"
+              onClick={resume}
+              disabled={manage.isPending}
+              className="btn-solid inline-flex h-11 shrink-0 items-center gap-1.5 rounded-lg px-3.5 text-sm sm:pointer-fine:h-9"
+            >
+              {manage.isPending ? (
+                <Loader2 className="size-4 animate-spin" aria-hidden />
+              ) : (
+                <PlayCircle className="size-4" aria-hidden />
+              )}
+              Resume plan
+            </button>
+          )}
+        </div>
       </div>
-
-      {priceLabel && <p className="font-display text-2xl font-bold mt-1">{priceLabel}</p>}
 
       {/* A failed card is fixed in the portal, by whoever owns the card — say
           which, so nobody reaches for the shop instead. */}
       {isPaymentOverdue(sub.status) && (
-        <div className="tint-rose pop-card mt-4 flex items-start gap-3 p-4 text-sm">
+        <div className="tint-rose pop-card mt-3 flex items-start gap-3 p-4 text-sm">
           <span className="icon-tile size-8 shrink-0 text-base font-black">!</span>
           <div className="min-w-0 flex-1">
             <p className="font-display font-bold text-[color:var(--tint)]">
               The last payment didn&apos;t go through
             </p>
-            <p className="text-muted-foreground mt-0.5 leading-relaxed">
+            <p className="mt-0.5 leading-relaxed">
               {isPayer
-                ? "Update the card under Card & invoices below and Stripe will take the payment again."
+                ? "Update the card under Card & invoices and Stripe will take the payment again."
                 : `Ask ${payerLabel ?? "whoever pays for this plan"} to update the card from their own Billing tab.`}
             </p>
           </div>
         </div>
       )}
 
-      {/* What the plan teaches, when it next bills and who pays — one row of
-          chips, then the subjects, then the two controls that change them. */}
       <PlanFacts
-        course={course}
         payerLabel={payerLabel}
         billingLabel={sub.cancel_at_period_end ? "Access ends" : paused ? "Was due" : "Next bill"}
-        billingValue={endsAtLabel}
-        onChangeBoard={canChangeBoard ? goToSubjects : undefined}
-        onManageSubjects={canManage && changeable ? goToSubjects : undefined}
-      />
-
-      {manageable && (
-        <div className="mt-4 flex flex-wrap gap-2">
-          {isResumable(sub) && (
+        billingValue={endsAtShort}
+        subjectsCourse={showSubjects ? course : undefined}
+        extraTile={
+          manageable && isPayer ? (
             <button
-              onClick={resume}
-              disabled={manage.isPending}
-              className="inline-flex items-center gap-1.5 h-11 sm:pointer-fine:h-9 px-3.5 rounded-lg btn-solid text-sm font-semibold hover:opacity-90 disabled:opacity-50"
-            >
-              {manage.isPending ? (
-                <Loader2 className="w-4 h-4 animate-spin" />
-              ) : (
-                <PlayCircle className="w-4 h-4" />
-              )}
-              Resume plan
-            </button>
-          )}
-
-          {isPayer && (
-            <button
-              onClick={async () => {
-                setPortalBusy(true);
-                try {
-                  await openBillingPortal(returnTo);
-                } catch (err) {
-                  toast.error(
-                    err instanceof Error ? err.message : "Couldn't open the billing portal.",
-                  );
-                  setPortalBusy(false);
-                }
-              }}
+              type="button"
+              onClick={() => void openPortal()}
               disabled={portalBusy}
-              className="inline-flex items-center gap-1.5 h-11 sm:pointer-fine:h-9 px-3.5 rounded-lg border border-border text-sm font-semibold hover:bg-muted disabled:opacity-50"
+              className="pop-card pop-card-interactive col-span-2 flex flex-col items-start justify-between gap-3 p-4 text-left disabled:opacity-50 sm:col-span-1 sm:p-5"
             >
-              {portalBusy ? (
-                <Loader2 className="w-4 h-4 animate-spin" />
-              ) : (
-                <ShieldCheck className="w-4 h-4" />
-              )}
-              Card &amp; invoices <ExternalLink className="w-3.5 h-3.5" />
+              <span className="icon-tile size-8">
+                {portalBusy ? (
+                  <Loader2 className="size-4 animate-spin" aria-hidden />
+                ) : (
+                  <ShieldCheck className="size-4" aria-hidden />
+                )}
+              </span>
+              <span className="font-display inline-flex items-center gap-1.5 text-lg font-bold">
+                Card &amp; invoices <ExternalLink className="size-4" aria-hidden />
+              </span>
             </button>
-          )}
-        </div>
-      )}
+          ) : undefined
+        }
+      />
     </div>
   );
 }

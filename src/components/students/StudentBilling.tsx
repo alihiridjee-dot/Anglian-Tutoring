@@ -64,6 +64,8 @@ export function StudentBilling({ record, name }: { record: StudentRecord; name: 
           payerLabel={payerLabel}
           priceLabel={priceLabel}
           course={course}
+          // No Subjects block on the record page, so the plan names them.
+          showSubjects
         />
       ) : (
         <EmptyState

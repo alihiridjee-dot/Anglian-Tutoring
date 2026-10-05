@@ -1,7 +1,7 @@
 import { useMemo } from "react";
 import { useQuery } from "@tanstack/react-query";
 import { CreditCard } from "lucide-react";
-import { ErrorNote, Spinner } from "@/components/Shared";
+import { ErrorNote, SectionHeading, Spinner } from "@/components/Shared";
 import { PaymentPending } from "@/components/billing/PaymentPending";
 import { supabase } from "@/integrations/supabase/client";
 import { useChildLinks } from "@/hooks/data/useParentLinks";
@@ -25,7 +25,7 @@ import {
 import { CadenceSwitcher } from "@/components/billing/CadenceSwitcher";
 import { SubscriptionPanel } from "@/components/billing/SubscriptionPanel";
 import { PlanLifecycleActions } from "@/components/billing/PlanLifecycleActions";
-import { AddSubjectCard } from "@/components/billing/AddSubjectCard";
+import { AddSubjectTiles } from "@/components/billing/AddSubjectCard";
 import { EnrolledSubjectsCard } from "@/components/billing/EnrolledSubjectsCard";
 import { InvoiceHistoryCard } from "@/components/billing/InvoiceHistory";
 import { resolveDisplayName } from "@/lib/profile/displayName";
@@ -106,12 +106,13 @@ function ChildPlan({
           // checking the plan should be able to catch a wrong board too, even
           // though only the child can write the change.
           course={course}
-          subjectsAnchorId={anchorId}
+          // A paused or ending plan has no Subjects block below to name them.
+          showSubjects={!changeable}
         />
       ) : null}
 
       {changeable && sub?.plan && (
-        <div className="mt-5 space-y-5">
+        <div className="mt-6">
           <EnrolledSubjectsCard
             studentId={studentId}
             currentTier={sub.plan}
@@ -120,20 +121,22 @@ function ChildPlan({
             canManage
             ownerLabel={childName}
             anchorId={anchorId}
-          />
-          <AddSubjectCard
-            studentId={studentId}
-            currentTier={sub.plan}
-            enrolledSubjects={enrolments.map((e) => e.subject)}
-            defaultBoard={enrolments[0]?.board}
-            ownerLabel={childName}
-            level={level}
+            extraTiles={
+              <AddSubjectTiles
+                studentId={studentId}
+                currentTier={sub.plan}
+                enrolledSubjects={enrolments.map((e) => e.subject)}
+                defaultBoard={enrolments[0]?.board}
+                ownerLabel={childName}
+                level={level}
+              />
+            }
           />
         </div>
       )}
 
       {(changeable || !sub) && (
-        <div className="mt-5">
+        <div className="mt-6">
           <CadenceSwitcher
             studentId={studentId}
             currentTier={sub?.plan ?? null}
@@ -148,7 +151,7 @@ function ChildPlan({
 
       {/* Pause and cancel come last, under everything else for this child. */}
       {sub && (
-        <div className="mt-5">
+        <div className="mt-6">
           <PlanLifecycleActions
             sub={sub}
             planName={planName}
@@ -231,21 +234,23 @@ export function ParentBillingSection({
       </div>
 
       {unlinkedPaid.length > 0 && (
-        <div className="space-y-6 mb-6">
+        <div className="space-y-10 mb-10">
           {unlinkedPaid.map((sub) => (
             // No name or course: the student removed this link, so all that is
             // shown is the plan on this parent's card and the controls for it.
-            <div key={sub.student_id} className="rounded-2xl premium-card p-4 sm:p-6">
-              <p className="eyebrow mb-3">A plan on your card</p>
-              <SubscriptionPanel
-                sub={sub}
-                planName={planLabel(sub.plan, resolvePackagesForLevel(allPackages, undefined))}
-                canManage
-                isPayer
-                returnTo="billing"
-                payerLabel="you"
-              />
-              <div className="mt-5">
+            <section key={sub.student_id}>
+              <SectionHeading title="A plan on your card" />
+              <div className="mt-3">
+                <SubscriptionPanel
+                  sub={sub}
+                  planName={planLabel(sub.plan, resolvePackagesForLevel(allPackages, undefined))}
+                  canManage
+                  isPayer
+                  returnTo="billing"
+                  payerLabel="you"
+                />
+              </div>
+              <div className="mt-6">
                 <PlanLifecycleActions
                   sub={sub}
                   planName={planLabel(sub.plan, resolvePackagesForLevel(allPackages, undefined))}
@@ -253,17 +258,17 @@ export function ParentBillingSection({
                   ownerLabel="this student"
                 />
               </div>
-            </div>
+            </section>
           ))}
         </div>
       )}
 
       {children.length === 0 ? (
-        <div className="rounded-2xl premium-card p-4 sm:p-6 text-sm text-muted-foreground">
+        <div className="pop-card p-4 sm:p-5 text-sm">
           Link to your child from their Settings page to pay for and manage their plan here.
         </div>
       ) : (
-        <div className="space-y-6">
+        <div className="space-y-10">
           {children.map((child) => {
             const sub = subs.find((s) => s.student_id === child.student_id) ?? null;
             // An overdue plan still needs its panel: the card-update button is
@@ -277,23 +282,16 @@ export function ParentBillingSection({
             const packages = resolvePackagesForLevel(allPackages, levels[child.student_id]);
 
             return (
-              <div
-                key={child.link_id}
-                className="relative overflow-hidden rounded-2xl border border-primary/30 bg-gradient-to-br from-primary/5 via-card to-card p-4 sm:p-6 shadow-sm"
-              >
-                {/* soft glow accent (matches Add-subject card) */}
-                <div className="pointer-events-none absolute -top-16 -right-16 h-40 w-40 rounded-full bg-primary/10 blur-3xl" />
-
-                <div className="relative">
-                  <p className="text-xs uppercase tracking-widest text-muted-foreground font-semibold mb-3">
-                    {childName}'s plan
-                  </p>
-
+              // A headed section per child, not a card: the plan, subjects
+              // and cadence inside are tiles already.
+              <section key={child.link_id}>
+                <SectionHeading title={`${childName}'s plan`} />
+                <div className="mt-3">
                   {!hasUsablePlan && awaitingPayment && (
                     <PaymentPending delayed={false} onRetry={() => undefined} />
                   )}
                   {!hasUsablePlan && !awaitingPayment && (
-                    <p className="text-sm text-muted-foreground mb-4">
+                    <p className="pop-card mb-4 p-4 text-sm sm:p-5">
                       {sub
                         ? "Their previous plan has ended. Pick how often you'd like to pay to restart their access."
                         : `${childName} doesn't have an active plan. Pick how often you'd like to pay — you'll use your own card and can manage it here.`}
@@ -313,7 +311,7 @@ export function ParentBillingSection({
                     />
                   )}
                 </div>
-              </div>
+              </section>
             );
           })}
 

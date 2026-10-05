@@ -1,6 +1,6 @@
 import { createFileRoute, Link, useNavigate } from "@tanstack/react-router";
-import { CreditCard, Info } from "lucide-react";
-import { ErrorNote, Spinner } from "@/components/Shared";
+import { Info } from "lucide-react";
+import { ErrorNote, SectionHeading, Spinner } from "@/components/Shared";
 import { AppLayout } from "@/components/AppLayout";
 import { useEnrolments } from "@/hooks/data/useEnrolments";
 import { useParentLinks } from "@/hooks/data/useParentLinks";
@@ -25,7 +25,7 @@ import { CadenceSwitcher } from "@/components/billing/CadenceSwitcher";
 import { SubscriptionPanel } from "@/components/billing/SubscriptionPanel";
 import { PlanLifecycleActions } from "@/components/billing/PlanLifecycleActions";
 import { InvoiceHistoryCard } from "@/components/billing/InvoiceHistory";
-import { AddSubjectCard } from "@/components/billing/AddSubjectCard";
+import { AddSubjectTiles } from "@/components/billing/AddSubjectCard";
 import { EnrolledSubjectsCard } from "@/components/billing/EnrolledSubjectsCard";
 import { ParentBillingSection } from "@/components/billing/ParentBillingSection";
 import { resolveDisplayName } from "@/lib/profile/displayName";
@@ -43,8 +43,8 @@ export const Route = createFileRoute("/_authenticated/billing")({
 /** The Stripe reassurance + back-link, shared by both persona views. */
 function StripeFooter() {
   return (
-    <div className="mt-8 rounded-2xl bg-primary/5 border border-primary/20 p-4 sm:p-6 text-sm">
-      <p className="text-muted-foreground">
+    <div className="mt-8 pop-card pop-card-flat p-4 sm:p-5 text-sm">
+      <p>
         Payments are handled by Stripe. Your card details go straight to them and are never seen or
         stored by Anglia Educate.
       </p>
@@ -56,10 +56,6 @@ function StripeFooter() {
       </Link>
     </div>
   );
-}
-
-function SectionHeading({ children }: { children: React.ReactNode }) {
-  return <h3 className="font-display text-lg font-bold mb-4">{children}</h3>;
 }
 
 /**
@@ -170,18 +166,12 @@ function BillingPage() {
   return (
     <AppLayout title="Billing">
       <div className="max-w-4xl">
-        <div className="relative overflow-hidden rounded-2xl border border-primary/30 bg-gradient-to-br from-primary/5 via-card to-card p-4 sm:p-6 mb-8 shadow-sm">
-          {/* soft glow accent */}
-          <div className="pointer-events-none absolute -top-16 -right-16 h-40 w-40 rounded-full bg-primary/10 blur-3xl" />
-
-          <div className="relative">
-            <div className="flex items-center gap-2 mb-3">
-              <div className="w-8 h-8 rounded-lg bg-primary/15 flex items-center justify-center">
-                <CreditCard className="w-4 h-4 text-primary" />
-              </div>
-              <h2 className="font-display text-xl font-bold">Current plan</h2>
-            </div>
-
+        {/* The page is a stack of headed sections, each a grid of tiles:
+            plan, subjects, how often you pay, payment history, and — last —
+            pause or cancel. */}
+        <section className="mb-8">
+          <SectionHeading title="Your plan" />
+          <div className="mt-3">
             {loading ? (
               <Spinner label="Loading" className="py-8" />
             ) : subsQuery.error ? (
@@ -200,18 +190,16 @@ function BillingPage() {
                   payerLabel={payerLabel}
                   priceLabel={priceLabel}
                   course={course}
-                  // The board is the student's own academic fact — theirs to set
-                  // even on a plan a parent pays for.
-                  canChangeBoard
+                  // An overdue plan has no Subjects block below to name them.
+                  showSubjects={paymentOverdue}
                 />
                 {!canManage && linksSettled && (
-                  <div className="mt-4 flex gap-2.5 rounded-xl border border-border bg-muted/40 p-3.5 text-sm text-muted-foreground">
-                    <Info className="w-4 h-4 shrink-0 mt-0.5" />
+                  <div className="pop-card pop-card-flat mt-3 flex gap-2.5 p-4 text-sm">
+                    <Info className="mt-0.5 size-4 shrink-0" aria-hidden />
                     <span>
-                      This plan is paid for by{" "}
-                      <strong className="text-foreground">{payerLabel}</strong>, so pausing,
-                      changing and cancelling it happen from their account. Ask them to open their
-                      own Billing tab — you'll see any change here straight away.
+                      This plan is paid for by <strong>{payerLabel}</strong>, so pausing, changing
+                      and cancelling it happen from their account. Ask them to open their own
+                      Billing tab — you'll see any change here straight away.
                     </span>
                   </div>
                 )}
@@ -219,27 +207,30 @@ function BillingPage() {
             ) : awaitingPayment ? (
               <PaymentPending delayed={payment.delayed} onRetry={payment.retry} />
             ) : (
-              <div>
-                <p className="text-muted-foreground">
+              <div className="pop-card p-4 sm:p-5">
+                <p>
                   You don't have an active plan yet. Pick one below to unlock lessons, quizzes, and
                   task marking.
                 </p>
                 {/* Still say what they'd be buying — the course is set at
                     signup and is the thing worth checking before paying. */}
                 {course.headline && (
-                  <p className="mt-2 text-sm text-muted-foreground">
-                    Set up for <strong className="text-foreground">{course.headline}</strong>
+                  <p className="mt-2 text-sm">
+                    Set up for <strong>{course.headline}</strong>
                     {subjectLabels.length > 0 && ` — ${subjectLabels.join(", ")}`}.
                   </p>
                 )}
               </div>
             )}
           </div>
-        </div>
+        </section>
 
-        {/* What the plan covers, and where a single subject comes off it. Sits
-            directly under the plan because "cancel Chemistry" is a far commoner
-            intent than "cancel everything" — and the cancel dialog links here. */}
+        {/* What the plan covers, where a single subject comes off it and where
+            one is added — one grid. Directly under the plan because "cancel
+            Chemistry" is a far commoner intent than "cancel everything", and
+            the cancel dialog links here. Any student can add a subject to their
+            own live plan, even when a parent holds the pause/cancel controls:
+            adding is additive growth, so it isn't gated like they are. */}
         {userId && hasUsablePlan && sub?.plan && (
           <div className="mb-8">
             <EnrolledSubjectsCard
@@ -249,21 +240,17 @@ function BillingPage() {
               level={level}
               canManage={canManage && changeable}
               canChangeBoard
-            />
-          </div>
-        )}
-
-        {/* Frictionless upgrade: any student can add a subject to their own live
-            plan — even when a parent holds the pause/cancel controls. Adding is
-            additive growth, so it isn't gated the way the lifecycle actions are. */}
-        {userId && changeable && sub?.plan && (
-          <div className="mb-8">
-            <AddSubjectCard
-              studentId={userId}
-              currentTier={sub.plan}
-              enrolledSubjects={enrolledCourses}
-              defaultBoard={enrolments[0]?.board}
-              level={level}
+              extraTiles={
+                changeable && (
+                  <AddSubjectTiles
+                    studentId={userId}
+                    currentTier={sub.plan}
+                    enrolledSubjects={enrolledCourses}
+                    defaultBoard={enrolments[0]?.board}
+                    level={level}
+                  />
+                )
+              }
             />
           </div>
         )}
@@ -296,14 +283,14 @@ function BillingPage() {
         {/* Shared household history: a student sees payments on their plan even
             when a linked parent's card was charged. Empty ("No payments yet")
             for a student with no plan and no linked payer. */}
-        <div className="mt-8">
+        <div className="mb-8">
           <InvoiceHistoryCard />
         </div>
 
         {/* Pause and cancel come last, under everything a family might want
             to do first. */}
         {(hasUsablePlan || paymentOverdue) && sub && (
-          <div className="mt-8">
+          <div className="mb-8">
             <PlanLifecycleActions
               sub={sub}
               planName={planName}

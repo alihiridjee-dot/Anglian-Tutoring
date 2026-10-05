@@ -1,69 +1,63 @@
-import { ArrowRight, CalendarClock, CreditCard } from "lucide-react";
+import { CalendarClock, CreditCard } from "lucide-react";
 import type { CourseSummary } from "@/lib/curriculum/courseSummary";
 import { SUBJECT_TINT } from "@/lib/curriculum/subjectTheme";
 import { CourseChip } from "@/components/CourseBadge";
+import { StatTile } from "@/components/Shared";
 
 interface PlanFactsProps {
-  /** Level + per-subject boards. Omitted while the enrolment is still loading. */
-  course?: CourseSummary;
-  /** Who the card belongs to — "you", "Mum". */
+  /** Who the card belongs to — "you", "Mum". Rendered capitalised. */
   payerLabel?: string;
   /** "Next bill" / "Access ends" / "Was due" — the shape of the date. */
   billingLabel?: string;
+  /** Short date, e.g. "22 Oct". */
   billingValue?: string;
-  /** Jump to the board controls. Omitted when the viewer can't change boards. */
-  onChangeBoard?: () => void;
-  /** Jump to the subjects card, where subjects are added and dropped. */
-  onManageSubjects?: () => void;
+  /** One more tile at the end of the row, e.g. the Card & invoices button. */
+  extraTile?: React.ReactNode;
+  /**
+   * Subject chips under the tiles. Only for views with no Subjects block of
+   * their own (the tutor's record page, an overdue plan) — elsewhere the
+   * Subjects block sits right below and says it better.
+   */
+  subjectsCourse?: CourseSummary;
 }
 
 /**
- * The plan's facts as chips: level and board, the billing date, who pays, then
- * one chip per subject, then the links that change the board and the subjects.
- *
- * Every chip is optional: a fact we don't know is simply absent. A student on
- * more than one board gets no board in the level chip — each subject chip names
- * its own board, which is the only honest way to show a mix.
+ * The plan's facts as a row of tiles: when it next bills, who pays, and
+ * whatever control the panel adds at the end. Every tile is optional: a fact we
+ * don't know is simply absent.
  */
 export function PlanFacts({
-  course,
   payerLabel,
   billingLabel = "Next bill",
   billingValue,
-  onChangeBoard,
-  onManageSubjects,
+  extraTile,
+  subjectsCourse,
 }: PlanFactsProps) {
-  const perSubject = course?.perSubject ?? [];
-  const showFacts = !!(course?.levelLabel || billingValue || payerLabel);
-  const showLinks = !!(onChangeBoard || onManageSubjects);
+  const perSubject = subjectsCourse?.perSubject ?? [];
+  const showTiles = !!(billingValue || payerLabel || extraTile);
 
-  if (!showFacts && perSubject.length === 0 && !showLinks) return null;
+  if (!showTiles && perSubject.length === 0) return null;
 
   return (
-    <div className="mt-4 space-y-3">
-      {showFacts && (
-        <div className="flex flex-wrap gap-2">
-          <CourseChip
-            icon
-            parts={[course?.levelLabel, course?.mixedBoards ? null : course?.boardSummary]}
-          />
+    <>
+      {showTiles && (
+        <div className="mt-3 grid grid-cols-2 gap-3 sm:grid-cols-3">
           {billingValue && (
-            <span className="chip tint-slate whitespace-nowrap">
-              <CalendarClock className="h-3.5 w-3.5 shrink-0" aria-hidden />
-              {billingLabel} {billingValue}
-            </span>
+            <StatTile label={billingLabel} value={billingValue} icon={CalendarClock} />
           )}
           {payerLabel && (
-            <span className="chip tint-slate whitespace-nowrap">
-              <CreditCard className="h-3.5 w-3.5 shrink-0" aria-hidden />
-              Paid by {payerLabel}
-            </span>
+            <StatTile
+              label="Paid by"
+              value={payerLabel.charAt(0).toUpperCase() + payerLabel.slice(1)}
+              icon={CreditCard}
+            />
           )}
+          {extraTile}
         </div>
       )}
 
       {perSubject.length > 0 && (
-        <div className="flex flex-wrap gap-1.5">
+        <div className="mt-3 flex flex-wrap gap-1.5">
           {perSubject.map((s) => (
             <CourseChip
               key={s.subject}
@@ -73,28 +67,6 @@ export function PlanFacts({
           ))}
         </div>
       )}
-
-      {showLinks && (
-        <div className="flex flex-wrap gap-x-5">
-          {onChangeBoard && <FactLink label="Change board" onClick={onChangeBoard} />}
-          {onManageSubjects && (
-            <FactLink label="Add or remove subjects" onClick={onManageSubjects} />
-          )}
-        </div>
-      )}
-    </div>
-  );
-}
-
-function FactLink({ label, onClick }: { label: string; onClick: () => void }) {
-  return (
-    <button
-      type="button"
-      onClick={onClick}
-      className="inline-flex min-h-11 items-center gap-1 text-sm font-bold text-primary hover:underline sm:pointer-fine:min-h-0"
-    >
-      {label}
-      <ArrowRight className="h-3.5 w-3.5" aria-hidden />
-    </button>
+    </>
   );
 }
