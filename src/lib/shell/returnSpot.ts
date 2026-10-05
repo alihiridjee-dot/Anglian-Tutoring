@@ -129,7 +129,21 @@ function markOf(target: EventTarget | null): Mark | null {
 
 function findMark(mark: Mark): HTMLElement | null {
   const found = twins(mark);
-  return (found[mark.nth] ?? found[0] ?? null) as HTMLElement | null;
+  const el = (found[mark.nth] ?? found[0] ?? null) as HTMLElement | null;
+  return el && clickArea(el);
+}
+
+/**
+ * What the student actually clicked. A stretched link — a name whose `::after`
+ * is laid over its whole row, as on the students roster — is the row it covers,
+ * not the few words that carry the href.
+ */
+function clickArea(el: HTMLElement): HTMLElement {
+  const after = getComputedStyle(el, "::after");
+  if (after.position !== "absolute" || after.content === "none") return el;
+  let box = el.parentElement;
+  while (box && getComputedStyle(box).position === "static") box = box.parentElement;
+  return box ?? el;
 }
 
 /**

@@ -7,6 +7,7 @@ import { ErrorNote, Spinner } from "@/components/Shared";
 import { HomeworkForm } from "@/components/tutor/HomeworkForm";
 import { deleteHomework } from "@/lib/homework/homework.functions";
 import { useHomeworkLibrary, useHomeworkLibraryCounts } from "@/hooks/data/useHomework";
+import { useEntryState } from "@/hooks/useEntryState";
 import { SUBJECT_LABEL } from "@/lib/curriculum/subjectTheme";
 import type { Homework, HomeworkOrigin } from "@/lib/homework/types";
 import { type SubjectV, type BoardV, type LevelV } from "@/lib/curriculum/taxonomy";
@@ -35,8 +36,9 @@ const FILTER_LABEL: Record<Filter, string> = {
 };
 
 export function HomeworkLibrary({ userId, onChanged }: { userId: string; onChanged: () => void }) {
-  const [open, setOpen] = useState(false);
-  const [filter, setFilter] = useState<Filter>("tutor");
+  // Kept with the visit, so Back from a sheet finds the library open on it.
+  const [open, setOpen] = useEntryState("library.open", false);
+  const [filter, setFilter] = useEntryState<Filter>("library.filter", "tutor");
 
   // Counted and paged on the server: there's a generated sheet for every spec
   // point, and one read of them all stopped at 1,000 rows (S-17b).
