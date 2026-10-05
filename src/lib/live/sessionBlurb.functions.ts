@@ -1,6 +1,7 @@
 import { createServerFn } from "@tanstack/react-start";
 import Anthropic from "@anthropic-ai/sdk";
-import { NO_THINKING, completeText } from "@/lib/platform/aiText";
+import { NOTATION_RULE, NO_THINKING, completeText } from "@/lib/platform/aiText";
+import { toSciNotation } from "@/lib/platform/sciNotation";
 import { requireSupabaseAuth } from "@/integrations/supabase/auth-middleware";
 import { requireTutorAi } from "@/lib/auth/tutorAi.server";
 
@@ -24,7 +25,8 @@ async function generateBlurb(input: {
 
   const system = `You are a friendly UK ${input.level.toUpperCase()} ${input.subject} tutor writing a one-line teaser for a live session, shown to a student on their dashboard.
 Write ONE short, inviting sentence (max ~20 words) that says what the session will cover, addressed to the student ("we'll…" / "you'll…").
-Warm and plain-English, no jargon dumps. Return ONLY the sentence, no preamble, no markdown, no quotes.`;
+Warm and plain-English, no jargon dumps. ${NOTATION_RULE}
+Return ONLY the sentence, no preamble, no markdown, no quotes.`;
 
   const user = `Session title: ${input.title || "(untitled)"}
 Subject: ${input.subject} · ${input.level}${input.board ? ` · ${input.board.toUpperCase()}` : ""}`;
@@ -45,7 +47,7 @@ Subject: ${input.subject} · ${input.level}${input.board ? ` · ${input.board.to
     throw new Error(`AI error: ${e instanceof Error ? e.message : String(e)}`);
   }
 
-  return completeText(res).trim();
+  return toSciNotation(completeText(res).trim());
 }
 
 /**

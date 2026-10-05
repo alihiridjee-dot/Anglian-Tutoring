@@ -1,7 +1,7 @@
 import { Award } from "lucide-react";
 import type { FeedbackItem } from "@/hooks/data/useChildProgress";
 import { subjectLabel, subjectTint } from "@/lib/curriculum/subjectTheme";
-import { SectionHeading } from "@/components/Shared";
+import { SciText, SectionHeading } from "@/components/Shared";
 
 function timeAgo(iso: string): string {
   const days = Math.floor((Date.now() - new Date(iso).getTime()) / 86_400_000);
@@ -44,7 +44,7 @@ export function FeedbackList({ items }: { items: FeedbackItem[] }) {
               <span className="text-muted-foreground shrink-0 text-xs">{timeAgo(f.gradedAt)}</span>
             </div>
             <p className="text-muted-foreground mt-2 text-sm leading-relaxed italic">
-              “{f.feedback}”
+              “<SciText text={f.feedback} />”
             </p>
             {(f.grade || f.scorePct != null) && (
               <div className="mt-3 flex flex-wrap gap-2">

@@ -15,6 +15,13 @@ import type Anthropic from "@anthropic-ai/sdk";
 export const NO_THINKING = { type: "between_tools" } as const;
 
 /**
+ * One line for any prompt whose reply a student or parent reads, so science
+ * in it arrives written properly. `toSciNotation` tidies whatever slips through.
+ */
+export const NOTATION_RULE =
+  "Write chemical formulas, ions, units and powers with Unicode subscripts and superscripts (H₂O, Mg²⁺, SO₄²⁻, cm³, 3 × 10⁸), never LaTeX, HTML or markdown.";
+
+/**
  * The text of a reply that finished on its own.
  *
  * Anything but "end_turn" (the token ceiling, a refusal) means the text is

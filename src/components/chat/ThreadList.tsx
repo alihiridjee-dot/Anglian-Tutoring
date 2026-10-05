@@ -2,6 +2,7 @@ import { useState } from "react";
 import { BookMarked, ChevronRight, ClipboardList, ListChecks, MessageSquare } from "lucide-react";
 import type { ChatContextKind } from "@/lib/chat/chatDal";
 import type { ThreadSummary } from "@/hooks/data/useChat";
+import { SciText } from "@/components/Shared";
 
 const CONTEXT_ICON: Record<ChatContextKind, typeof MessageSquare> = {
   spec_point: BookMarked,
@@ -145,7 +146,9 @@ function ThreadRows({ threads, selectedId, onSelect, showCounterpart }: Props) {
                     </div>
                   )}
                   {t.lastMessage && (
-                    <p className="mt-1 truncate text-xs text-muted-foreground">{t.lastMessage}</p>
+                    <p className="mt-1 truncate text-xs text-muted-foreground">
+                      <SciText text={t.lastMessage} />
+                    </p>
                   )}
                 </div>
               </div>
