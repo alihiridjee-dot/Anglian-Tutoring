@@ -586,21 +586,33 @@ export function SciText({
   context?: string;
 }) {
   const runs = useMemo(() => sciRuns(text ?? "", context), [text, context]);
-  return (
-    <>
-      {runs.map((r, i) =>
-        r.kind === "sub" ? (
-          <sub key={i} className="sci-sub">
-            {r.text}
-          </sub>
-        ) : r.kind === "sup" ? (
-          <sup key={i} className="sci-sup">
-            {r.text}
-          </sup>
-        ) : (
-          <Fragment key={i}>{r.text}</Fragment>
-        ),
-      )}
-    </>
-  );
+  const out: ReactNode[] = [];
+  for (let i = 0; i < runs.length; i++) {
+    const r = runs[i];
+    const below = runs[i + 1];
+    // A nuclide, ²³⁸₉₂U: mass number stacked over atomic number, in front of
+    // the symbol, as exam papers print it.
+    if (r.kind === "sup" && below?.kind === "sub" && /^[A-Z]/.test(runs[i + 2]?.text ?? "")) {
+      out.push(
+        <span key={i} className="sci-nuclide">
+          <sup>{r.text}</sup>
+          <sub>{below.text}</sub>
+        </span>,
+      );
+      i++;
+    } else if (r.kind === "sub")
+      out.push(
+        <sub key={i} className="sci-sub">
+          {r.text}
+        </sub>,
+      );
+    else if (r.kind === "sup")
+      out.push(
+        <sup key={i} className="sci-sup">
+          {r.text}
+        </sup>,
+      );
+    else out.push(<Fragment key={i}>{r.text}</Fragment>);
+  }
+  return <>{out}</>;
 }

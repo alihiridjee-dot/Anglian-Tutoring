@@ -748,6 +748,25 @@ a.when-link:hover .when-link-arrow {
 .sci-sup {
   bottom: 0.5em;
 }
+/* A nuclide's mass number over its atomic number (²³⁸₉₂U), right-aligned
+   against the symbol that follows. */
+.sci-nuclide {
+  display: inline-flex;
+  flex-direction: column;
+  align-items: flex-end;
+  /* The box sits on its top line's baseline: raised like a superscript, so
+     the bottom line falls where a subscript would, inside the line. */
+  vertical-align: 0.6em;
+  font-size: 0.58em;
+  line-height: 0.95;
+  margin-right: 0.08em;
+}
+.sci-nuclide > sup,
+.sci-nuclide > sub {
+  font-size: 1em;
+  line-height: inherit;
+  vertical-align: baseline;
+}
 
 /* ════════════════════════════════════════════════════════════════════════════
    NAV, BARS, INPUTS

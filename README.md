@@ -71,18 +71,28 @@ rule, so `tracking-widest` on a small uppercase label wins as intended.
 Formulas, ions, units and powers are stored as plain text with Unicode small
 figures (H₂O, Mg²⁺, cm³, 10⁻³), and `toSciNotation` in
 `src/lib/platform/sciNotation.ts` turns typed notation ("H2O", "Mg2+",
-"SO4^2-", "cm3") into that form. It only changes what it is sure of, so labels
-like AO1, KS4, H1N1, B2 and F1/F2 are left alone.
+"SO4^2-", "cm3", "CnH2n+2") into that form. It only changes what it is sure
+of, so labels and codes (AO1, KS4, H1N1, B2, F1/F2, P1V1, OCR C6.2b) are left
+alone, and "I2" is iodine only beside chemistry (in "I2 = P / R" it is a
+current squared). Its test file lists the cases; it has been run over every
+stored question, mark scheme, exemplar and note without losing a character.
 
 - Show any question, option, explanation, mark scheme, answer, feedback or
   note text through `SciText` (in `Shared.tsx`), never as a bare `{text}`. It
-  formats old text too, and draws the small figures in the site's face, which
-  the web fonts can't do for ₂ and ⁺. Pass `context` when texts sit together
-  (a question and its options), so a wrong option is written like the right one.
-- Take typed science through `SciAnswerBox` (`src/components/homework/`): it
-  shows how formulas will read, and has x₂ and x² buttons.
-- Generated questions are normalised before saving, and the generator and the
-  marker are both told the notation.
+  formats old text too, draws the small figures in the site's face (the web
+  fonts have no ₂ or ⁺), and stacks a nuclide's numbers (²³⁸₉₂U). Pass
+  `context` when texts sit together (a question and its options, an answer
+  and its question), so a wrong option is written like the right one.
+- Take typed science through `SciAnswerBox` (`src/components/homework/`):
+  answers, notes to the tutor, marking comments and feedback, task
+  instructions, question and mark-scheme boxes. It shows how formulas will
+  read, and its x₂ and x² buttons work as in a word processor: press, type,
+  press again (or type a space); with text selected, a press converts it.
+- Generated questions are normalised before saving, tutor-written ones on
+  save, and every prompt whose reply a student reads states the notation
+  (`NOTATION_RULE` in `src/lib/platform/aiText.ts`; the marker and generator
+  carry their own). The revision-note guides say it too, and
+  `scripts/notes/validate.ts` flags flat notation.
 
 ### Phones, either way up
 
