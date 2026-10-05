@@ -58,8 +58,9 @@ export const plannerDateLabel = (
   d: Date,
   options: Intl.DateTimeFormatOptions = { day: "numeric", month: "short" },
 ): string => d.toLocaleDateString("en-GB", { ...options, timeZone: PLANNER_TIME_ZONE });
-export function weekRangeLabel(monday: Date): string {
-  const sunday = sundayOf(monday);
+/** One week, or a run of weeks from `monday` to the Sunday after `lastMonday`. */
+export function weekRangeLabel(monday: Date, lastMonday: Date = monday): string {
+  const sunday = sundayOf(lastMonday);
   const start = toDateKey(monday),
     end = toDateKey(sunday);
   const day = (s: string) => Number(s.slice(8));
