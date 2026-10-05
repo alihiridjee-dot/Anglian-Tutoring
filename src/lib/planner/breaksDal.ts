@@ -37,6 +37,36 @@ export class BreakDAL {
   }
 
   /**
+   * The breaks that stand for several students at once, by student: a tutor's
+   * marking queue. A failed read reads as none, so work is shown as it was.
+   */
+  static async listFor(studentIds: string[]): Promise<Record<string, StudentBreak[]>> {
+    if (isDemoMode() || !studentIds.length) return {};
+    try {
+      const { data, error } = await supabase
+        .from("student_breaks")
+        .select("id, student_id, starts_on, ends_on, reason, recorded_at")
+        .in("student_id", studentIds)
+        .is("cancelled_at", null)
+        .order("starts_on");
+      if (error) throw error;
+      const by: Record<string, StudentBreak[]> = {};
+      for (const r of data ?? [])
+        (by[r.student_id] ??= []).push({
+          id: r.id,
+          startsOn: r.starts_on,
+          endsOn: r.ends_on,
+          reason: r.reason as BreakReason,
+          recordedAt: r.recorded_at,
+        });
+      return by;
+    } catch (e) {
+      console.warn("[planner] couldn't read the students' breaks", e);
+      return {};
+    }
+  }
+
+  /**
    * Each programme's exam date, for the booking form: which weeks are too
    * close to an exam to pick. A failed read reads as none known; `book_break`
    * still checks the exams.

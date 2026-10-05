@@ -12,6 +12,9 @@ import { useAnswerMarking } from "@/hooks/data/useAnswerMarking";
 import type { SubjectV, BoardV, LevelV } from "@/lib/curriculum/taxonomy";
 import { subjectLabel } from "@/lib/curriculum/courseSummary";
 import { gradeFromPct } from "@/lib/profile/analytics";
+import { BreakDAL } from "@/lib/planner/breaksDal";
+import { breakCovering, type StudentBreak } from "@/lib/planner/breaks";
+import { toDateKey } from "@/lib/planner/week";
 
 /** Derived lifecycle status for a submission. */
 type SubmissionStatus = "PENDING_REVIEW" | "GRADED";
@@ -75,10 +78,14 @@ function urgencyOf(s: Submission): Urgency {
   return "fresh";
 }
 
-/** Student handed it in after the due date. */
-function isLate(s: Submission): boolean {
+/**
+ * Student handed it in after the due date. Not if it was due during a break
+ * they took: nothing was asked of them that week, so it can't be late.
+ */
+function isLate(s: Submission, breaks: readonly StudentBreak[] = []): boolean {
   const due = s.resource?.due_at;
-  return !!due && new Date(s.submitted_at).getTime() > new Date(due).getTime();
+  if (!due || new Date(s.submitted_at).getTime() <= new Date(due).getTime()) return false;
+  return !breakCovering(breaks, toDateKey(new Date(due)));
 }
 
 /** Rows per request, for each segment. */
@@ -119,6 +126,7 @@ export function MarkingQueue() {
   const [pendingSeg, setPendingSeg] = useState<Segment>(EMPTY);
   const [gradedSeg, setGradedSeg] = useState<Segment>(EMPTY);
   const [names, setNames] = useState<Record<string, string>>({});
+  const [breaks, setBreaks] = useState<Record<string, StudentBreak[]>>({});
   const [loading, setLoading] = useState(true);
   const [loadingMore, setLoadingMore] = useState(false);
   const [error, setError] = useState<unknown>(null);
@@ -131,15 +139,16 @@ export function MarkingQueue() {
   const addNames = useCallback(async (rows: Submission[]) => {
     const ids = [...new Set(rows.map((r) => r.student_id))];
     if (ids.length === 0) return;
-    const { data: profs } = await supabase
-      .from("profiles")
-      .select("id, display_name")
-      .in("id", ids);
+    const [{ data: profs }, theirBreaks] = await Promise.all([
+      supabase.from("profiles").select("id, display_name").in("id", ids),
+      BreakDAL.listFor(ids),
+    ]);
     setNames((prev) => {
       const next = { ...prev };
       for (const p of profs ?? []) next[p.id] = p.display_name ?? "";
       return next;
     });
+    setBreaks((prev) => ({ ...prev, ...theirBreaks }));
   }, []);
 
   // The site-wide subject/board/level filters go to the server with each
@@ -269,6 +278,7 @@ export function MarkingQueue() {
               key={s.id}
               sub={s}
               studentName={nameOf(s.student_id)}
+              studentBreaks={breaks[s.student_id]}
               graderId={userId}
               onSaved={reload}
             />
@@ -338,11 +348,14 @@ function SegmentTab({
 function MarkSubmissionCard({
   sub,
   studentName,
+  studentBreaks,
   graderId,
   onSaved,
 }: {
   sub: Submission;
   studentName: string;
+  /** Their breaks: work due during one is never Late. */
+  studentBreaks?: StudentBreak[];
   graderId: string | null;
   onSaved: () => void;
 }) {
@@ -427,7 +440,7 @@ function MarkSubmissionCard({
                 </span>
               )}
               {isPending ? <UrgencyBadge sub={sub} /> : <GradedBadge />}
-              {isLate(sub) && (
+              {isLate(sub, studentBreaks) && (
                 <span className="text-[10px] px-2 py-0.5 rounded uppercase tracking-widest font-semibold bg-red-500/10 text-red-600 dark:text-red-400 border border-red-500/20">
                   Late
                 </span>
