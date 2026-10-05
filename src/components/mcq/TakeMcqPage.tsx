@@ -19,6 +19,8 @@ import {
   saveMcqAnswers,
   type McqAnswers,
 } from "@/lib/mcq/mcqAnswers";
+import { retakeOpensAt } from "@/lib/mcq/retakeLock";
+import { plannerDateLabel } from "@/lib/planner/week";
 import type { Json } from "@/integrations/supabase/types";
 
 type Q = {
@@ -44,7 +46,82 @@ type Marked = {
   score: number;
   total: number;
   byQuestion: Record<string, { correctIndex: number; explanation: string | null }>;
+  /** When the quiz opens again (see retakeLock). Null on the showcase, which has no lock. */
+  retakeOpensAt: Date | null;
 };
+
+/** The marked paper, and the answers it was marked on. */
+type Review = { marked: Marked; answers: McqAnswers };
+
+/**
+ * Read `grade_mcq_attempt`'s reply. The answers come from it too: when the
+ * server returns an attempt already filed (a retry, or a retake inside the
+ * week from a second tab), those are the answers it marked, not the ones on
+ * the screen.
+ */
+function readGraded(data: unknown): Review {
+  const graded = data as {
+    score: number;
+    total: number;
+    results: Array<{
+      question_id: string;
+      correct_index: number;
+      explanation: string | null;
+      chosen_index: number | null;
+    }>;
+    retake_opens_at?: string;
+  } | null;
+  if (!graded || typeof graded.score !== "number") {
+    throw new Error("The quiz couldn't be marked — try submitting again.");
+  }
+  const byQuestion: Marked["byQuestion"] = {};
+  const answers: McqAnswers = {};
+  for (const r of graded.results ?? []) {
+    byQuestion[r.question_id] = { correctIndex: r.correct_index, explanation: r.explanation };
+    if (typeof r.chosen_index === "number") answers[r.question_id] = r.chosen_index;
+  }
+  const opens = graded.retake_opens_at ? new Date(graded.retake_opens_at) : null;
+  return {
+    marked: {
+      score: graded.score,
+      total: graded.total,
+      byQuestion,
+      retakeOpensAt: opens && Number.isFinite(opens.getTime()) ? opens : null,
+    },
+    answers,
+  };
+}
+
+/**
+ * This student's attempt from the last week, marked — or null when the quiz is
+ * open to them. The server won't file another attempt inside the week, so the
+ * page opens on the one it has rather than a blank paper it would not keep.
+ */
+async function fetchLockedAttempt(userId: string, setId: string): Promise<Review | null> {
+  const { data: last, error } = await supabase
+    .from("mcq_attempts")
+    .select("id, created_at")
+    .eq("user_id", userId)
+    .eq("set_id", setId)
+    .order("created_at", { ascending: false })
+    .limit(1)
+    .maybeSingle();
+  if (error) throw error;
+  if (!last) return null;
+  const opensAt = retakeOpensAt(last.created_at);
+  if (opensAt.getTime() <= Date.now()) return null;
+  // The filed attempt's own id replays it: marked, with explanations, and
+  // nothing written.
+  const { data, error: gradeError } = await supabase.rpc("grade_mcq_attempt", {
+    _set_id: setId,
+    _answers: {} as Json,
+    _attempt_id: last.id,
+  });
+  if (gradeError) throw gradeError;
+  const review = readGraded(data);
+  review.marked.retakeOpensAt = opensAt;
+  return review;
+}
 
 /** Stable identity for "no questions yet", so effects keyed on it don't re-run every render. */
 const EMPTY_QUESTIONS: Q[] = [];
@@ -120,6 +197,21 @@ export function TakeMcq() {
   const set = paper.data?.set ?? null;
   const questions = paper.data?.questions ?? EMPTY_QUESTIONS;
 
+  // Taken in the last week? Then it opens as a review of that attempt. Never
+  // refetched behind the student's back, like the paper; a submission below
+  // writes its result straight in, so coming back shows it.
+  const lockKey = ["mcq", "locked", setId, userId] as const;
+  const checkLock = !!setId && !!userId && !demo && !isTutor;
+  const locked = useQuery({
+    queryKey: lockKey,
+    queryFn: () => fetchLockedAttempt(userId!, setId),
+    enabled: checkLock,
+    staleTime: Infinity,
+    refetchOnWindowFocus: false,
+    refetchOnReconnect: false,
+  });
+  const lockPending = checkLock && locked.isPending;
+
   // A quiz belongs to one subject: opening it moves the header slider there,
   // and switching subject mid-quiz goes to the quiz list for the new one. The
   // answers chosen so far are kept (see saveMcqAnswers) for coming back.
@@ -139,14 +231,20 @@ export function TakeMcq() {
   // `attemptIdFor`); a fresh visit after a marked attempt gets a new one.
   const attemptId = useRef<string | null>(null);
   useEffect(() => {
-    if (questions.length === 0) return;
+    if (questions.length === 0 || lockPending) return;
     const attempt = `${userId ?? ""}:${setId}`;
     if (startedFor.current === attempt) return;
     startedFor.current = attempt;
+    if (locked.data) {
+      setMarked(locked.data.marked);
+      setAnswers(locked.data.answers);
+      attemptId.current = null;
+      return;
+    }
     setMarked(null);
     setAnswers(userId && !demo ? reconcileAnswers(loadMcqAnswers(userId, setId), questions) : {});
     attemptId.current = userId && !demo ? attemptIdFor(userId, setId) : null;
-  }, [setId, userId, demo, questions]);
+  }, [setId, userId, demo, questions, lockPending, locked.data]);
 
   const choose = (questionId: string, index: number) => {
     setAnswers((prev) => {
@@ -156,7 +254,7 @@ export function TakeMcq() {
     });
   };
 
-  const backTo = demo ? "/demo/student/curriculum" : "/curriculum";
+  const backTo = demo ? "/demo/student/dashboard" : "/dashboard";
 
   const submit = async () => {
     // An in-flight guard, not just a disabled button. Marking is a round trip,
@@ -174,7 +272,7 @@ export function TakeMcq() {
         byQuestion[q.id] = { correctIndex: q.correct_index, explanation: q.explanation };
         if (answers[q.id] === q.correct_index) correct += 1;
       }
-      setMarked({ score: correct, total: questions.length, byQuestion });
+      setMarked({ score: correct, total: questions.length, byQuestion, retakeOpensAt: null });
       toast.success(`Scored ${correct}/${questions.length}`);
       return;
     }
@@ -194,24 +292,14 @@ export function TakeMcq() {
         _attempt_id: attemptId.current ?? undefined,
       });
       if (error) throw error;
-      const graded = data as unknown as {
-        score: number;
-        total: number;
-        results: Array<{ question_id: string; correct_index: number; explanation: string | null }>;
-      } | null;
-      if (!graded || typeof graded.score !== "number") {
-        throw new Error("The quiz couldn't be marked — try submitting again.");
-      }
-      const byQuestion: Marked["byQuestion"] = {};
-      for (const r of graded.results ?? []) {
-        byQuestion[r.question_id] = {
-          correctIndex: r.correct_index,
-          explanation: r.explanation,
-        };
-      }
-      setMarked({ score: graded.score, total: graded.total, byQuestion });
+      const review = readGraded(data);
+      // A server from before the lock sends no date; the attempt is a moment old.
+      review.marked.retakeOpensAt ??= retakeOpensAt(new Date());
+      setMarked(review.marked);
+      setAnswers(review.answers);
+      plannerQueryClient.setQueryData(lockKey, review);
       clearMcqAnswers(userId, setId);
-      toast.success(`Scored ${graded.score}/${graded.total}`);
+      toast.success(`Scored ${review.marked.score}/${review.marked.total}`);
       void invalidatePlanner(plannerQueryClient, userId);
       // The averages and predicted grade are built from attempts like this one.
       void plannerQueryClient.invalidateQueries({ queryKey: ["analytics"] });
@@ -230,7 +318,7 @@ export function TakeMcq() {
       to={backTo}
       className="mt-4 inline-flex min-h-11 items-center text-sm text-primary hover:underline sm:pointer-fine:min-h-0"
     >
-      ← Back to curriculum
+      ← Back to dashboard
     </Link>
   );
 
@@ -268,17 +356,51 @@ export function TakeMcq() {
             mascot="books"
             title="This quiz has no questions yet"
             body="Your tutor is still putting it together."
-            action={{ to: backTo, label: "Back to curriculum" }}
+            action={{ to: backTo, label: "Back to dashboard" }}
           />
         </div>
       </AppLayout>
     );
   }
+  // After the checks above, so a quiz that has gone says so rather than
+  // failing here: the lock's replay asks the same visibility question.
+  if (locked.error) {
+    return (
+      <AppLayout title={set.title}>
+        <div className="max-w-3xl">
+          <ErrorNote error={locked.error} onRetry={() => void locked.refetch()} />
+          {back}
+        </div>
+      </AppLayout>
+    );
+  }
+  if (lockPending)
+    return (
+      <AppLayout title={set.title}>
+        <Spinner label="Loading the quiz" />
+      </AppLayout>
+    );
+
+  const opensLabel = marked?.retakeOpensAt
+    ? plannerDateLabel(marked.retakeOpensAt, { weekday: "short", day: "numeric", month: "short" })
+    : null;
 
   return (
     <AppLayout title={set.title}>
       <div className="max-w-3xl">
         {set.description && <p className="text-sm text-muted-foreground mb-6">{set.description}</p>}
+        {/* A quiz opened inside its week lands here, already marked: say why
+            before the student tries to change an answer. */}
+        {marked && opensLabel && (
+          <div className="mb-5 flex flex-wrap items-center gap-2">
+            <span className="chip chip-solid">
+              <span className="numeral">
+                {marked.score}/{marked.total}
+              </span>
+            </span>
+            <span className="chip">Retake opens {opensLabel}</span>
+          </div>
+        )}
         <ol className="space-y-5">
           {questions.map((q, idx) => {
             const chosen = answers[q.id];
@@ -350,6 +472,11 @@ export function TakeMcq() {
             <p className="font-display text-4xl font-bold mt-1">
               {marked?.score}/{marked?.total}
             </p>
+            {opensLabel && (
+              <div className="mt-3">
+                <span className="chip">Retake opens {opensLabel}</span>
+              </div>
+            )}
             <div>{back}</div>
           </div>
         )}
