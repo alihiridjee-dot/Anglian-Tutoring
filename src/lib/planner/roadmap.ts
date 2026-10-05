@@ -106,6 +106,12 @@ export interface RoadmapResult {
    * rather than something that has already happened to them.
    */
   baselineBands: PacingBand[];
+  /**
+   * The spine exactly as saved, when a break still to come has been laid over
+   * `baselineBands` for display (ProgramDAL.withBreaksAhead). A change to the
+   * programme is saved from this, because it is what the database holds.
+   */
+  storedBands?: PacingBand[];
   /** Topics whose start week moved since the student last acknowledged. */
   changes: PacingChange[];
   needsAck: boolean;

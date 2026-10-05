@@ -1,8 +1,14 @@
 import { EmptyState, SectionHeading, Spinner } from "@/components/Shared";
 import { SubscriptionPanel } from "@/components/billing/SubscriptionPanel";
+import { TakeABreakCard } from "@/components/billing/TakeABreakCard";
 import { usePackages } from "@/hooks/data/useBilling";
 import { useAccountDeletion } from "@/hooks/data/useStudents";
-import { billingIntervalLabel, formatPence, planLabel } from "@/lib/billing/billing";
+import {
+  billingIntervalLabel,
+  formatPence,
+  isSubscriptionLive,
+  planLabel,
+} from "@/lib/billing/billing";
 import { BILLING_FEEDBACK_REASONS } from "@/lib/billing/billingFeedback";
 import { summariseCourse } from "@/lib/curriculum/courseSummary";
 import { resolveDisplayName } from "@/lib/profile/displayName";
@@ -50,6 +56,11 @@ export function StudentBilling({ record, name }: { record: StudentRecord; name: 
 
   return (
     <div className="space-y-6">
+      {/* A tutor can book a break too: the work stops, the plan carries on. */}
+      {sub && isSubscriptionLive(sub.status) && (
+        <TakeABreakCard studentId={profile.id} name={name.split(" ")[0]} />
+      )}
+
       {sub ? (
         <SubscriptionPanel
           sub={sub}
