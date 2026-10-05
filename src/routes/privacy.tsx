@@ -17,7 +17,7 @@ export const Route = createFileRoute("/privacy")({
   component: PrivacyPage,
 });
 
-const UPDATED = "3 October 2026";
+const UPDATED = "5 October 2026";
 const CONTACT = "angliaeducate@gmail.com";
 
 /**
@@ -54,6 +54,11 @@ const PROCESSORS = [
     name: "Anthropic",
     what: "Its AI, Claude, helps with marking and feedback, as described under AI marking.",
     where: "USA",
+  },
+  {
+    name: "DeepSeek",
+    what: "Its AI reads a question a student chooses to send with “Ask for help” in the search box, as described under AI help in the search box.",
+    where: "China",
   },
   {
     name: "YouTube and Vimeo",
@@ -128,6 +133,10 @@ function PrivacyPage() {
             can check and change its marks. Your parent or guardian can see your progress if you
             link your account to theirs. If you&apos;re under 13, please ask a parent or guardian
             before you sign up. If something here worries you, talk to them or email us.
+          </p>
+          <p className="mt-3 leading-relaxed">
+            If you press <strong>Ask for help</strong> in the search box, what you typed is sent to
+            an AI company in China. So don&apos;t type your name or anything personal there.
           </p>
         </div>
 
@@ -240,6 +249,24 @@ function PrivacyPage() {
           </p>
         </Section>
 
+        <Section title="AI help in the search box">
+          <p>
+            Students can type a question into the search box, such as &quot;where&apos;s my quiz for
+            this week?&quot;. Most questions are answered by the site itself, and nothing leaves it.
+          </p>
+          <p>
+            If the site can&apos;t work a question out, the student can choose{" "}
+            <strong>Ask for help</strong>. Only then is the question they typed sent to DeepSeek, an
+            AI company based in China, which picks the page that answers it. We remove email
+            addresses and phone numbers first, and send nothing else: no name, account, marks or
+            work.
+          </p>
+          <p>
+            DeepSeek stores what it receives in China and may use it to improve its AI. That&apos;s
+            why students shouldn&apos;t type their name or anything personal into the search box.
+          </p>
+        </Section>
+
         <Section title="Who can see it">
           <p>
             Inside Anglia Educate, a student&apos;s work and records can be seen by our tutors and
@@ -271,6 +298,11 @@ function PrivacyPage() {
             standard. Some of the services above are based in the USA. When data goes there, we rely
             on the protections UK law requires, such as the UK&apos;s approved contract terms or the
             UK–US data bridge.
+          </p>
+          <p>
+            DeepSeek is based in China, which UK law does not treat as protecting data to the same
+            standard. That&apos;s why it receives so little: only a question a student types and
+            chooses to send, with email addresses and phone numbers removed.
           </p>
         </Section>
 

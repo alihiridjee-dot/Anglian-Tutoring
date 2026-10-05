@@ -15,6 +15,7 @@ import { existsSync, readdirSync, readFileSync } from "node:fs";
 import { dirname, join } from "node:path";
 import { fileURLToPath } from "node:url";
 import { validateNote, type Note } from "../../src/lib/notes/noteFormat";
+import { toSciNotation } from "../../src/lib/platform/sciNotation";
 
 const here = dirname(fileURLToPath(import.meta.url));
 const args = process.argv.slice(2);
@@ -83,7 +84,28 @@ for (const subject of ["biology", "chemistry", "physics"]) {
       console.log(`✗ ${subject}/${file}`);
       for (const e of errs) console.log(`    ${e}`);
     } else console.log(`✓ ${subject}/${file}`);
+    // Flat notation (H2O, Mg2+, cm3) is shown properly on the site anyway, so
+    // it is a note to fix rather than a failure.
+    const all = JSON.stringify(note);
+    for (const t of strings(note)) {
+      const fixed = toSciNotation(t, all);
+      if (fixed === t) continue;
+      let at = 0;
+      while (t[at] === fixed[at]) at++;
+      const from = Math.max(0, t.lastIndexOf(" ", at) + 1);
+      console.log(
+        `    notation: "${t.slice(from, from + 30)}" → "${fixed.slice(from, from + 30)}"`,
+      );
+    }
   }
 }
 console.log(`\n${checked - failures}/${checked} notes pass`);
+
+/** Every piece of text in a note. */
+function strings(v: unknown, out: string[] = []): string[] {
+  if (typeof v === "string") out.push(v);
+  else if (Array.isArray(v)) v.forEach((x) => strings(x, out));
+  else if (v && typeof v === "object") Object.values(v).forEach((x) => strings(x, out));
+  return out;
+}
 if (failures) process.exit(1);

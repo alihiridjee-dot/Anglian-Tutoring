@@ -208,8 +208,9 @@ export function CancelPlanDialog({
                       <PauseCircle className="w-4 h-4 text-amber-600" /> Pause instead
                     </div>
                     <p className="text-xs text-muted-foreground mt-1">
-                      Payments stop immediately and everything is held exactly where it is. Resume
-                      whenever you're ready — best for exam breaks and holidays.
+                      Payments stop and access is locked until you resume. Nothing is lost. Away on
+                      holiday or busy with school? Take a break at the top of Billing instead: the
+                      work stops and the plan carries on.
                     </p>
                   </button>
                 )}

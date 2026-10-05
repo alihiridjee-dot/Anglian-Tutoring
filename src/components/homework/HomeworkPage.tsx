@@ -1,5 +1,6 @@
 import { Link } from "@tanstack/react-router";
 import { useEffect, useMemo, useState } from "react";
+import { useQuery } from "@tanstack/react-query";
 import { EmptyState, SegmentedToggle, Spinner } from "@/components/Shared";
 import { AppLayout } from "@/components/AppLayout";
 import { useRoles } from "@/hooks/useRole";
@@ -12,7 +13,6 @@ import {
 import type { Homework, SubmissionRow } from "@/lib/homework/types";
 import { useHomeworkSummaries, type HomeworkSummary } from "@/hooks/data/useHomeworkQuestions";
 import {
-  BUCKET_HINT,
   BUCKET_LABEL,
   BUCKET_ORDER,
   groupHomework,
@@ -27,6 +27,7 @@ import { MarkingQueue } from "@/components/tutor/MarkingQueue";
 import { HomeworkLibrary } from "@/components/tutor/HomeworkLibrary";
 import { HomeworkForm } from "@/components/tutor/HomeworkForm";
 import { isDemoStudent } from "@/lib/demo/studentDemo";
+import { studentBreaksQuery } from "@/lib/planner/breakQueries";
 import { type SubjectV, type BoardV, type LevelV } from "@/lib/curriculum/taxonomy";
 import { SUBJECT_LABEL, SUBJECT_TINT, subjectTint } from "@/lib/curriculum/subjectTheme";
 import { useActiveSubject } from "@/hooks/useActiveSubject";
@@ -132,6 +133,11 @@ function StudentHomework({
   const { userId } = useRoles();
   const { subject } = useActiveSubject();
   const [bucket, setBucket] = useState<HomeworkBucket>("due");
+  // A brief due during a break isn't held against them (wasDueOnBreak).
+  const { data: breaks } = useQuery({
+    ...studentBreaksQuery(userId ?? ""),
+    enabled: !!userId && !isDemoStudent(),
+  });
 
   // The student sits each subject with one board. A sheet belongs on this page
   // if it is for that board, for every board, or already handed in — switching
@@ -141,12 +147,17 @@ function StudentHomework({
     const boardOf = new Map(enrolments.map((e) => [e.subject, e.board]));
     const enrolledAt = new Map(enrolments.map((e) => [e.subject, e.enrolledAt]));
     return homework
-      .map((hw) => ({ hw, submission: submissions[hw.id], enrolledAt: enrolledAt.get(hw.subject) }))
+      .map((hw) => ({
+        hw,
+        submission: submissions[hw.id],
+        enrolledAt: enrolledAt.get(hw.subject),
+        breaks,
+      }))
       .filter(({ hw, submission }) => {
         const board = boardOf.get(hw.subject);
         return !!submission || !hw.board || !board || hw.board === board;
       });
-  }, [homework, submissions, enrolments]);
+  }, [homework, submissions, enrolments, breaks]);
 
   // Only the sheets on screen need their question counts, but counting
   // everything at once is still one round trip rather than one per card.
@@ -233,7 +244,6 @@ function StudentHomework({
           ) : (
             active && (
               <div data-guide="homework-list">
-                <p className="text-muted-foreground mb-4 text-xs">{BUCKET_HINT[active.bucket]}</p>
                 <div className="space-y-3">
                   {active.items.map((item) => (
                     <HomeworkCard key={item.hw.id} item={item} summary={summaries[item.hw.id]} />
@@ -260,40 +270,58 @@ function HomeworkCard({ item, summary }: { item: HomeworkItem; summary?: Homewor
       // sign-in from a page whose whole job is to be browsable without an account.
       to={isDemoStudent() ? "/demo/student/homework/$homeworkId" : "/homework/$homeworkId"}
       params={{ homeworkId: hw.id }}
-      className={`premium-card block p-4 transition hover:brightness-[0.99] ${
+      className={`premium-card flex items-center justify-between gap-4 p-4 transition hover:brightness-[0.99] ${
         SUBJECT_TINT[hw.subject] ?? "tint-primary"
       }`}
     >
-      <div className="flex flex-wrap items-center gap-2">
-        <span className="chip">{SUBJECT_LABEL[hw.subject] ?? hw.subject}</span>
-        {hw.origin === "tutor" && <span className="chip">Set by your tutor</span>}
-        {overdue && <span className="chip tint-rose">Overdue</span>}
-        {submission?.graded_at && submission.score_pct != null && (
-          <span className="chip-solid">
-            <span className="numeral">{Number(submission.score_pct)}%</span>
-          </span>
-        )}
-      </div>
-
-      <p className="font-display mt-2 font-bold">{hw.title}</p>
-
-      <div className="text-muted-foreground mt-1.5 flex flex-wrap items-center gap-x-3 gap-y-1 text-xs">
-        {summary && summary.count > 0 && (
+      {/* The same shape as the top of the sheet it opens: the title, one plain
+          line under it, and a number boxed on the right. No subject label —
+          the list only ever holds the subject in the header slider. */}
+      <div className="min-w-0">
+        <p className="font-display font-bold">{hw.title}</p>
+        <div className="mt-1 flex flex-wrap items-center gap-x-2 gap-y-1.5 text-sm">
           <span>
-            {summary.count} question{summary.count === 1 ? "" : "s"} · {summary.marks} marks
+            {[
+              summary && summary.count > 0
+                ? `${summary.count} question${summary.count === 1 ? "" : "s"}`
+                : null,
+              hw.origin === "tutor" ? "Set by your tutor" : "Practice",
+              hw.due_at && !submission && !overdue
+                ? `Due ${new Date(hw.due_at).toLocaleDateString()}`
+                : null,
+              awaiting ? "Being marked" : null,
+              submission?.graded_at
+                ? `Marked ${new Date(submission.graded_at).toLocaleDateString()}`
+                : null,
+            ]
+              .filter(Boolean)
+              .join(" · ")}
           </span>
-        )}
-        {hw.due_at && !submission && (
-          <span className="inline-flex items-center gap-1">
-            <Clock className="size-3" aria-hidden />
-            Due {new Date(hw.due_at).toLocaleDateString()}
-          </span>
-        )}
-        {awaiting && <span>Being marked</span>}
-        {submission?.graded_at && (
-          <span>Marked {new Date(submission.graded_at).toLocaleDateString()}</span>
-        )}
+          {overdue && hw.due_at && (
+            <span className="chip tint-rose inline-flex items-center gap-1">
+              <Clock className="size-3" aria-hidden />
+              Overdue {new Date(hw.due_at).toLocaleDateString()}
+            </span>
+          )}
+        </div>
       </div>
+
+      {/* Once marked, the score is the number that matters, so it takes the
+          box in solid tint; until then the box holds the total marks. */}
+      {submission?.graded_at && submission.score_pct != null ? (
+        <div className="icon-tile icon-tile-solid min-w-16 shrink-0 flex-col px-3 py-2">
+          <span className="numeral text-2xl">{Number(submission.score_pct)}%</span>
+          <span className="mt-0.5 text-xs font-bold">score</span>
+        </div>
+      ) : (
+        summary &&
+        summary.count > 0 && (
+          <div className="icon-tile min-w-16 shrink-0 flex-col px-3 py-2">
+            <span className="numeral text-2xl">{summary.marks}</span>
+            <span className="mt-0.5 text-xs font-bold">mark{summary.marks === 1 ? "" : "s"}</span>
+          </div>
+        )
+      )}
     </Link>
   );
 }

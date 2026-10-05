@@ -13,6 +13,8 @@ import {
 } from "@/lib/homework/homeworkDrafts";
 import { isAlreadySubmitted, startMarking } from "@/lib/homework/startMarking";
 import type { HomeworkQuestion, HomeworkAnswer } from "@/hooks/data/useHomeworkQuestions";
+import { SciText } from "@/components/Shared";
+import { SciAnswerBox } from "@/components/homework/SciAnswerBox";
 
 /**
  * The body of a homework sheet: the questions, and either the boxes to answer
@@ -88,12 +90,14 @@ export function AnsweredView({
       <ol className="mt-3 space-y-3">
         {questions.map((q, i) => {
           const a = answers[q.id];
+          // Read with the question, so "Cl3" beside a Cl₂ question reads Cl₃.
+          const notation = `${q.prompt}\n${q.mark_scheme ?? ""}`;
           return (
             <li key={q.id} className="premium-card p-4">
               <div className="flex items-start gap-2">
                 <span className="numeral text-muted-foreground shrink-0 text-xs">Q{i + 1}</span>
                 <p className="min-w-0 flex-1 text-sm font-medium break-words whitespace-pre-wrap">
-                  {q.prompt}
+                  <SciText text={q.prompt} />
                 </p>
                 <span className="numeral text-muted-foreground shrink-0 text-xs">
                   {a?.awarded_marks != null
@@ -102,11 +106,15 @@ export function AnsweredView({
                 </span>
               </div>
               <p className="text-muted-foreground mt-2 text-sm whitespace-pre-wrap">
-                {a?.answer_text || <span className="italic">Left blank</span>}
+                {a?.answer_text ? (
+                  <SciText text={a.answer_text} context={notation} />
+                ) : (
+                  <span className="italic">Left blank</span>
+                )}
               </p>
               {a?.feedback && (
                 <p className="mt-2 text-xs whitespace-pre-wrap text-[color:var(--tint)]">
-                  {a.feedback}
+                  <SciText text={a.feedback} context={notation} />
                 </p>
               )}
               {/* The mark scheme is the answer — it stays hidden until the work
@@ -115,7 +123,7 @@ export function AnsweredView({
                 <div className="border-border mt-2 border-t pt-2">
                   <p className="eyebrow-bare">Mark scheme</p>
                   <p className="text-muted-foreground mt-1 text-xs whitespace-pre-wrap">
-                    {q.mark_scheme}
+                    <SciText text={q.mark_scheme} context={notation} />
                   </p>
                 </div>
               )}
@@ -281,7 +289,6 @@ export function AnswerForm({
   }, [hasUnsent]);
 
   const answered = questions.filter((q) => draftOf(q.id).text.trim().length > 0).length;
-  const totalMarks = questions.reduce((sum, q) => sum + q.marks, 0);
 
   const submit = async () => {
     if (!userId) return toast.error("Not signed in");
@@ -340,7 +347,7 @@ export function AnswerForm({
                 <div className="border-border mt-3 border-t pt-2">
                   <p className="eyebrow-bare">Mark scheme</p>
                   <p className="text-muted-foreground mt-1 text-xs whitespace-pre-wrap">
-                    {q.mark_scheme}
+                    <SciText text={q.mark_scheme} context={q.prompt} />
                   </p>
                 </div>
               )
@@ -377,8 +384,8 @@ export function AnswerForm({
 
       <div className="flex flex-wrap items-center gap-2">
         <p className="eyebrow-bare">Answer on the page</p>
-        <span className="text-muted-foreground text-xs">
-          {answered}/{questions.length} answered · {totalMarks} marks
+        <span className="text-sm font-bold">
+          {answered}/{questions.length} answered
         </span>
       </div>
 
@@ -386,9 +393,10 @@ export function AnswerForm({
         {questions.map((q, i) => (
           <li key={q.id} className="premium-card space-y-2 p-4">
             <QuestionHeader q={q} index={i} />
-            <textarea
+            <SciAnswerBox
               value={draftOf(q.id).text}
-              onChange={(e) => patch(q.id, { text: e.target.value })}
+              onValueChange={(text) => patch(q.id, { text })}
+              context={q.prompt}
               placeholder={TYPE_HINT[q.answer_type]}
               aria-label={`Answer to question ${i + 1}`}
               className={`premium-input w-full rounded-lg px-3 py-2 text-sm ${
@@ -399,9 +407,9 @@ export function AnswerForm({
         ))}
       </ol>
 
-      <textarea
+      <SciAnswerBox
         value={notes}
-        onChange={(e) => edit(NOTES, e.target.value)}
+        onValueChange={(text) => edit(NOTES, text)}
         placeholder="Anything you'd like your tutor to know (optional)"
         aria-label="Note for your tutor (optional)"
         className="premium-input min-h-16 w-full rounded-lg px-3 py-2 text-sm"
@@ -460,7 +468,7 @@ function QuestionHeader({ q, index }: { q: HomeworkQuestion; index: number }) {
     <div className="flex items-start gap-2">
       <span className="numeral text-muted-foreground shrink-0 text-xs">Q{index + 1}</span>
       <p className="min-w-0 flex-1 text-sm font-medium break-words whitespace-pre-wrap">
-        {q.prompt}
+        <SciText text={q.prompt} />
       </p>
       <span className="numeral text-muted-foreground shrink-0 text-xs">[{q.marks}]</span>
     </div>

@@ -232,6 +232,11 @@ alone, so a lesson was filed under Previous as "Completed" the second it began.
   INSERT/UPDATE grant for `authenticated`; `grade_mcq_attempt` marks server-side
   against the stored answer key. `homework_submissions` has the equivalent guard
   as a trigger (`enforce_grading_privileges`).
+- **A student's work goes with their account.** `homework_submissions`,
+  `mcq_attempts` and `session_attendees` reference `auth.users` with ON DELETE
+  CASCADE (20261005171000), so a student's tasks (with their answers, AI marks
+  and notifications), quiz attempts and attendance go in the same transaction,
+  however the account is deleted. No cascade reaches Storage.
 - Board, subjects and payment are captured in `/onboarding/*`, and
   `/_authenticated` gates students on `my_access_state()`. See
   [docs/STRIPE_SETUP.md](docs/STRIPE_SETUP.md).
@@ -246,7 +251,9 @@ Two tables, and the split between them is load-bearing:
   scoped") and `storage.objects` ("resources bucket read scoped") — treat a row
   here as proof the parent may read that child's data. None of them filter on a
   status, so **never add a pending/inactive row to this table**: it would grant
-  access, not request it.
+  access, not request it. Both ids reference `auth.users` with ON DELETE
+  CASCADE (20261005170000), so a link goes with the account at either end,
+  however that account is deleted.
 - **`parent_link_invites`** holds pending invites, addressed to an _email_ (the
   invitee may have no account yet). It grants nothing on its own.
 
@@ -279,7 +286,8 @@ disturbing existing links.
 - **Server functions** — protected by `requireSupabaseAuth` (bearer-token
   validation); the client attaches tokens via `attachSupabaseAuth` in `start.ts`.
 - **Supabase** — Auth (email/password), RLS-secured Postgres, and a private
-  `resources` storage bucket for homework uploads and downloads.
+  `resources` storage bucket for task attachments. Only tutors write to it;
+  students and parents read (20261005180000 closed the old student upload path).
 
 ## Assessment-driven tutoring engine
 

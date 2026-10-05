@@ -1,4 +1,6 @@
 import type { Homework, SubmissionRow } from "@/lib/homework/types";
+import { breakCovering, type StudentBreak } from "@/lib/planner/breaks";
+import { toDateKey } from "@/lib/planner/week";
 
 /**
  * How the homework list is ordered: by what the student has to do about it.
@@ -17,6 +19,7 @@ import type { Homework, SubmissionRow } from "@/lib/homework/types";
  *   not submitted + due     -> due
  *   not submitted + no due  -> practice
  *   due before they joined  -> practice
+ *   due during their break  -> practice
  *
  * A generated sheet has no due date, so it lands in practice without being
  * special-cased — and a tutor brief set without one lands there too, which is
@@ -31,6 +34,8 @@ export type HomeworkItem = {
   submission?: SubmissionRow;
   /** When the student took this subject up, if known. */
   enrolledAt?: string | null;
+  /** The student's breaks that stand (student_breaks), if known. */
+  breaks?: readonly StudentBreak[];
 };
 
 /**
@@ -47,14 +52,28 @@ export function wasDueBeforeJoining(item: HomeworkItem): boolean {
   return new Date(item.hw.due_at).getTime() < new Date(item.enrolledAt).getTime();
 }
 
+/**
+ * A brief due on a day the student was on a break.
+ *
+ * Nothing is asked of a student in a break week (Ali, 4 Oct 2026), so a brief
+ * due then is treated as one due before they joined: not Overdue, not held
+ * against them, still on offer as practice. The day is its UK date, the same
+ * calendar the planner's weeks use.
+ */
+export function wasDueOnBreak(item: HomeworkItem): boolean {
+  if (!item.hw.due_at || !item.breaks?.length) return false;
+  return !!breakCovering(item.breaks, toDateKey(new Date(item.hw.due_at)));
+}
+
 export function bucketOf(item: HomeworkItem): HomeworkBucket {
   if (item.submission) return item.submission.graded_at ? "marked" : "submitted";
-  return item.hw.due_at && !wasDueBeforeJoining(item) ? "due" : "practice";
+  return item.hw.due_at && !wasDueBeforeJoining(item) && !wasDueOnBreak(item) ? "due" : "practice";
 }
 
 /** Past its due date and still not handed in. */
 export function isOverdue(item: HomeworkItem, now = Date.now()): boolean {
-  if (item.submission || !item.hw.due_at || wasDueBeforeJoining(item)) return false;
+  if (item.submission || !item.hw.due_at || wasDueBeforeJoining(item) || wasDueOnBreak(item))
+    return false;
   return new Date(item.hw.due_at).getTime() < now;
 }
 
@@ -113,13 +132,6 @@ export const BUCKET_LABEL: Record<HomeworkBucket, string> = {
   submitted: "Handed in",
   marked: "Marked",
   practice: "Practice by topic",
-};
-
-export const BUCKET_HINT: Record<HomeworkBucket, string> = {
-  due: "Set with a deadline — do these first.",
-  submitted: "Handed in and being marked.",
-  marked: "Your marks and feedback.",
-  practice: "A sheet for every topic you've covered. Do one whenever you like.",
 };
 
 /** The tint each section paints itself with, per the design system. */

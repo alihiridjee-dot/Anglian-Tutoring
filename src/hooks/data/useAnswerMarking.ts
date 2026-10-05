@@ -2,6 +2,7 @@ import { useCallback, useEffect, useMemo, useState } from "react";
 import { supabase } from "@/integrations/supabase/client";
 import { QUESTION_COLUMNS, withMarkSchemes } from "@/lib/homework/markSchemes";
 import type { HomeworkQuestion, HomeworkAnswer } from "@/hooks/data/useHomeworkQuestions";
+import { toSciNotation } from "@/lib/platform/sciNotation";
 
 /**
  * Loads one submission's questions and answers, and holds the marks the tutor
@@ -93,6 +94,9 @@ export function useAnswerMarking(
         if (m && typeof m.question_id === "string") staged.set(m.question_id, m);
       }
 
+      // The AI's comments go into the boxes in proper notation (H₂O, Mg²⁺),
+      // each read with its question; what a tutor has written stays as typed.
+      const asked = new Map(qs.map((q) => [q.id, `${q.prompt}\n${q.mark_scheme ?? ""}`]));
       const map: Record<string, HomeworkAnswer> = {};
       const initial: Record<string, QuestionMark> = {};
       for (const a of aRes.data ?? []) {
@@ -106,13 +110,17 @@ export function useAnswerMarking(
               : proposal
                 ? String(proposal.marks)
                 : "",
-          feedback: row.feedback ?? proposal?.feedback ?? "",
+          feedback:
+            row.feedback ??
+            (proposal?.feedback
+              ? toSciNotation(proposal.feedback, asked.get(row.question_id))
+              : ""),
         };
       }
       setQuestions(qs);
       setAnswers(map);
       setMarks(initial);
-      setSummary(graded ? null : (sRes.data?.summary ?? null));
+      setSummary(graded || !sRes.data?.summary ? null : toSciNotation(sRes.data.summary));
       setLoaded(true);
       setLoading(false);
     })();

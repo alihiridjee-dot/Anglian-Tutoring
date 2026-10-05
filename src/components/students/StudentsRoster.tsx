@@ -1,5 +1,6 @@
 import { Link } from "@tanstack/react-router";
 import { useMemo, useState } from "react";
+import { useQuery } from "@tanstack/react-query";
 import { ChevronRight, Search, Users } from "lucide-react";
 import { EmptyState, ErrorNote, Spinner } from "@/components/Shared";
 import { inputCls } from "@/components/tutor/Field";
@@ -12,6 +13,9 @@ import { resolveDisplayName } from "@/lib/profile/displayName";
 import { levelLabel, subjectLabel } from "@/lib/curriculum/courseSummary";
 import { SUBJECT_TINT } from "@/lib/curriculum/subjectTheme";
 import { PLAN_STATE_LABEL, PLAN_STATE_TINT, planStateOf, timeAgo } from "./studentPresentation";
+import { BreakDAL } from "@/lib/planner/breaksDal";
+import { breakCovering } from "@/lib/planner/breaks";
+import { currentWeekKey } from "@/lib/planner/week";
 
 /**
  * Every student on the platform, one row each, searchable by name or email.
@@ -25,6 +29,15 @@ export function StudentsRoster() {
   const enrolments = useRosterEnrolments();
   const subscriptions = useRosterSubscriptions();
   const [query, setQuery] = useState("");
+  // Who is on a break this week: "Last active 2 weeks ago" is a rest, not a worry.
+  const ids = useMemo(() => (directory.data ?? []).map((s) => s.id).sort(), [directory.data]);
+  const breaks = useQuery({
+    queryKey: ["roster-breaks", ids],
+    queryFn: () => BreakDAL.listFor(ids),
+    enabled: ids.length > 0,
+    staleTime: 30_000,
+  });
+  const thisWeek = currentWeekKey();
 
   const rows = useMemo(() => {
     const q = query.trim().toLowerCase();
@@ -92,6 +105,7 @@ export function StudentsRoster() {
                   const subs = enrolments.data?.[s.id] ?? [];
                   const plan = planStateOf(subscriptions.data?.[s.id]);
                   const name = resolveDisplayName(s.display_name, s.email);
+                  const away = breakCovering(breaks.data?.[s.id] ?? [], thisWeek);
                   return (
                     <tr key={s.id} className="hover:bg-muted/30 group relative">
                       <td className="px-4 sm:px-5 py-3">
@@ -124,9 +138,12 @@ export function StudentsRoster() {
                         </div>
                       </td>
                       <td className="px-4 sm:px-5 py-3">
-                        <span className={`chip text-[10px] ${PLAN_STATE_TINT[plan]}`}>
-                          {PLAN_STATE_LABEL[plan]}
-                        </span>
+                        <div className="flex flex-wrap items-center gap-1.5">
+                          <span className={`chip text-[10px] ${PLAN_STATE_TINT[plan]}`}>
+                            {PLAN_STATE_LABEL[plan]}
+                          </span>
+                          {away && <span className="chip tint-accent text-[10px]">On a break</span>}
+                        </div>
                       </td>
                       <td className="text-muted-foreground hidden px-4 sm:px-5 py-3 text-xs lg:table-cell">
                         {timeAgo(s.last_sign_in_at)}

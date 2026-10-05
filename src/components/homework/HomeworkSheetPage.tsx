@@ -1,10 +1,11 @@
 import { Link, useNavigate, useParams } from "@tanstack/react-router";
 import { ArrowLeft, CheckCircle2, Clock } from "lucide-react";
 import { useEffect, useState } from "react";
+import { useQuery } from "@tanstack/react-query";
 import { toast } from "sonner";
 import { AppLayout } from "@/components/AppLayout";
 import { AwaitingMark, BuiltInHomework } from "@/components/BuiltInHomework";
-import { EmptyState, ErrorNote, SectionHeading, Spinner } from "@/components/Shared";
+import { EmptyState, ErrorNote, SciText, SectionHeading, Spinner } from "@/components/Shared";
 import { useHomeworkSheet, useInvalidateHomework } from "@/hooks/data/useHomework";
 import { useEnrolments } from "@/hooks/data/useEnrolments";
 import { isOverdue } from "@/lib/homework/homeworkBuckets";
@@ -12,8 +13,9 @@ import type { SubmissionRow } from "@/lib/homework/types";
 import { useRoles } from "@/hooks/useRole";
 import { acknowledgeSubmission } from "@/lib/homework/homework.functions";
 import { isDemoStudent } from "@/lib/demo/studentDemo";
+import { studentBreaksQuery } from "@/lib/planner/breakQueries";
 import { needsMarkingStart, startMarking } from "@/lib/homework/startMarking";
-import { SUBJECT_LABEL, SUBJECT_TINT } from "@/lib/curriculum/subjectTheme";
+import { SUBJECT_TINT } from "@/lib/curriculum/subjectTheme";
 import { usePinSubject } from "@/hooks/useActiveSubject";
 
 export function HomeworkSheetPage() {
@@ -26,6 +28,10 @@ export function HomeworkSheetPage() {
   const demo = isDemoStudent();
   const reload = useInvalidateHomework();
   const { enrolments } = useEnrolments();
+  const { data: breaks } = useQuery({
+    ...studentBreaksQuery(userId ?? ""),
+    enabled: !!userId && !isTutor && !isDemoStudent(),
+  });
 
   const { data, isPending, error, refetch } = useHomeworkSheet({
     homeworkId,
@@ -79,12 +85,14 @@ export function HomeworkSheetPage() {
 
   const { hw, questions, answers } = data;
   const marked = !!submission?.graded_at;
-  // The same rule as the list, so a brief set before the student joined isn't
-  // Overdue here either.
+  const totalMarks = questions.reduce((sum, q) => sum + q.marks, 0);
+  // The same rule as the list, so a brief set before the student joined, or
+  // due during their break, isn't Overdue here either.
   const overdue = isOverdue({
     hw,
     submission: submission ?? undefined,
     enrolledAt: enrolments.find((e) => e.subject === hw.subject)?.enrolledAt,
+    breaks,
   });
 
   return (
@@ -92,31 +100,44 @@ export function HomeworkSheetPage() {
       <div className={SUBJECT_TINT[hw.subject] ?? "tint-primary"}>
         <BackLink />
 
-        <div className="mt-4 flex flex-wrap items-center gap-2">
-          <span className="chip">{SUBJECT_LABEL[hw.subject] ?? hw.subject}</span>
-          <span className="chip">{hw.origin === "tutor" ? "Set by your tutor" : "Practice"}</span>
-          {/* A deadline is only news while it can still be missed. Once the work
-              is in, "Due 3rd September" beside a mark reads as a reproach for
-              something the student already did. */}
-          {hw.due_at && !submission && (
-            <span className={`chip ${overdue ? "tint-rose" : ""} inline-flex items-center gap-1`}>
-              <Clock className="size-3" aria-hidden />
-              {overdue ? "Overdue" : "Due"} {new Date(hw.due_at).toLocaleDateString()}
-            </span>
-          )}
+        {/* Laid out like the front of an exam paper: the title, one plain line
+            under it, and the total marks boxed in the corner. The subject needs
+            no label — the header slider names it and the tint is its colour. */}
+        <div className="mt-4 flex items-center justify-between gap-4">
+          <div className="min-w-0">
+            <h1 className="font-display text-2xl font-extrabold sm:text-3xl">{hw.title}</h1>
+            <div className="mt-1.5 flex flex-wrap items-center gap-x-2 gap-y-1.5">
+              <span>
+                {questions.length > 0 &&
+                  `${questions.length} question${questions.length === 1 ? "" : "s"} · `}
+                {hw.origin === "tutor" ? "Set by your tutor" : "Practice"}
+                {/* A deadline is only news while it can still be missed. Once
+                    the work is in, "Due 3rd September" beside a mark reads as a
+                    reproach for something the student already did. */}
+                {hw.due_at &&
+                  !submission &&
+                  !overdue &&
+                  ` · Due ${new Date(hw.due_at).toLocaleDateString()}`}
+              </span>
+              {hw.due_at && !submission && overdue && (
+                <span className="chip tint-rose inline-flex items-center gap-1">
+                  <Clock className="size-3" aria-hidden />
+                  Overdue {new Date(hw.due_at).toLocaleDateString()}
+                </span>
+              )}
+            </div>
+          </div>
           {questions.length > 0 && (
-            <span className="text-muted-foreground text-xs">
-              {questions.length} question{questions.length === 1 ? "" : "s"} ·{" "}
-              {questions.reduce((sum, q) => sum + q.marks, 0)} marks
-            </span>
+            <div className="premium-card shrink-0 px-4 py-2.5 text-center">
+              <p className="numeral text-3xl text-[color:var(--tint)]">{totalMarks}</p>
+              <p className="mt-1 text-sm font-bold">mark{totalMarks === 1 ? "" : "s"}</p>
+            </div>
           )}
         </div>
 
-        <h1 className="font-display mt-3 text-2xl font-extrabold sm:text-3xl">{hw.title}</h1>
-
         {hw.instructions && (
           <p className="text-muted-foreground mt-3 max-w-2xl text-sm leading-relaxed whitespace-pre-wrap">
-            {hw.instructions}
+            <SciText text={hw.instructions} />
           </p>
         )}
 
@@ -197,7 +218,7 @@ function MarkPanel({
       <SectionHeading title="Marked" />
       <div className="mt-3 flex flex-wrap items-center gap-2">
         {submission.score_pct != null && (
-          <span className="chip-solid">
+          <span className="chip chip-solid">
             <span className="numeral">{Number(submission.score_pct)}%</span>
           </span>
         )}
@@ -212,7 +233,7 @@ function MarkPanel({
         <div className="mt-4">
           <p className="eyebrow-bare">Feedback</p>
           <div className="premium-card mt-2 p-3.5 text-sm leading-relaxed whitespace-pre-wrap">
-            {submission.feedback}
+            <SciText text={submission.feedback} />
           </div>
         </div>
       )}

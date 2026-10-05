@@ -4,6 +4,8 @@ import { useWeekPlan } from "./useWeekPlan";
 import { useCallback, useEffect, useMemo, useState } from "react";
 import { toast } from "sonner";
 import { PlannerRosterDAL, type PlannerStudent } from "@/lib/planner/plannerRosterDal";
+import { BreakDAL } from "@/lib/planner/breaksDal";
+import { breakCovering } from "@/lib/planner/breaks";
 import { PlanOverridesDAL } from "@/lib/planner/planOverridesDal";
 import { selectWeek } from "@/lib/planner/weekCut";
 import { overridesForWeek } from "@/lib/planner/overrides";
@@ -86,6 +88,19 @@ export function useTutorPlanner() {
     staleTime: 30_000,
   });
 
+  // Who is on a break that week: their week is a rest, not one left unopened.
+  const rosterIds = useMemo(() => (students ?? []).map((s) => s.id).sort(), [students]);
+  const rosterBreaks = useQuery({
+    queryKey: ["planner-roster-breaks", rosterIds],
+    queryFn: () => BreakDAL.listFor(rosterIds),
+    enabled: rosterIds.length > 0,
+    staleTime: 30_000,
+  });
+  const onBreak = useCallback(
+    (id: string) => !!breakCovering(rosterBreaks.data?.[id] ?? [], weekStart),
+    [rosterBreaks.data, weekStart],
+  );
+
   const [query, setQuery] = useState("");
   const [filter, setFilter] = useState<RosterFilter>("all");
   const visibleStudents = useMemo(() => {
@@ -96,12 +111,14 @@ export function useTutorPlanner() {
       if (filter === "all") return true;
       const mine = byStudent.get(s.id) ?? [];
       if (filter === "pinned") return mine.some((w: { pinned: number }) => w.pinned > 0);
-      // Unopened: at least one enrolled subject with no plan row for the week.
+      // Unopened: at least one enrolled subject with no plan row for the week,
+      // and not because the student is on a break.
+      if (onBreak(s.id)) return false;
       return s.enrolments.some(
         (e) => !mine.some((w: { subject: string }) => w.subject === e.subject),
       );
     });
-  }, [students, summaries.data, query, filter]);
+  }, [students, summaries.data, query, filter, onBreak]);
 
   /* ── Selection ──────────────────────────────────────────────────────── */
   const studentId = search.student ?? "";
@@ -288,6 +305,7 @@ export function useTutorPlanner() {
     roster,
     students,
     summaries: summaries.data ?? null,
+    onBreak,
     query,
     setQuery,
     filter,

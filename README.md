@@ -26,10 +26,11 @@ before writing a border, a shadow or an uppercase label by hand:
 | `.page-aurora`                | The page-level wash                                              |
 
 `src/components/Shared.tsx` holds the composed pieces — `PageHeader`,
-`SectionHeading`, `EmptyState`, `Spinner`, `Meter`, `Ring`, `StatTile`,
-`Milestone`. Use them rather than rolling a heading, a progress bar or a
-loading state per screen; every one of those had drifted apart before they
-existed. `src/components/Doodles.tsx` holds the mascot cast, and it belongs in
+`SectionHeading`, `Chip`, `EmptyState`, `Spinner`, `Meter`, `Ring`, `StatTile`,
+`Milestone`. Use them rather than rolling a heading, a pill, a progress bar or
+a loading state per screen; every one of those had drifted apart before they
+existed. A pill with an icon is `<Chip icon={…} tint="tint-…">`, which keeps
+the icon one size everywhere. `src/components/Doodles.tsx` holds the mascot cast, and it belongs in
 empty states, milestones and the 404 — not inside a working tool.
 
 ### Everything colours itself from `--tint`
@@ -64,6 +65,34 @@ things that are display type _without_ being headings. Display type is **bold
 (700) or heavier** — semibold is out; it reads as a different typeface at these
 weights. `font-sans` remains the escape hatch, and utilities still beat the base
 rule, so `tracking-widest` on a small uppercase label wins as intended.
+
+### Science notation
+
+Formulas, ions, units and powers are stored as plain text with Unicode small
+figures (H₂O, Mg²⁺, cm³, 10⁻³), and `toSciNotation` in
+`src/lib/platform/sciNotation.ts` turns typed notation ("H2O", "Mg2+",
+"SO4^2-", "cm3", "CnH2n+2") into that form. It only changes what it is sure
+of, so labels and codes (AO1, KS4, H1N1, B2, F1/F2, P1V1, OCR C6.2b) are left
+alone, and "I2" is iodine only beside chemistry (in "I2 = P / R" it is a
+current squared). Its test file lists the cases; it has been run over every
+stored question, mark scheme, exemplar and note without losing a character.
+
+- Show any question, option, explanation, mark scheme, answer, feedback or
+  note text through `SciText` (in `Shared.tsx`), never as a bare `{text}`. It
+  formats old text too, draws the small figures in the site's face (the web
+  fonts have no ₂ or ⁺), and stacks a nuclide's numbers (²³⁸₉₂U). Pass
+  `context` when texts sit together (a question and its options, an answer
+  and its question), so a wrong option is written like the right one.
+- Take typed science through `SciAnswerBox` (`src/components/homework/`):
+  answers, notes to the tutor, marking comments and feedback, task
+  instructions, question and mark-scheme boxes. It shows how formulas will
+  read, and its x₂ and x² buttons work as in a word processor: press, type,
+  press again (or type a space); with text selected, a press converts it.
+- Generated questions are normalised before saving, tutor-written ones on
+  save, and every prompt whose reply a student reads states the notation
+  (`NOTATION_RULE` in `src/lib/platform/aiText.ts`; the marker and generator
+  carry their own). The revision-note guides say it too, and
+  `scripts/notes/validate.ts` flags flat notation.
 
 ### Phones, either way up
 
@@ -144,6 +173,11 @@ the same question may assess both, and unsuitable skills must not be forced in.
 The migration seeds concise GCSE AQA and Edexcel guidance. Other qualifications
 use the common framework and their available exemplars until applicable guidance
 is added; GCSE guidance is not silently reused for another qualification.
+
+Past-paper text lost its small figures when it was copied out of PDFs ("H2O"),
+and the model copies what it is shown, so examples go into the prompt in proper
+notation, the prompt spells the notation out, and every field of the reply is
+normalised before it is checked (see Science notation above).
 
 The call returns schema-constrained JSON. Code rejects incomplete sets, empty
 rubrics, invalid marks, duplicate prompts and malformed MCQ answer keys. This

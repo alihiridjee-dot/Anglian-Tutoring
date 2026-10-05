@@ -15,6 +15,7 @@ import { useWeekPlan } from "./useWeekPlan";
 import { useReviewMore } from "./useReviewMore";
 import { WeekReview } from "./WeekReview";
 import { PausedWeek } from "./PausedWeek";
+import { BreakWeek } from "./BreakWeek";
 import { useActiveSubject } from "@/hooks/useActiveSubject";
 import { useNow } from "@/hooks/useNow";
 
@@ -75,6 +76,7 @@ export function WeeklyPlanPanel({
   });
   const reviewMore = useReviewMore({ ...week, isCurrent });
   // A paused subject's week is frozen: shown as paused, with nothing to press.
+  // So is a week the student is on a break for.
   const frozen = !!week.pause && !isPast;
   // The arrows stop at the plan's edges: before the programme there is nothing
   // to show, and nothing is ever planned at or after the exam date. Forty taps
@@ -83,6 +85,7 @@ export function WeeklyPlanPanel({
   const nextStart = toDateKey(addWeeks(monday, weekOffset + 1));
   const atExam = !!week.roadmap && nextStart >= week.roadmap.examDate;
   const atStart = !!week.roadmap && weekStart <= week.roadmap.programStart;
+  const resting = !frozen && !!week.onBreak && !isPast;
 
   // Pull a past-week point back into this week's plan, in the lane it was in —
   // the same rule the end-of-week carry follows ({@link carryOrigin}).
@@ -185,6 +188,8 @@ export function WeeklyPlanPanel({
 
         {frozen && week.pause ? (
           <PausedWeek subject={active.subject} pause={week.pause} canManage />
+        ) : resting && week.onBreak ? (
+          <BreakWeek brk={week.onBreak} />
         ) : !week.loading && week.points.length === 0 && !week.roadmap ? (
           editable ? (
             <EmptyState future={isFuture} />
@@ -210,11 +215,13 @@ export function WeeklyPlanPanel({
         )}
       </div>
 
-      {!frozen && <WithheldPlanPoints points={week.withheld} coverage={week.coverage} />}
+      {!frozen && !resting && (
+        <WithheldPlanPoints points={week.withheld} coverage={week.coverage} />
+      )}
 
       {/* The week as a checklist, between the plan and the review: the panel above
           says what this week is and why, this one says what to press. */}
-      {!frozen && (
+      {!frozen && !resting && (
         <DoNowPanel
           points={week.points}
           activity={week.activity}
@@ -228,7 +235,7 @@ export function WeeklyPlanPanel({
       )}
 
       {/* The student's own read on the week — its own box, not a footnote to the plan. */}
-      {showReview && !frozen && week.plan && active && (
+      {showReview && !frozen && !resting && week.plan && active && (
         <div className="mb-6">
           <WeekReview
             studentId={studentId}

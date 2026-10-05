@@ -24,7 +24,7 @@ import {
   Undo2,
   type LucideIcon,
 } from "lucide-react";
-import { isTeachBand, type PacingBand } from "@/lib/planner/pacing";
+import { isTeachBand } from "@/lib/planner/pacing";
 import { ProgramDAL, examDateBounds } from "@/lib/planner/programDal";
 import { type RoadmapResult } from "@/lib/planner/roadmap";
 import { ScheduleDAL, type TopicProgress } from "@/lib/planner/scheduleDal";
@@ -41,17 +41,14 @@ import { CoveredLedger } from "./CoveredLedger";
 import { CatchUpPanel } from "./CatchUpPanel";
 import { ThisWeekPanel } from "./ThisWeekPanel";
 import { PausedWeek } from "./PausedWeek";
+import { BreakWeek } from "./BreakWeek";
 import { useWeekPlan } from "./useWeekPlan";
 import { useReviewMore } from "./useReviewMore";
 import { WeekReview } from "./WeekReview";
 import { useActiveSubject } from "@/hooks/useActiveSubject";
 import { useNow } from "@/hooks/useNow";
 import { DoNowPanel } from "./DoNowPanel";
-
-/** Stable identity for one focus-lane band — topic + kind + week it lands on. */
-function focusKey(b: PacingBand): string {
-  return `${b.topicId}|${b.kind}|${b.startWeek}`;
-}
+import { compareFocus, type SeenFocus } from "./focusSlots";
 
 type TabKey = "week" | "plan" | "topics";
 
@@ -114,7 +111,7 @@ export function StudentPlanner({
   // when a student re-rates topics we can point at exactly what their revision
   // schedule now does differently ("your new schedule"). Session-only, never
   // persisted: the diff is between the plan as it was and as it is right now.
-  const prevFocus = useRef<{ course: string; keys: Set<string> } | null>(null);
+  const prevFocus = useRef<SeenFocus | null>(null);
   const [newFocusKeys, setNewFocusKeys] = useState<Set<string>>(new Set());
 
   const courseParams = {
@@ -161,14 +158,11 @@ export function StudentPlanner({
   const loading = roadQuery.isLoading || currentWeek.loading;
   useEffect(() => {
     const course = `${studentId}|${activeCourseSubject}|${activeBoard}|${level}`;
-    const keys = new Set((data?.bands ?? []).filter((b) => !isTeachBand(b)).map(focusKey));
-    const prev = prevFocus.current;
-    setNewFocusKeys(
-      prev && prev.course === course
-        ? new Set([...keys].filter((k) => !prev.keys.has(k)))
-        : new Set(),
-    );
-    prevFocus.current = { course, keys };
+    // Nothing to compare until the plan has loaded (see compareFocus).
+    const next = compareFocus(prevFocus.current, course, data?.bands ?? null);
+    if (!next) return;
+    setNewFocusKeys(next.added);
+    prevFocus.current = next.seen;
   }, [data, studentId, activeCourseSubject, activeBoard, level]);
 
   if (!active) {
@@ -355,7 +349,9 @@ function ThisWeekTab({
 
   const reviewMore = useReviewMore({ ...week, isCurrent });
   // A paused subject's week is frozen: shown as paused, with nothing to change.
+  // So is a week the student is on a break for.
   const frozen = !!week.pause && !isPast;
+  const resting = !frozen && !!week.onBreak && !isPast;
 
   if (week.error) return <ErrorNote error={week.error} onRetry={() => void week.reload()} />;
 
@@ -412,6 +408,8 @@ function ThisWeekTab({
 
         {frozen && week.pause ? (
           <PausedWeek subject={subject} pause={week.pause} canManage />
+        ) : resting && week.onBreak ? (
+          <BreakWeek brk={week.onBreak} />
         ) : !week.loading && week.points.length === 0 && isPast ? (
           // Said plainly, because the alternative reading — "you did nothing" —
           // is the wrong one, and on this account it was the common one: three
@@ -435,11 +433,13 @@ function ThisWeekTab({
         )}
       </section>
 
-      {!frozen && <WithheldPlanPoints points={week.withheld} coverage={week.coverage} />}
+      {!frozen && !resting && (
+        <WithheldPlanPoints points={week.withheld} coverage={week.coverage} />
+      )}
 
       {/* The week as a checklist — the same one the dashboard shows, so a point
           can be ticked off from either screen. */}
-      {!frozen && (
+      {!frozen && !resting && (
         <DoNowPanel
           points={week.points}
           activity={week.activity}
@@ -455,7 +455,7 @@ function ThisWeekTab({
       {/* Re-cutting a week is a statement about the week ahead. Offering it on a
           week that has gone by would let a student rewrite what was set for
           them after the fact, and a paused week has nothing to re-cut. */}
-      {week.plan && isCurrent && !frozen && (
+      {week.plan && isCurrent && !frozen && !resting && (
         <ScheduleComparison
           studentId={studentId}
           subject={subject}
@@ -468,7 +468,7 @@ function ThisWeekTab({
         />
       )}
       {/* Optional reflection and tutor feedback. */}
-      {week.plan && showReview && !frozen && (
+      {week.plan && showReview && !frozen && !resting && (
         <details className="premium-card rounded-xl p-3">
           <summary className="cursor-pointer text-sm font-bold py-3 -my-3 sm:pointer-fine:py-0 sm:pointer-fine:my-0">
             Weekly check-in and tutor feedback
