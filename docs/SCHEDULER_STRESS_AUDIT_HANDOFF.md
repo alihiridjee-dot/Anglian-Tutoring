@@ -51,7 +51,10 @@ Further hypotheses (state, time zone, DAL, tutor, crash) are in the workflow scr
   to go, "4 won't fit before exams". Chemistry's rationale said "47 more missed points are
   queued" on 21 Sept and again on 28 Sept. `catchUpBudget` = 0.2 × spine weight (~0.7 on
   Edexcel Bio), so the one-point floor is the whole allowance. The doc's "a month clears in
-  about five weeks" does not hold. Tuning decision for Ali: raise the share or the floor.
+  about five weeks" did not hold. **Settled in #211 (merged 5 Oct):** when 20% would not fit
+  before the exam, each week takes its fair share (owed ÷ weeks left, rounded up), with no
+  cap; Ali chose the extra early over an even split, and the doc's maths is corrected. Don't
+  re-tune it without asking Ali.
 - The biology week of 28 Sept was saved with an empty rationale and a single catch-up
   point (empty cut + `ensureCatchUp`), so the student saw a week with no explanation.
 - The planner renders cleanly at phone width; no console errors on any surface visited.
@@ -76,9 +79,6 @@ the exam, plain-English comparison and kept-aside panels).
 Not fixed — product decisions for Ali:
 - **Exam year is never asked.** `examMondayFor` seeds the nearest June. Options:
   an onboarding step, or a first-visit prompt on the planner's Exams tile.
-- **Catch-up trickle.** `CATCH_UP_SHARE` 0.2 x spine weight is below one point on
-  real courses, so the one-point floor is the whole allowance (40 owed, 37
-  weeks, "4 won't fit"). Options: raise the share (0.5), or a floor of 2–3 points.
 - Hand-picked additions ("Practise now", "Retake this topic") cannot be undone by
   the student; the tutor's remove/skip is the only way out.
 - Paused-subject history reads "No plan was set" for past weeks; a board change

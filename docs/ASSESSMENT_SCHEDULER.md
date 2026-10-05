@@ -251,7 +251,8 @@ Found by a stress audit of the student planner (see
   ever. `mergeWeek` now sheds fresh automatic points past the cap.
 - **A custom order the new exam date cannot hold no longer throws.** `liveSpine`
   keeps the stored spine and `unscheduledTopicTitles` reports the overflow.
-- **Catch-up order inside a week is numeric on the spec code** (1.8 before 1.10).
+- **Catch-up order inside a week is numeric on the spec code** (1.8 before 1.10;
+  landed with #211).
 - **An empty cut carries a rationale**, and the rationale is now shown to the
   student under the week (it used to render only in the sales demo).
 - **`?week=` on the planner route is a real calendar date snapped to its Monday**,

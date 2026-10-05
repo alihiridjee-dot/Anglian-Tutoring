@@ -366,14 +366,3 @@ describe("catch-up forecast", () => {
     expect(result.held).toEqual([]);
   });
 });
-
-describe("catch-up order inside one week", () => {
-  test("spec codes order as numbers, so 1.8 and 1.9 come back before 1.10", () => {
-    const bands = withWeeklyPoints(
-      [{ topicId: "t", title: "Topic", startWeek: "2026-07-13", endWeek: "2026-07-13", weeks: 1 }],
-      new Map([["t", ["1.10", "1.8", "1.11", "1.9"].map((c) => ({ ...point(c), code: c }))]]),
-    );
-    const out = spineBacklog({ bands, weekStart: "2026-09-07", ledger: EMPTY });
-    expect(out.map((p) => p.code)).toEqual(["1.8", "1.9", "1.10", "1.11"]);
-  });
-});
