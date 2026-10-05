@@ -281,7 +281,7 @@ function HomeworkCard({ item, summary }: { item: HomeworkItem; summary?: Homewor
         {hw.origin === "tutor" && <span className="chip">Set by your tutor</span>}
         {overdue && <span className="chip tint-rose">Overdue</span>}
         {submission?.graded_at && submission.score_pct != null && (
-          <span className="chip-solid">
+          <span className="chip chip-solid">
             <span className="numeral">{Number(submission.score_pct)}%</span>
           </span>
         )}
