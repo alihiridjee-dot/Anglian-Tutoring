@@ -1,4 +1,4 @@
-import { Link } from "@tanstack/react-router";
+import { Link, useRouter } from "@tanstack/react-router";
 import { WeekBreakdown } from "./WeekBreakdown";
 import { FullPlanTimeline } from "./FullPlanTimeline";
 import { WithheldPlanPoints } from "./WithheldPlanPoints";
@@ -48,6 +48,7 @@ import { WeekReview } from "./WeekReview";
 import { useActiveSubject } from "@/hooks/useActiveSubject";
 import { useNow } from "@/hooks/useNow";
 import { DoNowPanel } from "./DoNowPanel";
+import { useEntryState } from "@/hooks/useEntryState";
 import { compareFocus, type SeenFocus } from "./focusSlots";
 
 type TabKey = "week" | "plan" | "topics";
@@ -94,12 +95,23 @@ export function StudentPlanner({
   // the enrolments query hands back a fresh object for the same course.
   const activeCourseSubject = active?.subject;
   const activeBoard = active?.board;
-  const [tab, setTab] = useState<TabKey>(initialTab ?? "week");
+  // Kept with the visit, so Back from a note or a task reopens this tab.
+  const [tab, setTab] = useEntryState<TabKey>("planner.tab", initialTab ?? "week");
   // A link into a tab (`?tab=plan` from the week's "Set my exam date") lands on
-  // it even when the planner is already open.
+  // it even when the planner is already open. Only a link: Back and Forward
+  // reopen the tab that was left there, whatever the address says.
+  const router = useRouter();
+  const lastMove = useRef<string | null>(null);
+  useEffect(
+    () =>
+      router.history.subscribe(({ action }) => {
+        lastMove.current = action.type;
+      }),
+    [router],
+  );
   useEffect(() => {
-    if (initialTab) setTab(initialTab);
-  }, [initialTab]);
+    if (initialTab && lastMove.current === "PUSH") setTab(initialTab);
+  }, [initialTab, setTab]);
 
   // Bumped after an explicit schedule update.
   const [boardRev, setBoardRev] = useState(0);
@@ -315,7 +327,7 @@ function ThisWeekTab({
    * has had these arrows all along; this is the same gesture, on the screen
    * where it is actually looked for.
    */
-  const [weekOffset, setWeekOffset] = useState(0);
+  const [weekOffset, setWeekOffset] = useEntryState("planner.week", 0);
   // Re-read each minute, so a tab left open over Sunday midnight moves on to
   // the new week instead of ticking and planning into the one that has ended.
   const now = useNow(60_000);

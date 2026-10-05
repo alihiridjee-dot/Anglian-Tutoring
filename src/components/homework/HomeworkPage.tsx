@@ -30,6 +30,7 @@ import { isDemoStudent } from "@/lib/demo/studentDemo";
 import { studentBreaksQuery } from "@/lib/planner/breakQueries";
 import { type SubjectV, type BoardV, type LevelV } from "@/lib/curriculum/taxonomy";
 import { SUBJECT_LABEL, SUBJECT_TINT, subjectTint } from "@/lib/curriculum/subjectTheme";
+import { useEntryState } from "@/hooks/useEntryState";
 import { useActiveSubject } from "@/hooks/useActiveSubject";
 import { PredictedGradeCard } from "@/components/homework/PredictedGradeCard";
 
@@ -132,7 +133,8 @@ function StudentHomework({
   const { enrolments, level } = useEnrolments();
   const { userId } = useRoles();
   const { subject } = useActiveSubject();
-  const [bucket, setBucket] = useState<HomeworkBucket>("due");
+  // Kept with the visit, so Back from a task reopens the tab it was on.
+  const [bucket, setBucket] = useEntryState<HomeworkBucket>("tasks.tab", "due");
   // A brief due during a break isn't held against them (wasDueOnBreak).
   const { data: breaks } = useQuery({
     ...studentBreaksQuery(userId ?? ""),
@@ -182,7 +184,7 @@ function StudentHomework({
     if (current && current.items.length > 0) return;
     const firstWithWork = sections.find((s) => s.items.length > 0);
     if (firstWithWork) setBucket(firstWithWork.bucket);
-  }, [sections, bucket]);
+  }, [sections, bucket, setBucket]);
 
   const active = sections.find((s) => s.bucket === bucket) ?? sections[0];
   const nothingAtAll = sections.every((s) => s.items.length === 0);

@@ -7,6 +7,7 @@ import { AppLayout } from "@/components/AppLayout";
 import { useRoles } from "@/hooks/useRole";
 import { useEntitlements } from "@/hooks/data/useEntitlements";
 import { useEnrolments } from "@/hooks/data/useEnrolments";
+import { useEntryState } from "@/hooks/useEntryState";
 import { useActiveSubject, useSubjectFromLink } from "@/hooks/useActiveSubject";
 import {
   SUBJECTS,
@@ -57,7 +58,11 @@ export function Curriculum() {
   const [board, setBoard] = useState<BoardV>(search.board ?? "edexcel");
   const [level, setLevel] = useState<LevelV>(search.level ?? "gcse");
   const [topics, setTopics] = useState<Topic[]>([]);
-  const [openTopicId, setOpenTopicId] = useState<string | null>(search.topic ?? null);
+  // Kept with the visit, so Back from a spec point or a note reopens the topic.
+  const [openTopicId, setOpenTopicId] = useEntryState<string | null>(
+    "curriculum.topic",
+    search.topic ?? null,
+  );
   const [loading, setLoading] = useState(true);
 
   /** Writes a partial change into the URL without disturbing the rest of it. */
@@ -198,7 +203,7 @@ export function Curriculum() {
 
   useEffect(() => {
     if (search.topic) setOpenTopicId(search.topic);
-  }, [search.topic]);
+  }, [search.topic, setOpenTopicId]);
 
   const loadTopics = async () => {
     setLoading(true);

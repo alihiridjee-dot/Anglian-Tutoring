@@ -8,6 +8,7 @@ import { isDemoStudent, DEMO_MCQ, DEMO_MCQ_ATTEMPTS, DEMO_MCQ_SETS } from "@/lib
 import { useRoles } from "@/hooks/useRole";
 import { useEnrolments } from "@/hooks/data/useEnrolments";
 import { useActiveSubject } from "@/hooks/useActiveSubject";
+import { useEntryState } from "@/hooks/useEntryState";
 import { McqManager } from "@/components/tutor/McqManager";
 import { SUBJECT_TINT, subjectLabel } from "@/lib/curriculum/subjectTheme";
 import { selectIn, selectInHistory } from "@/lib/platform/db/chunked";
@@ -393,7 +394,8 @@ function TopicGroup({
   items: QuizSet[];
   attempts: Record<string, Attempt>;
 }) {
-  const [open, setOpen] = useState(false);
+  // Kept with the visit, so Back from a quiz finds its group still open.
+  const [open, setOpen] = useEntryState(`mcqs.group:${title}`, false);
   const done = items.filter((s) => attempts[s.id]).length;
 
   return (
