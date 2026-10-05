@@ -24,6 +24,50 @@ function brief(over: Partial<Homework> = {}): Homework {
   };
 }
 
+describe("a brief due while the student was on a break", () => {
+  // Away for the fortnight of 12 Oct 2026, back on Monday 26 Oct.
+  const breaks = [
+    {
+      id: "b1",
+      startsOn: "2026-10-12",
+      endsOn: "2026-10-25",
+      reason: "holiday" as const,
+      recordedAt: null,
+    },
+  ];
+  const joined = "2026-09-01T10:00:00Z";
+
+  test("is practice, not Overdue", () => {
+    const item: HomeworkItem = {
+      hw: brief({ due_at: "2026-10-16T17:00:00Z" }),
+      enrolledAt: joined,
+      breaks,
+    };
+    expect(bucketOf(item)).toBe("practice");
+    expect(isOverdue(item, NOW)).toBe(false);
+  });
+
+  test("counts its UK date: late on the last Sunday is still in the break", () => {
+    // 23:30 on Sunday 25 Oct in London is 23:30 UTC (BST has ended that day).
+    const item: HomeworkItem = {
+      hw: brief({ due_at: "2026-10-25T23:30:00Z" }),
+      enrolledAt: joined,
+      breaks,
+    };
+    expect(bucketOf(item)).toBe("practice");
+  });
+
+  test("is still Overdue when it was due the day they were back", () => {
+    const item: HomeworkItem = {
+      hw: brief({ due_at: "2026-10-26T17:00:00Z" }),
+      enrolledAt: joined,
+      breaks,
+    };
+    expect(bucketOf(item)).toBe("due");
+    expect(isOverdue(item, NOW)).toBe(true);
+  });
+});
+
 describe("a brief set before the student joined", () => {
   // Briefs are visible by subject and level, not set per student, so a
   // student who joins in November also sees October's brief.

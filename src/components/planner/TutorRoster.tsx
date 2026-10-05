@@ -11,8 +11,12 @@ const FILTERS: { key: RosterFilter; label: string }[] = [
 ];
 
 /** "6 set · 2 done · 1 by you", or why there is nothing to count. */
-function summaryLine(s: RosterWeekSummary | undefined, editable: boolean): string {
-  if (!s) return editable ? "not opened yet" : "no plan";
+function summaryLine(
+  s: RosterWeekSummary | undefined,
+  editable: boolean,
+  onBreak: boolean,
+): string {
+  if (!s) return onBreak ? "on a break" : editable ? "not opened yet" : "no plan";
   if (s.total === 0) return "nothing set";
   const parts = [`${s.total} set`];
   if (s.done > 0) parts.push(`${s.done} done`);
@@ -30,6 +34,7 @@ function summaryLine(s: RosterWeekSummary | undefined, editable: boolean): strin
  */
 export function TutorRoster({ state }: { state: TutorPlannerState }) {
   const { students, visibleStudents, summaries, query, setQuery, filter, setFilter } = state;
+  const { onBreak } = state;
   const { studentId, selectStudent, editable, weekStart, currentWeek, shiftWeek, setWeek } = state;
   const total = students?.length ?? 0;
   return (
@@ -92,6 +97,7 @@ export function TutorRoster({ state }: { state: TutorPlannerState }) {
         {visibleStudents.map((s: PlannerStudent) => {
           const mine = summaries?.get(s.id) ?? [];
           const selected = s.id === studentId;
+          const away = onBreak(s.id);
           return (
             <li key={s.id}>
               <button
@@ -125,7 +131,7 @@ export function TutorRoster({ state }: { state: TutorPlannerState }) {
                           <span className="font-medium text-foreground/80">
                             {subjectLabel(e.subject)}
                           </span>{" "}
-                          · {summaryLine(sum, editable)}
+                          · {summaryLine(sum, editable, away)}
                         </li>
                       );
                     })}

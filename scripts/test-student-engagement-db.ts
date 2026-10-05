@@ -215,4 +215,94 @@ try {
 }
 assert(threw, "anon could call student_engagement");
 
+// ── Breaks (20261005142000): what fell in a break counts neither way ─────
+{
+  await db.exec("reset role");
+  await db.query("update profiles set level = 'gcse' where id = $1", [child]);
+  // The real table, exactly as the migration that makes it writes it.
+  const breaksSql = await readFile(
+    new URL("../supabase/migrations/20261004114000_student_breaks.sql", import.meta.url),
+    "utf8",
+  );
+  const from = breaksSql.indexOf("create table public.student_breaks (");
+  await db.exec(
+    `create table auth.users(id uuid primary key); insert into auth.users values ('${child}');` +
+      breaksSql.slice(from, breaksSql.indexOf(");\n", from) + 3),
+  );
+  const pickup = await readFile(
+    new URL("../supabase/migrations/20261005142000_breaks_not_held_against.sql", import.meta.url),
+    "utf8",
+  );
+  await db.exec(pickup);
+  await db.exec(pickup); // idempotent
+
+  // A week three weeks back, well after they took Biology up.
+  const monday = (
+    await db.query<{ m: string }>(
+      "select to_char(date_trunc('week', (now() - interval '21 days') at time zone 'Europe/London'), 'YYYY-MM-DD') as m",
+    )
+  ).rows[0].m;
+  const at = (days: number, hour: number) =>
+    `(('${monday}'::date + ${days})::timestamp + interval '${hour} hours') at time zone 'Europe/London'`;
+  const dueInBreak = await hw("Bio, due in the break", {
+    subject: "'biology'",
+    board: "'aqa'",
+    level: "'gcse'",
+    due_at: at(2, 17),
+  });
+  await hw("Bio, due the Monday after", {
+    subject: "'biology'",
+    board: "'aqa'",
+    level: "'gcse'",
+    due_at: at(7, 9),
+  });
+  await session(`'biology','aqa','gcse',${at(1, 16)}`);
+  await db.query("insert into homework_submissions(resource_id,student_id) values($1,$2)", [
+    dueInBreak,
+    child,
+  ]);
+  const away = (
+    await db.query<{ id: string }>(
+      "insert into public.student_breaks (student_id, starts_on, ends_on, reason) values ($1, $2, $2::date + 6, 'holiday') returning id",
+      [child, monday],
+    )
+  ).rows[0].id;
+
+  const countsAs = async (who: string) => {
+    await db.exec("set role authenticated");
+    await as(who);
+    try {
+      return (await counts())[0];
+    } finally {
+      await db.exec("reset role");
+    }
+  };
+  assert.deepEqual(
+    await countsAs(parent),
+    { sessions_held: 2, sessions_attended: 1, homework_set: 4, homework_submitted: 2 },
+    "The task due and the session held in the break count neither way; the Monday after counts",
+  );
+
+  await db.query("update public.student_breaks set cancelled_at = now() where id = $1", [away]);
+  const calledOff = {
+    sessions_held: 3,
+    sessions_attended: 1,
+    homework_set: 5,
+    homework_submitted: 3,
+  };
+  assert.deepEqual(await countsAs(parent), calledOff, "A called-off break never counts");
+
+  await db.query("update public.student_breaks set cancelled_at = null where id = $1", [away]);
+  await db.exec(
+    await readFile(
+      new URL(
+        "../supabase/rollbacks/20261005142000_breaks_not_held_against.down.sql",
+        import.meta.url,
+      ),
+      "utf8",
+    ),
+  );
+  assert.deepEqual(await countsAs(parent), calledOff, "The rollback counts break weeks again");
+}
+
 console.log("student_engagement: all checks passed");
