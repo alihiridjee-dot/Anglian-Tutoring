@@ -1,5 +1,5 @@
 import { resumeAfterPause, type OrderTopic } from "./topicOrder";
-import { weeksBetween, type PacingBand } from "./pacing";
+import type { PacingBand } from "./pacing";
 import { plannerDateLabel, weekKeyToDate } from "./week";
 
 /**
@@ -146,19 +146,6 @@ export function overlapsBreak(
 ): boolean {
   const endsOn = breakEndsOn(startsOn, weeks);
   return breaks.some((b) => b.startsOn <= endsOn && b.endsOn >= startsOn);
-}
-
-/**
- * How much fuller each week after a break gets, as a share: 0.06 is 6% more.
- *
- * The weeks from the start of the break to the exam carry the rest of the
- * course. A break of `weeks` leaves that much fewer to carry it. Null when the
- * break doesn't leave a week before the exam.
- */
-export function fullerBy(p: { startsOn: string; weeks: number; examDate: string }): number | null {
-  const left = weeksBetween(weekKeyToDate(p.startsOn), weekKeyToDate(p.examDate));
-  if (left - p.weeks <= 0) return null;
-  return left / (left - p.weeks) - 1;
 }
 
 /** Whether a break touches the 6 weeks before an exam, or the exam week (`book_break`). */

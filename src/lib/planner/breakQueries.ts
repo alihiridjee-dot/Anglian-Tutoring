@@ -16,7 +16,7 @@ export const studentBreaksQuery = (studentId: string) =>
     staleTime: 30_000,
   });
 
-/** Each programme's exam date, for the booking form (BreakDAL.examDates). */
+/** Each programme's exam date, for the booking form's exam rule (BreakDAL.examDates). */
 export const examDatesQuery = (studentId: string) =>
   queryOptions({
     queryKey: [...plannerKey(studentId), "exam-dates"],

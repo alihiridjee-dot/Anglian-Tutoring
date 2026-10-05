@@ -10,8 +10,6 @@ import {
   BREAK_REASONS,
   MAX_BREAK_WEEKS,
   breakDay,
-  breakEndsOn,
-  fullerBy,
   mondayKeyOf,
   overlapsBreak,
   runWeeks,
@@ -113,17 +111,6 @@ export function TakeABreakDialog({
   }));
   const refusals = [...new Set(options.map((o) => o.refusal).filter((r): r is string => !!r))];
   const picked = options.find((o) => o.weeks === weeks && !o.refusal) ?? null;
-
-  // The most any of their courses is squeezed: each subject has its own exam.
-  const fuller =
-    startsOn && picked
-      ? Math.max(
-          0,
-          ...exams.map(
-            (e) => fullerBy({ startsOn, weeks: picked.weeks, examDate: e.examDate }) ?? 0,
-          ),
-        )
-      : 0;
 
   const ready = !!startsOn && !!picked && !!reason && !pending;
   const dirty = !!start || !!weeks || !!reason;
@@ -264,20 +251,6 @@ export function TakeABreakDialog({
               ))}
             </div>
           </section>
-
-          {picked && (
-            <div className="flex flex-wrap gap-1.5">
-              <span className="chip">
-                Back {breakDay(picked.back!)} · ends{" "}
-                {breakDay(breakEndsOn(startsOn!, picked.weeks))}
-              </span>
-              {fuller > 0 && (
-                <span className="chip">
-                  About {Math.max(1, Math.round(fuller * 100))}% more work each week after
-                </span>
-              )}
-            </div>
-          )}
 
           {error && (
             <p role="alert" className="tint-rose chip whitespace-normal">

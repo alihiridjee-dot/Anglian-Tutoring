@@ -67,9 +67,9 @@ export class BreakDAL {
   }
 
   /**
-   * Each programme's exam date, for the booking form: how much fuller a break
-   * makes the weeks after it, and which weeks are too close to an exam. A
-   * failed read reads as none known; `book_break` still checks the exams.
+   * Each programme's exam date, for the booking form: which weeks are too
+   * close to an exam to pick. A failed read reads as none known; `book_break`
+   * still checks the exams.
    */
   static async examDates(studentId: string): Promise<{ subject: string; examDate: string }[]> {
     if (isDemoMode()) return [];
