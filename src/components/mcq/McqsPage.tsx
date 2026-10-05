@@ -12,6 +12,7 @@ import { McqManager } from "@/components/tutor/McqManager";
 import { SUBJECT_TINT, subjectLabel } from "@/lib/curriculum/subjectTheme";
 import { selectIn, selectInHistory } from "@/lib/platform/db/chunked";
 import { currentWeekKey, plannerDateLabel, weekRangeLabel, mondayOf } from "@/lib/planner/week";
+import { retakeOpensAt } from "@/lib/mcq/retakeLock";
 
 /** One quiz, with everything the list needs to place it and describe it. */
 type QuizSet = {
@@ -29,7 +30,12 @@ type QuizSet = {
 };
 
 /** The student's best attempt at a set, or nothing if they've never opened it. */
-type Attempt = { score: number; total: number };
+type Attempt = {
+  score: number;
+  total: number;
+  /** When the latest attempt's week is up (see retakeLock). Absent on the showcase. */
+  opensAt?: Date;
+};
 
 export function MCQs() {
   const { isTutor, loading: rolesLoading } = useRoles();
@@ -125,7 +131,7 @@ function StudentMCQs() {
           .from("student_weekly_plan_points")
           .select("spec_point_id, student_weekly_plans!inner(student_id, week_start)")
           .eq("student_weekly_plans.student_id", uid),
-        supabase.from("mcq_attempts").select("set_id, score, total").eq("user_id", uid),
+        supabase.from("mcq_attempts").select("set_id, score, total, created_at").eq("user_id", uid),
       ]);
       if (cancelled) return;
       // A failed read is not an empty shelf. Swallowing an error here is what
@@ -223,12 +229,15 @@ function StudentMCQs() {
       // Best attempt per set — a retake that went worse shouldn't replace a
       // good score on the card.
       const best: Record<string, Attempt> = {};
+      const latest: Record<string, string> = {};
       for (const a of (attemptRows ?? []) as unknown as AttemptRow[]) {
         const prev = best[a.set_id];
         if (!prev || a.score / Math.max(a.total, 1) > prev.score / Math.max(prev.total, 1)) {
           best[a.set_id] = { score: a.score, total: a.total };
         }
+        if (!latest[a.set_id] || a.created_at > latest[a.set_id]) latest[a.set_id] = a.created_at;
       }
+      for (const [setId, at] of Object.entries(latest)) best[setId].opensAt = retakeOpensAt(at);
       setAttempts(best);
       setLoading(false);
     })();
@@ -461,7 +470,11 @@ function QuizCard({ set, attempt }: { set: QuizSet; attempt?: Attempt }) {
             : plannerDateLabel(new Date(set.created_at))}
         </span>
         <span className="inline-flex items-center gap-1 font-semibold text-[color:var(--tint)]">
-          {attempt ? "Review" : "Start"}
+          {!attempt
+            ? "Start"
+            : attempt.opensAt && attempt.opensAt.getTime() > Date.now()
+              ? "Review"
+              : "Retake"}
           <ChevronRight
             className="size-3 transition-transform group-hover:translate-x-0.5"
             aria-hidden
@@ -479,7 +492,7 @@ type PlanPointRow = {
   student_weekly_plans: { week_start: string } | null;
 };
 
-type AttemptRow = { set_id: string; score: number; total: number };
+type AttemptRow = { set_id: string; score: number; total: number; created_at: string };
 
 type SetQueryRow = {
   id: string;
