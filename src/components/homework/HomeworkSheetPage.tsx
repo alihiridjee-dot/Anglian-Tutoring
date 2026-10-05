@@ -204,7 +204,7 @@ function MarkPanel({
       <SectionHeading title="Marked" />
       <div className="mt-3 flex flex-wrap items-center gap-2">
         {submission.score_pct != null && (
-          <span className="chip-solid">
+          <span className="chip chip-solid">
             <span className="numeral">{Number(submission.score_pct)}%</span>
           </span>
         )}
