@@ -4,6 +4,7 @@ import { useRoles } from "@/hooks/useRole";
 import { useEnrolments } from "@/hooks/data/useEnrolments";
 import { useAnalytics } from "@/hooks/data/useAnalytics";
 import { useChildLinks } from "@/hooks/data/useParentLinks";
+import { useEntryState } from "@/hooks/useEntryState";
 import {
   useChildEnrolments,
   useChildCourse,
@@ -37,7 +38,7 @@ import {
 } from "@/lib/demo/studentDemo";
 import { demoWeek } from "@/lib/demo/plannerDemo";
 import { resolveDisplayName } from "@/lib/profile/displayName";
-import { Suspense, lazy, useMemo, useState } from "react";
+import { Suspense, lazy, useMemo } from "react";
 import { EmptyState, ErrorNote, SegmentedToggle, Spinner } from "@/components/Shared";
 
 /**
@@ -133,10 +134,10 @@ export function ParentDashboard() {
   const isDemo = isDemoMode();
 
   // Which child is being viewed. Defaults to the first linked child; a parent
-  // with several children gets a switcher.
+  // with several children gets a switcher, and Back comes back to the same one.
   const childrenQ = useChildLinks(!isDemo);
   const children = childrenQ.data ?? [];
-  const [selectedChildId, setSelectedChildId] = useState<string | null>(null);
+  const [selectedChildId, setSelectedChildId] = useEntryState<string | null>("portal.child", null);
   const childId = isDemo ? null : (selectedChildId ?? children[0]?.student_id ?? null);
   const selectedChild = children.find((c) => c.student_id === childId) ?? null;
   const childName = isDemo
