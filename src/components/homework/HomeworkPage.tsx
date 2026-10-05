@@ -272,40 +272,58 @@ function HomeworkCard({ item, summary }: { item: HomeworkItem; summary?: Homewor
       // sign-in from a page whose whole job is to be browsable without an account.
       to={isDemoStudent() ? "/demo/student/homework/$homeworkId" : "/homework/$homeworkId"}
       params={{ homeworkId: hw.id }}
-      className={`premium-card block p-4 transition hover:brightness-[0.99] ${
+      className={`premium-card flex items-center justify-between gap-4 p-4 transition hover:brightness-[0.99] ${
         SUBJECT_TINT[hw.subject] ?? "tint-primary"
       }`}
     >
-      <div className="flex flex-wrap items-center gap-2">
-        <span className="chip">{SUBJECT_LABEL[hw.subject] ?? hw.subject}</span>
-        {hw.origin === "tutor" && <span className="chip">Set by your tutor</span>}
-        {overdue && <span className="chip tint-rose">Overdue</span>}
-        {submission?.graded_at && submission.score_pct != null && (
-          <span className="chip chip-solid">
-            <span className="numeral">{Number(submission.score_pct)}%</span>
-          </span>
-        )}
-      </div>
-
-      <p className="font-display mt-2 font-bold">{hw.title}</p>
-
-      <div className="text-muted-foreground mt-1.5 flex flex-wrap items-center gap-x-3 gap-y-1 text-xs">
-        {summary && summary.count > 0 && (
+      {/* The same shape as the top of the sheet it opens: the title, one plain
+          line under it, and a number boxed on the right. No subject label —
+          the list only ever holds the subject in the header slider. */}
+      <div className="min-w-0">
+        <p className="font-display font-bold">{hw.title}</p>
+        <div className="mt-1 flex flex-wrap items-center gap-x-2 gap-y-1.5 text-sm">
           <span>
-            {summary.count} question{summary.count === 1 ? "" : "s"} · {summary.marks} marks
+            {[
+              summary && summary.count > 0
+                ? `${summary.count} question${summary.count === 1 ? "" : "s"}`
+                : null,
+              hw.origin === "tutor" ? "Set by your tutor" : "Practice",
+              hw.due_at && !submission && !overdue
+                ? `Due ${new Date(hw.due_at).toLocaleDateString()}`
+                : null,
+              awaiting ? "Being marked" : null,
+              submission?.graded_at
+                ? `Marked ${new Date(submission.graded_at).toLocaleDateString()}`
+                : null,
+            ]
+              .filter(Boolean)
+              .join(" · ")}
           </span>
-        )}
-        {hw.due_at && !submission && (
-          <span className="inline-flex items-center gap-1">
-            <Clock className="size-3" aria-hidden />
-            Due {new Date(hw.due_at).toLocaleDateString()}
-          </span>
-        )}
-        {awaiting && <span>Being marked</span>}
-        {submission?.graded_at && (
-          <span>Marked {new Date(submission.graded_at).toLocaleDateString()}</span>
-        )}
+          {overdue && hw.due_at && (
+            <span className="chip tint-rose inline-flex items-center gap-1">
+              <Clock className="size-3" aria-hidden />
+              Overdue {new Date(hw.due_at).toLocaleDateString()}
+            </span>
+          )}
+        </div>
       </div>
+
+      {/* Once marked, the score is the number that matters, so it takes the
+          box in solid tint; until then the box holds the total marks. */}
+      {submission?.graded_at && submission.score_pct != null ? (
+        <div className="icon-tile icon-tile-solid min-w-16 shrink-0 flex-col px-3 py-2">
+          <span className="numeral text-2xl">{Number(submission.score_pct)}%</span>
+          <span className="mt-0.5 text-xs font-bold">score</span>
+        </div>
+      ) : (
+        summary &&
+        summary.count > 0 && (
+          <div className="icon-tile min-w-16 shrink-0 flex-col px-3 py-2">
+            <span className="numeral text-2xl">{summary.marks}</span>
+            <span className="mt-0.5 text-xs font-bold">mark{summary.marks === 1 ? "" : "s"}</span>
+          </div>
+        )
+      )}
     </Link>
   );
 }
