@@ -181,7 +181,7 @@ export function SpecPointDetail({
                     >
                       {s.published ? "Published" : "Draft"}
                     </span>
-                    <span className="text-sm font-semibold truncate text-foreground">
+                    <span className="text-sm font-semibold break-words min-w-0 text-foreground">
                       {s.title}
                     </span>
                   </div>

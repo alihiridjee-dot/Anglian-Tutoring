@@ -515,15 +515,18 @@ export function SubjectToggle({
   value,
   onChange,
   label = "Subject",
+  layoutId = "subject-toggle-pill",
 }: {
   subjects: string[];
   value: string;
   onChange: (subject: string) => void;
   label?: string;
+  /** Unique per mounted toggle: two sharing one would pass the pill between them. */
+  layoutId?: string;
 }) {
   return (
     <SegmentedToggle
-      layoutId="subject-toggle-pill"
+      layoutId={layoutId}
       label={label}
       value={value}
       onChange={onChange}

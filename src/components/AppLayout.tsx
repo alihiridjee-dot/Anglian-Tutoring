@@ -296,10 +296,16 @@ export function AppLayout({ title, children }: { title: string; children: ReactN
         {/* On a phone turned sideways the header stays one row: it is pinned,
             and a second row would cover a third of a 390px screen. The course
             chip and Forward drop out there, as they do on a phone held upright,
-            the subject slider joins the row, and the page title truncates to
-            whatever room is left. */}
+            and the subject slider is at the top of the page, so the title has
+            the rest of the row. */}
         <header className="glass-bar sticky top-0 z-30 flex flex-wrap gap-x-3 gap-y-2 items-center px-4 sm:px-6 lg:px-10 py-3 sm:py-4 shrink-0 short:flex-nowrap short:py-2">
-          <div className="flex min-w-0 items-center gap-2 sm:gap-3">
+          {/* The bar is one row at any width. The title takes what's left and
+              wraps rather than being cut short: at least 120px of it on an
+              upright phone, and elsewhere at least its longest word. Only when
+              even that won't fit (a live lesson's Join button on a phone) do
+              the buttons drop to a second row. It never grows past its own
+              text, so on a wide screen the subject slider stays beside it. */}
+          <div className="flex max-w-max flex-1 items-center gap-2 sm:gap-3 max-sm:min-w-[10.75rem]">
             <button
               type="button"
               onClick={() => setNavOpen(true)}
@@ -310,10 +316,12 @@ export function AppLayout({ title, children }: { title: string; children: ReactN
             >
               <Menu className="size-5" aria-hidden />
             </button>
-            {/* History buttons are 44px on a phone. Forward waits for `sm`:
-                phones have a swipe for it, and the header has the space for a
-                menu button or a forward button, not both. */}
-            <div className="flex items-center gap-1 sm:gap-1.5">
+            {/* Back and Forward wait for `sm`: a phone has its own (a swipe from
+                the edge, or Android's back button), and an upright phone's bar
+                has room for the menu, the title and three buttons, not two
+                arrows as well. The site always runs in the browser (there is no
+                web-app manifest), so that back is always there. */}
+            <div className="hidden items-center gap-1 sm:flex sm:gap-1.5">
               <button
                 onClick={() => router.history.back()}
                 title="Back"
@@ -332,7 +340,7 @@ export function AppLayout({ title, children }: { title: string; children: ReactN
               </button>
             </div>
             <div className="min-w-0">
-              <h1 className="font-display truncate text-lg font-extrabold tracking-tight sm:text-xl lg:text-2xl short:text-lg">
+              <h1 className="font-display break-words text-lg leading-tight font-extrabold tracking-tight sm:text-xl lg:text-2xl short:text-lg">
                 {title}
               </h1>
             </div>
@@ -341,14 +349,12 @@ export function AppLayout({ title, children }: { title: string; children: ReactN
                 onboarding step that set it. */}
             <CourseBadge followsSlider={showSubjectSlider} />
           </div>
-          {/* The subject every student page is showing, switched here and only
-              here. Beside the course chip when the header has room; below `xl`
-              the title, chip, slider and buttons don't fit one line, so it takes
-              its own row under them. Not on a phone turned sideways, where that
-              row would be a third of the screen: there it stays in the one row. */}
-          {showSubjectSlider && (
-            <HeaderSubjectToggle className="max-xl:order-last max-xl:basis-full short:order-none short:basis-auto short:shrink-0" />
-          )}
+          {/* The subject every student page is showing, beside the course chip
+              when the header has room. Below `xl` it doesn't fit beside the
+              title and buttons: there it sits at the top of the page instead
+              (below), so the pinned header never grows a row for it and never
+              cuts the page title short. */}
+          {showSubjectSlider && <HeaderSubjectToggle className="hidden xl:block" />}
           <div className="ml-auto flex flex-wrap items-center gap-2 sm:gap-3 short:shrink-0 short:flex-nowrap short:gap-2">
             <StudentGuide
               key={`${pathname}:${title}`}
@@ -383,6 +389,14 @@ export function AppLayout({ title, children }: { title: string; children: ReactN
           data-guide="page-content"
           className="page-aurora flex-1 overflow-x-clip p-4 pb-[calc(1rem+env(safe-area-inset-bottom))] sm:p-6 lg:p-10"
         >
+          {/* The subject slider below `xl`: top of the page, full width on a
+              phone, scrolling away with the page rather than pinned. */}
+          {showSubjectSlider && (
+            <HeaderSubjectToggle
+              layoutId="subject-toggle-pill-page"
+              className="mb-4 sm:mb-6 xl:hidden"
+            />
+          )}
           {children}
         </div>
       </main>

@@ -136,8 +136,10 @@ export const pageGuides: Record<string, GuideStep[]> = {
       "Switch subjects here, at the top, to see the plan for the course you want to work on.",
     ),
     // A tutor's planner keeps its own subject toggle, beside the student's name.
+    // Below `xl` the student's slider sits in the page too, so it is left out
+    // by name, or a student would get this step as well as the one above.
     select(
-      '[aria-label="Subject"]',
+      '[aria-label="Subject"]:not([data-guide="subject-slider"] *)',
       "Pick your subject",
       "Switch subjects to see the plan for the course you want to work on.",
     ),

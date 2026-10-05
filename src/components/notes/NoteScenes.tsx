@@ -1,5 +1,6 @@
 import { useReducedMotion } from "motion/react";
 import type { ElectrolysisScene } from "@/lib/notes/noteFormat";
+import { ZoomableFigure } from "@/components/notes/ZoomableFigure";
 
 /**
  * Illustrated scenes for interactive diagrams. They are drawn here, once, and a
@@ -61,10 +62,13 @@ export function ElectrolysisCell({ s }: { s: ElectrolysisScene }) {
         ]),
   ];
   return (
-    <div className="-mx-1 overflow-x-auto px-1">
+    <ZoomableFigure
+      label={`Electrolysis: ${s.negative.product} at the negative electrode, ${s.positive.product} at the positive electrode`}
+      naturalWidth={520}
+    >
       <svg
         viewBox="0 0 520 300"
-        className="w-full min-w-[460px]"
+        className="w-full"
         role="img"
         aria-label={`Electrolysis: ${s.negative.product} at the negative electrode, ${s.positive.product} at the positive electrode`}
       >
@@ -210,7 +214,7 @@ export function ElectrolysisCell({ s }: { s: ElectrolysisScene }) {
           </g>
         ))}
       </svg>
-    </div>
+    </ZoomableFigure>
   );
 }
 
@@ -225,10 +229,13 @@ export function RoadScene({ thinking, braking }: { thinking: number; braking: nu
   const tx = 50 + px(t);
   const bx = tx + px(b);
   return (
-    <div className="-mx-1 overflow-x-auto px-1">
+    <ZoomableFigure
+      label={`Thinking distance ${t.toFixed(0)} metres, then braking distance ${b.toFixed(0)} metres`}
+      naturalWidth={W + 20}
+    >
       <svg
         viewBox={`0 4 ${W + 20} 146`}
-        className="w-full min-w-[520px]"
+        className="w-full"
         role="img"
         aria-label={`Thinking distance ${t.toFixed(0)} metres, then braking distance ${b.toFixed(0)} metres`}
       >
@@ -336,7 +343,7 @@ export function RoadScene({ thinking, braking }: { thinking: number; braking: nu
           <circle cx="31" cy="28" r="5" fill="var(--foreground)" />
         </g>
       </svg>
-    </div>
+    </ZoomableFigure>
   );
 }
 
@@ -364,105 +371,110 @@ export function WaveScene({ amplitude, frequency }: { amplitude: number; frequen
   const yAt = (x: number) => mid - A * Math.sin((2 * Math.PI * x) / lambda);
   const period = (2.4 / cycles).toFixed(2);
   return (
-    <div className="-mx-1 overflow-x-auto px-1">
-      <svg
-        viewBox={`0 0 ${W} 200`}
-        className="w-full min-w-[480px]"
-        role="img"
-        aria-label={`A transverse wave with ${cycles.toFixed(1)} wavelengths across the screen, its wavelength and amplitude marked`}
+    <div>
+      <ZoomableFigure
+        label={`A transverse wave with ${cycles.toFixed(1)} wavelengths across the screen, its wavelength and amplitude marked`}
+        naturalWidth={W}
       >
-        <line
-          x1="0"
-          y1={mid}
-          x2={W}
-          y2={mid}
-          stroke="var(--foreground)"
-          strokeOpacity=".25"
-          strokeDasharray="5 5"
-        />
-        <polyline
-          points={pts.filter((p) => +p.split(",")[0] <= W).join(" ")}
-          fill="none"
-          stroke="var(--tint)"
-          strokeWidth="3.5"
-          strokeLinejoin="round"
-        />
-        {/* wavelength: crest to crest */}
-        <g className="tint-rose">
+        <svg
+          viewBox={`0 0 ${W} 200`}
+          className="w-full"
+          role="img"
+          aria-label={`A transverse wave with ${cycles.toFixed(1)} wavelengths across the screen, its wavelength and amplitude marked`}
+        >
           <line
-            x1={x0}
-            y1={mid - A - 14}
-            x2={x0 + lambda}
-            y2={mid - A - 14}
-            stroke="var(--tint)"
-            strokeWidth="2"
+            x1="0"
+            y1={mid}
+            x2={W}
+            y2={mid}
+            stroke="var(--foreground)"
+            strokeOpacity=".25"
+            strokeDasharray="5 5"
           />
-          <line
-            x1={x0}
-            y1={mid - A - 20}
-            x2={x0}
-            y2={mid - A - 8}
+          <polyline
+            points={pts.filter((p) => +p.split(",")[0] <= W).join(" ")}
+            fill="none"
             stroke="var(--tint)"
-            strokeWidth="2"
+            strokeWidth="3.5"
+            strokeLinejoin="round"
           />
-          <line
-            x1={x0 + lambda}
-            y1={mid - A - 20}
-            x2={x0 + lambda}
-            y2={mid - A - 8}
-            stroke="var(--tint)"
-            strokeWidth="2"
-          />
-          <text
-            x={x0 + lambda / 2}
-            y={mid - A - 20}
-            textAnchor="middle"
-            fontSize="13"
-            fontWeight="800"
-            fill="var(--tint)"
-          >
-            wavelength
-          </text>
-        </g>
-        {/* amplitude: rest line to trough, labelled underneath */}
-        <g className="tint-amber">
-          <line x1={xt} y1={mid} x2={xt} y2={mid + A} stroke="var(--tint)" strokeWidth="2.5" />
-          <text
-            x={xt}
-            y={mid + A + 18}
-            textAnchor="middle"
-            fontSize="13"
-            fontWeight="800"
-            fill="color-mix(in oklab, var(--tint) 70%, var(--primary-deep))"
-          >
-            amplitude
-          </text>
-        </g>
-        {/* one point of the medium */}
-        <g className="tint-chem">
-          <line
-            x1={xp}
-            y1={mid - A - 4}
-            x2={xp}
-            y2={mid + A + 4}
-            stroke="var(--tint)"
-            strokeOpacity=".35"
-            strokeDasharray="3 3"
-          />
-          <circle cx={xp} cy={yAt(xp)} r="7" fill="var(--tint)">
-            {still ? null : (
-              <animate
-                attributeName="cy"
-                values={`${mid - A};${mid + A};${mid - A}`}
-                dur={`${period}s`}
-                repeatCount="indefinite"
-                calcMode="spline"
-                keySplines="0.45 0 0.55 1; 0.45 0 0.55 1"
-              />
-            )}
-          </circle>
-        </g>
-      </svg>
+          {/* wavelength: crest to crest */}
+          <g className="tint-rose">
+            <line
+              x1={x0}
+              y1={mid - A - 14}
+              x2={x0 + lambda}
+              y2={mid - A - 14}
+              stroke="var(--tint)"
+              strokeWidth="2"
+            />
+            <line
+              x1={x0}
+              y1={mid - A - 20}
+              x2={x0}
+              y2={mid - A - 8}
+              stroke="var(--tint)"
+              strokeWidth="2"
+            />
+            <line
+              x1={x0 + lambda}
+              y1={mid - A - 20}
+              x2={x0 + lambda}
+              y2={mid - A - 8}
+              stroke="var(--tint)"
+              strokeWidth="2"
+            />
+            <text
+              x={x0 + lambda / 2}
+              y={mid - A - 20}
+              textAnchor="middle"
+              fontSize="13"
+              fontWeight="800"
+              fill="var(--tint)"
+            >
+              wavelength
+            </text>
+          </g>
+          {/* amplitude: rest line to trough, labelled underneath */}
+          <g className="tint-amber">
+            <line x1={xt} y1={mid} x2={xt} y2={mid + A} stroke="var(--tint)" strokeWidth="2.5" />
+            <text
+              x={xt}
+              y={mid + A + 18}
+              textAnchor="middle"
+              fontSize="13"
+              fontWeight="800"
+              fill="color-mix(in oklab, var(--tint) 70%, var(--primary-deep))"
+            >
+              amplitude
+            </text>
+          </g>
+          {/* one point of the medium */}
+          <g className="tint-chem">
+            <line
+              x1={xp}
+              y1={mid - A - 4}
+              x2={xp}
+              y2={mid + A + 4}
+              stroke="var(--tint)"
+              strokeOpacity=".35"
+              strokeDasharray="3 3"
+            />
+            <circle cx={xp} cy={yAt(xp)} r="7" fill="var(--tint)">
+              {still ? null : (
+                <animate
+                  attributeName="cy"
+                  values={`${mid - A};${mid + A};${mid - A}`}
+                  dur={`${period}s`}
+                  repeatCount="indefinite"
+                  calcMode="spline"
+                  keySplines="0.45 0 0.55 1; 0.45 0 0.55 1"
+                />
+              )}
+            </circle>
+          </g>
+        </svg>
+      </ZoomableFigure>
       <p className="mt-1 text-sm font-bold">
         The purple point marks one place on the wave. It moves up and down while the wave travels
         along.
