@@ -33,7 +33,7 @@ const TARGETS = 'a[href], button, [role="button"], [role="link"]';
 
 /** How long a page may take to draw the mark before we settle for its offset. */
 const WAIT_MS = 6000;
-/** How long the mark is held in place while the page finishes around it. */
+/** The mark is held in place until the page around it has been still this long. */
 const SETTLE_MS = 700;
 /** A click is what left the page only if the navigation follows promptly. */
 const CLICK_TTL_MS = 10_000;
@@ -134,16 +134,18 @@ function findMark(mark: Mark): HTMLElement | null {
 
 /**
  * Centres an element below the pinned header, or tops it there if it's taller.
- * Moves only when it is more than `slack` pixels out.
+ * Moves only when it is more than `slack` pixels out, and says if it moved.
  */
 function centre(el: HTMLElement, slack: number) {
   const header = document.querySelector("main > header")?.getBoundingClientRect().bottom ?? 0;
   const room = window.innerHeight - header;
   const box = el.getBoundingClientRect();
   const want = box.height < room - 32 ? header + (room - box.height) / 2 : header + 16;
-  if (Math.abs(box.top - want) > slack) {
-    window.scrollTo({ top: window.scrollY + box.top - want, behavior: "instant" });
-  }
+  if (Math.abs(box.top - want) <= slack) return false;
+  // Near the end of a page it can't come further up; that's as good as it gets.
+  const before = window.scrollY;
+  window.scrollTo({ top: before + box.top - want, behavior: "instant" });
+  return Math.abs(window.scrollY - before) >= 1;
 }
 
 function glow(el: HTMLElement) {
@@ -151,7 +153,8 @@ function glow(el: HTMLElement) {
   // Restart the animation if the same element is glowed twice in a row.
   void el.offsetWidth;
   el.classList.add("return-glow");
-  el.addEventListener("animationend", () => el.classList.remove("return-glow"), { once: true });
+  // A timer rather than `animationend`, which a background tab never fires.
+  window.setTimeout(() => el.classList.remove("return-glow"), 2000);
 }
 
 // ── Coming back ─────────────────────────────────────────────────────────────
@@ -162,14 +165,15 @@ function returnTo(entry: Entry) {
   stopReturn?.();
   const started = performance.now();
   let found: HTMLElement | null = null;
-  let foundAt = 0;
-  let frame = 0;
+  let stillSince = 0;
+  // A timer rather than animation frames, which a background tab never runs.
+  let timer = 0;
 
   // Anything the student does with the page themselves ends it: we never
   // fight their own scrolling.
   const inputs = ["wheel", "touchstart", "keydown", "pointerdown"] as const;
   const stop = () => {
-    cancelAnimationFrame(frame);
+    window.clearTimeout(timer);
     for (const type of inputs) window.removeEventListener(type, stop, true);
     stopReturn = null;
   };
@@ -181,18 +185,15 @@ function returnTo(entry: Entry) {
   const step = () => {
     const now = performance.now();
     if (found && !found.isConnected) found = null;
-    if (!found && entry.mark) {
-      found = findMark(entry.mark);
-      if (found) {
-        foundAt = now;
-        glow(found);
-      }
-    }
     if (found) {
-      // Held for a moment: a card loading in above it would push it away. Only
-      // a real shift is followed, not a card's own few pixels of rise-in.
-      centre(found, now === foundAt ? 1 : 24);
-      if (now - foundAt > SETTLE_MS) return stop();
+      // Held until the page settles: a card loading in above it would push it
+      // away. Only a real shift is followed, not a card's own rise-in.
+      if (centre(found, 24)) stillSince = now;
+      if (now - stillSince > SETTLE_MS || now - started > WAIT_MS + SETTLE_MS) return stop();
+    } else if (entry.mark && (found = findMark(entry.mark))) {
+      centre(found, 1);
+      stillSince = now;
+      glow(found);
     } else if (entry.y !== undefined && (!entry.mark || now - started > WAIT_MS)) {
       // No mark, or one that isn't coming back (the task moved tab): the old
       // offset, once the page is long enough to hold it.
@@ -203,7 +204,7 @@ function returnTo(entry: Entry) {
     } else if (now - started > WAIT_MS) {
       return stop();
     }
-    frame = requestAnimationFrame(step);
+    timer = window.setTimeout(step, 16);
   };
   step();
 }

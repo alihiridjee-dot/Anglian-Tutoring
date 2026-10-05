@@ -25,13 +25,16 @@ export function useEntryState<T>(
   });
   const latest = useRef(value);
   latest.current = value;
+  // The page this view belongs to. A page on its way out is still mounted for
+  // a moment after the next one's entry begins, and must not write into it.
+  const page = useRef(router.state.location.pathname);
 
   // A page that stays mounted from one entry to the next (the curriculum
   // opening a spec point) takes up each entry's own view, or hands the one on
   // screen to an entry that has none yet.
   const seen = useRef(index);
   useEffect(() => {
-    if (seen.current === index) return;
+    if (seen.current === index || router.state.location.pathname !== page.current) return;
     seen.current = index;
     const stored = readEntryView(router.state.location, name);
     if (stored === undefined) writeEntryView(router.state.location, name, latest.current);
@@ -43,7 +46,9 @@ export function useEntryState<T>(
       const value = next instanceof Function ? next(latest.current) : next;
       latest.current = value;
       setValue(value);
-      writeEntryView(router.state.location, name, value);
+      if (router.state.location.pathname === page.current) {
+        writeEntryView(router.state.location, name, value);
+      }
     },
     [name, router],
   );
