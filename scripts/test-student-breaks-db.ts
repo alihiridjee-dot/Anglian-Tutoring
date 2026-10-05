@@ -19,6 +19,7 @@ const dad = uuid(5);
 const stranger = uuid(6); // a parent of someone else
 const tutor = uuid(7);
 const admin = uuid(8);
+const goneParent = uuid(98); // a parent whose account was deleted, link left behind
 const point = uuid(100);
 const point2 = uuid(101);
 
@@ -223,8 +224,10 @@ await db.query(
   [alex, sam, kim, mum, dad, stranger, tutor, admin, lee],
 );
 await db.query(
-  "insert into public.parent_student_links (parent_id, student_id) values ($1, $3), ($2, $3)",
-  [mum, dad, alex],
+  // The third link outlives its parent's account: the live table has no
+  // foreign key, and the test student had four such links on 5 Oct 2026.
+  "insert into public.parent_student_links (parent_id, student_id) values ($1, $3), ($2, $3), ($4, $3)",
+  [mum, dad, alex, goneParent],
 );
 await db.query(
   `insert into public.student_enrolments (student_id, subject, board) values
@@ -257,6 +260,7 @@ for (const file of [
   "20261004092000_erase_cancelled_progress.sql",
   "20261005160000_student_breaks.sql",
   "20261005161000_break_pickup.sql",
+  "20261005163000_break_notice_existing_parents.sql",
 ])
   await db.exec(await readFile(new URL(`../supabase/migrations/${file}`, import.meta.url), "utf8"));
 
@@ -824,6 +828,26 @@ const extension = await book(alex, alex, mon(3), 2, "holiday");
 // ── 14. The rollback removes all of it, and puts the erase back ─────────
 {
   await refuses(() => planWeek(alex, mon(2)), "23514", "on_a_break", "still a break week");
+  // The notice fix first: book_break as 20261005160000 left it.
+  await db.exec(
+    await readFile(
+      new URL(
+        "../supabase/rollbacks/20261005163000_break_notice_existing_parents.down.sql",
+        import.meta.url,
+      ),
+      "utf8",
+    ),
+  );
+  const bookSrc = (
+    await db.query<{ src: string }>(
+      "select prosrc as src from pg_proc where proname = 'book_break'",
+    )
+  ).rows[0].src;
+  const firstFile = await readFile(
+    new URL("../supabase/migrations/20261005160000_student_breaks.sql", import.meta.url),
+    "utf8",
+  );
+  assert.ok(firstFile.includes(`as $function$${bookSrc}$function$;`), "book_break as it was");
   // The pick-up first: end_break as 20261005160000 left it, the record gone.
   await db.exec(
     await readFile(
