@@ -813,6 +813,17 @@ a.when-link:hover .when-link-arrow {
     0 1px 0 0 color-mix(in oklab, var(--foreground) 12%, transparent),
     0 4px 10px -6px color-mix(in oklab, var(--tint) 60%, transparent);
 }
+/* The raised pill under the chosen segment of a sliding toggle, outlined in
+   its tint. The course badge in the header wears it too, so it reads as one of
+   a pair with the subject slider beside it. */
+.tab-pill {
+  border-radius: 999px;
+  background: var(--card);
+  border: 1.5px solid color-mix(in oklab, var(--tint) 30%, transparent);
+  box-shadow:
+    0 1px 0 0 color-mix(in oklab, var(--tint) 30%, transparent),
+    0 4px 10px -6px color-mix(in oklab, var(--tint) 70%, transparent);
+}
 
 .premium-input,
 .pop-input {

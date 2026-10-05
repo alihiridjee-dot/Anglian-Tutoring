@@ -499,12 +499,7 @@ export function SegmentedToggle({
             {active && (
               <motion.span
                 layoutId={layoutId}
-                className="bg-card absolute inset-0 rounded-full"
-                style={{
-                  border: "1.5px solid color-mix(in oklab, var(--tint) 30%, transparent)",
-                  boxShadow:
-                    "0 1px 0 0 color-mix(in oklab, var(--tint) 30%, transparent), 0 4px 10px -6px color-mix(in oklab, var(--tint) 70%, transparent)",
-                }}
+                className="tab-pill absolute inset-0"
                 transition={
                   reduceMotion ? { duration: 0 } : { type: "spring", stiffness: 420, damping: 36 }
                 }
