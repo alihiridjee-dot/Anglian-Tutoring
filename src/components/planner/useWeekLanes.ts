@@ -17,7 +17,7 @@ export type TopicGroup = { topicId: string; title: string; points: PlanPoint[] }
 /**
  * Sorts a saved week into the lanes "This week" shows: new learning, missed
  * work returning, revision, and anything the student added. Also works out how
- * much of the assigned practice is done and what to do next.
+ * much of the assigned practice is done.
  *
  * Derivation only: nothing here reads or writes.
  */
@@ -121,11 +121,6 @@ export function useWeekLanes({
     const c = coverage.get(p.spec_point_id);
     return (!a?.hasHomework || c?.homeworkDone) && (!a?.hasQuiz || c?.quizDone);
   }).length;
-  const next = assigned.find((p) => {
-    const a = activity.get(p.spec_point_id);
-    const c = coverage.get(p.spec_point_id);
-    return (a?.hasHomework && !c?.homeworkDone) || (a?.hasQuiz && !c?.quizDone);
-  });
 
   return {
     band,
@@ -140,6 +135,5 @@ export function useWeekLanes({
     upcomingCatchUp,
     assigned,
     completed,
-    next,
   };
 }

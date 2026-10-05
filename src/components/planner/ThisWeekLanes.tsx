@@ -3,33 +3,30 @@ import { NothingDue } from "./NothingDue";
 import { CatchUpWeek } from "./CatchUpWeek";
 import { PLANNER_TIME_ZONE, weekKeyToDate } from "@/lib/planner/week";
 import { Meter } from "@/components/Shared";
-import { Link } from "@tanstack/react-router";
-import { CircleDot, History, Repeat, CheckCircle2, Plus, BookMarked } from "lucide-react";
+import { CircleDot, History, Repeat, CheckCircle2, Plus, BookMarked, Lock } from "lucide-react";
 import { type PlanPoint } from "@/lib/planner/weeklyPlanDal";
 import { type RoadmapResult } from "@/lib/planner/roadmap";
 import { type PacingBand } from "@/lib/planner/pacing";
-import { type PointCoverage } from "@/lib/planner/coverage";
-import { type Activity } from "./useWeekPlan";
+import { type ReviewLock } from "@/lib/planner/reviewLock";
 import { type TopicGroup } from "./useWeekLanes";
-import { isDemoStudent } from "@/lib/demo/studentDemo";
 
 /** Renders one spec point. The panel owns it, so every lane draws a point the same way. */
 type Row = (p: PlanPoint) => React.ReactNode;
 
-/** How much of the week's assigned practice is done, and the next piece to do. */
+/**
+ * How much of the week's assigned practice is done, and when the week in review
+ * opens — the one progress card on the week.
+ */
 export function WeekProgressCard({
   assigned,
   completed,
-  next,
-  activity,
-  coverage,
+  lock,
 }: {
   assigned: PlanPoint[];
   completed: number;
-  next: PlanPoint | undefined;
-  activity: Activity;
-  coverage: Map<string, PointCoverage>;
+  lock: ReviewLock;
 }) {
+  const outstanding = lock.homeworkTotal - lock.homeworkDone;
   return (
     <div className="premium-card tint-primary rounded-xl p-4 space-y-2">
       <h3 className="text-base font-bold">
@@ -38,22 +35,21 @@ export function WeekProgressCard({
           : `${completed} of ${assigned.length} points practised`}
       </h3>
       <Meter value={(completed / assigned.length) * 100} size="sm" />
-      {next && (
-        <Link
-          className="btn-solid inline-flex items-center max-w-full min-h-11 sm:pointer-fine:min-h-0 px-3 py-2 text-sm"
-          to={
-            activity.get(next.spec_point_id)?.hasHomework &&
-            !coverage.get(next.spec_point_id)?.homeworkDone
-              ? isDemoStudent()
-                ? "/demo/student/homework"
-                : "/homework"
-              : isDemoStudent()
-                ? "/demo/student/mcqs"
-                : "/mcqs"
-          }
-        >
-          Next: {next.title}
-        </Link>
+      {lock.locked && (
+        <p className="flex items-start gap-2 text-sm">
+          <Lock className="mt-0.5 size-4 shrink-0 text-[color:var(--tint)]" aria-hidden />
+          <span>
+            Your week in review opens{" "}
+            {lock.opensOn.toLocaleDateString(undefined, {
+              timeZone: PLANNER_TIME_ZONE,
+              weekday: "long",
+              day: "numeric",
+              month: "short",
+            })}
+            {outstanding > 0 &&
+              ` · ${outstanding} ${outstanding === 1 ? "task" : "tasks"} still to hand in`}
+          </span>
+        </p>
       )}
       {completed === assigned.length && (
         <p className="text-sm text-muted-foreground">
