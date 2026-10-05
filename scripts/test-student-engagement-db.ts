@@ -215,13 +215,13 @@ try {
 }
 assert(threw, "anon could call student_engagement");
 
-// ── Breaks (20261005142000): what fell in a break counts neither way ─────
+// ── Breaks (20261005162000): what fell in a break counts neither way ─────
 {
   await db.exec("reset role");
   await db.query("update profiles set level = 'gcse' where id = $1", [child]);
   // The real table, exactly as the migration that makes it writes it.
   const breaksSql = await readFile(
-    new URL("../supabase/migrations/20261004114000_student_breaks.sql", import.meta.url),
+    new URL("../supabase/migrations/20261005160000_student_breaks.sql", import.meta.url),
     "utf8",
   );
   const from = breaksSql.indexOf("create table public.student_breaks (");
@@ -230,7 +230,7 @@ assert(threw, "anon could call student_engagement");
       breaksSql.slice(from, breaksSql.indexOf(");\n", from) + 3),
   );
   const pickup = await readFile(
-    new URL("../supabase/migrations/20261005142000_breaks_not_held_against.sql", import.meta.url),
+    new URL("../supabase/migrations/20261005162000_breaks_not_held_against.sql", import.meta.url),
     "utf8",
   );
   await db.exec(pickup);
@@ -296,7 +296,7 @@ assert(threw, "anon could call student_engagement");
   await db.exec(
     await readFile(
       new URL(
-        "../supabase/rollbacks/20261005142000_breaks_not_held_against.down.sql",
+        "../supabase/rollbacks/20261005162000_breaks_not_held_against.down.sql",
         import.meta.url,
       ),
       "utf8",

@@ -1,4 +1,4 @@
--- Rollback for 20261005142000_breaks_not_held_against.sql. Run by hand.
+-- Rollback for 20261005162000_breaks_not_held_against.sql. Run by hand.
 --
 -- Puts student_engagement back as 20261003111000 left it: tasks due and
 -- sessions held during a break count again.

@@ -255,8 +255,8 @@ for (const file of [
   "20261004090000_subject_pauses.sql",
   "20261004091000_resume_after_pause.sql",
   "20261004092000_erase_cancelled_progress.sql",
-  "20261004114000_student_breaks.sql",
-  "20261005083300_break_pickup.sql",
+  "20261005160000_student_breaks.sql",
+  "20261005161000_break_pickup.sql",
 ])
   await db.exec(await readFile(new URL(`../supabase/migrations/${file}`, import.meta.url), "utf8"));
 
@@ -824,10 +824,10 @@ const extension = await book(alex, alex, mon(3), 2, "holiday");
 // ── 14. The rollback removes all of it, and puts the erase back ─────────
 {
   await refuses(() => planWeek(alex, mon(2)), "23514", "on_a_break", "still a break week");
-  // The pick-up first: end_break as 20261004114000 left it, the record gone.
+  // The pick-up first: end_break as 20261005160000 left it, the record gone.
   await db.exec(
     await readFile(
-      new URL("../supabase/rollbacks/20261005083300_break_pickup.down.sql", import.meta.url),
+      new URL("../supabase/rollbacks/20261005161000_break_pickup.down.sql", import.meta.url),
       "utf8",
     ),
   );
@@ -835,7 +835,7 @@ const extension = await book(alex, alex, mon(3), 2, "holiday");
     await db.query<{ src: string }>("select prosrc as src from pg_proc where proname = 'end_break'")
   ).rows[0].src;
   const firstPr = await readFile(
-    new URL("../supabase/migrations/20261004114000_student_breaks.sql", import.meta.url),
+    new URL("../supabase/migrations/20261005160000_student_breaks.sql", import.meta.url),
     "utf8",
   );
   assert.ok(firstPr.includes(`as $function$${endSrc}$function$;`), "end_break as it was");
@@ -858,7 +858,7 @@ const extension = await book(alex, alex, mon(3), 2, "holiday");
   );
   await db.exec(
     await readFile(
-      new URL("../supabase/rollbacks/20261004114000_student_breaks.down.sql", import.meta.url),
+      new URL("../supabase/rollbacks/20261005160000_student_breaks.down.sql", import.meta.url),
       "utf8",
     ),
   );
