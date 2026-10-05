@@ -1,6 +1,6 @@
--- Rollback for 20261005083300_break_pickup.sql. Run by hand.
+-- Rollback for 20261005161000_break_pickup.sql. Run by hand.
 --
--- Stops recording finished breaks and puts end_break back as 20261004114000
+-- Stops recording finished breaks and puts end_break back as 20261005160000
 -- left it. Recorded break stops are deleted, because the reason rule without
 -- 'break' can't hold them. A programme already picked up after a break keeps
 -- its new calendar: only the record of the stop goes.

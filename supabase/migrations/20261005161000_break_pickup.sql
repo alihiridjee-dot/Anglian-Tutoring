@@ -91,7 +91,7 @@ $function$;
 
 revoke all on function private.record_finished_breaks() from public, anon, authenticated;
 
--- end_break as 20261004114000 left it, with one change: a break cut short is
+-- end_break as 20261005160000 left it, with one change: a break cut short is
 -- over now, so it is recorded at once rather than at the next hourly run.
 create or replace function public.end_break(_break_id uuid)
  returns text
