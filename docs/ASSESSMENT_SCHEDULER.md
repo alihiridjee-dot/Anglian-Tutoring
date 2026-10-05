@@ -117,9 +117,17 @@ still owed. `outstanding` deliberately stops short of the current week: counting
 it would make a re-cut drop the catch-up point and the next cut restore it,
 flip-flopping the plan week on week.
 
-**How much comes back:** `CATCH_UP_SHARE` = 0.2 of the week's average spine
-weight, oldest first, greedy in queue order. A student who missed a month clears
-it over about five weeks while the spine keeps running. `trickle` always takes
+**How much comes back:** at the steady pace, `CATCH_UP_SHARE` = 0.2 of the
+week's average spine weight on top of the week's own teaching, oldest first,
+greedy in queue order. At that pace each missed week takes about five weeks to
+clear, so a missed month takes about twenty. When the steady pace would not
+clear the backlog before the exam, `projectCatchUp` gives each week the larger
+of the steady pace and its **fair share** — what is still owed divided by the
+weeks left, rounded up to whole points. A student who keeps up never sees the
+share rise, so the extra comes first, and the last week's share is everything
+left, so the backlog always clears before the exam. There is no ceiling: only an
+exam already here, or a point a tutor has blocked from every week left, is
+reported as not fitting. `trickle` always takes
 at least one point when there is any budget, or a spec point heavier than a
 fifth of a week would be skipped forever — the exact permanent exclusion this
 module exists to end. A light point never jumps a heavy one queued ahead of it.

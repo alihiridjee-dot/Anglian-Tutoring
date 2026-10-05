@@ -142,20 +142,25 @@ export function spineBacklog(params: {
 
   // Oldest first: the longest-neglected work has the least runway left before
   // the exam, and a stable order keeps a re-cut from reshuffling the week.
+  // Codes compare as numbers, so 1.7 comes back before 1.10.
   return out.sort(
-    (a, b) => a.plannedWeek.localeCompare(b.plannedWeek) || a.code.localeCompare(b.code),
+    (a, b) =>
+      a.plannedWeek.localeCompare(b.plannedWeek) ||
+      a.code.localeCompare(b.code, undefined, { numeric: true }),
   );
 }
 
 /**
- * The share of a typical week's spine load that may be spent on catching up.
+ * The steady pace of catching up: a fifth of a typical week's spine load, added
+ * on top of the week's own teaching, which it never displaces.
  *
- * A fifth. The constraint that matters is not fairness between old and new work
- * but that this week's teaching still has to happen: a student who missed a
- * month has a backlog several times the size of a week, and handing it to them
- * whole replaces the course with a debt collection. At a fifth a month's
- * backlog clears over about five weeks while the spine keeps running, which is
- * a recovery the student can actually see the end of.
+ * A student who missed a month has a backlog several times the size of a week,
+ * and handing it to them whole replaces the course with a debt collection. At a
+ * fifth, each missed week takes about five weeks to clear, so a missed month
+ * takes about twenty: fine with most of a year to go, too slow near the exam.
+ * So this is a floor, not a limit — when it would not clear the backlog in
+ * time, {@link projectCatchUp} raises each week to its fair share of what is
+ * left.
  */
 export const CATCH_UP_SHARE = 0.2;
 
@@ -247,6 +252,25 @@ export interface CatchUpSchedule {
   held: BacklogPoint[];
 }
 
+/**
+ * Which week each missed point comes back in, oldest first.
+ *
+ * The steady pace ({@link CATCH_UP_SHARE}) is tried first, and whenever it
+ * clears the backlog before the exam it is the whole answer, so a student with
+ * time in hand sees nothing change. Otherwise each week takes the larger of the
+ * steady pace and its **fair share**: what is still owed, divided by the weeks
+ * left before the exam, rounded up to whole points.
+ *
+ * Rounding up is what keeps it gentle. A week that takes at least its share
+ * leaves the next week's share no larger, so for a student who keeps up the
+ * extra comes first and the weeks lighten towards the exam instead of piling up
+ * in front of it. And the last week's share is everything left, so the backlog
+ * always clears in time: only an exam already here, or a point a tutor has
+ * blocked from every week that remains, leaves anything `held`.
+ *
+ * Uncapped on purpose. A student far behind with little time left gets heavy
+ * weeks; the alternative was telling them part of the course would not fit.
+ */
 export function projectCatchUp(params: {
   backlog: BacklogPoint[];
   assigned: BacklogPoint[];
@@ -262,27 +286,50 @@ export function projectCatchUp(params: {
 }): CatchUpSchedule {
   const assignedIds = params.assigned.map((p) => p.specPointId);
   const assigned = new Set(assignedIds);
-  let remaining = params.backlog.filter((p) => !assigned.has(p.specPointId));
-  const weeks: Record<string, BacklogPoint[]> = {};
+  const backlog = params.backlog.filter((p) => !assigned.has(p.specPointId));
   const budget = catchUpBudget(params.weeklyWeight);
+  const weekKeys: string[] = [];
   for (
     let week = params.weekStart;
     week < params.examDate;
     week = toDateKey(addWeeks(weekKeyToDate(week), 1))
-  ) {
-    const reserved = week === params.weekStart ? params.assigned : [];
-    const available = Math.max(0, budget - backlogWeight(reserved));
-    const open = params.isBlocked
-      ? remaining.filter((p) => !params.isBlocked!(p.specPointId, week))
-      : remaining;
-    // The oversized-point floor belongs to the whole week, not each reload.
-    const selection = reserved.length
-      ? open.filter((p, i, all) => backlogWeight(all.slice(0, i + 1)) <= available)
-      : trickle(open, available).take;
-    const selected = new Set(selection.map((p) => p.specPointId));
-    weeks[week] = [...reserved, ...selection];
-    remaining = remaining.filter((p) => !selected.has(p.specPointId));
-    if (remaining.length === 0) break;
-  }
-  return { weeks, assignedIds, held: remaining };
+  )
+    weekKeys.push(week);
+
+  const schedule = (fairShare: boolean) => {
+    let remaining = backlog;
+    const weeks: Record<string, BacklogPoint[]> = {};
+    for (let index = 0; index < weekKeys.length; index++) {
+      const week = weekKeys[index];
+      const reserved = index === 0 ? params.assigned : [];
+      const carried = backlogWeight(reserved);
+      const available = Math.max(0, budget - carried);
+      const open = params.isBlocked
+        ? remaining.filter((p) => !params.isBlocked!(p.specPointId, week))
+        : remaining;
+      // The oversized-point floor belongs to the whole week, not each reload.
+      let selection = reserved.length
+        ? open.filter((p, i, all) => backlogWeight(all.slice(0, i + 1)) <= available)
+        : trickle(open, available).take;
+      if (fairShare) {
+        // What this week already carries counts towards its share, so saving
+        // or finishing this week's catch-up never refills it.
+        const share = (backlogWeight(remaining) + carried) / (weekKeys.length - index);
+        let spent = carried;
+        let count = 0;
+        // The tolerance stops float noise from costing a whole extra point.
+        while (count < open.length && spent < share - 1e-9) spent += open[count++].weight;
+        if (count > selection.length) selection = open.slice(0, count);
+      }
+      const selected = new Set(selection.map((p) => p.specPointId));
+      weeks[week] = [...reserved, ...selection];
+      remaining = remaining.filter((p) => !selected.has(p.specPointId));
+      if (remaining.length === 0) break;
+    }
+    return { weeks, held: remaining };
+  };
+
+  const steady = schedule(false);
+  const { weeks, held } = steady.held.length ? schedule(true) : steady;
+  return { weeks, assignedIds, held };
 }
