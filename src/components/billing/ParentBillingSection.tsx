@@ -91,28 +91,10 @@ function ChildPlan({
 
   return (
     <>
-      {sub ? (
-        <SubscriptionPanel
-          sub={sub}
-          planName={planName}
-          // A linked parent manages the plan regardless of who paid — including a
-          // plan the child originally paid for themselves.
-          canManage
-          isPayer={isPayer}
-          returnTo="billing"
-          payerLabel={isPayer ? "you" : childName}
-          priceLabel={priceLabelFor(packages, sub.plan)}
-          // Same course facts the child sees on their own page — a parent
-          // checking the plan should be able to catch a wrong board too, even
-          // though only the child can write the change.
-          course={course}
-          // A paused or ending plan has no Subjects block below to name them.
-          showSubjects={!changeable}
-        />
-      ) : null}
-
+      {/* Subjects first — what a parent comes here to change — then the plan,
+          folded away, then pause or cancel. */}
       {changeable && sub?.plan && (
-        <div className="mt-6">
+        <div className="mb-6">
           <EnrolledSubjectsCard
             studentId={studentId}
             currentTier={sub.plan}
@@ -135,18 +117,49 @@ function ChildPlan({
         </div>
       )}
 
-      {(changeable || !sub) && (
-        <div className="mt-6">
-          <CadenceSwitcher
-            studentId={studentId}
-            currentTier={sub?.plan ?? null}
-            subjectCount={enrolments.length}
-            level={level}
-            canManage
-            ownerLabel={childName}
-            hadPlan={hadPlan}
-          />
-        </div>
+      {sub ? (
+        <SubscriptionPanel
+          sub={sub}
+          title="Plan"
+          // A linked parent manages the plan regardless of who paid — including a
+          // plan the child originally paid for themselves.
+          canManage
+          isPayer={isPayer}
+          returnTo="billing"
+          payerLabel={isPayer ? "you" : childName}
+          priceLabel={priceLabelFor(packages, sub.plan)}
+          // Same course facts the child sees on their own page — a parent
+          // checking the plan should be able to catch a wrong board too, even
+          // though only the child can write the change.
+          course={course}
+          // A paused or ending plan has no Subjects block above to name them.
+          showSubjects={!changeable}
+          cadenceSwitcher={
+            changeable && (
+              <CadenceSwitcher
+                studentId={studentId}
+                currentTier={sub.plan}
+                subjectCount={enrolments.length}
+                level={level}
+                canManage
+                ownerLabel={childName}
+                hadPlan
+                hideHeading
+              />
+            )
+          }
+        />
+      ) : (
+        // No plan: the shop — how often to pay is all there is to pick.
+        <CadenceSwitcher
+          studentId={studentId}
+          currentTier={null}
+          subjectCount={enrolments.length}
+          level={level}
+          canManage
+          ownerLabel={childName}
+          hadPlan={hadPlan}
+        />
       )}
 
       {/* Pause and cancel come last, under everything else for this child. */}
@@ -243,7 +256,7 @@ export function ParentBillingSection({
               <div className="mt-3">
                 <SubscriptionPanel
                   sub={sub}
-                  planName={planLabel(sub.plan, resolvePackagesForLevel(allPackages, undefined))}
+                  title="Plan"
                   canManage
                   isPayer
                   returnTo="billing"

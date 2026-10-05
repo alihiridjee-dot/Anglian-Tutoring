@@ -38,6 +38,8 @@ interface CadenceSwitcherProps {
    * sent — a stored one would only get the purchase refused.
    */
   hadPlan?: boolean;
+  /** Drop the heading — when it opens from the plan's Switch payment tile. */
+  hideHeading?: boolean;
 }
 
 /**
@@ -64,6 +66,7 @@ export function CadenceSwitcher({
   canManage,
   ownerLabel,
   hadPlan = false,
+  hideHeading = false,
 }: CadenceSwitcherProps) {
   const { data: packages = [] } = usePackages(level);
   const change = useChangeCadence();
@@ -123,7 +126,9 @@ export function CadenceSwitcher({
 
   return (
     <section>
-      <SectionHeading title={currentTier ? "How often you pay" : "Choose how often you pay"} />
+      {!hideHeading && (
+        <SectionHeading title={currentTier ? "How often you pay" : "Choose how often you pay"} />
+      )}
 
       {!currentTier && canManage && !hadPlan && (
         <TrialCodeField value={trialCode} onChange={setTrialCode} />

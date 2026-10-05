@@ -57,7 +57,7 @@ export function StudentBilling({ record, name }: { record: StudentRecord; name: 
       {sub ? (
         <SubscriptionPanel
           sub={sub}
-          planName={planName}
+          title="Plan"
           canManage={!deletion}
           isPayer={false}
           returnTo="billing"

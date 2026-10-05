@@ -166,69 +166,14 @@ function BillingPage() {
   return (
     <AppLayout title="Billing">
       <div className="max-w-4xl">
-        {/* The page is a stack of headed sections, each a grid of tiles:
-            plan, subjects, how often you pay, payment history, and — last —
-            pause or cancel. */}
-        <section className="mb-8">
-          <SectionHeading title="Your plan" />
-          <div className="mt-3">
-            {loading ? (
-              <Spinner label="Loading" className="py-8" />
-            ) : subsQuery.error ? (
-              // "Couldn't read your plan" is not "you have no plan". Falling
-              // through to the branch below told a paying student to pick a
-              // plan, with the shop open underneath.
-              <ErrorNote error={subsQuery.error} onRetry={() => void subsQuery.refetch()} />
-            ) : (hasUsablePlan || paymentOverdue) && sub ? (
-              <>
-                <SubscriptionPanel
-                  sub={sub}
-                  planName={planName}
-                  canManage={canManage}
-                  isPayer={isPayer}
-                  returnTo="billing"
-                  payerLabel={payerLabel}
-                  priceLabel={priceLabel}
-                  course={course}
-                  // An overdue plan has no Subjects block below to name them.
-                  showSubjects={paymentOverdue}
-                />
-                {!canManage && linksSettled && (
-                  <div className="pop-card pop-card-flat mt-3 flex gap-2.5 p-4 text-sm">
-                    <Info className="mt-0.5 size-4 shrink-0" aria-hidden />
-                    <span>
-                      This plan is paid for by <strong>{payerLabel}</strong>, so pausing, changing
-                      and cancelling it happen from their account. Ask them to open their own
-                      Billing tab — you'll see any change here straight away.
-                    </span>
-                  </div>
-                )}
-              </>
-            ) : awaitingPayment ? (
-              <PaymentPending delayed={payment.delayed} onRetry={payment.retry} />
-            ) : (
-              <div className="pop-card p-4 sm:p-5">
-                <p>
-                  You don't have an active plan yet. Pick one below to unlock lessons, quizzes, and
-                  task marking.
-                </p>
-                {/* Still say what they'd be buying — the course is set at
-                    signup and is the thing worth checking before paying. */}
-                {course.headline && (
-                  <p className="mt-2 text-sm">
-                    Set up for <strong>{course.headline}</strong>
-                    {subjectLabels.length > 0 && ` — ${subjectLabels.join(", ")}`}.
-                  </p>
-                )}
-              </div>
-            )}
-          </div>
-        </section>
-
+        {/* The page is a stack of tile sections: subjects, the plan (folded
+            away), payment history (folded away), and — last — pause or
+            cancel. */}
         {/* What the plan covers, where a single subject comes off it and where
-            one is added — one grid. Directly under the plan because "cancel
-            Chemistry" is a far commoner intent than "cancel everything", and
-            the cancel dialog links here. Any student can add a subject to their
+            one is added — one grid. First on the page, above the plan, because
+            it is what a family comes here to change; "cancel Chemistry" is a
+            far commoner intent than "cancel everything", and the cancel dialog
+            links here. Any student can add a subject to their
             own live plan, even when a parent holds the pause/cancel controls:
             adding is additive growth, so it isn't gated like they are. */}
         {userId && hasUsablePlan && sub?.plan && (
@@ -255,9 +200,82 @@ function BillingPage() {
           </div>
         )}
 
-        {/* Billing rhythm only — three rows, not the old nine-card grid. What
-            the plan covers is the subjects card's job, so a switch here can't
-            change it (and can't sell coverage the student isn't enrolled in).
+        {(hasUsablePlan || paymentOverdue) && sub && !loading && !subsQuery.error ? (
+          <div className="mb-8">
+            <SubscriptionPanel
+              sub={sub}
+              canManage={canManage}
+              isPayer={isPayer}
+              returnTo="billing"
+              payerLabel={payerLabel}
+              priceLabel={priceLabel}
+              course={course}
+              // An overdue plan has no Subjects block above to name them.
+              showSubjects={paymentOverdue}
+              // How often they pay, opened from the plan's Switch payment tile.
+              // Only on a live plan that isn't ending, for whoever manages it.
+              cadenceSwitcher={
+                userId &&
+                changeable &&
+                canManage && (
+                  <CadenceSwitcher
+                    studentId={userId}
+                    currentTier={activeTier}
+                    subjectCount={enrolments.length}
+                    level={level}
+                    canManage
+                    hadPlan
+                    hideHeading
+                  />
+                )
+              }
+            />
+            {!canManage && linksSettled && (
+              <div className="pop-card pop-card-flat mt-3 flex gap-2.5 p-4 text-sm">
+                <Info className="mt-0.5 size-4 shrink-0" aria-hidden />
+                <span>
+                  This plan is paid for by <strong>{payerLabel}</strong>, so pausing, changing and
+                  cancelling it happen from their account. Ask them to open their own Billing tab —
+                  you'll see any change here straight away.
+                </span>
+              </div>
+            )}
+          </div>
+        ) : (
+          <section className="mb-8">
+            <SectionHeading title="Your plan" />
+            <div className="mt-3">
+              {loading ? (
+                <Spinner label="Loading" className="py-8" />
+              ) : subsQuery.error ? (
+                // "Couldn't read your plan" is not "you have no plan". Falling
+                // through to the branch below told a paying student to pick a
+                // plan, with the shop open underneath.
+                <ErrorNote error={subsQuery.error} onRetry={() => void subsQuery.refetch()} />
+              ) : awaitingPayment ? (
+                <PaymentPending delayed={payment.delayed} onRetry={payment.retry} />
+              ) : (
+                <div className="pop-card p-4 sm:p-5">
+                  <p>
+                    You don't have an active plan yet. Pick one below to unlock lessons, quizzes,
+                    and task marking.
+                  </p>
+                  {/* Still say what they'd be buying — the course is set at
+                      signup and is the thing worth checking before paying. */}
+                  {course.headline && (
+                    <p className="mt-2 text-sm">
+                      Set up for <strong>{course.headline}</strong>
+                      {subjectLabels.length > 0 && ` — ${subjectLabels.join(", ")}`}.
+                    </p>
+                  )}
+                </div>
+              )}
+            </div>
+          </section>
+        )}
+
+        {/* The shop, for a student with no plan: how often to pay, which is
+            all there is to pick — coverage is the subjects they enrolled in.
             Not shown until the plan and parent links have loaded: until then
             there is no plan to see, and the shop would open under a paying
             student's "Loading" spinner. */}
@@ -267,14 +285,14 @@ function BillingPage() {
           !subsQuery.error &&
           !awaitingPayment &&
           !paymentOverdue &&
-          (changeable ? canManage : !hasUsablePlan) && (
+          !hasUsablePlan && (
             <div className="mb-8">
               <CadenceSwitcher
                 studentId={userId}
-                currentTier={activeTier}
+                currentTier={null}
                 subjectCount={enrolments.length}
                 level={level}
-                canManage={canManage || !hasUsablePlan}
+                canManage
                 hadPlan={!!sub}
               />
             </div>

@@ -189,11 +189,16 @@ export function EnrolledSubjectsCard({
                         return (
                           <button
                             key={b.value}
-                            onClick={() => setSwitching({ subject: e.subject, board: b.value })}
-                            disabled={on || switchBoard.isPending}
+                            // The current board is pressed, not disabled: the
+                            // kit greys out a disabled button, which made the
+                            // one board that's in use look switched off.
+                            onClick={() =>
+                              !on && setSwitching({ subject: e.subject, board: b.value })
+                            }
+                            disabled={!on && switchBoard.isPending}
                             aria-pressed={on}
                             className={`tap-target h-8 rounded-md px-2.5 text-xs font-semibold transition disabled:cursor-default ${
-                              on ? "btn-solid shadow-sm" : "hover:bg-card"
+                              on ? "btn-solid cursor-default shadow-sm" : "hover:bg-card"
                             }`}
                           >
                             {b.label}
