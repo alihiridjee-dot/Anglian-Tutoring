@@ -74,9 +74,11 @@ function updateEntry(index: number, path: string, patch: Partial<Entry>) {
 }
 
 /** Drops every entry from `index` on: they are the forward pages a push discards. */
-function dropFrom(index: number) {
+function dropFrom(index: number, only = false) {
   const store = readStore();
-  for (const key of Object.keys(store)) if (Number(key) >= index) delete store[key];
+  for (const key of Object.keys(store)) {
+    if (only ? Number(key) === index : Number(key) >= index) delete store[key];
+  }
   writeStore(store);
 }
 
@@ -104,9 +106,13 @@ function sameMark(el: Element, mark: Omit<Mark, "nth">) {
   return mark.href ? el.getAttribute("href") === mark.href : squash(el.textContent) === mark.text;
 }
 
+/** Matching links or buttons that are drawn — not a copy hidden at this width. */
 function twins(mark: Omit<Mark, "nth">): Element[] {
   const scope = document.querySelector(SCOPE);
-  return scope ? [...scope.querySelectorAll(TARGETS)].filter((el) => sameMark(el, mark)) : [];
+  if (!scope) return [];
+  return [...scope.querySelectorAll(TARGETS)].filter(
+    (el) => el.getClientRects().length > 0 && sameMark(el, mark),
+  );
 }
 
 function markOf(target: EventTarget | null): Mark | null {
@@ -126,13 +132,16 @@ function findMark(mark: Mark): HTMLElement | null {
   return (found[mark.nth] ?? found[0] ?? null) as HTMLElement | null;
 }
 
-/** Centres an element below the pinned header, or tops it there if it's taller. */
-function centre(el: HTMLElement) {
+/**
+ * Centres an element below the pinned header, or tops it there if it's taller.
+ * Moves only when it is more than `slack` pixels out.
+ */
+function centre(el: HTMLElement, slack: number) {
   const header = document.querySelector("main > header")?.getBoundingClientRect().bottom ?? 0;
   const room = window.innerHeight - header;
   const box = el.getBoundingClientRect();
   const want = box.height < room - 32 ? header + (room - box.height) / 2 : header + 16;
-  if (Math.abs(box.top - want) > 1) {
+  if (Math.abs(box.top - want) > slack) {
     window.scrollTo({ top: window.scrollY + box.top - want, behavior: "instant" });
   }
 }
@@ -180,8 +189,9 @@ function returnTo(entry: Entry) {
       }
     }
     if (found) {
-      // Held for a moment: a card loading in above it would push it away.
-      centre(found);
+      // Held for a moment: a card loading in above it would push it away. Only
+      // a real shift is followed, not a card's own few pixels of rise-in.
+      centre(found, now === foundAt ? 1 : 24);
       if (now - foundAt > SETTLE_MS) return stop();
     } else if (entry.y !== undefined && (!entry.mark || now - started > WAIT_MS)) {
       // No mark, or one that isn't coming back (the task moved tab): the old
@@ -244,8 +254,9 @@ export function installReturnSpots(router: AnyRouter) {
       dropFrom(toIndex);
       returning = null;
     } else if (action.type === "REPLACE") {
-      // A redirect onto another page makes this a different entry.
-      if (location.pathname !== from.pathname) dropFrom(toIndex);
+      // A redirect onto another page makes this a different entry; the pages
+      // ahead of it are still there to go forward to.
+      if (location.pathname !== from.pathname) dropFrom(toIndex, true);
     } else {
       // Back, forward, or a jump: the page being left keeps its offset (for
       // coming forward to it again), and the one arrived at is restored once
