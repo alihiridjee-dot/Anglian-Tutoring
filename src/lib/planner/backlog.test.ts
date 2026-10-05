@@ -12,6 +12,7 @@ import {
   type DeliveryLedger,
 } from "./backlog";
 import { withWeeklyPoints, type FocusPointRef, type PacingBand } from "./pacing";
+import { addWeeks, toDateKey, weekKeyToDate } from "./week";
 
 const EMPTY: DeliveryLedger = { assessed: new Set(), done: new Set(), outstanding: new Set() };
 
@@ -110,6 +111,20 @@ describe("spineBacklog", () => {
       pointsByTopic: new Map([["t1", [point("a"), point("b")]]]),
     });
     expect(out.map((p) => p.plannedWeek)).toEqual(["2026-07-13", "2026-07-13"]);
+  });
+
+  test("codes due the same week come back in number order, 1.7 before 1.10", () => {
+    const bare: PacingBand[] = [
+      { topicId: "t1", title: "Topic 1", startWeek: "2026-07-13", endWeek: "2026-07-27", weeks: 3 },
+    ];
+    const codes = ["EDEX 1.10", "EDEX 1.7", "EDEX 1.9"];
+    const out = spineBacklog({
+      bands: bare,
+      weekStart: NOW,
+      ledger: EMPTY,
+      pointsByTopic: new Map([["t1", codes.map((code) => ({ ...point(code), code }))]]),
+    });
+    expect(out.map((p) => p.code)).toEqual(["EDEX 1.7", "EDEX 1.9", "EDEX 1.10"]);
   });
 
   test("nothing is owed when the programme has not started", () => {
@@ -274,7 +289,8 @@ describe("catch-up forecast", () => {
   });
   test("an unfinished point returns first when the next week arrives", () => {
     const result = projectCatchUp({ ...params, weekStart: "2026-09-14" });
-    expect(result.weeks["2026-09-14"]).toEqual([missed[0]]);
+    // Four owed and three weeks left, so the week also takes its fair share.
+    expect(result.weeks["2026-09-14"]).toEqual(missed.slice(0, 2));
   });
   test("manual catch-up consumes capacity and is not forecast again", () => {
     const result = projectCatchUp({ ...params, assigned: missed.slice(0, 2) });
@@ -291,10 +307,63 @@ describe("catch-up forecast", () => {
     });
   });
   test("does not allocate on or after the exam; reports what cannot fit", () => {
-    const result = projectCatchUp({ ...params, examDate: "2026-09-14" });
-    expect(result.weeks["2026-09-14"]).toBeUndefined();
-    expect(result.held).toEqual(missed.slice(1));
-    expect(projectCatchUp({ ...params, weeklyWeight: 0 }).held).toEqual(missed);
+    const lastWeek = projectCatchUp({ ...params, examDate: "2026-09-14" });
+    expect(lastWeek.weeks["2026-09-14"]).toBeUndefined();
+    expect(lastWeek.weeks["2026-09-07"]).toEqual(missed);
+    expect(lastWeek.held).toEqual([]);
+    const examHere = projectCatchUp({ ...params, examDate: "2026-09-07" });
+    expect(examHere.weeks).toEqual({});
+    expect(examHere.held).toEqual(missed);
+  });
+
+  const owed = (n: number) =>
+    Array.from({ length: n }, (_, i): BacklogPoint => ({
+      ...missed[0],
+      specPointId: `p${String(i).padStart(2, "0")}`,
+      code: `p${String(i).padStart(2, "0")}`,
+    }));
+  const perWeek = (result: { weeks: Record<string, BacklogPoint[]> }) =>
+    Object.values(result.weeks).map((points) => points.length);
+
+  test("short of the exam at the steady pace, each week takes its fair share, extra first", () => {
+    // Six owed, four weeks, one a week at the steady pace: two would not fit.
+    const result = projectCatchUp({ ...params, backlog: owed(6) });
+    expect(perWeek(result)).toEqual([2, 2, 1, 1]);
+    expect(Object.values(result.weeks).flat()).toEqual(owed(6));
+    expect(result.held).toEqual([]);
+  });
+
+  test("40 owed with 36 weeks left: four weeks carry one extra, then one a week", () => {
+    const examDate = toDateKey(addWeeks(weekKeyToDate(params.weekStart), 36));
+    const steady = { ...params, backlog: owed(40), examDate, weeklyWeight: 4 };
+    const result = projectCatchUp(steady);
+    expect(perWeek(result)).toEqual([2, 2, 2, 2, ...Array(32).fill(1)]);
+    expect(result.held).toEqual([]);
+    // At one a week the steady pace fits 36 and is left alone; 40 is four short.
+    expect(perWeek(projectCatchUp({ ...steady, backlog: owed(36) }))).toEqual(Array(36).fill(1));
+  });
+
+  test("this week's own catch-up counts towards its fair share", () => {
+    const result = projectCatchUp({ ...params, backlog: owed(6), assigned: owed(6).slice(0, 2) });
+    expect(result.weeks["2026-09-07"]).toEqual(owed(6).slice(0, 2));
+    expect(perWeek(result)).toEqual([2, 2, 1, 1]);
+    expect(result.held).toEqual([]);
+  });
+
+  test("a point a tutor has blocked from every week left is all that is held", () => {
+    const result = projectCatchUp({
+      ...params,
+      backlog: owed(6),
+      isBlocked: (id) => id === "p01",
+    });
+    expect(result.held.map((p) => p.specPointId)).toEqual(["p01"]);
+    expect(Object.values(result.weeks).flat()).toHaveLength(5);
+  });
+
+  test("with no measured week the fair share alone still clears it", () => {
+    const result = projectCatchUp({ ...params, weeklyWeight: 0 });
+    expect(perWeek(result)).toEqual([1, 1, 1, 1]);
+    expect(result.held).toEqual([]);
   });
 });
 
