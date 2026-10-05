@@ -232,6 +232,11 @@ alone, so a lesson was filed under Previous as "Completed" the second it began.
   INSERT/UPDATE grant for `authenticated`; `grade_mcq_attempt` marks server-side
   against the stored answer key. `homework_submissions` has the equivalent guard
   as a trigger (`enforce_grading_privileges`).
+- **A student's work goes with their account.** `homework_submissions`,
+  `mcq_attempts` and `session_attendees` reference `auth.users` with ON DELETE
+  CASCADE (20261005171000), so a student's tasks (with their answers, AI marks
+  and notifications), quiz attempts and attendance go in the same transaction,
+  however the account is deleted. No cascade reaches Storage.
 - Board, subjects and payment are captured in `/onboarding/*`, and
   `/_authenticated` gates students on `my_access_state()`. See
   [docs/STRIPE_SETUP.md](docs/STRIPE_SETUP.md).
