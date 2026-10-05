@@ -32,7 +32,6 @@ import {
   DEMO_MCQ_SETS,
 } from "@/lib/demo/studentDemo";
 import {
-  queryTerms,
   scoreRecord,
   matchesAllTerms,
   ilikeValue,
@@ -40,6 +39,7 @@ import {
   broadestTerm,
   MIN_QUERY_LENGTH,
 } from "./match";
+import { searchTerms } from "./help";
 import {
   GROUP_LABEL,
   SEARCH_GROUPS,
@@ -91,7 +91,7 @@ function taxonomyTags(row: {
  * subjects, at their level, on the board they sit *that* subject with. A null
  * board means board-agnostic (live sessions span boards) and always passes.
  */
-function isVisible(
+export function isVisible(
   ctx: SearchContext,
   row: { subject?: string | null; board?: string | null; level?: string | null },
 ): boolean {
@@ -612,7 +612,8 @@ export interface SearchSection {
  * points can't bury the one homework the user was actually after.
  */
 export async function runGlobalSearch(query: string, ctx: SearchContext): Promise<SearchSection[]> {
-  const terms = queryTerms(query);
+  // Filler dropped, so "where is cell structure" still finds Cell structure.
+  const terms = searchTerms(query);
   if (query.trim().length < MIN_QUERY_LENGTH || terms.length === 0) return [];
 
   const hits = [
