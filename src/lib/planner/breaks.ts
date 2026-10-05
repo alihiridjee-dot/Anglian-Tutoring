@@ -68,6 +68,16 @@ export const backOn = (b: Pick<StudentBreak, "endsOn">): string => shiftKey(b.en
 export const breakEndsOn = (startsOn: string, weeks: number): string =>
   shiftKey(startsOn, 7 * weeks - 1);
 
+/** The Monday of every week the breaks cover. */
+export function breakWeekKeys(
+  breaks: readonly Pick<StudentBreak, "startsOn" | "endsOn">[],
+): string[] {
+  const weeks: string[] = [];
+  for (const b of breaks)
+    for (let week = b.startsOn; week <= b.endsOn; week = shiftKey(week, 7)) weeks.push(week);
+  return weeks;
+}
+
 /** The break, if any, that the week starting `weekKey` falls in. */
 export function breakCovering(
   breaks: readonly StudentBreak[],

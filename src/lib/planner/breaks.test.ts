@@ -5,6 +5,7 @@ import { weekKeyToDate } from "./week";
 import {
   backOn,
   breakCovering,
+  breakWeekKeys,
   breakEndsOn,
   layBreaksOver,
   mondayKeyOf,
@@ -33,6 +34,11 @@ describe("break dates", () => {
     expect(mondayKeyOf("2026-10-14")).toBe("2026-10-12");
     expect(mondayKeyOf("2026-10-18")).toBe("2026-10-12");
     expect(mondayKeyOf("2026-10-12")).toBe("2026-10-12");
+  });
+  test("lists the Monday of every week a break covers", () => {
+    expect(
+      breakWeekKeys([brk("2026-10-12", "2026-10-25"), brk("2026-12-28", "2027-01-03")]),
+    ).toEqual(["2026-10-12", "2026-10-19", "2026-12-28"]);
   });
   test("a week falls in the break that covers it", () => {
     const breaks = [brk("2026-10-12", "2026-10-25")];

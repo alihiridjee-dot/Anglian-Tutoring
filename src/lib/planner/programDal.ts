@@ -28,7 +28,7 @@ import {
 import { mergeWeek, selectWeek, unsupportedReviews, type WeekSelection } from "./weekCut";
 import { SubjectPauseDAL } from "./pausesDal";
 import { BreakDAL } from "./breaksDal";
-import { layBreaksOver } from "./breaks";
+import { breakWeekKeys, layBreaksOver, type StudentBreak } from "./breaks";
 
 export { handPicked } from "./weekCut";
 
@@ -116,9 +116,11 @@ export class ProgramDAL {
       ? (baseline.pacing as unknown as PacingBand[]).filter(isTeachBand)
       : null;
     // A break booked, under way or just over shows the course as it will be
-    // picked up: nothing taught in its weeks, nothing in them missed.
+    // picked up: nothing taught in its weeks, nothing in them missed. Its weeks
+    // are closed to the forecasts below too.
+    const breaks = baseline ? await BreakDAL.list(studentId) : [];
     if (baseline) {
-      const ahead = await this.withBreaksAhead({ studentId, baseline, progress });
+      const ahead = this.withBreaksAhead({ baseline, progress, breaks });
       if (ahead) baseline.pacing = ahead as unknown as Json;
     }
 
@@ -164,6 +166,7 @@ export class ProgramDAL {
       firstWeek: programStartFor(),
       examMonday,
       overrides,
+      breakWeeks: breakWeekKeys(breaks),
     });
     if (current && storedBands) roadmap.storedBands = storedBands;
 
@@ -264,12 +267,12 @@ export class ProgramDAL {
    * saves the same calendar, and laying a break over a spine it is already in
    * changes nothing, so the plan doesn't shift when that happens.
    */
-  private static async withBreaksAhead(p: {
-    studentId: string;
+  private static withBreaksAhead(p: {
     baseline: { exam_date: string; pacing: Json };
     progress: TopicProgress[];
-  }): Promise<PacingBand[] | null> {
-    const breaks = (await BreakDAL.list(p.studentId)).filter((b) => !b.recordedAt);
+    breaks: StudentBreak[];
+  }): PacingBand[] | null {
+    const breaks = p.breaks.filter((b) => !b.recordedAt);
     if (!breaks.length) return null;
     const stored = p.baseline.pacing as unknown as PacingBand[];
     // A spine for another course is rebuilt from this week anyway.

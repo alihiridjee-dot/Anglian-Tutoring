@@ -470,6 +470,12 @@ test("a break still to come shows the course as it will be picked up, and saves 
   );
   expect(io.filter((e) => (e as unknown[])[0] === "resumeProgramme")).toEqual([]);
   expect(io.some((e) => Array.isArray(e) && e[0] === "db" && e[1] !== "GET")).toBe(false);
+  // Nor is any catch-up or review forecast into it.
+  const inBreak = (week: string) => week >= "2026-10-12" && week < "2026-10-26";
+  expect(Object.keys(result!.catchUpSchedule?.weeks ?? {}).filter(inBreak)).toEqual([]);
+  expect(result!.bands.filter((b) => b.kind && b.kind !== "teach" && inBreak(b.startWeek))).toEqual(
+    [],
+  );
 });
 
 test("a recorded break is left to the stop it became", async () => {
