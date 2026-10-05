@@ -5,7 +5,7 @@ import { useQuery } from "@tanstack/react-query";
 import { toast } from "sonner";
 import { AppLayout } from "@/components/AppLayout";
 import { AwaitingMark, BuiltInHomework } from "@/components/BuiltInHomework";
-import { EmptyState, ErrorNote, SectionHeading, Spinner } from "@/components/Shared";
+import { EmptyState, ErrorNote, SciText, SectionHeading, Spinner } from "@/components/Shared";
 import { useHomeworkSheet, useInvalidateHomework } from "@/hooks/data/useHomework";
 import { useEnrolments } from "@/hooks/data/useEnrolments";
 import { isOverdue } from "@/lib/homework/homeworkBuckets";
@@ -137,7 +137,7 @@ export function HomeworkSheetPage() {
 
         {hw.instructions && (
           <p className="text-muted-foreground mt-3 max-w-2xl text-sm leading-relaxed whitespace-pre-wrap">
-            {hw.instructions}
+            <SciText text={hw.instructions} />
           </p>
         )}
 
@@ -233,7 +233,7 @@ function MarkPanel({
         <div className="mt-4">
           <p className="eyebrow-bare">Feedback</p>
           <div className="premium-card mt-2 p-3.5 text-sm leading-relaxed whitespace-pre-wrap">
-            {submission.feedback}
+            <SciText text={submission.feedback} />
           </div>
         </div>
       )}

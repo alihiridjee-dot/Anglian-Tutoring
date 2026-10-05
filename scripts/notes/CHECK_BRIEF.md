@@ -35,6 +35,9 @@ One checker takes a list of drafted notes. For each note:
      group, order and description is correct. A scene matches its result.
 6. **Checks** (the three questions at the end) have correct answers.
 7. **Style**: light, signposted, no walls of prose; UK spelling.
+8. **Notation.** Formulas, ions, units and powers use Unicode subscripts and
+   superscripts (H₂O, Mg²⁺, SO₄²⁻, cm³, 3.0 × 10⁸). Fix every "notation"
+   line `validate.ts` prints.
 
 If something can't be made right from the pack, cut it rather than guess.
 

@@ -10,6 +10,8 @@ import {
 import { type SubjectV, type BoardV, type LevelV } from "@/lib/curriculum/taxonomy";
 import { SpecPointSelect } from "@/components/tutor/SpecPointSelect";
 import { type TutorTakeState } from "./useTutorTake";
+import { SciText } from "@/components/Shared";
+import { SciAnswerBox } from "@/components/homework/SciAnswerBox";
 
 /** What the student sees: the tutor's note, and what was lined up for next week. */
 export function TutorTakeReadOnly({ take }: { take: TutorTakeState }) {
@@ -22,7 +24,7 @@ export function TutorTakeReadOnly({ take }: { take: TutorTakeState }) {
       </div>
       {savedNote ? (
         <p className="text-sm text-foreground/90 whitespace-pre-wrap leading-relaxed">
-          {savedNote}
+          <SciText text={savedNote} />
         </p>
       ) : (
         <p className="text-sm text-muted-foreground">Your tutor lined up next week for you.</p>
@@ -84,7 +86,9 @@ export function TutorFeedbackEditor({
                 ? "✅ Felt confident to move on"
                 : "🎯 Wanted more practice"}
             {studentReflection && (
-              <span className="block text-muted-foreground mt-1">“{studentReflection}”</span>
+              <span className="block text-muted-foreground mt-1">
+                “<SciText text={studentReflection} />”
+              </span>
             )}
           </p>
         </div>
@@ -134,9 +138,9 @@ export function TutorFeedbackEditor({
         </button>
       </div>
 
-      <textarea
+      <SciAnswerBox
         value={note}
-        onChange={(e) => setNote(e.target.value)}
+        onValueChange={setNote}
         rows={4}
         aria-label="Your note"
         placeholder="e.g. Really strong on limiting factors — 100% on the quiz. Xylem vs phloem is still shaky, so let's give transport another week before moving on."

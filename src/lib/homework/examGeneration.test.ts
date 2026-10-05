@@ -175,6 +175,27 @@ describe("exam generation selection", () => {
     expect(result.user).toContain("Rate calculations");
     expect(result.user).toContain("exactly four distinct");
   });
+
+  test("shows the model past-paper text in proper notation", () => {
+    const result = buildGenerationPrompt(
+      {
+        ...context,
+        examples: [
+          example("a", {
+            prompt: "Balance: H2 + O2 -> H2O",
+            mark_scheme: "Mg2+ and SO4^2- (1)",
+            options: [{ letter: "A", text: "25 cm3" }],
+          }),
+        ],
+      },
+      1,
+      "written",
+    );
+    expect(result.user).toContain("H₂ + O₂ → H₂O");
+    expect(result.user).toContain("Mg²⁺ and SO₄²⁻ (1)");
+    expect(result.user).toContain("25 cm³");
+    expect(result.system).toContain("Mg²⁺");
+  });
 });
 
 describe("generated set validation", () => {
@@ -215,5 +236,42 @@ describe("generated set validation", () => {
     ]) {
       expect(() => validateQuestions({ questions: [{ ...q, ...patch }] }, 1, "mcq")).toThrow();
     }
+  });
+
+  test("writes every field in proper notation, whatever the model sent", () => {
+    const mcq = {
+      question: "Magnesium ions are Mg2+ and oxide ions are O2-. What is the formula?",
+      options: ["MgO2", "Mg2O", "MgO", "Mg2O2"],
+      correct_index: 2,
+      explanation: "The 2+ and 2- charges cancel, so MgO.",
+      assessment_objectives: ["AO1"],
+      mathematical_demand: false,
+      practical_demand: false,
+    };
+    const [out] = validateQuestions({ questions: [mcq] }, 1, "mcq");
+    expect(out.question).toBe(
+      "Magnesium ions are Mg²⁺ and oxide ions are O²⁻. What is the formula?",
+    );
+    expect(out.options).toEqual(["MgO₂", "Mg₂O", "MgO", "Mg₂O₂"]);
+    expect(out.correct_index).toBe(2);
+    const [w] = validateQuestions(
+      { questions: [{ ...written, prompt: "25 cm3 of acid", mark_scheme: "CO2 (1)" }] },
+      1,
+      "written",
+    );
+    expect(w.prompt).toBe("25 cm³ of acid");
+    expect(w.mark_scheme).toBe("CO₂ (1)");
+  });
+  test("options that differ only in notation are duplicates", () => {
+    const q = {
+      question: "Which is water?",
+      options: ["H2O", "H₂O", "CO₂", "O₂"],
+      correct_index: 0,
+      explanation: "Water is H₂O.",
+      assessment_objectives: ["AO1"],
+      mathematical_demand: false,
+      practical_demand: false,
+    };
+    expect(() => validateQuestions({ questions: [q] }, 1, "mcq")).toThrow();
   });
 });

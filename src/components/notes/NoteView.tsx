@@ -13,7 +13,7 @@ import {
   PredictorSceneView,
 } from "@/components/notes/SceneLibrary";
 import { BookOpen, Eye, EyeOff, ArrowRight, RotateCcw } from "lucide-react";
-import { PageHeader } from "@/components/Shared";
+import { PageHeader, SciText } from "@/components/Shared";
 import { SUBJECT_LABEL, SUBJECT_TINT } from "@/lib/curriculum/subjectTheme";
 import {
   inlineRuns,
@@ -41,12 +41,20 @@ import {
 
 const BOARD_LABEL: Record<NoteBoard, string> = { aqa: "AQA", edexcel: "Edexcel", ocr: "OCR" };
 
-/** Text with **bold** runs. */
+/** Text with **bold** runs, and proper notation (H₂O, Mg²⁺). */
 function Inline({ text }: { text: string }) {
   return (
     <>
       {inlineRuns(text).map((r, i) =>
-        r.bold ? <b key={i}>{r.text}</b> : <span key={i}>{r.text}</span>,
+        r.bold ? (
+          <b key={i}>
+            <SciText text={r.text} />
+          </b>
+        ) : (
+          <span key={i}>
+            <SciText text={r.text} />
+          </span>
+        ),
       )}
     </>
   );
@@ -273,8 +281,15 @@ function LineGraph({ d }: { d: LineGraphDiagram }) {
       </ZoomableFigure>
       <figcaption className="flex flex-wrap items-center gap-x-4 gap-y-2 text-sm font-bold">
         <span>
-          {d.x.label}
-          {d.x.unit && !d.x.label.includes(d.x.unit) ? ` (${d.x.unit})` : ""}
+          <SciText text={d.x.label} />
+          {d.x.unit && !d.x.label.includes(d.x.unit) ? (
+            <>
+              {" ("}
+              <SciText text={d.x.unit} />)
+            </>
+          ) : (
+            ""
+          )}
         </span>
         {d.series.length > 1
           ? d.series.map((s, i) => (
@@ -285,7 +300,9 @@ function LineGraph({ d }: { d: LineGraphDiagram }) {
                 className={`${SERIES_TINTS[i]} inline-flex items-center gap-1.5 rounded-md px-1.5 py-0.5 hover:bg-[color-mix(in_oklab,var(--tint)_12%,transparent)] ${active === s.name ? "bg-[color-mix(in_oklab,var(--tint)_16%,transparent)]" : ""}`}
               >
                 <span className="h-1 w-4 rounded-full bg-[var(--tint)]" aria-hidden />
-                {s.name}
+                <span>
+                  <SciText text={s.name} />
+                </span>
               </button>
             ))
           : null}
@@ -330,7 +347,7 @@ function Table({ columns, rows }: { columns: string[]; rows: string[][] }) {
           <tr className="border-b-2 border-[color-mix(in_oklab,var(--tint)_40%,transparent)]">
             {columns.map((c) => (
               <th key={c} className="font-display py-2 pr-4 font-extrabold">
-                {c}
+                <SciText text={c} />
               </th>
             ))}
           </tr>
@@ -356,7 +373,10 @@ function Table({ columns, rows }: { columns: string[]; rows: string[][] }) {
             </p>
             {r.slice(1).map((cell, j) => (
               <p key={j}>
-                <b>{columns[j + 1]}:</b> <Inline text={cell} />
+                <b>
+                  <SciText text={columns[j + 1]} />:
+                </b>{" "}
+                <Inline text={cell} />
               </p>
             ))}
           </div>
@@ -378,7 +398,9 @@ function Predictor({ d }: { d: PredictorDiagram }) {
       aria-label={d.alt}
       className="rounded-2xl border-[1.5px] border-[color-mix(in_oklab,var(--tint)_30%,transparent)] p-4 sm:p-5"
     >
-      <p className="font-display text-base font-extrabold">{d.prompt}</p>
+      <p className="font-display text-base font-extrabold">
+        <SciText text={d.prompt} />
+      </p>
       <div className="mt-3 flex flex-wrap gap-2" role="radiogroup" aria-label={d.prompt}>
         {d.options.map((opt, n) => (
           <button
@@ -388,7 +410,10 @@ function Predictor({ d }: { d: PredictorDiagram }) {
             onClick={() => setI(n)}
             className={`chip ${n === i ? "chip-solid" : ""}`}
           >
-            {opt.label}
+            {/* One child, so the chip's gap doesn't split Mg from ²⁺. */}
+            <span>
+              <SciText text={opt.label} />
+            </span>
           </button>
         ))}
       </div>
@@ -403,7 +428,9 @@ function Predictor({ d }: { d: PredictorDiagram }) {
       >
         {d.result_labels.map((label, n) => (
           <div key={label} className="py-3 sm:flex sm:gap-4">
-            <dt className="shrink-0 font-bold sm:w-44">{label}</dt>
+            <dt className="shrink-0 font-bold sm:w-44">
+              <SciText text={label} />
+            </dt>
             <dd>
               <Inline text={o.results[n]} />
             </dd>
@@ -560,7 +587,9 @@ function Slider({ d }: { d: SliderDiagram }) {
       {d.inputs.map((inp) =>
         "choices" in inp ? (
           <div key={inp.id}>
-            <p className="font-bold">{inp.label}</p>
+            <p className="font-bold">
+              <SciText text={inp.label} />
+            </p>
             <div className="mt-2 flex flex-wrap gap-2" role="radiogroup" aria-label={inp.label}>
               {inp.choices.map((c) => (
                 <button
@@ -570,7 +599,9 @@ function Slider({ d }: { d: SliderDiagram }) {
                   onClick={() => setVals((v) => ({ ...v, [inp.id]: c.value }))}
                   className={`chip ${vals[inp.id] === c.value ? "chip-solid" : ""}`}
                 >
-                  {c.label}
+                  <span>
+                    <SciText text={c.label} />
+                  </span>
                 </button>
               ))}
             </div>
@@ -581,10 +612,19 @@ function Slider({ d }: { d: SliderDiagram }) {
               htmlFor={`slider-${inp.id}`}
               className="flex flex-wrap items-baseline justify-between gap-2 font-bold"
             >
-              <span>{inp.label}</span>
+              <span>
+                <SciText text={inp.label} />
+              </span>
               <span className="numeral text-lg">
                 {fmt(vals[inp.id], inp.step < 1 ? 1 : 0)}
-                {inp.unit ? ` ${inp.unit}` : ""}
+                {inp.unit ? (
+                  <>
+                    {" "}
+                    <SciText text={inp.unit} />
+                  </>
+                ) : (
+                  ""
+                )}
               </span>
             </label>
             <input
@@ -627,10 +667,17 @@ function Slider({ d }: { d: SliderDiagram }) {
             key={o.label}
             className={`${o.bar ? SERIES_TINTS[barIdx.indexOf(n)] : ""} rounded-xl bg-[color-mix(in_oklab,var(--tint)_9%,var(--card))] p-3`}
           >
-            <dt className="font-bold">{o.label}</dt>
+            <dt className="font-bold">
+              <SciText text={o.label} />
+            </dt>
             <dd className="font-display text-2xl font-extrabold">
               <span className="numeral">{fmt(results[n], o.decimals ?? 1)}</span>
-              {o.unit ? <span className="text-base"> {o.unit}</span> : null}
+              {o.unit ? (
+                <span className="text-base">
+                  {" "}
+                  <SciText text={o.unit} />
+                </span>
+              ) : null}
             </dd>
           </div>
         ))}
@@ -663,7 +710,11 @@ function Block({ b }: { b: NoteBlock }) {
         </p>
       );
     case "subheading":
-      return <h3 className="font-display pt-2 text-lg font-extrabold">{b.text}</h3>;
+      return (
+        <h3 className="font-display pt-2 text-lg font-extrabold">
+          <SciText text={b.text} />
+        </h3>
+      );
     case "definitions":
       return (
         <div className="rounded-xl border-[1.5px] border-[color-mix(in_oklab,var(--tint)_30%,transparent)] p-4">
@@ -672,7 +723,7 @@ function Block({ b }: { b: NoteBlock }) {
             {b.items.map((d) => (
               <div key={d.term} className="sm:flex sm:gap-3">
                 <dt className="shrink-0 font-bold text-[color-mix(in_oklab,var(--tint)_75%,var(--foreground))] sm:w-44">
-                  {d.term}
+                  <SciText text={d.term} />
                 </dt>
                 <dd>
                   <Inline text={d.meaning} />
@@ -687,10 +738,12 @@ function Block({ b }: { b: NoteBlock }) {
         <div className="rounded-2xl bg-[color-mix(in_oklab,var(--tint)_11%,var(--card))] px-4 py-4 text-center sm:px-6">
           {b.label ? (
             <p className="font-display text-sm font-extrabold uppercase tracking-widest text-[color-mix(in_oklab,var(--tint)_75%,var(--foreground))]">
-              {b.label}
+              <SciText text={b.label} />
             </p>
           ) : null}
-          <p className="font-display mt-1 text-xl font-extrabold sm:text-2xl">{b.formula}</p>
+          <p className="font-display mt-1 text-xl font-extrabold sm:text-2xl">
+            <SciText text={b.formula} />
+          </p>
           {b.where?.length ? (
             <ul className="mx-auto mt-3 max-w-md space-y-1 text-left text-base">
               {b.where.map((w, i) => (
@@ -738,7 +791,10 @@ function Block({ b }: { b: NoteBlock }) {
             <li key={i} className="flex gap-3">
               <span className="numeral icon-tile size-8 shrink-0 text-sm">{i + 1}</span>
               <p>
-                <b>{s.lead}</b> <Inline text={s.text} />
+                <b>
+                  <SciText text={s.lead} />
+                </b>{" "}
+                <Inline text={s.text} />
               </p>
             </li>
           ))}
@@ -760,7 +816,9 @@ const slug = (s: string) =>
 function Section({ heading, children }: { heading: string; children: ReactNode }) {
   return (
     <section id={slug(heading)} className="mt-10 scroll-mt-6 space-y-4">
-      <h2 className="font-display text-xl font-extrabold sm:text-2xl">{heading}</h2>
+      <h2 className="font-display text-xl font-extrabold sm:text-2xl">
+        <SciText text={heading} />
+      </h2>
       {children}
     </section>
   );
@@ -805,7 +863,7 @@ export function NoteView({ note, board }: { note: Note; board: NoteBoard }) {
                     href={`#${slug(h)}`}
                     className="font-bold underline decoration-[color-mix(in_oklab,var(--tint)_40%,transparent)] decoration-2 underline-offset-4 hover:decoration-[var(--tint)]"
                   >
-                    {h}
+                    <SciText text={h} />
                   </a>
                 </li>
               ))}

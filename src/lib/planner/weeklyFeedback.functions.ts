@@ -1,6 +1,7 @@
 import { createServerFn } from "@tanstack/react-start";
 import Anthropic from "@anthropic-ai/sdk";
-import { NO_THINKING, completeText } from "@/lib/platform/aiText";
+import { NOTATION_RULE, NO_THINKING, completeText } from "@/lib/platform/aiText";
+import { toSciNotation } from "@/lib/platform/sciNotation";
 import { requireSupabaseAuth } from "@/integrations/supabase/auth-middleware";
 import { requireTutorAi } from "@/lib/auth/tutorAi.server";
 
@@ -85,6 +86,7 @@ async function generate(input: {
   const system = `You are a friendly, encouraging UK ${input.level.toUpperCase()} ${input.subject} tutor writing a short end-of-week feedback note that the STUDENT will read (${input.board ? `${input.board.toUpperCase()} board` : "their board"}).
 Base it on the evidence given — the spec points covered this week with their task/MCQ marks, and the student's own check-in.
 Write 3–5 sentences of warm, plain-English prose. Do: name what went well and cite the strong marks; flag what's still shaky; end with one concrete recommendation for what to focus on next week. Don't: dump spec-point codes back, use markdown, or invent marks that aren't in the evidence.${replyClause}
+${NOTATION_RULE}
 Return ONLY the note text — no preamble, no headings, no markdown.`;
 
   const user = `Week: ${input.weekLabel}
@@ -111,7 +113,7 @@ ${checkinLine}`;
     throw new Error(`AI error: ${e instanceof Error ? e.message : String(e)}`);
   }
 
-  return completeText(res).trim();
+  return toSciNotation(completeText(res).trim());
 }
 
 /**
