@@ -246,7 +246,9 @@ Two tables, and the split between them is load-bearing:
   scoped") and `storage.objects` ("resources bucket read scoped") — treat a row
   here as proof the parent may read that child's data. None of them filter on a
   status, so **never add a pending/inactive row to this table**: it would grant
-  access, not request it.
+  access, not request it. Both ids reference `auth.users` with ON DELETE
+  CASCADE (20261005170000), so a link goes with the account at either end,
+  however that account is deleted.
 - **`parent_link_invites`** holds pending invites, addressed to an _email_ (the
   invitee may have no account yet). It grants nothing on its own.
 
