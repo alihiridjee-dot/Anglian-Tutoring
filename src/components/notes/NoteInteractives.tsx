@@ -66,7 +66,9 @@ function Frame({ alt, title, children }: { alt: string; title: string; children:
       aria-label={alt}
       className="space-y-4 rounded-2xl border-[1.5px] border-[color-mix(in_oklab,var(--tint)_30%,transparent)] p-4 sm:p-5"
     >
-      <p className="font-display text-base font-extrabold">{title}</p>
+      <p className="font-display text-base font-extrabold">
+        <SciText text={title} />
+      </p>
       {children}
     </figure>
   );
@@ -219,12 +221,17 @@ export function Sort({ d }: { d: SortDiagram }) {
                   }}
                   className={`chip ${placed[i] === gi ? "chip-solid" : ""}`}
                 >
-                  {g}
+                  {/* One child, so the chip's gap doesn't split Mg from ²⁺. */}
+                  <span>
+                    <SciText text={g} />
+                  </span>
                 </button>
               ))}
             </div>
             {checked && placed[i] != null && placed[i] !== it.group ? (
-              <p className="mt-2 text-sm font-bold">This one belongs in: {d.groups[it.group]}</p>
+              <p className="mt-2 text-sm font-bold">
+                This one belongs in: <SciText text={d.groups[it.group]} />
+              </p>
             ) : null}
           </li>
         ))}
@@ -417,7 +424,11 @@ export function Practice({ d }: { d: PracticeDiagram }) {
           placeholder="Your answer"
           className="w-36 rounded-lg border-[1.5px] border-border bg-card px-3 py-1.5 text-base font-bold"
         />
-        {d.answer.unit ? <span className="font-bold">{d.answer.unit}</span> : null}
+        {d.answer.unit ? (
+          <span className="font-bold">
+            <SciText text={d.answer.unit} />
+          </span>
+        ) : null}
         <button type="submit" className={btn}>
           <Check className="size-4" aria-hidden /> Check
         </button>

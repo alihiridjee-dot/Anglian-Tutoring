@@ -8,6 +8,7 @@ import { toast } from "sonner";
 import { ClipboardCheck, Clock, Inbox, Loader2, MessageSquare } from "lucide-react";
 import { AnswerMarkingList } from "./AnswerMarking";
 import { ErrorNote, SciText } from "@/components/Shared";
+import { SciAnswerBox } from "@/components/homework/SciAnswerBox";
 import { useAnswerMarking } from "@/hooks/data/useAnswerMarking";
 import type { SubjectV, BoardV, LevelV } from "@/lib/curriculum/taxonomy";
 import { subjectLabel } from "@/lib/curriculum/courseSummary";
@@ -535,20 +536,22 @@ function MarkSubmissionCard({
             </span>
           </label>
 
-          <label className="block">
+          {/* A div, not a label: the box carries its own x₂/x² buttons. */}
+          <div className="block">
             <span className="text-[10px] font-semibold uppercase tracking-wider text-muted-foreground">
               Written feedback
             </span>
-            <textarea
+            <SciAnswerBox
               value={feedback}
-              onChange={(e) => {
+              onValueChange={(text) => {
                 setFeedbackTouched(true);
-                setFeedback(e.target.value);
+                setFeedback(text);
               }}
               placeholder="Feedback the student will see on their dashboard…"
+              aria-label="Written feedback"
               className="mt-1 w-full min-h-28 rounded-lg premium-input px-3 py-2 text-sm"
             />
-          </label>
+          </div>
 
           <div className="flex flex-wrap items-center justify-between gap-3">
             {sub.graded_at && (

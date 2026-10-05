@@ -1,6 +1,7 @@
 import type { HomeworkQuestion, HomeworkAnswer } from "@/hooks/data/useHomeworkQuestions";
 import type { QuestionMark } from "@/hooks/data/useAnswerMarking";
 import { SciText } from "@/components/Shared";
+import { SciAnswerBox } from "@/components/homework/SciAnswerBox";
 
 /**
  * Marking a built-in homework question by question.
@@ -30,6 +31,8 @@ export function AnswerMarkingList({
       {questions.map((q, i) => {
         const a = answers[q.id];
         const m = marks[q.id] ?? { marks: "", feedback: "" };
+        // Read with the question, so "Cl3" beside a Cl₂ question reads Cl₃.
+        const notation = `${q.prompt}\n${q.mark_scheme ?? ""}`;
         return (
           <li key={q.id} className="rounded-xl bg-card border border-border p-4 space-y-2">
             <div className="flex items-start gap-2">
@@ -45,7 +48,7 @@ export function AnswerMarkingList({
               </p>
               <p className="text-sm whitespace-pre-wrap">
                 {a?.answer_text ? (
-                  <SciText text={a.answer_text} />
+                  <SciText text={a.answer_text} context={notation} />
                 ) : (
                   <span className="italic text-muted-foreground">Left blank</span>
                 )}
@@ -56,12 +59,12 @@ export function AnswerMarkingList({
               <details className="text-xs">
                 <summary className="cursor-pointer text-muted-foreground">Mark scheme</summary>
                 <p className="mt-1 whitespace-pre-wrap text-muted-foreground">
-                  <SciText text={q.mark_scheme} />
+                  <SciText text={q.mark_scheme} context={notation} />
                 </p>
               </details>
             )}
 
-            <div className="flex flex-wrap items-center gap-3">
+            <div className="flex flex-wrap items-start gap-3">
               <label className="inline-flex items-center gap-2 text-xs text-muted-foreground">
                 Marks
                 <input
@@ -75,13 +78,17 @@ export function AnswerMarkingList({
                   className="w-20 h-11 sm:pointer-fine:h-9 rounded-lg premium-input px-2 text-sm"
                 />
               </label>
-              <input
-                value={m.feedback}
-                onChange={(e) => setMark(q.id, { feedback: e.target.value })}
-                placeholder="Comment on this answer (optional)"
-                aria-label="Comment on this answer"
-                className="flex-1 min-w-48 h-11 sm:pointer-fine:h-9 rounded-lg premium-input px-3 text-sm"
-              />
+              <div className="flex-1 min-w-48">
+                <SciAnswerBox
+                  value={m.feedback}
+                  onValueChange={(feedback) => setMark(q.id, { feedback })}
+                  context={notation}
+                  rows={1}
+                  placeholder="Comment on this answer (optional)"
+                  aria-label="Comment on this answer"
+                  className="w-full min-h-11 sm:pointer-fine:min-h-9 rounded-lg premium-input px-3 py-2 text-sm"
+                />
+              </div>
             </div>
           </li>
         );

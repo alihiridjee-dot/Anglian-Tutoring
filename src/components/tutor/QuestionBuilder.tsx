@@ -252,6 +252,7 @@ export function QuestionBuilder({
               <SciAnswerBox
                 value={q.mark_scheme}
                 onValueChange={(mark_scheme) => patch(q.key, { mark_scheme })}
+                context={q.prompt}
                 placeholder="Mark scheme — one credit-worthy point per line. Shown to you while marking, and to the student once marked."
                 aria-label="Mark scheme"
                 className="w-full min-h-16 rounded-lg bg-secondary border border-border px-3 py-2 text-xs focus:outline-none focus:ring-2 focus:ring-primary/40"

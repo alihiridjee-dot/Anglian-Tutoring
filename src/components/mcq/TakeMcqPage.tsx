@@ -278,7 +278,11 @@ export function TakeMcq() {
   return (
     <AppLayout title={set.title}>
       <div className="max-w-3xl">
-        {set.description && <p className="text-sm text-muted-foreground mb-6">{set.description}</p>}
+        {set.description && (
+          <p className="text-sm text-muted-foreground mb-6">
+            <SciText text={set.description} />
+          </p>
+        )}
         <ol className="space-y-5">
           {questions.map((q, idx) => {
             const chosen = answers[q.id];

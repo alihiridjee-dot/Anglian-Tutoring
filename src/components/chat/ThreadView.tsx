@@ -1,4 +1,4 @@
-import { ErrorNote, Spinner } from "@/components/Shared";
+import { ErrorNote, SciText, Spinner } from "@/components/Shared";
 import { useEffect, useRef, useState } from "react";
 import { Link } from "@tanstack/react-router";
 import { useInView } from "motion/react";
@@ -232,7 +232,7 @@ export function ThreadView({ thread, viewerId, isTutor, onBack }: Props) {
                       : "surface-soft text-foreground rounded-bl-md"
                   }`}
                 >
-                  {m.body}
+                  <SciText text={m.body} />
                   <div
                     className={`mt-1 text-[10px] ${mine ? "text-primary-foreground/70" : "text-muted-foreground"}`}
                   >

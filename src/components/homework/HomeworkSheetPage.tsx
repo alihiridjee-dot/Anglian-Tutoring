@@ -123,7 +123,7 @@ export function HomeworkSheetPage() {
 
         {hw.instructions && (
           <p className="text-muted-foreground mt-3 max-w-2xl text-sm leading-relaxed whitespace-pre-wrap">
-            {hw.instructions}
+            <SciText text={hw.instructions} />
           </p>
         )}
 

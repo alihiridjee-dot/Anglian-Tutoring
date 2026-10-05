@@ -42,7 +42,10 @@ This is the exact job given to a note-writing agent (Sonnet). One agent drafts
 - Do not touch git, the database (beyond the read-only source script), or the network.
 - Do not set `meta.checked_by`; only the science check signs a note.
 - Do not use or imitate any textbook or revision guide.
-- Do not invent exam questions or mark-scheme wording. Quote the pack.
+- Do not invent exam questions or mark-scheme wording. Quote the pack, but put
+  its science notation right (the pack's "H2O", "Mg2+" and "cm3" lost their
+  small figures in the PDF copy: write H₂O, Mg²⁺, cm³). `validate.ts` flags any
+  that are left.
 - Do not skip a concept. If a pack is empty or unusable, write the note from the
   spec wording, give it only the boards that have spec points, omit the worked
   example, and say so in the report.

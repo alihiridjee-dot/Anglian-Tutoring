@@ -90,6 +90,8 @@ export function AnsweredView({
       <ol className="mt-3 space-y-3">
         {questions.map((q, i) => {
           const a = answers[q.id];
+          // Read with the question, so "Cl3" beside a Cl₂ question reads Cl₃.
+          const notation = `${q.prompt}\n${q.mark_scheme ?? ""}`;
           return (
             <li key={q.id} className="premium-card p-4">
               <div className="flex items-start gap-2">
@@ -105,14 +107,14 @@ export function AnsweredView({
               </div>
               <p className="text-muted-foreground mt-2 text-sm whitespace-pre-wrap">
                 {a?.answer_text ? (
-                  <SciText text={a.answer_text} />
+                  <SciText text={a.answer_text} context={notation} />
                 ) : (
                   <span className="italic">Left blank</span>
                 )}
               </p>
               {a?.feedback && (
                 <p className="mt-2 text-xs whitespace-pre-wrap text-[color:var(--tint)]">
-                  <SciText text={a.feedback} />
+                  <SciText text={a.feedback} context={notation} />
                 </p>
               )}
               {/* The mark scheme is the answer — it stays hidden until the work
@@ -121,7 +123,7 @@ export function AnsweredView({
                 <div className="border-border mt-2 border-t pt-2">
                   <p className="eyebrow-bare">Mark scheme</p>
                   <p className="text-muted-foreground mt-1 text-xs whitespace-pre-wrap">
-                    <SciText text={q.mark_scheme} />
+                    <SciText text={q.mark_scheme} context={notation} />
                   </p>
                 </div>
               )}
@@ -346,7 +348,7 @@ export function AnswerForm({
                 <div className="border-border mt-3 border-t pt-2">
                   <p className="eyebrow-bare">Mark scheme</p>
                   <p className="text-muted-foreground mt-1 text-xs whitespace-pre-wrap">
-                    <SciText text={q.mark_scheme} />
+                    <SciText text={q.mark_scheme} context={q.prompt} />
                   </p>
                 </div>
               )
@@ -406,9 +408,9 @@ export function AnswerForm({
         ))}
       </ol>
 
-      <textarea
+      <SciAnswerBox
         value={notes}
-        onChange={(e) => edit(NOTES, e.target.value)}
+        onValueChange={(text) => edit(NOTES, text)}
         placeholder="Anything you'd like your tutor to know (optional)"
         aria-label="Note for your tutor (optional)"
         className="premium-input min-h-16 w-full rounded-lg px-3 py-2 text-sm"

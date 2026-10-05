@@ -97,6 +97,7 @@ describe("toSciNotation", () => {
       ["A-level, a B+ grade", "A-level, a B+ grade"],
       ["CO2-rich air", "CO₂-rich air"],
       ["SPF30", "SPF30"],
+      ["see you F2F, B2B or P2P", "see you F2F, B2B or P2P"],
       ["between 2-3 days", "between 2-3 days"],
     ]);
   });
@@ -108,6 +109,86 @@ describe("toSciNotation", () => {
     expect(toSciNotationTogether(["Fe2", "Fe2+", "2Fe+"])).toEqual(["Fe₂", "Fe²⁺", "2Fe⁺"]);
     expect(toSciNotation("Cl3", "Cl₂ is a gas")).toBe("Cl₃");
     expect(toSciNotation("Cl3")).toBe("Cl3");
+  });
+
+  test("acids and esters, whose COO has two oxygens side by side", () => {
+    cases([
+      ["CH3COOH", "CH₃COOH"],
+      ["2CH3COOH + Na2CO3 -> 2CH3COONa", "2CH₃COOH + Na₂CO₃ → 2CH₃COONa"],
+      ["HCOOC3H7 and CH3CH2COO–", "HCOOC₃H₇ and CH₃CH₂COO⁻"],
+      ["Pb(CH3COO)2", "Pb(CH₃COO)₂"],
+    ]);
+  });
+
+  test("state symbols still to be filled in, and marks, stay full size", () => {
+    cases([
+      ["H2O(___) + CO2(___)", "H₂O(___) + CO₂(___)"],
+      ["ZnCl2( ) + H2O( )", "ZnCl₂( ) + H₂O( )"],
+      ["CaCO3(s) → CO2(x)", "CaCO₃(s) → CO₂(x)"],
+      ["M1 HNO3(1)", "M1 HNO₃(1)"],
+    ]);
+  });
+
+  test("general formulas", () => {
+    cases([
+      ["Alkanes are CnH2n+2", "Alkanes are CₙH₂ₙ₊₂"],
+      ["alkenes CnH2n, alcohols CnH2n+1OH", "alkenes CₙH₂ₙ, alcohols CₙH₂ₙ₊₁OH"],
+      ["C8H18 → C2H4 + CxH14", "C₈H₁₈ → C₂H₄ + CₓH₁₄"],
+    ]);
+  });
+
+  test("an unknown element's stand-in", () => {
+    cases([
+      ["X2CO3 and XO3", "X₂CO₃ and XO₃"],
+      ["MSO4(aq) and A(NO3)2", "MSO₄(aq) and A(NO₃)₂"],
+      ["the ion X2+", "the ion X²⁺"],
+      ["labels X2 and MP3", "labels X2 and MP3"],
+    ]);
+  });
+
+  test("molecules that need chemistry nearby to be read as one", () => {
+    cases([
+      ["Recall I2 = P / R", "Recall I2 = P / R"],
+      ["P = I2/R", "P = I2/R"],
+      ["iodine, I2, is a solid", "iodine, I₂, is a solid"],
+      ["H2(g) + I2(g) ⇌ 2HI(g)", "H₂(g) + I₂(g) ⇌ 2HI(g)"],
+      ["phosphorus, P4", "phosphorus, P₄"],
+      ["Al + F2 -> AlF3", "Al + F₂ → AlF₃"],
+    ]);
+  });
+
+  test("codes, labels and bonds are not formulas or charges", () => {
+    cases([
+      ["OCR C6.2b and OCR P4.1a", "OCR C6.2b and OCR P4.1a"],
+      ["P1V1 = P2V2", "P1V1 = P2V2"],
+      ["–CH₂–CHCl–", "–CH₂–CHCl–"],
+      ["[–NHCH₂CO–]ₙ", "[–NHCH₂CO–]ₙ"],
+      ["Na+ and Cl–", "Na⁺ and Cl⁻"],
+      ["CuSO4.5H2O", "CuSO₄.5H₂O"],
+    ]);
+  });
+
+  test("more units", () => {
+    cases([
+      ["2.3 × 10⁴ m3 of air", "2.3 × 10⁴ m³ of air"],
+      ["Area = ___ m2", "Area = ___ m²"],
+      ["4 m / s2", "4 m / s²"],
+      ["rate (s-1)", "rate (s⁻¹)"],
+      ["in cm³ s–1", "in cm³ s⁻¹"],
+      ["kg ms-2", "kg ms⁻²"],
+      ["cm³.min-1", "cm³.min⁻¹"],
+      ["Area (m2)", "Area (m²)"],
+      ["Answer (A-2)", "Answer (A-2)"],
+    ]);
+  });
+
+  test("a charge typed after a space", () => {
+    cases([
+      ["OH⁻ and SO₄ 2-", "OH⁻ and SO₄²⁻"],
+      ["aluminium / Al 3+", "aluminium / Al³⁺"],
+      ["brick red for Ca(2+) ions", "brick red for Ca(2+) ions"],
+      ["For 3+ take away 3. A 2− ion", "For 3+ take away 3. A 2− ion"],
+    ]);
   });
 
   test("is safe to run twice", () => {

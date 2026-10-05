@@ -9,7 +9,8 @@ import { SpecPointSelect } from "./SpecPointSelect";
 import { QuestionBuilder } from "./QuestionBuilder";
 import { type BuilderQuestion } from "@/lib/homework/builderQuestion";
 import { type SubjectV, type BoardV, type LevelV } from "@/lib/curriculum/taxonomy";
-import { toSciNotation } from "@/lib/platform/sciNotation";
+import { toSciNotation, toSciNotationTogether } from "@/lib/platform/sciNotation";
+import { SciAnswerBox } from "@/components/homework/SciAnswerBox";
 
 /**
  * Writing a homework, and — with `editing` — correcting one already set.
@@ -142,7 +143,7 @@ export function HomeworkForm({ taxonomy, editing }: HomeworkFormProps) {
       const { error } = await supabase.rpc("save_homework_brief", {
         _id: editingId ?? null,
         _title: title,
-        _instructions: instructions,
+        _instructions: toSciNotation(instructions),
         _due_at: dueAt ? new Date(dueAt).toISOString() : null,
         _subject: taxonomy.subject,
         _board: taxonomy.board,
@@ -151,15 +152,22 @@ export function HomeworkForm({ taxonomy, editing }: HomeworkFormProps) {
         // In sheet order. A question with an id is updated in place, so the
         // answers pointing at it stay; one the tutor removed is deleted, and
         // takes its answers with it, which is why the builder says so.
-        // Saved in proper notation (H₂O, Mg²⁺), as generated questions are.
-        _questions: questions.map((q) => ({
-          id: q.id ?? null,
-          prompt: toSciNotation(q.prompt.trim()),
-          marks: q.marks,
-          answer_type: q.answer_type,
-          mark_scheme: toSciNotation(q.mark_scheme.trim()) || null,
-          spec_point_id: q.spec_point_id,
-        })),
+        // Saved in proper notation (H₂O, Mg²⁺), as generated questions are,
+        // each question read with its mark scheme.
+        _questions: questions.map((q) => {
+          const [prompt, markScheme] = toSciNotationTogether([
+            q.prompt.trim(),
+            q.mark_scheme.trim(),
+          ]);
+          return {
+            id: q.id ?? null,
+            prompt,
+            marks: q.marks,
+            answer_type: q.answer_type,
+            mark_scheme: markScheme || null,
+            spec_point_id: q.spec_point_id,
+          };
+        }),
       });
       if (error) throw error;
 
@@ -195,10 +203,11 @@ export function HomeworkForm({ taxonomy, editing }: HomeworkFormProps) {
         />
       </Field>
       <Field label="Instructions">
-        <textarea
+        <SciAnswerBox
           className={`${inputCls} h-28 py-2`}
           value={instructions}
-          onChange={(e) => setInstructions(e.target.value)}
+          onValueChange={setInstructions}
+          aria-label="Instructions"
         />
       </Field>
       <Field label="Due at">

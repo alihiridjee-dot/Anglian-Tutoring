@@ -13,6 +13,7 @@ import {
 import { type CourseSchedule } from "@/lib/planner/pointSchedule";
 import { Plus, Trash2, ChevronRight } from "lucide-react";
 import { inputCls } from "@/components/curriculum/styles";
+import { SciText } from "@/components/Shared";
 
 export function TopicCard({
   topic,
@@ -138,7 +139,7 @@ export function TopicCard({
                       </h4>
                       {p.description && (
                         <p className="text-xs text-muted-foreground line-clamp-2 mt-1 leading-normal">
-                          {p.description}
+                          <SciText text={p.description} />
                         </p>
                       )}
                     </div>
