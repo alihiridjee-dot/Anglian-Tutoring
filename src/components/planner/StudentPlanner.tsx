@@ -24,7 +24,7 @@ import {
   Undo2,
   type LucideIcon,
 } from "lucide-react";
-import { isTeachBand, type PacingBand } from "@/lib/planner/pacing";
+import { isTeachBand } from "@/lib/planner/pacing";
 import { ProgramDAL, examDateBounds } from "@/lib/planner/programDal";
 import { type RoadmapResult } from "@/lib/planner/roadmap";
 import { ScheduleDAL, type TopicProgress } from "@/lib/planner/scheduleDal";
@@ -46,11 +46,7 @@ import { useWeekPlan } from "./useWeekPlan";
 import { useReviewMore } from "./useReviewMore";
 import { WeekReview } from "./WeekReview";
 import { useActiveSubject } from "@/hooks/useActiveSubject";
-
-/** Stable identity for one focus-lane band — topic + kind + week it lands on. */
-function focusKey(b: PacingBand): string {
-  return `${b.topicId}|${b.kind}|${b.startWeek}`;
-}
+import { compareFocus, type SeenFocus } from "./focusSlots";
 
 type TabKey = "week" | "plan" | "topics";
 
@@ -108,7 +104,7 @@ export function StudentPlanner({
   // when a student re-rates topics we can point at exactly what their revision
   // schedule now does differently ("your new schedule"). Session-only, never
   // persisted: the diff is between the plan as it was and as it is right now.
-  const prevFocus = useRef<{ course: string; keys: Set<string> } | null>(null);
+  const prevFocus = useRef<SeenFocus | null>(null);
   const [newFocusKeys, setNewFocusKeys] = useState<Set<string>>(new Set());
 
   const courseParams = {
@@ -151,14 +147,11 @@ export function StudentPlanner({
   const loading = roadQuery.isLoading || currentWeek.loading;
   useEffect(() => {
     const course = `${studentId}|${activeCourseSubject}|${activeBoard}|${level}`;
-    const keys = new Set((data?.bands ?? []).filter((b) => !isTeachBand(b)).map(focusKey));
-    const prev = prevFocus.current;
-    setNewFocusKeys(
-      prev && prev.course === course
-        ? new Set([...keys].filter((k) => !prev.keys.has(k)))
-        : new Set(),
-    );
-    prevFocus.current = { course, keys };
+    // Nothing to compare until the plan has loaded (see compareFocus).
+    const next = compareFocus(prevFocus.current, course, data?.bands ?? null);
+    if (!next) return;
+    setNewFocusKeys(next.added);
+    prevFocus.current = next.seen;
   }, [data, studentId, activeCourseSubject, activeBoard, level]);
 
   if (!active) {
