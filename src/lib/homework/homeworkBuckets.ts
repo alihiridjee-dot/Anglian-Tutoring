@@ -134,13 +134,6 @@ export const BUCKET_LABEL: Record<HomeworkBucket, string> = {
   practice: "Practice by topic",
 };
 
-export const BUCKET_HINT: Record<HomeworkBucket, string> = {
-  due: "Set with a deadline — do these first.",
-  submitted: "Handed in and being marked.",
-  marked: "Your marks and feedback.",
-  practice: "A sheet for every topic you've covered. Do one whenever you like.",
-};
-
 /** The tint each section paints itself with, per the design system. */
 export const BUCKET_TINT: Record<HomeworkBucket, string> = {
   due: "tint-amber",
