@@ -13,7 +13,6 @@ import {
 import type { Homework, SubmissionRow } from "@/lib/homework/types";
 import { useHomeworkSummaries, type HomeworkSummary } from "@/hooks/data/useHomeworkQuestions";
 import {
-  BUCKET_HINT,
   BUCKET_LABEL,
   BUCKET_ORDER,
   groupHomework,
@@ -245,7 +244,6 @@ function StudentHomework({
           ) : (
             active && (
               <div data-guide="homework-list">
-                <p className="text-muted-foreground mb-4 text-xs">{BUCKET_HINT[active.bucket]}</p>
                 <div className="space-y-3">
                   {active.items.map((item) => (
                     <HomeworkCard key={item.hw.id} item={item} summary={summaries[item.hw.id]} />
