@@ -1,4 +1,4 @@
-import { Spinner } from "@/components/Shared";
+import { SciText, Spinner } from "@/components/Shared";
 import { useNavigate, useSearch } from "@tanstack/react-router";
 import { useCallback, useEffect, useMemo, useRef, useState } from "react";
 import { useQuery } from "@tanstack/react-query";
@@ -262,7 +262,7 @@ export function Curriculum() {
             </h2>
             {selectedSpecPoint.description && (
               <p className="text-sm text-muted-foreground mt-3 leading-relaxed whitespace-pre-wrap break-words">
-                {selectedSpecPoint.description}
+                <SciText text={selectedSpecPoint.description} />
               </p>
             )}
             {schedule?.byPoint.get(selectedSpecPoint.id) && (

@@ -12,12 +12,13 @@
  * those classes a given block earns.
  */
 import { Link } from "@tanstack/react-router";
-import { useEffect, useRef, type ReactNode } from "react";
+import { Fragment, useEffect, useMemo, useRef, type ReactNode } from "react";
 import type { LucideIcon } from "lucide-react";
 import { motion, useReducedMotion } from "motion/react";
 
 import { cn } from "@/lib/utils";
 import { describeError } from "@/lib/platform/errors";
+import { sciRuns } from "@/lib/platform/sciNotation";
 import { SUBJECT_TINT, subjectLabel } from "@/lib/curriculum/subjectTheme";
 import { Confetti, Mascot, Sparkles, type MascotName, type Mood } from "@/components/Doodles";
 
@@ -565,4 +566,53 @@ export function SubjectToggle({
       }))}
     />
   );
+}
+
+/**
+ * Science text: subscripts and superscripts drawn properly, however the text
+ * was typed or stored, so "Mg2+" and "SO4^2-" read as Mg²⁺ and SO₄²⁻.
+ *
+ * Use it for every question, option, explanation, mark scheme, answer and
+ * piece of feedback, wherever it is shown. The small figures are drawn in the
+ * surrounding face: the web fonts carry no subscript characters, so stored ₂
+ * would otherwise fall back to a system font mid-word.
+ */
+export function SciText({
+  text,
+  context,
+}: {
+  text: string | null | undefined;
+  /** Text shown alongside (a question beside its options), so they are all written alike. */
+  context?: string;
+}) {
+  const runs = useMemo(() => sciRuns(text ?? "", context), [text, context]);
+  const out: ReactNode[] = [];
+  for (let i = 0; i < runs.length; i++) {
+    const r = runs[i];
+    const below = runs[i + 1];
+    // A nuclide, ²³⁸₉₂U: mass number stacked over atomic number, in front of
+    // the symbol, as exam papers print it.
+    if (r.kind === "sup" && below?.kind === "sub" && /^[A-Z]/.test(runs[i + 2]?.text ?? "")) {
+      out.push(
+        <span key={i} className="sci-nuclide">
+          <sup>{r.text}</sup>
+          <sub>{below.text}</sub>
+        </span>,
+      );
+      i++;
+    } else if (r.kind === "sub")
+      out.push(
+        <sub key={i} className="sci-sub">
+          {r.text}
+        </sub>,
+      );
+    else if (r.kind === "sup")
+      out.push(
+        <sup key={i} className="sci-sup">
+          {r.text}
+        </sup>,
+      );
+    else out.push(<Fragment key={i}>{r.text}</Fragment>);
+  }
+  return <>{out}</>;
 }

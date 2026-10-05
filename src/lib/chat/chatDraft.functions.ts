@@ -1,6 +1,7 @@
 import { createServerFn } from "@tanstack/react-start";
 import Anthropic from "@anthropic-ai/sdk";
-import { NO_THINKING, completeText } from "@/lib/platform/aiText";
+import { NOTATION_RULE, NO_THINKING, completeText } from "@/lib/platform/aiText";
+import { toSciNotation } from "@/lib/platform/sciNotation";
 import { requireSupabaseAuth } from "@/integrations/supabase/auth-middleware";
 
 /**
@@ -53,6 +54,7 @@ Rules:
 - Be specific to the exam board and level given. If the answer depends on the board and you can't tell, say so in one clause rather than guessing.
 - If you are not confident the answer is correct, say what you're unsure about instead of inventing detail — the tutor is checking this and a confident wrong answer costs them more time than a blank.
 - No greeting line and no sign-off; the tutor adds those.
+- ${NOTATION_RULE}
 - Return ONLY the message body. No preamble, no markdown headings, no quotes.`;
 
   const conversation = input.history
@@ -85,7 +87,7 @@ Draft the tutor's next reply.`;
     throw new Error(`AI error: ${e instanceof Error ? e.message : String(e)}`);
   }
 
-  return completeText(res).trim();
+  return toSciNotation(completeText(res).trim());
 }
 
 export const generateChatDraft = createServerFn({ method: "POST" })

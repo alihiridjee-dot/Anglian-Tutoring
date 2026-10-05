@@ -26,6 +26,10 @@ missed the lesson could learn the topic from this note alone.
   sentence. Give a `label` ("Magnification", "Percentage change in mass") and a
   `where` list with each term and its unit. A calculation that follows it is a
   `steps` block.
+- **Write science notation properly**, with Unicode subscripts and superscripts:
+  H₂O, CO₂, Al₂(SO₄)₃, Mg²⁺, SO₄²⁻, e⁻, cm³, mol/dm³, m/s², 3.0 × 10⁸, v².
+  Never H2O, Mg2+, cm3 or 10^8. Source packs are copied from PDFs, which lose
+  the small figures, so a quoted question may read "H2O": write it as H₂O.
 - **End each main section with `key-points`**: two to four lines a student should
   take away.
 - Short sentences. One idea per sentence. Plain words.

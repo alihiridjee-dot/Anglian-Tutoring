@@ -2,7 +2,7 @@ import { CheckCircle2, Circle } from "lucide-react";
 import type { ChildWeekSubject } from "@/hooks/data/useChildProgress";
 import { subjectLabel, subjectTint } from "@/lib/curriculum/subjectTheme";
 import { mondayOf, weekRangeLabel } from "@/lib/planner/week";
-import { Meter, SectionHeading } from "@/components/Shared";
+import { Meter, SciText, SectionHeading } from "@/components/Shared";
 
 /**
  * What the child is working on this week, read-only: each subject's planned
@@ -58,7 +58,7 @@ export function ChildWeekCard({ weeks }: { weeks: ChildWeekSubject[] }) {
                 <figure className="pop-card pop-card-flat mt-4 rounded-xl p-4">
                   <figcaption className="eyebrow eyebrow-bare">Tutor&apos;s note</figcaption>
                   <blockquote className="mt-1.5 text-sm leading-relaxed whitespace-pre-line">
-                    {w.tutorNote}
+                    <SciText text={w.tutorNote} />
                   </blockquote>
                 </figure>
               )}
