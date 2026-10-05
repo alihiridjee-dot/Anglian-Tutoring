@@ -1102,6 +1102,25 @@ a.when-link:hover .when-link-arrow {
   animation-delay: var(--confetti-delay, 0s);
 }
 
+/* Back lands on the card that was clicked, and it lights up once in its own
+   colour so the eye finds it (see returnSpot). Drawn inside the card's edge, so
+   a list that clips its overflow can't cut it off. A colour fade, not motion,
+   so it stays under reduced-motion. */
+@keyframes return-glow {
+  0%,
+  40% {
+    outline-color: color-mix(in oklab, var(--tint) 75%, transparent);
+  }
+  100% {
+    outline-color: transparent;
+  }
+}
+.return-glow {
+  outline: 3px solid transparent;
+  outline-offset: -3px;
+  animation: return-glow 1.8s ease-out;
+}
+
 @media (prefers-reduced-motion: reduce) {
   .rise-in,
   .pop-in,

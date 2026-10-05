@@ -46,6 +46,7 @@ import { useWeekPlan } from "./useWeekPlan";
 import { useReviewMore } from "./useReviewMore";
 import { WeekReview } from "./WeekReview";
 import { useActiveSubject } from "@/hooks/useActiveSubject";
+import { useEntryState } from "@/hooks/useEntryState";
 import { compareFocus, type SeenFocus } from "./focusSlots";
 
 type TabKey = "week" | "plan" | "topics";
@@ -92,7 +93,8 @@ export function StudentPlanner({
   // the enrolments query hands back a fresh object for the same course.
   const activeCourseSubject = active?.subject;
   const activeBoard = active?.board;
-  const [tab, setTab] = useState<TabKey>(initialTab ?? "week");
+  // Kept with the visit, so Back from a note or a task reopens this tab.
+  const [tab, setTab] = useEntryState<TabKey>("planner.tab", initialTab ?? "week");
 
   // Bumped after an explicit schedule update.
   const [boardRev, setBoardRev] = useState(0);
@@ -297,7 +299,7 @@ function ThisWeekTab({
    * has had these arrows all along; this is the same gesture, on the screen
    * where it is actually looked for.
    */
-  const [weekOffset, setWeekOffset] = useState(0);
+  const [weekOffset, setWeekOffset] = useEntryState("planner.week", 0);
   const weekStart = toDateKey(addWeeks(weekKeyToDate(currentWeekKey()), weekOffset));
   const isCurrent = weekOffset === 0;
   const isPast = weekOffset < 0;

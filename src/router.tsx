@@ -1,6 +1,7 @@
 import { QueryClient } from "@tanstack/react-query";
 import { createRouter } from "@tanstack/react-router";
 import { routeTree } from "./routeTree.gen";
+import { routerRestoresScroll } from "@/lib/shell/returnSpot";
 
 export const getRouter = () => {
   const queryClient = new QueryClient({
@@ -19,7 +20,9 @@ export const getRouter = () => {
   const router = createRouter({
     routeTree,
     context: { queryClient },
-    scrollRestoration: true,
+    // A push opens at the top. Coming back is left to returnSpot, which waits
+    // for the card that was clicked rather than restoring a bare offset.
+    scrollRestoration: routerRestoresScroll,
     defaultPreloadStaleTime: 0,
   });
 

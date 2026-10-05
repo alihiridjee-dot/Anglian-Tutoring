@@ -1,7 +1,7 @@
 import { WeekBreakdown } from "./WeekBreakdown";
 import { WithheldPlanPoints } from "./WithheldPlanPoints";
 import { ErrorNote } from "@/components/Shared";
-import { useMemo, useState } from "react";
+import { useMemo } from "react";
 import { toast } from "sonner";
 import { Sparkles, CalendarRange, ChevronLeft, ChevronRight, Undo2 } from "lucide-react";
 import { WeeklyPlanDAL, type PlanPoint } from "@/lib/planner/weeklyPlanDal";
@@ -17,6 +17,7 @@ import { WeekReview } from "./WeekReview";
 import { PausedWeek } from "./PausedWeek";
 import { BreakWeek } from "./BreakWeek";
 import { useActiveSubject } from "@/hooks/useActiveSubject";
+import { useEntryState } from "@/hooks/useEntryState";
 
 /**
  * The dashboard's "this week": the header slider's subject, with week
@@ -47,8 +48,9 @@ export function WeeklyPlanPanel({
   const { subject: activeSubject } = useActiveSubject();
   const active = ordered.find((e) => e.subject === activeSubject) ?? ordered[0];
 
-  // 0 = this week, -1 = last week, +1 = next week…
-  const [weekOffset, setWeekOffset] = useState(0);
+  // 0 = this week, -1 = last week, +1 = next week… Kept with the visit, so
+  // Back from a task opened in another week comes back to that week.
+  const [weekOffset, setWeekOffset] = useEntryState("dashboard.week", 0);
   const weekStart = toDateKey(addWeeks(mondayOf(), weekOffset));
   const weekLabel = weekRangeLabel(addWeeks(mondayOf(), weekOffset));
   const isCurrent = weekOffset === 0;
