@@ -411,7 +411,9 @@ function ThisWeekTab({
         )}
       </section>
 
-      {!frozen && !resting && <WithheldPlanPoints points={week.withheld} coverage={week.coverage} />}
+      {!frozen && !resting && (
+        <WithheldPlanPoints points={week.withheld} coverage={week.coverage} />
+      )}
 
       {/* Re-cutting a week is a statement about the week ahead. Offering it on a
           week that has gone by would let a student rewrite what was set for
