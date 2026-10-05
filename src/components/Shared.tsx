@@ -232,11 +232,17 @@ export function Meter({
   className,
   label,
   size = "md",
+  fillIn = false,
 }: {
   value: number;
   className?: string;
   label?: boolean;
   size?: "sm" | "md" | "lg";
+  /**
+   * Fill up from empty on arrival, loader stripes running, and settle on the
+   * value. Plays on mount, so key the meter by its value to replay it.
+   */
+  fillIn?: boolean;
 }) {
   const pct = Math.max(0, Math.min(100, value));
   const h = size === "sm" ? "h-2" : size === "lg" ? "h-4" : "h-3";
@@ -253,7 +259,10 @@ export function Meter({
       aria-valuemax={100}
     >
       <div
-        className="h-full rounded-full bg-[color:var(--tint)] transition-[width] duration-700 ease-out"
+        className={cn(
+          "h-full rounded-full bg-[color:var(--tint)]",
+          fillIn ? "meter-fill" : "transition-[width] duration-700 ease-out",
+        )}
         style={{ width: `${pct}%` }}
       />
     </div>

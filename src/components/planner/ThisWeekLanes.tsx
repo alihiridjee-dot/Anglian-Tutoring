@@ -3,7 +3,16 @@ import { NothingDue } from "./NothingDue";
 import { CatchUpWeek } from "./CatchUpWeek";
 import { PLANNER_TIME_ZONE, weekKeyToDate } from "@/lib/planner/week";
 import { Meter } from "@/components/Shared";
-import { CircleDot, History, Repeat, CheckCircle2, Plus, BookMarked, Lock } from "lucide-react";
+import {
+  CircleDot,
+  History,
+  Repeat,
+  CheckCircle2,
+  Plus,
+  BookMarked,
+  Lock,
+  Trophy,
+} from "lucide-react";
 import { type PlanPoint } from "@/lib/planner/weeklyPlanDal";
 import { type RoadmapResult } from "@/lib/planner/roadmap";
 import { type PacingBand } from "@/lib/planner/pacing";
@@ -26,15 +35,32 @@ export function WeekProgressCard({
   completed: number;
   lock: ReviewLock;
 }) {
-  const outstanding = lock.homeworkTotal - lock.homeworkDone;
+  const done = completed === assigned.length;
   return (
     <div className="premium-card tint-primary rounded-xl p-4 space-y-2">
       <h3 className="text-base font-bold">
-        {completed === assigned.length
+        {done
           ? "This week’s assigned practice is complete"
           : `${completed} of ${assigned.length} points practised`}
       </h3>
-      <Meter value={(completed / assigned.length) * 100} size="sm" />
+      {/* The bar runs up to where the week has got to; the trophy is the end of it. */}
+      <div className="flex items-center gap-3">
+        <Meter
+          key={completed}
+          value={(completed / assigned.length) * 100}
+          size="lg"
+          fillIn
+          className="min-w-0 flex-1"
+        />
+        <Trophy
+          aria-hidden
+          className={
+            done
+              ? "pop-in size-6 shrink-0 text-[color:var(--tint)]"
+              : "size-6 shrink-0 text-[color:color-mix(in_oklab,var(--tint)_35%,transparent)]"
+          }
+        />
+      </div>
       {lock.locked && (
         <p className="flex items-start gap-2 text-sm">
           <Lock className="mt-0.5 size-4 shrink-0 text-[color:var(--tint)]" aria-hidden />
@@ -46,12 +72,10 @@ export function WeekProgressCard({
               day: "numeric",
               month: "short",
             })}
-            {outstanding > 0 &&
-              ` · ${outstanding} ${outstanding === 1 ? "task" : "tasks"} still to hand in`}
           </span>
         </p>
       )}
-      {completed === assigned.length && (
+      {done && (
         <p className="text-sm text-muted-foreground">
           Your results will guide future reviews. You can finish here for this week.
         </p>
