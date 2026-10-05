@@ -230,8 +230,17 @@ for (const file of [
   "20261004090000_subject_pauses.sql",
   "20261004091000_resume_after_pause.sql",
   "20261004092000_erase_cancelled_progress.sql",
+  "20261005160000_student_breaks.sql",
 ])
   await db.exec(await readFile(new URL(`../supabase/migrations/${file}`, import.meta.url), "utf8"));
+
+// A break each (20261005160000). Only a family's cancellation of the whole
+// plan erases it: breaks belong to the student, not to one subject.
+for (const who of [alex, bea, cal, dee, eve, fin])
+  await db.query(
+    "insert into public.student_breaks (student_id, starts_on, ends_on, reason) values ($1, '2026-10-12', '2026-10-25', 'holiday')",
+    [who],
+  );
 
 // ── Helpers ──────────────────────────────────────────────────────────────
 const sub = (who: string, set: string) =>
@@ -321,6 +330,7 @@ await sub(alex, "status = 'canceled'");
     0,
     "and the pause records",
   );
+  assert.equal(await count("student_breaks", "student_id", alex), 0, "and their breaks");
   assert.equal(before - (await answers()), 2, "task answers went with their submissions");
   assert.deepEqual(await kept(alex), keptBefore, "the account, links, billing and messages stay");
   assert.equal(await erase(), 0, "nothing left to do");
@@ -335,6 +345,7 @@ await sub(alex, "status = 'canceled'");
   await age(bea, 30); // the closed stop ages too: it must not matter
   assert.equal(await erase(), 0);
   assert.deepEqual(await progress(bea), full, "everything still there");
+  assert.equal(await count("student_breaks", "student_id", bea), 1);
 }
 
 // ── 4. A failed card, even once Stripe gives up, is never erased ────────
@@ -344,6 +355,7 @@ await sub(alex, "status = 'canceled'");
   await age(cal, 60);
   assert.equal(await erase(), 0);
   assert.deepEqual(await progress(cal), full);
+  assert.equal(await count("student_breaks", "student_id", cal), 1);
 }
 
 // ── 5. A paused plan is never erased ────────────────────────────────────
@@ -353,6 +365,11 @@ await sub(alex, "status = 'canceled'");
   assert.equal(await erase(), 0);
   assert.deepEqual(await progress(dee), full);
   assert.equal(await count("student_tutor_notes", "student_id", dee), 1);
+  assert.equal(
+    await count("student_breaks", "student_id", dee),
+    1,
+    "nor a paused student's breaks",
+  );
 }
 
 // ── 6. Removing a subject erases only that subject, 7 days on ───────────
@@ -376,6 +393,11 @@ const removeChemistry = (who: string) =>
     assert.equal(n, full[table] / 2, `${table}: only chemistry's half went`);
   assert.equal(await count("student_tutor_notes", "student_id", eve), 1, "the tutor's notes stay");
   assert.equal(await count("student_learning_profile", "student_id", eve), 1);
+  assert.equal(
+    await count("student_breaks", "student_id", eve),
+    1,
+    "and the student's breaks stay",
+  );
 }
 
 // ── 7. A subject added back within the 7 days is safe ───────────────────
