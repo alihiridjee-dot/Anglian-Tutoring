@@ -1,5 +1,6 @@
 import type { HomeworkQuestion, HomeworkAnswer } from "@/hooks/data/useHomeworkQuestions";
 import type { QuestionMark } from "@/hooks/data/useAnswerMarking";
+import { SciText } from "@/components/Shared";
 
 /**
  * Marking a built-in homework question by question.
@@ -33,7 +34,9 @@ export function AnswerMarkingList({
           <li key={q.id} className="rounded-xl bg-card border border-border p-4 space-y-2">
             <div className="flex items-start gap-2">
               <span className="text-xs font-semibold text-muted-foreground shrink-0">Q{i + 1}</span>
-              <p className="text-sm font-medium whitespace-pre-wrap flex-1">{q.prompt}</p>
+              <p className="text-sm font-medium whitespace-pre-wrap flex-1">
+                <SciText text={q.prompt} />
+              </p>
               <span className="text-[11px] text-muted-foreground shrink-0">[{q.marks}]</span>
             </div>
             <div className="rounded-lg bg-muted/50 border border-border px-3 py-2">
@@ -41,14 +44,20 @@ export function AnswerMarkingList({
                 Student's answer
               </p>
               <p className="text-sm whitespace-pre-wrap">
-                {a?.answer_text || <span className="italic text-muted-foreground">Left blank</span>}
+                {a?.answer_text ? (
+                  <SciText text={a.answer_text} />
+                ) : (
+                  <span className="italic text-muted-foreground">Left blank</span>
+                )}
               </p>
             </div>
 
             {q.mark_scheme && (
               <details className="text-xs">
                 <summary className="cursor-pointer text-muted-foreground">Mark scheme</summary>
-                <p className="mt-1 whitespace-pre-wrap text-muted-foreground">{q.mark_scheme}</p>
+                <p className="mt-1 whitespace-pre-wrap text-muted-foreground">
+                  <SciText text={q.mark_scheme} />
+                </p>
               </details>
             )}
 

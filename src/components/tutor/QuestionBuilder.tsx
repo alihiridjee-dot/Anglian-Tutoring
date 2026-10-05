@@ -7,6 +7,7 @@ import {
 } from "@/lib/homework/homeworkQuestions.functions";
 import { blankQuestion, type BuilderQuestion } from "@/lib/homework/builderQuestion";
 import { inputCls } from "./Field";
+import { SciAnswerBox } from "@/components/homework/SciAnswerBox";
 import type { SubjectV, BoardV, LevelV } from "@/lib/curriculum/taxonomy";
 
 /**
@@ -203,9 +204,9 @@ export function QuestionBuilder({
                 </div>
               </div>
 
-              <textarea
+              <SciAnswerBox
                 value={q.prompt}
-                onChange={(e) => patch(q.key, { prompt: e.target.value })}
+                onValueChange={(prompt) => patch(q.key, { prompt })}
                 placeholder="Question the student will answer…"
                 aria-label="Question prompt"
                 className="w-full min-h-20 rounded-lg bg-secondary border border-border px-3 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-primary/40"
@@ -248,9 +249,9 @@ export function QuestionBuilder({
                 </label>
               </div>
 
-              <textarea
+              <SciAnswerBox
                 value={q.mark_scheme}
-                onChange={(e) => patch(q.key, { mark_scheme: e.target.value })}
+                onValueChange={(mark_scheme) => patch(q.key, { mark_scheme })}
                 placeholder="Mark scheme — one credit-worthy point per line. Shown to you while marking, and to the student once marked."
                 aria-label="Mark scheme"
                 className="w-full min-h-16 rounded-lg bg-secondary border border-border px-3 py-2 text-xs focus:outline-none focus:ring-2 focus:ring-primary/40"

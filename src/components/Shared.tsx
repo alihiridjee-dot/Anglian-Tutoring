@@ -12,12 +12,13 @@
  * those classes a given block earns.
  */
 import { Link } from "@tanstack/react-router";
-import { useEffect, useRef, type ReactNode } from "react";
+import { Fragment, useEffect, useMemo, useRef, type ReactNode } from "react";
 import type { LucideIcon } from "lucide-react";
 import { motion, useReducedMotion } from "motion/react";
 
 import { cn } from "@/lib/utils";
 import { describeError } from "@/lib/platform/errors";
+import { sciRuns } from "@/lib/platform/sciNotation";
 import { SUBJECT_TINT, subjectLabel } from "@/lib/curriculum/subjectTheme";
 import { Confetti, Mascot, Sparkles, type MascotName, type Mood } from "@/components/Doodles";
 
@@ -536,5 +537,35 @@ export function SubjectToggle({
         tint: SUBJECT_TINT[s] ?? "tint-primary",
       }))}
     />
+  );
+}
+
+/**
+ * Science text: subscripts and superscripts drawn properly, however the text
+ * was typed or stored, so "Mg2+" and "SO4^2-" read as Mg²⁺ and SO₄²⁻.
+ *
+ * Use it for every question, option, explanation, mark scheme, answer and
+ * piece of feedback, wherever it is shown. The small figures are drawn in the
+ * surrounding face: the web fonts carry no subscript characters, so stored ₂
+ * would otherwise fall back to a system font mid-word.
+ */
+export function SciText({ text }: { text: string | null | undefined }) {
+  const runs = useMemo(() => sciRuns(text ?? ""), [text]);
+  return (
+    <>
+      {runs.map((r, i) =>
+        r.kind === "sub" ? (
+          <sub key={i} className="sci-sub">
+            {r.text}
+          </sub>
+        ) : r.kind === "sup" ? (
+          <sup key={i} className="sci-sup">
+            {r.text}
+          </sup>
+        ) : (
+          <Fragment key={i}>{r.text}</Fragment>
+        ),
+      )}
+    </>
   );
 }

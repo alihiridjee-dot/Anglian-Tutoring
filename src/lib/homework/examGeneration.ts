@@ -1,5 +1,7 @@
 /** Pure selection, prompting and response validation; no credentials or DB access. */
-export const FRAMEWORK_VERSION = "exam-generation-v2";
+import { toSciNotation } from "@/lib/platform/sciNotation";
+
+export const FRAMEWORK_VERSION = "exam-generation-v3";
 export type GenerationFormat = "written" | "mcq";
 export type Grounding = "exact" | "topic" | "style";
 
@@ -145,11 +147,13 @@ function exampleForPrompt(e: ExamExample) {
     qualification: e.level,
     specification_version: e.specification_version,
     tier: e.tier,
-    shared_context: e.shared_context,
-    question: e.prompt,
+    // Text copied from a PDF loses its small figures ("H2O"); the model copies
+    // what it is shown, so it is shown the proper notation.
+    shared_context: e.shared_context && toSciNotation(e.shared_context),
+    question: toSciNotation(e.prompt),
     marks: e.marks,
-    options: e.options,
-    mark_scheme: e.mark_scheme,
+    options: e.options?.map((o) => ({ ...o, text: toSciNotation(o.text) })) ?? null,
+    mark_scheme: e.mark_scheme && toSciNotation(e.mark_scheme),
     command_word: e.command_word,
     assessment_objectives: e.assessment_objectives,
     question_format: e.question_format,
@@ -166,7 +170,9 @@ Write a varied SET across the learning outcomes. Progress in demand and vary com
 
 Examples labelled exact cover this point. Topic examples support the surrounding topic. Style examples demonstrate format and marking only: their content never expands curriculum scope. Missing examples are not a reason to reject a supported curriculum request. A missing tier or specification version means unknown, not permission to assume Higher tier or a different syllabus. Do not assess higher-only content unless supported by the supplied curriculum.
 
-Choose fresh, scientifically plausible scenarios and values. Do not copy or merely paraphrase an exemplar. Supply every datum, unit and shared introduction needed to answer each item. Each item must stand alone: include relevant shared context in its prompt. Students can type text or select an MCQ option; they cannot upload, draw, sketch or plot. Do not refer to absent images, tables, graphs, earlier answers or unseen paper pages. Express any necessary data legibly in plain text. Use plain text and Unicode scientific notation, not LaTeX or Markdown tables.
+Choose fresh, scientifically plausible scenarios and values. Do not copy or merely paraphrase an exemplar. Supply every datum, unit and shared introduction needed to answer each item. Each item must stand alone: include relevant shared context in its prompt. Students can type text or select an MCQ option; they cannot upload, draw, sketch or plot. Do not refer to absent images, tables, graphs, earlier answers or unseen paper pages. Express any necessary data legibly in plain text, not LaTeX, Markdown or HTML.
+
+Scientific notation: write every subscript and superscript as a Unicode character, in every field: question, options, explanation and mark scheme alike. Formulas: H₂O, CO₂, Cl₂, Al₂(SO₄)₃, (NH₄)₂SO₄, C₆H₁₂O₆. Ions and electrons: Na⁺, Cl⁻, Mg²⁺, O²⁻, SO₄²⁻, NH₄⁺, e⁻. Coefficients and state symbols stay full size: 2H₂O(l), NaCl(aq). Units: cm³, dm³, m², m/s², mol/dm³, kg m⁻³, J kg⁻¹ °C⁻¹. Standard form: 3.0 × 10⁸, 1.5 × 10⁻³. Powers: v², x³. Use → and ⇌ for arrows, × for multiplication and °C for temperature. Never write H2O, Mg2+, SO4^2-, cm3, 10^-3 or x 10-3. Reference examples may have lost this notation when copied from print; write it properly regardless.
 
 Construct each question and its answer/rubric together. The command word, reasoning demanded and marks must agree. State credit allocations, acceptable equivalents, exclusions and dependencies as applicable. Use explicit level descriptors when the marking approach requires them; do not turn every extended response into one mark per bullet. For calculations supply the correct result, essential working and relevant unit/tolerance rules in the mark scheme or MCQ explanation. A description must not secretly require an explanation. Preserve meaningful marking distinctions from guidance while adapting all answers to the NEW question.
 
@@ -266,6 +272,25 @@ export type McqQuestion = Assessment & {
 
 const nonempty = (v: unknown): v is string => typeof v === "string" && v.trim().length > 0;
 
+/**
+ * Every text field in proper notation (H₂O, Mg²⁺, cm³), whatever the model
+ * wrote. Applied before the checks, so options differing only in notation
+ * still count as duplicates.
+ */
+function withNotation(q: unknown): unknown {
+  if (!q || typeof q !== "object") return q;
+  const fix = (v: unknown) => (typeof v === "string" ? toSciNotation(v) : v);
+  const r = q as Record<string, unknown>;
+  return {
+    ...r,
+    ...("prompt" in r && { prompt: fix(r.prompt) }),
+    ...("mark_scheme" in r && { mark_scheme: fix(r.mark_scheme) }),
+    ...("question" in r && { question: fix(r.question) }),
+    ...("explanation" in r && { explanation: fix(r.explanation) }),
+    ...("options" in r && { options: Array.isArray(r.options) ? r.options.map(fix) : r.options }),
+  };
+}
+
 export function validateQuestions(
   value: unknown,
   count: number,
@@ -282,9 +307,10 @@ export function validateQuestions(
   count: number,
   format: GenerationFormat,
 ): WrittenQuestion[] | McqQuestion[] {
-  const questions = (value as { questions?: unknown } | null)?.questions;
-  if (!Array.isArray(questions) || questions.length !== count)
+  const raw = (value as { questions?: unknown } | null)?.questions;
+  if (!Array.isArray(raw) || raw.length !== count)
     throw new Error("AI returned the wrong number of questions");
+  const questions = raw.map(withNotation) as (WrittenQuestion & McqQuestion)[];
   const seen = new Set<string>();
   for (const q of questions) {
     if (

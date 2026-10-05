@@ -13,7 +13,7 @@ import {
   PredictorSceneView,
 } from "@/components/notes/SceneLibrary";
 import { BookOpen, Eye, EyeOff, ArrowRight, RotateCcw } from "lucide-react";
-import { PageHeader } from "@/components/Shared";
+import { PageHeader, SciText } from "@/components/Shared";
 import { SUBJECT_LABEL, SUBJECT_TINT } from "@/lib/curriculum/subjectTheme";
 import {
   inlineRuns,
@@ -41,12 +41,20 @@ import {
 
 const BOARD_LABEL: Record<NoteBoard, string> = { aqa: "AQA", edexcel: "Edexcel", ocr: "OCR" };
 
-/** Text with **bold** runs. */
+/** Text with **bold** runs, and proper notation (H₂O, Mg²⁺). */
 function Inline({ text }: { text: string }) {
   return (
     <>
       {inlineRuns(text).map((r, i) =>
-        r.bold ? <b key={i}>{r.text}</b> : <span key={i}>{r.text}</span>,
+        r.bold ? (
+          <b key={i}>
+            <SciText text={r.text} />
+          </b>
+        ) : (
+          <span key={i}>
+            <SciText text={r.text} />
+          </span>
+        ),
       )}
     </>
   );

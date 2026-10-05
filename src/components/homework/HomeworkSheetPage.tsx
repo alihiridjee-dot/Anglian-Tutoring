@@ -4,7 +4,7 @@ import { useEffect, useState } from "react";
 import { toast } from "sonner";
 import { AppLayout } from "@/components/AppLayout";
 import { AwaitingMark, BuiltInHomework } from "@/components/BuiltInHomework";
-import { EmptyState, ErrorNote, SectionHeading, Spinner } from "@/components/Shared";
+import { EmptyState, ErrorNote, SciText, SectionHeading, Spinner } from "@/components/Shared";
 import { useHomeworkSheet, useInvalidateHomework } from "@/hooks/data/useHomework";
 import { useEnrolments } from "@/hooks/data/useEnrolments";
 import { isOverdue } from "@/lib/homework/homeworkBuckets";
@@ -212,7 +212,7 @@ function MarkPanel({
         <div className="mt-4">
           <p className="eyebrow-bare">Feedback</p>
           <div className="premium-card mt-2 p-3.5 text-sm leading-relaxed whitespace-pre-wrap">
-            {submission.feedback}
+            <SciText text={submission.feedback} />
           </div>
         </div>
       )}

@@ -9,6 +9,7 @@ import { SpecPointSelect } from "./SpecPointSelect";
 import { QuestionBuilder } from "./QuestionBuilder";
 import { type BuilderQuestion } from "@/lib/homework/builderQuestion";
 import { type SubjectV, type BoardV, type LevelV } from "@/lib/curriculum/taxonomy";
+import { toSciNotation } from "@/lib/platform/sciNotation";
 
 /**
  * Writing a homework, and — with `editing` — correcting one already set.
@@ -150,12 +151,13 @@ export function HomeworkForm({ taxonomy, editing }: HomeworkFormProps) {
         // In sheet order. A question with an id is updated in place, so the
         // answers pointing at it stay; one the tutor removed is deleted, and
         // takes its answers with it, which is why the builder says so.
+        // Saved in proper notation (H₂O, Mg²⁺), as generated questions are.
         _questions: questions.map((q) => ({
           id: q.id ?? null,
-          prompt: q.prompt.trim(),
+          prompt: toSciNotation(q.prompt.trim()),
           marks: q.marks,
           answer_type: q.answer_type,
-          mark_scheme: q.mark_scheme.trim() || null,
+          mark_scheme: toSciNotation(q.mark_scheme.trim()) || null,
           spec_point_id: q.spec_point_id,
         })),
       });

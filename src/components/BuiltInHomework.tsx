@@ -13,6 +13,8 @@ import {
 } from "@/lib/homework/homeworkDrafts";
 import { isAlreadySubmitted, startMarking } from "@/lib/homework/startMarking";
 import type { HomeworkQuestion, HomeworkAnswer } from "@/hooks/data/useHomeworkQuestions";
+import { SciText } from "@/components/Shared";
+import { SciAnswerBox } from "@/components/homework/SciAnswerBox";
 
 /**
  * The body of a homework sheet: the questions, and either the boxes to answer
@@ -93,7 +95,7 @@ export function AnsweredView({
               <div className="flex items-start gap-2">
                 <span className="numeral text-muted-foreground shrink-0 text-xs">Q{i + 1}</span>
                 <p className="min-w-0 flex-1 text-sm font-medium break-words whitespace-pre-wrap">
-                  {q.prompt}
+                  <SciText text={q.prompt} />
                 </p>
                 <span className="numeral text-muted-foreground shrink-0 text-xs">
                   {a?.awarded_marks != null
@@ -102,11 +104,15 @@ export function AnsweredView({
                 </span>
               </div>
               <p className="text-muted-foreground mt-2 text-sm whitespace-pre-wrap">
-                {a?.answer_text || <span className="italic">Left blank</span>}
+                {a?.answer_text ? (
+                  <SciText text={a.answer_text} />
+                ) : (
+                  <span className="italic">Left blank</span>
+                )}
               </p>
               {a?.feedback && (
                 <p className="mt-2 text-xs whitespace-pre-wrap text-[color:var(--tint)]">
-                  {a.feedback}
+                  <SciText text={a.feedback} />
                 </p>
               )}
               {/* The mark scheme is the answer — it stays hidden until the work
@@ -115,7 +121,7 @@ export function AnsweredView({
                 <div className="border-border mt-2 border-t pt-2">
                   <p className="eyebrow-bare">Mark scheme</p>
                   <p className="text-muted-foreground mt-1 text-xs whitespace-pre-wrap">
-                    {q.mark_scheme}
+                    <SciText text={q.mark_scheme} />
                   </p>
                 </div>
               )}
@@ -340,7 +346,7 @@ export function AnswerForm({
                 <div className="border-border mt-3 border-t pt-2">
                   <p className="eyebrow-bare">Mark scheme</p>
                   <p className="text-muted-foreground mt-1 text-xs whitespace-pre-wrap">
-                    {q.mark_scheme}
+                    <SciText text={q.mark_scheme} />
                   </p>
                 </div>
               )
@@ -386,9 +392,9 @@ export function AnswerForm({
         {questions.map((q, i) => (
           <li key={q.id} className="premium-card space-y-2 p-4">
             <QuestionHeader q={q} index={i} />
-            <textarea
+            <SciAnswerBox
               value={draftOf(q.id).text}
-              onChange={(e) => patch(q.id, { text: e.target.value })}
+              onValueChange={(text) => patch(q.id, { text })}
               placeholder={TYPE_HINT[q.answer_type]}
               aria-label={`Answer to question ${i + 1}`}
               className={`premium-input w-full rounded-lg px-3 py-2 text-sm ${
@@ -460,7 +466,7 @@ function QuestionHeader({ q, index }: { q: HomeworkQuestion; index: number }) {
     <div className="flex items-start gap-2">
       <span className="numeral text-muted-foreground shrink-0 text-xs">Q{index + 1}</span>
       <p className="min-w-0 flex-1 text-sm font-medium break-words whitespace-pre-wrap">
-        {q.prompt}
+        <SciText text={q.prompt} />
       </p>
       <span className="numeral text-muted-foreground shrink-0 text-xs">[{q.marks}]</span>
     </div>

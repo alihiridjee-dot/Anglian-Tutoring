@@ -732,6 +732,23 @@ a.when-link:hover .when-link-arrow {
   line-height: 0.95;
 }
 
+/* The small figures in science text (H₂O, Mg²⁺, cm³), drawn by <SciText> in
+   the surrounding face. Raised and lowered by position rather than
+   vertical-align, so a formula never pushes its line away from the next. */
+.sci-sub,
+.sci-sup {
+  position: relative;
+  font-size: 0.7em;
+  line-height: 0;
+  vertical-align: baseline;
+}
+.sci-sub {
+  bottom: -0.25em;
+}
+.sci-sup {
+  bottom: 0.5em;
+}
+
 /* ════════════════════════════════════════════════════════════════════════════
    NAV, BARS, INPUTS
    ════════════════════════════════════════════════════════════════════════════ */

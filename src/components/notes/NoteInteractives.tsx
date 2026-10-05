@@ -1,6 +1,7 @@
 import { useMemo, useState, type ReactNode } from "react";
 import { ArrowDown, ArrowUp, Check, RotateCcw, X } from "lucide-react";
 import { evaluate, parseFormula } from "@/lib/notes/formula";
+import { SciText } from "@/components/Shared";
 import {
   fillTemplate,
   inlineRuns,
@@ -25,7 +26,15 @@ function Inline({ text }: { text: string }) {
   return (
     <>
       {inlineRuns(text).map((r, i) =>
-        r.bold ? <b key={i}>{r.text}</b> : <span key={i}>{r.text}</span>,
+        r.bold ? (
+          <b key={i}>
+            <SciText text={r.text} />
+          </b>
+        ) : (
+          <span key={i}>
+            <SciText text={r.text} />
+          </span>
+        ),
       )}
     </>
   );

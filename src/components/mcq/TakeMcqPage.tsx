@@ -2,7 +2,7 @@ import { useQuery, useQueryClient } from "@tanstack/react-query";
 import { invalidatePlanner } from "@/lib/planner/assessmentSync";
 import { Link, useNavigate, useParams } from "@tanstack/react-router";
 import { useEffect, useRef, useState } from "react";
-import { EmptyState, ErrorNote, Spinner } from "@/components/Shared";
+import { EmptyState, ErrorNote, SciText, Spinner } from "@/components/Shared";
 import { AppLayout } from "@/components/AppLayout";
 import { supabase } from "@/integrations/supabase/client";
 import { useRoles } from "@/hooks/useRole";
@@ -287,7 +287,9 @@ export function TakeMcq() {
                 <p className="text-xs uppercase tracking-widest text-primary font-semibold">
                   Question {idx + 1}
                 </p>
-                <p className="font-display text-lg mt-1">{q.question}</p>
+                <p className="font-display text-lg mt-1">
+                  <SciText text={q.question} />
+                </p>
                 <div className="mt-3 space-y-2">
                   {q.options.map((opt, i) => {
                     const mark = marked?.byQuestion[q.id];
@@ -312,7 +314,7 @@ export function TakeMcq() {
                         <span className="font-mono text-xs mr-2 text-muted-foreground">
                           {String.fromCharCode(65 + i)}.
                         </span>
-                        {opt}
+                        <SciText text={opt} />
                         {isCorrect && <CheckCircle2 className="w-4 h-4 text-primary inline ml-2" />}
                         {isWrong && <XCircle className="w-4 h-4 text-destructive inline ml-2" />}
                       </button>
@@ -322,7 +324,7 @@ export function TakeMcq() {
                 {marked?.byQuestion[q.id]?.explanation && (
                   <p className="mt-3 text-xs text-muted-foreground border-t border-border pt-3">
                     <span className="font-semibold text-foreground">Explanation:</span>{" "}
-                    {marked.byQuestion[q.id]!.explanation}
+                    <SciText text={marked.byQuestion[q.id]!.explanation} />
                   </p>
                 )}
               </li>
