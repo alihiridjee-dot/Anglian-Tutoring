@@ -1,4 +1,4 @@
--- Rollback for 20261004114000_student_breaks.sql. Run by hand.
+-- Rollback for 20261005160000_student_breaks.sql. Run by hand.
 --
 -- Removes the hard stop (break weeks can be planned again), the booking
 -- functions and the record of breaks, and puts the nightly erase back as

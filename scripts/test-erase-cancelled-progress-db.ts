@@ -230,11 +230,11 @@ for (const file of [
   "20261004090000_subject_pauses.sql",
   "20261004091000_resume_after_pause.sql",
   "20261004092000_erase_cancelled_progress.sql",
-  "20261004114000_student_breaks.sql",
+  "20261005160000_student_breaks.sql",
 ])
   await db.exec(await readFile(new URL(`../supabase/migrations/${file}`, import.meta.url), "utf8"));
 
-// A break each (20261004114000). Only a family's cancellation of the whole
+// A break each (20261005160000). Only a family's cancellation of the whole
 // plan erases it: breaks belong to the student, not to one subject.
 for (const who of [alex, bea, cal, dee, eve, fin])
   await db.query(
