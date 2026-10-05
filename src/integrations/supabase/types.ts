@@ -1265,6 +1265,48 @@ export type Database = {
           },
         ];
       };
+      student_breaks: {
+        Row: {
+          booked_at: string;
+          booked_by: string | null;
+          cancelled_at: string | null;
+          ended_by: string | null;
+          ended_early_at: string | null;
+          ends_on: string;
+          id: string;
+          reason: string;
+          recorded_at: string | null;
+          starts_on: string;
+          student_id: string;
+        };
+        Insert: {
+          booked_at?: string;
+          booked_by?: string | null;
+          cancelled_at?: string | null;
+          ended_by?: string | null;
+          ended_early_at?: string | null;
+          ends_on: string;
+          id?: string;
+          reason: string;
+          recorded_at?: string | null;
+          starts_on: string;
+          student_id: string;
+        };
+        Update: {
+          booked_at?: string;
+          booked_by?: string | null;
+          cancelled_at?: string | null;
+          ended_by?: string | null;
+          ended_early_at?: string | null;
+          ends_on?: string;
+          id?: string;
+          reason?: string;
+          recorded_at?: string | null;
+          starts_on?: string;
+          student_id?: string;
+        };
+        Relationships: [];
+      };
       student_enrolments: {
         Row: {
           board: Database["public"]["Enums"]["board"];
@@ -2003,6 +2045,21 @@ export type Database = {
           _student_id?: string;
         };
         Returns: undefined;
+      };
+      book_break: {
+        Args: {
+          _student_id: string;
+          _starts_on: string;
+          _weeks: number;
+          _reason: string;
+        };
+        Returns: string;
+      };
+      end_break: {
+        Args: {
+          _break_id: string;
+        };
+        Returns: string;
       };
       resume_programme_after_pause: {
         Args: {

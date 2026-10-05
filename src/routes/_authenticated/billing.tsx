@@ -28,6 +28,7 @@ import { InvoiceHistoryCard } from "@/components/billing/InvoiceHistory";
 import { AddSubjectTiles } from "@/components/billing/AddSubjectCard";
 import { EnrolledSubjectsCard } from "@/components/billing/EnrolledSubjectsCard";
 import { ParentBillingSection } from "@/components/billing/ParentBillingSection";
+import { TakeABreakCard } from "@/components/billing/TakeABreakCard";
 import { resolveDisplayName } from "@/lib/profile/displayName";
 import { subjectLabel, summariseCourse } from "@/lib/curriculum/courseSummary";
 
@@ -171,9 +172,17 @@ function BillingPage() {
   return (
     <AppLayout title="Billing">
       <div className="max-w-4xl">
-        {/* The page is a stack of tile sections: subjects, the plan (folded
-            away), payment history (folded away), and — last — pause or
-            cancel. */}
+        {/* A break from the work, not the plan: first on the page, because a
+            family looking for "pause" for a holiday should find this before
+            the plan's own pause, which stops access too. */}
+        {userId && sub && isSubscriptionLive(sub.status) && (
+          <div className="mb-8">
+            <TakeABreakCard studentId={userId} />
+          </div>
+        )}
+
+        {/* Then a stack of tile sections: subjects, the plan (folded away),
+            payment history (folded away), and — last — pause or cancel. */}
         {/* What the plan covers, where a single subject comes off it and where
             one is added — one grid. First on the page, above the plan, because
             it is what a family comes here to change; "cancel Chemistry" is a

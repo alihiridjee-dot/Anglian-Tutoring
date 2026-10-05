@@ -22,6 +22,7 @@ import { EngagementStats } from "@/components/parent/EngagementStats";
 import { FeedbackList } from "@/components/parent/FeedbackList";
 import { ParentMessages } from "@/components/parent/ParentMessages";
 import { ChildWeekCard } from "@/components/parent/ChildWeekCard";
+import { ChildBreakCard } from "@/components/parent/ChildBreakCard";
 import { UpcomingSessions } from "@/components/parent/UpcomingSessions";
 import { EnrolmentSummary } from "@/components/dashboard/StudentDashboardPage";
 import { isDemoMode } from "@/lib/auth/session";
@@ -270,6 +271,9 @@ export function ParentDashboard() {
       ) : (
         <div className="grid grid-cols-1 gap-8 lg:grid-cols-3">
           <div className={`space-y-8 ${showSide ? "lg:col-span-2" : "lg:col-span-3"}`}>
+            {!isDemo && childId && (
+              <ChildBreakCard childId={childId} childName={childName.split(" ")[0]} />
+            )}
             <div data-tour="parent-grades">
               <GradePredictorCard analytics={analytics} level={level} grades={enrolments} />
             </div>

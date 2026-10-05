@@ -27,6 +27,8 @@ import {
 } from "./roadmap";
 import { mergeWeek, selectWeek, unsupportedReviews, type WeekSelection } from "./weekCut";
 import { SubjectPauseDAL } from "./pausesDal";
+import { BreakDAL } from "./breaksDal";
+import { breakWeekKeys, layBreaksOver, type StudentBreak } from "./breaks";
 
 export { handPicked } from "./weekCut";
 
@@ -44,6 +46,20 @@ export function isReadableExamDate(key: string): boolean {
 export function examDateBounds(today: Date = new Date()): { min: string; max: string } {
   const min = toDateKey(today);
   return { min, max: `${Number(min.slice(0, 4)) + 4}${min.slice(4)}` };
+}
+
+/** The course as the topic-order moves take it: topics in order, points with their weights. */
+function orderTopicsOf(progress: TopicProgress[]) {
+  return progress.map((t) => ({
+    topicId: t.topicId,
+    title: t.title,
+    points: t.points.map((pt) => ({
+      specPointId: pt.id,
+      code: pt.code,
+      title: pt.title,
+      weight: pt.weight,
+    })),
+  }));
 }
 
 /**
@@ -94,6 +110,19 @@ export class ProgramDAL {
       const resumed = await this.pickUpAfterPauses({ studentId, subject, baseline, progress });
       if (resumed) baseline.pacing = resumed as unknown as Json;
     }
+    // What a saved change to the programme starts from: the spine as stored,
+    // before any break still to come is laid over it below.
+    const storedBands = baseline
+      ? (baseline.pacing as unknown as PacingBand[]).filter(isTeachBand)
+      : null;
+    // A break booked, under way or just over shows the course as it will be
+    // picked up: nothing taught in its weeks, nothing in them missed. Its weeks
+    // are closed to the forecasts below too.
+    const breaks = baseline ? await BreakDAL.list(studentId) : [];
+    if (baseline) {
+      const ahead = this.withBreaksAhead({ baseline, progress, breaks });
+      if (ahead) baseline.pacing = ahead as unknown as Json;
+    }
 
     const thisMonday = mondayOf();
     const thisWeek = toDateKey(thisMonday);
@@ -137,7 +166,9 @@ export class ProgramDAL {
       firstWeek: programStartFor(),
       examMonday,
       overrides,
+      breakWeeks: breakWeekKeys(breaks),
     });
+    if (current && storedBands) roadmap.storedBands = storedBands;
 
     if (!current) {
       // Seed the acknowledged baseline so the first view is calm (no diff) —
@@ -193,16 +224,7 @@ export class ProgramDAL {
     const stored = p.baseline.pacing as unknown as PacingBand[];
     // A spine for another course is rebuilt from this week anyway.
     const otherCourse = spineIsForAnotherCourse(stored, p.progress);
-    const topics = p.progress.map((t) => ({
-      topicId: t.topicId,
-      title: t.title,
-      points: t.points.map((pt) => ({
-        specPointId: pt.id,
-        code: pt.code,
-        title: pt.title,
-        weight: pt.weight,
-      })),
-    }));
+    const topics = orderTopicsOf(p.progress);
     let bands = stored.filter(isTeachBand);
     let changed = false;
     for (const pause of pending) {
@@ -234,6 +256,35 @@ export class ProgramDAL {
       }
     }
     return changed ? bands : null;
+  }
+
+  /**
+   * The spine with every break not yet recorded laid over it (layBreaksOver):
+   * one booked, under way, or over and waiting for the hourly record. Returns
+   * null when there is none, or it moves nothing.
+   *
+   * Nothing is saved. Once a break is recorded as a stop, pickUpAfterPauses
+   * saves the same calendar, and laying a break over a spine it is already in
+   * changes nothing, so the plan doesn't shift when that happens.
+   */
+  private static withBreaksAhead(p: {
+    baseline: { exam_date: string; pacing: Json };
+    progress: TopicProgress[];
+    breaks: StudentBreak[];
+  }): PacingBand[] | null {
+    const breaks = p.breaks.filter((b) => !b.recordedAt);
+    if (!breaks.length) return null;
+    const stored = p.baseline.pacing as unknown as PacingBand[];
+    // A spine for another course is rebuilt from this week anyway.
+    if (spineIsForAnotherCourse(stored, p.progress)) return null;
+    const bands = stored.filter(isTeachBand);
+    const laid = layBreaksOver({
+      bands,
+      topics: orderTopicsOf(p.progress),
+      breaks,
+      examDate: p.baseline.exam_date,
+    });
+    return laid === bands ? null : laid;
   }
 
   /**
@@ -424,8 +475,12 @@ export class ProgramDAL {
         weight: p.weight,
       })),
     }));
+    // The spine as stored, not as a break still to come shows it: the database
+    // checks the change against what it holds, and the break is laid over the
+    // new order on the next load.
+    const saved = data.storedBands ?? data.baselineBands;
     const pacing = reorderTopics({
-      bands: data.baselineBands,
+      bands: saved,
       topics,
       order,
       from,
@@ -436,7 +491,7 @@ export class ProgramDAL {
       _board: board,
       _level: level,
       _from: from,
-      _expected_pacing: data.baselineBands as unknown as Json,
+      _expected_pacing: saved as unknown as Json,
       _expected_exam: data.examDate,
       _pacing: pacing as unknown as Json,
       _assessed: progress.flatMap((t) => t.points.filter((p) => p.reps > 0).map((p) => p.id)),

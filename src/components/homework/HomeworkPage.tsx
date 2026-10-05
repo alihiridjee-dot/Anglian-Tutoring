@@ -1,5 +1,6 @@
 import { Link } from "@tanstack/react-router";
 import { useEffect, useMemo, useState } from "react";
+import { useQuery } from "@tanstack/react-query";
 import { EmptyState, SegmentedToggle, Spinner } from "@/components/Shared";
 import { AppLayout } from "@/components/AppLayout";
 import { useRoles } from "@/hooks/useRole";
@@ -27,6 +28,7 @@ import { MarkingQueue } from "@/components/tutor/MarkingQueue";
 import { HomeworkLibrary } from "@/components/tutor/HomeworkLibrary";
 import { HomeworkForm } from "@/components/tutor/HomeworkForm";
 import { isDemoStudent } from "@/lib/demo/studentDemo";
+import { studentBreaksQuery } from "@/lib/planner/breakQueries";
 import { type SubjectV, type BoardV, type LevelV } from "@/lib/curriculum/taxonomy";
 import { SUBJECT_LABEL, SUBJECT_TINT, subjectTint } from "@/lib/curriculum/subjectTheme";
 import { useActiveSubject } from "@/hooks/useActiveSubject";
@@ -132,6 +134,11 @@ function StudentHomework({
   const { userId } = useRoles();
   const { subject } = useActiveSubject();
   const [bucket, setBucket] = useState<HomeworkBucket>("due");
+  // A brief due during a break isn't held against them (wasDueOnBreak).
+  const { data: breaks } = useQuery({
+    ...studentBreaksQuery(userId ?? ""),
+    enabled: !!userId && !isDemoStudent(),
+  });
 
   // The student sits each subject with one board. A sheet belongs on this page
   // if it is for that board, for every board, or already handed in — switching
@@ -141,12 +148,17 @@ function StudentHomework({
     const boardOf = new Map(enrolments.map((e) => [e.subject, e.board]));
     const enrolledAt = new Map(enrolments.map((e) => [e.subject, e.enrolledAt]));
     return homework
-      .map((hw) => ({ hw, submission: submissions[hw.id], enrolledAt: enrolledAt.get(hw.subject) }))
+      .map((hw) => ({
+        hw,
+        submission: submissions[hw.id],
+        enrolledAt: enrolledAt.get(hw.subject),
+        breaks,
+      }))
       .filter(({ hw, submission }) => {
         const board = boardOf.get(hw.subject);
         return !!submission || !hw.board || !board || hw.board === board;
       });
-  }, [homework, submissions, enrolments]);
+  }, [homework, submissions, enrolments, breaks]);
 
   // Only the sheets on screen need their question counts, but counting
   // everything at once is still one round trip rather than one per card.

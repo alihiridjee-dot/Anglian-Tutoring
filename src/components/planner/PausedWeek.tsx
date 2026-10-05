@@ -10,6 +10,8 @@ const WHY: Record<PauseReason, string> = {
   cancelled: "Plan ended",
   subject_removed: "Removed from the plan",
   not_on_plan: "Not on the plan",
+  // Recorded only once a break is over, so never the stop in force.
+  break: "On a break",
 };
 
 /**
