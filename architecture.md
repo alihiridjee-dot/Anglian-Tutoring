@@ -286,7 +286,8 @@ disturbing existing links.
 - **Server functions** — protected by `requireSupabaseAuth` (bearer-token
   validation); the client attaches tokens via `attachSupabaseAuth` in `start.ts`.
 - **Supabase** — Auth (email/password), RLS-secured Postgres, and a private
-  `resources` storage bucket for homework uploads and downloads.
+  `resources` storage bucket for task attachments. Only tutors write to it;
+  students and parents read (20261005180000 closed the old student upload path).
 
 ## Assessment-driven tutoring engine
 
