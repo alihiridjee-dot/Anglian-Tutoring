@@ -281,7 +281,6 @@ export function AnswerForm({
   }, [hasUnsent]);
 
   const answered = questions.filter((q) => draftOf(q.id).text.trim().length > 0).length;
-  const totalMarks = questions.reduce((sum, q) => sum + q.marks, 0);
 
   const submit = async () => {
     if (!userId) return toast.error("Not signed in");
@@ -377,8 +376,8 @@ export function AnswerForm({
 
       <div className="flex flex-wrap items-center gap-2">
         <p className="eyebrow-bare">Answer on the page</p>
-        <span className="text-muted-foreground text-xs">
-          {answered}/{questions.length} answered · {totalMarks} marks
+        <span className="text-sm font-bold">
+          {answered}/{questions.length} answered
         </span>
       </div>
 
