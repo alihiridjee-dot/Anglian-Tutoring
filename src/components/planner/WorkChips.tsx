@@ -48,7 +48,7 @@ export function VideoChip({
 export function NoteChip({ note, label = "Notes" }: { note: SpecPointNote; label?: string }) {
   return (
     <Link
-      to="/notes/$conceptId"
+      to={isDemoStudent() ? "/demo/student/notes/$conceptId" : "/notes/$conceptId"}
       params={{ conceptId: note.id }}
       title={note.title}
       className={CHIP}

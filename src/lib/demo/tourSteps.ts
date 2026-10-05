@@ -49,7 +49,7 @@ export const TOUR_STEPS: TourStep[] = [
     target: '[data-tour="do-now"]',
     chapter: "Student",
     title: "Weekly task list",
-    body: "The same week as a checklist. Every spec point has its video, quiz and task one click away. Try pressing Play, or tick a point off.",
+    body: "The same week as a checklist. Every spec point has its video, revision note, quiz and task one click away. Try pressing Play, or tick a point off.",
   },
   {
     path: "/demo/student/dashboard",

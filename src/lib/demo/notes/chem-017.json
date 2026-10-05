@@ -1,0 +1,341 @@
+{
+  "boards": {
+    "aqa": {
+      "spec_codes": [
+        "5.2.1"
+      ],
+      "worked_example": {
+        "answer_points": [
+          "A sodium atom loses one electron.",
+          "An oxygen atom gains two electrons.",
+          "So two sodium atoms react with one oxygen atom.",
+          "Na⁺ and O²⁻ ions form, which are sodium ions and oxide ions, with full outer shells."
+        ],
+        "exemplar_id": "5eca7831-500c-42e9-9ae1-d4c912503803",
+        "marks": 4,
+        "question": "Explain what happens to sodium atoms and to oxygen atoms when sodium reacts with oxygen to produce sodium oxide (Na₂O). Answer in terms of electrons.",
+        "source": "AQA jun 2023, Paper 1 (H), Q03.2",
+        "tip": "The ratio mark is for two sodium atoms to one oxygen atom. Any one of the final ideas scores the last mark."
+      }
+    }
+  },
+  "checks": [
+    {
+      "a": "The calcium atom loses two electrons and the chlorine atom gains one. Ca²⁺ and Cl⁻ ions form, and one calcium atom reacts with two chlorine atoms.",
+      "marks": 3,
+      "q": "Describe what happens when a calcium atom reacts with a chlorine atom."
+    },
+    {
+      "a": "2.8, because the sodium atom has lost its one outer electron.",
+      "marks": 1,
+      "q": "Give the electronic structure of the Na⁺ ion, given that the sodium atom is 2.8.1."
+    },
+    {
+      "a": "2−. Group 6 atoms gain two electrons to fill the outer shell.",
+      "marks": 2,
+      "q": "State the charge on an ion of a Group 6 element and say why."
+    }
+  ],
+  "concept_id": "chem-017",
+  "format": 1,
+  "key_idea": "In ionic bonding, a metal atom transfers outer-shell electrons to a non-metal atom. The metal becomes a positive ion and the non-metal a negative ion. Each ion has a full outer shell, like a noble gas, and the opposite charges attract.",
+  "meta": {
+    "checked_at": "2026-10-01",
+    "checked_by": "sonnet-science-check",
+    "exemplar_ids": [
+      "5eca7831-500c-42e9-9ae1-d4c912503803",
+      "cd6c9cd8-7bcc-40b0-9da7-353c2ef5537e",
+      "ddb3698b-9d14-49d9-8384-ce6de6237db2"
+    ],
+    "spec_point_ids": [
+      "demo-sp-ionic"
+    ],
+    "status": "approved",
+    "written_at": "2026-10-01",
+    "written_by": "claude-sonnet-5-5"
+  },
+  "sections": [
+    {
+      "blocks": [
+        {
+          "text": "Ionic bonds form when a metal atom reacts with a non-metal atom. This section covers what happens to the electrons and the charge on each ion.",
+          "type": "paragraph"
+        },
+        {
+          "items": [
+            {
+              "meaning": "An atom or group of atoms with a positive or negative charge.",
+              "term": "Ion"
+            },
+            {
+              "meaning": "A positive ion, made when an atom loses electrons.",
+              "term": "Cation"
+            },
+            {
+              "meaning": "A negative ion, made when an atom gains electrons.",
+              "term": "Anion"
+            },
+            {
+              "meaning": "The electrostatic attraction between oppositely charged ions.",
+              "term": "Ionic bond"
+            }
+          ],
+          "type": "definitions"
+        },
+        {
+          "items": [
+            "Metal atoms **lose** electrons from their outer shell and become positive ions.",
+            "Non-metal atoms **gain** electrons and become negative ions.",
+            "The ions formed by Groups 1, 2, 6 and 7 have the electronic structure of a noble gas, with a full outer shell.",
+            "Noble gases (Group 0) do not form ions."
+          ],
+          "type": "list"
+        },
+        {
+          "text": "The charge on an ion",
+          "type": "subheading"
+        },
+        {
+          "columns": [
+            "Group",
+            "Electrons",
+            "Ion",
+            "Example"
+          ],
+          "rows": [
+            [
+              "1",
+              "Lose 1",
+              "1+",
+              "Na⁺"
+            ],
+            [
+              "2",
+              "Lose 2",
+              "2+",
+              "Mg²⁺"
+            ],
+            [
+              "6",
+              "Gain 2",
+              "2−",
+              "O²⁻"
+            ],
+            [
+              "7",
+              "Gain 1",
+              "1−",
+              "Cl⁻"
+            ]
+          ],
+          "type": "table"
+        },
+        {
+          "text": "The charge relates to the group number. A Group 3 metal such as gallium loses three electrons to make a 3+ ion, Ga³⁺.",
+          "type": "paragraph"
+        },
+        {
+          "formula": "Na → Na⁺ + e⁻",
+          "label": "A metal atom forming an ion (Group 1)",
+          "type": "equation",
+          "where": [
+            "Na: sodium atom",
+            "Na⁺: sodium ion",
+            "e⁻: an electron"
+          ]
+        },
+        {
+          "formula": "Cl + e⁻ → Cl⁻",
+          "label": "A non-metal atom forming an ion (Group 7)",
+          "type": "equation",
+          "where": [
+            "Cl: chlorine atom",
+            "e⁻: an electron",
+            "Cl⁻: chloride ion"
+          ]
+        },
+        {
+          "items": [
+            "Metals lose electrons to make positive ions. Non-metals gain electrons to make negative ions.",
+            "Group 1 makes 1+, Group 2 makes 2+, Group 6 makes 2−, Group 7 makes 1−.",
+            "The ions have a full outer shell, the same electronic structure as a noble gas."
+          ],
+          "type": "key-points"
+        }
+      ],
+      "heading": "How ions form"
+    },
+    {
+      "blocks": [
+        {
+          "text": "A dot and cross diagram shows the electron transfer. This section covers how sodium and chlorine form sodium chloride and how to work out the numbers of atoms.",
+          "type": "paragraph"
+        },
+        {
+          "columns": [
+            "Atom",
+            "Electronic structure",
+            "Ion",
+            "Electronic structure of ion"
+          ],
+          "rows": [
+            [
+              "Sodium, Na",
+              "2.8.1",
+              "Na⁺",
+              "2.8"
+            ],
+            [
+              "Chlorine, Cl",
+              "2.8.7",
+              "Cl⁻",
+              "2.8.8"
+            ]
+          ],
+          "type": "table"
+        },
+        {
+          "items": [
+            {
+              "lead": "Show the atoms",
+              "text": "Draw the outer shell of each atom. Use dots for the metal's electrons and crosses for the non-metal's."
+            },
+            {
+              "lead": "Transfer",
+              "text": "Show the metal's outer electrons moving to the non-metal. Sodium gives one electron to chlorine."
+            },
+            {
+              "lead": "Show the ions",
+              "text": "Draw each ion in square brackets with its charge at the top right: [Na]⁺ and [Cl]⁻."
+            },
+            {
+              "lead": "Check the outer shells",
+              "text": "Each ion should have a full outer shell. Chloride has eight electrons, one of them the dot from sodium."
+            }
+          ],
+          "type": "steps"
+        },
+        {
+          "text": "How many atoms of each",
+          "type": "subheading"
+        },
+        {
+          "items": [
+            "The total charge on the compound is zero.",
+            "Magnesium loses two electrons and oxygen gains two, so one atom reacts with one atom: Mg²⁺ and O²⁻.",
+            "Sodium loses one electron but oxygen needs two, so two sodium atoms react with one oxygen atom: Na₂O.",
+            "Calcium loses two electrons but chlorine gains only one, so one calcium atom reacts with two chlorine atoms: CaCl₂."
+          ],
+          "type": "list"
+        },
+        {
+          "diagram": {
+            "alt": "Pick a metal and non-metal pair to see the electron transfer, the ions formed and the ratio of atoms.",
+            "kind": "predictor",
+            "options": [
+              {
+                "label": "Sodium and chlorine",
+                "results": [
+                  "Each sodium atom **loses 1** electron. Each chlorine atom gains 1.",
+                  "Na⁺ and Cl⁻",
+                  "1 sodium to 1 chlorine: NaCl"
+                ]
+              },
+              {
+                "label": "Lithium and chlorine",
+                "results": [
+                  "Each lithium atom **loses 1** electron. Each chlorine atom gains 1.",
+                  "Li⁺ and Cl⁻",
+                  "1 lithium to 1 chlorine: LiCl"
+                ]
+              },
+              {
+                "label": "Magnesium and oxygen",
+                "results": [
+                  "Each magnesium atom **loses 2** electrons. Each oxygen atom gains 2.",
+                  "Mg²⁺ and O²⁻",
+                  "1 magnesium to 1 oxygen: MgO"
+                ]
+              },
+              {
+                "label": "Calcium and sulfur",
+                "results": [
+                  "Each calcium atom **loses 2** electrons. Each sulfur atom gains 2.",
+                  "Ca²⁺ and S²⁻",
+                  "1 calcium to 1 sulfur: CaS"
+                ]
+              },
+              {
+                "label": "Sodium and oxygen",
+                "results": [
+                  "Each sodium atom **loses 1** electron. Each oxygen atom gains 2.",
+                  "Na⁺ and O²⁻",
+                  "2 sodium to 1 oxygen: Na₂O"
+                ]
+              },
+              {
+                "label": "Caesium and oxygen",
+                "results": [
+                  "Each caesium atom **loses 1** electron. Each oxygen atom gains 2.",
+                  "Cs⁺ and O²⁻",
+                  "2 caesium to 1 oxygen: Cs₂O"
+                ]
+              },
+              {
+                "label": "Calcium and chlorine",
+                "results": [
+                  "Each calcium atom **loses 2** electrons. Each chlorine atom gains 1.",
+                  "Ca²⁺ and Cl⁻",
+                  "1 calcium to 2 chlorine: CaCl₂"
+                ]
+              }
+            ],
+            "prompt": "Pick the two elements that react",
+            "result_labels": [
+              "Electron transfer",
+              "Ions formed",
+              "Atoms that react"
+            ]
+          },
+          "type": "diagram"
+        },
+        {
+          "items": [
+            "A dot and cross diagram shows electrons moving from the metal to the non-metal.",
+            "The number of electrons lost must equal the number gained.",
+            "Name the ions as well: sodium ions and chloride ions."
+          ],
+          "type": "key-points"
+        }
+      ],
+      "heading": "Electron transfer in a compound"
+    },
+    {
+      "blocks": [
+        {
+          "text": "Once the ions have formed, opposite charges attract. This section covers what the ionic bond is and what it is not.",
+          "type": "paragraph"
+        },
+        {
+          "items": [
+            "An ionic bond is the strong electrostatic force of attraction between oppositely charged ions.",
+            "Electrons are transferred, not shared.",
+            "It is the ions that attract each other, not the atoms.",
+            "In a covalent bond, by contrast, atoms share a pair of electrons."
+          ],
+          "type": "list"
+        },
+        {
+          "items": [
+            "Ionic bonds hold oppositely charged ions together by electrostatic attraction.",
+            "Say \"transfer\" for ionic bonding and \"share\" for covalent bonding."
+          ],
+          "type": "key-points"
+        }
+      ],
+      "heading": "Holding the ions together"
+    }
+  ],
+  "subject": "chemistry",
+  "title": "Ionic bonding"
+}

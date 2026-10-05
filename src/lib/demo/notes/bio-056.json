@@ -1,0 +1,325 @@
+{
+  "boards": {
+    "edexcel": {
+      "spec_codes": [
+        "4.4.1"
+      ],
+      "worked_example": {
+        "answer_points": [
+          "Keep the light at the same distance from the pondweed (the same light intensity is accepted).",
+          "Count the number of bubbles, or measure the oxygen (gas) produced.",
+          "Repeat at different temperatures.",
+          "Control the carbon dioxide concentration or the mass (type) of pondweed.",
+          "Any three of these four points score."
+        ],
+        "exemplar_id": "553289e5-36a5-4513-8f0b-5e3d24f11de1",
+        "marks": 3,
+        "question": "A student investigated the effect of light intensity on the photosynthesis of pondweed. A light source was placed at different distances from the pondweed. The bubbles produced were counted for 2 minutes.\n\nDevise a plan to show that temperature is a limiting factor in photosynthesis. Use the same apparatus.",
+        "source": "EDEXCEL jun 2023, Paper 2 (H), Q5(c)",
+        "tip": "Change only the temperature, measure the rate each time, and keep another factor constant."
+      }
+    }
+  },
+  "checks": [
+    {
+      "a": "Light intensity is no longer the limiting factor. Another factor, such as carbon dioxide concentration or temperature, is now limiting the rate.",
+      "marks": 2,
+      "q": "On a graph of rate of photosynthesis against light intensity, the line becomes flat. What does this tell you?"
+    },
+    {
+      "a": "The reactants and enzymes have less kinetic energy, so there are fewer collisions and photosynthesis is slower.",
+      "marks": 2,
+      "q": "Explain why the rate of photosynthesis is slow at a low temperature."
+    },
+    {
+      "a": "10 ÷ 25 = 0.4 bubbles per second.",
+      "marks": 2,
+      "q": "Pondweed releases 10 bubbles in 25 seconds. Calculate the rate of photosynthesis in bubbles per second."
+    }
+  ],
+  "concept_id": "bio-056",
+  "format": 1,
+  "key_idea": "The rate of photosynthesis is limited by whichever factor is in shortest supply. Light intensity, carbon dioxide concentration, temperature and the amount of chlorophyll can each be the limiting factor. On a graph, a flat line shows that something else is now limiting.",
+  "meta": {
+    "checked_at": "2026-10-01",
+    "checked_by": "sonnet-science-check",
+    "exemplar_ids": [
+      "8088cbbf-af5e-46cf-9a58-5ffc32c6e04f",
+      "553289e5-36a5-4513-8f0b-5e3d24f11de1",
+      "0f15263a-9e23-467a-94a9-6915389180e7"
+    ],
+    "spec_point_ids": [
+      "demo-sp-photosynthesis"
+    ],
+    "status": "approved",
+    "written_at": "2026-10-01",
+    "written_by": "sonnet-5-5"
+  },
+  "sections": [
+    {
+      "blocks": [
+        {
+          "text": "Photosynthesis only goes as fast as its scarcest need allows. This section names the factors that can hold it back.",
+          "type": "paragraph"
+        },
+        {
+          "items": [
+            {
+              "meaning": "The factor in shortest supply, which sets the maximum rate of photosynthesis.",
+              "term": "Limiting factor"
+            },
+            {
+              "meaning": "How much happens in a set time, for example bubbles of oxygen per second.",
+              "term": "Rate"
+            }
+          ],
+          "type": "definitions"
+        },
+        {
+          "items": [
+            "**Light intensity**: how bright the light is.",
+            "**Carbon dioxide concentration**: how much carbon dioxide is available.",
+            "**Temperature**.",
+            "The amount of **chlorophyll** in the leaves."
+          ],
+          "type": "list"
+        },
+        {
+          "items": [
+            "A limiting factor is the one in shortest supply.",
+            "Four factors to know: light intensity, carbon dioxide, temperature and chlorophyll."
+          ],
+          "type": "key-points"
+        }
+      ],
+      "heading": "What a limiting factor is"
+    },
+    {
+      "blocks": [
+        {
+          "text": "Light provides the energy and carbon dioxide is a reactant. If either is low, photosynthesis is slow.",
+          "type": "paragraph"
+        },
+        {
+          "diagram": {
+            "alt": "A line graph of rate of photosynthesis against light intensity. The rate rises steeply at low light intensity, then flattens. The rising part is labelled light is limiting. The flat part is labelled another factor is limiting.",
+            "bands": [
+              {
+                "from": 0,
+                "label": "Light is limiting",
+                "to": 5
+              },
+              {
+                "from": 5,
+                "label": "Another factor is limiting",
+                "to": 10
+              }
+            ],
+            "kind": "line-graph",
+            "series": [
+              {
+                "name": "Rate of photosynthesis",
+                "points": [
+                  [
+                    0,
+                    0.02
+                  ],
+                  [
+                    1,
+                    0.22
+                  ],
+                  [
+                    2,
+                    0.42
+                  ],
+                  [
+                    3,
+                    0.6
+                  ],
+                  [
+                    4,
+                    0.72
+                  ],
+                  [
+                    5,
+                    0.78
+                  ],
+                  [
+                    6,
+                    0.79
+                  ],
+                  [
+                    8,
+                    0.79
+                  ],
+                  [
+                    10,
+                    0.79
+                  ]
+                ]
+              }
+            ],
+            "x": {
+              "label": "Light intensity",
+              "max": 10,
+              "min": 0,
+              "ticks": [
+                0,
+                2,
+                4,
+                6,
+                8,
+                10
+              ],
+              "unit": "arbitrary units"
+            },
+            "y": {
+              "label": "Rate of photosynthesis"
+            }
+          },
+          "type": "diagram"
+        },
+        {
+          "text": "Light intensity",
+          "type": "subheading"
+        },
+        {
+          "items": [
+            "At low light intensity, light is the limiting factor. More light gives a faster rate.",
+            "The line then levels off. Extra light makes no difference, because another factor is now limiting."
+          ],
+          "type": "list"
+        },
+        {
+          "text": "Carbon dioxide concentration",
+          "type": "subheading"
+        },
+        {
+          "items": [
+            "Carbon dioxide is a reactant. A low concentration limits the rate.",
+            "More carbon dioxide gives a faster rate, until another factor becomes limiting and the line levels off."
+          ],
+          "type": "list"
+        },
+        {
+          "items": [
+            "The rising part of a graph shows the factor on the x axis is limiting.",
+            "The flat part shows another factor is limiting."
+          ],
+          "type": "key-points"
+        }
+      ],
+      "heading": "Light intensity and carbon dioxide"
+    },
+    {
+      "blocks": [
+        {
+          "text": "Temperature affects the enzymes that control photosynthesis. Chlorophyll decides how much light the plant can absorb.",
+          "type": "paragraph"
+        },
+        {
+          "text": "Temperature",
+          "type": "subheading"
+        },
+        {
+          "items": [
+            "At low temperatures the reactants and enzymes have less kinetic energy, so they collide less often and the rate is low.",
+            "As temperature rises, the particles have more kinetic energy and collide more often, so the rate increases.",
+            "At a very high temperature the enzymes are denatured and photosynthesis stops, or the rate falls."
+          ],
+          "type": "list"
+        },
+        {
+          "text": "Chlorophyll",
+          "type": "subheading"
+        },
+        {
+          "items": [
+            "Chlorophyll absorbs the light for photosynthesis.",
+            "A plant with less chlorophyll absorbs less light, so photosynthesis is slower.",
+            "Yellow leaves can show a shortage of magnesium ions, which are needed to make chlorophyll.",
+            "A shortage of nitrate or iron ions can have the same effect."
+          ],
+          "type": "list"
+        },
+        {
+          "items": [
+            "Warmer means faster, until enzymes are denatured.",
+            "Less chlorophyll means less light absorbed and a slower rate."
+          ],
+          "type": "key-points"
+        }
+      ],
+      "heading": "Temperature and chlorophyll"
+    },
+    {
+      "blocks": [
+        {
+          "text": "You can measure the rate by counting bubbles of oxygen from pondweed in a set time. To change light intensity, move the lamp closer to or further from the pondweed.",
+          "type": "paragraph"
+        },
+        {
+          "formula": "rate = amount ÷ time",
+          "label": "Rate of photosynthesis",
+          "type": "equation",
+          "where": [
+            "amount, for example the number of bubbles or the volume of oxygen in cm³",
+            "time, for example in s or min"
+          ]
+        },
+        {
+          "items": [
+            {
+              "lead": "Data.",
+              "text": "Pondweed releases 10 bubbles in 43 seconds."
+            },
+            {
+              "lead": "Calculate.",
+              "text": "Rate = 10 ÷ 43 = 0.23255..."
+            },
+            {
+              "lead": "Round and add the unit.",
+              "text": "To 3 significant figures the rate is 0.233 bubbles per second."
+            }
+          ],
+          "type": "steps"
+        },
+        {
+          "diagram": {
+            "alt": "Practise calculating a rate of photosynthesis from the time taken to release 10 bubbles.",
+            "answer": {
+              "decimals": 3,
+              "formula": "10 / t",
+              "unit": "bubbles per second"
+            },
+            "kind": "practice",
+            "question": "Pondweed releases 10 bubbles of oxygen in **{t} seconds**. Calculate the rate of photosynthesis in bubbles per second. Give your answer to 3 significant figures.",
+            "variables": [
+              {
+                "id": "t",
+                "max": 90,
+                "min": 20,
+                "step": 5
+              }
+            ],
+            "working": [
+              "Rate = amount ÷ time",
+              "Rate = 10 ÷ {t} = **{answer}** bubbles per second"
+            ]
+          },
+          "type": "diagram"
+        },
+        {
+          "items": [
+            "Rate = amount ÷ time. A shorter time for the same amount means a faster rate.",
+            "Always give the unit with the rate."
+          ],
+          "type": "key-points"
+        }
+      ],
+      "heading": "Measuring and calculating the rate"
+    }
+  ],
+  "subject": "biology",
+  "title": "Limiting factors of photosynthesis"
+}

@@ -290,7 +290,7 @@ export function SpecPointDetail({
             <div className="flex items-start justify-between gap-2 w-full text-sm font-semibold text-foreground leading-snug">
               <span>{n.title}</span>
               <Link
-                to="/notes/$conceptId"
+                to={isDemoStudent() ? "/demo/student/notes/$conceptId" : "/notes/$conceptId"}
                 params={{ conceptId: n.id }}
                 className="tap-target inline-flex items-center shrink-0 text-[10px] px-2 py-0.5 rounded btn-solid font-bold"
               >

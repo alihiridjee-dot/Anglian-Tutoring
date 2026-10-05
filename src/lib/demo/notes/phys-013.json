@@ -1,0 +1,348 @@
+{
+  "boards": {
+    "ocr": {
+      "spec_codes": [
+        "6.2.1"
+      ],
+      "worked_example": {
+        "answer_points": [
+          "More current means more electrons collide with ions in the lattice (or the ions vibrate more).",
+          "It is harder for electrons to pass through the lamp.",
+          "Which increases the temperature, and therefore the resistance."
+        ],
+        "exemplar_id": "7a42cdca-e3c7-454a-9473-1593ac75623f",
+        "marks": 2,
+        "question": "Explain why the resistance of a filament lamp increases when current increases.",
+        "source": "OCR nov 2020, Paper 3, Q19(b)(i)",
+        "tip": "Any two of the points score. Atoms, particles or molecules are allowed in place of ions."
+      }
+    }
+  },
+  "checks": [
+    {
+      "a": "A straight line through the origin. Current is directly proportional to potential difference, so the resistance is constant.",
+      "marks": 2,
+      "q": "Describe the I–V graph for a fixed resistor at constant temperature."
+    },
+    {
+      "a": "The filament heats up. More collisions of electrons with the ions in the wire, so the resistance increases.",
+      "marks": 2,
+      "q": "Explain why the resistance of a filament lamp increases as the current increases."
+    },
+    {
+      "a": "(a) It decreases. (b) It decreases.",
+      "marks": 2,
+      "q": "State what happens to the resistance of (a) an NTC thermistor when the temperature increases and (b) an LDR when the light intensity increases."
+    }
+  ],
+  "concept_id": "phys-013",
+  "format": 1,
+  "key_idea": "An I–V graph shows how the current in a component changes with potential difference. A fixed resistor gives a straight line. A filament lamp and a diode do not. Thermistor and LDR resistance falls as temperature or light rises.",
+  "meta": {
+    "checked_at": "2026-10-01",
+    "checked_by": "sonnet-science-check",
+    "exemplar_ids": [
+      "11c3235a-4bd9-4066-8cdd-757ea7d2350a",
+      "17694d00-5e82-41ec-9ed3-bef7a9c32985",
+      "4ff03b32-eb8c-4da1-9f1d-e269b9a422a5",
+      "c2b27ca1-380a-4415-a41e-dd62ddd30116",
+      "0e1b695f-6327-4d5c-a478-d49f019bd57a",
+      "e99abc08-5558-4b70-a40c-577c90b3b5dc",
+      "c0e5817a-c56f-4424-9175-411299ad70a5",
+      "7a42cdca-e3c7-454a-9473-1593ac75623f",
+      "02d778ff-a56f-4799-8ed5-69069b84ae04",
+      "607822d9-b1ee-4115-993d-08b1c67fd8b1",
+      "1f7ed5c1-7cac-4580-9f15-c468b69c2c87"
+    ],
+    "spec_point_ids": [
+      "demo-sp-circuits"
+    ],
+    "status": "approved",
+    "written_at": "2026-10-01",
+    "written_by": "sonnet-5-5"
+  },
+  "sections": [
+    {
+      "blocks": [
+        {
+          "text": "An I–V graph plots current against potential difference for one component. Its shape shows whether the resistance stays constant or changes.",
+          "type": "paragraph"
+        },
+        {
+          "items": [
+            {
+              "meaning": "A component where current is directly proportional to potential difference, at constant temperature. Its resistance stays constant.",
+              "term": "Ohmic conductor"
+            },
+            {
+              "meaning": "A component whose I–V graph is curved, so its resistance changes.",
+              "term": "Non-linear"
+            }
+          ],
+          "type": "definitions"
+        },
+        {
+          "diagram": {
+            "alt": "I–V graphs for a fixed resistor, a filament lamp and a diode, with potential difference from negative to positive.",
+            "kind": "line-graph",
+            "series": [
+              {
+                "name": "Fixed resistor",
+                "points": [
+                  [
+                    -6,
+                    0.05
+                  ],
+                  [
+                    0,
+                    0.5
+                  ],
+                  [
+                    6,
+                    0.95
+                  ]
+                ]
+              },
+              {
+                "name": "Filament lamp",
+                "points": [
+                  [
+                    -6,
+                    0.1
+                  ],
+                  [
+                    -3,
+                    0.2
+                  ],
+                  [
+                    -1,
+                    0.38
+                  ],
+                  [
+                    0,
+                    0.5
+                  ],
+                  [
+                    1,
+                    0.62
+                  ],
+                  [
+                    3,
+                    0.8
+                  ],
+                  [
+                    6,
+                    0.9
+                  ]
+                ]
+              },
+              {
+                "name": "Diode",
+                "points": [
+                  [
+                    -6,
+                    0.5
+                  ],
+                  [
+                    0,
+                    0.5
+                  ],
+                  [
+                    1.5,
+                    0.52
+                  ],
+                  [
+                    2.5,
+                    0.75
+                  ],
+                  [
+                    3.5,
+                    1
+                  ]
+                ]
+              }
+            ],
+            "x": {
+              "label": "Potential difference",
+              "max": 6,
+              "min": -6,
+              "ticks": [
+                -6,
+                -3,
+                0,
+                3,
+                6
+              ],
+              "unit": "V"
+            },
+            "y": {
+              "label": "Current",
+              "zero": 0.5
+            }
+          },
+          "type": "diagram"
+        },
+        {
+          "text": "Fixed resistor",
+          "type": "subheading"
+        },
+        {
+          "items": [
+            "The graph is a straight line through the origin, at constant temperature.",
+            "Current is directly proportional to potential difference.",
+            "The resistance stays constant."
+          ],
+          "type": "list"
+        },
+        {
+          "text": "Filament lamp",
+          "type": "subheading"
+        },
+        {
+          "items": [
+            "The graph is a curve. The current rises more slowly as the potential difference increases.",
+            "The resistance of a filament lamp increases as the temperature of the filament increases.",
+            "More current means more collisions between electrons and the ions in the wire. This heats the wire."
+          ],
+          "type": "list"
+        },
+        {
+          "text": "Diode",
+          "type": "subheading"
+        },
+        {
+          "items": [
+            "Current flows in one direction only.",
+            "The diode has a very high resistance in the reverse direction, so (almost) no current flows that way.",
+            "A light emitting diode (LED) behaves in the same way."
+          ],
+          "type": "list"
+        },
+        {
+          "items": [
+            "A fixed resistor at constant temperature gives a straight line through the origin.",
+            "A filament lamp curves because its resistance increases as it heats up.",
+            "A diode passes current in one direction only and has a very high resistance in reverse."
+          ],
+          "type": "key-points"
+        }
+      ],
+      "heading": "I–V graphs of resistors, lamps and diodes"
+    },
+    {
+      "blocks": [
+        {
+          "text": "Some components change their resistance with the surroundings. This makes them useful as sensors.",
+          "type": "paragraph"
+        },
+        {
+          "items": [
+            {
+              "meaning": "A component whose resistance changes with temperature. In an NTC thermistor, resistance decreases as temperature increases.",
+              "term": "Thermistor"
+            },
+            {
+              "meaning": "A light dependent resistor. Its resistance decreases as light intensity increases.",
+              "term": "LDR"
+            }
+          ],
+          "type": "definitions"
+        },
+        {
+          "items": [
+            "A thermistor is used in circuits such as a thermostat, which controls a heating system.",
+            "An LDR is used in circuits such as switching lights on when it gets dark."
+          ],
+          "type": "list"
+        },
+        {
+          "diagram": {
+            "alt": "Sort each statement into thermistor, LDR or diode.",
+            "groups": [
+              "Thermistor",
+              "LDR",
+              "Diode"
+            ],
+            "items": [
+              {
+                "group": 0,
+                "text": "Resistance decreases as temperature increases"
+              },
+              {
+                "group": 0,
+                "text": "Used in a thermostat"
+              },
+              {
+                "group": 1,
+                "text": "Resistance decreases as light intensity increases"
+              },
+              {
+                "group": 1,
+                "text": "Used to switch on a light when it gets dark"
+              },
+              {
+                "group": 2,
+                "text": "Current flows in one direction only"
+              },
+              {
+                "group": 2,
+                "text": "Very high resistance in the reverse direction"
+              }
+            ],
+            "kind": "sort",
+            "prompt": "Which component does each statement describe?"
+          },
+          "type": "diagram"
+        },
+        {
+          "items": [
+            "Thermistor: resistance decreases as temperature increases.",
+            "LDR: resistance decreases as light intensity increases.",
+            "Thermistor: changes with temperature. LDR: changes with light intensity."
+          ],
+          "type": "key-points"
+        }
+      ],
+      "heading": "Thermistors and LDRs"
+    },
+    {
+      "blocks": [
+        {
+          "text": "An I–V graph comes from measuring current and potential difference for one component at a range of settings.",
+          "type": "paragraph"
+        },
+        {
+          "items": [
+            "Connect an **ammeter** in series with the component.",
+            "Connect a **voltmeter** in parallel with the component.",
+            "Use a variable resistor, a variable power supply or a different number of cells to change the potential difference.",
+            "Reverse the connections to the power supply to get negative values.",
+            "Calculate the resistance at each point using the equation below.",
+            "To investigate a thermistor, change its temperature and measure the current and potential difference each time. For an LDR, change the light intensity."
+          ],
+          "type": "list"
+        },
+        {
+          "formula": "R = V ÷ I",
+          "label": "Resistance",
+          "type": "equation",
+          "where": [
+            "R = resistance, in ohms (Ω)",
+            "V = potential difference, in volts (V)",
+            "I = current, in amperes (A)"
+          ]
+        },
+        {
+          "items": [
+            "Measure current with an ammeter in series and potential difference with a voltmeter in parallel.",
+            "Change the potential difference, record pairs of readings and plot current against potential difference."
+          ],
+          "type": "key-points"
+        }
+      ],
+      "heading": "Finding an I–V graph by experiment"
+    }
+  ],
+  "subject": "physics",
+  "title": "I–V characteristics, thermistors and LDRs"
+}

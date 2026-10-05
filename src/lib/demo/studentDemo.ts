@@ -183,7 +183,7 @@ export const DEMO_SUBMISSIONS: Record<string, DemoSubmission> = {
     grade: "8",
     score_pct: 88,
     feedback:
-      "A confident answer with the inverse-square relationship handled well. To push to a 9, be explicit about why the rate plateaus once CO₂ becomes the limiting factor.",
+      "Full marks on Q1: you linked the slower rate to lower light intensity. On Q2 you showed light was no longer the limiting factor and named CO₂, but missed the last mark. End with 'the rate is limited by whichever factor is in shortest supply' and this is a grade 9 answer.",
     graded_at: daysFromNow(-5),
     acknowledged_at: null,
     release_at: null,
@@ -197,7 +197,7 @@ export const DEMO_SUBMISSIONS: Record<string, DemoSubmission> = {
     grade: "9",
     score_pct: 92,
     feedback:
-      "Superb — every stage in the right order and a well-structured extended answer on the cell cycle. Exam-ready on this topic.",
+      "Excellent. The stages are in the right order, and your DNA answer makes all four points, each linked to the next. This topic is exam-ready.",
     graded_at: daysFromNow(-1),
     acknowledged_at: null,
     release_at: null,
@@ -359,7 +359,8 @@ export const DEMO_ANSWERS: Record<string, DemoAnswer> = {
     answer_text:
       "The rate goes down as the lamp gets further away, because the light reaching the pondweed is weaker.",
     awarded_marks: 2,
-    feedback: "Both marks — the link to light intensity is exactly what was wanted.",
+    feedback:
+      "Both marks: the rate falls, and you gave the reason. In the exam, write 'light intensity decreases' rather than 'the light is weaker', as that is the wording mark schemes use.",
   },
   "demo-q-ps-2": {
     id: "demo-a-ps-2",
@@ -369,7 +370,7 @@ export const DEMO_ANSWERS: Record<string, DemoAnswer> = {
       "Because light isn't the thing holding it back any more. Something else becomes the limiting factor, like carbon dioxide, so making the lamp brighter doesn't help.",
     awarded_marks: 3,
     feedback:
-      "Three of four. You named CO₂ but didn't say the rate is capped by whichever factor is in shortest supply.",
+      "Three marks: light is no longer limiting, another factor takes over, and you named CO₂. The fourth needs one more sentence: the rate is limited by whichever factor is in shortest supply.",
   },
   "demo-q-mi-1": {
     id: "demo-a-mi-1",
@@ -377,7 +378,7 @@ export const DEMO_ANSWERS: Record<string, DemoAnswer> = {
     question_id: "demo-q-mi-1",
     answer_text: "Interphase, then mitosis, then cytokinesis.",
     awarded_marks: 3,
-    feedback: "All three, in the right order.",
+    feedback: "All three marks: interphase, mitosis, cytokinesis, in the right order.",
   },
   "demo-q-mi-2": {
     id: "demo-a-mi-2",
@@ -386,7 +387,8 @@ export const DEMO_ANSWERS: Record<string, DemoAnswer> = {
     answer_text:
       "So each new cell gets a complete copy of the DNA. If it wasn't copied first the two cells would end up with half each and lose genetic information. The copies are identical, which is what you need for growth and repair.",
     awarded_marks: 4,
-    feedback: "Full marks — all four points, clearly linked.",
+    feedback:
+      "Full marks, with all four points linked: each new cell gets a complete copy, no genetic information is lost, the copies are identical, and that is what growth and repair need.",
   },
   "demo-q-ra-1": {
     id: "demo-a-ra-1",
@@ -419,6 +421,12 @@ export type DemoVideo = {
   board: string;
   level: string;
   video_url: string;
+  /**
+   * The demo spec point the video teaches — the showcase's stand-in for a live
+   * `resource_spec_points` link, so "From your tutor" shows the video for the
+   * pinned point rather than every video in the subject.
+   */
+  spec_point_id?: string;
 };
 
 /**
@@ -458,6 +466,7 @@ export const DEMO_VIDEOS: DemoVideo[] = [
     board: "edexcel",
     level: "gcse",
     video_url: DEMO_YT.photosynthesis,
+    spec_point_id: "demo-sp-photosynthesis",
   },
   {
     id: "demo-vid-2",
@@ -485,6 +494,7 @@ export const DEMO_VIDEOS: DemoVideo[] = [
     board: "ocr",
     level: "gcse",
     video_url: DEMO_YT.seriesParallel,
+    spec_point_id: "demo-sp-series",
   },
   {
     id: "demo-vid-5",
@@ -494,6 +504,7 @@ export const DEMO_VIDEOS: DemoVideo[] = [
     board: "aqa",
     level: "gcse",
     video_url: DEMO_YT.ionic,
+    spec_point_id: "demo-sp-ionic",
   },
   {
     id: "demo-vid-6",

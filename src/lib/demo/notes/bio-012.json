@@ -1,0 +1,351 @@
+{
+  "boards": {
+    "edexcel": {
+      "spec_codes": [
+        "4.1.3"
+      ],
+      "worked_example": {
+        "answer_points": [
+          "The cells lose water and become plasmolysed.",
+          "The water moves out by osmosis.",
+          "It moves from a high concentration of water molecules in the potato to a low concentration of water molecules in the salt solution, through the partially permeable membrane."
+        ],
+        "exemplar_id": "fde5890d-b6bb-4151-9888-373a87c807bc",
+        "marks": 3,
+        "question": "Potato chip A is transferred from the distilled water into a concentrated salt solution.\n\nExplain what will happen to the cells in potato chip A.",
+        "source": "EDEXCEL jun 2018, Paper 1 (H), Q3(a)(iii)",
+        "tip": "One mark for the outcome, one for osmosis and one for the direction of movement across the membrane."
+      }
+    }
+  },
+  "checks": [
+    {
+      "a": "The movement (diffusion) of water from a dilute solution to a concentrated solution through a partially permeable membrane.",
+      "marks": 2,
+      "q": "Define osmosis."
+    },
+    {
+      "a": "Water leaves the cell by osmosis, because the solution outside is more concentrated than inside. The cytoplasm shrinks away from the cell wall and the cell is plasmolysed.",
+      "marks": 3,
+      "q": "A plant cell is placed in a concentrated sugar solution. Describe and explain what happens to the cell."
+    },
+    {
+      "a": "Change = 0.4 g. 0.4 ÷ 8.0 × 100 = 5% increase.",
+      "marks": 2,
+      "q": "A potato piece has a mass of 8.0 g. After 24 hours in water it has a mass of 8.4 g. Calculate the percentage change in mass."
+    }
+  ],
+  "concept_id": "bio-012",
+  "format": 1,
+  "key_idea": "**Osmosis** is the movement of water from a dilute solution to a concentrated solution through a partially permeable membrane. It needs no energy. It makes plant and animal cells gain or lose water, depending on the solution around them.",
+  "meta": {
+    "checked_at": "2026-10-01",
+    "checked_by": "sonnet-science-check",
+    "exemplar_ids": [
+      "77809530-0a95-441a-ac89-88e1679d0a83",
+      "fde5890d-b6bb-4151-9888-373a87c807bc",
+      "b984aad1-e61e-451c-a9d0-f1b25c424966"
+    ],
+    "spec_point_ids": [
+      "demo-sp-transport"
+    ],
+    "status": "approved",
+    "written_at": "2026-10-01",
+    "written_by": "writer-c"
+  },
+  "sections": [
+    {
+      "blocks": [
+        {
+          "text": "Osmosis is the movement of water across a membrane. This section covers the key words and the direction water moves.",
+          "type": "paragraph"
+        },
+        {
+          "items": [
+            {
+              "meaning": "A membrane that lets some particles through and stops others, such as a cell membrane.",
+              "term": "Partially permeable membrane"
+            },
+            {
+              "meaning": "Lots of water, little dissolved substance.",
+              "term": "Dilute solution"
+            },
+            {
+              "meaning": "Less water, more dissolved substance.",
+              "term": "Concentrated solution"
+            },
+            {
+              "meaning": "The movement of water from a dilute solution to a concentrated solution through a partially permeable membrane.",
+              "term": "Osmosis"
+            },
+            {
+              "meaning": "How likely water is to move. Pure water is highest, and dissolved substances lower it.",
+              "term": "Water potential"
+            }
+          ],
+          "type": "definitions"
+        },
+        {
+          "items": [
+            "Small water molecules pass through the membrane. Larger solute molecules, such as sugar, do not.",
+            "Water moves from a high water potential to a low water potential. This is the same direction as dilute to concentrated.",
+            "Water keeps moving until the two sides balance.",
+            "Osmosis is **passive**: it needs no energy. Active transport does need energy."
+          ],
+          "type": "list"
+        },
+        {
+          "text": "Working out any osmosis diagram",
+          "type": "subheading"
+        },
+        {
+          "items": [
+            {
+              "lead": "Find the membrane.",
+              "text": "Osmosis happens only across a partially permeable membrane."
+            },
+            {
+              "lead": "Compare the solutions.",
+              "text": "Decide which side is more dilute and which is more concentrated."
+            },
+            {
+              "lead": "Draw the arrow.",
+              "text": "Water moves from the dilute side to the concentrated side. The dissolved substance does not cross."
+            },
+            {
+              "lead": "State the result.",
+              "text": "The concentrated side gains water. A bag or cell on that side swells."
+            }
+          ],
+          "type": "steps"
+        },
+        {
+          "text": "A common model is a bag of membrane filled with sugar solution and placed in water. Water moves in because the solution inside is more concentrated, so the bag swells.",
+          "type": "paragraph"
+        },
+        {
+          "items": [
+            "Osmosis moves water, not solute.",
+            "Water moves from dilute to concentrated, or high to low water potential.",
+            "It is passive and needs no energy."
+          ],
+          "type": "key-points"
+        }
+      ],
+      "heading": "How osmosis works"
+    },
+    {
+      "blocks": [
+        {
+          "text": "A cell acts like the bag in the model, so what happens depends on the solution around it.",
+          "type": "paragraph"
+        },
+        {
+          "items": [
+            {
+              "meaning": "A plant cell full of water, pushing firmly against its cell wall.",
+              "term": "Turgid"
+            },
+            {
+              "meaning": "A plant cell that has lost so much water that the cytoplasm shrinks away from the cell wall.",
+              "term": "Plasmolysed"
+            },
+            {
+              "meaning": "An animal cell swelling with water until it bursts.",
+              "term": "Lysis"
+            }
+          ],
+          "type": "definitions"
+        },
+        {
+          "columns": [
+            "Solution outside the cell",
+            "Plant cell",
+            "Animal cell (red blood cell)"
+          ],
+          "rows": [
+            [
+              "More dilute than the cell, such as pure water",
+              "Water enters. The vacuole swells and the cell becomes **turgid**. The cell wall stops it bursting.",
+              "Water enters. The cell swells and bursts (**lysis**). There is no cell wall."
+            ],
+            [
+              "Same concentration as the cell",
+              "No net movement of water. The cell stays the same.",
+              "No net movement of water. The cell stays the same."
+            ],
+            [
+              "More concentrated than the cell",
+              "Water leaves. The cell is **plasmolysed** and limp.",
+              "Water leaves. The cell shrinks and shrivels (it crenates)."
+            ]
+          ],
+          "type": "table"
+        },
+        {
+          "text": "Osmosis in living things",
+          "type": "subheading"
+        },
+        {
+          "items": [
+            "Turgid cells push against each other and support the plant. Without enough water the plant wilts.",
+            "Root hair cells take in water from the soil by osmosis.",
+            "Stomata open when glucose builds up in the guard cells. Water enters them by osmosis, they swell and curve, and the stoma opens.",
+            "In untreated diabetes the blood has too much glucose. It is more concentrated than the body cells, so water leaves the cells by osmosis."
+          ],
+          "type": "list"
+        },
+        {
+          "items": [
+            "Dilute outside: a plant cell becomes turgid and an animal cell bursts.",
+            "Concentrated outside: a plant cell is plasmolysed and an animal cell shrivels.",
+            "The cell wall is why a plant cell does not burst."
+          ],
+          "type": "key-points"
+        }
+      ],
+      "heading": "Osmosis in plant and animal cells"
+    },
+    {
+      "blocks": [
+        {
+          "text": "Put pieces of plant tissue in solutions of different concentrations. Weigh each piece before and after. A gain in mass means water entered. A loss means water left.",
+          "type": "paragraph"
+        },
+        {
+          "text": "Pieces start with different masses, so compare using **percentage change**. A gain is positive and a loss is negative.",
+          "type": "paragraph"
+        },
+        {
+          "formula": "percentage change in mass = (change in mass ÷ starting mass) × 100",
+          "label": "Percentage change in mass",
+          "type": "equation",
+          "where": [
+            "change in mass = final mass − starting mass, in g",
+            "starting mass, in g"
+          ]
+        },
+        {
+          "items": [
+            {
+              "lead": "Change.",
+              "text": "A potato piece goes from 2.5 g to 2.7 g. The change is 2.7 − 2.5 = 0.2 g."
+            },
+            {
+              "lead": "Divide and multiply.",
+              "text": "0.2 ÷ 2.5 × 100 = 8%. It is an increase."
+            }
+          ],
+          "type": "steps"
+        },
+        {
+          "formula": "rate of water uptake = amount of water taken in ÷ time taken",
+          "label": "Rate of water uptake",
+          "type": "equation",
+          "where": [
+            "amount of water, in g or cm³",
+            "time, in minutes",
+            "rate, in g per minute"
+          ]
+        },
+        {
+          "diagram": {
+            "alt": "A line graph of change in mass of potato tissue against concentration of solution. The line falls from a gain in mass in pure water, crosses the no-change level at about 0.3 mol per dm cubed, and then falls to a loss in mass in concentrated solutions.",
+            "bands": [
+              {
+                "from": 0,
+                "label": "Tissue gains water",
+                "to": 0.3
+              },
+              {
+                "from": 0.3,
+                "label": "Tissue loses water",
+                "to": 0.8
+              }
+            ],
+            "kind": "line-graph",
+            "markers": [
+              {
+                "label": "No change in mass",
+                "x": 0.3
+              }
+            ],
+            "series": [
+              {
+                "name": "Potato tissue",
+                "points": [
+                  [
+                    0,
+                    0.95
+                  ],
+                  [
+                    0.1,
+                    0.78
+                  ],
+                  [
+                    0.2,
+                    0.62
+                  ],
+                  [
+                    0.3,
+                    0.5
+                  ],
+                  [
+                    0.4,
+                    0.38
+                  ],
+                  [
+                    0.6,
+                    0.2
+                  ],
+                  [
+                    0.8,
+                    0.1
+                  ]
+                ]
+              }
+            ],
+            "x": {
+              "label": "Concentration of solution",
+              "max": 0.8,
+              "min": 0,
+              "ticks": [
+                0,
+                0.2,
+                0.4,
+                0.6,
+                0.8
+              ],
+              "unit": "mol/dm³"
+            },
+            "y": {
+              "label": "Change in mass of the tissue",
+              "zero": 0.5
+            }
+          },
+          "type": "diagram"
+        },
+        {
+          "items": [
+            "Plot percentage change in mass against concentration.",
+            "Where the line crosses zero there is no net movement of water.",
+            "That solution has the same concentration as the solution inside the cells.",
+            "The full method is in the required practical note."
+          ],
+          "type": "list"
+        },
+        {
+          "items": [
+            "Gain in mass: water entered. Loss in mass: water left.",
+            "Use percentage change to compare pieces of different mass.",
+            "The zero crossing on the graph shows the concentration inside the cells."
+          ],
+          "type": "key-points"
+        }
+      ],
+      "heading": "Measuring the effect of osmosis"
+    }
+  ],
+  "subject": "biology",
+  "title": "Osmosis"
+}

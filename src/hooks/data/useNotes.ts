@@ -1,14 +1,16 @@
 import { useQuery } from "@tanstack/react-query";
 import { supabase } from "@/integrations/supabase/client";
 import { isDemoMode } from "@/lib/auth/session";
-import type { Note } from "@/lib/notes/noteFormat";
+import { demoSpecPointNotes, loadDemoNote } from "@/lib/demo/demoNotes";
+import type { Note, SpecPointNote } from "@/lib/notes/noteFormat";
 
 /** One published note, with its concept's subject and title. */
 export function useNote(conceptId: string) {
   return useQuery({
     queryKey: ["note", conceptId],
-    enabled: !isDemoMode(),
     queryFn: async (): Promise<Note | null> => {
+      // The showcase has no session: its notes are fixtures (see demoNotes.ts).
+      if (isDemoMode()) return loadDemoNote(conceptId);
       const { data, error } = await supabase
         .from("notes")
         .select("body, status")
@@ -21,13 +23,7 @@ export function useNote(conceptId: string) {
   });
 }
 
-/** A published note that covers a spec point. */
-export interface SpecPointNote {
-  id: string;
-  title: string;
-  /** The note written for this point, as opposed to one that also touches it. */
-  primary: boolean;
-}
+export type { SpecPointNote };
 
 /**
  * The published notes behind each of the given spec points, primary note first.
@@ -40,8 +36,9 @@ export function useSpecPointNotes(specPointIds: string[]) {
   const ids = [...new Set(specPointIds)].sort();
   return useQuery({
     queryKey: ["spec-point-notes", ids],
-    enabled: ids.length > 0 && !isDemoMode(),
+    enabled: ids.length > 0,
     queryFn: async (): Promise<Map<string, SpecPointNote[]>> => {
+      if (isDemoMode()) return demoSpecPointNotes(ids);
       const { data: links, error } = await supabase
         .from("note_concept_spec_points")
         .select("spec_point_id, is_primary, note_concepts(id, title)")

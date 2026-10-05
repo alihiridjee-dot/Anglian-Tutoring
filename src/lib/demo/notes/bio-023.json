@@ -1,0 +1,276 @@
+{
+  "boards": {
+    "edexcel": {
+      "spec_codes": [
+        "4.2.1"
+      ],
+      "worked_example": {
+        "answer_points": [
+          "Lipase digests fat (lipid). Breakdown is accepted for digest.",
+          "Forming fatty acids (and glycerol).",
+          "Which are acidic, lowering the pH of the mixture, or making the mixture more acidic."
+        ],
+        "exemplar_id": "51b24e35-7391-463a-9a0e-d05ff1375329",
+        "marks": 3,
+        "question": "5 cm³ of milk B and 1 cm³ of lipase were added to a test tube.\n\nThe pH of this mixture was pH 7.\n\nThis test tube was placed in a water bath for 10 minutes.\n\nThe pH of the mixture changed from pH 7 to pH 5.\n\nExplain what caused this change in pH.",
+        "source": "EDEXCEL jun 2022, Paper 1 (H), Q6(b)(i)",
+        "tip": "One mark for each link in the chain: lipase, fatty acids, lower pH."
+      }
+    }
+  },
+  "checks": [
+    {
+      "a": "The salivary glands, the pancreas and the small intestine.",
+      "marks": 1,
+      "q": "Which organs in the human digestive system produce amylase?"
+    },
+    {
+      "a": "It emulsifies fat, which increases the surface area of fat, so lipase can break it down faster. It also neutralises the acid from the stomach.",
+      "marks": 2,
+      "q": "How does bile help in the digestion of fats?"
+    },
+    {
+      "a": "Proteins give amino acids. Lipids give fatty acids and glycerol.",
+      "marks": 2,
+      "q": "Name the molecules produced when proteins and lipids are digested."
+    }
+  ],
+  "concept_id": "bio-023",
+  "format": 1,
+  "key_idea": "Carbohydrases, proteases and lipases break food down into small soluble molecules. Bile helps lipase by neutralising stomach acid and emulsifying fat. The small molecules are used to build new carbohydrates, lipids and proteins.",
+  "meta": {
+    "checked_at": "2026-10-01",
+    "checked_by": "sonnet-science-check",
+    "exemplar_ids": [
+      "4ccaec4c-fe80-4f55-86ff-6de99cdb0b6e",
+      "51b24e35-7391-463a-9a0e-d05ff1375329",
+      "efba3ddd-6c4c-486f-a736-dbf37a2b6846"
+    ],
+    "spec_point_ids": [
+      "demo-sp-digestion"
+    ],
+    "status": "approved",
+    "written_at": "2026-10-01",
+    "written_by": "sonnet-5-5"
+  },
+  "sections": [
+    {
+      "blocks": [
+        {
+          "text": "Digestive enzymes convert food into small soluble molecules that can be absorbed into the blood. Each type acts on one type of food.",
+          "type": "paragraph"
+        },
+        {
+          "columns": [
+            "Enzyme",
+            "Breaks down",
+            "Into",
+            "Made in"
+          ],
+          "rows": [
+            [
+              "Amylase (a carbohydrase)",
+              "Starch",
+              "Sugars",
+              "Salivary glands, pancreas, small intestine"
+            ],
+            [
+              "Proteases",
+              "Proteins",
+              "Amino acids",
+              "Stomach, pancreas, small intestine"
+            ],
+            [
+              "Lipases",
+              "Lipids (fats)",
+              "Fatty acids and glycerol",
+              "Pancreas, small intestine"
+            ]
+          ],
+          "type": "table"
+        },
+        {
+          "text": "Carbohydrases break down carbohydrates to simple sugars. Amylase is the carbohydrase that breaks down starch.",
+          "type": "paragraph"
+        },
+        {
+          "diagram": {
+            "alt": "Sort each statement into amylase, protease or lipase.",
+            "groups": [
+              "Amylase",
+              "Protease",
+              "Lipase"
+            ],
+            "items": [
+              {
+                "group": 0,
+                "text": "Starch is the substrate"
+              },
+              {
+                "group": 0,
+                "text": "Made in the salivary glands"
+              },
+              {
+                "group": 1,
+                "text": "Protein is the substrate"
+              },
+              {
+                "group": 1,
+                "text": "Produces amino acids"
+              },
+              {
+                "group": 1,
+                "text": "Made in the stomach"
+              },
+              {
+                "group": 2,
+                "text": "Fat is the substrate"
+              },
+              {
+                "group": 2,
+                "text": "Produces fatty acids and glycerol"
+              },
+              {
+                "group": 0,
+                "text": "Produces sugars"
+              }
+            ],
+            "kind": "sort",
+            "prompt": "Amylase, protease or lipase?"
+          },
+          "type": "diagram"
+        },
+        {
+          "items": [
+            "Amylase: starch to sugars. Protease: protein to amino acids. Lipase: fat to fatty acids and glycerol.",
+            "The pancreas and small intestine make all three types.",
+            "Each product is small and soluble, so it can be absorbed."
+          ],
+          "type": "key-points"
+        }
+      ],
+      "heading": "The three types of digestive enzyme"
+    },
+    {
+      "blocks": [
+        {
+          "text": "Bile is made in the liver and stored in the gall bladder. It is released into the small intestine, where it helps lipase.",
+          "type": "paragraph"
+        },
+        {
+          "items": [
+            {
+              "meaning": "Breaking large droplets of fat into many small droplets.",
+              "term": "Emulsification"
+            }
+          ],
+          "type": "definitions"
+        },
+        {
+          "items": [
+            "Bile is alkaline. It neutralises the hydrochloric acid that comes from the stomach.",
+            "This gives the correct pH for the enzymes in the small intestine.",
+            "Bile emulsifies fat. This gives small droplets with a larger surface area.",
+            "The alkaline conditions and the large surface area increase the rate of fat breakdown by lipase."
+          ],
+          "type": "list"
+        },
+        {
+          "diagram": {
+            "alt": "How bile helps fat digestion: bile is released into the small intestine, neutralises acid, emulsifies fat into small droplets, giving a larger surface area, so lipase breaks the fat down faster.",
+            "kind": "flow",
+            "steps": [
+              "Bile released into the small intestine",
+              "Acid neutralised: correct pH for lipase",
+              "Fat emulsified into small droplets",
+              "Larger surface area for lipase",
+              "Fat digested faster"
+            ]
+          },
+          "type": "diagram"
+        },
+        {
+          "items": [
+            "Bile is made in the liver, stored in the gall bladder and is alkaline.",
+            "It emulsifies fat, which increases the surface area for lipase.",
+            "Bile does not digest fat. Lipase does."
+          ],
+          "type": "key-points"
+        }
+      ],
+      "heading": "Bile"
+    },
+    {
+      "blocks": [
+        {
+          "text": "The small molecules from digestion are absorbed into the blood. The body uses them to build new molecules, and some are used in respiration.",
+          "type": "paragraph"
+        },
+        {
+          "columns": [
+            "Built from digestion products",
+            "Made of"
+          ],
+          "rows": [
+            [
+              "Carbohydrates, such as starch and cellulose",
+              "Sugars (glucose), joined together"
+            ],
+            [
+              "Proteins",
+              "Amino acids, joined together"
+            ],
+            [
+              "Lipids",
+              "Fatty acids and glycerol"
+            ]
+          ],
+          "type": "table"
+        },
+        {
+          "items": [
+            {
+              "meaning": "A small molecule that joins with many others to make a polymer, for example an amino acid.",
+              "term": "Monomer"
+            },
+            {
+              "meaning": "A large molecule made of many monomers joined together, for example a protein.",
+              "term": "Polymer"
+            }
+          ],
+          "type": "definitions"
+        },
+        {
+          "items": [
+            "Some glucose is used in respiration.",
+            "Amino acids are joined to make the proteins the body needs for growth, such as muscle."
+          ],
+          "type": "list"
+        },
+        {
+          "text": "Evidence that lipase works",
+          "type": "subheading"
+        },
+        {
+          "items": [
+            "When lipase breaks down fat in milk, fatty acids are produced.",
+            "Fatty acids are acidic, so the pH of the mixture falls.",
+            "An indicator that is pink in alkaline conditions turns colourless as the pH falls."
+          ],
+          "type": "list"
+        },
+        {
+          "items": [
+            "Digestion products are used to build new carbohydrates, lipids and proteins.",
+            "Starch is made of sugar monomers. Proteins are made of amino acids.",
+            "Some glucose is used in respiration."
+          ],
+          "type": "key-points"
+        }
+      ],
+      "heading": "Using the products of digestion"
+    }
+  ],
+  "subject": "biology",
+  "title": "Digestive enzymes"
+}

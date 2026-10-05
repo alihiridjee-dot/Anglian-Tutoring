@@ -1,0 +1,314 @@
+{
+  "boards": {
+    "edexcel": {
+      "extra": [
+        {
+          "blocks": [
+            {
+              "text": "You must be able to state how the three factors combine. The slider above uses this relationship.",
+              "type": "paragraph"
+            },
+            {
+              "formula": "rate of diffusion ∝ (surface area × concentration difference) ÷ thickness of the membrane",
+              "label": "Fick's law",
+              "type": "equation",
+              "where": [
+                "∝ means \"is proportional to\"",
+                "Doubling the surface area or the concentration difference doubles the rate.",
+                "Doubling the thickness halves the rate."
+              ]
+            }
+          ],
+          "heading": "Fick's law"
+        }
+      ],
+      "spec_codes": [
+        "4.1.3"
+      ],
+      "worked_example": {
+        "answer_points": [
+          "Heat (hydrochloric) acid to different temperatures (or heat the agar jelly cubes).",
+          "Use agar jelly cubes of the same size.",
+          "Use the same volume and concentration of acid.",
+          "Leave them for the same amount of time.",
+          "Measure the clear distance from the outside of the cube at each temperature."
+        ],
+        "exemplar_id": "d437b9a9-6445-4aa5-865c-315d1b6e2b14",
+        "marks": 3,
+        "question": "Devise a method, using cubes of agar jelly, to investigate how temperature affects the rate of diffusion.",
+        "source": "EDEXCEL nov 2020, Paper 1 (F), Q4(b)",
+        "tip": "Any three score one mark each. \"Amount of acid\" is ignored."
+      }
+    }
+  },
+  "checks": [
+    {
+      "a": "The spreading of particles from a region of higher concentration to a region of lower concentration (down a concentration gradient).",
+      "marks": 2,
+      "q": "What is diffusion?"
+    },
+    {
+      "a": "Any two from: concentration gradient, temperature, surface area, diffusion distance (thickness of the membrane).",
+      "marks": 2,
+      "q": "Give two factors that affect the rate of diffusion."
+    },
+    {
+      "a": "4.5 ÷ 150 = 0.03 mm per second.",
+      "marks": 2,
+      "q": "Acid diffused 4.5 mm into an agar cube in 150 seconds. Calculate the distance diffused in one second."
+    }
+  ],
+  "concept_id": "bio-011",
+  "format": 1,
+  "key_idea": "**Diffusion** is the spreading out of particles from a region of higher concentration to a region of lower concentration. It is how oxygen, carbon dioxide and many other substances move across cell membranes. The rate depends on the concentration gradient, temperature, surface area and distance.",
+  "meta": {
+    "checked_at": "2026-10-01",
+    "checked_by": "sonnet-science-check",
+    "exemplar_ids": [
+      "91f53dc0-7e5a-4409-b19c-a06d9ead4fab",
+      "d437b9a9-6445-4aa5-865c-315d1b6e2b14",
+      "6cb3c97d-5aba-49e2-9a9b-5c0a2b635ce5"
+    ],
+    "spec_point_ids": [
+      "demo-sp-transport"
+    ],
+    "status": "approved",
+    "written_at": "2026-10-01",
+    "written_by": "Claude Sonnet 5.5"
+  },
+  "sections": [
+    {
+      "blocks": [
+        {
+          "text": "Particles of a gas or of a substance in solution spread out. This section covers what moves and in which direction.",
+          "type": "paragraph"
+        },
+        {
+          "items": [
+            {
+              "meaning": "The spreading out of particles, giving a net movement from a higher concentration to a lower concentration.",
+              "term": "Diffusion"
+            },
+            {
+              "meaning": "The difference in concentration between two places.",
+              "term": "Concentration gradient"
+            }
+          ],
+          "type": "definitions"
+        },
+        {
+          "items": [
+            "Particles move **down** a concentration gradient, from high concentration to low concentration.",
+            "Diffusion carries on until the concentrations are equal.",
+            "It does not need energy from respiration.",
+            "Particles can diffuse across cell membranes."
+          ],
+          "type": "list"
+        },
+        {
+          "text": "Substances that diffuse",
+          "type": "subheading"
+        },
+        {
+          "columns": [
+            "Substance",
+            "Where it diffuses"
+          ],
+          "rows": [
+            [
+              "Oxygen",
+              "Into cells from the blood, for respiration. In gas exchange, from the air into the blood"
+            ],
+            [
+              "Carbon dioxide",
+              "Out of cells into the blood. In gas exchange, from the blood into the air"
+            ],
+            [
+              "Urea",
+              "Out of cells into the blood plasma, for excretion in the kidney"
+            ],
+            [
+              "Glucose, amino acids, fatty acids, glycerol, mineral ions",
+              "Into cells from the blood"
+            ]
+          ],
+          "type": "table"
+        },
+        {
+          "items": [
+            "Diffusion is the net movement of particles down a concentration gradient.",
+            "Oxygen and carbon dioxide move into and out of cells by diffusion.",
+            "A substance only diffuses if there is a difference in concentration."
+          ],
+          "type": "key-points"
+        }
+      ],
+      "heading": "What diffusion is"
+    },
+    {
+      "blocks": [
+        {
+          "text": "Four factors change how fast a substance diffuses.",
+          "type": "paragraph"
+        },
+        {
+          "columns": [
+            "Factor",
+            "Effect on rate",
+            "Why"
+          ],
+          "rows": [
+            [
+              "Concentration gradient",
+              "Steeper gradient, faster rate",
+              "More particles move down the gradient than back up it"
+            ],
+            [
+              "Temperature",
+              "Higher temperature, faster rate",
+              "Particles have more energy and move faster"
+            ],
+            [
+              "Surface area",
+              "Larger surface area, faster rate",
+              "More particles can cross at the same time"
+            ],
+            [
+              "Diffusion distance (thickness of the membrane)",
+              "Shorter distance, faster rate",
+              "Particles have less far to travel"
+            ]
+          ],
+          "type": "table"
+        },
+        {
+          "diagram": {
+            "alt": "Move the sliders for surface area, concentration difference and membrane thickness to see how the relative rate of diffusion changes. The number is a comparison between settings, not a real measurement.",
+            "inputs": [
+              {
+                "id": "sa",
+                "label": "Surface area",
+                "max": 20,
+                "min": 1,
+                "step": 1,
+                "unit": "units",
+                "value": 5
+              },
+              {
+                "id": "cd",
+                "label": "Concentration difference",
+                "max": 10,
+                "min": 1,
+                "step": 1,
+                "unit": "units",
+                "value": 4
+              },
+              {
+                "id": "th",
+                "label": "Membrane thickness",
+                "max": 10,
+                "min": 1,
+                "step": 1,
+                "unit": "units",
+                "value": 2
+              }
+            ],
+            "kind": "slider",
+            "outputs": [
+              {
+                "decimals": 1,
+                "formula": "sa * cd / th",
+                "label": "Relative rate of diffusion (a comparison, not a real measurement)",
+                "unit": "arbitrary units"
+              }
+            ]
+          },
+          "type": "diagram"
+        },
+        {
+          "text": "Keeping diffusion fast in the body",
+          "type": "subheading"
+        },
+        {
+          "items": [
+            "Gas exchange surfaces such as the alveoli are thin, one cell thick, so the diffusion distance is short.",
+            "A good blood supply keeps the concentration gradient steep by carrying substances away.",
+            "Ventilation brings fresh air in, which keeps the oxygen concentration high in the alveoli."
+          ],
+          "type": "list"
+        },
+        {
+          "items": [
+            "A steeper gradient, higher temperature and larger surface area all speed up diffusion.",
+            "A thicker membrane or longer distance slows diffusion down.",
+            "Exchange surfaces are thin and have a good blood supply."
+          ],
+          "type": "key-points"
+        }
+      ],
+      "heading": "What affects the rate of diffusion"
+    },
+    {
+      "blocks": [
+        {
+          "text": "Agar jelly cubes with a pink indicator turn clear when acid diffuses into them. The distance the clear area has spread shows how far the acid has diffused.",
+          "type": "paragraph"
+        },
+        {
+          "items": [
+            {
+              "lead": "Prepare.",
+              "text": "Use agar cubes of the same size, each containing the pink indicator."
+            },
+            {
+              "lead": "Change one variable.",
+              "text": "Heat the hydrochloric acid to different temperatures."
+            },
+            {
+              "lead": "Control the rest.",
+              "text": "Use the same volume and concentration of acid, and leave the cubes for the same time."
+            },
+            {
+              "lead": "Measure.",
+              "text": "Measure the clear distance from the outside of each cube at each temperature."
+            }
+          ],
+          "type": "steps"
+        },
+        {
+          "formula": "rate of diffusion = distance diffused ÷ time",
+          "label": "Rate of diffusion",
+          "type": "equation",
+          "where": [
+            "distance in mm",
+            "time in s"
+          ]
+        },
+        {
+          "items": [
+            {
+              "lead": "Substitute.",
+              "text": "The acid diffused 3 mm in 120 s, so 3 ÷ 120."
+            },
+            {
+              "lead": "Answer.",
+              "text": "0.025 mm per second."
+            }
+          ],
+          "type": "steps"
+        },
+        {
+          "items": [
+            "Change one factor at a time, and control the others.",
+            "Measure the clear distance from the outside of the cube.",
+            "Rate = distance ÷ time."
+          ],
+          "type": "key-points"
+        }
+      ],
+      "heading": "Investigating diffusion with agar jelly"
+    }
+  ],
+  "subject": "biology",
+  "title": "Diffusion"
+}

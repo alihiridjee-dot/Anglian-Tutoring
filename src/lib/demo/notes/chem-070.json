@@ -1,0 +1,281 @@
+{
+  "boards": {
+    "aqa": {
+      "spec_codes": [
+        "5.6.1"
+      ],
+      "worked_example": {
+        "answer_points": [
+          "The rate increases.",
+          "Because the particles have more energy (they move faster, or more particles have energy greater than the activation energy).",
+          "So collisions are more frequent."
+        ],
+        "exemplar_id": "93f62dbb-bb64-46e3-8809-5c5a9a8c998d",
+        "marks": 3,
+        "question": "Temperature also affects the rate of the reaction.\n\nExplain how increasing the temperature affects the rate of the reaction.\n\nYou should refer to particles and collisions.",
+        "source": "AQA jun 2021, Paper 2 (H), Q01.5",
+        "tip": "One mark each: the rate, the energy of the particles, and the frequency of collisions."
+      }
+    }
+  },
+  "checks": [
+    {
+      "a": "The minimum energy that particles must have to react.",
+      "marks": 1,
+      "q": "State what is meant by activation energy."
+    },
+    {
+      "a": "The particles are closer together (more in the same volume), so collisions are more frequent.",
+      "marks": 2,
+      "q": "Explain why increasing the pressure of a gas increases the rate of reaction."
+    },
+    {
+      "a": "The small cubes have a larger surface area to volume ratio (6 compared with 3), so collisions are more frequent.",
+      "marks": 2,
+      "q": "A cube of side 2 cm is cut into cubes of side 1 cm. Explain why the small cubes react faster."
+    }
+  ],
+  "concept_id": "chem-070",
+  "format": 1,
+  "key_idea": "Particles react only when they collide with enough energy. That minimum energy is the **activation energy**. Concentration, pressure and surface area raise the frequency of collisions. Temperature raises both the frequency and the energy of collisions.",
+  "meta": {
+    "checked_at": "2026-10-01",
+    "checked_by": "sonnet-science-check",
+    "exemplar_ids": [
+      "93f62dbb-bb64-46e3-8809-5c5a9a8c998d",
+      "4e4d5923-1656-4a1b-8e7c-a31961fd84ef",
+      "d1cc345d-07ea-460a-8a37-f61fd38971ba"
+    ],
+    "spec_point_ids": [
+      "demo-sp-rates"
+    ],
+    "status": "approved",
+    "written_at": "2026-10-01",
+    "written_by": "sonnet-5-5"
+  },
+  "sections": [
+    {
+      "blocks": [
+        {
+          "text": "Collision theory explains why the factors in the previous note change the rate. It has two conditions for a reaction.",
+          "type": "paragraph"
+        },
+        {
+          "items": [
+            {
+              "meaning": "Reactions happen only when particles collide with each other and with enough energy.",
+              "term": "Collision theory"
+            },
+            {
+              "meaning": "The minimum energy that particles must have to react.",
+              "term": "Activation energy"
+            },
+            {
+              "meaning": "How many collisions happen per second.",
+              "term": "Frequency of collisions"
+            }
+          ],
+          "type": "definitions"
+        },
+        {
+          "items": [
+            "The particles must **collide**.",
+            "The collision must have at least the **activation energy**.",
+            "A collision with less than the activation energy does not cause a reaction.",
+            "The rate depends on how often particles collide and how many collisions have enough energy."
+          ],
+          "type": "list"
+        },
+        {
+          "items": [
+            "A reaction needs a collision with at least the activation energy.",
+            "More frequent collisions, or more energetic collisions, give a faster rate."
+          ],
+          "type": "key-points"
+        }
+      ],
+      "heading": "Collision theory"
+    },
+    {
+      "blocks": [
+        {
+          "text": "Each factor changes either how often particles collide, or how much energy the collisions have.",
+          "type": "paragraph"
+        },
+        {
+          "columns": [
+            "Factor",
+            "What changes",
+            "Effect on collisions"
+          ],
+          "rows": [
+            [
+              "Higher concentration",
+              "More particles in the same volume, closer together",
+              "More frequent collisions"
+            ],
+            [
+              "Higher pressure of a gas",
+              "Gas particles are closer together",
+              "More frequent collisions"
+            ],
+            [
+              "Larger surface area of a solid",
+              "More solid particles exposed to the other reactant",
+              "More frequent collisions"
+            ],
+            [
+              "Higher temperature",
+              "Particles have more energy and move faster",
+              "More frequent collisions, and a greater proportion of collisions have at least the activation energy"
+            ]
+          ],
+          "type": "table"
+        },
+        {
+          "diagram": {
+            "alt": "Sort each change into what it does to collisions.",
+            "groups": [
+              "More frequent collisions only",
+              "More frequent and more energetic collisions",
+              "Lowers the activation energy"
+            ],
+            "items": [
+              {
+                "group": 0,
+                "text": "Increase the concentration of a solution"
+              },
+              {
+                "group": 0,
+                "text": "Increase the pressure of a gas"
+              },
+              {
+                "group": 0,
+                "text": "Use smaller pieces of a solid"
+              },
+              {
+                "group": 1,
+                "text": "Increase the temperature"
+              },
+              {
+                "group": 2,
+                "text": "Add a catalyst"
+              }
+            ],
+            "kind": "sort",
+            "prompt": "Sort each change into what it does"
+          },
+          "type": "diagram"
+        },
+        {
+          "text": "Size of pieces and surface area to volume ratio",
+          "type": "subheading"
+        },
+        {
+          "formula": "surface area to volume ratio = surface area ÷ volume",
+          "label": "Surface area to volume ratio",
+          "type": "equation",
+          "where": [
+            "surface area, in cm²",
+            "volume, in cm³",
+            "ratio, in /cm"
+          ]
+        },
+        {
+          "items": [
+            {
+              "lead": "A cube of side 1 cm.",
+              "text": "Surface area = 6 × 1 × 1 = 6 cm². Volume = 1 cm³. The ratio is 6 /cm."
+            },
+            {
+              "lead": "A cube of side 2 cm.",
+              "text": "Surface area = 6 × 2 × 2 = 24 cm². Volume = 8 cm³. The ratio is 3 /cm."
+            }
+          ],
+          "type": "steps"
+        },
+        {
+          "diagram": {
+            "alt": "Change the side of a cube to see its surface area, volume and surface area to volume ratio.",
+            "inputs": [
+              {
+                "id": "L",
+                "label": "Side of the cube",
+                "max": 5,
+                "min": 1,
+                "step": 1,
+                "unit": "cm",
+                "value": 2
+              }
+            ],
+            "kind": "slider",
+            "outputs": [
+              {
+                "decimals": 0,
+                "formula": "6 * L^2",
+                "label": "Surface area",
+                "unit": "cm²"
+              },
+              {
+                "decimals": 0,
+                "formula": "L^3",
+                "label": "Volume",
+                "unit": "cm³"
+              },
+              {
+                "decimals": 1,
+                "formula": "6 / L",
+                "label": "Surface area to volume ratio",
+                "unit": "/cm"
+              }
+            ]
+          },
+          "type": "diagram"
+        },
+        {
+          "items": [
+            "Smaller pieces have a larger surface area to volume ratio.",
+            "More of the solid is exposed to the other reactant, so collisions are more frequent.",
+            "Doubling the concentration gives twice as many particles in the same volume, so the frequency of collisions doubles."
+          ],
+          "type": "list"
+        },
+        {
+          "items": [
+            "Concentration, pressure and surface area change how often particles collide.",
+            "Temperature changes the frequency and the energy of collisions.",
+            "Smaller pieces have a larger surface area to volume ratio."
+          ],
+          "type": "key-points"
+        }
+      ],
+      "heading": "Explaining each factor"
+    },
+    {
+      "blocks": [
+        {
+          "text": "The rate is highest at the start and falls as the reaction goes on.",
+          "type": "paragraph"
+        },
+        {
+          "items": [
+            "Reactants are used up, so their concentration falls.",
+            "There are fewer particles in the same volume, so collisions are less frequent.",
+            "The reaction stops when one reactant has been used up."
+          ],
+          "type": "list"
+        },
+        {
+          "items": [
+            "The rate falls because the concentration of reactants falls.",
+            "The reaction stops when a reactant is used up."
+          ],
+          "type": "key-points"
+        }
+      ],
+      "heading": "Why the rate falls during a reaction"
+    }
+  ],
+  "subject": "chemistry",
+  "title": "Collision theory and activation energy"
+}
