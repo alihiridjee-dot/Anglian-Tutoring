@@ -24,6 +24,7 @@ import {
 } from "@/lib/billing/billing";
 import { CadenceSwitcher } from "@/components/billing/CadenceSwitcher";
 import { SubscriptionPanel } from "@/components/billing/SubscriptionPanel";
+import { PlanLifecycleActions } from "@/components/billing/PlanLifecycleActions";
 import { AddSubjectCard } from "@/components/billing/AddSubjectCard";
 import { EnrolledSubjectsCard } from "@/components/billing/EnrolledSubjectsCard";
 import { InvoiceHistoryCard } from "@/components/billing/InvoiceHistory";
@@ -85,25 +86,26 @@ function ChildPlan({
   // or its cadence changed — the server rejects a paused or cancelling one, so
   // don't offer any of it.
   const changeable = !!sub?.plan && isPlanChangeable(sub);
+  const planName = sub ? planLabel(sub.plan, packages) : "";
+  const course = summariseCourse(level as LevelV | null, enrolments);
 
   return (
     <>
       {sub ? (
         <SubscriptionPanel
           sub={sub}
-          planName={planLabel(sub.plan, packages)}
+          planName={planName}
           // A linked parent manages the plan regardless of who paid — including a
           // plan the child originally paid for themselves.
           canManage
           isPayer={isPayer}
           returnTo="billing"
-          ownerLabel={childName}
           payerLabel={isPayer ? "you" : childName}
           priceLabel={priceLabelFor(packages, sub.plan)}
           // Same course facts the child sees on their own page — a parent
           // checking the plan should be able to catch a wrong board too, even
           // though only the child can write the change.
-          course={summariseCourse(level as LevelV | null, enrolments)}
+          course={course}
           subjectsAnchorId={anchorId}
         />
       ) : null}
@@ -140,6 +142,20 @@ function ChildPlan({
             canManage
             ownerLabel={childName}
             hadPlan={hadPlan}
+          />
+        </div>
+      )}
+
+      {/* Pause and cancel come last, under everything else for this child. */}
+      {sub && (
+        <div className="mt-5">
+          <PlanLifecycleActions
+            sub={sub}
+            planName={planName}
+            canManage
+            ownerLabel={childName}
+            course={course}
+            subjectsAnchorId={anchorId}
           />
         </div>
       )}
@@ -227,9 +243,16 @@ export function ParentBillingSection({
                 canManage
                 isPayer
                 returnTo="billing"
-                ownerLabel="this student"
                 payerLabel="you"
               />
+              <div className="mt-5">
+                <PlanLifecycleActions
+                  sub={sub}
+                  planName={planLabel(sub.plan, resolvePackagesForLevel(allPackages, undefined))}
+                  canManage
+                  ownerLabel="this student"
+                />
+              </div>
             </div>
           ))}
         </div>

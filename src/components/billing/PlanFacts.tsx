@@ -1,64 +1,16 @@
-import {
-  ArrowRight,
-  BookOpen,
-  CalendarClock,
-  CreditCard,
-  GraduationCap,
-  Layers,
-} from "lucide-react";
-import type { LucideIcon } from "lucide-react";
+import { ArrowRight, CalendarClock, CreditCard } from "lucide-react";
 import type { CourseSummary } from "@/lib/curriculum/courseSummary";
 import { SUBJECT_TINT } from "@/lib/curriculum/subjectTheme";
 import { CourseChip } from "@/components/CourseBadge";
 
-interface FactTileProps {
-  icon: LucideIcon;
-  label: string;
-  value: React.ReactNode;
-  /** One line of context under the value — why it matters, or what it implies. */
-  hint?: React.ReactNode;
-  /** The tile's own control, e.g. "Change" next to the exam board. */
-  action?: { label: string; onClick: () => void };
-  className?: string;
-}
-
-/**
- * One fact about the plan, in its own box: label, value, and — where the fact is
- * something the family can change — the control that changes it.
- */
-function FactTile({ icon: Icon, label, value, hint, action, className = "" }: FactTileProps) {
-  return (
-    <div className={`rounded-xl surface-soft p-3.5 flex flex-col gap-1 ${className}`}>
-      <div className="flex items-center gap-1.5 text-[10px] font-bold uppercase tracking-wider text-muted-foreground">
-        <Icon className="w-3.5 h-3.5 shrink-0" />
-        {label}
-      </div>
-      <div className="text-sm font-semibold text-foreground leading-snug">{value}</div>
-      {hint && <div className="text-[11px] text-muted-foreground leading-snug">{hint}</div>}
-      {action && (
-        <button
-          onClick={action.onClick}
-          className="mt-auto pt-1.5 self-start inline-flex min-h-11 items-center gap-1 text-[11px] font-bold text-primary hover:underline sm:pointer-fine:min-h-0"
-        >
-          {action.label}
-          <ArrowRight className="w-3 h-3" />
-        </button>
-      )}
-    </div>
-  );
-}
-
 interface PlanFactsProps {
   /** Level + per-subject boards. Omitted while the enrolment is still loading. */
   course?: CourseSummary;
-  /** Who the card belongs to — "you", "Mum". Rendered capitalised. */
+  /** Who the card belongs to — "you", "Mum". */
   payerLabel?: string;
-  /** The reassurance under the payer, e.g. that they can stop it any time. */
-  payerHint?: string;
-  /** "Next bill" / "Access ends" / "Paused" — the shape of the date below. */
+  /** "Next bill" / "Access ends" / "Was due" — the shape of the date. */
   billingLabel?: string;
   billingValue?: string;
-  billingHint?: string;
   /** Jump to the board controls. Omitted when the viewer can't change boards. */
   onChangeBoard?: () => void;
   /** Jump to the subjects card, where subjects are added and dropped. */
@@ -66,98 +18,83 @@ interface PlanFactsProps {
 }
 
 /**
- * The plan as a set of separate, individually-actionable facts rather than two
- * sentences of prose.
+ * The plan's facts as chips: level and board, the billing date, who pays, then
+ * one chip per subject, then the links that change the board and the subjects.
  *
- * "Studying GCSE · Edexcel — Biology, Chemistry" packed four different facts
- * into one line, and read as fixed: nothing about it suggested that three of the
- * four are things a family can change, or where. Splitting them into tiles makes
- * each one addressable — the board tile carries the control that changes the
- * board, the subjects tile the one that adds and drops subjects — and lets a
- * mixed-board student see which board goes with which subject, which the
- * sentence could never show.
- *
- * Every tile is optional: a fact we don't know is simply absent, never a
- * half-written sentence.
+ * Every chip is optional: a fact we don't know is simply absent. A student on
+ * more than one board gets no board in the level chip — each subject chip names
+ * its own board, which is the only honest way to show a mix.
  */
 export function PlanFacts({
   course,
   payerLabel,
-  payerHint,
-  billingLabel,
+  billingLabel = "Next bill",
   billingValue,
-  billingHint,
   onChangeBoard,
   onManageSubjects,
 }: PlanFactsProps) {
   const perSubject = course?.perSubject ?? [];
-  const tiles = [
-    course?.levelLabel && (
-      <FactTile
-        key="level"
-        icon={GraduationCap}
-        label="Level"
-        value={course.levelLabel}
-        hint="Everything you're taught is scoped to this"
-      />
-    ),
-    course?.boardSummary && (
-      <FactTile
-        key="board"
-        icon={Layers}
-        label="Exam board"
-        value={course.mixedBoards ? "Mixed" : course.boardSummary}
-        hint={course.mixedBoards ? course.boardSummary : "Never affects what you pay"}
-        action={onChangeBoard ? { label: "Change board", onClick: onChangeBoard } : undefined}
-      />
-    ),
-    billingValue && (
-      <FactTile
-        key="billing"
-        icon={CalendarClock}
-        label={billingLabel ?? "Next bill"}
-        value={billingValue}
-        hint={billingHint}
-      />
-    ),
-    payerLabel && (
-      <FactTile
-        key="payer"
-        icon={CreditCard}
-        label="Paid by"
-        value={payerLabel.charAt(0).toUpperCase() + payerLabel.slice(1)}
-        hint={payerHint}
-      />
-    ),
-  ].filter(Boolean);
+  const showFacts = !!(course?.levelLabel || billingValue || payerLabel);
+  const showLinks = !!(onChangeBoard || onManageSubjects);
 
-  if (tiles.length === 0 && perSubject.length === 0) return null;
+  if (!showFacts && perSubject.length === 0 && !showLinks) return null;
 
   return (
-    <div className="mt-4 grid gap-2.5 sm:grid-cols-2 lg:grid-cols-4">
-      {tiles}
+    <div className="mt-4 space-y-3">
+      {showFacts && (
+        <div className="flex flex-wrap gap-2">
+          <CourseChip
+            icon
+            parts={[course?.levelLabel, course?.mixedBoards ? null : course?.boardSummary]}
+          />
+          {billingValue && (
+            <span className="chip tint-slate whitespace-nowrap">
+              <CalendarClock className="h-3.5 w-3.5 shrink-0" aria-hidden />
+              {billingLabel} {billingValue}
+            </span>
+          )}
+          {payerLabel && (
+            <span className="chip tint-slate whitespace-nowrap">
+              <CreditCard className="h-3.5 w-3.5 shrink-0" aria-hidden />
+              Paid by {payerLabel}
+            </span>
+          )}
+        </div>
+      )}
 
       {perSubject.length > 0 && (
-        <FactTile
-          className="sm:col-span-2 lg:col-span-4"
-          icon={BookOpen}
-          label={perSubject.length === 1 ? "Subject" : `Subjects (${perSubject.length})`}
-          value={
-            <div className="flex flex-wrap gap-1.5 pt-0.5">
-              {perSubject.map((s) => (
-                <CourseChip
-                  key={s.subject}
-                  tint={SUBJECT_TINT[s.subject] ?? "tint-primary"}
-                  parts={[s.subjectLabel, s.boardLabel]}
-                />
-              ))}
-            </div>
-          }
-          action={
-            onManageSubjects ? { label: "Add or remove", onClick: onManageSubjects } : undefined
-          }
-        />
+        <div className="flex flex-wrap gap-1.5">
+          {perSubject.map((s) => (
+            <CourseChip
+              key={s.subject}
+              tint={SUBJECT_TINT[s.subject] ?? "tint-primary"}
+              parts={[s.subjectLabel, s.boardLabel]}
+            />
+          ))}
+        </div>
+      )}
+
+      {showLinks && (
+        <div className="flex flex-wrap gap-x-5">
+          {onChangeBoard && <FactLink label="Change board" onClick={onChangeBoard} />}
+          {onManageSubjects && (
+            <FactLink label="Add or remove subjects" onClick={onManageSubjects} />
+          )}
+        </div>
       )}
     </div>
+  );
+}
+
+function FactLink({ label, onClick }: { label: string; onClick: () => void }) {
+  return (
+    <button
+      type="button"
+      onClick={onClick}
+      className="inline-flex min-h-11 items-center gap-1 text-sm font-bold text-primary hover:underline sm:pointer-fine:min-h-0"
+    >
+      {label}
+      <ArrowRight className="h-3.5 w-3.5" aria-hidden />
+    </button>
   );
 }

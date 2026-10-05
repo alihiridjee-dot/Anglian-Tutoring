@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { ExternalLink, Loader2, PauseCircle, PlayCircle, ShieldCheck, XCircle } from "lucide-react";
+import { ExternalLink, Loader2, PlayCircle, ShieldCheck } from "lucide-react";
 import { toast } from "sonner";
 import {
   isPaymentOverdue,
@@ -11,10 +11,7 @@ import {
 } from "@/lib/billing/billing";
 import { useManageSubscription } from "@/hooks/data/useBilling";
 import { usePageRestore } from "@/hooks/usePageRestore";
-import { PlanFeedbackDialog } from "@/components/billing/PlanFeedbackDialog";
-import { CancelPlanDialog } from "@/components/billing/CancelPlanDialog";
 import { PlanFacts } from "@/components/billing/PlanFacts";
-import { recordBillingFeedback } from "@/lib/billing/billingFeedback";
 import type { CourseSummary } from "@/lib/curriculum/courseSummary";
 import type { SubscriptionRow } from "@/lib/billing/billing";
 
@@ -23,8 +20,8 @@ interface SubscriptionPanelProps {
   /** Human name of the plan (falls back to the raw tier). */
   planName: string;
   /**
-   * Whether the signed-in user may manage the plan's lifecycle (pause, resume,
-   * cancel). True for the PAYER — always, since nobody may be charged with no
+   * Whether the signed-in user may manage the plan's lifecycle (resume here;
+   * pause and cancel in PlanLifecycleActions). True for the PAYER — always, since nobody may be charged with no
    * way to stop — and for a linked parent of the student. False only for a
    * student on a plan someone else pays for.
    */
@@ -38,8 +35,6 @@ interface SubscriptionPanelProps {
   isPayer: boolean;
   /** Where Stripe should send the browser back to after the portal. */
   returnTo: BillingReturnTo;
-  /** Whose plan it is (e.g. a child's name), for the feedback dialog copy. */
-  ownerLabel?: string;
   /** Who the card belongs to — "You", "Mum", … Rendered in the Paid by row. */
   payerLabel?: string;
   /** Formatted recurring price, e.g. "£89.99 per month". */
@@ -61,8 +56,8 @@ interface SubscriptionPanelProps {
    */
   canChangeBoard?: boolean;
   /**
-   * DOM id of the matching EnrolledSubjectsCard, for the cancel dialog's "drop a
-   * subject instead" jump. Per-child on the parent tab, which renders several.
+   * DOM id of the matching EnrolledSubjectsCard, for the board and subjects
+   * jumps. Per-child on the parent tab, which renders several.
    */
   subjectsAnchorId?: string;
 }
@@ -77,20 +72,19 @@ const STATUS_LABELS: Record<string, string> = {
   incomplete: "Incomplete",
 };
 
-function statusBadgeClass(status: string) {
-  if (isSubscriptionLive(status)) return "bg-emerald-50 text-emerald-700 border-emerald-200";
-  if (status === "paused") return "bg-amber-50 text-amber-700 border-amber-200";
-  return "bg-rose-50 text-rose-700 border-rose-200";
+function statusTint(status: string) {
+  if (isSubscriptionLive(status)) return "tint-emerald";
+  if (status === "paused") return "tint-amber";
+  return "tint-rose";
 }
 
 /**
- * Status + controls for one subscription: what it is, who pays for it, and the
- * lifecycle actions (resume, pause, cancel) plus the Stripe billing portal.
+ * What one subscription is: name, status, price, the course and billing facts,
+ * plus Resume and the Stripe billing portal.
  *
- * The two destructive actions live in their own bordered strip at the bottom
- * rather than in the same row as the portal link, and both are gated: pausing by
- * a one-screen reason form, cancelling by the four-step CancelPlanDialog. There
- * is still no delete — cancelling runs access to the period boundary.
+ * Pause and cancel are deliberately not here. They live in
+ * PlanLifecycleActions, which each page puts at the very bottom, under the
+ * subjects, the add-subject card and the invoices.
  *
  * Rendered on the student billing page (own plan) and on the parent billing tab
  * (one per linked child). Authority is enforced server-side too — this component
@@ -102,7 +96,6 @@ export function SubscriptionPanel({
   canManage,
   isPayer,
   returnTo,
-  ownerLabel,
   payerLabel,
   priceLabel,
   course,
@@ -110,13 +103,10 @@ export function SubscriptionPanel({
   subjectsAnchorId = "subjects",
 }: SubscriptionPanelProps) {
   const manage = useManageSubscription();
-  const [pauseOpen, setPauseOpen] = useState(false);
-  const [cancelOpen, setCancelOpen] = useState(false);
   const [portalBusy, setPortalBusy] = useState(false);
   // Back from the Stripe portal restores this page as it was left — busy and all.
   usePageRestore(() => setPortalBusy(false));
 
-  const live = isSubscriptionLive(sub.status);
   const paused = sub.status === "paused";
   const endsAt = sub.current_period_end ? new Date(sub.current_period_end) : null;
   const endsAtLabel = endsAt?.toLocaleDateString("en-GB", {
@@ -124,52 +114,25 @@ export function SubscriptionPanel({
     month: "long",
     year: "numeric",
   });
-  // Controls only make sense against a real Stripe subscription: a row without
-  // one has nothing to pause or cancel.
+  // Controls only make sense against a real Stripe subscription.
   const manageable = canManage && !!sub.stripe_subscription_id;
-  const canPause = live && !sub.cancel_at_period_end;
-  const canCancel = (live || paused) && !sub.cancel_at_period_end;
   // Subjects only change on a live plan that isn't cancelling; the server
   // refuses the rest, so nothing here points there.
   const changeable = isPlanChangeable(sub);
-  // Subjects come from the course summary so there is one source for "what does
-  // this plan cover" — the tiles and the cancel dialog can't disagree.
-  const subjectLabels = course?.perSubject.map((s) => s.subjectLabel) ?? [];
 
-  const run = (action: "cancel" | "pause" | "resume", onDone?: () => void) => {
+  const resume = () => {
     manage.mutate(
-      { action, studentId: sub.student_id },
+      { action: "resume", studentId: sub.student_id },
       {
-        onSuccess: () => {
-          onDone?.();
-          setPauseOpen(false);
-          setCancelOpen(false);
-          toast.success(
-            action === "cancel"
-              ? `Plan will end ${endsAtLabel ?? "at the end of the period"} — no further charges.`
-              : action === "pause"
-                ? "Plan paused. No payments will be taken until you resume."
-                : "Plan resumed — welcome back!",
-          );
-        },
+        onSuccess: () => toast.success("Plan resumed — welcome back!"),
         onError: (err) => toast.error(err.message),
       },
     );
   };
 
-  // Run it, then record why the family paused/cancelled (manager-only, enforced
-  // by RLS). Only once it has worked: a refused or failed action must not leave
-  // an entry in the tutor's plan history. Best-effort: a lost row never matters.
-  const confirmWith = (action: "pause" | "cancel") => (category: string, comment: string) => {
-    run(action, () => {
-      void recordBillingFeedback({ studentId: sub.student_id, action, category, comment });
-    });
-  };
-
-  // "Drop a subject instead" hands them to EnrolledSubjectsCard, which owns the
-  // removal flow and renders under #subjects on both personas' pages.
+  // EnrolledSubjectsCard owns the board and subject controls, and renders under
+  // #subjects on both personas' pages.
   const goToSubjects = () => {
-    setCancelOpen(false);
     document
       .getElementById(subjectsAnchorId)
       ?.scrollIntoView({ behavior: "smooth", block: "start" });
@@ -179,9 +142,7 @@ export function SubscriptionPanel({
     <div>
       <div className="flex items-center gap-2 flex-wrap">
         <p className="font-display text-lg font-bold">{planName}</p>
-        <span
-          className={`text-[10px] px-2 py-0.5 rounded-full border font-bold uppercase tracking-wider ${statusBadgeClass(sub.status)}`}
-        >
+        <span className={`chip ${statusTint(sub.status)} text-[10px] uppercase tracking-wider`}>
           {STATUS_LABELS[sub.status] ?? sub.status}
         </span>
       </div>
@@ -206,145 +167,59 @@ export function SubscriptionPanel({
         </div>
       )}
 
-      {/* What the plan teaches, when it next bills and who pays — each its own
-          tile, each with its own control where one exists. Prose here read as
-          fixed and hid the fact that most of it is changeable. */}
+      {/* What the plan teaches, when it next bills and who pays — one row of
+          chips, then the subjects, then the two controls that change them. */}
       <PlanFacts
         course={course}
         payerLabel={payerLabel}
-        payerHint={
-          // A managing parent on a plan the child paid for still controls it, so
-          // don't tell them it's someone else's to change.
-          !canManage
-            ? "Changing or stopping it happens from their account"
-            : isPayer
-              ? "You can change or stop it any time"
-              : "You can still change or stop this plan"
-        }
-        billingLabel={
-          sub.cancel_at_period_end ? "Access ends" : paused ? "Paused — was due" : "Next bill"
-        }
+        billingLabel={sub.cancel_at_period_end ? "Access ends" : paused ? "Was due" : "Next bill"}
         billingValue={endsAtLabel}
-        billingHint={
-          sub.cancel_at_period_end
-            ? "No further charges"
-            : paused
-              ? "Nothing is taken until you resume"
-              : undefined
-        }
         onChangeBoard={canChangeBoard ? goToSubjects : undefined}
         onManageSubjects={canManage && changeable ? goToSubjects : undefined}
       />
 
       {manageable && (
-        <>
-          <div className="mt-4 flex flex-wrap gap-2">
-            {isResumable(sub) && (
-              <button
-                onClick={() => run("resume")}
-                disabled={manage.isPending}
-                className="inline-flex items-center gap-1.5 h-11 sm:pointer-fine:h-9 px-3.5 rounded-lg btn-solid text-sm font-semibold hover:opacity-90 disabled:opacity-50"
-              >
-                {manage.isPending ? (
-                  <Loader2 className="w-4 h-4 animate-spin" />
-                ) : (
-                  <PlayCircle className="w-4 h-4" />
-                )}
-                Resume plan
-              </button>
-            )}
-
-            {isPayer && (
-              <button
-                onClick={async () => {
-                  setPortalBusy(true);
-                  try {
-                    await openBillingPortal(returnTo);
-                  } catch (err) {
-                    toast.error(
-                      err instanceof Error ? err.message : "Couldn't open the billing portal.",
-                    );
-                    setPortalBusy(false);
-                  }
-                }}
-                disabled={portalBusy}
-                className="inline-flex items-center gap-1.5 h-11 sm:pointer-fine:h-9 px-3.5 rounded-lg border border-border text-sm font-semibold hover:bg-muted disabled:opacity-50"
-              >
-                {portalBusy ? (
-                  <Loader2 className="w-4 h-4 animate-spin" />
-                ) : (
-                  <ShieldCheck className="w-4 h-4" />
-                )}
-                Card &amp; invoices <ExternalLink className="w-3.5 h-3.5" />
-              </button>
-            )}
-          </div>
-
-          {/* The two destructive actions, kept apart from the everyday ones so
-              neither is a slip of the mouse away from the portal button. */}
-          {(canPause || canCancel) && (
-            <div className="mt-5 rounded-xl border border-rose-200/70 bg-rose-50/40 p-4">
-              <p className="text-xs font-semibold uppercase tracking-wider text-rose-700">
-                Stop or take a break
-              </p>
-              <p className="text-xs text-muted-foreground mt-1">
-                Pausing is instant and reversible. Cancelling runs the plan to{" "}
-                {endsAtLabel ?? "the end of the period"} and then stops it.
-              </p>
-              <div className="mt-3 flex flex-wrap gap-2">
-                {canPause && (
-                  <button
-                    onClick={() => setPauseOpen(true)}
-                    disabled={manage.isPending}
-                    className="inline-flex items-center gap-1.5 h-11 sm:pointer-fine:h-9 px-3.5 rounded-lg border border-border bg-card text-sm font-semibold hover:bg-muted disabled:opacity-50"
-                  >
-                    <PauseCircle className="w-4 h-4 text-amber-600" /> Pause plan
-                  </button>
-                )}
-                {canCancel && (
-                  <button
-                    onClick={() => setCancelOpen(true)}
-                    disabled={manage.isPending}
-                    className="inline-flex items-center gap-1.5 h-11 sm:pointer-fine:h-9 px-3.5 rounded-lg border border-rose-300 bg-card text-rose-600 text-sm font-semibold hover:bg-rose-50 disabled:opacity-50"
-                  >
-                    <XCircle className="w-4 h-4" /> Cancel plan
-                  </button>
-                )}
-              </div>
-            </div>
+        <div className="mt-4 flex flex-wrap gap-2">
+          {isResumable(sub) && (
+            <button
+              onClick={resume}
+              disabled={manage.isPending}
+              className="inline-flex items-center gap-1.5 h-11 sm:pointer-fine:h-9 px-3.5 rounded-lg btn-solid text-sm font-semibold hover:opacity-90 disabled:opacity-50"
+            >
+              {manage.isPending ? (
+                <Loader2 className="w-4 h-4 animate-spin" />
+              ) : (
+                <PlayCircle className="w-4 h-4" />
+              )}
+              Resume plan
+            </button>
           )}
-        </>
-      )}
 
-      {pauseOpen && (
-        <PlanFeedbackDialog
-          action="pause"
-          planName={planName}
-          ownerLabel={ownerLabel}
-          endsAtLabel={endsAtLabel}
-          pending={manage.isPending}
-          onConfirm={confirmWith("pause")}
-          onClose={() => setPauseOpen(false)}
-        />
-      )}
-
-      {cancelOpen && (
-        <CancelPlanDialog
-          planName={planName}
-          ownerLabel={ownerLabel}
-          endsAtLabel={endsAtLabel}
-          subjectLabels={subjectLabels}
-          pending={manage.isPending}
-          canPauseInstead={canPause}
-          canRemoveInstead={changeable && subjectLabels.length > 1}
-          onPauseInstead={() => {
-            setCancelOpen(false);
-            setPauseOpen(true);
-          }}
-          onRemoveInstead={goToSubjects}
-          onConfirm={confirmWith("cancel")}
-          onClose={() => setCancelOpen(false)}
-        />
+          {isPayer && (
+            <button
+              onClick={async () => {
+                setPortalBusy(true);
+                try {
+                  await openBillingPortal(returnTo);
+                } catch (err) {
+                  toast.error(
+                    err instanceof Error ? err.message : "Couldn't open the billing portal.",
+                  );
+                  setPortalBusy(false);
+                }
+              }}
+              disabled={portalBusy}
+              className="inline-flex items-center gap-1.5 h-11 sm:pointer-fine:h-9 px-3.5 rounded-lg border border-border text-sm font-semibold hover:bg-muted disabled:opacity-50"
+            >
+              {portalBusy ? (
+                <Loader2 className="w-4 h-4 animate-spin" />
+              ) : (
+                <ShieldCheck className="w-4 h-4" />
+              )}
+              Card &amp; invoices <ExternalLink className="w-3.5 h-3.5" />
+            </button>
+          )}
+        </div>
       )}
     </div>
   );

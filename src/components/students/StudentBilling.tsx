@@ -1,5 +1,6 @@
 import { EmptyState, SectionHeading, Spinner } from "@/components/Shared";
 import { SubscriptionPanel } from "@/components/billing/SubscriptionPanel";
+import { PlanLifecycleActions } from "@/components/billing/PlanLifecycleActions";
 import { usePackages } from "@/hooks/data/useBilling";
 import { useAccountDeletion } from "@/hooks/data/useStudents";
 import { billingIntervalLabel, formatPence, planLabel } from "@/lib/billing/billing";
@@ -19,8 +20,9 @@ const ACTION_LABEL: Record<string, string> = {
 /**
  * The student's plan, with the same pause / resume / cancel controls a parent
  * has — the server's assertCanManage now admits a tutor, and the feedback
- * policy mirrors it, so the existing panel works unchanged. The tutor is never
- * the payer, so the Stripe portal is not offered.
+ * policy mirrors it, so the existing components work unchanged. Pause and
+ * cancel sit under the plan history. The tutor is never the payer, so the
+ * Stripe portal is not offered.
  */
 export function StudentBilling({ record, name }: { record: StudentRecord; name: string }) {
   const { subscription: sub, profile, enrolments, parents, billingFeedback } = record;
@@ -35,6 +37,8 @@ export function StudentBilling({ record, name }: { record: StudentRecord; name: 
   const priceLabel = activePkg
     ? `${formatPence(activePkg.price_pence)} ${billingIntervalLabel(activePkg.billing_interval)}`.trim()
     : undefined;
+  const planName = sub ? planLabel(sub.plan, packages) : "";
+  const course = summariseCourse(profile.level, enrolments);
   const payer = sub
     ? sub.user_id === profile.id
       ? name
@@ -53,14 +57,13 @@ export function StudentBilling({ record, name }: { record: StudentRecord; name: 
       {sub ? (
         <SubscriptionPanel
           sub={sub}
-          planName={planLabel(sub.plan, packages)}
+          planName={planName}
           canManage={!deletion}
           isPayer={false}
           returnTo="billing"
-          ownerLabel={name}
           payerLabel={payerLabel}
           priceLabel={priceLabel}
-          course={summariseCourse(profile.level, enrolments)}
+          course={course}
         />
       ) : (
         <EmptyState
@@ -95,6 +98,16 @@ export function StudentBilling({ record, name }: { record: StudentRecord; name: 
             ))}
           </ul>
         </section>
+      )}
+
+      {sub && (
+        <PlanLifecycleActions
+          sub={sub}
+          planName={planName}
+          canManage={!deletion}
+          ownerLabel={name}
+          course={course}
+        />
       )}
 
       <DeleteAccountSection studentId={profile.id} name={name} />

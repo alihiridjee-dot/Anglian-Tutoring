@@ -23,6 +23,7 @@ import {
 } from "@/lib/billing/billing";
 import { CadenceSwitcher } from "@/components/billing/CadenceSwitcher";
 import { SubscriptionPanel } from "@/components/billing/SubscriptionPanel";
+import { PlanLifecycleActions } from "@/components/billing/PlanLifecycleActions";
 import { InvoiceHistoryCard } from "@/components/billing/InvoiceHistory";
 import { AddSubjectCard } from "@/components/billing/AddSubjectCard";
 import { EnrolledSubjectsCard } from "@/components/billing/EnrolledSubjectsCard";
@@ -76,7 +77,7 @@ function SectionHeading({ children }: { children: React.ReactNode }) {
  * The student view answers three questions in order, because that is the order
  * people actually ask them: what am I on and *who is paying for it*, what does
  * it cover (and how do I drop one subject), and how do I stop. The last of those
- * lives in a danger strip inside SubscriptionPanel, behind a four-step gate.
+ * is PlanLifecycleActions, at the very bottom of the page, behind a four-step gate.
  */
 function BillingPage() {
   const { enrolledCourses, enrolments, role: profileRole, level } = useEnrolments();
@@ -298,6 +299,19 @@ function BillingPage() {
         <div className="mt-8">
           <InvoiceHistoryCard />
         </div>
+
+        {/* Pause and cancel come last, under everything a family might want
+            to do first. */}
+        {(hasUsablePlan || paymentOverdue) && sub && (
+          <div className="mt-8">
+            <PlanLifecycleActions
+              sub={sub}
+              planName={planName}
+              canManage={canManage}
+              course={course}
+            />
+          </div>
+        )}
 
         <StripeFooter />
       </div>
