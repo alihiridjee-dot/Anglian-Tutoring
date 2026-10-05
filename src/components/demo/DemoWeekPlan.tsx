@@ -53,13 +53,6 @@ export function DemoWeekPlan({ after }: { after?: (subject: SubjectV) => ReactNo
           </div>
         </div>
 
-        {week.plan.ai_rationale && (
-          <p className="mb-4 flex items-start gap-2 text-sm leading-relaxed">
-            <Sparkles className="mt-0.5 size-4 shrink-0 text-[color:var(--tint)]" aria-hidden />
-            <span>{week.plan.ai_rationale}</span>
-          </p>
-        )}
-
         <ThisWeekPanel
           plan={week.plan}
           points={points}

@@ -276,3 +276,37 @@ describe("resuming after a pause", () => {
     ).toThrow(/not enough weeks/);
   });
 });
+
+describe("review horizon after a reorder", () => {
+  test("a topic that had not opened yet takes its new start as its review horizon", () => {
+    const next = reorderTopics({ ...params, order });
+    const unreached = baseline.filter((b) => b.startWeek > today).map((b) => b.topicId);
+    expect(unreached.length).toBeGreaterThan(0);
+    for (const id of unreached) {
+      const moved = next.find((b) => b.topicId === id && b.startWeek >= today)!;
+      expect(moved.reviewStartWeek).toBe(moved.startWeek);
+      // Its old week may no longer be used to admit a review of it.
+      const old = baseline.find((b) => b.topicId === id)!;
+      if (old.startWeek < moved.startWeek)
+        expect(
+          admit(
+            { specPointId: `${id}0`, topicId: id, origin: "focus", hasEvidence: true },
+            {
+              reach: spineReach(next),
+              reviewReach: spineReach(next, true),
+              weekStart: old.startWeek,
+            },
+          ).ok,
+        ).toBe(false);
+    }
+  });
+  test("a topic already underway keeps the horizon it had", () => {
+    const next = reorderTopics({ ...params, order });
+    const reached = baseline.filter((b) => b.startWeek <= today).map((b) => b.topicId);
+    for (const id of reached) {
+      const old = baseline.find((b) => b.topicId === id)!;
+      for (const band of next.filter((b) => b.topicId === id))
+        expect(band.reviewStartWeek ?? band.startWeek).toBe(old.startWeek);
+    }
+  });
+});

@@ -1,7 +1,7 @@
 import { ReturningTopicInfo } from "./ReturningTopicInfo";
 import { NothingDue } from "./NothingDue";
 import { CatchUpWeek } from "./CatchUpWeek";
-import { PLANNER_TIME_ZONE, weekKeyToDate } from "@/lib/planner/week";
+import { plannerDateLabel, weekKeyToDate } from "@/lib/planner/week";
 import { Meter } from "@/components/Shared";
 import { Link } from "@tanstack/react-router";
 import { CircleDot, History, Repeat, CheckCircle2, Plus, BookMarked } from "lucide-react";
@@ -284,11 +284,6 @@ function SpecPointList({ children }: { children: React.ReactNode }) {
 
 /** "13 Jul – 16 Aug" for a band's week keys. */
 function fmtRange(startWeek: string, endWeek: string): string {
-  const fmt = (k: string) =>
-    weekKeyToDate(k).toLocaleDateString(undefined, {
-      timeZone: PLANNER_TIME_ZONE,
-      day: "numeric",
-      month: "short",
-    });
+  const fmt = (k: string) => plannerDateLabel(weekKeyToDate(k));
   return `${fmt(startWeek)} – ${fmt(endWeek)}`;
 }

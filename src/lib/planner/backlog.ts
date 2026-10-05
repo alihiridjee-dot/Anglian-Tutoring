@@ -142,8 +142,12 @@ export function spineBacklog(params: {
 
   // Oldest first: the longest-neglected work has the least runway left before
   // the exam, and a stable order keeps a re-cut from reshuffling the week.
+  // Codes compare as numbers inside the week ("1.8" before "1.10"), or a plain
+  // string sort served 1.10 and 1.11 before 1.8 and 1.9.
   return out.sort(
-    (a, b) => a.plannedWeek.localeCompare(b.plannedWeek) || a.code.localeCompare(b.code),
+    (a, b) =>
+      a.plannedWeek.localeCompare(b.plannedWeek) ||
+      a.code.localeCompare(b.code, undefined, { numeric: true }),
   );
 }
 

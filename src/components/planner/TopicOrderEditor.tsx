@@ -1,5 +1,6 @@
 import { useMemo, useState, type ReactNode } from "react";
 import { Reorder, motion, useDragControls } from "motion/react";
+import { Link } from "@tanstack/react-router";
 import { ArrowDown, ArrowUp, CalendarDays, GripVertical, Undo2 } from "lucide-react";
 import { SectionHeading, EmptyState, ErrorNote, Spinner } from "@/components/Shared";
 import { ProgramDAL } from "@/lib/planner/programDal";
@@ -189,7 +190,27 @@ export function TopicOrderEditor({
           remaining teaching moves.
         </p>
       </div>
-      {snapshot.needsAck ? (
+      {choices.length === 0 ? (
+        // The exam date has passed: no week is left to change the order from.
+        <div className="space-y-3">
+          <EmptyState
+            mascot="owl"
+            title="Your exam date has passed"
+            body="Set your next exam date on the planner, then come back to change your topic order."
+          />
+          {!asTutor && (
+            <div className="text-center">
+              <Link
+                to="/planner"
+                search={{ tab: "plan" }}
+                className="btn-soft inline-flex min-h-11 items-center rounded-xl px-5 py-2.5 text-sm sm:pointer-fine:min-h-0"
+              >
+                Set my exam date
+              </Link>
+            </div>
+          )}
+        </div>
+      ) : snapshot.needsAck ? (
         <EmptyState
           title={`${Whose} plan is still updating`}
           body={
