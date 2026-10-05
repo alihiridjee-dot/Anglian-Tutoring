@@ -1,4 +1,4 @@
-import { useMemo, useRef, type TextareaHTMLAttributes } from "react";
+import { useMemo, type MouseEvent, type TextareaHTMLAttributes } from "react";
 import { SciText } from "@/components/Shared";
 import { toSciNotation, toggleScript } from "@/lib/platform/sciNotation";
 
@@ -26,11 +26,12 @@ export function SciAnswerBox({
   /** The question being answered, read for clues: see `toSciNotation`. */
   context?: string;
 } & Omit<TextareaHTMLAttributes<HTMLTextAreaElement>, "value" | "onChange">) {
-  const ref = useRef<HTMLTextAreaElement>(null);
   const read = useMemo(() => recognised(value, context), [value, context]);
 
-  const press = (kind: "sub" | "sup") => {
-    const box = ref.current;
+  const press = (kind: "sub" | "sup", e: MouseEvent<HTMLButtonElement>) => {
+    // Found through the page rather than a ref: the dev server's component
+    // tagger replaces a textarea's ref, which left the buttons dead in preview.
+    const box = e.currentTarget.closest("[data-sci-answer]")?.querySelector("textarea");
     if (!box) return;
     const next = toggleScript(value, box.selectionStart, box.selectionEnd, kind);
     if (next.value === value) return;
@@ -42,9 +43,8 @@ export function SciAnswerBox({
   };
 
   return (
-    <div className="space-y-2">
+    <div data-sci-answer className="space-y-2">
       <textarea
-        ref={ref}
         value={value}
         onChange={(e) => onValueChange(e.target.value)}
         className={className}
@@ -53,7 +53,10 @@ export function SciAnswerBox({
       <div className="flex flex-wrap items-center gap-1.5">
         {read.map((t) => (
           <span key={t} className="chip">
-            <SciText text={t} context={context} />
+            {/* One child, so the chip's gap doesn't split Mg from ²⁺. */}
+            <span>
+              <SciText text={t} context={context} />
+            </span>
           </span>
         ))}
         <span className="ml-auto flex gap-1.5">
@@ -64,7 +67,7 @@ export function SciAnswerBox({
               disabled={rest.disabled}
               // Keep the box's cursor and selection where they are.
               onMouseDown={(e) => e.preventDefault()}
-              onClick={() => press(kind)}
+              onClick={(e) => press(kind, e)}
               aria-label={kind === "sub" ? "Subscript" : "Superscript"}
               title={kind === "sub" ? "Subscript: H2 → H₂" : "Superscript: Mg2+ → Mg²⁺"}
               className="btn-premium inline-flex min-h-11 min-w-11 items-center justify-center rounded-lg px-2 text-sm font-semibold disabled:opacity-60 sm:pointer-fine:min-h-8 sm:pointer-fine:min-w-8"
@@ -78,7 +81,7 @@ export function SciAnswerBox({
   );
 }
 
-/** The words the box will show differently (H2O -> H₂O), each once, at most six. */
+/** The words the box will show with small figures (H2O -> H₂O), each once, at most six. */
 function recognised(text: string, context: string): string[] {
   const out = new Set<string>();
   const trim = (w: string) => w.replace(/^[("'[]+|[)"'\],.;:!?]+$/g, "");
@@ -88,7 +91,7 @@ function recognised(text: string, context: string): string[] {
   if (words.length !== formatted.length) formatted = words.map((w) => toSciNotation(w, context));
   words.forEach((w, i) => {
     const f = trim(formatted[i]);
-    if (f && trim(w) !== f) out.add(f);
+    if (f && trim(w) !== f && /[₀-₉⁰¹²³⁴-⁹⁺⁻]/.test(f)) out.add(f);
   });
   return [...out].slice(0, 6);
 }
