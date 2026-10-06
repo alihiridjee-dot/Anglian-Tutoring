@@ -574,7 +574,7 @@ export type DemoMcqSet = {
 /**
  * The demo's quizzes. Every set is fixture content — there is no generation,
  * no read of `mcq_sets`, and no attempt is ever written. A real student's quizzes
- * are generated per spec point by `ensureMcqForPoints`; nothing here reaches it.
+ * are written per spec point by the practice queue; nothing here reaches it.
  */
 export const DEMO_MCQ_SETS: DemoMcqSet[] = [
   // This week's work — one per subject, matching the demo planner.

@@ -31,7 +31,7 @@ const layer = (files, above, why) => ({
 });
 
 export default tseslint.config(
-  { ignores: ["dist", ".output", ".vinxi", ".claude"] },
+  { ignores: ["dist", ".output", ".vercel", ".vinxi", ".claude"] },
   {
     extends: [js.configs.recommended, ...tseslint.configs.recommended],
     files: ["**/*.{ts,tsx}"],

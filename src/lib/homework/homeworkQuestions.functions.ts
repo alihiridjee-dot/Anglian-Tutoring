@@ -1,9 +1,5 @@
 import { createServerFn } from "@tanstack/react-start";
-import {
-  generateExamQuestions,
-  libraryRequest,
-  loadGenerationContext,
-} from "./examGeneration.server";
+import { CALL_LIMITS, generateExamQuestions, loadGenerationContext } from "./examGeneration.server";
 import type { WrittenQuestion } from "./examGeneration";
 import { requireSupabaseAuth } from "@/integrations/supabase/auth-middleware";
 import { SUBJECTS, LEVELS, BOARDS } from "@/lib/curriculum/taxonomy";
@@ -34,23 +30,6 @@ async function requireTutor(supabase: SupabaseServer, userId: string) {
   const { data: role } = await supabase.from("user_roles").select("role").eq("user_id", userId);
   const roles = ((role ?? []) as Array<{ role: string }>).map((r) => r.role);
   if (!roles.includes("tutor")) throw new Error("Tutor access required");
-}
-
-/**
- * The planner's fill-in is a student's own week asking for its homework. Staff
- * accounts hold no student data, so they have no week, and a tutor calling this
- * is never the planner: refused before anything is generated or paid for.
- */
-async function refuseStaff(supabase: SupabaseServer, userId: string) {
-  const { data: role, error } = await supabase
-    .from("user_roles")
-    .select("role")
-    .eq("user_id", userId);
-  if (error) throw error;
-  const roles = ((role ?? []) as Array<{ role: string }>).map((r) => r.role);
-  if (roles.includes("tutor") || roles.includes("admin")) {
-    throw new Error("Only a student's week fills in its tasks");
-  }
 }
 
 /** The shared framework validates the whole set before these drafts are exposed. */
@@ -138,166 +117,14 @@ export const generateHomeworkQuestions = createServerFn({ method: "POST" })
         generation.point.board !== data.board
       )
         throw new Error("Specification point does not match the selected course");
-      const raw = await generateExamQuestions(generation, counts[i], "written", data.notes);
+      const { questions: raw } = await generateExamQuestions(generation, counts[i], "written", {
+        ...CALL_LIMITS,
+        source: "builder",
+        notes: data.notes,
+      });
       drafts.push(...toDrafts(raw, p.id));
     }
 
     if (drafts.length === 0) throw new Error("No usable questions came back — try again");
     return { questions: drafts };
-  });
-
-/** Questions written per spec point when the planner fills a gap itself. */
-const QUESTIONS_PER_POINT = 5;
-
-/**
- * Generations one student may trigger per hour, counted in the database
- * (`claim_ai_request`) rather than in memory, so the budget survives a
- * serverless instance going away mid-week.
- *
- * A week is three to six points, so this covers a couple of weeks of genuine
- * filling-in and then stops. It is a spend cap, not a correctness guard — the
- * unique index is what keeps two students from paying for the same sheet.
- */
-const GENERATIONS_PER_HOUR = 12;
-
-type EnsureInput = {
-  specPointIds: string[];
-  subject: string;
-  board: string;
-  level: string;
-};
-
-export interface EnsureHomeworkResult {
-  /** Sheets written by this call. */
-  created: number;
-  /** Points that already had one — the cheap, normal case. */
-  existing: number;
-  /** True when the hourly budget ran out before every gap was filled. */
-  throttled: boolean;
-}
-
-/**
- * Fill in the homework for a week's spec points, writing anything missing.
- *
- * Homework is attached one-per-spec-point, which makes it *library* content
- * rather than per-student work: the sheet for "4.1.1.1 Eukaryotes and
- * prokaryotes" is written once and read by every student who ever reaches that
- * point. So this is called at planning time, fills only the gaps, and on every
- * subsequent week costs one indexed lookup and nothing else.
- *
- * It writes through `ensure_generated_homework`, using the server's own
- * credential rather than the caller's: setting homework needs the tutor role,
- * the caller here is the student whose week needs it, and a sheet every student
- * reads must not be writable from a browser. That function is also the
- * concurrency guard: two students reaching the same point in the same minute
- * both generate, and the partial unique index means the second one's insert
- * loses and returns the winner's sheet. Wasted tokens, not a duplicate.
- *
- * Failures are deliberately soft. A week that renders without homework is a
- * week missing a chip; a week that fails to render because the model was slow
- * is a broken dashboard, and the planner is the more important of the two.
- */
-export const ensureHomeworkForPoints = createServerFn({ method: "POST" })
-  .middleware([requireSupabaseAuth])
-  .inputValidator((input: EnsureInput) => {
-    const ids = Array.isArray(input?.specPointIds)
-      ? [...new Set(input.specPointIds.map(String).filter(Boolean))]
-      : [];
-    if (ids.length === 0) throw new Error("No spec points given");
-    const subject = SUBJECTS.find((s) => s.value === input?.subject)?.value;
-    if (!subject) throw new Error("subject required");
-    const level = LEVELS.find((l) => l.value === input?.level)?.value;
-    if (!level) throw new Error("level required");
-    const board = BOARDS.find((b) => b.value === input?.board)?.value ?? null;
-    // A week is a handful of points; the cap is what stops a hand-rolled
-    // request asking for the whole specification in one call.
-    return { specPointIds: ids.slice(0, 12), subject, board, level };
-  })
-  .handler(async ({ data, context }): Promise<EnsureHomeworkResult> => {
-    const { supabase, userId } = context;
-    await refuseStaff(supabase, userId);
-
-    // Asked of the library, not of this student's view of it. Read through
-    // `resources`, a sheet the student can't see — held for review, or not yet
-    // published — looked missing, so it was generated again (and paid for) only
-    // for the write to find the existing sheet and throw the new one away.
-    const { data: already, error: haveErr } = await supabase.rpc("homework_points_with_sheet", {
-      _spec_point_ids: data.specPointIds,
-    });
-    if (haveErr) throw haveErr;
-
-    const have = new Set((already ?? []).filter(Boolean));
-    const missing = data.specPointIds.filter((id) => !have.has(id));
-    if (missing.length === 0) {
-      return { created: 0, existing: data.specPointIds.length, throttled: false };
-    }
-
-    const { data: pointRows, error: pointErr } = await supabase
-      .from("spec_points")
-      .select("id, code, title, description")
-      .in("id", missing);
-    if (pointErr) throw pointErr;
-
-    const points = (
-      (pointRows ?? []) as Array<{
-        id: string;
-        code: string;
-        title: string;
-        description: string | null;
-      }>
-    ).filter((p) => !!p?.id);
-
-    let created = 0;
-    let throttled = false;
-
-    for (const p of points) {
-      // Claimed per sheet rather than per call, so a batch that runs out of
-      // budget still keeps whatever it managed to write.
-      const { data: allowed, error: limitErr } = await supabase.rpc("claim_ai_request", {
-        _endpoint: "homework_generation",
-        _limit: GENERATIONS_PER_HOUR,
-        _window: "01:00:00",
-      });
-      if (limitErr || !allowed) {
-        throttled = true;
-        break;
-      }
-
-      try {
-        const generation = await loadGenerationContext(supabase, p.id);
-        if (
-          generation.point.subject !== data.subject ||
-          generation.point.level !== data.level ||
-          (data.board && generation.point.board !== data.board)
-        )
-          throw new Error("Specification point does not match the selected course");
-        const raw = await generateExamQuestions(generation, QUESTIONS_PER_POINT, "written");
-        const questions = toDrafts(raw, p.id);
-
-        // Through the server's own credential: a sheet is read by every student
-        // who reaches this point, so a browser may not write one directly.
-        await libraryRequest("rpc/ensure_generated_homework", {
-          _spec_point_id: p.id,
-          _title: `${p.code} ${p.title}`,
-          _subject: data.subject,
-          _level: data.level,
-          _board: generation.point.board,
-          // Ignored since 20261001111430: a library sheet has no owner. Still
-          // sent so this code and that migration can go live in either order.
-          _created_by: userId,
-          _questions: questions.map((q) => ({
-            prompt: q.prompt,
-            marks: q.marks,
-            answer_type: q.answer_type,
-            mark_scheme: q.mark_scheme,
-          })),
-        });
-        created++;
-      } catch (err) {
-        // One bad spec point must not cost the rest of the week its homework.
-        console.error(`[homework] generation failed for ${p.code}:`, err);
-      }
-    }
-
-    return { created, existing: have.size, throttled };
   });
