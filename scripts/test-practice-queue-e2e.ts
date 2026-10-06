@@ -7,8 +7,9 @@
  * argument RPCs run as the service role, the run-log insert) and as the
  * Anthropic API would (a scripted model). So a mismatch between the
  * TypeScript and SQL halves (a function or argument name, a JSON shape, an
- * outcome, a claim) fails here instead of in production. Nothing leaves the
- * process: no network, no production data, no paid call.
+ * outcome, a claim) fails here instead of in production. The minute job's
+ * knock (pg_net, stubbed) is handed to the worker route's real handler.
+ * Nothing leaves the process: no network, no production data, no paid call.
  *
  *   PGLITE_MODULE=/path/to/@electric-sql/pglite/dist/index.js bun scripts/test-practice-queue-e2e.ts
  */
@@ -22,9 +23,12 @@ import { inspect } from "node:util";
 const SUPABASE_URL = "https://practice-queue-e2e.invalid";
 const SERVICE_KEY = "sb_secret_test";
 const ANTHROPIC_KEY = "test";
+const WORKER_URL = "https://practice-queue-e2e.invalid/api/practice-worker";
+const WORKER_SECRET = "e2e-worker-secret-at-least-32-characters";
 process.env.SUPABASE_URL = SUPABASE_URL;
 process.env.SUPABASE_SERVICE_ROLE_KEY = SERVICE_KEY;
 process.env.ANTHROPIC_API_KEY = ANTHROPIC_KEY;
+process.env.PRACTICE_WORKER_SECRET = WORKER_SECRET;
 // The SDK would send its calls there instead of to the stand-in.
 delete process.env.ANTHROPIC_BASE_URL;
 delete process.env.ANTHROPIC_AUTH_TOKEN;
@@ -526,6 +530,19 @@ insert into public.topics (id, subject, board, level, title)
 insert into public.student_weekly_plans (id, student_id, subject, board, level, week_start, source)
   values ('${PLAN}', '${STUDENT}', 'biology', 'edexcel', 'gcse',
           date_trunc('week', now() at time zone 'Europe/London')::date, 'ai');
+
+-- This test's own: while a point is listed, the database refuses to save a
+-- quiz for it, as any failing save would.
+create table public.test_refused_saves(spec_point_id uuid primary key);
+create function public.test_refuse_save() returns trigger language plpgsql as $$
+begin
+  if exists (select 1 from public.test_refused_saves r where r.spec_point_id = new.spec_point_id) then
+    raise exception 'The database refused this save';
+  end if;
+  return new;
+end $$;
+create trigger test_refuse_save before insert on public.mcq_sets
+  for each row execute function public.test_refuse_save();
 `);
 
 try {
@@ -541,6 +558,13 @@ type Json = null | boolean | number | string | Json[] | { [key: string]: Json };
 /** One request the stand-in answered. */
 type Served = { path: string; body: unknown; status: number; answer: string; byHarness: boolean };
 const served: Served[] = [];
+/** Failed requests a scenario caused on purpose, so the after-checks let them by. */
+const expectedFailures = new Set<Served>();
+/**
+ * Paths whose next answer never arrives: the database runs the request, then
+ * the connection drops, so the caller can't tell whether it took effect.
+ */
+const loseNextAnswer = new Set<string>();
 /** Requests for anything but the two services played here. There must be none. */
 const strays: string[] = [];
 const quote = (name: string) => `"${name.replaceAll('"', '""')}"`;
@@ -757,6 +781,8 @@ async function postgrest(request: Request): Promise<Response> {
     answer: await answer.clone().text(),
     byHarness: request.headers.get("x-e2e-harness") === "1",
   });
+  if (loseNextAnswer.delete(path))
+    throw new TypeError("fetch failed: the connection closed before the answer arrived");
   return answer;
 }
 
@@ -766,16 +792,30 @@ type Reply =
   | "credit"
   | "rate_limit"
   | "bad_request"
+  | "overloaded"
+  | "dropped"
+  | "timeout"
   | "invalid_json"
   | "duplicate_options"
   | "max_tokens";
+/**
+ * The API's status for each reply it refuses. A refused call isn't billed, so
+ * the daily cap leaves it out. Every other call counts: an answer has usage,
+ * and a call that got none ("dropped", "timeout") may have been billed.
+ */
+const REFUSED: Partial<Record<Reply, number>> = {
+  credit: 400,
+  bad_request: 400,
+  rate_limit: 429,
+  overloaded: 529,
+};
 type Question = Record<string, unknown>;
 type ModelCall = {
   point: string;
   format: "mcq" | "written";
   count: number;
   reply: Reply;
-  /** The text the model answered with; null when the API refused the call. */
+  /** The text the model answered with; null when the API refused the call or never answered. */
   text: string | null;
   questions: Question[];
 };
@@ -898,6 +938,11 @@ async function anthropic(request: Request): Promise<Response> {
       "invalid_request_error",
       "messages: text content blocks must be non-empty",
     );
+  if (call.reply === "overloaded") return apiError(529, "overloaded_error", "Overloaded");
+  // No answer at all, so no status: the connection fails, or the call runs out
+  // of time (the SDK reads "timed out" as its own timer, APIConnectionTimeoutError).
+  if (call.reply === "dropped") throw new TypeError("fetch failed: the connection was reset");
+  if (call.reply === "timeout") throw new TypeError("fetch failed: the request timed out");
   call.questions = call.format === "mcq" ? mcqSet(call.count, tag) : writtenSet(call.count, tag);
   if (call.reply === "duplicate_options")
     call.questions[2] = { ...call.questions[2], options: ["same", "Same", "same", "other"] };
@@ -959,6 +1004,7 @@ const worker = (await import(fileURLToPath(WORKER))) as {
     only?: { specPointId: string; kind: Kind };
   }) => Promise<Outcome[]>;
   runPracticeJobNow: (specPointId: string, kind: Kind) => Promise<RunNow>;
+  handlePracticeWorkerRequest: (request: Request) => Promise<Response>;
 };
 const { validateQuestions } = (await import(fileURLToPath(GENERATION))) as {
   validateQuestions: (value: unknown, count: number, format: "mcq" | "written") => unknown[];
@@ -1002,6 +1048,8 @@ type Run = {
   stop_reason: string | null;
   questions: number | null;
   has_usage: boolean;
+  /** The API's error status for a refused call, else null. */
+  api_status: number | null;
   model: string;
   grounding: string;
   timed: boolean;
@@ -1123,8 +1171,8 @@ const runs = async (point: Point) =>
     await db.query<Run>(
       `select job_id::int as job_id, source, outcome, format, error, raw_output, stop_reason,
               case when jsonb_typeof(generated_questions) = 'array' then jsonb_array_length(generated_questions) end as questions,
-              coalesce(jsonb_typeof(usage) = 'object', false) as has_usage, model, grounding,
-              coalesce(duration_ms >= 0, false) as timed
+              coalesce(jsonb_typeof(usage) = 'object', false) as has_usage, api_status, model,
+              grounding, coalesce(duration_ms >= 0, false) as timed
          from public.exam_generation_runs where spec_point_id = $1 order by created_at, id`,
       [point.id],
     )
@@ -1247,6 +1295,43 @@ async function rpc<T>(name: string, args: Record<string, unknown>): Promise<T> {
   assert.ok(response.ok, `rpc ${name}: ${response.status} ${text}`);
   return (text ? JSON.parse(text) : null) as T;
 }
+const resume = () => rpc("pause_practice_queue", { _minutes: 0 });
+const calls24h = async () => (await rpc<QueueStatus>("practice_queue_status", {})).calls_24h;
+const setDailyCap = (calls: number) =>
+  db.query("update private.practice_queue set daily_call_limit = $1", [calls]);
+/** Every model call so far the daily cap should count: all but the ones the API refused. */
+const billable = () => model.calls.filter((c) => !(c.reply in REFUSED)).length;
+
+type Knock = {
+  url: string;
+  body: unknown;
+  headers: Record<string, string>;
+  timeout_milliseconds: number;
+};
+/** The minute job, as pg_cron runs it: the request it queued in pg_net, or null for none. */
+async function knock(): Promise<Knock | null> {
+  const before = await db.query<{ last: number }>(
+    "select coalesce(max(id), 0)::int as last from net.requests",
+  );
+  await db.query("select private.kick_practice_worker()");
+  const { rows } = await db.query<Knock>(
+    "select url, body, headers, timeout_milliseconds from net.requests where id > $1 order by id",
+    [before.rows[0].last],
+  );
+  assert.ok(rows.length <= 1, "one knock at a time");
+  return rows[0] ?? null;
+}
+/** pg_net delivering a knock to the worker route's handler. */
+async function answer(sent: Knock): Promise<{ status: number; body: Record<string, unknown> }> {
+  const response = await worker.handlePracticeWorkerRequest(
+    new Request(sent.url, {
+      method: "POST",
+      headers: sent.headers,
+      body: JSON.stringify(sent.body),
+    }),
+  );
+  return { status: response.status, body: (await response.json()) as Record<string, unknown> };
+}
 
 const workerRequests = () => served.filter((s) => !s.byHarness);
 const describe = (s: Served) =>
@@ -1270,7 +1355,7 @@ async function settled(label: string) {
   const [s] = rows;
   assert.deepEqual(
     workerRequests()
-      .filter((r) => r.status >= 400)
+      .filter((r) => r.status >= 400 && !expectedFailures.has(r))
       .map(describe),
     [],
     `${label}: every request the worker made succeeded`,
@@ -1278,6 +1363,11 @@ async function settled(label: string) {
   assert.deepEqual(model.faults, [], `${label}: every model call was well formed`);
   assert.deepEqual(strays, [], `${label}: nothing left the process`);
   assert.equal(s.runs, model.calls.length, `${label}: one queue run row per model call`);
+  assert.equal(
+    await calls24h(),
+    billable(),
+    `${label}: the daily cap counts every call but the ones the API refused`,
+  );
   assert.equal(s.unresolved, 0, `${label}: every run that passed was then saved or discarded`);
   assert.equal(s.generating, 0, `${label}: no job is left generating`);
   assert.equal(s.ready, 0, `${label}: no job is left ready`);
@@ -1409,6 +1499,7 @@ try {
           stop_reason: "end_turn",
           questions: 8,
           has_usage: true,
+          api_status: null,
           model: "claude-sonnet-5-5",
           grounding: "curriculum_only",
           timed: true,
@@ -1423,6 +1514,7 @@ try {
           stop_reason: "end_turn",
           questions: 5,
           has_usage: true,
+          api_status: null,
           model: "claude-sonnet-5-5",
           grounding: "curriculum_only",
           timed: true,
@@ -1662,6 +1754,7 @@ try {
           stop_reason: reply === "max_tokens" ? "max_tokens" : "end_turn",
           questions: null,
           has_usage: true,
+          api_status: null,
           model: "claude-sonnet-5-5",
           grounding: "curriculum_only",
           timed: true,
@@ -1702,9 +1795,9 @@ try {
     ]);
     assert.deepEqual([j.status, j.attempts], ["failed", 1]);
     assert.deepEqual(
-      (await runs(p9)).map((r) => [r.outcome, !!r.error, r.has_usage, r.questions]),
-      [["failed", true, false, null]],
-      "a refused call is logged with no usage",
+      (await runs(p9)).map((r) => [r.outcome, !!r.error, r.has_usage, r.questions, r.api_status]),
+      [["failed", true, false, null, 400]],
+      "a refused call is logged with no usage, and the API's status",
     );
     await settled("a request the API rejects as invalid gives up at once");
   }
@@ -1750,8 +1843,14 @@ try {
     near(j.wait_s, paused.paused_s!, 1, "the job waits for the pause to end");
     const [refused] = await runs(p10);
     assert.deepEqual(
-      [refused.outcome, refused.has_usage, refused.questions, refused.raw_output],
-      ["failed", false, null, null],
+      [
+        refused.outcome,
+        refused.has_usage,
+        refused.questions,
+        refused.raw_output,
+        refused.api_status,
+      ],
+      ["failed", false, null, null, 400],
     );
     assert.match(refused.error ?? "", /credit balance/i, "the run keeps the API's own words");
     const status = await rpc<QueueStatus>("practice_queue_status", {});
@@ -1760,14 +1859,14 @@ try {
     for (const key of keys.split(" ")) assert.ok(key in status, `practice_queue_status has ${key}`);
     assert.ok(status.paused_until, "the status shows the pause");
 
-    const pressed = await counted(() => worker.runPracticeJobNow(p10.id, "quiz"));
-    assert.deepEqual(pressed.value, { status: "paused" });
     const drained = await counted(() => worker.drainPracticeQueue());
     assert.deepEqual(drained.value, []);
-    assert.equal(pressed.calls.length + drained.calls.length, 0, "nothing is called while paused");
+    assert.equal(drained.calls.length, 0, "nothing is called while paused");
 
-    await rpc("pause_practice_queue", { _minutes: 0 });
+    // No press meanwhile: resuming alone must free the job the pause held back.
+    await resume();
     assert.equal((await queue()).paused_s, null, "resumed");
+    assert.ok((await job(p10, "quiz")).wait_s <= 0, "the job is due the moment the queue resumes");
     const resumed = await counted(() => worker.drainPracticeQueue());
     assert.equal(resumed.calls.length, 1);
     const [set] = await generatedSets(p10);
@@ -1775,7 +1874,9 @@ try {
       { job_id: j.id, spec_point_id: p10.id, kind: "quiz", result: "written", result_id: set },
     ]);
     assert.deepEqual(state(await job(p10, "quiz")), completed("written", 1, set));
-    await settled("a credit outage pauses 30 min, the attempt uncounted; no call until resumed");
+    await settled(
+      "a credit outage pauses 30 min, the attempt uncounted; no call until resumed, then due at once",
+    );
   }
 
   // ── 11. A rate limit: a short pause, one call only, the attempt not counted ─
@@ -1800,18 +1901,25 @@ try {
     ]);
     near((await queue()).paused_s, 2 * 60, 5, "the queue pauses for 2 minutes");
     assert.deepEqual([j.status, j.attempts], ["pending", 0], "the attempt is not counted");
-    await rpc("pause_practice_queue", { _minutes: 0 });
+    assert.equal((await runs(p11)).at(-1)?.api_status, 429, "the run keeps the API's status");
+    const pressed = await counted(() => worker.runPracticeJobNow(p11.id, "quiz"));
+    assert.deepEqual(pressed.value, { status: "paused" }, "a press while paused");
+    assert.equal(pressed.calls.length, 0, "calls nothing");
+    await resume();
     const back = await counted(() => worker.runPracticeJobNow(p11.id, "quiz"));
     assert.equal(back.calls.length, 1);
     const [set] = await generatedSets(p11);
     assert.deepEqual(back.value, { status: "completed", resultId: set, created: true });
-    await settled("a rate limit pauses 2 min, one call, the attempt uncounted");
+    await settled(
+      "a rate limit pauses 2 min, one call, the attempt uncounted; a press meanwhile waits",
+    );
   }
 
   // ── 12. A lease that ran out: the first worker's save is refused while the second holds the job ─
   {
     const p12 = await quizOnly("Extinction");
     const only = { specPointId: p12.id, kind: "quiz" as const };
+    const from = served.length;
     const first = holdNextModelCall();
     const slow = worker.drainPracticeQueue({ only });
     await untilCalled(first.arrived, slow, "the first worker");
@@ -1866,31 +1974,275 @@ try {
       ["discarded", "Claim lost before saving"],
       ["saved", null],
     ]);
+    assert.equal(
+      served.slice(from).filter((s) => !s.byHarness && s.path === "rpc/fail_practice_job").length,
+      0,
+      "a lost claim is not recorded as a failure",
+    );
     await settled(
       "a lapsed lease: the second worker writes; the first one's save is lost_claim, its run discarded",
     );
   }
 
-  // ── 13. The daily cap counts every call the worker made ────────────────────
+  // ── 13. A save the database refuses: its run is closed as failed, the job tried again ─
   {
     const p13 = await quizOnly("Antibiotic resistance");
-    const status = await rpc<QueueStatus>("practice_queue_status", {});
-    assert.equal(status.calls_24h, model.calls.length, "every model call counts against the cap");
-    await db.query("update private.practice_queue set daily_call_limit = $1", [model.calls.length]);
-    const capped = await counted(() => worker.runPracticeJobNow(p13.id, "quiz"));
+    const only = { specPointId: p13.id, kind: "quiz" as const };
+    await db.query("insert into public.test_refused_saves values ($1)", [p13.id]);
+    const from = served.length;
+    const refused = await counted(() => worker.drainPracticeQueue({ only }));
+    assert.equal(refused.calls.length, 1);
+    const failedSaves = served.slice(from).filter((s) => !s.byHarness && s.status >= 400);
+    assert.deepEqual(
+      failedSaves.map((s) => [s.path, s.status]),
+      [["rpc/complete_practice_job", 400]],
+      "the save raised",
+    );
+    failedSaves.forEach((s) => expectedFailures.add(s));
+    const j = await job(p13, "quiz");
+    const message = refused.value[0]?.error ?? "";
+    assert.match(message, /The database refused this save/, "the outcome says why");
+    assert.deepEqual(refused.value, [
+      {
+        job_id: j.id,
+        spec_point_id: p13.id,
+        kind: "quiz",
+        result: "failed",
+        failure: "retry",
+        error: message,
+        status_after: "pending",
+      },
+    ]);
+    assert.deepEqual(
+      { status: j.status, attempts: j.attempts, last_error: j.last_error, claim: j.claim_token },
+      { status: "pending", attempts: 1, last_error: message, claim: null },
+    );
+    near(j.wait_s, 600, 5, "a failed save is tried again in 10 minutes");
+    assert.deepEqual(await generatedSets(p13), [], "nothing was saved");
+    assert.deepEqual(
+      (await runs(p13)).map((r) => [r.outcome, r.error, r.has_usage, r.questions]),
+      [["failed", message, true, 8]],
+      "the call's run is closed as failed, keeping its questions and usage",
+    );
+
+    await db.query("delete from public.test_refused_saves where spec_point_id = $1", [p13.id]);
+    const early = await counted(() => worker.drainPracticeQueue());
+    assert.equal(early.calls.length, 0, "the job waits out its delay");
+    // A tutor's press skips the wait.
+    const pressed = await counted(() => worker.runPracticeJobNow(p13.id, "quiz"));
+    assert.equal(pressed.calls.length, 1);
+    const sets = await generatedSets(p13);
+    assert.equal(sets.length, 1, "one set");
+    assert.deepEqual(pressed.value, { status: "completed", resultId: sets[0], created: true });
+    assert.deepEqual(await setQuestions(sets[0]), savedQuiz(pressed.calls[0], p13));
+    assert.deepEqual(state(await job(p13, "quiz")), completed("written", 2, sets[0]));
+    assert.deepEqual(
+      (await runs(p13)).map((r) => r.outcome),
+      ["failed", "saved"],
+    );
+    await settled(
+      "a save the database refuses closes its run as failed; the job waits, a press skips the wait, one set",
+    );
+  }
+
+  // ── 14. A save that went through though its answer was lost: nothing redone ─
+  {
+    const p14 = await quizOnly("Inherited disorders");
+    loseNextAnswer.add("rpc/complete_practice_job");
+    const lost = await counted(() =>
+      worker.drainPracticeQueue({ only: { specPointId: p14.id, kind: "quiz" } }),
+    );
+    assert.equal(lost.calls.length, 1);
+    assert.equal(loseNextAnswer.size, 0, "the save's answer was lost");
+    const [set] = await generatedSets(p14);
+    assert.ok(set, "the save went through");
+    const j = await job(p14, "quiz");
+    assert.deepEqual(
+      lost.value,
+      [{ job_id: j.id, spec_point_id: p14.id, kind: "quiz", result: "lost_claim" }],
+      "not a failure: the job is no longer the worker's",
+    );
+    assert.deepEqual(state(j), completed("written", 1, set), "the job stays written");
+    assert.deepEqual(
+      (await runs(p14)).map((r) => [r.outcome, r.error]),
+      [["saved", null]],
+      "a saved run stays saved",
+    );
+    await settled(
+      "a save whose answer was lost stays saved: the job written, the run saved, nothing tried again",
+    );
+  }
+
+  // ── 15. The minute job knocks only when a call may start, and the worker answers ─
+  {
+    await db.query(
+      "insert into vault.decrypted_secrets values ('practice_worker_url', $1), ('practice_worker_secret', $2)",
+      [WORKER_URL, WORKER_SECRET],
+    );
+    assert.equal(await knock(), null, "nothing ready: no knock");
+    const p15 = await newPoint("Variation and selection");
+    await addToWeek(p15);
+    const door = await knock();
+    assert.deepEqual(door, {
+      url: WORKER_URL,
+      body: {},
+      headers: { "Content-Type": "application/json", Authorization: `Bearer ${WORKER_SECRET}` },
+      timeout_milliseconds: 300000,
+    });
+    const woken = await counted(() => answer(door!));
+    assert.equal(woken.value.status, 200, "the route takes the minute job's secret");
+    assert.equal(woken.value.body.claimed, 2);
+    assert.deepEqual(
+      (woken.value.body.outcomes as Outcome[]).map((o) => `${o.kind} ${o.result}`).sort(),
+      ["quiz written", "task written"],
+    );
+    oneCallPerJob(woken.calls, p15, "the worker the knock woke");
+    await oneOfEach(p15, "the worker the knock woke");
+    assert.equal(await knock(), null, "nothing left: no knock");
+
+    // At the in-flight limit, no knock though a job is ready.
+    await db.query("update private.practice_queue set max_in_flight = 1");
+    const p16 = await newPoint("Natural selection in action");
+    await addToWeek(p16);
+    const held = holdNextModelCall();
+    const first = await knock();
+    assert.ok(first, "a call may start: a knock");
+    const busy = answer(first);
+    await untilCalled(held.arrived, busy, "the woken worker");
+    assert.equal(await knock(), null, "one call in flight at a limit of one: no knock");
+    held.release();
+    assert.equal((await busy).body.claimed, 1, "the worker took one job, as the limit allows");
+    const next = await knock();
+    assert.ok(next, "that call done, the other job gets its knock");
+    assert.equal((await answer(next)).body.claimed, 1);
+    await oneOfEach(p16, "one job at a time");
+    await db.query("update private.practice_queue set max_in_flight = 3");
+    assert.equal(await knock(), null, "nothing left: no knock");
+    await settled(
+      "the minute job knocks only when a call may start (not at the in-flight limit); the woken worker writes",
+    );
+  }
+
+  // ── 16. The daily cap counts billed calls, and lost ones, never refused ones ─
+  {
+    const billed = billable();
+    assert.ok(model.calls.length > billed, "some calls so far were refused (400s, a 429)");
+    assert.equal(
+      await calls24h(),
+      billed,
+      "the cap counts only the calls that may have been billed",
+    );
+
+    // Room for one more billed call. An outage then refuses two calls in a
+    // row (no credit, then overloaded), and each pause ends.
+    await setDailyCap(billed + 1);
+    const p17 = await quizOnly("Conservation of species");
+    const only17 = { specPointId: p17.id, kind: "quiz" as const };
+    for (const [reply, status] of [
+      ["credit", 400],
+      ["overloaded", 529],
+    ] as const) {
+      model.script.push(reply);
+      const refused = await counted(() => worker.drainPracticeQueue({ only: only17 }));
+      assert.equal(refused.calls.length, 1, `${reply}: one call`);
+      assert.deepEqual(
+        refused.value.map((o) => [o.result, o.failure, o.status_after]),
+        [["failed", "outage", "pending"]],
+      );
+      const run = (await runs(p17)).at(-1)!;
+      assert.deepEqual(
+        [run.outcome, run.has_usage, run.api_status],
+        ["failed", false, status],
+        `${reply}: refused, unbilled, with the API's status`,
+      );
+      await resume();
+    }
+    assert.equal(await calls24h(), billed, "the outage's refused calls are not counted");
+    // Were they counted, the queue would now sit at its cap for a day.
+    const door = await knock();
+    assert.ok(door, "once the pause ends the minute job knocks");
+    const resumed = await counted(() => answer(door));
+    assert.equal(resumed.calls.length, 1, "and the woken worker makes the call");
+    assert.deepEqual(
+      (resumed.value.body.outcomes as Outcome[]).map((o) => [o.spec_point_id, o.result]),
+      [[p17.id, "written"]],
+    );
+    assert.equal(await calls24h(), billed + 1, "a billed call counts: the cap is reached");
+
+    // At the cap: no knock though a job is ready, no call, and a press is queued.
+    const p18 = await quizOnly("Biodiversity");
+    assert.equal(await knock(), null, "at the daily cap: no knock");
+    const capped = await counted(() => worker.runPracticeJobNow(p18.id, "quiz"));
     assert.deepEqual(capped.value, { status: "queued" });
     const drained = await counted(() => worker.drainPracticeQueue());
     assert.deepEqual(drained.value, []);
     assert.equal(capped.calls.length + drained.calls.length, 0, "nothing is called at the cap");
-    await db.query("update private.practice_queue set daily_call_limit = 100");
+
+    // A call in flight holds its place under the cap. One that never gets an
+    // answer may have been billed, so it keeps it: a dropped connection (an
+    // outage) and a timeout (a slow call, tried later).
+    const p19 = await quizOnly("Biodiversity hotspots");
+    const only18 = { specPointId: p18.id, kind: "quiz" as const };
+    const noAnswer = async (reply: Reply, failure: string, outcomes: Outcome[], cap: number) => {
+      assert.deepEqual(
+        outcomes.map((o) => [o.result, o.failure, o.status_after]),
+        [["failed", failure, "pending"]],
+        reply,
+      );
+      const run = (await runs(p18)).at(-1)!;
+      assert.deepEqual(
+        [run.outcome, run.has_usage, run.api_status],
+        ["failed", false, null],
+        `${reply}: no answer, so no usage and no status`,
+      );
+      assert.equal(await calls24h(), cap, `${reply}: a call with no answer counts`);
+    };
+    const stillCapped = async (reply: Reply) => {
+      await makeReady(p18, "quiz");
+      assert.equal(await knock(), null, `${reply}: at the cap again, no knock`);
+      const none = await counted(() => worker.drainPracticeQueue());
+      assert.equal(none.calls.length, 0, `${reply}: and no call`);
+    };
+
+    await setDailyCap(billed + 2);
+    model.script.push("dropped");
+    const held = holdNextModelCall();
+    const cut = worker.drainPracticeQueue({ only: only18 });
+    await untilCalled(held.arrived, cut, "the last call under the cap");
+    assert.equal(await knock(), null, "the call in flight takes the last place: no knock");
+    const meanwhile = await counted(() => worker.drainPracticeQueue());
+    assert.equal(meanwhile.calls.length, 0, "and no second call, though another job is ready");
+    held.release();
+    await noAnswer("dropped", "outage", await cut, billed + 2);
+    near(
+      (await queue()).paused_s,
+      2 * 60,
+      5,
+      "a dropped connection pauses the queue for 2 minutes",
+    );
+    await resume();
+    await stillCapped("dropped");
+
+    await setDailyCap(billed + 3);
+    model.script.push("timeout");
+    const slow = await counted(() => worker.drainPracticeQueue({ only: only18 }));
+    assert.equal(slow.calls.length, 1, "timeout: one call");
+    await noAnswer("timeout", "retry", slow.value, billed + 3);
+    assert.equal((await queue()).paused_s, null, "a timeout pauses nothing: only its job waits");
+    await stillCapped("timeout");
+
+    await setDailyCap(100);
     const freed = await counted(() => worker.drainPracticeQueue());
-    assert.equal(freed.calls.length, 1);
+    assert.equal(freed.calls.length, 2);
     assert.deepEqual(
-      freed.value.map((o) => [o.spec_point_id, o.result]),
-      [[p13.id, "written"]],
+      freed.value.map((o) => [o.spec_point_id, o.result]).sort(),
+      [
+        [p18.id, "written"],
+        [p19.id, "written"],
+      ].sort(),
     );
     await settled(
-      "the daily cap counts every call; at the cap nothing is called, a press is queued",
+      "the daily cap counts billed calls, dropped ones and timeouts, never refused ones, so an outage can't stall the queue; at the cap no knock, no call, a press is queued",
     );
   }
 

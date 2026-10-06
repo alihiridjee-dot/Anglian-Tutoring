@@ -300,10 +300,15 @@ export async function generateExamQuestions(
     });
   } catch (error) {
     const { failure, pauseMinutes, message } = classifyApiError(error);
+    // The API answered with an error, so nothing was generated or billed, and
+    // the queue's daily cap leaves the call out. A timeout or a dropped
+    // connection has no status: it may have been billed, so it still counts.
+    const status = error instanceof Anthropic.APIError ? error.status : undefined;
     const runId = await recordRun({
       ...call,
       outcome: "failed",
       error: error instanceof Error ? error.message : String(error),
+      api_status: typeof status === "number" && status >= 400 && status <= 599 ? status : null,
       usage: null,
       generated_questions: null,
       duration_ms: Date.now() - started,

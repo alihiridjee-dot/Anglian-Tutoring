@@ -103,13 +103,14 @@ create table if not exists private.practice_queue (
   -- is claimed, and the worker isn't woken, until it has passed.
   paused_until     timestamptz,
   pause_reason     text,
-  -- Model calls for jobs in any 24 hours, counting the ones in flight.
+  -- Model calls for jobs in any 24 hours, counting the ones in flight
+  -- (private.practice_calls_24h says which count).
   daily_call_limit integer not null default 100 check (daily_call_limit >= 0),
   max_in_flight    integer not null default 3 check (max_in_flight between 1 and 10),
   -- Claims a job gets before it fails. An outage gives its claim back.
   max_attempts     integer not null default 3 check (max_attempts between 1 and 10),
   -- Longer than the worker's 300-second limit, so a live call is never taken over.
-  lease_seconds    integer not null default 360 check (lease_seconds between 60 and 3600),
+  lease_seconds    integer not null default 360 check (lease_seconds between 360 and 3600),
   updated_at       timestamptz not null default now()
 );
 
@@ -152,10 +153,13 @@ alter table public.exam_generation_runs
   add column if not exists source text not null default 'unknown'
     check (source in ('queue', 'replace', 'builder', 'unknown')),
   add column if not exists job_id bigint references private.practice_jobs(id) on delete set null,
-  add column if not exists duration_ms integer;
+  add column if not exists duration_ms integer,
+  add column if not exists api_status integer check (api_status between 400 and 599);
 
 comment on column public.exam_generation_runs.outcome is
   'passed: written and passed the checks. saved or discarded: a queue job''s questions, kept or not (set by complete_practice_job). failed: an API error, an answer cut off, bad JSON or failed checks.';
+comment on column public.exam_generation_runs.api_status is
+  'The HTTP status when the API answered with an error; null otherwise, including a timeout or a lost connection. An error answer is not billed.';
 
 -- A call refused outright has neither questions nor usage.
 alter table public.exam_generation_runs
@@ -188,6 +192,11 @@ create index if not exists exam_generation_runs_created_at_idx
 -- own task. That is the question for a job a tutor asked for
 -- (practice_jobs.requested), so the AI quiz can sit alongside one of theirs.
 -- Returns the content's id (the first match, in a fixed order), or null.
+--
+-- Volatile, not stable, on purpose: each look must see what has been saved
+-- by then. Stable, it would see only what was there when the statement
+-- calling it began, and an enqueue that waited on another writer's lock would
+-- judge by content from before the wait.
 create or replace function private.practice_content_id(
   _spec_point_id uuid,
   _kind text,
@@ -195,7 +204,7 @@ create or replace function private.practice_content_id(
 )
  returns uuid
  language plpgsql
- stable
+ volatile
  set search_path to ''
 as $function$
 declare
@@ -464,6 +473,11 @@ revoke all on function private.save_generated_task(uuid, jsonb) from public, ano
 --     in someone's week, and the daily cap still bounds what that costs
 -- A job being generated is never touched. Returns how many jobs it created or
 -- gave another go.
+--
+-- Most calls find every job there and in order. Those are left without a
+-- write or a lock, so two students saving the same points at once can't
+-- deadlock on them. Only a missing job, or one that may need another go,
+-- takes the insert below, which decides again under the row's lock.
 create or replace function private.enqueue_practice(_spec_point_id uuid, _kind text default null)
  returns integer
  language plpgsql
@@ -472,6 +486,7 @@ create or replace function private.enqueue_practice(_spec_point_id uuid, _kind t
 as $function$
 declare
   _k text;
+  _job private.practice_jobs%rowtype;
   _content uuid;
   _changed integer;
   _total integer := 0;
@@ -485,6 +500,19 @@ begin
 
   foreach _k in array case when _kind is null then array['quiz', 'task'] else array[_kind] end
   loop
+    select * into _job
+    from private.practice_jobs j
+    where j.spec_point_id = _spec_point_id and j.kind = _k;
+    if found then
+      if _job.status = 'completed' then
+        continue when private.practice_content_id(_spec_point_id, _k, _job.requested) is not null;
+      elsif _job.status = 'failed' then
+        continue when _job.updated_at >= now() - interval '24 hours';
+      else
+        continue; -- pending or generating: nothing to do
+      end if;
+    end if;
+
     -- For a new job, which nobody has asked for yet.
     _content := private.practice_content_id(_spec_point_id, _k);
 
@@ -504,6 +532,7 @@ begin
           lease_until = null,
           result_id = null,
           completed_how = null
+      -- The same test as above, now under the row's lock.
       where (j.status = 'completed'
              and private.practice_content_id(j.spec_point_id, j.kind, j.requested) is null)
          or (j.status = 'failed' and j.updated_at < now() - interval '24 hours');
@@ -550,14 +579,75 @@ create trigger plan_point_enqueues_practice
   after insert or update on public.student_weekly_plan_points
   for each row execute function private.enqueue_practice_for_plan_point();
 
--- ── 6 · Waking the worker ─────────────────────────────────────────────────
+-- ── 6 · How many calls may start now ──────────────────────────────────────
+
+-- Jobs being generated under a live lease. A lease that ran out belongs to a
+-- worker presumed dead, so its job doesn't count.
+create or replace function private.practice_in_flight()
+ returns integer
+ language sql
+ stable
+ set search_path to ''
+as $function$
+  select count(*)::integer
+  from private.practice_jobs j
+  where j.status = 'generating' and j.lease_until > now();
+$function$;
+
+revoke all on function private.practice_in_flight() from public, anon, authenticated;
+
+-- Model calls made for jobs in the last 24 hours, as the daily cap counts
+-- them. A call the API answered with an error status was not billed, so it
+-- doesn't count: a credit or rate-limit outage can't use up the day. One that
+-- timed out or lost its connection may have been billed, so it does.
+create or replace function private.practice_calls_24h()
+ returns integer
+ language sql
+ stable
+ set search_path to ''
+as $function$
+  select count(*)::integer
+  from public.exam_generation_runs r
+  where r.job_id is not null
+    and r.created_at > now() - interval '24 hours'
+    and (r.usage is not null or r.api_status is null);
+$function$;
+
+revoke all on function private.practice_calls_24h() from public, anon, authenticated;
+
+-- How many more model calls may start now: up to the in-flight limit, and
+-- within the 24-hour cap counting the calls in flight. None, if the settings
+-- row is missing. The claim and the worker's wake-up both ask this.
+create or replace function private.practice_call_budget()
+ returns integer
+ language plpgsql
+ stable
+ set search_path to ''
+as $function$
+declare
+  _in_flight integer := private.practice_in_flight();
+begin
+  return coalesce((
+    select least(
+      q.max_in_flight - _in_flight,
+      q.daily_call_limit - private.practice_calls_24h() - _in_flight
+    )
+    from private.practice_queue q
+  ), 0);
+end;
+$function$;
+
+revoke all on function private.practice_call_budget() from public, anon, authenticated;
+
+-- ── 7 · Waking the worker ─────────────────────────────────────────────────
 
 -- Knock on the worker's door, but only when there is work for it: a job is
 -- ready (pending and due, or generating on a lease that ran out), the queue
--- isn't paused, and Vault holds both the address and the secret. No knock
--- otherwise, so an idle queue costs nothing. The worker checks the secret and
--- claims what the limits allow. pg_net sends the request once this
--- transaction ends, and waits up to the worker's 300 seconds for it.
+-- isn't paused, a call may start (it isn't at the in-flight limit or the
+-- daily cap), and Vault holds both the address and the secret. No knock
+-- otherwise, so an idle or capped queue costs nothing. The worker checks the
+-- secret and claims what the limits allow. pg_net sends the request once
+-- this transaction ends, and waits up to the worker's 300 seconds for it.
 create or replace function private.kick_practice_worker()
  returns void
  language plpgsql
@@ -576,6 +666,9 @@ begin
     return;
   end if;
   if exists (select 1 from private.practice_queue q where q.paused_until > now()) then
+    return;
+  end if;
+  if private.practice_call_budget() <= 0 then
     return;
   end if;
 
@@ -610,7 +703,7 @@ select cron.schedule(
   $cron$ select private.kick_practice_worker(); $cron$
 );
 
--- ── 7 · The worker's calls (service role only) ────────────────────────────
+-- ── 8 · The worker's calls (service role only) ────────────────────────────
 
 -- The tutor's "AI generate MCQs" button, through the server. Makes sure the
 -- point has this one job (never the other kind's), then brings it up to date.
@@ -711,8 +804,6 @@ create or replace function public.claim_practice_jobs(
 as $function$
 declare
   _queue private.practice_queue%rowtype;
-  _in_flight integer;
-  _calls integer;
   _budget integer;
   _job private.practice_jobs%rowtype;
   _content uuid;
@@ -726,20 +817,8 @@ begin
     return;
   end if;
 
-  select count(*) into _in_flight
-  from private.practice_jobs j
-  where j.status = 'generating' and j.lease_until > now();
-
-  select count(*) into _calls
-  from public.exam_generation_runs r
-  where r.job_id is not null and r.created_at > now() - interval '24 hours';
-
-  _budget := least(greatest(coalesce(_limit, 1), 1), 10);
-  _budget := least(
-    _budget,
-    _queue.max_in_flight - _in_flight,
-    _queue.daily_call_limit - _calls - _in_flight
-  );
+  -- _limit, kept to 1..10, and no more than the limits allow.
+  _budget := least(least(greatest(coalesce(_limit, 1), 1), 10), private.practice_call_budget());
 
   while _budget > 0 loop
     select * into _job
@@ -791,9 +870,9 @@ grant execute on function public.claim_practice_jobs(integer, uuid, text) to ser
 -- in the run's outcome. Returns 'written' or 'already_existed' with the
 -- content's id, or 'lost_claim'.
 --
--- Only a run still marked passed is given its outcome here: saved and
--- discarded are final. Questions that fail the checks raise, the job keeps
--- its claim, and the worker records a retry.
+-- Only this job's run, and only while it is still marked passed, is given its
+-- outcome here: saved and discarded are final. Questions that fail the checks
+-- raise, the job keeps its claim, and the worker records a retry.
 create or replace function public.complete_practice_job(
   _job_id bigint,
   _claim_token uuid,
@@ -814,7 +893,7 @@ begin
   if not found or _job.status <> 'generating' or _job.claim_token is distinct from _claim_token then
     update public.exam_generation_runs r
        set outcome = 'discarded', error = 'Claim lost before saving'
-     where r.id = _run_id and r.outcome = 'passed';
+     where r.id = _run_id and r.job_id = _job_id and r.outcome = 'passed';
     return query select 'lost_claim'::text, null::uuid;
     return;
   end if;
@@ -842,7 +921,7 @@ begin
      where j.id = _job.id;
     update public.exam_generation_runs r
        set outcome = 'saved'
-     where r.id = _run_id and r.outcome = 'passed';
+     where r.id = _run_id and r.job_id = _job_id and r.outcome = 'passed';
     return query select 'written'::text, _written;
     return;
   end if;
@@ -853,7 +932,7 @@ begin
    where j.id = _job.id;
   update public.exam_generation_runs r
      set outcome = 'discarded', error = 'Content already existed when saving'
-   where r.id = _run_id and r.outcome = 'passed';
+   where r.id = _run_id and r.job_id = _job_id and r.outcome = 'passed';
   return query select 'already_existed'::text, _content;
 end;
 $function$;
@@ -871,12 +950,22 @@ grant execute on function public.complete_practice_job(bigint, uuid, jsonb, uuid
 --            and give the job its attempt back
 -- A job out of attempts fails. Returns the job's new status, or 'lost_claim'
 -- when the worker no longer holds it.
+--
+-- _run_id is the run of the call that failed. If that run is this job's and
+-- still marked passed (its questions passed the worker's checks, but the save
+-- raised), it is closed as failed, even when the claim has gone. A run that
+-- really was saved stays saved.
+--
+-- One signature only: PostgREST can't choose between overloads.
+drop function if exists public.fail_practice_job(bigint, uuid, text, text, integer);
+
 create or replace function public.fail_practice_job(
   _job_id bigint,
   _claim_token uuid,
   _error text,
   _failure text,
-  _pause_minutes integer default 0
+  _pause_minutes integer default 0,
+  _run_id uuid default null
 )
  returns text
  language plpgsql
@@ -891,6 +980,10 @@ begin
   if _failure is null or _failure not in ('retry', 'give_up', 'outage') then
     raise exception 'Unknown failure kind: %', _failure using errcode = '22023';
   end if;
+
+  update public.exam_generation_runs r
+     set outcome = 'failed', error = coalesce(left(_error, 2000), 'Save failed')
+   where r.id = _run_id and r.job_id = _job_id and r.outcome = 'passed';
 
   select * into _job from private.practice_jobs j where j.id = _job_id for update;
   if not found or _job.status <> 'generating' or _job.claim_token is distinct from _claim_token then
@@ -931,8 +1024,8 @@ begin
 end;
 $function$;
 
-revoke all on function public.fail_practice_job(bigint, uuid, text, text, integer) from public, anon, authenticated;
-grant execute on function public.fail_practice_job(bigint, uuid, text, text, integer) to service_role;
+revoke all on function public.fail_practice_job(bigint, uuid, text, text, integer, uuid) from public, anon, authenticated;
+grant execute on function public.fail_practice_job(bigint, uuid, text, text, integer, uuid) to service_role;
 
 -- What the queue is doing, for scripts/practice-queue.ts: its settings, the
 -- pause (null when not paused), calls in the last 24 hours, jobs by status,
@@ -949,14 +1042,8 @@ as $function$
     'paused_until', case when q.paused_until > now() then q.paused_until end,
     'pause_reason', case when q.paused_until > now() then q.pause_reason end,
     'daily_call_limit', q.daily_call_limit,
-    'calls_24h', (
-      select count(*) from public.exam_generation_runs r
-      where r.job_id is not null and r.created_at > now() - interval '24 hours'
-    ),
-    'in_flight', (
-      select count(*) from private.practice_jobs j
-      where j.status = 'generating' and j.lease_until > now()
-    ),
+    'calls_24h', private.practice_calls_24h(),
+    'in_flight', private.practice_in_flight(),
     'max_in_flight', q.max_in_flight,
     'max_attempts', q.max_attempts,
     'counts', (
@@ -1068,7 +1155,7 @@ $function$;
 revoke all on function public.rearm_failed_practice_jobs(uuid[]) from public, anon, authenticated;
 grant execute on function public.rearm_failed_practice_jobs(uuid[]) to service_role;
 
--- ── 8 · The weeks already planned ─────────────────────────────────────────
+-- ── 9 · The weeks already planned ─────────────────────────────────────────
 
 -- The trigger only sees weeks saved from now on, so queue the points of this
 -- week and later ones now. (On 5 Oct: 13 points, of which 2 need a quiz and 1

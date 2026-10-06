@@ -100,8 +100,12 @@ async function writeQuestions(
  */
 async function runClaimedJob(job: ClaimedJob): Promise<JobOutcome> {
   const about = { job_id: job.job_id, spec_point_id: job.spec_point_id, kind: job.kind };
+  // The call's run, so a save that fails can close it as failed.
+  let runId: string | null = null;
   try {
-    const { payload, runId } = await writeQuestions(job);
+    const written = await writeQuestions(job);
+    const payload = written.payload;
+    runId = written.runId;
     // Saves only while this claim still holds, and keeps whatever got there first.
     const [saved] = (await libraryRequest("rpc/complete_practice_job", {
       _job_id: job.job_id,
@@ -114,7 +118,8 @@ async function runClaimedJob(job: ClaimedJob): Promise<JobOutcome> {
       return { ...about, result: saved.status, result_id: saved.result_id };
     throw new Error(`The practice queue gave no result for job ${job.job_id}`);
   } catch (error) {
-    return failJob(job, error);
+    // A failed call records its own run; only a failed save leaves one open.
+    return failJob(job, error, runId ?? (error instanceof GenerationError ? error.runId : null));
   }
 }
 
@@ -123,7 +128,7 @@ async function runClaimedJob(job: ClaimedJob): Promise<JobOutcome> {
  * verdict: an outage pauses the queue rather than counting against the job.
  * Anything else, the context read or the save, is worth another try later.
  */
-async function failJob(job: ClaimedJob, error: unknown): Promise<JobOutcome> {
+async function failJob(job: ClaimedJob, error: unknown, runId: string | null): Promise<JobOutcome> {
   const failure: FailureKind = error instanceof GenerationError ? error.failure : "retry";
   const pauseMinutes = error instanceof GenerationError ? error.pauseMinutes : 0;
   const message = error instanceof Error ? error.message : String(error);
@@ -139,6 +144,8 @@ async function failJob(job: ClaimedJob, error: unknown): Promise<JobOutcome> {
       _error: cause ? `${message}: ${cause}` : message,
       _failure: failure,
       _pause_minutes: pauseMinutes,
+      // Marks the run failed only if it still reads passed (a save that raised).
+      _run_id: runId,
     });
     // The claim had already gone: another worker holds the job, or this one's
     // save went through before its answer was lost. Either way, not a failure.

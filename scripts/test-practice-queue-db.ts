@@ -479,6 +479,18 @@ begin
   return new;
 end $$;
 
+-- A tutor publishing a quiz in the moment between an enqueue's first look and
+-- its insert. Its trigger, on practice_jobs, is added only for that check.
+create function public.test_tutor_publishes_meanwhile() returns trigger language plpgsql as $$
+begin
+  if new.kind = 'quiz'
+     and exists (select 1 from public.test_rivals r where r.spec_point_id = new.spec_point_id) then
+    insert into public.mcq_sets (spec_point_id, title, published, origin)
+    values (new.spec_point_id, 'Published meanwhile', true, 'tutor');
+  end if;
+  return new;
+end $$;
+
 create table cron.job(jobid serial primary key, jobname text unique, schedule text, command text);
 create function cron.schedule(job_name text, schedule text, command text) returns bigint language sql as $$
   insert into cron.job(jobname, schedule, command) values (job_name, schedule, command) returning jobid::bigint $$;
@@ -497,11 +509,33 @@ create table vault.decrypted_secrets(name text, decrypted_secret text);
 `);
 
 // ── Helpers ──────────────────────────────────────────────────────────────
-const thisMonday = (
-  await db.query<{ d: string }>(
-    "select to_char(date_trunc('week', now() at time zone 'Europe/London'), 'YYYY-MM-DD') as d",
-  )
-).rows[0].d;
+/**
+ * The Monday that starts the UK week holding `at`, worked out without
+ * Postgres, so the migration's own week sum is checked against something else.
+ */
+const londonMonday = (at: Date) => {
+  const parts = new Intl.DateTimeFormat("en-GB", {
+    timeZone: "Europe/London",
+    year: "numeric",
+    month: "2-digit",
+    day: "2-digit",
+    weekday: "short",
+  }).formatToParts(at);
+  const part = (type: string) => parts.find((p) => p.type === type)?.value ?? "";
+  const day = new Date(`${part("year")}-${part("month")}-${part("day")}T00:00:00Z`);
+  day.setUTCDate(
+    day.getUTCDate() - ["Mon", "Tue", "Wed", "Thu", "Fri", "Sat", "Sun"].indexOf(part("weekday")),
+  );
+  return day.toISOString().slice(0, 10);
+};
+// Known answers: a UK week starts at midnight in London, which is 11pm UTC in
+// summer and midnight UTC in winter.
+assert.equal(londonMonday(new Date("2026-10-04T22:59:00Z")), "2026-09-28", "Sunday 23:59 BST");
+assert.equal(londonMonday(new Date("2026-10-04T23:00:00Z")), "2026-10-05", "Monday 00:00 BST");
+assert.equal(londonMonday(new Date("2026-01-04T23:59:00Z")), "2025-12-29", "Sunday 23:59 GMT");
+assert.equal(londonMonday(new Date("2026-01-05T00:00:00Z")), "2026-01-05", "Monday 00:00 GMT");
+assert.equal(londonMonday(new Date("2026-10-07T12:00:00Z")), "2026-10-05", "a Wednesday");
+const thisMonday = londonMonday(new Date());
 /** The Monday n weeks from this one. */
 const mon = (n: number) => {
   const d = new Date(`${thisMonday}T00:00:00Z`);
@@ -617,14 +651,21 @@ const complete = async (held: Claimed, questions: unknown, runId: string | null 
       [held.job_id, held.claim_token, JSON.stringify(questions), runId],
     )
   )[0];
-const fail = async (held: Claimed, error: string, failure: string, pauseMinutes = 0) =>
+const fail = async (
+  held: Claimed,
+  error: string | null,
+  failure: string,
+  pauseMinutes = 0,
+  runId: string | null = null,
+) =>
   (
-    await svc<{ s: string }>("select public.fail_practice_job($1, $2, $3, $4, $5) as s", [
+    await svc<{ s: string }>("select public.fail_practice_job($1, $2, $3, $4, $5, $6) as s", [
       held.job_id,
       held.claim_token,
       error,
       failure,
       pauseMinutes,
+      runId,
     ])
   )[0].s;
 const request = async (point: string, kind: string, rearm = false) =>
@@ -656,30 +697,45 @@ type QueueStatus = {
 const queueStatus = async () =>
   (await svc<{ s: QueueStatus }>("select public.practice_queue_status() as s"))[0].s;
 
-/** A model call logged the way the worker logs it: through the API, as the service role. */
+/**
+ * A model call logged the way the worker logs it: through the API, as the
+ * service role. A failed call has no questions; one refused with an error
+ * status (apiStatus) or cut off by a timeout has no usage either.
+ */
 const logRun = async (
   held: Claimed | null,
-  run: { outcome?: string; error?: string | null; hoursAgo?: number; point?: string } = {},
-) =>
-  (
+  run: {
+    outcome?: string;
+    error?: string | null;
+    hoursAgo?: number;
+    point?: string;
+    usage?: boolean;
+    apiStatus?: number;
+  } = {},
+) => {
+  const failed = run.outcome === "failed";
+  const billed = run.usage ?? !failed;
+  return (
     await svc<{ id: string }>(
       `insert into public.exam_generation_runs
          (spec_point_id, framework_version, model, format, grounding, exemplar_ids,
-          generated_questions, usage, outcome, error, source, job_id, created_at)
+          generated_questions, usage, outcome, error, source, job_id, created_at, api_status)
        values ($1, 'v1', 'claude-sonnet-5-5', 'mcq', 'style', '{}', $2::jsonb, $3::jsonb,
-               $4, $5, 'queue', $6, now() - make_interval(hours => $7))
+               $4, $5, 'queue', $6, now() - make_interval(hours => $7), $8)
        returning id`,
       [
         held?.spec_point_id ?? run.point ?? null,
-        run.outcome === "failed" ? null : '[{"question":"Q"}]',
-        run.outcome === "failed" ? null : '{"input_tokens":10}',
+        failed ? null : '[{"question":"Q"}]',
+        billed ? '{"input_tokens":10}' : null,
         run.outcome ?? "passed",
-        run.error ?? null,
+        run.error ?? (failed ? "The call failed" : null),
         held?.job_id ?? null,
         run.hoursAgo ?? 0,
+        run.apiStatus ?? null,
       ],
     )
   )[0].id;
+};
 const runRow = async (id: string) =>
   (
     await db.query<{ outcome: string; error: string | null }>(
@@ -943,7 +999,7 @@ await db.exec(migration);
     "public.request_practice_job(uuid, text, boolean)",
     "public.claim_practice_jobs(integer, uuid, text)",
     "public.complete_practice_job(bigint, uuid, jsonb, uuid)",
-    "public.fail_practice_job(bigint, uuid, text, text, integer)",
+    "public.fail_practice_job(bigint, uuid, text, text, integer, uuid)",
     "public.practice_queue_status()",
     "public.pause_practice_queue(integer, text)",
     "public.rearm_failed_practice_jobs(uuid[])",
@@ -954,6 +1010,9 @@ await db.exec(migration);
     "private.save_generated_task(uuid, jsonb)",
     "private.enqueue_practice(uuid, text)",
     "private.enqueue_practice_for_plan_point()",
+    "private.practice_in_flight()",
+    "private.practice_calls_24h()",
+    "private.practice_call_budget()",
     "private.kick_practice_worker()",
   ];
   const canExecute = async (role: string, fn: string) =>
@@ -968,6 +1027,51 @@ await db.exec(migration);
       assert.equal(await canExecute(role, fn), false, `${role} can't execute ${fn}`);
   for (const fn of rpcs) assert.equal(await canExecute("service_role", fn), true, fn);
   for (const fn of helpers) assert.equal(await canExecute("service_role", fn), false, fn);
+  const overloads = await db.query<{ n: number }>(
+    "select count(*)::int as n from pg_proc where proname = 'fail_practice_job'",
+  );
+  assert.equal(overloads.rows[0].n, 1, "one fail_practice_job, so PostgREST never has to choose");
+
+  // No API role holds anything on a private table, whatever its schema rights.
+  const privateRelations = (
+    await db.query<{ name: string; kind: string }>(
+      `select n.nspname || '.' || c.relname as name, c.relkind::text as kind
+       from pg_class c join pg_namespace n on n.oid = c.relnamespace
+       where n.nspname = 'private' and c.relkind in ('r', 'S') order by 1`,
+    )
+  ).rows;
+  assert.deepEqual(
+    privateRelations.map((r) => r.name),
+    ["private.practice_jobs", "private.practice_jobs_id_seq", "private.practice_queue"],
+  );
+  const holdsAny = async (role: string, relation: { name: string; kind: string }) =>
+    (
+      await db.query<{ any: boolean }>(
+        relation.kind === "S"
+          ? "select has_sequence_privilege($1, $2, 'USAGE, SELECT, UPDATE') as any"
+          : "select has_table_privilege($1, $2, 'SELECT, INSERT, UPDATE, DELETE, TRUNCATE, REFERENCES, TRIGGER') as any",
+        [role, relation.name],
+      )
+    ).rows[0].any;
+  for (const relation of privateRelations)
+    for (const role of ["public", "anon", "authenticated", "service_role"])
+      assert.equal(
+        await holdsAny(role, relation),
+        false,
+        `${role} holds nothing on ${relation.name}`,
+      );
+  const rls = await db.query<{ name: string }>(
+    `select c.relname as name from pg_class c join pg_namespace n on n.oid = c.relnamespace
+     where n.nspname = 'private' and c.relkind = 'r' and not c.relrowsecurity`,
+  );
+  assert.deepEqual(rls.rows, [], "row level security is on for every private table");
+  for (const role of ["anon", "authenticated", "service_role"]) {
+    const usage = await db.query<{ ok: boolean }>(
+      "select has_schema_privilege($1, 'private', 'USAGE') as ok",
+      [role],
+    );
+    assert.equal(usage.rows[0].ok, false, `${role} can't even look into private`);
+  }
 
   // And when they try.
   const calls = [
@@ -1252,6 +1356,73 @@ await db.exec(migration);
   assert.equal(await enqueue(recent), 0);
 }
 
+// ── 5b. A job already in order gets no write and no lock ────────────────
+{
+  // A row's xmax changes whenever something updates or locks it (claim and
+  // fail leave their own lock behind, so it isn't always 0). A no-op upsert
+  // would lock the row, and two saves locking rows in different orders
+  // deadlock.
+  await resetQueue();
+  const lockedBy = async (jobId: number) =>
+    (
+      await db.query<{ x: string }>(
+        "select xmax::text as x from private.practice_jobs where id = $1",
+        [jobId],
+      )
+    ).rows[0].x;
+  const [waiting, hasQuiz, failedToday, beingWritten] = [
+    await newPoint(),
+    await newPoint(),
+    await newPoint(),
+    await newPoint(),
+  ];
+  await addSet(hasQuiz, { published: true });
+  for (const point of [waiting, hasQuiz, failedToday, beingWritten]) await enqueue(point);
+  const [refused] = await claim(1, failedToday, "quiz");
+  await fail(refused, "Refused", "give_up");
+  await claim(1, beingWritten, "quiz");
+
+  const before: Job[] = [];
+  for (const point of [waiting, hasQuiz, failedToday, beingWritten])
+    for (const kind of ["quiz", "task"] as const) before.push(await job(point, kind));
+  assert.deepEqual(
+    before.map((j) => j.status),
+    ["pending", "pending", "completed", "pending", "failed", "pending", "generating", "pending"],
+  );
+  const locks = new Map<number, string>();
+  for (const j of before) locks.set(j.id, await lockedBy(j.id));
+  for (const point of [waiting, hasQuiz, failedToday, beingWritten])
+    assert.equal(await enqueue(point), 0);
+  for (const j of before) {
+    assert.deepEqual(await job(j.spec_point_id, j.kind), j, `${j.status} ${j.kind}: untouched`);
+    assert.equal(await lockedBy(j.id), locks.get(j.id), `${j.status} ${j.kind}: not even locked`);
+  }
+}
+
+// ── 5c. A quiz saved while the enqueue waited for its lock counts ───────
+{
+  // The look under the lock must see what has been saved by then, not what
+  // was there when its statement began, so practice_content_id is volatile.
+  // A trigger plays the tutor who publishes a quiz in that moment.
+  await resetQueue();
+  const p = await newPoint();
+  const gone = await addSet(p, { published: true });
+  await enqueue(p);
+  await db.query("delete from public.mcq_sets where id = $1", [gone]);
+  await db.exec(`
+    create trigger test_meanwhile before insert on private.practice_jobs
+      for each row execute function public.test_tutor_publishes_meanwhile();
+  `);
+  await db.query("insert into public.test_rivals values ($1)", [p]);
+  assert.equal(await enqueue(p), 0, "not queued again: a quiz is there now");
+  const kept = await job(p, "quiz");
+  assert.deepEqual([kept.status, kept.completed_how], ["completed", "already_existed"]);
+  await db.exec(`
+    drop trigger test_meanwhile on private.practice_jobs;
+    delete from public.test_rivals;
+  `);
+}
+
 // ── 6. Claiming ─────────────────────────────────────────────────────────
 {
   await resetQueue();
@@ -1293,21 +1464,45 @@ await db.exec(migration);
   assert.deepEqual(await claim(10), []);
 }
 {
-  // The 24-hour cap counts calls made for jobs, and the calls in flight.
+  // The 24-hour cap counts calls made for jobs, and the calls in flight. A
+  // call refused with an error status wasn't billed, so it doesn't count; one
+  // that timed out might have been, so it does.
   await resetQueue();
-  await db.exec("update private.practice_queue set max_in_flight = 10, daily_call_limit = 4");
+  await db.exec("update private.practice_queue set max_in_flight = 10, daily_call_limit = 5");
   const [p, q] = [await newPoint(), await newPoint()];
   await enqueue(p);
   await enqueue(q);
   const [held] = await claim(1);
   for (let i = 0; i < 3; i++) await logRun(held, { hoursAgo: 1 });
+  await logRun(held, { outcome: "failed", error: "Request timed out" }); // counts
+  await logRun(held, {
+    outcome: "failed",
+    apiStatus: 400,
+    error: "Your credit balance is too low",
+  });
+  await logRun(held, { outcome: "failed", apiStatus: 429, error: "Rate limited" });
+  await logRun(held, { outcome: "failed", apiStatus: 529, error: "Overloaded" });
   await logRun(held, { hoursAgo: 25 }); // over a day ago
   await logRun(null, { point: p }); // a tutor's draft, not a job's
-  assert.equal((await queueStatus()).calls_24h, 3);
-  assert.deepEqual(await claim(10), [], "3 calls and 1 in flight: the cap of 4 is reached");
+  assert.equal((await queueStatus()).calls_24h, 4, "3 calls and a timeout");
+  assert.deepEqual(await claim(10), [], "4 calls and 1 in flight: the cap of 5 is reached");
   assert.equal(await fail(held, "Refused", "give_up"), "failed");
   assert.equal((await claim(10)).length, 1, "with nothing in flight, one more call fits");
   assert.deepEqual(await claim(10), []);
+  // An error status on a call that was billed anyway still counts.
+  await resetQueue();
+  await db.exec("update private.practice_queue set daily_call_limit = 1");
+  await enqueue(await newPoint());
+  const [billed] = await claim(1, null, "quiz");
+  await logRun(billed, { outcome: "failed", usage: true, apiStatus: 500, error: "Server error" });
+  await fail(billed, "Server error", "give_up");
+  assert.equal((await queueStatus()).calls_24h, 1);
+  assert.deepEqual(await claim(1), [], "the day's one call is used");
+  await assert.rejects(
+    () => logRun(billed, { apiStatus: 200 }),
+    /exam_generation_runs_api_status_check/,
+    "only an error status is recorded",
+  );
 }
 {
   // _limit is kept to 1..10.
@@ -1585,6 +1780,27 @@ await db.exec(migration);
     result_id: null,
   });
 }
+{
+  // A run is only ever given its outcome by its own job: passing another
+  // job's run relabels nothing, whichever way the save goes.
+  await resetQueue();
+  const [p, q, r] = [await newPoint(), await newPoint(), await newPoint()];
+  for (const point of [p, q, r]) await enqueue(point);
+  const [mine] = await claim(1, p, "quiz");
+  const [theirs] = await claim(1, q, "quiz");
+  const [third] = await claim(1, r, "quiz");
+  const theirRun = await logRun(theirs);
+  const untouched = { outcome: "passed", error: null };
+  await complete({ ...mine, claim_token: uuid(997) }, quiz, theirRun); // lost claim
+  assert.deepEqual(await runRow(theirRun), untouched);
+  assert.equal((await complete(mine, quiz, theirRun)).status, "written");
+  assert.deepEqual(await runRow(theirRun), untouched);
+  await svc("select public.ensure_generated_mcq_set($1, $2::jsonb)", [r, JSON.stringify(quiz)]);
+  assert.equal((await complete(third, quiz, theirRun)).status, "already_existed");
+  assert.deepEqual(await runRow(theirRun), untouched);
+  assert.equal((await complete(theirs, quiz, theirRun)).status, "written");
+  assert.deepEqual(await runRow(theirRun), { outcome: "saved", error: null }, "its own job, yes");
+}
 
 // ── 10. Content that turned up meanwhile is kept, loudly ───────────────
 {
@@ -1829,6 +2045,42 @@ await db.exec(migration);
   assert.equal((await job(r, "quiz")).status, "generating");
   await assert.rejects(() => fail(mine, "x", "shrug"), /Unknown failure kind/);
   await assert.rejects(() => fail(mine, "x", null as unknown as string), /Unknown failure kind/);
+}
+{
+  // A save that raised: the worker's fail closes that call's run as failed.
+  await resetQueue();
+  await db.exec("update private.practice_queue set max_attempts = 10");
+  const [p, q] = [await newPoint(), await newPoint()];
+  await enqueue(p);
+  await enqueue(q);
+  const [held] = await claim(1, p, "quiz");
+  const [other] = await claim(1, q, "quiz");
+  const run = await logRun(held);
+  const otherRun = await logRun(other);
+  const error = "Question 2's answer key is not one of its four options";
+  assert.equal(await fail(held, error, "retry", 0, run), "pending");
+  assert.deepEqual(await runRow(run), { outcome: "failed", error });
+
+  // Never another job's run.
+  await due(held.job_id);
+  const [again] = await claim(1, p, "quiz");
+  await fail(again, "Bad JSON", "retry", 0, otherRun);
+  assert.deepEqual(await runRow(otherRun), { outcome: "passed", error: null });
+
+  // Its own run is closed even when the claim has gone, and with no message
+  // it still says why.
+  await due(again.job_id);
+  const [late] = await claim(1, p, "quiz");
+  const lateRun = await logRun(late);
+  await expire(late.job_id);
+  assert.equal((await claim(1, p, "quiz")).length, 1, "another worker takes it over");
+  assert.equal(await fail(late, null, "retry", 0, lateRun), "lost_claim");
+  assert.deepEqual(await runRow(lateRun), { outcome: "failed", error: "Save failed" });
+
+  // A run that really was saved stays saved.
+  assert.equal((await complete(other, quiz, otherRun)).status, "written");
+  assert.equal(await fail(other, "Late failure", "retry", 0, otherRun), "lost_claim");
+  assert.deepEqual(await runRow(otherRun), { outcome: "saved", error: null });
 }
 
 // ── 14. An outage pauses the queue, and isn't held against the job ─────
@@ -2278,6 +2530,26 @@ await db.exec(migration);
   assert.deepEqual(await knocks(), []);
   await expire(taken[0].job_id);
   assert.equal((await knocks()).length, 1, "a job whose worker died is ready again");
+
+  // At either cap the worker could claim nothing, so it isn't woken.
+  await resetQueue();
+  const [a, b] = [await newPoint(), await newPoint()];
+  await enqueue(a);
+  await enqueue(b);
+  await db.exec("update private.practice_queue set max_in_flight = 1");
+  const [busy] = await claim(1, a, "quiz");
+  assert.deepEqual(await knocks(), [], "the in-flight limit is reached, though jobs are ready");
+  await expire(busy.job_id);
+  assert.equal((await knocks()).length, 1, "a worker presumed dead doesn't hold the slot");
+  await db.exec("delete from net.requests");
+  await fail(busy, "Refused", "give_up");
+  await db.exec("update private.practice_queue set max_in_flight = 3, daily_call_limit = 2");
+  await logRun(busy, { hoursAgo: 2 });
+  await logRun(busy, { hoursAgo: 3 });
+  assert.deepEqual(await knocks(), [], "the day's calls are used");
+  await logRun(busy, { outcome: "failed", apiStatus: 429, error: "Rate limited" });
+  await db.exec("update private.practice_queue set daily_call_limit = 3");
+  assert.equal((await knocks()).length, 1, "room again (an unbilled refusal took none of it)");
 }
 
 // ── 18. The run log ─────────────────────────────────────────────────────
@@ -2411,14 +2683,21 @@ await db.exec(migration);
     ["max_in_flight = 0", /max_in_flight_check/],
     ["max_attempts = 0", /max_attempts_check/],
     ["lease_seconds = 30", /lease_seconds_check/],
+    ["lease_seconds = 359", /lease_seconds_check/],
+    ["lease_seconds = 3601", /lease_seconds_check/],
     ["daily_call_limit = -1", /daily_call_limit_check/],
   ] as const)
     await assert.rejects(() => db.query(`update private.practice_queue set ${setting}`), why);
+  await db.exec("update private.practice_queue set lease_seconds = 360");
 
-  // Without its settings row the queue claims nothing: never without limits.
+  // Without its settings row the queue claims nothing, and wakes nobody:
+  // never without limits.
   await enqueue(await newPoint());
-  await db.exec("delete from private.practice_queue");
+  await db.exec("delete from private.practice_queue; delete from net.requests;");
   await assert.rejects(() => claim(1), /The practice queue has no settings row/);
+  await db.query("select private.kick_practice_worker()");
+  const knocked = await db.query("select 1 from net.requests");
+  assert.equal(knocked.rows.length, 0);
   await db.exec("insert into private.practice_queue (id) values (true)");
 }
 
@@ -2438,11 +2717,40 @@ assert.deepEqual(await legacy(), legacyBefore, "ensure_generated_* as they were,
     )
   ).rows.map((r) => r.id);
   assert.ok(failedRuns.length > 0);
+  const auditColumns =
+    "id, outcome, error, stop_reason, raw_output, source, job_id, duration_ms, api_status";
+  const logBefore = (
+    await db.query(`select ${auditColumns} from public.exam_generation_runs order by id`)
+  ).rows;
+  assert.ok(logBefore.some((r) => r.api_status !== null && r.outcome === "failed"));
 
   await db.exec(rollback);
   await db.exec(rollback); // safe to run twice
 
-  assert.deepEqual(await catalog(), catalogBefore);
+  // Everything the migration added is gone. The one thing the rollback adds,
+  // on purpose, is where it keeps the failure log.
+  const kept = (await catalog()).filter((item) => item.includes("exam_generation_runs_audit"));
+  assert.ok(
+    kept.some((item) => item.startsWith("relation private.exam_generation_runs_audit r ")),
+    kept.join("\n"),
+  );
+  assert.deepEqual(
+    (await catalog()).filter((item) => !item.includes("exam_generation_runs_audit")),
+    catalogBefore,
+  );
+  assert.deepEqual(
+    (await db.query(`select ${auditColumns} from private.exam_generation_runs_audit order by id`))
+      .rows,
+    logBefore,
+    "every run's outcome, error, raw output and status, copied once",
+  );
+  for (const role of ["public", "anon", "authenticated", "service_role"]) {
+    const holds = await db.query<{ any: boolean }>(
+      "select has_table_privilege($1, 'private.exam_generation_runs_audit', 'SELECT, INSERT, UPDATE, DELETE, TRUNCATE, REFERENCES, TRIGGER') as any",
+      [role],
+    );
+    assert.equal(holds.rows[0].any, false, `${role} can't read the kept log`);
+  }
   assert.deepEqual(await legacy(), legacyBefore);
   const runsAfter = (
     await db.query(
@@ -2467,12 +2775,32 @@ assert.deepEqual(await legacy(), legacyBefore, "ensure_generated_* as they were,
     [student, mon(4), JSON.stringify([{ spec_point_id: p, origin: "core" }])],
   );
 
-  // And the migration goes back on cleanly.
+  // And the migration goes back on cleanly, even over the first draft's
+  // five-argument fail_practice_job, which it replaces rather than overloads.
+  await db.exec(`create function public.fail_practice_job(bigint, uuid, text, text, integer)
+    returns text language sql as $$ select 'old' $$`);
   await db.exec(migration);
   assert.equal(await jobCount(p), 2, "the one-off fill queues the week saved meanwhile");
+  assert.deepEqual(
+    (
+      await db.query<{ sig: string }>(
+        "select oid::regprocedure::text as sig from pg_proc where proname = 'fail_practice_job'",
+      )
+    ).rows,
+    [{ sig: "fail_practice_job(bigint,uuid,text,text,integer,uuid)" }],
+  );
   assert.equal(
     (await db.query<{ n: number }>("select count(*)::int as n from cron.job")).rows[0].n,
     1,
+  );
+
+  // Rolling back once more keeps the first copy of each run's log, not the
+  // defaults its columns came back with.
+  await db.exec(rollback);
+  assert.deepEqual(
+    (await db.query(`select ${auditColumns} from private.exam_generation_runs_audit order by id`))
+      .rows,
+    logBefore,
   );
 }
 

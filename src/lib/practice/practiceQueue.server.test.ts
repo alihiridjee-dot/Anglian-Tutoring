@@ -256,6 +256,8 @@ test("questions that fail the checks: a failed run with the output, and a retry"
       _error: "AI returned the wrong number of questions",
       _failure: "retry",
       _pause_minutes: 0,
+      // Already recorded as failed; the database only closes a run still passed.
+      _run_id: calls.exam_generation_runs[0].id,
     },
   ]);
   expect(calls["rpc/complete_practice_job"]).toBeUndefined();
@@ -277,6 +279,8 @@ test("out of credit pauses the queue for 30 minutes, with the API's words on rec
   expect(calls.exam_generation_runs[0]).toMatchObject({
     outcome: "failed",
     usage: null,
+    // Refused, so not billed: the daily cap leaves it out.
+    api_status: 400,
     job_id: 11,
   });
   const [failed] = calls["rpc/fail_practice_job"];
@@ -363,6 +367,9 @@ test("a save that fails is a retry", async () => {
   expect(calls["rpc/fail_practice_job"][0]._error).toBe(
     "Exam generation database request failed (400): Question 3 needs four options",
   );
+  // The call passed its checks; the failed save is what the database closes the run with.
+  expect(calls.exam_generation_runs[0]).toMatchObject({ outcome: "passed" });
+  expect(calls["rpc/fail_practice_job"][0]._run_id).toBe(calls.exam_generation_runs[0].id);
 });
 
 test("a save whose answer was lost, then found by the database, is not a failure", async () => {

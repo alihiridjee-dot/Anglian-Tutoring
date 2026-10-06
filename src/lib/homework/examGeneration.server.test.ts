@@ -341,7 +341,8 @@ test("no answer at all is an outage; a timeout is a slow call, tried again", asy
   );
   expect([slow.failure, slow.pauseMinutes]).toEqual(["retry", 0]);
   expect(slow.message).toBe("Question generation failed; please try again");
-  expect(api.runs[0]).toMatchObject({ outcome: "failed", usage: null });
+  // No status: the call may have been billed, so the daily cap counts it.
+  expect(api.runs[0]).toMatchObject({ outcome: "failed", usage: null, api_status: null });
   expect(api.runs[0].error).toContain("timed out");
 });
 
