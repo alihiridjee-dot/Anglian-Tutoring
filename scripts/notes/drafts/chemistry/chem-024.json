@@ -1,0 +1,228 @@
+{
+  "format": 1,
+  "concept_id": "chem-024",
+  "subject": "chemistry",
+  "title": "Graphene and fullerenes",
+  "key_idea": "Graphene is a single layer of graphite. Fullerenes are hollow molecules of carbon atoms, such as the sphere C60 and carbon nanotubes. In graphene and nanotubes each carbon atom forms three bonds, so one electron per atom is delocalised and they conduct electricity.",
+  "sections": [
+    {
+      "heading": "Graphene",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "Graphene is another form of carbon. This section covers its structure and why it suits electronics."
+        },
+        {
+          "type": "list",
+          "items": [
+            "Graphene is a single layer of graphite, one atom thick.",
+            "Each carbon atom forms three covalent bonds, in hexagonal rings.",
+            "One electron from each carbon atom is delocalised, so graphene conducts electricity.",
+            "It is strong, has a low density and is transparent.",
+            "These properties make it useful in electronics and in composites. One use is touchscreens."
+          ]
+        },
+        {
+          "type": "table",
+          "rows": [
+            ["Conducts electricity", "A touchscreen has to conduct electricity"],
+            ["High strength", "The screen does not break easily or wear off"],
+            ["Transparent", "You can see the display through it"]
+          ],
+          "columns": ["Property", "Why it matters for a touchscreen"]
+        },
+        {
+          "type": "key-points",
+          "items": [
+            "Graphene is one layer of graphite: three bonds per carbon atom and delocalised electrons.",
+            "It conducts electricity and is strong, light and transparent."
+          ]
+        }
+      ]
+    },
+    {
+      "heading": "Fullerenes and nanotubes",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "Fullerenes are molecules of carbon atoms with hollow shapes. This section covers their structure and uses."
+        },
+        {
+          "type": "definitions",
+          "items": [
+            {
+              "term": "Fullerene",
+              "meaning": "A hollow molecule of carbon atoms based on hexagonal rings."
+            },
+            {
+              "term": "Buckminsterfullerene",
+              "meaning": "The first fullerene found, C60. It is spherical."
+            },
+            {
+              "term": "Carbon nanotube",
+              "meaning": "A cylindrical fullerene with a very high length to diameter ratio."
+            }
+          ]
+        },
+        {
+          "type": "list",
+          "items": [
+            "Fullerenes are based on hexagonal rings of carbon atoms. They may also contain rings of five or seven carbon atoms.",
+            "C60 has a spherical shape. C70 is a larger fullerene.",
+            "Carbon nanotubes have bonding like graphene, so they conduct electricity.",
+            "Nanotubes are used in electronics, nanotechnology and strengthening materials."
+          ]
+        },
+        {
+          "type": "diagram",
+          "diagram": {
+            "alt": "Tap each form of carbon to see its structure, properties and uses, then test yourself.",
+            "kind": "explorer",
+            "parts": [
+              {
+                "name": "Diamond",
+                "detail": "Each carbon atom forms four covalent bonds in a giant lattice. Very hard, very high melting point, does not conduct electricity."
+              },
+              {
+                "name": "Graphite",
+                "detail": "Each carbon atom forms three covalent bonds in layers of hexagonal rings. Delocalised electrons, so it conducts. Soft and slippery."
+              },
+              {
+                "name": "Graphene",
+                "detail": "A single layer of graphite. Conducts, strong, transparent. Used in electronics and touchscreens."
+              },
+              {
+                "name": "Buckminsterfullerene (C60)",
+                "detail": "A hollow sphere of carbon atoms. Used in drug delivery, as a lubricant and as a catalyst."
+              },
+              {
+                "name": "Carbon nanotube",
+                "detail": "A cylindrical fullerene with a very high length to diameter ratio. Conducts electricity. Used in electronics and to strengthen materials."
+              }
+            ],
+            "prompt": "Tap a form of carbon to learn its structure and uses."
+          }
+        },
+        {
+          "type": "subheading",
+          "text": "Uses of fullerenes"
+        },
+        {
+          "type": "list",
+          "items": [
+            "Drug delivery round the body, because the molecule is hollow, unreactive and acts as a cage.",
+            "Hydrogen storage, as an anti-oxidant, to reduce bacterial growth, and as a catalyst.",
+            "Spherical fullerenes as lubricants.",
+            "Cylindrical fullerenes to strengthen materials, such as in sports equipment and body armour."
+          ]
+        },
+        {
+          "type": "key-points",
+          "items": [
+            "Fullerenes are hollow carbon molecules: spheres such as C60, or cylinders called nanotubes.",
+            "Nanotubes conduct electricity because each carbon atom has one delocalised electron.",
+            "Uses include drug delivery, electronics and strengthening materials."
+          ]
+        }
+      ]
+    }
+  ],
+  "checks": [
+    {
+      "q": "State the shape of a buckminsterfullerene molecule.",
+      "a": "Spherical.",
+      "marks": 1
+    },
+    {
+      "q": "Explain why carbon nanotubes conduct electricity.",
+      "a": "Each carbon atom forms three covalent bonds, so one electron per atom is delocalised. These electrons carry charge through the nanotube.",
+      "marks": 3
+    },
+    {
+      "q": "Give one use of a fullerene.",
+      "a": "Drug delivery, hydrogen storage, a catalyst, a lubricant or strengthening materials.",
+      "marks": 1
+    }
+  ],
+  "boards": {
+    "aqa": {
+      "spec_codes": ["AQA 4.2.3.3", "AQA T 5.2.3.3"],
+      "worked_example": {
+        "exemplar_id": "267cdf85-d799-4572-835d-01122d050e39",
+        "source": "AQA jun 2024, Paper 1 (H), Q08.4",
+        "question": "Carbon nanotubes are cylindrical fullerenes. Explain why carbon nanotubes can conduct electricity. Refer to bonding between carbon atoms in your answer.",
+        "marks": 3,
+        "answer_points": [
+          "Each carbon atom forms three covalent bonds.",
+          "So one electron from each carbon atom is delocalised.",
+          "These delocalised electrons carry electrical charge through the nanotube."
+        ],
+        "tip": "Link the bonding to the delocalised electron, then to the movement of charge."
+      }
+    },
+    "edexcel": {
+      "spec_codes": ["EDEX 1.38"],
+      "worked_example": {
+        "exemplar_id": "25ac2f04-42eb-4519-bc01-a6e318ddbf4d",
+        "source": "EDEXCEL jun 2022, Paper 1 (H), Q8(b)",
+        "question": "Explain why graphene will be a good conductor of an electric current.",
+        "marks": 3,
+        "answer_points": [
+          "Carbon has four outer shell electrons.",
+          "Three electrons are used in bonds with other carbon atoms, so each carbon forms three bonds.",
+          "One electron is free to move, it is delocalised."
+        ],
+        "tip": "One mark for each link in the chain: four outer electrons, three used in bonding, one free."
+      },
+      "extra": [
+        {
+          "blocks": [
+            {
+              "type": "list",
+              "items": [
+                "Diamond and graphene are giant covalent. Many strong bonds must be broken to melt them, so their melting points are very high.",
+                "A fullerene such as C60 is made of separate molecules, with weak forces between them.",
+                "So a fullerene needs less energy to separate its molecules, and has the lowest melting point.",
+                "Fullerene conducts electricity only across the surface of a molecule. There is little movement between molecules, so it is a poor conductor."
+              ]
+            }
+          ],
+          "heading": "Fullerenes compared with diamond and graphene"
+        }
+      ]
+    },
+    "ocr": {
+      "spec_codes": ["OCR C2.3c"],
+      "worked_example": {
+        "exemplar_id": "1949aa81-732b-4547-b9ae-5043f5e31ab4",
+        "source": "OCR jun 2019, Paper 1, Q20(c)",
+        "question": "Graphene is another substance made of carbon atoms. Graphene is a single layer of graphite, one atom thick. Graphene can be used to make touchscreens for electronic devices. Graphite: low cost, high electrical conductivity, low density, low strength, black. Graphene: high cost, high electrical conductivity, low density, high strength, transparent. Explain why graphene is suitable for making touchscreens. Use the information from the table.",
+        "marks": 2,
+        "answer_points": [
+          "It conducts electricity, because touchscreens need to conduct electricity.",
+          "It has high strength, so the screen does not break when dropped or wear off.",
+          "It is transparent, so you can see the display through it."
+        ],
+        "tip": "Any two score one mark each. Say why each property is needed."
+      }
+    }
+  },
+  "meta": {
+    "status": "draft",
+    "checked_by": "sonnet-science-check",
+    "checked_at": "2026-10-01",
+    "written_by": "claude-sonnet-5-5",
+    "written_at": "2026-10-01",
+    "spec_point_ids": [
+      "c7499332-da13-4abb-a4ff-215ec24445c9",
+      "ec3780ed-2b6c-4448-a51b-482ea87e6667",
+      "43d131a2-f48b-4585-9923-e6f470345f1d",
+      "73fe3209-43af-4f19-a34b-ce411227df0a"
+    ],
+    "exemplar_ids": [
+      "267cdf85-d799-4572-835d-01122d050e39",
+      "25ac2f04-42eb-4519-bc01-a6e318ddbf4d",
+      "1949aa81-732b-4547-b9ae-5043f5e31ab4"
+    ]
+  }
+}

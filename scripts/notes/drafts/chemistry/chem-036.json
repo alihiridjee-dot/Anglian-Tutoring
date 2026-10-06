@@ -1,0 +1,244 @@
+{
+  "format": 1,
+  "concept_id": "chem-036",
+  "subject": "chemistry",
+  "title": "Concentration in mol/dm³",
+  "key_idea": "(Higher tier, separate chemistry) Concentration can also be measured in mol/dm³, the number of moles of solute in 1 dm³ of solution. Use it to find the moles in any volume, and multiply by Mr to convert between mol/dm³ and g/dm³.",
+  "sections": [
+    {
+      "heading": "Concentration in mol/dm³",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "(Higher tier, separate chemistry) Chemists often give a concentration in moles, not grams. This section covers what mol/dm³ means and how to use it."
+        },
+        {
+          "type": "definitions",
+          "items": [
+            {
+              "term": "mol/dm³",
+              "meaning": "The number of moles of solute in 1 dm³ (1000 cm³) of solution."
+            }
+          ]
+        },
+        {
+          "type": "equation",
+          "label": "Concentration",
+          "formula": "concentration (mol/dm³) = moles of solute ÷ volume of solution (dm³)",
+          "where": ["moles in mol", "volume in dm³: divide cm³ by 1000"]
+        },
+        {
+          "type": "equation",
+          "label": "Moles of solute",
+          "where": ["The same equation, rearranged."],
+          "formula": "moles = concentration (mol/dm³) × volume (dm³)"
+        },
+        {
+          "type": "steps",
+          "items": [
+            {
+              "lead": "Convert the volume.",
+              "text": "25.0 cm³ of 0.124 mol/dm³ sodium carbonate. 25.0 ÷ 1000 = 0.0250 dm³."
+            },
+            {
+              "lead": "Multiply.",
+              "text": "0.0250 × 0.124 = 0.0031 mol."
+            }
+          ]
+        },
+        {
+          "type": "diagram",
+          "diagram": {
+            "alt": "Practise calculating the moles of solute from a concentration and a volume in cm³.",
+            "kind": "practice",
+            "answer": {
+              "unit": "mol",
+              "formula": "V / 1000 * c",
+              "decimals": 4
+            },
+            "working": [
+              "Convert the volume: {V} cm³ ÷ 1000 = {V} ÷ 1000 dm³",
+              "Moles = concentration × volume = {c} × ({V} ÷ 1000) = **{answer} mol**"
+            ],
+            "question": "Calculate the number of moles of solute in **{V} cm³** of a solution with a concentration of **{c} mol/dm³**.",
+            "variables": [
+              {
+                "id": "V",
+                "max": 50,
+                "min": 10,
+                "step": 5
+              },
+              {
+                "id": "c",
+                "max": 1,
+                "min": 0.1,
+                "step": 0.1
+              }
+            ]
+          }
+        },
+        {
+          "type": "key-points",
+          "items": [
+            "mol/dm³ = moles ÷ volume in dm³.",
+            "Moles = concentration × volume in dm³.",
+            "Divide cm³ by 1000 to get dm³."
+          ]
+        }
+      ]
+    },
+    {
+      "heading": "Converting between g/dm³ and mol/dm³",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "(Higher tier, separate chemistry) The relative formula mass links grams to moles. Use it to change one unit of concentration into the other."
+        },
+        {
+          "type": "equation",
+          "label": "mol/dm³ to g/dm³",
+          "formula": "concentration in g/dm³ = concentration in mol/dm³ × Mr",
+          "where": ["Mr = relative formula mass of the solute"]
+        },
+        {
+          "type": "equation",
+          "label": "g/dm³ to mol/dm³",
+          "formula": "concentration in mol/dm³ = concentration in g/dm³ ÷ Mr",
+          "where": ["The same equation, rearranged."]
+        },
+        {
+          "type": "steps",
+          "items": [
+            {
+              "lead": "mol/dm³ to g/dm³.",
+              "text": "Sulfuric acid is 0.250 mol/dm³. Mr of H₂SO₄ = 98. 0.250 × 98 = 24.5 g/dm³."
+            },
+            {
+              "lead": "g/dm³ to mol/dm³.",
+              "text": "Copper sulfate is 15.95 g/dm³. Mr of CuSO₄ = 63.5 + 32 + (4 × 16) = 159.5. 15.95 ÷ 159.5 = 0.1 mol/dm³."
+            },
+            {
+              "lead": "Then find moles.",
+              "text": "In 50.00 cm³: 0.05000 × 0.1 = 0.005 mol."
+            }
+          ]
+        },
+        {
+          "type": "diagram",
+          "diagram": {
+            "alt": "Practise converting a concentration in mol/dm³ to g/dm³ for sodium hydroxide.",
+            "kind": "practice",
+            "answer": {
+              "unit": "g/dm³",
+              "formula": "c * 40",
+              "decimals": 1
+            },
+            "working": [
+              "Mr of NaOH = 23 + 16 + 1 = 40",
+              "Concentration in g/dm³ = {c} × 40 = **{answer} g/dm³**"
+            ],
+            "question": "A sodium hydroxide solution has a concentration of **{c} mol/dm³**. Calculate its concentration in g/dm³. (Ar: Na = 23, O = 16, H = 1)",
+            "variables": [
+              {
+                "id": "c",
+                "max": 1,
+                "min": 0.1,
+                "step": 0.1
+              }
+            ]
+          }
+        },
+        {
+          "type": "paragraph",
+          "text": "If the volumes of two solutions that react completely are known, and the concentration of one is known, the concentration of the other can be found. That is a titration calculation."
+        },
+        {
+          "type": "key-points",
+          "items": [
+            "g/dm³ = mol/dm³ × Mr.",
+            "mol/dm³ = g/dm³ ÷ Mr.",
+            "Find Mr from the formula first."
+          ]
+        }
+      ]
+    }
+  ],
+  "checks": [
+    {
+      "q": "State what a concentration of 0.5 mol/dm³ means.",
+      "a": "There is 0.5 mol of solute in every 1 dm³ of solution.",
+      "marks": 1
+    },
+    {
+      "q": "Calculate the moles of NaOH in 25.0 cm³ of a 0.200 mol/dm³ solution.",
+      "a": "25.0 ÷ 1000 = 0.0250 dm³. 0.0250 × 0.200 = 0.00500 mol.",
+      "marks": 2
+    },
+    {
+      "q": "Calculate the concentration in g/dm³ of a 0.500 mol/dm³ solution of sulfuric acid, H₂SO₄ (Mr = 98).",
+      "a": "0.500 × 98 = 49.0 g/dm³.",
+      "marks": 1
+    }
+  ],
+  "boards": {
+    "aqa": {
+      "spec_codes": ["AQA 4.3.4"],
+      "worked_example": {
+        "exemplar_id": "63db084e-c65f-4251-9bec-086910c375ed",
+        "source": "AQA jun 2022, Paper 1 (H), Q08.3",
+        "question": "25.00 cm³ of hydrochloric acid reacted with 23.50 cm³ of 0.100 mol/dm³ barium hydroxide solution.\n\nThe equation for the reaction is:\n\n2HCl(aq) + Ba(OH)₂(aq) → BaCl₂(aq) + 2H₂O(l)\n\nCalculate the concentration of the hydrochloric acid in mol/dm³.",
+        "marks": 4,
+        "answer_points": [
+          "Moles of Ba(OH)₂ = 23.50 ÷ 1000 × 0.100 = 0.00235 (1)",
+          "Moles of HCl = 0.00235 × 2 = 0.00470 (1)",
+          "Concentration = 0.00470 × 1000 ÷ 25.0 (1)",
+          "= 0.188 mol/dm³ (1)"
+        ],
+        "tip": "Marks follow your own working if an earlier step is wrong, so show each step."
+      }
+    },
+    "edexcel": {
+      "spec_codes": ["EDEX 5.8C"],
+      "worked_example": {
+        "exemplar_id": "0530259e-61aa-42d0-b3ca-5eee5076243c",
+        "source": "EDEXCEL jun 2019, Paper 1 (H), Q8(c)",
+        "question": "Pieces of zinc react with copper sulfate solution.\n\nZn(s) + CuSO₄(aq) → ZnSO₄(aq) + Cu(s)\n\nThe copper sulfate solution used has a concentration of 15.95 g dm⁻³.\n\nCalculate the number of moles of copper sulfate, CuSO₄, in 50.00 cm³ of this solution.\n\n(relative atomic masses: O = 16, S = 32, Cu = 63.5)",
+        "marks": 3,
+        "answer_points": [
+          "Mr of CuSO₄ = 63.5 + 32 + 4 × 16 = 159.5 (1)",
+          "Mass of CuSO₄ = 50 ÷ 1000 × 15.95 = 0.7975 g (1)",
+          "Moles = 0.7975 ÷ 159.5 = 0.005 mol (1)"
+        ],
+        "tip": "Or convert first: concentration = 15.95 ÷ 159.5 = 0.1 mol dm⁻³, then moles = 50 ÷ 1000 × 0.1 = 0.005."
+      }
+    },
+    "ocr": {
+      "spec_codes": ["OCR C5.1a"],
+      "worked_example": {
+        "exemplar_id": "f8031dac-885d-4475-b5e6-73c562af8cb7",
+        "source": "OCR jun 2018, Paper 4, Q21(a)(ii)",
+        "question": "A student dissolves 0.6 g of zinc sulfate in 250 cm³ of water.\n\nThe volume of the water is 0.25 dm³.\n\nUse this volume to calculate the concentration of the zinc sulfate in g/dm³.",
+        "marks": 1,
+        "answer_points": ["Concentration = mass ÷ volume = 0.6 ÷ 0.25", "= 2.4 g/dm³"],
+        "tip": "The volume must be in dm³. 250 cm³ ÷ 1000 = 0.25 dm³. To change g/dm³ into mol/dm³, divide by the Mr."
+      }
+    }
+  },
+  "meta": {
+    "status": "draft",
+    "checked_by": "sonnet-science-check",
+    "checked_at": "2026-10-01",
+    "written_by": "claude-sonnet-5-5",
+    "written_at": "2026-10-01",
+    "spec_point_ids": [
+      "2c812b33-2a38-4bcc-97d4-f8a67e46c735",
+      "379b87e0-c12d-4ef4-8bfe-c3b1fb417654",
+      "be7eb613-d8d6-4e80-8171-e96d5ce8da1b"
+    ],
+    "exemplar_ids": [
+      "63db084e-c65f-4251-9bec-086910c375ed",
+      "0530259e-61aa-42d0-b3ca-5eee5076243c",
+      "f8031dac-885d-4475-b5e6-73c562af8cb7"
+    ]
+  }
+}

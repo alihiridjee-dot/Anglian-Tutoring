@@ -8,13 +8,25 @@
     {
       "heading": "What active transport is",
       "blocks": [
-        { "type": "paragraph", "text": "Active transport moves particles the opposite way to diffusion. This section covers what it needs and where it happens." },
+        {
+          "type": "paragraph",
+          "text": "Active transport moves particles the opposite way to diffusion. This section covers what it needs and where it happens."
+        },
         {
           "type": "definitions",
           "items": [
-            { "term": "Active transport", "meaning": "Movement of substances against a concentration gradient, using energy from respiration." },
-            { "term": "Concentration gradient", "meaning": "The difference in concentration between two places." },
-            { "term": "Mitochondria", "meaning": "The structures where aerobic respiration releases the energy for active transport." }
+            {
+              "term": "Active transport",
+              "meaning": "Movement of substances against a concentration gradient, using energy from respiration."
+            },
+            {
+              "term": "Concentration gradient",
+              "meaning": "The difference in concentration between two places."
+            },
+            {
+              "term": "Mitochondria",
+              "meaning": "The structures where aerobic respiration releases the energy for active transport."
+            }
           ]
         },
         {
@@ -39,8 +51,14 @@
     {
       "heading": "Where active transport happens",
       "blocks": [
-        { "type": "paragraph", "text": "Two examples are on the specification: roots and the gut." },
-        { "type": "subheading", "text": "Mineral ions into root hair cells" },
+        {
+          "type": "paragraph",
+          "text": "Two examples are on the specification: roots and the gut."
+        },
+        {
+          "type": "subheading",
+          "text": "Mineral ions into root hair cells"
+        },
         {
           "type": "list",
           "items": [
@@ -51,7 +69,10 @@
             "They have no chloroplasts, because roots are underground and there is no light for photosynthesis."
           ]
         },
-        { "type": "subheading", "text": "Sugars from the gut into the blood" },
+        {
+          "type": "subheading",
+          "text": "Sugars from the gut into the blood"
+        },
         {
           "type": "list",
           "items": [
@@ -60,7 +81,10 @@
             "Sugar is used in cell respiration."
           ]
         },
-        { "type": "subheading", "text": "Evidence that nitrate uptake is active" },
+        {
+          "type": "subheading",
+          "text": "Evidence that nitrate uptake is active"
+        },
         {
           "type": "list",
           "items": [
@@ -81,15 +105,33 @@
     {
       "heading": "Comparing the three processes",
       "blocks": [
-        { "type": "paragraph", "text": "You must be able to explain the differences between diffusion, osmosis and active transport." },
+        {
+          "type": "paragraph",
+          "text": "You must be able to explain the differences between diffusion, osmosis and active transport."
+        },
         {
           "type": "table",
           "columns": ["Feature", "Diffusion", "Osmosis", "Active transport"],
           "rows": [
-            ["What moves", "Particles of a gas or solute", "Water only", "Ions and molecules such as sugar"],
-            ["Direction", "Down a concentration gradient", "From a dilute solution to a concentrated solution, across a partially permeable membrane", "Against a concentration gradient"],
+            [
+              "What moves",
+              "Particles of a gas or solute",
+              "Water only",
+              "Ions and molecules such as sugar"
+            ],
+            [
+              "Direction",
+              "Down a concentration gradient",
+              "From a dilute solution to a concentrated solution, across a partially permeable membrane",
+              "Against a concentration gradient"
+            ],
             ["Energy from respiration", "Not needed", "Not needed", "Needed"],
-            ["Example", "Oxygen into cells", "Water into root hair cells", "Mineral ions into root hair cells"]
+            [
+              "Example",
+              "Oxygen into cells",
+              "Water into root hair cells",
+              "Mineral ions into root hair cells"
+            ]
           ]
         },
         {
@@ -100,14 +142,38 @@
             "prompt": "Which process moves the substance?",
             "groups": ["Diffusion", "Osmosis", "Active transport"],
             "items": [
-              { "text": "Oxygen moving from the blood into muscle cells", "group": 0 },
-              { "text": "Carbon dioxide leaving cells", "group": 0 },
-              { "text": "Urea moving from cells into the blood plasma", "group": 0 },
-              { "text": "Water moving into root hair cells", "group": 1 },
-              { "text": "Water moving into guard cells", "group": 1 },
-              { "text": "Mineral ions moving into root hair cells from dilute soil solution", "group": 2 },
-              { "text": "Sugar moving from the gut into blood that has a higher sugar concentration", "group": 2 },
-              { "text": "Calcium ions moving from low to high concentration into an egg", "group": 2 }
+              {
+                "text": "Oxygen moving from the blood into muscle cells",
+                "group": 0
+              },
+              {
+                "text": "Carbon dioxide leaving cells",
+                "group": 0
+              },
+              {
+                "text": "Urea moving from cells into the blood plasma",
+                "group": 0
+              },
+              {
+                "text": "Water moving into root hair cells",
+                "group": 1
+              },
+              {
+                "text": "Water moving into guard cells",
+                "group": 1
+              },
+              {
+                "text": "Mineral ions moving into root hair cells from dilute soil solution",
+                "group": 2
+              },
+              {
+                "text": "Sugar moving from the gut into blood that has a higher sugar concentration",
+                "group": 2
+              },
+              {
+                "text": "Calcium ions moving from low to high concentration into an egg",
+                "group": 2
+              }
             ]
           }
         },
@@ -142,32 +208,6 @@
   "boards": {
     "aqa": {
       "spec_codes": ["AQA 1.12", "AQA T 4.1.3.3"],
-      "exam_phrases": [
-        "from an area of low concentration to high concentration",
-        "against the concentration gradient",
-        "active transport",
-        "requires energy (from respiration)",
-        "mitochondria for aerobic respiration",
-        "transports minerals / ions (and not water)"
-      ],
-      "mistakes": [
-        {
-          "wrong": "Mitochondria produce the energy for active transport.",
-          "right": "Energy produced, made or created is not accepted. Say mitochondria release energy in aerobic respiration."
-        },
-        {
-          "wrong": "Mitochondria carry out anaerobic respiration for active transport.",
-          "right": "Anaerobic respiration is not accepted here. Say (aerobic) respiration."
-        },
-        {
-          "wrong": "Active transport moves substances down a concentration gradient.",
-          "right": "Down the gradient is not accepted. Active transport is against the gradient, from low to high concentration. \"Along\" or \"across\" the gradient is ignored."
-        },
-        {
-          "wrong": "Calcium molecules are moved into the egg by active transport.",
-          "right": "\"Molecules\" is not accepted. Calcium is moved as ions."
-        }
-      ],
       "worked_example": {
         "exemplar_id": "62e22ccd-469e-4186-8c8e-d21a16520e93",
         "source": "AQA jun 2018, Paper 1 (H), Q04.5",
@@ -183,28 +223,6 @@
     },
     "edexcel": {
       "spec_codes": ["EDEX 1.15", "EDEX 6.7"],
-      "exam_phrases": [
-        "against a concentration gradient using energy",
-        "from a low concentration to a high concentration",
-        "root hair cells absorb mineral ions by active transport",
-        "contains many mitochondria to release energy / for active transport",
-        "long / thin projection increases the surface area",
-        "thin cell wall, so a shorter distance for water to travel"
-      ],
-      "mistakes": [
-        {
-          "wrong": "Nitrate ions are absorbed by osmosis.",
-          "right": "Osmosis is rejected. Say by diffusion (high to low concentration) or by active transport (low to high concentration, using energy)."
-        },
-        {
-          "wrong": "Active transport is movement down a concentration gradient using energy.",
-          "right": "Active transport is against a concentration gradient using energy."
-        },
-        {
-          "wrong": "Oxygen moves into and out of cells by active transport.",
-          "right": "Oxygen moves into and out of cells by diffusion."
-        }
-      ],
       "worked_example": {
         "exemplar_id": "16e71e8c-85f3-4c1b-8694-fa059780d651",
         "source": "EDEXCEL jun 2018, Paper 2 (H), Q7(b)(ii)",
@@ -220,29 +238,14 @@
     },
     "ocr": {
       "spec_codes": ["OCR 2.1a", "OCR 2.2f"],
-      "exam_phrases": [
-        "active transport",
-        "against a concentration gradient",
-        "mineral ions moving into root hair cells: active transport",
-        "water moving into root hair cells: osmosis",
-        "root hairs absorb water",
-        "root hairs absorb minerals"
-      ],
-      "mistakes": [
-        {
-          "wrong": "The gardener protects the root hairs so the plant survives.",
-          "right": "\"Plant survival\" is ignored. Say root hairs absorb water and minerals, so the plant might wilt, grow slower or photosynthesise less."
-        },
-        {
-          "wrong": "Water moves into root hair cells by active transport.",
-          "right": "Water moves into root hair cells by osmosis, because of differences in water potential. Mineral ions move by active transport."
-        }
-      ],
       "extra": [
         {
           "heading": "Carrier proteins",
           "blocks": [
-            { "type": "paragraph", "text": "Active transport uses carrier proteins in the cell membrane. They bind to the substance and move it across, using energy from respiration." }
+            {
+              "type": "paragraph",
+              "text": "Active transport uses carrier proteins in the cell membrane. They bind to the substance and move it across, using energy from respiration."
+            }
           ]
         }
       ],

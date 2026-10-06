@@ -1,0 +1,242 @@
+{
+  "format": 1,
+  "concept_id": "bio-073",
+  "subject": "biology",
+  "title": "The endocrine system",
+  "key_idea": "Endocrine glands release hormones directly into the blood. The blood carries each hormone to its target organ, where it has an effect. Compared with the nervous system, the effects are slower but last longer.",
+  "sections": [
+    {
+      "heading": "Glands, hormones and target organs",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "The endocrine system is made of glands. This section covers what they release and how the message reaches the body."
+        },
+        {
+          "type": "definitions",
+          "items": [
+            {
+              "term": "Endocrine gland",
+              "meaning": "A gland that releases hormones directly into the bloodstream."
+            },
+            {
+              "term": "Hormone",
+              "meaning": "A chemical messenger that is carried in the blood and changes how a target organ works."
+            },
+            {
+              "term": "Target organ",
+              "meaning": "The organ or cells that a hormone acts on."
+            }
+          ]
+        },
+        {
+          "type": "steps",
+          "items": [
+            {
+              "lead": "Release.",
+              "text": "A gland secretes a hormone into the bloodstream."
+            },
+            {
+              "lead": "Transport.",
+              "text": "The hormone is carried in the blood plasma around the body."
+            },
+            {
+              "lead": "Action.",
+              "text": "It reaches its target organ, binds to receptors on the cells and produces an effect."
+            }
+          ]
+        },
+        {
+          "type": "list",
+          "items": [
+            "The **pituitary gland** in the brain is the \"master gland\". It secretes several hormones into the blood in response to body conditions.",
+            "Some pituitary hormones act on other glands and stimulate them to release their own hormones."
+          ]
+        },
+        {
+          "type": "key-points",
+          "items": [
+            "Glands release hormones into the blood. The blood carries them to the target organ.",
+            "The pituitary is the master gland because its hormones control other glands."
+          ]
+        }
+      ]
+    },
+    {
+      "heading": "The main endocrine glands",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "Tap each gland to see its hormone and what it does."
+        },
+        {
+          "type": "diagram",
+          "diagram": {
+            "kind": "explorer",
+            "alt": "Tap each endocrine gland to learn where it is, which hormone it releases and its effect.",
+            "prompt": "Tap a gland to learn what it does",
+            "parts": [
+              {
+                "name": "Pituitary gland",
+                "detail": "In the head, attached to the brain. Releases several hormones, including ADH, FSH and LH, and so controls other glands."
+              },
+              {
+                "name": "Thyroid gland",
+                "detail": "In the neck. Releases thyroxine, which controls the basal metabolic rate. Its level is kept steady by negative feedback (AQA: Higher tier)."
+              },
+              {
+                "name": "Pancreas",
+                "detail": "In the abdomen. Releases insulin and glucagon (AQA: Higher tier), which control blood glucose. Their target organs include the liver and muscles."
+              },
+              {
+                "name": "Adrenal glands",
+                "detail": "In the abdomen. Release adrenaline, which increases heart rate and breathing rate and delivers more oxygen and glucose to cells."
+              },
+              {
+                "name": "Ovaries",
+                "detail": "In the lower abdomen. Glands involved in human reproduction in females. They release oestrogen. LH from the pituitary gland acts on the ovary."
+              },
+              {
+                "name": "Testes",
+                "detail": "Glands involved in human reproduction in males. They release testosterone."
+              }
+            ]
+          }
+        },
+        {
+          "type": "subheading",
+          "text": "Two hormones in action"
+        },
+        {
+          "type": "list",
+          "items": [
+            "**Thyroxine** increases the metabolic rate. Respiration then releases more heat, so body temperature rises.",
+            "**Adrenaline** increases heart rate. More oxygen and glucose reach the brain and muscles for respiration, which releases the energy for movement."
+          ]
+        },
+        {
+          "type": "key-points",
+          "items": [
+            "Know the glands: pituitary, thyroid, pancreas, adrenal, ovary and testis.",
+            "Each hormone acts only on its target organs."
+          ]
+        }
+      ]
+    },
+    {
+      "heading": "Hormones compared with nerves",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "The body uses two coordination systems. Hormones and nerves differ in how they send messages."
+        },
+        {
+          "type": "table",
+          "columns": ["Feature", "Endocrine system", "Nervous system"],
+          "rows": [
+            ["Message", "Chemical (hormones)", "Electrical impulses"],
+            ["Travels by", "The blood", "Neurones"],
+            ["Speed", "Slower", "Faster"],
+            ["How long the effect lasts", "Longer-lasting", "Shorter"]
+          ]
+        },
+        {
+          "type": "key-points",
+          "items": [
+            "Endocrine: chemical, in the blood, slower, longer-lasting.",
+            "Nervous: electrical, along neurones, faster, shorter."
+          ]
+        }
+      ]
+    }
+  ],
+  "checks": [
+    {
+      "q": "Which gland is called the master gland, and why?",
+      "a": "The pituitary gland. It secretes several hormones that act on other glands to stimulate them to release hormones.",
+      "marks": 2
+    },
+    {
+      "q": "How is a hormone carried from its gland to its target organ?",
+      "a": "It is carried in the blood, dissolved in the plasma.",
+      "marks": 1
+    },
+    {
+      "q": "Give two ways that coordination by the endocrine system differs from coordination by the nervous system.",
+      "a": "Any two from: slower; longer-lasting; chemical hormones carried in the blood instead of electrical impulses along neurones.",
+      "marks": 2
+    }
+  ],
+  "boards": {
+    "aqa": {
+      "spec_codes": ["AQA 5.7", "AQA T 4.5.3.1"],
+      "worked_example": {
+        "exemplar_id": "4e70a458-43bc-4713-8a72-a8f20bd76466",
+        "source": "AQA jun 2021, Paper 2 (H), Q06.3",
+        "question": "The endocrine system coordinates many internal functions of the body.\n\nGive three ways coordination by the endocrine system is different from coordination by the nervous system.",
+        "marks": 3,
+        "answer_points": [
+          "It is slower.",
+          "It is longer-lasting.",
+          "It uses chemicals (hormones) in the blood instead of electrical impulses along neurones.",
+          "Allow the converse points if they clearly refer to nervous coordination."
+        ],
+        "tip": "One mark each. Every answer must be a comparison, not just a description of hormones."
+      }
+    },
+    "edexcel": {
+      "spec_codes": ["EDEX 7.1"],
+      "worked_example": {
+        "exemplar_id": "e2b9ddca-4a21-4fd9-87a8-921ebf051699",
+        "source": "EDEXCEL jun 2024, Paper 2 (F), Q4(c)(ii)",
+        "question": "Insulin is a hormone that controls blood glucose concentration.\n\nState how insulin is transported from its endocrine gland to its target organs.",
+        "marks": 1,
+        "answer_points": [
+          "In the blood / plasma.",
+          "Accept: in the blood system, in blood vessels, in arteries or in veins. Ignore capillaries."
+        ],
+        "tip": "A one-mark recall question. Name the blood, not nerves or cells."
+      }
+    },
+    "ocr": {
+      "spec_codes": ["OCR 3.2a"],
+      "worked_example": {
+        "exemplar_id": "a61192ab-ea32-46e3-a1f2-1169ba0d0a99",
+        "source": "OCR jun 2019, Paper 1, Q20(a)(ii)",
+        "question": "Hormones are produced in endocrine glands.\n\nDescribe how hormones control different parts of the body.",
+        "marks": 2,
+        "answer_points": [
+          "Secreted / released from glands or endocrine cells (allow a named gland).",
+          "Travel in the blood(stream).",
+          "Affect target organs / cells (allow: hormones bind to specific receptors).",
+          "Any two of these points."
+        ],
+        "tip": "Two marks from three points: release from a gland, carried in the blood, and acting on target organs."
+      }
+    }
+  },
+  "meta": {
+    "status": "draft",
+    "written_by": "sonnet-5-5",
+    "written_at": "2026-10-01",
+    "checked_by": "sonnet-science-check",
+    "checked_at": "2026-10-01",
+    "spec_point_ids": [
+      "0d14c5e3-5196-4800-92e0-029cfc09920f",
+      "59420b52-2dd0-4fdf-ad29-e6ee5f53339b",
+      "edc7ff15-c6e6-4e33-946a-ec87f87fab88",
+      "b3778f2a-a848-4fbf-9f9b-2701e614d89f"
+    ],
+    "exemplar_ids": [
+      "4e70a458-43bc-4713-8a72-a8f20bd76466",
+      "e2b9ddca-4a21-4fd9-87a8-921ebf051699",
+      "a61192ab-ea32-46e3-a1f2-1169ba0d0a99",
+      "9a0bf157-ac2b-4b75-960e-759dad5f6928",
+      "ffb5ff87-fe61-41e9-93b8-a367637e788f",
+      "580e7c94-553b-49f6-bd0c-0b5938559c74",
+      "9d6b5be9-9c56-48c1-b419-32b37f708854",
+      "339a0b38-20fc-4129-95ad-10529c8342a2",
+      "18d8c02f-68c6-401b-945f-0e1d96d0d07d"
+    ]
+  }
+}

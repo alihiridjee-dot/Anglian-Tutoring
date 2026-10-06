@@ -1,0 +1,287 @@
+{
+  "concept_id": "chem-100",
+  "title": "Sustainability: reduce, reuse and recycle",
+  "key_idea": "Many of the Earth's resources are finite, so we should use less, reuse products and recycle materials. Recycling metals, glass and polymers saves raw materials, energy and landfill space, but materials must be collected and sorted first.",
+  "sections": [
+    {
+      "heading": "Finite and renewable resources",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "Humans use the Earth's resources for warmth, shelter, food and transport. This section covers the types of resource and what sustainable means."
+        },
+        {
+          "type": "definitions",
+          "items": [
+            {
+              "term": "Finite resource",
+              "meaning": "A resource that is used up faster than it forms, so it will eventually run out. Crude oil and metal ores are examples."
+            },
+            {
+              "term": "Renewable resource",
+              "meaning": "A resource that can be replaced as it is used, such as wood from replanted trees."
+            },
+            {
+              "term": "Sustainable development",
+              "meaning": "Development that meets the needs of the current generation without compromising the needs of future generations."
+            }
+          ]
+        },
+        {
+          "type": "list",
+          "items": [
+            "Natural resources, supplemented by agriculture, provide food, timber, clothing and fuels.",
+            "Some natural products are supplemented or replaced by agricultural and synthetic products. Polymers can replace wood or wool.",
+            "Finite resources from the Earth, oceans and atmosphere are processed to provide energy and materials."
+          ]
+        },
+        {
+          "type": "diagram",
+          "diagram": {
+            "kind": "sort",
+            "alt": "Sort each resource into finite or renewable.",
+            "prompt": "Finite or renewable?",
+            "groups": ["Finite", "Renewable"],
+            "items": [
+              {
+                "text": "Crude oil",
+                "group": 0
+              },
+              {
+                "text": "Copper ore",
+                "group": 0
+              },
+              {
+                "text": "Coal",
+                "group": 0
+              },
+              {
+                "text": "Wood from replanted trees",
+                "group": 1
+              },
+              {
+                "text": "Wool from sheep",
+                "group": 1
+              },
+              {
+                "text": "Crops grown on farms",
+                "group": 1
+              }
+            ]
+          }
+        },
+        {
+          "type": "key-points",
+          "items": [
+            "Finite resources will run out. Renewable resources can be replaced.",
+            "Sustainable development protects the needs of future generations."
+          ]
+        }
+      ]
+    },
+    {
+      "heading": "Reduce, reuse and recycle",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "Metals, glass, building materials, clay ceramics and most plastics come from limited raw materials. Using them less, or using them again, saves resources."
+        },
+        {
+          "type": "list",
+          "items": [
+            "Reducing the use of materials cuts the use of raw materials and energy sources.",
+            "It also reduces waste and environmental impacts.",
+            "Getting raw materials by quarrying and mining causes environmental impacts."
+          ]
+        },
+        {
+          "type": "diagram",
+          "diagram": {
+            "kind": "compare",
+            "alt": "Reuse compared with recycle.",
+            "items": ["Reuse", "Recycle"],
+            "rows": [
+              {
+                "feature": "What happens",
+                "values": [
+                  "The product is used again for the same job.",
+                  "The material is made into a new product, often for a different use."
+                ]
+              },
+              {
+                "feature": "Example",
+                "values": [
+                  "Glass bottles are washed and refilled.",
+                  "Glass bottles are crushed and melted to make different glass products."
+                ]
+              }
+            ]
+          }
+        },
+        {
+          "type": "subheading",
+          "text": "Recycling metals"
+        },
+        {
+          "type": "list",
+          "items": [
+            "Metals are recycled by melting and recasting, or reforming into different products.",
+            "Scrap copper wire is heated until the copper melts, then recast into new products such as water pipes.",
+            "Some scrap steel is added to iron from a blast furnace. This reduces the amount of iron that needs to be extracted from iron ore.",
+            "The amount of separation needed depends on the material and the properties the final product needs."
+          ]
+        },
+        {
+          "type": "key-points",
+          "items": [
+            "Reusing and recycling reduce the use of limited resources. Recycling makes materials into new products.",
+            "Metals are recycled by melting and recasting them."
+          ]
+        }
+      ]
+    },
+    {
+      "heading": "Benefits and problems of recycling",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "Recycling is more sustainable than extracting new materials, but it is not free of problems."
+        },
+        {
+          "type": "subheading",
+          "text": "Benefits"
+        },
+        {
+          "type": "list",
+          "items": [
+            "It conserves finite raw materials such as metal ores.",
+            "It uses less energy than extracting the metal from its ore.",
+            "It produces less waste and uses less landfill.",
+            "It avoids the environmental impacts of mining and quarrying.",
+            "It causes fewer greenhouse gas emissions."
+          ]
+        },
+        {
+          "type": "subheading",
+          "text": "Problems"
+        },
+        {
+          "type": "list",
+          "items": [
+            "Materials must be collected and separated before they can be recycled.",
+            "Polymers must be sorted so they can be melted and reformed into a new product.",
+            "Polymers are made from crude oil, which is finite, and most are not biodegradable, so they persist in landfill.",
+            "Burning polymers for disposal produces gases that may be toxic."
+          ]
+        },
+        {
+          "type": "key-points",
+          "items": [
+            "Recycling conserves ores, saves energy and cuts waste.",
+            "Recycling needs collection and sorting, especially for polymers.",
+            "Polymers come from finite crude oil and last a long time in landfill."
+          ]
+        }
+      ]
+    }
+  ],
+  "checks": [
+    {
+      "q": "What is sustainable development?",
+      "a": "Development that meets the needs of the current generation without compromising the needs of future generations.",
+      "marks": 2
+    },
+    {
+      "q": "Suggest two reasons why recycling scrap copper is more sustainable than extracting copper from its ore.",
+      "a": "Any two from: it uses less energy, it conserves copper ore, it produces less waste, it avoids the environmental impact of mining.",
+      "marks": 2
+    },
+    {
+      "q": "Describe how scrap copper wire can be recycled to make new copper pipes.",
+      "a": "The wire is heated until the copper melts. The molten copper is recast or reformed into pipes.",
+      "marks": 2
+    },
+    {
+      "q": "State two problems caused by the disposal of polymers.",
+      "a": "Any two from: they last a long time in landfill, they are not biodegradable, landfill sites fill up quickly, burning them produces toxic gases.",
+      "marks": 2
+    }
+  ],
+  "boards": {
+    "aqa": {
+      "spec_codes": ["AQA 4.10.1.1", "AQA T 5.10.1.1", "AQA 4.10.2.2", "AQA T 5.10.2.2"],
+      "worked_example": {
+        "exemplar_id": "2a38386e-a289-4a76-9b16-e10913a41de3",
+        "source": "AQA jun 2021, Paper 2 (H), Q08.3",
+        "question": "Copper can be obtained by:\n• processing copper ores\n• recycling scrap copper.\n\nSuggest three reasons why recycling scrap copper is a more sustainable way of obtaining copper than processing copper ores.",
+        "marks": 3,
+        "answer_points": [
+          "Recycling conserves copper ores, because copper ores are finite.",
+          "Recycling uses less energy.",
+          "Recycling reduces waste, or reduces the use of landfill.",
+          "Mining and quarrying cause environmental impacts, which recycling avoids."
+        ],
+        "tip": "Any three score. References to cost are ignored."
+      }
+    },
+    "edexcel": {
+      "spec_codes": ["EDEX 4.10", "EDEX 9.23C", "EDEX 9.24C"],
+      "worked_example": {
+        "exemplar_id": "21780e96-cb5e-4cad-8b92-3493fa5cb765",
+        "source": "EDEXCEL jun 2024, Paper 1 (H), Q5(a)",
+        "question": "This question is about the extraction of metals.\n\nGive two advantages of obtaining metals by recycling rather than by extracting them from their metal ores.",
+        "marks": 2,
+        "answer_points": [
+          "Any two from: preserves ore reserves, because ores are finite.",
+          "Prevents waste of the metal.",
+          "Uses less energy, or less electricity.",
+          "Less fossil fuel is burned.",
+          "Less carbon dioxide or greenhouse gas is emitted.",
+          "Less waste material is formed.",
+          "Does not fill up landfill."
+        ],
+        "tip": "One mark for each advantage, up to two. Cost arguments and vague statements about the environment are ignored."
+      }
+    },
+    "ocr": {
+      "spec_codes": ["OCR C6.1m", "OCR C6.1n"],
+      "worked_example": {
+        "exemplar_id": "2f615415-7375-4616-88bb-d19bccd8870c",
+        "source": "OCR nov 2020, Paper 2, Q23(c)(ii)",
+        "question": "Drinks cans are often made from aluminium.\n\n4.0 kg of bauxite makes 1.0 kg of aluminium.\n285 000 kJ of energy is needed to make 1.0 kg of aluminium from bauxite.\n\nAluminium can be recycled.\n\n4.0 kg of recycled aluminium makes 3.8 kg of aluminium.\n14 250 kJ of energy is needed to produce 1.0 kg of aluminium from recycled aluminium.\n\nDescribe and explain two advantages of recycling aluminium.\n\nUse the information in the question in your answer.",
+        "marks": 3,
+        "answer_points": [
+          "Recycling saves energy compared with extracting aluminium from bauxite: 14 250 kJ instead of 285 000 kJ per kg.",
+          "Recycling makes more aluminium from the same mass of starting material: 3.8 kg from 4.0 kg, compared with 1.0 kg from 4.0 kg of bauxite.",
+          "Other credited ideas: aluminium is not wasted, it is a finite resource, less waste or less greenhouse gas is produced, or less landfill is needed."
+        ],
+        "tip": "Any three marks. The answer must be comparative, and numbers alone are ignored."
+      }
+    }
+  },
+  "meta": {
+    "status": "draft",
+    "written_by": "sonnet-5-5",
+    "written_at": "2026-10-01",
+    "spec_point_ids": [
+      "3aa2613d-e699-4ce5-820c-8a9240ea2273",
+      "1aaeaa9e-1550-4cab-8c5d-b6d6d29c7ced",
+      "df22aa5d-3c18-4599-81d3-74ddc9f80a1d",
+      "8ef1c1ab-2cf0-49cd-8dbf-92acbb1cc822",
+      "7760e56c-be6f-44f8-b8db-5ed4d6c66bf8",
+      "248e1068-0a94-4238-8bcf-b9f5061e2579",
+      "16d8ecf2-ef7e-4d2f-8599-d8f72e0b5fda",
+      "f5c2e674-a6c7-4e54-8c73-c280bd104955",
+      "303bf190-cd96-4456-9b31-9407b0a05359"
+    ],
+    "exemplar_ids": [
+      "2a38386e-a289-4a76-9b16-e10913a41de3",
+      "21780e96-cb5e-4cad-8b92-3493fa5cb765",
+      "2f615415-7375-4616-88bb-d19bccd8870c"
+    ],
+    "checked_by": "sonnet-science-check",
+    "checked_at": "2026-10-01"
+  },
+  "format": 1,
+  "subject": "chemistry"
+}

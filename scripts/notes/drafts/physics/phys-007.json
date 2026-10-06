@@ -1,0 +1,276 @@
+{
+  "format": 1,
+  "concept_id": "phys-007",
+  "subject": "physics",
+  "title": "Reducing unwanted energy transfers",
+  "key_idea": "Unwanted energy transfers can be reduced. **Lubrication** reduces friction. **Thermal insulation** reduces the rate of energy transfer by conduction. Thicker wires with low resistance waste less energy. A building cools more slowly if its walls are thicker or have a lower thermal conductivity.",
+  "sections": [
+    {
+      "heading": "Ways of reducing wasted energy",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "Wasted energy is dissipated by heating the surroundings. Three methods reduce it."
+        },
+        {
+          "type": "diagram",
+          "diagram": {
+            "kind": "compare",
+            "alt": "Compare lubrication, thermal insulation and low-resistance wires.",
+            "items": ["Lubrication", "Thermal insulation", "Low-resistance wires"],
+            "rows": [
+              {
+                "feature": "What it reduces",
+                "values": [
+                  "Friction between moving parts",
+                  "Energy transferred by conduction",
+                  "Energy transferred by heating in wires"
+                ]
+              },
+              {
+                "feature": "How it works",
+                "values": [
+                  "A layer of oil separates the surfaces",
+                  "A poor conductor slows the rate of transfer",
+                  "Thicker wires have lower resistance"
+                ]
+              },
+              {
+                "feature": "Example",
+                "values": [
+                  "Oil on a bicycle wheel or in a gear box",
+                  "Cavity wall insulation, a lagged tank",
+                  "Thick wires from a car battery"
+                ]
+              }
+            ]
+          }
+        },
+        {
+          "type": "subheading",
+          "text": "Lubrication"
+        },
+        {
+          "type": "list",
+          "items": [
+            "A lubricant such as oil reduces friction between moving parts.",
+            "Less work is done against friction, so less thermal energy is transferred.",
+            "More input energy becomes useful output energy, so the efficiency increases."
+          ]
+        },
+        {
+          "type": "subheading",
+          "text": "Low-resistance wires"
+        },
+        {
+          "type": "list",
+          "items": [
+            "Thicker wires have a lower resistance.",
+            "Less thermal energy is transferred in the wires, so they do not get hot.",
+            "Less potential difference is lost across the wires."
+          ]
+        },
+        {
+          "type": "key-points",
+          "items": [
+            "Lubrication reduces friction, so less energy is dissipated as thermal energy.",
+            "Thicker wires have lower resistance and waste less energy.",
+            "Reducing waste increases the efficiency of a device."
+          ]
+        }
+      ]
+    },
+    {
+      "heading": "Thermal insulation and buildings",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "Buildings lose energy to the cold outside. Thermal insulation reduces the rate at which they cool."
+        },
+        {
+          "type": "definitions",
+          "items": [
+            {
+              "term": "Thermal conductivity",
+              "meaning": "How easily a material transfers energy by conduction. The higher it is, the higher the rate of transfer."
+            },
+            {
+              "term": "Thermal insulator",
+              "meaning": "A material with a low thermal conductivity, so energy passes through it slowly."
+            },
+            {
+              "term": "Rate of cooling",
+              "meaning": "How quickly a building or object loses energy to the surroundings."
+            }
+          ]
+        },
+        {
+          "type": "list",
+          "items": [
+            "A wall with a lower thermal conductivity has a lower rate of energy transfer.",
+            "A thicker wall has a lower rate of energy transfer.",
+            "So a thicker wall, or one made of an insulator, makes the building cool more slowly.",
+            "Insulation means less energy is needed to heat the house."
+          ]
+        },
+        {
+          "type": "subheading",
+          "text": "Reducing heat loss from a building"
+        },
+        {
+          "type": "list",
+          "items": [
+            "Fit cavity wall insulation, or add cladding or extra insulation.",
+            "Use double glazed windows.",
+            "Use double thicknesses of material in the walls.",
+            "Close windows and doors properly, and fit draught excluders.",
+            "Paint the outside silver, reflective or white.",
+            "Plant trees around the building as a windbreak."
+          ]
+        },
+        {
+          "type": "key-points",
+          "items": [
+            "Higher thermal conductivity means a higher rate of energy transfer.",
+            "Thicker walls and lower thermal conductivity lower the rate of cooling.",
+            "Insulation reduces the energy needed to heat a building."
+          ]
+        }
+      ]
+    },
+    {
+      "heading": "Investigating insulation",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "You can compare insulators by seeing how fast hot water cools. This method uses a beaker of hot water inside a box."
+        },
+        {
+          "type": "steps",
+          "items": [
+            {
+              "lead": "Set up.",
+              "text": "Put a beaker of hot water in a box made of the material, such as cardboard."
+            },
+            {
+              "lead": "Change one thing.",
+              "text": "Change the thickness of the material, or use different materials."
+            },
+            {
+              "lead": "Control the rest.",
+              "text": "Use the same volume and same starting temperature of water."
+            },
+            {
+              "lead": "Measure.",
+              "text": "Record the temperature with a thermometer every two minutes, timed with a stopwatch."
+            },
+            {
+              "lead": "Calculate and repeat.",
+              "text": "Work out the rate of cooling as change in temperature divided by time. Repeat and find the mean."
+            }
+          ]
+        },
+        {
+          "type": "list",
+          "items": [
+            "If the temperature falls by 20 °C in a shorter time, the material has a higher thermal conductivity.",
+            "If it takes longer, the material is the better insulator."
+          ]
+        },
+        {
+          "type": "key-points",
+          "items": [
+            "Change one variable and control the volume and starting temperature of the water.",
+            "A shorter cooling time for the same temperature fall means a higher thermal conductivity.",
+            "Repeat the readings and calculate a mean."
+          ]
+        }
+      ]
+    }
+  ],
+  "checks": [
+    {
+      "q": "Explain how oil improves the efficiency of a bicycle.",
+      "a": "Oil reduces friction, so less thermal energy is transferred. More useful energy is available from the same input energy.",
+      "marks": 3
+    },
+    {
+      "q": "Explain why the wires to a car battery are thicker than the wires to each device.",
+      "a": "Thicker wires have a lower resistance, so less thermal energy is transferred in the wires.",
+      "marks": 2
+    },
+    {
+      "q": "How does the rate of cooling of a house change if its walls are thicker?",
+      "a": "The rate of cooling is lower, because the rate of energy transfer through the walls is lower.",
+      "marks": 1
+    }
+  ],
+  "boards": {
+    "aqa": {
+      "spec_codes": ["AQA 4.1.2.1", "AQA T 6.1.2.1"],
+      "worked_example": {
+        "exemplar_id": "7461ffe2-7f58-4554-bafc-daf526956b9f",
+        "source": "AQA jun 2018, Paper 1 (H), Q05.1",
+        "question": "Cavity wall insulation is installed in the wall of a house.\n\nExplain how the wall reduces unwanted energy transfers.",
+        "marks": 3,
+        "answer_points": [
+          "The wall has two / three layers (or the wall is thick)",
+          "Cavity wall insulation / brick / block has a low thermal conductivity",
+          "So less energy is transferred by conduction (or the rate of energy transfer is lower)"
+        ],
+        "tip": "Any reference to convection or radiation is ignored."
+      }
+    },
+    "edexcel": {
+      "spec_codes": ["EDEX 3.9", "EDEX 3.10", "EDEX 9.10", "EDEX 14.10", "EDEX 10.25"],
+      "worked_example": {
+        "exemplar_id": "056ad970-a37c-421b-8478-ee4f57b80127",
+        "source": "EDEXCEL jun 2019, Paper 2 (F), Q10(c)(ii)",
+        "question": "Oil is applied to the wheel of a bicycle.\n\nExplain how the oil improves the efficiency of the bicycle.",
+        "marks": 3,
+        "answer_points": [
+          "Oil provides lubrication, which reduces friction (and the amount of thermal energy transferred)",
+          "Extra useful energy is available, or less input energy is required",
+          "Efficiency = useful energy transferred (by the bicycle) ÷ total energy supplied (to the bicycle)"
+        ],
+        "tip": "Less energy is wasted. For the last two marks, less input energy for the same output, or more output for the same input, both score."
+      }
+    },
+    "ocr": {
+      "spec_codes": ["OCR P7.2f", "OCR P7.2g"],
+      "worked_example": {
+        "exemplar_id": "6acb99ef-fb71-4f4d-8ab8-53eb5570a814",
+        "source": "OCR nov 2021, Paper 2, Q17(b)(iii)",
+        "question": "A crane's lifting equipment contains moving parts. A workman suggests adding oil to these moving parts.\n\nExplain how this will affect the efficiency.",
+        "marks": 2,
+        "answer_points": [
+          "Oil provides lubrication / is a lubricant",
+          "This reduces friction",
+          "Reduces transfer to the thermal store / less energy is wasted / less energy transferred to the surroundings",
+          "So efficiency is increased"
+        ],
+        "tip": "Any two of these points score the 2 marks. Heat is allowed for thermal energy."
+      }
+    }
+  },
+  "meta": {
+    "status": "draft",
+    "written_by": "sonnet-5-5",
+    "checked_by": "sonnet-science-check",
+    "checked_at": "2026-10-01",
+    "written_at": "2026-10-01",
+    "spec_point_ids": [
+      "b3bc72c6-bcd9-4f1e-a18f-109082974b26",
+      "6ca793d2-dbf0-42ce-ab73-78f3da5c1f1e",
+      "cae1a07d-1c7f-4202-9955-8ce216242bc1",
+      "a3f22a89-f0a2-4243-ac48-cd3423c3c5bf",
+      "232176aa-8aec-4776-8e60-d57fe46a4073",
+      "2d82f832-63ba-4a5f-8cab-ddb02e51ac30"
+    ],
+    "exemplar_ids": [
+      "7461ffe2-7f58-4554-bafc-daf526956b9f",
+      "056ad970-a37c-421b-8478-ee4f57b80127",
+      "6acb99ef-fb71-4f4d-8ab8-53eb5570a814"
+    ]
+  }
+}

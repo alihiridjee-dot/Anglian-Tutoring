@@ -1,0 +1,332 @@
+{
+  "format": 1,
+  "concept_id": "bio-130",
+  "subject": "biology",
+  "title": "Efficiency of biomass transfer (Separate science)",
+  "key_idea": "Only about 10% of the biomass at one trophic level is transferred to the next. The rest is lost, so less is available at each step. This is why food chains have only a few trophic levels.",
+  "sections": [
+    {
+      "heading": "Calculating efficiency",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "(Separate science) Efficiency compares what is passed on with what was available. This section covers how to calculate it."
+        },
+        {
+          "type": "equation",
+          "label": "Percentage efficiency of transfer",
+          "formula": "percentage efficiency = (energy or biomass in the next level ÷ energy or biomass in the previous level) × 100",
+          "where": [
+            "energy in kJ, or biomass in g/m² or kg, in the next level",
+            "energy or biomass in the previous level, in the same unit"
+          ]
+        },
+        {
+          "type": "equation",
+          "label": "Percentage lost",
+          "formula": "percentage lost = ((previous level − next level) ÷ previous level) × 100",
+          "where": ["previous level and next level, in the same unit"]
+        },
+        {
+          "type": "steps",
+          "items": [
+            {
+              "lead": "Data.",
+              "text": "In a river food chain the biomass is: algae 840, invertebrate animals 200, small fish 40, large fish 10 (all in g/m²)."
+            },
+            {
+              "lead": "Efficiency.",
+              "text": "From invertebrate animals to small fish: 40 ÷ 200 × 100 = 20%."
+            },
+            {
+              "lead": "Loss.",
+              "text": "From algae to large fish: (840 − 10) ÷ 840 × 100 = 98.8%. To 2 significant figures this is 99%."
+            }
+          ]
+        },
+        {
+          "type": "paragraph",
+          "text": "Give your answer to the number of significant figures the question asks for."
+        },
+        {
+          "type": "diagram",
+          "diagram": {
+            "kind": "practice",
+            "alt": "Practise calculating the percentage efficiency of an energy transfer between two trophic levels. The numbers change each time.",
+            "question": "The producers in an ecosystem contain **{I} kJ** of energy. The primary consumers contain **{O} kJ**. Calculate the percentage efficiency of the energy transfer from the producers to the primary consumers.",
+            "variables": [
+              {
+                "id": "I",
+                "min": 10000,
+                "max": 20000,
+                "step": 2000
+              },
+              {
+                "id": "O",
+                "min": 1000,
+                "max": 2000,
+                "step": 200
+              }
+            ],
+            "answer": {
+              "formula": "O / I * 100",
+              "unit": "%",
+              "decimals": 2
+            },
+            "working": [
+              "Percentage efficiency = (energy in the next level ÷ energy in the previous level) × 100",
+              "= {O} ÷ {I} × 100",
+              "= **{answer}**"
+            ]
+          }
+        },
+        {
+          "type": "key-points",
+          "items": [
+            "Percentage efficiency = next level ÷ previous level × 100.",
+            "Use the same unit for both levels, and round as the question asks."
+          ]
+        }
+      ]
+    },
+    {
+      "heading": "Why transfer is never 100% efficient",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "Typically only about 10% of the biomass is passed on. This section covers why the rest is lost."
+        },
+        {
+          "type": "list",
+          "items": [
+            "Not all of an organism is eaten, for example bones and shells.",
+            "Not all of what is eaten is digested and absorbed. Some is egested.",
+            "Respiration breaks down glucose to release energy for movement and keeping warm. The energy is lost as heat, and carbon is lost as carbon dioxide.",
+            "Excretion removes waste such as urea and carbon dioxide.",
+            "Dead material is broken down by decomposers."
+          ]
+        },
+        {
+          "type": "paragraph",
+          "text": "Mammals and birds keep a constant body temperature, so they lose more heat. Their transfers are less efficient."
+        },
+        {
+          "type": "key-points",
+          "items": [
+            "About 90% of the biomass is lost at each transfer.",
+            "Losses are uneaten parts, egestion, excretion and respiration."
+          ]
+        }
+      ]
+    },
+    {
+      "heading": "Why food chains are short",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "Biomass is lost at every step. This section covers what that means for the length of a food chain."
+        },
+        {
+          "type": "list",
+          "items": [
+            "Each trophic level has only about 10% of the biomass of the level below.",
+            "After a few steps there is too little biomass left to support another level.",
+            "So food chains usually have only four or five trophic levels."
+          ]
+        },
+        {
+          "type": "diagram",
+          "diagram": {
+            "kind": "slider",
+            "alt": "Change the biomass in the producers and the percentage transferred, and see how much biomass is left at trophic levels 2, 3 and 4.",
+            "inputs": [
+              {
+                "id": "B",
+                "label": "Biomass in the producers (level 1)",
+                "unit": "kg",
+                "min": 2000,
+                "max": 10000,
+                "step": 2000,
+                "value": 10000
+              },
+              {
+                "id": "p",
+                "label": "Percentage transferred to the next level",
+                "unit": "%",
+                "min": 5,
+                "max": 20,
+                "step": 5,
+                "value": 10
+              }
+            ],
+            "outputs": [
+              {
+                "label": "Level 2 (primary consumers)",
+                "unit": "kg",
+                "formula": "B * p / 100",
+                "decimals": 0
+              },
+              {
+                "label": "Level 3 (secondary consumers)",
+                "unit": "kg",
+                "formula": "B * (p / 100) ^ 2",
+                "decimals": 0
+              },
+              {
+                "label": "Level 4 (tertiary consumers)",
+                "unit": "kg",
+                "formula": "B * (p / 100) ^ 3",
+                "decimals": 2
+              }
+            ]
+          }
+        },
+        {
+          "type": "key-points",
+          "items": [
+            "Biomass falls at each trophic level, so there is little left after a few steps.",
+            "This limits the number of trophic levels in a food chain."
+          ]
+        }
+      ]
+    }
+  ],
+  "checks": [
+    {
+      "q": "A caterpillar-eating bird gets 8 kJ from the 100 kJ of energy in its food. Calculate the percentage efficiency of the transfer.",
+      "a": "8 ÷ 100 × 100 = 8%.",
+      "marks": 2
+    },
+    {
+      "q": "Give two reasons why only some of the biomass of an animal's food becomes the biomass of the animal.",
+      "a": "Any two from: not all of the food is eaten, not all is digested (egested), respiration, excretion.",
+      "marks": 2
+    },
+    {
+      "q": "Explain why food chains rarely have more than five trophic levels.",
+      "a": "Biomass is lost at each transfer, so only about 10% passes on. By the fifth level there is too little biomass left to support another level.",
+      "marks": 2
+    }
+  ],
+  "boards": {
+    "aqa": {
+      "spec_codes": ["AQA 7.12"],
+      "worked_example": {
+        "exemplar_id": "4f825a34-cc23-4ae9-aa40-37bfcd9ea09b",
+        "source": "AQA jun 2018, Paper 2 (H), Q07.2",
+        "question": "A food chain for organisms in a river has four trophic levels. The biomass at each level is: algae 840 g/m², invertebrate animals 200 g/m², small fish 40 g/m², large fish 10 g/m².\n\nCalculate the percentage of the biomass lost between the algae and the large fish.\n\nGive your answer to 2 significant figures.",
+        "marks": 3,
+        "answer_points": [
+          "Biomass lost = 840 − 10 = 830 g/m².",
+          "Percentage lost = (840 − 10) ÷ 840 × 100.",
+          "= 98.8095…%",
+          "= 99% to 2 significant figures."
+        ],
+        "tip": "One mark for the calculation, one for the unrounded value and one for rounding to 2 significant figures. An answer of 99 scores all 3 marks."
+      },
+      "extra": [
+        {
+          "heading": "Efficiency in farming",
+          "blocks": [
+            {
+              "type": "paragraph",
+              "text": "Farmers can raise efficiency by reducing the energy their animals lose."
+            },
+            {
+              "type": "list",
+              "items": [
+                "Rearing cows indoors is more efficient because less energy is lost as heat and less is lost in movement.",
+                "Disadvantages of rearing indoors: disease spreads more easily, so more antibiotics are used, and heating, lighting, food and drugs cost more.",
+                "Aggressive behaviour and stress can reduce productivity."
+              ]
+            }
+          ]
+        },
+        {
+          "heading": "Ratios of biomass",
+          "blocks": [
+            {
+              "type": "paragraph",
+              "text": "A ratio compares two biomass values in their simplest form."
+            },
+            {
+              "type": "steps",
+              "items": [
+                {
+                  "lead": "Data.",
+                  "text": "A farmer's maize seeds have a biomass of 4200 kg. The chickens fed on them have a total biomass of 2200 kg."
+                },
+                {
+                  "lead": "Ratio.",
+                  "text": "Chicken biomass : maize biomass = 2200 : 4200."
+                },
+                {
+                  "lead": "Simplify.",
+                  "text": "Divide both by 200 to give 11 : 21."
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    "edexcel": {
+      "spec_codes": ["EDEX 9.8B"],
+      "worked_example": {
+        "exemplar_id": "77dfe0f0-2b36-4269-a803-a6bcf2b263f1",
+        "source": "EDEXCEL jun 2018, Paper 2 (H), Q4(a)(iii)",
+        "question": "Siberian chipmunks eat acorns, which are the seeds of oak trees.\n\nThe percentage of energy transferred from the acorns to the chipmunks is 9.5%.\nThe energy contained in the acorns is 97 500 kJ.\nCalculate the amount of energy transferred to the chipmunks.\nGive your answer to the nearest whole number.",
+        "marks": 3,
+        "answer_points": [
+          "1% of the energy = 97 500 ÷ 100 = 975 kJ.",
+          "Energy transferred = 975 × 9.5 = 9 262.5 kJ.",
+          "To the nearest whole number: 9 263 kJ."
+        ],
+        "tip": "Full marks for the correct answer with no working. Alternatively 97 500 × 0.095 = 9 262.5 kJ."
+      },
+      "extra": [
+        {
+          "heading": "Working back from a percentage",
+          "blocks": [
+            {
+              "type": "paragraph",
+              "text": "Sometimes the percentage and the amount transferred are given, and you find the amount eaten."
+            },
+            {
+              "type": "steps",
+              "items": [
+                {
+                  "lead": "Gain.",
+                  "text": "A caterpillar's mass rises from 6.0 g to 7.5 g, a gain of 1.5 g."
+                },
+                {
+                  "lead": "Scale up.",
+                  "text": "It converts 10% of its food into body mass, so it ate 1.5 × 10 = 15 g of nettles."
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    "ocr": {
+      "spec_codes": ["OCR 4.1j"]
+    }
+  },
+  "meta": {
+    "status": "draft",
+    "written_by": "sonnet-5-5",
+    "written_at": "2026-10-01",
+    "spec_point_ids": [
+      "2fa5b0a6-fc4c-4aad-a619-ba5ad74c0aa0",
+      "af2fb38b-4635-4ccf-b21d-f7c9c3f44ad9",
+      "1d65868a-a9ff-4661-af80-a1ea224817ce"
+    ],
+    "exemplar_ids": [
+      "4f825a34-cc23-4ae9-aa40-37bfcd9ea09b",
+      "77dfe0f0-2b36-4269-a803-a6bcf2b263f1"
+    ],
+    "checked_by": "sonnet-science-check",
+    "checked_at": "2026-10-01"
+  }
+}

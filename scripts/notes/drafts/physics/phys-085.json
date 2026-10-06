@@ -1,0 +1,282 @@
+{
+  "format": 1,
+  "concept_id": "phys-085",
+  "subject": "physics",
+  "title": "Electromagnetic induction",
+  "key_idea": "(AQA: Higher tier, separate science only) A potential difference is induced across a conductor when it moves relative to a magnetic field, or when the field around it changes. If the conductor is in a complete circuit, a current flows. This is the **generator effect**.",
+  "sections": [
+    {
+      "heading": "Inducing a potential difference",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "(AQA: Higher tier) This section explains how a potential difference and a current can be produced using a magnetic field."
+        },
+        {
+          "type": "definitions",
+          "items": [
+            {
+              "term": "Generator effect",
+              "meaning": "A potential difference is induced across a conductor that moves relative to a magnetic field, or when the magnetic field around it changes."
+            },
+            {
+              "term": "Induced potential difference",
+              "meaning": "The p.d. across the ends of the conductor produced by the generator effect."
+            },
+            {
+              "term": "Induced current",
+              "meaning": "The current produced when the conductor is part of a complete circuit."
+            }
+          ]
+        },
+        {
+          "type": "list",
+          "items": [
+            "Move a wire through a magnetic field so that it **cuts the field lines**.",
+            "Move a magnet into or out of a coil of wire.",
+            "Change the magnetic field around a conductor, for example by moving a magnet past a coil.",
+            "A p.d. is only induced while there is relative movement or a changing field."
+          ]
+        },
+        {
+          "type": "paragraph",
+          "text": "A p.d. is induced whether or not there is a circuit. A current is only induced if the conductor is part of a **complete circuit**."
+        },
+        {
+          "type": "key-points",
+          "items": [
+            "Relative movement of a conductor and a magnetic field induces a p.d.",
+            "A changing magnetic field around a conductor does the same.",
+            "A complete circuit is needed for an induced current."
+          ]
+        }
+      ]
+    },
+    {
+      "heading": "What changes the size and direction",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "The size and direction of the induced p.d. depend on how the conductor and magnet move."
+        },
+        {
+          "type": "subheading",
+          "text": "To increase the induced p.d."
+        },
+        {
+          "type": "list",
+          "items": [
+            "Move the magnet or wire faster.",
+            "Use a stronger magnet.",
+            "Use more turns on the coil."
+          ]
+        },
+        {
+          "type": "subheading",
+          "text": "To reverse the direction"
+        },
+        {
+          "type": "list",
+          "items": [
+            "Move the magnet in the opposite direction, for example pull it out instead of pushing it in.",
+            "Reverse the poles of the magnet."
+          ]
+        },
+        {
+          "type": "paragraph",
+          "text": "Try the predictor. Pick a change and see what it does to the induced p.d."
+        },
+        {
+          "type": "diagram",
+          "diagram": {
+            "kind": "predictor",
+            "alt": "Pick a change to a magnet and coil to see the size and direction of the induced potential difference.",
+            "prompt": "Pick a change",
+            "result_labels": ["Size of induced p.d.", "Direction of induced p.d."],
+            "options": [
+              {
+                "label": "Push a magnet slowly into a coil",
+                "results": ["Small", "One direction (call it positive)"],
+                "explanation": "The coil cuts the magnet's field lines slowly, so the induced p.d. is small."
+              },
+              {
+                "label": "Push the magnet into the coil faster",
+                "results": ["Larger", "Same direction as before"],
+                "explanation": "Faster movement cuts the field lines more quickly, so the p.d. is larger."
+              },
+              {
+                "label": "Use a stronger magnet at the same speed",
+                "results": ["Larger", "Same direction as before"],
+                "explanation": "A stronger field means more field is cut each second."
+              },
+              {
+                "label": "Use a coil with more turns",
+                "results": ["Larger", "Same direction as before"],
+                "explanation": "Each turn has a p.d. induced in it, so more turns give a larger total p.d."
+              },
+              {
+                "label": "Pull the magnet out of the coil at the same speed",
+                "results": ["Same size as pushing it in", "Reversed"],
+                "explanation": "The direction of movement has reversed, so the direction of the p.d. reverses."
+              },
+              {
+                "label": "Push in the other pole of the magnet first",
+                "results": ["Same size", "Reversed"],
+                "explanation": "Reversing the poles reverses the direction of the induced p.d."
+              },
+              {
+                "label": "Hold the magnet still inside the coil",
+                "results": ["Zero", "No p.d. induced"],
+                "explanation": "There is no relative movement and no change in the field, so nothing is induced."
+              }
+            ]
+          }
+        },
+        {
+          "type": "key-points",
+          "items": [
+            "A larger p.d. needs faster movement, a stronger magnet or more turns.",
+            "Reversing the movement or the poles reverses the direction of the p.d.",
+            "No relative movement means no induced p.d."
+          ]
+        }
+      ]
+    },
+    {
+      "heading": "The induced field opposes the change",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "An induced current has its own magnetic field. This field acts against the change that caused it."
+        },
+        {
+          "type": "list",
+          "items": [
+            "The coil's field opposes the movement of the magnet or the wire.",
+            "So work must be done to keep the movement going. This work is transferred to electrical energy.",
+            "If the circuit is broken there is no induced current, so no opposing field, and the movement becomes easier.",
+            "A magnet falling through a copper tube is slowed because currents induced in the copper produce a field that opposes its fall."
+          ]
+        },
+        {
+          "type": "paragraph",
+          "text": "Large-scale generation uses the same effect. A magnet and a coil move relative to each other, so a p.d. is induced."
+        },
+        {
+          "type": "key-points",
+          "items": [
+            "An induced current produces a magnetic field that opposes the original change.",
+            "Disconnect the circuit and the opposing field disappears.",
+            "The generator effect transfers kinetic energy into electrical energy."
+          ]
+        }
+      ]
+    }
+  ],
+  "checks": [
+    {
+      "q": "State two ways of increasing the potential difference induced when a magnet moves into a coil.",
+      "a": "Any two from: move the magnet faster; use a stronger magnet; use more turns on the coil.",
+      "marks": 2
+    },
+    {
+      "q": "Explain why a current is detected when a wire is moved upwards through the field between two magnets.",
+      "a": "The wire cuts the magnetic field, so a potential difference is induced across it. The wire is part of a complete circuit, so a current is induced.",
+      "marks": 3
+    },
+    {
+      "q": "Explain why a dynamo is much easier to turn when the lamp is disconnected.",
+      "a": "With the lamp disconnected there is no induced current, so no magnetic field is produced by the coil to oppose its movement.",
+      "marks": 3
+    }
+  ],
+  "boards": {
+    "aqa": {
+      "spec_codes": ["AQA 4.7.3.1"],
+      "extra": [
+        {
+          "heading": "Tier",
+          "blocks": [
+            {
+              "type": "paragraph",
+              "text": "This content is Higher tier only and Physics only (Separate science) in this course."
+            }
+          ]
+        }
+      ],
+      "worked_example": {
+        "exemplar_id": "46ddca11-eb06-40a7-a7b3-4fb0ceda87d4",
+        "source": "AQA jun 2023, Paper 2 (H), Q09.3",
+        "marks": 3,
+        "question": "A dynamo is connected to a lamp.\n\nThe lamp is disconnected from the dynamo.\n\nExplain why the dynamo becomes much easier to turn.",
+        "answer_points": [
+          "After disconnection there is no induced current.",
+          "So no magnetic field is produced around the coil.",
+          "So nothing opposes the movement of the coil."
+        ],
+        "tip": "One mark each for no current, no magnetic field and the opposition to the movement."
+      }
+    },
+    "edexcel": {
+      "spec_codes": ["EDEX 13.1P", "EDEX 13.2"],
+      "worked_example": {
+        "exemplar_id": "2f141646-1fed-4ecd-a8b6-69c6f8abcd5d",
+        "source": "EDEXCEL jun 2019, Paper 2 (H), Q6(a)(ii)",
+        "marks": 4,
+        "question": "A teacher is demonstrating electromagnetic induction.\nThe teacher has a bar magnet, a coil of wire and a sensitive voltmeter.\n\nExplain how the teacher could use this apparatus to demonstrate the factors affecting the size and direction of the induced potential difference.",
+        "answer_points": [
+          "Move the magnet towards the coil and then away from the coil.",
+          "Note that the direction of the meter reading changes (or change the poles of the magnet).",
+          "Move the magnet quickly and then slowly (change the speed of movement).",
+          "Note the larger or smaller meter reading (or change the number of turns on the coil)."
+        ],
+        "tip": "Two marks for direction and two for size. In this question, changing the size or strength of the magnet is not credited."
+      },
+      "extra": [
+        {
+          "heading": "Physics only",
+          "blocks": [
+            {
+              "type": "paragraph",
+              "text": "Explaining how to produce a current by moving a magnet and a conductor, in the laboratory and in large-scale generation, is Physics only (Separate science) on this specification."
+            }
+          ]
+        }
+      ]
+    },
+    "ocr": {
+      "spec_codes": ["OCR P4.2e"],
+      "worked_example": {
+        "exemplar_id": "4a21be75-ed75-4980-a525-a7377141317a",
+        "source": "OCR jun 2022, Paper 3, Q23(c)",
+        "marks": 3,
+        "question": "A student drops a piece of metal and a small magnet through a vertical copper tube.\nThey record the time taken for each object to pass through the tube.\n\nExplain why the magnet took longer to fall than the piece of metal.\nInclude ideas about electromagnetic induction in your answer.",
+        "answer_points": [
+          "The falling magnet produces a changing magnetic field.",
+          "The magnetic field induces a potential difference or current in the copper tube.",
+          "A magnetic field due to the current in the copper is produced.",
+          "This field opposes the original magnetic field of the magnet."
+        ],
+        "tip": "Any three of the four points score."
+      }
+    }
+  },
+  "meta": {
+    "status": "draft",
+    "written_by": "sonnet-5-5",
+    "written_at": "2026-10-01",
+    "spec_point_ids": [
+      "1dcca174-c574-463a-905c-9643aac9fd71",
+      "38fbada1-a8b4-426f-9bdf-0c7b8d3c6b9b",
+      "0e881ab8-d3c8-434f-a26b-6e7b6bad892a",
+      "22bfcbbc-94f0-4d47-90f5-eb8667332278"
+    ],
+    "exemplar_ids": [
+      "46ddca11-eb06-40a7-a7b3-4fb0ceda87d4",
+      "2f141646-1fed-4ecd-a8b6-69c6f8abcd5d",
+      "4a21be75-ed75-4980-a525-a7377141317a"
+    ],
+    "checked_by": "sonnet-science-check",
+    "checked_at": "2026-10-03"
+  }
+}

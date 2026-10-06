@@ -1,0 +1,248 @@
+{
+  "format": 1,
+  "concept_id": "phys-059",
+  "subject": "physics",
+  "title": "Newton's third law",
+  "key_idea": "Whenever two objects interact, the forces they exert on each other are equal in size, opposite in direction and the same type. The two forces act on different objects, so they never cancel each other out.",
+  "sections": [
+    {
+      "heading": "Equal and opposite forces",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "Newton's third law is about pairs of forces. Whenever two objects interact, the forces they exert on each other are equal and opposite."
+        },
+        {
+          "type": "list",
+          "items": [
+            "If object A pushes on object B, then B pushes back on A.",
+            "The two forces are the **same size** and act in **opposite directions**.",
+            "They are the same type of force, such as two contact forces.",
+            "They act at the same time."
+          ]
+        },
+        {
+          "type": "definitions",
+          "items": [
+            {
+              "term": "Interaction pair",
+              "meaning": "The two forces two objects exert on each other."
+            },
+            {
+              "term": "Equilibrium",
+              "meaning": "A situation where the forces on an object are balanced."
+            }
+          ]
+        },
+        {
+          "type": "subheading",
+          "text": "The forces act on different objects"
+        },
+        {
+          "type": "list",
+          "items": [
+            "One force acts on object A. The other acts on object B.",
+            "They never act on the same object, so they cannot cancel each other out.",
+            "Two forces on one object are not an interaction pair, even if they are equal and opposite."
+          ]
+        },
+        {
+          "type": "diagram",
+          "diagram": {
+            "kind": "sort",
+            "alt": "Sort pairs of forces into Newton's third law pairs and pairs that are not.",
+            "prompt": "Is each pair of forces a Newton's third law interaction pair?",
+            "groups": ["Interaction pair", "Not an interaction pair"],
+            "items": [
+              {
+                "text": "Force of the mug on the table, and force of the table on the mug",
+                "group": 0
+              },
+              {
+                "text": "Force of the water on the rocket, and force of the rocket on the water",
+                "group": 0
+              },
+              {
+                "text": "Force of the racket on the ball, and force of the ball on the racket",
+                "group": 0
+              },
+              {
+                "text": "Weight of the mug, and the force of the table on the mug",
+                "group": 1
+              },
+              {
+                "text": "Driving force and air resistance on a car at a steady speed",
+                "group": 1
+              },
+              {
+                "text": "Forward force and resistive force on a swimmer",
+                "group": 1
+              }
+            ]
+          }
+        },
+        {
+          "type": "key-points",
+          "items": [
+            "Forces in an interaction pair are equal in size and opposite in direction.",
+            "The two forces act on different objects.",
+            "Name both objects: the force of A on B, and the force of B on A."
+          ]
+        }
+      ]
+    },
+    {
+      "heading": "Newton's third law in action",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "The law applies to objects at rest and to objects that collide or accelerate."
+        },
+        {
+          "type": "list",
+          "items": [
+            "A mug on a table: the mug pushes down on the table, and the table pushes up on the mug.",
+            "A rocket: the rocket pushes water down, and the water pushes the rocket up.",
+            "A racket and ball: the force on the ball is equal and opposite to the force on the racket.",
+            "Two skaters: if A pushes B with 30 N, B pushes A with 30 N in the opposite direction."
+          ]
+        },
+        {
+          "type": "paragraph",
+          "text": "The forces on the two objects are equal, but the accelerations are not equal if the masses differ. Apply Newton's second law to each object separately."
+        },
+        {
+          "type": "equation",
+          "label": "Newton's second law",
+          "formula": "F = m × a",
+          "where": [
+            "F: resultant force in newtons, N",
+            "m: mass in kilograms, kg",
+            "a: acceleration in metres per second squared, m/s²"
+          ]
+        },
+        {
+          "type": "key-points",
+          "items": [
+            "Use the law for rockets, engines and collisions: the thing pushed pushes back.",
+            "Equal forces do not mean equal accelerations when the masses differ.",
+            "Check every answer says which object each force acts on."
+          ]
+        }
+      ]
+    }
+  ],
+  "checks": [
+    {
+      "q": "State Newton's third law.",
+      "a": "When two objects interact, the forces they exert on each other are equal and opposite.",
+      "marks": 1
+    },
+    {
+      "q": "A mug rests on a table. Name the two forces in the interaction pair.",
+      "a": "The force of the mug on the table and the force of the table on the mug.",
+      "marks": 2
+    },
+    {
+      "q": "Skater A pushes skater B with a force of 30 N. What force does A feel from B?",
+      "a": "30 N, in the opposite direction.",
+      "marks": 2
+    }
+  ],
+  "boards": {
+    "aqa": {
+      "spec_codes": ["AQA 4.5.6.2", "AQA T 6.5.4.2"],
+      "worked_example": {
+        "exemplar_id": "3af80880-ca8d-475a-87d8-f621419a4314",
+        "source": "AQA jun 2020, Paper 2 (F), Q07.2",
+        "question": "Air is taken into the front of an aircraft engine and pushed out of the back of the engine.\n\nExplain the effect this has on the engine.",
+        "marks": 2,
+        "answer_points": [
+          "The engine pushes the air backwards, so there is an (equal) force from the air on the engine",
+          "This force pushes on the engine and aircraft in the opposite direction, forwards"
+        ],
+        "tip": "The second mark only scores if the first has been scored. If neither is scored, 'pushes the engine forwards' earns 1 mark."
+      }
+    },
+    "edexcel": {
+      "spec_codes": ["EDEX 2.23"],
+      "worked_example": {
+        "exemplar_id": "665e6043-bdea-46e1-8465-814b567f652f",
+        "source": "EDEXCEL jun 2022, Paper 1 (H), Q7(c)(ii)",
+        "question": "A tennis ball is travelling towards a racket at a velocity of 8.2 m/s.\nThe ball is hit back in the opposite direction at a velocity of 15 m/s.\nThe ball has a mass of 0.075 kg.\nThe ball is in contact with the racket for 12 ms.\n\nDescribe how Newton's Third Law of Motion applies to the collision between the racket and the ball.",
+        "marks": 2,
+        "answer_points": [
+          "The forces are equal (the same size)",
+          "The forces are opposite in direction",
+          "The forces act on different bodies: one acts on the racket, one acts on the ball",
+          "They are the same type of force, both contact forces"
+        ],
+        "tip": "Any two points score the 2 marks. No marks for answers in terms of energy."
+      },
+      "extra": [
+        {
+          "heading": "Collisions and momentum",
+          "blocks": [
+            {
+              "type": "paragraph",
+              "text": "In a collision, the force on each object is equal and opposite and lasts for the same time. So the changes in momentum are equal and opposite."
+            },
+            {
+              "type": "equation",
+              "label": "Force and change in momentum",
+              "formula": "F = (m × v − m × u) / t",
+              "where": [
+                "F: force in newtons, N",
+                "m: mass in kilograms, kg",
+                "v: final velocity in metres per second, m/s",
+                "u: initial velocity in metres per second, m/s",
+                "t: time of the collision in seconds, s"
+              ]
+            },
+            {
+              "type": "list",
+              "items": [
+                "Force is linked to change in momentum, by Newton's second law (the equation above).",
+                "The time of the collision is the same for both objects.",
+                "So the momentum change is the same size for both, in opposite directions.",
+                "Total momentum before equals total momentum after, if no external forces act."
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    "ocr": {
+      "spec_codes": ["OCR P2.2p", "OCR P2.2b"],
+      "worked_example": {
+        "exemplar_id": "b99ea03a-a5ea-4e07-9613-0ed840c526ef",
+        "source": "OCR jun 2024, Paper 1, Q19(a)(ii)",
+        "question": "A water rocket lifts off the ground when water is pushed out of the bottom of the rocket.\n\nExplain how Newton's third law applies to the rocket as it lifts off the ground.\n\nUse ideas about the force of the water and the force of the rocket.",
+        "marks": 2,
+        "answer_points": [
+          "The water pushes on the rocket and the rocket pushes on the water",
+          "The forces act in opposite directions",
+          "The forces are the same size (and type)",
+          "Each force acts on a different object"
+        ],
+        "tip": "Any two of the four points. 'Forces are equal and opposite' alone earns 2 marks."
+      }
+    }
+  },
+  "meta": {
+    "status": "draft",
+    "written_by": "sonnet-5-5",
+    "written_at": "2026-10-01",
+    "spec_point_ids": [
+      "d5f3bbf8-196e-448b-9ebe-05c2f22328cf",
+      "3458b682-a2da-48a3-a3fb-886681ab4ca8"
+    ],
+    "exemplar_ids": [
+      "3af80880-ca8d-475a-87d8-f621419a4314",
+      "665e6043-bdea-46e1-8465-814b567f652f",
+      "b99ea03a-a5ea-4e07-9613-0ed840c526ef"
+    ],
+    "checked_by": "sonnet-science-check",
+    "checked_at": "2026-10-01"
+  }
+}

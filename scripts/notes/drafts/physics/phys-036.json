@@ -1,0 +1,327 @@
+{
+  "format": 1,
+  "concept_id": "phys-036",
+  "subject": "physics",
+  "title": "Nuclear equations",
+  "key_idea": "A nuclear equation shows radioactive decay. The total mass number and the total atomic number must be the same on both sides. Alpha decay lowers the mass number by 4 and the atomic number by 2. Beta decay raises the atomic number by 1. Gamma emission changes neither.",
+  "sections": [
+    {
+      "heading": "Symbols in nuclear equations",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "A nuclear equation represents radioactive decay. Each nucleus or particle is written with its mass number at the top and its atomic number at the bottom."
+        },
+        {
+          "type": "table",
+          "columns": ["Particle", "Symbol", "Mass number", "Atomic number (charge)"],
+          "rows": [
+            ["Alpha particle", "⁴₂He or ⁴₂α", "4", "2"],
+            ["Beta particle (electron)", "⁰₋₁e or ⁰₋₁β", "0", "-1"],
+            ["Gamma ray", "γ", "0", "0"]
+          ]
+        },
+        {
+          "type": "list",
+          "items": [
+            "The mass number is the number of protons plus neutrons.",
+            "The atomic number is the number of protons, which is the charge of the nucleus. It is also called the proton number.",
+            "A beta particle has almost no mass, so its mass number is 0. Its charge is -1."
+          ]
+        },
+        {
+          "type": "key-points",
+          "items": [
+            "Alpha is ⁴₂He. Beta is ⁰₋₁e. Gamma has no mass and no charge.",
+            "Mass number is at the top and atomic number is at the bottom."
+          ]
+        }
+      ]
+    },
+    {
+      "heading": "How each type of decay changes the nucleus",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "Emitting radiation may change the mass and the charge of the nucleus. The changes depend on the type of radiation."
+        },
+        {
+          "type": "table",
+          "columns": ["Decay", "Mass number", "Atomic number", "What happens"],
+          "rows": [
+            [
+              "Alpha",
+              "Decreases by 4",
+              "Decreases by 2",
+              "Two protons and two neutrons leave the nucleus."
+            ],
+            [
+              "Beta (β⁻)",
+              "No change",
+              "Increases by 1",
+              "A neutron becomes a proton and an electron. The electron is emitted."
+            ],
+            ["Gamma", "No change", "No change", "The nucleus loses energy as gamma radiation."]
+          ]
+        },
+        {
+          "type": "list",
+          "items": [
+            "Alpha decay decreases both the mass and the charge of the nucleus.",
+            "Beta decay does not change the mass of the nucleus. It increases the charge of the nucleus.",
+            "A nucleus that has just decayed is often left with extra energy. It loses this as gamma radiation, and its mass and charge do not change."
+          ]
+        },
+        {
+          "type": "diagram",
+          "diagram": {
+            "kind": "predictor",
+            "alt": "Pick a type of decay to see how the nucleus changes.",
+            "prompt": "Pick a type of decay",
+            "result_labels": [
+              "Mass number of the nucleus",
+              "Atomic number of the nucleus",
+              "What changes in the nucleus"
+            ],
+            "options": [
+              {
+                "label": "Alpha decay",
+                "results": [
+                  "Decreases by 4",
+                  "Decreases by 2",
+                  "Two protons and two neutrons are emitted as an alpha particle."
+                ]
+              },
+              {
+                "label": "Beta decay (β⁻)",
+                "results": [
+                  "Stays the same",
+                  "Increases by 1",
+                  "A neutron changes into a proton, and an electron is emitted."
+                ]
+              },
+              {
+                "label": "Gamma emission",
+                "results": [
+                  "Stays the same",
+                  "Stays the same",
+                  "The nucleus loses energy as a gamma ray."
+                ]
+              }
+            ]
+          }
+        },
+        {
+          "type": "key-points",
+          "items": [
+            "Alpha decay: mass number -4, atomic number -2.",
+            "Beta decay: mass number unchanged, atomic number +1.",
+            "Gamma emission changes neither number."
+          ]
+        }
+      ]
+    },
+    {
+      "heading": "Balancing a nuclear equation",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "In a balanced nuclear equation, the numbers on the left equal the numbers on the right. Check the top numbers and the bottom numbers separately."
+        },
+        {
+          "type": "equation",
+          "label": "Mass number balance",
+          "formula": "mass number before = mass numbers added together after",
+          "where": ["Mass numbers are the top numbers in the symbols."]
+        },
+        {
+          "type": "equation",
+          "label": "Atomic number balance",
+          "formula": "atomic number before = atomic numbers added together after",
+          "where": ["Atomic numbers are the bottom numbers in the symbols."]
+        },
+        {
+          "type": "steps",
+          "items": [
+            {
+              "lead": "Write the equation.",
+              "text": "²¹⁰₈₃Bi → ²¹⁰₈₄Po + ?"
+            },
+            {
+              "lead": "Balance the top numbers.",
+              "text": "210 = 210 + mass number, so the particle has mass number 0."
+            },
+            {
+              "lead": "Balance the bottom numbers.",
+              "text": "83 = 84 + atomic number, so the particle has atomic number -1."
+            },
+            {
+              "lead": "Name the particle.",
+              "text": "Mass 0 and atomic number -1 is a beta particle, ⁰₋₁e."
+            }
+          ]
+        },
+        {
+          "type": "paragraph",
+          "text": "An alpha decay example is uranium-238: ²³⁸₉₂U → ²³⁴₉₀Th + ⁴₂He. Check: 238 = 234 + 4 and 92 = 90 + 2."
+        },
+        {
+          "type": "diagram",
+          "diagram": {
+            "kind": "practice",
+            "alt": "Calculate the mass number after alpha decay of uranium.",
+            "question": "A uranium nucleus has atomic number 92 and mass number {A}. It emits an alpha particle. Calculate the mass number of the new nucleus.",
+            "variables": [
+              {
+                "id": "A",
+                "min": 230,
+                "max": 238,
+                "step": 1
+              }
+            ],
+            "answer": {
+              "formula": "A - 4",
+              "decimals": 0
+            },
+            "working": [
+              "Alpha particle: ⁴₂He, so the mass number falls by 4",
+              "New mass number = {A} - 4",
+              "New mass number = {answer}",
+              "The new atomic number is 92 - 2 = 90"
+            ]
+          }
+        },
+        {
+          "type": "key-points",
+          "items": [
+            "Balance the top numbers, then balance the bottom numbers.",
+            "Use the numbers to find a missing particle."
+          ]
+        }
+      ]
+    }
+  ],
+  "checks": [
+    {
+      "q": "Complete the equation: ²³⁰₉₂U → ⁴₂He + ?Th",
+      "a": "Mass number 230 - 4 = 226. Atomic number 92 - 2 = 90. The product is ²²⁶₉₀Th.",
+      "marks": 2
+    },
+    {
+      "q": "Describe the effect of beta emission on the mass number and charge of a nucleus.",
+      "a": "The mass number stays the same. The charge increases by 1, because a neutron becomes a proton.",
+      "marks": 2
+    },
+    {
+      "q": "A nucleus emits an alpha particle, then two beta particles. How does its atomic number change overall?",
+      "a": "Alpha decreases it by 2. Each beta increases it by 1, so +2 in all. The atomic number is the same as at the start.",
+      "marks": 2
+    }
+  ],
+  "boards": {
+    "aqa": {
+      "spec_codes": ["AQA 4.4.2.2", "AQA T 6.4.2.2"],
+      "worked_example": {
+        "exemplar_id": "608f863e-e34e-418a-ab96-655cad681f17",
+        "source": "AQA jun 2021, Paper 1 (H), Q06.5",
+        "question": "A polonium (Po) nucleus decays by emitting an alpha particle and forming a lead (Pb) nucleus.\nPo → Pb + α\nThe lead nucleus then decays by emitting a beta particle and forms a bismuth (Bi) nucleus.\nPb → Bi + β\nThe bismuth nucleus then decays by emitting a beta particle and forms a polonium nucleus.\nBi → Po + β\n\nExplain how these three decays result in a nucleus of the original element, polonium.",
+        "marks": 3,
+        "answer_points": [
+          "One alpha decay would decrease the proton number by 2.",
+          "Two beta decays would increase the proton number by 2.",
+          "So the proton (atomic) number of the final nucleus is the same as that of the original nucleus."
+        ],
+        "tip": "The third mark is only given if the first two are scored."
+      }
+    },
+    "edexcel": {
+      "spec_codes": ["EDEX 6.18", "EDEX 6.19", "EDEX 6.20", "EDEX 6.21", "EDEX 6.22"],
+      "extra": [
+        {
+          "heading": "Beta-plus decay and neutron emission",
+          "blocks": [
+            {
+              "type": "paragraph",
+              "text": "A nucleus can also decay by emitting a positron, written ⁰₊₁e. This is beta-plus (β⁺) decay."
+            },
+            {
+              "type": "list",
+              "items": [
+                "In β⁺ decay a proton becomes a neutron plus a positron.",
+                "The mass number stays the same and the atomic number decreases by 1.",
+                "In neutron emission the nucleus loses a neutron. The mass number decreases by 1 and the atomic number stays the same."
+              ]
+            }
+          ]
+        }
+      ],
+      "worked_example": {
+        "exemplar_id": "991e7067-eef1-44d6-8eca-31be3d5c3189",
+        "source": "EDEXCEL jun 2023, Paper 1 (H), Q7(c)",
+        "question": "Describe what happens in the nucleus of an atom when a positron is emitted.",
+        "marks": 2,
+        "answer_points": ["A proton", "becomes a neutron."],
+        "tip": "Writing p → n scores both marks. If no other mark is scored, the atomic number decreasing by one, the mass number staying the same or the charge of the nucleus reducing by one earns 1 mark."
+      }
+    },
+    "ocr": {
+      "spec_codes": ["OCR P6.1e", "OCR P6.1f", "OCR P6.1g"],
+      "extra": [
+        {
+          "heading": "Neutron emission",
+          "blocks": [
+            {
+              "type": "list",
+              "items": [
+                "A neutron is written ¹₀n. It has mass number 1 and atomic number 0.",
+                "When a nucleus emits a neutron its mass number falls by 1 and its atomic number stays the same."
+              ]
+            }
+          ]
+        }
+      ],
+      "worked_example": {
+        "exemplar_id": "085a3feb-992b-45f4-bb0b-c2ecd55b7def",
+        "source": "OCR jun 2024, Paper 2, Q23(d)",
+        "question": "A nuclear reactor needs neutrons to start a nuclear fission reaction.\n\nA plutonium nucleus (Pu) decays into a uranium nucleus (U) and an alpha particle (⁴₂He).\n\nThe alpha particle then joins with a beryllium nucleus (Be) to produce a carbon nucleus (C) and a neutron (n).\n\nComplete the equations.\n\n²³⁸₉₄Pu → ______U + ⁴₂He\n\n⁹₄Be + ⁴₂He → ¹²₆C + ______n",
+        "marks": 3,
+        "answer_points": [
+          "²³⁸₉₄Pu → ²³⁴₉₂U + ⁴₂He: the correct mass number for U is 234.",
+          "The correct atomic number for U is 92.",
+          "⁹₄Be + ⁴₂He → ¹²₆C + ¹₀n: the correct mass number and atomic number for the neutron, 1 and 0."
+        ],
+        "tip": "One mark for each of the three numbers or pairs of numbers."
+      }
+    }
+  },
+  "meta": {
+    "status": "draft",
+    "written_by": "sonnet-5-5",
+    "written_at": "2026-10-01",
+    "spec_point_ids": [
+      "9b20b175-f227-4fa4-bbab-9938eba7347f",
+      "f000c66f-4222-468f-88bf-8880c81fd986",
+      "3c1850d6-2621-42e7-9244-02cf69688c41",
+      "e2203da0-7dc3-4e49-b49f-c9ee0e50afcc",
+      "bf859455-6aa1-4c6f-920b-4a6ee84f94cf",
+      "8b7babb7-7ec5-4430-9fb0-4dca2e159dc8",
+      "7cc17727-beb9-4748-ab02-affff607ff0d",
+      "875bc979-900b-4ebc-95b4-b2c59e640405",
+      "30a45ea4-5f5d-4534-9364-fd745c804848",
+      "73eed43e-862b-47a7-9dd2-27e5e5d04c25"
+    ],
+    "exemplar_ids": [
+      "608f863e-e34e-418a-ab96-655cad681f17",
+      "991e7067-eef1-44d6-8eca-31be3d5c3189",
+      "085a3feb-992b-45f4-bb0b-c2ecd55b7def",
+      "1db02d04-f584-40c5-9218-f41995a3dba3",
+      "1ed28199-8fc8-4509-8933-3588d9ab4a64",
+      "6d5ad996-70f2-42a5-9988-217eb834e486",
+      "b06b6db5-81b2-45ba-9103-0ff723082bc2",
+      "b140a442-8e2f-4d92-98fc-1fe3a2e1e7fe",
+      "f627dfe4-25ee-40e5-9390-fc75f48f280a"
+    ],
+    "checked_by": "sonnet-science-check",
+    "checked_at": "2026-10-01"
+  }
+}

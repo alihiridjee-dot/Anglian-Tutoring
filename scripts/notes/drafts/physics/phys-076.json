@@ -1,0 +1,349 @@
+{
+  "format": 1,
+  "concept_id": "phys-076",
+  "subject": "physics",
+  "title": "Lenses",
+  "key_idea": "(Separate science) A lens forms an image by refracting light. A convex lens brings parallel rays to a principal focus and can make real or virtual images. A concave lens always makes a virtual image. Magnification = image height ÷ object height.",
+  "sections": [
+    {
+      "heading": "Convex and concave lenses",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "(Separate science) This section covers how lenses bend light and the key words for ray diagrams."
+        },
+        {
+          "type": "definitions",
+          "items": [
+            {
+              "term": "Lens",
+              "meaning": "A piece of transparent material that forms an image by refracting light."
+            },
+            {
+              "term": "Principal focus",
+              "meaning": "The point where parallel rays of light are brought together by a convex lens."
+            },
+            {
+              "term": "Focal length",
+              "meaning": "The distance from the lens to the principal focus."
+            }
+          ]
+        },
+        {
+          "type": "table",
+          "columns": ["Feature", "Convex (converging) lens", "Concave (diverging) lens"],
+          "rows": [
+            ["Shape", "Thicker in the middle", "Thinner in the middle"],
+            ["Parallel rays", "Brought together at the principal focus", "Spread out"],
+            ["Image", "Real or virtual", "Always virtual"]
+          ]
+        },
+        {
+          "type": "list",
+          "items": [
+            "A convex lens is drawn as a line with outward arrowheads.",
+            "A concave lens is drawn as a line with inward arrowheads.",
+            "Ray diagrams show the rays from an object, refracted by the lens, forming an image.",
+            "A ray parallel to the axis of a convex lens is refracted through the principal focus.",
+            "A ray through the centre of a lens carries straight on.",
+            "A ray parallel to the axis of a concave lens is refracted so it seems to come from the principal focus."
+          ]
+        },
+        {
+          "type": "key-points",
+          "items": [
+            "(Separate science) A convex lens brings parallel rays to a focus at the principal focus.",
+            "The focal length is the distance from the lens to the principal focus.",
+            "A concave lens spreads parallel rays out."
+          ]
+        }
+      ]
+    },
+    {
+      "heading": "Real and virtual images",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "(Separate science) This section covers the two kinds of image a lens can make."
+        },
+        {
+          "type": "definitions",
+          "items": [
+            {
+              "term": "Real image",
+              "meaning": "Formed where light rays actually meet. It can be caught on a screen."
+            },
+            {
+              "term": "Virtual image",
+              "meaning": "Formed where light rays only appear to come from. It cannot be caught on a screen."
+            }
+          ]
+        },
+        {
+          "type": "list",
+          "items": [
+            "A convex lens can form a real image or a virtual image.",
+            "A convex lens used as a magnifying glass forms a magnified, upright, virtual image.",
+            "A concave lens always forms a virtual image.",
+            "A convex lens forms a real image when the object is further from the lens than the principal focus.",
+            "A convex lens forms a virtual image when the object is closer to the lens than the principal focus.",
+            "The image from a concave lens is upright and virtual.",
+            "To correct long sight, a convex lens refracts light inwards so that it focuses on the retina."
+          ]
+        },
+        {
+          "type": "key-points",
+          "items": [
+            "(Separate science) A convex lens can make real or virtual images.",
+            "A concave lens always makes an upright, virtual image.",
+            "A magnifying glass is a convex lens making a virtual image."
+          ]
+        }
+      ]
+    },
+    {
+      "heading": "Magnification",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "(Separate science) This section covers how to calculate the magnification of a lens."
+        },
+        {
+          "type": "equation",
+          "label": "Magnification",
+          "formula": "magnification = image height ÷ object height",
+          "where": [
+            "magnification has no unit because it is a ratio.",
+            "image height is in millimetres (mm) or centimetres (cm).",
+            "object height is in the same unit as the image height."
+          ]
+        },
+        {
+          "type": "list",
+          "items": [
+            "Use the same unit for both heights, either mm or cm.",
+            "Rearrange to find a height: image height = magnification × object height, and object height = image height ÷ magnification."
+          ]
+        },
+        {
+          "type": "steps",
+          "items": [
+            {
+              "lead": "Write the equation.",
+              "text": "magnification = image height ÷ object height"
+            },
+            {
+              "lead": "Rearrange.",
+              "text": "object height = image height ÷ magnification"
+            },
+            {
+              "lead": "Substitute and evaluate.",
+              "text": "An image 12 mm high with magnification 4: object height = 12 ÷ 4 = 3 mm"
+            }
+          ]
+        },
+        {
+          "type": "diagram",
+          "diagram": {
+            "kind": "practice",
+            "alt": "Calculate the image height from the object height and the magnification.",
+            "question": "A lens has a magnification of {M}. The object is {h} mm high. Calculate the height of the image in mm.",
+            "variables": [
+              {
+                "id": "M",
+                "min": 2,
+                "max": 8,
+                "step": 1
+              },
+              {
+                "id": "h",
+                "min": 1,
+                "max": 4,
+                "step": 0.5
+              }
+            ],
+            "answer": {
+              "formula": "M * h",
+              "unit": "mm",
+              "decimals": 1
+            },
+            "working": [
+              "magnification = image height ÷ object height",
+              "image height = magnification × object height",
+              "image height = {M} × {h}",
+              "image height = {answer} mm"
+            ]
+          }
+        },
+        {
+          "type": "key-points",
+          "items": [
+            "magnification = image height ÷ object height.",
+            "Magnification has no unit.",
+            "Use the same unit for the image height and the object height."
+          ]
+        }
+      ]
+    }
+  ],
+  "checks": [
+    {
+      "q": "Which two words describe the image formed by a concave lens?",
+      "a": "Upright and virtual.",
+      "marks": 2
+    },
+    {
+      "q": "The image of a coin letter is 9.0 mm high and the magnification is 6.0. Calculate the height of the letter.",
+      "a": "object height = 9.0 ÷ 6.0 = 1.5 mm.",
+      "marks": 3
+    },
+    {
+      "q": "State what happens to rays of light parallel to the axis when they pass through a convex lens.",
+      "a": "They are refracted and brought together at the principal focus.",
+      "marks": 1
+    }
+  ],
+  "boards": {
+    "aqa": {
+      "spec_codes": ["AQA 4.6.2.5"],
+      "worked_example": {
+        "exemplar_id": "7345f879-15d1-462f-a8f8-2882c4d2f895",
+        "source": "AQA jun 2019, Paper 2 (H), Q1.4",
+        "question": "A person uses a lens to read the letters on the back of a coin.\n\nThe image height of the letters on the coin is 9.0 mm.\n\nThe magnification produced by the lens is 6.0.\n\nCalculate the height of the letters on the coin.",
+        "marks": 3,
+        "answer_points": [
+          "6.0 = 9.0 ÷ object height",
+          "object height = 9.0 ÷ 6.0",
+          "object height = 1.5 mm"
+        ],
+        "tip": "An answer of 1.5 mm scores all 3 marks. The equation is on the equation sheet, so you do not need to remember it, but you do need to rearrange it."
+      }
+    },
+    "edexcel": {
+      "spec_codes": ["EDEX 5.4P", "EDEX 5.5P", "EDEX 5.6P"],
+      "worked_example": {
+        "exemplar_id": "64235ff2-04bf-4f7c-8de3-a40e67d41981",
+        "source": "EDEXCEL jun 2022, Paper 1 (F), Q3(b)",
+        "question": "A converging lens has a focal length of 40 cm.\n\nCalculate the power of this lens in dioptres.\n\nUse the equation\n\npower in dioptres = 1 / focal length in metres",
+        "marks": 3,
+        "answer_points": [
+          "focal length = 40 cm = 0.40 m",
+          "power = 1 ÷ 0.40",
+          "power = 2.5 dioptres"
+        ],
+        "tip": "One mark for the substitution, one for the evaluation and one for including the unit change. A correct answer with no working scores full marks."
+      },
+      "extra": [
+        {
+          "heading": "Power of a lens",
+          "blocks": [
+            {
+              "type": "paragraph",
+              "text": "(Separate science) The power of a lens tells you how strongly it bends light."
+            },
+            {
+              "type": "list",
+              "items": [
+                "A lens with a shorter focal length has a higher power.",
+                "A fatter, thicker, more curved lens has a shorter focal length and a higher power.",
+                "Converging lenses are convex and diverging lenses are concave."
+              ]
+            },
+            {
+              "type": "equation",
+              "label": "Power of a lens",
+              "formula": "power = 1 ÷ focal length",
+              "where": ["power is in dioptres (D).", "focal length is in metres (m)."]
+            },
+            {
+              "type": "diagram",
+              "diagram": {
+                "kind": "slider",
+                "alt": "Change the focal length of a lens and see its power.",
+                "inputs": [
+                  {
+                    "id": "f",
+                    "label": "Focal length",
+                    "unit": "cm",
+                    "min": 5,
+                    "max": 50,
+                    "step": 5,
+                    "value": 25
+                  }
+                ],
+                "outputs": [
+                  {
+                    "label": "Focal length in metres",
+                    "unit": "m",
+                    "formula": "f / 100",
+                    "decimals": 2
+                  },
+                  {
+                    "label": "Power of the lens",
+                    "unit": "dioptres",
+                    "formula": "1 / (f / 100)",
+                    "decimals": 1,
+                    "bar": true
+                  }
+                ]
+              }
+            },
+            {
+              "type": "key-points",
+              "items": [
+                "(Separate science) power = 1 ÷ focal length, with the focal length in metres.",
+                "A shorter focal length gives a higher power."
+              ]
+            }
+          ]
+        },
+        {
+          "heading": "Making and magnifying an image",
+          "blocks": [
+            {
+              "type": "list",
+              "items": [
+                "To make an image of a window on paper, place the paper behind the lens, with the window light on the other side.",
+                "Move the lens or the paper until the image is clear.",
+                "To increase magnification, use a lens of higher power, or change the distance between the object and the lens."
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    "ocr": {
+      "spec_codes": ["OCR P5.3c"],
+      "worked_example": {
+        "exemplar_id": "20fdcfe3-e7d4-4506-a967-12850df0eb51",
+        "source": "OCR jun 2019, Paper 2, Q18(a)(ii)",
+        "question": "Lenses can be used to help people see clearly.\n\nExplain how a convex lens can correct long-sighted vision.",
+        "marks": 2,
+        "answer_points": [
+          "In long sight the rays are focused behind the retina (eyeball).",
+          "A convex lens refracts the light inwards, so it focuses on the retina."
+        ],
+        "tip": "A near object focused behind the retina, or an eyeball that is too short, is also accepted for the first mark."
+      }
+    }
+  },
+  "meta": {
+    "status": "draft",
+    "written_by": "sonnet-5-5",
+    "written_at": "2026-10-01",
+    "spec_point_ids": [
+      "bbf164fb-cf14-4f6d-be44-49792ff2ef5f",
+      "1da0ba28-db03-48c6-94ba-28f533897178",
+      "2609afff-ad97-4c24-ab1d-78b6685e3820",
+      "dfa8f1f2-7523-47c3-a3a7-9b3cd290be3c",
+      "6f6da19a-db7f-47da-a17f-06b93c98ec5a"
+    ],
+    "exemplar_ids": [
+      "7345f879-15d1-462f-a8f8-2882c4d2f895",
+      "64235ff2-04bf-4f7c-8de3-a40e67d41981",
+      "20fdcfe3-e7d4-4506-a967-12850df0eb51"
+    ],
+    "checked_by": "sonnet-science-check",
+    "checked_at": "2026-10-03"
+  }
+}

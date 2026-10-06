@@ -1,0 +1,242 @@
+{
+  "format": 1,
+  "concept_id": "bio-112",
+  "subject": "biology",
+  "title": "Benefits and risks of genetic modification",
+  "key_idea": "Genetically modified (GM) crops can give higher yields and use less pesticide, and gene technology can make medicines. There are also risks to the environment, to farmers and to health, and some people have ethical objections. Exam answers must give both sides and link each point.",
+  "sections": [
+    {
+      "heading": "GM crops: the Bt example",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "GM crops have genes added by genetic engineering. This section covers one example, insect-resistant crops, and what it shows."
+        },
+        {
+          "type": "definitions",
+          "items": [
+            {
+              "term": "GM crop",
+              "meaning": "A crop plant whose genome has been modified by genetic engineering."
+            },
+            {
+              "term": "Bt gene",
+              "meaning": "A gene from the bacterium Bacillus thuringiensis that makes a toxin which kills insects."
+            }
+          ]
+        },
+        {
+          "type": "list",
+          "items": [
+            "The Bt gene is inserted into the genome of a crop plant.",
+            "The crop makes the toxin in its leaves, so insects that eat it are killed.",
+            "Other features GM can give: resistance to disease, frost, drought or herbicide, better nutrition, a different taste or colour, or the ability to grow in a wider range of conditions."
+          ]
+        },
+        {
+          "type": "key-points",
+          "items": [
+            "Bt crops make a toxin that kills insect pests.",
+            "GM can give crops many other useful features."
+          ]
+        }
+      ]
+    },
+    {
+      "heading": "Advantages and disadvantages",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "To evaluate GM crops, give advantages and disadvantages. Sort the points to test yourself."
+        },
+        {
+          "type": "diagram",
+          "diagram": {
+            "alt": "Sort each point about insect-resistant GM crops into an advantage or a disadvantage.",
+            "kind": "sort",
+            "items": [
+              {
+                "text": "Less damage to the crop, so a higher yield",
+                "group": 0
+              },
+              {
+                "text": "More food for people",
+                "group": 0
+              },
+              {
+                "text": "Less insecticide needs to be sprayed",
+                "group": 0
+              },
+              {
+                "text": "More profit for farmers",
+                "group": 0
+              },
+              {
+                "text": "Insects may evolve resistance to the toxin",
+                "group": 1
+              },
+              {
+                "text": "The genes may spread to wild plants or weeds",
+                "group": 1
+              },
+              {
+                "text": "Seeds are more expensive, and farmers rely on seed companies",
+                "group": 1
+              },
+              {
+                "text": "It may harm useful insects or disrupt food chains",
+                "group": 1
+              },
+              {
+                "text": "Some people think it is ethically wrong",
+                "group": 1
+              }
+            ],
+            "groups": ["Advantage", "Disadvantage"],
+            "prompt": "Advantage or disadvantage of insect-resistant GM crops?"
+          }
+        },
+        {
+          "type": "subheading",
+          "text": "Other concerns raised"
+        },
+        {
+          "type": "list",
+          "items": [
+            "Concern about the **long-term effects** on human health, including allergic reactions. Effects may not yet have been discovered.",
+            "Reduced biodiversity, for example if traditional varieties are no longer grown.",
+            "GM salmon that escape could outcompete or breed with wild salmon, which could cause wild salmon to decrease or become extinct."
+          ]
+        },
+        {
+          "type": "key-points",
+          "items": [
+            "Advantages: less damage, higher yield, less insecticide, more profit.",
+            "Disadvantages: resistance evolving, gene transfer, cost, environmental harm, ethics.",
+            "Link each point: say why it matters."
+          ]
+        }
+      ]
+    },
+    {
+      "heading": "Gene technology in medicine",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "Gene technology also helps in medicine. This section covers benefits and the difficult choices it can bring."
+        },
+        {
+          "type": "list",
+          "items": [
+            "Bacteria or yeast can be modified to make medicines, such as insulin or a painkiller.",
+            "Yeast grows rapidly, so the yield is higher and the time is shorter. It takes up less space than growing plants, and is not weather dependent.",
+            "Risks: the medicine may not be identical or as effective, GM organisms may enter the environment, or it may be manufactured illegally.",
+            "Research is exploring genetic modification, such as gene therapy, to overcome some inherited disorders."
+          ]
+        },
+        {
+          "type": "list",
+          "items": [
+            "Tests for a gene such as BRCA show a higher risk of cancer, but give women difficult choices.",
+            "Removing the ovaries before cancer starts means the woman may not have developed breast cancer, she could not have children, and there may be side effects from reduced oestrogen."
+          ]
+        },
+        {
+          "type": "key-points",
+          "items": [
+            "Gene technology makes medicines and may help to treat inherited disorders.",
+            "Tests can lead to difficult decisions for patients."
+          ]
+        }
+      ]
+    }
+  ],
+  "checks": [
+    {
+      "q": "Explain one advantage of a crop that has been genetically engineered to produce a toxin that kills insects.",
+      "a": "It kills the insects that feed on the crop, so there is less damage and a higher yield, and there is no need to use insecticides.",
+      "marks": 2
+    },
+    {
+      "q": "State one disadvantage of growing GM crops that are resistant to insect pests.",
+      "a": "Any one from: cross-pollination with other plants, reduced biodiversity, insects evolving resistance, seeds more expensive, harm to useful insects.",
+      "marks": 1
+    },
+    {
+      "q": "Give one benefit and one risk of producing a medicine from genetically modified yeast.",
+      "a": "Benefit: yeast grows rapidly, so a higher yield is made in a shorter time. Risk: the medicine may not be as effective, or the GM yeast may enter the environment.",
+      "marks": 2
+    }
+  ],
+  "boards": {
+    "aqa": {
+      "spec_codes": ["AQA 6.12", "AQA T 4.6.2.4"],
+      "worked_example": {
+        "exemplar_id": "9715adef-9fba-4e1c-b31d-4bdb1bd630a3",
+        "source": "AQA jun 2018, Paper 2 (H), Q05.2",
+        "question": "The International Rice Research Institute (IRRI) has now developed several new varieties of genetically modified (GM) rice plants. Some people in India agree and some people disagree with GM varieties of rice being grown.\n\nExplain why.",
+        "marks": 4,
+        "answer_points": [
+          "Agree: resistance to disease, pests or pathogens, so a higher yield.",
+          "Agree: larger or more grains, so more food for people or more income for farmers.",
+          "Agree: better nutritional content, so health improves.",
+          "Disagree: genes may transfer to wild plants, making them herbicide resistant.",
+          "Disagree: traditional varieties are no longer grown, so biodiversity is reduced.",
+          "Disagree: not enough research has been done on the effect on the health of people who eat the rice."
+        ],
+        "tip": "Each reason must be explained to gain credit. A maximum of 3 marks for each side."
+      }
+    },
+    "edexcel": {
+      "spec_codes": ["EDEX 4.12B", "EDEX 4.14"],
+      "worked_example": {
+        "exemplar_id": "52526374-47a3-48fd-8420-51dd283f0ee8",
+        "source": "EDEXCEL nov 2021, Paper 1 (F), Q7(c)",
+        "question": "Some crop plants have been genetically modified to be resistant to insect pests.\n\nExplain the advantages and disadvantages of producing genetically modified crop plants.",
+        "marks": 6,
+        "answer_points": [
+          "Advantages: less crop damage and spoilage, so a higher yield and more food for people.",
+          "Advantages: crop plants are less likely to have diseases spread by insects, and less pesticide is used.",
+          "Advantages: more profit, so more income for developing countries.",
+          "Disadvantages: concerns about long-term effects, and ethical concerns about moving genes between species.",
+          "Disadvantages: genes could transfer to other species or weeds, which could compete with the crop.",
+          "Disadvantages: GM seeds could be more expensive, farmers rely on seed companies, and insects could evolve so crops are no longer resistant."
+        ],
+        "tip": "A level-marked question. Give both advantages and disadvantages, with each point explained."
+      }
+    },
+    "ocr": {
+      "spec_codes": ["OCR 6.2f", "OCR 6.3w"],
+      "worked_example": {
+        "exemplar_id": "01034b9d-db92-419c-8283-d61bb15232b3",
+        "source": "OCR nov 2021, Paper 2, Q18(c)(ii)",
+        "question": "Cells usually become cancerous due to damage to their DNA.\nScientists have found a gene called BRCA. This gene usually produces a protein that repairs damaged DNA.\nScientists can now test for the mutated BRCA gene in women. This means they can give women the option of having their ovaries removed before breast cancer may start to develop.\n\nSuggest two reasons why this is a difficult decision for some women.",
+        "marks": 2,
+        "answer_points": [
+          "They may not actually develop breast cancer (the chance may be only 60%).",
+          "They would not be able to produce eggs, so could not have children.",
+          "There are possible side effects of reduced oestrogen, such as the menopause."
+        ],
+        "tip": "Any two of these score one mark each."
+      }
+    }
+  },
+  "meta": {
+    "status": "draft",
+    "written_by": "claude-sonnet-5-5",
+    "written_at": "2026-10-01",
+    "spec_point_ids": [
+      "05138f3f-96e9-473c-a618-42d3abdd19a4",
+      "976ab6bb-54d5-4a7d-9341-9ac517d142e0",
+      "5bc74106-a4bf-4b69-8787-4a6a3f767555",
+      "4fe4ab2c-e05b-414c-aa25-be3915c5254c"
+    ],
+    "exemplar_ids": [
+      "9715adef-9fba-4e1c-b31d-4bdb1bd630a3",
+      "52526374-47a3-48fd-8420-51dd283f0ee8",
+      "01034b9d-db92-419c-8283-d61bb15232b3"
+    ],
+    "checked_by": "sonnet-science-check",
+    "checked_at": "2026-10-01"
+  }
+}

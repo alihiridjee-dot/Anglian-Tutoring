@@ -1,0 +1,317 @@
+{
+  "format": 1,
+  "concept_id": "phys-021",
+  "subject": "physics",
+  "title": "Static electricity",
+  "key_idea": "Rubbing two insulators together transfers electrons from one to the other. The one that gains electrons is negative and the one that loses them is positive. Like charges repel and unlike charges attract.",
+  "sections": [
+    {
+      "heading": "Charging by friction",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "When certain insulating materials are rubbed together, they become electrically charged. This section covers how."
+        },
+        {
+          "type": "definitions",
+          "items": [
+            {
+              "term": "Insulator",
+              "meaning": "A material that does not conduct. Static charge only builds up on insulators."
+            },
+            {
+              "term": "Electron",
+              "meaning": "A negatively charged particle. Electrons are the only charges that move."
+            },
+            {
+              "term": "Earthing",
+              "meaning": "Connecting an object to the ground with a conductor so that excess charge can flow away."
+            }
+          ]
+        },
+        {
+          "type": "list",
+          "items": [
+            "All matter contains positive and negative charges.",
+            "In most objects the numbers are equal, so their effects cancel and the net charge is zero.",
+            "Rubbing makes electrons move from one material to the other.",
+            "The material that gains electrons becomes negatively charged.",
+            "The material that loses electrons is left with an equal positive charge."
+          ]
+        },
+        {
+          "type": "diagram",
+          "diagram": {
+            "kind": "sequence",
+            "alt": "Put the steps of charging a plastic rod by rubbing it with a cloth into the right order.",
+            "prompt": "Put the steps in order.",
+            "steps": [
+              "A plastic rod is rubbed with a cloth.",
+              "Friction transfers electrons from the cloth to the rod.",
+              "The rod gains electrons, so it becomes negatively charged.",
+              "The cloth loses electrons, so it is left with an equal positive charge."
+            ]
+          }
+        },
+        {
+          "type": "paragraph",
+          "text": "Only electrons move. Any mention of positive charges or positive electrons moving scores no marks."
+        },
+        {
+          "type": "key-points",
+          "items": [
+            "Friction transfers electrons between insulators.",
+            "Gaining electrons gives a negative charge. Losing electrons leaves an equal positive charge.",
+            "Only negative electrons move, never positive charges."
+          ]
+        }
+      ]
+    },
+    {
+      "heading": "Attraction and repulsion",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "When two charged objects are brought close together, they exert a force on each other without touching. This is a non-contact force."
+        },
+        {
+          "type": "list",
+          "items": [
+            "Two objects with the same type of charge repel.",
+            "Two objects with different types of charge attract."
+          ]
+        },
+        {
+          "type": "diagram",
+          "diagram": {
+            "kind": "sort",
+            "alt": "Sort each pair of objects into attract or repel.",
+            "prompt": "Do these attract or repel?",
+            "groups": ["Attract", "Repel"],
+            "items": [
+              {
+                "text": "Two negatively charged plastic rods",
+                "group": 1
+              },
+              {
+                "text": "A positive rod and a negative rod",
+                "group": 0
+              },
+              {
+                "text": "Two positively charged balloons",
+                "group": 1
+              },
+              {
+                "text": "Strands of hair that all have the same charge",
+                "group": 1
+              },
+              {
+                "text": "A positively charged comb and a piece of paper",
+                "group": 0
+              },
+              {
+                "text": "A negatively charged balloon and a positively charged cloth",
+                "group": 0
+              }
+            ]
+          }
+        },
+        {
+          "type": "subheading",
+          "text": "Evidence for the forces"
+        },
+        {
+          "type": "list",
+          "items": [
+            "Two charged balloons hung on strings move apart if they have the same type of charge.",
+            "A charged comb picks up small pieces of paper.",
+            "A student's hair stands on end when each hair has the same charge."
+          ]
+        },
+        {
+          "type": "subheading",
+          "text": "Why a charged object attracts a neutral one"
+        },
+        {
+          "type": "list",
+          "items": [
+            "A charged comb brought near paper induces an opposite charge on the part of the paper closest to the comb.",
+            "Opposite charges attract, so the paper is pulled to the comb.",
+            "A charged balloon sticks to a wall in the same way, because of induced charges in the wall."
+          ]
+        },
+        {
+          "type": "key-points",
+          "items": [
+            "Like charges repel. Unlike charges attract. Both are non-contact forces.",
+            "A charged object induces the opposite charge on the nearest part of a neutral object, so it attracts it."
+          ]
+        }
+      ]
+    },
+    {
+      "heading": "Sparks, earthing and everyday uses",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "Charge can build up on an object and then flow away. This section covers sparks, earthing, uses and dangers."
+        },
+        {
+          "type": "subheading",
+          "text": "Sparks and shocks"
+        },
+        {
+          "type": "list",
+          "items": [
+            "A charged object has a potential difference to an earthed conductor.",
+            "When they are close enough, electrons transfer between them and a spark jumps.",
+            "A negatively charged student who touches a metal tap gets a shock. Electrons transfer from the student to the tap, which earths the charge.",
+            "Lightning is a spark between a charged cloud and the ground.",
+            "The negative base of a cloud induces a positive charge on the ground. A large potential difference builds up, the air becomes ionised and electrons travel to the ground."
+          ]
+        },
+        {
+          "type": "subheading",
+          "text": "Earthing"
+        },
+        {
+          "type": "list",
+          "items": [
+            "Earthing removes excess charge by the movement of electrons through a conductor to earth.",
+            "A carpet with thin copper wires is a conductor, so charge does not build up on a person."
+          ]
+        },
+        {
+          "type": "subheading",
+          "text": "Dangers of sparking"
+        },
+        {
+          "type": "list",
+          "items": [
+            "Charge can build up as fuel flows through a pipe when refuelling a car or an aeroplane.",
+            "A spark could ignite the flammable fuel and cause a fire or explosion.",
+            "The pipe and the vehicle are connected by a metal wire to earth, so they are at the same potential and no charge builds up."
+          ]
+        },
+        {
+          "type": "subheading",
+          "text": "Uses of static charge"
+        },
+        {
+          "type": "list",
+          "items": [
+            "Insecticide and disinfectant sprayers give each droplet the same charge.",
+            "The droplets repel each other and spread out.",
+            "They are attracted to the surface, including parts not in the direct line of the spray.",
+            "Electrostatic dust precipitators use static electricity to remove smoke particles from factory chimneys."
+          ]
+        },
+        {
+          "type": "key-points",
+          "items": [
+            "A spark is electrons moving across a gap because of a large potential difference.",
+            "Earthing lets electrons flow away, so no dangerous charge builds up.",
+            "Charged sprayer droplets repel each other and are attracted to the surface."
+          ]
+        }
+      ]
+    }
+  ],
+  "checks": [
+    {
+      "q": "A plastic rod is rubbed with a cloth and becomes negatively charged. Explain why the cloth becomes positively charged.",
+      "a": "Electrons are transferred from the cloth to the rod. Electrons are negatively charged, so the cloth has more positive charges than negative charges.",
+      "marks": 3
+    },
+    {
+      "q": "What force acts between two negatively charged rods?",
+      "a": "A force of repulsion, because they have the same charge.",
+      "marks": 2
+    },
+    {
+      "q": "Explain how earthing a metal pipe reduces the danger of sparks when refuelling.",
+      "a": "The pipe is connected to earth by a conductor. Electrons flow through it to earth, so no charge builds up and there is no spark to ignite the fuel.",
+      "marks": 3
+    }
+  ],
+  "boards": {
+    "aqa": {
+      "spec_codes": ["AQA 4.2.5.1"],
+      "worked_example": {
+        "exemplar_id": "41a0547d-f89c-47bf-98f6-418c8880e558",
+        "source": "AQA jun 2022, Paper 1 (H), Q05.1",
+        "question": "A student rubbed a plastic rod with a cloth. The rod became negatively charged and the cloth became positively charged. Explain why the cloth became positively charged.",
+        "marks": 3,
+        "answer_points": [
+          "Electrons are transferred from the cloth (to the rod).",
+          "Electrons are negatively charged.",
+          "So there are more positive charges than negative charges on the cloth."
+        ],
+        "tip": "The second mark only scores if it is linked to the first: the electrons must move from the cloth."
+      }
+    },
+    "edexcel": {
+      "spec_codes": [
+        "EDEX 11.1P",
+        "EDEX 11.2P",
+        "EDEX 11.3P",
+        "EDEX 11.4P",
+        "EDEX 11.5P",
+        "EDEX 11.6P",
+        "EDEX 11.7P"
+      ],
+      "worked_example": {
+        "exemplar_id": "2111c247-9048-4c8e-a87a-5e2296c2545d",
+        "source": "EDEXCEL jun 2018, Paper 2 (H), Q4(a)(i)",
+        "question": "A student rubs a plastic comb with a dry cloth to give the comb a positive electric charge. Explain how rubbing the comb with a dry cloth gives the comb a positive electric charge.",
+        "marks": 3,
+        "answer_points": [
+          "Friction between the cloth and the comb.",
+          "Electrons are transferred from the comb on to the cloth.",
+          "Electrons carry a negative charge.",
+          "This leaves an excess positive charge on the comb."
+        ],
+        "tip": "Link any three of the four points. Do not write about positive electrons or positive charge moving."
+      }
+    },
+    "ocr": {
+      "spec_codes": ["OCR P3.1a", "OCR P3.1b", "OCR P3.1c"],
+      "worked_example": {
+        "exemplar_id": "470270d3-f73d-448a-bf67-1faa1f27bae0",
+        "source": "OCR nov 2020, Paper 1, Q22(a)(ii)",
+        "question": "A student investigates static electricity using a plastic ruler. Explain in terms of electrons why the ruler becomes charged when the student rubs it with a cloth.",
+        "marks": 2,
+        "answer_points": [
+          "Electrons are transferred between the ruler and the cloth (electrons are lost or gained).",
+          "The charges are no longer equal, so the effects no longer cancel out."
+        ],
+        "tip": "One mark for the transfer of electrons and one for the charges no longer being equal. Do not say that protons or positive charges move."
+      }
+    }
+  },
+  "meta": {
+    "status": "draft",
+    "written_by": "sonnet-5-5",
+    "written_at": "2026-10-01",
+    "checked_by": "sonnet-science-check",
+    "checked_at": "2026-10-01",
+    "spec_point_ids": [
+      "189fa500-7394-4e36-903e-bbee81a0a5b6",
+      "dafcb82e-c38f-4a71-96e4-4be7e673ae75",
+      "93f7d1e8-25d2-46a3-8073-06b0520cffdc",
+      "70e47232-74ab-4b3e-a4e2-26adc54be72b",
+      "c90b97cc-6eea-4719-b6cf-a3e00a8f46ec",
+      "aea66a78-e5a5-45cf-87a0-071180a0158b",
+      "c761aca8-121c-407f-b905-208e5ac893f1",
+      "33ac4d7d-b750-4781-8fbf-1a65ff30e2f4",
+      "d3f49a4f-de91-43ac-93a1-d4beb39c4cb1",
+      "e29f40ff-638b-44eb-9aad-0288e0d3abc7",
+      "93c4db64-10b3-4ff3-9cd9-3529d21bdcab"
+    ],
+    "exemplar_ids": [
+      "41a0547d-f89c-47bf-98f6-418c8880e558",
+      "2111c247-9048-4c8e-a87a-5e2296c2545d",
+      "470270d3-f73d-448a-bf67-1faa1f27bae0"
+    ]
+  }
+}

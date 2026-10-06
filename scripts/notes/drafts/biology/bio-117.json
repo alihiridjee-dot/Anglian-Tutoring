@@ -1,0 +1,265 @@
+{
+  "format": 1,
+  "concept_id": "bio-117",
+  "subject": "biology",
+  "title": "Food chains and predator-prey cycles",
+  "key_idea": "A **food chain** shows what eats what, and always starts with a **producer**. Producers are eaten by consumers. In a stable community the numbers of **predators** and **prey** rise and fall in cycles.",
+  "sections": [
+    {
+      "heading": "Food chains",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "A food chain shows the feeding relationships in a community. This section covers the key words and how to read one."
+        },
+        {
+          "type": "definitions",
+          "items": [
+            {
+              "term": "Producer",
+              "meaning": "An organism that makes its own food. Usually a green plant or alga that makes glucose by photosynthesis."
+            },
+            {
+              "term": "Primary consumer",
+              "meaning": "An animal that eats producers."
+            },
+            {
+              "term": "Secondary consumer",
+              "meaning": "An animal that eats primary consumers."
+            },
+            {
+              "term": "Tertiary consumer",
+              "meaning": "An animal that eats secondary consumers."
+            },
+            {
+              "term": "Predator",
+              "meaning": "A consumer that kills and eats other animals."
+            },
+            {
+              "term": "Prey",
+              "meaning": "An animal that is eaten by a predator."
+            }
+          ]
+        },
+        {
+          "type": "list",
+          "items": [
+            "Photosynthetic organisms are the producers of biomass for life on Earth.",
+            "All food chains begin with a producer.",
+            "The arrows point from the organism that is eaten to the organism that eats it.",
+            "One animal can be both a predator and prey, such as a beetle that eats ladybirds and is eaten by a toad."
+          ]
+        },
+        {
+          "type": "diagram",
+          "diagram": {
+            "kind": "sequence",
+            "alt": "Put the organisms of a food chain in order, starting with the producer.",
+            "prompt": "Put this food chain in order, starting with the producer.",
+            "steps": ["Nettles", "Caterpillars", "Ladybirds", "Beetles", "Toads"]
+          }
+        },
+        {
+          "type": "paragraph",
+          "text": "Here nettles are the producer and caterpillars are primary consumers. Ladybirds are secondary consumers and beetles are tertiary consumers."
+        },
+        {
+          "type": "key-points",
+          "items": [
+            "Every food chain starts with a producer.",
+            "Arrows point from the food to the animal that eats it.",
+            "Producer, primary consumer, secondary consumer, tertiary consumer, in that order."
+          ]
+        }
+      ]
+    },
+    {
+      "heading": "Predator-prey cycles",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "In a stable community the numbers of predators and prey rise and fall in cycles. This section covers why, and how to read the graph."
+        },
+        {
+          "type": "diagram",
+          "diagram": {
+            "kind": "line-graph",
+            "alt": "A line graph of the numbers of prey and predators over time. Both rise and fall in repeating cycles. The predator peak comes shortly after each prey peak.",
+            "x": {
+              "label": "Time",
+              "min": 0,
+              "max": 20,
+              "ticks": [0, 5, 10, 15, 20],
+              "unit": "years"
+            },
+            "y": {
+              "label": "Population size"
+            },
+            "series": [
+              {
+                "name": "Prey",
+                "points": [
+                  [0, 0.5],
+                  [2.5, 0.9],
+                  [5, 0.5],
+                  [7.5, 0.15],
+                  [10, 0.5],
+                  [12.5, 0.9],
+                  [15, 0.5],
+                  [17.5, 0.15],
+                  [20, 0.5]
+                ]
+              },
+              {
+                "name": "Predator",
+                "points": [
+                  [0, 0.3],
+                  [2.5, 0.5],
+                  [4.5, 0.9],
+                  [7.5, 0.5],
+                  [9.5, 0.15],
+                  [12.5, 0.5],
+                  [14.5, 0.9],
+                  [17.5, 0.5],
+                  [19.5, 0.15]
+                ]
+              }
+            ]
+          }
+        },
+        {
+          "type": "steps",
+          "items": [
+            {
+              "lead": "Prey increase.",
+              "text": "There are fewer predators to eat them, or more food, so prey reproduce and numbers rise."
+            },
+            {
+              "lead": "Predators increase.",
+              "text": "More prey means more food, so predator numbers rise a little later."
+            },
+            {
+              "lead": "Prey decrease.",
+              "text": "More predators eat more prey, so the prey population falls."
+            },
+            {
+              "lead": "Predators decrease.",
+              "text": "With less food, predators starve or breed less. Then the cycle starts again."
+            }
+          ]
+        },
+        {
+          "type": "list",
+          "items": [
+            "The predator peak comes after the prey peak.",
+            "In a stable community the numbers rise and fall in cycles, so they stay fairly constant over a long time."
+          ]
+        },
+        {
+          "type": "key-points",
+          "items": [
+            "Predator and prey numbers rise and fall in linked cycles.",
+            "The predator cycle follows the prey cycle, a little later."
+          ]
+        }
+      ]
+    }
+  ],
+  "checks": [
+    {
+      "q": "Give the food chain for these organisms: birds, cats and nuts.",
+      "a": "nuts → birds → cats",
+      "marks": 2
+    },
+    {
+      "q": "Suggest two reasons why the number of snowshoe hares increases.",
+      "a": "Any two from: fewer lynx to eat them; more food (grass) available; hares reproduce / breed.",
+      "marks": 2
+    },
+    {
+      "q": "Describe how the numbers of predators change after the number of prey increases.",
+      "a": "Predator numbers also increase, a little later, because there is more food. Then more prey are eaten, so prey numbers fall.",
+      "marks": 2
+    }
+  ],
+  "boards": {
+    "aqa": {
+      "spec_codes": ["AQA T 4.7.2.1", "AQA 7.4"],
+      "worked_example": {
+        "exemplar_id": "16218d32-1eec-459a-92b4-b13a04e75063",
+        "source": "AQA jun 2023, Paper 2 (F), Q03.4",
+        "question": "The number of snowshoe hares and the number of lynx increase and decrease several times over a period of years.\n\nSuggest two reasons why the number of snowshoe hares increases.",
+        "marks": 2,
+        "answer_points": [
+          "Fewer lynx (predators) to eat them.",
+          "More food (grass) is available.",
+          "The hares reproduce (breed, multiply)."
+        ],
+        "tip": "Any two score one mark each."
+      }
+    },
+    "edexcel": {
+      "spec_codes": ["EDEX 9.7B"],
+      "worked_example": {
+        "exemplar_id": "44212dae-7069-4040-bffb-365919bbbf3f",
+        "source": "EDEXCEL jun 2022, Paper 2 (H), Q4(c)(i)",
+        "question": "A student saw caterpillars eating the leaves of some nettles. The student also saw a toad eating a large beetle. Large beetles eat ladybirds. Ladybirds eat caterpillars.\n\nGive the food chain for these feeding relationships.",
+        "marks": 3,
+        "answer_points": ["nettles → caterpillars → ladybirds → beetles → toads"],
+        "tip": "If the chain is wrong, 1 mark is given for each correct link, up to 2 marks."
+      },
+      "extra": [
+        {
+          "heading": "Energy transfer between feeding levels",
+          "blocks": [
+            {
+              "type": "paragraph",
+              "text": "Only some of the energy in the biomass at one level passes to the next. The rest is transferred to less useful forms."
+            },
+            {
+              "type": "list",
+              "items": [
+                "Not all of the organism is eaten.",
+                "Not all of what is eaten can be digested.",
+                "Energy is used for movement and in respiration.",
+                "Energy is transferred to the surroundings as heat."
+              ]
+            },
+            {
+              "type": "paragraph",
+              "text": "This is why each level in a pyramid of biomass is smaller than the one below it, and why food chains are short."
+            }
+          ]
+        }
+      ]
+    },
+    "ocr": {
+      "spec_codes": ["OCR 4.1h", "OCR 4.1g"],
+      "worked_example": {
+        "exemplar_id": "7df6f4ff-f575-4b4c-81a0-11438e7d98e5",
+        "source": "OCR sample null, Paper 2, Q20(a)",
+        "question": "The rock pocket mouse lives in Mexico. These mice are the main food for owls. Rattlesnakes also feed on these mice. The mice get most of their food from grass plants.\n\nComplete the sentences about this food web.\nThe grass plants are producers in the food web.\nMice are primary ........................ in this food web.\nThe group of mice living in this habitat is called a population.\nAll the organisms living in this habitat is called the ........................",
+        "marks": 2,
+        "answer_points": ["Consumers.", "Community."],
+        "tip": "Mice eat the producers, so they are primary consumers. All the populations in a habitat make a community."
+      }
+    }
+  },
+  "meta": {
+    "status": "draft",
+    "written_by": "sonnet-5-5",
+    "written_at": "2026-10-01",
+    "spec_point_ids": ["08aa2ba9-2abe-4388-88a6-89587ddd6fc6"],
+    "exemplar_ids": [
+      "16218d32-1eec-459a-92b4-b13a04e75063",
+      "44212dae-7069-4040-bffb-365919bbbf3f",
+      "7df6f4ff-f575-4b4c-81a0-11438e7d98e5",
+      "4bf3f68d-100d-4459-96da-518675dec2ef",
+      "166fb9c1-8677-4027-9641-4cceaf5deebc",
+      "04d923a5-744f-481e-863e-bb22d2ae1594",
+      "95e005e9-5c47-4a38-a07e-55d8e6a4cc72"
+    ],
+    "checked_by": "sonnet-science-check",
+    "checked_at": "2026-10-01"
+  }
+}

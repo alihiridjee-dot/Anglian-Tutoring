@@ -1,0 +1,268 @@
+{
+  "format": 1,
+  "concept_id": "chem-035",
+  "subject": "chemistry",
+  "title": "Concentration in g/dm³",
+  "key_idea": "The concentration of a solution is the mass of solute in a given volume of solution. It is measured in grams per cubic decimetre (g/dm³). A concentrated solution has more solute in the same volume than a dilute solution.",
+  "sections": [
+    {
+      "heading": "What concentration means",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "A solution is made by dissolving a solute in a solvent. This section covers how concentration compares solutions."
+        },
+        {
+          "type": "definitions",
+          "items": [
+            {
+              "term": "Solute",
+              "meaning": "The substance that dissolves."
+            },
+            {
+              "term": "Solution",
+              "meaning": "The solute and the solvent together."
+            },
+            {
+              "term": "Concentration",
+              "meaning": "The mass of solute in a given volume of solution, such as g/dm³."
+            },
+            {
+              "term": "Dilute and concentrated",
+              "meaning": "A dilute solution has a low ratio of solute to volume. A concentrated solution has a high ratio."
+            }
+          ]
+        },
+        {
+          "type": "list",
+          "items": [
+            "Putting more solute in the same volume makes a solution more concentrated.",
+            "Putting the same solute in a bigger volume makes it more dilute.",
+            "Dilute and concentrated describe the amount of solute. Strong and weak describe how far an acid ionises, which is a different idea."
+          ]
+        },
+        {
+          "type": "key-points",
+          "items": [
+            "Concentration = how much solute in a volume of solution.",
+            "More solute in the same volume means more concentrated.",
+            "Dilute and concentrated are not the same as weak and strong."
+          ]
+        }
+      ]
+    },
+    {
+      "heading": "Calculating concentration",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "The volume must be in dm³. Change cm³ to dm³ first by dividing by 1000."
+        },
+        {
+          "type": "equation",
+          "label": "Concentration",
+          "formula": "concentration (g/dm³) = mass of solute (g) ÷ volume of solution (dm³)",
+          "where": ["1 dm³ = 1000 cm³", "To change cm³ to dm³, divide by 1000."]
+        },
+        {
+          "type": "steps",
+          "items": [
+            {
+              "lead": "Convert the volume.",
+              "text": "28.4 g of sodium sulfate is dissolved to make 250 cm³ of solution. 250 ÷ 1000 = 0.250 dm³."
+            },
+            {
+              "lead": "Divide.",
+              "text": "28.4 ÷ 0.250 = 113.6 g/dm³."
+            },
+            {
+              "lead": "Round.",
+              "text": "To 3 significant figures, 114 g/dm³."
+            }
+          ]
+        },
+        {
+          "type": "diagram",
+          "diagram": {
+            "alt": "Practise calculating concentration in g/dm³ from a mass and a volume in cm³.",
+            "kind": "practice",
+            "answer": {
+              "unit": "g/dm³",
+              "formula": "m / (V / 1000)",
+              "decimals": 1
+            },
+            "working": [
+              "Convert the volume: {V} cm³ ÷ 1000 = {V} ÷ 1000 dm³",
+              "Concentration = mass ÷ volume = {m} ÷ ({V} ÷ 1000) = **{answer} g/dm³**"
+            ],
+            "question": "**{m} g** of sodium chloride is dissolved in water to make **{V} cm³** of solution. Calculate the concentration in g/dm³.",
+            "variables": [
+              {
+                "id": "m",
+                "max": 30,
+                "min": 5,
+                "step": 5
+              },
+              {
+                "id": "V",
+                "max": 500,
+                "min": 100,
+                "step": 50
+              }
+            ]
+          }
+        },
+        {
+          "type": "key-points",
+          "items": [
+            "Concentration = mass ÷ volume in dm³.",
+            "Divide cm³ by 1000 to get dm³.",
+            "Check the number of significant figures asked for."
+          ]
+        }
+      ]
+    },
+    {
+      "heading": "Mass or volume from concentration",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "Rearrange the equation to find the mass of solute or the volume of solution. Keep the volume in dm³ until the end."
+        },
+        {
+          "type": "equation",
+          "label": "Mass of solute",
+          "formula": "mass (g) = concentration (g/dm³) × volume (dm³)",
+          "where": ["Convert the volume to dm³ first."]
+        },
+        {
+          "type": "equation",
+          "label": "Volume of solution",
+          "formula": "volume (dm³) = mass (g) ÷ concentration (g/dm³)",
+          "where": ["Multiply by 1000 to give cm³."]
+        },
+        {
+          "type": "steps",
+          "items": [
+            {
+              "lead": "Mass: convert.",
+              "text": "Barium chloride, 21 g/dm³, in 25 cm³. 25 ÷ 1000 = 0.025 dm³."
+            },
+            {
+              "lead": "Mass: multiply.",
+              "text": "21 × 0.025 = 0.525 g, which is 0.53 g to 2 significant figures."
+            },
+            {
+              "lead": "Volume: divide.",
+              "text": "A calcium chloride solution is 12 g/dm³. Volume containing 9.0 g = 9.0 ÷ 12 = 0.75 dm³."
+            },
+            {
+              "lead": "Volume: convert.",
+              "text": "0.75 × 1000 = 750 cm³."
+            }
+          ]
+        },
+        {
+          "type": "list",
+          "items": [
+            "Change other units too. 125 mg is 125 ÷ 1000 = 0.125 g.",
+            "A mean concentration comes from the mean mass, divided by the volume in dm³."
+          ]
+        },
+        {
+          "type": "key-points",
+          "items": [
+            "Mass = concentration × volume (in dm³).",
+            "Volume = mass ÷ concentration.",
+            "Convert all units before you calculate."
+          ]
+        }
+      ]
+    }
+  ],
+  "checks": [
+    {
+      "q": "What is the unit of concentration used in this note?",
+      "a": "g/dm³ (grams per cubic decimetre).",
+      "marks": 1
+    },
+    {
+      "q": "45 g of glucose is dissolved in water to make 150 cm³ of solution. Calculate the concentration in g/dm³.",
+      "a": "150 ÷ 1000 = 0.15 dm³. 45 ÷ 0.15 = 300 g/dm³.",
+      "marks": 2
+    },
+    {
+      "q": "Calculate the mass of solute in 800 cm³ of a solution with a concentration of 258 g/dm³.",
+      "a": "800 ÷ 1000 = 0.8 dm³. 0.8 × 258 = 206.4 g, which is 206 g to 3 significant figures.",
+      "marks": 3
+    }
+  ],
+  "boards": {
+    "aqa": {
+      "spec_codes": ["AQA 4.3.2.5", "AQA T 5.3.2.5"],
+      "worked_example": {
+        "exemplar_id": "02cc4c91-71c6-40f6-a8d9-2a56d1b42dd5",
+        "source": "AQA jun 2025, Paper 2 (H), Q01.5",
+        "question": "Four samples of sea water were tested. Each sample had a volume of 10.0 cm³.\n\nSea water sample A: 0.35 g of dissolved solids\nSea water sample B: 0.37 g of dissolved solids\nSea water sample C: 0.33 g of dissolved solids\nSea water sample D: 0.34 g of dissolved solids\n\nCalculate the mean concentration of dissolved solids in 10.0 cm³ samples of sea water A, B, C and D.\n\nUse the equation: mean concentration of dissolved solids (g/dm³) = mean mass of dissolved solids (g) ÷ volume of sample (dm³)\n\nGive your answer in g/dm³.",
+        "marks": 5,
+        "answer_points": [
+          "Mean mass = (0.35 + 0.37 + 0.33 + 0.34) ÷ 4 (1)",
+          "= 0.3475 g (1)",
+          "10 cm³ = 0.01 dm³ (1)",
+          "Mean concentration = 0.3475 ÷ 0.01 (1)",
+          "= 34.75 g/dm³ (1)"
+        ],
+        "tip": "You can also find each concentration (35, 37, 33, 34) and then take the mean."
+      }
+    },
+    "edexcel": {
+      "spec_codes": ["EDEX 1.49"],
+      "worked_example": {
+        "exemplar_id": "756dba57-5cbc-4516-be31-d9746a7b27c9",
+        "source": "EDEXCEL nov 2020, Paper 1 (H), Q2(b)",
+        "question": "The sodium sulfate solution was made by dissolving 28.4 g of sodium sulfate in water to make 250 cm³ of solution.\n\nCalculate the concentration of this solution in g dm⁻³.\n\nGive your answer to three significant figures.",
+        "marks": 3,
+        "answer_points": [
+          "250 cm³ ÷ 1000 = 0.250 dm³ (1)",
+          "28.4 ÷ 0.250 = 113.6 (1)",
+          "= 114 g dm⁻³ (1)"
+        ],
+        "tip": "The final mark needs three significant figures."
+      }
+    },
+    "ocr": {
+      "spec_codes": ["OCR C3.3g", "OCR C5.1a"],
+      "worked_example": {
+        "exemplar_id": "a3f5d9c6-017c-4c7e-b29a-ca596ba947b0",
+        "source": "OCR jun 2023, Paper 2, Q22(d)",
+        "question": "Barium chloride solid is toxic if swallowed and harmful if inhaled.\n\nBarium chloride solutions with concentrations of 21 g / dm³ are suitable for experiments in school.\n\nCalculate the mass of barium chloride that should be dissolved in 25 cm³ of water to make a solution with a concentration of 21 g / dm³.\n\nUse the equation: concentration = mass ÷ volume\n\nGive your answer to 2 significant figures.",
+        "marks": 3,
+        "answer_points": [
+          "Convert the volume: 25 ÷ 1000 = 0.025 dm³ (1)",
+          "mass = concentration × volume = 21 × 0.025 = 0.525 g (1)",
+          "To 2 significant figures = 0.53 g (1)"
+        ],
+        "tip": "You can instead convert 21 g/dm³ to 0.021 g/cm³ and multiply by 25."
+      }
+    }
+  },
+  "meta": {
+    "status": "draft",
+    "written_by": "claude-sonnet-5-5",
+    "written_at": "2026-10-01",
+    "checked_by": "sonnet-science-check",
+    "checked_at": "2026-10-01",
+    "spec_point_ids": [
+      "801450c1-c607-4de7-a09b-7337a91475c1",
+      "82d9f92f-3dcb-449e-a9be-0c7a2856d1c7",
+      "a11b078c-7843-451b-adec-7e3f96489123",
+      "77c9e2ff-974f-451b-a68b-4e271c242029",
+      "be7eb613-d8d6-4e80-8171-e96d5ce8da1b"
+    ],
+    "exemplar_ids": [
+      "02cc4c91-71c6-40f6-a8d9-2a56d1b42dd5",
+      "756dba57-5cbc-4516-be31-d9746a7b27c9",
+      "a3f5d9c6-017c-4c7e-b29a-ca596ba947b0"
+    ]
+  }
+}

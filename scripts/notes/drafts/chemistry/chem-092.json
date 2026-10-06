@@ -1,0 +1,364 @@
+{
+  "format": 1,
+  "concept_id": "chem-092",
+  "subject": "chemistry",
+  "title": "Required practical: identifying ions in an unknown salt",
+  "key_idea": "An unknown ionic compound contains a positive ion and a negative ion. Test for each ion separately. Each test must be unique to its ion, so one result points to one ion only. Put both ions together to name the compound.",
+  "sections": [
+    {
+      "heading": "Why each test must be unique",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "(Separate science) This section covers what makes a test reliable for identifying an ion."
+        },
+        {
+          "type": "definitions",
+          "items": [
+            {
+              "term": "Unique test",
+              "meaning": "A test that only one ion gives a particular result for."
+            },
+            {
+              "term": "Cation",
+              "meaning": "A positive ion, such as a metal ion or the ammonium ion."
+            },
+            {
+              "term": "Anion",
+              "meaning": "A negative ion, such as chloride or sulfate."
+            }
+          ]
+        },
+        {
+          "type": "list",
+          "items": [
+            "A unique test only detects that ion.",
+            "There is no confusion with other ions.",
+            "If more than one ion gave the same result, you would not know which ion was present."
+          ]
+        },
+        {
+          "type": "key-points",
+          "items": [
+            "A unique test gives its result for one ion only.",
+            "Without that, the result does not identify the ion."
+          ]
+        }
+      ]
+    },
+    {
+      "heading": "Testing an unknown salt",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "This section covers a method for finding both ions in an unknown ionic compound."
+        },
+        {
+          "type": "steps",
+          "items": [
+            {
+              "lead": "Prepare",
+              "text": "Dissolve a sample in distilled water to make a solution."
+            },
+            {
+              "lead": "Test for the cation",
+              "text": "Do a flame test on the solid, or add sodium hydroxide solution to a portion of the solution."
+            },
+            {
+              "lead": "Test for the anion",
+              "text": "Use a fresh portion for each test: dilute acid for carbonate, nitric acid and silver nitrate for halides, hydrochloric acid and barium chloride for sulfate."
+            },
+            {
+              "lead": "Record",
+              "text": "Write down the test and the result each time."
+            },
+            {
+              "lead": "Conclude",
+              "text": "Name the cation and the anion, then write the formula of the compound."
+            }
+          ]
+        },
+        {
+          "type": "subheading",
+          "text": "Results to match"
+        },
+        {
+          "type": "table",
+          "columns": ["Test", "Result", "Ion"],
+          "rows": [
+            ["Flame test", "Crimson (red)", "Lithium"],
+            ["Flame test", "Yellow / orange", "Sodium"],
+            ["Flame test", "Lilac", "Potassium"],
+            ["Flame test", "Red-orange (orange-red)", "Calcium"],
+            ["Flame test", "Green (blue-green)", "Copper(II)"],
+            [
+              "Sodium hydroxide solution",
+              "White precipitate (aluminium: dissolves in excess to give a colourless solution)",
+              "Aluminium, calcium or magnesium"
+            ],
+            ["Sodium hydroxide solution", "Blue precipitate", "Copper(II)"],
+            ["Sodium hydroxide solution", "Green precipitate", "Iron(II)"],
+            ["Sodium hydroxide solution", "Brown precipitate", "Iron(III)"],
+            [
+              "Sodium hydroxide solution, warmed",
+              "Gas that turns damp red litmus paper blue",
+              "Ammonium"
+            ],
+            [
+              "Silver nitrate after dilute nitric acid",
+              "White / cream / yellow precipitate",
+              "Chloride / bromide / iodide"
+            ],
+            ["Barium chloride after dilute hydrochloric acid", "White precipitate", "Sulfate"],
+            ["Dilute acid", "Bubbles of carbon dioxide", "Carbonate"]
+          ]
+        },
+        {
+          "type": "list",
+          "items": [
+            "Other clues also help. A solution with a pH of 3 is acidic, so it contains hydrogen ions.",
+            "A white solid that dissolves to a colourless solution does not contain a transition metal ion."
+          ]
+        },
+        {
+          "type": "key-points",
+          "items": [
+            "Test one ion at a time, using a fresh portion each time.",
+            "Link every ion you name to its test result."
+          ]
+        }
+      ]
+    },
+    {
+      "heading": "Naming the compound from the results",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "This section covers how to read a table of results and decide which ions are proved."
+        },
+        {
+          "type": "paragraph",
+          "text": "Pick a compound to see the results of its two tests."
+        },
+        {
+          "type": "diagram",
+          "diagram": {
+            "kind": "predictor",
+            "alt": "Choose a compound to see its test results and the ions they show.",
+            "prompt": "Pick an unknown compound",
+            "result_labels": ["Cation test", "Anion test", "Compound"],
+            "options": [
+              {
+                "label": "Compound A",
+                "results": [
+                  "Flame test: **lilac**, so potassium",
+                  "Dilute nitric acid, then silver nitrate: **cream** precipitate, so bromide",
+                  "Potassium bromide"
+                ],
+                "scene": {
+                  "kind": "tubes",
+                  "tubes": [
+                    {
+                      "label": "Silver nitrate",
+                      "colour": "colourless",
+                      "precipitate": "cream"
+                    }
+                  ]
+                }
+              },
+              {
+                "label": "Compound B",
+                "results": [
+                  "Flame test: **yellow**, so sodium",
+                  "Dilute hydrochloric acid, then barium chloride: **white** precipitate, so sulfate",
+                  "Sodium sulfate"
+                ],
+                "scene": {
+                  "kind": "tubes",
+                  "tubes": [
+                    {
+                      "label": "Barium chloride",
+                      "colour": "colourless",
+                      "precipitate": "white"
+                    }
+                  ]
+                }
+              },
+              {
+                "label": "Compound C",
+                "results": [
+                  "Sodium hydroxide: **blue** precipitate, so copper(II)",
+                  "Dilute nitric acid, then silver nitrate: **white** precipitate, so chloride",
+                  "Copper(II) chloride"
+                ],
+                "scene": {
+                  "kind": "tubes",
+                  "tubes": [
+                    {
+                      "label": "Sodium hydroxide",
+                      "colour": "pale-blue",
+                      "precipitate": "blue"
+                    },
+                    {
+                      "label": "Silver nitrate",
+                      "colour": "pale-blue",
+                      "precipitate": "white"
+                    }
+                  ]
+                }
+              },
+              {
+                "label": "Compound D",
+                "results": [
+                  "Flame test: **crimson**, so lithium",
+                  "Dilute nitric acid, then silver nitrate: **yellow** precipitate, so iodide",
+                  "Lithium iodide"
+                ],
+                "scene": {
+                  "kind": "tubes",
+                  "tubes": [
+                    {
+                      "label": "Silver nitrate",
+                      "colour": "colourless",
+                      "precipitate": "yellow"
+                    }
+                  ]
+                }
+              },
+              {
+                "label": "Compound E",
+                "results": [
+                  "Flame test: **lilac**, so potassium",
+                  "Dilute acid: **bubbles** that turn limewater cloudy, so carbonate",
+                  "Potassium carbonate"
+                ],
+                "scene": {
+                  "kind": "tubes",
+                  "tubes": [
+                    {
+                      "label": "Add dilute acid",
+                      "colour": "colourless",
+                      "bubbles": true
+                    },
+                    {
+                      "label": "Limewater",
+                      "colour": "white"
+                    }
+                  ]
+                }
+              }
+            ]
+          }
+        },
+        {
+          "type": "subheading",
+          "text": "When a conclusion is not yet justified"
+        },
+        {
+          "type": "list",
+          "items": [
+            "A white precipitate with silver nitrate and nitric acid shows chloride. It does not show which cation is present.",
+            "A green precipitate with sodium hydroxide shows iron(II). It says nothing about the anion.",
+            "To justify an ammonium ion, add sodium hydroxide, warm, and test the gas with damp red litmus paper.",
+            "To justify aluminium, add sodium hydroxide until in excess. The white precipitate dissolves to give a colourless solution."
+          ]
+        },
+        {
+          "type": "key-points",
+          "items": [
+            "Each test proves only the ion it is unique to.",
+            "Name the cation and the anion, then write the formula."
+          ]
+        }
+      ]
+    }
+  ],
+  "checks": [
+    {
+      "q": "Explain why the test for an ion must be unique to that ion.",
+      "a": "The test only detects that ion, so there is no confusion with other ions. If more than one ion gave the same result, you would not know which ion was present.",
+      "marks": 2
+    },
+    {
+      "q": "A solid gives a yellow flame. Its solution gives a white precipitate with dilute hydrochloric acid and then barium chloride solution. Name the compound.",
+      "a": "Sodium sulfate (Na₂SO₄).",
+      "marks": 3
+    },
+    {
+      "q": "A solution gives a white precipitate with dilute nitric acid and then silver nitrate solution. A student says the solution is aluminium chloride. State what is proved and what is not.",
+      "a": "Chloride ions are proved. The aluminium ion is not proved: add sodium hydroxide solution until in excess to check, and a white precipitate that dissolves would show aluminium.",
+      "marks": 2
+    }
+  ],
+  "boards": {
+    "aqa": {
+      "spec_codes": ["AQA 4.8.3.5"],
+      "worked_example": {
+        "exemplar_id": "c3079125-7785-48fb-89ad-0e95195d5db5",
+        "source": "AQA jun 2023, Paper 2 (F), Q10.1",
+        "question": "Potassium bromide is used in medicine.\n\nA scientist tested a sample of medicine to show the presence of potassium ions and of bromide ions.\n\nThe sample is soluble in water.\n\nPlan a method the scientist could use to show that the sample of medicine contains potassium ions and bromide ions.\n\nThe scientist has:\n• a Bunsen burner\n• a metal wire\n• test tubes\n• a dropping pipette\n• distilled water\n• dilute nitric acid\n• silver nitrate solution.\n\nYou should give the results of the tests.",
+        "marks": 6,
+        "answer_points": [
+          "Potassium ions: place the sample on a clean metal wire.",
+          "Put it into a blue (non-luminous) flame from the Bunsen burner.",
+          "A lilac flame shows potassium ions are present.",
+          "Bromide ions: dissolve the sample in distilled water in a test tube.",
+          "Add dilute nitric acid, then silver nitrate solution, using the dropping pipette.",
+          "A cream precipitate forms, which shows bromide ions are present."
+        ],
+        "tip": "This is a levelled question. The top level needs the key steps in a logical order, with the result of each test."
+      }
+    },
+    "edexcel": {
+      "spec_codes": ["EDEX 9.1C", "EDEX 9.6C", "EDEX 9.7C"],
+      "worked_example": {
+        "exemplar_id": "13a9b32e-4905-4c08-8260-67b2708a71f5",
+        "source": "EDEXCEL jun 2019, Paper 2 (H), Q10(c)",
+        "question": "A student tests solutions of three ionic substances, K, L and M.\nThe student carries out the same two tests on each of the three solutions.\nTest 1 add dilute nitric acid and then silver nitrate solution.\nTest 2 add a few drops of sodium hydroxide solution and warm the mixture.\nThe results of the tests and the student's conclusions about the identity of each substance are:\n\nionic substance | test 1 | test 2 | student's conclusion\nK | white precipitate | colourless solution | ammonium chloride\nL | white precipitate | white precipitate | aluminium chloride\nM | no precipitate | green precipitate | iron(II) sulfate\n\nNone of the student's conclusions are fully justified.\n\nExplain which part of each conclusion is justified and what further work can be carried out to fully justify each conclusion.",
+        "marks": 6,
+        "answer_points": [
+          "The chloride ion is justified in K and L, because it produces a white precipitate with nitric acid and silver nitrate solution.",
+          "The iron(II) ion is justified in M, because it forms a green precipitate with sodium hydroxide solution.",
+          "K: to justify ammonium, add more sodium hydroxide solution and heat. The gas evolved turns damp red litmus paper blue.",
+          "L: to justify aluminium, add more sodium hydroxide solution until in excess. The precipitate dissolves to give a colourless solution.",
+          "M: to justify sulfate, add dilute hydrochloric acid and barium chloride (or barium nitrate) solution. A white precipitate forms."
+        ],
+        "tip": "This is a levelled question. The top level needs the further work for all three ions and a reason why the chloride and iron(II) ions are justified."
+      }
+    },
+    "ocr": {
+      "spec_codes": ["OCR C4.2d"],
+      "worked_example": {
+        "exemplar_id": "62904850-f46c-4fa1-8b77-f6b0224f492f",
+        "source": "OCR sample null, Paper 2, Q16(c)",
+        "question": "Fahmida does three chemical tests on an unknown solution.\n\nChemical test | Result\npH probe | pH value is 3\ndilute hydrochloric acid followed by barium chloride solution | white precipitate\ndilute nitric acid followed by silver nitrate solution | white precipitate\n\nWhich ions are present in the solution?\nChoose from:\ncalcium hydrogen iron(II) chloride sulfate\nExplain your answer.",
+        "marks": 4,
+        "answer_points": [
+          "Hydrogen, chloride and sulfate ions are present.",
+          "Hydrogen ions are present because the pH is 3.",
+          "Sulfate ions are present because there is a white precipitate with barium chloride.",
+          "Chloride ions are present because there is a white precipitate with silver nitrate."
+        ],
+        "tip": "One mark for the three correct ions and one mark for each explanation, linked to the correct ion."
+      }
+    }
+  },
+  "meta": {
+    "status": "draft",
+    "written_by": "sonnet-5-5",
+    "written_at": "2026-10-01",
+    "spec_point_ids": [
+      "b1f90e5b-ead6-4945-b5da-8ed550d88ef7",
+      "b9f571b2-aff1-444f-80fd-09ce7a9a33f1",
+      "17540bb7-ffa1-4659-89dc-7166e308d34b",
+      "636e69ac-a189-496a-ab05-6932c2ce4210"
+    ],
+    "exemplar_ids": [
+      "c3079125-7785-48fb-89ad-0e95195d5db5",
+      "13a9b32e-4905-4c08-8260-67b2708a71f5",
+      "62904850-f46c-4fa1-8b77-f6b0224f492f"
+    ],
+    "checked_by": "sonnet-science-check",
+    "checked_at": "2026-10-01"
+  }
+}

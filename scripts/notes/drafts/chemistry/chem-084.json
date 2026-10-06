@@ -1,0 +1,224 @@
+{
+  "format": 1,
+  "concept_id": "chem-084",
+  "subject": "chemistry",
+  "title": "Natural polymers: amino acids, proteins and DNA",
+  "key_idea": "(Separate science) Many polymers are made by living things. Proteins are polymers of amino acids, DNA is a polymer of four nucleotides, and starch and cellulose are polymers of sugars such as glucose.",
+  "sections": [
+    {
+      "heading": "Amino acids and proteins",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "Proteins are polymers made from amino acids. The amino acids are the monomers."
+        },
+        {
+          "type": "definitions",
+          "items": [
+            {
+              "term": "Amino acid",
+              "meaning": "(AQA: Higher tier) A molecule with two different functional groups: an amino group, –NH₂, and a carboxyl group, –COOH."
+            },
+            {
+              "term": "Polypeptide",
+              "meaning": "(AQA: Higher tier) A polymer made when amino acids join by condensation polymerisation."
+            },
+            {
+              "term": "Protein",
+              "meaning": "A polymer made from amino acids."
+            }
+          ]
+        },
+        {
+          "type": "list",
+          "items": [
+            "(AQA: Higher tier) Amino acids have two different functional groups in one molecule.",
+            "(AQA: Higher tier) They react by condensation polymerisation to make polypeptides, losing water.",
+            "(AQA: Higher tier) Different amino acids can be combined in the same chain to make proteins."
+          ]
+        },
+        {
+          "type": "equation",
+          "label": "(AQA: Higher tier) Glycine making a polypeptide",
+          "formula": "n H₂NCH₂COOH → [–NHCH₂CO–]ₙ + n H₂O",
+          "where": [
+            "H₂NCH₂COOH is glycine, an amino acid.",
+            "[–NHCH₂CO–] is the repeating unit of the polypeptide.",
+            "n is a large number, with no unit."
+          ]
+        },
+        {
+          "type": "key-points",
+          "items": [
+            "Proteins are polymers based on amino acids.",
+            "(AQA: Higher tier) Amino acids have two different functional groups and join by condensation polymerisation."
+          ]
+        }
+      ]
+    },
+    {
+      "heading": "DNA",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "DNA (deoxyribonucleic acid) is a large molecule essential for life. It encodes the genetic instructions for the development and functioning of living organisms and viruses."
+        },
+        {
+          "type": "definitions",
+          "items": [
+            {
+              "term": "Nucleotide",
+              "meaning": "One of the four different monomers that make up DNA."
+            },
+            {
+              "term": "Double helix",
+              "meaning": "The shape of DNA: two polymer chains twisted together."
+            }
+          ]
+        },
+        {
+          "type": "list",
+          "items": [
+            "DNA is a polymer.",
+            "Most DNA molecules are two polymer chains.",
+            "The chains are made from four different monomers called nucleotides.",
+            "The two chains are in the form of a double helix."
+          ]
+        },
+        {
+          "type": "key-points",
+          "items": [
+            "DNA is a polymer made from four different monomers called nucleotides.",
+            "Most DNA molecules are two chains in a double helix."
+          ]
+        }
+      ]
+    },
+    {
+      "heading": "Starch and cellulose",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "Starch and cellulose are naturally occurring polymers that are important for life. Both are polymers based on sugars, such as glucose."
+        },
+        {
+          "type": "table",
+          "columns": ["Natural polymer", "Monomer"],
+          "rows": [
+            ["DNA", "Nucleotides"],
+            ["Protein", "Amino acids"],
+            ["Starch", "Sugars (glucose)"],
+            ["Cellulose", "Sugars (glucose)"]
+          ]
+        },
+        {
+          "type": "diagram",
+          "diagram": {
+            "kind": "sort",
+            "alt": "Sort each natural polymer or description by its monomer.",
+            "prompt": "Sort each item by the monomer it is made from.",
+            "groups": ["Nucleotides", "Amino acids", "Sugars"],
+            "items": [
+              {
+                "text": "DNA",
+                "group": 0
+              },
+              {
+                "text": "Polymer with a double helix shape",
+                "group": 0
+              },
+              {
+                "text": "Protein",
+                "group": 1
+              },
+              {
+                "text": "Polypeptide",
+                "group": 1
+              },
+              {
+                "text": "Starch",
+                "group": 2
+              },
+              {
+                "text": "Cellulose",
+                "group": 2
+              }
+            ]
+          }
+        },
+        {
+          "type": "key-points",
+          "items": [
+            "Starch and cellulose are polymers of sugars, such as glucose.",
+            "DNA is made from nucleotides, proteins from amino acids, and starch and cellulose from glucose."
+          ]
+        }
+      ]
+    }
+  ],
+  "checks": [
+    {
+      "q": "Name the monomers that make up DNA, proteins and starch.",
+      "a": "DNA: nucleotides. Proteins: amino acids. Starch: sugars (glucose).",
+      "marks": 3
+    },
+    {
+      "q": "Describe the shape and structure of DNA.",
+      "a": "Two polymer chains in a double helix, made from four different monomers (nucleotides).",
+      "marks": 3
+    },
+    {
+      "q": "Name two naturally occurring polymers made from glucose.",
+      "a": "Starch and cellulose.",
+      "marks": 2
+    }
+  ],
+  "boards": {
+    "aqa": {
+      "spec_codes": ["AQA 4.7.3.3", "AQA 4.7.3.4"],
+      "worked_example": {
+        "exemplar_id": "c8f7d81d-1920-4d29-a550-904e8d10c708",
+        "source": "AQA jun 2020, Paper 2 (H), Q9.2",
+        "question": "Glucose is produced when algae photosynthesise.\n\nName two naturally occurring polymers produced from glucose.",
+        "marks": 2,
+        "answer_points": ["Starch.", "Cellulose (glycogen is also allowed)."],
+        "tip": "One mark for each polymer."
+      }
+    },
+    "edexcel": {
+      "spec_codes": ["EDEX 9.25C"]
+    },
+    "ocr": {
+      "spec_codes": ["OCR C6.2h"],
+      "worked_example": {
+        "exemplar_id": "fa7ac3df-b68d-49f6-9399-979ae2c76c88",
+        "source": "OCR nov 2021, Paper 4, Q21(a)",
+        "question": "Many biological substances are polymers.\n\nComplete the table to state the type of monomer which forms each of the biological polymers.\n\nPolymer | Type of monomer\nDNA | ______\nProtein | ______\nStarch | ______",
+        "marks": 3,
+        "answer_points": [
+          "DNA: nucleotides (named nucleotides such as adenine, thymine, cytosine and guanine are allowed).",
+          "Protein: amino acids.",
+          "Starch: sugars (glucose or monosaccharide is allowed)."
+        ],
+        "tip": "One mark for each correct monomer."
+      }
+    }
+  },
+  "meta": {
+    "status": "draft",
+    "written_by": "sonnet-5-5",
+    "written_at": "2026-10-01",
+    "spec_point_ids": [
+      "eb2a06bd-3c57-4c79-baf6-37721222ef66",
+      "f83fb842-c8e2-4bd9-8e62-d45e6a8e94a0",
+      "fdcbe390-d22e-41f1-9fcd-3602ea46e4be",
+      "37bbba7a-6877-4a03-9d43-7018c8bfecea"
+    ],
+    "exemplar_ids": [
+      "c8f7d81d-1920-4d29-a550-904e8d10c708",
+      "fa7ac3df-b68d-49f6-9399-979ae2c76c88"
+    ],
+    "checked_by": "sonnet-science-check",
+    "checked_at": "2026-10-01"
+  }
+}

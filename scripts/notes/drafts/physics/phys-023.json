@@ -1,0 +1,355 @@
+{
+  "format": 1,
+  "concept_id": "phys-023",
+  "subject": "physics",
+  "title": "States of matter and density",
+  "key_idea": "In the particle model, a solid, liquid or gas is described by how its particles are arranged and how they move. Density is mass divided by volume. Solids and liquids are dense because their particles are close together. Gases are not.",
+  "sections": [
+    {
+      "heading": "The particle model of matter",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "Everything is made of tiny particles (atoms or molecules). The particle model explains solids, liquids and gases by how these particles are arranged and how they move."
+        },
+        {
+          "type": "table",
+          "columns": ["Feature", "Solid", "Liquid", "Gas"],
+          "rows": [
+            ["Arrangement", "Regular pattern", "Random", "Random, far apart"],
+            ["Spacing", "Very close, touching", "Close, touching", "Far apart"],
+            [
+              "Movement",
+              "Vibrate about fixed positions",
+              "Move around each other freely",
+              "Move quickly in random directions"
+            ],
+            [
+              "Forces between particles",
+              "Strong attractive forces",
+              "Weaker attractive forces",
+              "Negligible"
+            ],
+            [
+              "Energy of the particles",
+              "Lowest kinetic energy",
+              "More kinetic energy than a solid",
+              "Highest kinetic energy"
+            ]
+          ]
+        },
+        {
+          "type": "list",
+          "items": [
+            "A solid keeps its shape because its particles are held in fixed positions.",
+            "A liquid flows because its particles can move past each other.",
+            "A gas spreads out to fill its container because its particles are far apart and move freely.",
+            "Heating a substance gives its particles more kinetic energy."
+          ]
+        },
+        {
+          "type": "key-points",
+          "items": [
+            "Solids: regular pattern, fixed positions, particles vibrate.",
+            "Liquids: random arrangement, touching, particles move freely.",
+            "Gases: far apart, random, fast, with negligible forces between particles."
+          ]
+        }
+      ]
+    },
+    {
+      "heading": "Density and how to calculate it",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "Density tells you how much mass is packed into each unit of volume. This section covers the equation, its units and how to use it."
+        },
+        {
+          "type": "definitions",
+          "items": [
+            {
+              "term": "Density",
+              "meaning": "The mass of a material in each unit of volume."
+            },
+            {
+              "term": "Volume",
+              "meaning": "The amount of space an object takes up."
+            }
+          ]
+        },
+        {
+          "type": "equation",
+          "label": "Density",
+          "formula": "density = mass ÷ volume    (ρ = m ÷ V)",
+          "where": [
+            "density, ρ, in kilograms per metre cubed, kg/m³",
+            "mass, m, in kilograms, kg",
+            "volume, V, in metres cubed, m³"
+          ]
+        },
+        {
+          "type": "list",
+          "items": [
+            "Density is often given in g/cm³ as well. 1 g/cm³ = 1000 kg/m³.",
+            "To find the mass: m = ρ × V.",
+            "To find the volume: V = m ÷ ρ.",
+            "1 cm³ = 0.000 001 m³, so convert cm³ to m³ before using kg/m³."
+          ]
+        },
+        {
+          "type": "steps",
+          "items": [
+            {
+              "lead": "Write the equation.",
+              "text": "ρ = m ÷ V."
+            },
+            {
+              "lead": "Convert the units.",
+              "text": "Use kg and m³ if the density is in kg/m³. For example, 50 cm³ = 0.000 050 m³."
+            },
+            {
+              "lead": "Rearrange if needed.",
+              "text": "m = ρ × V or V = m ÷ ρ."
+            },
+            {
+              "lead": "Substitute and calculate.",
+              "text": "A 6.0 kg block of volume 0.0030 m³ has a density of 6.0 ÷ 0.0030 = 2000 kg/m³."
+            },
+            {
+              "lead": "Give the unit.",
+              "text": "Write kg/m³ or g/cm³ with the answer."
+            }
+          ]
+        },
+        {
+          "type": "diagram",
+          "diagram": {
+            "kind": "slider",
+            "alt": "Change the mass and volume of an object to see its density in kg per cubic metre and g per cubic centimetre.",
+            "inputs": [
+              {
+                "id": "m",
+                "label": "Mass",
+                "unit": "kg",
+                "min": 0.1,
+                "max": 2,
+                "step": 0.1,
+                "value": 1
+              },
+              {
+                "id": "V",
+                "label": "Volume",
+                "unit": "cm³",
+                "min": 100,
+                "max": 1000,
+                "step": 50,
+                "value": 500
+              }
+            ],
+            "outputs": [
+              {
+                "label": "Volume in m³",
+                "unit": "m³",
+                "formula": "V / 1000000",
+                "decimals": 6
+              },
+              {
+                "label": "Density, ρ = m ÷ V",
+                "unit": "kg/m³",
+                "formula": "m / (V / 1000000)",
+                "decimals": 0
+              },
+              {
+                "label": "Density",
+                "unit": "g/cm³",
+                "formula": "m * 1000 / V",
+                "decimals": 2
+              }
+            ]
+          }
+        },
+        {
+          "type": "diagram",
+          "diagram": {
+            "kind": "practice",
+            "alt": "Calculate the mass of an object from its density and volume, converting cm³ to m³.",
+            "question": "A solid has a density of {d} kg/m³ and a volume of {V} cm³. Calculate its mass in kg.",
+            "variables": [
+              {
+                "id": "d",
+                "min": 1000,
+                "max": 9000,
+                "step": 1000
+              },
+              {
+                "id": "V",
+                "min": 100,
+                "max": 500,
+                "step": 100
+              }
+            ],
+            "answer": {
+              "formula": "d * V / 1000000",
+              "unit": "kg",
+              "decimals": 1
+            },
+            "working": [
+              "Convert the volume: {V} cm³ = {V} ÷ 1 000 000 m³.",
+              "Rearrange ρ = m ÷ V to give m = ρ × V.",
+              "m = {d} × {V} ÷ 1 000 000",
+              "m = {answer} kg"
+            ]
+          }
+        },
+        {
+          "type": "key-points",
+          "items": [
+            "ρ = m ÷ V, with ρ in kg/m³, m in kg and V in m³.",
+            "1 g/cm³ = 1000 kg/m³, and 1 cm³ = 0.000 001 m³.",
+            "Convert the units before you substitute."
+          ]
+        }
+      ]
+    },
+    {
+      "heading": "Why the states differ in density",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "A material's density depends on the mass of its particles and on how closely they are packed. The state of a material changes the packing but not the mass."
+        },
+        {
+          "type": "list",
+          "items": [
+            "In a solid, particles are touching in a regular arrangement, so a solid is usually very dense.",
+            "In a liquid, particles are also touching but are arranged randomly, so a liquid is only slightly less dense than the solid.",
+            "In a gas, particles are far apart. The same mass takes up a much larger volume, so a gas is far less dense.",
+            "Usually the density order, lowest first, is gas, liquid, solid. Water is an exception, because ice is less dense than liquid water."
+          ]
+        },
+        {
+          "type": "subheading",
+          "text": "Mass is conserved"
+        },
+        {
+          "type": "paragraph",
+          "text": "When a substance changes state, its particles are the same and are not lost. The mass stays the same, but the volume changes, so the density changes."
+        },
+        {
+          "type": "table",
+          "columns": ["Change", "Mass", "Volume", "Density"],
+          "rows": [
+            [
+              "Solid melts to a liquid (most substances)",
+              "Same",
+              "Increases a little",
+              "Decreases a little"
+            ],
+            ["Liquid boils to a gas", "Same", "Increases a lot", "Decreases a lot"],
+            ["Water freezes to ice", "Same", "Increases", "Decreases"]
+          ]
+        },
+        {
+          "type": "paragraph",
+          "text": "A material full of air pockets, such as pumice, has a lower density than solid rock, because the air adds volume but very little mass."
+        },
+        {
+          "type": "key-points",
+          "items": [
+            "A gas is much less dense than a solid or liquid because its particles are far apart.",
+            "Mass is conserved in a change of state. The volume changes, so the density changes.",
+            "Density depends on the mass of the particles and on how they are arranged."
+          ]
+        }
+      ]
+    }
+  ],
+  "checks": [
+    {
+      "q": "Describe the arrangement and movement of the particles in a solid.",
+      "a": "The particles are in a regular pattern, touching, in fixed positions. They vibrate about these positions.",
+      "marks": 2
+    },
+    {
+      "q": "Explain why a gas is much less dense than a solid of the same substance.",
+      "a": "The particles in a gas are far apart, but in a solid they are close together. The same mass takes up a much larger volume in a gas.",
+      "marks": 2
+    },
+    {
+      "q": "An object has a mass of 6.0 kg and a volume of 0.0030 m³. Calculate its density.",
+      "a": "ρ = m ÷ V = 6.0 ÷ 0.0030 = 2000 kg/m³.",
+      "marks": 2
+    },
+    {
+      "q": "A rock has a density of 2.7 g/cm³. Give its density in kg/m³.",
+      "a": "2.7 × 1000 = 2700 kg/m³.",
+      "marks": 1
+    }
+  ],
+  "boards": {
+    "aqa": {
+      "spec_codes": ["AQA 4.3.1.1", "AQA T 6.3.1.1"],
+      "worked_example": {
+        "exemplar_id": "e81ddb52-2189-4365-8d26-6945c496b912",
+        "source": "AQA jun 2024, Paper 1 (H), Q7.5",
+        "question": "The density of a ring was 21 500 kg/m³. The volume of the ring was 0.44 cm³. Calculate the mass of the ring. Give your answer in kg.",
+        "marks": 4,
+        "answer_points": [
+          "0.44 cm³ = 4.4 × 10⁻⁷ m³",
+          "21 500 = m ÷ (4.4 × 10⁻⁷)",
+          "m = 21 500 × 4.4 × 10⁻⁷",
+          "m = 0.00946 kg (9.46 × 10⁻³ kg)"
+        ],
+        "tip": "One mark each for the unit conversion, the substitution, the rearrangement and the answer."
+      }
+    },
+    "edexcel": {
+      "spec_codes": ["EDEX 14.1", "EDEX 14.2", "EDEX 14.4", "EDEX 14.3"],
+      "worked_example": {
+        "exemplar_id": "de1c201e-01c6-4b95-adac-7d61e7d866d2",
+        "source": "EDEXCEL jun 2023, Paper 2 (H), Q3(b)",
+        "question": "An object has a mass of 7.22 × 10⁻² kg and a volume of 2.69 × 10⁻⁵ m³. Calculate the density, ρ, of the object. Use the equation ρ = m / V. State the unit.",
+        "marks": 3,
+        "answer_points": [
+          "ρ = 7.22 × 10⁻² ÷ 2.69 × 10⁻⁵",
+          "ρ = 2680 (any value that rounds to 2680, such as 2684, or 2.68 × 10³)",
+          "unit: kg/m³"
+        ],
+        "tip": "One mark each for the substitution, the evaluation and the unit."
+      }
+    },
+    "ocr": {
+      "spec_codes": ["OCR P1.1d", "OCR P1.1e", "OCR P1.1f"],
+      "worked_example": {
+        "exemplar_id": "88301efb-885e-43eb-8837-ec8ff453a934",
+        "source": "OCR jun 2025, Paper 1, Q23(b)",
+        "question": "One polystyrene block has a density of 50 kg/m³. The mass of the block is 0.60 kg. Calculate the volume of the block.",
+        "marks": 3,
+        "answer_points": ["Density = mass ÷ volume", "Volume = 0.60 / 50", "= 0.012 m³"],
+        "tip": "The second mark is for rearranging and substituting. 1.2 × 10 to any other power scores 2 marks."
+      }
+    }
+  },
+  "meta": {
+    "status": "draft",
+    "written_by": "sonnet-5-5",
+    "written_at": "2026-10-01",
+    "spec_point_ids": [
+      "a71909cb-78e4-4320-a85d-190c20804675",
+      "de0e77b3-8ca5-46a5-91d8-5244da45d799",
+      "e799b446-bc79-4d01-8428-d8ba43c075d1",
+      "0e9f5aa5-da44-4494-9ece-15362c162708",
+      "d85bc68d-5727-4a47-aa57-7c296026e5a8",
+      "8857d7f5-d3c0-472d-9d93-1c0192689434",
+      "b2811351-1bd2-427a-b06c-0d02018e017c",
+      "fbd49186-8285-4d83-a24a-873d71c3c926"
+    ],
+    "exemplar_ids": [
+      "e81ddb52-2189-4365-8d26-6945c496b912",
+      "de1c201e-01c6-4b95-adac-7d61e7d866d2",
+      "88301efb-885e-43eb-8837-ec8ff453a934"
+    ],
+    "checked_by": "sonnet-science-check",
+    "checked_at": "2026-10-01"
+  }
+}

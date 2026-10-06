@@ -1,0 +1,255 @@
+{
+  "format": 1,
+  "concept_id": "chem-021",
+  "subject": "chemistry",
+  "title": "Properties of simple molecular substances",
+  "key_idea": "Simple molecular substances have low melting and boiling points because only the weak forces between molecules are overcome, not the strong covalent bonds inside them. Bigger molecules have stronger forces, so higher boiling points. They do not conduct electricity.",
+  "sections": [
+    {
+      "heading": "Low melting and boiling points",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "Small molecules are usually gases or liquids at room temperature. This section covers why, and what is and is not broken when they melt or boil."
+        },
+        {
+          "type": "definitions",
+          "items": [
+            {
+              "term": "Simple molecular substance",
+              "meaning": "A substance made of small molecules, such as water, methane and chlorine."
+            },
+            {
+              "term": "Intermolecular forces",
+              "meaning": "Weak forces of attraction between molecules."
+            }
+          ]
+        },
+        {
+          "type": "steps",
+          "items": [
+            {
+              "lead": "Small molecules",
+              "text": "The substance is made of small, separate molecules."
+            },
+            {
+              "lead": "Weak forces",
+              "text": "There are only weak intermolecular forces between the molecules."
+            },
+            {
+              "lead": "Little energy",
+              "text": "Little energy is needed to overcome these forces, so the melting and boiling points are low."
+            }
+          ]
+        },
+        {
+          "type": "list",
+          "items": [
+            "The covalent bonds inside each molecule are strong.",
+            "When the substance melts or boils, the intermolecular forces are overcome. The covalent bonds are **not** broken.",
+            "Intermolecular forces are weak compared with covalent bonds."
+          ]
+        },
+        {
+          "type": "diagram",
+          "diagram": {
+            "alt": "Sort each change into whether intermolecular forces are overcome or covalent bonds are broken.",
+            "kind": "sort",
+            "items": [
+              {
+                "text": "Ice melts",
+                "group": 0
+              },
+              {
+                "text": "Liquid bromine boils",
+                "group": 0
+              },
+              {
+                "text": "Chlorine gas condenses",
+                "group": 0
+              },
+              {
+                "text": "Propane boils",
+                "group": 0
+              },
+              {
+                "text": "Methane burns in oxygen",
+                "group": 1
+              },
+              {
+                "text": "Hydrogen reacts with chlorine",
+                "group": 1
+              },
+              {
+                "text": "Nitrogen and hydrogen react to make ammonia",
+                "group": 1
+              }
+            ],
+            "groups": ["Intermolecular forces overcome", "Covalent bonds broken"],
+            "prompt": "What is happening to the molecules? Sort each change."
+          }
+        },
+        {
+          "type": "key-points",
+          "items": [
+            "Simple molecular substances have low melting and boiling points.",
+            "Melting and boiling overcome intermolecular forces, not covalent bonds.",
+            "Never write about breaking covalent bonds to explain a low boiling point."
+          ]
+        }
+      ]
+    },
+    {
+      "heading": "The size of the molecule",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "Intermolecular forces get stronger as molecules get larger. This section covers the trends in the halogens and the alkanes."
+        },
+        {
+          "type": "table",
+          "rows": [
+            ["Fluorine", "−188", "Gas"],
+            ["Chlorine", "−35", "Gas"],
+            ["Bromine", "59", "Liquid"],
+            ["Iodine", "184", "Solid"]
+          ],
+          "columns": ["Halogen", "Boiling point (°C)", "State at room temperature"]
+        },
+        {
+          "type": "list",
+          "items": [
+            "Going down Group 7 the molecules increase in size.",
+            "So the intermolecular forces increase.",
+            "So more energy is needed to overcome them, and the boiling point increases.",
+            "The same trend holds for alkanes: the more carbon atoms in the molecule, the higher the boiling point."
+          ]
+        },
+        {
+          "type": "paragraph",
+          "text": "Poly(ethene) has much larger molecules than methane. It has stronger intermolecular forces, so it is a solid and methane is a gas."
+        },
+        {
+          "type": "key-points",
+          "items": [
+            "Larger molecules have stronger intermolecular forces.",
+            "Stronger forces need more energy to overcome, so the boiling point is higher."
+          ]
+        }
+      ]
+    },
+    {
+      "heading": "Conducting electricity",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "Simple molecular substances do not conduct electricity. This section covers why."
+        },
+        {
+          "type": "list",
+          "items": [
+            "To conduct, a substance needs charged particles that are free to move.",
+            "Molecules have no overall electric charge.",
+            "They have no ions and no delocalised electrons that can move.",
+            "So they do not conduct electricity, as solids, liquids or gases."
+          ]
+        },
+        {
+          "type": "paragraph",
+          "text": "A melting point or boiling point belongs to many molecules together. One molecule on its own does not have one."
+        },
+        {
+          "type": "key-points",
+          "items": [
+            "Molecules have no overall charge, so simple molecular substances do not conduct.",
+            "Melting point and boiling point are bulk properties of many molecules."
+          ]
+        }
+      ]
+    }
+  ],
+  "checks": [
+    {
+      "q": "Explain why ammonia has a low boiling point.",
+      "a": "It is a simple molecular substance with weak intermolecular forces between its molecules. Little energy is needed to overcome these forces.",
+      "marks": 3
+    },
+    {
+      "q": "Explain the increase in boiling points going down Group 7.",
+      "a": "The molecules increase in size, so the intermolecular forces increase, so more energy is needed to overcome them.",
+      "marks": 3
+    },
+    {
+      "q": "Explain why simple molecular substances do not conduct electricity.",
+      "a": "The molecules have no overall electric charge, and there are no ions or free electrons to carry charge.",
+      "marks": 1
+    }
+  ],
+  "boards": {
+    "aqa": {
+      "spec_codes": ["AQA 4.2.2.4", "AQA T 5.2.2.4"],
+      "worked_example": {
+        "exemplar_id": "e2102a24-aeb8-4e98-9ccb-6f57445e6f2b",
+        "source": "AQA jun 2019, Paper 1 (H), Q05.3",
+        "question": "This question is about ammonia, NH₃. Explain why ammonia has a low boiling point. You should refer to structure and bonding in your answer.",
+        "marks": 3,
+        "answer_points": [
+          "Ammonia has small molecules, a simple molecular structure.",
+          "It has weak intermolecular forces.",
+          "So little energy is needed to overcome the intermolecular forces."
+        ],
+        "tip": "Do not refer to breaking covalent bonds. That is not accepted for the second or third marks."
+      }
+    },
+    "edexcel": {
+      "spec_codes": ["EDEX 1.34"],
+      "worked_example": {
+        "exemplar_id": "027e085d-88bb-421f-be31-33765a41c4fe",
+        "source": "EDEXCEL jun 2018, Paper 2 (H), Q2(c)(ii)",
+        "question": "Chlorine exists as diatomic molecules. In a molecule, two chlorine atoms are joined by a covalent bond. Explain why chlorine is a gas, rather than a liquid, at room temperature.",
+        "marks": 2,
+        "answer_points": [
+          "There are intermolecular forces, forces between the molecules.",
+          "These forces are weak, or take little energy to break.",
+          "The boiling point is below room temperature, it has a low boiling point."
+        ],
+        "tip": "Any two score a mark each. If the answer is about breaking any type of bond, the first two points cannot score."
+      }
+    },
+    "ocr": {
+      "spec_codes": ["OCR C2.3d", "OCR C2.3f"],
+      "worked_example": {
+        "exemplar_id": "8df18a8d-92f4-4e0c-b0b0-66b4106d4b10",
+        "source": "OCR jun 2022, Paper 3, Q21(b)(ii)",
+        "question": "Some information about phosphorus compounds is shown. Phosphorus trichloride, PCl₃: melting point -94 °C, boiling point 76 °C. Phosphorus pentachloride, PCl₅: melting point 161 °C, boiling point 167 °C. Phosphorus trifluoride, PF₃: melting point -152 °C, boiling point -102 °C. Put a ring around the compound with the weakest intermolecular forces: phosphorus trichloride, phosphorus pentachloride or phosphorus trifluoride. Explain your answer using information from the table.",
+        "marks": 3,
+        "answer_points": [
+          "Phosphorus trifluoride.",
+          "The weakest intermolecular forces need the least energy to break, or the least energy to separate the molecules.",
+          "Less energy to break the forces means a lower melting point and boiling point.",
+          "Phosphorus trifluoride has the lowest melting point and boiling point in the table, and is a gas at room temperature."
+        ],
+        "tip": "Choose the compound, then give any two reasons linking the forces to the energy and the melting or boiling point."
+      }
+    }
+  },
+  "meta": {
+    "status": "draft",
+    "written_by": "claude-sonnet-5-5",
+    "written_at": "2026-10-01",
+    "checked_by": "sonnet-science-check",
+    "checked_at": "2026-10-01",
+    "spec_point_ids": [
+      "02d65818-dc2b-4dd2-a336-52bcddc0fe93",
+      "dcfef170-a9a4-461b-a9fc-e68642ae765e",
+      "d944dcb0-4293-40db-aa06-b3a64dc9eba9",
+      "3c9ac078-5a30-4a23-874b-fda5c2eee247",
+      "7a952ea4-464c-4ce1-b9c0-4c61dca8e5b8"
+    ],
+    "exemplar_ids": [
+      "e2102a24-aeb8-4e98-9ccb-6f57445e6f2b",
+      "027e085d-88bb-421f-be31-33765a41c4fe",
+      "8df18a8d-92f4-4e0c-b0b0-66b4106d4b10"
+    ]
+  }
+}

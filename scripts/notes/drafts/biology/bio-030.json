@@ -1,0 +1,219 @@
+{
+  "format": 1,
+  "concept_id": "bio-030",
+  "subject": "biology",
+  "title": "Blood",
+  "key_idea": "Blood is a tissue made of plasma, red blood cells, white blood cells and platelets. Plasma carries dissolved substances. Red cells carry oxygen, white cells defend against pathogens and platelets help the blood to clot. Each is adapted to its job.",
+  "sections": [
+    {
+      "heading": "What blood is made of",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "Blood is a tissue. Red blood cells, white blood cells and platelets are suspended in a liquid called plasma."
+        },
+        {
+          "type": "diagram",
+          "diagram": {
+            "kind": "explorer",
+            "alt": "The four parts of blood: plasma, red blood cells, white blood cells and platelets. Tap each to learn its job.",
+            "prompt": "Tap each part of the blood to learn its job.",
+            "parts": [
+              {
+                "name": "Plasma",
+                "detail": "The liquid part of blood. It carries dissolved substances around the body, such as carbon dioxide."
+              },
+              {
+                "name": "Red blood cells",
+                "detail": "Carry oxygen from the lungs to the cells. They contain haemoglobin, which joins to oxygen."
+              },
+              {
+                "name": "White blood cells",
+                "detail": "Part of the immune system. They fight pathogens by engulfing them or by making antibodies."
+              },
+              {
+                "name": "Platelets",
+                "detail": "Small fragments of cells. They help the blood to clot at a wound."
+              }
+            ]
+          }
+        },
+        {
+          "type": "key-points",
+          "items": [
+            "Blood is a tissue: plasma with cells and platelets suspended in it.",
+            "Each part has its own function."
+          ]
+        }
+      ]
+    },
+    {
+      "heading": "Red blood cells and plasma",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "Red blood cells and plasma are the transport parts of the blood. This section covers how each is adapted."
+        },
+        {
+          "type": "subheading",
+          "text": "Red blood cells"
+        },
+        {
+          "type": "list",
+          "items": [
+            "They carry oxygen. They contain **haemoglobin**, which oxygen joins to.",
+            "A biconcave disc shape gives a large surface area, so oxygen is absorbed and released quickly.",
+            "They have no nucleus, so there is more room for haemoglobin.",
+            "They are small and flexible, so they can fit through capillaries."
+          ]
+        },
+        {
+          "type": "subheading",
+          "text": "Plasma"
+        },
+        {
+          "type": "list",
+          "items": [
+            "A liquid, so substances can dissolve in it and be carried around the body.",
+            "It carries carbon dioxide, and also other dissolved substances such as digested food, urea and hormones."
+          ]
+        },
+        {
+          "type": "key-points",
+          "items": [
+            "Haemoglobin carries oxygen, and having no nucleus makes room for more of it.",
+            "The biconcave shape gives a large surface area.",
+            "Plasma carries dissolved substances."
+          ]
+        }
+      ]
+    },
+    {
+      "heading": "White blood cells and platelets",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "White blood cells and platelets defend the body. White cells deal with pathogens and platelets help the blood to clot."
+        },
+        {
+          "type": "subheading",
+          "text": "White blood cells"
+        },
+        {
+          "type": "list",
+          "items": [
+            "They are part of the immune system and fight disease.",
+            "Receptors on the membrane let them recognise pathogens and antigens.",
+            "Some can change shape to engulf (take in) pathogens. These are phagocytes.",
+            "Others make antibodies and antitoxins, using their nucleus and ribosomes. These are lymphocytes."
+          ]
+        },
+        {
+          "type": "subheading",
+          "text": "Platelets"
+        },
+        {
+          "type": "list",
+          "items": [
+            "Small fragments of cells with no nucleus.",
+            "They help the blood to clot at a wound, which stops bleeding and keeps pathogens out."
+          ]
+        },
+        {
+          "type": "key-points",
+          "items": [
+            "White blood cells recognise pathogens, engulf them or make antibodies.",
+            "Platelets help the blood to clot."
+          ]
+        }
+      ]
+    }
+  ],
+  "checks": [
+    {
+      "q": "Explain how the shape of a red blood cell is related to its function.",
+      "a": "It is a biconcave disc, which gives a larger surface area, so more oxygen can be absorbed and carried.",
+      "marks": 3
+    },
+    {
+      "q": "Give two ways red blood cells are adapted to carry oxygen.",
+      "a": "Any two from: contain haemoglobin to carry oxygen; no nucleus, so more room for haemoglobin; biconcave disc, for a large surface area; small and flexible, to fit through capillaries.",
+      "marks": 2
+    },
+    {
+      "q": "State two ways white blood cells defend the body against pathogens.",
+      "a": "They engulf pathogens, and they make antibodies (or antitoxins).",
+      "marks": 2
+    }
+  ],
+  "boards": {
+    "aqa": {
+      "spec_codes": ["AQA 2.7", "AQA T 4.2.2.3"],
+      "worked_example": {
+        "exemplar_id": "ece9adaf-6dee-4c34-9340-746d07cc0536",
+        "source": "AQA jun 2021, Paper 1 (H), Q01.5",
+        "question": "Red blood cells are specialised animal cells. Compare the structure of a red blood cell with the structure of a plant cell.",
+        "marks": 6,
+        "answer_points": [
+          "A red blood cell has no nucleus, but a plant cell has a nucleus.",
+          "A red blood cell has no cell wall, but a plant cell has a cell wall.",
+          "A red blood cell is a biconcave disc, but plant cells come in many shapes.",
+          "A red blood cell contains haemoglobin, but plant cells do not.",
+          "A plant cell may contain chloroplasts, chlorophyll and a permanent vacuole. A red blood cell does not.",
+          "A red blood cell is much smaller.",
+          "Both have cytoplasm and a cell membrane."
+        ],
+        "tip": "This is a levelled question. Cover both cells and make each difference clear. Similarities can add to the answer."
+      }
+    },
+    "edexcel": {
+      "spec_codes": ["EDEX 8.6"],
+      "worked_example": {
+        "exemplar_id": "68350b9c-3a38-44ac-b7f7-d4ba1cb7a93c",
+        "source": "EDEXCEL nov 2021, Paper 2 (H), Q5(a)(ii)",
+        "question": "Explain how the shape of a red blood cell is related to its function.",
+        "marks": 3,
+        "answer_points": [
+          "The cell is a biconcave disc.",
+          "This results in a larger surface area.",
+          "So more oxygen can be carried (or diffused)."
+        ],
+        "tip": "Three linked marks: the shape, what it gives, and what that does for oxygen."
+      }
+    },
+    "ocr": {
+      "spec_codes": ["OCR 2.2e", "OCR 6.3j"],
+      "worked_example": {
+        "exemplar_id": "34d27309-d209-4095-94ff-fdfb784bae23",
+        "source": "OCR sample null, Paper 3, Q22(b)",
+        "question": "Oxygen enters red blood cells by diffusion. Describe and explain how red blood cells are adapted for the efficient uptake and transport of oxygen.",
+        "marks": 5,
+        "answer_points": [
+          "Small size and flexible, to get into small vessels or capillaries.",
+          "Biconcave disc shape, giving a large surface area to volume ratio.",
+          "Contain haemoglobin, to carry oxygen.",
+          "Lack of a nucleus, so there is more room for haemoglobin."
+        ],
+        "tip": "Any five points score, but explanation marks only count if they follow the feature they explain."
+      }
+    }
+  },
+  "meta": {
+    "status": "draft",
+    "checked_by": "sonnet-science-check",
+    "checked_at": "2026-10-01",
+    "written_by": "sonnet-5-5",
+    "written_at": "2026-10-01",
+    "spec_point_ids": [
+      "c44181b6-c167-42b9-87f4-8f9b612f6bd9",
+      "ef3220ed-8a9b-4cfd-9897-9b0fdc6bd50a",
+      "985466d4-cded-45e6-bfe8-59b044fb14a5",
+      "fc670465-814a-4d71-86d6-1fceda0f7b0a"
+    ],
+    "exemplar_ids": [
+      "ece9adaf-6dee-4c34-9340-746d07cc0536",
+      "68350b9c-3a38-44ac-b7f7-d4ba1cb7a93c",
+      "34d27309-d209-4095-94ff-fdfb784bae23"
+    ]
+  }
+}

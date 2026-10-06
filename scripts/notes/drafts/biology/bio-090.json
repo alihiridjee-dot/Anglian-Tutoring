@@ -1,0 +1,234 @@
+{
+  "format": 1,
+  "concept_id": "bio-090",
+  "subject": "biology",
+  "title": "DNA and the genome",
+  "key_idea": "Genetic material is **DNA**, a polymer of two strands twisted into a double helix. DNA is packed into chromosomes in the nucleus. A **gene** is a short section of DNA that codes for one protein. The **genome** is all of an organism's genetic material.",
+  "sections": [
+    {
+      "heading": "The structure of DNA",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "The genetic material in the nucleus of a cell is a chemical called DNA. This section covers its shape and what it is made of."
+        },
+        {
+          "type": "definitions",
+          "items": [
+            {
+              "term": "DNA",
+              "meaning": "Deoxyribonucleic acid. The chemical that genetic material is made of."
+            },
+            {
+              "term": "Polymer",
+              "meaning": "A long molecule made of many repeating smaller units. In DNA the units are nucleotides."
+            },
+            {
+              "term": "Double helix",
+              "meaning": "The shape of DNA: two strands twisted around each other."
+            },
+            {
+              "term": "Base",
+              "meaning": "One of four compounds on a DNA strand: A, C, G and T."
+            }
+          ]
+        },
+        {
+          "type": "list",
+          "items": [
+            "DNA is a long **polymer** made of repeating nucleotides.",
+            "A DNA molecule has **two strands**, twisted into a **double helix**.",
+            "Each strand has a backbone of sugars and phosphates.",
+            "Each nucleotide carries one base: A, C, G or T."
+          ]
+        },
+        {
+          "type": "subheading",
+          "text": "How the two strands are held together"
+        },
+        {
+          "type": "list",
+          "items": [
+            "The strands are linked by pairs of **complementary bases**.",
+            "A always pairs with T. C always pairs with G.",
+            "The bases in each pair are joined by weak **hydrogen bonds**."
+          ]
+        },
+        {
+          "type": "key-points",
+          "items": [
+            "DNA is a polymer of two strands forming a double helix.",
+            "Bases pair A with T and C with G, joined by weak hydrogen bonds.",
+            "The sugar and phosphate backbone is on the outside of each strand."
+          ]
+        }
+      ]
+    },
+    {
+      "heading": "Chromosomes, genes and the genome",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "DNA is organised into chromosomes, genes and a genome. Tap each part to see how they fit together."
+        },
+        {
+          "type": "diagram",
+          "diagram": {
+            "kind": "explorer",
+            "alt": "Tap each part of the genetic material to learn what it is.",
+            "prompt": "From the nucleus to the genome",
+            "parts": [
+              {
+                "name": "Nucleus",
+                "detail": "The part of the cell that contains the genetic material."
+              },
+              {
+                "name": "Chromosome",
+                "detail": "A structure in the nucleus that contains DNA. A human body cell has 46."
+              },
+              {
+                "name": "DNA",
+                "detail": "A polymer made of two strands twisted into a double helix."
+              },
+              {
+                "name": "Gene",
+                "detail": "A small section of DNA on a chromosome. It codes for a particular sequence of amino acids, which makes a specific protein."
+              },
+              {
+                "name": "Base",
+                "detail": "A, C, G or T. Complementary bases link the two strands: A with T and C with G."
+              },
+              {
+                "name": "Genome",
+                "detail": "The entire genetic material of an organism."
+              }
+            ]
+          }
+        },
+        {
+          "type": "subheading",
+          "text": "What a gene does"
+        },
+        {
+          "type": "list",
+          "items": [
+            "A gene is a small section of DNA on a chromosome.",
+            "Each gene codes for a particular sequence of **amino acids**.",
+            "That sequence makes a specific **protein**.",
+            "A group of three bases codes for one amino acid."
+          ]
+        },
+        {
+          "type": "key-points",
+          "items": [
+            "Chromosomes in the nucleus contain DNA.",
+            "A gene codes for a sequence of amino acids, which makes a specific protein.",
+            "The genome is all the genetic material of an organism."
+          ]
+        }
+      ]
+    },
+    {
+      "heading": "Why the human genome matters",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "The whole human genome has now been studied. Knowing it is important for medicine and for our understanding of the past."
+        },
+        {
+          "type": "list",
+          "items": [
+            "Genes linked to different types of disease can be found. This can lead to better prevention, diagnosis and treatment.",
+            "Inherited disorders can be better understood and treated, for example by gene therapy.",
+            "Embryo screening can help make sure a faulty allele is not passed on.",
+            "Human migration patterns from the past can be traced. One example is how aboriginal people spread across Australia.",
+            "DNA analysis shows a person which alleles they have. Relatives can be told if they have inherited an affected gene."
+          ]
+        },
+        {
+          "type": "key-points",
+          "items": [
+            "Studying the human genome helps find genes linked to disease.",
+            "It helps with inherited disorders and with tracing human migration."
+          ]
+        }
+      ]
+    }
+  ],
+  "checks": [
+    {
+      "q": "Describe the structure of a DNA molecule.",
+      "a": "A polymer made of two strands twisted around each other: a double helix. The strands are linked by complementary base pairs.",
+      "marks": 2
+    },
+    {
+      "q": "What is meant by the term genome?",
+      "a": "All the genetic material (DNA or genes) of an organism.",
+      "marks": 1
+    },
+    {
+      "q": "Complete the sentences. A gene codes for a particular sequence of ___. This sequence makes a specific ___.",
+      "a": "Amino acids; protein.",
+      "marks": 2
+    }
+  ],
+  "boards": {
+    "aqa": {
+      "spec_codes": ["AQA 6.4", "AQA T 4.6.1.3"],
+      "worked_example": {
+        "exemplar_id": "580700e0-7c00-4555-887b-bc2522cdd531",
+        "source": "AQA jun 2019, Paper 2 (H), Q03.4",
+        "question": "Scientists working on the 'Human Genome Project' have now mapped the entire genetic code of humans.\n\nExplain one way this could be important for people in the future.",
+        "marks": 2,
+        "answer_points": [
+          "It can identify genes linked to certain diseases (such as cancer or diabetes).",
+          "So it can lead to better prevention or treatment of that disease."
+        ],
+        "tip": "Pick one route and give the reason. Two other routes score too: genes causing inherited disorders (so IVF or gene therapy may prevent children being born with them), or tracing human migration to understand ancient history."
+      }
+    },
+    "edexcel": {
+      "spec_codes": ["EDEX 3.4", "EDEX 3.5"],
+      "worked_example": {
+        "exemplar_id": "5aa1df91-7130-496c-9a8a-e75ccf57bc49",
+        "source": "EDEXCEL jun 2022, Paper 1 (H), Q2(b)(i)",
+        "question": "Part of a DNA molecule has this code on one strand:\n\nT  T  G  A  T  T  G  C  G  T  A  A\n\nWrite the code for the complementary DNA strand.",
+        "marks": 2,
+        "answer_points": ["A A C T A A C G C A T T"],
+        "tip": "One mark if all the As and Ts in the top line are correctly paired, and one if all the Cs and Gs are correctly paired."
+      }
+    },
+    "ocr": {
+      "spec_codes": ["OCR 1.2a", "OCR 1.2b", "OCR 5.1b"],
+      "worked_example": {
+        "exemplar_id": "4959d76e-2772-4033-b8bc-1921018571ef",
+        "source": "OCR jun 2025, Paper 1, Q16(b)",
+        "question": "Which words can be used to describe DNA?\n\nTick three boxes.\n\nDouble helix\nMolecule\nMonomer\nPolymer\nProtein\nSingle helix",
+        "marks": 3,
+        "answer_points": ["Double helix", "Molecule", "Polymer"],
+        "tip": "Each additional box ticked negates a marking point, so tick exactly three."
+      }
+    }
+  },
+  "meta": {
+    "status": "draft",
+    "written_by": "claude-sonnet-5-5",
+    "written_at": "2026-10-01",
+    "spec_point_ids": [
+      "64a641fd-ee7a-48cc-b61b-4895fbec3c1d",
+      "c8782603-8ea9-49a5-bbe9-11bccf380c79",
+      "b4155de7-0a37-413c-99ee-82e66632eb31",
+      "82de3d09-2701-4042-9c58-b38e70b7dd04",
+      "e8f018f2-cfe0-4f04-808b-ae5ac7db5c25",
+      "cf96bdaa-e8b4-429d-9a9a-3ce93dffee4e",
+      "91f565a4-4a1f-442f-8455-d5d64be179af"
+    ],
+    "exemplar_ids": [
+      "580700e0-7c00-4555-887b-bc2522cdd531",
+      "5aa1df91-7130-496c-9a8a-e75ccf57bc49",
+      "4959d76e-2772-4033-b8bc-1921018571ef"
+    ],
+    "checked_by": "sonnet-science-check",
+    "checked_at": "2026-10-01"
+  }
+}

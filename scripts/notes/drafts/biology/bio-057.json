@@ -1,0 +1,309 @@
+{
+  "format": 1,
+  "concept_id": "bio-057",
+  "subject": "biology",
+  "title": "Interacting limiting factors and the inverse square law",
+  "key_idea": "(AQA: Higher tier) Several limiting factors act together, and any one of them may be the one limiting photosynthesis. Light intensity falls with the square of the distance from the source. Greenhouse growers add heat, light or carbon dioxide only while the extra profit pays for the cost.",
+  "sections": [
+    {
+      "heading": "How limiting factors interact (AQA: Higher tier)",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "(AQA: Higher tier) Light, carbon dioxide and temperature all act at once. This section covers how to decide which one is limiting from a graph."
+        },
+        {
+          "type": "list",
+          "items": [
+            "Any one of the factors may be the factor that limits photosynthesis.",
+            "The factor in shortest supply limits the rate.",
+            "Increasing a factor that is not limiting makes no difference to the rate.",
+            "Once the limiting factor is increased, another factor may become the limiting one."
+          ]
+        },
+        {
+          "type": "diagram",
+          "diagram": {
+            "kind": "line-graph",
+            "alt": "Three curves of rate of photosynthesis against light intensity. All rise together at low light intensity. Each then levels off at its own height: lowest with low carbon dioxide, higher with high carbon dioxide, and highest with high carbon dioxide and a higher temperature.",
+            "x": {
+              "label": "Light intensity",
+              "min": 0,
+              "max": 10,
+              "ticks": [0, 2, 4, 6, 8, 10],
+              "unit": "arbitrary units"
+            },
+            "y": {
+              "label": "Rate of photosynthesis"
+            },
+            "series": [
+              {
+                "name": "Low CO₂",
+                "points": [
+                  [0, 0.02],
+                  [1, 0.14],
+                  [2, 0.26],
+                  [3, 0.3],
+                  [10, 0.3]
+                ]
+              },
+              {
+                "name": "High CO₂",
+                "points": [
+                  [0, 0.02],
+                  [1, 0.14],
+                  [2, 0.26],
+                  [3, 0.38],
+                  [4, 0.48],
+                  [5, 0.55],
+                  [10, 0.55]
+                ]
+              },
+              {
+                "name": "High CO₂ and higher temperature",
+                "points": [
+                  [0, 0.02],
+                  [1, 0.14],
+                  [2, 0.26],
+                  [3, 0.38],
+                  [4, 0.5],
+                  [5, 0.62],
+                  [6, 0.72],
+                  [7, 0.8],
+                  [8, 0.85],
+                  [10, 0.85]
+                ]
+              }
+            ]
+          }
+        },
+        {
+          "type": "subheading",
+          "text": "Reading a graph with more than one factor"
+        },
+        {
+          "type": "steps",
+          "items": [
+            {
+              "lead": "Rising part.",
+              "text": "The factor on the x axis (light intensity) is the limiting factor."
+            },
+            {
+              "lead": "Flat part.",
+              "text": "Light is no longer limiting. Another factor, shown by the label on the line, is limiting."
+            },
+            {
+              "lead": "Compare lines.",
+              "text": "A line that levels off higher has had the limiting factor increased, for example more carbon dioxide."
+            }
+          ]
+        },
+        {
+          "type": "key-points",
+          "items": [
+            "The factor in shortest supply is the limiting factor.",
+            "On a flat part of the graph, light is not limiting. Another factor is."
+          ]
+        }
+      ]
+    },
+    {
+      "heading": "The inverse square law for light (AQA: Higher tier)",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "(AQA: Higher tier) Light spreads out as it travels, so a plant further from a lamp receives much less light."
+        },
+        {
+          "type": "equation",
+          "label": "Inverse square law",
+          "formula": "light intensity ∝ 1 ÷ d²",
+          "where": [
+            "light intensity, in arbitrary units",
+            "d is the distance from the light source, in cm",
+            "∝ means \"is proportional to\""
+          ]
+        },
+        {
+          "type": "list",
+          "items": [
+            "Light intensity is **inversely proportional** to the **square** of the distance.",
+            "Double the distance and the light intensity is a quarter.",
+            "When light is the limiting factor, the rate of photosynthesis is directly proportional to light intensity."
+          ]
+        },
+        {
+          "type": "paragraph",
+          "text": "Move the slider to see how quickly the light intensity falls."
+        },
+        {
+          "type": "diagram",
+          "diagram": {
+            "kind": "slider",
+            "alt": "Change the distance from the lamp. The light intensity, calculated as 1 divided by distance squared, falls quickly as the distance increases.",
+            "inputs": [
+              {
+                "id": "d",
+                "label": "Distance from the lamp",
+                "unit": "cm",
+                "min": 5,
+                "max": 50,
+                "step": 5,
+                "value": 10
+              }
+            ],
+            "outputs": [
+              {
+                "label": "Light intensity",
+                "unit": "arbitrary units",
+                "formula": "1 / d^2",
+                "decimals": 4
+              },
+              {
+                "label": "Intensity compared with 10 cm",
+                "unit": "times",
+                "formula": "(10 / d)^2",
+                "decimals": 2
+              }
+            ]
+          }
+        },
+        {
+          "type": "steps",
+          "items": [
+            {
+              "lead": "Square the distances.",
+              "text": "5 cm gives 5² = 25. 10 cm gives 10² = 100."
+            },
+            {
+              "lead": "Calculate 1 ÷ d².",
+              "text": "1 ÷ 25 = 0.04. 1 ÷ 100 = 0.01."
+            },
+            {
+              "lead": "Compare.",
+              "text": "The distance doubled and the intensity fell to a quarter."
+            }
+          ]
+        },
+        {
+          "type": "key-points",
+          "items": [
+            "Light intensity ∝ 1 ÷ d².",
+            "Doubling the distance quarters the light intensity.",
+            "Always square the distance before you divide."
+          ]
+        }
+      ]
+    },
+    {
+      "heading": "Limiting factors in greenhouses (AQA: Higher tier)",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "(AQA: Higher tier) Growers can control the conditions in a greenhouse, but each change costs money."
+        },
+        {
+          "type": "list",
+          "items": [
+            "They can add heat, light or carbon dioxide to increase the rate of photosynthesis.",
+            "A faster rate makes more glucose, so plants grow faster and make more protein and cellulose.",
+            "Heating, lighting and extra carbon dioxide all cost money.",
+            "It is only worth adding one if the extra sales cover its cost.",
+            "Adding more of a factor that is not limiting wastes money."
+          ]
+        },
+        {
+          "type": "key-points",
+          "items": [
+            "Increase the limiting factor to raise the rate.",
+            "Stop when the extra cost is more than the extra profit."
+          ]
+        }
+      ]
+    }
+  ],
+  "checks": [
+    {
+      "q": "A graph of rate of photosynthesis against light intensity levels off. Explain what this shows.",
+      "a": "Light intensity is no longer the limiting factor. Another factor, such as carbon dioxide concentration or temperature, is limiting the rate.",
+      "marks": 2
+    },
+    {
+      "q": "A lamp is moved from 10 cm to 20 cm away from a plant. Explain what happens to the light intensity. Include a calculation.",
+      "a": "1 ÷ 10² = 0.01 and 1 ÷ 20² = 0.0025. The distance doubled, so the light intensity is a quarter.",
+      "marks": 3
+    },
+    {
+      "q": "Why might a grower not heat a greenhouse as much as possible?",
+      "a": "Heating costs money. The extra cost might be more than the extra sale price of the crop, so profit would not increase.",
+      "marks": 2
+    }
+  ],
+  "boards": {
+    "aqa": {
+      "spec_codes": ["AQA 4.3"],
+      "worked_example": {
+        "exemplar_id": "1bbcf348-2f69-4868-acf1-1ba2c82907a9",
+        "source": "AQA jun 2018, Paper 1 (H), Q03.5",
+        "question": "A student investigated the effect of light intensity on the rate of photosynthesis. The student placed pondweed at 5 cm, 10 cm and 20 cm from a light source.\n\nLight intensity can be calculated using the inverse square law: I ∝ 1/d², where I is light intensity and d is the distance of the pondweed from the light source.\n\nExplain how light intensity changes as the distance of the pondweed from the light source is doubled.\n\nYou must include calculations in your answer.",
+        "marks": 3,
+        "answer_points": [
+          "Squaring two distances that double: 5² = 25 and 10² = 100 (or 10² = 100 and 20² = 400).",
+          "Calculating 1/d² for those distances: 1/25 = 0.04 and 1/100 = 0.01 (or 0.01 and 0.0025).",
+          "Therefore, as the distance doubles, the light intensity is quartered."
+        ],
+        "tip": "Use two distances where one is double the other. Two marks are available for the calculations even without working."
+      }
+    },
+    "edexcel": {
+      "spec_codes": ["EDEX 6.4", "EDEX 6.6"],
+      "worked_example": {
+        "exemplar_id": "4cc177eb-2181-4c40-bb72-442a8576a51b",
+        "source": "EDEXCEL jun 2023, Paper 2 (H), Q5(b)(i)",
+        "question": "A student investigated the effect of light intensity on the photosynthesis of pondweed. A light source was placed at different distances from the pondweed. The light intensity was calculated using the inverse square law for photosynthesis.\n\nThe light intensity was 0.04 arbitrary units at 5 cm, 0.01 at 10 cm, 0.0044 at 15 cm and 0.0025 at 20 cm.\n\nCalculate the light intensity at a distance of 25 cm from the lamp.\n\nInclude the equation for the inverse square law in your answer.",
+        "marks": 3,
+        "answer_points": [
+          "Equation: light intensity ∝ 1/d².",
+          "Substitution: 1 ÷ 25² (or 1 ÷ 625).",
+          "Answer: 0.0016 arbitrary units."
+        ],
+        "tip": "A correct answer with no working gets full marks, but showing the equation and the square protects your marks."
+      }
+    },
+    "ocr": {
+      "spec_codes": ["OCR 1.4f"],
+      "worked_example": {
+        "exemplar_id": "800a95e2-0ae9-470f-bf27-942893a621a6",
+        "source": "OCR nov 2021, Paper 3, Q17(c)",
+        "question": "Light is one environmental factor that affects plants.\n\nExplain how increasing the temperature from 15 °C to 40 °C can affect plants.",
+        "marks": 3,
+        "answer_points": [
+          "Increased temperature will increase photosynthesis (or respiration, transpiration or water uptake).",
+          "Molecules move faster / have increased kinetic energy.",
+          "There is an increased rate of collisions between enzymes and substrates (more enzyme-substrate complexes form).",
+          "High temperatures (above 37 °C) will stop or reduce the rate of photosynthesis or respiration.",
+          "Any three of these points score."
+        ],
+        "tip": "Give the rise with its reason, and say what happens at the highest temperatures."
+      }
+    }
+  },
+  "meta": {
+    "status": "draft",
+    "written_by": "sonnet-5-5",
+    "written_at": "2026-10-01",
+    "checked_by": "sonnet-science-check",
+    "checked_at": "2026-10-01",
+    "spec_point_ids": [
+      "6d5b8f89-d9dc-419a-8890-30a6f5fefe9e",
+      "f2cc1675-4cd0-4b8a-8f9e-38c2cce050be",
+      "8c2be34a-9849-45d6-a7bb-9b83610343e7",
+      "8c944ae2-6639-4f6b-9bee-286e2b43b190"
+    ],
+    "exemplar_ids": [
+      "1bbcf348-2f69-4868-acf1-1ba2c82907a9",
+      "4cc177eb-2181-4c40-bb72-442a8576a51b",
+      "800a95e2-0ae9-470f-bf27-942893a621a6"
+    ]
+  }
+}

@@ -1,0 +1,286 @@
+{
+  "format": 1,
+  "concept_id": "bio-058",
+  "subject": "biology",
+  "title": "Required practical: light intensity and rate of photosynthesis",
+  "key_idea": "Move a lamp to different distances from pondweed and measure the oxygen it gives off in a set time. A greater distance means a lower light intensity. Keep everything else constant, and repeat the readings to calculate a mean.",
+  "sections": [
+    {
+      "heading": "The method",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "This practical tests how light intensity affects the rate of photosynthesis, using pondweed in water."
+        },
+        {
+          "type": "list",
+          "items": [
+            "Pondweed is placed in water containing sodium hydrogencarbonate, which releases carbon dioxide for photosynthesis.",
+            "A lamp is placed at a measured distance from the pondweed. A ruler measures the distance.",
+            "The pondweed gives off bubbles of oxygen. The rate is the number of bubbles in a set time, or the volume of gas collected."
+          ]
+        },
+        {
+          "type": "paragraph",
+          "text": "Put the steps of the method in order."
+        },
+        {
+          "type": "diagram",
+          "diagram": {
+            "kind": "sequence",
+            "alt": "Put the steps of the pondweed investigation into the correct order.",
+            "prompt": "Put the steps in order, first step at the top.",
+            "steps": [
+              "Place the lamp at a measured distance from the pondweed",
+              "Leave the pondweed for a few minutes to equilibrate",
+              "Count the bubbles of oxygen in a set time",
+              "Repeat the count and calculate a mean",
+              "Move the lamp to a new distance and leave the pondweed to equilibrate again",
+              "Repeat for each distance, then calculate the light intensity at each"
+            ]
+          }
+        },
+        {
+          "type": "key-points",
+          "items": [
+            "Change the distance of the lamp. Measure the oxygen given off in a set time.",
+            "Leave the pondweed to equilibrate each time you change the distance."
+          ]
+        }
+      ]
+    },
+    {
+      "heading": "Variables and results",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "To compare results fairly, only one variable should change."
+        },
+        {
+          "type": "table",
+          "columns": ["Type of variable", "In this practical"],
+          "rows": [
+            [
+              "Independent (what you change)",
+              "Distance of the lamp, which changes the light intensity"
+            ],
+            [
+              "Dependent (what you measure)",
+              "Number of bubbles in a set time, or volume of oxygen collected"
+            ],
+            [
+              "Control (kept the same)",
+              "Same pondweed, same volume and concentration of sodium hydrogencarbonate, temperature, no other light sources"
+            ]
+          ]
+        },
+        {
+          "type": "list",
+          "items": [
+            "Light intensity can be calculated from the distance using the inverse square law, 1 ÷ d².",
+            "A lower light intensity gives fewer bubbles in the same time, so a slower rate.",
+            "To investigate carbon dioxide instead, use different concentrations of sodium hydrogencarbonate solution.",
+            "To investigate temperature instead, change the temperature of the water, for example with a water bath."
+          ]
+        },
+        {
+          "type": "equation",
+          "label": "Rate of photosynthesis",
+          "formula": "rate = number of bubbles ÷ time",
+          "where": ["number of bubbles of oxygen counted", "time, in minutes or seconds"]
+        },
+        {
+          "type": "diagram",
+          "diagram": {
+            "kind": "practice",
+            "alt": "Practise calculating the rate of photosynthesis in bubbles per minute from a bubble count.",
+            "question": "A student counts **{n} bubbles** of oxygen in **{t} minutes**. Calculate the rate of photosynthesis in bubbles per minute. Give your answer to 2 decimal places.",
+            "variables": [
+              {
+                "id": "n",
+                "min": 20,
+                "max": 80,
+                "step": 4
+              },
+              {
+                "id": "t",
+                "min": 2,
+                "max": 5,
+                "step": 1
+              }
+            ],
+            "answer": {
+              "formula": "n / t",
+              "unit": "bubbles per minute",
+              "decimals": 2
+            },
+            "working": [
+              "Rate = number of bubbles ÷ time",
+              "Rate = {n} ÷ {t} = **{answer}** bubbles per minute"
+            ]
+          }
+        },
+        {
+          "type": "key-points",
+          "items": [
+            "Change one variable and control the others.",
+            "Rate = number of bubbles ÷ time."
+          ]
+        }
+      ]
+    },
+    {
+      "heading": "Improving the results",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "Counting bubbles is not very accurate. This section covers why, and how to improve the method."
+        },
+        {
+          "type": "list",
+          "items": [
+            "Bubbles are different sizes, so they contain different volumes of gas.",
+            "Some bubbles may be missed or miscounted.",
+            "Collect the gas in a gas syringe or a measuring cylinder, and measure its volume in a set time.",
+            "Or video the pondweed and count the bubbles on playback, in slow motion.",
+            "Repeat each distance and calculate a mean.",
+            "Allow the pondweed time to equilibrate in the light before taking measurements."
+          ]
+        },
+        {
+          "type": "key-points",
+          "items": [
+            "Measure the volume of gas collected, not the number of bubbles, for a more accurate rate.",
+            "Repeat and calculate a mean."
+          ]
+        }
+      ]
+    }
+  ],
+  "checks": [
+    {
+      "q": "Describe how to change the light intensity in the pondweed investigation.",
+      "a": "Place the lamp at different measured distances from the pondweed.",
+      "marks": 1
+    },
+    {
+      "q": "Give two reasons why counting bubbles does not give an accurate measure of the rate of photosynthesis.",
+      "a": "The bubbles are different sizes, so they contain different volumes of gas. Some bubbles may be missed or miscounted.",
+      "marks": 2
+    },
+    {
+      "q": "Name two variables that must be controlled when the distance of the lamp is changed.",
+      "a": "Any two from: temperature, concentration or volume of sodium hydrogencarbonate solution, same pondweed (mass or amount), no other light sources.",
+      "marks": 2
+    }
+  ],
+  "boards": {
+    "aqa": {
+      "spec_codes": ["AQA 4.2", "AQA T 4.4.1.2"],
+      "worked_example": {
+        "exemplar_id": "8415dc83-3e12-4ed1-b42b-ada10bd1c59b",
+        "source": "AQA jun 2022, Paper 1 (H), Q4.3",
+        "question": "A student investigated the effect of different colours of light on the rate of photosynthesis at room temperature. The student used pondweed in water. A piece of pondweed was placed in red light, then in blue light and then in green light. Each colour of light was the same intensity.\n\nDescribe how the student should make accurate measurements to obtain valid results for the rate of photosynthesis.",
+        "marks": 4,
+        "answer_points": [
+          "Allow the pondweed to equilibrate in the light (leave it in the light for a few minutes before taking measurements).",
+          "Use a gas syringe or a measuring cylinder to measure or collect the oxygen (gas) produced.",
+          "Measure the time the gas is collected for, using a timer or stopwatch.",
+          "Repeat the measurements and calculate a mean."
+        ],
+        "tip": "Controlling temperature, light intensity or the pondweed is ignored in this question. The marks are for equilibrating, collecting and timing the gas, and repeating."
+      }
+    },
+    "edexcel": {
+      "spec_codes": ["EDEX 6.5"],
+      "worked_example": {
+        "exemplar_id": "8f618ad6-0b49-4393-8b65-ce6f5ed7d9ab",
+        "source": "EDEXCEL jun 2022, Paper 2 (F), Q6(a)(iv)",
+        "question": "A method of investigating the rate of photosynthesis in a water plant uses a lamp shining on the plant in water. The rate of photosynthesis can be measured by counting the number of bubbles of gas produced in one minute.\n\nDescribe how this investigation could be changed to find the effect of temperature on the rate of photosynthesis.",
+        "marks": 3,
+        "answer_points": [
+          "Change the temperature of the water.",
+          "Use a thermometer or temperature probe to monitor the temperature of the water.",
+          "Use a water bath to keep each temperature constant.",
+          "Count the bubbles at each temperature (for a set time).",
+          "Control a variable, for example keep the pondweed, light intensity or volume of water the same.",
+          "Any three of these points score."
+        ],
+        "tip": "Change the temperature, measure the bubbles each time, and say what you keep the same."
+      },
+      "extra": [
+        {
+          "heading": "Algal balls (Edexcel)",
+          "blocks": [
+            {
+              "type": "paragraph",
+              "text": "Edexcel names an alternative method that uses algal balls in indicator solutions."
+            },
+            {
+              "type": "list",
+              "items": [
+                "Algae are held in small balls and placed in an indicator solution.",
+                "The light intensity is changed, for example by moving a lamp to different distances.",
+                "Photosynthesis uses up carbon dioxide, so the indicator changes colour. The faster the colour change, the faster the rate of photosynthesis."
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    "ocr": {
+      "spec_codes": ["OCR 1.4d", "OCR 7.5"],
+      "worked_example": {
+        "exemplar_id": "07d0c5ba-3f5b-47c9-91df-6d78a070db88",
+        "source": "OCR jun 2023, Paper 1, Q20",
+        "question": "A student plans to investigate photosynthesis using this apparatus: a beaker of water containing sodium hydrogen carbonate, pondweed, a lamp and a ruler.\n\nDescribe how the student could use this apparatus to investigate the effect of light intensity on the rate of photosynthesis.\n\nIn your answer you should include:\n- how to change the light intensity\n- the variables that need to be kept constant\n- the measurements that should be taken.",
+        "marks": 6,
+        "answer_points": [
+          "Change the light intensity by placing the lamp at different distances from the pondweed, using the ruler. Say how many distances you will use.",
+          "Keep constant: the same species and mass (amount) of pondweed, the same volume and concentration of sodium hydrogen carbonate, and the same volume of water.",
+          "Also keep constant: no other light sources (only the lamp), and the temperature, for example with a thermostatically controlled water bath.",
+          "Measure: count the number of bubbles of oxygen given off in a set time.",
+          "Repeat the readings and calculate a mean."
+        ],
+        "tip": "Answer all three bullets in a logical order. The more detail on each part, the higher the mark."
+      },
+      "extra": [
+        {
+          "heading": "Leaf discs (OCR)",
+          "blocks": [
+            {
+              "type": "paragraph",
+              "text": "OCR also uses leaf discs to compare the rate of photosynthesis."
+            },
+            {
+              "type": "list",
+              "items": [
+                "Cut 10 leaf discs and place them in a syringe containing sodium hydrogen carbonate solution.",
+                "Record the time it takes for the discs to rise to the top of the syringe.",
+                "To investigate light intensity, use a lamp at different distances from the syringe.",
+                "Use the inverse square law to calculate the light intensity."
+              ]
+            }
+          ]
+        }
+      ]
+    }
+  },
+  "meta": {
+    "status": "draft",
+    "written_by": "sonnet-5-5",
+    "written_at": "2026-10-01",
+    "checked_by": "sonnet-science-check",
+    "checked_at": "2026-10-01",
+    "spec_point_ids": [
+      "e9ff977e-1759-4f91-afa4-19f85173f244",
+      "bfae2578-398a-4777-b2fb-a155cd234439",
+      "ea7b985d-dff3-4758-9259-016eb7cb91f7"
+    ],
+    "exemplar_ids": [
+      "8415dc83-3e12-4ed1-b42b-ada10bd1c59b",
+      "8f618ad6-0b49-4393-8b65-ce6f5ed7d9ab",
+      "07d0c5ba-3f5b-47c9-91df-6d78a070db88"
+    ]
+  }
+}

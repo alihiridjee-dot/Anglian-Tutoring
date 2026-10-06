@@ -1,0 +1,199 @@
+{
+  "format": 1,
+  "concept_id": "chem-057",
+  "subject": "chemistry",
+  "title": "Extracting aluminium by electrolysis",
+  "key_idea": "Metals that are more reactive than carbon cannot be extracted by heating with carbon, so they are extracted by electrolysis of a molten compound. Aluminium is made from molten aluminium oxide mixed with cryolite. The process uses a lot of energy.",
+  "sections": [
+    {
+      "heading": "Why electrolysis is used",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "This section covers which metals are extracted by electrolysis and why."
+        },
+        {
+          "type": "list",
+          "items": [
+            "A metal that is **less reactive than carbon**, such as iron or copper, can be extracted by heating its oxide with carbon.",
+            "A metal that is **more reactive than carbon**, such as aluminium, cannot be reduced by carbon. Its oxide is very stable.",
+            "Electrolysis is also used for a metal that reacts with carbon.",
+            "These metals are extracted by electrolysis of a molten compound. Sodium and calcium are other examples.",
+            "The metal made by electrolysis is very pure."
+          ]
+        },
+        {
+          "type": "subheading",
+          "text": "Energy and cost"
+        },
+        {
+          "type": "list",
+          "items": [
+            "Large amounts of energy are used to melt the compounds and to produce the electric current.",
+            "So electrolysis is more expensive than heating with carbon.",
+            "Extracting aluminium costs more than extracting iron, because it uses more energy."
+          ]
+        },
+        {
+          "type": "key-points",
+          "items": [
+            "Metals more reactive than carbon, or that react with carbon, are extracted by electrolysis.",
+            "Electrolysis uses a lot of energy to melt the compound and to supply the current."
+          ]
+        }
+      ]
+    },
+    {
+      "heading": "Extracting aluminium",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "This section covers the electrolyte, the electrodes and the reactions in the aluminium cell."
+        },
+        {
+          "type": "definitions",
+          "items": [
+            {
+              "term": "Cryolite",
+              "meaning": "A compound mixed with aluminium oxide to lower the melting point of the electrolyte."
+            }
+          ]
+        },
+        {
+          "type": "list",
+          "items": [
+            "The electrolyte is a molten mixture of **aluminium oxide** and **cryolite**.",
+            "Aluminium oxide alone has a very high melting point. The mixture has a lower melting point.",
+            "The lower melting point means less energy is needed to melt the electrolyte.",
+            "The positive electrode (anode) is made of carbon (graphite).",
+            "Aluminium ions are positive, so they are attracted to the negative electrode. Aluminium forms there.",
+            "Oxide ions are negative, so they are attracted to the positive electrode. Oxygen forms there."
+          ]
+        },
+        {
+          "type": "equation",
+          "label": "Electrolysis of aluminium oxide",
+          "formula": "2Al₂O₃ → 4Al + 3O₂",
+          "where": [
+            "Al₂O₃ is aluminium oxide",
+            "Al is aluminium, made at the negative electrode",
+            "O₂ is oxygen, made at the positive electrode"
+          ]
+        },
+        {
+          "type": "list",
+          "items": [
+            "(Higher tier) Negative electrode: Al³⁺ + 3e⁻ → Al. The aluminium ions gain electrons.",
+            "(Higher tier) Positive electrode: 2O²⁻ → O₂ + 4e⁻. The oxide ions lose electrons."
+          ]
+        },
+        {
+          "type": "subheading",
+          "text": "Why the positive electrodes are replaced"
+        },
+        {
+          "type": "diagram",
+          "diagram": {
+            "kind": "flow",
+            "alt": "Why the carbon positive electrodes must be replaced in the extraction of aluminium.",
+            "steps": [
+              "Oxygen forms at the positive electrode",
+              "At a high temperature, the oxygen reacts with the carbon electrode",
+              "Carbon dioxide forms",
+              "The electrode burns away and must be replaced"
+            ]
+          }
+        },
+        {
+          "type": "key-points",
+          "items": [
+            "Cryolite lowers the melting point of aluminium oxide, so less energy is used.",
+            "Aluminium forms at the negative electrode and oxygen at the positive electrode.",
+            "Oxygen reacts with the carbon electrode to make carbon dioxide, so the electrodes are replaced."
+          ]
+        }
+      ]
+    }
+  ],
+  "checks": [
+    {
+      "q": "Explain why aluminium is extracted by electrolysis and not by heating with carbon.",
+      "a": "Aluminium is more reactive than carbon, so carbon cannot remove the oxygen from aluminium oxide.",
+      "marks": 2
+    },
+    {
+      "q": "Why is cryolite added to aluminium oxide?",
+      "a": "The mixture has a lower melting point than aluminium oxide, so less energy is needed.",
+      "marks": 2
+    },
+    {
+      "q": "Explain why the positive carbon electrodes must be continually replaced.",
+      "a": "Oxygen is produced at the positive electrode. It reacts with the carbon to form carbon dioxide, so the electrode burns away.",
+      "marks": 3
+    }
+  ],
+  "boards": {
+    "aqa": {
+      "spec_codes": ["AQA 4.4.3.3", "AQA T 5.4.3.3"],
+      "worked_example": {
+        "exemplar_id": "3c63db2a-b21b-4a9a-b6c2-8a683da313a5",
+        "source": "AQA jun 2020, Paper 1 (H), Q01.3",
+        "question": "This question is about the extraction of aluminium.\n\nOxygen is formed at the positive carbon electrodes.\n\nExplain why the positive carbon electrodes must be continually replaced.",
+        "marks": 3,
+        "answer_points": [
+          "At a high temperature, oxygen reacts with the carbon (electrode).",
+          "So the positive electrode burns away.",
+          "To produce carbon dioxide."
+        ],
+        "tip": "The equation C + O₂ → CO₂ scores the first and third marks."
+      }
+    },
+    "edexcel": {
+      "spec_codes": ["EDEX 4.7"],
+      "worked_example": {
+        "exemplar_id": "9612e8a8-6ae2-4db5-9706-7c5200e6571f",
+        "source": "EDEXCEL nov 2021, Paper 1 (H), Q7(b)",
+        "question": "Metals can be extracted from ores found in the Earth's crust.\n\nExplain why aluminium cannot be extracted from its ore by heating with carbon but can be extracted by electrolysis.",
+        "marks": 2,
+        "answer_points": [
+          "Any two from:",
+          "Aluminium is more reactive than carbon (so electrolysis is required).",
+          "Carbon cannot remove the oxygen. There is no reaction between carbon and aluminium oxide, or carbon cannot displace aluminium.",
+          "Electrolysis can be used to reduce aluminium ions."
+        ],
+        "tip": "Electrolysis is a more powerful method of reduction is also allowed."
+      }
+    },
+    "ocr": {
+      "spec_codes": ["OCR C6.1b"],
+      "worked_example": {
+        "exemplar_id": "b5b32b42-ecd0-4541-9de0-46bec94c1b75",
+        "source": "OCR sample null, Paper 4, Q25(a)",
+        "question": "Aluminium is extracted from its ore using electrolysis.\n\nCopper is extracted from its ore by heating with carbon.\n\nExplain why different methods are used to extract aluminium and copper.",
+        "marks": 2,
+        "answer_points": [
+          "Aluminium is above carbon in the reactivity series, so it cannot be obtained by reaction of its oxide with carbon.",
+          "Copper is below carbon in the reactivity series."
+        ],
+        "tip": "Compare each metal with carbon."
+      }
+    }
+  },
+  "meta": {
+    "status": "draft",
+    "written_by": "sonnet-5-5",
+    "written_at": "2026-10-01",
+    "checked_by": "sonnet-science-check",
+    "checked_at": "2026-10-01",
+    "spec_point_ids": [
+      "6a3e9328-7bac-46dd-9e4f-8c60cb7ba759",
+      "d0d11d37-5f02-4318-9ce1-f84c42a4d577",
+      "7cd964ce-9bf7-46c0-ad3e-62d64f2112d9"
+    ],
+    "exemplar_ids": [
+      "3c63db2a-b21b-4a9a-b6c2-8a683da313a5",
+      "9612e8a8-6ae2-4db5-9706-7c5200e6571f",
+      "b5b32b42-ecd0-4541-9de0-46bec94c1b75"
+    ]
+  }
+}

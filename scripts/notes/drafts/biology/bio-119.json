@@ -1,0 +1,260 @@
+{
+  "format": 1,
+  "concept_id": "bio-119",
+  "subject": "biology",
+  "title": "The carbon cycle",
+  "key_idea": "The **carbon cycle** returns carbon from organisms to the atmosphere as carbon dioxide, ready for plants to use in photosynthesis. Photosynthesis removes carbon dioxide. Respiration, combustion and decay by microorganisms put it back.",
+  "sections": [
+    {
+      "heading": "How carbon moves",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "Carbon is the building block of living things. This section covers the processes that move it between the air and living organisms."
+        },
+        {
+          "type": "definitions",
+          "items": [
+            {
+              "term": "Carbon cycle",
+              "meaning": "The way carbon is recycled between the atmosphere and living things."
+            },
+            {
+              "term": "Decomposer",
+              "meaning": "A microorganism, such as a bacterium or fungus, that breaks down dead organisms."
+            }
+          ]
+        },
+        {
+          "type": "diagram",
+          "diagram": {
+            "kind": "flow",
+            "alt": "The carbon cycle: carbon dioxide in the air is taken in by plants in photosynthesis, passes to animals when they eat plants, and is returned to the air by respiration and by decay of dead organisms.",
+            "steps": [
+              "Carbon dioxide in the air",
+              "Photosynthesis: plants make glucose",
+              "Carbon compounds in plants",
+              "Animals eat plants",
+              "Plants and animals die and decay",
+              "Respiration (including by decomposers) releases carbon dioxide"
+            ],
+            "loop": true
+          }
+        },
+        {
+          "type": "list",
+          "items": [
+            "**Photosynthesis:** plants and algae take in carbon dioxide and use it to make glucose. This is how carbon from the air enters living organisms.",
+            "**Making other compounds:** glucose is used to make other carbon compounds, such as starch, proteins and lipids.",
+            "**Feeding:** carbon compounds pass to animals when they eat plants, and to other animals when they eat those animals.",
+            "**Respiration:** plants, animals and microorganisms release carbon dioxide into the air.",
+            "**Decay:** when plants and animals die, microorganisms decompose them.",
+            "**Combustion:** burning wood or fossil fuels releases carbon dioxide into the air.",
+            "**Fossil fuels:** these formed over millions of years from the remains of dead organisms. Burning them releases carbon that has been stored for a very long time."
+          ]
+        },
+        {
+          "type": "paragraph",
+          "text": "The water cycle is covered in its own note."
+        },
+        {
+          "type": "key-points",
+          "items": [
+            "Photosynthesis takes carbon dioxide out of the air.",
+            "Respiration, combustion and decay return it to the air."
+          ]
+        }
+      ]
+    },
+    {
+      "heading": "Decomposition and recycling",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "Dead plants and animals are broken down by microorganisms. This section covers how that recycles carbon and minerals."
+        },
+        {
+          "type": "steps",
+          "items": [
+            {
+              "lead": "Decay.",
+              "text": "Microorganisms such as bacteria and fungi break down dead organisms. Enzymes digest large molecules into small molecules."
+            },
+            {
+              "lead": "Respiration.",
+              "text": "The microorganisms respire and release carbon dioxide into the air."
+            },
+            {
+              "lead": "Minerals.",
+              "text": "Mineral ions, such as nitrate, are released into the soil."
+            },
+            {
+              "lead": "Reuse.",
+              "text": "Plants take in carbon dioxide through their leaves for photosynthesis, and take in mineral ions through their roots."
+            }
+          ]
+        },
+        {
+          "type": "list",
+          "items": [
+            "All the materials in the living world are recycled to provide the building blocks for future organisms.",
+            "Without recycling, carbon dioxide in the air and minerals in the soil would run out.",
+            "A compost heap is a place where decay by microorganisms happens quickly."
+          ]
+        },
+        {
+          "type": "diagram",
+          "diagram": {
+            "kind": "sort",
+            "alt": "Sort each process into whether it removes carbon dioxide from the air or adds carbon dioxide to the air.",
+            "prompt": "Does each process remove carbon dioxide from the air or add it?",
+            "groups": ["Removes carbon dioxide", "Adds carbon dioxide"],
+            "items": [
+              {
+                "text": "Photosynthesis in leaves",
+                "group": 0
+              },
+              {
+                "text": "Respiration in animals",
+                "group": 1
+              },
+              {
+                "text": "Respiration in plants",
+                "group": 1
+              },
+              {
+                "text": "Respiration by decomposers",
+                "group": 1
+              },
+              {
+                "text": "Burning fossil fuels",
+                "group": 1
+              },
+              {
+                "text": "Algae making glucose",
+                "group": 0
+              }
+            ]
+          }
+        },
+        {
+          "type": "key-points",
+          "items": [
+            "Decomposers break down dead organisms and respire, releasing carbon dioxide.",
+            "Mineral ions return to the soil for plants to use again."
+          ]
+        }
+      ]
+    }
+  ],
+  "checks": [
+    {
+      "q": "Name the process that removes carbon dioxide from the air.",
+      "a": "Photosynthesis.",
+      "marks": 1
+    },
+    {
+      "q": "Explain how microorganisms in the soil recycle carbon from fallen leaves so it can be used for new plant growth.",
+      "a": "Microorganisms decay (decompose) the leaves. They respire and release carbon dioxide. The carbon dioxide is used in photosynthesis for new plant growth.",
+      "marks": 4
+    },
+    {
+      "q": "Explain why the decomposition of dead plants and animals is important for ecosystems.",
+      "a": "It recycles materials in nature. For example, carbon is returned as carbon dioxide for photosynthesis, and minerals are returned to the soil for plants to make proteins.",
+      "marks": 3
+    }
+  ],
+  "boards": {
+    "aqa": {
+      "spec_codes": ["AQA 7.5", "AQA T 4.7.2.2"],
+      "worked_example": {
+        "exemplar_id": "5ffad999-331b-48dd-9f61-a56ffe55ac95",
+        "source": "AQA jun 2022, Paper 2 (H), Q01.5",
+        "question": "Leaves on a tree contain carbon compounds. In autumn the leaves fall to the ground.\n\nMicroorganisms in the soil recycle carbon from the leaves so that the carbon is used for new plant growth.\n\nExplain how.",
+        "marks": 4,
+        "answer_points": [
+          "Decay (decomposition) of the leaves.",
+          "Respiration by the microorganisms (decomposers).",
+          "Respiration releases carbon dioxide.",
+          "The carbon dioxide is used in photosynthesis for new plant growth."
+        ],
+        "tip": "One mark for each step in the sequence."
+      }
+    },
+    "edexcel": {
+      "spec_codes": ["EDEX 9.12", "EDEX 9.13"],
+      "worked_example": {
+        "exemplar_id": "d42859e0-aa6b-4e85-b032-daea079dff61",
+        "source": "EDEXCEL jun 2019, Paper 2 (H), Q2(b)",
+        "question": "Explain how cabbages, earthworms and squirrels contribute to the carbon cycle.",
+        "marks": 3,
+        "answer_points": [
+          "Squirrels, earthworms and cabbages release carbon dioxide.",
+          "This is from respiration.",
+          "Cabbages take in carbon dioxide for photosynthesis.",
+          "When organisms die, decomposers release carbon dioxide.",
+          "Squirrels and earthworms eat cabbages (plants), which contain carbon.",
+          "Egestion releases carbon into the soil."
+        ],
+        "tip": "Any three linked points score one mark each."
+      },
+      "extra": [
+        {
+          "heading": "Abiotic parts of the carbon cycle",
+          "blocks": [
+            {
+              "type": "paragraph",
+              "text": "Carbon also moves through the non-living parts of the environment."
+            },
+            {
+              "type": "list",
+              "items": [
+                "Burning fossil fuels releases carbon dioxide into the atmosphere.",
+                "The oceans can absorb carbon dioxide.",
+                "Carbon can be stored in carbonate rocks. Erosion of these rocks releases carbon dioxide.",
+                "Volcanoes release carbon dioxide."
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    "ocr": {
+      "spec_codes": ["OCR 4.1b", "OCR 4.1c"],
+      "worked_example": {
+        "exemplar_id": "b6002457-dfbd-489c-be41-acec5834d009",
+        "source": "OCR jun 2018, Paper 4, Q20(c)",
+        "question": "The decomposition of dead plants and animals is an important process for ecosystems.\n\nExplain why.",
+        "marks": 3,
+        "answer_points": [
+          "It is recycling in nature.",
+          "A named substance is recycled, for example carbon (carbon dioxide) or nitrogen (nitrates).",
+          "A reason why the recycling matters, for example carbon dioxide is needed for photosynthesis, or nitrates are needed to make proteins in plants."
+        ],
+        "tip": "One mark each for the idea of recycling, a named example and the reason it matters."
+      }
+    }
+  },
+  "meta": {
+    "status": "draft",
+    "written_by": "sonnet-5-5",
+    "written_at": "2026-10-01",
+    "spec_point_ids": [
+      "42fa6cb6-43c4-429e-8c20-13f176496e10",
+      "e20f41ea-7788-440a-84ad-f0d1bc8682be",
+      "74455c4d-ab71-4d11-a174-2ff3eed278da",
+      "a8efd256-a9f4-4ba7-9c50-d6b0d846317c",
+      "2b7da137-0d4b-4a78-95de-e94646a9548e"
+    ],
+    "exemplar_ids": [
+      "5ffad999-331b-48dd-9f61-a56ffe55ac95",
+      "d42859e0-aa6b-4e85-b032-daea079dff61",
+      "b6002457-dfbd-489c-be41-acec5834d009",
+      "1487004b-a590-4580-aa93-666b169efaef",
+      "649270f2-6dd2-44b0-b8dc-86c77815b1b3",
+      "bcf5e4b3-fa7d-4585-82b4-f786578c7ad2"
+    ],
+    "checked_by": "sonnet-science-check",
+    "checked_at": "2026-10-01"
+  }
+}

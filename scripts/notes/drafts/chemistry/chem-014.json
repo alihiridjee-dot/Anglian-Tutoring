@@ -8,12 +8,21 @@
     {
       "heading": "Transition metals compared with Group 1",
       "blocks": [
-        { "type": "paragraph", "text": "(Separate science only) The transition metals are the block of elements between Group 2 and Group 3. This section compares them with the alkali metals." },
+        {
+          "type": "paragraph",
+          "text": "(Separate science only) The transition metals are the block of elements between Group 2 and Group 3. This section compares them with the alkali metals."
+        },
         {
           "type": "definitions",
           "items": [
-            { "term": "Transition metal", "meaning": "A metal in the central block of the periodic table, such as chromium (Cr), manganese (Mn), iron (Fe), cobalt (Co), nickel (Ni) and copper (Cu)." },
-            { "term": "Catalyst", "meaning": "A substance that speeds up a reaction without being used up." }
+            {
+              "term": "Transition metal",
+              "meaning": "A metal in the central block of the periodic table, such as chromium (Cr), manganese (Mn), iron (Fe), cobalt (Co), nickel (Ni) and copper (Cu)."
+            },
+            {
+              "term": "Catalyst",
+              "meaning": "A substance that speeds up a reaction without being used up."
+            }
           ]
         },
         {
@@ -48,7 +57,10 @@
     {
       "heading": "Typical properties of transition metals",
       "blocks": [
-        { "type": "paragraph", "text": "Many transition elements share three properties that Group 1 metals do not." },
+        {
+          "type": "paragraph",
+          "text": "Many transition elements share three properties that Group 1 metals do not."
+        },
         {
           "type": "list",
           "items": [
@@ -65,15 +77,42 @@
             "prompt": "Which metals?",
             "groups": ["Group 1 metals", "Transition metals", "Both"],
             "items": [
-              { "text": "Low melting points", "group": 0 },
-              { "text": "High melting points", "group": 1 },
-              { "text": "Very reactive with water", "group": 0 },
-              { "text": "Ions with different charges", "group": 1 },
-              { "text": "Form coloured compounds", "group": 1 },
-              { "text": "Useful as catalysts", "group": 1 },
-              { "text": "Soft and low density", "group": 0 },
-              { "text": "Hard, strong and dense", "group": 1 },
-              { "text": "Good conductors of electricity", "group": 2 }
+              {
+                "text": "Low melting points",
+                "group": 0
+              },
+              {
+                "text": "High melting points",
+                "group": 1
+              },
+              {
+                "text": "Very reactive with water",
+                "group": 0
+              },
+              {
+                "text": "Ions with different charges",
+                "group": 1
+              },
+              {
+                "text": "Form coloured compounds",
+                "group": 1
+              },
+              {
+                "text": "Useful as catalysts",
+                "group": 1
+              },
+              {
+                "text": "Soft and low density",
+                "group": 0
+              },
+              {
+                "text": "Hard, strong and dense",
+                "group": 1
+              },
+              {
+                "text": "Good conductors of electricity",
+                "group": 2
+              }
             ]
           }
         },
@@ -108,29 +147,6 @@
   "boards": {
     "aqa": {
       "spec_codes": ["AQA 4.1.3.1", "AQA 4.1.3.2"],
-      "exam_phrases": [
-        "(transition metal) has a higher melting / boiling point",
-        "is denser",
-        "is harder / stronger",
-        "is less reactive",
-        "has ions with different charges",
-        "forms coloured compounds",
-        "can be a catalyst"
-      ],
-      "mistakes": [
-        {
-          "wrong": "A difference in physical properties is that transition elements form coloured compounds.",
-          "right": "Coloured compounds and ions are chemical properties, and are ignored when physical properties are asked for. Give melting point, density, strength or hardness."
-        },
-        {
-          "wrong": "Tungsten is more reactive than potassium because it has a high melting point.",
-          "right": "Transition metals are less reactive than Group 1 metals."
-        },
-        {
-          "wrong": "Tungsten differs from potassium because of the arrangement of its electrons.",
-          "right": "References to atomic structure are ignored. Give a property: for example, tungsten has a higher melting point or is denser."
-        }
-      ],
       "worked_example": {
         "exemplar_id": "63d59d73-bc1f-46cc-887d-79f49d0b3d11",
         "source": "AQA jun 2025, Paper 1 (H), Q3.4",
@@ -148,55 +164,17 @@
     },
     "edexcel": {
       "spec_codes": ["EDEX 5.1C"],
-      "exam_phrases": [
-        "platinum is a transition metal / element",
-        "high melting point",
-        "high density",
-        "forms coloured compounds",
-        "catalytic activity, for example iron"
-      ],
-      "mistakes": [
-        {
-          "wrong": "Platinum is a catalyst because it is in the middle of the periodic table.",
-          "right": "'In the middle' is ignored. Say platinum is a transition metal (or transition element)."
-        },
-        {
-          "wrong": "Transition metals have low melting points and colourless compounds.",
-          "right": "Typical properties are a high melting point, a high density and coloured compounds."
-        }
-      ],
       "worked_example": {
         "exemplar_id": "c0434aed-d4a0-46aa-8fbc-ee5e5e2ce0b6",
         "source": "EDEXCEL jun 2019, Paper 1 (H), Q1(b)(ii)",
         "question": "In a hydrogen-oxygen fuel cell, hydrogen and oxygen react at the electrodes.\n\nPlatinum acts as a catalyst.\n\nState, in terms of its position in the periodic table, why you would expect platinum to act as a catalyst.",
         "marks": 1,
-        "answer_points": [
-          "Platinum is a transition metal (or transition element)."
-        ],
+        "answer_points": ["Platinum is a transition metal (or transition element)."],
         "tip": "Name the block of the periodic table that platinum is in. Irrelevant extra information is ignored."
       }
     },
     "ocr": {
       "spec_codes": ["OCR C4.1c"],
-      "exam_phrases": [
-        "Group 1 metals have a lower density",
-        "Group 1 metals have a lower melting point",
-        "Group 1 metals are softer / less strong",
-        "both Group 1 metals and transition metals conduct electricity",
-        "Group 1 metals are more reactive",
-        "transition metals form coloured compounds / variable valency / catalysts",
-        "copper is harder and less reactive than potassium"
-      ],
-      "mistakes": [
-        {
-          "wrong": "Element X has a high melting point of 1538 °C and a density of 7.87 g/cm³.",
-          "right": "The answer must compare Group 1 metals with transition metals, not describe one element. Say Group 1 metals have a lower melting point and density than transition metals."
-        },
-        {
-          "wrong": "Transition metals are shinier than Group 1 metals.",
-          "right": "Incorrect or uncertain statements about properties not on the list, such as shinier, are ignored. Use density, melting point, strength, hardness or reactivity."
-        }
-      ],
       "worked_example": {
         "exemplar_id": "4f13613e-724a-49ce-b630-b9230f225694",
         "source": "OCR jun 2023, Paper 2, Q17(c)(i)",

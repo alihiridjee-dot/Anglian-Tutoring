@@ -1,0 +1,388 @@
+{
+  "format": 1,
+  "concept_id": "phys-067",
+  "subject": "physics",
+  "title": "Required practical: measuring wave speed",
+  "key_idea": "Wave speed = frequency × wavelength. In a ripple tank, find the wavelength and frequency, or time a wave over a measured distance. The speed of sound is found by timing a sound over a known distance. For an echo, the sound travels there and back.",
+  "sections": [
+    {
+      "heading": "Wave speed, frequency and wavelength",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "This section links the three quantities that describe a wave. Every measurement in this practical comes back to them."
+        },
+        {
+          "type": "definitions",
+          "items": [
+            {
+              "term": "Amplitude",
+              "meaning": "The maximum displacement of a point on the wave from its undisturbed position."
+            },
+            {
+              "term": "Wavelength",
+              "meaning": "The distance from a point on one wave to the same point on the next wave."
+            },
+            {
+              "term": "Frequency",
+              "meaning": "The number of waves passing a point each second, in hertz (Hz)."
+            },
+            {
+              "term": "Period",
+              "meaning": "The time taken for one wave to pass a point."
+            },
+            {
+              "term": "Wave speed",
+              "meaning": "How fast the wave moves through the medium, or how fast it transfers energy."
+            }
+          ]
+        },
+        {
+          "type": "equation",
+          "label": "Wave equation",
+          "formula": "wave speed = frequency × wavelength",
+          "where": [
+            "wave speed, v, in metres per second (m/s)",
+            "frequency, f, in hertz (Hz)",
+            "wavelength, λ, in metres (m)"
+          ]
+        },
+        {
+          "type": "equation",
+          "label": "Period",
+          "formula": "period = 1 ÷ frequency",
+          "where": ["period, T, in seconds (s)", "frequency, f, in hertz (Hz)"]
+        },
+        {
+          "type": "steps",
+          "items": [
+            {
+              "lead": "Convert.",
+              "text": "A ripple has frequency 5 Hz and wavelength 3 cm. Change 3 cm to 0.03 m."
+            },
+            {
+              "lead": "Substitute.",
+              "text": "v = 5 × 0.03"
+            },
+            {
+              "lead": "Evaluate.",
+              "text": "v = 0.15 m/s. The period is 1 ÷ 5 = 0.2 s."
+            }
+          ]
+        },
+        {
+          "type": "paragraph",
+          "text": "Change the frequency and wavelength below. The amplitude changes the height of the wave but not the speed."
+        },
+        {
+          "type": "diagram",
+          "diagram": {
+            "kind": "slider",
+            "alt": "Set the frequency, amplitude and wavelength of a water wave to see its period and wave speed.",
+            "inputs": [
+              {
+                "id": "f",
+                "label": "Frequency",
+                "unit": "Hz",
+                "min": 4,
+                "max": 10,
+                "step": 1,
+                "value": 5
+              },
+              {
+                "id": "A",
+                "label": "Amplitude",
+                "unit": "cm",
+                "min": 1,
+                "max": 4,
+                "step": 0.5,
+                "value": 2
+              },
+              {
+                "id": "w",
+                "label": "Wavelength",
+                "unit": "cm",
+                "min": 2,
+                "max": 6,
+                "step": 0.5,
+                "value": 3
+              }
+            ],
+            "outputs": [
+              {
+                "label": "Period",
+                "unit": "s",
+                "formula": "1 / f",
+                "decimals": 3
+              },
+              {
+                "label": "Wave speed",
+                "unit": "m/s",
+                "formula": "f * w / 100",
+                "decimals": 3
+              }
+            ],
+            "scene": {
+              "kind": "wave",
+              "amplitude": "A",
+              "frequency": "f"
+            }
+          }
+        },
+        {
+          "type": "key-points",
+          "items": [
+            "wave speed = frequency × wavelength.",
+            "period = 1 ÷ frequency.",
+            "Change centimetres to metres before you substitute."
+          ]
+        }
+      ]
+    },
+    {
+      "heading": "Measuring waves in a ripple tank",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "A ripple tank makes water waves. A lamp above it casts a shadow of the waves on a screen below, so the wave pattern can be seen and measured."
+        },
+        {
+          "type": "subheading",
+          "text": "Wavelength"
+        },
+        {
+          "type": "list",
+          "items": [
+            "Place a metre rule against the screen, along the direction the waves travel.",
+            "Take a photograph of the shadow, or use a strobe light, so the waves are not moving.",
+            "Measure across several wavelengths, not just one.",
+            "Divide the distance by the number of wavelengths."
+          ]
+        },
+        {
+          "type": "subheading",
+          "text": "Frequency"
+        },
+        {
+          "type": "list",
+          "items": [
+            "Count the number of waves passing a point in a measured time, using a stop clock.",
+            "Divide the number of waves by the time taken.",
+            "A signal generator or vibrating bar may also show the frequency."
+          ]
+        },
+        {
+          "type": "equation",
+          "label": "Frequency from a count",
+          "formula": "frequency = number of waves ÷ time taken",
+          "where": [
+            "frequency, in hertz (Hz)",
+            "number of waves, no unit",
+            "time taken, in seconds (s)"
+          ]
+        },
+        {
+          "type": "subheading",
+          "text": "Wave speed"
+        },
+        {
+          "type": "list",
+          "items": [
+            "Measure the distance one wavefront travels, such as the length of the tank, with a metre rule.",
+            "Time it over that distance with a stopwatch.",
+            "Divide the distance by the time.",
+            "Or use wave speed = frequency × wavelength with the two values already found."
+          ]
+        },
+        {
+          "type": "paragraph",
+          "text": "Test yourself with new numbers each time."
+        },
+        {
+          "type": "diagram",
+          "diagram": {
+            "kind": "practice",
+            "alt": "Calculate the wave speed of a wave on a string from its frequency and wavelength.",
+            "question": "A wave on a stretched string has a frequency of {f} Hz and a wavelength of {w} m. Calculate the wave speed.",
+            "variables": [
+              {
+                "id": "f",
+                "min": 10,
+                "max": 50,
+                "step": 5
+              },
+              {
+                "id": "w",
+                "min": 0.2,
+                "max": 1,
+                "step": 0.1
+              }
+            ],
+            "answer": {
+              "formula": "f * w",
+              "unit": "m/s",
+              "decimals": 1
+            },
+            "working": [
+              "wave speed = frequency × wavelength",
+              "wave speed = {f} × {w}",
+              "wave speed = {answer} m/s"
+            ]
+          }
+        },
+        {
+          "type": "key-points",
+          "items": [
+            "Measure across many wavelengths and divide, to find the wavelength accurately.",
+            "Find the frequency by counting waves in a measured time.",
+            "Wave speed = distance ÷ time, or frequency × wavelength."
+          ]
+        }
+      ]
+    },
+    {
+      "heading": "Measuring the speed of sound in air",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "Sound is too fast to time over a short distance, so the method needs a long distance and careful timing. There are two common methods."
+        },
+        {
+          "type": "subheading",
+          "text": "Method 1: a starting pistol or clap"
+        },
+        {
+          "type": "list",
+          "items": [
+            "One student makes a sound, such as a starting pistol, cymbals or wooden blocks.",
+            "A second student stands a long way away and measures the distance with a tape measure or trundle wheel.",
+            "The second student starts a stopwatch on seeing the flash or smoke, and stops it on hearing the bang.",
+            "Divide the distance by the time."
+          ]
+        },
+        {
+          "type": "subheading",
+          "text": "Method 2: an echo"
+        },
+        {
+          "type": "list",
+          "items": [
+            "Stand a measured distance from a large wall and make a sharp sound, such as banging two bricks together.",
+            "Time from the bang to the echo.",
+            "The sound travels to the wall and back, so the distance travelled is double the distance to the wall.",
+            "Or halve the time to the echo."
+          ]
+        },
+        {
+          "type": "equation",
+          "label": "Speed of sound",
+          "formula": "speed = distance ÷ time",
+          "where": [
+            "speed, in metres per second (m/s)",
+            "distance travelled, in metres (m)",
+            "time taken, in seconds (s)"
+          ]
+        },
+        {
+          "type": "steps",
+          "items": [
+            {
+              "lead": "Distance.",
+              "text": "A wall is 85 m away. The sound travels there and back: 2 × 85 = 170 m."
+            },
+            {
+              "lead": "Divide.",
+              "text": "The echo comes back after 0.50 s. Speed = 170 ÷ 0.50 = 340 m/s."
+            }
+          ]
+        },
+        {
+          "type": "subheading",
+          "text": "Getting better results"
+        },
+        {
+          "type": "list",
+          "items": [
+            "Repeat the timings and calculate a mean. Remove any anomalies.",
+            "Use a longer distance, so human reaction time is a smaller part of the time measured.",
+            "Waves on a string or spring can be measured too: use a vibration generator for a known frequency, measure the wavelength with a metre rule, then use the wave equation."
+          ]
+        },
+        {
+          "type": "key-points",
+          "items": [
+            "Speed = distance ÷ time.",
+            "For an echo, the sound travels twice the distance to the wall.",
+            "Repeat the readings and use a longer distance to improve the results."
+          ]
+        }
+      ]
+    }
+  ],
+  "checks": [
+    {
+      "q": "A wave on a string has a frequency of 8 Hz and a wavelength of 0.50 m. Calculate the wave speed.",
+      "a": "wave speed = frequency × wavelength = 8 × 0.50 = 4.0 m/s.",
+      "marks": 2
+    },
+    {
+      "q": "Describe how a student could measure the speed of sound in air using an echo from a wall.",
+      "a": "Measure the distance to a large wall with a tape measure or trundle wheel. Make a loud sound. Time from the sound to the echo with a stopwatch. The distance travelled is twice the distance to the wall. Speed = distance ÷ time. Repeat and calculate a mean.",
+      "marks": 4
+    },
+    {
+      "q": "Why measure the distance across ten wavelengths on the screen, instead of one?",
+      "a": "Measuring across more than one wavelength and dividing by the number of wavelengths gives a more accurate value of the wavelength.",
+      "marks": 2
+    }
+  ],
+  "boards": {
+    "aqa": {
+      "spec_codes": ["AQA 4.6.1.2", "AQA T 6.6.1.2"],
+      "worked_example": {
+        "exemplar_id": "7500efce-d100-4697-b74f-e6b630da3b89",
+        "source": "AQA jun 2021, Paper 2 (H), Q06.3",
+        "question": "The teacher wanted to determine the speed of water waves in a ripple tank. The teacher did not measure the wavelength of the wave.\n\nExplain how the teacher could determine the speed of the wave.",
+        "marks": 3,
+        "answer_points": [
+          "Measure the distance travelled by a wave using a metre rule (or measure the length of the ripple tank).",
+          "Measure the time taken for the wave to travel that distance with a timer or stopwatch.",
+          "Divide the distance by the time."
+        ],
+        "tip": "The third mark is only given if the first two are scored."
+      }
+    },
+    "edexcel": {
+      "spec_codes": ["EDEX 4.7", "EDEX 4.17"],
+      "worked_example": {
+        "exemplar_id": "97da703a-2286-46b0-aeeb-893397417012",
+        "source": "EDEXCEL jun 2024, Paper 1 (F), Q5(e)(i)",
+        "question": "Ripples travel out from the centre of a small circular pond to its edge.\n\nDescribe how a student could determine the wave speed of the ripples.",
+        "marks": 3,
+        "answer_points": [
+          "Use wave speed = distance ÷ time.",
+          "Find the relevant time, for example the time for a ripple to travel from the centre to the edge.",
+          "Measure the specified distance, for example the radius of the pond."
+        ],
+        "tip": "Using v = f × λ and counting waves in a measured time is also accepted."
+      }
+    }
+  },
+  "meta": {
+    "status": "draft",
+    "written_by": "sonnet-5-5",
+    "written_at": "2026-10-01",
+    "spec_point_ids": [
+      "7cbb0d71-e891-45e9-ae6e-76fc113a6f6f",
+      "6ffa8c0b-01a7-4ea9-9244-aa5e465e00d5",
+      "4d1bfc69-2378-4fc1-9976-243664fd704d",
+      "bed3b232-a39e-4fd1-baa1-9ce4b6a4caf9"
+    ],
+    "exemplar_ids": [
+      "7500efce-d100-4697-b74f-e6b630da3b89",
+      "97da703a-2286-46b0-aeeb-893397417012"
+    ],
+    "checked_by": "sonnet-science-check",
+    "checked_at": "2026-10-01"
+  }
+}
