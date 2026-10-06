@@ -3,8 +3,11 @@ import { Link } from "@tanstack/react-router";
 import { toast } from "sonner";
 import { ChevronDown, ClipboardList, Clock, Eye, Loader2, Pencil, Trash2 } from "lucide-react";
 
-import { ErrorNote, Spinner } from "@/components/Shared";
+import { EmptyState, ErrorNote, Spinner } from "@/components/Shared";
 import { HomeworkForm } from "@/components/tutor/HomeworkForm";
+import { LibraryFilters } from "@/components/tutor/LibraryFilters";
+import { useLibraryFilter } from "@/hooks/useLibraryFilter";
+import { NO_FILTER, isFiltered } from "@/lib/curriculum/libraryFilter";
 import { deleteHomework } from "@/lib/homework/homework.functions";
 import { useHomeworkLibrary, useHomeworkLibraryCounts } from "@/hooks/data/useHomework";
 import { useEntryState } from "@/hooks/useEntryState";
@@ -39,11 +42,14 @@ export function HomeworkLibrary({ userId, onChanged }: { userId: string; onChang
   // Kept with the visit, so Back from a sheet finds the library open on it.
   const [open, setOpen] = useEntryState("library.open", false);
   const [filter, setFilter] = useEntryState<Filter>("library.filter", "tutor");
+  const [narrow, setNarrow, settled] = useLibraryFilter("library.narrow");
 
   // Counted and paged on the server: there's a generated sheet for every spec
-  // point, and one read of them all stopped at 1,000 rows (S-17b).
-  const { data: counts } = useHomeworkLibraryCounts();
-  const library = useHomeworkLibrary({ origin: filter, enabled: open });
+  // point, and one read of them all stopped at 1,000 rows (S-17b). The heading
+  // counts the whole library; the chips count what the filters leave.
+  const { data: total } = useHomeworkLibraryCounts({ filter: NO_FILTER });
+  const { data: counts } = useHomeworkLibraryCounts({ filter: settled, enabled: open });
+  const library = useHomeworkLibrary({ origin: filter, filter: settled, enabled: open });
   const loading = library.isPending;
 
   // A row that moved between pages while they were read shouldn't show twice.
@@ -64,7 +70,7 @@ export function HomeworkLibrary({ userId, onChanged }: { userId: string; onChang
           <ClipboardList className="text-muted-foreground size-4" />
           Task library
           <span className="bg-secondary text-muted-foreground inline-flex h-5 min-w-5 items-center justify-center rounded-full px-1.5 text-[11px]">
-            {counts ? counts.all : "…"}
+            {total ? total.all : "…"}
           </span>
         </span>
         <ChevronDown
@@ -74,6 +80,11 @@ export function HomeworkLibrary({ userId, onChanged }: { userId: string; onChang
 
       {open && (
         <div className="border-border border-t p-4 sm:p-5">
+          <LibraryFilters
+            value={narrow}
+            onChange={setNarrow}
+            searchLabel="Search tasks by title or spec code"
+          />
           <div className="mb-4 flex flex-wrap gap-2">
             {(Object.keys(FILTER_LABEL) as Filter[]).map((key) => (
               <button
@@ -92,6 +103,8 @@ export function HomeworkLibrary({ userId, onChanged }: { userId: string; onChang
             <ErrorNote error={library.error} onRetry={() => void library.refetch()} />
           ) : loading ? (
             <Spinner label="Loading tasks" className="py-8" />
+          ) : shown.length === 0 && isFiltered(settled) ? (
+            <EmptyState compact title="No tasks match" />
           ) : shown.length === 0 ? (
             <p className="text-muted-foreground text-sm">
               {filter === "tutor"

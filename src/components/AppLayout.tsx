@@ -365,7 +365,8 @@ export function AppLayout({ title, children }: { title: string; children: ReactN
             {/* Which spec this student is on, stated on every page — it decides
                 everything they're shown, and it used to appear nowhere after the
                 onboarding step that set it. */}
-            <CourseBadge followsSlider={showSubjectSlider} />
+            {/* A tutor teaches every course and is enrolled on none. */}
+            {!isTutor && <CourseBadge followsSlider={showSubjectSlider} />}
           </div>
           {/* The subject every student page is showing, beside the course chip
               when the header has room. Below `xl` it doesn't fit beside the
@@ -374,16 +375,20 @@ export function AppLayout({ title, children }: { title: string; children: ReactN
               cuts the page title short. */}
           {showSubjectSlider && <HeaderSubjectToggle className="hidden xl:block" />}
           <div className="ml-auto flex flex-wrap items-center gap-2 sm:gap-3 short:shrink-0 short:flex-nowrap short:gap-2">
-            <StudentGuide
-              key={`${pathname}:${title}`}
-              pageTitle={title}
-              guideKey={pathname.includes("/mcq/") ? "MCQ" : title}
-              // On a home page the button replays the welcome tour, which starts
-              // there by itself the first time (see WelcomeTour).
-              welcome={
-                !isDemo && (pathname === "/student-dashboard" || pathname === "/parent-dashboard")
-              }
-            />
+            {/* Every guide is written for a student or a parent; a tutor's
+                pages are a different set of tools. */}
+            {!isTutor && (
+              <StudentGuide
+                key={`${pathname}:${title}`}
+                pageTitle={title}
+                guideKey={pathname.includes("/mcq/") ? "MCQ" : title}
+                // On a home page the button replays the welcome tour, which starts
+                // there by itself the first time (see WelcomeTour).
+                welcome={
+                  !isDemo && (pathname === "/student-dashboard" || pathname === "/parent-dashboard")
+                }
+              />
+            )}
             {isStudentContext && (
               <HeaderLiveButton liveHref={isDemo ? "/demo/student/live" : "/live"} />
             )}
