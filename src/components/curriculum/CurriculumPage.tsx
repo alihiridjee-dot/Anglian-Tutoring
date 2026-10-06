@@ -36,6 +36,7 @@ import { TopicCard } from "@/components/curriculum/TopicCard";
 import { TopicCreate } from "@/components/curriculum/TopicCreate";
 import { labelOf } from "@/components/curriculum/styles";
 import { CourseChip } from "@/components/CourseBadge";
+import { isDemoStudent } from "@/lib/demo/studentDemo";
 
 export function Curriculum() {
   const { isTutor, userId } = useRoles();
@@ -97,7 +98,11 @@ export function Curriculum() {
   // covered, and when each uncovered point comes up. Only for a course they are
   // actually on — a tutor, or a subject they don't take, has no plan to show.
   const now = currentWeekKey();
+  // Never in the showcase. Its course is the fixture's, but `userId` is
+  // whoever is signed in to this browser, and loading a roadmap can seed that
+  // real student's programme — here, with the demo's board.
   const onOwnCourse =
+    !isDemoStudent() &&
     !isTutor &&
     !!userId &&
     ent.entitledSubjects.includes(subject) &&
@@ -300,9 +305,13 @@ export function Curriculum() {
           to Chemistry repaints every card, meter and shadow below in violet
           without a single conditional class in the markup. */}
       <div className={subjectTint(subject)}>
+        {/* Only a tutor has the level, board and subject pickers below. A
+            student's course is already set, and their subject is the header
+            slider's, so their invitation is to search or open a topic. */}
         <p className="text-muted-foreground mb-6 max-w-2xl">
-          Explore interactive specification points across chemistry, physics, and biology. Select
-          your level, exam board, and subject to begin.
+          {isTutor
+            ? "Explore interactive specification points across chemistry, physics, and biology. Select your level, exam board, and subject to begin."
+            : "Explore every specification point on your course, topic by topic. Search for one, or open a topic to begin."}
         </p>
 
         <div data-guide="curriculum-filters" className="rounded-2xl premium-card p-4 sm:p-5 mb-6">

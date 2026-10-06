@@ -81,7 +81,12 @@ export function StudentDashboard({
       {/* Live sessions — hoisted out of the "This Week" hub into its own banner so
           it stands apart from the study plan below. */}
       <div data-tour="live-banner">
-        <LiveSessionsBanner subject={activeSubject} />
+        <LiveSessionsBanner
+          subject={activeSubject}
+          // /live is a signed-in page: from the showcase it would bounce the
+          // visitor out of the demo.
+          to={isDemoStudent() ? "/demo/student/live" : "/live"}
+        />
       </div>
 
       {/* Saved weekly assignments, assessed practice, and end-of-week feedback. */}

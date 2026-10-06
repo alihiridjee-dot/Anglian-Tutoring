@@ -13,6 +13,9 @@ import { isDemoStudent } from "@/lib/demo/studentDemo";
 import { parseVideoUrl, type VideoEmbed } from "@/lib/curriculum/videoEmbed";
 import { SpecPointVideoEditor, type EditableVideo } from "@/components/tutor/SpecPointVideoEditor";
 import { useSpecPointNotes } from "@/hooks/data/useNotes";
+import { Chip } from "@/components/Shared";
+import { formatWhen } from "@/lib/live/liveSessions";
+import { plannerDateLabel } from "@/lib/planner/week";
 import {
   Plus,
   Pencil,
@@ -176,11 +179,13 @@ export function SpecPointDetail({
                   className="flex flex-wrap items-center justify-between gap-2 px-3.5 py-3 rounded-xl bg-secondary/10 border border-border"
                 >
                   <div className="flex items-center gap-2 min-w-0">
-                    <span
-                      className={`text-[9px] px-1.5 py-0.5 rounded font-bold shrink-0 uppercase tracking-wider ${s.published ? "bg-emerald-500/15 text-emerald-600 dark:text-emerald-400" : "bg-muted text-muted-foreground"}`}
-                    >
-                      {s.published ? "Published" : "Draft"}
-                    </span>
+                    {/* Publishing is the tutor's business: a student only
+                        ever sees the published sets, so it says nothing to them. */}
+                    {isTutor && (
+                      <Chip tint={s.published ? "tint-emerald" : "tint-slate"} className="shrink-0">
+                        {s.published ? "Published" : "Draft"}
+                      </Chip>
+                    )}
                     <span className="text-sm font-semibold break-words min-w-0 text-foreground">
                       {s.title}
                     </span>
@@ -290,7 +295,7 @@ export function SpecPointDetail({
             <div className="flex items-start justify-between gap-2 w-full text-sm font-semibold text-foreground leading-snug">
               <span>{n.title}</span>
               <Link
-                to="/notes/$conceptId"
+                to={isDemoStudent() ? "/demo/student/notes/$conceptId" : "/notes/$conceptId"}
                 params={{ conceptId: n.id }}
                 className="tap-target inline-flex items-center shrink-0 text-[10px] px-2 py-0.5 rounded btn-solid font-bold"
               >
@@ -327,7 +332,7 @@ export function SpecPointDetail({
               )}
               {r.starts_at && (
                 <span className="text-[10px] text-muted-foreground uppercase tracking-wider font-bold">
-                  Starts: {new Date(r.starts_at).toLocaleString()}
+                  Starts: {formatWhen(new Date(r.starts_at).getTime())}
                 </span>
               )}
             </div>
@@ -360,7 +365,7 @@ export function SpecPointDetail({
               )}
               {r.due_at && (
                 <span className="text-[10px] text-muted-foreground uppercase tracking-wider font-bold">
-                  due {new Date(r.due_at).toLocaleDateString()}
+                  due {plannerDateLabel(new Date(r.due_at))}
                 </span>
               )}
             </div>

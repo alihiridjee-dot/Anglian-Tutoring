@@ -1,7 +1,7 @@
 import { ReturningTopicInfo } from "./ReturningTopicInfo";
 import { NothingDue } from "./NothingDue";
 import { CatchUpWeek } from "./CatchUpWeek";
-import { PLANNER_TIME_ZONE, weekKeyToDate } from "@/lib/planner/week";
+import { PLANNER_TIME_ZONE, plannerDateLabel, weekKeyToDate } from "@/lib/planner/week";
 import { Meter } from "@/components/Shared";
 import {
   CircleDot,
@@ -66,7 +66,7 @@ export function WeekProgressCard({
           <Lock className="mt-0.5 size-4 shrink-0 text-[color:var(--tint)]" aria-hidden />
           <span>
             Your week in review opens{" "}
-            {lock.opensOn.toLocaleDateString(undefined, {
+            {lock.opensOn.toLocaleDateString("en-GB", {
               timeZone: PLANNER_TIME_ZONE,
               weekday: "long",
               day: "numeric",
@@ -219,7 +219,10 @@ export function RevisionLane({
         <>
           <p className="eyebrow eyebrow-bare text-xs flex items-center gap-2 mb-3">
             <Repeat className="size-4" />
-            Revision<span className="chip ml-auto text-xs">{focusPointCount} points</span>
+            Revision
+            <span className="chip ml-auto text-xs">
+              {focusPointCount} {focusPointCount === 1 ? "point" : "points"}
+            </span>
           </p>
           <div className="space-y-5">
             {focus.map((g) => (
@@ -304,11 +307,6 @@ function SpecPointList({ children }: { children: React.ReactNode }) {
 
 /** "13 Jul – 16 Aug" for a band's week keys. */
 function fmtRange(startWeek: string, endWeek: string): string {
-  const fmt = (k: string) =>
-    weekKeyToDate(k).toLocaleDateString(undefined, {
-      timeZone: PLANNER_TIME_ZONE,
-      day: "numeric",
-      month: "short",
-    });
+  const fmt = (k: string) => plannerDateLabel(weekKeyToDate(k));
   return `${fmt(startWeek)} – ${fmt(endWeek)}`;
 }

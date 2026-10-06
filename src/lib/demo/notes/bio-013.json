@@ -1,0 +1,337 @@
+{
+  "boards": {
+    "edexcel": {
+      "spec_codes": [
+        "EDEX 1.16"
+      ],
+      "worked_example": {
+        "answer_points": [
+          "Repeat with different salt concentrations.",
+          "Use concentrations between the dilute and the concentrated solution already used.",
+          "Make repeated readings at each concentration and find an average.",
+          "Plot a graph and find the concentration where the line crosses the x axis, which is the concentration with no mass change.",
+          "Control the other variables, for example temperature."
+        ],
+        "exemplar_id": "ee79f4bf-a75a-40fe-bf9a-9abe9b828925",
+        "marks": 3,
+        "question": "A student investigated the movement of water in potatoes.\nThe student used three identical cubes of potato.\nOne cube was placed in water and each of the other two cubes were placed in solutions with different concentrations of salt.\nThe cubes were left for 20 minutes.\nThe student wanted to find the concentration of salt solution where the potato cube did not change mass.\n\nDescribe how the student could modify this investigation to find this concentration.",
+        "source": "EDEXCEL jun 2023, Paper 1 (H), Q8(a)(iv)",
+        "tip": "Any three score one mark each."
+      }
+    }
+  },
+  "checks": [
+    {
+      "a": "Water on the surface would increase the mass, so the mass of the potato alone would not be measured.",
+      "marks": 1,
+      "q": "Why is each piece of potato blotted dry before it is weighed?"
+    },
+    {
+      "a": "The pieces have different starting masses. Percentage change takes this into account so the results can be compared.",
+      "marks": 1,
+      "q": "Why is percentage change in mass calculated rather than just the change in mass?"
+    },
+    {
+      "a": "Change = 0.25 g. 0.25 ÷ 7.96 × 100 = 3.14%.",
+      "marks": 3,
+      "q": "A potato piece has a mass of 7.96 g at the start and 8.21 g at the end. Calculate the percentage change in mass to 3 significant figures."
+    }
+  ],
+  "concept_id": "bio-013",
+  "format": 1,
+  "key_idea": "In this practical, pieces of potato are left in solutions of different concentrations and weighed before and after. Water moves in or out by osmosis, so the mass changes. Plotting percentage change in mass against concentration shows the concentration at which there is no change.",
+  "meta": {
+    "checked_at": "2026-10-01",
+    "checked_by": "sonnet-science-check",
+    "exemplar_ids": [
+      "b20e00fb-c9b8-4d6b-b035-a206bc2fdf12",
+      "ee79f4bf-a75a-40fe-bf9a-9abe9b828925",
+      "a4f69bdc-b1af-4c06-baba-6b79c080e469"
+    ],
+    "spec_point_ids": [
+      "demo-sp-osmosis-practical"
+    ],
+    "status": "approved",
+    "written_at": "2026-10-01",
+    "written_by": "writer-c"
+  },
+  "sections": [
+    {
+      "blocks": [
+        {
+          "text": "Potato cells have a partially permeable membrane, so water moves across it by **osmosis**. This section covers what to expect and which variables matter.",
+          "type": "paragraph"
+        },
+        {
+          "columns": [
+            "Solution outside the potato",
+            "Water movement",
+            "Mass of the potato"
+          ],
+          "rows": [
+            [
+              "More dilute than the cell contents",
+              "Water enters the potato",
+              "Goes up"
+            ],
+            [
+              "Same concentration as the cell contents",
+              "No overall movement",
+              "Stays the same"
+            ],
+            [
+              "More concentrated than the cell contents",
+              "Water leaves the potato",
+              "Goes down"
+            ]
+          ],
+          "type": "table"
+        },
+        {
+          "text": "The concentration where the mass does not change matches the concentration inside the potato cells.",
+          "type": "paragraph"
+        },
+        {
+          "text": "The variables",
+          "type": "subheading"
+        },
+        {
+          "columns": [
+            "Type of variable",
+            "In this investigation"
+          ],
+          "rows": [
+            [
+              "Independent (what you change)",
+              "The concentration of the salt or sugar solution"
+            ],
+            [
+              "Dependent (what you measure)",
+              "The mass of the potato piece, used to find the percentage change in mass"
+            ],
+            [
+              "Control (kept the same)",
+              "Same type of potato, no skin, same size and mass of piece, same volume of solution, same time in the solution, same temperature, same solute"
+            ]
+          ],
+          "type": "table"
+        },
+        {
+          "items": [
+            "Dilute outside: mass goes up. Concentrated outside: mass goes down.",
+            "No change in mass means the solution matches the cell contents.",
+            "Change the concentration. Keep everything else the same."
+          ],
+          "type": "key-points"
+        }
+      ],
+      "heading": "What the practical investigates"
+    },
+    {
+      "blocks": [
+        {
+          "text": "Follow these steps in order.",
+          "type": "paragraph"
+        },
+        {
+          "diagram": {
+            "alt": "Seven steps in order: cut equal potato pieces, weigh each piece, put each piece in a different concentration, leave for the same time, blot dry and reweigh, calculate percentage change, plot a graph.",
+            "kind": "flow",
+            "steps": [
+              "Cut equal potato pieces",
+              "Weigh each piece",
+              "Place in different concentrations",
+              "Leave for the same time",
+              "Blot dry and reweigh",
+              "Calculate percentage change",
+              "Plot a graph"
+            ]
+          },
+          "type": "diagram"
+        },
+        {
+          "items": [
+            {
+              "lead": "Prepare the potato.",
+              "text": "Use the same potato. Remove the skin, because water cannot move through it. Cut equal pieces, for example with a cork borer."
+            },
+            {
+              "lead": "Prepare the solutions.",
+              "text": "Label a tube for each concentration (at least three, ideally five), including 0.0 mol/dm³ (distilled water). Use the same volume in each, enough to cover the piece."
+            },
+            {
+              "lead": "Weigh the pieces.",
+              "text": "Dry each piece on a paper towel. Weigh it and record the starting mass."
+            },
+            {
+              "lead": "Start.",
+              "text": "Put one piece in each tube, fully submerged, all at the same temperature."
+            },
+            {
+              "lead": "Wait.",
+              "text": "Leave them for the same time, at least 10 minutes. Longer gives larger changes."
+            },
+            {
+              "lead": "Reweigh.",
+              "text": "Remove each piece and blot it dry in the same way. Weigh it and record the final mass."
+            },
+            {
+              "lead": "Repeat.",
+              "text": "Do each concentration at least three times so that you can calculate a mean."
+            }
+          ],
+          "type": "steps"
+        },
+        {
+          "text": "Blot each piece dry. Water left on the surface adds to the mass and gives a false result.",
+          "type": "paragraph"
+        },
+        {
+          "items": [
+            "Weigh before and after, and blot dry both times.",
+            "Same time, same temperature, same volume, same size of piece.",
+            "Repeat each concentration at least three times."
+          ],
+          "type": "key-points"
+        }
+      ],
+      "heading": "The method"
+    },
+    {
+      "blocks": [
+        {
+          "text": "Work out the change in mass for each piece. Then use percentage change, so that pieces with different starting masses can be compared.",
+          "type": "paragraph"
+        },
+        {
+          "formula": "percentage change in mass = (change in mass ÷ mass at the start) × 100",
+          "label": "Percentage change in mass",
+          "type": "equation",
+          "where": [
+            "change in mass = final mass − starting mass, in g",
+            "mass at the start, in g"
+          ]
+        },
+        {
+          "items": [
+            {
+              "lead": "Change.",
+              "text": "A piece goes from 7.96 g to 8.21 g. The change is 0.25 g."
+            },
+            {
+              "lead": "Calculate.",
+              "text": "0.25 ÷ 7.96 × 100 = 3.14%."
+            },
+            {
+              "lead": "Sign.",
+              "text": "A gain is positive. A loss is negative, written with a minus sign."
+            }
+          ],
+          "type": "steps"
+        },
+        {
+          "text": "Round to the number of significant figures the question asks for.",
+          "type": "paragraph"
+        },
+        {
+          "items": [
+            {
+              "meaning": "The total of the repeats divided by the number of repeats.",
+              "term": "Mean"
+            },
+            {
+              "meaning": "A result that does not fit the pattern. Leave it out of the mean.",
+              "term": "Anomalous result"
+            }
+          ],
+          "type": "definitions"
+        },
+        {
+          "text": "The graph",
+          "type": "subheading"
+        },
+        {
+          "items": [
+            "Concentration on the x axis, mean percentage change on the y axis.",
+            "Draw a line of best fit.",
+            "Where the line crosses **zero**, the piece neither gains nor loses mass.",
+            "At that concentration the solution outside matches the solution inside the cells.",
+            "If the points are too far apart to read this, repeat with more concentrations close to the crossing point."
+          ],
+          "type": "list"
+        },
+        {
+          "items": [
+            "Percentage change = change ÷ starting mass × 100.",
+            "A loss in mass is a negative percentage.",
+            "The zero crossing on the graph is the answer."
+          ],
+          "type": "key-points"
+        }
+      ],
+      "heading": "Results and calculations"
+    },
+    {
+      "blocks": [
+        {
+          "text": "Exam questions ask how reliable the results are and how to improve them.",
+          "type": "paragraph"
+        },
+        {
+          "items": [
+            {
+              "meaning": "The same person gets the same result when they repeat the experiment.",
+              "term": "Repeatable"
+            },
+            {
+              "meaning": "A different person, or different equipment or method, gets the same result.",
+              "term": "Reproducible"
+            },
+            {
+              "meaning": "An error that changes from piece to piece, such as excess liquid left on a piece.",
+              "term": "Random error"
+            },
+            {
+              "meaning": "An error that is the same every time, such as an uncalibrated balance.",
+              "term": "Systematic error"
+            }
+          ],
+          "type": "definitions"
+        },
+        {
+          "text": "Improvements",
+          "type": "subheading"
+        },
+        {
+          "items": [
+            "Use more concentrations, so the point of no change can be found more precisely.",
+            "Use a balance that reads to more decimal places, to measure small changes in mass.",
+            "Use the same potato, skin removed, with pieces of the same size.",
+            "Keep the time in the solution and the temperature the same.",
+            "Repeat readings to spot anomalous results."
+          ],
+          "type": "list"
+        },
+        {
+          "text": "Boiled potato control",
+          "type": "subheading"
+        },
+        {
+          "text": "A boiled potato shows no change in mass. Boiling damages the membrane, so it is no longer partially permeable.",
+          "type": "paragraph"
+        },
+        {
+          "items": [
+            "Repeatable: same person repeats it. Reproducible: someone else does it.",
+            "Boiled potato: damaged membrane, so no osmosis.",
+            "More concentrations near the zero crossing give a more precise answer."
+          ],
+          "type": "key-points"
+        }
+      ],
+      "heading": "Evaluating the investigation"
+    }
+  ],
+  "subject": "biology",
+  "title": "Core practical: osmosis in plant tissue"
+}

@@ -1,0 +1,225 @@
+{
+  "boards": {
+    "edexcel": {
+      "spec_codes": [
+        "EDEX 6.3"
+      ],
+      "worked_example": {
+        "answer_points": [
+          "They have chlorophyll / chloroplasts, which absorb (sun)light.",
+          "They carry out photosynthesis, in which water reacts with carbon dioxide (a word or symbol equation is accepted)."
+        ],
+        "exemplar_id": "31a9fa3e-2215-4bc8-b883-90abf4810088",
+        "marks": 2,
+        "question": "Some small plants are growing in the ground between the trees in a woodland. The leaves of the small plants are green.\n\nDescribe how these plants make glucose.",
+        "source": "EDEXCEL nov 2021, Paper 2 (F), Q8(a)",
+        "tip": "Any two of the four points earn the two marks: chlorophyll or chloroplasts, photosynthesis, absorbing light, water reacting with carbon dioxide."
+      }
+    }
+  },
+  "checks": [
+    {
+      "a": "carbon dioxide + water → glucose + oxygen (light energy is needed).",
+      "marks": 3,
+      "q": "Write the word equation for photosynthesis."
+    },
+    {
+      "a": "They absorb light. The light is trapped by chlorophyll in the chloroplasts.",
+      "marks": 2,
+      "q": "Describe how plants gain the energy for photosynthesis."
+    },
+    {
+      "a": "The algae carry out photosynthesis, which produces oxygen.",
+      "marks": 2,
+      "q": "The number of green algae in a river increases. Explain why the concentration of dissolved oxygen increases."
+    }
+  ],
+  "concept_id": "bio-055",
+  "format": 1,
+  "key_idea": "Plants and algae make their own food by photosynthesis. Carbon dioxide and water react to make glucose and oxygen. The reaction is endothermic: it takes in light energy, absorbed by chlorophyll in the chloroplasts.",
+  "meta": {
+    "checked_at": "2026-10-01",
+    "checked_by": "sonnet-science-check",
+    "exemplar_ids": [
+      "37a795eb-646c-4b5a-92a8-6a5722f65733",
+      "31a9fa3e-2215-4bc8-b883-90abf4810088",
+      "d2d9b868-83f3-435f-92e4-40da0549fe55"
+    ],
+    "spec_point_ids": [
+      "demo-sp-photosynthesis"
+    ],
+    "status": "approved",
+    "written_at": "2026-10-01",
+    "written_by": "sonnet-5-5"
+  },
+  "sections": [
+    {
+      "blocks": [
+        {
+          "text": "Photosynthesis is a chemical reaction. This section covers what goes in, what comes out and how to write it.",
+          "type": "paragraph"
+        },
+        {
+          "items": [
+            {
+              "meaning": "The reaction in plants and algae that makes glucose and oxygen from carbon dioxide and water, using light energy.",
+              "term": "Photosynthesis"
+            },
+            {
+              "meaning": "The green substance that absorbs light for photosynthesis.",
+              "term": "Chlorophyll"
+            },
+            {
+              "meaning": "The part of a plant or algal cell that contains chlorophyll, where photosynthesis happens.",
+              "term": "Chloroplast"
+            }
+          ],
+          "type": "definitions"
+        },
+        {
+          "formula": "carbon dioxide + water → glucose + oxygen",
+          "label": "Word equation for photosynthesis",
+          "type": "equation",
+          "where": [
+            "carbon dioxide and water are the reactants",
+            "glucose and oxygen are the products",
+            "light energy is needed, and chlorophyll absorbs it (both are written above the arrow)"
+          ]
+        },
+        {
+          "formula": "6CO₂ + 6H₂O → C₆H₁₂O₆ + 6O₂",
+          "label": "Symbol equation for photosynthesis",
+          "type": "equation",
+          "where": [
+            "CO₂ is carbon dioxide",
+            "H₂O is water",
+            "C₆H₁₂O₆ is glucose",
+            "O₂ is oxygen",
+            "the reaction is endothermic, with light and chlorophyll above the arrow"
+          ]
+        },
+        {
+          "text": "Sort each substance below by whether photosynthesis takes it in or makes it.",
+          "type": "paragraph"
+        },
+        {
+          "diagram": {
+            "alt": "Sort carbon dioxide, water, light energy, glucose and oxygen into the things photosynthesis takes in and the things it makes.",
+            "groups": [
+              "Taken in",
+              "Made"
+            ],
+            "items": [
+              {
+                "group": 0,
+                "text": "Carbon dioxide"
+              },
+              {
+                "group": 0,
+                "text": "Water"
+              },
+              {
+                "group": 0,
+                "text": "Light energy"
+              },
+              {
+                "group": 1,
+                "text": "Glucose"
+              },
+              {
+                "group": 1,
+                "text": "Oxygen"
+              }
+            ],
+            "kind": "sort",
+            "prompt": "Does photosynthesis take it in, or make it?"
+          },
+          "type": "diagram"
+        },
+        {
+          "items": [
+            "Carbon dioxide + water → glucose + oxygen.",
+            "Glucose and oxygen are the two products.",
+            "Know the symbols CO₂, H₂O, C₆H₁₂O₆ and O₂."
+          ],
+          "type": "key-points"
+        }
+      ],
+      "heading": "The photosynthesis equation"
+    },
+    {
+      "blocks": [
+        {
+          "text": "Photosynthesis needs energy. This section covers where the energy comes from and where the reaction happens.",
+          "type": "paragraph"
+        },
+        {
+          "items": [
+            {
+              "meaning": "A reaction that takes in energy from the surroundings.",
+              "term": "Endothermic"
+            }
+          ],
+          "type": "definitions"
+        },
+        {
+          "items": [
+            "Photosynthesis is an **endothermic** reaction.",
+            "The energy is transferred from the environment to the chloroplasts by **light**.",
+            "Chlorophyll in the chloroplasts absorbs (traps) the light.",
+            "Algae also photosynthesise, because they have chlorophyll."
+          ],
+          "type": "list"
+        },
+        {
+          "items": [
+            "Photosynthesis is endothermic: it takes in energy.",
+            "The energy comes from light, absorbed by chlorophyll in the chloroplasts."
+          ],
+          "type": "key-points"
+        }
+      ],
+      "heading": "An endothermic reaction in the chloroplasts"
+    },
+    {
+      "blocks": [
+        {
+          "text": "Photosynthesis is how energy from light enters living things. This section covers why plants and algae matter to every food chain.",
+          "type": "paragraph"
+        },
+        {
+          "items": [
+            {
+              "meaning": "An organism that makes its own food, here by photosynthesis.",
+              "term": "Producer"
+            },
+            {
+              "meaning": "The mass of living material.",
+              "term": "Biomass"
+            }
+          ],
+          "type": "definitions"
+        },
+        {
+          "items": [
+            "Plants and algae are the main **producers** of food on Earth.",
+            "The glucose they make is used to build their biomass.",
+            "Other organisms get their food, and so their biomass, from plants and algae.",
+            "Photosynthesis also releases oxygen. When the number of algae in a river rises, the dissolved oxygen concentration rises."
+          ],
+          "type": "list"
+        },
+        {
+          "items": [
+            "Photosynthetic organisms are the main producers of food and biomass.",
+            "Algae photosynthesise too, so they add oxygen to water."
+          ],
+          "type": "key-points"
+        }
+      ],
+      "heading": "Producers and biomass"
+    }
+  ],
+  "subject": "biology",
+  "title": "Photosynthesis"
+}

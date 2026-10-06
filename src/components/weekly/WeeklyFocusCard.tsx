@@ -1,5 +1,5 @@
 import { useMemo, useState } from "react";
-import { BookMarked } from "lucide-react";
+import { BookMarked, MessageSquareQuote } from "lucide-react";
 import {
   useWeeklyFocus,
   useWeeklyFocusVideos,
@@ -12,13 +12,15 @@ import { parseVideoUrl } from "@/lib/curriculum/videoEmbed";
 import { VideoThumbnail, VideoModal } from "@/components/VideoPlayer";
 import { LiveSessionsBanner } from "@/components/live/LiveSessionsBanner";
 import { levelLabel, subjectLabel } from "@/lib/curriculum/courseSummary";
-import { Spinner } from "@/components/Shared";
+import { SciText, Spinner } from "@/components/Shared";
+import { NoteChip } from "@/components/planner/WorkChips";
+import { useSpecPointNotes } from "@/hooks/data/useNotes";
 
 /**
  * Student "From your tutor" card. Shows the spec points the tutor pinned into
  * this student's current Mon–Sun week, grouped by subject and limited to the
- * student's enrolments, with the videos linked to them and an optional
- * live-session strip.
+ * student's enrolments, with the tutor's note where there is one, the videos
+ * linked to them and an optional live-session strip.
  */
 export function WeeklyFocusCard({
   studentId,
@@ -45,6 +47,7 @@ export function WeeklyFocusCard({
   // show each under the plan whose points it matches.
   const allPointIds = useMemo(() => plans.flatMap((p) => p.points.map((pt) => pt.id)), [plans]);
   const { videos } = useWeeklyFocusVideos(allPointIds);
+  const { data: notesByPoint } = useSpecPointNotes(allPointIds);
   const [playing, setPlaying] = useState<RelatedVideo | null>(null);
 
   return (
@@ -98,25 +101,51 @@ export function WeeklyFocusCard({
                     </span>
                   </div>
 
+                  {/* The tutor's word on this subject, labelled and voiced like
+                      the weekly note students read on their planner. */}
+                  {plan.note && (
+                    <figure className="premium-card p-3.5">
+                      <figcaption className="flex items-center gap-2">
+                        <span className="icon-tile size-7 shrink-0">
+                          <MessageSquareQuote className="size-4" aria-hidden />
+                        </span>
+                        <span className="font-display text-sm font-bold">Ali's take</span>
+                      </figcaption>
+                      <blockquote className="mt-2 text-sm leading-relaxed whitespace-pre-wrap">
+                        <SciText text={plan.note} />
+                      </blockquote>
+                    </figure>
+                  )}
+
                   {/* The points themselves, in the open — they are the reason this
                       card exists, and a dropdown hid the tutor's actual choice. */}
                   <ul className="space-y-1.5">
-                    {plan.points.map((p) => (
-                      <li
-                        key={p.id}
-                        className="flex items-start gap-2 rounded-lg border border-border bg-card/60 px-2.5 py-2"
-                      >
-                        <span className="font-mono text-[11px] text-primary bg-primary/10 px-1.5 py-0.5 rounded shrink-0">
-                          {p.code}
-                        </span>
-                        <span className="text-sm leading-snug">
-                          <span className="font-medium text-foreground">{p.title}</span>
-                          {p.topicLabel && (
-                            <span className="text-muted-foreground"> — {p.topicLabel}</span>
+                    {plan.points.map((p) => {
+                      const note = notesByPoint?.get(p.id)?.[0];
+                      return (
+                        <li
+                          key={p.id}
+                          className="flex items-start gap-2 rounded-lg border border-border bg-card/60 px-2.5 py-2"
+                        >
+                          <span className="font-mono text-[11px] text-primary bg-primary/10 px-1.5 py-0.5 rounded shrink-0">
+                            {p.code}
+                          </span>
+                          <span className="text-sm leading-snug">
+                            <span className="font-medium text-foreground">{p.title}</span>
+                            {p.topicLabel && (
+                              <span className="text-muted-foreground"> — {p.topicLabel}</span>
+                            )}
+                          </span>
+                          {/* The point's own revision note, one press away — the same
+                            "Read" the weekly task list offers. */}
+                          {note && (
+                            <span className="ml-auto shrink-0">
+                              <NoteChip note={note} label="Read" />
+                            </span>
                           )}
-                        </span>
-                      </li>
-                    ))}
+                        </li>
+                      );
+                    })}
                   </ul>
 
                   {planVideos.length > 0 && (

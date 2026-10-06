@@ -35,7 +35,7 @@ export function PageHeader({
   icon: Icon,
   children,
 }: {
-  eyebrow?: string;
+  eyebrow?: ReactNode;
   title: string;
   lede?: string;
   icon?: LucideIcon;

@@ -246,13 +246,17 @@ export function AppLayout({ title, children }: { title: string; children: ReactN
             );
           })}
           <div className="mt-auto">
+            {/* The showcase has no session of its own, but a visitor may be
+                signed in to a real account in this browser: a sign-out here
+                would end that one. It leaves the demo instead, as the banner's
+                Exit Sandbox does, and never touches auth. */}
             <button
-              onClick={signOut}
-              title="Sign out"
+              onClick={isDemo ? handleExitDemo : signOut}
+              title={isDemo ? "Exit demo" : "Sign out"}
               className="w-full flex min-h-11 items-center gap-3 px-3 py-2.5 rounded-lg text-sm text-sidebar-foreground/70 hover:text-destructive hover:bg-destructive/10"
             >
               <LogOut className="w-5 h-5 shrink-0" />
-              <span className={labelClass}>Sign out</span>
+              <span className={labelClass}>{isDemo ? "Exit demo" : "Sign out"}</span>
             </button>
           </div>
         </aside>
@@ -291,7 +295,8 @@ export function AppLayout({ title, children }: { title: string; children: ReactN
                 <Compass className="size-3.5" aria-hidden /> Guided tour
               </button>
               <Link
-                to="/"
+                to="/auth"
+                search={{ mode: "signup" }}
                 className="bg-card text-primary hover:bg-card/90 shrink-0 rounded-lg border-[1.5px] border-white/40 px-3.5 py-1.5 text-xs font-extrabold shadow-[0_2px_0_0_rgba(0,0,0,0.18)] transition"
               >
                 Join Now
