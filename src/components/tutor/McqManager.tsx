@@ -1,6 +1,5 @@
-import { Spinner } from "@/components/Shared";
 import { Link } from "@tanstack/react-router";
-import { useInfiniteQuery, useQueryClient } from "@tanstack/react-query";
+import { useInfiniteQuery, useQuery, useQueryClient } from "@tanstack/react-query";
 import { useMemo, useState } from "react";
 import { supabase } from "@/integrations/supabase/client";
 import { toast } from "sonner";
@@ -14,6 +13,12 @@ import {
   FileQuestion,
   Wand2,
 } from "lucide-react";
+import { EmptyState, Spinner } from "@/components/Shared";
+import { LibraryFilters } from "@/components/tutor/LibraryFilters";
+import { useLibraryFilter } from "@/hooks/useLibraryFilter";
+import { useEntryState } from "@/hooks/useEntryState";
+import { courseParts, isFiltered, type LibraryFilter } from "@/lib/curriculum/libraryFilter";
+import { ilikePattern } from "@/lib/search/match";
 
 // Tutor-facing counterpart to the student MCQs page. Same route (/mcqs), entirely
 // different view: instead of "Take Quiz" cards this lists every set the tutor owns
@@ -33,6 +38,40 @@ type ManagedSet = {
 /** Sets per request. */
 const PAGE = 50;
 
+type Status = "all" | "live" | "draft";
+
+const STATUS_LABEL: Record<Status, string> = { all: "All", live: "Live", draft: "Draft" };
+
+/**
+ * The tutor's sets, narrowed by the filters. A set's board and level live on
+ * its spec point's topic, so a course or topic filter joins through it (and
+ * passes over a set with no spec point); subject and title are on the set.
+ */
+function setsRead(columns: string, status: Status, filter: LibraryFilter, head = false) {
+  const course = courseParts(filter.course);
+  let q = supabase
+    .from("mcq_sets")
+    .select(
+      course || filter.topicId
+        ? `${columns}, spec_points!inner(topic_id, topics!inner(board, level))`
+        : columns,
+      { count: "exact", head },
+    );
+  if (status !== "all") q = q.eq("published", status === "live");
+  if (filter.subject) q = q.eq("subject", filter.subject);
+  if (course)
+    q = q.eq("spec_points.topics.board", course.board).eq("spec_points.topics.level", course.level);
+  if (filter.topicId) q = q.eq("spec_points.topic_id", filter.topicId);
+  const pattern = ilikePattern(filter.q);
+  if (pattern) q = q.ilike("title", pattern);
+  return q;
+}
+
+type SetRow = Omit<ManagedSet, "questionCount" | "attemptCount"> & {
+  mcq_questions: { id: string }[];
+  mcq_attempts: { count: number }[];
+};
+
 /**
  * The tutor's quiz sets, a page at a time, each with its question and attempt
  * counts worked out by the database. Reading every question and attempt row to
@@ -46,34 +85,60 @@ const PAGE = 50;
  * well as students, so the list never loaded. A page is at most 50 sets of a
  * few questions each, well inside the row cap.
  */
-function useManagedSets() {
+function useManagedSets(status: Status, filter: LibraryFilter) {
   return useInfiniteQuery({
-    queryKey: ["tutor-mcq-sets"],
+    queryKey: ["tutor-mcq-sets", status, filter],
     initialPageParam: 0,
     queryFn: async ({ pageParam }) => {
-      const { data, error, count } = await supabase
-        .from("mcq_sets")
-        .select("id, title, published, created_at, mcq_questions(id), mcq_attempts(count)", {
-          count: "exact",
-        })
+      const { data, error, count } = await setsRead(
+        "id, title, published, created_at, mcq_questions(id), mcq_attempts(count)",
+        status,
+        filter,
+      )
         .order("created_at", { ascending: false })
         .order("id", { ascending: true })
         .range(pageParam, pageParam + PAGE - 1);
       if (error) throw error;
 
-      const sets: ManagedSet[] = (data ?? []).map(({ mcq_questions, mcq_attempts, ...s }) => ({
-        ...s,
+      const rows = (data ?? []) as unknown as SetRow[];
+      const sets: ManagedSet[] = rows.map(({ mcq_questions, mcq_attempts, ...s }) => ({
+        id: s.id,
+        title: s.title,
+        published: s.published,
+        created_at: s.created_at,
         questionCount: mcq_questions.length,
         attemptCount: mcq_attempts[0]?.count ?? 0,
       }));
       return { sets, total: count ?? sets.length };
     },
     getNextPageParam: (last, pages) => (last.sets.length < PAGE ? undefined : pages.length * PAGE),
+    // The list stays on screen while the next filter's rows land.
+    placeholderData: (prev) => prev,
+  });
+}
+
+/** How many sets match the filters, live and draft, counted on the server. */
+function useSetCounts(filter: LibraryFilter) {
+  return useQuery({
+    queryKey: ["tutor-mcq-sets", "counts", filter],
+    queryFn: async (): Promise<Record<Status, number>> => {
+      const count = async (status: Status) => {
+        const { count, error } = await setsRead("id", status, filter, true);
+        if (error) throw error;
+        return count ?? 0;
+      };
+      const [all, live, draft] = await Promise.all([count("all"), count("live"), count("draft")]);
+      return { all, live, draft };
+    },
+    placeholderData: (prev) => prev,
   });
 }
 
 export function McqManager() {
-  const managed = useManagedSets();
+  const [status, setStatus] = useEntryState<Status>("mcq-manager.status", "all");
+  const [narrow, setNarrow, settled] = useLibraryFilter("mcq-manager.narrow");
+  const managed = useManagedSets(status, settled);
+  const { data: counts } = useSetCounts(settled);
   const { isPending, error } = managed;
   // A set that moved between pages while they were read shouldn't show twice.
   const sets = useMemo(() => {
@@ -202,12 +267,34 @@ export function McqManager() {
         </Link>
       </div>
 
+      <LibraryFilters
+        value={narrow}
+        onChange={setNarrow}
+        searchLabel="Search quizzes by title or spec code"
+      />
+      <div className="mb-6 flex flex-wrap gap-2">
+        {(Object.keys(STATUS_LABEL) as Status[]).map((key) => (
+          <button
+            key={key}
+            type="button"
+            aria-pressed={status === key}
+            onClick={() => setStatus(key)}
+            className={`chip tap-target ${status === key ? "chip-solid" : ""}`}
+          >
+            {STATUS_LABEL[key]}
+            {counts ? ` (${counts[key]})` : ""}
+          </button>
+        ))}
+      </div>
+
       {error ? (
         <div className="rounded-2xl border border-destructive/40 bg-destructive/5 p-6 text-sm text-destructive">
           Couldn&apos;t load quizzes: {(error as Error).message}
         </div>
       ) : isPending ? (
         <Spinner label="Loading quizzes" className="py-8" />
+      ) : sets.length === 0 && (isFiltered(settled) || status !== "all") ? (
+        <EmptyState compact title="No quizzes match" />
       ) : sets.length === 0 ? (
         <div className="rounded-2xl border border-dashed border-border p-10 text-center text-muted-foreground">
           <ListChecks className="w-8 h-8 mx-auto mb-3 opacity-50" />

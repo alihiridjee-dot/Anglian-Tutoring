@@ -83,7 +83,7 @@ export function HomeworkPage() {
   // what exists stays available below as secondary context.
   if (isTutor) {
     return (
-      <AppLayout title="Tasks & Grades">
+      <AppLayout title="Tasks & Marking">
         <p className="text-muted-foreground mb-6 max-w-2xl">
           Set tasks as questions students answer on the site — generate them from the spec with AI,
           edit anything, then check the marks before they go out.

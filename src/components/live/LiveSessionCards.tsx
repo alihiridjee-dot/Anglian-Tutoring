@@ -82,14 +82,16 @@ export function UpcomingSessionCard({
         <WhatsCovered points={s.specPoints} />
       </div>
       <div className="flex flex-wrap items-center gap-2 shrink-0">
-        {/* WhatsApp Reminder Button */}
-        <button
-          onClick={() => onRemind(s)}
-          className="min-h-11 sm:pointer-fine:min-h-0 border border-[#25D366]/40 hover:border-[#25D366] text-[#128C7E] hover:bg-[#25D366]/5 px-3.5 py-2 rounded-lg text-sm font-semibold inline-flex items-center gap-2 transition-colors cursor-pointer"
-        >
-          <Smartphone className="w-4 h-4 text-[#25D366]" />
-          Remind on WhatsApp
-        </button>
+        {/* WhatsApp Reminder Button — a student's reminder to attend. */}
+        {!isTutor && (
+          <button
+            onClick={() => onRemind(s)}
+            className="min-h-11 sm:pointer-fine:min-h-0 border border-[#25D366]/40 hover:border-[#25D366] text-[#128C7E] hover:bg-[#25D366]/5 px-3.5 py-2 rounded-lg text-sm font-semibold inline-flex items-center gap-2 transition-colors cursor-pointer"
+          >
+            <Smartphone className="w-4 h-4 text-[#25D366]" />
+            Remind on WhatsApp
+          </button>
+        )}
 
         {/* Conditional join buttons (Zoom vs General) */}
         {s.join_url ? (

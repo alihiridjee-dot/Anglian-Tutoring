@@ -2,6 +2,7 @@ import { createFileRoute, Link, useNavigate } from "@tanstack/react-router";
 import { Info, ShieldCheck } from "lucide-react";
 import { ErrorNote, SectionHeading, Spinner } from "@/components/Shared";
 import { AppLayout } from "@/components/AppLayout";
+import { guardNotStaff } from "@/lib/auth/routeGuards";
 import { useEnrolments } from "@/hooks/data/useEnrolments";
 import { useParentLinks } from "@/hooks/data/useParentLinks";
 import { useViewer } from "@/hooks/useViewer";
@@ -33,6 +34,7 @@ import { resolveDisplayName } from "@/lib/profile/displayName";
 import { subjectLabel, summariseCourse } from "@/lib/curriculum/courseSummary";
 
 export const Route = createFileRoute("/_authenticated/billing")({
+  beforeLoad: guardNotStaff,
   // Stripe Checkout returns here with ?checkout=success|cancelled.
   validateSearch: (search: Record<string, unknown>): { checkout?: CheckoutStatus } => ({
     checkout: parseCheckoutStatus(search.checkout),
