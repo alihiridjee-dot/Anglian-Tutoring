@@ -3,7 +3,7 @@ import { CheckCircle2, CircleDot, Compass, Flag } from "lucide-react";
 import { AppLayout } from "@/components/AppLayout";
 import { DemoWeekPlan } from "@/components/demo/DemoWeekPlan";
 import { Meter, SectionHeading } from "@/components/Shared";
-import { DEMO_ROADMAP } from "@/lib/demo/plannerDemo";
+import { DEMO_ROADMAP, DEMO_WEEKS_TO_EXAMS } from "@/lib/demo/plannerDemo";
 import { addWeeks, mondayOf, PLANNER_TIME_ZONE } from "@/lib/planner/week";
 import type { SubjectV } from "@/lib/curriculum/taxonomy";
 
@@ -16,9 +16,6 @@ export const Route = createFileRoute("/demo/student/planner")({
   head: () => ({ meta: [{ title: "My Planner | Anglia Educate" }] }),
   component: DemoPlannerPage,
 });
-
-/** Weeks from this Monday to the showcase's exams, fixed so the countdown reads sensibly. */
-const WEEKS_TO_EXAMS = 34;
 
 function DemoPlannerPage() {
   return (
@@ -74,7 +71,7 @@ function RoadToExam({ subject }: { subject: SubjectV }) {
       >
         <span className="chip">
           <Flag className="size-3" aria-hidden />
-          <span className="numeral">{WEEKS_TO_EXAMS}</span> weeks to go
+          <span className="numeral">{DEMO_WEEKS_TO_EXAMS}</span> weeks to go
         </span>
       </SectionHeading>
 
@@ -84,7 +81,7 @@ function RoadToExam({ subject }: { subject: SubjectV }) {
           const now = !done && t.startsIn <= 0;
           return (
             <li
-              key={t.code}
+              key={t.code || t.title}
               className={`premium-card planner-point-row flex flex-wrap items-center gap-3 px-3 py-2.5 ${
                 now ? "surface-loud" : ""
               }`}
@@ -99,9 +96,12 @@ function RoadToExam({ subject }: { subject: SubjectV }) {
               )}
               <div className="min-w-0 flex-1">
                 <p className="font-bold leading-snug">
-                  <span className="text-muted-foreground mr-1.5 text-xs font-semibold">
-                    {t.code}
-                  </span>
+                  {/* The revision block has no code. */}
+                  {t.code && (
+                    <span className="text-muted-foreground mr-1.5 text-xs font-semibold">
+                      {t.code}
+                    </span>
+                  )}
                   {t.title}
                 </p>
                 <p className="text-muted-foreground text-xs">

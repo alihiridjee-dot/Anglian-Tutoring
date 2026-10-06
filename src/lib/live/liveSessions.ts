@@ -1,3 +1,4 @@
+import { toast } from "sonner";
 import { supabase } from "@/integrations/supabase/client";
 import { isDemoStudent, DEMO_LIVE } from "@/lib/demo/studentDemo";
 import { type SubjectV, type BoardV, type LevelV } from "@/lib/curriculum/taxonomy";
@@ -78,7 +79,7 @@ export async function fetchLiveSessions(filters: LiveFilters = {}): Promise<Live
         (!filters.subject || s.subject === filters.subject) &&
         (!filters.board || s.board === filters.board) &&
         (!filters.level || s.level === filters.level),
-    ).map((s) => ({ ...s, specPoints: [] }));
+    );
   }
 
   let q = supabase
@@ -139,18 +140,34 @@ export function sessionsOnCourse<T extends Pick<LiveSession, "subject" | "level"
   );
 }
 
-// "Thu 17 Jul · 11:58 PM" — far more scannable than a raw locale timestamp.
-// Lives here rather than in SessionMeta so the component file exports only
-// components, which is what keeps fast refresh working across the live views.
+// "Thu 17 Jul · 23:58" — far more scannable than a raw locale timestamp.
+// Written the British way whatever the browser's language, as every other date
+// on the site is; the time stays in the viewer's own zone, since that is when
+// they have to be there. Lives here rather than in SessionMeta so the component
+// file exports only components, which is what keeps fast refresh working
+// across the live views.
 export function formatWhen(ms: number) {
   const d = new Date(ms);
-  const day = d.toLocaleDateString(undefined, {
+  const day = d.toLocaleDateString("en-GB", {
     weekday: "short",
     day: "numeric",
     month: "short",
   });
-  const time = d.toLocaleTimeString(undefined, { hour: "numeric", minute: "2-digit" });
+  const time = d.toLocaleTimeString("en-GB", { hour: "2-digit", minute: "2-digit" });
   return `${day} · ${time}`;
+}
+
+/**
+ * The click handler for a Join button. The showcase's lessons carry made-up
+ * Zoom links, so there a Join says what it would do instead of opening one;
+ * everywhere else it is undefined and the button is a plain link.
+ */
+export function demoJoinClick(): ((e: { preventDefault(): void }) => void) | undefined {
+  if (!isDemoStudent()) return undefined;
+  return (e) => {
+    e.preventDefault();
+    toast("In a real lesson this opens the Zoom call.");
+  };
 }
 
 /* ---------- When a session is "on" ----------

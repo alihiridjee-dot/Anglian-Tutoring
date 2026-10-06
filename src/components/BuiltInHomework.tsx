@@ -15,6 +15,7 @@ import { isAlreadySubmitted, startMarking } from "@/lib/homework/startMarking";
 import type { HomeworkQuestion, HomeworkAnswer } from "@/hooks/data/useHomeworkQuestions";
 import { SciText } from "@/components/Shared";
 import { SciAnswerBox } from "@/components/homework/SciAnswerBox";
+import { isDemoStudent } from "@/lib/demo/studentDemo";
 
 /**
  * The body of a homework sheet: the questions, and either the boxes to answer
@@ -142,7 +143,7 @@ const EMPTY_WORK: TimestampedDraft = { answers: {}, notes: "", stamps: {}, saved
 export function AnswerForm({
   hw,
   questions,
-  userId,
+  userId: viewerId,
   onChanged,
   readonly,
   showMarkScheme = false,
@@ -154,6 +155,12 @@ export function AnswerForm({
   readonly: boolean;
   showMarkScheme?: boolean;
 }) {
+  // The showcase lets a visitor type, but keeps every word in this component:
+  // no draft is read or saved and nothing is handed in. It has no student, yet
+  // whoever is signed in to this browser comes through as `userId`, so it is
+  // dropped here — every load, save and catch-up below waits on it.
+  const demo = isDemoStudent();
+  const userId = demo ? null : viewerId;
   // Every answer and the note, each with the time it was last edited here.
   // The times are what let copies from other devices merge in per question
   // (see mergeDrafts) instead of one whole draft overwriting another.
@@ -333,10 +340,10 @@ export function AnswerForm({
     // Two audiences reach this, wanting opposite things.
     //
     // A tutor previewing a sheet is checking it, so they get the mark schemes.
-    // The public showcase is a prospective student looking at what homework is
-    // like here, so it gets the boxes — disabled, but present, because a page
-    // of questions with nowhere to type them is a worse advert than the real
-    // thing — and never the mark schemes, which are the answers.
+    // Anyone else read-only gets the boxes — disabled, but present, because a
+    // page of questions with nowhere to type them reads as broken — and never
+    // the mark schemes, which are the answers. (The public showcase used to be
+    // read-only here; it now gets the form below, with nothing saved.)
     return (
       <div className="space-y-3">
         {questions.map((q, i) => (
@@ -370,6 +377,12 @@ export function AnswerForm({
     <form
       onSubmit={(e) => {
         e.preventDefault();
+        if (demo) {
+          toast(
+            "This is a demo, so nothing is saved. Sign up and your tasks are marked within minutes.",
+          );
+          return;
+        }
         // Answers typed on another device belong in what's handed in, and in
         // the count the confirmation shows.
         void catchUp().finally(() => setConfirming(true));
@@ -446,10 +459,13 @@ export function AnswerForm({
         </div>
       ) : (
         <>
-          <p className="text-muted-foreground text-[11px] leading-relaxed">
-            Your answers save as you type, on this device and to your account — you can come back to
-            them. Submitting is final.
-          </p>
+          {/* Untrue in the showcase, which saves nothing. */}
+          {!demo && (
+            <p className="text-muted-foreground text-[11px] leading-relaxed">
+              Your answers save as you type, on this device and to your account — you can come back
+              to them. Submitting is final.
+            </p>
+          )}
           <button
             type="submit"
             className="btn-solid inline-flex h-11 w-full items-center justify-center gap-2 rounded-lg text-sm font-semibold sm:pointer-fine:h-10"

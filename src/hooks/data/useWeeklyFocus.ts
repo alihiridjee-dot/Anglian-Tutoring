@@ -120,7 +120,7 @@ const DEMO_PLANS: WeeklyFocusPlan[] = [
         topicLabel: "C2 · Bonding, Structure & Properties",
       },
     ],
-    note: "Bonding starts this week, so watch the ionic bonding video and read the note. For any melting-point question, the phrase that scores is 'strong electrostatic forces of attraction between oppositely charged ions', and never call an ionic compound a molecule. Your rates task is with me now, and I'll answer your question about the evaluation when it comes back.",
+    note: "Bonding starts this week, so watch the ionic bonding video and read the note. For any melting-point question, the phrase that scores is 'strong electrostatic forces of attraction between oppositely charged ions', and never call an ionic compound a molecule. Your bonding task is with me now, and I'll answer your question about what carries the charge when it comes back.",
   },
   {
     id: "demo-focus-phys",
@@ -135,7 +135,7 @@ const DEMO_PLANS: WeeklyFocusPlan[] = [
         topicLabel: "P2 · Electricity",
       },
     ],
-    note: "Alongside your I–V task, due in four days, let's lock in series and parallel, because that is where Electricity marks usually leak. In series the current is the same everywhere and the potential difference is shared; in parallel each branch has the same potential difference and the current splits between them. Watch the video and read the note, then retake the Energy quiz, where you scored 3/5.",
+    note: "Alongside your I–V task, due in four days, let's lock in series and parallel, because that is where Electricity marks usually leak. In series the current is the same everywhere and the potential difference is shared; in parallel each branch has the same potential difference and the current splits between them. Watch the lamps practical and read the note, then retake the Energy quiz, where you scored 3/5.",
   },
 ];
 

@@ -1,7 +1,7 @@
 import { ReturningTopicInfo } from "./ReturningTopicInfo";
 import { NothingDue } from "./NothingDue";
 import { CatchUpWeek } from "./CatchUpWeek";
-import { PLANNER_TIME_ZONE, weekKeyToDate } from "@/lib/planner/week";
+import { plannerDateLabel, weekKeyToDate } from "@/lib/planner/week";
 import { Meter } from "@/components/Shared";
 import { Link } from "@tanstack/react-router";
 import { CircleDot, History, Repeat, CheckCircle2, Plus, BookMarked } from "lucide-react";
@@ -38,29 +38,75 @@ export function WeekProgressCard({
           : `${completed} of ${assigned.length} points practised`}
       </h3>
       <Meter value={(completed / assigned.length) * 100} size="sm" />
-      {next && (
-        <Link
-          className="btn-solid inline-flex items-center max-w-full min-h-11 sm:pointer-fine:min-h-0 px-3 py-2 text-sm"
-          to={
-            activity.get(next.spec_point_id)?.hasHomework &&
-            !coverage.get(next.spec_point_id)?.homeworkDone
-              ? isDemoStudent()
-                ? "/demo/student/homework"
-                : "/homework"
-              : isDemoStudent()
-                ? "/demo/student/mcqs"
-                : "/mcqs"
-          }
-        >
-          Next: {next.title}
-        </Link>
-      )}
+      {next && <NextStep next={next} activity={activity} coverage={coverage} />}
       {completed === assigned.length && (
         <p className="text-sm text-muted-foreground">
           Your results will guide future reviews. You can finish here for this week.
         </p>
       )}
     </div>
+  );
+}
+
+/**
+ * Straight to the next point's own work: its task sheet while that is still to
+ * do, otherwise its quiz. This used to open the whole task or quiz list (on
+ * whichever tab it was last left), leaving the student to find the point again.
+ * The lists stay as the fallback for a point whose work isn't named.
+ */
+function NextStep({
+  next,
+  activity,
+  coverage,
+}: {
+  next: PlanPoint;
+  activity: Activity;
+  coverage: Map<string, PointCoverage>;
+}) {
+  const demo = isDemoStudent();
+  const work = activity.get(next.spec_point_id);
+  const taskDue = !!work?.hasHomework && !coverage.get(next.spec_point_id)?.homeworkDone;
+  const sheet = taskDue ? work?.homework[0] : undefined;
+  const quiz = taskDue ? undefined : work?.quizzes[0];
+  const className =
+    "btn-solid inline-flex items-center max-w-full min-h-11 sm:pointer-fine:min-h-0 px-3 py-2 text-sm";
+  const label = <>Next: {next.title}</>;
+
+  if (sheet)
+    return (
+      <Link
+        className={className}
+        to={demo ? "/demo/student/homework/$homeworkId" : "/homework/$homeworkId"}
+        params={{ homeworkId: sheet.id }}
+      >
+        {label}
+      </Link>
+    );
+  if (quiz)
+    return (
+      <Link
+        className={className}
+        to={demo ? "/demo/student/mcq/$setId" : "/mcq/$setId"}
+        params={{ setId: quiz.id }}
+      >
+        {label}
+      </Link>
+    );
+  return (
+    <Link
+      className={className}
+      to={
+        taskDue
+          ? demo
+            ? "/demo/student/homework"
+            : "/homework"
+          : demo
+            ? "/demo/student/mcqs"
+            : "/mcqs"
+      }
+    >
+      {label}
+    </Link>
   );
 }
 
@@ -199,7 +245,10 @@ export function RevisionLane({
         <>
           <p className="eyebrow eyebrow-bare text-xs flex items-center gap-2 mb-3">
             <Repeat className="size-4" />
-            Revision<span className="chip ml-auto text-xs">{focusPointCount} points</span>
+            Revision
+            <span className="chip ml-auto text-xs">
+              {focusPointCount} {focusPointCount === 1 ? "point" : "points"}
+            </span>
           </p>
           <div className="space-y-5">
             {focus.map((g) => (
@@ -284,11 +333,6 @@ function SpecPointList({ children }: { children: React.ReactNode }) {
 
 /** "13 Jul – 16 Aug" for a band's week keys. */
 function fmtRange(startWeek: string, endWeek: string): string {
-  const fmt = (k: string) =>
-    weekKeyToDate(k).toLocaleDateString(undefined, {
-      timeZone: PLANNER_TIME_ZONE,
-      day: "numeric",
-      month: "short",
-    });
+  const fmt = (k: string) => plannerDateLabel(weekKeyToDate(k));
   return `${fmt(startWeek)} – ${fmt(endWeek)}`;
 }
