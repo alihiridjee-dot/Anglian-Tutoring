@@ -1,4 +1,4 @@
-import { type ReactNode, useMemo, useState } from "react";
+import { type ReactNode, useState } from "react";
 import { CheckCircle2, ListChecks, Circle } from "lucide-react";
 import { type PlanPoint } from "@/lib/planner/weeklyPlanDal";
 import {
@@ -6,6 +6,7 @@ import {
   type PointCoverage,
   type PointWork,
   type PointWorkItem,
+  practiceComplete,
 } from "@/lib/planner/coverage";
 import { type Activity } from "./useWeekPlan";
 import { parseVideoUrl } from "@/lib/curriculum/videoEmbed";
@@ -40,13 +41,13 @@ import { useSpecPointNotes, type SpecPointNote } from "@/hooks/data/useNotes";
  * The columns are also the answer to "what have I actually covered": a cell is
  * either something to press, a mark, or an honest dash. Nothing is implied.
  *
- * The tick is the student's own mark and nothing else sets it. Coverage knows
- * when homework was handed in and when a quiz was scored, but a week is mostly
- * work that leaves no trace — watching the video, reading the spec point, doing
- * the questions on paper — and a box that only half-fills itself is worse than
- * one the student owns outright. Coverage is still read, but only inside a cell:
- * a homework that has come back marked shows its mark instead of asking the
- * student to start work they have already handed in.
+ * The tick is mostly the student's own mark. A week is mostly work that leaves
+ * no trace — watching the video, reading the spec point, doing the questions on
+ * paper — so only the student can say it is done. The one exception is a point
+ * whose every task and quiz is in ({@link practiceComplete}): that row is
+ * crossed off for them, and stays crossed off, because handed-in work can't be
+ * un-done. Coverage also fills the cells: a task handed in shows a tick, and
+ * its mark once it is back, instead of asking the student to start it again.
  */
 
 /** The row's shape: the spec point takes the slack, the four cells are fixed. */
@@ -73,13 +74,17 @@ export function DoNowPanel({
   const [playing, setPlaying] = useState<{ item: PointWorkItem } | null>(null);
   const { data: notes } = useSpecPointNotes(points.map((p) => p.spec_point_id));
 
-  const doneCount = points.filter((p) => p.done_at).length;
+  const workDone = (p: PlanPoint) =>
+    practiceComplete(activity.get(p.spec_point_id), coverage?.get(p.spec_point_id));
+  const isDone = (p: PlanPoint) => !!p.done_at || workDone(p);
+
+  const doneCount = points.filter(isDone).length;
   const total = points.length;
   const allDone = total > 0 && doneCount === total;
 
   // The first unticked point — the one thing the header points at, so a student
   // who opens the dashboard with no plan of their own still has somewhere to go.
-  const next = useMemo(() => points.find((p) => !p.done_at) ?? null, [points]);
+  const next = points.find((p) => !isDone(p)) ?? null;
 
   if (total === 0) return null;
 
@@ -134,6 +139,7 @@ export function DoNowPanel({
             work={activity.get(p.spec_point_id)}
             coverage={coverage?.get(p.spec_point_id)}
             note={notes?.get(p.spec_point_id)?.[0]}
+            workDone={workDone(p)}
             editable={editable}
             onToggle={onToggle}
             onPlay={(item) => setPlaying({ item })}
@@ -153,6 +159,7 @@ function ChecklistRow({
   work,
   coverage,
   note,
+  workDone,
   editable,
   onToggle,
   onPlay,
@@ -162,36 +169,48 @@ function ChecklistRow({
   coverage: PointCoverage | undefined;
   /** The note written for this point; one per row, so the column lines up. */
   note: SpecPointNote | undefined;
+  /** Every task and quiz on the point is in, so the row is done whatever the box says. */
+  workDone: boolean;
   editable: boolean;
   onToggle: (specPointId: string, done: boolean) => void;
   onPlay: (item: PointWorkItem) => void;
 }) {
-  const done = !!point.done_at;
+  const done = !!point.done_at || workDone;
+  // Handed-in work can't be un-done, so neither can its tick.
+  const locked = !editable || workDone;
 
   return (
-    <li className={`${GRID} sm:items-center premium-card planner-point-row px-2.5 py-2`}>
+    <li
+      className={`${GRID} sm:items-center premium-card planner-point-row px-2.5 py-2 transition-opacity ${
+        done ? "opacity-60" : ""
+      }`}
+    >
       <div className="flex items-center gap-2 min-w-0">
         <button
           type="button"
           role="checkbox"
           aria-checked={done}
-          aria-label={`${done ? "Untick" : "Tick off"} ${point.code} ${point.title}`}
-          disabled={!editable}
+          aria-label={
+            workDone
+              ? `${point.code} ${point.title}: done, every task and quiz is in`
+              : `${done ? "Untick" : "Tick off"} ${point.code} ${point.title}`
+          }
+          disabled={locked}
           onClick={() => onToggle(point.spec_point_id, !done)}
           className={`tap-target shrink-0 transition ${
             done
               ? "text-[color:var(--tint)]"
               : "text-muted-foreground/40 hover:text-[color:var(--tint)]"
-          } ${editable ? "" : "cursor-default"}`}
+          } ${locked ? "cursor-default" : ""}`}
         >
           {done ? <CheckCircle2 className="w-5 h-5" /> : <Circle className="w-5 h-5" />}
         </button>
 
-        <div className={`min-w-0 ${done ? "opacity-50" : ""}`}>
+        <div className={`min-w-0 ${done ? "line-through" : ""}`}>
           <span className="text-[11px] font-semibold text-muted-foreground mr-1.5">
             {point.code}
           </span>
-          <span className={`text-sm ${done ? "line-through" : ""}`}>{point.title}</span>
+          <span className="text-sm">{point.title}</span>
         </div>
       </div>
 
